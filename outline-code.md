@@ -69,12 +69,12 @@ void 0!==c?null===c?void r.removeAttr(a,b):e&&"set"in e&&void 0!==(d=e.set(a,c,b
 }
 .mdx-footer-shadow {
 	box-shadow:
-	0px -1px 0px rgba(0, 0, 0, 0.05) inset,
-	0px -2px 0px rgba(0, 0, 0, 0.05) inset,
-	0px -3px 0px rgba(0, 0, 0, 0.05) inset,
-	0px -4px 0px rgba(0, 0, 0, 0.05) inset,
-	0px -5px 0px rgba(0, 0, 0, 0.05) inset,
-	0px -6px 0px rgba(0, 0, 0, 0.05) inset;
+	0px -1px 0px rgba(0, 0, 0, 0.03) inset,
+	0px -2px 0px rgba(0, 0, 0, 0.03) inset,
+	0px -3px 0px rgba(0, 0, 0, 0.03) inset,
+	0px -4px 0px rgba(0, 0, 0, 0.03) inset,
+	0px -5px 0px rgba(0, 0, 0, 0.03) inset,
+	0px -6px 0px rgba(0, 0, 0, 0.03) inset;
 }
 .mdx-toc-box-title {
 	left: 50px;
@@ -87,9 +87,22 @@ void 0!==c?null===c?void r.removeAttr(a,b):e&&"set"in e&&void 0!==(d=e.set(a,c,b
 	height: 100%;
 	padding: 0px;
 	padding-top: 50px;
+	padding-bottom: 25px;
 	overflow: auto;
 	overflow-y: scroll;
 	z-index: 99;
+}
+.mdx-toc-info {
+	background-color: #FFF;
+	color: #A0A0A0;
+	font-size: 12px;
+	width: 100%;
+	height: 25px;
+	bottom: 0px;
+	text-align: center;
+	padding: 2px;
+	position: absolute;
+	z-index: 100;
 }
 .mdx-toc-box-body {
 	background-color: #FFFFFF;
@@ -168,6 +181,7 @@ void 0!==c?null===c?void r.removeAttr(a,b):e&&"set"in e&&void 0!==(d=e.set(a,c,b
 	<div class="mdx-toc-box-body-scroll">
 		<div id="toc-box-body" class="mdx-toc-box-body mdx-footer-shadow" onclick="showOutline(pinnedOutline)"></div>
 	</div>
+	<div class="mdx-toc-info">powered by <a href="https://github.com/MadMaxChow/Export-HTML-with-Outline-for-Typora" target="_blank">MadMaxChow</a>(git)</div>
 </div>
 <script type="text/javascript">
 // 提取文档中由[toc]标签生成的文档目录作为浮动outline中的内容
