@@ -925,7 +925,7 @@ function followHeader() {
 	for(var i = 0; i < headers.length; i++) {
 		var hotArea = $("a[name='" + headers[i] + "']").offset().top - $("body").scrollTop();
 		if (hotArea > -10 && hotArea < 200) {
-			console.log(headers[i] + ".top: " + $("a[name='" + headers[i] + "']").offset().top);
+			//console.log(headers[i] + ".top: " + $("a[name='" + headers[i] + "']").offset().top);
 			if (lastItem != null)
 				lastItem.removeClass("mdx-header-current");
 			lastItem = $("#oli-" + headers[i]);
