@@ -336,24 +336,55 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
   var _lastHeaderFolder = null;
   var _minScreenWidth = 1000;
   var _aniSpeed = "fast";
-  
-  // 提取文档中由[toc]标签生成的文档目录作为浮动outline中的内容
-  //$(".mdx-toc-box-body").append($(".md-toc").clone()); // 复制toc模式
-  $(".mdx-toc-box-body").append($(".md-toc").wrapAll()); // 剪贴toc模式
-  // outline内容滚动时，根据内容是否滚动未结束，未结束时添加阴影效果
-  $(".mdx-toc-box-body").scroll(function () {
-    if ($(this).scrollTop() > 15)
-      $(".mdx-toc-box-header").addClass("mdx-header-shadow");
-    else
-      $(".mdx-toc-box-header").removeClass("mdx-header-shadow");
-
-    if (($(this).get(0).scrollHeight - $(this).height() - $(this).scrollTop()) <= 20)
-      $("#toc-box-body").removeClass("mdx-footer-shadow");
-    else
-      $("#toc-box-body").addClass("mdx-footer-shadow");
-  });
-
   var _showed = false;
+
+  /**
+   * 为outline中子元素添加附加属性和事件
+   */
+  function initOutlineData() {
+    // 提取文档中由[toc]标签生成的文档目录作为浮动outline中的内容
+    //$(".mdx-toc-box-body").append($(".md-toc").clone()); // 复制toc模式
+    $(".mdx-toc-box-body").append($(".md-toc").wrapAll()); // 剪贴toc模式
+    // outline内容滚动时，根据内容是否滚动未结束，未结束时添加阴影效果
+    $(".mdx-toc-box-body").scroll(function () {
+      if ($(this).scrollTop() > 15)
+        $(".mdx-toc-box-header").addClass("mdx-header-shadow");
+      else
+        $(".mdx-toc-box-header").removeClass("mdx-header-shadow");
+
+      if (($(this).get(0).scrollHeight - $(this).height() - $(this).scrollTop()) <= 20)
+        $("#toc-box-body").removeClass("mdx-footer-shadow");
+      else
+        $("#toc-box-body").addClass("mdx-footer-shadow");
+    });
+
+    $(".md-toc-content").children().each(function (i, n) {
+      var obj = $(n);
+      _headers.push("header-" + obj.attr("data-ref")); // 记录到标题数组中
+      obj.css("cursor", "pointer"); // 添加鼠标形状
+      obj.attr("id", "oli-header-" + obj.attr("data-ref")); // 添加id属性
+      obj.attr("data-node", "0"); // 添加节点类型：0:叶子节点, 1:目录节点
+      obj.attr("data-folding", "1"); // 添加节点状态：0:收起, 1:展开
+      // 添加folding空白控件备用
+      obj.append("<div id='fd-oli-header-" + obj.attr("data-ref") + "' class='mdx-folder'>&nbsp;</div>");
+      obj.click(function () {
+        location.href = "#header-" + obj.attr("data-ref");
+      });
+      // 目录节点（含子节点），记录到目录节点数组中
+      if (_lastHeaderFolder != null) {
+        var hNum = getCSSHeaderNum(obj);
+        //console.log("hNum: " + hNum + ", lastHeaderNum: " + lastHeaderNum);
+        if (hNum > _lastHeaderNum) {
+          _foldItem.push(_lastHeaderFolder);
+        }
+      }
+      _lastHeaderFolder = $("#fd-oli-header-" + obj.attr("data-ref"));
+      _lastHeaderNum = getCSSHeaderNum(obj);
+    });
+  }
+  /**
+  * 显示/隐藏大纲面板
+  */
   function toggleOutline() {
     _showed = !_showed;
     showOutline(_showed);
@@ -385,35 +416,6 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
       if ($(window).width() < _minScreenWidth) // 小屏
         $(".mdx-toc-mask").fadeOut(_aniSpeed);
     }
-  }
-
-  /**
-   * 为outline中子元素添加附加属性和事件
-   */
-  function initOutlineData() {
-    $(".md-toc-content").children().each(function (i, n) {
-      var obj = $(n);
-      _headers.push("header-" + obj.attr("data-ref")); // 记录到标题数组中
-      obj.css("cursor", "pointer"); // 添加鼠标形状
-      obj.attr("id", "oli-header-" + obj.attr("data-ref")); // 添加id属性
-      obj.attr("data-node", "0"); // 添加节点类型：0:叶子节点, 1:目录节点
-      obj.attr("data-folding", "1"); // 添加节点状态：0:收起, 1:展开
-      // 添加folding空白控件备用
-      obj.append("<div id='fd-oli-header-" + obj.attr("data-ref") + "' class='mdx-folder'>&nbsp;</div>");
-      obj.click(function () {
-        location.href = "#header-" + obj.attr("data-ref");
-      });
-      // 目录节点（含子节点），记录到目录节点数组中
-      if (_lastHeaderFolder != null) {
-        var hNum = getCSSHeaderNum(obj);
-        //console.log("hNum: " + hNum + ", lastHeaderNum: " + lastHeaderNum);
-        if (hNum > _lastHeaderNum) {
-          _foldItem.push(_lastHeaderFolder);
-        }
-      }
-      _lastHeaderFolder = $("#fd-oli-header-" + obj.attr("data-ref"));
-      _lastHeaderNum = getCSSHeaderNum(obj);
-    });
   }
   /**
    * 根据实际目录结构更新folder控件
