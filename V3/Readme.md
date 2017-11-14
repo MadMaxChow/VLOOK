@@ -8,7 +8,7 @@
 
 3. Export to HTML file, and open the HTML file with any code editor.
 
-4. Paste the `outline-code_(paste-before-</html>).html` content before the exported file's `</body>` tag.
+4. Paste the `outline-code_(paste-before-</body>).html` content before the exported file's `</body>` tag.
 
 ## Sample
 
