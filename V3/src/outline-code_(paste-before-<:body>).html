@@ -395,26 +395,19 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
   function showOutline(v) {
     var tocBoxWidth = $(".mdx-toc-box").width();
     if (v == true) { // --- 显示大纲
-      // $(".mdx-toc-box").css("left", 0);
       $(".mdx-toc-box").animate({left:'0px'}, _aniSpeed);
-      // $(".mdx-toolbar").css("left", 10 + tocBoxWidth);
-      $(".mdx-toolbar").animate({left: (10 + tocBoxWidth)}, _aniSpeed);
-      if ($(window).width() > _minScreenWidth) { // 大屏才会同屏方式显示大纲的推挤处理
-        // $("#write").css("margin-left", tocBoxWidth);
+      $(".mdx-toolbar").animate({left: (tocBoxWidth - $(".mdx-toolbar").width() - 10)}, _aniSpeed);
+      if ($(window).width() > _minScreenWidth) // 大屏才会同屏方式显示大纲的推挤处理
         $("#write").animate({marginLeft: tocBoxWidth}, _aniSpeed);
-      }
-      if ($(window).width() < _minScreenWidth) // 小屏时不同屏显示大纲，则须显示遮罩
+      else // 小屏时不同屏显示大纲，则须显示遮罩
         $(".mdx-toc-mask").fadeIn(_aniSpeed);
     }
     else if (v == false) { // --- 隐藏大纲
-      // $(".mdx-toc-box").css("left", -(tocBoxWidth + 10));
       $(".mdx-toc-box").animate({left: -(tocBoxWidth + 30)}, _aniSpeed);
-      // $(".mdx-toolbar").css("left", 10);
       $(".mdx-toolbar").animate({left: 10}, _aniSpeed);
-      // $("#write").css("margin-left", _orgMarginLeft);
       $("#write").animate({marginLeft: 0}, _aniSpeed); // 同屏方式显示大纲的隐藏处理
       if ($(window).width() < _minScreenWidth) // 小屏
-        $(".mdx-toc-mask").fadeOut(_aniSpeed);
+        $(".mdx-toc-mask").fadeOut(_aniSpeed);     
     }
   }
   /**
