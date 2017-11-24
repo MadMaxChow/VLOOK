@@ -1,4 +1,4 @@
-![THOscreenshot](https://ws3.sinaimg.cn/large/006tNc79gy1flcppjj4agj31kw14wti1.jpg)
+![THOscreenshot](https://ws3.sinaimg.cn/large/006tKfTcgy1flt0lfbqqtg30m80c8qv5.gif)
 
 # 特性
 - 自动生成大纲结构<br>
