@@ -1059,7 +1059,6 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
     float: left;
     font-weight: bold;
     font-size: 1rem;
-    opacity: 0.7;
     width: 30px;
     height: 30px;
     padding-top: 2px;
@@ -1069,7 +1068,6 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
   }
 
   .mdx-pin:hover {
-    opacity: 1;
     background-color: #D05060;
   }
 
@@ -1085,7 +1083,6 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
     float: left;
     font-weight: bold;
     font-size: 1rem;
-    opacity: 0.7;
     padding-top: 4px;
     top: 0px;
     width: 30px;
@@ -1095,7 +1092,6 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
   }
 
   .mdx-nav:hover {
-    opacity: 1;
     background-color: #D05060;
   }
 
@@ -1211,12 +1207,12 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
   </div>
 
   <!-- back button -->
-  <div class="mdx-nav mdx-nav-back" onclick="window.history.back()">
+  <div class="mdx-nav mdx-nav-back" onclick="navBack()">
     <svg width="15px" height="15px"><use xlink:href="#icoBack" class="mdx-svg-ico-light"/></svg>
   </div>
 
   <!-- forward button -->
-  <div class="mdx-nav mdx-nav-forward" onclick="window.history.forward()">
+  <div class="mdx-nav mdx-nav-forward" onclick="navForward()">
     <svg width="15px" height="15px"><use xlink:href="#icoForward" class="mdx-svg-ico-light"/></svg>
   </div>
 </div>
@@ -1301,10 +1297,12 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
    * 显示/隐藏outline
    */
   function showOutline(v) {
+    $(".mdx-toolbar").css("opacity", 1);
     var tocBoxWidth = $(".mdx-toc-box").width();
     if (v == true) { // --- 显示大纲
       $(".mdx-toc-box").animate({left:'0px'}, _aniSpeed);
       $(".mdx-toolbar").animate({left: (tocBoxWidth - $(".mdx-toolbar").width() - 10)}, _aniSpeed);
+      $(".mdx-toolbar").animate({opacity: 1}, "slow");
       if ($(window).width() > _minScreenWidth) // 大屏才会同屏方式显示大纲的推挤处理
         $("#write").animate({marginLeft: tocBoxWidth}, _aniSpeed);
       else // 小屏时不同屏显示大纲，则须显示遮罩
@@ -1381,7 +1379,20 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
       }
     }
   }
-
+  /**
+  * 返回上一个位置
+  */
+  function navBack() {
+    window.history.back();
+    $(".mdx-toolbar").css("opacity", 1);
+  }
+  /**
+  * 前去下一个位置
+  */
+  function navForward() {
+    window.history.forward();
+    $(".mdx-toolbar").css("opacity", 1);
+  }
   /**
    * 自适应显示Outline
    */
@@ -1486,12 +1497,25 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
     }
   }
   /**
+  * 弱化工具栏显示
+  */
+  var _topValue = 0;
+  function fadeOutToolbar() {
+    // console.log($(document).scrollTop() + ", " + _topValue);
+    if ($(document).scrollTop() != _topValue && _showed == false) // 如完成了滚动测弱化显示
+      $(".mdx-toolbar").animate({opacity: 0.3}, "slow");
+    _topValue = $(document).scrollTop();
+  }  
+  /**
    * HTML文档加载完成后执行主流程
    */
+  var _interval = null;
   $(document).ready(function () {
     // 绑定文档的滚动事件
     $(document).scroll(function () {
       followHeader();
+      if(_interval == null) // 间隔一段时间弱化工具栏显示
+        _interval = setInterval("fadeOutToolbar()", 3000);
     });
     // 绑定窗口大小缩放事件
     $(window).resize(function () {
