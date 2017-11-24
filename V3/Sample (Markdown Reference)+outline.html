@@ -1012,7 +1012,7 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
   }
 
   .mdx-toc-box-title {
-    left: 10px;
+    left: 50px;
     top: 10px;
     position: absolute;
   }
@@ -1202,7 +1202,7 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
 
 <div class="mdx-toolbar">
   <!-- outline button -->
-  <div id="pinTOC" class="mdx-pin" onclick="toggleOutline()">
+  <div class="mdx-pin" onclick="toggleOutline()">
     <svg width="14px" height="12px"><use xlink:href="#icoOutline" class="mdx-svg-ico-light"/></svg>
   </div>
 
@@ -1300,17 +1300,17 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
     $(".mdx-toolbar").css("opacity", 1);
     var tocBoxWidth = $(".mdx-toc-box").width();
     if (v == true) { // --- 显示大纲
-      $(".mdx-toc-box").animate({left:'0px'}, _aniSpeed);
-      $(".mdx-toolbar").animate({left: (tocBoxWidth - $(".mdx-toolbar").width() - 10)}, _aniSpeed);
+      $(".mdx-pin").animate({marginRight: "170px"}, _aniSpeed);
       $(".mdx-toolbar").animate({opacity: 1}, "slow");
+      $(".mdx-toc-box").animate({left:'0px'}, _aniSpeed);
       if ($(window).width() > _minScreenWidth) // 大屏才会同屏方式显示大纲的推挤处理
         $("#write").animate({marginLeft: tocBoxWidth}, _aniSpeed);
       else // 小屏时不同屏显示大纲，则须显示遮罩
         $(".mdx-toc-mask").fadeIn(_aniSpeed);
     }
     else if (v == false) { // --- 隐藏大纲
+      $(".mdx-pin").animate({marginRight: "10px"}, _aniSpeed);
       $(".mdx-toc-box").animate({left: -(tocBoxWidth + 30)}, _aniSpeed);
-      $(".mdx-toolbar").animate({left: 10}, _aniSpeed);
       $("#write").animate({marginLeft: 0}, _aniSpeed); // 同屏方式显示大纲的隐藏处理
       if ($(window).width() < _minScreenWidth) // 小屏
         $(".mdx-toc-mask").fadeOut(_aniSpeed);     
@@ -1357,6 +1357,8 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
    * 页面滚动时高亮outline中的对应章节项
    */
   function followHeader() {
+    updateDocbarPos();
+
     var sTop = $("#toc-box-body").scrollTop();
     var sBottom = sTop + $("#toc-box-body").height();
     // console.log(sTop + ", " + sBottom);
@@ -1384,14 +1386,14 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
   */
   function navBack() {
     window.history.back();
-    $(".mdx-toolbar").css("opacity", 1);
+    $(".mdx-toolbar").animate({opacity: 1}, _aniSpeed);
   }
   /**
   * 前去下一个位置
   */
   function navForward() {
     window.history.forward();
-    $(".mdx-toolbar").css("opacity", 1);
+    $(".mdx-toolbar").animate({opacity: 1}, _aniSpeed);
   }
   /**
    * 自适应显示Outline
@@ -1405,8 +1407,21 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
       _showed = false;
     }
     showOutline(_showed);
+    updateDocbarPos();
+  }
+  /**
+  * 更新文档阴影栏的位置
+  */
+  function updateDocbarPos() {
+    // console.log($(window).height() + ", " + document.documentElement.clientHeight);
+    var scrollHeight = Math.max($(window).height(), document.documentElement.clientHeight);
+    // console.log("scrollHeight: " + scrollHeight);
     // 设置底部文档遮挡条位置
-    $(".mdx-docbar-bottom").css("top", $(window).height() - $(".mdx-docbar-bottom").height());
+    // $(".mdx-docbar-bottom").css("top", $(window).height() - $(".mdx-docbar-bottom").height());
+    // if (document.compatMode == "CSS1Compat" )
+      $(".mdx-docbar-bottom").css("top", scrollHeight - $(".mdx-docbar-bottom").height());
+    // else
+      // $(".mdx-docbar-bottom").css("top", $(window).height() - $(".mdx-docbar-bottom").height());
   }
   /**
    * 收起/展开章节目录
@@ -1503,7 +1518,7 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
   function fadeOutToolbar() {
     // console.log($(document).scrollTop() + ", " + _topValue);
     if ($(document).scrollTop() != _topValue && _showed == false) // 如完成了滚动测弱化显示
-      $(".mdx-toolbar").animate({opacity: 0.3}, "slow");
+      $(".mdx-toolbar").animate({opacity: 0.3}, _aniSpeed);
     _topValue = $(document).scrollTop();
   }  
   /**
