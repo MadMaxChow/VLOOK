@@ -1,3 +1,4 @@
+功能演示（GIF动图，请等待加载）：<br>
 ![THOscreenshot](https://ws3.sinaimg.cn/large/006tKfTcgy1flt0lfbqqtg30m80c8qv5.gif)
 
 # 特性
