@@ -1,5 +1,5 @@
 功能演示（GIF动图，请等待加载）：<br>
-![THOscreenshot](https://ws3.sinaimg.cn/large/006tKfTcgy1flt0lfbqqtg30m80c8qv5.gif)
+![THOscreenshot](https://ws3.sinaimg.cn/large/006tNc79gy1flxqbc5ubxg30m80aeb2c.gif)
 
 # 特性
 - 自动生成大纲结构<br>
