@@ -264,6 +264,16 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
     opacity: 0.25;
     display: none;
   }
+
+  .mdx-click-bubble {
+    left: 0px;
+    top: 0px;
+    width: 0px;
+    height: 0px;
+    position: fixed;
+    background-color: #D05060;
+    z-index: 9999;
+  }
 </style>
 <!-- SVG图标集 -->
 <svg style="display: none;">
@@ -295,7 +305,7 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
 <div class="mdx-toolbar">
   <!-- outline button -->
   <div class="mdx-pin" onclick="toggleOutline()">
-    <svg width="14px" height="12px"><use xlink:href="#icoOutline" class="mdx-svg-ico-light"/></svg>
+    <svg id="svgOutline" width="14px" height="12px"><use xlink:href="#icoOutline" class="mdx-svg-ico-light"/></svg>
   </div>
 
   <!-- back button -->
@@ -321,6 +331,8 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
   <div class="mdx-toc-info">powered by <b>MaxChow</b>(<a href="https://github.com/MadMaxChow/Export-HTML-with-Outline-for-Typora" target="_blank">github</a>)
   </div>
 </div>
+
+<div class="mdx-click-bubble"></div>
 
 <script type="text/javascript">
   var _foldChar = '<svg width="8px" height="10px"><use xlink:href="#icoFolded" class="mdx-svg-ico-dark"/></svg>';
@@ -392,6 +404,7 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
     $(".mdx-toolbar").css("opacity", 1);
     var tocBoxWidth = $(".mdx-toc-box").width();
     if (v == true) { // --- 显示大纲
+      $(this).animate({},function(){$("#svgOutline").css({'transform':'rotate(90deg)', "transition":"all 0.5s"});});
       $(".mdx-pin").animate({marginRight: "170px"}, _aniSpeed);
       $(".mdx-toolbar").animate({opacity: 1}, "slow");
       $(".mdx-toc-box").animate({left:'0px'}, _aniSpeed);
@@ -401,6 +414,7 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
         $(".mdx-toc-mask").fadeIn(_aniSpeed);
     }
     else if (v == false) { // --- 隐藏大纲
+      $(this).animate({},function(){$("#svgOutline").css({'transform':'rotate(0deg)'});});
       $(".mdx-pin").animate({marginRight: "10px"}, _aniSpeed);
       $(".mdx-toc-box").animate({left: -(tocBoxWidth + 30)}, _aniSpeed);
       $("#write").animate({marginLeft: 0}, _aniSpeed); // 同屏方式显示大纲的隐藏处理
@@ -509,11 +523,7 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
     var scrollHeight = Math.max($(window).height(), document.documentElement.clientHeight);
     // console.log("scrollHeight: " + scrollHeight);
     // 设置底部文档遮挡条位置
-    // $(".mdx-docbar-bottom").css("top", $(window).height() - $(".mdx-docbar-bottom").height());
-    // if (document.compatMode == "CSS1Compat" )
-      $(".mdx-docbar-bottom").css("top", scrollHeight - $(".mdx-docbar-bottom").height());
-    // else
-      // $(".mdx-docbar-bottom").css("top", $(window).height() - $(".mdx-docbar-bottom").height());
+    $(".mdx-docbar-bottom").css("top", scrollHeight - $(".mdx-docbar-bottom").height());
   }
   /**
    * 收起/展开章节目录
@@ -617,15 +627,29 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
    * HTML文档加载完成后执行主流程
    */
   var _interval = null;
-  $(document).ready(function () {
+  $(document).ready(function() {
     // 绑定文档的滚动事件
-    $(document).scroll(function () {
+    $(document).scroll(function() {
       followHeader();
       if(_interval == null) // 间隔一段时间弱化工具栏显示
         _interval = setInterval("fadeOutToolbar()", 3000);
     });
+    // 绑定文档的单击事件，显示点击泡泡动画
+    $(document).click(function() {
+      var x = window.event.x;
+      var y = window.event.y;
+      $(".mdx-click-bubble").css("left", x);
+      $(".mdx-click-bubble").css("top", y);
+      $(".mdx-click-bubble").css("width", 0);
+      $(".mdx-click-bubble").css("height", 0);
+      $(".mdx-click-bubble").css("opacity", 1);
+      $(".mdx-click-bubble").css("display", "block");
+      $(".mdx-click-bubble").animate({opacity:0, left:x-50, top:y-50, width:100, height:100, borderRadius:50}, "slow", function() {
+        $(".mdx-click-bubble").css("display", "none");
+      });
+    });
     // 绑定窗口大小缩放事件
-    $(window).resize(function () {
+    $(window).resize(function() {
       adjustOutline();
     });
     initOutlineData(); // 初始化Outline数据
