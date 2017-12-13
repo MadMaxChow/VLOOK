@@ -1,5 +1,5 @@
 功能演示（GIF动图，请等待加载）：<br>
-![THOscreenshot](https://ws3.sinaimg.cn/large/006tNc79gy1flxqbc5ubxg30m80aeb2c.gif)
+![THOscreenshot](https://ws2.sinaimg.cn/large/006tNc79gy1fmf99a5pqag30m80b4x6u.gif)
 
 ## Featurs
 
