@@ -16,8 +16,8 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
 </script>
 <style type='text/css'>
   #write{
-      padding-left: 0px;
-      padding-right: 0px;
+      padding-left: 20px;
+      padding-right: 20px;
   }
   /* md 系统样式 */
   .md-toc-inner {
@@ -29,7 +29,7 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
   }
 
   .md-toc-item:hover {
-    box-shadow: 0px -2px 0px #EE5A5A inset;
+    box-shadow: 0px -2px 0px #D05060 inset;
   }
 
   .md-toc-item > a {
@@ -64,9 +64,9 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
     box-shadow: 3px 0px 8px rgba(80, 80, 80, 0.2);
     cursor: default;
     display: block;
-    left: -280px;
+    left: -300px;
     top: 0px;
-    width: 280px;
+    width: 300px;
     height: 100%;
     padding: 0px;
     position: fixed;
@@ -144,16 +144,17 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
   }
 
   .mdx-pin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #FFFFFF;
     background-color: #555;
     border-radius: 4px;
     cursor: pointer;
     float: left;
-    font-weight: bold;
-    font-size: 1rem;
     width: 30px;
     height: 30px;
-    padding-top: 2px;
+    padding-top: 0px;
     text-align: center;
     margin-right: 10px;
     transition: background-color 0.5s, opacity 0.5s;  
@@ -169,13 +170,14 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
   }
 
   .mdx-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #FFFFFF;
     background-color: #555;
     cursor: pointer;
     float: left;
-    font-weight: bold;
-    font-size: 1rem;
-    padding-top: 4px;
+    padding-top: 0px;
     top: 0px;
     width: 30px;
     height: 30px;
@@ -204,12 +206,15 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
   }  
 
   .mdx-header-current {
-    background-color: #E0E0E0;
+    background-color: #E8E8EC;
   }
 
   .mdx-header-current a {
     font-weight: bold;
     color: #118CDF;
+  }
+  .mdx-header-current a:after {
+    content: " ◀";
   }
 
   .mdx-folder {
@@ -272,6 +277,7 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
     height: 0px;
     position: fixed;
     background-color: #D05060;
+    opacity: 0.7;
     z-index: 9999;
   }
 </style>
@@ -335,328 +341,422 @@ null==d?void 0:d))},attrHooks:{type:{set:function(a,b){if(!o.radioValue&&"radio"
 <div class="mdx-click-bubble"></div>
 
 <script type="text/javascript">
-  var _foldChar = '<svg width="8px" height="10px"><use xlink:href="#icoFolded" class="mdx-svg-ico-dark"/></svg>';
-  var _unfoldChar = '<svg width="10px" height="8px"><use xlink:href="#icoUnfold" class="mdx-svg-ico-dark"/></svg>';
-  var _headers = new Array(); // 标题列表
-  var _lastItem = null;
-  var _foldItem = new Array();
-  var _lastHeaderNum = 0;
-  var _lastHeaderFolder = null;
-  var _minScreenWidth = 1000;
-  var _aniSpeed = "fast";
-  var _showed = false;
-
-  /**
-   * 为outline中子元素添加附加属性和事件
-   */
-  function initOutlineData() {
+var _foldChar = '<svg width="8px" height="10px"><use xlink:href="#icoFolded" class="mdx-svg-ico-dark"/></svg>';
+var _unfoldChar = '<svg width="10px" height="8px"><use xlink:href="#icoUnfold" class="mdx-svg-ico-dark"/></svg>';
+var _headers = new Array(); // 标题列表
+var _lastItem = null;
+var _foldItem = new Array();
+var _lastHeaderNum = 0;
+var _lastHeaderFolder = null;
+var _minScreenWidth = 1000;
+var _aniSpeed = "fast";
+var _showed = false;
+/**
+ * 创建背景水印
+ */
+function createWatermark() {
+    var fontSize = 28;
+    var fontSetting = fontSize + "px Microsoft YaHei";
+    // temp canvas
+    $("body").append('<canvas id="tempCanvas" style="display: none"></canvas>');
+    var tmpCanvas = document.getElementById("tempCanvas");
+    var tmpCtx = tmpCanvas.getContext("2d");
+    tmpCtx.font = fontSetting;
+    // canvas
+    var a = -30;
+    var r = a * Math.PI / 180;
+    var z = tmpCtx.measureText(document.title).width;
+    var w = z;
+    var h = Math.abs(z * Math.sin(180 - a)) + fontSize * 1.5;
+    // console.log(w + "," + h);
+    $("body").append('<canvas id="CanvasMask" width="' + w + '" height="' + h + '" style="display: none"></canvas>');
+    var canvas = document.getElementById("CanvasMask");
+    var ctx = canvas.getContext("2d");
+    ctx.font = fontSetting;
+    // ctx.strokeStyle = "#FF0000";
+    // ctx.strokeRect(0, 0, w, h);
+    ctx.translate(0, h);
+    ctx.rotate(r);
+    ctx.fillStyle = "#F4F4F8";
+    ctx.fillText(document.title, fontSize / 2, 0);
+    ctx.restore();
+    var img = new Image();
+    img.src = canvas.toDataURL("image/png");
+    // console.log(img.src);
+    $("body").css("background", "url(" + img.src + ")");
+    $("body").css("background-repeat", "repeat");
+    // $("body").css("background-attachment", "fixed");
+}
+/**
+ * 检查页内链接坏链
+ */
+function checkInnerBadLink() {
+    $("a[href]").each(function(i, n) {
+        var obj = $(n);
+        var str = obj.attr("href").toString();
+        if (str.substr(0, 1) == "#" && str.search("#ref-") == -1 && str.search("#dfref-") == -1 && str.search("#header-") == -1) console.warn("无效页面内链接(" + i + ")：" + obj.text());
+    });
+}
+/**
+* 检查重复的Header
+*/
+function checkDuplicateHeader() {
+    var headers = new Array();
+    $(":header").each(function(i, n) {
+        headers.push($(n).text());
+    });
+    var dupHeaders = new Array();
+    for (i in headers) {
+        for (k in headers) {
+            if (i != k && headers[i] == headers[k])
+                dupHeaders.push(headers[i]);
+        }
+    }
+    for (i in dupHeaders) {
+        console.warn("重复的标题(" + i + ")：" + dupHeaders[i]);
+    }
+}
+/**
+ * 为outline中子元素添加附加属性和事件
+ */
+function initOutlineData() {
     // 提取文档中由[toc]标签生成的文档目录作为浮动outline中的内容
     //$(".mdx-toc-box-body").append($(".md-toc").clone()); // 复制toc模式
     $(".mdx-toc-box-body").append($(".md-toc").wrapAll()); // 剪贴toc模式
     // outline内容滚动时，根据内容是否滚动未结束，未结束时添加阴影效果
-    $(".mdx-toc-box-body").scroll(function () {
-      if ($(this).scrollTop() > 15)
-        $(".mdx-toc-box-header").addClass("mdx-header-shadow");
-      else
-        $(".mdx-toc-box-header").removeClass("mdx-header-shadow");
-
-      if (($(this).get(0).scrollHeight - $(this).height() - $(this).scrollTop()) <= 20)
-        $("#toc-box-body").removeClass("mdx-footer-shadow");
-      else
-        $("#toc-box-body").addClass("mdx-footer-shadow");
+    $(".mdx-toc-box-body").scroll(function() {
+        if ($(this).scrollTop() > 15) $(".mdx-toc-box-header").addClass("mdx-header-shadow");
+        else $(".mdx-toc-box-header").removeClass("mdx-header-shadow");
+        if (($(this).get(0).scrollHeight - $(this).height() - $(this).scrollTop()) <= 20) $("#toc-box-body").removeClass("mdx-footer-shadow");
+        else $("#toc-box-body").addClass("mdx-footer-shadow");
     });
-
-    $(".md-toc-content").children().each(function (i, n) {
-      var obj = $(n);
-      _headers.push("header-" + obj.attr("data-ref")); // 记录到标题数组中
-      obj.css("cursor", "pointer"); // 添加鼠标形状
-      obj.attr("id", "oli-header-" + obj.attr("data-ref")); // 添加id属性
-      obj.attr("data-node", "0"); // 添加节点类型：0:叶子节点, 1:目录节点
-      obj.attr("data-folding", "1"); // 添加节点状态：0:收起, 1:展开
-      // 添加folding空白控件备用
-      obj.append("<div id='fd-oli-header-" + obj.attr("data-ref") + "' class='mdx-folder'>&nbsp;</div>");
-      obj.click(function () {
-        location.href = "#header-" + obj.attr("data-ref");
-      });
-      // 目录节点（含子节点），记录到目录节点数组中
-      if (_lastHeaderFolder != null) {
-        var hNum = getCSSHeaderNum(obj);
-        //console.log("hNum: " + hNum + ", lastHeaderNum: " + lastHeaderNum);
-        if (hNum > _lastHeaderNum) {
-          _foldItem.push(_lastHeaderFolder);
+    $(".md-toc-content").children().each(function(i, n) {
+        var obj = $(n);
+        _headers.push("header-" + obj.attr("data-ref")); // 记录到标题数组中
+        obj.css("cursor", "pointer"); // 添加鼠标形状
+        obj.attr("id", "oli-header-" + obj.attr("data-ref")); // 添加id属性
+        obj.attr("data-node", "0"); // 添加节点类型：0:叶子节点, 1:目录节点
+        obj.attr("data-folding", "1"); // 添加节点状态：0:收起, 1:展开
+        // 添加folding空白控件备用
+        obj.append("<div id='fd-oli-header-" + obj.attr("data-ref") + "' class='mdx-folder'>&nbsp;</div>");
+        obj.click(function() {
+            location.href = "#header-" + obj.attr("data-ref");
+        });
+        // 目录节点（含子节点），记录到目录节点数组中
+        if (_lastHeaderFolder != null) {
+            var hNum = getCSSHeaderNum(obj);
+            //console.log("hNum: " + hNum + ", lastHeaderNum: " + lastHeaderNum);
+            if (hNum > _lastHeaderNum) {
+                _foldItem.push(_lastHeaderFolder);
+            }
         }
-      }
-      _lastHeaderFolder = $("#fd-oli-header-" + obj.attr("data-ref"));
-      _lastHeaderNum = getCSSHeaderNum(obj);
+        _lastHeaderFolder = $("#fd-oli-header-" + obj.attr("data-ref"));
+        _lastHeaderNum = getCSSHeaderNum(obj);
     });
-  }
-  /**
-  * 显示/隐藏大纲面板
-  */
-  function toggleOutline() {
+}
+/**
+ * 显示/隐藏大纲面板
+ */
+function toggleOutline() {
     _showed = !_showed;
     showOutline(_showed);
-  }
-  /**
-   * 显示/隐藏outline
-   */
-  function showOutline(v) {
+}
+/**
+ * 显示/隐藏outline
+ */
+function showOutline(v) {
     $(".mdx-toolbar").css("opacity", 1);
     var tocBoxWidth = $(".mdx-toc-box").width();
     if (v == true) { // --- 显示大纲
-      $(this).animate({},function(){$("#svgOutline").css({'transform':'rotate(90deg)', "transition":"all 0.5s"});});
-      $(".mdx-pin").animate({marginRight: "170px"}, _aniSpeed);
-      $(".mdx-toolbar").animate({opacity: 1}, "slow");
-      $(".mdx-toc-box").animate({left:'0px'}, _aniSpeed);
-      if ($(window).width() > _minScreenWidth) // 大屏才会同屏方式显示大纲的推挤处理
-        $("#write").animate({marginLeft: tocBoxWidth}, _aniSpeed);
-      else // 小屏时不同屏显示大纲，则须显示遮罩
-        $(".mdx-toc-mask").fadeIn(_aniSpeed);
+        $(this).animate({}, function() {
+            $("#svgOutline").css({
+                'transform': 'rotate(90deg)',
+                "transition": "all 0.5s"
+            });
+        });
+        $(".mdx-pin").animate({
+            marginRight: "190px"
+        }, _aniSpeed);
+        $(".mdx-toolbar").animate({
+            opacity: 1
+        }, "slow");
+        $(".mdx-toc-box").animate({
+            left: '0px'
+        }, _aniSpeed);
+        if ($(window).width() > _minScreenWidth) // 大屏才会同屏方式显示大纲的推挤处理
+            $("#write").animate({
+                marginLeft: tocBoxWidth
+            }, _aniSpeed);
+        else // 小屏时不同屏显示大纲，则须显示遮罩
+            $(".mdx-toc-mask").fadeIn(_aniSpeed);
+    } else if (v == false) { // --- 隐藏大纲
+        $(this).animate({}, function() {
+            $("#svgOutline").css({
+                'transform': 'rotate(0deg)'
+            });
+        });
+        $(".mdx-pin").animate({
+            marginRight: "10px"
+        }, _aniSpeed);
+        $(".mdx-toc-box").animate({
+            left: -(tocBoxWidth + 30)
+        }, _aniSpeed);
+        $("#write").animate({
+            marginLeft: 0
+        }, _aniSpeed); // 同屏方式显示大纲的隐藏处理
+        if ($(window).width() < _minScreenWidth) // 小屏
+            $(".mdx-toc-mask").fadeOut(_aniSpeed);
     }
-    else if (v == false) { // --- 隐藏大纲
-      $(this).animate({},function(){$("#svgOutline").css({'transform':'rotate(0deg)'});});
-      $(".mdx-pin").animate({marginRight: "10px"}, _aniSpeed);
-      $(".mdx-toc-box").animate({left: -(tocBoxWidth + 30)}, _aniSpeed);
-      $("#write").animate({marginLeft: 0}, _aniSpeed); // 同屏方式显示大纲的隐藏处理
-      if ($(window).width() < _minScreenWidth) // 小屏
-        $(".mdx-toc-mask").fadeOut(_aniSpeed);     
-    }
-  }
-  /**
-   * 根据实际目录结构更新folder控件
-   */
-  function updateFoldingButton() {
+}
+/**
+ * 根据实际目录结构更新folder控件
+ */
+function updateFoldingButton() {
     //console.log("foldItem length: " + foldItem.length);
     var folder = null;
     for (var i = 0; i < _foldItem.length; i++) {
-      //console.log(foldItem[i].attr("id"));
-      folder = _foldItem[i].html(_unfoldChar);
-      folder.parent().attr("data-node", "1"); // 0:leaf, 1:folder
-      folder.parent().attr("data-folding", "1"); // 0:collect, 1:expand
-      folder.click(function () {
-        //console.log("foldItem: " + $(this).parent.attr("id"));
-        folding($(this).parent().attr("id"));
-        event.cancelBubble = true;
-      });
+        //console.log(foldItem[i].attr("id"));
+        folder = _foldItem[i].html(_unfoldChar);
+        folder.parent().attr("data-node", "1"); // 0:leaf, 1:folder
+        folder.parent().attr("data-folding", "1"); // 0:collect, 1:expand
+        folder.click(function() {
+            //console.log("foldItem: " + $(this).parent.attr("id"));
+            folding($(this).parent().attr("id"));
+            event.cancelBubble = true;
+        });
     }
-  }
-  /**
-   * 更新非叶子结点的父结点信息
-   */
-  function updateFolderParentAttr() {
+}
+/**
+ * 更新非叶子结点的父结点信息
+ */
+function updateFolderParentAttr() {
     var parents = new Array();
     parents.push(_foldItem[0]);
-//    _foldItem[0].attr("data-pnode", "root");
+    //    _foldItem[0].attr("data-pnode", "root");
     var parentNode = _foldItem[0];
     var lastNode = parentNode;
     for (var i = 1; i < _foldItem.length; i++) {
-      var hd1 = getCSSHeaderNum(_foldItem[i]);
-      var hd2 = getCSSHeaderNum(lastNode);
-      if (hd1 < hd2) {
+        var hd1 = getCSSHeaderNum(_foldItem[i]);
+        var hd2 = getCSSHeaderNum(lastNode);
+        if (hd1 < hd2) {
+            parentNode = _foldItem[i];
+            _foldItem[i].attr("data-parent", parentNode.attr("id"));
+        } else(hd1 > hd2)
         parentNode = _foldItem[i];
-        _foldItem[i].attr("data-parent", parentNode.attr("id"));
-      } else (hd1 > hd2)
-      parentNode = _foldItem[i];
     }
-  }
-  /**
-   * 页面滚动时高亮outline中的对应章节项
-   */
-  function followHeader() {
+}
+/**
+ * 页面滚动时高亮outline中的对应章节项
+ */
+function followHeader() {
     updateDocbarPos();
-
     var sTop = $("#toc-box-body").scrollTop();
     var sBottom = sTop + $("#toc-box-body").height();
     // console.log(sTop + ", " + sBottom);
     for (var i = 0; i < _headers.length; i++) {
-      var hotArea = $("a[name='" + _headers[i] + "']").offset().top - $(document).scrollTop();
-      if (hotArea > -10 && hotArea < 200) {
-        if (_lastItem != null)
-          _lastItem.removeClass("mdx-header-current");
-        _lastItem = $("#oli-" + _headers[i]);
-        _lastItem.addClass("mdx-header-current");
-        // expandBubble(_lastItem.attr("id")); // 如果节点没有展开，则自动展开
-        var preDis = _lastItem.height() * 2;
-        //console.log("lastItem: " + lastItem.position().top + ", scrollTop: " + sTop + ", height: " + sBottom + ", newPos: " + (sTop + $("#toc-box-body").height() / 2));
-        if (_lastItem.position().top < sTop) {
-          $("#toc-box-body").scrollTop(_lastItem.position().top);
-        } else if (_lastItem.position().top > (sBottom - preDis)) {
-          $("#toc-box-body").scrollTop(_lastItem.position().top - $("#toc-box-body").height() + preDis);
+        var hotArea = $("a[name='" + _headers[i] + "']").offset().top - $(document).scrollTop();
+        if (hotArea > -10 && hotArea < 200) {
+            if (_lastItem != null) _lastItem.removeClass("mdx-header-current");
+            _lastItem = $("#oli-" + _headers[i]);
+            _lastItem.addClass("mdx-header-current");
+            // expandBubble(_lastItem.attr("id")); // 如果节点没有展开，则自动展开
+            var preDis = _lastItem.height() * 2;
+            //console.log("lastItem: " + lastItem.position().top + ", scrollTop: " + sTop + ", height: " + sBottom + ", newPos: " + (sTop + $("#toc-box-body").height() / 2));
+            if (_lastItem.position().top < sTop) {
+                $("#toc-box-body").scrollTop(_lastItem.position().top);
+            } else if (_lastItem.position().top > (sBottom - preDis)) {
+                $("#toc-box-body").scrollTop(_lastItem.position().top - $("#toc-box-body").height() + preDis);
+            }
+            break;
         }
-        break;
-      }
     }
-  }
-  /**
-  * 返回上一个位置
-  */
-  function navBack() {
+}
+/**
+ * 返回上一个位置
+ */
+function navBack() {
     window.history.back();
-    $(".mdx-toolbar").animate({opacity: 1}, _aniSpeed);
-  }
-  /**
-  * 前去下一个位置
-  */
-  function navForward() {
+    $(".mdx-toolbar").animate({
+        opacity: 1
+    }, _aniSpeed);
+}
+/**
+ * 前去下一个位置
+ */
+function navForward() {
     window.history.forward();
-    $(".mdx-toolbar").animate({opacity: 1}, _aniSpeed);
-  }
-  /**
-   * 自适应显示Outline
-   */
-  function adjustOutline() {
+    $(".mdx-toolbar").animate({
+        opacity: 1
+    }, _aniSpeed);
+}
+/**
+ * 自适应显示Outline
+ */
+function adjustOutline() {
     //console.log(($("#write").width() + ", " + $(".mdx-toc-box").width()) + ", " + $(window).width());
     if ($(window).width() > _minScreenWidth) {
-      _showed = true;
-    }
-    else {
-      _showed = false;
+        _showed = true;
+    } else {
+        _showed = false;
     }
     showOutline(_showed);
     updateDocbarPos();
-  }
-  /**
-  * 更新文档阴影栏的位置
-  */
-  function updateDocbarPos() {
+}
+/**
+ * 更新文档阴影栏的位置
+ */
+function updateDocbarPos() {
     // console.log($(window).height() + ", " + document.documentElement.clientHeight);
     var scrollHeight = Math.max($(window).height(), document.documentElement.clientHeight);
     // console.log("scrollHeight: " + scrollHeight);
     // 设置底部文档遮挡条位置
     $(".mdx-docbar-bottom").css("top", scrollHeight - $(".mdx-docbar-bottom").height());
-  }
-  /**
-   * 收起/展开章节目录
-   * @param id 对象的id值
-   */
-  function folding(id) {
+}
+/**
+ * 收起/展开章节目录
+ * @param id 对象的id值
+ */
+function folding(id) {
     var obj = $("#" + id);
     var folder = $("#fd-" + id);
     var folding = obj.attr("data-folding");
     if (folding == "0") {
-      obj.attr("data-folding", "1");
-      folder.html(_unfoldChar);
-      disposeFolding(id, 1, true);
+        obj.attr("data-folding", "1");
+        folder.html(_unfoldChar);
+        disposeFolding(id, 1, true);
     } else if (folding == "1") {
-      obj.attr("data-folding", "0");
-      folder.html(_foldChar);
-      disposeFolding(id, 0, true);
+        obj.attr("data-folding", "0");
+        folder.html(_foldChar);
+        disposeFolding(id, 0, true);
     }
-  }
-  /**
-   * 处理展开或收起指定ID下的子章节
-   * @param id 对象的id值
-   * @param act 动作：0=收起，1=展开
-   * @param recu 是否遍历子元素
-   */
-  function disposeFolding(id, act, recu) {
+}
+/**
+ * 处理展开或收起指定ID下的子章节
+ * @param id 对象的id值
+ * @param act 动作：0=收起，1=展开
+ * @param recu 是否遍历子元素
+ */
+function disposeFolding(id, act, recu) {
     var lastItem = null;
     var itemSet = $("#" + id).nextAll();
     for (var i = 0; i < itemSet.length; i++) {
-      var item = $(itemSet[i]);
-      if (lastItem != null) {
-        var hd1 = getCSSHeaderNum(item);
-        var hd2 = getCSSHeaderNum(lastItem);
-        if (hd1 > hd2)
-          continue;
-        else if (hd1 < hd2)
-          break;
-      }
-      // 如果是目录节点，同时是已展开的，才进行递归调用展开子节点
-      if (recu == true && item.attr("data-node") == "1" && item.attr("data-folding") == "1") {
-        //console.log(item.html());
-        disposeFolding(item.attr("id"), act, recu);
-      }
-      if (act == 0) // 收起
-        item.css("display", "none");
-      else if (act == 1) // 展开
-        item.css("display", "block");
-      //item.attr("data-folding", act);
-      lastItem = item;
+        var item = $(itemSet[i]);
+        if (lastItem != null) {
+            var hd1 = getCSSHeaderNum(item);
+            var hd2 = getCSSHeaderNum(lastItem);
+            if (hd1 > hd2) continue;
+            else if (hd1 < hd2) break;
+        }
+        // 如果是目录节点，同时是已展开的，才进行递归调用展开子节点
+        if (recu == true && item.attr("data-node") == "1" && item.attr("data-folding") == "1") {
+            //console.log(item.html());
+            disposeFolding(item.attr("id"), act, recu);
+        }
+        if (act == 0) // 收起
+            item.css("display", "none");
+        else if (act == 1) // 展开
+            item.css("display", "block");
+        //item.attr("data-folding", act);
+        lastItem = item;
     }
-  }
-  /**
-   * 返回指定对象的CSS的header的样式层级
-   */
-  function getCSSHeaderNum(obj) {
+}
+/**
+ * 返回指定对象的CSS的header的样式层级
+ */
+function getCSSHeaderNum(obj) {
     var cname = obj.attr("class");
     return cname.substr(cname.indexOf("md-toc-h") + "md-toc-h".length, 1)
-  }
-  /**
-   * 指定某节点后向上逐层展开
-   * @param id 对象的id值
-   */
-  function expandBubble(id) {
+}
+/**
+ * 指定某节点后向上逐层展开
+ * @param id 对象的id值
+ */
+function expandBubble(id) {
     var expandParent = new Array();
     for (var i = 0; i < itemSet.length; i++) {
-      if (itemSet[i].attr("class"))
-        expandParent.push(itemSet.attr("id"));
+        if (itemSet[i].attr("class")) expandParent.push(itemSet.attr("id"));
     }
     var lastItem = null;
     var itemSet = $("#" + id).prevAll();
     //console.log(itemSet.length);
     for (var i = (itemSet.length - 1); i >= 0; i--) {
-      var item = $(itemSet[i]);
-      console.log(item.html() + ", folding: " + item.attr("data-folding"));
-      for (var k = 0; k < expandParent.length(); k--) {
-        if (expandParent[k] == item.attr("id")) {
-          item.attr("data-folding", "1");
-          break;
+        var item = $(itemSet[i]);
+        console.log(item.html() + ", folding: " + item.attr("data-folding"));
+        for (var k = 0; k < expandParent.length; k--) {
+            if (expandParent[k] == item.attr("id")) {
+                item.attr("data-folding", "1");
+                break;
+            }
         }
-      }
-      if (item.attr("data-node") == "1" && item.attr("data-folding") == "1") {
-        $("#fd-" + item.attr("id")).html(_unfoldChar);
-        //item.attr("data-folding", 1);
-        disposeFolding(item.attr("id"), 1, true);
-      }
-      item.css("display", "block");
-      lastItem = item;
+        if (item.attr("data-node") == "1" && item.attr("data-folding") == "1") {
+            $("#fd-" + item.attr("id")).html(_unfoldChar);
+            //item.attr("data-folding", 1);
+            disposeFolding(item.attr("id"), 1, true);
+        }
+        item.css("display", "block");
+        lastItem = item;
     }
-  }
-  /**
-  * 弱化工具栏显示
-  */
-  var _topValue = 0;
-  function fadeOutToolbar() {
+}
+/**
+ * 弱化工具栏显示
+ */
+var _topValue = 0;
+
+function fadeOutToolbar() {
     // console.log($(document).scrollTop() + ", " + _topValue);
     if ($(document).scrollTop() != _topValue && _showed == false) // 如完成了滚动测弱化显示
-      $(".mdx-toolbar").animate({opacity: 0.3}, _aniSpeed);
+        $(".mdx-toolbar").animate({
+            opacity: 0.3
+        }, _aniSpeed);
     _topValue = $(document).scrollTop();
-  }  
-  /**
-   * HTML文档加载完成后执行主流程
-   */
-  var _interval = null;
-  $(document).ready(function() {
+}
+/**
+ * HTML文档加载完成后执行主流程
+ */
+var _interval = null;
+$(document).ready(function() {
+    // 检查页内链接坏链
+    checkInnerBadLink();
+    // 检查重复的Header
+    checkDuplicateHeader();
+    // 创建水印背景
+    createWatermark();
     // 绑定文档的滚动事件
     $(document).scroll(function() {
-      followHeader();
-      if(_interval == null) // 间隔一段时间弱化工具栏显示
-        _interval = setInterval("fadeOutToolbar()", 3000);
+        followHeader();
+        if (_interval == null) // 间隔一段时间弱化工具栏显示
+            _interval = setInterval("fadeOutToolbar()", 3000);
     });
     // 绑定文档的单击事件，显示点击泡泡动画
     $(document).click(function() {
-      var x = window.event.x;
-      var y = window.event.y;
-      $(".mdx-click-bubble").css("left", x);
-      $(".mdx-click-bubble").css("top", y);
-      $(".mdx-click-bubble").css("width", 0);
-      $(".mdx-click-bubble").css("height", 0);
-      $(".mdx-click-bubble").css("opacity", 1);
-      $(".mdx-click-bubble").css("display", "block");
-      $(".mdx-click-bubble").animate({opacity:0, left:x-50, top:y-50, width:100, height:100, borderRadius:50}, "slow", function() {
-        $(".mdx-click-bubble").css("display", "none");
-      });
+        var x = window.event.x;
+        var y = window.event.y;
+        $(".mdx-click-bubble").css("left", x);
+        $(".mdx-click-bubble").css("top", y);
+        $(".mdx-click-bubble").css("width", 0);
+        $(".mdx-click-bubble").css("height", 0);
+        $(".mdx-click-bubble").css("opacity", 0.7);
+        $(".mdx-click-bubble").css("display", "block");
+        $(".mdx-click-bubble").animate({
+            opacity: 0,
+            left: x - 50,
+            top: y - 50,
+            width: 100,
+            height: 100,
+            borderRadius: 50
+        }, "slow", function() {
+            $(".mdx-click-bubble").css("display", "none");
+        });
     });
     // 绑定窗口大小缩放事件
     $(window).resize(function() {
-      adjustOutline();
+        adjustOutline();
     });
     initOutlineData(); // 初始化Outline数据
     updateFoldingButton(); // 更新Outline上的目录节点按钮
     adjustOutline(); // 显示Outline
     // updateFolderParentAttr(); // 更新目录节点的父节点信息
-  });
+});
 </script>
 <!---------------------------------------->
 <!--     TABLE OF CONTENT PANEL END     -->
