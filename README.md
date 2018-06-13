@@ -44,14 +44,14 @@
 
 ## How to use? 
 
-1. Copy `typora-theme\*.css` to Typora's `Theme Folder`, and selected this theme in Typora.
-2. Edit `md` file with `[TOC]` tag.
-3. Export to HTML file, and open the HTML file with any code editor.
-4. Paste the `outline-code_(paste-before-</body>).html` content before the exported file's `</body>` tag.
+1. Copy the `typora-theme\maxlight.css` file to the `Theme Folder` of Typora, restart Typora and select the theme;
+2. Edit your `md` file and add the `[TOC]` tag. It is highly recommended to modify the Demo file as a template.
+3. Export the file as HTML via Typora, and then open the HTML file with a text editor;
+4. Paste everything in `outline-code_(paste-before-</body>).html` before the `</body>` tag in the exported HTML file....
 
 ## 如何使用？
 
-1. 将`typora-theme\*.css`的文件复制至Typora的`Theme Folder`下，重启Typora并选择该主题；
-2. 编辑你的`md`文件，并添加`[TOC]`标签；
-3. 将文件导出为HTML，并用文本编辑器打开该HTML文件；
-4. 将`outline-code_(paste-before-</body>).html`中的内容粘贴至该HTML文件的`</body>`标签前。
+1. 将`typora-theme\maxlight.css`的文件复制至Typora的`Theme Folder`下，重启Typora并选择该主题；
+2. 编辑你的`md`文件，并添加`[TOC]`标签，强烈建议以Demo文件为模板进行修改；
+3. 通过Typora将文件导出为HTML，然后用文本编辑器打开该HTML文件；
+4. 将`outline-code_(paste-before-</body>).html`中的所有内容粘贴至导出的HTML文件的`</body>`标签前。
