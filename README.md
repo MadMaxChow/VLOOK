@@ -1,11 +1,24 @@
 ## Features
 
-- Automatically generate outline structure (based on `[TOC]`), and hierarchical serial number
-- Support to pin/collect outline navigation, forward/back
-- Automatically generate watermark background based on document title
-- Check invalid pages for links and duplicate headings
-- Adaptive device screen size display
-- Beautiful, exquisite, dynamic page style
++ Automatically Generate Document Outline Toolbox
+  - Supports current chapter auto track highlighting
+  - Supports chapter quick jump positioning
+  - Support return/forward operation
+  - Support pinning/retracting outline navigation
++ Current chapter floating display
+  - Automatically update the current chapter as the page scrolls at the top of the screen
+  - Particularly suitable for easily recognizing the current section after a small screen or retracting an outline
++ Optimize page display
+  - Support cover/back cover, main title/subtitle, author, version information and other content styles
+  - Chapters automatically generate multi-level numbers (up to 5 levels)
+  - Special label styles (added, modified, removed) for identifying revision record types
+  - Chapters automatically generate multi-level numbers
+  - Adaptive device screen size display
+  - Deeply customize the style of the various elements of the page, beautiful and delicate
++ Automated inner chain error detection
+  - Check for invalid intrapage links
+  - Check duplicate chapter headings
++ Automatically generate a watermark background based on the document title (can be manually opened)
 
 ## 特性
 
