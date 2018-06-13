@@ -1,6 +1,6 @@
 # THO - Typora Output HTML with Outline
 
-## Featurs
+## Features
 
 - Automatically generate outline structure (based on `[TOC]`), and hierarchical serial number
 - Support to pin/collect outline navigation, forward/back
