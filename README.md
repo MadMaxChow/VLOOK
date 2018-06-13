@@ -18,6 +18,7 @@
   - Special label styles (added, modified, removed) for identifying revision record types
   - Chapters automatically generate multi-level numbers
   - Adaptive device screen size display
+  - Optimize font family settings (prioritized as Siyuan blackbody webfont)
   - Deeply customize the style of the various elements of the page, beautiful and delicate
 + Automated inner chain error detection
   - Check for invalid intrapage links
@@ -40,6 +41,7 @@
   - 特殊标签样式（added、modified、removed），适用于标识修订记录类型
   - 章节自动生成多级编号
   - 自适应设备屏幕大小显示
+  - 优化字体族设置（优先显示为思源黑体webfont）
   - 深度定制页面的各类元素的样式，美观细腻
 + 自动化内链错误检测
   - 检查无效的页内链接
