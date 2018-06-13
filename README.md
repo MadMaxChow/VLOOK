@@ -1,3 +1,7 @@
+**This plug-in implements enhancements to the Markup editor Typora export HTML file, specifically supporting the following features:**
+
+**本插件实现对Markdown编辑器Typora导出HTML文件实现增强，具体支持以下特性：**
+
 ## Features
 
 + Automatically Generate Document Outline Toolbox
