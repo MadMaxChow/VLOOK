@@ -1,5 +1,5 @@
 
-###### ^Charts\ Demo^ <br>Markdown-like Script Language for Generating Charts<br><br><br>~By\ Max~ <br>~COPYRIGHT\ ©\ 2018.\ GUANGZHOU\ LIBY\ ENTERPRISE\ GROUP\ CO.,\ LTD.\ ALL\ RIGHTS\ RESERVED.~
+###### **Charts Demo**<br>Markdown风格画图脚本Demo<br><br><br><u>Max</u><br>*COPYRIGHT © 2018. MAX°DESIGN.*
 
 [TOC]
 
@@ -11,8 +11,16 @@
 
 # 关于Markdown
 
-1. [Markdown百度百科](https://baike.baidu.com/item/markdown)
-2. [Markdown官网](https://daringfireball.net/projects/markdown/)
+###### Markdown是什么？
+
+十四年前，John Gruber创造了Markdown，一种专门针对网络写作的文本标记语言。使用Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）。
+
+Markdown文档以纯文本格式存储，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过Markdown编辑器导出为带排版的富文本文档、HTML网页等等。纯粹、简洁、易用、灵活，都是人们喜欢Markdown的原因。目前Markdown的标准化项目是[CommonMark](http://commonmark.org)。
+
+###### Markdown语法参考：
+
+- 标准化CommonMark语法参考：[60秒学会Markdown语法](http://commonmark.org/help/)、[10分钟深入学习Markdown](http://commonmark.org/help/tutorial/)
+- GitHub采用Flavored Markdown的语法参考：Typora目前采用该标准  [详细](https://support.typora.io/Markdown-Reference/)
 
 # mermaid
 

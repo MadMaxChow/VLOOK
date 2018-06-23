@@ -1,0 +1,2126 @@
+html {
+  font-size: @fontSize;
+  cursor: default;
+}
+
+html,
+body {
+  background: @docBgColor;
+  font-family: @textFont;
+  font-weight: normal;
+  color: @foreColorDark;
+  line-height: 2.0;
+}
+
+#write {
+  // padding-left: 30px;
+  // padding-right: 30px;
+  // border-top: 5px solid @masterColor;
+  // border-bottom: 10px solid @masterColor;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0px 30px 50px 30px;
+}
+
+#write>ul:first-child,
+#write>ol:first-child {
+  margin-top: 30px;
+}
+
+body.typora-export {
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+@media screen and (max-width: 1000px) {
+  body.typora-export {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+img {
+  border-radius: 5px;
+  padding: 5px;
+  border: 2px solid rgba(255, 255, 255, 0);
+}
+.mdx-figure-hover {
+  border: 2px solid @masterColor;
+}
+#figure-content:hover {
+  border: 2px solid @masterColor;
+}
+
+a {
+  color: @masterColor;
+  // font-weight: bold;
+  // border-bottom: 1px solid @masterColor;
+  padding-bottom: 1px;
+  text-decoration: none;
+  font-family: @titleFont;
+  // border: 1px dotted @transparencyColor;
+  // border-bottom: 1px solid @masterColorAlt;
+  // font-weight: bold;
+  // margin-left: 2px;
+  // margin-right: 2px;
+  // transition: all 0.3s ease-in-out;
+}
+a:hover {
+  color: @aHoverColor;
+  // background-color: @slaveColor;
+  // border-radius: 6px;
+  border-bottom: 2px solid @masterColor;
+  // padding: 0px 2px 0px 2px;;
+  // margin: 0px 1px 0px 1px;
+  // box-shadow: 0px 4px 20px @slaveShadowColor;
+  // transition: all 0.3s ease-in-out;
+}
+a:active {
+  color: @slaveColor;
+}
+// a:hover::before,
+// a:hover::after {
+//   position: absolute;
+// }
+// a:hover::after { content: "↗"; top: -0.5em;}  
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  border: 0;
+}
+
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover {
+  background: inherit;
+  cursor: inherit;
+}
+
+h1 a:after,
+h2 a:after,
+h3 a:after,
+h4 a:after,
+h5 a:after,
+h6 a:after {
+  content: "";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: @masterColor;
+  position: relative;
+  margin-bottom: 0em;
+  // font-weight: bold;
+  line-height: 1.5;
+  font-family: @headerFont;//@titleFont;
+}
+h6 {
+  font-family: @titleFont;
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+  text-decoration: none;
+}
+
+h1 tt,
+h1 code {
+  font-size: inherit;
+}
+
+h2 tt,
+h2 code {
+  font-size: inherit;
+}
+
+h3 tt,
+h3 code {
+  font-size: inherit;
+}
+
+h4 tt,
+h4 code {
+  font-size: inherit;
+}
+
+h5 tt,
+h5 code {
+  font-size: inherit;
+}
+
+h6 tt,
+h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  margin-top: 3em;
+  margin-bottom: 0;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  font-size: 1.8em;
+  // border-top: 2px solid @masterColor;
+  // text-align: center;
+  background-color: @masterColor;
+  color: @foreColorLight;
+  // border-radius: 4px;
+  // box-shadow: 0px 4px 20px @thirdShadowColor;
+}
+
+h2 {
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-top: 1em;
+  margin-top: 1em;
+  margin-bottom: 0.2em;
+  // padding-top: 0.3em;
+  // padding-bottom: 0em;
+  font-size: 1.6em;
+  border-top: 1px solid @masterColor;
+  // text-align: center;
+  // background-color: @thirdColor;
+  // color: @foreColorLight;
+  // border-radius: 8px;
+  // box-shadow: 0px 4px 20px @masterShadowColor;
+}
+h1 + h2 { // h1后紧跟h2的情况
+  margin-top: 0;
+}
+
+h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.2em;
+  // padding-top: 0.3em;
+  // padding-bottom: 0em;
+  font-size: 1.4em;
+  // border-bottom: 5px solid @masterColorAlt;
+}
+
+h4 {
+  margin-top: 2em;
+  margin-bottom: 0.2em;
+  // padding-top: 0.3em;
+  // padding-bottom: 0em;
+  font-size: 1.2em;
+  // border-bottom: 2px solid @masterColorAlt;
+}
+
+h5 {
+  margin-top: 2em;
+  margin-bottom: 0.2em;
+  // padding-top: 0.3em;
+  // padding-bottom: 0em;
+  font-size: 1.2em;
+  // border-bottom: 1px dotted @masterColorAlt;
+}
+
+h6 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  // padding-top: 0.3em;
+  // padding-bottom: 0em;
+  // font-size: 1.1em;
+  // border-bottom: 0;
+  color: @masterColor;
+  line-height: 1;
+  border-left: 1em solid @masterColorFade;
+  padding-left: 0.5em;
+  // border-radius: 0.5em;
+}
+li > h6 { // 用于：子表
+  color: @masterColor;
+  border-left: 0;
+  padding-left: 0;
+  // border-left: 0.25em solid @masterColorFade;
+}
+
+strong {
+  // color: @boldColor;
+  font-family: @boldFont;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+  margin: 0.2em 0;
+}
+
+hr {
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+  border: 1px solid @foreColorDarkAlt;
+  overflow: hidden;
+  box-sizing: content-box;
+  border-top: 0px;
+}
+
+body>h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+body>h1:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+body>h1:first-child+h2 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+body>h3:first-child,
+body>h4:first-child,
+body>h5:first-child,
+body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+// sup,
+// sub {
+//   font-size: 60%;
+// }
+
+a:first-child h1,
+a:first-child h2,
+a:first-child h3,
+a:first-child h4,
+a:first-child h5,
+a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1 p,
+h2 p,
+h3 p,
+h4 p,
+h5 p,
+h6 p {
+  margin-top: 0;
+}
+
+ol>li {
+  list-style-type: decimal;
+  line-height: 2.0;
+  // color: @masterColorAlt;
+}
+// 有序列表下无序列表 2级
+ol>li>ul>li {
+  list-style-type: upper-alpha;
+}
+// 有序列表下无序列表 3级
+ol>li>ul>li>ul>li {
+  list-style-type: lower-alpha;
+}
+// 有序列表下无序列表 4级
+ol>li>ul>li>ul>li>ul>li {
+  list-style-type: disc;
+}
+// 有序列表下无序列表 5级
+ol>li>ul>li>ul>li>ul>li>ul>li {
+  list-style-type: circle;
+}
+// 有序列表下无序列表 6级
+ol>li>ul>li>ul>li>ul>li>ul>li>ul>li {
+  list-style-type: square;
+}
+
+ul>li {
+  line-height: 2.0;
+  // color: @masterColorAlt;
+}
+
+li p.first {
+  display: inline-block;
+}
+
+ul,
+ol {
+  padding-left: 30px;
+  padding-bottom: 0;
+}
+
+ul:first-child,
+ol:first-child {
+  // margin-top: 0;
+  // padding-top: 16px;
+  // padding-bottom: 0;
+}
+
+ul:last-child,
+ol:last-child {
+  // margin-bottom: 0;
+}
+
+li>ol,
+li>ul {
+  // margin: 0 0;
+  // padding-top: 0px;
+  // padding-bottom: 0.3em;
+}
+
+blockquote {
+  // border: 1px solid @foreColorDarkAlt;
+  // border-radius: 8px;
+  border-left: 0.25em solid @thirdColorAlt;
+  padding-left: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  color: @thirdColor;
+  font-family: @titleFont;
+  // background-color: @thirdColorAlt;
+}
+
+blockquote blockquote {
+  padding-right: 0;
+}
+
+#write {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: inherit;
+  border-spacing: 0;
+  width: auto;
+  padding: 0;
+  word-break: initial;
+  // font-size: 0.9em;
+  // border: 1px solid @masterColor;
+  // border-radius: 8px;
+}
+
+table:hover {
+  // border: 1px solid @foreColorDark;
+  // box-shadow: 0px 4px 20px @masterShadowColor;
+  // transition: all 0.3s ease-in-out;
+}
+
+table tr {
+  // background-color: @tableTdBgColor;
+  margin: 0;
+  padding: 0;
+}
+
+table tr:hover {
+  background-color: @tableTdBgColor;
+}
+
+table tr:nth-child(2n):hover {
+  // background-color: @foreColorLight;
+}
+
+table tr:nth-child(2n) {
+  // background-color: @docBgColor;
+}
+
+// table tr:nth-child(2n) td {
+//   border-right: 1px solid @tableTdBorderColor;
+// }
+
+table tr:nth-child(2n) td:last-child {
+  border-right: 0;
+}
+
+// 表格表头
+table tr th {
+  background-color: @docBgColor;
+  font-family: @titleFont;
+  color: @tableThColor;
+  // border-right: 1px dotted @tableThBorderColor;
+  border-top: 2px solid @tableColor;
+  border-bottom: 1px solid @tableColor;
+  margin: 0;
+  padding: 4px 12px 4px 12px;
+}
+
+table tr td {
+  // border-right: 1px solid @tableTdBorderColor;
+  // background-color: @docBgColor;
+  text-align: left;
+  margin: 0;
+  padding: 4px 12px 4px 12px;
+  border-bottom: 1px solid @tableTdBorderColor;
+  // box-shadow: 0px 1px 0px @tableTdBorderColor inset;
+}
+
+table tr td:hover {
+  // border-bottom: 1px solid @tableColor;
+}
+
+// 表格首列
+table tr td:first-child {
+  font-family: @titleFont;
+  // font-weight: bold;
+  color: @boldColor;
+  // color: darken(@foreColorDark, 30%);
+}
+
+table tr th:first-child,
+table tr td:first-child {
+  padding-left: 2px;
+}
+
+table tr th:last-child,
+table tr td:last-child {
+  border-right: 0;
+  padding-right: 2px;
+}
+
+table th:first-child {
+  // border-radius: 8px 0 0 0;
+}
+
+table th:last-child {
+  // border-radius: 0 8px 0 0;
+}
+
+table th:only-child {
+  // border-radius: 8px 8px 0 0;
+}
+
+table tr:last-child td {
+  border-bottom: 2px solid @tableColor;
+}
+
+table tr:last-child td:first-child {
+  // border-radius: 0 0 0 8px;
+}
+
+table tr:last-child td:last-child {
+  // border-radius: 0 0 8px 0;
+}
+
+table tr:last-child td:only-child {
+  // border-radius: 0 0 8px 8px;
+}
+
+// li下的表格增加行号
+li table,
+h6+figure table {
+  counter-reset: tableRowNumber -1;
+}
+li table tr,
+h6+figure table tr {
+  counter-increment: tableRowNumber;
+}
+li table tr th:first-child::before,
+li table tr td:first-child::before {
+  content: "#";
+  color: @foreColorDarkFade;
+  font-family: @codeFont;
+  font-size: 0.7em;
+  vertical-align: middle;
+  text-align: right;
+  width: 2.5em;
+  position: absolute;
+  left: -3em;
+}
+li table tr td:first-child::before {
+  content: counter(tableRowNumber);
+}
+// H6下的表格增加行号
+h6+figure table tr th:first-child::before,
+h6+figure table tr td:first-child::before {
+  content: "# ";
+  color: @foreColorDarkFade;
+  font-family: @codeFont;
+  font-size: 0.7em;
+  vertical-align: middle;
+  text-align: right;
+}
+h6+figure table tr td:first-child::before {
+  content: counter(tableRowNumber) " ";
+}
+
+mark {
+  background-color: #FFFF00;
+  border-radius: 4px;
+}
+
+// 脚注区域
+.footnotes-area {
+  margin-top: 100px;
+}
+// 脚注行
+.footnote-line {
+  color: @foreColorDark;
+  font-size: 1em;
+  margin-top: 0.5em;
+}
+// 脚注行序号
+.md-fn-count {
+  font-family: @titleFont;
+}
+.md-fn-count:before {
+  content: "[";
+}
+.md-fn-count:after {
+  content: "] ";
+}
+// 脚注行序末返回链接
+.reversefootnote {
+  color: @masterColor;
+}
+.reversefootnote:hover {
+  color: @slaveColor;
+}
+// 脚注上标
+a[name^="ref-footnote-"] {
+  font-family: @titleFont;
+  color: @masterColor;
+}
+a[name^="ref-footnote-"]:hover {
+   color: @slaveColor;
+}
+a[name^="ref-footnote-"]:before {
+  content: "[";
+}
+a[name^="ref-footnote-"]:after {
+  content: "] ";
+}
+
+.CodeMirror {
+  z-index: 0;
+}
+.CodeMirror-gutters {
+  border-right: 1px solid @foreColorDarkAlt;
+  // background-color: @foreColorDarkAlt;
+}
+.CodeMirror-linenumber {
+  color: @foreColorDarkAlt;
+}
+
+.md-fences,
+code,
+tt {
+  // color: @boldColor;
+  font-family: @codeFont;
+  background-color: @masterColorAlt;
+  // border: 1px solid @masterColorAlt;
+  border-radius: 5px;
+  padding: 1px 4px 1px 4px;
+  margin: 0px 2px 0px 2px;
+  font-size: 0.85em;
+}
+
+code:hover,
+tt:hover {
+  // border-color: @foreColorDark;
+  // transition: all 0.3s ease-in-out;
+}
+
+code.added,
+code.add {
+  background-color: #D0F8C8;
+}
+code.modified,
+code.mod,
+code.improved {
+  background-color: #D0D0F8;
+}
+code.fixed {
+  background-color: #E0E0E8;
+}
+code.removed,
+code.rm,
+code.del {
+  background-color: #F8D0D0;
+}
+
+code:Contains("added") {
+  color: #f00;
+}
+
+.md-fences {
+  background-color: lighten(@foreColorDark, 58%);
+  border: 1px solid @foreColorDarkAlt;
+  // margin-bottom: 1em;
+  // margin-top: 1em;
+  // padding: 0;
+  // margin: 0;
+  // padding-top: 0.3em;
+  // padding-bottom: 0.3em;
+  // border-radius: 4px;
+  // color: @foreColorDark;
+}
+
+.md-fences:hover {
+  // border-color: @masterColor;
+  // box-shadow: 0px 4px 20px @masterShadowColor;
+  // transition: all 0.3s ease-in-out;
+}
+
+.task-list {
+  padding-left: 0;
+}
+
+.task-list-item {
+  padding-left: 32px;
+}
+
+.task-list-item input {
+  top: 3px;
+  left: 8px;
+}
+
+@media screen and (min-width: 860px) {
+  /*body {
+    width: 854px;
+    margin: 0 auto;
+    }*/
+}
+
+@media print {
+  html {
+    font-size: 0.5em;
+  }
+  table,
+  pre {
+    page-break-inside: avoid;
+  }
+  pre {
+    word-wrap: break-word;
+  }
+}
+
+#write pre.md-meta-block {
+  padding: 1em;
+  font-size: 85%;
+  line-height: 2.0;
+  background-color: @foreColorDarkFade3;
+  border: 0;
+  border-radius: 3px;
+  color: @foreColorDark;
+  margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+  bottom: .375em;
+}
+
+#write>h3.md-focus:before {
+  left: -1.5625em;
+  top: .375em;
+}
+
+#write>h4.md-focus:before {
+  left: -1.5625em;
+  top: .285714286em;
+}
+
+#write>h5.md-focus:before {
+  left: -1.5625em;
+  top: .285714286em;
+}
+
+// #write>h6.md-focus:before {
+//   left: -1.5625em;
+//   top: .285714286em;
+// }
+
+.md-image>.md-meta {
+  border: 1px solid @tableBorderColor;
+  background-color: @foreColorDarkFade3;
+  border-radius: 3px;
+  padding: 2px 4px 0px 4px;
+  color: inherit;
+}
+
+.md-tag {
+  color: inherit;
+}
+
+.md-toc {
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+  border-radius: 0px;
+  line-height: 2.0;
+}
+
+.md-toc-h1 {
+  font-size: 1.0em;
+  font-weight: bold;
+}
+
+.md-toc-h2 {
+  font-size: 1.0em;
+  font-weight: bold;
+}
+
+.md-toc-h3,
+.md-toc-h4,
+.md-toc-h5 { //, .md-toc-h6
+  font-size: 1.0em;
+  font-weight: normal;
+}
+
+.md-toc-h1 a,
+.md-toc-h2 a,
+.md-toc-h3 a,
+.md-toc-h4 a,
+.md-toc-h5 a { //, .md-toc-h6 a
+  color: @foreColorDark;
+  text-decoration: none;
+  padding: 0px 0px 0px 0px;
+  border-radius: 0px;
+}
+
+.md-toc-h1 a:hover,
+.md-toc-h2 a:hover,
+.md-toc-h3 a:hover,
+.md-toc-h4 a:hover,
+.md-toc-h5 a:hover { //, .md-toc-h6 a:hover
+  color: @slaveColor;
+  background-color: @transparencyColor;
+  text-decoration: none;
+}
+
+#typora-quick-open {
+  border: 1px solid @tableBorderColor;
+  background-color: @foreColorDarkFade3;
+}
+
+#typora-quick-open-item {
+  background-color: @foreColorDarkFade3;
+  border-color: @tableBorderColor;
+  border-style: solid;
+  border-width: 1px;
+}
+
+#md-notification:before {
+  top: 10px;
+}
+
+/** focus mode */
+
+.on-focus-mode blockquote {
+  border-left-color: @foreColorDark;
+}
+
+header,
+.context-menu,
+.megamenu-content,
+footer {}
+
+/**************************************
+* Header Counters in TOC 目录中的标题序号样式
+**************************************/
+
+/* No link underlines in TOC */
+
+.md-toc-content {
+  counter-reset: h1toc
+}
+
+.md-toc-h1 {
+  margin-left: 0;
+  padding-left: 1em;
+  counter-reset: h2toc;
+}
+
+.md-toc-h2 {
+  margin-left: 0;
+  padding-left: 2em;
+  counter-reset: h3toc;
+}
+
+.md-toc-h3 {
+  margin-left: 0;
+  padding-left: 3em;
+  counter-reset: h4toc;
+}
+
+.md-toc-h4 {
+  margin-left: 0;
+  padding-left: 4em;
+  counter-reset: h5toc;
+}
+
+.md-toc-h5 {
+  margin-left: 0;
+  padding-left: 5em;
+  counter-reset: h6toc;
+}
+
+.md-toc-h6 {
+  display: none;
+  margin-left: 0;
+  padding-left: 6em;
+}
+
+.md-toc-h1,
+.md-toc-h2,
+.md-toc-h3,
+.md-toc-h4,
+.md-toc-h5 { //, .md-toc-h6
+  font-family: @titleFont;
+  font-size: 1em;
+}
+.md-toc-h1:before,
+.md-toc-h2:before,
+.md-toc-h3:before,
+.md-toc-h4:before,
+.md-toc-h5:before { //, .md-toc-h6:before
+  color: @foreColorDarkFade;
+  font-family: @headerNumFont4toc;
+  font-weight: normal;
+}
+
+.md-toc-h1 a,
+.md-toc-h2 a,
+.md-toc-h3 a,
+.md-toc-h4 a,
+.md-toc-h5 a { //, .md-toc-h6 a
+  border: 0;
+}
+
+.md-toc-h1 a:hover,
+.md-toc-h2 a:hover,
+.md-toc-h3 a:hover,
+.md-toc-h4 a:hover,
+.md-toc-h5 a:hover { //, .md-toc-h6 a:hover
+  box-shadow: inherit;
+}
+
+.md-toc-h1 a:after,
+.md-toc-h2 a:after,
+.md-toc-h3 a:after,
+.md-toc-h4 a:after,
+.md-toc-h5 a:after { //, .md-toc-h6 a:after
+  content: "";
+}
+
+.md-toc-h1:before {
+  counter-increment: h1toc;
+  content: counter(h1toc) "︱"
+}
+
+.md-toc-h1 .md-toc-inner {
+  margin-left: 0;
+}
+
+.md-toc-h2:before {
+  counter-increment: h2toc;
+  content: counter(h1toc) "." counter(h2toc) "︱"
+}
+
+.md-toc-h2 .md-toc-inner {
+  margin-left: 0;
+}
+
+.md-toc-h3:before {
+  counter-increment: h3toc;
+  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "︱"
+}
+
+.md-toc-h3 .md-toc-inner {
+  margin-left: 0;
+}
+
+.md-toc-h4:before {
+  counter-increment: h4toc;
+  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "︱"
+}
+
+.md-toc-h4 .md-toc-inner {
+  margin-left: 0;
+}
+
+.md-toc-h5:before {
+  counter-increment: h5toc;
+  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "." counter(h5toc) "︱"
+}
+
+.md-toc-h5 .md-toc-inner {
+  margin-left: 0;
+}
+
+// .md-toc-h6:before {
+//   counter-increment: h6toc;
+//   content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "." counter(h5toc) "." counter(h6toc) ". "
+// }
+
+// .md-toc-h6 .md-toc-inner {
+//   margin-left: 0;
+// }
+
+/**************************************
+* Header Counters in Content 内容中的标题序号样式
+**************************************/
+
+/** initialize css counter */
+
+#write {
+  counter-reset: h1
+}
+
+h1 {
+  counter-reset: h2
+}
+
+h2 {
+  counter-reset: h3
+}
+
+h3 {
+  counter-reset: h4
+}
+
+h4 {
+  counter-reset: h5
+}
+
+// h5 {
+//   counter-reset: h6
+// }
+
+/** put counter result into headings */
+
+#write h1:before {
+  color: @foreColorLightFade;
+  font-family: @headerNumFont;
+  font-weight: normal;
+}
+
+#write h2:before,
+#write h3:before,
+#write h4:before,
+#write h5:before { //, #write h6:before 
+  color: @masterColorFade;
+  font-family: @headerNumFont;
+  font-weight: normal;
+}
+
+#write h1:before {
+  counter-increment: h1;
+  content: counter(h1) "︱"
+}
+
+#write h2:before {
+  counter-increment: h2;
+  content: counter(h1) "." counter(h2) "︱"
+}
+
+#write h3:before,
+h3.md-focus.md-heading:before {
+  /*override the default style for focused headings */
+  counter-increment: h3;
+  content: counter(h1) "." counter(h2) "." counter(h3) "︱"
+}
+
+#write h4:before,
+h4.md-focus.md-heading:before {
+  counter-increment: h4;
+  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "︱"
+}
+
+#write h5:before,
+h5.md-focus.md-heading:before {
+  counter-increment: h5;
+  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "︱"
+}
+
+// #write h6:before,
+// h6.md-focus.md-heading:before {
+//   counter-increment: h6;
+//   content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". "
+// }
+
+/** override the default style for focused headings */
+
+#write>h3.md-focus:before,
+#write>h4.md-focus:before,
+#write>h5.md-focus:before, // #write>h6.md-focus:before,
+h3.md-focus:before,
+h4.md-focus:before,
+h5.md-focus:before { //, h6.md-focus:before
+  color: inherit;
+  border: inherit;
+  border-radius: inherit;
+  position: inherit;
+  left: initial;
+  float: none;
+  top: initial;
+  font-size: inherit;
+  padding-left: inherit;
+  padding-right: inherit;
+  vertical-align: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+/**************************************
+* Electron UI
+**************************************/
+
+.outline-item {
+  line-height: 1;
+  font-family: @titleFont;
+}
+
+.outline-item:hover {
+  // background-color: @foreColorDark;
+  // font-weight: bold;
+  // color: @foreColorLight;
+  // border-color: @foreColorDark;
+}
+
+/**************************************
+* flowjs CSS
+**************************************/
+
+/* ----- flow diagram 流程图 ----- */
+
+// 开始节点
+rect[id^=st].flowchart {
+  fill: @foreColorDark;
+  stroke: @foreColorDark;
+  stroke-width: 5;
+}
+// 结束节点
+rect[id^=e].flowchart {
+  fill: none;
+  stroke: @foreColorDark;
+  stroke-width: 5;
+}
+// 操作节点
+rect[id^=op].flowchart {
+  fill: @masterColorAlt;
+  stroke: @masterColor;
+  stroke-width: 1;
+}
+// 子流程节点
+rect[id^=sub],
+rect[id^=sub].flowchart {
+  fill: @fourthColorAlt;
+  stroke: @fourthColor;
+  stroke-width: 1;
+}
+// 条件节点
+path[id^=c].flowchart {
+  fill: @slaveColorAlt;
+  stroke: @slaveColor;
+  stroke-width: 1;
+}
+// IO节点
+path[id^=io].flowchart {
+  fill: @thirdColorAlt;
+  stroke: @thirdColor;
+  stroke-width: 1;
+}
+// 流程线
+path[fill="none"][stroke-width="3"][marker-end^="url(#raphael-marker-endblock"] {
+  stroke: @foreColorDark;
+  stroke-width: 2px;
+  // marker-end: "url(#raphael-marker-endclassic)";
+}
+// 流程线箭头
+marker[id^="raphael-marker-endblock"] > use {
+  fill: @foreColorDark;
+}
+// 文本
+text[text-anchor="start"] > tspan {
+  font-size: 14px;
+  font-family: @codeFont;
+}
+
+
+/* ----- sequeuce diagram 时序图 ----- */
+
+// 标题
+rect[x="10"][y="10"][fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][rx="0"][ry="0"] {
+  fill: @foreColorLight;
+  stroke: @foreColorDarkAlt;
+  stroke-width: 2px;
+}
+// 矩形
+rect[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][rx="0"][ry="0"] {
+  fill: @masterColorAlt;
+  stroke: @masterColor;
+  stroke-width: 1px;
+}
+// 生命线
+path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"] {
+  // fill: none;
+  stroke: @masterColorFade;
+  stroke-width: 1px;
+  stroke-dasharray: 5;
+}
+// 消息实线+实箭头
+path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endblock"] {
+  // fill: none;
+  stroke: @foreColorDark;
+  stroke-width: 2px;
+  stroke-dasharray: none;
+}
+// 消息虚线+实箭头
+path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endblock"][stroke-dasharray="6,2"] {
+  stroke-dasharray: 5;
+}
+// 消息实线+虚箭头
+path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endopen"] {
+  // fill: none;
+  stroke: @foreColorDark;
+  stroke-width: 2px;
+  stroke-dasharray: none;
+}
+// 消息虚线+虚箭头
+path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endopen"][stroke-dasharray="6,2"] {
+  stroke-dasharray: 5;
+}
+// 消息虚箭头
+marker[id^="raphael-marker-endopen"] > use {
+  stroke: @foreColorDark;
+}
+// 实体、注释文本
+rect+rect+text[text-anchor="middle"] > tspan {
+  font-size: 14px;
+  font-family: @codeFont;
+}
+// 消息文本
+rect+text[text-anchor="middle"] > tspan {
+  font-size: 14px;
+  font-family: @textFont;
+}
+
+/**************************************
+* mermaid CSS
+**************************************/
+
+/* ----- flow diagram 流程图 ----- */
+
+// 标签
+.mermaid .label {
+  color: @foreColorDark;
+  fill: @foreColorDarkAlt;
+}
+// 方角矩形
+.node rect[rx="0"][rx="0"]  {
+  color: @foreColorDark;
+  fill: @masterColorAlt;
+  stroke: @masterColor;
+  stroke-width: 3;
+}
+// .node[id="INIT"] + .node > rect  {
+//   stroke-width: 1;
+// }
+// 圆角矩形
+.node rect[rx="5"][rx="5"]  {
+  // color: @foreColorDark;
+  fill: @masterColorAlt;
+  stroke: @masterColor;
+  stroke-width: 1;
+}
+// 圆形
+.node circle  {
+  // color: @thirdColor;
+  fill: @thirdColorAlt;
+  stroke: @thirdColor;
+  stroke-width: 1;
+}
+// ？
+.node ellipse {
+  // color: @foreColorDark;
+  fill: @foreColorDarkAlt;
+  stroke: @foreColorDark;
+  stroke-width: 10;
+}
+// 菱形
+.node polygon[rx^="5"][ry^="5"] {
+  // color: @foreColorDark;
+  fill: @slaveColorAlt;
+  stroke: @slaveColor;
+  stroke-width: 1;
+}
+// 不对称形状
+.node polygon {
+  // color: @foreColorDark;
+  fill: @fourthColorAlt;
+  stroke: @fourthColor;
+  stroke-width: 1;
+}
+// 线条
+.edgePath .path {
+  stroke: @foreColorDark;
+  stroke-width: 2;
+}
+// 线条箭头
+.arrowheadPath {
+  fill: @foreColorDark;
+}
+// 线条文本
+.edgeLabel {
+  background-color: @docBgColor;
+  font-family: @textFont;
+}
+// 子图
+.cluster rect {
+  fill: @foreColorDarkFade3 !important;
+  stroke: @foreColorDarkFade1 !important;
+  stroke-width: 1 !important;
+}
+// 子图文本
+.cluster text {
+  fill: @foreColorDark;
+}
+// 自定义：流程图开始、结束节点样式
+#START circle {
+  fill: @foreColorDark;
+  stroke: @foreColorDark;
+  stroke-width: 5;
+}
+#END circle {
+  fill: none;
+  stroke: @foreColorDark;
+  stroke-width: 5;
+  // stroke-dasharray: 4;
+}
+// 自定义：状态图初始状态、最终状态节点样式
+#INIT circle {
+  fill: @foreColorDark;
+  stroke: @foreColorDark;
+  stroke-width: 5;
+}
+#FINAL circle {
+  fill: none;
+  stroke: @foreColorDark;
+  stroke-width: 5;
+}
+
+/* ----- sequeuce diagram 时序图 ----- */
+
+// 角色
+.actor {
+  stroke: @masterColor;
+  fill: @masterColorAlt;
+}
+// 角色文本
+text.actor {
+  fill: @foreColorDark;
+  stroke: none;
+}
+// 角色生命线
+.actor-line {
+  stroke: @masterColor;
+  stroke-dasharray: 5;
+}
+// 实线消息
+.messageLine0 {
+  stroke-width: 2;
+  // stroke-dasharray: 2;
+  // marker-end: "url(#arrowhead)";
+  stroke: @foreColorDark;
+}
+// 实线箭头
+#arrowhead {
+  fill: @foreColorDark;
+}
+// 虚线消息
+.messageLine1 {
+  stroke-width: 2;
+  // stroke-dasharray: 2;
+  stroke: @foreColorDark;
+}
+// 异步消息箭头
+#crosshead path {
+  fill: @foreColorDarkAlt !important;
+  stroke: @foreColorDark !important;
+}
+// 消息文本
+.messageText {
+  fill: @foreColorDark;
+  stroke: none;
+  font-family: @textFont;
+}
+// 角标背景
+.labelBox {
+  stroke: none;
+  fill: @slaveColorAlt;
+}
+// 角标文本
+.labelText {
+  fill: @slaveColor;
+  stroke: none;
+}
+.labelText tspan {
+  fill: @slaveColor;
+  stroke: none;
+}
+// 循环文本
+.loopText {
+  fill: @slaveColor;
+  stroke: none;
+}
+.loopText tspan {
+  fill: @slaveColor;
+  stroke: none;
+}
+// 循环线
+.loopLine {
+  stroke-width: 1;
+  // stroke-dasharray: 2;
+  // marker-end: "url(#arrowhead)";
+  stroke: @slaveColorFade;
+}
+// 备注背景
+.note {
+  stroke: @foreColorDark;
+  stroke-dasharray: 5;
+  fill: @foreColorDarkAlt;
+}
+// 备注文本
+.noteText {
+  fill: @foreColorDark;
+  stroke: none;
+  font-family: @textFont;
+}
+
+/* ----- gantt diagram 甘特图 ----- */
+
+.section {
+  stroke: none;
+  // opacity: 0.2;
+}
+
+.section0 {
+  fill: @foreColorDarkAlt;
+}
+
+.section2 {
+  fill: @foreColorDarkAlt;
+}
+
+.section1,
+.section3 {
+  fill: @foreColorDarkFade3;
+}
+
+.sectionTitle0,
+.sectionTitle1,
+.sectionTitle2,
+.sectionTitle3 {
+  fill: @foreColorDark;
+}
+
+.sectionTitle {
+  text-anchor: start;
+  font-size: 12px;
+}
+
+.grid .tick {
+  stroke: @foreColorDarkAlt;
+  // opacity: 0.3;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+
+.today {
+  fill: none;
+  stroke: @slaveColor;
+  stroke-width: 3px;
+}
+
+.task {
+  stroke-width: 2;
+}
+
+.taskText {
+  text-anchor: middle;
+  font-size: 12px;
+}
+
+.taskTextOutsideRight {
+  fill: @foreColorDark;
+  text-anchor: start;
+}
+
+.taskTextOutsideLeft {
+  fill: @foreColorDark;
+  text-anchor: end;
+}
+
+/* 当前的任务 */
+
+.active0,
+.active1,
+.active2,
+.active3 {
+  fill: @masterColorAlt;
+  stroke: @masterColor;
+}
+
+.activeText0,
+.activeText1,
+.activeText2,
+.activeText3 {
+  fill: @masterColor !important;
+}
+
+/* 已完成的任务 */
+
+.done0,
+.done1,
+.done2,
+.done3 {
+  stroke: none;
+  fill: @masterColorAlt;
+  stroke-width: 2;
+  stroke-dasharray: 2;
+}
+
+/* 未来的任务 */
+
+.task0,
+.task1,
+.task2,
+.task3 {
+  fill: @docBgColor;
+  stroke: @masterColor;
+  stroke-dasharray: 2;
+}
+
+.taskText0,
+.taskText1,
+.taskText2,
+.taskText3 {
+  fill: @foreColorDark;
+}
+
+.taskTextOutside0,
+.taskTextOutside2 {
+  fill: @foreColorDark;
+}
+
+.taskTextOutside1,
+.taskTextOutside3 {
+  fill: @foreColorDark;
+}
+
+.doneText0,
+.doneText1,
+.doneText2,
+.doneText3 {
+  fill: @foreColorDark !important;
+}
+
+/* 当前关键路径的任务 */
+
+.activeCrit0,
+.activeCrit1,
+.activeCrit2,
+.activeCrit3 {
+  stroke: @slaveColor;
+  fill: @slaveColorAlt;
+  stroke-width: 2;
+}
+
+.activeCritText0,
+.activeCritText1,
+.activeCritText2,
+.activeCritText3 {
+  fill: @slaveColor !important;
+}
+
+/* 已完成的关键路径任务 */
+
+.doneCrit0,
+.doneCrit1,
+.doneCrit2,
+.doneCrit3 {
+  stroke: none;
+  fill: @slaveColorAlt;
+  stroke-width: 2;
+  cursor: pointer;
+  shape-rendering: crispEdges;
+}
+
+/* 未来的关键路径任务 */
+
+.crit0,
+.crit1,
+.crit2,
+.crit3 {
+  stroke: @slaveColor;
+  fill: @docBgColor;
+  stroke-width: 2;
+  stroke-dasharray: 2;
+}
+
+.critText0,
+.critText1,
+.critText2,
+.critText3 {
+  fill: @foreColorDark;
+}
+
+.doneCritText0,
+.doneCritText1,
+.doneCritText2,
+.doneCritText3 {
+  fill: @foreColorDark !important;
+}
+
+/* 标题 */
+.titleText {
+  text-anchor: middle;
+  font-size: 18px;
+  fill: @foreColorDark;
+}
+
+/* ----- class diagram 类图 ----- */
+
+g.classGroup text {
+  fill: @foreColorDark;
+  stroke: none;
+}
+
+g.classGroup rect {
+  fill: @masterColorAlt;
+  stroke: @masterColor;
+}
+
+g.classGroup line {
+  stroke: @foreColorDark;
+  stroke-width: 1;
+}
+
+svg .classLabel .box {
+  stroke: none;
+  stroke-width: 0;
+  fill: @masterColorAlt;
+  opacity: 0.5;
+}
+
+svg .classLabel .label {
+  fill: @masterColorAlt;
+}
+
+.relation {
+  stroke: @masterColor;
+  stroke-width: 1;
+  fill: none;
+}
+
+.composition {
+  fill: @masterColorAlt;
+  stroke: @masterColor;
+  stroke-width: 1;
+}
+
+#compositionStart {
+  fill: @masterColorAlt;
+  stroke: @masterColor;
+  stroke-width: 1;
+}
+
+#compositionEnd {
+  fill: @masterColorAlt;
+  stroke: @masterColor;
+  stroke-width: 1;
+}
+
+.aggregation {
+  fill: @masterColorAlt;
+  stroke: @foreColorDark;
+  stroke-width: 1;
+}
+
+#aggregationStart {
+  fill: @masterColorAlt;
+  stroke: @masterColor;
+  stroke-width: 1;
+}
+
+#aggregationEnd {
+  fill: @masterColorAlt;
+  stroke: @masterColor;
+  stroke-width: 1;
+}
+
+#dependencyStart {
+  fill: @masterColorAlt;
+  stroke: @masterColor;
+  stroke-width: 1;
+}
+
+#dependencyEnd {
+  fill: @masterColorAlt;
+  stroke: @masterColor;
+  stroke-width: 1;
+}
+
+#extensionStart {
+  fill: @masterColorAlt;
+  stroke: @masterColor;
+  stroke-width: 1;
+}
+
+#extensionEnd {
+  fill: @masterColorAlt;
+  stroke: @masterColor;
+  stroke-width: 1;
+}
+
+.node text {
+  // font-size: 16px;
+}
+
+div.mermaidTooltip {
+  position: absolute;
+  text-align: center;
+  max-width: 200px;
+  padding: 2px;
+  // font-size: 16px;
+  background: @foreColorDarkAlt;
+  border: 1px solid #d0d0d0;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 100;
+}
+
+/**************************************
+* 重定义Typora原生样式
+**************************************/
+
+#write{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/* md 系统样式 */
+.md-toc-inner {
+  text-decoration: none;
+}
+
+.md-toc-item {
+//   transition: box-shadow 0.5s;  
+}
+
+.md-toc-item:hover {
+  box-shadow: 0px -1px 0px @masterColor inset;
+}
+.md-toc-item:active {
+  box-shadow: 0px -1px 0px @slaveColor inset;
+}
+
+.md-toc-item > a {
+  color: @foreColorDark;
+//   transition: color 0.5s;  
+}
+
+.md-toc-item:hover > a,
+.md-toc-item a:hover {
+  color: @masterColor;
+}
+.md-toc-item:active > a,
+.md-toc-item a:active {
+  color: @slaveColor;
+}
+
+/**************************************
+* VLOOK UI 自定义样式
+**************************************/
+
+.mdx-toc-menu {
+  background-color: @foreColorDark;
+  cursor: pointer;
+  color: @docBgColor;
+  font-size: 1em;
+  left: 0px;
+  top: 0px;
+  width: 20px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  text-align: center;
+  z-index: 100;
+}
+
+.mdx-toc-box {
+  background-color: @foreColorDark;
+  box-shadow: 3px 0px 8px rgba(80, 80, 80, 0.2);
+  cursor: default;
+  display: block;
+  left: -280px;
+  top: 0px;
+  width: 280px;
+  height: 100%;
+  padding: 0px;
+  position: fixed;
+  z-index: 200;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.mdx-toc-box-header {
+  background-color: @foreColorLightFade;
+  color: @foreColorDark;
+  font-family: @titleFont;
+  font-size: 1.2em;
+  width: 100%;
+  height: 50px;
+  padding: 10px 0px 10px 10px;
+  position: absolute;
+  z-index: 100;
+}
+
+.mdx-header-shadow {
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.mdx-footer-shadow {
+  box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1) inset;
+}
+
+.mdx-toolbar {
+  left: 10px;
+  top: 10px;
+  position: fixed;
+  z-index: 1000;
+}
+
+.mdx-toc-box-title {
+  left: 50px;
+  top: 10px;
+  position: absolute;
+}
+
+.mdx-toc-box-body-scroll {
+  background-color: @docBgColor;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  overflow: auto;
+  overflow-y: hidden;
+  z-index: 99;
+}
+
+.mdx-toc-info {
+  background-color: @foreColorLight;
+  color: @foreColorDark;
+  font-size: 0.85em;
+  font-family: @titleFont;
+  width: 100%;
+  height: 30px;
+  bottom: 0px;
+  text-align: center;
+  padding: 2px;
+  position: absolute;
+  z-index: 100;
+}
+
+.mdx-toc-info2 {
+  left: 20px;
+  font-size: 0.85em;
+  position: absolute;
+  bottom: 10px;
+}
+
+.mdx-toc-box-body {
+  background-color: @foreColorLightFade;
+  width: 100 ％;
+  height: 100%;
+  padding: 0px;
+  overflow-y: scroll;
+  z-index: 99;
+}
+
+.mdx-pin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: @docBgColor;
+  background-color: @foreColorDark;
+  border-radius: 4px;
+  cursor: pointer;
+  float: left;
+  width: 30px;
+  height: 30px;
+  padding-top: 0px;
+  text-align: center;
+  margin-right: 150px;
+//   transition: background-color 0.5s, opacity 0.5s;
+}
+
+.mdx-pin:hover {
+  background-color: @slaveColor;
+}
+
+.mdx-pin:active {
+  background-color: @foreColorDark;
+  color: @docBgColor;
+}
+
+.mdx-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: @docBgColor;
+  background-color: @masterColor;
+  cursor: pointer;
+  float: left;
+  padding-top: 0px;
+  top: 0px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+//   transition: background-color 0.5s, opacity 0.5s;  
+}
+
+.mdx-nav:hover {
+  background-color: @aHoverColor;
+}
+
+.mdx-nav:active {
+  background-color: @slaveColor;
+}
+
+.mdx-nav-back {
+  margin-right: -12px;
+  width: 60px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+
+.mdx-nav-forward {
+  border-radius: 15px;
+  border: 1px solid @foreColorLight;
+}  
+
+.mdx-header-current {
+  background-color: @masterColorAlt;
+}
+
+.mdx-header-current a {
+  font-weight: bold;
+  color: @masterColor;
+}
+.mdx-header-current a:after {
+  content: " ◀";
+}
+
+.mdx-folder {
+  color: @foreColorDarkAlt;
+//   background-color: @foreColorDark;
+  float: left;
+  width: 16px;
+  text-align: center;
+}
+
+.mdx-folder:hover {
+  color: @slaveColor;
+}
+
+.mdx-bread-nav {
+  background-color: @masterColor;
+  color: @foreColorLight;
+  font-family: @headerFont;
+  font-size: 1.5em;
+  font-weight: bold;
+  top: 0px;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  padding: 0px 0px 0px 20px;
+  vertical-align: middle;
+  display: none;
+}
+
+.mdx-figure-viewer {
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #FFF;
+  position: fixed;
+  display: none;
+  z-index: 2000;
+}
+
+.mdx-figure-viewer-prev {
+  top: auto;
+  width: 80px;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 10px;
+}
+
+.mdx-figure-viewer-next {
+  top: auto;
+  width: 80px;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 10px;
+}
+
+.mdx-figure-viewer-close {
+  left: 10px;
+  top: 10px;
+  border-radius: 15px;
+  position: absolute;
+}
+
+#figure-content {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.mdx-figure-pagenum {
+  left: 100px;
+  position: absolute;
+  bottom: 10px;
+}
+  
+// svg path {  
+//   fill: inherit;  
+// }
+
+use.mdx-svg-ico-light {
+  fill: @docBgColor;
+}
+
+use.mdx-svg-ico-dark {
+  fill: @foreColorDarkAlt;
+//   transition: fill 0.5s;
+}
+
+use.mdx-svg-ico-dark:hover {
+  fill: @slaveColor;
+}
+
+.mdx-docbar-top {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  background-image: linear-gradient(-180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+  width: 100%;
+  height: 20px;
+}
+
+.mdx-docbar-bottom {
+  position: fixed;
+  left: 0px;
+  background-image: linear-gradient(-180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 100%);
+  width: 100%;
+  height: 20px;
+}
+
+.mdx-toc-mask {
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #000;
+  opacity: 0.25;
+  display: none;
+}
+
+.mdx-click-bubble {
+  left: 0px;
+  top: 0px;
+  width: 0px;
+  height: 0px;
+  position: fixed;
+  background-color: @slaveColor;
+  opacity: 0.7;
+  z-index: 9999;
+}
+
+/**************************************
+* 封面、封底
+**************************************/
+
+body h6:first-child, // 页面第1个H6为封面、子标题样式
+body h6:last-child { // 页面最后1个H6为封底样式
+  color: @foreColorLight;
+  background-color: @masterColor;
+  font-weight: bold;
+	font-size: 2.5em;
+  font-family: @headerFont;
+  height: 900px;
+  padding-left: 30px;
+  padding-top: 150px;
+  padding-right: 20px;
+  margin: -20px;
+  margin-bottom: 3em;
+  border: 0;
+}
+// 封底样式微调
+body h6:last-child {
+  height: 250px;
+  margin-top: 3em;
+  padding-top: 50px;
+  margin-bottom: -50px;
+}
+// 封面内的主标题
+body h6:first-child strong {
+  font-size: 0.7em;
+  vertical-align: super;
+}
+// 封面内的作者信息
+body h6:first-child u {
+  color: @foreColorLightFade;
+  font-size: 0.7em;
+  font-family: @titleFont;
+  text-decoration: none;
+}
+// 封面内的作者信息前缀
+body h6:first-child u::before {
+  content: "By ";
+  font-weight: normal;
+  text-decoration: none;
+}
+// 封面内的版权信息
+body h6:first-child em {
+  color: @foreColorLightFade;
+  font-size: 0.35em;
+  font-family: @titleFont;
+  font-style: normal;
+  vertical-align: sub;
+}
