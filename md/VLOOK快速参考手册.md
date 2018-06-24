@@ -4,14 +4,14 @@
 
 # VLOOK™是什么
 
-[VLOOK™](https://github.com/MadMaxChow/VLOOK)是针对[Typora](https://www.typora.io)导出的HTML文件的增强插件，包括[主题样式](#主题样式)和[工具箱](#工具箱)两个部分：
+[VLOOK™](https://github.com/MadMaxChow/VLOOK)是针对[Typora](https://www.typora.io)导出的HTML文件的增强插件，VLOOK™为开源软件，遵从[MIT许可证](#许可协议)。
 
-- **主题样式**
-  基于CSS制作，为Typora编辑的Markdown文件和导出的HTML文件提供强化、丰富的格式细节，以支持更为复杂的文档排版和视觉呈现要求；
-- **工具箱**
-  基于JQuery制作，为导出的HTML提供便捷的章节、图片导航，以及页内、外部链接检查与优化等特性。
+VLOOK包括[主题样式](#主题样式)和[工具箱](#工具箱)两个部分：
 
-VLOOK™为开源软件，遵从[MIT许可证](#许可协议)。
+- 主题样式：基于CSS制作，为Typora编辑的Markdown文件和导出的HTML文件提供强化、丰富的格式细节，以支持更为复杂的文档排版和视觉呈现要求；
+- 工具箱：基于JQuery制作，为导出的HTML提供便捷的章节、图片导航，以及页内、外部链接检查与优化等特性。
+
+**（本文档是基于最新的VLOOK™插件进行创建）**
 
 ---
 
@@ -302,5 +302,13 @@ Note left of SERVER: 我在最后一位
 # 官方主页
 
 [https://github.com/MadMaxChow/VLOOK](https://github.com/MadMaxChow/VLOOK)
+
+# 捐赠
+
+若喜欢VLOOK™的话，可以请Max喝杯咖啡～
+
+![](https://ws1.sinaimg.cn/large/006tKfTcgy1fsmnridvyxj303y04mt94.jpg)
+
+
 
 ###### 终了
