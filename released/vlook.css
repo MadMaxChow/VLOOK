@@ -455,7 +455,8 @@ code.add {
 }
 code.modified,
 code.mod,
-code.improved {
+code.improved,
+code.optimized {
   background-color: #D0D0F8;
 }
 code.fixed {
@@ -1355,7 +1356,7 @@ div.mermaidTooltip {
 }
 .mdx-toc-box-title {
   left: 50px;
-  top: 10px;
+  top: 5px;
   position: absolute;
 }
 .mdx-toc-box-body-scroll {
