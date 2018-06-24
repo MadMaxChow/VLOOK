@@ -7,7 +7,7 @@ VLOOK™为开源软件，遵从MIT许可证。
 
 特性的详细介绍，以及使用说明详见《VLOOK快速参考手册.html》
 
-若喜欢VLOOK™的话，可以请Max喝杯咖啡：
+若喜欢VLOOK™的话，可以请Max喝杯咖啡：<br>
 ![微信支付](https://ws1.sinaimg.cn/large/006tKfTcgy1fsmnridvyxj303y04mt94.jpg)
 
 ---
