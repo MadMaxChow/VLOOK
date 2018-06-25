@@ -30,12 +30,12 @@ Markdown文档以纯文本格式存储，这意味着，它们可以用几乎任
 
 ```mermaid
 graph LR
-START(( )) --> |默认实线|round_edges(fa:fa-twitter 圆角矩形节点)
+START(( )) --> |默认实线|round_edges(圆角矩形节点)
 subgraph 子图A
 	round_edges --> text[方角矩形节点]
 end
 
-text ==> |加粗实线|circle((fa:fa-camera-retro<br>圆形节点))
+text ==> |加粗实线|circle((圆形节点))
 circle --> asymetric>旗形节点]
 
 subgraph 子图B

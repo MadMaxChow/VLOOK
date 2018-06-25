@@ -741,7 +741,7 @@ MIT许可证（MIT）
     // 更新指定内容的<code>标签样式
     $("code").each(function() {
       var codeText = $(this).text();
-      if ("added,modified,fixed,improved,removed,add,mod,rm,del".indexOf(codeText) != -1)
+      if ("added,modified,fixed,improved,optimized,removed,add,mod,rm,del".indexOf(codeText) != -1)
         $(this).attr("class", codeText);
       if ("新增".indexOf(codeText) != -1)
         $(this).attr("class", "add");
