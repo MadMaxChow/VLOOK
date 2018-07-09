@@ -1,5 +1,5 @@
 
-###### **Charts Demo**<br>Markdown风格画图脚本Demo<br><br><br><u>Max</u><br>*COPYRIGHT © 2018. MAX°DESIGN.*
+###### **VLOOK™ Charts Demo**<br>Markdown风格画图脚本Demo<br><br><br><u>Max</u><br>*COPYRIGHT © 2018. MAX°DESIGN.*
 
 [TOC]
 
@@ -133,25 +133,26 @@ FINAL(( ))
 
 ```mermaid
 sequenceDiagram
-participant user as <用户角色>
-participant client as 客户端程序
-participant server as 服务端系统
+participant User as @人物角色
+participant Client as 前端产品
+participant Server as /后端支撑系统/
+participant Extend as _外部系统_
 
-user ->> client: 同步发送消息1
-client ->> server: 同步发送消息1
-client -X server: 异步发送消息2
-Note left of client: 左侧备注说明
-Note right of server: 右侧备注说明
-Note over client,server: 跨对象备注说明
+User ->> Client: 同步发送消息1
+Client ->> Server: 同步发送消息1
+Client -X Server: 异步发送消息2
+Note left of Extend: 显示在外部系统<br>左侧备注说明
+Note right of Extend: 显示在外部系统<br>右侧备注说明
+Note over Client,Server: 跨对象备注说明
 loop 循环组
-	client ->> server: 发送消息A
+	Client ->> Extend: 发送消息A
 	alt 情景1
-		server -->> client: 同步返回消息A1
+		Server -->> Client: 同步返回消息A1
 	else 情景2
-		server --X client: 异步返回消息A2
+		Server --X Client: 异步返回消息A2
 	end
 	opt 可选
-		client ->> server: 发送消息X
+		Extend ->> Server: 发送消息X
 	end
 end
 ```
@@ -160,25 +161,26 @@ end
 
 ```java
 sequenceDiagram
-participant user as <用户角色>
-participant client as 客户端程序
-participant server as 服务端系统
+participant User as @人物角色
+participant Client as 前端产品
+participant Server as /后端支撑系统/
+participant Extend as _外部系统_
 
-user ->> client: 同步发送消息1
-client ->> server: 同步发送消息1
-client -X server: 异步发送消息2
-Note left of client: 左侧备注说明
-Note right of server: 右侧备注说明
-Note over client,server: 跨对象备注说明
+User ->> Client: 同步发送消息1
+Client ->> Server: 同步发送消息1
+Client -X Server: 异步发送消息2
+Note left of Extend: 显示在外部系统<br>左侧备注说明
+Note right of Extend: 显示在外部系统<br>右侧备注说明
+Note over Client,Server: 跨对象备注说明
 loop 循环组
-	client ->> server: 发送消息A
+	Client ->> Extend: 发送消息A
 	alt 情景1
-		server -->> client: 同步返回消息A1
+		Server -->> Client: 同步返回消息A1
 	else 情景2
-		server --X client: 异步返回消息A2
+		Server --X Client: 异步返回消息A2
 	end
 	opt 可选
-		client ->> server: 发送消息X
+		Extend ->> Server: 发送消息X
 	end
 end
 ```
@@ -187,11 +189,16 @@ end
 
 1. 建议使用实体别名，以提高画图脚本的复用度和可维护性；
 2. 支持三类消息线条：同步请求消息、异步请求消息、返回消息；
-3. 支持三类标签分组：
+3. 实体支持四类，在输出HTML后应用[VLOOK™](https://github.com/madmaxchow/VLOOK)插件渲染为不同的样式：
+   - 人物：以at符号`@`开始的内容，如`@人物角色`
+   - 前端产品：默认
+   - 后端支撑系统：含斜杠`/`包裹的内容，如`/后端支撑系统名称/`
+   - 外部系统：含用下划线`_`包裹的内容，如`_外部系统名称_`
+4. 支持三类标签分组，在输出HTML后应用[VLOOK™](https://github.com/madmaxchow/VLOOK)插件渲染为不同的样式：
    - `loop`：循环
    - `opt`：可选
    - `alt...else`：条件选择（alt=情景1，else=情景2）
-4. 支持备注说明。
+5. 支持备注说明。
 
 ## 甘特图
 
@@ -333,4 +340,4 @@ SERVER -->> CLIENT: 返回消息：虚线+虚箭头
 Note left of SERVER: 我在最后一位
 ```
 
-###### 终了
+###### 终了<br>

@@ -3,29 +3,31 @@
 ***************************************/
 
 @font-face {
-	font-family: sansFont;
-	font-style: normal;
-	font-weight: 400;
-	font-display: swap;
-	src: url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.woff2") format("woff2"),
-        url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.woff") format("woff"),
-        url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.otf") format("opentype");
+  font-family: sansFont;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.woff2") format("woff2"),
+  url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.woff") format("woff"),
+  url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.otf") format("opentype");
 }
+
 @font-face {
-	font-family: sansFont;
-	font-style: normal;
-	font-weight: 700;
-	font-display: swap;
-	src: url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.woff2") format("woff2"),
-        url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.woff") format("woff"),
-        url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.otf") format("opentype");
+  font-family: sansFont;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.woff2") format("woff2"),
+  url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.woff") format("woff"),
+  url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.otf") format("opentype");
 }
+
 // @font-face {
 // 	font-family: headerFont;
 // 	font-style: normal;
 // 	font-weight: 700;
 // 	font-display: swap;
-// 	src: url("font/NotoSerifCJKsc-Black.otf") format("opentype");
+// 	src: url("https://piccdn.igetget.com/fontminify/9cf09c22d7c65f3bf37a0a5355ea1b2c.woff") format("woff");
 // }
 // @font-face {
 // 	font-family: monoFont;
@@ -46,18 +48,25 @@
 
 @import url("https://fonts.googleapis.com/earlyaccess/notosanssc.css");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400,700");
-@headerFontName: "Noto Serif CJK SC Black";
+@headerFontName: headerFont, "NotoSerifCJKsc-Black", "Noto Serif CJK SC Black";
 
-@fontSize: (16/16)*100%;
+@fontSize: (16/16) * 100%;
 
-@sansFont: sansFont, "Noto Sans SC", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
-@monoSansFont: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "Microsoft YaHei", "微软雅黑", monospace;
+@sansFont: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial,
+Tahoma, sans-serif;
+@monoSansFont: "Roboto Mono", monoFont, Menlo, Consolas, sansFont,
+"Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
 
-@sansFont2: Arial, Tahoma, "Heiti SC", "黑体-简", "黑体", SimHei, "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
-@monoSansFont2: "Roboto Mono", monoFont, Menlo, Consolas, "Heiti SC", "黑体-简", "黑体", SimHei, "Microsoft YaHei", "微软雅黑", monospace;
+@sansFont2: Arial, Tahoma, "Heiti SC", "黑体-简", "黑体", SimHei,
+"MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+@monoSansFont2: "Roboto Mono", monoFont, Menlo, Consolas, "Heiti SC", "黑体-简",
+"黑体", SimHei, "Microsoft YaHei", "微软雅黑", monospace;
 
-@serifFont: @headerFontName, "Bodoni 72 Book", "Book Antiqua", Times, "Times New Roman", "华文中宋", "STZhongsong", "宋体-简", "Songti SC", "宋体", SimSun, serif;
-@monoSerifFont: Courier, "Courier New", "Roboto Mono", monoFont, Menlo, Consolas, "华文中宋", "Songti SC", "宋体-简", "宋体",  SimSun, monospace;
+@serifFont: @headerFontName, "Bodoni 72 Book", "Book Antiqua", Times,
+"Times New Roman", "华文中宋", "STZhongsong", "宋体-简", "Songti SC", "宋体",
+SimSun, serif;
+@monoSerifFont: Courier, "Courier New", "Roboto Mono", monoFont, Menlo, Consolas,
+"华文中宋", "Songti SC", "宋体-简", "宋体", SimSun, monospace;
 
 // 非衬线风格
 @headerFont: @headerFontName, @sansFont;
@@ -80,14 +89,14 @@
 ***************************************/
 
 // 文档背景色
-@docBgColor: #FFF;
+@docBgColor: #fff;
 // 纯透明色
-@transparencyColor:fade(#FFF, 0);
+@transparencyColor: fade(#fff, 0);
 // 图片背景色
-@imgBgColor: #FFF;
+@imgBgColor: #fff;
 
 // 文档前景色（深）
-@foreColorDark: #646468;//#606064;
+@foreColorDark: #646468; //#606064;
 @foreColorDarkAlt: lighten(@foreColorDark, 45%);
 @foreColorDarkFade: fade(@foreColorDark, 50%);
 @foreColorDarkFade1: fade(@foreColorDark, 15%);
@@ -98,19 +107,19 @@
 @foreColorLightFade: fade(@foreColorLight, 50%);
 
 // 主色
-@masterColor: #0078D7;//#0065BD;//#256fd1;#118CDF;//#3080DF;
+@masterColor: #0078d7; //#0065BD;//#256fd1;#118CDF;//#3080DF;
 @masterColorAlt: lighten(@masterColor, 50%);
 @masterColorFade: fade(@masterColor, 50%);
 @masterShadowColor: fade(@masterColor, 35%);
 // 辅助色
-@slaveColor: #DC0010;//#E47820;//#DC0010;
+@slaveColor: #dc0010; //#E47820;//#DC0010;
 @slaveColorAlt: lighten(@slaveColor, 50%);
 @slaveColorFade: fade(@slaveColor, 35%);
 @slaveShadowColor: fade(@slaveColor, 35%);
 // 第3色
-@thirdColor: #7EA608;//#20A060;
-@thirdColorAlt:  lighten(@thirdColor, 50%);
-@thirdColorFade:  fade(@thirdColor, 35%);
+@thirdColor: #7ea608; //#20A060;
+@thirdColorAlt: lighten(@thirdColor, 50%);
+@thirdColorFade: fade(@thirdColor, 35%);
 @thirdShadowColor: lighten(@thirdColor, 35%);
 // 第4色
 @fourthColor: #803099;

@@ -9,7 +9,7 @@ body {
   font-family: @textFont;
   font-weight: normal;
   color: @foreColorDark;
-  line-height: 2.0;
+  line-height: 2;
 }
 
 #write {
@@ -22,8 +22,8 @@ body {
   padding: 0px 30px 50px 30px;
 }
 
-#write>ul:first-child,
-#write>ol:first-child {
+#write > ul:first-child,
+#write > ol:first-child {
   margin-top: 30px;
 }
 
@@ -39,13 +39,16 @@ body.typora-export {
     padding-left: 0px;
     padding-right: 0px;
   }
+  .mdx-toc-info2 {
+    display: none;
+  }
 }
 
-body>*:first-child {
+body > *:first-child {
   margin-top: 0 !important;
 }
 
-body>*:last-child {
+body > *:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -54,9 +57,11 @@ img {
   padding: 5px;
   border: 2px solid rgba(255, 255, 255, 0);
 }
+
 .mdx-figure-hover {
   border: 2px solid @masterColor;
 }
+
 #figure-content:hover {
   border: 2px solid @masterColor;
 }
@@ -75,6 +80,7 @@ a {
   // margin-right: 2px;
   // transition: all 0.3s ease-in-out;
 }
+
 a:hover {
   color: @aHoverColor;
   // background-color: @slaveColor;
@@ -85,14 +91,16 @@ a:hover {
   // box-shadow: 0px 4px 20px @slaveShadowColor;
   // transition: all 0.3s ease-in-out;
 }
+
 a:active {
   color: @slaveColor;
 }
+
 // a:hover::before,
 // a:hover::after {
 //   position: absolute;
 // }
-// a:hover::after { content: "↗"; top: -0.5em;}  
+// a:hover::after { content: "↗"; top: -0.5em;}
 
 h1 a,
 h2 a,
@@ -133,8 +141,9 @@ h6 {
   margin-bottom: 0em;
   // font-weight: bold;
   line-height: 1.5;
-  font-family: @headerFont;//@titleFont;
+  font-family: @headerFont; //@titleFont;
 }
+
 h6 {
   font-family: @titleFont;
 }
@@ -181,66 +190,102 @@ h6 code {
 h1 {
   margin-left: -20px;
   margin-right: -20px;
-  padding-left: 20px;
   margin-top: 3em;
-  margin-bottom: 0;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  margin-bottom: 1.5em;
+  padding-left: 20px;
+  padding-top: 1em;
+  height: 50px;
+  line-height: 50px;
   font-size: 1.8em;
-  // border-top: 2px solid @masterColor;
+  border-top: 3px solid @masterColor;
   // text-align: center;
-  background-color: @masterColor;
-  color: @foreColorLight;
+  // background-color: @masterColor;
+  // color: @foreColorLight;
   // border-radius: 4px;
   // box-shadow: 0px 4px 20px @thirdShadowColor;
+}
+body div h1:first-of-type {
+  border-top: 0px;
 }
 
 h2 {
   margin-left: -20px;
   margin-right: -20px;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
   padding-left: 20px;
   padding-top: 1em;
-  margin-top: 1em;
-  margin-bottom: 0.2em;
   // padding-top: 0.3em;
   // padding-bottom: 0em;
-  font-size: 1.6em;
-  border-top: 1px solid @masterColor;
+  font-size: 1.8em;
+  border-top: 3px solid @masterColorAlt;
   // text-align: center;
   // background-color: @thirdColor;
   // color: @foreColorLight;
   // border-radius: 8px;
   // box-shadow: 0px 4px 20px @masterShadowColor;
 }
-h1 + h2 { // h1后紧跟h2的情况
+
+h1 + h2 {
+  // h1后紧跟h2的情况，不显示边框分隔线
+  // figure + h2 { // table后紧跟h2的情况，不显示边框分隔线
   margin-top: 0;
+  padding-top: 0em;
+  border-top: 0px;
 }
 
 h3 {
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 20px;
+  padding-top: 1em;
+  // padding-top: 0.3em;
+  // padding-bottom: 0em;
+  font-size: 1.6em;
+  border-top: 1px solid @masterColorAlt;
+  // border-bottom: 5px solid @masterColorAlt;
+}
+
+h2 + h3 {
+  // h2后紧跟h3的情况，不显示边框分隔线
+  // figure + h3 { // table后紧跟h3的情况，不显示边框分隔线
+  margin-top: 0em;
+  padding-top: 0em;
+  border-top: 0px;
+}
+
+h4 {
   margin-top: 1.5em;
   margin-bottom: 0.2em;
   // padding-top: 0.3em;
   // padding-bottom: 0em;
   font-size: 1.4em;
-  // border-bottom: 5px solid @masterColorAlt;
-}
-
-h4 {
-  margin-top: 2em;
-  margin-bottom: 0.2em;
-  // padding-top: 0.3em;
-  // padding-bottom: 0em;
-  font-size: 1.2em;
   // border-bottom: 2px solid @masterColorAlt;
 }
 
+h3 + h4 {
+  // h2后紧跟h3的情况，不显示边框分隔线
+  margin-top: 0;
+  padding-top: 0.5em;
+  border-top: 0px;
+}
+
 h5 {
-  margin-top: 2em;
+  margin-top: 1.5em;
   margin-bottom: 0.2em;
   // padding-top: 0.3em;
   // padding-bottom: 0em;
   font-size: 1.2em;
   // border-bottom: 1px dotted @masterColorAlt;
+}
+
+h4 + h5 {
+  // h2后紧跟h3的情况，不显示边框分隔线
+  margin-top: 0;
+  padding-top: 0.5em;
+  border-top: 0px;
 }
 
 h6 {
@@ -256,7 +301,9 @@ h6 {
   padding-left: 0.5em;
   // border-radius: 0.5em;
 }
-li > h6 { // 用于：子表
+
+li > h6 {
+  // 用于：子表
   color: @masterColor;
   border-left: 0;
   padding-left: 0;
@@ -286,25 +333,25 @@ hr {
   border-top: 0px;
 }
 
-body>h2:first-child {
+body > h2:first-child {
   margin-top: 0;
   padding-top: 0;
 }
 
-body>h1:first-child {
+body > h1:first-child {
   margin-top: 0;
   padding-top: 0;
 }
 
-body>h1:first-child+h2 {
+body > h1:first-child + h2 {
   margin-top: 0;
   padding-top: 0;
 }
 
-body>h3:first-child,
-body>h4:first-child,
-body>h5:first-child,
-body>h6:first-child {
+body > h3:first-child,
+body > h4:first-child,
+body > h5:first-child,
+body > h6:first-child {
   margin-top: 0;
   padding-top: 0;
 }
@@ -333,34 +380,39 @@ h6 p {
   margin-top: 0;
 }
 
-ol>li {
+ol > li {
   list-style-type: decimal;
-  line-height: 2.0;
+  line-height: 2;
   // color: @masterColorAlt;
 }
+
 // 有序列表下无序列表 2级
-ol>li>ul>li {
+ol > li > ul > li {
   list-style-type: upper-alpha;
 }
+
 // 有序列表下无序列表 3级
-ol>li>ul>li>ul>li {
+ol > li > ul > li > ul > li {
   list-style-type: lower-alpha;
 }
+
 // 有序列表下无序列表 4级
-ol>li>ul>li>ul>li>ul>li {
+ol > li > ul > li > ul > li > ul > li {
   list-style-type: disc;
 }
+
 // 有序列表下无序列表 5级
-ol>li>ul>li>ul>li>ul>li>ul>li {
+ol > li > ul > li > ul > li > ul > li > ul > li {
   list-style-type: circle;
 }
+
 // 有序列表下无序列表 6级
-ol>li>ul>li>ul>li>ul>li>ul>li>ul>li {
+ol > li > ul > li > ul > li > ul > li > ul > li > ul > li {
   list-style-type: square;
 }
 
-ul>li {
-  line-height: 2.0;
+ul > li {
+  line-height: 2;
   // color: @masterColorAlt;
 }
 
@@ -386,8 +438,8 @@ ol:last-child {
   // margin-bottom: 0;
 }
 
-li>ol,
-li>ul {
+li > ol,
+li > ul {
   // margin: 0 0;
   // padding-top: 0px;
   // padding-bottom: 0.3em;
@@ -531,13 +583,19 @@ table tr:last-child td:only-child {
 
 // li下的表格增加行号
 li table,
-h6+figure table {
+h6 + figure table {
   counter-reset: tableRowNumber -1;
 }
 li table tr,
-h6+figure table tr {
+h6 + figure table tr {
   counter-increment: tableRowNumber;
 }
+
+// li后的表格，格式微调
+li figure {
+  margin-top: 0em;
+}
+
 li table tr th:first-child::before,
 li table tr td:first-child::before {
   content: "#";
@@ -550,12 +608,14 @@ li table tr td:first-child::before {
   position: absolute;
   left: -3em;
 }
+
 li table tr td:first-child::before {
   content: counter(tableRowNumber);
 }
+
 // H6下的表格增加行号
-h6+figure table tr th:first-child::before,
-h6+figure table tr td:first-child::before {
+h6 + figure table tr th:first-child::before,
+h6 + figure table tr td:first-child::before {
   content: "# ";
   color: @foreColorDarkFade;
   font-family: @codeFont;
@@ -563,12 +623,13 @@ h6+figure table tr td:first-child::before {
   vertical-align: middle;
   text-align: right;
 }
-h6+figure table tr td:first-child::before {
+
+h6 + figure table tr td:first-child::before {
   content: counter(tableRowNumber) " ";
 }
 
 mark {
-  background-color: #FFFF00;
+  background-color: #ffff00;
   border-radius: 4px;
 }
 
@@ -576,40 +637,50 @@ mark {
 .footnotes-area {
   margin-top: 100px;
 }
+
 // 脚注行
 .footnote-line {
   color: @foreColorDark;
   font-size: 1em;
   margin-top: 0.5em;
 }
+
 // 脚注行序号
 .md-fn-count {
   font-family: @titleFont;
 }
+
 .md-fn-count:before {
   content: "[";
 }
+
 .md-fn-count:after {
   content: "] ";
 }
+
 // 脚注行序末返回链接
 .reversefootnote {
   color: @masterColor;
 }
+
 .reversefootnote:hover {
   color: @slaveColor;
 }
+
 // 脚注上标
 a[name^="ref-footnote-"] {
   font-family: @titleFont;
   color: @masterColor;
 }
+
 a[name^="ref-footnote-"]:hover {
-   color: @slaveColor;
+  color: @slaveColor;
 }
+
 a[name^="ref-footnote-"]:before {
   content: "[";
 }
+
 a[name^="ref-footnote-"]:after {
   content: "] ";
 }
@@ -617,10 +688,12 @@ a[name^="ref-footnote-"]:after {
 .CodeMirror {
   z-index: 0;
 }
+
 .CodeMirror-gutters {
   border-right: 1px solid @foreColorDarkAlt;
   // background-color: @foreColorDarkAlt;
 }
+
 .CodeMirror-linenumber {
   color: @foreColorDarkAlt;
 }
@@ -646,23 +719,27 @@ tt:hover {
 
 code.added,
 code.add {
-  background-color: #D0F8C8;
+  background-color: #d0f8c8;
 }
+
 code.modified,
 code.mod,
-code.improved {
-  background-color: #D0D0F8;
+code.improved,
+code.optimized {
+  background-color: #d0d0f8;
 }
+
 code.fixed {
-  background-color: #E0E0E8;
+  background-color: #e0e0e8;
 }
+
 code.removed,
 code.rm,
 code.del {
-  background-color: #F8D0D0;
+  background-color: #f8d0d0;
 }
 
-code:Contains("added") {
+code:contains("added") {
   color: #f00;
 }
 
@@ -709,10 +786,12 @@ code:Contains("added") {
   html {
     font-size: 0.5em;
   }
+
   table,
   pre {
     page-break-inside: avoid;
   }
+
   pre {
     word-wrap: break-word;
   }
@@ -721,7 +800,7 @@ code:Contains("added") {
 #write pre.md-meta-block {
   padding: 1em;
   font-size: 85%;
-  line-height: 2.0;
+  line-height: 2;
   background-color: @foreColorDarkFade3;
   border: 0;
   border-radius: 3px;
@@ -729,23 +808,23 @@ code:Contains("added") {
   margin-top: 0 !important;
 }
 
-.mathjax-block>.code-tooltip {
-  bottom: .375em;
+.mathjax-block > .code-tooltip {
+  bottom: 0.375em;
 }
 
-#write>h3.md-focus:before {
+#write > h3.md-focus:before {
   left: -1.5625em;
-  top: .375em;
+  top: 0.375em;
 }
 
-#write>h4.md-focus:before {
+#write > h4.md-focus:before {
   left: -1.5625em;
-  top: .285714286em;
+  top: 0.285714286em;
 }
 
-#write>h5.md-focus:before {
+#write > h5.md-focus:before {
   left: -1.5625em;
-  top: .285714286em;
+  top: 0.285714286em;
 }
 
 // #write>h6.md-focus:before {
@@ -753,7 +832,7 @@ code:Contains("added") {
 //   top: .285714286em;
 // }
 
-.md-image>.md-meta {
+.md-image > .md-meta {
   border: 1px solid @tableBorderColor;
   background-color: @foreColorDarkFade3;
   border-radius: 3px;
@@ -769,23 +848,24 @@ code:Contains("added") {
   margin-top: 0.6em;
   margin-bottom: 0.6em;
   border-radius: 0px;
-  line-height: 2.0;
+  line-height: 2;
 }
 
 .md-toc-h1 {
-  font-size: 1.0em;
+  font-size: 1em;
   font-weight: bold;
 }
 
 .md-toc-h2 {
-  font-size: 1.0em;
+  font-size: 1em;
   font-weight: bold;
 }
 
 .md-toc-h3,
 .md-toc-h4,
-.md-toc-h5 { //, .md-toc-h6
-  font-size: 1.0em;
+.md-toc-h5 {
+  //, .md-toc-h6
+  font-size: 1em;
   font-weight: normal;
 }
 
@@ -793,7 +873,8 @@ code:Contains("added") {
 .md-toc-h2 a,
 .md-toc-h3 a,
 .md-toc-h4 a,
-.md-toc-h5 a { //, .md-toc-h6 a
+.md-toc-h5 a {
+  //, .md-toc-h6 a
   color: @foreColorDark;
   text-decoration: none;
   padding: 0px 0px 0px 0px;
@@ -804,7 +885,8 @@ code:Contains("added") {
 .md-toc-h2 a:hover,
 .md-toc-h3 a:hover,
 .md-toc-h4 a:hover,
-.md-toc-h5 a:hover { //, .md-toc-h6 a:hover
+.md-toc-h5 a:hover {
+  //, .md-toc-h6 a:hover
   color: @slaveColor;
   background-color: @transparencyColor;
   text-decoration: none;
@@ -835,7 +917,8 @@ code:Contains("added") {
 header,
 .context-menu,
 .megamenu-content,
-footer {}
+footer {
+}
 
 /**************************************
 * Header Counters in TOC 目录中的标题序号样式
@@ -844,7 +927,7 @@ footer {}
 /* No link underlines in TOC */
 
 .md-toc-content {
-  counter-reset: h1toc
+  counter-reset: h1toc;
 }
 
 .md-toc-h1 {
@@ -887,15 +970,18 @@ footer {}
 .md-toc-h2,
 .md-toc-h3,
 .md-toc-h4,
-.md-toc-h5 { //, .md-toc-h6
+.md-toc-h5 {
+  //, .md-toc-h6
   font-family: @titleFont;
   font-size: 1em;
 }
+
 .md-toc-h1:before,
 .md-toc-h2:before,
 .md-toc-h3:before,
 .md-toc-h4:before,
-.md-toc-h5:before { //, .md-toc-h6:before
+.md-toc-h5:before {
+  //, .md-toc-h6:before
   color: @foreColorDarkFade;
   font-family: @headerNumFont4toc;
   font-weight: normal;
@@ -905,7 +991,8 @@ footer {}
 .md-toc-h2 a,
 .md-toc-h3 a,
 .md-toc-h4 a,
-.md-toc-h5 a { //, .md-toc-h6 a
+.md-toc-h5 a {
+  //, .md-toc-h6 a
   border: 0;
 }
 
@@ -913,7 +1000,8 @@ footer {}
 .md-toc-h2 a:hover,
 .md-toc-h3 a:hover,
 .md-toc-h4 a:hover,
-.md-toc-h5 a:hover { //, .md-toc-h6 a:hover
+.md-toc-h5 a:hover {
+  //, .md-toc-h6 a:hover
   box-shadow: inherit;
 }
 
@@ -921,13 +1009,14 @@ footer {}
 .md-toc-h2 a:after,
 .md-toc-h3 a:after,
 .md-toc-h4 a:after,
-.md-toc-h5 a:after { //, .md-toc-h6 a:after
+.md-toc-h5 a:after {
+  //, .md-toc-h6 a:after
   content: "";
 }
 
 .md-toc-h1:before {
   counter-increment: h1toc;
-  content: counter(h1toc) "︱"
+  content: counter(h1toc) "︱";
 }
 
 .md-toc-h1 .md-toc-inner {
@@ -936,7 +1025,7 @@ footer {}
 
 .md-toc-h2:before {
   counter-increment: h2toc;
-  content: counter(h1toc) "." counter(h2toc) "︱"
+  content: counter(h1toc) "." counter(h2toc) "︱";
 }
 
 .md-toc-h2 .md-toc-inner {
@@ -945,7 +1034,7 @@ footer {}
 
 .md-toc-h3:before {
   counter-increment: h3toc;
-  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "︱"
+  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "︱";
 }
 
 .md-toc-h3 .md-toc-inner {
@@ -954,7 +1043,7 @@ footer {}
 
 .md-toc-h4:before {
   counter-increment: h4toc;
-  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "︱"
+  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "︱";
 }
 
 .md-toc-h4 .md-toc-inner {
@@ -963,7 +1052,7 @@ footer {}
 
 .md-toc-h5:before {
   counter-increment: h5toc;
-  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "." counter(h5toc) "︱"
+  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "." counter(h5toc) "︱";
 }
 
 .md-toc-h5 .md-toc-inner {
@@ -986,23 +1075,23 @@ footer {}
 /** initialize css counter */
 
 #write {
-  counter-reset: h1
+  counter-reset: h1;
 }
 
 h1 {
-  counter-reset: h2
+  counter-reset: h2;
 }
 
 h2 {
-  counter-reset: h3
+  counter-reset: h3;
 }
 
 h3 {
-  counter-reset: h4
+  counter-reset: h4;
 }
 
 h4 {
-  counter-reset: h5
+  counter-reset: h5;
 }
 
 // h5 {
@@ -1011,16 +1100,17 @@ h4 {
 
 /** put counter result into headings */
 
-#write h1:before {
-  color: @foreColorLightFade;
-  font-family: @headerNumFont;
-  font-weight: normal;
-}
-
+// #write h1:before {
+//   color: @foreColorLightFade;
+//   font-family: @headerNumFont;
+//   font-weight: normal;
+// }
+#write h1:before,
 #write h2:before,
 #write h3:before,
 #write h4:before,
-#write h5:before { //, #write h6:before 
+#write h5:before {
+  //, #write h6:before
   color: @masterColorFade;
   font-family: @headerNumFont;
   font-weight: normal;
@@ -1028,31 +1118,31 @@ h4 {
 
 #write h1:before {
   counter-increment: h1;
-  content: counter(h1) "︱"
+  content: counter(h1) "︱";
 }
 
 #write h2:before {
   counter-increment: h2;
-  content: counter(h1) "." counter(h2) "︱"
+  content: counter(h1) "." counter(h2) "︱";
 }
 
 #write h3:before,
 h3.md-focus.md-heading:before {
   /*override the default style for focused headings */
   counter-increment: h3;
-  content: counter(h1) "." counter(h2) "." counter(h3) "︱"
+  content: counter(h1) "." counter(h2) "." counter(h3) "︱";
 }
 
 #write h4:before,
 h4.md-focus.md-heading:before {
   counter-increment: h4;
-  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "︱"
+  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "︱";
 }
 
 #write h5:before,
 h5.md-focus.md-heading:before {
   counter-increment: h5;
-  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "︱"
+  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "︱";
 }
 
 // #write h6:before,
@@ -1063,12 +1153,13 @@ h5.md-focus.md-heading:before {
 
 /** override the default style for focused headings */
 
-#write>h3.md-focus:before,
-#write>h4.md-focus:before,
-#write>h5.md-focus:before, // #write>h6.md-focus:before,
+#write > h3.md-focus:before,
+#write > h4.md-focus:before,
+#write > h5.md-focus:before, // #write>h6.md-focus:before,
 h3.md-focus:before,
 h4.md-focus:before,
-h5.md-focus:before { //, h6.md-focus:before
+h5.md-focus:before {
+  //, h6.md-focus:before
   color: inherit;
   border: inherit;
   border-radius: inherit;
@@ -1101,64 +1192,71 @@ h5.md-focus:before { //, h6.md-focus:before
 }
 
 /**************************************
-* flowjs CSS
+* 脚本化画表 CSS
 **************************************/
 
 /* ----- flow diagram 流程图 ----- */
 
 // 开始节点
-rect[id^=st].flowchart {
+rect[id^="st"].flowchart {
   fill: @foreColorDark;
   stroke: @foreColorDark;
   stroke-width: 5;
 }
+
 // 结束节点
-rect[id^=e].flowchart {
+rect[id^="e"].flowchart {
   fill: none;
   stroke: @foreColorDark;
   stroke-width: 5;
 }
+
 // 操作节点
-rect[id^=op].flowchart {
+rect[id^="op"].flowchart {
   fill: @masterColorAlt;
   stroke: @masterColor;
   stroke-width: 1;
 }
+
 // 子流程节点
-rect[id^=sub],
-rect[id^=sub].flowchart {
+rect[id^="sub"],
+rect[id^="sub"].flowchart {
   fill: @fourthColorAlt;
   stroke: @fourthColor;
   stroke-width: 1;
 }
+
 // 条件节点
-path[id^=c].flowchart {
+path[id^="c"].flowchart {
   fill: @slaveColorAlt;
   stroke: @slaveColor;
   stroke-width: 1;
 }
-// IO节点
-path[id^=io].flowchart {
+
+// I/O节点
+path[id^="io"].flowchart {
   fill: @thirdColorAlt;
   stroke: @thirdColor;
   stroke-width: 1;
 }
+
 // 流程线
 path[fill="none"][stroke-width="3"][marker-end^="url(#raphael-marker-endblock"] {
   stroke: @foreColorDark;
   stroke-width: 2px;
   // marker-end: "url(#raphael-marker-endclassic)";
 }
+
 // 流程线箭头
 marker[id^="raphael-marker-endblock"] > use {
   fill: @foreColorDark;
 }
+
 // 文本
 text[text-anchor="start"] > tspan {
   font-size: 14px;
   font-family: @codeFont;
 }
-
 
 /* ----- sequeuce diagram 时序图 ----- */
 
@@ -1168,19 +1266,22 @@ rect[x="10"][y="10"][fill="var(--bg-color)"][stroke="currentColor"][stroke-width
   stroke: @foreColorDarkAlt;
   stroke-width: 2px;
 }
+
 // 矩形
 rect[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][rx="0"][ry="0"] {
   fill: @masterColorAlt;
   stroke: @masterColor;
   stroke-width: 1px;
 }
+
 // 生命线
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"] {
   // fill: none;
   stroke: @masterColorFade;
   stroke-width: 1px;
-  stroke-dasharray: 5;
+  // stroke-dasharray: 5;
 }
+
 // 消息实线+实箭头
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endblock"] {
   // fill: none;
@@ -1188,10 +1289,12 @@ path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end
   stroke-width: 2px;
   stroke-dasharray: none;
 }
+
 // 消息虚线+实箭头
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endblock"][stroke-dasharray="6,2"] {
   stroke-dasharray: 5;
 }
+
 // 消息实线+虚箭头
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endopen"] {
   // fill: none;
@@ -1199,21 +1302,25 @@ path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end
   stroke-width: 2px;
   stroke-dasharray: none;
 }
+
 // 消息虚线+虚箭头
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endopen"][stroke-dasharray="6,2"] {
   stroke-dasharray: 5;
 }
+
 // 消息虚箭头
 marker[id^="raphael-marker-endopen"] > use {
   stroke: @foreColorDark;
 }
+
 // 实体、注释文本
-rect+rect+text[text-anchor="middle"] > tspan {
+rect + rect + text[text-anchor="middle"] > tspan {
   font-size: 14px;
   font-family: @codeFont;
 }
+
 // 消息文本
-rect+text[text-anchor="middle"] > tspan {
+rect + text[text-anchor="middle"] > tspan {
   font-size: 14px;
   font-family: @textFont;
 }
@@ -1229,30 +1336,36 @@ rect+text[text-anchor="middle"] > tspan {
   color: @foreColorDark;
   fill: @foreColorDarkAlt;
 }
+
 // 方角矩形
-.node rect[rx="0"][rx="0"]  {
+.node rect[rx="0"][rx="0"] {
   color: @foreColorDark;
   fill: @masterColorAlt;
   stroke: @masterColor;
   stroke-width: 3;
 }
+
 // .node[id="INIT"] + .node > rect  {
 //   stroke-width: 1;
 // }
 // 圆角矩形
-.node rect[rx="5"][rx="5"]  {
+.node rect[rx="5"][rx="5"] {
   // color: @foreColorDark;
   fill: @masterColorAlt;
   stroke: @masterColor;
   stroke-width: 1;
+  rx: 5;
+  rx: 5;
 }
+
 // 圆形
-.node circle  {
+.node circle {
   // color: @thirdColor;
   fill: @thirdColorAlt;
   stroke: @thirdColor;
   stroke-width: 1;
 }
+
 // ？
 .node ellipse {
   // color: @foreColorDark;
@@ -1260,6 +1373,7 @@ rect+text[text-anchor="middle"] > tspan {
   stroke: @foreColorDark;
   stroke-width: 10;
 }
+
 // 菱形
 .node polygon[rx^="5"][ry^="5"] {
   // color: @foreColorDark;
@@ -1267,6 +1381,7 @@ rect+text[text-anchor="middle"] > tspan {
   stroke: @slaveColor;
   stroke-width: 1;
 }
+
 // 不对称形状
 .node polygon {
   // color: @foreColorDark;
@@ -1274,48 +1389,57 @@ rect+text[text-anchor="middle"] > tspan {
   stroke: @fourthColor;
   stroke-width: 1;
 }
+
 // 线条
 .edgePath .path {
   stroke: @foreColorDark;
   stroke-width: 2;
 }
+
 // 线条箭头
 .arrowheadPath {
   fill: @foreColorDark;
 }
+
 // 线条文本
 .edgeLabel {
   background-color: @docBgColor;
   font-family: @textFont;
 }
+
 // 子图
 .cluster rect {
   fill: @foreColorDarkFade3 !important;
   stroke: @foreColorDarkFade1 !important;
   stroke-width: 1 !important;
 }
+
 // 子图文本
 .cluster text {
   fill: @foreColorDark;
 }
+
 // 自定义：流程图开始、结束节点样式
 #START circle {
   fill: @foreColorDark;
   stroke: @foreColorDark;
   stroke-width: 5;
 }
+
 #END circle {
   fill: none;
   stroke: @foreColorDark;
   stroke-width: 5;
   // stroke-dasharray: 4;
 }
+
 // 自定义：状态图初始状态、最终状态节点样式
 #INIT circle {
   fill: @foreColorDark;
   stroke: @foreColorDark;
   stroke-width: 5;
 }
+
 #FINAL circle {
   fill: none;
   stroke: @foreColorDark;
@@ -1328,17 +1452,31 @@ rect+text[text-anchor="middle"] > tspan {
 .actor {
   stroke: @masterColor;
   fill: @masterColorAlt;
+  rx: 5;
+  ry: 5;
 }
+
+.actor-person {
+  stroke: @slaveColor;
+  fill: @slaveColorAlt;
+}
+
 // 角色文本
 text.actor {
   fill: @foreColorDark;
   stroke: none;
 }
+
 // 角色生命线
 .actor-line {
   stroke: @masterColor;
-  stroke-dasharray: 5;
+  // stroke-dasharray: 5;
 }
+
+.actor-line-person {
+  stroke: @slaveColor;
+}
+
 // 实线消息
 .messageLine0 {
   stroke-width: 2;
@@ -1346,50 +1484,60 @@ text.actor {
   // marker-end: "url(#arrowhead)";
   stroke: @foreColorDark;
 }
+
 // 实线箭头
 #arrowhead {
   fill: @foreColorDark;
 }
+
 // 虚线消息
 .messageLine1 {
   stroke-width: 2;
   // stroke-dasharray: 2;
   stroke: @foreColorDark;
 }
+
 // 异步消息箭头
 #crosshead path {
   fill: @foreColorDarkAlt !important;
   stroke: @foreColorDark !important;
 }
+
 // 消息文本
 .messageText {
   fill: @foreColorDark;
   stroke: none;
   font-family: @textFont;
 }
+
 // 角标背景
 .labelBox {
   stroke: none;
   fill: @slaveColorAlt;
 }
+
 // 角标文本
 .labelText {
   fill: @slaveColor;
   stroke: none;
 }
+
 .labelText tspan {
   fill: @slaveColor;
   stroke: none;
 }
+
 // 循环文本
 .loopText {
   fill: @slaveColor;
   stroke: none;
 }
+
 .loopText tspan {
   fill: @slaveColor;
   stroke: none;
 }
+
 // 循环线
 .loopLine {
   stroke-width: 1;
@@ -1397,12 +1545,14 @@ text.actor {
   // marker-end: "url(#arrowhead)";
   stroke: @slaveColorFade;
 }
+
 // 备注背景
 .note {
   stroke: @foreColorDark;
   stroke-dasharray: 5;
   fill: @foreColorDarkAlt;
 }
+
 // 备注文本
 .noteText {
   fill: @foreColorDark;
@@ -1720,35 +1870,38 @@ div.mermaidTooltip {
 * 重定义Typora原生样式
 **************************************/
 
-#write{
+#write {
   padding-left: 20px;
   padding-right: 20px;
 }
+
 /* md 系统样式 */
 .md-toc-inner {
   text-decoration: none;
 }
 
 .md-toc-item {
-//   transition: box-shadow 0.5s;  
+  //   transition: box-shadow 0.5s;
 }
 
 .md-toc-item:hover {
   box-shadow: 0px -1px 0px @masterColor inset;
 }
+
 .md-toc-item:active {
   box-shadow: 0px -1px 0px @slaveColor inset;
 }
 
 .md-toc-item > a {
   color: @foreColorDark;
-//   transition: color 0.5s;  
+  //   transition: color 0.5s;
 }
 
 .md-toc-item:hover > a,
 .md-toc-item a:hover {
   color: @masterColor;
 }
+
 .md-toc-item:active > a,
 .md-toc-item a:active {
   color: @slaveColor;
@@ -1757,6 +1910,30 @@ div.mermaidTooltip {
 /**************************************
 * VLOOK UI 自定义样式
 **************************************/
+
+.mdx-master-color {
+  color: @masterColor;
+  background-color: @masterColorAlt;
+  border-color: @masterColorFade;
+}
+
+.mdx-slave-color {
+  color: @slaveColor;
+  background-color: @slaveColorAlt;
+  border-color: @slaveColorFade;
+}
+
+.mdx-third-color {
+  color: @thirdColor;
+  background-color: @thirdColorAlt;
+  border-color: @thirdColorFade;
+}
+
+.mdx-fourth-color {
+  color: @fourthColor;
+  background-color: @fourthColorAlt;
+  border-color: @fourthColorFade;
+}
 
 .mdx-toc-menu {
   background-color: @foreColorDark;
@@ -1821,8 +1998,25 @@ div.mermaidTooltip {
 
 .mdx-toc-box-title {
   left: 50px;
-  top: 10px;
+  top: 5px;
   position: absolute;
+  width: 220px;
+  height: 40px;
+  border-radius: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 1em;
+  font-family: @headerFont;
+  color: @masterColor;
+}
+
+.mdx-toc-box-title:hover {
+  text-overflow: inherit;
+  overflow: visible;
+  padding-right: 10px;
+  width: auto;
+  background-color: @foreColorLight;
 }
 
 .mdx-toc-box-body-scroll {
@@ -1873,15 +2067,14 @@ div.mermaidTooltip {
   align-items: center;
   color: @docBgColor;
   background-color: @foreColorDark;
-  border-radius: 4px;
   cursor: pointer;
   float: left;
   width: 30px;
   height: 30px;
   padding-top: 0px;
   text-align: center;
-  margin-right: 150px;
-//   transition: background-color 0.5s, opacity 0.5s;
+  // margin-right: 150px;
+  //   transition: background-color 0.5s, opacity 0.5s;
 }
 
 .mdx-pin:hover {
@@ -1893,43 +2086,6 @@ div.mermaidTooltip {
   color: @docBgColor;
 }
 
-.mdx-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: @docBgColor;
-  background-color: @masterColor;
-  cursor: pointer;
-  float: left;
-  padding-top: 0px;
-  top: 0px;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-//   transition: background-color 0.5s, opacity 0.5s;  
-}
-
-.mdx-nav:hover {
-  background-color: @aHoverColor;
-}
-
-.mdx-nav:active {
-  background-color: @slaveColor;
-}
-
-.mdx-nav-back {
-  margin-right: -12px;
-  width: 60px;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0);
-}
-
-.mdx-nav-forward {
-  border-radius: 15px;
-  border: 1px solid @foreColorLight;
-}  
-
 .mdx-header-current {
   background-color: @masterColorAlt;
 }
@@ -1938,13 +2094,14 @@ div.mermaidTooltip {
   font-weight: bold;
   color: @masterColor;
 }
+
 .mdx-header-current a:after {
   content: " ◀";
 }
 
 .mdx-folder {
   color: @foreColorDarkAlt;
-//   background-color: @foreColorDark;
+  //   background-color: @foreColorDark;
   float: left;
   width: 16px;
   text-align: center;
@@ -1954,19 +2111,122 @@ div.mermaidTooltip {
   color: @slaveColor;
 }
 
+.mdx-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  color: @docBgColor;
+  background-color: @masterColor;
+  cursor: pointer;
+  padding: 0px;
+  font-size: 0.85em;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  //   transition: background-color 0.5s, opacity 0.5s;
+}
+
+.mdx-btn:hover {
+  background-color: @aHoverColor;
+}
+
+.mdx-btn:active {
+  background-color: @slaveColor;
+}
+
+.mdx-nav-prev {
+  top: 0px;
+  left: 0px;
+  width: 200px;
+  height: 50px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.mdx-nav-prev:hover {
+  background: linear-gradient(to right, @aHoverColor, @masterColor);
+}
+
+.mdx-nav-prev:active {
+  background: linear-gradient(to right, @slaveColor, @masterColor);
+}
+
+.mdx-nav-prev-text {
+  top: 0px;
+  left: 30px;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  color: @foreColorLight;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  cursor: pointer;
+}
+
+.mdx-nav-next {
+  top: 0px;
+  right: 0px;
+  width: 200px;
+  height: 50px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.mdx-nav-next:hover {
+  background: linear-gradient(to left, @aHoverColor, @masterColor);
+}
+
+.mdx-nav-next:active {
+  background: linear-gradient(to left, @slaveColor, @masterColor);
+}
+
+.mdx-nav-next-text {
+  top: 0px;
+  right: 30px;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  color: @foreColorLight;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  cursor: pointer;
+}
+
 .mdx-bread-nav {
   background-color: @masterColor;
-  color: @foreColorLight;
-  font-family: @headerFont;
-  font-size: 1.5em;
-  font-weight: bold;
   top: 0px;
   width: 100%;
   height: 50px;
   position: fixed;
-  padding: 0px 0px 0px 20px;
+  padding: 0px;
   vertical-align: middle;
   display: none;
+}
+
+.mdx-bread-nav-text {
+  color: #ffffff;
+  font-family: @headerFont;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 200px;
+  margin-right: 200px;
+  width: auto;
+  height: 50px;
+}
+
+.mdx-figure-launcher {
+  top: 10px;
+  right: 10px;
+  position: fixed;
+  visibility: hidden;
 }
 
 .mdx-figure-viewer {
@@ -1974,7 +2234,7 @@ div.mermaidTooltip {
   top: 0px;
   width: 100%;
   height: 100%;
-  background-color: #FFF;
+  background-color: #fff;
   position: fixed;
   display: none;
   z-index: 2000;
@@ -2015,9 +2275,9 @@ div.mermaidTooltip {
   position: absolute;
   bottom: 10px;
 }
-  
-// svg path {  
-//   fill: inherit;  
+
+// svg path {
+//   fill: inherit;
 // }
 
 use.mdx-svg-ico-light {
@@ -2026,7 +2286,7 @@ use.mdx-svg-ico-light {
 
 use.mdx-svg-ico-dark {
   fill: @foreColorDarkAlt;
-//   transition: fill 0.5s;
+  //   transition: fill 0.5s;
 }
 
 use.mdx-svg-ico-dark:hover {
@@ -2037,7 +2297,11 @@ use.mdx-svg-ico-dark:hover {
   position: fixed;
   left: 0px;
   top: 0px;
-  background-image: linear-gradient(-180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+  background-image: linear-gradient(
+          -180deg,
+          rgba(0, 0, 0, 0.2) 0%,
+          rgba(0, 0, 0, 0) 100%
+  );
   width: 100%;
   height: 20px;
 }
@@ -2045,7 +2309,11 @@ use.mdx-svg-ico-dark:hover {
 .mdx-docbar-bottom {
   position: fixed;
   left: 0px;
-  background-image: linear-gradient(-180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 100%);
+  background-image: linear-gradient(
+          -180deg,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 0.2) 100%
+  );
   width: 100%;
   height: 20px;
 }
@@ -2076,12 +2344,13 @@ use.mdx-svg-ico-dark:hover {
 * 封面、封底
 **************************************/
 
-body h6:first-child, // 页面第1个H6为封面、子标题样式
-body h6:last-child { // 页面最后1个H6为封底样式
+body div[id=write] > h6:first-child, // 页面第1个H6为封面、子标题样式
+body div[id=write] > h6:last-child {
+  // 页面最后1个H6为封底样式
   color: @foreColorLight;
   background-color: @masterColor;
   font-weight: bold;
-	font-size: 2.5em;
+  font-size: 2.5em;
   font-family: @headerFont;
   height: 900px;
   padding-left: 30px;
@@ -2091,36 +2360,48 @@ body h6:last-child { // 页面最后1个H6为封底样式
   margin-bottom: 3em;
   border: 0;
 }
+
 // 封底样式微调
-body h6:last-child {
-  height: 250px;
+body div[id=write] > h6:last-child {
+  height: 500px;
   margin-top: 3em;
   padding-top: 50px;
   margin-bottom: -50px;
 }
+
 // 封面内的主标题
-body h6:first-child strong {
+body div[id=write] > h6:first-child strong {
   font-size: 0.7em;
   vertical-align: super;
 }
+
 // 封面内的作者信息
-body h6:first-child u {
+body div[id=write] > h6:first-child u {
   color: @foreColorLightFade;
   font-size: 0.7em;
   font-family: @titleFont;
   text-decoration: none;
 }
+
 // 封面内的作者信息前缀
-body h6:first-child u::before {
+body div[id=write] > h6:first-child u::before {
   content: "By ";
   font-weight: normal;
   text-decoration: none;
 }
+
 // 封面内的版权信息
-body h6:first-child em {
+body div[id=write] > h6:first-child em {
   color: @foreColorLightFade;
   font-size: 0.35em;
   font-family: @titleFont;
   font-style: normal;
   vertical-align: sub;
+}
+
+body div[id=write] > h6:last-child::after {
+  content: "本文档样式与功能增强由 VLOOK™ 插件提供（https://github.com/madmaxchow/VLOOK）";
+  font-size: 0.35em;
+  font-family: @titleFont;
+  font-style: normal;
 }

@@ -28,7 +28,7 @@ VLOOK包括[主题样式](#主题样式)和[工具箱](#工具箱)两个部分�
 > - 标准化CommonMark语法参考：[60秒学会Markdown语法](http://commonmark.org/help/)、[10分钟深入学习Markdown](http://commonmark.org/help/tutorial/)
 > - GitHub采用Flavored Markdown的语法参考：Typora目前采用该标准  [详细](https://support.typora.io/Markdown-Reference/)
 
-# 特性说明
+# 特性介绍
 
 ## 主题样式
 
@@ -108,9 +108,11 @@ VLOOK包括[主题样式](#主题样式)和[工具箱](#工具箱)两个部分�
 | 第一行 | 左对齐 | 居中对齐 | 右对齐 |
 | 第二行 | 左对齐 | 居中对齐 | 右对齐 |
 
-### 脚本化图表样式
+### 图表样式
 
-统一mermaid、flowchart.js、JS Sequence Diagrams三类脚本化图表的样式，更多脚本化图表的内容详见《Markdown风格画图脚本Demo》
+1. 统一优化mermaid、flowchart.js、JS Sequence Diagrams三类脚本化图表的样式；
+2. 部分样式效果须导出HTML后加入插件代码后才能生效，因Typora的原因，暂不提供在编辑时进行实时预览；
+3. 更多脚本化图表，以及与VLOOK相关的特性内容详见《**Markdown风格画图脚本Demo.html**》。
 
 ###### mermaid
 
@@ -146,25 +148,26 @@ FINAL(( ))
 ```
 ```mermaid
 sequenceDiagram
-participant user as <用户角色>
-participant client as 客户端程序
-participant server as 服务端系统
+participant User as @人物角色
+participant Client as 前端产品
+participant Server as /后端支撑系统/
+participant Extend as _外部系统_
 
-user ->> client: 同步发送消息1
-client ->> server: 同步发送消息1
-client -X server: 异步发送消息2
-Note left of client: 左侧备注说明
-Note right of server: 右侧备注说明
-Note over client,server: 跨对象备注说明
+User ->> Client: 同步发送消息1
+Client ->> Server: 同步发送消息1
+Client -X Server: 异步发送消息2
+Note left of Extend: 显示在外部系统<br>左侧备注说明
+Note right of Extend: 显示在外部系统<br>右侧备注说明
+Note over Client,Server: 跨对象备注说明
 loop 循环组
-	client ->> server: 发送消息A
+	Client ->> Extend: 发送消息A
 	alt 情景1
-		server -->> client: 同步返回消息A1
+		Server -->> Client: 同步返回消息A1
 	else 情景2
-		server --X client: 异步返回消息A2
+		Server --X Client: 异步返回消息A2
 	end
 	opt 可选
-		client ->> server: 发送消息X
+		Extend ->> Server: 发送消息X
 	end
 end
 ```
@@ -201,11 +204,6 @@ CLIENT ->> SERVER: 请求消息：实线+虚箭头
 SERVER -->> CLIENT: 返回消息：虚线+虚箭头
 Note left of SERVER: 我在最后一位
 ```
-### 优化字体集
-
-1. 优化导出HTML文件使用的字体集，优先以网络字体方式使用开源字体：思源宋体、思源黑体、Noto Sans、Noto Sans Mono；
-2. 若无法加载优先字体，则使用微软雅黑等本地化字体呈现；
-3. 由于思源宋体暂无免费网络资源，如需使用可下载并放置到Typora的主题目录的子目录`font`下、导出HTML文件的目录的子目录`font`下。
 
 ### 预置标签内容样式
 
@@ -215,6 +213,13 @@ Note left of SERVER: 我在最后一位
    - `modified`、`mod`、`optimized`、`修改`、`优化`
    - `removed`、`rm`、`del`、`删除`、`移除`
    - `fixed`、`修复`
+3. 样式效果须导出HTML后加入插件代码后才能生效，因Typora的原因，暂不提供在编辑时进行实时预览。
+
+### 优化字体集
+
+1. 优化导出HTML文件使用的字体集，优先以网络字体（WebFont）方式使用开源字体：思源宋体、思源黑体、Noto Sans、Noto Sans Mono；
+2. 若无法加载优先字体，则使用微软雅黑等本地化字体呈现；
+3. 由于思源宋体暂无免费网络资源，如需使用可下载并放置到Typora的主题目录的子目录`font`下、导出HTML文件的目录的子目录`font`下。
 
 ### 打印
 
@@ -226,14 +231,15 @@ Note left of SERVER: 我在最后一位
 
 ###### 大纲导航
 
-1. 支持页面左侧←←←显示目录大纲，并能根据页面位置自动高亮当前章节；
+1. 支持页面左侧显示目录大纲，并能根据页面位置自动高亮当前章节；
 2. 目录大纲默认显示前三级，可自行修改样式文件进行调整
 3. 编写Markdown文档时，须在封面后添加标签`[TOC]`。
 
 ###### 面包屑导航
 
-1. 支持在页面顶部↑↑↑显示当前章节标题内容（除第6级标题）；
-2. 根据页面位置自动识别当前章节，正如你现在看到的那样。
+1. 支持在页面顶部显示当前章节标题内容（除第6级标题）；
+2. 根据页面位置自动识别当前章节，正如你现在看到的那样；
+3. 显示`上一章`、`下一章`的标题，点击上/下章节标题可在上/下章节间进行快速跳转。
 
 ### 插图浏览器
 
@@ -282,7 +288,7 @@ Note left of SERVER: 我在最后一位
 3. 用纯文件编辑器（如：Windows下的记事本）打开该导出的HTML文件，并拖到文件最末尾，将复制的内容粘贴在`</body>`前；
 4. 保存，大功告成。
 
-> 强烈建议使用Chrome或Firefox浏览器打开该HTML文件
+> 强烈建议使用Chrome或Firefox浏览器浏览HTML文件
 
 ## 本地配置字体（可选）
 
@@ -311,4 +317,4 @@ Note left of SERVER: 我在最后一位
 
 
 
-###### 终了
+###### 终了<br>
