@@ -1,6 +1,6 @@
-VLOOK™是针对Typora导出的HTML文件的增强插件，包括主题样式和工具箱两个部分：
+VLOOK™是针对Typora导出的HTML文件的插件，包括排版和工具箱两个部分：
 
-- 主题样式：基于CSS制作，为Typora编辑的Markdown文件和导出的HTML文件提供排版增强、优化呈现细节；
+- 排版增强：基于CSS制作，为Typora编辑的Markdown文件和导出的HTML文件提供排版增强、优化呈现细节；
 - 工具箱：基于JQuery制作，为导出的HTML文件提供便捷的章节导航、插图导航、图片失效、无效链接检查等特性。
 
 VLOOK™为开源软件，遵从MIT许可证。
