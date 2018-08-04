@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/earlyaccess/notosanssc.css");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400,700");
 /**************************************
 * 字体主题
@@ -29,7 +28,7 @@ body {
   background: #ffffff;
   font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   font-weight: normal;
-  color: #646468;
+  color: #58585a;
   line-height: 2;
 }
 #write {
@@ -68,10 +67,7 @@ img {
   border: 2px solid rgba(255, 255, 255, 0);
 }
 .mdx-figure-hover {
-  border: 2px solid #0078d7;
-}
-#figure-content:hover {
-  border: 2px solid #0078d7;
+  border: 2px solid #0078d7 !important;
 }
 a {
   color: #0078d7;
@@ -121,7 +117,7 @@ h6 {
   position: relative;
   margin-bottom: 0em;
   line-height: 1.5;
-  font-family: headerFont, "NotoSerifCJKsc-Black", "Noto Serif CJK SC Black", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
 h6 {
   font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
@@ -136,35 +132,34 @@ h6:hover a.anchor {
 }
 h1 tt,
 h1 code {
-  font-size: inherit;
+  font-size: 0.85em;
 }
 h2 tt,
 h2 code {
-  font-size: inherit;
+  font-size: 0.85em;
 }
 h3 tt,
 h3 code {
-  font-size: inherit;
+  font-size: 0.85em;
 }
 h4 tt,
 h4 code {
-  font-size: inherit;
+  font-size: 0.85em;
 }
 h5 tt,
 h5 code {
-  font-size: inherit;
+  font-size: 0.85em;
 }
 h6 tt,
 h6 code {
-  font-size: inherit;
+  font-size: 0.85em;
 }
 h1 {
   margin-left: -20px;
   margin-right: -20px;
   margin-top: 3em;
-  margin-bottom: 1.5em;
+  margin-bottom: 0.5em;
   padding-left: 20px;
-  padding-top: 1em;
   height: 50px;
   line-height: 50px;
   font-size: 1.8em;
@@ -179,12 +174,12 @@ h2 {
   margin-top: 1em;
   margin-bottom: 0.5em;
   padding-left: 20px;
-  padding-top: 1em;
+  padding-top: 0em;
   font-size: 1.8em;
   border-top: 3px solid #d7edff;
 }
 h1 + h2 {
-  margin-top: 0;
+  margin-top: 0em;
   padding-top: 0em;
   border-top: 0px;
 }
@@ -250,7 +245,7 @@ table {
 hr {
   margin-top: 1.2em;
   margin-bottom: 1.2em;
-  border: 1px solid #d8d8da;
+  border: 1px solid #d8d8d9;
   overflow: hidden;
   box-sizing: content-box;
   border-top: 0px;
@@ -322,11 +317,11 @@ ol {
   padding-bottom: 0;
 }
 blockquote {
-  border-left: 0.25em solid #e9fbb2;
+  border-left: 0.25em solid #d0fbb2;
   padding-left: 0.5em;
   margin-top: 0.5em;
   margin-bottom: 1em;
-  color: #7ea608;
+  color: #4aa608;
   font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
 blockquote blockquote {
@@ -355,9 +350,9 @@ table tr:nth-child(2n) td:last-child {
 table tr th {
   background-color: #ffffff;
   font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
-  color: #646468;
-  border-top: 2px solid #a4a4a8;
-  border-bottom: 1px solid #a4a4a8;
+  color: #58585a;
+  border-top: 2px solid #98989a;
+  border-bottom: 1px solid #98989a;
   margin: 0;
   padding: 4px 12px 4px 12px;
 }
@@ -365,7 +360,7 @@ table tr td {
   text-align: left;
   margin: 0;
   padding: 4px 12px 4px 12px;
-  border-bottom: 1px solid rgba(164, 164, 168, 0.2);
+  border-bottom: 1px solid rgba(152, 152, 154, 0.2);
 }
 table tr td:first-child {
   font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
@@ -381,7 +376,7 @@ table tr td:last-child {
   padding-right: 2px;
 }
 table tr:last-child td {
-  border-bottom: 2px solid #a4a4a8;
+  border-bottom: 2px solid #98989a;
 }
 li table,
 h6 + figure table {
@@ -397,7 +392,7 @@ li figure {
 li table tr th:first-child::before,
 li table tr td:first-child::before {
   content: "#";
-  color: rgba(100, 100, 104, 0.5);
+  color: rgba(88, 88, 90, 0.5);
   font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.7em;
   vertical-align: middle;
@@ -412,7 +407,7 @@ li table tr td:first-child::before {
 h6 + figure table tr th:first-child::before,
 h6 + figure table tr td:first-child::before {
   content: "# ";
-  color: rgba(100, 100, 104, 0.5);
+  color: rgba(88, 88, 90, 0.5);
   font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.7em;
   vertical-align: middle;
@@ -429,7 +424,7 @@ mark {
   margin-top: 100px;
 }
 .footnote-line {
-  color: #646468;
+  color: #58585a;
   font-size: 1em;
   margin-top: 0.5em;
 }
@@ -465,10 +460,10 @@ a[name^="ref-footnote-"]:after {
   z-index: 0;
 }
 .CodeMirror-gutters {
-  border-right: 1px solid #d8d8da;
+  border-right: 1px solid #d8d8d9;
 }
 .CodeMirror-linenumber {
-  color: #d8d8da;
+  color: #d8d8d9;
 }
 .md-fences,
 code,
@@ -477,33 +472,12 @@ tt {
   background-color: #d7edff;
   border-radius: 5px;
   padding: 1px 4px 1px 4px;
-  margin: 0px 2px 0px 2px;
+  margin: 0px 4px 0px 4px;
   font-size: 0.85em;
 }
-code.added,
-code.add {
-  background-color: #d0f8c8;
-}
-code.modified,
-code.mod,
-code.improved,
-code.optimized {
-  background-color: #d0d0f8;
-}
-code.fixed {
-  background-color: #e0e0e8;
-}
-code.removed,
-code.rm,
-code.del {
-  background-color: #f8d0d0;
-}
-code:contains("added") {
-  color: #f00;
-}
 .md-fences {
-  background-color: #fafafa;
-  border: 1px solid #d8d8da;
+  background-color: #ededed;
+  border: 1px solid #d8d8d9;
 }
 .task-list {
   padding-left: 0;
@@ -537,10 +511,10 @@ code:contains("added") {
   padding: 1em;
   font-size: 85%;
   line-height: 2;
-  background-color: rgba(100, 100, 104, 0.05);
+  background-color: rgba(88, 88, 90, 0.05);
   border: 0;
   border-radius: 3px;
-  color: #646468;
+  color: #58585a;
   margin-top: 0 !important;
 }
 .mathjax-block > .code-tooltip {
@@ -559,8 +533,8 @@ code:contains("added") {
   top: 0.285714286em;
 }
 .md-image > .md-meta {
-  border: 1px solid #f2f2f3;
-  background-color: rgba(100, 100, 104, 0.05);
+  border: 1px solid #e5e5e6;
+  background-color: rgba(88, 88, 90, 0.05);
   border-radius: 3px;
   padding: 2px 4px 0px 4px;
   color: inherit;
@@ -593,7 +567,7 @@ code:contains("added") {
 .md-toc-h3 a,
 .md-toc-h4 a,
 .md-toc-h5 a {
-  color: #646468;
+  color: #58585a;
   text-decoration: none;
   padding: 0px 0px 0px 0px;
   border-radius: 0px;
@@ -608,12 +582,12 @@ code:contains("added") {
   text-decoration: none;
 }
 #typora-quick-open {
-  border: 1px solid #f2f2f3;
-  background-color: rgba(100, 100, 104, 0.05);
+  border: 1px solid #e5e5e6;
+  background-color: rgba(88, 88, 90, 0.05);
 }
 #typora-quick-open-item {
-  background-color: rgba(100, 100, 104, 0.05);
-  border-color: #f2f2f3;
+  background-color: rgba(88, 88, 90, 0.05);
+  border-color: #e5e5e6;
   border-style: solid;
   border-width: 1px;
 }
@@ -622,7 +596,7 @@ code:contains("added") {
 }
 /** focus mode */
 .on-focus-mode blockquote {
-  border-left-color: #646468;
+  border-left-color: #58585a;
 }
 /**************************************
 * Header Counters in TOC 目录中的标题序号样式
@@ -674,7 +648,7 @@ code:contains("added") {
 .md-toc-h3:before,
 .md-toc-h4:before,
 .md-toc-h5:before {
-  color: rgba(100, 100, 104, 0.5);
+  color: rgba(88, 88, 90, 0.5);
   font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   font-weight: normal;
 }
@@ -701,35 +675,35 @@ code:contains("added") {
 }
 .md-toc-h1:before {
   counter-increment: h1toc;
-  content: counter(h1toc) "︱";
+  content: counter(h1toc) "｜";
 }
 .md-toc-h1 .md-toc-inner {
   margin-left: 0;
 }
 .md-toc-h2:before {
   counter-increment: h2toc;
-  content: counter(h1toc) "." counter(h2toc) "︱";
+  content: counter(h1toc) "." counter(h2toc) "｜";
 }
 .md-toc-h2 .md-toc-inner {
   margin-left: 0;
 }
 .md-toc-h3:before {
   counter-increment: h3toc;
-  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "︱";
+  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "｜";
 }
 .md-toc-h3 .md-toc-inner {
   margin-left: 0;
 }
 .md-toc-h4:before {
   counter-increment: h4toc;
-  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "︱";
+  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "｜";
 }
 .md-toc-h4 .md-toc-inner {
   margin-left: 0;
 }
 .md-toc-h5:before {
   counter-increment: h5toc;
-  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "." counter(h5toc) "︱";
+  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "." counter(h5toc) "｜";
 }
 .md-toc-h5 .md-toc-inner {
   margin-left: 0;
@@ -760,32 +734,32 @@ h4 {
 #write h4:before,
 #write h5:before {
   color: rgba(0, 120, 215, 0.5);
-  font-family: headerFont, "NotoSerifCJKsc-Black", "Noto Serif CJK SC Black", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   font-weight: normal;
 }
 #write h1:before {
   counter-increment: h1;
-  content: counter(h1) "︱";
+  content: counter(h1) "｜";
 }
 #write h2:before {
   counter-increment: h2;
-  content: counter(h1) "." counter(h2) "︱";
+  content: counter(h1) "." counter(h2) "｜";
 }
 #write h3:before,
 h3.md-focus.md-heading:before {
   /*override the default style for focused headings */
   counter-increment: h3;
-  content: counter(h1) "." counter(h2) "." counter(h3) "︱";
+  content: counter(h1) "." counter(h2) "." counter(h3) "｜";
 }
 #write h4:before,
 h4.md-focus.md-heading:before {
   counter-increment: h4;
-  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "︱";
+  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "｜";
 }
 #write h5:before,
 h5.md-focus.md-heading:before {
   counter-increment: h5;
-  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "︱";
+  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "｜";
 }
 /** override the default style for focused headings */
 #write > h3.md-focus:before,
@@ -820,13 +794,13 @@ h5.md-focus:before {
 **************************************/
 /* ----- flow diagram 流程图 ----- */
 rect[id^="st"].flowchart {
-  fill: #646468;
-  stroke: #646468;
+  fill: #58585a;
+  stroke: #58585a;
   stroke-width: 5;
 }
 rect[id^="e"].flowchart {
   fill: none;
-  stroke: #646468;
+  stroke: #58585a;
   stroke-width: 5;
 }
 rect[id^="op"].flowchart {
@@ -836,8 +810,8 @@ rect[id^="op"].flowchart {
 }
 rect[id^="sub"],
 rect[id^="sub"].flowchart {
-  fill: #ebd6f2;
-  stroke: #803099;
+  fill: #ffe4bf;
+  stroke: #f28d00;
   stroke-width: 1;
 }
 path[id^="c"].flowchart {
@@ -846,16 +820,16 @@ path[id^="c"].flowchart {
   stroke-width: 1;
 }
 path[id^="io"].flowchart {
-  fill: #e9fbb2;
-  stroke: #7ea608;
+  fill: #d0fbb2;
+  stroke: #4aa608;
   stroke-width: 1;
 }
 path[fill="none"][stroke-width="3"][marker-end^="url(#raphael-marker-endblock"] {
-  stroke: #646468;
+  stroke: #58585a;
   stroke-width: 2px;
 }
 marker[id^="raphael-marker-endblock"] > use {
-  fill: #646468;
+  fill: #58585a;
 }
 text[text-anchor="start"] > tspan {
   font-size: 14px;
@@ -864,7 +838,7 @@ text[text-anchor="start"] > tspan {
 /* ----- sequeuce diagram 时序图 ----- */
 rect[x="10"][y="10"][fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][rx="0"][ry="0"] {
   fill: #ffffff;
-  stroke: #d8d8da;
+  stroke: #d8d8d9;
   stroke-width: 2px;
 }
 rect[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][rx="0"][ry="0"] {
@@ -877,7 +851,7 @@ path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"] {
   stroke-width: 1px;
 }
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endblock"] {
-  stroke: #646468;
+  stroke: #58585a;
   stroke-width: 2px;
   stroke-dasharray: none;
 }
@@ -885,7 +859,7 @@ path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end
   stroke-dasharray: 5;
 }
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endopen"] {
-  stroke: #646468;
+  stroke: #58585a;
   stroke-width: 2px;
   stroke-dasharray: none;
 }
@@ -893,7 +867,7 @@ path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end
   stroke-dasharray: 5;
 }
 marker[id^="raphael-marker-endopen"] > use {
-  stroke: #646468;
+  stroke: #58585a;
 }
 rect + rect + text[text-anchor="middle"] > tspan {
   font-size: 14px;
@@ -908,11 +882,11 @@ rect + text[text-anchor="middle"] > tspan {
 **************************************/
 /* ----- flow diagram 流程图 ----- */
 .mermaid .label {
-  color: #646468;
-  fill: #d8d8da;
+  color: #58585a;
+  fill: #d8d8d9;
 }
 .node rect[rx="0"][rx="0"] {
-  color: #646468;
+  color: #58585a;
   fill: #d7edff;
   stroke: #0078d7;
   stroke-width: 3;
@@ -924,13 +898,13 @@ rect + text[text-anchor="middle"] > tspan {
   rx: 5;
 }
 .node circle {
-  fill: #e9fbb2;
-  stroke: #7ea608;
+  fill: #d0fbb2;
+  stroke: #4aa608;
   stroke-width: 1;
 }
 .node ellipse {
-  fill: #d8d8da;
-  stroke: #646468;
+  fill: #d8d8d9;
+  stroke: #58585a;
   stroke-width: 10;
 }
 .node polygon[rx^="5"][ry^="5"] {
@@ -939,47 +913,47 @@ rect + text[text-anchor="middle"] > tspan {
   stroke-width: 1;
 }
 .node polygon {
-  fill: #ebd6f2;
-  stroke: #803099;
+  fill: #ffe4bf;
+  stroke: #f28d00;
   stroke-width: 1;
 }
 .edgePath .path {
-  stroke: #646468;
+  stroke: #58585a;
   stroke-width: 2;
 }
 .arrowheadPath {
-  fill: #646468;
+  fill: #58585a;
 }
 .edgeLabel {
   background-color: #ffffff;
   font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
 .cluster rect {
-  fill: rgba(100, 100, 104, 0.05) !important;
-  stroke: rgba(100, 100, 104, 0.15) !important;
+  fill: rgba(88, 88, 90, 0.05) !important;
+  stroke: rgba(88, 88, 90, 0.15) !important;
   stroke-width: 1 !important;
 }
 .cluster text {
-  fill: #646468;
+  fill: #58585a;
 }
 #START circle {
-  fill: #646468;
-  stroke: #646468;
+  fill: #58585a;
+  stroke: #58585a;
   stroke-width: 5;
 }
 #END circle {
   fill: none;
-  stroke: #646468;
+  stroke: #58585a;
   stroke-width: 5;
 }
 #INIT circle {
-  fill: #646468;
-  stroke: #646468;
+  fill: #58585a;
+  stroke: #58585a;
   stroke-width: 5;
 }
 #FINAL circle {
   fill: none;
-  stroke: #646468;
+  stroke: #58585a;
   stroke-width: 5;
 }
 /* ----- sequeuce diagram 时序图 ----- */
@@ -994,7 +968,7 @@ rect + text[text-anchor="middle"] > tspan {
   fill: #ffdcdf;
 }
 text.actor {
-  fill: #646468;
+  fill: #58585a;
   stroke: none;
 }
 .actor-line {
@@ -1005,21 +979,21 @@ text.actor {
 }
 .messageLine0 {
   stroke-width: 2;
-  stroke: #646468;
+  stroke: #58585a;
 }
 #arrowhead {
-  fill: #646468;
+  fill: #58585a;
 }
 .messageLine1 {
   stroke-width: 2;
-  stroke: #646468;
+  stroke: #58585a;
 }
 #crosshead path {
-  fill: #d8d8da !important;
-  stroke: #646468 !important;
+  fill: #d8d8d9 !important;
+  stroke: #58585a !important;
 }
 .messageText {
-  fill: #646468;
+  fill: #58585a;
   stroke: none;
   font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
@@ -1048,12 +1022,12 @@ text.actor {
   stroke: rgba(220, 0, 16, 0.35);
 }
 .note {
-  stroke: #646468;
+  stroke: #58585a;
   stroke-dasharray: 5;
-  fill: #d8d8da;
+  fill: #d8d8d9;
 }
 .noteText {
-  fill: #646468;
+  fill: #58585a;
   stroke: none;
   font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
@@ -1062,27 +1036,27 @@ text.actor {
   stroke: none;
 }
 .section0 {
-  fill: #d8d8da;
+  fill: #d8d8d9;
 }
 .section2 {
-  fill: #d8d8da;
+  fill: #d8d8d9;
 }
 .section1,
 .section3 {
-  fill: rgba(100, 100, 104, 0.05);
+  fill: rgba(88, 88, 90, 0.05);
 }
 .sectionTitle0,
 .sectionTitle1,
 .sectionTitle2,
 .sectionTitle3 {
-  fill: #646468;
+  fill: #58585a;
 }
 .sectionTitle {
   text-anchor: start;
   font-size: 12px;
 }
 .grid .tick {
-  stroke: #d8d8da;
+  stroke: #d8d8d9;
   shape-rendering: crispEdges;
 }
 .grid path {
@@ -1101,11 +1075,11 @@ text.actor {
   font-size: 12px;
 }
 .taskTextOutsideRight {
-  fill: #646468;
+  fill: #58585a;
   text-anchor: start;
 }
 .taskTextOutsideLeft {
-  fill: #646468;
+  fill: #58585a;
   text-anchor: end;
 }
 /* 当前的任务 */
@@ -1145,21 +1119,21 @@ text.actor {
 .taskText1,
 .taskText2,
 .taskText3 {
-  fill: #646468;
+  fill: #58585a;
 }
 .taskTextOutside0,
 .taskTextOutside2 {
-  fill: #646468;
+  fill: #58585a;
 }
 .taskTextOutside1,
 .taskTextOutside3 {
-  fill: #646468;
+  fill: #58585a;
 }
 .doneText0,
 .doneText1,
 .doneText2,
 .doneText3 {
-  fill: #646468 !important;
+  fill: #58585a !important;
 }
 /* 当前关键路径的任务 */
 .activeCrit0,
@@ -1201,23 +1175,23 @@ text.actor {
 .critText1,
 .critText2,
 .critText3 {
-  fill: #646468;
+  fill: #58585a;
 }
 .doneCritText0,
 .doneCritText1,
 .doneCritText2,
 .doneCritText3 {
-  fill: #646468 !important;
+  fill: #58585a !important;
 }
 /* 标题 */
 .titleText {
   text-anchor: middle;
   font-size: 18px;
-  fill: #646468;
+  fill: #58585a;
 }
 /* ----- class diagram 类图 ----- */
 g.classGroup text {
-  fill: #646468;
+  fill: #58585a;
   stroke: none;
 }
 g.classGroup rect {
@@ -1225,7 +1199,7 @@ g.classGroup rect {
   stroke: #0078d7;
 }
 g.classGroup line {
-  stroke: #646468;
+  stroke: #58585a;
   stroke-width: 1;
 }
 svg .classLabel .box {
@@ -1259,7 +1233,7 @@ svg .classLabel .label {
 }
 .aggregation {
   fill: #d7edff;
-  stroke: #646468;
+  stroke: #58585a;
   stroke-width: 1;
 }
 #aggregationStart {
@@ -1297,7 +1271,7 @@ div.mermaidTooltip {
   text-align: center;
   max-width: 200px;
   padding: 2px;
-  background: #d8d8da;
+  background: #d8d8d9;
   border: 1px solid #d0d0d0;
   border-radius: 2px;
   pointer-events: none;
@@ -1321,7 +1295,7 @@ div.mermaidTooltip {
   box-shadow: 0px -1px 0px #dc0010 inset;
 }
 .md-toc-item > a {
-  color: #646468;
+  color: #58585a;
 }
 .md-toc-item:hover > a,
 .md-toc-item a:hover {
@@ -1345,17 +1319,17 @@ div.mermaidTooltip {
   border-color: rgba(220, 0, 16, 0.35);
 }
 .mdx-third-color {
-  color: #7ea608;
-  background-color: #e9fbb2;
-  border-color: rgba(126, 166, 8, 0.35);
+  color: #4aa608;
+  background-color: #d0fbb2;
+  border-color: rgba(74, 166, 8, 0.35);
 }
 .mdx-fourth-color {
-  color: #803099;
-  background-color: #ebd6f2;
-  border-color: rgba(128, 48, 153, 0.35);
+  color: #f28d00;
+  background-color: #ffe4bf;
+  border-color: rgba(242, 141, 0, 0.35);
 }
 .mdx-toc-menu {
-  background-color: #646468;
+  background-color: #58585a;
   cursor: pointer;
   color: #ffffff;
   font-size: 1em;
@@ -1370,7 +1344,7 @@ div.mermaidTooltip {
   z-index: 100;
 }
 .mdx-toc-box {
-  background-color: #646468;
+  background-color: #58585a;
   box-shadow: 3px 0px 8px rgba(80, 80, 80, 0.2);
   cursor: default;
   display: block;
@@ -1388,7 +1362,7 @@ div.mermaidTooltip {
 }
 .mdx-toc-box-header {
   background-color: rgba(255, 255, 255, 0.5);
-  color: #646468;
+  color: #58585a;
   font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   font-size: 1.2em;
   width: 100%;
@@ -1420,8 +1394,9 @@ div.mermaidTooltip {
   white-space: nowrap;
   overflow: hidden;
   font-size: 1em;
-  font-family: headerFont, "NotoSerifCJKsc-Black", "Noto Serif CJK SC Black", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   color: #0078d7;
+  cursor: pointer;
 }
 .mdx-toc-box-title:hover {
   text-overflow: inherit;
@@ -1443,7 +1418,7 @@ div.mermaidTooltip {
 }
 .mdx-toc-info {
   background-color: #ffffff;
-  color: #646468;
+  color: #58585a;
   font-size: 0.85em;
   font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   width: 100%;
@@ -1473,7 +1448,7 @@ div.mermaidTooltip {
   justify-content: center;
   align-items: center;
   color: #ffffff;
-  background-color: #646468;
+  background-color: #58585a;
   cursor: pointer;
   float: left;
   width: 30px;
@@ -1485,7 +1460,7 @@ div.mermaidTooltip {
   background-color: #dc0010;
 }
 .mdx-pin:active {
-  background-color: #646468;
+  background-color: #58585a;
   color: #ffffff;
 }
 .mdx-header-current {
@@ -1499,7 +1474,7 @@ div.mermaidTooltip {
   content: " ◀";
 }
 .mdx-folder {
-  color: #d8d8da;
+  color: #d8d8d9;
   float: left;
   width: 16px;
   text-align: center;
@@ -1595,7 +1570,7 @@ div.mermaidTooltip {
 }
 .mdx-bread-nav-text {
   color: #ffffff;
-  font-family: headerFont, "NotoSerifCJKsc-Black", "Noto Serif CJK SC Black", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   font-size: 1.5em;
   font-weight: bold;
   text-align: center;
@@ -1621,41 +1596,75 @@ div.mermaidTooltip {
   z-index: 2000;
 }
 .mdx-figure-viewer-prev {
+  left: 10px;
   top: auto;
-  width: 80px;
+  width: 30px;
   border-radius: 15px;
   position: absolute;
   bottom: 10px;
 }
 .mdx-figure-viewer-next {
+  right: 10px;
   top: auto;
-  width: 80px;
+  width: 30px;
   border-radius: 15px;
   position: absolute;
   bottom: 10px;
 }
 .mdx-figure-viewer-close {
-  left: 10px;
+  right: 10px;
   top: 10px;
   border-radius: 15px;
+  background-color: #d8d8d9;
   position: absolute;
 }
-#figure-content {
+.mdx-figure-viewer-close:hover {
+  background-color: #58585a;
+}
+.mdx-figure-viewer-close:active {
+  background-color: #dc0010;
+}
+.mdx-figure {
+  margin: 0 !important;
+  border-radius: 5px;
+  padding: 5px;
+  border: 2px solid rgba(255, 255, 255, 0);
+}
+.mdx-figure-content {
   margin: 5px;
   padding: 5px;
   border-radius: 5px;
   cursor: pointer;
+  display: table-cell;
+  align-content: center;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+}
+#svg-figure-content {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: table-cell;
+  align-content: center;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
 }
 .mdx-figure-pagenum {
-  left: 100px;
+  left: 10px;
+  top: 10px;
   position: absolute;
-  bottom: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 use.mdx-svg-ico-light {
   fill: #ffffff;
 }
 use.mdx-svg-ico-dark {
-  fill: #d8d8da;
+  fill: #d8d8d9;
 }
 use.mdx-svg-ico-dark:hover {
   fill: #dc0010;
@@ -1695,6 +1704,150 @@ use.mdx-svg-ico-dark:hover {
   opacity: 0.7;
   z-index: 9999;
 }
+.mdx-code-c1-alt,
+.mdx-code-c2-alt,
+.mdx-code-c3-alt,
+.mdx-code-c4-alt,
+.mdx-code-c5-alt,
+.mdx-code-c6-alt {
+  color: #58585a;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-radius: 0.3em;
+}
+.mdx-code-c1-alt {
+  background-color: #d7edff;
+  color: #0078d7;
+}
+.mdx-code-c2-alt {
+  background-color: #d0fbb2;
+  color: #4aa608;
+}
+.mdx-code-c3-alt {
+  background-color: #ffe4bf;
+  color: #f28d00;
+}
+.mdx-code-c4-alt {
+  background-color: #ffdcdf;
+  color: #dc0010;
+}
+.mdx-code-c5-alt {
+  background-color: #ebd6f2;
+  color: #803099;
+}
+.mdx-code-c6-alt {
+  background-color: #d8d8d9;
+  color: #58585a;
+}
+.mdx-code-c1,
+.mdx-code-c2,
+.mdx-code-c3,
+.mdx-code-c4,
+.mdx-code-c5,
+.mdx-code-c6 {
+  color: #ffffff;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-radius: 0.3em;
+}
+.mdx-code-c1 {
+  background-color: #0078d7;
+}
+.mdx-code-c2 {
+  background-color: #4aa608;
+}
+.mdx-code-c3 {
+  background-color: #f28d00;
+}
+.mdx-code-c4 {
+  background-color: #dc0010;
+}
+.mdx-code-c5 {
+  background-color: #803099;
+}
+.mdx-code-c6 {
+  background-color: #58585a;
+}
+.mdx-code-name1,
+.mdx-code-name2,
+.mdx-code-name3,
+.mdx-code-name4,
+.mdx-code-name5,
+.mdx-code-name6 {
+  margin-right: 0px;
+  border-top-left-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  color: #ffffff;
+  font-size: 0.85em;
+}
+.mdx-code-value1,
+.mdx-code-value2,
+.mdx-code-value3,
+.mdx-code-value4,
+.mdx-code-value5,
+.mdx-code-value6 {
+  margin-left: 0px;
+  border-top-right-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  color: #ffffff;
+  font-size: 0.85em;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+.mdx-code-name1 {
+  background-color: #58585a !important;
+}
+.mdx-code-value1 {
+  background-color: #0078d7 !important;
+}
+.mdx-code-name2 {
+  background-color: #58585a !important;
+}
+.mdx-code-value2 {
+  background-color: #4aa608 !important;
+}
+.mdx-code-name3 {
+  background-color: #58585a !important;
+}
+.mdx-code-value3 {
+  background-color: #f28d00 !important;
+}
+.mdx-code-name4 {
+  background-color: #58585a !important;
+}
+.mdx-code-value4 {
+  background-color: #dc0010 !important;
+}
+.mdx-code-name5 {
+  background-color: #58585a !important;
+}
+.mdx-code-value5 {
+  background-color: #803099 !important;
+}
+.mdx-code-name6 {
+  background-color: #58585a !important;
+}
+.mdx-code-value6 {
+  background-color: #58585a !important;
+}
+h6 code {
+  font-weight: normal;
+}
 /**************************************
 * 封面、封底
 **************************************/
@@ -1704,7 +1857,7 @@ body div[id=write] > h6:last-child {
   background-color: #0078d7;
   font-weight: bold;
   font-size: 2.5em;
-  font-family: headerFont, "NotoSerifCJKsc-Black", "Noto Serif CJK SC Black", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   height: 900px;
   padding-left: 30px;
   padding-top: 150px;
@@ -1740,6 +1893,21 @@ body div[id=write] > h6:first-child em {
   font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   font-style: normal;
   vertical-align: sub;
+}
+body div[id=write] > h6:first-child code {
+  font-size: 0.4em !important;
+  background-color: #dc0010;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+body div[id=write] > h6:first-child code:first-of-type {
+  border-right: 0px !important;
+  border-top-left-radius: 0.4em;
+  border-bottom-left-radius: 0.4em;
+}
+body div[id=write] > h6:first-child code:last-of-type {
+  border-left: 1px solid rgba(255, 255, 255, 0.5) !important;
+  border-top-right-radius: 0.4em;
+  border-bottom-right-radius: 0.4em;
 }
 body div[id=write] > h6:last-child::after {
   content: "本文档样式与功能增强由 VLOOK™ 插件提供（https://github.com/madmaxchow/VLOOK）";

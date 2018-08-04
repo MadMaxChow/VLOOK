@@ -1,5 +1,5 @@
 
-###### **VLOOK™ Charts Demo**<br>Markdown风格画图脚本Demo<br><br><br><u>Max</u><br>*COPYRIGHT © 2018. MAX°DESIGN.*
+###### **VLOOK™ Charts Demo**<br>Markdown风格画图脚本Demo<br><br>`文档密级｜｜对外公开`<br><br><br><br><u>Max</u><br>*COPYRIGHT © 2017-2018. MAX°DESIGN.*
 
 [TOC]
 
@@ -7,7 +7,7 @@
 
 | 文档版本 | 修订日期 | 修订内容 | 作者 |
 | -------- | :-------: | ---- | ---- |
-| PRD-XXX | 2018/XX/XX | `added`New features<br>`modified`Modified somethings<br>`removed`Removed somethings | Max |
+| PRD-XXX | 2018/XX/XX | `++｜added`New features<br>`**｜modified`Modified somethings<br>`==｜fixed`Fixed somethings<br>`--｜removed`Removed somethings | Max |
 
 # 关于Markdown
 
@@ -27,6 +27,8 @@ Markdown文档以纯文本格式存储，这意味着，它们可以用几乎任
 [mermaid 官网](https://mermaidjs.github.io)。推荐使用该方案，但支持该标准的Markdown工具较少。
 
 ## 流程图
+
+###### mermaid 流程图
 
 ```mermaid
 graph LR
@@ -89,6 +91,8 @@ END(( ))
 
 ## 状态图
 
+###### mermaid 状态图
+
 ```mermaid
 graph LR
 INIT(( ))
@@ -131,12 +135,15 @@ FINAL(( ))
 
 ## 时序图/分角色流程图/泳图
 
+###### mermaid 时序图
+
 ```mermaid
 sequenceDiagram
 participant User as @人物角色
 participant Client as 前端产品
 participant Server as /后端支撑系统/
-participant Extend as _外部系统_
+participant Extend as -外部系统-
+participant Extend2 as _外部系统_
 
 User ->> Client: 同步发送消息1
 Client ->> Server: 同步发送消息1
@@ -164,7 +171,8 @@ sequenceDiagram
 participant User as @人物角色
 participant Client as 前端产品
 participant Server as /后端支撑系统/
-participant Extend as _外部系统_
+participant Extend as -外部系统-
+participant Extend2 as _外部系统_
 
 User ->> Client: 同步发送消息1
 Client ->> Server: 同步发送消息1
@@ -193,7 +201,7 @@ end
    - 人物：以at符号`@`开始的内容，如`@人物角色`
    - 前端产品：默认
    - 后端支撑系统：含斜杠`/`包裹的内容，如`/后端支撑系统名称/`
-   - 外部系统：含用下划线`_`包裹的内容，如`_外部系统名称_`
+   - 外部系统：含用减号`-`或下划线`_`包裹的内容，如`-外部系统名称-`、`_外部系统名称_`
 4. 支持三类标签分组，在输出HTML后应用[VLOOK™](https://github.com/madmaxchow/VLOOK)插件渲染为不同的样式：
    - `loop`：循环
    - `opt`：可选
@@ -201,6 +209,8 @@ end
 5. 支持备注说明。
 
 ## 甘特图
+
+###### mermaid 甘特图
 
 ```mermaid
 gantt
@@ -224,6 +234,8 @@ section 区块C
 
 ## 类图（试验性）
 
+###### mermaid 类图
+
 ```mermaid
 classDiagram
 Class01 <|-- AveryLongClass : Cool
@@ -242,6 +254,8 @@ Class08 <--> C2: Cool label
 ```
 
 ## Git图（试验性）
+
+###### mermaid Git图
 
 ```mermaid
 gitGraph:
@@ -267,6 +281,8 @@ merge newbranch
 ## 流程图
 
 [flowchart.js 官网](http://flowchart.js.org)。备用方案，支持该标准的Markdown相对较多，但特性相对mermaid较少。
+
+###### flowchart.js 流程图
 
 ```flow
 st=>start:  
@@ -309,6 +325,8 @@ c2(no)->op2->e
 ## 时序图
 
 [JS Sequence Diagrams 官网](https://bramp.github.io/js-sequence-diagrams/)。备用方案，支持该标准的Markdown相对较多，但特性相对mermaid较少。
+
+###### JS Sequence Diagrams 时序图
 
 ```sequence
 Title: 在此填写流程图标题

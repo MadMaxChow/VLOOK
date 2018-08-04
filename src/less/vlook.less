@@ -2,14 +2,22 @@
 * 字体主题
 ***************************************/
 
+// USTC DNS 加速与原始域名映射关系
+// fonts.googleapis.com         fonts.lug.ustc.edu.cn
+// ajax.googleapis.com          ajax.lug.ustc.edu.cn
+// themes.googleusercontent.com google-themes.lug.ustc.edu.cn
+// fonts.gstatic.com            fonts-gstatic.lug.ustc.edu.cn
+@gstaticServer: "fonts.gstatic.com";
+@googleapiServer: "fonts.googleapis.com"; 
+
 @font-face {
   font-family: sansFont;
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.woff2") format("woff2"),
-  url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.woff") format("woff"),
-  url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.otf") format("opentype");
+  src: url("http://@{gstaticServer}/ea/notosanssc/v1/NotoSansSC-Regular.woff2") format("woff2"),
+  url("http://@{gstaticServer}/ea/notosanssc/v1/NotoSansSC-Regular.woff") format("woff"),
+  url("http://@{gstaticServer}/ea/notosanssc/v1/NotoSansSC-Regular.otf") format("opentype");
 }
 
 @font-face {
@@ -17,38 +25,15 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.woff2") format("woff2"),
-  url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.woff") format("woff"),
-  url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.otf") format("opentype");
+  src: url("http://@{gstaticServer}/ea/notosanssc/v1/NotoSansSC-Bold.woff2") format("woff2"),
+  url("http://@{gstaticServer}/ea/notosanssc/v1/NotoSansSC-Bold.woff") format("woff"),
+  url("http://@{gstaticServer}/ea/notosanssc/v1/NotoSansSC-Bold.otf") format("opentype");
 }
 
-// @font-face {
-// 	font-family: headerFont;
-// 	font-style: normal;
-// 	font-weight: 700;
-// 	font-display: swap;
-// 	src: url("https://piccdn.igetget.com/fontminify/9cf09c22d7c65f3bf37a0a5355ea1b2c.woff") format("woff");
-// }
-// @font-face {
-// 	font-family: monoFont;
-// 	src: url("woff/NotoSansMono-Regular-hinted.woff2") format("woff2"),
-// 		url("https://crm.hm.liby.com.cn/resources/font/NotoSansMono-Regular-hinted.woff2") format("woff2"),
-// 		url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.woff2") format("woff2");
-// 	font-style: normal;
-// 	font-weight: 400;
-// }
-// @font-face {
-// 	font-family: monoFont;
-// 	src: url("woff/NotoSansMono-Bold-hinted.woff2") format("woff2"),
-// 		url("https://crm.hm.liby.com.cn/resources/font/NotoSansMono-Bold-hinted.woff2") format("woff2"),
-// 		url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.woff2") format("woff2");
-// 	font-style: normal;
-// 	font-weight: 700;
-// }
-
-@import url("https://fonts.googleapis.com/earlyaccess/notosanssc.css");
-@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400,700");
-@headerFontName: headerFont, "NotoSerifCJKsc-Black", "Noto Serif CJK SC Black";
+// @import url("https://fonts.googleapis.com/earlyaccess/notosanssc.css");
+@import url("https://@{googleapiServer}/css?family=Roboto+Mono:400,700");
+// @headerFontName: headerFont, "NotoSerifCJKsc-Black", "Noto Serif CJK SC Black";
+@headerFontName: "";
 
 @fontSize: (16/16) * 100%;
 
@@ -90,14 +75,15 @@ SimSun, serif;
 
 // 文档背景色
 @docBgColor: #fff;
+@docBgColorFade: fade(@docBgColor, 50%);
 // 纯透明色
 @transparencyColor: fade(#fff, 0);
 // 图片背景色
 @imgBgColor: #fff;
 
 // 文档前景色（深）
-@foreColorDark: #646468; //#606064;
-@foreColorDarkAlt: lighten(@foreColorDark, 45%);
+@foreColorDark: #58585A; //#606064;
+@foreColorDarkAlt: lighten(@foreColorDark, 50%);
 @foreColorDarkFade: fade(@foreColorDark, 50%);
 @foreColorDarkFade1: fade(@foreColorDark, 15%);
 @foreColorDarkFade2: fade(@foreColorDark, 10%);
@@ -117,15 +103,20 @@ SimSun, serif;
 @slaveColorFade: fade(@slaveColor, 35%);
 @slaveShadowColor: fade(@slaveColor, 35%);
 // 第3色
-@thirdColor: #7ea608; //#20A060;
+@thirdColor: #4AA608; //#20A060;
 @thirdColorAlt: lighten(@thirdColor, 50%);
 @thirdColorFade: fade(@thirdColor, 35%);
 @thirdShadowColor: lighten(@thirdColor, 35%);
 // 第4色
-@fourthColor: #803099;
-@fourthColorAlt: lighten(@fourthColor, 50%);
+@fourthColor: #F28D00;//#803099;
+@fourthColorAlt: lighten(@fourthColor, 40%);
 @fourthColorFade: fade(@fourthColor, 35%);
 @fourthShadowColor: lighten(@fourthColor, 35%);
+// 第5色
+@fifthColor: #803099;
+@fifthColorAlt: lighten(@fifthColor, 50%);
+@fifthColorFade: fade(@fifthColor, 35%);
+@fifthShadowColor: lighten(@fifthColor, 35%);
 // 加粗文字颜色
 @boldColor: #141418;
 // 链接hover颜色

@@ -1,6 +1,5 @@
 <!--====================================-->
-<!--====================================-->
-<!--      Typora Plugin - VLOOK™ V5     -->
+<!--      Typora Plugin - VLOOK™ V7     -->
 <!--            powered by Max          -->
 <!--      QQ Group/QQ群：805502564       -->
 <!--====================================-->
@@ -29,45 +28,45 @@ MIT许可证（MIT）
 </script>
 <!-- SVG图标集 -->
 <svg style="display: none;">
-    <!-- 大纲 -->
+    <!-- 图标|大纲 -->
     <symbol id="icoOutline">
         <path d="M1,0 L13,0 C13.5522847,-1.01453063e-16 14,0.44771525 14,1 L14,1 C14,1.55228475 13.5522847,2 13,2 L1,2 C0.44771525,2 6.76353751e-17,1.55228475 0,1 L0,1 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 L1,0 Z M1,5 L13,5 C13.5522847,5 14,5.44771525 14,6 C14,6.55228475 13.5522847,7 13,7 L1,7 C0.44771525,7 6.76353751e-17,6.55228475 0,6 C-6.76353751e-17,5.44771525 0.44771525,5 1,5 L1,5 Z M1,10 L13,10 C13.5522847,10 14,10.4477153 14,11 C14,11.5522847 13.5522847,12 13,12 L1,12 C0.44771525,12 6.76353751e-17,11.5522847 0,11 C-6.76353751e-17,10.4477153 0.44771525,10 1,10 L1,10 Z" id="Combined-Shape" fill="#FFFFFF"></path>
     </symbol>
-    <!-- 左向箭头1 -->
+    <!-- 图标|左向箭头1 -->
     <symbol id="icoLeft">
         <path d="M3.50594063,6.15000153 L7.53462181,2.12132034 C7.9251461,1.73079605 7.9251461,1.09763107 7.53462181,0.707106781 C7.14409752,0.316582489 6.51093254,0.316582489 6.12040825,0.707106781 L0.463554001,6.36396103 C0.241806749,6.58570828 0.145971879,6.88568746 0.176049391,7.17505536 C0.190303885,7.41033487 0.287321184,7.64153719 0.467101288,7.82131729 L0.467101288,7.82131729 L6.12395554,13.4781715 C6.51447983,13.8686958 7.14764481,13.8686958 7.5381691,13.4781715 C7.92869339,13.0876472 7.92869339,12.4544823 7.5381691,12.063958 L3.62421265,8.15000153 L12.9990879,8.15000153 C13.5513727,8.15000153 13.9990879,7.70228628 13.9990879,7.15000153 C13.9990879,6.59771678 13.5513727,6.15000153 12.9990879,6.15000153 L3.50594063,6.15000153 Z" id="Combined-Shape-Copy" fill="#FFFFFF"></path>
     </symbol>
-    <!-- 右向箭头1 -->
+    <!-- 图标|右向箭头1 -->
     <symbol id="icoRight">
         <path d="M3.50594063,6.15000153 L7.53462181,2.12132034 C7.9251461,1.73079605 7.9251461,1.09763107 7.53462181,0.707106781 C7.14409752,0.316582489 6.51093254,0.316582489 6.12040825,0.707106781 L0.463554001,6.36396103 C0.241806749,6.58570828 0.145971879,6.88568746 0.176049391,7.17505536 C0.190303885,7.41033487 0.287321184,7.64153719 0.467101288,7.82131729 L0.467101288,7.82131729 L6.12395554,13.4781715 C6.51447983,13.8686958 7.14764481,13.8686958 7.5381691,13.4781715 C7.92869339,13.0876472 7.92869339,12.4544823 7.5381691,12.063958 L3.62421265,8.15000153 L12.9990879,8.15000153 C13.5513727,8.15000153 13.9990879,7.70228628 13.9990879,7.15000153 C13.9990879,6.59771678 13.5513727,6.15000153 12.9990879,6.15000153 L3.50594063,6.15000153 Z" id="Combined-Shape-Copy-2" fill="#FFFFFF" transform="translate(7.084874, 7.092639) scale(-1, 1) translate(-7.084874, -7.092639) "></path>
     </symbol>
-    <!-- 左向箭头2 -->
+    <!-- 图标|左向箭头2 -->
     <symbol id="icoLeft2">
         <path d="M2.56507664,7.09086552 L7.5381691,12.063958 C7.92869339,12.4544823 7.92869339,13.0876472 7.5381691,13.4781715 C7.14764481,13.8686958 6.51447983,13.8686958 6.12395554,13.4781715 L0.467101288,7.82131729 C0.287321184,7.64153719 0.190303885,7.41033487 0.176049391,7.17505536 C0.145971879,6.88568746 0.241806749,6.58570828 0.463554001,6.36396103 L6.12040825,0.707106781 C6.51093254,0.316582489 7.14409752,0.316582489 7.53462181,0.707106781 C7.9251461,1.09763107 7.9251461,1.73079605 7.53462181,2.12132034 L2.56507664,7.09086552 Z" id="Combined-Shape-Copy-4" fill="#FFFFFF"></path>
     </symbol>
-    <!-- 右向箭头2 -->
+    <!-- 图标|右向箭头2 -->
     <symbol id="icoRight2">
         <path d="M2.73310223,7.09086552 L7.70619469,12.063958 C8.09671898,12.4544823 8.09671898,13.0876472 7.70619469,13.4781715 C7.3156704,13.8686958 6.68250542,13.8686958 6.29198113,13.4781715 L0.635126876,7.82131729 C0.455346772,7.64153719 0.358329473,7.41033487 0.344074979,7.17505536 C0.313997467,6.88568746 0.409832337,6.58570828 0.631579589,6.36396103 L6.28843384,0.707106781 C6.67895813,0.316582489 7.31212311,0.316582489 7.7026474,0.707106781 C8.09317169,1.09763107 8.09317169,1.73079605 7.7026474,2.12132034 L2.73310223,7.09086552 Z" id="Combined-Shape-Copy-3" fill="#FFFFFF" transform="translate(4.168887, 7.092639) scale(-1, 1) translate(-4.168887, -7.092639) "></path>
     </symbol>
-    <!-- 已收起的大纲节点 -->
+    <!-- 图标|已收起的大纲节点 -->
     <symbol id="icoFolded">
         <path d="M4.8479983,2.35679729 L8.04375066,7.47000106 L8.04375066,7.47000106 C8.33646099,7.93833759 8.19408783,8.55528797 7.7257513,8.8479983 C7.5668197,8.94733056 7.38317208,9 7.19575236,9 L0.804247642,9 L0.804247642,9 C0.251962892,9 -0.195752358,8.55228475 -0.195752358,8 C-0.195752358,7.81258028 -0.143082914,7.62893266 -0.0437506625,7.47000106 L3.1520017,2.35679729 L3.1520017,2.35679729 C3.44471203,1.88846076 4.06166241,1.74608759 4.52999894,2.03879792 C4.65876807,2.11927863 4.7675176,2.22802815 4.8479983,2.35679729 Z" id="Triangle" fill="#98989C" transform="translate(4.000000, 5.000000) rotate(90.000000) translate(-4.000000, -5.000000) "></path>
     </symbol>
-    <!-- 已展开的大纲节点 -->
+    <!-- 图标|已展开的大纲节点 -->
     <symbol id="icoUnfold">
         <path d="M5.8479983,1.35679729 L9.04375066,6.47000106 L9.04375066,6.47000106 C9.33646099,6.93833759 9.19408783,7.55528797 8.7257513,7.8479983 C8.5668197,7.94733056 8.38317208,8 8.19575236,8 L1.80424764,8 L1.80424764,8 C1.25196289,8 0.804247642,7.55228475 0.804247642,7 C0.804247642,6.81258028 0.856917086,6.62893266 0.956249338,6.47000106 L4.1520017,1.35679729 L4.1520017,1.35679729 C4.44471203,0.888460755 5.06166241,0.74608759 5.52999894,1.03879792 C5.65876807,1.11927863 5.7675176,1.22802815 5.8479983,1.35679729 Z" id="Triangle-Copy" fill="#98989C" transform="translate(5.000000, 4.000000) scale(1, -1) translate(-5.000000, -4.000000) "></path>
     </symbol>
-    <!-- 关闭 -->
+    <!-- 图标|关闭 -->
     <symbol id="icoClose">
         <path d="M7,7 L7,-1 C7,-1.55228475 7.44771525,-2 8,-2 C8.55228475,-2 9,-1.55228475 9,-1 L9,7 L17,7 C17.5522847,7 18,7.44771525 18,8 C18,8.55228475 17.5522847,9 17,9 L9,9 L9,17 C9,17.5522847 8.55228475,18 8,18 C7.44771525,18 7,17.5522847 7,17 L7,9 L-1,9 C-1.55228475,9 -2,8.55228475 -2,8 C-2,7.44771525 -1.55228475,7 -1,7 L7,7 Z" id="Combined-Shape" fill="#FFF" transform="translate(8.000000, 8.000000) rotate(45.000000) translate(-8.000000, -8.000000) "></path>
     </symbol>
-    <!-- 插图浏览器 -->
+    <!-- 图标|插图浏览器 -->
     <symbol id="icoFigure">
         <path d="M1,0 L19,0 C19.5522847,-1.01453063e-16 20,0.44771525 20,1 L20,13 C20,13.5522847 19.5522847,14 19,14 L1,14 C0.44771525,14 6.76353751e-17,13.5522847 0,13 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z M14,6 C15.1045695,6 16,5.1045695 16,4 C16,2.8954305 15.1045695,2 14,2 C12.8954305,2 12,2.8954305 12,4 C12,5.1045695 12.8954305,6 14,6 Z M2.27451064,10.4681987 C2.17198644,10.6288749 2.11751624,10.8155043 2.11751624,11.0061035 C2.11751624,11.5583883 2.56523149,12.0061035 3.11751624,12.0061035 L16.8685284,12.0061035 C17.1348725,12.0061035 17.390212,11.8998515 17.5779319,11.7109061 C17.9671837,11.3191134 17.9651238,10.6859518 17.5733311,10.2967 L14.9710851,7.711331 C14.6387833,7.38118435 14.1218385,7.32594809 13.7272821,7.57842894 L11.1922327,9.20063432 C10.7569855,9.47915371 10.181218,9.38019749 9.86393681,8.97234228 L7.08889888,5.40511596 C7.01878984,5.31499293 6.93376386,5.23754267 6.83750813,5.17612384 C6.371929,4.87904723 5.75367436,5.01564551 5.45659775,5.48122465 L2.27451064,10.4681987 Z" id="Combined-Shape" fill="#FFFFFF"></path>
         <rect id="Rectangle-4-Copy" fill="#FFFFFF" x="1" y="17" width="7" height="3" rx="1.5"></rect>
         <rect id="Rectangle-4-Copy-2" fill="#FFFFFF" x="12" y="17" width="7" height="3" rx="1.5"></rect>
     </symbol>
-    <!-- 图片墙 -->
+    <!-- 图标|图片墙 -->
     <symbol id="icoFigureGrid">
         <rect id="Rectangle-5" x="0" y="0" width="6" height="6" rx="1"></rect>
         <rect id="Rectangle-5-Copy" x="8" y="0" width="6" height="6" rx="1"></rect>
@@ -78,9 +77,11 @@ MIT许可证（MIT）
     </symbol>
 </svg>
 
+<!-- 文档顶部与底部阴影栏 -->
 <div class="mdx-docbar-top"></div>
 <div class="mdx-docbar-bottom"></div>
 
+<!-- 工具栏 -->
 <div class="mdx-toolbar">
     <!-- outline button -->
     <div class="mdx-btn mdx-pin" onclick="toggleOutline()">
@@ -88,21 +89,23 @@ MIT许可证（MIT）
     </div>
 </div>
 
+<!-- 大纲导航 -->
 <div class="mdx-toc-mask" onclick="toggleOutline()"></div>
-
 <div class="mdx-toc-box">
     <div class="mdx-toc-box-header">
-        <div class="mdx-toc-box-title">大纲</div>
+        <div class="mdx-toc-box-title" onclick="gotoTop()">大纲</div>
     </div>
     <div class="mdx-toc-box-body-scroll">
         <div id="toc-box-body" class="mdx-toc-box-body mdx-footer-shadow"></div>
     </div>
-    <div class="mdx-toc-info"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><b>VLOOK™</b></a> for <a href="https://www.typora.io" target="_blank">Typora</a>︱powered by <b>Max</b>
+    <div class="mdx-toc-info"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><b>VLOOK™</b></a> for <a href="https://www.typora.io" target="_blank">Typora</a>｜powered by <b>Max</b>
     </div>
 </div>
 
+<!-- click进的泡泡 -->
 <div class="mdx-click-bubble"></div>
 
+<!-- 面包屑导航栏 -->
 <div class="mdx-bread-nav">
     <!-- 上一章 -->
     <div class="mdx-nav-prev" onclick="gotoHeader('.mdx-nav-prev-text')">
@@ -117,9 +120,13 @@ MIT许可证（MIT）
     </div>
 </div>
 
+<!-- 插图浏览器 -->
 <div class="mdx-figure-viewer">
+    <div class="mdx-figure-content"></div>
+    <div class="mdx-figure-pagenum"></div>
+    <div class="mdx-toc-info2"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><b>VLOOK™</b></a> for <a href="https://www.typora.io" target="_blank">Typora</a>｜powered by <b>Max</b></div>
     <div class="mdx-btn mdx-figure-viewer-prev" onclick="preFigure()">
-        <svg width="15px" height="15px"><use xlink:href="#icoLeft" class="mdx-svg-ico-light"/>
+        <svg width="15px" height="15px"><use xlink:href="#icoLeft" class="mdx-svg-ico-light"/></svg>
     </div>
     <div class="mdx-btn mdx-figure-viewer-next" onclick="nextFigure()">
         <svg width="15px" height="15px"><use xlink:href="#icoRight" class="mdx-svg-ico-light"/></svg>
@@ -127,15 +134,14 @@ MIT许可证（MIT）
     <div class="mdx-btn mdx-figure-viewer-close" onclick="closeFigureViewer()">
         <svg width="16px" height="16px"><use xlink:href="#icoClose" class="mdx-svg-ico-light"/></svg>
     </div>
-    <img id="figure-content" src="">
-    <div class="mdx-figure-pagenum"></div>
-    <div class="mdx-toc-info2"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><b>VLOOK™</b></a> for <a href="https://www.typora.io" target="_blank">Typora</a>︱powered by <b>Max</b></div>
 </div>
 
+<!-- 启动插图浏览器按钮 -->
 <div class="mdx-btn mdx-figure-launcher" onclick="showFigureBrowser(null)">
-    <svg width="20px" height="20px"><use xlink:href="#icoFigure" class="mdx-svg-ico-light"/>
+    <svg width="20px" height="20px"><use xlink:href="#icoFigure" class="mdx-svg-ico-light"/></svg>
 </div>
 
+<!-- 调色板 -->
 <span class="mdx-fore-color"></span>
 <span class="mdx-master-color"></span>
 <span class="mdx-slave-color"></span>
@@ -154,8 +160,10 @@ MIT许可证（MIT）
     var _aniSpeed = "fast";
     var _showed = false;
     var _figureCount = 0;
-    var _imgIndex = -1;
+    var _figIndex = -1;
     var _lastCurrentIndex = -2;
+    var _figTitle = "";
+    var _defaultImage = "data:image/png;base64,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";
 
     // $("body").prepend("<div class='mdx-doc-title'>" + document.title + "</div>");
     // $("body").append("<div class='mdx-doc-footer'>全文完</div>");
@@ -198,10 +206,8 @@ MIT许可证（MIT）
         ctx.restore();
         var img = new Image();
         img.src = canvas.toDataURL("image/png");
-        // console.log(img.src);
         $("body").css("background", "url(" + img.src + ")");
         $("body").css("background-repeat", "repeat");
-        // $("body").css("background-attachment", "fixed");
     }
     /**
      * 检查页内链接坏链
@@ -286,79 +292,119 @@ MIT许可证（MIT）
      * 初始化插图数据
      */
     function initFigureData() {
-        $("img").each(function() {
-            var imgObj = $(this);
-            if (imgObj.attr("id") != "figure-content") {
-                // 添加插图标识数据
-                imgObj.attr("id", "mdx-figure-" + _figureCount);
-                imgObj.attr("fig-idx", _figureCount);
-                // 添加插图样式
-                imgObj.css("cursor", "pointer");
-                imgObj.hover( function() {
-                    $(this).addClass("mdx-figure-hover");
-                }, function() {
-                    $(this).removeClass("mdx-figure-hover");
+        $("img,.md-diagram-panel>svg").each(function() {
+            var figObj = $(this);
+            // 添加插图标识数据
+            figObj.attr("fig-id", "mdx-figure-" + _figureCount);
+            figObj.attr("fig-idx", _figureCount);
+            figObj.attr("fig-type", figObj.prop("tagName"));
+            // 添加插图样式
+            figObj.css("cursor", "pointer");
+            figObj.addClass("mdx-figure");
+            figObj.hover(function () {
+                $(this).addClass("mdx-figure-hover");
+            }, function () {
+                $(this).removeClass("mdx-figure-hover");
+            });
+
+            // 添加锚点，便于在插图浏览器直接跳转至对应插图位置
+            $("<a name='" + "fig-idx" + _figureCount + "'>").insertBefore(figObj.parent());
+            _figureCount++;
+            // 添加鼠标单击事件
+            figObj.click(function() {
+                showFigureBrowser(figObj);
+            });
+
+            // 图片无法加载时加载默认图片
+            if (figObj.prop("tagName").toLowerCase() == "img") {
+                figObj.bind("error", function() {
+                    loadDefaultImage($(this));
                 });
-                // 添加锚点，便于在插图浏览器直接跳转至对应插图位置
-                $("<a name='" + "fig-idx" + _figureCount + "'>").insertBefore(imgObj.parent());
-                _figureCount++;
-                // 添加鼠标单击事件
-                imgObj.click(function() {
-                    // $("body").css("user-select", "none"); // 禁用网页内容选择
-                    // $('body').css('overflow','hidden'); // 禁用网页滚动
-                    // // 在插图浏览器中显示对应插图
-                    // _imgIndex = imgObj.attr("fig-idx");
-                    // $(".mdx-figure-viewer").fadeIn();
-                    // $("#figure-content").attr("src", imgObj.attr("src"));
-                    // setFigureFitToShow();
-                    // updateFigureViewerUI();
-                    showFigureBrowser(imgObj);
-                });
+                figObj.attr("src", figObj.attr("src")); // 强制重新加载一次以触发error事件
             }
         });
         if (_figureCount > 0)
             $(".mdx-figure-launcher").css("visibility", "visible");
+
+        $(document).keydown(function (event) {
+            if (event.keyCode == 27)
+                closeFigureViewer();
+        });
+    }
+    /**
+     * 加载默认图片
+     */
+    function loadDefaultImage(obj) {
+        obj.attr("src-org", obj.attr("src"));
+        obj.attr("src", _defaultImage);
     }
     /**
      * 显示插图浏览器
      */
-    function showFigureBrowser(imgObj) {
+    function showFigureBrowser(figObj) {
         if (_figureCount == 0)
             return;
-        if (_imgIndex == -1)
-            _imgIndex = 0;
-        if (imgObj == null)
-            imgObj = $("img[id='mdx-figure-" + _imgIndex + "']");
+        if (_figIndex == -1)
+            _figIndex = 0;
+        if (figObj == null)
+            figObj = $("[fig-id='mdx-figure-" + _figIndex + "']");
         $("body").css("user-select", "none"); // 禁用网页内容选择
         $('body').css('overflow','hidden'); // 禁用网页滚动
         // 在插图浏览器中显示对应插图
-        _imgIndex = imgObj.attr("fig-idx");
+        _figIndex = figObj.attr("fig-idx");
         $(".mdx-figure-viewer").fadeIn();
-        $("#figure-content").attr("src", imgObj.attr("src"));
-        setFigureFitToShow();
+        showFigureContent(figObj);
         updateFigureViewerUI();
+    }
+    /**
+     * 显示插图内容
+     */
+    function showFigureContent(figObj) {
+        figObj.removeClass("mdx-figure-hover");
+        var contentObj = $(".mdx-figure-content");
+        contentObj.empty();
+        contentObj.show();
+        contentObj.css("width", parseInt($(window).width()));
+        contentObj.css("height", parseInt($(window).height()));
+        // contentObj.attr("src", figObj.attr("src"));
+        var newObj = figObj.clone();
+        newObj.css("max-width", parseInt($(window).width()) - 90);
+        newObj.css("max-height", parseInt($(window).height()) - 90);
+        contentObj.append(newObj);
+        newObj.hover(function () {
+            $(this).addClass("mdx-figure-hover");
+        }, function () {
+            $(this).removeClass("mdx-figure-hover");
+        });
+
+        var titleObj = figObj.parent().prevUntil("h6").prev();
+        // console.log(titleObj.html());
+        if (titleObj != null && titleObj.prop("tagName").toLowerCase() == "h6")
+            _figTitle = titleObj.text();
+        else
+            _figTitle = "";
     }
     /**
      * 查看上一个插图
      */
     function preFigure() {
-        _imgIndex--;
-        if (_imgIndex >= 0) {
-            $("#figure-content").attr("src", $("#mdx-figure-" + _imgIndex).attr("src"));
-            setFigureFitToShow();
+        if (_figIndex > 0) {
+            _figIndex--;
+            var figObj = $("[fig-id=mdx-figure-" + _figIndex + "]");
+            showFigureContent(figObj);
+            updateFigureViewerUI();
         }
-        updateFigureViewerUI();
     }
     /**
      * 查看下一个插图
      */
     function nextFigure() {
-        _imgIndex++;
-        if (_imgIndex < _figureCount) {
-            $("#figure-content").attr("src", $("#mdx-figure-" + _imgIndex).attr("src"));
-            setFigureFitToShow();
+        if (_figIndex < _figureCount - 1) {
+            _figIndex++;
+            var figObj = $("[fig-id=mdx-figure-" + _figIndex + "]");
+            showFigureContent(figObj);
+            updateFigureViewerUI();
         }
-        updateFigureViewerUI();
     }
     /**
      * 更新插图浏览器界面
@@ -370,35 +416,41 @@ MIT许可证（MIT）
         var viewer = $(".mdx-figure-viewer");
 
         // 更新插图页码
-        $(".mdx-figure-pagenum").html("<strong>" + (parseInt(_imgIndex) + 1) + "</strong> / " + _figureCount);
+        var title = "图" + (parseInt(_figIndex) + 1) + "（共" + _figureCount + "张）";
+        if (_figTitle.length > 0)
+            title += "｜" + "<strong>" + _figTitle + "</strong>";
+        pageNum.css("width", (parseInt(viewer.css("width"))) - 60);
+        pageNum.html(title);
 
         // 更新导航按钮位置
-        btnPrev.css("left", (parseInt(viewer.css("width")) - 300) / 2);
-        btnNext.css("left", parseInt(btnPrev.css("left")) + 220);
-        pageNum.css("left", parseInt(btnPrev.css("left")) + (300 - parseInt(pageNum.css("width"))) / 2);
+        btnPrev.css("top", (parseInt(viewer.css("height")) - 30) / 2);
+        btnNext.css("top", parseInt(btnPrev.css("top")));
+        btnNext.css("right", "10px");
 
         // 根据当前插图索引更新浏览按钮有效状态
-        btnPrev.css("opacity", "0.25");
-        btnPrev.css("pointer-events", "none"); // 忽略点击事件
-        btnNext.css("opacity", "0.25");
-        btnNext.css("pointer-events", "none"); // 忽略点击事件
-        if (_imgIndex > 0) {
+        btnPrev.css("opacity", "0");
+        // btnPrev.css("pointer-events", "none"); // 忽略点击事件
+        btnNext.css("opacity", "0");
+        // btnNext.css("pointer-events", "none"); // 忽略点击事件
+        if (_figIndex > 0) {
             btnPrev.css("opacity", "1");
-            btnPrev.css("pointer-events", "auto"); // 恢复点击事件
+            // btnPrev.css("pointer-events", "auto"); // 恢复点击事件
         }
-        if (_imgIndex < _figureCount - 1) {
+        if (_figIndex < _figureCount - 1) {
             btnNext.css("opacity", "1");
-            btnNext.css("pointer-events", "auto"); // 恢复点击事件
+            // btnNext.css("pointer-events", "auto"); // 恢复点击事件
         }
-        $("#figure-content").click(function() {
+        $(".mdx-figure-content").click(function() {
             closeFigureViewer();
-            window.location.href = "#fig-idx" + _imgIndex;
+            window.location.href = "#fig-idx" + _figIndex;
         });
     }
     /**
      * 关闭插图浏览器
      */
     function closeFigureViewer() {
+        $(".mdx-figure-content").empty();
+        // $("#svg-figure-content").empty();
         $(".mdx-figure-viewer").fadeOut();
         $("body").css("user-select", "text"); // 恢复网页选择
         $('body').css('overflow','auto'); // 恢复网页滚动
@@ -419,34 +471,34 @@ MIT许可证（MIT）
     /**
      * 将插图自适应全屏显示
      */
-    function setFigureFitToShow() {
-        // 获得插图实际像素尺寸
-        var theImage = new Image();
-        theImage.src = $("#figure-content").attr("src");
-        var figureHeight = theImage.height;
-        var figureWidth = theImage.width;
-        // 计算插图是否缩小显示，以及缩小比例
-        var viewerHeight = parseInt($(".mdx-figure-viewer").css("height")) - 50;
-        var viewerWidth = parseInt($(".mdx-figure-viewer").css("width"));
-        var ratio = viewerWidth > viewerHeight ? viewerHeight / figureHeight : viewerWidth / figureWidth;
-        // console.log("ratio: " + ratio + ", viewer: " + viewerWidth + "x" + viewerHeight + ", figure: " + figureWidth + "x" + figureHeight);
-        if (ratio < 1) { // 缩小显示处理
-            figureHeight = figureHeight * ratio;
-            figureWidth = figureWidth * ratio;
-            $("#figure-content").attr("height", figureHeight);
-            $("#figure-content").attr("width", figureWidth);
-        } else { // 不缩小显示处理
-            $("#figure-content").attr("height", "auto");
-            $("#figure-content").attr("width", "auto");
-        }
-        // 水平、重置居中显示插图
-        $("#figure-content").css("margin-top", "5px");
-        $("#figure-content").css("margin-left", "auto");
-        if (figureHeight < viewerHeight)
-            parseInt($("#figure-content").css("margin-top", (viewerHeight - figureHeight) / 2));
-        if (figureWidth < viewerWidth)
-            parseInt($("#figure-content").css("margin-left", (viewerWidth - figureWidth) / 2));
-    }
+    // function setFigureFitToShow() {
+    //     // 获得插图实际像素尺寸
+    //     var theImage = new Image();
+    //     theImage.src = $("#img-figure-content").attr("src");
+    //     var figureHeight = theImage.height;
+    //     var figureWidth = theImage.width;
+    //     // 计算插图是否缩小显示，以及缩小比例
+    //     var viewerHeight = parseInt($(".mdx-figure-viewer").css("height")) - 50;
+    //     var viewerWidth = parseInt($(".mdx-figure-viewer").css("width"));
+    //     var ratio = viewerWidth > viewerHeight ? viewerHeight / figureHeight : viewerWidth / figureWidth;
+    //     // console.log("ratio: " + ratio + ", viewer: " + viewerWidth + "x" + viewerHeight + ", figure: " + figureWidth + "x" + figureHeight);
+    //     if (ratio < 1) { // 缩小显示处理
+    //         figureHeight = figureHeight * ratio;
+    //         figureWidth = figureWidth * ratio;
+    //         $("#img-figure-content").attr("height", figureHeight);
+    //         $("#img-figure-content").attr("width", figureWidth);
+    //     } else { // 不缩小显示处理
+    //         $("#img-figure-content").attr("height", "auto");
+    //         $("#img-figure-content").attr("width", "auto");
+    //     }
+    //     // 水平、重置居中显示插图
+    //     $("#img-figure-content").css("margin-top", "5px");
+    //     $("#img-figure-content").css("margin-left", "auto");
+    //     if (figureHeight < viewerHeight)
+    //         parseInt($("#img-figure-content").css("margin-top", (viewerHeight - figureHeight) / 2));
+    //     if (figureWidth < viewerWidth)
+    //         parseInt($("#img-figure-content").css("margin-left", (viewerWidth - figureWidth) / 2));
+    // }
     /**
      * 显示/隐藏大纲面板
      */
@@ -463,13 +515,10 @@ MIT许可证（MIT）
         if (v == true) { // --- 显示大纲
             $(this).animate({}, function() {
                 $("#svgOutline").css({
-                    'transform': 'rotate(90deg)',
+                    'transform': 'rotate(0deg)',
                     "transition": "all 0.5s"
                 });
             });
-            /*$(".mdx-pin").animate({
-                marginRight: "150px"
-            }, _aniSpeed);*/
             $(".mdx-toolbar").animate({
                 opacity: 1
             }, "slow");
@@ -503,12 +552,9 @@ MIT许可证（MIT）
             $('body').css('overflow','auto'); // 恢复网页滚动
             $(this).animate({}, function() {
                 $("#svgOutline").css({
-                    'transform': 'rotate(0deg)'
+                    'transform': 'rotate(90deg)'
                 });
             });
-            /*$(".mdx-pin").animate({
-                marginRight: "10px"
-              }, _aniSpeed);*/
             $(".mdx-toc-box").animate({
                 left: -(tocBoxWidth + 30)
             }, _aniSpeed);
@@ -528,15 +574,12 @@ MIT许可证（MIT）
             $(".mdx-nav-prev").css("margin-left", "50px");
             if ($(window).width() < _minScreenWidth) // 窄屏
                 $(".mdx-toc-mask").fadeOut(_aniSpeed);
-            // $(".mdx-nav-prev").css("border-color", "rgba(255,255,255,0)");
-            /*$(".mdx-nav-next").css("border-color", $(".mdx-bread-nav").css("background-color"));*/
         }
     }
     /**
      * 根据实际目录结构更新folder控件（未实现）
      */
     function updateFoldingButton() {
-        //console.log("foldItem length: " + foldItem.length);
         var folder = null;
         for (var i = 0; i < _foldItem.length; i++) {
             //console.log(foldItem[i].attr("id"));
@@ -544,7 +587,6 @@ MIT许可证（MIT）
             folder.parent().attr("data-node", "1"); // 0:leaf, 1:folder
             folder.parent().attr("data-folding", "1"); // 0:collect, 1:expand
             folder.click(function() {
-                //console.log("foldItem: " + $(this).parent.attr("id"));
                 folding($(this).parent().attr("id"));
                 event.cancelBubble = true;
             });
@@ -556,7 +598,6 @@ MIT许可证（MIT）
     function updateFolderParentAttr() {
         var parents = [];
         parents.push(_foldItem[0]);
-        //    _foldItem[0].attr("data-pnode", "root");
         var parentNode = _foldItem[0];
         var lastNode = parentNode;
         for (var i = 1; i < _foldItem.length; i++) {
@@ -573,7 +614,6 @@ MIT许可证（MIT）
      * 页面滚动时高亮outline中的对应章节项
      */
     function followHeader() {
-        updateDocbarPos();
         var sTop = $("#toc-box-body").scrollTop();
         var sBottom = sTop + $("#toc-box-body").height();
         var currentIndex = -1;
@@ -607,8 +647,7 @@ MIT许可证（MIT）
             _lastItem.addClass("mdx-header-current");
             // expandBubble(_lastItem.attr("id")); // 如果节点没有展开，则自动展开
             var preDis = _lastItem.height() * 2;
-            //console.log("lastItem: " + lastItem.position().top + ", scrollTop: " + sTop + ", height: " + sBottom + ", newPos: " + (sTop + $("#toc-box-body").height() / 2));
-            // console.log(_lastItem.text());
+
             if (_lastItem.position().top < sTop)
                 $("#toc-box-body").scrollTop(_lastItem.position().top);
             else if (_lastItem.position().top > (sBottom - preDis))
@@ -621,24 +660,20 @@ MIT许可证（MIT）
             $(".mdx-figure-launcher").animate({
                 top: "60px"
             }, _aniSpeed);
-            // 显示上/下章节内容
-            /*console.log(currentIndex + ", " + _headers.length);*/
-            // 宽屏时才显示
-            // if ($(window).width() > _minScreenWidth) {
-                if (currentIndex > 0) {
-                    $(".mdx-nav-prev").css("display", "block");
-                    $(".mdx-nav-prev-text").text($("#oli-" + _headers[currentIndex - 1]).text());
-                    $(".mdx-nav-prev-text").attr("data-anchor", _headers[currentIndex - 1]);
-                } else
-                    $(".mdx-nav-prev").css("display", "none");
 
-                if (currentIndex < _headers.length - 1) {
-                    $(".mdx-nav-next").css("display", "block");
-                    $(".mdx-nav-next-text").text($("#oli-" + _headers[currentIndex + 1]).text());
-                    $(".mdx-nav-next-text").attr("data-anchor", _headers[currentIndex + 1]);
-                } else
-                    $(".mdx-nav-next").css("display", "none");
-            // }
+            if (currentIndex > 0) {
+                $(".mdx-nav-prev").css("display", "block");
+                $(".mdx-nav-prev-text").text($("#oli-" + _headers[currentIndex - 1]).text());
+                $(".mdx-nav-prev-text").attr("data-anchor", _headers[currentIndex - 1]);
+            } else
+                $(".mdx-nav-prev").css("display", "none");
+
+            if (currentIndex < _headers.length - 1) {
+                $(".mdx-nav-next").css("display", "block");
+                $(".mdx-nav-next-text").text($("#oli-" + _headers[currentIndex + 1]).text());
+                $(".mdx-nav-next-text").attr("data-anchor", _headers[currentIndex + 1]);
+            } else
+                $(".mdx-nav-next").css("display", "none");
         }
         else { // 隐藏面包屑导航条
             $(".mdx-bread-nav").fadeOut();
@@ -649,11 +684,21 @@ MIT许可证（MIT）
         }
     }
     /**
-     * 中转至指定章节
+     * 跳转至指定章节
      */
     function gotoHeader(src) {
         console.log(src);
         window.location.href = "#" + $(src).attr("data-anchor");
+    }
+    /**
+    * 跳转至封面
+    */
+    function gotoTop() {
+        $(window).scrollTop(0);
+        if (_lastItem != null) {
+            _lastItem.removeClass("mdx-header-current");
+            _lastCurrentIndex = -2;
+        }
     }
     /**
      * 返回上一个位置
@@ -677,7 +722,6 @@ MIT许可证（MIT）
      * 自适应显示Outline
      */
     function adjustOutline() {
-        //console.log(($("#write").width() + ", " + $(".mdx-toc-box").width()) + ", " + $(window).width());
         if ($(window).width() > _minScreenWidth) {
             _showed = true;
         } else {
@@ -686,15 +730,12 @@ MIT许可证（MIT）
             _showed = false;
         }
         showOutline(_showed);
-        updateDocbarPos();
     }
     /**
      * 更新文档阴影栏的位置
      */
     function updateDocbarPos() {
-        // console.log($(window).height() + ", " + document.documentElement.clientHeight);
         var scrollHeight = Math.max($(window).height(), document.documentElement.clientHeight);
-        // console.log("scrollHeight: " + scrollHeight);
         // 设置底部文档遮挡条位置
         $(".mdx-docbar-bottom").css("top", scrollHeight - $(".mdx-docbar-bottom").height());
     }
@@ -735,14 +776,12 @@ MIT许可证（MIT）
             }
             // 如果是目录节点，同时是已展开的，才进行递归调用展开子节点
             if (recu == true && item.attr("data-node") == "1" && item.attr("data-folding") == "1") {
-                //console.log(item.html());
                 disposeFolding(item.attr("id"), act, recu);
             }
             if (act == 0) // 收起
                 item.css("display", "none");
             else if (act == 1) // 展开
                 item.css("display", "block");
-            //item.attr("data-folding", act);
             lastItem = item;
         }
     }
@@ -764,7 +803,6 @@ MIT许可证（MIT）
         }
         var lastItem = null;
         var itemSet = $("#" + id).prevAll();
-        //console.log(itemSet.length);
         for (var i = (itemSet.length - 1); i >= 0; i--) {
             var item = $(itemSet[i]);
             console.log(item.html() + ", folding: " + item.attr("data-folding"));
@@ -776,7 +814,6 @@ MIT许可证（MIT）
             }
             if (item.attr("data-node") == "1" && item.attr("data-folding") == "1") {
                 $("#fd-" + item.attr("id")).html(_unfoldChar);
-                //item.attr("data-folding", 1);
                 disposeFolding(item.attr("id"), 1, true);
             }
             item.css("display", "block");
@@ -786,23 +823,74 @@ MIT许可证（MIT）
     /**
      * 更新指定内容的code标记样式
      */
-    function updateCodeStyle() {
+    function renderingCodeStyle() {
         // 更新指定内容的<code>标签样式
         $("code").each(function() {
+            if ($(this).text().length <= 3)
+                return;
+
+            // 将全角竖线替换为半角
+            $(this).text($(this).text().replaceAll("｜", "|"));
             var codeText = $(this).text();
-            if ("added,modified,fixed,improved,removed,add,mod,rm,del".indexOf(codeText) != -1)
-                $(this).attr("class", codeText);
-            if ("新增".indexOf(codeText) != -1)
-                $(this).attr("class", "add");
-            if ("修改".indexOf(codeText) != -1)
-                $(this).attr("class", "mod");
-            if ("修复".indexOf(codeText) != -1)
-                $(this).attr("class", "fixed");
-            if ("优化".indexOf(codeText) != -1)
-                $(this).attr("class", "mod");
-            if ("删除".indexOf(codeText) != -1)
-                $(this).attr("class", "del");
+
+            // 分类式样式（浅色）
+            var codeTags = new Array("==|", "++|", "**|", "--|", "^^|", "##|");
+            var flag = false;
+            for (var i=0; i<codeTags.length; i++) {
+                if (codeText.indexOf(codeTags[i]) == 0) {
+                    rebuildSpecCode($(this), codeTags[i], i + 1, false);
+                    flag = true;
+                    break;
+                }
+            }
+            // 分类式样式（深色）
+            if (flag == true) return;
+            codeTags = new Array("=|", "+|", "*|", "-|", "^|", "#|");
+            flag = false;
+            for (var i=0; i<codeTags.length; i++) {
+                if (codeText.indexOf(codeTags[i]) == 0) {
+                    rebuildSpecCode($(this), codeTags[i], i + 1, true);
+                    flag = true;
+                    break;
+                }
+            }
+            // 分段式样式
+            if (flag == true) return;
+            codeTags = new Array("|", "||", "|||", "||||", "|||||", "||||||");
+            for (var i=5; i>=0; i--) {
+                if (codeText.indexOf(codeTags[i]) > 0) {
+                    rebuildSegmentCode($(this), codeTags[i], i+1);
+                    break;
+                }
+            }
         });
+    }
+    /**
+     * 替换所有内容
+     */
+    String.prototype.replaceAll = function(f,e){
+        var reg = new RegExp(f, "g");
+        return this.replace(reg, e);
+    }
+    /**
+     * 以分类式重新设置code的渲染样式
+     */
+    function rebuildSpecCode(obj, split, number, flag) {
+        var codeText = obj.text();
+        var si = codeText.indexOf(split);
+        var alt = flag ? "-alt" : "";
+        obj.text(codeText.substr(si + split.length, codeText.length));
+        obj.attr("class", "mdx-code-c" + number + alt);
+    }
+    /**
+     * 以分段式重建code标签结构与内容
+     */
+    function rebuildSegmentCode(obj, split, number) {
+        var codeText = obj.text();
+        var si = codeText.indexOf(split);
+        obj.before("<code class='mdx-code-name" + number + "'>" + codeText.substr(0, si) + "</code>");
+        obj.text(codeText.substr(si + split.length, codeText.length));
+        obj.attr("class", "mdx-code-value" + number);
     }
     /**
      * 更新指定内容的mermaid时序图的角色样式
@@ -814,11 +902,6 @@ MIT许可证（MIT）
             var person = /\@.*/g;
             var bgSys = /\/.*\//g;
             var extSys = /\_.*\_/g;
-
-            // 优化调整角色实体高度
-            // $(this).attr("height", parseInt($(this).attr("height")) - 10);
-            //var actorLine = $(this).prev();
-            //actorLine.attr("y2", parseInt(actorLine.attr("y2")) - 10);
 
             // 更新<人物角色>样式
             if (person.test(textObj.text()) == true) {
@@ -871,7 +954,6 @@ MIT许可证（MIT）
     var _topValue = 0;
 
     function fadeOutToolbar() {
-        // console.log($(document).scrollTop() + ", " + _topValue);
         if ($(document).scrollTop() != _topValue && _showed == false) // 如完成了滚动测弱化显示
             $(".mdx-toolbar").animate({
                 opacity: 0.3
@@ -902,6 +984,7 @@ MIT许可证（MIT）
         $(window).resize(function() {
             adjustOutline();
             followHeader();
+            updateDocbarPos();
         });
         // 绑定文档的单击事件，显示点击泡泡动画
         // $(document).click(function() {
@@ -930,20 +1013,23 @@ MIT许可证（MIT）
 
         // updateFoldingButton(); // 更新Outline上的目录节点按钮
 
-        adjustOutline(); // 显示Outline
-        followHeader();
-        // updateFolderParentAttr(); // 更新目录节点的父节点信息
-
-        updateCodeStyle();
         updateMermaidStyle();
+        renderingCodeStyle();
 
         // 初始化插图数据
         initFigureData();
 
         // 初始化外部链接
         initExtLink();
+
+        // 自适应是否显示大纲
+        adjustOutline();
+        updateDocbarPos();
+
+        // followHeader();
+        // updateFolderParentAttr(); // 更新目录节点的父节点信息
     });
 </script>
 <!--====================================-->
-<!--             END OF VLOOK            -->
+<!--            END OF VLOOK            -->
 <!--====================================-->

@@ -59,11 +59,7 @@ img {
 }
 
 .mdx-figure-hover {
-  border: 2px solid @masterColor;
-}
-
-#figure-content:hover {
-  border: 2px solid @masterColor;
+  border: 2px solid @masterColor !important;
 }
 
 a {
@@ -159,48 +155,48 @@ h6:hover a.anchor {
 
 h1 tt,
 h1 code {
-  font-size: inherit;
+  font-size: 0.85em;
 }
 
 h2 tt,
 h2 code {
-  font-size: inherit;
+  font-size: 0.85em;
 }
 
 h3 tt,
 h3 code {
-  font-size: inherit;
+  font-size: 0.85em;
 }
 
 h4 tt,
 h4 code {
-  font-size: inherit;
+  font-size: 0.85em;
 }
 
 h5 tt,
 h5 code {
-  font-size: inherit;
+  font-size: 0.85em;
 }
 
 h6 tt,
 h6 code {
-  font-size: inherit;
+  font-size: 0.85em;
 }
 
 h1 {
   margin-left: -20px;
   margin-right: -20px;
   margin-top: 3em;
-  margin-bottom: 1.5em;
+  margin-bottom: 0.5em;
   padding-left: 20px;
-  padding-top: 1em;
+  // padding-top: 1em;
   height: 50px;
   line-height: 50px;
   font-size: 1.8em;
   border-top: 3px solid @masterColor;
   // text-align: center;
   // background-color: @masterColor;
-  // color: @foreColorLight;
+  // color: @docBgColor;
   // border-radius: 4px;
   // box-shadow: 0px 4px 20px @thirdShadowColor;
 }
@@ -214,14 +210,14 @@ h2 {
   margin-top: 1em;
   margin-bottom: 0.5em;
   padding-left: 20px;
-  padding-top: 1em;
+  padding-top: 0em;
   // padding-top: 0.3em;
   // padding-bottom: 0em;
   font-size: 1.8em;
   border-top: 3px solid @masterColorAlt;
   // text-align: center;
   // background-color: @thirdColor;
-  // color: @foreColorLight;
+  // color: @docBgColor;
   // border-radius: 8px;
   // box-shadow: 0px 4px 20px @masterShadowColor;
 }
@@ -229,7 +225,7 @@ h2 {
 h1 + h2 {
   // h1后紧跟h2的情况，不显示边框分隔线
   // figure + h2 { // table后紧跟h2的情况，不显示边框分隔线
-  margin-top: 0;
+  margin-top: 0em;
   padding-top: 0em;
   border-top: 0px;
 }
@@ -493,7 +489,7 @@ table tr:hover {
 }
 
 table tr:nth-child(2n):hover {
-  // background-color: @foreColorLight;
+  // background-color: @docBgColor;
 }
 
 table tr:nth-child(2n) {
@@ -707,7 +703,7 @@ tt {
   // border: 1px solid @masterColorAlt;
   border-radius: 5px;
   padding: 1px 4px 1px 4px;
-  margin: 0px 2px 0px 2px;
+  margin: 0px 4px 0px 4px;
   font-size: 0.85em;
 }
 
@@ -715,32 +711,6 @@ code:hover,
 tt:hover {
   // border-color: @foreColorDark;
   // transition: all 0.3s ease-in-out;
-}
-
-code.added,
-code.add {
-  background-color: #d0f8c8;
-}
-
-code.modified,
-code.mod,
-code.improved,
-code.optimized {
-  background-color: #d0d0f8;
-}
-
-code.fixed {
-  background-color: #e0e0e8;
-}
-
-code.removed,
-code.rm,
-code.del {
-  background-color: #f8d0d0;
-}
-
-code:contains("added") {
-  color: #f00;
 }
 
 .md-fences {
@@ -1016,7 +986,7 @@ footer {
 
 .md-toc-h1:before {
   counter-increment: h1toc;
-  content: counter(h1toc) "︱";
+  content: counter(h1toc) "｜";
 }
 
 .md-toc-h1 .md-toc-inner {
@@ -1025,7 +995,7 @@ footer {
 
 .md-toc-h2:before {
   counter-increment: h2toc;
-  content: counter(h1toc) "." counter(h2toc) "︱";
+  content: counter(h1toc) "." counter(h2toc) "｜";
 }
 
 .md-toc-h2 .md-toc-inner {
@@ -1034,7 +1004,7 @@ footer {
 
 .md-toc-h3:before {
   counter-increment: h3toc;
-  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "︱";
+  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "｜";
 }
 
 .md-toc-h3 .md-toc-inner {
@@ -1043,7 +1013,7 @@ footer {
 
 .md-toc-h4:before {
   counter-increment: h4toc;
-  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "︱";
+  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "｜";
 }
 
 .md-toc-h4 .md-toc-inner {
@@ -1052,7 +1022,7 @@ footer {
 
 .md-toc-h5:before {
   counter-increment: h5toc;
-  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "." counter(h5toc) "︱";
+  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "." counter(h5toc) "｜";
 }
 
 .md-toc-h5 .md-toc-inner {
@@ -1101,7 +1071,7 @@ h4 {
 /** put counter result into headings */
 
 // #write h1:before {
-//   color: @foreColorLightFade;
+//   color: @docBgColorFade;
 //   font-family: @headerNumFont;
 //   font-weight: normal;
 // }
@@ -1118,31 +1088,31 @@ h4 {
 
 #write h1:before {
   counter-increment: h1;
-  content: counter(h1) "︱";
+  content: counter(h1) "｜";
 }
 
 #write h2:before {
   counter-increment: h2;
-  content: counter(h1) "." counter(h2) "︱";
+  content: counter(h1) "." counter(h2) "｜";
 }
 
 #write h3:before,
 h3.md-focus.md-heading:before {
   /*override the default style for focused headings */
   counter-increment: h3;
-  content: counter(h1) "." counter(h2) "." counter(h3) "︱";
+  content: counter(h1) "." counter(h2) "." counter(h3) "｜";
 }
 
 #write h4:before,
 h4.md-focus.md-heading:before {
   counter-increment: h4;
-  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "︱";
+  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "｜";
 }
 
 #write h5:before,
 h5.md-focus.md-heading:before {
   counter-increment: h5;
-  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "︱";
+  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "｜";
 }
 
 // #write h6:before,
@@ -1187,7 +1157,7 @@ h5.md-focus:before {
 .outline-item:hover {
   // background-color: @foreColorDark;
   // font-weight: bold;
-  // color: @foreColorLight;
+  // color: @docBgColor;
   // border-color: @foreColorDark;
 }
 
@@ -1262,7 +1232,7 @@ text[text-anchor="start"] > tspan {
 
 // 标题
 rect[x="10"][y="10"][fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][rx="0"][ry="0"] {
-  fill: @foreColorLight;
+  fill: @docBgColor;
   stroke: @foreColorDarkAlt;
   stroke-width: 2px;
 }
@@ -1970,7 +1940,7 @@ div.mermaidTooltip {
 }
 
 .mdx-toc-box-header {
-  background-color: @foreColorLightFade;
+  background-color: @docBgColorFade;
   color: @foreColorDark;
   font-family: @titleFont;
   font-size: 1.2em;
@@ -2009,6 +1979,7 @@ div.mermaidTooltip {
   font-size: 1em;
   font-family: @headerFont;
   color: @masterColor;
+  cursor: pointer;
 }
 
 .mdx-toc-box-title:hover {
@@ -2016,7 +1987,7 @@ div.mermaidTooltip {
   overflow: visible;
   padding-right: 10px;
   width: auto;
-  background-color: @foreColorLight;
+  background-color: @docBgColor;
 }
 
 .mdx-toc-box-body-scroll {
@@ -2032,7 +2003,7 @@ div.mermaidTooltip {
 }
 
 .mdx-toc-info {
-  background-color: @foreColorLight;
+  background-color: @docBgColor;
   color: @foreColorDark;
   font-size: 0.85em;
   font-family: @titleFont;
@@ -2053,7 +2024,7 @@ div.mermaidTooltip {
 }
 
 .mdx-toc-box-body {
-  background-color: @foreColorLightFade;
+  background-color: @docBgColorFade;
   width: 100 ％;
   height: 100%;
   padding: 0px;
@@ -2158,7 +2129,7 @@ div.mermaidTooltip {
   width: 200px;
   height: 50px;
   line-height: 50px;
-  color: @foreColorLight;
+  color: @docBgColor;
   text-align: left;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -2190,7 +2161,7 @@ div.mermaidTooltip {
   width: 200px;
   height: 50px;
   line-height: 50px;
-  color: @foreColorLight;
+  color: @docBgColor;
   text-align: right;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -2241,39 +2212,77 @@ div.mermaidTooltip {
 }
 
 .mdx-figure-viewer-prev {
+  left: 10px;
   top: auto;
-  width: 80px;
+  width: 30px;
   border-radius: 15px;
   position: absolute;
   bottom: 10px;
 }
 
 .mdx-figure-viewer-next {
+  right: 10px;
   top: auto;
-  width: 80px;
+  width: 30px;
   border-radius: 15px;
   position: absolute;
   bottom: 10px;
 }
 
 .mdx-figure-viewer-close {
-  left: 10px;
+  right: 10px;
   top: 10px;
   border-radius: 15px;
+  background-color: @foreColorDarkAlt;
   position: absolute;
 }
 
-#figure-content {
+.mdx-figure-viewer-close:hover {
+  background-color: @foreColorDark;
+}
+
+.mdx-figure-viewer-close:active {
+  background-color: @slaveColor;
+}
+
+.mdx-figure {
+  margin: 0 !important;
+  border-radius: 5px;
+  padding: 5px;
+  border: 2px solid rgba(255, 255, 255, 0);
+}
+
+.mdx-figure-content {
   margin: 5px;
   padding: 5px;
   border-radius: 5px;
   cursor: pointer;
+  display: table-cell;
+  align-content: center;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+}
+
+#svg-figure-content {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: table-cell;
+  align-content: center;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
 }
 
 .mdx-figure-pagenum {
-  left: 100px;
+  left: 10px;
+  top: 10px;
   position: absolute;
-  bottom: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 // svg path {
@@ -2340,6 +2349,163 @@ use.mdx-svg-ico-dark:hover {
   z-index: 9999;
 }
 
+// 分类式代码标签公用样式（浅色）
+.mdx-code-c1-alt,
+.mdx-code-c2-alt,
+.mdx-code-c3-alt,
+.mdx-code-c4-alt,
+.mdx-code-c5-alt,
+.mdx-code-c6-alt {
+  color: @foreColorDark;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-radius: 0.3em;
+}
+.mdx-code-c1-alt {
+  background-color: @masterColorAlt;
+  color: @masterColor;
+}
+.mdx-code-c2-alt {
+  background-color: @thirdColorAlt;
+  color: @thirdColor;
+}
+.mdx-code-c3-alt {
+  background-color: @fourthColorAlt;
+  color: @fourthColor;
+}
+.mdx-code-c4-alt {
+  background-color: @slaveColorAlt;
+  color: @slaveColor;
+}
+.mdx-code-c5-alt {
+  background-color: @fifthColorAlt;
+  color: @fifthColor;
+}
+.mdx-code-c6-alt {
+  background-color: @foreColorDarkAlt;
+  color: @foreColorDark;
+}
+
+// 分类式代码标签公用样式（深色）
+.mdx-code-c1,
+.mdx-code-c2,
+.mdx-code-c3,
+.mdx-code-c4,
+.mdx-code-c5,
+.mdx-code-c6 {
+  color: @docBgColor;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-radius: 0.3em;
+ }
+.mdx-code-c1 {
+  background-color: @masterColor;
+}
+.mdx-code-c2 {
+  background-color: @thirdColor;
+}
+.mdx-code-c3 {
+  background-color: @fourthColor;
+}
+.mdx-code-c4 {
+  background-color: @slaveColor;
+}
+.mdx-code-c5 {
+  background-color: @fifthColor;
+}
+.mdx-code-c6 {
+  background-color: @foreColorDark;
+}
+
+// 分段式代码标签公用样式
+.mdx-code-name1,
+.mdx-code-name2,
+.mdx-code-name3,
+.mdx-code-name4,
+.mdx-code-name5,
+.mdx-code-name6 {
+  margin-right: 0px;
+  border-top-left-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  color: @docBgColor;
+  font-size: 0.85em;
+}
+.mdx-code-value1,
+.mdx-code-value2,
+.mdx-code-value3,
+.mdx-code-value4,
+.mdx-code-value5,
+.mdx-code-value6 {
+  margin-left: 0px;
+  border-top-right-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  color: @docBgColor;
+  font-size: 0.85em;
+  border-left: 1px solid @docBgColorFade;
+}
+// 分段式代码标签样式1
+.mdx-code-name1 {
+  background-color: @foreColorDark !important;
+}
+.mdx-code-value1 {
+  background-color: @masterColor !important;
+}
+// 分段式代码标签样式2
+.mdx-code-name2 {
+  background-color: @foreColorDark !important;
+}
+.mdx-code-value2 {
+  background-color: @thirdColor !important;
+}
+// 分段式代码标签样式3
+.mdx-code-name3 {
+  background-color: @foreColorDark !important;
+}
+.mdx-code-value3 {
+  background-color: @fourthColor !important;
+}
+// 分段式代码标签样式4
+.mdx-code-name4 {
+  background-color: @foreColorDark !important;
+}
+.mdx-code-value4 {
+  background-color: @slaveColor !important;
+}
+// 分段式代码标签样式5
+.mdx-code-name5 {
+  background-color: @foreColorDark !important;
+}
+.mdx-code-value5 {
+  background-color: @fifthColor !important;
+}
+// 分段式代码标签样式6
+.mdx-code-name6 {
+  background-color: @foreColorDark !important;
+}
+.mdx-code-value6 {
+  background-color: @foreColorDark !important;
+}
+// h6内的code标签强制取消加粗
+h6 code {
+  font-weight: normal;
+}
+
 /**************************************
 * 封面、封底
 **************************************/
@@ -2347,7 +2513,7 @@ use.mdx-svg-ico-dark:hover {
 body div[id=write] > h6:first-child, // 页面第1个H6为封面、子标题样式
 body div[id=write] > h6:last-child {
   // 页面最后1个H6为封底样式
-  color: @foreColorLight;
+  color: @docBgColor;
   background-color: @masterColor;
   font-weight: bold;
   font-size: 2.5em;
@@ -2377,7 +2543,7 @@ body div[id=write] > h6:first-child strong {
 
 // 封面内的作者信息
 body div[id=write] > h6:first-child u {
-  color: @foreColorLightFade;
+  color: @docBgColorFade;
   font-size: 0.7em;
   font-family: @titleFont;
   text-decoration: none;
@@ -2392,13 +2558,31 @@ body div[id=write] > h6:first-child u::before {
 
 // 封面内的版权信息
 body div[id=write] > h6:first-child em {
-  color: @foreColorLightFade;
+  color: @docBgColorFade;
   font-size: 0.35em;
   font-family: @titleFont;
   font-style: normal;
   vertical-align: sub;
 }
 
+// 封面内密级信息
+body div[id=write] > h6:first-child code {
+  font-size: 0.4em !important;
+  background-color: @slaveColor;
+  border: 1px solid @docBgColorFade !important;
+}
+body div[id=write] > h6:first-child code:first-of-type {
+  border-right: 0px !important;
+  border-top-left-radius: 0.4em;
+  border-bottom-left-radius: 0.4em;
+}
+body div[id=write] > h6:first-child code:last-of-type {
+  border-left: 1px solid @docBgColorFade !important;
+  border-top-right-radius: 0.4em;
+  border-bottom-right-radius: 0.4em;
+}
+
+// 封底
 body div[id=write] > h6:last-child::after {
   content: "本文档样式与功能增强由 VLOOK™ 插件提供（https://github.com/madmaxchow/VLOOK）";
   font-size: 0.35em;
