@@ -383,9 +383,9 @@ function gotoHeader(obj) {
 + 对于缺失的图片以默认图片进行替换显示；
 + 点击插图能直接跳转到文档中对应的位置，支持通过快捷键<kbd>esc</kbd>关闭插图浏览器；
 
-[^mermaid]: mermaid 是一个用于画流程图、状态图、时序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详[mermaid官网](https://mermaidjs.github.io)，或VLOOK项目的示例文档《**Markdown风格画图脚本Demo.html**》
-[^flowchart.js]: flowchart.js基于SVG的流程图插件，它仅需几行代码即可在 Web 上完成流程图的构建。可以从文字表述中画出简单的 SVG 流程图，也可以画出彩色的图。表详[flowchart.js官网](http://flowchart.js.org)，或VLOOK项目的示例文档《**Markdown风格画图脚本Demo.html**》
-[^JS Sequence Diagrams]: JS sequence diagrams是一个方便建立UML的时序图（序列图or循序图）在线工具，使用简单。详[JS Sequence Diagrams](https://bramp.github.io/js-sequence-diagrams/) 官网，或VLOOK项目的示例文档《**Markdown风格画图脚本Demo.html**》
+[^mermaid]: mermaid 是一个用于画流程图、状态图、时序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详[mermaid官网](https://mermaidjs.github.io)，或VLOOK项目的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
+[^flowchart.js]: flowchart.js基于SVG的流程图插件，它仅需几行代码即可在 Web 上完成流程图的构建。可以从文字表述中画出简单的 SVG 流程图，也可以画出彩色的图。表详[flowchart.js官网](http://flowchart.js.org)，或VLOOK项目的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
+[^JS Sequence Diagrams]: JS sequence diagrams是一个方便建立UML的时序图（序列图or循序图）在线工具，使用简单。详[JS Sequence Diagrams](https://bramp.github.io/js-sequence-diagrams/) 官网，或VLOOK项目的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
 
 ###### 这是普通的图片示例
 
