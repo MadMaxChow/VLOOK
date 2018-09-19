@@ -2670,7 +2670,7 @@ body div[id=write] > h6:last-of-type::after {
 <div class='footnote-line'><span class='md-fn-count'>4</span> JS sequence diagrams是一个方便建立UML的时序图（序列图or循序图）在线工具，使用简单。详<a href='https://bramp.github.io/js-sequence-diagrams/'>JS Sequence Diagrams</a> 官网，或VLOOK项目的示例文档《<strong>Markdown风格画图脚本Demo.html</strong>》<a name='dfref-footnote-4' href='#ref-footnote-4' title='back to document' class='reversefootnote' >↩</a></div>
 <div class='footnote-line'><span class='md-fn-count'>5</span> 这是增<strong>强的脚注</strong>的信息，该增强由VLOOK插件提供。<a href='#header-n3'>VLOOK是什么？</a><a name='dfref-footnote-5' href='#ref-footnote-5' title='back to document' class='reversefootnote' >↩</a></div></div></div>
 <!--========================================================================-->
-<!--                       Typora Plugin - VLOOK™ V9                        -->
+<!--                       Typora Plugin - VLOOK™ V8                        -->
 <!--                                                                        -->
 <!--                             powered by Max                             -->
 <!--                        QQ Group/QQ群：805502564                         -->
@@ -3110,7 +3110,7 @@ function hideOutlineOnError() {
   $(".mdx-toolbar").hide();
   $(".mdx-toc-box").hide();
 
-  alert(["文档中没有找到目录信息，请用Typora最新版本导出，并应用最新VLOOK插件",
+  console.error(["文档中没有找到目录信息，请用Typora最新版本导出，并应用最新VLOOK插件",
       "文檔中沒有找到目錄信息，請用Typora最新版本導出，並應用最新VLOOK插件",
       "No [TOC] information was found in the document, export it with the latest version of Typora and apply the latest VLOOK plug-in.",
       "Les informations du répertoire ne figurent pas dans la documentation, veuillez les exporter avec la dernière version de Typora et appliquer le dernier plug-in VLOOK.",
@@ -4756,6 +4756,7 @@ function toggleTheme() {
   var foreColor, foreColorAlt, foreColorAlt2, foreColorAlt3, foreColorFade = null;
   var docBgColorLight = $(".mdx-color-docbg-light").css("color");
   var foreColorLight = $(".mdx-color-fore-light").css("color");
+  var docbgFade = null;
   var codeColor = null;
   var fencesBgColor, fencesColor = null;
   var masterColor, masterColorDark, masterColorAlt, masterColorAlt2 = null;
@@ -4775,6 +4776,7 @@ function toggleTheme() {
       $(".mdx-theme-exchange").html("<svg width=\"20px\" height=\"20px\"><use xlink:href=\"#icoLightTheme\" class=\"mdx-svg-ico-light\"/></svg>");
       docbgColor =  $(".mdx-color-docbg-dark").css("color");
       docbgColorAlt =  $(".mdx-color-docbg-dark-alt").css("color");
+      docbgFade = $(".mdx-color-docbg-light-fade").css("color");
       foreColor = $(".mdx-color-fore-dark").css("color");
       foreColorAlt = $(".mdx-color-fore-dark-alt").css("color");
       foreColorAlt2 = $(".mdx-color-fore-dark-alt").css("color");
@@ -4818,6 +4820,7 @@ function toggleTheme() {
       $(".mdx-theme-exchange").html("<svg width=\"16px\" height=\"16px\"><use xlink:href=\"#icoDarkTheme\" class=\"mdx-svg-ico-light\"/></svg>");
       docbgColor =  $(".mdx-color-docbg-light").css("color");
       docbgColorAlt =  $(".mdx-color-docbg-light-alt").css("color");
+      docbgFade = $(".mdx-color-docbg-light-fade").css("color");
       foreColor = $(".mdx-color-fore-light").css("color");
       foreColorAlt = $(".mdx-color-fore-light-alt").css("color");
       foreColorAlt2 = foreColor;
@@ -4875,7 +4878,7 @@ function toggleTheme() {
       "background-color": masterColor,
       "color": docBgColorLight
   });
-  // $("body div[id=write] > h6 strong").css("color", docBgColorLight);
+  $("body div[id=write] > h6:first-of-type strong").css("color", docbgFade);
   // $("body div[id=write] > h6:first-child, body div[id=write] > h6:last").css("color", docbgColor);
   $(".mdx-bread-nav").css("background-color", masterColor);
 

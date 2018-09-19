@@ -2085,6 +2085,7 @@ function toggleTheme() {
   var foreColor, foreColorAlt, foreColorAlt2, foreColorAlt3, foreColorFade = null;
   var docBgColorLight = $(".mdx-color-docbg-light").css("color");
   var foreColorLight = $(".mdx-color-fore-light").css("color");
+  var docbgFade = null;
   var codeColor = null;
   var fencesBgColor, fencesColor = null;
   var masterColor, masterColorDark, masterColorAlt, masterColorAlt2 = null;
@@ -2104,6 +2105,7 @@ function toggleTheme() {
       $(".mdx-theme-exchange").html("<svg width=\"20px\" height=\"20px\"><use xlink:href=\"#icoLightTheme\" class=\"mdx-svg-ico-light\"/></svg>");
       docbgColor =  $(".mdx-color-docbg-dark").css("color");
       docbgColorAlt =  $(".mdx-color-docbg-dark-alt").css("color");
+      docbgFade = $(".mdx-color-docbg-light-fade").css("color");
       foreColor = $(".mdx-color-fore-dark").css("color");
       foreColorAlt = $(".mdx-color-fore-dark-alt").css("color");
       foreColorAlt2 = $(".mdx-color-fore-dark-alt").css("color");
@@ -2147,6 +2149,7 @@ function toggleTheme() {
       $(".mdx-theme-exchange").html("<svg width=\"16px\" height=\"16px\"><use xlink:href=\"#icoDarkTheme\" class=\"mdx-svg-ico-light\"/></svg>");
       docbgColor =  $(".mdx-color-docbg-light").css("color");
       docbgColorAlt =  $(".mdx-color-docbg-light-alt").css("color");
+      docbgFade = $(".mdx-color-docbg-light-fade").css("color");
       foreColor = $(".mdx-color-fore-light").css("color");
       foreColorAlt = $(".mdx-color-fore-light-alt").css("color");
       foreColorAlt2 = foreColor;
@@ -2204,7 +2207,7 @@ function toggleTheme() {
       "background-color": masterColor,
       "color": docBgColorLight
   });
-  // $("body div[id=write] > h6 strong").css("color", docBgColorLight);
+  $("body div[id=write] > h6:first-of-type strong").css("color", docbgFade);
   // $("body div[id=write] > h6:first-child, body div[id=write] > h6:last").css("color", docbgColor);
   $(".mdx-bread-nav").css("background-color", masterColor);
 
