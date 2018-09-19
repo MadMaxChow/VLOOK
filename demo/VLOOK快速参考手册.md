@@ -1,4 +1,4 @@
-###### ^VLOOK™^ <br>快速参考手册<br><br>`+ 文档密级｜对外公开 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2017-2018. MAX°DESIGN.*
+###### ^VLOOK™^ <br>快速参考手册 Quick Reference Manual<br><br>`+ 文档密级｜对外公开 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2017-2018. MAX°DESIGN.*
 
 [TOC]
 
@@ -131,7 +131,7 @@ VLOOK插件包括[排版增强](#排版增强)和[功能增强](#功能增强)�
 ### 更美观的脚本化图表
 
 + 统一优化**mermaid**、**flowchart.js**、**JS Sequence Diagrams**三类脚本化图表的样式；
-+ 更多脚本化图表样式，以及结合VLOOK相关的脚本编写规则内容详见《[Markdown风格画图脚本Demo](https://madmaxchow.github.io/VLOOK/Markdown风格画图脚本Demo.html)》。
++ 更多脚本化图表样式，以及结合VLOOK相关的脚本编写规则内容详见《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》。
 
 ###### mermaid｜流程图
 
@@ -469,7 +469,17 @@ function gotoHeader(obj) {
 
 # 如何使用
 
-## 配置主题
+## 捐赠
+
+###### 若喜欢VLOOK™的话，可以请Max喝杯咖啡～
+
+![捐赠二维码](https://ws1.sinaimg.cn/large/006tKfTcgy1fsmnridvyxj303y04mt94.jpg)
+
+## 下载插件
+
+访问官方主页下载最新发布版本：[https://github.com/MadMaxChow/VLOOK/releases](https://github.com/MadMaxChow/VLOOK/releases)
+
+## 应用主题
 
 + 将`released\vlook.css`文件复制至Typora的主题目录；
 + 重启Typora，点击菜单`主题 ▶ VLOOK`即可启用VLOOK主题。
@@ -478,7 +488,7 @@ function gotoHeader(obj) {
 >
 > 打开Typora设置界面，在常规设置中点击【打开主题目录】按钮即可定位到该目录
 
-## 安装插件
+## 应用插件
 
 + 在Typora中将Markdown文件导出为`HTML`文件；
 + 打开文件`released\vlook-toolbox.txt`，全选所有内容，并复制；
@@ -495,15 +505,5 @@ function gotoHeader(obj) {
 在此授予任何获得此软件和相关文档文件（“软件”）副本的人免费许可，以无限制地处理本软件，包括但不限于使用，复制，修改，合并，发布，分发，再授权和/或出售本软件的副本，并允许本软件的授予人员遵从以下情况：
 上述版权声明和本许可声明应包含在本软件的所有副本或重要部分中。
 本软件按“原样”提供，不提供任何以表达或暗示，包括但不限于销售，适用于特定用途和不侵权的保证。在任何情况下，作者或版权所有人不对因软件或软件的使用或其他事宜产生的任何索赔，损害或其他责任（无论是在合同，侵权或其他方面的诉讼中）负责。
-
-# 官方主页
-
-[https://github.com/MadMaxChow/VLOOK](https://github.com/MadMaxChow/VLOOK)
-
-# 捐赠
-
-###### 若喜欢VLOOK™的话，可以请Max喝杯咖啡～
-
-![捐赠二维码](https://ws1.sinaimg.cn/large/006tKfTcgy1fsmnridvyxj303y04mt94.jpg)
 
 ###### 终了<br>

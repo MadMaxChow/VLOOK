@@ -1,5 +1,5 @@
 
-###### ^VLOOK™\ Charts\ Demo^ <br>Markdown风格画图脚本Demo<br><br>`+ 文档密级｜对外公开 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2017-2018. MAX°DESIGN.*
+###### ^VLOOK™\ Charts\ Demo^ <br>脚本化图表 for Markdown<br><br>`+ 文档密级｜对外公开 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2017-2018. MAX°DESIGN.*
 
 [TOC]
 

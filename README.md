@@ -7,7 +7,7 @@ VLOOK™插件包括排版增强和功能增强两大类特性：
 
 VLOOK™为开源软件，遵从MIT许可证。
 
-特性的详细介绍，以及使用说明详见《VLOOK快速参考手册.html》
+特性的详细介绍，以及使用说明详见《[VLOOK快速参考手册](https://madmaxchow.github.io/VLOOK/index.html)》
 
 ---
 
@@ -25,4 +25,4 @@ The VLOOK™ plugin includes two major categories of typography enhancements and
 
 VLOOK™ is open source software and is compliant with the MIT license.
 
-Detailed description of the features, as well as instructions for use, can be found in the "VLOOK Quick Reference Manual.html".
+Detailed description of the features, as well as instructions for use, can be found in the "[VLOOK Quick Reference Manual](https://madmaxchow.github.io/VLOOK/index.html)".

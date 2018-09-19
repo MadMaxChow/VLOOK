@@ -1870,8 +1870,8 @@ li p {
 }
 .mdx-footer-note {
   position: fixed;
-  left: 10%;
-  right: 10%;
+  left: 15%;
+  right: 15%;
   bottom: -180px;
   height: 180px;
   border-radius: 15px;
@@ -2670,7 +2670,7 @@ body div[id=write] > h6:last-of-type::after {
 <div class='footnote-line'><span class='md-fn-count'>4</span> JS sequence diagrams是一个方便建立UML的时序图（序列图or循序图）在线工具，使用简单。详<a href='https://bramp.github.io/js-sequence-diagrams/'>JS Sequence Diagrams</a> 官网，或VLOOK项目的示例文档《<strong>Markdown风格画图脚本Demo.html</strong>》<a name='dfref-footnote-4' href='#ref-footnote-4' title='back to document' class='reversefootnote' >↩</a></div>
 <div class='footnote-line'><span class='md-fn-count'>5</span> 这是增<strong>强的脚注</strong>的信息，该增强由VLOOK插件提供。<a href='#header-n3'>VLOOK是什么？</a><a name='dfref-footnote-5' href='#ref-footnote-5' title='back to document' class='reversefootnote' >↩</a></div></div></div>
 <!--========================================================================-->
-<!--                       Typora Plugin - VLOOK™ V8                        -->
+<!--                       Typora Plugin - VLOOK™ V9                        -->
 <!--                                                                        -->
 <!--                             powered by Max                             -->
 <!--                        QQ Group/QQ群：805502564                         -->
@@ -5133,10 +5133,20 @@ function showFooterNote() {
   $("body").css("overflow", "hidden"); // 禁用网页滚动
 
   var mask =  $(".mdx-toc-mask");
-  mask.css("z-index", $(".mdx-footer-note").css("z-index") - 1);
+  var footerNote = $(".mdx-footer-note");
+  mask.css("z-index", footerNote.css("z-index") - 1);
   mask.on("click", hideFooterNote);
   mask.fadeIn(_animateSpeed);
 
+
+  if (isSmallScreen())
+      footerNote.css({
+          "left": "20px",
+          "right": "20px"});
+  else
+      footerNote.css({
+          "left": "15%",
+          "right": "15%"});
   $(".mdx-footer-note").show().animate({ bottom: 20 + _reboundOffset }, _animateSpeed)
       .animate({ bottom: 20 }, _animateSpeed);
 }
