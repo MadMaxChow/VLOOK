@@ -5,11 +5,12 @@ html {
 
 html,
 body {
-  background: @docBgColor;
+  background: @docBgColorLight;
   font-family: @textFont;
   font-weight: normal;
-  color: @foreColorDark;
+  color: @foreColorLight;
   line-height: 2;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #write {
@@ -19,7 +20,7 @@ body {
   // border-bottom: 10px solid @masterColor;
   max-width: 100%;
   margin: 0 auto;
-  padding: 0px 30px 50px 30px;
+  padding: 0px 30px 0px 30px;
 }
 
 #write > ul:first-child,
@@ -39,9 +40,9 @@ body.typora-export {
     padding-left: 0px;
     padding-right: 0px;
   }
-  .mdx-toc-info2 {
-    display: none;
-  }
+  // .mdx-toc-info2 {
+  //   display: none;
+  // }
 }
 
 body > *:first-child {
@@ -56,10 +57,6 @@ img {
   border-radius: 5px;
   padding: 5px;
   border: 2px solid rgba(255, 255, 255, 0);
-}
-
-.mdx-figure-hover {
-  border: 2px solid @masterColor !important;
 }
 
 a {
@@ -136,6 +133,9 @@ h6 {
   position: relative;
   margin-bottom: 0em;
   // font-weight: bold;
+  margin-left: -10px;
+  margin-right: -10px;
+  padding-left: 0px;
   line-height: 1.5;
   font-family: @headerFont; //@titleFont;
 }
@@ -154,49 +154,32 @@ h6:hover a.anchor {
 }
 
 h1 tt,
-h1 code {
-  font-size: 0.85em;
-}
-
+h1 code,
 h2 tt,
-h2 code {
-  font-size: 0.85em;
-}
-
+h2 code,
 h3 tt,
-h3 code {
-  font-size: 0.85em;
-}
-
+h3 code,
 h4 tt,
-h4 code {
-  font-size: 0.85em;
-}
-
+h4 code,
 h5 tt,
-h5 code {
-  font-size: 0.85em;
-}
-
+h5 code,
 h6 tt,
 h6 code {
   font-size: 0.85em;
 }
 
 h1 {
-  margin-left: -20px;
-  margin-right: -20px;
   margin-top: 3em;
   margin-bottom: 0.5em;
-  padding-left: 20px;
-  // padding-top: 1em;
-  height: 50px;
+  // padding-left: 20px;
+  padding-top: 20px;
+  // height: 50px;
   line-height: 50px;
-  font-size: 1.8em;
-  border-top: 3px solid @masterColor;
+  font-size: 2em;
+  border-top: 5px solid @masterColor;
   // text-align: center;
   // background-color: @masterColor;
-  // color: @docBgColor;
+  // color: @docBgColorLight;
   // border-radius: 4px;
   // box-shadow: 0px 4px 20px @thirdShadowColor;
 }
@@ -205,19 +188,17 @@ body div h1:first-of-type {
 }
 
 h2 {
-  margin-left: -20px;
-  margin-right: -20px;
   margin-top: 1em;
   margin-bottom: 0.5em;
-  padding-left: 20px;
-  padding-top: 0em;
+  // padding-left: 20px;
+  padding-top: 20px;
   // padding-top: 0.3em;
   // padding-bottom: 0em;
   font-size: 1.8em;
-  border-top: 3px solid @masterColorAlt;
+  border-top: 5px solid @masterColorAlt;
   // text-align: center;
   // background-color: @thirdColor;
-  // color: @docBgColor;
+  // color: @docBgColorLight;
   // border-radius: 8px;
   // box-shadow: 0px 4px 20px @masterShadowColor;
 }
@@ -231,16 +212,14 @@ h1 + h2 {
 }
 
 h3 {
-  margin-left: -20px;
-  margin-right: -20px;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  padding-left: 20px;
-  padding-top: 1em;
+  // padding-left: 20px;
+  padding-top: 20px;
   // padding-top: 0.3em;
   // padding-bottom: 0em;
   font-size: 1.6em;
-  border-top: 1px solid @masterColorAlt;
+  border-top: 3px solid @masterColorAlt;
   // border-bottom: 5px solid @masterColorAlt;
 }
 
@@ -255,16 +234,18 @@ h2 + h3 {
 h4 {
   margin-top: 1.5em;
   margin-bottom: 0.2em;
+  padding-top: 20px;
   // padding-top: 0.3em;
   // padding-bottom: 0em;
   font-size: 1.4em;
+  border-top: 1px solid @masterColorAlt;
   // border-bottom: 2px solid @masterColorAlt;
 }
 
 h3 + h4 {
   // h2后紧跟h3的情况，不显示边框分隔线
   margin-top: 0;
-  padding-top: 0.5em;
+  padding-top: 0em;
   border-top: 0px;
 }
 
@@ -285,6 +266,8 @@ h4 + h5 {
 }
 
 h6 {
+  margin-left: 0;
+  margin-right: 0;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
   // padding-top: 0.3em;
@@ -293,10 +276,14 @@ h6 {
   // border-bottom: 0;
   color: @masterColor;
   line-height: 1;
-  border-left: 1em solid @masterColorFade;
+  border-left: 0.5em solid @masterColorFade;
   padding-left: 0.5em;
-  // border-radius: 0.5em;
+  // border-radius: 0.3em;
 }
+// h6::before {
+//   content: "■ ";
+//   color: @masterColorFade;
+// }
 
 li > h6 {
   // 用于：子表
@@ -305,17 +292,21 @@ li > h6 {
   padding-left: 0;
   // border-left: 0.25em solid @masterColorFade;
 }
+li > h6::before {
+  content: "▪ ";
+  color: @masterColorFade;
+}
 
 strong {
-  // color: @boldColor;
+  color: @boldColorLight;
   font-family: @boldFont;
 }
 
 p,
 blockquote,
-ul,
-ol,
-dl,
+// ul,
+// ol,
+// dl,
 table {
   margin: 0.2em 0;
 }
@@ -323,7 +314,7 @@ table {
 hr {
   margin-top: 1.2em;
   margin-bottom: 1.2em;
-  border: 1px solid @foreColorDarkAlt;
+  border: 1px dotted @foreColorLightAlt;
   overflow: hidden;
   box-sizing: content-box;
   border-top: 0px;
@@ -376,40 +367,57 @@ h6 p {
   margin-top: 0;
 }
 
+// 有序列表下无序列表-1级
 ol > li {
   list-style-type: decimal;
-  line-height: 2;
+  // line-height: 2;
   // color: @masterColorAlt;
 }
-
-// 有序列表下无序列表 2级
+// 有序列表下无序列表-2级
 ol > li > ul > li {
   list-style-type: upper-alpha;
 }
-
-// 有序列表下无序列表 3级
+// 有序列表下无序列表-3级
 ol > li > ul > li > ul > li {
   list-style-type: lower-alpha;
 }
-
-// 有序列表下无序列表 4级
+// 有序列表下无序列表-4级
 ol > li > ul > li > ul > li > ul > li {
   list-style-type: disc;
 }
-
-// 有序列表下无序列表 5级
+// 有序列表下无序列表-5级
 ol > li > ul > li > ul > li > ul > li > ul > li {
   list-style-type: circle;
 }
-
-// 有序列表下无序列表 6级
+// 有序列表下无序列表-6级
 ol > li > ul > li > ul > li > ul > li > ul > li > ul > li {
   list-style-type: square;
 }
 
+// 多级无序列表-1级
 ul > li {
-  line-height: 2;
-  // color: @masterColorAlt;
+  list-style-type: decimal;
+  // line-height: 2;
+}
+// 多级无序列表-2级
+ul > li > ul > li {
+  list-style-type: upper-alpha;
+}
+// 多级无序列表-3级
+ul > li > ul > li > ul > li {
+  list-style-type: lower-alpha;
+}
+// 多级无序列表-4级
+ul > li > ul > li > ul > li > ul > li {
+  list-style-type: disc;
+}
+// 多级无序列表-5级
+ul > li > ul > li > ul > li > ul > li > ul > li {
+  list-style-type: circle;
+}
+// 多级无序列表-6级
+ul > li > ul > li > ul > li > ul > li > ul > li > ul > li {
+  list-style-type: square;
 }
 
 li p.first {
@@ -442,9 +450,9 @@ li > ul {
 }
 
 blockquote {
-  // border: 1px solid @foreColorDarkAlt;
+  // border: 1px solid @foreColorLightAlt;
   // border-radius: 8px;
-  border-left: 0.25em solid @thirdColorAlt;
+  border-left: 0.3em solid @thirdColorAlt;
   padding-left: 0.5em;
   margin-top: 0.5em;
   margin-bottom: 1em;
@@ -452,9 +460,23 @@ blockquote {
   font-family: @titleFont;
   // background-color: @thirdColorAlt;
 }
+blockquote > p {
+  color: @thirdColor;
+}
+blockquote li {
+  // color: @thirdColorDark;
+}
+blockquote blockquote {
+  border-left: 0.2em solid @thirdColorAlt;
+  margin-left: 0.4em;
+}
 
 blockquote blockquote {
   padding-right: 0;
+}
+
+blockquote strong {
+  color: inherit !important;
 }
 
 #write {
@@ -473,7 +495,7 @@ table {
 }
 
 table:hover {
-  // border: 1px solid @foreColorDark;
+  // border: 1px solid @foreColorLight;
   // box-shadow: 0px 4px 20px @masterShadowColor;
   // transition: all 0.3s ease-in-out;
 }
@@ -485,15 +507,15 @@ table tr {
 }
 
 table tr:hover {
-  background-color: @tableTdBgColor;
+  // background-color: @tableTdBgColor;
 }
 
 table tr:nth-child(2n):hover {
-  // background-color: @docBgColor;
+  // background-color: @docBgColorLight;
 }
 
 table tr:nth-child(2n) {
-  // background-color: @docBgColor;
+  // background-color: @docBgColorLight;
 }
 
 // table tr:nth-child(2n) td {
@@ -506,24 +528,23 @@ table tr:nth-child(2n) td:last-child {
 
 // 表格表头
 table tr th {
-  background-color: @docBgColor;
+  background-color: @docBgColorLightAlt;
   font-family: @titleFont;
   color: @tableThColor;
   // border-right: 1px dotted @tableThBorderColor;
   border-top: 2px solid @tableColor;
   border-bottom: 1px solid @tableColor;
   margin: 0;
-  padding: 4px 12px 4px 12px;
+  padding: 0.3em 0.5em;
 }
 
 table tr td {
   // border-right: 1px solid @tableTdBorderColor;
-  // background-color: @docBgColor;
+  // background-color: @docBgColorLight;
   text-align: left;
   margin: 0;
-  padding: 4px 12px 4px 12px;
+  padding: 0.3em 0.5em;
   border-bottom: 1px solid @tableTdBorderColor;
-  // box-shadow: 0px 1px 0px @tableTdBorderColor inset;
 }
 
 table tr td:hover {
@@ -532,21 +553,21 @@ table tr td:hover {
 
 // 表格首列
 table tr td:first-child {
-  font-family: @titleFont;
+  // font-family: @titleFont;
   // font-weight: bold;
-  color: @boldColor;
-  // color: darken(@foreColorDark, 30%);
+  // color: @boldColorLight;
+  // color: darken(@foreColorLight, 30%);
 }
 
 table tr th:first-child,
 table tr td:first-child {
-  padding-left: 2px;
+  padding-left: 0.5em;
 }
 
 table tr th:last-child,
 table tr td:last-child {
   border-right: 0;
-  padding-right: 2px;
+  padding-right: 0.5em;
 }
 
 table th:first-child {
@@ -595,9 +616,9 @@ li figure {
 li table tr th:first-child::before,
 li table tr td:first-child::before {
   content: "#";
-  color: @foreColorDarkFade;
+  color: @foreColorLightAlt;
   font-family: @codeFont;
-  font-size: 0.7em;
+  font-size: 0.85em;
   vertical-align: middle;
   text-align: right;
   width: 2.5em;
@@ -613,7 +634,7 @@ li table tr td:first-child::before {
 h6 + figure table tr th:first-child::before,
 h6 + figure table tr td:first-child::before {
   content: "# ";
-  color: @foreColorDarkFade;
+  color: @foreColorLightFade;
   font-family: @codeFont;
   font-size: 0.7em;
   vertical-align: middle;
@@ -625,8 +646,16 @@ h6 + figure table tr td:first-child::before {
 }
 
 mark {
-  background-color: #ffff00;
-  border-radius: 4px;
+  background-color: #FFF000 !important;
+  // border-radius: 0px;
+}
+
+del {
+  color: @foreColorLightAlt;
+}
+del code {
+  color: @foreColorLightAlt;
+  background-color: @docBgColorLightAlt;
 }
 
 // 脚注区域
@@ -636,7 +665,7 @@ mark {
 
 // 脚注行
 .footnote-line {
-  color: @foreColorDark;
+  color: @foreColorLight;
   font-size: 1em;
   margin-top: 0.5em;
 }
@@ -686,44 +715,48 @@ a[name^="ref-footnote-"]:after {
 }
 
 .CodeMirror-gutters {
-  border-right: 1px solid @foreColorDarkAlt;
-  // background-color: @foreColorDarkAlt;
+  border-right: 1px solid @docBgColorLight;
+  // background-color: @foreColorLightAlt;
 }
 
 .CodeMirror-linenumber {
-  color: @foreColorDarkAlt;
+  color: @foreColorLightAlt;
 }
 
-.md-fences,
+//.md-fences,
 code,
 tt {
-  // color: @boldColor;
+  color: @boldColorLight;
   font-family: @codeFont;
   background-color: @masterColorAlt;
-  // border: 1px solid @masterColorAlt;
-  border-radius: 5px;
-  padding: 1px 4px 1px 4px;
-  margin: 0px 4px 0px 4px;
+  border-radius: 0.3em;
+  padding: 0.1em 0.3em;
+  margin: 0px 0.2em;
   font-size: 0.85em;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+blockquote code {
+  background-color: @thirdColorAlt;
 }
 
 code:hover,
 tt:hover {
-  // border-color: @foreColorDark;
+  // border-color: @foreColorLight;
   // transition: all 0.3s ease-in-out;
 }
 
 .md-fences {
-  background-color: lighten(@foreColorDark, 58%);
-  border: 1px solid @foreColorDarkAlt;
-  // margin-bottom: 1em;
-  // margin-top: 1em;
-  // padding: 0;
-  // margin: 0;
-  // padding-top: 0.3em;
-  // padding-bottom: 0.3em;
-  // border-radius: 4px;
-  // color: @foreColorDark;
+  // background-color: lighten(@foreColorLight, 58%);
+  color: @foreColorLight;
+  font-family: @codeFont;
+  background-color: @docBgColorLightAlt;
+  border-radius: 5px;
+  border: 2px solid @docBgColorLightAlt;
+  padding: 1px 4px 1px 4px;
+  margin: 0px 4px 0px 4px;
+  font-size: 0.85em;
 }
 
 .md-fences:hover {
@@ -752,29 +785,14 @@ tt:hover {
     }*/
 }
 
-@media print {
-  html {
-    font-size: 0.5em;
-  }
-
-  table,
-  pre {
-    page-break-inside: avoid;
-  }
-
-  pre {
-    word-wrap: break-word;
-  }
-}
-
 #write pre.md-meta-block {
   padding: 1em;
   font-size: 85%;
   line-height: 2;
-  background-color: @foreColorDarkFade3;
+  background-color: @foreColorLightFade3;
   border: 0;
   border-radius: 3px;
-  color: @foreColorDark;
+  color: @foreColorLight;
   margin-top: 0 !important;
 }
 
@@ -804,7 +822,7 @@ tt:hover {
 
 .md-image > .md-meta {
   border: 1px solid @tableBorderColor;
-  background-color: @foreColorDarkFade3;
+  background-color: @foreColorLightFade3;
   border-radius: 3px;
   padding: 2px 4px 0px 4px;
   color: inherit;
@@ -814,7 +832,8 @@ tt:hover {
   color: inherit;
 }
 
-.md-toc {
+.md-toc,
+.mdx-toc {
   margin-top: 0.6em;
   margin-bottom: 0.6em;
   border-radius: 0px;
@@ -823,12 +842,12 @@ tt:hover {
 
 .md-toc-h1 {
   font-size: 1em;
-  font-weight: bold;
+  // font-weight: bold;
 }
 
 .md-toc-h2 {
   font-size: 1em;
-  font-weight: bold;
+  // font-weight: bold;
 }
 
 .md-toc-h3,
@@ -836,7 +855,7 @@ tt:hover {
 .md-toc-h5 {
   //, .md-toc-h6
   font-size: 1em;
-  font-weight: normal;
+  // font-weight: normal;
 }
 
 .md-toc-h1 a,
@@ -845,7 +864,7 @@ tt:hover {
 .md-toc-h4 a,
 .md-toc-h5 a {
   //, .md-toc-h6 a
-  color: @foreColorDark;
+  color: @foreColorLight;
   text-decoration: none;
   padding: 0px 0px 0px 0px;
   border-radius: 0px;
@@ -858,17 +877,17 @@ tt:hover {
 .md-toc-h5 a:hover {
   //, .md-toc-h6 a:hover
   color: @slaveColor;
-  background-color: @transparencyColor;
+  background-color: @transparencyColor0;
   text-decoration: none;
 }
 
 #typora-quick-open {
   border: 1px solid @tableBorderColor;
-  background-color: @foreColorDarkFade3;
+  background-color: @foreColorLightFade3;
 }
 
 #typora-quick-open-item {
-  background-color: @foreColorDarkFade3;
+  background-color: @foreColorLightFade3;
   border-color: @tableBorderColor;
   border-style: solid;
   border-width: 1px;
@@ -881,7 +900,7 @@ tt:hover {
 /** focus mode */
 
 .on-focus-mode blockquote {
-  border-left-color: @foreColorDark;
+  border-left-color: @foreColorLight;
 }
 
 header,
@@ -902,38 +921,38 @@ footer {
 
 .md-toc-h1 {
   margin-left: 0;
-  padding-left: 1em;
+  padding-left: 10px;
   counter-reset: h2toc;
 }
 
 .md-toc-h2 {
   margin-left: 0;
-  padding-left: 2em;
+  padding-left: 20px;
   counter-reset: h3toc;
 }
 
 .md-toc-h3 {
   margin-left: 0;
-  padding-left: 3em;
+  padding-left: 30px;
   counter-reset: h4toc;
 }
 
 .md-toc-h4 {
   margin-left: 0;
-  padding-left: 4em;
+  padding-left: 40px;
   counter-reset: h5toc;
 }
 
 .md-toc-h5 {
   margin-left: 0;
-  padding-left: 5em;
+  padding-left: 50px;
   counter-reset: h6toc;
 }
 
 .md-toc-h6 {
   display: none;
   margin-left: 0;
-  padding-left: 6em;
+  padding-left: 50px;
 }
 
 .md-toc-h1,
@@ -941,9 +960,12 @@ footer {
 .md-toc-h3,
 .md-toc-h4,
 .md-toc-h5 {
-  //, .md-toc-h6
   font-family: @titleFont;
   font-size: 1em;
+  padding-right: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .md-toc-h1:before,
@@ -952,7 +974,7 @@ footer {
 .md-toc-h4:before,
 .md-toc-h5:before {
   //, .md-toc-h6:before
-  color: @foreColorDarkFade;
+  color: @foreColorLightAlt;
   font-family: @headerNumFont4toc;
   font-weight: normal;
 }
@@ -986,7 +1008,7 @@ footer {
 
 .md-toc-h1:before {
   counter-increment: h1toc;
-  content: counter(h1toc) "｜";
+  content: counter(h1toc) "  ";
 }
 
 .md-toc-h1 .md-toc-inner {
@@ -995,7 +1017,7 @@ footer {
 
 .md-toc-h2:before {
   counter-increment: h2toc;
-  content: counter(h1toc) "." counter(h2toc) "｜";
+  content: counter(h1toc) "." counter(h2toc) "  ";
 }
 
 .md-toc-h2 .md-toc-inner {
@@ -1004,7 +1026,7 @@ footer {
 
 .md-toc-h3:before {
   counter-increment: h3toc;
-  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "｜";
+  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "  ";
 }
 
 .md-toc-h3 .md-toc-inner {
@@ -1013,7 +1035,7 @@ footer {
 
 .md-toc-h4:before {
   counter-increment: h4toc;
-  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "｜";
+  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "  ";
 }
 
 .md-toc-h4 .md-toc-inner {
@@ -1022,7 +1044,7 @@ footer {
 
 .md-toc-h5:before {
   counter-increment: h5toc;
-  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "." counter(h5toc) "｜";
+  content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "." counter(h5toc) "  ";
 }
 
 .md-toc-h5 .md-toc-inner {
@@ -1071,7 +1093,7 @@ h4 {
 /** put counter result into headings */
 
 // #write h1:before {
-//   color: @docBgColorFade;
+//   color: @docBgColorLightFade;
 //   font-family: @headerNumFont;
 //   font-weight: normal;
 // }
@@ -1088,31 +1110,31 @@ h4 {
 
 #write h1:before {
   counter-increment: h1;
-  content: counter(h1) "｜";
+  content: counter(h1) "  ";
 }
 
 #write h2:before {
   counter-increment: h2;
-  content: counter(h1) "." counter(h2) "｜";
+  content: counter(h1) "." counter(h2) "  ";
 }
 
 #write h3:before,
 h3.md-focus.md-heading:before {
   /*override the default style for focused headings */
   counter-increment: h3;
-  content: counter(h1) "." counter(h2) "." counter(h3) "｜";
+  content: counter(h1) "." counter(h2) "." counter(h3) "  ";
 }
 
 #write h4:before,
 h4.md-focus.md-heading:before {
   counter-increment: h4;
-  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "｜";
+  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "  ";
 }
 
 #write h5:before,
 h5.md-focus.md-heading:before {
   counter-increment: h5;
-  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "｜";
+  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "  ";
 }
 
 // #write h6:before,
@@ -1155,10 +1177,10 @@ h5.md-focus:before {
 }
 
 .outline-item:hover {
-  // background-color: @foreColorDark;
+  // background-color: @foreColorLight;
   // font-weight: bold;
-  // color: @docBgColor;
-  // border-color: @foreColorDark;
+  // color: @docBgColorLight;
+  // border-color: @foreColorLight;
 }
 
 /**************************************
@@ -1169,15 +1191,15 @@ h5.md-focus:before {
 
 // 开始节点
 rect[id^="st"].flowchart {
-  fill: @foreColorDark;
-  stroke: @foreColorDark;
+  fill: @foreColorLight;
+  stroke: @foreColorLight;
   stroke-width: 5;
 }
 
 // 结束节点
 rect[id^="e"].flowchart {
   fill: none;
-  stroke: @foreColorDark;
+  stroke: @foreColorLight;
   stroke-width: 5;
 }
 
@@ -1212,28 +1234,29 @@ path[id^="io"].flowchart {
 
 // 流程线
 path[fill="none"][stroke-width="3"][marker-end^="url(#raphael-marker-endblock"] {
-  stroke: @foreColorDark;
+  stroke: @foreColorLight;
   stroke-width: 2px;
   // marker-end: "url(#raphael-marker-endclassic)";
 }
 
 // 流程线箭头
 marker[id^="raphael-marker-endblock"] > use {
-  fill: @foreColorDark;
+  fill: @foreColorLight;
 }
 
 // 文本
 text[text-anchor="start"] > tspan {
   font-size: 14px;
   font-family: @codeFont;
+  fill: @boldColorLight;
 }
 
 /* ----- sequeuce diagram 时序图 ----- */
 
 // 标题
 rect[x="10"][y="10"][fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][rx="0"][ry="0"] {
-  fill: @docBgColor;
-  stroke: @foreColorDarkAlt;
+  fill: @docBgColorLight;
+  stroke: @foreColorLightAlt;
   stroke-width: 2px;
 }
 
@@ -1255,7 +1278,7 @@ path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"] {
 // 消息实线+实箭头
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endblock"] {
   // fill: none;
-  stroke: @foreColorDark;
+  stroke: @foreColorLight;
   stroke-width: 2px;
   stroke-dasharray: none;
 }
@@ -1268,7 +1291,7 @@ path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end
 // 消息实线+虚箭头
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endopen"] {
   // fill: none;
-  stroke: @foreColorDark;
+  stroke: @foreColorLight;
   stroke-width: 2px;
   stroke-dasharray: none;
 }
@@ -1280,19 +1303,21 @@ path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end
 
 // 消息虚箭头
 marker[id^="raphael-marker-endopen"] > use {
-  stroke: @foreColorDark;
-}
-
-// 实体、注释文本
-rect + rect + text[text-anchor="middle"] > tspan {
-  font-size: 14px;
-  font-family: @codeFont;
+  stroke: @foreColorLight;
 }
 
 // 消息文本
 rect + text[text-anchor="middle"] > tspan {
   font-size: 14px;
   font-family: @textFont;
+  fill: @foreColorLight;
+}
+
+// 实体、注释文本
+rect + rect + text[text-anchor="middle"] > tspan {
+  font-size: 14px;
+  font-family: @codeFont;
+  fill: @boldColorLight;
 }
 
 /**************************************
@@ -1303,13 +1328,17 @@ rect + text[text-anchor="middle"] > tspan {
 
 // 标签
 .mermaid .label {
-  color: @foreColorDark;
-  fill: @foreColorDarkAlt;
+  color: @boldColorLight;
+  fill: @foreColorLightAlt;
+}
+
+svg[id^="mermaidChart"] {
+  color: @boldColorLight;
 }
 
 // 方角矩形
 .node rect[rx="0"][rx="0"] {
-  color: @foreColorDark;
+  // color: @foreColorLight;
   fill: @masterColorAlt;
   stroke: @masterColor;
   stroke-width: 3;
@@ -1320,7 +1349,7 @@ rect + text[text-anchor="middle"] > tspan {
 // }
 // 圆角矩形
 .node rect[rx="5"][rx="5"] {
-  // color: @foreColorDark;
+  // color: @foreColorLight;
   fill: @masterColorAlt;
   stroke: @masterColor;
   stroke-width: 1;
@@ -1338,15 +1367,15 @@ rect + text[text-anchor="middle"] > tspan {
 
 // ？
 .node ellipse {
-  // color: @foreColorDark;
-  fill: @foreColorDarkAlt;
-  stroke: @foreColorDark;
+  // color: @foreColorLight;
+  fill: @foreColorLightAlt;
+  stroke: @foreColorLight;
   stroke-width: 10;
 }
 
 // 菱形
 .node polygon[rx^="5"][ry^="5"] {
-  // color: @foreColorDark;
+  // color: @foreColorLight;
   fill: @slaveColorAlt;
   stroke: @slaveColor;
   stroke-width: 1;
@@ -1354,7 +1383,7 @@ rect + text[text-anchor="middle"] > tspan {
 
 // 不对称形状
 .node polygon {
-  // color: @foreColorDark;
+  // color: @foreColorLight;
   fill: @fourthColorAlt;
   stroke: @fourthColor;
   stroke-width: 1;
@@ -1362,57 +1391,59 @@ rect + text[text-anchor="middle"] > tspan {
 
 // 线条
 .edgePath .path {
-  stroke: @foreColorDark;
+  stroke: @foreColorLight;
   stroke-width: 2;
 }
 
 // 线条箭头
 .arrowheadPath {
-  fill: @foreColorDark;
+  fill: @foreColorLight;
 }
 
 // 线条文本
 .edgeLabel {
-  background-color: @docBgColor;
+  color: @boldColorLight;
+  background-color: @docBgColorLight;
   font-family: @textFont;
 }
 
 // 子图
 .cluster rect {
-  fill: @foreColorDarkFade3 !important;
-  stroke: @foreColorDarkFade1 !important;
+  fill: @foreColorLightFade3 !important;
+  stroke: @foreColorLightFade1 !important;
   stroke-width: 1 !important;
 }
 
 // 子图文本
 .cluster text {
-  fill: @foreColorDark;
+  color: @boldColorLight;
+  fill: @foreColorLight;
 }
 
 // 自定义：流程图开始、结束节点样式
 #START circle {
-  fill: @foreColorDark;
-  stroke: @foreColorDark;
+  fill: @foreColorLight;
+  stroke: @foreColorLight;
   stroke-width: 5;
 }
 
 #END circle {
   fill: none;
-  stroke: @foreColorDark;
+  stroke: @foreColorLight;
   stroke-width: 5;
   // stroke-dasharray: 4;
 }
 
 // 自定义：状态图初始状态、最终状态节点样式
 #INIT circle {
-  fill: @foreColorDark;
-  stroke: @foreColorDark;
+  fill: @foreColorLight;
+  stroke: @foreColorLight;
   stroke-width: 5;
 }
 
 #FINAL circle {
   fill: none;
-  stroke: @foreColorDark;
+  stroke: @foreColorLight;
   stroke-width: 5;
 }
 
@@ -1433,7 +1464,7 @@ rect + text[text-anchor="middle"] > tspan {
 
 // 角色文本
 text.actor {
-  fill: @foreColorDark;
+  fill: @boldColorLight;
   stroke: none;
 }
 
@@ -1452,30 +1483,30 @@ text.actor {
   stroke-width: 2;
   // stroke-dasharray: 2;
   // marker-end: "url(#arrowhead)";
-  stroke: @foreColorDark;
+  stroke: @foreColorLight;
 }
 
 // 实线箭头
 #arrowhead {
-  fill: @foreColorDark;
+  fill: @foreColorLight;
 }
 
 // 虚线消息
 .messageLine1 {
   stroke-width: 2;
   // stroke-dasharray: 2;
-  stroke: @foreColorDark;
+  stroke: @foreColorLight;
 }
 
 // 异步消息箭头
 #crosshead path {
-  fill: @foreColorDarkAlt !important;
-  stroke: @foreColorDark !important;
+  fill: @foreColorLightAlt !important;
+  stroke: @foreColorLight !important;
 }
 
 // 消息文本
 .messageText {
-  fill: @foreColorDark;
+  fill: @foreColorLight;
   stroke: none;
   font-family: @textFont;
 }
@@ -1518,14 +1549,15 @@ text.actor {
 
 // 备注背景
 .note {
-  stroke: @foreColorDark;
+  stroke: @foreColorLight;
   stroke-dasharray: 5;
-  fill: @foreColorDarkAlt;
+  fill: @foreColorLightAlt;
 }
 
 // 备注文本
-.noteText {
-  fill: @foreColorDark;
+.noteText,
+.noteText tspan {
+  fill: @foreColorLight;
   stroke: none;
   font-family: @textFont;
 }
@@ -1538,23 +1570,23 @@ text.actor {
 }
 
 .section0 {
-  fill: @foreColorDarkAlt;
+  fill: @foreColorLightAlt;
 }
 
 .section2 {
-  fill: @foreColorDarkAlt;
+  fill: @foreColorLightAlt;
 }
 
 .section1,
 .section3 {
-  fill: @foreColorDarkFade3;
+  fill: @foreColorLightFade3;
 }
 
 .sectionTitle0,
 .sectionTitle1,
 .sectionTitle2,
 .sectionTitle3 {
-  fill: @foreColorDark;
+  fill: @foreColorLight;
 }
 
 .sectionTitle {
@@ -1563,7 +1595,7 @@ text.actor {
 }
 
 .grid .tick {
-  stroke: @foreColorDarkAlt;
+  stroke: @foreColorLightAlt;
   // opacity: 0.3;
   shape-rendering: crispEdges;
 }
@@ -1588,12 +1620,12 @@ text.actor {
 }
 
 .taskTextOutsideRight {
-  fill: @foreColorDark;
+  fill: @foreColorLight;
   text-anchor: start;
 }
 
 .taskTextOutsideLeft {
-  fill: @foreColorDark;
+  fill: @foreColorLight;
   text-anchor: end;
 }
 
@@ -1632,7 +1664,7 @@ text.actor {
 .task1,
 .task2,
 .task3 {
-  fill: @docBgColor;
+  fill: @docBgColorLight;
   stroke: @masterColor;
   stroke-dasharray: 2;
 }
@@ -1641,24 +1673,24 @@ text.actor {
 .taskText1,
 .taskText2,
 .taskText3 {
-  fill: @foreColorDark;
+  fill: @foreColorLight;
 }
 
 .taskTextOutside0,
 .taskTextOutside2 {
-  fill: @foreColorDark;
+  fill: @foreColorLight;
 }
 
 .taskTextOutside1,
 .taskTextOutside3 {
-  fill: @foreColorDark;
+  fill: @foreColorLight;
 }
 
 .doneText0,
 .doneText1,
 .doneText2,
 .doneText3 {
-  fill: @foreColorDark !important;
+  fill: @foreColorLight !important;
 }
 
 /* 当前关键路径的任务 */
@@ -1699,7 +1731,7 @@ text.actor {
 .crit2,
 .crit3 {
   stroke: @slaveColor;
-  fill: @docBgColor;
+  fill: @docBgColorLight;
   stroke-width: 2;
   stroke-dasharray: 2;
 }
@@ -1708,27 +1740,27 @@ text.actor {
 .critText1,
 .critText2,
 .critText3 {
-  fill: @foreColorDark;
+  fill: @foreColorLight;
 }
 
 .doneCritText0,
 .doneCritText1,
 .doneCritText2,
 .doneCritText3 {
-  fill: @foreColorDark !important;
+  fill: @foreColorLight !important;
 }
 
 /* 标题 */
 .titleText {
   text-anchor: middle;
   font-size: 18px;
-  fill: @foreColorDark;
+  fill: @foreColorLight;
 }
 
 /* ----- class diagram 类图 ----- */
 
 g.classGroup text {
-  fill: @foreColorDark;
+  fill: @foreColorLight;
   stroke: none;
 }
 
@@ -1738,7 +1770,7 @@ g.classGroup rect {
 }
 
 g.classGroup line {
-  stroke: @foreColorDark;
+  stroke: @foreColorLight;
   stroke-width: 1;
 }
 
@@ -1779,7 +1811,7 @@ svg .classLabel .label {
 
 .aggregation {
   fill: @masterColorAlt;
-  stroke: @foreColorDark;
+  stroke: @foreColorLight;
   stroke-width: 1;
 }
 
@@ -1829,7 +1861,7 @@ div.mermaidTooltip {
   max-width: 200px;
   padding: 2px;
   // font-size: 16px;
-  background: @foreColorDarkAlt;
+  background: @foreColorLightAlt;
   border: 1px solid #d0d0d0;
   border-radius: 2px;
   pointer-events: none;
@@ -1843,6 +1875,12 @@ div.mermaidTooltip {
 #write {
   padding-left: 20px;
   padding-right: 20px;
+}
+
+/* 数学公式 */
+.MathJax_SVG g text{
+  font-family: @textFont;
+  // transform: scale(100);
 }
 
 /* md 系统样式 */
@@ -1863,7 +1901,7 @@ div.mermaidTooltip {
 }
 
 .md-toc-item > a {
-  color: @foreColorDark;
+  color: @foreColorLight;
   //   transition: color 0.5s;
 }
 
@@ -1877,71 +1915,306 @@ div.mermaidTooltip {
   color: @slaveColor;
 }
 
+#svg-figure-content {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: table-cell;
+  align-content: center;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+}
+
+sup.md-footnote a,
+sup.md-footnote a:hover {
+  color: #0158D0;
+}
+
+.footnote-line a:not(.reversefootnote) {
+  color: @masterColor;
+}
+
+kbd {
+  font-family: @codeFont;
+  font-size: 0.85em;
+  border-radius: 0.4em;
+  margin: 0px 0.2em;
+  padding: 0.1em 0.3em;
+  background-color: @docBgColorLight;
+  color: @boldColorLight;
+  border: 0.1em solid @foreColorLightAlt;
+  box-shadow: 0px 0.1em 0px @foreColorLightAlt;
+}
+
+// task list - 1
+ul > .md-task-list-item {
+  list-style-type: decimal !important;
+}
+// task list - 2
+ul > li > ul > .md-task-list-item {
+  list-style-type: upper-alpha !important;
+}
+// task list - 3
+ul > li > ul > li > ul > .md-task-list-item {
+  list-style-type: lower-alpha !important;
+}
+// task list - 4
+ul > li > ul > li > ul > li > ul > .md-task-list-item {
+  list-style-type: disc !important;
+}
+// task list - 5
+ul > li > ul > li > ul > li > ul > li > ul > .md-task-list-item {
+  list-style-type: circle !important;
+}
+// task list - 6
+ul > li > ul > li > ul > li > ul > li > ul > li > ul > .md-task-list-item {
+  list-style-type: square !important;
+}
+// task list checkbox
+.md-task-list-item > input {
+  margin-left: -0.5em !important;
+  margin-top: 0.3em !important;
+}
+// task list text
+.md-task-list-item > p {
+  margin-left: 1.2em !important;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+li > :first-child,
+li p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 /**************************************
 * VLOOK UI 自定义样式
 **************************************/
 
-.mdx-master-color {
-  color: @masterColor;
-  background-color: @masterColorAlt;
-  border-color: @masterColorFade;
+.mdx-figure-hover {
+  border: 2px solid @masterColor !important;
 }
 
-.mdx-slave-color {
+.mdx-blockquote-folder:hover {
+  color: @thirdColorDark;
+}
+
+.mdx-color-docbg-light {
+  color: @docBgColorLight;
+}
+.mdx-color-docbg-light-alt {
+  color: @docBgColorLightAlt;
+}
+.mdx-color-docbg-light-fade {
+  color: @docBgColorLightFade;
+}
+
+.mdx-color-docbg-dark {
+  color: @docBgColorDark;
+}
+.mdx-color-docbg-dark-alt {
+  color: @docBgColorDarkAlt;
+}
+.mdx-color-docbg-dark-fade {
+  color: @docBgColorDarkFade;
+}
+
+.mdx-color-fore-light {
+  color: @foreColorLight;
+}
+.mdx-color-fore-light-alt {
+  color: @foreColorLightAlt;
+}
+.mdx-color-fore-light-fade {
+  color: @foreColorLightFade;
+}
+
+.mdx-color-fore-dark {
+  color: @foreColorDark;
+}
+.mdx-color-fore-dark-alt {
+  color: @foreColorDarkAlt;
+}
+.mdx-color-fore-dark-fade {
+  color: @foreColorDarkFade;
+}
+
+.mdx-color-master {
+  color: @masterColor;
+}
+.mdx-color-master-light {
+  color: @masterColorLight;
+}
+.mdx-color-master-dark {
+  color: @masterColorDark;
+}
+.mdx-color-master-alt {
+  color: @masterColorAlt;
+}
+.mdx-color-master-alt-dark {
+  color: @masterColorAltDark;
+}
+.mdx-color-master-fade {
+  color: @masterColorFade;
+}
+
+.mdx-color-slave {
   color: @slaveColor;
   background-color: @slaveColorAlt;
   border-color: @slaveColorFade;
 }
+.mdx-color-slave-light {
+  color: @slaveColorLight;
+}
+.mdx-color-slave-dark {
+  color: @slaveColorDark;
+}
+.mdx-color-slave-alt {
+  color: @slaveColorAlt;
+}
+.mdx-color-slave-alt-dark {
+  color: @slaveColorAltDark;
+}
+.mdx-color-slave-fade {
+  color: @slaveColorFade;
+}
 
-.mdx-third-color {
+.mdx-color-third {
   color: @thirdColor;
   background-color: @thirdColorAlt;
   border-color: @thirdColorFade;
 }
+.mdx-color-third-dark {
+  color: @thirdColorDark;
+}
+.mdx-color-third-light {
+  color: @thirdColorLight;
+}
+.mdx-color-third-alt {
+  color: @thirdColorAlt;
+}
+.mdx-color-third-alt-dark {
+  color: @thirdColorAltDark;
+}
+.mdx-color-third-fade {
+  color: @thirdColorFade;
+}
 
-.mdx-fourth-color {
+.mdx-color-fourth {
   color: @fourthColor;
-  background-color: @fourthColorAlt;
-  border-color: @fourthColorFade;
+}
+.mdx-color-fourth-dark {
+  color: @fourthColorDark;
+}
+.mdx-color-fourth-light {
+  color: @fourthColorLight;
+}
+.mdx-color-fourth-alt {
+  color: @fourthColorAlt;
+}
+.mdx-color-fourth-alt-dark {
+  color: @fourthColorAltDark;
+}
+.mdx-color-fourth-fade {
+  color: @fourthColorFade;
 }
 
-.mdx-toc-menu {
-  background-color: @foreColorDark;
-  cursor: pointer;
-  color: @docBgColor;
-  font-size: 1em;
-  left: 0px;
-  top: 0px;
-  width: 20px;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  position: fixed;
-  text-align: center;
-  z-index: 100;
+.mdx-color-fifth {
+  color: @fifthColor;
 }
+.mdx-color-fifth-dark {
+  color: @fifthColorDark;
+}
+.mdx-color-fifth-light {
+  color: @fifthColorLight;
+}
+.mdx-color-fifth-alt {
+  color: @fifthColorAlt;
+}
+.mdx-color-fifth-alt-dark {
+  color: @fifthColorAltDark;
+}
+.mdx-color-fifth-fade {
+  color: @fifthColorFade;
+}
+
+.mdx-color-bold-light {
+  color: @boldColorLight;
+}
+
+.mdx-color-bold-dark {
+  color: @boldColorDark;
+}
+
+.mdx-color-ahover {
+  color: @aHoverColor;
+}
+
+.mdx-color-transparency0 {
+  color: @transparencyColor0;
+}
+
+.mdx-color-transparency1 {
+  color: @transparencyColor1;
+}
+
+.mdx-color-transparency2 {
+  color: @transparencyColor2;
+}
+
+.mdx-color-transparency3 {
+  color: @transparencyColor3;
+}
+
+.mdx-color-transparency4 {
+  color: @transparencyColor4;
+}
+// .mdx-toc-menu {
+//   background-color: @docBgColorLight;
+//   cursor: pointer;
+//   color: @docBgColorLight;
+//   font-size: 1em;
+//   left: 0px;
+//   top: 0px;
+//   width: 20px;
+//   height: 100%;
+//   margin: 0;
+//   padding: 0;
+//   position: fixed;
+//   text-align: center;
+//   z-index: 100;
+// }
 
 .mdx-toc-box {
-  background-color: @foreColorDark;
-  box-shadow: 3px 0px 8px rgba(80, 80, 80, 0.2);
+  // background-color: @docBgColorLight;
+  border-radius: 15px;
+  // box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.3);
   cursor: default;
   display: block;
   left: -280px;
-  top: 0px;
+  top: 10px;
+  bottom: 10px;
   width: 280px;
-  height: 100%;
+  // height: 100%;
   padding: 0px;
   position: fixed;
-  z-index: 200;
+  z-index: 2000;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
+.mdx-float-card {
+  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.4);
+}
+
 .mdx-toc-box-header {
-  background-color: @docBgColorFade;
-  color: @foreColorDark;
+  // background-color: @docBgColorLightFade;
+  color: @foreColorLight;
   font-family: @titleFont;
   font-size: 1.2em;
   width: 100%;
@@ -1953,31 +2226,76 @@ div.mermaidTooltip {
 
 .mdx-header-shadow {
   box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
 }
 
 .mdx-footer-shadow {
-  box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.md-footnote {
+  background-color: @docBgColorLightAlt;
+}
+
+.mdx-footer-note {
+  position: fixed;
+  left: 10%;
+  right: 10%;
+  bottom: -180px;
+  height: 180px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  background-color: @docBgColorLight;
+  display: none;
+  z-index: 9999;
+}
+
+.mdx-footer-note-content {
+  width: 100%;
+  height: 130px;
+  padding: 10px 20px;
+  overflow-x: auto;
+}
+
+.mdx-footer-note-toolbar {
+  height: 50px;
+  line-height: 50px;
+  padding: 0px 20px;
 }
 
 .mdx-toolbar {
   left: 10px;
   top: 10px;
+  padding: 10px;
   position: fixed;
-  z-index: 1000;
+  z-index: 3000;
+}
+
+.mdx-toolbar2 {
+  right: 10px;
+  top: 10px;
+  position: fixed;
+  z-index: 100;
 }
 
 .mdx-toc-box-title {
   left: 50px;
-  top: 5px;
+  top: 0px;
   position: absolute;
   width: 220px;
-  height: 40px;
-  border-radius: 5px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 15px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   font-size: 1em;
   font-family: @headerFont;
+  font-weight: bold;
   color: @masterColor;
   cursor: pointer;
 }
@@ -1987,44 +2305,67 @@ div.mermaidTooltip {
   overflow: visible;
   padding-right: 10px;
   width: auto;
-  background-color: @docBgColor;
+  background-color: @docBgColorLightAlt;
+  color: @aHoverColor;
+}
+
+.mdx-toc-box-title:active {
+  color: @slaveColor;
 }
 
 .mdx-toc-box-body-scroll {
-  background-color: @docBgColor;
+  background-color: @docBgColorLightAlt;
   width: 100%;
   height: 100%;
   padding: 0px;
   padding-top: 50px;
-  padding-bottom: 25px;
+  padding-bottom: 40px;
+  border-radius: 15px;
   overflow: auto;
   overflow-y: hidden;
   z-index: 99;
 }
 
 .mdx-toc-info {
-  background-color: @docBgColor;
-  color: @foreColorDark;
+  // background-color: @docBgColorLight;
+  color: @foreColorLight;
   font-size: 0.85em;
   font-family: @titleFont;
   width: 100%;
-  height: 30px;
-  bottom: 0px;
+  height: 40px;
+  line-height: 40px;
+  bottom: 0;
   text-align: center;
-  padding: 2px;
+  padding: 0px;
   position: absolute;
   z-index: 100;
+  // box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .mdx-toc-info2 {
-  left: 20px;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 40px;
+  padding: 5px 10px;
+  background-color: @masterColor;
+  color: @masterColorAlt;
   font-size: 0.85em;
   position: absolute;
-  bottom: 10px;
+}
+.mdx-toc-info2 a {
+  color: @docBgColorLight;
+}
+.mdx-toc-info2 a:hover {
+  color: @masterColorAlt;
+  border-bottom: 2px solid @masterColorAlt;
+}
+.mdx-toc-info2 a:active {
+  color: @slaveColor;
 }
 
 .mdx-toc-box-body {
-  background-color: @docBgColorFade;
+  // background-color: @docBgColorLightFade;
   width: 100 ％;
   height: 100%;
   padding: 0px;
@@ -2036,8 +2377,8 @@ div.mermaidTooltip {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: @docBgColor;
-  background-color: @foreColorDark;
+  color: @docBgColorLight;
+  background-color: @foreColorLight;
   cursor: pointer;
   float: left;
   width: 30px;
@@ -2048,13 +2389,8 @@ div.mermaidTooltip {
   //   transition: background-color 0.5s, opacity 0.5s;
 }
 
-.mdx-pin:hover {
-  background-color: @slaveColor;
-}
-
-.mdx-pin:active {
-  background-color: @foreColorDark;
-  color: @docBgColor;
+.mdx-pin > #svgOutline {
+  transform: rotate(90deg);
 }
 
 .mdx-header-current {
@@ -2063,16 +2399,29 @@ div.mermaidTooltip {
 
 .mdx-header-current a {
   font-weight: bold;
-  color: @masterColor;
+  color: @masterColor !important;
 }
 
 .mdx-header-current a:after {
-  content: " ◀";
+  // content: " ◀";
+}
+
+.mdx-header-current-dark {
+  background-color: @masterColorDark;
+}
+
+.mdx-header-current-dark a {
+  font-weight: bold;
+  color: @boldColorDark !important;
+}
+
+.mdx-header-current-dark a:after {
+  // content: " ◀";
 }
 
 .mdx-folder {
-  color: @foreColorDarkAlt;
-  //   background-color: @foreColorDark;
+  color: @foreColorLightAlt;
+  //   background-color: @foreColorLight;
   float: left;
   width: 16px;
   text-align: center;
@@ -2087,117 +2436,249 @@ div.mermaidTooltip {
   justify-content: center;
   align-items: center;
   vertical-align: middle;
-  color: @docBgColor;
+  color: @docBgColorLight;
   background-color: @masterColor;
   cursor: pointer;
   padding: 0px;
   font-size: 0.85em;
   width: 30px;
   height: 30px;
-  border-radius: 5px;
+  border-radius: 8px;
   //   transition: background-color 0.5s, opacity 0.5s;
+  // box-shadow: 0px 1px 5px @masterColorFade;
 }
 
 .mdx-btn:hover {
+  // background-color: @aHoverColor;
+  // box-shadow: 0px 2px 20px @masterColorFade;
+  // transition: 0.3s;
+  // transform: scale(1.1);
+}
+.mdx-btn-hover:hover {
   background-color: @aHoverColor;
+  box-shadow: 0px 2px 20px @masterColorFade;
+  transition: 0.3s;
+  transform: scale(1.2);
+}
+.mdx-btn-leave {
+  background-color: @masterColor;
+  box-shadow: none;
+  transition: 0.3s;
+  transform: scale(1);
 }
 
 .mdx-btn:active {
   background-color: @slaveColor;
+  box-shadow: none;
+  transition: 0.3s;
+  transform: scale(1);
+}
+
+.mdx-btn2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  color: @docBgColorLight;
+  background-color: @foreColorLightAlt;
+  cursor: pointer;
+  padding: 0px;
+  font-size: 0.85em;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  //   transition: background-color 0.5s, opacity 0.5s;
+  // box-shadow: 0px 1px 5px @foreColorDarkFade;
+}
+
+.mdx-btn2:hover {
+  // background-color: @foreColorLight;
+  // box-shadow: 0px 2px 20px @foreColorDarkFade;
+  // transition: 0.3s;
+  // transform: scale(1.1);
+}
+.mdx-btn2-hover:hover {
+  background-color: @foreColorLight;
+  box-shadow: 0px 2px 20px @foreColorDarkFade;
+  transition: 0.3s;
+  transform: scale(1.2);
+}
+.mdx-btn2-leave {
+  background-color: @foreColorDarkAlt;
+  box-shadow: none;
+  transition: 0.3s;
+  transform: scale(1);
+}
+
+.mdx-btn2:active {
+  background-color: @slaveColor;
+  box-shadow: none;
+  transition: 0.3s;
+  transform: scale(1);
+}
+
+.mdx-nav-back {
+  margin-left: 10px;
+  // border: 1px solid rgba(255, 255, 255, 0.5);
+  width: 50px;
+  float: left;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  visibility: hidden;
+}
+
+.mdx-nav-forward {
+  margin-left: -12px;
+  border: 1px solid rgba(255,255,255,0.5);
+  float: right;
+  border-radius: 15px;
+  visibility: hidden;
 }
 
 .mdx-nav-prev {
   top: 0px;
   left: 0px;
-  width: 200px;
+  width: 20%;
   height: 50px;
   position: absolute;
   cursor: pointer;
+  border-radius: 15px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 .mdx-nav-prev:hover {
-  background: linear-gradient(to right, @aHoverColor, @masterColor);
+  // background: linear-gradient(to right, @aHoverColor, @transparencyColor0);
+}
+.mdx-nav-prev-hover:hover {
+  background: linear-gradient(to right, @aHoverColor, @transparencyColor0);
 }
 
 .mdx-nav-prev:active {
-  background: linear-gradient(to right, @slaveColor, @masterColor);
+  background: linear-gradient(to right, @slaveColor, @transparencyColor0);
 }
 
 .mdx-nav-prev-text {
   top: 0px;
   left: 30px;
-  width: 200px;
+  width: 100%;
   height: 50px;
   line-height: 50px;
-  color: @docBgColor;
+  color: @docBgColorLight;
   text-align: left;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   position: absolute;
   cursor: pointer;
+  display: none;
 }
 
 .mdx-nav-next {
   top: 0px;
   right: 0px;
-  width: 200px;
+  width: 20%;
   height: 50px;
   position: absolute;
   cursor: pointer;
+  border-radius: 15px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 .mdx-nav-next:hover {
-  background: linear-gradient(to left, @aHoverColor, @masterColor);
+  // background: linear-gradient(to left, @aHoverColor, @transparencyColor0);
+}
+.mdx-nav-next-hover:hover {
+  background: linear-gradient(to left, @aHoverColor, @transparencyColor0);
 }
 
 .mdx-nav-next:active {
-  background: linear-gradient(to left, @slaveColor, @masterColor);
+  background: linear-gradient(to left, @slaveColor, @transparencyColor0);
 }
 
 .mdx-nav-next-text {
   top: 0px;
   right: 30px;
-  width: 200px;
+  width: 100%;
   height: 50px;
   line-height: 50px;
-  color: @docBgColor;
+  color: @docBgColorLight;
   text-align: right;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   position: absolute;
   cursor: pointer;
+  display: block;
 }
 
 .mdx-bread-nav {
   background-color: @masterColor;
-  top: 0px;
-  width: 100%;
+  border-radius: 15px;
+  top: -50px;
+  left: 10px;
+  right: 10px;
+  // width: 100%;
   height: 50px;
   position: fixed;
   padding: 0px;
   vertical-align: middle;
-  display: none;
+  // box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.3);
+  // display: none;
 }
 
 .mdx-bread-nav-text {
-  color: #ffffff;
+  color: @docBgColorLight;
   font-family: @headerFont;
   font-size: 1.5em;
   font-weight: bold;
   text-align: center;
-  margin-left: 200px;
-  margin-right: 200px;
+  line-height: 50px;
+  margin-left: 40px;
+  margin-right: 40px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   width: auto;
   height: 50px;
+  cursor: pointer;
+  display: block;
+}
+
+.mdx-bread-nav-text:hover {
+  color: @masterColorAlt;
+}
+
+.mdx-bread-nav-text:active {
+  color: @slaveColor;
+}
+
+.mdx-fullscreen-toggle {
+  top: 10px;
+  right: 10px;
+  margin: 10px;
+}
+
+.mdx-theme-exchange {
+  top: 50px;
+  right: 10px;
+  margin: 10px;
 }
 
 .mdx-figure-launcher {
-  top: 10px;
+  top: 90px;
   right: 10px;
-  position: fixed;
+  margin: 10px;
   visibility: hidden;
+}
+
+.mdx-print {
+  top: 130px;
+  right: 10px;
+  margin: 10px;
 }
 
 .mdx-figure-viewer {
@@ -2208,7 +2689,7 @@ div.mermaidTooltip {
   background-color: #fff;
   position: fixed;
   display: none;
-  z-index: 2000;
+  z-index: 4000;
 }
 
 .mdx-figure-viewer-prev {
@@ -2233,41 +2714,20 @@ div.mermaidTooltip {
   right: 10px;
   top: 10px;
   border-radius: 15px;
-  background-color: @foreColorDarkAlt;
   position: absolute;
-}
-
-.mdx-figure-viewer-close:hover {
-  background-color: @foreColorDark;
-}
-
-.mdx-figure-viewer-close:active {
-  background-color: @slaveColor;
 }
 
 .mdx-figure {
   margin: 0 !important;
-  border-radius: 5px;
-  padding: 5px;
+  border-radius: 1em;
+  padding: 0px;
   border: 2px solid rgba(255, 255, 255, 0);
 }
 
 .mdx-figure-content {
   margin: 5px;
   padding: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  display: table-cell;
-  align-content: center;
-  text-align: center;
-  vertical-align: middle;
-  width: 100%;
-}
-
-#svg-figure-content {
-  margin: 5px;
-  padding: 5px;
-  border-radius: 5px;
+  // border-radius: 5px;
   cursor: pointer;
   display: table-cell;
   align-content: center;
@@ -2290,11 +2750,11 @@ div.mermaidTooltip {
 // }
 
 use.mdx-svg-ico-light {
-  fill: @docBgColor;
+  fill: @docBgColorLight;
 }
 
 use.mdx-svg-ico-dark {
-  fill: @foreColorDarkAlt;
+  fill: @foreColorLightAlt;
   //   transition: fill 0.5s;
 }
 
@@ -2302,30 +2762,23 @@ use.mdx-svg-ico-dark:hover {
   fill: @slaveColor;
 }
 
-.mdx-docbar-top {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  background-image: linear-gradient(
-          -180deg,
-          rgba(0, 0, 0, 0.2) 0%,
-          rgba(0, 0, 0, 0) 100%
-  );
-  width: 100%;
-  height: 20px;
-}
+// .mdx-docbar-top {
+//   position: fixed;
+//   left: 0px;
+//   top: -50px;
+//   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+//   width: 100%;
+//   height: 50px;
+// }
 
-.mdx-docbar-bottom {
-  position: fixed;
-  left: 0px;
-  background-image: linear-gradient(
-          -180deg,
-          rgba(0, 0, 0, 0) 0%,
-          rgba(0, 0, 0, 0.2) 100%
-  );
-  width: 100%;
-  height: 20px;
-}
+// .mdx-docbar-bottom {
+//   position: fixed;
+//   left: 0px;
+//   bottom: -50px;
+//   box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.3);
+//   width: 100%;
+//   height: 50px;
+// }
 
 .mdx-toc-mask {
   left: 0px;
@@ -2333,9 +2786,10 @@ use.mdx-svg-ico-dark:hover {
   width: 100%;
   height: 100%;
   position: fixed;
-  background-color: #000;
-  opacity: 0.25;
+  background-color: #000000;
+  opacity: 0.5;
   display: none;
+  z-index: 1000;
 }
 
 .mdx-click-bubble {
@@ -2349,157 +2803,253 @@ use.mdx-svg-ico-dark:hover {
   z-index: 9999;
 }
 
-// 分类式代码标签公用样式（浅色）
+// 标签式公用样式（风格1）
 .mdx-code-c1-alt,
 .mdx-code-c2-alt,
 .mdx-code-c3-alt,
 .mdx-code-c4-alt,
 .mdx-code-c5-alt,
 .mdx-code-c6-alt {
-  color: @foreColorDark;
-  padding-top: 0.15em;
-  padding-bottom: 0.15em;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  border-radius: 0.3em;
+  color: @foreColorLight;
+  padding: 0.1em 0.3em;
+  border-radius: 0.4em;
+  border: 0.1em solid @masterColor;
 }
 .mdx-code-c1-alt {
   background-color: @masterColorAlt;
   color: @masterColor;
+  border-color: @masterColor;
 }
 .mdx-code-c2-alt {
   background-color: @thirdColorAlt;
   color: @thirdColor;
+  border-color: @thirdColor;
 }
 .mdx-code-c3-alt {
   background-color: @fourthColorAlt;
   color: @fourthColor;
+  border-color: @fourthColor;
 }
 .mdx-code-c4-alt {
   background-color: @slaveColorAlt;
   color: @slaveColor;
+  border-color: @slaveColor;
 }
 .mdx-code-c5-alt {
   background-color: @fifthColorAlt;
   color: @fifthColor;
+  border-color: @fifthColor;
 }
 .mdx-code-c6-alt {
-  background-color: @foreColorDarkAlt;
-  color: @foreColorDark;
+  background-color: @foreColorLightAlt;
+  color: @foreColorLight;
+  border-color: @foreColorLight;
 }
 
-// 分类式代码标签公用样式（深色）
+// 标签式公用样式（风格2）
 .mdx-code-c1,
 .mdx-code-c2,
 .mdx-code-c3,
 .mdx-code-c4,
 .mdx-code-c5,
 .mdx-code-c6 {
-  color: @docBgColor;
-  padding-top: 0.15em;
-  padding-bottom: 0.15em;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  border-radius: 0.3em;
+  color: @docBgColorLight;
+  padding: 0.1em 0.3em;
+  border-radius: 0.4em;
+  // border: 0.1em solid @docBgColorLightFade;
  }
 .mdx-code-c1 {
   background-color: @masterColor;
+  box-shadow: 0px 1px @masterColorDark;
 }
 .mdx-code-c2 {
   background-color: @thirdColor;
+  box-shadow: 0px 1px @thirdColorDark;
 }
 .mdx-code-c3 {
   background-color: @fourthColor;
+  box-shadow: 0px 1px @fourthColorDark;
 }
 .mdx-code-c4 {
   background-color: @slaveColor;
+  box-shadow: 0px 1px @slaveColorDark;
 }
 .mdx-code-c5 {
   background-color: @fifthColor;
+  box-shadow: 0px 1px @fifthColorDark;
 }
 .mdx-code-c6 {
-  background-color: @foreColorDark;
+  background-color: @foreColorLight;
+  box-shadow: 0px 1px @docBgColorDark;
 }
 
-// 分段式代码标签公用样式
+// 药丸样式右边公共样式（风格1/2）
+.mdx-code-name1-alt,
+.mdx-code-name2-alt,
+.mdx-code-name3-alt,
+.mdx-code-name4-alt,
+.mdx-code-name5-alt,
+.mdx-code-name6-alt,
 .mdx-code-name1,
 .mdx-code-name2,
 .mdx-code-name3,
 .mdx-code-name4,
 .mdx-code-name5,
 .mdx-code-name6 {
+  // border: 0.1em solid @transparencyColor2;
+  // border-right: 0px !important;
   margin-right: 0px;
-  border-top-left-radius: 0.3em;
-  border-bottom-left-radius: 0.3em;
+  border-top-left-radius: 0.4em;
+  border-bottom-left-radius: 0.4em;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
-  padding-top: 0.15em;
-  padding-bottom: 0.15em;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  color: @docBgColor;
+  padding: 0.1em 0.3em;
+  color: @docBgColorLight;
   font-size: 0.85em;
 }
+.mdx-code-value1-alt,
+.mdx-code-value2-alt,
+.mdx-code-value3-alt,
+.mdx-code-value4-alt,
+.mdx-code-value5-alt,
+.mdx-code-value6-alt,
 .mdx-code-value1,
 .mdx-code-value2,
 .mdx-code-value3,
 .mdx-code-value4,
 .mdx-code-value5,
 .mdx-code-value6 {
+  // border: 0.1em solid @transparencyColor2;
+  border-left: 0px !important;
   margin-left: 0px;
-  border-top-right-radius: 0.3em;
-  border-bottom-right-radius: 0.3em;
+  border-top-right-radius: 0.4em;
+  border-bottom-right-radius: 0.4em;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
-  padding-top: 0.15em;
-  padding-bottom: 0.15em;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  color: @docBgColor;
+  padding: 0.1em 0.3em;
+  color: @docBgColorLight;
   font-size: 0.85em;
-  border-left: 1px solid @docBgColorFade;
+  border-left: 1px solid @transparencyColor2;
 }
-// 分段式代码标签样式1
+// 药丸样式右边右边值风格1-样式1
+.mdx-code-name1-alt {
+  background-color: @docBgColorLightAlt !important;
+  color: @foreColorLight;
+  border-color: @masterColor;
+}
+.mdx-code-value1-alt {
+  background-color: @masterColorAlt !important;
+  color: @masterColor;
+  border-color: @masterColor;
+}
+// 药丸样式右边右边值风格1-样式2
+.mdx-code-name2-alt {
+  background-color: @docBgColorLightAlt !important;
+  color: @foreColorLight;
+  border-color: @thirdColor;
+}
+.mdx-code-value2-alt {
+  background-color: @thirdColorAlt !important;
+  color: @thirdColor;
+  border-color: @thirdColor;
+}
+// 药丸样式右边右边值风格1-样式3
+.mdx-code-name3-alt {
+  background-color: @docBgColorLightAlt !important;
+  color: @foreColorLight;
+  border-color: @fourthColor;
+}
+.mdx-code-value3-alt {
+  background-color: @fourthColorAlt !important;
+  color: @fourthColor;
+  border-color: @fourthColor;
+}
+// 药丸样式右边右边值风格1-样式4
+.mdx-code-name4-alt {
+  background-color: @docBgColorLightAlt !important;
+  color: @foreColorLight;
+  border-color: @slaveColor;
+}
+.mdx-code-value4-alt {
+  background-color: @slaveColorAlt !important;
+  color: @slaveColor;
+  border-color: @slaveColor;
+}
+// 药丸样式右边右边值风格1-样式5
+.mdx-code-name5-alt {
+  background-color: @docBgColorLightAlt !important;
+  color: @foreColorLight;
+  border-color: @fifthColor;
+}
+.mdx-code-value5-alt {
+  background-color: @fifthColorAlt !important;
+  color: @fifthColor;
+  border-color: @fifthColor;
+}
+// 药丸样式右边右边值风格1-样式6
+.mdx-code-name6-alt {
+  background-color: @docBgColorLightAlt !important;
+  color: @foreColorLight;
+  border-color: @foreColorLight;
+}
+.mdx-code-value6-alt {
+  background-color: @foreColorLightAlt !important;
+  color: @foreColorLight;
+  border-color: @foreColorLight;
+}
+// 药丸样式右边右边值风格2-样式1
 .mdx-code-name1 {
-  background-color: @foreColorDark !important;
+  background-color: @foreColorLight !important;
+  box-shadow: 0px 1px @docBgColorDark;
 }
 .mdx-code-value1 {
   background-color: @masterColor !important;
+  box-shadow: 0px 1px @masterColorDark;
 }
-// 分段式代码标签样式2
+// 药丸样式右边右边值风格2-样式2
 .mdx-code-name2 {
-  background-color: @foreColorDark !important;
+  background-color: @foreColorLight !important;
+  box-shadow: 0px 1px @docBgColorDark;
 }
 .mdx-code-value2 {
   background-color: @thirdColor !important;
+  box-shadow: 0px 1px @thirdColorDark;
 }
-// 分段式代码标签样式3
+// 药丸样式右边右边值风格3-样式3
 .mdx-code-name3 {
-  background-color: @foreColorDark !important;
+  background-color: @foreColorLight !important;
+  box-shadow: 0px 1px @docBgColorDark;
 }
 .mdx-code-value3 {
   background-color: @fourthColor !important;
+  box-shadow: 0px 1px @fourthColorDark;
 }
-// 分段式代码标签样式4
+// 药丸样式右边右边值风格2-样式4
 .mdx-code-name4 {
-  background-color: @foreColorDark !important;
+  background-color: @foreColorLight !important;
+  box-shadow: 0px 1px @docBgColorDark;
 }
 .mdx-code-value4 {
   background-color: @slaveColor !important;
+  box-shadow: 0px 1px @slaveColorDark;
 }
-// 分段式代码标签样式5
+// 药丸样式右边右边值风格2-样式5
 .mdx-code-name5 {
-  background-color: @foreColorDark !important;
+  background-color: @foreColorLight !important;
+  box-shadow: 0px 1px @docBgColorDark;
 }
 .mdx-code-value5 {
   background-color: @fifthColor !important;
+  box-shadow: 0px 1px @fifthColorDark;
 }
-// 分段式代码标签样式6
+// 药丸样式右边右边值风格2-样式6
 .mdx-code-name6 {
-  background-color: @foreColorDark !important;
+  background-color: @foreColorLight !important;
+  box-shadow: 0px 1px @docBgColorDark;
 }
 .mdx-code-value6 {
-  background-color: @foreColorDark !important;
+  background-color: @docBgColorDark !important;
+  box-shadow: 0px 1px @docBgColorDark;
 }
 // h6内的code标签强制取消加粗
 h6 code {
@@ -2510,55 +3060,56 @@ h6 code {
 * 封面、封底
 **************************************/
 
-body div[id=write] > h6:first-child, // 页面第1个H6为封面、子标题样式
-body div[id=write] > h6:last-child {
-  // 页面最后1个H6为封底样式
-  color: @docBgColor;
+body div[id=write] > h6:first-of-type, // 页面第1个H6为封面样式
+body div[id=write] > h6:last-of-type { // 页面最后1个H6为封底样式
+  color: @docBgColorLight !important;
   background-color: @masterColor;
   font-weight: bold;
   font-size: 2.5em;
   font-family: @headerFont;
-  height: 900px;
+  height: 25cm;
   padding-left: 30px;
   padding-top: 150px;
   padding-right: 20px;
-  margin: -20px;
+  margin: 10px -10px;
   margin-bottom: 3em;
   border: 0;
+  border-radius: 15px;
 }
 
 // 封底样式微调
-body div[id=write] > h6:last-child {
-  height: 500px;
+body div[id=write] > h6:last-of-type {
+  height: 13cm;
   margin-top: 3em;
+  margin-bottom: 10px;
   padding-top: 50px;
-  margin-bottom: -50px;
 }
 
-// 封面内的主标题
-body div[id=write] > h6:first-child strong {
-  font-size: 0.7em;
-  vertical-align: super;
-}
+// 封面内的副标题
+// body div[id=write] > h6:first-of-type strong {
+  // color: @docBgColorLight !important;
+  // font-size: 0.7em;
+  // vertical-align: super;
+// }
 
 // 封面内的作者信息
-body div[id=write] > h6:first-child u {
-  color: @docBgColorFade;
+body div[id=write] > h6:first-of-type strong {
+  color: @docBgColorLightFade;
   font-size: 0.7em;
   font-family: @titleFont;
   text-decoration: none;
 }
 
 // 封面内的作者信息前缀
-body div[id=write] > h6:first-child u::before {
+body div[id=write] > h6:first-of-type strong::before {
   content: "By ";
   font-weight: normal;
   text-decoration: none;
 }
 
 // 封面内的版权信息
-body div[id=write] > h6:first-child em {
-  color: @docBgColorFade;
+body div[id=write] > h6:first-of-type em {
+  color: @docBgColorLightFade;
   font-size: 0.35em;
   font-family: @titleFont;
   font-style: normal;
@@ -2566,26 +3117,75 @@ body div[id=write] > h6:first-child em {
 }
 
 // 封面内密级信息
-body div[id=write] > h6:first-child code {
+body div[id=write] > h6:first-of-type code {
+  color: @docBgColorLight !important;
   font-size: 0.4em !important;
-  background-color: @slaveColor;
-  border: 1px solid @docBgColorFade !important;
+  background-color: @masterColorDark;
+  // border: 1px solid @transparencyColor2 !important;
 }
-body div[id=write] > h6:first-child code:first-of-type {
-  border-right: 0px !important;
+body div[id=write] > h6:first-of-type code:first-of-type {
   border-top-left-radius: 0.4em;
   border-bottom-left-radius: 0.4em;
 }
-body div[id=write] > h6:first-child code:last-of-type {
-  border-left: 1px solid @docBgColorFade !important;
+body div[id=write] > h6:first-of-type code:last-of-type {
+  border-left: 0px !important;
   border-top-right-radius: 0.4em;
   border-bottom-right-radius: 0.4em;
 }
 
 // 封底
-body div[id=write] > h6:last-child::after {
+body div[id=write] > h6:last-of-type::after {
   content: "本文档样式与功能增强由 VLOOK™ 插件提供（https://github.com/madmaxchow/VLOOK）";
   font-size: 0.35em;
   font-family: @titleFont;
   font-style: normal;
+}
+
+@media print {
+  html {
+    font-size: 1em;
+  }
+  
+  #write {
+    margin: 0 !important;
+  }
+
+  table,
+  pre {
+    /* page-break-inside: avoid; */
+  }
+  pre {
+    /* word-wrap: break-word; */
+  }
+
+  .mdx-toc {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .mdx-toolbar,
+  .mdx-toolbar2,
+  .mdx-bread-nav,
+  .mdx-toc-box,
+  .mdx-toc-box-header,
+  .mdx-toc-box-body-scroll,
+  .mdx-toc-info,
+  // .mdx-docbar-top,
+  .mdx-docbar-bottom {
+    display: none;
+    visibility: hidden;
+  }
+
+  body div[id=write] > h6:first-of-type,
+  body div[id=write] > h6:last-of-type,
+  body div[id=write] > h6:first-of-type strong,
+  body div[id=write] > h6:first-of-type em {
+    background-color: @docBgColorLight !important;
+    color: @foreColorLight !important;
+  }
+
+  body div[id=write] > h6:first-of-type strong,
+  body div[id=write] > h6:first-of-type em {
+    color: @foreColorLightAlt !important;
+  }
 }

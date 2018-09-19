@@ -1,13 +1,7 @@
 
-###### **VLOOK™ Charts Demo**<br>Markdown风格画图脚本Demo<br><br>`文档密级｜｜对外公开`<br><br><br><br><u>Max</u><br>*COPYRIGHT © 2017-2018. MAX°DESIGN.*
+###### ^VLOOK™\ Charts\ Demo^ <br>Markdown风格画图脚本Demo<br><br>`+ 文档密级｜对外公开 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2017-2018. MAX°DESIGN.*
 
 [TOC]
-
-# 修订说明
-
-| 文档版本 | 修订日期 | 修订内容 | 作者 |
-| -------- | :-------: | ---- | ---- |
-| PRD-XXX | 2018/XX/XX | `++｜added`New features<br>`**｜modified`Modified somethings<br>`==｜fixed`Fixed somethings<br>`--｜removed`Removed somethings | Max |
 
 # 关于Markdown
 
@@ -22,13 +16,17 @@ Markdown文档以纯文本格式存储，这意味着，它们可以用几乎任
 - 标准化CommonMark语法参考：[60秒学会Markdown语法](http://commonmark.org/help/)、[10分钟深入学习Markdown](http://commonmark.org/help/tutorial/)
 - GitHub采用Flavored Markdown的语法参考：Typora目前采用该标准  [详细](https://support.typora.io/Markdown-Reference/)
 
-# mermaid
+# 主推方案
 
-[mermaid 官网](https://mermaidjs.github.io)。推荐使用该方案，但支持该标准的Markdown工具较少。
+## mermaid
 
-## 流程图
+`= 推荐方案 =`
 
-###### mermaid 流程图
+mermaid 是一个用于画流程图、状态图、时序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见[mermaid 官网](https://mermaidjs.github.io)。
+
+### 流程图
+
+###### mermaid｜流程图
 
 ```mermaid
 graph LR
@@ -89,9 +87,9 @@ END(( ))
 
 4. 支持FontAwesome [官网](http://fontawesome.com)。
 
-## 状态图
+### 状态图
 
-###### mermaid 状态图
+###### mermaid｜状态图
 
 ```mermaid
 graph LR
@@ -133,17 +131,16 @@ FINAL(( ))
 4. 不建议使用别名，除非状态名称的重复度较高，便于维护时才适当使用；
 5. 可适当结合`菱形`节点来对复杂状态关系进行更清晰的展示。
 
-## 时序图/分角色流程图/泳图
+### 时序图/分角色流程图/泳图
 
 ###### mermaid 时序图
 
 ```mermaid
 sequenceDiagram
 participant User as @人物角色
-participant Client as 前端产品
-participant Server as /后端支撑系统/
-participant Extend as -外部系统-
-participant Extend2 as _外部系统_
+participant Client as 普通系统角色
+participant Server as =重要系统角色=
+participant Extend as -外部系统角色-
 
 User ->> Client: 同步发送消息1
 Client ->> Server: 同步发送消息1
@@ -169,10 +166,9 @@ end
 ```java
 sequenceDiagram
 participant User as @人物角色
-participant Client as 前端产品
-participant Server as /后端支撑系统/
-participant Extend as -外部系统-
-participant Extend2 as _外部系统_
+participant Client as 普通系统角色
+participant Server as =重要系统角色=
+participant Extend as -外部系统角色-
 
 User ->> Client: 同步发送消息1
 Client ->> Server: 同步发送消息1
@@ -197,18 +193,17 @@ end
 
 1. 建议使用实体别名，以提高画图脚本的复用度和可维护性；
 2. 支持三类消息线条：同步请求消息、异步请求消息、返回消息；
-3. 实体支持四类，在输出HTML后应用[VLOOK™](https://github.com/madmaxchow/VLOOK)插件渲染为不同的样式：
-   - 人物：以at符号`@`开始的内容，如`@人物角色`
-   - 前端产品：默认
-   - 后端支撑系统：含斜杠`/`包裹的内容，如`/后端支撑系统名称/`
-   - 外部系统：含用减号`-`或下划线`_`包裹的内容，如`-外部系统名称-`、`_外部系统名称_`
+3. 角色支持三类扩展样式，在输出HTML后应用[VLOOK™](https://github.com/madmaxchow/VLOOK)插件后渲染为不同的样式：
+   - **人物角色**：以at符号`@`开始的内容，如`@人物角色`
+   - **重要系统角色**：含等号`=`包裹的内容，如`=后端支撑系统名称=`
+   - **外部系统角色**：含用减号`-`包裹的内容，如`-外部系统名称-`
 4. 支持三类标签分组，在输出HTML后应用[VLOOK™](https://github.com/madmaxchow/VLOOK)插件渲染为不同的样式：
    - `loop`：循环
    - `opt`：可选
    - `alt...else`：条件选择（alt=情景1，else=情景2）
 5. 支持备注说明。
 
-## 甘特图
+### 甘特图
 
 ###### mermaid 甘特图
 
@@ -232,57 +227,15 @@ section 区块C
 未来的关键路径任务:crit, 5d
 ```
 
-## 类图（试验性）
 
-###### mermaid 类图
 
-```mermaid
-classDiagram
-Class01 <|-- AveryLongClass : Cool
-Class03 *-- Class04
-Class05 o-- Class06
-Class07 .. Class08
-Class09 --> C2 : Where am i?
-Class09 --* C3
-Class09 --|> Class07
-Class07 : equals()
-Class07 : Object[] elementData
-Class01 : size()
-Class01 : int chimp
-Class01 : int gorilla
-Class08 <--> C2: Cool label
-```
+# 备选方案
 
-## Git图（试验性）
+## flowchart.js（流程图）
 
-###### mermaid Git图
+flowchart.js基于SVG的流程图插件，它仅需几行代码即可在 Web 上完成流程图的构建。可以从文字表述中画出简单的 SVG 流程图，也可以画出彩色的图表。详见[flowchart.js 官网](http://flowchart.js.org)。
 
-```mermaid
-gitGraph:
-options
-{
-    "nodeSpacing": 150,
-    "nodeRadius": 10
-}
-end
-commit
-branch newbranch
-checkout newbranch
-commit
-commit
-checkout master
-commit
-commit
-merge newbranch
-```
-
-# flowchart.js
-
-## 流程图
-
-[flowchart.js 官网](http://flowchart.js.org)。备用方案，支持该标准的Markdown相对较多，但特性相对mermaid较少。
-
-###### flowchart.js 流程图
+###### flowchart.js｜流程图
 
 ```flow
 st=>start:  
@@ -320,13 +273,11 @@ c2(yes)->io->e
 c2(no)->op2->e
 ```
 
-# JS Sequence Diagrams
+## JS Sequence Diagrams（时序图）
 
-## 时序图
+JS sequence diagrams是一个方便建立UML的时序图（序列图or循序图）在线工具，使用简单。详见[JS Sequence Diagrams 官网](https://bramp.github.io/js-sequence-diagrams/)。
 
-[JS Sequence Diagrams 官网](https://bramp.github.io/js-sequence-diagrams/)。备用方案，支持该标准的Markdown相对较多，但特性相对mermaid较少。
-
-###### JS Sequence Diagrams 时序图
+###### JS Sequence Diagrams｜时序图
 
 ```sequence
 Title: 在此填写流程图标题

@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2917c959-c202-4533-b76a-c641fe10f567" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="dev.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dev/dev.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="422">
+              <caret line="4608" selection-start-line="4608" selection-end-line="4608" />
+              <folding>
+                <element signature="e#152570#152599#0" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#canvas#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#canvas#0;n#!!top" expanded="true" />
+                <element signature="e#44#50#1" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>mdx-bread-nav-text</find>
+      <find>mdx-bread-nav-text&quot;</find>
+      <find>animate</find>
+      <find>adjustOutline</find>
+      <find>console</find>
+      <find>showOutline</find>
+      <find>showOutline()</find>
+      <find>_minScreenWidth</find>
+      <find>_smallScreenWidth</find>
+      <find>showOutline();</find>
+      <find>tocObj</find>
+      <find>tocContent</find>
+      <find>showFigureBrowser</find>
+      <find>folding</find>
+      <find>&quot;.mdx-btn&quot;</find>
+      <find>'body'</find>
+      <find>css(</find>
+      <find>.attr(</find>
+      <find>mdx-toc-box-header</find>
+      <find>.animate(</find>
+      <find>animate(</find>
+      <find>adjustContent</find>
+      <find>adjustContent(</find>
+      <find>_fullscreen</find>
+      <find>_outlineShowed</find>
+      <find>_outlineshowed</find>
+      <find>isOutlineShowed()</find>
+      <find>isOutlineShowed()</find>
+      <find>initOutlineData</find>
+      <find>fd-oli-header</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>_figIndex</replace>
+      <replace>#img-figure-content</replace>
+      <replace>&quot;body&quot;</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/less/vlook.less" />
+        <option value="$PROJECT_DIR$/less/base.less" />
+        <option value="$PROJECT_DIR$/dev.html" />
+        <option value="$PROJECT_DIR$/dev2.html" />
+        <option value="$PROJECT_DIR$/B2B项目-经销商微商城_PRD-2018.4.html" />
+        <option value="$PROJECT_DIR$/dev/dev2.html" />
+        <option value="$PROJECT_DIR$/dev/dev.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="VLOOK" type="b2602c69:ProjectViewProjectNode" />
+              <item name="3-src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="VLOOK" type="b2602c69:ProjectViewProjectNode" />
+              <item name="3-src" type="462c0819:PsiDirectoryNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="VLOOK" type="b2602c69:ProjectViewProjectNode" />
+              <item name="3-src" type="462c0819:PsiDirectoryNode" />
+              <item name="less" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2917c959-c202-4533-b76a-c641fe10f567" name="Default" comment="" />
+      <created>1530081145508</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1530081145508</updated>
+      <workItem from="1530081147003" duration="72000" />
+      <workItem from="1530081363802" duration="924000" />
+      <workItem from="1530086192661" duration="589000" />
+      <workItem from="1530088604219" duration="1988000" />
+      <workItem from="1530090702066" duration="440000" />
+      <workItem from="1530149949027" duration="1293000" />
+      <workItem from="1530494483267" duration="999000" />
+      <workItem from="1530697087159" duration="73000" />
+      <workItem from="1530697164326" duration="102000" />
+      <workItem from="1530774056914" duration="36000" />
+      <workItem from="1530774113077" duration="277000" />
+      <workItem from="1530800374505" duration="266000" />
+      <workItem from="1530840473390" duration="1001000" />
+      <workItem from="1530863108464" duration="254000" />
+      <workItem from="1531112740335" duration="1196000" />
+      <workItem from="1531989339103" duration="7000" />
+      <workItem from="1532329188702" duration="3309000" />
+      <workItem from="1532577015019" duration="713000" />
+      <workItem from="1532581563785" duration="3175000" />
+      <workItem from="1532659743738" duration="14126000" />
+      <workItem from="1532843360105" duration="3356000" />
+      <workItem from="1532876053874" duration="847000" />
+      <workItem from="1532917882907" duration="1405000" />
+      <workItem from="1532956799559" duration="7413000" />
+      <workItem from="1533099133889" duration="947000" />
+      <workItem from="1533102575350" duration="2961000" />
+      <workItem from="1533180035652" duration="926000" />
+      <workItem from="1533197870437" duration="375000" />
+      <workItem from="1533198305675" duration="407000" />
+      <workItem from="1533222874822" duration="345000" />
+      <workItem from="1533226453153" duration="1304000" />
+      <workItem from="1533393727577" duration="891000" />
+      <workItem from="1533396354092" duration="79000" />
+      <workItem from="1533396448969" duration="1427000" />
+      <workItem from="1533477047933" duration="3664000" />
+      <workItem from="1533483868456" duration="1774000" />
+      <workItem from="1533526774293" duration="777000" />
+      <workItem from="1533565902443" duration="5752000" />
+      <workItem from="1533707825285" duration="7447000" />
+      <workItem from="1533780285135" duration="433000" />
+      <workItem from="1533781824428" duration="482000" />
+      <workItem from="1533789419868" duration="3992000" />
+      <workItem from="1533805594431" duration="572000" />
+      <workItem from="1533807401720" duration="2627000" />
+      <workItem from="1533869355979" duration="930000" />
+      <workItem from="1533907627733" duration="2960000" />
+      <workItem from="1534080878678" duration="10374000" />
+      <workItem from="1534141580721" duration="2132000" />
+      <workItem from="1534144408183" duration="631000" />
+      <workItem from="1534146863853" duration="119000" />
+      <workItem from="1534148054848" duration="212000" />
+      <workItem from="1534227780358" duration="1129000" />
+      <workItem from="1534296063103" duration="959000" />
+      <workItem from="1534300424460" duration="21279000" />
+      <workItem from="1534479130474" duration="1881000" />
+      <workItem from="1534485011104" duration="1147000" />
+      <workItem from="1534725946222" duration="528000" />
+      <workItem from="1534730203576" duration="19221000" />
+      <workItem from="1534898689240" duration="814000" />
+      <workItem from="1534927036236" duration="8192000" />
+      <workItem from="1535031947297" duration="239000" />
+      <workItem from="1535073491418" duration="1059000" />
+      <workItem from="1535081391714" duration="728000" />
+      <workItem from="1535099437336" duration="753000" />
+      <workItem from="1535184476993" duration="8081000" />
+      <workItem from="1535434860427" duration="4632000" />
+      <workItem from="1535470496496" duration="9747000" />
+      <workItem from="1535678467223" duration="12717000" />
+      <workItem from="1536156933328" duration="12000" />
+      <workItem from="1536158565271" duration="2283000" />
+      <workItem from="1536192833013" duration="1768000" />
+      <workItem from="1536282509304" duration="6781000" />
+      <workItem from="1536415550514" duration="18011000" />
+      <workItem from="1536805996228" duration="1884000" />
+      <workItem from="1536844777144" duration="11817000" />
+      <workItem from="1536893495292" duration="1304000" />
+      <workItem from="1536894965656" duration="4345000" />
+      <workItem from="1536904125301" duration="165000" />
+      <workItem from="1536909458044" duration="800000" />
+      <workItem from="1536919970681" duration="704000" />
+      <workItem from="1536934362722" duration="13059000" />
+      <workItem from="1537246907839" duration="8480000" />
+      <workItem from="1537336150170" duration="434000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="263354000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.39650872" visible="true" weight="0.17477097" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32917705" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.60349125" side_tool="true" visible="true" weight="0.17477097" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32917705" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="7" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/dev/dev2.html" />
+    <entry file="file://$PROJECT_DIR$/dev/dev.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65860">
+          <caret line="3120" column="47" lean-forward="true" selection-start-line="3120" selection-start-column="47" selection-end-line="3120" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/dev2.html" />
+    <entry file="file://$PROJECT_DIR$/dev/dev.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66120">
+          <caret line="3133" column="7" lean-forward="true" selection-start-line="3133" selection-start-column="7" selection-end-line="3133" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/dev2.html" />
+    <entry file="file://$PROJECT_DIR$/dev/dev.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54000">
+          <caret line="2527" column="25" selection-start-line="2527" selection-start-column="25" selection-end-line="2527" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/dev2.html" />
+    <entry file="file://$PROJECT_DIR$/dev/dev.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53940">
+          <caret line="2540" column="22" lean-forward="true" selection-start-line="2540" selection-start-column="22" selection-end-line="2540" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/dev.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65840">
+          <caret line="3136" lean-forward="true" selection-start-line="2144" selection-end-line="3136" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/dev.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34140">
+          <caret line="1707" column="4" lean-forward="true" selection-start-line="1707" selection-start-column="4" selection-end-line="1707" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/dev.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42520">
+          <caret line="2059" selection-start-line="2059" selection-end-line="2059" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev.html" />
+    <entry file="file://$PROJECT_DIR$/dev2.html" />
+    <entry file="file://$PROJECT_DIR$/B2B项目-经销商微商城_PRD-2018.4.html" />
+    <entry file="file://$PROJECT_DIR$/dev.html" />
+    <entry file="file://$PROJECT_DIR$/dev.html" />
+    <entry file="file://$PROJECT_DIR$/dev.html" />
+    <entry file="file://$PROJECT_DIR$/dev.html" />
+    <entry file="file://$PROJECT_DIR$/dev.html" />
+    <entry file="file://$PROJECT_DIR$/dev.html" />
+    <entry file="file://$PROJECT_DIR$/less/base.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44420">
+          <caret line="2221" selection-start-line="2221" selection-end-line="2221" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/vlook.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2180">
+          <caret line="109" column="21" selection-start-line="109" selection-start-column="15" selection-end-line="109" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev.html" />
+    <entry file="file://$PROJECT_DIR$/less/base.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44400">
+          <caret line="2220" selection-start-line="2220" selection-end-line="2220" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/vlook.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2180">
+          <caret line="109" column="21" selection-start-line="109" selection-start-column="15" selection-end-line="109" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev2.html" />
+    <entry file="file://$PROJECT_DIR$/dev.html" />
+    <entry file="file://$PROJECT_DIR$/less/base.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44400">
+          <caret line="2220" selection-start-line="2220" selection-end-line="2220" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/vlook.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2180">
+          <caret line="109" column="21" selection-start-line="109" selection-start-column="15" selection-end-line="109" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev2.html" />
+    <entry file="file://$PROJECT_DIR$/dev.html" />
+    <entry file="file://$PROJECT_DIR$/less/base.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11760">
+          <caret line="588" column="18" lean-forward="true" selection-start-line="588" selection-start-column="18" selection-end-line="588" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/vlook.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev.html" />
+    <entry file="file://$PROJECT_DIR$/dev2.html" />
+    <entry file="file://$PROJECT_DIR$/less/base.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12040">
+          <caret line="602" column="35" selection-start-line="602" selection-start-column="35" selection-end-line="602" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/vlook.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev.html" />
+    <entry file="file://$PROJECT_DIR$/dev2.html" />
+    <entry file="file://$PROJECT_DIR$/less/base.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/vlook.less">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev.html" />
+    <entry file="file://$PROJECT_DIR$/dev2.html" />
+    <entry file="file://$PROJECT_DIR$/md/VLOOK快速参考手册.md" />
+    <entry file="file://$PROJECT_DIR$/dev.html" />
+    <entry file="file://$PROJECT_DIR$/dev2.html" />
+    <entry file="file://$PROJECT_DIR$/B2B项目-经销商微商城_PRD-2018.4.html" />
+    <entry file="file://$PROJECT_DIR$/dev/dev2.html" />
+    <entry file="file://$PROJECT_DIR$/less/base.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="2221" selection-start-line="2221" selection-end-line="2221" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/vlook.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1652">
+          <caret line="109" column="5" lean-forward="true" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/dev.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="4608" selection-start-line="4608" selection-end-line="4608" />
+          <folding>
+            <element signature="e#152570#152599#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#canvas#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#canvas#0;n#!!top" expanded="true" />
+            <element signature="e#44#50#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
