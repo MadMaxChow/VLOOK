@@ -131,7 +131,7 @@ VLOOK插件包括[排版增强](#排版增强)和[功能增强](#功能增强)�
 ### 更美观的脚本化图表
 
 + 统一优化**mermaid**、**flowchart.js**、**JS Sequence Diagrams**三类脚本化图表的样式；
-+ 更多脚本化图表样式，以及结合VLOOK相关的脚本编写规则内容详见《[Markdown风格画图脚本Demo](#https://madmaxchow.github.io/VLOOK/Markdown风格画图脚本Demo.html)》。
++ 更多脚本化图表样式，以及结合VLOOK相关的脚本编写规则内容详见《[Markdown风格画图脚本Demo](https://madmaxchow.github.io/VLOOK/Markdown风格画图脚本Demo.html)》。
 
 ###### mermaid｜流程图
 
