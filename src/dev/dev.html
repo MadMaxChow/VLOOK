@@ -2259,7 +2259,7 @@ li p {
 }
 .mdx-figure {
   margin: 0 !important;
-  border-radius: 1em;
+  border-radius: 15px;
   padding: 0px;
   border: 2px solid rgba(255, 255, 255, 0);
 }
@@ -2670,7 +2670,7 @@ body div[id=write] > h6:last-of-type::after {
 <div class='footnote-line'><span class='md-fn-count'>4</span> JS sequence diagrams是一个方便建立UML的时序图（序列图or循序图）在线工具，使用简单。详<a href='https://bramp.github.io/js-sequence-diagrams/'>JS Sequence Diagrams</a> 官网，或VLOOK项目的示例文档《<strong>Markdown风格画图脚本Demo.html</strong>》<a name='dfref-footnote-4' href='#ref-footnote-4' title='back to document' class='reversefootnote' >↩</a></div>
 <div class='footnote-line'><span class='md-fn-count'>5</span> 这是增<strong>强的脚注</strong>的信息，该增强由VLOOK插件提供。<a href='#header-n3'>VLOOK是什么？</a><a name='dfref-footnote-5' href='#ref-footnote-5' title='back to document' class='reversefootnote' >↩</a></div></div></div>
 <!--========================================================================-->
-<!--                       Typora Plugin - VLOOK™ V8                        -->
+<!--                      Typora Plugin - VLOOK™ V8.1                       -->
 <!--                                                                        -->
 <!--                             powered by Max                             -->
 <!--                        QQ Group/QQ群：805502564                         -->
@@ -2948,7 +2948,7 @@ this._delay(function(){n===this.counter&&this.refreshPositions(!s)})},_clear:fun
 <span class="mdx-color-transparency4"></span>
 
 <script type="text/javascript">
-var _version = "V8";
+var _version = "V8.1";
 var _animateSpeed = 200;
 var _icoFold = '<svg width="16px" height="16px"><use xlink:href="#icoFolded" class="mdx-svg-ico-dark"/></svg>';
 var _icoUnfold = '<svg width="16px" height="16px"><use xlink:href="#icoUnfold" class="mdx-svg-ico-dark"/></svg>';
@@ -3213,13 +3213,13 @@ function initFigureData() {
       });
       // 添加插图样式
       fig.css("cursor", "pointer");
-      fig.attr("title", ["在插图浏览器中查看",
+      /*fig.attr("title", ["在插图浏览器中查看",
           "在插圖瀏覽器中查看",
           "View in Figure Browser",
           "Afficher dans le navigateur d'illustrations",
           "Просмотр в браузере иллюстраций",
           "イラストのブラウザで見る",
-          "그림 브라우저에서보기"][_lang]);
+          "그림 브라우저에서보기"][_lang]);*/
       fig.addClass("mdx-figure");
       fig.hover(function () {
           $(this).addClass("mdx-figure-hover");
