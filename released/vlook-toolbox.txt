@@ -277,7 +277,7 @@ this._delay(function(){n===this.counter&&this.refreshPositions(!s)})},_clear:fun
 <span class="mdx-color-transparency4"></span>
 
 <script type="text/javascript">
-var _version = "V8";
+var _version = "V8.1";
 var _animateSpeed = 200;
 var _icoFold = '<svg width="16px" height="16px"><use xlink:href="#icoFolded" class="mdx-svg-ico-dark"/></svg>';
 var _icoUnfold = '<svg width="16px" height="16px"><use xlink:href="#icoUnfold" class="mdx-svg-ico-dark"/></svg>';
@@ -542,13 +542,13 @@ function initFigureData() {
       });
       // 添加插图样式
       fig.css("cursor", "pointer");
-      fig.attr("title", ["在插图浏览器中查看",
+      /*fig.attr("title", ["在插图浏览器中查看",
           "在插圖瀏覽器中查看",
           "View in Figure Browser",
           "Afficher dans le navigateur d'illustrations",
           "Просмотр в браузере иллюстраций",
           "イラストのブラウザで見る",
-          "그림 브라우저에서보기"][_lang]);
+          "그림 브라우저에서보기"][_lang]);*/
       fig.addClass("mdx-figure");
       fig.hover(function () {
           $(this).addClass("mdx-figure-hover");
@@ -1792,12 +1792,12 @@ function restyleCode() {
           }
       }*/
 
-      // ========== 分段式（旧语法）==========
+      // ========== 药丸样式（旧语法）==========
       if (flag == true) return;
       codeTags = new Array(" | ", " || ", " ||| ", " |||| ", " ||||| ", " |||||| ");
       // flag = false;
       for (var i=5; i>=0; i--) {
-          if (codeText.length > 6 && codeText.indexOf(codeTags[i]) > 0) {
+          if (codeText.length > 5 && !codeText.startWith("`") && !codeText.endWith("`") && codeText.indexOf(codeTags[i]) > 0) {
               rebuildSegmentCode($(this), codeTags[i], i+1);
               flag = true;
               break;
