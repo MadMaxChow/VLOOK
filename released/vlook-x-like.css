@@ -1,100 +1,84 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400,700");
+/**************************************
+* 字体主题
+***************************************/
+@font-face {
+  font-family: sansFont;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.woff2") format("woff2"), url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.woff") format("woff"), url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: sansFont;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.woff2") format("woff2"), url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.woff") format("woff"), url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.otf") format("opentype");
+}
+/**************************************
+* 颜色主题
+***************************************/
 html {
-  font-size: @fontSize;
+  font-size: 100%;
   cursor: default;
 }
-
 html,
 body {
-  background: @docBgColorLight;
-  font-family: @textFont;
+  background: #ffffff;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   font-weight: normal;
-  color: @foreColorLight;
+  color: #56585a;
   line-height: 2;
   -webkit-tap-highlight-color: transparent;
 }
-
 #write {
-  // padding-left: 30px;
-  // padding-right: 30px;
-  // border-top: 5px solid @masterColor;
-  // border-bottom: 10px solid @masterColor;
   max-width: 100%;
   margin: 0 auto;
   padding: 0px 30px 0px 30px;
 }
-
 #write > ul:first-child,
 #write > ol:first-child {
   margin-top: 30px;
 }
-
 body.typora-export {
   margin-left: 0px;
   padding-left: 0px;
   padding-right: 0px;
 }
-
 @media screen and (max-width: 1000px) {
   body.typora-export {
     margin-left: 0px;
     padding-left: 0px;
     padding-right: 0px;
   }
-  // .mdx-toc-info2 {
-  //   display: none;
-  // }
 }
-
 body > *:first-child {
   margin-top: 0 !important;
 }
-
 body > *:last-child {
   margin-bottom: 0 !important;
 }
-
 img {
   padding: 5px;
   border: 2px solid rgba(255, 255, 255, 0);
 }
-
 a {
-  color: @aColor;
-  // font-weight: bold;
-  border-bottom: @aBorderWidth solid @aLineColor;
+  color: #202224;
+  border-bottom: 1px solid #dc0010;
   padding-bottom: 1px;
   text-decoration: none;
-  font-family: @titleFont;
-  // border: 1px dotted @transparencyColor;
-  // border-bottom: 1px solid @masterColorAlt;
-  // font-weight: bold;
-  // margin-left: 2px;
-  // margin-right: 2px;
-  // transition: all 0.3s ease-in-out;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
-
-a::after {
-  // content: "🔗";
-  // font-size: 65%;
-}
-
 a:hover {
-  color: @aHoverColor;
-  border-bottom: @aBorderWidth solid @aHoverColor;
+  color: #dc0010;
+  border-bottom: 1px solid #dc0010;
   transition: all 0.3s ease-in-out;
 }
-
 a:active {
-  color: @aActiveColor;
+  color: #dc0010;
   transition: all 0.3s ease-in-out;
 }
-
-// a:hover::before,
-// a:hover::after {
-//   position: absolute;
-// }
-// a:hover::after { content: "↗"; top: -0.5em;}
-
 h1 a,
 h2 a,
 h3 a,
@@ -103,7 +87,6 @@ h5 a,
 h6 a {
   border: 0;
 }
-
 h1 a:hover,
 h2 a:hover,
 h3 a:hover,
@@ -114,7 +97,6 @@ h6 a:hover {
   cursor: inherit;
   transition: all 0.3s ease-in-out;
 }
-
 h1 a:after,
 h2 a:after,
 h3 a:after,
@@ -123,28 +105,24 @@ h5 a:after,
 h6 a:after {
   content: "";
 }
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  color: @headerColor;
+  color: #118cdf;
   position: relative;
   margin-bottom: 0em;
-  // font-weight: bold;
   margin-left: 0px;
   margin-right: -10px;
   padding-left: 0px;
   line-height: 1.5;
-  font-family: @headerFont; //@titleFont;
+  font-family: "", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
-
 h6 {
-  font-family: @titleFont;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
-
 h1:hover a.anchor,
 h2:hover a.anchor,
 h3:hover a.anchor,
@@ -154,7 +132,6 @@ h6:hover a.anchor {
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
-
 h1 tt,
 h1 code,
 h2 tt,
@@ -169,174 +146,110 @@ h6 tt,
 h6 code {
   font-size: 0.85em;
 }
-
 h1 {
   margin-top: 3em;
   margin-bottom: 0.5em;
-  // padding-left: 20px;
   padding-top: 20px;
-  // height: 50px;
   line-height: 50px;
   font-size: 2em;
-  border-top: 10px dotted @themeBgColorFade;
-  // text-align: center;
-  // background-color: @masterColor;
-  // color: @docBgColorLight;
-  // border-radius: 4px;
-  // box-shadow: 0px 4px 20px @thirdShadowColor;
+  border-top: 10px dotted rgba(17, 140, 223, 0.5);
 }
 body div h1:first-of-type {
   border-top: 0px;
 }
-
 h2 {
   margin-top: 1em;
   margin-bottom: 0.5em;
-  // padding-left: 20px;
   padding-top: 20px;
-  // padding-top: 0.3em;
-  // padding-bottom: 0em;
   font-size: 1.8em;
-  border-top: 6px dotted @themeBgColorFade;
-  // text-align: center;
-  // background-color: @thirdColor;
-  // color: @docBgColorLight;
-  // border-radius: 8px;
-  // box-shadow: 0px 4px 20px @masterShadowColor;
+  border-top: 6px dotted rgba(17, 140, 223, 0.5);
 }
-
 h1 + h2 {
-  // h1后紧跟h2的情况，不显示边框分隔线
-  // figure + h2 { // table后紧跟h2的情况，不显示边框分隔线
   margin-top: 0em;
   padding-top: 0em;
   border-top: 0px;
 }
-
 h3 {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  // padding-left: 20px;
   padding-top: 20px;
-  // padding-top: 0.3em;
-  // padding-bottom: 0em;
   font-size: 1.6em;
-  border-top: 3px dotted @themeBgColorFade;
-  // border-bottom: 5px solid @masterColorAlt;
+  border-top: 3px dotted rgba(17, 140, 223, 0.5);
 }
-
 h2 + h3 {
-  // h2后紧跟h3的情况，不显示边框分隔线
-  // figure + h3 { // table后紧跟h3的情况，不显示边框分隔线
   margin-top: 0em;
   padding-top: 0em;
   border-top: 0px;
 }
-
 h4 {
   margin-top: 1.5em;
   margin-bottom: 0.2em;
   padding-top: 20px;
-  // padding-top: 0.3em;
-  // padding-bottom: 0em;
   font-size: 1.4em;
-  border-top: 1px dotted @themeBgColorAlt;
-  // border-bottom: 2px solid @masterColorAlt;
+  border-top: 1px dotted #cbe8fb;
 }
-
 h3 + h4 {
-  // h2后紧跟h3的情况，不显示边框分隔线
   margin-top: 0;
   padding-top: 0em;
   border-top: 0px;
 }
-
 h5 {
   margin-top: 1.5em;
   margin-bottom: 0.2em;
-  // padding-top: 0.3em;
-  // padding-bottom: 0em;
   font-size: 1.2em;
-  // border-bottom: 1px dotted @masterColorAlt;
 }
-
 h4 + h5 {
-  // h2后紧跟h3的情况，不显示边框分隔线
   margin-top: 0;
   padding-top: 0.5em;
   border-top: 0px;
 }
-
 h6 {
   margin-left: 0;
   margin-right: 0;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
-  // padding-top: 0.3em;
-  // padding-bottom: 0em;
-  // font-size: 1.1em;
-  // border-bottom: 0;
-  // color: @masterColor;
   line-height: 1;
-  border-left: 0.5em solid @contentHeaderNumColor;
+  border-left: 0.5em solid rgba(17, 140, 223, 0.5);
   padding-left: 0.5em;
-  // border-radius: 0.3em;
 }
-// h6::before {
-//   content: "■ ";
-//   color: @masterColorFade;
-// }
-
 li > h6 {
-  // 用于：子表
-  color: @headerColor;
+  color: #118cdf;
   border-left: 0;
   padding-left: 0;
-  // border-left: 0.25em solid @masterColorFade;
 }
 li > h6::before {
   content: "▪ ";
-  color: @contentHeaderNumColor;
+  color: rgba(17, 140, 223, 0.5);
 }
-
 strong {
-  color: @boldColorLight;
-  font-family: @boldFont;
+  color: #202224;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
-
 p,
 blockquote,
-// ul,
-// ol,
-// dl,
 table {
   margin: 0.2em 0;
 }
-
 hr {
   margin-top: 1.2em;
   margin-bottom: 1.2em;
-  border: 1px dotted @foreColorLightAlt;
+  border: 1px dotted #bdbebf;
   overflow: hidden;
   box-sizing: content-box;
   border-top: 0px;
 }
-
 body > h2:first-child {
   margin-top: 0;
   padding-top: 0;
 }
-
 body > h1:first-child {
   margin-top: 0;
   padding-top: 0;
 }
-
 body > h1:first-child + h2 {
   margin-top: 0;
   padding-top: 0;
 }
-
 body > h3:first-child,
 body > h4:first-child,
 body > h5:first-child,
@@ -344,12 +257,6 @@ body > h6:first-child {
   margin-top: 0;
   padding-top: 0;
 }
-
-// sup,
-// sub {
-//   font-size: 60%;
-// }
-
 a:first-child h1,
 a:first-child h2,
 a:first-child h3,
@@ -359,7 +266,6 @@ a:first-child h6 {
   margin-top: 0;
   padding-top: 0;
 }
-
 h1 p,
 h2 p,
 h3 p,
@@ -368,238 +274,116 @@ h5 p,
 h6 p {
   margin-top: 0;
 }
-
-// 有序列表下无序列表-1级
 ol > li {
   list-style-type: decimal;
-  // line-height: 2;
-  // color: @masterColorAlt;
 }
-// 有序列表下无序列表-2级
 ol > li > ul > li {
   list-style-type: upper-alpha;
 }
-// 有序列表下无序列表-3级
 ol > li > ul > li > ul > li {
   list-style-type: lower-alpha;
 }
-// 有序列表下无序列表-4级
 ol > li > ul > li > ul > li > ul > li {
   list-style-type: disc;
 }
-// 有序列表下无序列表-5级
 ol > li > ul > li > ul > li > ul > li > ul > li {
   list-style-type: circle;
 }
-// 有序列表下无序列表-6级
 ol > li > ul > li > ul > li > ul > li > ul > li > ul > li {
   list-style-type: square;
 }
-
-// 多级无序列表-1级
 ul > li {
   list-style-type: decimal;
-  // line-height: 2;
 }
-// 多级无序列表-2级
 ul > li > ul > li {
   list-style-type: upper-alpha;
 }
-// 多级无序列表-3级
 ul > li > ul > li > ul > li {
   list-style-type: lower-roman;
 }
-// 多级无序列表-4级
 ul > li > ul > li > ul > li > ul > li {
   list-style-type: disc;
 }
-// 多级无序列表-5级
 ul > li > ul > li > ul > li > ul > li > ul > li {
   list-style-type: circle;
 }
-// 多级无序列表-6级
 ul > li > ul > li > ul > li > ul > li > ul > li > ul > li {
   list-style-type: square;
 }
-
 li p.first {
   display: inline-block;
 }
-
 ul,
 ol {
   padding-left: 2em;
   padding-bottom: 0;
 }
-
-ul:first-child,
-ol:first-child {
-  // margin-top: 0;
-  // padding-top: 16px;
-  // padding-bottom: 0;
-}
-
-ul:last-child,
-ol:last-child {
-  // margin-bottom: 0;
-}
-
-li > ol,
-li > ul {
-  // margin: 0 0;
-  // padding-top: 0px;
-  // padding-bottom: 0.3em;
-}
-
 blockquote {
-  // border: 1px solid @foreColorLightAlt;
-  // border-radius: 8px;
-  border-left: 0.3em solid @thirdColorAlt;
+  border-left: 0.3em solid #e3f4dd;
   padding-left: 0.5em;
   margin-top: 0.5em;
   margin-bottom: 1em;
-  color: @thirdColor;
-  font-family: @titleFont;
-  // background-color: @thirdColorAlt;
+  color: #4da032;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
-
 blockquote li {
-  color: @foreColorLight;
+  color: #56585a;
 }
-
 blockquote blockquote {
-  border-left: 0.2em solid @thirdColorAlt;
+  border-left: 0.2em solid #e3f4dd;
   margin-left: 0.4em;
 }
-
 blockquote blockquote {
   padding-right: 0;
 }
-
 blockquote strong {
   color: inherit !important;
 }
-
 #write {
   overflow-x: auto;
 }
-
 table {
   border-collapse: inherit;
   border-spacing: 0;
   width: auto;
   line-height: 1.5;
   word-break: initial;
-  border: 2px solid rgba(255,255,255,0);
-  border-top: 2px solid @tableBorderColor;
-  border-bottom: 2px solid @tableBorderColor;
+  border: 2px solid rgba(255, 255, 255, 0);
+  border-top: 2px solid #888b8e;
+  border-bottom: 2px solid #888b8e;
 }
-
-table:hover {
-  // border-color: @themeBgColor;
-  // box-shadow: 0px 4px 20px @masterShadowColor;
-  // transition: all 0.3s ease-in-out;
-}
-
 table tr {
-  // background-color: @tableTdBgColor;
   margin: 0;
   padding: 0;
 }
-
-table tr:hover {
-  // background-color: @tableTdBgColor;
-}
-
-table tr:nth-child(2n):hover {
-  // background-color: @docBgColorLight;
-}
-
 table tr:nth-child(2n) {
-  background-color: @tableTdBgColor2;
+  background-color: rgba(242, 242, 242, 0.45);
 }
-
-// table tr:nth-child(2n) td {
-//   border-right: 1px solid @tableTdBorderColor;
-// }
-
-// table tr:nth-child(2n) td:last-child {
-//   border-right: 0;
-// }
-
-// 表格表头
 table tr th {
-  background-color: @tableThBgColor;
-  font-family: @titleFont;
-  color: @tableThColor;
-  border-right: 1px solid fade(@tableTdBorderColor, 10%);
-  // border-top: 2px solid @tableThBorderColor;
-  border-bottom: 1px solid @tableThBorderColor;
+  background-color: #f2f2f2;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  color: #56585a;
+  border-right: 1px solid rgba(86, 88, 90, 0.1);
+  border-bottom: 1px solid #56585a;
   margin: 0;
   padding: 0.5em 0.5em;
 }
-
 table tr td {
-  border-right: 1px solid fade(@tableTdBorderColor, 10%);
-  // background-color: @docBgColorLight;
+  border-right: 1px solid rgba(86, 88, 90, 0.1);
   text-align: left;
   margin: 0;
   padding: 0.5em 0.5em;
-  border-bottom: 1px solid @tableTdBorderColor;
+  border-bottom: 1px solid rgba(86, 88, 90, 0.2);
 }
-
-table tr td:hover {
-  // border-bottom: 1px solid @tableColor;
-}
-
-// 表格首列
-table tr td:first-child {
-  // font-family: @titleFont;
-  // font-weight: bold;
-  // color: @boldColorLight;
-  // color: darken(@foreColorLight, 30%);
-}
-
 table tr th:first-child,
 table tr td:first-child {
   padding-left: 0.5em;
 }
-
 table tr th:last-child,
 table tr td:last-child {
   border-right: 0;
   padding-right: 0.5em;
 }
-
-table th:first-child {
-  // border-radius: 8px 0 0 0;
-}
-
-table th:last-child {
-  // border-radius: 0 8px 0 0;
-}
-
-table th:only-child {
-  // border-radius: 8px 8px 0 0;
-}
-
-table tr:last-child td {
-  // border-bottom: 2px solid @tableColor;
-}
-
-table tr:last-child td:first-child {
-  // border-radius: 0 0 0 8px;
-}
-
-table tr:last-child td:last-child {
-  // border-radius: 0 0 8px 0;
-}
-
-table tr:last-child td:only-child {
-  // border-radius: 0 0 8px 8px;
-}
-
-// li下的表格增加行号
 li table,
 h6 + figure table {
   counter-reset: tableRowNumber -1;
@@ -608,17 +392,14 @@ li table tr,
 h6 + figure table tr {
   counter-increment: tableRowNumber;
 }
-
-// li后的表格，格式微调
 li figure {
   margin-top: 0em;
 }
-
 li table tr th:first-child::before,
 li table tr td:first-child::before {
   content: "#";
-  color: @foreColorLightAlt;
-  font-family: @codeFont;
+  color: #bdbebf;
+  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.85em;
   vertical-align: middle;
   text-align: right;
@@ -626,112 +407,83 @@ li table tr td:first-child::before {
   position: absolute;
   left: -3em;
 }
-
 li table tr td:first-child::before {
   content: counter(tableRowNumber);
 }
-
-// H6下的表格增加行号
 h6 + figure table tr th:first-child::before,
 h6 + figure table tr td:first-child::before {
   content: "# ";
-  color: @foreColorLightFade;
-  font-family: @codeFont;
+  color: rgba(86, 88, 90, 0.5);
+  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.85em;
   vertical-align: middle;
   text-align: right;
 }
-
 h6 + figure table tr td:first-child::before {
   content: counter(tableRowNumber) " ";
 }
-
 mark {
   background-color: #FFF000 !important;
-  // border-radius: 0px;
 }
-
 del {
-  color: @foreColorLightAlt;
+  color: #bdbebf;
 }
 del code {
-  color: @foreColorLightAlt;
-  background-color: @docBgColorLightAlt;
+  color: #bdbebf;
+  background-color: #f2f2f2;
 }
-
-// 脚注区域
 .footnotes-area {
   margin-top: 100px;
 }
-
-// 脚注行
 .footnote-line {
-  color: @foreColorLight;
+  color: #56585a;
   font-size: 1em;
   margin-top: 0.5em;
 }
-
-// 脚注行序号
 .md-fn-count {
-  font-family: @titleFont;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
-
 .md-fn-count:before {
   content: "[";
 }
-
 .md-fn-count:after {
   content: "] ";
 }
-
-// 脚注行序末返回链接
 .reversefootnote {
-  color: @masterColor;
+  color: #045ad1;
 }
-
 .reversefootnote:hover {
-  color: @slaveColor;
+  color: #c21117;
   transition: all 0.3s ease-in-out;
 }
-
-// 脚注上标
 a[name^="ref-footnote-"] {
-  font-family: @titleFont;
-  color: @masterColor;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  color: #045ad1;
 }
-
 a[name^="ref-footnote-"]:hover {
-  color: @aActiveColor;
+  color: #dc0010;
   transition: all 0.3s ease-in-out;
 }
-
 a[name^="ref-footnote-"]:before {
   content: "[";
 }
-
 a[name^="ref-footnote-"]:after {
   content: "] ";
 }
-
 .CodeMirror {
   z-index: 0;
 }
-
 .CodeMirror-gutters {
-  border-right: 1px solid @docBgColorLight;
-  // background-color: @foreColorLightAlt;
+  border-right: 1px solid #ffffff;
 }
-
 .CodeMirror-linenumber {
-  color: @foreColorLightAlt;
+  color: #bdbebf;
 }
-
-//.md-fences,
 code,
 tt {
-  color: @boldColorLight;
-  font-family: @codeFont;
-  background-color: @themeBgColorAlt;
+  color: #202224;
+  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+  background-color: #cbe8fb;
   border-radius: 0.3em;
   padding: 0.1em 0.3em;
   margin: 0px 0.2em;
@@ -739,102 +491,70 @@ tt {
   white-space: nowrap;
   vertical-align: middle;
 }
-
 blockquote code {
-  background-color: @thirdColorAlt;
+  background-color: #e3f4dd;
 }
-
-code:hover,
-tt:hover {
-  // border-color: @foreColorLight;
-  // transition: all 0.3s ease-in-out;
-}
-
 .md-fences {
-  // background-color: lighten(@foreColorLight, 58%);
-  color: @foreColorLight;
-  font-family: @codeFont;
-  background-color: @docBgColorLightAlt;
+  color: #56585a;
+  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+  background-color: #f2f2f2;
   border-radius: 5px;
-  border: 2px solid @docBgColorLightAlt;
+  border: 2px solid #f2f2f2;
   padding: 1px 4px 1px 4px;
   margin: 0px 4px 0px 4px;
   font-size: 0.85em;
 }
-
-.md-fences:hover {
-  // border-color: @masterColor;
-  // box-shadow: 0px 4px 20px @masterShadowColor;
-  // transition: all 0.3s ease-in-out;
-}
-
 .task-list {
   padding-left: 0;
 }
-
 .task-list-item {
   padding-left: 32px;
 }
-
 .task-list-item input {
   top: 3px;
   left: 8px;
 }
-
 @media screen and (min-width: 860px) {
   /*body {
     width: 854px;
     margin: 0 auto;
     }*/
 }
-
 #write pre.md-meta-block {
   padding: 1em;
   font-size: 85%;
   line-height: 2;
-  background-color: @foreColorLightFade3;
+  background-color: rgba(86, 88, 90, 0.05);
   border: 0;
   border-radius: 3px;
-  color: @foreColorLight;
+  color: #56585a;
   margin-top: 0 !important;
 }
-
 .mathjax-block > .code-tooltip {
   bottom: 0.375em;
 }
-
 #write > h3.md-focus:before {
   left: -1.5625em;
   top: 0.375em;
 }
-
 #write > h4.md-focus:before {
   left: -1.5625em;
   top: 0.285714286em;
 }
-
 #write > h5.md-focus:before {
   left: -1.5625em;
   top: 0.285714286em;
 }
-
-// #write>h6.md-focus:before {
-//   left: -1.5625em;
-//   top: .285714286em;
-// }
-
 .md-image > .md-meta {
-  border: 1px solid @tableBorderColor;
-  background-color: @foreColorLightFade3;
+  border: 1px solid #888b8e;
+  background-color: rgba(86, 88, 90, 0.05);
   border-radius: 3px;
   padding: 2px 4px 0px 4px;
   color: inherit;
 }
-
 .md-tag {
   color: inherit;
 }
-
 .md-toc,
 .mdx-toc {
   margin-top: 0.6em;
@@ -842,321 +562,229 @@ tt:hover {
   border-radius: 0px;
   line-height: 2;
 }
-
 .md-toc-h1 {
   font-size: 1em;
-  // font-weight: bold;
 }
-
 .md-toc-h2 {
   font-size: 1em;
-  // font-weight: bold;
 }
-
 .md-toc-h3,
 .md-toc-h4,
 .md-toc-h5 {
-  //, .md-toc-h6
   font-size: 1em;
-  // font-weight: normal;
 }
-
 .md-toc-h1 a,
 .md-toc-h2 a,
 .md-toc-h3 a,
 .md-toc-h4 a,
 .md-toc-h5 a {
-  //, .md-toc-h6 a
-  color: @foreColorLight;
+  color: #56585a;
   text-decoration: none;
   padding: 0px 0px 0px 0px;
   border-radius: 0px;
 }
-
 .md-toc-h1 a:hover,
 .md-toc-h2 a:hover,
 .md-toc-h3 a:hover,
 .md-toc-h4 a:hover,
 .md-toc-h5 a:hover {
-  //, .md-toc-h6 a:hover
-  color: @aActiveColor;
-  background-color: @transparencyColor0;
+  color: #dc0010;
+  background-color: rgba(255, 255, 255, 0);
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
-
 #typora-quick-open {
-  border: 1px solid @tableBorderColor;
-  background-color: @foreColorLightFade3;
+  border: 1px solid #888b8e;
+  background-color: rgba(86, 88, 90, 0.05);
 }
-
 #typora-quick-open-item {
-  background-color: @foreColorLightFade3;
-  border-color: @tableBorderColor;
+  background-color: rgba(86, 88, 90, 0.05);
+  border-color: #888b8e;
   border-style: solid;
   border-width: 1px;
 }
-
 #md-notification:before {
   top: 10px;
 }
-
 /** focus mode */
-
 .on-focus-mode blockquote {
-  border-left-color: @foreColorLight;
+  border-left-color: #56585a;
 }
-
-header,
-.context-menu,
-.megamenu-content,
-footer {
-}
-
 /**************************************
 * Header Counters in TOC 目录中的标题序号样式
 **************************************/
-
 /* No link underlines in TOC */
-
 .md-toc-content {
   counter-reset: h1toc;
 }
-
 .md-toc-h1 {
   margin-left: 0;
   padding-left: 10px;
   counter-reset: h2toc;
 }
-
 .md-toc-h2 {
   margin-left: 0;
   padding-left: 20px;
   counter-reset: h3toc;
 }
-
 .md-toc-h3 {
   margin-left: 0;
   padding-left: 30px;
   counter-reset: h4toc;
 }
-
 .md-toc-h4 {
   margin-left: 0;
   padding-left: 40px;
   counter-reset: h5toc;
 }
-
 .md-toc-h5 {
   margin-left: 0;
   padding-left: 50px;
   counter-reset: h6toc;
 }
-
 .md-toc-h6 {
   display: none;
   margin-left: 0;
   padding-left: 50px;
 }
-
 .md-toc-h1,
 .md-toc-h2,
 .md-toc-h3,
 .md-toc-h4,
 .md-toc-h5 {
-  font-family: @titleFont;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   font-size: 1em;
   padding-right: 10px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-
 .md-toc-h1:before,
 .md-toc-h2:before,
 .md-toc-h3:before,
 .md-toc-h4:before,
 .md-toc-h5:before {
-  //, .md-toc-h6:before
-  color: @tocHeaderNumColor;
-  font-family: @headerNumFont;
+  color: rgba(17, 140, 223, 0.5);
+  font-family: "", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   font-weight: normal;
 }
-
 .md-toc-h1 a,
 .md-toc-h2 a,
 .md-toc-h3 a,
 .md-toc-h4 a,
 .md-toc-h5 a {
-  //, .md-toc-h6 a
   border: 0;
 }
-
 .md-toc-h1 a:hover,
 .md-toc-h2 a:hover,
 .md-toc-h3 a:hover,
 .md-toc-h4 a:hover,
 .md-toc-h5 a:hover {
-  //, .md-toc-h6 a:hover
   box-shadow: inherit;
   transition: all 0.3s ease-in-out;
 }
-
 .md-toc-h1 a:after,
 .md-toc-h2 a:after,
 .md-toc-h3 a:after,
 .md-toc-h4 a:after,
 .md-toc-h5 a:after {
-  //, .md-toc-h6 a:after
   content: "";
 }
-
 .md-toc-h1:before {
   counter-increment: h1toc;
   content: counter(h1toc) "  ";
 }
-
 .md-toc-h1 .md-toc-inner {
   margin-left: 0;
 }
-
 .md-toc-h2:before {
   counter-increment: h2toc;
   content: counter(h1toc) "." counter(h2toc) "  ";
 }
-
 .md-toc-h2 .md-toc-inner {
   margin-left: 0;
 }
-
 .md-toc-h3:before {
   counter-increment: h3toc;
   content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "  ";
 }
-
 .md-toc-h3 .md-toc-inner {
   margin-left: 0;
 }
-
 .md-toc-h4:before {
   counter-increment: h4toc;
   content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "  ";
 }
-
 .md-toc-h4 .md-toc-inner {
   margin-left: 0;
 }
-
 .md-toc-h5:before {
   counter-increment: h5toc;
   content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "." counter(h5toc) "  ";
 }
-
 .md-toc-h5 .md-toc-inner {
   margin-left: 0;
 }
-
-// .md-toc-h6:before {
-//   counter-increment: h6toc;
-//   content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "." counter(h5toc) "." counter(h6toc) ". "
-// }
-
-// .md-toc-h6 .md-toc-inner {
-//   margin-left: 0;
-// }
-
 /**************************************
 * Header Counters in Content 内容中的目录序号样式
 **************************************/
-
 /** initialize css counter */
-
 #write {
   counter-reset: h1;
 }
-
 h1 {
   counter-reset: h2;
 }
-
 h2 {
   counter-reset: h3;
 }
-
 h3 {
   counter-reset: h4;
 }
-
 h4 {
   counter-reset: h5;
 }
-
-// h5 {
-//   counter-reset: h6
-// }
-
 /** put counter result into headings */
-
-// #write h1:before {
-//   color: @docBgColorLightFade;
-//   font-family: @headerNumFont;
-//   font-weight: normal;
-// }
 #write h1:before,
 #write h2:before,
 #write h3:before,
 #write h4:before,
 #write h5:before {
-  //, #write h6:before
-  color: @contentHeaderNumColor;
-  font-family: @headerNumFont;
+  color: rgba(17, 140, 223, 0.5);
+  font-family: "", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   font-weight: normal;
 }
-
 #write h1:before {
   counter-increment: h1;
   content: counter(h1) "  ";
 }
-
 #write h2:before {
   counter-increment: h2;
   content: counter(h1) "." counter(h2) "  ";
 }
-
 #write h3:before,
 h3.md-focus.md-heading:before {
   /*override the default style for focused headings */
   counter-increment: h3;
   content: counter(h1) "." counter(h2) "." counter(h3) "  ";
 }
-
 #write h4:before,
 h4.md-focus.md-heading:before {
   counter-increment: h4;
   content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "  ";
 }
-
 #write h5:before,
 h5.md-focus.md-heading:before {
   counter-increment: h5;
   content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "  ";
 }
-
-// #write h6:before,
-// h6.md-focus.md-heading:before {
-//   counter-increment: h6;
-//   content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". "
-// }
-
 /** override the default style for focused headings */
-
 #write > h3.md-focus:before,
 #write > h4.md-focus:before,
-#write > h5.md-focus:before, // #write>h6.md-focus:before,
+#write > h5.md-focus:before,
 h3.md-focus:before,
 h4.md-focus:before,
 h5.md-focus:before {
-  //, h6.md-focus:before
   color: inherit;
   border: inherit;
   border-radius: inherit;
@@ -1171,766 +799,551 @@ h5.md-focus:before {
   font-weight: inherit;
   line-height: inherit;
 }
-
 /**************************************
 * Electron UI
 **************************************/
-
 .outline-item {
   line-height: 1;
-  font-family: @titleFont;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
-
-.outline-item:hover {
-  // background-color: @foreColorLight;
-  // font-weight: bold;
-  // color: @docBgColorLight;
-  // border-color: @foreColorLight;
-}
-
 /**************************************
 * 脚本化画表 CSS
 **************************************/
-
 /* ----- flow diagram 流程图 ----- */
-
-// 开始节点
 rect[id^="st"].flowchart {
-  fill: @foreColorLight;
-  stroke: @foreColorLight;
+  fill: #56585a;
+  stroke: #56585a;
   stroke-width: 5;
 }
-
-// 结束节点
 rect[id^="e"].flowchart {
   fill: none;
-  stroke: @foreColorLight;
+  stroke: #56585a;
   stroke-width: 5;
 }
-
-// 操作节点
 rect[id^="op"].flowchart {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: #cbe8fb;
+  stroke: #118cdf;
   stroke-width: 1;
 }
-
-// 子流程节点
 rect[id^="sub"],
 rect[id^="sub"].flowchart {
-  fill: @fourthColorAlt;
-  stroke: @fourthColor;
+  fill: #fce4bf;
+  stroke: #e68d09;
   stroke-width: 1;
 }
-
-// 条件节点
 path[id^="c"].flowchart {
-  fill: @slaveColorAlt;
-  stroke: @slaveColor;
+  fill: #fbd7d8;
+  stroke: #c21117;
   stroke-width: 1;
 }
-
-// I/O节点
 path[id^="io"].flowchart {
-  fill: @thirdColorAlt;
-  stroke: @thirdColor;
+  fill: #e3f4dd;
+  stroke: #4da032;
   stroke-width: 1;
 }
-
-// 流程线
 path[fill="none"][stroke-width="3"][marker-end^="url(#raphael-marker-endblock"] {
-  stroke: @foreColorLight;
+  stroke: #56585a;
   stroke-width: 2px;
-  // marker-end: "url(#raphael-marker-endclassic)";
 }
-
-// 流程线箭头
 marker[id^="raphael-marker-endblock"] > use {
-  fill: @foreColorLight;
+  fill: #56585a;
 }
-
-// 文本
 text[text-anchor="start"] > tspan {
   font-size: 14px;
-  font-family: @textFont;
-  fill: @boldColorLight;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  fill: #202224;
 }
-
 /* ----- sequeuce diagram 时序图 ----- */
-
-// 标题
 rect[x="10"][y="10"][fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][rx="0"][ry="0"] {
-  fill: @docBgColorLight;
-  stroke: @foreColorLightAlt;
+  fill: #ffffff;
+  stroke: #bdbebf;
   stroke-width: 2px;
 }
-
-// 矩形
 rect[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][rx="0"][ry="0"] {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: #cbe8fb;
+  stroke: #118cdf;
   stroke-width: 1px;
 }
-
-// 生命线
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"] {
-  // fill: none;
-  stroke: @themeBgColorFade;
+  stroke: rgba(17, 140, 223, 0.5);
   stroke-width: 1px;
-  // stroke-dasharray: 5;
 }
-
-// 消息实线+实箭头
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endblock"] {
-  // fill: none;
-  stroke: @foreColorLight;
+  stroke: #56585a;
   stroke-width: 2px;
   stroke-dasharray: none;
 }
-
-// 消息虚线+实箭头
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endblock"][stroke-dasharray="6,2"] {
   stroke-dasharray: 5;
 }
-
-// 消息实线+虚箭头
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endopen"] {
-  // fill: none;
-  stroke: @foreColorLight;
+  stroke: #56585a;
   stroke-width: 2px;
   stroke-dasharray: none;
 }
-
-// 消息虚线+虚箭头
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endopen"][stroke-dasharray="6,2"] {
   stroke-dasharray: 5;
 }
-
-// 消息虚箭头
 marker[id^="raphael-marker-endopen"] > use {
-  stroke: @foreColorLight;
+  stroke: #56585a;
 }
-
-// 消息文本
 rect + text[text-anchor="middle"] > tspan {
   font-size: 14px;
-  font-family: @textFont;
-  fill: @foreColorLight;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  fill: #56585a;
 }
-
-// 实体、注释文本
 rect + rect + text[text-anchor="middle"] > tspan {
   font-size: 14px;
-  font-family: @textFont;
-  fill: @boldColorLight;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  fill: #202224;
 }
-
 /**************************************
 * mermaid CSS
 **************************************/
-
 /* ----- flow diagram 流程图 ----- */
-
-// 标签
 .mermaid .label {
-  color: @boldColorLight;
-  fill: @foreColorLightAlt;
+  color: #202224;
+  fill: #bdbebf;
 }
-
 svg[id^="mermaidChart"] {
-  color: @boldColorLight;
+  color: #202224;
 }
-
-// 方角矩形
 .node rect[rx="0"][rx="0"] {
-  // color: @foreColorLight;
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: #cbe8fb;
+  stroke: #118cdf;
   stroke-width: 3;
 }
-
-// .node[id="INIT"] + .node > rect  {
-//   stroke-width: 1;
-// }
-// 圆角矩形
 .node rect[rx="5"][rx="5"] {
-  // color: @foreColorLight;
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: #cbe8fb;
+  stroke: #118cdf;
   stroke-width: 1;
   rx: 5;
-  rx: 5;
 }
-
-// 圆形
 .node circle {
-  // color: @thirdColor;
-  fill: @thirdColorAlt;
-  stroke: @thirdColor;
+  fill: #e3f4dd;
+  stroke: #4da032;
   stroke-width: 1;
 }
-
-// ？
 .node ellipse {
-  // color: @foreColorLight;
-  fill: @foreColorLightAlt;
-  stroke: @foreColorLight;
+  fill: #bdbebf;
+  stroke: #56585a;
   stroke-width: 10;
 }
-
-// 菱形
 .node polygon[rx^="5"][ry^="5"] {
-  // color: @foreColorLight;
-  fill: @slaveColorAlt;
-  stroke: @slaveColor;
+  fill: #fbd7d8;
+  stroke: #c21117;
   stroke-width: 1;
 }
-
-// 不对称形状
 .node polygon {
-  // color: @foreColorLight;
-  fill: @fourthColorAlt;
-  stroke: @fourthColor;
+  fill: #fce4bf;
+  stroke: #e68d09;
   stroke-width: 1;
 }
-
-// 线条
 .edgePath .path {
-  stroke: @foreColorLight;
+  stroke: #56585a;
   stroke-width: 2;
 }
-
-// 线条箭头
 .arrowheadPath {
-  fill: @foreColorLight;
+  fill: #56585a;
 }
-
-// 线条文本
 .edgeLabel {
-  color: @boldColorLight;
-  background-color: @docBgColorLight;
-  font-family: @textFont;
+  color: #202224;
+  background-color: #ffffff;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
-
-// 子图
 .cluster rect {
-  fill: @foreColorLightFade3 !important;
-  stroke: @foreColorLightFade1 !important;
+  fill: rgba(86, 88, 90, 0.05) !important;
+  stroke: rgba(86, 88, 90, 0.15) !important;
   stroke-width: 1 !important;
 }
-
-// 子图文本
 .cluster text {
-  color: @boldColorLight;
-  fill: @foreColorLight;
+  color: #202224;
+  fill: #56585a;
 }
-
-// 自定义：流程图开始、结束节点样式
 #START circle {
-  fill: @foreColorLight;
-  stroke: @foreColorLight;
+  fill: #56585a;
+  stroke: #56585a;
   stroke-width: 5;
 }
-
 #END circle {
   fill: none;
-  stroke: @foreColorLight;
+  stroke: #56585a;
   stroke-width: 5;
-  // stroke-dasharray: 4;
 }
-
-// 自定义：状态图初始状态、最终状态节点样式
 #INIT circle {
-  fill: @foreColorLight;
-  stroke: @foreColorLight;
+  fill: #56585a;
+  stroke: #56585a;
   stroke-width: 5;
 }
-
 #FINAL circle {
   fill: none;
-  stroke: @foreColorLight;
+  stroke: #56585a;
   stroke-width: 5;
 }
-
 /* ----- sequeuce diagram 时序图 ----- */
-
-// 角色
 .actor {
-  stroke: @themeBgColor;
-  fill: @themeBgColorAlt;
+  stroke: #118cdf;
+  fill: #cbe8fb;
   rx: 5;
   ry: 5;
 }
-
 .actor-person {
-  stroke: @slaveColor;
-  fill: @slaveColorAlt;
+  stroke: #c21117;
+  fill: #fbd7d8;
 }
-
-// 角色文本
 text.actor {
-  fill: @boldColorLight;
+  fill: #202224;
   stroke: none;
 }
-
-// 角色生命线
 .actor-line {
-  stroke: @themeBgColor;
-  // stroke-dasharray: 5;
+  stroke: #118cdf;
 }
-
 .actor-line-person {
-  stroke: @slaveColor;
+  stroke: #c21117;
 }
-
-// 实线消息
 .messageLine0 {
   stroke-width: 2;
-  // stroke-dasharray: 2;
-  // marker-end: "url(#arrowhead)";
-  stroke: @foreColorLight;
+  stroke: #56585a;
 }
-
-// 实线箭头
 #arrowhead {
-  fill: @foreColorLight;
+  fill: #56585a;
 }
-
-// 虚线消息
 .messageLine1 {
   stroke-width: 2;
-  // stroke-dasharray: 2;
-  stroke: @foreColorLight;
+  stroke: #56585a;
 }
-
-// 异步消息箭头
 #crosshead path {
-  fill: @foreColorLightAlt !important;
-  stroke: @foreColorLight !important;
+  fill: #bdbebf !important;
+  stroke: #56585a !important;
 }
-
-// 消息文本
 .messageText {
-  fill: @foreColorLight;
+  fill: #56585a;
   stroke: none;
-  font-family: @textFont;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
-
-// 角标背景
 .labelBox {
   stroke: none;
-  fill: @slaveColorAlt;
+  fill: #fbd7d8;
 }
-
-// 角标文本
 .labelText {
-  fill: @slaveColor;
+  fill: #c21117;
   stroke: none;
 }
-
 .labelText tspan {
-  fill: @slaveColor;
+  fill: #c21117;
   stroke: none;
 }
-
-// 循环文本
 .loopText {
-  fill: @slaveColor;
+  fill: #c21117;
   stroke: none;
 }
-
 .loopText tspan {
-  fill: @slaveColor;
+  fill: #c21117;
   stroke: none;
 }
-
-// 循环线
 .loopLine {
   stroke-width: 1;
-  // stroke-dasharray: 2;
-  // marker-end: "url(#arrowhead)";
-  stroke: @slaveColorFade;
+  stroke: rgba(194, 17, 23, 0.5);
 }
-
-// 备注背景
 .note {
-  stroke: @foreColorLight;
+  stroke: #56585a;
   stroke-dasharray: 5;
-  fill: @foreColorLightAlt;
+  fill: #bdbebf;
 }
-
-// 备注文本
 .noteText,
 .noteText tspan {
-  fill: @foreColorLight;
+  fill: #56585a;
   stroke: none;
-  font-family: @textFont;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
-
 /* ----- gantt diagram 甘特图 ----- */
-
 .section {
   stroke: none;
-  // opacity: 0.2;
 }
-
 .section0 {
-  fill: @foreColorLightAlt;
+  fill: #bdbebf;
 }
-
 .section2 {
-  fill: @foreColorLightAlt;
+  fill: #bdbebf;
 }
-
 .section1,
 .section3 {
-  fill: @foreColorLightFade3;
+  fill: rgba(86, 88, 90, 0.05);
 }
-
 .sectionTitle0,
 .sectionTitle1,
 .sectionTitle2,
 .sectionTitle3 {
-  fill: @foreColorLight;
+  fill: #56585a;
 }
-
 .sectionTitle {
   text-anchor: start;
   font-size: 12px;
 }
-
 .grid .tick {
-  stroke: @foreColorLightAlt;
-  // opacity: 0.3;
+  stroke: #bdbebf;
   shape-rendering: crispEdges;
 }
-
 .grid path {
   stroke-width: 0;
 }
-
 .today {
   fill: none;
-  stroke: @slaveColor;
+  stroke: #c21117;
   stroke-width: 3px;
 }
-
 .task {
   stroke-width: 2;
 }
-
 .taskText {
   text-anchor: middle;
   font-size: 12px;
 }
-
 .taskTextOutsideRight {
-  fill: @foreColorLight;
+  fill: #56585a;
   text-anchor: start;
 }
-
 .taskTextOutsideLeft {
-  fill: @foreColorLight;
+  fill: #56585a;
   text-anchor: end;
 }
-
 /* 当前的任务 */
-
 .active0,
 .active1,
 .active2,
 .active3 {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: #cbe8fb;
+  stroke: #118cdf;
 }
-
 .activeText0,
 .activeText1,
 .activeText2,
 .activeText3 {
-  fill: @themeBgColor !important;
+  fill: #118cdf !important;
 }
-
 /* 已完成的任务 */
-
 .done0,
 .done1,
 .done2,
 .done3 {
   stroke: none;
-  fill: @themeBgColorAlt;
+  fill: #cbe8fb;
   stroke-width: 2;
   stroke-dasharray: 2;
 }
-
 /* 未来的任务 */
-
 .task0,
 .task1,
 .task2,
 .task3 {
-  fill: @docBgColorLight;
-  stroke: @themeBgColor;
+  fill: #ffffff;
+  stroke: #118cdf;
   stroke-dasharray: 2;
 }
-
 .taskText0,
 .taskText1,
 .taskText2,
 .taskText3 {
-  fill: @foreColorLight;
+  fill: #56585a;
 }
-
 .taskTextOutside0,
 .taskTextOutside2 {
-  fill: @foreColorLight;
+  fill: #56585a;
 }
-
 .taskTextOutside1,
 .taskTextOutside3 {
-  fill: @foreColorLight;
+  fill: #56585a;
 }
-
 .doneText0,
 .doneText1,
 .doneText2,
 .doneText3 {
-  fill: @foreColorLight !important;
+  fill: #56585a !important;
 }
-
 /* 当前关键路径的任务 */
-
 .activeCrit0,
 .activeCrit1,
 .activeCrit2,
 .activeCrit3 {
-  stroke: @slaveColor;
-  fill: @slaveColorAlt;
+  stroke: #c21117;
+  fill: #fbd7d8;
   stroke-width: 2;
 }
-
 .activeCritText0,
 .activeCritText1,
 .activeCritText2,
 .activeCritText3 {
-  fill: @slaveColor !important;
+  fill: #c21117 !important;
 }
-
 /* 已完成的关键路径任务 */
-
 .doneCrit0,
 .doneCrit1,
 .doneCrit2,
 .doneCrit3 {
   stroke: none;
-  fill: @slaveColorAlt;
+  fill: #fbd7d8;
   stroke-width: 2;
   cursor: pointer;
   shape-rendering: crispEdges;
 }
-
 /* 未来的关键路径任务 */
-
 .crit0,
 .crit1,
 .crit2,
 .crit3 {
-  stroke: @slaveColor;
-  fill: @docBgColorLight;
+  stroke: #c21117;
+  fill: #ffffff;
   stroke-width: 2;
   stroke-dasharray: 2;
 }
-
 .critText0,
 .critText1,
 .critText2,
 .critText3 {
-  fill: @foreColorLight;
+  fill: #56585a;
 }
-
 .doneCritText0,
 .doneCritText1,
 .doneCritText2,
 .doneCritText3 {
-  fill: @foreColorLight !important;
+  fill: #56585a !important;
 }
-
 /* 标题 */
 .titleText {
   text-anchor: middle;
   font-size: 18px;
-  fill: @foreColorLight;
+  fill: #56585a;
 }
-
 /* ----- class diagram 类图 ----- */
-
 g.classGroup text {
-  fill: @foreColorLight;
+  fill: #56585a;
   stroke: none;
 }
-
 g.classGroup rect {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: #cbe8fb;
+  stroke: #118cdf;
 }
-
 g.classGroup line {
-  stroke: @foreColorLight;
+  stroke: #56585a;
   stroke-width: 1;
 }
-
 svg .classLabel .box {
   stroke: none;
   stroke-width: 0;
-  fill: @themeBgColorAlt;
+  fill: #cbe8fb;
   opacity: 0.5;
 }
-
 svg .classLabel .label {
-  fill: @themeBgColorAlt;
+  fill: #cbe8fb;
 }
-
 .relation {
-  stroke: @themeBgColor;
+  stroke: #118cdf;
   stroke-width: 1;
   fill: none;
 }
-
 .composition {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: #cbe8fb;
+  stroke: #118cdf;
   stroke-width: 1;
 }
-
 #compositionStart {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: #cbe8fb;
+  stroke: #118cdf;
   stroke-width: 1;
 }
-
 #compositionEnd {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: #cbe8fb;
+  stroke: #118cdf;
   stroke-width: 1;
 }
-
 .aggregation {
-  fill: @themeBgColorAlt;
-  stroke: @foreColorLight;
+  fill: #cbe8fb;
+  stroke: #56585a;
   stroke-width: 1;
 }
-
 #aggregationStart {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: #cbe8fb;
+  stroke: #118cdf;
   stroke-width: 1;
 }
-
 #aggregationEnd {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: #cbe8fb;
+  stroke: #118cdf;
   stroke-width: 1;
 }
-
 #dependencyStart {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: #cbe8fb;
+  stroke: #118cdf;
   stroke-width: 1;
 }
-
 #dependencyEnd {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: #cbe8fb;
+  stroke: #118cdf;
   stroke-width: 1;
 }
-
 #extensionStart {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: #cbe8fb;
+  stroke: #118cdf;
   stroke-width: 1;
 }
-
 #extensionEnd {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: #cbe8fb;
+  stroke: #118cdf;
   stroke-width: 1;
 }
-
-.node text {
-  // font-size: 16px;
-}
-
 div.mermaidTooltip {
   position: absolute;
   text-align: center;
   max-width: 200px;
   padding: 2px;
-  // font-size: 16px;
-  background: @foreColorLightAlt;
+  background: #bdbebf;
   border: 1px solid #d0d0d0;
   border-radius: 2px;
   pointer-events: none;
   z-index: 100;
 }
-
 /**************************************
 * 重定义Typora原生样式
 **************************************/
-
 #write {
   padding-left: 20px;
   padding-right: 20px;
 }
-
 /* 数学公式 */
 .MathJax_SVG {
-  // background-color: @themeBgColorAlt;
-  border: 1px solid @themeBgColorAlt;
+  border: 1px solid #cbe8fb;
   border-radius: 0.3em;
   padding: 0em 0.3em;
 }
-.MathJax_SVG g text{
-  font-family: @textFont;
-  color: @boldColorLight;
-  // transform: scale(100);
+.MathJax_SVG g text {
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  color: #202224;
 }
-
 /* md 系统样式 */
 .md-toc-inner {
   text-decoration: none;
 }
-
-.md-toc-item {
-  //   transition: box-shadow 0.5s;
-}
-
 .md-toc-item:hover {
-  box-shadow: 0px -1px 0px @aHoverColor inset;
+  box-shadow: 0px -1px 0px #dc0010 inset;
   transition: all 0.3s ease-in-out;
 }
-
 .md-toc-item:active {
-  box-shadow: 0px -1px 0px @aActiveColor inset;
+  box-shadow: 0px -1px 0px #dc0010 inset;
   transition: all 0.3s ease-in-out;
 }
-
 .md-toc-item > a {
-  color: @foreColorLight;
-  //   transition: color 0.5s;
+  color: #56585a;
 }
-
 .md-toc-item:hover > a,
 .md-toc-item a:hover {
-  color: @aHoverColor;
+  color: #dc0010;
   transition: all 0.3s ease-in-out;
 }
-
 .md-toc-item:active > a,
 .md-toc-item a:active {
-  color: @aActiveColor;
+  color: #dc0010;
   transition: all 0.3s ease-in-out;
 }
-
 #svg-figure-content {
   margin: 5px;
   padding: 5px;
@@ -1942,340 +1355,274 @@ div.mermaidTooltip {
   vertical-align: middle;
   width: 100%;
 }
-
 sup.md-footnote a,
 sup.md-footnote a:hover {
-  color: @aHoverColor;
+  color: #dc0010;
   transition: all 0.3s ease-in-out;
 }
-
 .footnote-line a:not(.reversefootnote) {
-  color: @themeBgColor;
+  color: #118cdf;
 }
-
 kbd {
-  font-family: @textFont;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   font-size: 0.85em;
   border-radius: 0.4em;
   margin: 0px 0.2em;
   padding: 0.1em 0.3em;
-  background-color: @docBgColorLight;
-  color: @boldColorLight;
-  border: 0.1em solid @foreColorLightAlt;
-  box-shadow: 0px 0.1em 0px @foreColorLightAlt;
+  background-color: #ffffff;
+  color: #202224;
+  border: 0.1em solid #bdbebf;
+  box-shadow: 0px 0.1em 0px #bdbebf;
 }
-
-// task list - 1
 ul > .md-task-list-item {
   list-style-type: decimal !important;
 }
-// task list - 2
 ul > li > ul > .md-task-list-item {
   list-style-type: upper-alpha !important;
 }
-// task list - 3
 ul > li > ul > li > ul > .md-task-list-item {
   list-style-type: lower-alpha !important;
 }
-// task list - 4
 ul > li > ul > li > ul > li > ul > .md-task-list-item {
   list-style-type: disc !important;
 }
-// task list - 5
 ul > li > ul > li > ul > li > ul > li > ul > .md-task-list-item {
   list-style-type: circle !important;
 }
-// task list - 6
 ul > li > ul > li > ul > li > ul > li > ul > li > ul > .md-task-list-item {
   list-style-type: square !important;
 }
-// task list checkbox
 .md-task-list-item > input {
   margin-left: -0.5em !important;
   margin-top: 0.3em !important;
 }
-// task list text
 .md-task-list-item > p {
   margin-left: 1.2em !important;
   margin-top: 0;
   margin-bottom: 0;
 }
-
 li > :first-child,
 li p {
   margin-top: 0;
   margin-bottom: 0;
 }
-
 /**************************************
 * VLOOK UI 自定义样式
 **************************************/
-
 .mdx-figure-hover {
-  border: 2px solid @themeBgColor !important;
+  border: 2px solid #118cdf !important;
   transition: all 0.3s ease-in-out;
 }
-
 .mdx-figure-hover-dark {
-  border: 2px solid @themeBgColorDark !important;
+  border: 2px solid #0c5f98 !important;
   transition: all 0.3s ease-in-out;
 }
-
 .mdx-blockquote-folder:hover {
-  color: @thirdColorDark;
+  color: #316620;
   transition: all 0.3s ease-in-out;
 }
-
 .mdx-color-theme-fore {
-  color: @themeForeColor;
+  color: #ffffff;
 }
-
 .mdx-color-theme-fore-alt {
-  color: @themeForeColorFade;
+  color: rgba(255, 255, 255, 0.5);
 }
-
 .mdx-color-theme-bg {
-  color: @themeBgColor;
+  color: #118cdf;
 }
-
 .mdx-color-theme-bg-fade {
-  color: @themeBgColorFade;
+  color: rgba(17, 140, 223, 0.5);
 }
-
 .mdx-color-theme-bg-dark {
-  color: @themeBgColorDark;
+  color: #0c5f98;
 }
-
 .mdx-color-theme-bg-alt {
-  color: @themeBgColorAlt;
+  color: #cbe8fb;
 }
-
 .mdx-color-header-color {
-  color: @headerColor;
+  color: #118cdf;
 }
-
 .mdx-color-header-color-dark {
-  color: @headerColorDark;
+  color: #0a5080;
 }
-
 .mdx-color-docbg-light {
-  color: @docBgColorLight;
+  color: #ffffff;
 }
 .mdx-color-docbg-light-alt {
-  color: @docBgColorLightAlt;
+  color: #f2f2f2;
 }
 .mdx-color-docbg-light-fade {
-  color: @docBgColorLightFade;
+  color: rgba(255, 255, 255, 0.3);
 }
-
 .mdx-color-docbg-dark {
-  color: @docBgColorDark;
+  color: #202224;
 }
 .mdx-color-docbg-dark-alt {
-  color: @docBgColorDarkAlt;
+  color: #080809;
 }
 .mdx-color-docbg-dark-fade {
-  color: @docBgColorDarkFade;
+  color: rgba(32, 34, 36, 0.3);
 }
-
 .mdx-color-fore-light {
-  color: @foreColorLight;
+  color: #56585a;
 }
 .mdx-color-fore-light-alt {
-  color: @foreColorLightAlt;
+  color: #bdbebf;
 }
 .mdx-color-fore-light-fade {
-  color: @foreColorLightFade;
+  color: rgba(86, 88, 90, 0.5);
 }
-
 .mdx-color-fore-dark {
-  color: @foreColorDark;
+  color: #96989a;
 }
 .mdx-color-fore-dark-alt {
-  color: @foreColorDarkAlt;
+  color: #4a4c4d;
 }
 .mdx-color-fore-dark-fade {
-  color: @foreColorDarkFade;
+  color: rgba(150, 152, 154, 0.5);
 }
-
 .mdx-color-master {
-  color: @masterColor;
+  color: #045ad1;
 }
 .mdx-color-master-light {
-  color: @masterColorLight;
+  color: #0e71fa;
 }
 .mdx-color-master-dark {
-  color: @masterColorDark;
+  color: #033a86;
 }
 .mdx-color-master-alt {
-  color: @masterColorAlt;
+  color: #d6e7fe;
 }
 .mdx-color-master-alt-dark {
-  color: @masterColorAltDark;
+  color: #295592;
 }
 .mdx-color-master-fade {
-  color: @masterColorFade;
+  color: rgba(4, 90, 209, 0.5);
 }
-
 .mdx-color-slave {
-  color: @slaveColor;
-  background-color: @slaveColorAlt;
-  border-color: @slaveColorFade;
+  color: #c21117;
+  background-color: #fbd7d8;
+  border-color: rgba(194, 17, 23, 0.5);
 }
 .mdx-color-slave-light {
-  color: @slaveColorLight;
+  color: #eb1b22;
 }
 .mdx-color-slave-dark {
-  color: @slaveColorDark;
+  color: #7c0b0f;
 }
 .mdx-color-slave-alt {
-  color: @slaveColorAlt;
+  color: #fbd7d8;
 }
 .mdx-color-slave-alt-dark {
-  color: @slaveColorAltDark;
+  color: #853437;
 }
 .mdx-color-slave-fade {
-  color: @slaveColorFade;
+  color: rgba(194, 17, 23, 0.5);
 }
-
 .mdx-color-third {
-  color: @thirdColor;
-  background-color: @thirdColorAlt;
-  border-color: @thirdColorFade;
+  color: #4da032;
+  background-color: #e3f4dd;
+  border-color: rgba(77, 160, 50, 0.5);
 }
 .mdx-color-third-dark {
-  color: @thirdColorDark;
+  color: #316620;
 }
 .mdx-color-third-light {
-  color: @thirdColorLight;
+  color: #61c441;
 }
 .mdx-color-third-alt {
-  color: @thirdColorAlt;
+  color: #e3f4dd;
 }
 .mdx-color-third-alt-dark {
-  color: @thirdColorAltDark;
+  color: #566851;
 }
 .mdx-color-third-fade {
-  color: @thirdColorFade;
+  color: rgba(77, 160, 50, 0.5);
 }
-
 .mdx-color-fourth {
-  color: @fourthColor;
+  color: #e68d09;
 }
 .mdx-color-fourth-dark {
-  color: @fourthColorDark;
+  color: #9c6006;
 }
 .mdx-color-fourth-light {
-  color: @fourthColorLight;
+  color: #f7a52b;
 }
 .mdx-color-fourth-alt {
-  color: @fourthColorAlt;
+  color: #fce4bf;
 }
 .mdx-color-fourth-alt-dark {
-  color: @fourthColorAltDark;
+  color: #7c5a27;
 }
 .mdx-color-fourth-fade {
-  color: @fourthColorFade;
+  color: rgba(230, 141, 9, 0.5);
 }
-
 .mdx-color-fifth {
-  color: @fifthColor;
+  color: #953296;
 }
 .mdx-color-fifth-dark {
-  color: @fifthColorDark;
+  color: #5c1f5d;
 }
 .mdx-color-fifth-light {
-  color: @fifthColorLight;
+  color: #bb3fbc;
 }
 .mdx-color-fifth-alt {
-  color: @fifthColorAlt;
+  color: #f1d6f1;
 }
 .mdx-color-fifth-alt-dark {
-  color: @fifthColorAltDark;
+  color: #604f60;
 }
 .mdx-color-fifth-fade {
-  color: @fifthColorFade;
+  color: rgba(149, 50, 150, 0.5);
 }
-
 .mdx-color-bold-light {
-  color: @boldColorLight;
+  color: #202224;
 }
-
 .mdx-color-bold-dark {
-  color: @boldColorDark;
+  color: #d6d8da;
 }
-
 .mdx-color-a {
-  color: @aColor;
+  color: #202224;
 }
-
 .mdx-color-a-dark {
-  color: @aColorDark;
+  color: #d6d8da;
 }
-
 .mdx-color-aline {
-  color: @aLineColor;
+  color: #dc0010;
 }
-
 .mdx-color-ahover {
-  color: @aHoverColor;
+  color: #dc0010;
 }
-
 .mdx-color-table-th-bg {
-  color: @tableThBgColor;
+  color: #f2f2f2;
 }
-
 .mdx-color-table-th-bg-dark {
-  color: @tableThBgColorDark;
+  color: #080809;
 }
-
 .mdx-color-table-th-border {
-  color: @tableThBorderColor;
+  color: #56585a;
 }
-
 .mdx-color-table-td2-bg {
-  color: @tableTdBgColor2;
+  color: rgba(242, 242, 242, 0.45);
 }
-
 .mdx-color-table-td2-bg-dark {
-  color: @tableTdBgColorDark2;
+  color: rgba(242, 242, 242, 0.08);
 }
-
 .mdx-color-transparency0 {
-  color: @transparencyColor0;
+  color: rgba(255, 255, 255, 0);
 }
-
 .mdx-color-transparency1 {
-  color: @transparencyColor1;
+  color: rgba(255, 255, 255, 0.2);
 }
-
 .mdx-color-transparency2 {
-  color: @transparencyColor2;
+  color: rgba(255, 255, 255, 0.4);
 }
-
 .mdx-color-transparency3 {
-  color: @transparencyColor3;
+  color: rgba(255, 255, 255, 0.6);
 }
-
 .mdx-color-transparency4 {
-  color: @transparencyColor4;
+  color: rgba(255, 255, 255, 0.8);
 }
-// .mdx-toc-menu {
-//   background-color: @docBgColorLight;
-//   cursor: pointer;
-//   color: @docBgColorLight;
-//   font-size: 1em;
-//   left: 0px;
-//   top: 0px;
-//   width: 20px;
-//   height: 100%;
-//   margin: 0;
-//   padding: 0;
-//   position: fixed;
-//   text-align: center;
-//   z-index: 100;
-// }
-
 .mdx-toc-box {
   border-radius: 15px;
   cursor: default;
@@ -2292,15 +1639,12 @@ li p {
   -ms-user-select: none;
   user-select: none;
 }
-
 .mdx-float-card {
   box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.3);
 }
-
 .mdx-toc-box-header {
-  // background-color: @docBgColorLightFade;
-  color: @foreColorLight;
-  font-family: @titleFont;
+  color: #56585a;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   font-size: 1.2em;
   width: 100%;
   height: 50px;
@@ -2308,23 +1652,19 @@ li p {
   position: absolute;
   z-index: 100;
 }
-
 .mdx-header-shadow {
   box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
 }
-
 .mdx-footer-shadow {
   box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
 }
-
 .md-footnote {
-  background-color: @docBgColorLightAlt;
+  background-color: #f2f2f2;
 }
-
 .mdx-footer-note {
   position: fixed;
   left: 15%;
@@ -2334,34 +1674,22 @@ li p {
   border-radius: 15px;
   box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
   margin: 0 auto;
-  background-color: @docBgColorLight;
+  background-color: #ffffff;
   display: none;
   z-index: 9999;
 }
-
 .mdx-footer-note-content {
   width: 100%;
   height: 130px;
   padding: 10px 20px;
   overflow-x: auto;
 }
-
 .mdx-footer-note-toolbar {
   height: 50px;
   line-height: 50px;
   padding: 0px 20px;
 }
-
-// .mdx-toolbar {
-//   left: 10px;
-//   top: 10px;
-//   padding: 10px;
-//   position: fixed;
-//   z-index: 3000;
-// }
-
 .mdx-toolbar {
-  // background-color: @themeBgColor;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   left: 10px;
@@ -2371,7 +1699,6 @@ li p {
   position: fixed;
   z-index: 100;
 }
-
 .mdx-toc-box-title {
   text-align: center;
   position: absolute;
@@ -2383,24 +1710,21 @@ li p {
   white-space: nowrap;
   overflow: hidden;
   font-size: 1em;
-  font-family: @headerFont;
+  font-family: "", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   font-weight: bold;
-  color: @aColor;
+  color: #202224;
   cursor: pointer;
 }
-
 .mdx-toc-box-title:hover {
-  color: @aHoverColor;
+  color: #dc0010;
   transition: all 0.3s ease-in-out;
 }
-
 .mdx-toc-box-title:active {
-  color: @aActiveColor;
+  color: #dc0010;
   transition: all 0.3s ease-in-out;
 }
-
 .mdx-toc-box-body-scroll {
-  background-color: @docBgColorLightAlt;
+  background-color: #f2f2f2;
   width: 100%;
   height: 100%;
   padding: 0px;
@@ -2411,11 +1735,10 @@ li p {
   overflow-y: hidden;
   z-index: 99;
 }
-
 .mdx-toc-info {
-  color: @foreColorLight;
+  color: #56585a;
   font-size: 0.85em;
-  font-family: @titleFont;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   width: 100%;
   height: 40px;
   line-height: 40px;
@@ -2425,44 +1748,29 @@ li p {
   position: absolute;
   z-index: 100;
 }
-
 .mdx-toc-info2 {
   left: 0px;
   bottom: 0px;
   width: 100%;
   height: 40px;
   padding: 5px 10px;
-  // background-color: @themeBgColor;
-  color: @foreColorLight;
+  color: #56585a;
   font-size: 0.85em;
   position: absolute;
 }
-// .mdx-toc-info2 a {
-//   color: @docBgColorLight;
-// }
-// .mdx-toc-info2 a:hover {
-//   color: @themeBgColorAlt;
-//   border-bottom: 2px solid @themeBgColorAlt;
-// }
-// .mdx-toc-info2 a:active {
-//   color: @aActiveColor;
-// }
-
 .mdx-toc-box-body {
-  // background-color: @docBgColorLightFade;
   width: 100 ％;
   height: 100%;
   padding: 0px;
   overflow-y: scroll;
   z-index: 99;
 }
-
 .mdx-outline {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: @docBgColorLight;
-  background-color: @foreColorLight;
+  color: #ffffff;
+  background-color: #56585a;
   cursor: pointer;
   float: left;
   width: 30px;
@@ -2473,151 +1781,103 @@ li p {
   text-align: center;
   visibility: visible;
 }
-
-.mdx-outline > #svgOutline {
-  // transform: rotate(90deg);
-}
-
 .mdx-header-current {
-  background-color: @themeBgColorAlt;
+  background-color: #cbe8fb;
 }
-
 .mdx-header-current a {
   font-weight: bold;
-  color: @boldColorLight !important;
+  color: #202224 !important;
 }
-
-.mdx-header-current a:after {
-  // content: " ◀";
-}
-
 .mdx-header-current-dark {
-  background-color: @themeBgColorDark;
+  background-color: #0c5f98;
 }
-
 .mdx-header-current-dark a {
   font-weight: bold;
-  color: @boldColorDark !important;
+  color: #d6d8da !important;
 }
-
-.mdx-header-current-dark a:after {
-  // content: " ◀";
-}
-
 .mdx-folder {
-  color: @foreColorLightAlt;
-  //   background-color: @foreColorLight;
+  color: #bdbebf;
   float: left;
   width: 16px;
   text-align: center;
 }
-
 .mdx-folder:hover {
-  color: @aActiveColor;
+  color: #dc0010;
   transition: all 0.3s ease-in-out;
 }
-
 .mdx-btn {
   display: flex;
   justify-content: center;
   align-items: center;
   vertical-align: middle;
-  color: @docBgColorLight;
-  background-color: @buttonBgColor;
+  color: #ffffff;
+  background-color: #118cdf;
   cursor: pointer;
   padding: 0px;
   font-size: 0.85em;
   width: 30px;
   height: 30px;
   border-radius: 8px;
-  //   transition: background-color 0.5s, opacity 0.5s;
-  // box-shadow: 0px 1px 5px @masterColorFade;
-}
-
-.mdx-btn:hover {
-  // background-color: @aHoverColor;
-  // box-shadow: 0px 2px 20px @masterColorFade;
-  // transition: 0.3s;
-  // transform: scale(1.1);
 }
 .mdx-btn-hover:hover {
-  background-color: @aHoverColor;
+  background-color: #dc0010;
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
-  // transform-origin: 50% 0 0;
   transform: scale(1.2);
 }
 .mdx-btn-leave {
-  background-color: @buttonBgColor;
-  // box-shadow: none;
+  background-color: #118cdf;
   transition: 0.3s;
   transform: scale(1);
 }
-
 .mdx-btn:active {
-  background-color: @aActiveColor;
+  background-color: #dc0010;
   box-shadow: none;
   transition: 0.3s;
   transform: scale(1);
 }
-
 .mdx-btn2 {
   display: flex;
   justify-content: center;
   align-items: center;
   vertical-align: middle;
-  color: @docBgColorLight;
-  background-color: @foreColorLightAlt;
+  color: #ffffff;
+  background-color: #bdbebf;
   cursor: pointer;
   padding: 0px;
   font-size: 0.85em;
   width: 30px;
   height: 30px;
   border-radius: 8px;
-  //   transition: background-color 0.5s, opacity 0.5s;
-  // box-shadow: 0px 1px 5px @foreColorDarkFade;
-}
-
-.mdx-btn2:hover {
-  // background-color: @foreColorLight;
-  // box-shadow: 0px 2px 20px @foreColorDarkFade;
-  // transition: 0.3s;
-  // transform: scale(1.1);
 }
 .mdx-btn2-hover:hover {
-  background-color: @foreColorLight;
-  // box-shadow: 0px 2px 20px @foreColorDarkFade;
+  background-color: #56585a;
   transition: 0.3s;
   transform: scale(1.2);
 }
 .mdx-btn2-leave {
-  background-color: @foreColorLightAlt;
-  // box-shadow: none;
+  background-color: #bdbebf;
   transition: 0.3s;
   transform: scale(1);
 }
-
 .mdx-btn2:active {
-  background-color: @aActiveColor;
+  background-color: #dc0010;
   box-shadow: none;
   transition: 0.3s;
   transform: scale(1);
 }
-
 .mdx-nav-back {
   margin-top: 10px;
   margin-left: 10px;
   float: left;
   visibility: hidden;
 }
-
 .mdx-nav-forward {
   margin-top: 10px;
   margin-left: 10px;
   float: left;
   visibility: hidden;
 }
-
 .mdx-nav-prev {
   top: 0px;
   left: 0px;
@@ -2627,27 +1887,21 @@ li p {
   cursor: pointer;
   border-bottom-left-radius: 15px;
 }
-
-.mdx-nav-prev:hover {
-  // background: linear-gradient(to right, @aHoverColor, @transparencyColor0);
-}
 .mdx-nav-prev-hover:hover {
-  background: linear-gradient(to right, @aHoverColor, @aHoverColorTransparencyColor0);
+  background: linear-gradient(to right, #dc0010, rgba(220, 0, 16, 0));
   transition: all 0.3s ease-in-out;
 }
-
 .mdx-nav-prev:active {
-  background: linear-gradient(to right, @aActiveColor, @aActiveColorTransparencyColor0);
+  background: linear-gradient(to right, #dc0010, rgba(220, 0, 16, 0));
   transition: all 0.3s ease-in-out;
 }
-
 .mdx-nav-prev-text {
   top: 0px;
   left: 30px;
   width: 100%;
   height: 50px;
   line-height: 50px;
-  color: @themeForeColor;
+  color: #ffffff;
   text-align: left;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -2656,7 +1910,6 @@ li p {
   cursor: pointer;
   display: none;
 }
-
 .mdx-nav-next {
   top: 0px;
   right: 0px;
@@ -2666,27 +1919,21 @@ li p {
   cursor: pointer;
   border-bottom-right-radius: 15px;
 }
-
-.mdx-nav-next:hover {
-  // background: linear-gradient(to left, @aHoverColor, @transparencyColor0);
-}
 .mdx-nav-next-hover:hover {
-  background: linear-gradient(to left, @aHoverColor, @aHoverColorTransparencyColor0);
+  background: linear-gradient(to left, #dc0010, rgba(220, 0, 16, 0));
   transition: all 0.3s ease-in-out;
 }
-
 .mdx-nav-next:active {
-  background: linear-gradient(to left, @aActiveColor, @aActiveColorTransparencyColor0);
+  background: linear-gradient(to left, #dc0010, rgba(220, 0, 16, 0));
   transition: all 0.3s ease-in-out;
 }
-
 .mdx-nav-next-text {
   top: 0px;
   right: 30px;
   width: 100%;
   height: 50px;
   line-height: 50px;
-  color: @themeForeColor;
+  color: #ffffff;
   text-align: right;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -2695,9 +1942,8 @@ li p {
   cursor: pointer;
   display: block;
 }
-
 .mdx-bread-nav {
-  background-color: @themeBgColor;
+  background-color: #118cdf;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   top: -50px;
@@ -2708,13 +1954,10 @@ li p {
   padding: 0px;
   vertical-align: middle;
   z-index: 100;
-  // box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.3);
-  // display: none;
 }
-
 .mdx-bread-nav-text {
-  color: @themeForeColor;
-  font-family: @headerFont;
+  color: #ffffff;
+  font-family: "", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   font-size: 1.4em;
   font-weight: bold;
   text-align: center;
@@ -2729,42 +1972,35 @@ li p {
   cursor: pointer;
   display: block;
 }
-
 .mdx-bread-nav-text:hover {
-  color: @aHoverColor;
+  color: #dc0010;
   transition: all 0.3s ease-in-out;
 }
-
 .mdx-bread-nav-text:active {
-  color: @aActiveColor;
+  color: #dc0010;
   transition: all 0.3s ease-in-out;
 }
-
 .mdx-fullscreen {
   margin-top: 10px;
   margin-left: 10px;
   float: left;
 }
-
 .mdx-theme-exchange {
   margin-top: 10px;
   margin-right: 10px;
   float: right;
 }
-
 .mdx-figure-launcher {
   margin-top: 10px;
   margin-right: 10px;
   visibility: hidden;
   float: right;
 }
-
 .mdx-print {
   margin-top: 10px;
   margin-right: 10px;
   float: right;
 }
-
 .mdx-figure-viewer {
   left: 0px;
   top: 0px;
@@ -2775,7 +2011,6 @@ li p {
   display: none;
   z-index: 4000;
 }
-
 .mdx-figure-viewer-prev {
   left: 10px;
   top: auto;
@@ -2784,7 +2019,6 @@ li p {
   position: absolute;
   bottom: 10px;
 }
-
 .mdx-figure-viewer-next {
   right: 10px;
   top: auto;
@@ -2793,14 +2027,12 @@ li p {
   position: absolute;
   bottom: 10px;
 }
-
 .mdx-figure-viewer-close {
   right: 10px;
   top: 10px;
   border-radius: 15px;
   position: absolute;
 }
-
 .mdx-figure-action {
   border-radius: 15px;
   border-top-right-radius: 0px;
@@ -2808,18 +2040,15 @@ li p {
   position: absolute;
   z-index: 10;
 }
-
 .mdx-figure {
   margin: 0 !important;
   border-radius: 15px;
   padding: 0px;
   border: 2px solid rgba(255, 255, 255, 0);
 }
-
 .mdx-figure-content {
   margin: 5px;
   padding: 5px;
-  // border-radius: 5px;
   cursor: pointer;
   display: table-cell;
   align-content: center;
@@ -2827,7 +2056,6 @@ li p {
   vertical-align: middle;
   width: 100%;
 }
-
 .mdx-figure-pagenum {
   left: 10px;
   top: 10px;
@@ -2836,43 +2064,16 @@ li p {
   white-space: nowrap;
   overflow: hidden;
 }
-
-// svg path {
-//   fill: inherit;
-// }
-
 use.mdx-svg-ico-light {
-  fill: @themeForeColor;
+  fill: #ffffff;
 }
-
 use.mdx-svg-ico-dark {
-  fill: @foreColorLightAlt;
-  //   transition: fill 0.5s;
+  fill: #bdbebf;
 }
-
 use.mdx-svg-ico-dark:hover {
-  fill: @slaveColor;
+  fill: #c21117;
   transition: all 0.3s ease-in-out;
 }
-
-// .mdx-docbar-top {
-//   position: fixed;
-//   left: 0px;
-//   top: -50px;
-//   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
-//   width: 100%;
-//   height: 50px;
-// }
-
-// .mdx-docbar-bottom {
-//   position: fixed;
-//   left: 0px;
-//   bottom: -50px;
-//   box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.3);
-//   width: 100%;
-//   height: 50px;
-// }
-
 .mdx-toc-mask {
   left: 0px;
   top: 0px;
@@ -2884,101 +2085,93 @@ use.mdx-svg-ico-dark:hover {
   display: none;
   z-index: 1000;
 }
-
 .mdx-click-bubble {
   left: 0px;
   top: 0px;
   width: 0px;
   height: 0px;
   position: fixed;
-  background-color: @slaveColor;
+  background-color: #c21117;
   opacity: 0.7;
   z-index: 9999;
 }
-
-// 标签式公用样式（风格1）
 .mdx-code-c1-alt,
 .mdx-code-c2-alt,
 .mdx-code-c3-alt,
 .mdx-code-c4-alt,
 .mdx-code-c5-alt,
 .mdx-code-c6-alt {
-  font-family: @textFont;
-  color: @foreColorLight;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  color: #56585a;
   padding: 0.1em 0.3em;
   border-radius: 0.4em;
-  border: 0.1em solid @masterColor;
+  border: 0.1em solid #045ad1;
 }
 .mdx-code-c1-alt {
-  background-color: @masterColorAlt;
-  color: @masterColor;
-  border-color: @masterColor;
+  background-color: #d6e7fe;
+  color: #045ad1;
+  border-color: #045ad1;
 }
 .mdx-code-c2-alt {
-  background-color: @thirdColorAlt;
-  color: @thirdColor;
-  border-color: @thirdColor;
+  background-color: #e3f4dd;
+  color: #4da032;
+  border-color: #4da032;
 }
 .mdx-code-c3-alt {
-  background-color: @fourthColorAlt;
-  color: @fourthColor;
-  border-color: @fourthColor;
+  background-color: #fce4bf;
+  color: #e68d09;
+  border-color: #e68d09;
 }
 .mdx-code-c4-alt {
-  background-color: @slaveColorAlt;
-  color: @slaveColor;
-  border-color: @slaveColor;
+  background-color: #fbd7d8;
+  color: #c21117;
+  border-color: #c21117;
 }
 .mdx-code-c5-alt {
-  background-color: @fifthColorAlt;
-  color: @fifthColor;
-  border-color: @fifthColor;
+  background-color: #f1d6f1;
+  color: #953296;
+  border-color: #953296;
 }
 .mdx-code-c6-alt {
-  background-color: @foreColorLightAlt;
-  color: @foreColorLight;
-  border-color: @foreColorLight;
+  background-color: #bdbebf;
+  color: #56585a;
+  border-color: #56585a;
 }
-
-// 标签式公用样式（风格2）
 .mdx-code-c1,
 .mdx-code-c2,
 .mdx-code-c3,
 .mdx-code-c4,
 .mdx-code-c5,
 .mdx-code-c6 {
-  font-family: @textFont;
-  color: @docBgColorLight;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  color: #ffffff;
   padding: 0.1em 0.3em;
   border-radius: 0.4em;
-  // border: 0.1em solid @docBgColorLightFade;
- }
+}
 .mdx-code-c1 {
-  background-color: @masterColor;
-  box-shadow: 0px 1px @masterColorDark;
+  background-color: #045ad1;
+  box-shadow: 0px 1px #033a86;
 }
 .mdx-code-c2 {
-  background-color: @thirdColor;
-  box-shadow: 0px 1px @thirdColorDark;
+  background-color: #4da032;
+  box-shadow: 0px 1px #316620;
 }
 .mdx-code-c3 {
-  background-color: @fourthColor;
-  box-shadow: 0px 1px @fourthColorDark;
+  background-color: #e68d09;
+  box-shadow: 0px 1px #9c6006;
 }
 .mdx-code-c4 {
-  background-color: @slaveColor;
-  box-shadow: 0px 1px @slaveColorDark;
+  background-color: #c21117;
+  box-shadow: 0px 1px #7c0b0f;
 }
 .mdx-code-c5 {
-  background-color: @fifthColor;
-  box-shadow: 0px 1px @fifthColorDark;
+  background-color: #953296;
+  box-shadow: 0px 1px #5c1f5d;
 }
 .mdx-code-c6 {
-  background-color: @foreColorLight;
-  box-shadow: 0px 1px @docBgColorDark;
+  background-color: #56585a;
+  box-shadow: 0px 1px #202224;
 }
-
-// 药丸样式右边公共样式（风格1/2）
 .mdx-code-name1-alt,
 .mdx-code-name2-alt,
 .mdx-code-name3-alt,
@@ -2991,16 +2184,14 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-name4,
 .mdx-code-name5,
 .mdx-code-name6 {
-  // border: 0.1em solid @transparencyColor2;
-  // border-right: 0px !important;
-  font-family: @textFont;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   margin-right: 0px;
   border-top-left-radius: 0.4em;
   border-bottom-left-radius: 0.4em;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
   padding: 0.1em 0.3em;
-  color: @docBgColorLight;
+  color: #ffffff;
   font-size: 0.85em;
 }
 .mdx-code-value1-alt,
@@ -3015,8 +2206,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-value4,
 .mdx-code-value5,
 .mdx-code-value6 {
-  // border: 0.1em solid @transparencyColor2;
-  font-family: @textFont;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   border-left: 0px !important;
   margin-left: 0px;
   border-top-right-radius: 0.4em;
@@ -3024,147 +2214,131 @@ use.mdx-svg-ico-dark:hover {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
   padding: 0.1em 0.3em;
-  color: @docBgColorLight;
+  color: #ffffff;
   font-size: 0.85em;
-  // font-weight: bold;
-  border-left: 1px solid @transparencyColor2;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
 }
-// 药丸样式右边右边值风格1-样式1
 .mdx-code-name1-alt {
-  background-color: @docBgColorLightAlt !important;
-  color: @foreColorLight;
-  border-color: @masterColor;
+  background-color: #f2f2f2 !important;
+  color: #56585a;
+  border-color: #045ad1;
 }
 .mdx-code-value1-alt {
-  background-color: @masterColorAlt !important;
-  color: @masterColor;
-  border-color: @masterColor;
+  background-color: #d6e7fe !important;
+  color: #045ad1;
+  border-color: #045ad1;
 }
-// 药丸样式右边右边值风格1-样式2
 .mdx-code-name2-alt {
-  background-color: @docBgColorLightAlt !important;
-  color: @foreColorLight;
-  border-color: @thirdColor;
+  background-color: #f2f2f2 !important;
+  color: #56585a;
+  border-color: #4da032;
 }
 .mdx-code-value2-alt {
-  background-color: @thirdColorAlt !important;
-  color: @thirdColor;
-  border-color: @thirdColor;
+  background-color: #e3f4dd !important;
+  color: #4da032;
+  border-color: #4da032;
 }
-// 药丸样式右边右边值风格1-样式3
 .mdx-code-name3-alt {
-  background-color: @docBgColorLightAlt !important;
-  color: @foreColorLight;
-  border-color: @fourthColor;
+  background-color: #f2f2f2 !important;
+  color: #56585a;
+  border-color: #e68d09;
 }
 .mdx-code-value3-alt {
-  background-color: @fourthColorAlt !important;
-  color: @fourthColor;
-  border-color: @fourthColor;
+  background-color: #fce4bf !important;
+  color: #e68d09;
+  border-color: #e68d09;
 }
-// 药丸样式右边右边值风格1-样式4
 .mdx-code-name4-alt {
-  background-color: @docBgColorLightAlt !important;
-  color: @foreColorLight;
-  border-color: @slaveColor;
+  background-color: #f2f2f2 !important;
+  color: #56585a;
+  border-color: #c21117;
 }
 .mdx-code-value4-alt {
-  background-color: @slaveColorAlt !important;
-  color: @slaveColor;
-  border-color: @slaveColor;
+  background-color: #fbd7d8 !important;
+  color: #c21117;
+  border-color: #c21117;
 }
-// 药丸样式右边右边值风格1-样式5
 .mdx-code-name5-alt {
-  background-color: @docBgColorLightAlt !important;
-  color: @foreColorLight;
-  border-color: @fifthColor;
+  background-color: #f2f2f2 !important;
+  color: #56585a;
+  border-color: #953296;
 }
 .mdx-code-value5-alt {
-  background-color: @fifthColorAlt !important;
-  color: @fifthColor;
-  border-color: @fifthColor;
+  background-color: #f1d6f1 !important;
+  color: #953296;
+  border-color: #953296;
 }
-// 药丸样式右边右边值风格1-样式6
 .mdx-code-name6-alt {
-  background-color: @docBgColorLightAlt !important;
-  color: @foreColorLight;
-  border-color: @foreColorLight;
+  background-color: #f2f2f2 !important;
+  color: #56585a;
+  border-color: #56585a;
 }
 .mdx-code-value6-alt {
-  background-color: @foreColorLightAlt !important;
-  color: @foreColorLight;
-  border-color: @foreColorLight;
+  background-color: #bdbebf !important;
+  color: #56585a;
+  border-color: #56585a;
 }
-// 药丸样式右边右边值风格2-样式1
 .mdx-code-name1 {
-  background-color: @foreColorLight !important;
-  box-shadow: 0px 1px @docBgColorDark;
+  background-color: #56585a !important;
+  box-shadow: 0px 1px #202224;
 }
 .mdx-code-value1 {
-  background-color: @masterColor !important;
-  box-shadow: 0px 1px @masterColorDark;
+  background-color: #045ad1 !important;
+  box-shadow: 0px 1px #033a86;
 }
-// 药丸样式右边右边值风格2-样式2
 .mdx-code-name2 {
-  background-color: @foreColorLight !important;
-  box-shadow: 0px 1px @docBgColorDark;
+  background-color: #56585a !important;
+  box-shadow: 0px 1px #202224;
 }
 .mdx-code-value2 {
-  background-color: @thirdColor !important;
-  box-shadow: 0px 1px @thirdColorDark;
+  background-color: #4da032 !important;
+  box-shadow: 0px 1px #316620;
 }
-// 药丸样式右边右边值风格3-样式3
 .mdx-code-name3 {
-  background-color: @foreColorLight !important;
-  box-shadow: 0px 1px @docBgColorDark;
+  background-color: #56585a !important;
+  box-shadow: 0px 1px #202224;
 }
 .mdx-code-value3 {
-  background-color: @fourthColor !important;
-  box-shadow: 0px 1px @fourthColorDark;
+  background-color: #e68d09 !important;
+  box-shadow: 0px 1px #9c6006;
 }
-// 药丸样式右边右边值风格2-样式4
 .mdx-code-name4 {
-  background-color: @foreColorLight !important;
-  box-shadow: 0px 1px @docBgColorDark;
+  background-color: #56585a !important;
+  box-shadow: 0px 1px #202224;
 }
 .mdx-code-value4 {
-  background-color: @slaveColor !important;
-  box-shadow: 0px 1px @slaveColorDark;
+  background-color: #c21117 !important;
+  box-shadow: 0px 1px #7c0b0f;
 }
-// 药丸样式右边右边值风格2-样式5
 .mdx-code-name5 {
-  background-color: @foreColorLight !important;
-  box-shadow: 0px 1px @docBgColorDark;
+  background-color: #56585a !important;
+  box-shadow: 0px 1px #202224;
 }
 .mdx-code-value5 {
-  background-color: @fifthColor !important;
-  box-shadow: 0px 1px @fifthColorDark;
+  background-color: #953296 !important;
+  box-shadow: 0px 1px #5c1f5d;
 }
-// 药丸样式右边右边值风格2-样式6
 .mdx-code-name6 {
-  background-color: @foreColorLight !important;
-  box-shadow: 0px 1px @docBgColorDark;
+  background-color: #56585a !important;
+  box-shadow: 0px 1px #202224;
 }
 .mdx-code-value6 {
-  background-color: @docBgColorDark !important;
-  box-shadow: 0px 1px @docBgColorDark;
+  background-color: #202224 !important;
+  box-shadow: 0px 1px #202224;
 }
-// h6内的code标签强制取消加粗
 h6 code {
   font-weight: normal;
 }
-
 /**************************************
 * 封面、封底
 **************************************/
-
-body div[id=write] > h6:first-of-type, // 页面第1个H6为封面样式
-body div[id=write] > h6:last-of-type { // 页面最后1个H6为封底样式
-  color: @themeForeColor !important;
-  background-color: @themeBgColor;
+body div[id=write] > h6:first-of-type,
+body div[id=write] > h6:last-of-type {
+  color: #ffffff !important;
+  background-color: #118cdf;
   font-weight: bold;
   font-size: 2.5em;
-  font-family: @headerFont;
+  font-family: "", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   height: 25cm;
   padding-left: 30px;
   padding-top: 150px;
@@ -3173,55 +2347,38 @@ body div[id=write] > h6:last-of-type { // 页面最后1个H6为封底样式
   margin-bottom: 3em;
   border: 0;
   border-radius: 15px;
-  background-image: @coverBackgroundImage;
-  background-repeat: @coverBackgroundRepeat;
-  background-position: @coverBackgroundPosition;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSI1MCUiIHgyPSI1MCUiIHkxPSIwJSIgeTI9Ijk5LjEwNCUiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRkZGRkZGIiBzdG9wLW9wYWNpdHk9Ii4wNSIgb2Zmc2V0PSIwJSIvPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRkZGRkZGIiBzdG9wLW9wYWNpdHk9Ii4yNSIgb2Zmc2V0PSIxMDAlIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cGF0aCBmaWxsPSJ1cmwoI2EpIiBkPSJNMzYwLjI5Njk4MSwyNDQuMDM3NDM2IEwyMDUuNjA5MDEsMTU2Ljc1NjA5OCBDMjAzLjYwODI3MSwxNTUuNDk5NTMyIDIwMS40MDQ0MjksMTU0LjgyODMwMSAxOTkuMTk5MDA4LDE1NC42OTg2MTMgQzE5Ni4xODUzNjksMTUzLjk4NDc5OSAxOTIuOTEzNjk0LDE1NC4yOTY0NTIgMTg5LjkzODgyMSwxNTUuODEzMDA4IEwyOC44NjE1NDg0LDI0Mi44ODA1NDggQzI2LjI2Njc4ODgsMjM1Ljg1MDYyOSAyNC4xNTc3MjIzLDIyOC4xMDg2OTUgMjIuNjQ5MDQ0NiwyMTkuNTU4OTg0IEMyMC45MTUxMjk4LDIxMS44NDY0MDYgMjAsMjAzLjgyMzAwOSAyMCwxOTUuNTg1MzY2IEMyMCwxOTQuNDI3NjY5IDIwLjAxODA3NDUsMTkzLjI3NDIwMyAyMC4wNTM5NTYxLDE5Mi4xMjUyMzcgQzIwLjAxODEzNDksMTkwLjUxNTIwNyAyMCwxODguODgyOCAyMCwxODcuMjI3NjQyIEMyMCwxODIuOTg1NDU4IDIwLjYyNTM4MjIsMTc5LjEzMTc4IDIxLjgyMzI3NiwxNzUuNjQxMzQ1IEwyMS44MjMyNzg3LDE3NS42NDEzMzEgQzMxLjE2NTc1MDYsMTI1LjE5NzA2NiA3NS4yOTcwNjcxLDg3IDEyOC4zMjg2OTksODcgQzE1My40NjU3ODIsODcgMTc2LjYwMzE2Myw5NS41ODIwMjU0IDE5NC45ODM3NzgsMTA5Ljk4MjQ3OCBDMjEzLjM2NDM5Myw5NS41ODIwMjU0IDIzNi41MDE3NzUsODcgMjYxLjYzODg1OCw4NyBDMzIxLjQ2NzE0Niw4NyAzNjkuOTY3NTU3LDEzNS42MTUzMjQgMzY5Ljk2NzU1NywxOTUuNTg1MzY2IEMzNjkuOTY3NTU3LDE5OC4zNTkwNzkgMzY5Ljg2MzgwNCwyMDEuMTA4NTAyIDM2OS42NTk5NzYsMjAzLjgyOTk0OSBDMzY5Ljg4NTI3NCwyMDMuOTA0NzE0IDM3MCwyMDMuOTQzMDg5IDM3MCwyMDMuOTQzMDg5IEMzNzAsMjE4LjY5MjY4MyAzNjYuMzQ3ODA3LDIzMi4wMjkyNjIgMzYwLjI5Njk4MSwyNDQuMDM3NDM2IFogTTM0Mi4zMDMxNywyNjkuODA5MzM2IEMzMTcuNDY0NjAyLDI5Ny4yNTEzODMgMjgxLjkwNjYyOSwzMTUuMTU0NTE4IDI2MS42NzEzMDEsMzI1LjI3NjQyMyBDMjI4LjMxOTQyOSwzNDEuOTU5MzUgMTk1LDM3MSAxOTUsMzcxIEMxOTUsMzcxIDE1My4zMTAxNTksMzM3LjQ3MTU0NSAxMTkuOTkwNzMsMzIwLjg4NjE3OSBDOTkuNDQ1MTQ3NSwzMTAuNjU5MjMzIDY2LjIxODMxNDYsMzAwLjM4MjgyNiA0My43NjEzNDExLDI3MC40NzY5NjEgTDE5Ni4xMjY0NDUsMTg3LjM3OTU2NCBMMzQyLjMwMzE3LDI2OS44MDkzMzYgWiBNMTg1LjI2Njk2MywyNDUuMTc4ODYyIEMxODEuNzcyOTQ4LDI0NS4xNzg4NjIgMTc4Ljk0MDQ4OSwyNDguMDExMzIxIDE3OC45NDA0ODksMjUxLjUwNTMzNiBMMTc4Ljk0MDQ4OSwyODguOTAxMTY4IEMxNzguOTQwNDg5LDI5Mi4zOTUxODMgMTgxLjc3Mjk0OCwyOTUuMjI3NjQyIDE4NS4yNjY5NjMsMjk1LjIyNzY0MiBMMjA0LjcwMDU5MywyOTUuMjI3NjQyIEMyMDguMTk0NjA4LDI5NS4yMjc2NDIgMjExLjAyNzA2NywyOTIuMzk1MTgzIDIxMS4wMjcwNjcsMjg4LjkwMTE2OCBMMjExLjAyNzA2NywyNTEuNTA1MzM2IEMyMTEuMDI3MDY3LDI0OC4wMTEzMjEgMjA4LjE5NDYwOCwyNDUuMTc4ODYyIDIwNC43MDA1OTMsMjQ1LjE3ODg2MiBMMTg1LjI2Njk2MywyNDUuMTc4ODYyIFoiLz4KPC9zdmc+Cg=="), url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMTk5IiB2aWV3Qm94PSIwIDAgODAwIDE5OSI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSI1MCUiIHgyPSI1MCUiIHkxPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjREI2M0EwIiBzdG9wLW9wYWNpdHk9Ii43IiBvZmZzZXQ9IjAlIi8+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNEQjYzQTAiIHN0b3Atb3BhY2l0eT0iMCIgb2Zmc2V0PSIxMDAlIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJiIiB4MT0iNTAlIiB4Mj0iNTAlIiB5MT0iMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0RCNjNBMCIgc3RvcC1vcGFjaXR5PSIuOSIgb2Zmc2V0PSIwJSIvPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjREI2M0EwIiBzdG9wLW9wYWNpdHk9IjAiIG9mZnNldD0iMTAwJSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxwYXRoIGZpbGw9InVybCgjYSkiIGQ9Ik04MDAsNjguNDAxMDMyOCBDNzM0LjYwMzg3Niw5Ni4yMDQ2MzcgNjYzLjMzNTEwNywxMDYuMTE0NDIzIDU4Ni4xOTM2OTMsOTguMTMwMzkxMiBDNDcwLjQ4MTU3Miw4Ni4xNTQzNDMzIDM5OS4zNTY3MDcsNDIuNTAxOTIxIDI3Mi41MDA4MzIsMjIuMjU1OTE0NCBDMTg3LjkzMDI0OCw4Ljc1ODU3NjcyIDk3LjA5NjYzNzYsMjQuMTQzNDgyNSAxLjI3ODk3NjkyZS0xMiw2OC40MTA2MzE3IEw1LjY4NDM0MTg5ZS0xMywxOTkuMzUyMTA4IEw4MDAsMTk5LjM1MjEwOCBMODAwLDY4LjQwMTAzMjggWiIgdHJhbnNmb3JtPSJtYXRyaXgoLTEgMCAwIDEgODAwIDApIi8+CiAgICA8cGF0aCBmaWxsPSJ1cmwoI2IpIiBkPSJNODAwLDI5LjA4OTQ4OSBDNzM1Ljg1MDEwMSw1NS4zNjYxNTgxIDY2MS4yNDc5OTksNjguNTA0NDkyNyA1NzYuMTkzNjkzLDY4LjUwNDQ5MjcgQzQ0OC42MTIyMzUsNjguNTA0NDkyNyAzODkuMzU2NzA3LDIzLjA4OTI0NDYgMjYyLjUwMDgzMiw1LjMyMjQ0Njk4IEMxNzcuOTMwMjQ4LC02LjUyMjA4NDc3IDkwLjQyOTk3MDksMS40MDI0Mjk1IDEuMDY1ODE0MWUtMTIsMjkuMDk1OTg5OCBMMCwxMzYuODYwNTA4IEw4MDAsMTM2Ljg2MDUwOCBMODAwLDI5LjA4OTQ4OSBaIi8+CiAgPC9nPgo8L3N2Zz4K");
+  background-repeat: no-repeat, repeat-x;
+  background-position: bottom right, bottom;
 }
-
-// 封底样式微调
 body div[id=write] > h6:last-of-type {
   height: 13cm;
   margin-top: 3em;
   margin-bottom: 10px;
   padding-top: 50px;
 }
-
-// 封面内的副标题
-// body div[id=write] > h6:first-of-type strong {
-  // color: @docBgColorLight !important;
-  // font-size: 0.7em;
-  // vertical-align: super;
-// }
-
-// 封面内的作者信息
 body div[id=write] > h6:first-of-type strong {
-  color: @themeForeColorFade;
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.7em;
-  font-family: @titleFont;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   text-decoration: none;
 }
-// 前缀
 body div[id=write] > h6:first-of-type strong::before {
   content: "By ";
   font-weight: normal;
   text-decoration: none;
 }
-
-// 封面内的版权信息
 body div[id=write] > h6:first-of-type em {
-  color: @themeForeColorFade;
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.35em;
-  font-family: @titleFont;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   font-style: normal;
   vertical-align: sub;
 }
-
-// 封面内密级信息
 body div[id=write] > h6:first-of-type code {
-  color: @docBgColorLight !important;
+  color: #ffffff !important;
   font-size: 0.4em !important;
-  background-color: @themeBgColorDark;
-  // border: 1px solid @transparencyColor2 !important;
+  background-color: #0c5f98;
 }
 body div[id=write] > h6:first-of-type code:first-of-type {
   border-top-left-radius: 0.4em;
@@ -3232,24 +2389,19 @@ body div[id=write] > h6:first-of-type code:last-of-type {
   border-top-right-radius: 0.4em;
   border-bottom-right-radius: 0.4em;
 }
-
-// 封底
 body div[id=write] > h6:last-of-type::after {
   content: "本文档样式与功能增强由 VLOOK™ 插件提供（https://github.com/madmaxchow/VLOOK）";
   font-size: 0.35em;
-  font-family: @titleFont;
+  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   font-style: normal;
 }
-
 @media print {
   html {
     font-size: 1em;
   }
-  
   #write {
     margin: 0 !important;
   }
-
   table,
   pre {
     /* page-break-inside: avoid; */
@@ -3257,34 +2409,29 @@ body div[id=write] > h6:last-of-type::after {
   pre {
     /* word-wrap: break-word; */
   }
-
   .mdx-toc {
     display: block !important;
     visibility: visible !important;
   }
-
   .mdx-toolbar,
   .mdx-bread-nav,
   .mdx-toc-box,
   .mdx-toc-box-header,
   .mdx-toc-box-body-scroll,
   .mdx-toc-info,
-  // .mdx-docbar-top,
   .mdx-docbar-bottom {
     display: none;
     visibility: hidden;
   }
-
   body div[id=write] > h6:first-of-type,
   body div[id=write] > h6:last-of-type,
   body div[id=write] > h6:first-of-type strong,
   body div[id=write] > h6:first-of-type em {
-    background-color: @docBgColorLight !important;
-    color: @foreColorLight !important;
+    background-color: #ffffff !important;
+    color: #56585a !important;
   }
-
   body div[id=write] > h6:first-of-type strong,
   body div[id=write] > h6:first-of-type em {
-    color: @foreColorLightAlt !important;
+    color: #bdbebf !important;
   }
 }

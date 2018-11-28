@@ -1,32 +1,28 @@
-###### ^VLOOK™^ <br>快速参考手册 Quick Reference Manual<br><br>`+ 文档密级｜对外公开 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2017-2018. MAX°DESIGN.*
+###### ^VLOOK™^ <br>快速参考手册 Quick Reference Manual<br><br>`+ 文档密级丨对外公开 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2017-2018. MAX°DESIGN.*
 
 [TOC]
 
 # VLOOK™是什么
 
-`最新版本｜V8`    `+ 官网｜https://github.com/madmaxchow/VLOOK +`    `* 适用平台｜Typora for Win & macOS *`    `- 开源协议｜MIT -`   `! 开发语言｜JavaScript, CSS !`
+`最新版本丨V9预览版`    `+ 官网丨https://github.com/madmaxchow/VLOOK +`    `* 适用平台丨Typora for Win & macOS *`    `- 开源协议丨MIT -`   `! 开发语言丨JavaScript, CSS !`
 
 [VLOOK™](https://github.com/MadMaxChow/VLOOK)是针对由[Typora](https://www.typora.io)[^Typora]所导出的HTML文件进行增强的插件。VLOOK™为开源软件，遵从[MIT许可证](#许可协议)。
 
 VLOOK插件包括[排版增强](#排版增强)和[功能增强](#功能增强)两大类特性：
 
-- **排版增强**：为Typora编辑模式，以及导出的HTML文件提供更人性化、美观的样式与排版；
-- **功能增强**：为导出的HTML文件提供文档导航、插图浏览、内容交互、有效性检测等便捷功能。
+- **版式增强**：为Typora编辑模式，以及导出的HTML文件提供更人性化、美观的文档排版与样式；
+- **功能增强**：为导出的HTML文件提供文档导航、插图浏览、内容交互、有效性检测等便捷阅读辅助功能。
 
-`= 本文通过 VLOOK™ 插件和 Typora 进行创建 =`
-
----
-
-> [-] **Markdown 是什么？**
+> [+] **Markdown 是什么？**
 >
-> > - 2004年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber)创造了[Markdown](https://en.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的文本标记语言。使用Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）。
-> > - Markdown文档以纯文本格式存储，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过Markdown编辑器导出为带排版的富文本文档、HTML网页等等。纯粹、简洁、易用、灵活，都是人们喜欢Markdown的原因。
+> > - 2004年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber)创造了[Markdown](https://en.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的`文本标记语言`。使用Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）。
+> > - Markdown文档以`纯文本格式存储`，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过Markdown编辑器导出为带排版的富文本文档、HTML网页等等。纯粹、简洁、易用、灵活，都是人们喜欢Markdown的原因。
 > > - 目前Markdown的标准化项目是[CommonMark](http://commonmark.org)。
 >
 > [+] **Markdown 语法：**
 >
-> > 1. 标准化CommonMark语法参考：[60秒学会Markdown语法](http://commonmark.org/help/)、[10分钟深入学习Markdown](http://commonmark.org/help/tutorial/)
-> > 2. GitHub采用Flavored Markdown的语法参考：Typora目前采用该标准  [详细](https://support.typora.io/Markdown-Reference/)
+> > 1. 标准化**CommonMark**语法参考：[60秒学会Markdown语法](http://commonmark.org/help/)、[10分钟深入学习Markdown](http://commonmark.org/help/tutorial/)
+> > 2. GitHub采用**Flavored Markdown**的语法参考：Typora目前采用该标准  [详细](https://support.typora.io/Markdown-Reference/)
 
 [^Typora]: Typora是非常棒的跨平台的Markdown编辑器，支持直接预览与编辑，更详细的特性详见[官网](https://www.typora.io)。
 
@@ -34,14 +30,16 @@ VLOOK插件包括[排版增强](#排版增强)和[功能增强](#功能增强)�
 
 ## 排版增强
 
-### 浅色、深色样式主题
+### VLOOK主题
 
-+ 文档的样式显示支持`浅色`与`深色`主题；
-+ 通过右上角的`= 主题 =`按钮进行切换。
+- 针对VLOOK内置多套优化的视觉样式主题[^样式主题]（在导出前先指定）；
+- 文档的样式一键切换为`深色`模式，通过文档的右上角的<kbd>主题</kbd>按钮进行切换。
+
+[^样式主题]: 可以根据开源源码目录下的LESS中文件为样例进行自定义扩展
 
 `- 注意事项 -`该特性须导出HTML并加入插件代码后才能生效。
 
-### 结构化的封面、封底
+### 封面、封底
 
 ###### 封面
 + 封面样式支持多个信息项，包括：**主标题**、**副标题**、**文档类型/密级**、**作者**、**版权信息**；
@@ -54,9 +52,9 @@ VLOOK插件包括[排版增强](#排版增强)和[功能增强](#功能增强)�
      - `~下标式副标题~`
      - 若内容含空格，在空格前通过`\`进行转义，`<br>`标记前加空格以使其生效
    - **文档类型/密级**：使用Markdown的代码格式标记`` ` ``，同时支持VLOOK的[药丸样式](#药丸样式)写法，应用举例如下：
-     - `+ 文档密级｜对外公开 +`
-     - `* 文档密级｜内部公开 *`
-     - `- 文档密级｜机密资料 -`
+     - `+ 文档密级丨对外公开 +`
+     - `* 文档密级丨内部公开 *`
+     - `- 文档密级丨机密资料 -`
    - **作者**：使用粗体格式标记`**作者**`（插件会自动增加`By`前缀）
    - **版权信息**：使用Markdown的斜体格式标记`*版权信息*`
 
@@ -73,7 +71,7 @@ VLOOK插件包括[排版增强](#排版增强)和[功能增强](#功能增强)�
 + 样式见本文的封底，完整示例参考如下：
 
    ```
-   ### 在此输入封底内容
+   ###### 在此输入封底内容
    ```
 
 ### 多级章节标题自动编号
@@ -108,7 +106,9 @@ VLOOK插件包括[排版增强](#排版增强)和[功能增强](#功能增强)�
          - 三级列表内容
     ```
 
-### 表格行自动编号
+### 表格增强
+
+#### 行自动编号
 
 + 在表格自动编号会在以下两种特定格式下出现：
 
@@ -128,12 +128,16 @@ VLOOK插件包括[排版增强](#排版增强)和[功能增强](#功能增强)�
 | 第一行 | 左对齐 | 居中对齐 | 右对齐 |
 | 第二行 | 左对齐 | 居中对齐 | 右对齐 |
 
+#### 在新标签中打开表格
+
+- 支持在新标签打开表格。
+
 ### 更美观的脚本化图表
 
 + 统一优化**mermaid**、**flowchart.js**、**JS Sequence Diagrams**三类脚本化图表的样式；
 + 更多脚本化图表样式，以及结合VLOOK相关的脚本编写规则内容详见《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》。
 
-###### mermaid｜流程图
+###### mermaid丨流程图
 
 ```mermaid
 graph LR
@@ -153,7 +157,7 @@ rhombus --> END
 END(( ))
 ```
 
-###### mermaid｜状态图
+###### mermaid丨状态图
 
 ```mermaid
 graph LR
@@ -168,7 +172,7 @@ trans{ } -.-> |非正常/次要变更条件说明|状态D
 状态D --> FINAL
 FINAL(( ))
 ```
-###### mermaid｜时序图
+###### mermaid丨时序图
 
 ```mermaid
 sequenceDiagram
@@ -197,7 +201,7 @@ end
 ```
 `- 注意事项 -`因Typora的原因，部分特性暂不提供在编辑时进行实时预览，须导出HTML并加入插件代码后才能生效。
 
-###### flowchart.js｜流程图
+###### flowchart.js丨流程图
 
 ```flow
 st=>start:  
@@ -215,7 +219,7 @@ cond(no)->sub1(left)->op1
 c2(yes)->io->e
 c2(no)->op2->e
 ```
-###### JS Sequence Diagrams｜时序图
+###### JS Sequence Diagrams丨时序图
 
 ```sequence
 Title: 在此填写流程图标题
@@ -263,33 +267,33 @@ Note left of SERVER: 我在最后一位
 #### 药丸样式
 
 + 目前支持药丸式的两段结构，可用于例如版本号说明、变量说明等，例如：
-   - `= 版本号｜V1.0.2 =`
-   - `!! X取值｜1234 !!`
-   - `- 优先级｜高 -`
+   - `= 版本号丨V1.0.2 =`
+   - `!! X取值丨1234 !!`
+   - `- 优先级丨高 -`
 
 + 可支持多种样式，举例如下：
 
    | 写法示例     | 渲染效果              |
    | :---------: | ----------- |
-   | `` `= 样式类型｜样式1 =` `` | `= 样式类型｜样式1 =` |
-   | `` `+ 样式类型｜样式2 +` `` | `+ 样式类型｜样式2 +` |
-   | `` `* 样式类型｜样式3 *` `` | `* 样式类型｜样式3 *` |
-   | `` `- 样式类型｜样式4 -` `` | `- 样式类型｜样式4 -` |
-   | `` `! 样式类型｜样式5 !` `` | `! 样式类型｜样式5 !` |
-   | `` `# 样式类型｜样式6 #` `` | `# 样式类型｜样式6 #` |
+   | `` `= 样式类型丨样式1 =` `` | `= 样式类型丨样式1 =` |
+   | `` `+ 样式类型丨样式2 +` `` | `+ 样式类型丨样式2 +` |
+   | `` `* 样式类型丨样式3 *` `` | `* 样式类型丨样式3 *` |
+   | `` `- 样式类型丨样式4 -` `` | `- 样式类型丨样式4 -` |
+   | `` `! 样式类型丨样式5 !` `` | `! 样式类型丨样式5 !` |
+   | `` `# 样式类型丨样式6 #` `` | `# 样式类型丨样式6 #` |
 
 + 旧语法，举例如下：
 
    | 写法示例（风格1）         | 渲染效果                    |
    | ------------- | -------------- |
-   | `` `样式类型｜样式1` ``  | `样式类型｜样式1`           |
-   | `` `样式类型｜｜样式2` `` | `样式类型｜｜样式2`         |
-   | `` `样式类型｜｜｜样式3` `` | `样式类型｜｜｜样式3`       |
-   | `` `样式类型｜｜｜｜样式4` `` | `样式类型｜｜｜｜样式4`     |
-   | `` `样式类型｜｜｜｜｜样式5` `` | `样式类型｜｜｜｜｜样式5`   |
-   | `` `样式类型｜｜｜｜｜｜样式6` `` | `样式类型｜｜｜｜｜｜样式6` |
+   | `` `样式类型丨样式1` ``  | `样式类型丨样式1`           |
+   | `` `样式类型丨丨样式2` `` | `样式类型丨丨样式2`         |
+   | `` `样式类型丨丨丨样式3` `` | `样式类型丨丨丨样式3`       |
+   | `` `样式类型丨丨丨丨样式4` `` | `样式类型丨丨丨丨样式4`     |
+   | `` `样式类型丨丨丨丨丨样式5` `` | `样式类型丨丨丨丨丨样式5`   |
+   | `` `样式类型丨丨丨丨丨丨样式6` `` | `样式类型丨丨丨丨丨丨样式6` |
 
-`+ 提示 +`其中的竖线符号可用英文半角`<空格>|<空格>`，或中文全角`｜`。
+`+ 提示 +`其中的竖线符号可用英文半角竖线符号并前后加空格`<空格>|<空格>`，或中文笔划（竖）`丨`或全角竖线符号`｜`。
 
 #### 多行代码
 
@@ -303,45 +307,339 @@ function funName() {
 }
 ```
 
+### 公式
+
+#### 行内公式
+
+$\lim_{x \to \infty} \exp{-x}=0$
+
+#### 多行公式
+
+$$
+\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix} 
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\
+\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \\
+\end{vmatrix}
+$$
+
 ### 扩展了多行代码应用样式
 
 对于Markdown的多行代码块标记``  ``` ``，支持行内代码的[标签样式](#标签样式)扩展标识，以实现对指定的代码内容进行高亮突出。
 
 `- 注意事项 -`因Typora的原因，增强代码标签样式暂不提供在编辑时进行实时预览，样式效果须导出HTML并加入插件代码后才能生效。
 
-###### 原始版本
-
-```javascript
-function appleTheme(theme ) {
-  var abc = 1234.56;
-  _darkTheme = (theme == "dark") ? false : true;
-  toggleTheme();
-}
-function gotoHeader(obj) {
-  var dataAnchor = obj.attr("data-anchor");
-  if (dataAnchor == "cover")
-      gotoTop();
-  else
-      window.location.href = "#" + obj.attr("data-anchor");
-}
-```
-
-###### 加亮指定内容
-
-```javascript
-function appleTheme(`= theme =`) {
-  var abc = 1234.56;
-  _darkTheme = (theme == "dark") ? `- false -` : `+ true +`;
-  `# toggleTheme() #`;
-}
-function gotoHeader(obj) {
-  var dataAnchor = obj.attr(`! "data-anchor" !`);
-  if (dataAnchor == "cover")
-      gotoTop();
-  else
-      `* window.location.href *` = "#" + obj.attr("data-anchor");
-}
-```
+> [+] 示例丨CSS
+>
+> > ```css
+> > /* Some example CSS */
+> > @import url(`= "something.css" =`);
+> > 
+> > `= body =` {
+> >   margin: 0;
+> >   padding: 3em 6em;
+> >   font-family: `= tahoma =`, arial, sans-serif;
+> >   color: #000;
+> > }
+> > 
+> > .navigation a {
+> >   font-weight: bold;
+> >   text-decoration: none !important;
+> > }
+> > 
+> > .code {
+> >   font-family: courier, monospace;
+> >   font-size: `= 80% =`;
+> >   color: #418A8A;
+> > }
+> > ```
+>
+> [+] 示例丨HTML
+>
+> ```html
+> <html style="color: green">
+>   <!-- this is a comment -->
+>   <head>
+>     <title>Mixed HTML Example</title>
+>     <style type="text/css">
+>       h1 {font-family: comic sans; color: #f0f;}
+>       div {background: `= yellow =` !important;}
+>       body {
+>         max-width: 50em;
+>         margin: 1em 2em 1em 5em;
+>       }
+>     </style>
+>   </head>
+>   <body>
+>     <h1>Mixed HTML Example</h1>
+>     <script>
+>       function jsFunc(arg1, arg2) {
+>         if (arg1 && arg2) `= document =`.body.innerHTML = "achoo";
+>       }
+>     </script>
+>   </body>
+> </html>
+> ```
+>
+> [+] 示例丨PHP
+>
+> ```php
+> <?php
+> $a = array('a' => 1, 'b' => 2, 3 => 'c');
+> echo "`= $a[a] =` ${a[3] /* } comment */} {$a[b]} \$a[a]";
+> 
+> function hello($who) {
+> 	return "Hello $who!";
+> }
+> ?>
+> <p>The program says <?= `= hello("World") =` ?>.</p>
+> <script>
+> 	alert("And here is some JS code"); // also colored
+> </script>
+> ```
+>
+> [+] 示例丨C++
+>
+> ```c++
+> #include <iostream>
+> #include `= "mystuff/util.h" =`
+> 
+> namespace {
+> enum Enum {
+>   VAL1, VAL2, VAL3
+> };
+> 
+> char32_t unicode_string = `= U"\U0010FFFF" =`;
+> string raw_string = R"delim(anything
+> you
+> want)delim";
+> 
+> int Helper(const MyType& param) {
+>   return 0;
+> }
+> } // namespace
+> 
+> class ForwardDec;
+> 
+> template <class T, class V>
+> class Class : public `= BaseClass =` {
+>   const MyType<T, V> member_;
+> 
+>  public:
+>   const MyType`= <T, V> =`& Method() const {
+>     return member_;
+>   }
+> 
+>   void Method2(MyType<T, V>* value);
+> }
+> 
+> template <class T, class V>
+> void Class::Method2(MyType<T, V>* value) {
+>   std::out << 1 >> method();
+>   value->`= Method3(member_) =`;
+>   member_ = value;
+> }
+> ```
+>
+> [+] 示例丨JavaScript
+>
+> ```javascript
+> // Demo code (the actual new parser character stream implementation)
+> function StringStream(string) {
+>   this.pos = 0;
+>   this.string = string;
+> }
+> 
+> StringStream.prototype = {
+>   done: function() {return this.pos >= this.string.length;},
+>   peek: function() {return this.string.charAt(this.pos);},
+>   next: function() {
+>     if (this.pos < this.string.length)
+>       return this.string.charAt(this.pos++);
+>   },
+>   eat: function(match) {
+>     var ch = this.string.charAt(this.pos);
+>     if (typeof match == "string") var ok = ch == match;
+>     else var ok = ch && match.test ? match.test(ch) : match(ch);
+>     if (ok) {this.pos++; return ch;}
+>   },
+>   eatWhile: function(match) {
+>     var start = this.pos;
+>     while (this.eat(match));
+>     if (this.pos > start) return this.string.slice(start, this.pos);
+>   },
+>   backUp: function(n) {this.pos -= n;},
+>   column: function() {return this.pos;},
+>   eatSpace: function() {
+>     var start = this.pos;
+>     while (/\s/.test(this.string.charAt(this.pos))) this.pos++;
+>     return this.pos - start;
+>   },
+>   match: function(`= pattern =`, consume, caseInsensitive) {
+>     if (typeof pattern == "string") {
+>       function cased(str) {return caseInsensitive ? str.toLowerCase() : str;}
+>       if (cased(this.string).indexOf(cased(pattern), this.pos) == this.pos) {
+>         if (`= consume !== false =`) this.pos += str.length;
+>         return true;
+>       }
+>     }
+>     else {
+>       var match = this.string.slice(this.pos).match(pattern);
+>       if (match && consume !== `= false =`) this.pos += match[0].length;
+>       return match;
+>     }
+>   }
+> };
+> ```
+>
+> [+] 示例丨Objective-C
+>
+> ```objective-c
+> /*
+> This is a longer comment
+> That spans two lines
+> */
+> #import <Test/Test.h>
+> @implementation YourAppDelegate
+> 
+> // This is a one-line comment
+> 
+> - (BOOL)application:(UIApplication *)application `= didFinishLaunchingWithOptions =`:(NSDictionary *)launchOptions{
+>   char `= myString[] =` = "This is a C character array";
+>   int test = 5;
+>   `= return =` YES;
+> }
+> ```
+>
+> [+] 示例丨Java
+>
+> ```java
+> import com.demo.util.MyType;
+> import com.demo.util.MyInterface;
+> 
+> public enum Enum {
+>   VAL1, VAL2, VAL3
+> }
+> 
+> public class Class<T, V> implements MyInterface {
+>   public static final MyType<T, V> member;
+>   
+>   private class `= InnerClass =` {
+>     public int zero() {
+>       return 0;
+>     }
+>   }
+> 
+>   @Override
+>   public MyType method() {
+>     return member;
+>   }
+> 
+>   public void method2(MyType<T, V> value) {
+>     method();
+>     value.method3();
+>     member = value;
+>   }
+> }
+> ```
+>
+> [+] 示例丨VB.NET
+>
+> ```vb
+> `= Class =` rocket
+>   Private `= quality =` as Double
+>   Public Sub launch() as String
+>     If quality > `= 0.8 =`
+>       launch = "Successful"
+>     Else
+>       launch = "Failed"
+>     End If
+>   End sub
+> End class
+> ```
+>
+> [+] 示例丨Swift
+>
+> ```swift
+> //
+> //  TipCalculatorModel.swift
+> //  TipCalculator
+> //
+> //  Created by Main Account on 12/18/14.
+> //  Copyright (c) 2014 Razeware LLC. All rights reserved.
+> //
+> import Foundation
+> 
+> class TipCalculatorModel {
+>   var total: `= Double =`
+>   var taxPct: Double
+>   var subtotal: Double {
+>     get {
+>       return total / `= (taxPct + 1) =`
+>     }
+>   }
+> 
+>   init(total: `= Double =`, taxPct: Double) {
+>     self.total = total
+>     self.taxPct = `= taxPct =`
+>   }
+> 
+>   func calcTipWithTipPct(tipPct: Double) -> Double {
+>     return subtotal * tipPct
+>   }
+> 
+>   func returnPossibleTips() -> [Int: Double] {
+>     let possibleTipsInferred = [0.15, 0.18, 0.20]
+>     let possibleTipsExplicit:[Double] = [0.15, 0.18, 0.20]
+> 
+>     var retval = [Int: Double]()
+>     for possibleTip in possibleTipsInferred {
+>       let intPct = Int(possibleTip*100)
+>       retval[intPct] = calcTipWithTipPct(possibleTip)
+>     }
+>     return retval
+>   }
+> }
+> ```
+>
+> [+] 示例丨Perl
+>
+> ```perl
+> #!/usr/bin/perl
+> use Something qw(func1 func2);
+> 
+> # strings
+> my `= $s1 =` = qq'single line';
+> our $s2 = q(multi-
+>               line);
+> 
+> =item Something
+> 	Example.
+> =cut
+> 
+> my $html=<<'HTML'
+> <html>
+> `= <title>hi!</title> =`
+> </html>
+> HTML
+> 
+> print "first,".join(',', 'second', qq~third~);
+> 
+> if($s1 =~ m[(?<!\s)(l.ne)\z]o) {
+> 	$h->{$1}=$$.' predefined variables';
+> 	$s2 =~ s/\-line//ox;
+> 	$s1 =~ s[
+> 		  line ]
+> 		[
+> 		  block
+> 		]ox;
+> }
+> 
+> 1; # numbers and comments
+> 
+> __END__
+> something...
+> ```
 
 ### 应用在线字体
 
@@ -377,8 +675,11 @@ function gotoHeader(obj) {
 + 支持丰富的图片、图表格式：
    - 浏览器支持的所有图片（jpg / png / gif / bmp / ...）
    - 脚本化图表（mermaid[^mermaid] / flowchart.js[^flowchart.js] / JS Sequence Diagrams[^JS Sequence Diagrams]）
-+ 点击任意图片、图表，或右上角的插图浏览器按钮激活插图浏览器；
-+ 支持显示图片/图表标题（图片/图表前须增加h6标题）；
++ 点击任意图片、图表打开插图浏览器进行查看；
++ 支持在新标签打开图片、图表；
++ 支持显示插图标题
+   + 图片侧为读取图片标题，如：`![图片标题](图片URL)`
+   + 非图片则为最近的一个h6标题，如：`###### mermaid图表标题`
 + 支持按前一张、后一张方式浏览文档中的所有插图；
 + 对于缺失的图片以默认图片进行替换显示；
 + 点击插图能直接跳转到文档中对应的位置，支持通过快捷键<kbd>esc</kbd>关闭插图浏览器；
@@ -389,7 +690,7 @@ function gotoHeader(obj) {
 
 ###### 这是普通的图片示例
 
-![普通的图片](http://www.mjjq.com/pic/2011/01/2011010435845.jpg)
+![普通的图片](https://ws2.sinaimg.cn/large/006tNbRwgy1fwjex7c08fj31kw11x48k.jpg)
 
 ###### 这是缺失的图片示例
 
@@ -481,12 +782,15 @@ function gotoHeader(obj) {
 
 ## 应用主题
 
-+ 将`released\vlook.css`文件复制至Typora的主题目录；
-+ 重启Typora，点击菜单`主题 ▶ VLOOK`即可启用VLOOK主题。
++ 将`released`下所有CSS文件复制至Typora的主题目录[^主题目录]；
++ 进入Typora的偏好设置，启用Markdown语法扩展下的所有选项（如：公式、上标、下标、高亮、图表等）；
++ 重启Typora，点击菜单`主题`，选择所需要的VLOOK主题，即可启用VLOOK主题。
+
+[^主题目录]: 打开Typora「偏好设置」界面，在常规设置中点击<kbd>打开主题目录</kbd>按钮即可定位到该目录
 
 > **如何找到Typora主题目录？**
 >
-> 打开Typora设置界面，在常规设置中点击【打开主题目录】按钮即可定位到该目录
+> 打开Typora「偏好设置」界面，在常规设置中点击<kbd>打开主题目录</kbd>按钮即可定位到该目录
 
 ## 应用插件
 

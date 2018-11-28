@@ -1,0 +1,126 @@
+/**************************************
+* 颜色主题
+***************************************/
+
+// 纯透明色
+@transparencyColor0: fade(#FFFFFF, 0);
+@transparencyColor1: fade(#FFFFFF, 20%);
+@transparencyColor2: fade(#FFFFFF, 40%);
+@transparencyColor3: fade(#FFFFFF, 60%);
+@transparencyColor4: fade(#FFFFFF, 80%);
+
+// 文档背景色（浅色主题）
+@docBgColorLight: #FFFFFF;
+@docBgColorLightAlt: darken(@docBgColorLight, 5%);
+@docBgColorLightFade: fade(@docBgColorLight, 30%);
+// 文档背景色（深色主题）
+@docBgColorDark: #202224;//#28282A;
+@docBgColorDarkAlt: darken(@docBgColorDark, 10%);
+@docBgColorDarkFade: fade(@docBgColorDark, 30%);
+
+// 文档前景色（浅色主题）
+@foreColorLight: #56585A; //#606064;
+@foreColorLightAlt: lighten(@foreColorLight, 40%);
+@foreColorLightFade: fade(@foreColorLight, 50%);
+@foreColorLightFade1: fade(@foreColorLight, 15%);
+@foreColorLightFade2: fade(@foreColorLight, 10%);
+@foreColorLightFade3: fade(@foreColorLight, 5%);
+// 文档前景色（深色主题）
+@foreColorDark: #96989A;//#A8A8AA;
+@foreColorDarkAlt: darken(@foreColorDark, 30%);
+@foreColorDarkFade: fade(@foreColorDark, 50%);
+
+// 主色
+@masterColor: #045AD1; //#0158D0; //#0078D7;
+@masterColorLight: lighten(@masterColor, 10%);
+@masterColorDark: darken(@masterColor, 15%);
+@masterColorAlt: lighten(@masterColor, 50%);
+@masterColorAltDark: darken(desaturate(lighten(@masterColor, 50%), 40%), 55%);
+@masterColorFade: fade(@masterColor, 50%);
+@masterShadowColor: fade(@masterColor, 35%);
+// 辅助色
+@slaveColor: #C21117; //#C3252B;//#DC0010;
+@slaveColorLight: lighten(@slaveColor, 10%);
+@slaveColorDark: darken(@slaveColor, 15%);
+@slaveColorAlt: lighten(@slaveColor, 50%);
+@slaveColorAltDark: darken(desaturate(lighten(@slaveColor, 50%), 40%), 55%);
+@slaveColorFade: fade(@slaveColor, 50%);
+@slaveShadowColor: fade(@slaveColor, 35%);
+// 第3色
+@thirdColor: #4DA032; //#4AA608;
+@thirdColorLight: lighten(@thirdColor, 10%);
+@thirdColorDark: darken(@thirdColor, 15%);
+@thirdColorAlt: lighten(@thirdColor, 50%);
+@thirdColorAltDark: darken(desaturate(lighten(@thirdColor, 50%), 40%), 55%);
+@thirdColorFade: fade(@thirdColor, 50%);
+@thirdShadowColor: lighten(@thirdColor, 35%);
+// 第4色
+@fourthColor: #E68D09;//#D96B0A; //E6830B; //#D96B0A; //#F28D00;
+@fourthColorLight: lighten(@fourthColor, 10%);
+@fourthColorDark: darken(@fourthColor, 15%);
+@fourthColorAlt: lighten(@fourthColor, 40%);
+@fourthColorAltDark: darken(desaturate(lighten(@fourthColor, 40%), 40%), 55%);
+@fourthColorFade: fade(@fourthColor, 50%);
+@fourthShadowColor: lighten(@fourthColor, 35%);
+// 第5色
+@fifthColor: #953296; //#7D2A7E; //#803099;
+@fifthColorLight: lighten(@fifthColor, 10%);
+@fifthColorDark: darken(@fifthColor, 15%);
+@fifthColorAlt: lighten(@fifthColor, 50%);
+@fifthColorAltDark: darken(desaturate(lighten(@fifthColor, 50%), 40%), 55%);
+@fifthColorFade: fade(@fifthColor, 50%);
+@fifthShadowColor: lighten(@fifthColor, 35%);
+
+// 表格主色
+@tableColor: @foreColorLight;
+// 表格边框
+@tableBorderColor: lighten(@tableColor, 20%);
+// 表格列头
+@tableThColor: @foreColorLight;
+@tableThBgColor: @docBgColorLightAlt;
+@tableThBgColorDark: @docBgColorDarkAlt;
+@tableThBorderColor: @tableColor;
+// 表格奇数行
+@tableTdBgColor: fade(@tableThBgColor, 0%);
+@tableTdBorderColor: fade(@tableColor, 20%);
+// 表格偶数行
+@tableTdBgColor2: fade(@tableThBgColor, 45%);
+@tableTdBgColorDark2: fade(@tableThBgColor, 8%);
+@tableTdBorderColor2: fade(@tableColor, 20%);
+
+// 主题主色
+@themeForeColor: #FFFFFF;
+@themeForeColorFade: fade(@themeForeColor, 50%);
+@themeBgColor: #1247B3;
+@themeBgColorFade: fade(@themeBgColor, 50%);
+@themeBgColorDark: darken(@themeBgColor, 15%);
+@themeBgColorAlt: lighten(@themeBgColor, 50%);
+
+// 标题色
+@headerColor: @themeBgColor;
+@headerColorDark: @themeBgColor;
+@contentHeaderNumColor: @themeBgColorFade;
+@tocHeaderNumColor: @themeBgColorFade;
+
+// 按钮色
+@buttonForeColor: @themeForeColor;
+@buttonBgColor: @themeBgColor;
+
+// 加粗文字颜色
+@boldColorLight: #202224;
+@boldColorDark: #D6D8DA;
+
+// 链接颜色
+@aBorderWidth: 2px;
+@aColor: @boldColorLight;
+@aColorDark: @boldColorDark;
+@aLineColor: #1394BF;
+@aHoverColor: @aLineColor;
+@aHoverColorTransparencyColor0: fade(@aHoverColor, 0);
+@aActiveColor: @aLineColor;
+@aActiveColorTransparencyColor0: fade(@aActiveColor, 0);
+
+@coverBackgroundImage: url(@coverImage);
+@coverBackgroundRepeat: no-repeat;
+@coverBackgroundPosition: bottom right;
+@coverImage: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSI1MCUiIHgyPSI1MCUiIHkxPSIwJSIgeTI9Ijk5LjEwNCUiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRkZGRkZGIiBzdG9wLW9wYWNpdHk9Ii4wNSIgb2Zmc2V0PSIwJSIvPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRkZGRkZGIiBzdG9wLW9wYWNpdHk9Ii4yNSIgb2Zmc2V0PSIxMDAlIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cGF0aCBmaWxsPSJ1cmwoI2EpIiBkPSJNMjg1LjY5NzczMywzNDkuNiBMMjEyLjg5NzczMywzNDkuNiBDMjA3LjI5NzczMywzNDkuNiAyMDIuNDk3NzMzLDM1NC40IDIwMi40OTc3MzMsMzYwIEMyMDIuNDk3NzMzLDM2NS42IDIwNy4yOTc3MzMsMzcwLjQgMjEyLjg5NzczMywzNzAuNCBMMjg1LjY5NzczMywzNzAuNCBDMjkxLjI5NzczMywzNzAuNCAyOTYuMDk3NzMzLDM2NS42IDI5Ni4wOTc3MzMsMzYwIEMyOTYuMDk3NzMzLDM1My42IDI5MS4yOTc3MzMsMzQ5LjYgMjg1LjY5NzczMywzNDkuNiBaIE0yMjkuNjk3NzMzLDQwNCBDMjMxLjI5NzczMyw0MTMuNiAyMzkuMjk3NzMzLDQyMCAyNDguODk3NzMzLDQyMCBDMjU4LjQ5NzczMyw0MjAgMjY2LjQ5NzczMyw0MTIuOCAyNjguMDk3NzMzLDQwNCBDMjgwLjg5NzczMyw0MDMuMiAyOTAuNDk3NzMzLDM5Mi44IDI5MC40OTc3MzMsMzgwIEwyMDcuMjk3NzMzLDM4MCBDMjA3LjI5NzczMywzOTIuOCAyMTcuNjk3NzMzLDQwMy4yIDIyOS42OTc3MzMsNDA0IFogTTI0OC44OTc3MzMsNzkuMiBDMjU2LjA5NzczMyw3OS4yIDI2Mi40OTc3MzMsNzIuOCAyNjIuNDk3NzMzLDY1LjYgTDI2Mi40OTc3MzMsMzMuNiBDMjYyLjQ5NzczMywyNi40IDI1Ni4wOTc3MzMsMjAgMjQ4Ljg5NzczMywyMCBDMjQxLjY5NzczMywyMCAyMzUuMjk3NzMzLDI2LjQgMjM1LjI5NzczMywzMy42IEwyMzUuMjk3NzMzLDY1LjYgQzIzNS4yOTc3MzMsNzIuOCAyNDEuNjk3NzMzLDc5LjIgMjQ4Ljg5NzczMyw3OS4yIFogTTE1OS4yOTc3MzMsOTkuMiBDMTYxLjY5NzczMywxMDMuMiAxNjYuNDk3NzMzLDEwNC44IDE3MC40OTc3MzMsMTA0LjggQzE3Mi44OTc3MzMsMTA0LjggMTc2LjA5NzczMywxMDQgMTc4LjQ5NzczMywxMDIuNCBDMTg0Ljg5NzczMyw5Ny42IDE4NS42OTc3MzMsODkuNiAxODEuNjk3NzMzLDgzLjIgTDE2My4yOTc3MzMsNTcuNiBDMTU4LjQ5NzczMyw1MS4yIDE1MC40OTc3MzMsNTAuNCAxNDQuMDk3NzMzLDU0LjQgQzEzNy42OTc3MzMsNTkuMiAxMzYuODk3NzMzLDY3LjIgMTQwLjg5NzczMyw3My42IEwxNTkuMjk3NzMzLDk5LjIgWiBNMTI1LjY5NzczMywxNDQuOCBMOTUuMjk3NzMzMywxMzUuMiBDODguMDk3NzMzMywxMzIuOCA4MC4wOTc3MzMzLDEzNi44IDc3LjY5NzczMzMsMTQ0IEM3NS4yOTc3MzMzLDE1MS4yIDc5LjI5NzczMzMsMTU5LjIgODYuNDk3NzMzMywxNjEuNiBMMTE2Ljg5NzczMywxNzEuMiBDMTE4LjQ5NzczMywxNzEuMiAxMjAuMDk3NzMzLDE3MiAxMjEuNjk3NzMzLDE3MiBDMTI3LjI5NzczMywxNzIgMTMyLjg5NzczMywxNjggMTM0LjQ5NzczMywxNjIuNCBDMTM2Ljg5NzczMywxNTUuMiAxMzIuODk3NzMzLDE0Ny4yIDEyNS42OTc3MzMsMTQ0LjggWiBNNDEwLjQ5NzczMywyMzcuNiBMMzgwLjA5NzczMywyMjggQzM3Mi44OTc3MzMsMjI1LjYgMzY0Ljg5NzczMywyMjkuNiAzNjIuNDk3NzMzLDIzNi44IEMzNjAuMDk3NzMzLDI0NCAzNjQuMDk3NzMzLDI1MiAzNzEuMjk3NzMzLDI1NC40IEw0MDEuNjk3NzMzLDI2NCBDNDAzLjI5NzczMywyNjQuOCA0MDQuODk3NzMzLDI2NC44IDQwNS42OTc3MzMsMjY0LjggQzQxMS4yOTc3MzMsMjY0LjggNDE2Ljg5NzczMywyNjAuOCA0MTguNDk3NzMzLDI1NS4yIEM0MjEuNjk3NzMzLDI0OCA0MTcuNjk3NzMzLDI0MCA0MTAuNDk3NzMzLDIzNy42IFogTTExNy42OTc3MzMsMjI4IEw4Ny4yOTc3MzMzLDIzNy42IEM4MC4wOTc3MzMzLDI0MCA3Ni4wOTc3MzMzLDI0OCA3OC40OTc3MzMzLDI1NS4yIEM4MC4wOTc3MzMzLDI2MC44IDg1LjY5NzczMzMsMjY0LjggOTEuMjk3NzMzMywyNjQuOCBDOTIuODk3NzMzMywyNjQuOCA5NC40OTc3MzMzLDI2NC44IDk1LjI5NzczMzMsMjY0IEwxMjUuNjk3NzMzLDI1NC40IEMxMzIuODk3NzMzLDI1MiAxMzYuODk3NzMzLDI0NCAxMzQuNDk3NzMzLDIzNi44IEMxMzIuMDk3NzMzLDIyOS42IDEyNC44OTc3MzMsMjI1LjYgMTE3LjY5NzczMywyMjggWiBNMzc2LjA5NzczMywxNzIgQzM3Ny42OTc3MzMsMTcyIDM3OS4yOTc3MzMsMTcyIDM4MC4wOTc3MzMsMTcxLjIgTDQxMC40OTc3MzMsMTYxLjYgQzQxNy42OTc3MzMsMTU5LjIgNDIxLjY5NzczMywxNTEuMiA0MTkuMjk3NzMzLDE0NCBDNDE2Ljg5NzczMywxMzYuOCA0MDguODk3NzMzLDEzMi44IDQwMS42OTc3MzMsMTM1LjIgTDM3MS4yOTc3MzMsMTQ0LjggQzM2NC4wOTc3MzMsMTQ3LjIgMzYwLjA5NzczMywxNTUuMiAzNjIuNDk3NzMzLDE2Mi40IEMzNjQuODk3NzMzLDE2OCAzNzAuNDk3NzMzLDE3MiAzNzYuMDk3NzMzLDE3MiBaIE0zMzUuMjk3NzMzLDU3LjYgTDMxNi44OTc3MzMsODMuMiBDMzEyLjA5NzczMyw4OS42IDMxMy42OTc3MzMsOTcuNiAzMjAuMDk3NzMzLDEwMi40IEMzMjIuNDk3NzMzLDEwNCAzMjUuNjk3NzMzLDEwNC44IDMyOC4wOTc3MzMsMTA0LjggQzMzMi4wOTc3MzMsMTA0LjggMzM2Ljg5NzczMywxMDMuMiAzMzkuMjk3NzMzLDk5LjIgTDM1Ny42OTc3MzMsNzMuNiBDMzYyLjQ5NzczMyw2Ny4yIDM2MC44OTc3MzMsNTkuMiAzNTQuNDk3NzMzLDU0LjQgQzM0OC4wOTc3MzMsNDkuNiAzMzkuMjk3NzMzLDUxLjIgMzM1LjI5NzczMyw1Ny42IFogTTI0OC44OTc3MzMsMTAwLjggQzE5NC40OTc3MzMsMTAwLjggMTQ5LjY5NzczMywxNDQuOCAxNDkuNjk3NzMzLDIwMCBDMTQ5LjY5NzczMywyMjMuMiAxNTcuNjk3NzMzLDI0NCAxNzAuNDk3NzMzLDI2MC44IEMxODEuNjk3NzMzLDI3NS4yIDE5Mi44OTc3MzMsMjkxLjIgMjAyLjQ5NzczMywzMDggTDIwMi40OTc3MzMsMzQwLjggTDI5Mi44OTc3MzMsMzQwLjggTDI5Mi44OTc3MzMsMzA4LjggQzMwMi40OTc3MzMsMjkyLjggMzE0LjQ5NzczMywyNzUuMiAzMjUuNjk3NzMzLDI2MC44IEMzMzkuMjk3NzMzLDI0NCAzNDYuNDk3NzMzLDIyMy4yIDM0Ni40OTc3MzMsMjAwIEMzNDguMDk3NzMzLDE0NS42IDMwMy4yOTc3MzMsMTAwLjggMjQ4Ljg5NzczMywxMDAuOCBaIE0yMzEuMjk3NzMzLDE0NS42IEMyMTEuMjk3NzMzLDE0NS42IDE5NC40OTc3MzMsMTYxLjYgMTk0LjQ5NzczMywxODEuNiBDMTk0LjQ5NzczMywxODQuOCAxOTIuMDk3NzMzLDE4Ny4yIDE4OC44OTc3MzMsMTg3LjIgQzE4NS42OTc3MzMsMTg3LjIgMTgzLjI5NzczMywxODQuOCAxODMuMjk3NzMzLDE4MS42IEMxODMuMjk3NzMzLDE1NS4yIDIwNC44OTc3MzMsMTMzLjYgMjMxLjI5NzczMywxMzMuNiBDMjM0LjQ5NzczMywxMzMuNiAyMzYuODk3NzMzLDEzNiAyMzYuODk3NzMzLDEzOS4yIEMyMzYuODk3NzMzLDE0My4yIDIzNC40OTc3MzMsMTQ1LjYgMjMxLjI5NzczMywxNDUuNiBaIi8+Cjwvc3ZnPgo=";
