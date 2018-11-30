@@ -11,7 +11,7 @@ VLOOK™为开源软件，遵从MIT许可证。
 
 ---
 
-**目录说明：**<br>`demo`：基于VLOOK主题的示例文件<br>`docs`：VLOOK快速参考手册及相关文档<br>`released`：发布版的主目录<br>`released\\theme`：主题文件<br>`src\\dev`：开发测试用示例文件<br>`src\\less`：主题CSS文件的源文件<br>`misc`：杂项文件，包括图标源文件、产品原型、主题图形素材设计源文件等
+**目录说明：**<br>`demo`：基于VLOOK主题的示例文件<br>`docs`：VLOOK快速参考手册及相关文档<br>`released`：发布版的主目录<br>`.       \theme`：主题文件<br>`src`：源码目录<br>`.  \dev`：开发测试用示例文件<br>`.  \less`：主题CSS文件的源文件<br>`misc`：杂项文件，包括图标源文件、产品原型、主题图形素材设计源文件等
 
 ---
 
