@@ -384,11 +384,24 @@ table tr td:last-child {
   border-right: 0;
   padding-right: 0.5em;
 }
+table tr:last-child td {
+  border-bottom: 0px;
+}
 li table,
+h1 + figure table,
+h2 + figure table,
+h3 + figure table,
+h4 + figure table,
+h5 + figure table,
 h6 + figure table {
   counter-reset: tableRowNumber -1;
 }
 li table tr,
+h1 + figure table tr,
+h2 + figure table tr,
+h3 + figure table tr,
+h4 + figure table tr,
+h5 + figure table tr,
 h6 + figure table tr {
   counter-increment: tableRowNumber;
 }
@@ -398,7 +411,7 @@ li figure {
 li table tr th:first-child::before,
 li table tr td:first-child::before {
   content: "#";
-  color: #bdbebf;
+  color: rgba(240, 176, 0, 0.5);
   font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.85em;
   vertical-align: middle;
@@ -410,15 +423,42 @@ li table tr td:first-child::before {
 li table tr td:first-child::before {
   content: counter(tableRowNumber);
 }
+h1 + figure,
+h2 + figure,
+h3 + figure,
+h4 + figure,
+h5 + figure,
+h6 + figure {
+  margin-top: 0em;
+  margin-left: 1em;
+}
+h1 + figure table tr th:first-child::before,
+h1 + figure table tr td:first-child::before,
+h2 + figure table tr th:first-child::before,
+h2 + figure table tr td:first-child::before,
+h3 + figure table tr th:first-child::before,
+h3 + figure table tr td:first-child::before,
+h4 + figure table tr th:first-child::before,
+h4 + figure table tr td:first-child::before,
+h5 + figure table tr th:first-child::before,
+h5 + figure table tr td:first-child::before,
 h6 + figure table tr th:first-child::before,
 h6 + figure table tr td:first-child::before {
   content: "# ";
-  color: rgba(86, 88, 90, 0.5);
+  color: rgba(240, 176, 0, 0.5);
   font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.85em;
   vertical-align: middle;
   text-align: right;
+  width: 2.5em;
+  position: absolute;
+  left: -0.5em;
 }
+h1 + figure table tr td:first-child::before,
+h2 + figure table tr td:first-child::before,
+h3 + figure table tr td:first-child::before,
+h4 + figure table tr td:first-child::before,
+h5 + figure table tr td:first-child::before,
 h6 + figure table tr td:first-child::before {
   content: counter(tableRowNumber) " ";
 }
@@ -2106,6 +2146,7 @@ use.mdx-svg-ico-dark:hover {
   padding: 0.1em 0.3em;
   border-radius: 0.4em;
   border: 0.1em solid #045ad1;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.25);
 }
 .mdx-code-c1-alt {
   background-color: #d6e7fe;
@@ -2147,30 +2188,25 @@ use.mdx-svg-ico-dark:hover {
   color: #ffffff;
   padding: 0.1em 0.3em;
   border-radius: 0.4em;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
 }
 .mdx-code-c1 {
-  background-color: #045ad1;
-  box-shadow: 0px 1px #033a86;
+  background: linear-gradient(#0465ea, #044fb8) !important;
 }
 .mdx-code-c2 {
-  background-color: #4da032;
-  box-shadow: 0px 1px #316620;
+  background: linear-gradient(#56b338, #448d2c) !important;
 }
 .mdx-code-c3 {
-  background-color: #e68d09;
-  box-shadow: 0px 1px #9c6006;
+  background: linear-gradient(#f69a13, #cd7e08) !important;
 }
 .mdx-code-c4 {
-  background-color: #c21117;
-  box-shadow: 0px 1px #7c0b0f;
+  background: linear-gradient(#d9131a, #ab0f14) !important;
 }
 .mdx-code-c5 {
-  background-color: #953296;
-  box-shadow: 0px 1px #5c1f5d;
+  background: linear-gradient(#a838a9, #822c83) !important;
 }
 .mdx-code-c6 {
-  background-color: #56585a;
-  box-shadow: 0px 1px #1a170d;
+  background: linear-gradient(#626567, #4a4b4d) !important;
 }
 .mdx-code-name1-alt,
 .mdx-code-name2-alt,
@@ -2184,6 +2220,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-name4,
 .mdx-code-name5,
 .mdx-code-name6 {
+  background-color: #f2f2f2 !important;
   font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   margin-right: 0px;
   border-top-left-radius: 0.4em;
@@ -2193,6 +2230,15 @@ use.mdx-svg-ico-dark:hover {
   padding: 0.1em 0.3em;
   color: #ffffff;
   font-size: 0.85em;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
+}
+.mdx-code-name1,
+.mdx-code-name2,
+.mdx-code-name3,
+.mdx-code-name4,
+.mdx-code-name5,
+.mdx-code-name6 {
+  background: linear-gradient(#626567, #4a4b4d) !important;
 }
 .mdx-code-value1-alt,
 .mdx-code-value2-alt,
@@ -2207,7 +2253,6 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-value5,
 .mdx-code-value6 {
   font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
-  border-left: 0px !important;
   margin-left: 0px;
   border-top-right-radius: 0.4em;
   border-bottom-right-radius: 0.4em;
@@ -2216,115 +2261,67 @@ use.mdx-svg-ico-dark:hover {
   padding: 0.1em 0.3em;
   color: #ffffff;
   font-size: 0.85em;
-  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
 }
 .mdx-code-name1-alt {
-  background-color: #f2f2f2 !important;
   color: #56585a;
-  border-color: #045ad1;
 }
 .mdx-code-value1-alt {
   background-color: #d6e7fe !important;
   color: #045ad1;
-  border-color: #045ad1;
 }
 .mdx-code-name2-alt {
-  background-color: #f2f2f2 !important;
   color: #56585a;
-  border-color: #4da032;
 }
 .mdx-code-value2-alt {
   background-color: #e3f4dd !important;
   color: #4da032;
-  border-color: #4da032;
 }
 .mdx-code-name3-alt {
-  background-color: #f2f2f2 !important;
   color: #56585a;
-  border-color: #e68d09;
 }
 .mdx-code-value3-alt {
   background-color: #fce4bf !important;
   color: #e68d09;
-  border-color: #e68d09;
 }
 .mdx-code-name4-alt {
-  background-color: #f2f2f2 !important;
   color: #56585a;
-  border-color: #c21117;
 }
 .mdx-code-value4-alt {
   background-color: #fbd7d8 !important;
   color: #c21117;
-  border-color: #c21117;
 }
 .mdx-code-name5-alt {
-  background-color: #f2f2f2 !important;
   color: #56585a;
-  border-color: #953296;
 }
 .mdx-code-value5-alt {
   background-color: #f1d6f1 !important;
   color: #953296;
-  border-color: #953296;
 }
 .mdx-code-name6-alt {
-  background-color: #f2f2f2 !important;
   color: #56585a;
-  border-color: #56585a;
 }
 .mdx-code-value6-alt {
   background-color: #bdbebf !important;
   color: #56585a;
-  border-color: #56585a;
-}
-.mdx-code-name1 {
-  background-color: #56585a !important;
-  box-shadow: 0px 1px #1a170d;
 }
 .mdx-code-value1 {
-  background-color: #045ad1 !important;
-  box-shadow: 0px 1px #033a86;
-}
-.mdx-code-name2 {
-  background-color: #56585a !important;
-  box-shadow: 0px 1px #1a170d;
+  background: linear-gradient(#0465ea, #044fb8) !important;
 }
 .mdx-code-value2 {
-  background-color: #4da032 !important;
-  box-shadow: 0px 1px #316620;
-}
-.mdx-code-name3 {
-  background-color: #56585a !important;
-  box-shadow: 0px 1px #1a170d;
+  background: linear-gradient(#56b338, #448d2c) !important;
 }
 .mdx-code-value3 {
-  background-color: #e68d09 !important;
-  box-shadow: 0px 1px #9c6006;
-}
-.mdx-code-name4 {
-  background-color: #56585a !important;
-  box-shadow: 0px 1px #1a170d;
+  background: linear-gradient(#f69a13, #cd7e08) !important;
 }
 .mdx-code-value4 {
-  background-color: #c21117 !important;
-  box-shadow: 0px 1px #7c0b0f;
-}
-.mdx-code-name5 {
-  background-color: #56585a !important;
-  box-shadow: 0px 1px #1a170d;
+  background: linear-gradient(#d9131a, #ab0f14) !important;
 }
 .mdx-code-value5 {
-  background-color: #953296 !important;
-  box-shadow: 0px 1px #5c1f5d;
-}
-.mdx-code-name6 {
-  background-color: #56585a !important;
-  box-shadow: 0px 1px #1a170d;
+  background: linear-gradient(#a838a9, #822c83) !important;
 }
 .mdx-code-value6 {
-  background-color: #1a170d !important;
-  box-shadow: 0px 1px #1a170d;
+  background: linear-gradient(#2b2616, #090805) !important;
 }
 h6 code {
   font-weight: normal;

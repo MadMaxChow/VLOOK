@@ -569,6 +569,10 @@ table tr th:last-child,
 table tr td:last-child {
   border-right: 0;
   padding-right: 0.5em;
+  
+}
+table tr:last-child td {
+  border-bottom: 0px;
 }
 
 table th:first-child {
@@ -601,10 +605,20 @@ table tr:last-child td:only-child {
 
 // li下的表格增加行号
 li table,
+h1 + figure table,
+h2 + figure table,
+h3 + figure table,
+h4 + figure table,
+h5 + figure table,
 h6 + figure table {
   counter-reset: tableRowNumber -1;
 }
 li table tr,
+h1 + figure table tr,
+h2 + figure table tr,
+h3 + figure table tr,
+h4 + figure table tr,
+h5 + figure table tr,
 h6 + figure table tr {
   counter-increment: tableRowNumber;
 }
@@ -617,7 +631,7 @@ li figure {
 li table tr th:first-child::before,
 li table tr td:first-child::before {
   content: "#";
-  color: @foreColorLightAlt;
+  color: @tocHeaderNumColor;
   font-family: @codeFont;
   font-size: 0.85em;
   vertical-align: middle;
@@ -631,17 +645,46 @@ li table tr td:first-child::before {
   content: counter(tableRowNumber);
 }
 
+// h6后的表格，格式微调
+h1 + figure,
+h2 + figure,
+h3 + figure,
+h4 + figure,
+h5 + figure,
+h6 + figure {
+  margin-top: 0em;
+  margin-left: 1em;
+}
+
 // H6下的表格增加行号
+h1 + figure table tr th:first-child::before,
+h1 + figure table tr td:first-child::before,
+h2 + figure table tr th:first-child::before,
+h2 + figure table tr td:first-child::before,
+h3 + figure table tr th:first-child::before,
+h3 + figure table tr td:first-child::before,
+h4 + figure table tr th:first-child::before,
+h4 + figure table tr td:first-child::before,
+h5 + figure table tr th:first-child::before,
+h5 + figure table tr td:first-child::before,
 h6 + figure table tr th:first-child::before,
 h6 + figure table tr td:first-child::before {
   content: "# ";
-  color: @foreColorLightFade;
+  color: @tocHeaderNumColor;
   font-family: @codeFont;
   font-size: 0.85em;
   vertical-align: middle;
   text-align: right;
+  width: 2.5em;
+  position: absolute;
+  left: -0.5em;
 }
 
+h1 + figure table tr td:first-child::before,
+h2 + figure table tr td:first-child::before,
+h3 + figure table tr td:first-child::before,
+h4 + figure table tr td:first-child::before,
+h5 + figure table tr td:first-child::before,
 h6 + figure table tr td:first-child::before {
   content: counter(tableRowNumber) " ";
 }
@@ -2908,6 +2951,7 @@ use.mdx-svg-ico-dark:hover {
   padding: 0.1em 0.3em;
   border-radius: 0.4em;
   border: 0.1em solid @masterColor;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.25);
 }
 .mdx-code-c1-alt {
   background-color: @masterColorAlt;
@@ -2952,30 +2996,37 @@ use.mdx-svg-ico-dark:hover {
   padding: 0.1em 0.3em;
   border-radius: 0.4em;
   // border: 0.1em solid @docBgColorLightFade;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
  }
 .mdx-code-c1 {
-  background-color: @masterColor;
-  box-shadow: 0px 1px @masterColorDark;
+  // background-color: @masterColor;
+  background: linear-gradient(lighten(@masterColor, 5%), darken(@masterColor, 5%)) !important;
+  // box-shadow: 0px 1px @masterColorDark;
 }
 .mdx-code-c2 {
-  background-color: @thirdColor;
-  box-shadow: 0px 1px @thirdColorDark;
+  // background-color: @thirdColor;
+  background: linear-gradient(lighten(@thirdColor, 5%), darken(@thirdColor, 5%)) !important;
+  // box-shadow: 0px 1px @thirdColorDark;
 }
 .mdx-code-c3 {
-  background-color: @fourthColor;
-  box-shadow: 0px 1px @fourthColorDark;
+  // background-color: @fourthColor;
+  background: linear-gradient(lighten(@fourthColor, 5%), darken(@fourthColor, 5%)) !important;
+  // box-shadow: 0px 1px @fourthColorDark;
 }
 .mdx-code-c4 {
-  background-color: @slaveColor;
-  box-shadow: 0px 1px @slaveColorDark;
+  // background-color: @slaveColor;
+  background: linear-gradient(lighten(@slaveColor, 5%), darken(@slaveColor, 5%)) !important;
+  // box-shadow: 0px 1px @slaveColorDark;
 }
 .mdx-code-c5 {
-  background-color: @fifthColor;
-  box-shadow: 0px 1px @fifthColorDark;
+  // background-color: @fifthColor;
+  background: linear-gradient(lighten(@fifthColor, 5%), darken(@fifthColor, 5%)) !important;
+  // box-shadow: 0px 1px @fifthColorDark;
 }
 .mdx-code-c6 {
-  background-color: @foreColorLight;
-  box-shadow: 0px 1px @docBgColorDark;
+  // background-color: @foreColorLight;
+  background: linear-gradient(lighten(@foreColorLight, 5%), darken(@foreColorLight, 5%)) !important;
+  // box-shadow: 0px 1px @docBgColorDark;
 }
 
 // 药丸样式右边公共样式（风格1/2）
@@ -2993,6 +3044,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-name6 {
   // border: 0.1em solid @transparencyColor2;
   // border-right: 0px !important;
+  background-color: @docBgColorLightAlt !important;
   font-family: @textFont;
   margin-right: 0px;
   border-top-left-radius: 0.4em;
@@ -3002,6 +3054,15 @@ use.mdx-svg-ico-dark:hover {
   padding: 0.1em 0.3em;
   color: @docBgColorLight;
   font-size: 0.85em;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
+}
+.mdx-code-name1,
+.mdx-code-name2,
+.mdx-code-name3,
+.mdx-code-name4,
+.mdx-code-name5,
+.mdx-code-name6 {
+  background: linear-gradient(lighten(@foreColorLight, 5%), darken(@foreColorLight, 5%)) !important;
 }
 .mdx-code-value1-alt,
 .mdx-code-value2-alt,
@@ -3017,7 +3078,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-value6 {
   // border: 0.1em solid @transparencyColor2;
   font-family: @textFont;
-  border-left: 0px !important;
+  // border-left: 0px !important;
   margin-left: 0px;
   border-top-right-radius: 0.4em;
   border-bottom-right-radius: 0.4em;
@@ -3027,127 +3088,134 @@ use.mdx-svg-ico-dark:hover {
   color: @docBgColorLight;
   font-size: 0.85em;
   // font-weight: bold;
-  border-left: 1px solid @transparencyColor2;
+  // border-left: 1px solid @transparencyColor2;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
 }
 // 药丸样式右边右边值风格1-样式1
 .mdx-code-name1-alt {
-  background-color: @docBgColorLightAlt !important;
+  // background-color: @docBgColorLightAlt !important;
   color: @foreColorLight;
-  border-color: @masterColor;
+  // border-color: @masterColor;
 }
 .mdx-code-value1-alt {
   background-color: @masterColorAlt !important;
   color: @masterColor;
-  border-color: @masterColor;
+  // border-color: @masterColor;
 }
 // 药丸样式右边右边值风格1-样式2
 .mdx-code-name2-alt {
-  background-color: @docBgColorLightAlt !important;
+  // background-color: @docBgColorLightAlt !important;
   color: @foreColorLight;
-  border-color: @thirdColor;
+  // border-color: @thirdColor;
 }
 .mdx-code-value2-alt {
   background-color: @thirdColorAlt !important;
   color: @thirdColor;
-  border-color: @thirdColor;
+  // border-color: @thirdColor;
 }
 // 药丸样式右边右边值风格1-样式3
 .mdx-code-name3-alt {
-  background-color: @docBgColorLightAlt !important;
+  // background-color: @docBgColorLightAlt !important;
   color: @foreColorLight;
-  border-color: @fourthColor;
+  // border-color: @fourthColor;
 }
 .mdx-code-value3-alt {
   background-color: @fourthColorAlt !important;
   color: @fourthColor;
-  border-color: @fourthColor;
+  // border-color: @fourthColor;
 }
 // 药丸样式右边右边值风格1-样式4
 .mdx-code-name4-alt {
-  background-color: @docBgColorLightAlt !important;
+  // background-color: @docBgColorLightAlt !important;
   color: @foreColorLight;
-  border-color: @slaveColor;
+  // border-color: @slaveColor;
 }
 .mdx-code-value4-alt {
   background-color: @slaveColorAlt !important;
   color: @slaveColor;
-  border-color: @slaveColor;
+  // border-color: @slaveColor;
 }
 // 药丸样式右边右边值风格1-样式5
 .mdx-code-name5-alt {
-  background-color: @docBgColorLightAlt !important;
+  // background-color: @docBgColorLightAlt !important;
   color: @foreColorLight;
-  border-color: @fifthColor;
+  // border-color: @fifthColor;
 }
 .mdx-code-value5-alt {
   background-color: @fifthColorAlt !important;
   color: @fifthColor;
-  border-color: @fifthColor;
+  // border-color: @fifthColor;
 }
 // 药丸样式右边右边值风格1-样式6
 .mdx-code-name6-alt {
-  background-color: @docBgColorLightAlt !important;
+  // background-color: @docBgColorLightAlt !important;
   color: @foreColorLight;
-  border-color: @foreColorLight;
+  // border-color: @foreColorLight;
 }
 .mdx-code-value6-alt {
   background-color: @foreColorLightAlt !important;
   color: @foreColorLight;
-  border-color: @foreColorLight;
+  // border-color: @foreColorLight;
 }
 // 药丸样式右边右边值风格2-样式1
 .mdx-code-name1 {
-  background-color: @foreColorLight !important;
-  box-shadow: 0px 1px @docBgColorDark;
+  // background-color: @foreColorLight !important;
+  // box-shadow: 0px 1px @docBgColorDark;
 }
 .mdx-code-value1 {
-  background-color: @masterColor !important;
-  box-shadow: 0px 1px @masterColorDark;
+  // background-color: @masterColor !important;
+  background: linear-gradient(lighten(@masterColor, 5%), darken(@masterColor, 5%)) !important;
+  // box-shadow: 0px 1px @masterColorDark;
 }
 // 药丸样式右边右边值风格2-样式2
 .mdx-code-name2 {
-  background-color: @foreColorLight !important;
-  box-shadow: 0px 1px @docBgColorDark;
+  // background-color: @foreColorLight !important;
+  // box-shadow: 0px 1px @docBgColorDark;
 }
 .mdx-code-value2 {
-  background-color: @thirdColor !important;
-  box-shadow: 0px 1px @thirdColorDark;
+  // background-color: @thirdColor !important;
+  background: linear-gradient(lighten(@thirdColor, 5%), darken(@thirdColor, 5%)) !important;
+  // box-shadow: 0px 1px @thirdColorDark;
 }
 // 药丸样式右边右边值风格3-样式3
 .mdx-code-name3 {
-  background-color: @foreColorLight !important;
-  box-shadow: 0px 1px @docBgColorDark;
+  // background-color: @foreColorLight !important;
+  // box-shadow: 0px 1px @docBgColorDark;
 }
 .mdx-code-value3 {
-  background-color: @fourthColor !important;
-  box-shadow: 0px 1px @fourthColorDark;
+  // background-color: @fourthColor !important;
+  background: linear-gradient(lighten(@fourthColor, 5%), darken(@fourthColor, 5%)) !important;
+  // box-shadow: 0px 1px @fourthColorDark;
 }
 // 药丸样式右边右边值风格2-样式4
 .mdx-code-name4 {
-  background-color: @foreColorLight !important;
-  box-shadow: 0px 1px @docBgColorDark;
+  // background-color: @foreColorLight !important;
+  // box-shadow: 0px 1px @docBgColorDark;
 }
 .mdx-code-value4 {
-  background-color: @slaveColor !important;
-  box-shadow: 0px 1px @slaveColorDark;
+  // background-color: @slaveColor !important;
+  background: linear-gradient(lighten(@slaveColor, 5%), darken(@slaveColor, 5%)) !important;
+  // box-shadow: 0px 1px @slaveColorDark;
 }
 // 药丸样式右边右边值风格2-样式5
 .mdx-code-name5 {
-  background-color: @foreColorLight !important;
-  box-shadow: 0px 1px @docBgColorDark;
+  // background-color: @foreColorLight !important;
+  // box-shadow: 0px 1px @docBgColorDark;
 }
 .mdx-code-value5 {
-  background-color: @fifthColor !important;
-  box-shadow: 0px 1px @fifthColorDark;
+  // background-color: @fifthColor !important;
+  background: linear-gradient(lighten(@fifthColor, 5%), darken(@fifthColor, 5%)) !important;
+  // box-shadow: 0px 1px @fifthColorDark;
 }
 // 药丸样式右边右边值风格2-样式6
 .mdx-code-name6 {
-  background-color: @foreColorLight !important;
-  box-shadow: 0px 1px @docBgColorDark;
+  // background-color: @foreColorLight !important;
+  // box-shadow: 0px 1px @docBgColorDark;
 }
 .mdx-code-value6 {
-  background-color: @docBgColorDark !important;
-  box-shadow: 0px 1px @docBgColorDark;
+  // background-color: @docBgColorDark !important;
+  background: linear-gradient(lighten(@docBgColorDark, 5%), darken(@docBgColorDark, 5%)) !important;
+  // box-shadow: 0px 1px @docBgColorDark;
 }
 // h6内的code标签强制取消加粗
 h6 code {
