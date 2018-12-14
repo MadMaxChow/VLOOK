@@ -61,8 +61,10 @@ img {
 a {
   color: @aColor;
   // font-weight: bold;
-  border-bottom: @aBorderWidth solid @aLineColor;
-  padding-bottom: 1px;
+  // border-bottom: @aBorderWidth solid @aLineColor;
+  // border-bottom: 5px solid @aLineColor;
+  box-shadow: 0px -0.5em 0px fade(@aLineColor, 30%) inset;
+  // padding-bottom: 1px;
   text-decoration: none;
   font-family: @titleFont;
   // border: 1px dotted @transparencyColor;
@@ -81,6 +83,7 @@ a::after {
 a:hover {
   color: @aHoverColor;
   border-bottom: @aBorderWidth solid @aHoverColor;
+  box-shadow: none;
   transition: all 0.3s ease-in-out;
 }
 
@@ -655,6 +658,9 @@ h6 + figure {
   margin-top: 0em;
   margin-left: 1em;
 }
+li h6 + figure {
+  margin-left: 0em;
+}
 
 // H6下的表格增加行号
 h1 + figure table tr th:first-child::before,
@@ -678,6 +684,10 @@ h6 + figure table tr td:first-child::before {
   width: 2.5em;
   position: absolute;
   left: -0.5em;
+}
+li h6 + figure table tr th:first-child::before,
+li h6 + figure table tr td:first-child::before {
+  left: -3em;
 }
 
 h1 + figure table tr td:first-child::before,
@@ -1928,19 +1938,24 @@ div.mermaidTooltip {
 /* 数学公式 */
 .MathJax_SVG {
   // background-color: @themeBgColorAlt;
-  border: 1px solid @themeBgColorAlt;
+  border: 2px solid @themeBgColorAlt;
   border-radius: 0.3em;
-  padding: 0em 0.3em;
+  padding: 0.3em 0.3em;
 }
-.MathJax_SVG g text{
+.MathJax_SVG:hover {
+  background-color: @docBgColorLight;
+  transform: scale(2);
+  transition: all 0.3s ease-in-out;
+}
+.MathJax_SVG g text {
   font-family: @textFont;
   color: @boldColorLight;
-  // transform: scale(100);
 }
 
 /* md 系统样式 */
 .md-toc-inner {
   text-decoration: none;
+  box-shadow: none;
 }
 
 .md-toc-item {
@@ -2001,7 +2016,7 @@ kbd {
   font-size: 0.85em;
   border-radius: 0.4em;
   margin: 0px 0.2em;
-  padding: 0.1em 0.3em;
+  padding: 0em 0.3em;
   background-color: @docBgColorLight;
   color: @boldColorLight;
   border: 0.1em solid @foreColorLightAlt;
@@ -2323,10 +2338,10 @@ li p {
   border-radius: 15px;
   cursor: default;
   display: block;
-  left: -300px;
+  left: -350px;
   top: 10px;
   bottom: 10px;
-  width: 300px;
+  width: 350px;
   padding: 0px;
   position: fixed;
   z-index: 2000;
@@ -2337,7 +2352,7 @@ li p {
 }
 
 .mdx-float-card {
-  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.3);
 }
 
 .mdx-toc-box-header {
@@ -2409,7 +2424,7 @@ li p {
   border-bottom-right-radius: 15px;
   left: 10px;
   top: 0px;
-  width: 300px;
+  width: 350px;
   height: 50px;
   position: fixed;
   z-index: 100;
@@ -3233,6 +3248,7 @@ body div[id=write] > h6:last-of-type { // 页面最后1个H6为封底样式
   font-weight: bold;
   font-size: 2.5em;
   font-family: @headerFont;
+  text-align: @coverTextAlign;
   height: 25cm;
   padding-left: 30px;
   padding-top: 150px;
@@ -3270,7 +3286,7 @@ body div[id=write] > h6:first-of-type strong {
 }
 // 前缀
 body div[id=write] > h6:first-of-type strong::before {
-  content: "By ";
+  content: "by ";
   font-weight: normal;
   text-decoration: none;
 }
@@ -3347,6 +3363,7 @@ body div[id=write] > h6:last-of-type::after {
   body div[id=write] > h6:last-of-type,
   body div[id=write] > h6:first-of-type strong,
   body div[id=write] > h6:first-of-type em {
+    background: none !important;
     background-color: @docBgColorLight !important;
     color: @foreColorLight !important;
   }
