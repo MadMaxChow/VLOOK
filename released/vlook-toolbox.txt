@@ -1,6 +1,6 @@
 <!--========================================================================-->
-<!--                   Typora Plugin - VLOOK™ V9 Preview                    -->
-<!--                               2018-11-28                               -->
+<!--                    Typora Plugin - VLOOK™ V9 Beta                      -->
+<!--                               2018-12-22                               -->
 <!--                                                                        -->
 <!--                             powered by Max                             -->
 <!--                        QQ Group/QQ群：805502564                         -->
@@ -301,7 +301,7 @@ this._delay(function(){n===this.counter&&this.refreshPositions(!s)})},_clear:fun
 <span class="mdx-color-transparency4"></span>
 
 <script type="text/javascript">
-var _version = "V8.1";
+var _version = "V9 beta";
 var _animateSpeed = 200;
 var _icoFold = '<svg width="16px" height="16px"><use xlink:href="#icoFolded" class="mdx-svg-ico-dark"/></svg>';
 var _icoUnfold = '<svg width="16px" height="16px"><use xlink:href="#icoUnfold" class="mdx-svg-ico-dark"/></svg>';
@@ -568,6 +568,109 @@ function initTable() {
                 $(this).removeClass("mdx-figure-hover");
         });
     });
+
+    // return 0;
+    var colSpanCount = 0;
+    var colSpanCell, lastCell = null;
+    var tblData = new Array(), tblSpan = new Array(), tblTd2ThData = new Array();
+    var rowIndex = 0, colIndex = 0;
+    var needRowSpan = false;
+    $("table").each(function() {
+        $(this).find("tr").each(function() {
+            tblData[rowIndex] = new Array();
+            tblSpan[rowIndex] = new Array();
+            $(this).find("td, th").each(function() {
+                var cell = $(this);
+                // --- 行合并预处理 ---
+                // 克隆表格数据
+                tblData[rowIndex][colIndex] = cell;
+                tblSpan[rowIndex][colIndex] = 0;
+                // 行合并标记
+                if (cell.text() == "...") {
+                    tblSpan[rowIndex][colIndex] = 1;
+                    needRowSpan = true;
+                }
+                colIndex++;
+
+                // --- 列合并 ---
+                // 列合并标记
+                if (cell.text() == "===") {
+                    colSpanCount++;
+                    cell.remove();
+                    if (colSpanCount == 1)
+                        colSpanCell = lastCell;
+                }
+                else { // 列合并
+                    if (colSpanCount > 0) {
+                        colSpanCell.attr("colspan", colSpanCount + 1);
+                        colSpanCell.attr("align", "center");
+                    }
+                    colSpanCount = 0;
+                }
+                lastCell = cell;
+            }); // find(td, th)
+
+            // 列合并（对于最后一列的补充处理）
+            if (colSpanCount > 0) {
+                colSpanCell.attr("colspan", colSpanCount + 1);
+                colSpanCell.attr("align", "center");
+            }
+            colSpanCount = 0;
+
+            rowIndex++;
+            colIndex = 0;
+        }); // tr
+        rowIndex = 0;
+
+        // 行合并
+        if (needRowSpan == true) {
+            tblTd2ThData = new Array();
+            // 列式遍历（从左到右）
+            for (var c = 0; c < tblSpan[0].length; c++) {
+                var rowSpanCount = 0, rowSpanCell = null;
+                var r = 0, thSpanFlag = false;
+
+                // 列式遍历（从上到下）
+                while (r < tblSpan.length) {
+                    if (tblSpan[r][c] == 1) { // 要合并
+                        rowSpanCount++;
+                        // tblData[r][c].remove(); // 移除要被合并的单元格
+                        if (rowSpanCell == null) {
+                            rowSpanCell = tblData[r - 1][c];
+                        }
+                        // 记录最大列头行合并深度
+                        if (r == 1)
+                            thSpanFlag = true;
+                        if (thSpanFlag == true)
+                            tblTd2ThData[tblTd2ThData.length] = tblData[r][c].parent();
+                        tblData[r][c].remove(); // 移除要被合并的单元格
+                    } else {
+                        thSpanFlag = false;
+                        // 单元格行合并
+                        if (rowSpanCell != null) {
+                            rowSpanCell.attr("rowspan", rowSpanCount + 1);
+                            rowSpanCount = 0;
+                            rowSpanCell = null;
+                        }
+                    }
+                    r++;
+                } // while
+                // 单元格行合并（对于最后一行的补充处理）
+                if (rowSpanCell != null) {
+                    rowSpanCell.attr("rowspan", rowSpanCount + 1);
+                    rowSpanCell.attr("align", "center");
+                }
+            } // for
+            
+            for (var i=0; i<tblTd2ThData.length; i++) {
+                console.log(tblData[0][0].parent().text());
+                tblData[0][0].parent().parent().append(tblTd2ThData[i]);
+                tblTd2ThData[i].find("td").contents().unwrap().wrap('<th/>');
+            }
+        } // if
+
+        needRowSpan = false;
+    }); // table
 }
 /**
  * 初始化插图数据
@@ -770,6 +873,7 @@ function openContentInNewTab() {
     // mermaid / flow.js等SVG图
     else if (_lastHoverContent.attr("fig-type") == "svg") {
         w.document.title = ["图", "圖", "Figure", "Figure", "карта", "図", "그림"][_lang];
+        w.document.title = _lastHoverContent.parent().text();
         w.document.body.outerHTML = baseContent + "<div class='md-diagram-panel'>"
             + _lastHoverContent.prop("outerHTML");
             + "</div></body>";
@@ -1229,7 +1333,6 @@ function showOutline() {
   _outlineShowed = true;
   var toc = $(".mdx-toc-box");
   if (isOutlineShowed() && parseInt($(".mdx-toc-box").css("left")) < 0) {
-
       // 显示大纲工具栏
       toc.addClass("mdx-float-card");
       toc.animate({ left: 10 + _reboundOffset }, _animateSpeed).
@@ -1438,7 +1541,7 @@ function showBreadNav() {
     adjustToolbar();
 
     nav.addClass("mdx-float-card");
-    nav.animate({ top: 0 }, _animateSpeed);
+    nav.animate({ top: 0}, _animateSpeed);
 
     // 同步处理工具栏2
     var tb = $(".mdx-toolbar");
@@ -1510,6 +1613,42 @@ function navForward() {
   window.history.forward();
 }
 /**
+ * 将image转换为base64
+ **/
+function getBase64Image(img) {
+    var canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+    var ext = img.src.substring(img.src.lastIndexOf(".")+1).toLowerCase();
+    var dataURL = canvas.toDataURL("image/"+ext);
+    return dataURL;
+}
+/**
+ * 将HTML文件及图片资源保存为单一文件
+ **/
+function saveToUniFile() {
+    $("img").each(function() {
+        var src = $(this).attr("src");
+        if (src.indexOf("http") == -1) {
+            var image = new Image();
+            // image.setAttribute('crossOrigin', 'anonymous');
+            image.crossOrigin = 'Anonymous';
+            image.src = src;
+            console.log(image.src);
+            image.onload = function () {
+                var canvas = document.createElement("canvas");
+                var ctx = canvas.getContext("2d");
+                ctx.drawImage(image, 0, 0);
+                var ext = img.src.substring(img.src.lastIndexOf(".") + 1).toLowerCase();
+                var base64 = canvas.toDataURL("image/" + ext);
+                console.log(base64);
+            };
+        }
+    });
+}
+/**
  * 自适应显示工具栏
  **/
 function adjustToolbar() {
@@ -1547,7 +1686,7 @@ function adjustToolbar() {
         tb.animate({
             top: 0,
             right: "auto",
-            width: 300
+            width: 350
         }, _animateSpeed);
     }
 
@@ -1588,7 +1727,7 @@ function adjustBreadNav() {
       });
   }
   else {
-      nav.css({left: 300 + 30});
+      nav.css({left: 350 + 30});
 
       prevText.show();
       nextText.show();
@@ -2779,6 +2918,8 @@ $(document).ready(function() {
         hintWithShake($(".mdx-outline"), 1, 10);
         localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-1"] = true;
     }
+
+    //saveToUniFile();
 });
 </script>
 <!--========================================================================-->

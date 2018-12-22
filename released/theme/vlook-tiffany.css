@@ -26,7 +26,7 @@ html {
 html,
 body {
   background: #ffffff;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-weight: normal;
   color: #56585a;
   line-height: 2;
@@ -65,18 +65,18 @@ img {
 }
 a {
   color: #0d0b06;
-  border-bottom: 1px solid #f29130;
-  padding-bottom: 1px;
+  box-shadow: 0px -0.5em 0px rgba(230, 92, 161, 0.3) inset;
   text-decoration: none;
   font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
 a:hover {
-  color: #f29130;
-  border-bottom: 1px solid #f29130;
+  color: #e65ca1;
+  border-bottom: 1px solid #e65ca1;
+  box-shadow: none;
   transition: all 0.3s ease-in-out;
 }
 a:active {
-  color: #f29130;
+  color: #e65ca1;
   transition: all 0.3s ease-in-out;
 }
 h1 a,
@@ -186,7 +186,7 @@ h4 {
   margin-bottom: 0.2em;
   padding-top: 20px;
   font-size: 1.4em;
-  border-top: 1px dotted #effaf9;
+  border-top: 1px dotted #dbf5f2;
 }
 h3 + h4 {
   margin-top: 0;
@@ -223,7 +223,7 @@ li > h6::before {
 }
 strong {
   color: #0d0b06;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
 }
 p,
 blockquote,
@@ -347,26 +347,28 @@ table {
   border-spacing: 0;
   width: auto;
   line-height: 1.5;
-  word-break: initial;
+  word-break: break-all;
   border: 2px solid rgba(255, 255, 255, 0);
-  border-top: 2px solid #888b8e;
-  border-bottom: 2px solid #888b8e;
+  border-top: 2px solid rgba(255, 255, 255, 0);
+  border-bottom: 2px solid rgba(255, 255, 255, 0);
 }
 table tr {
   margin: 0;
   padding: 0;
+}
+table tr:last-child {
+  box-shadow: 0px 1px 0px #888b8e;
 }
 table tr:nth-child(2n) {
   background-color: rgba(242, 242, 242, 0.45);
 }
 table tr th {
   background-color: #f2f2f2;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   color: #56585a;
   border-right: 1px solid rgba(86, 88, 90, 0.1);
-  border-bottom: 1px solid #56585a;
   margin: 0;
   padding: 0.5em 0.5em;
+  box-shadow: 0px -1px 0px #888b8e;
 }
 table tr td {
   border-right: 1px solid rgba(86, 88, 90, 0.1);
@@ -412,7 +414,7 @@ li table tr th:first-child::before,
 li table tr td:first-child::before {
   content: "#";
   color: rgba(79, 206, 193, 0.5);
-  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.85em;
   vertical-align: middle;
   text-align: right;
@@ -432,6 +434,9 @@ h6 + figure {
   margin-top: 0em;
   margin-left: 1em;
 }
+li h6 + figure {
+  margin-left: 0em;
+}
 h1 + figure table tr th:first-child::before,
 h1 + figure table tr td:first-child::before,
 h2 + figure table tr th:first-child::before,
@@ -446,13 +451,17 @@ h6 + figure table tr th:first-child::before,
 h6 + figure table tr td:first-child::before {
   content: "# ";
   color: rgba(79, 206, 193, 0.5);
-  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.85em;
   vertical-align: middle;
   text-align: right;
   width: 2.5em;
   position: absolute;
   left: -0.5em;
+}
+li h6 + figure table tr th:first-child::before,
+li h6 + figure table tr td:first-child::before {
+  left: -3em;
 }
 h1 + figure table tr td:first-child::before,
 h2 + figure table tr td:first-child::before,
@@ -501,7 +510,7 @@ a[name^="ref-footnote-"] {
   color: #045ad1;
 }
 a[name^="ref-footnote-"]:hover {
-  color: #f29130;
+  color: #e65ca1;
   transition: all 0.3s ease-in-out;
 }
 a[name^="ref-footnote-"]:before {
@@ -522,8 +531,8 @@ a[name^="ref-footnote-"]:after {
 code,
 tt {
   color: #0d0b06;
-  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
-  background-color: #effaf9;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+  background-color: #dbf5f2;
   border-radius: 0.3em;
   padding: 0.1em 0.3em;
   margin: 0px 0.2em;
@@ -536,7 +545,7 @@ blockquote code {
 }
 .md-fences {
   color: #56585a;
-  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   background-color: #f2f2f2;
   border-radius: 5px;
   border: 2px solid #f2f2f2;
@@ -628,7 +637,7 @@ blockquote code {
 .md-toc-h3 a:hover,
 .md-toc-h4 a:hover,
 .md-toc-h5 a:hover {
-  color: #f29130;
+  color: #e65ca1;
   background-color: rgba(255, 255, 255, 0);
   text-decoration: none;
   transition: all 0.3s ease-in-out;
@@ -861,7 +870,7 @@ rect[id^="e"].flowchart {
   stroke-width: 5;
 }
 rect[id^="op"].flowchart {
-  fill: #effaf9;
+  fill: #dbf5f2;
   stroke: #77d9cf;
   stroke-width: 1;
 }
@@ -890,7 +899,7 @@ marker[id^="raphael-marker-endblock"] > use {
 }
 text[text-anchor="start"] > tspan {
   font-size: 14px;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   fill: #0d0b06;
 }
 /* ----- sequeuce diagram 时序图 ----- */
@@ -900,7 +909,7 @@ rect[x="10"][y="10"][fill="var(--bg-color)"][stroke="currentColor"][stroke-width
   stroke-width: 2px;
 }
 rect[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][rx="0"][ry="0"] {
-  fill: #effaf9;
+  fill: #dbf5f2;
   stroke: #77d9cf;
   stroke-width: 1px;
 }
@@ -929,12 +938,12 @@ marker[id^="raphael-marker-endopen"] > use {
 }
 rect + text[text-anchor="middle"] > tspan {
   font-size: 14px;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   fill: #56585a;
 }
 rect + rect + text[text-anchor="middle"] > tspan {
   font-size: 14px;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   fill: #0d0b06;
 }
 /**************************************
@@ -949,12 +958,12 @@ svg[id^="mermaidChart"] {
   color: #0d0b06;
 }
 .node rect[rx="0"][rx="0"] {
-  fill: #effaf9;
+  fill: #dbf5f2;
   stroke: #77d9cf;
   stroke-width: 3;
 }
 .node rect[rx="5"][rx="5"] {
-  fill: #effaf9;
+  fill: #dbf5f2;
   stroke: #77d9cf;
   stroke-width: 1;
   rx: 5;
@@ -989,7 +998,7 @@ svg[id^="mermaidChart"] {
 .edgeLabel {
   color: #0d0b06;
   background-color: #ffffff;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
 }
 .cluster rect {
   fill: rgba(86, 88, 90, 0.05) !important;
@@ -1023,7 +1032,7 @@ svg[id^="mermaidChart"] {
 /* ----- sequeuce diagram 时序图 ----- */
 .actor {
   stroke: #77d9cf;
-  fill: #effaf9;
+  fill: #dbf5f2;
   rx: 5;
   ry: 5;
 }
@@ -1059,7 +1068,7 @@ text.actor {
 .messageText {
   fill: #56585a;
   stroke: none;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
 }
 .labelBox {
   stroke: none;
@@ -1094,7 +1103,7 @@ text.actor {
 .noteText tspan {
   fill: #56585a;
   stroke: none;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
 }
 /* ----- gantt diagram 甘特图 ----- */
 .section {
@@ -1152,7 +1161,7 @@ text.actor {
 .active1,
 .active2,
 .active3 {
-  fill: #effaf9;
+  fill: #dbf5f2;
   stroke: #77d9cf;
 }
 .activeText0,
@@ -1167,7 +1176,7 @@ text.actor {
 .done2,
 .done3 {
   stroke: none;
-  fill: #effaf9;
+  fill: #dbf5f2;
   stroke-width: 2;
   stroke-dasharray: 2;
 }
@@ -1260,7 +1269,7 @@ g.classGroup text {
   stroke: none;
 }
 g.classGroup rect {
-  fill: #effaf9;
+  fill: #dbf5f2;
   stroke: #77d9cf;
 }
 g.classGroup line {
@@ -1270,11 +1279,11 @@ g.classGroup line {
 svg .classLabel .box {
   stroke: none;
   stroke-width: 0;
-  fill: #effaf9;
+  fill: #dbf5f2;
   opacity: 0.5;
 }
 svg .classLabel .label {
-  fill: #effaf9;
+  fill: #dbf5f2;
 }
 .relation {
   stroke: #77d9cf;
@@ -1282,52 +1291,52 @@ svg .classLabel .label {
   fill: none;
 }
 .composition {
-  fill: #effaf9;
+  fill: #dbf5f2;
   stroke: #77d9cf;
   stroke-width: 1;
 }
 #compositionStart {
-  fill: #effaf9;
+  fill: #dbf5f2;
   stroke: #77d9cf;
   stroke-width: 1;
 }
 #compositionEnd {
-  fill: #effaf9;
+  fill: #dbf5f2;
   stroke: #77d9cf;
   stroke-width: 1;
 }
 .aggregation {
-  fill: #effaf9;
+  fill: #dbf5f2;
   stroke: #56585a;
   stroke-width: 1;
 }
 #aggregationStart {
-  fill: #effaf9;
+  fill: #dbf5f2;
   stroke: #77d9cf;
   stroke-width: 1;
 }
 #aggregationEnd {
-  fill: #effaf9;
+  fill: #dbf5f2;
   stroke: #77d9cf;
   stroke-width: 1;
 }
 #dependencyStart {
-  fill: #effaf9;
+  fill: #dbf5f2;
   stroke: #77d9cf;
   stroke-width: 1;
 }
 #dependencyEnd {
-  fill: #effaf9;
+  fill: #dbf5f2;
   stroke: #77d9cf;
   stroke-width: 1;
 }
 #extensionStart {
-  fill: #effaf9;
+  fill: #dbf5f2;
   stroke: #77d9cf;
   stroke-width: 1;
 }
 #extensionEnd {
-  fill: #effaf9;
+  fill: #dbf5f2;
   stroke: #77d9cf;
   stroke-width: 1;
 }
@@ -1351,24 +1360,31 @@ div.mermaidTooltip {
 }
 /* 数学公式 */
 .MathJax_SVG {
-  border: 1px solid #effaf9;
+  border: 2px solid #dbf5f2;
   border-radius: 0.3em;
-  padding: 0em 0.3em;
+  padding: 0.3em 0.3em;
+}
+.MathJax_SVG:hover {
+  background-color: #ffffff;
+  transform: scale(2);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
 }
 .MathJax_SVG g text {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   color: #0d0b06;
 }
 /* md 系统样式 */
 .md-toc-inner {
   text-decoration: none;
+  box-shadow: none;
 }
 .md-toc-item:hover {
-  box-shadow: 0px -1px 0px #f29130 inset;
+  box-shadow: 0px -1px 0px #e65ca1 inset;
   transition: all 0.3s ease-in-out;
 }
 .md-toc-item:active {
-  box-shadow: 0px -1px 0px #f29130 inset;
+  box-shadow: 0px -1px 0px #e65ca1 inset;
   transition: all 0.3s ease-in-out;
 }
 .md-toc-item > a {
@@ -1376,12 +1392,12 @@ div.mermaidTooltip {
 }
 .md-toc-item:hover > a,
 .md-toc-item a:hover {
-  color: #f29130;
+  color: #e65ca1;
   transition: all 0.3s ease-in-out;
 }
 .md-toc-item:active > a,
 .md-toc-item a:active {
-  color: #f29130;
+  color: #e65ca1;
   transition: all 0.3s ease-in-out;
 }
 #svg-figure-content {
@@ -1395,20 +1411,28 @@ div.mermaidTooltip {
   vertical-align: middle;
   width: 100%;
 }
-sup.md-footnote a,
+sup.md-footnote {
+  background-color: inherit;
+}
+sup.md-footnote a {
+  color: #e65ca1;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  box-shadow: none;
+}
 sup.md-footnote a:hover {
-  color: #f29130;
-  transition: all 0.3s ease-in-out;
+  color: #e65ca1;
+  border-bottom: 0;
 }
 .footnote-line a:not(.reversefootnote) {
   color: #77d9cf;
 }
 kbd {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.85em;
   border-radius: 0.4em;
   margin: 0px 0.2em;
-  padding: 0.1em 0.3em;
+  padding: 0em 0.3em;
   background-color: #ffffff;
   color: #0d0b06;
   border: 0.1em solid #bdbebf;
@@ -1477,7 +1501,7 @@ li p {
   color: #33b7a9;
 }
 .mdx-color-theme-bg-alt {
-  color: #effaf9;
+  color: #dbf5f2;
 }
 .mdx-color-header-color {
   color: #4fcec1;
@@ -1628,10 +1652,10 @@ li p {
   color: #ffffff;
 }
 .mdx-color-aline {
-  color: #f29130;
+  color: #e65ca1;
 }
 .mdx-color-ahover {
-  color: #f29130;
+  color: #e65ca1;
 }
 .mdx-color-table-th-bg {
   color: #f2f2f2;
@@ -1667,10 +1691,10 @@ li p {
   border-radius: 15px;
   cursor: default;
   display: block;
-  left: -300px;
+  left: -350px;
   top: 10px;
   bottom: 10px;
-  width: 300px;
+  width: 350px;
   padding: 0px;
   position: fixed;
   z-index: 2000;
@@ -1680,7 +1704,7 @@ li p {
   user-select: none;
 }
 .mdx-float-card {
-  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.3);
 }
 .mdx-toc-box-header {
   color: #56585a;
@@ -1702,9 +1726,6 @@ li p {
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
 }
-.md-footnote {
-  background-color: #f2f2f2;
-}
 .mdx-footer-note {
   position: fixed;
   left: 15%;
@@ -1712,7 +1733,7 @@ li p {
   bottom: -180px;
   height: 180px;
   border-radius: 15px;
-  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
   background-color: #ffffff;
   display: none;
@@ -1734,7 +1755,7 @@ li p {
   border-bottom-right-radius: 15px;
   left: 10px;
   top: 0px;
-  width: 300px;
+  width: 350px;
   height: 50px;
   position: fixed;
   z-index: 100;
@@ -1756,11 +1777,11 @@ li p {
   cursor: pointer;
 }
 .mdx-toc-box-title:hover {
-  color: #f29130;
+  color: #e65ca1;
   transition: all 0.3s ease-in-out;
 }
 .mdx-toc-box-title:active {
-  color: #f29130;
+  color: #e65ca1;
   transition: all 0.3s ease-in-out;
 }
 .mdx-toc-box-body-scroll {
@@ -1822,7 +1843,7 @@ li p {
   visibility: visible;
 }
 .mdx-header-current {
-  background-color: #effaf9;
+  background-color: #dbf5f2;
 }
 .mdx-header-current a {
   font-weight: bold;
@@ -1842,7 +1863,7 @@ li p {
   text-align: center;
 }
 .mdx-folder:hover {
-  color: #f29130;
+  color: #e65ca1;
   transition: all 0.3s ease-in-out;
 }
 .mdx-btn {
@@ -1860,7 +1881,7 @@ li p {
   border-radius: 8px;
 }
 .mdx-btn-hover:hover {
-  background-color: #f29130;
+  background-color: #e65ca1;
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
   transform: scale(1.2);
@@ -1871,7 +1892,7 @@ li p {
   transform: scale(1);
 }
 .mdx-btn:active {
-  background-color: #f29130;
+  background-color: #e65ca1;
   box-shadow: none;
   transition: 0.3s;
   transform: scale(1);
@@ -1901,7 +1922,7 @@ li p {
   transform: scale(1);
 }
 .mdx-btn2:active {
-  background-color: #f29130;
+  background-color: #e65ca1;
   box-shadow: none;
   transition: 0.3s;
   transform: scale(1);
@@ -1928,11 +1949,11 @@ li p {
   border-bottom-left-radius: 15px;
 }
 .mdx-nav-prev-hover:hover {
-  background: linear-gradient(to right, #f29130, rgba(242, 145, 48, 0));
+  background: linear-gradient(to right, #e65ca1, rgba(230, 92, 161, 0));
   transition: all 0.3s ease-in-out;
 }
 .mdx-nav-prev:active {
-  background: linear-gradient(to right, #f29130, rgba(242, 145, 48, 0));
+  background: linear-gradient(to right, #e65ca1, rgba(230, 92, 161, 0));
   transition: all 0.3s ease-in-out;
 }
 .mdx-nav-prev-text {
@@ -1960,11 +1981,11 @@ li p {
   border-bottom-right-radius: 15px;
 }
 .mdx-nav-next-hover:hover {
-  background: linear-gradient(to left, #f29130, rgba(242, 145, 48, 0));
+  background: linear-gradient(to left, #e65ca1, rgba(230, 92, 161, 0));
   transition: all 0.3s ease-in-out;
 }
 .mdx-nav-next:active {
-  background: linear-gradient(to left, #f29130, rgba(242, 145, 48, 0));
+  background: linear-gradient(to left, #e65ca1, rgba(230, 92, 161, 0));
   transition: all 0.3s ease-in-out;
 }
 .mdx-nav-next-text {
@@ -2013,11 +2034,11 @@ li p {
   display: block;
 }
 .mdx-bread-nav-text:hover {
-  color: #f29130;
+  color: #e65ca1;
   transition: all 0.3s ease-in-out;
 }
 .mdx-bread-nav-text:active {
-  color: #f29130;
+  color: #e65ca1;
   transition: all 0.3s ease-in-out;
 }
 .mdx-fullscreen {
@@ -2141,7 +2162,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-c4-alt,
 .mdx-code-c5-alt,
 .mdx-code-c6-alt {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   color: #56585a;
   padding: 0.1em 0.3em;
   border-radius: 0.4em;
@@ -2184,7 +2205,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-c4,
 .mdx-code-c5,
 .mdx-code-c6 {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   color: #ffffff;
   padding: 0.1em 0.3em;
   border-radius: 0.4em;
@@ -2221,7 +2242,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-name5,
 .mdx-code-name6 {
   background-color: #f2f2f2 !important;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   margin-right: 0px;
   border-top-left-radius: 0.4em;
   border-bottom-left-radius: 0.4em;
@@ -2252,7 +2273,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-value4,
 .mdx-code-value5,
 .mdx-code-value6 {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   margin-left: 0px;
   border-top-right-radius: 0.4em;
   border-bottom-right-radius: 0.4em;
@@ -2336,6 +2357,7 @@ body div[id=write] > h6:last-of-type {
   font-weight: bold;
   font-size: 2.5em;
   font-family: "", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  text-align: left;
   height: 25cm;
   padding-left: 30px;
   padding-top: 150px;
@@ -2344,9 +2366,9 @@ body div[id=write] > h6:last-of-type {
   margin-bottom: 3em;
   border: 0;
   border-radius: 15px;
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSI1MCUiIHgyPSI1MCUiIHkxPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9Ii4wNSIgb2Zmc2V0PSIwJSIvPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9Ii4yNSIgb2Zmc2V0PSIxMDAlIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cGF0aCBmaWxsPSJ1cmwoI2EpIiBkPSJNMjM0Ljg1NzE0MywzMjEuNDI4NTcyIEwyNDMuNDI4NTcyLDMyMS40Mjg1NzIgQzI0NiwzMjEuNDI4NTcyIDI0OC41NzE0MjksMzIxLjQyODU3MiAyNTIsMzIwLjU3MTQyOSBMMjUyLDM2My40Mjg1NzEgQzI1MiwzNjguNTcxNDI5IDI0OC41NzE0MjksMzcyIDI0My40Mjg1NzIsMzcyIEMyMzguMjg1NzE0LDM3MiAyMzQuODU3MTQzLDM2OC41NzE0MjkgMjM0Ljg1NzE0MywzNjMuNDI4NTcxIEwyMzQuODU3MTQzLDMyMS40Mjg1NzIgWiBNODMuOTk5OTk5OSwzMzEuNzE0Mjg2IEM4Ni41NzE0Mjg0LDMzMi41NzE0MjkgODkuOTk5OTk5OSwzMzIuNTcxNDI5IDkyLjU3MTQyODgsMzMyLjU3MTQyOSBDOTUuOTk5OTk5OSwzMzIuNTcxNDI5IDk4LjU3MTQyODgsMzMyLjU3MTQyOSAxMDEuMTQyODU3LDMzMS43MTQyODYgTDEwMS4xNDI4NTcsMzYzLjQyODU3MSBDMTAxLjE0Mjg1NywzNjguNTcxNDI5IDk3LjcxNDI4NTgsMzcyIDkyLjU3MTQyODgsMzcyIEM4Ny40Mjg1NzE0LDM3MiA4My45OTk5OTk5LDM2OC41NzE0MjkgODMuOTk5OTk5OSwzNjMuNDI4NTcxIEw4My45OTk5OTk5LDMzMS43MTQyODYgWiBNMjQzLjQyODU3MiwwIEMzMTAuMjg1NzE0LDAgMzYwLDE0NCAzNjAsMjA0Ljg1NzE0MyBDMzYwLDI2NS43MTQyODYgMzEyLDMxNi4yODU3MTQgMjUyLDMyMC41NzE0MjkgTDI1MiwxOTkuNzE0Mjg2IEwyODcuMTQyODU3LDE2NS40Mjg1NzEgQzI5MC41NzE0MjksMTYyIDI5MC41NzE0MjksMTU2Ljg1NzE0MyAyODcuMTQyODU3LDE1My40Mjg1NzEgQzI4My43MTQyODYsMTUwIDI3OC41NzE0MjksMTUwIDI3NS4xNDI4NTcsMTUzLjQyODU3MSBMMjUyLDE3NS43MTQyODYgTDI1MiwxMTYuNTcxNDI5IEMyNTIsMTExLjQyODU3MiAyNDguNTcxNDI5LDEwOCAyNDMuNDI4NTcyLDEwOCBDMjM4LjI4NTcxNCwxMDggMjM0Ljg1NzE0MywxMTEuNDI4NTcyIDIzNC44NTcxNDMsMTE2LjU3MTQyOSBMMjM0Ljg1NzE0MywyMjcuMTQyODU3IEwxOTMuNzE0Mjg2LDE4NiBDMTkwLjI4NTcxNCwxODIuNTcxNDI5IDE4NS4xNDI4NTcsMTgyLjU3MTQyOSAxODEuNzE0Mjg2LDE4NiBDMTc4LjI4NTcxNCwxODkuNDI4NTcyIDE3OC4yODU3MTQsMTk0LjU3MTQyOSAxODEuNzE0Mjg2LDE5OCBMMjM0Ljg1NzE0MywyNTEuMTQyODU3IEwyMzQuODU3MTQzLDMyMC41NzE0MjkgQzIxMCwzMTguODU3MTQzIDE4Ni44NTcxNDMsMzA5LjQyODU3MiAxNjguODU3MTQzLDI5NCBDMTUzLjQyODU3MSwzMTUuNDI4NTcyIDEyOC41NzE0MjksMzI5LjE0Mjg1NyAxMDIsMzMxLjcxNDI4NiBMMTAyLDE5Ni4yODU3MTUgQzEwMiwxOTEuMTQyODU3IDk4LjU3MTQyODgsMTg3LjcxNDI4NiA5My40Mjg1NzE0LDE4Ny43MTQyODYgQzg4LjI4NTcxNDQsMTg3LjcxNDI4NiA4NC44NTcxNDI5LDE5MS4xNDI4NTcgODQuODU3MTQyOSwxOTYuMjg1NzE1IEw4NC44NTcxNDI5LDI1MiBMNjMuNDI4NTcxNSwyMzAuNTcxNDI5IEM2MC4wMDAwMDAxLDIyNy4xNDI4NTcgNTQuODU3MTQzMSwyMjcuMTQyODU3IDUxLjQyODU3MTYsMjMwLjU3MTQyOSBDNDguMDAwMDAwMSwyMzQgNDguMDAwMDAwMSwyMzkuMTQyODU3IDUxLjQyODU3MTYsMjQyLjU3MTQyOSBMODQuODU3MTQyOSwyNzYgTDg0Ljg1NzE0MjksMzMxLjcxNDI4NiBDMzcuNzE0Mjg1NywzMjcuNDI4NTcyIDAsMjg4IDAsMjM5LjE0Mjg1NyBDMCwxOTIgMzYuODU3MTQyOCw3Ni4yODU3MTQ0IDkzLjQyODU3MTQsNzYuMjg1NzE0NCBDMTExLjQyODU3Miw3Ni4yODU3MTQ0IDEyOS40Mjg1NzIsODkuOTk5OTk5OSAxNDUuNzE0Mjg2LDExNCBDMTY2LjI4NTcxNCw1Ni41NzE0Mjg2IDIwMS40Mjg1NzIsMCAyNDMuNDI4NTcyLDAgWiIvPgo8L3N2Zz4K"), url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSI1MCUiIHgyPSI1MCUiIHkxPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9Ii4wNSIgb2Zmc2V0PSIwJSIvPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9Ii4yNSIgb2Zmc2V0PSIxMDAlIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cGF0aCBmaWxsPSJ1cmwoI2EpIiBkPSJNMTcwLjkxNDI4NiwzNDkuNjg0MzMyIEwxNzYuMDU3MTQzLDM0OS42ODQzMzIgQzE3Ny42LDM0OS42ODQzMzIgMTc5LjE0Mjg1NywzNDkuNjg0MzMyIDE4MS4yLDM0OS4xNzA1MDcgTDE4MS4yLDM3NC44NjE3NTEgQzE4MS4yLDM3Ny45NDQ3IDE3OS4xNDI4NTcsMzgwIDE3Ni4wNTcxNDMsMzgwIEMxNzIuOTcxNDI5LDM4MCAxNzAuOTE0Mjg2LDM3Ny45NDQ3IDE3MC45MTQyODYsMzc0Ljg2MTc1MSBMMTcwLjkxNDI4NiwzNDkuNjg0MzMyIFogTTgwLjQsMzU1Ljg1MDIzIEM4MS45NDI4NTcxLDM1Ni4zNjQwNTUgODMuOTk5OTk5OSwzNTYuMzY0MDU1IDg1LjU0Mjg1NzMsMzU2LjM2NDA1NSBDODcuNTk5OTk5OSwzNTYuMzY0MDU1IDg5LjE0Mjg1NzMsMzU2LjM2NDA1NSA5MC42ODU3MTQ0LDM1NS44NTAyMyBMOTAuNjg1NzE0NCwzNzQuODYxNzUxIEM5MC42ODU3MTQ0LDM3Ny45NDQ3IDg4LjYyODU3MTUsMzgwIDg1LjU0Mjg1NzMsMzgwIEM4Mi40NTcxNDI4LDM4MCA4MC40LDM3Ny45NDQ3IDgwLjQsMzc0Ljg2MTc1MSBMODAuNCwzNTUuODUwMjMgWiBNMTc2LjA1NzE0MywxNTcgQzIxNi4xNzE0MjksMTU3IDI0NiwyNDMuMzIyNTgxIDI0NiwyNzkuODA0MTQ3IEMyNDYsMzE2LjI4NTcxNCAyMTcuMiwzNDYuNjAxMzgyIDE4MS4yLDM0OS4xNzA1MDcgTDE4MS4yLDI3Ni43MjExOTggTDIwMi4yODU3MTQsMjU2LjE2ODIwMyBDMjA0LjM0Mjg1NywyNTQuMTEyOTAzIDIwNC4zNDI4NTcsMjUxLjAyOTk1NCAyMDIuMjg1NzE0LDI0OC45NzQ2NTQgQzIwMC4yMjg1NzIsMjQ2LjkxOTM1NSAxOTcuMTQyODU3LDI0Ni45MTkzNTUgMTk1LjA4NTcxNCwyNDguOTc0NjU0IEwxODEuMiwyNjIuMzM0MTAxIEwxODEuMiwyMjYuODgwMTg0IEMxODEuMiwyMjMuNzk3MjM1IDE3OS4xNDI4NTcsMjIxLjc0MTkzNiAxNzYuMDU3MTQzLDIyMS43NDE5MzYgQzE3Mi45NzE0MjksMjIxLjc0MTkzNiAxNzAuOTE0Mjg2LDIyMy43OTcyMzUgMTcwLjkxNDI4NiwyMjYuODgwMTg0IEwxNzAuOTE0Mjg2LDI5My4xNjM1OTQgTDE0Ni4yMjg1NzEsMjY4LjUgQzE0NC4xNzE0MjksMjY2LjQ0NDcgMTQxLjA4NTcxNCwyNjYuNDQ0NyAxMzkuMDI4NTcxLDI2OC41IEMxMzYuOTcxNDI5LDI3MC41NTUzIDEzNi45NzE0MjksMjczLjYzODI0OSAxMzkuMDI4NTcxLDI3NS42OTM1NDggTDE3MC45MTQyODYsMzA3LjU1MDY5MSBMMTcwLjkxNDI4NiwzNDkuMTcwNTA3IEMxNTYsMzQ4LjE0Mjg1NyAxNDIuMTE0Mjg2LDM0Mi40OTA3ODMgMTMxLjMxNDI4NiwzMzMuMjQxOTM1IEMxMjIuMDU3MTQzLDM0Ni4wODc1NTggMTA3LjE0Mjg1NywzNTQuMzA4NzU2IDkxLjIwMDAwMDEsMzU1Ljg1MDIzIEw5MS4yMDAwMDAxLDI3NC42NjU4OTkgQzkxLjIwMDAwMDEsMjcxLjU4Mjk0OSA4OS4xNDI4NTczLDI2OS41Mjc2NSA4Ni4wNTcxNDI4LDI2OS41Mjc2NSBDODIuOTcxNDI4NiwyNjkuNTI3NjUgODAuOTE0Mjg1NywyNzEuNTgyOTQ5IDgwLjkxNDI4NTcsMjc0LjY2NTg5OSBMODAuOTE0Mjg1NywzMDguMDY0NTE2IEw2OC4wNTcxNDI5LDI5NS4yMTg4OTQgQzY2LDI5My4xNjM1OTQgNjIuOTE0Mjg1OCwyOTMuMTYzNTk0IDYwLjg1NzE0MywyOTUuMjE4ODk0IEM1OC44MDAwMDAxLDI5Ny4yNzQxOTQgNTguODAwMDAwMSwzMDAuMzU3MTQzIDYwLjg1NzE0MywzMDIuNDEyNDQyIEw4MC45MTQyODU3LDMyMi40NTE2MTMgTDgwLjkxNDI4NTcsMzU1Ljg1MDIzIEM1Mi42Mjg1NzE0LDM1My4yODExMDYgMzAsMzI5LjY0NTE2MSAzMCwzMDAuMzU3MTQzIEMzMCwyNzIuMDk2Nzc0IDUyLjExNDI4NTcsMjAyLjczMDQxNSA4Ni4wNTcxNDI4LDIwMi43MzA0MTUgQzk2Ljg1NzE0MywyMDIuNzMwNDE1IDEwNy42NTcxNDMsMjEwLjk1MTYxMyAxMTcuNDI4NTcyLDIyNS4zMzg3MSBDMTI5Ljc3MTQyOSwxOTAuOTEyNDQyIDE1MC44NTcxNDMsMTU3IDE3Ni4wNTcxNDMsMTU3IFoiIHRyYW5zZm9ybT0ibWF0cml4KC0xIDAgMCAxIDI3NiAwKSIvPgo8L3N2Zz4K");
-  background-repeat: no-repeat, no-repeat;
-  background-position: bottom right, bottom left;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSIyNTAiIHZpZXdCb3g9IjAgMCA4MCAyNTAiPgogIDxyZWN0IHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0MyRjJFRCIgZmlsbC1ydWxlPSJldmVub2RkIi8+Cjwvc3ZnPgo="), url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCAyNTAgODAiPgogIDxyZWN0IHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0MyRjJFRCIgZmlsbC1ydWxlPSJldmVub2RkIi8+Cjwvc3ZnPgo="), url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNzAiIGhlaWdodD0iMzQ1IiB2aWV3Qm94PSIwIDAgMzcwIDM0NSI+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxyZWN0IHdpZHRoPSIxNjAiIGhlaWdodD0iODAiIHg9IjE0IiB5PSIzOSIgZmlsbD0iI0MyRjJFRCIgdHJhbnNmb3JtPSJyb3RhdGUoMzAgOTQgNzkpIi8+CiAgICA8cmVjdCB3aWR0aD0iMTYwIiBoZWlnaHQ9IjgwIiB4PSIxMzYiIHk9IjM5IiBmaWxsPSIjQzJGMkVEIiB0cmFuc2Zvcm09InNjYWxlKC0xIDEpIHJvdGF0ZSgzMCAwIC03MjcuMTIzKSIvPgogICAgPHBvbHlnb24gZmlsbD0iI0MyRjJFRCIgcG9pbnRzPSItMyAxNzUgMTY1IDE3NSAxNjUgMjU1IC0zIDI1NSAyOSAyMTQuOTg3IiB0cmFuc2Zvcm09InNjYWxlKDEgLTEpIHJvdGF0ZSg2MCA0NTMuMzkgMCkiLz4KICAgIDxwb2x5Z29uIGZpbGw9IiNDMkYyRUQiIHBvaW50cz0iMTQ0LjA2NiAxNzUgMzEyLjA2NiAxNzUgMzEyLjA2NiAyNTUgMTQ0LjA2NiAyNTUgMTc2LjA2NiAyMTQuOTg3IiB0cmFuc2Zvcm09InJvdGF0ZSgtMTIwIDIyOC4wNjYgMjE1KSIvPgogIDwvZz4KPC9zdmc+Cg==");
+  background-repeat: repeat-x, repeat-y, no-repeat;
+  background-position: bottom, right, bottom right;
 }
 body div[id=write] > h6:last-of-type {
   height: 13cm;
@@ -2361,7 +2383,7 @@ body div[id=write] > h6:first-of-type strong {
   text-decoration: none;
 }
 body div[id=write] > h6:first-of-type strong::before {
-  content: "By ";
+  content: "by ";
   font-weight: normal;
   text-decoration: none;
 }
@@ -2424,6 +2446,7 @@ body div[id=write] > h6:last-of-type::after {
   body div[id=write] > h6:last-of-type,
   body div[id=write] > h6:first-of-type strong,
   body div[id=write] > h6:first-of-type em {
+    background: none !important;
     background-color: #ffffff !important;
     color: #56585a !important;
   }

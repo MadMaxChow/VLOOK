@@ -26,7 +26,7 @@ html {
 html,
 body {
   background: #ffffff;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-weight: normal;
   color: #56585a;
   line-height: 2;
@@ -65,14 +65,14 @@ img {
 }
 a {
   color: #202224;
-  border-bottom: 1px solid #dc0010;
-  padding-bottom: 1px;
+  box-shadow: 0px -0.5em 0px rgba(220, 0, 16, 0.3) inset;
   text-decoration: none;
   font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
 a:hover {
   color: #dc0010;
   border-bottom: 1px solid #dc0010;
+  box-shadow: none;
   transition: all 0.3s ease-in-out;
 }
 a:active {
@@ -223,7 +223,7 @@ li > h6::before {
 }
 strong {
   color: #202224;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
 }
 p,
 blockquote,
@@ -347,26 +347,28 @@ table {
   border-spacing: 0;
   width: auto;
   line-height: 1.5;
-  word-break: initial;
+  word-break: break-all;
   border: 2px solid rgba(255, 255, 255, 0);
-  border-top: 2px solid #888b8e;
-  border-bottom: 2px solid #888b8e;
+  border-top: 2px solid rgba(255, 255, 255, 0);
+  border-bottom: 2px solid rgba(255, 255, 255, 0);
 }
 table tr {
   margin: 0;
   padding: 0;
+}
+table tr:last-child {
+  box-shadow: 0px 1px 0px #888b8e;
 }
 table tr:nth-child(2n) {
   background-color: rgba(242, 242, 242, 0.45);
 }
 table tr th {
   background-color: #f2f2f2;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   color: #56585a;
   border-right: 1px solid rgba(86, 88, 90, 0.1);
-  border-bottom: 1px solid #56585a;
   margin: 0;
   padding: 0.5em 0.5em;
+  box-shadow: 0px -1px 0px #888b8e;
 }
 table tr td {
   border-right: 1px solid rgba(86, 88, 90, 0.1);
@@ -412,7 +414,7 @@ li table tr th:first-child::before,
 li table tr td:first-child::before {
   content: "#";
   color: rgba(17, 140, 223, 0.5);
-  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.85em;
   vertical-align: middle;
   text-align: right;
@@ -432,6 +434,9 @@ h6 + figure {
   margin-top: 0em;
   margin-left: 1em;
 }
+li h6 + figure {
+  margin-left: 0em;
+}
 h1 + figure table tr th:first-child::before,
 h1 + figure table tr td:first-child::before,
 h2 + figure table tr th:first-child::before,
@@ -446,13 +451,17 @@ h6 + figure table tr th:first-child::before,
 h6 + figure table tr td:first-child::before {
   content: "# ";
   color: rgba(17, 140, 223, 0.5);
-  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.85em;
   vertical-align: middle;
   text-align: right;
   width: 2.5em;
   position: absolute;
   left: -0.5em;
+}
+li h6 + figure table tr th:first-child::before,
+li h6 + figure table tr td:first-child::before {
+  left: -3em;
 }
 h1 + figure table tr td:first-child::before,
 h2 + figure table tr td:first-child::before,
@@ -522,7 +531,7 @@ a[name^="ref-footnote-"]:after {
 code,
 tt {
   color: #202224;
-  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   background-color: #cbe8fb;
   border-radius: 0.3em;
   padding: 0.1em 0.3em;
@@ -536,7 +545,7 @@ blockquote code {
 }
 .md-fences {
   color: #56585a;
-  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   background-color: #f2f2f2;
   border-radius: 5px;
   border: 2px solid #f2f2f2;
@@ -890,7 +899,7 @@ marker[id^="raphael-marker-endblock"] > use {
 }
 text[text-anchor="start"] > tspan {
   font-size: 14px;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   fill: #202224;
 }
 /* ----- sequeuce diagram 时序图 ----- */
@@ -929,12 +938,12 @@ marker[id^="raphael-marker-endopen"] > use {
 }
 rect + text[text-anchor="middle"] > tspan {
   font-size: 14px;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   fill: #56585a;
 }
 rect + rect + text[text-anchor="middle"] > tspan {
   font-size: 14px;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   fill: #202224;
 }
 /**************************************
@@ -989,7 +998,7 @@ svg[id^="mermaidChart"] {
 .edgeLabel {
   color: #202224;
   background-color: #ffffff;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
 }
 .cluster rect {
   fill: rgba(86, 88, 90, 0.05) !important;
@@ -1059,7 +1068,7 @@ text.actor {
 .messageText {
   fill: #56585a;
   stroke: none;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
 }
 .labelBox {
   stroke: none;
@@ -1094,7 +1103,7 @@ text.actor {
 .noteText tspan {
   fill: #56585a;
   stroke: none;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
 }
 /* ----- gantt diagram 甘特图 ----- */
 .section {
@@ -1351,17 +1360,24 @@ div.mermaidTooltip {
 }
 /* 数学公式 */
 .MathJax_SVG {
-  border: 1px solid #cbe8fb;
+  border: 2px solid #cbe8fb;
   border-radius: 0.3em;
-  padding: 0em 0.3em;
+  padding: 0.3em 0.3em;
+}
+.MathJax_SVG:hover {
+  background-color: #ffffff;
+  transform: scale(2);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
 }
 .MathJax_SVG g text {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   color: #202224;
 }
 /* md 系统样式 */
 .md-toc-inner {
   text-decoration: none;
+  box-shadow: none;
 }
 .md-toc-item:hover {
   box-shadow: 0px -1px 0px #dc0010 inset;
@@ -1395,20 +1411,28 @@ div.mermaidTooltip {
   vertical-align: middle;
   width: 100%;
 }
-sup.md-footnote a,
+sup.md-footnote {
+  background-color: inherit;
+}
+sup.md-footnote a {
+  color: #dc0010;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  box-shadow: none;
+}
 sup.md-footnote a:hover {
   color: #dc0010;
-  transition: all 0.3s ease-in-out;
+  border-bottom: 0;
 }
 .footnote-line a:not(.reversefootnote) {
   color: #118cdf;
 }
 kbd {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.85em;
   border-radius: 0.4em;
   margin: 0px 0.2em;
-  padding: 0.1em 0.3em;
+  padding: 0em 0.3em;
   background-color: #ffffff;
   color: #202224;
   border: 0.1em solid #bdbebf;
@@ -1667,10 +1691,10 @@ li p {
   border-radius: 15px;
   cursor: default;
   display: block;
-  left: -300px;
+  left: -350px;
   top: 10px;
   bottom: 10px;
-  width: 300px;
+  width: 350px;
   padding: 0px;
   position: fixed;
   z-index: 2000;
@@ -1680,7 +1704,7 @@ li p {
   user-select: none;
 }
 .mdx-float-card {
-  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.3);
 }
 .mdx-toc-box-header {
   color: #56585a;
@@ -1702,9 +1726,6 @@ li p {
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
 }
-.md-footnote {
-  background-color: #f2f2f2;
-}
 .mdx-footer-note {
   position: fixed;
   left: 15%;
@@ -1712,7 +1733,7 @@ li p {
   bottom: -180px;
   height: 180px;
   border-radius: 15px;
-  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
   background-color: #ffffff;
   display: none;
@@ -1734,7 +1755,7 @@ li p {
   border-bottom-right-radius: 15px;
   left: 10px;
   top: 0px;
-  width: 300px;
+  width: 350px;
   height: 50px;
   position: fixed;
   z-index: 100;
@@ -2141,7 +2162,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-c4-alt,
 .mdx-code-c5-alt,
 .mdx-code-c6-alt {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   color: #56585a;
   padding: 0.1em 0.3em;
   border-radius: 0.4em;
@@ -2184,7 +2205,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-c4,
 .mdx-code-c5,
 .mdx-code-c6 {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   color: #ffffff;
   padding: 0.1em 0.3em;
   border-radius: 0.4em;
@@ -2221,7 +2242,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-name5,
 .mdx-code-name6 {
   background-color: #f2f2f2 !important;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   margin-right: 0px;
   border-top-left-radius: 0.4em;
   border-bottom-left-radius: 0.4em;
@@ -2252,7 +2273,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-value4,
 .mdx-code-value5,
 .mdx-code-value6 {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   margin-left: 0px;
   border-top-right-radius: 0.4em;
   border-bottom-right-radius: 0.4em;
@@ -2336,6 +2357,7 @@ body div[id=write] > h6:last-of-type {
   font-weight: bold;
   font-size: 2.5em;
   font-family: "", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  text-align: left;
   height: 25cm;
   padding-left: 30px;
   padding-top: 150px;
@@ -2361,7 +2383,7 @@ body div[id=write] > h6:first-of-type strong {
   text-decoration: none;
 }
 body div[id=write] > h6:first-of-type strong::before {
-  content: "By ";
+  content: "by ";
   font-weight: normal;
   text-decoration: none;
 }
@@ -2424,6 +2446,7 @@ body div[id=write] > h6:last-of-type::after {
   body div[id=write] > h6:last-of-type,
   body div[id=write] > h6:first-of-type strong,
   body div[id=write] > h6:first-of-type em {
+    background: none !important;
     background-color: #ffffff !important;
     color: #56585a !important;
   }

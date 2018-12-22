@@ -26,7 +26,7 @@ html {
 html,
 body {
   background: #ffffff;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-weight: normal;
   color: #56585a;
   line-height: 2;
@@ -65,18 +65,18 @@ img {
 }
 a {
   color: #202224;
-  border-bottom: 1px solid #dc0010;
-  padding-bottom: 1px;
+  box-shadow: 0px -0.5em 0px rgba(219, 99, 160, 0.3) inset;
   text-decoration: none;
   font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
 a:hover {
-  color: #dc0010;
-  border-bottom: 1px solid #dc0010;
+  color: #db63a0;
+  border-bottom: 1px solid #db63a0;
+  box-shadow: none;
   transition: all 0.3s ease-in-out;
 }
 a:active {
-  color: #dc0010;
+  color: #db63a0;
   transition: all 0.3s ease-in-out;
 }
 h1 a,
@@ -111,7 +111,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #118cdf;
+  color: #00a0e9;
   position: relative;
   margin-bottom: 0em;
   margin-left: 0px;
@@ -152,7 +152,7 @@ h1 {
   padding-top: 20px;
   line-height: 50px;
   font-size: 2em;
-  border-top: 10px dotted rgba(17, 140, 223, 0.5);
+  border-top: 10px dotted rgba(0, 160, 233, 0.5);
 }
 body div h1:first-of-type {
   border-top: 0px;
@@ -162,7 +162,7 @@ h2 {
   margin-bottom: 0.5em;
   padding-top: 20px;
   font-size: 1.8em;
-  border-top: 6px dotted rgba(17, 140, 223, 0.5);
+  border-top: 6px dotted rgba(0, 160, 233, 0.5);
 }
 h1 + h2 {
   margin-top: 0em;
@@ -174,7 +174,7 @@ h3 {
   margin-bottom: 0.5em;
   padding-top: 20px;
   font-size: 1.6em;
-  border-top: 3px dotted rgba(17, 140, 223, 0.5);
+  border-top: 3px dotted rgba(0, 160, 233, 0.5);
 }
 h2 + h3 {
   margin-top: 0em;
@@ -186,7 +186,7 @@ h4 {
   margin-bottom: 0.2em;
   padding-top: 20px;
   font-size: 1.4em;
-  border-top: 1px dotted #cbe8fb;
+  border-top: 1px dotted #c0ebff;
 }
 h3 + h4 {
   margin-top: 0;
@@ -209,21 +209,21 @@ h6 {
   margin-top: 1.5em;
   margin-bottom: 0.5em;
   line-height: 1;
-  border-left: 0.5em solid rgba(17, 140, 223, 0.5);
+  border-left: 0.5em solid rgba(0, 160, 233, 0.5);
   padding-left: 0.5em;
 }
 li > h6 {
-  color: #118cdf;
+  color: #00a0e9;
   border-left: 0;
   padding-left: 0;
 }
 li > h6::before {
   content: "▪ ";
-  color: rgba(17, 140, 223, 0.5);
+  color: rgba(0, 160, 233, 0.5);
 }
 strong {
   color: #202224;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
 }
 p,
 blockquote,
@@ -347,26 +347,28 @@ table {
   border-spacing: 0;
   width: auto;
   line-height: 1.5;
-  word-break: initial;
+  word-break: break-all;
   border: 2px solid rgba(255, 255, 255, 0);
-  border-top: 2px solid #888b8e;
-  border-bottom: 2px solid #888b8e;
+  border-top: 2px solid rgba(255, 255, 255, 0);
+  border-bottom: 2px solid rgba(255, 255, 255, 0);
 }
 table tr {
   margin: 0;
   padding: 0;
+}
+table tr:last-child {
+  box-shadow: 0px 1px 0px #888b8e;
 }
 table tr:nth-child(2n) {
   background-color: rgba(242, 242, 242, 0.45);
 }
 table tr th {
   background-color: #f2f2f2;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   color: #56585a;
   border-right: 1px solid rgba(86, 88, 90, 0.1);
-  border-bottom: 1px solid #56585a;
   margin: 0;
   padding: 0.5em 0.5em;
+  box-shadow: 0px -1px 0px #888b8e;
 }
 table tr td {
   border-right: 1px solid rgba(86, 88, 90, 0.1);
@@ -411,8 +413,8 @@ li figure {
 li table tr th:first-child::before,
 li table tr td:first-child::before {
   content: "#";
-  color: rgba(17, 140, 223, 0.5);
-  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+  color: rgba(0, 160, 233, 0.5);
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.85em;
   vertical-align: middle;
   text-align: right;
@@ -432,6 +434,9 @@ h6 + figure {
   margin-top: 0em;
   margin-left: 1em;
 }
+li h6 + figure {
+  margin-left: 0em;
+}
 h1 + figure table tr th:first-child::before,
 h1 + figure table tr td:first-child::before,
 h2 + figure table tr th:first-child::before,
@@ -445,14 +450,18 @@ h5 + figure table tr td:first-child::before,
 h6 + figure table tr th:first-child::before,
 h6 + figure table tr td:first-child::before {
   content: "# ";
-  color: rgba(17, 140, 223, 0.5);
-  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+  color: rgba(0, 160, 233, 0.5);
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.85em;
   vertical-align: middle;
   text-align: right;
   width: 2.5em;
   position: absolute;
   left: -0.5em;
+}
+li h6 + figure table tr th:first-child::before,
+li h6 + figure table tr td:first-child::before {
+  left: -3em;
 }
 h1 + figure table tr td:first-child::before,
 h2 + figure table tr td:first-child::before,
@@ -501,7 +510,7 @@ a[name^="ref-footnote-"] {
   color: #045ad1;
 }
 a[name^="ref-footnote-"]:hover {
-  color: #dc0010;
+  color: #db63a0;
   transition: all 0.3s ease-in-out;
 }
 a[name^="ref-footnote-"]:before {
@@ -522,8 +531,8 @@ a[name^="ref-footnote-"]:after {
 code,
 tt {
   color: #202224;
-  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
-  background-color: #cbe8fb;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+  background-color: #c0ebff;
   border-radius: 0.3em;
   padding: 0.1em 0.3em;
   margin: 0px 0.2em;
@@ -536,7 +545,7 @@ blockquote code {
 }
 .md-fences {
   color: #56585a;
-  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   background-color: #f2f2f2;
   border-radius: 5px;
   border: 2px solid #f2f2f2;
@@ -628,7 +637,7 @@ blockquote code {
 .md-toc-h3 a:hover,
 .md-toc-h4 a:hover,
 .md-toc-h5 a:hover {
-  color: #dc0010;
+  color: #db63a0;
   background-color: rgba(255, 255, 255, 0);
   text-decoration: none;
   transition: all 0.3s ease-in-out;
@@ -704,7 +713,7 @@ blockquote code {
 .md-toc-h3:before,
 .md-toc-h4:before,
 .md-toc-h5:before {
-  color: rgba(17, 140, 223, 0.5);
+  color: rgba(0, 160, 233, 0.5);
   font-family: "", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   font-weight: normal;
 }
@@ -790,7 +799,7 @@ h4 {
 #write h3:before,
 #write h4:before,
 #write h5:before {
-  color: rgba(17, 140, 223, 0.5);
+  color: rgba(0, 160, 233, 0.5);
   font-family: "", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   font-weight: normal;
 }
@@ -861,8 +870,8 @@ rect[id^="e"].flowchart {
   stroke-width: 5;
 }
 rect[id^="op"].flowchart {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #c0ebff;
+  stroke: #00a0e9;
   stroke-width: 1;
 }
 rect[id^="sub"],
@@ -890,7 +899,7 @@ marker[id^="raphael-marker-endblock"] > use {
 }
 text[text-anchor="start"] > tspan {
   font-size: 14px;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   fill: #202224;
 }
 /* ----- sequeuce diagram 时序图 ----- */
@@ -900,12 +909,12 @@ rect[x="10"][y="10"][fill="var(--bg-color)"][stroke="currentColor"][stroke-width
   stroke-width: 2px;
 }
 rect[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][rx="0"][ry="0"] {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #c0ebff;
+  stroke: #00a0e9;
   stroke-width: 1px;
 }
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"] {
-  stroke: rgba(17, 140, 223, 0.5);
+  stroke: rgba(0, 160, 233, 0.5);
   stroke-width: 1px;
 }
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endblock"] {
@@ -929,12 +938,12 @@ marker[id^="raphael-marker-endopen"] > use {
 }
 rect + text[text-anchor="middle"] > tspan {
   font-size: 14px;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   fill: #56585a;
 }
 rect + rect + text[text-anchor="middle"] > tspan {
   font-size: 14px;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   fill: #202224;
 }
 /**************************************
@@ -949,13 +958,13 @@ svg[id^="mermaidChart"] {
   color: #202224;
 }
 .node rect[rx="0"][rx="0"] {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #c0ebff;
+  stroke: #00a0e9;
   stroke-width: 3;
 }
 .node rect[rx="5"][rx="5"] {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #c0ebff;
+  stroke: #00a0e9;
   stroke-width: 1;
   rx: 5;
 }
@@ -989,7 +998,7 @@ svg[id^="mermaidChart"] {
 .edgeLabel {
   color: #202224;
   background-color: #ffffff;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
 }
 .cluster rect {
   fill: rgba(86, 88, 90, 0.05) !important;
@@ -1022,8 +1031,8 @@ svg[id^="mermaidChart"] {
 }
 /* ----- sequeuce diagram 时序图 ----- */
 .actor {
-  stroke: #118cdf;
-  fill: #cbe8fb;
+  stroke: #00a0e9;
+  fill: #c0ebff;
   rx: 5;
   ry: 5;
 }
@@ -1036,7 +1045,7 @@ text.actor {
   stroke: none;
 }
 .actor-line {
-  stroke: #118cdf;
+  stroke: #00a0e9;
 }
 .actor-line-person {
   stroke: #c21117;
@@ -1059,7 +1068,7 @@ text.actor {
 .messageText {
   fill: #56585a;
   stroke: none;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
 }
 .labelBox {
   stroke: none;
@@ -1094,7 +1103,7 @@ text.actor {
 .noteText tspan {
   fill: #56585a;
   stroke: none;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
 }
 /* ----- gantt diagram 甘特图 ----- */
 .section {
@@ -1152,14 +1161,14 @@ text.actor {
 .active1,
 .active2,
 .active3 {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #c0ebff;
+  stroke: #00a0e9;
 }
 .activeText0,
 .activeText1,
 .activeText2,
 .activeText3 {
-  fill: #118cdf !important;
+  fill: #00a0e9 !important;
 }
 /* 已完成的任务 */
 .done0,
@@ -1167,7 +1176,7 @@ text.actor {
 .done2,
 .done3 {
   stroke: none;
-  fill: #cbe8fb;
+  fill: #c0ebff;
   stroke-width: 2;
   stroke-dasharray: 2;
 }
@@ -1177,7 +1186,7 @@ text.actor {
 .task2,
 .task3 {
   fill: #ffffff;
-  stroke: #118cdf;
+  stroke: #00a0e9;
   stroke-dasharray: 2;
 }
 .taskText0,
@@ -1260,8 +1269,8 @@ g.classGroup text {
   stroke: none;
 }
 g.classGroup rect {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #c0ebff;
+  stroke: #00a0e9;
 }
 g.classGroup line {
   stroke: #56585a;
@@ -1270,65 +1279,65 @@ g.classGroup line {
 svg .classLabel .box {
   stroke: none;
   stroke-width: 0;
-  fill: #cbe8fb;
+  fill: #c0ebff;
   opacity: 0.5;
 }
 svg .classLabel .label {
-  fill: #cbe8fb;
+  fill: #c0ebff;
 }
 .relation {
-  stroke: #118cdf;
+  stroke: #00a0e9;
   stroke-width: 1;
   fill: none;
 }
 .composition {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #c0ebff;
+  stroke: #00a0e9;
   stroke-width: 1;
 }
 #compositionStart {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #c0ebff;
+  stroke: #00a0e9;
   stroke-width: 1;
 }
 #compositionEnd {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #c0ebff;
+  stroke: #00a0e9;
   stroke-width: 1;
 }
 .aggregation {
-  fill: #cbe8fb;
+  fill: #c0ebff;
   stroke: #56585a;
   stroke-width: 1;
 }
 #aggregationStart {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #c0ebff;
+  stroke: #00a0e9;
   stroke-width: 1;
 }
 #aggregationEnd {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #c0ebff;
+  stroke: #00a0e9;
   stroke-width: 1;
 }
 #dependencyStart {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #c0ebff;
+  stroke: #00a0e9;
   stroke-width: 1;
 }
 #dependencyEnd {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #c0ebff;
+  stroke: #00a0e9;
   stroke-width: 1;
 }
 #extensionStart {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #c0ebff;
+  stroke: #00a0e9;
   stroke-width: 1;
 }
 #extensionEnd {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #c0ebff;
+  stroke: #00a0e9;
   stroke-width: 1;
 }
 div.mermaidTooltip {
@@ -1351,24 +1360,31 @@ div.mermaidTooltip {
 }
 /* 数学公式 */
 .MathJax_SVG {
-  border: 1px solid #cbe8fb;
+  border: 2px solid #c0ebff;
   border-radius: 0.3em;
-  padding: 0em 0.3em;
+  padding: 0.3em 0.3em;
+}
+.MathJax_SVG:hover {
+  background-color: #ffffff;
+  transform: scale(2);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
 }
 .MathJax_SVG g text {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   color: #202224;
 }
 /* md 系统样式 */
 .md-toc-inner {
   text-decoration: none;
+  box-shadow: none;
 }
 .md-toc-item:hover {
-  box-shadow: 0px -1px 0px #dc0010 inset;
+  box-shadow: 0px -1px 0px #db63a0 inset;
   transition: all 0.3s ease-in-out;
 }
 .md-toc-item:active {
-  box-shadow: 0px -1px 0px #dc0010 inset;
+  box-shadow: 0px -1px 0px #db63a0 inset;
   transition: all 0.3s ease-in-out;
 }
 .md-toc-item > a {
@@ -1376,12 +1392,12 @@ div.mermaidTooltip {
 }
 .md-toc-item:hover > a,
 .md-toc-item a:hover {
-  color: #dc0010;
+  color: #db63a0;
   transition: all 0.3s ease-in-out;
 }
 .md-toc-item:active > a,
 .md-toc-item a:active {
-  color: #dc0010;
+  color: #db63a0;
   transition: all 0.3s ease-in-out;
 }
 #svg-figure-content {
@@ -1395,20 +1411,28 @@ div.mermaidTooltip {
   vertical-align: middle;
   width: 100%;
 }
-sup.md-footnote a,
+sup.md-footnote {
+  background-color: inherit;
+}
+sup.md-footnote a {
+  color: #db63a0;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  box-shadow: none;
+}
 sup.md-footnote a:hover {
-  color: #dc0010;
-  transition: all 0.3s ease-in-out;
+  color: #db63a0;
+  border-bottom: 0;
 }
 .footnote-line a:not(.reversefootnote) {
-  color: #118cdf;
+  color: #00a0e9;
 }
 kbd {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.85em;
   border-radius: 0.4em;
   margin: 0px 0.2em;
-  padding: 0.1em 0.3em;
+  padding: 0em 0.3em;
   background-color: #ffffff;
   color: #202224;
   border: 0.1em solid #bdbebf;
@@ -1450,11 +1474,11 @@ li p {
 * VLOOK UI 自定义样式
 **************************************/
 .mdx-figure-hover {
-  border: 2px solid #118cdf !important;
+  border: 2px solid #00a0e9 !important;
   transition: all 0.3s ease-in-out;
 }
 .mdx-figure-hover-dark {
-  border: 2px solid #0c5f98 !important;
+  border: 2px solid #006b9d !important;
   transition: all 0.3s ease-in-out;
 }
 .mdx-blockquote-folder:hover {
@@ -1468,22 +1492,22 @@ li p {
   color: rgba(255, 255, 255, 0.5);
 }
 .mdx-color-theme-bg {
-  color: #118cdf;
+  color: #00a0e9;
 }
 .mdx-color-theme-bg-fade {
-  color: rgba(17, 140, 223, 0.5);
+  color: rgba(0, 160, 233, 0.5);
 }
 .mdx-color-theme-bg-dark {
-  color: #0c5f98;
+  color: #006b9d;
 }
 .mdx-color-theme-bg-alt {
-  color: #cbe8fb;
+  color: #c0ebff;
 }
 .mdx-color-header-color {
-  color: #118cdf;
+  color: #00a0e9;
 }
 .mdx-color-header-color-dark {
-  color: #0a5080;
+  color: #005a83;
 }
 .mdx-color-docbg-light {
   color: #ffffff;
@@ -1628,10 +1652,10 @@ li p {
   color: #d6d8da;
 }
 .mdx-color-aline {
-  color: #dc0010;
+  color: #db63a0;
 }
 .mdx-color-ahover {
-  color: #dc0010;
+  color: #db63a0;
 }
 .mdx-color-table-th-bg {
   color: #f2f2f2;
@@ -1667,10 +1691,10 @@ li p {
   border-radius: 15px;
   cursor: default;
   display: block;
-  left: -300px;
+  left: -350px;
   top: 10px;
   bottom: 10px;
-  width: 300px;
+  width: 350px;
   padding: 0px;
   position: fixed;
   z-index: 2000;
@@ -1680,7 +1704,7 @@ li p {
   user-select: none;
 }
 .mdx-float-card {
-  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.3);
 }
 .mdx-toc-box-header {
   color: #56585a;
@@ -1702,9 +1726,6 @@ li p {
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
 }
-.md-footnote {
-  background-color: #f2f2f2;
-}
 .mdx-footer-note {
   position: fixed;
   left: 15%;
@@ -1712,7 +1733,7 @@ li p {
   bottom: -180px;
   height: 180px;
   border-radius: 15px;
-  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
   background-color: #ffffff;
   display: none;
@@ -1734,7 +1755,7 @@ li p {
   border-bottom-right-radius: 15px;
   left: 10px;
   top: 0px;
-  width: 300px;
+  width: 350px;
   height: 50px;
   position: fixed;
   z-index: 100;
@@ -1756,11 +1777,11 @@ li p {
   cursor: pointer;
 }
 .mdx-toc-box-title:hover {
-  color: #dc0010;
+  color: #db63a0;
   transition: all 0.3s ease-in-out;
 }
 .mdx-toc-box-title:active {
-  color: #dc0010;
+  color: #db63a0;
   transition: all 0.3s ease-in-out;
 }
 .mdx-toc-box-body-scroll {
@@ -1822,14 +1843,14 @@ li p {
   visibility: visible;
 }
 .mdx-header-current {
-  background-color: #cbe8fb;
+  background-color: #c0ebff;
 }
 .mdx-header-current a {
   font-weight: bold;
   color: #202224 !important;
 }
 .mdx-header-current-dark {
-  background-color: #0c5f98;
+  background-color: #006b9d;
 }
 .mdx-header-current-dark a {
   font-weight: bold;
@@ -1842,7 +1863,7 @@ li p {
   text-align: center;
 }
 .mdx-folder:hover {
-  color: #dc0010;
+  color: #db63a0;
   transition: all 0.3s ease-in-out;
 }
 .mdx-btn {
@@ -1851,7 +1872,7 @@ li p {
   align-items: center;
   vertical-align: middle;
   color: #ffffff;
-  background-color: #118cdf;
+  background-color: #00a0e9;
   cursor: pointer;
   padding: 0px;
   font-size: 0.85em;
@@ -1860,18 +1881,18 @@ li p {
   border-radius: 8px;
 }
 .mdx-btn-hover:hover {
-  background-color: #dc0010;
+  background-color: #db63a0;
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
   transform: scale(1.2);
 }
 .mdx-btn-leave {
-  background-color: #118cdf;
+  background-color: #00a0e9;
   transition: 0.3s;
   transform: scale(1);
 }
 .mdx-btn:active {
-  background-color: #dc0010;
+  background-color: #db63a0;
   box-shadow: none;
   transition: 0.3s;
   transform: scale(1);
@@ -1901,7 +1922,7 @@ li p {
   transform: scale(1);
 }
 .mdx-btn2:active {
-  background-color: #dc0010;
+  background-color: #db63a0;
   box-shadow: none;
   transition: 0.3s;
   transform: scale(1);
@@ -1928,11 +1949,11 @@ li p {
   border-bottom-left-radius: 15px;
 }
 .mdx-nav-prev-hover:hover {
-  background: linear-gradient(to right, #dc0010, rgba(220, 0, 16, 0));
+  background: linear-gradient(to right, #db63a0, rgba(219, 99, 160, 0));
   transition: all 0.3s ease-in-out;
 }
 .mdx-nav-prev:active {
-  background: linear-gradient(to right, #dc0010, rgba(220, 0, 16, 0));
+  background: linear-gradient(to right, #db63a0, rgba(219, 99, 160, 0));
   transition: all 0.3s ease-in-out;
 }
 .mdx-nav-prev-text {
@@ -1960,11 +1981,11 @@ li p {
   border-bottom-right-radius: 15px;
 }
 .mdx-nav-next-hover:hover {
-  background: linear-gradient(to left, #dc0010, rgba(220, 0, 16, 0));
+  background: linear-gradient(to left, #db63a0, rgba(219, 99, 160, 0));
   transition: all 0.3s ease-in-out;
 }
 .mdx-nav-next:active {
-  background: linear-gradient(to left, #dc0010, rgba(220, 0, 16, 0));
+  background: linear-gradient(to left, #db63a0, rgba(219, 99, 160, 0));
   transition: all 0.3s ease-in-out;
 }
 .mdx-nav-next-text {
@@ -1983,7 +2004,7 @@ li p {
   display: block;
 }
 .mdx-bread-nav {
-  background-color: #118cdf;
+  background-color: #00a0e9;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   top: -50px;
@@ -2013,11 +2034,11 @@ li p {
   display: block;
 }
 .mdx-bread-nav-text:hover {
-  color: #dc0010;
+  color: #db63a0;
   transition: all 0.3s ease-in-out;
 }
 .mdx-bread-nav-text:active {
-  color: #dc0010;
+  color: #db63a0;
   transition: all 0.3s ease-in-out;
 }
 .mdx-fullscreen {
@@ -2141,7 +2162,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-c4-alt,
 .mdx-code-c5-alt,
 .mdx-code-c6-alt {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   color: #56585a;
   padding: 0.1em 0.3em;
   border-radius: 0.4em;
@@ -2184,7 +2205,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-c4,
 .mdx-code-c5,
 .mdx-code-c6 {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   color: #ffffff;
   padding: 0.1em 0.3em;
   border-radius: 0.4em;
@@ -2221,7 +2242,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-name5,
 .mdx-code-name6 {
   background-color: #f2f2f2 !important;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   margin-right: 0px;
   border-top-left-radius: 0.4em;
   border-bottom-left-radius: 0.4em;
@@ -2252,7 +2273,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-value4,
 .mdx-code-value5,
 .mdx-code-value6 {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   margin-left: 0px;
   border-top-right-radius: 0.4em;
   border-bottom-right-radius: 0.4em;
@@ -2332,10 +2353,11 @@ h6 code {
 body div[id=write] > h6:first-of-type,
 body div[id=write] > h6:last-of-type {
   color: #ffffff !important;
-  background-color: #118cdf;
+  background-color: #00a0e9;
   font-weight: bold;
   font-size: 2.5em;
   font-family: "", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  text-align: center;
   height: 25cm;
   padding-left: 30px;
   padding-top: 150px;
@@ -2346,7 +2368,7 @@ body div[id=write] > h6:last-of-type {
   border-radius: 15px;
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSI1MCUiIHgyPSI1MCUiIHkxPSIwJSIgeTI9Ijk5LjEwNCUiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRkZGRkZGIiBzdG9wLW9wYWNpdHk9Ii4wNSIgb2Zmc2V0PSIwJSIvPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRkZGRkZGIiBzdG9wLW9wYWNpdHk9Ii4yNSIgb2Zmc2V0PSIxMDAlIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cGF0aCBmaWxsPSJ1cmwoI2EpIiBkPSJNMzYwLjI5Njk4MSwyNDQuMDM3NDM2IEwyMDUuNjA5MDEsMTU2Ljc1NjA5OCBDMjAzLjYwODI3MSwxNTUuNDk5NTMyIDIwMS40MDQ0MjksMTU0LjgyODMwMSAxOTkuMTk5MDA4LDE1NC42OTg2MTMgQzE5Ni4xODUzNjksMTUzLjk4NDc5OSAxOTIuOTEzNjk0LDE1NC4yOTY0NTIgMTg5LjkzODgyMSwxNTUuODEzMDA4IEwyOC44NjE1NDg0LDI0Mi44ODA1NDggQzI2LjI2Njc4ODgsMjM1Ljg1MDYyOSAyNC4xNTc3MjIzLDIyOC4xMDg2OTUgMjIuNjQ5MDQ0NiwyMTkuNTU4OTg0IEMyMC45MTUxMjk4LDIxMS44NDY0MDYgMjAsMjAzLjgyMzAwOSAyMCwxOTUuNTg1MzY2IEMyMCwxOTQuNDI3NjY5IDIwLjAxODA3NDUsMTkzLjI3NDIwMyAyMC4wNTM5NTYxLDE5Mi4xMjUyMzcgQzIwLjAxODEzNDksMTkwLjUxNTIwNyAyMCwxODguODgyOCAyMCwxODcuMjI3NjQyIEMyMCwxODIuOTg1NDU4IDIwLjYyNTM4MjIsMTc5LjEzMTc4IDIxLjgyMzI3NiwxNzUuNjQxMzQ1IEwyMS44MjMyNzg3LDE3NS42NDEzMzEgQzMxLjE2NTc1MDYsMTI1LjE5NzA2NiA3NS4yOTcwNjcxLDg3IDEyOC4zMjg2OTksODcgQzE1My40NjU3ODIsODcgMTc2LjYwMzE2Myw5NS41ODIwMjU0IDE5NC45ODM3NzgsMTA5Ljk4MjQ3OCBDMjEzLjM2NDM5Myw5NS41ODIwMjU0IDIzNi41MDE3NzUsODcgMjYxLjYzODg1OCw4NyBDMzIxLjQ2NzE0Niw4NyAzNjkuOTY3NTU3LDEzNS42MTUzMjQgMzY5Ljk2NzU1NywxOTUuNTg1MzY2IEMzNjkuOTY3NTU3LDE5OC4zNTkwNzkgMzY5Ljg2MzgwNCwyMDEuMTA4NTAyIDM2OS42NTk5NzYsMjAzLjgyOTk0OSBDMzY5Ljg4NTI3NCwyMDMuOTA0NzE0IDM3MCwyMDMuOTQzMDg5IDM3MCwyMDMuOTQzMDg5IEMzNzAsMjE4LjY5MjY4MyAzNjYuMzQ3ODA3LDIzMi4wMjkyNjIgMzYwLjI5Njk4MSwyNDQuMDM3NDM2IFogTTM0Mi4zMDMxNywyNjkuODA5MzM2IEMzMTcuNDY0NjAyLDI5Ny4yNTEzODMgMjgxLjkwNjYyOSwzMTUuMTU0NTE4IDI2MS42NzEzMDEsMzI1LjI3NjQyMyBDMjI4LjMxOTQyOSwzNDEuOTU5MzUgMTk1LDM3MSAxOTUsMzcxIEMxOTUsMzcxIDE1My4zMTAxNTksMzM3LjQ3MTU0NSAxMTkuOTkwNzMsMzIwLjg4NjE3OSBDOTkuNDQ1MTQ3NSwzMTAuNjU5MjMzIDY2LjIxODMxNDYsMzAwLjM4MjgyNiA0My43NjEzNDExLDI3MC40NzY5NjEgTDE5Ni4xMjY0NDUsMTg3LjM3OTU2NCBMMzQyLjMwMzE3LDI2OS44MDkzMzYgWiBNMTg1LjI2Njk2MywyNDUuMTc4ODYyIEMxODEuNzcyOTQ4LDI0NS4xNzg4NjIgMTc4Ljk0MDQ4OSwyNDguMDExMzIxIDE3OC45NDA0ODksMjUxLjUwNTMzNiBMMTc4Ljk0MDQ4OSwyODguOTAxMTY4IEMxNzguOTQwNDg5LDI5Mi4zOTUxODMgMTgxLjc3Mjk0OCwyOTUuMjI3NjQyIDE4NS4yNjY5NjMsMjk1LjIyNzY0MiBMMjA0LjcwMDU5MywyOTUuMjI3NjQyIEMyMDguMTk0NjA4LDI5NS4yMjc2NDIgMjExLjAyNzA2NywyOTIuMzk1MTgzIDIxMS4wMjcwNjcsMjg4LjkwMTE2OCBMMjExLjAyNzA2NywyNTEuNTA1MzM2IEMyMTEuMDI3MDY3LDI0OC4wMTEzMjEgMjA4LjE5NDYwOCwyNDUuMTc4ODYyIDIwNC43MDA1OTMsMjQ1LjE3ODg2MiBMMTg1LjI2Njk2MywyNDUuMTc4ODYyIFoiLz4KPC9zdmc+Cg=="), url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgODAwIDIwMCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSI1MCUiIHgyPSI1MCUiIHkxPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjREI2M0EwIiBzdG9wLW9wYWNpdHk9Ii43IiBvZmZzZXQ9IjAlIi8+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNEQjYzQTAiIHN0b3Atb3BhY2l0eT0iMCIgb2Zmc2V0PSIxMDAlIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJiIiB4MT0iNTAlIiB4Mj0iNTAlIiB5MT0iMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0RCNjNBMCIgc3RvcC1vcGFjaXR5PSIuOSIgb2Zmc2V0PSIwJSIvPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjREI2M0EwIiBzdG9wLW9wYWNpdHk9IjAiIG9mZnNldD0iMTAwJSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDIwKSI+CiAgICA8cGF0aCBmaWxsPSJ1cmwoI2EpIiBkPSJNODAwLDY4LjQwMTAzMjggQzczNC42MDM4NzYsOTYuMjA0NjM3IDY2My4zMzUxMDcsMTA2LjExNDQyMyA1ODYuMTkzNjkzLDk4LjEzMDM5MTIgQzQ3MC40ODE1NzIsODYuMTU0MzQzMyAzOTkuMzU2NzA3LDQyLjUwMTkyMSAyNzIuNTAwODMyLDIyLjI1NTkxNDQgQzE4Ny45MzAyNDgsOC43NTg1NzY3MiA5Ny4wOTY2Mzc2LDI0LjE0MzQ4MjUgMS4xNjUyOTAwOWUtMTIsNjguNDEwNjMxNyBMNC41NDc0NzM1MWUtMTMsMTc5LjM1MjEwOCBMODAwLDE3OS4zNTIxMDggTDgwMCw2OC40MDEwMzI4IFoiIHRyYW5zZm9ybT0ibWF0cml4KC0xIDAgMCAxIDgwMCAwKSIvPgogICAgPHBhdGggZmlsbD0idXJsKCNiKSIgZD0iTTgwMCwyOS4wODk0ODkgQzczNS44NTAxMDEsNTUuMzY2MTU4MSA2NjEuMjQ3OTk5LDY4LjUwNDQ5MjcgNTc2LjE5MzY5Myw2OC41MDQ0OTI3IEM0NDguNjEyMjM1LDY4LjUwNDQ5MjcgMzg5LjM1NjcwNywyMy4wODkyNDQ2IDI2Mi41MDA4MzIsNS4zMjI0NDY5OCBDMTc3LjkzMDI0OCwtNi41MjIwODQ3NyA5MC40Mjk5NzA5LDEuNDAyNDI5NSAxLjA2NTgxNDFlLTEyLDI5LjA5NTk4OTggTDAsMTM2Ljg2MDUwOCBMODAwLDEzNi44NjA1MDggTDgwMCwyOS4wODk0ODkgWiIvPgogIDwvZz4KPC9zdmc+Cg==");
   background-repeat: no-repeat, repeat-x;
-  background-position: bottom right, top;
+  background-position: bottom, top;
 }
 body div[id=write] > h6:last-of-type {
   height: 13cm;
@@ -2361,7 +2383,7 @@ body div[id=write] > h6:first-of-type strong {
   text-decoration: none;
 }
 body div[id=write] > h6:first-of-type strong::before {
-  content: "By ";
+  content: "by ";
   font-weight: normal;
   text-decoration: none;
 }
@@ -2375,7 +2397,7 @@ body div[id=write] > h6:first-of-type em {
 body div[id=write] > h6:first-of-type code {
   color: #ffffff !important;
   font-size: 0.4em !important;
-  background-color: #0c5f98;
+  background-color: #006b9d;
 }
 body div[id=write] > h6:first-of-type code:first-of-type {
   border-top-left-radius: 0.4em;
@@ -2424,6 +2446,7 @@ body div[id=write] > h6:last-of-type::after {
   body div[id=write] > h6:last-of-type,
   body div[id=write] > h6:first-of-type strong,
   body div[id=write] > h6:first-of-type em {
+    background: none !important;
     background-color: #ffffff !important;
     color: #56585a !important;
   }

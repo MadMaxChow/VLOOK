@@ -26,7 +26,7 @@ html {
 html,
 body {
   background: #ffffff;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-weight: normal;
   color: #56585a;
   line-height: 2;
@@ -65,14 +65,14 @@ img {
 }
 a {
   color: #0d0b06;
-  border-bottom: 1px solid #ffc524;
-  padding-bottom: 1px;
+  box-shadow: 0px -0.5em 0px rgba(255, 197, 36, 0.3) inset;
   text-decoration: none;
   font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
 }
 a:hover {
-  color: #ffc524;
-  border-bottom: 1px solid #ffc524;
+  color: #bd8b00;
+  border-bottom: 1px solid #bd8b00;
+  box-shadow: none;
   transition: all 0.3s ease-in-out;
 }
 a:active {
@@ -223,7 +223,7 @@ li > h6::before {
 }
 strong {
   color: #0d0b06;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
 }
 p,
 blockquote,
@@ -347,26 +347,28 @@ table {
   border-spacing: 0;
   width: auto;
   line-height: 1.5;
-  word-break: initial;
+  word-break: break-all;
   border: 2px solid rgba(255, 255, 255, 0);
-  border-top: 2px solid #888b8e;
-  border-bottom: 2px solid #888b8e;
+  border-top: 2px solid rgba(255, 255, 255, 0);
+  border-bottom: 2px solid rgba(255, 255, 255, 0);
 }
 table tr {
   margin: 0;
   padding: 0;
+}
+table tr:last-child {
+  box-shadow: 0px 1px 0px #888b8e;
 }
 table tr:nth-child(2n) {
   background-color: rgba(242, 242, 242, 0.45);
 }
 table tr th {
   background-color: #f2f2f2;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
   color: #56585a;
   border-right: 1px solid rgba(86, 88, 90, 0.1);
-  border-bottom: 1px solid #56585a;
   margin: 0;
   padding: 0.5em 0.5em;
+  box-shadow: 0px -1px 0px #888b8e;
 }
 table tr td {
   border-right: 1px solid rgba(86, 88, 90, 0.1);
@@ -412,7 +414,7 @@ li table tr th:first-child::before,
 li table tr td:first-child::before {
   content: "#";
   color: rgba(240, 176, 0, 0.5);
-  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.85em;
   vertical-align: middle;
   text-align: right;
@@ -432,6 +434,9 @@ h6 + figure {
   margin-top: 0em;
   margin-left: 1em;
 }
+li h6 + figure {
+  margin-left: 0em;
+}
 h1 + figure table tr th:first-child::before,
 h1 + figure table tr td:first-child::before,
 h2 + figure table tr th:first-child::before,
@@ -446,13 +451,17 @@ h6 + figure table tr th:first-child::before,
 h6 + figure table tr td:first-child::before {
   content: "# ";
   color: rgba(240, 176, 0, 0.5);
-  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.85em;
   vertical-align: middle;
   text-align: right;
   width: 2.5em;
   position: absolute;
   left: -0.5em;
+}
+li h6 + figure table tr th:first-child::before,
+li h6 + figure table tr td:first-child::before {
+  left: -3em;
 }
 h1 + figure table tr td:first-child::before,
 h2 + figure table tr td:first-child::before,
@@ -522,7 +531,7 @@ a[name^="ref-footnote-"]:after {
 code,
 tt {
   color: #0d0b06;
-  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   background-color: #fff2cc;
   border-radius: 0.3em;
   padding: 0.1em 0.3em;
@@ -536,7 +545,7 @@ blockquote code {
 }
 .md-fences {
   color: #56585a;
-  font-family: "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   background-color: #f2f2f2;
   border-radius: 5px;
   border: 2px solid #f2f2f2;
@@ -890,7 +899,7 @@ marker[id^="raphael-marker-endblock"] > use {
 }
 text[text-anchor="start"] > tspan {
   font-size: 14px;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   fill: #0d0b06;
 }
 /* ----- sequeuce diagram 时序图 ----- */
@@ -929,12 +938,12 @@ marker[id^="raphael-marker-endopen"] > use {
 }
 rect + text[text-anchor="middle"] > tspan {
   font-size: 14px;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   fill: #56585a;
 }
 rect + rect + text[text-anchor="middle"] > tspan {
   font-size: 14px;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   fill: #0d0b06;
 }
 /**************************************
@@ -989,7 +998,7 @@ svg[id^="mermaidChart"] {
 .edgeLabel {
   color: #0d0b06;
   background-color: #ffffff;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
 }
 .cluster rect {
   fill: rgba(86, 88, 90, 0.05) !important;
@@ -1059,7 +1068,7 @@ text.actor {
 .messageText {
   fill: #56585a;
   stroke: none;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
 }
 .labelBox {
   stroke: none;
@@ -1094,7 +1103,7 @@ text.actor {
 .noteText tspan {
   fill: #56585a;
   stroke: none;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
 }
 /* ----- gantt diagram 甘特图 ----- */
 .section {
@@ -1351,20 +1360,21 @@ div.mermaidTooltip {
 }
 /* 数学公式 */
 .MathJax_SVG {
-  border: 1px solid #fff2cc;
+  border: 2px solid #fff2cc;
   border-radius: 0.3em;
-  padding: 0em 0.3em;
+  padding: 0.3em 0.3em;
 }
 .MathJax_SVG g text {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   color: #0d0b06;
 }
 /* md 系统样式 */
 .md-toc-inner {
   text-decoration: none;
+  box-shadow: none;
 }
 .md-toc-item:hover {
-  box-shadow: 0px -1px 0px #ffc524 inset;
+  box-shadow: 0px -1px 0px #bd8b00 inset;
   transition: all 0.3s ease-in-out;
 }
 .md-toc-item:active {
@@ -1376,7 +1386,7 @@ div.mermaidTooltip {
 }
 .md-toc-item:hover > a,
 .md-toc-item a:hover {
-  color: #ffc524;
+  color: #bd8b00;
   transition: all 0.3s ease-in-out;
 }
 .md-toc-item:active > a,
@@ -1395,20 +1405,28 @@ div.mermaidTooltip {
   vertical-align: middle;
   width: 100%;
 }
-sup.md-footnote a,
+sup.md-footnote {
+  background-color: inherit;
+}
+sup.md-footnote a {
+  color: #bd8b00;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  box-shadow: none;
+}
 sup.md-footnote a:hover {
-  color: #ffc524;
-  transition: all 0.3s ease-in-out;
+  color: #bd8b00;
+  border-bottom: 0;
 }
 .footnote-line a:not(.reversefootnote) {
   color: #1a1404;
 }
 kbd {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.85em;
   border-radius: 0.4em;
   margin: 0px 0.2em;
-  padding: 0.1em 0.3em;
+  padding: 0em 0.3em;
   background-color: #ffffff;
   color: #0d0b06;
   border: 0.1em solid #bdbebf;
@@ -1631,7 +1649,7 @@ li p {
   color: #ffc524;
 }
 .mdx-color-ahover {
-  color: #ffc524;
+  color: #bd8b00;
 }
 .mdx-color-table-th-bg {
   color: #f2f2f2;
@@ -1667,10 +1685,10 @@ li p {
   border-radius: 15px;
   cursor: default;
   display: block;
-  left: -300px;
+  left: -350px;
   top: 10px;
   bottom: 10px;
-  width: 300px;
+  width: 350px;
   padding: 0px;
   position: fixed;
   z-index: 2000;
@@ -1680,7 +1698,7 @@ li p {
   user-select: none;
 }
 .mdx-float-card {
-  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.3);
 }
 .mdx-toc-box-header {
   color: #56585a;
@@ -1702,9 +1720,6 @@ li p {
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
 }
-.md-footnote {
-  background-color: #f2f2f2;
-}
 .mdx-footer-note {
   position: fixed;
   left: 15%;
@@ -1712,7 +1727,7 @@ li p {
   bottom: -180px;
   height: 180px;
   border-radius: 15px;
-  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
   background-color: #ffffff;
   display: none;
@@ -1734,7 +1749,7 @@ li p {
   border-bottom-right-radius: 15px;
   left: 10px;
   top: 0px;
-  width: 300px;
+  width: 350px;
   height: 50px;
   position: fixed;
   z-index: 100;
@@ -1756,7 +1771,7 @@ li p {
   cursor: pointer;
 }
 .mdx-toc-box-title:hover {
-  color: #ffc524;
+  color: #bd8b00;
   transition: all 0.3s ease-in-out;
 }
 .mdx-toc-box-title:active {
@@ -1860,7 +1875,7 @@ li p {
   border-radius: 8px;
 }
 .mdx-btn-hover:hover {
-  background-color: #ffc524;
+  background-color: #bd8b00;
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
   transform: scale(1.2);
@@ -1928,7 +1943,7 @@ li p {
   border-bottom-left-radius: 15px;
 }
 .mdx-nav-prev-hover:hover {
-  background: linear-gradient(to right, #ffc524, rgba(255, 197, 36, 0));
+  background: linear-gradient(to right, #bd8b00, rgba(189, 139, 0, 0));
   transition: all 0.3s ease-in-out;
 }
 .mdx-nav-prev:active {
@@ -1960,7 +1975,7 @@ li p {
   border-bottom-right-radius: 15px;
 }
 .mdx-nav-next-hover:hover {
-  background: linear-gradient(to left, #ffc524, rgba(255, 197, 36, 0));
+  background: linear-gradient(to left, #bd8b00, rgba(189, 139, 0, 0));
   transition: all 0.3s ease-in-out;
 }
 .mdx-nav-next:active {
@@ -2013,7 +2028,7 @@ li p {
   display: block;
 }
 .mdx-bread-nav-text:hover {
-  color: #ffc524;
+  color: #bd8b00;
   transition: all 0.3s ease-in-out;
 }
 .mdx-bread-nav-text:active {
@@ -2141,7 +2156,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-c4-alt,
 .mdx-code-c5-alt,
 .mdx-code-c6-alt {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   color: #56585a;
   padding: 0.1em 0.3em;
   border-radius: 0.4em;
@@ -2184,7 +2199,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-c4,
 .mdx-code-c5,
 .mdx-code-c6 {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   color: #ffffff;
   padding: 0.1em 0.3em;
   border-radius: 0.4em;
@@ -2221,7 +2236,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-name5,
 .mdx-code-name6 {
   background-color: #f2f2f2 !important;
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   margin-right: 0px;
   border-top-left-radius: 0.4em;
   border-bottom-left-radius: 0.4em;
@@ -2252,7 +2267,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-value4,
 .mdx-code-value5,
 .mdx-code-value6 {
-  font-family: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   margin-left: 0px;
   border-top-right-radius: 0.4em;
   border-bottom-right-radius: 0.4em;
@@ -2336,6 +2351,7 @@ body div[id=write] > h6:last-of-type {
   font-weight: bold;
   font-size: 2.5em;
   font-family: "", sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
+  text-align: left;
   height: 25cm;
   padding-left: 30px;
   padding-top: 150px;
@@ -2344,9 +2360,9 @@ body div[id=write] > h6:last-of-type {
   margin-bottom: 3em;
   border: 0;
   border-radius: 15px;
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSI1MCUiIHgyPSI1MCUiIHkxPSIwJSIgeTI9Ijk5LjEwNCUiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRkZGRkZGIiBzdG9wLW9wYWNpdHk9Ii4wNSIgb2Zmc2V0PSIwJSIvPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRkZGRkZGIiBzdG9wLW9wYWNpdHk9Ii4yNSIgb2Zmc2V0PSIxMDAlIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cGF0aCBmaWxsPSJ1cmwoI2EpIiBkPSJNMTIxLjM1NjM2OCwyMTUuNzMyOTEzIEwxMjIuODIwMDQ5LDIxNS43MzI5MTMgTDEyMi44MjAwNDksMjE2Ljg3NDMwNiBMMTIyLjkwMTE5MiwyMTYuOTM3NTgyIEwxMjIuODIwMDQ5LDIxNy4wNDE2NDUgTDEyMi44MjAwNDksMzk5LjUwNDIxMyBMOTUuNjMwNzM0OCwzOTkuNTA0MjEzIEw5NS42MzA3MzQ4LDIzMC4xNzA3NDEgTDQ4LjkxODY1MjYsMTkzLjc0OTI2NyBMNDguNDkyNjAzNSwxOTMuNzQ5MjY3IEw0OC40OTI2MDM1LDE5My40MTcwNzYgTDQ4LjQ4NjM2MTcsMTkzLjQxMjIwOSBMNDguNDkyNjAzNSwxOTMuNDA0MjAyIEw0OC40OTI2MDM1LDExNC40Mzc5ODIgQzMyLjE0MzAzNjQsMTA4Ljc5ODk1NiAyMC4zOTgyMjczLDkzLjI3NjczMTYgMjAuMzk4MjI3Myw3NS4wMTEzNjAyIEMyMC4zOTgyMjczLDUxLjk4MzY5NTYgMzkuMDY1ODM3OCwzMy4zMTYwODUyIDYyLjA5MzUwMjMsMzMuMzE2MDg1MiBDODUuMTIxMTY2OSwzMy4zMTYwODUyIDEwMy43ODg3NzcsNTEuOTgzNjk1NiAxMDMuNzg4Nzc3LDc1LjAxMTM2MDIgQzEwMy43ODg3NzcsOTMuMjgxMzgwMSA5Mi4wMzc5ODk1LDEwOC44MDY4NTYgNzUuNjgxOTE3NiwxMTQuNDQyMjg2IEw3NS42ODE5MTc2LDE4MC4xMTU1NCBMMTIxLjM1NjM2OCwyMTUuNzMyOTEzIFogTTI0Mi42NTEzMTEsMTIzLjA0ODMxMiBMMjYzLjkzOTg5OSw4My4wODMyMDgzIEMyNTguOTAyMjI5LDc2LjA5NTgzNjEgMjU2LjA2MzkxNiw2Ny41OTc2MjMyIDI1Ni4wNjM5MTYsNTguNjk1Mjc1IEMyNTYuMDYzOTE2LDM1LjY2NzYxMDUgMjc0LjczMTUyNiwxNyAyOTcuNzU5MTkxLDE3IEMzMjAuNzg2ODU2LDE3IDMzOS40NTQ0NjYsMzUuNjY3NjEwNSAzMzkuNDU0NDY2LDU4LjY5NTI3NSBDMzM5LjQ1NDQ2Niw3My41OTE1NjIzIDMzMS41MDczOTIsODcuMzU2Mjk5NiAzMTguNjA2ODI5LDk0LjgwNDQ0MzQgQzMwOC43MjU5NiwxMDAuNTA5MTY2IDI5Ny4wODg5MjksMTAxLjg0NDQ5NyAyODYuMzg1OTE0LDk4LjgxMDQzNTQgTDI2OS42NTIzMzEsMTMwLjIyMTI3NSBMMjY5LjY1MjMzMSwyNzUuOTIwOTk0IEwyOTEuNDg2MTE4LDI0Mi4yNzc1MzcgQzI4Ny40MTc5MTEsMjM1Ljg0MDA3MyAyODUuMDYzMzU0LDIyOC4yMTE3NjQgMjg1LjA2MzM1NCwyMjAuMDMzNTE5IEMyODUuMDYzMzU0LDIwNS4xMzcyMzEgMjkzLjAxMDQyOCwxOTEuMzcyNDk0IDMwNS45MTA5OTEsMTgzLjkyNDM1IEMzMTguODExNTU1LDE3Ni40NzYyMDcgMzM0LjcwNTcwNCwxNzYuNDc2MjA3IDM0Ny42MDYyNjcsMTgzLjkyNDM1IEMzNjAuNTA2ODMsMTkxLjM3MjQ5NCAzNjguNDUzOTA1LDIwNS4xMzcyMzEgMzY4LjQ1MzkwNCwyMjAuMDMzNTE5IEMzNjguNDUzOTA0LDI0My4wNjExODMgMzQ5Ljc4NjI5NCwyNjEuNzI4Nzk0IDMyNi43NTg2MjksMjYxLjcyODc5NCBDMzIxLjg3NzIwNSwyNjEuNzI4Nzk0IDMxNy4xOTE3MDMsMjYwLjg4OTk0OCAzMTIuODM4NDExLDI1OS4zNDg1NDQgTDI2OS42NTIzMzEsMzI1Ljg5OTc1NSBMMjY5LjY1MjMzMSwzOTkuNTA0MjEzIEwyNDIuNDYzMDE3LDM5OS41MDQyMTMgTDI0Mi40NjMwMTcsMjcwLjQwNzI4MyBDMjQwLjAzMzQ0NCwyODEuODMxNDU0IDIzMi44NzM3MywyOTEuODY3NjgyIDIyMi41Mjc4NDksMjk3Ljg0MTMyNCBDMjIwLjQ4MDk2NiwyOTkuMDIzMTggMjE4LjM1ODcxNCwzMDAuMDE3NTI0IDIxNi4xODUwMDcsMzAwLjgyNDM1NiBMMjE2LjE4NTAwNywzOTkuNTA0MjEzIEwxODguOTg5NDUyLDM5OS41MDQyMTMgTDE4OC45ODk0NTIsMzAxLjQ1MTI1IEMxODYuMTgwMDMzLDMwMC41NTM2MjYgMTgzLjQ0MzcwMywyOTkuMzUwMzE4IDE4MC44MzAyNDQsMjk3Ljg0MTMyNCBDMTc4LjE5ODI5OSwyOTYuMzIxNjU3IDE3NS43NzI1NTQsMjk0LjUzOTA3MSAxNzMuNTc4NDI3LDI5Mi41Mzc2MDIgTDE3My41Nzg0MjksMzk5LjUwNDIxMyBMMTQ2LjM4OTExNCwzOTkuNTA0MjEzIEwxNDYuMzg5MTE0LDE1Ni4xMjIyMDkgQzE0My44OTY4MTQsMTU1LjI2MjUwNCAxNDEuNDY2OTc2LDE1NC4xNTk0MDkgMTM5LjEzNDk2OSwxNTIuODEyOTI0IEMxMjYuMjMzODE0LDE0NS4zNjM4ODMgMTE4LjI4NzA1NSwxMzEuNTk3NjQyIDExOC4yODg0OTYsMTE2LjcwMDM5MyBDMTE4LjI4NzA1NSwxMDEuODAzMTQ1IDEyNi4yMzM4MTQsODguMDM2OTAzMyAxMzkuMTM0OTY5LDgwLjU4Nzg2MjkgQzE1Mi4wMzYxMjQsNzMuMTM4ODIyNSAxNjcuOTMxNDE5LDczLjEzODgyMjUgMTgwLjgzMjU3NCw4MC41ODc4NjI5IEMxOTMuNzMzNzI5LDg4LjAzNjkwMzMgMjAxLjY4MDQ4OCwxMDEuODAzMTQ1IDIwMS42NzkwNDYsMTE2LjcwMDM5MyBDMjAxLjY4MDQ4OCwxMzEuNTk3NjQyIDE5My43MzM3MjksMTQ1LjM2Mzg4MyAxODAuODMyNTc0LDE1Mi44MTI5MjQgQzE3OC41MDA1NjcsMTU0LjE1OTQwOSAxNzYuMDcwNzI5LDE1NS4yNjI1MDQgMTczLjU3ODQyOSwxNTYuMTIyMjA5IEwxNzMuNTc4NDI5LDIzMC45MTk5NzggQzE3NS43NzI1NTQsMjI4LjkxODUxNiAxNzguMTk4Mjk5LDIyNy4xMzU5MyAxODAuODMwMjQ0LDIyNS42MTYyNjMgQzE5My43MzEzOTksMjE4LjE2NzIyMyAyMDkuNjI2Njk0LDIxOC4xNjcyMjMgMjIyLjUyNzg0OSwyMjUuNjE2MjYzIEMyMzIuODczNzMsMjMxLjU4OTkwNSAyNDAuMDMzNDQ0LDI0MS42MjYxMzIgMjQyLjQ2MzAxNywyNTMuMDUwMzA0IEwyNDIuNDYzMDE3LDEyMy4wNDgzMTIgTDI0Mi42NTEzMTEsMTIzLjA0ODMxMiBaIE01NS4yODk5MzIsMzAxLjE1NzU2OCBMNTUuMjg5OTMyLDM5OS41MDQyMTMgTDI4LjEwMDYxOCwzOTkuNTA0MjEzIEwyOC4xMDA2MTgsMzAxLjE1NzU2OCBDMTEuNzQ3Nzk4NCwyOTUuNTIwMzQgLTkuODA3MTkxMzZlLTE1LDI3OS45OTY0ODkgLTEuNDIxMDg1NDdlLTE0LDI2MS43Mjg3OTMgQy04LjY1OTczOTU5ZS0xNSwyMzguNzAxMTI5IDE4LjY2NzYxMDUsMjIwLjAzMzUxOCA0MS42OTUyNzUsMjIwLjAzMzUxOCBDNjQuNzIyOTM5NSwyMjAuMDMzNTE4IDgzLjM5MDU1LDIzOC43MDExMjkgODMuMzkwNTUsMjYxLjcyODc5MyBDODMuMzkwNTUsMjc5Ljk5NjQ4OSA3MS42NDI3NTE2LDI5NS41MjAzNCA1NS4yODk5MzIsMzAxLjE1NzU2OCBaIi8+Cjwvc3ZnPgo="), url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgODAwIDIwMCI+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1vcGFjaXR5PSIuMSIgZmlsbC1ydWxlPSJldmVub2RkIiBmb250LWZhbWlseT0iTm90b1NhbnNDSktzYy1SZWd1bGFyLCBOb3RvIFNhbnMgQ0pLIFNDIj4KICAgIDx0ZXh0IGZpbGw9IiNGRkZGRkYiIGZvbnQtc2l6ZT0iMzAiPgogICAgICA8dHNwYW4geD0iMSIgeT0iNDAiPjAxMDEwMTAxMTEwMTAxMTAxMDAxMDEwMTAxMTEwMTAxMTAxMDwvdHNwYW4+CiAgICA8L3RleHQ+CiAgICA8dGV4dCBmaWxsPSIjRkZGRkZGIiBmb250LXNpemU9IjMwIj4KICAgICAgPHRzcGFuIHg9IjY2NiIgeT0iNDAiPjAxMDEwMTAxPC90c3Bhbj4KICAgIDwvdGV4dD4KICAgIDx0ZXh0IGZpbGw9IiNGRkZGRkYiIGZvbnQtc2l6ZT0iMjAiPgogICAgICA8dHNwYW4geD0iNTQ3IiB5PSIxMzMiPjEwMTAxMTEwMTAxMTAxMDEwMTA8L3RzcGFuPgogICAgPC90ZXh0PgogICAgPHRleHQgZmlsbD0iI0ZGRkZGRiIgZm9udC1zaXplPSI0MCI+CiAgICAgIDx0c3BhbiB4PSIzNzgiIHk9IjE4NCI+MDEwMTExMDEwMTAxMDExMTAxMDwvdHNwYW4+CiAgICA8L3RleHQ+CiAgICA8dGV4dCBmaWxsPSIjRkZGRkZGIiBmb250LXNpemU9IjQwIj4KICAgICAgPHRzcGFuIHg9IjEiIHk9IjE4NCI+MDEwMTAxMDE8L3RzcGFuPgogICAgPC90ZXh0PgogICAgPHRleHQgZmlsbD0iI0ZGRkZGRiIgZm9udC1zaXplPSI1MCI+CiAgICAgIDx0c3BhbiB4PSIxMjMiIHk9IjEwMyI+MTEwMTAxMDAxMDEwMTEwMTAxMDA8L3RzcGFuPgogICAgPC90ZXh0PgogICAgPHRleHQgZmlsbD0iI0ZGRkZGRiIgZm9udC1zaXplPSIyMCI+CiAgICAgIDx0c3BhbiB4PSIzMSIgeT0iMTMzIj4wMTAwMTAwMTAwMTAwMTAwMTAwMTAwMTAwMTAwMTA8L3RzcGFuPgogICAgPC90ZXh0PgogIDwvZz4KPC9zdmc+Cg==");
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NTAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDUwIDQwMCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSI1MCUiIHgyPSI1MCUiIHkxPSIwJSIgeTI9Ijk5LjEwNCUiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRkZGRkZGIiBzdG9wLW9wYWNpdHk9Ii4wNSIgb2Zmc2V0PSIwJSIvPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRkZGRkZGIiBzdG9wLW9wYWNpdHk9Ii4yNSIgb2Zmc2V0PSIxMDAlIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cGF0aCBmaWxsPSJ1cmwoI2EpIiBkPSJNNDI3Ljc3MjQ0Miw0NC43MzUyNjk1IEM0MjcuNzcyNDQyLDU3LjA3MzcwMzkgNDE3Ljk2MjI5Myw2Ny4wOTczMDgyIDQwNS45MTY0NjEsNjcuMDk3MzA3OCBDMzkzLjg3MDIyOCw2Ny4wOTczMDc4IDM4NC4wNjAwNzksNTcuMDczNzAzOSAzODQuMDYwMDc5LDQ0LjczNTI2OTUgQzM4NC4wNjA0NzksMzIuNDA4MDI3MyAzOTMuODcwMjI4LDIyLjM3MzIzMDkgNDA1LjkxNjQ2MSwyMi4zNzMyMzA5IEM0MTcuOTYyNjkzLDIyLjM3MzIzMDkgNDI3Ljc3MjQ0MiwzMi40MDgwMjczIDQyNy43NzI0NDIsNDQuNzM1MjY5NSBaIE0zLjAxMTE5MjE5LDE0OS44Njk1ODggTDMuMDExMTkyMTksMTcyLjI0MjQyIEwyMDQuODYyMzc1LDE3Mi4yNDI0MiBDMjMxLjg0MjQ4MywxNzIuMjQyNDIgMjUzLjg1NjM1NywxNTAuMzUyNDYxIDI1NS4wMjQ3NjUsMTIzLjAyMzc5IEwzMDEuNzM3NDk0LDEyMy4wMjM3OSBDMzA2LjQ0NTkwMiwxMzUuNjY1NjE5IDMxOC4zNDU4MzMsMTQ0LjY0MzkzMSAzMzIuMzQ3NTQsMTQ0LjY0MzkzMSBDMzUwLjQzOTI3NCwxNDQuNjQzOTMxIDM2NS4xMjYxMTYsMTI5LjYzMTMxIDM2NS4xMjYxMTYsMTExLjEwMTA3MyBDMzY1LjEyNjExNiw5Mi41NjAwNDQxIDM1MC40NTA0NjYsNzcuNTQ3MDIzIDMzMi4zNDc1NCw3Ny41NDcwMjMgQzMxNy44MDY1OTksNzcuNTQ3MDIzIDMwNS40OTA5NDksODcuMjQ0NDQ4IDMwMS4yMDk0NTIsMTAwLjY2MTc1MSBMMjU1LjEzNzA4OSwxMDAuNjYxNzUxIEwyNTUuMTM3MDg5LDg0Ljk5NzE3MTkgQzI1NS4xMzcwODksNjguOTczMjM1OSAyNjcuODY4ODU3LDU1LjkyNjg4MTYgMjgzLjUzMzQzNiw1NS45MjY4ODE2IEwzNjMuNjUzOTE0LDU1LjkyNjg4MTYgQzM2OC41MDgyMjMsNzUuMjA5ODA3OCAzODUuNTY2MjU4LDg5LjQ2OTczOTUgNDA1LjkxNjg2LDg5LjQ2OTczOTUgQzQzMC4wNTQwOTUsODkuNDY5NzM5NSA0NDkuNjI5MjIzLDY5LjQ0NTMxNiA0NDkuNjI5MjIzLDQ0Ljc0NjA2MjEgQzQ0OS42MjkyMjMsMjAuMDI0NDIzNCA0MzAuMDU0MDk1LDAgNDA1LjkxNjg2LDAgQzM4NS41NTUwNjYsMCAzNjguNDk3NDMsMTQuMjcxMTI0MiAzNjMuNjQyNzIyLDMzLjU1NDA1MDQgTDI4My41MzMwMzcsMzMuNTU0MDUwNCBDMjU1LjgyMjIyNSwzMy41NTQwNTA0IDIzMy4yNjk1MTUsNTYuNjM1MjAxNiAyMzMuMjY5NTE1LDg0Ljk5NzU3MTUgTDIzMy4yNjk1MTUsMTAwLjY2MjE1MSBMMy4wMTExOTIxOSwxMDAuNjYyMTUxIEwzLjAxMTE5MjE5LDEyMy4wMjM3OSBMMjMzLjE2ODM4NCwxMjMuMDIzNzkgQzIzMi4wNDQ3NDUsMTM4LjAxNDQyNiAyMTkuNzk2MjUsMTQ5Ljg2OTU4OCAyMDQuODYxOTc1LDE0OS44Njk1ODggTDMuMDExMTkyMTksMTQ5Ljg2OTU4OCBaIE0zLDIyNS45MjI0MjUgTDI2Mi4zOTYxNjcsMjI1LjkyMjQyNSBDMjY3LjEwNDU3NSwyMzguNTUzMDYxIDI3OS4wMTU2OTksMjQ3LjU0MjU2NiAyOTMuMDA2MjE0LDI0Ny41NDI1NjYgQzMxMS4xMDkxNCwyNDcuNTQyNTY2IDMyNS43ODQ3OSwyMzIuNTE4MzUyIDMyNS43ODQ3OSwyMTMuOTg4NTE2IEMzMjUuNzg0NzksMTk1LjQ1ODY3OSAzMTEuMTA5MTQsMTgwLjQzNDQ2NSAyOTMuMDA2MjE0LDE4MC40MzQ0NjUgQzI3OC40NjUyNzIsMTgwLjQzNDQ2NSAyNjYuMTQ5NjIyLDE5MC4xMzE4OSAyNjEuODY4MTI1LDIwMy41NDkxOTQgTDMuMDExMTkyMTksMjAzLjU0OTE5NCBMMy4wMTExOTIxOSwyMjUuOTIyMDI1IE00MDUuOTE2NDYxLDMyNi41ODQ1NzUgQzM5My44NzAyMjgsMzI2LjU4NDU3NSAzODQuMDYwMDc5LDMxNi41NDk3NzkgMzg0LjA2MDA3OSwzMDQuMjExMzQ1IEMzODQuMDYwMDc5LDI5MS44NzI5MSAzOTMuODcwMjI4LDI4MS44NDkzMDYgNDA1LjkxNjQ2MSwyODEuODQ5MzA2IEM0MTcuOTYyNjkzLDI4MS44NDkzMDYgNDI3Ljc3MjQ0MiwyOTEuODcyOTEgNDI3Ljc3MjQ0MiwzMDQuMjExMzQ1IEM0MjcuNzcyNDQyLDMxNi41NDk3NzkgNDE3Ljk2MjI5MywzMjYuNTczMzgzIDQwNS45MTY0NjEsMzI2LjU3MzM4MyBNNDA1LjkxNjQ2MSwyNTkuNDc2NDc1IEMzODUuNTU0NjY2LDI1OS40NzY0NzUgMzY4LjQ5NzAzMSwyNzMuNzQ3NTk5IDM2My42NDIzMjIsMjkzLjAzMDUyNSBMMzM5LjgxOTY3NCwyOTMuMDMwNTI1IEMzMjUuMDA5MjM1LDI5Mi45OTk0NjcgMzEwLjQwMjQ1NywyODkuNTc4MzQzIDI5Ny4xMTg2MjUsMjgzLjAyOTMwNiBMMjYwLjUwODI0NywyNjQuOTcxMTUgQzI0NC4yNjg0OSwyNTYuOTc0MTg5IDIyNi40MTM5NzIsMjUyLjc5OTg1NCAyMDguMzEyMDM2LDI1Mi43Njc4MjMgTDMsMjUyLjc2NzgyMyBMMywyNzUuMTI5NDYyIEwyMDguMzAwODQ0LDI3NS4xMjk0NjIgQzIyMi45OTg4NzksMjc1LjEyOTQ2MiAyMzcuNzY0NDY4LDI3OC41OTAzMTYgMjUxLjAwMTg5MywyODUuMTMwNjgxIEwyODcuNjIzNDYzLDMwMy4xODg4MzggQzMwMy44MDQ4OTIsMzExLjE2NzAyOSAzMjEuODUxODU2LDMxNS4zOTIxNjQgMzM5LjgxOTY3NCwzMTUuMzkyMTY0IEwzNjMuNjQyMzIyLDMxNS4zOTIxNjQgQzM2OC40OTY2MzEsMzM0LjY3NTA5IDM4NS41NTQ2NjYsMzQ4Ljk0NjIxNCA0MDUuOTA1MjY4LDM0OC45NDYyMTQgQzQzMC4wNDI1MDMsMzQ4Ljk0NjIxNCA0NDkuNjE3NjMxLDMyOC45MjE3OTEgNDQ5LjYxNzYzMSwzMDQuMjExMzQ1IEM0NDkuNjE3NjMyLDI3OS41MDA4OTggNDMwLjA0MjUwMywyNTkuNDc2NDc1IDQwNS45MDUyNjgsMjU5LjQ3NjQ3NSIgdHJhbnNmb3JtPSJtYXRyaXgoLTEgMCAwIDEgNDUyLjYzIDApIi8+Cjwvc3ZnPgo="), url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgODAwIDIwMCI+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBmb250LWZhbWlseT0iTm90b1NhbnNDSktzYy1SZWd1bGFyLCBOb3RvIFNhbnMgQ0pLIFNDIj4KICAgIDx0ZXh0IGZpbGw9IiNGRkZGRkYiIGZpbGwtb3BhY2l0eT0iLjA0IiBmb250LXNpemU9IjMwIj4KICAgICAgPHRzcGFuIHg9IjEiIHk9IjQwIj4wMTAxMDEwMTExMDEwMTEwMTAwMTAxMDEwMTExMDEwMTEwMTA8L3RzcGFuPgogICAgPC90ZXh0PgogICAgPHRleHQgZmlsbD0iI0ZGRkZGRiIgZmlsbC1vcGFjaXR5PSIuMDQiIGZvbnQtc2l6ZT0iMzAiPgogICAgICA8dHNwYW4geD0iNjY2IiB5PSI0MCI+MDEwMTAxMDE8L3RzcGFuPgogICAgPC90ZXh0PgogICAgPHRleHQgZmlsbD0iI0ZGRkZGRiIgZmlsbC1vcGFjaXR5PSIuMDQiIGZvbnQtc2l6ZT0iMjAiPgogICAgICA8dHNwYW4geD0iNTQ3IiB5PSIxMzMiPjEwMTAxMTEwMTAxMTAxMDEwMTA8L3RzcGFuPgogICAgPC90ZXh0PgogICAgPHRleHQgZmlsbD0iI0ZGRkZGRiIgZmlsbC1vcGFjaXR5PSIuMDgiIGZvbnQtc2l6ZT0iNDAiPgogICAgICA8dHNwYW4geD0iMzc4IiB5PSIxODQiPjAxMDExMTAxMDEwMTAxMTEwMTA8L3RzcGFuPgogICAgPC90ZXh0PgogICAgPHRleHQgZmlsbD0iI0ZGRkZGRiIgZmlsbC1vcGFjaXR5PSIuMDgiIGZvbnQtc2l6ZT0iNDAiPgogICAgICA8dHNwYW4geD0iMSIgeT0iMTg0Ij4wMTAxMDEwMTwvdHNwYW4+CiAgICA8L3RleHQ+CiAgICA8dGV4dCBmaWxsPSIjRkZGRkZGIiBmaWxsLW9wYWNpdHk9Ii4wOCIgZm9udC1zaXplPSI1MCI+CiAgICAgIDx0c3BhbiB4PSIxMjMiIHk9IjEwMyI+MTEwMTAxMDAxMDEwMTEwMTAxMDA8L3RzcGFuPgogICAgPC90ZXh0PgogICAgPHRleHQgZmlsbD0iI0ZGRkZGRiIgZmlsbC1vcGFjaXR5PSIuMDQiIGZvbnQtc2l6ZT0iMjAiPgogICAgICA8dHNwYW4geD0iMzEiIHk9IjEzMyI+MDEwMDEwMDEwMDEwMDEwMDEwMDEwMDEwMDEwMDEwPC90c3Bhbj4KICAgIDwvdGV4dD4KICA8L2c+Cjwvc3ZnPgo=");
   background-repeat: no-repeat, repeat-x;
-  background-position: bottom right, bottom left;
+  background-position: bottom right, top left;
 }
 body div[id=write] > h6:last-of-type {
   height: 13cm;
@@ -2361,7 +2377,7 @@ body div[id=write] > h6:first-of-type strong {
   text-decoration: none;
 }
 body div[id=write] > h6:first-of-type strong::before {
-  content: "By ";
+  content: "by ";
   font-weight: normal;
   text-decoration: none;
 }
@@ -2424,6 +2440,7 @@ body div[id=write] > h6:last-of-type::after {
   body div[id=write] > h6:last-of-type,
   body div[id=write] > h6:first-of-type strong,
   body div[id=write] > h6:first-of-type em {
+    background: none !important;
     background-color: #ffffff !important;
     color: #56585a !important;
   }
