@@ -1,4 +1,4 @@
-###### VLOOK™<br><br>快速参考手册 Quick Reference Manual<br><br>( Version 9 beta )<br><br><br>`+ 文档密级丨对外公开 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2017-2018. MAX°DESIGN.*
+###### VLOOK™<br><br>快速参考手册 Quick Reference Manual<br><br>( Version 9 beta1 )<br><br><br>`+ 文档密级丨对外公开 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2017-2018. MAX°DESIGN.*
 
 [TOC]
 
@@ -8,7 +8,7 @@
 
 [VLOOK™](https://github.com/MadMaxChow/VLOOK)是针对由[Typora](https://www.typora.io)[^Typora]所导出的HTML文件进行增强的插件。VLOOK™为开源软件，遵从[MIT许可证](#许可协议)。
 
-VLOOK插件包括[排版增强](#排版增强)和[功能增强](#功能增强)两大类特性：
+VLOOK插件包括[版式增强](#排版增强)和[功能增强](#功能增强)两大类特性：
 
 - **版式增强**：为Typora编辑模式，以及导出的HTML文件提供更人性化、美观的文档排版与样式；
 - **功能增强**：为导出的HTML文件提供文档导航、插图浏览、内容交互、有效性检测等便捷阅读辅助功能。
