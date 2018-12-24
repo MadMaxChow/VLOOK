@@ -19,12 +19,10 @@ VLOOK™为开源软件，遵从MIT许可证。
 
 ---
 
-VLOOK™ is a plugin for enhancements to HTML files exported by Typora. VLOOK™ is open source software and is compliant with the MIT license.
+VLOOK is a plugin for enhancements to HTML files exported by Typora. Includes two major features: Layout Enhancements and Feature Enhancements:
 
-The VLOOK™ plugin includes two major categories of typography enhancements and feature enhancements:
-
-- **Typography enhancements**: Provides more user-friendly, beautiful styles and typography for the Typora editing mode and exported HTML files;
-- **Feature enhancement**: Provides convenient functions for document navigation, illustration browsing, content interaction, and validity detection for exported HTML files.
+- **Layout enhancements**: Provides more user-friendly, beautiful document layout and style for the Typora editing mode and exported HTML files;
+- **Feature enhancement**: Provides convenient reading accessibility functions such as document navigation, illustration browsing, content interaction, and validity detection for exported HTML files.
 
 VLOOK™ is open source software and is compliant with the MIT license.
 
