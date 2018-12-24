@@ -32,7 +32,7 @@ VLOOK插件包括[排版增强](#排版增强)和[功能增强](#功能增强)�
 
 ### VLOOK主题
 
-![](https://ws3.sinaimg.cn/large/006tNbRwgy1fyfkym5tprj33ji0u0e4c.jpg)
+![](https://ws3.sinaimg.cn/large/006tNbRwgy1fyhutcwmw6j33ji0u01h9.jpg)
 
 - 针对VLOOK内置多套优化的视觉样式主题[^样式主题]（在导出前先指定）；
 - 文档的样式一键切换为`深色`模式，通过文档的右上角的<kbd>主题</kbd>按钮进行切换。
