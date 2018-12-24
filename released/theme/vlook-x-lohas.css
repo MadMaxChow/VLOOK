@@ -1364,12 +1364,6 @@ div.mermaidTooltip {
   border-radius: 0.3em;
   padding: 0.3em 0.3em;
 }
-.MathJax_SVG:hover {
-  background-color: #ffffff;
-  transform: scale(2);
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
-}
 .MathJax_SVG g text {
   font-family: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont, "Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
   color: #202224;

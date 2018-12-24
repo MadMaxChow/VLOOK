@@ -1,9 +1,9 @@
 <!--========================================================================-->
-<!--                    Typora Plugin - VLOOK™ V9 Beta                      -->
-<!--                               2018-12-22                               -->
+<!--                     Typora Plugin - VLOOK V9 Beta1                     -->
+<!--                               2018-12-24                               -->
 <!--                                                                        -->
 <!--                             powered by Max                             -->
-<!--                        QQ Group/QQ群：805502564                         -->
+<!--                        QQ Group/QQ群：805502564                        -->
 <!--========================================================================-->
 <!--                  https://github.com/MadMaxChow/VLOOK                   -->
 <!--
@@ -665,7 +665,8 @@ function initTable() {
             for (var i=0; i<tblTd2ThData.length; i++) {
                 console.log(tblData[0][0].parent().text());
                 tblData[0][0].parent().parent().append(tblTd2ThData[i]);
-                tblTd2ThData[i].find("td").contents().unwrap().wrap('<th/>');
+                tblTd2ThData[i].html(tblTd2ThData[i].html().replace("\<td\>", "\<th\>"));
+                tblTd2ThData[i].html(tblTd2ThData[i].html().replace("\<td ", "\<th "));
             }
         } // if
 
