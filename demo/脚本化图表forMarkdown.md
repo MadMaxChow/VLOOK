@@ -200,7 +200,7 @@ end
 4. 支持三类标签分组，在输出HTML后应用[VLOOK™](https://github.com/madmaxchow/VLOOK)插件渲染为不同的样式：
    - `loop`：循环
    - `opt`：可选
-   - `alt...else`：条件选择（alt=情景1，else=情景2）
+   - `alt..else`：条件选择（alt=情景1，else=情景2）
 5. 支持备注说明。
 
 ### 甘特图

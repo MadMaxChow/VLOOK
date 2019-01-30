@@ -1,9 +1,9 @@
 <!--========================================================================-->
-<!--                     Typora Plugin - VLOOK V9 Beta1                     -->
-<!--                               2018-12-24                               -->
+<!--                    Typora Plugin - VLOOK™ V9 Beta2                     -->
+<!--                               2019-01-29                               -->
 <!--                                                                        -->
 <!--                             powered by Max                             -->
-<!--                        QQ Group/QQ群：805502564                        -->
+<!--                        QQ Group/QQ群：805502564                         -->
 <!--========================================================================-->
 <!--                  https://github.com/MadMaxChow/VLOOK                   -->
 <!--
@@ -586,7 +586,7 @@ function initTable() {
                 tblData[rowIndex][colIndex] = cell;
                 tblSpan[rowIndex][colIndex] = 0;
                 // 行合并标记
-                if (cell.text() == "...") {
+                if (cell.text() == "..") {
                     tblSpan[rowIndex][colIndex] = 1;
                     needRowSpan = true;
                 }
@@ -594,7 +594,7 @@ function initTable() {
 
                 // --- 列合并 ---
                 // 列合并标记
-                if (cell.text() == "===") {
+                if (cell.text() == "==") {
                     colSpanCount++;
                     cell.remove();
                     if (colSpanCount == 1)
@@ -665,8 +665,7 @@ function initTable() {
             for (var i=0; i<tblTd2ThData.length; i++) {
                 console.log(tblData[0][0].parent().text());
                 tblData[0][0].parent().parent().append(tblTd2ThData[i]);
-                tblTd2ThData[i].html(tblTd2ThData[i].html().replace("\<td\>", "\<th\>"));
-                tblTd2ThData[i].html(tblTd2ThData[i].html().replace("\<td ", "\<th "));
+                tblTd2ThData[i].find("td").contents().unwrap().wrap('<th/>');
             }
         } // if
 
@@ -867,17 +866,38 @@ function openContentInNewTab() {
     // 图片
     if (_lastHoverContent.attr("fig-type") == "img") {
         w.document.title = ["图", "圖", "Figure", "Figure", "карта", "図", "그림"][_lang];
+        // 新标签打开的内容忽略最大尺寸限制
+        var oxw = _lastHoverContent.css("max-width");
+        var oxh = _lastHoverContent.css("max-height");
+        _lastHoverContent.css("max-width", "");
+        _lastHoverContent.css("max-height", "");
+
         w.document.body.outerHTML = baseContent
             + _lastHoverContent.prop("outerHTML");
         + "</body>";
+
+        // 恢复原始内容的最大尺寸限制
+        _lastHoverContent.css("max-width", oxw);
+        _lastHoverContent.css("max-height", oxh);
     }
     // mermaid / flow.js等SVG图
     else if (_lastHoverContent.attr("fig-type") == "svg") {
         w.document.title = ["图", "圖", "Figure", "Figure", "карта", "図", "그림"][_lang];
         w.document.title = _lastHoverContent.parent().text();
+
+        // 新标签打开的内容忽略最大尺寸限制
+        var oxw = _lastHoverContent.css("max-width");
+        var oxh = _lastHoverContent.css("max-height");
+        _lastHoverContent.css("max-width", "");
+        _lastHoverContent.css("max-height", "");
+
         w.document.body.outerHTML = baseContent + "<div class='md-diagram-panel'>"
             + _lastHoverContent.prop("outerHTML");
             + "</div></body>";
+
+        // 恢复原始内容的最大尺寸限制
+        _lastHoverContent.css("max-width", oxw);
+        _lastHoverContent.css("max-height", oxh);
     }
     // 表格
     else if (_lastHoverContent.prop("tagName").toLowerCase() == "table") {
