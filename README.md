@@ -4,9 +4,11 @@ VLOOK是针对由[Typora](https://www.typora.io)所导出的HTML文件进行增�
 - **版式增强**：为Typora编辑模式，以及导出的HTML文件提供更人性化、美观的文档排版与样式；
 - **功能增强**：为导出的HTML文件提供文档导航、插图浏览、内容交互、有效性检测等便捷阅读辅助功能。
 
-VLOOK™为开源软件，遵从MIT许可证。
+**文档主题样式定制服务 →→→ 请加微信 MaxChow**
 
 特性的详细介绍，以及使用说明详见《[VLOOK快速参考手册](https://madmaxchow.github.io/VLOOK/index.html)》
+
+VLOOK™为开源软件，遵从MIT许可证。
 
 ---
 

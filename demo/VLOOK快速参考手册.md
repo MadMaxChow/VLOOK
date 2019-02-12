@@ -1,4 +1,4 @@
-###### VLOOK™<br><br>快速参考手册 Quick Reference Manual<br><br>( Version 9 beta1 )<br><br><br>`+ 文档密级丨对外公开 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2017-2018. MAX°DESIGN.*
+###### VLOOK™<br><br>快速参考手册 Quick Reference Manual<br><br><sup>( Version 9 beta1 )</sup><br><br><br>`+ 文档密级丨对外公开 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2017-2018. MAX°DESIGN.*
 
 [TOC]
 
