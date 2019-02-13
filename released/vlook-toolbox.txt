@@ -1,6 +1,6 @@
 <!--========================================================================-->
-<!--                    Typora Plugin - VLOOK™ V9 Beta2                     -->
-<!--                               2019-01-29                               -->
+<!--                    Typora Plugin - VLOOK™ V9 Beta3                     -->
+<!--                               2019-02-13                               -->
 <!--                                                                        -->
 <!--                             powered by Max                             -->
 <!--                        QQ Group/QQ群：805502564                         -->
@@ -518,7 +518,7 @@ function initOutlineData() {
               "id": "oli-header-" + obj.attr("data-ref"), // 添加id属性
               "data-node": "0", // 添加节点类型：0:叶子节点, 1:目录节点
               "data-folding": "1", // 添加节点状态：0:收起, 1:展开
-              "title": obj.find("a").text()
+              "title": obj.find("a").text().trim()
           });
           // 所有大纲节点都添加folding空白控件备用
           $("<div id='fd-oli-header-" + obj.attr("data-ref") + "' class='mdx-folder'>&nbsp;</div>").insertBefore(obj.find("a"));
@@ -702,7 +702,6 @@ function initFigureData() {
 
         // 添加锚点，便于在插图浏览器直接跳转至对应插图位置
         $("<a name='" + "fig-idx" + _figureCount + "'>").insertBefore(fig.parent());
-        _figureCount++;
 
         // 添加鼠标单击事件
         fig.click(function() {
@@ -716,8 +715,10 @@ function initFigureData() {
             hideFigureAction(fig);
         });
 
+        var figTitle = null;
         // 图片无法加载时加载默认图片
         if (fig.prop("tagName").toLowerCase() == "img") {
+            figTitle = fig.attr("alt"); // 获取插图标题
             fig.css("background-color", "#FFFFFF");
             fig.bind("error", function() {
                 if (fig.attr("src") != "vlook-lost-image.jpg")
@@ -740,6 +741,26 @@ function initFigureData() {
             });
             fig.attr("src", fig.attr("src")); // 强制重新加载一次以触发error事件
         }
+        else  if (fig.prop("tagName").toLowerCase() == "svg") {
+            // 获取插图标题
+            var titleObj = fig.parent().prevUntil("h6").prev();
+            if (titleObj != null && titleObj.prop("tagName").toLowerCase() == "h6")
+                figTitle = titleObj.text();
+        }
+
+        // 在插图底部显示标题
+        if (figTitle != null && figTitle.trim().length > 0)
+            $("<div id='fig-num" + _figureCount + "' class='mdx-figure-alt'>" + ["图-",
+                    "圖-",
+                    "Figure-",
+                    "La figure-",
+                    "карта-",
+                    "図-",
+                    "그림-"][_lang] + (_figureCount + 1) + ": " + figTitle +
+                    "<hr class='width: " + (figTitle.length * 0.75) + "em'></div>")
+                    .insertAfter(fig.parent());
+
+        _figureCount++;
     });
     if (_figureCount > 0)
         $(".mdx-figure-launcher").css("visibility", "visible");
@@ -922,7 +943,8 @@ function mouseDropInObj(obj) {
 /**
  * 显示插图内容
 **/
-function showFigureContent(fig) {
+function showFigureContent() {
+    var fig = $("[fig-id=mdx-figure-" + _figIndex + "]");
     fig.removeClass("mdx-figure-hover");
     var content = $(".mdx-figure-content");
     content.empty();
@@ -960,15 +982,15 @@ function showFigureContent(fig) {
         hideFigureAction(newObj);
     });
 
-    _figTitle= "";
-    var ft = newObj.attr("alt");
-    if (isEmptyObject(ft) == false)
-        _figTitle = ft;
-    else {
-        var titleObj = fig.parent().prevUntil("h6").prev();
-        if (titleObj != null && titleObj.prop("tagName").toLowerCase() == "h6")
-            _figTitle = titleObj.text();
-    }
+    // _figTitle= "";
+    // var ft = newObj.attr("alt");
+    // if (isEmptyObject(ft) == false)
+    //     _figTitle = ft;
+    // else {
+    //     var titleObj = fig.parent().prevUntil("h6").prev();
+    //     if (titleObj != null && titleObj.prop("tagName").toLowerCase() == "h6")
+    //         _figTitle = titleObj.text();
+    // }
 }
 /**
  * 查看上一个插图
@@ -976,8 +998,8 @@ function showFigureContent(fig) {
 function prevFigure() {
   if (_figIndex > 0) {
       _figIndex--;
-      var fig = $("[fig-id=mdx-figure-" + _figIndex + "]");
-      showFigureContent(fig);
+      // var fig = $("[fig-id=mdx-figure-" + _figIndex + "]");
+      showFigureContent();
       updateFigureViewerUI();
   }
 }
@@ -987,8 +1009,8 @@ function prevFigure() {
 function nextFigure() {
   if (_figIndex < _figureCount - 1) {
       _figIndex++;
-      var fig = $("[fig-id=mdx-figure-" + _figIndex + "]");
-      showFigureContent(fig);
+      // var fig = $("[fig-id=mdx-figure-" + _figIndex + "]");
+      showFigureContent();
       updateFigureViewerUI();
   }
 }
@@ -1002,28 +1024,22 @@ function updateFigureViewerUI() {
   var viewer = $(".mdx-figure-viewer");
 
   // 更新插图页码
-  var title = ["图-",
-      "圖-",
-      "Figure-",
-      "La figure-",
-      "карта-",
-      "図-",
-      "그림-"][_lang] + (parseInt(_figIndex) + 1) + ["（共",
-          "（共",
-          " of ",
-          " de ",
-          " из ",
-          "，（合計",
-          "，（합계"][_lang] + _figureCount + ["张）",
-              "張",
-              "",
-              "",
-              "",
-              "張）",
-              "장）"][_lang];
+  var title = ["(共",
+          "(共",
+          "(Total ",
+          "(Totale ",
+          "(Всего ",
+          "(合計",
+          "(합계"][_lang] + _figureCount + ["张) ",
+              "張) ",
+              ") ",
+              ") ",
+              ") ",
+              "張) ",
+              "장) "][_lang];
   var boldColor = _darkTheme ? $("mdx-color-bold-dark").css("color") : $("mdx-color-bold-light").css("color");
-  if (_figTitle.length > 0)
-      title += "｜" + "<strong id='#figureTitle' style='" + boldColor + "'>" + _figTitle + "</strong>";
+  // if (_figTitle.length > 0)
+      title += "<strong>" + $("[id=fig-num" + _figIndex + "]").text() + "</strong>";
   pageNum.css("width", (parseInt(viewer.css("width"))) - 60);
   pageNum.html(title);
 
@@ -1516,14 +1532,14 @@ function updateBreadNav(currentIndex) {
   var prevText = $(".mdx-nav-prev-text");
   if (currentIndex > 0) {
       prev.css("display", "block");
-      prevText.text($("#oli-" + _headers[currentIndex - 1]).text());
+      prevText.text($("#oli-" + _headers[currentIndex - 1]).text().trim());
       prevText.attr({
-          "title": $(".mdx-nav-prev-text").text() + " (←)",
+          "title": prevText.text() + " (←)",
           "data-anchor": _headers[currentIndex - 1]
       });
   }
   else { // 当前章节为第1章时特殊处理
-      $(".mdx-nav-prev-text").text(["封面",
+      prevText.text(["封面",
           "封面",
           "Cover",
           "Couverture",
@@ -1531,7 +1547,7 @@ function updateBreadNav(currentIndex) {
           "カバー",
           "표지"][_lang]);
       prevText.attr({
-          "title": $(".mdx-nav-prev-text").text() + " (←)",
+          "title": prevText.text() + " (←)",
           "data-anchor": "cover"
       });
   }
@@ -1541,7 +1557,7 @@ function updateBreadNav(currentIndex) {
   var nextText = $(".mdx-nav-next-text");
   if (currentIndex < _headers.length - 1) {
       next.css("display", "block");
-      nextText.text($("#oli-" + _headers[currentIndex + 1]).text());
+      nextText.text($("#oli-" + _headers[currentIndex + 1]).text().trim());
       nextText.attr({
           "title": $(".mdx-nav-next-text").text() + " (→)",
           "data-anchor": _headers[currentIndex + 1]
