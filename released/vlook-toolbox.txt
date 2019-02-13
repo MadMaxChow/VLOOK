@@ -757,7 +757,7 @@ function initFigureData() {
                     "карта-",
                     "図-",
                     "그림-"][_lang] + (_figureCount + 1) + ": " + figTitle +
-                    "<hr class='width: " + (figTitle.length * 0.75) + "em'></div>")
+                    "<hr style='width: " + (figTitle.length * 0.75) + "em'></div>")
                     .insertAfter(fig.parent());
 
         _figureCount++;
