@@ -2108,6 +2108,19 @@ li p {
 * VLOOK UI 自定义样式
 **************************************/
 
+.mdx-spotlight{
+  display: none;
+  position: fixed;
+  left:0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at calc(~"var(--x) * 1px") calc(~"var(--y) * 1px"), rgba(255,255,255,0) 180px, rgba(0, 0, 0, 0.7) 190px);
+  background-size: cover;
+  pointer-events: none;
+  z-index: 99999;
+}
+
 .mdx-figure-alt {
   color: @foreColorLightAlt;
   font-size: 0.85em;

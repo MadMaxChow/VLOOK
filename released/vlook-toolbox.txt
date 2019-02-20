@@ -1,6 +1,6 @@
 <!--========================================================================-->
-<!--                    Typora Plugin - VLOOK™ V9 Beta3                     -->
-<!--                               2019-02-13                               -->
+<!--                    Typora Plugin - VLOOK™ V9 Beta4                     -->
+<!--                               2019-02-20                               -->
 <!--                                                                        -->
 <!--                             powered by Max                             -->
 <!--                        QQ Group/QQ群：805502564                         -->
@@ -220,6 +220,9 @@ this._delay(function(){n===this.counter&&this.refreshPositions(!s)})},_clear:fun
     <svg width="14px" height="14px"><use xlink:href="#icoNewTab" class="mdx-svg-ico-light"/></svg>
 </div>
 
+<!-- 聚光灯 -->
+<div class="mdx-spotlight"></div>
+
 <!-- 调色板 -->
 <span class="mdx-color-theme-fore"></span>
 <span class="mdx-color-theme-fore-fade"></span>
@@ -301,7 +304,7 @@ this._delay(function(){n===this.counter&&this.refreshPositions(!s)})},_clear:fun
 <span class="mdx-color-transparency4"></span>
 
 <script type="text/javascript">
-var _version = "V9 beta";
+var _version = "V9 beta4";
 var _animateSpeed = 200;
 var _icoFold = '<svg width="16px" height="16px"><use xlink:href="#icoFolded" class="mdx-svg-ico-dark"/></svg>';
 var _icoUnfold = '<svg width="16px" height="16px"><use xlink:href="#icoUnfold" class="mdx-svg-ico-dark"/></svg>';
@@ -756,7 +759,7 @@ function initFigureData() {
                     "La figure-",
                     "карта-",
                     "図-",
-                    "그림-"][_lang] + (_figureCount + 1) + ": " + figTitle +
+                    "그림-"][_lang] + (_figureCount + 1) + " | " + figTitle +
                     "<hr style='width: " + (figTitle.length * 0.75) + "em'></div>")
                     .insertAfter(fig.parent());
 
@@ -860,10 +863,10 @@ function showFigureAction(fig) {
     act.fadeIn(_animateSpeed);
     _lastHoverContent = fig;
 
-    // 显示新手提示：第6步
-    if (window.localStorage && localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-6"] == undefined) {
+    // 显示新手提示：第7步
+    if (window.localStorage && localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-7"] == undefined) {
         hintWithShake(act, 3, 10);
-        localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-6"] = true;
+        localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-7"] = true;
     }
 }
 /**
@@ -1588,11 +1591,11 @@ function showBreadNav() {
     else
         tb.animate({ top: 0 }, _animateSpeed);
 
-    // 显示新手提示：第2步
-    if (window.localStorage && localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-2"] == undefined) {
+    // 显示新手提示：第3步
+    if (window.localStorage && localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-3"] == undefined) {
       hintWithShake($(".mdx-nav-prev"), 3, 10);
       hintWithShake($(".mdx-nav-next"), 4, 10);
-      localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-2"] = true;
+      localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-3"] = true;
     }
 }
 /**
@@ -2210,11 +2213,11 @@ function updateFullscreenUI() {
         //要执行的动作
         $(".mdx-nav-back, .mdx-nav-forward").css("visibility", "visible");
 
-        // 显示新手提示：第3步
-        if (window.localStorage && localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-3"] == undefined) {
+        // 显示新手提示：第4步
+        if (window.localStorage && localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-4"] == undefined) {
           hintWithShake($(".mdx-nav-back"), 1, 10);
           hintWithShake($(".mdx-nav-forward"), 1, 10);
-          localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-3"] = true;
+          localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-4"] = true;
         }
     }
     else {
@@ -2260,10 +2263,10 @@ function exitFullscreen() {
     else if (document.msExitFullscreen)
         document.msExitFullscreen();
 
-    // 显示新手提示：第4步
-    if (window.localStorage && localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-4"] == undefined) {
+    // 显示新手提示：第5步
+    if (window.localStorage && localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-5"] == undefined) {
         hintWithShake($(".mdx-theme-exchange"), 1, 10);
-        localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-4"] = true;
+        localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-5"] = true;
     }
 }
 /**
@@ -2291,6 +2294,7 @@ function toggleTheme() {
     var tableThBgColor, tableThBorderColor, tableTd2BgColor = null;
     var codeBorderColor = null;
     var brightness = 1;
+    var opacity = 1;
 
     _darkTheme = !_darkTheme;
     // 深色主题
@@ -2346,6 +2350,7 @@ function toggleTheme() {
         tableThBorderColor = $(".mdx-color-table-th-bg-border").css("color");
         tableTd2BgColor = $(".mdx-color-table-td2-bg-dark").css("color");
         brightness = 0.7;
+        opacity = 0.7;
         if (_lastItem != null) {
             _lastItem.removeClass("mdx-header-current");
             _lastItem.addClass("mdx-header-current-dark");
@@ -2371,7 +2376,7 @@ function toggleTheme() {
         themeBgColorFade = $(".mdx-color-theme-bg-fade").css("color");
         themeBgColorAlt = $(".mdx-color-theme-bg-alt").css("color");
         codeColor = themeBgColorAlt;
-        headerColor = $(".mdx-color-header-color-dark").css("color");
+        headerColor = $(".mdx-color-header-color").css("color");
         masterColor = $(".mdx-color-master").css("color");
         masterColorDark = $(".mdx-color-master-dark").css("color");
         masterColorAlt = $(".mdx-color-master-alt").css("color");
@@ -2404,6 +2409,7 @@ function toggleTheme() {
         tableThBorderColor = $(".mdx-color-table-th-bg-border").css("color");
         tableTd2BgColor = $(".mdx-color-table-td2-bg").css("color");
         brightness = 1;
+        opacity = 1;
         if (_lastItem != null) {
             _lastItem.removeClass("mdx-header-current-dark");
             _lastItem.addClass("mdx-header-current");
@@ -2438,11 +2444,12 @@ function toggleTheme() {
     $(".md-footnote").css("background-color", docbgColorAlt);
 
     // 封面&封底
-    $("body div[id=write] > h6:first-child, body div[id=write] > h6:last").css({
-        "background-color": themeBgColor,
-        "color": docBgColorLight
-    });
-    $("body div[id=write] > h6:first-of-type strong").css("color", themeForeColorAlt);
+    // $("body div[id=write] > h6:first-child, body div[id=write] > h6:last").css({
+    //     "background-color": themeBgColor,
+    //     "color": docBgColorLight
+    // });
+    // $("body div[id=write] > h6:first-of-type strong").css("color", themeForeColorAlt);
+    $("body div[id=write] > h6:first-of-type").css("opacity", opacity);
 
     // 面包屑
     $(".mdx-bread-nav").css("background-color", themeBgColor);
@@ -2644,10 +2651,10 @@ function toggleTheme() {
     $("rect + text[text-anchor='middle'] > tspan").css("fill", foreColor);
     $("rect + rect + text[text-anchor='middle'] > tspan").css("fill", boldColor);
 
-    // 显示新手提示：第5步
-    if (window.localStorage && localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-5"] == undefined) {
+    // 显示新手提示：第6步
+    if (window.localStorage && localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-6"] == undefined) {
         hintWithShake($(".mdx-figure-launcher"), 1, 10);
-        localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-5"] = true;
+        localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-6"] = true;
     }
 }
 /**
@@ -2853,6 +2860,18 @@ function getQueryString() {
   return args;
 }
 /**
+ * 聚光灯照明
+ **/
+function spotlighting() {
+    // document.documentElement.style.setProperty('--x', e.clientX);
+    // document.documentElement.style.setProperty('--y', e.clientY);
+    document.addEventListener('mousemove', function(e) {
+        document.documentElement.style.setProperty('--x', e.clientX);
+        document.documentElement.style.setProperty('--y', e.clientY);
+    });
+    // onmousemove="spotlighting(window.event)";
+}
+/**
  * HTML文档加载完成后执行主流程
  **/
 $(document).ready(function() {
@@ -2948,6 +2967,8 @@ $(document).ready(function() {
         localStorage.removeItem("VLOOK-" + _version + "-hint-for-green-hand-step-4");
         localStorage.removeItem("VLOOK-" + _version + "-hint-for-green-hand-step-5");
         localStorage.removeItem("VLOOK-" + _version + "-hint-for-green-hand-step-6");
+        localStorage.removeItem("VLOOK-" + _version + "-hint-for-green-hand-step-7");
+        localStorage.removeItem("VLOOK-" + _version + "-hint-for-green-hand-step-8");
     }
 
     // 显示新手提示：第1步
@@ -2955,6 +2976,43 @@ $(document).ready(function() {
         hintWithShake($(".mdx-outline"), 1, 10);
         localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-1"] = true;
     }
+
+    // 绑定文档双击事件，激活/关闭聚光灯
+    document.addEventListener('dblclick', function(){
+        var obj = $(".mdx-spotlight");
+        if (obj.css("display")　==　"none") {
+            obj.fadeIn(_animateSpeed);
+            var e = window.event;
+            document.documentElement.style.setProperty('--x', e.clientX);
+            document.documentElement.style.setProperty('--y', e.clientY);
+        }
+        else
+            obj.fadeOut(_animateSpeed);
+    });
+
+    // 绑定文档鼠标移动事件，聚光灯跟随鼠标移动
+    document.addEventListener('mousemove', function(e) {
+        var obj = $(".mdx-spotlight");
+        if (obj.css("display")　==　"block") {
+            document.documentElement.style.setProperty('--x', e.clientX);
+            document.documentElement.style.setProperty('--y', e.clientY);
+        }
+    });
+
+    // 绑定文档鼠标点击事件，显示使用聚光灯提示
+    document.addEventListener('click', function() {
+        // 显示新手提示：第1步
+        if (window.localStorage && localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-8"] == undefined) {
+            alert(["双击文档可以 [激活 / 关闭] 聚光灯！",
+                "雙擊文檔可以 [激活 / 關閉] 聚光燈！",
+                "Double click on the document to [Activate / Close] the spotlight!",
+                "Double-cliquez sur le document pour [Activer / Fermer] sous les projecteurs!",
+                "Дважды щелкните на документе, чтобы [Активировать / Закрыть] прожектор!",
+                "文書をダブルクリックしてスポットライトを[有効化/閉じる]します。",
+                "문서를 더블 클릭하여 스포트라이트를 [활성화 / 닫기]하십시오!"][_lang]);
+            localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-8"] = true;
+        }
+    });
 
     //saveToUniFile();
 });

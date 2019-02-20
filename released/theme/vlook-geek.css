@@ -1477,6 +1477,18 @@ li p {
 /**************************************
 * VLOOK UI 自定义样式
 **************************************/
+.mdx-spotlight {
+  display: none;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at calc(var(--x) * 1px) calc(var(--y) * 1px), rgba(255, 255, 255, 0) 180px, rgba(0, 0, 0, 0.7) 190px);
+  background-size: cover;
+  pointer-events: none;
+  z-index: 99999;
+}
 .mdx-figure-alt {
   color: #bdbebf;
   font-size: 0.85em;
@@ -1485,8 +1497,8 @@ li p {
 .mdx-figure-alt hr {
   border-bottom: 2px solid #bdbebf;
   margin: 0.5em;
-  margin-left: 45%;
-  margin-right: 45%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .mdx-figure-hover {
   border: 2px solid #1a1404 !important;
