@@ -1,4 +1,4 @@
-###### VLOOK™<br><br>快速参考手册 Quick Reference Manual<br><br><sup>( Version 9 beta )</sup><br><br><br>`+ 文档密级丨对外公开 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2017-2018. MAX°DESIGN.*
+###### <sup>VLOOK™</sup><br>快速参考手册 Quick Reference Manual<br>——<br><sub>( Version 9 beta )</sub><br><br><br>`+ 文档密级丨对外公开 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2017-2018. MAX°DESIGN.*
 
 [TOC]
 
@@ -397,7 +397,7 @@ $$
 + 支持在新标签打开图片、图表；
 + 支持按前一张、后一张方式浏览文档中的所有插图；
 + 对于缺失的图片以默认图片进行替换显示；
-+ 点击插图能直接跳转到文档中对应的位置，支持通过快捷键<kbd>esc</kbd>关闭插图浏览器；
++ 点击插图能直接跳转到文档中对应的位置，支持通过热键/快捷键<kbd>esc</kbd>关闭插图浏览器；
 
 [^mermaid]: mermaid 是一个用于画流程图、状态图、时序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详[mermaid官网](https://mermaidjs.github.io)，或VLOOK项目的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
 [^flowchart.js]: flowchart.js基于SVG的流程图插件，它仅需几行代码即可在 Web 上完成流程图的构建。可以从文字表述中画出简单的 SVG 流程图，也可以画出彩色的图。表详[flowchart.js官网](http://flowchart.js.org)，或VLOOK项目的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
@@ -476,19 +476,18 @@ $$
    - [ ] 这是二级样式
    - [x] 这是已选中的二级样式
 
-### 支持全局快捷键
+### 支持全局热键
 
-|  键盘快捷键  |    页面    | 功能                |
-| :----------: | :--------: | ------------------- |
-| <kbd>T</kbd> |    全局    | 切换文档主题        |
-| <kbd>O</kbd> |    文档    | 显示/隐藏大纲面板   |
-| <kbd>F</kbd> |    文档    | 进入/退出全屏       |
-| <kbd>I</kbd> |    文档    | 显示/隐藏插图浏览器 |
-| <kbd>←</kbd> |    文档    | 上一章              |
-| <kbd>→</kbd> |    文档    | 下一章              |
-| <kbd>P</kbd> |    文档    | 打印文档            |
-| <kbd>←</kbd> | 插图浏览器 | 前一张插图          |
-| <kbd>→</kbd> | 插图浏览器 | 后一张插图          |
+|             热键/快捷键             |  适应范围  | 功能                |
+| :---------------------------------: | :--------: | ------------------- |
+|          <kbd>**T**</kbd>           |    全局    | 切换文档主题        |
+|          <kbd>**O**</kbd>           |     ..     | 显示/隐藏大纲面板   |
+|          <kbd>**F**</kbd>           |     ..     | 进入/退出全屏       |
+|          <kbd>**I**</kbd>           |     ..     | 显示/隐藏插图浏览器 |
+|          <kbd>**P**</kbd>           |     ..     | 打印文档            |
+|          <kbd>**S**</kbd>           |     ..     | 打开/关闭聚光灯     |
+| <kbd>**←**</kbd> / <kbd>**→**</kbd> |     ..     | 上一章/下一章       |
+| <kbd>**←**</kbd> / <kbd>**→**</kbd> | 插图浏览器 | 前一张/后一张插图   |
 
 
 

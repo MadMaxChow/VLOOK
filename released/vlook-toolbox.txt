@@ -1,6 +1,6 @@
 <!--========================================================================-->
-<!--                    Typora Plugin - VLOOK™ V9 Beta4                     -->
-<!--                               2019-02-20                               -->
+<!--                    Typora Plugin - VLOOK™ V9 Beta5                     -->
+<!--                               2019-02-24                               -->
 <!--                                                                        -->
 <!--                             powered by Max                             -->
 <!--                        QQ Group/QQ群：805502564                         -->
@@ -304,8 +304,9 @@ this._delay(function(){n===this.counter&&this.refreshPositions(!s)})},_clear:fun
 <span class="mdx-color-transparency4"></span>
 
 <script type="text/javascript">
-var _version = "V9 beta4";
+var _version = "V9 beta5";
 var _animateSpeed = 200;
+var _clientX, _clientY;
 var _icoFold = '<svg width="16px" height="16px"><use xlink:href="#icoFolded" class="mdx-svg-ico-dark"/></svg>';
 var _icoUnfold = '<svg width="16px" height="16px"><use xlink:href="#icoUnfold" class="mdx-svg-ico-dark"/></svg>';
 var _headers = []; // 标题列表
@@ -884,9 +885,17 @@ function openContentInNewTab() {
         return;
     var w = window.open("", "_blank");
     var bgColor = _darkTheme ? $(".mdx-color-docbg-dark").css("color") : $(".mdx-color-docbg-light").css("color");
-    var baseContent = "<body class='typora-export' style='background-color:" + bgColor + "'>";
+    // ondblclick, onmousemove, onkeydown中的代码须使用原生javascipt
+    var baseContent = "<body ondblclick='var obj=document.getElementsByClassName(\"mdx-spotlight\")[0];if(obj.style.display==\"block\"){obj.style.display=\"none\"}else{obj.style.display=\"block\";var e=window.event;document.documentElement.style.setProperty(\"--x\",e.clientX);document.documentElement.style.setProperty(\"--y\",e.clientY)}'"
+        + " onmousemove=\"if (document.getElementsByClassName('mdx-spotlight')[0].style.display=='block'){var e = window.event;document.documentElement.style.setProperty('--x', e.clientX);document.documentElement.style.setProperty('--y', e.clientY);}\""
+        + " onkeydown='var code = event.keyCode||event.which||event.charCode;if (code == 27) document.getElementsByClassName(\"mdx-spotlight\")[0].style.display=\"none\"; if (code != 83) return; var obj=document.getElementsByClassName(\"mdx-spotlight\")[0];if(obj.style.display==\"block\"){obj.style.display=\"none\"}else{obj.style.display=\"block\";var e=window.event;document.documentElement.style.setProperty(\"--x\",e.clientX);document.documentElement.style.setProperty(\"--y\",e.clientY)}'"
+        + " class='typora-export' style='min-height:100vh;background-color:" + bgColor
+        + "'><div class='mdx-spotlight'></div>"
+        + "";
 
+    w.document.write("<!doctype html>");
     w.document.write($("html").html());
+
     // 图片
     if (_lastHoverContent.attr("fig-type") == "img") {
         w.document.title = ["图", "圖", "Figure", "Figure", "карта", "図", "그림"][_lang];
@@ -930,6 +939,7 @@ function openContentInNewTab() {
             + ["表格", "table", "Table", "table", "table"][_lang] + "<br>"
             + _lastHoverContent.prop("outerHTML") + "</li></ul></body>";
     }
+
 }
 /**
  * 鼠标光标落入指定对象范围内
@@ -2270,6 +2280,30 @@ function exitFullscreen() {
     }
 }
 /**
+ * 打开/关闭聚光灯
+ **/
+function toggleSpotlight() {
+    var obj = $(".mdx-spotlight");
+    if (obj.css("display")　==　"none") {
+        // $("body").css({"user-select":"none"});
+        obj.fadeIn(_animateSpeed);
+        var e = window.event;
+        var x = _clientX;
+        var y = _clientY;
+
+        if (e.clientX != undefined) {
+            x =  e.clientX;
+            y =  e.clientY;
+        }
+        document.documentElement.style.setProperty('--x', x);
+        document.documentElement.style.setProperty('--y', y);
+    }
+    else {
+        // $("body").css({"user-select":"auto"});
+        obj.fadeOut(_animateSpeed);
+    }
+}
+/**
  * 切换主题
 **/
 function toggleTheme() {
@@ -2792,21 +2826,21 @@ function initHotkeys() {
   // 键盘按下事件
   $(document).keydown(function(event) {
       var code = event.keyCode||event.which||event.charCode;
-      // console.log(code);
+      console.log(code);
 
       // 按了组合键时忽略
       if (event.shiftKey || event.ctrlKey || event.altKey || event.metaKey)
           return;
 
-      // 左向键
+      // ←
       if (code == 37) {
           if ($(".mdx-figure-viewer").css("display") == "block")
               prevFigure();
           else
               gotoHeader($(".mdx-nav-prev-text"));
       }
-      // 右向键
-      if (code == 39) {
+      // →
+      else  if (code == 39) {
           if ($(".mdx-figure-viewer").css("display") == "block")
               nextFigure();
           else {
@@ -2815,30 +2849,44 @@ function initHotkeys() {
               gotoHeader($(".mdx-nav-next-text"));
           }
       }
-
-      // F键
-      if (code == 70)
+      // F
+      else if (code == 70)
           toggleFullscreen();
-
-      // O键
-      if (code == 79)
+      // O
+      else if (code == 79) {
+          // $(".mdx-spotlight").fadeOut(_animateSpeed);
+          hideFigureViewer();
           toggleOutline();
-
-      // I键
-      if (code == 73) {
+      }
+      // I
+      else if (code == 73) {
+          // $(".mdx-spotlight").fadeOut(_animateSpeed);
+          hideOutline();
           if ($(".mdx-figure-viewer").css("display") == "none")
               showFigureViewer();
           else
               hideFigureViewer();
       }
-
-      // T键
-      if (code == 84)
+      // T
+      else if (code == 84)
           toggleTheme();
-
-      // P键
-      if (code == 80)
+      // P
+      else if (code == 80)
           window.print();
+      // S
+      else if (code == 83)
+          toggleSpotlight();
+      // ESC
+      else if (code == 27) {
+          var spot = $(".mdx-spotlight");
+          var fv = $(".mdx-figure-viewer");
+          if (spot.css("display") == "block")
+              spot.fadeOut(_animateSpeed);
+          else if (fv.css("display") == "block")
+              hideFigureViewer();
+          else if (isOutlineShowed())
+              hideOutline();
+      }
   });
 }
 //获取url中的参数
@@ -2931,7 +2979,7 @@ $(document).ready(function() {
 
     // displayBrowserInfo();
 
-    // 初始化全局快捷键
+    // 初始化全局热键
     initHotkeys();
 
     // 初始化Outline数据
@@ -2979,23 +3027,18 @@ $(document).ready(function() {
 
     // 绑定文档双击事件，激活/关闭聚光灯
     document.addEventListener('dblclick', function(){
-        var obj = $(".mdx-spotlight");
-        if (obj.css("display")　==　"none") {
-            obj.fadeIn(_animateSpeed);
-            var e = window.event;
-            document.documentElement.style.setProperty('--x', e.clientX);
-            document.documentElement.style.setProperty('--y', e.clientY);
-        }
-        else
-            obj.fadeOut(_animateSpeed);
+        toggleSpotlight();
     });
 
     // 绑定文档鼠标移动事件，聚光灯跟随鼠标移动
-    document.addEventListener('mousemove', function(e) {
+    document.addEventListener('mousemove', function() {
         var obj = $(".mdx-spotlight");
+        var e = window.event;
+        _clientX = e.clientX;
+        _clientY = e.clientY;
         if (obj.css("display")　==　"block") {
-            document.documentElement.style.setProperty('--x', e.clientX);
-            document.documentElement.style.setProperty('--y', e.clientY);
+            document.documentElement.style.setProperty('--x', _clientX);
+            document.documentElement.style.setProperty('--y', _clientY);
         }
     });
 
@@ -3003,13 +3046,13 @@ $(document).ready(function() {
     document.addEventListener('click', function() {
         // 显示新手提示：第1步
         if (window.localStorage && localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-8"] == undefined) {
-            alert(["双击文档可以 [激活 / 关闭] 聚光灯！",
-                "雙擊文檔可以 [激活 / 關閉] 聚光燈！",
-                "Double click on the document to [Activate / Close] the spotlight!",
-                "Double-cliquez sur le document pour [Activer / Fermer] sous les projecteurs!",
-                "Дважды щелкните на документе, чтобы [Активировать / Закрыть] прожектор!",
-                "文書をダブルクリックしてスポットライトを[有効化/閉じる]します。",
-                "문서를 더블 클릭하여 스포트라이트를 [활성화 / 닫기]하십시오!"][_lang]);
+            alert(["双击文档或热键[S]可以打开/关闭聚光灯！",
+                "雙擊文檔或熱鍵[S]打開/關閉聚光燈！",
+                "Double-click the document or shortcut [S] to turn the spotlight on/off!",
+                "Double-cliquez sur le document ou sur le raccourci clavier [S] pour allumer / éteindre le projecteur!",
+                "Дважды щелкните документ или горячую клавишу [S], чтобы включить / выключить прожектор!",
+                "ドキュメントまたはホットキー[S]をダブルクリックして、スポットライトをオン/オフにします。",
+                "문서 또는 단축 키 [S]를 두 번 클릭하여 스포트라이트를 켜거나 끕니다!"][_lang]);
             localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-8"] = true;
         }
     });
