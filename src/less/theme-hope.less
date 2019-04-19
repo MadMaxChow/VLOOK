@@ -1,75 +1,8 @@
+@import "color";
+
 /**************************************
 * 颜色主题
 ***************************************/
-
-// 纯透明色
-@transparencyColor0: fade(#FFFFFF, 0);
-@transparencyColor1: fade(#FFFFFF, 20%);
-@transparencyColor2: fade(#FFFFFF, 40%);
-@transparencyColor3: fade(#FFFFFF, 60%);
-@transparencyColor4: fade(#FFFFFF, 80%);
-
-// 文档背景色（浅色主题）
-@docBgColorLight: #FFFFFF;
-@docBgColorLightAlt: darken(@docBgColorLight, 5%);
-@docBgColorLightFade: fade(@docBgColorLight, 30%);
-// 文档背景色（深色主题）
-@docBgColorDark: #202224;//#28282A;
-@docBgColorDarkAlt: darken(@docBgColorDark, 10%);
-@docBgColorDarkFade: fade(@docBgColorDark, 30%);
-
-// 文档前景色（浅色主题）
-@foreColorLight: #56585A; //#606064;
-@foreColorLightAlt: lighten(@foreColorLight, 40%);
-@foreColorLightFade: fade(@foreColorLight, 50%);
-@foreColorLightFade1: fade(@foreColorLight, 15%);
-@foreColorLightFade2: fade(@foreColorLight, 10%);
-@foreColorLightFade3: fade(@foreColorLight, 5%);
-// 文档前景色（深色主题）
-@foreColorDark: #96989A;//#A8A8AA;
-@foreColorDarkAlt: darken(@foreColorDark, 30%);
-@foreColorDarkFade: fade(@foreColorDark, 50%);
-
-// 主色
-@masterColor: #045AD1; //#0158D0; //#0078D7;
-@masterColorLight: lighten(@masterColor, 10%);
-@masterColorDark: darken(@masterColor, 15%);
-@masterColorAlt: lighten(@masterColor, 50%);
-@masterColorAltDark: darken(desaturate(lighten(@masterColor, 50%), 40%), 55%);
-@masterColorFade: fade(@masterColor, 50%);
-@masterShadowColor: fade(@masterColor, 35%);
-// 辅助色
-@slaveColor: #C21117; //#C3252B;//#DC0010;
-@slaveColorLight: lighten(@slaveColor, 10%);
-@slaveColorDark: darken(@slaveColor, 15%);
-@slaveColorAlt: lighten(@slaveColor, 50%);
-@slaveColorAltDark: darken(desaturate(lighten(@slaveColor, 50%), 40%), 55%);
-@slaveColorFade: fade(@slaveColor, 50%);
-@slaveShadowColor: fade(@slaveColor, 35%);
-// 第3色
-@thirdColor: #4DA032; //#4AA608;
-@thirdColorLight: lighten(@thirdColor, 10%);
-@thirdColorDark: darken(@thirdColor, 15%);
-@thirdColorAlt: lighten(@thirdColor, 50%);
-@thirdColorAltDark: darken(desaturate(lighten(@thirdColor, 50%), 40%), 55%);
-@thirdColorFade: fade(@thirdColor, 50%);
-@thirdShadowColor: lighten(@thirdColor, 35%);
-// 第4色
-@fourthColor: #E68D09;//#D96B0A; //E6830B; //#D96B0A; //#F28D00;
-@fourthColorLight: lighten(@fourthColor, 10%);
-@fourthColorDark: darken(@fourthColor, 15%);
-@fourthColorAlt: lighten(@fourthColor, 40%);
-@fourthColorAltDark: darken(desaturate(lighten(@fourthColor, 40%), 40%), 55%);
-@fourthColorFade: fade(@fourthColor, 50%);
-@fourthShadowColor: lighten(@fourthColor, 35%);
-// 第5色
-@fifthColor: #953296; //#7D2A7E; //#803099;
-@fifthColorLight: lighten(@fifthColor, 10%);
-@fifthColorDark: darken(@fifthColor, 15%);
-@fifthColorAlt: lighten(@fifthColor, 50%);
-@fifthColorAltDark: darken(desaturate(lighten(@fifthColor, 50%), 40%), 55%);
-@fifthColorFade: fade(@fifthColor, 50%);
-@fifthShadowColor: lighten(@fifthColor, 35%);
 
 // 表格主色
 @tableColor: @foreColorLight;
@@ -87,6 +20,8 @@
 @tableTdBgColor2: fade(@tableThBgColor, 45%);
 @tableTdBgColorDark2: fade(@tableThBgColor, 8%);
 @tableTdBorderColor2: fade(@tableColor, 20%);
+// 表格十字聚焦颜色背景色
+@tableFocusBgColor: fade(@themeBgColor, 10%);
 
 // 主题主色
 @themeForeColor: #FFFFFF;
@@ -107,14 +42,14 @@
 @buttonBgColor: @themeBgColor;
 
 // 加粗文字颜色
-@boldColorLight: #202224;
-@boldColorDark: #D6D8DA;
+@boldColorLight: @foreColorLight;//#202224;
+@boldColorDark: @foreColorDark;
 
 // 链接颜色
 @aBorderWidth: 2px;
 @aColor: @boldColorLight;
 @aColorDark: @boldColorDark;
-@aLineColor: #4F49F5;//#1394BF;
+@aLineColor: #5ABD3C;//#4F49F5;//#1394BF;
 @aHoverColor: @aLineColor;
 @aHoverColorTransparencyColor0: fade(@aHoverColor, 0);
 @aActiveColor: @aLineColor;
@@ -125,5 +60,5 @@
 @coverBackgroundImage: url(@coverImage), url(@coverImage2);
 @coverBackgroundRepeat: repeat-x, repeat-x;
 @coverBackgroundPosition: top, bottom center;
-@coverImage: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OTAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDkwIDQwMCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSI1MCUiIHgyPSI1MCUiIHkxPSIwJSIgeTI9Ijk4LjE5NiUiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjNjI2MkY1IiBzdG9wLW9wYWNpdHk9IjAiIG9mZnNldD0iMCUiLz4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzQ5NDlGNSIgb2Zmc2V0PSIxMDAlIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNDkwIiBoZWlnaHQ9IjQwMCIgZmlsbD0idXJsKCNhKSIgZmlsbC1ydWxlPSJldmVub2RkIiB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDQwMCkiLz4KPC9zdmc+Cg==";
+@coverImage: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNDkwcHgiIGhlaWdodD0iNDAwcHgiIHZpZXdCb3g9IjAgMCA0OTAgNDAwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA1My4xICg3MjYzMSkgLSBodHRwczovL3NrZXRjaGFwcC5jb20gLS0+CiAgICA8dGl0bGU+SG9wZS1iZzM8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz4KICAgICAgICA8bGluZWFyR3JhZGllbnQgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iOTguMTk1ODk5NiUiIGlkPSJsaW5lYXJHcmFkaWVudC0xIj4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzdBNjJGNSIgc3RvcC1vcGFjaXR5PSIwIiBvZmZzZXQ9IjAlIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiM2NjQ5RjUiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0iSG9wZS1iZzMiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxyZWN0IGZpbGw9IiMwQjcyRDkiIHg9IjAiIHk9IjAiIHdpZHRoPSI0OTAiIGhlaWdodD0iNDAwIj48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZSIgZmlsbD0idXJsKCNsaW5lYXJHcmFkaWVudC0xKSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjQ1LjAwMDAwMCwgMjAwLjAwMDAwMCkgc2NhbGUoMSwgLTEpIHRyYW5zbGF0ZSgtMjQ1LjAwMDAwMCwgLTIwMC4wMDAwMDApICIgeD0iMCIgeT0iMCIgd2lkdGg9IjQ5MCIgaGVpZ2h0PSI0MDAiPjwvcmVjdD4KICAgIDwvZz4KPC9zdmc+";
 @coverImage2: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NTQiIGhlaWdodD0iNTAwIiB2aWV3Qm94PSIwIDAgNTU0IDUwMCIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogIDxkZWZzPgogICAgPHJlY3QgaWQ9ImEiIHdpZHRoPSI1NTQiIGhlaWdodD0iNDAwIi8+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImIiIHgxPSI1MCUiIHgyPSI1MCUiIHkxPSIwJSIgeTI9Ijk3LjQ0MSUiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMEI1QUQ5IiBzdG9wLW9wYWNpdHk9Ii41IiBvZmZzZXQ9IjAlIi8+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMwQjgwRDkiIHN0b3Atb3BhY2l0eT0iLjUiIG9mZnNldD0iMTAwJSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZCIgeDE9IjUwJSIgeDI9IjUwJSIgeTE9IjAlIiB5Mj0iOTguNjQ1JSI+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMwQjRGRDkiIHN0b3Atb3BhY2l0eT0iLjUiIG9mZnNldD0iMCUiLz4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzBCNzJEOSIgc3RvcC1vcGFjaXR5PSIuNSIgb2Zmc2V0PSIxMDAlIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJlIiB4MT0iNTAlIiB4Mj0iNTAlIiB5MT0iMCUiIHkyPSI5OS4xMTklIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzBCNTNEOSIgc3RvcC1vcGFjaXR5PSIuNSIgb2Zmc2V0PSIwJSIvPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMEI3MkQ5IiBzdG9wLW9wYWNpdHk9Ii41IiBvZmZzZXQ9IjEwMCUiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImYiIHgxPSI1MCUiIHgyPSI1MCUiIHkxPSIwJSIgeTI9Ijk5LjExOSUiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMEI1M0Q5IiBzdG9wLW9wYWNpdHk9Ii41IiBvZmZzZXQ9IjAlIi8+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMwQjc5RDkiIHN0b3Atb3BhY2l0eT0iLjUiIG9mZnNldD0iMTAwJSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjUwJSIgeDI9IjUwJSIgeTE9IjAlIiB5Mj0iOTkuMTE5JSI+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMwQjVBRDkiIHN0b3Atb3BhY2l0eT0iLjUiIG9mZnNldD0iMCUiLz4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzBCNzlEOSIgc3RvcC1vcGFjaXR5PSIuNSIgb2Zmc2V0PSIxMDAlIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJoIiB4MT0iNTAlIiB4Mj0iNTAlIiB5MT0iMCUiIHkyPSI5OS4xMTklIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzBCNTZEOSIgc3RvcC1vcGFjaXR5PSIuNSIgb2Zmc2V0PSIwJSIvPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMEI4M0Q5IiBzdG9wLW9wYWNpdHk9Ii41IiBvZmZzZXQ9IjEwMCUiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICA8bWFzayBpZD0iYyIgZmlsbD0id2hpdGUiPgogICAgICA8dXNlIHhsaW5rOmhyZWY9IiNhIi8+CiAgICA8L21hc2s+CiAgICA8cG9seWdvbiBmaWxsPSJ1cmwoI2IpIiBwb2ludHM9IjI3Ni44IDAgNDE1LjM2NCA4MCA0MTUuMzY0IDI0MCAyNzYuOCAzMjAgMTM4LjIzNiAyNDAgMTM4LjIzNiA4MCIgbWFzaz0idXJsKCNjKSIvPgogICAgPHBvbHlnb24gZmlsbD0idXJsKCNkKSIgcG9pbnRzPSI1NTQgMTYwIDY5Mi41NjQgMjQwIDY5Mi41NjQgNDAwIDU1NCAzMjAgNDE1LjQzNiA0MDAgNDE1LjQzNiAyNDAiIG1hc2s9InVybCgjYykiLz4KICAgIDxwb2x5Z29uIGZpbGw9InVybCgjZCkiIHBvaW50cz0iMCAxNjAgMTM4LjU2NCAyNDAgMTM4LjU2NCA0MDAgMCAzMjAgLTEzOC41NjQgNDAwIC0xMzguNTY0IDI0MCIgbWFzaz0idXJsKCNjKSIvPgogICAgPHBvbHlnb24gZmlsbD0idXJsKCNlKSIgcG9pbnRzPSI0MTUgNzkuMiA1NTMuNTY0IDAgNTUzLjU2NCAxNjAgNDE1IDI0MCAyNzYuNDM2IDE2MCAyNzYuNDM2IDAiIG1hc2s9InVybCgjYykiLz4KICAgIDxwb2x5Z29uIGZpbGw9InVybCgjZikiIHBvaW50cz0iMCAwIDEzOC41NjQgODAgMTM4LjU2NCAyNDAgMCAzMjAgLTEzOC41NjQgMjQwIC0xMzguNTY0IDgwIiBtYXNrPSJ1cmwoI2MpIi8+CiAgICA8cG9seWdvbiBmaWxsPSJ1cmwoI2cpIiBwb2ludHM9IjI3NyAwIDQxNS41NjQgODAgMjc3IDE2MCAxMzguNDM2IDgwIiBtYXNrPSJ1cmwoI2MpIi8+CiAgICA8cG9seWdvbiBmaWxsPSJ1cmwoI2cpIiBwb2ludHM9IjI3NyAxNjAgNDE1LjU2NCAyNDAgNDE1LjU2NCA0MDAgMjc3IDMyMCAxMzguNDM2IDQwMCAxMzguNDM2IDI0MCIgbWFzaz0idXJsKCNjKSIvPgogICAgPHBvbHlnb24gZmlsbD0idXJsKCNoKSIgcG9pbnRzPSI0MTUuMiA4MCA1NTMuNzY0IDE2MCA1NTMuNzY0IDMyMCA0MTUuMiA0MDAgMjc2LjYzNiAzMjAgMjc2LjYzNiAxNjAiIG1hc2s9InVybCgjYykiLz4KICAgIDxwb2x5Z29uIGZpbGw9InVybCgjZykiIHBvaW50cz0iNTUzLjYgMCA2OTIuMTY0IDgwIDY5Mi4xNjQgMjQwIDU1My42IDMyMCA0MTUuMDM2IDI0MCA0MTUuMDM2IDgwIiBtYXNrPSJ1cmwoI2MpIi8+CiAgPC9nPgo8L3N2Zz4K";

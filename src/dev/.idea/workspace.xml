@@ -7,7 +7,18 @@
       <change beforePath="$PROJECT_DIR$/../../released/vlook-toolbox.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../released/vlook-toolbox.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/dev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev2.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../less/base.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/base.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../less/font.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/font.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../less/theme-fancy.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/theme-fancy.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../less/theme-geek.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/theme-geek.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../less/theme-hope.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/theme-hope.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../less/theme-robin.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/theme-robin.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../less/theme-x-liby.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/theme-x-liby.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../less/theme-x-like.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/theme-x-like.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../less/theme-x-lohas.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/theme-x-lohas.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../misc/icons.sketch" beforeDir="false" afterPath="$PROJECT_DIR$/../misc/icons.sketch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../misc/theme.sketch" beforeDir="false" afterPath="$PROJECT_DIR$/../misc/theme.sketch" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,17 +34,23 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dev.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="3681" column="34" lean-forward="true" selection-start-line="3681" selection-start-column="34" selection-end-line="3681" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dev-for-open-in-newtab.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="49842">
-              <caret line="2769" column="104" selection-start-line="2769" selection-start-column="104" selection-end-line="2769" selection-end-column="193" />
+            <state relative-caret-position="487">
+              <caret line="5724" lean-forward="true" selection-start-line="5724" selection-end-line="5724" />
+              <folding>
+                <element signature="e#23229#36726#2" expanded="true" />
+                <element signature="e#84542#98039#2" expanded="true" />
+                <element signature="n#style#0;n#canvas#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#canvas#0;n#!!top" expanded="true" />
+                <element signature="e#44#50#1" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -42,19 +59,44 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>headerSpanCount</find>
-      <find>initFigureData()</find>
-      <find>initFigureData</find>
-      <find>img</find>
-      <find>插图</find>
-      <find>&quot;document</find>
-      <find>$(document</find>
-      <find>.clientwidth</find>
-      <find>快捷键</find>
-      <find>.mdx-spotlight</find>
-      <find>toggleSpotlight</find>
-      <find>inithot</find>
+      <find>mdx-loading-</find>
+      <find>body {</find>
+      <find>mdx-figure-action</find>
+      <find>.mdx-figure-action</find>
+      <find>showFigureAction</find>
+      <find>.mdx-loading-d</find>
+      <find>scale(</find>
+      <find>.mdx-loading-</find>
+      <find>hideFigureAction</find>
+      <find>chrome</find>
+      <find>^=</find>
+      <find>settime</find>
+      <find>settimeout</find>
+      <find>enterPenal</find>
+      <find>leavePanel</find>
+      <find>hideTips</find>
+      <find>hidetips</find>
+      <find>clientheight</find>
+      <find>.md-diagram-panel &gt;</find>
+      <find>toggleDarkTheme</find>
+      <find>figure-hover-dark</find>
+      <find>hover</find>
+      <find>.mdx-toolbar</find>
+      <find>console.log</find>
+      <find>#write &gt; h6</find>
+      <find>table tr th</find>
+      <find>.outline-item</find>
+      <find>.mdx-tool-tips</find>
+      <find>.mdx-info-tips</find>
+      <find>.mdx-toc-box-header</find>
     </findStrings>
+    <replaceStrings>
+      <replace>&lt;br&gt;</replace>
+      <replace>&lt;kbd&gt;J&lt;/kbd&gt;</replace>
+      <replace>&lt;kbd&gt;K&lt;/kbd&gt;</replace>
+      <replace>&lt;kbd&gt;H&lt;/kbd&gt;</replace>
+      <replace>&lt;kbd&gt;L&lt;/kbd&gt;</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -67,11 +109,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="540" />
-    <option name="y" value="23" />
-    <option name="width" value="900" />
-    <option name="height" value="813" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -79,6 +119,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -90,7 +131,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -138,18 +178,69 @@
       <workItem from="1550932278983" duration="7546000" />
       <workItem from="1550997383821" duration="333000" />
       <workItem from="1550997753674" duration="74000" />
+      <workItem from="1551422860876" duration="3768000" />
+      <workItem from="1551434856548" duration="94000" />
+      <workItem from="1551512637865" duration="1898000" />
+      <workItem from="1551778067688" duration="1129000" />
+      <workItem from="1552114107242" duration="4465000" />
+      <workItem from="1552119919730" duration="5468000" />
+      <workItem from="1552147730286" duration="1253000" />
+      <workItem from="1552277153540" duration="500000" />
+      <workItem from="1552551740231" duration="974000" />
+      <workItem from="1552575668951" duration="7694000" />
+      <workItem from="1552755413981" duration="2214000" />
+      <workItem from="1553050384120" duration="4884000" />
+      <workItem from="1553075078909" duration="64000" />
+      <workItem from="1553075238733" duration="7771000" />
+      <workItem from="1553141144329" duration="2155000" />
+      <workItem from="1553157982746" duration="7692000" />
+      <workItem from="1553303898958" duration="5735000" />
+      <workItem from="1553405666354" duration="2242000" />
+      <workItem from="1553434312700" duration="703000" />
+      <workItem from="1553491010413" duration="811000" />
+      <workItem from="1553587716958" duration="593000" />
+      <workItem from="1553657488484" duration="743000" />
+      <workItem from="1553834242578" duration="5382000" />
+      <workItem from="1553957886674" duration="1567000" />
+      <workItem from="1554039985089" duration="1273000" />
+      <workItem from="1554047145618" duration="1130000" />
+      <workItem from="1554077965128" duration="290000" />
+      <workItem from="1554081443154" duration="570000" />
+      <workItem from="1554089683423" duration="651000" />
+      <workItem from="1554105168526" duration="14000" />
+      <workItem from="1554175138726" duration="177000" />
+      <workItem from="1554196106207" duration="508000" />
+      <workItem from="1554262121521" duration="2290000" />
+      <workItem from="1554267168046" duration="1644000" />
+      <workItem from="1554269467384" duration="449000" />
+      <workItem from="1554286339620" duration="861000" />
+      <workItem from="1554304603333" duration="2330000" />
+      <workItem from="1554366599866" duration="499000" />
+      <workItem from="1554732804253" duration="2883000" />
+      <workItem from="1554795577471" duration="2746000" />
+      <workItem from="1554871783431" duration="447000" />
+      <workItem from="1554880238394" duration="702000" />
+      <workItem from="1555038316895" duration="282000" />
+      <workItem from="1555056781990" duration="800000" />
+      <workItem from="1555059582342" duration="357000" />
+      <workItem from="1555134292099" duration="274000" />
+      <workItem from="1555137731709" duration="578000" />
+      <workItem from="1555476808856" duration="828000" />
+      <workItem from="1555479245600" duration="88000" />
+      <workItem from="1555479381838" duration="120000" />
+      <workItem from="1555598818137" duration="875000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28710000" />
+    <option name="totallyTimeSpent" value="122175000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="540" y="23" width="900" height="813" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.21914008" visible="true" weight="0.27303755" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.7808599" side_tool="true" visible="true" weight="0.27303755" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.15662651" visible="true" weight="0.16842847" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.8433735" side_tool="true" visible="true" weight="0.16842847" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -178,17 +269,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="3681" column="34" lean-forward="true" selection-start-line="3681" selection-start-column="34" selection-end-line="3681" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dev-for-open-in-newtab.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="49842">
           <caret line="2769" column="104" selection-start-line="2769" selection-start-column="104" selection-end-line="2769" selection-end-column="193" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="5724" lean-forward="true" selection-start-line="5724" selection-end-line="5724" />
+          <folding>
+            <element signature="e#23229#36726#2" expanded="true" />
+            <element signature="e#84542#98039#2" expanded="true" />
+            <element signature="n#style#0;n#canvas#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#canvas#0;n#!!top" expanded="true" />
+            <element signature="e#44#50#1" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

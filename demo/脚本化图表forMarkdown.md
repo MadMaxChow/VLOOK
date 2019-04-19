@@ -26,7 +26,7 @@ mermaid 是一个用于画流程图、状态图、时序图、甘特图的库，
 
 ### 流程图
 
-###### mermaid丨流程图
+###### mermaid-流程图
 
 ```mermaid
 graph LR
@@ -89,7 +89,7 @@ END(( ))
 
 ### 状态图
 
-###### mermaid丨状态图
+###### mermaid-状态图
 
 ```mermaid
 graph LR
@@ -235,11 +235,11 @@ section 区块C
 
 flowchart.js基于SVG的流程图插件，它仅需几行代码即可在 Web 上完成流程图的构建。可以从文字表述中画出简单的 SVG 流程图，也可以画出彩色的图表。详见[flowchart.js 官网](http://flowchart.js.org)。
 
-###### flowchart.js丨流程图
+###### flowchart.js-流程图
 
 ```flow
-st=>start:  
-e=>end:  
+st=>start: s
+e=>end: e
 op1=>operation: 操作
 op2=>operation: 材料
 sub1=>subroutine: 子流程
@@ -257,8 +257,8 @@ c2(no)->op2->e
 ###### 画图脚本
 
 ```java
-st=>start:  
-e=>end:  
+st=>start: S
+e=>end: E
 op1=>operation: 操作
 op2=>operation: 材料
 sub1=>subroutine: 子流程
@@ -277,7 +277,7 @@ c2(no)->op2->e
 
 JS sequence diagrams是一个方便建立UML的时序图（序列图or循序图）在线工具，使用简单。详见[JS Sequence Diagrams 官网](https://bramp.github.io/js-sequence-diagrams/)。
 
-###### JS Sequence Diagrams丨时序图
+###### JS Sequence Diagrams-时序图
 
 ```sequence
 Title: 在此填写流程图标题

@@ -29,39 +29,31 @@
 }
 
 @import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400,700");
-// @headerFontName: headerFont, "NotoSerifCJKsc-Black", "Noto Serif CJK SC Black";
-@headerFontName: "";
 
 @fontSize: (16/16) * 100%;
 
-@sansFont: sansFont, "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial,
-Tahoma, sans-serif;
-@monoSansFont: "Noto Sans Mono CJK SC", "Roboto Mono", monoFont, Menlo, Consolas, sansFont,
-"Noto Sans SC", "MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", monospace;
+@sans: "Noto Sans CJK SC", "PingFang SC", "苹方-简", STHeiti, "华文黑体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑";
+@sans2: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Microsoft YaHei", "微软雅黑";
 
-@sansFont2: Arial, Tahoma, "Heiti SC", "黑体-简", "黑体", SimHei,
-"MicrosoftYaHei", "Microsoft YaHei", "微软雅黑", Arial, Tahoma, sans-serif;
-@monoSansFont2: "Roboto Mono", monoFont, Menlo, Consolas, "Heiti SC", "黑体-简",
-"黑体", SimHei, "Microsoft YaHei", "微软雅黑", monospace;
+// 衬线
+@serifFont: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
+@serifBoldFont: "Helvetica Neue", Helvetica, Arial, Tahoma, @sans, sans-serif;
+@monoSerifBoldFont: Menlo, Consolas, "Courier New", @sans, monospace;
 
-@serifFont: @headerFontName, "Bodoni 72 Book", "Book Antiqua", Times,
-"Times New Roman", "华文中宋", "STZhongsong", "宋体-简", "Songti SC", "宋体",
-SimSun, serif;
-@monoSerifFont: Courier, "Courier New", "Roboto Mono", monoFont, Menlo, Consolas,
-"华文中宋", "Songti SC", "宋体-简", "宋体", SimSun, monospace;
-
-// 非衬线风格
-@headerFont: @headerFontName, @sansFont;
-@titleFont: @sansFont;
-@textFont: @monoSansFont;//@sansFont;
-@boldFont: @monoSansFont;//@sansFont;
-@codeFont: @monoSansFont;
-@headerNumFont4toc: @sansFont;
-@headerNumFont: @headerFontName, @sansFont;
+// 非衬线
+@sansFont: "Noto Sans CJK SC", "Helvetica Neue", Helvetica, Arial, Tahoma, @sans2, sans-serif;
+@monoSansFont: Menlo, Consolas, "Courier New", @sans2, monospace;
 
 // 衬线+非衬线混排风格
-// @titleFont: @sansFont2;
-// @textFont: @serifFont;
-// @boldFont: @sansFont2;
-// @codeFont: @monoSansFont2;
-// @headerNumFont: @sansFont2;
+@titleFont: "Noto Serif CJK SC", @serifBoldFont;
+@headerFont: "Noto Serif CJK SC", @serifBoldFont;
+@textFont: @serifFont;
+@boldFont: @serifBoldFont;
+@codeFont: @monoSerifBoldFont;
+
+// 非衬线风格
+// @titleFont: @sansFont;
+// @headerFont: @sansFont;
+// @textFont: @sansFont;
+// @boldFont: @sansFont;
+// @codeFont: @monoSansFont;

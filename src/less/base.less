@@ -11,6 +11,7 @@ body {
   color: @foreColorLight;
   line-height: 2;
   -webkit-tap-highlight-color: transparent;
+  transition: all 0.3s ease-in-out;
 }
 
 #write {
@@ -67,23 +68,24 @@ img {
   border-radius: 15px;
   padding: 0px;
   border: 2px solid #DDE2F0;
+  transition: all 0.3s ease-in-out;
 }
 
 a {
   color: @aColor;
   // font-weight: bold;
-  // border-bottom: @aBorderWidth solid @aLineColor;
-  // border-bottom: 5px solid @aLineColor;
-  box-shadow: 0px -0.5em 0px fade(@aLineColor, 30%) inset;
+  border-bottom: @aBorderWidth solid @aLineColor;
+  // box-shadow: 0px -@aBorderWidth 0px @aLineColor inset;
+  // box-shadow: 0px -0.5em 0px fade(@aLineColor, 30%) inset;
   // padding-bottom: 1px;
   text-decoration: none;
-  font-family: @titleFont;
+  // font-family: @headerFont;
   // border: 1px dotted @transparencyColor;
   // border-bottom: 1px solid @masterColorAlt;
   // font-weight: bold;
   // margin-left: 2px;
   // margin-right: 2px;
-  // transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 a::after {
@@ -93,14 +95,16 @@ a::after {
 
 a:hover {
   color: @aHoverColor;
-  border-bottom: @aBorderWidth solid @aHoverColor;
-  box-shadow: none;
-  transition: all 0.3s ease-in-out;
+  // border-bottom: @aBorderWidth solid @aHoverColor;
+  border-bottom: @aBorderWidth solid fade(@aLineColor, 0%);
+  box-shadow: 0px -0.5em 0px fade(@aLineColor, 30%) inset;
+  // box-shadow: none;
+  // transition: all 0.3s ease-in-out;
 }
 
 a:active {
   color: @aActiveColor;
-  transition: all 0.3s ease-in-out;
+  // transition: all 0.3s ease-in-out;
 }
 
 // a:hover::before,
@@ -152,12 +156,14 @@ h6 {
   margin-right: -10px;
   padding-left: 0px;
   line-height: 1.5;
-  font-family: @headerFont; //@titleFont;
+  font-family: @headerFont;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
 }
 
-h6 {
-  font-family: @titleFont;
-}
+// h6 {
+//   font-family: @headerFont;
+// }
 
 h1:hover a.anchor,
 h2:hover a.anchor,
@@ -192,7 +198,7 @@ h1 {
   // height: 50px;
   line-height: 50px;
   font-size: 2em;
-  border-top: 10px dotted @themeBgColorFade;
+  border-top: 10px solid @themeBgColorFade;
   // text-align: center;
   // background-color: @masterColor;
   // color: @docBgColorLight;
@@ -211,7 +217,7 @@ h2 {
   // padding-top: 0.3em;
   // padding-bottom: 0em;
   font-size: 1.8em;
-  border-top: 6px dotted @themeBgColorFade;
+  border-top: 6px solid @themeBgColorFade;
   // text-align: center;
   // background-color: @thirdColor;
   // color: @docBgColorLight;
@@ -235,7 +241,7 @@ h3 {
   // padding-top: 0.3em;
   // padding-bottom: 0em;
   font-size: 1.6em;
-  border-top: 3px dotted @themeBgColorFade;
+  border-top: 3px solid @themeBgColorFade;
   // border-bottom: 5px solid @masterColorAlt;
 }
 
@@ -254,7 +260,7 @@ h4 {
   // padding-top: 0.3em;
   // padding-bottom: 0em;
   font-size: 1.4em;
-  border-top: 1px dotted @themeBgColorAlt;
+  border-top: 1px solid @themeBgColorFade;
   // border-bottom: 2px solid @masterColorAlt;
 }
 
@@ -314,8 +320,9 @@ li > h6::before {
 }
 
 strong {
-  color: @boldColorLight;
+  // color: @boldColorLight;
   font-family: @boldFont;
+  font-weight: bold;
 }
 
 p,
@@ -330,7 +337,7 @@ table {
 hr {
   margin-top: 1.2em;
   margin-bottom: 1.2em;
-  border: 1px dotted @foreColorLightAlt;
+  border: 1px solid @foreColorLightAlt;
   overflow: hidden;
   box-sizing: content-box;
   border-top: 0px;
@@ -383,15 +390,38 @@ h6 p {
   margin-top: 0;
 }
 
+// 配合内容块聚焦模式使用
+ul > li,
+ol > li,
+p,
+figure,
+.md-diagram-panel {
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+}
+// 配合mdx-list-item用于列表项、段落聚焦模式
+// ul > li,
+// ol > li,
+// li > p {
+//   border-radius: 0.3em;
+//   padding: 0em;
+//   transition: all 0.3s ease-in-out;
+// }
+// ul > li:hover,
+// ol > li:hover,
+// li > p:hover {
+//   box-shadow: 0px 0px 0px 1px fade(@themeBgColor, 50%);
+//   // box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.5);
+//   // background-color: fade(@themeBgColor, 10%);
+// }
+
 // 有序列表下无序列表-1级
 ol > li {
   list-style-type: decimal;
-  // line-height: 2;
-  // color: @masterColorAlt;
 }
 // 有序列表下无序列表-2级
 ol > li > ul > li {
-  list-style-type: upper-alpha;
+  list-style-type: lower-alpha;
 }
 // 有序列表下无序列表-3级
 ol > li > ul > li > ul > li {
@@ -413,11 +443,10 @@ ol > li > ul > li > ul > li > ul > li > ul > li > ul > li {
 // 多级无序列表-1级
 ul > li {
   list-style-type: decimal;
-  // line-height: 2;
 }
 // 多级无序列表-2级
 ul > li > ul > li {
-  list-style-type: upper-alpha;
+  list-style-type: lower-alpha;
 }
 // 多级无序列表-3级
 ul > li > ul > li > ul > li {
@@ -468,22 +497,30 @@ li > ul {
 blockquote {
   // border: 1px solid @foreColorLightAlt;
   // border-radius: 8px;
-  border-left: 0.3em solid @thirdColorAlt;
+  border-left: 0.4em solid @thirdColorAlt;
+  border-bottom: 1px solid @thirdColorAlt;
   padding-left: 0.5em;
   margin-top: 0.5em;
   margin-bottom: 1em;
   color: @thirdColor;
-  font-family: @titleFont;
-  // background-color: @thirdColorAlt;
+  // font-family: @headerFont;
+}
+
+blockquote a {
+  color: @thirdColor;
 }
 
 blockquote li {
   color: @foreColorLight;
 }
 
+blockquote li a {
+  color: @foreColorLight;
+}
+
 blockquote blockquote {
   border-left: 0.2em solid @thirdColorAlt;
-  margin-left: 0.4em;
+  margin-left: 0.5em;
 }
 
 blockquote blockquote {
@@ -504,9 +541,10 @@ table {
   width: auto;
   line-height: 1.5;
   word-break: break-all;
-  border: 2px solid rgba(255, 255, 255, 0);
-  border-top: 2px solid rgba(255 ,255, 255, 0);
-  border-bottom: 2px solid rgba(255, 255, 255, 0);
+  border: 2px solid @docBgColorLight;
+  border-top: 2px solid @docBgColorLight;
+  border-bottom: 2px solid @docBgColorLight;
+  // background-color: @docBgColorLight;
 }
 
 table:hover {
@@ -547,7 +585,8 @@ table tr:nth-child(2n) {
 // 表格表头
 table tr th {
   background-color: @tableThBgColor;
-  // font-family: @titleFont;
+  font-family: @boldFont;
+  font-weight: bold;
   color: @tableThColor;
   border-right: 1px solid fade(@tableTdBorderColor, 10%);
   // border-top: 1px solid @tableThBorderColor;
@@ -556,6 +595,12 @@ table tr th {
   padding: 0.5em 0.5em;
   box-shadow: 0px -1px 0px @tableBorderColor;
 }
+
+.mdx-table-td-bold {
+  font-family: @boldFont;
+  font-weight: bold;
+}
+
 table tr th:first-child {
   // border-top-left-radius: 15px;
 }
@@ -570,15 +615,23 @@ table tr td {
   margin: 0;
   padding: 0.5em 0.5em;
   border-bottom: 1px solid @tableTdBorderColor;
+  transition: all 0.3s ease-in-out;
 }
 
+// 当前单元格hover样式
+table tr th:hover,
 table tr td:hover {
-  // border-bottom: 1px solid @tableColor;
+  box-shadow: 0px 0px 5px 0px @themeBgColor;
+  border-right: 1px solid rgba(0, 0, 0, 0);
+  background-color: @docBgColorLight;
+}
+table tr td:hover {
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
 }
 
 // 表格首列
 table tr td:first-child {
-  // font-family: @titleFont;
+  // font-family: @headerFont;
   // font-weight: bold;
   // color: @boldColorLight;
   // color: darken(@foreColorLight, 30%);
@@ -671,7 +724,7 @@ li table tr td:first-child::before {
   content: counter(tableRowNumber);
 }
 
-// h6后的表格，格式微调
+// H1-6后的表格，格式微调
 h1 + figure,
 h2 + figure,
 h3 + figure,
@@ -685,7 +738,7 @@ li h6 + figure {
   margin-left: 0em;
 }
 
-// H6下的表格增加行号
+// H1-6下的表格增加行号
 h1 + figure table tr th:first-child::before,
 h1 + figure table tr td:first-child::before,
 h2 + figure table tr th:first-child::before,
@@ -722,11 +775,13 @@ h6 + figure table tr td:first-child::before {
   content: counter(tableRowNumber) " ";
 }
 
+// 高亮
 mark {
-  background-color: #FFF000 !important;
-  // border-radius: 0px;
+  background-color: rgba(255, 240, 0, 0.6) !important;
+  border-radius: 0.3em;
 }
 
+// 删除
 del {
   color: @foreColorLightAlt;
 }
@@ -749,7 +804,7 @@ del code {
 
 // 脚注行序号
 .md-fn-count {
-  font-family: @titleFont;
+  font-family: @boldFont;
 }
 
 .md-fn-count:before {
@@ -772,7 +827,7 @@ del code {
 
 // 脚注上标
 a[name^="ref-footnote-"] {
-  font-family: @titleFont;
+  font-family: @boldFont;
   color: @masterColor;
 }
 
@@ -803,13 +858,13 @@ a[name^="ref-footnote-"]:after {
 }
 
 //.md-fences,
-code,
-tt {
+tt,
+code {
   color: @boldColorLight;
   font-family: @codeFont;
   background-color: @themeBgColorAlt;
   border-radius: 0.3em;
-  padding: 0.1em 0.3em;
+  padding: 0.2em 0.3em;
   margin: 0px 0.2em;
   font-size: 0.85em;
   // white-space: nowrap;
@@ -832,7 +887,7 @@ tt:hover {
   color: @foreColorLight;
   font-family: @codeFont;
   background-color: @docBgColorLightAlt;
-  border-radius: 5px;
+  border-radius: 0.3em;
   border: 2px solid @docBgColorLightAlt;
   padding: 1px 4px 1px 4px;
   margin: 0px 4px 0px 4px;
@@ -944,7 +999,7 @@ tt:hover {
 .md-toc-h4 a,
 .md-toc-h5 a {
   //, .md-toc-h6 a
-  color: @foreColorLight;
+  // color: @foreColorLight;
   text-decoration: none;
   padding: 0px 0px 0px 0px;
   border-radius: 0px;
@@ -1041,7 +1096,7 @@ footer {
 .md-toc-h3,
 .md-toc-h4,
 .md-toc-h5 {
-  font-family: @titleFont;
+  font-family: @boldFont;
   font-size: 1em;
   padding-right: 10px;
   text-overflow: ellipsis;
@@ -1056,8 +1111,8 @@ footer {
 .md-toc-h5:before {
   //, .md-toc-h6:before
   color: @tocHeaderNumColor;
-  font-family: @headerNumFont;
-  font-weight: normal;
+  // font-family: @headerNumFont;
+  // font-weight: normal;
 }
 
 .md-toc-h1 a,
@@ -1186,8 +1241,8 @@ h4 {
 #write h5:before {
   //, #write h6:before
   color: @contentHeaderNumColor;
-  font-family: @headerNumFont;
-  font-weight: normal;
+  // font-family: @headerNumFont;
+  // font-weight: normal;
 }
 
 #write h1:before {
@@ -1255,7 +1310,7 @@ h5.md-focus:before {
 
 .outline-item {
   line-height: 1;
-  font-family: @titleFont;
+  font-family: @boldFont;
 }
 
 .outline-item:hover {
@@ -1966,19 +2021,29 @@ div.mermaidTooltip {
   border-radius: 0.3em;
   padding: 0.3em 0.3em;
 }
-.MathJax_SVG:hover {
+.MathJax_SVG:active {
   background-color: @docBgColorLight;
   transform: scale(2);
   transition: all 0.3s ease-in-out;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
 }
-.MathJax_SVG_Display .MathJax_SVG:hover {
-  // transform: none;
-}
 .MathJax_SVG g text {
   font-family: @textFont;
   color: @boldColorLight;
 }
+.md-math-block .MathJax_SVG_Display {
+  text-align: left;
+}
+.md-math-block .MathJax_SVG_Display:active {
+  background-color: @docBgColorLight;
+  transform: scale(2);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+}
+.md-math-block .MathJax_SVG_Display .MathJax_SVG:active {
+  transform: scale(1);
+}
+
 
 /* md 系统样式 */
 .md-toc-inner {
@@ -2020,7 +2085,7 @@ div.mermaidTooltip {
 #svg-figure-content {
   margin: 5px;
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 0.3em;
   cursor: pointer;
   display: table-cell;
   align-content: center;
@@ -2039,6 +2104,7 @@ sup.md-footnote a {
   margin-left: 0.5em;
   margin-right: 0.5em;
   box-shadow: none;
+  border-bottom: none;
 }
 sup.md-footnote a:hover {
   // background-color: fade(@aLineColor, 30%);
@@ -2051,9 +2117,10 @@ sup.md-footnote a:hover {
 }
 
 kbd {
-  font-family: @textFont;
+  font-family: @codeFont;
   font-size: 0.85em;
-  border-radius: 0.4em;
+  font-weight: bold;
+  border-radius: 0.3em;
   margin: 0px 0.2em;
   padding: 0em 0.3em;
   background-color: @docBgColorLight;
@@ -2108,6 +2175,39 @@ li p {
 * VLOOK UI 自定义样式
 **************************************/
 
+// 非衬线字体集
+.mdx-font-header-sans {
+  font-family: @sansFont !important;
+}
+.mdx-font-title-sans {
+  font-family: @sansFont !important;
+}
+.mdx-font-text-sans {
+  font-family: @sansFont !important;
+}
+.mdx-font-bold-sans {
+  font-family: @sansFont !important;
+}
+.mdx-font-code-sans {
+  font-family: @monoSansFont !important;
+}
+// 衬线字体集
+.mdx-font-header-serif {
+  font-family: @headerFont !important;
+}
+.mdx-font-title-serif {
+  font-family: @titleFont !important;
+}
+.mdx-font-text-serif {
+  font-family: @textFont;
+}
+.mdx-font-bold-serif {
+  font-family: @boldFont !important;
+}
+.mdx-font-code-serif {
+  font-family: @monoSerifBoldFont !important;
+}
+
 .mdx-spotlight {
   display: none;
   position: fixed;
@@ -2115,16 +2215,105 @@ li p {
   top: 0px;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at calc(~"var(--x) * 1px") calc(~"var(--y) * 1px"), rgba(255,255,255,0) 180px, rgba(0, 0, 0, 0.7) 190px);
+  background: radial-gradient(circle at calc(~"var(--x) * 1px") calc(~"var(--y) * 1px"), rgba(255,255,255,0) calc(~"var(--r) * 1px"), rgba(0, 0, 0, 0.6) calc(~"var(--r) * 1px + 1px"));
   background-size: cover;
   pointer-events: none;
   z-index: 99999;
 }
 
+.mdx-tool-tips,
+.mdx-info-tips {
+  display: none;
+  position: fixed;
+  margin-left: auto;
+  padding: 0.5em 1em;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 15px;
+  font-family: @boldFont;
+  color: #FFF;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 8000;
+}
+.mdx-tool-tips strong,
+.mdx-info-tips strong {
+  color: #FFF;
+}
+
+.mdx-loading {
+  cursor: wait;
+  position: fixed;
+  color: @themeForeColor;
+  background-color: @themeBgColor;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-family: @titleFont;
+  font-size: 1.5em;
+  z-index: 9000;
+}
+@keyframes breathe {
+  0% { opacity: 1; transform: scale(1.0); }
+  100% { opacity: 0.5; transform: scale(0.98); }
+}
+.mdx-loading-tips {
+  padding: 2em 2em 1em 2em;
+  animation: 1.5s breathe infinite alternate;
+}
+.mdx-loading-done {
+  cursor: pointer;
+  padding-left: 1em;
+  padding-right: 1em;
+  color: @themeBgColor;
+  background-color: @themeForeColor;
+  font-family: @boldFont;
+  font-weight: normal;
+  display: inline-block;
+  opacity: 0;
+  border-radius: 1em;
+  margin-bottom: 2em;
+  transition: all 0.3s ease-in-out;
+}
+.mdx-loading-done:hover {
+  color: @themeForeColor;
+  background-color: @aHoverColor;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+  transform: scale(1.1);
+}
+.mdx-loading-done:active {
+  transform: scale(1);
+}
+
+.mdx-focus-row-col {
+  background-color: @tableFocusBgColor;
+  transition: all 0.3s ease-in-out;
+}
+
+.mdx-focus-row-col-current {
+  // box-shadow: inset 0px 0px 0px 1px @themeBgColor;
+  // background-color: #ffffff;
+  // transition: all 0.3s ease-in-out;
+}
+
+// 用于列表项、段落聚焦模式
+.mdx-current-blockfocus-item {
+  box-shadow: 0px 0px 0px 10px @aLineColor;
+  // background-color: fade(@themeBgColor, 10%);
+  border-radius: 5px;
+}
+
 .mdx-figure-alt {
   color: @foreColorLight;
   font-size: 0.85em;
+  font-family: @boldFont;
   text-align: center;
+  display: inline-block;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
 }
 
 .mdx-figure-alt hr {
@@ -2135,14 +2324,12 @@ li p {
 }
 
 .mdx-figure-hover {
-  border: 2px solid @themeBgColor !important;
-  transition: all 0.3s ease-in-out;
+  border: 2px solid @themeBgColor !important; 
 }
 
-.mdx-figure-hover-dark {
-  border: 2px solid @themeBgColorDark !important;
-  transition: all 0.3s ease-in-out;
-}
+// .mdx-figure-hover-dark {
+//   border: 2px solid @themeBgColorDark !important;
+// }
 
 .mdx-blockquote-folder:hover {
   color: @thirdColorDark;
@@ -2423,7 +2610,7 @@ li p {
 .mdx-toc-box-header {
   // background-color: @docBgColorLightFade;
   color: @foreColorLight;
-  font-family: @titleFont;
+  font-family: @boldFont;
   font-size: 1.2em;
   width: 100%;
   height: 50px;
@@ -2455,7 +2642,7 @@ li p {
   margin: 0 auto;
   background-color: @docBgColorLight;
   display: none;
-  z-index: 9999;
+  z-index: 5000;
 }
 
 .mdx-footer-note-content {
@@ -2488,13 +2675,19 @@ li p {
   width: 350px;
   height: 50px;
   position: fixed;
+  opacity: 0.7;
+  transition: opacity 1s ease-in-out;
   z-index: 100;
+}
+.mdx-toolbar:hover {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .mdx-toc-box-title {
   text-align: center;
   position: absolute;
-  width: 280px;
+  width: 330px;
   height: 30px;
   line-height: 30px;
   border-radius: 5px;
@@ -2502,7 +2695,7 @@ li p {
   white-space: nowrap;
   overflow: hidden;
   font-size: 1em;
-  font-family: @headerFont;
+  font-family: @boldFont;
   font-weight: bold;
   color: @aColor;
   cursor: pointer;
@@ -2534,7 +2727,7 @@ li p {
 .mdx-toc-info {
   color: @foreColorLight;
   font-size: 0.85em;
-  font-family: @titleFont;
+  font-family: @boldFont;
   width: 100%;
   height: 40px;
   line-height: 40px;
@@ -2554,6 +2747,7 @@ li p {
   // background-color: @themeBgColor;
   color: @foreColorLight;
   font-size: 0.85em;
+  font-family: @boldFont;
   position: absolute;
 }
 // .mdx-toc-info2 a {
@@ -2646,7 +2840,7 @@ li p {
   cursor: pointer;
   padding: 0px;
   font-size: 0.85em;
-  width: 30px;
+  width: 40px;
   height: 30px;
   border-radius: 8px;
   //   transition: background-color 0.5s, opacity 0.5s;
@@ -2661,10 +2855,10 @@ li p {
 }
 .mdx-btn-hover:hover {
   background-color: @aHoverColor;
-  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
   // transform-origin: 50% 0 0;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 .mdx-btn-leave {
   background-color: @buttonBgColor;
@@ -2707,7 +2901,7 @@ li p {
   background-color: @foreColorLight;
   // box-shadow: 0px 2px 20px @foreColorDarkFade;
   transition: 0.3s;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 .mdx-btn2-leave {
   background-color: @foreColorLightAlt;
@@ -2728,6 +2922,7 @@ li p {
   margin-left: 10px;
   float: left;
   visibility: hidden;
+  display: none;
 }
 
 .mdx-nav-forward {
@@ -2735,6 +2930,7 @@ li p {
   margin-left: 10px;
   float: left;
   visibility: hidden;
+  display: none;
 }
 
 .mdx-nav-prev {
@@ -2766,6 +2962,7 @@ li p {
   width: 100%;
   height: 50px;
   line-height: 50px;
+  font-family: @boldFont;
   color: @themeForeColor;
   text-align: left;
   text-overflow: ellipsis;
@@ -2805,6 +3002,7 @@ li p {
   width: 100%;
   height: 50px;
   line-height: 50px;
+  font-family: @boldFont;
   color: @themeForeColor;
   text-align: right;
   text-overflow: ellipsis;
@@ -2826,14 +3024,20 @@ li p {
   position: fixed;
   padding: 0px;
   vertical-align: middle;
+  opacity: 0.7;
+  transition: opacity 1s ease-in-out;
   z-index: 100;
   // box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.3);
   // display: none;
 }
+.mdx-bread-nav:hover {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
 
 .mdx-bread-nav-text {
   color: @themeForeColor;
-  font-family: @headerFont;
+  font-family: @boldFont;
   font-size: 1.4em;
   font-weight: bold;
   text-align: center;
@@ -2863,6 +3067,7 @@ li p {
   margin-top: 10px;
   margin-left: 10px;
   float: left;
+  display: none;
 }
 
 .mdx-theme-exchange {
@@ -2871,10 +3076,22 @@ li p {
   float: right;
 }
 
-.mdx-figure-launcher {
+.mdx-font-exchange {
   margin-top: 10px;
   margin-right: 10px;
+  float: right;
+}
+
+.mdx-figure-launcher {
+  margin-top: 10px;
+  margin-left: 10px;
   visibility: hidden;
+  float: left;
+}
+
+.mdx-spotlight-switch {
+  margin-top: 10px;
+  margin-right: 10px;
   float: right;
 }
 
@@ -2882,6 +3099,7 @@ li p {
   margin-top: 10px;
   margin-right: 10px;
   float: right;
+  display: none;
 }
 
 .mdx-figure-viewer {
@@ -2898,7 +3116,7 @@ li p {
 .mdx-figure-viewer-prev {
   left: 10px;
   top: auto;
-  width: 30px;
+  // width: 30px;
   border-radius: 15px;
   position: absolute;
   bottom: 10px;
@@ -2907,7 +3125,7 @@ li p {
 .mdx-figure-viewer-next {
   right: 10px;
   top: auto;
-  width: 30px;
+  // width: 30px;
   border-radius: 15px;
   position: absolute;
   bottom: 10px;
@@ -2932,11 +3150,13 @@ li p {
   background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTAwcHgiIGhlaWdodD0iMTAwcHgiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA1Mi41ICg2NzQ2OSkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+ZG90IGNvcHkgNDwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxnIGlkPSJkb3QtY29weS00IiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlIiBmaWxsPSIjRkZGRkZGIiB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUiIGZpbGw9IiNGMEYzRkEiIHg9IjAiIHk9IjEiIHdpZHRoPSIxIiBoZWlnaHQ9Ijk5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5IiBmaWxsPSIjRjBGM0ZBIiB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMiIgZmlsbD0iI0YwRjNGQSIgeD0iMSIgeT0iMTAiIHdpZHRoPSI5OSIgaGVpZ2h0PSIxIj48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTgiIGZpbGw9IiNGMEYzRkEiIHg9IjEwIiB5PSIxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTEyIiBmaWxsPSIjRjBGM0ZBIiB4PSIyMCIgeT0iMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0xMyIgZmlsbD0iI0YwRjNGQSIgeD0iMzAiIHk9IjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMTYiIGZpbGw9IiNGMEYzRkEiIHg9IjQwIiB5PSIxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTE1IiBmaWxsPSIjRjBGM0ZBIiB4PSI1MCIgeT0iMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0xNCIgZmlsbD0iI0YwRjNGQSIgeD0iNjAiIHk9IjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMjAiIGZpbGw9IiNGMEYzRkEiIHg9IjcwIiB5PSIxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTE5IiBmaWxsPSIjRjBGM0ZBIiB4PSI4MCIgeT0iMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0xOCIgZmlsbD0iI0YwRjNGQSIgeD0iOTAiIHk9IjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMjgiIGZpbGw9IiNGMEYzRkEiIHg9IjEwIiB5PSIxMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0yNyIgZmlsbD0iI0YwRjNGQSIgeD0iMjAiIHk9IjExIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTI2IiBmaWxsPSIjRjBGM0ZBIiB4PSIzMCIgeT0iMTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMjUiIGZpbGw9IiNGMEYzRkEiIHg9IjQwIiB5PSIxMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0yNCIgZmlsbD0iI0YwRjNGQSIgeD0iNTAiIHk9IjExIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTE3IiBmaWxsPSIjRjBGM0ZBIiB4PSI2MCIgeT0iMTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMjMiIGZpbGw9IiNGMEYzRkEiIHg9IjcwIiB5PSIxMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0yMiIgZmlsbD0iI0YwRjNGQSIgeD0iODAiIHk9IjExIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTIxIiBmaWxsPSIjRjBGM0ZBIiB4PSI5MCIgeT0iMTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMzciIGZpbGw9IiNGMEYzRkEiIHg9IjEwIiB5PSIyMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0zNiIgZmlsbD0iI0YwRjNGQSIgeD0iMjAiIHk9IjIxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTM1IiBmaWxsPSIjRjBGM0ZBIiB4PSIzMCIgeT0iMjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMzQiIGZpbGw9IiNGMEYzRkEiIHg9IjQwIiB5PSIyMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0zMyIgZmlsbD0iI0YwRjNGQSIgeD0iNTAiIHk9IjIxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTMyIiBmaWxsPSIjRjBGM0ZBIiB4PSI2MCIgeT0iMjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMzEiIGZpbGw9IiNGMEYzRkEiIHg9IjcwIiB5PSIyMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0zMCIgZmlsbD0iI0YwRjNGQSIgeD0iODAiIHk9IjIxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTI5IiBmaWxsPSIjRjBGM0ZBIiB4PSI5MCIgeT0iMjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNDYiIGZpbGw9IiNGMEYzRkEiIHg9IjEwIiB5PSIzMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS00NSIgZmlsbD0iI0YwRjNGQSIgeD0iMjAiIHk9IjMxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTQ0IiBmaWxsPSIjRjBGM0ZBIiB4PSIzMCIgeT0iMzEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNDMiIGZpbGw9IiNGMEYzRkEiIHg9IjQwIiB5PSIzMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS00MiIgZmlsbD0iI0YwRjNGQSIgeD0iNTAiIHk9IjMxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTQxIiBmaWxsPSIjRjBGM0ZBIiB4PSI2MCIgeT0iMzEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNDAiIGZpbGw9IiNGMEYzRkEiIHg9IjcwIiB5PSIzMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0zOSIgZmlsbD0iI0YwRjNGQSIgeD0iODAiIHk9IjMxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTM4IiBmaWxsPSIjRjBGM0ZBIiB4PSI5MCIgeT0iMzEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNTUiIGZpbGw9IiNGMEYzRkEiIHg9IjEwIiB5PSI0MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS01NCIgZmlsbD0iI0YwRjNGQSIgeD0iMjAiIHk9IjQxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTUzIiBmaWxsPSIjRjBGM0ZBIiB4PSIzMCIgeT0iNDEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNTIiIGZpbGw9IiNGMEYzRkEiIHg9IjQwIiB5PSI0MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS01MSIgZmlsbD0iI0YwRjNGQSIgeD0iNTAiIHk9IjQxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTUwIiBmaWxsPSIjRjBGM0ZBIiB4PSI2MCIgeT0iNDEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNDkiIGZpbGw9IiNGMEYzRkEiIHg9IjcwIiB5PSI0MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS00OCIgZmlsbD0iI0YwRjNGQSIgeD0iODAiIHk9IjQxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTQ3IiBmaWxsPSIjRjBGM0ZBIiB4PSI5MCIgeT0iNDEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNjQiIGZpbGw9IiNGMEYzRkEiIHg9IjEwIiB5PSI1MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS02MyIgZmlsbD0iI0YwRjNGQSIgeD0iMjAiIHk9IjUxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTYyIiBmaWxsPSIjRjBGM0ZBIiB4PSIzMCIgeT0iNTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNjEiIGZpbGw9IiNGMEYzRkEiIHg9IjQwIiB5PSI1MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS02MCIgZmlsbD0iI0YwRjNGQSIgeD0iNTAiIHk9IjUxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTU5IiBmaWxsPSIjRjBGM0ZBIiB4PSI2MCIgeT0iNTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNTgiIGZpbGw9IiNGMEYzRkEiIHg9IjcwIiB5PSI1MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS01NyIgZmlsbD0iI0YwRjNGQSIgeD0iODAiIHk9IjUxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTU2IiBmaWxsPSIjRjBGM0ZBIiB4PSI5MCIgeT0iNTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNzMiIGZpbGw9IiNGMEYzRkEiIHg9IjEwIiB5PSI2MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS03MiIgZmlsbD0iI0YwRjNGQSIgeD0iMjAiIHk9IjYxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTcxIiBmaWxsPSIjRjBGM0ZBIiB4PSIzMCIgeT0iNjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNzAiIGZpbGw9IiNGMEYzRkEiIHg9IjQwIiB5PSI2MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS02OSIgZmlsbD0iI0YwRjNGQSIgeD0iNTAiIHk9IjYxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTY4IiBmaWxsPSIjRjBGM0ZBIiB4PSI2MCIgeT0iNjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNjciIGZpbGw9IiNGMEYzRkEiIHg9IjcwIiB5PSI2MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS02NiIgZmlsbD0iI0YwRjNGQSIgeD0iODAiIHk9IjYxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTY1IiBmaWxsPSIjRjBGM0ZBIiB4PSI5MCIgeT0iNjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktODIiIGZpbGw9IiNGMEYzRkEiIHg9IjEwIiB5PSI3MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS04MSIgZmlsbD0iI0YwRjNGQSIgeD0iMjAiIHk9IjcxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTgwIiBmaWxsPSIjRjBGM0ZBIiB4PSIzMCIgeT0iNzEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNzkiIGZpbGw9IiNGMEYzRkEiIHg9IjQwIiB5PSI3MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS03OCIgZmlsbD0iI0YwRjNGQSIgeD0iNTAiIHk9IjcxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTc3IiBmaWxsPSIjRjBGM0ZBIiB4PSI2MCIgeT0iNzEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNzYiIGZpbGw9IiNGMEYzRkEiIHg9IjcwIiB5PSI3MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS03NSIgZmlsbD0iI0YwRjNGQSIgeD0iODAiIHk9IjcxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTc0IiBmaWxsPSIjRjBGM0ZBIiB4PSI5MCIgeT0iNzEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktOTEiIGZpbGw9IiNGMEYzRkEiIHg9IjEwIiB5PSI4MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS05MCIgZmlsbD0iI0YwRjNGQSIgeD0iMjAiIHk9IjgxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTg5IiBmaWxsPSIjRjBGM0ZBIiB4PSIzMCIgeT0iODEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktODgiIGZpbGw9IiNGMEYzRkEiIHg9IjQwIiB5PSI4MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS04NyIgZmlsbD0iI0YwRjNGQSIgeD0iNTAiIHk9IjgxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTg2IiBmaWxsPSIjRjBGM0ZBIiB4PSI2MCIgeT0iODEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktODUiIGZpbGw9IiNGMEYzRkEiIHg9IjcwIiB5PSI4MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS04NCIgZmlsbD0iI0YwRjNGQSIgeD0iODAiIHk9IjgxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTgzIiBmaWxsPSIjRjBGM0ZBIiB4PSI5MCIgeT0iODEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMTAwIiBmaWxsPSIjRjBGM0ZBIiB4PSIxMCIgeT0iOTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktOTkiIGZpbGw9IiNGMEYzRkEiIHg9IjIwIiB5PSI5MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS05OCIgZmlsbD0iI0YwRjNGQSIgeD0iMzAiIHk9IjkxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTk3IiBmaWxsPSIjRjBGM0ZBIiB4PSI0MCIgeT0iOTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktOTYiIGZpbGw9IiNGMEYzRkEiIHg9IjUwIiB5PSI5MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS05NSIgZmlsbD0iI0YwRjNGQSIgeD0iNjAiIHk9IjkxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTk0IiBmaWxsPSIjRjBGM0ZBIiB4PSI3MCIgeT0iOTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktOTMiIGZpbGw9IiNGMEYzRkEiIHg9IjgwIiB5PSI5MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS05MiIgZmlsbD0iI0YwRjNGQSIgeD0iOTAiIHk9IjkxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTMiIGZpbGw9IiNGMEYzRkEiIHg9IjEiIHk9IjIwIiB3aWR0aD0iOTkiIGhlaWdodD0iMSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS00IiBmaWxsPSIjRjBGM0ZBIiB4PSIxIiB5PSIzMCIgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNyIgZmlsbD0iI0YwRjNGQSIgeD0iMSIgeT0iNDAiIHdpZHRoPSI5OSIgaGVpZ2h0PSIxIj48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTYiIGZpbGw9IiNGMEYzRkEiIHg9IjEiIHk9IjUwIiB3aWR0aD0iOTkiIGhlaWdodD0iMSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS01IiBmaWxsPSIjRjBGM0ZBIiB4PSIxIiB5PSI2MCIgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMTEiIGZpbGw9IiNGMEYzRkEiIHg9IjEiIHk9IjcwIiB3aWR0aD0iOTkiIGhlaWdodD0iMSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0xMCIgZmlsbD0iI0YwRjNGQSIgeD0iMSIgeT0iODAiIHdpZHRoPSI5OSIgaGVpZ2h0PSIxIj48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTkiIGZpbGw9IiNGMEYzRkEiIHg9IjEiIHk9IjkwIiB3aWR0aD0iOTkiIGhlaWdodD0iMSI+PC9yZWN0PgogICAgPC9nPgo8L3N2Zz4=");
   background-repeat: repeat;
   background-position: left top;
-
   // margin: 0 !important;
   border-radius: 15px;
   padding: 0px;
   border: 2px solid #DDE2F0;
+  // margin: 0 !important;
+  // text-align: left !important;
+  display: block;
 }
 
 .mdx-figure-content {
@@ -3026,12 +3246,15 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-c4-alt,
 .mdx-code-c5-alt,
 .mdx-code-c6-alt {
-  font-family: @textFont;
+  font-family: @boldFont;
+  font-weight: bold;
   color: @foreColorLight;
-  padding: 0.1em 0.3em;
-  border-radius: 0.4em;
+  padding: 0.2em 0.3em;
+  border-radius: 0.5em;
+  border-bottom-left-radius: 0em;
+  border-top-right-radius: 0em;
   border: 0.1em solid @masterColor;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.25);
+  // text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
 .mdx-code-c1-alt {
   background-color: @masterColorAlt;
@@ -3071,41 +3294,44 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-c4,
 .mdx-code-c5,
 .mdx-code-c6 {
-  font-family: @textFont;
+  font-family: @boldFont;
+  font-weight: bold;
   color: @docBgColorLight;
-  padding: 0.1em 0.3em;
-  border-radius: 0.4em;
+  padding: 0.2em 0.3em;
+  border-radius: 0.5em;
+  border-bottom-left-radius: 0em;
+  border-top-right-radius: 0em;
   // border: 0.1em solid @docBgColorLightFade;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
+  // text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
  }
 .mdx-code-c1 {
   // background-color: @masterColor;
-  background: linear-gradient(lighten(@masterColor, 5%), darken(@masterColor, 5%)) !important;
+  background: linear-gradient(0deg, lighten(@masterColor, 5%), darken(@masterColor, 5%)) !important;
   // box-shadow: 0px 1px @masterColorDark;
 }
 .mdx-code-c2 {
   // background-color: @thirdColor;
-  background: linear-gradient(lighten(@thirdColor, 5%), darken(@thirdColor, 5%)) !important;
+  background: linear-gradient(0deg, lighten(@thirdColor, 5%), darken(@thirdColor, 5%)) !important;
   // box-shadow: 0px 1px @thirdColorDark;
 }
 .mdx-code-c3 {
   // background-color: @fourthColor;
-  background: linear-gradient(lighten(@fourthColor, 5%), darken(@fourthColor, 5%)) !important;
+  background: linear-gradient(0deg, lighten(@fourthColor, 5%), darken(@fourthColor, 5%)) !important;
   // box-shadow: 0px 1px @fourthColorDark;
 }
 .mdx-code-c4 {
   // background-color: @slaveColor;
-  background: linear-gradient(lighten(@slaveColor, 5%), darken(@slaveColor, 5%)) !important;
+  background: linear-gradient(0deg, lighten(@slaveColor, 5%), darken(@slaveColor, 5%)) !important;
   // box-shadow: 0px 1px @slaveColorDark;
 }
 .mdx-code-c5 {
   // background-color: @fifthColor;
-  background: linear-gradient(lighten(@fifthColor, 5%), darken(@fifthColor, 5%)) !important;
+  background: linear-gradient(0deg, lighten(@fifthColor, 5%), darken(@fifthColor, 5%)) !important;
   // box-shadow: 0px 1px @fifthColorDark;
 }
 .mdx-code-c6 {
   // background-color: @foreColorLight;
-  background: linear-gradient(lighten(@foreColorLight, 5%), darken(@foreColorLight, 5%)) !important;
+  background: linear-gradient(0deg, lighten(@sixthColor, 5%), darken(@sixthColor, 5%)) !important;
   // box-shadow: 0px 1px @docBgColorDark;
 }
 
@@ -3125,16 +3351,19 @@ use.mdx-svg-ico-dark:hover {
   // border: 0.1em solid @transparencyColor2;
   // border-right: 0px !important;
   background-color: @docBgColorLightAlt !important;
-  font-family: @textFont;
+  font-family: @boldFont;
+  font-weight: normal !important;
   margin-right: 0px;
-  border-top-left-radius: 0.4em;
-  border-bottom-left-radius: 0.4em;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  padding: 0.1em 0.3em;
+  border-radius: 0em;
+  border-bottom-left-radius: 0.5em;
+  // border-top-left-radius: 0.5em;
+  // border-bottom-left-radius: 0em;
+  // border-top-right-radius: 0em;
+  // border-bottom-right-radius: 0.5em;
+  padding: 0.2em 0.8em 0.2em 0.3em;
   color: @docBgColorLight;
   font-size: 0.85em;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
+  // text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
 .mdx-code-name1,
 .mdx-code-name2,
@@ -3142,7 +3371,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-name4,
 .mdx-code-name5,
 .mdx-code-name6 {
-  background: linear-gradient(lighten(@foreColorLight, 5%), darken(@foreColorLight, 5%)) !important;
+  background: linear-gradient(0deg, lighten(@foreColorLight, 5%), darken(@foreColorLight, 5%)) !important;
 }
 .mdx-code-value1-alt,
 .mdx-code-value2-alt,
@@ -3157,19 +3386,21 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-value5,
 .mdx-code-value6 {
   // border: 0.1em solid @transparencyColor2;
-  font-family: @textFont;
+  font-family: @boldFont;
+  font-weight: bold;
   // border-left: 0px !important;
-  margin-left: 0px;
-  border-top-right-radius: 0.4em;
-  border-bottom-right-radius: 0.4em;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  padding: 0.1em 0.3em;
+  margin-left: -0.6em;
+  border-radius: 0.5em;
+  // border-top-right-radius: 0em;
+  // border-bottom-right-radius: 0.5em;
+  // border-top-left-radius: 0.5em;
+  // border-bottom-left-radius: 0em;
+  padding: 0.2em 0.3em;
   color: @docBgColorLight;
   font-size: 0.85em;
   // font-weight: bold;
   // border-left: 1px solid @transparencyColor2;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
+  // text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
 // 药丸样式右边右边值风格1-样式1
 .mdx-code-name1-alt {
@@ -3233,7 +3464,7 @@ use.mdx-svg-ico-dark:hover {
   // border-color: @foreColorLight;
 }
 .mdx-code-value6-alt {
-  background-color: @foreColorLightAlt !important;
+  background-color: @sixthColorAlt !important;
   color: @foreColorLight;
   // border-color: @foreColorLight;
 }
@@ -3294,7 +3525,7 @@ use.mdx-svg-ico-dark:hover {
 }
 .mdx-code-value6 {
   // background-color: @docBgColorDark !important;
-  background: linear-gradient(lighten(@docBgColorDark, 5%), darken(@docBgColorDark, 5%)) !important;
+  background: linear-gradient(lighten(@sixthColor, 5%), darken(@sixthColor, 5%)) !important;
   // box-shadow: 0px 1px @docBgColorDark;
 }
 // h6内的code标签强制取消加粗
@@ -3303,16 +3534,99 @@ h6 code {
 }
 
 /**************************************
+* Dark主题样式
+**************************************/
+
+.mdx-dark-body {
+  background-color: @docBgColorDark;
+  color: @foreColorDark;
+}
+
+.mdx-dark-a {
+  color: @aColorDark;
+}
+
+.mdx-dark-strong {
+  color: @boldColorDark;
+}
+
+.mdx-dark-figure-alt {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mdx-dark-mathjax_svg {
+  border: 2px solid @themeBgColorDark;
+}
+
+.mdx-dark-cover,
+.mdx-dark-bar,
+.mdx-dark-figure {
+  filter: brightness(0.85);
+}
+
+.mdx-dark-header-current {
+  background-color: @themeBgColorDark;
+}
+
+.mdx-dark-table {
+  border-color: @docBgColorDark;
+}
+
+.mdx-dark-toc,
+.mdx-dark-table-tr-th {
+  color: @foreColorDark;
+  background-color: @tableThBgColorDark;
+  border-top-color: @tableColor;
+  border-bottom-color: @tableColor;
+  border-bottom-color: @tableColor;
+}
+
+.mdx-dark-table-tr {
+  background-color: @tableTdBgColorDark2 !important;
+}
+
+.mdx-dark-kbd {
+  color: @foreColorDark;
+  background-color: @tableTdBgColorDark2;
+  border-color: @foreColorDarkAlt;
+  box-shadow: 0px 0.1em 0px @foreColorDarkAlt;
+}
+
+.mdx-dark-std-code {
+  color: @foreColorDark;
+  background-color: @themeBgColorFade;
+}
+
+.mdx-dark-blockquote-std-code {
+  background-color: @thirdColorFade;
+}
+
+.mdx-dark-fences {
+  color: @foreColorDark;
+  background-color: @docBgColorDarkAlt;
+  border-color: @docBgColorDarkAlt;
+}
+
+.mdx-dark-CodeMirror-gutters {
+  border-color: @docBgColorDark;
+}
+
+.mdx-dark-blockquote {
+  border-left-color: @thirdColorFade;
+  border-bottom: 1px solid @thirdColorFade;
+}
+
+/**************************************
 * 封面、封底
 **************************************/
 
-body div[id=write] > h6:first-of-type, // 页面第1个H6为封面样式
-body div[id=write] > h6:last-of-type { // 页面最后1个H6为封底样式
+#write > h6:first-of-type, // 页面第1个H6为封面样式
+#write > h6:last-of-type { // 页面最后1个H6为封底样式
   color: @themeForeColor !important;
   background-color: @themeBgColor;
-  font-weight: bold;
   font-size: 2.5em;
-  font-family: @headerFont;
+  font-family: @titleFont;
+  font-weight: bold;
   text-align: @coverTextAlign;
   height: 25cm;
   padding-left: 30px;
@@ -3328,7 +3642,7 @@ body div[id=write] > h6:last-of-type { // 页面最后1个H6为封底样式
 }
 
 // 封底样式微调
-body div[id=write] > h6:last-of-type {
+#write > h6:last-of-type {
   height: 13cm;
   margin-top: 3em;
   margin-bottom: 10px;
@@ -3336,59 +3650,52 @@ body div[id=write] > h6:last-of-type {
 }
 
 // 封面内的副标题
-// body div[id=write] > h6:first-of-type strong {
+// #write > h6:first-of-type strong {
   // color: @docBgColorLight !important;
   // font-size: 0.7em;
   // vertical-align: super;
 // }
 
 // 封面内的作者信息
-body div[id=write] > h6:first-of-type strong {
+#write > h6:first-of-type strong {
   color: @themeForeColorFade;
   font-size: 0.7em;
-  font-family: @titleFont;
+  font-family: @boldFont;
+  font-weight: bold;
   text-decoration: none;
 }
 // 前缀
-body div[id=write] > h6:first-of-type strong::before {
+#write > h6:first-of-type strong::before {
   content: "by ";
   font-weight: normal;
   text-decoration: none;
 }
 
 // 封面内的版权信息
-body div[id=write] > h6:first-of-type em {
+#write > h6:first-of-type em {
   color: @themeForeColorFade;
   font-size: 0.35em;
-  font-family: @titleFont;
+  font-family: @boldFont;
   font-style: normal;
   vertical-align: sub;
 }
 
 // 封面内密级信息
-body div[id=write] > h6:first-of-type code {
+#write > h6:first-of-type code {
   color: @docBgColorLight !important;
   font-size: 0.4em !important;
   background-color: @themeBgColorDark;
   // border: 1px solid @transparencyColor2 !important;
 }
-body div[id=write] > h6:first-of-type code:first-of-type {
-  border-top-left-radius: 0.4em;
-  border-bottom-left-radius: 0.4em;
-}
-body div[id=write] > h6:first-of-type code:last-of-type {
-  border-left: 0px !important;
-  border-top-right-radius: 0.4em;
-  border-bottom-right-radius: 0.4em;
-}
-
-// 封底
-body div[id=write] > h6:last-of-type::after {
-  // content: "本文档样式与功能增强由 VLOOK™ 插件提供（https://github.com/madmaxchow/VLOOK）";
-  font-size: 0.35em;
-  font-family: @titleFont;
-  font-style: normal;
-}
+// #write > h6:first-of-type code:first-of-type {
+//   border-top-left-radius: 0.5em;
+//   border-bottom-left-radius: 0em;
+// }
+// #write > h6:first-of-type code:last-of-type {
+//   border-left: 0px !important;
+//   border-top-right-radius: 0em;
+//   border-bottom-right-radius: 0.5em;
+// }
 
 @media print {
   html {
@@ -3412,6 +3719,19 @@ body div[id=write] > h6:last-of-type::after {
     visibility: visible !important;
   }
 
+  // .mdx-figure-action {
+    // display: none;
+    // visibility: hidden;
+  // }
+
+  .mdx-current-blockfocus-item {
+    box-shadow: none;
+  }
+
+  .mdx-focus-row-col {
+    background-color: inherit;
+  }
+
   .mdx-toolbar,
   .mdx-bread-nav,
   .mdx-toc-box,
@@ -3424,17 +3744,17 @@ body div[id=write] > h6:last-of-type::after {
     visibility: hidden;
   }
 
-  body div[id=write] > h6:first-of-type,
-  body div[id=write] > h6:last-of-type,
-  body div[id=write] > h6:first-of-type strong,
-  body div[id=write] > h6:first-of-type em {
+  #write > h6:first-of-type,
+  #write > h6:last-of-type,
+  #write > h6:first-of-type strong,
+  #write > h6:first-of-type em {
     background: none !important;
     background-color: @docBgColorLight !important;
     color: @foreColorLight !important;
   }
 
-  body div[id=write] > h6:first-of-type strong,
-  body div[id=write] > h6:first-of-type em {
+  #write > h6:first-of-type strong,
+  #write > h6:first-of-type em {
     color: @foreColorLightAlt !important;
   }
 }
