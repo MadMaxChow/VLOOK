@@ -1,14 +1,19 @@
-VLOOK是针对由[Typora](https://www.typora.io)所导出的HTML文件进行增强的插件。
-包括**排版增强**和**功能增强**两大类特性：
+VLOOK™是针对由[Typora](https://www.typora.io)导出的HTML文件进行增强的插件。VLOOK™为开源软件，遵从MIT许可证。
+VLOOK插件主要包括：
 
-- **版式增强**：为Typora编辑模式，以及导出的HTML文件提供更人性化、美观的文档排版与样式；
-- **功能增强**：为导出的HTML文件提供文档导航、插图浏览、内容交互、有效性检测等便捷阅读辅助功能。
+- **排版增强**：针对Typora编辑模式，以及导出的HTML文件增加更实用、美观的文档排版与样式；
+- **功能增强**：针对导出的HTML文件提供文档导航、评审演示、插图浏览、内容交互、信息缺失检测等功能。
 
 **文档主题样式定制服务 →→→ 请加微信 MaxChow**
 
 特性的详细介绍，以及使用说明详见《[VLOOK快速参考手册](https://madmaxchow.github.io/VLOOK/index.html)》
 
-VLOOK™为开源软件，遵从MIT许可证。
+---
+
+VLOOK优先显示开源的思源黑体和思源宋体，建议用户下载安装获得更好的视觉体验；
+
+- 思源黑体（[常规体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Regular.otf)、[粗体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Bold.otf)）
+- 思源宋体（[常规体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Regular.otf)、[粗体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Bold.otf)）
 
 ---
 
