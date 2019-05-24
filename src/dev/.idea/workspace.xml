@@ -4,21 +4,11 @@
     <list default="true" id="8701a546-63a7-4450-b73b-9a65daf1c461" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../demo/VLOOK快速参考手册.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../demo/VLOOK快速参考手册.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../demo/脚本化图表forMarkdown.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../demo/脚本化图表forMarkdown.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../released/vlook-toolbox.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../released/vlook-toolbox.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev.html" beforeDir="false" afterPath="$PROJECT_DIR$/dev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev2.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../less/base.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/base.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../less/color.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/color.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../less/font.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/font.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../less/theme-fancy.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/theme-fancy.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../less/theme-geek.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/theme-geek.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../less/theme-hope.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/theme-hope.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../less/theme-robin.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/theme-robin.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../less/theme-x-liby.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/theme-x-liby.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../less/theme-x-like.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/theme-x-like.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../less/theme-x-lohas.less" beforeDir="false" afterPath="$PROJECT_DIR$/../less/theme-x-lohas.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../misc/icons.sketch" beforeDir="false" afterPath="$PROJECT_DIR$/../misc/icons.sketch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../misc/theme.sketch" beforeDir="false" afterPath="$PROJECT_DIR$/../misc/theme.sketch" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,14 +21,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dev.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="5724" lean-forward="true" selection-start-line="5724" selection-end-line="5724" />
+            <state relative-caret-position="55980">
+              <caret line="3732" selection-start-line="3732" selection-end-line="3732" />
               <folding>
                 <element signature="e#23229#36726#2" expanded="true" />
-                <element signature="e#84542#98039#2" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dev2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="536">
+              <caret line="5523" column="5" selection-start-line="5523" selection-start-column="5" selection-end-line="5523" selection-end-column="5" />
+              <folding>
                 <element signature="n#style#0;n#canvas#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#canvas#0;n#!!top" expanded="true" />
                 <element signature="e#44#50#1" expanded="true" />
@@ -50,6 +50,7 @@
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
+                <marker date="1558657749909" expanded="true" signature="74454:74495" ph="..." />
               </folding>
             </state>
           </provider>
@@ -59,36 +60,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mdx-loading-</find>
-      <find>body {</find>
-      <find>mdx-figure-action</find>
-      <find>.mdx-figure-action</find>
-      <find>showFigureAction</find>
-      <find>.mdx-loading-d</find>
-      <find>scale(</find>
-      <find>.mdx-loading-</find>
-      <find>hideFigureAction</find>
-      <find>chrome</find>
-      <find>^=</find>
-      <find>settime</find>
-      <find>settimeout</find>
-      <find>enterPenal</find>
-      <find>leavePanel</find>
-      <find>hideTips</find>
-      <find>hidetips</find>
-      <find>clientheight</find>
-      <find>.md-diagram-panel &gt;</find>
-      <find>toggleDarkTheme</find>
-      <find>figure-hover-dark</find>
-      <find>hover</find>
-      <find>.mdx-toolbar</find>
-      <find>console.log</find>
-      <find>#write &gt; h6</find>
-      <find>table tr th</find>
-      <find>.outline-item</find>
-      <find>.mdx-tool-tips</find>
-      <find>.mdx-info-tips</find>
-      <find>.mdx-toc-box-header</find>
+      <find>.css(&quot;height&quot;)</find>
+      <find>parseint</find>
+      <find>parseInt</find>
+      <find>.top()</find>
+      <find>.left()</find>
+      <find>'click'</find>
+      <find>mdx-table-cross-left</find>
+      <find>mdx-table-cross-lef</find>
+      <find>$(window).clientWidth</find>
+      <find>$(window).</find>
+      <find>_lastCrossTd.css(&quot;height&quot;)</find>
+      <find>_lastCrossTd.css(&quot;width&quot;</find>
+      <find>_lastCrossTd.parent().parent().parent()</find>
+      <find>var fv = ;</find>
+      <find>.mdx-table-cross-left</find>
+      <find>hideLastCrossTd</find>
+      <find>hidefoc</find>
+      <find>max-width</find>
+      <find>beta5</find>
+      <find>beta6</find>
+      <find>mdx-loading-done</find>
+      <find>.md-toc-item &gt; a</find>
+      <find>gotoHeader(</find>
+      <find>.mdx-dark-header-current</find>
+      <find>mdx-dark-header-current</find>
+      <find>.mdx-header-current-dark</find>
+      <find>mdx-header-current-dark</find>
+      <find>mdx-header-current</find>
+      <find>&quot;overflow</find>
+      <find>blur</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;br&gt;</replace>
@@ -96,6 +97,7 @@
       <replace>&lt;kbd&gt;K&lt;/kbd&gt;</replace>
       <replace>&lt;kbd&gt;H&lt;/kbd&gt;</replace>
       <replace>&lt;kbd&gt;L&lt;/kbd&gt;</replace>
+      <replace>beta6</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -106,6 +108,7 @@
       <list>
         <option value="$PROJECT_DIR$/dev-for-open-in-newtab.html" />
         <option value="$PROJECT_DIR$/dev.html" />
+        <option value="$PROJECT_DIR$/dev2.html" />
       </list>
     </option>
   </component>
@@ -134,9 +137,10 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -229,18 +233,39 @@
       <workItem from="1555479245600" duration="88000" />
       <workItem from="1555479381838" duration="120000" />
       <workItem from="1555598818137" duration="875000" />
+      <workItem from="1556202603574" duration="3035000" />
+      <workItem from="1556596126303" duration="24000" />
+      <workItem from="1556805976313" duration="2371000" />
+      <workItem from="1557022327999" duration="12000" />
+      <workItem from="1557022623878" duration="63000" />
+      <workItem from="1557792385252" duration="36000" />
+      <workItem from="1557976683216" duration="10000" />
+      <workItem from="1557998936521" duration="1561000" />
+      <workItem from="1558318981618" duration="165000" />
+      <workItem from="1558328291280" duration="255000" />
+      <workItem from="1558413277660" duration="796000" />
+      <workItem from="1558415609207" duration="351000" />
+      <workItem from="1558418078901" duration="503000" />
+      <workItem from="1558499680701" duration="244000" />
+      <workItem from="1558505531081" duration="472000" />
+      <workItem from="1558510846266" duration="727000" />
+      <workItem from="1558512438238" duration="2001000" />
+      <workItem from="1558536607555" duration="2895000" />
+      <workItem from="1558571143439" duration="389000" />
+      <workItem from="1558578647857" duration="121000" />
+      <workItem from="1558657304780" duration="191000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122175000" />
+    <option name="totallyTimeSpent" value="138397000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.15662651" visible="true" weight="0.16842847" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.8433735" side_tool="true" visible="true" weight="0.16842847" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.1313253" visible="true" weight="0.16842847" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.8686747" side_tool="true" visible="true" weight="0.16842847" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -278,11 +303,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dev.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="5724" lean-forward="true" selection-start-line="5724" selection-end-line="5724" />
+        <state relative-caret-position="55980">
+          <caret line="3732" selection-start-line="3732" selection-end-line="3732" />
           <folding>
             <element signature="e#23229#36726#2" expanded="true" />
-            <element signature="e#84542#98039#2" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="536">
+          <caret line="5523" column="5" selection-start-line="5523" selection-start-column="5" selection-end-line="5523" selection-end-column="5" />
+          <folding>
             <element signature="n#style#0;n#canvas#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#canvas#0;n#!!top" expanded="true" />
             <element signature="e#44#50#1" expanded="true" />
@@ -294,6 +327,7 @@
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
+            <marker date="1558657749909" expanded="true" signature="74454:74495" ph="..." />
           </folding>
         </state>
       </provider>

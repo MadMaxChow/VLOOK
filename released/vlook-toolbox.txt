@@ -1,6 +1,6 @@
 <!--========================================================================-->
-<!--                    Typora Plugin - VLOOK V9 Beta5                      -->
-<!--                               2019-04-18                               -->
+<!--                    Typora Plugin - VLOOK V9 Beta6                      -->
+<!--                               2019-05-24                               -->
 <!--                             powered by Max                             -->
 <!--                                                                        -->
 <!--              QQ Group: 805502564    email: maxchow@qq.com              -->
@@ -44,7 +44,7 @@ MIT许可证（MIT）
       :
   </div>
   <div class="mdx-loading-done">
-      轻一点，轻轻一点
+      Loading...
   </div>
 </div>
 <!-- SVG图标集 -->
@@ -148,7 +148,7 @@ MIT许可证（MIT）
     <div class="mdx-toc-box-body-scroll">
         <div class="mdx-toc-box-body" id="toc-box-body"></div>
     </div>
-    <div class="mdx-toc-info mdx-footer-shadow"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><b>VLOOK™</b></a> (V9 beta5) for <a href="https://www.typora.io" target="_blank">Typora</a> | by <b>Max</b>
+    <div class="mdx-toc-info mdx-footer-shadow"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><b>VLOOK™</b></a> (V9 beta6) for <a href="https://www.typora.io" target="_blank">Typora</a> | by <b>Max</b>
     </div>
 </div>
 
@@ -174,7 +174,7 @@ MIT许可证（MIT）
 <div class="mdx-figure-viewer">
 <div class="mdx-figure-content"></div>
 <div class="mdx-figure-pagenum"></div>
-<div class="mdx-toc-info2"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><b>VLOOK™</b></a> (V9 beta5) for <a href="https://www.typora.io" target="_blank">Typora</a> | by <b>Max</b></div>
+<div class="mdx-toc-info2"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><b>VLOOK™</b></a> (V9 beta6) for <a href="https://www.typora.io" target="_blank">Typora</a> | by <b>Max</b></div>
 <div class="mdx-btn mdx-figure-viewer-prev" onclick="prevFigure()">
     <svg height="15px" width="15px"><use class="mdx-svg-ico-light" xlink:href="#icoLeft"/></svg>
 </div>
@@ -217,7 +217,7 @@ MIT许可证（MIT）
         <svg height="18px" width="16px"><use class="mdx-svg-ico-light" xlink:href="#icoSerifFont"/></svg>
     </div>
     <!-- 主题切换 -->
-    <div class="mdx-btn mdx-theme-exchange" onclick="toggleDarkTheme()" onmouseenter="showToolTips($('.mdx-tool-tips'), $(this).attr('tips'), $(this), null)" onmouseleave="hideTips($('.mdx-tool-tips'), false)">
+    <div class="mdx-btn mdx-theme-exchange" onclick="toggleTheme()" onmouseenter="showToolTips($('.mdx-tool-tips'), $(this).attr('tips'), $(this), null)" onmouseleave="hideTips($('.mdx-tool-tips'), false)">
       <svg height="20px" width="20px"><use class="mdx-svg-ico-light" xlink:href="#icoLightTheme"/></svg>
     </div>
     <!-- 开关聚光灯 -->
@@ -245,8 +245,14 @@ MIT许可证（MIT）
 <div class="mdx-tool-tips"></div>
 <div class="mdx-info-tips" onclick="hideTips($('.mdx-info-tips'), true)"></div>
 
+<!-- 表格十字光标 -->
+<div class="mdx-table-cross mdx-table-cross-left">&nbsp;</div>
+<div class="mdx-table-cross mdx-table-cross-right">&nbsp;</div>
+<div class="mdx-table-cross mdx-table-cross-up">&nbsp;</div>
+<div class="mdx-table-cross mdx-table-cross-down">&nbsp;</div>
+
 <!-- 调色板 -->
-<span class="mdx-color-theme-fore"></span>
+<!-- <span class="mdx-color-theme-fore"></span>
 <span class="mdx-color-theme-fore-fade"></span>
 <span class="mdx-color-theme-bg"></span>
 <span class="mdx-color-theme-bg-fade"></span>
@@ -323,10 +329,10 @@ MIT许可证（MIT）
 <span class="mdx-color-transparency1"></span>
 <span class="mdx-color-transparency2"></span>
 <span class="mdx-color-transparency3"></span>
-<span class="mdx-color-transparency4"></span>
+<span class="mdx-color-transparency4"></span> -->
 
 <script type="text/javascript">
-var _version = "V9 beta5";
+var _version = "V9 beta6";
 var _animateSpeed = 200;
 var _clientX, _clientY;
 var _currentFontStyle = null;
@@ -338,6 +344,7 @@ var _lastCurrentIndex = -2;
 var _lastOutlineItem = null; // 大纲内最后一次高亮章节项
 var _lastHeaderNum = 0;
 var _lastHeaderFolder = null;
+var _lastCrossTd = null;
 var _smallScreenWidth = 1000;
 var _outlineShowed = false;
 var _figureCount = 0;
@@ -581,11 +588,13 @@ function initBlockFocus() {
     // 先清理多余的段落标签
     $("li > p:only-child").contents().unwrap();
 
-    $("h1, h2, h3, h4, h5, h6, ul > li, ol > li, p, figure, .md-diagram-panel").each(function() {
+    $("h1, h2, h3, h4, h5, h6, ul > li, ol > li, p, .md-diagram-panel").each(function() {
         var item = $(this);
         item.attr("id", "mdx-blockfocus-" + _blockFocusItemCount);
         item.attr("mdx-blockfocus-index", _blockFocusItemCount);
         item.click(function () {
+            // hideLastCrossTd();
+
             _blockFocusItemIndex = $(this).attr("mdx-blockfocus-index");
             gotoBlockFocusItem($(this), false);
             event.stopPropagation(); // 停止事件冒泡
@@ -604,8 +613,8 @@ function initBlockFocus() {
  * 跳到指定的内容块，或最新的_blockFocusItemIndex指定的内容块
  **/
 function gotoBlockFocusItem(it, jump) {
-    if (_lastBlockFocusItem != null)
-        _lastBlockFocusItem.removeClass("mdx-current-blockfocus-item");
+    hideFocusBlock();
+
     var item = $("#mdx-blockfocus-" + _blockFocusItemIndex);
     if (it != null)
         item = it;
@@ -701,21 +710,66 @@ function initTable() {
 
                 // --- 当前单元格十字高亮 ---
                 // 单元格行列索引号
-                cell.attr("mdx-row", "mdx-tbl" + tableIndex + "-" + rowIndex);
+                // cell.attr("mdx-row", "mdx-tbl" + tableIndex + "-" + rowIndex);
                 cell.attr("mdx-col", "mdx-tbl" + tableIndex + "-" + colIndex);
-                // 鼠标在单元格上移动时高亮同行同列
-                cell.hover(function () {
-                    // 鼠标移入时
-                    $("[mdx-row=" + cell.attr("mdx-row")).addClass("mdx-focus-row-col");
-                    $("[mdx-col=" + cell.attr("mdx-col")).addClass("mdx-focus-row-col");
-                    cell.removeClass("mdx-focus-row-col");
-                    cell.addClass("mdx-focus-row-col-current");
-                }, function () {
-                    // 鼠标移出后
-                    $("[mdx-row=" + cell.attr("mdx-row")).removeClass("mdx-focus-row-col");
-                    $("[mdx-col=" + cell.attr("mdx-col")).removeClass("mdx-focus-row-col");
-                    cell.removeClass("mdx-focus-row-col-current");
+
+                // 鼠标点击单元格时高亮同行同列
+                cell.click(function () {
+                    hideLastCrossTd();
+                    // hideFocusBlock();
+
+                    // $("[mdx-row=" + cell.attr("mdx-row")).addClass("mdx-focus-row-col");
+                    // $("[mdx-col=" + cell.attr("mdx-col")).addClass("mdx-focus-row-col");
+                    // cell.removeClass("mdx-focus-row-col");
+                    // cell.addClass("mdx-focus-row-col-current");
+                    _lastCrossTd = cell;
+
+                    var tdH = parseInt(_lastCrossTd.css("height"));
+                    var tdW  = parseInt(_lastCrossTd.css("width"));
+                    var tbl = _lastCrossTd.parent().parent().parent();
+
+                    $(".mdx-table-cross-left").css({
+                        "display": "block",
+                        "top": _lastCrossTd.offset().top,
+                        "left": 0,
+                        "height": tdH,
+                        "width":  _lastCrossTd.offset().left,
+                        "z-index": 9
+                    });
+
+                    $(".mdx-table-cross-right").css({
+                        "display": "block",
+                        "top": _lastCrossTd.offset().top,
+                        "left": _lastCrossTd.offset().left + tdW,
+                        "height":  tdH,
+                        "width":  $(window).width() - _lastCrossTd.offset().left - tdW,
+                        "z-index": 9
+                    });
+                    $(".mdx-table-cross-up").css({
+                        "display": "block",
+                        "top": tbl.offset().top,
+                        "left": _lastCrossTd.offset().left,
+                        "height": _lastCrossTd.offset().top - tbl.offset().top,
+                        "width":  tdW,
+                        "z-index": 9
+                    });
+                    $(".mdx-table-cross-down").css({
+                        "display": "block",
+                        "top": _lastCrossTd.offset().top + tdH,
+                        "left": _lastCrossTd.offset().left,
+                        "height": tbl.offset().top + parseInt(tbl.css("height")) - _lastCrossTd.offset().top - tdH,
+                        "width":  tdW,
+                        "z-index": 9
+                    });
+                    console.log($(".mdx-table-cross-left").css("display"));
+                    // console.log(_lastCrossTd.offset().top + ", " + _lastCrossTd.offset().left + ", " + _lastCrossTd.width() + ", " + _lastCrossTd.height());
                 });
+                // }, function () {
+                //     // 鼠标移出后
+                //     $("[mdx-row=" + cell.attr("mdx-row")).removeClass("mdx-focus-row-col");
+                //     $("[mdx-col=" + cell.attr("mdx-col")).removeClass("mdx-focus-row-col");
+                //     cell.removeClass("mdx-focus-row-col-current");
+                // });
 
                 // --- 行合并预处理 ---
                 // 克隆表格数据
@@ -827,6 +881,19 @@ function initTable() {
     }); // table
 }
 /**
+ * 隐藏表格十字聚焦
+ **/
+function hideLastCrossTd() {
+    if (_lastCrossTd == null)
+        return;
+
+    // $("[mdx-row=" + _lastCrossTd.attr("mdx-row")).removeClass("mdx-focus-row-col");
+    // $("[mdx-col=" + _lastCrossTd.attr("mdx-col")).removeClass("mdx-focus-row-col");
+    // _lastCrossTd.removeClass("mdx-focus-row-col-current");
+    $(".mdx-table-cross").hide();
+    _lastCrossTd = null;
+}
+/**
  * 初始化插图数据
  **/
 function initFigureData() {
@@ -840,7 +907,7 @@ function initFigureData() {
           "fig-type": fig.prop("tagName").toLowerCase()
         });
         // 添加插图样式
-        fig.css("cursor", "pointer");
+        fig.css("cursor", "ew-resize");
         fig.addClass("mdx-figure");
 
         fig.hover(function () {
@@ -971,7 +1038,7 @@ function showFigureViewer(fig) {
         "opacity": 0
     });
 
-    showMask(viewer, null);
+    // showMask(viewer, null);
 
     // 调整插图动作按钮层级
     var act = $(".mdx-figure-action");
@@ -1009,7 +1076,7 @@ function hideFigureViewer() {
     if (actIdx > viewerIdx)
         act.css("z-index", actIdx - viewerIdx);
 
-    hideMask();
+    // hideMask();
     hideFigureAction(null);
 
     // 显示工具栏新手提示：聚光灯
@@ -1130,8 +1197,8 @@ function mouseDropInObj(obj) {
     var e = window.event;
     var mx = e.pageX || e.clientX + document.body.scrollLeft;
     var my = e.pageY || e.clientY + document.body.scrollTop;
-    if (mx < obj.offset().left || mx > (obj.offset().left + parseInt(obj.css("width")))
-        || my < obj.offset().top || my > (obj.offset().top + parseInt(obj.css("height"))))
+    if (mx < obj.offset().left || mx > (obj.offset().left + obj.width())
+        || my < obj.offset().top || my > (obj.offset().top + obj.height()))
         return false;
     return true;
 }
@@ -1151,9 +1218,10 @@ function showFigureContent() {
 
     var newObj = fig.clone();
     newObj.css({
-        "max-width": parseInt($(window).width()) - 90,
-        "max-height": parseInt($(window).height()) - 90,
-        "display": "inline-block"
+        "max-width": $(window).width() - 90,
+        "max-height": $(window).height() - 90,
+        "display": "inline-block",
+        "cursor": "pointer"
     });
     newObj.click(function () {
         gotoFigure();
@@ -1239,11 +1307,11 @@ function updateFigureViewerUI() {
   // if (_figTitle.length > 0)
   title += "<strong>" + $("[id=fig-num" + _figIndex + "]").contents().filter(
       function (index, content) { return content.nodeType === 3; }).text() + "</strong>";
-  pageNum.css("width", (parseInt(viewer.css("width"))) - 60);
+  pageNum.css("width", (viewer.width()) - 60);
   pageNum.html(title);
 
   // 更新导航按钮位置
-  btnPrev.css("top", (parseInt(viewer.css("height")) - 30) / 2);
+  btnPrev.css("top", (viewer.height() - 30) / 2);
   btnNext.css({
       "top": btnPrev.css("top"),
       "right": "10px"
@@ -1437,14 +1505,6 @@ function initUIi18n() {
         "Открыть в новой вкладке",
         "新しいタブで開く",
         "새 탭에서 열기"][_lang]);
-
-    $(".mdx-loading-done").text(["轻一点，轻轻一点",
-        "輕一點，輕輕一點",
-        "Gently to Start",
-        "Doucement pour commencer",
-        "Осторожно, чтобы начать",
-        "やさしく始める",
-        "부드럽게 시작"][_lang]);
 }
 /**
  * 根据设备类型自适应hover样式
@@ -1639,7 +1699,7 @@ function showOutline() {
 function hideOutline() {
     _outlineShowed = false;
     var toc = $(".mdx-toc-box");
-    var tocBoxWidth = parseInt(toc.width());
+    var tocBoxWidth = toc.width();
     if (!isOutlineShowed() && parseInt($(".mdx-toc-box").css("left")) > 0) {
         toc.animate({ left: -tocBoxWidth }, _animateSpeed, function() {
           toc.removeClass("mdx-float-card");
@@ -1722,7 +1782,7 @@ function followHeader() {
   // 寻找当前屏幕显示的章节
   for (var i = 0; i < _headers.length; i++) {
       var obj = $("a[name='" + _headers[i] + "']");
-      var headerHeight = parseInt(obj.parent().css("height"));
+      var headerHeight = obj.parent().height();
       /* console.log($("#oli-" + _headers[i]).text() + ": " + $(document).scrollTop() + ", " + hotArea); */
       if ((obj.offset().top - $(document).scrollTop()) > (headerHeight / 2)) { // 当前章节标题已滚过了屏幕顶部
           currentIndex = i;
@@ -1825,8 +1885,8 @@ function showToolTips(obj, msg, follow, align) {
         return;
 
     obj.html(msg);
-    var ow = parseInt(obj.css("width"));
-    var ww = parseInt($(window).width());
+    var ow = obj.width();
+    var ww = $(window).width();
     var left = follow.offset().left;
     obj.css({
         "border-top-left-radius": "0px",
@@ -1839,11 +1899,11 @@ function showToolTips(obj, msg, follow, align) {
             "border-top-left-radius": "15px",
             "border-top-right-radius": "0px"
         });
-        left = follow.offset().left - ow + parseInt(follow.css("width"));
+        left = follow.offset().left - ow + follow.width();
 
         // align: center
         if (align == "center") {
-            left = follow.offset().left + (parseInt(follow.css("width")) - ow) / 2;
+            left = follow.offset().left + (follow.width() - ow) / 2;
             obj.css({
                 "border-top-left-radius": "15px",
                 "border-top-right-radius": "15px"
@@ -1854,7 +1914,7 @@ function showToolTips(obj, msg, follow, align) {
     var fp = follow.parent();
     obj.css({
         "left": left,
-        "top": fp.offset().top - $(document).scrollTop() + parseInt(fp.css("height"))
+        "top": fp.offset().top - $(document).scrollTop() + fp.height()
             + (fp.css("background-color") == "rgba(0, 0, 0, 0)" ? 0 : 10)
     });
     obj.fadeIn(_animateSpeed);
@@ -1868,11 +1928,11 @@ function showInfoTips(obj, msg, delay) {
     clearTimeout(_tipsTimer);
 
     obj.html(msg);
-    var ow = parseInt(obj.css("width"));
-    var ww = parseInt($(window).width());
+    var ow = obj.width();
+    var ww = $(window).width();
     obj.css({
         "left": (ww - ow) / 2,
-        "top": (parseInt($(window).height()) - parseInt(obj.css("height"))) / 2
+        "top": ($(window).height() - obj.height()) / 2
     });
     obj.fadeIn(_animateSpeed);
 
@@ -1881,7 +1941,7 @@ function showInfoTips(obj, msg, delay) {
             hideTips(obj, true);
         }, delay);
 
-    $("#write, .mdx-toolbar, .mdx-bread-nav").css({ "filter": "blur(3px)" });
+    // $("#write, .mdx-toolbar, .mdx-bread-nav").css({ "filter": "blur(3px)" });
 }
 /**
  * 隐藏提示信息
@@ -2037,7 +2097,7 @@ function adjustToolbar() {
         tb.animate({
             top: 50,
             right: 10,
-            width: parseInt($("#write").css("width")) - 20
+            width: $("#write").width() - 20
         }, _animateSpeed);
 
         if (_lastCurrentIndex == 0) // 如果回到封面位置（面包屑已隐藏），则进行二次调整
@@ -2417,7 +2477,7 @@ function restyleMermaidStyle() {
 
       // 更新<人物角色>样式
       if (person.test(textObj.text()) == true) {
-          var h = parseInt($(this).css("height"));
+          var h = $(this).height();
           $(this).css({
                   "rx": h / 2,
                   "ry": h / 2
@@ -2668,7 +2728,7 @@ function applyFontStyle(style) {
 /**
  * 切换Dark主题
  **/
-function toggleDarkTheme() {
+function toggleTheme() {
     _darkTheme = !_darkTheme;
     if (_darkTheme == true) {
         $(".mdx-theme-exchange").html("<svg width='18px' height='18px'><use xlink:href='#icoDarkTheme' class='mdx-svg-ico-light'/></svg>");
@@ -2728,7 +2788,15 @@ function toggleDarkTheme() {
     // }, function () {
     //     $(this).css("color", foreColor);
     // });
-    $(".mdx-header-current").toggleClass("mdx-dark-header-current");
+    // $(".mdx-header-current").toggleClass("mdx-dark-header-current");
+    // _lastOutlineItem.removeClass("mdx-header-current");
+    // _lastOutlineItem.removeClass("mdx-header-current-dark");
+    if (_lastOutlineItem != null) {
+        _lastOutlineItem.removeClass(_darkTheme ? "mdx-header-current" : "mdx-header-current-dark");
+        _lastOutlineItem.addClass(_darkTheme ? "mdx-header-current-dark" : "mdx-header-current");
+    }
+    // _lastOutlineItem.removeClass(_darkTheme ? "mdx-header-current-dark" : "mdx-header-current");
+    $(".md-toc-item > a, .mdx-toc-box-title").toggleClass("mdx-dark-toc-item");
     // $(".mdx-header-current a").toggleClass("mdx-dark-header-current");
 
     // 插图
@@ -2755,389 +2823,10 @@ function toggleDarkTheme() {
     $("blockquote").toggleClass("mdx-dark-blockquote");
     $("blockquote li").toggleClass("mdx-dark-body");
 
-    localStorage["VLOOK-" + _version + "-theme"] = _darkTheme ? "dark" : "light";
-}
-/**
- * 切换Dark主题（旧）
- **/
-function toggleDarkThemeOld() {
-    var docbgColor, docbgColorAlt, docBgColorLight = null;
-    var foreColor, foreColorAlt, foreColorAlt2, foreColorAlt3, foreColorFade = null;
-    var docBgColorLight = $(".mdx-color-docbg-light").css("color");
-    var foreColorLight = $(".mdx-color-fore-light").css("color");
-    var docbgFade = null;
-    var codeColor, blockQuoteCodeColor = null;
-    var fencesBgColor, fencesColor = null;
-    var themeForeColor, themeForeColorAlt, themeBgColorOrg, themeBgColor, themeBgColorFade, themeBgColorAlt = null;
-    var headerColor = null;
-    var masterColor, masterColorDark, masterColorAlt, masterColorAlt2 = null;
-    var slaveColor, slaveColorDark, slaveColorAlt, slaveColorAlt2 = null;
-    var thirdColor, thirdColorDark, thirdColorAlt, thirdColorAlt2 = null;
-    var fourthColor, fourthColorDark, fourthColorAlt, fourthColorAlt2 = null;
-    var fifthColor, fifthColorDark, fifthColorAlt, fifthColorAlt2 = null;
-    var codeNameShadowColor = null;
-    var opacity = 1;
-    var aColor, aLineColor, aHoverColor = null;
-    var boldColor = null;
-    var tableThBgColor, tableThBorderColor, tableTd2BgColor = null;
-    var codeBorderColor = null;
-    var brightness = 1;
-    var opacity = 1;
-
-    _darkTheme = !_darkTheme;
-    // 深色主题
-    if (_darkTheme == true) {
-        // $(".mdx-theme-exchange").html("<svg width='20px' height='20px'><use xlink:href='#icoLightTheme' class='mdx-svg-ico-light'/></svg>");
-        docbgColor = $(".mdx-color-docbg-dark").css("color");
-        docbgColorAlt = $(".mdx-color-docbg-dark-alt").css("color");
-        docbgFade = $(".mdx-color-docbg-dark-fade").css("color");
-        foreColor = $(".mdx-color-fore-dark").css("color");
-        foreColorAlt = $(".mdx-color-fore-dark-alt").css("color");
-        foreColorAlt2 = $(".mdx-color-fore-dark-alt").css("color");
-        foreColorAlt3 = docbgColorAlt;
-        foreColorFade = $(".mdx-color-fore-dark-fade").css("color");
-        fencesBgColor = $(".mdx-color-fore-dark").css("color");
-        fencesColor = $(".mdx-color-fore-dark-alt").css("color");
-        themeForeColor = $(".mdx-color-theme-fore").css("color");
-        themeForeColorAlt = $(".mdx-color-theme-fore-alt").css("color");
-        themeBgColor = $(".mdx-color-theme-bg-dark").css("color");
-        themeBgColorOrg = $(".mdx-color-theme-bg").css("color");
-        themeBgColorFade = $(".mdx-color-theme-bg-fade").css("color");
-        themeBgColorAlt = $(".mdx-color-theme-bg-dark").css("color");
-        codeColor = themeBgColorFade;
-        headerColor = $(".mdx-color-header-color-dark").css("color");
-        masterColor = $(".mdx-color-master-dark").css("color");
-        masterColorDark = $(".mdx-color-docbg-dark-alt").css("color");
-        masterColorAlt = $(".mdx-color-master-alt-dark").css("color");
-        masterColorAlt2 = docbgColorAlt;
-        slaveColor = $(".mdx-color-slave-dark").css("color");
-        slaveColorDark = $(".mdx-color-docbg-dark-alt").css("color");
-        slaveColorAlt = $(".mdx-color-slave-alt-dark").css("color");
-        slaveColorAlt2 = docbgColorAlt;
-        thirdColor = $(".mdx-color-third-dark").css("color");
-        thirdColorDark = $(".mdx-color-docbg-dark-alt").css("color");
-        thirdColorAlt = $(".mdx-color-third-alt-dark").css("color");
-        thirdColorAlt2 = docbgColorAlt;
-        fourthColor = $(".mdx-color-fourth-dark").css("color");
-        fourthColorDark = $(".mdx-color-docbg-dark-alt").css("color");
-        fourthColorAlt = $(".mdx-color-fourth-alt-dark").css("color");
-        fourthColorAlt2 = docbgColorAlt;
-        fifthColor = $(".mdx-color-fifth-dark").css("color");
-        fifthColorDark = $(".mdx-color-docbg-dark-alt").css("color");
-        fifthColorAlt = $(".mdx-color-fifth-alt-dark").css("color");
-        fifthColorAlt2 = docbgColorAlt;
-        blockQuoteCodeColor = thirdColor;
-        codeNameShadowColor = $(".mdx-color-docbg-dark-alt").css("color");
-        opacity = 0.8;
-        codeBorderColor = $(".mdx-color-transparency1").css("color");
-        boldColor = $(".mdx-color-bold-dark").css("color");
-        aColor = $(".mdx-color-a-dark").css("color");
-        aLineColor = $(".mdx-color-aline").css("color");
-        aHoverColor = $(".mdx-color-ahover").css("color");
-        tableThBgColor = $(".mdx-color-table-th-bg-dark").css("color");
-        tableThBorderColor = $(".mdx-color-table-th-bg-border").css("color");
-        tableTd2BgColor = $(".mdx-color-table-td2-bg-dark").css("color");
-        brightness = 0.7;
-        opacity = 0.7;
-        if (_lastOutlineItem != null) {
-            _lastOutlineItem.removeClass("mdx-header-current");
-            _lastOutlineItem.addClass("mdx-header-current-dark");
-        }
-    }
-    // 浅色主题
-    else {
-        // $(".mdx-theme-exchange").html("<svg width='18px' height='18px'><use xlink:href='#icoDarkTheme' class='mdx-svg-ico-light'/></svg>");
-        docbgColor = $(".mdx-color-docbg-light").css("color");
-        docbgColorAlt = $(".mdx-color-docbg-light-alt").css("color");
-        docbgFade = $(".mdx-color-docbg-light-fade").css("color");
-        foreColor = $(".mdx-color-fore-light").css("color");
-        foreColorAlt = $(".mdx-color-fore-light-alt").css("color");
-        foreColorAlt2 = foreColor;
-        foreColorAlt3 = foreColorAlt;
-        foreColorFade = $(".mdx-color-fore-light-fade").css("color");
-        fencesBgColor = $(".mdx-color-docbg-light-alt").css("color");
-        fencesColor = $(".mdx-color-fore-light").css("color");
-        themeForeColor = $(".mdx-color-theme-fore").css("color");
-        themeForeColorAlt = $(".mdx-color-theme-fore-alt").css("color");
-        themeBgColor = $(".mdx-color-theme-bg").css("color");
-        themeBgColorOrg = $(".mdx-color-theme-bg").css("color");
-        themeBgColorFade = $(".mdx-color-theme-bg-fade").css("color");
-        themeBgColorAlt = $(".mdx-color-theme-bg-alt").css("color");
-        codeColor = themeBgColorAlt;
-        headerColor = $(".mdx-color-header-color").css("color");
-        masterColor = $(".mdx-color-master").css("color");
-        masterColorDark = $(".mdx-color-master-dark").css("color");
-        masterColorAlt = $(".mdx-color-master-alt").css("color");
-        masterColorAlt2 = masterColorAlt;
-        slaveColor = $(".mdx-color-slave").css("color");
-        slaveColorDark = $(".mdx-color-slave-dark").css("color");
-        slaveColorAlt = $(".mdx-color-slave-alt").css("color");
-        slaveColorAlt2 = slaveColorAlt;
-        thirdColor = $(".mdx-color-third").css("color");
-        thirdColorDark = $(".mdx-color-third-dark").css("color");
-        thirdColorAlt = $(".mdx-color-third-alt").css("color");
-        thirdColorAlt2 = thirdColorAlt;
-        fourthColor = $(".mdx-color-fourth").css("color");
-        fourthColorDark = $(".mdx-color-fourth-dark").css("color");
-        fourthColorAlt = $(".mdx-color-fourth-alt").css("color");
-        fourthColorAlt2 = fourthColorAlt;
-        fifthColor = $(".mdx-color-fifth").css("color");
-        fifthColorDark = $(".mdx-color-fifth-dark").css("color");
-        fifthColorAlt = $(".mdx-color-fifth-alt").css("color");
-        fifthColorAlt2 = fifthColorAlt;
-        codeNameShadowColor = $(".mdx-color-docbg-dark").css("color");
-        blockQuoteCodeColor = thirdColorAlt;
-        opacity = 1;
-        codeBorderColor = $(".mdx-color-transparency2").css("color");
-        boldColor = $(".mdx-color-bold-light").css("color");
-        aColor = $(".mdx-color-a").css("color");
-        aLineColor = $(".mdx-color-aline").css("color");
-        aHoverColor = $(".mdx-color-ahover").css("color");
-        tableThBgColor = $(".mdx-color-table-th-bg").css("color");
-        tableThBorderColor = $(".mdx-color-table-th-bg-border").css("color");
-        tableTd2BgColor = $(".mdx-color-table-td2-bg").css("color");
-        brightness = 1;
-        opacity = 1;
-        if (_lastOutlineItem != null) {
-            _lastOutlineItem.removeClass("mdx-header-current-dark");
-            _lastOutlineItem.addClass("mdx-header-current");
-        }
-    }
-
-    // 正文
-    $("body").css({
-        "background-color": docbgColor,
-        "color": foreColor
-    });
-    $("strong").css("color", boldColor);
-    $("a").css({
-        "color": aColor,
-        "borderBottomColor": aLineColor
-    });
-    $("a").hover(function () {
-        $(this).css({
-            "color": aHoverColor,
-            "border-bottom-color": aHoverColor
-        });
-    }, function () {
-        $(this).css({
-            "color": aColor,
-            "border-bottom-color": themeBgColorOrg
-        });
-    });
-    $(".MathJax_SVG").css("border-color", themeBgColorAlt);
-
-    // 脚注
-    $(".mdx-footer-note").css("background-color", docbgColorAlt);
-    $(".md-footnote").css("background-color", docbgColorAlt);
-
-    // 封面&封底
-    // $("#write > h6:first-child, #write > h6:last").css({
-    //     "background-color": themeBgColor,
-    //     "color": docBgColorLight
-    // });
-    // $("#write > h6:first-of-type strong").css("color", themeForeColorAlt);
-    $("#write > h6:first-of-type").css("opacity", opacity);
-
-    // 面包屑
-    $(".mdx-bread-nav").css("background-color", themeBgColor);
-    $(".mdx-bread-nav-text").hover(function () {
-        $(this).css("color", aHoverColor);
-    }, function () {
-        $(this).css("color", themeForeColor);
-    });
-    $(".mdx-nav-prev-text, .mdx-nav-next-text").css("color", themeForeColor);
-
-    // 工具栏
-    if (isSmallScreen() || _lastCurrentIndex == 0)
-        $(".mdx-toolbar").css("background-color", "none");
-    else
-        $(".mdx-toolbar").css("background-color", themeBgColor);
-
-    // Header
-    $("h1, h2").css("border-top-color", themeBgColorFade);
-    $("h3, h4").css("border-top-color", themeBgColorFade);
-    $("h1, h2, h3, h4, h5, h6").css("color", headerColor);
-    $("hr").css("border-color", foreColorAlt);
-
-    // 插图
-    $("img").css("border-color", docbgColor);
-    $("img, .md-diagram-panel svg").css("filter", "brightness(" + brightness + ")");
-
-    // 插图浏览器
-    $(".mdx-figure-content").css("background-color", docbgColor);
-    $("#figureTitle").css("color", boldColor);
-    // $(".mdx-toc-info2").css("background-color", themeBgColor);
-
-    // 表格
-    $("table tr th").css({
-      "color": foreColor,
-      "background-color": tableThBgColor,
-      "border-top-color": tableThBorderColor,
-      "border-bottom-color": tableThBorderColor,
-      "border-bottom-color": tableThBorderColor });
-    $("table tr:nth-child(2n)").css({
-        "background-color": tableTd2BgColor });
-
-    // kbd
-    $("kbd").css({
-      "color": boldColor,
-      "background-color": docbgColor,
-      "border-color": foreColorAlt,
-      "box-shadow": "0px 0.1em 0px " + foreColorAlt
-    });
-
-    // 代码行、代码段
-    $(".mdx-std-code").css({
-      "background-color": codeColor,
-      "color": boldColor
-    });
-    $("blockquote .mdx-std-code").css({
-        "background-color": blockQuoteCodeColor,
-    });
-    $(".md-fences").css({
-      "background-color": fencesBgColor,
-      "color": fencesColor,
-      "border-color": fencesBgColor
-    });
-    $(".CodeMirror-gutters").css("border-color", docbgColor);
-
-    /*
-    // 增强行内代码信息标签
-    // 药丸样式-风格1
-    $(".mdx-code-name1-alt").css("cssText", "background-color: " + docbgColorAlt + " !important; border-color: " + masterColor + " !important; color: " + foreColor + " !important;");
-    $(".mdx-code-name2-alt").css("cssText", "background-color: " + docbgColorAlt + " !important; border-color: " + thirdColor + " !important; color: " + foreColor + " !important;");
-    $(".mdx-code-name3-alt").css("cssText", "background-color: " + docbgColorAlt + " !important; border-color: " + fourthColor + " !important; color: " + foreColor + " !important;");
-    $(".mdx-code-name4-alt").css("cssText", "background-color: " + docbgColorAlt + " !important; border-color: " + slaveColor + " !important; color: " + foreColor + " !important;");
-    $(".mdx-code-name5-alt").css("cssText", "background-color: " + docbgColorAlt + " !important; border-color: " + fifthColor + " !important; color: " + foreColor + " !important;");
-    $(".mdx-code-name6-alt").css("cssText", "background-color: " + docbgColorAlt + " !important; border-color: " + foreColorAlt2 + " !important; color: " + foreColor + " !important;");
-    $(".mdx-code-value1-alt").css("cssText", "background-color: " + masterColorAlt2 + " !important; border-color: " + masterColor + " !important;");
-    $(".mdx-code-value2-alt").css("cssText", "background-color: " + thirdColorAlt2 + " !important; border-color: " + thirdColor + " !important;");
-    $(".mdx-code-value3-alt").css("cssText", "background-color: " + fourthColorAlt2 + " !important; border-color: " + fourthColor + " !important;");
-    $(".mdx-code-value4-alt").css("cssText", "background-color: " + slaveColorAlt2 + " !important; border-color: " + slaveColor + " !important;");
-    $(".mdx-code-value5-alt").css("cssText", "background-color: " + fifthColorAlt2 + " !important; border-color: " + fifthColor + " !important;");
-    $(".mdx-code-value6-alt").css("cssText", "background-color: " + foreColorAlt3 + " !important; border-color: " + foreColorAlt2 + " !important; color: " + foreColor + " !important;");
-    // 药丸样式-风格2
-    $(".mdx-code-name1, .mdx-code-name2, .mdx-code-name3, .mdx-code-name4, .mdx-code-name5, .mdx-code-name6").css("cssText", "border-color: " + codeBorderColor + " !important; box-shadow: 0px 1px " + codeNameShadowColor);
-    $(".mdx-code-value1").css("cssText", "background-color: " + masterColor + " !important; box-shadow: 0px 1px " + masterColorDark);
-    $(".mdx-code-value2").css("cssText", "background-color: " + thirdColor + " !important; box-shadow: 0px 1px " + thirdColorDark);
-    $(".mdx-code-value3").css("cssText", "background-color: " + fourthColor + " !important; box-shadow: 0px 1px " + fourthColorDark);
-    $(".mdx-code-value4").css("cssText", "background-color: " + slaveColor + " !important; box-shadow: 0px 1px " + slaveColorDark);
-    $(".mdx-code-value5").css("cssText", "background-color: " + fifthColor + " !important; box-shadow: 0px 1px " + fifthColorDark);
-    $(".mdx-code-value6").css("cssText", "background-color: " + codeNameShadowColor + " !important; box-shadow: 0px 1px " + codeNameShadowColor);
-    // 标签样式-风格1
-    $(".mdx-code-c1-alt").css("cssText", "background-color: " + masterColorAlt2 + " !important; border-color: " + masterColor + " !important;");
-    $(".mdx-code-c2-alt").css("cssText", "background-color: " + thirdColorAlt2 + " !important; border-color: " + thirdColor + " !important;");
-    $(".mdx-code-c3-alt").css("cssText", "background-color: " + fourthColorAlt2 + " !important; border-color: " + fourthColor + " !important;");
-    $(".mdx-code-c4-alt").css("cssText", "background-color: " + slaveColorAlt2 + " !important; border-color: " + slaveColor + " !important;");
-    $(".mdx-code-c5-alt").css("cssText", "background-color: " + fifthColorAlt2 + " !important; border-color: " + fifthColor + " !important;");
-    $(".mdx-code-c6-alt").css("cssText", "background-color: " + foreColorAlt3 + " !important; border-color: " + foreColorAlt2 + " !important; color: " + foreColor + " !important;");
-    // 标签样式-风格2
-    $(".mdx-code-c1").css("cssText", "background-color: " + masterColor + " !important; box-shadow: 0px 1px " + masterColorDark);
-    $(".mdx-code-c2").css("cssText", "background-color: " + thirdColor + " !important; box-shadow: 0px 1px " + thirdColorDark);
-    $(".mdx-code-c3").css("cssText", "background-color: " + fourthColor + " !important; box-shadow: 0px 1px " + fourthColorDark);
-    $(".mdx-code-c4").css("cssText", "background-color: " + slaveColor + " !important; box-shadow: 0px 1px " + slaveColorDark);
-    $(".mdx-code-c5").css("cssText", "background-color: " + fifthColor + " !important; box-shadow: 0px 1px " + fifthColorDark);
-    $(".mdx-code-c6").css("cssText", "border-color: " + codeBorderColor + " !important; box-shadow: 0px 1px " + codeNameShadowColor);
-*/
-    // 引用
-    $("blockquote").css("border-left-color", thirdColorAlt);
-    $("blockquote li").css("color", foreColor);
-
-
     // 删除线
-    $("del").css("color", foreColorAlt);
-    $("del code").css({
-      "color": foreColorAlt,
-      "background-color": docbgColorAlt
-    });
+    $("del").toggleClass("mdx-dark-del");
 
-    // 按钮
-    $(".mdx-btn").css("background-color", themeBgColor);
-    $(".mdx-btn").hover(function () {
-        $(this).css("background-color", aHoverColor);
-        // console.log(aHoverColor);
-    }, function () {
-        $(this).css("background-color", themeBgColor);
-    });
-
-    // 大纲
-    $(".mdx-toc-box-body-scroll").css("background-color", docbgColorAlt);
-    $(".mdx-toc-box-title").hover(function () {
-        $(this).css("color", aHoverColor);
-    }, function () {
-        $(this).css("color", aColor);
-    });
-    $(".mdx-toc-box-title").hover(function () {
-          $(this).css("background-color", docbgColorAlt);
-      }, function () {});
-    $(".md-toc-h1 a, .md-toc-h2 a, .md-toc-h3 a, .md-toc-h4 a, .md-toc-h5 a").css("color", foreColor);
-    $(".md-toc-h1 a, .md-toc-h2 a, .md-toc-h3 a, .md-toc-h4 a, .md-toc-h5 a").hover(function () {
-      $(this).css("color", ahover);
-    }, function () {
-      $(this).css("color", foreColor);
-    });
-    $(".mdx-header-current").css("background-color", themeBgColorAlt);
-    $(".mdx-header-current a").css("color", boldColor);
-
-    // mermaid
-    // mermaid - 线/箭头/标签
-    $(".edgeLabel").css({
-      "background-color": docbgColor,
-      "color": foreColor
-    });
-    $(".edgePath .path").css("stroke", foreColor);
-    $("#crosshead path").css("cssText", "stroke:" + foreColor + " !important; fill:" + foreColor + " !important;");
-    // mermaid - 子图
-    $(".cluster rect").css("cssText", "stroke:" + fencesBgColor + " !important;");
-    $(".cluster rect").css("cssText", "fill:" + docbgColorAlt + " !important;");
-    // mermaid - 节点
-    $(".node rect").css("fill", themeBgColorAlt);
-    $(".node circle").css("fill", thirdColorAlt);
-    $(".node polygon").css("fill", fourthColorAlt);
-    $(".node polygon[rx^='5'][ry^='5']").css("fill", slaveColorAlt);
-    $("svg[id^='mermaidChart']").css("color", boldColor);
-    // mermaid - 开始/结束
-    $("#START circle, #INIT circle, .messageLine0, .messageLine1").css("stroke", foreColor);
-    $("#START circle, #INIT circle, .arrowheadPath, .cluster text, .messageText, #arrowhead").css("fill", foreColor);
-    $("#END circle, #FINAL circle").css("stroke", foreColor);
-    $("#END circle, #FINAL circle").css("fill", "");
-    // mermaid - 角色
-    $(".actor").css("fill", themeBgColorAlt);
-    $(".actor tspan").css("fill", boldColor);
-    // 注释
-    $(".note").css("fill", foreColorAlt);
-    $(".noteText > tspan").css("fill", foreColor);
-    // mermaid - label
-    $(".labelBox").css("fill", slaveColorAlt);
-    $(".labelText tspan").css("fill", boldColor);
-    $(".md-diagram-panel svg g text[class='labelText'] > tspan").each(function() {
-        var textObj = $(this);
-        var g = textObj.parent().parent();
-        if (textObj.text() == "loop") // loop
-            g.children("polygon.labelBox").css("fill", fourthColorAlt);
-        if (textObj.text() == "opt") // opt
-            g.children("polygon.labelBox").css("fill", thirdColorAlt);
-    });
-
-    // flow.js
-    $("rect[id^='st'].flowchart, rect[id^='e'].flowchart, path[fill='none'][stroke-width='3'][marker-end^='url(#raphael-marker-endblock']").css("stroke", foreColor);
-    $("rect[id^='st'].flowchart, marker[id^='raphael-marker-endblock'] > use").css("fill", foreColor);
-    // flow.js - 标签
-    $("text[text-anchor='start'] > tspan").css("fill", boldColor);
-    // flow.js - 条件/操作/输出输出/子图
-    $("path[id^='c'].flowchart").css("fill", slaveColorAlt);
-    $("rect[id^='op'].flowchart").css("fill", themeBgColorAlt);
-    $("path[id^='io'].flowchart").css("fill", thirdColorAlt);
-    $("rect[id^='sub'], rect[id^='sub'].flowchart").css("fill", fourthColorAlt);
-
-    // JS Sequence Diagrams
-    $("path[fill='var(--bg-color)'][stroke='currentColor'][stroke-width='2'][marker-end^='url(#raphael-marker-endblock'], path[fill='var(--bg-color)'][stroke='currentColor'][stroke-width='2'][marker-end^='url(#raphael-marker-endblock'][stroke-dasharray='6,2'], path[fill='var(--bg-color)'][stroke='currentColor'][stroke-width='2'][marker-end^='url(#raphael-marker-endopen'], path[fill='var(--bg-color)'][stroke='currentColor'][stroke-width='2'][marker-end^='url(#raphael-marker-endopen'][stroke-dasharray='6,2']").css("stroke", foreColor);
-    $("rect[fill='var(--bg-color)'][stroke='currentColor'][stroke-width='2'][rx='0'][ry='0']").css("fill", themeBgColorAlt);
-    $("rect[x='10'][y='10'][fill='var(--bg-color)'][stroke='currentColor'][stroke-width='2'][rx='0'][ry='0']").css("fill", docbgColor);
-    $("marker[id^='raphael-marker-endopen'] > use").css("stroke", foreColor);
-    $("rect + text[text-anchor='middle'] > tspan").css("fill", foreColor);
-    $("rect + rect + text[text-anchor='middle'] > tspan").css("fill", boldColor);
+    localStorage["VLOOK-" + _version + "-theme"] = _darkTheme ? "dark" : "light";
 }
 /**
  * 应用主题
@@ -3145,7 +2834,7 @@ function toggleDarkThemeOld() {
  **/
 function applyTheme(theme) {
   _darkTheme = (theme == "dark") ? false : true;
-  toggleDarkTheme();
+  toggleTheme();
 }
 /**
  * 弱化工具栏显示
@@ -3254,7 +2943,7 @@ function showMask(under, callback) {
         "user-select": "none", // 网页选择
         "overflow": "hidden" // 网页滚动
     });
-    $("#write, .mdx-toolbar, .mdx-bread-nav").css({ "filter": "blur(3px)" });
+    $("#write, .mdx-toolbar, .mdx-bread-nav").css({ "filter": "blur(5px)" });
 
     var mask =  $(".mdx-toc-mask");
     mask.css("z-index", under.css("z-index") - 1);
@@ -3342,7 +3031,7 @@ function initHotkeys() {
       }
       // T
       else if (code == 84)
-          toggleDarkTheme();
+          toggleTheme();
       // A
       else if (code == 65)
           toggleFontStyle();
@@ -3361,18 +3050,18 @@ function initHotkeys() {
       // ESC
       else if (code == 27) {
           var spot = $(".mdx-spotlight");
-          var fv = $(".mdx-figure-viewer");
           hideTips($(".mdx-tool-tips"), true);
           hideTips($(".mdx-info-tips"), true);
           if (spot.css("display") == "block")
-              // spot.fadeOut(_animateSpeed);
               spot.hide();
-          else if (fv.css("display") == "block")
+          else if ($(".mdx-figure-viewer").css("display") == "block")
               hideFigureViewer();
-          else if (isOutlineShowed())
-              hideOutline();
-          else if (_lastBlockFocusItem != null)
-              _lastBlockFocusItem.removeClass("mdx-current-blockfocus-item")
+          else {
+              if (isOutlineShowed())
+                  hideOutline();
+              hideLastCrossTd();
+              hideFocusBlock();
+          }
       }
       // Z
       else if (code == 90) {
@@ -3381,7 +3070,16 @@ function initHotkeys() {
       }
   });
 }
-//获取url中的参数
+/**
+ * 隐藏聚焦内容块
+ */
+function hideFocusBlock() {
+    if (_lastBlockFocusItem != null)
+        _lastBlockFocusItem.removeClass("mdx-current-blockfocus-item");
+}
+/**
+ * 获取url中的参数
+ */
 function getQueryString() {
   var qs = location.search.substr(1), // 获取url中"?"符后的字串
       args = {}, // 保存参数数据的对象
@@ -3548,12 +3246,12 @@ $(document).ready(function() {
     // }
 
     // 绑定文档双击事件，激活/关闭聚光灯
-    document.addEventListener('dblclick', function(){
+    document.addEventListener("dblclick", function(){
         toggleSpotlight();
     });
 
     // 绑定文档鼠标移动事件，聚光灯跟随鼠标移动
-    document.addEventListener('mousemove', function() {
+    document.addEventListener("mousemove", function() {
         var obj = $(".mdx-spotlight");
         var e = window.event;
         _clientX = e.clientX;
@@ -3600,6 +3298,14 @@ $(document).ready(function() {
         $(".mdx-loading").css("cursor", "default");
     });
 
+    $(".mdx-loading-done").text(["轻一点，轻轻一点",
+        "輕一點，輕輕一點",
+        "Gently to Start",
+        "Doucement pour commencer",
+        "Осторожно, чтобы начать",
+        "やさしく始める",
+        "부드럽게 시작"][_lang]);
+    $(".mdx-loading-done").css("cursor", "pointer");
     $(".mdx-loading-done").click(function (){
         // $("body").css({
         //     "overflow": "auto" // 恢复网页滚动
