@@ -1,5 +1,5 @@
 
-###### <sup>VLOOK™ Charts Demo</sup><br>脚本化图表 for Markdown<br>──<br><br><br>`+ 文档密级丨对外公开 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2017-2018. MAX°DESIGN.*
+###### <sup>VLOOK™ Charts Demo</sup><br>脚本化图表 for Markdown<br>──<br><br>`+ 文档密级丨对外公开 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2017-2018. MAX°DESIGN.*
 
 [TOC]
 
@@ -238,8 +238,8 @@ flowchart.js基于SVG的流程图插件，它仅需几行代码即可在 Web 上
 ###### flowchart.js-流程图
 
 ```flow
-st=>start: s
-e=>end: e
+st=>start: 开始
+e=>end: 结束
 op1=>operation: 操作
 op2=>operation: 材料
 sub1=>subroutine: 子流程

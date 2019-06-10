@@ -18,6 +18,31 @@
 @docBgColorDarkAlt: darken(@docBgColorDark, 10%);
 @docBgColorDarkFade: fade(@docBgColorDark, 30%);
 
+// 表格（浅色主题）
+@tableColor: #C8C8C8; // 表格基础色
+@tableBorderColor: fade(@foreColorLight, 50%); // 表格边框
+@tableThColor: @foreColorLight; // 表格列头
+@tableThBgColor: fade(@tableColor, 40%);
+@tableThBorderColor: @tableBorderColor;
+@tableTdBgColor: fade(@tableThBgColor, 0%); // 表格奇数行
+@tableTdBorderColor: fade(@tableBorderColor, 20%);
+@tableTdBgColor2: fade(@tableThBgColor, 10%); // 表格偶数行
+// 表格（深色主题）
+@tableColorDark: #000204; // 表格基础色
+@tableBorderColorDark: fade(@foreColorDark, 50%); // 表格边框
+@tableThColorDark: @foreColorDark; // 表格列头
+@tableThBgColorDark: fade(@tableColorDark, 30%);
+@tableThBorderColorDark: @tableBorderColorDark;
+@tableTdBorderColorDark: fade(@tableBorderColorDark, 10%);
+// @tableTdBgColor2Dark: fade(@tableThBorderColorDark, 10%); // 表格偶数行
+
+// 表格（浅色主题）
+// 表格列头
+// @tableThBgColorDark: @tableColorDark;
+// 表格偶数行
+// @tableTdBgColorDark2: fade(@tableThBgColor, 8%);
+
+
 // 文档前景色（浅色主题）
 @foreColorLight: #404244; //#606064;
 @foreColorLightAlt: lighten(@foreColorLight, 40%);
