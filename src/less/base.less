@@ -682,13 +682,13 @@ h5 + figure > table,
 h6 + figure > table {
   counter-reset: tableRowNumber - 1;
 }
-li > figure > table tr,
-h1 + figure > table tr,
-h2 + figure > table tr,
-h3 + figure > table tr,
-h4 + figure > table tr,
-h5 + figure > table tr,
-h6 + figure > table tr {
+li > figure > table tbody tr,
+h1 + figure > table tbody tr,
+h2 + figure > table tbody tr,
+h3 + figure > table tbody tr,
+h4 + figure > table tbody tr,
+h5 + figure > table tbody tr,
+h6 + figure > table tbody tr {
   counter-increment: tableRowNumber;
 }
 
@@ -705,14 +705,18 @@ figure > table tr > td:first-child::before {
   left: -3em;
 }
 
-li > figure > table tr > td:first-child::before {
+li > figure > table tbody tr > td:first-child::before {
   content: counter(tableRowNumber) " ";
 }
 
-
-// li > h6 + figure {
-//   margin-left: 0em;
-// }
+// li下的H6下的表格行号格式微调
+li > h6 + figure {
+  margin-left: 0em;
+}
+li h6 + figure table tr > th:first-child::before,
+li h6 + figure table tr > td:first-child::before {
+  left: -3em;
+}
 
 // H1-6下的表格行号格式微调
 h1 + figure > table tr > th:first-child::before,
@@ -737,17 +741,13 @@ h6 + figure > table tr > td:first-child::before {
   // position: absolute;
   left: -0.5em;
 }
-// li h6 + figure table tr > th:first-child::before,
-// li h6 + figure table tr > td:first-child::before {
-//   left: -3em;
-// }
 
-h1 + figure > table tr > td:first-child::before,
-h2 + figure > table tr > td:first-child::before,
-h3 + figure > table tr > td:first-child::before,
-h4 + figure > table tr > td:first-child::before,
-h5 + figure > table tr > td:first-child::before,
-h6 + figure > table tr > td:first-child::before {
+h1 + figure > table tbody tr > td:first-child::before,
+h2 + figure > table tbody tr > td:first-child::before,
+h3 + figure > table tbody tr > td:first-child::before,
+h4 + figure > table tbody tr > td:first-child::before,
+h5 + figure > table tbody tr > td:first-child::before,
+h6 + figure > table tbody tr > td:first-child::before {
   content: counter(tableRowNumber) " ";
 }
 
@@ -814,10 +814,12 @@ mark strong {
 del,
 del strong {
   color: @foreColorLightAlt !important;
+  text-decoration: line-through @foreColorLight solid;
 }
 del code {
   color: @foreColorLightAlt;
   background-color: @docBgColorLightAlt;
+  text-decoration: line-through @foreColorLight solid;
 }
 
 // 脚注区域
@@ -2223,7 +2225,7 @@ li p {
   font-family: @sansFont !important;
 }
 .mdx-font-code-sans {
-  font-family: @monoSansFont !important;
+  font-family: @codeFont !important;
 }
 // 衬线字体集
 .mdx-font-header-serif {
@@ -2239,7 +2241,7 @@ li p {
   font-family: @boldFont !important;
 }
 .mdx-font-code-serif {
-  font-family: @monoSerifBoldFont !important;
+  font-family: @codeFont !important;
 }
 
 .mdx-spotlight {
@@ -3680,7 +3682,8 @@ h6 code {
 }
 
 .mdx-dark-del {
-  color: darken(@foreColorDark, 30%);
+  color: darken(@foreColorDark, 20%) !important;
+  text-decoration: line-through @foreColorDark solid;
 }
 
 .mdx-dark-toc-item {
