@@ -67,7 +67,8 @@ img {
   // margin: 0 !important;
   border-radius: 15px;
   padding: 0px;
-  border: 2px solid #DDE2F0;
+//   border: 2px solid #DDE2F0;
+//   border: 2px solid @foreColorLightAlt;
   transition: all 0.3s ease-in-out;
 }
 
@@ -778,22 +779,22 @@ h6 + figure {
 }
 .mdx-table-cross-left {
   background: linear-gradient(90deg, fade(@aLineColor, 1%), fade(@aLineColor, 30%));
-  box-shadow: @aLineColor 1px 0px 0px 0px;
+  // box-shadow: @aLineColor 1px 0px 0px 0px;
   // transition: all 0.3s ease-in-out;
 }
 .mdx-table-cross-right {
   background: linear-gradient(90deg, fade(@aLineColor, 30%), fade(@aLineColor, 1%));
-  box-shadow: @aLineColor -1px 0px 0px 0px;
+  // box-shadow: @aLineColor -1px 0px 0px 0px;
   // transition: all 0.3s ease-in-out;
 }
 .mdx-table-cross-up {
   background: linear-gradient(0deg, fade(@aLineColor, 30%), fade(@aLineColor, 1%));
-  box-shadow: @aLineColor 0px 1px 0px 0px;
+  // box-shadow: @aLineColor 0px 1px 0px 0px;
   // transition: all 0.3s ease-in-out;
 }
 .mdx-table-cross-down {
   background: linear-gradient(0deg, fade(@aLineColor, 1%), fade(@aLineColor, 30%));
-  box-shadow: @aLineColor 0px -1px 0px 0px;
+  // box-shadow: @aLineColor 0px -1px 0px 0px;
   // transition: all 0.3s ease-in-out;
 }
 
@@ -3195,7 +3196,8 @@ li p {
   // margin: 0 !important;
   border-radius: 15px;
   padding: 0px;
-  border: 2px solid @docBgColorLightAlt;
+//   border: 2px solid @foreColorLightAlt;
+  border: 2px solid rgba(0, 0, 0, 0.4);
   // margin: 0 !important;
   // text-align: left !important;
   display: block;
@@ -3657,6 +3659,17 @@ h6 code {
   box-shadow: 0px 0.1em 0px @foreColorDarkAlt;
 }
 
+.mdx-dark-fences {
+  // color: @foreColorDark;
+  // background-color: @docBgColorDarkAlt;
+  // border-color: @docBgColorDarkAlt;
+  filter: brightness(0.7);
+}
+
+// .mdx-dark-CodeMirror-gutters {
+//   border-color: @docBgColorDark;
+// }
+
 .mdx-dark-std-code {
   color: @foreColorDark;
   background-color: @themeBgColorFade;
@@ -3664,16 +3677,6 @@ h6 code {
 
 .mdx-dark-blockquote-std-code {
   background-color: @thirdColorFade;
-}
-
-.mdx-dark-fences {
-  color: @foreColorDark;
-  background-color: @docBgColorDarkAlt;
-  border-color: @docBgColorDarkAlt;
-}
-
-.mdx-dark-CodeMirror-gutters {
-  border-color: @docBgColorDark;
 }
 
 .mdx-dark-blockquote {
@@ -3696,6 +3699,7 @@ h6 code {
 
 #write > h6:first-of-type, // 页面第1个H6为封面样式
 #write > h6:last-of-type { // 页面最后1个H6为封底样式
+  display: block;
   color: @themeForeColor !important;
   background-color: @themeBgColor;
   font-size: 2.5em;

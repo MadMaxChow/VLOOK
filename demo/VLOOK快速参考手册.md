@@ -1,5 +1,4 @@
-###### <sup>VLOOK™</sup><br>快速参考手册 Quick Reference Manual<br>──<br><br>`+ Version丨9.0 beta7 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2016-2019. MAX°DESIGN.*
-
+###### <sup>VLOOK™</sup><br>快速参考手册 Quick Reference Manual<br>──<br><br>`+ Version丨9.0 RC +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2016-2019. MAX°DESIGN.*
 [TOC]
 
 # VLOOK™是什么
@@ -457,10 +456,10 @@ $$
 ### 切换字体样式
 
 - 支持**衬线**与**无衬线**字体风格，可根据个人喜好进行切换；
-- VLOOK优先显示开源的**思源黑体**和**思源宋体**，建议用户下载安装获得更好的视觉体验；
+- VLOOK优先显示开源的**思源黑体**和**思源宋体**，建议下载安装获得更好的视觉体验；
 - 下载地址：
-  - 思源黑体（[常规体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Regular.otf)、[粗体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Bold.otf)）
-  - 思源宋体（[常规体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Regular.otf)、[粗体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Bold.otf)）
+  - 思源黑体 / Noto Sans（[常规体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Regular.otf)、[粗体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Bold.otf)）
+  - 思源宋体 / Noto Serif（[常规体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Regular.otf)、[粗体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Bold.otf)）
 
 ### 链接管理
 

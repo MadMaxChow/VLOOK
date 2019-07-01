@@ -10,14 +10,14 @@ VLOOK插件主要包括：
 
 ---
 
-VLOOK优先显示开源的思源黑体和思源宋体，建议用户下载安装获得更好的视觉体验；
+VLOOK优先显示开源的思源黑体和思源宋体，建议下载安装获得更好的视觉体验；
 
-- 思源黑体（[常规体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Regular.otf)、[粗体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Bold.otf)）
-- 思源宋体（[常规体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Regular.otf)、[粗体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Bold.otf)）
+- 思源黑体 / Noto Sans（[常规体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Regular.otf)、[粗体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Bold.otf)）
+- 思源宋体 / Noto Serif（[常规体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Regular.otf)、[粗体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Bold.otf)）
 
 ---
 
-**目录说明：**<br>`demo`：基于VLOOK主题的示例文件<br>`docs`：VLOOK快速参考手册及相关文档<br>`released`：发布版的主目录<br>`.       \theme`：主题文件<br>`src`：源码目录<br>`.  \dev`：开发测试用示例文件<br>`.  \less`：主题CSS文件的源文件<br>`misc`：杂项文件，包括图标源文件、产品原型、主题图形素材设计源文件等
+**目录说明：**<br>`demo`：基于VLOOK主题的示例文件<br>`docs`：VLOOK快速参考手册及相关文档<br>`released`：发布版的主目录<br>`.       \theme`：主题文件<br>`src`：源码目录<br>`.  \dev`：开发测试用示例文件<br>`.  \less`：主题CSS文件的源文件<br>`misc`：杂项文件，包括图标源文件、产品原型、主题图形素材设计源文件等
 
 ---
 

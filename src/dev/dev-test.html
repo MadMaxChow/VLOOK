@@ -1,0 +1,456 @@
+<html>
+<head>
+<title>Test</title>
+</head>
+<body>
+
+<h2>header标签定义文档的页眉（介绍信息）</h2>
+<header>
+	<h3>Welcome to my homepage</h3>
+	<p>My name is Donald Duck</p>
+</header>
+
+<h1>视频标签</h1>
+<video src="video/why-we-coding.mp4" width="420" height="240" controls="controls">
+您的浏览器不支持 video 标签。
+</video>
+<br/>
+
+
+<h1>音频标签</h1>
+<audio src="audio/Whistle.MP3" controls="controls">
+您的浏览器不支持 audio 标签。
+</audio>
+<br/>
+
+
+<h1>画图标签</h1>
+画矩形<br/>
+<canvas id="myCanvas"></canvas>
+<script type="text/javascript">
+	//JavaScript 使用 id 来寻找 canvas 元素：
+    var canvas=document.getElementById('myCanvas');
+	//然后，创建 context 对象：
+    var ctx=canvas.getContext('2d');
+	//getContext("2d") 对象是内建的 HTML 5 对象，
+	//拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。
+	
+	//fillStyle 方法将其染成红色，
+    ctx.fillStyle='#FF0000';
+	//fillRect 方法规定了形状、位置和尺寸。
+    ctx.fillRect(0,0,80,100);
+</script><br/>
+
+
+画线条<br/>
+<canvas id="myCanvas1" width="200" height="100" style="border:1px solid #c3c3c3;">
+Your browser does not support the canvas element.
+</canvas>
+<script type="text/javascript">
+var c=document.getElementById("myCanvas1");
+var cxt=c.getContext("2d");
+cxt.moveTo(10,10);
+cxt.lineTo(150,50);
+cxt.lineTo(10,50);
+cxt.stroke();
+</script><br/>
+
+
+画圆形<br/>
+<canvas id="myCanvas2" width="200" height="100" style="border:1px solid #c3c3c3;">
+Your browser does not support the canvas element.
+</canvas>
+<script type="text/javascript">
+var c=document.getElementById("myCanvas2");
+var cxt=c.getContext("2d");
+cxt.fillStyle="#FF0000";
+cxt.beginPath();
+cxt.arc(70,18,15,0,Math.PI*2,true);
+cxt.closePath();
+cxt.fill();
+</script><br/>
+
+
+渐变效果<br/>
+<canvas id="myCanvas3" width="200" height="100" style="border:1px solid #c3c3c3;">
+Your browser does not support the canvas element.
+</canvas>
+<script type="text/javascript">
+var c=document.getElementById("myCanvas3");
+var cxt=c.getContext("2d");
+var grd=cxt.createLinearGradient(0,0,175,50);
+grd.addColorStop(0,"#FF0000");
+grd.addColorStop(1,"#00FF00");
+cxt.fillStyle=grd;
+cxt.fillRect(0,0,175,50);
+</script><br/>
+
+
+把一幅图像放置到画布上：<br/>
+<canvas id="myCanvas4" width="200" height="100" style="border:1px solid #c3c3c3;">
+Your browser does not support the canvas element.
+</canvas>
+<script type="text/javascript">
+var c=document.getElementById("myCanvas4");
+var cxt=c.getContext("2d");
+var img=new Image()
+img.src="/img/eg_flower.png"
+cxt.drawImage(img,0,0);
+</script><br/>
+
+
+<h1>坐标获取</h1>
+<p>把鼠标悬停在下面的矩形上可以看到坐标：</p>
+<div id="coordiv" 
+style="width:199px;height:99px;border:1px solid #c3c3c3"
+onmousemove="cnvs_getCoordinates(event)"
+onmouseout="cnvs_clearCoordinates()"></div>
+<br/>
+<div id="xycoordinates"></div>
+<script type="text/javascript">
+function cnvs_getCoordinates(e)
+{
+	x=e.clientX;
+	y=e.clientY;
+	document.getElementById("xycoordinates").innerHTML="Coordinates: (" + x + "," + y + ")";
+}
+function cnvs_clearCoordinates()
+{
+	document.getElementById("xycoordinates").innerHTML="";
+}
+</script>
+<br/>
+
+
+<h1>本地缓存测试</h1>
+<script type="text/javascript">
+localStorage.lastname="Smith";
+document.write("Last name: " + localStorage.lastname);
+</script>
+<br/>
+
+
+<p>刷新页面会看到计数器在增长。</p>
+<p>请关闭浏览器窗口，然后再试一次，计数器会继续计数。</p>
+<script type="text/javascript">
+if (localStorage.pagecount)
+{
+	localStorage.pagecount=Number(localStorage.pagecount) +1;
+}
+else
+{
+	localStorage.pagecount=1;
+}
+document.write("Visits "+ localStorage.pagecount + " time(s).");
+</script>
+
+
+<h1>session缓存</h1>
+<script type="text/javascript">
+if (sessionStorage.pagecount)
+{
+	sessionStorage.pagecount=Number(sessionStorage.pagecount) +1;
+}
+else
+{
+	sessionStorage.pagecount=1;
+}
+document.write("Visits " + sessionStorage.pagecount + " time(s) this session.");
+</script>
+<p>刷新页面会看到计数器在增长。</p>
+<p>请关闭浏览器窗口，然后再试一次，计数器已经重置了。</p>
+
+
+<h1>新Input类型</h1>
+<script type="text/javascript">
+	function show(){
+		var range=document.getElementById("range");
+		var pshow=document.getElementById("pshow");
+		pshow.innerHTML=range.value;
+	}
+</script>
+<form action="/example/HTML 5/demo_form.asp" method="get">
+email:<input type="email" name="user_email" /><br/>
+url:<input type="url" name="user_url" /><br/>
+number:<input type="number" name="points" min="1" max="10" /><br/>
+range:<input type="range" id="range" name="points" min="1" max="10" onmousemove="show()"/><div id="pshow">6</div><br/>
+<b>Date pickers (date, month, week, time, datetime, datetime-local)</b><br/>
+date:<input type="date" name="user_date" /><br/>
+month:<input type="month" name="user_date" /><br/>
+week:<input type="week" name="user_date" /><br/>
+time:<input type="time" name="user_date" /><br/>
+datetime:<input type="datetime" name="user_date" /><br/>
+datetime-local:<input type="datetime-local" name="user_date" /><br/>
+search:<input type="search" name="user_date" /><br/>
+</form>
+
+
+<h1>datalist元素</h1>
+Webpage: <input type="url" list="url_list" name="link" />
+<datalist id="url_list">
+<option label="W3School" value="http://www.W3School.com.cn" />
+<option label="Google" value="http://www.google.com" />
+<option label="Microsoft" value="http://www.microsoft.com" />
+</datalist>
+
+
+<h1>keygen元素</h1>
+<form action="/example/HTML 5/demo_form.asp" method="get">
+Username: <input type="text" name="usr_name" /><br/>
+加密方式: <keygen name="security" /><br/>
+<input type="submit" /><br/>
+</form>
+
+
+<h1>使用 output 元素的简易计算器：</h1>
+<script type="text/javascript">
+function resCalc()
+{
+	numA=document.getElementById("num_a").value;
+	numB=document.getElementById("num_b").value;
+	document.getElementById("result").value=Number(numA)+Number(numB);
+}
+</script>
+<form onsubmit="return false">
+<input id="num_a" /> +
+<input id="num_b" /> =
+<output id="result" onforminput="resCalc()"></output>
+</form>
+
+
+<h1>autocomplete 属性</h1>
+autocomplete 属性规定 form 或 input 域应该拥有自动完成功能。<br/>
+<form action="/example/HTML 5/demo_form.asp" method="get" autocomplete="on">
+First name:<input type="text" name="fname" /><br />
+Last name: <input type="text" name="lname" /><br />
+E-mail: <input type="email" name="email" autocomplete="off" /><br />
+<input type="submit" />
+</form>
+<p>请填写并提交此表单，然后重载页面，来查看自动完成功能是如何工作的。</p>
+<p>请注意，表单的自动完成功能是打开的，而 e-mail 域是关闭的。</p>
+<br/>
+
+
+<h1>autofocus 属性</h1>
+autofocus 属性规定在页面加载时，域自动地获得焦点。<br/>
+<form action="/example/HTML 5/demo_form.asp" method="get">
+User name: <input type="text" name="user_name" autofocus="autofocus" />
+<input type="submit" />
+</form>
+
+
+<h1>form 属性</h1>
+form 属性规定输入域所属的一个或多个表单。<br/>
+<form action="demo_form.asp" method="get" id="user_form">
+First name:<input type="text" name="fname" />
+<input type="submit" />
+</form>
+下面的输入域在 form 元素之外，但仍然是表单的一部分。<br/>
+Last name: <input type="text" name="lname" form="user_form" />
+<br/>
+
+
+<h1>multiple 属性</h1>
+multiple 属性规定输入域中可选择多个值<br/>
+<form action="/example/HTML 5/demo_form.asp" method="get">
+Select images: <input type="file" name="img" multiple="multiple" />
+<input type="submit" />
+</form>
+<p>注:当您浏览文件时，请试着选择多个文件。</p>
+
+
+<h1>pattern 属性</h1>
+pattern 属性规定用于验证 input 域的模式（pattern）(正则表达式)<br/>
+下面的例子显示了一个只能包含三个字母的文本域（不含数字及特殊字符）<br/>
+<form action="/example/HTML 5/demo_form.asp" method="get">
+Country code: <input type="text" name="country_code" pattern="[A-z]{3}"
+title="Three letter country code" />
+<input type="submit" />
+</form>
+
+
+<h1>placeholder 属性</h1>
+placeholder 属性提供一种提示（hint），描述输入域所期待的值。<br/>
+<form action="/example/HTML 5/demo_form.asp" method="get">
+<input type="search" name="user_search" placeholder="Search W3School" />
+<input type="submit" />
+</form>
+
+
+<h1>required 属性</h1>
+required 属性规定必须在提交之前填写输入域（不能为空）。<br/>
+<form action="/example/HTML 5/demo_form.asp" method="get">
+Name: <input type="text" name="usr_name" required="required" />
+<input type="submit" />
+</form>
+
+
+<h1>area标签</h1>
+定义和用法:area标签定义图像映射中的区域。<br/>
+<p>请点击图像上的星球，把它们放大。</p>
+<img src="img/eg_planets.jpg" border="0" usemap="#planetmap" alt="Planets" />
+<map name="planetmap" id="planetmap">
+<area shape="circle" coords="180,139,14" href ="venus.html" target ="_blank" alt="Venus" />
+<area shape="circle" coords="129,161,10" href ="mercur.html" target ="_blank" alt="Mercury" />
+<area shape="rect" coords="0,0,110,260" href ="sun.html" target ="_blank" alt="Sun" />
+</map>
+<p><b>注释：</b>img 元素中的 "usemap" 属性引用 map 元素中的 "id" 或 "name" 属性（根据浏
+览器），所以我们同时向 map 元素添加了 "id" 和 "name" 属性。</p>
+
+
+<h1>bdo标签</h1>
+定义和用法:bdo标签覆盖默认的文本方向。<br/>
+<bdo dir="ltr">Here is some text</bdo><br/>
+<bdo dir="rtl">Here is some text</bdo>
+
+
+<h1>blockquote标签</h1>
+定义和用法:blockquote标签定义摘自另一个源的块引用。<br/>
+毛泽东说过：
+<blockquote>帝国主义都是纸老虎 ... </blockquote>
+
+
+<h2>dd标签定义一个定义列表中对项目的描述：</h2>
+<dl>
+<dt>计算机</dt>
+<dd>用来计算的仪器 ... ...</dd>
+<dt>显示器</dt>
+<dd>以视觉方式显示信息的装置 ... ...</dd>
+</dl>
+<h2>定义文档中已删除的文本</h2>
+<p>a dozen is <del>21</del> 12 pieces</p>
+
+
+<h2>details标签用于描述文档或文档某个部分的细节：</h2>
+<details>This document was written in 2010.</details>
+
+
+<h2>summary标签包含 details 元素的标题</h2>
+<details>
+    <summary>HTML 5</summary>
+    This document teaches you everything you have to learn about HTML 5.
+</details>
+
+<h2>embed标签定义嵌入的内容，比如插件</h2>
+<embed src="img/helloworld.swf" />
+
+
+<h2>fieldset 元素可将表单内的相关元素分组</h2>
+<fieldset style="width:100px">
+<legend>健康信息：</legend>
+<form>
+<label>身高：<input type="text" /></label>
+<label>体重：<input type="text" /></label>
+</form>
+</fieldset>
+<p>如果表单周围没有边框，说明您的浏览器太老了。</p>
+
+
+<h2>figure标签用于对元素进行组合</h2>
+<h2>figcaption标签定义 figure 元素的标题</h2>
+<figure>
+<figcaption>PRC</figcaption>
+<p>The People's Republic of China was born in 1949...</p>
+</figure>
+
+
+<h2>删除字效果和插入字效果</h2>
+<p>一打有 <del>二十</del> <ins>十二</ins> 件。</p>
+
+
+<h2>code标签用于表示计算机源代码</h2>
+<code>
+	public static void main(String [] args){
+		System.out.println("HelloWorld!");
+	}
+</code>
+
+
+<h2>pre标签来显示非常规的格式化内容，或者某类计算机代码。</h2>
+<pre>
+	public static void main(String [] args){
+		System.out.println("HelloWorld!");
+	}
+</pre>
+
+
+<h2>mark突出部分文本</h2>
+<p>Do not forget to buy <mark>milk</mark> today.</p>
+
+
+<h2>menu定义菜单列表</h2>
+<menu>
+<li><input type="checkbox" />Red</li>
+<li><input type="checkbox" />blue</li>
+</menu>
+
+
+<h2>下面代码可以让网页在5秒后刷新，并跳转至http://www.w3school.com.cn</h2>
+<!-- <meta http-equiv="Refresh" content="5;url=http://www.w3school.com.cn"> -->
+<br/>
+
+<h2>meter标签定义度量衡</h2>
+<p>显示度量值：</p>
+<meter value="3" min="0" max="10"></meter><br/><br/>
+<meter value="0.6"></meter>
+<p><b>注释：</b>Internet Explorer 不支持 meter 标签。</p>
+
+
+<h2>nav标签定义导航链接的部分</h2>
+<nav>
+<a href="index.asp">Home</a>
+<a href="html5_meter.asp">Previous</a>
+<a href="html5_noscript.asp">Next</a>
+</nav>
+
+
+<h2>optgroup标签定义选项组。</h2>
+此元素允许您组合选项。当您使用一个长的选项列表时，对相关的选项进行组合会使处理更加容易。<br/>
+<select>
+	<optgroup label="Swedish Cars">
+		<option value ="volvo">Volvo</option>
+		<option value ="saab">Saab</option>
+	</optgroup>
+	<optgroup label="German Cars">
+		<option value ="mercedes">Mercedes</option>
+		<option value ="audi">Audi</option>
+	</optgroup>
+</select>
+
+
+<h2>progress标签定义运行中的进度（进程）</h2>
+下载进度：
+<progress value="22" max="100">
+</progress>
+<p><b>注释：</b>Internet Explorer 9 以及更早的版本不支持 <progress> 标签。</p>
+
+<h2>q标签定义一个短的引用。</h2>
+<p>WWF's goal is to:
+<q cite="http://www.wwf.org">
+build a future where people live in harmony with nature
+</q> we hope they succeed.</p>
+<p>请注意，浏览器在引用的周围插入了引号。</p>
+
+
+<h2>sub标签可定义下标文本。sup可定义上标文本</h2>
+<p>
+	This text contains <sub>subscript</sub>
+</p>
+<p>
+	This text contains <sup>superscript</sup>
+</p>
+
+
+<h2>time标签定义日期或时间，或者两者</h2>
+<p>我们在每天早上 <time>9:00</time> 开始营业。</p>
+<p>我在 <time datetime="2010-02-14">情人节</time> 有个约会。</p>
+
+<h2>footer标签定义 section 或 document 的页脚</h2>
+<footer>This document was written in 2010.</footer>
+</body>
+</html>
+--------------------- 
+作者：光仔December 
+来源：CSDN 
+原文：https://blog.csdn.net/acmman/article/details/50968443 
+版权声明：本文为博主原创文章，转载请附上博文链接！
