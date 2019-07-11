@@ -69,7 +69,7 @@ img {
   padding: 0px;
 //   border: 2px solid #DDE2F0;
 //   border: 2px solid @foreColorLightAlt;
-  transition: all 0.3s ease-in-out;
+//   transition: all 0.3s ease-in-out;
 }
 
 a {
@@ -830,7 +830,7 @@ del code {
 
 // 脚注行
 .footnote-line {
-  color: @foreColorLight;
+//   color: @foreColorLight;
   font-size: 1em;
   margin-top: 0.5em;
 }
@@ -2318,10 +2318,11 @@ li p {
   background-color: @aHoverColor;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease-in-out;
-  transform: scale(1.1);
+  transform: translateY(-2px);
 }
 .mdx-loading-done:active {
-  transform: scale(1);
+  transform: none;
+  box-shadow: none;
 }
 
 .mdx-focus-row-col {
@@ -2353,6 +2354,11 @@ li p {
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.mdx-figure-alt-hover {
+  background-color: @themeBgColor !important;
 }
 
 .md-diagram-panel svg {
@@ -2901,20 +2907,20 @@ li p {
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease-in-out;
   // transform-origin: 50% 0 0;
-  transform: scale(1.1);
+  transform: translateY(-2px);
 }
 .mdx-btn-leave {
   background-color: @buttonBgColor;
   // box-shadow: none;
   transition: all 0.3s ease-in-out;
-  transform: scale(1);
+  transform: none;
 }
 
 .mdx-btn:active {
   background-color: @aActiveColor;
   box-shadow: none;
   transition: all 0.3s ease-in-out;
-  transform: scale(1);
+  transform: none;
 }
 
 .mdx-btn2 {
@@ -3194,13 +3200,14 @@ li p {
   background-repeat: repeat;
   background-position: left top;
   // margin: 0 !important;
-  border-radius: 15px;
+  border-radius: 15px 15px 0px 0px;
   padding: 0px;
 //   border: 2px solid @foreColorLightAlt;
   border: 2px solid rgba(0, 0, 0, 0.4);
   // margin: 0 !important;
   // text-align: left !important;
   display: block;
+  transition: all 0.3s ease-in-out;
 }
 
 .mdx-figure-content {
@@ -3605,7 +3612,11 @@ h6 code {
 .mdx-dark-cover,
 .mdx-dark-bar,
 .mdx-dark-figure {
-  filter: brightness(0.85);
+//   filter: brightness(0.85);
+}
+
+.mdx-dark-figure {
+  border: 2px solid rgba(0, 0, 0, 0.75);
 }
 
 .mdx-dark-header-current {
@@ -3614,10 +3625,21 @@ h6 code {
 
 .mdx-dark-toc {
   color: @foreColorDark;
-  background-color: @tableThBgColorDark;
+  background-color: @tableColorDark;
   border-top-color: @tableColor;
   border-bottom-color: @tableColor;
   border-bottom-color: @tableColor;
+  background-color: #000204;
+  box-shadow: 0px 3px 20px rgba(255, 255, 255, 0.3);
+}
+
+.mdx-dark-footer-note {
+  color: #a8aaac;
+  background-color: #000204;
+}
+
+.mdx-dark-shadow {
+    box-shadow: 0px 3px 20px rgba(255, 255, 255, 0.3);
 }
 
 .mdx-dark-table {
@@ -3787,6 +3809,16 @@ h6 code {
   
   #write {
     margin: 0 !important;
+  }
+
+  // 显示原始的目录
+  #write .md-toc {
+    display: block !important;
+  }
+
+  // 清空当前章节的样式
+  .mdx-header-current {
+    background: none !important;
   }
 
   table,

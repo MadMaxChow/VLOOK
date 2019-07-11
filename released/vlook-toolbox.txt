@@ -1,8 +1,8 @@
 <!--========================================================================-->
 <!--                                                                        -->
-<!--                    Typora Plugin - VLOOK V9 RC                         -->
+<!--                    Typora Plugin - VLOOK V9                            -->
 <!--                                                                        -->
-<!--                               2019-07-01                               -->
+<!--                               2019-07-11                               -->
 <!--                             powered by Max                             -->
 <!--                                                                        -->
 <!--              QQ Group: 805502564    email: maxchow@qq.com              -->
@@ -130,15 +130,15 @@ MIT许可证（MIT）
         <!--<path d="M12.3165,11.0918466 C8.2225,11.0918466 4.9065,7.77324291 4.9065,3.68161505 C4.9065,2.33407294 5.293,1.08753399 5.922,0 C2.51,0.984030751 0,4.09362793 0,7.82224445 C0,12.3378856 3.66,16 8.176,16 C11.9045,16 15.016,13.4884215 16,10.0778149 C14.91,10.7048345 13.664,11.0918466 12.3165,11.0918466 Z" fill-rule="nonzero"></path>-->
     </symbol>
     <!-- 图标|全屏 -->
-    <symbol id="icoStartFullscreen">
+    <!-- <symbol id="icoStartFullscreen">
         <path d="M4,4 L4,14 L16,14 L16,4 L4,4 Z M4,3 L16,3 C16.5522847,3 17,3.44771525 17,4 L17,14 C17,14.5522847 16.5522847,15 16,15 L4,15 C3.44771525,15 3,14.5522847 3,14 L3,4 C3,3.44771525 3.44771525,3 4,3 Z M2,6 C2,6.55228475 1.55228475,7 1,7 C0.44771525,7 0,6.55228475 0,6 L0,4 C0,1.790861 1.790861,0 4,0 L7,0 C7.55228475,0 8,0.44771525 8,1 C8,1.55228475 7.55228475,2 7,2 L4,2 C2.8954305,2 2,2.8954305 2,4 L2,6 Z M2,12 L2,14 C2,15.1045695 2.8954305,16 4,16 L7,16 C7.55228475,16 8,16.4477153 8,17 C8,17.5522847 7.55228475,18 7,18 L4,18 C1.790861,18 0,16.209139 0,14 L0,12 C0,11.4477153 0.44771525,11 1,11 C1.55228475,11 2,11.4477153 2,12 Z M18,6 L18,4 C18,2.8954305 17.1045695,2 16,2 L13,2 C12.4477153,2 12,1.55228475 12,1 C12,0.44771525 12.4477153,0 13,0 L16,0 C18.209139,0 20,1.790861 20,4 L20,6 C20,6.55228475 19.5522847,7 19,7 C18.4477153,7 18,6.55228475 18,6 Z M18,12 C18,11.4477153 18.4477153,11 19,11 C19.5522847,11 20,11.4477153 20,12 L20,14 C20,16.209139 18.209139,18 16,18 L13,18 C12.4477153,18 12,17.5522847 12,17 C12,16.4477153 12.4477153,16 13,16 L16,16 C17.1045695,16 18,15.1045695 18,14 L18,12 Z"
               fill-rule="nonzero"></path>
-    </symbol>
+    </symbol> -->
     <!-- 图标|退出全屏 -->
-    <symbol id="icoExitFullscreen">
+    <!-- <symbol id="icoExitFullscreen">
         <path d="M2,1 C1.44771525,1 1,1.44771525 1,2 L1,16 C1,16.5522847 1.44771525,17 2,17 L18,17 C18.5522847,17 19,16.5522847 19,16 L19,2 C19,1.44771525 18.5522847,1 18,1 L2,1 Z M2,3.55271368e-15 L18,3.55271368e-15 C19.1045695,3.55271368e-15 20,0.8954305 20,2 L20,16 C20,17.1045695 19.1045695,18 18,18 L2,18 C0.8954305,18 0,17.1045695 0,16 L0,2 C0,0.8954305 0.8954305,3.55271368e-15 2,3.55271368e-15 Z M4.5,6.75 C4.5,7.16421356 4.16421356,7.5 3.75,7.5 C3.33578644,7.5 3,7.16421356 3,6.75 L3,5.75 C3,4.23121694 4.23121694,3 5.75,3 L7.75,3 C8.16421356,3 8.5,3.33578644 8.5,3.75 C8.5,4.16421356 8.16421356,4.5 7.75,4.5 L5.75,4.5 C5.05964406,4.5 4.5,5.05964406 4.5,5.75 L4.5,6.75 Z M15.5,6.75 L15.5,5.75 C15.5,5.05964406 14.9403559,4.5 14.25,4.5 L12.25,4.5 C11.8357864,4.5 11.5,4.16421356 11.5,3.75 C11.5,3.33578644 11.8357864,3 12.25,3 L14.25,3 C15.7687831,3 17,4.23121694 17,5.75 L17,6.75 C17,7.16421356 16.6642136,7.5 16.25,7.5 C15.8357864,7.5 15.5,7.16421356 15.5,6.75 Z M4.5,11.25 L4.5,12.25 C4.5,12.9403559 5.05964406,13.5 5.75,13.5 L7.75,13.5 C8.16421356,13.5 8.5,13.8357864 8.5,14.25 C8.5,14.6642136 8.16421356,15 7.75,15 L5.75,15 C4.23121694,15 3,13.7687831 3,12.25 L3,11.25 C3,10.8357864 3.33578644,10.5 3.75,10.5 C4.16421356,10.5 4.5,10.8357864 4.5,11.25 Z M15.5,11.25 C15.5,10.8357864 15.8357864,10.5 16.25,10.5 C16.6642136,10.5 17,10.8357864 17,11.25 L17,12.25 C17,13.7687831 15.7687831,15 14.25,15 L12.25,15 C11.8357864,15 11.5,14.6642136 11.5,14.25 C11.5,13.8357864 11.8357864,13.5 12.25,13.5 L14.25,13.5 C14.9403559,13.5 15.5,12.9403559 15.5,12.25 L15.5,11.25 Z"
               fill-rule="nonzero"></path>
-    </symbol>
+    </symbol> -->
     <!-- 图标|打印 -->
     <symbol id="icoPrint">
         <path d="M4,14.5853624 L4,13.1 C4,11.940202 4.96706494,11 6.16,11 L13.8666159,11 C15.0595509,11 16.0266159,11.940202 16.0266159,13.1 L16.0266159,15.9 C16.0266159,17.059798 15.0595509,18 13.8666159,18 L6.16,18 C4.96706494,18 4,17.059798 4,15.9 L4,15.9976431 L2.16,15.9976431 C0.96706494,15.9976431 1.59872116e-15,15.0491937 0,13.8792221 L0,7.1389097 C0,5.96893806 0.96706494,5.02048865 2.16,5.02048865 L4,5.02048865 L4,2.11842105 C4,0.948449412 4.96706494,-4.99842265e-15 6.16,-5.32907052e-15 L13.8362115,0.0715540871 C15.0291466,0.0715540871 15.9962115,1.0200035 15.9962115,2.18997514 L15.9962115,5.02048865 L17.84,5.02048865 C19.0329351,5.02048865 20,5.96893806 20,7.1389097 L20,14.3048246 C20,15.4747962 19.0329351,15.9976431 17.84,15.9976431 L16.04,15.9976431 L16.04,14.5853624 L17.84,14.5853624 C18.237645,14.5853624 18.56,14.2692126 18.56,13.8792221 L18.56,7.1389097 C18.56,6.74891915 18.237645,6.43276935 17.84,6.43276935 L2.16,6.43276935 C1.76235498,6.43276935 1.44,6.74891915 1.44,7.1389097 L1.44,13.8792221 C1.44,14.2692126 1.76235498,14.5853624 2.16,14.5853624 L4,14.5853624 Z M14.5562115,5.02048865 L14.5562115,2.18997514 C14.5562115,1.79998459 14.2338565,1.48383479 13.8362115,1.48383479 L6.16,1.4122807 C5.76235498,1.4122807 5.44,1.72843051 5.44,2.11842105 L5.44,5.02048865 L14.5562115,5.02048865 Z M16.2876042,9.4122807 L14.72,9.4122807 C14.322355,9.4122807 14,9.0961309 14,8.70614035 C14,8.3161498 14.322355,8 14.72,8 L16.2876042,8 C16.6852492,8 17.0076042,8.3161498 17.0076042,8.70614035 C17.0076042,9.0961309 16.6852492,9.4122807 16.2876042,9.4122807 Z M12.3475656,8 C12.7452107,8 13.0675656,8.3161498 13.0675656,8.70614035 C13.0675656,9.0961309 12.7452107,9.4122807 12.3475656,9.4122807 C11.9499206,9.4122807 11.6275656,9.0961309 11.6275656,8.70614035 C11.6275656,8.3161498 11.9499206,8 12.3475656,8 Z M6.16,12.4122807 C5.76235498,12.4122807 5.44,12.7256814 5.44,13.1122807 L5.44,15.9122807 C5.44,16.29888 5.76235498,16.6122807 6.16,16.6122807 L13.8666159,16.6122807 C14.2642609,16.6122807 14.5866159,16.29888 14.5866159,15.9122807 L14.5866159,13.1122807 C14.5866159,12.7256814 14.2642609,12.4122807 13.8666159,12.4122807 L6.16,12.4122807 Z"
@@ -238,11 +238,11 @@ MIT许可证（MIT）
         </svg>
     </div>
     <!-- 全屏切换 -->
-    <div class="mdx-btn mdx-fullscreen" onclick="toggleFullscreen()">
+    <!-- <div class="mdx-btn mdx-fullscreen" onclick="toggleFullscreen()">
         <svg height="18px" width="20px">
             <use class="mdx-svg-ico-light" xlink:href="#icoStartFullscreen"/>
         </svg>
-    </div>
+    </div> -->
     <!-- 返回按钮 -->
     <div class="mdx-btn mdx-nav-back" onclick="navBack()">
         <svg height="15px" width="15px">
@@ -348,7 +348,6 @@ MIT许可证（MIT）
     var _figIndex = -1; // 插图索引
     var _darkTheme = false; // 主题模式（明亮/黑暗）标记
     var _tipsTimer; // 用于自动控制提示显示时长
-    // var _topValue = 0;
     var _lang = 0; // 当前语言（浏览器中的语言配置）
     var _reboundOffset = 10; // 动画回弹效果偏移量
     var _defaultImage = "data:image/png;base64,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"; // 默认图片的元数据（BASE64编码）
@@ -360,9 +359,9 @@ MIT许可证（MIT）
         var count = 0;
         var badLink = "";
         $("a[href^='#']").each(function () {
-            var str = $(this).attr("href");
+            var href = $(this).attr("href");
             // 有效的页内链接的前缀为以下条件
-            if (str == "#") {
+            if (href == "#") {
                 count++;
                 badLink += ["无效页内链接 [",
                         "無效頁內鏈接 [",
@@ -464,13 +463,13 @@ MIT许可证（MIT）
     }
 
     /**
-     * 为outline中子元素添加附加属性和事件
+     * 为Outline中子元素添加附加属性和事件
      */
     function initOutlineData() {
         // 提取文档中由[toc]标签生成的文档目录作为浮动outline中的内容
-        var obj = $(".md-toc");
+        var t = $(".md-toc");
         // 没有生成目录
-        if (isEmptyObject(obj)) {
+        if (isEmptyObject(t)) {
             hideOutlineOnError();
             return false;
         }
@@ -478,8 +477,9 @@ MIT许可证（MIT）
         var toc = $(".mdx-toc-box-body");
 
         // 不要用复制toc模式，会与outline的冲突
-        // toc.append(obj.clone()); // 复制toc模式
-        toc.append(obj.wrapAll()); // 剪贴toc模式
+        toc.append(t.clone()); // 复制toc模式
+        t.hide();
+        // toc.append(t.wrapAll()); // 剪贴toc模式
 
         // outline内容滚动时，根据内容是否滚动未结束，未结束时添加阴影效果
         toc.scroll(function () {
@@ -495,41 +495,41 @@ MIT许可证（MIT）
         }
 
         tocContent.children().each(function () {
-            var obj = $(this);
-            if (obj.attr("class").indexOf("-h6") == -1) // 忽略 h6
+            var item = $(this);
+            if (item.attr("class").indexOf("-h6") == -1) // 忽略 h6
             {
                 // 记录到标题数组中
                 // _headers.push("header-" + obj.attr("data-ref"));
                 // console.log(obj.children().attr("href"));
-                var href = obj.children().attr("href");
+                var href = item.children().attr("href");
                 _headers.push(href.indexOf("#") > -1 ? href.substr(1, href.length) : href);
-                obj.css("cursor", "pointer"); // 添加鼠标形状
+                item.css("cursor", "pointer"); // 添加鼠标形状
                 // 自定义大纲节点元数据
-                obj.attr({
-                    "id": "oli-header-" + obj.attr("data-ref"), // 添加id属性
+                item.attr({
+                    "id": "oli-header-" + item.attr("data-ref"), // 添加id属性
                     "data-node": "0", // 添加节点类型：0:叶子节点, 1:目录节点
                     "data-folding": "1", // 添加节点状态：0:收起, 1:展开
-                    "title": obj.find("a").text().trim()
+                    "title": item.find("a").text().trim()
                 });
                 // 所有大纲节点都添加folding空白控件备用
-                $("<div id='fd-oli-header-" + obj.attr("data-ref") + "' class='mdx-folder'>&nbsp;</div>").insertBefore(obj.find("a"));
+                $("<div id='fd-oli-header-" + item.attr("data-ref") + "' class='mdx-folder'>&nbsp;</div>").insertBefore(item.find("a"));
                 // 点击大纲节点事件
-                obj.click(function () {
+                item.click(function () {
                     hideOutline();
-                    location.href = "#header-" + obj.attr("data-ref");
+                    location.href = "#header-" + item.attr("data-ref");
                 });
 
                 // 记录所有非叶子节点的folder控件
                 if (_lastHeaderFolder != null) {
                     // 当前节点比上一个节点层级低，则上一节点为可折叠的节点
-                    if (getCSSHeaderLevel(obj) > _lastHeaderLevel) {
+                    if (getCSSHeaderLevel(item) > _lastHeaderLevel) {
                         // console.log(_lastHeaderFolder.parent().text());
                         _foldItem.push(_lastHeaderFolder);
                     }
                 }
                 // 更新最后处理的folder控件
-                _lastHeaderFolder = $("#fd-oli-header-" + obj.attr("data-ref"));
-                _lastHeaderLevel = getCSSHeaderLevel(obj);
+                _lastHeaderFolder = $("#fd-oli-header-" + item.attr("data-ref"));
+                _lastHeaderLevel = getCSSHeaderLevel(item);
             }
         });
         return true;
@@ -875,15 +875,11 @@ MIT许可证（MIT）
             fig.addClass("mdx-figure");
 
             fig.hover(function () {
-                // if (_darkTheme)
-                //     $(this).addClass("mdx-figure-hover-dark");
-                // else
                 $(this).addClass("mdx-figure-hover");
+                $(this).parent().addClass("mdx-figure-alt-hover");
             }, function () {
-                // if (_darkTheme)
-                //     $(this).removeClass("mdx-figure-hover-dark");
-                // else
                 $(this).removeClass("mdx-figure-hover");
+                $(this).parent().removeClass("mdx-figure-alt-hover");
             });
 
             // 添加锚点，便于在插图浏览器直接跳转至对应插图位置
@@ -903,9 +899,8 @@ MIT许可证（MIT）
 
             var figCaption = null;
             // 图片插图的处理
-            if (fig.prop("tagName").toLowerCase() == "img") {
+            if (fig.attr("fig-type").toLowerCase() == "img") {
                 figCaption = fig.attr("alt"); // 获取插图标题
-                // fig.css("background-color", "#FFFFFF");
                 // 图片无法加载时加载默认图片
                 fig.bind("error", function () {
                     if (fig.attr("src") != "vlook-lost-image.jpg")
@@ -916,7 +911,7 @@ MIT许可证（MIT）
                                 "Image perdue: ",
                                 "Потерянное изображение: ",
                                 "失われた画像：",
-                                "잃어버린 이미지 : "][_lang] + fig.attr("src") + " --- " + fig.parent().html() + ["\n\n继续检查吗？",
+                                "잃어버린 이미지 : "][_lang] + fig.parent().text() + "\"" + fig.attr("src") + "\"" + ["\n\n继续检查吗？",
                                 "\n\n繼續檢查嗎？",
                                 "\n\nContinue to check?",
                                 "\n\nContinuer à vérifier?",
@@ -929,7 +924,7 @@ MIT许可证（MIT）
                 fig.attr("src", fig.attr("src")); // 强制重新加载一次以触发error事件
             }
             // SVG插图的处理
-            else if (fig.prop("tagName").toLowerCase() == "svg") {
+            else if (fig.attr("fig-type").toLowerCase() == "svg") {
                 // 获取插图标题
                 var caption = fig.parent().prevUntil("h6").prev();
                 if (caption != null && caption.prop("tagName").toLowerCase() == "h6")
@@ -945,10 +940,11 @@ MIT许可证（MIT）
                     "карта-",
                     "図-",
                     "그림-"][_lang] + (_figureCount + 1) + " | " + figCaption;
-                fig.wrap("<div id='fig-num" + _figureCount + "' class='mdx-figure-alt'>" + ft + "</div>");
+                fig.wrap("<div id='fig-num" + _figureCount + "' class='mdx-figure-alt'></div>");
+                $("#fig-num" + _figureCount).append(ft);
 
                 // 修正在SVG插图套上figure-alt后的自适应尺寸
-                if (fig.prop("tagName").toLowerCase() == "svg")
+                if (fig.attr("fig-type").toLowerCase() == "svg")
                     fig.parent().css("width", "100%");
             }
 
@@ -961,9 +957,9 @@ MIT许可证（MIT）
     /**
      * 加载默认图片
      */
-    function loadDefaultImage(obj) {
-        obj.attr({
-            "src-org": obj.attr("src"),
+    function loadDefaultImage(fig) {
+        fig.attr({
+            "src-org": fig.attr("src"),
             "src": _defaultImage
         });
     }
@@ -1002,7 +998,7 @@ MIT许可证（MIT）
                 opacity: 1
             },
             _animateSpeed, function () {
-                showFigureContent(fig);
+                showFigureContent();
                 updateFigureViewerUI();
             });
     }
@@ -1042,12 +1038,16 @@ MIT许可证（MIT）
         if (browser.device.mobile)
             return;
 
+        var radius = fig.css("border-top-left-radius");
+        // var ft = fig.attr("fig-type");
+        // if (ft == "img" || ft == "svg")
+        //     radius = 0;
         var act = $(".mdx-figure-action");
         act.hide();
         act.css({
             "left": fig.offset().left,
-            "top": fig.offset().top
-            // "border-top-left-radius": radius
+            "top": fig.offset().top,
+            "border-top-left-radius": radius
         });
 
         act.fadeIn(_animateSpeed);
@@ -1072,7 +1072,7 @@ MIT许可证（MIT）
         var bgColor = $("body").css("background-color");
         var fgColor = $("body").css("color");
         // ondblclick, onmousemove, onkeydown中的代码须使用原生javascipt
-        var baseContent = "<body ondblclick='var obj=document.getElementsByClassName(\"mdx-spotlight\")[0];if(obj.style.display==\"block\"){obj.style.display=\"none\"}else{obj.style.display=\"block\";var e=window.event;document.documentElement.style.setProperty(\"--x\",e.clientX);document.documentElement.style.setProperty(\"--y\",e.clientY);document.documentElement.style.setProperty(\"--r\",180);}'"
+        var baseContent = "<body"
             + " onmousemove=\"if (document.getElementsByClassName('mdx-spotlight')[0].style.display=='block'){var e = window.event;document.documentElement.style.setProperty('--x', e.clientX);document.documentElement.style.setProperty('--y', e.clientY);}\""
             + " onkeydown='var code = event.keyCode||event.which||event.charCode;if (code == 27) document.getElementsByClassName(\"mdx-spotlight\")[0].style.display=\"none\"; if (code != 83) return; var obj=document.getElementsByClassName(\"mdx-spotlight\")[0];if(obj.style.display==\"block\"){obj.style.display=\"none\"}else{obj.style.display=\"block\";var e=window.event;document.documentElement.style.setProperty(\"--x\",e.clientX);document.documentElement.style.setProperty(\"--y\",e.clientY);document.documentElement.style.setProperty(\"--r\",180);}'"
             + " class='typora-export' style='min-height:100vh; color:" + fgColor + "; background-color:" + bgColor
@@ -1085,45 +1085,37 @@ MIT许可证（MIT）
         // 图片
         if (_lastHoverContent.attr("fig-type") == "img") {
             w.document.title = ["图", "圖", "Figure", "Figure", "карта", "図", "그림"][_lang];
-            // 新标签打开的内容忽略最大尺寸限制
-            var oxw = _lastHoverContent.css("max-width");
-            var oxh = _lastHoverContent.css("max-height");
-            _lastHoverContent.css("max-width", "");
-            _lastHoverContent.css("max-height", "");
+
+            var newObj = _lastHoverContent.clone();
+            newObj.css({
+                "border-radius": "15px"
+            });
 
             w.document.body.outerHTML = baseContent
-                + _lastHoverContent.prop("outerHTML");
+                + newObj.prop("outerHTML");
             +"</div></body>";
-
-            // 恢复原始内容的最大尺寸限制
-            _lastHoverContent.css("max-width", oxw);
-            _lastHoverContent.css("max-height", oxh);
         }
         // mermaid / flow.js等SVG图
         else if (_lastHoverContent.attr("fig-type") == "svg") {
             w.document.title = ["图", "圖", "Figure", "Figure", "карта", "図", "그림"][_lang];
             w.document.title = _lastHoverContent.parent().text();
 
-            // 新标签打开的内容忽略最大尺寸限制
-            var oxw = _lastHoverContent.css("max-width");
-            var oxh = _lastHoverContent.css("max-height");
-            _lastHoverContent.css("max-width", "");
-            _lastHoverContent.css("max-height", "");
+            var newObj = _lastHoverContent.clone();
+            newObj.css({
+                "border-radius": "15px"
+            });
 
             w.document.body.outerHTML = baseContent + "<div class='md-diagram-panel'>"
-                + _lastHoverContent.prop("outerHTML");
+                + newObj.prop("outerHTML");
             +"</div></div></body>";
-
-            // 恢复原始内容的最大尺寸限制
-            _lastHoverContent.css("max-width", oxw);
-            _lastHoverContent.css("max-height", oxh);
         }
         // 表格
         else if (_lastHoverContent.prop("tagName").toLowerCase() == "table") {
+            var newObj = _lastHoverContent.clone();
             w.document.title = ["表格", "表格", "Table", "Formulaire", "таблица", "フォーム", "양식"][_lang];
             w.document.body.outerHTML = baseContent + "<h1 style='display:none'>"
                 + ["表格", "table", "Table", "table", "table"][_lang] + "</h1><figure>"
-                + _lastHoverContent.prop("outerHTML") + "</figure></div></body>";
+                + newObj.prop("outerHTML") + "</figure></div></body>";
         }
 
     }
@@ -1160,7 +1152,8 @@ MIT许可证（MIT）
             "max-width": $(window).width() - 90,
             "max-height": $(window).height() - 90,
             "display": "inline-block",
-            "cursor": "pointer"
+            "cursor": "pointer",
+            "border-radius": "15px",
         });
         newObj.click(function () {
             gotoFigure();
@@ -1303,9 +1296,9 @@ MIT许可证（MIT）
             "ドキュメントカバーを表示する",
             "문서 표지보기"][_lang]);
 
-        $(".mdx-outline").attr("tips", ["<kbd>O</kbd> 隐藏/显示大纲面板)",
-            "<kbd>O</kbd> 隱藏/顯示大綱面板",
-            "<kbd>O</kbd> Hide/Show Outline Panel",
+        $(".mdx-outline").attr("tips", ["<kbd>O</kbd> 隐藏 / 显示大纲面板",
+            "<kbd>O</kbd> 隱藏 / 顯示大綱面板",
+            "<kbd>O</kbd> Hide / Show Outline Panel",
             "<kbd>O</kbd> Cacher / Afficher le panneau de contour",
             "<kbd>O</kbd> Скрыть / показать панель",
             "<kbd>O</kbd> アウトラインパネルの非表示/表示",
@@ -1335,16 +1328,16 @@ MIT许可证（MIT）
             "<kbd>F</kbd> フルスクリーンに切り替える",
             "<kbd>F</kbd> 전체 화면 전환"][_lang]);
 
-        $(".mdx-theme-exchange").attr("tips", ["<kbd>T</kbd> 切换 黑暗/明亮 模式",
-            "<kbd>T</kbd> 切換 黑暗/明亮 模式",
+        $(".mdx-theme-exchange").attr("tips", ["<kbd>T</kbd> 切换 [ 黑暗 / 明亮 ] 模式",
+            "<kbd>T</kbd> 切換 [ 黑暗 / 明亮 ] 模式",
             "<kbd>T</kbd> Switch Dark/Light Mode",
             "<kbd>T</kbd> Basculer en mode sombre / clair",
             "<kbd>T</kbd> Переключить темный / светлый режим",
             "<kbd>T</kbd> ダーク/ライトモードの切り替え",
             "<kbd>T</kbd> 다크 / 라이트 모드 전환"][_lang]);
 
-        $(".mdx-font-exchange").attr("tips", ["<kbd>A</kbd> 切换字体风格",
-            "<kbd>A</kbd> 切換字體風格",
+        $(".mdx-font-exchange").attr("tips", ["<kbd>A</kbd> 切换 字体风格",
+            "<kbd>A</kbd> 切換 字體風格",
             "<kbd>A</kbd> Switch Font Style",
             "<kbd>A</kbd> Changer de style de police",
             "<kbd>A</kbd> Переключить стиль шрифта",
@@ -1359,13 +1352,13 @@ MIT许可证（MIT）
             "<kbd>I</kbd> ドキュメントの図を表示",
             "<kbd>I</kbd> 문서 그림보기"][_lang]);
 
-        $(".mdx-spotlight-switch").attr("tips", ["<kbd>S</kbd> 或 <kbd>双击文档</kbd> 打开/关闭聚光灯",
-            "<kbd>S</kbd> 或 <strong>雙擊文檔</strong>　打開/關閉聚光燈",
-            "<kbd>S</kbd> or <strong>Double-Click the document</strong> Turn the spotlight ON/OFF",
-            "<kbd>S</kbd> ou <strong>Double-Cliquer sur le document</strong> Allumer/éteindre le projecteur",
-            "<kbd>S</kbd> или <strong>дважды щелкните документ</strong> Включите/выключите прожектор",
-            "<kbd>S</kbd> または <strong>文書をダブルクリック</strong> スポットライトをオン/オフにする",
-            "<kbd>S</kbd> 또는 <strong>문서를 두 번 클릭하십시오</strong>　스포트라이트 켜기 / 끄기 (S, 또는 문서를 두 번 클릭)"][_lang]);
+        $(".mdx-spotlight-switch").attr("tips", ["<kbd>S</kbd> 打开 / 关闭聚光灯",
+            "<kbd>S</kbd> 打開 / 關閉聚光燈",
+            "<kbd>S</kbd> Turn the spotlight ON/OFF",
+            "<kbd>S</kbd> Allumer/éteindre le projecteur",
+            "<kbd>S</kbd> Включите/выключите прожектор",
+            "<kbd>S</kbd> スポットライトをオン/オフにする",
+            "<kbd>S</kbd>　스포트라이트 켜기 / 끄기 (S, 또는 문서를 두 번 클릭)"][_lang]);
 
         $(".mdx-print").attr("tips", ["<kbd>P</kbd> 打印...",
             "<kbd>P</kbd> 打印...",
@@ -1897,7 +1890,7 @@ MIT许可证（MIT）
                 hideTips(obj, true);
             }, delay);
 
-        $("#write, .mdx-toolbar, .mdx-bread-nav").css({"filter": "blur(3px)"});
+        $("#write, .mdx-toolbar, .mdx-bread-nav, .mdx-figure-action, .mdx-table-cross").css({"filter": "blur(5px)"});
     }
 
     /**
@@ -2037,13 +2030,13 @@ MIT许可证（MIT）
      */
     function adjustToolbar() {
         var tb = $(".mdx-toolbar");
-        if (isFullscreen()) {
-            $(".mdx-nav-back").css("visibility", "visible");
-            $(".mdx-nav-forward").css("visibility", "visible");
-        } else {
-            $(".mdx-nav-back").css("visibility", "hidden");
-            $(".mdx-nav-forward").css("visibility", "hidden");
-        }
+        // if (isFullscreen()) {
+        //     $(".mdx-nav-back").css("visibility", "visible");
+        //     $(".mdx-nav-forward").css("visibility", "visible");
+        // } else {
+        //     $(".mdx-nav-back").css("visibility", "hidden");
+        //     $(".mdx-nav-forward").css("visibility", "hidden");
+        // }
 
         // 如果是小屏，或回到封面位置（面包屑已隐藏）
         if (isSmallScreen() || _lastCurrentHeaderIndex == 0) {
@@ -2324,7 +2317,7 @@ MIT许可证（MIT）
             // flag = false;
             for (var i = 0; i < codeTags.length; i++) {
                 if (codeText.length > 6 && codeText.startWith(codeTags[i] + " ") && codeText.endWith(" " + codeTags[i])) {
-                    rebuildCode2($(this), codeTags[i] + " ", "", i + 1);
+                    rebuildInlineCode($(this), codeTags[i] + " ", "", i + 1);
                     flag = true;
                     break;
                 }
@@ -2335,7 +2328,7 @@ MIT许可证（MIT）
             // flag = false;
             for (var i = 0; i < codeTags.length; i++) {
                 if (codeText.length > 4 && codeText.startWith(codeTags[i] + " ") && codeText.endWith(" " + codeTags[i])) {
-                    rebuildCode2($(this), codeTags[i] + " ", "", i + 1);
+                    rebuildInlineCode($(this), codeTags[i] + " ", "", i + 1);
                     flag = true;
                     break;
                 }
@@ -2369,19 +2362,9 @@ MIT许可证（MIT）
     }
 
     /**
-     * 以分类标签样式重新设置code的渲染样式（旧语法）
-     */
-    function rebuildCode(obj, split, flag, number) {
-        var codeText = obj.text();
-        var si = codeText.indexOf(split);
-        obj.text(codeText.substring(si + split.length, codeText.length));
-        obj.attr("class", "mdx-code-c" + number + flag);
-    }
-
-    /**
      * 以分类标签样式重新设置code的渲染样式（新语法）
      */
-    function rebuildCode2(obj, split, flag, number) {
+    function rebuildInlineCode(obj, split, flag, number) {
         var codeText = obj.text();
         var si = codeText.indexOf(split);
         obj.text(codeText.substring(si + split.length, codeText.length - split.length));
@@ -2503,95 +2486,95 @@ MIT许可证（MIT）
     /**
      * 初始化全屏
      */
-    function initFullscreen() {
-        document.addEventListener("fullscreenchange", function () {
-            updateFullscreenUI();
-        }, false);
-
-        document.addEventListener("mozfullscreenchange", function () {
-            updateFullscreenUI();
-        }, false);
-
-        document.addEventListener("webkitfullscreenchange", function () {
-            updateFullscreenUI();
-        }, false);
-
-        document.addEventListener("msfullscreenchange", function () {
-            updateFullscreenUI();
-        }, false);
-    }
+    // function initFullscreen() {
+    //     document.addEventListener("fullscreenchange", function () {
+    //         updateFullscreenUI();
+    //     }, false);
+    //
+    //     document.addEventListener("mozfullscreenchange", function () {
+    //         updateFullscreenUI();
+    //     }, false);
+    //
+    //     document.addEventListener("webkitfullscreenchange", function () {
+    //         updateFullscreenUI();
+    //     }, false);
+    //
+    //     document.addEventListener("msfullscreenchange", function () {
+    //         updateFullscreenUI();
+    //     }, false);
+    // }
 
     /**
      * 切换全屏显示
      */
-    function toggleFullscreen() {
-        if (isFullscreen())
-            exitFullscreen();
-        else
-            startFullscreen();
-    }
+    // function toggleFullscreen() {
+    //     if (isFullscreen())
+    //         exitFullscreen();
+    //     else
+    //         startFullscreen();
+    // }
 
     /**
      * 是否已全屏
      */
-    function isFullscreen() {
-        return document.fullscreenEnabled || window.fullScreen || document.webkitIsFullScreen || document.msFullscreenEnabled;
-    }
+    // function isFullscreen() {
+    //     return document.fullscreenEnabled || window.fullScreen || document.webkitIsFullScreen || document.msFullscreenEnabled;
+    // }
 
     /**
      * 更新全屏UI样式
      */
-    function updateFullscreenUI() {
-        if (isFullscreen()) {
-            $(".mdx-fullscreen").html("<svg width='20px' height='18px'><use xlink:href='#icoExitFullscreen' class='mdx-svg-ico-light'/></svg>");
-
-            //要执行的动作
-            $(".mdx-nav-back, .mdx-nav-forward").css("visibility", "visible");
-        } else {
-            $(".mdx-fullscreen").html("<svg width='20px' height='18px'><use xlink:href='#icoStartFullscreen' class='mdx-svg-ico-light'/></svg>");
-            $(".mdx-nav-back, .mdx-nav-forward").css("visibility", "hidden");
-        }
-
-        adjustBreadNav();
-        adjustToolbar();
-    }
+    // function updateFullscreenUI() {
+    //     if (isFullscreen()) {
+    //         $(".mdx-fullscreen").html("<svg width='20px' height='18px'><use xlink:href='#icoExitFullscreen' class='mdx-svg-ico-light'/></svg>");
+    //
+    //         //要执行的动作
+    //         $(".mdx-nav-back, .mdx-nav-forward").css("visibility", "visible");
+    //     } else {
+    //         $(".mdx-fullscreen").html("<svg width='20px' height='18px'><use xlink:href='#icoStartFullscreen' class='mdx-svg-ico-light'/></svg>");
+    //         $(".mdx-nav-back, .mdx-nav-forward").css("visibility", "hidden");
+    //     }
+    //
+    //     adjustBreadNav();
+    //     adjustToolbar();
+    // }
 
     /**
      * 进入全屏
      */
-    function startFullscreen() {
-        var docElm = document.documentElement;
-        //W3C
-        if (docElm.requestFullscreen) {
-            docElm.requestFullscreen();
-        }
-        //FireFox
-        else if (docElm.mozRequestFullScreen) {
-            docElm.mozRequestFullScreen();
-        }
-        //Chrome等
-        else if (docElm.webkitRequestFullScreen) {
-            docElm.webkitRequestFullScreen();
-        }
-        //IE11
-        else if (elem.msRequestFullscreen) {
-            elem.msRequestFullscreen();
-        }
-    }
+    // function startFullscreen() {
+    //     var docElm = document.documentElement;
+    //     //W3C
+    //     if (docElm.requestFullscreen) {
+    //         docElm.requestFullscreen();
+    //     }
+    //     //FireFox
+    //     else if (docElm.mozRequestFullScreen) {
+    //         docElm.mozRequestFullScreen();
+    //     }
+    //     //Chrome等
+    //     else if (docElm.webkitRequestFullScreen) {
+    //         docElm.webkitRequestFullScreen();
+    //     }
+    //     //IE11
+    //     else if (elem.msRequestFullscreen) {
+    //         elem.msRequestFullscreen();
+    //     }
+    // }
 
     /**
      * 退出全屏
      */
-    function exitFullscreen() {
-        if (document.exitFullscreen)
-            document.exitFullscreen();
-        else if (document.mozCancelFullScreen)
-            document.mozCancelFullScreen();
-        else if (document.webkitCancelFullScreen)
-            document.webkitCancelFullScreen();
-        else if (document.msExitFullscreen)
-            document.msExitFullscreen();
-    }
+    // function exitFullscreen() {
+    //     if (document.exitFullscreen)
+    //         document.exitFullscreen();
+    //     else if (document.mozCancelFullScreen)
+    //         document.mozCancelFullScreen();
+    //     else if (document.webkitCancelFullScreen)
+    //         document.webkitCancelFullScreen();
+    //     else if (document.msExitFullscreen)
+    //         document.msExitFullscreen();
+    // }
 
     /**
      * 打开/关闭聚光灯
@@ -2725,12 +2708,12 @@ MIT许可证（MIT）
         $("body").toggleClass("mdx-dark-body");
         $("strong").toggleClass("mdx-dark-strong");
         $("a").toggleClass("mdx-dark-a");
-        $(".mdx-figure-alt").toggleClass("mdx-dark-figure-alt");
         $(".MathJax_SVG").toggleClass("mdx-dark-mathjax_svg");
 
         // 脚注
-        $(".mdx-footer-note").toggleClass("mdx-dark-body");
         $(".md-footnote").toggleClass("mdx-dark-body");
+        $(".mdx-footer-note").toggleClass("mdx-dark-footer-note");
+        $(".mdx-footer-note").toggleClass("mdx-dark-shadow");
 
         // 封面&封底
         $("#write > h6:first-of-type, #write > h6:last-of-type").toggleClass("mdx-dark-cover");
@@ -2740,6 +2723,7 @@ MIT许可证（MIT）
 
         // 大纲
         $(".mdx-toc-box-body-scroll").toggleClass("mdx-dark-toc");
+        $(".mdx-toc-box-body-scroll").toggleClass("mdx-dark-shadow");
         if (_lastOutlineItem != null) {
             _lastOutlineItem.removeClass(_darkTheme ? "mdx-header-current" : "mdx-header-current-dark");
             _lastOutlineItem.addClass(_darkTheme ? "mdx-header-current-dark" : "mdx-header-current");
@@ -2747,7 +2731,9 @@ MIT许可证（MIT）
         $(".md-toc-item > a, .mdx-toc-box-title").toggleClass("mdx-dark-toc-item");
 
         // 插图
-        $("img, .md-diagram-panel svg").toggleClass("mdx-dark-figure");
+        $(".mdx-figure").toggleClass("mdx-dark-figure");
+        $(".mdx-figure-alt").toggleClass("mdx-dark-figure-alt");
+
 
         // 插图浏览器
         $(".mdx-figure-content").toggleClass("mdx-dark-body");
@@ -2919,9 +2905,9 @@ MIT许可证（MIT）
      */
     function initHotkeys() {
         // 窗口缩放事件
-        $(window).on("resize", function () {
-            updateFullscreenUI();
-        });
+        // $(window).on("resize", function () {
+        //     updateFullscreenUI();
+        // });
 
         // 键盘按下事件
         $(document).keydown(function (event) {
@@ -3162,9 +3148,9 @@ MIT许可证（MIT）
         }
 
         // 绑定文档双击事件，激活/关闭聚光灯
-        document.addEventListener("dblclick", function () {
-            toggleSpotlight();
-        });
+        // document.addEventListener("dblclick", function () {
+        //     toggleSpotlight();
+        // });
 
         // 绑定文档鼠标移动事件，聚光灯跟随鼠标移动
         document.addEventListener("mousemove", function () {
