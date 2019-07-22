@@ -526,20 +526,15 @@ $$
 ## 应用插件
 
 + 在Typora中将Markdown文件导出为`HTML`文件；
-
 + 打开文件`released\vlook-toolbox.txt`，全选所有内容，并复制；
-
 + 用纯文件编辑器（如：Windows下的记事本）打开该导出的HTML文件，并拖到文件最末尾；
-
 + 将复制的内容粘贴在`<body>`之后：
-
   ```
   <body ...>
   ← ← ← ← ← 复制的toolbox内容粘贴于此！
   ...
   </body>
   ```
-
 + 保存，大吉大利。
 
 > 强烈建议使用Chrome或Firefox浏览器查看
