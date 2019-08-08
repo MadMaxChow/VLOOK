@@ -169,7 +169,7 @@ MIT许可证（MIT）
         <div class="mdx-toc-box-body" id="toc-box-body"></div>
     </div>
     <div class="mdx-toc-info mdx-footer-shadow"><a href="https://github.com/MadMaxChow/VLOOK"
-                                                   target="_blank"><b>VLOOK™</b></a> (V9 RC) for <a
+                                                   target="_blank"><b>VLOOK™</b></a> (V9.1 beta1) for <a
             href="https://www.typora.io" target="_blank">Typora</a> | by <b>Max</b>
     </div>
 </div>
