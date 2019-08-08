@@ -1,6 +1,6 @@
 <!--========================================================================-->
 <!--                                                                        -->
-<!--                   Typora Plugin - VLOOK V9.1                           -->
+<!--                   Typora Plugin - VLOOK V9.1 beta1                     -->
 <!--                                                                        -->
 <!--                               2019-08-08                               -->
 <!--                             powered by Max                             -->
@@ -323,7 +323,7 @@ MIT许可证（MIT）
 <div class="mdx-table-cross mdx-table-cross-down">&nbsp;</div>
 
 <script type="text/javascript">
-    var _version = "V9.1"; // 版本信息
+    var _version = "V9.1 beta1"; // 版本信息
     var _animateSpeed = 200; // 动画速度，值越小越快
     var _clientX, _clientY; // 用于聚光灯功能，记录鼠标当前位置
     var _spotlightR = 180; // 聚光灯半径
