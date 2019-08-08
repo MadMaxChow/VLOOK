@@ -54,6 +54,9 @@ body.typora-export {
     padding-left: 0px;
     padding-right: 0px;
   }
+  .mdx-loading {
+    font-size: 1.3em !important;
+  }
 }
 body > *:first-child {
   margin-top: 0 !important;
@@ -67,8 +70,6 @@ img {
   background-position: left top;
   border-radius: 15px;
   padding: 0px;
-  border: 2px solid #DDE2F0;
-  transition: all 0.3s ease-in-out;
 }
 a {
   color: #404244;
@@ -92,77 +93,75 @@ h5,
 h6 {
   color: #118cdf;
   position: relative;
-  margin-bottom: 0em;
-  margin-left: 0px;
-  margin-right: -10px;
-  padding-left: 0px;
+  margin: 1em -10px 0.5em -10px;
+  padding: 10px;
   line-height: 1.5;
-  font-family: "Noto Serif CJK SC", "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Serif CJK SC", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
-  transition: all 0.3s ease-in-out;
+  border-radius: 15px 15px 0px 0px;
+  box-shadow: 0px 1px 0px 0px rgba(17, 140, 223, 0.2) inset;
+  background: linear-gradient(0deg, rgba(17, 140, 223, 0), rgba(17, 140, 223, 0.1));
+}
+h1 + ul,
+h1 + ol,
+h2 + ul,
+h2 + ol,
+h3 + ul,
+h3 + ol,
+h4 + ul,
+h4 + ol,
+h5 + ul,
+h5 + ol,
+h6 + ul,
+h6 + ol {
+  margin-top: 0;
 }
 h1 {
   margin-top: 3em;
-  margin-bottom: 0.5em;
-  padding-top: 20px;
+  margin-bottom: 1em;
   line-height: 50px;
   font-size: 2em;
-  border-top: 10px solid rgba(17, 140, 223, 0.5);
 }
 h2 {
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-  padding-top: 20px;
   font-size: 1.8em;
-  border-top: 6px solid rgba(17, 140, 223, 0.5);
 }
 h1 + h2 {
-  margin-top: 0em;
-  padding-top: 0em;
-  border-top: 0px;
+  box-shadow: none;
+  background: none;
+  margin-top: -0.5em;
 }
 h3 {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  padding-top: 20px;
   font-size: 1.6em;
-  border-top: 3px solid rgba(17, 140, 223, 0.5);
 }
 h2 + h3 {
-  margin-top: 0em;
-  padding-top: 0em;
-  border-top: 0px;
+  box-shadow: none;
+  background: none;
+  margin-top: -0.5em;
 }
 h4 {
-  margin-top: 1.5em;
-  margin-bottom: 0.2em;
-  padding-top: 20px;
   font-size: 1.4em;
-  border-top: 1px solid rgba(17, 140, 223, 0.5);
 }
 h3 + h4 {
-  margin-top: 0;
-  padding-top: 0em;
-  border-top: 0px;
+  box-shadow: none;
+  background: none;
+  margin-top: -0.5em;
 }
 h5 {
-  margin-top: 1.5em;
-  margin-bottom: 0.2em;
   font-size: 1.2em;
-}
-h4 + h5 {
-  margin-top: 0;
-  padding-top: 0.5em;
-  border-top: 0px;
+  box-shadow: none;
+  background: none;
 }
 h6 {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
+  margin-bottom: 0em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   line-height: 1;
-  border-left: 0.5em solid rgba(17, 140, 223, 0.5);
-  padding-left: 0.5em;
+  box-shadow: none;
+  background: none;
+}
+h6::before {
+  content: "◎ ";
+  color: rgba(17, 140, 223, 0.5);
 }
 li > h6 {
   color: #118cdf;
@@ -174,7 +173,7 @@ li > h6::before {
   color: rgba(17, 140, 223, 0.5);
 }
 strong {
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
 }
 p,
@@ -227,7 +226,6 @@ p,
 figure,
 .md-diagram-panel {
   text-align: left;
-  transition: all 0.3s ease-in-out;
 }
 ol > li {
   list-style-type: decimal;
@@ -308,41 +306,51 @@ table {
   width: auto;
   line-height: 1.5;
   word-break: break-all;
-  border: 2px solid #ffffff;
-  border-top: 2px solid #ffffff;
-  border-bottom: 2px solid #ffffff;
+  border: 2px solid rgba(64, 66, 68, 0.5);
+  border-radius: 15px;
+  background-color: rgba(200, 200, 200, 0);
 }
 table > thead > tr {
   margin: 0;
   padding: 0;
 }
-table > tbody > tr:last-child {
-  box-shadow: 0px 1px 0px #717579;
-}
-table > tbody > tr:nth-child(2n) {
-  background-color: rgba(242, 242, 242, 0.45);
-}
-table > thead > tr > th {
-  background-color: #f2f2f2;
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+table > thead > tr > th,
+table > thead > tr > td {
+  background-color: rgba(200, 200, 200, 0.4);
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
   color: #404244;
   border-right: 1px solid rgba(64, 66, 68, 0.1);
   margin: 0;
   padding: 0.5em 0.5em;
-  box-shadow: 0px -1px 0px #717579;
+  box-shadow: 0px 1px 0px rgba(64, 66, 68, 0.5);
+}
+table > tbody > tr:not(:first-child) > td {
+  box-shadow: 0px -1px 0px rgba(64, 66, 68, 0.2);
+}
+table > tbody > tr:nth-child(2n) {
+  background-color: rgba(200, 200, 200, 0.1);
+}
+table > thead > tr:first-child > th:first-child {
+  border-top-left-radius: 13px;
+}
+table > thead > tr:first-child > th:last-child {
+  border-top-right-radius: 13px;
+}
+table > tbody > tr:last-child > td:first-child {
+  border-bottom-left-radius: 13px;
+}
+table > tbody > tr:last-child > td:last-child {
+  border-bottom-right-radius: 13px;
 }
 .mdx-table-td-bold {
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
 }
 table tr > td {
   border-right: 1px solid rgba(64, 66, 68, 0.1);
-  text-align: left;
   margin: 0;
   padding: 0.5em 0.5em;
-  border-bottom: 1px solid rgba(64, 66, 68, 0.2);
-  transition: all 0.3s ease-in-out;
 }
 table tr > th:first-child,
 table tr > td:first-child {
@@ -356,32 +364,29 @@ table tr > td:last-child {
 table tr:last-child > td {
   border-bottom: 0px;
 }
-li table,
-h1 + figure table,
-h2 + figure table,
-h3 + figure table,
-h4 + figure table,
-h5 + figure table,
-h6 + figure table {
-  counter-reset: tableRowNumber -1;
+li > figure > table,
+h1 + figure > table,
+h2 + figure > table,
+h3 + figure > table,
+h4 + figure > table,
+h5 + figure > table,
+h6 + figure > table {
+  counter-reset: tableRowNumber - 1;
 }
-li table tr,
-h1 + figure table tr,
-h2 + figure table tr,
-h3 + figure table tr,
-h4 + figure table tr,
-h5 + figure table tr,
-h6 + figure table tr {
+li > figure > table tbody tr,
+h1 + figure > table tbody tr,
+h2 + figure > table tbody tr,
+h3 + figure > table tbody tr,
+h4 + figure > table tbody tr,
+h5 + figure > table tbody tr,
+h6 + figure > table tbody tr {
   counter-increment: tableRowNumber;
 }
-li > figure {
-  margin-top: 0em;
-}
-li > figure > table tr > th:first-child::before,
-li > figure > table tr > td:first-child::before {
+figure > table tr > th:first-child::before,
+figure > table tr > td:first-child::before {
   content: "#";
   color: rgba(17, 140, 223, 0.5);
-  font-family: Menlo, Consolas, "Courier New", "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace;
+  font-family: Menlo, Consolas, "Courier New", "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.85em;
   vertical-align: middle;
   text-align: right;
@@ -389,8 +394,40 @@ li > figure > table tr > td:first-child::before {
   position: absolute;
   left: -3em;
 }
-li > figure > table tr > td:first-child::before {
-  content: counter(tableRowNumber);
+li > figure > table tbody tr > td:first-child::before {
+  content: counter(tableRowNumber) " ";
+}
+li > h6 + figure {
+  margin-left: 0em;
+}
+li h6 + figure table tr > th:first-child::before,
+li h6 + figure table tr > td:first-child::before {
+  left: -3em;
+}
+h1 + figure > table tr > th:first-child::before,
+h1 + figure > table tr > td:first-child::before,
+h2 + figure > table tr > th:first-child::before,
+h2 + figure > table tr > td:first-child::before,
+h3 + figure > table tr > th:first-child::before,
+h3 + figure > table tr > td:first-child::before,
+h4 + figure > table tr > th:first-child::before,
+h4 + figure > table tr > td:first-child::before,
+h5 + figure > table tr > th:first-child::before,
+h5 + figure > table tr > td:first-child::before,
+h6 + figure > table tr > th:first-child::before,
+h6 + figure > table tr > td:first-child::before {
+  left: -0.5em;
+}
+h1 + figure > table tbody tr > td:first-child::before,
+h2 + figure > table tbody tr > td:first-child::before,
+h3 + figure > table tbody tr > td:first-child::before,
+h4 + figure > table tbody tr > td:first-child::before,
+h5 + figure > table tbody tr > td:first-child::before,
+h6 + figure > table tbody tr > td:first-child::before {
+  content: counter(tableRowNumber) " ";
+}
+li > figure {
+  margin-top: 0em;
 }
 h1 + figure,
 h2 + figure,
@@ -401,65 +438,55 @@ h6 + figure {
   margin-top: 0em;
   margin-left: 1em;
 }
-h1 + figure table tr > th:first-child::before,
-h1 + figure table tr > td:first-child::before,
-h2 + figure table tr > th:first-child::before,
-h2 + figure table tr > td:first-child::before,
-h3 + figure table tr > th:first-child::before,
-h3 + figure table tr > td:first-child::before,
-h4 + figure table tr > th:first-child::before,
-h4 + figure table tr > td:first-child::before,
-h5 + figure table tr > th:first-child::before,
-h5 + figure table tr > td:first-child::before,
-h6 + figure table tr > th:first-child::before,
-h6 + figure table tr > td:first-child::before {
-  content: "# ";
-  color: rgba(17, 140, 223, 0.5);
-  font-family: Menlo, Consolas, "Courier New", "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace;
-  font-size: 0.85em;
-  vertical-align: middle;
-  text-align: right;
-  width: 2.5em;
-  position: absolute;
-  left: -0.5em;
-}
-h1 + figure table tr > td:first-child::before,
-h2 + figure table tr > td:first-child::before,
-h3 + figure table tr > td:first-child::before,
-h4 + figure table tr > td:first-child::before,
-h5 + figure table tr > td:first-child::before,
-h6 + figure table tr > td:first-child::before {
-  content: counter(tableRowNumber) " ";
-}
 .mdx-table-cross {
-  background-color: rgba(255, 240, 0, 0.2);
   width: 100px;
   height: 100px;
   position: absolute;
   display: none;
   pointer-events: none;
 }
+.mdx-table-cross-left {
+  background: linear-gradient(90deg, rgba(220, 0, 16, 0.01), rgba(220, 0, 16, 0.3));
+}
+.mdx-table-cross-right {
+  background: linear-gradient(90deg, rgba(220, 0, 16, 0.3), rgba(220, 0, 16, 0.01));
+}
+.mdx-table-cross-up {
+  background: linear-gradient(0deg, rgba(220, 0, 16, 0.3), rgba(220, 0, 16, 0.01));
+}
+.mdx-table-cross-down {
+  background: linear-gradient(0deg, rgba(220, 0, 16, 0.01), rgba(220, 0, 16, 0.3));
+}
 mark {
   background-color: rgba(255, 240, 0, 0.6) !important;
   border-radius: 0.3em;
+  color: #000000;
 }
-del {
-  color: #a5a8ab;
+mark mark {
+  background: none !important;
+}
+mark strong {
+  color: #000000 !important;
+}
+del,
+del strong {
+  color: #a5a8ab !important;
+  text-decoration: line-through #404244 solid;
 }
 del code {
   color: #a5a8ab;
   background-color: #f2f2f2;
+  text-decoration: line-through #404244 solid;
 }
 .footnotes-area {
   margin-top: 100px;
 }
 .footnote-line {
-  color: #404244;
   font-size: 1em;
   margin-top: 0.5em;
 }
 .md-fn-count {
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 .md-fn-count:before {
   content: "[";
@@ -475,7 +502,7 @@ del code {
   transition: all 0.3s ease-in-out;
 }
 a[name^="ref-footnote-"] {
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   color: #045ad1;
 }
 a[name^="ref-footnote-"]:hover {
@@ -500,7 +527,7 @@ a[name^="ref-footnote-"]:after {
 tt,
 code {
   color: #404244;
-  font-family: Menlo, Consolas, "Courier New", "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace;
+  font-family: Menlo, Consolas, "Courier New", "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace;
   background-color: #cbe8fb;
   border-radius: 0.3em;
   padding: 0.2em 0.3em;
@@ -511,12 +538,11 @@ code {
 }
 .md-fences {
   color: #404244;
-  font-family: Menlo, Consolas, "Courier New", "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace;
+  font-family: Menlo, Consolas, "Courier New", "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace;
   background-color: #f2f2f2;
-  border-radius: 0.3em;
+  border-radius: 15px;
   border: 2px solid #f2f2f2;
   padding: 1px 4px 1px 4px;
-  margin: 0px 4px 0px 4px;
   font-size: 0.85em;
 }
 .task-list {
@@ -561,7 +587,7 @@ code {
   top: 0.285714286em;
 }
 .md-image > .md-meta {
-  border: 1px solid #717579;
+  border: 1px solid rgba(64, 66, 68, 0.5);
   background-color: rgba(64, 66, 68, 0.05);
   border-radius: 3px;
   padding: 2px 4px 0px 4px;
@@ -608,12 +634,12 @@ code {
   transition: all 0.3s ease-in-out;
 }
 #typora-quick-open {
-  border: 1px solid #717579;
+  border: 1px solid rgba(64, 66, 68, 0.5);
   background-color: rgba(64, 66, 68, 0.05);
 }
 #typora-quick-open-item {
   background-color: rgba(64, 66, 68, 0.05);
-  border-color: #717579;
+  border-color: rgba(64, 66, 68, 0.5);
   border-style: solid;
   border-width: 1px;
 }
@@ -666,7 +692,7 @@ code {
 .md-toc-h3,
 .md-toc-h4,
 .md-toc-h5 {
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-size: 1em;
   padding-right: 10px;
   text-overflow: ellipsis;
@@ -814,7 +840,7 @@ h5.md-focus:before {
 **************************************/
 .outline-item {
   line-height: 1;
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 /**************************************
 * 脚本化画表 CSS
@@ -825,21 +851,24 @@ rect[id^="st"].flowchart {
   stroke: #404244;
   stroke-width: 5;
 }
+rect[id^="st"].flowchart + text > tspan {
+  fill: #ffffff;
+}
 rect[id^="e"].flowchart {
   fill: none;
   stroke: #404244;
   stroke-width: 5;
 }
 rect[id^="op"].flowchart {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #d6e7fe;
+  stroke: #045ad1;
   stroke-width: 1;
 }
 rect[id^="sub"],
 rect[id^="sub"].flowchart {
-  fill: #fce4bf;
-  stroke: #e68d09;
-  stroke-width: 1;
+  fill: #d6e7fe;
+  stroke: #045ad1;
+  stroke-width: 2;
 }
 path[id^="c"].flowchart {
   fill: #fbd7d8;
@@ -870,12 +899,12 @@ rect[x="10"][y="10"][fill="var(--bg-color)"][stroke="currentColor"][stroke-width
   stroke-width: 2px;
 }
 rect[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][rx="0"][ry="0"] {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #d6e7fe;
+  stroke: #045ad1;
   stroke-width: 1px;
 }
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"] {
-  stroke: rgba(17, 140, 223, 0.5);
+  stroke: rgba(4, 90, 209, 0.5);
   stroke-width: 1px;
 }
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endblock"] {
@@ -918,21 +947,20 @@ rect + rect + text[text-anchor="middle"] > tspan {
 svg[id^="mermaidChart"] {
   color: #404244;
 }
-.node rect[rx="0"][rx="0"] {
-  fill: #cbe8fb;
-  stroke: #118cdf;
-  stroke-width: 3;
+.node rect[rx="0"][ry="0"] {
+  fill: #d6e7fe;
+  stroke: #045ad1;
+  stroke-width: 5;
 }
-.node rect[rx="5"][rx="5"] {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+.node rect[rx="5"][ry="5"] {
+  fill: #d6e7fe;
+  stroke: #045ad1;
   stroke-width: 1;
-  rx: 5;
 }
 .node circle {
-  fill: #e3f4dd;
+  fill: none;
   stroke: #4da032;
-  stroke-width: 1;
+  stroke-width: 2;
 }
 .node ellipse {
   fill: #a5a8ab;
@@ -945,9 +973,9 @@ svg[id^="mermaidChart"] {
   stroke-width: 1;
 }
 .node polygon {
-  fill: #fce4bf;
-  stroke: #e68d09;
-  stroke-width: 1;
+  fill: none;
+  stroke: #4da032;
+  stroke-width: 2;
 }
 .edgePath .path {
   stroke: #404244;
@@ -960,30 +988,51 @@ svg[id^="mermaidChart"] {
   color: #404244;
   background-color: #ffffff;
   font-family: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
+  font-size: 1em;
+  line-height: 2em;
 }
 .cluster rect {
   fill: rgba(64, 66, 68, 0.05) !important;
   stroke: rgba(64, 66, 68, 0.15) !important;
   stroke-width: 1 !important;
+  rx: 15 !important;
+  ry: 15 !important;
 }
 .cluster text {
   color: #404244;
   fill: #404244;
 }
-#START circle {
+#START rect {
   fill: #404244;
   stroke: #404244;
   stroke-width: 5;
+  rx: 15 !important;
+  ry: 15 !important;
 }
-#END circle {
+#START .label div {
+  color: #ffffff;
+}
+#END rect {
   fill: none;
   stroke: #404244;
   stroke-width: 5;
+  rx: 15;
+  ry: 15;
 }
 #INIT circle {
   fill: #404244;
   stroke: #404244;
   stroke-width: 5;
+}
+#INIT .label div {
+  color: #ffffff;
+}
+#INIT ~ g > rect {
+  fill: #f1d6f1;
+  stroke: #953296;
+  stroke-width: 3;
+  rx: 15 !important;
+  ry: 15 !important;
 }
 #FINAL circle {
   fill: none;
@@ -992,10 +1041,8 @@ svg[id^="mermaidChart"] {
 }
 /* ----- sequeuce diagram 时序图 ----- */
 .actor {
-  stroke: #118cdf;
-  fill: #cbe8fb;
-  rx: 5;
-  ry: 5;
+  stroke: #045ad1;
+  fill: #d6e7fe;
 }
 .actor-person {
   stroke: #c21117;
@@ -1006,7 +1053,7 @@ text.actor {
   stroke: none;
 }
 .actor-line {
-  stroke: #118cdf;
+  stroke: #045ad1;
 }
 .actor-line-person {
   stroke: #c21117;
@@ -1030,6 +1077,8 @@ text.actor {
   fill: #404244;
   stroke: none;
   font-family: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
+  font-size: 1em;
+  line-height: 2em;
 }
 .labelBox {
   stroke: none;
@@ -1056,15 +1105,17 @@ text.actor {
   stroke: rgba(194, 17, 23, 0.5);
 }
 .note {
-  stroke: #404244;
-  stroke-dasharray: 5;
-  fill: #a5a8ab;
+  stroke: #4da032;
+  stroke-dasharray: 2;
+  fill: #e3f4dd;
 }
 .noteText,
 .noteText tspan {
   fill: #404244;
   stroke: none;
   font-family: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
+  font-size: 1em;
+  line-height: 2em;
 }
 /* ----- gantt diagram 甘特图 ----- */
 .section {
@@ -1088,7 +1139,8 @@ text.actor {
 }
 .sectionTitle {
   text-anchor: start;
-  font-size: 12px;
+  font-size: 0.85em;
+  line-height: 2em;
 }
 .grid .tick {
   stroke: #a5a8ab;
@@ -1107,7 +1159,8 @@ text.actor {
 }
 .taskText {
   text-anchor: middle;
-  font-size: 12px;
+  font-size: 0.85em;
+  line-height: 2em;
 }
 .taskTextOutsideRight {
   fill: #404244;
@@ -1122,14 +1175,14 @@ text.actor {
 .active1,
 .active2,
 .active3 {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #d6e7fe;
+  stroke: #045ad1;
 }
 .activeText0,
 .activeText1,
 .activeText2,
 .activeText3 {
-  fill: #118cdf !important;
+  fill: #045ad1 !important;
 }
 /* 已完成的任务 */
 .done0,
@@ -1137,7 +1190,7 @@ text.actor {
 .done2,
 .done3 {
   stroke: none;
-  fill: #cbe8fb;
+  fill: #d6e7fe;
   stroke-width: 2;
   stroke-dasharray: 2;
 }
@@ -1147,7 +1200,7 @@ text.actor {
 .task2,
 .task3 {
   fill: #ffffff;
-  stroke: #118cdf;
+  stroke: #045ad1;
   stroke-dasharray: 2;
 }
 .taskText0,
@@ -1221,7 +1274,8 @@ text.actor {
 /* 标题 */
 .titleText {
   text-anchor: middle;
-  font-size: 18px;
+  font-size: 1.3em;
+  line-height: 2em;
   fill: #404244;
 }
 /* ----- class diagram 类图 ----- */
@@ -1230,8 +1284,8 @@ g.classGroup text {
   stroke: none;
 }
 g.classGroup rect {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #d6e7fe;
+  stroke: #045ad1;
 }
 g.classGroup line {
   stroke: #404244;
@@ -1240,65 +1294,65 @@ g.classGroup line {
 svg .classLabel .box {
   stroke: none;
   stroke-width: 0;
-  fill: #cbe8fb;
+  fill: #d6e7fe;
   opacity: 0.5;
 }
 svg .classLabel .label {
-  fill: #cbe8fb;
+  fill: #d6e7fe;
 }
 .relation {
-  stroke: #118cdf;
+  stroke: #045ad1;
   stroke-width: 1;
   fill: none;
 }
 .composition {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #d6e7fe;
+  stroke: #045ad1;
   stroke-width: 1;
 }
 #compositionStart {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #d6e7fe;
+  stroke: #045ad1;
   stroke-width: 1;
 }
 #compositionEnd {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #d6e7fe;
+  stroke: #045ad1;
   stroke-width: 1;
 }
 .aggregation {
-  fill: #cbe8fb;
+  fill: #d6e7fe;
   stroke: #404244;
   stroke-width: 1;
 }
 #aggregationStart {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #d6e7fe;
+  stroke: #045ad1;
   stroke-width: 1;
 }
 #aggregationEnd {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #d6e7fe;
+  stroke: #045ad1;
   stroke-width: 1;
 }
 #dependencyStart {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #d6e7fe;
+  stroke: #045ad1;
   stroke-width: 1;
 }
 #dependencyEnd {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #d6e7fe;
+  stroke: #045ad1;
   stroke-width: 1;
 }
 #extensionStart {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #d6e7fe;
+  stroke: #045ad1;
   stroke-width: 1;
 }
 #extensionEnd {
-  fill: #cbe8fb;
-  stroke: #118cdf;
+  fill: #d6e7fe;
+  stroke: #045ad1;
   stroke-width: 1;
 }
 div.mermaidTooltip {
@@ -1318,6 +1372,9 @@ div.mermaidTooltip {
 #write {
   padding-left: 20px;
   padding-right: 20px;
+}
+.CodeMirror.cm-s-inner {
+  border-radius: 15px;
 }
 /* 数学公式 */
 .MathJax_SVG {
@@ -1402,7 +1459,7 @@ sup.md-footnote a:hover {
   color: #118cdf;
 }
 kbd {
-  font-family: Menlo, Consolas, "Courier New", "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace;
+  font-family: Menlo, Consolas, "Courier New", "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.85em;
   font-weight: bold;
   border-radius: 0.3em;
@@ -1449,34 +1506,34 @@ li p {
 * VLOOK UI 自定义样式
 **************************************/
 .mdx-font-header-sans {
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 .mdx-font-title-sans {
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 .mdx-font-text-sans {
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 .mdx-font-bold-sans {
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 .mdx-font-code-sans {
-  font-family: Menlo, Consolas, "Courier New", "Alibaba PuHuiTi", "阿里巴巴普惠体", "Microsoft YaHei", "微软雅黑", monospace !important;
+  font-family: Menlo, Consolas, "Courier New", "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace !important;
 }
 .mdx-font-header-serif {
-  font-family: "Noto Serif CJK SC", "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+  font-family: "Noto Serif CJK SC", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 .mdx-font-title-serif {
-  font-family: "Noto Serif CJK SC", "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+  font-family: "Noto Serif CJK SC", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 .mdx-font-text-serif {
   font-family: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
 }
 .mdx-font-bold-serif {
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 .mdx-font-code-serif {
-  font-family: Menlo, Consolas, "Courier New", "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace !important;
+  font-family: Menlo, Consolas, "Courier New", "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace !important;
 }
 .mdx-spotlight {
   display: none;
@@ -1499,7 +1556,7 @@ li p {
   text-align: center;
   white-space: nowrap;
   border-radius: 15px;
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   color: #FFF;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 8000;
@@ -1518,8 +1575,9 @@ li p {
   width: 100%;
   height: 100%;
   text-align: center;
-  font-family: "Noto Serif CJK SC", "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Serif CJK SC", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-size: 1.5em;
+  overflow: auto;
   z-index: 9000;
 }
 @keyframes breathe {
@@ -1536,13 +1594,18 @@ li p {
   padding: 2em 2em 1em 2em;
   animation: 1.5s breathe infinite alternate;
 }
+.mdx-loading-tips > p {
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 1.2em;
+}
 .mdx-loading-done {
   cursor: not-allowed;
   padding-left: 1em;
   padding-right: 1em;
   color: #118cdf;
   background-color: #ffffff;
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: normal;
   display: inline-block;
   border-radius: 1em;
@@ -1553,29 +1616,33 @@ li p {
   color: #ffffff;
   background-color: #dc0010;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
-  transition: 0.3s;
-  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+  transform: translateY(-2px);
 }
 .mdx-loading-done:active {
-  transform: scale(1);
-}
-.mdx-focus-row-col {
-  background-color: rgba(17, 140, 223, 0.1);
-  transition: all 0.3s ease-in-out;
+  transform: none;
+  box-shadow: none;
 }
 .mdx-current-blockfocus-item {
-  box-shadow: 0px 0px 0px 10px #dc0010;
-  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px #dc0010;
+  border-radius: 15px;
 }
 .mdx-figure-alt {
   color: #404244;
   font-size: 0.85em;
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   text-align: center;
   display: inline-block;
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.mdx-figure-alt-hover {
+  background-color: #118cdf !important;
+}
+.md-diagram-panel svg {
+  width: 100%;
 }
 .mdx-figure-alt hr {
   border-bottom: 2px solid #a5a8ab;
@@ -1601,9 +1668,6 @@ li p {
   padding: 0px;
   position: fixed;
   z-index: 2000;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 .mdx-float-card {
@@ -1611,7 +1675,7 @@ li p {
 }
 .mdx-toc-box-header {
   color: #404244;
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-size: 1.2em;
   width: 100%;
   height: 50px;
@@ -1661,7 +1725,7 @@ li p {
   width: 350px;
   height: 50px;
   position: fixed;
-  opacity: 0.7;
+  opacity: 0.85;
   transition: opacity 1s ease-in-out;
   z-index: 100;
 }
@@ -1680,7 +1744,7 @@ li p {
   white-space: nowrap;
   overflow: hidden;
   font-size: 1em;
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
   color: #404244;
   cursor: pointer;
@@ -1708,7 +1772,7 @@ li p {
 .mdx-toc-info {
   color: #404244;
   font-size: 0.85em;
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   width: 100%;
   height: 40px;
   line-height: 40px;
@@ -1726,7 +1790,7 @@ li p {
   padding: 5px 10px;
   color: #404244;
   font-size: 0.85em;
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   position: absolute;
 }
 .mdx-toc-box-body {
@@ -1786,19 +1850,19 @@ li p {
 .mdx-btn-hover:hover {
   background-color: #dc0010;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
-  transition: 0.3s;
-  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+  transform: translateY(-2px);
 }
 .mdx-btn-leave {
   background-color: #118cdf;
-  transition: 0.3s;
-  transform: scale(1);
+  transition: all 0.3s ease-in-out;
+  transform: none;
 }
 .mdx-btn:active {
   background-color: #dc0010;
   box-shadow: none;
-  transition: 0.3s;
-  transform: scale(1);
+  transition: all 0.3s ease-in-out;
+  transform: none;
 }
 .mdx-btn2 {
   display: flex;
@@ -1816,18 +1880,18 @@ li p {
 }
 .mdx-btn2-hover:hover {
   background-color: #404244;
-  transition: 0.3s;
+  transition: all 0.3s ease-in-out;
   transform: scale(1.1);
 }
 .mdx-btn2-leave {
   background-color: #a5a8ab;
-  transition: 0.3s;
+  transition: all 0.3s ease-in-out;
   transform: scale(1);
 }
 .mdx-btn2:active {
   background-color: #dc0010;
   box-shadow: none;
-  transition: 0.3s;
+  transition: all 0.3s ease-in-out;
   transform: scale(1);
 }
 .mdx-nav-back {
@@ -1867,7 +1931,7 @@ li p {
   width: 100%;
   height: 50px;
   line-height: 50px;
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   color: #ffffff;
   text-align: left;
   text-overflow: ellipsis;
@@ -1900,7 +1964,7 @@ li p {
   width: 100%;
   height: 50px;
   line-height: 50px;
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   color: #ffffff;
   text-align: right;
   text-overflow: ellipsis;
@@ -1921,9 +1985,10 @@ li p {
   position: fixed;
   padding: 0px;
   vertical-align: middle;
-  opacity: 0.7;
+  opacity: 0.85;
   transition: opacity 1s ease-in-out;
   z-index: 100;
+  user-select: none;
 }
 .mdx-bread-nav:hover {
   opacity: 1;
@@ -1931,7 +1996,7 @@ li p {
 }
 .mdx-bread-nav-text {
   color: #ffffff;
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-size: 1.4em;
   font-weight: bold;
   text-align: center;
@@ -2028,10 +2093,11 @@ li p {
   background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTAwcHgiIGhlaWdodD0iMTAwcHgiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA1Mi41ICg2NzQ2OSkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+ZG90IGNvcHkgNDwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxnIGlkPSJkb3QtY29weS00IiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlIiBmaWxsPSIjRkZGRkZGIiB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUiIGZpbGw9IiNGMEYzRkEiIHg9IjAiIHk9IjEiIHdpZHRoPSIxIiBoZWlnaHQ9Ijk5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5IiBmaWxsPSIjRjBGM0ZBIiB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMiIgZmlsbD0iI0YwRjNGQSIgeD0iMSIgeT0iMTAiIHdpZHRoPSI5OSIgaGVpZ2h0PSIxIj48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTgiIGZpbGw9IiNGMEYzRkEiIHg9IjEwIiB5PSIxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTEyIiBmaWxsPSIjRjBGM0ZBIiB4PSIyMCIgeT0iMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0xMyIgZmlsbD0iI0YwRjNGQSIgeD0iMzAiIHk9IjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMTYiIGZpbGw9IiNGMEYzRkEiIHg9IjQwIiB5PSIxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTE1IiBmaWxsPSIjRjBGM0ZBIiB4PSI1MCIgeT0iMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0xNCIgZmlsbD0iI0YwRjNGQSIgeD0iNjAiIHk9IjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMjAiIGZpbGw9IiNGMEYzRkEiIHg9IjcwIiB5PSIxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTE5IiBmaWxsPSIjRjBGM0ZBIiB4PSI4MCIgeT0iMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0xOCIgZmlsbD0iI0YwRjNGQSIgeD0iOTAiIHk9IjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMjgiIGZpbGw9IiNGMEYzRkEiIHg9IjEwIiB5PSIxMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0yNyIgZmlsbD0iI0YwRjNGQSIgeD0iMjAiIHk9IjExIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTI2IiBmaWxsPSIjRjBGM0ZBIiB4PSIzMCIgeT0iMTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMjUiIGZpbGw9IiNGMEYzRkEiIHg9IjQwIiB5PSIxMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0yNCIgZmlsbD0iI0YwRjNGQSIgeD0iNTAiIHk9IjExIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTE3IiBmaWxsPSIjRjBGM0ZBIiB4PSI2MCIgeT0iMTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMjMiIGZpbGw9IiNGMEYzRkEiIHg9IjcwIiB5PSIxMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0yMiIgZmlsbD0iI0YwRjNGQSIgeD0iODAiIHk9IjExIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTIxIiBmaWxsPSIjRjBGM0ZBIiB4PSI5MCIgeT0iMTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMzciIGZpbGw9IiNGMEYzRkEiIHg9IjEwIiB5PSIyMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0zNiIgZmlsbD0iI0YwRjNGQSIgeD0iMjAiIHk9IjIxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTM1IiBmaWxsPSIjRjBGM0ZBIiB4PSIzMCIgeT0iMjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMzQiIGZpbGw9IiNGMEYzRkEiIHg9IjQwIiB5PSIyMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0zMyIgZmlsbD0iI0YwRjNGQSIgeD0iNTAiIHk9IjIxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTMyIiBmaWxsPSIjRjBGM0ZBIiB4PSI2MCIgeT0iMjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMzEiIGZpbGw9IiNGMEYzRkEiIHg9IjcwIiB5PSIyMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0zMCIgZmlsbD0iI0YwRjNGQSIgeD0iODAiIHk9IjIxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTI5IiBmaWxsPSIjRjBGM0ZBIiB4PSI5MCIgeT0iMjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNDYiIGZpbGw9IiNGMEYzRkEiIHg9IjEwIiB5PSIzMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS00NSIgZmlsbD0iI0YwRjNGQSIgeD0iMjAiIHk9IjMxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTQ0IiBmaWxsPSIjRjBGM0ZBIiB4PSIzMCIgeT0iMzEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNDMiIGZpbGw9IiNGMEYzRkEiIHg9IjQwIiB5PSIzMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS00MiIgZmlsbD0iI0YwRjNGQSIgeD0iNTAiIHk9IjMxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTQxIiBmaWxsPSIjRjBGM0ZBIiB4PSI2MCIgeT0iMzEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNDAiIGZpbGw9IiNGMEYzRkEiIHg9IjcwIiB5PSIzMSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0zOSIgZmlsbD0iI0YwRjNGQSIgeD0iODAiIHk9IjMxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTM4IiBmaWxsPSIjRjBGM0ZBIiB4PSI5MCIgeT0iMzEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNTUiIGZpbGw9IiNGMEYzRkEiIHg9IjEwIiB5PSI0MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS01NCIgZmlsbD0iI0YwRjNGQSIgeD0iMjAiIHk9IjQxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTUzIiBmaWxsPSIjRjBGM0ZBIiB4PSIzMCIgeT0iNDEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNTIiIGZpbGw9IiNGMEYzRkEiIHg9IjQwIiB5PSI0MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS01MSIgZmlsbD0iI0YwRjNGQSIgeD0iNTAiIHk9IjQxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTUwIiBmaWxsPSIjRjBGM0ZBIiB4PSI2MCIgeT0iNDEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNDkiIGZpbGw9IiNGMEYzRkEiIHg9IjcwIiB5PSI0MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS00OCIgZmlsbD0iI0YwRjNGQSIgeD0iODAiIHk9IjQxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTQ3IiBmaWxsPSIjRjBGM0ZBIiB4PSI5MCIgeT0iNDEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNjQiIGZpbGw9IiNGMEYzRkEiIHg9IjEwIiB5PSI1MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS02MyIgZmlsbD0iI0YwRjNGQSIgeD0iMjAiIHk9IjUxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTYyIiBmaWxsPSIjRjBGM0ZBIiB4PSIzMCIgeT0iNTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNjEiIGZpbGw9IiNGMEYzRkEiIHg9IjQwIiB5PSI1MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS02MCIgZmlsbD0iI0YwRjNGQSIgeD0iNTAiIHk9IjUxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTU5IiBmaWxsPSIjRjBGM0ZBIiB4PSI2MCIgeT0iNTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNTgiIGZpbGw9IiNGMEYzRkEiIHg9IjcwIiB5PSI1MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS01NyIgZmlsbD0iI0YwRjNGQSIgeD0iODAiIHk9IjUxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTU2IiBmaWxsPSIjRjBGM0ZBIiB4PSI5MCIgeT0iNTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNzMiIGZpbGw9IiNGMEYzRkEiIHg9IjEwIiB5PSI2MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS03MiIgZmlsbD0iI0YwRjNGQSIgeD0iMjAiIHk9IjYxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTcxIiBmaWxsPSIjRjBGM0ZBIiB4PSIzMCIgeT0iNjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNzAiIGZpbGw9IiNGMEYzRkEiIHg9IjQwIiB5PSI2MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS02OSIgZmlsbD0iI0YwRjNGQSIgeD0iNTAiIHk9IjYxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTY4IiBmaWxsPSIjRjBGM0ZBIiB4PSI2MCIgeT0iNjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNjciIGZpbGw9IiNGMEYzRkEiIHg9IjcwIiB5PSI2MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS02NiIgZmlsbD0iI0YwRjNGQSIgeD0iODAiIHk9IjYxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTY1IiBmaWxsPSIjRjBGM0ZBIiB4PSI5MCIgeT0iNjEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktODIiIGZpbGw9IiNGMEYzRkEiIHg9IjEwIiB5PSI3MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS04MSIgZmlsbD0iI0YwRjNGQSIgeD0iMjAiIHk9IjcxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTgwIiBmaWxsPSIjRjBGM0ZBIiB4PSIzMCIgeT0iNzEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNzkiIGZpbGw9IiNGMEYzRkEiIHg9IjQwIiB5PSI3MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS03OCIgZmlsbD0iI0YwRjNGQSIgeD0iNTAiIHk9IjcxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTc3IiBmaWxsPSIjRjBGM0ZBIiB4PSI2MCIgeT0iNzEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNzYiIGZpbGw9IiNGMEYzRkEiIHg9IjcwIiB5PSI3MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS03NSIgZmlsbD0iI0YwRjNGQSIgeD0iODAiIHk9IjcxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTc0IiBmaWxsPSIjRjBGM0ZBIiB4PSI5MCIgeT0iNzEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktOTEiIGZpbGw9IiNGMEYzRkEiIHg9IjEwIiB5PSI4MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS05MCIgZmlsbD0iI0YwRjNGQSIgeD0iMjAiIHk9IjgxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTg5IiBmaWxsPSIjRjBGM0ZBIiB4PSIzMCIgeT0iODEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktODgiIGZpbGw9IiNGMEYzRkEiIHg9IjQwIiB5PSI4MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS04NyIgZmlsbD0iI0YwRjNGQSIgeD0iNTAiIHk9IjgxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTg2IiBmaWxsPSIjRjBGM0ZBIiB4PSI2MCIgeT0iODEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktODUiIGZpbGw9IiNGMEYzRkEiIHg9IjcwIiB5PSI4MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS04NCIgZmlsbD0iI0YwRjNGQSIgeD0iODAiIHk9IjgxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTgzIiBmaWxsPSIjRjBGM0ZBIiB4PSI5MCIgeT0iODEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMTAwIiBmaWxsPSIjRjBGM0ZBIiB4PSIxMCIgeT0iOTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktOTkiIGZpbGw9IiNGMEYzRkEiIHg9IjIwIiB5PSI5MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS05OCIgZmlsbD0iI0YwRjNGQSIgeD0iMzAiIHk9IjkxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTk3IiBmaWxsPSIjRjBGM0ZBIiB4PSI0MCIgeT0iOTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktOTYiIGZpbGw9IiNGMEYzRkEiIHg9IjUwIiB5PSI5MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS05NSIgZmlsbD0iI0YwRjNGQSIgeD0iNjAiIHk9IjkxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTk0IiBmaWxsPSIjRjBGM0ZBIiB4PSI3MCIgeT0iOTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjkiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktOTMiIGZpbGw9IiNGMEYzRkEiIHg9IjgwIiB5PSI5MSIgd2lkdGg9IjEiIGhlaWdodD0iOSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS05MiIgZmlsbD0iI0YwRjNGQSIgeD0iOTAiIHk9IjkxIiB3aWR0aD0iMSIgaGVpZ2h0PSI5Ij48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTMiIGZpbGw9IiNGMEYzRkEiIHg9IjEiIHk9IjIwIiB3aWR0aD0iOTkiIGhlaWdodD0iMSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS00IiBmaWxsPSIjRjBGM0ZBIiB4PSIxIiB5PSIzMCIgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktNyIgZmlsbD0iI0YwRjNGQSIgeD0iMSIgeT0iNDAiIHdpZHRoPSI5OSIgaGVpZ2h0PSIxIj48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTYiIGZpbGw9IiNGMEYzRkEiIHg9IjEiIHk9IjUwIiB3aWR0aD0iOTkiIGhlaWdodD0iMSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS01IiBmaWxsPSIjRjBGM0ZBIiB4PSIxIiB5PSI2MCIgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiPjwvcmVjdD4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLUNvcHktMTEiIGZpbGw9IiNGMEYzRkEiIHg9IjEiIHk9IjcwIiB3aWR0aD0iOTkiIGhlaWdodD0iMSI+PC9yZWN0PgogICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtQ29weS0xMCIgZmlsbD0iI0YwRjNGQSIgeD0iMSIgeT0iODAiIHdpZHRoPSI5OSIgaGVpZ2h0PSIxIj48L3JlY3Q+CiAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZS1Db3B5LTkiIGZpbGw9IiNGMEYzRkEiIHg9IjEiIHk9IjkwIiB3aWR0aD0iOTkiIGhlaWdodD0iMSI+PC9yZWN0PgogICAgPC9nPgo8L3N2Zz4=");
   background-repeat: repeat;
   background-position: left top;
-  border-radius: 15px;
+  border-radius: 15px 15px 0px 0px;
   padding: 0px;
-  border: 2px solid #f2f2f2;
+  border: 2px solid rgba(0, 0, 0, 0.4);
   display: block;
+  transition: all 0.3s ease-in-out;
 }
 .mdx-figure-content {
   margin: 5px;
@@ -2088,7 +2154,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-c4-alt,
 .mdx-code-c5-alt,
 .mdx-code-c6-alt {
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
   color: #404244;
   padding: 0.2em 0.3em;
@@ -2133,13 +2199,11 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-c4,
 .mdx-code-c5,
 .mdx-code-c6 {
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
   color: #ffffff;
-  padding: 0.2em 0.3em;
+  padding: 0.2em 0.4em;
   border-radius: 0.5em;
-  border-bottom-left-radius: 0em;
-  border-top-right-radius: 0em;
 }
 .mdx-code-c1 {
   background: linear-gradient(0deg, #0465ea, #044fb8) !important;
@@ -2172,12 +2236,11 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-name5,
 .mdx-code-name6 {
   background-color: #f2f2f2 !important;
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: normal !important;
   margin-right: 0px;
-  border-radius: 0em;
-  border-bottom-left-radius: 0.5em;
-  padding: 0.2em 0.8em 0.2em 0.3em;
+  border-radius: 0.5em 0em 0em 0.5em;
+  padding: 0.2em 1em 0.2em 0.4em;
   color: #ffffff;
   font-size: 0.85em;
 }
@@ -2201,11 +2264,11 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-value4,
 .mdx-code-value5,
 .mdx-code-value6 {
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
   margin-left: -0.6em;
   border-radius: 0.5em;
-  padding: 0.2em 0.3em;
+  padding: 0.2em 0.4em;
   color: #ffffff;
   font-size: 0.85em;
 }
@@ -2291,32 +2354,45 @@ h6 code {
 .mdx-dark-mathjax_svg {
   border: 2px solid #0c5f98;
 }
-.mdx-dark-cover,
-.mdx-dark-bar,
 .mdx-dark-figure {
-  filter: brightness(0.85);
+  border: 2px solid rgba(0, 0, 0, 0.75);
 }
 .mdx-dark-header-current {
   background-color: #0c5f98;
 }
-.mdx-dark-table {
-  border-color: #202224;
+.mdx-dark-toc {
+  color: #a8aaac;
+  border-top-color: #c8c8c8;
+  border-bottom-color: #c8c8c8;
+  background-color: #000204;
+  box-shadow: 0px 3px 20px rgba(255, 255, 255, 0.3);
 }
-.mdx-dark-toc,
+.mdx-dark-footer-note {
+  color: #a8aaac;
+  background-color: #000204;
+}
+.mdx-dark-shadow {
+  box-shadow: 0px 3px 20px rgba(255, 255, 255, 0.3);
+}
+.mdx-dark-table {
+  border-color: rgba(168, 170, 172, 0.5);
+}
 .mdx-dark-table-tr-th {
   color: #a8aaac;
-  background-color: #080809;
-  border-top-color: #404244;
-  border-bottom-color: #404244;
+  background-color: rgba(0, 2, 4, 0.3);
+  box-shadow: 0px 1px 0px rgba(168, 170, 172, 0.5);
 }
-.mdx-dark-table-tr {
-  background-color: rgba(242, 242, 242, 0.08) !important;
+.mdx-dark-table-cell {
+  border-right: 1px solid rgba(168, 170, 172, 0.1);
 }
 .mdx-dark-kbd {
   color: #a8aaac;
-  background-color: rgba(242, 242, 242, 0.08);
+  background-color: #000204;
   border-color: #5b5e60;
   box-shadow: 0px 0.1em 0px #5b5e60;
+}
+.mdx-dark-fences {
+  filter: brightness(0.7);
 }
 .mdx-dark-std-code {
   color: #a8aaac;
@@ -2325,20 +2401,13 @@ h6 code {
 .mdx-dark-blockquote-std-code {
   background-color: rgba(77, 160, 50, 0.5);
 }
-.mdx-dark-fences {
-  color: #a8aaac;
-  background-color: #080809;
-  border-color: #080809;
-}
-.mdx-dark-CodeMirror-gutters {
-  border-color: #202224;
-}
 .mdx-dark-blockquote {
   border-left-color: rgba(77, 160, 50, 0.5);
   border-bottom: 1px solid rgba(77, 160, 50, 0.5);
 }
 .mdx-dark-del {
-  color: #5b5e60;
+  color: #74777a !important;
+  text-decoration: line-through #a8aaac solid;
 }
 .mdx-dark-toc-item {
   color: #a8aaac !important;
@@ -2348,10 +2417,11 @@ h6 code {
 **************************************/
 #write > h6:first-of-type,
 #write > h6:last-of-type {
+  display: block;
   color: #ffffff !important;
   background-color: #118cdf;
   font-size: 2.5em;
-  font-family: "Noto Serif CJK SC", "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Serif CJK SC", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
   text-align: left;
   height: 25cm;
@@ -2372,10 +2442,14 @@ h6 code {
   margin-bottom: 10px;
   padding-top: 50px;
 }
+#write > h6:first-of-type::before,
+#write > h6:last-of-type::before {
+  content: "";
+}
 #write > h6:first-of-type strong {
   color: rgba(255, 255, 255, 0.5);
   font-size: 0.7em;
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
   text-decoration: none;
 }
@@ -2387,7 +2461,7 @@ h6 code {
 #write > h6:first-of-type em {
   color: rgba(255, 255, 255, 0.5);
   font-size: 0.35em;
-  font-family: "Alibaba PuHuiTi", "阿里巴巴普惠体", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Alibaba PuHuiTi", "阿里巴巴普惠体", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-style: normal;
   vertical-align: sub;
 }
@@ -2403,6 +2477,12 @@ h6 code {
   #write {
     margin: 0 !important;
   }
+  #write .md-toc {
+    display: block !important;
+  }
+  .mdx-header-current {
+    background: none !important;
+  }
   table,
   pre {
     /* page-break-inside: avoid; */
@@ -2414,11 +2494,32 @@ h6 code {
     display: block !important;
     visibility: visible !important;
   }
-  .mdx-current-blockfocus-item {
-    box-shadow: none;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    box-shadow: none !important;
+    background: none !important;
   }
-  .mdx-focus-row-col {
-    background-color: inherit;
+  .mdx-table-cross {
+    box-shadow: none !important;
+    background: none !important;
+  }
+  table:hover {
+    border: 2px solid rgba(64, 66, 68, 0.5) !important;
+  }
+  blockquote {
+    display: block !important;
+  }
+  .mdx-loading,
+  .mdx-tool-tips,
+  .mdx-info-tips {
+    display: none !important;
+  }
+  .mdx-current-blockfocus-item {
+    box-shadow: none !important;
   }
   .mdx-toolbar,
   .mdx-bread-nav,

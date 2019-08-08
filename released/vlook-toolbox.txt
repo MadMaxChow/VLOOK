@@ -1,8 +1,8 @@
 <!--========================================================================-->
 <!--                                                                        -->
-<!--                    Typora Plugin - VLOOK V9                            -->
+<!--                   Typora Plugin - VLOOK V9.1                           -->
 <!--                                                                        -->
-<!--                               2019-07-11                               -->
+<!--                               2019-08-08                               -->
 <!--                             powered by Max                             -->
 <!--                                                                        -->
 <!--              QQ Group: 805502564    email: maxchow@qq.com              -->
@@ -42,12 +42,12 @@ MIT许可证（MIT）
 <!-- 加载进程 -->
 <div class="mdx-loading">
     <div class="mdx-loading-tips">
-        不要著急，最好的總會在最不經意的時候出現。<br>
-        Don't worry, the best will always appear in the most casual time.<br>
-        心配しないで、最高のものが常に最もカジュアルな時間に表示されます。<br>
-        Ne vous inquiétez pas, le meilleur apparaîtra toujours au moment le plus décontracté.<br>
-        걱정하지 마십시오. 최고는 항상 가장 우연한 시간에 나타납니다.<br>
-        Не волнуйтесь, лучшее всегда будет появляться в самое случайное время.<br>
+        <p>不要著急，最好的總會在最不經意的時候出現。</p>
+        <p>Don't worry, the best will always appear in the most casual time.</p>
+        <p>心配しないで、最高のものが常に最もカジュアルな時間に表示されます。</p>
+        <p>Ne vous inquiétez pas, le meilleur apparaîtra toujours au moment le plus décontracté.</p>
+        <p>걱정하지 마십시오. 최고는 항상 가장 우연한 시간에 나타납니다.</p>
+        <p>Не волнуйтесь, лучшее всегда будет появляться в самое случайное время.</p>
         :
     </div>
     <div class="mdx-loading-done">
@@ -323,7 +323,7 @@ MIT许可证（MIT）
 <div class="mdx-table-cross mdx-table-cross-down">&nbsp;</div>
 
 <script type="text/javascript">
-    var _version = "V9 RC"; // 版本信息
+    var _version = "V9.1"; // 版本信息
     var _animateSpeed = 200; // 动画速度，值越小越快
     var _clientX, _clientY; // 用于聚光灯功能，记录鼠标当前位置
     var _spotlightR = 180; // 聚光灯半径
@@ -395,10 +395,11 @@ MIT许可证（MIT）
             h.push($(n).text());
         });
         var dupHeaders = [];
+        var ignoreHeaders = "业务规则,通用的业务规则,用户界面与交互,通用的用户界面与交互,页面流程,业务主流程,流程图,状态图,数据接入";
         for (i in h) {
             for (k in h) {
                 if (i != k && h[i] == h[k]
-                    && "业务规则,通用的业务规则,用户界面与交互,通用的用户界面与交互,页面流程,业务主流程,流程图,状态图,数据接入".indexOf(h[k]) < 0)
+                    && ignoreHeaders.indexOf(h[k]) < 0)
                     dupHeaders.push(h[i]);
             }
         }
@@ -473,34 +474,33 @@ MIT许可证（MIT）
             hideOutlineOnError();
             return false;
         }
+
         // 有生成目录
         var toc = $(".mdx-toc-box-body");
-
-        // 不要用复制toc模式，会与outline的冲突
+        // 复制toc内容
         toc.append(t.clone()); // 复制toc模式
         t.hide();
-        // toc.append(t.wrapAll()); // 剪贴toc模式
 
-        // outline内容滚动时，根据内容是否滚动未结束，未结束时添加阴影效果
+        // 绑定大纲的滚动事件
         toc.scroll(function () {
+            // 根据outline滚动位置，显示顶部或底部的阴影效果
             updateScroolTopShadow(toc, $(".mdx-toc-box-header"), 0);
             updateScroolBottomShadow(toc, $(".mdx-toc-info"), 0);
         });
 
         var tocContent = $(".md-toc-content");
-        // 没有找到目录内容
+        // 没有目录内容
         if (isEmptyObject(tocContent)) {
             hideOutlineOnError();
             return false;
         }
-
+        // 有目录内容
         tocContent.children().each(function () {
             var item = $(this);
-            if (item.attr("class").indexOf("-h6") == -1) // 忽略 h6
+            // 只处理h1-h5，忽略h6
+            if (item.attr("class").indexOf("-h6") == -1)
             {
-                // 记录到标题数组中
-                // _headers.push("header-" + obj.attr("data-ref"));
-                // console.log(obj.children().attr("href"));
+                // 将目录记录到标题数组中
                 var href = item.children().attr("href");
                 _headers.push(href.indexOf("#") > -1 ? href.substr(1, href.length) : href);
                 item.css("cursor", "pointer"); // 添加鼠标形状
@@ -1035,7 +1035,7 @@ MIT许可证（MIT）
      * 显示插图动作按钮
      */
     function showFigureAction(fig) {
-        if (browser.device.mobile)
+        if (env.device.mobile)
             return;
 
         var radius = fig.css("border-top-left-radius");
@@ -1260,8 +1260,8 @@ MIT许可证（MIT）
      */
     function initUIi18n() {
         // 获得浏览器语言设置
-        var baseLang = browser.language.substring(0, 2);
-        var subLang = browser.language.substring(3, browser.language.length);
+        var baseLang = env.language.substring(0, 2);
+        var subLang = env.language.substring(3, env.language.length);
 
         switch (baseLang) {
             case "zh":
@@ -1438,7 +1438,7 @@ MIT许可证（MIT）
      */
     function adjustHoverStyle() {
         // 移动设备时解绑样式事件
-        if (browser.device.mobile) {
+        if (env.device.mobile) {
             $(".mdx-btn, .mdx-btn2, .mdx-nav-prev, .mdx-nav-next").unbind("mouseenter").unbind("mouseleave");
         }
         // 非移动设备时绑定样式事件
@@ -1474,28 +1474,49 @@ MIT许可证（MIT）
     }
 
     /**
-     * 浏览器信息类
+     * 环境信息类
      */
-    var browser = {
-        device: function () {
+    var env = {
+        core: function () {
             var u = navigator.userAgent, app = navigator.appVersion;
-            // 浏览器版本信息
+            // 浏览器内核信息
             return {
                 trident: u.indexOf("Trident") > -1, //IE内核
                 presto: u.indexOf("Presto") > -1, //opera内核
                 webKit: u.indexOf("AppleWebKit") > -1, //苹果、谷歌内核
-                gecko: u.indexOf("Gecko") > -1 && u.indexOf("KHTML") == -1, //火狐内核
-                chrome: u.indexOf("Chrome") > -1, // chrome浏览器
-                firefox: u.indexOf("Firefox") > -1, // chrome浏览器
-                safari: u.indexOf("Safari") > -1, // chrome浏览器
-                mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
-                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
-                android: u.indexOf("Android") > -1 || u.indexOf("Linux") > -1, //android终端或者uc浏览器
-                iPhone: u.indexOf("iPhone") > -1, //是否为iPhone或者QQHD浏览器
-                iPad: u.indexOf("iPad") > -1, //是否iPad
-                webApp: u.indexOf("Safari") == -1 //是否web应该程序，没有头部与底部
+                gecko: u.indexOf("Gecko") > -1 && u.indexOf("KHTML") == -1 //火狐内核
             };
         }(),
+        device: function () {
+            var u = navigator.userAgent, app = navigator.appVersion;
+            // 设备信息
+            return {
+                mobile: !!u.match(/AppleWebKit.*Mobile.*/), // 是否为移动终端
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), // ios终端
+                android: u.indexOf("Android") > -1 || u.indexOf("Linux") > -1, // android终端或者uc浏览器
+                iPhone: u.indexOf("iPhone") > -1, // 是否为iPhone或者QQHD浏览器
+                iPad: u.indexOf("iPad") > -1, // 是否iPad
+                webApp: u.indexOf("Safari") == -1 // 是否web应该程序，没有头部与底部
+            };
+        }(),
+        browser: function () {
+            var u = navigator.userAgent, app = navigator.appVersion;
+            // 浏览器版本信息
+            return {
+                chrome: u.indexOf("Chrome") > -1, // chrome浏览器
+                firefox: u.indexOf("Firefox") > -1, // chrome浏览器
+                safari: u.indexOf("Safari") > -1 // chrome浏览器
+            };
+        }(),
+        os: function () {
+            var u = navigator.userAgent, app = navigator.appVersion;
+            // 操作系统信息
+            return {
+                windows: /windows|win32|win64/i.test(u), // 是否为windows平台
+                macOS: /macintosh|mac os x/i.test(u) // 是否为macOS平台
+            };
+        }(),
+        // 语言信息
         language: (navigator.browserLanguage || navigator.language).toLowerCase()
     }
 
@@ -1503,12 +1524,12 @@ MIT许可证（MIT）
      * 显示浏览器相关信息
      */
     function displayBrowserInfo() {
-        console.log("语言版本: " + browser.language);
-        console.log("是否为移动终端: " + browser.device.mobile);
-        console.log("是否iOS终端: " + browser.device.ios);
-        console.log("是否为Android终端: " + browser.device.android);
-        console.log("是否为iPhone: " + browser.device.iPhone);
-        console.log("是否iPad: " + browser.device.iPad);
+        console.log("语言版本: " + env.language);
+        console.log("是否为移动终端: " + env.device.mobile);
+        console.log("是否iOS终端: " + env.device.ios);
+        console.log("是否为Android终端: " + env.device.android);
+        console.log("是否为iPhone: " + env.device.iPhone);
+        console.log("是否iPad: " + env.device.iPad);
         console.log(navigator.userAgent);
     }
 
@@ -1666,15 +1687,15 @@ MIT许可证（MIT）
      * 隐藏遮罩
      */
     function hideMask() {
-        var mask = $(".mdx-toc-mask");
-        mask.off("click");
-        mask.fadeOut(_animateSpeed);
-        $("#write, .mdx-toolbar, .mdx-bread-nav, .mdx-figure-action, .mdx-table-cross").css({"filter": "none"});
-
         $("body").css({
             "user-select": "text", // 恢复网页选择
             "overflow": "auto" // 恢复网页滚动
         });
+
+        var mask = $(".mdx-toc-mask");
+        mask.off("click");
+        mask.fadeOut(_animateSpeed);
+        $("#write, .mdx-toolbar, .mdx-bread-nav, .mdx-figure-action, .mdx-table-cross").css({"filter": "none"});
     }
 
     /**
@@ -1731,7 +1752,7 @@ MIT许可证（MIT）
 
         // 寻找当前屏幕显示的章节
         for (var i = 0; i < _headers.length; i++) {
-            var obj = browser.device.firefox == false
+            var obj = env.browser.firefox == false
                 ? $("a[name='" + _headers[i] + "']") // 非Firefox浏览器
                 : $("a[name='" + decodeURI(_headers[i]) + "']"); // Firefox浏览器
             var headerHeight = obj.parent().height();
@@ -1831,7 +1852,7 @@ MIT许可证（MIT）
      * 显示工具提示信息
      */
     function showToolTips(obj, msg, follow, align) {
-        if (browser.device.mobile)
+        if (env.device.mobile)
             return;
 
         obj.html(msg);
@@ -2077,7 +2098,7 @@ MIT许可证（MIT）
         }
 
         $(".mdx-fullscreen").css("visibility", "visible");
-        if (browser.device.mobile)
+        if (env.device.mobile)
             $(".mdx-fullscreen").css("visibility", "hidden");
     }
 
@@ -2455,6 +2476,22 @@ MIT许可证（MIT）
                 g.children("text.loopText").children("tspan").css("fill", textColor);
             }
         });
+
+        // 为兼容Firefox不支持在style中设置rx, ry，通过设置rect的rx, ry属性
+        // 针对mermaid的状态图节点、子图
+        $("#INIT ~ g > rect, .cluster rect").each(function () {
+            $(this).attr({
+                "rx": 15,
+                "ry": 15
+            });
+        });
+
+        // 临时修正 mermaid 8.0 在 windows + chrome 环境下的字体显示bug
+        if (env.browser.chrome && env.os.windows) {
+            $("svg[id^=mermaidChart]").each(function () {
+                $(this).css("line-height", "1em");
+            });
+        }
     }
 
     /**
@@ -2878,8 +2915,8 @@ MIT许可证（MIT）
      */
     function showMask(under, callback) {
         $("body").css({
-            "user-select": "none", // 网页选择
-            "overflow": "hidden" // 网页滚动
+            "user-select": "none", // 禁用网页选择
+            "overflow": "hidden" // 禁用网页滚动
         });
         $("#write, .mdx-toolbar, .mdx-bread-nav, .mdx-figure-action, .mdx-table-cross").css({"filter": "blur(5px)"});
 
@@ -3036,12 +3073,17 @@ MIT许可证（MIT）
     $(document).ready(function () {
         console.log("init VLOOK ...");
 
+        $("body").css({
+            "user-select": "none", // 禁用网页选择
+            "overflow": "hidden" // 禁用网页滚动
+        });
+
         // 初始化国际化UI
         initUIi18n();
 
-        if (browser.device.chrome == false
-            && browser.device.firefox == false
-            && browser.device.safari == false) {
+        if (env.browser.chrome == false
+            && env.browser.firefox == false
+            && env.browser.safari == false) {
             alert(["为获得最佳兼容性，建议使用 Google Chrome / Firefox / Safari 浏览器",
                 "為獲得最佳兼容性，建議使用 Google Chrome / Firefox / Safari / Safari 瀏覽器",
                 "For best compatibility, we recommend using Google Chrome / Firefox / Safari",
@@ -3051,8 +3093,6 @@ MIT许可证（MIT）
                 "최상의 호환성을 위해 Chrome / Firefox 사용을 권장합니다."][_lang]);
         }
 
-        $(".mdx-toc-box").css("user-select", "none");
-        $(".mdx-bread-nav").css("user-select", "none");
         // 检查页内链接坏链
         checkInnerBadLink();
         // 检查重复的Header
@@ -3192,6 +3232,10 @@ MIT许可证（MIT）
             "부드럽게 시작"][_lang]);
         $(".mdx-loading-done").css("cursor", "pointer");
         $(".mdx-loading-done").click(function () {
+            $("body").css({
+                "user-select": "text", // 恢复网页选择
+                "overflow": "auto" // 恢复网页滚动
+            });
             $(".mdx-loading").fadeOut(_animateSpeed);
         });
     });
