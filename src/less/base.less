@@ -41,9 +41,10 @@ body.typora-export {
     padding-left: 0px;
     padding-right: 0px;
   }
-  // .mdx-toc-info2 {
-  //   display: none;
-  // }
+
+  .mdx-loading {
+    font-size: 1.3em !important;
+  }
 }
 
 body > *:first-child {
@@ -1361,9 +1362,12 @@ h5.md-focus:before {
 
 // 开始节点
 rect[id^="st"].flowchart {
-  fill: none;
+  fill: @foreColorLight;
   stroke: @foreColorLight;
   stroke-width: 5;
+}
+rect[id^="st"].flowchart + text > tspan {
+  fill: @docBgColorLight;
 }
 
 // 结束节点
@@ -1375,17 +1379,17 @@ rect[id^="e"].flowchart {
 
 // 操作节点
 rect[id^="op"].flowchart {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: @masterColorAlt;
+  stroke: @masterColor;
   stroke-width: 1;
 }
 
 // 子流程节点
 rect[id^="sub"],
 rect[id^="sub"].flowchart {
-  fill: @fourthColorAlt;
-  stroke: @fourthColor;
-  stroke-width: 1;
+  fill: @masterColorAlt;
+  stroke: @masterColor;
+  stroke-width: 2;
 }
 
 // 条件节点
@@ -1432,15 +1436,15 @@ rect[x="10"][y="10"][fill="var(--bg-color)"][stroke="currentColor"][stroke-width
 
 // 矩形
 rect[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][rx="0"][ry="0"] {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: @masterColorAlt;
+  stroke: @masterColor;
   stroke-width: 1px;
 }
 
 // 生命线
 path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"] {
   // fill: none;
-  stroke: @themeBgColorFade;
+  stroke: @masterColorFade;
   stroke-width: 1px;
   // stroke-dasharray: 5;
 }
@@ -1507,32 +1511,30 @@ svg[id^="mermaidChart"] {
 }
 
 // 方角矩形
-.node rect[rx="0"][rx="0"] {
+.node rect[rx="0"][ry="0"] {
   // color: @foreColorLight;
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
-  stroke-width: 3;
+  fill: @masterColorAlt;
+  stroke: @masterColor;
+  stroke-width: 5;
 }
 
 // .node[id="INIT"] + .node > rect  {
 //   stroke-width: 1;
 // }
 // 圆角矩形
-.node rect[rx="5"][rx="5"] {
+.node rect[rx="5"][ry="5"] {
   // color: @foreColorLight;
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: @masterColorAlt;
+  stroke: @masterColor;
   stroke-width: 1;
-  rx: 5;
-  rx: 5;
 }
 
 // 圆形
 .node circle {
   // color: @thirdColor;
-  fill: @thirdColorAlt;
+  fill: none;
   stroke: @thirdColor;
-  stroke-width: 1;
+  stroke-width: 2;
 }
 
 // ？
@@ -1551,12 +1553,12 @@ svg[id^="mermaidChart"] {
   stroke-width: 1;
 }
 
-// 不对称形状
+// 不对称形状/旗形
 .node polygon {
-  // color: @foreColorLight;
-  fill: @fourthColorAlt;
-  stroke: @fourthColor;
-  stroke-width: 1;
+//   color: @fourthColor;
+  fill: none;
+  stroke: @thirdColor;
+  stroke-width: 2;
 }
 
 // 线条
@@ -1575,6 +1577,8 @@ svg[id^="mermaidChart"] {
   color: @boldColorLight;
   background-color: @docBgColorLight;
   font-family: @textFont;
+  font-size: 1em;
+  line-height: 2em;
 }
 
 // 子图
@@ -1582,6 +1586,8 @@ svg[id^="mermaidChart"] {
   fill: @foreColorLightFade3 !important;
   stroke: @foreColorLightFade1 !important;
   stroke-width: 1 !important;
+  rx: 15 !important;
+  ry: 15 !important;
 }
 
 // 子图文本
@@ -1590,27 +1596,45 @@ svg[id^="mermaidChart"] {
   fill: @foreColorLight;
 }
 
-// 自定义：流程图开始、结束节点样式
-#START circle {
+// 自定义：流程图「开始」样式
+#START rect {
   fill: @foreColorLight;
   stroke: @foreColorLight;
   stroke-width: 5;
+  rx: 15 !important;
+  ry: 15 !important;
 }
-
-#END circle {
+#START .label div {
+  color: @docBgColorLight;
+}
+// 自定义：流程图「结束」节点样式
+#END rect {
   fill: none;
   stroke: @foreColorLight;
   stroke-width: 5;
+  rx: 15;
+  ry: 15;
   // stroke-dasharray: 4;
 }
 
-// 自定义：状态图初始状态、最终状态节点样式
+// 自定义：状态图「初始」状态样式
 #INIT circle {
   fill: @foreColorLight;
   stroke: @foreColorLight;
   stroke-width: 5;
 }
-
+#INIT .label div {
+  color: @docBgColorLight;
+}
+// 与「初始」状态同级的所有矩形节点
+#INIT ~ g > rect {
+  fill: @fifthColorAlt;
+  stroke: @fifthColor;
+  stroke-width: 3;
+  rx: 15 !important;
+  ry: 15 !important;
+}
+// 自定义：状态图「最终」状态节点样式
 #FINAL circle {
   fill: none;
   stroke: @foreColorLight;
@@ -1621,10 +1645,8 @@ svg[id^="mermaidChart"] {
 
 // 角色
 .actor {
-  stroke: @themeBgColor;
-  fill: @themeBgColorAlt;
-  rx: 5;
-  ry: 5;
+  stroke: @masterColor;
+  fill: @masterColorAlt;
 }
 
 .actor-person {
@@ -1640,7 +1662,7 @@ text.actor {
 
 // 角色生命线
 .actor-line {
-  stroke: @themeBgColor;
+  stroke: @masterColor;
   // stroke-dasharray: 5;
 }
 
@@ -1679,6 +1701,8 @@ text.actor {
   fill: @foreColorLight;
   stroke: none;
   font-family: @textFont;
+  font-size: 1em;
+  line-height: 2em;
 }
 
 // 角标背景
@@ -1719,9 +1743,9 @@ text.actor {
 
 // 备注背景
 .note {
-  stroke: @foreColorLight;
-  stroke-dasharray: 5;
-  fill: @foreColorLightAlt;
+  stroke: @thirdColor;
+  stroke-dasharray: 2;
+  fill: @thirdColorAlt;
 }
 
 // 备注文本
@@ -1730,6 +1754,8 @@ text.actor {
   fill: @foreColorLight;
   stroke: none;
   font-family: @textFont;
+  font-size: 1em;
+  line-height: 2em;
 }
 
 /* ----- gantt diagram 甘特图 ----- */
@@ -1761,7 +1787,8 @@ text.actor {
 
 .sectionTitle {
   text-anchor: start;
-  font-size: 12px;
+  font-size: 0.85em;
+  line-height: 2em;
 }
 
 .grid .tick {
@@ -1786,7 +1813,8 @@ text.actor {
 
 .taskText {
   text-anchor: middle;
-  font-size: 12px;
+  font-size: 0.85em;
+  line-height: 2em;
 }
 
 .taskTextOutsideRight {
@@ -1805,15 +1833,15 @@ text.actor {
 .active1,
 .active2,
 .active3 {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: @masterColorAlt;
+  stroke: @masterColor;
 }
 
 .activeText0,
 .activeText1,
 .activeText2,
 .activeText3 {
-  fill: @themeBgColor !important;
+  fill: @masterColor !important;
 }
 
 /* 已完成的任务 */
@@ -1823,7 +1851,7 @@ text.actor {
 .done2,
 .done3 {
   stroke: none;
-  fill: @themeBgColorAlt;
+  fill: @masterColorAlt;
   stroke-width: 2;
   stroke-dasharray: 2;
 }
@@ -1835,7 +1863,7 @@ text.actor {
 .task2,
 .task3 {
   fill: @docBgColorLight;
-  stroke: @themeBgColor;
+  stroke: @masterColor;
   stroke-dasharray: 2;
 }
 
@@ -1923,7 +1951,8 @@ text.actor {
 /* 标题 */
 .titleText {
   text-anchor: middle;
-  font-size: 18px;
+  font-size: 1.3em;
+  line-height: 2em;
   fill: @foreColorLight;
 }
 
@@ -1935,8 +1964,8 @@ g.classGroup text {
 }
 
 g.classGroup rect {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: @masterColorAlt;
+  stroke: @masterColor;
 }
 
 g.classGroup line {
@@ -1947,77 +1976,77 @@ g.classGroup line {
 svg .classLabel .box {
   stroke: none;
   stroke-width: 0;
-  fill: @themeBgColorAlt;
+  fill: @masterColorAlt;
   opacity: 0.5;
 }
 
 svg .classLabel .label {
-  fill: @themeBgColorAlt;
+  fill: @masterColorAlt;
 }
 
 .relation {
-  stroke: @themeBgColor;
+  stroke: @masterColor;
   stroke-width: 1;
   fill: none;
 }
 
 .composition {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: @masterColorAlt;
+  stroke: @masterColor;
   stroke-width: 1;
 }
 
 #compositionStart {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: @masterColorAlt;
+  stroke: @masterColor;
   stroke-width: 1;
 }
 
 #compositionEnd {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: @masterColorAlt;
+  stroke: @masterColor;
   stroke-width: 1;
 }
 
 .aggregation {
-  fill: @themeBgColorAlt;
+  fill: @masterColorAlt;
   stroke: @foreColorLight;
   stroke-width: 1;
 }
 
 #aggregationStart {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: @masterColorAlt;
+  stroke: @masterColor;
   stroke-width: 1;
 }
 
 #aggregationEnd {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: @masterColorAlt;
+  stroke: @masterColor;
   stroke-width: 1;
 }
 
 #dependencyStart {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: @masterColorAlt;
+  stroke: @masterColor;
   stroke-width: 1;
 }
 
 #dependencyEnd {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: @masterColorAlt;
+  stroke: @masterColor;
   stroke-width: 1;
 }
 
 #extensionStart {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: @masterColorAlt;
+  stroke: @masterColor;
   stroke-width: 1;
 }
 
 #extensionEnd {
-  fill: @themeBgColorAlt;
-  stroke: @themeBgColor;
+  fill: @masterColorAlt;
+  stroke: @masterColor;
   stroke-width: 1;
 }
 
@@ -2289,6 +2318,7 @@ li p {
   text-align: center;
   font-family: @titleFont;
   font-size: 1.5em;
+  overflow: auto;
   z-index: 9000;
 }
 @keyframes breathe {
@@ -2298,6 +2328,11 @@ li p {
 .mdx-loading-tips {
   padding: 2em 2em 1em 2em;
   animation: 1.5s breathe infinite alternate;
+}
+.mdx-loading-tips > p {
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 1.2em;
 }
 .mdx-loading-done {
   cursor: not-allowed;
@@ -2646,9 +2681,6 @@ li p {
   padding: 0px;
   position: fixed;
   z-index: 2000;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
@@ -3076,6 +3108,7 @@ li p {
   opacity: 0.85;
   transition: opacity 1s ease-in-out;
   z-index: 100;
+  user-select: none;
   // box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.3);
   // display: none;
 }

@@ -201,20 +201,16 @@ VLOOK插件主要包括：
 
 ```mermaid
 graph LR
-START(( )) --> |默认实线|round_edges(圆角矩形节点)
-subgraph 子图A
-	round_edges --> text[方角矩形节点]
+START(开始) --> node1(普通节点)
+subgraph 子图
+	node1 --> |情况1|groud1[流程组节点]
+  node1 --> |情况2|A1((A))
 end
-
-text ==> |加粗实线|circle((圆形节点))
-circle --> asymetric>旗形节点]
-
-subgraph 子图B
-	asymetric -.-> |虚线|rhombus{条件判断节点}
-end
-
-rhombus --> END
-END(( ))
+groud1 ==> |重要分支|cond1{条件判断}
+cond1 --> |是|END
+cond1 -.-> |否|page2>分支流程2]
+A2((A)) --> END
+END(结束)
 ```
 
 ###### mermaid－状态图
@@ -222,14 +218,14 @@ END(( ))
 ```mermaid
 graph LR
 INIT(( ))
-INIT --> |初始<br>ACT/动作|状态A
-状态A --> |复杂变更|trans(( ))
-trans(( )) --> |变更条件说明|状态B
-状态B --> |变更条件说明<br>ACT/动作|状态C
-trans{ } -.-> |非正常/次要变更条件说明|状态C
-状态C --> FINAL
-trans{ } -.-> |非正常/次要变更条件说明|状态D
-状态D --> FINAL
+INIT --> |初始<br>ACT/动作|A[状态A]
+A --> |复杂变更|trans(( ))
+trans(( )) --> |变更条件说明|B[状态B]
+B --> |变更条件说明<br>ACT/动作|C[状态C]
+trans{ } -.-> |非正常/次要变更条件说明|C
+C --> FINAL
+trans{ } -.-> |非正常/次要变更条件说明|D[状态D]
+D --> FINAL
 FINAL(( ))
 ```
 ###### mermaid－时序图
@@ -527,8 +523,8 @@ $$
 
 + 在Typora中将Markdown文件导出为`HTML`文件；
 + 打开文件`released\vlook-toolbox.txt`，全选所有内容，并复制；
-+ 用纯文件编辑器（如：Windows下的记事本）打开该导出的HTML文件，并拖到文件最末尾；
-+ 将复制的内容粘贴在`<body>`之后：
++ 用纯文件编辑器（如：Windows下的记事本）打开该导出的HTML文件；
++ 搜索「**<body **」，并将复制的内容粘贴到body标签的「**>**」之后：
   ```
   <body ...>
   ← ← ← ← ← 复制的toolbox内容粘贴于此！

@@ -30,58 +30,68 @@ mermaid 是一个用于画流程图、状态图、时序图、甘特图的库，
 
 ```mermaid
 graph LR
-START(( )) --> |默认实线|round_edges(圆角矩形节点)
-subgraph 子图A
-	round_edges --> text[方角矩形节点]
+START(开始) --> node1(普通节点)
+subgraph 子图
+	node1 --> |情况1|groud1[流程组节点]
+  node1 --> |情况2|A1((A))
 end
+groud1 ==> |重要分支|cond1{条件判断}
+cond1 --> |是|END
+cond1 -.-> |否|page2>分支流程2]
+A2((A)) --> END
+END(结束)
+```
 
-text ==> |加粗实线|circle((圆形节点))
-circle --> asymetric>旗形节点]
+###### mermaid-流程图/分支流程2
 
-subgraph 子图B
-	asymetric -.-> |虚线|rhombus{条件判断节点}
-end
-
-rhombus --> END
-END(( ))
+```mermaid
+graph LR
+page2>分支流程B] --> node2(普通节点)
+node2 --> END
+END(结束)
 ```
 
 ###### 画图脚本
 
 ```java
+​```mermaid
 graph LR
-START(( )) --> |默认实线|round_edges(fa:fa-twitter 圆角矩形节点)
-subgraph 子图A
-	round_edges --> text[方角矩形节点]
+START(开始) --> node1(普通节点)
+subgraph 子图
+	node1 --> |情况1|groud1[流程组节点]
+  node1 --> |情况2|A1((A))
 end
+groud1 ==> |重要分支|cond1{条件判断}
+cond1 --> |是|END
+cond1 -.-> |否|page2>分支流程B]
+A2((A)) --> END
+END(结束)
+​```
 
-text ==> |加粗实线|circle((fa:fa-camera-retro<br>圆形节点))
-circle --> asymetric>旗形节点]
-
-subgraph 子图B
-	asymetric -.-> |虚线|rhombus{条件判断节点}
-end
-
-rhombus --> END
-END(( ))
+​```mermaid
+graph LR
+page2>分支流程B] --> node2(普通节点)
+node2 --> END
+END(结束)
+​```
 ```
 
 ###### 说明
 
-1. 特定节点命名：
+1. 特定节点命名规范：
 
    - `START`：开始结点
    - `END`：结束结点
 
 2. 支持节点形状/类型：
 
-   | 节点形状 |          应用建议          | 说明                                                         |
-   | -------- | :------------------------: | ------------------------------------------------------------ |
-   | 圆角矩形 |        普通流程节点        | 结合别名，并通过`()`指定，举例：`node1(圆角节点)`            |
-   | 菱形     |        条件判断节点        | 结合别名，并通过`{}`指定，举例：`node1{条件判断节点}`        |
-   | 方角矩形 | 普通流程节点/子流程/状态图 | 不使用别名时的默认样式，也可以通过`[]`来强制指定，举例：`node1[方角节点]` |
-   | 圆形     |        普通流程节点        | 结合别名，并通过`(())`指定，举例：`node1((圆形节点)`         |
-   | 旗形     |         输入/输出          | 结合别名，并通过`>]`指定，举例：`node1>条件判断节点]`        |
+   | **节点形状** | 应用建议                   | 说明                                                         |
+   | :----------: | :------------------------- | ------------------------------------------------------------ |
+   |   圆角矩形   | 普通流程节点               | 结合别名（如：node1、page2等，可自由定义），并通过`()`指定，举例：`node1(普通节点)` |
+   |     菱形     | 条件判断节点               | 结合别名，并通过`{}`指定，举例：`node1{条件判断}`            |
+   |   方角矩形   | 普通流程节点/子流程/状态图 | 不使用别名时的默认样式，也可以通过`[]`来强制指定，举例：`node1[流程组]` |
+   |     圆形     | 同页标志                   | 结合别名，并通过`(())`指定，举例：`node1((圆形节点)`         |
+   |     旗形     | 离页标志                   | 结合别名，并通过`>]`指定，举例：`node1>条件判断节点]`        |
 
 3. 支持指定流程图方向：`LR`（从左到右）、`RL`（从右到左）、`TB`（从上到下）、`BT`（从下到上）；
 
@@ -94,41 +104,43 @@ END(( ))
 ```mermaid
 graph LR
 INIT(( ))
-INIT --> |初始<br>ACT/动作|状态A
-状态A --> |复杂变更|trans(( ))
-trans(( )) --> |变更条件说明|状态B
-状态B --> |变更条件说明<br>ACT/动作|状态C
-trans{ } -.-> |非正常/次要变更条件说明|状态C
-状态C --> FINAL
-trans{ } -.-> |非正常/次要变更条件说明|状态D
-状态D --> FINAL
+INIT --> |初始<br>ACT/动作|A[状态A]
+A --> |复杂变更|trans(( ))
+trans(( )) --> |变更条件说明|B[状态B]
+B --> |变更条件说明<br>ACT/动作|C[状态C]
+trans{ } -.-> |非正常/次要变更条件说明|C
+C --> FINAL
+trans{ } -.-> |非正常/次要变更条件说明|D[状态D]
+D --> FINAL
 FINAL(( ))
 ```
 
 ###### 画图脚本
 
 ```java
+​```mermaid
 graph LR
 INIT(( ))
-INIT --> |初始<br>ACT/动作|状态A
-状态A --> |复杂变更|trans(( ))
-trans(( )) --> |变更条件说明|状态B
-状态B --> |变更条件说明<br>ACT/动作|状态C
-中转{ } -.-> |非正常/次要变更条件说明|状态C
-状态C --> FINAL
-中转{ } -.-> |非正常/次要变更条件说明|状态D
-状态D --> FINAL
+INIT --> |初始<br>ACT/动作|A[状态A]
+A --> |复杂变更|trans(( ))
+trans(( )) --> |变更条件说明|B[状态B]
+B --> |变更条件说明<br>ACT/动作|C[状态C]
+trans{ } -.-> |非正常/次要变更条件说明|C
+C --> FINAL
+trans{ } -.-> |非正常/次要变更条件说明|D[状态D]
+D --> FINAL
 FINAL(( ))
+​```
 ```
 
 ###### 说明
 
 1. 该样式的状态图是借用**流程图**脚本实现；
-2. 特定节点命名：
+2. 特定节点命名规范：
    - `INIT`：初始状态
    - `FINAL`：最终状态
 3. 建议使用`方角矩形`节点来表示状态；
-4. 不建议使用别名，除非状态名称的重复度较高，便于维护时才适当使用；
+4. 根据情况适当使用别名（如：A、B、C等，可自由定义）；
 5. 可适当结合`菱形`节点来对复杂状态关系进行更清晰的展示。
 
 ### 时序图/分角色流程图/泳图
@@ -164,6 +176,7 @@ end
 ###### 画图脚本
 
 ```java
+​```mermaid
 sequenceDiagram
 participant User as @人物角色
 participant Client as 普通系统角色
@@ -187,6 +200,7 @@ loop 循环组
 		Extend ->> Server: 发送消息X
 	end
 end
+​```
 ```
 
 ###### 说明
@@ -227,7 +241,29 @@ section 区块C
 未来的关键路径任务:crit, 5d
 ```
 
+###### 画图脚本
 
+```java
+​```mermaid
+gantt
+dateFormat  YYYY-MM-DD
+title 甘特图标题
+
+section 区块A
+已完成的任务:done, des1, 2014-01-06, 2014-01-08
+执行中的任务:active, des2, 2014-01-09, 3d
+未来的任务:des3, after des2, 5d
+未来的任务2:des4, after des3, 5d
+
+section 区块B
+已完成的关键路径任务:crit, done, 2014-01-06, 24h
+已完成的关键路径任务2:crit, done, after des1, 2d
+
+section 区块C
+执行中的关键路径任务:crit, active, 3d
+未来的关键路径任务:crit, 5d
+​```
+```
 
 # 备选方案
 
@@ -257,6 +293,7 @@ c2(no)->op2->e
 ###### 画图脚本
 
 ```java
+​```flow
 st=>start: S
 e=>end: E
 op1=>operation: 操作
@@ -271,6 +308,7 @@ cond(yes, right)->c2
 cond(no)->sub1(left)->op1
 c2(yes)->io->e
 c2(no)->op2->e
+​```
 ```
 
 ## JS Sequence Diagrams（时序图）
@@ -296,6 +334,7 @@ Note left of SERVER: 我在最后一位
 ###### 画图脚本
 
 ```java
+​```sequence
 Title: 在此填写流程图标题
 participant 客服端 as CLIENT
 participant 服务器 as SERVER
@@ -307,6 +346,7 @@ Note over CLIENT, SERVER: 跨对象说明
 CLIENT ->> SERVER: 请求消息：实线+虚箭头
 SERVER -->> CLIENT: 返回消息：虚线+虚箭头
 Note left of SERVER: 我在最后一位
+​```
 ```
 
 ###### 终了<br>

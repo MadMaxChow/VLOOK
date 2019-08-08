@@ -11,8 +11,14 @@
 ------------
 　+ 在 Typora 中将 Markdown 文件导出为「HTML」文件；
 　+ 打开文件「released\vlook-toolbox.txt」，全选所有内容，并复制；
-　+ 用纯文件编辑器（如：Windows下的记事本）打开该导出的 HTML 文件，并拖到文件最末尾；
-　+ 将复制的内容粘贴在「<body>」之后；
-　+ 保存，大吉大利。
+　+ 用纯文件编辑器（如：Windows下的记事本）打开该导出的 HTML 文件；
+　+ 搜索「<body 」，并将复制的内容粘贴到body标签的「>」之后，举例：
 
-** 强烈建议使用 Chrome 或 Firefox 浏览器查看　**
+　<body ...>
+　← ← ← ← ← 复制的toolbox内容粘贴于此！
+　...
+　</body>
+
+　+ 保存，大吉大利～
+
+** 强烈建议使用 Chrome 或 Firefox 浏览器查看HTML　**
