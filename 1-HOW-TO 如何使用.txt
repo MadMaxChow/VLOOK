@@ -34,6 +34,6 @@
 ============
 　详细手册
 ------------
-　+ 详见：doc/index.html
-　+ 详见：doc/chart.html
+　+ 详见：docs/index.html
+　+ 详见：docs/chart.html
 
