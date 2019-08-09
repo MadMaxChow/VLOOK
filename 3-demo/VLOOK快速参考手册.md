@@ -1,4 +1,4 @@
-###### <sup>VLOOK™</sup><br>快速参考手册 Quick Reference Manual<br>──<br><br>`+ Version丨9.0 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2016-2019. MAX°DESIGN.*
+###### <sup>VLOOK™</sup><br>快速参考手册 Quick Reference Manual<br>──<br><br>`+ Version丨9.1 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2016-2019. MAX°DESIGN.*
 [TOC]
 
 # VLOOK™是什么
