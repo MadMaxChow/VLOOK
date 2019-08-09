@@ -1,29 +1,29 @@
 ###### <sup>VLOOK™</sup><br>快速参考手册 Quick Reference Manual<br>──<br><br>`+ Version丨9.1 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2016-2019. MAX°DESIGN.*
 [TOC]
 
-# VLOOK™是什么
+# VLOOK™ 是什么
 
 `最新版本丨V9.1`    `+ 官网丨https://github.com/madmaxchow/VLOOK +`    `* 适用平台丨Typora for Win & macOS *`    `- 开源协议丨MIT -`   `! 开发语言丨JavaScript !`
 
-[VLOOK™](https://github.com/MadMaxChow/VLOOK)是针对由[Typora](https://www.typora.io)[^Typora]导出的HTML文件进行增强的插件。VLOOK™为开源软件，遵从[MIT许可证](#许可协议)。
+[VLOOK™](https://github.com/MadMaxChow/VLOOK) 是针对由[Typora](https://www.typora.io)[^Typora]导出的 HTML 文件进行增强的插件。VLOOK™ 为开源软件，遵从 [MIT 许可证](#许可协议)。
 
-VLOOK插件主要包括：
+VLOOK 插件主要包括：
 
-- **排版增强**：针对Typora编辑模式，以及导出的HTML文件增加更实用、美观的文档排版与样式（详见[这里](#排版增强)）；
-- **功能增强**：针对导出的HTML文件提供文档导航、评审演示、插图浏览、内容交互、信息缺失检测等功能（详见[这里](#功能增强)）。
+- **排版增强**：针对 Typora 编辑模式，以及导出的 HTML 文件增加更实用、美观的文档排版与样式（详见[这里](#排版增强)）；
+- **功能增强**：针对导出的 HTML 文件提供文档导航、评审演示、插图浏览、内容交互、信息缺失检测等功能（详见[这里](#功能增强)）。
 
 > [+] **Markdown 是什么？**
 >
-> > - 2004年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber)创造了[Markdown](https://en.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的`文本标记语言`。使用Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）。
-> > - Markdown文档以`纯文本格式存储`，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过Markdown编辑器导出为带排版的富文本文档、HTML网页等等。纯粹、简洁、易用、灵活，都是人们喜欢Markdown的原因。
-> > - 目前Markdown的标准化项目是[CommonMark](http://commonmark.org)。
+> > - 2004年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了 [Markdown](https://en.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的`文本标记语言`。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）。
+> > - Markdown文档以`纯文本格式存储`，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过 Markdown 编辑器导出为带排版的富文本文档、HTML 网页等等。纯粹、简洁、易用、灵活，都是人们喜欢 Markdown 的原因。
+> > - 目前 Markdown 的标准化项目是 [CommonMark](http://commonmark.org)。
 >
 > [+] **Markdown 语法：**
 >
-> > 1. 标准化**CommonMark**语法参考：[60秒学会Markdown语法](http://commonmark.org/help/)、[10分钟深入学习Markdown](http://commonmark.org/help/tutorial/)
-> > 2. GitHub采用**Flavored Markdown**的语法参考：Typora目前采用该标准  [详细](https://support.typora.io/Markdown-Reference/)
+> > 1. 标准化 **CommonMark** 语法参考：[60秒学会 Markdown 语法](http://commonmark.org/help/)、[10 分钟深入学习 Markdown](http://commonmark.org/help/tutorial/)
+> > 2. GitHub 采用 **Flavored Markdown** 的语法参考：Typora 目前采用该标准  [详细](https://support.typora.io/Markdown-Reference/)
 
-[^Typora]: Typora是非常棒的跨平台的Markdown编辑器，支持直接预览与编辑，更详细的特性详见[官网](https://www.typora.io)。
+[^Typora]: Typora 是非常棒的跨平台的 Markdown 编辑器，支持直接预览与编辑，更详细的特性详见[官网](https://www.typora.io)。
 
 # 特性介绍
 
@@ -33,10 +33,10 @@ VLOOK插件主要包括：
 
 ![VLOOK内置的视觉样式主题](https://ws2.sinaimg.cn/large/006tKfTcgy1g1pa7mbcgoj33ji0u0wut.jpg)
 
-- 针对VLOOK内置多套优化的样式主题[^样式主题]（在导出前通过Typro的<kbd>主题</kbd>菜单选择）；
-- 导出的HTML文档的样式支持一键切换为`深色`与`浅色`模式。
+- 针对 VLOOK 内置多套优化的样式主题[^样式主题]（在导出前通过Typora的<kbd>主题</kbd>菜单选择）；
+- 导出的 HTML 文档的样式支持一键切换为`深色`与`浅色`模式。
 
-[^样式主题]: 可以根据VLOOK源码目录下的LESS中文件为样例进行自定义扩展，访问VLOOK在github[主页](http://github.com/madmaxchow/vlook)。
+[^样式主题]: 可以根据 VLOOK 源码目录下的 LESS 中文件为样例进行自定义扩展，访问 VLOOK 在 github [主页](http://github.com/madmaxchow/vlook)。
 
 ### 封面、封底
 
@@ -44,12 +44,12 @@ VLOOK插件主要包括：
 + 封面样式支持多个信息项，包括：**标题**、**文档类型/密级**、**作者**、**版权信息**；
 + 封面必须以`6级标题`（<kbd>Ctrl</kbd>+<kbd>6</kbd>）作为整篇文章的`第1个`章节，同时各信息项的顺序与格式规则建议如下（可视实际需要自行调整）：
    - **标题**：无须指定格式标记，直接输入
-   - **文档类型/密级**：使用Markdown的代码格式标记`` ` ``，同时支持VLOOK的[双标风格](#双标风格)写法，应用举例如下：
+   - **文档类型/密级**：使用 Markdown 的代码格式标记`` ` ``，同时支持 VLOOK 的[双标风格](#双标风格)写法，应用举例如下：
      - `+ 文档密级丨对外公开 +`
      - `* 文档密级丨内部公开 *`
      - `- 文档密级丨机密资料 -`
    - **作者**：使用粗体格式标记`**作者**`（插件会自动增加`by`前缀）
-   - **版权信息**：使用Markdown的斜体格式标记`*版权信息*`
+   - **版权信息**：使用 Markdown 的斜体格式标记`*版权信息*`
 + 样式见本文的封面，完整示例参考如下（其中`<br>`为换行符号，可选）：
 
    ```
@@ -68,8 +68,8 @@ VLOOK插件主要包括：
 
 ### 标题自动编号
 
-+ 自动对**1级~5级**标题进行自动编号；
-+ **6级**标题在VLOOK中作特殊用途，不在自动编号范围内。
++ 自动对 **1 级 ~ 5 级**标题进行自动编号；
++ **6 级**标题在 VLOOK 中作特殊用途，不在自动编号范围内。
 
 ### 统一多级列表编号
 
@@ -84,7 +84,7 @@ VLOOK插件主要包括：
          - 五级列表内容
            - 六级列表内容
 
-+ 用Markdown编写参考如下（任意写法均可），每级缩进`2`个空格：
++ 用 Markdown 编写参考如下（任意写法均可），每级缩进`2`个空格：
 
     ```
     - 一级列表内容
@@ -105,7 +105,7 @@ VLOOK插件主要包括：
 - **列合并**：直接填写三个英文等号`==`进行标识；
 - **行合并**：直接填写三个英文句号`..`进行标识，并支持列头跨行合并。
 
-`- 注意 -`该特性须导出HTML并加入插件代码后才能生效。
+`- 注意 -`该特性须导出 HTML 并加入插件代码后才能生效。
 
 ###### 示例一：
 
@@ -164,9 +164,9 @@ VLOOK插件主要包括：
 #### 列格式增强
 
 - 对表格的任意列统一格式，支持的格式包括：`**加粗**`、`*斜体*`、`<u>下划线</u>`、`==高亮==`、`~~删除线~~`；
-- 参考以上形式，只须在表头按标准的Markdown语法设置对应的格式即可实现整列格式化（暂不支持多格式的嵌套）。
+- 参考以上形式，只须在表头按标准的 Markdown 语法设置对应的格式即可实现整列格式化（暂不支持多格式的嵌套）。
 
-`- 注意 -`该特性须导出HTML并加入插件代码后才能生效。
+`- 注意 -`该特性须导出 HTML 并加入插件代码后才能生效。
 
 ###### 示例效果：
 
@@ -177,25 +177,25 @@ VLOOK插件主要包括：
 
 #### 单元格十字聚焦
 
-- 对导出的HTML文件，鼠标悬停在单元格时自动高亮对应的表格整行、整列，便于在大表格时查看相关行列信息。
+- 对导出的 HTML 文件，鼠标悬停在单元格时自动高亮对应的表格整行、整列，便于在大表格时查看相关行列信息。
 
 #### 在新标签中打开表格
 
 - 支持在新标签打开表格（鼠标悬念在表格时，会在左上角显示打开按钮）。
 
-`- 注意 -`该特性须导出HTML并加入插件代码后才能生效。
+`- 注意 -`该特性须导出 HTML 并加入插件代码后才能生效。
 
 ### 自动添加图注
 
 - 自动为所有插图添加自动编号的图注：
   - 图片：以图片标题为图注，如：`![图片标题](图片URL)`
-  - 图表：则为最近的一个6级标题，如：`###### mermaid图表标题`
+  - 图表：则为最近的一个 6 级标题，如：`###### mermaid图表标题`
 - 效果文档中的插图底部的文字样式。
 
 ### 更美观的图表
 
-+ 统一优化**mermaid**脚本化图表的样式；
-+ 更多脚本化图表样式，以及结合VLOOK相关的脚本编写规范内容详见《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》。
++ 统一优化 **mermaid** 脚本化图表的样式；
++ 更多脚本化图表样式，以及结合 VLOOK 相关的脚本编写规范内容详见《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》。
 
 ###### mermaid－流程图
 
@@ -255,13 +255,13 @@ loop 循环组
 	end
 end
 ```
-`- 注意 -`因Typora的原因，部分特性暂不提供在编辑时进行实时预览，须导出HTML并加入插件代码后才能生效。
+`- 注意 -`因 Typora 的原因，部分特性暂不提供在编辑时进行实时预览，须导出 HTML 并加入插件代码后才能生效。
 
 ### 多彩标签
 
-对于Markdown的行内代码标记`` ` `` ，通过特定的**扩展标识**，来用不同的样式渲染指定的代码标签实现多彩标签效果。
+对于 Markdown 的行内代码标记`` ` `` ，通过特定的**扩展标识**，来用不同的样式渲染指定的代码标签实现多彩标签效果。
 
-`- 注意 -`因Typora的原因，暂不提供在编辑时进行实时预览，样式效果须导出HTML并加入插件代码后才能生效。
+`- 注意 -`因 Typora 的原因，暂不提供在编辑时进行实时预览，样式效果须导出 HTML 并加入插件代码后才能生效。
 
 #### 单标风格
 
@@ -366,7 +366,7 @@ $$
 + 支持页面左侧显示目录大纲，并能根据页面位置自动高亮当前章节；
 + 目录大纲默认显示前三级，可自行修改样式文件进行调整
 
-`- 注意 -`编写Markdown文档时，须在封面后添加标签`[TOC]`。
+`- 注意 -`编写 Markdown 文档时，须在封面后添加标签`[TOC]`。
 
 #### 逐章导航
 
@@ -374,7 +374,7 @@ $$
 + 根据页面位置自动识别当前章节，正如你现在看到的那样；
 + 显示<kbd>＜ 章节名称</kbd>、<kbd>章节名称 ＞</kbd>的标题，点击进行章节间跳转；
 
-`- 注意 -`编写Markdown文档时，须在封面后添加标签`[TOC]`。
+`- 注意 -`编写 Markdown 文档时，须在封面后添加标签`[TOC]`。
 
 ### 文档评审/演示辅助
 
@@ -386,7 +386,7 @@ $$
 #### 内容块聚焦
 
 - 在进行文档评审或演示时，可以通过激活内容块聚焦方式，对单个内容进行识别和聚焦；
-- 可通过鼠标点击文档任意内容激活，也支持快捷键操作（致敬VI/VIM）：
+- 可通过鼠标点击文档任意内容激活，也支持快捷键操作（致敬 VI / VIM）：
   |             **热键/快捷键**             | 功能                |
   | :---------------------------------: | ------------------ - |
   |          <kbd>J</kbd>          | 下一个内容块  |
@@ -405,9 +405,9 @@ $$
 + 对于缺失的图片以默认图片进行替换显示；
 + 点击插图能直接跳转到文档中对应的位置，支持通过热键/快捷键<kbd>esc</kbd>关闭插图浏览器；
 
-[^mermaid]: mermaid 是一个用于画流程图、状态图、时序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详[mermaid官网](https://mermaidjs.github.io)，或VLOOK项目的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
+[^mermaid]: mermaid 是一个用于画流程图、状态图、时序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [mermaid官网](https://mermaidjs.github.io)，或 VLOOK 的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
 [^flowchart.js]: fl
-[^JS Sequence Diagrams]: JS sequence diagrams是一个方便建立UML的时序图（序列图or循序图）在线工具，使用简单。详[JS Sequence Diagrams](https://bramp.github.io/js-sequence-diagrams/) 官网，或VLOOK项目的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
+[^JS Sequence Diagrams]: JS sequence diagrams 是一个方便建立UML的时序图（序列图or循序图）在线工具，使用简单。详见 [JS Sequence Diagrams](https://bramp.github.io/js-sequence-diagrams/) 官网，或 VLOOK 的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
 
 ###### 这是普通的图片示例
 
@@ -424,7 +424,7 @@ $$
 ### 支持折叠引用内容
 
 1. 对于「引用」，支持动态折叠操作；
-2. 在编辑时可指定默认的折叠状态（收起/展开）。
+2. 在编辑时可指定默认的折叠状态（收起 / 展开）。
 3. 举例如下：
 
 > [+] **这里是引用的折叠标题**
@@ -447,12 +447,12 @@ $$
 + 增强后的脚注功能可以直接在当前页面位置全屏显示；
 + 点击文末的**脚注编号**查看脚注信息[^脚注1]
 
-[^脚注1]: 这是增**强的脚注**的信息，该增强由VLOOK插件提供。[VLOOK是什么？](#VLOOK™是什么)
+[^脚注1]: 这是增**强的脚注**的信息，该增强由 VLOOK 插件提供。[VLOOK™ 是什么？](#VLOOK™ 是什么)
 
 ### 切换字体样式
 
 - 支持**衬线**与**无衬线**字体风格，可根据个人喜好进行切换；
-- VLOOK优先显示开源的**思源黑体**和**思源宋体**，建议下载安装获得更好的视觉体验；
+- VLOOK 优先显示开源的**思源黑体**和**思源宋体**，建议下载安装获得更好的视觉体验；
 - 下载地址：
   - 思源黑体 / Noto Sans（[常规体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Regular.otf)、[粗体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Bold.otf)）
   - 思源宋体 / Noto Serif（[常规体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Regular.otf)、[粗体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Bold.otf)）
@@ -481,12 +481,12 @@ $$
   |                   热键/快捷键                    | 功能                                            |
   | :----------------------------------------------: | ----------------------------------------------- |
   |                   <kbd>T</kbd>                   | 切换文档主题                                    |
-  |                   <kbd>O</kbd>                   | 显示/隐藏大纲面板                               |
+  |                   <kbd>O</kbd>                   | 显示 / 隐藏大纲面板                             |
   |                   <kbd>A</kbd>                   | 切换字体样式，详见[切换字体样式](#切换字体样式) |
-  |                   <kbd>I</kbd>                   | 显示/隐藏插图浏览器                             |
+  |                   <kbd>I</kbd>                   | 显示 / 隐藏插图浏览器                           |
   |                   <kbd>P</kbd>                   | 打印文档                                        |
-  |                   <kbd>S</kbd>                   | 打开/关闭聚光灯                                 |
-  |           <kbd>←</kbd> / <kbd>→</kbd>            | 上一章/下一章                                   |
+  |                   <kbd>S</kbd>                   | 打开 / 关闭聚光灯                               |
+  |           <kbd>←</kbd> / <kbd>→</kbd>            | 上一章 / 下一章                                 |
   | <kbd>J</kbd><kbd>K</kbd><kbd>H</kbd><kbd>L</kbd> | 内容块操作，详见[内容块聚焦](#内容块聚焦)       |
   |                  <kbd>ESC</kbd>                  | 关闭弹出的界面、聚光灯、内容块聚焦等            |
   
@@ -499,7 +499,7 @@ $$
 
 ## 打赏
 
-###### 若喜欢VLOOK™的话，可以请Max喝杯咖啡～
+###### 若喜欢 VLOOK™ 的话，可以请 Max 喝杯咖啡～
 
 ![捐赠二维码](https://ws1.sinaimg.cn/large/006tKfTcgy1fsmnridvyxj303y04mt94.jpg)
 
@@ -509,15 +509,15 @@ $$
 
 ## 应用主题
 
-+ 将`released\theme`下所有CSS文件复制至Typora的主题目录（Typora「偏好设置」中点击「外观 - 打开主题目录」定位到该目录）；
-+ 进入Typora的偏好设置，启用Markdown语法扩展下的所有选项（如：公式、上标、下标、高亮、图表等）；
-+ 重启Typora，点击菜单`主题`，选择以`vlook-*`形式命名的主题，即可启用对应的VLOOK样式主题。
++ 将`released\theme`下所有CSS文件复制至 Typora 的主题目录（ Typora「偏好设置」中点击「外观 - 打开主题目录」定位到该目录）；
++ 进入 Typora 的偏好设置，启用 Markdown 语法扩展下的所有选项（如：公式、上标、下标、高亮、图表等）；
++ 重启 Typora ，点击菜单`主题`，选择以`vlook-*`形式命名的主题，即可启用对应的 VLOOK 样式主题。
 
 ## 应用插件
 
-+ 在Typora中将Markdown文件导出为`HTML`文件；
++ 在 Typora 中将 Markdown 文件导出为`HTML`文件；
 + 打开文件`released\VLOOK-TOOLBOX 插件.txt`，全选所有内容，并复制；
-+ 用纯文件编辑器（如：Windows下的记事本）打开该导出的HTML文件；
++ 用纯文件编辑器（如：记事本、VS Code）打开该导出的 HTML 文件；
 + 搜索「**<body **」，并将复制的内容粘贴到body标签的「**>**」之后：
   ```
   <body ...>
@@ -527,7 +527,7 @@ $$
   ```
 + 保存，大吉大利。
 
-> 强烈建议使用Chrome或Firefox浏览器查看
+> 强烈建议使用 Chrome 或 Firefox 浏览器查看
 
 # 许可协议
 

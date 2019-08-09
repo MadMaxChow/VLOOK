@@ -3,18 +3,18 @@
 
 [TOC]
 
-# 关于Markdown
+# 关于 Markdown
 
-###### Markdown是什么？
+###### Markdown 是什么？
 
-十四年前，John Gruber创造了Markdown，一种专门针对网络写作的文本标记语言。使用Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）。
+十四年前，John Gruber 创造了 Markdown，一种专门针对网络写作的文本标记语言。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）。
 
-Markdown文档以纯文本格式存储，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过Markdown编辑器导出为带排版的富文本文档、HTML网页等等。纯粹、简洁、易用、灵活，都是人们喜欢Markdown的原因。目前Markdown的标准化项目是[CommonMark](http://commonmark.org)。
+Markdown 文档以纯文本格式存储，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过 Markdown 编辑器导出为带排版的富文本文档、HTML 网页等等。纯粹、简洁、易用、灵活，都是人们喜欢 Markdown 的原因。目前 Markdown 的标准化项目是 [CommonMark](http://commonmark.org)。
 
-###### Markdown语法参考：
+###### Markdown 语法参考：
 
-- 标准化CommonMark语法参考：[60秒学会Markdown语法](http://commonmark.org/help/)、[10分钟深入学习Markdown](http://commonmark.org/help/tutorial/)
-- GitHub采用Flavored Markdown的语法参考：Typora目前采用该标准  [详细](https://support.typora.io/Markdown-Reference/)
+- 标准化 CommonMark 语法参考：[60秒学会 Markdown 语法](http://commonmark.org/help/)、[10分钟深入学习 Markdown](http://commonmark.org/help/tutorial/)
+- GitHub 采用 Flavored Markdown 的语法参考：Typora 目前采用该标准  [详细](https://support.typora.io/Markdown-Reference/)
 
 # 主推方案
 
@@ -22,11 +22,11 @@ Markdown文档以纯文本格式存储，这意味着，它们可以用几乎任
 
 `= 推荐方案 =`
 
-mermaid 是一个用于画流程图、状态图、时序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见[mermaid 官网](https://mermaidjs.github.io)。
+mermaid 是一个用于画流程图、状态图、时序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [mermaid 官网](https://mermaidjs.github.io)。
 
 ### 流程图
 
-###### mermaid-流程图
+###### mermaid－流程图
 
 ```mermaid
 graph LR
@@ -42,7 +42,7 @@ A2((A)) --> END
 END(结束)
 ```
 
-###### mermaid-流程图/分支流程2
+###### mermaid－流程图 / 分支流程2
 
 ```mermaid
 graph LR
@@ -87,7 +87,7 @@ END(结束)
 
    | **节点形状** | 应用建议                   | 说明                                                         |
    | :----------: | :------------------------- | ------------------------------------------------------------ |
-   |   圆角矩形   | 普通流程节点               | 结合别名（如：node1、page2等，可自由定义），并通过`()`指定，举例：`node1(普通节点)` |
+   |   圆角矩形   | 普通流程节点               | 结合别名（如：node1、page2 等，可自由定义），并通过`()`指定，举例：`node1(普通节点)` |
    |     菱形     | 条件判断节点               | 结合别名，并通过`{}`指定，举例：`node1{条件判断}`            |
    |   方角矩形   | 普通流程节点/子流程/状态图 | 不使用别名时的默认样式，也可以通过`[]`来强制指定，举例：`node1[流程组]` |
    |     圆形     | 同页标志                   | 结合别名，并通过`(())`指定，举例：`node1((圆形节点)`         |
@@ -95,11 +95,11 @@ END(结束)
 
 3. 支持指定流程图方向：`LR`（从左到右）、`RL`（从右到左）、`TB`（从上到下）、`BT`（从下到上）；
 
-4. 支持FontAwesome [官网](http://fontawesome.com)。
+4. 支持 FontAwesome [官网](http://fontawesome.com)。
 
 ### 状态图
 
-###### mermaid-状态图
+###### mermaid－状态图
 
 ```mermaid
 graph LR
@@ -140,7 +140,7 @@ FINAL(( ))
    - `INIT`：初始状态
    - `FINAL`：最终状态
 3. 建议使用`方角矩形`节点来表示状态；
-4. 根据情况适当使用别名（如：A、B、C等，可自由定义）；
+4. 根据情况适当使用别名（如：A、B、C 等，可自由定义）；
 5. 可适当结合`菱形`节点来对复杂状态关系进行更清晰的展示。
 
 ### 时序图/分角色流程图/泳图
@@ -207,14 +207,14 @@ end
 
 1. 建议使用实体别名，以提高画图脚本的复用度和可维护性；
 2. 支持三类消息线条：同步请求消息、异步请求消息、返回消息；
-3. 角色支持三类扩展样式，在输出HTML后应用[VLOOK™](https://github.com/madmaxchow/VLOOK)插件后渲染为不同的样式：
+3. 角色支持三类扩展样式，在输出HTML后应用 [VLOOK™](https://github.com/madmaxchow/VLOOK) 插件后渲染为不同的样式：
    - **人物角色**：以at符号`@`开始的内容，如`@人物角色`
    - **重要系统角色**：含等号`=`包裹的内容，如`=后端支撑系统名称=`
    - **外部系统角色**：含用减号`-`包裹的内容，如`-外部系统名称-`
-4. 支持三类标签分组，在输出HTML后应用[VLOOK™](https://github.com/madmaxchow/VLOOK)插件渲染为不同的样式：
+4. 支持三类标签分组，在输出HTML后应用 [VLOOK™](https://github.com/madmaxchow/VLOOK) 插件渲染为不同的样式：
    - `loop`：循环
    - `opt`：可选
-   - `alt..else`：条件选择（alt=情景1，else=情景2）
+   - `alt..else`：条件选择（alt = 情景1，else = 情景2）
 5. 支持备注说明。
 
 ### 甘特图
@@ -269,7 +269,7 @@ section 区块C
 
 ## flowchart.js（流程图）
 
-flowchart.js基于SVG的流程图插件，它仅需几行代码即可在 Web 上完成流程图的构建。可以从文字表述中画出简单的 SVG 流程图，也可以画出彩色的图表。详见[flowchart.js 官网](http://flowchart.js.org)。
+flowchart.js 基于 SVG 的流程图插件，它仅需几行代码即可在 Web 上完成流程图的构建。可以从文字表述中画出简单的 SVG 流程图，也可以画出彩色的图表。详见 [flowchart.js 官网](http://flowchart.js.org)。
 
 ###### flowchart.js-流程图
 
@@ -313,7 +313,7 @@ c2(no)->op2->e
 
 ## JS Sequence Diagrams（时序图）
 
-JS sequence diagrams是一个方便建立UML的时序图（序列图or循序图）在线工具，使用简单。详见[JS Sequence Diagrams 官网](https://bramp.github.io/js-sequence-diagrams/)。
+JS sequence diagrams 是一个方便建立 UML 的时序图（序列图 or 循序图）在线工具，使用简单。详见 [JS Sequence Diagrams 官网](https://bramp.github.io/js-sequence-diagrams/)。
 
 ###### JS Sequence Diagrams-时序图
 
