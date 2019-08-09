@@ -47,6 +47,13 @@ VLOOK优先显示开源的思源黑体和思源宋体，建议下载安装获得
 
 ---
 
+# 打赏
+
+**若喜欢VLOOK™的话，可以请Max喝杯咖啡：**<br>
+![微信支付](https://ws1.sinaimg.cn/large/006tKfTcgy1fsmnridvyxj303y04mt94.jpg)
+
+---
+
 # 目录说明
 
 1. `docs`：VLOOK快速参考手册及相关文档
@@ -58,13 +65,6 @@ VLOOK优先显示开源的思源黑体和思源宋体，建议下载安装获得
     - `dev`：开发测试用示例文件
     - `less`：主题CSS文件的源文件
     - `misc`：杂项文件，包括图标源文件、产品原型、主题图形素材设计源文件等
-
----
-
-# 打赏
-
-**若喜欢VLOOK™的话，可以请Max喝杯咖啡：**<br>
-![微信支付](https://ws1.sinaimg.cn/large/006tKfTcgy1fsmnridvyxj303y04mt94.jpg)
 
 ---
 
