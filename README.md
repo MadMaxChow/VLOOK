@@ -1,3 +1,5 @@
+# 概况
+
 VLOOK™是针对由[Typora](https://www.typora.io)（目前最好的跨平台Markdown编辑器，没有之一）导出的HTML文件进行增强的插件。VLOOK™为开源软件，遵从MIT许可证。
 VLOOK插件主要包括：
 
@@ -10,6 +12,34 @@ VLOOK插件主要包括：
 
 ---
 
+# 应用主题
+
+- 将`released\theme`下所有CSS文件复制至Typora的主题目录（Typora「偏好设置」中点击「外观 - 打开主题目录」定位到该目录）；
+- 进入Typora的偏好设置，启用Markdown语法扩展下的所有选项（如：公式、上标、下标、高亮、图表等）；
+- 重启Typora，点击菜单`主题`，选择以`vlook-*`形式命名的主题，即可启用对应的VLOOK样式主题。
+
+---
+
+# 应用插件
+
+- 在Typora中将Markdown文件导出为`HTML`文件；
+- 打开文件`released\vlook-toolbox.txt`，全选所有内容，并复制；
+- 用纯文件编辑器（如：Windows下的记事本）打开该导出的HTML文件；
+- 搜索「**<body **」，并将复制的内容粘贴到body标签的「**>**」之后：
+  ```
+  <body ...>
+  ← ← ← ← ← 复制的toolbox内容粘贴于此！
+  ...
+  </body>
+  ```
++ 保存，大吉大利。
+
+> 强烈建议使用Chrome或Firefox浏览器查看
+
+---
+
+# 字体
+
 VLOOK优先显示开源的思源黑体和思源宋体，建议下载安装获得更好的视觉体验；
 
 - 思源黑体 / Noto Sans（[常规体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Regular.otf)、[粗体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Bold.otf)）
@@ -17,7 +47,8 @@ VLOOK优先显示开源的思源黑体和思源宋体，建议下载安装获得
 
 ---
 
-**目录说明：**
+# 目录说明
+
 - `demo`：基于VLOOK主题的示例文件
 - `docs`：VLOOK快速参考手册及相关文档
 - `released`：发布版的主目录
@@ -29,10 +60,14 @@ VLOOK优先显示开源的思源黑体和思源宋体，建议下载安装获得
 
 ---
 
+# 捐助
+
 **若喜欢VLOOK™的话，可以请Max喝杯咖啡：**<br>
 ![微信支付](https://ws1.sinaimg.cn/large/006tKfTcgy1fsmnridvyxj303y04mt94.jpg)
 
 ---
+
+# Overview
 
 VLOOK is a plugin for enhancements to HTML files exported by Typora. Includes two major features: Layout Enhancements and Feature Enhancements:
 
