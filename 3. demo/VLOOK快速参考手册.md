@@ -497,7 +497,7 @@ $$
 
 # 如何使用
 
-## 捐赠
+## 打赏
 
 ###### 若喜欢VLOOK™的话，可以请Max喝杯咖啡～
 
@@ -516,12 +516,12 @@ $$
 ## 应用插件
 
 + 在Typora中将Markdown文件导出为`HTML`文件；
-+ 打开文件`released\vlook-toolbox.txt`，全选所有内容，并复制；
++ 打开文件`released\VLOOK-TOOLBOX 插件.txt`，全选所有内容，并复制；
 + 用纯文件编辑器（如：Windows下的记事本）打开该导出的HTML文件；
 + 搜索「**<body **」，并将复制的内容粘贴到body标签的「**>**」之后：
   ```
   <body ...>
-  ← ← ← ← ← 复制的toolbox内容粘贴于此！
+  ← ← ← ← ← 复制的「VLOOK-TOOLBOX 插件」内容粘贴于此！
   ...
   </body>
   ```

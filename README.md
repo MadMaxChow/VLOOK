@@ -23,12 +23,12 @@ VLOOK插件主要包括：
 # 应用插件
 
 - 在Typora中将Markdown文件导出为`HTML`文件；
-- 打开文件`released\vlook-toolbox.txt`，全选所有内容，并复制；
+- 打开文件`released\VLOOK-TOOLBOX 插件.txt`，全选所有内容，并复制；
 - 用纯文件编辑器（如：Windows下的记事本）打开该导出的HTML文件；
 - 搜索「**<body **」，并将复制的内容粘贴到body标签的「**>**」之后：
   ```
   <body ...>
-  ← ← ← ← ← 复制的toolbox内容粘贴于此！
+  ← ← ← ← ← 复制的「VLOOK-TOOLBOX 插件」内容粘贴于此！
   ...
   </body>
   ```
@@ -49,18 +49,19 @@ VLOOK优先显示开源的思源黑体和思源宋体，建议下载安装获得
 
 # 目录说明
 
-- `demo`：基于VLOOK主题的示例文件
 - `docs`：VLOOK快速参考手册及相关文档
 - `released`：发布版的主目录
   - `theme`：主题文件
+- `demo`：基于VLOOK主题的示例文件
 - `src`：源码目录
+  - `css`：基于LESS生成的CSS文件
   - `dev`：开发测试用示例文件
   - `less`：主题CSS文件的源文件
-- `misc`：杂项文件，包括图标源文件、产品原型、主题图形素材设计源文件等
+  - `misc`：杂项文件，包括图标源文件、产品原型、主题图形素材设计源文件等
 
 ---
 
-# 捐助
+# 打赏
 
 **若喜欢VLOOK™的话，可以请Max喝杯咖啡：**<br>
 ![微信支付](https://ws1.sinaimg.cn/large/006tKfTcgy1fsmnridvyxj303y04mt94.jpg)

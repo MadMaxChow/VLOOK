@@ -1,4 +1,11 @@
 ============
+　下载插件
+------------
+
+访问官方主页下载最新发布版本：https://github.com/MadMaxChow/VLOOK/releases
+
+
+============
 　应用主题
 ------------
 　+ 将「released\theme」下所有CSS文件复制至Typora的主题目录（Typora「偏好设置」中点击「外观 - 打开主题目录」定位到该目录）；
@@ -10,12 +17,12 @@
 　应用插件
 ------------
 　+ 在 Typora 中将 Markdown 文件导出为「HTML」文件；
-　+ 打开文件「released\vlook-toolbox.txt」，全选所有内容，并复制；
+　+ 打开文件「released\VLOOK-TOOLBOX 插件.txt」，全选所有内容，并复制；
 　+ 用纯文件编辑器（如：Windows下的记事本）打开该导出的 HTML 文件；
 　+ 搜索「<body 」，并将复制的内容粘贴到body标签的「>」之后，举例：
 
 　<body ...>
-　← ← ← ← ← 复制的toolbox内容粘贴于此！
+　← ← ← ← ← 复制的「VLOOK-TOOLBOX 插件」内容粘贴于此！
 　...
 　</body>
 
