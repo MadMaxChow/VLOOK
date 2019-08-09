@@ -70,7 +70,7 @@ VLOOK优先显示开源的思源黑体和思源宋体，建议下载安装获得
 
 ---
 
-# Sumery
+# Overview
 
 VLOOK is a plugin for enhancements to HTML files exported by Typora. Includes two major features: Layout Enhancements and Feature Enhancements:
 
