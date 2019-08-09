@@ -6,10 +6,7 @@ VLOOK 插件主要包括：
 - **排版增强**：针对 Typora 编辑模式，以及导出的 HTML 文件增加更实用、美观的文档排版与样式；
 - **功能增强**：针对导出的 HTML 文件提供文档导航、评审演示、插图浏览、内容交互、信息缺失检测等功能。
 
-**文档主题样式定制服务 →→→ 请加微信 MaxChow**
-
 有关 VLOOK 特性的详细介绍、样例及使用说明详见《[VLOOK 快速参考手册](https://madmaxchow.github.io/VLOOK/index.html)》
-
 有关脚本化图表的详细介绍、样例及使用说明详见《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
 
 ---
@@ -19,6 +16,10 @@ VLOOK 插件主要包括：
 - 将`released\theme`下所有 CSS 文件复制至 Typora 的主题目录（ Typora「偏好设置」中点击「外观 - 打开主题目录」定位到该目录）；
 - 进入 Typora 的偏好设置，启用 Markdown 语法扩展下的所有选项（如：公式、上标、下标、高亮、图表等）；
 - 重启 Typora，点击菜单`主题`，选择以`vlook-*`形式命名的主题，即可启用对应的 VLOOK 样式主题。
+
+## 主题样式定制服务
+
+- 请加微信 MaxChow**
 
 ---
 
