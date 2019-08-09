@@ -49,11 +49,11 @@ VLOOK优先显示开源的思源黑体和思源宋体，建议下载安装获得
 
 # 目录说明
 
-- `docs`：VLOOK快速参考手册及相关文档
-- `released`：发布版的主目录
+1. `docs`：VLOOK快速参考手册及相关文档
+2. `released`：发布版的主目录
   - `theme`：主题文件
-- `demo`：基于VLOOK主题的示例文件
-- `src`：源码目录
+3. `demo`：基于VLOOK主题的示例文件
+4. `src`：源码目录
   - `css`：基于LESS生成的CSS文件
   - `dev`：开发测试用示例文件
   - `less`：主题CSS文件的源文件
