@@ -3,7 +3,7 @@
 
 # VLOOK™是什么
 
-`最新版本丨V9 beta`    `+ 官网丨https://github.com/madmaxchow/VLOOK +`    `* 适用平台丨Typora for Win & macOS *`    `- 开源协议丨MIT -`   `! 开发语言丨JavaScript !`
+`最新版本丨V9.1`    `+ 官网丨https://github.com/madmaxchow/VLOOK +`    `* 适用平台丨Typora for Win & macOS *`    `- 开源协议丨MIT -`   `! 开发语言丨JavaScript !`
 
 [VLOOK™](https://github.com/MadMaxChow/VLOOK)是针对由[Typora](https://www.typora.io)[^Typora]导出的HTML文件进行增强的插件。VLOOK™为开源软件，遵从[MIT许可证](#许可协议)。
 
