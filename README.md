@@ -8,7 +8,9 @@ VLOOK 插件主要包括：
 
 **文档主题样式定制服务 →→→ 请加微信 MaxChow**
 
-特性的详细介绍，以及使用说明详见《[VLOOK 快速参考手册](https://madmaxchow.github.io/VLOOK/index.html)》
+有关 VLOOK 特性的详细介绍、样例及使用说明详见《[VLOOK 快速参考手册](https://madmaxchow.github.io/VLOOK/index.html)》
+
+有关脚本化图表的详细介绍、样例及使用说明详见《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
 
 ---
 
