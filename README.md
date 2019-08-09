@@ -14,14 +14,11 @@ VLOOK插件主要包括：
 
 # 应用主题
 
-- 将`released\theme`下所有CSS文件复制至Typora的主题目录[^主题目录]；
+- 将`released\theme`下所有CSS文件复制至Typora的主题目录；
 - 进入Typora的偏好设置，启用Markdown语法扩展下的所有选项（如：公式、上标、下标、高亮、图表等）；
 - 重启Typora，点击菜单`主题`，选择以`vlook-*`形式命名的主题，即可启用对应的VLOOK样式主题。
 
-[^主题目录]: 打开Typora「偏好设置」界面，在常规设置中点击<kbd>打开主题目录</kbd>按钮即可定位到该目录
-
 > **如何找到Typora主题目录？**
->
 > 打开Typora「偏好设置」界面，点击<kbd>打开主题目录</kbd>按钮即可定位到该目录
 
 ---
@@ -54,6 +51,7 @@ VLOOK优先显示开源的思源黑体和思源宋体，建议下载安装获得
 ---
 
 # 目录说明
+
 - `demo`：基于VLOOK主题的示例文件
 - `docs`：VLOOK快速参考手册及相关文档
 - `released`：发布版的主目录
@@ -65,10 +63,14 @@ VLOOK优先显示开源的思源黑体和思源宋体，建议下载安装获得
 
 ---
 
+# 捐助
+
 **若喜欢VLOOK™的话，可以请Max喝杯咖啡：**<br>
 ![微信支付](https://ws1.sinaimg.cn/large/006tKfTcgy1fsmnridvyxj303y04mt94.jpg)
 
 ---
+
+# Sumery
 
 VLOOK is a plugin for enhancements to HTML files exported by Typora. Includes two major features: Layout Enhancements and Feature Enhancements:
 
