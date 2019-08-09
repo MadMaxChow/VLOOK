@@ -29,3 +29,11 @@
 　+ 保存，大吉大利～
 
 ** 强烈建议使用 Chrome 或 Firefox 浏览器查看HTML　**
+
+
+============
+　详细手册
+------------
+　+ 详见：doc/index.html
+　+ 详见：doc/chart.html
+
