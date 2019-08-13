@@ -6,7 +6,7 @@ VLOOK 插件主要包括：
 - **排版增强**：针对 Typora 编辑模式，以及导出的 HTML 文件增加更实用、美观的文档排版与样式；
 - **功能增强**：针对导出的 HTML 文件提供文档导航、评审演示、插图浏览、内容交互、信息缺失检测等功能。
 
-有关 VLOOK 特性的详细介绍、样例及使用说明详见《[VLOOK 快速参考手册](https://madmaxchow.github.io/VLOOK/index.html)》
+有关 VLOOK 特性的详细介绍、样例及使用说明详见《[VLOOK 快速参考手册](https://madmaxchow.github.io/VLOOK/index.html)》<br/>
 有关脚本化图表的详细介绍、样例及使用说明详见《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
 
 ---
