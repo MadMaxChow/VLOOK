@@ -1,9 +1,9 @@
-###### <sup>VLOOK™</sup><br>快速参考手册 Quick Reference Manual<br>──<br><br>`+ Version丨9.1 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2016-2019. MAX°DESIGN.*
+###### <sup>VLOOK™</sup><br>快速参考手册 Quick Reference Manual<br>──<br><br>`+ 版本丨V9.2 +`<br><br><br><br><br>**Max**<br>*COPYRIGHT © 2016-2019. MAX°DESIGN.*
 [TOC]
 
 # VLOOK™ 是什么
 
-`最新版本丨V9.1`    `+ 官网丨https://github.com/madmaxchow/VLOOK +`    `* 适用平台丨Typora for Win & macOS *`    `- 开源协议丨MIT -`   `! 开发语言丨JavaScript !`
+`最新版本丨V9.2`    `+ 官网丨https://github.com/madmaxchow/VLOOK +`    `* 适用平台丨Typora for Win & macOS *`    `- 开源协议丨MIT -`   `! 开发语言丨JavaScript !`
 
 [VLOOK™](https://github.com/MadMaxChow/VLOOK) 是针对由[Typora](https://www.typora.io)[^Typora]导出的 HTML 文件进行增强的插件。VLOOK™ 为开源软件，遵从 [MIT 许可证](#许可协议)。
 
@@ -12,7 +12,7 @@ VLOOK 插件主要包括：
 - **排版增强**：针对 Typora 编辑模式，以及导出的 HTML 文件增加更实用、美观的文档排版与样式（详见[这里](#排版增强)）；
 - **功能增强**：针对导出的 HTML 文件提供文档导航、评审演示、插图浏览、内容交互、信息缺失检测等功能（详见[这里](#功能增强)）。
 
-> [+] **Markdown 是什么？**
+> [-] **Markdown 是什么？**
 >
 > > - 2004年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了 [Markdown](https://en.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的`文本标记语言`。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）。
 > > - Markdown文档以`纯文本格式存储`，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过 Markdown 编辑器导出为带排版的富文本文档、HTML 网页等等。纯粹、简洁、易用、灵活，都是人们喜欢 Markdown 的原因。
@@ -29,14 +29,24 @@ VLOOK 插件主要包括：
 
 ## 排版增强
 
-### 样式主题
+### 主题样式
 
-![VLOOK内置的视觉样式主题](https://ws2.sinaimg.cn/large/006tKfTcgy1g1pa7mbcgoj33ji0u0wut.jpg)
+![内置主题样式](https://tva1.sinaimg.cn/large/006y8mN6gy1g6vex2odrxj33ji0u04c6.jpg)
 
-- 针对 VLOOK 内置多套优化的样式主题[^样式主题]（在导出前通过Typora的<kbd>主题</kbd>菜单选择）；
-- 导出的 HTML 文档的样式支持一键切换为`深色`与`浅色`模式。
+- 针对 VLOOK 内置多套优化的主题样式[^主题样式]（在导出 HTML 通过 Typora 的「主题」菜单选择名称以 VLOOK 打头的主题）；
+  - **Hope 海洋之心**：[预览 ＞](https://madmaxchow.github.io/VLOOK/index.html)
+  - **Joint 榫卯之美**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-joint.html)
+  - **Geek 极邃**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-geek.html)
+  - **Fancy 慕幻**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-fancy.html)
+- 所有主题的文档导出为 HTML 后，都支持`Light (明亮)`与`Dark (黑暗)`模式。
 
-[^样式主题]: 可以根据 VLOOK 源码目录下的 LESS 中文件为样例进行自定义扩展，访问 VLOOK 在 github [主页](http://github.com/madmaxchow/vlook)。
+[^主题样式]: 可以根据 VLOOK 源码目录下的 LESS 中文件为样例进行自定义扩展，访问 VLOOK 在 github [主页](http://github.com/madmaxchow/vlook)。
+
+### Light / Dark 模式
+
+- 根据浏览器的配置，自动适配 Light / Dark 模式，也支持手动方式进行切换。
+
+![Light / Dark 模式](https://tva1.sinaimg.cn/large/006y8mN6gy1g6tbrrhljmj32fd0u0nmr.jpg)
 
 ### 封面、封底
 
@@ -174,6 +184,7 @@ VLOOK 插件主要包括：
 | ------ | -------- | -----------------: | :-----------: | ------------------------ | ------------------------ |
 | 单元格 | 单元格   |             单元格 |    单元格     | 单元格`标签丨测试`单元格 | 单元格`标签丨测试`单元格 |
 | 单元格 | 单元格   |             单元格 |    单元格     | 单元格内有**加粗**内容   | 单元格内有**加粗**内容   |
+| 单元格 | 单元格   |             单元格 |    单元格     | 单元格内有`行内代码`内容 | 单元格内有`行内代码`内容 |
 
 #### 单元格十字聚焦
 
@@ -194,7 +205,7 @@ VLOOK 插件主要包括：
 
 ### 更美观的图表
 
-+ 统一优化 **mermaid** 脚本化图表的样式；
++ 统一优化 **mermaid** 脚本化图表的样式；
 + 更多脚本化图表样式，以及结合 VLOOK 相关的脚本编写规范内容详见《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》。
 
 ###### mermaid－流程图
@@ -306,8 +317,8 @@ end
 
 + 旧语法，举例如下：
 
-   | 写法示例（风格1）         | 渲染效果                    |
-   | ------------- | -------------- |
+   | 写法示例         | 渲染效果                    |
+   | :-----------: | :------------: |
    | `` `样式类型丨样式1` ``  | `样式类型丨样式1`           |
    | `` `样式类型丨丨样式2` `` | `样式类型丨丨样式2`         |
    | `` `样式类型丨丨丨样式3` `` | `样式类型丨丨丨样式3`       |
@@ -318,8 +329,6 @@ end
 `+ 提示 +`其中的竖线符号可用英文半角竖线符号并前后加空格`<空格>|<空格>`，或中文笔划（竖）`丨`或全角竖线符号`｜`。
 
 #### 多行代码
-
-多行代码没有针对多行代码的特殊样式，此处仅用于展示`# 深色 #`主题时的样式效果。
 
 ```javascript
 function funName() {
@@ -413,7 +422,7 @@ $$
 
 ![普通的图片](https://ws2.sinaimg.cn/large/006tNbRwgy1fwjex7c08fj31kw11x48k.jpg)
 
-
+<img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fwjex7c08fj31kw11x48k.jpg" alt="缩放为50%大小的图片" style="zoom:50%;" />
 
 ### 自动识别缺失的图片
 
@@ -436,6 +445,8 @@ $$
 > > [+] **支持多级引用的折叠**
 > >
 > > > 这里是多级引用折叠的内容
+> > >
+> > > > 这是多级引用不提供折叠的内容
 >
 > [-] **这是默认展开的「引用」**
 >
@@ -486,14 +497,16 @@ $$
   |                   <kbd>I</kbd>                   | 显示 / 隐藏插图浏览器                           |
   |                   <kbd>P</kbd>                   | 打印文档                                        |
   |                   <kbd>S</kbd>                   | 打开 / 关闭聚光灯                               |
-  |           <kbd>←</kbd> / <kbd>→</kbd>            | 上一章 / 下一章                                 |
+  |           <kbd>←</kbd> / <kbd><</kbd>            | 上一章                                          |
+  |           <kbd>→</kbd> / <kbd>></kbd>            | 下一章                                          |
   | <kbd>J</kbd><kbd>K</kbd><kbd>H</kbd><kbd>L</kbd> | 内容块操作，详见[内容块聚焦](#内容块聚焦)       |
   |                  <kbd>ESC</kbd>                  | 关闭弹出的界面、聚光灯、内容块聚焦等            |
   
 2. 插图浏览器热键：
-  |         热键/快捷键         | 功能              |
-  | :-------------------------: | ----------------- |
-  | <kbd>←</kbd> / <kbd>→</kbd> | 前一张/后一张插图 |
+  |         热键/快捷键         | 功能       |
+  | :-------------------------: | ---------- |
+  | <kbd>←</kbd> / <kbd><</kbd> | 前一张插图 |
+  | <kbd>→</kbd> / <kbd>></kbd> | 后一张插图 |
 
 # 如何使用
 
@@ -501,7 +514,7 @@ $$
 
 ###### 若喜欢 VLOOK™ 的话，可以请 Max 喝杯咖啡～
 
-![捐赠二维码](https://ws1.sinaimg.cn/large/006tKfTcgy1fsmnridvyxj303y04mt94.jpg)
+![微信打赏](https://ws1.sinaimg.cn/large/006tKfTcgy1fsmnridvyxj303y04mt94.jpg)
 
 ## 下载插件
 
@@ -511,7 +524,7 @@ $$
 
 + 将`released\theme`下所有CSS文件复制至 Typora 的主题目录（ Typora「偏好设置」中点击「外观 - 打开主题目录」定位到该目录）；
 + 进入 Typora 的偏好设置，启用 Markdown 语法扩展下的所有选项（如：公式、上标、下标、高亮、图表等）；
-+ 重启 Typora ，点击菜单`主题`，选择以`vlook-*`形式命名的主题，即可启用对应的 VLOOK 样式主题。
++ 重启 Typora ，点击菜单`主题`，选择以`vlook-*`形式命名的主题，即可启用对应的 VLOOK 主题样式。
 
 ## 应用插件
 

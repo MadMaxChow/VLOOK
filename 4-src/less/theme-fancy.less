@@ -9,14 +9,18 @@
 @themeForeColorFade: fade(@themeForeColor, 50%);
 @themeBgColor: #77D9CF;//#81D8D0;
 @themeBgColorFade: fade(@themeBgColor, 50%);
-@themeBgColorDark: darken(@themeBgColor, 20%);
+@themeBgColorDark: darken(@themeBgColor, 30%);
 @themeBgColorAlt: lighten(@themeBgColor, 25%);
 
 // 标题色
 @headerColor: darken(@themeBgColor, 10%);
 @headerColorDark: darken(@themeBgColor, 20%);
-@contentHeaderNumColor: darken(@themeBgColorFade, 10%);
-@tocHeaderNumColor: darken(@themeBgColorFade, 10%);
+@tocHeaderNumColor: @foreColorLightFade;
+@contentHeaderNumColor: @themeBgColorFade;
+
+// 行内代码背景色
+@codeBgColor: lighten(@themeBgColor, 20%);;
+@codeBgColorDark:  darken(@themeBgColor, 20%);
 
 // 按钮色
 @buttonForeColor: @themeForeColor;
@@ -32,11 +36,11 @@
 @aColorDark: @docBgColorLight;
 @aLineColor: #E65CA1;
 @aHoverColor: @aLineColor;
-@aHoverColorTransparencyColor0: fade(@aHoverColor, 0);
-@aActiveColor: @aLineColor;
-@aActiveColorTransparencyColor0: fade(@aActiveColor, 0);
+@aActiveColor: desaturate(@aLineColor, 20%);
 
 @coverTextAlign: left;
+
+@coverShadow: none;
 
 @coverBackgroundImage: url(@coverImage), url(@coverImage2), url(@coverImage3);
 @coverBackgroundRepeat: repeat-x, repeat-y, no-repeat;

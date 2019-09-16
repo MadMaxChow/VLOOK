@@ -1,5 +1,5 @@
 
-###### <sup>VLOOK™ Charts Demo</sup><br>脚本化图表 for Markdown<br>──<br><br>`+ 文档密级丨对外公开 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2017-2018. MAX°DESIGN.*
+###### <sup>VLOOK™ Charts Demo</sup><br>脚本化图表 for Markdown<br>──<br><br>`+ 文档密级丨对外公开 +`<br><br><br><br>**Max**<br>*COPYRIGHT © 2017-2019. MAX°DESIGN.*
 
 [TOC]
 
@@ -207,11 +207,11 @@ end
 
 1. 建议使用实体别名，以提高画图脚本的复用度和可维护性；
 2. 支持三类消息线条：同步请求消息、异步请求消息、返回消息；
-3. 角色支持三类扩展样式，在输出HTML后应用 [VLOOK™](https://github.com/madmaxchow/VLOOK) 插件后渲染为不同的样式：
+3. 角色支持三类扩展样式，在输出HTML后应用 [VLOOK™](https://github.com/madmaxchow/VLOOK) 插件后渲染为不同的样式：
    - **人物角色**：以at符号`@`开始的内容，如`@人物角色`
    - **重要系统角色**：含等号`=`包裹的内容，如`=后端支撑系统名称=`
    - **外部系统角色**：含用减号`-`包裹的内容，如`-外部系统名称-`
-4. 支持三类标签分组，在输出HTML后应用 [VLOOK™](https://github.com/madmaxchow/VLOOK) 插件渲染为不同的样式：
+4. 支持三类标签分组，在输出HTML后应用 [VLOOK™](https://github.com/madmaxchow/VLOOK) 插件渲染为不同的样式：
    - `loop`：循环
    - `opt`：可选
    - `alt..else`：条件选择（alt = 情景1，else = 情景2）

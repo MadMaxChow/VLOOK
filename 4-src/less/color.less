@@ -9,97 +9,88 @@
 @transparencyColor3: fade(#FFFFFF, 60%);
 @transparencyColor4: fade(#FFFFFF, 80%);
 
-// 文档背景色（浅色主题）
+// 文档背景色（浅色方案）
 @docBgColorLight: #FFFFFF;
-@docBgColorLightAlt: darken(@docBgColorLight, 5%);
+@docBgColorLightAlt: darken(@docBgColorLight, 10%);
 @docBgColorLightFade: fade(@docBgColorLight, 30%);
-// 文档背景色（深色主题）
-@docBgColorDark: #202224;//#28282A;
-@docBgColorDarkAlt: darken(@docBgColorDark, 10%);
+// 文档背景色（深色方案）
+@docBgColorDark: #121418;
+@docBgColorDarkAlt: lighten(@docBgColorDark, 15%);
 @docBgColorDarkFade: fade(@docBgColorDark, 30%);
 
-// 表格（浅色主题）
-@tableColor: #C8C8C8; // 表格基础色
-@tableBorderColor: fade(@foreColorLight, 50%); // 表格边框
-@tableThColor: @foreColorLight; // 表格列头
-@tableThBgColor: fade(@tableColor, 40%);
-@tableThBorderColor: @tableBorderColor;
-@tableTdBgColor: fade(@tableThBgColor, 0%); // 表格奇数行
-@tableTdBorderColor: fade(@tableBorderColor, 20%);
-@tableTdBgColor2: fade(@tableThBgColor, 10%); // 表格偶数行
-// 表格（深色主题）
-@tableColorDark: #000204; // 表格基础色
-@tableBorderColorDark: fade(@foreColorDark, 50%); // 表格边框
-@tableThColorDark: @foreColorDark; // 表格列头
-@tableThBgColorDark: fade(@tableColorDark, 30%);
-@tableThBorderColorDark: @tableBorderColorDark;
-@tableTdBorderColorDark: fade(@tableBorderColorDark, 10%);
-// @tableTdBgColor2Dark: fade(@tableThBorderColorDark, 10%); // 表格偶数行
-
-// 表格（浅色主题）
-// 表格列头
-// @tableThBgColorDark: @tableColorDark;
-// 表格偶数行
-// @tableTdBgColorDark2: fade(@tableThBgColor, 8%);
-
-
-// 文档前景色（浅色主题）
-@foreColorLight: #404244; //#606064;
+// 文档前景色（浅色方案）
+@foreColorLight: #181A1E;
 @foreColorLightAlt: lighten(@foreColorLight, 40%);
 @foreColorLightFade: fade(@foreColorLight, 50%);
 @foreColorLightFade1: fade(@foreColorLight, 15%);
 @foreColorLightFade2: fade(@foreColorLight, 10%);
 @foreColorLightFade3: fade(@foreColorLight, 5%);
-// 文档前景色（深色主题）
-@foreColorDark: #A8AAAC;//#A8A8AA;
+// 文档前景色（深色方案）
+@foreColorDark: #E0E2E6;
 @foreColorDarkAlt: darken(@foreColorDark, 30%);
 @foreColorDarkFade: fade(@foreColorDark, 50%);
+
+// 表格（浅色方案）
+@tableColor: #B0B2B6; // 表格基础色
+@tableBorderColor: fade(@tableColor, 80%); // 表格边框
+@tableThBgColor: fade(@tableColor, 40%);
+@tableThBorderColor: @tableBorderColor;
+@tableTdBgColor: fade(@tableThBgColor, 0%); // 表格奇数行
+@tableTdBorderColor: fade(@tableBorderColor, 20%);
+@tableTdBgColor2: fade(@tableThBgColor, 10%); // 表格偶数行
+// 表格（深色方案）
+@tableColorDark: #505256; // 表格基础色
+@tableBorderColorDark: fade(@tableColorDark, 80%); // 表格边框
+@tableThBgColorDark: fade(@tableColorDark, 30%);
+@tableThBorderColorDark: @tableBorderColorDark;
+@tableTdBorderColorDark: fade(@tableBorderColorDark, 10%);
+// @tableTdBgColor2Dark: fade(@tableThBorderColorDark, 10%); // 表格偶数行
 
 // 主色
 @masterColor: #045AD1; //#0158D0; //#0078D7;
 @masterColorLight: lighten(@masterColor, 10%);
-@masterColorDark: darken(@masterColor, 15%);
+@masterColorDark: darken(@masterColor, 20%);
 @masterColorAlt: lighten(@masterColor, 50%);
-@masterColorAltDark: darken(desaturate(lighten(@masterColor, 50%), 40%), 55%);
+@masterColorAltDark: darken(@masterColorAlt, 20%);
 @masterColorFade: fade(@masterColor, 50%);
-@masterShadowColor: fade(@masterColor, 35%);
+// @masterShadowColor: fade(@masterColor, 35%);
 // 辅助色
 @slaveColor: #C21117; //#C3252B;//#DC0010;
 @slaveColorLight: lighten(@slaveColor, 10%);
-@slaveColorDark: darken(@slaveColor, 15%);
+@slaveColorDark: darken(@slaveColor, 20%);
 @slaveColorAlt: lighten(@slaveColor, 50%);
-@slaveColorAltDark: darken(desaturate(lighten(@slaveColor, 50%), 40%), 55%);
+@slaveColorAltDark: darken(@slaveColorAlt, 20%);
 @slaveColorFade: fade(@slaveColor, 50%);
-@slaveShadowColor: fade(@slaveColor, 35%);
+// @slaveShadowColor: fade(@slaveColor, 35%);
 // 第3色
 @thirdColor: #4DA032; //#4AA608;
 @thirdColorLight: lighten(@thirdColor, 10%);
-@thirdColorDark: darken(@thirdColor, 15%);
+@thirdColorDark: darken(@thirdColor, 20%);
 @thirdColorAlt: lighten(@thirdColor, 50%);
-@thirdColorAltDark: darken(desaturate(lighten(@thirdColor, 50%), 40%), 55%);
+@thirdColorAltDark: darken(@thirdColorAlt, 20%);
 @thirdColorFade: fade(@thirdColor, 50%);
-@thirdShadowColor: lighten(@thirdColor, 35%);
+// @thirdShadowColor: lighten(@thirdColor, 35%);
 // 第4色
 @fourthColor: #E68D09;//#D96B0A; //E6830B; //#D96B0A; //#F28D00;
 @fourthColorLight: lighten(@fourthColor, 10%);
-@fourthColorDark: darken(@fourthColor, 15%);
+@fourthColorDark: darken(@fourthColor, 20%);
 @fourthColorAlt: lighten(@fourthColor, 40%);
-@fourthColorAltDark: darken(desaturate(lighten(@fourthColor, 40%), 40%), 55%);
+@fourthColorAltDark: darken(@fourthColorAlt, 20%);
 @fourthColorFade: fade(@fourthColor, 50%);
-@fourthShadowColor: lighten(@fourthColor, 35%);
+// @fourthShadowColor: lighten(@fourthColor, 35%);
 // 第5色
 @fifthColor: #953296; //#7D2A7E; //#803099;
 @fifthColorLight: lighten(@fifthColor, 10%);
-@fifthColorDark: darken(@fifthColor, 15%);
+@fifthColorDark: darken(@fifthColor, 20%);
 @fifthColorAlt: lighten(@fifthColor, 50%);
-@fifthColorAltDark: darken(desaturate(lighten(@fifthColor, 50%), 40%), 55%);
+@fifthColorAltDark: darken(@fifthColorAlt, 20%);
 @fifthColorFade: fade(@fifthColor, 50%);
-@fifthShadowColor: lighten(@fifthColor, 35%);
+// @fifthShadowColor: lighten(@fifthColor, 35%);
 // 第6色
-@sixthColor: #707274;
+@sixthColor: #585A5D;
 @sixthColorLight: lighten(@sixthColor, 10%);
-@sixthColorDark: darken(@sixthColor, 15%);
+@sixthColorDark: darken(@sixthColor, 20%);
 @sixthColorAlt: lighten(@sixthColor, 50%);
-@sixthColorAltDark: darken(desaturate(lighten(@sixthColor, 50%), 40%), 55%);
+@sixthColorAltDark: darken(@sixthColorAlt, 20%);
 @sixthColorFade: fade(@sixthColor, 50%);
-@sixthShadowColor: lighten(@sixthColor, 35%);
+// @sixthShadowColor: lighten(@sixthColor, 35%);

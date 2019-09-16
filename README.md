@@ -11,15 +11,26 @@ VLOOK 插件主要包括：
 
 ---
 
-# 应用主题
+# 主题样式
 
-- 将`released\theme`下所有 CSS 文件复制至 Typora 的主题目录（ Typora「偏好设置」中点击「外观 - 打开主题目录」定位到该目录）；
+![内置主题样式](https://tva1.sinaimg.cn/large/006y8mN6gy1g6vex2odrxj33ji0u04c6.jpg)
+
+- 针对 VLOOK 内置多套优化的主题样式（在导出 HTML 通过 Typora 的「主题」菜单选择名称以 VLOOK 打头的主题）；
+  - **Hope 海洋之心**：[预览 ＞](https://madmaxchow.github.io/VLOOK/index.html)
+  - **Joint 榫卯之美**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-joint.html)
+  - **Geek 极邃**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-geek.html)
+  - **Fancy 慕幻**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-fancy.html)
+- 所有主题的文档导出为 HTML 后，都支持`Light (明亮)`与`Dark (黑暗)`模式。
+
+## 选择主题
+
+- 将`released\theme`下所有 CSS 文件复制至 Typora 的主题目录（ Typora「偏好设置」中选择「外观」，点击<kbd>打开主题目录</kbd>定位到该目录）；
 - 进入 Typora 的偏好设置，启用 Markdown 语法扩展下的所有选项（如：公式、上标、下标、高亮、图表等）；
 - 重启 Typora，点击菜单`主题`，选择以`vlook-*`形式命名的主题，即可启用对应的 VLOOK 样式主题。
 
 ## 主题定制服务
 
-- 请加微信：MaxChow
+- 主题定制，请加微信：MaxChow
 
 ---
 
