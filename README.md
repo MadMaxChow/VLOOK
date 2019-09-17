@@ -30,7 +30,7 @@ VLOOK 插件主要包括：
 
 ## 主题定制服务
 
-- 主题定制，请加微信：MaxChow
+- 主题定制，请加微信：**MaxChow**
 
 ---
 
@@ -39,7 +39,7 @@ VLOOK 插件主要包括：
 - 在 Typora 中将 Markdown 文件导出为`HTML`文件；
 - 打开文件`released\VLOOK-TOOLBOX 插件.txt`，全选所有内容，并复制；
 - 用纯文件编辑器（如：记事本、VS Code）打开该导出的 HTML 文件；
-- 搜索「**<body **」，并将复制的内容粘贴到 body 标签的「**>**」之后：
+- 搜索「**\<body**」，并将复制的内容粘贴到 body 标签的「**>**」之后：
   ```
   <body ...>
   ← ← ← ← ← 复制的「VLOOK-TOOLBOX 插件」内容粘贴于此！
