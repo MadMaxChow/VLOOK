@@ -267,86 +267,14 @@ section 区块C
 
 # 备选方案
 
+`- 注意 -`**（从 VLOOK 9.2 版本开始不再支持备选方案）**
+
 ## flowchart.js（流程图）
 
 flowchart.js 基于 SVG 的流程图插件，它仅需几行代码即可在 Web 上完成流程图的构建。可以从文字表述中画出简单的 SVG 流程图，也可以画出彩色的图表。详见 [flowchart.js 官网](http://flowchart.js.org)。
 
-###### flowchart.js-流程图
-
-```flow
-st=>start: 开始
-e=>end: 结束
-op1=>operation: 操作
-op2=>operation: 材料
-sub1=>subroutine: 子流程
-cond=>condition: 是 / 否？
-c2=>condition: 好主意
-io=>inputoutput: 获得数据
-
-st->op1(right)->cond
-cond(yes, right)->c2
-cond(no)->sub1(left)->op1
-c2(yes)->io->e
-c2(no)->op2->e
-```
-
-###### 画图脚本
-
-```java
-​```flow
-st=>start: S
-e=>end: E
-op1=>operation: 操作
-op2=>operation: 材料
-sub1=>subroutine: 子流程
-cond=>condition: 是 / 否？
-c2=>condition: 好主意
-io=>inputoutput: 获得数据
-
-st->op1(right)->cond
-cond(yes, right)->c2
-cond(no)->sub1(left)->op1
-c2(yes)->io->e
-c2(no)->op2->e
-​```
-```
-
 ## JS Sequence Diagrams（时序图）
 
 JS sequence diagrams 是一个方便建立 UML 的时序图（序列图 or 循序图）在线工具，使用简单。详见 [JS Sequence Diagrams 官网](https://bramp.github.io/js-sequence-diagrams/)。
-
-###### JS Sequence Diagrams-时序图
-
-```sequence
-Title: 在此填写流程图标题
-participant 客服端 as CLIENT
-participant 服务器 as SERVER
-Note right of CLIENT: 通过角色、对象列表，\n您可以更改它们的顺序
-CLIENT -> SERVER: 请求消息：实线+实箭头
-SERVER --> CLIENT: 返回消息：虚线+实箭头
-Note over CLIENT: 说明
-Note over CLIENT, SERVER: 跨对象说明
-CLIENT ->> SERVER: 请求消息：实线+虚箭头
-SERVER -->> CLIENT: 返回消息：虚线+虚箭头
-Note left of SERVER: 我在最后一位
-```
-
-###### 画图脚本
-
-```java
-​```sequence
-Title: 在此填写流程图标题
-participant 客服端 as CLIENT
-participant 服务器 as SERVER
-Note right of CLIENT: 通过角色、对象列表，\n您可以更改它们的顺序
-CLIENT -> SERVER: 请求消息：实线+实箭头
-SERVER --> CLIENT: 返回消息：虚线+实箭头
-Note over CLIENT: 说明
-Note over CLIENT, SERVER: 跨对象说明
-CLIENT ->> SERVER: 请求消息：实线+虚箭头
-SERVER -->> CLIENT: 返回消息：虚线+虚箭头
-Note left of SERVER: 我在最后一位
-​```
-```
 
 ###### 终了<br>

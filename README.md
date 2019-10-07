@@ -38,7 +38,7 @@ VLOOK 插件主要包括：
 
 - 在 Typora 中将 Markdown 文件导出为`HTML`文件；
 - 打开文件`released\VLOOK-TOOLBOX 插件.txt`，全选所有内容，并复制；
-- 用纯文件编辑器（如：记事本、VS Code）打开该导出的 HTML 文件；
+- 用纯文件编辑器，如：记事本、[Visual Studio Code](https://code.visualstudio.com/)，打开该导出的 HTML 文件；
 - 搜索「**\<body**」，并将复制的内容粘贴到 body 标签的「**>**」之后：
   ```
   <body ...>

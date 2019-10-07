@@ -31,7 +31,7 @@ VLOOK 插件主要包括：
 
 ### 主题样式
 
-![内置主题样式](https://tva1.sinaimg.cn/large/006y8mN6gy1g6vex2odrxj33ji0u04c6.jpg)
+![内置主题样式](https://tva1.sinaimg.cn/large/006y8mN6gy1g6vex2odrxj33ji0u04c6.jpg "#invert-in-dark#")
 
 - 针对 VLOOK 内置多套优化的主题样式[^主题样式]（在导出 HTML 通过 Typora 的「主题」菜单选择名称以 VLOOK 打头的主题）；
   - **Hope 海洋之心**：[预览 ＞](https://madmaxchow.github.io/VLOOK/index.html)
@@ -47,6 +47,20 @@ VLOOK 插件主要包括：
 - 根据浏览器的配置，自动适配 Light / Dark 模式，也支持手动方式进行切换。
 
 ![Light / Dark 模式](https://tva1.sinaimg.cn/large/006y8mN6gy1g6tbrrhljmj32fd0u0nmr.jpg)
+
+### 指定图片在 Dark 模式时反色
+
+- 图片默认在 Dark 模式时按原始颜色显示，对于一些透明底的 PNG 图片（如界面线框图），可指定在 Dark 模式时以反色显示以获得更好的显示效果；
+
+- 对不起要在在 Dark 模式中以反色显示的图片，可在图片地址末尾增加反色标识`?invert=in-dark`；
+
+- 举例： `![图注](xxxxx.jpg?invert=in-dark)`
+
+###### 图片默认情况下长这样：
+![不指定在 Dark 模式时反色](https://s2.ax1x.com/2019/10/07/u27Dyt.png)
+
+###### 指定切换至 Dark 模式后反色，会长这样：
+![指定在 Dark 模式时反色](https://s2.ax1x.com/2019/10/07/u27Dyt.png?invert=in-dark)
 
 ### 封面、封底
 
@@ -117,7 +131,7 @@ VLOOK 插件主要包括：
 
 `- 注意 -`该特性须导出 HTML 并加入插件代码后才能生效。
 
-###### 示例一：
+###### 示例一
 
 | 普通列头          | `标签丨测试`列合并（2列） | ==            | 行合并（2行） | 列合并（3列） | ==     | ==             |
 | ----------------- | ----------------- | ----------------- | ------------- | ------------- | ---------- | ----------------- |
@@ -128,7 +142,7 @@ VLOOK 插件主要包括：
 | 普通单元格        | ..               | `标签丨测试`普通单元格 | 普通单元格    | 普通单元格    | 普通单元格 | ..                |
 | 普通单元格        | ..               | 普通单元格        | 普通单元格    | 普通单元格    | 普通单元格 | ..                |
 
-###### 示例二：
+###### 示例二
 
 | 列头行合并（2行） | 列头列合并（2列） | == | 列头行合并（2行） | 列头列合并（3列） | == | == |
 | ----------------- | ------------- | ------------- | :-----------: | ------------- | ------------- | ------------- |
@@ -136,7 +150,7 @@ VLOOK 插件主要包括：
 | 普通单元格 | 普通单元格     | 普通单元格     | 普通单元格     | 普通单元格          | 普通单元格    | 普通单元格 |
 | 普通单元格 | 普通单元格 | 普通单元格 | 普通单元格 | 普通单元格 | 普通单元格 | 普通单元格 |
 
-###### 示例三：
+###### 示例三
 
 | 列头行合并（2行） | 列头行合并（3列） | 列头列合并（3列） | == | == | 普通列头 | 普通列头 |
 | ----------------- | ------------- | ------------- | :-----------: | ------------- | ------------- | ------------- |
@@ -178,7 +192,7 @@ VLOOK 插件主要包括：
 
 `- 注意 -`该特性须导出 HTML 并加入插件代码后才能生效。
 
-###### 示例效果：
+###### 示例效果
 
 | 正常   | **加粗** | `标签丨测试`*斜体* | <u>下划线</u> | ==高亮==                 | ~~删除线~~               |
 | ------ | -------- | -----------------: | :-----------: | ------------------------ | ------------------------ |
@@ -196,11 +210,12 @@ VLOOK 插件主要包括：
 
 `- 注意 -`该特性须导出 HTML 并加入插件代码后才能生效。
 
-### 自动添加图注
+### 自动添加图注、表注
 
-- 自动为所有插图添加自动编号的图注：
+- 自动为所有插图、表格添加自动编号，并生成图注或表注：
   - 图片：以图片标题为图注，如：`![图片标题](图片URL)`
-  - 图表：则为最近的一个 6 级标题，如：`###### mermaid图表标题`
+  - 图表：则为取图表前的 6 级标题，如：`###### 图注、表注`，若图表前不存在 6 级标题，则忽略
+  - 表格：（同图表）
 - 效果文档中的插图底部的文字样式。
 
 ### 更美观的图表
@@ -221,6 +236,13 @@ groud1 ==> |重要分支|cond1{条件判断}
 cond1 --> |是|END
 cond1 -.-> |否|page2>分支流程2]
 A2((A)) --> END
+END(结束)
+```
+
+```mermaid
+graph LR
+page2>分支流程B] --> node2(普通节点)
+node2 --> END
 END(结束)
 ```
 
@@ -415,20 +437,18 @@ $$
 + 点击插图能直接跳转到文档中对应的位置，支持通过热键/快捷键<kbd>esc</kbd>关闭插图浏览器；
 
 [^mermaid]: mermaid 是一个用于画流程图、状态图、时序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [mermaid官网](https://mermaidjs.github.io)，或 VLOOK 的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
-[^flowchart.js]: fl
-[^JS Sequence Diagrams]: JS sequence diagrams 是一个方便建立UML的时序图（序列图or循序图）在线工具，使用简单。详见 [JS Sequence Diagrams](https://bramp.github.io/js-sequence-diagrams/) 官网，或 VLOOK 的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
+[^flowchart.js]: flowchart.js 基于 SVG 的流程图插件，它仅需几行代码即可在 Web 上完成流程图的构建。可以从文字表述中画出简单的 SVG 流程图，也可以画出彩色的图表。详见 [flowchart.js 官网](http://flowchart.js.org)，或 VLOOK 的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》。
+[^JS Sequence Diagrams]: JS sequence diagrams 是一个方便建立UML的时序图（序列图or循序图）在线工具，使用简单。详见 [JS Sequence Diagrams](https://bramp.github.io/js-sequence-diagrams/) 官网，或 VLOOK 的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》。
 
 ###### 这是普通的图片示例
 
 ![普通的图片](https://ws2.sinaimg.cn/large/006tNbRwgy1fwjex7c08fj31kw11x48k.jpg)
 
-<img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fwjex7c08fj31kw11x48k.jpg" alt="缩放为50%大小的图片" style="zoom:50%;" />
-
 ### 自动识别缺失的图片
 
 + 识别出无法加载的图片，并替换为图片缺失提示图，示例如下：
 
-![缺失的图片](vlook-lost-image.jpg)
+![缺失的图片](vlook-lost-image.jpg?invert=in-dark)
 
 ### 支持折叠引用内容
 
@@ -514,7 +534,7 @@ $$
 
 ###### 若喜欢 VLOOK™ 的话，可以请 Max 喝杯咖啡～
 
-![微信打赏](https://ws1.sinaimg.cn/large/006tKfTcgy1fsmnridvyxj303y04mt94.jpg)
+![](https://ws1.sinaimg.cn/large/006tKfTcgy1fsmnridvyxj303y04mt94.jpg)
 
 ## 下载插件
 
@@ -530,7 +550,7 @@ $$
 
 + 在 Typora 中将 Markdown 文件导出为`HTML`文件；
 + 打开文件`released\VLOOK-TOOLBOX 插件.txt`，全选所有内容，并复制；
-+ 用纯文件编辑器（如：记事本、VS Code）打开该导出的 HTML 文件；
++ 用纯文件编辑器，如：记事本、[Visual Studio Code](https://code.visualstudio.com/)，打开该导出的 HTML 文件；
 + 搜索「**<body **」，并将复制的内容粘贴到body标签的「**>**」之后：
   ```
   <body ...>

@@ -46,6 +46,9 @@
 @tableTdBorderColorDark: fade(@tableBorderColorDark, 10%);
 // @tableTdBgColor2Dark: fade(@tableThBorderColorDark, 10%); // 表格偶数行
 
+// 指定在 Dark Mode 时反转的图片边框颜色（先使用反色，这样在反转时则能保持与色一致）
+@imgInvertInDarkBorderColor: rgba(255 - red(@tableBorderColorDark), 255 - green(@tableBorderColorDark), 255 - blue(@tableBorderColorDark), alpha(@tableBorderColorDark));
+
 // 主色
 @masterColor: #045AD1; //#0158D0; //#0078D7;
 @masterColorLight: lighten(@masterColor, 10%);
