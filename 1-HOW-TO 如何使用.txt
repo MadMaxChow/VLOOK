@@ -2,7 +2,8 @@
 　下载插件
 ------------
 
-访问官方主页下载最新发布版本：https://github.com/MadMaxChow/VLOOK/releases
+  + 访问官方主页下载最新发布版本：https://github.com/MadMaxChow/VLOOK/releases
+  + 可基于「VLOOK\3-demo\VLOOK-Template 文档模板.md」来创建你自己的文档，「VLOOK\3-demo」目录下也有本文档的 Markdown 源文件。
 
 
 ============

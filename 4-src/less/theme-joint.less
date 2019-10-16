@@ -13,13 +13,13 @@
 @themeBgColorAlt: lighten(@themeBgColor, 30%);
 
 // 标题色
-@headerColor: @themeBgColor;
-@headerColorDark: @themeBgColor;
+@headerColor: darken(@themeBgColor, 10%);
+@headerColorDark: darken(@themeBgColor, 10%);
 @tocHeaderNumColor: @foreColorLightFade;
-@contentHeaderNumColor: @themeBgColorFade;
+@contentHeaderNumColor: darken(@themeBgColorFade, 10%);
 
 // 行内代码背景色
-@codeBgColor: lighten(@themeBgColor, 20%);;
+@codeBgColor: lighten(@themeBgColor, 20%);
 @codeBgColorDark:  darken(@themeBgColor, 20%);
 
 // 按钮色

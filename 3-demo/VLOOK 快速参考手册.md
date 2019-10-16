@@ -31,36 +31,16 @@ VLOOK 插件主要包括：
 
 ### 主题样式
 
-![内置主题样式](https://tva1.sinaimg.cn/large/006y8mN6gy1g6vex2odrxj33ji0u04c6.jpg "#invert-in-dark#")
+![内置主题样式](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/vlook-theme.png)
 
 - 针对 VLOOK 内置多套优化的主题样式[^主题样式]（在导出 HTML 通过 Typora 的「主题」菜单选择名称以 VLOOK 打头的主题）；
   - **Hope 海洋之心**：[预览 ＞](https://madmaxchow.github.io/VLOOK/index.html)
-  - **Joint 榫卯之美**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-joint.html)
+  - **Joint 榫卯**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-joint.html)
   - **Geek 极邃**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-geek.html)
   - **Fancy 慕幻**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-fancy.html)
 - 所有主题的文档导出为 HTML 后，都支持`Light (明亮)`与`Dark (黑暗)`模式。
 
 [^主题样式]: 可以根据 VLOOK 源码目录下的 LESS 中文件为样例进行自定义扩展，访问 VLOOK 在 github [主页](http://github.com/madmaxchow/vlook)。
-
-### Light / Dark 模式
-
-- 根据浏览器的配置，自动适配 Light / Dark 模式，也支持手动方式进行切换。
-
-![Light / Dark 模式](https://tva1.sinaimg.cn/large/006y8mN6gy1g6tbrrhljmj32fd0u0nmr.jpg)
-
-### 指定图片在 Dark 模式时反色
-
-- 图片默认在 Dark 模式时按原始颜色显示，对于一些透明底的 PNG 图片（如界面线框图），可指定在 Dark 模式时以反色显示以获得更好的显示效果；
-
-- 对不起要在在 Dark 模式中以反色显示的图片，可在图片地址末尾增加反色标识`?invert=in-dark`；
-
-- 举例： `![图注](xxxxx.jpg?invert=in-dark)`
-
-###### 图片默认情况下长这样：
-![不指定在 Dark 模式时反色](https://s2.ax1x.com/2019/10/07/u27Dyt.png)
-
-###### 指定切换至 Dark 模式后反色，会长这样：
-![指定在 Dark 模式时反色](https://s2.ax1x.com/2019/10/07/u27Dyt.png?invert=in-dark)
 
 ### 封面、封底
 
@@ -68,7 +48,7 @@ VLOOK 插件主要包括：
 + 封面样式支持多个信息项，包括：**标题**、**文档类型/密级**、**作者**、**版权信息**；
 + 封面必须以`6级标题`（<kbd>Ctrl</kbd>+<kbd>6</kbd>）作为整篇文章的`第1个`章节，同时各信息项的顺序与格式规则建议如下（可视实际需要自行调整）：
    - **标题**：无须指定格式标记，直接输入
-   - **文档类型/密级**：使用 Markdown 的代码格式标记`` ` ``，同时支持 VLOOK 的[双标风格](#双标风格)写法，应用举例如下：
+   - **文档类型/密级**：使用 Markdown 的代码格式标记`` ` ``，同时支持 VLOOK 的[双标签风格](#双标签风格)写法，应用举例如下：
      - `+ 文档密级丨对外公开 +`
      - `* 文档密级丨内部公开 *`
      - `- 文档密级丨机密资料 -`
@@ -89,6 +69,26 @@ VLOOK 插件主要包括：
    ```
    ###### 此处为封底
    ```
+
+### Light / Dark 模式
+
+- 根据浏览器的配置，自动适配 Light / Dark 模式，也支持手动方式进行切换。
+
+![Light / Dark 模式](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/vlook-color-scheme-preview.png)
+
+### 指定图片在 Dark 模式时反色
+
+- 图片默认在 Dark 模式时按原始颜色显示，对于一些透明底的 PNG 图片（如界面线框图），可指定在 Dark 模式时以反色显示以获得更好的显示效果；
+
+- 对不起要在在 Dark 模式中以反色显示的图片，可在图片地址末尾增加反色标识`?invert=in-dark`；
+
+- 举例： `![图注](xxxxx.jpg?invert=in-dark)`
+
+###### 图片默认情况下长这样：
+![不指定在 Dark 模式时反色](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/img-invert-in-dark.png)
+
+###### 指定切换至 Dark 模式后反色，会长这样：
+![指定在 Dark 模式时反色](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/img-invert-in-dark.png?invert=in-dark)
 
 ### 标题自动编号
 
@@ -290,13 +290,13 @@ end
 ```
 `- 注意 -`因 Typora 的原因，部分特性暂不提供在编辑时进行实时预览，须导出 HTML 并加入插件代码后才能生效。
 
-### 多彩标签
+### 彩虹标签
 
-对于 Markdown 的行内代码标记`` ` `` ，通过特定的**扩展标识**，来用不同的样式渲染指定的代码标签实现多彩标签效果。
+对于 Markdown 的行内代码标记`` ` `` ，通过特定的**扩展标识**，来用不同的样式渲染指定的代码标签实现彩虹标签效果。
 
 `- 注意 -`因 Typora 的原因，暂不提供在编辑时进行实时预览，样式效果须导出 HTML 并加入插件代码后才能生效。
 
-#### 单标风格
+#### 单标签风格
 
 + 通过在行内代码内容前增加**扩展标识**的内容来标记；
 
@@ -319,7 +319,7 @@ end
    |     `` `# 文本内容 #` ``     | `# 文本内容 #` |
 
 
-#### 双标风格
+#### 双标签风格
 
 + 目前支持药丸式的两段结构，可用于例如版本号说明、变量说明等，例如：
    - `= 版本号丨V1.0.2 =`
@@ -442,7 +442,7 @@ $$
 
 ###### 这是普通的图片示例
 
-![普通的图片](https://ws2.sinaimg.cn/large/006tNbRwgy1fwjex7c08fj31kw11x48k.jpg)
+![普通的图片](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/normal-pic.jpg)
 
 ### 自动识别缺失的图片
 
@@ -534,11 +534,12 @@ $$
 
 ###### 若喜欢 VLOOK™ 的话，可以请 Max 喝杯咖啡～
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1fsmnridvyxj303y04mt94.jpg)
+![](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/donate-wechat.png)
 
 ## 下载插件
 
-访问官方主页下载最新发布版本：[https://github.com/MadMaxChow/VLOOK/releases](https://github.com/MadMaxChow/VLOOK/releases)
+- 访问官方主页下载最新发布版本：[https://github.com/MadMaxChow/VLOOK/releases](https://github.com/MadMaxChow/VLOOK/releases)
+- 可基于`VLOOK\3-demo\VLOOK-Template 文档模板.md`来创建你自己的文档，`VLOOK\3-demo`目录下也有本文档的 Markdown 源文件。
 
 ## 应用主题
 

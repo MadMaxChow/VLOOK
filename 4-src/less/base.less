@@ -10,10 +10,11 @@
   // Light 模式的颜色值
   --doc-bg-color-light: @docBgColorLight;
   --doc-bg-color-alt-light: @docBgColorLightAlt;
+  --doc-bg-color-alt-transparent-light: fade(@docBgColorLightAlt, 0%);
   --fore-color-light: @foreColorLight;
   --fore-color-alt-light: @foreColorLightAlt;
-  --tips-bg-color-light: fade(@foreColorLight, 80%);
-  --tips-bg-color-inset-light: fade(@foreColorDark, 80%);
+  --tips-bg-color-light: fade(@foreColorLight, 75%);
+  --tips-bg-color-inset-light: fade(@foreColorDark, 75%);
   --shadow-color-light: rgba(0, 0, 0, 0.1);
   --a-color-light: @aColor;
   --a-line-color-light: @aLineColor;
@@ -33,6 +34,7 @@
   --header-bg-start-color-light: fade(@headerColor, 0%);
   --header-bg-end-color-light: fade(@headerColor, 10%);
   --code-bg-color-light: @codeBgColor;
+  --code-bg-color-transparent-light: fade(@codeBgColor, 0%);
   --code-name-bg-color-light: @foreColorLight;
   --code-name-shadow-color-light: @foreColorLight;
   --master-color-light: @masterColor;
@@ -58,10 +60,11 @@
   // Dark 模式的颜色值
   --doc-bg-color-dark: @docBgColorDark;
   --doc-bg-color-alt-dark: @docBgColorDarkAlt;
+  --doc-bg-color-alt-transparent-dark: fade(@docBgColorDarkAlt, 0%);
   --fore-color-dark: @foreColorDark;
   --fore-color-alt-dark: @foreColorDarkAlt;
-  --tips-bg-color-dark: fade(@foreColorDark, 80%);
-  --tips-bg-color-inset-dark: fade(@foreColorLight, 80%);
+  --tips-bg-color-dark: fade(@foreColorDark, 75%);
+  --tips-bg-color-inset-dark: fade(@foreColorLight, 75%);
   --shadow-color-dark: rgba(255, 255, 255, 0.1);
   --a-color-dark: @aColorDark;
   --a-line-color-dark: @aLineColor;
@@ -81,6 +84,7 @@
   --header-bg-start-color-dark: fade(@headerColorDark, 0%);
   --header-bg-end-color-dark: fade(@headerColorDark, 15%);
   --code-bg-color-dark: @codeBgColorDark;
+  --code-bg-color-transparent-dark: fade(@codeBgColorDark, 0%);
   --code-name-bg-color-dark: @docBgColorDark;
   --code-name-shadow-color-dark: @foreColorLightAlt;
   --master-color-dark: @masterColorDark;
@@ -106,6 +110,7 @@
   // 颜色变量
   --doc-bg-color: var(--doc-bg-color-light);
   --doc-bg-color-alt: var(--doc-bg-color-alt-light);
+  --doc-bg-color-alt-transparent: var(--doc-bg-color-alt-transparent-light);
   --fore-color: var(--fore-color-light);
   --fore-color-alt: var(--fore-color-alt-light);
   --tips-bg-color: var(--tips-bg-color-light);
@@ -128,6 +133,7 @@
   --header-bg-start-color: var(--header-bg-start-color-light);
   --header-bg-end-color: var(--header-bg-end-color-light);
   --code-bg-color: var(--code-bg-color-light);
+  --code-bg-color-transparent: var(--code-bg-color-transparent-light);
   --code-name-bg-color: var(--code-name-bg-color-light);
   --code-name-shadow-color: var(--code-name-bg-color);
   --master-color: var(--master-color-light);
@@ -160,6 +166,7 @@
     // 颜色变量
     --doc-bg-color: var(--doc-bg-color-dark);
     --doc-bg-color-alt: var(--doc-bg-color-alt-dark);
+    --doc-bg-color-alt-transparent: var(--doc-bg-color-alt-transparent-dark);
     --fore-color: var(--fore-color-dark);
     --fore-color-alt: var(--fore-color-alt-dark);
     --tips-bg-color: var(--tips-bg-color-dark);
@@ -182,8 +189,9 @@
     --header-bg-start-color: var(--header-bg-start-color-dark);
     --header-bg-end-color: var(--header-bg-end-color-dark);
     --code-bg-color: var(--code-bg-color-dark);
+    --code-bg-color-transparent: var(--code-bg-color-transparent-dark);
     --code-name-bg-color: var(--code-name-bg-color-dark);
-    --code-name-shadow-color: var(--code-name-bg-color);
+    --code-name-shadow-color: var(--code-name-shadow-color-dark);
     --master-color: var(--master-color-dark);
     --slave-color: var(--slave-color-dark);
     --third-color: var(--third-color-dark);
@@ -267,7 +275,7 @@ img {
 }
 
 a {
-  color: var(--a-color);
+  color: var(--a-color) !important;
   border-bottom: @aBorderWidth solid @aLineColor;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
@@ -812,12 +820,17 @@ del code {
   margin-top: 100px;
 }
 
-// 脚注行
+// 文档末尾的脚注行
 .footnote-line {
   font-size: 1em;
   margin-top: 0.5em;
-  padding-bottom: 50px;
+  padding-bottom: 0.5em;
 }
+
+// 弹层中的脚注行
+.mdx-footer-note-content > .footnote-line  {
+  padding-bottom: 50px;
+}  
 
 // 脚注行序号
 .md-fn-count {
@@ -2016,17 +2029,31 @@ div.mermaidTooltip {
 }
 
 /* 数学公式 */
-.MathJax_SVG {
+.MathJax_SVG,
+.MathJax_SVG_Display {
   border: 2px solid var(--theme-bg-color-fade);
   border-radius: 0.3em;
   padding: 0.3em 0.3em;
 }
+.MathJax_SVG_Display > .MathJax_SVG {
+    border: none;
+}
 
-.MathJax_SVG:active {
+.MathJax_SVG:hover,
+.MathJax_SVG_Display:hover {
+  border-color: @aLineColor;
+}
+
+.MathJax_SVG:active,
+.MathJax_SVG_Display:active {
   background-color: var(--doc-bg-color);
-  transform: scale(2);
+  transform: scale(1.5);
   transition: all 0.3s ease-in-out;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.MathJax_SVG_Display > .MathJax_SVG:active {
+    transform: none;
 }
 
 .MathJax_SVG g text {
@@ -2034,21 +2061,20 @@ div.mermaidTooltip {
   color: var(--fore-color);
 }
 
-.md-math-block .MathJax_SVG_Display {
-  text-align: left;
-}
-
-.md-math-block .MathJax_SVG_Display:active {
-  background-color: var(--doc-bg-color);
-  transform: scale(2);
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.md-math-block .MathJax_SVG_Display .MathJax_SVG:active {
-  transform: scale(1);
-}
-
+// .md-math-block .MathJax_SVG_Display {
+//   text-align: left;
+// }
+// 
+// .md-math-block .MathJax_SVG_Display:active {
+//   background-color: var(--doc-bg-color);
+//   transform: scale(2);
+//   transition: all 0.3s ease-in-out;
+//   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+// }
+// 
+// .md-math-block .MathJax_SVG_Display .MathJax_SVG:active {
+//   transform: scale(1);
+// }
 
 /* md 系统样式 */
 .md-toc-inner {
@@ -2102,20 +2128,21 @@ sup.md-footnote {
   background-color: inherit;
 }
 
-sup.md-footnote a {
-  color: var(--a-color);
+sup.md-footnote > a {
+  color: var(--a-line-color) !important;
   margin-left: 0.5em;
   margin-right: 0.5em;
   box-shadow: none;
   border-bottom: none;
 }
 
-sup.md-footnote a:hover {
-  color: var(--a-line-color);
+sup.md-footnote > a:hover {
+//   color: var(--a-line-color);
+  box-shadow: 0 -0.5em 0 fade(@aLineColor, 30%) inset;
   border-bottom: 0;
 }
 
-.footnote-line a:not(.reversefootnote) {
+.footnote-line > a:not(.reversefootnote) {
   color: var(--fore-color);
 }
 
@@ -2240,10 +2267,6 @@ li p {
   z-index: 99999;
 }
 
-.mdx-tool-tips {
-  border-top: 2px solid @aLineColor;
-}
-
 .mdx-tool-tips,
 .mdx-info-tips {
   display: none;
@@ -2259,6 +2282,11 @@ li p {
   z-index: 8000;
 }
 
+.mdx-tool-tips {
+  border-top: 2px solid @aLineColor;
+  text-align: left;
+}  
+
 .mdx-tool-tips strong,
 .mdx-info-tips strong {
   color: var(--doc-bg-color);
@@ -2266,7 +2294,7 @@ li p {
 
 .mdx-tool-tips a,
 .mdx-info-tips a {
-  color: var(--doc-bg-color);
+  color: var(--doc-bg-color) !important;
   font-weight: bold;
 }
 
@@ -2303,7 +2331,7 @@ li p {
   animation: 1.5s breathe infinite alternate;
 }
 
-.mdx-loading-tips > p {
+.mdx-loading-tips > div {
   text-align: center;
   line-height: 1.2;
   margin-bottom: 1.2em;
@@ -2367,10 +2395,10 @@ li p {
   user-select: none;
 }
 
-.mdx-toc-box:hover,
-.mdx-footer-note:hover {
-  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3), 0 0 0 2px @aHoverColor inset;
-}
+// .mdx-toc-box:hover,
+// .mdx-footer-note:hover {
+//   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3), 0 0 0 2px var(--fore-color) inset;
+// }
 
 .mdx-toc-box-header {
   color: @foreColorLight;
@@ -2379,7 +2407,7 @@ li p {
   // width: 100%;
   height: 70px;
   padding: 10px 0 0 0;
-  background: linear-gradient(180deg, var(--doc-bg-color-alt) 40px, transparent);
+  background: linear-gradient(180deg, var(--doc-bg-color-alt) 40px, var(--doc-bg-color-alt-transparent));
   left: 2px;
   right: 2px;
   top: 2px;
@@ -2448,7 +2476,7 @@ li p {
   bottom: 2px;
   text-align: center;
   padding: 0;
-  background: linear-gradient(0deg, var(--doc-bg-color-alt) 10px, transparent);
+  background: linear-gradient(0deg, var(--doc-bg-color-alt) 10px, var(--doc-bg-color-alt-transparent));
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
   position: absolute;
@@ -2506,7 +2534,7 @@ li p {
   z-index: 5000;
 }
 
-.mdx-footer-note a {
+.mdx-footer-note > a {
   color: var(--fore-color);
 }
 
@@ -2516,7 +2544,7 @@ li p {
   left: 2px;
   right: 2px;
   position: absolute;
-  background: linear-gradient(180deg, var(--doc-bg-color-alt) 5px, transparent);
+  background: linear-gradient(180deg, var(--doc-bg-color-alt) 5px, var(--doc-bg-color-alt-transparent));
   border-radius: 15px;
 }
 
@@ -2540,7 +2568,7 @@ li p {
   padding: 0 20px;
   margin: 2px;
   border-radius: 15px;
-  background: linear-gradient(0deg, var(--doc-bg-color-alt) 35px, transparent);
+  background: linear-gradient(0deg, var(--doc-bg-color-alt) 35px, var(--doc-bg-color-alt-transparent));
   position: absolute;
 }
 
@@ -2552,7 +2580,7 @@ li p {
   width: var(--toc-box-width);
   height: 50px;
   position: fixed;
-  background-color: fade(@themeBgColor, 80%);
+  background-color: fade(@themeBgColor, 75%);
   //   opacity: 0.85;
   transition: opacity 1s ease-in-out;
   z-index: 100;
@@ -2585,7 +2613,7 @@ li p {
 
 .mdx-header-current {
   //   background-color: var(--code-bg-color);
-  background: linear-gradient(90deg, transparent, var(--code-bg-color), transparent)
+  background: linear-gradient(90deg, var(--code-bg-color-transparent), var(--theme-bg-color-fade), var(--code-bg-color-transparent));
 }
 
 .mdx-header-current a {
@@ -2704,7 +2732,7 @@ li p {
 }
 
 .mdx-nav-prev:hover {
-  background: linear-gradient(to right, fade(@aHoverColor, 70%), transparent);
+  background: linear-gradient(to right, fade(@aHoverColor, 70%), fade(@aHoverColor, 0%));
   transition: all 0.3s ease-in-out;
 }
 
@@ -2741,7 +2769,7 @@ li p {
 }
 
 .mdx-nav-next:hover {
-  background: linear-gradient(to left, fade(@aHoverColor, 70%), transparent);
+  background: linear-gradient(to left, fade(@aHoverColor, 70%), fade(@aHoverColor, 0%));
   transition: all 0.3s ease-in-out;
 }
 
@@ -2768,7 +2796,7 @@ li p {
 }
 
 .mdx-bread-nav {
-  background-color: fade(@themeBgColor, 80%);
+  background-color: fade(@themeBgColor, 75%);
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   top: -50px;
@@ -2802,7 +2830,7 @@ li p {
 }
 
 .mdx-bread-nav-text:hover {
-  background: linear-gradient(90deg, transparent, fade(@aHoverColor, 70%), transparent);
+  background: linear-gradient(90deg, fade(@aHoverColor, 0%), fade(@aHoverColor, 70%), fade(@aHoverColor, 0%));
   transition: all 0.3s ease-in-out;
 }
 
@@ -3010,7 +3038,7 @@ use.mdx-svg-ico-dark:hover {
   z-index: 1000;
 }
 
-.mdx-background-blurs {
+.mdx-backdrop-blurs {
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
 }

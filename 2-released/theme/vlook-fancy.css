@@ -13,10 +13,11 @@
   --vlook-color-scheme: "light";
   --doc-bg-color-light: #FFFFFF;
   --doc-bg-color-alt-light: #e6e6e6;
+  --doc-bg-color-alt-transparent-light: rgba(230, 230, 230, 0);
   --fore-color-light: #181A1E;
   --fore-color-alt-light: #737c8f;
-  --tips-bg-color-light: rgba(24, 26, 30, 0.8);
-  --tips-bg-color-inset-light: rgba(224, 226, 230, 0.8);
+  --tips-bg-color-light: rgba(24, 26, 30, 0.75);
+  --tips-bg-color-inset-light: rgba(224, 226, 230, 0.75);
   --shadow-color-light: rgba(0, 0, 0, 0.1);
   --a-color-light: #181A1E;
   --a-line-color-light: #E65CA1;
@@ -35,6 +36,7 @@
   --header-bg-start-color-light: rgba(79, 206, 193, 0);
   --header-bg-end-color-light: rgba(79, 206, 193, 0.1);
   --code-bg-color-light: #c7efeb;
+  --code-bg-color-transparent-light: rgba(199, 239, 235, 0);
   --code-name-bg-color-light: #181A1E;
   --code-name-shadow-color-light: #181A1E;
   --master-color-light: #045AD1;
@@ -57,10 +59,11 @@
   --mermaid-sixth-color-alt-light: #d9dadb;
   --doc-bg-color-dark: #121418;
   --doc-bg-color-alt-dark: #333844;
+  --doc-bg-color-alt-transparent-dark: rgba(51, 56, 68, 0);
   --fore-color-dark: #E0E2E6;
   --fore-color-alt-dark: #8b93a2;
-  --tips-bg-color-dark: rgba(224, 226, 230, 0.8);
-  --tips-bg-color-inset-dark: rgba(24, 26, 30, 0.8);
+  --tips-bg-color-dark: rgba(224, 226, 230, 0.75);
+  --tips-bg-color-inset-dark: rgba(24, 26, 30, 0.75);
   --shadow-color-dark: rgba(255, 255, 255, 0.1);
   --a-color-dark: #FFFFFF;
   --a-line-color-dark: #E65CA1;
@@ -79,6 +82,7 @@
   --header-bg-start-color-dark: rgba(51, 183, 169, 0);
   --header-bg-end-color-dark: rgba(51, 183, 169, 0.15);
   --code-bg-color-dark: #33b7a9;
+  --code-bg-color-transparent-dark: rgba(51, 183, 169, 0);
   --code-name-bg-color-dark: #121418;
   --code-name-shadow-color-dark: #737c8f;
   --master-color-dark: #022f6d;
@@ -101,6 +105,7 @@
   --mermaid-sixth-color-alt-dark: #585A5D;
   --doc-bg-color: var(--doc-bg-color-light);
   --doc-bg-color-alt: var(--doc-bg-color-alt-light);
+  --doc-bg-color-alt-transparent: var(--doc-bg-color-alt-transparent-light);
   --fore-color: var(--fore-color-light);
   --fore-color-alt: var(--fore-color-alt-light);
   --tips-bg-color: var(--tips-bg-color-light);
@@ -123,6 +128,7 @@
   --header-bg-start-color: var(--header-bg-start-color-light);
   --header-bg-end-color: var(--header-bg-end-color-light);
   --code-bg-color: var(--code-bg-color-light);
+  --code-bg-color-transparent: var(--code-bg-color-transparent-light);
   --code-name-bg-color: var(--code-name-bg-color-light);
   --code-name-shadow-color: var(--code-name-bg-color);
   --master-color: var(--master-color-light);
@@ -150,6 +156,7 @@
     --vlook-color-scheme: "dark";
     --doc-bg-color: var(--doc-bg-color-dark);
     --doc-bg-color-alt: var(--doc-bg-color-alt-dark);
+    --doc-bg-color-alt-transparent: var(--doc-bg-color-alt-transparent-dark);
     --fore-color: var(--fore-color-dark);
     --fore-color-alt: var(--fore-color-alt-dark);
     --tips-bg-color: var(--tips-bg-color-dark);
@@ -172,8 +179,9 @@
     --header-bg-start-color: var(--header-bg-start-color-dark);
     --header-bg-end-color: var(--header-bg-end-color-dark);
     --code-bg-color: var(--code-bg-color-dark);
+    --code-bg-color-transparent: var(--code-bg-color-transparent-dark);
     --code-name-bg-color: var(--code-name-bg-color-dark);
-    --code-name-shadow-color: var(--code-name-bg-color);
+    --code-name-shadow-color: var(--code-name-shadow-color-dark);
     --master-color: var(--master-color-dark);
     --slave-color: var(--slave-color-dark);
     --third-color: var(--third-color-dark);
@@ -240,7 +248,7 @@ img {
   filter: var(--img-dark-filter);
 }
 a {
-  color: var(--a-color);
+  color: var(--a-color) !important;
   border-bottom: 1px solid #E65CA1;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
@@ -653,6 +661,9 @@ del code {
 .footnote-line {
   font-size: 1em;
   margin-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.mdx-footer-note-content > .footnote-line {
   padding-bottom: 50px;
 }
 .md-fn-count {
@@ -1473,32 +1484,32 @@ div.mermaidTooltip {
   border-radius: 15px;
 }
 /* 数学公式 */
-.MathJax_SVG {
+.MathJax_SVG,
+.MathJax_SVG_Display {
   border: 2px solid var(--theme-bg-color-fade);
   border-radius: 0.3em;
   padding: 0.3em 0.3em;
 }
-.MathJax_SVG:active {
+.MathJax_SVG_Display > .MathJax_SVG {
+  border: none;
+}
+.MathJax_SVG:hover,
+.MathJax_SVG_Display:hover {
+  border-color: #E65CA1;
+}
+.MathJax_SVG:active,
+.MathJax_SVG_Display:active {
   background-color: var(--doc-bg-color);
-  transform: scale(2);
+  transform: scale(1.5);
   transition: all 0.3s ease-in-out;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.MathJax_SVG_Display > .MathJax_SVG:active {
+  transform: none;
 }
 .MathJax_SVG g text {
   font-family: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
   color: var(--fore-color);
-}
-.md-math-block .MathJax_SVG_Display {
-  text-align: left;
-}
-.md-math-block .MathJax_SVG_Display:active {
-  background-color: var(--doc-bg-color);
-  transform: scale(2);
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-.md-math-block .MathJax_SVG_Display .MathJax_SVG:active {
-  transform: scale(1);
 }
 /* md 系统样式 */
 .md-toc-inner {
@@ -1540,18 +1551,18 @@ div.mermaidTooltip {
 sup.md-footnote {
   background-color: inherit;
 }
-sup.md-footnote a {
-  color: var(--a-color);
+sup.md-footnote > a {
+  color: var(--a-line-color) !important;
   margin-left: 0.5em;
   margin-right: 0.5em;
   box-shadow: none;
   border-bottom: none;
 }
-sup.md-footnote a:hover {
-  color: var(--a-line-color);
+sup.md-footnote > a:hover {
+  box-shadow: 0 -0.5em 0 rgba(230, 92, 161, 0.3) inset;
   border-bottom: 0;
 }
-.footnote-line a:not(.reversefootnote) {
+.footnote-line > a:not(.reversefootnote) {
   color: var(--fore-color);
 }
 kbd {
@@ -1642,9 +1653,6 @@ li p {
   pointer-events: none;
   z-index: 99999;
 }
-.mdx-tool-tips {
-  border-top: 2px solid #E65CA1;
-}
 .mdx-tool-tips,
 .mdx-info-tips {
   display: none;
@@ -1659,13 +1667,17 @@ li p {
   background-color: var(--tips-bg-color);
   z-index: 8000;
 }
+.mdx-tool-tips {
+  border-top: 2px solid #E65CA1;
+  text-align: left;
+}
 .mdx-tool-tips strong,
 .mdx-info-tips strong {
   color: var(--doc-bg-color);
 }
 .mdx-tool-tips a,
 .mdx-info-tips a {
-  color: var(--doc-bg-color);
+  color: var(--doc-bg-color) !important;
   font-weight: bold;
 }
 .mdx-loading {
@@ -1697,7 +1709,7 @@ li p {
   padding: 2em 2em 1em 2em;
   animation: 1.5s breathe infinite alternate;
 }
-.mdx-loading-tips > p {
+.mdx-loading-tips > div {
   text-align: center;
   line-height: 1.2;
   margin-bottom: 1.2em;
@@ -1752,17 +1764,13 @@ li p {
   z-index: 2000;
   user-select: none;
 }
-.mdx-toc-box:hover,
-.mdx-footer-note:hover {
-  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3), 0 0 0 2px #E65CA1 inset;
-}
 .mdx-toc-box-header {
   color: #181A1E;
   font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-size: 1.2em;
   height: 70px;
   padding: 10px 0 0 0;
-  background: linear-gradient(180deg, var(--doc-bg-color-alt) 40px, transparent);
+  background: linear-gradient(180deg, var(--doc-bg-color-alt) 40px, var(--doc-bg-color-alt-transparent));
   left: 2px;
   right: 2px;
   top: 2px;
@@ -1823,7 +1831,7 @@ li p {
   bottom: 2px;
   text-align: center;
   padding: 0;
-  background: linear-gradient(0deg, var(--doc-bg-color-alt) 10px, transparent);
+  background: linear-gradient(0deg, var(--doc-bg-color-alt) 10px, var(--doc-bg-color-alt-transparent));
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
   position: absolute;
@@ -1861,7 +1869,7 @@ li p {
   display: none;
   z-index: 5000;
 }
-.mdx-footer-note a {
+.mdx-footer-note > a {
   color: var(--fore-color);
 }
 .mdx-footer-note-header {
@@ -1870,7 +1878,7 @@ li p {
   left: 2px;
   right: 2px;
   position: absolute;
-  background: linear-gradient(180deg, var(--doc-bg-color-alt) 5px, transparent);
+  background: linear-gradient(180deg, var(--doc-bg-color-alt) 5px, var(--doc-bg-color-alt-transparent));
   border-radius: 15px;
 }
 .mdx-footer-note-content {
@@ -1892,7 +1900,7 @@ li p {
   padding: 0 20px;
   margin: 2px;
   border-radius: 15px;
-  background: linear-gradient(0deg, var(--doc-bg-color-alt) 35px, transparent);
+  background: linear-gradient(0deg, var(--doc-bg-color-alt) 35px, var(--doc-bg-color-alt-transparent));
   position: absolute;
 }
 .mdx-toolbar {
@@ -1903,7 +1911,7 @@ li p {
   width: var(--toc-box-width);
   height: 50px;
   position: fixed;
-  background-color: rgba(119, 217, 207, 0.8);
+  background-color: rgba(119, 217, 207, 0.75);
   transition: opacity 1s ease-in-out;
   z-index: 100;
 }
@@ -1928,7 +1936,7 @@ li p {
   visibility: visible;
 }
 .mdx-header-current {
-  background: linear-gradient(90deg, transparent, var(--code-bg-color), transparent);
+  background: linear-gradient(90deg, var(--code-bg-color-transparent), var(--theme-bg-color-fade), var(--code-bg-color-transparent));
 }
 .mdx-header-current a {
   font-weight: bold;
@@ -1998,7 +2006,7 @@ li p {
   border-bottom-left-radius: 15px;
 }
 .mdx-nav-prev:hover {
-  background: linear-gradient(to right, rgba(230, 92, 161, 0.7), transparent);
+  background: linear-gradient(to right, rgba(230, 92, 161, 0.7), rgba(230, 92, 161, 0));
   transition: all 0.3s ease-in-out;
 }
 .mdx-nav-prev:active {
@@ -2031,7 +2039,7 @@ li p {
   border-bottom-right-radius: 15px;
 }
 .mdx-nav-next:hover {
-  background: linear-gradient(to left, rgba(230, 92, 161, 0.7), transparent);
+  background: linear-gradient(to left, rgba(230, 92, 161, 0.7), rgba(230, 92, 161, 0));
   transition: all 0.3s ease-in-out;
 }
 .mdx-nav-next:active {
@@ -2055,7 +2063,7 @@ li p {
   display: block;
 }
 .mdx-bread-nav {
-  background-color: rgba(119, 217, 207, 0.8);
+  background-color: rgba(119, 217, 207, 0.75);
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   top: -50px;
@@ -2087,7 +2095,7 @@ li p {
   display: block;
 }
 .mdx-bread-nav-text:hover {
-  background: linear-gradient(90deg, transparent, rgba(230, 92, 161, 0.7), transparent);
+  background: linear-gradient(90deg, rgba(230, 92, 161, 0), rgba(230, 92, 161, 0.7), rgba(230, 92, 161, 0));
   transition: all 0.3s ease-in-out;
 }
 .mdx-bread-nav-text:active {
@@ -2254,7 +2262,7 @@ use.mdx-svg-ico-dark:hover {
   display: none;
   z-index: 1000;
 }
-.mdx-background-blurs {
+.mdx-backdrop-blurs {
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
 }

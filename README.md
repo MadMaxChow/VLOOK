@@ -17,7 +17,7 @@ VLOOK 插件主要包括：
 
 - 针对 VLOOK 内置多套优化的主题样式（在导出 HTML 通过 Typora 的「主题」菜单选择名称以 VLOOK 打头的主题）；
   - **Hope 海洋之心**：[预览 ＞](https://madmaxchow.github.io/VLOOK/index.html)
-  - **Joint 榫卯之美**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-joint.html)
+  - **Joint 榫卯**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-joint.html)
   - **Geek 极邃**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-geek.html)
   - **Fancy 慕幻**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-fancy.html)
 - 所有主题的文档导出为 HTML 后，都支持`Light (明亮)`与`Dark (黑暗)`模式。
@@ -33,6 +33,11 @@ VLOOK 插件主要包括：
 - 主题定制，请加微信：**MaxChow**
 
 ---
+
+# 下载插件
+
+- 访问官方主页下载最新发布版本：[https://github.com/MadMaxChow/VLOOK/releases](https://github.com/MadMaxChow/VLOOK/releases)
+- 可基于`VLOOK\3-demo\VLOOK-Template 文档模板.md`来创建你自己的文档，`VLOOK\3-demo`目录下也有本文档的 Markdown 源文件。
 
 # 应用插件
 
@@ -64,20 +69,23 @@ VLOOK 优先显示开源的思源黑体和思源宋体，建议下载安装获�
 # 打赏
 
 **若喜欢 VLOOK™ 的话，可以请 Max 喝杯咖啡：**<br>
-![微信支付](https://ws1.sinaimg.cn/large/006tKfTcgy1fsmnridvyxj303y04mt94.jpg)
+![微信支付](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/donate-wechat.png)
 
 ---
 
 # 目录说明
 
-1. `docs`：VLOOK 快速参考手册及相关文档
-2. `released`：发布版的主目录
-    - `theme`：主题文件
-3. `demo`：基于 VLOOK 主题的示例文件
-4. `src`：源码目录
-    - `dev`：开发测试用示例文件
-    - `less`：主题 CSS 文件的源文件
-    - `misc`：杂项文件，包括图标源文件、产品原型、主题图形素材设计源文件等
+| 目录 | 说明                         |
+| ---------- | ---------------------------- |
+| VLOOK      |                              |
+| └ 2-released | 发布版的主目录               |
+| &nbsp;&nbsp;&nbsp;&nbsp;└ theme | 主题文件                     |
+| └ 3-demo  | 基于 VLOOK 主题的示例、模板文件 |
+| └ 4-src    | 源码目录                     |
+| &nbsp;&nbsp;&nbsp;&nbsp;└ dev | 开发测试用示例文件 |
+| &nbsp;&nbsp;&nbsp;&nbsp;└ less | 主题 CSS 文件的源文件 |
+| &nbsp;&nbsp;&nbsp;&nbsp;└ misc | 杂项文件，包括图标源文件、产品原型、主题图形素材设计源文件等 |
+| └ docs     | VLOOK 快速参考手册及相关文档 |
 
 ---
 
