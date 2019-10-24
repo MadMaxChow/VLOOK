@@ -104,10 +104,10 @@ END(结束)
 ```mermaid
 graph LR
 INIT(( ))
-INIT --> |初始<br>ACT/动作|A[状态A]
+INIT --> |初始|A[状态A]
 A --> |复杂变更|trans(( ))
 trans(( )) --> |变更条件说明|B[状态B]
-B --> |变更条件说明<br>ACT/动作|C[状态C]
+B --> |变更条件说明|C[状态C]
 trans{ } -.-> |非正常/次要变更条件说明|C
 C --> FINAL
 trans{ } -.-> |非正常/次要变更条件说明|D[状态D]
@@ -121,10 +121,10 @@ FINAL(( ))
 ​```mermaid
 graph LR
 INIT(( ))
-INIT --> |初始<br>ACT/动作|A[状态A]
+INIT --> |初始|A[状态A]
 A --> |复杂变更|trans(( ))
 trans(( )) --> |变更条件说明|B[状态B]
-B --> |变更条件说明<br>ACT/动作|C[状态C]
+B --> |变更条件说明|C[状态C]
 trans{ } -.-> |非正常/次要变更条件说明|C
 C --> FINAL
 trans{ } -.-> |非正常/次要变更条件说明|D[状态D]

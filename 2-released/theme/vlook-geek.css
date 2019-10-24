@@ -81,8 +81,8 @@
   --header-box-shadow-dark: rgba(231, 130, 147, 0.2);
   --header-bg-start-color-dark: rgba(231, 130, 147, 0);
   --header-bg-end-color-dark: rgba(231, 130, 147, 0.15);
-  --code-bg-color-dark: #9a1d32;
-  --code-bg-color-transparent-dark: rgba(154, 29, 50, 0);
+  --code-bg-color-dark: #6f1524;
+  --code-bg-color-transparent-dark: rgba(111, 21, 36, 0);
   --code-name-bg-color-dark: #121418;
   --code-name-shadow-color-dark: #737c8f;
   --master-color-dark: #022f6d;
@@ -200,6 +200,11 @@
     --mermaid-fifth-color-alt: var(--mermaid-fifth-color-alt-dark);
     --mermaid-sixth-color: var(--mermaid-sixth-color-dark);
     --mermaid-sixth-color-alt: var(--mermaid-sixth-color-alt-dark);
+  }
+  img,
+  .md-diagram-panel svg,
+  .mdx-figure {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMDAwIi8+CiAgICA8ZyBmaWxsPSIjMTYxNDEwIj4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOTkiIHg9Ijk5IiB5PSIxIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMSIgeT0iOTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjkiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI5IiB5PSIxMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIgeT0iMTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMjkiIHk9IjEwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjM5IiB5PSIxMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIgeT0iMTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNTkiIHk9IjEwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjY5IiB5PSIxMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIgeT0iMTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iODkiIHk9IjEwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjE5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMzkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjQ5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNjkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijc5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIgeT0iMzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMTkiIHk9IjMwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjI5IiB5PSIzMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIgeT0iMzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNDkiIHk9IjMwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjU5IiB5PSIzMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIgeT0iMzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNzkiIHk9IjMwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijg5IiB5PSIzMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMjkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjM5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNTkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjY5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iODkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjkiIHk9IjUwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjE5IiB5PSI1MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIgeT0iNTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMzkiIHk9IjUwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjQ5IiB5PSI1MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIgeT0iNTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNjkiIHk9IjUwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijc5IiB5PSI1MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIgeT0iNTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMTkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjI5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNDkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjU5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNzkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijg5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI5IiB5PSI3MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIgeT0iNzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMjkiIHk9IjcwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjM5IiB5PSI3MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIgeT0iNzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNTkiIHk9IjcwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjY5IiB5PSI3MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIgeT0iNzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iODkiIHk9IjcwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjE5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMzkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjQ5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNjkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijc5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIgeT0iOTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMTkiIHk9IjkwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjI5IiB5PSI5MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIgeT0iOTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNDkiIHk9IjkwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjU5IiB5PSI5MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIgeT0iOTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNzkiIHk9IjkwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijg5IiB5PSI5MCIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iMTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjI5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSI5OSIgaGVpZ2h0PSIxIiB5PSIzOSIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iNDkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjU5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSI5OSIgaGVpZ2h0PSIxIiB5PSI2OSIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iNzkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9Ijg5Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K") !important;
   }
 }
 html {
@@ -569,7 +574,7 @@ figure > table tr > td:first-child::before {
   content: "#";
   color: var(--toc-header-num-color);
   font-family: Menlo, Consolas, "Courier New", "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace;
-  font-size: 0.85em;
+  font-size: 0.8em;
   vertical-align: middle;
   text-align: right;
   width: 2.5em;
@@ -713,7 +718,7 @@ code {
   border-radius: 0.3em;
   padding: 0.2em 0.3em;
   margin: 0 0.2em;
-  font-size: 0.85em;
+  font-size: 0.8em;
   white-space: pre-wrap;
   vertical-align: middle;
 }
@@ -724,7 +729,7 @@ code {
   border-radius: 15px;
   border: 2px solid #e6e6e6;
   padding: 1px 4px 1px 4px;
-  font-size: 0.85em;
+  font-size: 0.8em;
   filter: var(--img-dark-filter);
 }
 .task-list {
@@ -1246,7 +1251,7 @@ text.actor {
 }
 .sectionTitle {
   text-anchor: start;
-  font-size: 0.85em;
+  font-size: 0.8em;
   line-height: 2em;
 }
 .grid .tick {
@@ -1266,7 +1271,7 @@ text.actor {
 }
 .taskText {
   text-anchor: middle;
-  font-size: 0.85em;
+  font-size: 0.8em;
   line-height: 2em;
 }
 .taskTextOutsideRight {
@@ -1567,7 +1572,7 @@ sup.md-footnote > a:hover {
 }
 kbd {
   font-family: Menlo, Consolas, "Courier New", "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace;
-  font-size: 0.85em;
+  font-size: 0.8em;
   font-weight: bold;
   border-radius: 0.3em;
   margin: 0 0.2em;
@@ -1822,7 +1827,7 @@ li p {
   z-index: 99;
 }
 .mdx-toc-box-footer {
-  font-size: 0.85em;
+  font-size: 0.8em;
   font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   height: 50px;
   line-height: 40px;
@@ -1848,7 +1853,7 @@ li p {
   width: 100%;
   height: 40px;
   padding: 5px 10px;
-  font-size: 0.85em;
+  font-size: 0.8em;
   font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   position: absolute;
   text-shadow: 0 0 5px #000;
@@ -1960,7 +1965,7 @@ li p {
   background-color: #1E1A18;
   cursor: pointer;
   padding: 0;
-  font-size: 0.85em;
+  font-size: 0.8em;
   width: 40px;
   height: 30px;
   border-radius: 8px;
@@ -2232,7 +2237,7 @@ table:hover {
 }
 .mdx-figure-alt > span {
   color: var(--fore-color);
-  font-size: 0.85em;
+  font-size: 0.8em;
   font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 .mdx-figure-alt hr {
@@ -2326,7 +2331,7 @@ use.mdx-svg-ico-dark:hover {
   color: #FFFFFF;
   background: var(--code-name-bg-color);
   box-shadow: 0 0 0 1px var(--code-name-shadow-color) inset;
-  font-size: 0.85em;
+  font-size: 0.8em;
 }
 .mdx-code-value1,
 .mdx-code-value2,
@@ -2340,7 +2345,7 @@ use.mdx-svg-ico-dark:hover {
   border-radius: 0.5em;
   padding: 0.2em 0.4em;
   color: #FFFFFF;
-  font-size: 0.85em;
+  font-size: 0.8em;
 }
 .mdx-code-value1 {
   background-color: var(--master-color);
@@ -2412,7 +2417,8 @@ h6 code {
   text-decoration: none;
 }
 #write > h6:first-of-type strong::before {
-  content: "by ";
+  content: "By ";
+  font-size: 0.8em;
   font-weight: normal;
   text-decoration: none;
 }
