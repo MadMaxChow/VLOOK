@@ -31,7 +31,7 @@ VLOOK 插件主要包括：
 
 ### 主题样式
 
-![内置主题样式](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/vlook-theme.png)
+![内置主题样式](https://i.loli.net/2019/10/25/2RUxpewkJZqFgfn.png)
 
 - 针对 VLOOK 内置多套优化的主题样式[^主题样式]（在导出 HTML 通过 Typora 的「主题」菜单选择名称以 VLOOK 打头的主题）；
   - **Hope 海洋之心**：[预览 ＞](https://madmaxchow.github.io/VLOOK/index.html)
@@ -74,7 +74,7 @@ VLOOK 插件主要包括：
 
 - 根据浏览器的配置，自动适配 Light / Dark 模式，也支持手动方式进行切换。
 
-![Light / Dark 模式](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/vlook-color-scheme-preview.png)
+![Light / Dark 模式](https://i.loli.net/2019/10/25/omEG7Z6OLI2Jl3C.png)
 
 ### 指定图片在 Dark 模式时反色
 
@@ -85,10 +85,10 @@ VLOOK 插件主要包括：
 - 举例： `![图注](xxxxx.jpg?invert=in-dark)`
 
 ###### 图片默认情况下长这样：
-![不指定在 Dark 模式时反色](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/img-invert-in-dark.png)
+![不指定在 Dark 模式时反色](https://i.loli.net/2019/10/25/AS7XUW41ote98FB.png)
 
 ###### 指定切换至 Dark 模式后反色，会长这样：
-![指定在 Dark 模式时反色](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/img-invert-in-dark.png?invert=in-dark)
+![指定在 Dark 模式时反色](https://i.loli.net/2019/10/25/AS7XUW41ote98FB.png?invert=in-dark)
 
 ### 标题自动编号
 
@@ -442,7 +442,7 @@ $$
 
 ###### 这是普通的图片示例
 
-![普通的图片](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/normal-pic.jpg)
+![普通的图片](https://i.loli.net/2019/10/25/7ueXfR5dnzhWIZi.jpg)
 
 ### 自动识别缺失的图片
 
@@ -534,7 +534,7 @@ $$
 
 ###### 若喜欢 VLOOK™ 的话，可以请 Max 喝杯咖啡～
 
-![](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/donate-wechat.png)
+![](https://i.loli.net/2019/10/25/GCKPxocfJ9MOHk2.png)
 
 ## 下载插件
 
