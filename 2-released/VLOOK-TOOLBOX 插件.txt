@@ -1,8 +1,8 @@
 <!--========================================================================-->
 <!--                                                                        -->
-<!--                       Typora Plugin - VLOOK V9.2                       -->
+<!--                       Typora Plugin - VLOOK v9.3                       -->
 <!--                                                                        -->
-<!--                               2019-10-24                               -->
+<!--                               2019-11-08                               -->
 <!--                             powered by Max                             -->
 <!--                                                                        -->
 <!--              QQ Group: 805502564    email: maxchow@qq.com              -->
@@ -166,7 +166,7 @@ MIT许可证（MIT）
 
 <!-- 大纲面板 -->
 <div class="mdx-mask mdx-backdrop-blurs">
-    <div class="mdx-copyright"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.2) for <a href="https://www.typora.io" target="_blank">Typora</a> | by <strong>Max</strong></div>
+    <div class="mdx-copyright"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (v9.3) for <a href="https://www.typora.io" target="_blank">Typora</a> | by <strong>Max</strong></div>
 </div>
 <div class="mdx-toc-box">
     <div class="mdx-toc-box-header">
@@ -227,7 +227,7 @@ MIT许可证（MIT）
             <use class="mdx-svg-ico-light" xlink:href="#icoClose"></use>
         </svg>
     </div>
-    <div class="mdx-copyright"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.2) for <a href="https://www.typora.io" target="_blank">Typora</a> | by <strong>Max</strong></div>
+    <div class="mdx-copyright"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (v9.3) for <a href="https://www.typora.io" target="_blank">Typora</a> | by <strong>Max</strong></div>
 </div>
 
 <!-- 页面工具栏 -->
@@ -322,7 +322,7 @@ MIT许可证（MIT）
 <div class="mdx-table-cross mdx-table-cross-down">&nbsp;</div>
 
 <script type="text/javascript">
-    const _version = "V9.2", // 版本信息
+    const _version = "v9.3", // 版本信息
         _animateSpeed = 200, // 动画速度，值越小越快
         _icoFold =
             '<svg width="16px" height="16px"><use xlink:href="#icoFolded" class="mdx-svg-ico-dark"/></svg>', // 大纲章节图标：已收起
@@ -360,7 +360,7 @@ MIT许可证（MIT）
      * 获得设备的DPR值
      */
     function getDPR() {
-        return ;
+        return window.devicePixelRatio;
     }
     
     /**
@@ -2706,7 +2706,8 @@ MIT许可证（MIT）
                 ][_lang],
                 2000, true);
 
-            // $(".md-diagram-panel svg").addClass("mdx-figure-bg-dark");
+            $(".md-diagram-panel svg").removeClass("mdx-figure-bg-light");
+            $(".md-diagram-panel svg").addClass("mdx-figure-bg-dark");
         } else {
             showInfoTips(["正在切换为：<strong>明亮模式</strong>",
                     "正在切換為：<strong>明亮模式</strong>",
@@ -2717,6 +2718,9 @@ MIT许可证（MIT）
                     "로 전환 : <strong>라이트 모드</strong>"
                 ][_lang],
                 2000, true);
+
+            $(".md-diagram-panel svg").removeClass("mdx-figure-bg-dark");
+            $(".md-diagram-panel svg").addClass("mdx-figure-bg-light");
         }
 
         // 延时再开始，以便让UI先完成更新
@@ -2806,13 +2810,15 @@ MIT许可证（MIT）
      */
     function adjustImageInverInDarkMode() {
         if (_colorScheme == "dark") {
-            // 应用Dark模式的插图背景
-            $(".md-diagram-panel svg").addClass("mdx-figure-bg-dark");
+            // 应用 Dark 模式的插图背景
+            // $(".md-diagram-panel svg").removeClass("mdx-figure-bg-light");
+            // $(".md-diagram-panel svg").addClass("mdx-figure-bg-dark");
 
             $("img[vlook-invert=in-dark]").addClass("mdx-img-invert-in-dark");
         } else {
             // 恢复Light模式插图背景
-            $(".md-diagram-panel svg").removeClass("mdx-figure-bg-dark");
+            // $(".md-diagram-panel svg").removeClass("mdx-figure-bg-dark");
+            // $(".md-diagram-panel svg").addClass("mdx-figure-bg-light");
 
             $("img[vlook-invert=in-dark]").removeClass("mdx-img-invert-in-dark");
         }
