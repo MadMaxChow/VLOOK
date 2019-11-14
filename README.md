@@ -1,10 +1,10 @@
 # 概况
 
+开源中国（[OSChina.net](OSChina.net)）编辑推荐作品。
+
 VLOOK™ 是针对由 [Typora](https://www.typora.io)（目前最好的跨平台 Markdown 编辑器，没有之一）导出的 HTML 文件进行增强的插件。
 
 VLOOK™ 为开源软件，遵从 MIT 许可证。
-
-开源中国（[OSChina.net](OSChina.net)）编辑推荐作品。
 
 ## 主要特性：
 
