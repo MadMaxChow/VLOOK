@@ -51,7 +51,7 @@ VLOOK™ 为开源软件，遵从 MIT 许可证。
 - 访问官方主页下载最新发布版本：[https://github.com/MadMaxChow/VLOOK/releases](https://github.com/MadMaxChow/VLOOK/releases)
 - 下载并安装 [Typora](https://www.typora.io) ，启动后进入「偏好设置」，启用一些建议的选项，详细如下图：
 ![开启「Markdown 扩展语法」下的所有选项](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/Typora-recommand-options-1.png)
-![开启「代码块」「公式」下的所有选项](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/Typora-recommand-options-1.png)
+![开启「代码块」「公式」下的所有选项](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/Typora-recommand-options-2.png)
 
 # 第2步：应用主题
 
