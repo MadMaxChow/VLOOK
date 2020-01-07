@@ -1,7 +1,7 @@
 # 概况
 
 开源中国（[OSChina.net](https://www.oschina.net/p/vlook)）编辑推荐的国产开源产品。<br>
-![OSChina 编辑推荐国产开源产品](https://tva1.sinaimg.cn/large/006tNbRwgy1ganzltootuj30w808yq4f.jpg)
+![OSChina 编辑推荐国产开源产品](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/OSChina-recommand.png)
 
 VLOOK™ 是针对由 [Typora](https://www.typora.io)（目前最好的跨平台 Markdown 编辑器，没有之一）导出的 HTML 文件进行增强的插件。
 
@@ -49,8 +49,8 @@ VLOOK™ 为开源软件，遵从 MIT 许可证。
 
 - 访问官方主页下载最新发布版本：[https://github.com/MadMaxChow/VLOOK/releases](https://github.com/MadMaxChow/VLOOK/releases)
 - 下载并安装 [Typora](https://www.typora.io) ，启动后进入「偏好设置」，启用一些建议的选项，详细如下图：
-![开启「Markdown 扩展语法」下的所有选项](https://tva1.sinaimg.cn/large/006tNbRwgy1ganwt7vwlaj31540cita9.jpg)
-![开启「代码块」「公式」下的所有选项](https://tva1.sinaimg.cn/large/006tNbRwgy1ganwt7l785j315k0fuwg4.jpg)
+![开启「Markdown 扩展语法」下的所有选项](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/Typora-recommand-options-1.png)
+![开启「代码块」「公式」下的所有选项](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/Typora-recommand-options-1.png)
 
 # 第2步：应用主题
 
