@@ -1,6 +1,7 @@
 # 概况
 
-开源中国（[OSChina.net](https://www.oschina.net/p/vlook)）编辑推荐的国产开源产品。<br>
+**开源中国（[OSChina.net](https://www.oschina.net/p/vlook)）编辑推荐的国产开源产品。**<br>
+
 ![OSChina 编辑推荐国产开源产品](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/OSChina-recommand.png)
 
 VLOOK™ 是针对由 [Typora](https://www.typora.io)（目前最好的跨平台 Markdown 编辑器，没有之一）导出的 HTML 文件进行增强的插件。
