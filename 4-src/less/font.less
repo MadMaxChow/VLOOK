@@ -2,59 +2,33 @@
 * 字体主题
 ***************************************/
 
-// USTC DNS 加速与原始域名映射关系
-// fonts.googleapis.com         fonts.lug.ustc.edu.cn
-// ajax.googleapis.com          ajax.lug.ustc.edu.cn
-// themes.googleusercontent.com google-themes.lug.ustc.edu.cn
-// fonts.gstatic.com            fonts-gstatic.lug.ustc.edu.cn
+@fontSize: 1em;
 
-// @font-face {
-//   font-family: sansFont;
-//   font-style: normal;
-//   font-weight: 400;
-//   font-display: swap;
-//   src: url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.woff2") format("woff2"),
-//   url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.woff") format("woff"),
-//   url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.otf") format("opentype");
-// }
+// 非衬线 Sans 字体基础信息
+@sansFont: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Microsoft YaHei", "微软雅黑", sans-serif;
+@monoSansFont: Menlo, Consolas, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", monospace;
 
-// @font-face {
-//   font-family: sansFont;
-//   font-style: normal;
-//   font-weight: 700;
-//   font-display: swap;
-//   src: url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.woff2") format("woff2"),
-//   url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.woff") format("woff"),
-//   url("http://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.otf") format("opentype");
-// }
-
-// @import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400,700");
-
-@fontSize: 1em;//(16/16) * 100%;
-
-@sans: "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑";
-@sans2: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑";
-//"Alibaba PuHuiTi", "阿里巴巴普惠体", 
-
-// 衬线
+// 衬线 Serif 字体基础信息
 @serifFont: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
-@serifBoldFont:  "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, @sans, sans-serif;
-@monoSerifBoldFont: Menlo, Consolas, "Courier New", @sans, monospace;
+@sans4Serif: SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑";
+@serifBoldFont: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, @sans4Serif, sans-serif;
+@serifBigger: "Noto Serif CJK SC", @serifBoldFont;
+@monoSerifFont: Menlo, Consolas, "Courier New", "Noto Sans CJK SC", @sans4Serif, monospace;
 
-// 非衬线
-@sansFont: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, @sans2, sans-serif;
-@monoSansFont: Menlo, Consolas, "Courier New", @sans2, monospace;
-
-// 衬线+非衬线混排风格
-@titleFont: "Noto Serif CJK SC", @serifBoldFont;
-@headerFont: "Noto Serif CJK SC", @serifBoldFont;
-@textFont: @serifFont;
-@boldFont: @serifBoldFont;
-@codeFont: @monoSerifBoldFont;
-
-// 非衬线风格
+// --------------------
+// 非衬线风格 Sans，启用则取消以下注释，并将 Serif + Sans 注释掉
+// @defaultFontStyle: sans;
 // @titleFont: @sansFont;
 // @headerFont: @sansFont;
 // @textFont: @sansFont;
 // @boldFont: @sansFont;
 // @codeFont: @monoSansFont;
+
+// --------------------
+// 衬线+非衬线混排风格 Serif + Sans，启用则取消以下注释，并将 Sans 注释掉
+@defaultFontStyle: serif;
+@titleFont: @serifBigger;
+@headerFont: @serifBigger;
+@textFont: @serifFont;
+@boldFont: @serifBoldFont;
+@codeFont: @monoSerifFont;

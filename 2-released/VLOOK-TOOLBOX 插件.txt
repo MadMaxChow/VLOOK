@@ -1,8 +1,8 @@
 <!--========================================================================-->
 <!--                                                                        -->
-<!--                       Typora Plugin - VLOOK v9.3                       -->
+<!--                       Typora Plugin - VLOOK V9.5                       -->
 <!--                                                                        -->
-<!--                               2019-11-08                               -->
+<!--                               2020-01-07                               -->
 <!--                             powered by Max                             -->
 <!--                                                                        -->
 <!--              QQ Group: 805502564    email: maxchow@qq.com              -->
@@ -88,15 +88,17 @@ MIT许可证（MIT）
     </symbol>
     <!-- 图标|已收起的大纲节点 -->
     <symbol id="icoFolded">
-        <rect fill="#D8D8D8" fill-opacity="0" height="20" id="Rectangle-3" width="16" x="0" y="0"></rect>
-        <polygon fill="#555555" id="Triangle" points="9 6 14 14 4 14"
+        <rect fill-opacity="0" height="20" width="16" x="0" y="0"></rect>
+        <polygon points="9 6 14 14 4 14"
             transform="translate(9.000000, 10.000000) rotate(90.000000) translate(-9.000000, -10.000000) "></polygon>
     </symbol>
     <!-- 图标|已展开的大纲节点 -->
     <symbol id="icoUnfold">
-        <rect fill="#D8D8D8" fill-opacity="0" height="20" id="Rectangle-3-Copy" width="16" x="0" y="0"></rect>
-        <polygon fill="#555555" fill-opacity="0.5" id="Triangle-Copy" points="8 6 13 14 3 14"
-            transform="translate(8.000000, 10.000000) scale(1, -1) translate(-8.000000, -10.000000) "></polygon>
+        <rect fill-opacity="0" x="0" y="0" width="20" height="20"></rect>
+        <path d="M12.7406854,5.21406025 C12.7499618,5.22288181 12.7590151,5.23193507 12.7678366,5.24121145 L12.7819238,5.25602488 C13.0842779,5.57396723 13.0842779,6.07312756 12.7819238,6.39106991 L8.875,10.498 L12.7847019,14.6089301 C13.0870561,14.9268724 13.0870561,15.4260328 12.7847019,15.7439751 L12.7706148,15.7587886 C12.479763,16.0646355 11.9960431,16.0767915 11.6901961,15.7859398 C11.6809197,15.7771182 11.6718665,15.7680649 11.6630449,15.7587886 L7.21867828,11.0852875 C7.07629201,10.9355604 7.00095907,10.7456444 6.99267944,10.5533914 C6.97246593,10.3264291 7.04701766,10.0923019 7.21590015,9.91471245 L11.6602668,5.24121145 C11.9511186,4.93536447 12.4348385,4.92320847 12.7406854,5.21406025 Z" transform="translate(10.000000, 10.500000) rotate(-90.000000) translate(-10.000000, -10.500000) "></path>
+        <!-- <rect fill-opacity="0" height="20" width="16" x="0" y="0"></rect>
+        <polygon points="8 6 13 14 3 14"
+            transform="translate(8.000000, 10.000000) scale(1, -1) translate(-8.000000, -10.000000) "></polygon> -->
     </symbol>
     <!-- 图标|关闭 -->
     <symbol id="icoClose">
@@ -166,7 +168,7 @@ MIT许可证（MIT）
 
 <!-- 大纲面板 -->
 <div class="mdx-mask mdx-backdrop-blurs">
-    <div class="mdx-copyright"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (v9.3) for <a href="https://www.typora.io" target="_blank">Typora</a> | by <strong>Max</strong></div>
+    <div class="mdx-copyright"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.5) for <a href="https://www.typora.io" target="_blank">Typora</a> | by <strong>Max</strong></div>
 </div>
 <div class="mdx-toc-box">
     <div class="mdx-toc-box-header">
@@ -187,22 +189,22 @@ MIT许可证（MIT）
     <!-- 上一章 -->
     <div class="mdx-nav-prev" onclick="gotoHeader($('.mdx-nav-prev-text'))"
         onmouseenter="showToolTips($(this).attr('tips'), $(this), null)"
-        onmouseleave="hideTips($('.mdx-tool-tips'), false)">
+        onmouseleave="hideToolTips(false)">
         <svg height="15px" style="position: absolute; top: 18px; left: 10px; cursor: pointer;" width="10px">
-            <use class="mdx-svg-ico-light" xlink:href="#icoLeft2"></use>
+            <use class="mdx-button-ico" xlink:href="#icoLeft2"></use>
             prev
         </svg>
         <div class="mdx-nav-prev-text"></div>
     </div>
     <div class="mdx-bread-nav-text" onmouseenter="showToolTips($(this).attr('tips'), $(this), 'center')"
-        onmouseleave="hideTips($('.mdx-tool-tips'), false)"></div>
+        onmouseleave="hideToolTips(false)"></div>
     <!-- 下一章 -->
     <div class="mdx-nav-next" onclick="gotoHeader($('.mdx-nav-next-text'))"
         onmouseenter="showToolTips($(this).attr('tips'), $(this), 'right')"
-        onmouseleave="hideTips($('.mdx-tool-tips'), false)">
+        onmouseleave="hideToolTips(false)">
         <div class="mdx-nav-next-text">next</div>
         <svg height="15px" style="position: absolute; top: 18px; right: 10px; cursor: pointer;" width="10px">
-            <use class="mdx-svg-ico-light" xlink:href="#icoRight2"></use>
+            <use class="mdx-button-ico" xlink:href="#icoRight2"></use>
             next
         </svg>
     </div>
@@ -214,81 +216,81 @@ MIT许可证（MIT）
     <div class="mdx-figure-pagenum"></div>
     <div class="mdx-btn mdx-btn-prev-figure" onclick="prevFigure()">
         <svg height="15px" width="15px">
-            <use class="mdx-svg-ico-light" xlink:href="#icoLeft"></use>
+            <use class="mdx-button-ico" xlink:href="#icoLeft"></use>
         </svg>
     </div>
     <div class="mdx-btn mdx-btn-next-figure" onclick="nextFigure()">
         <svg height="15px" width="15px">
-            <use class="mdx-svg-ico-light" xlink:href="#icoRight"></use>
+            <use class="mdx-button-ico" xlink:href="#icoRight"></use>
         </svg>
     </div>
     <div class="mdx-btn mdx-btn-close-figure-viewer" onclick="hideFigureViewer()">
         <svg height="16px" width="16px">
-            <use class="mdx-svg-ico-light" xlink:href="#icoClose"></use>
+            <use class="mdx-button-ico" xlink:href="#icoClose"></use>
         </svg>
     </div>
-    <div class="mdx-copyright"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (v9.3) for <a href="https://www.typora.io" target="_blank">Typora</a> | by <strong>Max</strong></div>
+    <div class="mdx-copyright"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.5) for <a href="https://www.typora.io" target="_blank">Typora</a> | by <strong>Max</strong></div>
 </div>
 
 <!-- 页面工具栏 -->
 <div class="mdx-toolbar mdx-backdrop-blurs">
     <!-- 大纲按钮 -->
-    <div class="mdx-btn mdx-btn-outline" onclick="toggleOutline()"
+    <div class="mdx-btn mdx-btn-outline" onclick="hideToolTips(); toggleOutline()"
         onmouseenter="showToolTips($(this).attr('tips'), $(this), null)"
-        onmouseleave="hideTips($('.mdx-tool-tips'), false)">
+        onmouseleave="hideToolTips(false)">
         <svg height="14px" id="svgOutline" width="20px">
-            <use class="mdx-svg-ico-light" xlink:href="#icoOutline"></use>
+            <use class="mdx-button-ico" xlink:href="#icoOutline"></use>
         </svg>
     </div>
     <!-- 返回按钮 -->
-    <div class="mdx-btn mdx-btn-nav-back" onclick="navBack()">
+    <div class="mdx-btn mdx-btn-nav-back" onclick="hideToolTips(); navBack()">
         <svg height="15px" width="15px">
-            <use class="mdx-svg-ico-light" xlink:href="#icoLeft"></use>
+            <use class="mdx-button-ico" xlink:href="#icoLeft"></use>
         </svg>
     </div>
     <!-- 前进按钮 -->
-    <div class="mdx-btn mdx-btn-nav-forward" onclick="navForward()">
+    <div class="mdx-btn mdx-btn-nav-forward" onclick="hideToolTips(); navForward()">
         <svg height="15px" width="15px">
-            <use class="mdx-svg-ico-light" xlink:href="#icoRight"></use>
+            <use class="mdx-button-ico" xlink:href="#icoRight"></use>
         </svg>
     </div>
     <!-- 启动插图浏览器 -->
-    <div class="mdx-btn mdx-btn-figure-launcher" onclick="showFigureViewer(null)"
+    <div class="mdx-btn mdx-btn-figure-launcher" onclick="hideToolTips(); showFigureViewer(null)"
         onmouseenter="showToolTips($(this).attr('tips'), $(this), null)"
-        onmouseleave="hideTips($('.mdx-tool-tips'), false)">
+        onmouseleave="hideToolTips(false)">
         <svg height="17px" width="20px">
-            <use class="mdx-svg-ico-light" xlink:href="#icoFigure"></use>
+            <use class="mdx-button-ico" xlink:href="#icoFigure"></use>
         </svg>
     </div>
     <!-- 打印 -->
-    <div class="mdx-btn mdx-btn-print" onclick="printDocument()" onmouseenter="showToolTips($(this).attr('tips'), $(this), null)"
-         onmouseleave="hideTips($('.mdx-tool-tips'), false)">
+    <div class="mdx-btn mdx-btn-print" onclick="hideToolTips(); printDocument()" onmouseenter="showToolTips($(this).attr('tips'), $(this), null)"
+         onmouseleave="hideToolTips(false)">
         <svg height="20px" width="20px">
-            <use class="mdx-svg-ico-light" xlink:href="#icoPrint"></use>
+            <use class="mdx-button-ico" xlink:href="#icoPrint"></use>
         </svg>
     </div>
     <!-- 开关聚光灯 -->
-    <div class="mdx-btn mdx-btn-spotlight" onclick="toggleSpotlight()"
+    <div class="mdx-btn mdx-btn-spotlight" onclick="hideToolTips(); toggleSpotlight()"
         onmouseenter="showToolTips($(this).attr('tips'), $(this), null)"
-        onmouseleave="hideTips($('.mdx-tool-tips'), false)">
+        onmouseleave="hideToolTips(false)">
         <svg height="20px" width="20px">
-            <use class="mdx-svg-ico-light" xlink:href="#icoSpotlight"></use>
+            <use class="mdx-button-ico" xlink:href="#icoSpotlight"></use>
         </svg>
     </div>
     <!-- 字体样式 -->
-    <div class="mdx-btn mdx-btn-font-style" onclick="toggleFontStyle()"
+    <div class="mdx-btn mdx-btn-font-style" onclick="hideToolTips(); toggleFontStyle()"
         onmouseenter="showToolTips($(this).attr('tips'), $(this), null)"
-        onmouseleave="hideTips($('.mdx-tool-tips'), false)">
+        onmouseleave="hideToolTips(false)">
         <svg height="18px" width="16px">
-            <use class="mdx-svg-ico-light" xlink:href="#icoSerifFont"></use>
+            <use class="mdx-button-ico" xlink:href="#icoSerifFont"></use>
         </svg>
     </div>
     <!-- Light/Dark模式切换 -->
-    <div class="mdx-btn mdx-btn-color-scheme" onclick="toggleColorShmeme()"
+    <div class="mdx-btn mdx-btn-color-scheme" onclick="hideToolTips(); toggleColorScheme()"
         onmouseenter="showToolTips($(this).attr('tips'), $(this), null)"
-        onmouseleave="hideTips($('.mdx-tool-tips'), false)">
+        onmouseleave="hideToolTips(false)">
         <svg height="20px" width="20px">
-            <use class="mdx-svg-ico-light" xlink:href="#icoLightMode"></use>
+            <use class="mdx-button-ico" xlink:href="#icoLightMode"></use>
         </svg>
     </div>
 </div>
@@ -304,7 +306,7 @@ MIT许可证（MIT）
 <!-- 插图浮动工具栏 -->
 <div class="mdx-btn mdx-figure-action" onclick="openContentInNewTab()" onmouseout="outFigureAction()">
     <svg height="14px" width="14px">
-        <use class="mdx-svg-ico-light" xlink:href="#icoNewTab"></use>
+        <use class="mdx-button-ico" xlink:href="#icoNewTab"></use>
     </svg>
 </div>
 
@@ -313,7 +315,7 @@ MIT许可证（MIT）
 
 <!-- 提示信息 -->
 <div class="mdx-tool-tips mdx-float-card mdx-backdrop-blurs"></div>
-<div class="mdx-info-tips mdx-float-card mdx-backdrop-blurs" onclick="hideTips($('.mdx-info-tips'), true)"></div>
+<div class="mdx-info-tips mdx-float-card mdx-backdrop-blurs" onclick="hideToolTips(true)"></div>
 
 <!-- 表格十字光标 -->
 <div class="mdx-table-cross mdx-table-cross-left">&nbsp;</div>
@@ -322,12 +324,12 @@ MIT许可证（MIT）
 <div class="mdx-table-cross mdx-table-cross-down">&nbsp;</div>
 
 <script type="text/javascript">
-    const _version = "v9.3", // 版本信息
+    const _version = "V9.5", // 版本信息
         _animateSpeed = 200, // 动画速度，值越小越快
         _icoFold =
-            '<svg width="16px" height="16px"><use xlink:href="#icoFolded" class="mdx-svg-ico-dark"/></svg>', // 大纲章节图标：已收起
+            '<svg width="20px" height="20px" style="display: inline-block; vertical-align: middle;"><use xlink:href="#icoFolded" class="mdx-folder-ico"/></svg>', // 大纲章节图标：已收起
         _icoUnfold =
-            '<svg width="16px" height="16px"><use xlink:href="#icoUnfold" class="mdx-svg-ico-dark"/></svg>', // 大纲章节图标：已展开
+            '<svg width="20px" height="20px" style="display: inline-block; vertical-align: middle;"><use xlink:href="#icoUnfold" class="mdx-folder-ico"/></svg>', // 大纲章节图标：已展开
         _smallScreenWidth = 1000, // 大小屏分界的尺寸标准
         _reboundOffset = 10, // 动画回弹效果偏移量
         _defaultImage =
@@ -359,9 +361,9 @@ MIT许可证（MIT）
     /**
      * 获得设备的DPR值
      */
-    function getDPR() {
-        return window.devicePixelRatio;
-    }
+    // function getDPR() {
+    //     return window.devicePixelRatio;
+    // }
     
     /**
      * 检查页内链接坏链
@@ -408,7 +410,7 @@ MIT许可证（MIT）
             h.push($(n).text());
         });
         let dupHeaders = [];
-        const ignoreHeaders = "业务规则,通用的业务规则,用户界面与交互,通用的用户界面与交互,页面流程,业务主流程,流程图,状态图,数据接入";
+        const ignoreHeaders = "业务规则,画图脚本,说明,通用的业务规则,用户界面与交互,通用的用户界面与交互,页面流程,业务主流程,流程图,状态图,数据接入";
         for (let i in h) {
             for (let k in h) {
                 if (i != k && h[i] == h[k] &&
@@ -500,22 +502,25 @@ MIT许可证（MIT）
             if (item.attr("class").indexOf("-h6") == -1) {
                 // 将目录记录到标题数组中
                 let href = item.children().attr("href");
-                _headers.push(href.indexOf("#") > -1 ? href.substr(1, href.length) : href);
-                item.css("cursor", "pointer"); // 添加鼠标形状
+                _headers.push(href.indexOf("#") > -1 ? href.substring(1, href.length) : href);
+
                 // 自定义大纲节点元数据
+                item.css("cursor", "pointer"); // 添加鼠标形状
                 item.attr({
                     "id": "oli-header-" + item.attr("data-ref"), // 添加id属性
                     "data-node": "0", // 添加节点类型：0:叶子节点, 1:目录节点
-                    "data-folding": "1", // 添加节点状态：0:收起, 1:展开
+                    "data-folded": "false", // 添加节点状态：true:收起, false:展开
                     "title": item.find("a").text().trim()
                 });
+
                 // 所有大纲节点都添加folding空白控件备用
                 $("<div id='fd-oli-header-" + item.attr("data-ref") + "' class='mdx-folder'>&nbsp;</div>")
                     .insertBefore(item.find("a"));
+
                 // 点击大纲节点事件
-                item.click(function () {
-                    hideOutline();
-                    location.href = "#header-" + item.attr("data-ref");
+                item.unbind("click").click(function () {
+                    hideOutline(); // 隐藏大纲
+                    location.href = $("#" + item.attr("id") + " > a").attr("href"); // 跳转至对应的页内锚点
                 });
 
                 // 记录所有非叶子节点的folder控件
@@ -531,6 +536,24 @@ MIT许可证（MIT）
             }
         });
         return true;
+    }
+
+    /**
+     * 根据实际目录结构初始化大纲折叠控件folder
+     */
+     function initFolderButton() {
+        let folder = null;
+        for (let i = 0; i < _foldItem.length; i++) {
+            folder = _foldItem[i].html(_icoUnfold);
+            folder.parent().attr({
+                "data-node": "1", // 0:叶子, 1:目录
+                "data-folded": "false" // true:收起， false:展开
+            });
+            folder.unbind("click").click(function () {
+                foldingChapter($(this).parent().attr("id"));
+                event.cancelBubble = true;
+            });
+        }
     }
 
     /**
@@ -553,21 +576,17 @@ MIT许可证（MIT）
                         item.click();
                 });
                 // 单击内容块处理
-                item.click(function () {
+                item.unbind("click").click(function () {
+                    // 未激活内容块聚焦模式
                     if (_enableBlockFocus == false)
                         return;
 
-                    if (isFallInCrossTable($(this)) == false)
-                        hideTableCross();
-
                     _blockFocusItemIndex = $(this).attr("mdx-blockfocus-index");
 
-                    // 若已显示则隐藏
-                    if (_lastBlockFocusItem != null && _lastBlockFocusItem.attr(
-                            "mdx-blockfocus-index") == _blockFocusItemIndex)
-                        hideBlockFocus();
-                    else if (isFallInCrossTable($(this)) == false) {
-                        gotoBlockFocusItem($(this), false);
+                    // 当前内容块内表格已显示十字光标
+                    if (withCrossTable($(this)) == false) {
+                        hideTableCross();
+                        gotoBlockFocusItem($(this));
                         event.stopPropagation(); // 停止事件冒泡
                     }
                 });
@@ -586,19 +605,26 @@ MIT许可证（MIT）
     /**
      * 判断当前内容块是否与已显示了十字光标的表格重叠
      */
-    function isFallInCrossTable(obj) {
+    function withCrossTable(obj) {
         return (_lastCrossTable != null && obj.children().attr("id") == _lastCrossTable.attr("id"));
     }
 
     /**
      * 跳到指定的内容块，或最新的_blockFocusItemIndex指定的内容块
+     * @target: null: 指定跳到上/下一个位置，非null: 指定的目标位置
      */
-    function gotoBlockFocusItem(it, jump) {
+    function gotoBlockFocusItem(target) {
         hideBlockFocus();
 
-        let item = $("#mdx-blockfocus-" + _blockFocusItemIndex);
-        if (it != null)
-            item = it;
+        let item = null;
+        if (target != null)
+            item = target;
+        else
+            item = $("#mdx-blockfocus-" + _blockFocusItemIndex);
+
+        if (item.css("display") == "none")
+            return false; // 返回跳转失败
+
         item.addClass("mdx-current-blockfocus-item");
         _lastBlockFocusItem = item;
 
@@ -617,14 +643,14 @@ MIT许可证（MIT）
             localStorage["VLOOK-" + _version + "-hint-for-green-hand-step-bf"] = true;
         }
 
-        if (jump == true &&
-            item.offset().top != 0 &&
-            ((item.offset().top - 50) < $(document).scrollTop() ||
-                (item.offset().top + 50) > ($(document).scrollTop() + $(window).height()))) {
-            $('html,body').animate({
+        if (item.offset().top != 0
+            && ((item.offset().top - 50) < $(document).scrollTop()
+            || (item.offset().top + 50) > ($(document).scrollTop() + $(window).height()))) {
+            $("html, body").animate({
                 scrollTop: item.offset().top - $(window).height() / 2
             }, _animateSpeed);
         }
+        return true; // 返回跳转成功
     }
 
     /**
@@ -636,7 +662,10 @@ MIT许可证（MIT）
             _blockFocusItemIndex = parseInt(_blockFocusItemIndex) - step;
             if (_blockFocusItemIndex < 0)
                 _blockFocusItemIndex = 0;
-            gotoBlockFocusItem(null, true);
+
+            // 如果目标内容块item跳转失败，则再尝试上一个
+            if (gotoBlockFocusItem(null) == false)
+                prevBlockFocusItem(1);
         }
     }
 
@@ -649,7 +678,10 @@ MIT许可证（MIT）
             _blockFocusItemIndex = parseInt(_blockFocusItemIndex) + step;
             if (_blockFocusItemIndex > _blockFocusItemCount - 1)
                 _blockFocusItemIndex = _blockFocusItemCount - 1;
-            gotoBlockFocusItem(null, true);
+
+            // 如果目标内容块item跳转失败，则再尝试下一个
+            if (gotoBlockFocusItem(null) == false)
+                nextBlockFocusItem(1);
         }
     }
 
@@ -657,15 +689,16 @@ MIT许可证（MIT）
      * 初始化表格数据
      */
     function initTable() {
-        let colSpanCount = 0;
-        let colSpanCell, lastCell = null;
-        let tblData = [],
+        let colSpanCount = 0,
+            colSpanCell,
+            lastCell = null,
+            tblData = [],
             tblSpan = [],
-            tblTd2ThData = [];
-        let rowIndex = 0,
-            colIndex = 0;
-        let needRowSpan = false;
-        let tableIndex = 0;
+            tblTd2ThData = [],
+            rowIndex = 0,
+            colIndex = 0,
+            needRowSpan = false,
+            tableIndex = 0;
 
         $("table").each(function () {
             // 新标签打开的按钮
@@ -692,9 +725,10 @@ MIT许可证（MIT）
                     cell.attr("mdx-col", "mdx-tbl" + tableIndex + "-" + colIndex);
 
                     // 鼠标点击单元格时显示十字光标
-                    cell.click(function () {
+                    cell.unbind("click").click(function () {
                         hideTableCross();
                         hideBlockFocus();
+                        _enableBlockFocus = false;
 
                         _lastCrossCell = cell;
                         _lastCrossTable = table;
@@ -704,51 +738,59 @@ MIT许可证（MIT）
                             tbW = parseInt(_lastCrossTable.css("width"));
 
                         // 横向左边
-                        $(".mdx-table-cross-left").css({
+                        let left = $(".mdx-table-cross-left");
+                        let w = _lastCrossCell.offset().left - _lastCrossTable.offset().left;
+                        left.css({
                             "display": "block",
                             "top": _lastCrossCell.offset().top,
                             "left": _lastCrossTable.offset().left,
                             "height": tdH,
-                            "width": _lastCrossCell.offset().left -
-                                _lastCrossTable.offset().left,
+                            "width": w,
                             "z-index": 9
                         });
+                        w < 5 ? left.hide() : left.show();
 
                         // 横向右边
-                        // $(".mdx-table-cross-right").css({"width": 0});
-                        $(".mdx-table-cross-right").css({
+                        let right =  $(".mdx-table-cross-right");
+                        w = _lastCrossTable.offset().left + tbW - _lastCrossCell.offset().left - tdW;
+                        right.css({
                             "display": "block",
                             "top": _lastCrossCell.offset().top,
                             "left": _lastCrossCell.offset().left + tdW,
                             "height": tdH,
-                            "width": _lastCrossTable.offset().left + tbW -
-                                _lastCrossCell.offset().left - tdW,
+                            "width": w,
                             "z-index": 9
                         });
+                        w < 5 ? right.hide() : right.show();
 
                         // 竖向上边
-                        $(".mdx-table-cross-up").css({
+                        let up = $(".mdx-table-cross-up");
+                        let h = _lastCrossCell.offset().top - _lastCrossTable.offset().top;
+                        up.css({
                             "display": "block",
                             "top": _lastCrossTable.offset().top,
                             "left": _lastCrossCell.offset().left,
-                            "height": _lastCrossCell.offset().top -
-                                _lastCrossTable.offset().top,
+                            "height": h,
                             "width": tdW,
                             "z-index": 9
                         });
+                        h < 5 ? up.hide() : up.show();
 
                         // 竖向下边
-                        // $(".mdx-table-cross-down").css({"height": 0});
-                        $(".mdx-table-cross-down").css({
+                        let down = $(".mdx-table-cross-down");
+                        h = _lastCrossTable.offset().top + parseInt(_lastCrossTable.css("height"))
+                            - _lastCrossCell.offset().top - tdH;
+                        down.css({
                             "display": "block",
                             "top": _lastCrossCell.offset().top + tdH,
                             "left": _lastCrossCell.offset().left,
-                            "height": _lastCrossTable.offset().top + parseInt(
-                                    _lastCrossTable.css("height")) -
-                                _lastCrossCell.offset().top - tdH,
+                            "height": h,
                             "width": tdW,
                             "z-index": 9
                         });
+                        h < 5 ? down.hide() : down.show();
+
+                        event.stopPropagation(); // 停止事件冒泡
                     });
 
                     // --- 行合并预处理 ---
@@ -862,13 +904,20 @@ MIT许可证（MIT）
                 "テーブル.",
                 "표."
             ][_lang] + (tableIndex + 1);
+
             // 有指定的图注文本
-            let fc = getFigureCaption(table.parent().prev());
+            let fc = null, fc2 = null;
+            let fcSet = getFigureCaption(table.parent().prev());
+            fc = fcSet[0];
+            fc2 = fcSet[1];
+
             if (fc != null && fc.trim().length > 0)
                 figCaption = figCaption + " - " + fc;
             // 为插图增加图注
-            table.wrap("<div id='tbl-num" + tableIndex + "' class='mdx-figure-alt'></div>");
-            table.before("<span>" + figCaption + "</span>");
+            table.wrap("<div id='tbl-num" + tableIndex + "' class='mdx-figure-caption'></div>");
+            table.before("<span class='mdx-figure-caption-1'>" + figCaption + "</span>");
+            if (fc2 != null && fc2.length > 0)
+                table.after("<span class='mdx-figure-caption-2'>" + fc2 + "</span>");
 
             tableIndex++;
             needRowSpan = false;
@@ -892,7 +941,7 @@ MIT许可证（MIT）
      */
     function initFigureData() {
         let ignoreImgLost = false;
-        $("img, .md-diagram-panel svg").each(function () {
+        $("img, .md-diagram-panel svg, .mdx-figure-content svg").each(function () {
             let fig = $(this);
             // 添加插图标识数据
             fig.attr({
@@ -908,7 +957,7 @@ MIT许可证（MIT）
             $("<a name='" + "fig-idx" + _figureCount + "'>").insertBefore(fig.parent());
 
             // 添加鼠标单击事件
-            fig.click(function () {
+            fig.unbind("click").click(function () {
                 showFigureViewer(fig);
             });
             // 添加鼠标移入/移出事件
@@ -919,10 +968,13 @@ MIT许可证（MIT）
                 hideFigureAction(fig);
             });
 
-            let fc = null;
+            let fc = null, fc2 = null;
             // 图片插图的处理
             if (fig.attr("fig-type").toLowerCase() == "img") {
-                fc = fig.attr("alt"); // 获取插图标题
+                fc = fig.attr("alt"); // 获取图片的 alt 内容作为图注内容
+                fc2 = fig.attr("title"); // 获得图片的 title 作为第二图注内容
+                // fig.removeAttr("title"); // 移除 title 属性减少视觉干扰
+
                 let src = fig.attr("src");
                 // 图片无法加载时加载默认图片
                 fig.bind("error", function () {
@@ -953,14 +1005,17 @@ MIT许可证（MIT）
 
                 // 处理在 Dark Mode 指定反转的图片
                 if (getQueryString(src.substring(src.indexOf("?"), src.length))["invert"] == "in-dark") {
-                    // console.log(src + "invert in dark");
                     fig.attr("vlook-invert", "in-dark");
                 }
             }
-            // SVG插图的处理
-            else if (fig.attr("fig-type").toLowerCase() == "svg") {
-                // 获取插图标题
-                fc = getFigureCaption(fig.parent().prev().prev());
+        
+            // 尝试获取最近的 h6 作为图注内容
+            let fcSet = getFigureCaption(fig.parent().prev().prev());
+            if (fcSet[0] != null) {
+                if (fcSet[0] != null)
+                    fc = fcSet[0];
+                if (fcSet[1] != null)
+                    fc2 = fcSet[1];
             }
 
             let figCaption = ["图.",
@@ -977,12 +1032,30 @@ MIT许可证（MIT）
                 figCaption = figCaption + " - " + fc;
 
             // 为插图增加图注
-            fig.wrap("<div id='fig-num" + _figureCount + "' class='mdx-figure-alt'></div>");
-            fig.before("<span>" + figCaption + "</span>");
+            fig.wrap("<div id='fig-num" + _figureCount + "' class='mdx-figure-caption'></div>");
+            fig.before("<span class='mdx-figure-caption-1'>" + figCaption + "</span>");
+            if (fc2 != null && fc2.length > 0)
+                fig.after("<span class='mdx-figure-caption-2'>" + fc2 + "</span>");
 
-            // 修正在SVG插图套上图注figure-alt后的自适应尺寸
-            if (fig.attr("fig-type").toLowerCase() == "svg")
-                fig.parent().css("width", "100%");
+            // 修正在SVG插图套上图注figure-caption后的自适应尺寸
+            if (fig.attr("fig-type").toLowerCase() == "svg") {
+                if (fig.attr("height") != "none" || fig.css("height") != "none") {// 有指定高度的
+                    fig.removeAttr("height");
+                    fig.css("height", "");
+                }
+
+                // 调整SVG插图，尽量按其真实插图的大小显示，超出浏览器宽度的，则左右滚动浏览
+                if (fig.css("max-width") != "none") // CSS 中指定了最大宽度
+                    fig.parent().css("width", fig.css("max-width"));
+                else if (fig.attr("style").indexOf("width") > -1) // 通过 style 指定了宽度
+                    fig.parent().css("width", fig.css("width"));
+                else if (fig.attr("width") != "100%") // 指定了 width 属性，且不为 100%
+                    fig.parent().css("width", fig.attr("width"));
+                else if (fig.attr("viewBox") != "none") // 指定 width 为 100% 的情况
+                    fig.parent().css("width", fig.attr("viewBox").split(" ")[2] + "px");
+                else
+                    fig.parent().css("width", "100%");
+            }
 
             _figureCount++;
         });
@@ -993,12 +1066,46 @@ MIT许可证（MIT）
     /**
      * 返回插图、表格上方H6的内容为图注或表注
      */
-    function getFigureCaption(caption) {
-        if (caption != null
-            && caption.prop("tagName") != undefined
-            && caption.prop("tagName").toLowerCase() == "h6")
-            return caption.text();
-        return null;
+    function getFigureCaption(obj) {
+        let fcSet = [];
+        if (getFigureCaptionCount(obj) == 2) {
+            fcSet[0] = getFigureCaptionSet(obj, 2)[0];
+            fcSet[1] = getFigureCaptionSet(obj, 2)[1];
+        }
+        else if (getFigureCaptionCount(obj) == 1) {
+            fcSet[0] = getFigureCaptionSet(obj, 2)[0];
+            fcSet[1] = null;
+        }
+        // 若成功匹配出图注/表注，则隐藏原始内容
+        if (fcSet[0] != null
+            && obj != null
+            && obj.prop("tagName") != undefined) {
+            obj.hide();
+        }
+        return fcSet;
+    }
+    /**
+     * 返回匹配的图注/表注数量：0/1/2
+     */
+    function getFigureCaptionCount(figure) {
+        let reg2 = /^!\[.+\]\".+\"$/; // 有2个图注或表注
+        let reg1 = /^!\[.+\]$/; // 只有1个图注或表注
+        if (reg2.test(figure.text().trim()) == true)
+            return 2;
+        if (reg1.test(figure.text().trim()) == true)
+            return 1;
+        return 0; // 无图注或表注
+    }
+    /**
+     * 返回图注/表注数据。[0] - 第1个，[1] - 第2个
+     */
+    function getFigureCaptionSet(figure, count) {
+        let fcSet = [],
+            text = figure.text().trim();
+        fcSet[0] = text.substring(2, text.indexOf("]"));
+        if (count == 2)
+            fcSet[1] = text.substring(text.indexOf("]\"") + 2, text.length - 1);
+        return fcSet;
     }
 
     /**
@@ -1015,6 +1122,8 @@ MIT许可证（MIT）
      * 显示插图浏览器
      */
     function showFigureViewer(fig) {
+        freezeScroll();
+
         if (_figureCount == 0)
             return;
         if (_figIndex == -1)
@@ -1070,7 +1179,8 @@ MIT许可证（MIT）
             act.css("z-index", actIdx - viewerIdx);
 
         hideFigureAction(null);
-        hideMask();
+        unfreezeScroll();
+        // hideMask();
     }
 
     /**
@@ -1127,56 +1237,59 @@ MIT许可证（MIT）
             " class='typora-export' style='min-height:100vh; color:" + fgColor + "; background-color:" + bgColor +
             "'><div class='mdx-spotlight'></div>" +
             "<div id='write' class='is-mac' style='margin-left: 0;'>",
-            caption = "";
+            content = null,
+            caption = "",
+            fc2 = "";
 
         newTab.document.write("<!doctype html>");
         newTab.document.write($("html").html());
 
         newTab.document.title = _lastHoverContent.prev().text();
+        if (_lastHoverContent.next().attr("class") == "mdx-figure-caption-2")
+            fc2 = _lastHoverContent.next().clone();
+
+        // 复制要在新标签中打开的内容
+        content = _lastHoverContent.clone();
 
         // 图片
         if (_lastHoverContent.attr("fig-type") == "img") {
-            let newObj = _lastHoverContent.clone();
-            newObj.css({
-                "border-radius": "15px"
-            });
-
             newTab.document.body.outerHTML = baseContent +
-                newObj.prop("outerHTML") + "</div></div></body>";
+                content.prop("outerHTML") + "</div></div></body>";
         }
         // mermaid / flow.js等SVG图
         else if (_lastHoverContent.attr("fig-type") == "svg") {
-            let newObj = _lastHoverContent.clone();
-            newObj.css({
-                "border-radius": "15px"
-            });
-
             newTab.document.body.outerHTML = baseContent + "<div class='md-diagram-panel'>" +
-                newObj.prop("outerHTML") + "</div></div></body>";
+                content.prop("outerHTML") + "</div></div></body>";
         }
         // 表格
         else if (_lastHoverContent.prop("tagName").toLowerCase() == "table") {
-            let newObj = _lastHoverContent.clone();
             newTab.document.body.outerHTML = baseContent + "<h1 style='display:none'>" + ["表格", "table", "Table", "table",
                     "table"
                 ][_lang] + "</h1><figure>" +
-                newObj.prop("outerHTML") + "</figure></div></div></body>";
+                content.prop("outerHTML") + "</figure></div></div></body>";
         }
 
         // 初始化新标签页面
         newTab.initVLOOK(_colorScheme);
-        
         newTab.adjustColorScheme();
         newTab.adjustImageInverInDarkMode();
 
-        newTab.updateFigureAlt(newTab.document.title);
+        // 将主文档中对应内容的图注/表注数据更新到新标签中
+        let caption1 = _lastHoverContent.prev().text(),
+            caption2 = _lastHoverContent.next().attr("class") == "mdx-figure-caption-2" ? _lastHoverContent.next().text() : null;
+        newTab.updateFigureCaptionForNewTab(caption1, caption2);
     }
 
     /**
      * 更新插图的图注、表注（用于在新标签打开插图、表格后的强制更新对应内容）
      */
-    function updateFigureAlt(caption) {
-        $(".mdx-figure-alt > span").text(caption);
+    function updateFigureCaptionForNewTab(caption1, caption2) {
+        $(".mdx-figure-caption > .mdx-figure-caption-1").text(caption1);
+
+        if (caption2 != null) {
+            $(".mdx-figure-caption").append("<span class='mdx-figure-caption-2'>");
+            $(".mdx-figure-caption > .mdx-figure-caption-2").text(caption2);
+        }
     }
 
     /**
@@ -1205,25 +1318,25 @@ MIT许可证（MIT）
             "height": $(window).height()
         });
 
-        let newObj = fig.clone();
-        newObj.css({
+        let newFig = fig.clone();
+        newFig.css({
             "max-width": $(window).width() - 90,
             "max-height": $(window).height() - 90,
             "display": "inline-block",
             "cursor": "pointer",
             "border-radius": "15px",
         });
-        newObj.click(function () {
+        newFig.unbind("click").click(function () {
             gotoFigure();
             hideFigureViewer();
         });
-        content.append(newObj);
+        content.append(newFig);
 
-        newObj.mouseenter(function () {
-            showFigureAction(newObj);
+        newFig.mouseenter(function () {
+            showFigureAction(newFig);
         });
-        newObj.mouseout(function () {
-            hideFigureAction(newObj);
+        newFig.mouseout(function () {
+            hideFigureAction(newFig);
         });
     }
 
@@ -1302,7 +1415,7 @@ MIT许可证（MIT）
      * 通过插图浏览器中转到文档插图位置
      */
     function gotoFigure() {
-        $(".mdx-figure-content").click(function () {
+        $(".mdx-figure-content").unbind("click").click(function () {
             window.location.href = "#fig-idx" + _figIndex;
             hideFigureViewer();
         });
@@ -1382,13 +1495,13 @@ MIT许可证（MIT）
             "<kbd>F</kbd> - 전체 화면 전환"
         ][_lang]);
 
-        $(".mdx-btn-color-scheme").attr("tips", ["<kbd>T</kbd> - 切换 [ 黑暗 / 明亮 ] 模式",
-            "<kbd>T</kbd> - 切換 [ 黑暗 / 明亮 ] 模式",
-            "<kbd>T</kbd> - Switch Dark/Light Mode",
-            "<kbd>T</kbd> - Basculer en mode sombre / clair",
-            "<kbd>T</kbd> - Переключить темный / светлый режим",
-            "<kbd>T</kbd> - ダーク/ライトモードの切り替え",
-            "<kbd>T</kbd> - 다크 / 라이트 모드 전환"
+        $(".mdx-btn-color-scheme").attr("tips", ["<kbd>D</kbd> - 切换 [ 黑暗 / 明亮 ] 模式",
+            "<kbd>D</kbd> - 切換 [ 黑暗 / 明亮 ] 模式",
+            "<kbd>D</kbd> - Switch Dark/Light Mode",
+            "<kbd>D</kbd> - Basculer en mode sombre / clair",
+            "<kbd>D</kbd> - Переключить темный / светлый режим",
+            "<kbd>D</kbd> - ダーク/ライトモードの切り替え",
+            "<kbd>D</kbd> - 다크 / 라이트 모드 전환"
         ][_lang]);
 
         $(".mdx-btn-font-style").attr("tips", ["<kbd>A</kbd> - 切换 字体风格",
@@ -1592,6 +1705,12 @@ MIT许可证（MIT）
                 base: lang.substring(0, 2),
                 subset: lang.substring(3, lang.length)
             };
+        }(),
+        // 显示信息
+        display: function () {
+            return {
+                DPR: window.devicePixelRatio
+            };
         }()
     }
 
@@ -1599,15 +1718,16 @@ MIT许可证（MIT）
      * 显示浏览器相关信息
      */
     function displayEnvInfo() {
-        console.log("User-Agent\t[ " + navigator.userAgent + " ]");
+        console.log("Environmental information:");
+        console.log("    User-Agent\t[ " + navigator.userAgent + " ]");
 
-        console.log("Language\t"
+        console.log("    Language\t"
             + "[ " + env.language.base + (env.language.subset.length > 0 ? "_" + env.language.subset : "") + " ]");
 
-        console.log("OS\t\t\t"
+        console.log("    OS\t\t\t"
             + (env.os.macos ? "[ macOS ]" : "[ Windows ]"));
 
-        console.log("Device\t\t"
+        console.log("    Device\t\t"
             + "[ "
             + (env.device.mobile ? "Mobile " : "")
             + (env.device.ios ? "iOS " : "")
@@ -1616,20 +1736,26 @@ MIT许可证（MIT）
             + (env.device.iPad ? "iPad " : "")
             + "]");
 
-        console.log("Browser\t\t"
+        console.log("    Browser\t\t"
             + "[ "
-            + (env.browser.chrome ? "Chrome " + env.browserVersion.chrome : "")
-            + (env.browser.firefox ? "Firefox " + env.browserVersion.firefox : "")
-            + (env.browser.safari ? "Safari " + env.browserVersion.safari : "")
+            + (env.browser.chrome ? "Chrome / " + env.browserVersion.chrome : "")
+            + (env.browser.firefox ? "Firefox / " + env.browserVersion.firefox : "")
+            + (env.browser.safari ? "Safari / " + env.browserVersion.safari : "")
             + " ]");
 
-        console.log("Core\t\t"
+        console.log("    Core\t\t"
             + "[ "
             + (env.core.gecko ? "Gecko" : "")
             + (env.core.presto ? "Presto" : "")
             + (env.core.trident ? "Trident" : "")
             + (env.core.webkit ? "WebKit" : "")
             + " ]");
+
+        console.log("    DPR\t\t\t"
+            + "[ "
+            + env.display.DPR
+            + " ]");
+        console.log("    (Device Pixel Ratio)")
     }
 
     /**
@@ -1652,7 +1778,7 @@ MIT许可证（MIT）
                 ][_lang]);
                 obj.addClass("mdx-blockquote-folder");
                 obj.css("cursor", "pointer");
-                obj.click(function () {
+                obj.unbind("click").click(function () {
                     toggleQuoteFolding($(this));
                 });
             }
@@ -1669,7 +1795,7 @@ MIT许可证（MIT）
                 ][_lang]);
                 obj.addClass("mdx-blockquote-folder");
                 obj.css("cursor", "pointer");
-                obj.click(function () {
+                obj.unbind("click").click(function () {
                     toggleQuoteFolding($(this));
                 });
             }
@@ -1688,7 +1814,6 @@ MIT许可证（MIT）
      * 收起引用块
      */
     function foldQuote(obj, quote) {
-        console.log("fold: " + quote.css("display"));
         quote.css("display", "none");
         obj.attr("title", ["点击展开",
             "點擊展開",
@@ -1705,7 +1830,6 @@ MIT许可证（MIT）
      * 展开引用块
      */
     function unfoldQuote(obj, quote) {
-        console.log("unFold: " + quote.css("display"));
         quote.css("display", "block");
         obj.attr("title", ["点击收起",
             "點擊收起",
@@ -1760,7 +1884,7 @@ MIT许可证（MIT）
             if ($(window).width() < parseInt(toc.css("width")))
                 toc.css("width", $(window).width() - 20);
             else
-                toc.css("width", parseInt(getComputedStyle(document.documentElement).getPropertyValue("--toc-box-width")));
+                toc.css("width", parseInt(getComputedStyle(document.documentElement).getPropertyValue("--vlook-toc-box-width")));
 
             // 显示遮罩
             showMask(toc, hideOutline);
@@ -1782,24 +1906,6 @@ MIT许可证（MIT）
             });
 
             hideMask();
-        }
-    }
-
-    /**
-     * 根据实际目录结构初始化大纲折叠控件folder
-     */
-    function initFolderButton() {
-        let folder = null;
-        for (let i = 0; i < _foldItem.length; i++) {
-            folder = _foldItem[i].html(_icoUnfold);
-            folder.parent().attr({
-                "data-node": "1", // 0:leaf, 1:folder
-                "data-folding": "1" // 0:collect, 1:expand
-            });
-            folder.click(function () {
-                foldingChapter($(this).parent().attr("id"));
-                event.cancelBubble = true;
-            });
         }
     }
 
@@ -1829,7 +1935,7 @@ MIT许可证（MIT）
         _lastCurrentHeaderIndex = currentIndex;
 
         // 当前屏幕内容为第1章或以后章节的内容
-        if (isFallInHeaders() == true) {
+        if (isFallInHeader() == true) {
             // 根据是否为最后章节修正当前章节索引
             let currentIndex = _lastCurrentHeaderIndex > 0 ? (_lastCurrentHeaderIndex - 1) : (_headers.length - 1);
 
@@ -1853,14 +1959,12 @@ MIT许可证（MIT）
             // 更新面包屑导航UI及数据
             updateBreadNavUI(currentIndex);
         }
-
-        adjustBreadNav();
     }
 
     /**
      * 是否落入章节内
      */
-    function isFallInHeaders() {
+    function isFallInHeader() {
         return _lastCurrentHeaderIndex > 0 || // 非最后章节
             (_lastCurrentHeaderIndex == -1 && _headers.length > 1); // 最后章节
     }
@@ -1873,7 +1977,7 @@ MIT许可证（MIT）
         let navText = $(".mdx-bread-nav-text");
         navText.text(_lastOutlineItem.attr("title"));
         navText.attr("data-anchor", _headers[currentIndex]);
-        navText.click(function () {
+        navText.unbind("click").click(function () {
             gotoHeader($(this));
         });
 
@@ -1924,7 +2028,7 @@ MIT许可证（MIT）
             return;
 
         let toolTips = $(".mdx-tool-tips");
-        hideTips(toolTips, true);
+        hideToolTips(true);
         toolTips.html(msg);
 
         const fp = follow.parent();
@@ -1970,10 +2074,10 @@ MIT许可证（MIT）
     function showInfoTips(msg, delay, fullscreen) {
         clearTimeout(_tipsTimer);
 
-        let obj = $(".mdx-info-tips");
-        obj.html(msg);
+        let tips = $(".mdx-info-tips");
+        tips.html(msg);
         // 先重置为默认值
-        obj.css({
+        tips.css({
             right: "auto",
             bottom: "auto",
             borderRadius: 15,
@@ -1981,38 +2085,56 @@ MIT许可证（MIT）
         });
 
         if (fullscreen == false) { // 居中显示
-            obj.css({
-                left: ($(window).width() - obj.width()) / 2,
-                top: ($(window).height() - obj.height()) / 2
+            tips.css({
+                left: ($(window).width() - tips.width()) / 2,
+                top: ($(window).height() - tips.height()) / 2
             });
         } else { // 全屏显示
-            obj.css({
+            tips.css({
                 left: 0,
                 top: 0,
                 right: 0,
                 bottom: 0,
                 borderRadius: 0
             });
-            obj.css({
-                lineHeight: obj.height() + "px"
+            tips.css({
+                lineHeight: tips.height() + "px"
             });
         }
-        obj.fadeIn(_animateSpeed, function () {
+        tips.fadeIn(_animateSpeed, function () {
             if (delay != null)
                 _tipsTimer = setTimeout(function () {
-                    hideTips(obj, true);
+                    hideInfoTips();
                 }, delay);
         });
+
+        // 冻结滚动
+        freezeScroll();
+
+        // 显示遮罩
+        let mask = $(".mdx-mask");
+        mask.css("z-index", tips.css("z-index") - 1);
+        mask.on("click", hideInfoTips);
+        mask.fadeIn(_animateSpeed);
     }
 
     /**
      * 隐藏工具提示、弹窗信息
      */
-    function hideTips(obj, ani) {
+    function hideToolTips(ani) {
+        let tips = $('.mdx-tool-tips');
         if (ani == true)
-            obj.fadeOut(_animateSpeed);
+            tips.fadeOut(_animateSpeed);
         else
-            obj.hide();
+            tips.hide();
+    }
+
+    /**
+     * 隐藏工具提示、弹窗信息
+     */
+    function hideInfoTips() {
+        $('.mdx-info-tips').fadeOut(_animateSpeed);
+        hideMask();
     }
 
     /**
@@ -2025,10 +2147,9 @@ MIT许可证（MIT）
             return;
 
         nav.addClass("mdx-float-card");
-        // nav.css({top: -50});
-        nav.animate({
+        nav.css({
             top: 0
-        }, _animateSpeed);
+        });
     }
 
     /**
@@ -2041,9 +2162,9 @@ MIT许可证（MIT）
 
         // 隐藏面包屑导航条
         nav.removeClass("mdx-float-card");
-        nav.animate({
+        nav.css({
             top: -50
-        }, _animateSpeed);
+        });
     }
 
     /**
@@ -2064,7 +2185,6 @@ MIT许可证（MIT）
         $(window).scrollTop(0);
         if (_lastOutlineItem != null) {
             _lastOutlineItem.removeClass("mdx-header-current");
-            // _lastOutlineItem.removeClass("mdx-header-current-dark");
             _lastCurrentHeaderIndex = -2;
         }
     }
@@ -2101,18 +2221,16 @@ MIT许可证（MIT）
         if (env.device.mobile == true)
             $(".mdx-btn-print, .mdx-btn-spotlight, .mdx-btn-font-style, .mdx-btn-color-scheme, .mdx-btn-print").hide();
 
-        // 如果是小屏，或回到封面位置（面包屑已隐藏）
-        if (isSmallScreen() || _lastCurrentHeaderIndex == 0) {
+        // 如果是小屏，或在封面
+        if (isSmallScreen() || isFallInHeader() == false) {
             $(".mdx-toolbar > div").addClass("mdx-float-card");
 
-            // 小屏则直接隐藏背景
+            // 小屏则隐藏背景
             if (isSmallScreen()) {
                 tb.css({
-                    background: "none"
-                });
-                tb.animate({
+                    background: "none",
                     top: 50
-                }, _animateSpeed);
+                });
             }
             // 大屏则动画式收起
             else {
@@ -2121,37 +2239,38 @@ MIT许可证（MIT）
                 });
             }
 
+            // 为去掉工具栏背景的按钮添加浮动样式
+            $(".mdx-btn-outline, .mdx-btn-figure-launcher, .mdx-btn-color-scheme, .mdx-btn-font-style, .mdx-btn-spotlight, .mdx-btn-print")
+                .addClass("mdx-btn-float");
+
             tb.removeClass("mdx-backdrop-blurs");
             tb.removeClass("mdx-float-card");
-            tb.animate({
+            tb.css({
                 right: 10,
-                width: $("#write").width() + 20
-            }, _animateSpeed);
+                width: "auto"
+            });
 
-            if (_lastCurrentHeaderIndex == 0) // 如果回到封面位置（面包屑已隐藏），则进行二次调整
+            // 如果回到封面位置，则进行二次调整
+            if (isFallInHeader() == false)
                 tb.css({
                     top: 10
                 });
-        } else {
+        } else { // 宽屏，且不在封面
             $(".mdx-toolbar > div").removeClass("mdx-float-card");
-
-            tb.css({
-                // top: -50,
-                backgroundColor: $(".mdx-bread-nav").css("background-color")
-            });
 
             tb.addClass("mdx-backdrop-blurs");
             tb.addClass("mdx-float-card");
-            tb.animate({
+            tb.css({
                 top: 0,
                 right: "auto",
-                width: parseInt(getComputedStyle(document.documentElement).getPropertyValue("--toc-box-width"))
-            }, _animateSpeed);
-        }
+                width: parseInt(getComputedStyle(document.documentElement).getPropertyValue("--vlook-toc-box-width")),
+                backgroundColor: $(".mdx-bread-nav").css("background-color")
+            });
 
-        $(".mdx-btn-fullscreen").css("visibility", "visible");
-        if (env.device.mobile)
-            $(".mdx-btn-fullscreen").css("visibility", "hidden");
+            // 为增加了工具栏背景的按钮去掉浮动样式
+            $(".mdx-btn-outline, .mdx-btn-figure-launcher, .mdx-btn-color-scheme, .mdx-btn-font-style, .mdx-btn-spotlight, .mdx-btn-print")
+                .removeClass("mdx-btn-float");
+        }
     }
 
     /**
@@ -2190,7 +2309,7 @@ MIT许可证（MIT）
             });
         } else {
             nav.css({
-                left: "calc(var(--toc-box-width) + 30px)"
+                left: "calc(var(--vlook-toc-box-width) + 30px)"
             });
 
             prevText.show();
@@ -2205,14 +2324,12 @@ MIT许可证（MIT）
             });
         }
 
-        if (isFallInHeaders() == true) { // 最后章节
+        if (isFallInHeader() == true) { // 非封面
             // 显示面包屑导航
             showBreadNav();
-            adjustToolbar();
         } else {
             // 隐藏面包屑导航
             hideBreadNav();
-            adjustToolbar();
         }
     }
 
@@ -2222,15 +2339,27 @@ MIT许可证（MIT）
      */
     function foldingChapter(id) {
         let obj = $("#" + id);
-        let folder = $("#fd-" + id);
-        const folding = obj.attr("data-folding");
-        if (folding == "0") {
-            obj.attr("data-folding", "1");
-            folder.html(_icoUnfold);
+        let folder = $("#fd-" + id + " > svg");
+        const folded = obj.attr("data-folded");
+
+        // 对应的章节已收起
+        if (folded == "true") {
+            obj.attr("data-folded", "false");
+            // folder.html(_icoUnfold);
+            folder.css({
+                "transform": "rotate(0deg)",
+                "transition": "all 0.1s ease-in-out"
+                });
             disposeFolding(id, 1, true);
-        } else if (folding == "1") {
-            obj.attr("data-folding", "0");
-            folder.html(_icoFold);
+        }
+        // 对应的章节已展开
+        else if (folded == "false") {
+            obj.attr("data-folded", "true");
+            // folder.html(_icoFold);
+            folder.css({
+                "transform": "rotate(-90deg)",
+                "transition": "all 0.1s ease-in-out"
+                });
             disposeFolding(id, 0, true);
         }
     }
@@ -2255,13 +2384,15 @@ MIT许可证（MIT）
                     break;
             }
             // 如果是目录节点，同时是已展开的，才进行递归调用展开子节点
-            if (recu == true && item.attr("data-node") == "1" && item.attr("data-folding") == "1") {
+            if (recu == true && item.attr("data-node") == "1" && item.attr("data-folded") == "false") {
                 disposeFolding(item.attr("id"), act, recu);
             }
             if (act == 0) // 收起
                 item.css("display", "none");
+                // item.fadeOut(_animateSpeed);
             else if (act == 1) // 展开
                 item.css("display", "block");
+                // item.fadeIn(_animateSpeed);
             lastItem = item;
         }
     }
@@ -2417,7 +2548,7 @@ MIT许可证（MIT）
     function rebuildSegmentCode(obj, split, number) {
         const codeText = obj.text();
         const si = codeText.indexOf(split);
-        obj.before("<code class='mdx-code-name" + number + "'>" + codeText.substr(0, si) + "</code>");
+        obj.before("<code class='mdx-code-name" + number + "'>" + codeText.substring(0, si) + "</code>");
         obj.text(codeText.substr(si + split.length, codeText.length));
         obj.attr("class", "mdx-code-value" + number);
     }
@@ -2496,68 +2627,109 @@ MIT许可证（MIT）
             });
         });
 
-        // 修正高 DPI 导出的 mermaid 的BUG
-        fixHighDPImermaid();
+        // 修正 mermaid 的渲染 BUG
+        fixMermaidRender_84();
     }
 
     /**
-     * 修正 mermaid 8.0 在 Windows 高 DPI 配置下导出的BUG
+     * 修正 mermaid 8.4 在导出 HTML 的渲染 BUG
     */
-    function fixHighDPImermaid() {
-        // 跳过非 Windows 版 Typora 导出的 HTML
-        if ($("body").attr("class").indexOf("os-windows") == -1)
-            return;
-    
-        $(".label foreignObject > div, .edgeLabel foreignObject > div").each(function () {
-            // 跳过空文本的处理
-            if ($(this).text().trim().length == 0)
-                return true;
-
-            let ratio = $(this).parent().height() / $(this).height(), // 获得文本标签及父元素的高度比，作为line-height的基数
-                child = $(this).children("span"), // 获得线条上的文本标签对象
-                coefficient = 2; // 行高、字号就调节系数
-
-            // 跳过指定的比例情况
-            console.log("Mermaid Scale Ratio: " + ratio);
-            if (ratio <= 1) {
-                // 对于特定环境的修正
-                if (ratio < 1 && env.browser.chrome && env.os.windows) {
-                    $(this).parent().css("height", "2em");
-                    $(this).parent().css("line-height", "1em");
-                }
-                return true;
-            }
-
-            // 如果当前是非高清屏，对于高 DPI 导出的文件，再修正缩放比例
-            if (getDPR() == 1 && env.browser.chrome && env.os.windows) {
-                ratio = ratio / 2;
-                console.log("Mermaid Scale Ratio (alt): " + ratio);
-            }
-
-            if (child.length == 0) { // 非线条上的文本标签
-                if (env.browser.chrome && env.os.windows) {
-                    coefficient = 2;
-                    ratio = ratio * coefficient; // 行高基数 * 2
-                }
-                $(this).css("line-height", (ratio / coefficient / 0.9) + "em");
-                $(this).css("font-size", (ratio / coefficient * 0.9) + "em");
-            }
-            else { // 线条上的文本标签
-                if (env.browser.chrome && env.os.windows) {
-                    coefficient = 4;
-                    ratio = ratio * coefficient; // 行高基数 * 4
-                    child.css("line-height", (ratio / coefficient / 0.5) + "em");
-                    child.css("font-size", (ratio / coefficient) + "em");
-                }
-                else if (env.browser.chrome && env.os.macos
-                    || env.browser.firefox) {
-                    coefficient = 2;
-                    ratio = ratio * coefficient; // 行高基数 * 2
-                    child.css("line-height", (ratio / coefficient / 0.9) + "em");
-                    child.css("font-size", (ratio / coefficient / coefficient * 0.9) + "em");
-                }
-            }
+    function fixMermaidRender_84() {
+        // 修正线条粗细的样式 BUG
+        $(".edgePath > path").each(function () {
+            if ($(this).attr("style").startWith("troke-width"))
+                $(this).attr("style", "s" + $(this).attr("style"));
         });
+
+        // 判断生成 mermaid 时系统的 DPR
+        let mermaidDPR = 1;
+        $(".label > g > foreignObject > div").each(function () {
+            if ($(this).css("line-height").replace("px", "") > 20)
+            mermaidDPR = 2;
+            return;
+        });
+
+        // 调整标签文本的容器高度
+        $(".label > foreignObject, .label > g > foreignObject").each(function () {
+            $(this).attr("height", $(this).attr("height") * 2);
+        });
+
+        // 由 macOS 版导出
+        if ($("body").attr("class").indexOf("os-windows") == -1) {
+            // 针对 Windows 版的 Chrome
+            if (env.os.windows && env.browser.chrome) {
+                // 调整线条标签文本的垂直位置
+                $(".edgeLabel > g, .label > g").each(function () {
+                    $(this).attr("transform", scaleTuple($(this).attr("transform"), 1, env.display.DPR));
+                });
+                // 调整形状标签文本的行距
+                $(".label > foreignObject > div").each(function () {
+                    $(this).css("line-height", "1.5em");
+                });
+            }
+        }
+        // 由 windows 版导出，且当前环境为macOs，或为 Windows、Firefox
+        else if (env.os.macos || env.os.windows && env.browser.firefox) {
+            // 调整形状标签文本的容器宽度
+            $(".edgeLabel > g > foreignObject").each(function () {
+                $(this).attr("width", $(this).attr("width") * 1.15);
+            });
+        }
+        // 由 windows 版导出，且为当前环境为 Windows、高 DPI、Chrome
+        else if (env.os.windows && env.display.DPR == 2 && env.browser.chrome && mermaidDPR == 1) {
+            // 调整线条、形状标签文本的容器宽度
+            $(".edgeLabel > g, .label > g").each(function () {
+                $(this).attr("transform", scaleTuple($(this).attr("transform"), 1, 2));
+            });
+            // 调整形状标签文本的行距
+            $(".edgeLabel > g > foreignObject").each(function () {
+                $(this).css("line-height", "1em");
+                $(this).attr("width", $(this).attr("width") * 1.15);
+            });
+        }
+        // 由 windows 版导出，且当前环境为普通 DPI、生成 mermaid 的系统为普通 DPI
+        else if (env.display.DPR == 1 && mermaidDPR == 1) {
+            // 调整形状标签文本的容器宽度
+            $(".label > foreignObject, .label > foreignObject").each(function () {
+                $(this).attr("width", $(this).attr("width") * 1.15);
+            });
+            // 调整形状标签文本的行距
+            $(".label > g > foreignObject > div").each(function () {
+                $(this).css("line-height", "1.5em");
+            });
+            // 调整形状标签文本的水平、垂直位置
+            $(".label > g").each(function () {
+                $(this).attr("transform", scaleTuple($(this).attr("transform"), 1.15, 1.15));
+            });
+        }
+        if (mermaidDPR == 2) {
+            // 调整线条标签文本的垂直位置
+            $(".edgeLabel > g").each(function () {
+                $(this).attr("transform", scaleTuple($(this).attr("transform"), 1, 0.5));
+            });
+        }
+    }
+
+    /**
+     * 按倍数调整函数元组数据，目前只支持单个函数，且只能有两个参数
+     * @funcString: 函数字符串，如：translate(-12,-18)
+     * @rate1: 对第1个参数的调整倍数
+     * @rate2: 对第2个参数的调整倍数
+    */
+    function scaleTuple(funcString, rate1, rate2) {
+        let lbIndex = funcString.indexOf("("),
+            dotIndex = funcString.indexOf(","),
+            rbIndex = funcString.indexOf(")");
+        
+        // 提取两个参数值
+        let r1 = funcString.substring(lbIndex + 1, dotIndex),
+            r2 = funcString.substring(dotIndex + 1, rbIndex);
+
+        if (rate1 != 1) r1 = r1 * rate1;
+        if (rate2 != 1) r2 = r2 * rate2;
+        
+        return funcString.substring(0, lbIndex + 1)
+            + r1 + "," + r2 + ")";
     }
 
     /**
@@ -2615,8 +2787,8 @@ MIT许可证（MIT）
                 "VLOOKUP отдает приоритет Noto Sans и Noto Serif,<br/>предлагая загрузить и установить для лучшего визуального восприятия",
                 "VLOOK は、Noto SansとNoto Serifを優先し<br/>より良い視覚的経験のためにダウンロードしてインストールすることを提案します",
                 "VLOOK 은 노토 산 (Noto Sans)과 노토 세리프 (Noto Serif)를<br/>우선시하여 더 나은 시각적 경험을 위해 다운로드하여 설치하도록 제안합니다"
-            ][_lang] +
-            "</span><br/><a href='https://github.com/MadMaxChow/VLOOK/blob/master/FONT.md' target='_blank'>" + ["下载",
+            ][_lang]
+            + "</span><br/><a href='https://github.com/MadMaxChow/VLOOK/blob/master/FONT.md' target='_blank'>" + ["下载",
                 "下載",
                 "Download",
                 "Télécharger",
@@ -2625,7 +2797,7 @@ MIT许可证（MIT）
                 "다운로드"
             ][_lang] + "</a>";
 
-        if ($("body").attr("class").indexOf("mdx-font-text-sans") == -1) {
+        if (_currentFontStyle == "serif") {
             showInfoTips(["切换至 <b>非衬线</b> 字体",
                     "切換至 <b>非襯線</b> 字體",
                     "Switch to <b>Sans</b> Font",
@@ -2656,16 +2828,16 @@ MIT许可证（MIT）
      */
     function applyFontStyle(style) {
         const text =
-            "html, body, text[text-anchor=\"start\"] > tspan, .edgeLabel, .messageText, .noteText, .noteText tspan, .MathJax_SVG g text";
+            ".mdx-loading-tips, html, body, text[text-anchor=\"start\"] > tspan, .edgeLabel, .messageText, .noteText, .noteText tspan, .MathJax_SVG g text";
         const title = "#write > h6:first-of-type, #write > h6:last-of-type";
         const tag =
             ".mdx-code-c1, .mdx-code-c2, .mdx-code-c3, .mdx-code-c4, .mdx-code-c5, .mdx-code-c6, .mdx-code-name1-alt, .mdx-code-name2-alt, .mdx-code-name3-alt, .mdx-code-name4-alt, .mdx-code-name5-alt, .mdx-code-name6-alt, .mdx-code-name1, .mdx-code-name2, .mdx-code-name3, .mdx-code-name4, .mdx-code-name5, .mdx-code-name6, .mdx-code-value1-alt, .mdx-code-value2-alt, .mdx-code-value3-alt, .mdx-code-value4-alt, .mdx-code-value5-alt, .mdx-code-value6-alt, .mdx-code-value1, .mdx-code-value2, .mdx-code-value3, .mdx-code-value4, .mdx-code-value5, .mdx-code-value6";
         const header = "h1, h2, h3, h4, h5, h6";
         const bold =
-            "strong, #write > h6:first-of-type strong, #write > h6:first-of-type em, table tr th, .mdx-table-td-bold, .mdx-toc-box-title, .mdx-toc-box-header, .mdx-loading-done, .mdx-tool-tips, .mdx-info-tips, .mdx-toc-box-header, .mdx-bread-nav-text, .mdx-nav-prev-text, .mdx-nav-next-text, .mdx-toc-box-title, .mdx-figure-alt > span, rect + text[text-anchor=\"middle\"] > tspan, rect + rect + text[text-anchor=\"middle\"] > tspan, .outline-item, a[name^=\"ref-footnote-\"], .md-toc-h1, .md-toc-h2, .md-toc-h3, .md-toc-h4, .md-toc-h5, .md-fn-count, .mdx-toc-box-footer, mdx-copyright";
+            "strong, #write > h6:first-of-type strong, #write > h6:first-of-type em, table tr th, .mdx-table-td-bold, .mdx-toc-box-title, .mdx-toc-box-header, .mdx-loading-done, .mdx-tool-tips, .mdx-info-tips, .mdx-toc-box-header, .mdx-bread-nav-text, .mdx-nav-prev-text, .mdx-nav-next-text, .mdx-toc-box-title, .mdx-figure-caption > span, rect + text[text-anchor=\"middle\"] > tspan, rect + rect + text[text-anchor=\"middle\"] > tspan, .outline-item, a[name^=\"ref-footnote-\"], .md-toc-h1, .md-toc-h2, .md-toc-h3, .md-toc-h4, .md-toc-h5, .md-fn-count, .mdx-toc-box-footer, mdx-copyright";
         const code = "code, tt, .md-fences, kbd";
 
-        if (_currentFontStyle != null) {
+        if (_currentFontStyle != null && _currentFontStyle != style) {
             $(code).removeClass("mdx-font-code-" + _currentFontStyle);
             $(tag).removeClass("mdx-font-code-" + _currentFontStyle);
             $(tag).removeClass("mdx-font-bold-" + _currentFontStyle);
@@ -2674,17 +2846,22 @@ MIT许可证（MIT）
             $(title).removeClass("mdx-font-title-" + _currentFontStyle);
             $(bold).removeClass("mdx-font-bold-" + _currentFontStyle);
         }
+
         _currentFontStyle = style;
+
         $(".mdx-btn-font-style").html("<svg width='18px' height='16px'><use xlink:href='#icoFont-" + style +
-            "' class='mdx-svg-ico-light'/></svg>");
+            "' class='mdx-button-ico'/></svg>");
 
         $(code).addClass("mdx-font-code-" + style);
-        $(tag).removeClass("mdx-font-code-" + _currentFontStyle);
+        $(tag).removeClass("mdx-font-code-" + _currentFontStyle); // 针对 code.addClass 后的调整
         $(tag).addClass("mdx-font-bold-" + style);
         $(text).addClass("mdx-font-text-" + style);
         $(header).addClass("mdx-font-header-" + style);
         $(title).addClass("mdx-font-title-" + style);
         $(bold).addClass("mdx-font-bold-" + style);
+
+        document.documentElement.style.setProperty("--mermaid-font-family", $(text).css("font-family"));
+        document.documentElement.style.setProperty("--mermaid-alt-font-family", $(text).css("font-family"));
 
         localStorage["VLOOK-" + _version + "-font-style"] = _currentFontStyle;
     }
@@ -2692,7 +2869,7 @@ MIT许可证（MIT）
     /**
      * 切换颜色方案
      */
-    function toggleColorShmeme() {
+    function toggleColorScheme() {
         _colorScheme = (_colorScheme == "light") ? "dark" : "light";
 
         if (_colorScheme == "dark") {
@@ -2706,8 +2883,8 @@ MIT许可证（MIT）
                 ][_lang],
                 2000, true);
 
-            $(".md-diagram-panel svg").removeClass("mdx-figure-bg-light");
-            $(".md-diagram-panel svg").addClass("mdx-figure-bg-dark");
+            $(".md-diagram-panel svg, .mdx-figure-content svg").removeClass("mdx-figure-bg-light");
+            $(".md-diagram-panel svg, .mdx-figure-content svg").addClass("mdx-figure-bg-dark");
         } else {
             showInfoTips(["正在切换为：<strong>明亮模式</strong>",
                     "正在切換為：<strong>明亮模式</strong>",
@@ -2719,8 +2896,8 @@ MIT许可证（MIT）
                 ][_lang],
                 2000, true);
 
-            $(".md-diagram-panel svg").removeClass("mdx-figure-bg-dark");
-            $(".md-diagram-panel svg").addClass("mdx-figure-bg-light");
+            $(".md-diagram-panel svg, .mdx-figure-content svg").removeClass("mdx-figure-bg-dark");
+            $(".md-diagram-panel svg, .mdx-figure-content svg").addClass("mdx-figure-bg-light");
         }
 
         // 延时再开始，以便让UI先完成更新
@@ -2734,11 +2911,11 @@ MIT许可证（MIT）
         if (_colorScheme == "dark") {
             // 调整模式切换按钮图标
             $(".mdx-btn-color-scheme").html(
-                "<svg width='18px' height='18px'><use xlink:href='#icoDarkMode' class='mdx-svg-ico-light'/></svg>");
+                "<svg width='18px' height='18px'><use xlink:href='#icoDarkMode' class='mdx-button-ico'/></svg>");
         } else {
             // 调整模式切换按钮图标
             $(".mdx-btn-color-scheme").html(
-                "<svg width='20px' height='20px'><use xlink:href='#icoLightMode' class='mdx-svg-ico-light'/></svg>");
+                "<svg width='20px' height='20px'><use xlink:href='#icoLightMode' class='mdx-button-ico'/></svg>");
         }
     }
 
@@ -2751,8 +2928,6 @@ MIT许可证（MIT）
             "--doc-bg-color-alt",
             "--doc-bg-color-alt-transparent",
             "--fore-color",
-            "--tips-bg-color",
-            "--tips-bg-color-inset",
             "--shadow-color",
             "--a-color",
             "--a-line-color",
@@ -2791,8 +2966,35 @@ MIT许可证（MIT）
             "--mermaid-fifth-color",
             "--mermaid-fifth-color-alt",
             "--mermaid-sixth-color",
-            "--mermaid-sixth-color-alt"
+            "--mermaid-sixth-color-alt",
+            "--cm-keyword",
+            "--cm-variable",
+            "--cm-variable",
+            "--cm-variable",
+            "--cm-tag",
+            "--cm-attribute",
+            "--cm-CodeMirror-cursor",
+            "--cm-string",
+            "--cm-string-2",
+            "--cm-comment",
+            "--cm-header",
+            "--cm-quote",
+            "--cm-hr",
+            "--cm-link",
+            "--cm-negative",
+            "--cm-positive",
+            "--cm-meta",
+            "--cm-bulidin",
+            "--cm-bracket",
+            "--cm-atom",
+            "--cm-number",
+            "--tips-bg-color-inset",
+            "--tips-bg-color"
         ];
+
+        adjustImageInverInDarkMode();
+
+        updateColorSchemeUI();
 
         // 遍历所有变量实现ColorScheme切换
         for (let i = 0; i < varList.length; i++) {
@@ -2800,9 +3002,6 @@ MIT许可证（MIT）
                 .getPropertyValue(varList[i] + "-" + _colorScheme));
         }
 
-        adjustImageInverInDarkMode();
-
-        updateColorSchemeUI();
     }
 
     /**
@@ -2811,14 +3010,14 @@ MIT许可证（MIT）
     function adjustImageInverInDarkMode() {
         if (_colorScheme == "dark") {
             // 应用 Dark 模式的插图背景
-            // $(".md-diagram-panel svg").removeClass("mdx-figure-bg-light");
-            // $(".md-diagram-panel svg").addClass("mdx-figure-bg-dark");
+            // $(".md-diagram-panel svg, .mdx-figure-content svg").removeClass("mdx-figure-bg-light");
+            // $(".md-diagram-panel svg, .mdx-figure-content svg").addClass("mdx-figure-bg-dark");
 
             $("img[vlook-invert=in-dark]").addClass("mdx-img-invert-in-dark");
         } else {
             // 恢复Light模式插图背景
-            // $(".md-diagram-panel svg").removeClass("mdx-figure-bg-dark");
-            // $(".md-diagram-panel svg").addClass("mdx-figure-bg-light");
+            // $(".md-diagram-panel svg, .mdx-figure-content svg").removeClass("mdx-figure-bg-dark");
+            // $(".md-diagram-panel svg, .mdx-figure-content svg").addClass("mdx-figure-bg-light");
 
             $("img[vlook-invert=in-dark]").removeClass("mdx-img-invert-in-dark");
         }
@@ -2846,7 +3045,7 @@ MIT许可证（MIT）
         // 将脚注角标的事件替换为指定的处理事件
         let fontnoteContent = $(".mdx-footer-note-content");
         let fontnoteToolbar = $(".mdx-footer-note-toolbar");
-        aFontnote.click(function () {
+        aFontnote.unbind("click").click(function () {
             var obj = $("a[name='df" + $(this).attr("name") + "']").parent().clone();
 
             // 更新脚注弹层内容
@@ -2918,6 +3117,7 @@ MIT许可证（MIT）
      * 显示遮罩
      */
     function showMask(under, callback) {
+        // 冻结滚动
         freezeScroll();
 
         // 显示遮罩
@@ -2970,7 +3170,6 @@ MIT许可证（MIT）
         $(document).keydown(function (event) {
             const code = event.keyCode || event.which || event.charCode;
             // console.log(code);
-console.log(_blockFocusItemIndex);
             // 按了组合键时忽略
             if (event.shiftKey || event.ctrlKey || event.altKey || event.metaKey)
                 return;
@@ -3016,8 +3215,9 @@ console.log(_blockFocusItemIndex);
                     else
                         hideFigureViewer();
                     break;
-                case 84: // T
-                    toggleColorShmeme();
+                case 68: // D
+                    hideOutline();
+                    toggleColorScheme();
                     break;
                 case 65: // A
                     toggleFontStyle();
@@ -3037,8 +3237,8 @@ console.log(_blockFocusItemIndex);
                     break;
                 case 27: // ESC
                     var spot = $(".mdx-spotlight");
-                    hideTips($(".mdx-tool-tips"), true);
-                    hideTips($(".mdx-info-tips"), true);
+                    hideToolTips(true);
+                    hideInfoTips();
                     if (spot.css("display") == "block")
                         spot.hide();
                     else if ($(".mdx-figure-viewer").css("display") == "block")
@@ -3116,67 +3316,96 @@ console.log(_blockFocusItemIndex);
      * 初始化 VLOOK
      */
     function initVLOOK(colorScheme) {
+        console.log("init VLOOK:");
+
         // 锁定滚动
         freezeScroll();
 
+        // 清空历史存储
+        if (getQueryString(location.search)["reset"] == "ls") {
+            console.log("!!! Reset Local Storage !!!");
+            localStorage.removeItem("VLOOK-" + _version + "-hint-for-green-hand-step-bf");
+            localStorage.removeItem("VLOOK-" + _version + "-font-style");
+        }
+
+        // 若手动切换过字体样式，则恢复为上次设置字体样式
+        const style = localStorage["VLOOK-" + _version + "-font-style"];
+        _currentFontStyle = getComputedStyle(document.documentElement).getPropertyValue("--vlook-default-font-style").trim();
+        console.log("    ... Font Style");
+        if (window.localStorage && style != undefined) {
+            console.log("        Last Setting: " + style + ((new Date().getTime() - _lastTimer) / 1000) + "s");
+            applyFontStyle(style);
+        } else {
+            applyFontStyle(_currentFontStyle);
+            console.log("        Default: " + _currentFontStyle + ((new Date().getTime() - _lastTimer) / 1000) + "s");
+        }
+        _lastTimer = new Date().getTime();
+
         // 初始化国际化UI
         initUIi18n();
+        console.log("    ... UI i18n " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
+        _lastTimer = new Date().getTime();
 
         // 检查页内链接坏链
         checkInnerBadLink();
+        console.log("    ... Check Inner Bad Link " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
+        _lastTimer = new Date().getTime();
+
         // 检查重复的Header
         checkDuplicateHeader();
+        console.log("    .... Check Duplicate Header " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
+        _lastTimer = new Date().getTime();
 
         // 初始化插图数据
         initFigureData();
-        console.log("init FigureData " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
+        console.log("    ... FigureData " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
         _lastTimer = new Date().getTime();
 
         // 初始化列表
         initBlockFocus();
-        console.log("init BlockFocus " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
+        console.log("    ... BlockFocus " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
         _lastTimer = new Date().getTime();
 
         // 初始化表格
         initTable();
-        console.log("init Table " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
+        console.log("    ... Table " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
         _lastTimer = new Date().getTime();
 
         // 初始化引用块
         initBlockquote();
-        console.log("init Blockquote " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
+        console.log("    ... Blockquote " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
         _lastTimer = new Date().getTime();
 
         // 初始化外部链接
         initExtLink();
-        console.log("init ExtLink " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
+        console.log("    ... ExtLink " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
         _lastTimer = new Date().getTime();
 
         // 增强脚注
         initFooterNote();
-        console.log("init FooterNote " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
+        console.log("    ... FooterNote " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
         _lastTimer = new Date().getTime();
 
         // 初始化全局热键
         initHotkeys();
-        console.log("init Hotkeys " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
+        console.log("    ... Hotkeys " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
         _lastTimer = new Date().getTime();
 
         // 重置脚本化图表样式
         restyleMermaidStyle();
-        console.log("init MermaidStyle " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
+        console.log("    ... MermaidStyle " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
         _lastTimer = new Date().getTime();
 
         // 重置行内代码code样式
         restyleCode();
         // 重置多行代码块code block样式
         restyleCodeFences();
-        console.log("init RestyleCode/Fences " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
+        console.log("    ... RestyleCode/Fences " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
         _lastTimer = new Date().getTime();
 
         // 重置任务列表样式
         restyleTaskListCheckbox();
-        console.log("init TaskListCheckbox " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
+        console.log("    ... TaskListCheckbox " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
         _lastTimer = new Date().getTime();
 
         // 初始化Outline数据
@@ -3192,22 +3421,13 @@ console.log(_blockFocusItemIndex);
             adjustBreadNav();
             adjustToolbar();
 
-            console.log("init OutlineData " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
+            console.log("    ... OutlineData " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
             _lastTimer = new Date().getTime();
         }
 
         // 根据设备类型自适应hover样式
         adjustHoverStyle();
-        console.log("init Hover Style " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
-        _lastTimer = new Date().getTime();
-
-        // 设置字体样式
-        const style = localStorage["VLOOK-" + _version + "-font-style"];
-        if (window.localStorage && style != undefined)
-            applyFontStyle(style);
-        else
-            applyFontStyle("serif");
-        console.log("init Font Style " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
+        console.log("    ... Hover Style " + ((new Date().getTime() - _lastTimer) / 1000) + "s");
         _lastTimer = new Date().getTime();
 
         // 隐藏插图动作按钮
@@ -3224,25 +3444,22 @@ console.log(_blockFocusItemIndex);
             }
         });
 
+        $(document).unbind("click").click(function () {
+            if (_lastCrossTable != null)
+                hideTableCross();
+        });
+
         // 绑定文档的滚动事件
         $(document).scroll(function () {
             followHeader();
-
-            let tb = $(".mdx-toolbar");
-            // 如果回到文档开始位置
-            if ($(document).scrollTop() <= 10) {
-                tb.css({
-                    top: 10
-                });
-            } else if (isFallInHeaders() == false) {
-                tb.css({
-                    top: 0
-                });
-            }
+            adjustBreadNav();
+            adjustToolbar();
         });
 
         // 绑定窗口大小缩放事件
         $(window).resize(function () {
+            adjustBreadNav();
+            adjustToolbar();
         });
 
         // 绑定打印前的触发事件
@@ -3256,21 +3473,14 @@ console.log(_blockFocusItemIndex);
             }
         };
 
-        // 清空历史存储
-        if (getQueryString(location.search)["reset"] == "ls") {
-            console.log("!!! Reset Local Storage !!!");
-            localStorage.removeItem("VLOOK-" + _version + "-hint-for-green-hand-step-bf");
-        }
-
         console.log("[ DONE ] Total " + ((new Date().getTime() - _startTimer) / 1000) + "s");
 
         let loadDone = $(".mdx-loading-done");
-        loadDone.animate({
+        loadDone.css({
             opacity: 1
-        }, _animateSpeed, function () {
-            $(".mdx-loading").css("cursor", "default");
         });
-
+        $(".mdx-loading").css("cursor", "default");
+        
         loadDone.text(["轻一点，轻轻一点",
             "輕一點，輕輕一點",
             "Click to Start",
@@ -3280,7 +3490,7 @@ console.log(_blockFocusItemIndex);
             "클릭하여 시작"
         ][_lang]);
         loadDone.css("cursor", "pointer");
-        loadDone.click(function () {
+        loadDone.unbind("click").click(function () {
             closeLoadingScreen();
         });
         // 完成加载后自动延时关闭欢迎屏
@@ -3298,9 +3508,6 @@ console.log(_blockFocusItemIndex);
         // 显示环境信息
         displayEnvInfo();
 
-        // 显示当前设备的DPR值
-        console.log("DPR (Device Pixel Ratio): " + getDPR());
-
         // 推荐的浏览器类型检测
         if (env.browser.chrome == false &&
             env.browser.firefox == false &&
@@ -3316,7 +3523,7 @@ console.log(_blockFocusItemIndex);
         }
 
         // 推荐的浏览器版本号检测
-        let readyForBackgroundBlurs = false
+        /*let readyForBackgroundBlurs = false
         if (env.browser.chrome == true && parseInt(env.browserVersion.chrome) >= 76)
             readyForBackgroundBlurs = true;
         else if (env.browser.safari == true && parseInt(env.browserVersion.safari) >= 9)
@@ -3330,10 +3537,9 @@ console.log(_blockFocusItemIndex);
                 "ブラウザのバージョンが低すぎる（Chrome 76.0以降、Safari 9.0以降、Firefoxはサポートしていません）、一部のインターフェイスのつや消しガラス効果をサポートしていません",
                 "브라우저 버전이 너무 낮습니다 (Chrome 76.0 이상, Safari 9.0 이상, Firefox는 지원하지 않음). 일부 인터페이스의 젖빛 유리 효과를 지원하지 않습니다"
             ][_lang]);
-        }
+        }*/
 
         // 初始化 VLOOK
-        console.log("init VLOOK ...");
         initVLOOK();
 
         // 因默认配色为Light模式，若浏览器当前配色为Dark模式，则进行初始化适配

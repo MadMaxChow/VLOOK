@@ -1,9 +1,10 @@
-###### <sup>VLOOK™</sup><br>快速参考手册 Quick Reference Manual<br>──<br><br>`+ 版本丨V9.3 +`<br><br><br><br><br>**MAX丨孟兆**<br>*COPYRIGHT © 2016-2019. MAX°DESIGN.*
+###### <sup>VLOOK™</sup><br>快速参考手册 Quick Reference Manual<br>──<br><br>`+ 版本丨V9.5 +`<br><br><br><br><br>**MAX丨孟兆**<br>*COPYRIGHT © 2016-2019. MAX°DESIGN.*
+
 [TOC]
 
 # VLOOK™ 是什么
 
-`最新版本丨V9.3`    `+ 官网丨https://github.com/madmaxchow/VLOOK +`    `* 适用平台丨Typora for Win & macOS *`    `- 开源协议丨MIT -`   `! 开发语言丨JavaScript !`
+`最新版本丨V9.5`    `+ 官网丨https://github.com/madmaxchow/VLOOK +`    `* 适用平台丨Typora for Win & macOS *`    `- 开源协议丨MIT -`   `! 开发语言丨JavaScript !`
 
 [VLOOK™](https://github.com/MadMaxChow/VLOOK) 是针对由[Typora](https://www.typora.io)[^Typora]导出的 HTML 文件进行增强的插件。VLOOK™ 为开源软件，遵从 [MIT 许可证](#许可协议)。
 
@@ -31,14 +32,16 @@ VLOOK 插件主要包括：
 
 ### 主题样式
 
-![内置主题样式](https://i.loli.net/2019/10/25/2RUxpewkJZqFgfn.png)
+###### ![内置主题样式]"可自定义扩展更多样式"
+
+![内置主题样式（原生）](https://i.loli.net/2019/10/25/2RUxpewkJZqFgfn.png "可自定义扩展更多样式（原生）")
 
 - 针对 VLOOK 内置多套优化的主题样式[^主题样式]（在导出 HTML 通过 Typora 的「主题」菜单选择名称以 VLOOK 打头的主题）；
   - **Hope 海洋之心**：[预览 ＞](https://madmaxchow.github.io/VLOOK/index.html)
   - **Joint 榫卯**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-joint.html)
   - **Geek 极邃**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-geek.html)
   - **Fancy 慕幻**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-fancy.html)
-- 所有主题的文档导出为 HTML 后，都支持`Light (明亮)`与`Dark (黑暗)`模式。
+- 所有主题的文档导出为 HTML 后，都支持`Light (明亮)`与`Dark (黑暗)`模式，[我要看看效果](#Light / Dark 模式)。
 
 [^主题样式]: 可以根据 VLOOK 源码目录下的 LESS 中文件为样例进行自定义扩展，访问 VLOOK 在 github [主页](http://github.com/madmaxchow/vlook)。
 
@@ -72,9 +75,9 @@ VLOOK 插件主要包括：
 
 ### Light / Dark 模式
 
-- 根据浏览器的配置，自动适配 Light / Dark 模式，也支持手动方式进行切换。
+根据浏览器的配置，自动适配 Light / Dark 模式，也支持手动方式进行切换。
 
-![Light / Dark 模式](https://i.loli.net/2019/10/25/omEG7Z6OLI2Jl3C.png)
+![Light / Dark 效果预览](https://i.loli.net/2019/10/25/omEG7Z6OLI2Jl3C.png "（← Light / → Dark）")
 
 ### 指定图片在 Dark 模式时反色
 
@@ -84,11 +87,11 @@ VLOOK 插件主要包括：
 
 - 举例： `![图注](xxxxx.jpg?invert=in-dark)`
 
-###### 图片默认情况下长这样：
-![不指定在 Dark 模式时反色](https://i.loli.net/2019/10/25/AS7XUW41ote98FB.png)
+###### 图片默认情况下长这样（不指定在 Dark 模式时反色）
+![图片默认样式（不指定在 Dark 模式时反色）](https://i.loli.net/2019/10/25/AS7XUW41ote98FB.png "透明背景的图片会透出 20×20px 的方格")
 
-###### 指定切换至 Dark 模式后反色，会长这样：
-![指定在 Dark 模式时反色](https://i.loli.net/2019/10/25/AS7XUW41ote98FB.png?invert=in-dark)
+###### 指定切换至 Dark 模式后反色后会长这样（指定了在 Dark 模式时反色）
+![图片默认样式（指定了在 Dark 模式时反色）](https://i.loli.net/2019/10/25/AS7XUW41ote98FB.png?invert=in-dark "透明背景图片透出的方格也会反色")
 
 ### 标题自动编号
 
@@ -131,7 +134,9 @@ VLOOK 插件主要包括：
 
 `- 注意 -`该特性须导出 HTML 并加入插件代码后才能生效。
 
-###### 示例一
+###### 单元格合并示例
+
+###### ![示例一：单元格并列合并、行合并]"（须使用最新版的 Typora 和 VLOOK）"
 
 | 普通列头          | `标签丨测试`列合并（2列） | ==            | 行合并（2行） | 列合并（3列） | ==     | ==             |
 | ----------------- | ----------------- | ----------------- | ------------- | ------------- | ---------- | ----------------- |
@@ -142,7 +147,7 @@ VLOOK 插件主要包括：
 | 普通单元格        | ..               | `标签丨测试`普通单元格 | 普通单元格    | 普通单元格    | 普通单元格 | ..                |
 | 普通单元格        | ..               | 普通单元格        | 普通单元格    | 普通单元格    | 普通单元格 | ..                |
 
-###### 示例二
+###### ![示例二：表头跨行合并1]
 
 | 列头行合并（2行） | 列头列合并（2列） | == | 列头行合并（2行） | 列头列合并（3列） | == | == |
 | ----------------- | ------------- | ------------- | :-----------: | ------------- | ------------- | ------------- |
@@ -150,7 +155,7 @@ VLOOK 插件主要包括：
 | 普通单元格 | 普通单元格     | 普通单元格     | 普通单元格     | 普通单元格          | 普通单元格    | 普通单元格 |
 | 普通单元格 | 普通单元格 | 普通单元格 | 普通单元格 | 普通单元格 | 普通单元格 | 普通单元格 |
 
-###### 示例三
+###### ![示例三：表头跨行合并2]
 
 | 列头行合并（2行） | 列头行合并（3列） | 列头列合并（3列） | == | == | 普通列头 | 普通列头 |
 | ----------------- | ------------- | ------------- | :-----------: | ------------- | ------------- | ------------- |
@@ -162,7 +167,7 @@ VLOOK 插件主要包括：
 
 + 在表格自动编号会在以下两种情况下生效：
 
-+ 在**有序/无序列表**下（**注意须先缩进一级**）：
++ 在**有序/无序列表**下：
 
    | 列1    | 列2    |   列3    |    列4 |
    | --- | --- | :---: | ---: |
@@ -171,12 +176,14 @@ VLOOK 插件主要包括：
 
    ###### 子表
 
+   ![XXX子表]"（数据关系：一对多）"
+
    | 列1    | 列2    |   列3    |    列4 |
    | --- | --- | :---: | ---: |
    | 第一行 | 左对齐（长内容） | 居中对齐 | 右对齐（长内容） |
    | 第二行（长内容） | 左对齐 | 居中对齐（长内容） | 右对齐 |
 
-+ 在**标题（H1~H6）**下（**无须不缩进**）：
++ 在**标题（H1~H6）**下：
 
 ###### 这是6级标题
 
@@ -204,19 +211,20 @@ VLOOK 插件主要包括：
 
 - 对导出的 HTML 文件，鼠标悬停在单元格时自动高亮对应的表格整行、整列，便于在大表格时查看相关行列信息。
 
-#### 在新标签中打开表格
-
-- 支持在新标签打开表格（鼠标悬念在表格时，会在左上角显示打开按钮）。
-
-`- 注意 -`该特性须导出 HTML 并加入插件代码后才能生效。
-
 ### 自动添加图注、表注
 
-- 自动为所有插图、表格添加自动编号，并生成图注或表注：
-  - 图片：以图片标题为图注，如：`![图片标题](图片URL)`
-  - 图表：则为取图表前的 6 级标题，如：`###### 图注、表注`，若图表前不存在 6 级标题，则忽略
-  - 表格：（同图表）
-- 效果文档中的插图底部的文字样式。
+- 自动为所有插图、表格添加自动编号；
+- 插图、表格支持多个图注或表注：
+  - **图片**：
+    - 以图片标题为第 1 图注，如：`![第1图注内容](图片URL)`
+    - 以 URL 标题为第 2 图注，如：`![第1图注内容](图片URL "第2图注内容")`
+    - 第 2 图注内容为可选。
+  - **图表**（如 mermaid 的图表）：
+    - 在图表前增加图注描述，使用类似图片的扩展语法；
+    - 语法：``![第1图注内容]"第2图注内容"`，其中的「第 2 图注」内容同样为可选；
+    - 该原始内容会在应用VLOOK插件后被隐藏，如在`h1~h5`标题中应用，并要保留原始标题内容，可加起一行进行描述。
+  - **表格**：（同上）
+- 效果见本文档中的[图片](#Light / Dark 模式)、[图表](#mermaid－流程图)、[表格](#单元格合并示例)样例。
 
 ### 更美观的图表
 
@@ -224,6 +232,8 @@ VLOOK 插件主要包括：
 + 更多脚本化图表样式，以及结合 VLOOK 相关的脚本编写规范内容详见《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》。
 
 ###### mermaid－流程图
+
+![流程图]"（以上的「分支流程」内容由下图进行接续）"
 
 ```mermaid
 graph LR
@@ -234,14 +244,15 @@ subgraph 子图
 end
 groud1 ==> |重要分支|cond1{条件判断}
 cond1 --> |是|END
-cond1 -.-> |否|page2>分支流程2]
+cond1 -.-> |否|page2>分支流程]
 A2((A)) --> END
 END(结束)
 ```
+![分支流程（接续上图）]
 
 ```mermaid
 graph LR
-page2>分支流程B] --> node2(普通节点)
+page2>分支流程] --> node2(普通节点)
 node2 --> END
 END(结束)
 ```
@@ -350,13 +361,29 @@ end
 
 `+ 提示 +`其中的竖线符号可用英文半角竖线符号并前后加空格`<空格>|<空格>`，或中文笔划（竖）`丨`或全角竖线符号`｜`。
 
-#### 多行代码
+### 多行代码
 
-```javascript
-function funName() {
-    var a = true;
-    if (a = false)
-        console.log("Hello World!");
+- 更实用、更美观的多行代码样式（须先启用显示代码行号配置，「Typora → 偏好设置 → Markdown → 代码块 - 显示行号」）；
+- 同样支持 Light / Dark 模式，自动跟踪鼠标高亮当前行。
+
+```c++
+void quickSort(int arr[], int left, int right) {
+      int i = left, j = right, tmp, pivot = arr[(left + right) / 2];
+      /* partition */
+      while (i <= j) {
+            while (arr[i] < pivot) i++;
+            while (arr[j] > pivot) j--;
+            if (i <= j) {
+                  tmp = arr[i];
+                  arr[i] = arr[j];
+                  arr[j] = tmp;
+                  i++;
+                  j--;
+            }
+      };
+      /* recursion */
+      if (left < j) quickSort(arr, left, j);
+      if (i < right) quickSort(arr, i, right);
 }
 ```
 
@@ -442,13 +469,21 @@ $$
 
 ###### 这是普通的图片示例
 
-![普通的图片](https://i.loli.net/2019/10/25/7ueXfR5dnzhWIZi.jpg)
+![普通的图片示例](https://i.loli.net/2019/10/25/7ueXfR5dnzhWIZi.jpg "（图片来源自互联网，版权尚不明确）")
 
 ### 自动识别缺失的图片
 
 + 识别出无法加载的图片，并替换为图片缺失提示图，示例如下：
 
 ![缺失的图片](vlook-lost-image.jpg?invert=in-dark)
+
+### 在新标签中打开
+
+- 支持在新标签打开文档中的插图、表格，便于在长文档、多个内容间进行切换、对比浏览；
+- 鼠标悬念在插图、表格时，在左上角显示「在新标签打开」的按钮；
+- 可以回到上面的插图、表格中体验一下。
+
+`- 注意 -`该特性须导出 HTML 并加入插件代码后才能生效。
 
 ### 支持折叠引用内容
 
@@ -508,46 +543,52 @@ $$
 
 ### 热键操作
 
-1. 全局热键：
-  |                   热键/快捷键                    | 功能                                            |
-  | :----------------------------------------------: | ----------------------------------------------- |
-  |                   <kbd>T</kbd>                   | 切换文档主题                                    |
-  |                   <kbd>O</kbd>                   | 显示 / 隐藏大纲面板                             |
-  |                   <kbd>A</kbd>                   | 切换字体样式，详见[切换字体样式](#切换字体样式) |
-  |                   <kbd>I</kbd>                   | 显示 / 隐藏插图浏览器                           |
-  |                   <kbd>P</kbd>                   | 打印文档                                        |
-  |                   <kbd>S</kbd>                   | 打开 / 关闭聚光灯                               |
-  |           <kbd>←</kbd> / <kbd><</kbd>            | 上一章                                          |
-  |           <kbd>→</kbd> / <kbd>></kbd>            | 下一章                                          |
-  | <kbd>J</kbd><kbd>K</kbd><kbd>H</kbd><kbd>L</kbd> | 内容块操作，详见[内容块聚焦](#内容块聚焦)       |
-  |                  <kbd>ESC</kbd>                  | 关闭弹出的界面、聚光灯、内容块聚焦等            |
-  
-2. 插图浏览器热键：
-  |         热键/快捷键         | 功能       |
-  | :-------------------------: | ---------- |
-  | <kbd>←</kbd> / <kbd><</kbd> | 前一张插图 |
-  | <kbd>→</kbd> / <kbd>></kbd> | 后一张插图 |
+![全局热键]
 
-# 如何使用
+|                   热键/快捷键                    | 功能                                            |
+| :----------------------------------------------: | ----------------------------------------------- |
+|                   <kbd>D</kbd>                   | 切换文档主题                                    |
+|                   <kbd>O</kbd>                   | 显示 / 隐藏大纲面板                             |
+|                   <kbd>A</kbd>                   | 切换字体样式，详见[切换字体样式](#切换字体样式) |
+|                   <kbd>I</kbd>                   | 显示 / 隐藏插图浏览器                           |
+|                   <kbd>P</kbd>                   | 打印文档                                        |
+|                   <kbd>S</kbd>                   | 打开 / 关闭聚光灯                               |
+|           <kbd>←</kbd> / <kbd><</kbd>            | 上一章                                          |
+|           <kbd>→</kbd> / <kbd>></kbd>            | 下一章                                          |
+| <kbd>J</kbd><kbd>K</kbd><kbd>H</kbd><kbd>L</kbd> | 内容块操作，详见[内容块聚焦](#内容块聚焦)       |
+|                  <kbd>ESC</kbd>                  | 关闭弹出的界面、聚光灯、内容块聚焦等            |
 
-## 打赏
+![插图浏览器热键]"（打开插图浏览器后生效）"
 
-###### 若喜欢 VLOOK™ 的话，可以请 Max 喝杯咖啡～
+|         热键/快捷键         | 功能       |
+| :-------------------------: | ---------- |
+| <kbd>←</kbd> / <kbd><</kbd> | 前一张插图 |
+| <kbd>→</kbd> / <kbd>></kbd> | 后一张插图 |
+
+# 打赏
+
+**若喜欢 VLOOK™ 的话，可以请 Max 喝杯咖啡～**
 
 ![](https://i.loli.net/2019/10/25/GCKPxocfJ9MOHk2.png)
 
-## 下载插件
+# 如何使用
 
-- 访问官方主页下载最新发布版本：[https://github.com/MadMaxChow/VLOOK/releases](https://github.com/MadMaxChow/VLOOK/releases)
-- 可基于`VLOOK\3-demo\VLOOK-Template 文档模板.md`来创建你自己的文档，`VLOOK\3-demo`目录下也有本文档的 Markdown 源文件。
+## 第1步：下载、配置
 
-## 应用主题
+- 访问 VLOOK 官方主页下载最新发布版本：[https://github.com/MadMaxChow/VLOOK/releases](https://github.com/MadMaxChow/VLOOK/releases)
+- 下载并安装 [Typora](https://www.typora.io) ，启动后进入「偏好设置」，启用一些建议的选项，详细如下图：
+  ![开启「Markdown 扩展语法」下的所有选项](https://tva1.sinaimg.cn/large/006tNbRwgy1ganwt7vwlaj31540cita9.jpg)
+  
+  ![开启「代码块」「公式」下的所有选项](https://tva1.sinaimg.cn/large/006tNbRwgy1ganwt7l785j315k0fuwg4.jpg)
+
+
+## 第2步：应用主题
 
 + 将`released\theme`下所有CSS文件复制至 Typora 的主题目录（ Typora「偏好设置」中点击「外观 - 打开主题目录」定位到该目录）；
-+ 进入 Typora 的偏好设置，启用 Markdown 语法扩展下的所有选项（如：公式、上标、下标、高亮、图表等）；
-+ 重启 Typora ，点击菜单`主题`，选择以`vlook-*`形式命名的主题，即可启用对应的 VLOOK 主题样式。
++ 重启 Typora ，点击菜单`主题`，选择以`vlook-*`形式命名的主题，即可启用对应的 VLOOK 主题样式；
++ 可基于`VLOOK\3-demo\VLOOK-Template 文档模板.md`来创建你自己的文档，`VLOOK\3-demo`目录下也有本文档的 Markdown 源文件。
 
-## 应用插件
+## 第3步：植入插件
 
 + 在 Typora 中将 Markdown 文件导出为`HTML`文件；
 + 打开文件`released\VLOOK-TOOLBOX 插件.txt`，全选所有内容，并复制；

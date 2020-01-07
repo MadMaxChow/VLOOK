@@ -8,16 +8,17 @@
 * 颜色主题
 ***************************************/
 :root {
-  --toc-box-width: 380px;
-  --toc-box-left: -380px;
+  --vlook-toc-box-width: 380px;
+  --vlook-toc-box-left: -380px;
+  --vlook-default-font-style: serif;
   --vlook-color-scheme: "light";
   --doc-bg-color-light: #FFFFFF;
   --doc-bg-color-alt-light: #e6e6e6;
   --doc-bg-color-alt-transparent-light: rgba(230, 230, 230, 0);
   --fore-color-light: #181A1E;
   --fore-color-alt-light: #737c8f;
-  --tips-bg-color-light: rgba(24, 26, 30, 0.75);
-  --tips-bg-color-inset-light: rgba(224, 226, 230, 0.75);
+  --tips-bg-color-light: #E0E2E6;
+  --tips-bg-color-inset-light: #181A1E;
   --shadow-color-light: rgba(0, 0, 0, 0.1);
   --a-color-light: #181A1E;
   --a-line-color-light: #DB63A0;
@@ -57,13 +58,34 @@
   --mermaid-fifth-color-alt-light: #f1d6f1;
   --mermaid-sixth-color-light: #585A5D;
   --mermaid-sixth-color-alt-light: #d9dadb;
+  --cm-keyword-light: #770088;
+  --cm-variable-light: #181A1E;
+  --cm-variable-2-light: #0055AA;
+  --cm-variable-3-light: #008855;
+  --cm-tag-light: #117700;
+  --cm-attribute-light: #0000CC;
+  --cm-CodeMirror-cursor-light: #737c8f;
+  --cm-string-light: #AA1111;
+  --cm-string-2-light: #FF5500;
+  --cm-comment-light: #AA5500;
+  --cm-header-light: #0000FF;
+  --cm-quote-light: #009900;
+  --cm-hr-light: #999999;
+  --cm-link-light: #0000CC;
+  --cm-negative-light: #DD4444;
+  --cm-positive-light: #229922;
+  --cm-meta-light: #555555;
+  --cm-bulidin-light: #3300AA;
+  --cm-bracket-light: #999977;
+  --cm-atom-light: #221199;
+  --cm-number-light: #116644;
   --doc-bg-color-dark: #121418;
   --doc-bg-color-alt-dark: #333844;
   --doc-bg-color-alt-transparent-dark: rgba(51, 56, 68, 0);
   --fore-color-dark: #E0E2E6;
   --fore-color-alt-dark: #8b93a2;
-  --tips-bg-color-dark: rgba(224, 226, 230, 0.75);
-  --tips-bg-color-inset-dark: rgba(24, 26, 30, 0.75);
+  --tips-bg-color-dark: #181A1E;
+  --tips-bg-color-inset-dark: #E0E2E6;
   --shadow-color-dark: rgba(255, 255, 255, 0.1);
   --a-color-dark: #E0E2E6;
   --a-line-color-dark: #DB63A0;
@@ -103,6 +125,27 @@
   --mermaid-fifth-color-alt-dark: #953296;
   --mermaid-sixth-color-dark: #a5a7a9;
   --mermaid-sixth-color-alt-dark: #585A5D;
+  --cm-keyword-dark: #C88FD0;
+  --cm-variable-dark: #E0E2E6;
+  --cm-variable-2-dark: #9FBAD5;
+  --cm-variable-3-dark: #1CC685;
+  --cm-tag-dark: #7DF46A;
+  --cm-attribute-dark: #7575E4;
+  --cm-CodeMirror-cursor-dark: #8b93a2;
+  --cm-string-dark: #D26B6B;
+  --cm-string-2-dark: #FF5500;
+  --cm-comment-dark: #DA924A;
+  --cm-header-dark: #8D8DF0;
+  --cm-quote-dark: #57AC57;
+  --cm-hr-dark: #D8D5D5;
+  --cm-link-dark: #D3D3EF;
+  --cm-negative-dark: #D95050;
+  --cm-positive-dark: #50E650;
+  --cm-meta-dark: #B7B3B3;
+  --cm-bulidin-dark: #F3B3F8;
+  --cm-bracket-dark: #999977;
+  --cm-atom-dark: #84B6CB;
+  --cm-number-dark: #64AB8F;
   --doc-bg-color: var(--doc-bg-color-light);
   --doc-bg-color-alt: var(--doc-bg-color-alt-light);
   --doc-bg-color-alt-transparent: var(--doc-bg-color-alt-transparent-light);
@@ -150,6 +193,27 @@
   --mermaid-fifth-color-alt: var(--mermaid-fifth-color-alt-light);
   --mermaid-sixth-color: var(--mermaid-sixth-color-light);
   --mermaid-sixth-color-alt: var(--mermaid-sixth-color-alt-light);
+  --cm-keyword: var(--cm-keyword-light);
+  --cm-variable: var(--cm-variable-light);
+  --cm-variable-2: var(--cm-variable-2-light);
+  --cm-variable-3: var(--cm-variable-3-light);
+  --cm-tag: var(--cm-tag-light);
+  --cm-attribute: var(--cm-attribute-light);
+  --cm-CodeMirror-cursor: var(--cm-CodeMirror-cursor-light);
+  --cm-string: var(--cm-string-light);
+  --cm-string-2: var(--cm-string-2-light);
+  --cm-comment: var(--cm-comment-light);
+  --cm-header: var(--cm-header-light);
+  --cm-quote: var(--cm-quote-light);
+  --cm-hr: var(--cm-hr-light);
+  --cm-link: var(--cm-link-light);
+  --cm-negative: var(--cm-negative-light);
+  --cm-positive: var(--cm-positive-light);
+  --cm-meta: var(--cm-meta-light);
+  --cm-bulidin: var(--cm-bulidin-light);
+  --cm-bracket: var(--cm-bracket-light);
+  --cm-atom: var(--cm-atom-light);
+  --cm-number: var(--cm-number-light);
 }
 html {
   font-size: 1em;
@@ -166,6 +230,7 @@ body {
   font-weight: normal;
   line-height: 2;
   -webkit-tap-highlight-color: transparent;
+  transition: all 0.3s ease-in-out;
 }
 #write {
   max-width: 100%;
@@ -197,6 +262,7 @@ body > *:last-child {
   margin-bottom: 0 !important;
 }
 img {
+  margin: 0;
   filter: var(--img-dark-filter);
 }
 a {
@@ -207,7 +273,7 @@ a {
 }
 a:hover {
   color: #DB63A0;
-  box-shadow: 0 -0.5em 0 rgba(219, 99, 160, 0.3) inset;
+  box-shadow: 0 -0.5em 0 0 rgba(219, 99, 160, 0.3) inset;
 }
 a:active {
   color: #c876a0;
@@ -221,10 +287,10 @@ h5,
 h6 {
   color: var(--header-color);
   position: relative;
-  margin: 1em -10px 0.5em -10px;
+  margin: 1em 0 0.5em 0;
   padding: 10px;
   line-height: 1.5;
-  font-family: "Noto Serif CJK SC", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Serif CJK SC", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
   border-radius: 16px 16px 0 0;
   box-shadow: 0 1px 0 0 var(--header-box-shadow) inset;
@@ -301,7 +367,7 @@ li > h6::before {
   color: rgba(0, 160, 233, 0.5);
 }
 strong {
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
 }
 hr {
@@ -452,7 +518,7 @@ table > thead > tr {
 table > thead > tr > th,
 table > thead > tr > td {
   background-color: var(--table-th-bg-color);
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
   border-right: 1px solid rgba(176, 178, 182, 0.1);
   margin: 0;
@@ -478,7 +544,7 @@ table > tbody > tr:last-child > td:last-child {
   border-bottom-right-radius: 14px;
 }
 .mdx-table-td-bold {
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
 }
 table tr > td {
@@ -498,26 +564,26 @@ table tr > td:last-child {
 table tr:last-child > td {
   border-bottom: 0;
 }
-li > figure > table,
-h1 + figure > table,
-h2 + figure > table,
-h3 + figure > table,
-h4 + figure > table,
-h5 + figure > table,
-h6 + figure > table {
+li > figure table,
+h1 + figure table,
+h2 + figure table,
+h3 + figure table,
+h4 + figure table,
+h5 + figure table,
+h6 + figure table {
   counter-reset: tableRowNumber - 1;
 }
-li > figure > table tbody tr,
-h1 + figure > table tbody tr,
-h2 + figure > table tbody tr,
-h3 + figure > table tbody tr,
-h4 + figure > table tbody tr,
-h5 + figure > table tbody tr,
-h6 + figure > table tbody tr {
+li > figure table tbody tr,
+h1 + figure table tbody tr,
+h2 + figure table tbody tr,
+h3 + figure table tbody tr,
+h4 + figure table tbody tr,
+h5 + figure table tbody tr,
+h6 + figure table tbody tr {
   counter-increment: tableRowNumber;
 }
-figure > table tr > th:first-child::before,
-figure > table tr > td:first-child::before {
+figure table tr > th:first-child::before,
+figure table tr > td:first-child::before {
   content: "#";
   color: var(--toc-header-num-color);
   font-family: Menlo, Consolas, "Courier New", "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace;
@@ -528,7 +594,7 @@ figure > table tr > td:first-child::before {
   position: absolute;
   left: -3em;
 }
-li > figure > table tbody tr > td:first-child::before {
+li > figure table tbody tr > td:first-child::before {
   content: counter(tableRowNumber) " ";
 }
 li > h6 + figure {
@@ -538,26 +604,26 @@ li h6 + figure table tr > th:first-child::before,
 li h6 + figure table tr > td:first-child::before {
   left: -3em;
 }
-h1 + figure > table tr > th:first-child::before,
-h1 + figure > table tr > td:first-child::before,
-h2 + figure > table tr > th:first-child::before,
-h2 + figure > table tr > td:first-child::before,
-h3 + figure > table tr > th:first-child::before,
-h3 + figure > table tr > td:first-child::before,
-h4 + figure > table tr > th:first-child::before,
-h4 + figure > table tr > td:first-child::before,
-h5 + figure > table tr > th:first-child::before,
-h5 + figure > table tr > td:first-child::before,
-h6 + figure > table tr > th:first-child::before,
-h6 + figure > table tr > td:first-child::before {
+h1 + figure table tr > th:first-child::before,
+h1 + figure table tr > td:first-child::before,
+h2 + figure table tr > th:first-child::before,
+h2 + figure table tr > td:first-child::before,
+h3 + figure table tr > th:first-child::before,
+h3 + figure table tr > td:first-child::before,
+h4 + figure table tr > th:first-child::before,
+h4 + figure table tr > td:first-child::before,
+h5 + figure table tr > th:first-child::before,
+h5 + figure table tr > td:first-child::before,
+h6 + figure table tr > th:first-child::before,
+h6 + figure table tr > td:first-child::before {
   left: -0.5em;
 }
-h1 + figure > table tbody tr > td:first-child::before,
-h2 + figure > table tbody tr > td:first-child::before,
-h3 + figure > table tbody tr > td:first-child::before,
-h4 + figure > table tbody tr > td:first-child::before,
-h5 + figure > table tbody tr > td:first-child::before,
-h6 + figure > table tbody tr > td:first-child::before {
+h1 + figure table tbody tr > td:first-child::before,
+h2 + figure table tbody tr > td:first-child::before,
+h3 + figure table tbody tr > td:first-child::before,
+h4 + figure table tbody tr > td:first-child::before,
+h5 + figure table tbody tr > td:first-child::before,
+h6 + figure table tbody tr > td:first-child::before {
   content: counter(tableRowNumber) " ";
 }
 li > figure {
@@ -570,7 +636,7 @@ h4 + figure,
 h5 + figure,
 h6 + figure {
   margin-top: 0em;
-  margin-left: 1em;
+  margin-left: 1.5em;
 }
 .mdx-table-cross {
   width: 100px;
@@ -619,7 +685,7 @@ del code {
   padding-bottom: 50px;
 }
 .md-fn-count {
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 .md-fn-count:before {
   content: "[";
@@ -635,7 +701,7 @@ del code {
   transition: all 0.3s ease-in-out;
 }
 a[name^="ref-footnote-"] {
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   color: #045AD1;
 }
 a[name^="ref-footnote-"]:hover {
@@ -652,7 +718,7 @@ a[name^="ref-footnote-"]:after {
   z-index: 0;
 }
 .CodeMirror-gutters {
-  border-right: 1px solid #FFFFFF;
+  border-width: 0;
 }
 .CodeMirror-linenumber {
   color: #737c8f;
@@ -670,14 +736,12 @@ code {
   vertical-align: middle;
 }
 .md-fences {
-  color: #181A1E;
+  color: var(--fore-color);
   font-family: Menlo, Consolas, "Courier New", "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace;
-  background-color: #e6e6e6;
   border-radius: 16px;
-  border: 2px solid #e6e6e6;
+  border: 2px solid var(--doc-bg-color-alt);
   padding: 1px 4px 1px 4px;
   font-size: 0.8em;
-  filter: var(--img-dark-filter);
 }
 .task-list {
   padding-left: 0;
@@ -820,7 +884,7 @@ code {
 .md-toc-h3,
 .md-toc-h4,
 .md-toc-h5 {
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-size: 1em;
   padding-right: 10px;
   text-overflow: ellipsis;
@@ -833,6 +897,7 @@ code {
 .md-toc-h4:before,
 .md-toc-h5:before {
   color: var(--toc-header-num-color);
+  padding-left: 5px;
 }
 .md-toc-h1 > a,
 .md-toc-h2 > a,
@@ -967,7 +1032,7 @@ h5.md-focus:before {
 **************************************/
 .outline-item {
   line-height: 1;
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 /**************************************
 * 脚本化画表 CSS
@@ -977,9 +1042,14 @@ h5.md-focus:before {
 * mermaid CSS
 **************************************/
 /* ----- flow diagram 流程图 ----- */
-.mermaid .label {
+.mermaid .label,
+.mdx-figure .label {
   color: var(--fore-color);
-  fill: #737c8f;
+}
+.mermaid .label div,
+.mdx-figure .label div {
+  font-size: 0.8em !important;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 svg[id^="mermaidChart"] {
   color: var(--fore-color);
@@ -991,6 +1061,7 @@ svg[id^="mermaidChart"] {
 }
 .node rect[rx="0"][ry="0"] + .label div {
   color: var(--fore-color);
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 .node rect[rx="5"][ry="5"] {
   fill: var(--mermaid-master-color-alt);
@@ -1000,6 +1071,7 @@ svg[id^="mermaidChart"] {
 .node rect[rx="5"][ry="5"] + .label div,
 .node rect[rx="15"][ry="15"] + .label div {
   color: var(--fore-color);
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 .node circle {
   fill: none;
@@ -1008,6 +1080,7 @@ svg[id^="mermaidChart"] {
 }
 .node circle + .label div {
   color: var(--fore-color);
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 .node ellipse {
   color: var(--fore-color);
@@ -1015,21 +1088,25 @@ svg[id^="mermaidChart"] {
   stroke: var(--fore-color);
   stroke-width: 10;
 }
-.node polygon[rx^="5"][ry^="5"] {
+.node[id^="cond"] polygon,
+.node[id^="fork"] polygon {
   fill: var(--mermaid-slave-color-alt);
   stroke: var(--mermaid-slave-color);
   stroke-width: 1;
 }
-.node polygon[rx^="5"][ry^="5"] + .label div {
+.node[id^="cond"] polygon + .label div,
+.node[id^="fork"] polygon + .label div {
   color: var(--fore-color);
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
-.node polygon {
+.node[id^="page"] polygon {
   fill: none;
   stroke: var(--mermaid-third-color);
   stroke-width: 2;
 }
-.node polygon + .label div {
+.node[id^="page"] polygon + .label div {
   color: var(--fore-color);
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 .edgePath .path {
   stroke: var(--fore-color);
@@ -1042,8 +1119,10 @@ svg[id^="mermaidChart"] {
   color: var(--fore-color);
   background-color: var(--doc-bg-color);
   font-family: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
-  font-size: 1em;
-  line-height: 2em;
+  line-height: 1em;
+}
+.edgeLabel div {
+  background-color: var(--doc-bg-color);
 }
 .cluster rect {
   fill: var(--doc-bg-color-alt) !important;
@@ -1056,6 +1135,7 @@ svg[id^="mermaidChart"] {
 .cluster text {
   color: var(--fore-color);
   fill: var(--fore-color);
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 #START rect {
   fill: var(--fore-color);
@@ -1066,6 +1146,7 @@ svg[id^="mermaidChart"] {
 }
 #START rect + .label div {
   color: var(--doc-bg-color);
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 #END rect {
   color: var(--fore-color);
@@ -1077,6 +1158,7 @@ svg[id^="mermaidChart"] {
 }
 #END rect + .label div {
   color: var(--fore-color);
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 #INIT circle {
   fill: var(--fore-color);
@@ -1084,12 +1166,14 @@ svg[id^="mermaidChart"] {
   stroke-width: 5;
 }
 #INIT .label div {
-  color: var(--doc-bg-color);
+  color: var(--fore-color);
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 #INIT ~ g > rect {
   fill: var(--mermaid-fifth-color-alt);
   stroke: var(--mermaid-fifth-color);
   stroke-width: 3;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   rx: 15 !important;
   ry: 15 !important;
 }
@@ -1102,6 +1186,7 @@ svg[id^="mermaidChart"] {
 .actor {
   stroke: var(--mermaid-master-color);
   fill: var(--mermaid-master-color-alt);
+  font-size: 1em !important;
 }
 .actor-person {
   stroke: var(--mermaid-slave-color);
@@ -1110,6 +1195,8 @@ svg[id^="mermaidChart"] {
 text.actor {
   fill: var(--fore-color);
   stroke: none;
+  font-size: 0.85em !important;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 .actor-line {
   stroke: var(--mermaid-master-color);
@@ -1136,7 +1223,8 @@ text.actor {
   fill: var(--fore-color);
   stroke: none;
   font-family: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
-  font-size: 1em;
+  font-size: 0.85em !important;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   line-height: 2em;
 }
 .labelBox {
@@ -1146,18 +1234,22 @@ text.actor {
 .labelText {
   fill: var(--mermaid-slave-color);
   stroke: none;
+  font-size: 1em;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 .labelText tspan {
-  fill: var(--mermaid-slave-color);
-  stroke: none;
+  font-size: 0.85em !important;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 .loopText {
   fill: var(--mermaid-slave-color);
   stroke: none;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-size: 1em;
 }
 .loopText tspan {
-  fill: var(--mermaid-slave-color);
-  stroke: none;
+  font-size: 0.85em !important;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 .loopLine {
   stroke-width: 1;
@@ -1168,13 +1260,102 @@ text.actor {
   stroke-dasharray: 2;
   fill: var(--mermaid-third-color-alt);
 }
-.noteText,
-.noteText tspan {
+.noteText {
   fill: var(--fore-color);
   stroke: none;
   font-family: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
   font-size: 1em;
-  line-height: 2em;
+}
+.noteText tspan {
+  font-size: 0.85em !important;
+  font-family: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
+}
+/* ----- state diagram 状态图 ----- */
+g.stateGroup circle {
+  fill: var(--fore-color) !important;
+  stroke: var(--doc-bg-color) !important;
+}
+g.stateGroup rect,
+g.stateGroup line {
+  fill: var(--mermaid-master-color-alt) !important;
+  stroke: var(--mermaid-master-color) !important;
+}
+g.stateGroup rect[height="7"] {
+  fill: var(--fore-color) !important;
+  stroke: none !important;
+}
+.transition {
+  stroke: var(--fore-color) !important;
+}
+g.stateGroup .composit {
+  fill: var(--doc-bg-color) !important;
+}
+g.stateGroup .state-title,
+g.stateGroup text {
+  fill: var(--fore-color) !important;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-size: 0.6em !important;
+}
+g.state-note {
+  fill: var(--mermaid-third-color-alt);
+  stroke: var(--mermaid-third-color);
+}
+g.state-note text > tspan {
+  fill: var(--fore-color);
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-size: 0.6em;
+}
+/* ----- class diagram 类图 ----- */
+g.cardinality text,
+g.classGroup text,
+g.classLabel .label {
+  font-family: Menlo, Consolas, "Courier New", "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace;
+  fill: var(--fore-color);
+  stroke: none;
+}
+g.classGroup rect {
+  fill: var(--mermaid-master-color-alt);
+  stroke: var(--mermaid-master-color);
+}
+g.classGroup line {
+  stroke: var(--mermaid-master-color);
+  stroke-width: 1;
+}
+g.classLabel .box {
+  stroke: none;
+  stroke-width: 0;
+  fill: var(--mermaid-master-color-alt);
+  opacity: 0.5;
+}
+.relation {
+  stroke: var(--fore-color);
+  stroke-width: 1;
+  fill: none;
+}
+.composition,
+#compositionStart,
+#compositionEnd,
+.aggregation,
+#aggregationStart,
+#aggregationEnd,
+#dependencyStart,
+#dependencyEnd,
+#extensionStart,
+#extensionEnd {
+  fill: var(--fore-color);
+  stroke: var(--fore-color);
+  stroke-width: 1;
+}
+div.mermaidTooltip {
+  position: absolute;
+  text-align: center;
+  max-width: 200px;
+  padding: 2px;
+  background: var(--fore-color-alt);
+  border: 1px solid #d0d0d0;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 100;
 }
 /* ----- gantt diagram 甘特图 ----- */
 .section {
@@ -1337,109 +1518,112 @@ text.actor {
   line-height: 2em;
   fill: var(--fore-color);
 }
-/* ----- class diagram 类图 ----- */
-g.classGroup text {
-  fill: var(--fore-color);
-  stroke: none;
-}
-g.classGroup rect {
-  fill: var(--mermaid-master-color-alt);
-  stroke: var(--mermaid-master-color);
-}
-g.classGroup line {
-  stroke: var(--fore-color);
-  stroke-width: 1;
-}
-svg .classLabel .box {
-  stroke: none;
-  stroke-width: 0;
-  fill: var(--mermaid-master-color-alt);
-  opacity: 0.5;
-}
-svg .classLabel .label {
-  fill: var(--mermaid-master-color-alt);
-}
-.relation {
-  stroke: var(--mermaid-master-color);
-  stroke-width: 1;
-  fill: none;
-}
-.composition {
-  fill: var(--mermaid-master-color-alt);
-  stroke: var(--mermaid-master-color);
-  stroke-width: 1;
-}
-#compositionStart {
-  fill: var(--mermaid-master-color-alt);
-  stroke: var(--mermaid-master-color);
-  stroke-width: 1;
-}
-#compositionEnd {
-  fill: var(--mermaid-master-color-alt);
-  stroke: var(--mermaid-master-color);
-  stroke-width: 1;
-}
-.aggregation {
-  fill: var(--mermaid-master-color-alt);
-  stroke: var(--fore-color);
-  stroke-width: 1;
-}
-#aggregationStart {
-  fill: var(--mermaid-master-color-alt);
-  stroke: var(--mermaid-master-color);
-  stroke-width: 1;
-}
-#aggregationEnd {
-  fill: var(--mermaid-master-color-alt);
-  stroke: var(--mermaid-master-color);
-  stroke-width: 1;
-}
-#dependencyStart {
-  fill: var(--mermaid-master-color-alt);
-  stroke: var(--mermaid-master-color);
-  stroke-width: 1;
-}
-#dependencyEnd {
-  fill: var(--mermaid-master-color-alt);
-  stroke: var(--mermaid-master-color);
-  stroke-width: 1;
-}
-#extensionStart {
-  fill: var(--mermaid-master-color-alt);
-  stroke: var(--mermaid-master-color);
-  stroke-width: 1;
-}
-#extensionEnd {
-  fill: var(--mermaid-master-color-alt);
-  stroke: var(--mermaid-master-color);
-  stroke-width: 1;
-}
-div.mermaidTooltip {
-  position: absolute;
-  text-align: center;
-  max-width: 200px;
-  padding: 2px;
-  background: var(--fore-color-alt);
-  border: 1px solid #d0d0d0;
-  border-radius: 2px;
-  pointer-events: none;
-  z-index: 100;
-}
 /**************************************
 * 重定义Typora原生样式
 **************************************/
 #write {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#write pre.ty-contain-cm {
+  padding: 0;
+  border-radius: 18px;
+}
+.CodeMirror-sizer {
+  background-color: var(--doc-bg-color-alt);
+  border-radius: 14px;
+}
+.CodeMirror pre {
+  padding: 0 10px;
+}
+.CodeMirror-line:hover {
+  background-color: var(--doc-bg-color);
+  transition: all 0.3s ease-in-out;
 }
 .CodeMirror.cm-s-inner {
   border-radius: 16px;
+}
+.CodeMirror div.CodeMirror-cursor {
+  border-color: var(--cm-CodeMirror-cursor);
+}
+.cm-s-inner .cm-variable,
+.cm-s-inner .cm-operator,
+.cm-s-inner .cm-property {
+  color: var(--cm-variable);
+}
+.cm-s-inner .cm-variable-2 {
+  color: var(--cm-variable-2);
+}
+.cm-s-inner .cm-variable-3 {
+  color: var(--cm-variable-3);
+}
+.cm-s-inner .cm-keyword {
+  color: var(--cm-keyword);
+}
+.cm-s-inner .cm-tag {
+  color: var(--cm-tag);
+}
+.cm-s-inner .cm-attribute {
+  color: var(--cm-attribute);
+}
+.CodeMirror div.CodeMirror-cursor {
+  border-left: 1px solid #b8bfc6;
+  z-index: 3;
+}
+.cm-s-inner .cm-string {
+  color: var(--cm-string);
+}
+.cm-s-inner .cm-string-2 {
+  color: var(--cm-string-2);
+}
+.cm-s-inner .cm-comment,
+.cm-s-inner.cm-comment {
+  color: var(--cm-comment);
+}
+.cm-s-inner .cm-header,
+.cm-s-inner .cm-def,
+.cm-s-inner.cm-header,
+.cm-s-inner.cm-def {
+  color: var(--cm-header);
+}
+.cm-s-inner .cm-quote,
+.cm-s-inner.cm-quote {
+  color: var(--cm-quote);
+}
+.cm-s-inner .cm-hr {
+  color: var(--cm-hr);
+}
+.cm-s-inner .cm-link {
+  color: var(--cm-link);
+}
+.cm-s-inner .cm-negative {
+  color: var(--cm-negative);
+}
+.cm-s-inner .cm-positive {
+  color: var(--cm-positive);
+}
+.cm-s-inner .cm-meta,
+.cm-s-inner .cm-qualifier {
+  color: var(--cm-meta);
+}
+.cm-s-inner .cm-builtin {
+  color: var(--cm-bulidin);
+}
+.cm-s-inner .cm-bracket {
+  color: var(--cm-bracket);
+}
+.cm-s-inner .cm-atom,
+.cm-s-inner.cm-atom {
+  color: var(--cm-atom);
+}
+.cm-s-inner .cm-number {
+  color: var(--cm-number);
 }
 /* 数学公式 */
 .MathJax_SVG,
 .MathJax_SVG_Display {
   border: 2px solid var(--theme-bg-color-fade);
-  border-radius: 0.3em;
+  border-radius: 16px;
   padding: 0.3em 0.3em;
 }
 .MathJax_SVG_Display > .MathJax_SVG {
@@ -1565,31 +1749,31 @@ li p {
 * VLOOK UI 自定义样式
 **************************************/
 .mdx-font-header-sans {
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 .mdx-font-title-sans {
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 .mdx-font-text-sans {
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 .mdx-font-bold-sans {
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 .mdx-font-code-sans {
-  font-family: Menlo, Consolas, "Courier New", "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace !important;
+  font-family: Menlo, Consolas, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", monospace !important;
 }
 .mdx-font-header-serif {
-  font-family: "Noto Serif CJK SC", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+  font-family: "Noto Serif CJK SC", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 .mdx-font-title-serif {
-  font-family: "Noto Serif CJK SC", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+  font-family: "Noto Serif CJK SC", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 .mdx-font-text-serif {
   font-family: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
 }
 .mdx-font-bold-serif {
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif !important;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 .mdx-font-code-serif {
   font-family: Menlo, Consolas, "Courier New", "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace !important;
@@ -1614,35 +1798,33 @@ li p {
   text-align: center;
   white-space: nowrap;
   border-radius: 16px;
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
-  color: var(--doc-bg-color);
+  border: 1px rgba(255, 255, 255, 0.2) solid;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  color: var(--tips-bg-color-inset);
   background-color: var(--tips-bg-color);
   z-index: 8000;
 }
 .mdx-tool-tips {
-  border-top: 2px solid #DB63A0;
+  border-top: 0;
+  box-shadow: 0 2px 0 0 #DB63A0 inset;
   text-align: left;
-}
-.mdx-tool-tips strong,
-.mdx-info-tips strong {
-  color: var(--doc-bg-color);
 }
 .mdx-tool-tips a,
 .mdx-info-tips a {
-  color: var(--doc-bg-color) !important;
+  color: var(--tips-bg-color-inset) !important;
   font-weight: bold;
 }
 .mdx-loading {
   cursor: wait;
   position: fixed;
   color: #FFFFFF;
-  background: linear-gradient(#00A0E9 40%, rgba(0, 160, 233, 0.5));
+  background-color: #00A0E9;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   text-align: center;
-  font-family: "Noto Serif CJK SC", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Serif CJK SC", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-size: 1.5em;
   overflow: auto;
   z-index: 9000;
@@ -1672,7 +1854,7 @@ li p {
   padding-right: 1em;
   color: #00A0E9;
   background-color: #FFFFFF;
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: normal;
   display: inline-block;
   border-radius: 1em;
@@ -1695,7 +1877,8 @@ li p {
   box-shadow: 0 0 10px 0 #DB63A0;
   border-radius: 16px;
 }
-.md-diagram-panel svg {
+.md-diagram-panel svg,
+.mdx-figure-content svg {
   width: 100%;
 }
 .mdx-blockquote-folder:hover {
@@ -1707,10 +1890,10 @@ li p {
   border-radius: 16px;
   cursor: default;
   display: block;
-  left: var(--toc-box-left);
+  left: var(--vlook-toc-box-left);
   top: 10px;
   bottom: 40px;
-  width: var(--toc-box-width);
+  width: var(--vlook-toc-box-width);
   padding: 0;
   position: fixed;
   z-index: 2000;
@@ -1718,7 +1901,7 @@ li p {
 }
 .mdx-toc-box-header {
   color: #181A1E;
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-size: 1.2em;
   height: 70px;
   padding: 10px 0 0 0;
@@ -1737,11 +1920,13 @@ li p {
   width: 100%;
   height: 30px;
   line-height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   font-size: 1em;
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
   color: var(--a-color);
   cursor: pointer;
@@ -1775,7 +1960,7 @@ li p {
 }
 .mdx-toc-box-footer {
   font-size: 0.8em;
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   height: 50px;
   line-height: 40px;
   left: 2px;
@@ -1791,7 +1976,7 @@ li p {
 }
 .mdx-copyright,
 .mdx-copyright a {
-  color: #fff;
+  color: #FFFFFF !important;
 }
 .mdx-copyright {
   left: 0;
@@ -1801,7 +1986,7 @@ li p {
   height: 40px;
   padding: 5px 10px;
   font-size: 0.8em;
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   position: absolute;
   text-shadow: 0 0 5px #000;
 }
@@ -1859,24 +2044,23 @@ li p {
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
   left: 10px;
-  top: 0;
-  width: var(--toc-box-width);
+  top: 10px;
+  width: var(--vlook-toc-box-width);
   height: 50px;
   position: fixed;
   background-color: rgba(0, 160, 233, 0.75);
-  transition: opacity 1s ease-in-out;
+  transition: all 0.3s ease-in-out;
   z-index: 100;
 }
 .mdx-toolbar:hover {
   opacity: 1;
-  transition: opacity 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .mdx-btn-outline {
   display: flex;
   justify-content: center;
   align-items: center;
   color: #FFFFFF;
-  background-color: #181A1E;
   cursor: pointer;
   float: left;
   width: 30px;
@@ -1888,7 +2072,7 @@ li p {
   visibility: visible;
 }
 .mdx-header-current {
-  background: linear-gradient(90deg, var(--code-bg-color-transparent), var(--theme-bg-color-fade), var(--code-bg-color-transparent));
+  background: linear-gradient(90deg, var(--code-bg-color-transparent), var(--theme-bg-color-fade));
 }
 .mdx-header-current a {
   font-weight: bold;
@@ -1909,7 +2093,6 @@ li p {
   align-items: center;
   vertical-align: middle;
   color: #FFFFFF;
-  background-color: #00A0E9;
   cursor: pointer;
   padding: 0;
   font-size: 0.8em;
@@ -1923,8 +2106,12 @@ li p {
   transition: all 0.3s ease-in-out;
   transform: translateY(-2px);
 }
-.mdx-btn-leave {
+.mdx-btn-float {
   background-color: #00A0E9;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+.mdx-btn-leave {
   transition: all 0.3s ease-in-out;
   transform: none;
 }
@@ -1971,7 +2158,7 @@ li p {
   width: 100%;
   height: 50px;
   line-height: 50px;
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   color: #FFFFFF;
   text-align: left;
   text-overflow: ellipsis;
@@ -2004,7 +2191,7 @@ li p {
   width: 100%;
   height: 50px;
   line-height: 50px;
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   color: #FFFFFF;
   text-align: right;
   text-overflow: ellipsis;
@@ -2015,7 +2202,7 @@ li p {
   display: block;
 }
 .mdx-bread-nav {
-  background-color: rgba(0, 160, 233, 0.75);
+  background-color: #00A0E9;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
   top: -50px;
@@ -2031,7 +2218,7 @@ li p {
 }
 .mdx-bread-nav-text {
   color: #FFFFFF;
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-size: 1.4em;
   font-weight: bold;
   text-align: center;
@@ -2092,12 +2279,13 @@ li p {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #000000;
   position: fixed;
   display: none;
   z-index: 4000;
 }
 .mdx-btn-prev-figure {
+  background-color: #00A0E9;
   left: 10px;
   top: auto;
   box-shadow: none;
@@ -2106,6 +2294,7 @@ li p {
   bottom: 10px;
 }
 .mdx-btn-next-figure {
+  background-color: #00A0E9;
   right: 10px;
   top: auto;
   box-shadow: none;
@@ -2114,6 +2303,7 @@ li p {
   bottom: 10px;
 }
 .mdx-btn-close-figure-viewer {
+  background-color: #00A0E9;
   right: 10px;
   top: 10px;
   box-shadow: none;
@@ -2125,13 +2315,15 @@ li p {
   border-top-right-radius: 0;
   border-bottom-left-radius: 0;
   box-shadow: none;
+  background-color: #00A0E9;
   position: absolute;
   z-index: 10;
 }
 img,
 .mdx-figure,
-.md-diagram-panel svg {
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjRkZGIi8+CiAgICA8ZyBmaWxsPSIjRTlFQkVGIj4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOTkiIHg9Ijk5IiB5PSIxIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMSIgeT0iOTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjkiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI5IiB5PSIxMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIgeT0iMTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMjkiIHk9IjEwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjM5IiB5PSIxMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIgeT0iMTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNTkiIHk9IjEwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjY5IiB5PSIxMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIgeT0iMTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iODkiIHk9IjEwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjE5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMzkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjQ5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNjkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijc5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIgeT0iMzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMTkiIHk9IjMwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjI5IiB5PSIzMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIgeT0iMzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNDkiIHk9IjMwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjU5IiB5PSIzMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIgeT0iMzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNzkiIHk9IjMwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijg5IiB5PSIzMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMjkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjM5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNTkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjY5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iODkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjkiIHk9IjUwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjE5IiB5PSI1MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIgeT0iNTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMzkiIHk9IjUwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjQ5IiB5PSI1MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIgeT0iNTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNjkiIHk9IjUwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijc5IiB5PSI1MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIgeT0iNTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMTkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjI5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNDkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjU5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNzkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijg5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI5IiB5PSI3MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIgeT0iNzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMjkiIHk9IjcwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjM5IiB5PSI3MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIgeT0iNzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNTkiIHk9IjcwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjY5IiB5PSI3MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIgeT0iNzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iODkiIHk9IjcwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjE5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMzkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjQ5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNjkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijc5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIgeT0iOTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMTkiIHk9IjkwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjI5IiB5PSI5MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIgeT0iOTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNDkiIHk9IjkwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjU5IiB5PSI5MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIgeT0iOTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNzkiIHk9IjkwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijg5IiB5PSI5MCIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iMTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjI5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSI5OSIgaGVpZ2h0PSIxIiB5PSIzOSIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iNDkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjU5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSI5OSIgaGVpZ2h0PSIxIiB5PSI2OSIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iNzkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9Ijg5Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K");
+.md-diagram-panel svg,
+.mdx-figure-content svg {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjRkZGIi8+CiAgICA8ZyBmaWxsPSIjRTlFQkVGIj4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOTkiIHg9Ijk5IiB5PSIxIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMSIgeT0iOTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjE5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIzOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iNTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9Ijc5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIxOSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjM5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iNTkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSI3OSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjE5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iMzkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSI1OSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9Ijc5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iMTkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIzOSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjU5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iNzkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIxOSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjM5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iNTkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSI3OSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjE5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSI5OSIgaGVpZ2h0PSIxIiB5PSIzOSIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iNTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9Ijc5Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K");
   background-repeat: repeat;
   background-position: left top;
   border-radius: 16px;
@@ -2154,10 +2346,10 @@ table:hover {
   border-color: #249c5f !important;
 }
 .mdx-figure-bg-light {
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjRkZGIi8+CiAgICA8ZyBmaWxsPSIjRTlFQkVGIj4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOTkiIHg9Ijk5IiB5PSIxIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMSIgeT0iOTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjkiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI5IiB5PSIxMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIgeT0iMTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMjkiIHk9IjEwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjM5IiB5PSIxMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIgeT0iMTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNTkiIHk9IjEwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjY5IiB5PSIxMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIgeT0iMTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iODkiIHk9IjEwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjE5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMzkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjQ5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNjkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijc5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIgeT0iMzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMTkiIHk9IjMwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjI5IiB5PSIzMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIgeT0iMzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNDkiIHk9IjMwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjU5IiB5PSIzMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIgeT0iMzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNzkiIHk9IjMwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijg5IiB5PSIzMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMjkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjM5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNTkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjY5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iODkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjkiIHk9IjUwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjE5IiB5PSI1MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIgeT0iNTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMzkiIHk9IjUwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjQ5IiB5PSI1MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIgeT0iNTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNjkiIHk9IjUwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijc5IiB5PSI1MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIgeT0iNTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMTkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjI5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNDkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjU5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNzkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijg5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI5IiB5PSI3MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIgeT0iNzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMjkiIHk9IjcwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjM5IiB5PSI3MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIgeT0iNzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNTkiIHk9IjcwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjY5IiB5PSI3MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIgeT0iNzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iODkiIHk9IjcwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjE5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMzkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjQ5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNjkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijc5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIgeT0iOTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMTkiIHk9IjkwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjI5IiB5PSI5MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIgeT0iOTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNDkiIHk9IjkwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjU5IiB5PSI5MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIgeT0iOTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNzkiIHk9IjkwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijg5IiB5PSI5MCIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iMTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjI5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSI5OSIgaGVpZ2h0PSIxIiB5PSIzOSIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iNDkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjU5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSI5OSIgaGVpZ2h0PSIxIiB5PSI2OSIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iNzkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9Ijg5Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K") !important;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjRkZGIi8+CiAgICA8ZyBmaWxsPSIjRTlFQkVGIj4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOTkiIHg9Ijk5IiB5PSIxIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMSIgeT0iOTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjE5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIzOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iNTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9Ijc5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIxOSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjM5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iNTkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSI3OSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjE5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iMzkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSI1OSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9Ijc5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iMTkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIzOSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjU5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iNzkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIxOSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjM5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iNTkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSI3OSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjE5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSI5OSIgaGVpZ2h0PSIxIiB5PSIzOSIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iNTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9Ijc5Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K") !important;
 }
 .mdx-figure-bg-dark {
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMDAwIi8+CiAgICA8ZyBmaWxsPSIjMTYxNDEwIj4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOTkiIHg9Ijk5IiB5PSIxIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMSIgeT0iOTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjkiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI5IiB5PSIxMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIgeT0iMTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMjkiIHk9IjEwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjM5IiB5PSIxMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIgeT0iMTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNTkiIHk9IjEwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjY5IiB5PSIxMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIgeT0iMTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iODkiIHk9IjEwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjE5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMzkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjQ5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNjkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijc5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIgeT0iMzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMTkiIHk9IjMwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjI5IiB5PSIzMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIgeT0iMzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNDkiIHk9IjMwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjU5IiB5PSIzMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIgeT0iMzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNzkiIHk9IjMwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijg5IiB5PSIzMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMjkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjM5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNTkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjY5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iODkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjkiIHk9IjUwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjE5IiB5PSI1MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIgeT0iNTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMzkiIHk9IjUwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjQ5IiB5PSI1MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIgeT0iNTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNjkiIHk9IjUwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijc5IiB5PSI1MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIgeT0iNTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMTkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjI5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNDkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjU5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNzkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijg5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI5IiB5PSI3MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIgeT0iNzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMjkiIHk9IjcwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjM5IiB5PSI3MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIgeT0iNzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNTkiIHk9IjcwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjY5IiB5PSI3MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIgeT0iNzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iODkiIHk9IjcwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjE5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMzkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjQ5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNjkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijc5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIgeT0iOTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMTkiIHk9IjkwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjI5IiB5PSI5MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIgeT0iOTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNDkiIHk9IjkwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjU5IiB5PSI5MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIgeT0iOTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNzkiIHk9IjkwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijg5IiB5PSI5MCIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iMTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjI5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSI5OSIgaGVpZ2h0PSIxIiB5PSIzOSIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iNDkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjU5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSI5OSIgaGVpZ2h0PSIxIiB5PSI2OSIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iNzkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9Ijg5Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K") !important;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMDAwIi8+CiAgICA8ZyBmaWxsPSIjMTYxNDEwIj4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOTkiIHg9Ijk5IiB5PSIxIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMSIgeT0iOTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjE5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIzOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iNTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9Ijc5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIxOSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjM5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iNTkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSI3OSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjE5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iMzkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSI1OSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9Ijc5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iMTkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIzOSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjU5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iNzkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIxOSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjM5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iNTkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSI3OSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjE5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSI5OSIgaGVpZ2h0PSIxIiB5PSIzOSIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iNTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9Ijc5Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K") !important;
 }
 .mdx-figure-content {
   margin: 5px;
@@ -2178,33 +2370,36 @@ table:hover {
   white-space: nowrap;
   overflow: hidden;
 }
-.mdx-figure-alt {
-  text-align: center;
+.mdx-figure-caption {
   display: inline-block;
   border-radius: 16px;
   background-color: var(--doc-bg-color-alt);
   transition: all 0.3s ease-in-out;
 }
-.mdx-figure-alt > span {
+.mdx-figure-caption:hover {
+  background-color: rgba(219, 99, 160, 0.2);
+}
+.mdx-figure-caption > span {
   color: var(--fore-color);
   font-size: 0.8em;
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  padding-left: 1em;
 }
-.mdx-figure-alt hr {
+.mdx-figure-caption hr {
   border-bottom: 2px solid #737c8f;
   margin: 0.5em;
   margin-left: auto;
   margin-right: auto;
 }
-use.mdx-svg-ico-light {
+use.mdx-button-ico {
   fill: #FFFFFF;
 }
-use.mdx-svg-ico-dark {
-  fill: #737c8f;
-}
-use.mdx-svg-ico-dark:hover {
-  fill: #C21117;
+use.mdx-folder-ico {
+  fill: #00A0E9;
   transition: all 0.3s ease-in-out;
+}
+use.mdx-folder-ico:hover {
+  fill: #DB63A0;
 }
 .mdx-mask {
   left: 0;
@@ -2213,7 +2408,7 @@ use.mdx-svg-ico-dark:hover {
   height: 100%;
   text-align: center;
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #000000;
   display: none;
   z-index: 1000;
 }
@@ -2237,7 +2432,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-c4,
 .mdx-code-c5,
 .mdx-code-c6 {
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
   color: #FFFFFF;
   padding: 0.2em 0.6em;
@@ -2273,7 +2468,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-name4,
 .mdx-code-name5,
 .mdx-code-name6 {
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: normal !important;
   margin-right: 0;
   border-radius: 1em 0em 0em 1em;
@@ -2289,7 +2484,7 @@ use.mdx-svg-ico-dark:hover {
 .mdx-code-value4,
 .mdx-code-value5,
 .mdx-code-value6 {
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
   margin-left: -1.5em;
   border-radius: 1em;
@@ -2332,14 +2527,14 @@ h6 code {
   display: block;
   color: #FFFFFF !important;
   font-size: 2.5em;
-  font-family: "Noto Serif CJK SC", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Serif CJK SC", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
   text-align: center;
   height: 25cm;
   padding-left: 30px;
   padding-top: 150px;
   padding-right: 20px;
-  margin: 10px -10px;
+  margin: 10px 0;
   margin-bottom: 3em;
   border: 0;
   border-radius: 16px;
@@ -2362,7 +2557,7 @@ h6 code {
 #write > h6:first-of-type strong {
   color: rgba(255, 255, 255, 0.5);
   font-size: 0.7em;
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
   text-decoration: none;
 }
@@ -2375,7 +2570,7 @@ h6 code {
 #write > h6:first-of-type em {
   color: rgba(255, 255, 255, 0.5);
   font-size: 0.35em;
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-style: normal;
   vertical-align: sub;
 }
@@ -2431,9 +2626,11 @@ h6 code {
   .mdx-tool-tips,
   .mdx-info-tips {
     display: none !important;
+    transition: all 0.3s ease-in-out;
   }
   .mdx-current-blockfocus-item {
     box-shadow: none !important;
+    transition: all 0.3s ease-in-out;
   }
   .mdx-toolbar,
   .mdx-bread-nav,
@@ -2502,8 +2699,50 @@ h6 code {
     --mermaid-fifth-color-alt: var(--mermaid-fifth-color-alt-dark);
     --mermaid-sixth-color: var(--mermaid-sixth-color-dark);
     --mermaid-sixth-color-alt: var(--mermaid-sixth-color-alt-dark);
+    --cm-keyword: var(--cm-keyword-dark);
+    --cm-variable: var(--cm-variable-dark);
+    --cm-variable-2: var(--cm-variable-2-dark);
+    --cm-variable-3: var(--cm-variable-3-dark);
+    --cm-tag: var(--cm-tag-dark);
+    --cm-attribute: var(--cm-attribute-dark);
+    --cm-CodeMirror-cursor: var(--cm-CodeMirror-cursor-dark);
+    --cm-string: var(--cm-string-dark);
+    --cm-string-2: var(--cm-string-2-dark);
+    --cm-comment: var(--cm-comment-dark);
+    --cm-header: var(--cm-header-dark);
+    --cm-quote: var(--cm-quote-dark);
+    --cm-hr: var(--cm-hr-dark);
+    --cm-link: var(--cm-link-dark);
+    --cm-negative: var(--cm-negative-dark);
+    --cm-positive: var(--cm-positive-dark);
+    --cm-meta: var(--cm-meta-dark);
+    --cm-bulidin: var(--cm-bulidin-dark);
+    --cm-bracket: var(--cm-bracket-dark);
+    --cm-atom: var(--cm-atom-dark);
+    --cm-number: var(--cm-atom-dark);
   }
-  .md-diagram-panel svg {
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMDAwIi8+CiAgICA8ZyBmaWxsPSIjMTYxNDEwIj4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOTkiIHg9Ijk5IiB5PSIxIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMSIgeT0iOTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjkiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI5IiB5PSIxMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIgeT0iMTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMjkiIHk9IjEwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjM5IiB5PSIxMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIgeT0iMTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNTkiIHk9IjEwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjY5IiB5PSIxMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIgeT0iMTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iODkiIHk9IjEwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjE5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMzkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjQ5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNjkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijc5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIgeT0iMzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMTkiIHk9IjMwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjI5IiB5PSIzMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIgeT0iMzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNDkiIHk9IjMwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjU5IiB5PSIzMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIgeT0iMzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNzkiIHk9IjMwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijg5IiB5PSIzMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMjkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjM5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNTkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjY5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iODkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjkiIHk9IjUwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjE5IiB5PSI1MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIgeT0iNTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMzkiIHk9IjUwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjQ5IiB5PSI1MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIgeT0iNTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNjkiIHk9IjUwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijc5IiB5PSI1MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIgeT0iNTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMTkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjI5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNDkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjU5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNzkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijg5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI5IiB5PSI3MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIxOSIgeT0iNzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMjkiIHk9IjcwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjM5IiB5PSI3MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI0OSIgeT0iNzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNTkiIHk9IjcwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjY5IiB5PSI3MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI3OSIgeT0iNzAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iODkiIHk9IjcwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjE5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIyOSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMzkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjQ5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI1OSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNjkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijc5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI4OSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iOSIgeT0iOTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iMTkiIHk9IjkwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjI5IiB5PSI5MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSIzOSIgeT0iOTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNDkiIHk9IjkwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9IjU5IiB5PSI5MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSI5IiB4PSI2OSIgeT0iOTAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOSIgeD0iNzkiIHk9IjkwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjkiIHg9Ijg5IiB5PSI5MCIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iMTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjI5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSI5OSIgaGVpZ2h0PSIxIiB5PSIzOSIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iNDkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjU5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSI5OSIgaGVpZ2h0PSIxIiB5PSI2OSIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iNzkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9Ijg5Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K");
+  .md-diagram-panel svg,
+  .mdx-figure-content svg {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMDAwIi8+CiAgICA8ZyBmaWxsPSIjMTYxNDEwIj4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iOTkiIHg9Ijk5IiB5PSIxIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMSIgeT0iOTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjE5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIzOSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iNTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9Ijc5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIxOSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjM5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iNTkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSI3OSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjE5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iMzkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSI1OSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9Ijc5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iMTkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIzOSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjU5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iNzkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIxOSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjM5IiB5PSI4MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iNTkiIHk9IjgwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSI3OSIgeT0iODAiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9IjE5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSI5OSIgaGVpZ2h0PSIxIiB5PSIzOSIvPgogICAgICA8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMSIgeT0iNTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijk5IiBoZWlnaHQ9IjEiIHk9Ijc5Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K");
   }
+}
+@supports ((backdrop-filter: blur(15px)) or
+    (-webkit-backdrop-filter: blur(15px))) {
+  .mdx-btn-float,
+  .mdx-bread-nav {
+    background-color: rgba(0, 160, 233, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+  }
+  .mdx-loading {
+    background: linear-gradient(#00A0E9 40%, rgba(0, 160, 233, 0.5));
+  }
+  .mdx-mask,
+  .mdx-figure-viewer {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+:root {
+  --mermaid-font-family: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif !important;
+  --mermaid-alt-font-family: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif !important;
 }
