@@ -133,11 +133,13 @@ VLOOK 优先显示开源的思源黑体和思源宋体，建议下载安装获�
 
 # Overview
 
-VLOOK is a plugin for enhancements to HTML files exported by Typora. Includes two major features: Layout Enhancements and Feature Enhancements:
+VLOOK ™ is a plugin that enhances HTML files exported by Typora (currently the best cross-platform Markdown editor, none of them).
 
-- **Layout enhancements**: Provides more user-friendly, beautiful document layout and style for the Typora editing mode and exported HTML files;
-- **Feature enhancement**: Provides convenient reading accessibility functions such as document navigation, illustration browsing, content interaction, and validity detection for exported HTML files.
+VLOOK ™ is open source software and is under the MIT license.
 
-VLOOK™ is open source software and is compliant with the MIT license.
+VLOOK ™ aims at Markdown's shortcomings, and finds a balance between the actual needs of many document layouts.
 
-Detailed description of the features, as well as instructions for use, can be found in the "[VLOOK Quick Reference Manual](https://madmaxchow.github.io/VLOOK/index.html)".
+For detailed introduction, examples and instructions on VLOOK features "[VLOOK Quick Reference Manual](https://madmaxchow.github.io/VLOOK/index.html)".
+
+For detailed introduction, examples and instructions on scripted charts, please refer to "[Scripted Charts for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)"
+
