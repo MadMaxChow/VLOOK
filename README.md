@@ -10,7 +10,7 @@ VLOOK™ 为开源软件，遵从 MIT 许可证。
 
 ## 特性清单
 
-VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版需求寻找平衡点，为 Markdown 的编辑者和阅读者提供了更好的使用体验。
+VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导航、评审、演示、交互需求中寻找平衡点，为 Markdown 的编辑者和阅读者提供了更好的使用体验。
 
 |    特性分类    | 特性说明                                                     |
 | :------------: | ------------------------------------------------------------ |
@@ -137,7 +137,7 @@ VLOOK ™ is a plugin that enhances HTML files exported by Typora (currently the
 
 VLOOK ™ is open source software and is under the MIT license.
 
-VLOOK ™ aims at Markdown's shortcomings, and finds a balance between the actual needs of many document layouts.
+VLOOK ™ targets Markdown's shortcomings, and finds a balance among the actual numerous document layout, navigation, review, presentation, and interaction needs, providing a better experience for Markdown editors and readers.
 
 For detailed introduction, examples and instructions on VLOOK features "[VLOOK Quick Reference Manual](https://madmaxchow.github.io/VLOOK/index.html)".
 
