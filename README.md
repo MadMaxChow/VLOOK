@@ -10,7 +10,7 @@ VLOOK™ 为开源软件，遵从 MIT 许可证。
 
 ## 特性清单
 
-VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导航、评审、演示、交互需求中寻找平衡点，为 Markdown 的编辑者和阅读者提供了更好的使用体验。
+VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导航、演示、交互需求中寻找平衡点，为 Markdown 的编辑者和阅读者提供了更好的使用体验。
 
 |    特性分类    | 特性说明                                                     |
 | :------------: | ------------------------------------------------------------ |
@@ -28,7 +28,7 @@ VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导�
 |       ..       | **逐章导航**<br>在长文档中特别好用，随时眯一眼就知道当前章节、上/下章节是什么了 |
 |       ..       | **内容逐块浏览模式**<br>这个很 GEEK，可以通过键盘按文档的内容逐块逐块进行浏览，习惯用 VI / VIM 的人应该会欢呼！ |
 |       ..       | **文档插图浏览器**<br>让你快速在快速浏览文档的所有插图，并能直接跳到文档中对应的位置 |
-| 评审、演示辅助 | **聚光灯模式**<br>太COOL了！在投影时可以让大家快速聚焦在关键内容上了（<kbd>S</kbd>激活，<kbd>Z</kbd>调节大小） |
+| 演示辅助 | **聚光灯模式**<br>太COOL了！在投影时可以让大家快速聚焦在关键内容上了（<kbd>S</kbd>激活，<kbd>Z</kbd>调节大小） |
 |       ..       | **表格十字光标**<br>方便你与大家讨论长表格、大表格时，快速聚焦指定单元格，及对应的行和列 |
 |       ..       | **在新标签打开插图、表格**<br>在长文档中的来回翻页查看插图、表格是很崩溃的事，现在你可以让它们在浏览器的不同标签中显示了 |
 |   视觉与交互   | **Dark 模式**<br>这个不用多说了，懂的人都会喜欢。也可手动切换回标准的 Light 模式 |
@@ -137,7 +137,7 @@ VLOOK ™ is a plugin that enhances HTML files exported by Typora (currently the
 
 VLOOK ™ is open source software and is under the MIT license.
 
-VLOOK ™ targets Markdown's shortcomings, and finds a balance among the actual numerous document layout, navigation, review, presentation, and interaction needs, providing a better experience for Markdown editors and readers.
+VLOOK ™ targets Markdown's shortcomings, and finds a balance among the actual numerous document layout, navigation, presentation, and interaction needs, providing a better experience for Markdown editors and readers.
 
 For detailed introduction, examples and instructions on VLOOK features "[VLOOK Quick Reference Manual](https://madmaxchow.github.io/VLOOK/index.html)".
 
