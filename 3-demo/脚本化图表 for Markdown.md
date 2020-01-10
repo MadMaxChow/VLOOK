@@ -526,4 +526,4 @@ flowchart.js 基于 SVG 的流程图插件，它仅需几行代码即可在 Web 
 
 JS sequence diagrams 是一个方便建立 UML 的时序图（序列图 or 循序图）在线工具，使用简单。详见 [JS Sequence Diagrams 官网](https://bramp.github.io/js-sequence-diagrams/)。
 
-###### 终了<br>
+###### <br><br><br><br><br><br><br><br>── 文档结束 ──

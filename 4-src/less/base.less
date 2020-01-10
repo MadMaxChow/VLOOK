@@ -347,13 +347,15 @@ h6+ol {
 }
 
 h1 {
-    margin-top: 3em;
-    margin-bottom: 1em;
-    line-height: 50px;
+    margin-top: 5em;
+    // margin-bottom: 1em;
+    // line-height: 50px;
     font-size: 2em;
 }
 
 h2 {
+    margin-top: 3em;
+    // margin-bottom: 1em;
     font-size: 1.8em;
 }
 
@@ -365,6 +367,8 @@ h1+h2 {
 }
 
 h3 {
+    margin-top: 2em;
+    // margin-bottom: 1em;
     font-size: 1.6em;
 }
 
@@ -825,11 +829,11 @@ mark mark {
 del,
 del strong {
     color: var(--del-color) !important;
-    text-decoration: line-through var(--fore-color) solid;
+    text-decoration: line-through var(--fore-color) solid !important;
 }
 
 del code {
-    text-decoration: line-through var(--fore-color) solid;
+    text-decoration: line-through var(--fore-color) solid !important;
 }
 
 // 脚注区域
@@ -3459,9 +3463,10 @@ h6 code {
     font-weight: bold;
     text-align: @coverTextAlign;
     height: 25cm;
-    padding-left: 30px;
-    padding-top: 150px;
-    padding-right: 20px;
+    padding-top: 160px;
+    padding-bottom: 50px;
+    padding-left: 60px;
+    padding-right: 60px;
     margin: 10px 0;
     margin-bottom: 3em;
     border: 0;
