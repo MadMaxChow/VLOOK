@@ -60,11 +60,14 @@ VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导�
   - **Joint 榫卯**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-joint.html)
   - **Geek 极邃**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-geek.html)
   - **Fancy 慕幻**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-fancy.html)
-- 所有主题的文档导出为 HTML 后，都支持`Light (明亮)`与`Dark (黑暗)`模式。
+- 所有主题的文档导出为 HTML 后，都支持`Light (明亮)`与`Dark (黑暗)`模式；
+- 提供主题的私人定制服务，定制样品如下：
 
-## 主题定制服务
+![私人定制主题](https://tva1.sinaimg.cn/large/006tNbRwgy1garg0pwstpj31yu0m8gnz.jpg)
 
-- 主题定制，请加微信：**MaxChow**
+## 主题私人定制服务
+
+- 主题私人定制服务微信：**MaxChow**
 
 ---
 
