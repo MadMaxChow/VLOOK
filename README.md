@@ -1,6 +1,6 @@
 # 概况
 
-**开源中国（[OSChina.net](https://www.oschina.net/p/vlook)）编辑推荐的国产开源产品。**<br>
+**开源中国（[OSChina.net](https://www.oschina.net/p/vlook)）推荐的国产开源产品。**<br>
 
 ![OSChina 编辑推荐国产开源产品](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/OSChina-recommand.png)
 
