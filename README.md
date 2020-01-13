@@ -75,8 +75,8 @@ VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导�
 
 - 访问官方主页下载最新发布版本：[https://github.com/MadMaxChow/VLOOK/releases](https://github.com/MadMaxChow/VLOOK/releases)
 - 下载并安装 [Typora](https://www.typora.io) ，启动后进入「偏好设置」，启用一些建议的选项，详细如下图：
-![开启「Markdown 扩展语法」下的所有选项](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/Typora-recommand-options-1.png)
-![开启「代码块」「公式」下的所有选项](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/Typora-recommand-options-2.png)
+![开启「Markdown 扩展语法」下的所有选项](https://tva1.sinaimg.cn/large/006tNbRwgy1ganwt7vwlaj31540cita9.jpg)
+![开启「代码块」「公式」下的所有选项](https://tva1.sinaimg.cn/large/006tNbRwgy1ganwt7l785j315k0fuwg4.jpg)
 
 # 第2步：应用主题
 
@@ -114,7 +114,7 @@ VLOOK 优先显示开源的思源黑体和思源宋体，建议下载安装获�
 # 打赏
 
 **若喜欢 VLOOK™ 的话，可以请 Max 喝杯咖啡：**<br>
-![微信支付](https://raw.githubusercontent.com/MadMaxChow/uploads/master/pic/donate-wechat.png)
+![微信支付](https://i.loli.net/2019/10/25/GCKPxocfJ9MOHk2.png)
 
 ---
 
