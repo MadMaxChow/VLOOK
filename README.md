@@ -75,7 +75,7 @@ VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导�
 
 # 第1步：下载、配置
 
-- 访问官方主页下载最新发布版本：[GitHub](https://github.com/MadMaxChow/VLOOK/releases)  [OSChina](https://www.oschina.net/p/vlook)
+- 访问官方主页下载最新发布版本：[GitHub (主站)](https://github.com/MadMaxChow/VLOOK/releases)&nbsp;&nbsp;&nbsp;&nbsp;[OSChina (备用)](https://www.oschina.net/p/vlook)
 - 下载并安装 [Typora](https://www.typora.io) ，启动后进入「偏好设置」，启用一些建议的选项，详细如下图：
 ![开启「Markdown 扩展语法」下的所有选项](https://tva1.sinaimg.cn/large/006tNbRwgy1ganwt7vwlaj31540cita9.jpg)
 ![开启「代码块」「公式」下的所有选项](https://tva1.sinaimg.cn/large/006tNbRwgy1ganwt7l785j315k0fuwg4.jpg)
