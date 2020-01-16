@@ -38,8 +38,13 @@
 @aHoverColor: @aLineColor;
 @aActiveColor: desaturate(@themeBgColorDark, 20%);
 
+// 表格十字光标颜色
+@tableCrossBgColor: fade(@aLineColor, 30%);
+
+// 封面、封底文字对齐方式
 @coverTextAlign: left;
 
+// 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
 @contrastBorder: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 
 @coverBackgroundImage: url(@coverLink), url(@coverCode);

@@ -220,7 +220,7 @@ html {
   cursor: default;
 }
 ::selection {
-  background: rgba(234, 184, 15, 0.3);
+  background: rgba(113, 133, 235, 0.3);
 }
 html,
 body {
@@ -231,15 +231,6 @@ body {
   line-height: 2;
   -webkit-tap-highlight-color: transparent;
   transition: all 0.3s ease-in-out;
-}
-#write {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 30px 0 30px;
-}
-#write > ul:first-child,
-#write > ol:first-child {
-  margin-top: 30px;
 }
 body.typora-export {
   padding-left: 0;
@@ -497,9 +488,6 @@ blockquote > blockquote {
 }
 blockquote > strong {
   color: inherit !important;
-}
-#write {
-  overflow-x: auto;
 }
 table {
   border-collapse: inherit;
@@ -1522,8 +1510,15 @@ div.mermaidTooltip {
 * 重定义Typora原生样式
 **************************************/
 #write {
-  padding-left: 10px;
-  padding-right: 10px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 10px 0 10px;
+  overflow-x: auto;
+  transition: all 0.3s ease-in-out;
+}
+#write > ul:first-child,
+#write > ol:first-child {
+  margin-top: 30px;
 }
 #write pre.ty-contain-cm {
   padding: 0;
@@ -2145,7 +2140,7 @@ li p {
   border-bottom-left-radius: 16px;
 }
 .mdx-nav-prev:hover {
-  background: linear-gradient(to right, rgba(113, 133, 235, 0.7), rgba(113, 133, 235, 0));
+  background: linear-gradient(to right, rgba(113, 133, 235, 0.9), rgba(113, 133, 235, 0));
   transition: all 0.3s ease-in-out;
 }
 .mdx-nav-prev:active {
@@ -2178,7 +2173,7 @@ li p {
   border-bottom-right-radius: 16px;
 }
 .mdx-nav-next:hover {
-  background: linear-gradient(to left, rgba(113, 133, 235, 0.7), rgba(113, 133, 235, 0));
+  background: linear-gradient(to left, rgba(113, 133, 235, 0.9), rgba(113, 133, 235, 0));
   transition: all 0.3s ease-in-out;
 }
 .mdx-nav-next:active {
@@ -2234,7 +2229,7 @@ li p {
   display: block;
 }
 .mdx-bread-nav-text:hover {
-  background: linear-gradient(90deg, rgba(113, 133, 235, 0), rgba(113, 133, 235, 0.7), rgba(113, 133, 235, 0));
+  background: linear-gradient(90deg, rgba(113, 133, 235, 0), rgba(113, 133, 235, 0.9), rgba(113, 133, 235, 0));
   transition: all 0.3s ease-in-out;
 }
 .mdx-bread-nav-text:active {
@@ -2312,8 +2307,8 @@ li p {
 }
 .mdx-figure-action {
   border-radius: 16px;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
   box-shadow: none;
   background-color: #F2C83A;
   position: absolute;
@@ -2654,6 +2649,22 @@ h6 code {
 @media (prefers-color-scheme: dark) {
   :root {
     --vlook-color-scheme: "dark";
+    --bg-color: var(--doc-bg-color-dark);
+    --side-bar-bg-color: var(--doc-bg-color-dark);
+    --text-color: var(--fore-color-dark);
+    --select-text-bg-color: var(--theme-bg-color-fade-dark);
+    --item-hover-bg-color: var(--doc-bg-color-dark);
+    --control-text-color: var(--fore-color-dark);
+    --control-text-hover-color: var(--fore-color-dark);
+    --window-border: 1px solid var(--fore-color-alt-dark);
+    --active-file-bg-color: var(--doc-bg-color-dark);
+    --active-file-border-color: var(--a-line-color-dark);
+    --active-file-text-color: var(--fore-color-dark);
+    --item-hover-bg-color: var(--fore-color-alt-dark);
+    --item-hover-text-color: var(--fore-color-dark);
+    --primary-color: var(--theme-bg-color-fade-dark);
+    --rawblock-edit-panel-bd: var(--doc-bg-color-dark);
+    --search-select-bg-color: var(--theme-bg-color-fade-dark);
     --doc-bg-color: var(--doc-bg-color-dark);
     --doc-bg-color-alt: var(--doc-bg-color-alt-dark);
     --doc-bg-color-alt-transparent: var(--doc-bg-color-alt-transparent-dark);

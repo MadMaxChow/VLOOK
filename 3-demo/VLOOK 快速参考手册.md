@@ -1,10 +1,10 @@
-###### <sup>VLOOK™</sup><br>快速参考手册 Quick Reference Manual<br>──<br><br>`+ 版本丨V9.5 +`<br><br><br><br><br>**MAX丨孟兆**<br>*COPYRIGHT © 2016-2020. MAX°DESIGN.*
+###### <sup>VLOOK™</sup><br>快速参考手册 Quick Reference Manual<br>──<br><br>`+ 版本丨V9.7 beta +`<br><br><br><br><br>**MAX丨孟兆**<br>*COPYRIGHT © 2016-2020. MAX°DESIGN.*
 
 [TOC]
 
 # VLOOK™ 是什么
 
-`最新版本丨V9.5`    `+ 官网丨https://github.com/madmaxchow/VLOOK +`    `* 适用平台丨Typora for Win & macOS *`    `- 开源协议丨MIT -`   `! 开发语言丨JavaScript !`
+`最新版本丨V9.7 beta`    `+ 官网丨https://github.com/madmaxchow/VLOOK +`    `* 适用平台丨Typora for Win & macOS *`    `- 开源协议丨MIT -`   `! 开发语言丨JavaScript !`
 
 [VLOOK™](https://github.com/MadMaxChow/VLOOK) 是针对由[Typora](https://www.typora.io)[^Typora]（目前最好的跨平台 Markdown 编辑器，没有之一）导出的 HTML 文件进行增强的插件。
 
@@ -27,7 +27,7 @@ VLOOK™ 为开源软件，遵从 [MIT 许可证](#许可协议)。
 
 VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导航、演示、交互需求中寻找平衡点，为 Markdown 的编辑者和阅读者提供了更好的使用体验。
 
-![VLOOK™ 特性清单]"环境要求：VLOOK V9.5+，Typora mac版 V0.9.9.31+ / Win版 V0.9.83+"
+![VLOOK™ 特性清单]"环境要求：VLOOK V9.7 beta+，Typora mac版 V0.9.9.31+ / Win版 V0.9.83+"
 
 |  特性分类  | 特性说明                                                     |
 | :--------: | ------------------------------------------------------------ |

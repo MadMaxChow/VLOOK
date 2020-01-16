@@ -229,8 +229,7 @@ html {
 }
 
 ::selection {
-    background: fade(@headerColor, 30%); 
-    // color:#fff;
+    background: fade(@aLineColor, 30%);
 }
 
 html,
@@ -242,17 +241,6 @@ body {
     line-height: 2;
     -webkit-tap-highlight-color: transparent;
     transition: all 0.3s ease-in-out;
-}
-
-#write {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 30px 0 30px;
-}
-
-#write > ul:first-child,
-#write > ol:first-child {
-    margin-top: 30px;
 }
 
 body.typora-export {
@@ -612,10 +600,6 @@ blockquote > strong {
     color: inherit !important;
 }
 
-#write {
-    overflow-x: auto;
-}
-
 table {
     border-collapse: inherit;
     border-spacing: 0;
@@ -799,19 +783,19 @@ h6 + figure {
 }
 
 .mdx-table-cross-left {
-    background: linear-gradient(90deg, fade(@aLineColor, 1%), fade(@aLineColor, 30%));
+    background: linear-gradient(90deg, fade(@aLineColor, 1%), @tableCrossBgColor);
 }
 
 .mdx-table-cross-right {
-    background: linear-gradient(90deg, fade(@aLineColor, 30%), fade(@aLineColor, 1%));
+    background: linear-gradient(90deg, @tableCrossBgColor, fade(@aLineColor, 1%));
 }
 
 .mdx-table-cross-up {
-    background: linear-gradient(0deg, fade(@aLineColor, 30%), fade(@aLineColor, 1%));
+    background: linear-gradient(0deg, @tableCrossBgColor, fade(@aLineColor, 1%));
 }
 
 .mdx-table-cross-down {
-    background: linear-gradient(0deg, fade(@aLineColor, 1%), fade(@aLineColor, 30%));
+    background: linear-gradient(0deg, fade(@aLineColor, 1%), @tableCrossBgColor);
 }
 
 // 高亮
@@ -2124,8 +2108,16 @@ div.mermaidTooltip {
 **************************************/
 
 #write {
-    padding-left: 10px;
-    padding-right: 10px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 10px 0 10px;
+    overflow-x: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+#write > ul:first-child,
+#write > ol:first-child {
+    margin-top: 30px;
 }
 
 // 代码块相关样式
@@ -2978,7 +2970,7 @@ li p {
 }
 
 .mdx-nav-prev:hover {
-    background: linear-gradient(to right, fade(@aHoverColor, 70%), fade(@aHoverColor, 0%));
+    background: linear-gradient(to right, fade(@aHoverColor, 90%), fade(@aHoverColor, 0%));
     transition: all 0.3s ease-in-out;
 }
 
@@ -3015,7 +3007,7 @@ li p {
 }
 
 .mdx-nav-next:hover {
-    background: linear-gradient(to left, fade(@aHoverColor, 70%), fade(@aHoverColor, 0%));
+    background: linear-gradient(to left, fade(@aHoverColor, 90%), fade(@aHoverColor, 0%));
     transition: all 0.3s ease-in-out;
 }
 
@@ -3077,7 +3069,7 @@ li p {
 }
 
 .mdx-bread-nav-text:hover {
-    background: linear-gradient(90deg, fade(@aHoverColor, 0%), fade(@aHoverColor, 70%), fade(@aHoverColor, 0%));
+    background: linear-gradient(90deg, fade(@aHoverColor, 0%), fade(@aHoverColor, 90%), fade(@aHoverColor, 0%));
     transition: all 0.3s ease-in-out;
 }
 
@@ -3682,28 +3674,28 @@ h6 code {
         
         // --------------------
         // Typora UI 颜色变量
-        // --bg-color: var(--doc-bg-color-dark);
-        // --side-bar-bg-color: var(--doc-bg-color-dark);
-        // --text-color: var(--fore-color-dark);
+        --bg-color: var(--doc-bg-color-dark);
+        --side-bar-bg-color: var(--doc-bg-color-dark);
+        --text-color: var(--fore-color-dark);
 
-        // --select-text-bg-color: var(--theme-bg-color-fade-dark);
+        --select-text-bg-color: var(--theme-bg-color-fade-dark);
 
-        // --item-hover-bg-color: var(--doc-bg-color-dark);
-        // --control-text-color: var(--fore-color-dark);
-        // --control-text-hover-color: var(--fore-color-dark);
-        // --window-border: 1px solid var(--fore-color-alt-dark);
+        --item-hover-bg-color: var(--doc-bg-color-dark);
+        --control-text-color: var(--fore-color-dark);
+        --control-text-hover-color: var(--fore-color-dark);
+        --window-border: 1px solid var(--fore-color-alt-dark);
 
-        // --active-file-bg-color:  var(--doc-bg-color-dark);
-        // --active-file-border-color: var(--a-line-color-dark);
+        --active-file-bg-color:  var(--doc-bg-color-dark);
+        --active-file-border-color: var(--a-line-color-dark);
 
-        // --active-file-text-color: var(--fore-color-dark);
-        // --item-hover-bg-color: var(--fore-color-alt-dark);
-        // --item-hover-text-color: var(--fore-color-dark);
-        // --primary-color: var(--theme-bg-color-fade-dark);
+        --active-file-text-color: var(--fore-color-dark);
+        --item-hover-bg-color: var(--fore-color-alt-dark);
+        --item-hover-text-color: var(--fore-color-dark);
+        --primary-color: var(--theme-bg-color-fade-dark);
 
-        // --rawblock-edit-panel-bd: var(--doc-bg-color-dark);
+        --rawblock-edit-panel-bd: var(--doc-bg-color-dark);
 
-        // --search-select-bg-color: var(--theme-bg-color-fade-dark);
+        --search-select-bg-color: var(--theme-bg-color-fade-dark);
 
         // --------------------
         // 颜色变量
