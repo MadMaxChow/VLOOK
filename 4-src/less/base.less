@@ -3,8 +3,8 @@
 
 :root {
     // 大纲面板、工具工具栏宽度
-    --vlook-toc-box-width: 380px;
-    --vlook-toc-box-left: -380px;
+    --vlook-toc-box-width: 350px;
+    --vlook-toc-box-left: -350px;
 
     --vlook-default-font-style: @defaultFontStyle; // 默认字体风格
     --vlook-color-scheme: "light"; // 默认颜色模式为：Light 明亮
@@ -1435,6 +1435,14 @@ h5.md-focus:before {
 * mermaid CSS
 **************************************/
 
+/* ----- pie diagram 饼图 ----- */
+
+// 标题、图例文本
+.pieTitleText,
+.legend text {
+    fill: var(--fore-color);
+}
+
 /* ----- flow diagram 流程图 ----- */
 
 // 标签
@@ -1541,6 +1549,7 @@ svg[id^="mermaidChart"] {
 }
 
 // 线条文本
+.edgeLabel .label div,
 .edgeLabel {
     color: var(--fore-color);
     background-color: var(--doc-bg-color);
@@ -2510,7 +2519,7 @@ li p {
 .mdx-tool-tips {
     // border-top: 2px solid @aLineColor;
     border-top: 0;
-    box-shadow: 0 2px 0 0 @aLineColor inset;
+    box-shadow: 0 2px 0 0 @aLineColor inset, 0 3px 20px rgba(0, 0, 0, 0.3), @contrastBorder;;
     text-align: left;
 }
 
@@ -2622,6 +2631,18 @@ li p {
     position: fixed;
     z-index: 2000;
     user-select: none;
+}
+
+.mdx-toc-box-float {
+    top: 10px;
+    bottom: 40px;
+    box-shadow: 0 0 0 1px fade(@themeBgColor, 30%) inset, 0 3px 20px rgba(0, 0, 0, 0.3);
+}
+
+.mdx-toc-box-blocked {
+    top: 60px;
+    bottom: 10px;
+    box-shadow: 0 0 0 1px fade(@themeBgColor, 30%) inset, 0 3px 20px rgba(0, 0, 0, 0.3);
 }
 
 // .mdx-toc-box:hover,
@@ -2840,17 +2861,13 @@ li p {
     visibility: visible;
 }
 
-// .mdx-btn-outline > #svgOutline {
-// }
-
 .mdx-header-current {
-    //   background-color: var(--code-bg-color);
-    background: linear-gradient(90deg, var(--code-bg-color-transparent), var(--theme-bg-color-fade));
+  background: linear-gradient(90deg, var(--code-bg-color-transparent) 50%, var(--theme-bg-color-fade));
 }
 
 .mdx-header-current a {
     font-weight: bold;
-    //   color: var(--figure-caption-color) !important;
+    color: @headerColor !important;
 }
 
 .mdx-header-current a:after {}
