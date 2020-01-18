@@ -10,6 +10,29 @@ VLOOK™ 是针对由 [Typora](https://www.typora.io)（目前最好的跨平台
 
 VLOOK™ 为开源软件，遵从 MIT 许可证。
 
+---
+
+# 内置多套高颜值的主题
+
+![内置的主题](https://tva1.sinaimg.cn/large/006tNbRwgy1gb12df7tjpj32mg0m8dpn.jpg)
+
+- 针对 VLOOK 内置多套优化的主题样式（在导出 HTML 通过 Typora 的「主题」菜单选择名称以 VLOOK 打头的主题）；
+  - **Hope 海洋之心**：[预览 ＞](https://madmaxchow.github.io/VLOOK/index.html)
+  - **Joint 榫卯**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-joint.html)
+  - **Fancy 慕幻**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-fancy.html)
+  - **Geek 极邃**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-geek.html)
+- 所有主题的文档导出为 HTML 后，都支持`Light (明亮)`与`Dark (黑暗)`模式；
+- 提供主题的私人定制服务，定制样品如下：
+
+![私人定制主题](https://tva1.sinaimg.cn/large/006tNbRwgy1gb1139tpplj31yu0m8tlx.jpg)
+（以上仅为效果仅为定制样品示例，非正式定制服务成品）
+
+## 主题私人定制服务
+
+- 主题私人定制服务微信：**MaxChow**
+
+---
+
 ## 特性清单
 
 VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导航、演示、交互需求中寻找平衡点，为 Markdown 的编辑者和阅读者提供了更好的使用体验。
@@ -50,27 +73,6 @@ VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导�
 
 有关 VLOOK 特性的详细介绍、样例及使用说明详见《[VLOOK 快速参考手册](https://madmaxchow.github.io/VLOOK/index.html)》<br/>
 有关脚本化图表的详细介绍、样例及使用说明详见《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
-
----
-
-# 多主题样式
-
-![内置主题样式](https://tva1.sinaimg.cn/large/006tNbRwgy1gb12df7tjpj32mg0m8dpn.jpg)
-
-- 针对 VLOOK 内置多套优化的主题样式（在导出 HTML 通过 Typora 的「主题」菜单选择名称以 VLOOK 打头的主题）；
-  - **Hope 海洋之心**：[预览 ＞](https://madmaxchow.github.io/VLOOK/index.html)
-  - **Joint 榫卯**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-joint.html)
-  - **Fancy 慕幻**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-fancy.html)
-  - **Geek 极邃**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-geek.html)
-- 所有主题的文档导出为 HTML 后，都支持`Light (明亮)`与`Dark (黑暗)`模式；
-- 提供主题的私人定制服务，定制样品如下：
-
-![私人定制主题](https://tva1.sinaimg.cn/large/006tNbRwgy1gb1139tpplj31yu0m8tlx.jpg)
-（以上仅为效果仅为定制样品示例，非正式定制服务成品）
-
-## 主题私人定制服务
-
-- 主题私人定制服务微信：**MaxChow**
 
 ---
 
