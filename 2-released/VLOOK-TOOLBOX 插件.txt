@@ -1,6 +1,6 @@
 <!--========================================================================-->
 <!--                                                                        -->
-<!--                       Typora Plugin - VLOOK V9.7 beta                       -->
+<!--                       Typora Plugin - VLOOK V9.7                       -->
 <!--                                                                        -->
 <!--                               2020-01-18                               -->
 <!--                             powered by Max                             -->
@@ -156,7 +156,7 @@ MIT许可证（MIT）
 
 <!-- 大纲面板 -->
 <div class="mdx-mask mdx-backdrop-blurs">
-    <div class="mdx-copyright"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.7 beta) for <a href="https://www.typora.io" target="_blank">Typora</a> | by <strong>Max</strong></div>
+    <div class="mdx-copyright"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.7) for <a href="https://www.typora.io" target="_blank">Typora</a> | by <strong>Max</strong></div>
 </div>
 <div class="mdx-toc-box">
     <div class="mdx-toc-box-header">
@@ -217,7 +217,7 @@ MIT许可证（MIT）
             <use class="mdx-button-ico" xlink:href="#icoClose"></use>
         </svg>
     </div>
-    <div class="mdx-copyright"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.7 beta) for <a href="https://www.typora.io" target="_blank">Typora</a> | by <strong>Max</strong></div>
+    <div class="mdx-copyright"><a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.7) for <a href="https://www.typora.io" target="_blank">Typora</a> | by <strong>Max</strong></div>
 </div>
 
 <!-- 页面工具栏 -->
@@ -312,7 +312,7 @@ MIT许可证（MIT）
 <div class="mdx-table-cross mdx-table-cross-down">&nbsp;</div>
 
 <script type="text/javascript">
-    const _version = "V9.7 beta", // 版本信息
+    const _version = "V9.7", // 版本信息
         _animateSpeed = 200, // 动画速度，值越小越快
         _icoFold =
             '<svg width="20px" height="20px" style="display: inline-block; vertical-align: middle;"><use xlink:href="#icoFolded" class="mdx-folder-ico"/></svg>', // 大纲章节图标：已收起
