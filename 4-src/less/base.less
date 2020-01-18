@@ -3,8 +3,8 @@
 
 :root {
     // 大纲面板、工具工具栏宽度
-    --vlook-toc-box-width: 350px;
-    --vlook-toc-box-left: -350px;
+    --vlook-toc-box-width:350px;
+    --vlook-toc-box-left:-350px;
 
     --vlook-default-font-style: @defaultFontStyle; // 默认字体风格
     --vlook-color-scheme: "light"; // 默认颜色模式为：Light 明亮
@@ -229,7 +229,7 @@ html {
 }
 
 ::selection {
-    background: fade(@aLineColor, 30%);
+    background: @selectionColor;
 }
 
 html,
@@ -249,14 +249,27 @@ body.typora-export {
 }
 
 @media screen and (max-width: 1000px) {
-    body.typora-export {
-        margin-left: 0;
-        padding-left: 0;
-        padding-right: 0;
-    }
-
     .mdx-loading {
         font-size: 1.3em !important;
+    }
+
+    .mdx-nav-prev,
+    .mdx-nav-next {
+        width: 20% !important;
+    }
+
+    .mdx-nav-prev-text,
+    .mdx-nav-next-text {
+        display: none !important;
+    }
+
+    .mdx-bread-nav {
+        left: 10px !important;
+    }
+
+    .mdx-bread-nav-text {
+        margin-left: 40px !important;
+        margin-right: 40px !important;
     }
 }
 
@@ -2327,7 +2340,7 @@ div.mermaidTooltip {
 
 .md-toc-item:hover > a,
 .md-toc-item a:hover {
-    color: var(--a-line-color);
+    color: var(--a-line-color) !important;
     transition: all 0.3s ease-in-out;
 }
 
@@ -2655,7 +2668,7 @@ li p {
     font-family: @boldFont;
     font-size: 1.2em;
     // width: 100%;
-    height: 70px;
+    height: 60px;
     padding: 10px 0 0 0;
     background: linear-gradient(180deg, var(--doc-bg-color-alt) 40px, var(--doc-bg-color-alt-transparent));
     left: 2px;
@@ -2721,11 +2734,11 @@ li p {
     font-size: 0.8em;
     font-family: @boldFont;
     //   width: 100%;
-    height: 50px;
+    height: 30px;
     line-height: 40px;
-    left: 2px;
-    right: 2px;
-    bottom: 2px;
+    left: 1px;
+    right: 1px;
+    bottom: 1px;
     text-align: center;
     padding: 0;
     background: linear-gradient(0deg, var(--doc-bg-color-alt) 10px, var(--doc-bg-color-alt-transparent));
@@ -2834,7 +2847,6 @@ li p {
     height: 50px;
     position: fixed;
     background-color: fade(@themeBgColor, 75%);
-    //   opacity: 0.85;
     transition: all 0.3s ease-in-out;
     z-index: 100;
 }
@@ -2979,7 +2991,7 @@ li p {
 .mdx-nav-prev {
     top: 0;
     left: 0;
-    width: 20%;
+    width: 25%;
     height: 50px;
     position: absolute;
     cursor: pointer;
@@ -3010,13 +3022,13 @@ li p {
     overflow: hidden;
     position: absolute;
     cursor: pointer;
-    display: none;
+    display: block;
 }
 
 .mdx-nav-next {
     top: 0;
     right: 0;
-    width: 20%;
+    width: 25%;
     height: 50px;
     position: absolute;
     cursor: pointer;
@@ -3056,7 +3068,7 @@ li p {
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
     top: -50px;
-    left: 10px;
+    left: calc(~"var(--vlook-toc-box-width) + 30px");
     right: 10px;
     height: 50px;
     position: fixed;
@@ -3074,8 +3086,8 @@ li p {
     font-weight: bold;
     text-align: center;
     line-height: 50px;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 200px;
+    margin-right: 200px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -3097,40 +3109,40 @@ li p {
 
 .mdx-btn-fullscreen {
     margin-top: 10px;
-    margin-left: 10px;
+    margin-left: 5px;
     float: left;
     display: none;
 }
 
 .mdx-btn-color-scheme {
     margin-top: 10px;
-    margin-right: 10px;
+    margin-right: 5px;
     float: right;
 }
 
 .mdx-btn-font-style {
     margin-top: 10px;
-    margin-right: 10px;
+    margin-right: 5px;
     float: right;
 }
 
 .mdx-btn-figure-launcher {
     margin-top: 10px;
-    margin-left: 10px;
+    margin-left: 5px;
     visibility: hidden;
     float: left;
 }
 
 .mdx-btn-spotlight {
     margin-top: 10px;
-    margin-right: 10px;
+    margin-right: 5px;
     float: right;
 }
 
 .mdx-btn-print {
     margin-top: 10px;
     margin-right: 10px;
-    margin-left: 20px;
+    margin-left: 30px;
     float: right;
     //   display: none;
 }
@@ -3590,21 +3602,6 @@ h6 code {
         margin: 0 !important;
     }
 
-    // 显示原始的目录
-    #write .md-toc {
-        display: block !important;
-    }
-
-    // 清空当前章节的样式
-    .mdx-header-current {
-        background: none !important;
-    }
-
-    .mdx-toc {
-        display: block !important;
-        visibility: visible !important;
-    }
-
     h1,
     h2,
     h3,
@@ -3625,6 +3622,14 @@ h6 code {
     img:hover,
     table:hover {
         border-color: var(--table-border-color) !important;
+    }
+
+    .mdx-figure-caption:hover {
+        background-color: var(--doc-bg-color-alt);
+    }
+
+    .mdx-figure-action {
+        display: none;
     }
 
     .mdx-img-invert-in-dark {
@@ -3654,6 +3659,24 @@ h6 code {
         transition: all 0.3s ease-in-out;
     }
 
+    // 显示原始的目录
+    #write .md-toc {
+        display: block !important;
+    }
+
+    // 清空当前章节的样式
+    .mdx-header-current {
+        background: none !important;
+    }
+    .mdx-header-current a {
+        color: var(--fore-color) !important;
+    }
+
+    .mdx-toc {
+        display: block !important;
+        visibility: visible !important;
+    }
+
     .mdx-toolbar,
     .mdx-bread-nav,
     .mdx-toc-box,
@@ -3665,7 +3688,7 @@ h6 code {
         display: none;
         visibility: hidden;
     }
-
+    
     #write > h6:first-of-type,
     #write > h6:last-of-type,
     #write > h6:first-of-type strong,

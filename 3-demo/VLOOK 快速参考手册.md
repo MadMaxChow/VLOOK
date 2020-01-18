@@ -65,7 +65,7 @@ VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导�
 
 ### 多主题样式
 
-![内置主题样式](https://tva1.sinaimg.cn/large/006tNbRwgy1garg0plsppj32mg0m875w.jpg "可自定义扩展更多样式")
+![内置主题样式](https://tva1.sinaimg.cn/large/006tNbRwgy1gb0x2o0wpuj32mg0m8k17.jpg "可自定义扩展更多样式")
 
 - 针对 VLOOK 内置多套优化的主题样式[^主题样式]（在导出 HTML 通过 Typora 的「主题」菜单选择名称以 VLOOK 打头的主题）；
   - **Hope 海洋之心**：[预览 ＞](https://madmaxchow.github.io/VLOOK/index.html)
@@ -73,9 +73,9 @@ VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导�
   - **Geek 极邃**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-geek.html)
   - **Fancy 慕幻**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-fancy.html)
 - 所有主题的文档导出为 HTML 后，都支 **Dark 模式**；
-- 提供主题的私人定制服务（私人定制服务微信：**MaxChow**），定制样品如下：
+- 提供主题的私人定制服务（私人定制服务微信：**MaxChow**），定制样品示例如下：
 
-![私人定制主题](https://tva1.sinaimg.cn/large/006tNbRwgy1garg0pwstpj31yu0m8gnz.jpg)
+![私人定制主题](https://tva1.sinaimg.cn/large/006tNbRwgy1gb0vmg7f2mj31yu0m87hh.jpg "以上仅为效果仅为定制样品示例，非正式定制服务成品")
 
 [^主题样式]: 可以根据 VLOOK 源码目录下的 LESS 中文件为样例进行自定义扩展，访问 VLOOK 在 [github 主页](http://github.com/madmaxchow/vlook)了解更多。
 
@@ -582,7 +582,7 @@ $$
 | :----------------------------------------------: | --------------------------------------------------------- |
 |                   <kbd>D</kbd>                   | 开启 / 关闭 Dark 模式                                     |
 |                   <kbd>O</kbd>                   | 显示 / 隐藏大纲面板                                       |
-|                   <kbd>A</kbd>                   | 切换字体样式，详见[切换字体样式](#切换字体样式)           |
+|                   <kbd>A</kbd>                   | 切换字体样式，详见[多字体样式](#多字体样式)               |
 |                   <kbd>I</kbd>                   | 显示 / 隐藏插图浏览器                                     |
 |                   <kbd>P</kbd>                   | 打印文档                                                  |
 |                   <kbd>S</kbd>                   | 打开 / 关闭聚光灯                                         |
@@ -654,4 +654,4 @@ $$
 上述版权声明和本许可声明应包含在本软件的所有副本或重要部分中。
 本软件按“原样”提供，不提供任何以表达或暗示，包括但不限于销售，适用于特定用途和不侵权的保证。在任何情况下，作者或版权所有人不对因软件或软件的使用或其他事宜产生的任何索赔，损害或其他责任（无论是在合同，侵权或其他方面的诉讼中）负责。
 
-###### <br><br><br><br><br><br><br><br>── 文档结束 ──
+###### 
