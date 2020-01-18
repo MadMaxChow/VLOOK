@@ -55,7 +55,7 @@ VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导�
 
 # 多主题样式
 
-![内置主题样式](https://tva1.sinaimg.cn/large/006tNbRwgy1gb1139tpplj31yu0m8tlx.jpg)
+![内置主题样式](https://tva1.sinaimg.cn/large/006tNbRwgy1gb12df7tjpj32mg0m8dpn.jpg)
 
 - 针对 VLOOK 内置多套优化的主题样式（在导出 HTML 通过 Typora 的「主题」菜单选择名称以 VLOOK 打头的主题）；
   - **Hope 海洋之心**：[预览 ＞](https://madmaxchow.github.io/VLOOK/index.html)
