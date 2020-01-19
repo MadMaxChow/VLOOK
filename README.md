@@ -12,9 +12,9 @@ VLOOK™ 为开源软件，遵从 MIT 许可证。
 
 ---
 
-# 内置多套高颜值的主题
+# 内置多套高颜值实用的主题
 
-![内置的主题](https://tva1.sinaimg.cn/large/006tNbRwgy1gb12df7tjpj32mg0m8dpn.jpg)
+![内置多套高颜值实用的主题](https://tva1.sinaimg.cn/large/006tNbRwgy1gb24tek574j32mg0m848b.jpg)
 
 - 针对 VLOOK 内置多套优化的主题样式（在导出 HTML 通过 Typora 的「主题」菜单选择名称以 VLOOK 打头的主题）；
   - **Hope 海洋之心**：[预览 ＞](https://madmaxchow.github.io/VLOOK/index.html)
@@ -24,7 +24,7 @@ VLOOK™ 为开源软件，遵从 MIT 许可证。
 - 所有主题的文档导出为 HTML 后，都支持`Light (明亮)`与`Dark (黑暗)`模式；
 - 提供主题的私人定制服务，定制样品如下：
 
-![私人定制主题](https://tva1.sinaimg.cn/large/006tNbRwgy1gb1139tpplj31yu0m8tlx.jpg)
+![私人定制主题](https://tva1.sinaimg.cn/large/006tNbRwgy1gb24tfcyctj31yu0m8dsr.jpg)
 （以上仅为效果仅为定制样品示例，非正式定制服务成品）
 
 ## 主题私人定制服务
