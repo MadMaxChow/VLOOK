@@ -10,6 +10,29 @@ VLOOK™ 是针对由 [Typora](https://www.typora.io)（目前最好的跨平台
 
 VLOOK™ 为开源软件，遵从 MIT 许可证。
 
+---
+
+# 内置多套高颜值实用的主题
+
+![内置多套高颜值实用的主题](https://tva1.sinaimg.cn/large/006tNbRwgy1gb24tek574j32mg0m848b.jpg)
+
+- 针对 VLOOK 内置多套优化的主题样式（在导出 HTML 通过 Typora 的「主题」菜单选择名称以 VLOOK 打头的主题）；
+  - **Hope 海洋之心**：[预览 ＞](https://madmaxchow.github.io/VLOOK/index.html)
+  - **Joint 榫卯**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-joint.html)
+  - **Fancy 慕幻**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-fancy.html)
+  - **Geek 极邃**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-geek.html)
+- 所有主题的文档导出为 HTML 后，都支持`Light (明亮)`与`Dark (黑暗)`模式；
+- 提供主题的私人定制服务，定制样品如下：
+
+![私人定制主题](https://tva1.sinaimg.cn/large/006tNbRwgy1gb24tfcyctj31yu0m8dsr.jpg)
+（以上仅为效果仅为定制样品示例，非正式定制服务成品）
+
+## 主题私人定制服务
+
+- 主题私人定制服务微信：**MaxChow**
+
+---
+
 ## 特性清单
 
 VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导航、演示、交互需求中寻找平衡点，为 Markdown 的编辑者和阅读者提供了更好的使用体验。
@@ -19,7 +42,7 @@ VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导�
 |       排版增强       | **封面、封底**<br>配合主题样式，让你用 Markdown 写的文档也能焕发专业气质 |
 |       ..       | **多主题样式**<br>让你的文档尽显个性，同时提供主题定制服务 |
 |       ..       | **标题、插图、表格、表格行支持自动编号**<br>“0”配置，跟 Word 说 ByeBye 吧～ |
-|       ..       | **自动生成插图、表格的题注**<br>OMG！配合自动编码，又高效又美观，还能支持双题注呢～ |
+|       ..       | **自动生成插图、表格的题注**<br>OMG！配合插图、表格的自动编号，高效高颜值！还有独特的双题注～ |
 |       ..       | **表格单元格合并**<br>这个是用 Markdown 人的真痛点，在这时为你提供了优雅的解决方法 |
 |       ..       | **表格列格式设置**<br>Markdown 的表格也能快速设置列的格式（如加粗、高亮、斜体、下划线），同样为你提供了优雅的解决方法 |
 |       ..       | **彩虹标签**<br>可自定义多个配色的标签、双标签，让你的 Markdown 文档排版更专业、更标准化 |
@@ -50,27 +73,6 @@ VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导�
 
 有关 VLOOK 特性的详细介绍、样例及使用说明详见《[VLOOK 快速参考手册](https://madmaxchow.github.io/VLOOK/index.html)》<br/>
 有关脚本化图表的详细介绍、样例及使用说明详见《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
-
----
-
-# 多主题样式
-
-![内置主题样式](https://tva1.sinaimg.cn/large/006tNbRwgy1gb1138vcd1j32mg0m8dpn.jpg)
-
-- 针对 VLOOK 内置多套优化的主题样式（在导出 HTML 通过 Typora 的「主题」菜单选择名称以 VLOOK 打头的主题）；
-  - **Hope 海洋之心**：[预览 ＞](https://madmaxchow.github.io/VLOOK/index.html)
-  - **Joint 榫卯**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-joint.html)
-  - **Fancy 慕幻**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-fancy.html)
-  - **Geek 极邃**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-geek.html)
-- 所有主题的文档导出为 HTML 后，都支持`Light (明亮)`与`Dark (黑暗)`模式；
-- 提供主题的私人定制服务，定制样品如下：
-
-![私人定制主题](https://tva1.sinaimg.cn/large/006tNbRwgy1gb1139tpplj31yu0m8tlx.jpg)
-（以上仅为效果仅为定制样品示例，非正式定制服务成品）
-
-## 主题私人定制服务
-
-- 主题私人定制服务微信：**MaxChow**
 
 ---
 
