@@ -733,7 +733,7 @@ h6 + figure table tbody tr {
 
 figure table tr > th:first-child::before,
 figure table tr > td:first-child::before {
-    content: "#";
+    content: "# ";
     color: var(--toc-header-num-color);
     font-family: @codeFont;
     font-size: 0.8em;
@@ -2239,10 +2239,12 @@ div.mermaidTooltip {
 .md-toc-item:before {
     color: var(--toc-header-num-color);
     padding-left: 5px;
+    transition: all 0.3s ease-in-out;
 }
 
 .md-toc-item:hover {
     color: @aLineColor;
+    background-color: var(--doc-bg-color);
     box-shadow: 0 0 0 1px @aLineColor inset;
     transition: all 0.3s ease-in-out;
 }
@@ -2258,6 +2260,10 @@ div.mermaidTooltip {
     transition: all 0.3s ease-in-out;
 }
 
+.md-toc-item:active::beofre {
+    color: @aActiveColor;
+    transition: all 0.3s ease-in-out;
+}
 
 .md-toc,
 .mdx-toc {
@@ -2693,6 +2699,7 @@ li p {
 
 .mdx-toc-box-title:hover {
     color: @aHoverColor;
+    background-color: var(--doc-bg-color);
     // border-bottom: 1px solid @aHoverColor;
     box-shadow: 0 0 0 1px @aHoverColor inset;
     transition: all 0.3s ease-in-out;
@@ -2857,6 +2864,7 @@ li p {
 //   background: linear-gradient(90deg, var(--code-bg-color-transparent) 75%, @themeBgColorFade);
     font-weight: bold;
     color: @headerColor;
+    background-color: var(--doc-bg-color);
     box-shadow: 0 0 0 2px @themeBgColorFade inset;
 }
 
@@ -2894,12 +2902,12 @@ li p {
     width: 40px;
     height: 30px;
     border-radius: 6px;
+    transition: all 0.3s ease-in-out;
 }
 
 .mdx-btn-hover:hover {
     background-color: @aHoverColor;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease-in-out;
     transform: translateY(-2px);
 }
 
@@ -2909,15 +2917,14 @@ li p {
     -webkit-backdrop-filter: blur(15px);
 }
 
-.mdx-btn-leave {
-    transition: all 0.3s ease-in-out;
-    transform: none;
-}
+// .mdx-btn-leave {
+//     transition: all 0.3s ease-in-out;
+//     transform: none;
+// }
 
 .mdx-btn:active {
     background-color: @aActiveColor;
     box-shadow: none;
-    transition: all 0.3s ease-in-out;
     transform: none;
 }
 
@@ -3109,24 +3116,46 @@ li p {
     z-index: 4000;
 }
 
+.mdx-btn-figure-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    color: @buttonForeColor;
+    cursor: pointer;
+    padding: 0;
+}
+
 .mdx-btn-figure-prev {
-    background-color: @buttonBgColor;
     left: 10px;
     top: auto;
+    width: 30px;
+    height: 70px;
     box-shadow: @contrastBorder;
-    border-radius: 16px;
+    border-radius: 15px;
     position: absolute;
     bottom: 10px;
+    transition: all 0.3s ease-in-out;
 }
 
 .mdx-btn-figure-next {
-    background-color: @buttonBgColor;
     right: 10px;
     top: auto;
+    width: 30px;
+    height: 70px;
     box-shadow: @contrastBorder;
-    border-radius: 16px;
+    border-radius: 15px;
     position: absolute;
     bottom: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.mdx-btn-figure-hover {
+    fill: @aLineColor !important;
+}
+
+.mdx-btn-figure-active {
+    fill: @aActiveColor !important;
 }
 
 .mdx-btn-close-figure-viewer {
@@ -3254,8 +3283,12 @@ img,
     margin-right: auto;
 }
 
-use.mdx-button-ico {
+use.mdx-button-ico-light {
     fill: @buttonForeColor;
+}
+
+use.mdx-button-ico-dark {
+    fill: var(--fore-color);
 }
 
 use.mdx-folder-ico {
