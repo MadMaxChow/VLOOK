@@ -18,6 +18,8 @@ VLOOK™ 为开源软件，遵从 MIT 许可证。
 
 ![支持mermaid图及聚光灯](https://tva1.sinaimg.cn/large/0082zybpgy1gbtzxtur33j31bz0u0tko.jpg)
 
+![插图浏览器](https://tva1.sinaimg.cn/large/0082zybpgy1gbtzxti1faj31e60u0kfh.jpg)
+
 # 内置多套高颜值实用的主题
 
 ![内置多套高颜值实用的主题](https://tva1.sinaimg.cn/large/0082zybpgy1gbst4qqa0gj32mg0m87hc.jpg)
