@@ -2239,30 +2239,33 @@ div.mermaidTooltip {
 .md-toc-item:before {
     color: var(--toc-header-num-color);
     padding-left: 5px;
-    transition: all 0.3s ease-in-out;
+    // transition: all 0.3s ease-in-out;
 }
 
 .md-toc-item:hover {
-    color: @aLineColor;
-    background-color: var(--doc-bg-color);
-    box-shadow: 0 0 0 1px @aLineColor inset;
-    transition: all 0.3s ease-in-out;
+    color: @buttonForeColor;
+    background-color: @aHoverColor;
+    transform: scale(1.05);
+    // box-shadow: 0 0 0 1px @aLineColor inset;
+    // transition: all 0.3s ease-in-out;
 }
 
 .md-toc-item:hover::before {
-    color: @aLineColor;
-    transition: all 0.3s ease-in-out;
+    color: @buttonForeColor;
+    // transition: all 0.3s ease-in-out;
 }
 
 .md-toc-item:active {
-    color: @aActiveColor;
-    box-shadow: 0 0 0 3px @aActiveColor inset;
-    transition: all 0.3s ease-in-out;
+    // color: @aActiveColor;
+    background-color: @buttonBgColor;
+    transform: scale(1);
+    // box-shadow: 0 0 0 3px @aActiveColor inset;
+    // transition: all 0.3s ease-in-out;
 }
 
 .md-toc-item:active::beofre {
     color: @aActiveColor;
-    transition: all 0.3s ease-in-out;
+    // transition: all 0.3s ease-in-out;
 }
 
 .md-toc,
@@ -2695,20 +2698,22 @@ li p {
     font-weight: bold;
     color: var(--a-color);
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
 .mdx-toc-box-title:hover {
-    color: @aHoverColor;
-    background-color: var(--doc-bg-color);
+    color: @buttonForeColor;
+    background-color: @aHoverColor;
     // border-bottom: 1px solid @aHoverColor;
-    box-shadow: 0 0 0 1px @aHoverColor inset;
-    transition: all 0.3s ease-in-out;
+    // box-shadow: 0 0 0 1px @aHoverColor inset;
+    // transition: all 0.3s ease-in-out;
 }
 
 .mdx-toc-box-title:active {
-    color: @aActiveColor;
-    box-shadow: 0 0 0 3px @aActiveColor inset;
-    transition: all 0.3s ease-in-out;
+    // color: @buttonForeColor;
+    background-color: @aActiveColor;
+    // box-shadow: 0 0 0 3px @aActiveColor inset;
+    // transition: all 0.3s ease-in-out;
 }
 
 .mdx-toc-box-body-scroll {
@@ -3159,12 +3164,29 @@ li p {
 }
 
 .mdx-btn-close-figure-viewer {
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    align-items: normal;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 0.8em;
     background-color: @buttonBgColor;
-    right: 10px;
-    top: 10px;
+    right: -2px;
+    top: -2px;
+    width: 50px;
+    height: 50px;
+    padding: 12px;
     box-shadow: @contrastBorder;
-    border-radius: 16px;
+    border-radius: 0 0 0 50px;
     position: absolute;
+    transition: all 0.3s ease-in-out;
+}
+
+.mdx-btn-close-figure-viewer:hover {
+    background-color: @aHoverColor;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transform: translate(-2px, 2px) ;
 }
 
 .mdx-btn-open-in-new-tab {

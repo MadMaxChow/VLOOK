@@ -2,7 +2,7 @@
 <!--                                                                        -->
 <!--                       Typora Plugin - VLOOK V9.11                       -->
 <!--                                                                        -->
-<!--                               2020-02-11                               -->
+<!--                               2020-02-12                               -->
 <!--                          powered by MAX丨孟兆                           -->
 <!--                                                                        -->
 <!--              QQ Group: 805502564    email: maxchow@qq.com              -->
@@ -219,7 +219,7 @@ MIT许可证（MIT）
             <use class="mdx-button-ico-dark" xlink:href="#icoNextFig"></use>
         </svg>
     </div>
-    <div class="mdx-btn mdx-btn-close-figure-viewer" onclick="hideFigureViewer()">
+    <div class="mdx-btn-close-figure-viewer" onclick="hideFigureViewer()">
         <svg width="16px" height="16px">
             <use class="mdx-button-ico-light" xlink:href="#icoClose"></use>
         </svg>

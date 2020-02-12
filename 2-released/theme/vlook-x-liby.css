@@ -1570,26 +1570,21 @@ div.mermaidTooltip {
 .md-toc-item:before {
   color: var(--toc-header-num-color);
   padding-left: 5px;
-  transition: all 0.3s ease-in-out;
 }
 .md-toc-item:hover {
-  color: #E60012;
-  background-color: var(--doc-bg-color);
-  box-shadow: 0 0 0 1px #E60012 inset;
-  transition: all 0.3s ease-in-out;
+  color: #FFFFFF;
+  background-color: #E60012;
+  transform: scale(1.05);
 }
 .md-toc-item:hover::before {
-  color: #E60012;
-  transition: all 0.3s ease-in-out;
+  color: #FFFFFF;
 }
 .md-toc-item:active {
-  color: #b3000e;
-  box-shadow: 0 0 0 3px #b3000e inset;
-  transition: all 0.3s ease-in-out;
+  background-color: #00A0E6;
+  transform: scale(1);
 }
 .md-toc-item:active::beofre {
   color: #b3000e;
-  transition: all 0.3s ease-in-out;
 }
 .md-toc,
 .mdx-toc {
@@ -1910,17 +1905,14 @@ li p {
   font-weight: bold;
   color: var(--a-color);
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 .mdx-toc-box-title:hover {
-  color: #E60012;
-  background-color: var(--doc-bg-color);
-  box-shadow: 0 0 0 1px #E60012 inset;
-  transition: all 0.3s ease-in-out;
+  color: #FFFFFF;
+  background-color: #E60012;
 }
 .mdx-toc-box-title:active {
-  color: #b3000e;
-  box-shadow: 0 0 0 3px #b3000e inset;
-  transition: all 0.3s ease-in-out;
+  background-color: #b3000e;
 }
 .mdx-toc-box-body-scroll {
   width: 100%;
@@ -2279,12 +2271,28 @@ li p {
   fill: #b3000e !important;
 }
 .mdx-btn-close-figure-viewer {
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  align-items: normal;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 0.8em;
   background-color: #00A0E6;
-  right: 10px;
-  top: 10px;
+  right: -2px;
+  top: -2px;
+  width: 50px;
+  height: 50px;
+  padding: 12px;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  border-radius: 16px;
+  border-radius: 0 0 0 50px;
   position: absolute;
+  transition: all 0.3s ease-in-out;
+}
+.mdx-btn-close-figure-viewer:hover {
+  background-color: #E60012;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transform: translate(-2px, 2px);
 }
 .mdx-btn-open-in-new-tab {
   border-radius: 16px;
