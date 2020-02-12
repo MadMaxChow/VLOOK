@@ -1580,7 +1580,7 @@ div.mermaidTooltip {
   color: #FFFFFF;
 }
 .md-toc-item:active {
-  background-color: #0B72D9;
+  background-color: #357023;
   transform: scale(1);
 }
 .md-toc-item:active::beofre {
