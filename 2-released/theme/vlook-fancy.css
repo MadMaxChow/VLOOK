@@ -1846,9 +1846,14 @@ li p {
 .mdx-figure-content svg {
   width: 100%;
 }
-.mdx-blockquote-folder:hover {
-  color: #28521a;
+.mdx-blockquote-folder {
   transition: all 0.3s ease-in-out;
+}
+.mdx-blockquote-folder:hover {
+  color: #663714;
+}
+.mdx-blockquote-folder:active {
+  color: #3b200c;
 }
 .mdx-toc-box {
   background-color: var(--doc-bg-color-alt);

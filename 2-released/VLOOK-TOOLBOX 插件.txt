@@ -1562,8 +1562,8 @@ MIT许可证（MIT）
                     if (_enableBlockFocus === false)
                         return;
 
-                    _blockFocusItemIndex = $(this).attr("mdx-blockfocus-index");
-                    autoUnfoldQuote();
+                    _blockFocusItemIndex = parseInt($(this).attr("mdx-blockfocus-index"));
+                    // autoUnfoldQuote();
 
                     // 当前内容块内表格已显示十字光标
                     if (withCrossTable($(this)) === false) {
@@ -1642,6 +1642,7 @@ MIT许可证（MIT）
      */
     function prevBlockFocusItem(step) {
         hideTableCross(true);
+
         if (_blockFocusItemIndex > 0) {
             _blockFocusItemIndex = _blockFocusItemIndex - step;
             if (_blockFocusItemIndex < 0)
@@ -1660,6 +1661,7 @@ MIT许可证（MIT）
      */
     function nextBlockFocusItem(step) {
         hideTableCross(true);
+
         if (_blockFocusItemIndex < _blockFocusItemCount - 1) {
             _blockFocusItemIndex = _blockFocusItemIndex + step;
             if (_blockFocusItemIndex > _blockFocusItemCount - 1)
@@ -1682,7 +1684,7 @@ MIT许可证（MIT）
             if (obj.attr("class") !== undefined
                 && obj.attr("class").indexOf("mdx-blockquote-folder") !== -1
                 && obj.attr("data-folded") === "true")
-                    obj.click();
+                    obj.mouseup();
         }
     }
 
@@ -2579,10 +2581,14 @@ MIT许可证（MIT）
                     "クリックして拡大",
                     "확대하려면 클릭하십시오."
                 ][_lang]);
+
                 obj.attr("data-folded", "true");
                 obj.addClass("mdx-blockquote-folder");
                 obj.css("cursor", "pointer");
-                obj.unbind("click").click(function () {
+
+                // 因此处的 click 会与 $(document).unbind("click").click() 冲突
+                // 所以改为 mouseup
+                obj.unbind("mouseup").mouseup(function () {
                     toggleQuoteFolding($(this));
                 });
             }
@@ -2597,10 +2603,14 @@ MIT许可证（MIT）
                     "閉じる",
                     "닫기를 클릭하십시오"
                 ][_lang]);
+
                 obj.attr("data-folded", "false");
                 obj.addClass("mdx-blockquote-folder");
                 obj.css("cursor", "pointer");
-                obj.unbind("click").click(function () {
+                
+                // 因此处的 click 会与 $(document).unbind("click").click() 冲突
+                // 所以改为 mouseup
+                obj.unbind("mouseup").mouseup(function () {
                     toggleQuoteFolding($(this));
                 });
             }
@@ -2612,6 +2622,7 @@ MIT许可证（MIT）
      */
     function toggleQuoteFolding(obj) {
         let quote = obj.next("blockquote");
+        console.log(quote.css("display") === "none");
         quote.css("display") === "none" ? unfoldQuote(obj, quote) : foldQuote(obj, quote);
     }
 
