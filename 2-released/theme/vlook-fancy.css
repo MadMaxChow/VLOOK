@@ -10,6 +10,44 @@
 /**************************************
 * VLOOK CSS 基础库
 **************************************/
+/**************************************
+ 自定义 UI 元素层叠次序
+
+---------- 云顶 UI 区 ----------
+
+欢迎屏 / .mdx-load-screen / z-index: 4000;
+聚光灯 / .mdx-spotlight / z-index: 4000;
+
+---------- 高优先信息 UI 区 -----
+
+工具栏提示、弹窗提示 / .mdx-tool-tips, .mdx-info-tips / z-index: 3000;
+
+---------- 二级 UI 区 ----------
+
+插图浏览器 / .mdx-figure-viewer / z-index: 2200;
+脚注面板 / .mdx-footer-note-panel / z-index: 2100;
+大纲面板 / .mdx-toc-panel / z-index: 2000;
+    大纲面板头部 / .mdx-toc-panel-header / z-index: 10;
+    大纲面板脚部 / .mdx-toc-panel-footer / z-index: 10;
+
+---------- UI 间隔区 ----------
+
+遮罩 / .mdx-mask / z-index: 1000;
+mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
+？？ / .CodeMirror div.CodeMirror-cursor / z-index: 3;
+
+---------- 增强工具操作区 ----------
+
+工具栏 / .mdx-toolbar / z-index: 100;
+逐章导航面板 / .mdx-chapter-nav / z-index: 100;
+
+---------- 文档内容交互区 ----------
+
+在新标签中打开按钮 / .mdx-btn-open-in-new-tab / z-index: 50;
+复制代码块按钮 / .mdx-btn-copy-code-block / z-index: 50;
+内容展开操作区 / .mdx-content-extender / z-index: 10;
+
+**************************************/
 :root {
   --vlook-toc-box-width: 350px;
   --vlook-toc-box-left: -350px;
@@ -78,12 +116,12 @@
   --cm-bracket-light: #999977;
   --cm-atom-light: #221199;
   --cm-number-light: #116644;
-  --doc-bg-color-dark: #121418;
-  --doc-bg-color-alt-dark: #333844;
-  --doc-bg-color-alt-transparent-dark: rgba(51, 56, 68, 0);
+  --doc-bg-color-dark: #181A1E;
+  --doc-bg-color-alt-dark: #3a3f49;
+  --doc-bg-color-alt-transparent-dark: rgba(58, 63, 73, 0);
   --fore-color-dark: #E0E2E6;
   --fore-color-alt-dark: #8b93a2;
-  --tips-bg-color-dark: #333844;
+  --tips-bg-color-dark: #3a3f49;
   --tips-bg-color-inset-dark: #E0E2E6;
   --shadow-color-dark: rgba(255, 255, 255, 0.1);
   --a-color-dark: #FFFFFF;
@@ -100,7 +138,7 @@
   --header-bg-end-color-dark: rgba(211, 108, 40, 0.15);
   --code-bg-color-dark: #683514;
   --code-bg-color-transparent-dark: rgba(104, 53, 20, 0);
-  --code-name-bg-color-dark: #121418;
+  --code-name-bg-color-dark: #181A1E;
   --code-name-shadow-color-dark: #737c8f;
   --master-color-dark: #022f6d;
   --slave-color-dark: #64090c;
@@ -227,41 +265,6 @@ body.typora-export {
   padding-left: 0;
   padding-right: 0;
 }
-@media screen and (max-width: 1024px) {
-  .mdx-chapter-nav {
-    left: 10px !important;
-  }
-  .mdx-chapter-nav-current {
-    margin-left: 40px !important;
-    margin-right: 40px !important;
-  }
-  .mdx-chapter-nav-prev,
-  .mdx-chapter-nav-next {
-    width: 20% !important;
-  }
-  .mdx-chapter-nav-prev-text,
-  .mdx-chapter-nav-next-text {
-    display: none !important;
-  }
-  table {
-    white-space: pre !important;
-  }
-}
-@media screen and (min-width: 641px) and (max-width: 1024px) {
-  .mdx-load-screen {
-    font-size: 1.5em !important;
-  }
-}
-@media screen and (min-width: 361px) and (max-width: 640px) {
-  .mdx-load-screen {
-    font-size: 1.3em !important;
-  }
-}
-@media screen and (max-width: 360px) {
-  .mdx-load-screen {
-    font-size: 1em !important;
-  }
-}
 body > *:first-child {
   margin-top: 0 !important;
 }
@@ -269,7 +272,7 @@ body > *:last-child {
   margin-bottom: 0 !important;
 }
 img {
-  margin: 0;
+  margin: 0 !important;
   filter: var(--img-dark-filter);
 }
 a {
@@ -279,11 +282,12 @@ a {
   transition: all 0.3s ease-in-out;
 }
 a:hover {
-  color: #663714;
+  color: #663714 !important;
   box-shadow: 0 -0.5em 0 0 rgba(102, 55, 20, 0.3) inset;
 }
 a:active {
-  color: #3b200c;
+  color: #3b200c !important;
+  border-color: #3b200c;
   transition: all 0.3s ease-in-out;
 }
 h1,
@@ -423,6 +427,10 @@ figure,
 .md-diagram-panel {
   text-align: left;
   margin-top: 0;
+}
+figure {
+  margin-bottom: 20px;
+  border-radius: 16px;
 }
 ol > li {
   list-style-type: decimal;
@@ -603,6 +611,9 @@ figure table tr > td:first-child::before {
 li > figure table tbody tr > td:first-child::before {
   content: counter(tableRowNumber) " ";
 }
+.mdx-table-row-num-hidden::before {
+  content: "" !important;
+}
 li > h6 + figure {
   margin-left: 0em;
 }
@@ -687,7 +698,7 @@ del code {
   margin-top: 0.5em;
   padding-bottom: 0.5em;
 }
-.mdx-footer-note-content > .footnote-line {
+.mdx-footer-note-panel-content > .footnote-line {
   padding-bottom: 50px;
 }
 .md-fn-count {
@@ -719,9 +730,6 @@ a[name^="ref-footnote-"]:before {
 }
 a[name^="ref-footnote-"]:after {
   content: "] ";
-}
-.CodeMirror {
-  z-index: 0;
 }
 .CodeMirror-gutters {
   border-width: 0;
@@ -998,6 +1006,10 @@ svg[id^="mermaidChart"] {
   stroke: var(--mermaid-master-color);
   stroke-width: 1;
 }
+.node rect[rx="5"][ry="5"] {
+  rx: 6 !important;
+  ry: 6 !important;
+}
 .node circle {
   fill: none;
   stroke: var(--mermaid-third-color);
@@ -1075,7 +1087,7 @@ svg[id^="mermaidChart"] {
 #INIT circle {
   fill: var(--fore-color);
   stroke: var(--fore-color);
-  stroke-width: 5;
+  stroke-width: 0;
 }
 #INIT .label div {
   color: var(--fore-color);
@@ -1097,10 +1109,8 @@ svg[id^="mermaidChart"] {
   stroke: var(--mermaid-master-color);
   fill: var(--mermaid-master-color-alt);
   font-size: 1em !important;
-}
-.actor-person {
-  stroke: var(--mermaid-slave-color);
-  fill: var(--mermaid-slave-color-alt);
+  rx: 6;
+  ry: 6;
 }
 text.actor {
   fill: var(--fore-color);
@@ -1524,12 +1534,10 @@ div.mermaidTooltip {
 /* 数学公式 */
 .MathJax_SVG,
 .MathJax_SVG_Display {
-  border: 2px solid rgba(211, 108, 40, 0.3);
+  border: 2px solid var(--table-border-color);
   border-radius: 16px;
   padding: 0.3em 0.3em;
-}
-.MathJax_SVG_Display > .MathJax_SVG {
-  border: none;
+  transition: all 0.3s ease-in-out;
 }
 .MathJax_SVG:hover,
 .MathJax_SVG_Display:hover {
@@ -1539,11 +1547,15 @@ div.mermaidTooltip {
 .MathJax_SVG_Display:active {
   background-color: var(--doc-bg-color);
   transform: scale(1.5);
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
 }
-.MathJax_SVG_Display > .MathJax_SVG:active {
-  transform: none;
+.MathJax_SVG:focus,
+.MathJax_SVG_Display:focus {
+  box-shadow: none;
+  outline: none;
+}
+.MathJax_SVG_Display > .MathJax_SVG {
+  border: none;
 }
 .MathJax_SVG g text {
   font-family: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
@@ -1574,14 +1586,15 @@ div.mermaidTooltip {
 .md-toc-item:hover {
   color: #EFE2CA;
   background-color: #663714;
-  transform: scale(1.05);
+  transform: translateY(-2px);
 }
 .md-toc-item:hover::before {
   color: #EFE2CA;
 }
 .md-toc-item:active {
   background-color: #3b200c;
-  transform: scale(1);
+  box-shadow: none;
+  transform: none;
 }
 .md-toc-item:active::beofre {
   color: #3b200c;
@@ -1732,7 +1745,7 @@ li p {
   height: 100%;
   background-size: cover;
   pointer-events: none;
-  z-index: 99999;
+  z-index: 4000;
 }
 .mdx-tool-tips,
 .mdx-info-tips {
@@ -1747,17 +1760,39 @@ li p {
   font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   color: var(--tips-bg-color-inset);
   background-color: var(--tips-bg-color);
-  z-index: 8000;
+  z-index: 3000;
 }
 .mdx-tool-tips {
   border-top: 0;
   box-shadow: 0 2px 0 0 #663714 inset, 0 3px 20px rgba(0, 0, 0, 0.3), 0 0 0 rgba(0, 0, 0, 0);
   text-align: left;
+  white-space: pre;
 }
 .mdx-tool-tips a,
 .mdx-info-tips a {
   color: var(--tips-bg-color-inset) !important;
   font-weight: bold;
+}
+.mdx-content-extender {
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-weight: bold;
+  height: 100px;
+  margin-top: -120px;
+  background: linear-gradient(0deg, var(--doc-bg-color), transparent);
+  border-radius: 0 0 16px 16px;
+  position: absolute;
+  text-align: center;
+  vertical-align: bottom;
+  cursor: pointer;
+  z-index: 10;
+}
+.mdx-content-extender > .mdx-btn {
+  margin-top: 70px;
+  width: 180px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #D36C28;
+  display: inline-flex;
 }
 .mdx-doc-logo {
   margin-top: 30px;
@@ -1781,7 +1816,7 @@ li p {
   font-family: "Noto Serif CJK SC", "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-size: 1.5em;
   overflow: auto;
-  z-index: 9000;
+  z-index: 4000;
 }
 @keyframes breathe {
   0% {
@@ -1851,11 +1886,13 @@ li p {
 }
 .mdx-blockquote-folder:hover {
   color: #663714;
+  transform: translateY(-2px);
 }
 .mdx-blockquote-folder:active {
   color: #3b200c;
+  transform: none;
 }
-.mdx-toc-box {
+.mdx-toc-panel {
   background-color: var(--doc-bg-color-alt);
   border-radius: 16px;
   cursor: default;
@@ -1869,17 +1906,17 @@ li p {
   z-index: 2000;
   user-select: none;
 }
-.mdx-toc-box-float {
+.mdx-toc-panel-float {
   top: 10px;
   bottom: 40px;
   box-shadow: 0 0 0 1px rgba(211, 108, 40, 0.3) inset, 0 3px 20px rgba(0, 0, 0, 0.3);
 }
-.mdx-toc-box-blocked {
+.mdx-toc-panel-block {
   top: 60px;
   bottom: 10px;
   box-shadow: 0 0 0 1px rgba(211, 108, 40, 0.3) inset, 0 3px 20px rgba(0, 0, 0, 0.3);
 }
-.mdx-toc-box-header {
+.mdx-toc-panel-header {
   color: #181A1E;
   font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-size: 1.2em;
@@ -1892,9 +1929,9 @@ li p {
   position: absolute;
   border-top-right-radius: 16px;
   border-top-left-radius: 16px;
-  z-index: 100;
+  z-index: 10;
 }
-.mdx-toc-box-title {
+.mdx-toc-panel-title {
   text-align: center;
   position: absolute;
   border-radius: 6px;
@@ -1912,14 +1949,18 @@ li p {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-.mdx-toc-box-title:hover {
+.mdx-toc-panel-title:hover {
   color: #EFE2CA;
   background-color: #663714;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
-.mdx-toc-box-title:active {
+.mdx-toc-panel-title:active {
   background-color: #3b200c;
+  box-shadow: none;
+  transform: none;
 }
-.mdx-toc-box-body-scroll {
+.mdx-toc-panel-body-scroll {
   width: 100%;
   height: 100%;
   padding: 0;
@@ -1928,16 +1969,14 @@ li p {
   border-radius: 16px;
   overflow: auto;
   overflow-y: hidden;
-  z-index: 99;
 }
-.mdx-toc-box-body {
+.mdx-toc-panel-body {
   width: 100%;
   height: 100%;
   padding: 10px 0 10px 0;
   overflow-y: scroll;
-  z-index: 99;
 }
-.mdx-toc-box-footer {
+.mdx-toc-panel-footer {
   font-size: 0.8em;
   font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   height: 30px;
@@ -1951,7 +1990,7 @@ li p {
   border-bottom-right-radius: 16px;
   border-bottom-left-radius: 16px;
   position: absolute;
-  z-index: 100;
+  z-index: 10;
 }
 .mdx-copyright {
   left: 0;
@@ -1967,7 +2006,7 @@ li p {
 .mdx-float-card {
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3), 0 0 0 rgba(0, 0, 0, 0);
 }
-.mdx-footer-note {
+.mdx-footer-note-panel {
   position: fixed;
   left: 15%;
   right: 15%;
@@ -1978,12 +2017,12 @@ li p {
   margin: 0 auto;
   background-color: var(--doc-bg-color-alt);
   display: none;
-  z-index: 5000;
+  z-index: 2100;
 }
-.mdx-footer-note > a {
+.mdx-footer-note-panel > a {
   color: var(--fore-color);
 }
-.mdx-footer-note-header {
+.mdx-footer-note-panel-header {
   height: 30px;
   top: 2px;
   left: 2px;
@@ -1992,7 +2031,7 @@ li p {
   background: linear-gradient(180deg, var(--doc-bg-color-alt) 5px, var(--doc-bg-color-alt-transparent));
   border-radius: 16px;
 }
-.mdx-footer-note-content {
+.mdx-footer-note-panel-content {
   width: 100%;
   top: 2px;
   bottom: 2px;
@@ -2000,7 +2039,7 @@ li p {
   position: absolute;
   overflow-x: auto;
 }
-.mdx-footer-note-all {
+.mdx-footer-note-panel-all {
   font-weight: bold;
   height: 60px;
   left: 2px;
@@ -2236,7 +2275,7 @@ li p {
   background-color: rgba(255, 255, 255, 0.9);
   position: fixed;
   display: none;
-  z-index: 4000;
+  z-index: 2200;
 }
 .mdx-btn-figure-nav {
   display: flex;
@@ -2277,7 +2316,7 @@ li p {
 }
 .mdx-btn-close-figure-viewer {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   vertical-align: middle;
   align-items: normal;
   color: #FFFFFF;
@@ -2288,7 +2327,7 @@ li p {
   top: -2px;
   width: 50px;
   height: 50px;
-  padding: 12px;
+  padding: 12px 12px 8px 8px;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   border-radius: 0 0 0 50px;
   position: absolute;
@@ -2299,6 +2338,11 @@ li p {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   transform: translate(-2px, 2px);
 }
+.mdx-btn-close-figure-viewer:active {
+  background-color: #3b200c;
+  box-shadow: none;
+  transform: none;
+}
 .mdx-btn-open-in-new-tab {
   border-radius: 16px;
   border-top-right-radius: 0;
@@ -2306,7 +2350,7 @@ li p {
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   background-color: #D36C28;
   position: absolute;
-  z-index: 10;
+  z-index: 50;
 }
 .mdx-btn-copy-code-block {
   border-radius: 16px;
@@ -2315,7 +2359,7 @@ li p {
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   background-color: #D36C28;
   position: absolute;
-  z-index: 10;
+  z-index: 50;
 }
 img,
 .mdx-figure,
@@ -2330,9 +2374,25 @@ img,
   display: block;
   transition: all 0.3s ease-in-out;
 }
+.md-diagram-panel {
+  border-radius: 16px;
+  margin-bottom: 20px;
+  padding: 0;
+}
 .mdx-clickable-hover {
   border-color: #663714 !important;
   transition: all 0.3s ease-in-out;
+}
+.mdx-OINPable-hover {
+  border-color: #663714 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  transition: all 0.3s ease-in-out;
+}
+.mdx-OINPable-hover:active {
+  border-color: #3b200c !important;
+  box-shadow: none;
+  transform: none;
 }
 .mdx-img-invert-in-dark {
   filter: invert(1);
@@ -2549,29 +2609,64 @@ h6 code {
 #write > h6:last-of-type::before {
   content: "";
 }
-#write > h6:first-of-type strong {
-  color: rgba(239, 226, 202, 0.5);
-  font-size: 0.7em;
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
-  font-weight: bold;
-  text-decoration: none;
-}
-#write > h6:first-of-type strong::before {
-  content: "By ";
-  font-size: 0.8em;
-  font-weight: normal;
-  text-decoration: none;
-}
-#write > h6:first-of-type em {
-  color: rgba(239, 226, 202, 0.5);
-  font-size: 0.35em;
-  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
-  font-style: normal;
-  vertical-align: sub;
-}
 #write > h6:first-of-type code {
   font-size: 0.4em !important;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+#write > h6:first-of-type strong {
+  font-size: 0.7em !important;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-weight: bold;
+}
+#write > h6:first-of-type strong::before {
+  content: "By ";
+  font-size: 0.7em !important;
+  font-weight: normal;
+}
+#write > h6:first-of-type em {
+  font-size: 0.4em;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-style: normal !important;
+  line-height: 0.5 !important;
+}
+@media screen and (max-width: 1024px) {
+  .mdx-chapter-nav {
+    left: 10px !important;
+  }
+  .mdx-chapter-nav-current {
+    margin-left: 40px !important;
+    margin-right: 40px !important;
+  }
+  .mdx-chapter-nav-prev,
+  .mdx-chapter-nav-next {
+    width: 20% !important;
+  }
+  .mdx-chapter-nav-prev-text,
+  .mdx-chapter-nav-next-text {
+    display: none !important;
+  }
+  table {
+    white-space: pre !important;
+  }
+  #write > h6:first-of-type,
+  #write > h6:last-of-type {
+    font-size: 2em !important;
+  }
+}
+@media screen and (min-width: 641px) and (max-width: 1024px) {
+  .mdx-load-screen {
+    font-size: 1.5em !important;
+  }
+}
+@media screen and (min-width: 361px) and (max-width: 640px) {
+  .mdx-load-screen {
+    font-size: 1.3em !important;
+  }
+}
+@media screen and (max-width: 360px) {
+  .mdx-load-screen {
+    font-size: 1em !important;
+  }
 }
 @media print {
   html {
@@ -2641,9 +2736,9 @@ h6 code {
   }
   .mdx-toolbar,
   .mdx-chapter-nav,
-  .mdx-toc-box,
-  .mdx-toc-box-header,
-  .mdx-toc-box-body-scroll,
+  .mdx-toc-panel,
+  .mdx-toc-panel-header,
+  .mdx-toc-panel-body-scroll,
   .mdx-docbar-bottom {
     display: none;
     visibility: hidden;

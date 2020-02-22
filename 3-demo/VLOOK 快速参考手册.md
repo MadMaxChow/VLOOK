@@ -1,4 +1,4 @@
-###### <sup>VLOOK™</sup><br>快速参考手册 Quick Reference Manual<br>──<br><br>`# 版本丨V9.11 #`<br><br><br><br><br>**MAX丨孟兆**<br>*COPYRIGHT © 2016-2020. MAX°DESIGN.*
+###### <sup>VLOOK™</sup><br>快速参考手册 Quick Reference Manual<br>──<br><br>`# 版本丨V9.11 #`<br><br><br><br><br>**MAX丨孟兆**<br><br>*COPYRIGHT © 2016-2020. MAX°DESIGN.*
 
 [TOC]
 
@@ -38,7 +38,7 @@ VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导�
 |     ..     | **表格单元格合并 **   [>>>](#表格单元格合并)<br>这个是用 Markdown 人的真痛点，在这时为你提供了优雅的解决方法 |
 |     ..     | **表格列格式设置**    [>>>](#表格列格式设置)<br>Markdown 的表格也能快速设置列的格式（如加粗、高亮、斜体、下划线），同样为你提供了优雅的解决方法 |
 |     ..     | **彩虹标签**    [>>>](#彩虹标签)<br>可自定义多个配色的标签、双标签，让你的 Markdown 文档排版更专业、更标准化 |
-|     ..     | **mermaid 样式优化**    [>>>](#mermaid 样式优化)<br>全面尝试优化 mermaid 图，并提供补丁修正其跨平台的兼容性问题 |
+|     ..     | **mermaid 样式优化**    [>>>](#mermaid 样式优化)<br>全面深度优化 mermaid 图，并提供补丁修正其跨平台的兼容性问题 |
 |     ..     | **统一多级列表自动编号**    [>>>](#统一多级列表编号)<br>将多级有序、无序列表的编号进行了统一，以更聚焦内容的结构化 |
 |     ..     | **任务列表支持自动编号**    [>>>](#任务列表支持自动编号)<br>让任务列表和多级列表的自动编号两者兼得 |
 |  文档导航  | **大纲导航**    [>>>](#大纲导航)<br>最为熟悉和常用的文档导航方式，支持折叠 |
@@ -272,7 +272,9 @@ VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导�
 
 ### mermaid 样式优化
 
-+ 统一优化 **mermaid** 图的样式，并自动适配 [Dark 模式](#Dark 模式)下的呈现；
++ 统一优化 **mermaid** 图的样式（opt/alt/loop 标签），并自动适配 [Dark 模式](#Dark 模式)下的呈现：
+  + 针对流程图、状态图、顺序图的不同图元应用，重绘不同的外观、形状；
+  + 针对顺序图的 `opt` / `alt` / `loop` 标签设置不同的外观、标题位置。
 + 同时修正因 mermaid 原因，在不同操作系统和浏览器下的兼容性问题；
 + 更多脚本化图表样式，以及结合 VLOOK 相关的脚本编写规范内容详见《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》。
 
@@ -306,10 +308,10 @@ END(结束)
 
 ```mermaid
 graph LR
-INIT(( ))
+INIT((*))
 INIT --> |初始|A[状态A]
-A --> |复杂变更|trans(( ))
-trans(( )) --> |变更条件说明|B[状态B]
+A --> |复杂变更|trans{ }
+trans{ } --> |变更条件说明|B[状态B]
 B --> |变更条件说明|C[状态C]
 trans{ } -.-> |非正常/次要变更条件说明|C
 C --> FINAL
@@ -317,7 +319,7 @@ trans{ } -.-> |非正常/次要变更条件说明|D[状态D]
 D --> FINAL
 FINAL(( ))
 ```
-###### mermaid－时序图
+###### mermaid－顺序图
 
 ```mermaid
 sequenceDiagram
@@ -413,16 +415,16 @@ end
 
 + 支持图片、图表格式：
    - 浏览器支持的所有图片（jpg / png / gif / bmp / ..）
-   - 脚本化图表（mermaid[^mermaid]，从V9开始移除对 flowchart.js[^flowchart.js]、JS Sequence Diagrams[^JS Sequence Diagrams]的支持）
+   - 脚本化图表（mermaid[^mermaid]，从`V9.0`开始移除对 flowchart.js[^flowchart.js]、JS Sequence Diagrams[^JS Sequence Diagrams]的支持）
 + 点击任意图片、图表打开插图浏览器进行查看；
 + 支持在新标签打开图片、图表；
 + 支持按前一张、后一张方式浏览文档中的所有插图；
 + 对于缺失的图片以默认图片进行替换显示；
 + 点击插图能直接跳转到文档中对应的位置，支持通过热键/快捷键<kbd>esc</kbd>关闭插图浏览器；
 
-[^mermaid]: mermaid 是一个用于画流程图、状态图、时序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [mermaid官网](https://mermaidjs.github.io)，或 VLOOK 的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
+[^mermaid]: mermaid 是一个用于画流程图、状态图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [mermaid官网](https://mermaidjs.github.io)，或 VLOOK 的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
 [^flowchart.js]: flowchart.js 基于 SVG 的流程图插件，它仅需几行代码即可在 Web 上完成流程图的构建。可以从文字表述中画出简单的 SVG 流程图，也可以画出彩色的图表。详见 [flowchart.js 官网](http://flowchart.js.org)，或 VLOOK 的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》。
-[^JS Sequence Diagrams]: JS sequence diagrams 是一个方便建立UML的时序图（序列图or循序图）在线工具，使用简单。详见 [JS Sequence Diagrams](https://bramp.github.io/js-sequence-diagrams/) 官网，或 VLOOK 的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》。
+[^JS Sequence Diagrams]: JS sequence diagrams 是一个方便建立UML的顺序图（序列图or循序图）在线工具，使用简单。详见 [JS Sequence Diagrams](https://bramp.github.io/js-sequence-diagrams/) 官网，或 VLOOK 的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》。
 
 ###### 这是普通的图片示例
 
@@ -661,4 +663,4 @@ $$
 上述版权声明和本许可声明应包含在本软件的所有副本或重要部分中。
 本软件按“原样”提供，不提供任何以表达或暗示，包括但不限于销售，适用于特定用途和不侵权的保证。在任何情况下，作者或版权所有人不对因软件或软件的使用或其他事宜产生的任何索赔，损害或其他责任（无论是在合同，侵权或其他方面的诉讼中）负责。
 
-###### 
+###### <br><br><br><br><br><br><br><br><br><br><br>The End
