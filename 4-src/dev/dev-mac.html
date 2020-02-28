@@ -377,7 +377,7 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
 
 在新标签中打开按钮 / .mdx-btn-open-in-new-tab / z-index: 50;
 复制代码块按钮 / .mdx-btn-copy-code-block / z-index: 50;
-内容展开操作区 / .mdx-content-extender / z-index: 10;
+内容展开操作区 / .mdx-content-expander / z-index: 10;
 
 **************************************/
 :root {
@@ -617,6 +617,21 @@ a:hover {
   color: #E60012 !important;
   box-shadow: 0 -0.5em 0 0 rgba(230, 0, 18, 0.3) inset;
 }
+a:not([name^="ref-footnote"]):hover:after {
+    content: "🔗";
+    margin-top: -0.7em;
+    font-size: 0.7em;
+    position: absolute;
+}
+a[href^="#"]:hover:after {
+    content: "🔖";
+}
+/* .md-footnote a:hover:after {
+    content: "";
+    margin-top: 0;
+    font-size: 1em;
+    position: static;
+} */
 a:active {
   color: #b3000e !important;
   border-color: #b3000e;
@@ -888,6 +903,12 @@ table > tbody > tr:last-child > td:first-child {
 }
 table > tbody > tr:last-child > td:last-child {
   border-bottom-right-radius: 14px;
+}
+/* table th:first-child,
+table td:first-child { */
+table th,
+table td {
+  white-space: pre;
 }
 .mdx-table-td-bold {
   font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
@@ -2105,7 +2126,7 @@ li p {
   color: var(--tips-bg-color-inset) !important;
   font-weight: bold;
 }
-.mdx-content-extender {
+.mdx-content-expander {
   font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
   height: 100px;
@@ -2116,9 +2137,10 @@ li p {
   text-align: center;
   vertical-align: bottom;
   cursor: pointer;
+  visibility: hidden;
   z-index: 10;
 }
-.mdx-content-extender > .mdx-btn {
+.mdx-content-expander > .mdx-btn {
   margin-top: 70px;
   width: 180px;
   height: 30px;
@@ -2223,6 +2245,15 @@ li p {
 .mdx-blockquote-folder:active {
   color: #b3000e;
   transform: none;
+}
+.mdx-blockquote-folder small {
+    border: 1px solid #E60012;
+    color: #E60012;
+    font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+    border-radius: 6px;
+    padding: 1px 2px;
+    margin-left: 1em;
+    font-size: 0.6em;
 }
 .mdx-toc-panel {
   background-color: var(--doc-bg-color-alt);
@@ -3037,6 +3068,13 @@ h6 code {
   table {
     white-space: pre-wrap !important;
   }
+  table th, table td {
+      white-space: pre-wrap !important;
+  }
+  table th:first-child,
+    table td:first-child{
+        white-space: pre !important;
+    }
   table:hover {
     border-color: var(--table-border-color) !important;
   }
@@ -3200,7 +3238,7 @@ h6 code {
 <!--                                                                        -->
 <!--                       VLOOK V9.13 beta - Typora Plugin                      -->
 <!--                                                                        -->
-<!--                               2020-02-20                               -->
+<!--                               2020-02-27                               -->
 <!--                          powered by MAX丨孟兆                           -->
 <!--                                                                        -->
 <!--              QQ Group: 805502564    email: maxchow@qq.com              -->
@@ -3409,7 +3447,7 @@ MIT许可证（MIT）
                 href="mailto:67870144@qq.com">MAX丨孟兆</a></strong>
     </div>
 </div>
-<div class="mdx-toc-panel">
+<div class="mdx-toc-panel" v-data-showed="false">
     <div class="mdx-toc-panel-header">
         <div class="mdx-toc-panel-title" onclick="gotoTop(); adjustOutline();">大纲</div>
     </div>
@@ -3555,7 +3593,7 @@ MIT许可证（MIT）
 <div class="mdx-table-cross mdx-table-cross-down">&nbsp;</div>
 
 <!-- 内容展开操作区 -->
-<div class="mdx-content-extender">
+<div class="mdx-content-expander">
     <div class="mdx-btn">
         <span></span>
         <svg width="20px" height="20px">
@@ -3563,6 +3601,10 @@ MIT许可证（MIT）
         </svg>
     </div>
 </div>
+
+<!-- 统计数据上报（测试） -->
+<iframe name="vlook-stat" style="display: block;" marginwidth="0" marginheight="0" frameBorder="0" scrolling="no" width="100%" height="0">
+</iframe>
 
 <!-- ==================== VLOOK Module ==================== -->
 <script type="text/javascript">
@@ -3581,7 +3623,7 @@ MIT许可证（MIT）
         _ICON_UNFOLD =
         '<svg width="20px" height="20px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoUnfold" class="mdx-folder-ico"/></svg>',
         _SMALL_SCREEN_WIDTH = 1024, // 大小屏分界的尺寸标准
-        _CONTENT_EXTENDER_HEIGHT = 600, // 长内容的折叠高度限制
+        _CONTENT_EXTENDER_HEIGHT = 300, // 长内容的折叠高度限制
         _REBOUND_OFFSET = 30, // 动画回弹效果偏移量
         // 默认图片的元数据（BASE64编码）
         _DEFAULT_IMAGE =
@@ -3602,7 +3644,7 @@ MIT许可证（MIT）
         _lastHeaderFolder = null, // 最后标题收起/展开节点，用于构建大纲
         _lastCrossTable = null, // 最后/当前显示十字光标的表格
         _lastCrossCell = null, // 最后/当前显示十字光标的表格单元格
-        _outlineShowed = false, // 大纲页面是否显示的标记
+        // _outlineShowed = false, // 大纲页面是否显示的标记
         _figureCount = 0, // 插图总数
         _tableCount = 0, // 表格总数
         _codeBlockCount = 0, // 代码块总数
@@ -3636,7 +3678,7 @@ MIT许可证（MIT）
         _iMask = null,
         _iFooterNote = null,
         _iCopyright = null,
-        _iContentExtender = null,
+        _iContentExpander = null,
         // 按钮
         _iBtnOpenInNewTab = null,
         _iBtnCopyCodeBlock = null,
@@ -3699,12 +3741,12 @@ MIT许可证（MIT）
             "커버로 돌아 가기"
         ][_lang]);
 
-        _iContentExtender.find("div > span").text([
+        _iContentExpander.find("div > span").text([
             "查看更多",
             "查看更多",
-            "VIEW MORE",
-            "VOIR PLUS",
-            "СМОТРЕТЬ БОЛЬШЕ",
+            "View More",
+            "Voir Plus",
+            "Посмотреть ещё",
             "もっと見る",
             "더보기"
         ][_lang]);
@@ -4177,27 +4219,25 @@ MIT许可证（MIT）
                 if (found === false) {
                     count++;
 
-                    badLink += ["无效页内链接 [",
-                            "無效頁內鏈接 [",
-                            "Invalid Inner Link [",
-                            "Lien de page non valide [",
-                            "Недопустимая ссылка на страницу [",
-                            "ページリンクが無効です[",
-                            "잘못된 페이지 링크["
-                        ][_lang] +
-                        count + "]：" + $(this).text() + "[" + aName + "]\n" + $(this).parent().text() +
-                        "\n\n";
+                    badLink += [
+                        "无效页内链接 [",
+                        "無效頁內鏈接 [",
+                        "Invalid Inner Link [",
+                        "Lien de page non valide [",
+                        "Недопустимая ссылка на страницу [",
+                        "ページリンクが無効です[",
+                        "잘못된 페이지 링크["
+                    ][_lang] + count + "]：" + $(this).text() + "[" + aName + "]\n" + $(this).parent().text() + "\n\n";
 
-                    console.error(["无效页内链接 [",
-                                "無效頁內鏈接 [",
-                                "Invalid Inner Link [",
-                                "Lien de page non valide [",
-                                "Недопустимая ссылка на страницу [",
-                                "ページリンクが無効です [",
-                                "잘못된 페이지 링크 ["
-                            ][_lang] +
-                            count + "]：" + $(this).text() + "[" + aName + "]\n" + $(this).parent().text()) +
-                        "\n";
+                    console.error([
+                        "无效页内链接 [",
+                        "無效頁內鏈接 [",
+                        "Invalid Inner Link [",
+                        "Lien de page non valide [",
+                        "Недопустимая ссылка на страницу [",
+                        "ページリンクが無効です [",
+                        "잘못된 페이지 링크 ["
+                    ][_lang] + count + "]：" + $(this).text() + "[" + aName + "]\n" + $(this).parent().text()) + "\n";
                 }
             }
         });
@@ -4248,15 +4288,15 @@ MIT许可证（MIT）
         }
         // 输出警告信息
         for (let i in dupHeaders)
-            console.warn(["重名的标题 [",
-                    "重複的標題 [",
-                    "Duplicate Header [",
-                    "Titre en double [",
-                    "Дублирующее название [",
-                    "重複するタイトル [",
-                    "중복 제목 ["
-                ][_lang] +
-                i + "]：" + dupHeaders[i]);
+            console.warn([
+                "重名的标题 [",
+                "重複的標題 [",
+                "Duplicate Header [",
+                "Titre en double [",
+                "Дублирующее название [",
+                "重複するタイトル [",
+                "중복 제목 ["
+            ][_lang] + i + "]：" + dupHeaders[i]);
     }
 
     /**
@@ -4278,22 +4318,24 @@ MIT许可证（MIT）
     /**
      * 检查是否为空对象
      */
-    function isEmptyObject(obj) {
-        return (typeof (obj) == "undefined");
+    function isEmptyObject(target) {
+        return (typeof (target) == "undefined");
     }
 
     /**
-     * 大纲是否已显示
+     * 大纲面板是否已显示
      */
     function isOutlineShowed() {
-        return _outlineShowed;
+        // 使用自定义属性，而不是 display / visibility / left 等属性
+        // 是因为大纲面板会以动画形式进行显示/隐藏
+        // 所以无法使用以上原生属性进行是否显示的识别
+        return _iTocPanel.attr("v-data-showed") === "true";
     }
 
     /**
      * 判断对象是否已显示
      */
     function isHidden(target) {
-        // console.log("display", target.css("display"));
         return target !== undefined && target.css("display") === "none";
     }
 
@@ -4476,52 +4518,55 @@ MIT许可证（MIT）
         tocContent.children().each(function () {
             let item = $(this);
             // 只处理h1-h5，忽略h6
-            if (item.attr("class").indexOf("-h6") === -1) {
-                let tocItemA = item.children("a");
+            if (item.attr("class").indexOf("-h6") > -1)
+                return true; // 跳过本次循环
 
-                // 将目录记录到标题数组中
-                let href = tocItemA.attr("href");
-                _headers.push(href.indexOf("#") > -1 ? href.substring(1, href.length) : href);
+            let tocItemA = item.children("a");
 
-                // 自定义大纲节点元数据
-                item.css("cursor", "pointer"); // 添加鼠标形状
-                item.attr({
-                    "id": "oli-header-" + item.attr("data-ref"), // 添加id属性
-                    "data-node": "0", // 添加节点类型：0:叶子节点, 1:目录节点
-                    "data-folded": "false", // 添加节点状态：true:收起, false:展开
-                    "title": item.find("a").text().trim()
-                });
+            console.log(window.getComputedStyle(item[0], "::before").content);
 
-                // 将 a 链接的文本内容移到其外面，避免超长文本截断显示时不正常
-                tocItemA.after(tocItemA.text());
-                tocItemA.text("");
+            // 将目录记录到标题数组中
+            let href = tocItemA.attr("href");
+            _headers.push(href.indexOf("#") > -1 ? href.substring(1, href.length) : href);
 
-                // 所有大纲节点都添加folding空白控件备用
-                $("<div id='fd-oli-header-" + item.attr("data-ref") + "' class='mdx-folder'>&nbsp;</div>")
-                    .insertBefore(item.find("a"));
+            // 自定义大纲节点元数据
+            item.css("cursor", "pointer"); // 添加鼠标形状
+            item.attr({
+                "id": "oli-header-" + item.attr("data-ref"), // 添加id属性
+                "v-data-node": "0", // 添加节点类型：0:叶子节点, 1:目录节点
+                "v-data-folded": "false", // 添加节点状态：true:收起, false:展开
+                "title": item.find("a").text().trim()
+            });
 
-                // 点击大纲节点事件
-                item.unbind("click").click(function () {
-                    location.href = $("#" + item.attr("id")).children("a").attr(
-                        "href"); // 跳转至对应的页内锚点
-                    if (isBlockOutline() === false) {
-                        hideOutline(false);
-                        // 等待页面跳转后，再进行大纲面板布局自适应处理
-                        setTimeout(adjustOutline, 500);
-                    }
-                });
+            // 将 a 链接的文本内容移到其外面，避免超长文本截断显示时不正常
+            tocItemA.after(tocItemA.text());
+            tocItemA.text("");
 
-                // 记录所有非叶子节点的folder控件
-                if (_lastHeaderFolder != null) {
-                    // 当前节点比上一个节点层级低，则上一节点为可折叠的节点
-                    if (getCSSHeaderLevel(item) > _lastHeaderLevel) {
-                        _foldItem.push(_lastHeaderFolder);
-                    }
+            // 所有大纲节点都添加folding空白控件备用
+            $("<div id='fd-oli-header-" + item.attr("data-ref") + "' class='mdx-folder'>&nbsp;</div>")
+                .insertBefore(item.find("a"));
+
+            // 点击大纲节点事件
+            item.unbind("click").click(function () {
+                location.href = $("#" + item.attr("id")).children("a").attr(
+                    "href"); // 跳转至对应的页内锚点
+                if (isBlockOutline() === false) {
+                    hideOutline(false);
+                    // 等待页面跳转后，再进行大纲面板布局自适应处理
+                    setTimeout(adjustOutline, 500);
                 }
-                // 更新最后处理的folder控件
-                _lastHeaderFolder = $("#fd-oli-header-" + item.attr("data-ref"));
-                _lastHeaderLevel = getCSSHeaderLevel(item);
+            });
+
+            // 记录所有非叶子节点的folder控件
+            if (_lastHeaderFolder != null) {
+                // 当前节点比上一个节点层级低，则上一节点为可折叠的节点
+                if (getCSSHeaderLevel(item) > _lastHeaderLevel) {
+                    _foldItem.push(_lastHeaderFolder);
+                }
             }
+            // 更新最后处理的folder控件
+            _lastHeaderFolder = $("#fd-oli-header-" + item.attr("data-ref"));
+            _lastHeaderLevel = getCSSHeaderLevel(item);
         });
         return true;
     }
@@ -4532,7 +4577,8 @@ MIT许可证（MIT）
     function hideOutlineOnError() {
         _iTocPanel.hide();
 
-        console.error(["文档中没有找到目录信息，请用Typora最新版本导出，并应用最新VLOOK插件",
+        console.error([
+            "文档中没有找到目录信息，请用Typora最新版本导出，并应用最新VLOOK插件",
             "文檔中沒有找到目錄信息，請用Typora最新版本導出，並應用最新VLOOK插件",
             "No [TOC] information was found in the document, export it with the latest version of Typora and apply the latest VLOOK plug-in.",
             "Les informations du répertoire ne figurent pas dans la documentation, veuillez les exporter avec la dernière version de Typora et appliquer le dernier plug-in VLOOK.",
@@ -4557,8 +4603,8 @@ MIT许可证（MIT）
         for (let i = 0; i < _foldItem.length; i++) {
             folder = _foldItem[i].html(_ICON_UNFOLD);
             folder.parent().attr({
-                "data-node": "1", // 0:叶子, 1:目录
-                "data-folded": "false" // true:收起， false:展开
+                "v-data-node": "1", // 0:叶子, 1:目录
+                "v-data-folded": "false" // true:收起， false:展开
             });
 
             folder.unbind("click").click(function () {
@@ -4583,14 +4629,14 @@ MIT许可证（MIT）
             folderIco = $("#fd-" + id + " > svg");
 
         // 若对应的章节已收起
-        if (tocItem.attr("data-folded") === "true") {
-            tocItem.attr("data-folded", "false");
+        if (tocItem.attr("v-data-folded") === "true") {
+            tocItem.attr("v-data-folded", "false");
             folderIco.prop("outerHTML", _ICON_UNFOLD);
             disposeFold(id, 1, true);
         }
         // 若对应的章节已展开
         else {
-            tocItem.attr("data-folded", "true");
+            tocItem.attr("v-data-folded", "true");
             folderIco.prop("outerHTML", _ICON_FOLD);
             disposeFold(id, 0, true);
         }
@@ -4617,7 +4663,7 @@ MIT许可证（MIT）
             }
 
             // 如果是目录节点，同时是已展开的，才进行递归调用展开子节点
-            if (child === true && item.attr("data-node") === "1" && item.attr("data-folded") === "false")
+            if (child === true && item.attr("v-data-node") === "1" && item.attr("v-data-folded") === "false")
                 disposeFold(item.attr("id"), action, child);
 
             if (action === 0) // 收起
@@ -4652,7 +4698,12 @@ MIT许可证（MIT）
                 // 显示遮罩
                 showMask(_iTocPanel, hideOutline);
             } else {
-                adjustOutline();
+                // adjustOutline();
+                // 没有手动关闭大纲面板时，自动显示大纲面板
+                if (_manualCloseOutline === false) {
+                    // 以固定占位方式显示大纲面板
+                    showOutline(false);
+                }
             }
         }
     }
@@ -4678,8 +4729,12 @@ MIT许可证（MIT）
                     "--vlook-toc-box-width")) + 20
             });
 
+            // 重建部分内容展开操作区
+            setTimeout(rebuildContentExpander, 500);
+
             // 更新内容展开操作区尺寸
-            setTimeout(updateContentExtenderUI, 500);
+            setTimeout(updateContentExpanderUI, 500);
+
             _iBtnOpenInNewTab.hide();
         }
         // 以浮动样式显示大纲面板
@@ -4706,27 +4761,29 @@ MIT许可证（MIT）
             left: 10
         }, _ANIMATE_SPEED);
 
-        _outlineShowed = true;
+        // _outlineShowed = true;
+        _iTocPanel.attr("v-data-showed", "true");
     }
 
     /**
      * 更新内容展开操作区尺寸
      */
-    function updateContentExtenderUI() {
-        $(".mdx-content-extender").each(function () {
-            let contentExtender = $(this),
-                container = contentExtender.prev();
+    function updateContentExpanderUI() {
+        // 针对 mermaid 插图，其他因文档宽度变化后会重建，不用更新尺寸
+        $(".mdx-content-expander[v-data-content-type=svg]").each(function () {
+            let contentExpander = $(this),
+                container = contentExpander.prev();
 
             container.find("table, .mdx-figure, .md-fences").each(function () {
                 let w = parseInt(container.css("width"));
                 if (w > parseInt($(this).css("width"))) {
                     w = $(this).css("width");
                     // 表格、mermarid 插图与比容器宽度小时，右下角不是圆角，须进行适配调整
-                    contentExtender.css({
+                    contentExpander.css({
                         "border-bottom-right-radius": 0
                     });
                 }
-                contentExtender.css({
+                contentExpander.css({
                     "margin-left": container.css("margin-left"),
                     "width": w
                 });
@@ -4735,12 +4792,34 @@ MIT许可证（MIT）
     }
 
     /**
+     * 重建部分内容展开操作区，主要是 img, table, .md-fences 等会因大纲面板的显示/关闭
+     * 导致文档宽度变化而引起的内容高度也跟随变化的情况
+     * 如在不显示大纲时因宽度较变，高度等比变高，或高度反而变短
+     * 会导致应该显示展开操作区即不显示，或不应显示却显示的情况
+     */
+    function rebuildContentExpander() {
+        // 移除需要重建的部分
+        $(".mdx-content-expander[v-data-content-type=img],[v-data-content-type=table],[v-data-content-type=pre]").each(function () {
+            let container = $(this).prev();
+            container.css("height", "auto");
+            $(this).remove();
+        });
+
+        // 重建需要重建的部分
+        $("img, table, .md-fences").each(function () {
+            foldingLongContent($(this), true);
+        });
+    }
+
+    /**
      * 隐藏大纲
+     * @manual true: 手动隐藏，false: 系统自动隐藏
      */
     function hideOutline(manual) {
-        _outlineShowed = false;
+        // _outlineShowed = false;
+        _iTocPanel.attr("v-data-showed", "false");
         _manualCloseOutline = manual;
-        const tocBoxWidth = _iTocPanel.width();
+        let tocBoxWidth = _iTocPanel.width();
         if (_iTocPanel.offset().left >= 0) {
             // 收起大纲面板
             _iTocPanel.animate({
@@ -4753,8 +4832,11 @@ MIT许可证（MIT）
                 marginLeft: 0
             });
 
+            // 重建部分内容展开操作区
+            setTimeout(rebuildContentExpander, 500);
+
             // 更新内容展开操作区尺寸
-            setTimeout(updateContentExtenderUI, 500);
+            setTimeout(updateContentExpanderUI, 500);
 
             hideMask();
         }
@@ -4775,13 +4857,13 @@ MIT许可证（MIT）
 
         // 寻找当前屏幕显示的章节
         for (let i = 0; i < _headers.length; i++) {
-            let obj = env.browser.firefox === false ?
+            let target = env.browser.firefox === false ?
                 $("a[name='" + _headers[i] + "']") // 非 Firefox 浏览器
                 :
                 $("a[name='" + decodeURI(_headers[i]) + "']"); // Firefox 浏览器
-            let headerHeight = obj.parent().height();
+            let headerHeight = target.parent().height();
             // 当前章节标题已滚过了屏幕顶部
-            if ((obj.offset().top - $(document).scrollTop()) > (headerHeight / 2)) {
+            if ((target.offset().top - $(document).scrollTop()) > (headerHeight / 2)) {
                 currentIndex = i;
                 break;
             }
@@ -4831,12 +4913,12 @@ MIT许可证（MIT）
     /**
      * 跳转至指定章节
      */
-    function gotoHeader(obj) {
-        let dataAnchor = obj.attr("data-anchor");
+    function gotoHeader(target) {
+        let dataAnchor = target.attr("v-data-anchor");
         if (dataAnchor === "cover")
             gotoTop();
         else
-            window.location.href = "#" + obj.attr("data-anchor");
+            window.location.href = "#" + target.attr("v-data-anchor");
     }
 
     /**
@@ -4853,8 +4935,8 @@ MIT许可证（MIT）
     /**
      * 返回指定对象的CSS的header的样式层级
      */
-    function getCSSHeaderLevel(obj) {
-        let cname = obj.attr("class");
+    function getCSSHeaderLevel(target) {
+        let cname = target.attr("class");
         return cname.substr(cname.indexOf("md-toc-h") + "md-toc-h".length, 1)
     }
 
@@ -4872,8 +4954,8 @@ MIT许可证（MIT）
                 let item = $(this);
                 // 跳过子元素有嵌套p的情况，如li > p
                 if (item.children("p").length === 0) {
-                    item.attr("id", "mdx-blockfocus-" + _blockFocusItemCount);
-                    item.attr("mdx-blockfocus-index", _blockFocusItemCount);
+                    item.attr("id", "v-blockfocus-" + _blockFocusItemCount);
+                    item.attr("v-data-blockfocus-idx", _blockFocusItemCount);
                     // 双击内容块激活/关闭逐段浏览模式模式
                     item.dblclick(function () {
                         _enableBlockFocus = !_enableBlockFocus;
@@ -4888,7 +4970,7 @@ MIT许可证（MIT）
                         if (_enableBlockFocus === false)
                             return;
 
-                        _blockFocusItemIndex = parseInt($(this).attr("mdx-blockfocus-index"));
+                        _blockFocusItemIndex = parseInt($(this).attr("v-data-blockfocus-idx"));
                         // autoUnfoldQuote();
 
                         // 当前内容块内表格已显示十字光标
@@ -4930,7 +5012,7 @@ MIT许可证（MIT）
         if (target != null)
             item = target;
         else
-            item = $("#mdx-blockfocus-" + _blockFocusItemIndex);
+            item = $("#v-blockfocus-" + _blockFocusItemIndex);
 
         if (isHidden(item))
             return false; // 返回跳转失败
@@ -5009,11 +5091,11 @@ MIT许可证（MIT）
      */
     function autoUnfoldQuote() {
         if (_blockFocusItemIndex > -1) {
-            let obj = $("#mdx-blockfocus-" + _blockFocusItemIndex);
-            if (obj.attr("class") !== undefined &&
-                obj.attr("class").indexOf("mdx-blockquote-folder") !== -1 &&
-                obj.attr("data-folded") === "true")
-                obj.mouseup();
+            let target = $("#v-blockfocus-" + _blockFocusItemIndex);
+            if (target.attr("class") !== undefined &&
+                target.attr("class").indexOf("mdx-blockquote-folder") !== -1 &&
+                target.attr("v-data-folded") === "true")
+                target.mouseup();
         }
     }
 
@@ -5027,7 +5109,7 @@ MIT许可证（MIT）
             let codeBlock = $(this);
 
             // 外套一个 <p> 标签，用于内容折叠时与插图、表格的 DOM 结构一致
-            codeBlock.wrap("<p data-codeblock-container='true' style='" +
+            codeBlock.wrap("<p v-data-container='pre' style='" +
                 "border-radius: 0 0 16px 16px;" +
                 "margin-bottom: 20px;" +
                 "'></p>");
@@ -5043,7 +5125,7 @@ MIT许可证（MIT）
             });
 
             // 折叠长代码块
-            foldingLongContent(codeBlock);
+            foldingLongContent(codeBlock, false);
 
             // 生成代码块插图题注
             generateCodeBlockCaption(codeBlock);
@@ -5056,7 +5138,8 @@ MIT许可证（MIT）
      * 生成代码块题注
      */
     function generateCodeBlockCaption(codeBlock) {
-        let caption = ["代码块 ",
+        let caption = [
+            "代码块 ",
             "代碼塊 ",
             "Code Block ",
             "Bloc de Code ",
@@ -5111,24 +5194,24 @@ MIT许可证（MIT）
             document.execCommand("copy", true);
             document.body.removeChild(text);
 
-            showInfoTips(["已复制",
-                    "已復制",
-                    "Copied",
-                    "Copié",
-                    "скопированный",
-                    "コピー済み",
-                    "복사"
-                ][_lang],
-                1500, false, true);
+            showInfoTips([
+                "已复制",
+                "已復制",
+                "Copied",
+                "Copié",
+                "скопированный",
+                "コピー済み",
+                "복사"
+            ][_lang], 1500, false, true);
         } else
-            showInfoTips(["非常抱歉！无法复制",
-                    "非常抱歉！無法複製",
-                    "Very sorry! Cannot copy",
-                    "Мне так жаль! Не могу скопировать",
-                    "ごめんなさい！ コピーできません",
-                    "정말 죄송합니다! 복사 할 수 없습니다"
-                ],
-                3000, false, true);
+            showInfoTips([
+                "非常抱歉！无法复制",
+                "非常抱歉！無法複製",
+                "Very sorry! Cannot copy",
+                "Мне так жаль! Не могу скопировать",
+                "ごめんなさい！ コピーできません",
+                "정말 죄송합니다! 복사 할 수 없습니다"
+            ], 3000, false, true);
     }
 
     // -------------------- 表格模块 -------------------- //
@@ -5142,8 +5225,9 @@ MIT许可证（MIT）
             let table = $(this);
 
             // 表格索引号
-            table.attr("id", "mdx-tbl" + _tableCount);
-
+            table.attr("id", "v-tbl-" + _tableCount);
+            table.parent().attr("v-data-container", "table");
+            
             // 将表格的宽度比父元素要小，则调整父元素的宽度，以便在逐段浏览浏览模式时的高亮效果与内容贴合
             // console.log(table.css("width"), table.parent().css("width"));
             // if (parseInt(table.css("width")) < parseInt(table.parent().css("width")))
@@ -5153,7 +5237,7 @@ MIT许可证（MIT）
             table.hover(function () {
                 _lastHoverContent = $(this);
                 // 表格没有被折叠时
-                if ($(this).parent().parent().attr("data-folded") === "false")
+                if ($(this).parent().parent().attr("v-data-folded") === "false")
                     $(this).addClass("mdx-clickable-hover");
                 if (_newTab === false)
                     showOpenInNewTapButton();
@@ -5169,7 +5253,7 @@ MIT许可证（MIT）
             tableColumnFormatting(table);
 
             // 折叠长表格
-            foldingLongContent(table);
+            foldingLongContent(table, false);
 
             // 生成表格题注
             generateTableCaption(table);
@@ -5236,7 +5320,7 @@ MIT许可证（MIT）
             }
             colSpanCount = 0;
 
-            table.attr("mdx-cols", colIndex); // 表格列数
+            // table.attr("v-tbl-cols", colIndex); // 表格列数
             rowIndex++;
             colIndex = 0;
         }); // tr
@@ -5298,11 +5382,11 @@ MIT许可证（MIT）
      */
     function tableCellCross(table, cell, colIndex) {
         // 单元格行列索引号
-        cell.attr("mdx-col", "mdx-tbl" + _tableCount + "-" + colIndex);
+        cell.attr("v-tbl-col", "v-tbl-" + _tableCount + "-" + colIndex);
 
         // 鼠标点击单元格时显示十字光标
         cell.unbind("click").click(function () {
-            if (table.parent().parent().attr("data-folded") === "true")
+            if (table.parent().parent().attr("v-data-folded") === "true")
                 return;
 
             hideTableCross(false);
@@ -5376,15 +5460,15 @@ MIT许可证（MIT）
     function tableColumnFormatting(table) {
         table.find("tr th").each(function () {
             if ($(this).find("strong").length > 0)
-                $("[mdx-col=" + $(this).attr("mdx-col") + "]").addClass("mdx-table-td-bold");
+                $("[v-tbl-col=" + $(this).attr("v-tbl-col") + "]").addClass("mdx-table-td-bold");
             else if ($(this).find("em").length > 0)
-                $("[mdx-col=" + $(this).attr("mdx-col") + "]").css("font-style", "italic");
+                $("[v-tbl-col=" + $(this).attr("v-tbl-col") + "]").css("font-style", "italic");
             else if ($(this).find("u").length > 0)
-                $("[mdx-col=" + $(this).attr("mdx-col") + "]").css("text-decoration", "underline");
+                $("[v-tbl-col=" + $(this).attr("v-tbl-col") + "]").css("text-decoration", "underline");
             else if ($(this).find("mark").length > 0)
-                $("[mdx-col=" + $(this).attr("mdx-col") + "]").contents().wrap("<mark></mark>");
+                $("[v-tbl-col=" + $(this).attr("v-tbl-col") + "]").contents().wrap("<mark></mark>");
             else if ($(this).find("del").length > 0)
-                $("[mdx-col=" + $(this).attr("mdx-col") + "]").contents().wrap("<del></del>");
+                $("[v-tbl-col=" + $(this).attr("v-tbl-col") + "]").contents().wrap("<del></del>");
         });
     }
 
@@ -5392,7 +5476,8 @@ MIT许可证（MIT）
      * 生成表格题注
      */
     function generateTableCaption(table) {
-        let caption = ["表 ",
+        let caption = [
+            "表 ",
             "表 ",
             "Table ",
             "Table ",
@@ -5499,7 +5584,7 @@ MIT许可证（MIT）
                     container = fig.parent();
                 }
                 // 为父容器增加 img 容器标识，用于折叠内容时使用
-                container.attr("data-img-container", "true");
+                container.attr("v-data-container", "img");
                 container.css({
                     "border-radius": "16px",
                     "margin-bottom": "20px"
@@ -5509,7 +5594,8 @@ MIT许可证（MIT）
                 fig.bind("error", function () {
                     if (fig.attr("src").indexOf("vlook-lost-image.jpg") === -1)
                         if (ignoreImgLost === false)
-                            ignoreImgLost = !confirm(["图片缺失：",
+                            ignoreImgLost = !confirm([
+                                "图片缺失：",
                                 "圖片缺失：",
                                 "Lost Image: ",
                                 "Image perdue: ",
@@ -5544,16 +5630,17 @@ MIT许可证（MIT）
 
                 // 如果图片已经存在于浏览器缓存，直接处理
                 if (img.complete)
-                    foldingLongContent(fig);
+                    foldingLongContent(fig, false);
                 // 等待图片下载完成后再处理
                 else
                     img.onload = function () {
-                        foldingLongContent(fig);
+                        foldingLongContent(fig, false);
                     }
             } // if img
             // svg (mermaid) 插图的处理
             else if (tagName === "svg") {
-                foldingLongContent(fig);
+                fig.parent().attr("v-data-container", "svg");
+                foldingLongContent(fig, false);
             }
 
             // 生成插图题注
@@ -5568,7 +5655,7 @@ MIT许可证（MIT）
     /**
      * 折叠长内容，适用于「插图、表格、代码块」等
      */
-    function foldingLongContent(target) {
+    function foldingLongContent(target, rebuild) {
         if (_newTab === true)
             return;
 
@@ -5576,23 +5663,40 @@ MIT许可证（MIT）
             tagName = target.prop("tagName").toLowerCase(),
             h = parseInt(target.css("height"));
 
+        // 重建时已生成题注，所以实际容器对象与初始化时第一次构建会不同
+        if (rebuild === true)
+            container = container.parent();
+
+        // 已被点击展开过了，在重建时则跳过
+        if (container.attr("v-data-expanded") === "true")
+            return;
+
         // 针对 img 内容，进行父容器的正确性处理
         if (tagName === "img") {
             // 图像若加载晚于 img 的题注生成，其父容器则题注而不是 VLOOK 标记的 img 父容器 
-            if (container.attr("data-img-container") === undefined)
+            if (container.attr("v-data-container") === undefined)
                 container = container.parent();
         }
 
         // 初始化折叠配置
-        container.attr("data-folded", "false"); // 未折叠
-        container.attr("data-foldable", "true"); // 可折叠，用于打印时过滤
+        container.attr("v-data-folded", "false"); // 未折叠
+        container.attr("v-data-foldable", "true"); // 可折叠，用于打印时过滤
+        container.attr("v-data-expanded", "false"); // 已被点击扩展了
 
         // 若为在新标签打开的，或高度不超出折叠要求高度则忽略
-        if (h < _CONTENT_EXTENDER_HEIGHT)
+        if (_newTab === true || h < _CONTENT_EXTENDER_HEIGHT)
             return;
 
+        // 构建内容展开操作区
+        buildContentExpander(target, container, tagName, h);
+    }
+
+    /**
+     * 构建内容展开操作区
+     */
+    function buildContentExpander(target, container, tagName, h) {
         // 设置为已折叠
-        container.attr("data-folded", "true");
+        container.attr("v-data-folded", "true");
 
         if (tagName === "table" || tagName === "svg") {
             container.css({
@@ -5607,42 +5711,47 @@ MIT许可证（MIT）
             });
         }
 
-        let extender = _iContentExtender.clone(),
+        let expander = _iContentExpander.clone(),
             rowNumFilter = "table tr > th:first-child, table tr > td:first-child, table tbody tr > td:first-child",
             w = parseInt(container.css("width"));
 
+        expander.css("visibility", "visible");
         // 如果处理对象为表格，先隐藏表格行号，find 过滤器的内容与对应的 css 要同步更新
         if (container.find("table").length > 0)
             container.find(rowNumFilter).addClass("mdx-table-row-num-hidden");
 
         // 添加并适配展开按钮组件尺寸
-        container.after(extender);
+        container.after(expander);
         if (w > parseInt(target.css("width"))) {
             w = target.css("width");
             // 表格、mermarid 插图与比容器宽度小时，右下角不是圆角，须进行适配调整
-            extender.css({
+            expander.css({
                 "border-bottom-right-radius": 0
             });
         }
-        extender.attr("data-content-type", tagName);
-        extender.css({
+        expander.attr("v-data-content-type", tagName);
+        expander.css({
             "margin-left": container.css("margin-left"),
             "width": w
         });
-        let btn = extender.find("div > span"),
+
+        let btn = expander.find("div > span"),
             orgText = btn.text();
-        btn.text(orgText + " (" + parseInt((1 - _CONTENT_EXTENDER_HEIGHT / h) * 100) + "%)");
+        // console.log(tagName, container.attr("id"), h);
+        btn.html(orgText + " <span style='font-weight: normal;'>"
+            + parseInt((1 - _CONTENT_EXTENDER_HEIGHT / h) * 100) + "%</span>");
 
         // 展开按钮 click 事件处理
-        extender.children(".mdx-btn").unbind("click").click(function () {
-            let extender = $(this).parent(),
-                container = extender.prev();
+        expander.children(".mdx-btn").unbind("click").click(function () {
+            let expander = $(this).parent(),
+                container = expander.prev();
 
             // 移除内容展开操作区
-            extender.remove();
+            expander.remove();
 
             // 展开对应的内容
-            container.attr("data-folded", "false");
+            container.attr("v-data-folded", "false");
+            container.attr("v-data-expanded", "true");
             container.css({
                 "height": "auto",
                 "overflow": "auto"
@@ -5671,7 +5780,8 @@ MIT许可证（MIT）
                 fc2 = fcSet[1];
         }
 
-        let caption = ["图 ",
+        let caption = [
+            "图 ",
             "圖 ",
             "Figure ",
             "La figure ",
@@ -5735,20 +5845,20 @@ MIT许可证（MIT）
     /**
      * 返回插图、表格、代码块上方的题注
      */
-    function getCaptions(obj) {
+    function getCaptions(target) {
         let fcSet = [];
-        if (getCaptionCount(obj) === 2) {
-            fcSet[0] = getCaptionSet(obj, 2)[0];
-            fcSet[1] = getCaptionSet(obj, 2)[1];
-        } else if (getCaptionCount(obj) === 1) {
-            fcSet[0] = getCaptionSet(obj, 2)[0];
+        if (getCaptionCount(target) === 2) {
+            fcSet[0] = getCaptionSet(target, 2)[0];
+            fcSet[1] = getCaptionSet(target, 2)[1];
+        } else if (getCaptionCount(target) === 1) {
+            fcSet[0] = getCaptionSet(target, 2)[0];
             fcSet[1] = null;
         }
         // 若成功匹配出题注，则隐藏原始内容
         if (fcSet[0] != null &&
-            obj != null &&
-            obj.prop("tagName") !== undefined) {
-            obj.hide();
+            target != null &&
+            target.prop("tagName") !== undefined) {
+            target.hide();
         }
         return fcSet;
     }
@@ -5756,12 +5866,12 @@ MIT许可证（MIT）
     /**
      * 返回匹配的题注数量：0/1/2
      */
-    function getCaptionCount(obj) {
+    function getCaptionCount(target) {
         let reg2 = /^!\[.+\]\".+\"$/; // 有2个题注
         let reg1 = /^!\[.+\]$/; // 只有1个题注
-        if (reg2.test(obj.text().trim()) === true)
+        if (reg2.test(target.text().trim()) === true)
             return 2;
-        if (reg1.test(obj.text().trim()) === true)
+        if (reg1.test(target.text().trim()) === true)
             return 1;
         return 0; // 无题注
     }
@@ -5769,9 +5879,9 @@ MIT许可证（MIT）
     /**
      * 返回题注数据。[0] - 第1个，[1] - 第2个
      */
-    function getCaptionSet(obj, count) {
+    function getCaptionSet(target, count) {
         let fcSet = [],
-            text = obj.text().trim();
+            text = target.text().trim();
         fcSet[0] = text.substring(2, text.indexOf("]"));
         if (count === 2)
             fcSet[1] = text.substring(text.indexOf("]\"") + 2, text.length - 1);
@@ -5907,12 +6017,12 @@ MIT许可证（MIT）
     /**
      * 鼠标光标落入指定对象范围内
      */
-    function mouseDropInObj(obj) {
+    function mouseDropInObj(target) {
         let e = (event || window.event);
         const mx = e.pageX || e.clientX + document.body.scrollLeft;
         const my = e.pageY || e.clientY + document.body.scrollTop;
-        return !(mx < obj.offset().left || mx > (obj.offset().left + obj.width()) ||
-            my < obj.offset().top || my > (obj.offset().top + obj.height()));
+        return !(mx < target.offset().left || mx > (target.offset().left + target.width()) ||
+            my < target.offset().top || my > (target.offset().top + target.height()));
     }
 
     /**
@@ -5984,14 +6094,16 @@ MIT许可证（MIT）
         let pageNum = $(".mdx-figure-pagenum");
 
         // 更新插图页码
-        var title = ["(共",
+        var title = [
+            "(共",
             "(共",
             "(Total ",
             "(Totale ",
             "(Всего ",
             "(合計",
             "(합계"
-        ][_lang] + _figureCount + ["张) ",
+        ][_lang] + _figureCount + [
+            "张) ",
             "張) ",
             ") ",
             ") ",
@@ -5999,7 +6111,7 @@ MIT许可证（MIT）
             "張) ",
             "장) "
         ][_lang];
-        title += "<strong>" + $("#fig-num" + _figIndex + " > span").text() + "</strong>";
+        title += "<strong>" + $("#fig-num" + _figIndex + " > .mdx-figure-caption-1").text() + "</strong>";
         pageNum.css("width", (_iFigureViewer.width()) - 60);
         pageNum.html(title);
 
@@ -6048,7 +6160,7 @@ MIT许可证（MIT）
         // 非移动设备时绑定样式事件
         else {
             // 所有常规按钮
-            $(".mdx-btn, .mdx-content-extender > .mdx-btn").hover(function () {
+            $(".mdx-btn, .mdx-content-expander > .mdx-btn").hover(function () {
                 $(this).addClass("mdx-btn-hover");
             }, function () {
                 $(this).removeClass("mdx-btn-hover");
@@ -6092,34 +6204,42 @@ MIT许可证（MIT）
      */
     function initQuote() {
         $("blockquote > p").each(function () {
-            let obj = $(this);
+            let target = $(this),
+                next = target.next("blockquote");
             // 默认收起
-            if (obj.text().startWith("[+] ")) {
-                obj.next("blockquote").css("display", "none");
-                obj.html(obj.html().replace("[+] ", "▶ "));
-                obj.attr("title", ["点击展开",
+            if (target.text().startWith("[+] ")
+                && next.length > 0
+                && next.prop("tagName").toLowerCase() === "blockquote") {
+                target.next("blockquote").css("display", "none");
+                target.html(target.html().replace("[+] ", "▶ "));
+                target.attr("title", [
+                    "点击展开",
                     "點擊展開",
-                    "Click to unfold",
+                    "Click to expand",
                     "Cliquez pour agrandir",
                     "Нажмите, чтобы развернуть",
-                    "クリックして拡大",
-                    "확대하려면 클릭하십시오."
+                    "クリックして展開",
+                    "클릭하여 확장"
                 ][_lang]);
 
-                obj.attr("data-folded", "true");
-                obj.addClass("mdx-blockquote-folder");
-                obj.css("cursor", "pointer");
+                target.attr("v-data-folded", "true");
+                target.addClass("mdx-blockquote-folder");
+                target.css("cursor", "pointer");
+
+                // 添加展开操作提示
+                appendExpandTips(target);
 
                 // 因此处的 click 会与 $(document).unbind("click").click() 冲突
                 // 所以改为 mouseup
-                obj.unbind("mouseup").mouseup(function () {
-                    toggleQuoteFolding($(this));
+                target.unbind("mouseup").mouseup(function () {
+                    toggleQuoteFolding(target);
                 });
             }
             // 默认展开
-            else if (obj.text().startWith("[-] ")) {
-                obj.html(obj.html().replace("[-] ", "▼ "));
-                obj.attr("title", ["点击收起",
+            else if (target.text().startWith("[-] ")) {
+                target.html(target.html().replace("[-] ", "▽ "));
+                target.attr("title", [
+                    "点击收起",
                     "點擊收起",
                     "Click to fold",
                     "Cliquez pour fermer",
@@ -6128,33 +6248,59 @@ MIT许可证（MIT）
                     "닫기를 클릭하십시오"
                 ][_lang]);
 
-                obj.attr("data-folded", "false");
-                obj.addClass("mdx-blockquote-folder");
-                obj.css("cursor", "pointer");
+                target.attr("v-data-folded", "false");
+                target.addClass("mdx-blockquote-folder");
+                target.css("cursor", "pointer");
 
                 // 因此处的 click 会与 $(document).unbind("click").click() 冲突
                 // 所以改为 mouseup
-                obj.unbind("mouseup").mouseup(function () {
-                    toggleQuoteFolding($(this));
+                target.unbind("mouseup").mouseup(function () {
+                    toggleQuoteFolding(target);
                 });
             }
         });
     }
 
     /**
+     * 添加展开操作提示
+     */
+    function appendExpandTips(target) {
+        // target.append("<small>" + [
+        //     "（点击展开",
+        //     "（點擊展開",
+        //     "(Click to expand)",
+        //     "(Cliquez pour agrandir)",
+        //     "(Нажмите, чтобы развернуть)",
+        //     "（クリックして展開）",
+        //     "（클릭하여 확장）"
+        // ][_lang] + "</small>");
+        target.append("<small>" + target.attr("title") + "</small>");
+    }
+
+    /**
      * 展开/收起引用块
      */
-    function toggleQuoteFolding(obj) {
-        let quote = obj.next("blockquote");
-        isHidden(quote) === false ? foldQuote(obj, quote) : unfoldQuote(obj, quote);
+    function toggleQuoteFolding(target) {
+        let quote = target.next("blockquote");
+        if (isHidden(quote) === false) {
+            foldQuote(target, quote);
+            // 添加展开提示
+            appendExpandTips(target);
+        }
+        else {
+            unfoldQuote(target, quote);
+            // 移除展开提示
+            target.children("small").remove();
+        }
     }
 
     /**
      * 收起引用块
      */
-    function foldQuote(obj, quote) {
+    function foldQuote(target, quote) {
         quote.css("display", "none");
-        obj.attr("title", ["点击展开",
+        target.attr("title", [
+            "点击展开",
             "點擊展開",
             "Click to unfold",
             "Cliquez pour agrandir",
@@ -6162,16 +6308,17 @@ MIT许可证（MIT）
             "クリックして拡大",
             "확대하려면 클릭하십시오."
         ][_lang]);
-        obj.attr("data-folded", "true");
-        obj.html(obj.html().replace("▼ ", "▶ "));
+        target.attr("v-data-folded", "true");
+        target.html(target.html().replace("▽ ", "▶ "));
     }
 
     /**
      * 展开引用块
      */
-    function unfoldQuote(obj, quote) {
+    function unfoldQuote(target, quote) {
         quote.css("display", "block");
-        obj.attr("title", ["点击收起",
+        target.attr("title", [
+            "点击收起",
             "點擊收起",
             "Click to fold",
             "Cliquez pour fermer",
@@ -6179,8 +6326,8 @@ MIT许可证（MIT）
             "閉じる",
             "닫기를 클릭하십시오"
         ][_lang]);
-        obj.attr("data-folded", "false");
-        obj.html(obj.html().replace("▶ ", "▼ "));
+        target.attr("v-data-folded", "false");
+        target.html(target.html().replace("▶ ", "▽ "));
     }
 
     // -------------------- 逐章导航栏模块 -------------------- //
@@ -6191,7 +6338,7 @@ MIT许可证（MIT）
     function updateChapterNavUI(currentIndex) {
         // 更新导航栏内容
         _iBtnChapterNavCurrent.text(_lastOutlineItem.attr("title"));
-        _iBtnChapterNavCurrent.attr("data-anchor", _headers[currentIndex]);
+        _iBtnChapterNavCurrent.attr("v-data-anchor", _headers[currentIndex]);
         _iBtnChapterNavCurrent.unbind("click").click(function () {
             gotoHeader($(this));
         });
@@ -6202,10 +6349,11 @@ MIT许可证（MIT）
             _iBtnChapterNavPrevText.text($("a[href='#" + _headers[currentIndex - 1] + "']").parent().attr("title"));
             _iBtnChapterNavPrevText.attr({
                 "title": _iBtnChapterNavPrevText.text(),
-                "data-anchor": _headers[currentIndex - 1]
+                "v-data-anchor": _headers[currentIndex - 1]
             });
         } else { // 当前章节为第1章时特殊处理
-            _iBtnChapterNavPrevText.text(["封面",
+            _iBtnChapterNavPrevText.text([
+                "封面",
                 "封面",
                 "Cover",
                 "Couverture",
@@ -6215,7 +6363,7 @@ MIT许可证（MIT）
             ][_lang]);
             _iBtnChapterNavPrevText.attr({
                 "title": _iBtnChapterNavPrevText.text(),
-                "data-anchor": "cover"
+                "v-data-anchor": "cover"
             });
         }
 
@@ -6225,7 +6373,7 @@ MIT许可证（MIT）
             _iBtnChapterNavNextText.text($("a[href='#" + _headers[currentIndex + 1] + "']").parent().attr("title"));
             _iBtnChapterNavNextText.attr({
                 "title": _iBtnChapterNavNextText.text(),
-                "data-anchor": _headers[currentIndex + 1]
+                "v-data-anchor": _headers[currentIndex + 1]
             });
         } else
             _iBtnChapterNavNext.css("display", "none");
@@ -6279,9 +6427,9 @@ MIT许可证（MIT）
      * 更新任务列表的勾选框样式
      */
     function restyleTaskListCheckbox() {
-        let obj = $(".md-task-list-item > input:disabled");
-        obj.removeAttr("disabled");
-        obj.css("pointer-events", "none");
+        let target = $(".md-task-list-item > input:disabled");
+        target.removeAttr("disabled");
+        target.css("pointer-events", "none");
     }
 
     /**
@@ -6290,51 +6438,51 @@ MIT许可证（MIT）
     function restyleMermaidStyle() {
         // 更新顺序图中的角色样式
         $(".md-diagram-panel svg[id^='mermaidChart'] > g > rect[class='actor']").each(function () {
-            let textObj = $(this).next("text").children(); // actor rect object
+            let text = $(this).next("text").children(); // actor rect object
             const person = /\@.*/g; // 人物
             const keySys = /\=.*\=/g; // 重点系统
             const extSys = /\-.*\-/g; // 外部系统
 
             // 更新<人物角色>样式
-            if (person.test(textObj.text()) === true) {
+            if (person.test(text.text()) === true) {
                 const h = $(this).height();
                 $(this).css({
                     "rx": h / 2,
                     "ry": h / 2
                 });
-                textObj.text(textObj.text().substring(1, textObj.text().length));
+                text.text(text.text().substring(1, text.text().length));
             }
             // 更新 重点系统 样式
-            else if (keySys.test(textObj.text()) === true) {
+            else if (keySys.test(text.text()) === true) {
                 $(this).css("stroke-width", "3"); // actor / rect
-                textObj.css("font-weight", "bold"); // actor text
-                textObj.text(textObj.text().substring(1, textObj.text().length - 1));
+                text.css("font-weight", "bold"); // actor text
+                text.text(text.text().substring(1, text.text().length - 1));
             }
             // 更新 外部系统 样式
-            else if (extSys.test(textObj.text()) === true) {
+            else if (extSys.test(text.text()) === true) {
                 $(this).css("stroke-dasharray", "5 2"); // actor / rect
-                textObj.text(textObj.text().substring(1, textObj.text().length - 1));
+                text.text(text.text().substring(1, text.text().length - 1));
             }
         });
 
         // 更新顺序图中的 loop/opt 标签样式和位置，alt 为默认的样式
         $(".md-diagram-panel .labelText tspan").each(function () {
-            let textObj = $(this),
-                g = textObj.parent().parent();
+            let text = $(this),
+                g = text.parent().parent();
             // 为 opt 设置的样式
             let bgColor = "var(--mermaid-fifth-color-alt)";
             let borderColor = "var(--mermaid-fifth-color)";
             let textColor = "var(--mermaid-fifth-color)";
 
             // 为 loop 设置的样式
-            if (textObj.text() === "loop") {
+            if (text.text() === "loop") {
                 bgColor = "var(--mermaid-fourth-color-alt)";
                 borderColor = "var(--mermaid-fourth-color)";
                 textColor = "var(--mermaid-fourth-color)";
             }
 
             // 调整 loop / opt 的样式
-            if (textObj.text() === "loop" || textObj.text() === "opt") {
+            if (text.text() === "loop" || text.text() === "opt") {
                 g.children("polygon.labelBox").css("fill", bgColor);
                 g.children("line.loopLine").css("stroke", borderColor);
                 g.children("text.labelText").css("fill", textColor);
@@ -6346,17 +6494,17 @@ MIT许可证（MIT）
         // 调整 loop/opt 的标题文本
         $(".md-diagram-panel .loopText tspan").each(function () {
             // 去掉文本内容前后的中括号
-            let textObj = $(this);
-            textObj.text(textObj.text().substr(2, textObj.text().length - 3));
+            let text = $(this);
+            text.text(text.text().substr(2, text.text().length - 3));
 
             // 调整文本的位置
-            let label = textObj.parent().parent().find(".labelBox"),
+            let label = text.parent().parent().find(".labelBox"),
                 rect = label[0].getBBox(),
-                y = parseInt(textObj.parent().attr("y"));
-            textObj.parent().attr("style", "text-anchor: left");
-            textObj.attr("x", rect.x + rect.width + 5);
+                y = parseInt(text.parent().attr("y"));
+                text.parent().attr("style", "text-anchor: left");
+                text.attr("x", rect.x + rect.width + 5);
             if (isNaN(y) !== true)
-                textObj.attr("y", y + 3);
+            text.attr("y", y + 3);
         });
 
         // 为兼容Firefox不支持在style中设置rx, ry，通过设置rect的rx, ry属性
@@ -6545,51 +6693,51 @@ MIT许可证（MIT）
     /**
      * 以分类标签样式重新设置 code 的渲染样式（新语法）
      */
-    function rebuildInlineCode(obj, split, flag, number) {
-        const codeText = obj.text();
+    function rebuildInlineCode(target, split, flag, number) {
+        const codeText = target.text();
         const si = codeText.indexOf(split);
-        obj.text(codeText.substring(si + split.length, codeText.length - split.length));
-        obj.attr("class", "mdx-code-c" + number + flag);
+        target.text(codeText.substring(si + split.length, codeText.length - split.length));
+        target.attr("class", "mdx-code-c" + number + flag);
     }
 
     /**
      * 以分类标签样式重新设置 code block 中指定内容的渲染样式（新语法）
      */
-    function rebuildCodeFences(obj, split, flag, number) {
-        const codeText = obj.text().substring(1, obj.text().length - 1);
+    function rebuildCodeFences(target, split, flag, number) {
+        const codeText = target.text().substring(1, target.text().length - 1);
         const si = codeText.indexOf(split);
-        obj.text(codeText.substring(si + split.length, codeText.length - split.length));
-        obj.attr("class", "mdx-code-c" + number + flag);
+        target.text(codeText.substring(si + split.length, codeText.length - split.length));
+        target.attr("class", "mdx-code-c" + number + flag);
     }
 
     /**
      * 以药丸样式重建code标签结构与内容（旧语法）
      */
-    function rebuildSegmentCode(obj, split, number) {
-        const codeText = obj.text(),
+    function rebuildSegmentCode(target, split, number) {
+        const codeText = target.text(),
             si = codeText.indexOf(split);
-        obj.wrap("<div style='" +
+        target.wrap("<div style='" +
             "display: inline;" +
             "white-space: pre;" +
             "'></div>");
-        obj.before("<code class='mdx-code-name" + number + "'>" + codeText.substring(0, si) + "</code>");
-        obj.text(codeText.substr(si + split.length, codeText.length));
-        obj.attr("class", "mdx-code-value" + number);
+        target.before("<code class='mdx-code-name" + number + "'>" + codeText.substring(0, si) + "</code>");
+        target.text(codeText.substr(si + split.length, codeText.length));
+        target.attr("class", "mdx-code-value" + number);
     }
 
     /**
      * 以药丸样式重建code标签结构与内容（新语法）
      */
-    function rebuildSegmentCode2(obj, iden, si, flag, number) {
-        const codeText = obj.text();
-        obj.wrap("<div style='" +
+    function rebuildSegmentCode2(target, iden, si, flag, number) {
+        const codeText = target.text();
+        target.wrap("<div style='" +
             "display: inline;" +
             "white-space: pre;" +
             "'></div>");
-        obj.before("<code class='mdx-code-name" + number + flag + "'>" + codeText.substring(iden.length, si) +
+        target.before("<code class='mdx-code-name" + number + flag + "'>" + codeText.substring(iden.length, si) +
             "</code>");
-        obj.text(codeText.substring(si + 3, codeText.length - iden.length));
-        obj.attr("class", "mdx-code-value" + number + flag);
+        target.text(codeText.substring(si + 3, codeText.length - iden.length));
+        target.attr("class", "mdx-code-value" + number + flag);
     }
 
     /**
@@ -6674,26 +6822,26 @@ MIT许可证（MIT）
             ][_lang] + "</a>";
 
         if (_currentFontStyle === "serif") {
-            showInfoTips(["切换至「<strong>非衬线 Sans-serif</strong>」字体",
-                    "切換至「<strong>非襯線 Sans-serif</strong>」字體",
-                    "Switch to \"<strong>Sans-serif</strong>\" Font",
-                    "Basculer vers \"<strong>Sans-serif</strong>\" Fuente",
-                    "Переключиться на шрифт \"<strong>Sans-serif</strong>\"",
-                    "に切り替える「<strong>Sans-serif</strong>」フォント",
-                    "전환「<strong>Sans-serif</strong>」글꼴"
-                ][_lang] + fontInfo,
-                10000, false, true);
+            showInfoTips([
+                "切换至「<strong>非衬线 Sans-serif</strong>」字体",
+                "切換至「<strong>非襯線 Sans-serif</strong>」字體",
+                "Switch to \"<strong>Sans-serif</strong>\" Font",
+                "Basculer vers \"<strong>Sans-serif</strong>\" Fuente",
+                "Переключиться на шрифт \"<strong>Sans-serif</strong>\"",
+                "に切り替える「<strong>Sans-serif</strong>」フォント",
+                "전환「<strong>Sans-serif</strong>」글꼴"
+            ][_lang] + fontInfo, 10000, false, true);
             applyFontStyle("sans");
         } else {
-            showInfoTips(["切换至 「<strong>衬线 Serif</strong>」字体",
-                    "切換至「<strong>襯線 Serif</strong>」字體",
-                    "Switch to \"<strong>Serif</strong>\" Font",
-                    "Basculer vers \"<strong>Serif</strong> Police\"",
-                    "Переключиться на шрифт \"<strong>Serif</strong>\"",
-                    "に切り替える「<strong>Serif</strong>」フォント",
-                    "전환「<strong>Serif</strong>」폰트"
-                ][_lang] + fontInfo,
-                10000, false, true);
+            showInfoTips([
+                "切换至 「<strong>衬线 Serif</strong>」字体",
+                "切換至「<strong>襯線 Serif</strong>」字體",
+                "Switch to \"<strong>Serif</strong>\" Font",
+                "Basculer vers \"<strong>Serif</strong> Police\"",
+                "Переключиться на шрифт \"<strong>Serif</strong>\"",
+                "に切り替える「<strong>Serif</strong>」フォント",
+                "전환「<strong>Serif</strong>」폰트"
+            ][_lang] + fontInfo, 10000, false, true);
             applyFontStyle("serif");
         }
     }
@@ -6753,25 +6901,25 @@ MIT许可证（MIT）
         let preHtml = "<div style='display: table-cell; vertical-align: middle;'>",
             subHtml = "</div>";
         if (_colorScheme === "dark") {
-            showInfoTips(preHtml + ["正在切换为：<br><span style='font-weight: bold; font-size: 1.5em;'>黑暗模式</span>",
-                    "正在切換為：<br/><span style='font-weight: bold; font-size: 1.5em;'>黑暗模式</span>",
-                    "Switching to: <br/><span style='font-weight: bold; font-size: 1.5em;'>Dark Mode</span>",
-                    "Passer à:<br/><span style='font-weight: bold; font-size: 1.5em;'>Mode Sombre</span>",
-                    "Переключение на:<br/><span style='font-weight: bold; font-size: 1.5em;'>Темный режим</span>",
-                    "切り替え先：<br/><span style='font-weight: bold; font-size: 1.5em;'>ダークモード</span>",
-                    "로 전환 :<br/><span style='font-weight: bold; font-size: 1.5em;'>다크 모드</span>"
-                ][_lang] + subHtml,
-                800, true, false);
+            showInfoTips(preHtml + [
+                "正在切换为：<br><span style='font-weight: bold; font-size: 1.5em;'>黑暗模式</span>",
+                "正在切換為：<br/><span style='font-weight: bold; font-size: 1.5em;'>黑暗模式</span>",
+                "Switching to: <br/><span style='font-weight: bold; font-size: 1.5em;'>Dark Mode</span>",
+                "Passer à:<br/><span style='font-weight: bold; font-size: 1.5em;'>Mode Sombre</span>",
+                "Переключение на:<br/><span style='font-weight: bold; font-size: 1.5em;'>Темный режим</span>",
+                "切り替え先：<br/><span style='font-weight: bold; font-size: 1.5em;'>ダークモード</span>",
+                "로 전환 :<br/><span style='font-weight: bold; font-size: 1.5em;'>다크 모드</span>"
+            ][_lang] + subHtml, 800, true, false);
         } else {
-            showInfoTips(preHtml + ["正在切换为：<br/><span style='font-weight: bold; font-size: 1.5em;'>明亮模式</span>",
-                    "正在切換為：<br/><span style='font-weight: bold; font-size: 1.5em;'>明亮模式</span>",
-                    "Switching to: <br/><span style='font-weight: bold; font-size: 1.5em;'>Light Mode</span>",
-                    "Passer à: <br/><span style='font-weight: bold; font-size: 1.5em;'>Mode lumière</span>",
-                    "Переключение на: <br/><span style='font-weight: bold; font-size: 1.5em;'>Легкий режим</span>",
-                    "切り替え先：<br/><span style='font-weight: bold; font-size: 1.5em;'>ライトモード</span>",
-                    "로 전환 : <br/><span style='font-weight: bold; font-size: 1.5em;'>라이트 모드</span>"
-                ][_lang] + subHtml,
-                800, true, false);
+            showInfoTips(preHtml + [
+                "正在切换为：<br/><span style='font-weight: bold; font-size: 1.5em;'>明亮模式</span>",
+                "正在切換為：<br/><span style='font-weight: bold; font-size: 1.5em;'>明亮模式</span>",
+                "Switching to: <br/><span style='font-weight: bold; font-size: 1.5em;'>Light Mode</span>",
+                "Passer à: <br/><span style='font-weight: bold; font-size: 1.5em;'>Mode lumière</span>",
+                "Переключение на: <br/><span style='font-weight: bold; font-size: 1.5em;'>Легкий режим</span>",
+                "切り替え先：<br/><span style='font-weight: bold; font-size: 1.5em;'>ライトモード</span>",
+                "로 전환 : <br/><span style='font-weight: bold; font-size: 1.5em;'>라이트 모드</span>"
+            ][_lang] + subHtml, 800, true, false);
         }
 
         // 对当前颜色模式进行适配
@@ -6788,15 +6936,15 @@ MIT许可证（MIT）
      * 变更颜色前先针对一些特性内容进行处理
      */
     function adjustColorSchemeForMermaid() {
-        let obj = $(".md-diagram-panel svg, .mdx-figure-content svg");
+        let target = $(".md-diagram-panel svg, .mdx-figure-content svg");
         if (_colorScheme === "dark") {
             // 针对 mermaid 的图表进行调整
-            obj.removeClass("mdx-figure-bg-light");
-            obj.addClass("mdx-figure-bg-dark");
+            target.removeClass("mdx-figure-bg-light");
+            target.addClass("mdx-figure-bg-dark");
         } else {
             // 针对 mermaid 的图表进行调整
-            obj.removeClass("mdx-figure-bg-dark");
-            obj.addClass("mdx-figure-bg-light");
+            target.removeClass("mdx-figure-bg-dark");
+            target.addClass("mdx-figure-bg-light");
         }
     }
 
@@ -6972,11 +7120,11 @@ MIT许可证（MIT）
         // 将脚注角标的事件替换为指定的处理事件
         let fontnoteContent = $(".mdx-footer-note-panel-content");
         aFontnote.unbind("click").click(function () {
-            var obj = $("a[name='df" + $(this).attr("name") + "']").parent().clone();
+            var target = $("a[name='df" + $(this).attr("name") + "']").parent().clone();
 
             // 更新脚注弹层内容
-            fontnoteContent.html(obj);
-            obj.find("a[name^='dfref-footnote']")[0].remove(); // 移除默认的返回链接
+            fontnoteContent.html(target);
+            target.find("a[name^='dfref-footnote']")[0].remove(); // 移除默认的返回链接
 
             // 显示脚注弹层
             showFooterNote();
@@ -7070,7 +7218,7 @@ MIT许可证（MIT）
                         nextFigure();
                     else {
                         if (parseInt(_iChapterNav.css("top")) < 0)
-                            _iBtnChapterNavNextText.attr("data-anchor", _headers[0]);
+                            _iBtnChapterNavNextText.attr("v-data-anchor", _headers[0]);
                         gotoHeader(_iBtnChapterNavNextText);
                     }
                     break;
@@ -7123,9 +7271,9 @@ MIT许可证（MIT）
 
                     // 逐段浏览模式下，当前内容若为可折叠的引用，则进行展示/收起
                     if (_blockFocusItemIndex > -1) {
-                        var obj = $("#mdx-blockfocus-" + _blockFocusItemIndex);
-                        if (obj.attr("class").indexOf("mdx-blockquote-folder") !== -1)
-                            obj.mouseup();
+                        var target = $("#v-blockfocus-" + _blockFocusItemIndex);
+                        if (target.attr("class").indexOf("mdx-blockquote-folder") !== -1)
+                            target.mouseup();
                     }
                     break;
                 case 27: // ESC
@@ -7189,7 +7337,8 @@ MIT许可证（MIT）
         _iLoadScreen.css("cursor", "default");
         stopLoadingBreathe();
 
-        _iBtnLoadScreen.text(["轻一点，轻轻一点",
+        _iBtnLoadScreen.text([
+            "轻一点，轻轻一点",
             "輕一點，輕輕一點",
             "Click to Start",
             "Cliquez pour commencer",
@@ -7254,9 +7403,14 @@ MIT许可证（MIT）
             }
         });
 
+        // 移除引用块的展开提示
+        $(".mdx-blockquote-folder[v-data-folded=true]").each(function () {
+            $(this).mouseup();
+        });
+
         // 展开所有折叠的内容
-        $("[data-foldable='true']").each(function () {
-            $(this).attr("before-print-folded", $(this).attr("data-folded"));
+        $("[v-data-foldable='true']").each(function () {
+            $(this).attr("v-data-before-print-folded", $(this).attr("v-data-folded"));
             $(this).next().children(".mdx-btn").click();
         });
 
@@ -7297,13 +7451,13 @@ MIT许可证（MIT）
         });
 
         // 恢复打印前的配置，详见 beforePrintDocument()
-        $("[data-foldable='true']").each(function () {
+        $("[v-data-foldable='true']").each(function () {
             let container = $(this);
             container.find("table, .mdx-figure, .md-fences").each(function () {
-                if (container.attr("before-print-folded") === "true")
+                if (container.attr("v-data-before-print-folded") === "true")
                     foldingLongContent($(this));
             });
-            container.removeAttr("before-print-folded");
+            container.removeAttr("v-data-before-print-folded");
         });
     }
 
@@ -7380,9 +7534,9 @@ MIT许可证（MIT）
         if (_iCopyright.length === 0)
             alert("Instantiation failed [ _iCopyright ]");
 
-        _iContentExtender = $(".mdx-content-extender");
-        if (_iContentExtender.length === 0)
-            alert("Instantiation failed [ _iContentExtender ]");
+        _iContentExpander = $(".mdx-content-expander");
+        if (_iContentExpander.length === 0)
+            alert("Instantiation failed [ _iContentExpander ]");
 
         // -------------------- 按钮 --------------------
         _iBtnOpenInNewTab = $(".mdx-btn-open-in-new-tab");
@@ -7793,6 +7947,12 @@ MIT许可证（MIT）
      */
     $(document).ready(function () {
         // ----------------------------------------
+        // 提交访问统计数据
+        $("iframe[name=vlook-stat]").attr("src", "http://school.eclipse-info.com/stat.html?t=vlook&url="
+            + encodeURI(window.location.href));
+        // console.log($("iframe[name=vlook-stat]").attr("src"));
+
+        // ----------------------------------------
         // 显示环境信息
         displayEnvInfo();
 
@@ -7811,7 +7971,8 @@ MIT许可证（MIT）
             _iChapterNav.hide();
             _iBtnOpenInNewTab.hide();
             _iBtnCopyCodeBlock.hide();
-            alert(["无法激活 VLOOK！\n目前只支持由 Typora 导出的 HTML 文件，谢谢支持！",
+            alert([
+                "无法激活 VLOOK！\n目前只支持由 Typora 导出的 HTML 文件，谢谢支持！",
                 "無法激活 VLOOK！\n目前只支持由 Typora 導出的 HTML 文件，謝謝關注！",
                 "Unable to activate VLOOK!\nCurrently only HTML files exported by Typora are supported. Thank you for your attention!",
                 "Impossible d'activer VLOOK!\nActuellement, seuls les fichiers HTML exportés par Typora sont pris en charge. Merci de votre attention!",
@@ -7826,7 +7987,8 @@ MIT许可证（MIT）
         if (env.browser.chrome === false &&
             env.browser.firefox === false &&
             env.browser.safari === false) {
-            alert(["为获得最佳兼容性，建议使用 Chrome / Edge / Firefox / Safari 浏览器",
+            alert([
+                "为获得最佳兼容性，建议使用 Chrome / Edge / Firefox / Safari 浏览器",
                 "為獲得最佳兼容性，建議使用 Chrome / Edge / Firefox / Safari / Safari 瀏覽器",
                 "For best compatibility, we recommend using Chrome / Edge / Firefox / Safari",
                 "Pour une meilleure compatibilité, nous vous recommandons d’utiliser Chrome / Edge / Firefox / Safari",

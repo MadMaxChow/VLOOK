@@ -37,7 +37,7 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
 
 在新标签中打开按钮 / .mdx-btn-open-in-new-tab / z-index: 50;
 复制代码块按钮 / .mdx-btn-copy-code-block / z-index: 50;
-内容展开操作区 / .mdx-content-extender / z-index: 10;
+内容展开操作区 / .mdx-content-expander / z-index: 10;
 
 **************************************/
 
@@ -318,10 +318,6 @@ a {
     transition: all 0.3s ease-in-out;
 }
 
-a::after {
-    // content: "🔗";
-}
-
 a:hover {
     color: @aHoverColor !important;
     box-shadow: 0 -0.5em 0 0 fade(@aLineColor, 30%) inset;
@@ -331,6 +327,17 @@ a:active {
     color: @aActiveColor !important;
     border-color: @aActiveColor;
     transition: all 0.3s ease-in-out;
+}
+
+// 普通超链接增加 hover 时的符号
+a:not([name^="ref-footnote"]):hover::after {
+    content: "🔗"; // 非页内链接的符号
+    margin-top: -0.7em;
+    font-size: 0.7em;
+    position: absolute;
+}
+a[href^="#"]:hover::after {
+    content: "🔖"; // 页面内链接的符号
 }
 
 h1,
@@ -671,6 +678,15 @@ table > tbody > tr:nth-child(2n) {
 // 表头首行的首/尾列
 table > thead > tr:first-child > th:first-child {
     border-top-left-radius: 14px; // 非16px的原因是存在2px的border，避免因圆角半径不同出现空白
+    white-space: pre;
+}
+
+// 表格首列默认不换行
+/* table th:first-child,
+table td:first-child { */
+table th,
+table td {
+  white-space: pre;
 }
 
 table > thead > tr:first-child > th:last-child {
@@ -881,11 +897,11 @@ del code {
     font-family: @boldFont;
 }
 
-.md-fn-count:before {
+.md-fn-count::before {
     content: "[";
 }
 
-.md-fn-count:after {
+.md-fn-count::after {
     content: "] ";
 }
 
@@ -910,11 +926,11 @@ a[name^="ref-footnote-"]:hover {
     transition: all 0.3s ease-in-out;
 }
 
-a[name^="ref-footnote-"]:before {
+a[name^="ref-footnote-"]::before {
     content: "[";
 }
 
-a[name^="ref-footnote-"]:after {
+a[name^="ref-footnote-"]::after {
     content: "] ";
 }
 
@@ -938,7 +954,8 @@ code {
     padding: 0.2em 0.3em;
     margin: 0 0.2em;
     font-size: 0.8em;
-    white-space: pre-wrap;
+    display: inline;
+    white-space: pre;
     vertical-align: middle;
 }
 
@@ -984,17 +1001,17 @@ code {
     bottom: 0.375em;
 }
 
-#write > h3.md-focus:before {
+#write > h3.md-focus::before {
     left: -1.5625em;
     top: 0.375em;
 }
 
-#write > h4.md-focus:before {
+#write > h4.md-focus::before {
     left: -1.5625em;
     top: 0.285714286em;
 }
 
-#write > h5.md-focus:before {
+#write > h5.md-focus::before {
     left: -1.5625em;
     top: 0.285714286em;
 }
@@ -1023,7 +1040,7 @@ code {
     border-width: 1px;
 }
 
-#md-notification:before {
+#md-notification::before {
     top: 10px;
 }
 
@@ -1103,16 +1120,16 @@ footer {}
 //     transition: all 0.3s ease-in-out;
 // }
 
-// .md-toc-h1 > a:after,
-// .md-toc-h2 > a:after,
-// .md-toc-h3 > a:after,
-// .md-toc-h4 > a:after,
-// .md-toc-h5 > a:after,
-// .md-toc-item a:after {
+// .md-toc-h1 > a::after,
+// .md-toc-h2 > a::after,
+// .md-toc-h3 > a::after,
+// .md-toc-h4 > a::after,
+// .md-toc-h5 > a::after,
+// .md-toc-item a::after {
 //     content: "";
 // }
 
-.md-toc-h1:before {
+.md-toc-h1::before {
     counter-increment: h1toc;
     content: counter(h1toc) "  ";
 }
@@ -1121,7 +1138,7 @@ footer {}
     margin-left: 0;
 }
 
-.md-toc-h2:before {
+.md-toc-h2::before {
     counter-increment: h2toc;
     content: counter(h1toc) "."counter(h2toc) "  ";
 }
@@ -1130,7 +1147,7 @@ footer {}
     margin-left: 0;
 }
 
-.md-toc-h3:before {
+.md-toc-h3::before {
     counter-increment: h3toc;
     content: counter(h1toc) "."counter(h2toc) "."counter(h3toc) "  ";
 }
@@ -1139,7 +1156,7 @@ footer {}
     margin-left: 0;
 }
 
-.md-toc-h4:before {
+.md-toc-h4::before {
     counter-increment: h4toc;
     content: counter(h1toc) "."counter(h2toc) "."counter(h3toc) "."counter(h4toc) "  ";
 }
@@ -1148,7 +1165,7 @@ footer {}
     margin-left: 0;
 }
 
-.md-toc-h5:before {
+.md-toc-h5::before {
     counter-increment: h5toc;
     content: counter(h1toc) "."counter(h2toc) "."counter(h3toc) "."counter(h4toc) "."counter(h5toc) "  ";
 }
@@ -1183,52 +1200,52 @@ h4 {
     counter-reset: h5;
 }
 
-#write h1:before,
-#write h2:before,
-#write h3:before,
-#write h4:before,
-#write h5:before {
+#write h1::before,
+#write h2::before,
+#write h3::before,
+#write h4::before,
+#write h5::before {
     color: @contentHeaderNumColor;
 }
 
-#write h1:before {
+#write h1::before {
     counter-increment: h1;
     content: counter(h1) "  ";
 }
 
-#write h2:before {
+#write h2::before {
     counter-increment: h2;
     content: counter(h1) "."counter(h2) "  ";
 }
 
-#write h3:before,
-h3.md-focus.md-heading:before {
+#write h3::before,
+h3.md-focus.md-heading::before {
     /*override the default style for focused headings */
     counter-increment: h3;
     content: counter(h1) "."counter(h2) "."counter(h3) "  ";
 }
 
-#write h4:before,
-h4.md-focus.md-heading:before {
+#write h4::before,
+h4.md-focus.md-heading::before {
     counter-increment: h4;
     content: counter(h1) "."counter(h2) "."counter(h3) "."counter(h4) "  ";
 }
 
-#write h5:before,
-h5.md-focus.md-heading:before {
+#write h5::before,
+h5.md-focus.md-heading::before {
     counter-increment: h5;
     content: counter(h1) "."counter(h2) "."counter(h3) "."counter(h4) "."counter(h5) "  ";
 }
 
 /** override the default style for focused headings */
 
-#write > h3.md-focus:before,
-#write > h4.md-focus:before,
-#write > h5.md-focus:before,
-// #write > h6.md-focus:before,
-h3.md-focus:before,
-h4.md-focus:before,
-h5.md-focus:before {
+#write > h3.md-focus::before,
+#write > h4.md-focus::before,
+#write > h5.md-focus::before,
+// #write > h6.md-focus::before,
+h3.md-focus::before,
+h4.md-focus::before,
+h5.md-focus::before {
     color: inherit;
     border: inherit;
     border-radius: inherit;
@@ -2249,12 +2266,12 @@ div.mermaidTooltip {
     transition: all 0.3s ease-in-out;
 }
 
-// .md-toc-h1:before,
-// .md-toc-h2:before,
-// .md-toc-h3:before,
-// .md-toc-h4:before,
-// .md-toc-h5:before,
-.md-toc-item:before {
+// .md-toc-h1::before,
+// .md-toc-h2::before,
+// .md-toc-h3::before,
+// .md-toc-h4::before,
+// .md-toc-h5::before,
+.md-toc-item::before {
     color: var(--toc-header-num-color);
     padding-left: 5px;
 }
@@ -2322,7 +2339,7 @@ div.mermaidTooltip {
 // .md-toc-h5 a:hover,
 .md-toc-item a:hover {
     //, .md-toc-h6 a:hover
-    color: @aLineColor !important;
+    color: @buttonForeColor !important;
     background-color: @transparencyColor0;
     box-shadow: none;
     text-decoration: none;
@@ -2540,7 +2557,7 @@ li p {
     font-weight: bold;
 }
 
-.mdx-content-extender {
+.mdx-content-expander {
     font-family: @boldFont;
     font-weight: bold;
     height: 100px;
@@ -2554,7 +2571,7 @@ li p {
     z-index: 10;
 }
 
-.mdx-content-extender > .mdx-btn {
+.mdx-content-expander > .mdx-btn {
     margin-top: 70px;
     width: 180px;
     height: 30px;
@@ -2681,6 +2698,16 @@ li p {
     color: @aActiveColor;
     // text-shadow: none;
     transform: none;
+}
+
+.mdx-blockquote-folder small {
+    color: @aLineColor;
+    font-family: @boldFont;
+    border: 1px solid @aLineColor;
+    border-radius: 6px;
+    margin-left: 1em;
+    padding: 1px 2px;
+    font-size: 0.7em;
 }
 
 .mdx-toc-panel {
@@ -2925,7 +2952,7 @@ li p {
 // .mdx-header-current a {
 // }
 
-// .mdx-header-current a:after {}
+// .mdx-header-current a::after {}
 
 .mdx-folder {
     color: @foreColorLightAlt;
@@ -3723,6 +3750,16 @@ h6 code {
 
     table:hover {
         border-color: var(--table-border-color) !important;
+    }
+
+    table th,
+    table td {
+        white-space: pre-wrap !important;
+    }
+
+    table th:first-child,
+    table td:first-child{
+        white-space: pre !important;
     }
 
     blockquote {
