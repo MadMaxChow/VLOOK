@@ -42,6 +42,10 @@ var _hmt = _hmt || [];
         document.write("value: " + value + "<br>");
         _hmt.push(['_trackEvent', category, action, label, value]);
     }
+
+    window.onload = function(){
+        pushData();
+    }
 </script>
 </header>
 <body>
