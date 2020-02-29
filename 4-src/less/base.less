@@ -51,12 +51,13 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
 @buttonShadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 
 :root {
+    --vlook-theme-name: @themeName; // 主题
+    --vlook-default-font-style: @defaultFontStyle; // 默认字体风格
+    --vlook-color-scheme: "light"; // 默认颜色模式为：Light 明亮
+
     // 大纲面板、工具工具栏宽度
     --vlook-toc-box-width:350px;
     --vlook-toc-box-left:-350px;
-
-    --vlook-default-font-style: @defaultFontStyle; // 默认字体风格
-    --vlook-color-scheme: "light"; // 默认颜色模式为：Light 明亮
 
     // --------------------
     // Light 模式的颜色值
@@ -702,9 +703,20 @@ table > tbody > tr:last-child > td:last-child {
     border-bottom-right-radius: 14px; // 非16px的原因是存在2px的border，避免因圆角半径不同出现空白
 }
 
-.mdx-table-td-bold {
+// 表格列格式：加粗
+.mdx-table-column-format-bold {
     font-family: @boldFont;
     font-weight: bold;
+}
+
+// 表格列格式：斜体
+.mdx-table-column-format-em {
+    font-style: italic;
+}
+
+// 表格列格式：下划线
+.mdx-table-column-format-underline {
+    text-decoration: underline;
 }
 
 table tr > td {
@@ -3161,7 +3173,7 @@ li p {
     float: right;
 }
 
-.mdx-btn-figure-launcher {
+.mdx-btn-figure-viewer {
     margin-top: 10px;
     margin-left: 5px;
     visibility: hidden;
