@@ -3616,7 +3616,7 @@ MIT许可证（MIT）
 </iframe>
 
 <!-- ==================== Baidu Tongji ==================== -->
-<script>
+<!-- <script>
     var _hmt = _hmt || [];
     (function() {
         var hm = document.createElement("script");
@@ -3624,7 +3624,7 @@ MIT许可证（MIT）
         var s = document.getElementsByTagName("script")[0]; 
         s.parentNode.insertBefore(hm, s);
     })();
-</script>
+</script> -->
     
 <!-- ==================== VLOOK Module ==================== -->
 <script type="text/javascript">
@@ -3677,6 +3677,7 @@ MIT许可证（MIT）
         _colorSchemeBeforePrint = _colorScheme,
         _tipsTimer, // 用于自动控制提示显示时长
         _lang = 0, // 当前语言（浏览器中的语言配置）
+        _eventCount = 0,
         _newTab = false; // 当前页面是通过 VLOOK 的在新标签打开功能生成的
 
     // -------------------- 关键组件实例 -------------------- //
@@ -4360,16 +4361,6 @@ MIT许可证（MIT）
     }
 
     /**
-     * 推送事件统计数据
-     */
-    function pushData(data) {
-        // _hmt.push(data);
-        let iframe2 = $("iframe[name=vlook-stat-gitee]")[0];
-        console.log(iframe2.contentWindow);
-        iframe2.contentWindow.pushData(data);
-    }
-
-    /**
      * 替换所有内容
      */
     String.prototype.replaceAll = function (f, e) {
@@ -4523,6 +4514,31 @@ MIT许可证（MIT）
             env.display.DPR +
             " ]");
         console.log("  (Device Pixel Ratio)")
+    }
+
+    // -------------------- 事件数据上报处理模块 -------------------- //
+
+    /**
+     * 上报事件统计数据
+     */
+     function pushData(data) {
+        $("body").append('<iframe name="v-event-' + _eventCount + '" marginwidth="0" marginheight="0" frameBorder="0" scrolling="no" width="100%" height="200" src="https://madmaxchow.gitee.io/vlook/act/stat-gitee.html'
+            + "?category=" + data[0]
+            + "&action=" + data[1]
+            + "&label=" + data[2]
+            + "&value=" + data[3] + '"></iframe>');
+        setTimeout(removeEventResource, 5000);
+        _eventCount++;
+    }
+
+    /**
+     * 移除上报事件的资源
+     */
+    function removeEventResource() {
+        $("iframe[name^=v-event-]").each(function() {
+            $(this).remove();
+            return false; // 执行一次即跳出，即每次只删除一个
+        });
     }
 
     // -------------------- 文档大纲模块 -------------------- //
@@ -8023,10 +8039,10 @@ MIT许可证（MIT）
 
         // 提交统计数据
         $("iframe[name=vlook-stat-gitee]").attr("src",
-            "https://madmaxchow.gitee.io/vlook/stat-gitee.html"
+            "https://madmaxchow.gitee.io/vlook/act/stat-gitee.html"
             + statData);
         $("iframe[name=vlook-stat-github]").attr("src",
-            "https://madmaxchow.github.io/VLOOK/stat-github.html"
+            "https://madmaxchow.github.io/VLOOK/act/stat-github.html"
             + statData);
         console.log("Stat. in Gitee:\n" + $("iframe[name=vlook-stat-gitee]").attr("src"));
         console.log("Stat. in Github:\n" + $("iframe[name=vlook-stat-github]").attr("src"));
