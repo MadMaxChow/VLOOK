@@ -4363,7 +4363,10 @@ MIT许可证（MIT）
      * 推送事件统计数据
      */
     function pushData(data) {
-        _hmt.push(data);
+        // _hmt.push(data);
+        let iframe2 = $("iframe[name=vlook-stat-gitee]")[0];
+        console.log(iframe2.contentWindow);
+        iframe2.contentWindow.pushData(data);
     }
 
     /**
@@ -7344,7 +7347,7 @@ MIT许可证（MIT）
     }
 
     /**
-     * 获取url中的参数
+     * 获取 URL 中的参数
      */
     function getQueryString(urlqs) {
         let qs = urlqs.substr(1), // 获取url中"?"符后的字串

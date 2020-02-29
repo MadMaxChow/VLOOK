@@ -1,0 +1,50 @@
+<html>
+<header>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ab756408d0d966b0c189537747aeab2e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script type="text/javascript">
+    /**
+     * 获取 URL 中的参数
+     */
+     function getQueryString(urlqs) {
+        let qs = urlqs.substr(1), // 获取url中"?"符后的字串
+            args = {}, // 保存参数数据的对象
+            items = (qs.length > 0) ? qs.split("&") : [], // 取得每一个参数项,
+            item = null,
+            len = items.length;
+
+        for (let i = 0; i < len; i++) {
+            item = items[i].split("=");
+            let name = decodeURIComponent(item[0]),
+                value = decodeURIComponent(item[1]);
+            if (name) {
+                args[name] = value;
+            }
+        }
+        return args;
+    }
+
+    function pushData() {
+        let category = getQueryString(window.location.href)["category"],
+            action = getQueryString(window.location.href)["action"],
+            label = getQueryString(window.location.href)["label"],
+            value = getQueryString(window.location.href)["value"];
+        document.write("category: " + category + "<br>");
+        document.write("action: " + action + "<br>");
+        document.write("label: " + label + "<br>");
+        document.write("value: " + value + "<br>");
+        _hmt.push(['_trackEvent', category, action, label, value]);
+    }
+</script>
+</header>
+<body>
+Event Push - <strong>gitee</strong>
+</body>
+</html>
