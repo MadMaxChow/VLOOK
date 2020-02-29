@@ -1,5 +1,5 @@
 <html>
-<header>
+<head>
 <script type="text/javascript">
 var _hmt = _hmt || [];
 (function() {
@@ -37,11 +37,11 @@ var _hmt = _hmt || [];
      */
     function pushData() {
         let args = getQueryString(window.location.href);
-        document.write("Event Push - <strong>GitHub</strong><br>" + 
-            "category: " + args["category"] + "<br>" +
-            "action: " + args["action"] + "<br>" +
-            "label: " + args["label"] + "<br>" +
-            "value: " + args["value"] + "<br>");
+        // document.write(
+        //     "category: " + args["category"] + "<br>" +
+        //     "action: " + args["action"] + "<br>" +
+        //     "label: " + args["label"] + "<br>" +
+        //     "value: " + args["value"] + "<br>");
         _hmt.push([
             "_trackEvent",
             args["category"],
@@ -62,7 +62,7 @@ var _hmt = _hmt || [];
         font-family: sans-serif;
     }
 </style>
-</header>
+</head>
 <body>
 Event Push - <strong>GitHub</strong>
 </body>
