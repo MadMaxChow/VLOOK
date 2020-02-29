@@ -4522,11 +4522,11 @@ MIT许可证（MIT）
      * 上报事件统计数据
      */
      function pushData(data) {
-        $("body").append('<iframe name="v-event-' + _eventCount + '" marginwidth="0" marginheight="0" frameBorder="0" scrolling="no" width="100%" height="200" src="https://madmaxchow.gitee.io/vlook/act/stat-gitee.html'
-            + "?category=" + data[0]
-            + "&action=" + data[1]
-            + "&label=" + data[2]
-            + "&value=" + data[3] + '"></iframe>');
+        $("body").append('<iframe name="v-event-' + _eventCount + '" marginwidth="0" marginheight="0" frameBorder="0" scrolling="no" width="100%" height="200" src="https://madmaxchow.gitee.io/vlook/act/event-gitee.html'
+            + "?category=" + data[1]
+            + "&action=" + data[2]
+            + "&label=" + data[3]
+            + "&value=" + data[4] + '"></iframe>');
         setTimeout(removeEventResource, 5000);
         _eventCount++;
     }

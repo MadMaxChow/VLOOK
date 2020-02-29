@@ -37,16 +37,18 @@ var _hmt = _hmt || [];
      */
     function pushData() {
         let args = getQueryString(window.location.href);
-        document.write(
+        document.write("Event Push - <strong>GitHub</strong>" + 
             "category: " + args["category"] + "<br>" +
             "action: " + args["action"] + "<br>" +
             "label: " + args["label"] + "<br>" +
             "value: " + args["value"] + "<br>");
-        _hmt.push(['_trackEvent',
+        _hmt.push([
+            "_trackEvent",
             args["category"],
             args["action"],
             args["label"],
-            args["label"]]);
+            args["value"]
+            ]);
     }
 
     // 完成页面加载后执行数据提交
@@ -55,7 +57,7 @@ var _hmt = _hmt || [];
     }
 </script>
 </header>
-<body>
+<body style="color: #880000; font-family: sans-serif;">
 Event Push - <strong>gitee</strong>
 </body>
 </html>
