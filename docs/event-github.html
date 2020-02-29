@@ -32,15 +32,15 @@ var _hmt = _hmt || [];
     }
 
     function pushData() {
-        let category = getQueryString(window.location.href)["category"],
-            action = getQueryString(window.location.href)["action"],
-            label = getQueryString(window.location.href)["label"],
-            value = getQueryString(window.location.href)["value"];
+        let cate = getQueryString(window.location.href)["cate"],
+            act = getQueryString(window.location.href)["act"],
+            lbl = getQueryString(window.location.href)["lbl"],
+            val = getQueryString(window.location.href)["val"];
         document.write("category: " + category + "<br>");
-        document.write("action: " + action + "<br>");
-        document.write("label: " + label + "<br>");
-        document.write("value: " + value + "<br>");
-        _hmt.push(['_trackEvent', category, action, label, value]);
+        document.write("action: " + act + "<br>");
+        document.write("label: " + lbl + "<br>");
+        document.write("value: " + val + "<br>");
+        _hmt.push(['_trackEvent', cate, act, lbl, val]);
     }
 
     window.onload = function(){
