@@ -13,8 +13,9 @@ var _hmt = _hmt || [];
     /**
      * 获取 URL 中的参数
      */
-     function getQueryString(urlqs) {
-        let qs = urlqs.substr(1), // 获取url中"?"符后的字串
+     function getQueryString(url) {
+        let urlqs = url.substring(url.indexOf("?"), url.length),
+            qs = urlqs.substr(1), // 获取url中"?"符后的字串
             args = {}, // 保存参数数据的对象
             items = (qs.length > 0) ? qs.split("&") : [], // 取得每一个参数项,
             item = null,
@@ -31,16 +32,26 @@ var _hmt = _hmt || [];
         return args;
     }
 
+    /**
+     * 提交事件数据
+     */
     function pushData() {
-        let category = getQueryString(window.location.href)["category"],
-            action = getQueryString(window.location.href)["action"],
-            label = getQueryString(window.location.href)["label"],
-            value = getQueryString(window.location.href)["value"];
-        document.write("category: " + category + "<br>");
-        document.write("action: " + action + "<br>");
-        document.write("label: " + label + "<br>");
-        document.write("value: " + value + "<br>");
-        _hmt.push(['_trackEvent', category, action, label, value]);
+        let args = getQueryString(window.location.href);
+        document.write(
+            "category: " + args["category"] + "<br>"
+            + "action: " + args["action"] + "<br>"
+            + "label: " + args["label"] + "<br>"
+            + "value: " + args["value"] + "<br>");
+        _hmt.push(['_trackEvent',
+            args["category"],
+            args["action"],
+            args["label"],
+            args["label"]]);
+    }
+
+    // 完成页面加载后执行数据提交
+    window.onload = function(){
+        pushData();
     }
 </script>
 </header>
