@@ -4444,7 +4444,7 @@ MIT许可证（MIT）
                         "Недопустимая ссылка на страницу [",
                         "ページリンクが無効です [",
                         "잘못된 페이지 링크 ["
-                    ][_lang] + count + "]：" + $(this).text() + "[" + aName + "]\n" + $(this).parent().text()) + "\n";
+                    ][_lang] + count + "]：" + $(this).text() + "[" + aName + "]\n" + $(this).parent().text() + "\n");
                 }
             }
         });
@@ -4526,7 +4526,7 @@ MIT许可证（MIT）
      * 上报事件统计数据（基于百度统计）
      */
      function pushData(data) {
-        $("body").append('<iframe name="v-event-' + _eventCount + '" style="display: block;" marginwidth="0" marginheight="0" frameBorder="0" scrolling="no" width="100%" height="0" src="https://madmaxchow.gitee.io/vlook/act/event-gitee.html'
+        $("body").append('<iframe name="v-event-' + _eventCount + '" style="display: block;" marginwidth="0" marginheight="0" frameBorder="0" scrolling="no" width="100%" height="0" src="https://madmaxchow.gitee.io/vlook/act/event-gitee' + (_DEV_MODE ? "-dev" : "") + '.html'
             + "?category=" + data[0]
             + "&action=" + data[1]
             + "&label=" + data[2]
@@ -5234,8 +5234,8 @@ MIT许可证（MIT）
 
         // 有指定的题注文本
         let fc = null,
-            fc2 = null;
-        fcSet = getCaptions(codeBlock.parent().prev());
+            fc2 = null,
+            fcSet = getCaptions(codeBlock.parent().prev());
         fc = fcSet[0];
         fc2 = fcSet[1];
 
