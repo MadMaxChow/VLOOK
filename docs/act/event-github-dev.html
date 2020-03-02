@@ -1,0 +1,69 @@
+<html>
+<head>
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?93ca1463a5b43e1d92bcad30bdb2d8ed";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script type="text/javascript">
+    /**
+     * 获取 URL 中的参数
+     */
+     function getQueryString(url) {
+        let urlqs = url.substring(url.indexOf("?"), url.length),
+            qs = urlqs.substr(1), // 获取url中"?"符后的字串
+            args = {}, // 保存参数数据的对象
+            items = (qs.length > 0) ? qs.split("&") : [], // 取得每一个参数项,
+            item = null,
+            len = items.length;
+
+        for (let i = 0; i < len; i++) {
+            item = items[i].split("=");
+            let name = decodeURIComponent(item[0]),
+                value = decodeURIComponent(item[1]);
+            if (name) {
+                args[name] = value;
+            }
+        }
+        return args;
+    }
+
+    /**
+     * 提交事件数据
+     */
+    function pushData() {
+        let args = getQueryString(window.location.href);
+        console.log(
+            "category: " + args["category"],
+            "action: " + args["action"],
+            "label: " + args["label"],
+            "value: " + args["value"]);
+        _hmt.push([
+            "_trackEvent",
+            args["category"],
+            args["action"],
+            args["label"],
+            args["value"]
+            ]);
+    }
+
+    // 完成页面加载后执行数据提交
+    window.onload = function(){
+        pushData();
+    }
+</script>
+<style type='text/css'>
+    body {
+        color: #880000;
+        font-family: sans-serif;
+    }
+</style>
+</head>
+<body>
+Event Push - <strong>GitHub</strong>
+</body>
+</html>
