@@ -3456,7 +3456,7 @@ MIT许可证（MIT）
 </div>
 <div class="mdx-toc-panel" v-data-showed="false">
     <div class="mdx-toc-panel-header">
-        <div class="mdx-toc-panel-title" onclick="gotoTop(); adjustOutline(); pushData(['Nav', 'Outline', 'Goto', 'Cover']);">大纲</div>
+        <div class="mdx-toc-panel-title" onclick="gotoTop(); adjustOutline(); pushData(['Outline', 'Goto', 'Cover', 0]);">大纲</div>
     </div>
     <div class="mdx-toc-panel-body-scroll">
         <div class="mdx-toc-panel-body"></div>
@@ -3610,8 +3610,8 @@ MIT许可证（MIT）
 </div>
 
 <!-- 统计数据上报中转页面 -->
-<iframe name="vlook-stat-github" style="display: block;" marginwidth="0" marginheight="0" frameBorder="0" scrolling="no" width="100%" height="0">
-</iframe>
+<!-- <iframe name="vlook-stat-github" style="display: block;" marginwidth="0" marginheight="0" frameBorder="0" scrolling="no" width="100%" height="0">
+</iframe> -->
 <iframe name="vlook-stat-gitee" style="display: block;" marginwidth="0" marginheight="0" frameBorder="0" scrolling="no" width="100%" height="0">
 </iframe>
 
@@ -4601,7 +4601,7 @@ MIT许可证（MIT）
 
             // 点击大纲节点事件
             item.unbind("click").click(function () {
-                pushData(['Nav', 'Outline', 'Goto', 'TOC']);
+                pushData(['Outline', 'Goto', 'TOC', 0]);
                 location.href = $("#" + item.attr("id")).children("a").attr(
                     "href"); // 跳转至对应的页内锚点
                 if (isBlockOutline() === false) {
@@ -4663,7 +4663,7 @@ MIT许可证（MIT）
 
             // 折叠控件事件
             folder.unbind("click").click(function () {
-                pushData(['Nav', 'Outline', 'Assist', 'Fold / Unfold']);
+                pushData(['Outline', 'Assist', 'Fold / Unfold', 0]);
                 foldChapterItem($(this).parent().attr("id"));
                 event.cancelBubble = true;
             });
@@ -4737,7 +4737,7 @@ MIT许可证（MIT）
      * 显示/隐藏大纲面板
      */
     function toggleOutline() {
-        pushData(['Nav', 'Outline', 'Assist', 'Show / Hide']);
+        pushData(['Outline', 'Assist', 'Show / Hide', 0]);
         // 大纲面板已显示
         if (isOutlineShowed()) {
             // 大纲面板目前是固定占们显示，则取消占位空间
@@ -4974,12 +4974,15 @@ MIT许可证（MIT）
      * 跳转至指定章节
      */
     function gotoHeader(target) {
-        pushData(['Nav', 'Chapter', '', '']);
         let dataAnchor = target.attr("v-data-anchor");
-        if (dataAnchor === "cover")
+        if (dataAnchor === "cover") {
+            pushData(['ChapterNav', 'Nav', dataAnchor, 0]);
             gotoTop();
-        else
+        }
+        else {
+            pushData(['ChapterNav', 'Nav', 'chapter', 0]);
             window.location.href = "#" + target.attr("v-data-anchor");
+        }
     }
 
     /**
@@ -5020,7 +5023,7 @@ MIT许可证（MIT）
                     
                     // 双击内容块激活/关闭逐段浏览模式模式
                     item.dblclick(function () {
-                        pushData(['Nav', 'BlockFocus', '', '']);
+                        pushData(['BlockFocus', 'Action', 'Active', 0]);
                         _enableBlockFocus = !_enableBlockFocus;
                         if (_enableBlockFocus === true)
                             item.click();
@@ -5034,6 +5037,7 @@ MIT许可证（MIT）
                         if (_enableBlockFocus === false)
                             return;
 
+                        pushData(['BlockFocus', 'Action', 'Mouse', 0]);
                         _blockFocusItemIndex = parseInt($(this).attr("v-data-blockfocus-idx"));
                         // autoUnfoldQuote();
 
@@ -5118,6 +5122,8 @@ MIT许可证（MIT）
      * @param step 跳转的步长
      */
     function prevBlockFocusItem(step) {
+        pushData(['BlockFocus', 'Action', 'Keyboard',0]);
+
         hideTableCross(true);
 
         // 未到首段
@@ -5142,6 +5148,8 @@ MIT许可证（MIT）
      * @param step 跳转的步长
      */
     function nextBlockFocusItem(step) {
+        pushData(['BlockFocus', 'Action', 'Keyboard', 0]);
+
         hideTableCross(true);
 
         // 未到末段
@@ -5252,7 +5260,7 @@ MIT许可证（MIT）
      * 复制代码块内容
      */
     function copyCodeBlock() {
-        pushData(['Interactive', 'CodeBlock', 'Copy', '']);
+        pushData(['Interactive', 'CodeBlock', 'Copy', 0]);
         if (_lastHoverContent == null)
             return;
 
@@ -5463,7 +5471,7 @@ MIT许可证（MIT）
 
         // 鼠标点击单元格时显示十字光标
         cell.unbind("click").click(function () {
-            pushData(['Table', 'Cell Cross', '', '']);
+            pushData(['Interactive', 'Table', 'Cell Cross', 0]);
             
             if (table.parent().parent().attr("v-data-folded") === "true")
                 return;
@@ -5983,7 +5991,7 @@ MIT许可证（MIT）
      * 显示插图浏览器
      */
     function showFigureViewer(fig) {
-        pushData(['Tool', 'Figure Viewer', '', '']);
+        pushData(['Interactive', 'Figure Viewer', 'Show / Hide', 0]);
 
         freezeScroll();
 
@@ -6148,7 +6156,7 @@ MIT许可证（MIT）
      * 查看上一个插图
      */
     function prevFigure() {
-        pushData(['Figure Viewer', 'Prev', '', '']);
+        pushData(['Interactive', 'Figure Viewer', 'Prev', 0]);
         if (_figIndex > 0) {
             _figIndex--;
             hideContentButtons();
@@ -6161,7 +6169,7 @@ MIT许可证（MIT）
      * 查看下一个插图
      */
     function nextFigure() {
-        pushData(['Figure Viewer', 'Next', '', '']);
+        pushData(['Interactive', 'Figure Viewer', 'Next', 0]);
         if (_figIndex < _figureCount - 1) {
             _figIndex++;
             hideContentButtons();
@@ -6338,7 +6346,7 @@ MIT许可证（MIT）
                 // 因此处的 click 会与 $(document).unbind("click").click() 冲突
                 // 所以改为 mouseup
                 target.unbind("mouseup").mouseup(function () {
-                    pushData(['Quote', 'Fold / Unfold', '', '']);
+                    pushData(['Interactive', 'Quote', 'Fold / Unfold', 0]);
                     toggleQuoteFolding(target);
                 });
             }
@@ -6857,7 +6865,7 @@ MIT许可证（MIT）
      * 打开/关闭聚光灯
      */
     function toggleSpotlight() {
-        pushData(['Tool', 'Spotlight', '', '']);
+        pushData(['Presentation', 'Spotlight', 'Show / Hide', 0]);
         if (isHidden(_iSpotlight) === true) {
             _iSpotlight.show();
             const e = window.event;
@@ -6888,7 +6896,7 @@ MIT许可证（MIT）
      * 切换字体样式
      */
     function toggleFontStyle() {
-        pushData(['Tool', 'Font Style', '', '']);
+        pushData(['Style', 'Font Style', '', 0]);
         const fontInfo = "<br/>──<br/><span style='font-size: 0.8em'>" + [
                 "VLOOK 优先显示开源的思源黑体和思源宋体<br/>建议下载安装获得更好的视觉体验",
                 "VLOOK 優先顯示開源的思源黑體和思源宋體<br/>建議用戶下載安裝獲得更好的視覺體驗",
@@ -6984,7 +6992,7 @@ MIT许可证（MIT）
      * 切换颜色方案
      */
     function toggleColorScheme() {
-         pushData(['Tool', 'Color Scheme', '', '']);
+         pushData(['Style', 'Color Scheme', '', 0]);
         _colorScheme = (_colorScheme === "light") ? "dark" : "light";
 
         let preHtml = "<div style='display: table-cell; vertical-align: middle;'>",
@@ -7284,28 +7292,28 @@ MIT许可证（MIT）
 
             switch (code) {
                 case 74: // J
-                    pushData(['Hotkey', code, '', '']);
+                    pushData(['Hotkey', code, '', 0]);
                     if (_enableBlockFocus === true)
                         nextBlockFocusItem(1); // 步长1
                     break;
                 case 75: // K
-                    pushData(['Hotkey', code, '', '']);
+                    pushData(['Hotkey', code, '', 0]);
                     if (_enableBlockFocus === true)
                         prevBlockFocusItem(1); // 步长1
                     break;
                 case 72: // H
-                    pushData(['Hotkey', code, '', '']);
+                    pushData(['Hotkey', code, '', 0]);
                     if (_enableBlockFocus === true)
                         prevBlockFocusItem(10); // 步长10，快速移动
                     break;
                 case 76: // L   
-                    pushData(['Hotkey', code, '', '']);
+                    pushData(['Hotkey', code, '', 0]);
                     if (_enableBlockFocus === true)
                         nextBlockFocusItem(10); // 步长10，快速移动
                     break;
                 case 188: // <
                 case 37: // ←
-                    pushData(['Hotkey', code, '', '']);
+                    pushData(['Hotkey', code, '', 0]);
                     if (isHidden(_iFigureViewer) === false)
                         prevFigure();
                     else
@@ -7313,7 +7321,7 @@ MIT许可证（MIT）
                     break;
                 case 190: // >
                 case 39: // →
-                    pushData(['Hotkey', code, '', '']);
+                    pushData(['Hotkey', code, '', 0]);
                     if (isHidden(_iFigureViewer) === false)
                         nextFigure();
                     else {
@@ -7326,10 +7334,10 @@ MIT许可证（MIT）
                     if (isHidden(_iFigureViewer) === false)
                         return;
                     toggleOutline();
-                    pushData(['Hotkey', code, '', '']);
+                    pushData(['Hotkey', code, '', 0]);
                     break;
                 case 73: // I
-                    pushData(['Hotkey', code, '', '']);
+                    pushData(['Hotkey', code, '', 0]);
                     // 文档无插图时不处理
                     if (isVisible(_iBtnFigure) === false ||
                         isHidden(_iMask) === false)
@@ -7343,30 +7351,31 @@ MIT许可证（MIT）
                         hideFigureViewer();
                     break;
                 case 68: // D
-                    pushData(['Hotkey', code, '', '']);
+                    pushData(['Hotkey', code, '', 0]);
                     toggleColorScheme();
                     break;
                 case 65: // A
-                    pushData(['Hotkey', code, '', '']);
+                    pushData(['Hotkey', code, '', 0]);
                     toggleFontStyle();
                     break;
                 case 80: // P
-                    pushData(['Hotkey', code, '', '']);
+                    pushData(['Hotkey', code, '', 0]);
                     beforePrintDocument();
                     break;
                 case 83: // S
-                    pushData(['Hotkey', code, '', '']);
+                    pushData(['Hotkey', code, '', 0]);
                     toggleSpotlight();
                     break;
                 case 16: // Shift
-                    pushData(['Hotkey', code, '', '']);
+                    pushData(['Hotkey', code, '', 0]);
                     if (isHidden(_iSpotlight) === false) {
+                        pushData(['Presentation', 'Spotlight', 'Zoom', 0]);
                         _spotlightR = _spotlightR > 180 ? 180 : 250;
                         repaintSpotlight();
                     }
                     break;
                 case 13: // ENTER
-                    pushData(['Hotkey', code, '', '']);
+                    pushData(['Hotkey', code, '', 0]);
                     // 关闭欢迎屏
                     if (isHidden(_iLoadScreen) === false &&
                         _iBtnLoadScreen.css("cursor") === "pointer")
@@ -7380,7 +7389,7 @@ MIT许可证（MIT）
                     }
                     break;
                 case 27: // ESC
-                    pushData(['Hotkey', code, '', '']);
+                    pushData(['Hotkey', code, '', 0]);
                     hideToolTips(true);
                     hideInfoTips();
                     // 优先关闭弹出的 UI
@@ -7475,7 +7484,7 @@ MIT许可证（MIT）
      * 打印文档前处理
      */
     function beforePrintDocument() {
-        pushData(['Tool', 'Print', '', '']);
+        pushData(['Style', 'Print', '', 0]);
         // 若当前为 Dark 模式则强制临时切换为 Light 模式
         if (_colorScheme === "dark") {
             _colorSchemeBeforePrint = _colorScheme;
@@ -8082,13 +8091,13 @@ MIT许可证（MIT）
 
         // 提交统计数据
         $("iframe[name=vlook-stat-gitee]").attr("src",
-            "https://madmaxchow.gitee.io/vlook/act/stat-gitee.html"
+            "https://madmaxchow.gitee.io/vlook/act/stat-gitee" + (_DEV_MODE ? "-dev" : "") + ".html"
             + statData);
-        $("iframe[name=vlook-stat-github]").attr("src",
-            "https://madmaxchow.github.io/VLOOK/act/stat-github.html"
-            + statData);
-        console.log("Stat. in Gitee:\n" + $("iframe[name=vlook-stat-gitee]").attr("src"));
-        console.log("Stat. in Github:\n" + $("iframe[name=vlook-stat-github]").attr("src"));
+            console.log("Stat. in Gitee:\n" + $("iframe[name=vlook-stat-gitee]").attr("src"));
+        // $("iframe[name=vlook-stat-github]").attr("src",
+        //     "https://madmaxchow.github.io/VLOOK/act/stat-github" + (_DEV_MODE ? "-dev" : "") + ".html"
+        //     + statData);
+        // console.log("Stat. in Github:\n" + $("iframe[name=vlook-stat-github]").attr("src"));
     }
 
     // -------------------- 在新标签打开模块 -------------------- //
@@ -8116,7 +8125,7 @@ MIT许可证（MIT）
             typeName = "Table";
         else if (type === "pre")
             typeName = "CodeBlock";
-        pushData(['Interactive', typeName, 'Open In New Tap', '']);
+        pushData(['Interactive', 'Open In New Tap', typeName, 0]);
 
         // 动态生成新标签的页面
         newTab.document.write("<!doctype html>");
@@ -8305,6 +8314,7 @@ MIT许可证（MIT）
 
         // 提交统计数据
         submitStatData();
+        pushData(['Base', 'Loading', 'Times', _loadTimeCost]);
     });
 </script>
 <!--========================================================================-->
