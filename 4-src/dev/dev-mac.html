@@ -3456,7 +3456,7 @@ MIT许可证（MIT）
 </div>
 <div class="mdx-toc-panel" v-data-showed="false">
     <div class="mdx-toc-panel-header">
-        <div class="mdx-toc-panel-title" onclick="gotoTop(); adjustOutline();">大纲</div>
+        <div class="mdx-toc-panel-title" onclick="gotoTop(); adjustOutline(); pushData(['Nav', 'Outline', 'Goto', 'Cover']);">大纲</div>
     </div>
     <div class="mdx-toc-panel-body-scroll">
         <div class="mdx-toc-panel-body"></div>
@@ -3521,42 +3521,42 @@ MIT许可证（MIT）
 <!-- 页面工具栏 -->
 <div class="mdx-toolbar mdx-backdrop-blurs">
     <!-- 大纲按钮 -->
-    <div class="mdx-btn mdx-btn-outline" onclick="hideToolTips(); toggleOutline(); pushData(['Tool', 'Outline', '', '']);"
+    <div class="mdx-btn mdx-btn-outline" onclick="hideToolTips(); toggleOutline();"
         onmouseenter="showToolTips($(this).attr('tips'), $(this), null)" onmouseleave="hideToolTips(false)">
         <svg width="20px" height="14px">
             <use class="mdx-button-ico-light" xlink:href="#icoOutline"></use>
         </svg>
     </div>
     <!-- 启动插图浏览器 -->
-    <div class="mdx-btn mdx-btn-figure-viewer" onclick="hideToolTips(); showFigureViewer(null); pushData(['Tool', 'Figure Viewer', '', '']);"
+    <div class="mdx-btn mdx-btn-figure-viewer" onclick="hideToolTips(); showFigureViewer(null);"
         onmouseenter="showToolTips($(this).attr('tips'), $(this), null)" onmouseleave="hideToolTips(false)">
         <svg width="20px" height="18px">
             <use class="mdx-button-ico-light" xlink:href="#icoFigure"></use>
         </svg>
     </div>
     <!-- 打印 -->
-    <div class="mdx-btn mdx-btn-print" onclick="hideToolTips(); beforePrintDocument(); pushData(['Tool', 'Print', '', '']);"
+    <div class="mdx-btn mdx-btn-print" onclick="hideToolTips(); beforePrintDocument();"
         onmouseenter="showToolTips($(this).attr('tips'), $(this), null)" onmouseleave="hideToolTips(false)">
         <svg width="20px" height="19px">
             <use class="mdx-button-ico-light" xlink:href="#icoPrint"></use>
         </svg>
     </div>
     <!-- 开关聚光灯 -->
-    <div class="mdx-btn mdx-btn-spotlight" onclick="hideToolTips(); toggleSpotlight(); pushData(['Tool', 'Spotlight', '', '']);"
+    <div class="mdx-btn mdx-btn-spotlight" onclick="hideToolTips(); toggleSpotlight();"
         onmouseenter="showToolTips($(this).attr('tips'), $(this), null)" onmouseleave="hideToolTips(false)">
         <svg width="20px" height="20px">
             <use class="mdx-button-ico-light" xlink:href="#icoSpotlight"></use>
         </svg>
     </div>
     <!-- 字体样式 -->
-    <div class="mdx-btn mdx-btn-font-style" onclick="hideToolTips(); toggleFontStyle(); pushData(['Tool', 'Font Style', '', '']);"
+    <div class="mdx-btn mdx-btn-font-style" onclick="hideToolTips(); toggleFontStyle();"
         onmouseenter="showToolTips($(this).attr('tips'), $(this), null)" onmouseleave="hideToolTips(false)">
         <svg width="16px" height="18px">
             <use class="mdx-button-ico-light" xlink:href="#icoSerifFont"></use>
         </svg>
     </div>
     <!-- Light/Dark模式切换 -->
-    <div class="mdx-btn mdx-btn-color-scheme" onclick="hideToolTips(); toggleColorScheme(); pushData(['Tool', 'Color Scheme', '', '']);"
+    <div class="mdx-btn mdx-btn-color-scheme" onclick="hideToolTips(); toggleColorScheme();"
         onmouseenter="showToolTips($(this).attr('tips'), $(this), null)" onmouseleave="hideToolTips(false)">
         <svg width="20px" height="20px">
             <use class="mdx-button-ico-light" xlink:href="#icoLightMode"></use>
@@ -3573,14 +3573,14 @@ MIT许可证（MIT）
 </div>
 
 <!-- 在新标签打开的按钮 -->
-<div class="mdx-btn mdx-btn-open-in-new-tab" onclick="openInNewTab(); pushData(['Tool', 'Open In New Tap', '', '']);" onmouseout="mouseoutContentAction()">
+<div class="mdx-btn mdx-btn-open-in-new-tab" onclick="openInNewTab();" onmouseout="mouseoutContentAction()">
     <svg width="20px" height="18px">
         <use class="mdx-button-ico-light" xlink:href="#icoNewTab"></use>
     </svg>
 </div>
 
 <!-- 复制代码块内容的按钮 -->
-<div class="mdx-btn mdx-btn-copy-code-block" onclick="copyCodeBlock()" onmouseout="mouseoutContentAction(); pushData(['Tool', 'Copy Code Block', '', '']);">
+<div class="mdx-btn mdx-btn-copy-code-block" onclick="copyCodeBlock()" onmouseout="mouseoutContentAction();">
     <svg width="18px" height="18px">
         <use class="mdx-button-ico-light" xlink:href="#icoCopyCodeBlock"></use>
     </svg>
@@ -3615,26 +3615,17 @@ MIT许可证（MIT）
 <iframe name="vlook-stat-gitee" style="display: block;" marginwidth="0" marginheight="0" frameBorder="0" scrolling="no" width="100%" height="0">
 </iframe>
 
-<!-- ==================== Baidu Tongji ==================== -->
-<!-- <script>
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?ab756408d0d966b0c189537747aeab2e";
-        var s = document.getElementsByTagName("script")[0]; 
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script> -->
-    
 <!-- ==================== VLOOK Module ==================== -->
 <script type="text/javascript">
     // -------------------- 加载时间 -------------------- //
     let _startTimer = new Date().getTime(),
-        _lastTimer = _startTimer;
+        _lastTimer = _startTimer,
+        _loadTimeCost = 0;
 
     // -------------------- 常量 -------------------- //
 
     const _VERSION = "V9.13 beta", // 版本信息
+        _DEV_MODE = true, // 开发模式
         _ANIMATE_SPEED = 300, // 动画速度，值越小越快
         // 大纲章节图标：已收起
         _ICON_FOLD =
@@ -3722,6 +3713,188 @@ MIT许可证（MIT）
         _iBtnLoadScreen = null;
 
     // -------------------- UI 模块 -------------------- //
+
+    // -------------------- 通用方法 -------------------- //
+
+    /**
+     * 检查是否为空对象
+     */
+     function isEmptyObject(target) {
+        return (typeof (target) == "undefined");
+    }
+
+    /**
+     * 大纲面板是否已显示
+     */
+    function isOutlineShowed() {
+        // 使用自定义属性，而不是 display / visibility / left 等属性
+        // 是因为大纲面板会以动画形式进行显示/隐藏
+        // 所以无法使用以上原生属性进行是否显示的识别
+        return _iTocPanel.attr("v-data-showed") === "true";
+    }
+
+    /**
+     * 判断对象是否已显示
+     */
+    function isHidden(target) {
+        return target !== undefined && target.css("display") === "none";
+    }
+
+    /**
+     * 替换所有内容
+     */
+    String.prototype.replaceAll = function (f, e) {
+        const reg = new RegExp(f, "g");
+        return this.replace(reg, e);
+    };
+
+    /**
+     * 以指定字符开始
+     */
+    String.prototype.startWith = function (s) {
+        if (s == null || s === "" || this.length === 0 || s.length > this.length)
+            return false;
+        return this.substr(0, s.length) === s;
+    };
+
+    /**
+     * 以指定字符结束
+     */
+    String.prototype.endWith = function (s) {
+        if (s == null || s === "" || this.length === 0 || s.length > this.length)
+            return false;
+        return this.substring(this.length - s.length) === s;
+    };
+
+    /**
+     * 环境信息类
+     */
+    const env = {
+        // Windows 平台样例：
+        // (Chrome) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36
+        // (Firefox) Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0
+        // (Edge) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362
+        //
+        // macOS 平台样例：
+        // (Chrome) Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36
+        // (Firefox) Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:69.0) Gecko/20100101 Firefox/69.0
+        // (Safari) Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.2 Safari/605.1.15
+        //
+        // 浏览器内核信息
+        core: function () {
+            const u = navigator.userAgent;
+            return {
+                trident: u.indexOf("Trident") > -1, //IE内核
+                presto: u.indexOf("Presto") > -1, //opera内核
+                webkit: u.indexOf("AppleWebKit") > -1, //苹果、谷歌内核
+                gecko: u.indexOf("Gecko") > -1 && u.indexOf("KHTML") === -1 //火狐内核
+            };
+        }(),
+        // 设备信息
+        device: function () {
+            const u = navigator.userAgent;
+            return {
+                mobile: !!u.match(/AppleWebKit.*Mobile.*/), // 是否为移动终端
+                iOS: !!u.match(/iphone os/i), // iOS 类终端
+                android: u.indexOf("Android") > -1 || u.indexOf("Linux") > -1, // android 终端或者 UC 浏览器
+                iPhone: u.indexOf("iPhone") > -1, // 是否为 iPhone 或者 QQHD 浏览器
+                iPad: u.indexOf("iPad") > -1 // 是否 iPad
+            };
+        }(),
+        // 浏览器类型
+        browser: function () {
+            const u = navigator.userAgent;
+            return {
+                Chrome: u.indexOf("Chrome") > -1, // Chrome 浏览器
+                Firefox: u.indexOf("Firefox") > -1, // Firefox 浏览器
+                Safari: u.indexOf("Safari") > -1 && u.indexOf("Version") > -1, // Safari 浏览器
+                Edge: u.indexOf(" Edg/") > -1 // Edge 浏览器
+            };
+        }(),
+        // 浏览器版本信息
+        browserVersion: function () {
+            const u = navigator.userAgent;
+            return {
+                Chrome: u.match(/Chrome\/[\d.]+/gi) ? u.match(/Chrome\/[\d.]+/gi)[0].match(/[\d]+/)[0] : "0", // chrome浏览器版本
+                Firefox: u.match(/Firefox\/[\d.]+/gi) ? u.match(/Firefox\/[\d.]+/gi)[0].match(/[\d]+/)[0] : "0", // firefox浏览器版本
+                Safari: u.match(/Version\/[\d.]+.+Safari\/[\d.]+/gi) ? u.match(/Version\/[\d.]+.+Safari\/[\d.]+/gi)[0].match(/[\d]+/)[0] : "0", // safari浏览器版本
+                Edge: u.match(/Edg\/[\d.]+/gi) ? u.match(/Edg\/[\d.]+/gi)[0].match(/[\d]+/)[0] : "0" // chrome浏览器版本
+            };
+        }(),
+        // 操作系统信息
+        os: function () {
+            const u = navigator.userAgent;
+            return {
+                Windows: /windows|win32|win64/i.test(u), // 是否为 Windows 平台
+                macOS: /macintosh/i.test(u), // 是否为 macOS 平台
+                iOS: /iphone os/i.test(u),  // 是否为 iOS 平台
+                Linux: /linux/i.test(u)  // 是否为 iOS 平台
+            };
+        }(),
+        // 语言信息
+        language: function () {
+            const lang = navigator.language;
+            return {
+                full: lang.toLowerCase(),
+                base: lang.substring(0, 2),
+                subset: lang.substring(3, lang.length)
+            };
+        }(),
+        // 显示信息
+        display: function () {
+            return {
+                DPR: window.devicePixelRatio
+            };
+        }()
+    };
+
+    /**
+     * 显示浏览器相关信息
+     */
+    function displayEnvInfo() {
+        console.log("=== Environmental Information ===");
+        console.log("User-Agent:\n" + navigator.userAgent);
+
+        console.log("- Language\t\t" +
+            "[ " + env.language.base + (env.language.subset.length > 0 ? "_" + env.language.subset : "") + " ]");
+
+        console.log("- Device\t\t" +
+            "[ " +
+            (env.device.mobile ? "Mobile" : "") +
+            (env.device.iOS ? "/iOS" : "") +
+            (env.device.android ? "/Android" : "") +
+            (env.device.iPhone ? "/iPhone" : "") +
+            (env.device.iPad ? "/iPad" : "") +
+            "]");
+
+        console.log("- OS\t\t\t" +
+            (env.os.macOS ? "[ macOS ]"
+                : (env.os.window ? "[ Windows ]"
+                    : (env.os.iOS ? "[ iOS ]"
+                        : (env.os.Linux ? "[Linux]" : "[Others]")))));
+
+        console.log("- Browser\t\t" +
+            "[ " +
+            (env.browser.Chrome ? "Chrome / " + env.browserVersion.Chrome : "") +
+            (env.browser.Firefox ? "Firefox / " + env.browserVersion.Firefox : "") +
+            (env.browser.Safari ? "Safari / " + env.browserVersion.Safari : "") +
+            (env.browser.Edge ? "Edge / " + env.browserVersion.Edge : "") +
+            " ]");
+
+        console.log("- Core\t\t\t" +
+            "[ " +
+            (env.core.gecko ? "Gecko" : "") +
+            (env.core.presto ? "Presto" : "") +
+            (env.core.trident ? "Trident" : "") +
+            (env.core.webkit ? "WebKit" : "") +
+            " ]");
+
+        console.log("- DPR\t\t\t" +
+            "[ " +
+            env.display.DPR +
+            " ]");
+        console.log("  (Device Pixel Ratio)")
+    }
 
     /**
      * 初始 UI 国际化
@@ -3972,6 +4145,11 @@ MIT许可证（MIT）
 
     /**
      * 显示通知提示信息
+     *
+     * @param msg 提示内容
+     * @param delay 延时指定 ms 时间后自动关闭提示
+     * @param fullscreen 是否为全屏显示
+     * @param mask 是否显示遮罩
      */
     function showInfoTips(msg, delay, fullscreen, mask) {
         clearTimeout(_tipsTimer);
@@ -3986,7 +4164,8 @@ MIT许可证（MIT）
             borderRadius: 15
         });
 
-        if (fullscreen === true) { // 全屏显示
+        // 全屏显示
+        if (fullscreen === true) {
             _iInfoTips.css({
                 display: "table", // 配合子元素的 display: table-cell 实现内容的垂直居中
                 width: "100%",
@@ -3997,7 +4176,9 @@ MIT许可证（MIT）
                 bottom: 0,
                 borderRadius: 0
             });
-        } else { // 非全屏显示
+        }
+        // 非全屏显示
+        else {
             if (env.device.mobile) {
                 _iInfoTips.css({
                     left: 10,
@@ -4014,7 +4195,7 @@ MIT许可证（MIT）
         }
 
         _iInfoTips.fadeIn(_ANIMATE_SPEED, function () {
-            if (delay != null)
+            if (delay != null) // 延时后自动关闭
                 _tipsTimer = setTimeout(function () {
                     hideInfoTips();
                 }, delay);
@@ -4066,20 +4247,24 @@ MIT许可证（MIT）
      */
     function unfreezeScroll() {
         _iBody.css({
-            "user-select": "text", // 恢复网页选择
+            // "user-select": "text", // 恢复网页选择
             "overflow": "auto" // 恢复网页滚动
         });
     }
 
     /**
      * 显示遮罩
+     *
+     * @param target 为指定对象增加遮罩显示
+     * @param callback 点击遮罩后的回调函数，一般为关闭 target 的函数
      */
-    function showMask(under, callback) {
+    function showMask(target, callback) {
         // 冻结滚动
         freezeScroll();
 
-        // 显示遮罩
-        _iMask.css("z-index", under.css("z-index") - 1);
+        // 总是在 target 下显示
+        _iMask.css("z-index", target.css("z-index") - 1);
+        // 设置回调函数
         _iMask.on("click", callback);
         _iMask.fadeIn(_ANIMATE_SPEED);
     }
@@ -4116,6 +4301,7 @@ MIT许可证（MIT）
                 });
             }
 
+            // 调整工具栏样式
             _iToolbar.removeClass("mdx-backdrop-blurs");
             _iToolbar.removeClass("mdx-float-card");
             _iToolbar.css({
@@ -4167,7 +4353,7 @@ MIT许可证（MIT）
                     top: 0
                 });
 
-                // 为增加了工具栏背景的按钮去掉浮动样式
+                // 为增加了工具栏按钮的背景去掉浮动样式
                 _iToolbar.children(".mdx-btn").removeClass("mdx-btn-float");
             }
         }
@@ -4334,192 +4520,10 @@ MIT许可证（MIT）
         });
     }
 
-    // -------------------- 通用方法 -------------------- //
-
-    /**
-     * 检查是否为空对象
-     */
-    function isEmptyObject(target) {
-        return (typeof (target) == "undefined");
-    }
-
-    /**
-     * 大纲面板是否已显示
-     */
-    function isOutlineShowed() {
-        // 使用自定义属性，而不是 display / visibility / left 等属性
-        // 是因为大纲面板会以动画形式进行显示/隐藏
-        // 所以无法使用以上原生属性进行是否显示的识别
-        return _iTocPanel.attr("v-data-showed") === "true";
-    }
-
-    /**
-     * 判断对象是否已显示
-     */
-    function isHidden(target) {
-        return target !== undefined && target.css("display") === "none";
-    }
-
-    /**
-     * 替换所有内容
-     */
-    String.prototype.replaceAll = function (f, e) {
-        const reg = new RegExp(f, "g");
-        return this.replace(reg, e);
-    };
-
-    /**
-     * 以指定字符开始
-     */
-    String.prototype.startWith = function (s) {
-        if (s == null || s === "" || this.length === 0 || s.length > this.length)
-            return false;
-        return this.substr(0, s.length) === s;
-    };
-
-    /**
-     * 以指定字符结束
-     */
-    String.prototype.endWith = function (s) {
-        if (s == null || s === "" || this.length === 0 || s.length > this.length)
-            return false;
-        return this.substring(this.length - s.length) === s;
-    };
-
-    /**
-     * 环境信息类
-     */
-    const env = {
-        // Windows 平台样例：
-        // (Chrome) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36
-        // (Firefox) Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0
-        // (Edge) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362
-        //
-        // macOS 平台样例：
-        // (Chrome) Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36
-        // (Firefox) Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:69.0) Gecko/20100101 Firefox/69.0
-        // (Safari) Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.2 Safari/605.1.15
-        //
-        // 浏览器内核信息
-        core: function () {
-            const u = navigator.userAgent;
-            return {
-                trident: u.indexOf("Trident") > -1, //IE内核
-                presto: u.indexOf("Presto") > -1, //opera内核
-                webkit: u.indexOf("AppleWebKit") > -1, //苹果、谷歌内核
-                gecko: u.indexOf("Gecko") > -1 && u.indexOf("KHTML") === -1 //火狐内核
-            };
-        }(),
-        // 设备信息
-        device: function () {
-            const u = navigator.userAgent;
-            return {
-                mobile: !!u.match(/AppleWebKit.*Mobile.*/), // 是否为移动终端
-                iOS: !!u.match(/iphone os/i), // iOS 类终端
-                android: u.indexOf("Android") > -1 || u.indexOf("Linux") > -1, // android 终端或者 UC 浏览器
-                iPhone: u.indexOf("iPhone") > -1, // 是否为 iPhone 或者 QQHD 浏览器
-                iPad: u.indexOf("iPad") > -1 // 是否 iPad
-            };
-        }(),
-        // 浏览器类型
-        browser: function () {
-            const u = navigator.userAgent;
-            return {
-                Chrome: u.indexOf("Chrome") > -1, // Chrome 浏览器
-                Firefox: u.indexOf("Firefox") > -1, // Firefox 浏览器
-                Safari: u.indexOf("Safari") > -1 && u.indexOf("Version") > -1, // Safari 浏览器
-                Edge: u.indexOf(" Edg/") > -1 // Edge 浏览器
-            };
-        }(),
-        // 浏览器版本信息
-        browserVersion: function () {
-            const u = navigator.userAgent;
-            return {
-                Chrome: u.match(/Chrome\/[\d.]+/gi) ? u.match(/Chrome\/[\d.]+/gi)[0].match(/[\d]+/)[0] : "0", // chrome浏览器版本
-                Firefox: u.match(/Firefox\/[\d.]+/gi) ? u.match(/Firefox\/[\d.]+/gi)[0].match(/[\d]+/)[0] : "0", // firefox浏览器版本
-                Safari: u.match(/Version\/[\d.]+.+Safari\/[\d.]+/gi) ? u.match(/Version\/[\d.]+.+Safari\/[\d.]+/gi)[0].match(/[\d]+/)[0] : "0", // safari浏览器版本
-                Edge: u.match(/Edg\/[\d.]+/gi) ? u.match(/Edg\/[\d.]+/gi)[0].match(/[\d]+/)[0] : "0" // chrome浏览器版本
-            };
-        }(),
-        // 操作系统信息
-        os: function () {
-            const u = navigator.userAgent;
-            return {
-                Windows: /windows|win32|win64/i.test(u), // 是否为 Windows 平台
-                macOS: /macintosh/i.test(u), // 是否为 macOS 平台
-                iOS: /iphone os/i.test(u),  // 是否为 iOS 平台
-                Linux: /linux/i.test(u)  // 是否为 iOS 平台
-            };
-        }(),
-        // 语言信息
-        language: function () {
-            const lang = navigator.language;
-            return {
-                full: lang.toLowerCase(),
-                base: lang.substring(0, 2),
-                subset: lang.substring(3, lang.length)
-            };
-        }(),
-        // 显示信息
-        display: function () {
-            return {
-                DPR: window.devicePixelRatio
-            };
-        }()
-    };
-
-    /**
-     * 显示浏览器相关信息
-     */
-    function displayEnvInfo() {
-        console.log("=== Environmental Information ===");
-        console.log("User-Agent:\n" + navigator.userAgent);
-
-        console.log("- Language\t\t" +
-            "[ " + env.language.base + (env.language.subset.length > 0 ? "_" + env.language.subset : "") + " ]");
-
-        console.log("- Device\t\t" +
-            "[ " +
-            (env.device.mobile ? "Mobile" : "") +
-            (env.device.iOS ? "/iOS" : "") +
-            (env.device.android ? "/Android" : "") +
-            (env.device.iPhone ? "/iPhone" : "") +
-            (env.device.iPad ? "/iPad" : "") +
-            "]");
-
-        console.log("- OS\t\t\t" +
-            (env.os.macOS ? "[ macOS ]"
-                : (env.os.window ? "[ Windows ]"
-                    : (env.os.iOS ? "[ iOS ]"
-                        : (env.os.Linux ? "[Linux]" : "[Others]")))));
-
-        console.log("- Browser\t\t" +
-            "[ " +
-            (env.browser.Chrome ? "Chrome / " + env.browserVersion.Chrome : "") +
-            (env.browser.Firefox ? "Firefox / " + env.browserVersion.Firefox : "") +
-            (env.browser.Safari ? "Safari / " + env.browserVersion.Safari : "") +
-            (env.browser.Edge ? "Edge / " + env.browserVersion.Edge : "") +
-            " ]");
-
-        console.log("- Core\t\t\t" +
-            "[ " +
-            (env.core.gecko ? "Gecko" : "") +
-            (env.core.presto ? "Presto" : "") +
-            (env.core.trident ? "Trident" : "") +
-            (env.core.webkit ? "WebKit" : "") +
-            " ]");
-
-        console.log("- DPR\t\t\t" +
-            "[ " +
-            env.display.DPR +
-            " ]");
-        console.log("  (Device Pixel Ratio)")
-    }
-
     // -------------------- 事件数据上报处理模块 -------------------- //
 
     /**
-     * 上报事件统计数据
+     * 上报事件统计数据（基于百度统计）
      */
      function pushData(data) {
         $("body").append('<iframe name="v-event-' + _eventCount + '" style="display: block;" marginwidth="0" marginheight="0" frameBorder="0" scrolling="no" width="100%" height="0" src="https://madmaxchow.gitee.io/vlook/act/event-gitee.html'
@@ -4537,7 +4541,7 @@ MIT许可证（MIT）
     function removeEventResource() {
         $("iframe[name^=v-event-]").each(function() {
             $(this).remove();
-            return false; // 执行一次即跳出，即每次只删除一个
+            return false; // 执行一次即跳出，即每次只删除当前最早创建的
         });
     }
 
@@ -4574,8 +4578,6 @@ MIT许可证（MIT）
 
             let tocItemA = item.children("a");
 
-            // console.log(window.getComputedStyle(item[0], "::before").content);
-
             // 将目录记录到标题数组中
             let href = tocItemA.attr("href");
             _headers.push(href.indexOf("#") > -1 ? href.substring(1, href.length) : href);
@@ -4599,6 +4601,7 @@ MIT许可证（MIT）
 
             // 点击大纲节点事件
             item.unbind("click").click(function () {
+                pushData(['Nav', 'Outline', 'Goto', 'TOC']);
                 location.href = $("#" + item.attr("id")).children("a").attr(
                     "href"); // 跳转至对应的页内锚点
                 if (isBlockOutline() === false) {
@@ -4606,7 +4609,6 @@ MIT许可证（MIT）
                     // 等待页面跳转后，再进行大纲面板布局自适应处理
                     setTimeout(adjustOutline, 500);
                 }
-                pushData(['Outline', 'Goto', 'Chapter', '']);
             });
 
             // 记录所有非叶子节点的folder控件
@@ -4659,10 +4661,11 @@ MIT许可证（MIT）
                 "v-data-folded": "false" // true:收起， false:展开
             });
 
+            // 折叠控件事件
             folder.unbind("click").click(function () {
+                pushData(['Nav', 'Outline', 'Assist', 'Fold / Unfold']);
                 foldChapterItem($(this).parent().attr("id"));
                 event.cancelBubble = true;
-                pushData(['Outline', 'Fold / Unfold', '', '']);
             });
 
             folder.hover(function () {
@@ -4675,6 +4678,7 @@ MIT许可证（MIT）
 
     /**
      * 收起/展开章节目录
+     *
      * @param id 对象的id值
      */
     function foldChapterItem(id) {
@@ -4697,6 +4701,7 @@ MIT许可证（MIT）
 
     /**
      * 处理展开或收起指定章节下的子章节
+     *
      * @param id 对象的id值
      * @param action 动作：0=收起，1=展开
      * @param child 是否遍历子元素
@@ -4732,6 +4737,7 @@ MIT许可证（MIT）
      * 显示/隐藏大纲面板
      */
     function toggleOutline() {
+        pushData(['Nav', 'Outline', 'Assist', 'Show / Hide']);
         // 大纲面板已显示
         if (isOutlineShowed()) {
             // 大纲面板目前是固定占们显示，则取消占位空间
@@ -4763,6 +4769,7 @@ MIT许可证（MIT）
 
     /**
      * 显示大纲面板
+     *
      * @param float true: 以浮动形式显示，false: 以固定占位形式显示
      */
     function showOutline(float) {
@@ -4866,7 +4873,8 @@ MIT许可证（MIT）
 
     /**
      * 隐藏大纲
-     * @manual true: 手动隐藏，false: 系统自动隐藏
+     *
+     * @param manual true: 手动隐藏，false: 系统自动隐藏
      */
     function hideOutline(manual) {
         // _outlineShowed = false;
@@ -4903,17 +4911,16 @@ MIT许可证（MIT）
     }
 
     /**
-     * 页面滚动时高亮 outline 中的对应章节项
+     * 页面滚动时高亮 Outline 中的对应章节项
      */
     function followHeader() {
         let currentIndex = -1;
 
         // 寻找当前屏幕显示的章节
         for (let i = 0; i < _headers.length; i++) {
-            let target = env.browser.Firefox === false ?
-                $("a[name='" + _headers[i] + "']") // 非 Firefox 浏览器
-                :
-                $("a[name='" + decodeURI(_headers[i]) + "']"); // Firefox 浏览器
+            let target = env.browser.Firefox === false
+                ? $("a[name='" + _headers[i] + "']") // 非 Firefox 浏览器
+                : $("a[name='" + decodeURI(_headers[i]) + "']"); // Firefox 浏览器
             let headerHeight = target.parent().height();
             // 当前章节标题已滚过了屏幕顶部
             if ((target.offset().top - $(document).scrollTop()) > (headerHeight / 2)) {
@@ -4967,6 +4974,7 @@ MIT许可证（MIT）
      * 跳转至指定章节
      */
     function gotoHeader(target) {
+        pushData(['Nav', 'Chapter', '', '']);
         let dataAnchor = target.attr("v-data-anchor");
         if (dataAnchor === "cover")
             gotoTop();
@@ -4983,7 +4991,6 @@ MIT许可证（MIT）
             _lastOutlineItem.removeClass("mdx-header-current");
             _lastCurrentHeaderIndex = -2;
         }
-        pushData(['Outline', 'Goto', 'Cover', '']);
     }
 
     /**
@@ -5010,14 +5017,17 @@ MIT许可证（MIT）
                 if (item.children("p").length === 0) {
                     item.attr("id", "v-blockfocus-" + _blockFocusItemCount);
                     item.attr("v-data-blockfocus-idx", _blockFocusItemCount);
+                    
                     // 双击内容块激活/关闭逐段浏览模式模式
                     item.dblclick(function () {
+                        pushData(['Nav', 'BlockFocus', '', '']);
                         _enableBlockFocus = !_enableBlockFocus;
                         if (_enableBlockFocus === true)
                             item.click();
                         else
                             hideBlockFocus();
                     });
+
                     // 单击内容块处理
                     item.unbind("click").click(function () {
                         // 未激活逐段浏览模式模式
@@ -5057,19 +5067,20 @@ MIT许可证（MIT）
 
     /**
      * 跳到指定的内容块，或最新的_blockFocusItemIndex指定的内容块
+     *
      * @param target 跳转的目标。null: 指定跳到上/下一个位置，非null: 指定的目标位置
      */
     function gotoBlockFocusItem(target) {
         hideBlockFocus();
 
-        let item = null;
-        if (target != null)
-            item = target;
-        else
-            item = $("#v-blockfocus-" + _blockFocusItemIndex);
+        // 初始化目标段
+        let item = (target != null)
+            ? target
+            : $("#v-blockfocus-" + _blockFocusItemIndex);
 
+        // 若目标聚焦块不可视，则返回跳转失败
         if (isHidden(item))
-            return false; // 返回跳转失败
+            return false;
 
         item.addClass("mdx-current-blockfocus-item");
         _lastBlockFocusItem = item;
@@ -5090,9 +5101,10 @@ MIT许可证（MIT）
             localStorage["VLOOK-" + _VERSION + "-hint-for-green-hand-step-bf"] = true;
         }
 
-        if (item.offset().top !== 0 &&
-            ((item.offset().top - 50) < $(document).scrollTop() ||
-                (item.offset().top + 50) > ($(document).scrollTop() + $(window).height()))) {
+        // 或目标段不在当前窗口显示区域内，则跳转到对应位置
+        if (item.offset().top !== 0
+            && ((item.offset().top - 50) < $(document).scrollTop()
+            || (item.offset().top + 50) > ($(document).scrollTop() + $(window).height()))) {
             $("html").animate({
                 scrollTop: item.offset().top - $(window).height() / 2
             }, _ANIMATE_SPEED);
@@ -5101,11 +5113,14 @@ MIT许可证（MIT）
     }
 
     /**
-     * 上一个内容块item
+     * 上一个段
+     *
+     * @param step 跳转的步长
      */
     function prevBlockFocusItem(step) {
         hideTableCross(true);
 
+        // 未到首段
         if (_blockFocusItemIndex > 0) {
             _blockFocusItemIndex = _blockFocusItemIndex - step;
 
@@ -5116,16 +5131,20 @@ MIT许可证（MIT）
             if (gotoBlockFocusItem(null) === false)
                 prevBlockFocusItem(1);
 
+            // 自动展开引用
             autoUnfoldQuote();
         }
     }
 
     /**
-     * 下一个内容块item
+     * 下一个段
+     *
+     * @param step 跳转的步长
      */
     function nextBlockFocusItem(step) {
         hideTableCross(true);
 
+        // 未到末段
         if (_blockFocusItemIndex < _blockFocusItemCount - 1) {
             _blockFocusItemIndex = _blockFocusItemIndex + step;
 
@@ -5136,19 +5155,22 @@ MIT许可证（MIT）
             if (gotoBlockFocusItem(null) === false)
                 nextBlockFocusItem(1);
 
+            // 自动展开引用
             autoUnfoldQuote();
         }
     }
 
     /**
-     * 自动打开引用块
+     * 自动展开引用块
      */
     function autoUnfoldQuote() {
         if (_blockFocusItemIndex > -1) {
             let target = $("#v-blockfocus-" + _blockFocusItemIndex);
-            if (target.attr("class") !== undefined &&
-                target.attr("class").indexOf("mdx-blockquote-folder") !== -1 &&
-                target.attr("v-data-folded") === "true")
+            // 或目标段是引用块折叠操作区，且为未展开状态            
+            if (target.attr("class") !== undefined
+                && target.attr("class").indexOf("mdx-blockquote-folder") !== -1
+                && target.attr("v-data-folded") === "true")
+                // 模拟操作
                 target.mouseup();
         }
     }
@@ -5230,6 +5252,7 @@ MIT许可证（MIT）
      * 复制代码块内容
      */
     function copyCodeBlock() {
+        pushData(['Interactive', 'CodeBlock', 'Copy', '']);
         if (_lastHoverContent == null)
             return;
 
@@ -5960,6 +5983,8 @@ MIT许可证（MIT）
      * 显示插图浏览器
      */
     function showFigureViewer(fig) {
+        pushData(['Tool', 'Figure Viewer', '', '']);
+
         freezeScroll();
 
         if (_figureCount === 0)
@@ -6123,6 +6148,7 @@ MIT许可证（MIT）
      * 查看上一个插图
      */
     function prevFigure() {
+        pushData(['Figure Viewer', 'Prev', '', '']);
         if (_figIndex > 0) {
             _figIndex--;
             hideContentButtons();
@@ -6135,6 +6161,7 @@ MIT许可证（MIT）
      * 查看下一个插图
      */
     function nextFigure() {
+        pushData(['Figure Viewer', 'Next', '', '']);
         if (_figIndex < _figureCount - 1) {
             _figIndex++;
             hideContentButtons();
@@ -6390,7 +6417,7 @@ MIT许可证（MIT）
     // -------------------- 逐章导航栏模块 -------------------- //
 
     /**
-     * 更新逐章导航栏UI及数据
+     * 更新逐章导航栏 UI 及数据
      */
     function updateChapterNavUI(currentIndex) {
         // 更新导航栏内容
@@ -6646,6 +6673,7 @@ MIT许可证（MIT）
 
     /**
      * 按倍数调整函数元组数据，目前只支持单个函数，且只能有两个参数
+     *
      * @param funcString 函数字符串，如：translate(-12,-18)
      * @param rate1 对第1个参数的调整倍数
      * @param rate2 对第2个参数的调整倍数
@@ -6829,6 +6857,7 @@ MIT许可证（MIT）
      * 打开/关闭聚光灯
      */
     function toggleSpotlight() {
+        pushData(['Tool', 'Spotlight', '', '']);
         if (isHidden(_iSpotlight) === true) {
             _iSpotlight.show();
             const e = window.event;
@@ -6859,6 +6888,7 @@ MIT许可证（MIT）
      * 切换字体样式
      */
     function toggleFontStyle() {
+        pushData(['Tool', 'Font Style', '', '']);
         const fontInfo = "<br/>──<br/><span style='font-size: 0.8em'>" + [
                 "VLOOK 优先显示开源的思源黑体和思源宋体<br/>建议下载安装获得更好的视觉体验",
                 "VLOOK 優先顯示開源的思源黑體和思源宋體<br/>建議用戶下載安裝獲得更好的視覺體驗",
@@ -6905,6 +6935,7 @@ MIT许可证（MIT）
 
     /**
      * 应用指定字体样式
+     *
      * @param style 字体新式 sans: 非衬线，serif: 衬线
      */
     function applyFontStyle(style) {
@@ -6953,6 +6984,7 @@ MIT许可证（MIT）
      * 切换颜色方案
      */
     function toggleColorScheme() {
+         pushData(['Tool', 'Color Scheme', '', '']);
         _colorScheme = (_colorScheme === "light") ? "dark" : "light";
 
         let preHtml = "<div style='display: table-cell; vertical-align: middle;'>",
@@ -7253,19 +7285,23 @@ MIT许可证（MIT）
             switch (code) {
                 case 74: // J
                     pushData(['Hotkey', code, '', '']);
-                    nextBlockFocusItem(1); // 步长1
+                    if (_enableBlockFocus === true)
+                        nextBlockFocusItem(1); // 步长1
                     break;
                 case 75: // K
                     pushData(['Hotkey', code, '', '']);
-                    prevBlockFocusItem(1); // 步长1
+                    if (_enableBlockFocus === true)
+                        prevBlockFocusItem(1); // 步长1
                     break;
                 case 72: // H
                     pushData(['Hotkey', code, '', '']);
-                    prevBlockFocusItem(10); // 步长10，快速移动
+                    if (_enableBlockFocus === true)
+                        prevBlockFocusItem(10); // 步长10，快速移动
                     break;
-                case 76: // L
+                case 76: // L   
                     pushData(['Hotkey', code, '', '']);
-                    nextBlockFocusItem(10); // 步长10，快速移动
+                    if (_enableBlockFocus === true)
+                        nextBlockFocusItem(10); // 步长10，快速移动
                     break;
                 case 188: // <
                 case 37: // ←
@@ -7439,6 +7475,7 @@ MIT许可证（MIT）
      * 打印文档前处理
      */
     function beforePrintDocument() {
+        pushData(['Tool', 'Print', '', '']);
         // 若当前为 Dark 模式则强制临时切换为 Light 模式
         if (_colorScheme === "dark") {
             _colorSchemeBeforePrint = _colorScheme;
@@ -7903,9 +7940,8 @@ MIT许可证（MIT）
             + "&thm=" + getComputedStyle(document.documentElement)
                 .getPropertyValue("--vlook-theme-name").replaceAll("\"", "").trim();
         
-        // 设备信息
-        statData += "&d=" + (env.device.mobile ? "mob" : "");
-        statData += "&dpr=" + env.display.DPR;
+        statData += "&d=" + (env.device.mobile ? "mob" : ""); // 设备类型
+        statData += "&dpr=" + env.display.DPR; // DPR
 
         // OS 信息
         statData += "&os=";
@@ -7937,8 +7973,9 @@ MIT许可证（MIT）
         statData += "&cs=" + getComputedStyle(document.documentElement)
             .getPropertyValue("--vlook-color-scheme").replaceAll("\"", "").trim();
         
-        // 文档关键内容数量
-        statData += "&size=" + _iWrite.text().length;
+        statData += "&lang=" + _lang; // 浏览器语言
+        statData += "&size=" + _iWrite.text().length; // 文档大小
+        statData += "&time=" + _loadTimeCost; // 加载文档时间
 
         // 图片插图数据
         statData += "&img=" + $("img").length;
@@ -8065,12 +8102,21 @@ MIT许可证（MIT）
         if (_lastHoverContent == null)
             return;
 
-        const bgColor = _iBody.css("background-color"),
-            fgColor = _iBody.css("color");
+        // const bgColor = _iBody.css("background-color"),
+        //     fgColor = _iBody.css("color");
 
         let newTab = window.open("", "_blank"),
-            content = null,
-            type = null;
+            content = _lastHoverContent.clone(), // 复制要在新标签中打开的内容
+            type = _lastHoverContent.prop("tagName").toLowerCase(),
+            typeName = "Unknown";
+        
+        if (type === "img" || type === "svg")
+            typeName = "Figure";
+        else if (type === "table")
+            typeName = "Table";
+        else if (type === "pre")
+            typeName = "CodeBlock";
+        pushData(['Interactive', typeName, 'Open In New Tap', '']);
 
         // 动态生成新标签的页面
         newTab.document.write("<!doctype html>");
@@ -8081,10 +8127,6 @@ MIT许可证（MIT）
         // 初始化在新标签打开的页面的关键组件实例
         newTab.initIntance(true);
         newTab.OINT_Init();
-
-        // 复制要在新标签中打开的内容
-        content = _lastHoverContent.clone();
-        type = _lastHoverContent.prop("tagName").toLowerCase();
 
         // 内容为表格时
         if (type === "table") {
@@ -8256,12 +8298,13 @@ MIT许可证（MIT）
         adjustImageInverInDarkMode();
         outputTimeCost();
 
-        // 提交统计数据
-        submitStatData();
-
         // ----------------------------------------
         // VLOOK 加载完成
-        console.log("[ DONE ]\nTOTAL TIME COST " + ((new Date().getTime() - _startTimer) / 1000) + "s");
+        _loadTimeCost = (new Date().getTime() - _startTimer) / 1000;
+        console.log("[ DONE ]\nTOTAL TIME COST " + _loadTimeCost + "s");
+
+        // 提交统计数据
+        submitStatData();
     });
 </script>
 <!--========================================================================-->

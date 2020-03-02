@@ -37,11 +37,11 @@ var _hmt = _hmt || [];
      */
     function pushData() {
         let args = getQueryString(window.location.href);
-        // document.write("Event Push - <strong>GitHub</strong><br>" + 
-        //     "category: " + args["category"] + "<br>" +
-        //     "action: " + args["action"] + "<br>" +
-        //     "label: " + args["label"] + "<br>" +
-        //     "value: " + args["value"] + "<br>");
+        console.log(
+            "category: " + args["category"],
+            "action: " + args["action"],
+            "label: " + args["label"],
+            "value: " + args["value"]);
         _hmt.push([
             "_trackEvent",
             args["category"],
