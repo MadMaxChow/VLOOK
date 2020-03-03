@@ -2312,8 +2312,8 @@ div.mermaidTooltip {
 
 .md-toc,
 .mdx-toc {
-    margin-top: 0.6em;
-    margin-bottom: 0.6em;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
     border-radius: 0;
     line-height: 2;
 }
@@ -3279,9 +3279,7 @@ li p {
 }
 
 .mdx-btn-open-in-new-tab {
-    border-radius: 16px;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0;
+    border-radius: 16px 0 16px 0;
     box-shadow: @contrastBorder;
     background-color: @buttonBgColor;
     // background-color: fade(@buttonBgColor, 75%);
@@ -3291,9 +3289,7 @@ li p {
 }
 
 .mdx-btn-copy-code-block {
-    border-radius: 16px;
-    border-top-left-radius: 0;
-    border-bottom-right-radius: 0;
+    border-radius: 0 16px 0 16px;
     box-shadow: @contrastBorder;
     background-color: @buttonBgColor;
     // background-color: fade(@buttonBgColor, 75%);
@@ -3378,7 +3374,7 @@ img,
     color: var(--fore-color);
 }
 
-.mdx-figure-pagenum {
+.mdx-figure-page-num {
     left: 10px;
     top: 10px;
     position: absolute;
@@ -3408,9 +3404,7 @@ img,
 
 .mdx-figure-caption hr {
     border-bottom: 2px solid @foreColorLightAlt;
-    margin: 0.5em;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0.5em auto;
 }
 
 use.mdx-button-ico-light {
@@ -3503,7 +3497,7 @@ use.mdx-folder-ico:hover,
     font-family: @boldFont;
     font-weight: normal !important;
     margin-right: 0;
-    border-radius: 1em 0em 0em 1em;
+    border-radius: 1em 0 0 1em;
     padding: 0.2em 1.8em 0.2em 0.6em;
     color: @docBgColorLight;
     background: var(--code-name-bg-color);
@@ -3596,12 +3590,8 @@ h6 code {
     font-weight: bold;
     text-align: @coverTextAlign;
     height: 25cm;
-    padding-top: 180px;
-    padding-bottom: 50px;
-    padding-left: 60px;
-    padding-right: 60px;
-    margin: 10px 0;
-    margin-bottom: 3em;
+    padding: 180px 60px 50px;
+    margin: 10px 0 3em;
     border: 0;
     border-radius: 16px;
     box-shadow: @contrastBorder;
@@ -3782,12 +3772,10 @@ h6 code {
     .mdx-tool-tips,
     .mdx-info-tips {
         display: none !important;
-        transition: all 0.3s ease-in-out;
     }
 
     .mdx-current-blockfocus-item {
         box-shadow: none !important;
-        transition: all 0.3s ease-in-out;
     }
 
     // 显示原始的目录
@@ -3812,8 +3800,7 @@ h6 code {
     .mdx-chapter-nav,
     .mdx-toc-panel,
     .mdx-toc-panel-header,
-    .mdx-toc-panel-body-scroll,
-    .mdx-docbar-bottom {
+    .mdx-toc-panel-body-scroll {
         display: none;
         visibility: hidden;
     }
@@ -3822,8 +3809,7 @@ h6 code {
     #write > h6:last-of-type,
     #write > h6:first-of-type strong,
     #write > h6:first-of-type em {
-        background: none !important;
-        background-color: @docBgColorLight !important;
+        background: #FFFFFF none !important;
         color: @foreColorLight !important;
     }
 }

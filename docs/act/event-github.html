@@ -38,10 +38,11 @@ var _hmt = _hmt || [];
     function pushData() {
         let args = getQueryString(window.location.href);
         if (args["debug"] === "true") {
-            console.warn("category: " + args["category"]);
-            console.warn("action: " + args["action"]);
-            console.warn("label: " + args["label"]);
-            console.warn("value: " + args["value"]);
+            console.warn(
+                args["category"],
+                args["action"],
+                args["label"],
+                args["value"]);
         }
         _hmt.push([
             "_trackEvent",
