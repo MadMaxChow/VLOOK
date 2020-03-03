@@ -3625,7 +3625,7 @@ MIT许可证（MIT）
     // -------------------- 常量 -------------------- //
 
     const _VERSION = "V9.13 beta", // 版本信息
-        _DEV_MODE = true, // 开发模式
+        _DEBUG_MODE = true, // 开发模式
         _ANIMATE_SPEED = 300, // 动画速度，值越小越快
         // 大纲章节图标：已收起
         _ICON_FOLD =
@@ -3634,7 +3634,7 @@ MIT许可证（MIT）
         _ICON_UNFOLD =
         '<svg width="20px" height="20px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoUnfold" class="mdx-folder-ico"/></svg>',
         _SMALL_SCREEN_WIDTH = 1024, // 大小屏分界的尺寸标准
-        _CONTENT_EXTENDER_HEIGHT = 300, // 长内容的折叠高度限制
+        _CONTENT_EXTENDER_HEIGHT = _DEBUG_MODE ? 300 : 600, // 长内容的折叠高度限制
         _REBOUND_OFFSET = 30, // 动画回弹效果偏移量
         // 默认图片的元数据（BASE64编码）
         _DEFAULT_IMAGE =
@@ -3711,8 +3711,6 @@ MIT许可证（MIT）
         _iBtnChapterNavCurrent = null,
         _iBtnFooterNoteAll = null,
         _iBtnLoadScreen = null;
-
-    // -------------------- UI 模块 -------------------- //
 
     // -------------------- 通用方法 -------------------- //
 
@@ -3852,13 +3850,13 @@ MIT许可证（MIT）
      * 显示浏览器相关信息
      */
     function displayEnvInfo() {
-        console.log("=== Environmental Information ===");
-        console.log("User-Agent:\n" + navigator.userAgent);
+        console.info("=== Environmental Information ===");
+        console.info("User-Agent:\n" + navigator.userAgent);
 
-        console.log("- Language\t\t" +
+        console.info("- Language\t\t" +
             "[ " + env.language.base + (env.language.subset.length > 0 ? "_" + env.language.subset : "") + " ]");
 
-        console.log("- Device\t\t" +
+        console.info("- Device\t\t" +
             "[ " +
             (env.device.mobile ? "Mobile" : "") +
             (env.device.iOS ? "/iOS" : "") +
@@ -3867,13 +3865,13 @@ MIT许可证（MIT）
             (env.device.iPad ? "/iPad" : "") +
             "]");
 
-        console.log("- OS\t\t\t" +
+        console.info("- OS\t\t\t" +
             (env.os.macOS ? "[ macOS ]"
                 : (env.os.window ? "[ Windows ]"
                     : (env.os.iOS ? "[ iOS ]"
                         : (env.os.Linux ? "[Linux]" : "[Others]")))));
 
-        console.log("- Browser\t\t" +
+        console.info("- Browser\t\t" +
             "[ " +
             (env.browser.Chrome ? "Chrome / " + env.browserVersion.Chrome : "") +
             (env.browser.Firefox ? "Firefox / " + env.browserVersion.Firefox : "") +
@@ -3881,7 +3879,7 @@ MIT许可证（MIT）
             (env.browser.Edge ? "Edge / " + env.browserVersion.Edge : "") +
             " ]");
 
-        console.log("- Core\t\t\t" +
+        console.info("- Core\t\t\t" +
             "[ " +
             (env.core.gecko ? "Gecko" : "") +
             (env.core.presto ? "Presto" : "") +
@@ -3889,12 +3887,22 @@ MIT许可证（MIT）
             (env.core.webkit ? "WebKit" : "") +
             " ]");
 
-        console.log("- DPR\t\t\t" +
+        console.info("- DPR\t\t\t" +
             "[ " +
             env.display.DPR +
             " ]");
-        console.log("  (Device Pixel Ratio)")
+        console.info("  (Device Pixel Ratio)")
     }
+
+    /**
+     * 在 debug 模式下输出调试信息
+     */
+    function debug(info) {
+        if (_DEBUG_MODE === true)
+            console.warn(info);
+    }
+
+    // -------------------- UI 模块 -------------------- //
 
     /**
      * 初始 UI 国际化
@@ -4526,11 +4534,14 @@ MIT许可证（MIT）
      * 上报事件统计数据（基于百度统计）
      */
      function pushData(data) {
-        $("body").append('<iframe name="v-event-' + _eventCount + '" style="display: block;" marginwidth="0" marginheight="0" frameBorder="0" scrolling="no" width="100%" height="0" src="https://madmaxchow.gitee.io/vlook/act/event-gitee' + (_DEV_MODE ? "-dev" : "") + '.html'
-            + "?category=" + data[0]
+        $("body").append('<iframe name="v-event-' + _eventCount + '" style="display: block;" marginwidth="0" marginheight="0" frameBorder="0" scrolling="no" width="100%" height="0"'
+            + ' src="https://madmaxchow.gitee.io/vlook/act/event-gitee.html'
+            + "?category=" + (_DEBUG_MODE ? "dev-" : "") + data[0]
             + "&action=" + data[1]
             + "&label=" + data[2]
-            + "&value=" + data[3] + '"></iframe>');
+            + "&value=" + data[3]
+            + "&debug=" + _DEBUG_MODE
+            + '"></iframe>');
         setTimeout(removeEventResource, 5000);
         _eventCount++;
     }
@@ -4776,6 +4787,7 @@ MIT许可证（MIT）
         if (isOutlineShowed() === true)
             return;
 
+        // 因为 Outline 是以动画形式显示，在动画未结束前不重复进行显示处理
         if (_iTocPanel.offset().left >= 0)
             return;
 
@@ -4817,7 +4829,7 @@ MIT许可证（MIT）
         // 显示大纲工具栏（回弹式）
         _iTocPanel.animate({
             left: 10 + _REBOUND_OFFSET
-        }, _ANIMATE_SPEED).animate({
+        }, _ANIMATE_SPEED, "swing").animate({
             left: 10
         }, _ANIMATE_SPEED);
 
@@ -4885,7 +4897,7 @@ MIT许可证（MIT）
             // 收起大纲面板
             _iTocPanel.animate({
                 left: -tocBoxWidth
-            }, _ANIMATE_SPEED, function () {
+            }, _ANIMATE_SPEED, "swing", function () {
                 _iTocPanel.removeClass("mdx-float-card");
             });
 
@@ -5111,7 +5123,7 @@ MIT许可证（MIT）
             || (item.offset().top + 50) > ($(document).scrollTop() + $(window).height()))) {
             $("html").animate({
                 scrollTop: item.offset().top - $(window).height() / 2
-            }, _ANIMATE_SPEED);
+            }, _ANIMATE_SPEED, "swing");
         }
         return true; // 返回跳转成功
     }
@@ -5314,7 +5326,7 @@ MIT许可证（MIT）
             table.parent().attr("v-data-container", "table");
             
             // 将表格的宽度比父元素要小，则调整父元素的宽度，以便在逐段浏览浏览模式时的高亮效果与内容贴合
-            // console.log(table.css("width"), table.parent().css("width"));
+            // debug(table.css("width"), table.parent().css("width"));
             // if (parseInt(table.css("width")) < parseInt(table.parent().css("width")))
             //     table.parent().css("width", "fit-content");
 
@@ -5824,12 +5836,13 @@ MIT许可证（MIT）
 
         let btn = expander.find("div > span"),
             orgText = btn.text();
-        // console.log(tagName, container.attr("id"), h);
         btn.html(orgText + " <span style='font-weight: normal;'>"
             + parseInt((1 - _CONTENT_EXTENDER_HEIGHT / h) * 100) + "%</span>");
 
         // 展开按钮 click 事件处理
         expander.children(".mdx-btn").unbind("click").click(function () {
+            pushData(['Interactive', transTagName(tagName), 'Expand Long', 0]);
+            
             let expander = $(this).parent(),
                 container = expander.prev();
 
@@ -5922,7 +5935,7 @@ MIT许可证（MIT）
                 fig.parent().css("width", "100%");
 
             // 将表格的宽度比父元素要小，则调整父元素的宽度，以便在逐段浏览浏览模式时的高亮效果与内容贴合
-            // console.log(fig.parent().css("width"), fig.parent().parent().css("width"));
+            // debug(fig.parent().css("width"), fig.parent().parent().css("width"));
             // if (parseInt(fig.parent().css("width")) < parseInt(fig.parent().parent().css("width")))
             //     fig.parent().parent().css("width", "fit-content");
 
@@ -6018,7 +6031,7 @@ MIT许可证（MIT）
         _iFigureViewer.animate({
             top: 0 - _REBOUND_OFFSET,
             opacity: 1
-        }, _ANIMATE_SPEED).animate({
+        }, _ANIMATE_SPEED, "swing").animate({
             top: 0
         }, _ANIMATE_SPEED);
     }
@@ -6030,7 +6043,7 @@ MIT许可证（MIT）
         _iFigureViewer.animate({
             top: _iFigureViewer.css("height"),
             opacity: 0
-        }, _ANIMATE_SPEED, function () {
+        }, _ANIMATE_SPEED, "swing", function () {
             _iFigureContent.empty();
             _iFigureViewer.hide();
         });
@@ -7101,7 +7114,7 @@ MIT许可证（MIT）
      * 根据浏览器当前的颜色方案调整文档配色
      */
     function switchColorScheme() {
-        console.log("... Switching color scheme");
+        console.info("... Switching color scheme");
         _lastTimer = new Date().getTime();
 
         const varList = [
@@ -7185,7 +7198,7 @@ MIT许可证（MIT）
                     varList[i] + "-" + _colorScheme));
         }
 
-        console.log("    [ " + ((new Date().getTime() - _lastTimer) / 1000) + "s ]");
+        console.info("    [ " + ((new Date().getTime() - _lastTimer) / 1000) + "s ]");
     }
 
     /**
@@ -7259,7 +7272,7 @@ MIT许可证（MIT）
 
         _iFooterNote.show().animate({
             bottom: 80 + _REBOUND_OFFSET
-        }, _ANIMATE_SPEED).animate({
+        }, _ANIMATE_SPEED, "swing").animate({
             bottom: 80
         }, _ANIMATE_SPEED);
     }
@@ -7270,7 +7283,7 @@ MIT许可证（MIT）
     function hideFooterNote() {
         _iFooterNote.animate({
             bottom: -150
-        }, _ANIMATE_SPEED, function () {
+        }, _ANIMATE_SPEED, "swing", function () {
             hideMask();
             $(this).hide();
         });
@@ -7285,35 +7298,41 @@ MIT许可证（MIT）
         // 键盘按下事件
         $(document).keydown(function (event) {
             const code = event.keyCode || event.which || event.charCode;
-            // console.log(code);
+            debug("Keydown: "
+                + (event.ctrlKey ? "Ctrl +" : "")
+                + (event.shiftKey ? "Shift + " : "")
+                + (event.altKey ? "Alt + " : "")
+                + (event.metaKey ? "Win/Cmd + " : "")
+                + String.fromCharCode(code)
+                + " [" + code + "]");
             // 按了组合键时忽略（除 Shift）
             if (event.ctrlKey || event.altKey || event.metaKey)
                 return;
 
             switch (code) {
                 case 74: // J
-                    pushData(['Hotkey', code, '', 0]);
+                    pushData(['Hotkey', String.fromCharCode(code), '', 0]);
                     if (_enableBlockFocus === true)
                         nextBlockFocusItem(1); // 步长1
                     break;
                 case 75: // K
-                    pushData(['Hotkey', code, '', 0]);
+                    pushData(['Hotkey', String.fromCharCode(code), '', 0]);
                     if (_enableBlockFocus === true)
                         prevBlockFocusItem(1); // 步长1
                     break;
                 case 72: // H
-                    pushData(['Hotkey', code, '', 0]);
+                    pushData(['Hotkey', String.fromCharCode(code), '', 0]);
                     if (_enableBlockFocus === true)
                         prevBlockFocusItem(10); // 步长10，快速移动
                     break;
                 case 76: // L   
-                    pushData(['Hotkey', code, '', 0]);
+                    pushData(['Hotkey', String.fromCharCode(code), '', 0]);
                     if (_enableBlockFocus === true)
                         nextBlockFocusItem(10); // 步长10，快速移动
                     break;
                 case 188: // <
                 case 37: // ←
-                    pushData(['Hotkey', code, '', 0]);
+                    pushData(['Hotkey', String.fromCharCode(code), '', 0]);
                     if (isHidden(_iFigureViewer) === false)
                         prevFigure();
                     else
@@ -7321,7 +7340,7 @@ MIT许可证（MIT）
                     break;
                 case 190: // >
                 case 39: // →
-                    pushData(['Hotkey', code, '', 0]);
+                    pushData(['Hotkey', String.fromCharCode(code), '', 0]);
                     if (isHidden(_iFigureViewer) === false)
                         nextFigure();
                     else {
@@ -7334,10 +7353,10 @@ MIT许可证（MIT）
                     if (isHidden(_iFigureViewer) === false)
                         return;
                     toggleOutline();
-                    pushData(['Hotkey', code, '', 0]);
+                    pushData(['Hotkey', String.fromCharCode(code), '', 0]);
                     break;
                 case 73: // I
-                    pushData(['Hotkey', code, '', 0]);
+                    pushData(['Hotkey', String.fromCharCode(code), '', 0]);
                     // 文档无插图时不处理
                     if (isVisible(_iBtnFigure) === false ||
                         isHidden(_iMask) === false)
@@ -7351,23 +7370,23 @@ MIT许可证（MIT）
                         hideFigureViewer();
                     break;
                 case 68: // D
-                    pushData(['Hotkey', code, '', 0]);
+                    pushData(['Hotkey', String.fromCharCode(code), '', 0]);
                     toggleColorScheme();
                     break;
                 case 65: // A
-                    pushData(['Hotkey', code, '', 0]);
+                    pushData(['Hotkey', String.fromCharCode(code), '', 0]);
                     toggleFontStyle();
                     break;
                 case 80: // P
-                    pushData(['Hotkey', code, '', 0]);
+                    pushData(['Hotkey', String.fromCharCode(code), '', 0]);
                     beforePrintDocument();
                     break;
                 case 83: // S
-                    pushData(['Hotkey', code, '', 0]);
+                    pushData(['Hotkey', String.fromCharCode(code), '', 0]);
                     toggleSpotlight();
                     break;
                 case 16: // Shift
-                    pushData(['Hotkey', code, '', 0]);
+                    pushData(['Hotkey', String.fromCharCode(code), '', 0]);
                     if (isHidden(_iSpotlight) === false) {
                         pushData(['Presentation', 'Spotlight', 'Zoom', 0]);
                         _spotlightR = _spotlightR > 180 ? 180 : 250;
@@ -7375,7 +7394,7 @@ MIT许可证（MIT）
                     }
                     break;
                 case 13: // ENTER
-                    pushData(['Hotkey', code, '', 0]);
+                    pushData(['Hotkey', String.fromCharCode(code), '', 0]);
                     // 关闭欢迎屏
                     if (isHidden(_iLoadScreen) === false &&
                         _iBtnLoadScreen.css("cursor") === "pointer")
@@ -7389,7 +7408,7 @@ MIT许可证（MIT）
                     }
                     break;
                 case 27: // ESC
-                    pushData(['Hotkey', code, '', 0]);
+                    pushData(['Hotkey', String.fromCharCode(code), '', 0]);
                     hideToolTips(true);
                     hideInfoTips();
                     // 优先关闭弹出的 UI
@@ -7473,7 +7492,7 @@ MIT许可证（MIT）
 
         _iLoadScreen.animate({
             top: -_iLoadScreen.height()
-        }, _ANIMATE_SPEED * 1.5, function () {
+        }, _ANIMATE_SPEED * 1.5, "swing", function () {
             _iLoadScreen.hide();
         });
     }
@@ -7567,7 +7586,6 @@ MIT许可证（MIT）
         // 恢复打印前的配置，详见 beforePrintDocument()
         $("[v-data-before-print-folded=true]").each(function () {
             let container = $(this);
-            console.log(container.prop("outerHTML"));
             container.find("table, .mdx-figure, .md-fences").each(function () {
                 // if (container.attr("v-data-before-print-folded") === "true")
                     foldingLongContent($(this), true);
@@ -7740,7 +7758,7 @@ MIT许可证（MIT）
 
         // ----------------------------------------
         // 加载本文档专属图标
-        console.log("- Document Logo");
+        console.info("- Document Logo");
         let docIcon = $(".mdx-doc-logo").css("background-image");
         if (docIcon !== undefined)
             $($("head")[0]).append("<link rel='icon' href='" + docIcon.substring(5, docIcon.length - 2) +
@@ -7749,10 +7767,10 @@ MIT许可证（MIT）
 
         // ----------------------------------------
         // 初始化字体样式
-        console.log("- Font Style");
+        console.info("- Font Style");
         // 清空历史存储
         if (getQueryString(location.search)["reset"] === "ls") {
-            console.log("!!! Reset Local Storage !!!");
+            console.info("!!! Reset Local Storage !!!");
             localStorage.removeItem("VLOOK-" + _VERSION + "-hint-for-green-hand-step-bf");
             localStorage.removeItem("VLOOK-" + _VERSION + "-font-style");
         }
@@ -7761,23 +7779,23 @@ MIT许可证（MIT）
         _currentFontStyle = getComputedStyle(document.documentElement).getPropertyValue(
             "--vlook-default-font-style").trim();
         if (window.localStorage && style !== undefined) {
-            console.log("    Last Setting: " + style);
+            console.info("    Last Setting: " + style);
             applyFontStyle(style);
         } else {
-            console.log("    Default: " + _currentFontStyle);
+            console.info("    Default: " + _currentFontStyle);
             applyFontStyle(_currentFontStyle);
         }
         outputTimeCost();
 
         // ----------------------------------------
         // 初始化国际化UI
-        console.log("- UI i18n");
+        console.info("- UI i18n");
         initUIi18n();
         outputTimeCost();
 
         // ----------------------------------------
         // 在新标签中初始化时不处理
-        console.log("- Check Inner Bad Link");
+        console.info("- Check Inner Bad Link");
         if (_newTab === false) {
             // 检查页内链接坏链
             checkInnerBadLink();
@@ -7786,42 +7804,42 @@ MIT许可证（MIT）
 
         // ----------------------------------------
         // 检查重复的Header
-        console.log("- Check Duplicate Header");
+        console.info("- Check Duplicate Header");
         checkDuplicateHeader();
         outputTimeCost();
 
         // ----------------------------------------
         // 初始化插图数据
-        console.log("- Figure ");
+        console.info("- Figure ");
         initFigure();
         outputTimeCost();
 
         // ----------------------------------------
         // 初始化表格
-        console.log("- Table");
+        console.info("- Table");
         initTable();
         outputTimeCost();
 
         // ----------------------------------------
         // 初始化引用块
-        console.log("- Quote");
+        console.info("- Quote");
         initQuote();
         outputTimeCost();
 
         // ----------------------------------------
         // 初始化代码块
-        console.log("- Code Block");
+        console.info("- Code Block");
         initCodeBlock();
         outputTimeCost();
 
         // ----------------------------------------
         // 重置脚本化图表样式
-        console.log("- Mermaid Style");
+        console.info("- Mermaid Style");
         restyleMermaidStyle();
         outputTimeCost();
 
         // ----------------------------------------
-        console.log("- Restyle Code / Fences");
+        console.info("- Restyle Code / Fences");
         // 重置行内代码code样式
         restyleCode();
         // 重置多行代码块code block样式
@@ -7830,31 +7848,31 @@ MIT许可证（MIT）
 
         // ----------------------------------------
         // 重置任务列表样式
-        console.log("- Task List Checkbox");
+        console.info("- Task List Checkbox");
         restyleTaskListCheckbox();
         outputTimeCost();
 
         // ----------------------------------------
         // 初始化列表
-        console.log("- Block Focus");
+        console.info("- Block Focus");
         initBlockFocus();
         outputTimeCost();
 
         // ----------------------------------------
         // 增强脚注
-        console.log("- Footer Note");
+        console.info("- Footer Note");
         initFooterNote();
         outputTimeCost();
 
         // ----------------------------------------
         // 初始化外部链接
-        console.log("- External Link");
+        console.info("- External Link");
         initExtLink();
         outputTimeCost();
 
         // ----------------------------------------
         // 初始化Outline数据
-        console.log("- Outline & Chapter Nav");
+        console.info("- Outline & Chapter Nav");
         if (initOutline()) {
             // 更新Outline上的目录节点按钮
             initOutlineItemFolderButton();
@@ -7872,20 +7890,20 @@ MIT许可证（MIT）
 
         // ----------------------------------------
         // 初始化全局热键
-        console.log("- Hotkeys");
+        console.info("- Hotkeys");
         initHotkeys();
         outputTimeCost();
 
         // ----------------------------------------
         // 根据设备类型自适应hover样式
-        console.log("- Adjust for mobile");
+        console.info("- Adjust for mobile");
         adjustHoverStyle();
         // 隐藏插图动作按钮
         hideContentButtons(null);
         outputTimeCost();
 
         // ----------------------------------------
-        console.log("- Binding Event");
+        console.info("- Binding Event");
         // 绑定文档鼠标移动事件，聚光灯跟随鼠标移动
         document.addEventListener("mousemove", function () {
             const e = window.event;
@@ -7935,7 +7953,7 @@ MIT许可证（MIT）
      * 输出消耗的时间
      */
     function outputTimeCost() {
-        console.log("    " + ((new Date().getTime() - _lastTimer) / 1000) + " s");
+        console.info("    " + ((new Date().getTime() - _lastTimer) / 1000) + " s");
         _lastTimer = new Date().getTime();
     }
 
@@ -8091,13 +8109,9 @@ MIT许可证（MIT）
 
         // 提交统计数据
         $("iframe[name=vlook-stat-gitee]").attr("src",
-            "https://madmaxchow.gitee.io/vlook/act/stat-gitee" + (_DEV_MODE ? "-dev" : "") + ".html"
+            "https://madmaxchow.gitee.io/vlook/act/" + (_DEBUG_MODE ? "dev-" : "") + "stat-gitee.html"
             + statData);
-            console.log("Stat. in Gitee:\n" + $("iframe[name=vlook-stat-gitee]").attr("src"));
-        // $("iframe[name=vlook-stat-github]").attr("src",
-        //     "https://madmaxchow.github.io/VLOOK/act/stat-github" + (_DEV_MODE ? "-dev" : "") + ".html"
-        //     + statData);
-        // console.log("Stat. in Github:\n" + $("iframe[name=vlook-stat-github]").attr("src"));
+            debug("Stat. in Gitee:\n" + $("iframe[name=vlook-stat-gitee]").attr("src"));
     }
 
     // -------------------- 在新标签打开模块 -------------------- //
@@ -8116,16 +8130,9 @@ MIT许可证（MIT）
 
         let newTab = window.open("", "_blank"),
             content = _lastHoverContent.clone(), // 复制要在新标签中打开的内容
-            type = _lastHoverContent.prop("tagName").toLowerCase(),
-            typeName = "Unknown";
-        
-        if (type === "img" || type === "svg")
-            typeName = "Figure";
-        else if (type === "table")
-            typeName = "Table";
-        else if (type === "pre")
-            typeName = "CodeBlock";
-        pushData(['Interactive', 'Open In New Tap', typeName, 0]);
+            tagName = _lastHoverContent.prop("tagName").toLowerCase();
+
+        pushData(['Interactive', transTagName(tagName), 'Open In New Tap', 0]);
 
         // 动态生成新标签的页面
         newTab.document.write("<!doctype html>");
@@ -8138,7 +8145,7 @@ MIT许可证（MIT）
         newTab.OINT_Init();
 
         // 内容为表格时
-        if (type === "table") {
+        if (tagName === "table") {
             // 恢复表格行号
             let rowNumFilter = "table tr > th:first-child, table tr > td:first-child, table tbody tr > td:first-child",
                 container = content.wrap("<figure></figure>").parent();
@@ -8149,7 +8156,7 @@ MIT许可证（MIT）
             newTab.OINT_Append(container);
         }
         // 内容为mermaid 图表时
-        else if (type === "svg")
+        else if (tagName === "svg")
             newTab.OINT_Append(content.wrap("<div class='md-diagram-panel'></div>").parent());
         // 内容为：图片、代码块
         else
@@ -8166,9 +8173,22 @@ MIT许可证（MIT）
         let caption1 = _lastHoverContent.prev().text(),
             caption2 = _lastHoverContent.next().attr("class") === "mdx-figure-caption-2" ? _lastHoverContent.next()
             .text() : null;
-        newTab.OINT_UpdateFigureCaption(type, caption1, caption2);
+        newTab.OINT_UpdateFigureCaption(tagName, caption1, caption2);
 
         newTab.OINT_Done();
+    }
+
+    /**
+     * 转换标签名为 VLOOK 中的特定内容类型名称
+     */
+    function transTagName(tagName) {
+        if (tagName === "img" || tagName === "svg")
+            return "Figure";
+        else if (tagName === "table")
+            return "Table";
+        else if (tagName === "pre")
+            return "CodeBlock";
+        return "Unknown";
     }
 
     // ↓ ↓ ↓ ↓ ↓ 以下以 OINT_ 为前缀的方法是属新标签中打开的页面使用  ↓ ↓ ↓ ↓ ↓
@@ -8234,11 +8254,11 @@ MIT许可证（MIT）
         // 显示环境信息
         displayEnvInfo();
 
-        console.log("=== Loading VLOOK ===");
+        console.info("=== Loading VLOOK ===");
 
         // ----------------------------------------
         // 初始化关键组件实例
-        console.log("- Intance");
+        console.info("- Intance");
         initIntance(false);
         outputTimeCost();
 
@@ -8278,13 +8298,13 @@ MIT许可证（MIT）
 
         // ----------------------------------------
         // 初始化 VLOOK Kernel
-        console.log("=== Init VLOOK Kernel ===");
+        console.info("=== Init VLOOK Kernel ===");
         initVLOOKkernel(null);
 
-        console.log("=== Init VLOOK Misc ===");
+        console.info("=== Init VLOOK Misc ===");
         // ----------------------------------------
         // 初始化欢迎屏
-        console.log("- Loading Screen");
+        console.info("- Loading Screen");
         loadingDone();
         // 完成加载后自动延时关闭欢迎屏
         setTimeout(closeLoadingScreen, 8000);
@@ -8294,11 +8314,11 @@ MIT许可证（MIT）
         // 因默认配色为 Light 模式
         // 若浏览器当前配色为 Dark 模式，除 CSS 的 @media (prefers-color-scheme: dark) 设置外
         // 须进行一些额外的适配
-        console.log("- Adjust Color Scheme");
+        console.info("- Adjust Color Scheme");
         _colorScheme = getComputedStyle(document.documentElement).getPropertyValue("--vlook-color-scheme")
             .replaceAll("\"", "").trim();
-        console.log("    Color Scheme [ " + _colorScheme + " ]");
-        console.log("    Adjusting ...");
+        console.info("    Color Scheme [ " + _colorScheme + " ]");
+        console.info("    Adjusting ...");
         if (_colorScheme === "dark")
             updateColorSchemeUI();
         adjustColorScheme();
@@ -8310,7 +8330,7 @@ MIT许可证（MIT）
         // ----------------------------------------
         // VLOOK 加载完成
         _loadTimeCost = (new Date().getTime() - _startTimer) / 1000;
-        console.log("[ DONE ]\nTOTAL TIME COST " + _loadTimeCost + "s");
+        console.info("[ DONE ]\nTOTAL TIME COST " + _loadTimeCost + "s");
 
         // 提交统计数据
         submitStatData();

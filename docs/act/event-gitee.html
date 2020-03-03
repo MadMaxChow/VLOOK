@@ -37,10 +37,12 @@ var _hmt = _hmt || [];
      */
     function pushData() {
         let args = getQueryString(window.location.href);
-        console.log("category: " + args["category"]);
-        console.log("action: " + args["action"]);
-        console.log("label: " + args["label"]);
-        console.log("value: " + args["value"]);
+        if (args["debug"] === "true") {
+            console.warn("category: " + args["category"]);
+            console.warn("action: " + args["action"]);
+            console.warn("label: " + args["label"]);
+            console.warn("value: " + args["value"]);
+        }
         _hmt.push([
             "_trackEvent",
             args["category"],
