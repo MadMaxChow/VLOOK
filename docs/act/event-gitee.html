@@ -14,9 +14,9 @@ var _hmt = _hmt || [];
      * 获取 URL 中的参数
      */
      function getQueryString(url) {
-        let paramString = url.substring(url.indexOf("?") + 1, url.length), // 获取url中"?"符后的字串
-            args = [], // 保存参数数据的对象
-            items = (paramString.length > 0) ? paramString.split("&") : [], // 取得每一个参数项,
+        let queryStr = url.substring(url.indexOf("?") + 1, url.length), // 获取url中"?"符后的字串
+            args = {}, // 保存参数数据的对象
+            items = (queryStr.length > 0) ? queryStr.split("&") : [], // 取得每一个参数项,
             item = null,
             len = items.length;
 

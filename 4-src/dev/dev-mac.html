@@ -3630,7 +3630,7 @@ MIT许可证（MIT）
         _tipsTimer, // 用于自动控制提示显示时长
         _lang = 0, // 当前语言（浏览器中的语言配置）
         _eventCount = 0, // 上报事件的累计次数，用于标识不同的上报事件 iframe 的 id
-        _cellCrossPos = [], // 表格十字光标四条边的位置
+        _cellCrossPos = {}, // 表格十字光标四条边的位置
         _newTab = false; // 当前页面是通过 VLOOK 的在新标签打开功能生成的
 
     // -------------------- 关键组件实例 -------------------- //
@@ -4071,7 +4071,7 @@ MIT许可证（MIT）
      *
      * @param message 显示的消息内容，支持 HTML
      * @param follow 提示的目标元素
-     * @param align 与提示目标元素的的水平对齐方式（left/center/right）
+     * @param align 强制指定工具提示的水平对齐方式（null/left/center/right）
      */
     function showToolTips(message, follow, align) {
         if (env.device.mobile === true)
@@ -5321,8 +5321,7 @@ MIT许可证（MIT）
                 // 根据显示时其对应表格的水平滚动的偏移量，调整十字光标的位置
                 $("div.mdx-table-cross").each(function() {
                     $(this).css({
-                        "left":
-                        _cellCrossPos[$(this).attr("v-data-direction")] - scrollLeft
+                        "left": _cellCrossPos[$(this).attr("v-data-direction")] - scrollLeft
                     });
                 });
             });
@@ -7496,9 +7495,9 @@ MIT许可证（MIT）
      * 获取 URL 中的参数数组
      */
     function getQueryString(url) {
-        let paramString = url.substring(url.indexOf("?") + 1, url.length), // 获取url中"?"符后的字串
-            args = [], // 保存参数数据的对象
-            items = (paramString.length > 0) ? paramString.split("&") : [], // 取得每一个参数项,
+        let queryStr = url.substring(url.indexOf("?") + 1, url.length), // 获取url中"?"符后的字串
+            args = {}, // 保存参数数据的对象
+            items = (queryStr.length > 0) ? queryStr.split("&") : [], // 取得每一个参数项,
             item = null,
             len = items.length;
 
