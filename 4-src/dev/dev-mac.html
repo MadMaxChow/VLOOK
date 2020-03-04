@@ -3233,7 +3233,7 @@ h6 code {
 <!--                                                                        -->
 <!--                       VLOOK V9.13 beta - Typora Plugin                      -->
 <!--                                                                        -->
-<!--                               2020-02-29                               -->
+<!--                               2020-03-03                               -->
 <!--                          powered by MAX丨孟兆                           -->
 <!--                                                                        -->
 <!--              QQ Group: 805502564    email: maxchow@qq.com              -->
@@ -3573,8 +3573,6 @@ MIT许可证（MIT）
 </div>
 
 <!-- 统计数据上报中转页面 -->
-<!-- <iframe name="vlook-stat-github" style="display: block;" marginwidth="0" marginheight="0" frameBorder="0" scrolling="no" width="100%" height="0">
-</iframe> -->
 <iframe name="vlook-stat-gitee" style="display: block;" marginwidth="0" marginheight="0" frameBorder="0" scrolling="no" width="100%" height="0">
 </iframe>
 
@@ -4070,13 +4068,17 @@ MIT许可证（MIT）
 
     /**
      * 显示工具提示信息
+     *
+     * @param message 显示的消息内容，支持 HTML
+     * @param follow 提示的目标元素
+     * @param align 与提示目标元素的的水平对齐方式（left/center/right）
      */
-    function showToolTips(msg, follow, align) {
+    function showToolTips(message, follow, align) {
         if (env.device.mobile === true)
             return;
 
         hideToolTips(true);
-        _iToolTips.html(msg);
+        _iToolTips.html(message);
 
         const fp = follow.parent();
         const ow = _iToolTips.width();
@@ -4118,15 +4120,15 @@ MIT许可证（MIT）
     /**
      * 显示通知提示信息
      *
-     * @param msg 提示内容
+     * @param message 提示内容
      * @param delay 延时指定 ms 时间后自动关闭提示
      * @param fullscreen 是否为全屏显示
      * @param mask 是否显示遮罩
      */
-    function showInfoTips(msg, delay, fullscreen, mask) {
+    function showInfoTips(message, delay, fullscreen, mask) {
         clearTimeout(_tipsTimer);
 
-        _iInfoTips.html(msg);
+        _iInfoTips.html(message);
         // 先重置为默认值
         _iInfoTips.css({
             width: "",
@@ -4186,11 +4188,13 @@ MIT许可证（MIT）
 
     /**
      * 隐藏工具提示、弹窗信息
+     *
+     * @param animate 隐藏的过程是否启用动画
      */
-    function hideToolTips(ani) {
+    function hideToolTips(animate) {
         unfreezeScroll();
 
-        if (ani === true)
+        if (animate === true)
             _iToolTips.fadeOut(_ANIMATE_SPEED);
         else
             _iToolTips.hide();
@@ -4496,6 +4500,9 @@ MIT许可证（MIT）
 
     /**
      * 上报事件统计数据（基于百度统计）
+     * 为兼容在本地打开的 HTML 文件，所以通过 iframe 的方式进行数据上报
+     *
+     * @param data 数据数组，与百度统计的 _hmt.push(["_trackEvent", data[0], data[1], data[2], data[3]) 的参数保持一致
      */
      function pushData(data) {
         $("body").append('<iframe name="v-event-' + _eventCount + '" style="display: block;" marginwidth="0" marginheight="0" frameBorder="0" scrolling="no" width="100%" height="0"'
@@ -5217,6 +5224,7 @@ MIT许可证（MIT）
 
         if (fc != null && fc.trim().length > 0)
             caption = caption + " - <strong>" + fc + "</strong>";
+            
         // 为插图增加题注
         codeBlock.wrap("<div id='code-block-num" + _codeBlockCount +
             "' class='mdx-figure-caption' style='width: 100%'></div>");
@@ -5452,6 +5460,10 @@ MIT许可证（MIT）
 
     /**
      * 表格单元格十字光标
+     *
+     * @param table 目标表格
+     * @param cell 目标单元格
+     * @param colIndex 列索引号
      */
     function tableCellCross(table, cell, colIndex) {
         // 单元格行列索引号
@@ -5552,16 +5564,16 @@ MIT许可证（MIT）
     /**
      * 适配调整表格十字光标位置、显示
      *
-     * @param target 目标边的对象实例（左/右/上/下）
+     * @param target 十字光标任意边的对象实例（左/右/上/下）
      * @param limit 指定要进行隐藏判断的尺寸（宽度或高度），小于该值则不显示对应的 target
-     // * @param direction 目标边的方向名称（left/right/up/down）
-     * @param scrollLeft 当前表格水平滚动的偏移量
+     * @param scrollLeft 表格水平滚动的偏移量
      */
     function adjustTableCellCross(target, limit, scrollLeft) {
-        if (limit < 5)
+        if (limit < 5) // 任意边的尺寸（宽度或高度）小于最小值时隐藏
             target.hide();
         else
             target.fadeIn();
+        // 保存最后显示的十字光标任意边的 left 值及水平方向上的滚动偏移量
         _cellCrossPos[target.attr("v-data-direction")] =  parseInt(target.css("left")) + scrollLeft;
     }
 
@@ -5570,14 +5582,19 @@ MIT许可证（MIT）
      */
     function tableColumnFormatting(table) {
         table.find("tr th").each(function () {
+            // 粗体
             if ($(this).find("strong").length > 0)
                 $("[v-tbl-col=" + $(this).attr("v-tbl-col") + "]").addClass("mdx-table-column-format-bold");
+            // 斜体
             else if ($(this).find("em").length > 0)
                 $("[v-tbl-col=" + $(this).attr("v-tbl-col") + "]").addClass("mdx-table-column-format-em");
+            // 下划线
             else if ($(this).find("u").length > 0)
                 $("[v-tbl-col=" + $(this).attr("v-tbl-col") + "]").addClass("mdx-table-column-format-underline");
+            // 高亮
             else if ($(this).find("mark").length > 0)
                 $("[v-tbl-col=" + $(this).attr("v-tbl-col") + "]").contents().wrap("<mark></mark>");
+            // 删除线
             else if ($(this).find("del").length > 0)
                 $("[v-tbl-col=" + $(this).attr("v-tbl-col") + "]").contents().wrap("<del></del>");
         });
@@ -5606,6 +5623,7 @@ MIT许可证（MIT）
 
         if (fc != null && fc.trim().length > 0)
             caption = caption + " - <strong>" + fc + "</strong>";
+        
         // 为插图增加题注
         table.wrap("<div id='tbl-num" + _tableCount +
             "' class='mdx-figure-caption'></div>");
@@ -5623,12 +5641,14 @@ MIT许可证（MIT）
 
     /**
      * 隐藏表格十字光标
+     *
+     * @param animate 隐藏的过程是否启用动画
      */
-    function hideTableCross(ani) {
+    function hideTableCross(animate) {
         if (_lastCrossCell == null)
             return;
 
-        if (ani === true)
+        if (animate === true)
             $(".mdx-table-cross").fadeOut();
         else
             $(".mdx-table-cross").hide();
@@ -5730,7 +5750,7 @@ MIT许可证（MIT）
                 fig.attr("src", src);
 
                 // 处理在 Dark Mode 指定反转的图片
-                if (getQueryString(src.substring(src.indexOf("?"), src.length))["invert"] === "in-dark") {
+                if (getQueryString(src)["invert"] === "in-dark") {
                     fig.attr("v-data-invert", "in-dark");
                 }
 
@@ -5765,14 +5785,16 @@ MIT许可证（MIT）
 
     /**
      * 折叠长内容，适用于「插图、表格、代码块」等
+     *
+     * @param target 折叠的目标对象
+     * @param rebuild 本次折叠是否属于重建的（如在页面加载后，由于页面正文区宽度变化后调用时属于重建）
      */
     function foldingLongContent(target, rebuild) {
         if (_newTab === true)
             return;
 
         let container = target.parent(),
-            tagName = target.prop("tagName").toLowerCase(),
-            h = parseInt(target.css("height"));
+            tagName = target.prop("tagName").toLowerCase();
 
         // 重建时已生成题注，所以实际容器对象与初始化时第一次构建会不同
         if (rebuild === true)
@@ -5794,18 +5816,23 @@ MIT许可证（MIT）
         container.attr("v-data-folded", "false"); // 未折叠
         container.attr("v-data-expanded", "false"); // 已被点击扩展了
 
-        // 若为在新标签打开的，或高度不超出折叠要求高度则忽略
-        if (_newTab === true || h < _CONTENT_EXTENDER_HEIGHT)
-            return;
-
         // 构建内容展开操作区
-        buildContentExpander(target, container, tagName, h);
+        buildContentExpander(target, container, tagName);
     }
 
     /**
      * 构建内容展开操作区
+     *
+     * @param target 为目标对象创建展开操作区（如 table）
+     * @param container 指定对象所属的容器（如 table 的容器为父元素 figure）
+     * @param tagName target 的 HTML 标签名
      */
-    function buildContentExpander(target, container, tagName, h) {
+    function buildContentExpander(target, container, tagName) {
+        let h = parseInt(target.css("height"));
+        // 若为在新标签打开的，或高度不超出折叠要求高度则忽略
+        if (_newTab === true || h < _CONTENT_EXTENDER_HEIGHT)
+            return;
+
         // 设置为已折叠
         container.attr("v-data-folded", "true");
 
@@ -5963,7 +5990,7 @@ MIT许可证（MIT）
             fcSet[0] = getCaptionSet(target, 2)[0];
             fcSet[1] = getCaptionSet(target, 2)[1];
         } else if (getCaptionCount(target) === 1) {
-            fcSet[0] = getCaptionSet(target, 2)[0];
+            fcSet[0] = getCaptionSet(target, 1)[0];
             fcSet[1] = null;
         }
         // 若成功匹配出题注，则隐藏原始内容
@@ -5976,7 +6003,9 @@ MIT许可证（MIT）
     }
 
     /**
-     * 返回匹配的题注数量：0/1/2
+     * 返回匹配的题注数量
+     *
+     * @return 0/1/2
      */
     function getCaptionCount(target) {
         let reg2 = /^!\[.+\]\".+\"$/; // 有2个题注
@@ -5989,7 +6018,9 @@ MIT许可证（MIT）
     }
 
     /**
-     * 返回题注数据。[0] - 第1个，[1] - 第2个
+     * 返回题注数据数组
+     *
+     * @return [0] 为第 1 个题注，[1] 为第 2 个题注
      */
     function getCaptionSet(target, count) {
         let fcSet = [],
@@ -6398,14 +6429,14 @@ MIT许可证（MIT）
      * 展开/收起引用块
      */
     function toggleQuoteFolding(target) {
-        let quote = target.next("blockquote");
-        if (isHidden(quote) === false) {
-            foldQuote(target, quote);
+        let nextQuote = target.next("blockquote");
+        if (isHidden(nextQuote) === false) {
+            foldQuote(target, nextQuote);
             // 添加展开提示
             appendExpandTips(target);
         }
         else {
-            unfoldQuote(target, quote);
+            unfoldQuote(target, nextQuote);
             // 移除展开提示
             target.children("small").remove();
         }
@@ -6414,8 +6445,8 @@ MIT许可证（MIT）
     /**
      * 收起引用块
      */
-    function foldQuote(target, quote) {
-        quote.css("display", "none");
+    function foldQuote(target, nextQuote) {
+        nextQuote.css("display", "none");
         target.attr("title", [
             "点击展开",
             "點擊展開",
@@ -6432,8 +6463,8 @@ MIT许可证（MIT）
     /**
      * 展开引用块
      */
-    function unfoldQuote(target, quote) {
-        quote.css("display", "block");
+    function unfoldQuote(target, nextQuote) {
+        nextQuote.css("display", "block");
         target.attr("title", [
             "点击收起",
             "點擊收起",
@@ -6763,12 +6794,12 @@ MIT许可证（MIT）
             codeTags = ["=", "+", "*", "-", "!", "#"];
             flag = false;
             for (let i = 0; i < codeTags.length; i++) {
-                const si = codeText.indexOf(" | ");
-                if (codeText.length > 5 &&
-                    codeText.startWith(codeTags[i] + " ") &&
-                    codeText.endWith(" " + codeTags[i]) &&
-                    si > 1) {
-                    rebuildSegmentCode2($(this), codeTags[i] + " ", si, "", i + 1);
+                const splitIndex = codeText.indexOf(" | ");
+                if (codeText.length > 5
+                    && codeText.startWith(codeTags[i] + " ")
+                    && codeText.endWith(" " + codeTags[i])
+                    && splitIndex > 1) {
+                    rebuildSegmentCode2($(this), codeTags[i] + " ", splitIndex, i + 1);
                     flag = true;
                     break;
                 }
@@ -6782,7 +6813,7 @@ MIT许可证（MIT）
             for (let i = 0; i < codeTags.length; i++) {
                 if (codeText.length > 4 && codeText.startWith(codeTags[i] + " ") && codeText.endWith(" " +
                         codeTags[i])) {
-                    rebuildInlineCode($(this), codeTags[i] + " ", "", i + 1);
+                    rebuildInlineCode($(this), codeTags[i] + " ", i + 1);
                     flag = true;
                     break;
                 }
@@ -6809,57 +6840,75 @@ MIT许可证（MIT）
     }
 
     /**
-     * 以分类标签样式重新设置 code 的渲染样式（新语法）
+     * 以标签样式重新设置行内代码 code 的渲染样式（新语法）
+     *
+     * @param target 目标 code 对象
+     * @param prefix 标签的标识前缀
+     * @param type 标签样式分类编号：1-6
      */
-    function rebuildInlineCode(target, split, flag, number) {
+    function rebuildInlineCode(target, prefix, type) {
         const codeText = target.text();
-        const si = codeText.indexOf(split);
-        target.text(codeText.substring(si + split.length, codeText.length - split.length));
-        target.attr("class", "mdx-code-c" + number + flag);
+        const si = codeText.indexOf(prefix);
+        target.text(codeText.substring(si + prefix.length, codeText.length - prefix.length));
+        target.attr("class", "mdx-code-c" + type);
     }
 
     /**
-     * 以分类标签样式重新设置 code block 中指定内容的渲染样式（新语法）
+     * 以标签样式重新设置代码块 code block 中指定内容的渲染样式（新语法）
+     *
+     * @param target 目标 code block 对象
+     * @param prefix 标签的标识前缀
+     * @param type 标签样式分类编号：1-6
      */
-    function rebuildCodeFences(target, split, flag, number) {
+    function rebuildCodeFences(target, prefix, type) {
         const codeText = target.text().substring(1, target.text().length - 1);
-        const si = codeText.indexOf(split);
-        target.text(codeText.substring(si + split.length, codeText.length - split.length));
-        target.attr("class", "mdx-code-c" + number + flag);
+        const si = codeText.indexOf(prefix);
+        target.text(codeText.substring(si + prefix.length, codeText.length - prefix.length));
+        target.attr("class", "mdx-code-c" + type);
     }
 
     /**
-     * 以药丸样式重建code标签结构与内容（旧语法）
+     * 以药丸样式重建行内代码 code 标签结构与内容（旧语法）
+     *
+     * @param target 目标 code 对象
+     * @param split 标签的分隔符
+     * @param type 标签样式分类编码：1-6
      */
-    function rebuildSegmentCode(target, split, number) {
+    function rebuildSegmentCode(target, split, type) {
         const codeText = target.text(),
             si = codeText.indexOf(split);
         target.wrap("<div style='" +
             "display: inline;" +
             "white-space: pre;" +
             "'></div>");
-        target.before("<code class='mdx-code-name" + number + "'>" + codeText.substring(0, si) + "</code>");
+        target.before("<code class='mdx-code-name" + type + "'>" + codeText.substring(0, si) + "</code>");
         target.text(codeText.substr(si + split.length, codeText.length));
-        target.attr("class", "mdx-code-value" + number);
+        target.attr("class", "mdx-code-value" + type);
     }
 
     /**
-     * 以药丸样式重建code标签结构与内容（新语法）
+     * 以药丸样式重建行内代码 code 标签结构与内容（新语法）
+     *
+     * @param target 目标 code 对象
+     * @param prefix 标签的分隔符
+     * @param splitIndex 分隔符起始位置
+     * @param type 标签样式分类编码：1-6
      */
-    function rebuildSegmentCode2(target, iden, si, flag, number) {
+    function rebuildSegmentCode2(target, prefix, splitIndex, type) {
         const codeText = target.text();
         target.wrap("<div style='" +
             "display: inline;" +
             "white-space: pre;" +
             "'></div>");
-        target.before("<code class='mdx-code-name" + number + flag + "'>" + codeText.substring(iden.length, si) +
+        target.before("<code class='mdx-code-name" + type + "'>" + codeText.substring(prefix.length, splitIndex) +
             "</code>");
-        target.text(codeText.substring(si + 3, codeText.length - iden.length));
-        target.attr("class", "mdx-code-value" + number + flag);
+        target.text(codeText.substring(splitIndex + 3, codeText.length - prefix.length));
+        target.attr("class", "mdx-code-value" + type);
     }
 
     /**
      * 更新多行代码块 code block/fences 样式
+     *
      * 主要处理三类情况：
      * 1. span包裹标准格式全部内容。如：`= sourcecode =`
      * 2. span分别包裹标准格式的不同部分。如：(`)(=) (sourcecode) (=)(`)
@@ -6876,7 +6925,7 @@ MIT许可证（MIT）
                     if (codeText.length > 4 && codeText.startWith(codeTags[i] + " ") && codeText.endWith(
                             " " +
                             codeTags[i])) {
-                        rebuildCodeFences($(this), codeTags[i] + " ", "", i + 1);
+                        rebuildCodeFences($(this), codeTags[i] + " ", i + 1);
                         break;
                     }
                 }
@@ -6908,11 +6957,11 @@ MIT许可证（MIT）
     /**
      * 更新聚光灯显示
      */
-    function repaintSpotlight(e) {
-        _iSpotlight.css("background", "radial-gradient(circle at " +
-            _spotlightX + "px " + _spotlightY + "px, " +
-            "rgba(0, 0, 0, 0) " + _spotlightR + "px, " +
-            "rgba(0, 0, 0, 0.7)" + (_spotlightR + 1) + "px)");
+    function repaintSpotlight() {
+        _iSpotlight.css("background", "radial-gradient(circle at "
+            + _spotlightX + "px " + _spotlightY + "px, "
+            + "rgba(0, 0, 0, 0) " + _spotlightR + "px, "
+            + "rgba(0, 0, 0, 0.7)" + (_spotlightR + 1) + "px)");
     }
 
     // -------------------- 多字体样式模块 -------------------- //
@@ -7444,12 +7493,12 @@ MIT许可证（MIT）
     }
 
     /**
-     * 获取 URL 中的参数
+     * 获取 URL 中的参数数组
      */
-    function getQueryString(urlqs) {
-        let qs = urlqs.substr(1), // 获取url中"?"符后的字串
-            args = {}, // 保存参数数据的对象
-            items = (qs.length > 0) ? qs.split("&") : [], // 取得每一个参数项,
+    function getQueryString(url) {
+        let paramString = url.substring(url.indexOf("?") + 1, url.length), // 获取url中"?"符后的字串
+            args = [], // 保存参数数据的对象
+            items = (paramString.length > 0) ? paramString.split("&") : [], // 取得每一个参数项,
             item = null,
             len = items.length;
 
@@ -7762,6 +7811,8 @@ MIT许可证（MIT）
 
     /**
      * 初始化 VLOOK
+     *
+     * @param colorScheme 指定默认的颜色方案 light/dark
      */
     function initVLOOKkernel(colorScheme) {
         // 锁定滚动
@@ -7781,7 +7832,7 @@ MIT许可证（MIT）
         // 初始化字体样式
         console.info("- Font Style");
         // 清空历史存储
-        if (getQueryString(location.search)["reset"] === "ls") {
+        if (getQueryString(window.location.href)["reset"] === "ls") {
             console.warn("!!! Reset Local Storage !!!");
             localStorage.removeItem("VLOOK-" + _VERSION + "-hint-for-green-hand-step-bf");
             localStorage.removeItem("VLOOK-" + _VERSION + "-font-style");
