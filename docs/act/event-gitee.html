@@ -13,7 +13,7 @@ var _hmt = _hmt || [];
     /**
      * 获取 URL 中的参数
      */
-     function getQueryString(url) {
+     function parseQueryString(url) {
         let queryStr = url.substring(url.indexOf("?") + 1, url.length), // 获取url中"?"符后的字串
             args = {}, // 保存参数数据的对象
             items = (queryStr.length > 0) ? queryStr.split("&") : [], // 取得每一个参数项,
@@ -35,7 +35,7 @@ var _hmt = _hmt || [];
      * 提交事件数据
      */
     function pushData() {
-        let args = getQueryString(window.location.href);
+        let args = parseQueryString(window.location.href);
         if (args["debug"] === "true") {
             console.warn(
                 args["category"],

@@ -45,14 +45,15 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
 
 在新标签中打开按钮 / .mdx-btn-open-in-new-tab / z-index: 50;
 复制代码块按钮 / .mdx-btn-copy-code-block / z-index: 50;
-内容展开操作区 / .mdx-content-extender / z-index: 10;
+内容展开操作区 / .mdx-content-expander / z-index: 10;
 
 **************************************/
 :root {
-  --vlook-toc-box-width: 350px;
-  --vlook-toc-box-left: -350px;
+  --vlook-theme-name: "VLOOK-X-Tiffany";
   --vlook-default-font-style: serif;
   --vlook-color-scheme: "light";
+  --vlook-toc-box-width: 350px;
+  --vlook-toc-box-left: -350px;
   --doc-bg-color-light: #FFFFFF;
   --doc-bg-color-alt-light: #e6e6e6;
   --doc-bg-color-alt-transparent-light: rgba(230, 230, 230, 0);
@@ -289,6 +290,15 @@ a:active {
   color: #ed5796 !important;
   border-color: #ed5796;
   transition: all 0.3s ease-in-out;
+}
+a:not([name^="ref-footnote"]):hover::after {
+  content: "🔗";
+  margin-top: -0.7em;
+  font-size: 0.7em;
+  position: absolute;
+}
+a[href^="#"]:hover::after {
+  content: "🔖";
 }
 h1,
 h2,
@@ -547,6 +557,13 @@ table > tbody > tr:nth-child(2n) {
 }
 table > thead > tr:first-child > th:first-child {
   border-top-left-radius: 14px;
+  white-space: pre;
+}
+/* table th:first-child,
+table td:first-child { */
+table th,
+table td {
+  white-space: pre;
 }
 table > thead > tr:first-child > th:last-child {
   border-top-right-radius: 14px;
@@ -557,9 +574,15 @@ table > tbody > tr:last-child > td:first-child {
 table > tbody > tr:last-child > td:last-child {
   border-bottom-right-radius: 14px;
 }
-.mdx-table-td-bold {
+.mdx-table-column-format-bold {
   font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
+}
+.mdx-table-column-format-em {
+  font-style: italic;
+}
+.mdx-table-column-format-underline {
+  text-decoration: underline;
 }
 table tr > td {
   border-right: 1px solid rgba(176, 178, 182, 0.1);
@@ -704,10 +727,10 @@ del code {
 .md-fn-count {
   font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
-.md-fn-count:before {
+.md-fn-count::before {
   content: "[";
 }
-.md-fn-count:after {
+.md-fn-count::after {
   content: "] ";
 }
 .reversefootnote {
@@ -725,10 +748,10 @@ a[name^="ref-footnote-"]:hover {
   color: #ed5796;
   transition: all 0.3s ease-in-out;
 }
-a[name^="ref-footnote-"]:before {
+a[name^="ref-footnote-"]::before {
   content: "[";
 }
-a[name^="ref-footnote-"]:after {
+a[name^="ref-footnote-"]::after {
   content: "] ";
 }
 .CodeMirror-gutters {
@@ -749,7 +772,8 @@ code {
   padding: 0.2em 0.3em;
   margin: 0 0.2em;
   font-size: 0.8em;
-  white-space: pre-wrap;
+  display: inline;
+  white-space: pre;
   vertical-align: middle;
 }
 .md-fences {
@@ -783,15 +807,15 @@ code {
 .mathjax-block > .code-tooltip {
   bottom: 0.375em;
 }
-#write > h3.md-focus:before {
+#write > h3.md-focus::before {
   left: -1.5625em;
   top: 0.375em;
 }
-#write > h4.md-focus:before {
+#write > h4.md-focus::before {
   left: -1.5625em;
   top: 0.285714286em;
 }
-#write > h5.md-focus:before {
+#write > h5.md-focus::before {
   left: -1.5625em;
   top: 0.285714286em;
 }
@@ -815,7 +839,7 @@ code {
   border-style: solid;
   border-width: 1px;
 }
-#md-notification:before {
+#md-notification::before {
   top: 10px;
 }
 /** focus mode */
@@ -859,35 +883,35 @@ code {
   margin-left: 0;
   padding-left: 50px;
 }
-.md-toc-h1:before {
+.md-toc-h1::before {
   counter-increment: h1toc;
   content: counter(h1toc) "  ";
 }
 .md-toc-h1 > .md-toc-inner {
   margin-left: 0;
 }
-.md-toc-h2:before {
+.md-toc-h2::before {
   counter-increment: h2toc;
   content: counter(h1toc) "." counter(h2toc) "  ";
 }
 .md-toc-h2 > .md-toc-inner {
   margin-left: 0;
 }
-.md-toc-h3:before {
+.md-toc-h3::before {
   counter-increment: h3toc;
   content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "  ";
 }
 .md-toc-h3 > .md-toc-inner {
   margin-left: 0;
 }
-.md-toc-h4:before {
+.md-toc-h4::before {
   counter-increment: h4toc;
   content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "  ";
 }
 .md-toc-h4 > .md-toc-inner {
   margin-left: 0;
 }
-.md-toc-h5:before {
+.md-toc-h5::before {
   counter-increment: h5toc;
   content: counter(h1toc) "." counter(h2toc) "." counter(h3toc) "." counter(h4toc) "." counter(h5toc) "  ";
 }
@@ -913,44 +937,44 @@ h3 {
 h4 {
   counter-reset: h5;
 }
-#write h1:before,
-#write h2:before,
-#write h3:before,
-#write h4:before,
-#write h5:before {
+#write h1::before,
+#write h2::before,
+#write h3::before,
+#write h4::before,
+#write h5::before {
   color: rgba(119, 217, 207, 0.5);
 }
-#write h1:before {
+#write h1::before {
   counter-increment: h1;
   content: counter(h1) "  ";
 }
-#write h2:before {
+#write h2::before {
   counter-increment: h2;
   content: counter(h1) "." counter(h2) "  ";
 }
-#write h3:before,
-h3.md-focus.md-heading:before {
+#write h3::before,
+h3.md-focus.md-heading::before {
   /*override the default style for focused headings */
   counter-increment: h3;
   content: counter(h1) "." counter(h2) "." counter(h3) "  ";
 }
-#write h4:before,
-h4.md-focus.md-heading:before {
+#write h4::before,
+h4.md-focus.md-heading::before {
   counter-increment: h4;
   content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "  ";
 }
-#write h5:before,
-h5.md-focus.md-heading:before {
+#write h5::before,
+h5.md-focus.md-heading::before {
   counter-increment: h5;
   content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "  ";
 }
 /** override the default style for focused headings */
-#write > h3.md-focus:before,
-#write > h4.md-focus:before,
-#write > h5.md-focus:before,
-h3.md-focus:before,
-h4.md-focus:before,
-h5.md-focus:before {
+#write > h3.md-focus::before,
+#write > h4.md-focus::before,
+#write > h5.md-focus::before,
+h3.md-focus::before,
+h4.md-focus::before,
+h5.md-focus::before {
   color: inherit;
   border: inherit;
   border-radius: inherit;
@@ -1579,7 +1603,7 @@ div.mermaidTooltip {
   overflow: hidden;
   transition: all 0.3s ease-in-out;
 }
-.md-toc-item:before {
+.md-toc-item::before {
   color: var(--toc-header-num-color);
   padding-left: 5px;
 }
@@ -1601,8 +1625,8 @@ div.mermaidTooltip {
 }
 .md-toc,
 .mdx-toc {
-  margin-top: 0.6em;
-  margin-bottom: 0.6em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
   border-radius: 0;
   line-height: 2;
 }
@@ -1624,7 +1648,7 @@ div.mermaidTooltip {
   border: 0;
 }
 .md-toc-item a:hover {
-  color: #F285B3 !important;
+  color: #000000 !important;
   background-color: rgba(255, 255, 255, 0);
   box-shadow: none;
   text-decoration: none;
@@ -1773,7 +1797,7 @@ li p {
   color: var(--tips-bg-color-inset) !important;
   font-weight: bold;
 }
-.mdx-content-extender {
+.mdx-content-expander {
   font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: bold;
   height: 100px;
@@ -1786,7 +1810,7 @@ li p {
   cursor: pointer;
   z-index: 10;
 }
-.mdx-content-extender > .mdx-btn {
+.mdx-content-expander > .mdx-btn {
   margin-top: 70px;
   width: 180px;
   height: 30px;
@@ -1891,6 +1915,15 @@ li p {
 .mdx-blockquote-folder:active {
   color: #ed5796;
   transform: none;
+}
+.mdx-blockquote-folder small {
+  color: #F285B3;
+  font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
+  border: 1px solid #F285B3;
+  border-radius: 6px;
+  margin-left: 1em;
+  padding: 1px 2px;
+  font-size: 0.7em;
 }
 .mdx-toc-panel {
   background-color: var(--doc-bg-color-alt);
@@ -2016,7 +2049,6 @@ li p {
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
   background-color: var(--doc-bg-color-alt);
-  display: none;
   z-index: 2100;
 }
 .mdx-footer-note-panel > a {
@@ -2250,7 +2282,7 @@ li p {
   margin-right: 5px;
   float: right;
 }
-.mdx-btn-figure-launcher {
+.mdx-btn-figure-viewer {
   margin-top: 10px;
   margin-left: 5px;
   visibility: hidden;
@@ -2344,18 +2376,14 @@ li p {
   transform: none;
 }
 .mdx-btn-open-in-new-tab {
-  border-radius: 16px;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 0;
+  border-radius: 16px 0 16px 0;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   background-color: #77D9CF;
   position: absolute;
   z-index: 50;
 }
 .mdx-btn-copy-code-block {
-  border-radius: 16px;
-  border-top-left-radius: 0;
-  border-bottom-right-radius: 0;
+  border-radius: 0 16px 0 16px;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   background-color: #77D9CF;
   position: absolute;
@@ -2418,7 +2446,7 @@ img,
   width: 100%;
   color: var(--fore-color);
 }
-.mdx-figure-pagenum {
+.mdx-figure-page-num {
   left: 10px;
   top: 10px;
   position: absolute;
@@ -2432,20 +2460,15 @@ img,
   background-color: var(--doc-bg-color-alt);
   transition: all 0.3s ease-in-out;
 }
-.mdx-figure-caption-hover {
-  background-color: rgba(242, 133, 179, 0.2);
-}
-.mdx-figure-caption > span {
+.mdx-figure-caption > p {
   color: var(--fore-color);
   font-size: 0.8em;
   font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
-  padding-left: 1em;
+  margin: 5px 10px 5px 10px;
 }
 .mdx-figure-caption hr {
   border-bottom: 2px solid #737c8f;
-  margin: 0.5em;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0.5em auto;
 }
 use.mdx-button-ico-light {
   fill: #000000;
@@ -2459,7 +2482,7 @@ use.mdx-folder-ico {
 }
 use.mdx-folder-ico:hover,
 .mdx-folder-ico-hover {
-  fill: #F285B3;
+  fill: #000000 !important;
 }
 .mdx-mask {
   left: 0;
@@ -2522,7 +2545,7 @@ use.mdx-folder-ico:hover,
   font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: normal !important;
   margin-right: 0;
-  border-radius: 1em 0em 0em 1em;
+  border-radius: 1em 0 0 1em;
   padding: 0.2em 1.8em 0.2em 0.6em;
   color: #FFFFFF;
   background: var(--code-name-bg-color);
@@ -2584,12 +2607,8 @@ h6 code {
   font-weight: bold;
   text-align: left;
   height: 25cm;
-  padding-top: 180px;
-  padding-bottom: 50px;
-  padding-left: 60px;
-  padding-right: 60px;
-  margin: 10px 0;
-  margin-bottom: 3em;
+  padding: 180px 60px 50px;
+  margin: 10px 0 3em;
   border: 0;
   border-radius: 16px;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
@@ -2708,6 +2727,14 @@ h6 code {
   table:hover {
     border-color: var(--table-border-color) !important;
   }
+  table th,
+  table td {
+    white-space: pre-wrap !important;
+  }
+  table th:first-child,
+  table td:first-child {
+    white-space: pre !important;
+  }
   blockquote {
     display: block !important;
   }
@@ -2715,11 +2742,9 @@ h6 code {
   .mdx-tool-tips,
   .mdx-info-tips {
     display: none !important;
-    transition: all 0.3s ease-in-out;
   }
   .mdx-current-blockfocus-item {
     box-shadow: none !important;
-    transition: all 0.3s ease-in-out;
   }
   #write .md-toc {
     display: block !important;
@@ -2738,8 +2763,7 @@ h6 code {
   .mdx-chapter-nav,
   .mdx-toc-panel,
   .mdx-toc-panel-header,
-  .mdx-toc-panel-body-scroll,
-  .mdx-docbar-bottom {
+  .mdx-toc-panel-body-scroll {
     display: none;
     visibility: hidden;
   }
@@ -2747,8 +2771,7 @@ h6 code {
   #write > h6:last-of-type,
   #write > h6:first-of-type strong,
   #write > h6:first-of-type em {
-    background: none !important;
-    background-color: #FFFFFF !important;
+    background: #FFFFFF none !important;
     color: #181A1E !important;
   }
 }
@@ -2759,16 +2782,15 @@ h6 code {
     --side-bar-bg-color: var(--doc-bg-color-dark);
     --text-color: var(--fore-color-dark);
     --select-text-bg-color: rgba(119, 217, 207, 0.5);
-    --item-hover-bg-color: var(--doc-bg-color-dark);
     --control-text-color: var(--fore-color-dark);
     --control-text-hover-color: var(--fore-color-dark);
-    --window-border: 1px solid var(--fore-color-alt-dark);
+    --window-border: 1px solid var(--doc-bg-color-alt-dark);
     --active-file-bg-color: var(--doc-bg-color-dark);
     --active-file-border-color: var(--select-text-bg-color);
     --active-file-text-color: var(--fore-color-dark);
     --item-hover-bg-color: var(--fore-color-alt-dark);
     --item-hover-text-color: var(--fore-color-dark);
-    --primary-color: rgba(119, 217, 207, 0.5);
+    --primary-color: #77D9CF;
     --rawblock-edit-panel-bd: var(--doc-bg-color-dark);
     --search-select-bg-color: rgba(119, 217, 207, 0.5);
     --doc-bg-color: var(--doc-bg-color-dark);
