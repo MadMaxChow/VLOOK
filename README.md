@@ -16,11 +16,13 @@ VLOOK™ 为开源软件，遵从 MIT 许可证。
 
 ![欢迎屏](https://tva1.sinaimg.cn/large/0082zybpgy1gbtzxrlwjbj314i0u0ql2.jpg)
 
-![自动生成大纲](https://tva1.sinaimg.cn/large/0082zybpgy1gbtzxrzt5fj31e60u07l3.jpg)
+![自动生成大纲](https://tva1.sinaimg.cn/large/00831rSTgy1gctvgvglq5j31d50u019b.jpg)
 
 ![插图浏览器](https://tva1.sinaimg.cn/large/0082zybpgy1gbtzxti1faj31e60u0kfh.jpg)
 
 ![支持mermaid图及聚光灯](https://tva1.sinaimg.cn/large/0082zybpgy1gbtzxtur33j31bz0u0tko.jpg)
+
+![长内容（插图/表格/代码块）自动折叠](https://tva1.sinaimg.cn/large/00831rSTgy1gctvdeqt6hj313o0u0qv6.jpg)
 
 # 内置多套高颜值实用的主题
 
@@ -82,7 +84,9 @@ VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导�
 
 ---
 
-有关 VLOOK 特性的详细介绍、样例及使用说明详见《[VLOOK 快速参考手册](https://madmaxchow.github.io/VLOOK/index.html)》<br/>
+`* 提示 *` **以下网页都是由 Typora 和 VLOOK 共同编辑和生成的，所有的功能特性和样式你都能直接体验。**
+
+有关 VLOOK 特性的详细介绍、样例及使用说明详见《[VLOOK 快速参考手册](https://madmaxchow.github.io/VLOOK/index.html)》<br>
 有关脚本化图表的详细介绍、样例及使用说明详见《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
 
 ---

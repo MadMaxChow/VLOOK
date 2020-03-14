@@ -574,7 +574,7 @@ MIT许可证（MIT）
         currentHeaderIndex = -1; // 当前章节在目录集中的索引
         currentItem = undefined; // 当前章节对象
         textArea = undefined;
-        manualClose = false; // 是否为手工方式关闭
+        closeMode = "auto"; // 关闭大纲的方式
         mode = "float"; // 最后一次的显示方式（float/block）
         showed = false; // 是否已显示
         width = parseInt(getComputedStyle(document.documentElement)
@@ -638,7 +638,7 @@ MIT许可证（MIT）
                 // 跳转至对应的页内锚点
                 location.href = $("#" + item.attr("id")).children("a").attr("href");
                 if (that.mode === "float") {
-                    that.hide(false);
+                    that.hide("auto");
                     // 模拟等待页面完成跳转后，再进行大纲面板布局自适应处理
                     setTimeout(that.adjust, 500);
                 }
@@ -754,11 +754,11 @@ MIT许可证（MIT）
 
             // 大纲面板已显示
             if (this.showed === true) {
-                this.hide(true);
+                this.hide("manual");
             }
             // 大纲面板未显示
             else {
-                this.manualClose = false;
+                this.closeMode = "auto";
                 // 在封面，或小屏
                 if (this.withinHeader() === false || isSmallScreen() === true) {
                     this.show("float");
@@ -766,8 +766,8 @@ MIT许可证（MIT）
                 // 在章节内，非小屏
                 else {
                     // 没有手动关闭大纲面板时，自动显示大纲面板
-                    if (this.manualClose === false)
-                    this.show("block");
+                    if (this.closeMode === "auto")
+                        this.show("block");
                 }
             }
 
@@ -778,7 +778,6 @@ MIT许可证（MIT）
          * 显示大纲面板
         *
          * @param mode float: 以浮动形式显示，block: 以占位形式显示
-         * @param callback 以「占位方式」显示大纲面板后，执行回调函数
          */
         show(mode, callback) {
             if (this.showed === true // 已显示
@@ -831,10 +830,9 @@ MIT许可证（MIT）
         /**
          * 隐藏大纲
         *
-         * @param manual 是否标记为以手动方式隐藏大纲
-         * @param callback 隐藏后执行回调函数
+         * @param closeMode 关闭大纲的的方式（auto/manual）
          */
-        hide(manual, callback) {
+        hide(closeMode) {
             if (this.showed === false // 已隐藏
                 || this.ui.offset().left < 10) // 在以动画隐藏过程中
                 return;
@@ -844,7 +842,7 @@ MIT许可证（MIT）
             // 若最后一次显示以是「占位方式」显示
             if (this.mode === "block") {
                 // 记录是否手动关闭
-                this.manualClose = manual;
+                this.closeMode = closeMode;
                 // 则取消占位空间
                 this.textArea.css({
                     marginLeft: 0
@@ -864,7 +862,7 @@ MIT许可证（MIT）
             this.mask.hide();
 
             // 执行回调函数
-            typeof(callback) === "function" && callback();
+            // typeof(callback) === "function" && callback();
         }
 
         /**
@@ -874,16 +872,21 @@ MIT许可证（MIT）
             // 在封面，或为小屏
             if (this.withinHeader() === false || isSmallScreen() === true) {
                 // 自动隐藏大纲面板
-                this.hide(false, callback);
+                this.hide("auto");
             }
             // 不在封面
             else {
                 // 没有手动关闭大纲面板时，自动显示大纲面板
-                if (this.manualClose === false) {
+                if (this.closeMode === "auto") {
                     // 以占位方式显示大纲面板
-                    this.show("block", callback);
+                    this.show("block");
                 }
             }
+
+            // 执行回调函数（等待文档完成重绘后再执行）
+            setTimeout(function() {
+                typeof(callback) === "function" && callback();
+            }, 500);
         }
 
         /**

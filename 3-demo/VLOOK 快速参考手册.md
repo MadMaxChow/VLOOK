@@ -6,11 +6,11 @@
 
 `最新版本丨V9.13`    `+ 官网丨https://github.com/madmaxchow/VLOOK +`    `* 适用平台丨Typora for Win & macOS *`    `- 开源协议丨MIT -`   `! 开发语言丨JavaScript !`
 
-[VLOOK™](https://github.com/MadMaxChow/VLOOK) 是针对由[Typora](https://www.typora.io)[^Typora]（目前最好的跨平台 Markdown 编辑器，没有之一）导出的 HTML 文件进行增强的插件。
+[VLOOK™](https://github.com/MadMaxChow/VLOOK) 是针对由 [Typora](https://www.typora.io)[^Typora]（目前最好的跨平台 Markdown 编辑器，没有之一）导出的 HTML 文件进行增强的插件。
 
 VLOOK™ 为开源软件，遵从 [MIT 许可证](#许可协议)。
 
-> [-] **Markdown 是什么？**
+> [+] **Markdown 是什么？**
 >
 > > - 2004年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了 [Markdown](https://en.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的`文本标记语言`。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）。
 > > - Markdown文档以`纯文本格式存储`，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过 Markdown 编辑器导出为带排版的富文本文档、HTML 网页等等。纯粹、简洁、易用、灵活，都是人们喜欢 Markdown 的原因。
@@ -26,6 +26,8 @@ VLOOK™ 为开源软件，遵从 [MIT 许可证](#许可协议)。
 # 特性清单
 
 VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导航、演示、交互需求中寻找平衡点，为 Markdown 的编辑者和阅读者提供了更好的使用体验。
+
+`* 提示 *` **你正在浏览在这个网页就是由 Typora 和 VLOOK 共同编辑和生成的，所有的功能特性和样式你都能直接体验。**
 
 ![VLOOK™ 特性清单]"环境要求：VLOOK V9.7+，Typora mac版 V0.9.9.31+ / Win版 V0.9.83+"
 
