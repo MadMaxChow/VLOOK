@@ -29,10 +29,10 @@ VLOOK™ 为开源软件，遵从 MIT 许可证。
 ![内置多套高颜值实用的主题](https://tva1.sinaimg.cn/large/0082zybpgy1gbst4qqa0gj32mg0m87hc.jpg)
 
 - 针对 VLOOK 内置多套优化的主题样式（在导出 HTML 通过 Typora 的「主题」菜单选择名称以 VLOOK 打头的主题）；
-  - **Hope 海洋之心**：[预览 ＞](https://madmaxchow.github.io/VLOOK/index.html)
-  - **Joint 榫卯**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-joint.html)
-  - **Fancy 慕幻**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-fancy.html)
-  - **Geek 极邃**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-geek.html)
+  - **Hope 海洋之心**：[预览 ＞](https://madmaxchow.github.io/VLOOK/index.html)    [国内链接 ＞](https://madmaxchow.gitee.io/vlook/index.html) 
+  - **Joint 榫卯**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-joint.html)    [国内链接 ＞](https://madmaxchow.gitee.io/vlook/theme-joint.html) 
+  - **Fancy 慕幻**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-fancy.html)    [国内链接 ＞](https://madmaxchow.gitee.io/vlook/theme-fancy.html) 
+  - **Geek 极邃**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-geek.html)    [国内链接 ＞](https://madmaxchow.gitee.io/vlook/theme-geek.html) 
 - 所有主题的文档导出为 HTML 后，都支持`Light (明亮)`与`Dark (黑暗)`模式；
 - 提供主题的私人定制服务，定制样品如下：
 
@@ -86,8 +86,8 @@ VLOOK™ 针对 Markdown 的短板，以及在实际众多的文档排版、导�
 
 `* 提示 *` **以下网页都是由 Typora 和 VLOOK 共同编辑和生成的，所有的功能特性和样式你都能直接体验。**
 
-有关 VLOOK 特性的详细介绍、样例及使用说明详见《[VLOOK 快速参考手册](https://madmaxchow.github.io/VLOOK/index.html)》<br>
-有关脚本化图表的详细介绍、样例及使用说明详见《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
+有关 VLOOK 特性的详细介绍、样例及使用说明详见《[VLOOK 快速参考手册](https://madmaxchow.github.io/VLOOK/index.html)》，[国内链接](https://madmaxchow.gitee.io/vlook/index.html)<br>
+有关脚本化图表的详细介绍、样例及使用说明详见《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》，[国内链接](https://madmaxchow.gitee.io/vlook/chart.html)
 
 ---
 
