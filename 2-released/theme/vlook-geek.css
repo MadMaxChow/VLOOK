@@ -1455,7 +1455,6 @@ div.mermaidTooltip {
   max-width: 100%;
   margin: 0 auto;
   padding: 0 10px 0 10px;
-  overflow-x: auto;
   transition: all 0.3s ease-in-out;
 }
 #write > ul:first-child,
@@ -1687,13 +1686,13 @@ kbd {
   font-family: "Fira Code", Menlo, Consolas, "Courier New", "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.8em;
   font-weight: bold;
-  border-radius: 0.3em;
-  margin: 0 0.2em;
-  padding: 0em 0.3em;
-  background-color: var(--doc-bg-color);
-  color: var(--fore-color);
-  border: 0.1em solid var(--fore-color-alt);
-  box-shadow: 0 0.1em 0 var(--fore-color-alt);
+  border-radius: 0.4em;
+  margin: 0 0.3em;
+  padding: 0.2em 0.5em 0.1em 0.5em;
+  border: 0;
+  color: var(--doc-bg-color);
+  background-color: var(--fore-color);
+  box-shadow: 0 0.3em 0 0 var(--fore-color-alt);
 }
 ul > .md-task-list-item {
   list-style-type: decimal !important;
@@ -1814,7 +1813,7 @@ li p {
   margin-top: 70px;
   width: 180px;
   height: 30px;
-  border-radius: 15px;
+  border-radius: 16px;
   background-color: #31353D;
   display: inline-flex;
 }
@@ -2324,7 +2323,7 @@ li p {
   width: 30px;
   height: 70px;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-  border-radius: 15px;
+  border-radius: 16px;
   position: absolute;
   bottom: 10px;
   transition: all 0.3s ease-in-out;
@@ -2335,7 +2334,7 @@ li p {
   width: 30px;
   height: 70px;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-  border-radius: 15px;
+  border-radius: 16px;
   position: absolute;
   bottom: 10px;
   transition: all 0.3s ease-in-out;

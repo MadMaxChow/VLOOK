@@ -1791,7 +1791,7 @@ div.mermaidTooltip {
   max-width: 100%;
   margin: 0 auto;
   padding: 0 10px 0 10px;
-  overflow-x: auto;
+  /* overflow-x: auto; */
   transition: all 0.3s ease-in-out;
 }
 #write > ul:first-child,
@@ -2023,13 +2023,17 @@ kbd {
   font-family: "Fira Code", Menlo, Consolas, "Courier New", "Noto Sans CJK SC", SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", monospace;
   font-size: 0.8em;
   font-weight: bold;
-  border-radius: 0.3em;
-  margin: 0 0.2em;
-  padding: 0em 0.3em;
-  background-color: var(--doc-bg-color);
-  color: var(--fore-color);
-  border: 0.1em solid var(--fore-color-alt);
-  box-shadow: 0 0.1em 0 var(--fore-color-alt);
+  border-radius: 0.4em;
+  margin: 0 0.3em;
+    padding: 0.2em 0.5em 0.1em 0.5em;
+    border: 0;
+    color: var(--doc-bg-color);
+    background-color: var(--fore-color);
+    box-shadow: 0 0.2em 0 0 var(--fore-color-alt);
+}
+
+.mdx-tool-tips kbd {
+    /* background-color: var(--doc-bg-color); */
 }
 ul > .md-task-list-item {
   list-style-type: decimal !important;
@@ -2151,7 +2155,7 @@ li p {
   margin-top: 70px;
   width: 180px;
   height: 30px;
-  border-radius: 15px;
+  border-radius: 16px;
   background-color: #00A0E6;
   display: inline-flex;
 }
@@ -2662,7 +2666,7 @@ li p {
   width: 30px;
   height: 70px;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  border-radius: 15px;
+  border-radius: 16px;
   position: absolute;
   bottom: 10px;
   transition: all 0.3s ease-in-out;
@@ -2673,7 +2677,7 @@ li p {
   width: 30px;
   height: 70px;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  border-radius: 15px;
+  border-radius: 16px;
   position: absolute;
   bottom: 10px;
   transition: all 0.3s ease-in-out;
@@ -3233,7 +3237,7 @@ h6 code {
 <!--                                                                        -->
 <!--                       VLOOK V9.13 - Typora Plugin                      -->
 <!--                                                                        -->
-<!--                               2020-03-13                               -->
+<!--                               2020-03-14                               -->
 <!--                          powered by MAX丨孟兆                           -->
 <!--                                                                        -->
 <!--              QQ Group: 805502564    email: maxchow@qq.com              -->
@@ -3589,16 +3593,8 @@ MIT许可证（MIT）
     let VK = {
         newTab: false, // 当前页面是通过 VLOOK 的在新标签打开功能生成的
         ui: {
-            icon: {
-                // 大纲章节图标：已收起
-                foldChapter: '<svg width="20px" height="20px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoFolded" class="mdx-folder-ico"/></svg>',
-                // 大纲章节图标：已展开
-                unfoldChapter: '<svg width="20px" height="20px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoUnfold" class="mdx-folder-ico"/></svg>',
-            },
             smallScreenLimit: 1024, // 大小屏分界的尺寸标准
             lang: 2, // 当前语言（浏览器中的语言配置）
-            // colorScheme: "light", // 颜色方案（Light/Dark）
-            // colorSchemeBeforePrint: "light", // 打印前的颜色方案
         },
         animate: {
             speed: 300, // 动画速度，值越小越快
@@ -3822,6 +3818,10 @@ MIT许可证（MIT）
         lastHeaderFolder = undefined; // 上一个非叶子章节
         lastHeaderLevel = 0; // 上一个章节的层级
         mask = undefined; // 遮罩
+        // 大纲章节图标：已收起
+        iconFold = '<svg width="20px" height="20px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoFolded" class="mdx-folder-ico"/></svg>';
+        // 大纲章节图标：已展开
+        iconUnfold = '<svg width="20px" height="20px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoUnfold" class="mdx-folder-ico"/></svg>';
 
         /**
          * 构造函数
@@ -3893,7 +3893,7 @@ MIT许可证（MIT）
                     this.foldItems.push(this.lastHeaderFolder);
 
                     // 为非叶子的章节添加折叠图标
-                    let folder = this.lastHeaderFolder.html(VK.ui.icon.unfoldChapter);
+                    let folder = this.lastHeaderFolder.html(this.iconUnfold);
                     folder.parent().attr({
                         "data-vk-node": "1", // 0:叶子, 1:目录
                         "data-vk-folded": "false" // true:收起， false:展开
@@ -4159,14 +4159,14 @@ MIT许可证（MIT）
             // 若对应的章节已收起
             if (tocItem.attr("data-vk-folded") === "true") {
                 tocItem.attr("data-vk-folded", "false");
-                folderIco.prop("outerHTML", VK.ui.icon.unfoldChapter);
+                folderIco.prop("outerHTML", this.iconUnfold);
 
                 this.disposeFold(id, "expand", true);
             }
             // 若对应的章节已展开
             else {
                 tocItem.attr("data-vk-folded", "true");
-                folderIco.prop("outerHTML", VK.ui.icon.foldChapter);
+                folderIco.prop("outerHTML", this.iconFold);
 
                 this.disposeFold(id, "collect", true);
             }
@@ -5006,10 +5006,11 @@ MIT许可证（MIT）
          * @param style 指定应用的字体样式（sans/serif），不指定则以为当前字体样式
          */
         apply(style) {
-            pushData(['Style', 'FontStyle', style, 0]);
             // 修正无指定样式的情况
             if (style === undefined) 
                 style = this.style;
+
+            pushData(['Style', 'FontStyle', style, 0]);
 
             // 需要进行字体样式应用的分类与范围
             const text = "body, .mdx-load-screen-tips, text[text-anchor=\"start\"] > tspan, .edgeLabel .label span, .messageText, .noteText tspan, .MathJax_SVG g text",
@@ -5473,13 +5474,13 @@ MIT许可证（MIT）
         ][VK.ui.lang]);
 
         _iToolbar.buttons["spotlight"].attr("tips", [
-            "<kbd>S</kbd> <strong>打开</strong> / <strong>关闭</strong> 聚光灯<br><kbd>Z</kbd> 打开聚光灯后调整大小",
-            "<kbd>S</kbd> <strong>打開</strong> / <strong>關閉</strong> 聚光燈<br><kbd>Z</kbd> 打開聚光燈後調整大小",
-            "<kbd>S</kbd> Turn the spotlight <strong>ON</strong> / <strong>OFF</strong><br><kbd>Z</kbd> Resize after turning on the spotlight",
-            "<kbd>S</kbd> <strong>Allumer</strong> / <strong>éteindre</strong> le projecteur<br><kbd>Z</kbd> Redimensionner après avoir allumé le projecteur",
-            "<kbd>S</kbd> <strong>Включите</strong> / <strong>выключите</strong> прожектор<br><kbd>Z</kbd> Изменить размер после включения прожектора",
-            "<kbd>S</kbd> スポットライトをオンにする <strong>ON</strong> / <strong>OFF</strong><br><kbd>Z</kbd> スポットライトをオンにした後のサイズ変更",
-            "<kbd>S</kbd> 스포트라이트 <strong>켜기</strong> / <strong>끄기</strong><br><kbd>Z</kbd> 스포트라이트를 켠 후 크기 조정"
+            "<kbd>S</kbd> <strong>打开</strong> / <strong>关闭</strong> 聚光灯<br><kbd>⇧ Shift</kbd> 打开聚光灯后调整大小",
+            "<kbd>S</kbd> <strong>打開</strong> / <strong>關閉</strong> 聚光燈<br><kbd>⇧ Shift</kbd> 打開聚光燈後調整大小",
+            "<kbd>S</kbd> Turn the spotlight <strong>ON</strong> / <strong>OFF</strong><br><kbd>⇧ Shift</kbd> Resize after turning on the spotlight",
+            "<kbd>S</kbd> <strong>Allumer</strong> / <strong>éteindre</strong> le projecteur<br><kbd>⇧ Shift</kbd> Redimensionner après avoir allumé le projecteur",
+            "<kbd>S</kbd> <strong>Включите</strong> / <strong>выключите</strong> прожектор<br><kbd>⇧ Shift</kbd> Изменить размер после включения прожектора",
+            "<kbd>S</kbd> スポットライトをオンにする <strong>ON</strong> / <strong>OFF</strong><br><kbd>⇧ Shift</kbd> スポットライトをオンにした後のサイズ変更",
+            "<kbd>S</kbd> 스포트라이트 <strong>켜기</strong> / <strong>끄기</strong><br><kbd>⇧ Shift</kbd> 스포트라이트를 켠 후 크기 조정"
         ][VK.ui.lang]);
 
         _iToolbar.buttons["print"].attr("tips", [
@@ -5493,23 +5494,23 @@ MIT许可证（MIT）
         ][VK.ui.lang]);
 
         _iChapterNav.prev.button.attr("tips", [
-            "<kbd>←</kbd> / <kbd>&lt;</kbd> 前一章",
-            "<kbd>←</kbd> / <kbd>&lt;</kbd> 前一章",
-            "<kbd>←</kbd> / <kbd>&lt;</kbd> Previous Chapter",
-            "<kbd>←</kbd> / <kbd>&lt;</kbd> Chapitre Précédent",
-            "<kbd>←</kbd> / <kbd>&lt;</kbd> Предыдущая глава",
-            "<kbd>←</kbd> / <kbd>&lt;</kbd> 前の章",
-            "<kbd>←</kbd> / <kbd>&lt;</kbd> 이전 장"
+            "<kbd>◀</kbd> / <kbd>&lt;</kbd> 前一章",
+            "<kbd>◀</kbd> / <kbd>&lt;</kbd> 前一章",
+            "<kbd>◀</kbd> / <kbd>&lt;</kbd> Previous Chapter",
+            "<kbd>◀</kbd> / <kbd>&lt;</kbd> Chapitre Précédent",
+            "<kbd>◀</kbd> / <kbd>&lt;</kbd> Предыдущая глава",
+            "<kbd>◀</kbd> / <kbd>&lt;</kbd> 前の章",
+            "<kbd>◀</kbd> / <kbd>&lt;</kbd> 이전 장"
         ][VK.ui.lang]);
 
         _iChapterNav.next.button.attr("tips", [
-            "<kbd>→</kbd> / <kbd>&gt;</kbd> 后一章",
-            "<kbd>→</kbd> / <kbd>&gt;</kbd> 後一章",
-            "<kbd>→</kbd> / <kbd>&gt;</kbd> Next Chapter",
-            "<kbd>→</kbd> / <kbd>&gt;</kbd> Chapitre Suivant",
-            "<kbd>→</kbd> / <kbd>&gt;</kbd> Следующая глава",
-            "<kbd>→</kbd> / <kbd>&gt;</kbd> 次の章",
-            "<kbd>→</kbd> / <kbd>&gt;</kbd> 다음 장"
+            "<kbd>▶</kbd> / <kbd>&gt;</kbd> 后一章",
+            "<kbd>▶</kbd> / <kbd>&gt;</kbd> 後一章",
+            "<kbd>▶</kbd> / <kbd>&gt;</kbd> Next Chapter",
+            "<kbd>▶</kbd> / <kbd>&gt;</kbd> Chapitre Suivant",
+            "<kbd>▶</kbd> / <kbd>&gt;</kbd> Следующая глава",
+            "<kbd>▶</kbd> / <kbd>&gt;</kbd> 次の章",
+            "<kbd>▶</kbd> / <kbd>&gt;</kbd> 다음 장"
         ][VK.ui.lang]);
 
         _iChapterNav.current.attr("tips", [
