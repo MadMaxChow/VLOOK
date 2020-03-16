@@ -2822,9 +2822,6 @@ h6 code {
 }
 @supports ((backdrop-filter: blur(15px)) or
     (-webkit-backdrop-filter: blur(15px))) {
-  .mdx-load-screen {
-    background: linear-gradient(#005980 0%, #00A0E6 20%, rgba(0, 160, 230, 0.5));
-  }
 }
 :root {
   --mermaid-font-family: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif !important;
