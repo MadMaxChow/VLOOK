@@ -3598,7 +3598,8 @@ MIT许可证（MIT）
             smallScreenLimit: 1024, // 大小屏分界的尺寸标准
             lang: 2, // 当前语言（根据浏览器中的语言配置而变）
             // 0: 中（简），1: 中（繁），2: 英，3: 法，4: 俄，5: 日，6: 韩
-            animate: false, // 是否启用更多的动画效果
+            enableAnimation: false, // 是否启用更多的动画效果（对设备性能要求较高）
+            enableBackgroundBlur: false, // 是否启用背景模糊特效（对设备性能要求较高）
         },
         animate: {
             speed: 300, // 动画速度，值越小越快
@@ -3717,7 +3718,7 @@ MIT许可证（MIT）
             unfreezeScroll();
 
             // 动画式显示
-            if (VK.ui.animate === true) {
+            if (VK.ui.enableAnimation === true) {
                 let that = this;
                 this.ui.animate({
                     top: -this.ui.height()
@@ -4091,7 +4092,7 @@ MIT许可证（MIT）
             }
 
             // 动画式显示
-            if (VK.ui.animate === true) {
+            if (VK.ui.enableAnimation === true) {
                 this.ui.animate({
                     left: 10 + VK.animate.rebound
                     }, VK.animate.speed, "swing").animate({ // 回弹处理
@@ -4134,7 +4135,7 @@ MIT许可证（MIT）
             }
 
             // 动画式收起
-            if (VK.ui.animate === true) {
+            if (VK.ui.enableAnimation === true) {
                 this.ui.animate({
                     left: -this.width
                     }, VK.animate.speed, "swing");
@@ -5162,7 +5163,7 @@ MIT许可证（MIT）
                 });
 
             // 动画式显示
-            if (VK.ui.animate === true) {
+            if (VK.ui.enableAnimation === true) {
                 this.ui.animate({
                         bottom: 80 + VK.animate.rebound
                     }, VK.animate.speed, "swing").animate({ // 回弹处理
@@ -5181,7 +5182,7 @@ MIT许可证（MIT）
          */
         hide() {
             // 动画式显示
-            if (VK.ui.animate === true) {
+            if (VK.ui.enableAnimation === true) {
                 this.ui.animate({
                     bottom: -this.ui.height()
                 }, VK.animate.speed, "swing");
@@ -5273,9 +5274,9 @@ MIT许可证（MIT）
                 that.partner.hide();
 
                 // 动画式显示
-                if (VK.ui.animate === true) {
+                if (VK.ui.enableAnimation === true) {
                     // 动画式显示
-                    if (VK.ui.animate === true)
+                    if (VK.ui.enableAnimation === true)
                         $(this).fadeOut();
                     else
                         $(this).hide();
@@ -5285,7 +5286,7 @@ MIT许可证（MIT）
             });
 
             // 动画式显示
-            if (VK.ui.animate === true)
+            if (VK.ui.enableAnimation === true)
                 this.ui.fadeIn(VK.animate.speed);
             else
                 this.ui.show();
@@ -5299,7 +5300,7 @@ MIT许可证（MIT）
             unfreezeScroll();
 
             // 动画式显示
-            if (VK.ui.animate === true)
+            if (VK.ui.enableAnimation === true)
                 this.ui.fadeOut(VK.animate.speed);
             else
                 this.ui.hide();
@@ -5791,7 +5792,7 @@ MIT许可证（MIT）
         }
 
         // 动画式显示
-        if (VK.ui.animate === true) {
+        if (VK.ui.enableAnimation === true) {
             _iInfoTips.fadeIn(VK.animate.speed, function () {
                 if (delay != null) // 延时后自动关闭
                     VK.animate.tipsTimer = setTimeout(function () {
@@ -5812,7 +5813,7 @@ MIT许可证（MIT）
             _iMask.on("click", hideInfoTips);
 
             // 动画式显示
-            if (VK.ui.animate === true)
+            if (VK.ui.enableAnimation === true)
                 _iMask.fadeIn(VK.animate.speed);
             else
                 _iMask.show();
@@ -5829,7 +5830,7 @@ MIT许可证（MIT）
 
         if (animate === true) {
             // 动画式显示
-            if (VK.ui.animate === true)
+            if (VK.ui.enableAnimation === true)
                 _iToolTips.fadeOut(VK.animate.speed);
             else
                 _iToolTips.hide();
@@ -5843,9 +5844,9 @@ MIT许可证（MIT）
      */
     function hideInfoTips() {
         // 动画式显示
-        if (VK.ui.animate === true) {
+        if (VK.ui.enableAnimation === true) {
             // 动画式显示
-            if (VK.ui.animate === true)
+            if (VK.ui.enableAnimation === true)
                 _iInfoTips.fadeOut(VK.animate.speed);
             else
                 _iInfoTips.hide();
@@ -5891,7 +5892,7 @@ MIT许可证（MIT）
         _iMask.on("click", callback);
 
         // 动画式显示
-        if (VK.ui.animate === true)
+        if (VK.ui.enableAnimation === true)
             _iMask.fadeIn(VK.animate.speed);
         else
             _iMask.show();
@@ -5907,9 +5908,9 @@ MIT许可证（MIT）
         _iMask.off("click");
 
         // 动画式显示
-        if (VK.ui.animate === true) {
+        if (VK.ui.enableAnimation === true) {
             // 动画式显示
-            if (VK.ui.animate === true)
+            if (VK.ui.enableAnimation === true)
                 _iMask.fadeOut(VK.animate.speed);
             else
                 _iMask.hide();
@@ -6613,7 +6614,7 @@ MIT许可证（MIT）
             target.hide();
         else {
             // 动画式显示
-            if (VK.ui.animate === true)
+            if (VK.ui.enableAnimation === true)
                 target.fadeIn();
             else
                 target.show();
@@ -6695,7 +6696,7 @@ MIT许可证（MIT）
 
         if (animate === true) {
             // 动画式显示
-            if (VK.ui.animate === true)
+            if (VK.ui.enableAnimation === true)
                 $(".mdx-table-cross").fadeOut();
             else
                 $(".mdx-table-cross").hide();
@@ -6810,13 +6811,13 @@ MIT许可证（MIT）
                 img.src = src;
 
                 // 如果图片已经存在于浏览器缓存，直接处理
-                if (img.complete)
-                    foldingLongContent(fig, false);
+                // if (img.complete)
+                //     foldingLongContent(fig, false);
                 // 等待图片下载完成后再处理
-                else
-                    img.onload = function () {
-                        foldingLongContent(fig, false);
-                    }
+                // else
+                //     img.onload = function () {
+                //         foldingLongContent(fig, false);
+                //     }
             } // if img
             // svg (mermaid) 插图的处理
             else if (tagName === "svg") {
@@ -7127,7 +7128,7 @@ MIT许可证（MIT）
         updateFigureViewerUI();
 
         // 动画式显示
-        if (VK.ui.animate === true) {
+        if (VK.ui.enableAnimation === true) {
             _iFigureViewer.animate({
                 top: 0 - VK.animate.rebound
                 // opacity: 1
@@ -7147,7 +7148,7 @@ MIT许可证（MIT）
      */
     function hideFigureViewer() {
         // 动画式显示
-        if (VK.ui.animate === true) {
+        if (VK.ui.enableAnimation === true) {
             _iFigureViewer.animate({
                 top: _iFigureViewer.css("height")
                 // opacity: 0
@@ -7202,7 +7203,7 @@ MIT许可证（MIT）
         });
 
         // 动画式显示
-        if (VK.ui.animate === true)
+        if (VK.ui.enableAnimation === true)
             _iBtnOpenInNewTab.fadeIn(VK.animate.speed);
         else
             _iBtnOpenInNewTab.show();
@@ -7224,7 +7225,7 @@ MIT许可证（MIT）
         });
 
         // 动画式显示
-        if (VK.ui.animate === true)
+        if (VK.ui.enableAnimation === true)
             _iBtnCopyCodeBlock.fadeIn(VK.animate.speed);
         else
             _iBtnCopyCodeBlock.show();
@@ -7236,7 +7237,7 @@ MIT许可证（MIT）
     function hideContentButtons() {
         if (_lastHoverContent == null || mouseDropInObj(_lastHoverContent) === false) {
             // 动画式显示
-            if (VK.ui.animate === true) {
+            if (VK.ui.enableAnimation === true) {
                 _iBtnOpenInNewTab.fadeOut(VK.animate.speed);
                 _iBtnCopyCodeBlock.fadeOut(VK.animate.speed);
             }
@@ -8804,6 +8805,33 @@ MIT许可证（MIT）
             + statData);
             debug("Stat. in Gitee:\n" + $("iframe[name=vlook-stat-gitee]").attr("src"));
     }
+    
+    /**
+     * 初始化特效处理
+     */
+    function initEffect() {
+        // 启用动画特效后，须对指定样式进行调整
+        // VK.ui.enableAnimation = true;
+        if (VK.ui.enableAnimation === true) {
+            $("a, a:active, .CodeMirror-line, .mdx-figure, .mdx-folder-ico, .MathJax_SVG, .MathJax_SVG_Display, .md-toc-item, .mdx-btn-load-screen-done, .mdx-blockquote-folder, .mdx-toc-panel-title, .mdx-btn, .mdx-toolbar, .mdx-chapter-nav-prev, .mdx-chapter-nav-next, .mdx-chapter-nav, .mdx-chapter-nav-current, .mdx-btn-figure-prev, .mdx-btn-figure-next, .mdx-btn-close-figure-viewer, .mdx-clickable-hover, .mdx-OINPable-hover").css({
+                "transition": "all 0.3s ease-in-out"
+            });
+        }
+
+        // VK.ui.enableBackgroundBlur = true;
+        if (VK.ui.enableBackgroundBlur === true) {
+            // $(".mdx-mask").css({
+            //     "background-color": "rgba(255, 255, 255, 0.9)"
+            // });
+
+            // $(".mdx-backdrop-blurs").css({
+            //     "backdrop-filter": "blur(15px)",
+            //     "-webkit-backdrop-filter": "blur(15px)"
+            // });
+
+            // $(".mdx-load-screen");
+        }
+    }
 
     // -------------------- 在新标签打开模块 -------------------- //
 
@@ -9030,6 +9058,10 @@ MIT许可证（MIT）
         // ----------------------------------------
         // 更新欢迎屏
         _iWelcomeScreen.done();
+
+        // ----------------------------------------
+        // 特效初始化
+        initEffect();
 
         // ----------------------------------------
         // VLOOK 加载完成
