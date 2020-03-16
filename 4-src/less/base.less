@@ -290,7 +290,7 @@ body {
     font-weight: normal;
     line-height: 2;
     -webkit-tap-highlight-color: transparent;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 body.typora-export {
@@ -316,7 +316,7 @@ a {
     color: var(--a-color) !important;
     border-bottom: @aBorderWidth solid @aLineColor;
     text-decoration: none;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 a:hover {
@@ -327,7 +327,7 @@ a:hover {
 a:active {
     color: @aActiveColor !important;
     border-color: @aActiveColor;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 // 普通超链接增加 hover 时的符号
@@ -924,7 +924,7 @@ del code {
 
 .reversefootnote:hover {
     color: @slaveColor;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 // 脚注上标
@@ -935,7 +935,7 @@ a[name^="ref-footnote-"] {
 
 a[name^="ref-footnote-"]:hover {
     color: @aActiveColor;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 a[name^="ref-footnote-"]::before {
@@ -1129,7 +1129,7 @@ footer {}
 // .md-toc-h5 > a:hover,
 // .md-toc-item a:hover {
 //     box-shadow: inherit;
-//     transition: all 0.3s ease-in-out;
+// // 性能优化    transition: all 0.3s ease-in-out;
 // }
 
 // .md-toc-h1 > a::after,
@@ -2084,7 +2084,7 @@ div.mermaidTooltip {
     margin: 0 auto;
     padding: 0 10px 0 10px;
     // overflow-x: auto;
-    transition: all 0.3s ease-in-out;
+    // transition: all 0.3s ease-in-out;
 }
 
 #write > ul:first-child,
@@ -2110,7 +2110,7 @@ div.mermaidTooltip {
 .CodeMirror-line:hover {
     background-color: var(--doc-bg-color-alt);
     // box-shadow: 0 1px 0 0 @aLineColor inset, 0 -1px 0 0 @aLineColor inset;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 .CodeMirror.cm-s-inner {
@@ -2223,7 +2223,7 @@ div.mermaidTooltip {
     border: 2px solid var(--table-border-color);
     border-radius: 16px;
     padding: 0.3em 0.3em;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 .MathJax_SVG:hover,
@@ -2275,7 +2275,7 @@ div.mermaidTooltip {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 // .md-toc-h1::before,
@@ -2356,7 +2356,7 @@ div.mermaidTooltip {
     box-shadow: none;
     text-decoration: none;
     border: 0;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 // .md-toc-item > a {
@@ -2367,13 +2367,13 @@ div.mermaidTooltip {
 // .md-toc-item a:hover {
 //     color: var(--a-line-color) !important;
 //     box-shadow: none;
-//     transition: all 0.3s ease-in-out;
+// // 性能优化    transition: all 0.3s ease-in-out;
 // }
 
 // .md-toc-item:active > a,
 // .md-toc-item a:active {
 //     color: var(--a-active-color);
-//     transition: all 0.3s ease-in-out;
+// // 性能优化    transition: all 0.3s ease-in-out;
 // }
 
 #svg-figure-content {
@@ -2606,8 +2606,8 @@ li p {
     cursor: wait;
     position: fixed;
     color: @themeForeColor;
-    // background-color: @themeBgColor;
-    background: linear-gradient(@themeBgColorDark 0%, @themeBgColor 20%, @themeBgColor);
+    background-color: @themeBgColor;
+    // background: linear-gradient(@themeBgColorDark 0%, @themeBgColor 20%, @themeBgColor);
     left: 0;
     top: 0;
     width: 100%;
@@ -2654,7 +2654,7 @@ li p {
     display: inline-block;
     border-radius: 1em;
     margin-bottom: 2em;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 .mdx-btn-load-screen-done {
@@ -2670,7 +2670,7 @@ li p {
     color: @themeForeColor;
     background-color: @aHoverColor;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
     transform: translateY(-2px);
 }
 
@@ -2678,7 +2678,7 @@ li p {
     background-color: @aActiveColor;
     transform: none;
     box-shadow: none;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 // 用于列表项、段落聚焦模式
@@ -2697,7 +2697,7 @@ li p {
 }
 
 .mdx-blockquote-folder {
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 .mdx-blockquote-folder:hover {
@@ -2785,7 +2785,7 @@ li p {
     font-weight: bold;
     color: var(--a-color);
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 .mdx-toc-panel-title:hover {
@@ -2921,13 +2921,13 @@ li p {
     position: fixed;
     background-color: @themeBgColor;
     // background-color: fade(@themeBgColor, 75%);
-    transition: all 0.3s ease-in-out;
+    // transition: all 0.3s ease-in-out;
     z-index: 100;
 }
 
 // .mdx-toolbar:hover {
 //     opacity: 1;
-//     transition: all 0.3s ease-in-out;
+// // 性能优化    transition: all 0.3s ease-in-out;
 // }
 
 .mdx-btn-outline {
@@ -2974,7 +2974,7 @@ li p {
 
 .mdx-folder:hover {
     color: @aActiveColor;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 .mdx-btn {
@@ -2989,7 +2989,7 @@ li p {
     width: 40px;
     height: 30px;
     border-radius: 6px;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 .mdx-btn-hover:hover {
@@ -3000,12 +3000,12 @@ li p {
 
 .mdx-btn-float {
     background-color: @buttonBgColor;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    // backdrop-filter: blur(15px);
+    // -webkit-backdrop-filter: blur(15px);
 }
 
 // .mdx-btn-leave {
-//     transition: all 0.3s ease-in-out;
+// // 性能优化    transition: all 0.3s ease-in-out;
 //     transform: none;
 // }
 
@@ -3043,13 +3043,13 @@ li p {
 
 .mdx-chapter-nav-prev:hover {
     background: linear-gradient(to right, @aHoverColor, fade(@aHoverColor, 0%));
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 .mdx-chapter-nav-prev:active {
     background: linear-gradient(to right, @aActiveColor, fade(@aActiveColor, 0%));
     // background: none;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 .mdx-chapter-nav-prev-text {
@@ -3081,13 +3081,13 @@ li p {
 
 .mdx-chapter-nav-next:hover {
     background: linear-gradient(to left, @aHoverColor, fade(@aHoverColor, 0%));
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 .mdx-chapter-nav-next:active {
     background: linear-gradient(to left, @aActiveColor, fade(@aActiveColor, 0%));
     // background: none;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 .mdx-chapter-nav-next-text {
@@ -3121,7 +3121,7 @@ li p {
     vertical-align: middle;
     z-index: 100;
     user-select: none;
-    transition: all 0.3s ease-in-out;
+    // transition: all 0.3s ease-in-out;
 }
 
 .mdx-chapter-nav-current {
@@ -3144,13 +3144,13 @@ li p {
 
 .mdx-chapter-nav-current:hover {
     background: linear-gradient(90deg, fade(@aHoverColor, 0%), @aHoverColor, fade(@aHoverColor, 0%));
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 .mdx-chapter-nav-current:active {
     background: linear-gradient(90deg, fade(@aActiveColor, 0%), @aActiveColor, fade(@aActiveColor, 0%));
     // background: none;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 .mdx-btn-fullscreen {
@@ -3197,7 +3197,8 @@ li p {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.8);
+    // background-color: rgba(255, 255, 255, 0.9); // 启用 blur 特效时的建议值
     position: fixed;
     display: none;
     z-index: 2200;
@@ -3222,7 +3223,7 @@ li p {
     border-radius: 16px;
     position: absolute;
     bottom: 10px;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 .mdx-btn-figure-next {
@@ -3234,7 +3235,7 @@ li p {
     border-radius: 16px;
     position: absolute;
     bottom: 10px;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 .mdx-btn-figure-hover {
@@ -3262,7 +3263,7 @@ li p {
     box-shadow: @contrastBorder;
     border-radius: 0 0 0 50px;
     position: absolute;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 .mdx-btn-close-figure-viewer:hover {
@@ -3308,7 +3309,7 @@ img,
     padding: 0;
     border: 2px solid var(--table-border-color);
     display: block;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 .md-diagram-panel {
@@ -3319,7 +3320,7 @@ img,
 
 .mdx-clickable-hover {
     border-color: @aHoverColor !important;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 // img:hover,
@@ -3329,7 +3330,7 @@ img,
     border-color: @aHoverColor !important;
     box-shadow: @buttonShadow;
     transform: translateY(-2px);
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 .mdx-OINPable-hover:active {
@@ -3386,7 +3387,7 @@ img,
     display: inline-block;
     border-radius: 16px;
     background-color: var(--doc-bg-color-alt);
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 // .mdx-figure-caption:hover
@@ -3416,7 +3417,7 @@ use.mdx-button-ico-dark {
 
 use.mdx-folder-ico {
     fill: @headerColor;
-    transition: all 0.3s ease-in-out;
+// 性能优化    transition: all 0.3s ease-in-out;
 }
 
 use.mdx-folder-ico:hover,
@@ -3431,14 +3432,16 @@ use.mdx-folder-ico:hover,
     height: 100%;
     text-align: center;
     position: fixed;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.8);
+    // background-color: rgba(255, 255, 255, 0.9); // 启用 blur 特效时的建议值
     display: none;
     z-index: 1000;
 }
 
+// 毛玻璃计算会影响影响（特别是 Windows 平台），目前建议关闭
 .mdx-backdrop-blurs {
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    // backdrop-filter: blur(15px);
+    // -webkit-backdrop-filter: blur(15px);
 }
 
 // 标签式公用样式（风格2）
@@ -3925,6 +3928,7 @@ h6 code {
 }
 
 // 对支持毛玻璃样式的浏览器的处理
+// 毛玻璃计算会影响影响（特别是 Windows 平台），目前建议关闭
 @supports ((backdrop-filter: blur(15px)) or
     (-webkit-backdrop-filter: blur(15px))) {
 
@@ -3933,9 +3937,9 @@ h6 code {
     .mdx-chapter-nav,
     .mdx-btn-open-in-new-tab,
     .mdx-btn-copy-code-block {
-        background-color: fade(@buttonBgColor, 75%);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
+        // background-color: fade(@buttonBgColor, 75%);
+        // backdrop-filter: blur(15px);
+        // -webkit-backdrop-filter: blur(15px);
     }
 
     .mdx-load-screen {

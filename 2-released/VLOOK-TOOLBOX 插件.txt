@@ -1,8 +1,8 @@
 <!--========================================================================-->
 <!--                                                                        -->
-<!--                       VLOOK V9.13 - Typora Plugin                      -->
+<!--                       VLOOK V9.13.1 - Typora Plugin                      -->
 <!--                                                                        -->
-<!--                               2020-03-14                               -->
+<!--                               2020-03-15                               -->
 <!--                          powered by MAX丨孟兆                           -->
 <!--                                                                        -->
 <!--              QQ Group: 805502564    email: maxchow@qq.com              -->
@@ -14,14 +14,14 @@
 
 MIT License
 
-Copyright (c) 2018 MAX°DESIGN | Max Chow
+Copyright (c) 2018-2020 MAX°DESIGN | Max Chow
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 MIT许可证（MIT）
 
-版权所有 (c) 2018 MAX°DESIGN | Max Chow
+版权所有 (c) 2018-2020 MAX°DESIGN | Max Chow
 在此授予任何获得此软件和相关文档文件（“软件”）副本的人免费许可，以无限制地处理本软件，包括但不限于使用，复制，修改，合并，发布，分发，再授权和/或出售本软件的副本，并允许本软件的授予人员遵从以下情况：
 上述版权声明和本许可声明应包含在本软件的所有副本或重要部分中。
 本软件按“原样”提供，不提供任何以表达或暗示，包括但不限于销售，适用于特定用途和不侵权的保证。在任何情况下，作者或版权所有人不对因软件或软件的使用或其他事宜产生的任何索赔，损害或其他责任（无论是在合同，侵权或其他方面的诉讼中）负责。
@@ -181,7 +181,7 @@ MIT许可证（MIT）
         <svg height="24px" width="24px" style="display: inline-block; vertical-align: middle;">
             <use xlink:href="#icoVLOOK-dark"></use>
         </svg>&nbsp;&nbsp;
-        <a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.13) for
+        <a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.13.1) for
         <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a
                 href="mailto:67870144@qq.com">MAX丨孟兆</a></strong>
     </div>
@@ -190,7 +190,7 @@ MIT许可证（MIT）
 <!-- 大纲面板 -->
 <div class="mdx-toc-panel mdx-float-card">
     <div class="mdx-toc-panel-header">
-        <div class="mdx-toc-panel-title" onclick="_iOutlineNav.gotoCover(); _iChapterNav.adjust(adjustExpander); pushData(['Outline', 'Goto', 'Cover', 0]);">大纲</div>
+        <div class="mdx-toc-panel-title" onclick="_iOutlineNav.gotoCover();">大纲</div>
     </div>
     <div class="mdx-toc-panel-body-scroll">
         <div class="mdx-toc-panel-body"></div>
@@ -244,7 +244,7 @@ MIT许可证（MIT）
         <svg width="24px" height="24px" style="display: inline-block; vertical-align: middle;">
             <use xlink:href="#icoVLOOK"></use>
         </svg>&nbsp;&nbsp;
-        <a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.13) for
+        <a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.13.1) for
         <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a
                 href="mailto:67870144@qq.com">MAX丨孟兆</a></strong>
     </div>
@@ -350,8 +350,8 @@ MIT许可证（MIT）
 
     // VLOOK 基本信息对象
     const VLOOK = {
-        version: 'V9.13', // 版本信息
-        debug: false, // 是否为开发调试模式
+        version: 'V9.13.1', // 版本信息
+        debug: true, // 是否为开发调试模式
     }
 
     // VLOOK 核心信息对象
@@ -359,7 +359,9 @@ MIT许可证（MIT）
         newTab: false, // 当前页面是通过 VLOOK 的在新标签打开功能生成的
         ui: {
             smallScreenLimit: 1024, // 大小屏分界的尺寸标准
-            lang: 2, // 当前语言（浏览器中的语言配置）
+            lang: 2, // 当前语言（根据浏览器中的语言配置而变）
+            // 0: 中（简），1: 中（繁），2: 英，3: 法，4: 俄，5: 日，6: 韩
+            animate: false, // 是否启用更多的动画效果
         },
         animate: {
             speed: 300, // 动画速度，值越小越快
@@ -368,8 +370,15 @@ MIT许可证（MIT）
         },
         content: {
             foldLimit: VLOOK.debug ? 300 : 600, // 长内容的折叠高度限制
+            figureCount: 0, // 插图总数
+            tableCCount: 0, // 表格总数
+            codeBlockCount: 0, // 代码块总数
             // 图片加载失败后的默认填充图片（BASE64编码）
             defaultImage: "data:image/png;base64,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",
+        },
+        scroll: {
+            lastTop: 0, // 最后一次记录的滚动位置
+            lastUpdateTime: 0, // 最后一次根据滚动变动更新 UI 的时间
         },
         eventCount: 0, // 上报事件的累计次数，用于标识不同的上报事件 iframe 的 id
     };
@@ -378,9 +387,6 @@ MIT许可证（MIT）
 
     let _lastCrossTable = null, // 最后/当前显示十字光标的表格
         _lastCrossCell = null, // 最后/当前显示十字光标的表格单元格
-        _figureCount = 0, // 插图总数
-        _tableCount = 0, // 表格总数
-        _codeBlockCount = 0, // 代码块总数
         _lastHoverContent = null, // 最后显示新标签打开按钮的内容（插图/表格等）
         _figIndex = -1, // 插图索引
         _cellCrossPos = {}; // 表格十字光标四条边的位置
@@ -473,12 +479,21 @@ MIT许可证（MIT）
         close() {
             unfreezeScroll();
 
-            let that = this;
-            this.ui.animate({
-                top: -this.ui.height()
-            }, VK.animate.speed * 1.5, "swing", function () {
-                that.ui.hide();
-            });
+            // 动画式显示
+            if (VK.ui.animate === true) {
+                let that = this;
+                this.ui.animate({
+                    top: -this.ui.height()
+                }, VK.animate.speed * 1.5, "swing", function () {
+                    that.ui.hide();
+                });
+            }
+            else {
+                this.ui.css({
+                    top: -this.ui.height()
+                });
+                this.ui.hide();
+            }
         }
     }
 
@@ -570,27 +585,36 @@ MIT许可证（MIT）
         ui = $(".mdx-toc-panel"); // 大纲面板主界面
         title = $(".mdx-toc-panel-title"); // 大纲面板标题
         body = $(".mdx-toc-panel-body"); // 大纲内容
+        
         headers = []; // 大纲目录集
         currentHeaderIndex = -1; // 当前章节在目录集中的索引
         currentItem = undefined; // 当前章节对象
-        textArea = undefined;
+
         closeMode = "auto"; // 关闭大纲的方式
-        mode = "float"; // 最后一次的显示方式（float/block）
+        displayMode = "float"; // 最后一次的显示方式（float/block）
         showed = false; // 是否已显示
+        
         width = parseInt(getComputedStyle(document.documentElement)
             .getPropertyValue("--vlook-toc-box-width"));
+
         foldItems = []; // 非叶子章节集
         lastHeaderFolder = undefined; // 上一个非叶子章节
         lastHeaderLevel = 0; // 上一个章节的层级
-        mask = undefined; // 遮罩
+        lastDocScrollTop = 0; // 记录最后一次文档滚动位置
+
         // 大纲章节图标：已收起
         iconFold = '<svg width="20px" height="20px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoFolded" class="mdx-folder-ico"/></svg>';
         // 大纲章节图标：已展开
         iconUnfold = '<svg width="20px" height="20px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoUnfold" class="mdx-folder-ico"/></svg>';
 
+        textArea = undefined; // 联动的正文区
+        chapterNav = undefined; // 联动的章节导航栏
+        toolbar = undefined; // 联动的工具栏
+        mask = undefined; // 遮罩
+
         /**
          * 构造函数
-        *
+         *
          * @param textArea 文档正文区对象
          * @param mask 遮罩对象
          */
@@ -637,10 +661,17 @@ MIT许可证（MIT）
                 pushData(['Outline', 'Goto', 'TOC', 0]);
                 // 跳转至对应的页内锚点
                 location.href = $("#" + item.attr("id")).children("a").attr("href");
-                if (that.mode === "float") {
+                if (that.displayMode === "float") {
                     that.hide("auto");
                     // 模拟等待页面完成跳转后，再进行大纲面板布局自适应处理
-                    setTimeout(that.adjust, 500);
+                    setTimeout(function() {
+                        that.adjust();
+                        // 关联的对象同步进行适配
+                        that.chapterNav.adjust();
+                        that.toolbar.adjust();
+                        // for (let i = 0, len = that.associateComponents.length; i < len; i++)
+                        //     that.associateComponents[i].adjust();
+                    }, 500);
                 }
             });
 
@@ -688,6 +719,13 @@ MIT许可证（MIT）
          * 页面滚动时根据页面当前的蘵，高亮对应大纲中的章节
          */
         focusHeader() {
+            // 控制更新频率，避免处理过快影响性能
+            let scrollTop = $(document).scrollTop();
+            if (Math.abs(scrollTop - this.lastDocScrollTop) < 50)
+                return;
+
+            this.lastDocScrollTop = scrollTop;
+
             // ----------------------------------------
             // 寻找文档当前显示的章节
             // 默认为最后一章
@@ -734,6 +772,8 @@ MIT许可证（MIT）
                 else if (this.currentItem.position().top > (sBottom - preDis))
                     this.body.scrollTop(this.currentItem.position().top - this.body.height() + preDis);
             }
+
+            this.chapterNav.update();
         }
 
         /**
@@ -777,16 +817,16 @@ MIT许可证（MIT）
         /**
          * 显示大纲面板
         *
-         * @param mode float: 以浮动形式显示，block: 以占位形式显示
+         * @param displayMode float: 以浮动形式显示，block: 以占位形式显示
          */
-        show(mode, callback) {
+        show(displayMode, callback) {
             if (this.showed === true // 已显示
                 || this.ui.offset().left > -this.width) // 在以动画显示过程中
                 return;
 
             // 以「占位方式」显示大纲面板
-            this.mode = mode;
-            if (this.mode === "block") {
+            this.displayMode = displayMode;
+            if (this.displayMode === "block") {
                 // 占位方式的样式设置
                 this.ui.removeClass("mdx-toc-panel-float");
                 this.ui.addClass("mdx-toc-panel-block");
@@ -798,7 +838,7 @@ MIT许可证（MIT）
                     });
             }
             // 以「浮动方式」显示大纲面板
-            else if (this.mode === "float") {
+            else if (this.displayMode === "float") {
                 // 显示联动的遮罩
                 this.mask.show();
                 // 浮动方式的样式设置
@@ -814,14 +854,21 @@ MIT许可证（MIT）
             }
 
             // 动画式显示
-            this.ui.animate({
-                left: 10 + VK.animate.rebound
-                }, VK.animate.speed, "swing").animate({ // 回弹处理
-                        left: 10
-                    }, VK.animate.speed);
+            if (VK.ui.animate === true) {
+                this.ui.animate({
+                    left: 10 + VK.animate.rebound
+                    }, VK.animate.speed, "swing").animate({ // 回弹处理
+                            left: 10
+                        }, VK.animate.speed);
+            }
+            else {
+                this.ui.css({
+                    left: 10
+                });
+            }
 
             // 以「占位方式」显示大纲面板时，须执行回调函数
-            if (this.mode === "block")
+            if (this.displayMode === "block")
                 typeof(callback) === "function" && callback();
 
             this.showed = true;
@@ -840,7 +887,7 @@ MIT许可证（MIT）
             this.showed= false;
 
             // 若最后一次显示以是「占位方式」显示
-            if (this.mode === "block") {
+            if (this.displayMode === "block") {
                 // 记录是否手动关闭
                 this.closeMode = closeMode;
                 // 则取消占位空间
@@ -849,10 +896,17 @@ MIT许可证（MIT）
                 });
             }
 
-            // 收起大纲面板
-            this.ui.animate({
-                left: -this.width
-                }, VK.animate.speed, "swing");
+            // 动画式收起
+            if (VK.ui.animate === true) {
+                this.ui.animate({
+                    left: -this.width
+                    }, VK.animate.speed, "swing");
+            }
+            else {
+                this.ui.css({
+                    left: -this.width
+                });
+            }
 
             // 恢复不挤压文档正文区
             this.textArea.css({
@@ -893,11 +947,20 @@ MIT许可证（MIT）
          * 跳转回文档封面
          */
         gotoCover() {
+            pushData(['Outline', 'Goto', 'Cover', 0]);
+            
             location.href = "#";
             if (this.currentItem !== undefined) {
                 this.currentItem.removeClass("mdx-header-current");
                 this.currentHeaderIndex = -1;
             }
+
+            _iOutlineNav.adjust(adjustExpander);
+            _iToolbar.adjust();
+            _iChapterNav.adjust();
+
+            // _iOutlineNav.focusHeader();
+            // _iChapterNav.update();
         }
 
         /**
@@ -1669,30 +1732,33 @@ MIT许可证（MIT）
         if (_iColorScheme.scheme === "dark") {
             // 因需针对不同颜色方案在不同浏览器的处理，所以不能直接通过 CSS 的 @supports ((backdrop-filter: blur(15px)) 来实现
             // 支持毛玻璃 backdrop-filter: blur() 的浏览器
-            if (env.browser.Chrome || env.browser.Safari) {
-                _iMask.css({
-                    "background-color": "rgba(0, 0, 0, 0.3)"
-                });
-                _iFigureViewer.css({
-                    "background-color": "rgba(0, 0, 0, 0.3)"
-                });
-            } else { // 不支持
+            // if (env.browser.Chrome || env.browser.Safari) {
+                // _iMask.css({
+                //     "background-color": "rgba(0, 0, 0, 0.3)"
+                // });
+                // _iFigureViewer.css({
+                //     "background-color": "rgba(0, 0, 0, 0.3)"
+                // });
+            // }
+            // else { // 不支持
                 _iMask.css("background-color", "rgba(0, 0, 0, 0.9)");
                 _iFigureViewer.css("background-color", "rgba(0, 0, 0, 0.9)");
-            }
-        } else {
+            // }
+        }
+        else {
             // 支持毛玻璃 backdrop-filter: blur() 的浏览器
-            if (env.browser.Chrome || env.browser.Safari) {
-                _iMask.css({
-                    "background-color": "rgba(255, 255, 255, 0.3)"
-                });
-                _iFigureViewer.css({
-                    "background-color": "rgba(255, 255, 255, 0.3)"
-                });
-            } else { // 不支持
+            // if (env.browser.Chrome || env.browser.Safari) {
+                // _iMask.css({
+                //     "background-color": "rgba(255, 255, 255, 0.3)"
+                // });
+                // _iFigureViewer.css({
+                //     "background-color": "rgba(255, 255, 255, 0.3)"
+                // });
+            // }
+            // else { // 不支持
                 _iMask.css("background-color", "rgba(255, 255, 255, 0.9)");
                 _iFigureViewer.css("background-color", "rgba(255, 255, 255, 0.9)");
-            }
+            // }
         }
 
         // 对 mermaid 进行颜色方案适配
@@ -1859,20 +1925,35 @@ MIT许可证（MIT）
                 });
 
             // 动画式显示
-            this.ui.animate({
-                    bottom: 80 + VK.animate.rebound
-                }, VK.animate.speed, "swing").animate({ // 回弹处理
-                        bottom: 80
-                    }, VK.animate.speed);
+            if (VK.ui.animate === true) {
+                this.ui.animate({
+                        bottom: 80 + VK.animate.rebound
+                    }, VK.animate.speed, "swing").animate({ // 回弹处理
+                            bottom: 80
+                        }, VK.animate.speed);
+            }
+            else {
+                this.ui.css({
+                    bottom: 90
+                });
+            }
         }
 
         /**
          * 隐藏脚注弹层
          */
         hide() {
-            this.ui.animate({
-                bottom: -this.ui.height()
-            }, VK.animate.speed, "swing");
+            // 动画式显示
+            if (VK.ui.animate === true) {
+                this.ui.animate({
+                    bottom: -this.ui.height()
+                }, VK.animate.speed, "swing");
+            }
+            else {
+                this.ui.css({
+                    bottom: -this.ui.height()
+                });
+            }
 
             this.mask.hide();
         }
@@ -1953,9 +2034,24 @@ MIT许可证（MIT）
                 unfreezeScroll();
                 // 隐藏联动对应
                 that.partner.hide();
-                $(this).fadeOut();
+
+                // 动画式显示
+                if (VK.ui.animate === true) {
+                    // 动画式显示
+                    if (VK.ui.animate === true)
+                        $(this).fadeOut();
+                    else
+                        $(this).hide();
+                }
+                else
+                    $(this).hide();
             });
-            this.ui.fadeIn(VK.animate.speed);
+
+            // 动画式显示
+            if (VK.ui.animate === true)
+                this.ui.fadeIn(VK.animate.speed);
+            else
+                this.ui.show();
         }
 
         /**
@@ -1965,8 +2061,11 @@ MIT许可证（MIT）
             // 取消冻结滚动
             unfreezeScroll();
 
-            // 隐藏遮罩
-            this.ui.fadeOut(VK.animate.speed);
+            // 动画式显示
+            if (VK.ui.animate === true)
+                this.ui.fadeOut(VK.animate.speed);
+            else
+                this.ui.hide();
         }
     }
 
@@ -2158,9 +2257,9 @@ MIT许可证（MIT）
     function initUIi18n() {
         switch (env.language.base) {
             case "zh":
-                VK.ui.lang = 1; // 繁体中文
+                VK.ui.lang = 1; // 中（繁）
                 if (env.language.subset.toLowerCase() === "cn" || env.language.subset.toLowerCase() === "chs")
-                    VK.ui.lang = 0; // 简体中文
+                    VK.ui.lang = 0; // 中（简）
                 break;
             case "en":
                 VK.ui.lang = 2; // 英
@@ -2454,12 +2553,18 @@ MIT许可证（MIT）
             }
         }
 
-        _iInfoTips.fadeIn(VK.animate.speed, function () {
-            if (delay != null) // 延时后自动关闭
-                VK.animate.tipsTimer = setTimeout(function () {
-                    hideInfoTips();
-                }, delay);
-        });
+        // 动画式显示
+        if (VK.ui.animate === true) {
+            _iInfoTips.fadeIn(VK.animate.speed, function () {
+                if (delay != null) // 延时后自动关闭
+                    VK.animate.tipsTimer = setTimeout(function () {
+                        hideInfoTips();
+                    }, delay);
+            });
+        }
+        else {
+            _iInfoTips.show();
+        }
 
         // 冻结滚动
         freezeScroll();
@@ -2468,7 +2573,12 @@ MIT许可证（MIT）
         if (mask === true) {
             _iMask.css("z-index", _iInfoTips.css("z-index") - 1);
             _iMask.on("click", hideInfoTips);
-            _iMask.fadeIn(VK.animate.speed);
+
+            // 动画式显示
+            if (VK.ui.animate === true)
+                _iMask.fadeIn(VK.animate.speed);
+            else
+                _iMask.show();
         }
     }
 
@@ -2480,8 +2590,13 @@ MIT许可证（MIT）
     function hideToolTips(animate) {
         unfreezeScroll();
 
-        if (animate === true)
-            _iToolTips.fadeOut(VK.animate.speed);
+        if (animate === true) {
+            // 动画式显示
+            if (VK.ui.animate === true)
+                _iToolTips.fadeOut(VK.animate.speed);
+            else
+                _iToolTips.hide();
+        }
         else
             _iToolTips.hide();
     }
@@ -2490,7 +2605,16 @@ MIT许可证（MIT）
      * 隐藏工具提示、弹窗信息
      */
     function hideInfoTips() {
-        $('.mdx-info-tips').fadeOut(VK.animate.speed);
+        // 动画式显示
+        if (VK.ui.animate === true) {
+            // 动画式显示
+            if (VK.ui.animate === true)
+                _iInfoTips.fadeOut(VK.animate.speed);
+            else
+                _iInfoTips.hide();
+        }
+        else
+            _iInfoTips.hide();
         hideMask();
     }
 
@@ -2528,7 +2652,12 @@ MIT许可证（MIT）
         _iMask.css("z-index", target.css("z-index") - 1);
         // 设置回调函数
         _iMask.on("click", callback);
-        _iMask.fadeIn(VK.animate.speed);
+
+        // 动画式显示
+        if (VK.ui.animate === true)
+            _iMask.fadeIn(VK.animate.speed);
+        else
+            _iMask.show();
     }
 
     /**
@@ -2539,7 +2668,17 @@ MIT许可证（MIT）
 
         // 隐藏遮罩
         _iMask.off("click");
-        _iMask.fadeOut(VK.animate.speed);
+
+        // 动画式显示
+        if (VK.ui.animate === true) {
+            // 动画式显示
+            if (VK.ui.animate === true)
+                _iMask.fadeOut(VK.animate.speed);
+            else
+                _iMask.hide();
+        }
+        else
+            _iMask.hide();
     }
 
     /**
@@ -2863,7 +3002,7 @@ MIT许可证（MIT）
             // 生成代码块插图题注
             generateCodeBlockCaption(codeBlock);
 
-            _codeBlockCount++;
+            VK.content.codeBlockCount++;
         });
     }
 
@@ -2879,7 +3018,7 @@ MIT许可证（MIT）
             "Блок Кода ",
             "コードブロック ",
             "코드 블록 "
-        ][VK.ui.lang] + (_codeBlockCount + 1);
+        ][VK.ui.lang] + (VK.content.codeBlockCount + 1);
 
         // 有指定的题注文本
         let fc = null,
@@ -2892,7 +3031,7 @@ MIT许可证（MIT）
             caption = caption + " - <strong>" + fc + "</strong>";
             
         // 为插图增加题注
-        codeBlock.wrap("<div id='code-block-num" + _codeBlockCount +
+        codeBlock.wrap("<div id='code-block-num" + VK.content.codeBlockCount +
             "' class='mdx-figure-caption' style='width: 100%'></div>");
         codeBlock.before("<p class='mdx-figure-caption-1'>" + caption + "</p>");
         if (fc2 != null && fc2.length > 0)
@@ -2955,12 +3094,12 @@ MIT许可证（MIT）
      * 初始化表格数据
      */
     function initTable() {
-        // let _tableCount = 0;
+        // let VK.content.tableCount = 0;
         $("table").each(function () {
             let table = $(this);
 
             // 表格索引号
-            table.attr("id", "data-vk-tbl-" + _tableCount);
+            table.attr("id", "data-vk-tbl-" + VK.content.tableCount);
             table.parent().attr("data-vk-container", "table");
             
             // 将表格的宽度比父元素要小，则调整父元素的宽度，以便在逐段导航浏览模式时的高亮效果与内容贴合
@@ -3004,7 +3143,7 @@ MIT许可证（MIT）
             // 生成表格题注
             generateTableCaption(table);
 
-            _tableCount++;
+            VK.content.tableCount++;
         }); // table
     }
 
@@ -3132,7 +3271,7 @@ MIT许可证（MIT）
      */
     function tableCellCross(table, cell, colIndex) {
         // 单元格行列索引号
-        cell.attr("data-vk-tbl-col", "data-vk-tbl-" + _tableCount + "-" + colIndex);
+        cell.attr("data-vk-tbl-col", "data-vk-tbl-" + VK.content.tableCount + "-" + colIndex);
 
         // 鼠标点击单元格时显示十字光标
         cell.unbind("click").click(function () {
@@ -3235,8 +3374,13 @@ MIT许可证（MIT）
     function adjustTableCellCross(target, limit, scrollLeft) {
         if (limit < 5) // 任意边的尺寸（宽度或高度）小于最小值时隐藏
             target.hide();
-        else
-            target.fadeIn();
+        else {
+            // 动画式显示
+            if (VK.ui.animate === true)
+                target.fadeIn();
+            else
+                target.show();
+        }
         // 保存最后显示的十字光标任意边的 left 值及水平方向上的滚动偏移量
         _cellCrossPos[target.attr("data-vk-direction")] =  parseInt(target.css("left")) + scrollLeft;
     }
@@ -3276,7 +3420,7 @@ MIT许可证（MIT）
             "Таблица ",
             "テーブル ",
             "표 "
-        ][VK.ui.lang] + (_tableCount + 1);
+        ][VK.ui.lang] + (VK.content.tableCount + 1);
 
         // 有指定的题注文本
         let fc = null,
@@ -3289,7 +3433,7 @@ MIT许可证（MIT）
             caption = caption + " - <strong>" + fc + "</strong>";
         
         // 为插图增加题注
-        table.wrap("<div id='tbl-num" + _tableCount +
+        table.wrap("<div id='tbl-num" + VK.content.tableCount +
             "' class='mdx-figure-caption'></div>");
         table.before("<p class='mdx-figure-caption-1'>" + caption + "</p>");
         if (fc2 != null && fc2.length > 0)
@@ -3312,8 +3456,13 @@ MIT许可证（MIT）
         if (_lastCrossCell == null)
             return;
 
-        if (animate === true)
-            $(".mdx-table-cross").fadeOut();
+        if (animate === true) {
+            // 动画式显示
+            if (VK.ui.animate === true)
+                $(".mdx-table-cross").fadeOut();
+            else
+                $(".mdx-table-cross").hide();
+        }
         else
             $(".mdx-table-cross").hide();
         _lastCrossCell = null;
@@ -3339,8 +3488,8 @@ MIT许可证（MIT）
 
             // 添加插图标识数据
             fig.attr({
-                "fig-id": "mdx-figure-" + _figureCount,
-                "fig-idx": _figureCount
+                "fig-id": "mdx-figure-" + VK.content.figureCount,
+                "fig-idx": VK.content.figureCount
             });
 
             // 添加插图样式
@@ -3348,7 +3497,7 @@ MIT许可证（MIT）
             fig.addClass("mdx-figure");
 
             // 添加锚点，便于在插图浏览器直接跳转至对应插图位置
-            $("<a name='" + "fig-idx" + _figureCount + "'>").insertBefore(fig.parent());
+            $("<a name='" + "fig-idx" + VK.content.figureCount + "'>").insertBefore(fig.parent());
 
             // 添加鼠标单击事件
             fig.unbind("click").click(function () {
@@ -3441,9 +3590,9 @@ MIT许可证（MIT）
             // 生成插图题注
             generateFigureCaption(fig);
 
-            _figureCount++;
+            VK.content.figureCount++;
         });
-        if (_figureCount > 0)
+        if (VK.content.figureCount > 0)
             _iToolbar.buttons["figure-viewer"].css("visibility", "visible");
     }
 
@@ -3556,9 +3705,13 @@ MIT许可证（MIT）
             container.attr("data-vk-folded", "false");
             container.attr("data-vk-expanded", "true");
             container.css({
-                "height": "auto",
-                "overflow": "auto"
+                "height": "auto"
             });
+            // 针对表格、mermaid 图表增加滚动属性
+            if (tagName === "svg" || tagName === "table")
+                container.css({
+                    "overflow": "auto"
+                });
 
             // 如果处理对象为表格，恢复显示表格行号，find 过滤器的的内容与对应的 css 要同步更新
             if (container.find("table").length > 0)
@@ -3591,7 +3744,7 @@ MIT许可证（MIT）
             "карта ",
             "図 ",
             "그림 "
-        ][VK.ui.lang] + (_figureCount + 1);
+        ][VK.ui.lang] + (VK.content.figureCount + 1);
 
         // 有指定的题注文本
         if (fc != null && fc.trim().length > 0)
@@ -3600,10 +3753,10 @@ MIT许可证（MIT）
         // 为插图增加题注
         if (tagName === "svg")
             // 针对 mermaid 插图，添加额外的类，用于打印前后处理时直接定位 mermaid 插图的题注
-            fig.wrap("<div id='fig-num" + _figureCount + "' fig-type='" + tagName
+            fig.wrap("<div id='fig-num" + VK.content.figureCount + "' fig-type='" + tagName
                 + "' class='mdx-figure-caption mdx-figure-caption-mermaid'></div>");
         else
-            fig.wrap("<div id='fig-num" + _figureCount + "' fig-type='" + tagName
+            fig.wrap("<div id='fig-num" + VK.content.figureCount + "' fig-type='" + tagName
                 + "' class='mdx-figure-caption'></div>");
         fig.before("<p class='mdx-figure-caption-1'>" + caption + "</p>");
         if (fc2 != null && fc2.length > 0)
@@ -3715,7 +3868,7 @@ MIT许可证（MIT）
 
         freezeScroll();
 
-        if (_figureCount === 0)
+        if (VK.content.figureCount === 0)
             return;
         if (_figIndex === -1)
             _figIndex = 0;
@@ -3723,8 +3876,8 @@ MIT许可证（MIT）
             fig = $("[fig-id='mdx-figure-" + _figIndex + "']");
 
         _iFigureViewer.css({
-            "top": _iFigureViewer.css("height"),
-            "opacity": 0
+            "top": _iFigureViewer.css("height")
+            // "opacity": 0
         });
 
         hideContentButtons(null);
@@ -3736,25 +3889,43 @@ MIT许可证（MIT）
         showFigureContent();
         updateFigureViewerUI();
 
-        _iFigureViewer.animate({
-            top: 0 - VK.animate.rebound,
-            opacity: 1
-        }, VK.animate.speed, "swing").animate({ // 回弹处理
-            top: 0
-        }, VK.animate.speed);
+        // 动画式显示
+        if (VK.ui.animate === true) {
+            _iFigureViewer.animate({
+                top: 0 - VK.animate.rebound
+                // opacity: 1
+            }, VK.animate.speed, "swing").animate({ // 回弹处理
+                top: 0
+            }, VK.animate.speed);
+        }
+        else {
+            _iFigureViewer.css({
+                top: 0
+            });
+        }
     }
 
     /**
      * 关闭插图浏览器
      */
     function hideFigureViewer() {
-        _iFigureViewer.animate({
-            top: _iFigureViewer.css("height"),
-            opacity: 0
-        }, VK.animate.speed, "swing", function () {
+        // 动画式显示
+        if (VK.ui.animate === true) {
+            _iFigureViewer.animate({
+                top: _iFigureViewer.css("height")
+                // opacity: 0
+            }, VK.animate.speed, "swing", function () {
+                _iFigureContent.empty();
+                _iFigureViewer.hide();
+            });
+        }
+        else {
+            _iFigureViewer.css({
+                top: _iFigureViewer.css("height")
+            });
             _iFigureContent.empty();
             _iFigureViewer.hide();
-        });
+        }
 
         // 调整插图动作按钮层级
         let actIdx = parseInt(_iBtnOpenInNewTab.css("z-index")),
@@ -3793,7 +3964,11 @@ MIT许可证（MIT）
             "top": _lastHoverContent.offset().top
         });
 
-        _iBtnOpenInNewTab.fadeIn(VK.animate.speed);
+        // 动画式显示
+        if (VK.ui.animate === true)
+            _iBtnOpenInNewTab.fadeIn(VK.animate.speed);
+        else
+            _iBtnOpenInNewTab.show();
     }
 
     /**
@@ -3811,7 +3986,11 @@ MIT许可证（MIT）
             "top": _lastHoverContent.offset().top
         });
 
-        _iBtnCopyCodeBlock.fadeIn(VK.animate.speed);
+        // 动画式显示
+        if (VK.ui.animate === true)
+            _iBtnCopyCodeBlock.fadeIn(VK.animate.speed);
+        else
+            _iBtnCopyCodeBlock.show();
     }
 
     /**
@@ -3819,8 +3998,15 @@ MIT许可证（MIT）
      */
     function hideContentButtons() {
         if (_lastHoverContent == null || mouseDropInObj(_lastHoverContent) === false) {
-            _iBtnOpenInNewTab.fadeOut(VK.animate.speed);
-            _iBtnCopyCodeBlock.fadeOut(VK.animate.speed);
+            // 动画式显示
+            if (VK.ui.animate === true) {
+                _iBtnOpenInNewTab.fadeOut(VK.animate.speed);
+                _iBtnCopyCodeBlock.fadeOut(VK.animate.speed);
+            }
+            else {
+                _iBtnOpenInNewTab.hide();
+                _iBtnCopyCodeBlock.hide();
+            }
         }
     }
 
@@ -3891,7 +4077,7 @@ MIT许可证（MIT）
      */
     function nextFigure() {
         pushData(['Interactive', 'FigureViewer', 'Next', 0]);
-        if (_figIndex < _figureCount - 1) {
+        if (_figIndex < VK.content.figureCount - 1) {
             _figIndex++;
             hideContentButtons();
             showFigureContent();
@@ -3914,7 +4100,7 @@ MIT许可证（MIT）
             "(Всего ",
             "(合計",
             "(합계"
-        ][VK.ui.lang] + _figureCount + [
+        ][VK.ui.lang] + VK.content.figureCount + [
             "张) ",
             "張) ",
             ") ",
@@ -3940,7 +4126,7 @@ MIT许可证（MIT）
         if (_figIndex > 0) {
             _iBtnFigurePrev.css("opacity", "1");
         }
-        if (_figIndex < _figureCount - 1) {
+        if (_figIndex < VK.content.figureCount - 1) {
             _iBtnFigureNext.css("opacity", "1");
         }
     }
@@ -4581,7 +4767,7 @@ MIT许可证（MIT）
                 case 73: // I
                     pushData(['Hotkey', combKeys, String.fromCharCode(code), 0]);
                     // 文档无插图时不处理
-                    if (isVisible(_iBtnFigure) === false ||
+                    if (isVisible(_iToolbar.buttons["figure-viewer"]) === false ||
                         isHidden(_iMask) === false)
                         return;
                     // 以浮动样式显示时，先关闭大纲
@@ -4626,7 +4812,7 @@ MIT许可证（MIT）
                     hideToolTips(true);
                     hideInfoTips();
 
-                    if (_iOutlineNav.mode === "float")
+                    if (_iOutlineNav.displayMode === "float")
                         _iOutlineNav.hide();
 
                     _iSpotlight.hide();
@@ -4825,6 +5011,9 @@ MIT许可证（MIT）
             }, function() {
                 hideToolTips(false);
             });
+
+            // 添加关联组件
+            _iOutlineNav.chapterNav = _iChapterNav;
         }
 
         // 工具栏
@@ -4903,6 +5092,9 @@ MIT许可证（MIT）
             }, function() {
                 hideToolTips(false);
             });
+
+            // 添加关联组件
+            _iOutlineNav.toolbar = _iToolbar;
         }
 
         _iColorScheme = new ColorScheme(_iToolbar.buttons["color-scheme"], new BackgroundMask());
@@ -4990,7 +5182,7 @@ MIT许可证（MIT）
             $($("head")[0]).append("<link rel='icon' href='" + docIcon.substring(5, docIcon.length - 2) +
                 "' type='image/x-icon'/>");
         let timeCost = outputTimeCost();
-        pushData(['LoadTime', 'DocumentLogo', 'Times', timeCost]);
+        // pushData(['LoadTime', 'DocumentLogo', 'Times', timeCost]);
 
         // ----------------------------------------
         // 初始化字体样式
@@ -5013,14 +5205,14 @@ MIT许可证（MIT）
             _iFontStyler.apply();
         }
         timeCost = outputTimeCost();
-        pushData(['LoadTime', 'FontStyle', 'Times', timeCost]);
+        // pushData(['LoadTime', 'FontStyle', 'Times', timeCost]);
 
         // ----------------------------------------
         // 初始化国际化 UI
         console.info("- UI i18n");
         initUIi18n();
         timeCost = outputTimeCost();
-        pushData(['LoadTime', 'UIi18n', 'Times', timeCost]);
+        // pushData(['LoadTime', 'UIi18n', 'Times', timeCost]);
 
         // ----------------------------------------
         // 在新标签中初始化时不处理
@@ -5029,7 +5221,7 @@ MIT许可证（MIT）
             // 检查页内链接坏链
             checkInnerBadLink();
             timeCost = outputTimeCost();
-            pushData(['LoadTime', 'CheckInnerBadLink', 'Times', timeCost]);
+            // pushData(['LoadTime', 'CheckInnerBadLink', 'Times', timeCost]);
         }
 
         // ----------------------------------------
@@ -5037,42 +5229,42 @@ MIT许可证（MIT）
         console.info("- Check Duplicate Header");
         checkDuplicateHeader();
         timeCost = outputTimeCost();
-        pushData(['LoadTime', 'CheckDuplicateHeader', 'Times', timeCost]);
+        // pushData(['LoadTime', 'CheckDuplicateHeader', 'Times', timeCost]);
 
         // ----------------------------------------
         // 初始化插图数据
         console.info("- Figure ");
         initFigure();
         timeCost = outputTimeCost();
-        pushData(['LoadTime', 'Figure', 'Times', timeCost]);
+        // pushData(['LoadTime', 'Figure', 'Times', timeCost]);
 
         // ----------------------------------------
         // 初始化表格
         console.info("- Table");
         initTable();
         timeCost = outputTimeCost();
-        pushData(['LoadTime', 'Table', 'Times', timeCost]);
+        // pushData(['LoadTime', 'Table', 'Times', timeCost]);
 
         // ----------------------------------------
         // 初始化引用块
         console.info("- Quote");
         initQuote();
         timeCost = outputTimeCost();
-        pushData(['LoadTime', 'Quote', 'Times', timeCost]);
+        // pushData(['LoadTime', 'Quote', 'Times', timeCost]);
 
         // ----------------------------------------
         // 初始化代码块
         console.info("- Code Block");
         initCodeBlock();
         timeCost = outputTimeCost();
-        pushData(['LoadTime', 'CodeBlock', 'Times', timeCost]);
+        // pushData(['LoadTime', 'CodeBlock', 'Times', timeCost]);
 
         // ----------------------------------------
         // 重置脚本化图表样式
         console.info("- Mermaid Style");
         restyleMermaidStyle();
         timeCost = outputTimeCost();
-        pushData(['LoadTime', 'MermaidStyle', 'Times', timeCost]);
+        // pushData(['LoadTime', 'MermaidStyle', 'Times', timeCost]);
 
         // ----------------------------------------
         console.info("- Restyle Code / Fences");
@@ -5081,21 +5273,21 @@ MIT许可证（MIT）
         // 重置多行代码块code block样式
         restyleCodeFences();
         timeCost = outputTimeCost();
-        pushData(['LoadTime', 'RestyleCode/Fences', 'Times', timeCost]);
+        // pushData(['LoadTime', 'RestyleCode/Fences', 'Times', timeCost]);
 
         // ----------------------------------------
         // 重置任务列表样式
         console.info("- Task List Checkbox");
         restyleTaskListCheckbox();
         timeCost = outputTimeCost();
-        pushData(['LoadTime', 'TaskListCheckbox', 'Times', timeCost]);
+        // pushData(['LoadTime', 'TaskListCheckbox', 'Times', timeCost]);
 
         // ----------------------------------------
         // 初始化逐段导航
         console.info("- Paragraph Nav");
         initParagraphNav();
         timeCost = outputTimeCost();
-        pushData(['LoadTime', 'ParagraphNav', 'Times', timeCost]);
+        // pushData(['LoadTime', 'ParagraphNav', 'Times', timeCost]);
 
         // ----------------------------------------
         // 增强脚注
@@ -5103,14 +5295,14 @@ MIT许可证（MIT）
         // initFootNote();
         initFootNote();
         timeCost = outputTimeCost();
-        pushData(['LoadTime', 'FootNote', 'Times', timeCost]);
+        // pushData(['LoadTime', 'FootNote', 'Times', timeCost]);
 
         // ----------------------------------------
         // 初始化外部链接
         console.info("- External Link");
         initExtLink();
         timeCost = outputTimeCost();
-        pushData(['LoadTime', 'ExternalLink', 'Times', timeCost]);
+        // pushData(['LoadTime', 'ExternalLink', 'Times', timeCost]);
 
         // ----------------------------------------
         // 初始化Outline数据
@@ -5125,20 +5317,21 @@ MIT许可证（MIT）
 
             // 自适应页面内容显示
             _iOutlineNav.focusHeader();
-            _iChapterNav.update();
+            // _iChapterNav.update();
+
+            _iOutlineNav.adjust(adjustExpander);
             _iChapterNav.adjust();
             _iToolbar.adjust();
-            _iOutlineNav.adjust(adjustExpander);
         }
         timeCost = outputTimeCost();
-        pushData(['LoadTime', 'Outline&ChapterNav', 'Times', timeCost]);
+        // pushData(['LoadTime', 'Outline&ChapterNav', 'Times', timeCost]);
 
         // ----------------------------------------
         // 初始化全局热键
         console.info("- Hotkey");
         initHotkey();
         timeCost = outputTimeCost();
-        pushData(['LoadTime', 'Hotkey', 'Times', timeCost]);
+        // pushData(['LoadTime', 'Hotkey', 'Times', timeCost]);
 
         // ----------------------------------------
         // 根据设备类型自适应hover样式
@@ -5147,7 +5340,7 @@ MIT许可证（MIT）
         // 隐藏插图动作按钮
         hideContentButtons(null);
         timeCost = outputTimeCost();
-        pushData(['LoadTime', 'AdjustForMobile', 'Times', timeCost]);
+        // pushData(['LoadTime', 'AdjustForMobile', 'Times', timeCost]);
 
         // ----------------------------------------
         console.info("- Binding Event");
@@ -5164,18 +5357,33 @@ MIT许可证（MIT）
 
         // 绑定文档的滚动事件
         $(document).scroll(function () {
+            let currentTime = new Date().getTime(),
+                scrollTop = $(document).scrollTop();
+            // 控制更新c频率，避免处理过快影响性能
+            if (scrollTop < 100
+                || currentTime - VK.scroll.lastUpdateTime > 1000
+                || (Math.abs(scrollTop - VK.scroll.lastTop) > 100 && (currentTime - VK.scroll.lastUpdateTime) > 500)) {
+                debug("Update in Scroll Event ...");
+                VK.scroll.lastUpdateTime = currentTime;
+                VK.scroll.lastTop = $(document).scrollTop();
+
+                _iOutlineNav.adjust(adjustExpander);
+                _iToolbar.adjust();
+                _iChapterNav.adjust();
+            }
+
             _iOutlineNav.focusHeader();
-            _iChapterNav.update();
-            _iChapterNav.adjust();
-            _iToolbar.adjust();
-            _iOutlineNav.adjust(adjustExpander);
+            // _iChapterNav.update();
         });
 
         // 绑定窗口大小缩放事件
         $(window).resize(function () {
+            _iOutlineNav.focusHeader();
+            // _iChapterNav.update();
+
+            _iOutlineNav.adjust(adjustExpander);
             _iChapterNav.adjust();
             _iToolbar.adjust();
-            _iChapterNav.adjust(adjustExpander);
         });
 
         // 绑定打印前的触发事件
@@ -5186,7 +5394,7 @@ MIT许可证（MIT）
         };
 
         timeCost = outputTimeCost();
-        pushData(['LoadTime', 'BindingEvent', 'Times', timeCost]);
+        // pushData(['LoadTime', 'BindingEvent', 'Times', timeCost]);
 
         // 应用于在新标签中打开内容时初始化颜色模式
         if (colorScheme != null)
@@ -5515,7 +5723,7 @@ MIT许可证（MIT）
         console.info("- Intance");
         initIntance(false);
         let timeCost = outputTimeCost();
-        pushData(['LoadTime', 'InitIntance', 'Times', timeCost]);
+        // pushData(['LoadTime', 'InitIntance', 'Times', timeCost]);
 
         // 只支持由 Typora 导出的 HTML 文件
         if (_iBody.attr("class").indexOf("typora-export") === -1) {
@@ -5524,6 +5732,9 @@ MIT许可证（MIT）
             _iChapterNav.ui.hide();
             _iBtnOpenInNewTab.hide();
             _iBtnCopyCodeBlock.hide();
+
+            pushData(['Error', 'Format', 'Not Typora Exported', ]);
+
             alert([
                 "无法激活 VLOOK！\n目前只支持由 Typora 导出的 HTML 文件，谢谢支持！",
                 "無法激活 VLOOK！\n目前只支持由 Typora 導出的 HTML 文件，謝謝關注！",
@@ -5540,6 +5751,9 @@ MIT许可证（MIT）
         if (env.browser.Chrome === false &&
             env.browser.Firefox === false &&
             env.browser.Safari === false) {
+
+            pushData(['Error', 'Browser', navigator.userAgent, ]);
+
             alert([
                 "为获得最佳兼容性，建议使用 Chrome / Edge / Firefox / Safari 浏览器",
                 "為獲得最佳兼容性，建議使用 Chrome / Edge / Firefox / Safari / Safari 瀏覽器",
@@ -5574,7 +5788,7 @@ MIT许可证（MIT）
         // 针对 Dark 模式进行图片反色适配处理
         adjustImageInverInDarkMode();
         timeCost = outputTimeCost();
-        pushData(['LoadTime', 'AdjustColorScheme', 'Times', timeCost]);
+        // pushData(['LoadTime', 'AdjustColorScheme', 'Times', timeCost]);
 
         // ----------------------------------------
         // 更新欢迎屏

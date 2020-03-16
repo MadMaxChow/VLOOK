@@ -260,7 +260,6 @@ body {
   font-weight: normal;
   line-height: 2;
   -webkit-tap-highlight-color: transparent;
-  transition: all 0.3s ease-in-out;
 }
 body.typora-export {
   padding-left: 0;
@@ -280,7 +279,6 @@ a {
   color: var(--a-color) !important;
   border-bottom: 2px solid #5ABD3C;
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
 }
 a:hover {
   color: #5ABD3C !important;
@@ -289,7 +287,6 @@ a:hover {
 a:active {
   color: #357023 !important;
   border-color: #357023;
-  transition: all 0.3s ease-in-out;
 }
 a:not([name^="ref-footnote"]):hover::after {
   content: "🔗";
@@ -738,7 +735,6 @@ del code {
 }
 .reversefootnote:hover {
   color: #C21117;
-  transition: all 0.3s ease-in-out;
 }
 a[name^="ref-footnote-"] {
   font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
@@ -746,7 +742,6 @@ a[name^="ref-footnote-"] {
 }
 a[name^="ref-footnote-"]:hover {
   color: #357023;
-  transition: all 0.3s ease-in-out;
 }
 a[name^="ref-footnote-"]::before {
   content: "[";
@@ -1455,7 +1450,6 @@ div.mermaidTooltip {
   max-width: 100%;
   margin: 0 auto;
   padding: 0 10px 0 10px;
-  transition: all 0.3s ease-in-out;
 }
 #write > ul:first-child,
 #write > ol:first-child {
@@ -1473,7 +1467,6 @@ div.mermaidTooltip {
 }
 .CodeMirror-line:hover {
   background-color: var(--doc-bg-color-alt);
-  transition: all 0.3s ease-in-out;
 }
 .CodeMirror.cm-s-inner {
   border-radius: 16px;
@@ -1560,7 +1553,6 @@ div.mermaidTooltip {
   border: 2px solid var(--table-border-color);
   border-radius: 16px;
   padding: 0.3em 0.3em;
-  transition: all 0.3s ease-in-out;
 }
 .MathJax_SVG:hover,
 .MathJax_SVG_Display:hover {
@@ -1600,7 +1592,6 @@ div.mermaidTooltip {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  transition: all 0.3s ease-in-out;
 }
 .md-toc-item::before {
   color: var(--toc-header-num-color);
@@ -1652,7 +1643,6 @@ div.mermaidTooltip {
   box-shadow: none;
   text-decoration: none;
   border: 0;
-  transition: all 0.3s ease-in-out;
 }
 #svg-figure-content {
   margin: 5px;
@@ -1801,7 +1791,7 @@ li p {
   font-weight: bold;
   height: 100px;
   margin-top: -120px;
-  background: linear-gradient(0deg, var(--doc-bg-color), transparent);
+  background: linear-gradient(0deg, var(--doc-bg-color) 10px, transparent);
   border-radius: 0 0 16px 16px;
   position: absolute;
   text-align: center;
@@ -1830,7 +1820,7 @@ li p {
   cursor: wait;
   position: fixed;
   color: #FFFFFF;
-  background: linear-gradient(#074c90 0%, #0B72D9 20%, #0B72D9);
+  background-color: #0B72D9;
   left: 0;
   top: 0;
   width: 100%;
@@ -1871,7 +1861,6 @@ li p {
   display: inline-block;
   border-radius: 1em;
   margin-bottom: 2em;
-  transition: all 0.3s ease-in-out;
 }
 .mdx-btn-load-screen-done {
   cursor: pointer;
@@ -1885,14 +1874,12 @@ li p {
   color: #FFFFFF;
   background-color: #5ABD3C;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease-in-out;
   transform: translateY(-2px);
 }
 .mdx-btn-load-screen-done:active {
   background-color: #357023;
   transform: none;
   box-shadow: none;
-  transition: all 0.3s ease-in-out;
 }
 .mdx-current-blockfocus-item {
   box-shadow: 0 0 10px 0 #5ABD3C;
@@ -1903,9 +1890,6 @@ li p {
 }
 .mdx-figure-content svg {
   width: 100%;
-}
-.mdx-blockquote-folder {
-  transition: all 0.3s ease-in-out;
 }
 .mdx-blockquote-folder:hover {
   color: #5ABD3C;
@@ -1979,7 +1963,6 @@ li p {
   font-weight: bold;
   color: var(--a-color);
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
 }
 .mdx-toc-panel-title:hover {
   color: #FFFFFF;
@@ -2093,7 +2076,6 @@ li p {
   height: 50px;
   position: fixed;
   background-color: #0B72D9;
-  transition: all 0.3s ease-in-out;
   z-index: 100;
 }
 .mdx-btn-outline {
@@ -2128,7 +2110,6 @@ li p {
 }
 .mdx-folder:hover {
   color: #357023;
-  transition: all 0.3s ease-in-out;
 }
 .mdx-btn {
   display: flex;
@@ -2142,7 +2123,6 @@ li p {
   width: 40px;
   height: 30px;
   border-radius: 6px;
-  transition: all 0.3s ease-in-out;
 }
 .mdx-btn-hover:hover {
   background-color: #5ABD3C;
@@ -2151,8 +2131,6 @@ li p {
 }
 .mdx-btn-float {
   background-color: #0B72D9;
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
 }
 .mdx-btn:active {
   background-color: #357023;
@@ -2170,11 +2148,9 @@ li p {
 }
 .mdx-chapter-nav-prev:hover {
   background: linear-gradient(to right, #5ABD3C, rgba(90, 189, 60, 0));
-  transition: all 0.3s ease-in-out;
 }
 .mdx-chapter-nav-prev:active {
   background: linear-gradient(to right, #357023, rgba(53, 112, 35, 0));
-  transition: all 0.3s ease-in-out;
 }
 .mdx-chapter-nav-prev-text {
   top: 0;
@@ -2203,11 +2179,9 @@ li p {
 }
 .mdx-chapter-nav-next:hover {
   background: linear-gradient(to left, #5ABD3C, rgba(90, 189, 60, 0));
-  transition: all 0.3s ease-in-out;
 }
 .mdx-chapter-nav-next:active {
   background: linear-gradient(to left, #357023, rgba(53, 112, 35, 0));
-  transition: all 0.3s ease-in-out;
 }
 .mdx-chapter-nav-next-text {
   top: 0;
@@ -2238,7 +2212,6 @@ li p {
   vertical-align: middle;
   z-index: 100;
   user-select: none;
-  transition: all 0.3s ease-in-out;
 }
 .mdx-chapter-nav-current {
   color: #FFFFFF;
@@ -2259,11 +2232,9 @@ li p {
 }
 .mdx-chapter-nav-current:hover {
   background: linear-gradient(90deg, rgba(90, 189, 60, 0), #5ABD3C, rgba(90, 189, 60, 0));
-  transition: all 0.3s ease-in-out;
 }
 .mdx-chapter-nav-current:active {
   background: linear-gradient(90deg, rgba(53, 112, 35, 0), #357023, rgba(53, 112, 35, 0));
-  transition: all 0.3s ease-in-out;
 }
 .mdx-btn-fullscreen {
   margin-top: 10px;
@@ -2303,7 +2274,7 @@ li p {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.8);
   position: fixed;
   display: none;
   z-index: 2200;
@@ -2326,7 +2297,6 @@ li p {
   border-radius: 16px;
   position: absolute;
   bottom: 10px;
-  transition: all 0.3s ease-in-out;
 }
 .mdx-btn-figure-next {
   right: 10px;
@@ -2337,7 +2307,6 @@ li p {
   border-radius: 16px;
   position: absolute;
   bottom: 10px;
-  transition: all 0.3s ease-in-out;
 }
 .mdx-btn-figure-hover {
   fill: #5ABD3C !important;
@@ -2362,7 +2331,6 @@ li p {
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   border-radius: 0 0 0 50px;
   position: absolute;
-  transition: all 0.3s ease-in-out;
 }
 .mdx-btn-close-figure-viewer:hover {
   background-color: #5ABD3C;
@@ -2399,7 +2367,6 @@ img,
   padding: 0;
   border: 2px solid var(--table-border-color);
   display: block;
-  transition: all 0.3s ease-in-out;
 }
 .md-diagram-panel {
   border-radius: 16px;
@@ -2408,13 +2375,11 @@ img,
 }
 .mdx-clickable-hover {
   border-color: #5ABD3C !important;
-  transition: all 0.3s ease-in-out;
 }
 .mdx-OINPable-hover {
   border-color: #5ABD3C !important;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
-  transition: all 0.3s ease-in-out;
 }
 .mdx-OINPable-hover:active {
   border-color: #357023 !important;
@@ -2457,7 +2422,6 @@ img,
   display: inline-block;
   border-radius: 16px;
   background-color: var(--doc-bg-color-alt);
-  transition: all 0.3s ease-in-out;
 }
 .mdx-figure-caption > p {
   color: var(--fore-color);
@@ -2477,7 +2441,6 @@ use.mdx-button-ico-dark {
 }
 use.mdx-folder-ico {
   fill: #0B72D9;
-  transition: all 0.3s ease-in-out;
 }
 use.mdx-folder-ico:hover,
 .mdx-folder-ico-hover {
@@ -2490,13 +2453,9 @@ use.mdx-folder-ico:hover,
   height: 100%;
   text-align: center;
   position: fixed;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.8);
   display: none;
   z-index: 1000;
-}
-.mdx-backdrop-blurs {
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
 }
 .mdx-code-c1,
 .mdx-code-c2,
@@ -2863,14 +2822,6 @@ h6 code {
 }
 @supports ((backdrop-filter: blur(15px)) or
     (-webkit-backdrop-filter: blur(15px))) {
-  .mdx-btn-float,
-  .mdx-chapter-nav,
-  .mdx-btn-open-in-new-tab,
-  .mdx-btn-copy-code-block {
-    background-color: rgba(11, 114, 217, 0.75);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-  }
   .mdx-load-screen {
     background: linear-gradient(#074c90 0%, #0B72D9 20%, rgba(11, 114, 217, 0.5));
   }

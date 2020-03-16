@@ -1,10 +1,10 @@
-###### <sup>VLOOK™</sup><br>快速参考手册 Quick Reference Manual<br>──<br><br>`# 版本丨V9.13 #`<br><br><br><br><br>**MAX丨孟兆**<br><br>*COPYRIGHT © 2016-2020. MAX°DESIGN.*
+###### <sup>VLOOK™</sup><br>快速参考手册 Quick Reference Manual<br>──<br><br>`# 版本丨V9.13.1 #`<br><br><br><br><br>**MAX丨孟兆**<br><br>*COPYRIGHT © 2016-2020. MAX°DESIGN.*
 
 [TOC]
 
 # VLOOK™ 是什么
 
-`最新版本丨V9.13`    `+ 官网丨https://github.com/madmaxchow/VLOOK +`    `* 适用平台丨Typora for Win & macOS *`    `- 开源协议丨MIT -`   `! 开发语言丨JavaScript !`
+`最新版本丨V9.13.1`    `+ 官网丨https://github.com/madmaxchow/VLOOK +`    `* 适用平台丨Typora for Win & macOS *`    `- 开源协议丨MIT -`   `! 开发语言丨JavaScript !`
 
 [VLOOK™](https://github.com/MadMaxChow/VLOOK) 是针对由 [Typora](https://www.typora.io)[^Typora]（目前最好的跨平台 Markdown 编辑器，没有之一）导出的 HTML 文件进行增强的插件。
 
@@ -684,7 +684,7 @@ $$
 
 **MIT许可证**
 
-版权所有 (c) 2018 MAX°DESIGN | Max Chow
+版权所有 (c) 2018-2020 MAX°DESIGN | Max Chow
 在此授予任何获得此软件和相关文档文件（“软件”）副本的人免费许可，以无限制地处理本软件，包括但不限于使用，复制，修改，合并，发布，分发，再授权和/或出售本软件的副本，并允许本软件的授予人员遵从以下情况：
 上述版权声明和本许可声明应包含在本软件的所有副本或重要部分中。
 本软件按“原样”提供，不提供任何以表达或暗示，包括但不限于销售，适用于特定用途和不侵权的保证。在任何情况下，作者或版权所有人不对因软件或软件的使用或其他事宜产生的任何索赔，损害或其他责任（无论是在合同，侵权或其他方面的诉讼中）负责。
