@@ -14,7 +14,6 @@ var _hmt = _hmt || [];
      * 获取 URL 中的参数
      */
     function parseQueryString(url) {
-        console.log(url);
         let queryStr = url.substring(url.indexOf("?") + 1, url.length), // 获取url中"?"符后的字串
             args = {}, // 保存参数数据的对象
             items = (queryStr.length > 0) ? queryStr.split("&") : [], // 取得每一个参数项,
