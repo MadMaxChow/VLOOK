@@ -3170,9 +3170,9 @@ h6 code {
 <body class='typora-export' >
 <!--========================================================================-->
 <!--                                                                        -->
-<!--                       VLOOK V9.13.1 - Typora Plugin                      -->
+<!--                       VLOOK V9.13.2 - Typora Plugin                      -->
 <!--                                                                        -->
-<!--                               2020-03-15                               -->
+<!--                               2020-03-17                               -->
 <!--                          powered by MAX丨孟兆                           -->
 <!--                                                                        -->
 <!--              QQ Group: 805502564    email: maxchow@qq.com              -->
@@ -4897,7 +4897,7 @@ MIT许可证（MIT）
      * 根据颜色方案对浏览器兼容性处理
      */
     function compatibleAfterColorScheme() {
-        _iCopyright.children("svg").html("<use xlink:href='#icoVLOOK-" + VK.ui.colorScheme + "'></use>");
+        _iCopyright.children("svg").html("<use xlink:href='#icoVLOOK-" + _iColorScheme.scheme + "'></use>");
 
         if (_iColorScheme.scheme === "dark") {
             // 因需针对不同颜色方案在不同浏览器的处理，所以不能直接通过 CSS 的 @supports ((backdrop-filter: blur(15px)) 来实现
@@ -5734,6 +5734,10 @@ MIT许可证（MIT）
         }
         else {
             _iInfoTips.show();
+            if (delay != null) // 延时后自动关闭
+                VK.animate.tipsTimer = setTimeout(function () {
+                    hideInfoTips();
+                }, delay);
         }
 
         // 冻结滚动
@@ -8075,7 +8079,7 @@ MIT许可证（MIT）
      */
     function afterPrintDocument() {
         // 若打印前为 Dark 模式则先恢复为 Dark 模式
-        if (VK.ui.colorSchemeBeforePrint === "dark") {
+        if (_iColorScheme.schemeBeforePrint === "dark") {
             _iColorScheme.toggle(compatibleAfterColorScheme);
         }
 
