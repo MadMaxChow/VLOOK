@@ -16,7 +16,7 @@
 
 ---------- 二级 UI 区 ----------
 
-插图浏览器 / .mdx-figure-viewer / z-index: 2200;
+插图导航 / .mdx-figure-viewer / z-index: 2200;
 脚注面板 / .mdx-footer-note-panel / z-index: 2100;
 大纲面板 / .mdx-toc-panel / z-index: 2000;
     大纲面板头部 / .mdx-toc-panel-header / z-index: 10;
@@ -49,6 +49,7 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
 @figureBackgroundDark: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj4KICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjMEQwQjA5Ii8+CiAgICA8ZyBmaWxsPSIjMDAwIj4KICAgICAgPHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iNzkiIHg9Ijc4Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSI4MCIgaGVpZ2h0PSIyIiB5PSI3OCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iMTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjM5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSI1OSIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iMTkiIHk9IjIwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIzOSIgeT0iMjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjU5IiB5PSIyMCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iMTkiIHk9IjQwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIzOSIgeT0iNDAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjU5IiB5PSI0MCIvPgogICAgICA8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxOSIgeD0iMTkiIHk9IjYwIi8+CiAgICAgIDxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjE5IiB4PSIzOSIgeT0iNjAiLz4KICAgICAgPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMTkiIHg9IjU5IiB5PSI2MCIvPgogICAgICA8cmVjdCB3aWR0aD0iNzkiIGhlaWdodD0iMSIgeT0iMTkiLz4KICAgICAgPHJlY3Qgd2lkdGg9Ijc5IiBoZWlnaHQ9IjEiIHk9IjM5Ii8+CiAgICAgIDxyZWN0IHdpZHRoPSI3OSIgaGVpZ2h0PSIxIiB5PSI1OSIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+Cg==";
 // 按钮阴影
 @buttonShadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+@buttonShadowNoblur: 0 2px 0 rgba(0, 0, 0, 0.3);
 
 :root {
     --vlook-theme-name: @themeName; // 主题
@@ -61,9 +62,10 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
 
     // --------------------
     // Light 模式的颜色值
+    --vlook-invert-in-dark-light: invert(0); // Light 模式下图片滤镜
     --doc-bg-color-light: @docBgColorLight;
     --doc-bg-color-alt-light: @docBgColorLightAlt;
-    --doc-bg-color-alt-transparent-light: fade(@docBgColorLightAlt, 0%);
+    --doc-bg-color-transparent-light: fade(@docBgColorLight, 0%);
     --fore-color-light: @foreColorLight;
     --fore-color-alt-light: @foreColorLightAlt;
     --tips-bg-color-light: @foreColorDark;
@@ -78,7 +80,7 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --table-th-bg-color-light: @tableThBgColor;
     --table-th-border-color-light: @tableThBorderColor;
     //   --table-td-bg-color2-light: @tableTdBgColor2;
-    --img-dark-filter-light: none;
+    // --img-dark-filter-light: none;
     --del-color-light: @foreColorLightAlt;
     --toc-header-num-color-light: @tocHeaderNumColor;
     // --content-header-num-color-light: @contentHeaderNumColor;
@@ -87,27 +89,27 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --header-bg-start-color-light: fade(@headerColor, 0%);
     --header-bg-end-color-light: fade(@headerColor, 10%);
     --code-bg-color-light: @codeBgColor;
-    --code-bg-color-transparent-light: fade(@codeBgColor, 0%);
+    // --code-bg-color-transparent-light: fade(@codeBgColor, 0%);
     --code-name-bg-color-light: @foreColorLight;
     --code-name-shadow-color-light: @foreColorLight;
-    --master-color-light: @masterColor;
-    --slave-color-light: @slaveColor;
-    --third-color-light: @thirdColor;
-    --fourth-color-light: @fourthColor;
-    --fifth-color-light: @fifthColor;
-    --sixth-color-light: @sixthColor;
-    --mermaid-master-color-light: @masterColor;
-    --mermaid-master-color-alt-light: @masterColorAlt;
-    --mermaid-slave-color-light: @slaveColor;
-    --mermaid-slave-color-alt-light: @slaveColorAlt;
-    --mermaid-third-color-light: @thirdColor;
-    --mermaid-third-color-alt-light: @thirdColorAlt;
-    --mermaid-fourth-color-light: @fourthColor;
-    --mermaid-fourth-color-alt-light: @fourthColorAlt;
-    --mermaid-fifth-color-light: @fifthColor;
-    --mermaid-fifth-color-alt-light: @fifthColorAlt;
-    --mermaid-sixth-color-light: @sixthColor;
-    --mermaid-sixth-color-alt-light: @sixthColorAlt;
+    --accent-color1-light: @accentColor1;
+    --accent-color2-light: @accentColor2;
+    --accent-color3-light: @accentColor3;
+    --accent-color4-light: @accentColor4;
+    --accent-color5-light: @accentColor5;
+    --accent-color6-light: @accentColor6;
+    --mermaid-accent-color1-light: @accentColor1;
+    --mermaid-accent-color1-alt-light: @accentColor1Alt;
+    --mermaid-accent-color2-light: @accentColor2;
+    --mermaid-accent-color2-alt-light: @accentColor2Alt;
+    --mermaid-accent-color3-light: @accentColor3;
+    --mermaid-accent-color3-alt-light: @accentColor3Alt;
+    --mermaid-accent-color4-light: @accentColor4;
+    --mermaid-accent-color4-alt-light: @accentColor4Alt;
+    --mermaid-accent-color5-light: @accentColor5;
+    --mermaid-accent-color5-alt-light: @accentColor5Alt;
+    --mermaid-accent-color6-light: @accentColor6;
+    --mermaid-accent-color6-alt-light: @accentColor6Alt;
     --cm-keyword-light: #770088;
     --cm-variable-light: @foreColorLight;
     --cm-variable-2-light: #0055AA;
@@ -132,9 +134,10 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
 
     // --------------------
     // Dark 模式的颜色值
+    --vlook-invert-in-dark-dark: invert(1); // Dark 模式下图片滤镜
     --doc-bg-color-dark: @docBgColorDark;
     --doc-bg-color-alt-dark: @docBgColorDarkAlt;
-    --doc-bg-color-alt-transparent-dark: fade(@docBgColorDarkAlt, 0%);
+    --doc-bg-color-transparent-dark: fade(@docBgColorDark, 0%);
     --fore-color-dark: @foreColorDark;
     --fore-color-alt-dark: @foreColorDarkAlt;
     --tips-bg-color-dark: @docBgColorDarkAlt;
@@ -149,7 +152,7 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --table-th-bg-color-dark: @tableThBgColorDark;
     --table-th-border-color-dark: @tableThBorderColorDark;
     //   --table-td-bg-color2-dark: @tableTdBgColor2;
-    --img-dark-filter-dark: brightness(0.9);
+    // --img-dark-filter-dark: brightness(0.9);
     --del-color-dark: darken(@foreColorDark, 20%);
     --toc-header-num-color-dark: fade(@foreColorDark, 50%);
     // --content-header-num-color-dark: lighten(@contentHeaderNumColor, 15%);
@@ -158,27 +161,27 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --header-bg-start-color-dark: fade(@headerColorDark, 0%);
     --header-bg-end-color-dark: fade(@headerColorDark, 15%);
     --code-bg-color-dark: @codeBgColorDark;
-    --code-bg-color-transparent-dark: fade(@codeBgColorDark, 0%);
+    // --code-bg-color-transparent-dark: fade(@codeBgColorDark, 0%);
     --code-name-bg-color-dark: @docBgColorDark;
     --code-name-shadow-color-dark: @foreColorLightAlt;
-    --master-color-dark: @masterColorDark;
-    --slave-color-dark: @slaveColorDark;
-    --third-color-dark: @thirdColorDark;
-    --fourth-color-dark: @fourthColorDark;
-    --fifth-color-dark: @fifthColorDark;
-    --sixth-color-dark: @sixthColorDark;
-    --mermaid-master-color-dark: @masterColorAltDark;
-    --mermaid-master-color-alt-dark: @masterColor;
-    --mermaid-slave-color-dark: @slaveColorAltDark;
-    --mermaid-slave-color-alt-dark: @slaveColor;
-    --mermaid-third-color-dark: @thirdColorAltDark;
-    --mermaid-third-color-alt-dark: @thirdColor;
-    --mermaid-fourth-color-dark: @fourthColorAltDark;
-    --mermaid-fourth-color-alt-dark: @fourthColor;
-    --mermaid-fifth-color-dark: @fifthColorAltDark;
-    --mermaid-fifth-color-alt-dark: @fifthColor;
-    --mermaid-sixth-color-dark: @sixthColorAltDark;
-    --mermaid-sixth-color-alt-dark: @sixthColor;
+    --accent-color1-dark: @accentColor1Dark;
+    --accent-color2-dark: @accentColor2Dark;
+    --accent-color3-dark: @accentColor3Dark;
+    --accent-color4-dark: @accentColor4Dark;
+    --accent-color5-dark: @accentColor5Dark;
+    --accent-color6-dark: @accentColor6Dark;
+    --mermaid-accent-color1-dark: @accentColor1AltDark;
+    --mermaid-accent-color1-alt-dark: @accentColor1Dark;
+    --mermaid-accent-color2-dark: @accentColor2AltDark;
+    --mermaid-accent-color2-alt-dark: @accentColor2Dark;
+    --mermaid-accent-color3-dark: @accentColor3AltDark;
+    --mermaid-accent-color3-alt-dark: @accentColor3Dark;
+    --mermaid-accent-color4-dark: @accentColor4AltDark;
+    --mermaid-accent-color4-alt-dark: @accentColor4Dark;
+    --mermaid-accent-color5-dark: @accentColor5AltDark;
+    --mermaid-accent-color5-alt-dark: @accentColor5Dark;
+    --mermaid-accent-color6-dark: @accentColor6AltDark;
+    --mermaid-accent-color6-alt-dark: @accentColor6Dark;
     --cm-keyword-dark: #C88FD0;
     --cm-variable-dark: @foreColorDark;
     --cm-variable-2-dark: #9FBAD5;
@@ -203,9 +206,10 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
 
     // --------------------
     // 颜色变量
+    --vlook-invert-in-dark: var(--vlook-invert-in-dark-light); // 图片滤镜
     --doc-bg-color: var(--doc-bg-color-light);
     --doc-bg-color-alt: var(--doc-bg-color-alt-light);
-    --doc-bg-color-alt-transparent: var(--doc-bg-color-alt-transparent-light);
+    --doc-bg-color-transparent: var(--doc-bg-color-transparent-light);
     --fore-color: var(--fore-color-light);
     --fore-color-alt: var(--fore-color-alt-light);
     --tips-bg-color: var(--tips-bg-color-light);
@@ -219,7 +223,7 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --table-border-color: var(--table-border-color-light);
     --table-th-bg-color: var(--table-th-bg-color-light);
     --table-th-border-color: var(--table-th-border-color-light);
-    --img-dark-filter: var(--img-dark-filter-light);
+    // --img-dark-filter: var(--img-dark-filter-light);
     --del-color: var(--del-color-light);
     --toc-header-num-color: var(--toc-header-num-color-light);
     // --content-header-num-color: var(--content-header-num-color-light);
@@ -228,28 +232,28 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --header-bg-start-color: var(--header-bg-start-color-light);
     --header-bg-end-color: var(--header-bg-end-color-light);
     --code-bg-color: var(--code-bg-color-light);
-    --code-bg-color-transparent: var(--code-bg-color-transparent-light);
+    // --code-bg-color-transparent: var(--code-bg-color-transparent-light);
     --code-name-bg-color: var(--code-name-bg-color-light);
     --code-name-shadow-color: var(--code-name-bg-color);
-    --master-color: var(--master-color-light);
-    --slave-color: var(--slave-color-light);
-    --third-color: var(--third-color-light);
-    --fourth-color: var(--fourth-color-light);
-    --fifth-color: var(--fifth-color-light);
-    --sixth-color: var(--sixth-color-light);
-    --sixth-color-alt: var(--sixth-color-alt-light);
-    --mermaid-master-color: var(--mermaid-master-color-light);
-    --mermaid-master-color-alt: var(--mermaid-master-color-alt-light);
-    --mermaid-slave-color: var(--mermaid-slave-color-light);
-    --mermaid-slave-color-alt: var(--mermaid-slave-color-alt-light);
-    --mermaid-third-color: var(--mermaid-third-color-light);
-    --mermaid-third-color-alt: var(--mermaid-third-color-alt-light);
-    --mermaid-fourth-color: var(--mermaid-fourth-color-light);
-    --mermaid-fourth-color-alt: var(--mermaid-fourth-color-alt-light);
-    --mermaid-fifth-color: var(--mermaid-fifth-color-light);
-    --mermaid-fifth-color-alt: var(--mermaid-fifth-color-alt-light);
-    --mermaid-sixth-color: var(--mermaid-sixth-color-light);
-    --mermaid-sixth-color-alt: var(--mermaid-sixth-color-alt-light);
+    --accent-color1: var(--accent-color1-light);
+    --accent-color2: var(--accent-color2-light);
+    --accent-color3: var(--accent-color3-light);
+    --accent-color4: var(--accent-color4-light);
+    --accent-color5: var(--accent-color5-light);
+    --accent-color6: var(--accent-color6-light);
+    // --accent-color6-alt: var(--accent-color6-alt-light);
+    --mermaid-accent-color1: var(--mermaid-accent-color1-light);
+    --mermaid-accent-color1-alt: var(--mermaid-accent-color1-alt-light);
+    --mermaid-accent-color2: var(--mermaid-accent-color2-light);
+    --mermaid-accent-color2-alt: var(--mermaid-accent-color2-alt-light);
+    --mermaid-accent-color3: var(--mermaid-accent-color3-light);
+    --mermaid-accent-color3-alt: var(--mermaid-accent-color3-alt-light);
+    --mermaid-accent-color4: var(--mermaid-accent-color4-light);
+    --mermaid-accent-color4-alt: var(--mermaid-accent-color4-alt-light);
+    --mermaid-accent-color5: var(--mermaid-accent-color5-light);
+    --mermaid-accent-color5-alt: var(--mermaid-accent-color5-alt-light);
+    --mermaid-accent-color6: var(--mermaid-accent-color6-light);
+    --mermaid-accent-color6-alt: var(--mermaid-accent-color6-alt-light);
     --cm-keyword: var(--cm-keyword-light);
     --cm-variable: var(--cm-variable-light);
     --cm-variable-2: var(--cm-variable-2-light);
@@ -309,7 +313,17 @@ body > *:last-child {
 img {
     margin: 0 !important;
     // float: left;
-    filter: var(--img-dark-filter);
+    // filter: var(--img-dark-filter);
+}
+// 图片 URL 参数指定在 Dark 模式时反色
+// img[src*="invert=in-dark"] {
+//     // filter: invert(1);
+//     filter: var(--vlook-invert-in-dark);
+//     border-color: @imgInvertInDarkBorderColor !important;
+// }
+// 图片 RUL 参数指定是否填充边缘
+img[src*="padding=true"] {
+    padding: 10px !important;
 }
 
 a {
@@ -355,7 +369,7 @@ h6 {
     font-family: @headerFont;
     font-weight: bold;
     border-radius: 16px 16px 0 0;
-    box-shadow: 0 1px 0 0 var(--header-box-shadow) inset;
+    // box-shadow: 0 1px 0 0 var(--header-box-shadow) inset;
     background: linear-gradient(0deg, var(--header-bg-start-color), var(--header-bg-end-color));
 }
 
@@ -377,11 +391,13 @@ h6+ol {
 h1 {
     margin-top: 5em;
     font-size: 2em;
+    box-shadow: 0 3px 0 0 var(--header-box-shadow) inset;
 }
 
 h2 {
     margin-top: 3em;
     font-size: 1.8em;
+    box-shadow: 0 2px 0 0 var(--header-box-shadow) inset;
 }
 
 h1+h2 {
@@ -394,6 +410,7 @@ h1+h2 {
 h3 {
     margin-top: 2em;
     font-size: 1.6em;
+    box-shadow: 0 1px 0 0 var(--header-box-shadow) inset;
 }
 
 h2+h3 {
@@ -405,6 +422,7 @@ h2+h3 {
 
 h4 {
     font-size: 1.4em;
+    box-shadow: 0 1px 0 0 var(--header-box-shadow) inset;
 }
 
 h3+h4 {
@@ -416,16 +434,19 @@ h3+h4 {
 
 h5 {
     font-size: 1.2em;
-    box-shadow: none;
-    background: none;
+    box-shadow: 0 0 0 0 var(--header-box-shadow) inset;
+    // background: none;
 }
 
 h4+h5 {
     // h4后紧跟h5的情况
+    box-shadow: none;
+    background: none;
+    margin-top: -0.5em;
 }
 
 h6 {
-    margin-bottom: 0em;
+    margin-bottom: 0;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     line-height: 1;
@@ -516,65 +537,71 @@ figure {
     border-radius: 16px;
 }
 
-// 有序列表下无序列表-1级
-ol > li {
-    list-style-type: decimal;
-}
-
-// 有序列表下无序列表-2级
-ol > li > ul > li {
-    list-style-type: lower-alpha;
-}
-
-// 有序列表下无序列表-3级
-ol > li > ul > li > ul > li {
-    list-style-type: disc;
-}
-
-// 有序列表下无序列表-4级
-ol > li > ul > li > ul > li > ul > li {
-    list-style-type: lower-roman;
-}
-
-// 有序列表下无序列表-5级
-ol > li > ul > li > ul > li > ul > li > ul > li {
-    list-style-type: circle;
-}
-
-// 有序列表下无序列表-6级
-ol > li > ul > li > ul > li > ul > li > ul > li > ul > li {
-    list-style-type: square;
-}
-
-// 多级无序列表-1级
+// 有序列表下无序列表：1级
+ol > li,
 ul > li {
     list-style-type: decimal;
 }
 
-// 多级无序列表-2级
+// 有序列表下无序列表：2级
+ol > li > ul > li,
 ul > li > ul > li {
     list-style-type: lower-alpha;
 }
 
-// 多级无序列表-3级
+// 有序列表下无序列表：3级
+ol > li > ul > li > ul > li,
 ul > li > ul > li > ul > li {
     list-style-type: disc;
 }
 
-// 多级无序列表-4级
+// 有序列表下无序列表：4级
+ol > li > ul > li > ul > li > ul > li,
 ul > li > ul > li > ul > li > ul > li {
     list-style-type: lower-roman;
 }
 
-// 多级无序列表-5级
+// 有序列表下无序列表：5级
+ol > li > ul > li > ul > li > ul > li > ul > li,
 ul > li > ul > li > ul > li > ul > li > ul > li {
     list-style-type: circle;
 }
 
-// 多级无序列表-6级
+// 有序列表下无序列表：6级
+ol > li > ul > li > ul > li > ul > li > ul > li > ul > li,
 ul > li > ul > li > ul > li > ul > li > ul > li > ul > li {
     list-style-type: square;
 }
+
+// 多级无序列表：1级
+// ul > li {
+//     list-style-type: decimal;
+// }
+
+// 多级无序列表：2级
+// ul > li > ul > li {
+    // list-style-type: lower-alpha;
+// }
+
+// 多级无序列表：3级
+// ul > li > ul > li > ul > li {
+//     list-style-type: disc;
+// }
+
+// 多级无序列表：4级
+// ul > li > ul > li > ul > li > ul > li {
+//     list-style-type: lower-roman;
+// }
+
+// 多级无序列表：5级
+// ul > li > ul > li > ul > li > ul > li > ul > li {
+//     list-style-type: circle;
+// }
+
+// 多级无序列表：6级
+// ul > li > ul > li > ul > li > ul > li > ul > li > ul > li {
+//     list-style-type: square;
+// }
 
 ul,
 ol {
@@ -583,13 +610,15 @@ ol {
 }
 
 blockquote {
-    border-left: 0.5em solid fade(@thirdColor, 15%);
+    // border-left: 0.5em solid fade(@accentColor2, 15%);
+    border: 1px solid @accentColor2Fade;
     border-radius: 16px;
+    // padding: 0.5em 0.5em 1em 0.5em;
     padding: 0.5em;
-    margin-top: 0.5em;
+    margin-top: 0;
     margin-bottom: 1em;
-    color: @thirdColor;
-    background-color: fade(@thirdColor, 5%);
+    color: var(--fore-color);
+    background-color: fade(@accentColor2, 5%);
 }
 
 blockquote > p {
@@ -597,7 +626,7 @@ blockquote > p {
 }
 
 blockquote > a {
-    color: @thirdColor;
+    color: @accentColor2;
 }
 
 blockquote > ul,
@@ -605,32 +634,40 @@ blockquote > ol {
     margin-top: 0;
 }
 
+// blockquote > ul > li,
+// blockquote > ol > li {
+//     color: var(--fore-color);
+// }
 
-blockquote > ul > li,
-blockquote > ol > li {
-    color: var(--fore-color);
-}
-
-blockquote > ul > li > a,
-blockquote > ol > li > a {
-    color: var(--fore-color);
-}
+// blockquote > ul > li > a,
+// blockquote > ol > li > a {
+//     color: var(--fore-color);
+// }
 
 // 双重引用
 blockquote > blockquote {
-    border-left: 0.3em solid fade(@thirdColor, 15%);
-    margin-left: 0.5em;
-    margin-right: 1em;
+    // border-left: 0.3em solid fade(@accentColor2, 15%);
+    border: 1px solid fade(@accentColor2, 15%);
+    // margin-left: 0.5em;
+    // margin-right: 1em;
+    border-top-left-radius: 0;
 }
 
-// 三重，或更多重引用
+// 三重引用
 blockquote > blockquote > blockquote {
-    border-left: 0.15em solid fade(@thirdColor, 15%);
+    // border-left: 0.15em solid fade(@accentColor2, 15%);
+    border-width: 2px;
 }
 
-blockquote > blockquote {
-    padding-right: 0;
+// 四重，或更多重引用
+blockquote > blockquote > blockquote > blockquote {
+    // border-left: 0.15em solid fade(@accentColor2, 15%);
+    border-width: 3px;
 }
+
+// blockquote > blockquote {
+    // padding-right: 0;
+// }
 
 blockquote > strong {
     color: inherit !important;
@@ -683,10 +720,10 @@ table > thead > tr:first-child > th:first-child {
 }
 
 // 表格首列默认不换行
-/* table th:first-child,
-table td:first-child { */
-table th,
-table td {
+table th:first-child,
+table td:first-child {
+// table th,
+// table td {
   white-space: pre;
 }
 
@@ -790,7 +827,7 @@ li > figure table tbody tr > td:first-child::before {
 
 // li下的H6下的表格行号格式微调
 li > h6 + figure {
-    margin-left: 0em;
+    margin-left: 0;
 }
 
 li h6 + figure table tr > th:first-child::before,
@@ -811,7 +848,7 @@ h5 + figure table tr > th:first-child::before,
 h5 + figure table tr > td:first-child::before,
 h6 + figure table tr > th:first-child::before,
 h6 + figure table tr > td:first-child::before {
-    left: -0.5em;
+    left: 0.3em;
 }
 
 // h1-6 下的表格行号
@@ -826,7 +863,7 @@ h6 + figure table tbody tr > td:first-child::before {
 
 // li/header 后的表格，格式微调
 li > figure {
-    margin-top: 0em;
+    margin-top: 0;
 }
 
 // h1-6 后的表格，格式微调
@@ -836,8 +873,8 @@ h3 + figure,
 h4 + figure,
 h5 + figure,
 h6 + figure {
-    margin-top: 0em;
-    margin-left: 1.5em;
+    margin-top: 0;
+    margin-left: 2em;
 }
 
 // 表格十字光标
@@ -869,6 +906,8 @@ h6 + figure {
 mark {
     background-color: rgba(255, 240, 0, 0.6) !important;
     border-radius: 0.3em;
+    padding: 0 0.2em;
+    margin: 0 0.1em;
     color: #000000;
 }
 
@@ -879,12 +918,14 @@ mark mark {
 // 删除
 del,
 del strong {
+    font-style: italic;
     color: var(--del-color) !important;
-    text-decoration: line-through var(--fore-color) solid !important;
+    text-decoration: line-through solid !important;
 }
 
 del code {
-    text-decoration: line-through var(--fore-color) solid !important;
+    font-style: italic;
+    text-decoration: line-throug solid !important;
 }
 
 // 脚注区域
@@ -919,18 +960,18 @@ del code {
 
 // 脚注行序末返回链接
 .reversefootnote {
-    color: @masterColor;
+    color: @accentColor1;
 }
 
 .reversefootnote:hover {
-    color: @slaveColor;
+    color: @accentColor4;
 // 性能优化    transition: all 0.3s ease-in-out;
 }
 
 // 脚注上标
 a[name^="ref-footnote-"] {
     font-family: @boldFont;
-    color: @masterColor;
+    color: @accentColor1;
 }
 
 a[name^="ref-footnote-"]:hover {
@@ -963,12 +1004,12 @@ code {
     font-family: @codeFont;
     background-color: var(--code-bg-color);
     border-radius: 0.3em;
-    padding: 0.2em 0.3em;
-    margin: 0 0.2em;
-    font-size: 0.8em;
+    padding: 0.2em;
+    margin: 0 0.1em;
+    font-size: 0.85em;
     display: inline;
     white-space: pre;
-    vertical-align: middle;
+    // vertical-align: middle;
 }
 
 .md-fences {
@@ -1308,30 +1349,30 @@ h5.md-focus::before {
 
 // // 操作节点
 // rect[id^="op"].flowchart {
-//   fill: @masterColorAlt;
-//   stroke: @masterColor;
+//   fill: @accentColor1Alt;
+//   stroke: @accentColor1;
 //   stroke-width: 1;
 // }
 
 // // 子流程节点
 // rect[id^="sub"],
 // rect[id^="sub"].flowchart {
-//   fill: @masterColorAlt;
-//   stroke: @masterColor;
+//   fill: @accentColor1Alt;
+//   stroke: @accentColor1;
 //   stroke-width: 2;
 // }
 
 // // 条件节点
 // path[id^="c"].flowchart {
-//   fill: @slaveColorAlt;
-//   stroke: @slaveColor;
+//   fill: @accentColor4Alt;
+//   stroke: @accentColor4;
 //   stroke-width: 1;
 // }
 
 // // I/O节点
 // path[id^="io"].flowchart {
-//   fill: @thirdColorAlt;
-//   stroke: @thirdColor;
+//   fill: @accentColor2Alt;
+//   stroke: @accentColor2;
 //   stroke-width: 1;
 // }
 
@@ -1364,15 +1405,15 @@ h5.md-focus::before {
 
 // // 矩形
 // rect[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][rx="0"][ry="0"] {
-//   fill: @masterColorAlt;
-//   stroke: @masterColor;
+//   fill: @accentColor1Alt;
+//   stroke: @accentColor1;
 //   stroke-width: 1px;
 // }
 
 // // 生命线
 // path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"] {
 //   // fill: none;
-//   stroke: @masterColorFade;
+//   stroke: @accentColor1Fade;
 //   stroke-width: 1px;
 //   // stroke-dasharray: 5;
 // }
@@ -1432,9 +1473,22 @@ h5.md-focus::before {
 /* ----- pie diagram 饼图 ----- */
 
 // 标题、图例文本
-.pieTitleText,
+.pieTitleText {
+    fill: var(--fore-color);
+    font-family: @boldFont;
+    font-weight: bold;
+    font-size: 1.5em;
+}
 .legend text {
     fill: var(--fore-color);
+    font-family: @boldFont;
+    font-weight: bold;
+}
+
+.slice {
+    font-family: @boldFont;
+    font-weight: bold;
+    // fill: var(--fore-color);
 }
 
 /* ----- flow diagram 流程图 ----- */
@@ -1463,8 +1517,8 @@ svg[id^="mermaidChart"] {
 
 // 方角矩形
 .node rect[rx="0"][ry="0"] {
-    fill: var(--mermaid-master-color-alt);
-    stroke: var(--mermaid-master-color);
+    fill: var(--mermaid-accent-color1-alt);
+    stroke: var(--mermaid-accent-color1);
     stroke-width: 5;
 }
 
@@ -1476,8 +1530,8 @@ svg[id^="mermaidChart"] {
 
 // 圆角矩形
 .node rect[rx="5"][ry="5"] {
-    fill: var(--mermaid-master-color-alt);
-    stroke: var(--mermaid-master-color);
+    fill: var(--mermaid-accent-color1-alt);
+    stroke: var(--mermaid-accent-color1);
     stroke-width: 1;
 }
 
@@ -1486,7 +1540,7 @@ svg[id^="mermaidChart"] {
     ry: 6 !important;
 }
 
-// 圆角矩形文字（默认圆角矩形、调整后的状态图圆角矩形）
+// 圆角矩形文字（默认圆角矩形、调整后的状态机图圆角矩形）
 // .node rect[rx="5"][ry="5"]+.label div,
 // .node rect[rx="15"][ry="15"]+.label div {
 //     color: var(--fore-color);
@@ -1495,8 +1549,8 @@ svg[id^="mermaidChart"] {
 
 // 圆形
 .node circle {
-    fill: none;
-    stroke: var(--mermaid-third-color);
+    fill: var(--doc-bg-color);
+    stroke: var(--mermaid-accent-color2);
     stroke-width: 2;
 }
 
@@ -1521,10 +1575,11 @@ svg[id^="mermaidChart"] {
 // }
 
 // 自定义：条件、分支的菱形
-.node[id^="cond"] polygon,
-.node[id^="fork"] polygon {
-    fill: var(--mermaid-slave-color-alt);
-    stroke: var(--mermaid-slave-color);
+// .node[id^="cond"] polygon,
+// .node[id^="fork"] polygon,
+.node polygon {
+    fill: var(--mermaid-accent-color4-alt);
+    stroke: var(--mermaid-accent-color4);
     stroke-width: 1;
 }
 
@@ -1537,12 +1592,12 @@ svg[id^="mermaidChart"] {
 
 // 自定义：分页的旗形
 .node[id^="page"] polygon {
-    fill: none;
-    stroke: var(--mermaid-third-color);
+    fill: var(--doc-bg-color);
+    stroke: var(--mermaid-accent-color2);
     stroke-width: 2;
 }
 
-// 自定义：状态图的菱形
+// 自定义：状态机图的菱形
 .node[id^="trans"] polygon {
     fill: var(--fore-color);
     stroke-width: 0;
@@ -1570,8 +1625,9 @@ svg[id^="mermaidChart"] {
 .edgeLabel {
     color: var(--fore-color);
     background-color: var(--doc-bg-color);
-    font-family: @textFont;
+    // font-family: @boldFont;
     // font-size: 0.8em;
+    font-weight: bold;
     line-height: 1em;
 }
 
@@ -1614,7 +1670,7 @@ svg[id^="mermaidChart"] {
 // 自定义：流程图「结束」节点样式
 #END rect {
     color: var(--fore-color);
-    fill: none;
+    fill: var(--doc-bg-color);
     stroke: var(--fore-color);
     stroke-width: 5;
     rx: 15;
@@ -1626,7 +1682,7 @@ svg[id^="mermaidChart"] {
     // font-family: @boldFont;
 }
 
-// 自定义：状态图「初始」状态样式
+// 自定义：状态机图「初始」状态样式
 #INIT circle {
     fill: var(--fore-color);
     stroke: var(--fore-color);
@@ -1641,15 +1697,16 @@ svg[id^="mermaidChart"] {
 
 // 与「初始」状态同级的所有矩形节点
 #INIT~g > rect {
-    fill: var(--mermaid-fifth-color-alt);
-    stroke: var(--mermaid-fifth-color);
+    fill: var(--mermaid-accent-color5-alt);
+    stroke: var(--mermaid-accent-color5);
     stroke-width: 3;
     // font-family: @boldFont;
     rx: 15 !important;
     ry: 15 !important;
+    border-radius: 15px !important;
 }
 
-// 自定义：状态图「最终」状态节点样式
+// 自定义：状态机图「最终」状态节点样式
 #FINAL circle {
     fill: none;
     stroke: var(--fore-color);
@@ -1660,17 +1717,17 @@ svg[id^="mermaidChart"] {
 
 // 角色
 .actor {
-    stroke: var(--mermaid-master-color);
-    fill: var(--mermaid-master-color-alt);
+    stroke: var(--mermaid-accent-color1);
+    fill: var(--mermaid-accent-color1-alt);
     font-size: 1em !important;
     rx: 6;
     ry: 6;
 }
 
-// .actor-person {
-//     stroke: var(--mermaid-slave-color);
-//     fill: var(--mermaid-slave-color-alt);
-// }
+.actor-person {
+    // stroke: var(--mermaid-accent-color4);
+    fill: var(--doc-bg-color);
+}
 
 // 角色文本
 text.actor {
@@ -1682,12 +1739,12 @@ text.actor {
 
 // 角色生命线
 .actor-line {
-    stroke: var(--mermaid-master-color);
+    stroke: var(--mermaid-accent-color1);
 }
 
-.actor-line-person {
-    stroke: var(--mermaid-slave-color);
-}
+// .actor-line-person {
+//     stroke: var(--mermaid-accent-color4);
+// }
 
 // 实线消息
 .messageLine0 {
@@ -1716,27 +1773,35 @@ text.actor {
 .messageText {
     fill: var(--fore-color);
     stroke: none;
-    font-family: @textFont;
+    // font-family: @textFont;
     font-size: 0.85em !important;
-    // font-family: @boldFont;
+    font-family: @boldFont;
+    font-weight: bold;
     line-height: 2em;
+}
+
+.activation0,
+.activation1,
+.activation2 {
+    fill: var(--mermaid-accent-color1) !important;
+    stroke-width: 0 !important;
 }
 
 // 角标背景
 .labelBox {
     stroke: none;
-    fill: var(--mermaid-slave-color-alt);
+    fill: var(--mermaid-accent-color3-alt);
 }
 
 // 角标
 // .labelText {
-//     fill: var(--mermaid-slave-color);
+//     fill: var(--mermaid-accent-color4);
 //     stroke: none;
 //     // font-family: @boldFont;
 // }
 // 角标文本
 .labelText tspan {
-    fill: var(--mermaid-slave-color);
+    fill: var(--mermaid-accent-color3);
     font-size: 0.8em !important;
     font-weight: bold;
     font-family: @boldFont;
@@ -1744,13 +1809,13 @@ text.actor {
 
 // 循环文本
 // .loopText {
-//     fill: var(--mermaid-slave-color);
+//     fill: var(--mermaid-accent-color4);
 //     stroke: none;
 //     font-family: @boldFont;
 //     font-size: 1em;
 // }
 .loopText tspan {
-    fill: var(--mermaid-slave-color);
+    fill: var(--mermaid-accent-color3);
     font-size: 0.85em !important;
     font-family: @boldFont;
 }
@@ -1758,14 +1823,14 @@ text.actor {
 // 循环线
 .loopLine {
     stroke-width: 1;
-    stroke: var(--mermaid-slave-color);
+    stroke: var(--mermaid-accent-color3);
 }
 
 // 备注背景
 .note {
-    stroke: var(--mermaid-third-color);
+    stroke: var(--mermaid-accent-color2);
     stroke-dasharray: 2;
-    fill: var(--mermaid-third-color-alt);
+    fill: var(--mermaid-accent-color2-alt);
 }
 
 // 备注文本
@@ -1782,7 +1847,7 @@ text.actor {
     font-family: @textFont;
 }
 
-/* ----- state diagram 状态图 ----- */
+/* ----- state diagram 状态机图 ----- */
 
 g.stateGroup circle {
     fill: var(--fore-color) !important;
@@ -1790,8 +1855,8 @@ g.stateGroup circle {
 }
 g.stateGroup rect,
 g.stateGroup line {
-    fill: var(--mermaid-master-color-alt) !important;
-    stroke: var(--mermaid-master-color) !important;
+    fill: var(--mermaid-accent-color1-alt) !important;
+    stroke: var(--mermaid-accent-color1) !important;
 }
 g.stateGroup rect[height="7"] {
     fill: var(--fore-color) !important;
@@ -1807,17 +1872,22 @@ g.stateGroup .state-title,
 g.stateGroup text {
     fill: var(--fore-color) !important;
     font-family: @boldFont;
-    font-size: 0.6em !important;
+    font-size: 0.5em !important;
 }
+
+.stateLabel text {
+    font-size: 0.5em;
+}
+
 g.state-note {
-    fill: var(--mermaid-third-color-alt);
-    stroke: var(--mermaid-third-color);
+    fill: var(--mermaid-accent-color2-alt);
+    stroke: var(--mermaid-accent-color2);
 }
-g.state-note text > tspan {
-    fill: var(--fore-color);
-    font-family: @boldFont;
-    font-size: 0.6em;
-}
+// g.state-note text {
+//     fill: var(--fore-color);
+//     // font-family: @boldFont;
+//     font-size: 0.6em;
+// }
 
 /* ----- class diagram 类图 ----- */
 
@@ -1830,19 +1900,19 @@ g.classLabel .label {
 }
 
 g.classGroup rect {
-  fill: var(--mermaid-master-color-alt);
-  stroke: var(--mermaid-master-color);
+  fill: var(--mermaid-accent-color1-alt);
+  stroke: var(--mermaid-accent-color1);
 }
 
 g.classGroup line {
-  stroke: var(--mermaid-master-color);
+  stroke: var(--mermaid-accent-color1);
   stroke-width: 1;
 }
 
 g.classLabel .box {
   stroke: none;
   stroke-width: 0;
-  fill: var(--mermaid-master-color-alt);
+  fill: var(--mermaid-accent-color1-alt);
   opacity: 0.5;
 }
 
@@ -1922,7 +1992,7 @@ div.mermaidTooltip {
 
 .today {
     fill: none;
-    stroke: var(--mermaid-slave-color);
+    stroke: var(--mermaid-accent-color4);
     stroke-width: 3px;
 }
 
@@ -1934,15 +2004,18 @@ div.mermaidTooltip {
     text-anchor: middle;
     font-size: 0.8em;
     line-height: 2em;
+    font-family: @boldFont;
 }
 
 .taskTextOutsideRight {
     fill: var(--fore-color);
+    font-family: @boldFont;
     text-anchor: start;
 }
 
 .taskTextOutsideLeft {
     fill: var(--fore-color);
+    font-family: @boldFont;
     text-anchor: end;
 }
 
@@ -1952,15 +2025,15 @@ div.mermaidTooltip {
 .active1,
 .active2,
 .active3 {
-    fill: var(--mermaid-master-color-alt);
-    stroke: var(--mermaid-master-color);
+    fill: var(--mermaid-accent-color1-alt);
+    stroke: var(--mermaid-accent-color1);
 }
 
 .activeText0,
 .activeText1,
 .activeText2,
 .activeText3 {
-    fill: var(--mermaid-master-color) !important;
+    fill: var(--mermaid-accent-color1) !important;
 }
 
 /* 已完成的任务 */
@@ -1970,7 +2043,7 @@ div.mermaidTooltip {
 .done2,
 .done3 {
     stroke: none;
-    fill: var(--mermaid-master-color-alt);
+    fill: var(--mermaid-accent-color1-alt);
     stroke-width: 2;
     stroke-dasharray: 2;
 }
@@ -1982,7 +2055,7 @@ div.mermaidTooltip {
 .task2,
 .task3 {
     fill: var(--doc-bg-color);
-    stroke: var(--mermaid-master-color);
+    stroke: var(--mermaid-accent-color1);
     stroke-dasharray: 2;
 }
 
@@ -2016,8 +2089,8 @@ div.mermaidTooltip {
 .activeCrit1,
 .activeCrit2,
 .activeCrit3 {
-    stroke: var(--mermaid-slave-color);
-    fill: var(--mermaid-slave-color-alt);
+    stroke: var(--mermaid-accent-color4);
+    fill: var(--mermaid-accent-color4-alt);
     stroke-width: 2;
 }
 
@@ -2025,7 +2098,7 @@ div.mermaidTooltip {
 .activeCritText1,
 .activeCritText2,
 .activeCritText3 {
-    fill: var(--mermaid-slave-color) !important;
+    fill: var(--mermaid-accent-color4) !important;
 }
 
 /* 已完成的关键路径任务 */
@@ -2035,7 +2108,7 @@ div.mermaidTooltip {
 .doneCrit2,
 .doneCrit3 {
     stroke: none;
-    fill: var(--mermaid-slave-color-alt);
+    fill: var(--mermaid-accent-color4-alt);
     stroke-width: 2;
     cursor: pointer;
     shape-rendering: crispEdges;
@@ -2047,7 +2120,7 @@ div.mermaidTooltip {
 .crit1,
 .crit2,
 .crit3 {
-    stroke: var(--mermaid-slave-color);
+    stroke: var(--mermaid-accent-color4);
     fill: var(--doc-bg-color);
     stroke-width: 2;
     stroke-dasharray: 2;
@@ -2070,8 +2143,10 @@ div.mermaidTooltip {
 /* 标题 */
 .titleText {
     text-anchor: middle;
-    font-size: 1.3em;
+    font-size: 1.5em;
     line-height: 2em;
+    font-family: @boldFont;
+    font-weight: bold;
     fill: var(--fore-color);
 }
 
@@ -2249,7 +2324,7 @@ div.mermaidTooltip {
 }
 
 .MathJax_SVG g text {
-    font-family: @textFont;
+    // font-family: @textFont;
     color: var(--fore-color);
 }
 
@@ -2289,14 +2364,14 @@ div.mermaidTooltip {
 }
 
 .md-toc-item:hover {
-    color: @buttonForeColor;
+    color: @buttonForeHoverColor;
     background-color: @aHoverColor;
     transform: translateY(-2px);
     // box-shadow: @buttonShadow;
 }
 
 .md-toc-item:hover::before {
-    color: @buttonForeColor;
+    color: @buttonForeHoverColor;
 }
 
 .md-toc-item:active {
@@ -2305,10 +2380,10 @@ div.mermaidTooltip {
     transform: none;
 }
 
-.md-toc-item:active::beofre {
-    color: @aActiveColor;
-    // transition: all 0.3s ease-in-out;
-}
+// .md-toc-item:active::before {
+//     color: @aActiveColor;
+//     // transition: all 0.3s ease-in-out;
+// }
 
 .md-toc,
 .mdx-toc {
@@ -2421,7 +2496,7 @@ kbd {
     border: 0;
     color: var(--doc-bg-color);
     background-color: var(--fore-color);
-    box-shadow: 0 0.3em 0 0 var(--fore-color-alt);
+    box-shadow: 0 0.2em 0 0 var(--fore-color-alt);
 }
 
 // task list - 1
@@ -2431,17 +2506,17 @@ ul > .md-task-list-item {
 
 // task list - 2
 ul > li > ul > .md-task-list-item {
-    list-style-type: upper-alpha !important;
+    list-style-type: lower-alpha !important;
 }
 
 // task list - 3
 ul > li > ul > li > ul > .md-task-list-item {
-    list-style-type: lower-alpha !important;
+    list-style-type: disc !important;
 }
 
 // task list - 4
 ul > li > ul > li > ul > li > ul > .md-task-list-item {
-    list-style-type: disc !important;
+    list-style-type: lower-roman !important;
 }
 
 // task list - 5
@@ -2574,7 +2649,7 @@ li p {
     font-weight: bold;
     height: 100px;
     margin-top: -120px;
-    background: linear-gradient(0deg, var(--doc-bg-color) 10px, transparent);
+    background: linear-gradient(0deg, var(--doc-bg-color) 10px, var(--doc-bg-color-transparent));
     border-radius: 0 0 16px 16px;
     position: absolute;
     text-align: center;
@@ -2597,7 +2672,7 @@ li p {
     width: 100%;
     height: 80px;
     background-image: url(@themeLogo);
-    background-size: 75px 75px;
+    background-size: 80px 80px;
     background-repeat: no-repeat;
     background-position: top center;
 }
@@ -2606,8 +2681,8 @@ li p {
     cursor: wait;
     position: fixed;
     color: @themeForeColor;
-    background-color: @themeBgColor;
-    // background: linear-gradient(@themeBgColorDark 0%, @themeBgColor 20%, @themeBgColor);
+    // background-color: @themeBgColor;
+    background: linear-gradient(@themeBgColorDark 0%, @themeBgColor 20%, @themeBgColor);
     left: 0;
     top: 0;
     width: 100%;
@@ -2619,21 +2694,35 @@ li p {
     z-index: 4000;
 }
 
-@keyframes breathe {
+// 文本呼吸动画
+@keyframes breathe-text {
+    0% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    100% {
+      opacity: 0.8;
+      transform: scale(0.99);
+    }
+  }
+
+// 按钮呼吸动画
+@keyframes breathe-button {
     0% {
         opacity: 1;
-        transform: scale(1.0);
+        transform: scale(1.05);
+        filter: brightness(120%);
     }
-
     100% {
-        opacity: 0.5;
-        transform: scale(0.98);
+        opacity: 0.8;
+        transform: scale(0.97);
+        filter: brightness(100%);
     }
 }
 
 .mdx-load-screen-tips {
     padding: 20px 20px 10px 20px;
-    animation: 1s breathe infinite alternate;
+    animation: 1s breathe-text infinite alternate;
 }
 
 .mdx-load-screen-tips > div {
@@ -2662,20 +2751,22 @@ li p {
     border: none;
     font-size: 1.2em;
     font-weight: bold;
-    color: @themeBgColor;
-    background-color: @themeForeColor;
+    color: @buttonForeHoverColor;
+    background-color: @aLineColor;
+    animation: 1s breathe-button infinite alternate;
 }
 
 .mdx-btn-load-screen-done:hover {
-    color: @themeForeColor;
-    background-color: @aHoverColor;
+    color: @aLineColor;
+    background-color: @buttonForeHoverColor;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 // 性能优化    transition: all 0.3s ease-in-out;
     transform: translateY(-2px);
 }
 
 .mdx-btn-load-screen-done:active {
-    background-color: @aActiveColor;
+    color: @buttonForeHoverColor;
+    background-color: @aLineColor;
     transform: none;
     box-shadow: none;
 // 性能优化    transition: all 0.3s ease-in-out;
@@ -2689,6 +2780,11 @@ li p {
 
 .md-diagram-panel svg {
     width: auto;
+}
+
+// 修正在 SVG 顺序图的下边界与 actor 无间隔问题
+.md-diagram-panel svg[viewBox^="-8 -8"] {
+    padding-bottom: 8px;
 }
 
 // .md-diagram-panel svg,
@@ -2756,7 +2852,7 @@ li p {
     // width: 100%;
     height: 70px;
     padding: 10px 0 0 0;
-    background: linear-gradient(180deg, var(--doc-bg-color-alt) 50px, var(--doc-bg-color-alt-transparent));
+    background: linear-gradient(180deg, var(--doc-bg-color-alt) 50px, var(--doc-bg-color-transparent));
     left: 2px;
     right: 2px;
     top: 2px;
@@ -2830,7 +2926,7 @@ li p {
     bottom: 1px;
     text-align: center;
     padding: 0;
-    background: linear-gradient(0deg, var(--doc-bg-color-alt) 10px, var(--doc-bg-color-alt-transparent));
+    background: linear-gradient(0deg, var(--doc-bg-color-alt) 10px, var(--doc-bg-color-transparent));
     border-bottom-right-radius: 16px;
     border-bottom-left-radius: 16px;
     position: absolute;
@@ -2849,6 +2945,11 @@ li p {
     position: absolute;
     // text-shadow: 0 0 5px #000;
 }
+.mdx-copyright,
+.mdx-copyright a {
+    color: #C0C4C8 !important;
+}
+
 
 // .mdx-copyright,
 // .mdx-copyright > a {
@@ -2869,7 +2970,7 @@ li p {
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
     margin: 0 auto;
     background-color: var(--doc-bg-color-alt);
-    // display: none;
+    display: none;
     z-index: 2100;
 }
 
@@ -2883,7 +2984,7 @@ li p {
     left: 2px;
     right: 2px;
     position: absolute;
-    background: linear-gradient(180deg, var(--doc-bg-color-alt) 5px, var(--doc-bg-color-alt-transparent));
+    background: linear-gradient(180deg, var(--doc-bg-color-alt) 5px, var(--doc-bg-color-transparent));
     border-radius: 16px;
 }
 
@@ -2907,7 +3008,7 @@ li p {
     padding: 0 20px;
     margin: 2px;
     border-radius: 16px;
-    background: linear-gradient(0deg, var(--doc-bg-color-alt) 35px, var(--doc-bg-color-alt-transparent));
+    background: linear-gradient(0deg, var(--doc-bg-color-alt) 35px, var(--doc-bg-color-transparent));
     position: absolute;
 }
 
@@ -2919,7 +3020,7 @@ li p {
     width: var(--vlook-toc-box-width);
     height: 50px;
     position: fixed;
-    background-color: @themeBgColor;
+    background-color: @buttonBgColor;
     // background-color: fade(@themeBgColor, 75%);
     // transition: all 0.3s ease-in-out;
     z-index: 100;
@@ -2982,7 +3083,7 @@ li p {
     justify-content: center;
     align-items: center;
     vertical-align: middle;
-    color: @docBgColorLight;
+    color: @buttonForeColor;
     cursor: pointer;
     padding: 0;
     font-size: 0.8em;
@@ -2995,7 +3096,12 @@ li p {
 .mdx-btn-hover:hover {
     background-color: @aHoverColor;
     box-shadow: @buttonShadow;
+    color: @buttonForeHoverColor;
     transform: translateY(-2px);
+}
+
+.mdx-btn-hover:hover > svg > use {
+    fill: @buttonForeHoverColor;
 }
 
 .mdx-btn-float {
@@ -3031,83 +3137,8 @@ li p {
 //     display: none;
 // }
 
-.mdx-chapter-nav-prev {
-    top: 0;
-    left: 0;
-    width: 25%;
-    height: 50px;
-    position: absolute;
-    cursor: pointer;
-    border-bottom-left-radius: 16px;
-}
-
-.mdx-chapter-nav-prev:hover {
-    background: linear-gradient(to right, @aHoverColor, fade(@aHoverColor, 0%));
-// 性能优化    transition: all 0.3s ease-in-out;
-}
-
-.mdx-chapter-nav-prev:active {
-    background: linear-gradient(to right, @aActiveColor, fade(@aActiveColor, 0%));
-    // background: none;
-// 性能优化    transition: all 0.3s ease-in-out;
-}
-
-.mdx-chapter-nav-prev-text {
-    top: 0;
-    left: 30px;
-    width: 100%;
-    height: 50px;
-    line-height: 50px;
-    font-family: @boldFont;
-    color: @themeForeColor;
-    text-align: left;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    position: absolute;
-    cursor: pointer;
-    display: block;
-}
-
-.mdx-chapter-nav-next {
-    top: 0;
-    right: 0;
-    width: 25%;
-    height: 50px;
-    position: absolute;
-    cursor: pointer;
-    border-bottom-right-radius: 16px;
-}
-
-.mdx-chapter-nav-next:hover {
-    background: linear-gradient(to left, @aHoverColor, fade(@aHoverColor, 0%));
-// 性能优化    transition: all 0.3s ease-in-out;
-}
-
-.mdx-chapter-nav-next:active {
-    background: linear-gradient(to left, @aActiveColor, fade(@aActiveColor, 0%));
-    // background: none;
-// 性能优化    transition: all 0.3s ease-in-out;
-}
-
-.mdx-chapter-nav-next-text {
-    top: 0;
-    right: 30px;
-    width: 100%;
-    height: 50px;
-    line-height: 50px;
-    font-family: @boldFont;
-    color: @themeForeColor;
-    text-align: right;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    position: absolute;
-    cursor: pointer;
-    display: block;
-}
-
 .mdx-chapter-nav {
+    color: @buttonForeColor;
     background-color: @buttonBgColor;
     // background-color: fade(@buttonBgColor, 75%);
     border-bottom-left-radius: 16px;
@@ -3124,33 +3155,214 @@ li p {
     // transition: all 0.3s ease-in-out;
 }
 
+.mdx-chapter-nav-prev {
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 50px;
+    position: absolute;
+    cursor: pointer;
+    border-bottom-left-radius: 16px;
+    // background: @themeBgColor linear-gradient(to left, @themeBgColor, var(--doc-bg-color-transparent));
+}
+// 无特效（effect=0）时使用的样式
+.mdx-chapter-nav-prev-noeffect:hover,
+.mdx-chapter-nav-prev-effect:hover {
+    background: linear-gradient(to right, @aHoverColor, var(--doc-bg-color-transparent));
+    text-shadow: @buttonShadow;
+    transform: translateY(-2px);
+}
+.mdx-chapter-nav-prev-noeffect:hover > svg > use,
+.mdx-chapter-nav-prev-effect:hover > svg > use {
+    fill: @buttonForeHoverColor;
+}
+.mdx-chapter-nav-prev-noeffect:hover > .mdx-chapter-nav-prev-text,
+.mdx-chapter-nav-prev-effect:hover > .mdx-chapter-nav-prev-text {
+    color: @buttonForeHoverColor;
+}
+// 有特效（effect>=1）时使用的样式
+.mdx-chapter-nav-prev-effect::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(to right, @aHoverColor, var(--doc-bg-color-transparent));
+    border-bottom-left-radius: 16px;
+    opacity: 0;
+    z-index: -1;
+    transition: all 200ms ease-in;
+}
+// 有特效（effect>=1）时使用的样式
+.mdx-chapter-nav-prev-effect:hover::before {
+    opacity: 1;
+    // background: linear-gradient(to right, @aHoverColor, fade(@aHoverColor, 0%));
+    // background-color: @aHoverColor;
+// 性能优化    transition: all 0.3s ease-in-out;
+}
+// 无特效（effect=0）时，有特效（effect>=1）时使用的样式
+.mdx-chapter-nav-prev-noeffect:active,
+.mdx-chapter-nav-prev-effect:active,
+.mdx-chapter-nav-prev-effect:active::before {
+    filter: saturate(50%);
+    box-shadow: none;
+    transform: none;
+  // background: linear-gradient(to right, @aActiveColor, fade(@aActiveColor, 0%));
+    // background-color: @aActiveColor;
+    // background: none;
+// 性能优化    transition: all 0.3s ease-in-out;
+}
+
+.mdx-chapter-nav-prev-text {
+    top: 0;
+    left: 30px;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-family: @boldFont;
+    color: @buttonForeColor;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+    cursor: pointer;
+    display: block;
+}
+
 .mdx-chapter-nav-current {
-    color: @themeForeColor;
     font-family: @boldFont;
     font-size: 1.4em;
     font-weight: bold;
     text-align: center;
     line-height: 50px;
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 220px;
+    margin-right: 220px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     width: auto;
     height: 50px;
+    // background: @themeBgColor linear-gradient(90deg, @themeBgColor, var(--doc-bg-color-transparent), @themeBgColor);
     cursor: pointer;
     display: block;
 }
-
-.mdx-chapter-nav-current:hover {
-    background: linear-gradient(90deg, fade(@aHoverColor, 0%), @aHoverColor, fade(@aHoverColor, 0%));
+// 无特效（effect=0）时使用的样式
+.mdx-chapter-nav-current-noeffect:hover,
+.mdx-chapter-nav-current-effect:hover {
+    text-shadow: @buttonShadow;
+    color: @buttonForeHoverColor;
+    transform: translateY(-2px);
+    background: linear-gradient(90deg, var(--doc-bg-color-transparent), @aHoverColor, var(--doc-bg-color-transparent));
+}
+// 有特效（effect>=1）时使用的样式
+.mdx-chapter-nav-current-effect::before {
+    content: "";
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, var(--doc-bg-color-transparent), @aHoverColor, var(--doc-bg-color-transparent));
+    opacity: 0;
+    z-index: -1;
+    transition: all 200ms ease-in;
+}
+// 有特效（effect>=1）时使用的样式
+.mdx-chapter-nav-current-effect:hover::before {
+    opacity: 1;
+    // background: linear-gradient(90deg, fade(@aHoverColor, 0%), @aHoverColor, fade(@aHoverColor, 0%));
+    // background-color: @aHoverColor;
+// 性能优化    transition: all 0.3s ease-in-out;
+}
+// 无特效（effect=0）时，有特效（effect>=1）时使用的样式
+.mdx-chapter-nav-current-noeffect:active,
+.mdx-chapter-nav-current-effect:active,
+.mdx-chapter-nav-current-effect:active::before {
+    filter: saturate(50%);
+    box-shadow: none;
+    transform: none;
+  // background: linear-gradient(90deg, fade(@aActiveColor, 0%), @aActiveColor, fade(@aActiveColor, 0%));
+    // background-color: @aActiveColor;
+    // background: none;
 // 性能优化    transition: all 0.3s ease-in-out;
 }
 
-.mdx-chapter-nav-current:active {
-    background: linear-gradient(90deg, fade(@aActiveColor, 0%), @aActiveColor, fade(@aActiveColor, 0%));
+.mdx-chapter-nav-next {
+    top: 0;
+    right: 0;
+    width: 25%;
+    height: 50px;
+    position: absolute;
+    cursor: pointer;
+    border-bottom-right-radius: 16px;
+    // background: @themeBgColor linear-gradient(to right, @themeBgColor, var(--doc-bg-color-transparent));
+}
+// 无特效（effect=0）时使用的样式
+.mdx-chapter-nav-next-noeffect:hover,
+.mdx-chapter-nav-next-effect:hover {
+    background: linear-gradient(to left, @aHoverColor, var(--doc-bg-color-transparent));
+    text-shadow: @buttonShadow;
+    transform: translateY(-2px);
+}
+.mdx-chapter-nav-next-noeffect:hover > svg > use,
+.mdx-chapter-nav-next-effect:hover > svg > use {
+    fill: @buttonForeHoverColor;
+}
+.mdx-chapter-nav-next-noeffect:hover > .mdx-chapter-nav-next-text,
+.mdx-chapter-nav-next-effect:hover > .mdx-chapter-nav-next-text {
+    color: @buttonForeHoverColor;
+}
+// 有特效（effect>=1）时使用的样式
+.mdx-chapter-nav-next-effect::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(to left, @aHoverColor, var(--doc-bg-color-transparent));
+    border-bottom-right-radius: 16px;
+    opacity: 0;
+    z-index: -1;
+    transition: all 200ms ease-in;
+}
+// 有特效（effect>=1）时使用的样式
+.mdx-chapter-nav-next-effect:hover::before {
+    opacity: 1;
+    // background: linear-gradient(to left, @aHoverColor, fade(@aHoverColor, 0%));
+    // background-color: @aHoverColor;
+// 性能优化    transition: all 0.3s ease-in-out;
+}
+// 无特效（effect=0）时，有特效（effect>=1）时使用的样式
+.mdx-chapter-nav-next-noeffect:active,
+.mdx-chapter-nav-next-effect:active,
+.mdx-chapter-nav-next-effect:active::before {
+    filter: saturate(50%);
+    box-shadow: none;
+    transform: none;
+      // background: linear-gradient(to left, @aActiveColor, fade(@aActiveColor, 0%));
+    // background-color: @aActiveColor;
     // background: none;
 // 性能优化    transition: all 0.3s ease-in-out;
+}
+
+.mdx-chapter-nav-next-text {
+    top: 0;
+    right: 30px;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-family: @boldFont;
+    color: @buttonForeColor;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+    cursor: pointer;
+    display: block;
 }
 
 .mdx-btn-fullscreen {
@@ -3197,7 +3409,7 @@ li p {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.85);
     // background-color: rgba(255, 255, 255, 0.9); // 启用 blur 特效时的建议值
     position: fixed;
     display: none;
@@ -3300,8 +3512,8 @@ li p {
 
 // .mdx-figure-content svg,
 // .mdx-figure-content img,
-.mdx-figure,
 img,
+.mdx-figure,
 .md-diagram-panel svg {
     background-image: url(@figureBackgroundLight);
     background-repeat: repeat;
@@ -3327,14 +3539,14 @@ img,
 // img:hover,
 // .mdx-figure:hover,
 // table:hover,
-.mdx-OINPable-hover {
+.mdx-OINTable-hover {
     border-color: @aHoverColor !important;
-    box-shadow: @buttonShadow;
+    box-shadow: @buttonShadowNoblur;
     transform: translateY(-2px);
 // 性能优化    transition: all 0.3s ease-in-out;
 }
 
-.mdx-OINPable-hover:active {
+.mdx-OINTable-hover:active {
     border-color: @aActiveColor !important;
     box-shadow: none;
     transform: none;
@@ -3342,7 +3554,7 @@ img,
 
 // 指定在 Dark Mode 时反转的图片样式
 .mdx-img-invert-in-dark {
-    filter: invert(1);
+    filter: var(--vlook-invert-in-dark);
     border-color: @imgInvertInDarkBorderColor !important;
 }
 
@@ -3376,6 +3588,7 @@ img,
 }
 
 .mdx-figure-page-num {
+    color: #C0C4C8 !important;
     left: 10px;
     top: 10px;
     position: absolute;
@@ -3401,6 +3614,7 @@ img,
     font-size: 0.8em;
     font-family: @boldFont;
     margin: 5px 10px 5px 10px;
+    width: auto !important;
 }
 
 .mdx-figure-caption hr {
@@ -3413,7 +3627,7 @@ use.mdx-button-ico-light {
 }
 
 use.mdx-button-ico-dark {
-    fill: var(--fore-color);
+    fill: @buttonBgColor;
 }
 
 use.mdx-folder-ico {
@@ -3433,7 +3647,7 @@ use.mdx-folder-ico:hover,
     height: 100%;
     text-align: center;
     position: fixed;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.85);
     // background-color: rgba(255, 255, 255, 0.9); // 启用 blur 特效时的建议值
     display: none;
     z-index: 1000;
@@ -3446,131 +3660,138 @@ use.mdx-folder-ico:hover,
 }
 
 // 标签式公用样式（风格2）
-.mdx-code-c1,
-.mdx-code-c2,
-.mdx-code-c3,
-.mdx-code-c4,
-.mdx-code-c5,
-.mdx-code-c6 {
+.mdx-tag-c1,
+.mdx-tag-c2,
+.mdx-tag-c3,
+.mdx-tag-c4,
+.mdx-tag-c5,
+.mdx-tag-c6 {
     font-family: @boldFont;
     font-weight: bold;
+    font-size: 0.85em;
     color: @docBgColorLight;
     padding: 0.2em 0.6em;
     border-radius: 1em;
     white-space: pre;
 }
 
-.mdx-code-c1 {
-    background-color: var(--master-color);
-    box-shadow: 0 0 0 1px var(--master-color-light) inset;
+.mdx-tag-c1 {
+    background-color: var(--accent-color1);
+    box-shadow: 0 0 0 1px var(--accent-color1-light) inset;
 }
 
-.mdx-code-c2 {
-    background-color: var(--third-color);
-    box-shadow: 0 0 0 1px var(--third-color-light) inset;
+.mdx-tag-c2 {
+    background-color: var(--accent-color2);
+    box-shadow: 0 0 0 1px var(--accent-color2-light) inset;
 }
 
-.mdx-code-c3 {
-    background-color: var(--fourth-color);
-    box-shadow: 0 0 0 1px var(--fourth-color-light) inset;
+.mdx-tag-c3 {
+    background-color: var(--accent-color3);
+    box-shadow: 0 0 0 1px var(--accent-color3-light) inset;
 }
 
-.mdx-code-c4 {
-    background-color: var(--slave-color);
-    box-shadow: 0 0 0 1px var(--slave-color-light) inset;
+.mdx-tag-c4 {
+    background-color: var(--accent-color4);
+    box-shadow: 0 0 0 1px var(--accent-color4-light) inset;
 }
 
-.mdx-code-c5 {
-    background-color: var(--fifth-color);
-    box-shadow: 0 0 0 1px var(--fifth-color-light) inset;
+.mdx-tag-c5 {
+    background-color: var(--accent-color5);
+    box-shadow: 0 0 0 1px var(--accent-color5-light) inset;
 }
 
-.mdx-code-c6 {
-    background-color: var(--sixth-color);
-    box-shadow: 0 0 0 1px var(--sixth-color-light) inset;
+.mdx-tag-c6 {
+    background-color: var(--accent-color6);
+    box-shadow: 0 0 0 1px var(--accent-color6-light) inset;
 }
 
-// 药丸样式右边公共样式（风格1/2）
-.mdx-code-name1,
-.mdx-code-name2,
-.mdx-code-name3,
-.mdx-code-name4,
-.mdx-code-name5,
-.mdx-code-name6 {
+// 双标签样式右边公共样式（风格1/2）
+.mdx-tag-name1,
+.mdx-tag-name2,
+.mdx-tag-name3,
+.mdx-tag-name4,
+.mdx-tag-name5,
+.mdx-tag-name6 {
     font-family: @boldFont;
-    font-weight: normal !important;
+    font-weight: bold;
     margin-right: 0;
     border-radius: 1em 0 0 1em;
-    padding: 0.2em 1.8em 0.2em 0.6em;
     color: @docBgColorLight;
-    background: var(--code-name-bg-color);
-    box-shadow: 0 0 0 1px var(--code-name-shadow-color) inset;
-    font-size: 0.8em;
+    padding: 0.2em 1.8em 0.2em 0.6em;
+    font-size: 0.85em;
     white-space: pre;
 }
 
-.mdx-code-value1,
-.mdx-code-value2,
-.mdx-code-value3,
-.mdx-code-value4,
-.mdx-code-value5,
-.mdx-code-value6 {
+.mdx-tag-value1,
+.mdx-tag-value2,
+.mdx-tag-value3,
+.mdx-tag-value4,
+.mdx-tag-value5,
+.mdx-tag-value6 {
     font-family: @boldFont;
     font-weight: bold;
     margin-left: -1.5em;
     border-radius: 1em;
     padding: 0.2em 0.6em;
     color: @docBgColorLight;
-    font-size: 0.8em;
+    background: var(--code-name-bg-color);
+    box-shadow: 0 0 0 1px var(--code-name-shadow-color) inset;
+    font-size: 0.85em;
     white-space: pre;
 }
 
-// 药丸样式右边右边值风格2-样式1
-.mdx-code-name1 {}
-
-.mdx-code-value1 {
-    background-color: var(--master-color);
-    box-shadow: 0 0 0 1px var(--master-color-light) inset;
+// 双标签样式右边右边值风格2-样式1
+.mdx-tag-name1 {
+    background-color: var(--accent-color1);
+    box-shadow: 0 0 0 1px var(--accent-color1-light) inset;
 }
 
-// 药丸样式右边右边值风格2-样式2
-.mdx-code-name2 {}
-
-.mdx-code-value2 {
-    background-color: var(--third-color);
-    box-shadow: 0 0 0 1px var(--third-color-light) inset;
+.mdx-tag-value1 {
 }
 
-// 药丸样式右边右边值风格3-样式3
-.mdx-code-name3 {}
-
-.mdx-code-value3 {
-    background-color: var(--fourth-color);
-    box-shadow: 0 0 0 1px var(--fourth-color-light) inset;
+// 双标签样式右边右边值风格2-样式2
+.mdx-tag-name2 {
+    background-color: var(--accent-color2);
+    box-shadow: 0 0 0 1px var(--accent-color2-light) inset;
 }
 
-// 药丸样式右边右边值风格2-样式4
-.mdx-code-name4 {}
-
-.mdx-code-value4 {
-    background-color: var(--slave-color);
-    box-shadow: 0 0 0 1px var(--slave-color-light) inset;
+.mdx-tag-value2 {
 }
 
-// 药丸样式右边右边值风格2-样式5
-.mdx-code-name5 {}
-
-.mdx-code-value5 {
-    background-color: var(--fifth-color);
-    box-shadow: 0 0 0 1px var(--fifth-color-light) inset;
+// 双标签样式右边右边值风格3-样式3
+.mdx-tag-name3 {
+    background-color: var(--accent-color3);
+    box-shadow: 0 0 0 1px var(--accent-color3-light) inset;
 }
 
-// 药丸样式右边右边值风格2-样式6
-.mdx-code-name6 {}
+.mdx-tag-value3 {
+}
 
-.mdx-code-value6 {
-    background-color: var(--sixth-color);
-    box-shadow: 0 0 0 1px var(--sixth-color-light) inset;
+// 双标签样式右边右边值风格2-样式4
+.mdx-tag-name4 {
+    background-color: var(--accent-color4);
+    box-shadow: 0 0 0 1px var(--accent-color4-light) inset;
+}
+
+.mdx-tag-value4 {
+}
+
+// 双标签样式右边右边值风格2-样式5
+.mdx-tag-name5 {
+    background-color: var(--accent-color5);
+    box-shadow: 0 0 0 1px var(--accent-color5-light) inset;
+}
+
+.mdx-tag-value5 {
+}
+
+// 双标签样式右边右边值风格2-样式6
+.mdx-tag-name6 {
+    background-color: var(--accent-color6);
+    box-shadow: 0 0 0 1px var(--accent-color6-light) inset;
+}
+
+.mdx-tag-value6 {
 }
 
 // h6内的code标签强制取消加粗
@@ -3587,30 +3808,38 @@ h6 code {
 // 页面最后1个H6为封底样式
 #write > h6:last-of-type {
     display: block;
-    color: @themeForeColor !important;
+    color: @coverTextColor !important;
     font-size: 2.5em;
     font-family: @titleFont;
     font-weight: bold;
     text-align: @coverTextAlign;
-    height: 25cm;
-    padding: 180px 60px 50px;
+    height: 950px;//25cm;
+    padding: @coverTextPadding;
     margin: 10px 0 3em;
     border: 0;
     border-radius: 16px;
-    box-shadow: @contrastBorder;
-    background-color: @themeBgColor;
+    box-shadow: @contrastBorderForCover;
+    background-color: @coverBackgroundColor;
     background-image: @coverBackgroundImage;
+    background-size: @coverBackgroundSize;
     background-repeat: @coverBackgroundRepeat;
     background-position: @coverBackgroundPosition;
 }
 
 // 封底样式微调
 #write > h6:last-of-type {
-    height: 14cm;
+    height: 550px;//14cm;
     margin-top: 3em;
     margin-bottom: 10px;
-    padding-top: 50px;
+    // padding-top: 50px;
+    padding: @backCoverTextPadding;
+    color: @backCoverTextColor !important;
     text-align: @backCoverTextAlign;
+    background-color: @backCoverBackgroundColor;
+    background-image: @backCoverBackgroundImage;
+    background-size: @backCoverBackgroundSize;
+    background-repeat: @backCoverBackgroundRepeat;
+    background-position: @backCoverBackgroundPosition;
 }
 
 #write > h6:first-of-type::before,
@@ -3684,14 +3913,14 @@ h6 code {
 }
 
 // 针对超大屏手机、iPad 等设备的 UI 调整
-@media screen and (min-width: 641px) and (max-width: 1024px) {
+@media screen and (min-width: 641px) and (max-width: 1023px) {
     .mdx-load-screen {
         font-size: 1.5em !important;
     }
 }
 
 // 针对大屏手机的 UI 调整
-@media screen and (min-width: 361px) and (max-width: 640px) {
+@media screen and (min-width: 361px) and (max-width: 639px) {
     .mdx-load-screen {
         font-size: 1.3em !important;
     }
@@ -3753,19 +3982,23 @@ h6 code {
         white-space: pre-wrap !important;
     }
 
+    thead {
+        display: contents !important; // 避免分页后重复显示表头
+    }
+
     table:hover {
         border-color: var(--table-border-color) !important;
     }
 
     table th,
     table td {
-        white-space: pre-wrap !important;
+        white-space: pre-line !important;
     }
 
-    table th:first-child,
-    table td:first-child{
-        white-space: pre !important;
-    }
+    // table th:first-child,
+    // table td:first-child{
+    //     white-space: pre !important;
+    // }
 
     blockquote {
         display: block !important;
@@ -3824,6 +4057,7 @@ h6 code {
 @media (prefers-color-scheme: dark) {
     :root {
         --vlook-color-scheme: "dark";
+        --vlook-invert-in-dark: invert(1); // Dark 模式下图片滤镜
         
         // --------------------
         // Typora UI 颜色变量
@@ -3854,7 +4088,7 @@ h6 code {
         // 颜色变量
         --doc-bg-color: var(--doc-bg-color-dark);
         --doc-bg-color-alt: var(--doc-bg-color-alt-dark);
-        --doc-bg-color-alt-transparent: var(--doc-bg-color-alt-transparent-dark);
+        --doc-bg-color-transparent: var(--doc-bg-color-transparent-dark);
         --fore-color: var(--fore-color-dark);
         --fore-color-alt: var(--fore-color-alt-dark);
         --tips-bg-color: var(--tips-bg-color-dark);
@@ -3868,7 +4102,7 @@ h6 code {
         --table-border-color: var(--table-border-color-dark);
         --table-th-bg-color: var(--table-th-bg-color-dark);
         --table-th-border-color: var(--table-th-border-color-dark);
-        --img-dark-filter: var(--img-dark-filter-dark);
+        // --img-dark-filter: var(--img-dark-filter-dark);
         --del-color: var(--del-color-dark);
         --toc-header-num-color: var(--toc-header-num-color-dark);
         // --content-header-num-color: var(--content-header-num-color-dark);
@@ -3877,27 +4111,27 @@ h6 code {
         --header-bg-start-color: var(--header-bg-start-color-dark);
         --header-bg-end-color: var(--header-bg-end-color-dark);
         --code-bg-color: var(--code-bg-color-dark);
-        --code-bg-color-transparent: var(--code-bg-color-transparent-dark);
+        // --code-bg-color-transparent: var(--code-bg-color-transparent-dark);
         --code-name-bg-color: var(--code-name-bg-color-dark);
         --code-name-shadow-color: var(--code-name-shadow-color-dark);
-        --master-color: var(--master-color-dark);
-        --slave-color: var(--slave-color-dark);
-        --third-color: var(--third-color-dark);
-        --fourth-color: var(--fourth-color-dark);
-        --fifth-color: var(--fifth-color-dark);
-        --sixth-color: var(--sixth-color-dark);
-        --mermaid-master-color: var(--mermaid-master-color-dark);
-        --mermaid-master-color-alt: var(--mermaid-master-color-alt-dark);
-        --mermaid-slave-color: var(--mermaid-slave-color-dark);
-        --mermaid-slave-color-alt: var(--mermaid-slave-color-alt-dark);
-        --mermaid-third-color: var(--mermaid-third-color-dark);
-        --mermaid-third-color-alt: var(--mermaid-third-color-alt-dark);
-        --mermaid-fourth-color: var(--mermaid-fourth-color-dark);
-        --mermaid-fourth-color-alt: var(--mermaid-fourth-color-alt-dark);
-        --mermaid-fifth-color: var(--mermaid-fifth-color-dark);
-        --mermaid-fifth-color-alt: var(--mermaid-fifth-color-alt-dark);
-        --mermaid-sixth-color: var(--mermaid-sixth-color-dark);
-        --mermaid-sixth-color-alt: var(--mermaid-sixth-color-alt-dark);
+        --accent-color1: var(--accent-color1-dark);
+        --accent-color2: var(--accent-color2-dark);
+        --accent-color3: var(--accent-color3-dark);
+        --accent-color4: var(--accent-color4-dark);
+        --accent-color5: var(--accent-color5-dark);
+        --accent-color6: var(--accent-color6-dark);
+        --mermaid-accent-color1: var(--mermaid-accent-color1-dark);
+        --mermaid-accent-color1-alt: var(--mermaid-accent-color1-alt-dark);
+        --mermaid-accent-color2: var(--mermaid-accent-color2-dark);
+        --mermaid-accent-color2-alt: var(--mermaid-accent-color2-alt-dark);
+        --mermaid-accent-color3: var(--mermaid-accent-color3-dark);
+        --mermaid-accent-color3-alt: var(--mermaid-accent-color3-alt-dark);
+        --mermaid-accent-color4: var(--mermaid-accent-color4-dark);
+        --mermaid-accent-color4-alt: var(--mermaid-accent-color4-alt-dark);
+        --mermaid-accent-color5: var(--mermaid-accent-color5-dark);
+        --mermaid-accent-color5-alt: var(--mermaid-accent-color5-alt-dark);
+        --mermaid-accent-color6: var(--mermaid-accent-color6-dark);
+        --mermaid-accent-color6-alt: var(--mermaid-accent-color6-alt-dark);
         --cm-keyword: var(--cm-keyword-dark);
         --cm-variable: var(--cm-variable-dark);
         --cm-variable-2: var(--cm-variable-2-dark);
@@ -3926,6 +4160,17 @@ h6 code {
     .mdx-figure-content svg {
         background-image: url(@figureBackgroundDark);
     }
+
+    img {
+        background-image: url(@figureBackgroundDark) !important;
+    }
+    // 图片URL参数指定在 Dark 模式时反色
+    img[src*="invert=in-dark"] {
+        // filter: invert(1);
+        filter: var(--vlook-invert-in-dark);
+        border-color: @imgInvertInDarkBorderColor !important;
+        background-image: url(@figureBackgroundLight) !important;
+    }
 }
 
 // 对支持毛玻璃样式的浏览器的处理
@@ -3952,3 +4197,28 @@ h6 code {
     --mermaid-font-family: @textFont !important;
     --mermaid-alt-font-family: @textFont !important;
 }
+
+// 打印时的版式设计，因浏览器均未支持，暂缓应用
+// @page:right{
+//     @bottom-left {
+//         margin: 10pt 0 30pt 0;
+//         border-top: .25pt solid #666;
+//         content: "Our Cats";
+//         font-size: 9pt;
+//         color: #333;
+//     }
+
+//     @bottom-right { 
+//         margin: 10pt 0 30pt 0;
+//         border-top: .25pt solid #666;
+//         content: counter(page);
+//         font-size: 9pt;
+//     }
+
+//     @top-right {
+//         content: string(doctitle);
+//         margin: 30pt 0 10pt 0;
+//         font-size: 9pt;
+//         color: #333;
+//     }
+// }

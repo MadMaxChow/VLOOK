@@ -49,51 +49,51 @@
 // 指定在 Dark Mode 时反转的图片边框颜色（先使用反色，这样在反转时则能保持与色一致）
 @imgInvertInDarkBorderColor: rgba(255 - red(@tableBorderColorDark), 255 - green(@tableBorderColorDark), 255 - blue(@tableBorderColorDark), alpha(@tableBorderColorDark));
 
-// 主色
-@masterColor: #045AD1; //#0158D0; //#0078D7;
-@masterColorLight: lighten(@masterColor, 10%);
-@masterColorDark: darken(@masterColor, 20%);
-@masterColorAlt: lighten(@masterColor, 50%);
-@masterColorAltDark: darken(@masterColorAlt, 20%);
-@masterColorFade: fade(@masterColor, 50%);
-// @masterShadowColor: fade(@masterColor, 35%);
-// 辅助色
-@slaveColor: #C21117; //#C3252B;//#DC0010;
-@slaveColorLight: lighten(@slaveColor, 10%);
-@slaveColorDark: darken(@slaveColor, 20%);
-@slaveColorAlt: lighten(@slaveColor, 50%);
-@slaveColorAltDark: darken(@slaveColorAlt, 20%);
-@slaveColorFade: fade(@slaveColor, 50%);
-// @slaveShadowColor: fade(@slaveColor, 35%);
-// 第3色
-@thirdColor: #4DA032; //#4AA608;
-@thirdColorLight: lighten(@thirdColor, 10%);
-@thirdColorDark: darken(@thirdColor, 20%);
-@thirdColorAlt: lighten(@thirdColor, 50%);
-@thirdColorAltDark: darken(@thirdColorAlt, 20%);
-@thirdColorFade: fade(@thirdColor, 50%);
-// @thirdShadowColor: lighten(@thirdColor, 35%);
-// 第4色
-@fourthColor: #E68D09;//#D96B0A; //E6830B; //#D96B0A; //#F28D00;
-@fourthColorLight: lighten(@fourthColor, 10%);
-@fourthColorDark: darken(@fourthColor, 20%);
-@fourthColorAlt: lighten(@fourthColor, 40%);
-@fourthColorAltDark: darken(@fourthColorAlt, 20%);
-@fourthColorFade: fade(@fourthColor, 50%);
-// @fourthShadowColor: lighten(@fourthColor, 35%);
-// 第5色
-@fifthColor: #953296; //#7D2A7E; //#803099;
-@fifthColorLight: lighten(@fifthColor, 10%);
-@fifthColorDark: darken(@fifthColor, 20%);
-@fifthColorAlt: lighten(@fifthColor, 50%);
-@fifthColorAltDark: darken(@fifthColorAlt, 20%);
-@fifthColorFade: fade(@fifthColor, 50%);
-// @fifthShadowColor: lighten(@fifthColor, 35%);
-// 第6色
-@sixthColor: #585A5D;
-@sixthColorLight: lighten(@sixthColor, 10%);
-@sixthColorDark: darken(@sixthColor, 20%);
-@sixthColorAlt: lighten(@sixthColor, 50%);
-@sixthColorAltDark: darken(@sixthColorAlt, 20%);
-@sixthColorFade: fade(@sixthColor, 50%);
-// @sixthShadowColor: lighten(@sixthColor, 35%);
+// 强调色-1
+@accentColor1: #0972DB; //#0158D0; //#0078D7;
+@accentColor1Light: lighten(@accentColor1, 10%);
+@accentColor1Dark: darken(@accentColor1, 20%);
+@accentColor1Alt: lighten(@accentColor1, 40%);
+@accentColor1AltDark: darken(@accentColor1Alt, 40%);
+@accentColor1Fade: fade(@accentColor1, 50%);
+// @masterShadowColor: fade(@accentColor1, 35%);
+// @slaveShadowColor: fade(@accentColor4, 35%);
+// 强调色-2
+@accentColor2: #22A892; //#4AA608;
+@accentColor2Light: lighten(@accentColor2, 10%);
+@accentColor2Dark: darken(@accentColor2, 20%);
+@accentColor2Alt: lighten(@accentColor2, 40%);
+@accentColor2AltDark: darken(@accentColor2Alt, 40%);
+@accentColor2Fade: fade(@accentColor2, 50%);
+// @thirdShadowColor: lighten(@accentColor2, 35%);
+// 强调色-3
+@accentColor3: #E68D09;//#D96B0A; //E6830B; //#D96B0A; //#F28D00;
+@accentColor3Light: lighten(@accentColor3, 10%);
+@accentColor3Dark: darken(@accentColor3, 20%);
+@accentColor3Alt: lighten(@accentColor3, 40%);
+@accentColor3AltDark: darken(@accentColor3Alt, 40%);
+@accentColor3Fade: fade(@accentColor3, 50%);
+// @fourthShadowColor: lighten(@accentColor3, 35%);
+// 强调色-4
+@accentColor4: #C7285D; //#C21117; //#C3252B;//#DC0010;
+@accentColor4Light: lighten(@accentColor4, 10%);
+@accentColor4Dark: darken(@accentColor4, 20%);
+@accentColor4Alt: lighten(@accentColor4, 40%);
+@accentColor4AltDark: darken(@accentColor4Alt, 40%);
+@accentColor4Fade: fade(@accentColor4, 50%);
+// 强调色-5
+@accentColor5: #7536B3; //#7D2A7E; //#803099;
+@accentColor5Light: lighten(@accentColor5, 10%);
+@accentColor5Dark: darken(@accentColor5, 20%);
+@accentColor5Alt: lighten(@accentColor5, 40%);
+@accentColor5AltDark: darken(@accentColor5Alt, 40%);
+@accentColor5Fade: fade(@accentColor5, 50%);
+// @fifthShadowColor: lighten(@accentColor5, 35%);
+// 强调色-6
+@accentColor6: #585A5D;
+@accentColor6Light: lighten(@accentColor6, 10%);
+@accentColor6Dark: darken(@accentColor6, 20%);
+@accentColor6Alt: lighten(@accentColor6, 40%);
+@accentColor6AltDark: darken(@accentColor6Alt, 40%);
+@accentColor6Fade: fade(@accentColor6, 50%);
+// @sixthShadowColor: lighten(@accentColor6, 35%);
