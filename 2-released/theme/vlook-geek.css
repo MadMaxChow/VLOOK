@@ -1779,7 +1779,7 @@ li p {
 }
 .mdx-tool-tips {
   border-top: 0;
-  box-shadow: 0 2px 0 0 #E62E4D inset, 0 3px 20px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(255, 255, 255, 0.1) inset;
+  box-shadow: 0 2px 0 0 #E62E4D inset, 0 3px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   text-align: left;
   white-space: pre;
 }
@@ -2042,7 +2042,7 @@ li p {
   color: #C0C4C8 !important;
 }
 .mdx-float-card {
-  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(255, 255, 255, 0.1) inset;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 }
 .mdx-footer-note-panel {
   position: fixed;
@@ -2406,7 +2406,7 @@ li p {
   top: auto;
   width: 30px;
   height: 70px;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1) inset;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   border-radius: 16px;
   position: absolute;
   bottom: 10px;
@@ -2416,7 +2416,7 @@ li p {
   top: auto;
   width: 30px;
   height: 70px;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1) inset;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   border-radius: 16px;
   position: absolute;
   bottom: 10px;
@@ -2441,7 +2441,7 @@ li p {
   width: 50px;
   height: 50px;
   padding: 12px 12px 8px 8px;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1) inset;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   border-radius: 0 0 0 50px;
   position: absolute;
 }
@@ -2457,14 +2457,14 @@ li p {
 }
 .mdx-btn-open-in-new-tab {
   border-radius: 16px 0 16px 0;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1) inset;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   background-color: #292C33;
   position: absolute;
   z-index: 50;
 }
 .mdx-btn-copy-code-block {
   border-radius: 0 16px 0 16px;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1) inset;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   background-color: #292C33;
   position: absolute;
   z-index: 50;

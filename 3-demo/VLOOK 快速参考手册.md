@@ -840,23 +840,23 @@ $$
 
 + 将`released\theme`下所有 CSS 文件复制至 Typora 的主题目录（ Typora「偏好设置」中点击「外观 - 打开主题目录」定位到该目录）；
 + 重启 Typora ，点击菜单`主题`，选择以`vlook-*`形式命名的主题，即可启用对应的 VLOOK™ 主题样式；
-+ 可基于`VLOOK\3-demo\VLOOK-Template 文档模板.md`来创建你自己的文档，`VLOOK\3-demo`目录下也有本文档的 Markdown 源文件。
++ 可基于`VLOOK\3-demo`下的`*.md` 为模板来创建你自己的文档。
 
 ## 第3步：植入插件
 
 + 在 Typora 中将 Markdown 文件导出为`HTML`文件；
-+ 打开文件`released\VLOOK-TOOLBOX 插件.txt`，全选所有内容，并复制；
++ 打开文件`released\VLOOK-plugin-for-Typora.txt`，全选所有内容，并复制；
 + 用纯文件编辑器，如：记事本、[Visual Studio Code](https://code.visualstudio.com/)，打开该导出的 HTML 文件；
-+ 搜索「**<body **」，并将复制的内容粘贴到body标签的「**>**」之后：
++ 搜索「**<body **」，并将复制的内容粘贴到 body 标签的关闭符「**>**」之后：
   ```
   <body ...>
-  ← ← ← ← ← 复制的「VLOOK-TOOLBOX 插件」内容粘贴于此！
+  ← ← ← ← ← 将「VLOOK-plugin-for-Typora.txt」文件的内容粘贴于此！
   ...
   </body>
   ```
 + 保存，大吉大利。
 
-> 强烈建议使用 Chrome、Firefox、Edge 浏览器浏览
+> 强烈建议使用 Chrome、Firefox、Edge 浏览器访问
 
 # 许可协议
 
