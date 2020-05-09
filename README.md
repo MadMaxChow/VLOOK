@@ -16,15 +16,17 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ---
 
-![欢迎屏](https://s1.ax1x.com/2020/05/08/YumZjK.png)
+![内置多套原创主题，一键切换，支持私人定制](https://s1.ax1x.com/2020/05/09/YMw9Ve.png)
 
-![自动生成大纲](https://s1.ax1x.com/2020/05/08/YummnO.png)
+![让 Markdown 的自动化排版和交互性上了N个台阶](https://s1.ax1x.com/2020/05/09/YMwCUH.png)
 
-![插图浏览器](https://s1.ax1x.com/2020/05/08/YumnBD.png)
+![OMG! 可以按大纲、逐章、逐段、插图多种方式导航](https://s1.ax1x.com/2020/05/09/YMdzDO.png)
 
-![支持mermaid图及聚光灯](https://s1.ax1x.com/2020/05/08/YumuHe.png)
+![火力全开的演示辅助～聚光灯、表格十字光标、新标签打开](https://s1.ax1x.com/2020/05/09/YMwSbD.png)
 
-![长内容（插图/表格/代码块）自动折叠](https://s1.ax1x.com/2020/05/08/YumMAH.png)
+![还有单元格合并、彩虹标签、引用折叠、…30+特性，开箱即用](https://s1.ax1x.com/2020/05/09/YMwP5d.png)
+
+![完美适配 Dark 模式，Markdown 变得更 Cool 了](https://s1.ax1x.com/2020/05/09/YMwFPA.png)
 
 # 内置多套高颜值实用的主题
 
