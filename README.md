@@ -1,7 +1,5 @@
 # 「 **VLOOK ── 让你的 Markdown 有了新看法** 」
 
-# 概况
-
 **开源中国（[OSChina.net](https://www.oschina.net/p/vlook)）推荐的国产开源产品。**<br>
 
 ![OSChina 编辑推荐国产开源产品](https://s1.ax1x.com/2020/04/14/GzmlB8.png)
@@ -28,6 +26,8 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ![完美适配 Dark 模式，Markdown 变得更 Cool 了](https://s1.ax1x.com/2020/05/09/YMwFPA.png)
 
+---
+
 # 内置多套高颜值实用的主题
 
 VLOOK™ 已为你内置了多套原创、独具风格的主题样式，能满足日常大多不同的应用场景和视觉偏好：
@@ -40,6 +40,8 @@ VLOOK™ 已为你内置了多套原创、独具风格的主题样式，能满�
 
 ![内置多套高颜值实用的主题](https://s1.ax1x.com/2020/05/08/Ynu94s.png)
 
+---
+
 ## 主题私人定制服务
 
 目前 VLOOK™ 项目也现已开放了主题的 **私人定制** 服务，定制样品示例如下：
@@ -49,6 +51,14 @@ VLOOK™ 已为你内置了多套原创、独具风格的主题样式，能满�
 （以上仅为效果仅为定制样品示例，非正式定制服务成品）
 
 主题私人定制服务微信：**MaxChow**
+
+---
+
+## 快速参考手册
+
+**以下网页都是由 Typora 和 VLOOK 共同编辑和生成的，所有的功能特性和样式你都能直接体验。**
+
+• 有关 VLOOK 特性的详细介绍、样例及使用说明详见《[VLOOK 快速参考手册](https://madmaxchow.github.io/VLOOK/index.html)》，[国内链接](https://madmaxchow.gitee.io/vlook/index.html)<br>• 有关脚本化图表的详细介绍、样例及使用说明详见《[脚本化图表参考指南](https://madmaxchow.github.io/VLOOK/chart.html)》，[国内链接](https://madmaxchow.gitee.io/vlook/chart.html)
 
 ---
 
@@ -95,14 +105,7 @@ VLOOK™ 充分挖掘和扩展了 Markdown 和 Typora 的语法和功能，并�
 | **自动识别链接类型**<br>自动识别对文档的内部链接、外部链接，鼠标在链接上悬停时通过不同的角标图示进行区分 |
 | **七语种界面**<br>界面提示说明、题注前缀等内容，均支持：**简/繁/英/法/俄/日/韩**（依赖于浏览器的当前语言设置） |
 
-环境要求：VLOOK V9.5+，Typora mac版 V0.9.9.31+ / Win版 V0.9.83+
-
----
-
-`* 提示 *` **以下网页都是由 Typora 和 VLOOK 共同编辑和生成的，所有的功能特性和样式你都能直接体验。**
-
-有关 VLOOK 特性的详细介绍、样例及使用说明详见《[VLOOK 快速参考手册](https://madmaxchow.github.io/VLOOK/index.html)》，[国内链接](https://madmaxchow.gitee.io/vlook/index.html)<br>
-有关脚本化图表的详细介绍、样例及使用说明详见《[脚本化图表参考指南](https://madmaxchow.github.io/VLOOK/chart.html)》，[国内链接](https://madmaxchow.gitee.io/vlook/chart.html)
+环境要求：Typora（macOS版 V0.9.9.31+ / Win版 V0.9.83+）
 
 ---
 
