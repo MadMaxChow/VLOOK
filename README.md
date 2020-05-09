@@ -153,7 +153,7 @@ VLOOK™ 充分挖掘和扩展了 Markdown 和 Typora 的语法和功能，并�
 # 打赏
 
 **若喜欢 VLOOK™ 的话，可以请 Max 喝杯咖啡：**<br>
-![微信支付](https://i.loli.net/2019/10/25/GCKPxocfJ9MOHk2.png)
+![微信支付](https://s1.ax1x.com/2020/04/14/GzVBHe.png)
 
 ---
 
@@ -170,18 +170,4 @@ VLOOK™ 充分挖掘和扩展了 Markdown 和 Typora 的语法和功能，并�
 | &nbsp;&nbsp;&nbsp;&nbsp;┖─ misc | 杂项文件，包括图标源文件、产品原型、主题图形素材设计源文件等 |
 | ┠─ 5-dev | 开发测试用示例文件 |
 | ┖─ docs   | VLOOK 快速参考手册及相关文档 |
-
----
-
-# Overview
-
-VLOOK ™ is a plugin that enhances HTML files exported by Typora (currently the best cross-platform Markdown editor, none of them).
-
-VLOOK ™ is open source software and is under the MIT license.
-
-VLOOK ™ targets Markdown's shortcomings, and finds a balance among the actual numerous document layout, navigation, presentation, and interaction needs, providing a better experience for Markdown editors and readers.
-
-For detailed introduction, examples and instructions on VLOOK features "[VLOOK Quick Reference Manual](https://madmaxchow.github.io/VLOOK/index.html)".
-
-For detailed introduction, examples and instructions on scripted charts, please refer to "[Scripted Charts for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)"
 
