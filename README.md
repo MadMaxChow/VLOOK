@@ -32,7 +32,7 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 VLOOK™ 已为你内置了多套原创、独具风格的主题样式，能满足日常大多不同的应用场景和视觉偏好：
 
-- **Hope 海洋之心**：[预览 ＞](https://madmaxchow.github.io/VLOOK/index.html)
+- **Hope 海洋之心**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-hope.html)
 - **Joint 榫卯**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-joint.html)
 - **Geek 极邃**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-geek.html)
 - **Fancy 慕幻**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-fancy.html)
