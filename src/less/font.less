@@ -1,0 +1,41 @@
+/**************************************
+* 字体主题
+***************************************/
+
+@fontSize: 1em;
+
+// ----------------------------------------
+// 经典黑宋
+// 宋体, 黑体
+
+
+// ----------------------------------------
+// 思源黑
+// Noto Sans CJK SC regular, Noto Sans CJK SC bold
+@sansFont: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Microsoft YaHei", "微软雅黑", sans-serif;
+@monoSansFont: "Fira Code", Menlo, Consolas, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", monospace;
+
+// 非衬线风格 Sans，启用则取消以下注释，并将 Serif + Sans 注释掉
+// @defaultFontStyle: sans;
+// @titleFont: @sansFont;
+// @headerFont: @sansFont;
+// @textFont: @sansFont;
+// @boldFont: @sansFont;
+// @codeFont: @monoSansFont;
+
+// ----------------------------------------
+// 思源宋
+// Noto Serif CJK SC regular, Noto Sans CJK SC, Noto Sans CJK SC bold
+@serifFont: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
+@sans4Serif: SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑";
+@serifBoldFont: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, @sans4Serif, sans-serif;
+@serifBigger: "Noto Serif CJK SC", @serifBoldFont;
+@monoSerifFont: "Fira Code", Menlo, Consolas, "Courier New", "Noto Sans CJK SC", @sans4Serif, monospace;
+
+// 衬线+非衬线混排风格 Serif + Sans，启用则取消以下注释，并将 Sans 注释掉
+@defaultFontStyle: serif;
+@titleFont: @serifBigger;
+@headerFont: @serifBigger;
+@textFont: @serifFont;
+@boldFont: @serifBoldFont;
+@codeFont: @monoSerifFont;
