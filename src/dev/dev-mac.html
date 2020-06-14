@@ -2521,6 +2521,17 @@ li p {
     box-shadow: 0 0 0 3px rgba(78, 75, 194, 0.7);
   }
 }
+@keyframes loading-circle {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.mdx-audio-mini-control-loading {
+    animation: loading-circle 2s linear infinite;
+}
 .mdx-audio-mini-control-disabled {
   color: var(--fore-color);
   background-color: #B0B4B8;
@@ -8699,6 +8710,7 @@ MIT许可证（MIT）
                 // 开始加载音频
                 audio.bind("loadstart", function () {
                     let controls = $("#" + $(this).attr("id") + "-control");
+                    controls.addClass("mdx-audio-mini-control-loading");
                     controls.html(ExtAudio.icon.loading);
                 });
 
@@ -8706,6 +8718,8 @@ MIT许可证（MIT）
                 audio.bind("canplay", function () {
                     let controls = $("#" + $(this).attr("id") + "-control"),
                         src = $(this).attr("src");
+
+                    controls.removeClass("mdx-audio-mini-control-loading");
 
                     // 绑定点击事件
                     controls.unbind("click").click(function () {
@@ -8756,6 +8770,7 @@ MIT许可证（MIT）
                 audio.bind("emptied", function () {
                     let controls = $("#" + $(this).attr("id") + "-control");
                     // controls.text("▲");
+                    controls.removeClass("mdx-audio-mini-control-loading");
                     controls.html(ExtAudio.icon.forbidden);
                     controls.removeClass("mdx-audio-mini-control");
                     controls.addClass("mdx-audio-mini-control-disabled");

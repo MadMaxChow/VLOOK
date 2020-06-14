@@ -3192,13 +3192,17 @@ li p {
 //     display: none;
 // }
 
-@keyframes breathe-circle {
-    0% {
-        box-shadow: 0 0 0 0 fade(@aHoverColor, 70%);
+// 音频资源加载中动画
+@keyframes loading-circle {
+    from {
+      transform: rotate(0deg);
     }
-    100% {
-        box-shadow: 0 0 0 3px fade(@aHoverColor, 70%);
+    to {
+      transform: rotate(359deg);
     }
+}
+.mdx-audio-mini-control-loading {
+    animation: loading-circle 2s linear infinite;
 }
 
 .mdx-audio-mini-control-disabled {
@@ -3244,6 +3248,15 @@ li p {
     // transform: rotate(90deg);
 }
 
+// 音频播放中动画
+@keyframes breathe-circle {
+    0% {
+        box-shadow: 0 0 0 0 fade(@aHoverColor, 70%);
+    }
+    100% {
+        box-shadow: 0 0 0 3px fade(@aHoverColor, 70%);
+    }
+}
 .mdx-audio-mini-control-playing {
     // box-shadow: 0 0 0 3px @aHoverColor inset;
     animation: 500ms breathe-circle infinite alternate;
