@@ -2760,7 +2760,7 @@ h6 code {
   background-size: auto;
   background-repeat: no-repeat, repeat-x, repeat-y, no-repeat, repeat;
   background-position: bottom center, bottom, right, bottom left, top left;
-  line-height: 1.3em !important;
+  line-height: 1.3 !important;
 }
 #write > h6:last-of-type {
   height: 550px;
