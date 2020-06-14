@@ -2180,13 +2180,16 @@ li p {
   box-shadow: none;
   transform: none;
 }
-@keyframes breathe-circle {
-  0% {
-    box-shadow: 0 0 0 0 rgba(242, 133, 179, 0.7);
+@keyframes loading-circle {
+  from {
+    transform: rotate(0deg);
   }
-  100% {
-    box-shadow: 0 0 0 3px rgba(242, 133, 179, 0.7);
+  to {
+    transform: rotate(359deg);
   }
+}
+.mdx-audio-mini-control-loading {
+  animation: loading-circle 2s linear infinite;
 }
 .mdx-audio-mini-control-disabled {
   color: var(--fore-color);
@@ -2222,6 +2225,14 @@ li p {
 }
 .mdx-audio-mini-control:active {
   background-color: #de99b6;
+}
+@keyframes breathe-circle {
+  0% {
+    box-shadow: 0 0 0 0 rgba(242, 133, 179, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0 3px rgba(242, 133, 179, 0.7);
+  }
 }
 .mdx-audio-mini-control-playing {
   animation: 500ms breathe-circle infinite alternate;
