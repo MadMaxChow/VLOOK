@@ -5,9 +5,11 @@ VLOOK™ 支持「衬线」与「非衬线」两套字体风格，可根据个�
 下载地址：
 
 【思源黑体 / Noto Sans】
-  - 常规体：https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Regular.otf
-  - 粗体：https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Bold.otf
+  - Regular：https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Regular.otf
+  - Bold：https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Bold.otf
+  - Black：https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Black.otf
 
 【思源宋体 / Noto Serif】
-  - 常规体：https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Regular.otf
-  - 粗体：https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Bold.otf
+  - Regular：https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Regular.otf
+  - Bold：https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Bold.otf
+  - Black：https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Black.otf

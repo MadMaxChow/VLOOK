@@ -62,6 +62,13 @@ VLOOK™ 已为你内置了多套原创、独具风格的主题样式，能满�
 
 ---
 
+# 打赏
+
+**若喜欢 VLOOK™ 的话，可以请 Max 喝杯咖啡：**<br>
+![微信支付](https://s1.ax1x.com/2020/04/14/GzVBHe.png)
+
+---
+
 ## 特性清单
 
 VLOOK™ 充分挖掘和扩展了 Markdown 和 Typora 的语法和功能，并结合现代网络化的文档编辑和出版中涉及的文档的 **格式排版**、**文档导航**、**演示辅助**、**内容交互** 等方面的需求，为你提供基于 Markdown 的文档编辑、文档发布、文档阅读者提供 **一致**、**简洁**、**友好** 的体验。
@@ -90,6 +97,7 @@ VLOOK™ 充分挖掘和扩展了 Markdown 和 Typora 的语法和功能，并�
 | **表格十字光柱**<br>方便你与大家讨论长表格、大表格时，快速聚焦指定单元格，及对应的行和列 |
 | **在新标签打开插图、表格、代码块**<br>在长文档中的来回翻页查看插图、表格、代码示例是很崩溃的事，现在你可以让它们在浏览器的不同标签中显示了 |
 | **四、内容互动**                                             |
+| **表格行分组**<br>程序员、产品经理呼声最高的表格增强之一，从此你的表格就可以轻松实现分组和多级缩进了 |
 | **支持音频、视频**<br>你的 Markdown 文档从此可以看视频、听音频了，音频还支持迷你模式，应用的潜力等你来发挥～ |
 | **代码块增强**<br>在这你会发现连闷骚的代码都透着动感，高亮当行、复制～ |
 | **引用内容可设置为折叠**<br>引用内容很长很多？现在可以指定是否默认收起，读者点击才展示引用内容……在 VLOOK™ 的加持下，这里都不是事 |
@@ -114,14 +122,16 @@ VLOOK™ 充分挖掘和扩展了 Markdown 和 Typora 的语法和功能，并�
 
 - 访问官方主页下载最新发布版本：[GitHub (主站)](https://github.com/MadMaxChow/VLOOK/releases)&nbsp;&nbsp;&nbsp;&nbsp;[OSChina (备用)](https://www.oschina.net/p/vlook)
 - 下载并安装 [Typora](https://www.typora.io) ，启动后进入「偏好设置」，启用一些建议的选项，详细如下图：
-![开启「Markdown 扩展语法」下的所有选项](https://tva1.sinaimg.cn/large/006tNbRwgy1ganwt7vwlaj31540cita9.jpg)
-![开启「代码块」「公式」下的所有选项](https://tva1.sinaimg.cn/large/006tNbRwgy1ganwt7l785j315k0fuwg4.jpg)
+
+![开启「Markdown ▸ 代码块、公式」下的所有选项](https://tva1.sinaimg.cn/large/006tNbRwgy1ganwt7vwlaj31540cita9.jpg)
+
+![开启「Markdown ▸ Markdown 扩展语法」下的所有选项](https://tva1.sinaimg.cn/large/006tNbRwgy1ganwt7l785j315k0fuwg4.jpg)
 
 # 第2步：应用主题
 
 + 将`released\theme`下所有CSS文件复制至 Typora 的主题目录（ Typora「偏好设置」中点击「外观 - 打开主题目录」定位到该目录）；
 + 重启 Typora ，点击菜单`主题`，选择以`vlook-*`形式命名的主题，即可启用对应的 VLOOK™ 主题样式；
-+ 可基于`released`下的`文档模板-Template.md` 为模板来创建你自己的 Markdown 文档。
++ 可基于`released`下的`VLOOK-Document-Template.md` 为模板来创建你自己的 Markdown 文档。
 
 # 第3步：植入插件
 
@@ -129,9 +139,9 @@ VLOOK™ 充分挖掘和扩展了 Markdown 和 Typora 的语法和功能，并�
 + 打开文件`released\VLOOK-plugin-for-Typora.txt`，全选所有内容，并复制；
 + 用纯文件编辑器，如：记事本、[Visual Studio Code](https://code.visualstudio.com/)，打开该导出的 HTML 文件；
 + 搜索「**<body **」，并将复制的内容粘贴到body标签的「**>**」之后：
-  ```
+  ```html
   <body ...>
-  ← ← ← ← ← 将「VLOOK-plugin-for-Typora.txt」文件的内容粘贴于此！
+  ◀ ◀ ◀ 将「VLOOK-plugin-for-Typora.txt」文件的内容粘贴于此！
   ...
   </body>
   ```
@@ -146,15 +156,8 @@ VLOOK™ 充分挖掘和扩展了 Markdown 和 Typora 的语法和功能，并�
 支持 **衬线** 与 **非衬线** 两套字体风格，可根据个人喜好进行切换，后续将会引入更多字体风格。
 衬线与非衬线分别优先使用开源的 **思源黑体** 和 **思源宋体**，建议下载安装获得最佳的视觉体验。
 
-- 思源黑体 / Noto Sans（[常规体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Regular.otf)、[粗体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Bold.otf)）
-- 思源宋体 / Noto Serif（[常规体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Regular.otf)、[粗体](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Bold.otf)）
-
----
-
-# 打赏
-
-**若喜欢 VLOOK™ 的话，可以请 Max 喝杯咖啡：**<br>
-![微信支付](https://s1.ax1x.com/2020/04/14/GzVBHe.png)
+- 思源黑体 / Noto Sans 的三种字重：[Regular](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Regular.otf)、[Bold](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Bold.otf)、[Black](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Black.otf)
+- 思源宋体 / Noto Serif 的三种字重：[Regular](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Regular.otf)、[Bold](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Bold.otf)、[Black](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Black.otf)
 
 ---
 
@@ -162,16 +165,16 @@ VLOOK™ 充分挖掘和扩展了 Markdown 和 Typora 的语法和功能，并�
 
 | 目录 | 说明                         |
 | ---------- | ---------------------------- |
-| ┠─ [**docs**] | VLOOK™ 快速参考手册及相关文档 |
-| ┠─ [**released**] | 发布版本的主目录          |
-| &nbsp;&nbsp;&nbsp;&nbsp;┠─ [**demo**] | 基于 VLOOK™ 主题的 Markdown 示例文件 |
-| &nbsp;&nbsp;&nbsp;&nbsp;┠─ [**logo**] | VLOOK™ 的 Logo |
-| &nbsp;&nbsp;&nbsp;&nbsp;┠─ [**theme**] | 主题文件                     |
+| [ **docs** ] | VLOOK™ 快速参考手册及相关资料 |
+| [ **released** ] | 发布版本的主目录          |
+| &nbsp;&nbsp;&nbsp;&nbsp;┠─ [ **demo** ] | 基于 VLOOK™ 主题的 Markdown 示例文件 |
+| &nbsp;&nbsp;&nbsp;&nbsp;┠─ [ **logo** ] | VLOOK™ 的 Logo |
+| &nbsp;&nbsp;&nbsp;&nbsp;┠─ [ **theme** ] | 主题文件                     |
 | &nbsp;&nbsp;&nbsp;&nbsp;┠─ Font.txt | 推荐的字体说明及下载地址 |
 | &nbsp;&nbsp;&nbsp;&nbsp;┠─ VLOOK-plugin-for-Typora.txt | VLOOK™ 插件 |
-| &nbsp;&nbsp;&nbsp;&nbsp;┖─ 文档模板-Template.md | VLOOK™ 文档模板，用来创建属于你自己的 Markdown 文档 |
-| ┠─ [**src**] | 源码目录                     |
-| &nbsp;&nbsp;&nbsp;&nbsp;┠─ [**dev**] | 开发测试用文件 |
-| &nbsp;&nbsp;&nbsp;&nbsp;┠─ [**less**] | 主题 CSS 文件的源文件 |
-| &nbsp;&nbsp;&nbsp;&nbsp;┖─ [**misc**] | 杂项文件，包括图标源文件、产品原型、主题图形素材设计源文件等 |
+| &nbsp;&nbsp;&nbsp;&nbsp;┖─ VLOOK-Document-Template.md | VLOOK™ 文档模板，用来创建属于你自己的 Markdown 文档 |
+| [ **src** ] | 源码目录                     |
+| &nbsp;&nbsp;&nbsp;&nbsp;┠─ [ **dev** ] | 开发测试用文件 |
+| &nbsp;&nbsp;&nbsp;&nbsp;┠─ [ **less** ] | 主题 CSS 文件的源文件 |
+| &nbsp;&nbsp;&nbsp;&nbsp;┖─ [ **misc** ] | 杂项文件，包括图标源文件、产品原型、主题图形素材设计源文件等 |
 

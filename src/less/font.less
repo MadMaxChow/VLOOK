@@ -1,19 +1,57 @@
 /**************************************
-* 字体主题
+* VLOOK CSS 字体主题
 ***************************************/
 
 @fontSize: 1em;
 
-// ----------------------------------------
-// 经典黑宋
-// 宋体, 黑体
+// Rangs of font-weight:
+//   100 - Thin
+//   200 - Extra Light (Ultra Light)
+//   300 - Light
+//   400 - Regular (Normal、Book、Roman)
+//   500 - Medium
+//   600 - Semi Bold (Demi Bold)
+//   700 - Bold
+//   800 - Extra Bold (Ultra Bold)
+//   900 - Black (Heavy)
 
+// ----------------------------------------
+// 微软雅黑
+// @sansFont: "Segoe UI", Arial, Tahoma, "Helvetica Neue", Helvetica, "Microsoft YaHei", "微软雅黑", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", sans-serif;
+// @monoSansFont: "JetBrains Mono", "Fira Code", Menlo, Consolas, "Courier New", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", monospace;
+// @fontWeight4Sans: bold;
 
 // ----------------------------------------
-// 思源黑
-// Noto Sans CJK SC regular, Noto Sans CJK SC bold
+// 阿里普惠体
+// @sansFont: "Alibaba PuHuiTi", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Microsoft YaHei", "微软雅黑", sans-serif;
+// @monoSansFont: "JetBrains Mono", "Fira Code", Menlo, Consolas, "Courier New", "Alibaba PuHuiTi", "Microsoft YaHei", "微软雅黑", monospace;
+// @fontWeight4Sans: bold;
+
+// ----------------------------------------
+// 思源黑体
 @sansFont: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Microsoft YaHei", "微软雅黑", sans-serif;
-@monoSansFont: "Fira Code", Menlo, Consolas, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", monospace;
+@monoSansFont: "JetBrains Mono", "Fira Code", Menlo, Consolas, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", monospace;
+@fontWeight4Sans: 900;
+
+// ----------------------------------------
+// 经典黑＋宋
+// @serifFont: "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
+// @sans4Serif: "Segoe UI", Arial, Tahoma, "Helvetica Neue", Helvetica, SimHei, "黑体", "Heiti SC", "黑体-简", sans-serif;
+// @serifBoldFont: @sans4Serif;
+// @serifBigger: @serifBoldFont;
+// @monoSerifFont: "JetBrains Mono", "Fira Code", Menlo, Consolas, "Courier New", @sans4Serif, monosspace;
+// @fontWeight4Serif: bold;
+
+// ----------------------------------------
+// 思源黑＋宋
+@serifFont: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
+@sans4Serif: SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑";
+@serifBoldFont: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, @sans4Serif, sans-serif;
+@serifBigger: "Noto Serif CJK SC", @serifBoldFont;
+@monoSerifFont: "JetBrains Mono", "Fira Code", Menlo, Consolas, "Courier New", "Noto Sans CJK SC", @sans4Serif, monospace;
+@fontWeight4Serif: bold;
+
+//=========================================
 
 // 非衬线风格 Sans，启用则取消以下注释，并将 Serif + Sans 注释掉
 // @defaultFontStyle: sans;
@@ -22,15 +60,8 @@
 // @textFont: @sansFont;
 // @boldFont: @sansFont;
 // @codeFont: @monoSansFont;
-
-// ----------------------------------------
-// 思源宋
-// Noto Serif CJK SC regular, Noto Sans CJK SC, Noto Sans CJK SC bold
-@serifFont: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
-@sans4Serif: SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑";
-@serifBoldFont: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, @sans4Serif, sans-serif;
-@serifBigger: "Noto Serif CJK SC", @serifBoldFont;
-@monoSerifFont: "Fira Code", Menlo, Consolas, "Courier New", "Noto Sans CJK SC", @sans4Serif, monospace;
+// @fontWeight4Serif: @fontWeight4Sans;
+// @fontWeight: @fontWeight4Sans;
 
 // 衬线+非衬线混排风格 Serif + Sans，启用则取消以下注释，并将 Sans 注释掉
 @defaultFontStyle: serif;
@@ -39,3 +70,4 @@
 @textFont: @serifFont;
 @boldFont: @serifBoldFont;
 @codeFont: @monoSerifFont;
+@fontWeight: @fontWeight4Sans;

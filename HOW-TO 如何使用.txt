@@ -13,7 +13,7 @@
 ----------------
   + 将`released\theme`下所有CSS文件复制至 Typora 的主题目录（ Typora「偏好设置」中点击「外观 - 打开主题目录」定位到该目录）；
   + 重启 Typora ，点击菜单`主题`，选择以`vlook-*`形式命名的主题，即可启用对应的 VLOOK 主题样式；
-  + 可基于`VLOOK\3-demo`下的`*.md` 为模板来创建你自己的文档。
+  + 可基于`released\VLOOK-Document-Template.md`，或`released\demo`下的 md 文件为模板来创建你自己的文档。
 
 ================
 　第3步：植入插件
@@ -24,7 +24,7 @@
 　+ 搜索「<body 」，并将复制的内容粘贴到body标签的「>」之后，举例：
 
 　<body ...>
-　← ← ← ← ← 将「VLOOK-plugin-for-Typora.txt」文件的内容粘贴于此！
+　◀ ◀ ◀ 将「VLOOK-plugin-for-Typora.txt」文件的内容粘贴于此！
 　...
 　</body>
 
