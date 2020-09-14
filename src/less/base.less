@@ -426,8 +426,8 @@ h2 {
 }
 
 // h1 后紧跟 h2，或是只有普通正文段落的情况
-h1 + h2,
-h1 + p + h2 {
+// h1 + p + h2,
+h1 + h2 {
     box-shadow: none;
     background: none;
     margin-top: -0.5em;
@@ -440,8 +440,8 @@ h3 {
 }
 
 // h2 后紧跟 h3，或是只有普通正文段落的情况
-h2 + h3,
-h2 + p + h3 {
+// h2 + p + h3,
+h2 + h3 {
     box-shadow: none;
     background: none;
     margin-top: -0.5em;
@@ -454,8 +454,8 @@ h4 {
 }
 
 // h3 后紧跟 h4，或是只有普通正文段落的情况
-h3 + h4,
-h3 + p + h4 {
+// h3 + p + h4,
+h3 + h4 {
     box-shadow: none;
     background: none;
     margin-top: -0.5em;
@@ -468,8 +468,8 @@ h5 {
 }
 
 // h4 后紧跟 h5，或是只有普通正文段落的情况
-h4 + h5,
-h4 + p + h5 {
+// h4 + p + h5,
+h4 + h5 {
     box-shadow: none;
     background: none;
     margin-top: -0.5em;
@@ -496,14 +496,14 @@ h6 + h6 {
     padding-top: 0;
 }
 
-h1 + p,
-h2 + p,
-h3 + p,
-h4 + p,
-h5 + p {
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-}
+// h1 + p,
+// h2 + p,
+// h3 + p,
+// h4 + p,
+// h5 + p {
+//     margin-left: 0.5em;
+//     margin-right: 0.5em;
+// }
 
 // h6::before {
 //     content: "◎ ";
@@ -1685,7 +1685,7 @@ svg[id^="mermaidChart"] {
 
 // 方角矩形
 .node rect[rx="0"][ry="0"] {
-    fill: var(--mermaid-accent-color1-alt) !important;
+    fill: var(--mermaid-acct-color1-alt) !important;
     stroke: var(--mermaid-accent-color1) !important;
     stroke-width: 5;
 }

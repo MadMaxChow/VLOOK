@@ -4026,6 +4026,7 @@ MIT许可证（MIT）
                 gecko: u.indexOf("Gecko") > -1 && u.indexOf("KHTML") === -1 //火狐内核
             };
         }(),
+
         // 设备信息
         device : function () {
             const u = navigator.userAgent;
@@ -4037,6 +4038,7 @@ MIT许可证（MIT）
                 iPad: u.indexOf("iPad") > -1 // 是否 iPad
             };
         }(),
+
         // 浏览器类型
         browser : function () {
             const u = navigator.userAgent;
@@ -4047,6 +4049,7 @@ MIT许可证（MIT）
                 Edge: u.indexOf(" Edg/") > -1 // Edge 浏览器
             };
         }(),
+
         // 浏览器版本信息
         browserVersion : function () {
             const u = navigator.userAgent;
@@ -4057,6 +4060,7 @@ MIT许可证（MIT）
                 Edge: u.match(/Edg\/[\d.]+/gi) ? u.match(/Edg\/[\d.]+/gi)[0].match(/[\d]+/)[0] : "0" // chrome浏览器版本
             };
         }(),
+
         // 操作系统信息
         os : function () {
             const u = navigator.userAgent;
@@ -4067,6 +4071,7 @@ MIT许可证（MIT）
                 Linux: /linux/i.test(u)  // 是否为 iOS 平台
             };
         }(),
+
         // 语言信息
         language : function () {
             const lang = navigator.language;
@@ -4076,13 +4081,15 @@ MIT许可证（MIT）
                 subset: lang.substring(3, lang.length)
             };
         }(),
+
         // 显示信息
         display : function () {
             return {
-                DPR: window.devicePixelRatio
+                DPR : window.devicePixelRatio
             };
         }(),
-        // 打开环境信息
+
+        // 打印环境信息
         print : function () {
             let info = "=== Environmental Information ===\n\n";
             info += "User-Agent:\n" + navigator.userAgent + "\n";
@@ -4129,11 +4136,23 @@ MIT许可证（MIT）
             return info;
         },
 
+        // 打印 mermaid 缩放信息
+        printMermaidDPR : function() {
+            let info = "\n\n=== Mermaid DPR ===\n\n";
+            info += "- DPR of builder    [ " + RepairTool.mermaidDPR.builder
+                + " ]\n";
+            info += "- DPR of render    [ " + RepairTool.mermaidDPR.render
+                + " ]\n";
+
+            console.log(info);
+            return info;
+        },
+
         /**
-         * 屏幕上显示环境信息
+         * 屏幕上显示环境信息、mermaid 信息等
          **/
         show : function () {
-            alert(env.print());
+            alert(env.print() + env.printMermaidDPR());
         }
     };
 
@@ -10249,6 +10268,12 @@ MIT许可证（MIT）
     
     function RepairTool() {}
 
+    // mermaid 相关的 DPR
+    RepairTool.mermaidDPR = {
+        builder : 2, // 生成 mermaid 时系统的 DPR
+        render : 1 // mermaid 流程图显示的 DPR
+    }
+
     /**
      * 【补丁】修复 Typora (0.9.9.31.5及更早的版本) 文档内链带标点符号时，导出的 HTML 后不能跳转的 BUG
      */
@@ -10272,21 +10297,19 @@ MIT许可证（MIT）
      * 【补丁】修正 mermaid 8.5 在导出 HTML 的渲染 BUG
      */
     RepairTool.fixMermaidRender = function () {
-        // 判断成 mermaid 的 DPR
-        let mermaidDPR = 1, // mermaid 流程图显示的 DPR
-            builderDRP = 1; // 生成 mermaid 时系统的 DPR
         $(".md-diagram-panel .label > g > foreignObject > div").each(function () {
             let transformValue = $(this).parent().parent().attr("transform");
             // 通过形状的标签文本的行高来判断，正常 DPR = 1 时小于 16
             if (parseInt($(this).css("line-height")) > 20)
-                mermaidDPR = 2;
+                RepairTool.mermaidDPR.render = 2;
             // 生成 mermaid 时系统的 DPR = 1 时，其形状文本的父父级元素的 transform 的第 2 个参数一般大于 -10
             if (parseInt(transformValue.substring(transformValue.indexOf(",") + 1, transformValue.length - 1)) < -10)
-                builderDRP = 2;
+                RepairTool.mermaidDPR.builder = 2;
             return false;
         });
-        console.log("- DPR of mermaid    [ " + mermaidDPR + " ]");
-        console.log("- DPR of builder    [ " + builderDRP + " ]");
+        env.printMermaidDPR();
+        // console.log("- DPR of mermaid    [ " + RepairTool.mermaidDPR.render + " ]");
+        // console.log("- DPR of builder    [ " + RepairTool.mermaidDPR.builder + " ]");
 
         // 移除 edgeLabel 内的多余 rect，由 mermaid V8.5 添加的结构
         $(".edgeLabel > .label > rect").remove();
@@ -10294,7 +10317,7 @@ MIT许可证（MIT）
         // 当前系统为 macOS，或其 DPR = 1
         // 其中，DPR = 1 默认指 Windows 无缩放分辨率，其他平台未测试
         if (env.os.macOS || env.display.DPR === 1) {
-            if (builderDRP === 1) {
+            if (RepairTool.mermaidDPR.builder === 1) {
                 // 调整流形状内的文本
                 $(".md-diagram-panel .label foreignObject").each(function () {
                     let text = $(this).find("div"),
@@ -10309,7 +10332,7 @@ MIT许可证（MIT）
                     $(this).attr("height", parseInt(text.css("height")));
                 });
             }
-            else if (builderDRP === 2) {
+            else if (RepairTool.mermaidDPR.builder === 2) {
                 // 流程图形状内的文本
                 $(".md-diagram-panel .label foreignObject").each(function () {
                     let transform = $(this).parent();
@@ -10324,8 +10347,8 @@ MIT许可证（MIT）
         }
         // 当前系统为 Windows，且其 DPR = 2
         else if (env.os.Windows && env.display.DPR === 2) {
-            // 针对 mermaidDPR = 1，例如：Firefox
-            if (mermaidDPR === 1) {
+            // 针对 RepairTool.mermaidDPR.render = 1，例如：Firefox
+            if (RepairTool.mermaidDPR.render === 1) {
                 // 流程图线条上的文本
                 $(".md-diagram-panel .edgeLabel foreignObject").each(function () {
                     let text = $(this).find("div > span");
@@ -10354,8 +10377,8 @@ MIT许可证（MIT）
                     });
                 }
             }
-            // mermaidDPR = 2，例如：Chrome / Edge
-            else if (mermaidDPR === 2) {
+            // RepairTool.mermaidDPR.render = 2，例如：Chrome / Edge
+            else if (RepairTool.mermaidDPR.render === 2) {
                 // 针对Chrome浏览器
                 if (env.browser.Chrome || env.browser.Edge) {
                     // 流程图形状内的文本
