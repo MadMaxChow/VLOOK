@@ -358,8 +358,7 @@ h2 {
   font-size: 1.8em;
   box-shadow: 0 2px 0 0 var(--header-box-shadow) inset;
 }
-h1 + h2,
-h1 + p + h2 {
+h1 + h2 {
   box-shadow: none;
   background: none;
   margin-top: -0.5em;
@@ -369,8 +368,7 @@ h3 {
   font-size: 1.6em;
   box-shadow: 0 1px 0 0 var(--header-box-shadow) inset;
 }
-h2 + h3,
-h2 + p + h3 {
+h2 + h3 {
   box-shadow: none;
   background: none;
   margin-top: -0.5em;
@@ -380,8 +378,7 @@ h4 {
   font-size: 1.4em;
   box-shadow: 0 1px 0 0 var(--header-box-shadow) inset;
 }
-h3 + h4,
-h3 + p + h4 {
+h3 + h4 {
   box-shadow: none;
   background: none;
   margin-top: -0.5em;
@@ -390,8 +387,7 @@ h5 {
   font-size: 1.2em;
   box-shadow: 0 0 0 0 var(--header-box-shadow) inset;
 }
-h4 + h5,
-h4 + p + h5 {
+h4 + h5 {
   box-shadow: none;
   background: none;
   margin-top: -0.5em;
@@ -413,14 +409,6 @@ h5 + h6,
 h6 + h6 {
   margin-top: 0;
   padding-top: 0;
-}
-h1 + p,
-h2 + p,
-h3 + p,
-h4 + p,
-h5 + p {
-  margin-left: 0.5em;
-  margin-right: 0.5em;
 }
 li > h6 {
   color: var(--header-color);
@@ -1078,7 +1066,7 @@ svg[id^="mermaidChart"] {
   font-family: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 .node rect[rx="0"][ry="0"] {
-  fill: var(--mermaid-accent-color1-alt) !important;
+  fill: var(--mermaid-acct-color1-alt) !important;
   stroke: var(--mermaid-accent-color1) !important;
   stroke-width: 5;
 }
