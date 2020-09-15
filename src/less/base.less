@@ -60,7 +60,7 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
 
     // 大纲面板、工具工具栏宽度
     --vlook-toc-box-width:350px;
-    --vlook-toc-box-left:-370px;
+    --vlook-toc-box-hidden-left:-370px;
 
     // --------------------
     // Light 模式的颜色值
@@ -3039,7 +3039,7 @@ li > p + ul {
     border-radius: 16px;
     cursor: default;
     display: block;
-    left: var(--vlook-toc-box-left);
+    left: var(--vlook-toc-box-hidden-left);
     top: 10px;
     bottom: 40px;
     width: var(--vlook-toc-box-width);
@@ -3700,7 +3700,7 @@ li > p + ul {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(0, 0, 0, 0.75);
     // background-color: rgba(255, 255, 255, 0.9); // 启用 blur 特效时的建议值
     position: fixed;
     display: none;
@@ -3951,7 +3951,7 @@ use.mdx-folder2-ico:active {
     height: 100%;
     text-align: center;
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(0, 0, 0, 0.75);
     // background-color: rgba(255, 255, 255, 0.9); // 启用 blur 特效时的建议值
     display: none;
     z-index: 1000;

@@ -2953,17 +2953,18 @@ MIT许可证（MIT）
                     });
             }
 
+            let hiddenLeft = getComputedStyle(document.documentElement).getPropertyValue("--vlook-toc-box-hidden-left");
             // 动画式收起
             if (VLOOK.ui.effect >= 2) {
                 this.ui.velocity({
-                    left: -this.width - 20
+                    left: hiddenLeft
                 }, {
                     duration: VLOOK.animate.speed
                 });
             }
             else {
                 this.ui.css({
-                    left: -this.width - 20
+                    left: hiddenLeft
                 });
             }
 
@@ -7159,6 +7160,10 @@ MIT许可证（MIT）
         Dom.body().css({
             "overflow": "scroll"
         });
+
+        Dom.write().css({
+            "filter": "none"
+        });
     }
 
     // ↑ ↑ ↑ ↑ ↑ 以上是属新标签中打开的页面使用 ↑ ↑ ↑ ↑ ↑
@@ -7273,7 +7278,9 @@ MIT许可证（MIT）
         // 完成初始化后恢复显示
         // Dom.write().removeClass("mdx-welcome-screen-loading-mask");
         Dom.write().show();
-        Dom.write().css("filter", "none");
+        Dom.write().css({
+            "filter": "none"
+        });
 
         // ----------------------------------------
         // 重置脚本化图表样式
