@@ -2,7 +2,7 @@
 <!--                                                                        -->
 <!--                       VLOOK V9.23 - Typora Plugin                      -->
 <!--                                                                        -->
-<!--                               2020-09-14                               -->
+<!--                               2020-09-15                               -->
 <!--                          powered by MΛX°孟兆                           -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -411,7 +411,7 @@ MIT许可证（MIT）
 <div class="mdx-tool-tips mdx-backdrop-blurs"></div>
 <div class="mdx-info-tips mdx-float-card mdx-backdrop-blurs"></div>
 
-<!-- 表格十字光柱 -->
+<!-- 表格十字光标 -->
 <div data-vk-direction="left" class="mdx-table-cross mdx-table-cross-left">&nbsp;</div>
 <div data-vk-direction="right" class="mdx-table-cross mdx-table-cross-right">&nbsp;</div>
 <div data-vk-direction="up" class="mdx-table-cross mdx-table-cross-up">&nbsp;</div>
@@ -697,7 +697,8 @@ MIT许可证（MIT）
          * 屏幕上显示环境信息、mermaid 信息等
          **/
         show : function () {
-            alert(env.print() + env.printMermaidDPR());
+            let info = env.print() + env.printMermaidDPR();
+            alert(info);
         }
     };
 
@@ -2441,6 +2442,9 @@ MIT许可证（MIT）
             "top": ContentAssist.lastHoverContent.offset().top
         });
 
+        ContentAssist.button.copyCodeBlock.css("visibility", "visible");
+
+        // console.log(ContentAssist.button.copyCodeBlock.css("left"), ContentAssist.button.copyCodeBlock.css("top"));
         // 动画式显示
         if (VLOOK.ui.effect >= 2)
             ContentAssist.button.copyCodeBlock.velocity("fadeIn", {
@@ -2929,7 +2933,7 @@ MIT许可证（MIT）
                 || this.ui.offset().left < 10) // 在以动画隐藏过程中
                 return false;
 
-            this.showed= false;
+            this.showed = false;
 
             // 若最后一次显示以是「占位方式」显示
             if (this.displayMode === "block") {
@@ -2952,14 +2956,14 @@ MIT许可证（MIT）
             // 动画式收起
             if (VLOOK.ui.effect >= 2) {
                 this.ui.velocity({
-                    left: -this.width
+                    left: -this.width - 20
                 }, {
                     duration: VLOOK.animate.speed
                 });
             }
             else {
                 this.ui.css({
-                    left: -this.width
+                    left: -this.width - 20
                 });
             }
 
@@ -3576,7 +3580,7 @@ MIT许可证（MIT）
 
                     VLOOK.report.push(['ParagraphNav', 'Action', 'Mouse', 0]);
 
-                    // 当前内容块内表格已显示十字光柱
+                    // 当前内容块内表格已显示十字光标
                     if (ExtTable.cellCross.checkFallWith($(this)) === false) {
                         ExtTable.cellCross.hide(false);
                         iParagraphNav.goto(item);
@@ -4971,12 +4975,12 @@ MIT许可证（MIT）
         // 创建 clipboard.js 对象用于实现复制
         let clipboard = new ClipboardJS(btnCopyClassName);
         // 复制成功事件
-        clipboard.on('success', function(e) {
+        clipboard.on("success", function(e) {
             ExtCodeBlock.showSuccess();
             e.clearSelection();
         });
         // 复制失败事件
-        clipboard.on('error', function(e) {
+        clipboard.on("error", function(e) {
             ExtCodeBlock.showFail();
         });
     }
@@ -5214,7 +5218,7 @@ MIT许可证（MIT）
             // 表格滚动事件
             table.parent().scroll(function () {
                 let scrollLeft = $(this).scrollLeft();
-                // 根据显示时其对应表格的水平滚动的偏移量，调整十字光柱的位置
+                // 根据显示时其对应表格的水平滚动的偏移量，调整十字光标的位置
                 $("div.mdx-table-cross").each(function () {
                     $(this).css({
                         "left": ExtTable.cellCross.lastCellPos[$(this).attr("data-vk-direction")] - scrollLeft
@@ -5222,7 +5226,7 @@ MIT许可证（MIT）
                 });
             });
 
-            // 表格单元格十字光柱处理
+            // 表格单元格十字光标处理
             ExtTable.cellCross.init(table);
 
             // 折叠长表格
@@ -5407,18 +5411,18 @@ MIT许可证（MIT）
     }
 
     /**
-     * 表格单元格十字光柱
+     * 表格单元格十字光标
      *
      * @param table 目标表格
      */
     ExtTable.cellCross = {
-        // 最后/当前显示十字光柱的表格
+        // 最后/当前显示十字光标的表格
         lastTable : undefined,
 
-        // 最后/当前显示十字光柱的表格单元格
+        // 最后/当前显示十字光标的表格单元格
         lastCell : undefined,
 
-        // 表格十字光柱四条边的位置
+        // 表格十字光标四条边的位置
         lastCellPos : {},
 
         /**
@@ -5465,7 +5469,10 @@ MIT许可证（MIT）
                         && rowIndex === 0 // 只检测第 1 行
                         && cell.prop("tagName").toLowerCase() === "th"
                         && table.attr("data-vk-column-formatting") !== true
-                        && (cell.find("strong, em, u, mark, del").length > 0 || /^\[(\s|x|-)]\s/.test(cell.text()) === true)) {
+                        && (cell.find("strong, em, u, mark, del").length > 0 // 普通格式
+                            || /^\[(\s|x|-)]\s/.test(cell.text()) === true) // 复选框格式
+                            || cell.css("text-align") === "right" // 右对齐表示使用数值格式
+                            ) {
                         // 将表格标记为带列格式语法
                         table.attr("data-vk-column-formatting", "true");
                         needCheckColumnFormatting = false;
@@ -5484,7 +5491,7 @@ MIT许可证（MIT）
                     colIndex++;
 
                     // ---------- 单元格十字光标处理 ----------
-                    // 鼠标点击单元格时显示十字光柱
+                    // 鼠标点击单元格时显示十字光标
                     cell.unbind("click").click(function () {
                         VLOOK.report.push(['Interactive', 'Table', 'CellCross', 0]);
 
@@ -5560,9 +5567,9 @@ MIT许可证（MIT）
         },
 
         /**
-         * 适配调整表格十字光柱位置、显示
+         * 适配调整表格十字光标位置、显示
          *
-         * @param target 十字光柱任意边的对象实例（左/右/上/下）
+         * @param target 十字光标任意边的对象实例（左/右/上/下）
          * @param limit 指定要进行隐藏判断的尺寸（宽度或高度），小于该值则不显示对应的 target
          * @param scrollLeft 表格水平滚动的偏移量
          */
@@ -5578,12 +5585,12 @@ MIT许可证（MIT）
                 else
                     target.show();
             }
-            // 保存最后显示的十字光柱任意边的 left 值及水平方向上的滚动偏移量
+            // 保存最后显示的十字光标任意边的 left 值及水平方向上的滚动偏移量
             ExtTable.cellCross.lastCellPos[target.attr("data-vk-direction")] =  parseInt(target.css("left")) + scrollLeft;
         },
 
         /**
-         * 隐藏表格十字光柱
+         * 隐藏表格十字光标
          *
          * @param animate 隐藏的过程是否启用动画
          */
@@ -5608,7 +5615,7 @@ MIT许可证（MIT）
         },
 
         /**
-         * 判断当前内容块是否与已显示了十字光柱的表格重叠
+         * 判断当前内容块是否与已显示了十字光标的表格重叠
          */
         checkFallWith : function (target) {
             return (ExtTable.cellCross.lastTable !== undefined
@@ -5681,8 +5688,11 @@ MIT许可证（MIT）
                 }
 
                 // 数值格式
+                console.log(target.css("text-align"), target.text());
                 if (target.css("text-align") === "right") {
+                    // 设置为等宽字体
                     cellsWithoutFirst.addClass("mdx-table-column-format-number");
+                    // 数值格式化处理
                     cellsWithoutFirst.each(function () {
                         let ce = $(this);
                         if (ce.text().isNumber()) { // 内容为数值
@@ -5691,8 +5701,6 @@ MIT许可证（MIT）
                             // 处理负数
                             if (ce.text().startsWith("-"))
                                 ce.addClass("mdx-table-column-format-number-negative");
-                            // 小数字号缩小
-                            
                         }
                     });
                 }
@@ -5982,7 +5990,7 @@ MIT许可证（MIT）
                 });
 
                 // 播放结束后恢复按钮状态
-                audio.bind("ended", function () {   
+                audio.bind("ended", function () {	
                     let controls = $("#" + $(this).attr("id") + "-control");
                     controls.html(ExtAudio.icon.play);
                     controls.removeClass("mdx-audio-mini-control-playing");
@@ -6815,7 +6823,7 @@ MIT许可证（MIT）
 
     // mermaid 相关的 DPR
     RepairTool.mermaidDPR = {
-        builder : 2, // 生成 mermaid 时系统的 DPR
+        builder : 1, // 生成 mermaid 时系统的 DPR
         render : 1 // mermaid 流程图显示的 DPR
     }
 
@@ -6844,17 +6852,15 @@ MIT许可证（MIT）
     RepairTool.fixMermaidRender = function () {
         $(".md-diagram-panel .label > g > foreignObject > div").each(function () {
             let transformValue = $(this).parent().parent().attr("transform");
+            // 生成 mermaid 时系统的 DPR = 1 时，其形状文本的父父级元素的 transform 的第 2 个参数一般大于 -10
+            if (parseInt(transformValue.substring(transformValue.indexOf(",") + 1, transformValue.length - 1)) < -7)
+                RepairTool.mermaidDPR.builder = 2;
             // 通过形状的标签文本的行高来判断，正常 DPR = 1 时小于 16
             if (parseInt($(this).css("line-height")) > 20)
                 RepairTool.mermaidDPR.render = 2;
-            // 生成 mermaid 时系统的 DPR = 1 时，其形状文本的父父级元素的 transform 的第 2 个参数一般大于 -10
-            if (parseInt(transformValue.substring(transformValue.indexOf(",") + 1, transformValue.length - 1)) < -10)
-                RepairTool.mermaidDPR.builder = 2;
             return false;
         });
         env.printMermaidDPR();
-        // console.log("- DPR of mermaid    [ " + RepairTool.mermaidDPR.render + " ]");
-        // console.log("- DPR of builder    [ " + RepairTool.mermaidDPR.builder + " ]");
 
         // 移除 edgeLabel 内的多余 rect，由 mermaid V8.5 添加的结构
         $(".edgeLabel > .label > rect").remove();

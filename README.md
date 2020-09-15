@@ -14,17 +14,17 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ---
 
-![内置多套原创主题，一键切换，支持私人定制](https://s1.ax1x.com/2020/05/09/YMw9Ve.png)
+![让 Markdown 的自动化排版和交互性上了 N 个台阶](https://s1.ax1x.com/2020/09/15/ws26YR.png)
 
-![让 Markdown 的自动化排版和交互性上了N个台阶](https://s1.ax1x.com/2020/05/09/YMwCUH.png)
+![内置多套原创主题，一键切换，支持私人定制](https://s1.ax1x.com/2020/09/15/ws2cf1.png)
 
-![OMG! 可以按大纲、逐章、逐段、插图多种方式导航](https://s1.ax1x.com/2020/05/09/YMdzDO.png)
+![表格分组、单元格合并、彩虹标签、引用折叠、…30+特性开箱即用](https://s1.ax1x.com/2020/09/15/ws2BmF.png)
 
-![火力全开的演示辅助～聚光灯、表格十字光标、新标签打开](https://s1.ax1x.com/2020/05/09/YMwSbD.png)
+![火力全开的演示辅助～聚光灯、表格十字光标、新标签打开](https://s1.ax1x.com/2020/09/15/ws2Dw4.png)
 
-![还有单元格合并、彩虹标签、引用折叠、…30+特性，开箱即用](https://s1.ax1x.com/2020/05/09/YMwP5d.png)
+![OMG! 可以按大纲、逐章、逐段、插图多种方式导航](https://s1.ax1x.com/2020/09/15/ws2rTJ.png)
 
-![完美适配 Dark 模式，Markdown 变得更 Cool 了](https://s1.ax1x.com/2020/05/09/YMwFPA.png)
+![完美适配 Dark 模式，Markdown 变得更 Cool 了](https://s1.ax1x.com/2020/09/15/ws2yk9.png)
 
 ---
 
@@ -38,7 +38,7 @@ VLOOK™ 已为你内置了多套原创、独具风格的主题样式，能满�
 - **Fancy 慕幻**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-fancy.html)
 - **Thinking 静思**：[预览 ＞](https://madmaxchow.github.io/VLOOK/theme-thinking.html)
 
-![内置多套高颜值实用的主题](https://s1.ax1x.com/2020/06/12/tOlcqO.png)
+![内置多套高颜值实用的主题](https://s1.ax1x.com/2020/09/15/wsW2qO.png)
 
 ---
 
