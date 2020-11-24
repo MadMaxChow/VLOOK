@@ -24,8 +24,6 @@ let iToolbar = undefined,
 
 // ==================== 文档关键对象 ==================== //
 
-alert("test");
-
 function Dom() {}
 
 Dom._body = undefined;
@@ -7812,6 +7810,7 @@ $(document).ready(function () {
     * 加载 VLOOK 插件
     */
 function loadVLOOK() {
+    console.log("update....");
     // ----------------------------------------
     // 初始化关键组件实例
     iStopwatch.lapStart();
