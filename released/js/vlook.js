@@ -24,6 +24,8 @@ let iToolbar = undefined,
 
 // ==================== 文档关键对象 ==================== //
 
+alert("test");
+
 function Dom() {}
 
 Dom._body = undefined;
