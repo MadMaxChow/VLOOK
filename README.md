@@ -28,7 +28,7 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ---
 
-# 内置多套高颜值实用的主题
+# 内置主题
 
 VLOOK™ 已为你内置了多套原创、独具风格的主题样式，能满足日常大多不同的应用场景和视觉偏好：
 
@@ -54,7 +54,7 @@ VLOOK™ 已为你内置了多套原创、独具风格的主题样式，能满�
 
 ---
 
-## 快速参考手册
+# 快速参考手册
 
 **以下网页都是由 Typora 和 VLOOK™ 共同编辑和生成的，所有的功能特性和样式你都能直接体验。**
 
@@ -69,7 +69,7 @@ VLOOK™ 已为你内置了多套原创、独具风格的主题样式，能满�
 
 ---
 
-## 特性清单
+# 特性清单
 
 VLOOK™ 充分挖掘和扩展了 Markdown 和 Typora 的语法和功能，并结合现代网络化的文档编辑和出版中涉及的文档的 **格式排版**、**文档导航**、**演示辅助**、**内容交互** 等方面的需求，为你提供基于 Markdown 的文档编辑、文档发布、文档阅读者提供 **一致**、**简洁**、**友好** 的体验。
 
@@ -118,27 +118,30 @@ VLOOK™ 充分挖掘和扩展了 Markdown 和 Typora 的语法和功能，并�
 
 ---
 
-# 第1步：下载、配置
+# 如何使用
 
-- 访问官方主页下载最新发布版本：[GitHub (主站)](https://github.com/MadMaxChow/VLOOK/releases)&nbsp;&nbsp;&nbsp;&nbsp;[OSChina (备用)](https://www.oschina.net/p/vlook)
-- 下载并安装 [Typora](https://www.typora.io) ，启动后进入「偏好设置」，启用一些建议的选项，详细如下图：
+## 第1步：下载、配置
 
-![开启「Markdown ▸ 代码块、公式」下的所有选项](https://tva1.sinaimg.cn/large/006tNbRwgy1ganwt7vwlaj31540cita9.jpg)
+- 访问 VLOOK™ 在 [GitHub](https://github.com/MadMaxChow/VLOOK/releases) 或 [Gitee](https://gitee.com/madmaxchow/VLOOK/releases) 的主页下载最新发布的版本；
+- 下载并安装 [Typora](https://www.typora.io) ，启动后进入「偏好设置」，并开启以下选项，详见下图：
 
-![开启「Markdown ▸ Markdown 扩展语法」下的所有选项](https://tva1.sinaimg.cn/large/006tNbRwgy1ganwt7l785j315k0fuwg4.jpg)
+![开启「Markdown ▸ 代码块、公式」下的所有选项](https://s1.ax1x.com/2020/04/14/GzmKjP.png?invert=in-dark)
 
-# 第2步：应用主题
+![开启「Markdown ▸ Markdown 扩展语法」下的所有选项](https://s1.ax1x.com/2020/04/14/GzmQnf.png?invert=in-dark)
 
-+ 将`released\theme`下所有CSS文件复制至 Typora 的主题目录（ Typora「偏好设置」中点击「外观 - 打开主题目录」定位到该目录）；
+
+## 第2步：应用主题
+
++ 将`released\theme`下所有 CSS 文件复制至 Typora 的主题目录（ Typora「偏好设置」中点击「外观 - 打开主题目录」定位到该目录）；
 + 重启 Typora ，点击菜单`主题`，选择以`vlook-*`形式命名的主题，即可启用对应的 VLOOK™ 主题样式；
 + 可基于`released`下的`VLOOK-Document-Template.md` 为模板来创建你自己的 Markdown 文档。
 
-# 第3步：植入插件
+## 第3步：植入插件
 
 + 在 Typora 中将 Markdown 文件导出为`HTML`文件；
 + 打开文件`released\VLOOK-plugin-for-Typora.txt`，全选所有内容，并复制；
 + 用纯文件编辑器，如：记事本、[Visual Studio Code](https://code.visualstudio.com/)，打开该导出的 HTML 文件；
-+ 搜索「**<body **」，并将复制的内容粘贴到body标签的「**>**」之后：
++ 搜索`<body`，并将复制的内容粘贴到 body 标签的关闭符`>`之后：
   ```html
   <body ...>
   ◀ ◀ ◀ 将「VLOOK-plugin-for-Typora.txt」文件的内容粘贴于此！
@@ -151,15 +154,30 @@ VLOOK™ 充分挖掘和扩展了 Markdown 和 Typora 的语法和功能，并�
 
 ---
 
-# 字体
+# 字体风格
 
-支持 **衬线** 与 **非衬线** 两套字体风格，可根据个人喜好进行切换，后续将会引入更多字体风格。
-衬线与非衬线分别优先使用开源的 **思源黑体** 和 **思源宋体**，建议下载安装获得最佳的视觉体验。
+VLOOK™ 目前提供「**文艺范、小清新**」两套字体风格，可根据个人喜好进行选用。
 
-- 思源黑体 / Noto Sans 的三种字重：[Regular](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Regular.otf)、[Bold](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Bold.otf)、[Black](https://github.com/googlefonts/noto-cjk/blob/master/NotoSansCJKsc-Black.otf)
-- 思源宋体 / Noto Serif 的三种字重：[Regular](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Regular.otf)、[Bold](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Bold.otf)、[Black](https://github.com/googlefonts/noto-cjk/blob/master/NotoSerifCJKsc-Black.otf)
+## 文•艺•范
+
+整体视觉为「优雅、韵动、个性」，主要采用衬线、无衬线的免费或开源的东亚、拉丁字体，多种字重进行混搭组合。
+
+![文艺范](https://s1.ax1x.com/2020/11/06/BfXkQg.png?mode=logo&srcset=BfXFSS.png@2x,BfXAyQ.png@3x)
+
+## 小•清•新
+
+整体视觉为「清新、简约、明快」，主要采用无衬线的免费或开源的东亚、拉丁字体。
+
+![文艺范](https://s1.ax1x.com/2020/11/06/BfXELj.png?mode=logo&srcset=BfXZes.png@2x,BfXewn.png@3x)
 
 ---
+
+`#注意#`因为 Windows / MacOS 系统默认都没有预装对应字体，建议通过以下渠道下载安装，以获得最佳的视觉体验。
+
+>  **字体打包下载：**
+>
+>  - **蓝奏云：**[下载](https://wws.lanzous.com/iqTrJi2ok6f)
+>  - **百度网盘：**[下载](https://pan.baidu.com/s/1uhM8xeHygAo7L9Z6iB6N1g) `密码：le10`
 
 # 目录说明
 

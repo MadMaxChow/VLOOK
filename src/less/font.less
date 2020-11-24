@@ -15,59 +15,160 @@
 //   800 - Extra Bold (Ultra Bold)
 //   900 - Black (Heavy)
 
-// ----------------------------------------
-// 微软雅黑
-// @sansFont: "Segoe UI", Arial, Tahoma, "Helvetica Neue", Helvetica, "Microsoft YaHei", "微软雅黑", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", sans-serif;
-// @monoSansFont: "JetBrains Mono", "Fira Code", Menlo, Consolas, "Courier New", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", monospace;
-// @fontWeight4Sans: bold;
-
-// ----------------------------------------
-// 阿里普惠体
-// @sansFont: "Alibaba PuHuiTi", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Microsoft YaHei", "微软雅黑", sans-serif;
-// @monoSansFont: "JetBrains Mono", "Fira Code", Menlo, Consolas, "Courier New", "Alibaba PuHuiTi", "Microsoft YaHei", "微软雅黑", monospace;
-// @fontWeight4Sans: bold;
-
-// ----------------------------------------
-// 思源黑体
-@sansFont: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, "Microsoft YaHei", "微软雅黑", sans-serif;
-@monoSansFont: "JetBrains Mono", "Fira Code", Menlo, Consolas, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", monospace;
-@fontWeight4Sans: 900;
-
-// ----------------------------------------
-// 经典黑＋宋
-// @serifFont: "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
-// @sans4Serif: "Segoe UI", Arial, Tahoma, "Helvetica Neue", Helvetica, SimHei, "黑体", "Heiti SC", "黑体-简", sans-serif;
-// @serifBoldFont: @sans4Serif;
-// @serifBigger: @serifBoldFont;
-// @monoSerifFont: "JetBrains Mono", "Fira Code", Menlo, Consolas, "Courier New", @sans4Serif, monosspace;
-// @fontWeight4Serif: bold;
-
-// ----------------------------------------
-// 思源黑＋宋
-@serifFont: "Noto Serif CJK SC", "Times New Roman", Times, SimSun, "宋体", "Songti SC", "宋体-简", STZhongsong, "华文中宋", serif;
-@sans4Serif: SimHei, "黑体", "Heiti SC", "黑体-简", "Microsoft YaHei", "微软雅黑";
-@serifBoldFont: "Noto Sans CJK SC", "PingFang SC", "苹方-简", "Helvetica Neue", Helvetica, Arial, Tahoma, @sans4Serif, sans-serif;
-@serifBigger: "Noto Serif CJK SC", @serifBoldFont;
-@monoSerifFont: "JetBrains Mono", "Fira Code", Menlo, Consolas, "Courier New", "Noto Sans CJK SC", @sans4Serif, monospace;
-@fontWeight4Serif: bold;
+// =========================================
+// 基础字体信息
+// -----------------------------------------
+// 基础等宽字体
+@base_mono: Courier, "Courier New";
+// 数值字体
+@number_font: "Altinn-DIN", "Bebas Neue", "DIN";
+// 基础非衬线字体
+@base_sans_en: "Helvetica Neue", Helvetica, Arial, Tahoma;
+@base_sans_cn: SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK";
+@base_mono_sans_en: "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, @base_mono;
+// 基础衬线字体
+@base_serif_en: "Times New Roman", Times;
+@base_serif_cn: "Songti SC", SimSun, "宋体", STZhongsong, "华文中宋";
+@base_mono_serif_en: "Luxi Mono", "Iosevka Slab", "PT Mono", @base_mono, @base_mono_sans_en;
 
 //=========================================
+// 非衬线风格字体信息
+// ----------------------------------------
+// Microsoft YaHei 微软雅黑
+// @msyh: "Segoe UI", @base_sans_en, "Microsoft YaHei", "微软雅黑", @base_sans_cn, sans-serif;
+@msyh: "Microsoft YaHei", "微软雅黑", @base_sans_cn, sans-serif;
+@msyh_mono: @base_mono_sans_en, "Microsoft YaHei", "微软雅黑", @base_sans_cn, monospace;
+@msyh_fw_bold: bold;
+@msyh_fw_text: normal;
+// ----------------------------------------
+// Microsoft JhengHei 微軟正黑體
+@msjh: "Segoe UI", @base_sans_en, "Microsoft JhengHei", "微軟正黑體", @base_sans_cn, sans-serif;
+@msjh_mono: @base_mono_sans_en, "Microsoft JhengHei", "微軟正黑體", @base_sans_cn, monospace;
+@msjh_fw_bold: bold;
+@msjh_fw_text: normal;
+// ----------------------------------------
+// 阿里普惠体
+@ali: "Alibaba PuHuiTi", @msyh;
+@ali_mono: @base_mono_sans_en, @msyh_mono;
+@ali_fw_bold: bold;
+@ali_fw_text: normal;
+// ----------------------------------------
+// 思源黑体
+@noto: "Noto Sans CJK SC", @msyh;
+@noto_mono: @base_mono_sans_en, "Noto Sans CJK SC", @msyh_mono;
+@noto_fw_bold: 900;
+@noto_fw_text: normal;
+// ----------------------------------------
+// GenSenMaruGothic TW TTF 源泉圓體（思源黑体变种）
+// https://www.maoken.com/freefonts/693.html
+@gen: "GenSenMaruGothic TW TTF", @msyh;
+@gen_mono: @base_mono_sans_en, "GenSenMaruGothic TW TTF", @msyh_mono;
+@gen_fw_bold: 900;
+@gen_fw_text: normal;
+
+//=========================================
+// 衬线混搭风格字体信息
+// ----------------------------------------
+// 经典宋体＋黑体
+@cross_win_serif: @base_serif_en, @base_serif_cn, serif;
+@cross_win_bold:  @base_sans_en, @base_sans_cn, sans-serif;
+@cross_win_title: @cross_win_bold;
+@cross_win_header: @cross_win_bold;
+@cross_win_mono: @base_mono_serif_en, @base_sans_cn, monospace;
+@cross_win_fw_bold: bold;
+@cross_win_fw_title: bold;
+@cross_win_fw_text: 500;
+// ----------------------------------------
+// 思源宋体＋黑体
+@cross_noto_serif: "Noto Serif CJK SC", @base_serif_en, @base_serif_cn, serif;
+@cross_noto_bold: "Noto Sans CJK SC",  @base_sans_en, @base_sans_cn, sans-serif;
+@cross_noto_title: @cross_noto_serif;
+@cross_noto_header: @cross_noto_bold;
+@cross_noto_mono: @base_mono_serif_en, "Noto Sans CJK SC", @base_sans_cn, monospace;
+@cross_noto_fw_bold: bold;
+@cross_noto_fw_title: 900;
+@cross_noto_fw_text: 500;
+
+//=========================================
+// 非衬线字体风格组合
+// ----------------------------------------
+// 风格 － Microsoft SC
+// @sansFont: @msyh;
+// @monoSansFont: @msyh_mono;
+// @fontWeight4Sans: @msyh_fw_bold;
+// ----------------------------------------
+// 风格 － Microsoft TC
+// @sansFont: @msjh;
+// @monoSansFont: @msjh_mono;
+// @fontWeight4Sans: @msjh_fw_bold;
+// ----------------------------------------
+// 风格 － Alibaba
+// @sansFont: @ali;
+// @monoSansFont: @ali_mono;
+// @fontWeight4Sans: @ali_fw_bold;
+// ----------------------------------------
+// 风格 － Freedom
+@sansFont: @noto;
+@monoSansFont: @noto_mono;
+@fontWeight4Sans: @noto_fw_bold;
+@fontWeightText4Sans: @noto_fw_text;
+// ----------------------------------------
+// 风格 － Mellow
+// @sansFont: @gen;
+// @monoSansFont: @gen_mono;
+// @fontWeight4Sans: @gen_fw_bold;
+
+//=========================================
+// 混搭字体风格组合
+// ----------------------------------------
+// 风格 － 经典
+// @serifFont: @cross_win_serif;
+// @serifBoldFont: @cross_win_bold;
+// @serifTitle: @cross_win_title;
+// @serifHeader: @cross_win_header;
+// @monoSerifFont: @cross_win_mono;
+// @fontWeight4Serif: @cross_win_fw_bold;
+// @fontWeight4Title: @cross_win_fw_title;
+// ----------------------------------------
+// 风格 － 现代
+@serifFont: @cross_noto_serif;
+@serifBoldFont: @cross_noto_bold;
+@serifTitle: @cross_noto_title;
+@serifHeader: @cross_noto_header;
+@monoSerifFont: @cross_noto_mono;
+@fontWeight4Serif: @cross_noto_fw_bold;
+@fontWeight4Title: @cross_noto_fw_title;
+@fontWeightText4Serif: @cross_noto_fw_text;
+
+//=========================================
+// 注意：添加、修改或删除以下变量，或是 bass.less 中调整字体配置后，
+// 须同步结合 base.less、FontStyler 类调整对应的样式内容
 
 // 非衬线风格 Sans，启用则取消以下注释，并将 Serif + Sans 注释掉
-// @defaultFontStyle: sans;
-// @titleFont: @sansFont;
-// @headerFont: @sansFont;
-// @textFont: @sansFont;
-// @boldFont: @sansFont;
-// @codeFont: @monoSansFont;
-// @fontWeight4Serif: @fontWeight4Sans;
-// @fontWeight: @fontWeight4Sans;
+@defaultFontStyle: sans;
+@titleFont: @sansFont;
+@subtitleFont: @sansFont;
+@headerFont: @sansFont;
+@textFont: @base_mono_sans_en, @sansFont;
+@boldFont: @base_mono_sans_en, @sansFont;
+@numberFont: @number_font, @base_mono_sans_en, @sansFont;
+@tagFont: @boldFont;
+@codeFont: @base_mono_sans_en, @monoSansFont;
+@fontWeight4Serif: @fontWeight4Sans;
+@fontWeight: @fontWeight4Sans;
+@titleFontWeight: @fontWeight4Sans;
+@textFontWeight: @fontWeightText4Sans;
 
 // 衬线+非衬线混排风格 Serif + Sans，启用则取消以下注释，并将 Sans 注释掉
-@defaultFontStyle: serif;
-@titleFont: @serifBigger;
-@headerFont: @serifBigger;
-@textFont: @serifFont;
-@boldFont: @serifBoldFont;
-@codeFont: @monoSerifFont;
-@fontWeight: @fontWeight4Sans;
+// @defaultFontStyle: serif;
+// @titleFont: @serifTitle;
+// @subtitleFont: @serifBoldFont;
+// @headerFont: @serifHeader;
+// @textFont: @base_mono_serif_en, @serifFont;
+// @boldFont: @base_mono_sans_en, @serifBoldFont;
+// @numberFont: @number_font, @base_mono_sans_en, @sansFont;
+// @tagFont: @boldFont;
+// @codeFont: @base_mono_sans_en, @monoSerifFont;
+// @fontWeight: @fontWeight4Serif;
+// @titleFontWeight: @fontWeight4Title;
+// @textFontWeight: @fontWeightText4Serif;

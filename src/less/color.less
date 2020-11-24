@@ -26,12 +26,12 @@
 @foreColorLightFade2: fade(@foreColorLight, 10%);
 @foreColorLightFade3: fade(@foreColorLight, 5%);
 // 文档前景色（深色方案）
-@foreColorDark: #E0E2E6;
+@foreColorDark: #E0E4E8;
 @foreColorDarkAlt: darken(@foreColorDark, 30%);
 @foreColorDarkFade: fade(@foreColorDark, 50%);
 
 // 表格（浅色方案）
-@tableColor: #B0B2B6; // 表格基础色
+@tableColor: #B0B4B8; // 表格基础色
 @tableBorderColor: fade(@tableColor, 80%); // 表格边框
 @tableThBgColor: fade(@tableColor, 40%);
 @tableThBorderColor: @tableBorderColor;
@@ -39,9 +39,9 @@
 @tableTdBorderColor: fade(@tableBorderColor, 20%);
 @tableTdBgColor2: fade(@tableThBgColor, 10%); // 表格偶数行
 // 表格（深色方案）
-@tableColorDark: #505256; // 表格基础色
+@tableColorDark: #505458; // 表格基础色
 @tableBorderColorDark: fade(@tableColorDark, 80%); // 表格边框
-@tableThBgColorDark: fade(@tableColorDark, 30%);
+@tableThBgColorDark: fade(lighten(@tableColorDark, 30%), 30%);
 @tableThBorderColorDark: @tableBorderColorDark;
 @tableTdBorderColorDark: fade(@tableBorderColorDark, 10%);
 // @tableTdBgColor2Dark: fade(@tableThBorderColorDark, 10%); // 表格偶数行
@@ -49,51 +49,63 @@
 // 指定在 Dark Mode 时反转的图片边框颜色（先使用反色，这样在反转时则能保持与色一致）
 @imgInvertInDarkBorderColor: rgba(255 - red(@tableBorderColorDark), 255 - green(@tableBorderColorDark), 255 - blue(@tableBorderColorDark), alpha(@tableBorderColorDark));
 
-// 强调色-1
-@accentColor1: #0972DB; //#0158D0; //#0078D7;
-@accentColor1Light: lighten(@accentColor1, 10%);
-@accentColor1Dark: darken(@accentColor1, 20%);
-@accentColor1Alt: lighten(@accentColor1, 40%);
-@accentColor1AltDark: darken(@accentColor1Alt, 40%);
-@accentColor1Fade: fade(@accentColor1, 50%);
-// @masterShadowColor: fade(@accentColor1, 35%);
-// @slaveShadowColor: fade(@accentColor4, 35%);
-// 强调色-2
-@accentColor2: #22A892; //#4AA608;
-@accentColor2Light: lighten(@accentColor2, 10%);
-@accentColor2Dark: darken(@accentColor2, 20%);
-@accentColor2Alt: lighten(@accentColor2, 40%);
-@accentColor2AltDark: darken(@accentColor2Alt, 40%);
-@accentColor2Fade: fade(@accentColor2, 50%);
-// @thirdShadowColor: lighten(@accentColor2, 35%);
-// 强调色-3
-@accentColor3: #E68D09;//#D96B0A; //E6830B; //#D96B0A; //#F28D00;
-@accentColor3Light: lighten(@accentColor3, 10%);
-@accentColor3Dark: darken(@accentColor3, 20%);
-@accentColor3Alt: lighten(@accentColor3, 40%);
-@accentColor3AltDark: darken(@accentColor3Alt, 40%);
-@accentColor3Fade: fade(@accentColor3, 50%);
-// @fourthShadowColor: lighten(@accentColor3, 35%);
-// 强调色-4
-@accentColor4: #C7285D; //#C21117; //#C3252B;//#DC0010;
-@accentColor4Light: lighten(@accentColor4, 10%);
-@accentColor4Dark: darken(@accentColor4, 20%);
-@accentColor4Alt: lighten(@accentColor4, 40%);
-@accentColor4AltDark: darken(@accentColor4Alt, 40%);
-@accentColor4Fade: fade(@accentColor4, 50%);
-// 强调色-5
-@accentColor5: #7B29CC; //#7D2A7E; //#803099;
-@accentColor5Light: lighten(@accentColor5, 10%);
-@accentColor5Dark: darken(@accentColor5, 25%);
-@accentColor5Alt: lighten(@accentColor5, 40%);
-@accentColor5AltDark: darken(@accentColor5Alt, 40%);
-@accentColor5Fade: fade(@accentColor5, 50%);
-// @fifthShadowColor: lighten(@accentColor5, 35%);
-// 强调色-6
-@accentColor6: #585A5D;
-@accentColor6Light: lighten(@accentColor6, 10%);
-@accentColor6Dark: darken(@accentColor6, 20%);
-@accentColor6Alt: lighten(@accentColor6, 40%);
-@accentColor6AltDark: darken(@accentColor6Alt, 40%);
-@accentColor6Fade: fade(@accentColor6, 50%);
-// @sixthShadowColor: lighten(@accentColor6, 35%);
+// 强调色色板
+@accentColorRed: #CE2743;
+@accentColorRedDark: darken(@accentColorRed, 20%);
+@accentColorRedAlt: lighten(@accentColorRed, 30%);
+@accentColorRedAltDark: darken(@accentColorRedAlt, 20%);
+@accentColorRedFade: fade(@accentColorRed, 50%);
+
+@accentColorOrange: #E68D09;
+@accentColorOrangeDark: darken(@accentColorOrange, 20%);
+@accentColorOrangeAlt: lighten(@accentColorOrange, 35%);
+@accentColorOrangeAltDark: darken(@accentColorOrangeAlt, 20%);
+@accentColorOrangeFade: fade(@accentColorOrange, 50%);
+
+@accentColorYellow: #E9CB0C;
+@accentColorYellowDark: darken(@accentColorYellow, 20%);
+@accentColorYellowAlt: lighten(@accentColorYellow, 35%);
+@accentColorYellowAltDark: darken(@accentColorYellowAlt, 10%);
+@accentColorYellowFade: fade(@accentColorYellow, 50%);
+
+@accentColorGreen: #53B422;
+@accentColorGreenDark: darken(@accentColorGreen, 20%);
+@accentColorGreenAlt: lighten(@accentColorGreen, 35%);
+@accentColorGreenAltDark: darken(@accentColorGreenAlt, 20%);
+@accentColorGreenFade: fade(@accentColorGreen, 50%);
+
+@accentColorCyan: #1DB3C3;
+@accentColorCyanDark: darken(@accentColorCyan, 20%);
+@accentColorCyanAlt: lighten(@accentColorCyan, 35%);
+@accentColorCyanAltDark: darken(@accentColorCyanAlt, 20%);
+@accentColorCyanFade: fade(@accentColorCyan, 50%);
+
+@accentColorBlue: #0989EB;
+@accentColorBlueDark: darken(@accentColorBlue, 20%);
+@accentColorBlueAlt: lighten(@accentColorBlue, 35%);
+@accentColorBlueAltDark: darken(@accentColorBlueAlt, 20%);
+@accentColorBlueFade: fade(@accentColorBlue, 50%);
+
+@accentColorPurple: #5739D0;
+@accentColorPurpleDark: darken(@accentColorPurple, 20%);
+@accentColorPurpleAlt: lighten(@accentColorPurple, 35%);
+@accentColorPurpleAltDark: darken(@accentColorPurpleAlt, 20%);
+@accentColorPurpleFade: fade(@accentColorPurple, 50%);
+
+@accentColorMagenta: #DB43B2;
+@accentColorMagentaDark: darken(@accentColorMagenta, 20%);
+@accentColorMagentaAlt: lighten(@accentColorMagenta, 35%);
+@accentColorMagentaAltDark: darken(@accentColorMagentaAlt, 20%);
+@accentColorMagentaFade: fade(@accentColorMagenta, 50%);
+
+@accentColorBrown: #A6774E;
+@accentColorBrownDark: darken(@accentColorBrown, 20%);
+@accentColorBrownAlt: lighten(@accentColorBrown, 35%);
+@accentColorBrownAltDark: darken(@accentColorBrownAlt, 20%);
+@accentColorBrownFade: fade(@accentColorBrown, 50%);
+
+@accentColorGray: #636569;
+@accentColorGrayDark: darken(@accentColorGray, 20%);
+@accentColorGrayAlt: lighten(@accentColorGray, 35%);
+@accentColorGrayAltDark: darken(@accentColorGrayAlt, 20%);
+@accentColorGrayFade: fade(@accentColorGray, 50%);
