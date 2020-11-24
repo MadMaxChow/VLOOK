@@ -7518,7 +7518,7 @@ ColorTag.build = function (target, result) {
 
     // 过滤语法内容
     target.text(tag);
-    console.log("tag type", type);
+    // console.log("tag type", type);
     target.attr("class", "mdx-tag-" + type);
 }
 
