@@ -1,4 +1,4 @@
-    let vkVersion = "9.31-dev20201125.06";
+    let vkVersion = "9.31-dev20201125.07";
 
     /**
      * 获取 URL 中的参数数组
