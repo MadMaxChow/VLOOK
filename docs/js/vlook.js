@@ -17,45 +17,16 @@
 
     */
 
-    // 工具
-    VLOOK.util = {
-        /**
-         * 获取 URL 中的参数数组
-         */
-        parseQueryString : function (url) {
-            let hash = url.indexOf("#");
-            url = hash > -1 ? url.substring(0, hash) : url; // 只截取 URL 中 # 前的内容
-
-            let start = url.indexOf("?"),
-                queryStr = url.substring(start > -1 ? start + 1 : url.length, url.length), // 获取url中"?"符后的字串
-                args = {}, // 保存参数数据的对象
-                items = (queryStr.length > 0) ? queryStr.split("&") : [], // 取得每一个参数项,
-                item = null,
-                len = items.length;
-
-            // 将所有参数拆解至数组中
-            for (let i = 0; i < len; i++) {
-                item = items[i].split("=");
-                let name = decodeURIComponent(item[0]),
-                    value = decodeURIComponent(item[1]);
-                if (name) {
-                    args[name] = value;
-                }
-            }
-            return args;
-        }
-    }
-
     // 动态加载指定的主题
-    let theme = VLOOK.util.parseQueryString(window.location.href)["theme"];
-    if (theme !== undefined) {
-        console.log("Theme :: " + theme);
-        let style = document.createElement("link");
-        style.href = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/released/theme/vlook-" + theme + ".css";
-        style.rel = "stylesheet";
-        style.type = "text/css";
-        document.getElementsByTagName("HEAD").item(0).appendChild(style);
-    }
+    // let theme = VLOOK.util.parseQueryString(window.location.href)["theme"];
+    // if (theme !== undefined) {
+    //     console.log("Theme :: " + theme);
+    //     let style = document.createElement("link");
+    //     style.href = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/released/theme/vlook-" + theme + ".css";
+    //     style.rel = "stylesheet";
+    //     style.type = "text/css";
+    //     document.getElementsByTagName("HEAD").item(0).appendChild(style);
+    // }
 
     // 初始化计时器
     let iStopwatch = new Stopwatch(),
@@ -387,7 +358,7 @@
     function VLOOK() {}
 
     // 版本信息
-    VLOOK.version = 'V9.31-dev2';
+    VLOOK.version = vkVersion;
 
     // 是否为开发调试模式
     VLOOK.debugMode = false;
@@ -398,6 +369,37 @@
     VLOOK.debug = function (...info) {
         if (VLOOK.debugMode === true)
             console.warn(...info);
+    }
+
+    /**
+     * 工具
+     */
+    VLOOK.util = {
+        /**
+         * 获取 URL 中的参数数组
+         */
+        parseQueryString : function (url) {
+            let hash = url.indexOf("#");
+            url = hash > -1 ? url.substring(0, hash) : url; // 只截取 URL 中 # 前的内容
+
+            let start = url.indexOf("?"),
+                queryStr = url.substring(start > -1 ? start + 1 : url.length, url.length), // 获取url中"?"符后的字串
+                args = {}, // 保存参数数据的对象
+                items = (queryStr.length > 0) ? queryStr.split("&") : [], // 取得每一个参数项,
+                item = null,
+                len = items.length;
+
+            // 将所有参数拆解至数组中
+            for (let i = 0; i < len; i++) {
+                item = items[i].split("=");
+                let name = decodeURIComponent(item[0]),
+                    value = decodeURIComponent(item[1]);
+                if (name) {
+                    args[name] = value;
+                }
+            }
+            return args;
+        }
     }
 
     /**
