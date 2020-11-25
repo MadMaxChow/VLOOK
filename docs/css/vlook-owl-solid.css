@@ -3173,7 +3173,7 @@ h6 code {
 #write > h6:first-of-type,
 #write > h6:last-of-type {
   display: block;
-  color: #c8f9ff !important;
+  color: #ff0000 !important;
   font-size: 2.5em;
   font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
