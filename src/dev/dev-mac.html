@@ -4279,6 +4279,20 @@ MIT许可证（MIT）
 <!-- <script src="https://cdn.jsdelivr.net/gh/madmaxchow/VLOOK@master/released/js/vlook.min.js"></script> -->
 
 <script type="text/javascript">
+    /*
+
+    VLOOK V9.31-dev2 - Typora Plugin
+
+    2020-11-24
+    powered by MAX°孟兆
+
+    QQ Group: 805502564
+    email: maxchow@qq.com
+
+    https://github.com/MadMaxChow/VLOOK
+
+    */
+
     console.log("!!! LOCAL DEV VERSION !!!");
 
     // 初始化计时器
@@ -10239,10 +10253,13 @@ MIT许可证（MIT）
                                 bg2 = baseBg.replace(")", ", 0.2)");
                                 bgSplit = baseBg.replace(")", ", 0.7)");
                             }
-                            // 根据百分比生成渐变背景色
-                            ce.css("background", "linear-gradient(90deg, " + bg1 + " 0%, " + bg2 + " " + (percentValue > 1 ? percentValue - 1 : 0)
+                            // 根据百分比生成渐变背景色、最小宽度
+                            ce.css({
+                                "background": "linear-gradient(90deg, " + bg1 + " 0%, " + bg2 + " " + (percentValue > 1 ? percentValue - 1 : 0)
                                 + "%, " + bgSplit + " " + percent
-                                + ", transparent " + percent + ")");
+                                + ", transparent " + percent + ")",
+                                "min-width": "100px"
+                            });
                         }
                         else if (ce.text().isCurrency()) { // 内容为数值
                             // 因 html() 中含有 > 字符，所以替换的内容中须进行 > 的前后拼接调整
