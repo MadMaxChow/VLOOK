@@ -1,8 +1,10 @@
+    console.log("!!! CDN VERSION 9.31-dev2 !!!");
+
     /*
 
     VLOOK V9.31-dev2 - Typora Plugin
 
-    2020-11-25 test 33333333
+    2020-11-24
     powered by MAX°孟兆
 
     QQ Group: 805502564
@@ -11,8 +13,6 @@
     https://github.com/MadMaxChow/VLOOK
 
     */
-
-   console.log("!!! CDN VERSION !!!");
 
     // 工具
     VLOOK.util = {
