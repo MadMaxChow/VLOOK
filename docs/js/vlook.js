@@ -1,4 +1,5 @@
-    console.log("!!! CDN VERSION 9.31-dev3 !!!");
+    console.log("!!! CDN VERSION !!!");
+    console.log("::: " + ver + " :::");
 
     /*
 
