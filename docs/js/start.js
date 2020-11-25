@@ -31,7 +31,7 @@
     if (theme !== undefined) {
         console.log("Theme :: " + theme);
         let style = document.createElement("link");
-        style.href = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/released/css/vlook-" + theme + "-solid.css?v=" + vkVersion;
+        style.href = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/css/vlook-" + theme + "-solid.css?v=" + vkVersion;
         style.rel = "stylesheet";
         style.type = "text/css";
         document.getElementsByTagName("HEAD").item(0).appendChild(style);
