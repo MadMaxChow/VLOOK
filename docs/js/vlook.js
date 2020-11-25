@@ -1,5 +1,7 @@
+    console.log(":::::::::::::::::::");
     console.log("!!! CDN VERSION !!!");
     console.log("::: " + ver + " :::");
+    console.log(":::::::::::::::::::");
 
     /*
 
