@@ -49,7 +49,7 @@
 
     // 动态加载 VLOOK 所须的 js 资源
     let jsSrc = [];
-    jsSrc[0] = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/js/jquery.js?";
+    jsSrc[0] = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/js/jquery.js";
     jsSrc[1] = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/js/velocity.js";
     jsSrc[2] = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/js/clipboard.js";
     jsSrc[3] = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/js/vlook.js";
