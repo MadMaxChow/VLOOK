@@ -1,12 +1,10 @@
     console.log(":::::::::::::::::::");
     console.log("!!! CDN VERSION !!!");
-    console.log("::: " + vkVersion + " :::");
+    console.log("::: " + vlookVersion + " :::");
     console.log(":::::::::::::::::::");
 
-    /*
-
+    /****************************************
     VLOOK V9.31-dev2 - Typora Plugin
-
     2020-11-24
     powered by MAX°孟兆
 
@@ -14,8 +12,43 @@
     email: maxchow@qq.com
 
     https://github.com/MadMaxChow/VLOOK
+    ***************************************/
 
-    */
+    /***************************************
+    URL 参数说明
+
+    ws
+        欢迎屏模式。默认为显示，加载完成后须手动关闭。
+        取值范围：
+        none: 不显示，auto: 显示，加载完成后自动关闭
+
+    cs
+        强制指定颜色方案。
+        取值范围：light，dark
+
+    fix-mermaid
+        是否启用修正 mermaid 的渲染 bug。默认启用。
+        取值范围：
+        false: 取消修正
+
+    reset
+        重置指定数据。
+        取值范围：
+        true: 本地缓存的用户数据
+
+    imgx
+        在 DPR > 1 时，自动将 src 直接指定 2x 图片
+        取值范围：
+        false: 取消
+
+    effect
+        使用的特效等级。可指定为：
+        （未完成，忽略）
+
+    theme
+        动态加载指定的主题（在线版本）
+        主题名称中的关键名称，如：hope, geek 等
+    **************************************/
 
     // 动态加载指定的主题
     // let theme = VLOOK.util.parseQueryString(window.location.href)["theme"];
@@ -358,7 +391,7 @@
     function VLOOK() {}
 
     // 版本信息
-    VLOOK.version = vkVersion;
+    VLOOK.version = vlookVersion;
 
     // 是否为开发调试模式
     VLOOK.debugMode = false;

@@ -1,4 +1,14 @@
-    let vkVersion = "9.31-dev20201125.07";
+    /****************************************
+    starter of VLOOK.js - Typora Plugin
+    V9.31-dev2
+    2020-11-24
+    powered by MAX°孟兆
+
+    QQ Group: 805502564
+    email: maxchow@qq.com
+
+    https://github.com/MadMaxChow/VLOOK
+    ***************************************/
 
     /**
      * 获取 URL 中的参数数组
@@ -31,22 +41,22 @@
     if (theme !== undefined) {
         console.log("Theme :: " + theme);
         let style = document.createElement("link");
-        style.href = "https://madmaxchow.gitee.io/vlook/css/vlook-" + theme + "-solid.css?v=" + vkVersion;
+        style.href = "https://madmaxchow.gitee.io/vlook/css/vlook-" + theme + "-solid.css?v=" + vlookVersion;
         style.rel = "stylesheet";
         style.type = "text/css";
         document.getElementsByTagName("HEAD").item(0).appendChild(style);
     }
 
-    // 加载 vlook.js
-    let vlookjs = document.createElement("script");
-    vlookjs.setAttribute("type", "text/javascript");
-    vlookjs.setAttribute("src","https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/js/vlook.js?v=" + vkVersion);
-
-    // vlookjs.setAttribute("src","https://madmaxchow.gitee.io/vlook/js/vlook.js?v=" + ver);
-
-    document.getElementsByTagName("HEAD")[0].appendChild(vlookjs);
-
-
-
-    // <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/released/theme/vlook-hope.css" /> -->
-
+    // 动态加载 VLOOK 所须的 js 资源
+    let jsSrc = [];
+    jsSrc[0] = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/js/jquery.js?";
+    jsSrc[1] = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/js/velocity.js";
+    jsSrc[2] = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/js/clipboard.js";
+    jsSrc[3] = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/js/vlook.js";
+    for (let i = 0; i < jsSrc.length; i++) {
+        let js = document.createElement("script");
+        js.setAttribute("type", "text/javascript");
+        js.setAttribute("type", "text/javascript");
+        js.setAttribute("src", jsSrc[0] + "?v=" + vlookVersion);
+        document.getElementsByTagName("HEAD")[0].appendChild(js);
+    }
