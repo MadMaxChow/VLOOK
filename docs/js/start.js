@@ -57,6 +57,6 @@
         let js = document.createElement("script");
         js.setAttribute("type", "text/javascript");
         js.setAttribute("type", "text/javascript");
-        js.setAttribute("src", jsSrc[0] + "?v=" + vlookVersion);
+        js.setAttribute("src", jsSrc[i] + "?v=" + vlookVersion);
         document.getElementsByTagName("HEAD")[0].appendChild(js);
     }
