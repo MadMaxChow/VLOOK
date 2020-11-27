@@ -4,7 +4,8 @@
     console.log(":::::::::::::::::::");
 
     /****************************************
-    VLOOK V9.31-dev2 - Typora Plugin
+    VLOOK.js - Typora Plugin
+    V9.31-dev2
     2020-11-24
     powered by MAX°孟兆
 
