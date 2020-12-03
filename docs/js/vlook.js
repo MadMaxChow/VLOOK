@@ -1,5 +1,5 @@
     console.log(":::::::::::::::::::");
-    console.log("!!! CDN VERSION !!!");
+    console.log("!!! " + (vlookDevMode === true ? "- DEBUG -" : "RELEASED" ) + " !!!");
     console.log("::: " + vlookVersion + " :::");
     console.log(":::::::::::::::::::");
 
@@ -50,17 +50,6 @@
         动态加载指定的主题（在线版本）
         主题名称中的关键名称，如：hope, geek 等
     **************************************/
-
-    // 动态加载指定的主题
-    // let theme = VLOOK.util.parseQueryString(window.location.href)["theme"];
-    // if (theme !== undefined) {
-    //     console.log("Theme :: " + theme);
-    //     let style = document.createElement("link");
-    //     style.href = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/released/theme/vlook-" + theme + ".css";
-    //     style.rel = "stylesheet";
-    //     style.type = "text/css";
-    //     document.getElementsByTagName("HEAD").item(0).appendChild(style);
-    // }
 
     // 初始化计时器
     let iStopwatch = new Stopwatch(),
@@ -394,8 +383,8 @@
     // 版本信息
     VLOOK.version = vlookVersion;
 
-    // 是否为开发调试模式
-    VLOOK.debugMode = false;
+    // 是否为开发模式
+    VLOOK.debugMode = vlookDebugMode;
 
     /**
      * 在 debug 模式下输出调试信息
@@ -1174,7 +1163,7 @@
                 "모든 각주보기 ▶"
             ][VLOOK.lang.id]);
 
-            ContentAssist.button.openInNewTab.attr("title", [
+            ContentAssist.button.openInNewTab().attr("title", [
                 "在新标签页中打开",
                 "在新標籤頁中打開",
                 "Open in new tab",
@@ -1186,7 +1175,7 @@
                 "새 탭에서 열기"
             ][VLOOK.lang.id]);
 
-            ContentAssist.button.copyCodeBlock.attr("title", [
+            ContentAssist.button.copyCodeBlock().attr("title", [
                 "复制全部代码",
                 "複製全部代碼",
                 "Copy all code",
@@ -1454,6 +1443,72 @@
         }
     } // VLOOK.ui
 
+    // 字体类
+    VLOOK.font = {
+        /*
+         * 加载自定义字体
+         *
+         * @param fontFamily 自定义字体名称
+         * @param fontStyle 字体样式
+         * @param fontWeight 字重
+         * @param srcFontName 字体源名称
+         * @param srcFontSubName 字体源子名称
+         * @param suffix 字体扩展名，支持 otf ttf
+         * @param woff 加载 woff 的版本，支持 woff woff2，不加载不指定
+         */
+        load(fontFamily, fontStyle, fontWeight, srcFontName, srcFontSubName, suffix, woff) {
+            if (document.fonts && !VLOOK.font.isExist(fontFamily, fontStyle, fontWeight)) {
+                // let format = (suffix === "ttf") ? "truetype" : "opentype";
+                    // host = "https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/";
+                // if (suffix === "otf")
+                //     format = "opentype";
+                // console.log(fontHost);
+
+                let woffURL = "url('" + fontHost + srcFontName + "-" + woff + "/" + srcFontSubName + "." + woff + "') format('woff2')",
+                    fontFace = new FontFace(fontFamily,
+                        ((woff !== undefined) ? woffURL : ""), {
+                        // + "url('" + fontHost + srcFontName + "/" + srcFontSubName + "." + suffix + "') format('" + format + "')", {
+                        style: fontStyle,
+                        weight: fontWeight,
+                        display: "swap"
+                });
+
+                // 指定字体加载完成后回调函数
+                fontFace.load().then(function(loadedFontFace) {
+                    document.fonts.add(loadedFontFace);
+                    console.log("_____ FONT LOADED _____ ");
+                    console.log("\"" + fontFamily + "\" (style/" + fontStyle + ", weight/" + fontWeight + ")");
+                });
+            }
+        },
+
+        /*
+         * 检测指定自定义字体是否已加载
+         *
+         * @param fontFamily 自定义字体名称
+         * @param fontStyle 字体样式
+         * @param fontWeight 字重
+         */
+        isExist(fontFamily, fontStyle, fontWeight) {
+            let values = document.fonts.values(),
+                isHave = false,
+                item = values.next();
+            while (!item.done && isHave === false) {
+                let fontFace = item.value;
+                console.log(fontFace.family, fontFace.style, fontFace.weight);
+                if (fontFace.family === fontFamily
+                    && fontFace.style === fontStyle
+                    && fontFace.weight === fontWeight) {
+                    isHave = true;
+                    console.log("///// FONT IS EXIST /////");
+                    console.log("\"" + fontFamily + "\" (style/" + fontStyle + ", weight/" + fontWeight + ")");
+                }
+                item = values.next();
+            }
+            return isHave;
+        }
+    } // VLOOK font
+
     // 语言类
     VLOOK.lang = {
         id : 2,
@@ -1492,7 +1547,7 @@
                 default:
                     VLOOK.lang.id = 2; // 默认：英语
             }
-        },
+        }
     } // VLOOK.lang
 
     // 动画类
@@ -2294,25 +2349,32 @@
     function ContentAssist() {}
 
     ContentAssist.button = {
-        openInNewTab : $(".mdx-btn-open-in-new-tab"), // 在新标签中打开按钮
-        copyCodeBlock : $(".mdx-btn-copy-code-block"), // 复制代码块按钮
+        openInNewTab : function () {
+            return $(".mdx-btn-open-in-new-tab");
+        }, // 在新标签中打开按钮
+
+        copyCodeBlock : function () {
+            return $(".mdx-btn-copy-code-block");
+        }, // 复制代码块按钮
     }
 
-    // 绑定在新标签中打开按钮事件
-    ContentAssist.button.openInNewTab.unbind("click").click(function () {
-        ContentAssist.openInNewTab();
-    });
-    ContentAssist.button.openInNewTab.mouseout(function () {
-        ContentAssist.mouseout();
-    });
+    ContentAssist.init = function () {
+        // 绑定在新标签中打开按钮事件
+        ContentAssist.button.openInNewTab().unbind("click").click(function () {
+            ContentAssist.openInNewTab();
+        });
+        ContentAssist.button.openInNewTab().mouseout(function () {
+            ContentAssist.mouseout();
+        });
 
-    // 复制代码块按钮事件
-    ContentAssist.button.copyCodeBlock.unbind("click").click(function () {
-        ExtCodeBlock.copyPlus();
-    });
-    ContentAssist.button.copyCodeBlock.mouseout(function () {
-        ContentAssist.mouseout();
-    });
+        // 复制代码块按钮事件
+        ContentAssist.button.copyCodeBlock().unbind("click").click(function () {
+            ExtCodeBlock.copyPlus();
+        });
+        ContentAssist.button.copyCodeBlock().mouseout(function () {
+            ContentAssist.mouseout();
+        });
+    }
 
     // 最后显示新标签打开按钮的内容（插图/表格等）
     ContentAssist.lastHoverContent = undefined;
@@ -2326,22 +2388,22 @@
             return;
 
         // 显示在新标签打开的按钮
-        ContentAssist.button.openInNewTab.hide();
-        ContentAssist.button.openInNewTab.css({
+        ContentAssist.button.openInNewTab().hide();
+        ContentAssist.button.openInNewTab().css({
             "left": ContentAssist.lastHoverContent.offset().left,
             "top": ContentAssist.lastHoverContent.offset().top
         });
 
-        ContentAssist.button.openInNewTab.css("visibility", "visible");
+        ContentAssist.button.openInNewTab().css("visibility", "visible");
 
         // 动画式显示
         if (VLOOK.ui.effect >= 2) {
-            ContentAssist.button.openInNewTab.velocity("fadeIn", {
+            ContentAssist.button.openInNewTab().velocity("fadeIn", {
                 duration: VLOOK.animate.speed
             });
         }
         else {
-            ContentAssist.button.openInNewTab.show();
+            ContentAssist.button.openInNewTab().show();
         }
     }
 
@@ -2353,24 +2415,24 @@
         if (env.device.mobile)
             return;
 
-        ContentAssist.button.copyCodeBlock.hide();
-        ContentAssist.button.copyCodeBlock.css({
+        ContentAssist.button.copyCodeBlock().hide();
+        ContentAssist.button.copyCodeBlock().css({
             "left": ContentAssist.lastHoverContent.offset().left
                 + ContentAssist.lastHoverContent.width()
-                - ContentAssist.button.copyCodeBlock.width() + 4,
+                - ContentAssist.button.copyCodeBlock().width() + 4,
             "top": ContentAssist.lastHoverContent.offset().top
         });
 
-        ContentAssist.button.copyCodeBlock.css("visibility", "visible");
+        ContentAssist.button.copyCodeBlock().css("visibility", "visible");
 
-        // console.log(ContentAssist.button.copyCodeBlock.css("left"), ContentAssist.button.copyCodeBlock.css("top"));
+        // console.log(ContentAssist.button.copyCodeBlock().css("left"), ContentAssist.button.copyCodeBlock().css("top"));
         // 动画式显示
         if (VLOOK.ui.effect >= 2)
-            ContentAssist.button.copyCodeBlock.velocity("fadeIn", {
+            ContentAssist.button.copyCodeBlock().velocity("fadeIn", {
                 duration: VLOOK.animate.speed
             });
         else
-            ContentAssist.button.copyCodeBlock.show();
+            ContentAssist.button.copyCodeBlock().show();
     }
 
     /**
@@ -2380,16 +2442,16 @@
         if (ContentAssist.lastHoverContent == undefined || ContentAssist.mouseDropIn() === false) {
             // 动画式显示
             if (VLOOK.ui.effect >= 2) {
-                ContentAssist.button.openInNewTab.velocity("fadeOut", {
+                ContentAssist.button.openInNewTab().velocity("fadeOut", {
                     duration: VLOOK.animate.speed
                 });
-                ContentAssist.button.copyCodeBlock.velocity("fadeOut", {
+                ContentAssist.button.copyCodeBlock().velocity("fadeOut", {
                     duration: VLOOK.animate.speed
                 });
             }
             else {
-                ContentAssist.button.openInNewTab.hide();
-                ContentAssist.button.copyCodeBlock.hide();
+                ContentAssist.button.openInNewTab().hide();
+                ContentAssist.button.copyCodeBlock().hide();
             }
         }
     }
@@ -2419,7 +2481,7 @@
      * 在新标签页中打开插图/表格等内容
      */
     ContentAssist.openInNewTab = function () {
-        ContentAssist.button.openInNewTab.hide();
+        ContentAssist.button.openInNewTab().hide();
 
         if (ContentAssist.lastHoverContent == undefined)
             return;
@@ -2437,6 +2499,7 @@
         newTab.document.title = ContentAssist.lastHoverContent.prev().text();
 
         // 初始化在新标签打开的页面的关键组件实例
+        alert(newTab === undefined);
         newTab.VLOOK.initIntance(true);
         newTab.OINT.init();
 
@@ -3043,7 +3106,7 @@
          * 显示/隐藏大纲，并进行关联处理
          */
         this.afterToggle = function () {
-            ContentAssist.button.openInNewTab.hide();
+            ContentAssist.button.openInNewTab().hide();
             if (iOutlineNav.displayMode === "block")
                 iContentFolding.adjust();
         }
@@ -6004,13 +6067,17 @@
                             ce.html(ce.html().replace(/\.(\d+)/, ".<span style='font-size: 0.8em'>$1</span>"));
                             // 根据正负号进行着色处理
                             ExtTable.columnFormatting.coloringNumber(ce, ce.text(), true);
+                            // 对 +/- 符号进行处理
+                            // ce.html(ce.html().replace(">+", ">▴ ").replace(">-", ">▾ "));
                         }
                         else if (ce.text().isPercent()) { // 内容为百分数
                             // 对小数进行处理
                             ce.html(ce.html().replace(/\.(\d+)/, ".<span style='font-size: 0.8em'>$1</span>"));
+                            // 对百分数进行处理
+                            ce.html(ce.html().replace(/%</, "<span style='opacity: 0.6'> %</span><"));
                             // 根据正负号进行着色处理
                             let coloring = ExtTable.columnFormatting.coloringNumber(ce, ce.text(), true),
-                                percent = ce.text().replace(/(-|\+)/, ""),
+                                percent = ce.text().replace(/(-|\+|\s)/g, ""),
                                 percentValue = Math.round(percent.replace("%", "")),
                                 bg1 = "rgba(128, 128, 128, 0.1)",
                                 bg2 = "rgba(128, 128, 128, 0.4)",
@@ -6029,6 +6096,8 @@
                                 + ", transparent " + percent + ")",
                                 "min-width": "100px"
                             });
+                            // 对 +/- 符号进行处理
+                            ce.html(ce.html().replace(">+", ">▴ ").replace(">-", ">▾ "));
                         }
                         else if (ce.text().isCurrency()) { // 内容为数值
                             // 因 html() 中含有 > 字符，所以替换的内容中须进行 > 的前后拼接调整
@@ -6980,10 +7049,10 @@
             }
 
             // 调整插图动作按钮层级
-            let actIdx = parseInt(ContentAssist.button.openInNewTab.css("z-index")),
+            let actIdx = parseInt(ContentAssist.button.openInNewTab().css("z-index")),
                 viewerIdx = parseInt(this.ui.css("z-index"));
             if (actIdx > viewerIdx)
-                ContentAssist.button.openInNewTab.css("z-index", actIdx - viewerIdx);
+                ContentAssist.button.openInNewTab().css("z-index", actIdx - viewerIdx);
 
             ContentAssist.hideButtons();
             VLOOK.doc.scroll.unfreeze();
@@ -7226,6 +7295,7 @@
                     "y2": parseInt(line.attr("y2")) - 20
                 });
                 actor.addClass("mdx-actor-person");
+                actor.prev("line").addClass("mdx-actor-person");
                 // prefix = "🙂 ";
                 text.text(prefix + tmpText.substring(1, tmpText.length));
             }
@@ -7785,7 +7855,7 @@
         iOutlineNav.ui.remove();
         iChapterNav.ui.remove();
         iMoreDocContent.hide();
-        ContentAssist.button.openInNewTab.remove();
+        ContentAssist.button.openInNewTab().remove();
     }
 
     /**
@@ -7837,18 +7907,22 @@
     // ==================== VLOOK 加载入口 ==================== //
 
     /**
-     * HTML文档加载完成后执行主流程
+     * 文档加载完成后执行主流程
      */
     $(document).ready(function () {
         // Dom.write().addClass("mdx-welcome-screen-loading-mask");
         // ----------------------------------------
-        // 打印环境信息
-        env.print();
         console.info("- Ready");
         gDocLoadTimeCost = iStopwatch.lapStop("    ");
+        // 打印环境信息
+        env.print();
 
         iStopwatch.lapStart();
         console.info("=== Load VLOOK ===");
+
+        loadVLOOKui();
+        ContentAssist.init();
+
         VLOOK.lang.init(); // 初始化语言
 
         console.info("- Welcome Screen Init");
@@ -7873,7 +7947,409 @@
 
         // 延后加载 VLOOK 插件，避免欢迎屏的 UI 刷新阻塞
         setTimeout(loadVLOOK, 200);
+
+        // 动态加载字体 VLOOK Sans Mono
+        VLOOK.font.load("VLOOK Sans Mono", "normal", "normal", "NotoSansMono", "NotoSansMono-Regular", "ttf", "woff2");
+        VLOOK.font.load("VLOOK Sans Mono", "normal", "500", "NotoSansMono", "NotoSansMono-Medium", "ttf", "woff2");
+        VLOOK.font.load("VLOOK Sans Mono", "normal", "bold", "NotoSansMono", "NotoSansMono-Bold", "ttf", "woff2");
+        VLOOK.font.load("VLOOK Sans Mono", "normal", "900", "NotoSansMono", "NotoSansMono-Black", "ttf", "woff2");
+
+        // 动态加载字体 VLOOK Number
+        VLOOK.font.load("VLOOK Number", "normal", "normal", "Altinn-DIN", "Altinn-DIN", "otf", "woff2");
+        VLOOK.font.load("VLOOK Number", "normal", "bold", "Altinn-DIN", "Altinn-DIN-Bold", "otf", "woff2");
+        VLOOK.font.load("VLOOK Number", "italic", "normal", "Altinn-DIN", "Altinn-DIN-Italic", "otf", "woff2");
+
+        // 动态加载字体 VLOOK Serif Mono
+        VLOOK.font.load("VLOOK Serif Mono", "normal", "normal", "LuxiMono", "LuxiMono-Regular", "ttf", "woff2");
+        VLOOK.font.load("VLOOK Serif Mono", "normal", "bold", "LuxiMono", "LuxiMono-Bold", "ttf", "woff2");
+        VLOOK.font.load("VLOOK Serif Mono", "italic", "normal", "LuxiMono", "LuxiMono-Italic-Regular", "ttf", "woff2");
+        VLOOK.font.load("VLOOK Serif Mono", "italic", "bold", "LuxiMono", "LuxiMono-Italic-Bold", "ttf", "woff2");
+
+        // 动态加载字体 VLOOK Noto Sans CJK SC
+        VLOOK.font.load("VLOOK Sans", "normal", "normal", "NotoSansCJKsc", "NotoSansCJKsc-Regular", "otf", "woff2");
+        VLOOK.font.load("VLOOK Sans", "normal", "bold", "NotoSansCJKsc", "NotoSansCJKsc-Bold", "otf", "woff2");
+        VLOOK.font.load("VLOOK Sans", "normal", "900", "NotoSansCJKsc", "NotoSansCJKsc-Black", "otf", "woff2");
+
+        // 动态加载字体 VLOOK Noto Serif CJK SC
+        VLOOK.font.load("VLOOK Serif", "normal", "500", "NotoSerifCJKsc", "NotoSerifCJKsc-Medium", "otf", "woff2");
+        VLOOK.font.load("VLOOK Serif", "normal", "900", "NotoSerifCJKsc", "NotoSerifCJKsc-Black", "otf", "woff2");
     });
+
+    /**
+     * 字体加载完成后执行的主流程
+     */
+    document.fonts.ready.then(function() {
+        // 字体加载完成后的逻辑
+        // console.log("!!! FONT LOADED !!!");
+    });
+
+    /**
+     * 加载 VLOOK 插件
+     */
+    function loadVLOOKui() {
+        let ui = '';
+        // --------------------------------------------------
+        // 欢迎屏
+        ui += '<div class="mdx-welcome-screen mdx-backdrop-blurs">';
+        // 文档专属图标
+        ui += '<div class="mdx-doc-logo"></div>';
+        // 欢迎信息
+        ui += '<div class="mdx-welcome-screen-tips">';
+        ui += '<div>Don\'t worry, the best will always appear in the most casual time.</div>';
+        ui += '<div>不要著急，最好的總會在最不經意的時候出現。</div>';
+        ui += '<div>Keine Sorge, das Beste wird immer in der ungezwungensten Zeit erscheinen.</div>';
+        ui += '<div>心配しないで、最高のものが常に最もカジュアルな時間に表示されます。</div>';
+        ui += '<div>No te preocupes, lo mejor siempre aparecerá en el momento más casual.</div>';
+        ui += '<div>걱정하지 마세요. 최고는 항상 가장 캐주얼 한 시간에 나타납니다.</div>';
+        ui += '<div>Ne vous inquiétez pas, le meilleur apparaîtra toujours au moment le plus décontracté.</div>';
+        ui += '<div>Не волнуйтесь, лучшее всегда будет появляться в самое случайное время.<br><br>:</div>';
+        ui += '</div>';
+        // 文档加载进度及进入按钮
+        ui += '<div class="mdx-welcome-screen-loading">Loading...</div>';
+        ui += '</div>';
+
+        // --------------------------------------------------
+        // SVG图标集
+        ui += '<svg style="display: none;">';
+        // SVG 图标集：图标|VLOOK LOGO for Light Mode
+        ui += '<symbol id="icoVLOOK-light">';
+        ui += '<g id="VLOOK-light" fill="#303438">';
+        ui += '<path d="M17.1496192,2.76763582e-16 C19.5316459,-1.60807611e-16 20.3954263,0.24801843 21.2662596,0.713745193 C22.1370929,1.17947196 22.820528,1.86290705 23.2862548,2.73374039 C23.7519816,3.60457372 24,4.46835414 24,6.85038077 L24,17.1496192 C24,19.5316459 23.7519816,20.3954263 23.2862548,21.2662596 C22.820528,22.1370929 22.1370929,22.820528 21.2662596,23.2862548 C20.3954263,23.7519816 19.5316459,24 17.1496192,24 L6.85038077,24 C4.46835414,24 3.60457372,23.7519816 2.73374039,23.2862548 C1.86290705,22.820528 1.17947196,22.1370929 0.713745193,21.2662596 C0.24801843,20.3954263 1.07205074e-16,19.5316459 -1.84509055e-16,17.1496192 L1.84509055e-16,6.85038077 C-1.07205074e-16,4.46835414 0.24801843,3.60457372 0.713745193,2.73374039 C1.17947196,1.86290705 1.86290705,1.17947196 2.73374039,0.713745193 C3.60457372,0.24801843 4.46835414,1.60807611e-16 6.85038077,-2.76763582e-16 L17.1496192,2.76763582e-16 Z M12.2146664,17.1490845 C12.1180865,17.0687215 11.9779135,17.0687215 11.8813336,17.1490845 L11.8813336,17.1490845 L10.9253862,17.9445161 C10.8229145,18.0297816 10.8013222,18.1786374 10.875344,18.2895041 L10.875344,18.2895041 L11.8312914,19.7212811 C11.8503268,19.7497915 11.8748008,19.7742656 11.9033112,19.793301 C12.0229961,19.8732104 12.1847992,19.840966 12.2647086,19.7212811 L12.2647086,19.7212811 L13.220656,18.2895041 C13.2946778,18.1786374 13.2730855,18.0297816 13.1706138,17.9445161 L13.1706138,17.9445161 Z M7.27085714,9.20494892 C4.87236337,9.20494892 2.928,11.146405 2.928,13.5413126 C2.928,15.9362201 4.87236337,17.8776762 7.27085714,17.8776762 C9.66935091,17.8776762 11.6137143,15.9362201 11.6137143,13.5413126 C11.6137143,11.146405 9.66935091,9.20494892 7.27085714,9.20494892 Z M16.8251429,9.20494892 C14.4266491,9.20494892 12.4822857,11.146405 12.4822857,13.5413126 C12.4822857,15.9362201 14.4266491,17.8776762 16.8251429,17.8776762 C19.2236366,17.8776762 21.168,15.9362201 21.168,13.5413126 C21.168,11.146405 19.2236366,9.20494892 16.8251429,9.20494892 Z M7.27085714,10.505858 C8.94980278,10.505858 10.3108571,11.8648773 10.3108571,13.5413126 C10.3108571,15.2177478 8.94980278,16.5767671 7.27085714,16.5767671 C5.5919115,16.5767671 4.23085714,15.2177478 4.23085714,13.5413126 C4.23085714,11.8648773 5.5919115,10.505858 7.27085714,10.505858 Z M16.8251429,10.505858 C18.5040885,10.505858 19.8651429,11.8648773 19.8651429,13.5413126 C19.8651429,15.2177478 18.5040885,16.5767671 16.8251429,16.5767671 C15.1461972,16.5767671 13.7851429,15.2177478 13.7851429,13.5413126 C13.7851429,11.8648773 15.1461972,10.505858 16.8251429,10.505858 Z M18.9136926,4.98436827 C18.7636723,4.66321444 18.3845594,4.5217154 18.0613864,4.66351004 L18.0613864,4.66351004 L18.047954,4.66958237 L12.02,7.475 L5.99215987,4.66958237 L5.97872747,4.66351004 C5.65555453,4.5217154 5.27644165,4.66321444 5.12642128,4.98436827 C4.97431729,5.30998257 5.11531238,5.69697321 5.44134261,5.84873606 L5.44134261,5.84873606 L11.7381956,8.77983951 L11.751628,8.78591184 C11.8262809,8.8186664 11.9039189,8.83630413 11.9800967,8.83918014 C11.9933822,8.84014464 12.0067201,8.84070321 12.0210196,8.84083744 L12.0600869,8.84005241 C12.1368672,8.83615114 12.2141562,8.81852461 12.2884859,8.78591184 L12.2884859,8.78591184 L12.3019183,8.77983951 L18.5987713,5.84873606 L18.6830198,5.80173694 C18.9480147,5.62711851 19.051969,5.28038127 18.9136926,4.98436827 Z" id="vlook-dark"></path>';
+        ui += '</g>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|VLOOK LOGO for Dark Mode
+        ui += '<symbol id="icoVLOOK-dark">';
+        ui += '<g id="VLOOK-dark" fill="#FFFFFF">';
+        ui += '<path d="M17.1496192,-1.49959326e-15 C19.5316459,-1.93716445e-15 20.3954263,0.24801843 21.2662596,0.713745193 C22.1370929,1.17947196 22.820528,1.86290705 23.2862548,2.73374039 C23.7519816,3.60457372 24,4.46835414 24,6.85038077 L24,17.1496192 C24,19.5316459 23.7519816,20.3954263 23.2862548,21.2662596 C22.820528,22.1370929 22.1370929,22.820528 21.2662596,23.2862548 C20.3954263,23.7519816 19.5316459,24 17.1496192,24 L6.85038077,24 C4.46835414,24 3.60457372,23.7519816 2.73374039,23.2862548 C1.86290705,22.820528 1.17947196,22.1370929 0.713745193,21.2662596 C0.24801843,20.3954263 1.07205074e-16,19.5316459 -1.84509055e-16,17.1496192 L1.84509055e-16,6.85038077 C-1.07205074e-16,4.46835414 0.24801843,3.60457372 0.713745193,2.73374039 C1.17947196,1.86290705 1.86290705,1.17947196 2.73374039,0.713745193 C3.60457372,0.24801843 4.46835414,-1.61554923e-15 6.85038077,-2.05312042e-15 L17.1496192,-1.49959326e-15 Z M12.1666664,17.1490845 C12.0700865,17.0687215 11.9299135,17.0687215 11.8333336,17.1490845 L11.8333336,17.1490845 L10.8773862,17.9445161 C10.7749145,18.0297816 10.7533222,18.1786374 10.827344,18.2895041 L10.827344,18.2895041 L11.7832914,19.7212811 C11.8023268,19.7497915 11.8268008,19.7742656 11.8553112,19.793301 C11.9749961,19.8732104 12.1367992,19.840966 12.2167086,19.7212811 L12.2167086,19.7212811 L13.172656,18.2895041 C13.2466778,18.1786374 13.2250855,18.0297816 13.1226138,17.9445161 L13.1226138,17.9445161 Z M7.22285714,9.20494892 C4.82436337,9.20494892 2.88,11.146405 2.88,13.5413126 C2.88,15.9362201 4.82436337,17.8776762 7.22285714,17.8776762 C9.62135091,17.8776762 11.5657143,15.9362201 11.5657143,13.5413126 C11.5657143,11.146405 9.62135091,9.20494892 7.22285714,9.20494892 Z M16.7771429,9.20494892 C14.3786491,9.20494892 12.4342857,11.146405 12.4342857,13.5413126 C12.4342857,15.9362201 14.3786491,17.8776762 16.7771429,17.8776762 C19.1756366,17.8776762 21.12,15.9362201 21.12,13.5413126 C21.12,11.146405 19.1756366,9.20494892 16.7771429,9.20494892 Z M7.22285714,10.505858 C8.90180278,10.505858 10.2628571,11.8648773 10.2628571,13.5413126 C10.2628571,15.2177478 8.90180278,16.5767671 7.22285714,16.5767671 C5.5439115,16.5767671 4.18285714,15.2177478 4.18285714,13.5413126 C4.18285714,11.8648773 5.5439115,10.505858 7.22285714,10.505858 Z M16.7771429,10.505858 C18.4560885,10.505858 19.8171429,11.8648773 19.8171429,13.5413126 C19.8171429,15.2177478 18.4560885,16.5767671 16.7771429,16.5767671 C15.0981972,16.5767671 13.7371429,15.2177478 13.7371429,13.5413126 C13.7371429,11.8648773 15.0981972,10.505858 16.7771429,10.505858 Z M18.8656926,4.98436827 C18.7156723,4.66321444 18.3365594,4.5217154 18.0133864,4.66351004 L18.0133864,4.66351004 L17.999954,4.66958237 L11.972,7.475 L5.94415987,4.66958237 L5.93072747,4.66351004 C5.60755453,4.5217154 5.22844165,4.66321444 5.07842128,4.98436827 C4.92631729,5.30998257 5.06731238,5.69697321 5.39334261,5.84873606 L5.39334261,5.84873606 L11.6901956,8.77983951 L11.703628,8.78591184 C11.7782809,8.8186664 11.8559189,8.83630413 11.9320967,8.83918014 C11.9453822,8.84014464 11.9587201,8.84070321 11.9730196,8.84083744 L12.0120869,8.84005241 C12.0888672,8.83615114 12.1661562,8.81852461 12.2404859,8.78591184 L12.2404859,8.78591184 L12.2539183,8.77983951 L18.5507713,5.84873606 L18.6350198,5.80173694 C18.9000147,5.62711851 19.003969,5.28038127 18.8656926,4.98436827 Z" id="vlook-light"></path>';
+        ui += '</g>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|大纲
+        ui += '<symbol id="icoOutline">';
+        ui += '<path d="M6,0 L19,0 C19.5522847,0 20,0.44771525 20,1 C20,1.55228475 19.5522847,2 19,2 L6,2 C5.44771525,2 5,1.55228475 5,1 C5,0.44771525 5.44771525,0 6,0 Z M1,0 L2,0 C2.55228475,0 3,0.44771525 3,1 C3,1.55228475 2.55228475,2 2,2 L1,2 C0.44771525,2 0,1.55228475 0,1 C0,0.44771525 0.44771525,0 1,0 Z M1,6 L2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 L1,8 C0.44771525,8 0,7.55228475 0,7 C0,6.44771525 0.44771525,6 1,6 Z M1,12 L2,12 C2.55228475,12 3,12.4477153 3,13 C3,13.5522847 2.55228475,14 2,14 L1,14 C0.44771525,14 0,13.5522847 0,13 C0,12.4477153 0.44771525,12 1,12 Z M6,6 L19,6 C19.5522847,6 20,6.44771525 20,7 C20,7.55228475 19.5522847,8 19,8 L6,8 C5.44771525,8 5,7.55228475 5,7 C5,6.44771525 5.44771525,6 6,6 Z M6,12 L19,12 C19.5522847,12 20,12.4477153 20,13 C20,13.5522847 19.5522847,14 19,14 L6,14 C5.44771525,14 5,13.5522847 5,13 C5,12.4477153 5.44771525,12 6,12 Z"></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|插图导航的上一张
+        ui += '<symbol id="icoPrevFig">';
+        ui += '<path d="M11.0303682,0.091084328 C11.7948436,0.375093579 12.1890102,1.237894 11.9107639,2.018203 L3.00130389,26.9997408 L11.9107639,51.981797 C12.1726428,52.7162055 11.8388895,53.5236859 11.1613701,53.8529228 L11.0303682,53.9089157 C10.310862,54.1762185 9.51976648,53.8355526 9.19721032,53.1440006 L9.14235361,53.0102855 C5.13199059,41.7636939 2.12421833,33.3287502 0.11903682,27.7054544 C0.11186687,27.6853471 0,27.43485 0,26.9997408 C0,26.5646315 0.111310594,26.3162129 0.119265149,26.2939053 C2.12439592,20.6707518 5.13209207,12.2360215 9.14235361,0.989714523 C9.4205999,0.20940552 10.2658928,-0.192924923 11.0303682,0.091084328 Z"></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|插图导航的下一张
+        ui += '<symbol id="icoNextFig">';
+        ui += '<path d="M11.0303682,0.091084328 C11.7948436,0.375093579 12.1890102,1.237894 11.9107639,2.018203 L3.00130389,26.9997408 L11.9107639,51.981797 C12.1726428,52.7162055 11.8388895,53.5236859 11.1613701,53.8529228 L11.0303682,53.9089157 C10.310862,54.1762185 9.51976648,53.8355526 9.19721032,53.1440006 L9.14235361,53.0102855 C5.13199059,41.7636939 2.12421833,33.3287502 0.11903682,27.7054544 C0.11186687,27.6853471 0,27.43485 0,26.9997408 C0,26.5646315 0.111310594,26.3162129 0.119265149,26.2939053 C2.12439592,20.6707518 5.13209207,12.2360215 9.14235361,0.989714523 C9.4205999,0.20940552 10.2658928,-0.192924923 11.0303682,0.091084328 Z" transform="translate(6.000000, 27.000000) scale(-1, 1) translate(-6.000000, -27.000000) "></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|逐章导航的上一章';
+        ui += '<symbol id="icoPrevChapter">';
+        ui += '<path d="M2.56507664,7.09086552 L7.5381691,12.063958 C7.92869339,12.4544823 7.92869339,13.0876472 7.5381691,13.4781715 C7.14764481,13.8686958 6.51447983,13.8686958 6.12395554,13.4781715 L0.467101288,7.82131729 C0.287321184,7.64153719 0.190303885,7.41033487 0.176049391,7.17505536 C0.145971879,6.88568746 0.241806749,6.58570828 0.463554001,6.36396103 L6.12040825,0.707106781 C6.51093254,0.316582489 7.14409752,0.316582489 7.53462181,0.707106781 C7.9251461,1.09763107 7.9251461,1.73079605 7.53462181,2.12132034 L2.56507664,7.09086552 Z"></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|逐章导航的下一章
+        ui += '<symbol id="icoNextChapter">';
+        ui += '<path d="M2.73310223,7.09086552 L7.70619469,12.063958 C8.09671898,12.4544823 8.09671898,13.0876472 7.70619469,13.4781715 C7.3156704,13.8686958 6.68250542,13.8686958 6.29198113,13.4781715 L0.635126876,7.82131729 C0.455346772,7.64153719 0.358329473,7.41033487 0.344074979,7.17505536 C0.313997467,6.88568746 0.409832337,6.58570828 0.631579589,6.36396103 L6.28843384,0.707106781 C6.67895813,0.316582489 7.31212311,0.316582489 7.7026474,0.707106781 C8.09317169,1.09763107 8.09317169,1.73079605 7.7026474,2.12132034 L2.73310223,7.09086552 Z"transform="translate(4.168887, 7.092639) scale(-1, 1) translate(-4.168887, -7.092639) "></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|已收起的大纲节点
+        ui += '<symbol id="icoFolded">';
+        ui += '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
+        ui += '<path d="M8,1 C11.8659932,1 15,4.13400675 15,8 C15,11.8659932 11.8659932,15 8,15 C4.13400675,15 1,11.8659932 1,8 C1,4.13400675 4.13400675,1 8,1 Z M7.66396103,3.75735931 C7.27343674,3.36683502 6.64027176,3.36683502 6.24974747,3.75735931 C5.85922318,4.1478836 5.85922318,4.78104858 6.24974747,5.17157288 L6.24974747,5.17157288 L9.08528137,8.00710678 L6.24974747,10.8426407 C5.85922318,11.233165 5.85922318,11.86633 6.24974747,12.2568542 C6.64027176,12.6473785 7.27343674,12.6473785 7.66396103,12.2568542 L7.66396103,12.2568542 L11.1994949,8.72132034 C11.3947571,8.5260582 11.4923882,8.27013588 11.4923882,8.01421356 L11.4923882,8.01421356 L11.4923882,8 C11.4923882,7.74407768 11.3947571,7.48815536 11.1994949,7.29289322 L11.1994949,7.29289322 Z"></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|已展开的大纲节点
+        ui += '<symbol id="icoUnfold">';
+        ui += '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
+        ui += '<path d="M11.500027,1.86500179 C12.0523118,1.86500179 12.500027,2.31271704 12.500027,2.86500179 C12.500027,3.41728654 12.0523118,3.86500179 11.500027,3.86500179 L5.49500179,3.86500179 L5.49500179,9.87002705 C5.49500179,10.4223118 5.04728654,10.870027 4.49500179,10.870027 C3.94271704,10.870027 3.49500179,10.4223118 3.49500179,9.87002705 L3.49500179,2.87002705 C3.49500179,2.59244142 3.60810365,2.34127215 3.79073809,2.16008851 C3.97127215,1.97810365 4.22244142,1.86500179 4.50002705,1.86500179 L11.500027,1.86500179 Z" transform="translate(7.997514, 6.367514) rotate(-135.000000) translate(-7.997514, -6.367514) "></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|已收起的引用折叠
+        ui += '<symbol id="icoQuoteClosed">';
+        ui += '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
+        ui += '<path d="M11,1 C13.209139,1 15,2.790861 15,5 L15,11 C15,13.209139 13.209139,15 11,15 L5,15 C2.790861,15 1,13.209139 1,11 L1,5 C1,2.790861 2.790861,1 5,1 L11,1 Z M8,3 C7.44771525,3 7,3.44771525 7,4 L7,4 L7,7 L4,7 C3.44771525,7 3,7.44771525 3,8 C3,8.55228475 3.44771525,9 4,9 L4,9 L7,9 L7,12 C7,12.5522847 7.44771525,13 8,13 C8.55228475,13 9,12.5522847 9,12 L9,12 L9,9 L12,9 C12.5522847,9 13,8.55228475 13,8 C13,7.44771525 12.5522847,7 12,7 L12,7 L9,7 L9,4 C9,3.44771525 8.55228475,3 8,3 Z"></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|已展开的引用折叠
+        ui += '<symbol id="icoQuoteOpened">';
+        ui += '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
+        ui += '<path d="M11,1 C13.209139,1 15,2.790861 15,5 L15,11 C15,13.209139 13.209139,15 11,15 L5,15 C2.790861,15 1,13.209139 1,11 L1,5 C1,2.790861 2.790861,1 5,1 L11,1 Z M11,2 L5,2 C3.34314575,2 2,3.34314575 2,5 L2,5 L2,11 C2,12.6568542 3.34314575,14 5,14 L5,14 L11,14 C12.6568542,14 14,12.6568542 14,11 L14,11 L14,5 C14,3.34314575 12.6568542,2 11,2 L11,2 Z"></path>';
+        ui += '<rect x="4" y="7" width="8" height="2" rx="1"></rect>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|已收起的表格折叠行节点
+        ui += '<symbol id="icoTableRowClosed">';
+        ui += '<rect fill-opacity="0" x="1" y="1" width="10" height="10"></rect>';
+        ui += '<path d="M8,0 C10.209139,-4.05812251e-16 12,1.790861 12,4 L12,8 C12,10.209139 10.209139,12 8,12 L4,12 C1.790861,12 2.705415e-16,10.209139 0,8 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 L8,0 Z M6,2 C5.44771525,2 5,2.44771525 5,3 L5,3 L5,5 L3,5 C2.44771525,5 2,5.44771525 2,6 C2,6.55228475 2.44771525,7 3,7 L3,7 L5,7 L5,9 C5,9.55228475 5.44771525,10 6,10 C6.55228475,10 7,9.55228475 7,9 L7,9 L7,7 L9,7 C9.55228475,7 10,6.55228475 10,6 C10,5.44771525 9.55228475,5 9,5 L9,5 L7,5 L7,3 C7,2.44771525 6.55228475,2 6,2 Z"></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|已展开的表格折叠行节点
+        ui += '<symbol id="icoTableRowOpened">';
+        ui += '<rect fill-opacity="0" x="1" y="1" width="10" height="10"></rect>';
+        ui += '<path d="M8,0 C10.209139,-4.05812251e-16 12,1.790861 12,4 L12,8 C12,10.209139 10.209139,12 8,12 L4,12 C1.790861,12 2.705415e-16,10.209139 0,8 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 L8,0 Z M8,1 L4,1 C2.34314575,1 1,2.34314575 1,4 L1,4 L1,8 C1,9.65685425 2.34314575,11 4,11 L4,11 L8,11 C9.65685425,11 11,9.65685425 11,8 L11,8 L11,4 C11,2.34314575 9.65685425,1 8,1 L8,1 Z"></path>';
+        ui += '<rect x="3" y="5" width="6" height="2" rx="1"></rect>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|展开长内容
+        ui += '<symbol id="icoExtend">';
+        ui += '<path d="M13,1.65685425 C13.5522847,1.65685425 14,2.1045695 14,2.65685425 C14,3.209139 13.5522847,3.65685425 13,3.65685425 L8,3.65685425 L8,8.65685425 C8,9.209139 7.55228475,9.65685425 7,9.65685425 C6.44771525,9.65685425 6,9.209139 6,8.65685425 L6,2.65685425 C6,2.1045695 6.44771525,1.65685425 7,1.65685425 L13,1.65685425 Z" transform="translate(10.000000, 5.656854) rotate(-135.000000) translate(-10.000000, -5.656854) "></path>';
+        ui += '<path d="M13,7.65685425 C13.5522847,7.65685425 14,8.1045695 14,8.65685425 C14,9.209139 13.5522847,9.65685425 13,9.65685425 L8,9.65685425 L8,14.6568542 C8,15.209139 7.55228475,15.6568542 7,15.6568542 C6.44771525,15.6568542 6,15.209139 6,14.6568542 L6,8.65685425 C6,8.1045695 6.44771525,7.65685425 7,7.65685425 L13,7.65685425 Z" transform="translate(10.000000, 11.656854) rotate(-135.000000) translate(-10.000000, -11.656854) "></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|关闭
+        ui += '<symbol id="icoClose">';
+        ui += '<path d="M7,7 L7,-1 C7,-1.55228475 7.44771525,-2 8,-2 C8.55228475,-2 9,-1.55228475 9,-1 L9,7 L17,7 C17.5522847,7 18,7.44771525 18,8 C18,8.55228475 17.5522847,9 17,9 L9,9 L9,17 C9,17.5522847 8.55228475,18 8,18 C7.44771525,18 7,17.5522847 7,17 L7,9 L-1,9 C-1.55228475,9 -2,8.55228475 -2,8 C-2,7.44771525 -1.55228475,7 -1,7 L7,7 Z" transform="translate(8.000000, 8.000000) rotate(45.000000) translate(-8.000000, -8.000000) "></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|插图导航
+        ui += '<symbol id="icoFigure">';
+        ui += '<path d="M2,0 L15,0 C16.1045695,-2.02906125e-16 17,0.8954305 17,2 L17,12 C17,13.1045695 16.1045695,14 15,14 L2,14 C0.8954305,14 -1.13551567e-13,13.1045695 -1.13686838e-13,12 L-1.13686838e-13,2 C-1.13822108e-13,0.8954305 0.8954305,2.02906125e-16 2,0 Z M11,6 C12.1045695,6 13,5.1045695 13,4 C13,2.8954305 12.1045695,2 11,2 C9.8954305,2 9,2.8954305 9,4 C9,5.1045695 9.8954305,6 11,6 Z M2.03225639,10.5528128 C1.96084272,10.6932426 1.92361915,10.8485585 1.92361915,11.0061035 C1.92361915,11.5583883 2.3713344,12.0061035 2.92361915,12.0061035 L14.2120421,12.0061035 C14.4392714,12.0061035 14.6597254,11.9287155 14.8370963,11.7866848 C15.2681995,11.4414769 15.3378313,10.8121525 14.9926234,10.3810493 L12.9645536,7.84835144 C12.6449335,7.44920285 12.075683,7.35548344 11.6449719,7.63110012 L9.29545309,9.13458249 C9.28589453,9.14069912 9.27623255,9.14665259 9.26647134,9.15244033 C8.79141623,9.43411583 8.17796486,9.27735069 7.89628936,8.80229559 L6.14615975,5.85064382 C6.04943866,5.68752049 5.90832711,5.55526275 5.73928706,5.46929968 C5.247001,5.21895416 4.64497916,5.41508571 4.39463363,5.90737177 L2.03225639,10.5528128 Z M18,12.5 L18,2 C19.1045695,2 20,2.8954305 20,4 L20,15 C20,16.1045695 19.1045695,17 18,17 L4,17 C2.8954305,17 2,16.1045695 2,15 L15.5,15 C16.8807119,15 18,13.8807119 18,12.5 Z"></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|图片墙
+        ui += '<symbol id="icoFigureGrid">';
+        ui += '<rect height="6" id="Rectangle-5" rx="1" width="6" x="0" y="0"></rect>';
+        ui += '<rect height="6" id="Rectangle-5-Copy" rx="1" width="6" x="8" y="0"></rect>';
+        ui += '<rect height="6" id="Rectangle-5-Copy-2" rx="1" width="6" x="16" y="0"></rect>';
+        ui += '<rect height="6" id="Rectangle-5-Copy-5" rx="1" width="6" x="0" y="8"></rect>';
+        ui += '<rect height="6" id="Rectangle-5-Copy-4" rx="1" width="6" x="8" y="8"></rect>';
+        ui += '<rect height="6" id="Rectangle-5-Copy-3" rx="1" width="6" x="16" y="8"></rect>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|亮色模式
+        ui += '<symbol id="icoLightMode">';
+        ui += '<path d="M10.8333333,0.83333334 L10.8333333,2.5 C10.8333333,2.9602373 10.4602373,3.33333334 10,3.33333334 C9.5397627,3.33333334 9.16666666,2.9602373 9.16666666,2.5 L9.16666666,0.83333334 C9.16666666,0.373096045 9.5397627,8.45442195e-17 10,0 C10.4602373,-8.45442195e-17 10.8333333,0.373096045 10.8333333,0.83333334 Z M10,16.6666667 C9.5397627,16.6666667 9.16666666,17.0397627 9.16666666,17.5 L9.16666666,19.1666667 C9.16666666,19.626904 9.5397627,20 10,20 C10.4602373,20 10.8333333,19.626904 10.8333333,19.1666667 L10.8333333,17.5 C10.8333333,17.0397627 10.4602373,16.6666667 10,16.6666667 Z M2.92895834,2.92895834 C2.77266874,3.08523989 2.68486548,3.29720799 2.68486548,3.51822917 C2.68486548,3.73925035 2.77266874,3.95121845 2.92895834,4.1075 L4.1075,5.28604166 C4.43294529,5.61148694 4.96059636,5.61148694 5.28604165,5.28604165 C5.61148694,4.96059636 5.61148694,4.43294529 5.28604166,4.1075 L4.1075,2.92895834 C3.95121845,2.77266874 3.73925035,2.68486548 3.51822917,2.68486548 C3.29720799,2.68486548 3.08523989,2.77266874 2.92895834,2.92895834 Z M14.7139583,14.7139583 C14.3886401,15.0393749 14.3886401,15.5668751 14.7139583,15.8922917 L14.7139583,15.8925 L15.8925,17.0710417 C16.1030262,17.2815679 16.4098748,17.3637877 16.6974589,17.2867298 C16.985043,17.2096718 17.2096718,16.985043 17.2867298,16.6974589 C17.3637877,16.4098748 17.2815679,16.1030262 17.0710417,15.8925 L15.8925,14.7139583 C15.7362456,14.5576177 15.5242673,14.4697791 15.3032292,14.4697791 C15.082191,14.4697791 14.8702128,14.5576177 14.7139583,14.7139583 Z M0,10 C5.6362813e-17,10.4602373 0.373096045,10.8333333 0.83333334,10.8333333 L2.5,10.8333333 C2.9602373,10.8333333 3.33333334,10.4602373 3.33333334,10 C3.33333334,9.5397627 2.9602373,9.16666666 2.5,9.16666666 L0.83333334,9.16666666 C0.373096045,9.16666666 5.6362813e-17,9.5397627 0,10 Z M16.6666667,10 C16.6666667,10.4602373 17.0397627,10.8333333 17.5,10.8333333 L19.1666667,10.8333333 C19.626904,10.8333333 20,10.4602373 20,10 C20,9.5397627 19.626904,9.16666666 19.1666667,9.16666666 L17.5,9.16666666 C17.0397627,9.16666666 16.6666667,9.5397627 16.6666667,10 Z M2.92895834,17.0710417 C3.08523989,17.2273313 3.29720799,17.3151345 3.51822917,17.3151345 C3.73925035,17.3151345 3.95121845,17.2273313 4.1075,17.0710417 L5.28583334,15.8925 C5.60509309,15.5660706 5.60221508,15.0435127 5.27937916,14.7206197 C4.95654324,14.3977267 4.43398579,14.3947563 4.1075,14.7139583 L2.92895834,15.8925 C2.77266874,16.0487816 2.68486548,16.2607497 2.68486548,16.4817708 C2.68486548,16.702792 2.77266874,16.9147601 2.92895834,17.0710417 Z M14.7139583,5.28604166 C15.0393749,5.61135993 15.5668751,5.61135993 15.8922917,5.28604166 L15.8925,5.28604166 L17.0710417,4.1075 C17.396487,3.78205471 17.396487,3.25440363 17.0710417,2.92895834 C16.7455964,2.60351305 16.2179453,2.60351305 15.8925,2.92895834 L14.7139583,4.1075 C14.5576177,4.26375444 14.4697791,4.4757327 14.4697791,4.69677083 C14.4697791,4.91780896 14.5576177,5.12978722 14.7139583,5.28604166 Z M15,10 C15,12.7614583 12.7614583,15 10,15 C7.23854166,15 5,12.7614583 5,10 C5,7.23854166 7.23854166,5 10,5 C12.7614583,5 15,7.23854166 15,10 Z"></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|深色模式
+        ui += '<symbol id="icoDarkMode">';
+        ui += '<path d="M4.1439375,12.4783274 C8.7496875,12.4783274 12.4801875,8.74489828 12.4801875,4.14181693 C12.4801875,2.62583206 12.045375,1.22347573 11.33775,0 C15.17625,1.10703459 18,4.60533142 18,8.800025 C18,13.8801213 13.8825,18 8.802,18 C4.6074375,18 1.107,15.1744742 0,11.3375418 C1.22625,12.0429388 2.628,12.4783274 4.1439375,12.4783274 Z M4.44974747,8.44974747 L3.74264069,10.2426407 L3.03553391,8.44974747 L1.24264069,7.74264069 L3.03553391,7.03553391 L3.74264069,5.24264069 L4.44974747,7.03553391 L6.24264069,7.74264069 L4.44974747,8.44974747 Z M8.39411255,4.39411255 L7.82842712,5.82842712 L7.2627417,4.39411255 L5.82842712,3.82842712 L7.2627417,3.2627417 L7.82842712,1.82842712 L8.39411255,3.2627417 L9.82842712,3.82842712 L8.39411255,4.39411255 Z M3.75269119,2.75269119 L3.32842712,3.82842712 L2.90416306,2.75269119 L1.82842712,2.32842712 L2.90416306,1.90416306 L3.32842712,0.828427125 L3.75269119,1.90416306 L4.82842712,2.32842712 L3.75269119,2.75269119 Z"></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|聚光灯
+        ui += '<symbol id="icoSpotlight">';
+        ui += '<path d="M11.1949511,14.3025696 L9.89553711,18.0009016 C9.79558219,18.5006762 9.19585266,19.0004508 8.3962133,19.4002705 C7.49661902,19.8000902 6.29715998,20 4.99774602,20 C3.69833205,20 2.49887301,19.8000902 1.59927873,19.4002705 C0.599729531,18.9004959 0,18.2008114 0,17.501127 C0,17.1013073 0.199909844,16.7014876 0.399819687,16.4016229 L8.59612314,7.40568004 L10.8950863,4.90680703 L15.093193,0.208925781 C15.2931028,0.0090159375 15.5929676,0.00901595703 15.7928774,0.108970859 C15.9927872,0.208925762 16.0927422,0.508790527 15.9927872,0.708700371 L13.4939142,7.90545465 L11.1949511,14.3025696 Z M11.7640774,15.7965261 L14.2708176,8.82245531 L19.5911644,15.1022089 C19.8910291,15.4020737 19.9909841,15.8018933 19.9909841,16.0018032 C19.9909841,16.4016229 19.7910742,17.0013524 18.6915701,17.501127 C17.8919307,17.8009918 16.9923364,18.0009016 15.9927872,18.0009016 C14.993238,18.0009016 13.9936888,17.8009918 13.2940044,17.6010819 C12.3944101,17.2012622 12.0945454,16.8014426 11.9945904,16.4016229 L11.7640774,15.7965261 Z M8.17832315,6.3290416 L5.99729521,0.708700371 C5.89734029,0.508790547 5.89734029,0.308880703 6.19720506,0.108970859 C6.49706982,-0.0909389844 6.69697967,0.0090159375 6.89688951,0.208925781 L10.218134,4.11138806 L8.17832315,6.3290416 Z M7.99639363,18.5006762 C8.59612314,18.2008114 8.99594283,17.9009467 8.99594283,17.501127 C8.99594283,17.1013073 8.59612316,16.8014426 7.99639363,16.5015778 C7.19675426,16.201713 6.09725016,16.0018032 4.99774602,16.0018032 C3.89824188,16.0018032 2.79873775,16.201713 1.9990984,16.5015778 C1.39936889,16.8014426 0.999549199,17.1013073 0.999549199,17.501127 C0.999549199,17.9009467 1.39936887,18.2008114 1.9990984,18.5006762 C2.79873777,18.800541 3.89824188,19.0004508 4.99774602,19.0004508 C6.09725016,19.0004508 7.19675428,18.800541 7.99639363,18.5006762 Z M12.9941396,16.0018032 C12.9940532,16.3589269 13.5655733,16.6889352 14.4933936,16.8675054 C15.4212139,17.0460756 16.5643606,17.0460756 17.4921809,16.8675054 C18.4200012,16.6889352 18.9915213,16.3589269 18.9914349,16.0018032 C18.9915213,15.6446794 18.4200012,15.3146712 17.4921809,15.136101 C16.5643606,14.9575308 15.4212139,14.9575308 14.4933936,15.136101 C13.5655733,15.3146712 12.9940532,15.6446794 12.9941396,16.0018032 Z"></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|非衬线字（小清新）体风格
+        ui += '<symbol id="icoFont-sans">';
+        ui += '<path d="M18,16 L14.0598232,16 L12.4935418,12.2464833 L5.32290959,12.2464833 L3.84228416,16 L0,16 L6.98708362,0 L10.8171312,0 L18,16 Z M11.3310673,9.55987559 L8.8592794,3.62602064 L6.4364378,9.55987559 L11.3310673,9.55987559 Z"></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|衬线（文艺范）字体风格
+        ui += '<symbol id="icoFont-serif">';
+        ui += '<path d="M10.45,11.2169143 L4.4625,11.2169143 L3.75,12.8525809 C3.5166655,13.3978058 3.4,13.8480227 3.4,14.203245 C3.4,14.6741211 3.59166475,15.0210772 3.975,15.2441238 C4.20000112,15.3762995 4.75416225,15.4754298 5.6375,15.5415177 L5.6375,16 L0,16 L0,15.5415177 C0.608336375,15.4506469 1.10833138,15.2007559 1.5,14.7918372 C1.89166862,14.3829185 2.37499713,13.5382455 2.95,12.257793 L9.0125,0 L9.25,0 L15.3625,12.6295355 C15.9458363,13.9347709 16.4249981,14.7567265 16.8,15.0954268 C17.0833347,15.3515173 17.4833307,15.5002128 18,15.5415177 L18,16 L9.8,16 L9.8,15.5415177 L10.1375,15.5415177 C10.7958366,15.5415177 11.258332,15.4506482 11.525,15.2689066 C11.7083342,15.1367308 11.8,14.9467311 11.8,14.6989016 C11.8,14.5502038 11.7750002,14.3973779 11.725,14.2404192 C11.7083332,14.1660704 11.5833345,13.8562881 11.35,13.3110632 L10.45,11.2169143 Z M10.025,10.2619342 L7.5,4.49650206 L4.9,10.2619342 L10.025,10.2619342 Z"></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|打印
+        ui += '<symbol id="icoPrint">';
+        ui += '<path d="M15,7.38964445e-12 C16.1045695,7.38944155e-12 17,0.8954305 17,2 L17,6 L18,6 C19.1045695,6 20,6.8954305 20,8 L20,14 C20,15.1045695 19.1045695,16 18,16 L17,16 L17,17 C17,18.1045695 16.1045695,19 15,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,16 L2,16 C0.8954305,16 1.3527075e-16,15.1045695 0,14 L0,8 C-1.3527075e-16,6.8954305 0.8954305,6 2,6 L3,6 L3,2 C3,0.8954305 3.8954305,7.38984736e-12 5,7.38964445e-12 L15,7.38964445e-12 Z M16,13 L4,13 L4,17 C4,17.5522847 4.44771525,18 5,18 L5,18 L15,18 C15.5522847,18 16,17.5522847 16,17 L16,17 L16,13 Z M14,15 L14,16 L6,16 L6,15 L14,15 Z M17.5,8 L16.5,8 C16.2238576,8 16,8.22385763 16,8.5 C16,8.77614237 16.2238576,9 16.5,9 L16.5,9 L17.5,9 C17.7761424,9 18,8.77614237 18,8.5 C18,8.22385763 17.7761424,8 17.5,8 L17.5,8 Z M14.1275656,8 C13.8514233,8 13.6275656,8.22385763 13.6275656,8.5 C13.6275656,8.77614237 13.8514233,9 14.1275656,9 C14.403708,9 14.6275656,8.77614237 14.6275656,8.5 C14.6275656,8.22385763 14.403708,8 14.1275656,8 Z M15,1 L5,1 C4.44771525,1 4,1.44771525 4,2 L4,2 L4,6 L16,6 L16,2 C16,1.48716416 15.6139598,1.06449284 15.1166211,1.00672773 L15,1 Z"></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|新标签打开
+        ui += '<symbol id="icoNewTab">';
+        ui += '<path d="M17.9987947,9 C18.5510794,9 18.9987924,9.44771525 18.9987924,10 L18.9987924,16 C18.9987924,16.5522847 18.5510794,17 17.9987947,17 C17.4465099,17 16.9987947,16.5522847 16.9987947,16 L16.9982218,12.47 L11.7071091,17.7054567 C11.3165848,18.095981 10.6834198,18.095981 10.2928955,17.7054567 C9.90237124,17.3149324 9.90237124,16.6817674 10.2928955,16.2912431 L15.6402218,11 L11.9987947,11 C11.4465099,11 10.9987947,10.5522847 10.9987947,10 C10.9987947,9.44771525 11.4465099,9 11.9987947,9 L17.9987947,9 Z"></path>';
+        ui += '<path d="M1,5 L1,13.499817 C1,14.2795131 1.59488808,14.9202656 2.35553999,14.9929504 L2.5,14.999817 L8.51827299,14.999817 C8.79441537,14.999817 9.01827299,15.2236746 9.01827299,15.499817 C9.01827299,15.7452769 8.84139783,15.9494253 8.60814863,15.9917613 L8.51827299,15.999817 L2.5,15.999817 C1.1745166,15.999817 0.089961328,14.968281 0.00531767968,13.6641926 L0,13.499817 L0,2.5 C0,1.1745166 1.03153594,0.089961328 2.33562431,0.00531767968 L2.5,-1.95399252e-14 L16.5,-1.95399252e-14 C17.8254834,-1.95399252e-14 18.9100387,1.03153594 18.9946823,2.33562431 L19,2.5 L19,6.49976186 C19,6.77590424 18.7761424,6.99976186 18.5,6.99976186 C18.2545401,6.99976186 18.0503916,6.8228867 18.0080557,6.58963749 L18,6.49976186 L18,5 L1,5 Z M1,4 L18,4 L18,2.5 C18,1.72030388 17.4051119,1.07955132 16.64446,1.00686658 L16.5,1 L2.5,1 C1.72030388,1 1.07955132,1.59488808 1.00686658,2.35553999 L1,2.5 L1,4 Z"></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|复制代码块
+        ui += '<symbol id="icoCopyCodeBlock">';
+        ui += '<path d="M15.91965,0 C17.0679061,0.0012395937 17.998512,0.931644206 18,2.07989999 L18,13.6701 C17.998512,14.8183558 17.0679061,15.7487604 15.91965,15.75 L13.05,15.75 L13.05,15.9201 C13.0487599,17.068283 12.118283,17.9987599 10.9701,18 L2.07989999,18 C0.931716995,17.9987599 0.00124007732,17.068283 0,15.9201 L0,4.32989999 C0.00124007732,3.18171699 0.931716995,2.25124007 2.07989999,2.25 L4.95,2.25 L4.95,2.07989999 C4.95148801,0.931644206 5.88209392,0.0012395937 7.03035,0 L15.91965,0 Z M2.08035,16.65 L10.96965,16.65 C11.3725278,16.6492579 11.6990096,16.3229773 11.7,15.9201 L11.7,4.32989999 C11.7,3.92759999 11.3724,3.6 10.9701,3.6 L2.08035,3.6 C1.67805,3.6 1.34999999,3.92759999 1.34999999,4.32989999 L1.34999999,15.9201 C1.34999999,16.32285 1.67805,16.65 2.08035,16.65 Z M9.22500001,6.29999999 C9.5977922,6.29999999 9.89999998,6.6022078 9.89999998,6.97499999 C9.89999998,7.34779219 9.5977922,7.65 9.22500001,7.65 L3.82499999,7.65 C3.45220779,7.65 3.15000001,7.34779219 3.15000001,6.97499999 C3.15000001,6.6022078 3.45220779,6.29999999 3.82499999,6.29999999 L9.22500001,6.29999999 L9.22500001,6.29999999 Z M9.22500001,9.45 C9.5977922,9.45 9.89999998,9.7522078 9.89999998,10.125 C9.89999998,10.4977922 9.5977922,10.8 9.22500001,10.8 L3.82499999,10.8 C3.45220779,10.8 3.15000001,10.4977922 3.15000001,10.125 C3.15000001,9.7522078 3.45220779,9.45 3.82499999,9.45 L9.22500001,9.45 L9.22500001,9.45 Z M7.42500001,12.6 C7.79779221,12.6 8.10000001,12.9022078 8.10000001,13.275 C8.10000001,13.6477922 7.79779221,13.95 7.42500001,13.95 L3.82499999,13.95 C3.45220778,13.95 3.14999999,13.6477922 3.14999999,13.275 C3.14999999,12.9022078 3.45220778,12.6 3.82499999,12.6 L7.42500001,12.6 Z" transform="translate(9.000000, 9.000000) scale(-1, 1) translate(-9.000000, -9.000000) "></path>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|加载中
+        ui += '<symbol id="icoLoading">';
+        ui += '<g id="loading">';
+        ui += '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
+        ui += '<path d="M6.72865086,1.26496983 C6.71911605,1.71977213 6.95629588,2.14416725 7.34865392,2.37436546 C7.74101196,2.60456367 8.2271863,2.60456367 8.61954434,2.37436546 C9.01190238,2.14416725 9.24908222,1.71977213 9.23954741,1.26496983 C9.23959745,0.816309443 9.00026873,0.401708736 8.61172578,0.177364095 C8.22318283,-0.0469805467 7.74446372,-0.0469805467 7.35592077,0.177364095 C6.96737782,0.401708736 6.72804909,0.816309443 6.72809913,1.26496983 L6.72865086,1.26496983 L6.72865086,1.26496983 Z M1.85885777,3.33890086 C1.85885777,4.01230737 2.4047616,4.5582112 3.07816811,4.5582112 C3.75157462,4.5582112 4.29747845,4.01230737 4.29747845,3.33890086 C4.29747845,2.66549435 3.75157462,2.11959052 3.07816811,2.11959052 C2.4047616,2.11959052 1.85885777,2.66549435 1.85885777,3.33890086 L1.85885777,3.33890086 Z M0.00285776562,7.92428017 C0.00293049529,8.5373029 0.499903995,9.03421744 1.11292673,9.03421744 C1.72594946,9.03421744 2.22292296,8.5373029 2.22299569,7.92428017 C2.22292296,7.31125744 1.72594946,6.8143429 1.11292673,6.8143429 C0.499903995,6.8143429 0.00293049529,7.31125744 0.00285776562,7.92428017 Z M1.96809914,12.9275905 C1.96816693,13.4601736 2.39992984,13.8918816 2.93251293,13.8918816 C3.46509602,13.8918816 3.89685893,13.4601736 3.89692672,12.9275905 C3.89685893,12.3950074 3.46509602,11.9632995 2.93251293,11.9632995 C2.39992984,11.9632995 1.96816693,12.3950074 1.96809914,12.9275905 L1.96809914,12.9275905 Z M7.18382328,15.0175215 C7.18382328,15.4809837 7.55953357,15.856694 8.0229957,15.856694 C8.48645782,15.856694 8.86216811,15.4809837 8.86216811,15.0175215 C8.86216811,14.5540594 8.48645782,14.1783491 8.0229957,14.1783491 C7.55953357,14.1783491 7.18382328,14.5540594 7.18382328,15.0175215 Z M12.5874095,13.0920043 C12.5874095,13.4241369 12.8566562,13.6933836 13.1887888,13.6933836 C13.5209214,13.6933836 13.7901681,13.4241369 13.7901681,13.0920043 C13.7901681,12.7598717 13.5209214,12.490625 13.1887888,12.490625 C12.8566562,12.490625 12.5874095,12.7598717 12.5874095,13.0920043 Z M15.0892026,7.90138363 C15.0892026,8.13677119 15.2800219,8.32759052 15.5154095,8.32759052 C15.7507971,8.32759052 15.9416164,8.13677119 15.9416164,7.90138363 C15.9416164,7.66599606 15.7507971,7.47517673 15.5154095,7.47517673 C15.2800219,7.47517673 15.0892026,7.66599606 15.0892026,7.90138363 Z M13.8089267,3.4310388 C13.8089267,3.59916189 13.9452174,3.73545259 14.1133405,3.73545259 C14.2814636,3.73545259 14.4177543,3.59916189 14.4177543,3.4310388 C14.4177543,3.2629157 14.2814636,3.126625 14.1133405,3.126625 C13.9452174,3.126625 13.8089267,3.2629157 13.8089267,3.4310388 Z"></path>';
+        ui += '</g>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|播放
+        ui += '<symbol id="icoPlay">';
+        ui += '<g id="play">';
+        ui += '<path d="M14.1329221,9.60458431 L6.2734657,15.6325342 C5.34309563,16.2655554 4.05015741,16.0602894 3.38560736,15.1740596 C3.13481735,14.8396114 3,14.4388779 3,14.0278733 L3,1.97197357 C3,0.882882638 3.92685626,-1.95399252e-14 5.07019139,-1.95399252e-14 C5.50166685,-1.95399252e-14 5.92235968,0.128421099 6.2734657,0.367312671 L14.1329221,6.39526252 C15.0632922,7.02828376 15.2787819,8.25988003 14.6142318,9.14610977 C14.4814505,9.32318416 14.318816,9.4781026 14.1329221,9.60458431 Z"></path>';
+        ui += '<rect id="Rectangle" fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
+        ui += '</g>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|暂停
+        ui += '<symbol id="icoPause">';
+        ui += '<g id="pause">';
+        ui += '<path d="M4,2 C5.1045695,2 6,2.8954305 6,4 L6,12 C6,13.1045695 5.1045695,14 4,14 L3,14 C1.8954305,14 1,13.1045695 1,12 L1,4 C1,2.8954305 1.8954305,2 3,2 L4,2 Z M13,2 C14.1045695,2 15,2.8954305 15,4 L15,12 C15,13.1045695 14.1045695,14 13,14 L12,14 C10.8954305,14 10,13.1045695 10,12 L10,4 C10,2.8954305 10.8954305,2 12,2 L13,2 Z"></path>';
+        ui += '<rect  fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
+        ui += '</g>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|停止
+        ui += '<symbol id="icoStop">';
+        ui += '<g id="stop">';
+        ui += '<rect x="2" y="2" width="12" height="12" rx="2"></rect>';
+        ui += '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
+        ui += '</g>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|无法播放
+        ui += '<symbol id="icoForbidden">';
+        ui += '<g id="forbidden">';
+        ui += '<path d="M3.11014702,4.52295457 C1.18968426,7.22400289 1.82212581,10.9699964 4.52157146,12.8902277 C6.60400096,14.3708881 9.39599904,14.3708881 11.4784285,12.8902277 L3.11014702,4.52295457 Z M4.52157146,3.10977226 L12.889853,11.4770454 C14.8103157,8.77599711 14.1798024,5.03000361 11.4784285,3.10977226 C9.39599904,1.62911194 6.60400096,1.62911194 4.52157146,3.10977226 L4.52157146,3.10977226 Z M8,16 C3.58062184,16 0,12.4178817 0,8.00096397 C0,3.58404627 3.58062184,0 8,0 C12.4193782,0 16,3.58211833 16,8.00096397 C16,12.4198096 12.4193782,16 8,16 Z"></path>';
+        ui += '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
+        ui += '</g>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|复选框（未选择）
+        ui += '<symbol id="icoCheckbox_uncheck">';
+        ui += '<g id="uncheck">';
+        ui += '<path d="M10,0 C12.209139,-8.49901461e-16 14,1.790861 14,4 L14,10 C14,12.209139 12.209139,14 10,14 L4,14 C1.790861,14 -1.73547709e-16,12.209139 0,10 L0,4 C-7.1463071e-16,1.790861 1.790861,-3.82769592e-17 4,0 L10,0 Z M10,1 L4,1 L3.79460158,1.00692108 C3.04801112,1.05740265 2.37633177,1.38102754 1.87867966,1.87867966 C1.33578644,2.42157288 1,3.17157288 1,4 L1,4 L1,10 L1.00692108,10.2053984 C1.05740265,10.9519889 1.38102754,11.6236682 1.87867966,12.1213203 C2.42157288,12.6642136 3.17157288,13 4,13 L4,13 L10,13 L10.2053984,12.9930789 C10.9519889,12.9425974 11.6236682,12.6189725 12.1213203,12.1213203 C12.6642136,11.5784271 13,10.8284271 13,10 L13,10 L13,4 L12.9930789,3.79460158 C12.9425974,3.04801112 12.6189725,2.37633177 12.1213203,1.87867966 C11.5784271,1.33578644 10.8284271,1 10,1 L10,1 Z" opacity="0.5"></path>';
+        ui += '</g>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|复选框（已选择）
+        ui += '<symbol id="icoCheckbox_checked">';
+        ui += '<g id="checked">';
+        ui += '<path d="M10,0 C12.209139,-8.49901461e-16 14,1.790861 14,4 L14,10 C14,12.209139 12.209139,14 10,14 L4,14 C1.790861,14 -1.13860385e-13,12.209139 -1.13686838e-13,10 L-1.13686838e-13,4 C-1.14401468e-13,1.790861 1.790861,-3.82769592e-17 4,0 L10,0 Z M10.4345054,3.35937475 C9.98210026,3.04259723 9.35855448,3.15254517 9.04177696,3.60495035 L9.04177696,3.60495035 L5.70337129,8.3716637 L4.42132034,7.08974545 C4.03079605,6.69922116 3.39763107,6.69922116 3.00710678,7.08974545 C2.61658249,7.48026975 2.61658249,8.11343472 3.00710678,8.50395902 L3.00710678,8.50395902 L5.12842712,10.6252794 C5.44611554,10.9429678 5.92437612,11.0022192 6.30159501,10.8029483 C6.31888566,10.7941174 6.33594939,10.7847657 6.35288228,10.7742207 L6.36250295,10.7684416 L6.36250295,10.7684416 L6.37216074,10.7632115 C6.48435662,10.6938722 6.58459456,10.6010641 6.665046,10.4861675 L6.665046,10.4861675 L10.6800811,4.75210323 C10.9968586,4.29969805 10.8869106,3.67615226 10.4345054,3.35937475 Z"></path>';
+        ui += '</g>';
+        ui += '</symbol>';
+        // SVG 图标集：图标|复选框（不确定选择）
+        ui += '<symbol id="icoCheckbox_indeterminate">';
+        ui += '<g id="indeterminate">';
+        ui += '<path d="M10,0 C12.209139,-8.49901461e-16 14,1.790861 14,4 L14,10 C14,12.209139 12.209139,14 10,14 L4,14 C1.790861,14 2.27200128e-13,12.209139 2.27373675e-13,10 L2.27373675e-13,4 C2.26659045e-13,1.790861 1.790861,-3.82769592e-17 4,0 L10,0 Z M10,6 L4,6 C3.44771525,6 3,6.44771525 3,7 C3,7.55228475 3.44771525,8 4,8 L4,8 L10,8 C10.5522847,8 11,7.55228475 11,7 C11,6.44771525 10.5522847,6 10,6 L10,6 Z" opacity="0.5"></path>';
+        ui += '<path d="M10,0 C12.209139,-8.49901461e-16 14,1.790861 14,4 L14,10 C14,12.209139 12.209139,14 10,14 L4,14 C1.790861,14 1.1351329e-13,12.209139 1.13686838e-13,10 L1.13686838e-13,4 C1.12972207e-13,1.790861 1.790861,-3.82769592e-17 4,0 L10,0 Z M10,1 L4,1 L3.79460158,1.00692108 C3.04801112,1.05740265 2.37633177,1.38102754 1.87867966,1.87867966 C1.33578644,2.42157288 1,3.17157288 1,4 L1,4 L1,10 L1.00692108,10.2053984 C1.05740265,10.9519889 1.38102754,11.6236682 1.87867966,12.1213203 C2.42157288,12.6642136 3.17157288,13 4,13 L4,13 L10,13 L10.2053984,12.9930789 C10.9519889,12.9425974 11.6236682,12.6189725 12.1213203,12.1213203 C12.6642136,11.5784271 13,10.8284271 13,10 L13,10 L13,4 L12.9930789,3.79460158 C12.9425974,3.04801112 12.6189725,2.37633177 12.1213203,1.87867966 C11.5784271,1.33578644 10.8284271,1 10,1 L10,1 Z"></path>';
+        ui += '</g>';
+        ui += '</symbol>';
+        ui += '</svg>';
+
+        // --------------------------------------------------
+        // 遮罩
+        ui += '<div class="mdx-mask mdx-backdrop-blurs">';
+        ui += '<div class="mdx-copyright">';
+        ui += '<svg height="24px" width="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()">';
+        ui += '<use xlink:href="#icoVLOOK-dark"></use>';
+        ui += '</svg>&nbsp;&nbsp;';
+        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev2) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
+        ui += '</div>';
+        ui += '</div>';
+
+        // --------------------------------------------------
+        // 大纲面板
+        ui += '<div class="mdx-toc-panel mdx-float-card">';
+        ui += '<div class="mdx-toc-panel-header"><div class="mdx-toc-panel-title">大纲</div></div>';
+        ui += '<div class="mdx-toc-panel-body-scroll"><div class="mdx-toc-panel-body"></div></div>';
+        ui += '<div class="mdx-toc-panel-footer"></div>';
+        ui += '</div>';
+
+        // --------------------------------------------------
+        // 逐章导航栏
+        ui += '<div class="mdx-chapter-nav mdx-backdrop-blurs">';
+        // 上一章
+        ui += '<div class="mdx-chapter-nav-prev">';
+        ui += '<svg height="15px" style="position: absolute; top: 18px; left: 10px; cursor: pointer;" width="10px">';
+        ui += '<use class="mdx-svg-ico-light" xlink:href="#icoPrevChapter"></use>prev';
+        ui += '</svg>';
+        ui += '<div class="mdx-chapter-nav-prev-text"></div>';
+        ui += '</div>';
+        // 当前章节
+        ui += '<div class="mdx-chapter-nav-current"></div>';
+        // 下一章
+        ui += '<div class="mdx-chapter-nav-next">';
+        ui += '<div class="mdx-chapter-nav-next-text">next</div>';
+        ui += '<svg height="15px" style="position: absolute; top: 18px; right: 10px; cursor: pointer;" width="10px">';
+        ui += '<use class="mdx-svg-ico-light" xlink:href="#icoNextChapter"></use>next';
+        ui += '</svg>';
+        ui += '</div>';
+        ui += '</div>';
+
+        // --------------------------------------------------
+        // 插图导航面板
+        ui += '<div class="mdx-figure-nav mdx-backdrop-blurs">';
+        ui += '<div class="mdx-figure-content"></div>';
+        ui += '<div class="mdx-figure-page-num"></div>';
+        ui += '<div class="mdx-btn-figure-nav mdx-btn-figure-prev">';
+        ui += '<svg width="12px" height="54px"><use class="mdx-svg-ico-light" xlink:href="#icoPrevFig"></use></svg>';
+        ui += '</div>';
+        ui += '<div class="mdx-btn-figure-nav mdx-btn-figure-next">';
+        ui += '<svg width="12px" height="54px"><use class="mdx-svg-ico-light" xlink:href="#icoNextFig"></use></svg>';
+        ui += '</div>';
+        ui += '<div class="mdx-btn-close-figure-viewer">';
+        ui += '<svg width="16px" height="16px"><use class="mdx-svg-ico-light" xlink:href="#icoClose"></use></svg>';
+        ui += '</div>';
+        ui += '<div class="mdx-copyright">';
+        ui += '<svg width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()"><use xlink:href="#icoVLOOK-dark"></use></svg>&nbsp;&nbsp;';
+        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev2) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
+        ui += '</div>';
+        ui += '</div>';
+
+        // --------------------------------------------------
+        // 页面工具栏
+        ui += '<div class="mdx-toolbar mdx-backdrop-blurs">';
+        // 页面工具栏按钮：大纲
+        ui += '<div class="mdx-btn mdx-btn-outline">';
+        ui += '<svg width="20px" height="14px">';
+        ui += '<use class="mdx-svg-ico-light" xlink:href="#icoOutline"></use>';
+        ui += '</svg>';
+        ui += '</div>';
+        // 页面工具栏按钮：插图
+        ui += '<div class="mdx-btn mdx-btn-figure-viewer">';
+        ui += '<svg width="20px" height="18px">';
+        ui += '<use class="mdx-svg-ico-light" xlink:href="#icoFigure"></use>';
+        ui += '</svg>';
+        ui += '</div>';
+        // 页面工具栏按钮：打印
+        ui += '<div class="mdx-btn mdx-btn-print">';
+        ui += '<svg width="20px" height="19px">';
+        ui += '<use class="mdx-svg-ico-light" xlink:href="#icoPrint"></use>';
+        ui += '</svg>';
+        ui += '</div>';
+        // 页面工具栏按钮：聚光灯
+        ui += '<div class="mdx-btn mdx-btn-spotlight">';
+        ui += '<svg width="20px" height="20px">';
+        ui += '<use class="mdx-svg-ico-light" xlink:href="#icoSpotlight"></use>';
+        ui += '</svg>';
+        ui += '</div>';
+        // 页面工具栏按钮：字体风格
+        ui += '<div class="mdx-btn mdx-btn-font-style">';
+        ui += '<svg width="16px" height="18px">';
+        ui += '<use class="mdx-svg-ico-light" xlink:href="#icoSerifFont"></use>';
+        ui += '</svg>';
+        ui += '</div>';
+        // 页面工具栏按钮：Light/Dark模式
+        ui += '<div class="mdx-btn mdx-btn-color-scheme">';
+        ui += '<svg width="20px" height="20px">';
+        ui += '<use class="mdx-svg-ico-light" xlink:href="#icoLightMode"></use>';
+        ui += '</svg>';
+        ui += '</div>';
+        ui += '</div>';
+
+        // --------------------------------------------------
+        // 脚注弹层
+        ui += '<div class="mdx-footer-note-panel">';
+        ui += '<div class="mdx-footer-note-panel-content"></div>';
+        ui += '<div class="mdx-footer-note-panel-header"></div>';
+        ui += '<div class="mdx-footer-note-panel-all"><a>查看所有脚注 ▶</a></div>';
+        ui += '<a name="xFooterArea"></a>';
+        ui += '</div>';
+
+        // --------------------------------------------------
+        // 在新标签打开的按钮
+        ui += '<div class="mdx-btn mdx-btn-open-in-new-tab">';
+        ui += '<svg width="20px" height="18px">';
+        ui += '<use class="mdx-svg-ico-light" xlink:href="#icoNewTab"></use>';
+        ui += '</svg>';
+        ui += '</div>';
+
+        // --------------------------------------------------
+        // 复制代码块内容的按钮
+        ui += '<div class="mdx-btn mdx-btn-copy-code-block">';
+        ui += '<svg width="18px" height="18px">';
+        ui += '<use class="mdx-svg-ico-light" xlink:href="#icoCopyCodeBlock"></use>';
+        ui += '</svg>';
+        ui += '</div>';
+
+        // --------------------------------------------------
+        // 聚光灯
+        ui += '<div class="mdx-spotlight"><div></div></div>';
+
+        // --------------------------------------------------
+        // 提示信息
+        ui += '<div class="mdx-tool-tips mdx-backdrop-blurs"></div>';
+        ui += '<div class="mdx-info-tips mdx-float-card mdx-backdrop-blurs"></div>';
+        ui += '<div class="mdx-bottom-tips"><div></div></div>';
+
+        // --------------------------------------------------
+        // 文档更多内容遮罩栏
+        ui += '<div class="mdx-more-doc-content"></div>';
+
+        // --------------------------------------------------
+        // 表格十字光标
+        ui += '<div data-vk-direction="left" class="mdx-table-cross mdx-table-cross-left">&nbsp;</div>';
+        ui += '<div data-vk-direction="right" class="mdx-table-cross mdx-table-cross-right">&nbsp;</div>';
+        ui += '<div data-vk-direction="up" class="mdx-table-cross mdx-table-cross-up">&nbsp;</div>';
+        ui += '<div data-vk-direction="down" class="mdx-table-cross mdx-table-cross-down">&nbsp;</div>';
+
+        // --------------------------------------------------
+        // 内容展开操作区
+        ui += '<div class="mdx-content-expander">';
+        ui += '<div class="mdx-btn">';
+        ui += '<span></span>';
+        ui += '<svg width="20px" height="20px">';
+        ui += '<use class="mdx-svg-ico-light" xlink:href="#icoExtend"></use>';
+        ui += '</svg>';
+        ui += '</div>';
+        ui += '</div>';
+
+        // --------------------------------------------------
+        //统计数据上报中转页面
+        ui += '<iframe name="vlook-stat-gitee" style="display: block;" marginwidth="0" marginheight="0" frameBorder="0" scrolling="no" width="100%" height="0"></iframe>';
+
+        $(".mdx-before-write").after(ui);
+    }
 
     /**
      * 加载 VLOOK 插件

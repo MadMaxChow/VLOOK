@@ -1,6 +1,6 @@
     /****************************************
     starter of VLOOK.js - Typora Plugin
-    V9.31-dev2
+    V9.31-dev20201128
     2020-11-24
     powered by MAX°孟兆
 
@@ -9,6 +9,8 @@
 
     https://github.com/MadMaxChow/VLOOK
     ***************************************/
+
+   let vlookVersion = "9.31-dev20201128";
 
     /**
      * 获取 URL 中的参数数组
@@ -36,27 +38,41 @@
         return args;
     }
 
-    // 动态加载指定的 vlook 主题
+    // 资源域名配置
+    let cssHost = "https://madmaxchow.gitee.io/vlook/",
+        fontHost = "https://cdn.jsdelivr.net/gh/madmaxchow/openfonts@master/";
+    jsHost = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/";
+    // Debug 模式
+    if (vlookDevMode === true) {
+        jsHost = "http://localhost/";
+        // fontHost = "http://localhost:8080/font/";
+        cssHost = jsHost;
+    }
+
+    // 动态加载指定的 VLOOK 主题
     let theme = parseQueryString(window.location.href)["theme"];
     if (theme !== undefined) {
         console.log("Theme :: " + theme);
         let style = document.createElement("link");
-        style.href = "https://madmaxchow.gitee.io/vlook/css/vlook-" + theme + "-solid.css?v=" + vlookVersion;
+        style.href = cssHost + "css/vlook-" + theme + "-solid.css?v=" + vlookVersion + (vlookDevMode === true ? new Date().getTime() : "");
         style.rel = "stylesheet";
         style.type = "text/css";
         document.getElementsByTagName("HEAD").item(0).appendChild(style);
     }
+    else {
+        console.log(getComputedStyle(document.documentElement).getPropertyValue("--vlook-theme-version"));
+    }
 
     // 动态加载 VLOOK 所须的 js 资源
     let jsSrc = [];
-    jsSrc[0] = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/js/jquery.js";
-    jsSrc[1] = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/js/velocity.js";
-    jsSrc[2] = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/js/clipboard.js";
-    jsSrc[3] = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/js/vlook.js";
+    jsSrc[0] = jsHost + "js/jquery.js";
+    jsSrc[1] = jsHost + "js/velocity.js";
+    jsSrc[2] = jsHost + "js/clipboard.js";
+    jsSrc[3] = jsHost + "js/vlook.js";
     for (let i = 0; i < jsSrc.length; i++) {
         let js = document.createElement("script");
         js.setAttribute("type", "text/javascript");
-        js.setAttribute("type", "text/javascript");
-        js.setAttribute("src", jsSrc[i] + "?v=" + vlookVersion);
+        js.setAttribute("async", "async"); // 异步
+        js.setAttribute("src", jsSrc[i] + "?v=" + vlookVersion + (vlookDevMode === true ? new Date().getTime() : ""));
         document.getElementsByTagName("HEAD")[0].appendChild(js);
     }

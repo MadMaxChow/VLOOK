@@ -1,64 +1,6 @@
 /**************************************
 * VLOOK CSS 字体主题
 ***************************************/
-@font-face {
-  font-family: "VLOOK Serif Mono";
-  src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/LuxiMono-woff2/luximr.woff2") format('woff2'), url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/LuxiMono/luximr.ttf") format('truetype');
-  font-weight: normal;
-}
-@font-face {
-  font-family: "VLOOK Serif Mono";
-  src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/LuxiMono-woff2/luximb.woff2") format('woff2'), url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/LuxiMono/luximb.ttf") format('truetype');
-  font-weight: bold;
-}
-@font-face {
-  font-family: "VLOOK Serif Mono";
-  src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/LuxiMono-woff2/luximri.woff2") format('woff2'), url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/LuxiMono/luximri.ttf") format('truetype');
-  font-weight: normal;
-  font-style: italic;
-}
-@font-face {
-  font-family: "VLOOK Serif Mono";
-  src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/LuxiMono-woff2/luximbi.woff2") format('woff2'), url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/LuxiMono/luximbi.ttf") format('truetype');
-  font-weight: bold;
-  font-style: italic;
-}
-@font-face {
-  font-family: "VLOOK Sans Mono";
-  src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/NotoSansMono-woff2/NotoSansMono-Regular.woff2") format('woff2'), url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/NotoSansMono/NotoSansMono-Regular.ttf") format('truetype');
-  font-weight: normal;
-}
-@font-face {
-  font-family: "VLOOK Sans Mono";
-  src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/NotoSansMono-woff2/NotoSansMono-Medium.woff2") format('woff2'), url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/NotoSansMono/NotoSansMono-Medium.ttf") format('truetype');
-  font-weight: 500;
-}
-@font-face {
-  font-family: "VLOOK Sans Mono";
-  src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/NotoSansMono-woff2/NotoSansMono-Bold.woff2") format('woff2'), url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/NotoSansMono/NotoSansMono-Bold.ttf") format('truetype');
-  font-weight: bold;
-}
-@font-face {
-  font-family: "VLOOK Sans Mono";
-  src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/NotoSansMono-woff2/NotoSansMono-Black.woff2") format('woff2'), url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/NotoSansMono/NotoSansMono-Black.ttf") format('truetype');
-  font-weight: 900;
-}
-@font-face {
-  font-family: "VLOOK Number";
-  src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/Altinn-DIN-woff2/Altinn-DIN.woff2") format('woff2'), url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/Altinn-DIN/Altinn-DIN.otf") format('opentype');
-  font-weight: normal;
-}
-@font-face {
-  font-family: "VLOOK Number";
-  src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/Altinn-DIN-woff2/Altinn-DIN-Bold.woff2") format('woff2'), url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/Altinn-DIN/Altinn-DIN-Bold.otf") format('opentype');
-  font-weight: bold;
-}
-@font-face {
-  font-family: "VLOOK Number";
-  src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/Altinn-DIN-woff2/Altinn-DIN-Italic.woff2") format('woff2'), url("https://cdn.jsdelivr.net/gh/MadMaxChow/uploads@master/font/Altinn-DIN/Altinn-DIN-Italic.otf") format('opentype');
-  font-weight: normal;
-  font-style: italic;
-}
 /**************************************
 * VLOOK CSS 调色板
 ***************************************/
@@ -393,7 +335,7 @@ html,
 body {
   background-color: var(--doc-bg-color);
   color: var(--fore-color);
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   line-height: 2;
   -webkit-tap-highlight-color: transparent;
@@ -457,7 +399,7 @@ audio {
 a {
   color: var(--a-color) !important;
   border-bottom: 1px solid #403EA0;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   text-decoration: none;
   margin-left: 0.1em;
@@ -558,7 +500,7 @@ h6 {
   margin: 1em 0 0.5em 0;
   padding: 10px;
   line-height: 1.5;
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
   border-radius: var(--vlook-base-radius) var(--vlook-base-radius) 0 0;
   background: linear-gradient(0deg, var(--header-bg-start-color), var(--header-bg-end-color));
@@ -625,7 +567,7 @@ h6 {
   margin-bottom: 0;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-size: 1em;
   box-shadow: none;
   background: none;
@@ -649,7 +591,7 @@ li > h6::before {
   color: rgba(0, 218, 216, 0.5);
 }
 strong {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
 }
 strong a {
@@ -708,7 +650,7 @@ figure {
   border-radius: var(--vlook-base-radius);
 }
 ::marker {
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
   color: var(--fore-color-alt);
 }
@@ -781,7 +723,7 @@ thead {
 table > thead > tr > th,
 table > thead > tr > td {
   background-color: var(--table-th-bg-color);
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
   border-right: 1px solid rgba(176, 180, 184, 0.1);
   margin: 0;
@@ -833,7 +775,7 @@ table tr > td:last-child {
   content: "";
 }
 .mdx-table-column-format-bold {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
 }
 .mdx-table-column-format-em {
@@ -844,7 +786,7 @@ table tr > td:last-child {
   color: var(--fore-bg-color) !important;
 }
 .mdx-table-column-format-number {
-  font-family: "VLOOK Number", "Altinn-DIN", "Bebas Neue", "DIN", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-family: "VLOOK Number", "Altinn-DIN", "Bebas Neue", "DIN", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
 }
 .mdx-table-column-format-number-positive {
   color: #D00000;
@@ -857,6 +799,7 @@ table tr > td:last-child {
   font-size: 0.9em;
   padding-right: 10px;
   color: var(--fore-color-alt);
+  font-weight: normal;
 }
 .mdx-table-rowfolding-folder {
   text-align: left !important;
@@ -899,7 +842,7 @@ h6 + figure table tbody tr {
 figure table tr::before {
   content: "";
   color: var(--toc-header-num-color);
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", monospace;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", monospace;
   font-weight: normal !important;
   font-style: normal !important;
   font-size: 0.8em;
@@ -1003,7 +946,7 @@ del code {
   padding-bottom: 50px;
 }
 .md-fn-count {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
 }
 .md-fn-count::before {
@@ -1019,7 +962,7 @@ del code {
   color: #CE2743;
 }
 a[name^="ref-footnote-"] {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   color: #0989EB;
 }
@@ -1038,7 +981,7 @@ a[name^="ref-footnote-"]:hover {
 tt,
 code {
   color: var(--fore-color);
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", monospace;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", monospace;
   font-weight: normal;
   background-color: var(--code-bg-color);
   border-radius: var(--vlook-small-radius);
@@ -1051,7 +994,7 @@ code {
 }
 .md-fences {
   color: var(--fore-color);
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", monospace;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", monospace;
   font-weight: normal;
   border-radius: var(--vlook-base-radius);
   border: 2px solid var(--table-border-color);
@@ -1247,7 +1190,7 @@ h6.md-focus::before {
 **************************************/
 .outline-item {
   line-height: 1;
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
 }
 /**************************************
@@ -1260,17 +1203,17 @@ h6.md-focus::before {
 /* ----- pie diagram 饼图 ----- */
 .pieTitleText {
   fill: var(--fore-color);
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
   font-size: 1.5em;
 }
 .legend text {
   fill: var(--fore-color);
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
 }
 .slice {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
 }
 /* ----- flow diagram 流程图 ----- */
@@ -1283,7 +1226,7 @@ svg[id^="mermaidChart"] {
 }
 .label div {
   color: var(--fore-color);
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
 }
 .node rect[rx="0"][ry="0"] {
@@ -1341,7 +1284,7 @@ svg[id^="mermaidChart"] {
 .cluster text {
   color: var(--fore-color);
   fill: var(--fore-color);
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
 }
 #START rect {
@@ -1384,7 +1327,8 @@ svg[id^="mermaidChart"] {
   stroke-width: 1;
 }
 .mdx-actor-person {
-  fill: var(--doc-bg-color);
+  fill: var(--doc-bg-color-alt);
+  stroke: var(--fore-color-alt) !important;
 }
 .mdx-actor-key-sys {
   stroke-width: 3 !important;
@@ -1398,7 +1342,7 @@ text.actor {
   fill: var(--fore-color);
   stroke: none;
   font-size: 0.85em !important;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
 }
 .actor-line {
@@ -1431,7 +1375,7 @@ text.actor {
   fill: var(--fore-color);
   stroke: none;
   font-size: 0.85em !important;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
   font-weight: normal;
   line-height: 2em;
 }
@@ -1448,13 +1392,13 @@ text.actor {
 .labelText tspan {
   fill: var(--mermaid-accent-color-purple);
   font-size: 0.8em !important;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
 }
 .loopText tspan {
   fill: var(--mermaid-accent-color-purple);
   font-size: 0.85em !important;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
 }
 .loopLine {
@@ -1470,7 +1414,7 @@ text.actor {
   fill: var(--fore-color);
   stroke: none;
   font-size: 0.85em !important;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
 }
 /* ----- state diagram 状态机图 ----- */
@@ -1496,7 +1440,7 @@ g.stateGroup .composit {
 g.stateGroup .state-title,
 g.stateGroup text {
   fill: var(--fore-color) !important;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   font-size: 0.5em !important;
 }
@@ -1511,7 +1455,7 @@ g.state-note {
 g.cardinality text,
 g.classGroup text,
 g.classLabel .label {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", monospace;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", monospace;
   font-weight: normal;
   fill: var(--fore-color);
   stroke: none;
@@ -1604,18 +1548,18 @@ div.mermaidTooltip {
   text-anchor: middle;
   font-size: 0.8em;
   line-height: 2em;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
 }
 .taskTextOutsideRight {
   fill: var(--fore-color);
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   text-anchor: start;
 }
 .taskTextOutsideLeft {
   fill: var(--fore-color);
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   text-anchor: end;
 }
@@ -1725,7 +1669,7 @@ div.mermaidTooltip {
   text-anchor: middle;
   font-size: 1.5em;
   line-height: 2em;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
   fill: var(--fore-color);
 }
@@ -1874,7 +1818,7 @@ div.mermaidTooltip {
 }
 .md-toc-item {
   color: var(--fore-color);
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   font-size: 1em;
   margin-left: 10px;
@@ -1956,7 +1900,7 @@ sup.md-footnote > a:hover {
   color: var(--fore-color);
 }
 kbd {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", monospace;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", monospace;
   font-weight: 900;
   font-size: 0.85em;
   border-radius: var(--vlook-small-radius);
@@ -2014,59 +1958,59 @@ li > p + ul {
 * VLOOK UI 自定义样式
 **************************************/
 .mdx-font-title-sans {
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
 }
 .mdx-font-subtitle-sans {
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
 }
 .mdx-font-header-sans {
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
 }
 .mdx-font-text-sans {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
   font-weight: normal;
 }
 .mdx-font-bold-sans {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
 }
 .mdx-font-number-sans {
-  font-family: "VLOOK Number", "Altinn-DIN", "Bebas Neue", "DIN", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-family: "VLOOK Number", "Altinn-DIN", "Bebas Neue", "DIN", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
 }
 .mdx-font-tag-sans {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
   font-weight: normal;
 }
 .mdx-font-code-sans {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", monospace !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", monospace !important;
 }
 .mdx-font-weight-bold-sans {
   font-weight: 900 !important;
 }
 .mdx-font-title-serif {
-  font-family: "Noto Serif CJK SC", "Times New Roman", Times, "Songti SC", SimSun, "宋体", STZhongsong, "华文中宋", serif !important;
+  font-family: "VLOOK Serif", "Noto Serif CJK SC", "Times New Roman", Times, "Songti SC", SimSun, "宋体", STZhongsong, "华文中宋", serif !important;
 }
 .mdx-font-subtitle-serif {
-  font-family: "Noto Sans CJK SC", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
 }
 .mdx-font-header-serif {
-  font-family: "Noto Sans CJK SC", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
 }
 .mdx-font-text-serif {
-  font-family: "VLOOK Serif Mono", "Luxi Mono", "Iosevka Slab", "PT Mono", Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Serif CJK SC", "Times New Roman", Times, "Songti SC", SimSun, "宋体", STZhongsong, "华文中宋", serif;
+  font-family: "VLOOK Serif Mono", "Luxi Mono", "Iosevka Slab", "PT Mono", Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Serif", "Noto Serif CJK SC", "Times New Roman", Times, "Songti SC", SimSun, "宋体", STZhongsong, "华文中宋", serif;
   font-weight: normal;
 }
 .mdx-font-tag-serif {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
   font-weight: normal;
 }
 .mdx-font-bold-serif {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
 }
 .mdx-font-number-serif {
-  font-family: "VLOOK Number", "Altinn-DIN", "Bebas Neue", "DIN", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-family: "VLOOK Number", "Altinn-DIN", "Bebas Neue", "DIN", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Helvetica Neue", Helvetica, Arial, Tahoma, SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
 }
 .mdx-font-code-serif {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Serif Mono", "Luxi Mono", "Iosevka Slab", "PT Mono", Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", monospace !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Serif Mono", "Luxi Mono", "Iosevka Slab", "PT Mono", Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", monospace !important;
 }
 .mdx-font-weight-bold-serif {
   font-weight: bold !important;
@@ -2092,7 +2036,7 @@ li > p + ul {
   white-space: pre-wrap;
   border-radius: var(--vlook-base-radius);
   border: 1px var(--table-border-color) solid;
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   color: var(--tips-bg-color-inset);
   background-color: var(--tips-bg-color);
@@ -2110,7 +2054,7 @@ li > p + ul {
   font-weight: 900;
 }
 .mdx-bottom-tips {
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   color: #FFFFFF;
   width: 100%;
   height: 60px;
@@ -2133,7 +2077,7 @@ li > p + ul {
   background-color: #ffffff;
 }
 .mdx-content-expander {
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
   height: 100px;
   margin-top: -120px;
@@ -2174,7 +2118,7 @@ li > p + ul {
   width: 100%;
   height: 100%;
   text-align: center;
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-size: 1.3em;
   overflow: auto;
   display: none;
@@ -2217,7 +2161,7 @@ li > p + ul {
   padding-right: 1em;
   color: #00DAD8;
   border: 1px solid rgba(0, 218, 216, 0.5);
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   display: inline-block;
   border-radius: var(--vlook-base-radius);
@@ -2287,7 +2231,7 @@ li > p + ul {
 }
 .mdx-toc-panel-header {
   color: #181A1E;
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   font-size: 1.2em;
   height: 70px;
@@ -2313,7 +2257,7 @@ li > p + ul {
   white-space: nowrap;
   overflow: hidden;
   font-size: 1em;
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
   color: var(--a-color);
   cursor: pointer;
@@ -2367,7 +2311,7 @@ li > p + ul {
   height: 40px;
   padding: 5px 10px;
   font-size: 0.85em;
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   position: absolute;
 }
@@ -2633,7 +2577,7 @@ li > p + ul {
   width: 100%;
   height: 50px;
   line-height: 50px;
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   color: #FFFFFF;
   text-align: left;
@@ -2645,7 +2589,7 @@ li > p + ul {
   display: block;
 }
 .mdx-chapter-nav-current {
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   font-size: 1.4em;
   font-weight: 900;
@@ -2742,7 +2686,7 @@ li > p + ul {
   width: 100%;
   height: 50px;
   line-height: 50px;
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   color: #FFFFFF;
   text-align: right;
@@ -2933,7 +2877,7 @@ li > p + ul {
 .mdx-figure-caption > p {
   color: var(--fore-color);
   font-size: 0.85em;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   margin: 5px 10px 5px 10px;
   width: auto !important;
@@ -2988,7 +2932,7 @@ use.mdx-folder2-ico:active {
 .mdx-tag-magenta,
 .mdx-tag-brown,
 .mdx-tag-gray {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   font-size: 0.9em;
   color: #FFFFFF;
@@ -3047,7 +2991,7 @@ use.mdx-folder2-ico:active {
 .mdx-tag-name-magenta,
 .mdx-tag-name-brown,
 .mdx-tag-name-gray {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   margin-right: 0;
   border-radius: var(--vlook-small-radius);
@@ -3067,7 +3011,7 @@ use.mdx-folder2-ico:active {
 .mdx-tag-value-magenta,
 .mdx-tag-value-brown,
 .mdx-tag-value-gray {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   border-radius: 3px var(--vlook-small-radius) var(--vlook-small-radius) var(--vlook-small-radius);
   padding: 0.1em 0.5em;
@@ -3150,14 +3094,14 @@ use.mdx-folder2-ico:active {
 }
 rp,
 rt {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 .mdx-black-curtain {
   color: var(--doc-bg-color-alt);
   border-radius: 0;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
   font-weight: 900;
   cursor: pointer;
 }
@@ -3173,9 +3117,9 @@ h6 code {
 #write > h6:first-of-type,
 #write > h6:last-of-type {
   display: block;
-  color: #ff0000 !important;
+  color: #c8f9ff !important;
   font-size: 2.5em;
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
   text-align: center;
   filter: var(--vlook-brightness-dark);
@@ -3211,12 +3155,12 @@ h6 code {
 }
 #write > h6:first-of-type sub {
   color: #00DAD8;
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
 }
 #write > h6:first-of-type sup {
   color: #00DAD8;
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
 }
 #write > h6:first-of-type .mdx-tag-c1,
@@ -3243,7 +3187,7 @@ h6 code {
 #write > h6:first-of-type strong::before {
   color: #00DAD8;
   font-size: 0.6em !important;
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal !important;
 }
 #write > h6:first-of-type strong::before {
@@ -3252,7 +3196,7 @@ h6 code {
 #write > h6:first-of-type em {
   color: #00DAD8;
   font-size: 0.4em;
-  font-family: "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
   font-style: normal !important;
 }
@@ -3511,6 +3455,6 @@ h6 code {
     (-webkit-backdrop-filter: blur(15px))) {
 }
 :root {
-  --mermaid-font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
-  --mermaid-alt-font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  --mermaid-font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  --mermaid-alt-font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
 }

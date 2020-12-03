@@ -1091,6 +1091,7 @@ table tr > td:last-child {
     font-size: 0.9em;
     padding-right: 10px;
     color: var(--fore-color-alt);
+    font-weight: normal;
 }
 
 // 带表格带行折叠时，是目录行的样式
@@ -2196,8 +2197,10 @@ svg[id^="mermaidChart"] {
 
 // 人物角色
 .mdx-actor-person {
-    fill: var(--doc-bg-color);
-}
+    fill: var(--doc-bg-color-alt);
+    // stroke-width: 2 !important;
+    stroke: var(--fore-color-alt) !important;
+  }
 
 // 重要系统角色
 .mdx-actor-key-sys {
@@ -4589,7 +4592,7 @@ rp,
 rt {
     font-family: @boldFont;
     font-weight: normal;
-    opacity: 0.5;
+    opacity: 0.6;
     // color: var(--fore-color-alt);
     // font-weight: @fontWeight4Serif;
 }
