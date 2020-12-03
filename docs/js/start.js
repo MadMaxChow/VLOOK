@@ -40,7 +40,7 @@
 
     // 资源域名配置
     let cssHost = "https://madmaxchow.gitee.io/vlook/",
-        fontHost = "https://cdn.jsdelivr.net/gh/madmaxchow/openfonts@master/";
+        fontHost = "https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/";
     jsHost = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/";
     // Debug 模式
     if (vlookDevMode === true) {
