@@ -5,7 +5,7 @@
 
     /****************************************
     VLOOK.js - Typora Plugin
-    V9.31-dev3
+    V9.31-dev4
     2020-12-05
     powered by MAX°孟兆
 
@@ -8195,7 +8195,7 @@
         ui += '<svg height="24px" width="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()">';
         ui += '<use xlink:href="#icoVLOOK-dark"></use>';
         ui += '</svg>&nbsp;&nbsp;';
-        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev3) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
+        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev4) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
         ui += '</div>';
         ui += '</div>';
 
@@ -8244,7 +8244,7 @@
         ui += '</div>';
         ui += '<div class="mdx-copyright">';
         ui += '<svg width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()"><use xlink:href="#icoVLOOK-dark"></use></svg>&nbsp;&nbsp;';
-        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev3) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
+        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev4) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
         ui += '</div>';
         ui += '</div>';
 
