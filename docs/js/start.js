@@ -1,7 +1,7 @@
     /****************************************
     starter of VLOOK.js - Typora Plugin
-    V9.31-dev20201128
-    2020-11-24
+    V9.31-dev3
+    2020-12-05
     powered by MAX°孟兆
 
     QQ Group: 805502564
@@ -10,7 +10,7 @@
     https://github.com/MadMaxChow/VLOOK
     ***************************************/
 
-   let vlookVersion = "9.31-dev20201128";
+   let vlookVersion = "V9.31-dev3";
 
     /**
      * 获取 URL 中的参数数组
@@ -50,17 +50,20 @@
     }
 
     // 动态加载指定的 VLOOK 主题
-    let theme = parseQueryString(window.location.href)["theme"];
-    if (theme !== undefined) {
-        console.log("Theme :: " + theme);
+    let theme = parseQueryString(window.location.href)["theme"],
+        vlookThemmeVersion = getComputedStyle(document.documentElement).getPropertyValue("--vlook-theme-version").trim().replace(/"/g, "");
+    if (theme !== undefined || vlookThemmeVersion !== vlookVersion) {
+        if (theme === undefined && vlookThemmeVersion !== vlookVersion)
+            theme = getComputedStyle(document.documentElement).getPropertyValue("--vlook-theme-name").trim().replace(/"/g, "");
+
+        theme = theme === "" ? "vlook-owl" : theme;
+        console.log("Reload Theme :: " + theme);
+        console.log("Theme Version :: " + vlookThemmeVersion);
         let style = document.createElement("link");
-        style.href = cssHost + "css/vlook-" + theme + "-solid.css?v=" + vlookVersion + (vlookDevMode === true ? new Date().getTime() : "");
         style.rel = "stylesheet";
         style.type = "text/css";
+        style.href = cssHost + "css/" + theme + ".css?v=" + vlookVersion + (vlookDevMode === true ? new Date().getTime() : "");
         document.getElementsByTagName("HEAD").item(0).appendChild(style);
-    }
-    else {
-        console.log(getComputedStyle(document.documentElement).getPropertyValue("--vlook-theme-version"));
     }
 
     // 动态加载 VLOOK 所须的 js 资源

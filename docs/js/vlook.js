@@ -5,8 +5,8 @@
 
     /****************************************
     VLOOK.js - Typora Plugin
-    V9.31-dev2
-    2020-11-24
+    V9.31-dev3
+    2020-12-05
     powered by MAX°孟兆
 
     QQ Group: 805502564
@@ -1495,7 +1495,7 @@
                 item = values.next();
             while (!item.done && isHave === false) {
                 let fontFace = item.value;
-                console.log(fontFace.family, fontFace.style, fontFace.weight);
+                // console.log(fontFace.family, fontFace.style, fontFace.weight);
                 if (fontFace.family === fontFamily
                     && fontFace.style === fontStyle
                     && fontFace.weight === fontWeight) {
@@ -3993,6 +3993,7 @@
                     "다운로드"
                 ][VLOOK.lang.id] + "</a>";
 
+            // VLOOK.font.isExist("VLOOK Sans", "normal", "normal");
             if (this.style === "serif") {
                 iInfoTips.show([
                     "选用「<strong>小清新</strong>」字体风格",
@@ -5687,7 +5688,7 @@
                 // 克隆表格数据
                 tblData[rowIndex][colIndex] = cell;
                 tblSpan[rowIndex][colIndex] = 0;
-                // 行合并标记，`..`为旧语法，从 V9.31-dev2 后不再使用，后续版本可考虑取消支持
+                // 行合并标记，`..`为旧语法，从 V9.31 后不再使用，后续版本可考虑取消支持
                 if (ExtTable.cellMergeSyntax.row.test(cell.text()) === true) {
                     // || cell.text() === "..") {
                     tblSpan[rowIndex][colIndex] = 1;
@@ -7910,6 +7911,7 @@
      * 文档加载完成后执行主流程
      */
     $(document).ready(function () {
+        $("#VLOOK").remove();
         // Dom.write().addClass("mdx-welcome-screen-loading-mask");
         // ----------------------------------------
         console.info("- Ready");
@@ -8193,7 +8195,7 @@
         ui += '<svg height="24px" width="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()">';
         ui += '<use xlink:href="#icoVLOOK-dark"></use>';
         ui += '</svg>&nbsp;&nbsp;';
-        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev2) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
+        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev3) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
         ui += '</div>';
         ui += '</div>';
 
@@ -8242,7 +8244,7 @@
         ui += '</div>';
         ui += '<div class="mdx-copyright">';
         ui += '<svg width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()"><use xlink:href="#icoVLOOK-dark"></use></svg>&nbsp;&nbsp;';
-        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev2) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
+        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev3) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
         ui += '</div>';
         ui += '</div>';
 
