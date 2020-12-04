@@ -28,7 +28,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 </div>
 <!-- ==================== VLOOK JS ==================== -->
 <script type="text/javascript">
-    let vlookDevMode = true,
+    let vlookDevMode = false,
         vlookDebugMode = false,
         startjs = document.createElement("script"),
         jsHost = vlookDevMode ? "http://localhost/" : "https://madmaxchow.gitee.io/vlook/";

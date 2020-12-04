@@ -40,7 +40,7 @@
     imgx
         在 DPR > 1 时，自动将 src 直接指定 2x 图片
         取值范围：
-        false: 取消
+        auto：对于没有指定 srcset 时，自动将当前图片作为 2x 资源
 
     effect
         使用的特效等级。可指定为：
@@ -1617,7 +1617,7 @@
          */
         checkDuplicateHeader : function () {
             let h = [];
-            $(":header").each(function (i, n) {
+            $("h1, h2, h3, h4, h5").each(function (i, n) {
                 h.push($(this).text());
             });
             let dupHeaders = [],
@@ -6865,7 +6865,7 @@
         // 在当前环境的 DPR > 1 时，对于没有指定 srcset 的 img 类插图，自动将 src 直接指定 2x 图片
         // 可通过 URL 参数 imgx=false 来取消
         if (env.display.DPR > 1
-            && VLOOK.util.parseQueryString(window.location.href)["imgx"] === undefined) {
+            && VLOOK.util.parseQueryString(window.location.href)["imgx"] === "auto") {
             $("p[data-vk-container='img'] img").each(function () {
                 let fig = $(this);
                 if (fig.attr("src").indexOf(".svg") === -1 // 跳过 svg 文件

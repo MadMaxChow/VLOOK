@@ -75,7 +75,7 @@
     for (let i = 0; i < jsSrc.length; i++) {
         let js = document.createElement("script");
         js.setAttribute("type", "text/javascript");
-        js.setAttribute("async", "async"); // 异步
+        // js.setAttribute("async", "async"); // 异步
         js.setAttribute("src", jsSrc[i] + "?v=" + vlookVersion + (vlookDevMode === true ? new Date().getTime() : ""));
         document.getElementsByTagName("HEAD")[0].appendChild(js);
     }
