@@ -1,4 +1,4 @@
-###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>快速参考手册</sup><br /><sup>( Version 9.31 )</sup><br /><br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2020. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>快速参考手册</sup><br /><sup>( Version 9.31 )</sup><br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2020. MAX°DESIGN.*
 
 [TOC]
 

@@ -62,7 +62,7 @@
         let style = document.createElement("link");
         style.rel = "stylesheet";
         style.type = "text/css";
-        style.href = cssHost + "css/" + theme + ".css?v=" + startVersion + (vlookDevMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60/24));
+        style.href = cssHost + "css/" + theme + ".css?v=" + startVersion + (vlookDevMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60)); // 1000/60/60/24 按天
         document.getElementsByTagName("HEAD").item(0).appendChild(style);
     }
 
@@ -76,6 +76,6 @@
         let js = document.createElement("script");
         js.setAttribute("type", "text/javascript");
         // js.setAttribute("async", "async"); // 异步
-        js.setAttribute("src", jsSrc[i] + "?v=" + startVersion + (vlookDevMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60/24)));
+        js.setAttribute("src", jsSrc[i] + "?v=" + startVersion + (vlookDevMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60))); // 1000/60/60/24 按天
         document.getElementsByTagName("HEAD")[0].appendChild(js);
     }
