@@ -1,3 +1,5 @@
+    let vlookVersion = "V9.31-dev4";
+
     console.log(":::::::::::::::::::");
     console.log("!!! " + (vlookDevMode === true ? "- DEBUG -" : "RELEASED" ) + " !!!");
     console.log("::: " + vlookVersion + " :::");
@@ -6863,7 +6865,7 @@
         }); // 结束初始化处理
 
         // 在当前环境的 DPR > 1 时，对于没有指定 srcset 的 img 类插图，自动将 src 直接指定 2x 图片
-        // 可通过 URL 参数 imgx=false 来取消
+        // 可通过 URL 参数 imgx=auto 来启用
         if (env.display.DPR > 1
             && VLOOK.util.parseQueryString(window.location.href)["imgx"] === "auto") {
             $("p[data-vk-container='img'] img").each(function () {

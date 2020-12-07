@@ -10,7 +10,7 @@
     https://github.com/MadMaxChow/VLOOK
     ***************************************/
 
-   let vlookVersion = "V9.31-dev4";
+   let startVersion = "V9.31-dev4";
 
     /**
      * 获取 URL 中的参数数组
@@ -52,8 +52,8 @@
     // 动态加载指定的 VLOOK 主题
     let theme = parseQueryString(window.location.href)["theme"],
         vlookThemmeVersion = getComputedStyle(document.documentElement).getPropertyValue("--vlook-theme-version").trim().replace(/"/g, "");
-    if (theme !== undefined || vlookThemmeVersion !== vlookVersion) {
-        if (theme === undefined && vlookThemmeVersion !== vlookVersion)
+    if (theme !== undefined || vlookThemmeVersion !== startVersion) {
+        if (theme === undefined && vlookThemmeVersion !== startVersion)
             theme = getComputedStyle(document.documentElement).getPropertyValue("--vlook-theme-name").trim().replace(/"/g, "");
 
         theme = theme === "" ? "vlook-owl" : theme;
@@ -62,7 +62,7 @@
         let style = document.createElement("link");
         style.rel = "stylesheet";
         style.type = "text/css";
-        style.href = cssHost + "css/" + theme + ".css?v=" + vlookVersion + (vlookDevMode === true ? new Date().getTime() : "");
+        style.href = cssHost + "css/" + theme + ".css?v=" + startVersion + (vlookDevMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60/24));
         document.getElementsByTagName("HEAD").item(0).appendChild(style);
     }
 
@@ -76,6 +76,6 @@
         let js = document.createElement("script");
         js.setAttribute("type", "text/javascript");
         // js.setAttribute("async", "async"); // 异步
-        js.setAttribute("src", jsSrc[i] + "?v=" + vlookVersion + (vlookDevMode === true ? new Date().getTime() : ""));
+        js.setAttribute("src", jsSrc[i] + "?v=" + startVersion + (vlookDevMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60/24)));
         document.getElementsByTagName("HEAD")[0].appendChild(js);
     }
