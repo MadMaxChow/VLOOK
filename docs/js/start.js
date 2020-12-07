@@ -51,18 +51,18 @@
 
     // 动态加载指定的 VLOOK 主题
     let theme = parseQueryString(window.location.href)["theme"],
-        vlookThemmeVersion = getComputedStyle(document.documentElement).getPropertyValue("--vlook-theme-version").trim().replace(/"/g, "");
-    if (theme !== undefined || vlookThemmeVersion !== startVersion) {
-        if (theme === undefined && vlookThemmeVersion !== startVersion)
+        themmeVersion = getComputedStyle(document.documentElement).getPropertyValue("--vlook-theme-version").trim().replace(/"/g, "");
+    if (theme !== undefined || themmeVersion !== startVersion) {
+        if (theme === undefined && themmeVersion !== startVersion)
             theme = getComputedStyle(document.documentElement).getPropertyValue("--vlook-theme-name").trim().replace(/"/g, "");
 
         theme = theme === "" ? "vlook-owl" : theme;
         console.log("Reload Theme :: " + theme);
-        console.log("Theme Version :: " + vlookThemmeVersion);
+        console.log("Theme Version :: " + themmeVersion);
         let style = document.createElement("link");
         style.rel = "stylesheet";
         style.type = "text/css";
-        style.href = cssHost + "css/" + theme + ".css?v=" + startVersion + (vlookDevMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60)); // 1000/60/60/24 按天
+        style.href = cssHost + "css/" + theme + ".css?ts=" + (vlookDevMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60)); // 1000/60/60/24 按天
         document.getElementsByTagName("HEAD").item(0).appendChild(style);
     }
 
@@ -76,6 +76,6 @@
         let js = document.createElement("script");
         js.setAttribute("type", "text/javascript");
         // js.setAttribute("async", "async"); // 异步
-        js.setAttribute("src", jsSrc[i] + "?v=" + startVersion + (vlookDevMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60))); // 1000/60/60/24 按天
+        js.setAttribute("src", jsSrc[i] + "?ts=" + (vlookDevMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60))); // 1000/60/60/24 按天
         document.getElementsByTagName("HEAD")[0].appendChild(js);
     }
