@@ -170,8 +170,8 @@
      * 判断是否为数值型
      */
      String.prototype.isNumber = function () {
-        var reg = /^(-|\+)*\d+(\.\d+)?$/;
-        if (reg.test(this))
+        // var reg = /^(-|\+)*\d+(\.\d+)?$/;
+        if (/^(-|\+)*\d+(\.\d+)?$/.test(this))
             return true;
         return false;
     }
@@ -180,8 +180,8 @@
      * 判断是否为百分数
      */
      String.prototype.isPercent = function () {
-        var reg = /^(-|\+)*\d+(\.\d+)?%$/;
-        if (reg.test(this))
+        // var reg = /^(-|\+)*\d+(\.\d+)?%$/;
+        if (/^(-|\+)*\d+(\.\d+)?%$/.test(this))
             return true;
         return false;
     }
@@ -190,8 +190,8 @@
      * 判断是否为货币型
      */
     String.prototype.isCurrency = function () {
-        var reg = /^(.{1,3}\s)(-|\+)*\d+(\.\d+)?$/;
-        if (reg.test(this))
+        // var reg = /^(.{1,3}\s)(-|\+)*\d+(\.\d+)?$/;
+        if (/^(.{1,3}\s)(-|\+)*\d+(\.\d+)?$/.test(this))
             return true;
         return false;
     }
@@ -3995,7 +3995,8 @@
                     "다운로드"
                 ][VLOOK.lang.id] + "</a>";
 
-            // VLOOK.font.isExist("VLOOK Sans", "normal", "normal");
+            VLOOK.font.isExist("VLOOK Sans", "normal", "normal");
+
             if (this.style === "serif") {
                 iInfoTips.show([
                     "选用「<strong>小清新</strong>」字体风格",
@@ -6320,7 +6321,7 @@
                 tdHadIdent = td.children(".mdx-table-rowfolding-identer:last");
 
             // 添加代表目录的括号及样式
-            tdSpan.html("[ <strong>" + tdSpan.html() + "</strong> ]");
+            tdSpan.html("[<strong>" + tdSpan.html() + "</strong>]");
             // tdSpan.css("color", "var(--header-color)");
 
             // 设置折叠控件样式
@@ -6710,10 +6711,23 @@
                 pathIndex = tmpIndex === -1 ? 0 : tmpIndex,
                 path = src.substring(0, pathIndex + 1);
 
-            // 将倍数标识转换为 srcset 标准语法
-            // 要从图片扩展名开始替换，避免将文件中的 @2x @3x 误替换掉
-            srcset = srcset.replaceAfter(".", "@2x", " 2x");
-            srcset = srcset.replaceAfter(".", "@3x", " 3x");
+            // @2x/@3x 图片资源为自动匹配名称的语法
+            // 2x/3x 的文件名为 <文件名@2x.xxx> 或 <文件名@3x.xxx> 的情况
+            if (/^@[2]x(,@[3]x)?$/.test(srcset) === true) {
+                let pureSrc = src.substring(0, src.indexOf("?")),
+                    fileName = pureSrc.substring(0, pureSrc.lastIndexOf(".")), // 图片资源文件名（不含扩展名）
+                    suffix = pureSrc.substring(pureSrc.lastIndexOf("."), pureSrc.length); // 图片资源扩展名
+                // 自动补全图片资源 URL
+                srcset = srcset.replace(/@2x/, fileName + "@2x" + suffix + " 2x");
+                srcset = srcset.replace(/@3x/, fileName + "@3x" + suffix + " 3x");
+            }
+            // @2x/@3x 图片资源为指定文件名的语法
+            else {
+                // 将倍数标识转换为 srcset 标准语法
+                // 要从图片扩展名开始替换，避免将文件中的 @2x @3x 误替换掉
+                srcset = srcset.replaceAfter(".", "@2x", " 2x");
+                srcset = srcset.replaceAfter(".", "@3x", " 3x");
+            }
 
             // 为 2x 图添加图片路径
             let sss = srcset.split(",");

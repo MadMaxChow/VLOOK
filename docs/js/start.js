@@ -63,7 +63,7 @@
         style.rel = "stylesheet";
         style.type = "text/css";
         style.href = cssHost + "css/" + theme + ".css?ts=" + (vlookDevMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60)); // 1000/60/60/24 按天
-        document.getElementsByTagName("HEAD").item(0).appendChild(style);
+        // document.getElementsByTagName("HEAD").item(0).appendChild(style);
     }
 
     // 动态加载 VLOOK 所须的 js 资源

@@ -350,7 +350,7 @@ VLOOK™ 除了为你带来单元格合并的能力外，还支持设置表格�
 表格列设置为「**右对齐**」，则针对数字内容自动进行「数值」格式化：
 
 - 通用样式：
-  - 千位符、小数部分小字号 
+  - 千位符、小数部分小字号
   - 支持通过正负号`+` `-`，突出正负数
 - 对百分数、货币类的数值进行定向微调：
   - 百分率：以进度条样式显示；
@@ -517,10 +517,11 @@ end
 - 目前高分屏的应用已非常广泛，VLOOK™ 可以让 Markdown 文档中的图片在不同的设备上获得最好的效果；
 - 目前支持`2x` `3x`的高清图片资源；
 - 对于对需要支持显示高清显示的图片，可在图片 URL 中增加启用高清图片资源的参数`srcset`，及`@2x` `@3x`后缀，具体示例如下：
-  - 2x：`![图片题注](images/标准分辨率图.png?srcset=这是2x图.png@2x)`
-  - 3x：`![图片题注](images/标准分辨率图.png?srcset=这是3x图.png@3x)`
-  - 2x/3x：`![图片题注](images/标准分辨率图.png?srcset=这是2x图.png@2x,这是3x图.png@3x)`
-- `srcset`指定的 2x/3x 的图片与标准分辨率图片若在同一目录下（如以上示例中的`images/`），可只填写图片名称，而无需包含路径信息；
+  - 2x：`![图片题注](标准分辨率图.png?srcset=这是2x图.png@2x)`
+  - 3x：`![图片题注](标准分辨率图.png?srcset=这是3x图.png@3x)`
+  - 2x/3x：`![图片题注](标准分辨率图.png?srcset=这是2x图.png@2x,这是3x图.png@3x)`
+  - 如果2x/3x的文件名是`标准分辨率图@2x.png` `标准分辨率图@3x.png`这类格式，则只需要指定为@2x/@3x即可，如：`srcset=@2x,@3x`
+- `srcset`指定的 2x/3x 的图片与标准分辨率图片若在不在同一目录或 URL 下，则须填写完整的图片 URL；
 - 如果不指定任何`srcset`，VLOOK™ 也会自动将当前图片作为 2x 资源，这样在高分屏上也能确定图片显示清晰（但图片大小会相应缩小），可通过 URL 参数`imgx=false`来取消这个自动转换。
 
 **（示例效果可以参考下面章节的插图▼）**
@@ -533,7 +534,7 @@ end
 - 对需要在 Dark 模式中以反色显示的图片，可在图片 URL 增加启用 Dark 模式反色的参数`invert=dark`；
 - 现在就试试按下键盘的<kbd>D</kbd>键，然后看看下面插图的变化～
 
-![默认在 Dark 模式时不反色](https://s1.ax1x.com/2020/11/07/B4YH0K.jpg?inline=true&srcset=B4Y7m6.jpg@2x "2x 高分屏自适应高清图片")　　![指定在 Dark 模式时反色](https://s1.ax1x.com/2020/11/07/B4YH0K.jpg?inline=true&invert=dark&srcset=B4Y7m6.jpg@2x "2x 高分屏自适应高清图片")
+![默认在 Dark 模式时不反色](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?inline=true&srcset=@2x "2x 高分屏自适应高清图片")　　![指定在 Dark 模式时反色](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?inline=true&invert=dark&srcset=@2x,@3x "2x 高分屏自适应高清图片")
 
 ---
 
