@@ -80,6 +80,8 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --doc-bg-color-alt-transparent-light: fade(@docBgColorLightAlt, 0%);
     --fore-color-light: @foreColorLight;
     --fore-color-alt-light: @foreColorLightAlt;
+    --blockquote-color-light: fade(@foreColorLight, 20%);
+    --blockquote-bg-light: fade(@foreColorLight, 8%);
     --tips-bg-color-light: @foreColorDark;
     --tips-bg-color-inset-light: @foreColorLight;
     --shadow-color-light: rgba(0, 0, 0, 0.1);
@@ -120,8 +122,8 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --accent-color-blue-alt-light: @accentColorBlueAlt;
     --accent-color-purple-light: @accentColorPurple;
     --accent-color-purple-alt-light: @accentColorPurpleAlt;
-    --accent-color-magenta-light: @accentColorMagenta;
-    --accent-color-magenta-alt-light: @accentColorMagentaAlt;
+    --accent-color-pink-light: @accentColorpink;
+    --accent-color-pink-alt-light: @accentColorpinkAlt;
     --accent-color-brown-light: @accentColorBrown;
     --accent-color-brown-alt-light: @accentColorBrownAlt;
     --accent-color-gray-light: @accentColorGray;
@@ -140,8 +142,8 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --mermaid-accent-color-blue-alt-light: @accentColorBlueAlt;
     --mermaid-accent-color-purple-light: @accentColorPurple;
     --mermaid-accent-color-purple-alt-light: @accentColorPurpleAlt;
-    --mermaid-accent-color-magenta-light: @accentColorMagenta;
-    --mermaid-accent-color-magenta-alt-light: @accentColorMagentaAlt;
+    --mermaid-accent-color-pink-light: @accentColorpink;
+    --mermaid-accent-color-pink-alt-light: @accentColorpinkAlt;
     --mermaid-accent-color-brown-light: @accentColorBrown;
     --mermaid-accent-color-brown-alt-light: @accentColorBrownAlt;
     --mermaid-accent-color-gray-light: @accentColorGray;
@@ -178,6 +180,8 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --doc-bg-color-alt-transparent-dark: fade(@docBgColorDarkAlt, 0%);
     --fore-color-dark: @foreColorDark;
     --fore-color-alt-dark: @foreColorDarkAlt;
+    --blockquote-color-dark: fade(@foreColorDark, 20%);
+    --blockquote-bg-dark: fade(@foreColorDark, 10%);
     --tips-bg-color-dark: @docBgColorDarkAlt;
     --tips-bg-color-inset-dark: @foreColorDark;
     --shadow-color-dark: rgba(255, 255, 255, 0.1);
@@ -218,8 +222,8 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --accent-color-blue-alt-dark: @accentColorBlueAltDark;
     --accent-color-purple-dark: @accentColorPurpleDark;
     --accent-color-purple-alt-dark: @accentColorPurpleAltDark;
-    --accent-color-magenta-dark: @accentColorMagentaDark;
-    --accent-color-magenta-alt-dark: @accentColorMagentaAltDark;
+    --accent-color-pink-dark: @accentColorpinkDark;
+    --accent-color-pink-alt-dark: @accentColorpinkAltDark;
     --accent-color-brown-dark: @accentColorBrownDark;
     --accent-color-brown-alt-dark: @accentColorBrownAltDark;
     --accent-color-gray-dark: @accentColorGrayDark;
@@ -238,8 +242,8 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --mermaid-accent-color-blue-alt-dark: @accentColorBlueDark;
     --mermaid-accent-color-purple-dark: @accentColorPurpleAltDark;
     --mermaid-accent-color-purple-alt-dark: @accentColorPurpleDark;
-    --mermaid-accent-color-magenta-dark: @accentColorMagentaAltDark;
-    --mermaid-accent-color-magenta-alt-dark: @accentColorMagentaDark;
+    --mermaid-accent-color-pink-dark: @accentColorpinkAltDark;
+    --mermaid-accent-color-pink-alt-dark: @accentColorpinkDark;
     --mermaid-accent-color-brown-dark: @accentColorBrownAltDark;
     --mermaid-accent-color-brown-alt-dark: @accentColorBrownDark;
     --mermaid-accent-color-gray-dark: @accentColorGrayAltDark;
@@ -276,6 +280,8 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --doc-bg-color-alt-transparent: var(--doc-bg-color-alt-transparent-light);
     --fore-color: var(--fore-color-light);
     --fore-color-alt: var(--fore-color-alt-light);
+    --blockquote-color: var(--blockquote-color-light);
+    --blockquote-bg: var(--blockquote-bg-light);
     --tips-bg-color: var(--tips-bg-color-light);
     --tips-bg-color-inset: var(--tips-bg-color-inset-light);
     --shadow-color: var(--shadow-color-light);
@@ -315,8 +321,8 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --accent-color-blue-alt: var(--accent-color-blue-alt-light);
     --accent-color-purple: var(--accent-color-purple-light);
     --accent-color-purple-alt: var(--accent-color-purple-alt-light);
-    --accent-color-magenta: var(--accent-color-magenta-light);
-    --accent-color-magenta-alt: var(--accent-color-magenta-alt-light);
+    --accent-color-pink: var(--accent-color-pink-light);
+    --accent-color-pink-alt: var(--accent-color-pink-alt-light);
     --accent-color-brown: var(--accent-color-brown-light);
     --accent-color-brown-alt: var(--accent-color-brown-alt-light);
     --accent-color-gray: var(--accent-color-gray-light);
@@ -336,8 +342,8 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --mermaid-accent-color-blue-alt: var(--mermaid-accent-color-blue-alt-light);
     --mermaid-accent-color-purple: var(--mermaid-accent-color-purple-light);
     --mermaid-accent-color-purple-alt: var(--mermaid-accent-color-purple-alt-light);
-    --mermaid-accent-color-magenta: var(--mermaid-accent-color-magenta-light);
-    --mermaid-accent-color-magenta-alt: var(--mermaid-accent-color-magenta-alt-light);
+    --mermaid-accent-color-pink: var(--mermaid-accent-color-pink-light);
+    --mermaid-accent-color-pink-alt: var(--mermaid-accent-color-pink-alt-light);
     --mermaid-accent-color-brown: var(--mermaid-accent-color-brown-light);
     --mermaid-accent-color-brown-alt: var(--mermaid-accent-color-brown-alt-light);
     --mermaid-accent-color-gray: var(--mermaid-accent-color-gray-light);
@@ -471,17 +477,57 @@ a {
     margin-right: 0.1em;
 // 性能优化    transition: all 0.3s ease-in-out;
 }
+// 指定不使用链接样式
+a[href*="vlinkstyle=none"] {
+    border-bottom: none;
+}
+// kbd 中的链接样式
+kbd a {
+    color: var(--doc-bg-color) !important;
+    border-bottom: none;
+}
+// 链接中的 kbd 样式
+a kbd {
+    color: @buttonForeColor !important;
+    background-color: @buttonBgColor !important;
+    margin-left: -0.1em;
+    margin-right: -0.1em;
+}
 
 a:hover {
     color: @aHoverColor !important;
     box-shadow: 0 -0.3em 0 0 fade(@aLineColor, 30%) inset;
     border-bottom: @aBorderWidth solid fade(@aLineColor, 30%);
 }
+// 指定不使用链接样式
+a[href*="vlinkstyle=none"]:hover,
+// kbd 中的链接样式
+kbd a:hover {
+    color: @aHoverColor !important;
+    box-shadow: none;
+    border-bottom: none;
+}
+// 链接中的 kbd 样式
+a kbd:hover {
+    color: @buttonForeHoverColor !important;
+    background-color: @aHoverColor !important;
+    // box-shadow: 0 0.2em 0 0 @buttonShadow !important;
+}
 
 a:active {
     color: @aActiveColor !important;
     border-color: @aActiveColor;
 // 性能优化    transition: all 0.3s ease-in-out;
+}
+// 指定不使用链接样式
+a[href*="vlinkstyle=none"]:active,
+// kbd 中的链接样式
+kbd a:active {
+    border: none;
+}
+// 链接中的 kbd 样式
+a kbd:active {
+    background-color: @aActiveColor !important;
 }
 
 // 默认的超链接样式
@@ -497,6 +543,7 @@ a:not([name^="ref-footnote"]):hover::before {
     font-weight: @titleFontWeight;
     background-color: @aLineColor;
     position: absolute;
+    z-index: 99999;
 }
 table th a:not([name^="ref-footnote"]):hover::before,
 table td a:not([name^="ref-footnote"]):hover::before {
@@ -828,43 +875,44 @@ ul > li > ul > li { // 2级
 ul > li > ul > li > ul > li { // 3级
     list-style-type: circle;
 }
-ul > li > ul > li > ul > li > ul > li { // 4级
-    list-style-type: none;
-}
-ul > li > ul > li > ul > li > ul > li::before { // 4级
-    content: "⚑";
-    top: -2px;
-    left: -1em;
-    position: absolute;
-}
-ul > li > ul > li > ul > li > ul > li > ul > li { // 5级
-    list-style-type: none;
-}
-ul > li > ul > li > ul > li > ul > li > ul > li::before { // 4级
-    content: "⚐";
-    top: -2px;
-    left: -1em;
-    position: absolute;
-}
-ul > li > ul > li > ul > li > ul > li > ul > li > ul > li { // 6级
-    list-style-type: none;
-}
-ul > li > ul > li > ul > li > ul > li > ul > li > ul > li::before { // 6级
-    content: "-";
-    top: -2px;
-    left: -1em;
-    position: absolute;}
+// ul > li > ul > li > ul > li > ul > li { // 4级
+//     list-style-type: none;
+// }
+// ul > li > ul > li > ul > li > ul > li::before { // 4级
+//     content: "⚑";
+//     top: -2px;
+//     left: -1em;
+//     position: absolute;
+// }
+// ul > li > ul > li > ul > li > ul > li > ul > li { // 5级
+//     list-style-type: none;
+// }
+// ul > li > ul > li > ul > li > ul > li > ul > li::before { // 4级
+//     content: "⚐";
+//     top: -2px;
+//     left: -1em;
+//     position: absolute;
+// }
+// ul > li > ul > li > ul > li > ul > li > ul > li > ul > li { // 6级
+//     list-style-type: none;
+// }
+// ul > li > ul > li > ul > li > ul > li > ul > li > ul > li::before { // 6级
+//     content: "-";
+//     top: -2px;
+//     left: -1em;
+//     position: absolute;
+// }
 
 blockquote {
-    border-left: 5px solid @accentColorGrayFade;
-    // border: 1px solid @accentColorGreenFade;
-    // border-radius: var(--vlook-base-radius);
+    // border-left: 5px solid var(--blockquote-color);
+    border-radius: var(--vlook-base-radius);
+    width: fit-content;
     // padding: 0.5em 0.5em 1em 0.5em;
-    padding: 0.5em;
+    padding: 0.5em 1em;
     margin-top: 0;
     margin-bottom: 1em;
     color: var(--fore-color);
-    background-color: fade(@accentColorGray, 8%);
+    background-color: var(--blockquote-bg);
 }
 
 blockquote > p {
@@ -892,12 +940,12 @@ blockquote > ol {
 
 // 双重引用
 blockquote > blockquote {
-    border-left: 10px solid fade(@accentColorGray, 20%);
+    border-left: 5px solid fade(@accentColorGray, 20%);
     // border: 1px solid fade(@accentColorGreen, 15%);
     // margin-left: 0.5em;
     // margin-right: 1em;
     background: none;
-    border-top-left-radius: 0;
+    border-radius: 0;
 }
 
 // 三重引用
@@ -1078,6 +1126,10 @@ table tr > td:last-child {
 .mdx-table-column-format-number-negative {
     color: #00B000;
 }
+// 表格列格式：数值－小数部分
+.mdx-table-column-format-number-decimal {
+    font-size: 0.8em;
+}
 // 表格列格式：数值－货币
 .mdx-table-column-format-currency {
     float: left;
@@ -1085,6 +1137,11 @@ table tr > td:last-child {
     padding-right: 10px;
     color: var(--fore-color-alt);
     font-weight: normal;
+}
+// 表格列格式：数值－百分号
+.mdx-table-column-format-percent {
+    opacity: 0.6;
+    font-size: 0.8em;
 }
 
 // 带表格带行折叠时，是目录行的样式
@@ -4380,7 +4437,7 @@ use.mdx-folder2-ico:active {
 .mdx-tag-cyan,
 .mdx-tag-blue,
 .mdx-tag-purple,
-.mdx-tag-magenta,
+.mdx-tag-pink,
 .mdx-tag-brown,
 .mdx-tag-gray {
     font-family: @tagFont;
@@ -4428,9 +4485,9 @@ use.mdx-folder2-ico:active {
     box-shadow: 0 0 0 1px var(--accent-color-purple-light) inset;
 }
 
-.mdx-tag-magenta {
-    background-color: var(--accent-color-magenta);
-    box-shadow: 0 0 0 1px var(--accent-color-magenta-light) inset;
+.mdx-tag-pink {
+    background-color: var(--accent-color-pink);
+    box-shadow: 0 0 0 1px var(--accent-color-pink-light) inset;
 }
 
 .mdx-tag-brown {
@@ -4451,7 +4508,7 @@ use.mdx-folder2-ico:active {
 .mdx-tag-name-cyan,
 .mdx-tag-name-blue,
 .mdx-tag-name-purple,
-.mdx-tag-name-magenta,
+.mdx-tag-name-pink,
 .mdx-tag-name-brown,
 .mdx-tag-name-gray {
     font-family: @tagFont;
@@ -4472,7 +4529,7 @@ use.mdx-folder2-ico:active {
 .mdx-tag-value-cyan,
 .mdx-tag-value-blue,
 .mdx-tag-value-purple,
-.mdx-tag-value-magenta,
+.mdx-tag-value-pink,
 .mdx-tag-value-brown,
 .mdx-tag-value-gray {
     font-family: @tagFont;
@@ -4551,12 +4608,12 @@ use.mdx-folder2-ico:active {
 }
 
 // 双标签样式
-.mdx-tag-name-magenta {
-    background-color: var(--accent-color-magenta);
-    box-shadow: 0 0 0 1px var(--accent-color-magenta-light) inset;
+.mdx-tag-name-pink {
+    background-color: var(--accent-color-pink);
+    box-shadow: 0 0 0 1px var(--accent-color-pink-light) inset;
 }
-.mdx-tag-value-magenta {
-    color: var(--accent-color-magenta-alt);
+.mdx-tag-value-pink {
+    color: var(--accent-color-pink-alt);
 }
 
 // 双标签样式
@@ -4585,7 +4642,7 @@ use.mdx-folder2-ico:active {
 // #write > h6:first-of-type .mdx-tag-cyan,
 // #write > h6:first-of-type .mdx-tag-blue,
 // #write > h6:first-of-type .mdx-tag-purple,
-// #write > h6:first-of-type .mdx-tag-magenta
+// #write > h6:first-of-type .mdx-tag-pink
 // #write > h6:first-of-type .mdx-tag-brown,
 // #write > h6:first-of-type .mdx-tag-gray,
 // #write > h6:first-of-type .mdx-tag-name-red,
@@ -4595,7 +4652,7 @@ use.mdx-folder2-ico:active {
 // #write > h6:first-of-type .mdx-tag-name-cyan,
 // #write > h6:first-of-type .mdx-tag-name-blue,
 // #write > h6:first-of-type .mdx-tag-name-purple,
-// #write > h6:first-of-type .mdx-tag-name-magenta,
+// #write > h6:first-of-type .mdx-tag-name-pink,
 // #write > h6:first-of-type .mdx-tag-name-brown,
 // #write > h6:first-of-type .mdx-tag-name-gray,
 // #write > h6:first-of-type .mdx-tag-value-red,
@@ -4605,7 +4662,7 @@ use.mdx-folder2-ico:active {
 // #write > h6:first-of-type .mdx-tag-value-cyan,
 // #write > h6:first-of-type .mdx-tag-value-blue,
 // #write > h6:first-of-type .mdx-tag-value-purple,
-// #write > h6:first-of-type .mdx-tag-value-magenta,
+// #write > h6:first-of-type .mdx-tag-value-pink,
 // #write > h6:first-of-type .mdx-tag-value-brown,
 // #write > h6:first-of-type .mdx-tag-value-gray {
     // font-size: 0.85em;
@@ -4711,7 +4768,7 @@ h6 code {
 #write > h6:first-of-type .mdx-tag-cyan,
 #write > h6:first-of-type .mdx-tag-blue,
 #write > h6:first-of-type .mdx-tag-purple,
-#write > h6:first-of-type .mdx-tag-magenta
+#write > h6:first-of-type .mdx-tag-pink
 #write > h6:first-of-type .mdx-tag-brown,
 #write > h6:first-of-type .mdx-tag-gray,
 #write > h6:first-of-type .mdx-tag-name-red,
@@ -4721,7 +4778,7 @@ h6 code {
 #write > h6:first-of-type .mdx-tag-name-cyan,
 #write > h6:first-of-type .mdx-tag-name-blue,
 #write > h6:first-of-type .mdx-tag-name-purple,
-#write > h6:first-of-type .mdx-tag-name-magenta,
+#write > h6:first-of-type .mdx-tag-name-pink,
 #write > h6:first-of-type .mdx-tag-name-brown,
 #write > h6:first-of-type .mdx-tag-name-gray,
 #write > h6:first-of-type .mdx-tag-value-red,
@@ -4731,7 +4788,7 @@ h6 code {
 #write > h6:first-of-type .mdx-tag-value-cyan,
 #write > h6:first-of-type .mdx-tag-value-blue,
 #write > h6:first-of-type .mdx-tag-value-purple,
-#write > h6:first-of-type .mdx-tag-value-magenta,
+#write > h6:first-of-type .mdx-tag-value-pink,
 #write > h6:first-of-type .mdx-tag-value-brown,
 #write > h6:first-of-type .mdx-tag-value-gray {
     font-size: 0.5em !important;
@@ -4984,6 +5041,8 @@ h6 code {
         --doc-bg-color-alt-transparent: var(--doc-bg-color-alt-transparent-dark);
         --fore-color: var(--fore-color-dark);
         --fore-color-alt: var(--fore-color-alt-dark);
+        --blockquote-color: var(--blockquote-color-dark);
+        --blockquote-bg: var(--blockquote-bg-dark);
         --tips-bg-color: var(--tips-bg-color-dark);
         --tips-bg-color-inset: var(--tips-bg-color-inset-dark);
         --shadow-color: var(--shadow-color-dark);
@@ -5023,8 +5082,8 @@ h6 code {
         --accent-color-blue-alt: var(--accent-color-blue-alt-dark);
         --accent-color-purple: var(--accent-color-purple-dark);
         --accent-color-purple-alt: var(--accent-color-purple-alt-dark);
-        --accent-color-magenta: var(--accent-color-magenta-dark);
-        --accent-color-magenta-alt: var(--accent-color-magenta-alt-dark);
+        --accent-color-pink: var(--accent-color-pink-dark);
+        --accent-color-pink-alt: var(--accent-color-pink-alt-dark);
         --accent-color-brown: var(--accent-color-brown-dark);
         --accent-color-brown-alt: var(--accent-color-brown-alt-dark);
         --accent-color-gray: var(--accent-color-gray-dark);
@@ -5043,8 +5102,8 @@ h6 code {
         --mermaid-accent-color-blue-alt: var(--mermaid-accent-color-blue-alt-dark);
         --mermaid-accent-color-purple: var(--mermaid-accent-color-purple-dark);
         --mermaid-accent-color-purple-alt: var(--mermaid-accent-color-purple-alt-dark);
-        --mermaid-accent-color-magenta: var(--mermaid-accent-color-magenta-dark);
-        --mermaid-accent-color-magenta-alt: var(--mermaid-accent-color-magenta-alt-dark);
+        --mermaid-accent-color-pink: var(--mermaid-accent-color-pink-dark);
+        --mermaid-accent-color-pink-alt: var(--mermaid-accent-color-pink-alt-dark);
         --mermaid-accent-color-brown: var(--mermaid-accent-color-brown-dark);
         --mermaid-accent-color-brown-alt: var(--mermaid-accent-color-brown-alt-dark);
         --mermaid-accent-color-gray: var(--mermaid-accent-color-gray-dark);

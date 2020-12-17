@@ -1,4 +1,4 @@
-    let vlookVersion = "V9.31-dev4";
+    let vlookVersion = "V9.31-dev5";
 
     console.log(":::::::::::::::::::");
     console.log("!!! " + (vlookDevMode === true ? "- DEBUG -" : "RELEASED" ) + " !!!");
@@ -7,8 +7,8 @@
 
     /****************************************
     VLOOK.js - Typora Plugin
-    V9.31-dev4
-    2020-12-05
+    V9.31-dev5
+    2020-12-15
     powered by MAX°孟兆
 
     QQ Group: 805502564
@@ -3782,7 +3782,8 @@
             "--doc-bg-color-transparent",
             "--doc-bg-color-alt-transparent",
             "--fore-color",
-            "--shadow-color",
+            "--blockquote-color",
+            "--blockquote-bg",
             "--a-color",
             "--mark-color",
             "--footer-note-bg-color",
@@ -3816,8 +3817,8 @@
             "--accent-color-blue-alt",
             "--accent-color-purple",
             "--accent-color-purple-alt",
-            "--accent-color-magenta",
-            "--accent-color-magenta-alt",
+            "--accent-color-pink",
+            "--accent-color-pink-alt",
             "--accent-color-brown",
             "--accent-color-brown-alt",
             "--accent-color-gray",
@@ -6064,21 +6065,24 @@
                     // 数值格式化处理
                     bodyCells.each(function () {
                         let ce = $(this);
-                        if (ce.text().isNumber()) { // 内容为数值
+                        // 内容为数值
+                        if (ce.text().isNumber()) {
                             // 添加千位符
                             ce.html(ce.html().replace(/(\d)(?=(\d{3})+(\.\d+)*(\D)*$)/g, "$1,"));
                             // 对小数进行处理
-                            ce.html(ce.html().replace(/\.(\d+)/, ".<span style='font-size: 0.8em'>$1</span>"));
+                            ce.html(ce.html().replace(/\.(\d+)/, ".<span class='mdx-table-column-format-number-decimal'>$1</span>"));
                             // 根据正负号进行着色处理
                             ExtTable.columnFormatting.coloringNumber(ce, ce.text(), true);
                             // 对 +/- 符号进行处理
                             // ce.html(ce.html().replace(">+", ">▴ ").replace(">-", ">▾ "));
                         }
-                        else if (ce.text().isPercent()) { // 内容为百分数
+
+                        // 内容为百分数
+                        else if (ce.text().isPercent()) {
                             // 对小数进行处理
-                            ce.html(ce.html().replace(/\.(\d+)/, ".<span style='font-size: 0.8em'>$1</span>"));
+                            ce.html(ce.html().replace(/\.(\d+)/, ".<span class='mdx-table-column-format-number-decimal'>$1</span>"));
                             // 对百分数进行处理
-                            ce.html(ce.html().replace(/%</, "<span style='opacity: 0.6'> %</span><"));
+                            ce.html(ce.html().replace(/%</, "<span class='mdx-table-column-format-percent'> %</span><"));
                             // 根据正负号进行着色处理
                             let coloring = ExtTable.columnFormatting.coloringNumber(ce, ce.text(), true),
                                 percent = ce.text().replace(/(-|\+|\s)/g, ""),
@@ -6103,13 +6107,15 @@
                             // 对 +/- 符号进行处理
                             ce.html(ce.html().replace(">+", ">▴ ").replace(">-", ">▾ "));
                         }
-                        else if (ce.text().isCurrency()) { // 内容为数值
+
+                        // 内容为货币
+                        else if (ce.text().isCurrency()) {
                             // 因 html() 中含有 > 字符，所以替换的内容中须进行 > 的前后拼接调整
                             ce.html(ce.html().replace(/(\>.{1,3}\s)/, "><span class='mdx-table-column-format-currency'$1</span>"));
                             // 添加千位符
                             ce.html(ce.html().replace(/(\d)(?=(\d{3})+(\.\d+)*(\D)*$)/g, "$1,"));
                             // 对小数进行处理
-                            ce.html(ce.html().replace(/\.(\d+)/, ".<span style='font-size: 0.8em'>$1</span>"));
+                            ce.html(ce.html().replace(/\.(\d+)/, ".<span class='mdx-table-column-format-number-decimal'>$1</span>"));
                             // 根据正负号进行着色处理
                             ExtTable.columnFormatting.coloringNumber(ce, ce.text(), false);
                         }
@@ -7613,12 +7619,11 @@
             r1 + "," + r2 + ")";
     }
 
-    // ==================== 酷°魔法模块 ==================== //
+    // ==================== Code Magic 模块 ==================== //
 
     function CodeMagic() {}
 
     CodeMagic.init = function () {
-
         $("code").each(function () {
             let codeText = $(this).text(),
                 result = null;
@@ -7643,6 +7648,8 @@
             else
                 $(this).addClass("mdx-std-code");
 
+            result = codeText.match(BlackCurtain.syntax);
+            console.log(result, codeText);
             // 因为在新标签中打开的内容已无未解析的含语法的原始内容
             // 所以须对已解析后的对象直接进行绑定鼠标事件
             if (VLOOK.doc.newTab === true) {
@@ -7653,13 +7660,13 @@
         });
     }
 
-    // ==================== 酷°魔法：彩虹单标签模块 ==================== //
+    // ==================== Code Magic：彩虹单标签模块 ==================== //
 
     function ColorTag() {}
 
     // 语法：#tag#(style)
-    ColorTag.syntax = /^#(.+)#(\((red|orange|yellow|green|cyan|blue|purple|magenta|brown|gray)\))?$/i;
-    ColorTag.styles = ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "magenta", "brown", "gray"];
+    ColorTag.syntax = /^#(.+)#(\((red|orange|yellow|green|cyan|blue|purple|pink|brown|gray)\))?$/i;
+    ColorTag.styles = ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "pink", "brown", "gray"];
 
     /**
      * 构建单标签样式
@@ -7696,12 +7703,12 @@
         return "red";
     }
 
-    // ==================== 酷°魔法：彩虹双标签模块 ==================== //
+    // ==================== Code Magic：彩虹双标签模块 ==================== //
 
     function ColorTagGroup() {}
 
     // 语法：#tag1|tag2#(style)
-    ColorTagGroup.syntax = /^#(.+)\|(.+)#(\((red|orange|yellow|green|cyan|blue|purple|magenta|brown|gray)\))?$/i;
+    ColorTagGroup.syntax = /^#(.+)\|(.+)#(\((red|orange|yellow|green|cyan|blue|purple|pink|brown|gray)\))?$/i;
 
     /**
      * 构建双标签样式
@@ -7725,7 +7732,7 @@
         target.attr("class", "mdx-tag-value-" + type);
     }
 
-    // ==================== 酷°魔法：文本注音模块 ==================== //
+    // ==================== Code Magic：文本注音模块 ==================== //
 
     function TextPhonetic() {}
 
@@ -7742,42 +7749,25 @@
         // console.log(text + "(" + symbol + ")");
     }
 
-    // ==================== 酷°魔法：黑幕模块 ==================== //
+    // ==================== Code Magic：黑幕模块 ==================== //
 
     function BlackCurtain() {}
 
-    // 语法：*{text}(tips "color")
-    BlackCurtain.syntax = /^\*\{(.+)\}(\((.+)\))?$/i;
-    // 可选部分：(tips "color")
-    BlackCurtain.syntaxOpt = /^(.+)\s\"(.+)\"$/i;
-    // 颜色部分：("color")
-    BlackCurtain.syntaxColor = /^\"(.+)\"$/i;
+    // 语法：*{tips}(text "color")
+    BlackCurtain.syntax = /^\*\{(.*)\}\((\S+)(\s\"(.+)\")?\)$/i;
 
     BlackCurtain.build = function (target, result) {
         // console.log(result[0], result);
-        let text = result[1],
-            tips = "********",
-            curtainColor = "var(--fore-color)",
-            subResult = null;
+        let tips = "********",
+            text = result[2],
+            curtainColor = "var(--fore-color)";
 
-        // 有可选部分，针对性进一步解析处理
-        if (result[3] !== undefined) {
-            // 可选内容为「提示信息 "颜色"」
-            if ((subResult = result[3].match(BlackCurtain.syntaxOpt)) != null) {
-                tips = subResult[1];
-                curtainColor = subResult[2];
-            }
-            // 可选内容为「"颜色"」
-            else if ((subResult = result[3].match(BlackCurtain.syntaxColor)) != null) {
-                curtainColor = subResult[1];
-            }
-            // 可选内容为「提示信息」
-            else {
-                tips = result[3];
-                curtainColor = "var(--fore-color)";
-            }
-        }
-        // console.log(text + " - " + tips + " - " + curtainColor);
+        // 自定义提示信息
+        if (result[1] !== undefined && result[1].trim() !== "")
+            tips = result[1];
+        // 自定义颜色
+        if (result[4] !== undefined)
+            curtainColor = result[4];
 
         // 初始化「黑幕」数据
         target.addClass("mdx-black-curtain");
@@ -8211,7 +8201,7 @@
         ui += '<svg height="24px" width="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()">';
         ui += '<use xlink:href="#icoVLOOK-dark"></use>';
         ui += '</svg>&nbsp;&nbsp;';
-        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev4) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
+        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev5) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
         ui += '</div>';
         ui += '</div>';
 
@@ -8260,7 +8250,7 @@
         ui += '</div>';
         ui += '<div class="mdx-copyright">';
         ui += '<svg width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()"><use xlink:href="#icoVLOOK-dark"></use></svg>&nbsp;&nbsp;';
-        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev4) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
+        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev5) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
         ui += '</div>';
         ui += '</div>';
 
