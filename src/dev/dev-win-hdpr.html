@@ -4552,7 +4552,7 @@ MIT许可证（MIT）
         // 重置行内代码code样式
         ColorTag.init();
         // 重置多行代码块code block样式
-        // ColorTag.initForCodeBlock();
+        // RainbowTag.initForCodeBlock();
         iStopwatch.lapStop();
 
         // ----------------------------------------
@@ -10497,7 +10497,7 @@ MIT许可证（MIT）
      * 2. span分别包裹标准格式的不同部分。如：(`)(=) (sourcecode) (=)(`)
      * 3. span包裹标准格式及其他所有内容。如：sourcecode`= sourcecode =`sourcecode
      */
-    // ColorTag.initForCodeBlock = function () {
+    // RainbowTag.initForCodeBlock = function () {
     //     $("span[class^='cm-']").each(function () {
     //         const reg = /`[=|\+|\*|\-|\!|#](([^`])+[a-z]|[A-Z]|[\S])+[=|\+|\*|\-|\!|#]`/g;
     //         let codeTags = ["=", "+", "*", "-", "!", "#"];
@@ -10508,7 +10508,7 @@ MIT许可证（MIT）
     //                 if (codeText.length > 4 && codeText.startsWith(codeTags[i] + " ") && codeText.endWith(
     //                         " " +
     //                         codeTags[i])) {
-    //                     ColorTag.rebuildForCodeBlock($(this), codeTags[i] + " ", i + 1);
+    //                     RainbowTag.rebuildForCodeBlock($(this), codeTags[i] + " ", i + 1);
     //                     break;
     //                 }
     //             }
@@ -10523,7 +10523,7 @@ MIT许可证（MIT）
      * @param prefix 标签的标识前缀
      * @param type 标签样式分类编号：1-6
      */
-    // ColorTag.rebuildForCodeBlock = function (target, prefix, type) {
+    // RainbowTag.rebuildForCodeBlock = function (target, prefix, type) {
     //     const codeText = target.text().substring(1, target.text().length - 1);
     //     const si = codeText.indexOf(prefix);
     //     target.text(codeText.substring(si + prefix.length, codeText.length - prefix.length));

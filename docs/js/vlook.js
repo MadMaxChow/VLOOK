@@ -845,7 +845,7 @@
         console.info("- Code°Magic");
         // 重置行内代码code样式
         CodeMagic.init();
-        // ColorTag.init();
+        // RainbowTag.init();
         iStopwatch.lapStop("    ");
 
         // ----------------------------------------
@@ -3805,24 +3805,34 @@
             "--tips-bg-color",
             "--accent-color-red",
             "--accent-color-red-alt",
+            "--accent-color-red-fade",
             "--accent-color-orange",
             "--accent-color-orange-alt",
+            "--accent-color-orange-fade",
             "--accent-color-yellow",
             "--accent-color-yellow-alt",
+            "--accent-color-yellow-fade",
             "--accent-color-green",
             "--accent-color-green-alt",
+            "--accent-color-green-fade",
             "--accent-color-cyan",
             "--accent-color-cyan-alt",
+            "--accent-color-cyan-fade",
             "--accent-color-blue",
             "--accent-color-blue-alt",
+            "--accent-color-blue-fade",
             "--accent-color-purple",
             "--accent-color-purple-alt",
+            "--accent-color-purple-fade",
             "--accent-color-pink",
             "--accent-color-pink-alt",
+            "--accent-color-pink-fade",
             "--accent-color-brown",
             "--accent-color-brown-alt",
+            "--accent-color-brown-fade",
             "--accent-color-gray",
             "--accent-color-gray-alt",
+            "--accent-color-gray-fade",
             "--mermaid-accent-color-red",
             "--mermaid-accent-color-red-alt",
             "--mermaid-accent-color-orange",
@@ -5420,8 +5430,8 @@
 
     // 单元格合并语法
     ExtTable.cellMergeSyntax = {
-        row : /^:$/, // 行，纵向合并
-        col : /^==$/ // 列，横向合并
+        row : /^(\:|\^\^)$/, // 行，纵向合并
+        col : /^(\=\=|\<\<)$/ // 列，横向合并
         // deprecated : false // 是否使用了已废弃的语法
     }
 
@@ -7623,18 +7633,34 @@
 
     function CodeMagic() {}
 
+    /**
+     * 获得获取对应样式的标识
+     *
+     * @param color 文档中指定的预置颜色值
+     * @param return 返回有效的的颜色值
+     */
+    CodeMagic.getStyle = function (color) {
+        // 没有指定样式，则为默认样式
+        if (color === undefined)
+            return "red";
+        return color;
+    }
+
+    /**
+     * 初始化
+     */
     CodeMagic.init = function () {
         $("code").each(function () {
             let codeText = $(this).text(),
                 result = null;
 
-            // 彩虹双标签格式
-            if ((result = codeText.match(ColorTagGroup.syntax)) != null) {
-                ColorTagGroup.build($(this), result);
+            // 药丸标签格式
+            if ((result = codeText.match(RainbowGroupTag.syntax)) != null) {
+                RainbowGroupTag.build($(this), result);
             }
             // 彩虹单标签格式
-            else if ((result = codeText.match(ColorTag.syntax)) != null) {
-                ColorTag.build($(this), result);
+            else if ((result = codeText.match(RainbowTag.syntax)) != null) {
+                RainbowTag.build($(this), result);
             }
             // 文字注音格式
             else if ((result = codeText.match(TextPhonetic.syntax)) != null) {
@@ -7644,12 +7670,16 @@
             else if ((result = codeText.match(BlackCurtain.syntax)) != null) {
                 BlackCurtain.build($(this), result);
             }
+            // 彩虹引用
+            else if ((result = codeText.match(RainbowQuote.syntax)) != null) {
+                RainbowQuote.build($(this), result);
+            }
             // 普通代码增加样式标识，以用于深色模式时的识别
             else
                 $(this).addClass("mdx-std-code");
 
-            result = codeText.match(BlackCurtain.syntax);
-            console.log(result, codeText);
+            // result = codeText.match(BlackCurtain.syntax);
+            // console.error(result, codeText);
             // 因为在新标签中打开的内容已无未解析的含语法的原始内容
             // 所以须对已解析后的对象直接进行绑定鼠标事件
             if (VLOOK.doc.newTab === true) {
@@ -7662,11 +7692,11 @@
 
     // ==================== Code Magic：彩虹单标签模块 ==================== //
 
-    function ColorTag() {}
+    function RainbowTag() {}
 
-    // 语法：#tag#(style)
-    ColorTag.syntax = /^#(.+)#(\((red|orange|yellow|green|cyan|blue|purple|pink|brown|gray)\))?$/i;
-    ColorTag.styles = ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "pink", "brown", "gray"];
+    // 语法：#tag#(color)
+    RainbowTag.syntax = /^\#(.+)\#(\((red|orange|yellow|green|cyan|blue|purple|pink|brown|gray)\))?$/i;
+    // RainbowTag.colors = ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "pink", "brown", "gray"];
 
     /**
      * 构建单标签样式
@@ -7674,62 +7704,66 @@
      * @param target 目标 code 对象
      * @param result code 内容与语法正则表达式匹配后的结果数组
      */
-    ColorTag.build = function (target, result) {
-        // console.log(result[0], result);
+    RainbowTag.build = function (target, result) {
+        // console.error(result[0], result[3]);
         let tag = result[1],
-            type = ColorTag.getStyle(result[2]); // 获得标签分类代码
+            color = CodeMagic.getStyle(result[3]);
 
         // 过滤语法内容
         target.text(tag);
-        // console.log("tag type", type);
-        target.attr("class", "mdx-tag-" + type);
+        // console.error("tag type", type);
+        target.attr("class", "mdx-tag-" + color);
     }
 
-    /**
-     * 获得代码块内容中指定样式编号
-     *
-     * @param style 目标 code 的内容
-     * @param return 样式编号：1-6
-     */
-    ColorTag.getStyle = function (style) {
-        // 没有指定样式，则为默认样式
-        if (style === undefined)
-            return "red";
-        // 指定样式
-        let sName = style.substring(1, style.length - 1);
-        if ((ColorTag.styles.indexOf(sName)) > -1)
-            return sName;
+    // ==================== Code Magic：药丸标签模块 ==================== //
 
-        return "red";
-    }
+    function RainbowGroupTag() {}
 
-    // ==================== Code Magic：彩虹双标签模块 ==================== //
-
-    function ColorTagGroup() {}
-
-    // 语法：#tag1|tag2#(style)
-    ColorTagGroup.syntax = /^#(.+)\|(.+)#(\((red|orange|yellow|green|cyan|blue|purple|pink|brown|gray)\))?$/i;
+    // 语法：#tag1|tag2#(color)
+    RainbowGroupTag.syntax = /^\#(.+)\|(.+)\#(\((red|orange|yellow|green|cyan|blue|purple|pink|brown|gray)\))?$/i;
 
     /**
-     * 构建双标签样式
+     * 构建药丸标签样式
      *
      * @param target 目标 code 对象
      * @param result code 内容与语法正则表达式匹配后的结果数组
      */
-    ColorTagGroup.build = function (target, result) {
-        // console.log(result[0], result);
-        let type = ColorTag.getStyle(result[3]),
+    RainbowGroupTag.build = function (target, result) {
+        // console.error(result[0], result[4]);
+        let color = CodeMagic.getStyle(result[4]),
             tag1 = result[1],
             tag2 = result[2];
 
         // 增加外容器
         target.wrap("<div style='display: inline; white-space: pre;'></div>");
         // 左标签
-        target.before("<code class='mdx-tag-name-" + type + "'>"
+        target.before("<code class='mdx-tag-name-" + color + "'>"
             + tag1 + "</code>");
         // 右标签
         target.text(tag2);
-        target.attr("class", "mdx-tag-value-" + type);
+        target.attr("class", "mdx-tag-value-" + color);
+    }
+
+    // ==================== Code Magic：彩虹引用模块 ==================== //
+
+    function RainbowQuote() {}
+
+    // 语法：>(color)
+    RainbowQuote.syntax = /^\>\((red|orange|yellow|green|cyan|blue|purple|pink|brown|gray)\)$/i;
+
+    /**
+     * 构建彩虹引用样式
+     *
+     * @param target 目标 code 对象
+     * @param result code 内容与语法正则表达式匹配后的结果数组
+     */
+    RainbowQuote.build = function (target, result) {
+        let quote = target.parent().parent(),
+            color = CodeMagic.getStyle(result[1]);
+        if (quote.prop("tagName").toLowerCase() === "blockquote") {
+            target.remove();
+            quote.addClass("mdx-quote-" + color);
+        }
     }
 
     // ==================== Code Magic：文本注音模块 ==================== //
@@ -7740,13 +7774,12 @@
     TextPhonetic.syntax = /^\{(.+)\}\((.+)\)$/i;
 
     TextPhonetic.build = function (target, result) {
-        // console.log(result[0], result);
         let text = result[1],
             symbol = result[2];
         target.after("<ruby>" + text
             + "<rp>(</rp><rt>" + symbol + "</rt><rp>)&nbsp;</rp></ruby>");
         target.remove();
-        // console.log(text + "(" + symbol + ")");
+        // console.error(text + "(" + symbol + ")");
     }
 
     // ==================== Code Magic：黑幕模块 ==================== //

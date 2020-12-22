@@ -52,7 +52,7 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
 **************************************/
 :root {
   --vlook-theme-name: "vlook-joint";
-  --vlook-theme-version: "V9.31-dev3";
+  --vlook-theme-version: "V9.31-dev5";
   --vlook-default-font-style: sans;
   --vlook-color-scheme: "light";
   --vlook-toc-box-width: 350px;
@@ -68,6 +68,8 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
   --doc-bg-color-alt-transparent-light: rgba(230, 230, 230, 0);
   --fore-color-light: #181A1E;
   --fore-color-alt-light: #737c8f;
+  --blockquote-color-light: rgba(24, 26, 30, 0.2);
+  --blockquote-bg-light: rgba(24, 26, 30, 0.08);
   --tips-bg-color-light: #E0E4E8;
   --tips-bg-color-inset-light: #181A1E;
   --shadow-color-light: rgba(0, 0, 0, 0.1);
@@ -89,24 +91,34 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
   --code-name-shadow-color-light: #181A1E;
   --accent-color-red-light: #CE2743;
   --accent-color-red-alt-light: #eda1ae;
+  --accent-color-red-fade-light: rgba(206, 39, 67, 0.25);
   --accent-color-orange-light: #E68D09;
   --accent-color-orange-alt-light: #fcd9a6;
+  --accent-color-orange-fade-light: rgba(230, 141, 9, 0.25);
   --accent-color-yellow-light: #E9CB0C;
   --accent-color-yellow-alt-light: #fbf0ad;
+  --accent-color-yellow-fade-light: rgba(233, 203, 12, 0.25);
   --accent-color-green-light: #53B422;
   --accent-color-green-alt-light: #b7ec9c;
+  --accent-color-green-fade-light: rgba(83, 180, 34, 0.25);
   --accent-color-cyan-light: #1DB3C3;
   --accent-color-cyan-alt-light: #a1e9f1;
+  --accent-color-cyan-fade-light: rgba(29, 179, 195, 0.25);
   --accent-color-blue-light: #0989EB;
   --accent-color-blue-alt-light: #abd9fc;
+  --accent-color-blue-fade-light: rgba(9, 137, 235, 0.25);
   --accent-color-purple-light: #5739D0;
   --accent-color-purple-alt-light: #d1c9f2;
-  --accent-color-magenta-light: #DB43B2;
-  --accent-color-magenta-alt-light: #f8d9ef;
+  --accent-color-purple-fade-light: rgba(87, 57, 208, 0.25);
+  --accent-color-pink-light: #DB43B2;
+  --accent-color-pink-alt-light: #f8d9ef;
+  --accent-color-pink-fade-light: rgba(219, 67, 178, 0.25);
   --accent-color-brown-light: #A6774E;
   --accent-color-brown-alt-light: #e3d2c3;
+  --accent-color-brown-fade-light: rgba(166, 119, 78, 0.25);
   --accent-color-gray-light: #636569;
   --accent-color-gray-alt-light: #bdbfc1;
+  --accent-color-gray-fade-light: rgba(99, 101, 105, 0.25);
   --mermaid-accent-color-red-light: #CE2743;
   --mermaid-accent-color-red-alt-light: #eda1ae;
   --mermaid-accent-color-orange-light: #E68D09;
@@ -121,8 +133,8 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
   --mermaid-accent-color-blue-alt-light: #abd9fc;
   --mermaid-accent-color-purple-light: #5739D0;
   --mermaid-accent-color-purple-alt-light: #d1c9f2;
-  --mermaid-accent-color-magenta-light: #DB43B2;
-  --mermaid-accent-color-magenta-alt-light: #f8d9ef;
+  --mermaid-accent-color-pink-light: #DB43B2;
+  --mermaid-accent-color-pink-alt-light: #f8d9ef;
   --mermaid-accent-color-brown-light: #A6774E;
   --mermaid-accent-color-brown-alt-light: #e3d2c3;
   --mermaid-accent-color-gray-light: #636569;
@@ -156,6 +168,8 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
   --doc-bg-color-alt-transparent-dark: rgba(58, 63, 73, 0);
   --fore-color-dark: #E0E4E8;
   --fore-color-alt-dark: #8898a7;
+  --blockquote-color-dark: rgba(224, 228, 232, 0.2);
+  --blockquote-bg-dark: rgba(224, 228, 232, 0.1);
   --tips-bg-color-dark: #3a3f49;
   --tips-bg-color-inset-dark: #E0E4E8;
   --shadow-color-dark: rgba(255, 255, 255, 0.1);
@@ -177,24 +191,34 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
   --code-name-shadow-color-dark: #737c8f;
   --accent-color-red-dark: #781727;
   --accent-color-red-alt-dark: #dd4b64;
+  --accent-color-red-fade-dark: rgba(206, 39, 67, 0.35);
   --accent-color-yellow-dark: #574c05;
   --accent-color-yellow-alt-dark: #f6df4c;
+  --accent-color-yellow-fade-dark: rgba(233, 203, 12, 0.35);
   --accent-color-orange-dark: #845105;
   --accent-color-orange-alt-dark: #f8af44;
+  --accent-color-orange-fade-dark: rgba(230, 141, 9, 0.35);
   --accent-color-green-dark: #2b5e12;
   --accent-color-green-alt-dark: #79dc46;
+  --accent-color-green-fade-dark: rgba(83, 180, 34, 0.35);
   --accent-color-cyan-dark: #10616a;
   --accent-color-cyan-alt-dark: #49d5e4;
+  --accent-color-cyan-fade-dark: rgba(29, 179, 195, 0.35);
   --accent-color-blue-dark: #055089;
   --accent-color-blue-alt-dark: #48acf8;
+  --accent-color-blue-fade-dark: rgba(9, 137, 235, 0.35);
   --accent-color-purple-dark: #331f84;
   --accent-color-purple-alt-dark: #8b77df;
-  --accent-color-magenta-dark: #9a1e79;
-  --accent-color-magenta-alt-dark: #e783cc;
+  --accent-color-purple-fade-dark: rgba(87, 57, 208, 0.35);
+  --accent-color-pink-dark: #9a1e79;
+  --accent-color-pink-alt-dark: #e783cc;
+  --accent-color-pink-fade-dark: rgba(219, 67, 178, 0.35);
   --accent-color-brown-dark: #61452d;
   --accent-color-brown-alt-dark: #c29e7e;
+  --accent-color-brown-fade-dark: rgba(166, 119, 78, 0.35);
   --accent-color-gray-dark: #323335;
   --accent-color-gray-alt-dark: #898b90;
+  --accent-color-gray-fade-dark: rgba(99, 101, 105, 0.35);
   --mermaid-accent-color-red-dark: #dd4b64;
   --mermaid-accent-color-red-alt-dark: #781727;
   --mermaid-accent-color-orange-dark: #f8af44;
@@ -209,8 +233,8 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
   --mermaid-accent-color-blue-alt-dark: #055089;
   --mermaid-accent-color-purple-dark: #8b77df;
   --mermaid-accent-color-purple-alt-dark: #331f84;
-  --mermaid-accent-color-magenta-dark: #e783cc;
-  --mermaid-accent-color-magenta-alt-dark: #9a1e79;
+  --mermaid-accent-color-pink-dark: #e783cc;
+  --mermaid-accent-color-pink-alt-dark: #9a1e79;
   --mermaid-accent-color-brown-dark: #c29e7e;
   --mermaid-accent-color-brown-alt-dark: #61452d;
   --mermaid-accent-color-gray-dark: #898b90;
@@ -244,6 +268,8 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
   --doc-bg-color-alt-transparent: var(--doc-bg-color-alt-transparent-light);
   --fore-color: var(--fore-color-light);
   --fore-color-alt: var(--fore-color-alt-light);
+  --blockquote-color: var(--blockquote-color-light);
+  --blockquote-bg: var(--blockquote-bg-light);
   --tips-bg-color: var(--tips-bg-color-light);
   --tips-bg-color-inset: var(--tips-bg-color-inset-light);
   --shadow-color: var(--shadow-color-light);
@@ -265,24 +291,34 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
   --code-name-shadow-color: var(--code-name-bg-color);
   --accent-color-red: var(--accent-color-red-light);
   --accent-color-red-alt: var(--accent-color-red-alt-light);
+  --accent-color-red-fade: var(--accent-color-red-fade-light);
   --accent-color-orange: var(--accent-color-orange-light);
   --accent-color-orange-alt: var(--accent-color-orange-alt-light);
+  --accent-color-orange-fade: var(--accent-color-orange-fade-light);
   --accent-color-yellow: var(--accent-color-yellow-light);
   --accent-color-yellow-alt: var(--accent-color-yellow-alt-light);
+  --accent-color-yellow-fade: var(--accent-color-yellow-fade-light);
   --accent-color-green: var(--accent-color-green-light);
   --accent-color-green-alt: var(--accent-color-green-alt-light);
+  --accent-color-green-fade: var(--accent-color-green-fade-light);
   --accent-color-cyan: var(--accent-color-cyan-light);
   --accent-color-cyan-alt: var(--accent-color-cyan-alt-light);
+  --accent-color-cyan-fade: var(--accent-color-cyan-fade-light);
   --accent-color-blue: var(--accent-color-blue-light);
   --accent-color-blue-alt: var(--accent-color-blue-alt-light);
+  --accent-color-blue-fade: var(--accent-color-blue-fade-light);
   --accent-color-purple: var(--accent-color-purple-light);
   --accent-color-purple-alt: var(--accent-color-purple-alt-light);
-  --accent-color-magenta: var(--accent-color-magenta-light);
-  --accent-color-magenta-alt: var(--accent-color-magenta-alt-light);
+  --accent-color-purple-fade: var(--accent-color-purple-fade-light);
+  --accent-color-pink: var(--accent-color-pink-light);
+  --accent-color-pink-alt: var(--accent-color-pink-alt-light);
+  --accent-color-pink-fade: var(--accent-color-pink-fade-light);
   --accent-color-brown: var(--accent-color-brown-light);
   --accent-color-brown-alt: var(--accent-color-brown-alt-light);
+  --accent-color-brown-fade: var(--accent-color-brown-fade-light);
   --accent-color-gray: var(--accent-color-gray-light);
   --accent-color-gray-alt: var(--accent-color-gray-alt-light);
+  --accent-color-gray-fade: var(--accent-color-gray-fade-light);
   --mermaid-accent-color-red: var(--mermaid-accent-color-red-light);
   --mermaid-accent-color-red-alt: var(--mermaid-accent-color-red-alt-light);
   --mermaid-accent-color-orange: var(--mermaid-accent-color-orange-light);
@@ -297,8 +333,8 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
   --mermaid-accent-color-blue-alt: var(--mermaid-accent-color-blue-alt-light);
   --mermaid-accent-color-purple: var(--mermaid-accent-color-purple-light);
   --mermaid-accent-color-purple-alt: var(--mermaid-accent-color-purple-alt-light);
-  --mermaid-accent-color-magenta: var(--mermaid-accent-color-magenta-light);
-  --mermaid-accent-color-magenta-alt: var(--mermaid-accent-color-magenta-alt-light);
+  --mermaid-accent-color-pink: var(--mermaid-accent-color-pink-light);
+  --mermaid-accent-color-pink-alt: var(--mermaid-accent-color-pink-alt-light);
   --mermaid-accent-color-brown: var(--mermaid-accent-color-brown-light);
   --mermaid-accent-color-brown-alt: var(--mermaid-accent-color-brown-alt-light);
   --mermaid-accent-color-gray: var(--mermaid-accent-color-gray-light);
@@ -406,14 +442,44 @@ a {
   margin-left: 0.1em;
   margin-right: 0.1em;
 }
+a[href*="vlinkstyle=none"] {
+  border-bottom: none;
+}
+kbd a {
+  color: var(--doc-bg-color) !important;
+  border-bottom: none;
+}
+a kbd {
+  color: #302D20 !important;
+  background-color: #FACE3C !important;
+  margin-left: -0.1em;
+  margin-right: -0.1em;
+}
 a:hover {
   color: #6767E6 !important;
   box-shadow: 0 -0.3em 0 0 rgba(103, 103, 230, 0.3) inset;
   border-bottom: 2px solid rgba(103, 103, 230, 0.3);
 }
+a[href*="vlinkstyle=none"]:hover,
+kbd a:hover {
+  color: #6767E6 !important;
+  box-shadow: none;
+  border-bottom: none;
+}
+a kbd:hover {
+  color: #FFFFFF !important;
+  background-color: #6767E6 !important;
+}
 a:active {
   color: #8282cb !important;
   border-color: #8282cb;
+}
+a[href*="vlinkstyle=none"]:active,
+kbd a:active {
+  border: none;
+}
+a kbd:active {
+  background-color: #8282cb !important;
 }
 a:not([name^="ref-footnote"]):hover::before {
   content: "URL";
@@ -427,6 +493,7 @@ a:not([name^="ref-footnote"]):hover::before {
   font-weight: 900;
   background-color: #6767E6;
   position: absolute;
+  z-index: 99999;
 }
 table th a:not([name^="ref-footnote"]):hover::before,
 table td a:not([name^="ref-footnote"]):hover::before {
@@ -687,40 +754,14 @@ ul > li > ul > li {
 ul > li > ul > li > ul > li {
   list-style-type: circle;
 }
-ul > li > ul > li > ul > li > ul > li {
-  list-style-type: none;
-}
-ul > li > ul > li > ul > li > ul > li::before {
-  content: "⚑";
-  top: -2px;
-  left: -1em;
-  position: absolute;
-}
-ul > li > ul > li > ul > li > ul > li > ul > li {
-  list-style-type: none;
-}
-ul > li > ul > li > ul > li > ul > li > ul > li::before {
-  content: "⚐";
-  top: -2px;
-  left: -1em;
-  position: absolute;
-}
-ul > li > ul > li > ul > li > ul > li > ul > li > ul > li {
-  list-style-type: none;
-}
-ul > li > ul > li > ul > li > ul > li > ul > li > ul > li::before {
-  content: "-";
-  top: -2px;
-  left: -1em;
-  position: absolute;
-}
 blockquote {
-  border-left: 5px solid rgba(99, 101, 105, 0.5);
-  padding: 0.5em;
+  border-radius: var(--vlook-base-radius);
+  width: fit-content;
+  padding: 0.5em 1em;
   margin-top: 0;
   margin-bottom: 1em;
   color: var(--fore-color);
-  background-color: rgba(99, 101, 105, 0.08);
+  background-color: var(--blockquote-bg);
 }
 blockquote > p {
   margin-bottom: 0;
@@ -730,9 +771,9 @@ blockquote > ol {
   margin-top: 0;
 }
 blockquote > blockquote {
-  border-left: 10px solid rgba(99, 101, 105, 0.2);
+  border-left: 5px solid rgba(99, 101, 105, 0.2);
   background: none;
-  border-top-left-radius: 0;
+  border-radius: 0;
 }
 blockquote > strong {
   color: inherit !important;
@@ -794,7 +835,7 @@ table tr > td {
   padding: 5px;
   vertical-align: top;
 }
-table tr > th:first-child,
+table tr > th,
 table tr > td:first-child {
   white-space: pre !important;
 }
@@ -825,12 +866,19 @@ table tr > td:last-child {
 .mdx-table-column-format-number-negative {
   color: #00B000;
 }
+.mdx-table-column-format-number-decimal {
+  font-size: 0.8em;
+}
 .mdx-table-column-format-currency {
   float: left;
   font-size: 0.9em;
   padding-right: 10px;
   color: var(--fore-color-alt);
   font-weight: normal;
+}
+.mdx-table-column-format-percent {
+  opacity: 0.6;
+  font-size: 0.8em;
 }
 .mdx-table-rowfolding-folder {
   text-align: left !important;
@@ -2976,6 +3024,46 @@ use.mdx-folder2-ico:active {
   display: none;
   z-index: 1000;
 }
+.mdx-quote-red {
+  background-color: var(--accent-color-red-fade);
+  width: auto;
+}
+.mdx-quote-orange {
+  background-color: var(--accent-color-orange-fade);
+  width: auto;
+}
+.mdx-quote-yellow {
+  background-color: var(--accent-color-yellow-fade);
+  width: auto;
+}
+.mdx-quote-green {
+  background-color: var(--accent-color-green-fade);
+  width: auto;
+}
+.mdx-quote-cyan {
+  background-color: var(--accent-color-cyan-fade);
+  width: auto;
+}
+.mdx-quote-blue {
+  background-color: var(--accent-color-blue-fade);
+  width: auto;
+}
+.mdx-quote-purple {
+  background-color: var(--accent-color-purple-fade);
+  width: auto;
+}
+.mdx-quote-pink {
+  background-color: var(--accent-color-pink-fade);
+  width: auto;
+}
+.mdx-quote-brown {
+  background-color: var(--accent-color-brown-fade);
+  width: auto;
+}
+.mdx-quote-gray {
+  background-color: var(--accent-color-gray-fade);
+  width: auto;
+}
 .mdx-tag-red,
 .mdx-tag-orange,
 .mdx-tag-yellow,
@@ -2983,7 +3071,7 @@ use.mdx-folder2-ico:active {
 .mdx-tag-cyan,
 .mdx-tag-blue,
 .mdx-tag-purple,
-.mdx-tag-magenta,
+.mdx-tag-pink,
 .mdx-tag-brown,
 .mdx-tag-gray {
   font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
@@ -3023,9 +3111,9 @@ use.mdx-folder2-ico:active {
   background-color: var(--accent-color-purple);
   box-shadow: 0 0 0 1px var(--accent-color-purple-light) inset;
 }
-.mdx-tag-magenta {
-  background-color: var(--accent-color-magenta);
-  box-shadow: 0 0 0 1px var(--accent-color-magenta-light) inset;
+.mdx-tag-pink {
+  background-color: var(--accent-color-pink);
+  box-shadow: 0 0 0 1px var(--accent-color-pink-light) inset;
 }
 .mdx-tag-brown {
   background-color: var(--accent-color-brown);
@@ -3042,7 +3130,7 @@ use.mdx-folder2-ico:active {
 .mdx-tag-name-cyan,
 .mdx-tag-name-blue,
 .mdx-tag-name-purple,
-.mdx-tag-name-magenta,
+.mdx-tag-name-pink,
 .mdx-tag-name-brown,
 .mdx-tag-name-gray {
   font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
@@ -3062,7 +3150,7 @@ use.mdx-folder2-ico:active {
 .mdx-tag-value-cyan,
 .mdx-tag-value-blue,
 .mdx-tag-value-purple,
-.mdx-tag-value-magenta,
+.mdx-tag-value-pink,
 .mdx-tag-value-brown,
 .mdx-tag-value-gray {
   font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
@@ -3125,12 +3213,12 @@ use.mdx-folder2-ico:active {
 .mdx-tag-value-purple {
   color: var(--accent-color-purple-alt);
 }
-.mdx-tag-name-magenta {
-  background-color: var(--accent-color-magenta);
-  box-shadow: 0 0 0 1px var(--accent-color-magenta-light) inset;
+.mdx-tag-name-pink {
+  background-color: var(--accent-color-pink);
+  box-shadow: 0 0 0 1px var(--accent-color-pink-light) inset;
 }
-.mdx-tag-value-magenta {
-  color: var(--accent-color-magenta-alt);
+.mdx-tag-value-pink {
+  color: var(--accent-color-pink-alt);
 }
 .mdx-tag-name-brown {
   background-color: var(--accent-color-brown);
@@ -3225,7 +3313,7 @@ h6 code {
 #write > h6:first-of-type .mdx-tag-cyan,
 #write > h6:first-of-type .mdx-tag-blue,
 #write > h6:first-of-type .mdx-tag-purple,
-#write > h6:first-of-type .mdx-tag-magenta #write > h6:first-of-type .mdx-tag-brown,
+#write > h6:first-of-type .mdx-tag-pink #write > h6:first-of-type .mdx-tag-brown,
 #write > h6:first-of-type .mdx-tag-gray,
 #write > h6:first-of-type .mdx-tag-name-red,
 #write > h6:first-of-type .mdx-tag-name-orange,
@@ -3234,7 +3322,7 @@ h6 code {
 #write > h6:first-of-type .mdx-tag-name-cyan,
 #write > h6:first-of-type .mdx-tag-name-blue,
 #write > h6:first-of-type .mdx-tag-name-purple,
-#write > h6:first-of-type .mdx-tag-name-magenta,
+#write > h6:first-of-type .mdx-tag-name-pink,
 #write > h6:first-of-type .mdx-tag-name-brown,
 #write > h6:first-of-type .mdx-tag-name-gray,
 #write > h6:first-of-type .mdx-tag-value-red,
@@ -3244,7 +3332,7 @@ h6 code {
 #write > h6:first-of-type .mdx-tag-value-cyan,
 #write > h6:first-of-type .mdx-tag-value-blue,
 #write > h6:first-of-type .mdx-tag-value-purple,
-#write > h6:first-of-type .mdx-tag-value-magenta,
+#write > h6:first-of-type .mdx-tag-value-pink,
 #write > h6:first-of-type .mdx-tag-value-brown,
 #write > h6:first-of-type .mdx-tag-value-gray {
   font-size: 0.5em !important;
@@ -3423,6 +3511,8 @@ h6 code {
     --doc-bg-color-alt-transparent: var(--doc-bg-color-alt-transparent-dark);
     --fore-color: var(--fore-color-dark);
     --fore-color-alt: var(--fore-color-alt-dark);
+    --blockquote-color: var(--blockquote-color-dark);
+    --blockquote-bg: var(--blockquote-bg-dark);
     --tips-bg-color: var(--tips-bg-color-dark);
     --tips-bg-color-inset: var(--tips-bg-color-inset-dark);
     --shadow-color: var(--shadow-color-dark);
@@ -3444,24 +3534,34 @@ h6 code {
     --code-name-shadow-color: var(--code-name-shadow-color-dark);
     --accent-color-red: var(--accent-color-red-dark);
     --accent-color-red-alt: var(--accent-color-red-alt-dark);
+    --accent-color-red-fade: var(--accent-color-red-fade-dark);
     --accent-color-orange: var(--accent-color-orange-dark);
     --accent-color-orange-alt: var(--accent-color-orange-alt-dark);
+    --accent-color-orange-fade: var(--accent-color-orange-fade-dark);
     --accent-color-yellow: var(--accent-color-yellow-dark);
     --accent-color-yellow-alt: var(--accent-color-yellow-alt-dark);
+    --accent-color-yellow-fade: var(--accent-color-yellow-fade-dark);
     --accent-color-green: var(--accent-color-green-dark);
     --accent-color-green-alt: var(--accent-color-green-alt-dark);
+    --accent-color-green-fade: var(--accent-color-green-fade-dark);
     --accent-color-cyan: var(--accent-color-cyan-dark);
     --accent-color-cyan-alt: var(--accent-color-cyan-alt-dark);
+    --accent-color-cyan-fade: var(--accent-color-cyan-fade-dark);
     --accent-color-blue: var(--accent-color-blue-dark);
     --accent-color-blue-alt: var(--accent-color-blue-alt-dark);
+    --accent-color-blue-fade: var(--accent-color-blue-fade-dark);
     --accent-color-purple: var(--accent-color-purple-dark);
     --accent-color-purple-alt: var(--accent-color-purple-alt-dark);
-    --accent-color-magenta: var(--accent-color-magenta-dark);
-    --accent-color-magenta-alt: var(--accent-color-magenta-alt-dark);
+    --accent-color-purple-fade: var(--accent-color-purple-fade-dark);
+    --accent-color-pink: var(--accent-color-pink-dark);
+    --accent-color-pink-alt: var(--accent-color-pink-alt-dark);
+    --accent-color-pink-fade: var(--accent-color-pink-fade-dark);
     --accent-color-brown: var(--accent-color-brown-dark);
     --accent-color-brown-alt: var(--accent-color-brown-alt-dark);
+    --accent-color-brown-fade: var(--accent-color-brown-fade-dark);
     --accent-color-gray: var(--accent-color-gray-dark);
     --accent-color-gray-alt: var(--accent-color-gray-alt-dark);
+    --accent-color-gray-fade: var(--accent-color-gray-fade-dark);
     --mermaid-accent-color-red: var(--mermaid-accent-color-red-dark);
     --mermaid-accent-color-red-alt: var(--mermaid-accent-color-red-alt-dark);
     --mermaid-accent-color-orange: var(--mermaid-accent-color-orange-dark);
@@ -3476,8 +3576,8 @@ h6 code {
     --mermaid-accent-color-blue-alt: var(--mermaid-accent-color-blue-alt-dark);
     --mermaid-accent-color-purple: var(--mermaid-accent-color-purple-dark);
     --mermaid-accent-color-purple-alt: var(--mermaid-accent-color-purple-alt-dark);
-    --mermaid-accent-color-magenta: var(--mermaid-accent-color-magenta-dark);
-    --mermaid-accent-color-magenta-alt: var(--mermaid-accent-color-magenta-alt-dark);
+    --mermaid-accent-color-pink: var(--mermaid-accent-color-pink-dark);
+    --mermaid-accent-color-pink-alt: var(--mermaid-accent-color-pink-alt-dark);
     --mermaid-accent-color-brown: var(--mermaid-accent-color-brown-dark);
     --mermaid-accent-color-brown-alt: var(--mermaid-accent-color-brown-alt-dark);
     --mermaid-accent-color-gray: var(--mermaid-accent-color-gray-dark);

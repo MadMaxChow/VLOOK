@@ -57,7 +57,7 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
 
 :root {
     --vlook-theme-name: @themeName; // 主题名称
-    --vlook-theme-version: "V9.31-dev3"; // 主题适配 VLOOK.JS 的版本
+    --vlook-theme-version: "V9.31-dev5"; // 主题版本，对应适配 VLOOK.JS 的版本
     --vlook-default-font-style: @defaultFontStyle; // 默认字体风格
     --vlook-color-scheme: "light"; // 默认颜色模式为：Light 明亮
 
@@ -110,24 +110,34 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --code-name-shadow-color-light: @foreColorLight;
     --accent-color-red-light: @accentColorRed;
     --accent-color-red-alt-light: @accentColorRedAlt;
+    --accent-color-red-fade-light: fade(@accentColorRed, 25%);
     --accent-color-orange-light: @accentColorOrange;
     --accent-color-orange-alt-light: @accentColorOrangeAlt;
+    --accent-color-orange-fade-light: fade(@accentColorOrange, 25%);
     --accent-color-yellow-light: @accentColorYellow;
     --accent-color-yellow-alt-light: @accentColorYellowAlt;
+    --accent-color-yellow-fade-light: fade(@accentColorYellow, 25%);
     --accent-color-green-light: @accentColorGreen;
     --accent-color-green-alt-light: @accentColorGreenAlt;
+    --accent-color-green-fade-light: fade(@accentColorGreen, 25%);
     --accent-color-cyan-light: @accentColorCyan;
     --accent-color-cyan-alt-light: @accentColorCyanAlt;
+    --accent-color-cyan-fade-light: fade(@accentColorCyan, 25%);
     --accent-color-blue-light: @accentColorBlue;
     --accent-color-blue-alt-light: @accentColorBlueAlt;
+    --accent-color-blue-fade-light: fade(@accentColorBlue, 25%);
     --accent-color-purple-light: @accentColorPurple;
     --accent-color-purple-alt-light: @accentColorPurpleAlt;
-    --accent-color-pink-light: @accentColorpink;
-    --accent-color-pink-alt-light: @accentColorpinkAlt;
+    --accent-color-purple-fade-light: fade(@accentColorPurple, 25%);
+    --accent-color-pink-light: @accentColorPink;
+    --accent-color-pink-alt-light: @accentColorPinkAlt;
+    --accent-color-pink-fade-light: fade(@accentColorPink, 25%);
     --accent-color-brown-light: @accentColorBrown;
     --accent-color-brown-alt-light: @accentColorBrownAlt;
+    --accent-color-brown-fade-light: fade(@accentColorBrown, 25%);
     --accent-color-gray-light: @accentColorGray;
     --accent-color-gray-alt-light: @accentColorGrayAlt;
+    --accent-color-gray-fade-light: fade(@accentColorGray, 25%);
     --mermaid-accent-color-red-light: @accentColorRed;
     --mermaid-accent-color-red-alt-light: @accentColorRedAlt;
     --mermaid-accent-color-orange-light: @accentColorOrange;
@@ -142,8 +152,8 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --mermaid-accent-color-blue-alt-light: @accentColorBlueAlt;
     --mermaid-accent-color-purple-light: @accentColorPurple;
     --mermaid-accent-color-purple-alt-light: @accentColorPurpleAlt;
-    --mermaid-accent-color-pink-light: @accentColorpink;
-    --mermaid-accent-color-pink-alt-light: @accentColorpinkAlt;
+    --mermaid-accent-color-pink-light: @accentColorPink;
+    --mermaid-accent-color-pink-alt-light: @accentColorPinkAlt;
     --mermaid-accent-color-brown-light: @accentColorBrown;
     --mermaid-accent-color-brown-alt-light: @accentColorBrownAlt;
     --mermaid-accent-color-gray-light: @accentColorGray;
@@ -210,24 +220,34 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --code-name-shadow-color-dark: @foreColorLightAlt;
     --accent-color-red-dark: @accentColorRedDark;
     --accent-color-red-alt-dark: @accentColorRedAltDark;
+    --accent-color-red-fade-dark: fade(@accentColorRed, 35%);
     --accent-color-yellow-dark: @accentColorYellowDark;
     --accent-color-yellow-alt-dark: @accentColorYellowAltDark;
+    --accent-color-yellow-fade-dark: fade(@accentColorYellow, 35%);
     --accent-color-orange-dark: @accentColorOrangeDark;
     --accent-color-orange-alt-dark: @accentColorOrangeAltDark;
+    --accent-color-orange-fade-dark: fade(@accentColorOrange, 35%);
     --accent-color-green-dark: @accentColorGreenDark;
     --accent-color-green-alt-dark: @accentColorGreenAltDark;
+    --accent-color-green-fade-dark: fade(@accentColorGreen, 35%);
     --accent-color-cyan-dark: @accentColorCyanDark;
     --accent-color-cyan-alt-dark: @accentColorCyanAltDark;
+    --accent-color-cyan-fade-dark: fade(@accentColorCyan, 35%);
     --accent-color-blue-dark: @accentColorBlueDark;
     --accent-color-blue-alt-dark: @accentColorBlueAltDark;
+    --accent-color-blue-fade-dark: fade(@accentColorBlue, 35%);
     --accent-color-purple-dark: @accentColorPurpleDark;
     --accent-color-purple-alt-dark: @accentColorPurpleAltDark;
-    --accent-color-pink-dark: @accentColorpinkDark;
-    --accent-color-pink-alt-dark: @accentColorpinkAltDark;
+    --accent-color-purple-fade-dark: fade(@accentColorPurple, 35%);
+    --accent-color-pink-dark: @accentColorPinkDark;
+    --accent-color-pink-alt-dark: @accentColorPinkAltDark;
+    --accent-color-pink-fade-dark: fade(@accentColorPink, 35%);
     --accent-color-brown-dark: @accentColorBrownDark;
     --accent-color-brown-alt-dark: @accentColorBrownAltDark;
+    --accent-color-brown-fade-dark: fade(@accentColorBrown, 35%);
     --accent-color-gray-dark: @accentColorGrayDark;
     --accent-color-gray-alt-dark: @accentColorGrayAltDark;
+    --accent-color-gray-fade-dark: fade(@accentColorGray, 35%);
     --mermaid-accent-color-red-dark: @accentColorRedAltDark;
     --mermaid-accent-color-red-alt-dark: @accentColorRedDark;
     --mermaid-accent-color-orange-dark: @accentColorOrangeAltDark;
@@ -242,8 +262,8 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --mermaid-accent-color-blue-alt-dark: @accentColorBlueDark;
     --mermaid-accent-color-purple-dark: @accentColorPurpleAltDark;
     --mermaid-accent-color-purple-alt-dark: @accentColorPurpleDark;
-    --mermaid-accent-color-pink-dark: @accentColorpinkAltDark;
-    --mermaid-accent-color-pink-alt-dark: @accentColorpinkDark;
+    --mermaid-accent-color-pink-dark: @accentColorPinkAltDark;
+    --mermaid-accent-color-pink-alt-dark: @accentColorPinkDark;
     --mermaid-accent-color-brown-dark: @accentColorBrownAltDark;
     --mermaid-accent-color-brown-alt-dark: @accentColorBrownDark;
     --mermaid-accent-color-gray-dark: @accentColorGrayAltDark;
@@ -309,24 +329,34 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
     --code-name-shadow-color: var(--code-name-bg-color);
     --accent-color-red: var(--accent-color-red-light);
     --accent-color-red-alt: var(--accent-color-red-alt-light);
+    --accent-color-red-fade: var(--accent-color-red-fade-light);
     --accent-color-orange: var(--accent-color-orange-light);
     --accent-color-orange-alt: var(--accent-color-orange-alt-light);
+    --accent-color-orange-fade: var(--accent-color-orange-fade-light);
     --accent-color-yellow: var(--accent-color-yellow-light);
     --accent-color-yellow-alt: var(--accent-color-yellow-alt-light);
+    --accent-color-yellow-fade: var(--accent-color-yellow-fade-light);
     --accent-color-green: var(--accent-color-green-light);
     --accent-color-green-alt: var(--accent-color-green-alt-light);
+    --accent-color-green-fade: var(--accent-color-green-fade-light);
     --accent-color-cyan: var(--accent-color-cyan-light);
     --accent-color-cyan-alt: var(--accent-color-cyan-alt-light);
+    --accent-color-cyan-fade: var(--accent-color-cyan-fade-light);
     --accent-color-blue: var(--accent-color-blue-light);
     --accent-color-blue-alt: var(--accent-color-blue-alt-light);
+    --accent-color-blue-fade: var(--accent-color-blue-fade-light);
     --accent-color-purple: var(--accent-color-purple-light);
     --accent-color-purple-alt: var(--accent-color-purple-alt-light);
+    --accent-color-purple-fade: var(--accent-color-purple-fade-light);
     --accent-color-pink: var(--accent-color-pink-light);
     --accent-color-pink-alt: var(--accent-color-pink-alt-light);
+    --accent-color-pink-fade: var(--accent-color-pink-fade-light);
     --accent-color-brown: var(--accent-color-brown-light);
     --accent-color-brown-alt: var(--accent-color-brown-alt-light);
+    --accent-color-brown-fade: var(--accent-color-brown-fade-light);
     --accent-color-gray: var(--accent-color-gray-light);
     --accent-color-gray-alt: var(--accent-color-gray-alt-light);
+    --accent-color-gray-fade: var(--accent-color-gray-fade-light);
     // --accent-color-gray-alt: var(--accent-color-gray-alt-light);
     --mermaid-accent-color-red: var(--mermaid-accent-color-red-light);
     --mermaid-accent-color-red-alt: var(--mermaid-accent-color-red-alt-light);
@@ -1069,7 +1099,8 @@ table tr > td {
 }
 
 // 表格首列
-table tr > th:first-child,
+// table tr > th:first-child,
+table tr > th,
 table tr > td:first-child {
     // font-family: @boldFont;
     // font-weight: @fontWeight4Serif;
@@ -4429,6 +4460,56 @@ use.mdx-folder2-ico:active {
     // -webkit-backdrop-filter: blur(15px);
 }
 
+.mdx-quote-red {
+    background-color: var(--accent-color-red-fade);
+    width: auto;
+}
+
+.mdx-quote-orange {
+    background-color: var(--accent-color-orange-fade);
+    width: auto;
+}
+
+.mdx-quote-yellow {
+    background-color: var(--accent-color-yellow-fade);
+    width: auto;
+}
+
+.mdx-quote-green {
+    background-color: var(--accent-color-green-fade);
+    width: auto;
+}
+
+.mdx-quote-cyan {
+    background-color: var(--accent-color-cyan-fade);
+    width: auto;
+}
+
+.mdx-quote-blue {
+    background-color: var(--accent-color-blue-fade);
+    width: auto;
+}
+
+.mdx-quote-purple {
+    background-color: var(--accent-color-purple-fade);
+    width: auto;
+}
+
+.mdx-quote-pink {
+    background-color: var(--accent-color-pink-fade);
+    width: auto;
+}
+
+.mdx-quote-brown {
+    background-color: var(--accent-color-brown-fade);
+    width: auto;
+}
+
+.mdx-quote-gray {
+    background-color: var(--accent-color-gray-fade);
+    width: auto;
+}
+
 // 标签式公用样式（风格2）
 .mdx-tag-red,
 .mdx-tag-orange,
@@ -5070,24 +5151,34 @@ h6 code {
         --code-name-shadow-color: var(--code-name-shadow-color-dark);
         --accent-color-red: var(--accent-color-red-dark);
         --accent-color-red-alt: var(--accent-color-red-alt-dark);
+        --accent-color-red-fade: var(--accent-color-red-fade-dark);
         --accent-color-orange: var(--accent-color-orange-dark);
         --accent-color-orange-alt: var(--accent-color-orange-alt-dark);
+        --accent-color-orange-fade: var(--accent-color-orange-fade-dark);
         --accent-color-yellow: var(--accent-color-yellow-dark);
         --accent-color-yellow-alt: var(--accent-color-yellow-alt-dark);
+        --accent-color-yellow-fade: var(--accent-color-yellow-fade-dark);
         --accent-color-green: var(--accent-color-green-dark);
         --accent-color-green-alt: var(--accent-color-green-alt-dark);
+        --accent-color-green-fade: var(--accent-color-green-fade-dark);
         --accent-color-cyan: var(--accent-color-cyan-dark);
         --accent-color-cyan-alt: var(--accent-color-cyan-alt-dark);
+        --accent-color-cyan-fade: var(--accent-color-cyan-fade-dark);
         --accent-color-blue: var(--accent-color-blue-dark);
         --accent-color-blue-alt: var(--accent-color-blue-alt-dark);
+        --accent-color-blue-fade: var(--accent-color-blue-fade-dark);
         --accent-color-purple: var(--accent-color-purple-dark);
         --accent-color-purple-alt: var(--accent-color-purple-alt-dark);
+        --accent-color-purple-fade: var(--accent-color-purple-fade-dark);
         --accent-color-pink: var(--accent-color-pink-dark);
         --accent-color-pink-alt: var(--accent-color-pink-alt-dark);
+        --accent-color-pink-fade: var(--accent-color-pink-fade-dark);
         --accent-color-brown: var(--accent-color-brown-dark);
         --accent-color-brown-alt: var(--accent-color-brown-alt-dark);
+        --accent-color-brown-fade: var(--accent-color-brown-fade-dark);
         --accent-color-gray: var(--accent-color-gray-dark);
         --accent-color-gray-alt: var(--accent-color-gray-alt-dark);
+        --accent-color-gray-fade: var(--accent-color-gray-fade-dark);
         --mermaid-accent-color-red: var(--mermaid-accent-color-red-dark);
         --mermaid-accent-color-red-alt: var(--mermaid-accent-color-red-alt-dark);
         --mermaid-accent-color-orange: var(--mermaid-accent-color-orange-dark);
