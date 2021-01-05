@@ -13,7 +13,7 @@
 
 ---------- 高优先信息 UI 区 -----
 
-工具栏提示、弹窗提示 / .mdx-tool-tips, .mdx-info-tips / z-index: 3000;
+工具栏提示、弹窗提示、字体风格切换 / .mdx-tool-tips, .mdx-info-tips, .mdx-font-styler / z-index: 3000;
 
 ---------- 二级 UI 区 ----------
 
@@ -471,6 +471,7 @@ img[src*="mode=icon"] {
     margin-right: 4px !important;
     height: 20px;
     margin-top: -4px !important;
+    vertical-align: middle;
     border: 0;
     border-radius: 0;
     background: none !important;
@@ -479,6 +480,7 @@ img[src*="mode=icon"] {
 // 图片 URL 参数指定图片的显示模式为：logo
 img[src*="mode=logo"] {
     display: inline !important;
+    vertical-align: middle;
     border: 0;
     border-radius: 0;
     background: none !important;
@@ -2287,8 +2289,8 @@ svg[id^="mermaidChart"] {
 
 // 角色
 .actor {
-    stroke: var(--mermaid-accent-color-blue);
-    fill: var(--mermaid-accent-color-blue-alt);
+    stroke: var(--mermaid-accent-color-blue) !important;
+    fill: var(--mermaid-accent-color-blue-alt) !important;
     font-size: 1em !important;
     stroke-width: 1;
     // rx: 6;
@@ -3344,6 +3346,59 @@ li > p + ul {
     background-color: #ffffff;
 }
 
+// 字体风格选择器
+.mdx-font-styler {
+    width: 630px;
+    // height: 340px;
+    display: none;
+    position: fixed;
+    padding: 10px;
+    text-align: center;
+    border-radius: var(--vlook-base-radius);
+    border: 1px var(--table-border-color) solid;
+    font-family: @subtitleFont;
+    font-weight: normal;
+    color: var(--tips-bg-color-inset);
+    background-color: var(--tips-bg-color);
+    z-index: 3000;
+}
+
+// 字体风格选项：小清新
+.mdx-fontstyle-sans {
+    box-shadow: 0 0 0 1px var(--fore-color-alt);
+    border-radius: var(--vlook-small-radius) !important;
+    // background-color: var(--doc-bg-color) !important;
+    filter: opacity(0.7);
+    cursor: pointer;
+}
+
+// 字体风格选项：文艺范
+.mdx-fontstyle-serif {
+    box-shadow: 0 0 0 1px var(--fore-color-alt);
+    border-radius: var(--vlook-small-radius) !important;
+    // background-color: var(--doc-bg-color) !important;
+    filter: opacity(0.7);
+    cursor: pointer;
+}
+
+// 字体风格选项鼠标事件效果
+.mdx-fontstyle-sans:hover,
+.mdx-fontstyle-serif:hover {
+    filter: opacity(1);
+    box-shadow: 0 0 0 1px @aLineColor;
+}
+.mdx-fontstyle-sans:active,
+.mdx-fontstyle-serif:active {
+    box-shadow: 0 0 0 2px @aLineColor;
+}
+
+// 当前选择的字体风格选项
+.mdx-font-styler-current {
+    box-shadow: 0 0 0 2px var(--header-color) !important;
+    filter: opacity(1) !important;
+}
+
+// 长内容扩展面板
 .mdx-content-expander {
     font-family: @subtitleFont;
     font-weight: @fontWeight;

@@ -2420,6 +2420,70 @@ li > p + ul {
   color: #000000;
   background-color: #ffffff;
 }
+
+.mdx-font-styler {
+    width: 630px;
+    /* height: 340px; */
+    display: none;
+  position: fixed;
+  /* margin-left: auto; */
+  padding: 10px;
+  text-align: center;
+  /* white-space: pre-wrap; */
+  border-radius: var(--vlook-base-radius);
+  border: 1px var(--table-border-color) solid;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-weight: normal;
+  color: var(--tips-bg-color-inset);
+  background-color: var(--tips-bg-color);
+  z-index: 3000;
+}
+.mdx-font-styler-info {
+    border-top: 1px solid var(--fore-color-alt);
+    width: 100%;
+    overflow: auto;
+}
+
+.mdx-fontstyle-sans {
+    box-shadow: 0 0 0 1px var(--fore-color-alt);
+    border-radius: var(--vlook-small-radius) !important;
+    filter: opacity(0.7);
+    cursor: pointer;
+}
+
+.mdx-fontstyle-serif {
+    box-shadow: 0 0 0 1px var(--fore-color-alt);
+    border-radius: var(--vlook-small-radius) !important;
+    filter: opacity(0.7);
+    cursor: pointer;
+}
+
+.mdx-fontstyle-sans:hover,
+.mdx-fontstyle-serif:hover {
+    filter: opacity(1);
+    box-shadow: 0 0 0 1px #E60012;
+}
+.mdx-fontstyle-sans:active,
+.mdx-fontstyle-serif:active {
+    box-shadow: 0 0 0 2px #E60012;
+}
+
+.mdx-font-styler-current {
+    box-shadow: 0 0 0 2px var(--header-color) !important;
+    filter: opacity(1) !important;
+}
+
+.mdx-fontinfo-sans,
+.mdx-fontinfo-serif {
+    margin-top: 10px;
+    text-align: left;
+    font-size: 0.9em;
+}
+.mdx-fontinfo-sans #fontset-sans-status,
+.mdx-fontinfo-serif #fontset-serif-status {
+    color: var(--fore-color-alt);
+}
+
 .mdx-content-expander {
   font-family: "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
@@ -3892,6 +3956,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 -->
 <!-- ==================== VLOOK UI ==================== -->
 <div class="mdx-before-write"></div>
+<div class="mdx-font-styler">
+    <div style="float: left; margin-bottom: 30px;">
+        <img class="mdx-fontstyle-sans" src="https://s3.ax1x.com/2021/01/05/sFmn56.png?mode=logo" srcset="https://s3.ax1x.com/2021/01/05/sFmmUx.png 2x,https://s3.ax1x.com/2021/01/05/sFmKPK.png 3x">
+        <div class="mdx-fontinfo-sans"><span class="mdx-font-package">Font Package - </span><span id="fontset-sans-status">Loading... 0%</span></div>
+    </div>
+    <div style="float: right; margin-bottom: 30px;">
+        <img class="mdx-fontstyle-serif" src="https://s3.ax1x.com/2021/01/05/sFmQ2D.png?mode=logo" srcset="https://s3.ax1x.com/2021/01/05/sFmlxe.png 2x,https://s3.ax1x.com/2021/01/05/sFm3KH.png 3x">
+        <div class="mdx-fontinfo-serif"><span class="mdx-font-package">Font Package - </span><span id="fontset-serif-status">Loading... 0%</span></div>
+    </div>
+    <div class="mdx-font-styler-info">若无法连接互联网加载在线版本字体，建议将字体直接下载到本地（去官网了解）</div>
+</div>
 <style type='text/css'>
     :root { --vlook-color: #FFFFFF; }
     @keyframes breathe-vlook { 0% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
