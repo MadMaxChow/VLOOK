@@ -4,7 +4,7 @@
 
 ![OSChina 编辑推荐国产开源产品](https://s1.ax1x.com/2020/04/14/GzmlB8.png)
 
-[VLOOK™](https://github.com/MadMaxChow/VLOOK) 是针对由 [Typora](https://www.typora.io)[^Typora]（目前最好的跨平台 Markdown 编辑器，没有之一）导出的 HTML 文件进行增强的插件。
+[VLOOK™](https://github.com/MadMaxChow/VLOOK) 是针对由 [Typora](https://www.typora.io)（目前最好的跨平台 Markdown 编辑器，没有之一）导出的 HTML 文件进行增强的插件。
 
 VLOOK™ 也许是目前最好的 Markdown 增强插件之一，也是**开源中国（[OSChina.net](https://www.oschina.net/p/vlook)）推荐的国产开源产品。**
 
