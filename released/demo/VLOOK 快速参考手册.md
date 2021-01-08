@@ -922,7 +922,7 @@ participant Client as 系统角色
 participant Server as **重要的<br />系统角色
 participant Extend as --外部的<br />系统角色
 
-par 平行消息
+par 这组为平行消息
 	User ->> Client: 平行发送消息1
 and
 	User ->> Client: 平行发送消息2
@@ -939,14 +939,14 @@ end
 Note left of Extend: 显示在外部系统<br />左侧备注说明
 Note right of Extend: 显示在外部系统<br />右侧备注说明
 Note over Client,Server: 跨对象备注说明
-loop 循环
+loop 这组为循环
 	Client ->>+ Extend: 发送消息A
-	alt 抉择1
+	alt 这组为抉择1
 		Server -->> Client: 同步返回消息A1
-	else 抉择2
+	else 这组为抉择2
 		Server --X Client: 异步返回消息A2
 	end
-	opt 可选
+	opt 这组为可选
 		Extend -->>- Server: 发送消息X
 	end
 end
@@ -1232,13 +1232,13 @@ void quickSort(int arr[], int left, int right) {
 >
 > 整体视觉为「**清新、简约、明快**」，主要采用无衬线的免费或开源的东亚和拉丁字体。
 >
-> ![字体风格_小清新](https://s3.ax1x.com/2021/01/05/sFuFB9.png?invert=dark&srcset=sFuk7R.png@2x,sFuEA1.png@3x "2x 3x 高分屏自适应高清图片")
+> ![字体风格_小清新](https://s3.ax1x.com/2021/01/05/skBoA1.png?invert=dark&srcset=skBTtx.png@2x,skB7h6.png@3x "2x 3x 高分屏自适应高清图片")
 
 > **文•艺•范**
 >
 > 整体视觉为「**优雅、韵动、个性**」，主要采用衬线、无衬线的免费或开源的东亚和拉丁字体，多种字重进行**混搭组合**。
 >
-> ![字体风格_文艺范](https://s3.ax1x.com/2021/01/05/sFup1U.png?invert=dark&srcset=sFu9cF.png@2x,sFuCX4.png@3x "2x 3x 高分屏自适应高清图片")
+> ![字体风格_文艺范](https://s3.ax1x.com/2021/01/05/skBLcD.png?invert=dark&srcset=skBjnH.png@2x,skBOje.png@3x "2x 3x 高分屏自适应高清图片")
 
 `#注意#`<br />**因为 Windows / MacOS 系统默认不预装字体主题配套的字体包，VLOOK™ 目前可同时支持在线和本地两种使用方式。**
 **若你的工作环境无法访问互联网，建议直接下载字体包并安装到本地，以获得最佳的视觉体验。**
@@ -1584,7 +1584,7 @@ $\lim_{x \to \infty} \exp{-x}=0$
 
 > `#Tips#(green)` 如果你的图片在 Dark 模式下显得不够和谐，可以尝试选择让[图片在 Dark 模式时反色](#图片在 Dark 模式时反色)。
 
-![Light / Dark 效果预览](https://s1.ax1x.com/2020/05/08/YueXpq.png?srcset=reGqZ4.png@2x)
+![Light / Dark 效果预览](https://s3.ax1x.com/2021/01/05/skBxHA.png?srcset=skDSAI.png@2x)
 
 ---
 

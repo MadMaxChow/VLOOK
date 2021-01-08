@@ -26,7 +26,7 @@
 ---------- UI 间隔区 ----------
 
 遮罩 / .mdx-mask / z-index: 1000;
-mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
+Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 ？？ / .CodeMirror div.CodeMirror-cursor / z-index: 3;
 
 ---------- 增强工具操作区 ----------
@@ -1896,144 +1896,8 @@ h6.md-focus::before {
 * 脚本化画表 CSS
 **************************************/
 
-/* ----- flow diagram 流程图 ----- */
-
-// // 开始节点
-// rect[id^="st"].flowchart {
-//   fill: @foreColorLight;
-//   stroke: @foreColorLight;
-//   stroke-width: 5;
-// }
-
-// rect[id^="st"].flowchart + text > tspan {
-//   fill: @docBgColorLight;
-// }
-
-// // 结束节点
-// rect[id^="e"].flowchart {
-//   fill: none;
-//   stroke: var(--fore-color);
-//   stroke-width: 5;
-// }
-
-// // 操作节点
-// rect[id^="op"].flowchart {
-//   fill: @accentColorBlueAlt;
-//   stroke: @accentColorBlue;
-//   stroke-width: 1;
-// }
-
-// // 子流程节点
-// rect[id^="sub"],
-// rect[id^="sub"].flowchart {
-//   fill: @accentColorBlueAlt;
-//   stroke: @accentColorBlue;
-//   stroke-width: 2;
-// }
-
-// // 条件节点
-// path[id^="c"].flowchart {
-//   fill: @accentColorRedAlt;
-//   stroke: @accentColorRed;
-//   stroke-width: 1;
-// }
-
-// // I/O节点
-// path[id^="io"].flowchart {
-//   fill: @accentColorGreenAlt;
-//   stroke: @accentColorGreen;
-//   stroke-width: 1;
-// }
-
-// // 流程线
-// path[fill="none"][stroke-width="3"][marker-end^="url(#raphael-marker-endblock"] {
-//   stroke: @foreColorLight;
-//   stroke-width: 2px;
-// }
-
-// // 流程线箭头
-// marker[id^="raphael-marker-endblock"] > use {
-//   fill: @foreColorLight;
-// }
-
-// // 文本
-// text[text-anchor="start"] > tspan {
-//   font-size: 14px;
-//   font-family: @textFont;
-//   fill: @boldColorLight;
-// }
-
-// /* ----- sequeuce diagram 时序图 ----- */
-
-// // 标题
-// rect[x="10"][y="10"][fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][rx="0"][ry="0"] {
-//   fill: @docBgColorLight;
-//   stroke: @foreColorLightAlt;
-//   stroke-width: 2px;
-// }
-
-// // 矩形
-// rect[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][rx="0"][ry="0"] {
-//   fill: @accentColorBlueAlt;
-//   stroke: @accentColorBlue;
-//   stroke-width: 1px;
-// }
-
-// // 生命线
-// path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"] {
-//   // fill: none;
-//   stroke: @accentColorBlueFade;
-//   stroke-width: 1px;
-//   // stroke-dasharray: 5;
-// }
-
-// // 消息实线+实箭头
-// path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endblock"] {
-//   // fill: none;
-//   stroke: @foreColorLight;
-//   stroke-width: 2px;
-//   stroke-dasharray: none;
-// }
-
-// // 消息虚线+实箭头
-// path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endblock"][stroke-dasharray="6,2"] {
-//   stroke-dasharray: 5;
-// }
-
-// // 消息实线+虚箭头
-// path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endopen"] {
-//   // fill: none;
-//   stroke: @foreColorLight;
-//   stroke-width: 2px;
-//   stroke-dasharray: none;
-// }
-
-// // 消息虚线+虚箭头
-// path[fill="var(--bg-color)"][stroke="currentColor"][stroke-width="2"][marker-end^="url(#raphael-marker-endopen"][stroke-dasharray="6,2"] {
-//   stroke-dasharray: 5;
-// }
-
-// // 消息虚箭头
-// marker[id^="raphael-marker-endopen"] > use {
-//   stroke: @foreColorLight;
-// }
-
-// // 消息文本
-// rect + text[text-anchor="middle"] > tspan {
-//   font-size: 14px;
-//   font-family: @textFont;
-//   fill: @foreColorLight;
-// }
-
-// // 实体、注释文本
-// rect + rect + text[text-anchor="middle"] > tspan {
-//   font-size: 14px;
-//   font-family: @textFont;
-//   fill: @boldColorLight;
-// }
-
 /**************************************
-* mermaid CSS
+* Mermaid CSS
 **************************************/
 
 // ** 注意 **
@@ -2043,146 +1907,88 @@ h6.md-focus::before {
 
 // 标题、图例文本
 .pieTitleText {
-    fill: var(--fore-color);
-    font-family: @boldFont;
-    font-weight: @fontWeight4Serif;
-    font-size: 1.5em;
+    fill: var(--fore-color) !important;
+    font-family: @boldFont !important;
+    font-weight: @fontWeight4Serif !important;
+    font-size: 1.5em !important;
 }
 .legend text {
-    fill: var(--fore-color);
-    font-family: @boldFont;
-    font-weight: @fontWeight4Serif;
+    fill: var(--fore-color) !important;
+    font-family: @boldFont !important;
+    font-weight: @fontWeight4Serif !important;
 }
 
 .slice {
-    font-family: @boldFont;
-    font-weight: @fontWeight4Serif;
-    // fill: var(--fore-color);
+    font-family: @boldFont !important;
+    font-weight: @fontWeight4Serif !important;
 }
 
 /* ----- flow diagram 流程图 ----- */
 
-// 标签
-// .mermaid .label,
-// .mdx-figure .label {
-//     color: var(--fore-color);
-//     // fill: @foreColorLightAlt;
-// }
 .mermaid .label div,
 .mdx-figure .label div {
-    font-size: 0.8em !important;
+    font-size: 0.9em !important;
     // font-family: @boldFont;
 }
 
 svg[id^="mermaidChart"] {
-    color: var(--fore-color);
+    color: var(--fore-color) !important;
 }
 
 // 矩形（方角/圆角/圆形/菱形/旗形）
 .label div {
-    color: var(--fore-color);
-    font-family: @boldFont;
-    font-weight: normal;
+    color: var(--fore-color) !important;
+    font-family: @boldFont !important;
+    font-weight: normal !important;
 }
 
 // 方角矩形
 .node rect[rx="0"][ry="0"] {
     fill: var(--mermaid-accent-color-blue-alt) !important;
     stroke: var(--mermaid-accent-color-blue) !important;
-    stroke-width: 5;
+    stroke-width: 5px !important;
 }
-
-// 方角矩形文字
-// .node rect[rx="0"][ry="0"]+.label div {
-//     color: var(--fore-color);
-//     font-family: @boldFont;
-// }
 
 // 圆角矩形
 .node rect[rx="5"][ry="5"] {
     fill: var(--mermaid-accent-color-blue-alt) !important;
     stroke: var(--mermaid-accent-color-blue) !important;
-    stroke-width: 1;
+    stroke-width: 1px !important;
 }
-
-// .node rect[rx="5"][ry="5"] {
-//     rx: 6 !important;
-//     ry: 6 !important;
-// }
-
-// 圆角矩形文字（默认圆角矩形、调整后的状态机图圆角矩形）
-// .node rect[rx="5"][ry="5"]+.label div,
-// .node rect[rx="15"][ry="15"]+.label div {
-//     color: var(--fore-color);
-//     font-family: @boldFont;
-// }
 
 // 圆形
 .node circle {
-    fill: var(--doc-bg-color);
-    stroke: var(--mermaid-accent-color-green);
-    stroke-width: 2;
+    fill: var(--doc-bg-color) !important;
+    stroke: var(--mermaid-accent-color-green) !important;
+    stroke-width: 2px !important;
 }
-
-// 圆形文字
-// .node circle+.label div {
-//     color: var(--fore-color);
-//     font-family: @boldFont;
-// }
-
-// ？
-// .node ellipse {
-//     color: var(--fore-color);
-//     fill: var(--fore-color-alt);
-//     stroke: var(--fore-color);
-//     stroke-width: 10;
-// }
-
-// 菱形
-// polygon {
-//     fill: var(--doc-bg-color) !important;
-//     stroke: none !important;
-// }
 
 // 自定义：条件、分支的菱形
-// .node[id^="cond"] polygon,
-// .node[id^="fork"] polygon,
 .node polygon {
-    fill: var(--mermaid-accent-color-red-alt);
-    stroke: var(--mermaid-accent-color-red);
-    stroke-width: 1;
+    fill: var(--mermaid-accent-color-red-alt) !important;
+    stroke: var(--mermaid-accent-color-red) !important;
+    stroke-width: 1px !important;
 }
 
-// 菱形文字
-// .node[id^="cond"] polygon+.label div,
-// .node[id^="fork"] polygon+.label div {
-//     color: var(--fore-color);
-//     font-family: @boldFont;
-// }
-
 // 自定义：分页的旗形
-.node[id^="page"] polygon {
-    fill: var(--doc-bg-color);
-    stroke: var(--mermaid-accent-color-green);
-    stroke-width: 2;
+.node[id^="page"] polygon,
+.node[id^="flowchart-page"] polygon {
+    fill: var(--doc-bg-color) !important;
+    stroke: var(--mermaid-accent-color-green) !important;
+    stroke-width: 2px !important;
 }
 
 // 自定义：状态机图的菱形
-.node[id^="trans"] polygon {
-    fill: var(--fore-color);
-    stroke-width: 0;
+.node[id^="trans"] polygon,
+.node[id^="flowchart-trans"] polygon {
+    fill: var(--fore-color) !important;
+    stroke-width: 0 !important;
 }
-
-// 不对称形状/旗形文字
-// .node[id^="page"] polygon+.label div {
-//     color: var(--fore-color);
-//     font-family: @boldFont;
-// }
 
 // 线条
 .edgePath .path {
-    stroke: var(--fore-color);
-    stroke-width: 2;
+    stroke: var(--fore-color) !important;
+    stroke-width: 2px;
 }
 
 // 线条箭头
@@ -2193,96 +1999,88 @@ svg[id^="mermaidChart"] {
 // 线条文本
 .edgeLabel .label span,
 .edgeLabel {
-    color: var(--fore-color);
-    background-color: var(--doc-bg-color);
-    // font-family: @boldFont;
-    // font-size: 0.8em;
-    // font-weight: @fontWeight;
-    line-height: 1em;
+    color: var(--fore-color) !important;
+    fill: var(--doc-bg-color) !important;
+    line-height: 1em !important;
 }
 
 // 线条文本背景
 .edgeLabel div,
 .edgeLabel .label rect {
-    background-color: var(--doc-bg-color);
+    fill: var(--doc-bg-color) !important;
 }
 
 // 子图
 .cluster rect {
     fill: var(--doc-bg-color-alt) !important;
     stroke: var(--fore-color) !important;
-    stroke-width: 1 !important;
-    stroke-dasharray: 3;
-    // rx: 15 !important;
-    // ry: 15 !important;
+    stroke-width: 1px !important;
+    stroke-dasharray: 3px !important;
 }
 
 // 子图文本
 .cluster text {
-    color: var(--fore-color);
-    fill: var(--fore-color);
-    font-family: @boldFont;
-    font-weight: normal;
+    color: var(--fore-color) !important;
+    fill: var(--fore-color) !important;
+    font-family: @boldFont !important;
+    font-weight: normal !important;
 }
 
 // 自定义：流程图「开始」样式
-#START rect {
+#START rect,
+g[id^=flowchart-START] rect {
     fill: var(--fore-color) !important;
     stroke: var(--fore-color) !important;
-    stroke-width: 5 !important;
-    // rx: 15 !important;
-    // ry: 15 !important;
+    stroke-width: 5px !important;
 }
 
-#START rect+.label div {
+#START rect+.label div,
+g[id^=flowchart-START] rect+.label div {
     color: var(--doc-bg-color) !important;
-    // font-family: @boldFont;
+    font-weight: @fontWeight !important;
 }
 
 // 自定义：流程图「结束」节点样式
-#END rect {
+#END rect,
+g[id^=flowchart-END] rect {
     color: var(--fore-color) !important;
     fill: var(--doc-bg-color) !important;
     stroke: var(--fore-color) !important;
-    stroke-width: 5 !important;
-    // rx: 15;
-    // ry: 15;
+    stroke-width: 5px !important;
 }
 
-#END rect+.label div {
-    // color: var(--fore-color);
-    // font-family: @boldFont;
+#END rect+.label div,
+g[id^=flowchart-END] rect+.label div {
+    font-weight: @fontWeight !important;
 }
 
 // 自定义：状态机图「初始」状态样式
-#INIT circle {
+#INIT circle,
+g[id^=flowchart-INIT] circle {
     fill: var(--fore-color) !important;
     stroke: var(--fore-color) !important;
     stroke-width: 0 !important;
 }
 
-#INIT .label div {
-    // color: var(--doc-bg-color);
+#INIT .label div,
+g[id^=flowchart-INIT] .label div {
     color: var(--fore-color) !important;
-    // font-family: @boldFont;
 }
 
 // 与「初始」状态同级的所有矩形节点
-#INIT ~ g > rect {
+#INIT ~ g > rect,
+g[id^=flowchart-INIT] ~ g > rect {
     fill: var(--mermaid-accent-color-purple-alt) !important;
     stroke: var(--mermaid-accent-color-purple) !important;
-    stroke-width: 3;
-    // font-family: @boldFont;
-    // rx: 15 !important;
-    // ry: 15 !important;
-    // border-radius: 15px !important;
+    stroke-width: 3px !important;
 }
 
 // 自定义：状态机图「最终」状态节点样式
-#FINAL circle {
+#FINAL circle,
+g[id^=flowchart-FINAL] circle {
     fill: none !important;
     stroke: var(--fore-color) !important;
-    stroke-width: 5 !important;
+    stroke-width: 5px !important;
 }
 
 /* ----- sequeuce diagram 时序图 ----- */
@@ -2292,77 +2090,73 @@ svg[id^="mermaidChart"] {
     stroke: var(--mermaid-accent-color-blue) !important;
     fill: var(--mermaid-accent-color-blue-alt) !important;
     font-size: 1em !important;
-    stroke-width: 1;
-    // rx: 6;
-    // ry: 6;
+    stroke-width: 1px !important;
 }
 
 // 人物角色
 .mdx-actor-person {
-    fill: var(--doc-bg-color-alt);
-    // stroke-width: 2 !important;
+    fill: var(--doc-bg-color-alt) !important;
     stroke: var(--fore-color-alt) !important;
-  }
+}
 
 // 重要系统角色
 .mdx-actor-key-sys {
-    stroke-width: 3 !important;
-    font-weight: @fontWeight4Serif;
+    stroke-width: 3px !important;
+    font-weight: @fontWeight4Serif !important;
 }
 
 // 外部系统角色
 .mdx-actor-ext-sys {
-    stroke-dasharray: 5 2 !important;
-    font-style: italic;
+    stroke-dasharray: 5px, 2px !important;
+    font-style: italic !important;
 }
 
 // 角色文本
-text.actor {
-    fill: var(--fore-color);
-    stroke: none;
-    font-size: 0.85em !important;
-    font-family: @boldFont;
-    font-weight: normal;
+text.actor,
+text.actor > tspan {
+    fill: var(--fore-color) !important;
+    stroke: none !important;
+    font-size: 0.9em !important;
+    font-family: @boldFont !important;
+    // font-weight: normal !important;
 }
 
 // 角色生命线
 .actor-line {
-    stroke: var(--mermaid-accent-color-blue);
-    stroke-width: 1;
+    stroke: var(--mermaid-accent-color-blue) !important;
+    stroke-width: 1px !important;
 }
-
-// .actor-line-person {
-//     stroke: var(--mermaid-accent-color-red);
-// }
 
 // 消息序号
 .sequenceNumber {
-    fill: var(--doc-bg-color);
-    font-weight: @fontWeight;
+    fill: var(--doc-bg-color) !important;
+    font-weight: @fontWeight !important;
 }
 // 消息序号背景
 #sequencenumber {
-    fill: var(--fore-color);
+    fill: var(--fore-color) !important;
 }
 
 // 实线消息
 .messageLine0 {
-    stroke-width: 2;
-    stroke: var(--fore-color);
+    stroke-width: 2px !important;
+    stroke: var(--fore-color) !important;
 }
 
 // 实线箭头
-#arrowhead {
-    fill: var(--fore-color);
+#arrowhead,
+#arrowhead path {
+    fill: var(--fore-color) !important;
 }
 
 // 虚线消息
 .messageLine1 {
-    stroke-width: 2;
-    stroke: var(--fore-color);
+    stroke-width: 2px !important;
+    stroke: var(--fore-color) !important;
 }
 
 // 异步消息箭头
+#crosshead,
 #crosshead path {
     fill: var(--fore-color-alt) !important;
     stroke: var(--fore-color) !important;
@@ -2370,14 +2164,12 @@ text.actor {
 
 // 消息文本
 .messageText {
-    fill: var(--fore-color);
-    stroke: none;
-    // font-family: @textFont;
-    font-size: 0.85em !important;
+    fill: var(--fore-color) !important;
+    stroke: none !important;
+    font-size: 0.9em !important;
     font-family: @boldFont !important;
-    font-weight: normal;
-    // font-weight: @fontWeight;
-    line-height: 2em;
+    font-weight: normal !important;
+    line-height: 2em !important;
 }
 
 .activation0,
@@ -2389,65 +2181,50 @@ text.actor {
 
 // 片断的类型标签背景
 .labelBox {
-    stroke: none;
-    fill: var(--mermaid-accent-color-purple-alt);
+    stroke: none !important;
+    fill: var(--mermaid-accent-color-purple-alt) !important;
 }
 
 // 角标
-// .labelText {
-//     fill: var(--mermaid-accent-color-red);
-//     stroke: none;
-//     // font-family: @boldFont;
-// }
-// 片断的类型标签文本
-.labelText tspan {
-    fill: var(--mermaid-accent-color-purple);
-    font-size: 0.8em !important;
-    font-family: @boldFont;
-    font-weight: @fontWeight4Serif;
+// 片断的标题文本
+// .labelText tspan,
+.labelBox+.labelText {
+    fill: var(--mermaid-accent-color-purple) !important;
+    font-size: 0.9em !important;
+    font-family: @boldFont !important;
+    font-weight: @fontWeight4Serif !important;
 }
 
 // 片断的类型标签文本
-// .loopText {
-//     fill: var(--mermaid-accent-color-red);
-//     stroke: none;
-//     font-family: @boldFont;
-//     font-size: 1em;
-// }
 .loopText tspan {
-    fill: var(--mermaid-accent-color-purple);
-    font-size: 0.85em !important;
-    font-family: @boldFont;
-    font-weight: normal;
+    fill: var(--mermaid-accent-color-purple) !important;
+    font-size: 0.9em !important;
+    font-family: @boldFont !important;
+    font-weight: normal !important;
+    // text-anchor: start !important;
 }
 
 // 片断的线框
 .loopLine {
-    stroke-width: 1;
-    // stroke-dasharray: 3;
-    stroke: var(--mermaid-accent-color-purple-alt);
+    stroke-width: 2px !important;
+    stroke-dasharray: 3px, 3px !important;
+    stroke: var(--mermaid-accent-color-purple-alt) !important;
 }
 
 // 备注背景
 .note {
-    stroke: var(--mermaid-accent-color-yellow);
-    stroke-dasharray: 5;
-    fill: var(--mermaid-accent-color-yellow-alt);
+    stroke: var(--mermaid-accent-color-yellow) !important;
+    stroke-dasharray: 5px !important;
+    fill: var(--mermaid-accent-color-yellow-alt) !important;
 }
 
 // 备注文本
-// .noteText {
-//     fill: var(--fore-color);
-//     stroke: none;
-//     // font-family: @textFont;
-//     // font-size: 1em;
-// }
 .noteText tspan {
-    fill: var(--fore-color);
-    stroke: none;
-    font-size: 0.85em !important;
-    font-family: @textFont;
-    font-weight: @textFontWeight;
+    fill: var(--fore-color) !important;
+    stroke: none !important;
+    font-size: 0.9em !important;
+    font-family: @textFont !important;
+    font-weight: @textFontWeight !important;
 }
 
 /* ----- state diagram 状态机图 ----- */
@@ -2474,57 +2251,52 @@ g.stateGroup .composit {
 g.stateGroup .state-title,
 g.stateGroup text {
     fill: var(--fore-color) !important;
-    font-family: @boldFont;
-    font-weight: normal;
+    font-family: @boldFont !important;
+    font-weight: normal !important;
     font-size: 0.5em !important;
 }
 
 .stateLabel text {
-    font-size: 0.5em;
+    font-size: 0.5em !important;
 }
 
 g.state-note {
     fill: var(--mermaid-accent-color-gray-alt);
     stroke: var(--mermaid-accent-color-gray);
 }
-// g.state-note text {
-//     fill: var(--fore-color);
-//     // font-family: @boldFont;
-//     font-size: 0.6em;
-// }
 
 /* ----- class diagram 类图 ----- */
 
 g.cardinality text,
 g.classGroup text,
 g.classLabel .label {
-    font-family: @codeFont;
-    font-weight: normal;
-    fill: var(--fore-color);
-    stroke: none;
+    font-family: @codeFont !important;
+    font-weight: normal !important;
+    fill: var(--fore-color) !important;
+    stroke: none !important;
 }
 
 g.classGroup rect {
-  fill: var(--mermaid-accent-color-blue-alt);
-  stroke: var(--mermaid-accent-color-blue);
+  fill: var(--mermaid-accent-color-blue-alt) !important;
+  stroke: var(--mermaid-accent-color-blue) !important;
 }
 
 g.classGroup line {
-  stroke: var(--mermaid-accent-color-blue);
-  stroke-width: 1;
+  stroke: var(--mermaid-accent-color-blue) !important;
+  stroke-width: 1px !important;
 }
 
 g.classLabel .box {
-  stroke: none;
-  stroke-width: 0;
-  fill: var(--mermaid-accent-color-blue-alt);
-  opacity: 0.5;
+  stroke: none !important;
+  stroke-width: 0 !important;
+  fill: var(--mermaid-accent-color-blue-alt) !important;
+  opacity: 0.5 !important;
 }
 
 .relation {
-  stroke: var(--fore-color);
-  stroke-width: 1;
-  fill: none;
+  stroke: var(--fore-color) !important;
+  stroke-width: 1px !important;
+  fill: none !important;
 }
 
 .composition,
@@ -2537,94 +2309,94 @@ g.classLabel .box {
 #dependencyEnd,
 #extensionStart,
 #extensionEnd {
-  fill: var(--fore-color);
-  stroke:  var(--fore-color);
-  stroke-width: 1;
+  fill: var(--fore-color) !important;
+  stroke:  var(--fore-color) !important;
+  stroke-width: 1px !important;
 }
 
 div.mermaidTooltip {
-    position: absolute;
-    text-align: center;
-    max-width: 200px;
-    padding: 2px;
-    background: var(--fore-color-alt);
-    border: 1px solid #d0d0d0;
-    border-radius: 2px;
-    pointer-events: none;
-    z-index: 100;
+    position: absolute !important;
+    text-align: center !important;
+    max-width: 200px !important;
+    padding: 2px !important;
+    background: var(--fore-color-alt) !important;
+    border: 1px solid #d0d0d0 !important;
+    border-radius: 2px !important;
+    pointer-events: none !important;
+    z-index: 100 !important;
 }
 
 /* ----- gantt diagram 甘特图 ----- */
 
 .section {
-    stroke: none;
+    stroke: none !important;
 }
 
 .section0 {
-    fill: var(--fore-color-alt);
+    fill: var(--fore-color-alt) !important;
 }
 
 .section2 {
-    fill: var(--fore-color-alt);
+    fill: var(--fore-color-alt) !important;
 }
 
 .section1,
 .section3 {
-    fill: @foreColorLightFade3;
+    fill: @foreColorLightFade3 !important;
 }
 
 .sectionTitle0,
 .sectionTitle1,
 .sectionTitle2,
 .sectionTitle3 {
-    fill: var(--fore-color);
+    fill: var(--fore-color) !important;
 }
 
 .sectionTitle {
-    text-anchor: start;
-    font-size: 0.8em;
-    line-height: 2em;
+    text-anchor: start !important;
+    font-size: 0.8em !important;
+    line-height: 2em !important;
 }
 
 .grid .tick {
-    stroke: var(--fore-color-alt);
-    shape-rendering: crispEdges;
+    stroke: var(--fore-color-alt) !important;
+    shape-rendering: crispEdges !important;
 }
 
 .grid path {
-    stroke-width: 0;
+    stroke-width: 0 !important;
 }
 
 .today {
     fill: none;
-    stroke: var(--mermaid-accent-color-red);
-    stroke-width: 3px;
+    stroke: var(--mermaid-accent-color-red) !important;
+    stroke-width: 3px !important;
 }
 
 .task {
-    stroke-width: 2;
+    stroke-width: 2px !important;
 }
 
 .taskText {
-    text-anchor: middle;
-    font-size: 0.8em;
-    line-height: 2em;
-    font-family: @boldFont;
-    font-weight: normal;
+    text-anchor: middle !important;
+    font-size: 0.8em !important;
+    line-height: 2em !important;
+    font-family: @boldFont !important;
+    font-weight: normal !important;
 }
 
 .taskTextOutsideRight {
-    fill: var(--fore-color);
-    font-family: @boldFont;
-    font-weight: normal;
-    text-anchor: start;
+    fill: var(--fore-color) !important;
+    font-family: @boldFont !important;
+    font-weight: normal !important;
+    text-anchor: start !important;
 }
 
 .taskTextOutsideLeft {
-    fill: var(--fore-color);
-    font-family: @boldFont;
-    font-weight: normal;
-    text-anchor: end;
+    fill: var(--fore-color) !important;
+    font-family: @boldFont !important;
+    font-weight: normal !important;
+    text-anchor: end !important;
 }
 
 /* 当前的任务 */
@@ -2633,8 +2405,8 @@ div.mermaidTooltip {
 .active1,
 .active2,
 .active3 {
-    fill: var(--mermaid-accent-color-blue-alt);
-    stroke: var(--mermaid-accent-color-blue);
+    fill: var(--mermaid-accent-color-blue-alt) !important;
+    stroke: var(--mermaid-accent-color-blue) !important;
 }
 
 .activeText0,
@@ -2650,10 +2422,10 @@ div.mermaidTooltip {
 .done1,
 .done2,
 .done3 {
-    stroke: none;
-    fill: var(--mermaid-accent-color-blue-alt);
-    stroke-width: 2;
-    stroke-dasharray: 2;
+    stroke: none !important;
+    fill: var(--mermaid-accent-color-blue-alt) !important;
+    stroke-width: 2px !important;
+    stroke-dasharray: 2px !important;
 }
 
 /* 未来的任务 */
@@ -2662,26 +2434,26 @@ div.mermaidTooltip {
 .task1,
 .task2,
 .task3 {
-    fill: var(--doc-bg-color);
-    stroke: var(--mermaid-accent-color-blue);
-    stroke-dasharray: 2;
+    fill: var(--doc-bg-color) !important;
+    stroke: var(--mermaid-accent-color-blue) !important;
+    stroke-dasharray: 2px !important;
 }
 
 .taskText0,
 .taskText1,
 .taskText2,
 .taskText3 {
-    fill: var(--fore-color);
+    fill: var(--fore-color) !important;
 }
 
 .taskTextOutside0,
 .taskTextOutside2 {
-    fill: var(--fore-color);
+    fill: var(--fore-color) !important;
 }
 
 .taskTextOutside1,
 .taskTextOutside3 {
-    fill: var(--fore-color);
+    fill: var(--fore-color) !important;
 }
 
 .doneText0,
@@ -2697,9 +2469,9 @@ div.mermaidTooltip {
 .activeCrit1,
 .activeCrit2,
 .activeCrit3 {
-    stroke: var(--mermaid-accent-color-red);
-    fill: var(--mermaid-accent-color-red-alt);
-    stroke-width: 2;
+    stroke: var(--mermaid-accent-color-red) !important;
+    fill: var(--mermaid-accent-color-red-alt) !important;
+    stroke-width: 2px !important;
 }
 
 .activeCritText0,
@@ -2715,11 +2487,11 @@ div.mermaidTooltip {
 .doneCrit1,
 .doneCrit2,
 .doneCrit3 {
-    stroke: none;
-    fill: var(--mermaid-accent-color-red-alt);
-    stroke-width: 2;
-    cursor: pointer;
-    shape-rendering: crispEdges;
+    stroke: none !important;
+    fill: var(--mermaid-accent-color-red-alt) !important;
+    stroke-width: 2px !important;
+    cursor: pointer !important;
+    shape-rendering: crispEdges !important;
 }
 
 /* 未来的关键路径任务 */
@@ -2728,17 +2500,17 @@ div.mermaidTooltip {
 .crit1,
 .crit2,
 .crit3 {
-    stroke: var(--mermaid-accent-color-red);
-    fill: var(--doc-bg-color);
-    stroke-width: 2;
-    stroke-dasharray: 2;
+    stroke: var(--mermaid-accent-color-red) !important;
+    fill: var(--doc-bg-color) !important;
+    stroke-width: 2px !important;
+    stroke-dasharray: 2px !important;
 }
 
 .critText0,
 .critText1,
 .critText2,
 .critText3 {
-    fill: var(--fore-color);
+    fill: var(--fore-color) !important;
 }
 
 .doneCritText0,
@@ -2750,12 +2522,12 @@ div.mermaidTooltip {
 
 /* 标题 */
 .titleText {
-    text-anchor: middle;
-    font-size: 1.5em;
-    line-height: 2em;
-    font-family: @boldFont;
-    font-weight: @fontWeight4Serif;
-    fill: var(--fore-color);
+    text-anchor: middle !important;
+    font-size: 1.5em !important;
+    line-height: 2em !important;
+    font-family: @boldFont !important;
+    font-weight: @fontWeight4Serif !important;
+    fill: var(--fore-color) !important;
 }
 
 /**************************************
@@ -3363,11 +3135,19 @@ li > p + ul {
     z-index: 3000;
 }
 
+// 字体风格选择器字体包下载提示
+.mdx-font-styler-info {
+    // border-top: 1px solid var(--fore-color-alt);
+    width: 100%;
+    overflow: auto;
+    background-color: var(--doc-bg-color);
+    border-radius: var(--vlook-small-radius);
+}
+
 // 字体风格选项：小清新
 .mdx-fontstyle-sans {
     box-shadow: 0 0 0 1px var(--fore-color-alt);
     border-radius: var(--vlook-small-radius) !important;
-    // background-color: var(--doc-bg-color) !important;
     filter: opacity(0.7);
     cursor: pointer;
 }
@@ -3376,7 +3156,6 @@ li > p + ul {
 .mdx-fontstyle-serif {
     box-shadow: 0 0 0 1px var(--fore-color-alt);
     border-radius: var(--vlook-small-radius) !important;
-    // background-color: var(--doc-bg-color) !important;
     filter: opacity(0.7);
     cursor: pointer;
 }
@@ -3396,6 +3175,19 @@ li > p + ul {
 .mdx-font-styler-current {
     box-shadow: 0 0 0 2px var(--header-color) !important;
     filter: opacity(1) !important;
+}
+
+// 字体包信息
+.mdx-fontinfo-sans,
+.mdx-fontinfo-serif {
+    margin-top: 10px;
+    text-align: left;
+    font-size: 0.9em;
+}
+// 字体包加载状态
+.mdx-fontinfo-sans #fontset-sans-status,
+.mdx-fontinfo-serif #fontset-serif-status {
+    color: var(--fore-color-alt);
 }
 
 // 长内容扩展面板

@@ -1,4 +1,4 @@
-    let vlookVersion = "V9.31-dev5";
+    let vlookVersion = "V9.31-dev6";
 
     console.log(":::::::::::::::::::");
     console.log("!!! " + (vlookDevMode === true ? "- DEBUG -" : "RELEASED" ) + " !!!");
@@ -7,7 +7,7 @@
 
     /****************************************
     VLOOK.js - Typora Plugin
-    V9.31-dev5
+    V9.31-dev6
     2020-12-15
     powered by MAX°孟兆
 
@@ -30,7 +30,7 @@
         取值范围：light，dark
 
     fix-mermaid
-        是否启用修正 mermaid 的渲染 bug。默认启用。
+        是否启用修正 Mermaid 的渲染 bug。默认启用。
         取值范围：
         false: 取消修正
 
@@ -354,7 +354,7 @@
             return fullInfo;
         },
 
-        // 打印 mermaid 缩放信息
+        // 打印 Mermaid 缩放信息
         printMermaidDPR : function() {
             let info = "::: Mermaid DPR :::\n";
             info += "    ├ DPR of builder  [ " + RepairTool.mermaidDPR.builder
@@ -367,7 +367,7 @@
         },
 
         /**
-         * 屏幕上显示环境信息、mermaid 信息等
+         * 屏幕上显示环境信息、Mermaid 信息等
          **/
         show : function () {
             let info = env.print() + env.printMermaidDPR();
@@ -399,6 +399,8 @@
     VLOOK.util = {
         /**
          * 获取 URL 中的参数数组
+         *
+         * @param url 完整的 URL 内容
          */
         parseQueryString : function (url) {
             let hash = url.indexOf("#");
@@ -421,8 +423,27 @@
                 }
             }
             return args;
+        },
+
+        /**
+         * 获取 CSS 变量值
+         *
+         * @param varName CSS 变量名
+         */
+        getStyleValue : function (varName) {
+            return getComputedStyle(document.documentElement).getPropertyValue(varName);
+        },
+
+        /**
+         * 设置 CSS 变量值
+         *
+         * @param varName CSS 变量名
+         * @param varValue CSS 变量值
+         */
+        setStyleValue : function (varName, varValue) {
+            document.documentElement.style.setProperty(varName, varValue);
         }
-    }
+    } // 工具
 
     /**
      * 检查文档结构是否符合 VLOOK 规范程度
@@ -761,8 +782,7 @@
         }
         // 若手动切换过字体风格，则恢复为上次设置字体风格
         const style = localStorage["VLOOK-" + VLOOK.version + "-font-style"];
-        iFontStyler.style = getComputedStyle(document.documentElement).getPropertyValue(
-            "--vlook-default-font-style").trim();
+        iFontStyler.style = VLOOK.util.getStyleValue("--vlook-default-font-style").trim();
         if (window.localStorage && style !== undefined) {
             console.info("    └ Last Setting: " + style);
             iFontStyler.apply(style);
@@ -1162,7 +1182,39 @@
                 "Пакет шрифтов",
                 "フォントパッケージ",
                 "글꼴 패키지"
-            ][VLOOK.lang.id] + " - ");
+            ][VLOOK.lang.id] + " ••• ");
+
+            iFontStyler.ui.find(".mdx-font-styler-info").html([
+                "若无法连接互联网加载在线版本字体，建议将字体直接下载到本地",
+                "若無法連接互聯網加載在線版本字體，建議將字體直接下載到本地",
+                "If you cannot connect to the Internet to load the online version of the font, it is recommended to download the font directly to the local",
+                "Si vous ne pouvez pas vous connecter à Internet pour charger la version en ligne de la police, il est recommandé de télécharger la police directement sur le",
+                "Wenn Sie keine Verbindung zum Internet herstellen können, um die Online-Version der Schriftart zu laden, wird empfohlen, die Schriftart direkt auf die lokale Version herunterzuladen",
+                "Si no puede conectarse a Internet para cargar la versión en línea de la fuente, se recomienda descargar la fuente directamente al local.",
+                "Если вы не можете подключиться к Интернету для загрузки онлайн-версии шрифта, рекомендуется загрузить шрифт непосредственно на локальный компьютер.",
+                "インターネットに接続してオンラインバージョンのフォントを読み込めない場合は、フォントをローカルに直接ダウンロードすることをお勧めします。",
+                "온라인 버전의 글꼴을로드하기 위해 인터넷에 연결할 수없는 경우 글꼴을 로컬로 직접 다운로드하는 것이 좋습니다."
+            ][VLOOK.lang.id] + " (<a href='https://github.com/MadMaxChow/VLOOK/blob/master/FONT.md'>" + [
+                "主站",
+                "主站",
+                "Master",
+                "Maître",
+                "Master",
+                "Maestro",
+                "Главный",
+                "マスター",
+                "마스터"
+            ][VLOOK.lang.id] + "</a> | <a href='https://gitee.com/madmaxchow/VLOOK/blob/master/FONT.md'>" + [
+                "备用",
+                "備用",
+                "Standby",
+                "Veille",
+                "Standby",
+                "En espera",
+                "Резервный",
+                "スタンバイ",
+                "대기"
+            ][VLOOK.lang.id] + "</a>)");
 
             iFootNote.buttonSeeAll.children("a").text([
                 "查看所有脚注",
@@ -1639,7 +1691,7 @@
 
                 // 检查所有页内链接对应的锚点是否都存在
                 $("a[href^='#']").each(function () {
-                    var href = $(this).attr("href");
+                    let href = $(this).attr("href");
                     // 忽略空链接，如 href="#"
                     if (href.length > 1) {
                         // 检索是否存在与该内链对应的锚点
@@ -1714,13 +1766,13 @@
                 ColorScheme.apply();
             }
 
-            // 将 mermaid 图表题注 width 等属性临时禁用，并调整为 100%，以适应打印纸张宽度
+            // 将 Mermaid 图表题注 width 等属性临时禁用，并调整为 100%，以适应打印纸张宽度
             $(".mdx-figure-caption-mermaid").each(function () {
                 $(this).attr("before-print-width", $(this).css("width"));
                 $(this).css("width", "100%");
             });
 
-            // 将 mermaid 图表的 width, max-width 等属性临时禁用，并调整为 100%，以适应打印纸张宽度
+            // 将 Mermaid 图表的 width, max-width 等属性临时禁用，并调整为 100%，以适应打印纸张宽度
             $(".mdx-figure-caption-mermaid svg").each(function () {
                 if ($(this).attr("width") === "100%") {
                     // 针对流程图
@@ -1831,8 +1883,7 @@
             // VLOOK 基本信息
             let statData = "?p=vlook"
                 + "&ver=" + VLOOK.version
-                + "&thm=" + getComputedStyle(document.documentElement)
-                    .getPropertyValue("--vlook-theme-name").replaceAll("\"", "").trim();
+                + "&thm=" + VLOOK.util.getStyleValue("--vlook-theme-name").replaceAll("\"", "").trim();
 
             statData += "&d=" + (env.device.mobile ? "mob" : ""); // 设备类型
             statData += "&dpr=" + env.display.DPR; // DPR
@@ -1864,8 +1915,7 @@
                 statData += "others&bv=";
 
             // 浏览器的颜色方案
-            statData += "&cs=" + getComputedStyle(document.documentElement)
-                .getPropertyValue("--vlook-color-scheme").replaceAll("\"", "").trim();
+            statData += "&cs=" + VLOOK.util.getStyleValue("--vlook-color-scheme").replaceAll("\"", "").trim();
 
             statData += "&lang=" + VLOOK.lang.id; // 浏览器语言
             statData += "&size=" + Dom.write().text().length; // 文档大小
@@ -1878,24 +1928,24 @@
             statData += "&img-cap1=" + $("div[id^=fig-num][data-vk-fig-type=img] .mdx-figure-caption-1 strong").length;
             statData += "&img-cap2=" + $("div[id^=fig-num][data-vk-fig-type=img] .mdx-figure-caption-2").length;
 
-            // mermaid 插图数据
+            // Mermaid 插图数据
             let mermaid = $(".md-diagram-panel");
             statData += "&mm=" + mermaid.length;
             statData += "&mm-fold=" + $("div[data-vk-container=svg][data-vk-content-folded=true]").length;
             statData += "&mm-cap1=" + $("div[id^=fig-num][data-vk-fig-type=svg] .mdx-figure-caption-1 strong").length;
             statData += "&mm-cap2=" + $("div[id^=fig-num][data-vk-fig-type=svg] .mdx-figure-caption-2").length;
 
-            // mermaid 音频数据
+            // Mermaid 音频数据
             statData += "&audio=" + $("audio").length;
             statData += "&mm-cap1=" + $("div[id^=audio-num] .mdx-figure-caption-1 strong").length;
             statData += "&mm-cap2=" + $("div[id^=audio-num] .mdx-figure-caption-2").length;
 
-            // mermaid 视频数据
+            // Mermaid 视频数据
             statData += "&video=" + $("video").length;
             statData += "&mm-cap1=" + $("div[id^=video-num] .mdx-figure-caption-1 strong").length;
             statData += "&mm-cap2=" + $("div[id^=video-num] .mdx-figure-caption-2").length;
 
-            // mermaid 图的细类
+            // Mermaid 图的细类
             let pie = 0,
                 flow = 0,
                 flowSTART = 0,
@@ -2377,6 +2427,8 @@
 
         ContentAssist.button.openInNewTab().css("visibility", "visible");
 
+        return 0; // 临时禁用
+
         // 动画式显示
         if (VLOOK.ui.effect >= 2) {
             ContentAssist.button.openInNewTab().velocity("fadeIn", {
@@ -2495,7 +2547,7 @@
             newTab.OINT.append("<h6 style='display:none'></h1>");
             newTab.OINT.append(container);
         }
-        // 内容为mermaid 图表时
+        // 内容为 Mermaid 图表时
         else if (tagName === "svg")
             newTab.OINT.append(content.wrap("<div class='md-diagram-panel'></div>").parent());
         // 内容为：图片、代码块
@@ -2630,8 +2682,7 @@
         this.showed = false; // 是否已显示
 
         // 大纲面板宽度
-        this.width = parseInt(getComputedStyle(document.documentElement)
-            .getPropertyValue("--vlook-toc-box-width"));
+        this.width = parseInt(VLOOK.util.getStyleValue("--vlook-toc-box-width"));
 
         this.foldItems = []; // 非叶子章节集
         this.lastHeaderFolder = undefined; // 上一个非叶子章节
@@ -2694,8 +2745,7 @@
             // 大纲非叶子章节的折叠功能实现
             // 所有大纲节点都添加 folding 空白控件备用
             $("<div id='fd-v-header-" + item.attr("data-ref")
-                + "' class='mdx-folder'>&nbsp;</div>")
-                    .insertBefore(item.find("a"));
+                + "' class='mdx-folder'>&nbsp;</div>").insertBefore(item.find("a"));
 
             // 记录所有非叶子节点的folder控件
             if (this.lastHeaderFolder !== undefined) {
@@ -2930,7 +2980,7 @@
                     });
             }
 
-            let hiddenLeft = getComputedStyle(document.documentElement).getPropertyValue("--vlook-toc-box-hidden-left");
+            let hiddenLeft = VLOOK.util.getStyleValue("--vlook-toc-box-hidden-left");
             // 动画式收起
             if (VLOOK.ui.effect >= 2) {
                 this.ui.velocity({
@@ -3157,7 +3207,7 @@
     /**
      * 构造函数
      *
-     * @param outline 关联的大纲对象
+     * @param outlineNav 关联的大纲对象
      */
     function ChapterNav(outlineNav) {
         let that = this;
@@ -3424,7 +3474,7 @@
          * 上一个段
          *
          * @param step 跳转的步长
-         * @param return 跳转结果，true=成功，false=失败
+         * @return 跳转结果，true=成功，false=失败
          */
         this.prev = function (step) {
             if (this.enabled === false)
@@ -3454,7 +3504,7 @@
          * 下一个段
          *
          * @param step 跳转的步长
-         * @param return 跳转结果，true=成功，false=失败
+         * @return 跳转结果，true=成功，false=失败
          */
         this.next = function (step) {
             if (this.enabled === false)
@@ -3749,7 +3799,7 @@
         stopwatch.lapStart();
         // _lastTimer = new Date().getTime();
 
-        // 对 mermaid 进行颜色方案适配
+        // 对 Mermaid 进行颜色方案适配
         ColorScheme.updateFigure();
 
         const varList = [
@@ -3820,10 +3870,16 @@
             "--mermaid-accent-color-yellow-alt",
             "--mermaid-accent-color-green",
             "--mermaid-accent-color-green-alt",
+            "--mermaid-accent-color-cyan",
+            "--mermaid-accent-color-cyan-alt",
             "--mermaid-accent-color-blue",
             "--mermaid-accent-color-blue-alt",
             "--mermaid-accent-color-purple",
             "--mermaid-accent-color-purple-alt",
+            "--mermaid-accent-color-pink",
+            "--mermaid-accent-color-pink-alt",
+            "--mermaid-accent-color-brown",
+            "--mermaid-accent-color-brown-alt",
             "--mermaid-accent-color-gray",
             "--mermaid-accent-color-gray-alt",
             "--cm-keyword",
@@ -3857,12 +3913,11 @@
         // 生成目标颜色方案值列表
         let schemeVarList = [];
         for (let i = 0, len = varList.length; i < len; i++) {
-            schemeVarList.push(getComputedStyle(document.documentElement).
-                getPropertyValue(varList[i] + "-" + ColorScheme.scheme));
+            schemeVarList.push(VLOOK.util.getStyleValue(varList[i] + "-" + ColorScheme.scheme));
         }
         // 遍历所有变量实现ColorScheme切换
         for (let i = 0, len = varList.length; i < len; i++) {
-            document.documentElement.style.setProperty(varList[i], schemeVarList[i]);
+            VLOOK.util.setStyleValue(varList[i], schemeVarList[i]);
         }
 
         iInfoTips.hide();
@@ -3942,7 +3997,7 @@
             // }
         }
 
-        // 对 mermaid 进行颜色方案适配
+        // 对 Mermaid 进行颜色方案适配
         // adjustColorSchemeForMermaid();
     }
 
@@ -3952,7 +4007,7 @@
      * 构造函数
      *
      * @param ui 选项的 UI
-     * @param font 字体集数组
+     * @param fonts 字体集数组
      */
     function FontStyleOption(ui, fonts) {
         this.ui = ui;
@@ -4163,26 +4218,26 @@
          * 显示字体风格选择器
          */
         this.show = function () {
-            const fontInfo = "<br/>──<br/><span style='font-size: 0.8em'>" + [
-                    "VLOOK 优先显示开源的思源黑体和思源宋体<br/>建议下载安装获得更好的视觉体验",
-                    "VLOOK 優先顯示開源的思源黑體和思源宋體<br/>建議用戶下載安裝獲得更好的視覺體驗",
-                    "VLOOK gives priority to the Noto Sans and Noto Serif<br/>suggesting to download and install for a better visual experience",
-                    "VLOOK donne la priorité à Noto Sans et Noto Serif,<br/>suggérant de télécharger et d'installer pour une meilleure expérience visuelle",
-                    "VLOOK gives priority to the Noto Sans and Noto Serif<br/>suggesting to download and install for a better visual experience",
-                    "VLOOK gives priority to the Noto Sans and Noto Serif<br/>suggesting to download and install for a better visual experience",
-                    "VLOOKUP отдает приоритет Noto Sans и Noto Serif,<br/>предлагая загрузить и установить для лучшего визуального восприятия",
-                    "VLOOK は、Noto SansとNoto Serifを優先し<br/>より良い視覚的経験のためにダウンロードしてインストールすることを提案します",
-                    "VLOOK 은 노토 산 (Noto Sans)과 노토 세리프 (Noto Serif)를<br/>우선시하여 더 나은 시각적 경험을 위해 다운로드하여 설치하도록 제안합니다"
-                ][VLOOK.lang.id] +
-                "</span><br/><a href='https://gitee.com/MadMaxChow/VLOOK/blob/master/FONT.md' target='_blank'>" + [
-                    "下载",
-                    "下載",
-                    "Download",
-                    "Télécharger",
-                    "скачать",
-                    "ダウンロード",
-                    "다운로드"
-                ][VLOOK.lang.id] + "</a>";
+            // const fontInfo = "<br/>──<br/><span style='font-size: 0.8em'>" + [
+            //         "VLOOK 优先显示开源的思源黑体和思源宋体<br/>建议下载安装获得更好的视觉体验",
+            //         "VLOOK 優先顯示開源的思源黑體和思源宋體<br/>建議用戶下載安裝獲得更好的視覺體驗",
+            //         "VLOOK gives priority to the Noto Sans and Noto Serif<br/>suggesting to download and install for a better visual experience",
+            //         "VLOOK donne la priorité à Noto Sans et Noto Serif,<br/>suggérant de télécharger et d'installer pour une meilleure expérience visuelle",
+            //         "VLOOK gives priority to the Noto Sans and Noto Serif<br/>suggesting to download and install for a better visual experience",
+            //         "VLOOK gives priority to the Noto Sans and Noto Serif<br/>suggesting to download and install for a better visual experience",
+            //         "VLOOKUP отдает приоритет Noto Sans и Noto Serif,<br/>предлагая загрузить и установить для лучшего визуального восприятия",
+            //         "VLOOK は、Noto SansとNoto Serifを優先し<br/>より良い視覚的経験のためにダウンロードしてインストールすることを提案します",
+            //         "VLOOK 은 노토 산 (Noto Sans)과 노토 세리프 (Noto Serif)를<br/>우선시하여 더 나은 시각적 경험을 위해 다운로드하여 설치하도록 제안합니다"
+            //     ][VLOOK.lang.id] +
+            //     "</span><br/><a href='https://gitee.com/MadMaxChow/VLOOK/blob/master/FONT.md' target='_blank'>" + [
+            //         "下载",
+            //         "下載",
+            //         "Download",
+            //         "Télécharger",
+            //         "скачать",
+            //         "ダウンロード",
+            //         "다운로드"
+            //     ][VLOOK.lang.id] + "</a>";
 
             // VLOOK.font.isExist("VLOOK Sans", "normal", "normal");
 
@@ -4511,7 +4566,7 @@
         /**
          * 显示遮罩
          */
-        this.show = function (callback) {
+        this.show = function () {
             // 冻结滚动
             VLOOK.doc.scroll.freeze();
 
@@ -4709,7 +4764,7 @@
             // 设置为已折叠
             container.attr("data-vk-content-folded", "true");
 
-            // 表格或 mermaid 图表的特性处理
+            // 表格或 Mermaid 图表的特性处理
             if (tagName === "table" || tagName === "svg") {
                 container.css({
                     "height": this.limit,
@@ -4717,7 +4772,7 @@
                     "overflow-y": "hidden"
                 });
             }
-            // 非表格，非mermaid 图表的处理
+            // 非表格，非 Mermaid 图表的处理
             else {
                 container.css({
                     "height": this.limit,
@@ -4779,7 +4834,7 @@
                 container.css({
                     "height": "auto"
                 });
-                // 针对表格、mermaid 图表增加滚动属性
+                // 针对表格、Mermaid 图表增加滚动属性
                 if (tagName === "svg" || tagName === "table")
                     container.css({
                         "overflow": "auto"
@@ -5204,7 +5259,7 @@
 
         // 为插图（mermaid）增加题注
         if (tagName === "svg")
-            // 针对 mermaid 插图，添加额外的类，用于打印前后处理时直接定位 mermaid 插图的题注
+            // 针对 Mermaid 插图，添加额外的类，用于打印前后处理时直接定位 Mermaid 插图的题注
             target.wrap("<div id='fig-num" + VLOOK.doc.counter.figure + "' data-vk-fig-type='" + tagName
                 + "' class='mdx-figure-caption mdx-figure-caption-mermaid'></div>");
         // 为插图（img）增加题注
@@ -5495,7 +5550,7 @@
             }
             // 默认展开
             else if (target.text().startsWith("[-] ")) {
-                target.css("color", "var(--accent-color-green)");
+                target.css("color", "var(--header-color)");
                 target.html(target.html().replace("[-] ", "<span class='mdx-blockquote-folder'>" + ExtQuote.icoOpened) + "</span>"); // ⊖▽
                 // target.attr("title", [
                 //     "点击收起",
@@ -6271,7 +6326,6 @@
                             // 对 +/- 符号进行处理
                             // ce.html(ce.html().replace(">+", ">▴ ").replace(">-", ">▾ "));
                         }
-
                         // 内容为百分数
                         else if (ce.text().isPercent()) {
                             // 对小数进行处理
@@ -6302,7 +6356,6 @@
                             // 对 +/- 符号进行处理
                             ce.html(ce.html().replace(">+", ">▴ ").replace(">-", ">▾ "));
                         }
-
                         // 内容为货币
                         else if (ce.text().isCurrency()) {
                             // 因 html() 中含有 > 字符，所以替换的内容中须进行 > 的前后拼接调整
@@ -6763,7 +6816,6 @@
      *
      * @param self 自定义的播放控件对象
      * @param audio 音频的 JavaScript 对象
-     * @param pause 是否支持暂停播放模式，值来自于 URL 参数
      */
     ExtAudio.play = function (self, audio) {
         let controls = $(self);
@@ -6908,7 +6960,7 @@
                 srcset = VLOOK.util.parseQueryString(src)["srcset"];
 
             // 针对 html 与 图片同一目录的情况
-            let tmpIndex = src.substring(0, queryIndex).lastIndexOf("/");
+            let tmpIndex = src.substring(0, queryIndex).lastIndexOf("/"),
                 pathIndex = tmpIndex === -1 ? 0 : tmpIndex,
                 path = src.substring(0, pathIndex + 1);
 
@@ -6942,12 +6994,12 @@
             img.attr("srcset", srcset);
         });
 
-        // 针对 mermaid 饼图为双 SVG 结构（标准的 mermaid 是单 SVG 结构），进行规范化调整
+        // 针对 Mermaid 饼图为双 SVG 结构（标准的 Mermaid 是单 SVG 结构），进行规范化调整
         $(".md-diagram-panel > svg > svg > g").each(function () {
             $(this).unwrap();
         });
 
-        // 对所有插图（图片、mermaid 图、插图导航的插图）进行初始化处理
+        // 对所有插图（图片、Mermaid 图、插图导航的插图）进行初始化处理
         $("img, .md-diagram-panel svg, .mdx-figure-content svg").each(function () {
             let fig = $(this),
                 src = fig.attr("src"),
@@ -7117,7 +7169,7 @@
         let target = $("img[data-vk-invert=dark]");
         // 应用 Dark 模式的插图背景
         if (ColorScheme.scheme === "dark") {
-            let css = target.attr("class");
+            // let css = target.attr("class");
             // 针对插图的特殊处理
             // if (css !== undefined && css.indexOf("mdx-figure") > -1) {
             target.removeClass("mdx-figure-bg-dark");
@@ -7249,13 +7301,14 @@
         this.hide = function () {
             // 动画式显示
             if (VLOOK.ui.effect >= 2) {
+                let that = this;
                 this.ui.velocity({
                     top: this.ui.css("height")
                 }, {
                     duration: VLOOK.animate.speed,
                     complete : function () {
-                        this.content.empty();
-                        this.ui.hide();
+                        that.content.empty();
+                        that.ui.hide();
                     }
                 });
             } else {
@@ -7466,7 +7519,7 @@
     }
 
     /**
-     * 调整默认的 mermaid 样式
+     * 调整默认的 Mermaid 样式
      */
     Restyler.forMermaid = function () {
         // 修正顺序图整体的样式
@@ -7493,9 +7546,10 @@
                 extSys = /^--.+/g; // 外部系统角色
 
             // 统一调整角色的圆角
+            let radius = VLOOK.util.getStyleValue("--vlook-small-radius");
             actor.attr({
-                "rx": 8,
-                "ry": 8
+                "rx": radius,
+                "ry": radius
             });
 
             // 更新 <人物角色> 样式
@@ -7543,9 +7597,9 @@
         });
 
         // 更新顺序图中的片断（如：loop、opt、par、alt）样式和位置
-        $(".md-diagram-panel .labelText tspan").each(function () {
+        $(".md-diagram-panel polygon+.labelText").each(function () {
             let fragment = $(this),
-                g = fragment.parent().parent();
+                g = fragment.parent();
 
             // 默认的样式（par 片断）
             let bgColor = "var(--mermaid-accent-color-orange-alt)";
@@ -7567,13 +7621,14 @@
             // 为 alt、loop、par 片断应用样式设置
             if (fragment.text() !== "opt") {
                 // 背景色
-                g.children("polygon.labelBox").css("fill", bgColor);
+                g.find("polygon.labelBox").css("cssText", "fill: " + bgColor + " !important;");
                 // 边框色
-                g.children("line.loopLine").css("stroke", borderColor);
-                // 文本颜色
-                g.children("text.labelText").css("fill", textColor);
-                g.find("text.labelText > tspan").css("fill", textColor);
-                g.find("text.loopText > tspan").css("fill", textColor);
+                g.find("line.loopLine").css("cssText", "stroke: " + borderColor + " !important;");
+                // 片断类型名称颜色
+                g.find("text.labelText").css("cssText", "fill:" + textColor + " !important;");
+                g.find("text.labelText").css("cssText", "fill:" + textColor + " !important;");
+                // 片断标题颜色
+                g.find("text.loopText > tspan").css("cssText", "fill:" + textColor + " !important;");
             }
 
             // 将 alt(alternative)、opt(optional)、loop(loops) 片断文本翻译为其他语言
@@ -7631,28 +7686,29 @@
         $(".md-diagram-panel .loopText tspan").each(function () {
             // 去掉文本内容前后的中括号
             let fragmentTitle = $(this);
-            fragmentTitle.text(fragmentTitle.text().substr(2, fragmentTitle.text().length - 3));
+            fragmentTitle.parent().attr("style", "text-anchor: start");
+            fragmentTitle.text(fragmentTitle.text().substr(1, fragmentTitle.text().length - 2));
 
             // 调整文本的位置
             let label = fragmentTitle.parent().parent().find(".labelBox"),
                 rect = label[0].getBBox(),
                 y = parseInt(fragmentTitle.parent().attr("y"));
-                fragmentTitle.parent().attr("style", "text-anchor: left");
-                fragmentTitle.attr("x", rect.x + rect.width + 5);
+            // console.error(rect.x, rect.width);
+            fragmentTitle.attr("x", rect.x + rect.width + 10);
             if (isNaN(y) !== true)
-            fragmentTitle.attr("y", y + 3);
+            fragmentTitle.attr("y", y);
         });
 
-        // 为兼容Firefox不支持在style中设置rx, ry，通过设置rect的rx, ry属性
-        // 针对mermaid的状态图节点、子图
-        $("#START rect, #END rect, #INIT ~ g > rect, .cluster rect").each(function () {
+        // 针对 VLOOK 衍生的 Mermaid 的状态图节点、子图
+        let radius = VLOOK.util.getStyleValue("--vlook-base-radius");
+        $("#START rect, #END rect, g[id^=flowchart-START] rect, #INIT ~ g > rect, g[id^=flowchart-END] rect, g[id^=flowchart-INIT] ~ g > rect, .cluster rect, rect[class=rect]").each(function () {
             $(this).attr({
-                "rx": 15,
-                "ry": 15
+                "rx": radius,
+                "ry": radius
             });
         });
 
-        // 修正 mermaid 的渲染 BUG
+        // 修正 Mermaid 的渲染 BUG
         // if (VLOOK.util.parseQueryString(window.location.href)["fix-mermaid"] !== "false")
         //     RepairTool.fixMermaidRender();
     }
@@ -7661,10 +7717,10 @@
 
     function RepairTool() {}
 
-    // mermaid 相关的 DPR
+    // Mermaid 相关的 DPR
     RepairTool.mermaidDPR = {
-        builder : 1, // 生成 mermaid 时系统的 DPR
-        render : 1 // mermaid 流程图显示的 DPR
+        builder : 1, // 生成 Mermaid 时系统的 DPR
+        render : 1 // Mermaid 流程图显示的 DPR
     }
 
     /**
@@ -7687,12 +7743,14 @@
     }
 
     /**
-     * 【补丁】修正 mermaid 8.5 在导出 HTML 的渲染 BUG
+     * 【补丁】修正 Mermaid 8.5 在导出 HTML 的渲染 BUG
      */
     RepairTool.fixMermaidRender = function () {
+        return 0; // 临时禁用
+
         $(".md-diagram-panel .label > g > foreignObject > div").each(function () {
             let transformValue = $(this).parent().parent().attr("transform");
-            // 生成 mermaid 时系统的 DPR = 1 时，其形状文本的父父级元素的 transform 的第 2 个参数一般大于 -10
+            // 生成 Mermaid 时系统的 DPR = 1 时，其形状文本的父父级元素的 transform 的第 2 个参数一般大于 -10
             if (parseInt(transformValue.substring(transformValue.indexOf(",") + 1, transformValue.length - 1)) < -7)
                 RepairTool.mermaidDPR.builder = 2;
             // 通过形状的标签文本的行高来判断，正常 DPR = 1 时小于 16
@@ -7702,7 +7760,7 @@
         });
         // env.printMermaidDPR();
 
-        // 移除 edgeLabel 内的多余 rect，由 mermaid V8.5 添加的结构
+        // 移除 edgeLabel 内的多余 rect，由 Mermaid V8.5 添加的结构
         $(".edgeLabel > .label > rect").remove();
 
         // 当前系统为 macOS，或其 DPR = 1
@@ -7822,7 +7880,7 @@
      * 获得获取对应样式的标识
      *
      * @param color 文档中指定的预置颜色值
-     * @param return 返回有效的的颜色值
+     * @return 返回有效的的颜色值
      */
     CodeMagic.getStyle = function (color) {
         // 没有指定样式，则为默认样式
@@ -8018,7 +8076,7 @@
     /**
      * 显示 / 隐藏「黑幕」的内容
      *
-     * @param 黑幕对象
+     * @param target 黑幕对象
      */
     BlackCurtain.toggle = function (target) {
         if (target.attr("data-vk-black-curtain-showed") === "false")
@@ -8030,7 +8088,7 @@
     /**
      * 显示「黑幕」的内容
      *
-     * @param 黑幕对象
+     * @param target 黑幕对象
      */
     BlackCurtain.show = function (target) {
         let tmp = target.text();
@@ -8048,7 +8106,7 @@
     /**
      * 隐藏「黑幕」的内容
      *
-     * @param 黑幕对象
+     * @param target 黑幕对象
      */
     BlackCurtain.hide = function (target) {
         let tmp = target.text();
@@ -8427,7 +8485,7 @@
         ui += '<svg height="24px" width="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()">';
         ui += '<use xlink:href="#icoVLOOK-dark"></use>';
         ui += '</svg>&nbsp;&nbsp;';
-        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev5) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
+        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev6) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
         ui += '</div>';
         ui += '</div>';
 
@@ -8476,7 +8534,7 @@
         ui += '</div>';
         ui += '<div class="mdx-copyright">';
         ui += '<svg width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()"><use xlink:href="#icoVLOOK-dark"></use></svg>&nbsp;&nbsp;';
-        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev5) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
+        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev6) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
         ui += '</div>';
         ui += '</div>';
 
@@ -8557,6 +8615,20 @@
         ui += '<div class="mdx-bottom-tips"><div></div></div>';
 
         // --------------------------------------------------
+        // 字体风格选择器
+        ui += '<div class="mdx-font-styler">';
+        ui += '<div style="float: left; margin-bottom: 30px;">';
+        ui += '<img alt="小清新" class="mdx-fontstyle-sans" src="https://s3.ax1x.com/2021/01/05/skD94P.png?mode=logo" srcset="https://s3.ax1x.com/2021/01/05/skDpNt.png 2x,https://s3.ax1x.com/2021/01/05/skDP9f.png 3x">';
+        ui += '<div class="mdx-fontinfo-sans"><span class="mdx-font-package">Font Package - </span><span id="fontset-sans-status">Loading... 0%</span></div>';
+        ui += '</div>';
+        ui += '<div style="float: right; margin-bottom: 30px;">';
+        ui += '<img alt="文艺范" class="mdx-fontstyle-serif" src="https://s3.ax1x.com/2021/01/05/skDkjg.png?mode=logo" srcset="https://s3.ax1x.com/2021/01/05/skDEuQ.png 2x,https://s3.ax1x.com/2021/01/05/skDFgS.png 3x">';
+        ui += '<div class="mdx-fontinfo-serif"><span class="mdx-font-package">Font Package - </span><span id="fontset-serif-status">Loading... 0%</span></div>';
+        ui += '</div>';
+        ui += '<div class="mdx-font-styler-info">Download Font Package</div>';
+        ui += '</div>';
+
+        // --------------------------------------------------
         // 文档更多内容遮罩栏
         ui += '<div class="mdx-more-doc-content"></div>';
 
@@ -8629,7 +8701,7 @@
         // 须进行一些额外的适配
         iStopwatch.lapStart();
         console.info("- Adjust Color Scheme");
-        ColorScheme.scheme = getComputedStyle(document.documentElement).getPropertyValue("--vlook-color-scheme")
+        ColorScheme.scheme = VLOOK.util.getStyleValue("--vlook-color-scheme")
             .replaceAll("\"", "").trim();
         console.info("    └ Scheme [ " + ColorScheme.scheme + " ]");
         if (ColorScheme.scheme === "dark") {
@@ -8681,11 +8753,11 @@
         iStopwatch.lapStop("    ");
 
         // ----------------------------------------
-        // 修正 mermaid 的渲染 BUG
+        // 修正 Mermaid 的渲染 BUG
         iStopwatch.lapStart();
         env.printMermaidDPR();
         console.info("- Mermaid Fix");
-        // 修正 mermaid 的渲染 BUG
+        // 修正 Mermaid 的渲染 BUG
         if (VLOOK.util.parseQueryString(window.location.href)["fix-mermaid"] !== "false")
             RepairTool.fixMermaidRender();
         iStopwatch.lapStop("    ");
