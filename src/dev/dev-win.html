@@ -4461,7 +4461,7 @@ MIT许可证（MIT）
         iStopwatch.lapStart();
         console.info("- Font Style");
         // 清空历史存储
-        if (VLOOK.util.parseQueryString(window.location.href)["reset"] === "ls") {
+        if (VLOOK.util.getQueryParams(window.location.href)["reset"] === "ls") {
             console.warn("!!! Reset Local Storage !!!");
             localStorage.removeItem("VLOOK-" + VLOOK.version + "-hint-for-green-hand-step-bf");
             localStorage.removeItem("VLOOK-" + VLOOK.version + "-font-style");
@@ -7263,7 +7263,7 @@ MIT许可证（MIT）
         ColorScheme.updateUI();
 
         // 针对 Dark 模式进行图片反色适配处理
-        ExtFigure.adjustImageInverInDarkMode();
+        ExtFigure.adjustColorScheme();
 
         // 遍历所有变量实现ColorScheme切换
         for (let i = 0, len = varList.length; i < len; i++) {
@@ -9356,7 +9356,7 @@ MIT许可证（MIT）
                 src = audioLike.attr("src");
 
             // 指定为 mini 模式（扩展的自定义控件）
-            if (VLOOK.util.parseQueryString(src)["controls"] === "mini") {
+            if (VLOOK.util.getQueryParams(src)["controls"] === "mini") {
                 // 将 URL 为音频资源的 img 标签转换为 audio
                 audio = ExtAudio.transToAudio(audioLike, src);
                 // 设置 audio id 用于自定义 mini 控件
@@ -9385,10 +9385,10 @@ MIT许可证（MIT）
                         ExtAudio.play(this, audio[0]);
                     });
                     controls.html(ExtAudio.icon.play);
-                    controls.attr("v-data-pause", VLOOK.util.parseQueryString(src)["pause"]);
+                    controls.attr("v-data-pause", VLOOK.util.getQueryParams(src)["pause"]);
                     
                     // 须显示持续时长
-                    if (VLOOK.util.parseQueryString(src)["duration"] === "true"
+                    if (VLOOK.util.getQueryParams(src)["duration"] === "true"
                         && audio.attr("v-display-duration") !== "true") {
                         // 计算音频时长
                         let duration = audio[0].duration,
@@ -9503,9 +9503,9 @@ MIT许可证（MIT）
                     ][VLOOK.lang.id];
 
         // 对 audio 标签的属性进行支持
-        let autoplay = VLOOK.util.parseQueryString(src)["autoplay"],
-            loop = VLOOK.util.parseQueryString(src)["loop"],
-            preload = VLOOK.util.parseQueryString(src)["preload"];
+        let autoplay = VLOOK.util.getQueryParams(src)["autoplay"],
+            loop = VLOOK.util.getQueryParams(src)["loop"],
+            preload = VLOOK.util.getQueryParams(src)["preload"];
         
         // 将 URL 为音频资源的 img 标签转换为 audio
         audioLike.wrap("<audio src='" + src + "'>" + tips + "</audio>");
@@ -9562,11 +9562,11 @@ MIT许可证（MIT）
                 ][VLOOK.lang.id];
 
         // 对 video 标签的属性进行支持
-        let autoplay = VLOOK.util.parseQueryString(src)["autoplay"],
-            loop = VLOOK.util.parseQueryString(src)["loop"],
-            preload = VLOOK.util.parseQueryString(src)["preload"],
-            width = VLOOK.util.parseQueryString(src)["width"],
-            height = VLOOK.util.parseQueryString(src)["height"];
+        let autoplay = VLOOK.util.getQueryParams(src)["autoplay"],
+            loop = VLOOK.util.getQueryParams(src)["loop"],
+            preload = VLOOK.util.getQueryParams(src)["preload"],
+            width = VLOOK.util.getQueryParams(src)["width"],
+            height = VLOOK.util.getQueryParams(src)["height"];
 
         // 将 URL 为音频资源的 img 标签转换为 video
         videoLike.wrap("<video src='" + src + "'>" + tips + "</video>");
@@ -9684,7 +9684,7 @@ MIT许可证（MIT）
                 fig.attr("src", src);
 
                 // 处理在 Dark Mode 指定反转的图片
-                if (VLOOK.util.parseQueryString(src)["invert"] === "in-dark") {
+                if (VLOOK.util.getQueryParams(src)["invert"] === "in-dark") {
                     fig.attr("data-vk-invert", "in-dark");
                 }
 
@@ -10242,7 +10242,7 @@ MIT许可证（MIT）
         });
 
         // 修正 mermaid 的渲染 BUG
-        if (VLOOK.util.parseQueryString(window.location.href)["fix-mermaid"] !== "false")
+        if (VLOOK.util.getQueryParams(window.location.href)["fix-mermaid"] !== "false")
             RepairTool.fixMermaidRender();
     }
 
@@ -10586,7 +10586,7 @@ MIT许可证（MIT）
         // Dom.write().addClass("mdx-welcome-screen-loading-mask");
         
         // 欢迎屏
-        let wsMode = VLOOK.util.parseQueryString(window.location.href)["ws"];
+        let wsMode = VLOOK.util.getQueryParams(window.location.href)["ws"];
         console.log("WelcomeScreen mode: " + wsMode);
         iWelcomeScreen = new WelcomeScreen(wsMode);
         if (iWelcomeScreen === false)
@@ -10666,12 +10666,12 @@ MIT许可证（MIT）
         // 根据颜色方案对浏览器兼容性处理
         // ColorScheme.afterToggle();
         // 针对 Dark 模式进行图片反色适配处理
-        ExtFigure.adjustImageInverInDarkMode();
+        ExtFigure.adjustColorScheme();
         iStopwatch.lapStop();
 
         // ----------------------------------------
         // 特效初始化
-        let effect = VLOOK.util.parseQueryString(window.location.href)["effect"];
+        let effect = VLOOK.util.getQueryParams(window.location.href)["effect"];
         if (effect === undefined)
             effect = "0";
         VLOOK.debug("Effect [ " + effect + " ]");

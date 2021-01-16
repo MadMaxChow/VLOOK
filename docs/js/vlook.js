@@ -1,4 +1,4 @@
-    let vlookVersion = "V9.31-dev6";
+    let vlookVersion = "V9.31-dev7";
 
     console.log(":::::::::::::::::::");
     console.log("!!! " + (vlookDevMode === true ? "- DEBUG -" : "RELEASED" ) + " !!!");
@@ -7,8 +7,8 @@
 
     /****************************************
     VLOOK.js - Typora Plugin
-    V9.31-dev6
-    2020-12-15
+    V9.31-dev7
+    2021-01-16
     powered by MAX°孟兆
 
     QQ Group: 805502564
@@ -57,6 +57,7 @@
     let iStopwatch = new Stopwatch(),
         gDocLoadTimeCost = 0,
         gTotalLoadTimeCost = 0;
+        // gRedirectTimes = 0; // 用于控制只在重定向锚点，是页面加载后生效，还是一直生效
     iStopwatch.lapStart();
     console.info("=== Load Document ===");
 
@@ -79,27 +80,37 @@
 
     // ==================== 文档关键对象 ==================== //
 
-    function Dom() {}
+    function DOM() {}
 
-    Dom._body = undefined;
-    Dom._write = undefined;
+    DOM._html = undefined;
+    DOM._body = undefined;
+    DOM._write = undefined;
 
-    Dom.body = function () {
-        if (Dom._body === undefined) {
-            Dom._body = $("body");
-            if (Dom._body.length === 0)
-                alert("Instantiation failed [ Dom.body ]");
+    DOM.html = function () {
+        if (DOM._html === undefined) {
+            DOM._html = $("html");
+            if (DOM._html.length === 0)
+                alert("Instantiation failed [ DOM.html ]");
         }
-        return Dom._body;
+        return DOM._html;
     }
 
-    Dom.write = function () {
-        if (Dom._write === undefined) {
-            Dom._write = $("#write");
-            if (Dom._write.length === 0)
-                alert("Instantiation failed [ Dom.write ]");
+    DOM.body = function () {
+        if (DOM._body === undefined) {
+            DOM._body = $("body");
+            if (DOM._body.length === 0)
+                alert("Instantiation failed [ DOM.body ]");
         }
-        return Dom._write;
+        return DOM._body;
+    }
+
+    DOM.write = function () {
+        if (DOM._write === undefined) {
+            DOM._write = $("#write");
+            if (DOM._write.length === 0)
+                alert("Instantiation failed [ DOM.write ]");
+        }
+        return DOM._write;
     }
 
     // ==================== 通用方法 ==================== //
@@ -402,7 +413,7 @@
          *
          * @param url 完整的 URL 内容
          */
-        parseQueryString : function (url) {
+        getQueryParams : function (url) {
             let hash = url.indexOf("#");
             url = hash > -1 ? url.substring(0, hash) : url; // 只截取 URL 中 # 前的内容
 
@@ -423,6 +434,43 @@
                 }
             }
             return args;
+        },
+
+        /**
+         * 获取 URL 中的参数字符串
+         *
+         * @param url 完整的 URL 内容
+         */
+        getQueryString : function (url) {
+            let queryIndex = url.indexOf("?");
+            return queryIndex > -1 ? url.substring(queryIndex + 1, url.length) : "";
+        },
+
+        /**
+         * 获得 URL 中的路径部分
+         *
+         * @param url URL 地址
+         */
+        getPath : function (url) {
+            let queryIndex = url.indexOf("?"),
+                tmpIndex = url.substring(0, queryIndex).lastIndexOf("/"),
+                pathIndex = tmpIndex === -1 ? 0 : tmpIndex,
+                path = url.substring(0, pathIndex + 1);
+            return path;
+        },
+
+        /**
+         * 重定位至锚点
+         */
+        redirectToHash : function () {
+            // 如果 URL 带锚点
+            // if (gRedirectTimes < 2 && window.location.hash.trim() !== "") {
+            if (window.location.hash.trim() !== "") {
+                window.location.href = window.location.hash;
+                // 模拟等待页面完成跳转后，再进行大纲面板布局自适应处理
+                VLOOK.ui.adjustAllDelay();
+            }
+            // gRedirectTimes++;
         },
 
         /**
@@ -463,7 +511,7 @@
                 ][VLOOK.lang.id];
 
         // 只支持由 Typora 导出的 HTML 文件
-        if (Dom.body().attr("class").indexOf("typora-export") === -1) {
+        if (DOM.body().attr("class").indexOf("typora-export") === -1) {
             missContent += [
                 "• 只支持由 Typora 导出的 HTML 文件\n",
                 "• 只支持由 Typora 導出的 HTML 文件\n",
@@ -775,7 +823,7 @@
         iStopwatch.lapStart();
         console.info("- Font Style");
         // 清空历史存储
-        if (VLOOK.util.parseQueryString(window.location.href)["reset"] === "true") {
+        if (VLOOK.util.getQueryParams(window.location.href)["reset"] === "true") {
             console.warn("!!! Reset Local Storage !!!");
             // localStorage.removeItem("VLOOK-" + VLOOK.version + "-hint-for-green-hand-step-bf");
             localStorage.removeItem("VLOOK-" + VLOOK.version + "-font-style");
@@ -1281,6 +1329,15 @@
         },
 
         /**
+         * 模拟等待页面完成跳转后，再进行大纲面板布局自适应处理
+         */
+        adjustAllDelay : function () {
+            setTimeout(function () {
+                VLOOK.ui.adjustAll();
+            }, 500);
+        },
+
+        /**
          * 对象根据特效级别进行适配
          *
          * @param target 目标对象
@@ -1612,7 +1669,7 @@
              * 冻结文档滚动
              */
             freeze : function () {
-                Dom.body().css({
+                DOM.body().css({
                     // "user-select": "none", // 禁用网页选择
                     "overflow": "hidden" // 禁用网页滚动
                 });
@@ -1622,7 +1679,7 @@
              * 解冻文档滚动
              */
             unfreeze : function () {
-                Dom.body().css({
+                DOM.body().css({
                     // "user-select": "text", // 恢复网页选择
                     "overflow": "auto" // 恢复网页滚动
                 });
@@ -1827,7 +1884,7 @@
          * 打印文档后处理
          */
         done : function () {
-            // 若打印前为 Dark 模式则先恢复为 Dark 模式
+            // 若打印前为 Dark 模式则先恢复为 Dark Mode
             if (ColorScheme.schemeBeforePrint === "dark") {
                 ColorScheme.toggle();
             }
@@ -1918,13 +1975,14 @@
             statData += "&cs=" + VLOOK.util.getStyleValue("--vlook-color-scheme").replaceAll("\"", "").trim();
 
             statData += "&lang=" + VLOOK.lang.id; // 浏览器语言
-            statData += "&size=" + Dom.write().text().length; // 文档大小
+            statData += "&size=" + DOM.write().text().length; // 文档大小
             statData += "&time=" + loadTimeCost; // 加载文档时间
 
             // 图片插图数据
             statData += "&img=" + $("img").length;
             statData += "&img-fold=" + $("p[data-vk-container=img][data-vk-content-folded=true]").length;
-            statData += "&img-iid=" + $("img[data-vk-invert=dark]").length;
+            statData += "&img-invert=" + $("img[data-vk-darksrc=invert]").length;
+            statData += "&img-alter=" + $("img[data-vk-darksrc=alter]").length;
             statData += "&img-cap1=" + $("div[id^=fig-num][data-vk-fig-type=img] .mdx-figure-caption-1 strong").length;
             statData += "&img-cap2=" + $("div[id^=fig-num][data-vk-fig-type=img] .mdx-figure-caption-2").length;
 
@@ -2334,7 +2392,7 @@
 
             // 模式为 none 或 auto 时的处理
             if (this.mode === "none" || this.mode === "auto") {
-                that.close();
+                this.close();
                 // VLOOK.doc.scroll.unfreeze();
             }
 
@@ -2735,9 +2793,7 @@
                 if (that.displayMode === "float") {
                     that.hide("auto");
                     // 模拟等待页面完成跳转后，再进行大纲面板布局自适应处理
-                    setTimeout(function () {
-                        VLOOK.ui.adjustAll();
-                    }, 500);
+                    VLOOK.ui.adjustAllDelay();
                 }
             });
 
@@ -2788,7 +2844,7 @@
             // ----------------------------------------
             // 控制执行频率，避免处理过快影响性能
             let scrollTop = $(document).scrollTop();
-            if (Math.abs(scrollTop - this.lastDocScrollTop) < 50)
+            if (Math.abs(scrollTop - this.lastDocScrollTop) < 20)
                 return;
             this.lastDocScrollTop = scrollTop;
 
@@ -2802,7 +2858,7 @@
                     : $("a[name='" + decodeURI(this.headers[i]) + "']"); // Firefox 浏览器
                 let headerHeight = target.height();
                 // 将最近一个章节从文档可视空间上方滚出的章节定义为「当前章节」
-                if ((target.offset().top - $(document).scrollTop() - 50) > (headerHeight / 2)) {
+                if ((target.offset().top - $(document).scrollTop()) > (headerHeight * 2)) {
                     currentIndex = i - 1;
                     break;
                 }
@@ -2900,14 +2956,14 @@
 
                 // 撑开文档正文区域
                 if (VLOOK.ui.effect >= 2)
-                    Dom.write().velocity({
+                    DOM.write().velocity({
                         marginLeft: this.width + 20
                     }, {
                         // easing: 500, VLOOK.animate.friction],
                         duration: VLOOK.animate.speed / 2
                     });
                 else
-                    Dom.write().css({
+                    DOM.write().css({
                         marginLeft: this.width + 20
                     });
             }
@@ -2940,9 +2996,15 @@
                     left: 10
                 });
 
-            // 以「占位方式」显示大纲面板时，须执行回调函数
-            if (this.displayMode === "block")
+            // 以「占位方式」显示大纲面板时
+            if (this.displayMode === "block") {
+                // 重定位至锚点
+                setTimeout(function () {
+                    VLOOK.util.redirectToHash();
+                }, 500);
+                // 执行回调函数
                 typeof(callback) === "function" && callback();
+            }
 
             this.showed = true;
 
@@ -2969,13 +3031,13 @@
 
                 // 则取消对正文区的占位空间
                 if (VLOOK.ui.effect >= 2)
-                    Dom.write().velocity({
+                    DOM.write().velocity({
                         marginLeft: 0
                     }, {
                         duration: VLOOK.animate.speed
                     });
                 else
-                    Dom.write().css({
+                    DOM.write().css({
                         marginLeft: 0
                     });
             }
@@ -2996,7 +3058,7 @@
             }
 
             // 恢复不挤压文档正文区
-            Dom.write().css({
+            DOM.write().css({
                 marginLeft: 0
             });
 
@@ -3010,7 +3072,7 @@
          *
          * @return true: 需要处理显示/隐藏，false: 已显示/隐藏，无须重复处理
          */
-        this.adjust = function (callback) {
+        this.adjust = function () {
             let result = false;
             // 在封面，或为小屏
             if (this.withinHeader() === false || VLOOK.ui.isSmallScreen() === true) {
@@ -3026,11 +3088,7 @@
                 }
             }
 
-            // 执行回调函数（等待文档完成重绘后再执行）
-            setTimeout(function () {
-                typeof(callback) === "function" && callback();
-            }, 500);
-
+            // VLOOK.ui.adjustAllDelay();
             return result;
         }
 
@@ -3552,16 +3610,22 @@
             this.currentIndex = parseInt(item.attr("data-vk-blockfocus-idx"));
 
             // 或目标段不在当前窗口显示区域内，则跳转到对应位置
+            let height = item.height() * 3;
             if (item.offset().top !== 0
-                && ((item.offset().top - 50) < $(document).scrollTop()
-                || (item.offset().top + 50) > ($(document).scrollTop() + $(window).height()))) {
+                && ((item.offset().top - height) < $(document).scrollTop()
+                || (item.offset().top + height) > ($(document).scrollTop() + $(window).height()))) {
                 // $("html").animate({
-                //     scrollTop: item.offset().top - c
+                //     scrollTop: item.offset().top - $(window).height() / 2
                 // }, VLOOK.animate.speed);
-                $("html").velocity("scroll", {
-                    offset: item.offset().top - $(window).height() / 2,
-                    duration: VLOOK.animate.speed
-                });
+                // 动画式显示
+                if (VLOOK.ui.effect >= 2) {
+                    DOM.html().velocity("scroll", {
+                        offset: item.offset().top - $(window).height() / 2,
+                        duration: VLOOK.animate.speed
+                    });
+                }
+                else
+                    DOM.html().scrollTop(item.offset().top - $(window).height() / 2);
             }
 
             return true; // 返回跳转成功
@@ -3783,11 +3847,10 @@
             ][VLOOK.lang.id] + subHtml, 800, true, false);
         }
 
-        // 延时再开始，以便让UI先完成更新
+        // 延时再开始，以便让 UI 先完成更新
         setTimeout(function () {
             ColorScheme.apply();
         }, 500);
-
         // ColorScheme.afterToggle();
     }
 
@@ -3908,7 +3971,7 @@
         ColorScheme.updateUI();
 
         // 针对 Dark 模式进行图片反色适配处理
-        ExtFigure.adjustImageInverInDarkMode();
+        ExtFigure.adjustColorScheme();
 
         // 生成目标颜色方案值列表
         let schemeVarList = [];
@@ -6705,10 +6768,11 @@
         $("img[src$='.mp3'],[src$='.m4a'],[src$='.ogg'],[src$='.wav'],[src*='.mp3?'],[src*='.m4a?'],[src*='.ogg?'],[src*='.wav?']").each(function () {
             let audioLike = $(this),
                 audio = undefined,
-                src = audioLike.attr("src");
+                src = audioLike.attr("src"),
+                params = VLOOK.util.getQueryParams(src);
 
             // 指定为 mini 模式（扩展的自定义控件）
-            if (VLOOK.util.parseQueryString(src)["controls"] === "mini") {
+            if (params["controls"] === "mini") {
                 // 将 URL 为音频资源的 img 标签转换为 audio
                 audio = ExtAudio.transToAudio(audioLike, src);
                 // 设置 audio id 用于自定义 mini 控件
@@ -6727,9 +6791,7 @@
 
                 // 音频就绪可以开始播放
                 audio.bind("canplay", function () {
-                    let controls = $("#" + $(this).attr("id") + "-control"),
-                        src = $(this).attr("src");
-
+                    let controls = $("#" + $(this).attr("id") + "-control");
                     controls.removeClass("mdx-audio-mini-control-loading");
 
                     // 绑定点击事件
@@ -6737,10 +6799,10 @@
                         ExtAudio.play(this, audio[0]);
                     });
                     controls.html(ExtAudio.icon.play);
-                    controls.attr("data-vk-pause", VLOOK.util.parseQueryString(src)["pause"]);
+                    controls.attr("data-vk-pause", params["pause"]);
 
                     // 须显示持续时长
-                    if (VLOOK.util.parseQueryString(src)["duration"] === "true"
+                    if (params["duration"] === "true"
                         && audio.attr("v-display-duration") !== "true") {
                         // 计算音频时长
                         let duration = audio[0].duration,
@@ -6856,9 +6918,9 @@
                     ][VLOOK.lang.id];
 
         // 对 audio 标签的属性进行支持
-        let autoplay = VLOOK.util.parseQueryString(src)["autoplay"],
-            loop = VLOOK.util.parseQueryString(src)["loop"],
-            preload = VLOOK.util.parseQueryString(src)["preload"];
+        let autoplay = VLOOK.util.getQueryParams(src)["autoplay"],
+            loop = VLOOK.util.getQueryParams(src)["loop"],
+            preload = VLOOK.util.getQueryParams(src)["preload"];
 
         // 将 URL 为音频资源的 img 标签转换为 audio
         audioLike.wrap("<audio src='" + src + "'>" + tips + "</audio>");
@@ -6917,11 +6979,11 @@
                 ][VLOOK.lang.id];
 
         // 对 video 标签的属性进行支持
-        let autoplay = VLOOK.util.parseQueryString(src)["autoplay"],
-            loop = VLOOK.util.parseQueryString(src)["loop"],
-            preload = VLOOK.util.parseQueryString(src)["preload"],
-            width = VLOOK.util.parseQueryString(src)["width"],
-            height = VLOOK.util.parseQueryString(src)["height"];
+        let autoplay = VLOOK.util.getQueryParams(src)["autoplay"],
+            loop = VLOOK.util.getQueryParams(src)["loop"],
+            preload = VLOOK.util.getQueryParams(src)["preload"],
+            width = VLOOK.util.getQueryParams(src)["width"],
+            height = VLOOK.util.getQueryParams(src)["height"];
 
         // 将 URL 为音频资源的 img 标签转换为 video
         videoLike.wrap("<video src='" + src + "'>" + tips + "</video>");
@@ -6952,48 +7014,6 @@
     ExtFigure.init = function () {
         let ignoreImgLost = false;
 
-        // 针对高分屏的多尺寸图片资源进行处理
-        $("img[src*='srcset=']").each(function () {
-            let img = $(this),
-                src = img.attr("src"),
-                queryIndex = src.indexOf("?"),
-                srcset = VLOOK.util.parseQueryString(src)["srcset"];
-
-            // 针对 html 与 图片同一目录的情况
-            let tmpIndex = src.substring(0, queryIndex).lastIndexOf("/"),
-                pathIndex = tmpIndex === -1 ? 0 : tmpIndex,
-                path = src.substring(0, pathIndex + 1);
-
-            // @2x/@3x 图片资源为自动匹配名称的语法
-            // 2x/3x 的文件名为 <文件名@2x.xxx> 或 <文件名@3x.xxx> 的情况
-            if (/^@[2]x(,@[3]x)?$/.test(srcset) === true) {
-                let pureSrc = src.substring(0, src.indexOf("?")),
-                    fileName = pureSrc.substring(0, pureSrc.lastIndexOf(".")), // 图片资源文件名（不含扩展名）
-                    suffix = pureSrc.substring(pureSrc.lastIndexOf("."), pureSrc.length); // 图片资源扩展名
-                // 自动补全图片资源 URL
-                srcset = srcset.replace(/@2x/, fileName + "@2x" + suffix + " 2x");
-                srcset = srcset.replace(/@3x/, fileName + "@3x" + suffix + " 3x");
-            }
-            // @2x/@3x 图片资源为指定文件名的语法
-            else {
-                // 将倍数标识转换为 srcset 标准语法
-                // 要从图片扩展名开始替换，避免将文件中的 @2x @3x 误替换掉
-                srcset = srcset.replaceAfter(".", "@2x", " 2x");
-                srcset = srcset.replaceAfter(".", "@3x", " 3x");
-            }
-
-            // 为 2x 图添加图片路径
-            let sss = srcset.split(",");
-            if (sss[0].indexOf("/") === -1) // 仅为文件名时才添加路径
-                srcset = path + srcset;
-            // 为 3x 图添加图片路径
-            if (sss.length > 1 && [1].indexOf("/") === -1) // 仅为文件名时才添加路径
-                srcset = srcset.replace(" 2x,", " 2x," + path);
-
-            // 设置图片集资源
-            img.attr("srcset", srcset);
-        });
-
         // 针对 Mermaid 饼图为双 SVG 结构（标准的 Mermaid 是单 SVG 结构），进行规范化调整
         $(".md-diagram-panel > svg > svg > g").each(function () {
             $(this).unwrap();
@@ -7005,15 +7025,24 @@
                 src = fig.attr("src"),
                 tagName = fig.prop("tagName").toLowerCase();
 
-            // 跳过带指定显示模式的图片
-            if (tagName === "img"
-                && (src.indexOf("mode=icon") > -1
-                    || src.indexOf("mode=logo") > -1)) {
-                // 处理在 Dark Mode 指定反转的图片
-                if (VLOOK.util.parseQueryString(src)["invert"] === "dark")
-                    fig.attr("data-vk-invert", "dark");
-                // 进行一下轮循环
-                return true;
+            // img 插图的处理 1
+            if (tagName === "img") {
+                let params = VLOOK.util.getQueryParams(src);
+
+                // 加载检查
+                ExtFigure.bindLoadChecker(fig, src);
+
+                // 初始化图片对颜色方案的适配处理
+                ExtFigure.initColorScheme(fig, params);
+
+                // 初始化图片对高分屏的适配处理
+                ExtFigure.initHighDPI(fig, params);
+
+                // 跳过带指定显示版式的图片
+                if (src.indexOf("mode=icon") > -1
+                    || src.indexOf("mode=logo") > -1)
+                    // 进行一下轮循环
+                    return true;
             }
 
             // 添加插图标识数据
@@ -7048,7 +7077,7 @@
                 ContentAssist.hideButtons();
             });
 
-            // img 插图的处理
+            // img 插图的处理 2
             if (tagName === "img") {
                 // let src = fig.attr("src"),
                 let container = fig.parent();
@@ -7064,62 +7093,10 @@
                     "border-radius": "16px",
                     "margin-bottom": "20px"
                 });
-
-                // 图片无法加载时加载默认图片
-                fig.bind("error", function () {
-                    if (fig.attr("src").indexOf("vlook-lost-image.jpg") === -1)
-                        if (ignoreImgLost === false)
-                            ignoreImgLost = !confirm([
-                                "图片缺失：",
-                                "圖片缺失：",
-                                "Lost Image: ",
-                                "Image perdue: ",
-                                "Потерянное изображение: ",
-                                "失われた画像：",
-                                "잃어버린 이미지 : "
-                            ][VLOOK.lang.id] + fig.parent().text() + "\"" + fig.attr("src") + "\"" + [
-                                "\n\n继续检查吗？",
-                                "\n\n繼續檢查嗎？",
-                                "\n\nContinue to check?",
-                                "\n\nContinuer à vérifier?",
-                                "\n\nWeiter prüfen?",
-                                "\n\n¿Continuar comprobando?Continue to check?",
-                                "\n\nПродолжить проверку?",
-                                "\n\nチェックを続けますか？",
-                                "\n\n계속 확인 하시겠습니까?"
-                            ][VLOOK.lang.id]);
-
-                    ExtFigure.loadDefaultOnError($(this));
-                });
-
-                // 强制重新加载一次以触发error事件
-                fig.attr("src", src);
-
-                // // 处理在 Dark Mode 指定反转的图片
-                if (VLOOK.util.parseQueryString(src)["invert"] === "dark")
-                    fig.attr("data-vk-invert", "dark");
-
-                // ---------- img 类长图的折叠处理 ----------
-                // 创建一个Image对象，实现图片的预下载
-                // var img = new Image();
-                // img.src = src;
-
-                // // 如果图片已经存在于浏览器缓存，直接处理
-                // if (img.complete)
-                //     iContentFolding.checkAndProcess(fig, false);
-                //     // foldingLongContent(fig, false);
-                // // 等待图片下载完成后再处理
-                // else
-                //     img.onload = function () {
-                //         iContentFolding.checkAndProcess(fig, false);
-                //         // foldingLongContent(fig, false);
-                //     }
             } // if img
             // svg (mermaid) 插图的处理
             else if (tagName === "svg") {
                 fig.parent().attr("data-vk-container", "svg");
-                // iContentFolding.checkAndProcess(fig, false);
-                // foldingLongContent(fig, false);
             }
 
             // 折叠长插图
@@ -7134,7 +7111,7 @@
         // 在当前环境的 DPR > 1 时，对于没有指定 srcset 的 img 类插图，自动将 src 直接指定 2x 图片
         // 可通过 URL 参数 imgx=auto 来启用
         if (env.display.DPR > 1
-            && VLOOK.util.parseQueryString(window.location.href)["imgx"] === "auto") {
+            && VLOOK.util.getQueryParams(window.location.href)["imgx"] === "auto") {
             $("p[data-vk-container='img'] img").each(function () {
                 let fig = $(this);
                 if (fig.attr("src").indexOf(".svg") === -1 // 跳过 svg 文件
@@ -7150,6 +7127,192 @@
     }
 
     /**
+     * 绑定加载失败处理
+     */
+    ExtFigure.bindLoadChecker = function (fig, src) {
+        // 图片无法加载时加载默认图片
+        fig.bind("error", function () {
+            if (fig.attr("src").indexOf("vlook-lost-image.jpg") === -1)
+                if (ignoreImgLost === false)
+                    ignoreImgLost = !confirm([
+                        "图片缺失：",
+                        "圖片缺失：",
+                        "Lost Image: ",
+                        "Image perdue: ",
+                        "Потерянное изображение: ",
+                        "失われた画像：",
+                        "잃어버린 이미지 : "
+                    ][VLOOK.lang.id] + fig.parent().text() + "\"" + fig.attr("src") + "\"" + [
+                        "\n\n继续检查吗？",
+                        "\n\n繼續檢查嗎？",
+                        "\n\nContinue to check?",
+                        "\n\nContinuer à vérifier?",
+                        "\n\nWeiter prüfen?",
+                        "\n\n¿Continuar comprobando?Continue to check?",
+                        "\n\nПродолжить проверку?",
+                        "\n\nチェックを続けますか？",
+                        "\n\n계속 확인 하시겠습니까?"
+                    ][VLOOK.lang.id]);
+
+            ExtFigure.loadDefaultOnError($(this));
+        });
+
+        // 强制重新加载一次以触发error事件
+        fig.attr("src", src);
+    }
+
+    /**
+     * 初始化图片对颜色方案（Light / Dark）的适配处理
+     *
+     * @param img img 对象
+     * @param params img 对象 src 值的 URL 参数数组
+     */
+    ExtFigure.initColorScheme = function (img, params) {
+        // 未指定 darksrc 参数时跳过
+        if (params["darksrc"] === undefined)
+            return;
+
+        // 适配 Dark Mode 的方式：反转
+        if (params["darksrc"] === "invert") {
+            img.attr("data-vk-darksrc", "invert");
+        }
+        // 适配 Dark Mode 的方式：替换
+        else {
+            img.attr("data-vk-darksrc", "alter");
+
+            let src = img.attr("src"),
+                path = VLOOK.util.getPath(src),
+                queryString = VLOOK.util.getQueryString(src),
+                darksrc = params["darksrc"];
+            if (darksrc.indexOf("/") === -1)
+                darksrc = path + darksrc + (queryString !== "" ? ("?" + queryString) : "");
+
+            img.attr("data-vk-src-light", img.attr("src"));
+            img.attr("data-vk-src-dark", darksrc);
+
+            if (params["srcset"] !== undefined)
+                img.attr("data-vk-srcset-light", params["srcset"]);
+            if (params["darksrcset"] !== undefined)
+                img.attr("data-vk-srcset-dark", params["darksrcset"]);
+        }
+    }
+
+    /**
+     * 初始化图片高分屏的适配处理
+     *
+     * @param img img 对象
+     * @param params img 对象 src 值的 URL 参数数组
+     */
+    ExtFigure.initHighDPI = function (img, params) {
+        let src = img.attr("src"),
+            srcset = params["srcset"],
+            darksrcset = params["darksrcset"];
+
+        // Light Mode 对应的图片集
+        if (srcset !== undefined) {
+            srcset = ExtFigure.transUrlSrcSet(src, srcset);
+            img.attr("data-vk-srcset-light", srcset);
+            // 设置默认值
+            img.attr("srcset", srcset);
+        }
+
+        // Dark Mode 对应的图片集
+        if (darksrcset !== undefined) {
+            darksrcset = ExtFigure.transUrlSrcSet(img.attr("data-vk-src-dark"), darksrcset);
+            img.attr("data-vk-srcset-dark", darksrcset);
+        }
+    }
+
+    /**
+     * 转换图片 URL 中的 srcset / darksrcset 参数为符合 <img> srcset 属性的格式
+     *
+     * @param src 图片 URL
+     * @param srcset srcset 或 darksrcset 参数的内容
+     */
+    ExtFigure.transUrlSrcSet = function (src, srcset) {
+        // 针对 html 与 图片同一目录的情况
+        let path = VLOOK.util.getPath(src);
+
+        // @2x/@3x 图片资源为自动匹配名称的语法
+        // 2x/3x 的文件名为 <文件名@2x.xxx> 或 <文件名@3x.xxx> 的情况
+        if (/^@[2]x(,@[3]x)?$/.test(srcset) === true) {
+            let pureSrc = src.substring(0, src.indexOf("?")),
+                fileName = pureSrc.substring(0, pureSrc.lastIndexOf(".")), // 图片资源文件名（不含扩展名）
+                suffix = pureSrc.substring(pureSrc.lastIndexOf("."), pureSrc.length); // 图片资源扩展名
+            // 自动补全图片资源 URL
+            srcset = srcset.replace(/@2x/, fileName + "@2x" + suffix + " 2x");
+            srcset = srcset.replace(/@3x/, fileName + "@3x" + suffix + " 3x");
+        }
+        // @2x/@3x 图片资源为指定文件名的语法
+        else {
+            // 将倍数标识转换为 srcset 标准语法
+            // 要从图片扩展名开始替换，避免将文件中的 @2x @3x 误替换掉
+            srcset = srcset.replaceAfter(".", "@2x", " 2x");
+            srcset = srcset.replaceAfter(".", "@3x", " 3x");
+        }
+
+        // 为 2x 图添加图片路径
+        let sss = srcset.split(",");
+        if (sss[0].indexOf("/") === -1) // 仅为文件名时才添加路径
+            srcset = path + srcset;
+        // 为 3x 图添加图片路径
+        if (sss.length > 1 && [1].indexOf("/") === -1) // 仅为文件名时才添加路径
+            srcset = srcset.replace(" 2x,", " 2x," + path);
+
+        return srcset;
+    }
+
+    /**
+     * 适配指定图片在 Dark Mode 的反转处理
+     */
+    ExtFigure.adjustColorScheme = function () {
+        // Dark Mode
+        if (ColorScheme.scheme === "dark") {
+            // 对适配方式为「反转」的处理
+            $("img[data-vk-darksrc=invert]").each(function () {
+                let img = $(this);
+                // 设置默认的 srcset
+                img.attr("srcset", img.attr("data-vk-srcset-light"));
+
+                // Dark Mode 下用 Light 背景进行反色
+                img.removeClass("mdx-figure-bg-dark");
+                img.addClass("mdx-figure-bg-light");
+
+                // 添加反转样式
+                img.addClass("mdx-img-invert-dark");
+            });
+
+            // 对适配方式为「替换」的处理
+            $("img[data-vk-darksrc=alter]").each(function () {
+                let img = $(this);
+                img.attr("src", img.attr("data-vk-src-dark"));
+                img.attr("srcset", img.attr("data-vk-srcset-dark"));
+            });
+        }
+        // Light Mode
+        else {
+            // 恢复对适配方式为「反转」的处理
+            $("img[data-vk-darksrc=invert]").each(function () {
+                let img = $(this);
+                img.attr("srcset", img.attr("data-vk-srcset-light"));
+
+                // Light Mode 下用恢复默认插图背景
+                img.removeClass("mdx-figure-bg-light");
+                img.addClass("mdx-figure-bg-dark");
+
+                img.removeClass("mdx-img-invert-dark");
+            });
+
+            // 恢复对适配方式为「替换」的处理
+            $("img[data-vk-darksrc=alter]").each(function () {
+                let img = $(this);
+                img.attr("src", img.attr("data-vk-src-light"));
+                img.attr("srcset", img.attr("data-vk-srcset-light"));
+            });
+        }
+    }
+
+    /**
      * 加载默认图片
      *
      * @param target 目标 img 对象
@@ -7160,29 +7323,6 @@
             "src": VLOOK.doc.defaultImage,
             "srcset": VLOOK.doc.defaultImage2x + " 2x"
         });
-    }
-
-    /**
-     * 适配指定图片在 Dark Mode 的反转处理
-     */
-    ExtFigure.adjustImageInverInDarkMode = function () {
-        let target = $("img[data-vk-invert=dark]");
-        // 应用 Dark 模式的插图背景
-        if (ColorScheme.scheme === "dark") {
-            // let css = target.attr("class");
-            // 针对插图的特殊处理
-            // if (css !== undefined && css.indexOf("mdx-figure") > -1) {
-            target.removeClass("mdx-figure-bg-dark");
-            // Dark 模式下用 Light 背景进行反色
-            target.addClass("mdx-figure-bg-light");
-            // }
-            // 添加反转样式
-            target.addClass("mdx-img-invert-dark");
-        }
-        // 恢复Light模式插图背景
-        else {
-            target.removeClass("mdx-img-invert-dark");
-        }
     }
 
     // ==================== 插图导航模块 ==================== //
@@ -7709,7 +7849,7 @@
         });
 
         // 修正 Mermaid 的渲染 BUG
-        // if (VLOOK.util.parseQueryString(window.location.href)["fix-mermaid"] !== "false")
+        // if (VLOOK.util.getQueryParams(window.location.href)["fix-mermaid"] !== "false")
         //     RepairTool.fixMermaidRender();
     }
 
@@ -8133,7 +8273,7 @@
     OINT.init = function () {
         $(".mdx-before-write").remove();
         $("#write").remove();
-        Dom.body().append("<div id='write'></div>");
+        DOM.body().append("<div id='write'></div>");
         iToolbar.ui.remove();
         iOutlineNav.ui.remove();
         iChapterNav.ui.remove();
@@ -8145,7 +8285,7 @@
      * 在新标签页中打开的页面中添加元素
      */
     OINT.append = function (content) {
-        // Dom.body().append(content);
+        // DOM.body().append(content);
         $("#write").append(content);
     }
 
@@ -8176,11 +8316,11 @@
      */
     OINT.done = function() {
         // 设置为可滚动
-        Dom.body().css({
+        DOM.body().css({
             "overflow": "scroll"
         });
 
-        Dom.write().css({
+        DOM.write().css({
             "filter": "none"
         });
     }
@@ -8194,7 +8334,7 @@
      */
     $(document).ready(function () {
         $("#VLOOK").remove();
-        // Dom.write().addClass("mdx-welcome-screen-loading-mask");
+        // DOM.write().addClass("mdx-welcome-screen-loading-mask");
         // ----------------------------------------
         console.info("- Ready");
         gDocLoadTimeCost = iStopwatch.lapStop("    ");
@@ -8211,7 +8351,7 @@
 
         console.info("- Welcome Screen Init");
         // 欢迎屏
-        let wsMode = VLOOK.util.parseQueryString(window.location.href)["ws"];
+        let wsMode = VLOOK.util.getQueryParams(window.location.href)["ws"];
         console.log("    └ mode: " + wsMode);
         iWelcomeScreen = new WelcomeScreen(wsMode);
         if (iWelcomeScreen === false)
@@ -8226,7 +8366,7 @@
         }
 
         // 先隐藏，减少页面重绘
-        Dom.write().hide();
+        DOM.write().hide();
         iStopwatch.lapStop("    ");
 
         // ----------------------------------------
@@ -8485,7 +8625,7 @@
         ui += '<svg height="24px" width="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()">';
         ui += '<use xlink:href="#icoVLOOK-dark"></use>';
         ui += '</svg>&nbsp;&nbsp;';
-        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev6) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
+        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev7) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
         ui += '</div>';
         ui += '</div>';
 
@@ -8534,7 +8674,7 @@
         ui += '</div>';
         ui += '<div class="mdx-copyright">';
         ui += '<svg width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()"><use xlink:href="#icoVLOOK-dark"></use></svg>&nbsp;&nbsp;';
-        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev6) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
+        ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V9.31-dev7) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
         ui += '</div>';
         ui += '</div>';
 
@@ -8697,7 +8837,7 @@
         // console.info("=== Init VLOOK Misc ===");
         // ----------------------------------------
         // 因默认配色为 Light 模式
-        // 若浏览器当前配色为 Dark 模式，除 CSS 的 @media (prefers-color-scheme: dark) 设置外
+        // 若浏览器当前配色为 Dark Mode，除 CSS 的 @media (prefers-color-scheme: dark) 设置外
         // 须进行一些额外的适配
         iStopwatch.lapStart();
         console.info("- Adjust Color Scheme");
@@ -8710,15 +8850,17 @@
         }
         // 根据颜色方案对浏览器兼容性处理
         // ColorScheme.afterToggle();
-        // 针对 Dark 模式进行图片反色适配处理
-        ExtFigure.adjustImageInverInDarkMode();
+        // 针对 Dark Mode 进行图片反色适配处理
+        ExtFigure.adjustColorScheme();
         iStopwatch.lapStop("    ");
+
+
 
         // ----------------------------------------
         // 特效初始化
         iStopwatch.lapStart();
         console.info("- Effect");
-        let effect = VLOOK.util.parseQueryString(window.location.href)["effect"];
+        let effect = VLOOK.util.getQueryParams(window.location.href)["effect"];
         if (effect === undefined)
             effect = "0";
         VLOOK.debug("    └ Level [ " + effect + " ]");
@@ -8732,8 +8874,8 @@
         // 完成初始化后恢复显示
         iStopwatch.lapStart();
         console.info("- Writer Ready");
-        Dom.write().show();
-        Dom.write().css({
+        DOM.write().show();
+        DOM.write().css({
             "filter": "none"
         });
         iStopwatch.lapStop("    ");
@@ -8758,7 +8900,7 @@
         env.printMermaidDPR();
         console.info("- Mermaid Fix");
         // 修正 Mermaid 的渲染 BUG
-        if (VLOOK.util.parseQueryString(window.location.href)["fix-mermaid"] !== "false")
+        if (VLOOK.util.getQueryParams(window.location.href)["fix-mermaid"] !== "false")
             RepairTool.fixMermaidRender();
         iStopwatch.lapStop("    ");
 
@@ -8783,8 +8925,11 @@
         VLOOK.report.push(['VlookLoadTime', 'All', 'Times', gTotalLoadTimeCost - gDocLoadTimeCost]);
 
         // 判断是否使用指定的颜色方案
-        let colorScheme = VLOOK.util.parseQueryString(window.location.href)["cs"];
+        let colorScheme = VLOOK.util.getQueryParams(window.location.href)["cs"];
         if (colorScheme === "light" || colorScheme === "dark") {
             ColorScheme.toggle(colorScheme);
         }
+
+        // 重定位至锚点
+        VLOOK.util.redirectToHash();
     }

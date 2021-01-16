@@ -464,7 +464,7 @@ img[src*="inline=true"] {
     display: inline !important;
 }
 
-// 图片 URL 参数指定图片的显示模式为：icon
+// 图片 URL 参数指定图片的显示版式为：icon
 img[src*="mode=icon"] {
     display: inline !important;
     margin-left: 4px !important;
@@ -477,7 +477,7 @@ img[src*="mode=icon"] {
     background: none !important;
 }
 
-// 图片 URL 参数指定图片的显示模式为：logo
+// 图片 URL 参数指定图片的显示版式为：logo
 img[src*="mode=logo"] {
     display: inline !important;
     vertical-align: middle;
@@ -978,6 +978,7 @@ blockquote > blockquote {
     // margin-right: 1em;
     background: none;
     border-radius: 0;
+    padding-top: 0;
 }
 
 // 三重引用
@@ -5085,7 +5086,7 @@ h6 code {
         background: @figureBackgroundDark !important;
     }
     // 图片URL参数指定在 Dark 模式时反色
-    img[src*="invert=dark"] {
+    img[src*="darksrc=invert"] {
         // filter: invert(1);
         filter: var(--vlook-invert-dark);
         border-color: @imgInvertInDarkBorderColor !important;

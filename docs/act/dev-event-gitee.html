@@ -13,7 +13,7 @@ var _hmt = _hmt || [];
     /**
      * 获取 URL 中的参数数组
      */
-     function parseQueryString(url) {
+     function getQueryParams(url) {
         let hash = url.indexOf("#");
         url = hash > -1 ? url.substring(0, hash) : url; // 只截取 URL 中 # 前的内容
         
@@ -40,7 +40,7 @@ var _hmt = _hmt || [];
      * 提交事件数据
      */
     function pushData() {
-        let args = parseQueryString(window.location.href);
+        let args = getQueryParams(window.location.href);
         if (args["debug"] === "true") {
             console.warn(
                 args["category"],

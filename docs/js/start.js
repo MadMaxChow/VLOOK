@@ -1,7 +1,7 @@
     /****************************************
     starter of VLOOK.js - Typora Plugin
-    V9.31-dev6
-    2021-01-05
+    V9.31-dev7
+    2021-01-16
     powered by MAX°孟兆
 
     QQ Group: 805502564
@@ -10,7 +10,7 @@
     https://github.com/MadMaxChow/VLOOK
     ***************************************/
 
-   let startVersion = "V9.31-dev6";
+   let startVersion = "V9.31-dev7";
 
     /**
      * 获取 URL 中的参数数组

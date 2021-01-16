@@ -1,10 +1,10 @@
-###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>快速参考手册</sup><br /><sup>( Version 9.31 )</sup><br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2020. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>快速参考手册</sup><br /><sup>( Version 9.31 )</sup><br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2021. MAX°DESIGN.*
 
 [TOC]
 
 # VLOOK™ 是什么
 
-![VLOOK](https://s1.ax1x.com/2020/11/11/BXpnHJ.png?mode=icon&invert=dark)**VLOOK™** 是针对由 ![Typora](https://s3.ax1x.com/2020/11/13/DpZXtI.png?mode=icon)[Typora](https://www.typora.io)[^Typora] 导出的 HTML 文件进行增强的插件，也许是目前最好的 Markdown 增强插件之一。
+![VLOOK](https://s1.ax1x.com/2020/11/11/BXpnHJ.png?mode=icon&darksrc=invert)**VLOOK™** 是针对由 ![Typora](https://s3.ax1x.com/2020/11/13/DpZXtI.png?mode=icon)[Typora](https://www.typora.io)[^Typora] 导出的 HTML 文件进行增强的插件，也许是目前最好的 Markdown 增强插件之一。
 
 VLOOK™ 属于开源软件（遵从 **MIT License**），也是 ![OSChina](https://s1.ax1x.com/2020/11/06/BWB3Xn.png?mode=icon)**[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源产品。
 
@@ -14,21 +14,21 @@ VLOOK™ 属于开源软件（遵从 **MIT License**），也是 ![OSChina](http
 
 ---
 
-项目代码托管于以下平台：<br />国外：**![Github](https://s1.ax1x.com/2020/11/11/BjMANq.png?mode=icon&invert=dark)[GitHub](https://github.com/madmaxchow/VLOOK)**　　　国内：**![Gitee](https://s1.ax1x.com/2020/11/06/BWBGmq.png?t=158106666?mode=icon)[gitee](https://gitee.com/madmaxchow/VLOOK)**　　　CDN：![JSDELIVR](https://s3.ax1x.com/2020/12/11/rASTIK.png?mode=icon)[JS**DELIVR**](https://www.jsdelivr.com/)
+项目代码托管于以下平台：<br />国外：**![Github](https://s1.ax1x.com/2020/11/11/BjMANq.png?mode=icon&darksrc=invert)[GitHub](https://github.com/madmaxchow/VLOOK)**　　　国内：**![Gitee](https://s1.ax1x.com/2020/11/06/BWBGmq.png?t=158106666?mode=icon)[gitee](https://gitee.com/madmaxchow/VLOOK)**　　　CDN：![JSDELIVR](https://s3.ax1x.com/2020/12/11/rASTIK.png?mode=icon)[JS**DELIVR**](https://www.jsdelivr.com/)
 
 
 
 > [+] **许可协议**
 >
 > > MIT License
-> > Copyright (c) 2016-2020 MAX°DESIGN | Max Chow
+> > Copyright (c) 2016-2021 MAX°DESIGN | Max Chow
 > > Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 > > The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 > > THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 >
 > [+] **Markdown 是什么？**
 >
-> > ![Markdown](https://s1.ax1x.com/2020/11/06/Bh69sg.png?mode=logo&invert=dark&srcset=Bh6pQS.png@2x "2x 高分屏自适应高清图片")
+> > ![Markdown](https://s1.ax1x.com/2020/11/06/Bh69sg.png?mode=logo&darksrc=invert&srcset=Bh6pQS.png@2x "2x 高分屏自适应高清图片")
 > >
 > > - 2004 年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了 [Markdown](https://en.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的`文本标记语言`。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）；
 > > - Markdown 文档以`纯文本格式存储`，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过 Markdown 编辑器导出为带排版的富文本文档、HTML 网页等等。==纯粹、简洁、易用、灵活==，都是人们喜欢 Markdown 的原因；
@@ -39,7 +39,7 @@ VLOOK™ 属于开源软件（遵从 **MIT License**），也是 ![OSChina](http
 > > 1. `#推荐#` **Github Flavored Markdown** (GFM) 语法参考：Typora 目前采用该标准 [详细](https://support.typora.io/Markdown-Reference/)；
 > > 2. 标准化 **CommonMark** 语法参考：[60 秒学会 Markdown 语法](http://commonmark.org/help/)、[10 分钟深入学习 Markdown](http://commonmark.org/help/tutorial/)。
 
-[^Typora]: Typora 是跨平台的 Markdown 编辑器（也许是目前最好的编辑器，没有之一），支持直接预览与编辑，更详细的特性详见[官网](https://www.typora.io)。
+[^Typora]: Typora 是跨平台的 Markdown 编辑器（也许是目前最好的编辑器），支持直接预览与编辑，更详细的特性详见[官网](https://www.typora.io)。
 
 # 为谁准备
 
@@ -60,19 +60,19 @@ VLOOK™ 属于开源软件（遵从 **MIT License**），也是 ![OSChina](http
 
 **若喜欢 VLOOK™ 的话，可以请 MAX° 喝杯咖啡～**
 
-![Donate•打赏](https://s1.ax1x.com/2020/11/06/BfHaHP.png?srcset=BfHB4S.png@2x,BfH0N8.png@3x)
+![打赏（微信支付：MaxChow）](https://s1.ax1x.com/2020/11/06/BfHaHP.png?srcset=BfHB4S.png@2x,BfH0N8.png@3x)
 
 # 安装与使用
 
 ## Step 1•下载与配置
 
-1. 访问 VLOOK™ 在 ![Github](https://s1.ax1x.com/2020/11/11/BjMANq.png?mode=icon&invert=dark)**[GitHub](https://github.com/MadMaxChow/VLOOK/releases)** 或 ![Gitee](https://s1.ax1x.com/2020/11/06/BWBGmq.png?mode=icon)**[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)** 的主页下载最新发布的版本；
+1. 访问 VLOOK™ 在 ![Github](https://s1.ax1x.com/2020/11/11/BjMANq.png?mode=icon&darksrc=invert)**[GitHub](https://github.com/MadMaxChow/VLOOK/releases)** 或 ![Gitee](https://s1.ax1x.com/2020/11/06/BWBGmq.png?mode=icon)**[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)** 的主页下载最新发布的版本；
 2. （可选）下载并安装 VLOOK™ 主题配套字体包 ••• [详细](#字体主题)；
 3. 下载并安装 ![Typora](https://s3.ax1x.com/2020/11/13/DpZXtI.png?mode=icon)[Typora](https://www.typora.io) ，启动后进入「偏好设置」，并开启以下选项，详见下图：
 
-![开启「Markdown ▸ Markdown 扩展语法」下的所有选项](https://s3.ax1x.com/2020/11/13/DpuWDO.png?invert=dark&srcset=DpuRKK.png@2x)
+![开启「Markdown ▸ Markdown 扩展语法」下的所有选项](https://s3.ax1x.com/2020/11/13/DpuWDO.png?darksrc=invert&srcset=DpuRKK.png@2x)
 
-![开启「Markdown ▸ 代码块、公式」下的所有选项](https://s3.ax1x.com/2020/11/13/DpufbD.png?invert=dark&srcset=Dpu4Ve.png@2x)
+![开启「Markdown ▸ 代码块、公式」下的所有选项](https://s3.ax1x.com/2020/11/13/DpufbD.png?darksrc=invert&srcset=Dpu4Ve.png@2x)
 
 ## Step 2•安装并选择主题
 
@@ -83,13 +83,13 @@ VLOOK™ 属于开源软件（遵从 **MIT License**），也是 ![OSChina](http
 ## Step 3•应用插件
 
 1. 在 Typora 中将 Markdown 文件导出为`HTML`文件；
-2. 打开文件`released\VLOOK-plugin-for-Typora.txt`，全选所有内容，并复制；
+2. 打开插件文件`released\VLOOK-plugin-for-Typora.txt`，全选所有内容，并复制「插件内容」；
 3. 用纯文件编辑器，如：记事本、[Visual Studio Code](https://code.visualstudio.com/)，打开该导出的 HTML 文件；
 4. 搜索`<body`，并将复制的内容粘贴到 body 标签所在行的关闭符`>`之后：
 
 ```html
 <body ...>
-◀ ◀ ◀ 将「VLOOK-plugin-for-Typora.txt」文件的内容粘贴于此！
+◀ ◀ ◀ 将「插件内容」粘贴于此！
 ...
 </body>
 ```
@@ -112,14 +112,14 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 | ------------------------------------------------------------ | :--: | :----------------------------------------------------------- |
 | ==**表格**==                                                 |      | ==**图片、图标、插图**==                                     |
 | 横向、纵向**合并**指定单元格 [•••](#表格单元格合并)          |  :   | 为插图进行自动编号、**添加题注** [•••](#插图自动编号与题注)  |
-| 将**整列**设置为加粗、高亮、下划线、斜体格式 [•••](#表格列常规格式) |  :   | 让图片在高分屏下显示**高清**（2x、3x）的版本 [•••](#图片添加高分屏版本) |
-| 将整列设置为**数值**、**百分比**、**货币格式** [•••](#表格列数值格式) |  :   | 让图片在 **Dark 模式**时以**反色**进行显示 [•••](#图片在 Dark 模式时反色) |
-| 将整列设置为**复选框**格式，并能指定某单元格为「选中」 [•••](#表格列复选框格式) |  :   | 添加的**小图标**、普通图片，不想以插图的形式显示 [•••](#图片显示模式) |
+| 将**整列**设置为加粗、高亮、下划线、斜体格式 [•••](#表格列常规格式) |  :   | 让图片在高分屏下自动适配显示**高清**的版本（2x、3x） [•••](#图片适配高分屏) |
+| 将整列设置为**数值**、**百分比**、**货币格式** [•••](#表格列数值格式) |  :   | 让图片自动适配 **Dark Mode ** [•••](#图片适配 Dark Mode)     |
+| 将整列设置为**复选框**格式，并能指定某单元格为「选中」 [•••](#表格列复选框格式) |  :   | 添加的**小图标**、普通图片，不想以插图的形式显示 [•••](#图片显示版式) |
 | 给每个表格进行自动编号、**添加题注** [•••](#表格自动编号与题注) |  :   | 连续多张图片**不换行**，图片边缘能**留白** [•••](#图片排版)  |
 | 给表格的**每一行**都进行**自动编号** [•••](#表格逐行自动编号) |  :   |                                                              |
 | 对同属一类内容的**表格行**进行分组、分类，并能**自动折叠** [•••](#表格行分组折叠) |  :   | ==**标签、标签组**==                                         |
-|                                                              |  :   | 将特定关键字设置为**标签**样式（如：`#温馨提醒#(green)` `#注意事项#`） [•••](#彩虹标签) |
-| ==**流程图、状态机图、顺序图**==                             |  :   | 将特定的**二元组**内容设置为**标签**样式（如：`#版本要求|V9.31+#(blue)` `#问题类型|界面交互#(orange)`等） [•••](#药丸标签) |
+|                                                              |  :   | 将特定关键字设置为**标签**样式 [•••](#彩虹标签)              |
+| ==**流程图、状态机图、顺序图**==                             |  :   | 将特定的**二元组**内容设置为**标签**样式 [•••](#药丸标签)    |
 | **增强** Mermaid 的**排版**，并优化**样式** •••              |  :   |                                                              |
 | 解决 Mermaid 图表的**高分屏**的 **Bug** [•••](#Mermaid 样式优化) |  :   | ==**引用、引用块**==                                         |
 |                                                              |  :   | 为特殊应用引用指定不同的色彩样式（如：重要提示） [•••](#彩虹引用) |
@@ -174,11 +174,15 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 | 为文档选择不同的字体主题 [•••](字体主题)            | :    |      |
 | 为文档设置封面、封底 [•••](#封面、封底)             | :    |      |
 
-# °表格
+# 特性说明
 
-## 表格单元格合并
+## °表格
 
-**通过 VLOOK™ 即可实现目前 Markdown 粉们呼声最高的单元格合并！**
+### 表格单元格合并
+
+**Markdown 粉呼声最高的是什么？———— 表格单元格合并！**
+
+`#Reply#(gray)` VLOOK™ 现在可以轻松让你实现 —— **Wow! Wow!**～Markdown 粉们的欢呼声！！！
 
 > **← 跨列合并（横向合并）**
 >
@@ -222,13 +226,15 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 表格列常规格式
+### 表格列常规格式
 
-**通过 VLOOK™ 可以支持对表格中「常规格式」进行整列的自动设置了～**
+**Markdown 表格如何快速设置整列的格式（加粗、高亮、下划线、斜体、删除线）？**
 
-只须在表头按以标准的 Markdown 或 GFM 的格式设置语法设置对应的格式即可实现整列格式化，即：
+`#Reply#(gray)` SO EASY～ VLOOK™ 让你只须在表头按以标准的 Markdown 或 GFM 的格式设置语法设置对应的格式即可实现这样的格式化。
 
-`**加粗**`、`*斜体*`、`~~删除线~~`、`==高亮==` 、`<u>下划线</u>`
+> 温故一下标准 Markdown 或 GFM 的格式语法：
+>
+> `**加粗**`、`*斜体*`、`~~删除线~~`、`==高亮==` 、`<u>下划线</u>`
 
 ###### 示例一：表格列常规格式化
 
@@ -253,11 +259,13 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 表格列数值格式
+### 表格列数值格式
 
-**通过 VLOOK™ 可以支持对「数值类」内容进行整列的自动格式设置了！**
+**除常规的格式外，还有更高级的格式要求？数字、百分数、货币……一个都不能少！**
 
-> 将数值类内容的列的对齐设置为「**右对齐**」，即可根据不同的数值类内容进行自动进行格式化！
+`#Reply#(gray)` 通过 VLOOK™ 也可以支持对「数值类」内容进行整列的自动格式设置了！方式依然的很优雅，很 VLOOK！
+
+> 将表格列的对齐设置为「**右对齐**」，即可自动识别不同的数值内容进行自动进行格式化！
 
 > **「普通数字」自动格式化：**
 >
@@ -318,9 +326,11 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 表格列复选框格式
+### 表格列复选框格式
 
-**通过 VLOOK™ 可以支持将整列自动设置为「复选框」格式了！**
+**表格的列格式，除了排版格式外，如果希望能支持复选框（勾选框）呢？**
+
+`#Reply#(gray)` 虽然要求有点高了，但 VLOOK™ 也可以实现，将整列自动设置为「复选框」格式了！
 
 > 表格列头内容前，添加`[(空格)](空格)`（如`[ ] 必填项`），就可以为该列自动设置为`未选择`的状态。
 >
@@ -345,9 +355,11 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 表格自动编号与题注
+### 表格自动编号与题注
 
-**无须任何设置，VLOOK™ 即可自动对文档内所有「表格」进行统一的自动编号，**编号内容举例：`表 1` `表 2`
+**文档中的表格很多，怎么才能像 Word 那样添加编号和题注呢？**
+
+`#Reply#(gray)` 无须任何设置，VLOOK™ 即可自动对文档内所有「表格」进行统一的自动编号，编号内容举例：`表 1` `表 2`
 
 > 若希望为表格在自动编号之后，添加指定的题注，如：`表 1 - 2020 年全球经济体 GDP 排名`
 >
@@ -384,9 +396,11 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 表格逐行自动编号
+### 表格逐行自动编号
 
-**通过 VLOOK™ 可以一键实现对表格逐行进行自动编号！**
+**表格有很多行，能像 Excel 一样有行号的话，那就更方便沟通和定位了……**
+
+`#Reply#(gray)` 通过 VLOOK™ 可以一键实现对表格逐行进行自动编号！
 
 > 通过以下两种试，都可以为表格的每一行进行自动编号：
 >
@@ -415,9 +429,11 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 表格行分组折叠
+### 表格行分组折叠
 
-**通过 VLOOK™ ，可以对文档（如 PRD、API 类文档）在同一个表格内，会对属于同一类或同一级的多行进行分组和折叠。**
+**表格行都是一维的数据，但如果表格的数据有层次关系怎么办？**
+
+`#Reply#(gray)` 通过 VLOOK™ ，可以对文档（如 PRD、API 类文档）在同一个表格内，会对属于同一类或同一级的多行进行分组和折叠。
 
 > 对于作为下级的行，在表格行的首列通过以下规则即可实现自动分组和折叠：
 >
@@ -492,11 +508,13 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 
 
-# °图片
+## °图片
 
-## 插图自动编号与题注
+### 插图自动编号与题注
 
-**无须任何设置，VLOOK™ 即可自动对文档内所有插图进行统一的自动编号，**编号内容举例：`图 1` `图 2`
+**文档中的图片很多，怎么才能像 Word 那样添加编号和题注呢？**
+
+`#Reply#(gray)` 无须任何设置，VLOOK™ 即可自动对文档内所有插图进行统一的自动编号，编号内容举例：`图 1` `图 2`
 
 `#Tips#(green)` 插图主要是指图片（如：jpg、png 等），以及脚本化图表（如：Mermaid 的流程图、状态机图、顺序图、甘特图、类图等）
 
@@ -513,9 +531,8 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 >
 > 添加的方式与为「表格」添加题注方式是一致的 ••• [马上去看看](#表格自动编号与题注)
 
-图片题注示例：？？？
-
-Mermaid 图片题注示例：？？？
+- 图片题注示例：[去看一看](#示例：长图片、双题注)
+- Mermaid 图片题注示例：[去看一看](#Mermaid 的流程图)
 
 ---
 
@@ -523,11 +540,13 @@ Mermaid 图片题注示例：？？？
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 图片添加高分屏版本
+### 图片适配高分屏
 
-**目前高分辨率屏幕已非常多，VLOOK™ 可以让 Markdown 文档支持其图片在高分辨率的屏幕上显示高清版本的图片！**
+**高分屏看到的图片会变得模糊，Markdown 的图片语法又不支持不同分辨率图片集，怎么办？**
 
-> 支持显示高清版本的图片，可通过在「图片 URL」中添加 VLOOK™ 规范的参数中增加启用高清图片的参数`srcset`，并对图片添加对应的分辨率的后缀`@2x`或`@3x`
+`#Reply#(gray)` VLOOK™ 支持在保持 Markdown 图片语法不变的情况下，轻松在高分辨率的屏幕上显示高清分辨率的图片！
+
+> 支持显示高清分辨率的图片，可通过在「图片 URL」中添加 VLOOK™ 规范的参数中增加启用高清图片的参数`srcset`，并对图片添加对应的分辨率的后缀`@2x`或`@3x`
 >
 > **支持 2x 高清：**
 >
@@ -541,20 +560,21 @@ Mermaid 图片题注示例：？？？
 >
 > - `![图片题注](标准分辨率图.png?srcset=这是2x图.png@2x,这是3x图.png@3x)`
 >
-> **自动将普通图片在高分屏下以高清图进行显示：**
+> `#Tips 1#(orange)` 如果 2x/3x 的文件名是`图片@2x.png` `图片@3x.png`这类格式，则无须填写对应的图片名，如：`srcset=@2x,@3x`
 >
-> - 如果临时没有图片的高清版本，VLOOK™ 也可以将其转换 2x 资源，这样在高分屏上也能提高图片显示清晰度（但图片大小会相应缩小 50%）
-> - 可通过在「图片 URL」的 VLOOK™ 规范的参数`imgx=auto`来启用这个特性
->
-> `#Tips 1#(green)` 如果 2x/3x 的文件名是`图片@2x.png` `图片@3x.png`这类格式，则无须填写对应的图片名，如：`srcset=@2x,@3x`
->
-> `#Tips 2#(green)` `srcset`指定的 2x/3x 的图片与标准分辨率图片若在不在同一目录或 URL 下，则须填写完整的图片 URL
+> `#Tips 2#(orange)` `srcset`指定的 2x/3x 的图片与标准分辨率图片若在不在同一目录或 URL 下，则须填写完整的图片 URL
 
-> `#参考#(gray)` *如果对 URL 参数的使用有疑问，可以去「[补充说明](#补充说明)」那深入再了解了解～*
+> **没有准备高清图片，也希望不模糊？**
+>
+> - 如果临时没有图片的高清分辨率，VLOOK™ 也可以将其转换 2x 资源，这样在高分屏上也能提高图片显示清晰度（但图片大小会相应缩小 50%）
+>- 可通过在「文档 URL」中添加 VLOOK™ 规范的参数`imgx=auto`来启用这个特性
+> 
+
+> `#参考#(green)` *如果对 URL 参数的使用有疑问，可以去「[补充说明](#补充说明)」那深入再了解了解～*
 
 ###### 示例
 
-![普通分辨率图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?inline=true&invert=dark)　　![支持 2x 分辨率图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?inline=true&invert=dark&srcset=@2x)　　![支持 2x, 3x 分辨率的图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?inline=true&invert=dark&srcset=@2x,@3x)
+![普通分辨率图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone-home-light.png?padding=true&inline=true&darksrc=iphone-home-dark.png)　　![支持 2x 分辨率图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone-home-light.png?padding=true&inline=true&darksrc=iphone-home-dark.png&srcset=@2x&darksrcset=@2x)　　![支持 2x, 3x 分辨率的图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone-home-light.png?padding=true&inline=true&darksrc=iphone-home-dark.png&srcset=@2x,@3x&darksrcset=@2x,@3x)
 
 ---
 
@@ -562,21 +582,25 @@ Mermaid 图片题注示例：？？？
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 图片在 Dark 模式时反色
+### 图片适配 Dark Mode
 
-**如果你的系统或浏览器启用了 Dark 模式，在黑色背景下原来的图片显得不够和谐的话～VLOOK™ 又来给你助功了！**
+**系统开启 Dark Mode 后，图片显示得有点不太和谐，怎么办？**
+
+`#Reply#(gray)` VLOOK™ 支持指定图片在 Dark Mode 时的适配方式（如：反色、替换等）！
+
+#### 适配方式：反色
 
 > 在「图片 URL」中添加 VLOOK™ 规范的参数的方式来启用这一特性：
 >
-> - URL 参数：`invert=dark`
+> - URL 参数：`darksrc=invert`
 >
-> 你现在就可以试试按下键盘的<kbd>D</kbd>键，然后看看下面插图的变化～
+> 你现在就可以试试按下键盘的<kbd>D</kbd>键，然后看看下面两个插图的变化～
 
-> `#参考#(gray)` *如果对 URL 参数的使用有疑问，可以去「[补充说明](#补充说明)」那深入再了解了解～*
+> `#参考#(green)` *如果对 URL 参数的使用有疑问，可以去「[补充说明](#补充说明)」那深入再了解了解～*
 
 ###### 示例
 
-![默认在 Dark 模式时不反色](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?inline=true&srcset=@2x)　　![指定在 Dark 模式时反色](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?inline=true&invert=dark&srcset=@2x,@3x)
+![默认不适配 Dark Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?inline=true&&srcset=@2x,@3x)　　![Dark Mode 时：图片反色](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?inline=true&&srcset=@2x,@3x&darksrc=invert)
 
 ---
 
@@ -584,7 +608,28 @@ Mermaid 图片题注示例：？？？
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 图片显示模式
+#### 适配方式：替换
+
+> 在「图片 URL」中添加 VLOOK™ 规范的参数的方式来启用这一特性：
+>
+> URL 参数：
+>
+> - 普通分辨率图片：`darksrc=xxx.jpg`
+> - 适配高分屏分辨率的图片（可选）：`darksrcset=...`，该参数的用法==适配高分屏==的`srcset`保持一致，详见「[图片适配高分屏](#图片适配高分屏)」
+>
+> 你现在就可以试试按下键盘的<kbd>D</kbd>键，然后看看下面两个插图的变化～
+>
+> 
+>
+> `#注意#` 若高分辨率图片资源较大，切换为 Dark Mode 须待指定的图片加载完成后会被替换
+
+> `#参考#(green)` *如果对 URL 参数的使用有疑问，可以去「[补充说明](#补充说明)」那深入再了解了解～*
+
+###### 示例
+
+![默认不适配 Dark Mode](https://s3.ax1x.com/2021/01/15/swDZlQ.png?padding=true&inline=true&srcset=swDeyj.png@2x,swDmOs.png@3x)　　![Dark Mode 时：替换成指定图片](https://s3.ax1x.com/2021/01/15/swDZlQ.png?darksrc=swBrss.png&padding=true&inline=true&srcset=swDeyj.png@2x,swDmOs.png@3x&darksrcset=swBgoV.png@2x,swB6Zq.png@3x)
+
+### 图片显示版式
 
 在 VLOOK™ 中图片默认均以「插图」的形式进行呈现，即会有自动编号、题注等～
 
@@ -597,17 +642,17 @@ Mermaid 图片题注示例：？？？
 |   icon   | 缩小为与单行正文高度适配的小图标<br />主要用于与正文内容进行混排 | `mode=icon` | `![图片](xxx.png?mode=icon)` |
 |   logo   | 不调整图片大小<br />主要用于展示 Logo 或不是作为「插图」的图片 | `mode=logo` | `![图片](xxx.png?mode=logo)` |
 
-> `#参考#(gray)` *如果对 URL 参数的使用有疑问，可以去「[补充说明](#补充说明)」那深入再了解了解～*
+> `#参考#(green)` *如果对 URL 参数的使用有疑问，可以去「[补充说明](#补充说明)」那深入再了解了解～*
 
 ###### 示例一：icon 模式
 
-![VLOOK](https://s1.ax1x.com/2020/11/11/BXpnHJ.png?mode=icon&invert=dark)**VLOOK™** 是 ![OSChina](https://s1.ax1x.com/2020/11/06/BWB3Xn.png?mode=icon)**[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
+![VLOOK](https://s1.ax1x.com/2020/11/11/BXpnHJ.png?mode=icon&darksrc=invert)**VLOOK™** 是 ![OSChina](https://s1.ax1x.com/2020/11/06/BWB3Xn.png?mode=icon)**[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
 
 ###### 示例二：logo 模式
 
-`#Tips#(green)` 对于深色的图片或图标，可配合「[图片在 Dark 模式时反色](#图片在 Dark 模式时反色)」来自动更好适配 Dark 模式下的显示，现在就试试按下键盘的<kbd>D</kbd>键，然后看看下图的变化～
+`#Tips#(green)` 对于深色的图片或图标，可配合「[图片适配 Dark Mode](#图片适配 Dark Mode)」来自动更好适配 Dark Mode 下的显示，现在就试试按下键盘的<kbd>D</kbd>键，然后看看下图的变化～
 
-![Markdown Mark](https://s1.ax1x.com/2020/11/06/Bh69sg.png?mode=logo&invert=dark&srcset=Bh6pQS.png@2x)
+![Markdown Mark](https://s1.ax1x.com/2020/11/06/Bh69sg.png?mode=logo&darksrc=invert&srcset=Bh6pQS.png@2x)
 
 ---
 
@@ -615,7 +660,7 @@ Mermaid 图片题注示例：？？？
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 图片排版
+### 图片排版
 
 **在 Markdown 对图片千篇一律的排版的反馈中，VLOOK™ 悄悄尝试打开了一道小小的裂缝～**
 
@@ -625,7 +670,7 @@ Mermaid 图片题注示例：？？？
 > - 参数：`inline=true`
 > - 参数示例：`![图片题注](xxxxx.png?inline=true)`
 >
-> 该特性示例可以回看之前面「图片添加高分屏版本」 ••• [马上去看看](#图片添加高分屏版本)
+> 该特性示例可以回看之前面「图片适配高分屏」 ••• [马上去看看](#图片适配高分屏)
 
 > **为图片的边缘添加留白：**
 >
@@ -633,11 +678,11 @@ Mermaid 图片题注示例：？？？
 > - 参数：`padding=true`，默认添加 `10px` 的留白
 > - 参数示例：`![图片题注](xxxxx.png?padding=true)`
 
-> `#参考#(gray)` *如果对 URL 参数的使用有疑问，可以去「[补充说明](#补充说明)」那深入再了解了解～*
+> `#参考#(green)` *如果对 URL 参数的使用有疑问，可以去「[补充说明](#补充说明)」那深入再了解了解～*
 
 ###### 示例
 
-![图片边缘不留白](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?inline=true&invert=dark&srcset=@2x)　　![图片边缘添加留白](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?inline=true&invert=dark&padding=true&srcset=@2x)
+![图片边缘不留白](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?inline=true&darksrc=invert&srcset=@2x)　　![图片边缘添加留白](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?inline=true&darksrc=invert&padding=true&srcset=@2x)
 
 ---
 
@@ -645,9 +690,9 @@ Mermaid 图片题注示例：？？？
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-# °标签
+## °标签
 
-## 彩虹标签
+### 彩虹标签
 
 **VLOOK™ 通过对 Markdown 行内代码（Code）语法`` ` ` `` 进行扩展，满足实用的「标签」排版需求！**
 
@@ -680,7 +725,7 @@ Mermaid 图片题注示例：？？？
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 药丸标签
+### 药丸标签
 
 **VLOOK™ 通过 Markdown 行内代码（Code）语法`` ` ` `` 进行扩展，满足实用的「二元组标签」的排版需求！**
 
@@ -713,19 +758,19 @@ Mermaid 图片题注示例：？？？
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-# °引用
+## °引用
 
-## 彩虹引用
+### 彩虹引用
 
 **VLOOK™ 通过对 Markdown 行内代码（Code）语法`` ` ` `` 进行扩展，满足实用的多色彩「引用」的排版需求！**
 
-> **语法：** `` `>(color)` ``（==须添加到引用的首行中，如首行行末==）
+> **语法：** `` `>(color)` ``，==须添加到引用的首行中，位置不限（如：行末）==
 >
 > 其中：
 >
 > `color`：指定标签显示对应的预置颜色标识，与「[彩虹标签](#彩虹标签)」一致
 
-###### 示例一：带标题的彩虹引用
+###### 示例
 
 > ⛔️ **彩虹引用的标题**`>(red)`
 >
@@ -767,21 +812,7 @@ Mermaid 图片题注示例：？？？
 >
 > 带标题的彩虹引用内容
 
-###### 示例二：无标题、嵌套的彩虹引用
-
-> `>(blue)`
->
-> 这是无标题的彩虹引用
->
-> > ㊙️ **这是被嵌套的彩虹引用的标题**`>(red)`
-> >
-> > 带标题的彩虹引用内容
-> >
-> > > 📦 **这是被嵌套的彩虹引用的标题**`>(brown)`
-> > >
-> > > 带标题的彩虹引用内容
-
-## 折叠吧引用
+### 折叠吧引用
 
 在编写 Markdown 文档时，对于部分内容较长的引用内容，希望在默认时能以折叠的形式存在，需要阅读时再点击打开。
 
@@ -794,33 +825,34 @@ Mermaid 图片题注示例：？？？
 > `[folder]`：折叠引子，`[+]` - 默认为折叠，`[-]` - 默认为展开
 >
 > `title`：折叠引子的标题，与折叠引子以英文空格 <kbd>　　SPACE　　</kbd> 进行分隔
+>
+> 
+>
+> **使用了该语法后，该行下方的二级引用块即可进行折叠/展开**
 
 ###### 示例一：实际应用效果
 
 > [+] **以下是默认折叠的「引用」内容**
 >
-> > - 在作为折叠引子的内容前增加：`[+]<空格>`或`[-]<空格>`
-> >   -  `[+]`指该标题下的引用内容默认为「收起」状态；
-> >   -  `[-]`指该标题下的引用内容默认为「展开」状态；
-> >
-> > - 然后换行后添加一个新的嵌套的引用块，该嵌套的引用块即为该引子对应要折叠、展开的内容。
-> >
-> > [+] **可支持多重引用的折叠**
-> >
-> > > [+] **这里是第三重引用折叠的内容**
+> > - 这里默认为==折叠==的引用内容。
+> >   
+> > 
+> >[+] **可支持多重引用的折叠**
+> > 
+> >> [+] **这里是第三重引用折叠的内容**
 > > >
-> > > > 这是第三重引用的内容
+> >> > 这是第三重引用的内容
 >
 > [-] **以下是是默认展开的「引用」内容**
 >
-> > 默认为展示的引用内容
+> > 这里默认为==展开==的引用内容。
 
 ###### 示例二：默认为折叠的引用编写实例
 
 ```markdown
 > [+] 默认为折叠的引用的标题
-> > 这是第 1 行被折叠的引用内容
-> > 这是第 2 行被折叠的引用内容
+> > 这是被折叠的第 1 行的引用内容
+> > 这是被折叠的第 2 行的引用内容
 ```
 
 ---
@@ -829,15 +861,15 @@ Mermaid 图片题注示例：？？？
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-# °Mermaid
+## °Mermaid
 
-## Mermaid 样式优化
+### Mermaid 样式优化
 
 **对于在 Markdown 文档中常用的 Mermaid 图表，VLOOK™ 会自动提供了深度的样式优化，并提供针对高分屏、跨平台的兼容性补丁。**
 
 > **统一和优化样式：**
 >
-> 自动针对 Mermaid 的 **饼图、流程图、状态机图、顺序图、类图、甘特图** 进行样式优化，并支持 **[Dark 模式](#Dark 模式)**
+> 自动针对 Mermaid 的 **饼图、流程图、状态机图、顺序图、类图、甘特图** 进行样式优化，并支持 [Dark Mode](#Dark Mode)
 >
 
 > **标记扩展：**
@@ -960,9 +992,9 @@ end
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-# °影音
+## °影音
 
-## 音频
+### 音频
 
 **目前 Markdown 还没有针对音频的支持，现在通过 VLOOK™ 可以几乎「零」成本实现！**
 
@@ -1013,7 +1045,7 @@ end
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 视频
+### 视频
 
 **目前 Markdown 还没有针对视频的支持，现在通过 VLOOK™ 可以几乎「零」成本实现！**
 
@@ -1050,9 +1082,9 @@ end
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-# °注音、黑幕
+## °注音、黑幕
 
-## 注音
+### 注音
 
 **VLOOK™ 通过对 Markdown 行内代码（Code）语法`` ` ` `` 进行扩展，满足实用的「注音」排版需求！**
 
@@ -1083,7 +1115,7 @@ end
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 黑幕
+### 黑幕
 
 **VLOOK™ 通过对 Markdown 行内代码（Code）语法`` ` ` `` 进行扩展，满足「培训、猜迷互动」等场景的排版需求！**
 
@@ -1120,9 +1152,9 @@ end
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-# °代码块
+## °代码块
 
-## 代码块自动编号与题注
+### 代码块自动编号与题注
 
 **无须任何设置，VLOOK™ 即可自动对文档内所有「代码块」进行统一的自动编号，**编号内容举例：`代码块 1` `代码块 2`
 
@@ -1143,9 +1175,9 @@ end.
 
 
 
-## 代码块增强
+### 代码块增强
 
-**VLOOK™ 针对 Markdown 的代码块进行自动增强，支持高亮当前行、一键复制代码、适配 [Dark 模式](#Dark 模式)！**
+**VLOOK™ 针对 Markdown 的代码块进行自动增强，支持高亮当前行、一键复制代码、适配 [Dark Mode](#Dark Mode)！**
 
 ###### 示例
 
@@ -1201,11 +1233,13 @@ void quickSort(int arr[], int left, int right) {
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-# °主题
+## °主题
 
-## 模板主题
+### 模板主题
 
-**Markdown 文档怎么能没有一键换肤呢？！VLOOK™ 内置了多套原创、独具风格的模板主题，能满足多种应用场景需要！**
+**你的 Markdown 文档能一键换肤吗？！**
+
+VLOOK™ 内置了多套原创、独具风格的模板主题，能满足多种应用场景需要！
 
 |                       VLOOK™ 内置主题                        |                              ==                              |                              ==                              |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
@@ -1224,21 +1258,23 @@ void quickSort(int arr[], int left, int right) {
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 字体主题
+### 字体主题
 
-**模板主题让文档颜值倍增，而字体则是文档气质担当！**VLOOK™ 提供了两套字体风格，可根据个人喜好进行选用。
+**模板主题让文档颜值倍增，而字体则是文档气质担当！**
+
+VLOOK™ 提供了两套字体风格，可根据个人喜好进行选用。
 
 > **小•清•新**
 >
 > 整体视觉为「**清新、简约、明快**」，主要采用无衬线的免费或开源的东亚和拉丁字体。
 >
-> ![字体风格_小清新](https://s3.ax1x.com/2021/01/05/skBoA1.png?invert=dark&srcset=skBTtx.png@2x,skB7h6.png@3x "2x 3x 高分屏自适应高清图片")
+> ![字体风格_小清新](https://s3.ax1x.com/2021/01/05/skBoA1.png?darksrc=invert&srcset=skBTtx.png@2x,skB7h6.png@3x "2x 3x 高分屏自适应高清图片")
 
 > **文•艺•范**
 >
 > 整体视觉为「**优雅、韵动、个性**」，主要采用衬线、无衬线的免费或开源的东亚和拉丁字体，多种字重进行**混搭组合**。
 >
-> ![字体风格_文艺范](https://s3.ax1x.com/2021/01/05/skBLcD.png?invert=dark&srcset=skBjnH.png@2x,skBOje.png@3x "2x 3x 高分屏自适应高清图片")
+> ![字体风格_文艺范](https://s3.ax1x.com/2021/01/05/skBLcD.png?darksrc=invert&srcset=skBjnH.png@2x,skBOje.png@3x "2x 3x 高分屏自适应高清图片")
 
 `#注意#`<br />**因为 Windows / MacOS 系统默认不预装字体主题配套的字体包，VLOOK™ 目前可同时支持在线和本地两种使用方式。**
 **若你的工作环境无法访问互联网，建议直接下载字体包并安装到本地，以获得最佳的视觉体验。**
@@ -1273,7 +1309,7 @@ void quickSort(int arr[], int left, int right) {
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 封面、封底
+### 封面、封底
 
 **如何让 Markdown 的文档支持封面、封底（如本文档的封面、封底）？ ———— VLOOK™ 给你支招！**
 在应用了 VLOOK™ 的「[模板主题](#模板主题)」后，使用 Markdown 的标准语法也能让文档支持封面、封底，通过遵从 VLOOK™ 约定的使用规范即可激活。
@@ -1324,7 +1360,7 @@ void quickSort(int arr[], int left, int right) {
 ###### 示例二：本文档的封面内容
 
 ```markdown
-###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>快速参考手册</sup><br /><sup>( Version 9.31 )</sup><br /><br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2020. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>快速参考手册</sup><br /><sup>( Version 9.31 )</sup><br /><br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2021. MAX°DESIGN.*
 ```
 
 > **在封面、封底中如何换行？** 
@@ -1337,9 +1373,9 @@ void quickSort(int arr[], int left, int right) {
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-# °内容导航
+## °内容导航
 
-## 大纲导航
+### 大纲导航
 
 **大纲导航是文档中最常用的导航方式，适用于内容层次明确，全文档跨章节的快速定位。**
 
@@ -1362,7 +1398,7 @@ Typora 支持 GFM 标准，所以导出的 HTML 可以自动生成内容大纲�
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 逐章导航
+### 逐章导航
 
 **适用于前后章节相关度高，按章节顺序一章一章进行浏览。**
 
@@ -1378,7 +1414,7 @@ Typora 支持 GFM 标准，所以导出的 HTML 可以自动生成内容大纲�
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 逐段导航
+### 逐段导航
 
 **适用于文档评审或演示，按段落一段一段进行聚焦式浏览。**
 
@@ -1399,7 +1435,7 @@ Typora 支持 GFM 标准，所以导出的 HTML 可以自动生成内容大纲�
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 插图导航
+### 插图导航
 
 **适用于按图索骥，快速浏览文档中的插图，以及快速定位到文档中对应的位置。**
 
@@ -1415,7 +1451,7 @@ Typora 支持 GFM 标准，所以导出的 HTML 可以自动生成内容大纲�
 > > - 浏览器支持的所有图片（如：jpg / png / gif / bmp 等）
 > > - 脚本化图表（Mermaid[^Mermaid]，从`VLOOK V9.0`开始移除对 flowchart.js[^flowchart.js]、JS Sequence Diagrams[^JS Sequence Diagrams]的支持）
 
-###### 这是长图片示例：
+###### 示例：长图片、双题注
 
 ![普通的图片示例（长图会自动折叠）](https://tva1.sinaimg.cn/large/00831rSTgy1gct75k6v6rj30u00u0b2b.jpg "（图片来源自互联网，版权尚不明确）")
 
@@ -1425,7 +1461,7 @@ Typora 支持 GFM 标准，所以导出的 HTML 可以自动生成内容大纲�
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-# °演示辅助
+## °演示辅助
 
 **VLOOK™ 独创性地为 Markdown 导出的 HTML 提供了强大的演示辅助工具，让面向 Markdown 的 Typora + VLOOK 成为更具生产力的交互式文档出版工具。**
 
@@ -1439,7 +1475,7 @@ Typora 支持 GFM 标准，所以导出的 HTML 可以自动生成内容大纲�
 |        表格十字激光剑        | 针对表格内容，特别是行、列关联性强的表格，快速关联任意单元格的横向、纵向单元格序列 |
 | 新标签打开插图、表格、代码块 | 针对须频繁在多个插图、表格、代码块间进行切换时使用，大大减少不必要的文档内跳转 |
 
-## 聚光灯
+### 聚光灯
 
 在进行文档评审或演示时，可以通过激活聚光灯来让观众聚焦于文档的特定区域和内容。
 
@@ -1453,7 +1489,7 @@ Typora 支持 GFM 标准，所以导出的 HTML 可以自动生成内容大纲�
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 表格十字激光剑
+### 表格十字激光剑
 
 鼠标点击表格上的任意单元格后，会自动显示十字光标，高亮其横向、纵向关联对应的单元格
 
@@ -1472,7 +1508,7 @@ Typora 支持 GFM 标准，所以导出的 HTML 可以自动生成内容大纲�
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 在新标签打开插图、表格、代码块
+### 在新标签打开插图、表格、代码块
 
 支持在新标签中打开文档中的 **插图**、**表格**、**代码块**，鼠标悬念在这些文档内容上时会在左上角显示「在新标签打开」的按钮，点击即可。
 
@@ -1484,9 +1520,9 @@ Typora 支持 GFM 标准，所以导出的 HTML 可以自动生成内容大纲�
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-# °交互
+## °交互
 
-## 长内容自动折叠
+### 长内容自动折叠
 
 文档中的长插图、长表格、长代码会占用过多的屏幕空间，通过 VLOOK™ 可以实现对这些长内容的自动折叠；
 
@@ -1496,13 +1532,13 @@ Typora 支持 GFM 标准，所以导出的 HTML 可以自动生成内容大纲�
 
 **• 长代码**（[查看示例](#代码块增强)）
 
-## 表格当前行游标
+### 表格当前行游标
 
 ###### 当前行游标
 
 除了前面提到的的特性外，鼠标滑过表格行时，在其左侧会通过突出的**游标**进行标识，便于在编辑和阅读时更容易辨识出当前行。
 
-## 任务列表支持自动编号
+### 任务列表支持自动编号
 
 目前 GFM 标准的任务列表（to-do）默认会取消其列表编号。<br />**VLOOK™ 主题会保持任务列表特性基础上，恢复列表编号的显示，并与上面[统一多级列表编号](#统一多级列表编号)保持一致。<br />同时，完善了任务项样式，以及自动根据子任务项的完成状态，自动修正上级任务项的完成状态（未完成、已完成、部分完成）。**
 
@@ -1546,13 +1582,13 @@ Typora 支持 GFM 标准，所以导出的 HTML 可以自动生成内容大纲�
 
 $\lim_{x \to \infty} \exp{-x}=0$
 
-# °用户体验
+## °用户体验
 
 「**人类从来都是视觉动物，自己或他人在阅读时，让眼睛感受愉悦和美好，是一种美德、一种力量、一种信仰。**」
 
 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　── MAX°孟兆
 
-## 欢迎屏
+### 欢迎屏
 
 **应用了 VLOOK™ 插件的文档在加载处理过程中会自动显示欢迎屏，VLOOK™ 完成加载处理后可手动关闭（默认）。**
 
@@ -1571,18 +1607,18 @@ $\lim_{x \to \infty} \exp{-x}=0$
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## Dark 模式
+### Dark Mode 
 
-**所有 VLOOK™ 的主题都会自动根据浏览器或系统的 Dark 模式（深色模式）配置进行自动适配，也支持手动方式进行切换。**
+**所有 VLOOK™ 的主题都会自动根据浏览器或系统的 Dark Mode （深色模式）配置进行自动适配，也支持手动方式进行切换。**
 
-若希望文档在显示后强制指定为 Light / Dark 模式，可通过添加 VLOOK™ 规范的参数的方式进行指定，具体说明如下：
+若希望文档在显示后强制指定为 Light / Dark Mode ，可通过添加 VLOOK™ 规范的参数的方式进行指定，具体说明如下：
 
 | URL 参数 | URL 参数取值 | 说明                  | 参数应用示例                   |
 | :------: | :----------: | --------------------- | ------------------------------ |
 |   `cs`   |   `light`    | 强制显示为 Light 模式 | 你的文档.html==**?cs=light**== |
-|    :     |    `dark`    | 强制显示为 Dark 模式  | 你的文档.html==**?cs=dark**==  |
+|    :     |    `dark`    | 强制显示为 Dark Mode  | 你的文档.html==**?cs=dark**==  |
 
-> `#Tips#(green)` 如果你的图片在 Dark 模式下显得不够和谐，可以尝试选择让[图片在 Dark 模式时反色](#图片在 Dark 模式时反色)。
+> `#Tips#(green)` 如果你的图片在 Dark Mode 下显得不够和谐，可以尝试选择让[图片适配 Dark Mode](#图片适配 Dark Mode)。
 
 ![Light / Dark 效果预览](https://s3.ax1x.com/2021/01/05/skBxHA.png?srcset=skDSAI.png@2x)
 
@@ -1592,19 +1628,19 @@ $\lim_{x \to \infty} \exp{-x}=0$
 
 [<kbd>◀ 我要回到 **入坑清单**</kbd>](#快速入坑)
 
-## 识别链接类型
+### 识别链接类型
 
 自动识别超链接类型
 
 自动识别对超链接或资源的类型，并鼠标在链接上悬停时进行提示<br />超链接协议类型：[**#**](#)/[**http**](http://)/[**https**](https://)/[**mailto**](mailto:)/[**ftp**](ftp://)/[**ftps**](ftps://)/[**file**](file:///)/[**smb**](smb://)<br />文档资源：[**.doc**/**.xls**/**.ppt**/**.pdf**/**.txt**/**.csv**](file.doc)<br />归档资源：[**.zip**/**.rar**/**.7z**/**.gz**/**.tar**/**.dmg**/**.cab**](file.zip)
 
-## 快捷键操作
+### 快捷键操作
 
 ![全局快捷键]
 
 |                       快捷键                        | 功能                                                         |
 | :-------------------------------------------------: | ------------------------------------------------------------ |
-|                    <kbd>D</kbd>                     | 开启、关闭 Dark 模式                                         |
+|                    <kbd>D</kbd>                     | 开启、关闭 Dark Mode                                         |
 |                    <kbd>O</kbd>                     | 显示、隐藏「[大纲导航](#大纲导航)」面板                      |
 |                    <kbd>A</kbd>                     | 切换字体样式，详见[字体风格选择](#字体风格选择)              |
 |                    <kbd>I</kbd>                     | 显示、关闭「[插图导航](#插图导航)」                          |
@@ -1628,17 +1664,17 @@ $\lim_{x \to \infty} \exp{-x}=0$
 | :----------------: | ---------------------- |
 | <kbd>⇧ Shift</kbd> | 扩大、缩放聚光灯的大小 |
 
-## 跨平台支持
+### 跨平台支持
 
 能自适应在 PC 、平板、手机上进行浏览
 
-## i18n 支持
+### i18n 支持
 
 目前支持：**简**/**繁**/**英**/**法**/**德**/**西**/**俄**/**日**/**韩**（依赖于浏览器的当前语言设置）
 
-# °出版辅助
+## °出版辅助
 
-## 章节标题自动编号
+### 章节标题自动编号
 
 如果你使用过 Word 的标题、图表的自动编码功能，就会惊喜地发现，基于 Markdown 也能做到，甚至能做得更好～<br />既不需要进行额外的设置和语法支持，甚至还能对表格行进行自动行号编号，一起来看看吧。
 
@@ -1650,13 +1686,13 @@ $\lim_{x \to \infty} \exp{-x}=0$
 >
 > 因为`6级` 标题在 VLOOK™ 中应用于[封面和封底](#封面、封底)、段落小标题的排版等，所以不在自动编号范围内。s
 
-## 文档内容检查与优化
+### 文档内容检查与优化
 
 ###### 自动识别缺失的图片
 
 识别出无法加载的图片，并替换为图片缺失提示图，示例如下：
 
-![缺失的图片](vlook-lost-image.jpg?invert=dark)
+![缺失的图片](vlook-lost-image.jpg?darksrc=invert)
 
 ###### 页内链接检查
 
@@ -1672,7 +1708,7 @@ $\lim_{x \to \infty} \exp{-x}=0$
 
 为提高文档阅读与交互体验，对于外链（如：http、https、ftp等），自动强制设置为在新标签页中打开。
 
-## 打印样式适配
+### 打印样式适配
 
 使用 VLOOK™ 提供的定制打印功能，可以在打印输出时自动优化页面排版和样式，以适应用打印输出。
 
@@ -1682,8 +1718,8 @@ $\lim_{x \to \infty} \exp{-x}=0$
 
 >  [+] **图片 URL 参数语法说明**
 >
->  > - **图片 URL 无参数时：**先在 URL 后添加英文问号`?`后，再添加需要的 URL 参数： `![图片题注](xxxxx.png?invert=dark)`
->  > - **图片 URL 已有参数时：**多个参数间用英文特殊符号`&`进行分隔： `![图片题注](xxxxx.png?invert=dark&padding=true)`
+>  > - **图片 URL 无参数时：**先在 URL 后添加英文问号`?`后，再添加需要的 URL 参数： `![图片题注](xxxxx.png?darksrc=invert)`
+>  > - **图片 URL 已有参数时：**多个参数间用英文特殊符号`&`进行分隔： `![图片题注](xxxxx.png?darksrc=invert&padding=true)`
 
 
 
