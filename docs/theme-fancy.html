@@ -4559,7 +4559,7 @@ MIT许可证（MIT）
         // 重置行内代码code样式
         ColorTag.init();
         // 重置多行代码块code block样式
-        // RainbowTag.initForCodeBlock();
+        // ColorTag.initForCodeBlock();
         iStopwatch.lapStop();
 
         // ----------------------------------------
@@ -7274,7 +7274,7 @@ MIT许可证（MIT）
         ColorScheme.updateUI();
 
         // 针对 Dark 模式进行图片反色适配处理
-        ExtFigure.adjustColorScheme();
+        ExtFigure.adjustImageInverInDarkMode();
 
         // 遍历所有变量实现ColorScheme切换
         for (let i = 0, len = varList.length; i < len; i++) {
@@ -10514,7 +10514,7 @@ MIT许可证（MIT）
      * 2. span分别包裹标准格式的不同部分。如：(`)(=) (sourcecode) (=)(`)
      * 3. span包裹标准格式及其他所有内容。如：sourcecode`= sourcecode =`sourcecode
      */
-    // RainbowTag.initForCodeBlock = function () {
+    // ColorTag.initForCodeBlock = function () {
     //     $("span[class^='cm-']").each(function () {
     //         const reg = /`[=|\+|\*|\-|\!|#](([^`])+[a-z]|[A-Z]|[\S])+[=|\+|\*|\-|\!|#]`/g;
     //         let codeTags = ["=", "+", "*", "-", "!", "#"];
@@ -10525,7 +10525,7 @@ MIT许可证（MIT）
     //                 if (codeText.length > 4 && codeText.startsWith(codeTags[i] + " ") && codeText.endWith(
     //                         " " +
     //                         codeTags[i])) {
-    //                     RainbowTag.rebuildForCodeBlock($(this), codeTags[i] + " ", i + 1);
+    //                     ColorTag.rebuildForCodeBlock($(this), codeTags[i] + " ", i + 1);
     //                     break;
     //                 }
     //             }
@@ -10540,7 +10540,7 @@ MIT许可证（MIT）
      * @param prefix 标签的标识前缀
      * @param type 标签样式分类编号：1-6
      */
-    // RainbowTag.rebuildForCodeBlock = function (target, prefix, type) {
+    // ColorTag.rebuildForCodeBlock = function (target, prefix, type) {
     //     const codeText = target.text().substring(1, target.text().length - 1);
     //     const si = codeText.indexOf(prefix);
     //     target.text(codeText.substring(si + prefix.length, codeText.length - prefix.length));
@@ -10700,7 +10700,7 @@ MIT许可证（MIT）
         // 根据颜色方案对浏览器兼容性处理
         // ColorScheme.afterToggle();
         // 针对 Dark 模式进行图片反色适配处理
-        ExtFigure.adjustColorScheme();
+        ExtFigure.adjustImageInverInDarkMode();
         iStopwatch.lapStop();
 
         // ----------------------------------------
