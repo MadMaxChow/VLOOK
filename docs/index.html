@@ -4468,7 +4468,7 @@ MIT许可证（MIT）
         iStopwatch.lapStart();
         console.info("- Font Style");
         // 清空历史存储
-        if (VLOOK.util.getQueryParams(window.location.href)["reset"] === "ls") {
+        if (VLOOK.util.parseQueryString(window.location.href)["reset"] === "ls") {
             console.warn("!!! Reset Local Storage !!!");
             localStorage.removeItem("VLOOK-" + VLOOK.version + "-hint-for-green-hand-step-bf");
             localStorage.removeItem("VLOOK-" + VLOOK.version + "-font-style");
