@@ -632,7 +632,7 @@ body > *:last-child {
 img,
 .mdx-figure,
 .md-diagram-panel svg {
-  background: #FFFFFF;
+  background: var(--doc-bg-color);
   background-repeat: repeat;
   background-position: left top;
   border-radius: var(--vlook-base-radius);
@@ -3262,10 +3262,10 @@ li > p + ul {
   border-color: #19ffed !important;
 }
 .mdx-figure-bg-light {
-  background: #FFFFFF !important;
+  background: var(--doc-bg-color) !important;
 }
 .mdx-figure-bg-dark {
-  background: #181A1E !important;
+  background: var(--doc-bg-color) !important;
 }
 .mdx-figure-content {
   margin: 5px;
@@ -3930,7 +3930,7 @@ h6 code {
   img[src*="darksrc=invert"] {
     filter: var(--vlook-invert-dark);
     border-color: rgba(175, 171, 167, 0.8) !important;
-    background: #FFFFFF !important;
+    background: var(--doc-bg-color) !important;
   }
 }
 @supports ((backdrop-filter: blur(15px)) or
