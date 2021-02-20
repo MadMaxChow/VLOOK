@@ -1,16 +1,20 @@
-    /****************************************
-    starter of VLOOK.js - Typora Plugin
-    V9.31-dev7
-    2021-01-16
-    powered by MAX°孟兆
+    /**************************************
+     *
+     * starter of VLOOK.js - Typora Plugin
+     * 配合 vlook.js 进行使用
+     *
+     * V10.0
+     * 2021-02-20
+     * powered by MAX°孟兆
+     *
+     * QQ Group: 805502564
+     * email: maxchow@qq.com
+     *
+     * https://github.com/MadMaxChow/VLOOK
+     *
+     *************************************/
 
-    QQ Group: 805502564
-    email: maxchow@qq.com
-
-    https://github.com/MadMaxChow/VLOOK
-    ***************************************/
-
-   let startVersion = "V9.31-dev7";
+    let startVersion = "V10.0";
 
     /**
      * 获取 URL 中的参数数组
@@ -38,17 +42,6 @@
         return args;
     }
 
-    // 资源域名配置
-    let cssHost = "https://madmaxchow.gitee.io/vlook/",
-        fontHost = "https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/";
-    jsHost = "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/";
-    // Debug 模式
-    if (vlookDevMode === true) {
-        jsHost = "http://localhost/";
-        // fontHost = "http://localhost:8080/font/";
-        cssHost = jsHost;
-    }
-
     // 动态加载指定的 VLOOK 主题
     let theme = parseQueryString(window.location.href)["theme"],
         themmeVersion = getComputedStyle(document.documentElement).getPropertyValue("--vlook-theme-version").trim().replace(/"/g, "");
@@ -72,6 +65,7 @@
     jsSrc[1] = jsHost + "js/velocity.js";
     jsSrc[2] = jsHost + "js/clipboard.js";
     jsSrc[3] = jsHost + "js/vlook.js";
+    jsSrc[4] = jsHost + "js/svg-inject.js";
     for (let i = 0; i < jsSrc.length; i++) {
         let js = document.createElement("script");
         js.setAttribute("type", "text/javascript");

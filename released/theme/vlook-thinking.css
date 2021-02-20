@@ -3,13 +3,27 @@
 ***************************************/
 /**************************************
 * VLOOK CSS 调色板
+*
+* V10.0
+* 配合 base.less 进行使用
+*
 ***************************************/
 /**************************************
 * 颜色主题
 ***************************************/
 /**************************************
-* VLOOK CSS 基础库
-**************************************/
+ * VLOOK CSS 基础库
+ *
+ * V10.0
+ * 2021-02-20
+ * powered by MAX°孟兆
+ *
+ * QQ Group: 805502564
+ * email: maxchow@qq.com
+ *
+ * https://github.com/MadMaxChow/VLOOK
+ *
+ *************************************/
 /**************************************
  自定义 UI 元素层叠次序
 
@@ -21,7 +35,7 @@
 
 ---------- 高优先信息 UI 区 -----
 
-工具栏提示、弹窗提示 / .mdx-tool-tips, .mdx-info-tips / z-index: 3000;
+工具栏提示、弹窗提示、字体风格切换 / .mdx-tool-tips, .mdx-info-tips, .mdx-font-styler / z-index: 3000;
 
 ---------- 二级 UI 区 ----------
 
@@ -34,7 +48,7 @@
 ---------- UI 间隔区 ----------
 
 遮罩 / .mdx-mask / z-index: 1000;
-mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
+Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 ？？ / .CodeMirror div.CodeMirror-cursor / z-index: 3;
 
 ---------- 增强工具操作区 ----------
@@ -50,16 +64,18 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
 内容展开操作区 / .mdx-content-expander / z-index: 10;
 
 **************************************/
+@import url("https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css");
 :root {
   --vlook-theme-name: "vlook-thinking";
-  --vlook-theme-version: "V9.31-dev5";
+  --vlook-theme-version: "V10.0";
   --vlook-default-font-style: sans;
-  --vlook-color-scheme: "light";
+  --vlook-color-scheme: light;
   --vlook-toc-box-width: 350px;
   --vlook-toc-box-hidden-left: -370px;
   --vlook-base-radius: 12px;
   --vlook-small-radius: 6px;
   --vlook-table-radius: 10px;
+  --vlook-tag-radius: 0.5em;
   --vlook-invert-dark-light: invert(0) brightness(100%);
   --vlook-brightness-dark-light: brightness(100%);
   --doc-bg-color-light: #FFFFFF;
@@ -72,7 +88,6 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
   --blockquote-bg-light: rgba(24, 26, 30, 0.08);
   --tips-bg-color-light: #E0E4E8;
   --tips-bg-color-inset-light: #181A1E;
-  --shadow-color-light: rgba(0, 0, 0, 0.1);
   --a-color-light: #181A1E;
   --mark-color-light: rgba(255, 192, 32, 0.35);
   --table-color-light: #B0B4B8;
@@ -88,55 +103,61 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
   --header-bg-end-color-light: rgba(41, 139, 204, 0.1);
   --code-bg-color-light: #cce5f5;
   --code-name-bg-color-light: #181A1E;
-  --code-name-shadow-color-light: #181A1E;
-  --accent-color-red-light: #CE2743;
-  --accent-color-red-alt-light: #eda1ae;
-  --accent-color-red-fade-light: rgba(206, 39, 67, 0.25);
-  --accent-color-orange-light: #E68D09;
-  --accent-color-orange-alt-light: #fcd9a6;
-  --accent-color-orange-fade-light: rgba(230, 141, 9, 0.25);
-  --accent-color-yellow-light: #E9CB0C;
-  --accent-color-yellow-alt-light: #fbf0ad;
-  --accent-color-yellow-fade-light: rgba(233, 203, 12, 0.25);
-  --accent-color-green-light: #53B422;
-  --accent-color-green-alt-light: #b7ec9c;
-  --accent-color-green-fade-light: rgba(83, 180, 34, 0.25);
-  --accent-color-cyan-light: #1DB3C3;
-  --accent-color-cyan-alt-light: #a1e9f1;
-  --accent-color-cyan-fade-light: rgba(29, 179, 195, 0.25);
-  --accent-color-blue-light: #0989EB;
-  --accent-color-blue-alt-light: #abd9fc;
-  --accent-color-blue-fade-light: rgba(9, 137, 235, 0.25);
-  --accent-color-purple-light: #5739D0;
-  --accent-color-purple-alt-light: #d1c9f2;
-  --accent-color-purple-fade-light: rgba(87, 57, 208, 0.25);
+  --code-name-shadow-color-light: rgba(0, 0, 0, 0.3);
+  --accent-color-red-light: #C72334;
+  --accent-color-red-alt-light: #ed969f;
+  --accent-color-red-fade-light: rgba(199, 35, 52, 0.25);
+  --accent-color-orange-light: #E27D09;
+  --accent-color-orange-alt-light: #fbd2a2;
+  --accent-color-orange-fade-light: rgba(226, 125, 9, 0.25);
+  --accent-color-yellow-light: #DFB50C;
+  --accent-color-yellow-alt-light: #fae9a3;
+  --accent-color-yellow-fade-light: rgba(223, 181, 12, 0.25);
+  --accent-color-green-light: #38AB21;
+  --accent-color-green-alt-light: #a3ea94;
+  --accent-color-green-fade-light: rgba(56, 171, 33, 0.25);
+  --accent-color-cyan-light: #18A8BF;
+  --accent-color-cyan-alt-light: #98e6f2;
+  --accent-color-cyan-fade-light: rgba(24, 168, 191, 0.25);
+  --accent-color-blue-light: #056BF0;
+  --accent-color-blue-alt-light: #aacefd;
+  --accent-color-blue-fade-light: rgba(5, 107, 240, 0.25);
+  --accent-color-purple-light: #7738DC;
+  --accent-color-purple-alt-light: #dfd0f7;
+  --accent-color-purple-fade-light: rgba(119, 56, 220, 0.25);
   --accent-color-pink-light: #DB43B2;
   --accent-color-pink-alt-light: #f8d9ef;
   --accent-color-pink-fade-light: rgba(219, 67, 178, 0.25);
-  --accent-color-brown-light: #A6774E;
-  --accent-color-brown-alt-light: #e3d2c3;
-  --accent-color-brown-fade-light: rgba(166, 119, 78, 0.25);
+  --accent-color-brown-light: #A47546;
+  --accent-color-brown-alt-light: #e2cebb;
+  --accent-color-brown-fade-light: rgba(164, 117, 70, 0.25);
   --accent-color-gray-light: #636569;
   --accent-color-gray-alt-light: #bdbfc1;
   --accent-color-gray-fade-light: rgba(99, 101, 105, 0.25);
-  --mermaid-accent-color-red-light: #CE2743;
-  --mermaid-accent-color-red-alt-light: #eda1ae;
-  --mermaid-accent-color-orange-light: #E68D09;
-  --mermaid-accent-color-orange-alt-light: #fcd9a6;
-  --mermaid-accent-color-yellow-light: #E9CB0C;
-  --mermaid-accent-color-yellow-alt-light: #fbf0ad;
-  --mermaid-accent-color-green-light: #53B422;
-  --mermaid-accent-color-green-alt-light: #b7ec9c;
-  --mermaid-accent-color-cyan-light: #1DB3C3;
-  --mermaid-accent-color-cyan-alt-light: #a1e9f1;
-  --mermaid-accent-color-blue-light: #0989EB;
-  --mermaid-accent-color-blue-alt-light: #abd9fc;
-  --mermaid-accent-color-purple-light: #5739D0;
-  --mermaid-accent-color-purple-alt-light: #d1c9f2;
+  --accent-color-theme1-light: #298BCC;
+  --accent-color-theme1-alt-light: #b7daf1;
+  --accent-color-theme1-fade-light: rgba(41, 139, 204, 0.25);
+  --accent-color-theme2-light: #27C2BD;
+  --accent-color-theme2-alt-light: #adefec;
+  --accent-color-theme2-fade-light: rgba(39, 194, 189, 0.25);
+  --mermaid-accent-color-red-light: #C72334;
+  --mermaid-accent-color-red-alt-light: #ed969f;
+  --mermaid-accent-color-orange-light: #E27D09;
+  --mermaid-accent-color-orange-alt-light: #fbd2a2;
+  --mermaid-accent-color-yellow-light: #DFB50C;
+  --mermaid-accent-color-yellow-alt-light: #fae9a3;
+  --mermaid-accent-color-green-light: #38AB21;
+  --mermaid-accent-color-green-alt-light: #a3ea94;
+  --mermaid-accent-color-cyan-light: #18A8BF;
+  --mermaid-accent-color-cyan-alt-light: #98e6f2;
+  --mermaid-accent-color-blue-light: #056BF0;
+  --mermaid-accent-color-blue-alt-light: #aacefd;
+  --mermaid-accent-color-purple-light: #7738DC;
+  --mermaid-accent-color-purple-alt-light: #dfd0f7;
   --mermaid-accent-color-pink-light: #DB43B2;
   --mermaid-accent-color-pink-alt-light: #f8d9ef;
-  --mermaid-accent-color-brown-light: #A6774E;
-  --mermaid-accent-color-brown-alt-light: #e3d2c3;
+  --mermaid-accent-color-brown-light: #A47546;
+  --mermaid-accent-color-brown-alt-light: #e2cebb;
   --mermaid-accent-color-gray-light: #636569;
   --mermaid-accent-color-gray-alt-light: #bdbfc1;
   --cm-keyword-light: #770088;
@@ -172,7 +193,6 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
   --blockquote-bg-dark: rgba(224, 228, 232, 0.1);
   --tips-bg-color-dark: #3a3f49;
   --tips-bg-color-inset-dark: #E0E4E8;
-  --shadow-color-dark: rgba(255, 255, 255, 0.1);
   --a-color-dark: #E0E4E8;
   --mark-color-dark: rgba(255, 192, 32, 0.25);
   --table-color-dark: #505458;
@@ -187,56 +207,62 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
   --header-bg-start-color-dark: rgba(41, 139, 204, 0);
   --header-bg-end-color-dark: rgba(41, 139, 204, 0.15);
   --code-bg-color-dark: #144362;
-  --code-name-bg-color-dark: #181A1E;
-  --code-name-shadow-color-dark: #737c8f;
-  --accent-color-red-dark: #781727;
-  --accent-color-red-alt-dark: #dd4b64;
-  --accent-color-red-fade-dark: rgba(206, 39, 67, 0.35);
-  --accent-color-yellow-dark: #574c05;
-  --accent-color-yellow-alt-dark: #f6df4c;
-  --accent-color-yellow-fade-dark: rgba(233, 203, 12, 0.35);
-  --accent-color-orange-dark: #845105;
-  --accent-color-orange-alt-dark: #f8af44;
-  --accent-color-orange-fade-dark: rgba(230, 141, 9, 0.35);
-  --accent-color-green-dark: #2b5e12;
-  --accent-color-green-alt-dark: #79dc46;
-  --accent-color-green-fade-dark: rgba(83, 180, 34, 0.35);
-  --accent-color-cyan-dark: #10616a;
-  --accent-color-cyan-alt-dark: #49d5e4;
-  --accent-color-cyan-fade-dark: rgba(29, 179, 195, 0.35);
-  --accent-color-blue-dark: #055089;
-  --accent-color-blue-alt-dark: #48acf8;
-  --accent-color-blue-fade-dark: rgba(9, 137, 235, 0.35);
-  --accent-color-purple-dark: #331f84;
-  --accent-color-purple-alt-dark: #8b77df;
-  --accent-color-purple-fade-dark: rgba(87, 57, 208, 0.35);
+  --code-name-bg-color-dark: #E0E4E8;
+  --code-name-shadow-color-dark: rgba(255, 255, 255, 0.3);
+  --accent-color-red-dark: #70141d;
+  --accent-color-red-alt-dark: #dd4050;
+  --accent-color-red-fade-dark: rgba(199, 35, 52, 0.35);
+  --accent-color-yellow-dark: #7e6607;
+  --accent-color-yellow-alt-dark: #f5d143;
+  --accent-color-yellow-fade-dark: rgba(223, 181, 12, 0.35);
+  --accent-color-orange-dark: #804705;
+  --accent-color-orange-alt-dark: #f7a240;
+  --accent-color-orange-fade-dark: rgba(226, 125, 9, 0.35);
+  --accent-color-green-dark: #1c5510;
+  --accent-color-green-alt-dark: #59da3f;
+  --accent-color-green-fade-dark: rgba(56, 171, 33, 0.35);
+  --accent-color-cyan-dark: #0d5864;
+  --accent-color-cyan-alt-dark: #3dcfe7;
+  --accent-color-cyan-fade-dark: rgba(24, 168, 191, 0.35);
+  --accent-color-blue-dark: #033e8c;
+  --accent-color-blue-alt-dark: #4695fb;
+  --accent-color-blue-fade-dark: rgba(5, 107, 240, 0.35);
+  --accent-color-purple-dark: #491a94;
+  --accent-color-purple-alt-dark: #a379e7;
+  --accent-color-purple-fade-dark: rgba(119, 56, 220, 0.35);
   --accent-color-pink-dark: #9a1e79;
   --accent-color-pink-alt-dark: #e783cc;
   --accent-color-pink-fade-dark: rgba(219, 67, 178, 0.35);
-  --accent-color-brown-dark: #61452d;
-  --accent-color-brown-alt-dark: #c29e7e;
-  --accent-color-brown-fade-dark: rgba(166, 119, 78, 0.35);
+  --accent-color-brown-dark: #5d4227;
+  --accent-color-brown-alt-dark: #c39b73;
+  --accent-color-brown-fade-dark: rgba(164, 117, 70, 0.35);
   --accent-color-gray-dark: #323335;
   --accent-color-gray-alt-dark: #898b90;
   --accent-color-gray-fade-dark: rgba(99, 101, 105, 0.35);
-  --mermaid-accent-color-red-dark: #dd4b64;
-  --mermaid-accent-color-red-alt-dark: #781727;
-  --mermaid-accent-color-orange-dark: #f8af44;
-  --mermaid-accent-color-orange-alt-dark: #845105;
-  --mermaid-accent-color-yellow-dark: #f6df4c;
-  --mermaid-accent-color-yellow-alt-dark: #574c05;
-  --mermaid-accent-color-green-dark: #79dc46;
-  --mermaid-accent-color-green-alt-dark: #2b5e12;
-  --mermaid-accent-color-cyan-dark: #49d5e4;
-  --mermaid-accent-color-cyan-alt-dark: #10616a;
-  --mermaid-accent-color-blue-dark: #48acf8;
-  --mermaid-accent-color-blue-alt-dark: #055089;
-  --mermaid-accent-color-purple-dark: #8b77df;
-  --mermaid-accent-color-purple-alt-dark: #331f84;
+  --accent-color-theme1-dark: #185177;
+  --accent-color-theme1-alt-dark: #62addf;
+  --accent-color-theme1-fade-dark: rgba(24, 81, 119, 0.35);
+  --accent-color-theme2-dark: #166d6a;
+  --accent-color-theme2-alt-dark: #58ddd9;
+  --accent-color-theme2-fade-dark: rgba(22, 109, 106, 0.35);
+  --mermaid-accent-color-red-dark: #dd4050;
+  --mermaid-accent-color-red-alt-dark: #70141d;
+  --mermaid-accent-color-orange-dark: #f7a240;
+  --mermaid-accent-color-orange-alt-dark: #804705;
+  --mermaid-accent-color-yellow-dark: #f5d143;
+  --mermaid-accent-color-yellow-alt-dark: #7e6607;
+  --mermaid-accent-color-green-dark: #59da3f;
+  --mermaid-accent-color-green-alt-dark: #1c5510;
+  --mermaid-accent-color-cyan-dark: #3dcfe7;
+  --mermaid-accent-color-cyan-alt-dark: #0d5864;
+  --mermaid-accent-color-blue-dark: #4695fb;
+  --mermaid-accent-color-blue-alt-dark: #033e8c;
+  --mermaid-accent-color-purple-dark: #a379e7;
+  --mermaid-accent-color-purple-alt-dark: #491a94;
   --mermaid-accent-color-pink-dark: #e783cc;
   --mermaid-accent-color-pink-alt-dark: #9a1e79;
-  --mermaid-accent-color-brown-dark: #c29e7e;
-  --mermaid-accent-color-brown-alt-dark: #61452d;
+  --mermaid-accent-color-brown-dark: #c39b73;
+  --mermaid-accent-color-brown-alt-dark: #5d4227;
   --mermaid-accent-color-gray-dark: #898b90;
   --mermaid-accent-color-gray-alt-dark: #323335;
   --cm-keyword-dark: #C88FD0;
@@ -272,7 +298,6 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
   --blockquote-bg: var(--blockquote-bg-light);
   --tips-bg-color: var(--tips-bg-color-light);
   --tips-bg-color-inset: var(--tips-bg-color-inset-light);
-  --shadow-color: var(--shadow-color-light);
   --a-color: var(--a-color-light);
   --mark-color: var(--mark-color-light);
   --table-color: var(--table-color-light);
@@ -288,7 +313,7 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
   --header-bg-end-color: var(--header-bg-end-color-light);
   --code-bg-color: var(--code-bg-color-light);
   --code-name-bg-color: var(--code-name-bg-color-light);
-  --code-name-shadow-color: var(--code-name-bg-color);
+  --code-name-shadow-color: var(--code-name-shadow-color-light);
   --accent-color-red: var(--accent-color-red-light);
   --accent-color-red-alt: var(--accent-color-red-alt-light);
   --accent-color-red-fade: var(--accent-color-red-fade-light);
@@ -319,6 +344,12 @@ mermaid 工具提示 / div.mermaidTooltip / z-index: 100;
   --accent-color-gray: var(--accent-color-gray-light);
   --accent-color-gray-alt: var(--accent-color-gray-alt-light);
   --accent-color-gray-fade: var(--accent-color-gray-fade-light);
+  --accent-color-theme1: var(--accent-color-theme1-light);
+  --accent-color-theme1-alt: var(--accent-color-theme1-alt-light);
+  --accent-color-theme1-fade: var(--accent-color-theme1-fade-light);
+  --accent-color-theme2: var(--accent-color-theme2-light);
+  --accent-color-theme2-alt: var(--accent-color-theme2-alt-light);
+  --accent-color-theme2-fade: var(--accent-color-theme2-fade-light);
   --mermaid-accent-color-red: var(--mermaid-accent-color-red-light);
   --mermaid-accent-color-red-alt: var(--mermaid-accent-color-red-alt-light);
   --mermaid-accent-color-orange: var(--mermaid-accent-color-orange-light);
@@ -390,9 +421,7 @@ body > *:last-child {
 img,
 .mdx-figure,
 .md-diagram-panel svg {
-  background: #FFFFFF;
-  background-repeat: repeat;
-  background-position: left top;
+  background-color: var(--doc-bg-color);
   border-radius: var(--vlook-base-radius);
   padding: 0;
   border: 2px solid var(--table-border-color);
@@ -402,26 +431,55 @@ img {
   margin: 0 !important;
 }
 img[src*="padding=true"] {
-  padding: 10px !important;
+  padding: 20px !important;
 }
-img[src*="inline=true"] {
-  display: inline !important;
+img[src*="inline=true"],
+svg[data-inject-url*="inline=true"] {
+  display: inline-grid !important;
+  height: auto;
+  width: auto;
 }
-img[src*="mode=icon"] {
+img[src*="grid=line"] {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEX////a7P6ayvy62/1dqvqPhbtmAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
+}
+img[src*="grid=block"] {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUmdsdGis99rd1hm9axzuoZZ5CxAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
+}
+img[data-vk-img-fill="text"],
+img[data-vk-img-fill="theme1"],
+img[data-vk-img-fill="theme2"] {
+  left: -12345px;
+  border-color: transparent;
+  position: relative;
+}
+img[src*="mode=icon"],
+svg[data-inject-url*="mode=icon"] {
   display: inline !important;
   margin-left: 4px !important;
   margin-right: 4px !important;
-  height: 20px;
+  height: 1.2em;
+  width: auto;
   margin-top: -4px !important;
+  vertical-align: middle;
   border: 0;
   border-radius: 0;
   background: none !important;
 }
-img[src*="mode=logo"] {
+img[src*="mode=logo"],
+svg[data-inject-url*="mode=logo"] {
   display: inline !important;
+  vertical-align: middle;
   border: 0;
   border-radius: 0;
   background: none !important;
+}
+img[src*="mode=icon"]:first-child,
+svg[data-inject-url*="mode=icon"]:first-child,
+a.md-header-anchor:first-child + svg[data-inject-url*="mode=icon"],
+img[src*="mode=logo"]:first-child,
+svg[data-inject-url*="mode=logo"]:first-child,
+a.md-header-anchor:first-child + svg[data-inject-url*="mode=logo"]:first-child {
+  margin-left: 0 !important;
 }
 img[src$=".wav"] {
   border: 10px solid #F00 !important;
@@ -442,7 +500,7 @@ a {
   margin-left: 0.1em;
   margin-right: 0.1em;
 }
-a[href*="vlinkstyle=none"] {
+a[href*="lnkcss=none"] {
   border-bottom: none;
 }
 kbd a {
@@ -455,12 +513,7 @@ a kbd {
   margin-left: -0.1em;
   margin-right: -0.1em;
 }
-a:hover {
-  color: #27C2BD !important;
-  box-shadow: 0 -0.3em 0 0 rgba(39, 194, 189, 0.3) inset;
-  border-bottom: 2px solid rgba(39, 194, 189, 0.3);
-}
-a[href*="vlinkstyle=none"]:hover,
+a[href*="lnkcss=none"]:hover,
 kbd a:hover {
   color: #27C2BD !important;
   box-shadow: none;
@@ -470,11 +523,26 @@ a kbd:hover {
   color: #FFFFFF !important;
   background-color: #27C2BD !important;
 }
+a:hover {
+  color: #27C2BD !important;
+  box-shadow: 0 -0.3em 0 0 rgba(39, 194, 189, 0.3) inset;
+  border-bottom: 2px solid rgba(39, 194, 189, 0.3);
+}
+a:hover img {
+  filter: brightness(1.1);
+}
+a:hover img[data-vk-img-fill="text"],
+a:hover img[data-vk-img-fill="theme1"],
+a:hover img[data-vk-img-fill="theme2"] {
+  left: -12345px;
+  filter: drop-shadow(12345px 0px #27C2BD) !important;
+  position: relative;
+}
 a:active {
   color: #4a9f9c !important;
   border-color: #4a9f9c;
 }
-a[href*="vlinkstyle=none"]:active,
+a[href*="lnkcss=none"]:active,
 kbd a:active {
   border: none;
 }
@@ -483,11 +551,12 @@ a kbd:active {
 }
 a:not([name^="ref-footnote"]):hover::before {
   content: "URL";
+  white-space: pre;
   margin-top: -8px;
   vertical-align: super;
   line-height: 1;
   color: #FFFFFF;
-  border-radius: 3px;
+  border-radius: 4px;
   padding: 2px 3px;
   font-size: 0.5em;
   font-weight: 900;
@@ -505,31 +574,31 @@ a[href^="#"]:hover::before {
 }
 a[href^="http://"]:hover::before {
   content: "HTTP";
-  background-color: #CE2743;
+  background-color: #A47546;
 }
 a[href^="https://"]:hover::before {
   content: "Secure HTTP";
-  background-color: #53B422;
+  background-color: #38AB21;
 }
 a[href^="mailto:"]:hover::before {
   content: "Email";
-  background-color: #0989EB;
+  background-color: #056BF0;
 }
 a[href^="ftp://"]:hover::before {
   content: "FTP";
-  background-color: #CE2743;
+  background-color: #A47546;
 }
 a[href^="ftps://"]:hover::before {
   content: "Secure FTP";
-  background-color: #53B422;
+  background-color: #38AB21;
 }
 a[href^="file://"]:hover::before {
   content: "Local File";
-  background-color: #A6774E;
+  background-color: #A47546;
 }
 a[href^="smb://"]:hover::before {
   content: "SMB";
-  background-color: #5739D0;
+  background-color: #7738DC;
 }
 a[href$=".pdf"]:hover::before,
 a[href$=".doc"]:hover::before,
@@ -541,7 +610,7 @@ a[href$=".pptx"]:hover::before,
 a[href$=".txt"]:hover::before,
 a[href$=".csv"]:hover::before {
   content: "Document";
-  background-color: #1DB3C3;
+  background-color: #18A8BF;
 }
 a[href$=".zip"]:hover::before,
 a[href$=".rar"]:hover::before,
@@ -551,7 +620,12 @@ a[href$=".tar"]:hover::before,
 a[href$=".dmg"]:hover::before,
 a[href$=".cab"]:hover::before {
   content: "Archive File";
-  background-color: #E68D09;
+  background-color: #E27D09;
+}
+a[href$=".exe"]:hover::before,
+a[href$=".sh"]:hover::before {
+  content: "!! High Risk !!";
+  background-color: #C72334;
 }
 u {
   text-decoration: none;
@@ -766,6 +840,22 @@ blockquote {
 blockquote > p {
   margin-bottom: 0;
 }
+blockquote hr {
+  border-color: var(--doc-bg-color);
+}
+blockquote h6 {
+  padding-left: 0;
+  padding-right: 0;
+  color: var(--fore-color);
+  font-size: 1.2em;
+}
+blockquote h6 a {
+  margin-left: -0.1em;
+}
+blockquote h6::before {
+  content: "" !important;
+  margin-left: 0 !important;
+}
 blockquote > ul,
 blockquote > ol {
   margin-top: 0;
@@ -774,6 +864,7 @@ blockquote > blockquote {
   border-left: 5px solid rgba(99, 101, 105, 0.2);
   background: none;
   border-radius: 0;
+  padding-top: 0;
 }
 blockquote > strong {
   color: inherit !important;
@@ -817,7 +908,7 @@ table > thead > tr:first-child > th:first-child {
 }
 table th,
 table td {
-  white-space: pre-line !important;
+  white-space: pre !important;
   font-size: 0.9em;
 }
 table > thead > tr:first-child > th:last-child {
@@ -1057,15 +1148,15 @@ del code {
   content: "] ";
 }
 .reversefootnote {
-  color: #0989EB;
+  color: #056BF0;
 }
 .reversefootnote:hover {
-  color: #CE2743;
+  color: #C72334;
 }
 a[name^="ref-footnote-"] {
   font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
-  color: #0989EB;
+  color: #056BF0;
 }
 a[name^="ref-footnote-"]:hover {
   color: #4a9f9c;
@@ -1297,188 +1388,203 @@ h6.md-focus::before {
 /**************************************
 * 脚本化画表 CSS
 **************************************/
-/* ----- flow diagram 流程图 ----- */
 /**************************************
-* mermaid CSS
+* Mermaid CSS
 **************************************/
 /* ----- pie diagram 饼图 ----- */
 .pieTitleText {
-  fill: var(--fore-color);
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
-  font-weight: 900;
-  font-size: 1.5em;
+  fill: var(--fore-color) !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 1.5em !important;
 }
 .legend text {
-  fill: var(--fore-color);
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
-  font-weight: 900;
+  fill: var(--fore-color) !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-weight: 900 !important;
 }
 .slice {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
-  font-weight: 900;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-weight: 900 !important;
 }
 /* ----- flow diagram 流程图 ----- */
 .mermaid .label div,
 .mdx-figure .label div {
-  font-size: 0.8em !important;
+  font-size: 0.9em !important;
 }
 svg[id^="mermaidChart"] {
-  color: var(--fore-color);
+  color: var(--fore-color) !important;
 }
 .label div {
-  color: var(--fore-color);
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
-  font-weight: normal;
+  color: var(--fore-color) !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-weight: normal !important;
 }
 .node rect[rx="0"][ry="0"] {
   fill: var(--mermaid-accent-color-blue-alt) !important;
   stroke: var(--mermaid-accent-color-blue) !important;
-  stroke-width: 5;
+  stroke-width: 5px !important;
 }
 .node rect[rx="5"][ry="5"] {
   fill: var(--mermaid-accent-color-blue-alt) !important;
   stroke: var(--mermaid-accent-color-blue) !important;
-  stroke-width: 1;
+  stroke-width: 1px !important;
 }
 .node circle {
-  fill: var(--doc-bg-color);
-  stroke: var(--mermaid-accent-color-green);
-  stroke-width: 2;
+  fill: var(--doc-bg-color) !important;
+  stroke: var(--mermaid-accent-color-green) !important;
+  stroke-width: 2px !important;
 }
 .node polygon {
-  fill: var(--mermaid-accent-color-red-alt);
-  stroke: var(--mermaid-accent-color-red);
-  stroke-width: 1;
+  fill: var(--mermaid-accent-color-red-alt) !important;
+  stroke: var(--mermaid-accent-color-red) !important;
+  stroke-width: 1px !important;
 }
-.node[id^="page"] polygon {
-  fill: var(--doc-bg-color);
-  stroke: var(--mermaid-accent-color-green);
-  stroke-width: 2;
+.node[id^="page"] polygon,
+.node[id^="flowchart-page"] polygon {
+  fill: var(--doc-bg-color) !important;
+  stroke: var(--mermaid-accent-color-green) !important;
+  stroke-width: 2px !important;
 }
-.node[id^="trans"] polygon {
-  fill: var(--fore-color);
-  stroke-width: 0;
+.node[id^="trans"] polygon,
+.node[id^="flowchart-trans"] polygon {
+  fill: var(--fore-color) !important;
+  stroke-width: 0 !important;
 }
 .edgePath .path {
-  stroke: var(--fore-color);
-  stroke-width: 2;
+  stroke: var(--fore-color) !important;
+  stroke-width: 2px;
 }
 .arrowheadPath {
   fill: var(--fore-color);
 }
 .edgeLabel .label span,
 .edgeLabel {
-  color: var(--fore-color);
-  background-color: var(--doc-bg-color);
-  line-height: 1em;
+  color: var(--fore-color) !important;
+  fill: var(--doc-bg-color) !important;
+  line-height: 1em !important;
 }
 .edgeLabel div,
 .edgeLabel .label rect {
-  background-color: var(--doc-bg-color);
+  fill: var(--doc-bg-color) !important;
 }
 .cluster rect {
   fill: var(--doc-bg-color-alt) !important;
   stroke: var(--fore-color) !important;
-  stroke-width: 1 !important;
-  stroke-dasharray: 3;
+  stroke-width: 1px !important;
+  stroke-dasharray: 3px !important;
 }
 .cluster text {
-  color: var(--fore-color);
-  fill: var(--fore-color);
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
-  font-weight: normal;
+  color: var(--fore-color) !important;
+  fill: var(--fore-color) !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-weight: normal !important;
 }
-#START rect {
+#START rect,
+g[id^=flowchart-START] rect {
   fill: var(--fore-color) !important;
   stroke: var(--fore-color) !important;
-  stroke-width: 5 !important;
+  stroke-width: 5px !important;
 }
-#START rect + .label div {
+#START rect + .label div,
+g[id^=flowchart-START] rect + .label div {
   color: var(--doc-bg-color) !important;
+  font-weight: 900 !important;
 }
-#END rect {
+#END rect,
+g[id^=flowchart-END] rect {
   color: var(--fore-color) !important;
   fill: var(--doc-bg-color) !important;
   stroke: var(--fore-color) !important;
-  stroke-width: 5 !important;
+  stroke-width: 5px !important;
 }
-#INIT circle {
+#END rect + .label div,
+g[id^=flowchart-END] rect + .label div {
+  font-weight: 900 !important;
+}
+#INIT circle,
+g[id^=flowchart-INIT] circle {
   fill: var(--fore-color) !important;
   stroke: var(--fore-color) !important;
   stroke-width: 0 !important;
 }
-#INIT .label div {
+#INIT .label div,
+g[id^=flowchart-INIT] .label div {
   color: var(--fore-color) !important;
 }
-#INIT ~ g > rect {
+#INIT ~ g > rect,
+g[id^=flowchart-INIT] ~ g > rect {
   fill: var(--mermaid-accent-color-purple-alt) !important;
   stroke: var(--mermaid-accent-color-purple) !important;
-  stroke-width: 3;
+  stroke-width: 3px !important;
 }
-#FINAL circle {
+#FINAL circle,
+g[id^=flowchart-FINAL] circle {
   fill: none !important;
   stroke: var(--fore-color) !important;
-  stroke-width: 5 !important;
+  stroke-width: 5px !important;
 }
 /* ----- sequeuce diagram 时序图 ----- */
 .actor {
-  stroke: var(--mermaid-accent-color-blue);
-  fill: var(--mermaid-accent-color-blue-alt);
+  stroke: var(--mermaid-accent-color-blue) !important;
+  fill: var(--mermaid-accent-color-blue-alt) !important;
   font-size: 1em !important;
-  stroke-width: 1;
+  stroke-width: 1px !important;
 }
 .mdx-actor-person {
-  fill: var(--doc-bg-color-alt);
+  fill: var(--doc-bg-color-alt) !important;
   stroke: var(--fore-color-alt) !important;
 }
 .mdx-actor-key-sys {
-  stroke-width: 3 !important;
-  font-weight: 900;
+  stroke-width: 3px !important;
+  font-weight: 900 !important;
 }
 .mdx-actor-ext-sys {
-  stroke-dasharray: 5 2 !important;
-  font-style: italic;
+  stroke-dasharray: 5px, 2px !important;
+  font-style: italic !important;
 }
-text.actor {
-  fill: var(--fore-color);
-  stroke: none;
-  font-size: 0.85em !important;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
-  font-weight: normal;
+text.actor,
+text.actor > tspan {
+  fill: var(--fore-color) !important;
+  stroke: none !important;
+  font-size: 0.9em !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
 }
 .actor-line {
-  stroke: var(--mermaid-accent-color-blue);
-  stroke-width: 1;
+  stroke: var(--mermaid-accent-color-blue) !important;
+  stroke-width: 1px !important;
 }
 .sequenceNumber {
-  fill: var(--doc-bg-color);
-  font-weight: 900;
+  fill: var(--doc-bg-color) !important;
+  font-weight: 900 !important;
 }
 #sequencenumber {
-  fill: var(--fore-color);
+  fill: var(--fore-color) !important;
 }
 .messageLine0 {
-  stroke-width: 2;
-  stroke: var(--fore-color);
+  stroke-width: 2px !important;
+  stroke: var(--fore-color) !important;
 }
-#arrowhead {
-  fill: var(--fore-color);
+#arrowhead,
+#arrowhead path {
+  fill: var(--fore-color) !important;
 }
 .messageLine1 {
-  stroke-width: 2;
-  stroke: var(--fore-color);
+  stroke-width: 2px !important;
+  stroke: var(--fore-color) !important;
 }
+#crosshead,
 #crosshead path {
   fill: var(--fore-color-alt) !important;
   stroke: var(--fore-color) !important;
 }
 .messageText {
-  fill: var(--fore-color);
-  stroke: none;
-  font-size: 0.85em !important;
+  fill: var(--fore-color) !important;
+  stroke: none !important;
+  font-size: 0.9em !important;
   font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
-  font-weight: normal;
-  line-height: 2em;
+  font-weight: normal !important;
+  line-height: 2em !important;
 }
 .activation0,
 .activation1,
@@ -1487,36 +1593,37 @@ text.actor {
   stroke-width: 0 !important;
 }
 .labelBox {
-  stroke: none;
-  fill: var(--mermaid-accent-color-purple-alt);
+  stroke: none !important;
+  fill: var(--mermaid-accent-color-purple-alt) !important;
 }
-.labelText tspan {
-  fill: var(--mermaid-accent-color-purple);
-  font-size: 0.8em !important;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
-  font-weight: 900;
+.labelBox + .labelText {
+  fill: var(--mermaid-accent-color-purple) !important;
+  font-size: 0.9em !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-weight: 900 !important;
 }
 .loopText tspan {
-  fill: var(--mermaid-accent-color-purple);
-  font-size: 0.85em !important;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
-  font-weight: normal;
+  fill: var(--mermaid-accent-color-purple) !important;
+  font-size: 0.9em !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-weight: normal !important;
 }
 .loopLine {
-  stroke-width: 1;
-  stroke: var(--mermaid-accent-color-purple-alt);
+  stroke-width: 2px !important;
+  stroke-dasharray: 3px, 3px !important;
+  stroke: var(--mermaid-accent-color-purple-alt) !important;
 }
 .note {
-  stroke: var(--mermaid-accent-color-yellow);
-  stroke-dasharray: 5;
-  fill: var(--mermaid-accent-color-yellow-alt);
+  stroke: var(--mermaid-accent-color-yellow) !important;
+  stroke-dasharray: 5px !important;
+  fill: var(--mermaid-accent-color-yellow-alt) !important;
 }
 .noteText tspan {
-  fill: var(--fore-color);
-  stroke: none;
-  font-size: 0.85em !important;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
-  font-weight: normal;
+  fill: var(--fore-color) !important;
+  stroke: none !important;
+  font-size: 0.9em !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-weight: normal !important;
 }
 /* ----- state diagram 状态机图 ----- */
 g.stateGroup circle {
@@ -1541,12 +1648,12 @@ g.stateGroup .composit {
 g.stateGroup .state-title,
 g.stateGroup text {
   fill: var(--fore-color) !important;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
-  font-weight: normal;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-weight: normal !important;
   font-size: 0.5em !important;
 }
 .stateLabel text {
-  font-size: 0.5em;
+  font-size: 0.5em !important;
 }
 g.state-note {
   fill: var(--mermaid-accent-color-gray-alt);
@@ -1556,29 +1663,29 @@ g.state-note {
 g.cardinality text,
 g.classGroup text,
 g.classLabel .label {
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", monospace;
-  font-weight: normal;
-  fill: var(--fore-color);
-  stroke: none;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", monospace !important;
+  font-weight: normal !important;
+  fill: var(--fore-color) !important;
+  stroke: none !important;
 }
 g.classGroup rect {
-  fill: var(--mermaid-accent-color-blue-alt);
-  stroke: var(--mermaid-accent-color-blue);
+  fill: var(--mermaid-accent-color-blue-alt) !important;
+  stroke: var(--mermaid-accent-color-blue) !important;
 }
 g.classGroup line {
-  stroke: var(--mermaid-accent-color-blue);
-  stroke-width: 1;
+  stroke: var(--mermaid-accent-color-blue) !important;
+  stroke-width: 1px !important;
 }
 g.classLabel .box {
-  stroke: none;
-  stroke-width: 0;
-  fill: var(--mermaid-accent-color-blue-alt);
-  opacity: 0.5;
+  stroke: none !important;
+  stroke-width: 0 !important;
+  fill: var(--mermaid-accent-color-blue-alt) !important;
+  opacity: 0.5 !important;
 }
 .relation {
-  stroke: var(--fore-color);
-  stroke-width: 1;
-  fill: none;
+  stroke: var(--fore-color) !important;
+  stroke-width: 1px !important;
+  fill: none !important;
 }
 .composition,
 #compositionStart,
@@ -1590,87 +1697,87 @@ g.classLabel .box {
 #dependencyEnd,
 #extensionStart,
 #extensionEnd {
-  fill: var(--fore-color);
-  stroke: var(--fore-color);
-  stroke-width: 1;
+  fill: var(--fore-color) !important;
+  stroke: var(--fore-color) !important;
+  stroke-width: 1px !important;
 }
 div.mermaidTooltip {
-  position: absolute;
-  text-align: center;
-  max-width: 200px;
-  padding: 2px;
-  background: var(--fore-color-alt);
-  border: 1px solid #d0d0d0;
-  border-radius: 2px;
-  pointer-events: none;
-  z-index: 100;
+  position: absolute !important;
+  text-align: center !important;
+  max-width: 200px !important;
+  padding: 2px !important;
+  background: var(--fore-color-alt) !important;
+  border: 1px solid #d0d0d0 !important;
+  border-radius: 2px !important;
+  pointer-events: none !important;
+  z-index: 100 !important;
 }
 /* ----- gantt diagram 甘特图 ----- */
 .section {
-  stroke: none;
+  stroke: none !important;
 }
 .section0 {
-  fill: var(--fore-color-alt);
+  fill: var(--fore-color-alt) !important;
 }
 .section2 {
-  fill: var(--fore-color-alt);
+  fill: var(--fore-color-alt) !important;
 }
 .section1,
 .section3 {
-  fill: rgba(24, 26, 30, 0.05);
+  fill: rgba(24, 26, 30, 0.05) !important;
 }
 .sectionTitle0,
 .sectionTitle1,
 .sectionTitle2,
 .sectionTitle3 {
-  fill: var(--fore-color);
+  fill: var(--fore-color) !important;
 }
 .sectionTitle {
-  text-anchor: start;
-  font-size: 0.8em;
-  line-height: 2em;
+  text-anchor: start !important;
+  font-size: 0.8em !important;
+  line-height: 2em !important;
 }
 .grid .tick {
-  stroke: var(--fore-color-alt);
-  shape-rendering: crispEdges;
+  stroke: var(--fore-color-alt) !important;
+  shape-rendering: crispEdges !important;
 }
 .grid path {
-  stroke-width: 0;
+  stroke-width: 0 !important;
 }
 .today {
   fill: none;
-  stroke: var(--mermaid-accent-color-red);
-  stroke-width: 3px;
+  stroke: var(--mermaid-accent-color-red) !important;
+  stroke-width: 3px !important;
 }
 .task {
-  stroke-width: 2;
+  stroke-width: 2px !important;
 }
 .taskText {
-  text-anchor: middle;
-  font-size: 0.8em;
-  line-height: 2em;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
-  font-weight: normal;
+  text-anchor: middle !important;
+  font-size: 0.8em !important;
+  line-height: 2em !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-weight: normal !important;
 }
 .taskTextOutsideRight {
-  fill: var(--fore-color);
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
-  font-weight: normal;
-  text-anchor: start;
+  fill: var(--fore-color) !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-weight: normal !important;
+  text-anchor: start !important;
 }
 .taskTextOutsideLeft {
-  fill: var(--fore-color);
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
-  font-weight: normal;
-  text-anchor: end;
+  fill: var(--fore-color) !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-weight: normal !important;
+  text-anchor: end !important;
 }
 /* 当前的任务 */
 .active0,
 .active1,
 .active2,
 .active3 {
-  fill: var(--mermaid-accent-color-blue-alt);
-  stroke: var(--mermaid-accent-color-blue);
+  fill: var(--mermaid-accent-color-blue-alt) !important;
+  stroke: var(--mermaid-accent-color-blue) !important;
 }
 .activeText0,
 .activeText1,
@@ -1683,33 +1790,33 @@ div.mermaidTooltip {
 .done1,
 .done2,
 .done3 {
-  stroke: none;
-  fill: var(--mermaid-accent-color-blue-alt);
-  stroke-width: 2;
-  stroke-dasharray: 2;
+  stroke: none !important;
+  fill: var(--mermaid-accent-color-blue-alt) !important;
+  stroke-width: 2px !important;
+  stroke-dasharray: 2px !important;
 }
 /* 未来的任务 */
 .task0,
 .task1,
 .task2,
 .task3 {
-  fill: var(--doc-bg-color);
-  stroke: var(--mermaid-accent-color-blue);
-  stroke-dasharray: 2;
+  fill: var(--doc-bg-color) !important;
+  stroke: var(--mermaid-accent-color-blue) !important;
+  stroke-dasharray: 2px !important;
 }
 .taskText0,
 .taskText1,
 .taskText2,
 .taskText3 {
-  fill: var(--fore-color);
+  fill: var(--fore-color) !important;
 }
 .taskTextOutside0,
 .taskTextOutside2 {
-  fill: var(--fore-color);
+  fill: var(--fore-color) !important;
 }
 .taskTextOutside1,
 .taskTextOutside3 {
-  fill: var(--fore-color);
+  fill: var(--fore-color) !important;
 }
 .doneText0,
 .doneText1,
@@ -1722,9 +1829,9 @@ div.mermaidTooltip {
 .activeCrit1,
 .activeCrit2,
 .activeCrit3 {
-  stroke: var(--mermaid-accent-color-red);
-  fill: var(--mermaid-accent-color-red-alt);
-  stroke-width: 2;
+  stroke: var(--mermaid-accent-color-red) !important;
+  fill: var(--mermaid-accent-color-red-alt) !important;
+  stroke-width: 2px !important;
 }
 .activeCritText0,
 .activeCritText1,
@@ -1737,27 +1844,27 @@ div.mermaidTooltip {
 .doneCrit1,
 .doneCrit2,
 .doneCrit3 {
-  stroke: none;
-  fill: var(--mermaid-accent-color-red-alt);
-  stroke-width: 2;
-  cursor: pointer;
-  shape-rendering: crispEdges;
+  stroke: none !important;
+  fill: var(--mermaid-accent-color-red-alt) !important;
+  stroke-width: 2px !important;
+  cursor: pointer !important;
+  shape-rendering: crispEdges !important;
 }
 /* 未来的关键路径任务 */
 .crit0,
 .crit1,
 .crit2,
 .crit3 {
-  stroke: var(--mermaid-accent-color-red);
-  fill: var(--doc-bg-color);
-  stroke-width: 2;
-  stroke-dasharray: 2;
+  stroke: var(--mermaid-accent-color-red) !important;
+  fill: var(--doc-bg-color) !important;
+  stroke-width: 2px !important;
+  stroke-dasharray: 2px !important;
 }
 .critText0,
 .critText1,
 .critText2,
 .critText3 {
-  fill: var(--fore-color);
+  fill: var(--fore-color) !important;
 }
 .doneCritText0,
 .doneCritText1,
@@ -1767,12 +1874,12 @@ div.mermaidTooltip {
 }
 /* 标题 */
 .titleText {
-  text-anchor: middle;
-  font-size: 1.5em;
-  line-height: 2em;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
-  font-weight: 900;
-  fill: var(--fore-color);
+  text-anchor: middle !important;
+  font-size: 1.5em !important;
+  line-height: 2em !important;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  font-weight: 900 !important;
+  fill: var(--fore-color) !important;
 }
 /**************************************
 * 重定义Typora原生样式
@@ -2146,7 +2253,7 @@ li > p + ul {
 }
 .mdx-tool-tips {
   border-top: 0;
-  box-shadow: 0 2px 0 0 #27C2BD inset, 0 3px 20px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 2px 0 0 #27C2BD inset, 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(0, 0, 0, 0);
   text-align: left;
   white-space: pre;
 }
@@ -2177,6 +2284,59 @@ li > p + ul {
 .mdx-bottom-tips kbd {
   color: #000000;
   background-color: #ffffff;
+}
+.mdx-font-styler {
+  width: 630px;
+  display: none;
+  position: fixed;
+  padding: 10px;
+  text-align: center;
+  border-radius: var(--vlook-base-radius);
+  border: 1px var(--table-border-color) solid;
+  font-family: "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-weight: normal;
+  color: var(--tips-bg-color-inset);
+  background-color: var(--tips-bg-color);
+  z-index: 3000;
+}
+.mdx-font-styler-info {
+  width: 100%;
+  overflow: auto;
+  background-color: var(--doc-bg-color);
+  border-radius: var(--vlook-small-radius);
+}
+.mdx-fontstyle-sans {
+  border-radius: var(--vlook-small-radius) !important;
+  filter: opacity(0.6);
+  cursor: pointer;
+}
+.mdx-fontstyle-serif {
+  border-radius: var(--vlook-small-radius) !important;
+  filter: opacity(0.6);
+  cursor: pointer;
+}
+.mdx-fontstyle-sans:hover,
+.mdx-fontstyle-serif:hover {
+  filter: opacity(1);
+  box-shadow: 0 0 0 3px #27C2BD;
+}
+.mdx-fontstyle-sans:active,
+.mdx-fontstyle-serif:active {
+  box-shadow: 0 0 0 3px var(--header-color);
+}
+.mdx-font-styler-current {
+  box-shadow: 0 0 0 3px var(--header-color) !important;
+  filter: opacity(1) !important;
+}
+.mdx-fontinfo-sans,
+.mdx-fontinfo-serif {
+  margin-top: 10px;
+  text-align: left;
+  font-size: 0.9em;
+}
+.mdx-fontinfo-sans #fontset-sans-status,
+.mdx-fontinfo-serif #fontset-serif-status {
+  color: var(--fore-color-alt);
 }
 .mdx-content-expander {
   font-family: "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
@@ -2324,12 +2484,12 @@ li > p + ul {
 .mdx-toc-panel-float {
   top: 10px;
   bottom: 40px;
-  box-shadow: 0 0 0 1px rgba(41, 139, 204, 0.3) inset, 0 3px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 1px rgba(41, 139, 204, 0.3) inset, 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 .mdx-toc-panel-block {
   top: 60px;
   bottom: 10px;
-  box-shadow: 0 0 0 1px rgba(41, 139, 204, 0.3) inset, 0 3px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 1px rgba(41, 139, 204, 0.3) inset, 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 .mdx-toc-panel-header {
   color: #181A1E;
@@ -2422,7 +2582,7 @@ li > p + ul {
   color: #C0C4C8 !important;
 }
 .mdx-float-card {
-  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(0, 0, 0, 0);
 }
 .mdx-footer-note-panel {
   position: fixed;
@@ -2431,7 +2591,7 @@ li > p + ul {
   bottom: -200px;
   height: 200px;
   border-radius: var(--vlook-base-radius);
-  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
   background-color: var(--doc-bg-color-alt);
   display: none;
@@ -2939,17 +3099,36 @@ li > p + ul {
   transform: none;
 }
 .mdx-img-invert-dark {
+  background-color: #FFFFFF !important;
   filter: var(--vlook-invert-dark);
   border-color: rgba(175, 171, 167, 0.8) !important;
 }
 .mdx-img-invert-dark:hover {
   border-color: #d83d42 !important;
 }
-.mdx-figure-bg-light {
-  background: #FFFFFF !important;
+.mdx-figure-solid-bg-light {
+  background: #FFFFFF;
 }
-.mdx-figure-bg-dark {
-  background: #181A1E !important;
+.mdx-figure-grid-line-light {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEX////a7P6ayvy62/1dqvqPhbtmAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=") !important;
+}
+.mdx-figure-grid-block-light {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUmdsdGis99rd1hm9axzuoZZ5CxAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=") !important;
+}
+.mdx-figure-solid-bg-dark {
+  background: #000000;
+}
+.mdx-figure-grid-line-dark {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUEDBQEOnAEY8IEVacEeOwONNxmAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=") !important;
+}
+.mdx-figure-grid-line-dark-invert {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEX78+v7xY/7nD37qlj7hxPQTWj+AAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=") !important;
+}
+.mdx-figure-grid-block-dark {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUPUZQyaqNvlr5QgLCpwNfC0feCAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=") !important;
+}
+.mdx-figure-grid-block-dark-invert {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEXwrmvNlVyQaUGvf09WPygcqEMaAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=") !important;
 }
 .mdx-figure-content {
   margin: 5px;
@@ -2975,6 +3154,7 @@ li > p + ul {
   display: inline-block;
   border-radius: var(--vlook-base-radius);
   background-color: var(--doc-bg-color-alt);
+  margin-bottom: 1em;
 }
 .mdx-figure-caption > p {
   color: var(--fore-color);
@@ -3024,45 +3204,141 @@ use.mdx-folder2-ico:active {
   display: none;
   z-index: 1000;
 }
+.mdx-quote-red,
+.mdx-quote-orange,
+.mdx-quote-yellow,
+.mdx-quote-green,
+.mdx-quote-cyan,
+.mdx-quote-blue,
+.mdx-quote-purple,
+.mdx-quote-pink,
+.mdx-quote-brown,
+.mdx-quote-gray,
+.mdx-quote-theme1,
+.mdx-quote-theme2 {
+  width: auto;
+}
 .mdx-quote-red {
   background-color: var(--accent-color-red-fade);
-  width: auto;
+}
+.mdx-quote-title-red {
+  color: var(--accent-color-red);
+}
+.mdx-quote-title-red-light {
+  color: var(--accent-color-red) !important;
 }
 .mdx-quote-orange {
   background-color: var(--accent-color-orange-fade);
-  width: auto;
+}
+.mdx-quote-title-orange {
+  color: var(--accent-color-orange);
+}
+.mdx-quote-title-orange-light {
+  color: var(--accent-color-orange) !important;
 }
 .mdx-quote-yellow {
   background-color: var(--accent-color-yellow-fade);
-  width: auto;
+}
+.mdx-quote-title-yellow {
+  color: var(--accent-color-yellow);
+}
+.mdx-quote-title-yellow-light {
+  color: var(--accent-color-yellow) !important;
 }
 .mdx-quote-green {
   background-color: var(--accent-color-green-fade);
-  width: auto;
+}
+.mdx-quote-title-green {
+  color: var(--accent-color-green);
+}
+.mdx-quote-title-green-light {
+  color: var(--accent-color-green) !important;
 }
 .mdx-quote-cyan {
   background-color: var(--accent-color-cyan-fade);
-  width: auto;
+}
+.mdx-quote-title-cyan {
+  color: var(--accent-color-cyan);
+}
+.mdx-quote-title-cyan-light {
+  color: var(--accent-color-cyan) !important;
 }
 .mdx-quote-blue {
   background-color: var(--accent-color-blue-fade);
-  width: auto;
+}
+.mdx-quote-title-blue {
+  color: var(--accent-color-blue);
+}
+.mdx-quote-title-blue-light {
+  color: var(--accent-color-blue) !important;
 }
 .mdx-quote-purple {
   background-color: var(--accent-color-purple-fade);
-  width: auto;
+}
+.mdx-quote-title-purple {
+  color: var(--accent-color-purple);
+}
+.mdx-quote-title-purple-light {
+  color: var(--accent-color-purple) !important;
 }
 .mdx-quote-pink {
   background-color: var(--accent-color-pink-fade);
-  width: auto;
+}
+.mdx-quote-title-pink {
+  color: var(--accent-color-pink);
+}
+.mdx-quote-title-pink-light {
+  color: var(--accent-color-pink) !important;
 }
 .mdx-quote-brown {
   background-color: var(--accent-color-brown-fade);
-  width: auto;
+}
+.mdx-quote-title-brown {
+  color: var(--accent-color-brown);
+}
+.mdx-quote-title-brown-light {
+  color: var(--accent-color-brown) !important;
 }
 .mdx-quote-gray {
   background-color: var(--accent-color-gray-fade);
-  width: auto;
+}
+.mdx-quote-title-gray {
+  color: var(--accent-color-gray);
+}
+.mdx-quote-title-gray-light {
+  color: var(--accent-color-gray) !important;
+}
+.mdx-quote-theme1 {
+  background-color: var(--accent-color-theme1-fade);
+}
+.mdx-quote-title-theme1 {
+  color: var(--header-color);
+}
+.mdx-quote-title-theme1-light {
+  color: var(--header-color) !important;
+}
+.mdx-quote-theme2 {
+  background-color: var(--accent-color-theme2-fade);
+}
+.mdx-quote-title-theme2 {
+  color: var(--accent-color-theme2);
+}
+.mdx-quote-title-theme2-light {
+  color: var(--accent-color-theme2) !important;
+}
+.mdx-quote-title-red-dark,
+.mdx-quote-title-orange-dark,
+.mdx-quote-title-yellow-dark,
+.mdx-quote-title-green-dark,
+.mdx-quote-title-cyan-dark,
+.mdx-quote-title-blue-dark,
+.mdx-quote-title-purple-dark,
+.mdx-quote-title-pink-dark,
+.mdx-quote-title-brown-dark,
+.mdx-quote-title-gray-dark,
+.mdx-quote-title-theme1-dark,
+.mdx-quote-title-theme2-dark {
+  color: #FFFFFF !important;
 }
 .mdx-tag-red,
 .mdx-tag-orange,
@@ -3073,55 +3349,54 @@ use.mdx-folder2-ico:active {
 .mdx-tag-purple,
 .mdx-tag-pink,
 .mdx-tag-brown,
-.mdx-tag-gray {
+.mdx-tag-gray,
+.mdx-tag-theme1,
+.mdx-tag-theme2 {
   font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 0.9em;
   color: #FFFFFF;
   padding: 0.1em 0.5em;
   margin: 0 0.1em;
-  border-radius: var(--vlook-small-radius);
+  border-radius: var(--vlook-tag-radius);
   white-space: pre;
+  box-shadow: 0 0 0 1px var(--code-name-shadow-color) inset;
 }
 .mdx-tag-red {
   background-color: var(--accent-color-red);
-  box-shadow: 0 0 0 1px var(--accent-color-red-light) inset;
 }
 .mdx-tag-orange {
   background-color: var(--accent-color-orange);
-  box-shadow: 0 0 0 1px var(--accent-color-orange-light) inset;
 }
 .mdx-tag-yellow {
   background-color: var(--accent-color-yellow);
-  box-shadow: 0 0 0 1px var(--accent-color-yellow-light) inset;
 }
 .mdx-tag-green {
   background-color: var(--accent-color-green);
-  box-shadow: 0 0 0 1px var(--accent-color-green-light) inset;
 }
 .mdx-tag-cyan {
   background-color: var(--accent-color-cyan);
-  box-shadow: 0 0 0 1px var(--accent-color-cyan-light) inset;
 }
 .mdx-tag-blue {
   background-color: var(--accent-color-blue);
-  box-shadow: 0 0 0 1px var(--accent-color-blue-light) inset;
 }
 .mdx-tag-purple {
   background-color: var(--accent-color-purple);
-  box-shadow: 0 0 0 1px var(--accent-color-purple-light) inset;
 }
 .mdx-tag-pink {
   background-color: var(--accent-color-pink);
-  box-shadow: 0 0 0 1px var(--accent-color-pink-light) inset;
 }
 .mdx-tag-brown {
   background-color: var(--accent-color-brown);
-  box-shadow: 0 0 0 1px var(--accent-color-brown-light) inset;
 }
 .mdx-tag-gray {
   background-color: var(--accent-color-gray);
-  box-shadow: 0 0 0 1px var(--accent-color-gray-light) inset;
+}
+.mdx-tag-theme1 {
+  background-color: var(--accent-color-theme1);
+}
+.mdx-tag-theme2 {
+  background-color: var(--accent-color-theme2);
 }
 .mdx-tag-name-red,
 .mdx-tag-name-orange,
@@ -3132,16 +3407,20 @@ use.mdx-folder2-ico:active {
 .mdx-tag-name-purple,
 .mdx-tag-name-pink,
 .mdx-tag-name-brown,
-.mdx-tag-name-gray {
+.mdx-tag-name-gray,
+.mdx-tag-name-theme1,
+.mdx-tag-name-theme2 {
   font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   margin-right: 0;
-  border-radius: var(--vlook-small-radius);
-  color: #FFFFFF;
-  padding: 0.1em 1.8em 0.1em 0.5em;
+  border-radius: var(--vlook-tag-radius) 0 0 var(--vlook-tag-radius);
+  color: var(--doc-bg-color);
+  background: var(--code-name-bg-color);
+  padding: 0.1em 1em 0.1em 0.5em;
   margin: 0 0.1em;
   font-size: 0.9em;
   white-space: pre;
+  box-shadow: 0 0 0 1px var(--code-name-shadow-color) inset;
 }
 .mdx-tag-value-red,
 .mdx-tag-value-orange,
@@ -3152,103 +3431,90 @@ use.mdx-folder2-ico:active {
 .mdx-tag-value-purple,
 .mdx-tag-value-pink,
 .mdx-tag-value-brown,
-.mdx-tag-value-gray {
+.mdx-tag-value-gray,
+.mdx-tag-value-theme1,
+.mdx-tag-value-theme2 {
   font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
-  font-weight: normal;
-  border-radius: 3px var(--vlook-small-radius) var(--vlook-small-radius) var(--vlook-small-radius);
-  padding: 0.1em 0.5em;
-  margin: 0 0.1em 0.1em -1.5em;
+  font-weight: bold;
+  border-radius: 0 var(--vlook-tag-radius) var(--vlook-tag-radius) 0;
   color: #FFFFFF;
-  background: var(--code-name-bg-color);
+  padding: 0.1em 0.5em;
+  margin: 0 0.1em 0.1em -0.2em;
   box-shadow: 0 0 0 1px var(--code-name-shadow-color) inset;
   font-size: 0.9em;
   white-space: pre;
 }
-.mdx-tag-name-red {
-  background-color: var(--accent-color-red);
-  box-shadow: 0 0 0 1px var(--accent-color-red-light) inset;
-}
 .mdx-tag-value-red {
-  color: var(--accent-color-red-alt);
-}
-.mdx-tag-name-orange {
-  background-color: var(--accent-color-orange);
-  box-shadow: 0 0 0 1px var(--accent-color-orange-light) inset;
+  background-color: var(--accent-color-red);
 }
 .mdx-tag-value-orange {
-  color: var(--accent-color-orange-alt);
-}
-.mdx-tag-name-yellow {
-  background-color: var(--accent-color-yellow);
-  box-shadow: 0 0 0 1px var(--accent-color-yellow-light) inset;
+  background-color: var(--accent-color-orange);
 }
 .mdx-tag-value-yellow {
-  color: var(--accent-color-yellow-alt);
-}
-.mdx-tag-name-green {
-  background-color: var(--accent-color-green);
-  box-shadow: 0 0 0 1px var(--accent-color-green-light) inset;
+  background-color: var(--accent-color-yellow);
 }
 .mdx-tag-value-green {
-  color: var(--accent-color-green-alt);
-}
-.mdx-tag-name-cyan {
-  background-color: var(--accent-color-cyan);
-  box-shadow: 0 0 0 1px var(--accent-color-cyan-light) inset;
+  background-color: var(--accent-color-green);
 }
 .mdx-tag-value-cyan {
-  color: var(--accent-color-cyan-alt);
-}
-.mdx-tag-name-blue {
-  background-color: var(--accent-color-blue);
-  box-shadow: 0 0 0 1px var(--accent-color-blue-light) inset;
+  background-color: var(--accent-color-cyan);
 }
 .mdx-tag-value-blue {
-  color: var(--accent-color-blue-alt);
-}
-.mdx-tag-name-purple {
-  background-color: var(--accent-color-purple);
-  box-shadow: 0 0 0 1px var(--accent-color-purple-light) inset;
+  background-color: var(--accent-color-blue);
 }
 .mdx-tag-value-purple {
-  color: var(--accent-color-purple-alt);
-}
-.mdx-tag-name-pink {
-  background-color: var(--accent-color-pink);
-  box-shadow: 0 0 0 1px var(--accent-color-pink-light) inset;
+  background-color: var(--accent-color-purple);
 }
 .mdx-tag-value-pink {
-  color: var(--accent-color-pink-alt);
-}
-.mdx-tag-name-brown {
-  background-color: var(--accent-color-brown);
-  box-shadow: 0 0 0 1px var(--accent-color-brown-light) inset;
+  background-color: var(--accent-color-pink);
 }
 .mdx-tag-value-brown {
-  color: var(--accent-color-brown-alt);
-}
-.mdx-tag-name-gray {
-  background-color: var(--accent-color-gray);
-  box-shadow: 0 0 0 1px var(--accent-color-gray-light) inset;
+  background-color: var(--accent-color-brown);
 }
 .mdx-tag-value-gray {
-  color: var(--accent-color-gray-alt);
+  background-color: var(--accent-color-gray);
+}
+.mdx-tag-value-theme1 {
+  background-color: var(--accent-color-theme1);
+}
+.mdx-tag-value-theme2 {
+  background-color: var(--accent-color-theme2);
 }
 rp,
 rt {
   font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   opacity: 0.6;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+rt:hover {
+  color: #27C2BD;
+  opacity: 1;
+  box-shadow: 0 -0.4em 0 0 rgba(39, 194, 189, 0.3) inset;
+  border-bottom: 2px solid rgba(39, 194, 189, 0.3);
+  transform-origin: center bottom;
+  transform: scale(1.2);
+  cursor: pointer;
 }
 .mdx-black-curtain {
-  color: var(--doc-bg-color-alt);
-  border-radius: 0;
-  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif !important;
+  text-shadow: 0px 1px var(--fore-color);
+  box-shadow: none;
+  color: var(--doc-bg-color);
+  font-size: 1em;
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", monospace !important;
   font-weight: 900;
   cursor: pointer;
 }
 .mdx-black-curtain:hover {
-  box-shadow: 0 0 0 2px #27C2BD, 0 2px 0 0 #27C2BD inset !important;
+  box-shadow: 0 0 0 1px #27C2BD, 0 2px 0 0 #27C2BD inset !important;
+  display: inline-block;
+  transform: scale(1.2);
+}
+.mdx-black-curtain-opened {
+  box-shadow: 0 0 0 1px var(--fore-color), 0 2px 0 0 var(--fore-color) inset;
+  background: var(--doc-bg-color) !important;
+  text-shadow: none;
 }
 h6 code {
   font-weight: normal;
@@ -3487,7 +3753,7 @@ h6 code {
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --vlook-color-scheme: "dark";
+    --vlook-color-scheme: dark;
     --vlook-invert-dark: invert(1) brightness(90%);
     --vlook-brightness-dark: brightness(90%);
     --bg-color: var(--doc-bg-color-dark);
@@ -3515,7 +3781,6 @@ h6 code {
     --blockquote-bg: var(--blockquote-bg-dark);
     --tips-bg-color: var(--tips-bg-color-dark);
     --tips-bg-color-inset: var(--tips-bg-color-inset-dark);
-    --shadow-color: var(--shadow-color-dark);
     --a-color: var(--a-color-dark);
     --mark-color: var(--mark-color-dark);
     --table-color: var(--table-color-dark);
@@ -3562,6 +3827,12 @@ h6 code {
     --accent-color-gray: var(--accent-color-gray-dark);
     --accent-color-gray-alt: var(--accent-color-gray-alt-dark);
     --accent-color-gray-fade: var(--accent-color-gray-fade-dark);
+    --accent-color-theme1: var(--accent-color-theme1-dark);
+    --accent-color-theme1-alt: var(--accent-color-theme1-alt-dark);
+    --accent-color-theme1-fade: var(--accent-color-theme1-fade-dark);
+    --accent-color-theme2: var(--accent-color-theme2-dark);
+    --accent-color-theme2-alt: var(--accent-color-theme2-alt-dark);
+    --accent-color-theme2-fade: var(--accent-color-theme2-fade-dark);
     --mermaid-accent-color-red: var(--mermaid-accent-color-red-dark);
     --mermaid-accent-color-red-alt: var(--mermaid-accent-color-red-alt-dark);
     --mermaid-accent-color-orange: var(--mermaid-accent-color-orange-dark);
@@ -3604,17 +3875,36 @@ h6 code {
     --cm-atom: var(--cm-atom-dark);
     --cm-number: var(--cm-atom-dark);
   }
-  .md-diagram-panel svg,
-  .mdx-figure-content svg {
-    background: #181A1E;
+  img[src*="grid=line"] {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUEDBQEOnAEY8IEVacEeOwONNxmAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
   }
-  img {
-    background: #181A1E !important;
+  img[src*="grid=block"] {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUPUZQyaqNvlr5QgLCpwNfC0feCAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
   }
-  img[src*="invert=dark"] {
+  img[src*="darksrc=invert"] {
     filter: var(--vlook-invert-dark);
     border-color: rgba(175, 171, 167, 0.8) !important;
-    background: #FFFFFF !important;
+    background: #FFFFFF;
+  }
+  img[src*="darksrc=invert"][src*="grid=line"] {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEX78+v7xY/7nD37qlj7hxPQTWj+AAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
+  }
+  img[src*="darksrc=invert"][src*="grid=block"] {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEXwrmvNlVyQaUGvf09WPygcqEMaAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
+  }
+  .mdx-quote-title-red,
+  .mdx-quote-title-orange,
+  .mdx-quote-title-yellow,
+  .mdx-quote-title-green,
+  .mdx-quote-title-cyan,
+  .mdx-quote-title-blue,
+  .mdx-quote-title-purple,
+  .mdx-quote-title-pink,
+  .mdx-quote-title-brown,
+  .mdx-quote-title-gray,
+  .mdx-quote-title-theme1,
+  .mdx-quote-title-theme2 {
+    color: #FFFFFF;
   }
 }
 @supports ((backdrop-filter: blur(15px)) or
