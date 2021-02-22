@@ -4,9 +4,9 @@
 
 ![VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-mark-light.svg)
 
-[VLOOK™](https://github.com/MadMaxChow/VLOOK) 是针对由 [Typora](https://www.typora.io)（跨平台 Markdown 编辑器）导出的 HTML 文件进行增强的插件。
+[VLOOK™](https://github.com/MadMaxChow/VLOOK) 是针对 [Typora](https://www.typora.io)（跨平台 Markdown 编辑器）的主题包和增强插件（针对导出的 HTML 文件）。
 
-VLOOK™ is an enhanced plug-in for HTML files exported by Typora (cross-platform Markdown editor).
+[VLOOK™](https://github.com/MadMaxChow/VLOOK) is a theme pack and enhanced plug-in for [Typora](https://www.typora.io) (for exported HTML files).
 
 VLOOK™ 也许是目前最好的 Markdown 增强插件之一，也是**开源中国（[OSChina.net](https://www.oschina.net/p/vlook)）推荐的国产开源产品。**
 
