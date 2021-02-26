@@ -1,8 +1,8 @@
 <!--========================================================================-->
 <!--                          VLOOK - Typora Plugin                         -->
-<!--                                  V10.0                                 -->
+<!--                                  V10.1                                 -->
 <!--                                                                        -->
-<!--                               2021-02-20                               -->
+<!--                               2021-02-25                               -->
 <!--                           powered by MAX°孟兆                          -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -56,8 +56,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
  *
  * VLOOK.js - Typora Plugin
  *
- * V10.0
- * 2021-02-20
+ * V10.1
+ * 2021-02-25
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -105,7 +105,7 @@ theme
 
 **************************************/
 
-let vlookVersion = "V10.0";
+let vlookVersion = "V10.1";
 
 console.log(":::::::::::::::::::");
 console.log("!!! " + (vlookDevMode === true ? "- DEBUG -" : "RELEASED" ) + " !!!");
@@ -771,6 +771,9 @@ VLOOK.initIntance = function (newTab) {
         // 添加关联组件
         iOutlineNav.chapterNav = iChapterNav;
     }
+
+    // 逐段导航初始化
+    ParagraphNav.init();
 
     // 文档更多内容栏遮罩栏
     iMoreDocContent = new MoreDocContent();
@@ -1600,6 +1603,7 @@ VLOOK.ui = {
                 case 74: // J
                     VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
                     ExtTable.cellCross.hide(true);
+                    // alert(iParagraphNav);
                     if (iParagraphNav.next(1)) // 步长1
                         ExtQuote.autoUnfold(); // 自动展开引用
                     break;
@@ -8882,7 +8886,7 @@ function loadVLOOKui() {
     ui += '<svg height="24px" width="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()">';
     ui += '<use xlink:href="#icoVLOOK-dark"></use>';
     ui += '</svg>&nbsp;&nbsp;';
-    ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.0) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
+    ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.1) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
     ui += '</div>';
     ui += '</div>';
 
@@ -8931,7 +8935,7 @@ function loadVLOOKui() {
     ui += '</div>';
     ui += '<div class="mdx-copyright">';
     ui += '<svg width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()"><use xlink:href="#icoVLOOK-dark"></use></svg>&nbsp;&nbsp;';
-    ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.0) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
+    ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.1) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com">MAX°孟兆</a></strong>';
     ui += '</div>';
     ui += '</div>';
 

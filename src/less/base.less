@@ -1,8 +1,8 @@
 /**************************************
  * VLOOK CSS 基础库
  *
- * V10.0
- * 2021-02-20
+ * V10.1
+ * 2021-02-25
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -53,7 +53,8 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 
 **************************************/
 
-@import url("https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css");
+// @import url("https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css");
+// @include-when-export url("https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css");
 
 // VLOOK Logo
 @vlookLogo: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiB2aWV3Qm94PSIwIDAgNTAwIDUwMCI+CiAgPHBhdGggZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMzU4LjI4MzczNCw1Ljc2NTkwNzk2ZS0xNSBDNDA3LjkwOTI4OSwtMy4zNTAxNTg1N2UtMTUgNDI1LjkwNDcxNCw1LjE2NzA1MDYyIDQ0NC4wNDcwNzUsMTQuODY5NjkxNSBDNDYyLjE4OTQzNiwyNC41NzIzMzI0IDQ3Ni40Mjc2NjgsMzguODEwNTYzNiA0ODYuMTMwMzA4LDU2Ljk1MjkyNDcgQzQ5NS44MzI5NDksNzUuMDk1Mjg1OCA1MDEsOTMuMDkwNzExMiA1MDEsMTQyLjcxNjI2NiBMNTAxLDM1Ny4yODM3MzQgQzUwMSw0MDYuOTA5Mjg5IDQ5NS44MzI5NDksNDI0LjkwNDcxNCA0ODYuMTMwMzA4LDQ0My4wNDcwNzUgQzQ3Ni40Mjc2NjgsNDYxLjE4OTQzNiA0NjIuMTg5NDM2LDQ3NS40Mjc2NjggNDQ0LjA0NzA3NSw0ODUuMTMwMzA4IEM0MjUuOTA0NzE0LDQ5NC44MzI5NDkgNDA3LjkwOTI4OSw1MDAgMzU4LjI4MzczNCw1MDAgTDE0My43MTYyNjYsNTAwIEM5NC4wOTA3MTEyLDUwMCA3Ni4wOTUyODU4LDQ5NC44MzI5NDkgNTcuOTUyOTI0Nyw0ODUuMTMwMzA4IEMzOS44MTA1NjM2LDQ3NS40Mjc2NjggMjUuNTcyMzMyNCw0NjEuMTg5NDM2IDE1Ljg2OTY5MTUsNDQzLjA0NzA3NSBDNi4xNjcwNTA2Miw0MjQuOTA0NzE0IDEsNDA2LjkwOTI4OSAxLDM1Ny4yODM3MzQgTDEsMTQyLjcxNjI2NiBDMSw5My4wOTA3MTEyIDYuMTY3MDUwNjIsNzUuMDk1Mjg1OCAxNS44Njk2OTE1LDU2Ljk1MjkyNDcgQzI1LjU3MjMzMjQsMzguODEwNTYzNiAzOS44MTA1NjM2LDI0LjU3MjMzMjQgNTcuOTUyOTI0NywxNC44Njk2OTE1IEM3Ni4wOTUyODU4LDUuMTY3MDUwNjIgOTQuMDkwNzExMiwzLjM1MDE1ODU3ZS0xNSAxNDMuNzE2MjY2LC01Ljc2NTkwNzk2ZS0xNSBMMzU4LjI4MzczNCw1Ljc2NTkwNzk2ZS0xNSBaIE0yNTQuODQxMTA2LDM2OC4yMDA5MjIgQzI1Mi42MTYwMzEsMzY2LjM0NjY5MiAyNDkuMzgzOTY5LDM2Ni4zNDY2OTIgMjQ3LjE1ODg5NCwzNjguMjAwOTIyIEwyNDcuMTU4ODk0LDM2OC4yMDA5MjIgTDIyNS4xNDE4NTIsMzg2LjU0ODQ1NiBDMjIyLjc4NjI2NSwzODguNTExNDQ2IDIyMi4yODk3ODcsMzkxLjkzNDY4IDIyMy45OTA2NTcsMzk0LjQ4NTk4NSBMMjIzLjk5MDY1NywzOTQuNDg1OTg1IEwyNDYuMDA3Njk4LDQyNy41MTE1NDcgQzI0Ni40NDcxMDcsNDI4LjE3MDY2MSAyNDcuMDEyNjg1LDQyOC43MzYyMzkgMjQ3LjY3MTc5OSw0MjkuMTc1NjQ4IEMyNTAuNDI4OTcxLDQzMS4wMTM3NjMgMjU0LjE1NDE4Nyw0MzAuMjY4NzE5IDI1NS45OTIzMDIsNDI3LjUxMTU0NyBMMjU1Ljk5MjMwMiw0MjcuNTExNTQ3IEwyNzguMDA5MzQzLDM5NC40ODU5ODUgQzI3OS43MTAyMTMsMzkxLjkzNDY4IDI3OS4yMTM3MzUsMzg4LjUxMTQ0NiAyNzYuODU4MTQ4LDM4Ni41NDg0NTYgTDI3Ni44NTgxNDgsMzg2LjU0ODQ1NiBaIE0xNDEsMTg1IEM4NS43NzE1MjUsMTg1IDQxLDIyOS43NzE1MjUgNDEsMjg1IEM0MSwzNDAuMjI4NDc1IDg1Ljc3MTUyNSwzODUgMTQxLDM4NSBDMTk2LjIyODQ3NSwzODUgMjQxLDM0MC4yMjg0NzUgMjQxLDI4NSBDMjQxLDIyOS43NzE1MjUgMTk2LjIyODQ3NSwxODUgMTQxLDE4NSBaIE0zNjEsMTg1IEMzMDUuNzcxNTI1LDE4NSAyNjEsMjI5Ljc3MTUyNSAyNjEsMjg1IEMyNjEsMzQwLjIyODQ3NSAzMDUuNzcxNTI1LDM4NSAzNjEsMzg1IEM0MTYuMjI4NDc1LDM4NSA0NjEsMzQwLjIyODQ3NSA0NjEsMjg1IEM0NjEsMjI5Ljc3MTUyNSA0MTYuMjI4NDc1LDE4NSAzNjEsMTg1IFogTTE0MSwyMTUgQzE3OS42NTk5MzIsMjE1IDIxMSwyNDYuMzQwMDY4IDIxMSwyODUgQzIxMSwzMjMuNjU5OTMyIDE3OS42NTk5MzIsMzU1IDE0MSwzNTUgQzEwMi4zNDAwNjgsMzU1IDcxLDMyMy42NTk5MzIgNzEsMjg1IEM3MSwyNDYuMzQwMDY4IDEwMi4zNDAwNjgsMjE1IDE0MSwyMTUgWiBNMzYxLDIxNSBDMzk5LjY1OTkzMiwyMTUgNDMxLDI0Ni4zNDAwNjggNDMxLDI4NSBDNDMxLDMyMy42NTk5MzIgMzk5LjY1OTkzMiwzNTUgMzYxLDM1NSBDMzIyLjM0MDA2OCwzNTUgMjkxLDMyMy42NTk5MzIgMjkxLDI4NSBDMjkxLDI0Ni4zNDAwNjggMzIyLjM0MDA2OCwyMTUgMzYxLDIxNSBaIE00MDkuMTAxMDYsODcuNjU1MDAxNSBDNDA1LjY0NzkzNiw4MC4yNDk3NTI2IDM5Ni45MTg3NjMsNzYuOTg4MzY4OSAzODkuNDc2NTAxLDgwLjI1OTU3MTYgTDM4OS40NzY1MDEsODAuMjU5NTcxNiBMMzg5LjE2NzE2OSw4MC4zOTk2NTg2IEwyNTAuMzU2LDE0NS4xMjY2OTYgTDExMS41NDU5OCw4MC4zOTk2NTg2IEwxMTEuMjM2NjQ4LDgwLjI1OTU3MTYgQzEwMy43OTQzODYsNzYuOTg4MzY4OSA5NS4wNjUyMTM2LDgwLjI0OTc1MjYgOTEuNjEyMDg5NCw4Ny42NTUwMDE1IEM4OC4xMTEwMDUxLDk1LjE2MzEwMSA5MS4zNTkzMzI3LDEwNC4wODc4MDggOTguODY3NDMyMiwxMDcuNTg4ODkyIEw5OC44Njc0MzIyLDEwNy41ODg4OTIgTDI0My44NzY2NzgsMTc1LjIwNzgxNCBMMjQ0LjE4NjAxLDE3NS4zNDc5MDEgQzI0Ni4xOTIyOTgsMTc2LjIyOTc1MyAyNDguMjkyMTEsMTc2LjYzNjg1OSAyNTAuMzU2MjgxLDE3Ni42MTYwMTYgQzI1Mi40MjEwNCwxNzYuNjM2ODU5IDI1NC41MjA4NTIsMTc2LjIyOTc1MyAyNTYuNTI3MTM5LDE3NS4zNDc5MDEgTDI1Ni41MjcxMzksMTc1LjM0NzkwMSBMMjU2LjgzNjQ3MSwxNzUuMjA3ODE0IEw0MDEuODQ1NzE3LDEwNy41ODg4OTIgTDQwMi4xNDM3NjMsMTA3LjQ0NTk3MiBDNDA5LjQzOTIzOSwxMDMuODUwMDY4IDQxMi41NTU0NjMsOTUuMDYyOTkzIDQwOS4xMDEwNiw4Ny42NTUwMDE1IFoiLz4KPC9zdmc+Cg==";
@@ -76,7 +77,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 
 :root {
     --vlook-theme-name: @themeName; // 主题名称
-    --vlook-theme-version: "V10.0"; // 主题版本，对应适配 VLOOK.JS 的版本
+    --vlook-theme-version: "V10.1"; // 主题版本，对应适配 VLOOK.JS 的版本
     --vlook-default-font-style: @defaultFontStyle; // 默认字体风格
     --vlook-color-scheme: light; // 默认颜色模式为：Light 明亮
 
@@ -486,7 +487,8 @@ img,
     background-color: var(--doc-bg-color);
     border-radius: var(--vlook-base-radius);
     padding: 0;
-    border: 2px solid var(--table-border-color);
+    // border: 2px solid var(--table-border-color);
+    border: 2px solid var(--doc-bg-color-alt);
     display: block;
 // 性能优化    transition: all 0.3s ease-in-out;
 }
@@ -1707,8 +1709,10 @@ code {
     font-family: @codeFont;
     font-weight: normal;
     // font-size: 0.8em;
+    // border-radius: var(--vlook-small-radius);
     border-radius: var(--vlook-base-radius);
     border: 2px solid var(--table-border-color);
+    // border: 2px solid var(--doc-bg-color-alt);
     // padding: 1px 4px 1px 4px;
     margin: 0 0 20px 0;
 }
@@ -2995,6 +2999,7 @@ div.mermaidTooltip {
 
 
 sup.md-footnote {
+    color: var(--fore-color-alt);
     background: none;
     padding: 0;
     margin-left: 0.2em;
@@ -3207,7 +3212,7 @@ li > p + ul {
     text-align: center;
     white-space: pre-wrap;
     border-radius: var(--vlook-base-radius);
-    border: 1px var(--table-border-color) solid;
+    border: 1px solid var(--table-border-color);
     font-family: @subtitleFont;
     font-weight: normal;
     color: var(--tips-bg-color-inset);
@@ -3269,7 +3274,7 @@ li > p + ul {
     padding: 10px;
     text-align: center;
     border-radius: var(--vlook-base-radius);
-    border: 1px var(--table-border-color) solid;
+    border: 1px solid var(--table-border-color);
     font-family: @subtitleFont;
     font-weight: normal;
     color: var(--tips-bg-color-inset);
@@ -5181,8 +5186,8 @@ h6 code {
     }
 
     //   .mdx-figure-hover,
-    .mdx-figure:hover,
-    img:hover,
+    // .mdx-figure:hover,
+    // img:hover,
     table:hover {
         border-color: var(--table-border-color) !important;
     }
