@@ -12,7 +12,7 @@ VLOOK™ 也许是目前最好的 Markdown 增强插件之一，也是**开源�
 
 VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
-> **[加入Q群：805502564](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&)**
+> **[加入 VLOOK™ 官方Q群：805502564](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&)**
 
 ---
 
@@ -54,32 +54,39 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 1. 将`released\theme`下所有 CSS 文件复制至 Typora 的主题目录（ Typora「偏好设置」中点击「外观 - 打开主题目录」定位到该目录）；
 2. 重启 Typora ，点击菜单`主题`，选择以`vlook-*`形式命名的主题，即可启用对应的 VLOOK™ 主题样式；
-3. 可基于`released`下的`VLOOK-Document-Template.md` 为模板来创建你自己的 Markdown 文档。
+3. 可基于`released\demo`下的`VLOOK-Document-Template.md` 为模板来创建你自己的 Markdown 文档。
 
 ## Step 3•应用插件
 
-1. 在 Typora 中将 Markdown 文件导出为「**HTML**」文件；
+首先在 Typora 中将 Markdown 文件导出为「**HTML**」文件；
 
-2. 根据需要打开对应的「插件文件」，全选所有内容，并复制：
+###### 方式一（仅适用于 Windows 用户）：
 
-   1. 在线版插件（自动在线更新）：released\\**VLOOK-plugin.txt**
-   2. 离线版插件（无网络场景）：released\\**VLOOK-plugin_standalone.txt**
+1. 启动自动植入插件小工具：released\\plugin\\**v-drop.exe**
+2. 启动 v-drop.exe，并将导出后的「HTML」文件拖到其界面上即可
+3. 说明：默认自动读取 `plugin.txt` 的内容，该文件的默认内容为离线版插件，根据需要选择在线版内容进行覆盖。
 
-3. 用纯文件编辑器，如：记事本、[Visual Studio Code](https://code.visualstudio.com/)，打开导出后的 HTML 文件；
+###### 方式二：
 
-4. 搜索`<body`，并将复制的内容粘贴到 body 标签所在行的关闭符`>`之后：
-  ```html
-  <body ...>
-  ◀ ◀ ◀ 将「插件内容」粘贴于此！
-  ...
-  </body>
-  ```
+1. 根据需要打开对应的「插件文件」，全选所有内容，并复制
+   - 在线版插件（自动在线更新）：released\\plugin\\**plugin_live.txt**
+   - 离线版插件（无网络场景）：released\\plugin\\**plugin_standalone.txt**
 
-5. 保存，大吉大利。
+2. 用纯文件编辑器，如：记事本、[Visual Studio Code](https://code.visualstudio.com/)，打开导出后的 HTML 文件；
+3. 搜索`<body`，并将复制的内容粘贴到 body 标签所在行的关闭符`>`之后：
+
+```html
+<body ...>
+◀ ◀ ◀ 将「插件内容」粘贴于此！
+...
+</body>
+```
+
+1. 保存，大吉大利。
 
 > 强烈建议使用以下浏览器进行访问：
 >
-> Google **[Chrome](https://www.google.cn/chrome/)**　　Microsoft **[Edge](https://www.microsoft.com/zh-cn/edge)**^(Chromium)^　　Mozilla **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
+> Google **[Chrome](https://www.google.cn/chrome/)**　　Microsoft **[Edge](https://www.microsoft.com/zh-cn/edge)**(Chromium)　　Mozilla **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
 
 ---
 
@@ -136,14 +143,15 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 | 目录 | 说明                         |
 | ---------- | ---------------------------- |
-| [ **docs** ] | VLOOK™ 快速参考手册及相关资料 |
+| [ **docs** ] | VLOOK™ 快速参考手册、官网及在线服务相关文件 |
 | [ **released** ] | 发布版本的主目录          |
-| &nbsp;&nbsp;&nbsp;&nbsp;┠─ [ **demo** ] | 基于 VLOOK™ 主题的 Markdown 示例文件 |
-| &nbsp;&nbsp;&nbsp;&nbsp;┠─ [ **theme** ] | 主题文件                     |
-| &nbsp;&nbsp;&nbsp;&nbsp;┠─ VLOOK-plugin.txt | VLOOK™ 插件（在线版本） |
-| &nbsp;&nbsp;&nbsp;&nbsp;┠─ VLOOK-plugin_standalone.txt | VLOOK™ 插件（离线版本） |
-| &nbsp;&nbsp;&nbsp;&nbsp;┖─ VLOOK-Document-Template.md | VLOOK™ 文档模板，用来创建属于你自己的 Markdown 文档 |
+| ├&nbsp;&nbsp;┠─ [ **demo** ] | 基于 VLOOK™ 主题的 Markdown 示例文件 |
+| ├&nbsp;&nbsp;┠─ [ **theme** ] | 主题文件                     |
+| ├&nbsp;&nbsp;┖─ [ **plugin** ] | 插件主目录                |
+| ├&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┠─ plugin.txt | 自动植入版本_插件（通过 `v-drop.exe` 自动植入，内容可从以下两个版本中复制进行覆盖） |
+| ├&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┠─ plugin_live.txt | 在线版本°插件 |
+| ├&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┖─ plugin_standalone.txt | 离线版本°插件 |
 | [ **src** ] | 源码目录                     |
-| &nbsp;&nbsp;&nbsp;&nbsp;┠─ [ **dev** ] | 开发测试用文件 |
-| &nbsp;&nbsp;&nbsp;&nbsp;┠─ [ **less** ] | 主题 CSS 文件的源文件 |
-| &nbsp;&nbsp;&nbsp;&nbsp;┖─ [ **logo** ] | VLOOK™ 的 logo 资源 |
+| ├&nbsp;&nbsp;┠─ [ **dev** ] | 开发测试用文件 |
+| ├&nbsp;&nbsp;┠─ [ **less** ] | 主题 CSS 文件的源文件 |
+| ├&nbsp;&nbsp;┖─ [ **logo** ] | VLOOK™ 的 logo 资源 |

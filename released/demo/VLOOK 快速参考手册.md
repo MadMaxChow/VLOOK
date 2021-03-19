@@ -1,19 +1,19 @@
-###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>快速参考手册</sup><br />`#最新版本|V10.0#(theme2)`<br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2021. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>快速参考手册</sup><br />`#最新版本|V10.1#(theme2)`<br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2021. MAX°DESIGN.*
 
 [TOC]
 
 # VLOOK™ 是什么
 
 >
-> ![VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-mark-light.svg?mode=logo&darksrc=vlook-mark-dark.svg)
+>![VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-mark-light.svg?mode=logo&darksrc=vlook-mark-dark.svg)
 >
-> 
 >
-> VLOOK™ 是针对 ![Typora](https://s3.ax1x.com/2020/11/13/DpZXtI.png?mode=icon)[Typora](https://www.typora.io)[^Typora] （跨平台 Markdown 编辑器）的 **主题包** 和 **增强插件**（针对导出的 HTML 文件）。
 >
-> VLOOK™ 属于开源软件（遵从 **MIT License**），也是 ![OSChina](https://s1.ax1x.com/2020/11/06/BWB3Xn.png?mode=icon)**[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源产品。
-> 
-> `>(theme1)`
+>VLOOK™ 是针对 ![Typora](https://s3.ax1x.com/2020/11/13/DpZXtI.png?mode=icon)[Typora](https://www.typora.io)[^Typora] （跨平台 Markdown 编辑器）的 **主题包** 和 **增强插件**（针对导出的 HTML 文件）。
+>
+>VLOOK™ 属于开源软件（遵从 **MIT License**），也是 ![OSChina](https://s1.ax1x.com/2020/11/06/BWB3Xn.png?mode=icon)**[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源产品。
+>
+>`>(theme1)`
 
 > 代码托管：[![Github](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/github-light.svg?mode=logo&darksrc=github-dark.svg)](https://github.com/madmaxchow/VLOOK?lnkcss=none) & [![Gitee](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/gitee-light.svg?mode=logo&darksrc=gitee-dark.svg)](https://gitee.com/madmaxchow/VLOOK?lnkcss=none)　　　　CDN：[![JSDELIVR](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/jsdelivr-light.svg?mode=logo&darksrc=jsdelivr-dark.svg)](https://www.jsdelivr.com/?lnkcss=none)　　　　图床：[![路过图床](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/imgchr-light.png?mode=logo&darksrc=imgchr-dark.png&srcset=@2x&darksrcset=@2x)](https://imgchr.com/?lnkcss=none)
 
@@ -77,12 +77,21 @@
 
 ## Step 3•应用插件
 
-1. 在 Typora 中将 Markdown 文件导出为「**HTML**」文件；
-2. 根据需要打开对应的「插件文件」，全选所有内容，并复制：
-   1. 在线版插件（自动在线更新）：released\\**VLOOK-plugin.txt**
-   2. 离线版插件（无网络场景）：released\\**VLOOK-plugin_standalone.txt**
-3. 用纯文件编辑器，如：记事本、[Visual Studio Code](https://code.visualstudio.com/)，打开导出后的 HTML 文件；
-4. 搜索`<body`，并将复制的内容粘贴到 body 标签所在行的关闭符`>`之后：
+首先在 Typora 中将 Markdown 文件导出为「**HTML**」文件；
+
+###### 方式一（仅适用于 Windows 用户）：
+
+1. 启动自动植入插件小工具：released\\plugin\\**v-drop.exe**
+2. 启动 v-drop.exe，并将导出后的「HTML」文件拖到其界面上即可
+3. 说明：默认自动读取 `plugin.txt` 的内容，该文件的默认内容为离线版插件，根据需要选择在线版内容进行覆盖。
+
+###### 方式二：
+
+1. 根据需要打开对应的「插件文件」，全选所有内容，并复制
+   - 在线版插件（自动在线更新）：released\\plugin\\**plugin_live.txt**
+   - 离线版插件（无网络场景）：released\\plugin\\**plugin_standalone.txt**
+2. 用纯文件编辑器，如：记事本、[Visual Studio Code](https://code.visualstudio.com/)，打开导出后的 HTML 文件；
+3. 搜索`<body`，并将复制的内容粘贴到 body 标签所在行的关闭符`>`之后：
 
 ```html
 <body ...>
@@ -115,7 +124,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 ## 快速入坑°文档排版
 
->　###### ![°文档排版](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-types-light.svg?mode=icon&fill=text) ° 文档排版
+>　###### ![°文档排版](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-types-light.svg?mode=icon2x&fill=text) ° 文档排版
 >
 > ---
 >
@@ -136,24 +145,24 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 | - 将整列设置为**复选框**格式，并能指定某单元格为「选中」 [••](#表格列格式：复选框) |  :   | - 添加的**小图标**、普通图片，不想以插图的形式显示 [••](#图片显示版式) |
 | - 给每个表格进行自动编号、**添加题注** [••](#表格自动编号与题注) |  :   | - 让图标的颜色与周围的元素更搭更和谐 [••](#图片颜色替换)     |
 | - 给表格的**每一行**都进行**自动编号** [••](#表格逐行自动编号) |  :   | - 为图片添加工程风的网格背景 [••](#图片网格背景)             |
-| - 对同属一类内容的**表格行**进行分组、分类，并能**自动折叠** [••](#表格行分组折叠) |  :   | - 连续多张图片**不换行**，图片边缘能**留白** [••](#图片排版) |
+| - 对同属一类内容的**表格行**进行分组、分类，并能**自动折叠** [••](#表格行分组折叠) |  :   | - 指定图片的**对齐方式** [••](#图片对齐方式)                 |
+|                                                              |  :   | - 图片边缘能**留白** [••](#图片边缘留白)                     |
+| ==**流程图、状态机图、顺序图**==                             |  :   |                                                              |
+| - **扩展** Mermaid 的**图表**，并优化了**样式** [••](#°Mermaid) |  :   | ==**标签、标签组**==                                         |
+| - 解决 Mermaid 图表的**高分屏**的 **Bug** [••](#兼容性补丁)  |  :   | - 将特定关键字设置为**标签**样式 [••](#彩虹标签)             |
+|                                                              |  :   | - 将特定的**二元组**内容设置为**标签组**样式 [••](#药丸标签) |
+| ==**音频、视频、注音**==                                     |  :   |                                                              |
+| - 为文档添加音频内容 [••](#音频)                             |  :   | ==**引用、引用块**==                                         |
+| - 为文档添加视频内容 [••](#视频)                             |  :   | - 重要的引用指定使用突出的样式（如：重要提示） [••](#彩虹引用) |
+| - 要给生`{僻}(pì)`字，或东亚小语种**添加注音** [••](#注音)   |  :   | - **引用**的内容支持**自定义折叠** [••](#折叠吧引用)         |
 |                                                              |  :   |                                                              |
-| ==**流程图、状态机图、顺序图**==                             |  :   | ==**标签、标签组**==                                         |
-| - **扩展** Mermaid 的**图表**，并优化了**样式** [••](#°Mermaid) |  :   | - 将特定关键字设置为**标签**样式 [••](#彩虹标签)             |
-| - 解决 Mermaid 图表的**高分屏**的 **Bug** [••](#兼容性补丁)  |  :   | - 将特定的**二元组**内容设置为**标签组**样式 [••](#药丸标签) |
-|                                                              |  :   |                                                              |
-| ==**音频、视频、注音**==                                     |  :   | ==**引用、引用块**==                                         |
-| - 为文档添加音频内容 [••](#音频)                             |  :   | - 重要的引用指定使用突出的样式（如：重要提示） [••](#彩虹引用) |
-| - 为文档添加视频内容 [••](#视频)                             |  :   | - **引用**的内容支持**自定义折叠** [••](#折叠吧引用)         |
-| - 要给生`{僻}(pì)`字，或东亚小语种**添加注音** [••](#注音)   |  :   |                                                              |
-|                                                              |  :   | ==**任务列表**==                                             |
-| ==**代码块**==                                               |  :   | - 任务列表的序号，给你找回来了 [••](#任务列表自动编号)       |
-| - 给每个代码块进行自动编号、**添加题注** [••](#代码块自动编号与题注) |  :   | - 对于多级任务列表，「**任务组状态**」能自动识别了 [••](#任务组状态) |
-| - 代码块高亮当前行、一键复制代码 [••](#代码块增强)           |  :   |                                                              |
+| ==**代码块**==                                               |  :   | ==**任务列表**==                                             |
+| - 给每个代码块进行自动编号、**添加题注** [••](#代码块自动编号与题注) |  :   | - 任务列表的序号，给你找回来了 [••](#任务列表自动编号)       |
+| - 代码块高亮当前行、一键复制代码 [••](#代码块增强)           |  :   | - 对于多级任务列表，「**任务组状态**」能自动识别了 [••](     |
 
 ## 快速入坑°内容导航
 
-> ###### ![°内容导航](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-nav-light.svg?mode=icon&fill=text) ° 内容导航
+> ###### ![°内容导航](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-nav-light.svg?mode=icon2x&fill=text) ° 内容导航
 >
 > ---
 >
@@ -175,7 +184,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 ## 快速入坑°演示与出版辅助
 
 >
-> ###### ![°演示与出版辅助](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-pres-light.svg?mode=icon&fill=text) ° 演示与出版辅助
+> ###### ![°演示与出版辅助](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-pres-light.svg?mode=icon2x&fill=text) ° 演示与出版辅助
 >
 > ---
 >
@@ -206,7 +215,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 ## 快速入坑°主题与不杂项
 
 >
-> ###### ![°主题与不杂项](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-theme-light.svg?mode=icon&fill=text) ° 主题与不杂项
+> ###### ![°主题与不杂项](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-theme-light.svg?mode=icon2x&fill=text) ° 主题与不杂项
 >
 > ---
 >
@@ -578,9 +587,9 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 「**文档中的图片很多，怎么才能像 Word 那样添加编号和题注呢？**」
 
-`#VLOOK:#(theme1)` 无须任何设置，即可自动对文档内所有插图进行统一的自动编号，编号内容举例：`图 1` `图 2`
+`#VLOOK:#(theme1)` 对于独占一行的图片，或强制指定[显示版式](#图片显示版式)为插图的，VLOOK™ 会将以其「插图[^插图]」的形式处理，如统一自动编号和题注，编号内容举例：`图 1` `图 2`
 
-插图主要是指图片（如：jpg、png 等），以及脚本化图表（如：Mermaid 的流程图、状态机图、顺序图、甘特图、类图等）
+[^插图]: 主要是指图片（如：jpg、png 等），以及脚本化图表（如：Mermaid 的流程图、状态机图、顺序图、甘特图、类图等）
 
 > **为「图片」添加题注：**
 >
@@ -638,7 +647,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 ###### 示例
 
-![普通分辨率图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone-home-light.png?padding=true&inline=true&darksrc=iphone-home-dark.png)　　![支持 2x 分辨率图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone-home-light.png?padding=true&inline=true&darksrc=iphone-home-dark.png&srcset=@2x&darksrcset=@2x)　　![支持 2x, 3x 分辨率的图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone-home-light.png?padding=true&inline=true&darksrc=iphone-home-dark.png&srcset=@2x,@3x&darksrcset=@2x,@3x)
+![普通分辨率图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone-home-light.png?mode=figure&padding=true&darksrc=iphone-home-dark.png)　　![支持 2x 分辨率图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone-home-light.png?mode=figure&padding=true&darksrc=iphone-home-dark.png&srcset=@2x&darksrcset=@2x)　　![支持 2x, 3x 分辨率的图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone-home-light.png?mode=figure&padding=true&darksrc=iphone-home-dark.png&srcset=@2x,@3x&darksrcset=@2x,@3x)
 
 ---
 
@@ -666,7 +675,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 ###### 示例
 
-![默认不适配 Dark Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?inline=true&padding=true&srcset=@2x)　　![Dark Mode 时：图片反色](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?inline=true&padding=true&srcset=@2x&darksrc=invert)
+![默认不适配 Dark Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?mode=figure&padding=true&srcset=@2x)　　![Dark Mode 时：图片反色](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?mode=figure&padding=true&srcset=@2x&darksrc=invert)
 
 ---
 
@@ -693,7 +702,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 ###### 示例
 
-![默认不适配 Dark Mode](https://s3.ax1x.com/2021/01/15/swDZlQ.png?padding=true&inline=true&srcset=swDeyj.png@2x,swDmOs.png@3x)　　![Dark Mode 时：替换成指定图片](https://s3.ax1x.com/2021/01/15/swDZlQ.png?darksrc=swBrss.png&padding=true&inline=true&srcset=swDeyj.png@2x,swDmOs.png@3x&darksrcset=swBgoV.png@2x,swB6Zq.png@3x)
+![默认不适配 Dark Mode](https://s3.ax1x.com/2021/01/15/swDZlQ.png?mode=figure&padding=true&srcset=swDeyj.png@2x,swDmOs.png@3x)　　![Dark Mode 时：替换成指定图片](https://s3.ax1x.com/2021/01/15/swDZlQ.png?mode=figure&darksrc=swBrss.png&padding=true&srcset=swDeyj.png@2x,swDmOs.png@3x&darksrcset=swBgoV.png@2x,swB6Zq.png@3x)
 
 ---
 
@@ -703,11 +712,9 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 ### 图片显示版式
 
-「**在 VLOOK™ 中图片默认均以「插图」的形式进行呈现，即自动编号、题注等～**
+「**希望统一图文混排的图标大小，以及指定图片不以「插图」形式被处理，该怎么操作呢？**」
 
-**希望添加一些小图标、小图片，但并不划文档的插图，该怎么操作呢？**」
-
-`#VLOOK:#(theme1)` 在不影响 Markdown 的简洁和优雅的前提下，实现支持多种不同的显示版式。
+`#VLOOK:#(theme1)` 在 VLOOK™ 中图片是默认以「插图」或「混排」形式进行呈现，同时可在不影响 Markdown 的简洁和优雅的前提下，实现支持多种不同的显示版式。
 
 > 在「图片 URL」中添加 VLOOK™ 规范的参数的方式来启用这一特性：
 >
@@ -715,18 +722,26 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 ###### 图片不同显示版式的 URL 参数（mode）的取值及用法
 
-| 版式标识 | 应用说明                                                     | 完整语法参考                 |
-| :------: | ------------------------------------------------------------ | ---------------------------- |
-|   icon   | 缩小为与单行正文高度适配的小图标<br />主要用于与正文内容进行混排 | `![图片](xxx.png?mode=icon)` |
-|   logo   | 不调整图片大小<br />主要用于展示 Logo 或不是作为「插图」的图片 | `![图片](xxx.png?mode=logo)` |
+| 版式标识 | 应用说明                                                     | 完整语法参考                   |
+| :------: | ------------------------------------------------------------ | ------------------------------ |
+|   icon   | 缩小为与单行正文高度适配的小图标<br />主要用于与正文内容进行混排 | `![图片](xxx.png?mode=icon)`   |
+|  icon2x  | 比`icon`尺寸增大 60%                                         | `![图片](xxx.png?mode=icon2x)` |
+|   logo   | 不调整图片大小<br />主要用于展示 Logo 或不是作为「插图」的图片 | `![图片](xxx.png?mode=logo)`   |
+|  figure  | 强制指定为插图，适用于一行多图的情况<br />独占一行的图片默认为插图，无须指定 | `![图片](xxx.png?mode=figure)` |
 
 > `#参考#(green)` *如果对 URL 参数的使用有疑问，可以去「[延伸内容](#延伸内容)」那深入再了解了解～*
 
-###### 示例一：icon 模式
+###### 示例1：不指定
+
+![VLOOK](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-light.svg?darksrc=vlook-dark.svg)**VLOOK™** 是 ![OSChina](https://s1.ax1x.com/2020/11/06/BWB3Xn.png)**[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
+
+###### 示例2：icon、icon2x 模式
 
 ![VLOOK](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-light.svg?mode=icon&darksrc=vlook-dark.svg)**VLOOK™** 是 ![OSChina](https://s1.ax1x.com/2020/11/06/BWB3Xn.png?mode=icon)**[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
 
-###### 示例二：logo 模式
+![VLOOK](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-light.svg?mode=icon2x&darksrc=vlook-dark.svg)**VLOOK™** 是 ![OSChina](https://s1.ax1x.com/2020/11/06/BWB3Xn.png?mode=icon2x)**[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
+
+###### 示例3：logo 模式
 
 对于深色的图片或图标，可配合「[图片适配 Dark Mode](#图片适配 Dark Mode)」来自动更好适配 Dark Mode 下的显示，现在就试试按下键盘的<kbd>D</kbd>键，然后看看下图的变化～
 
@@ -746,9 +761,15 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 > 在「图片 URL」中添加 VLOOK™ 规范的参数的方式来启用这一特性：
 >
-> - URL 参数：`fill=text`，替换为所在段落文字的颜色（会自动适配 Dark Mode 和链接的样式）
-> - URL 参数：`fill=theme1`，替换为主题的主色
-> - URL 参数：`fill=theme2`，替换为主题的辅助色
+> - URL 参数：`fill=xxx`
+
+###### 图片颜色替换的 URL 参数（fill）的取值及用法
+
+| 对齐方式 | 说明                                                         | 完整语法参考                   |
+| :------: | ------------------------------------------------------------ | ------------------------------ |
+|   text   | 替换为所在段落文字的颜色（会自动适配 Dark Mode 和链接的样式） | `![图片](xxx.png?fill=text)`   |
+|  theme1  | 替换为主题的主色                                             | `![图片](xxx.png?fill=theme1)` |
+|  theme2  | 替换为主题的辅助色                                           | `![图片](xxx.png?fill=theme2)` |
 
 ###### 示例：链接内图片
 
@@ -770,7 +791,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 ###### 示例：插图（实验性）
 
-![原始颜色](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?inline=true)　　![颜色替换](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?fill=theme2&inline=true)
+![原始颜色](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?mode=figure)　　![颜色替换](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg??mode=figure&fill=theme2)
 
 ---
 
@@ -786,22 +807,28 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 > 在「图片 URL」中添加 VLOOK™ 规范的参数的方式来启用这一特性：
 >
-> - URL 参数：`grid=line`，添加线条风格的网格背景
-> - URL 参数：`grid=block`，添加方块风格的网格背景
->
-> 该特性自动适配 [Dark Mode](#Dark Mode) 的应用场景。
+> - 参数：`grid=xxx`
+> 
+>该特性自动适配 [Dark Mode](#Dark Mode) 的应用场景。
+
+###### 图片网格背景的 URL 参数（grid）的取值及用法
+
+| 网络背景风格 | 说明                   | 完整语法参考                  |
+| :----------: | ---------------------- | ----------------------------- |
+|     line     | 添加线条风格的网格背景 | `![图片](xxx.png?grid=line)`  |
+|    block     | 添加方块风格的网格背景 | `![图片](xxx.png?grid=block)` |
 
 ###### 示例一：线条网格
 
-![图片指定为线条网格背景（支持 Dark Mode 时反色的适配方式）](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-set.svg?grid=line&darksrc=invert)
+![图片指定为线条网格背景（指定 Dark Mode 时反色）](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-set.svg?grid=line&darksrc=invert)
 
-![图片指定为线条网络背景（支持 Dark Mode 时替换的适配方式）](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-mark-light.svg?grid=line&padding=true&darksrc=vlook-mark-dark.svg)
+![图片指定为线条网络背景（指定 Dark Mode 时替换）](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-mark-light.svg?grid=line&padding=true&darksrc=vlook-mark-dark.svg)
 
 ###### 示例二：方块网格
 
-![图片指定为方块网格背景（支持图片在 Dark Mode 时反色的适配方式）](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-set.svg?grid=block&darksrc=invert)
+![图片指定为方块网格背景（指定 Dark Mode 时反色）](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-set.svg?grid=block&darksrc=invert)
 
-![图片指定为方块网络背景（支持图片在 Dark Mode 时替换的适配方式）](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-mark-dark.svg?grid=block&padding=true)　
+![图片指定为方块网络背景](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-mark-dark.svg?mode=figure&grid=block&padding=true)　
 
 ---
 
@@ -809,22 +836,47 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 [<kbd>◀ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
-### 图片排版
+### 图片对齐方式
 
-「**我的插图宽度都比较窄，希望能在一行上显示多个插图，应该怎么操作？**
+「**希望可以自由设置图片的对齐式，同时保持 Markdown 的简洁性？**」
 
-**我的插图边缘没有留白，视觉上看得比较挤，可以怎么调整？**」
+`#VLOOK:#(theme1)` 在 Markdown 对图片千篇一律的排版的反馈中，尝试打开了一道小小的裂缝～
 
-`#VLOOK:#(theme1)` 在 Markdown 对图片千篇一律的排版的反馈中，悄悄尝试打开了一道小小的裂缝～
-
-> **一行多图**
+> **图片对齐**
 >
 > 可在「图片 URL」中添加 VLOOK™ 规范的参数来启用这一特性：
 >
-> - 参数：`inline=true`
-> - 参数示例：`![图片题注](xxxxx.png?inline=true)`
->
-> 该特性示例可以回看之前面「图片适配高分屏」 •• [马上去看看](#图片适配高分屏)
+> - 参数：`align=xxx`
+
+###### 图片不同对齐方式的 URL 参数（align）的取值及用法
+
+| 对齐方式 | 说明                     | 完整语法参考                    |
+| :------: | ------------------------ | ------------------------------- |
+|   left   | 左对齐（默认的对齐方式） | `![图片](xxx.png?align=left)`   |
+|  center  | 居中对齐                 | `![图片](xxx.png?align=center)` |
+|  right   | 右对齐                   | `![图片](xxx.png?align=right)`  |
+
+> `#参考#(green)` *如果对 URL 参数的使用有疑问，可以去「[延伸内容](#延伸内容)」那深入再了解了解～*
+
+###### 示例
+
+![左对齐](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?darksrc=invert)
+
+![居中对齐](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?darksrc=invert&align=center)
+
+![右对齐](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?darksrc=invert&align=right)
+
+---
+
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+
+[<kbd>◀ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+
+### 图片边缘留白
+
+「**我的插图边缘没有留白，视觉上看得比较挤，可以怎么调整？**」
+
+`#VLOOK:#(theme1)` 在 Markdown 对图片千篇一律的排版的反馈中，叕尝试打开了一道小小的裂缝～
 
 > **图片四边留白**
 >
@@ -835,9 +887,9 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 > `#参考#(green)` *如果对 URL 参数的使用有疑问，可以去「[延伸内容](#延伸内容)」那深入再了解了解～*
 
-###### 示例：一行多图＋边缘留白
+###### 示例
 
-![图片边缘不留白（默认）](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/remote-control.svg?grid=block&inline=true)　　![图片边缘添加留白](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/remote-control.svg?grid=block&padding=true&inline=true)
+![图片边缘不留白（默认）](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/remote-control.svg?mode=figure&grid=block)　　![图片边缘添加留白](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/remote-control.svg?mode=figure&grid=block&padding=true)
 
 ---
 
@@ -1870,7 +1922,9 @@ void quickSort(int arr[], int left, int right) {
 
 > **页内链接检查**
 >
-> 自动检查页面内部链接的正确性，若存在无效的页内链接，则通过弹窗提示。
+> 自动检查页面内部链接的正确性。
+>
+> 若存在无效的页内链接，则在文档的右下角显示![](https://s3.ax1x.com/2021/03/16/6sH5EF.png?mode=icon2x)图标，点击可查看无效链接的详细信息。
 
 > **重名章节标题检查**
 >

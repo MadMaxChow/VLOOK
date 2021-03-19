@@ -2,7 +2,7 @@
  * VLOOK CSS 基础库
  *
  * V10.1
- * 2021-02-25
+ * 2021-03-19
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -17,8 +17,10 @@
 
 ---------- 云顶 UI 区 ----------
 
-欢迎屏 / .mdx-welcome-screen / z-index: 4000;
-聚光灯 / .mdx-spotlight / z-index: 4000;
+欢迎屏 / .mdx-welcome-screen / z-index: 6000;
+聚光灯 / .mdx-spotlight / z-index: 5000;
+无效链接清单 / .mdx-link-chk-result / z-index: 4501;
+无效链接清单 / .mdx-link-error-list / z-index: 4500;
 底部信息栏 / .mdx-bottom-tips / z-index: 4000;
 
 ---------- 高优先信息 UI 区 -----
@@ -478,25 +480,37 @@ body > *:last-child {
     margin-bottom: 0 !important;
 }
 
-img,
+// img,
+p > img:only-child,
+p > .md-image:only-child:not(.md-img-error) img, // 是指 p 内只有 img 的才被视为插图
+img[src*="mode=figure"],
 .mdx-figure,
 .md-diagram-panel svg {
-    // background: @figureSolidBgLight;
-    // background-repeat: repeat;
-    // background-position: left top;
     background-color: var(--doc-bg-color);
     border-radius: var(--vlook-base-radius);
     padding: 0;
-    // border: 2px solid var(--table-border-color);
     border: 2px solid var(--doc-bg-color-alt);
-    display: block;
+    // display: block;
 // 性能优化    transition: all 0.3s ease-in-out;
 }
 
-img {
+// 图片默认对齐方式，或 URL 参数指定左对齐
+// img,
+img[src*="mode=figure"],
+p > img:only-child,
+p > .md-image:only-child:not(.md-img-error) img, // 是指 p 内只有 img 的才被视为插图
+p > img:only-child[src*="align=left"],
+p > .md-image:only-child:not(.md-img-error) img[src*="align=left"] {
     margin: 0 !important;
-    // float: left;
-    // filter: var(--img-dark-filter);
+}
+// 图片 URL 参数指定居中对齐
+p > .md-image:only-child:not(.md-img-error) img[src*="align=center"] {
+    margin: auto !important;
+}
+// 图片 URL 参数指定右对齐
+p > .md-image:only-child:not(.md-img-error) img[src*="align=right"] {
+    margin: auto !important;
+    margin-right: 0 !important;
 }
 
 // 图片 URL 参数指定是否填充边缘
@@ -505,12 +519,12 @@ img[src*="padding=true"] {
 }
 
 // 图片 URL 参数指定是否独占一行
-img[src*="inline=true"],
-svg[data-inject-url*="inline=true"] {
-    display: inline-grid !important;
-    height: auto;
-    width: auto;
-}
+// img[src*="inline=true"],
+// svg[data-inject-url*="inline=true"] {
+//     display: inline-grid !important;
+//     height: auto;
+//     width: auto;
+// }
 
 // 图片 URL 参数指定是否使用网格背景
 img[src*="grid=line"] {
@@ -535,13 +549,16 @@ svg[data-inject-url*="mode=icon"] {
     display: inline !important;
     margin-left: 4px !important;
     margin-right: 4px !important;
-    height: 1.2em;
+    height: 1.25em;
     width: auto;
     margin-top: -4px !important;
     vertical-align: middle;
-    border: 0;
-    border-radius: 0;
+    border: 0 !important;
+    border-radius: 0 !important;
     background: none !important;
+}
+img[src*="mode=icon2x"] {
+    height: 2em;
 }
 
 // 图片 URL 参数指定图片的显示版式为：logo
@@ -549,8 +566,8 @@ img[src*="mode=logo"],
 svg[data-inject-url*="mode=logo"] {
     display: inline !important;
     vertical-align: middle;
-    border: 0;
-    border-radius: 0;
+    border: 0 !important;
+    border-radius: 0 !important;
     background: none !important;
 }
 
@@ -1117,6 +1134,62 @@ blockquote > blockquote {
 
 blockquote > strong {
     color: inherit !important;
+}
+
+// 坏链列表
+.mdx-link-error-list {
+    display: none;
+    padding: 10px;
+    position: fixed;
+    color: var(--fore-color);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--doc-bg-color-alt);
+    overflow: auto;
+    z-index: 4500;
+}
+// 链接检查结果
+.mdx-link-chk-result {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    background-color: var(--doc-bg-color-alt);
+    // border: 1px solid var(--fore-color-alt);
+    right: 20px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    z-index: 4501;
+}
+// 无坏链
+.mdx-link-result-ok {
+    display: flex;
+    background-color: var(--accent-color-green-light);
+    // border: 1px solid var(--accent-color-green-alt-light);
+}
+// 链接检查结果：有坏链
+.mdx-link-result-error {
+    display: flex;
+    cursor: pointer;
+    background-color: var(--accent-color-red-light);
+    // border: 1px solid var(--accent-color-red-alt-light);
+}
+.mdx-link-result-error:hover {
+    background-color: var(--accent-color-red-alt-light);
+    transform: translateY(-2px);
+}
+.mdx-link-error-list > hr {
+    border-width: 1px;
+    border-color: var(--fore-color-alt);
+}
+.mdx-link-error-list > span {
+    color: var(--fore-color-alt);
+    font-size: 0.9em;
 }
 
 // table {
@@ -3200,7 +3273,7 @@ li > p + ul {
     //   background: radial-gradient(circle at calc(~"var(--spotlightX) * 1px") calc(~"var(--spotlightY) * 1px"), rgba(255, 255, 255, 0) calc(~"var(--spotlightR) * 1px"), rgba(0, 0, 0, 0.7) calc(~"var(--spotlightR) * 1px + 1px"));
     background-size: cover;
     pointer-events: none;
-    z-index: 4000;
+    z-index: 5000;
 }
 
 .mdx-tool-tips,
@@ -3363,11 +3436,24 @@ li > p + ul {
     display: inline-flex;
 }
 
-.mdx-doc-logo {
+// Light Mode 的文档图标（标签栏、收藏夹图标）
+.mdx-doc-logo-light {
     margin-top: 30px;
     width: 100%;
     height: 80px;
-    background-image: url(@themeLogo);
+    background-image: url(@themeLogoLight);
+    background-size: 80px 80px;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+// Dark Mode 的文档图标（标签栏、收藏夹图标）
+.mdx-doc-logo-dark {
+    display: none;
+    margin-top: 30px;
+    width: 100%;
+    height: 80px;
+    background-image: url(@themeLogoDark);
     background-size: 80px 80px;
     background-repeat: no-repeat;
     background-position: top center;
@@ -3388,7 +3474,7 @@ li > p + ul {
     font-size: 1.3em;
     overflow: auto;
     display: none;
-    z-index: 4000;
+    z-index: 6000;
 }
 
 // 文本呼吸动画
@@ -4203,7 +4289,7 @@ li > p + ul {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.6);
     // background-color: rgba(255, 255, 255, 0.9); // 启用 blur 特效时的建议值
     position: fixed;
     display: none;
@@ -4390,7 +4476,7 @@ li > p + ul {
     color: var(--fore-color);
 }
 
-.mdx-figure-page-num {
+.mdx-figure-nav-title {
     color: #C0C4C8 !important;
     left: 10px;
     top: 10px;
@@ -4398,6 +4484,15 @@ li > p + ul {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+}
+
+.mdx-figure-page-num {
+    border-radius: var(--vlook-small-radius);
+    background-color: var(--fore-color-alt);
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 0.9em;
+    font-family: @boldFont;
 }
 
 .mdx-figure-caption {
@@ -4467,7 +4562,7 @@ use.mdx-folder2-ico:active {
     height: 100%;
     text-align: center;
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.6);
     // background-color: rgba(255, 255, 255, 0.9); // 启用 blur 特效时的建议值
     display: none;
     z-index: 1000;
@@ -4738,7 +4833,7 @@ use.mdx-folder2-ico:active {
     border-radius: var(--vlook-tag-radius) 0 0 var(--vlook-tag-radius);
     color: var(--doc-bg-color);
     background: var(--code-name-bg-color);
-    padding: 0.1em 1em 0.1em 0.5em;
+    padding: 0.1em 0.5em 0.1em 0.5em;
     margin: 0 0.1em;
     font-size: 0.9em;
     white-space: pre;
@@ -4879,36 +4974,36 @@ use.mdx-folder2-ico:active {
 }
 
 // 表格内的彩虹标签，大小进行缩小，以适应行距与正文不同造成重叠
-// #write > h6:first-of-type .mdx-tag-red,
-// #write > h6:first-of-type .mdx-tag-orange,
-// #write > h6:first-of-type .mdx-tag-yellow,
-// #write > h6:first-of-type .mdx-tag-green,
-// #write > h6:first-of-type .mdx-tag-cyan,
-// #write > h6:first-of-type .mdx-tag-blue,
-// #write > h6:first-of-type .mdx-tag-purple,
-// #write > h6:first-of-type .mdx-tag-pink
-// #write > h6:first-of-type .mdx-tag-brown,
-// #write > h6:first-of-type .mdx-tag-gray,
-// #write > h6:first-of-type .mdx-tag-name-red,
-// #write > h6:first-of-type .mdx-tag-name-orange,
-// #write > h6:first-of-type .mdx-tag-name-yellow,
-// #write > h6:first-of-type .mdx-tag-name-green,
-// #write > h6:first-of-type .mdx-tag-name-cyan,
-// #write > h6:first-of-type .mdx-tag-name-blue,
-// #write > h6:first-of-type .mdx-tag-name-purple,
-// #write > h6:first-of-type .mdx-tag-name-pink,
-// #write > h6:first-of-type .mdx-tag-name-brown,
-// #write > h6:first-of-type .mdx-tag-name-gray,
-// #write > h6:first-of-type .mdx-tag-value-red,
-// #write > h6:first-of-type .mdx-tag-value-orange,
-// #write > h6:first-of-type .mdx-tag-value-yellow,
-// #write > h6:first-of-type .mdx-tag-value-green,
-// #write > h6:first-of-type .mdx-tag-value-cyan,
-// #write > h6:first-of-type .mdx-tag-value-blue,
-// #write > h6:first-of-type .mdx-tag-value-purple,
-// #write > h6:first-of-type .mdx-tag-value-pink,
-// #write > h6:first-of-type .mdx-tag-value-brown,
-// #write > h6:first-of-type .mdx-tag-value-gray {
+// #write > h6:first-child .mdx-tag-red,
+// #write > h6:first-child .mdx-tag-orange,
+// #write > h6:first-child .mdx-tag-yellow,
+// #write > h6:first-child .mdx-tag-green,
+// #write > h6:first-child .mdx-tag-cyan,
+// #write > h6:first-child .mdx-tag-blue,
+// #write > h6:first-child .mdx-tag-purple,
+// #write > h6:first-child .mdx-tag-pink
+// #write > h6:first-child .mdx-tag-brown,
+// #write > h6:first-child .mdx-tag-gray,
+// #write > h6:first-child .mdx-tag-name-red,
+// #write > h6:first-child .mdx-tag-name-orange,
+// #write > h6:first-child .mdx-tag-name-yellow,
+// #write > h6:first-child .mdx-tag-name-green,
+// #write > h6:first-child .mdx-tag-name-cyan,
+// #write > h6:first-child .mdx-tag-name-blue,
+// #write > h6:first-child .mdx-tag-name-purple,
+// #write > h6:first-child .mdx-tag-name-pink,
+// #write > h6:first-child .mdx-tag-name-brown,
+// #write > h6:first-child .mdx-tag-name-gray,
+// #write > h6:first-child .mdx-tag-value-red,
+// #write > h6:first-child .mdx-tag-value-orange,
+// #write > h6:first-child .mdx-tag-value-yellow,
+// #write > h6:first-child .mdx-tag-value-green,
+// #write > h6:first-child .mdx-tag-value-cyan,
+// #write > h6:first-child .mdx-tag-value-blue,
+// #write > h6:first-child .mdx-tag-value-purple,
+// #write > h6:first-child .mdx-tag-value-pink,
+// #write > h6:first-child .mdx-tag-value-brown,
+// #write > h6:first-child .mdx-tag-value-gray {
     // font-size: 0.85em;
 // }
 
@@ -4966,10 +5061,10 @@ h6 code {
 * 封面、封底
 **************************************/
 
-// 页面第1个H6为封面样式
-#write > h6:first-of-type,
-// 页面最后1个H6为封底样式
-#write > h6:last-of-type {
+// 封面：#write 下 H6 作为第一个元素时
+#write > h6:first-child,
+// 封底：#write 下 H6 作为最后一个元素时
+#write > h6:last-child {
     display: block;
     color: @coverTextColor !important;
     font-size: 2.5em;
@@ -4992,7 +5087,7 @@ h6 code {
 }
 
 // 封底样式微调
-#write > h6:last-of-type {
+#write > h6:last-child {
     height: 550px;//14cm;
     margin-top: 3em;
     margin-bottom: 10px;
@@ -5006,64 +5101,64 @@ h6 code {
     background-repeat: @backCoverBackgroundRepeat;
     background-position: @backCoverBackgroundPosition;
 }
-#write > h6:first-of-type::before,
-#write > h6:last-of-type::before {
+#write > h6:first-child::before,
+#write > h6:last-child::before {
     content: "";
 }
 
 // 封面内下标信息
-#write > h6:first-of-type sub {
+#write > h6:first-child sub {
     color: @coverSubColor;
     font-family: @headerFont;
     font-weight: @fontWeight4Serif;
 }
 
 // 封面内上标信息
-#write > h6:first-of-type sup {
+#write > h6:first-child sup {
     color: @coverSupColor;
     font-family: @headerFont;
     font-weight: @fontWeight4Serif;
 }
 
 // 封面内密级信息
-#write > h6:first-of-type code,
-#write > h6:first-of-type .mdx-tag-red,
-#write > h6:first-of-type .mdx-tag-orange,
-#write > h6:first-of-type .mdx-tag-yellow,
-#write > h6:first-of-type .mdx-tag-green,
-#write > h6:first-of-type .mdx-tag-cyan,
-#write > h6:first-of-type .mdx-tag-blue,
-#write > h6:first-of-type .mdx-tag-purple,
-#write > h6:first-of-type .mdx-tag-pink
-#write > h6:first-of-type .mdx-tag-brown,
-#write > h6:first-of-type .mdx-tag-gray,
-#write > h6:first-of-type .mdx-tag-name-red,
-#write > h6:first-of-type .mdx-tag-name-orange,
-#write > h6:first-of-type .mdx-tag-name-yellow,
-#write > h6:first-of-type .mdx-tag-name-green,
-#write > h6:first-of-type .mdx-tag-name-cyan,
-#write > h6:first-of-type .mdx-tag-name-blue,
-#write > h6:first-of-type .mdx-tag-name-purple,
-#write > h6:first-of-type .mdx-tag-name-pink,
-#write > h6:first-of-type .mdx-tag-name-brown,
-#write > h6:first-of-type .mdx-tag-name-gray,
-#write > h6:first-of-type .mdx-tag-value-red,
-#write > h6:first-of-type .mdx-tag-value-orange,
-#write > h6:first-of-type .mdx-tag-value-yellow,
-#write > h6:first-of-type .mdx-tag-value-green,
-#write > h6:first-of-type .mdx-tag-value-cyan,
-#write > h6:first-of-type .mdx-tag-value-blue,
-#write > h6:first-of-type .mdx-tag-value-purple,
-#write > h6:first-of-type .mdx-tag-value-pink,
-#write > h6:first-of-type .mdx-tag-value-brown,
-#write > h6:first-of-type .mdx-tag-value-gray {
+#write > h6:first-child code,
+#write > h6:first-child .mdx-tag-red,
+#write > h6:first-child .mdx-tag-orange,
+#write > h6:first-child .mdx-tag-yellow,
+#write > h6:first-child .mdx-tag-green,
+#write > h6:first-child .mdx-tag-cyan,
+#write > h6:first-child .mdx-tag-blue,
+#write > h6:first-child .mdx-tag-purple,
+#write > h6:first-child .mdx-tag-pink
+#write > h6:first-child .mdx-tag-brown,
+#write > h6:first-child .mdx-tag-gray,
+#write > h6:first-child .mdx-tag-name-red,
+#write > h6:first-child .mdx-tag-name-orange,
+#write > h6:first-child .mdx-tag-name-yellow,
+#write > h6:first-child .mdx-tag-name-green,
+#write > h6:first-child .mdx-tag-name-cyan,
+#write > h6:first-child .mdx-tag-name-blue,
+#write > h6:first-child .mdx-tag-name-purple,
+#write > h6:first-child .mdx-tag-name-pink,
+#write > h6:first-child .mdx-tag-name-brown,
+#write > h6:first-child .mdx-tag-name-gray,
+#write > h6:first-child .mdx-tag-value-red,
+#write > h6:first-child .mdx-tag-value-orange,
+#write > h6:first-child .mdx-tag-value-yellow,
+#write > h6:first-child .mdx-tag-value-green,
+#write > h6:first-child .mdx-tag-value-cyan,
+#write > h6:first-child .mdx-tag-value-blue,
+#write > h6:first-child .mdx-tag-value-purple,
+#write > h6:first-child .mdx-tag-value-pink,
+#write > h6:first-child .mdx-tag-value-brown,
+#write > h6:first-child .mdx-tag-value-gray {
     font-size: 0.5em !important;
     // box-shadow: 0 0 0 1px fade(@themeForeColor, 20%) inset;
 }
 
 // 封面内的作者信息
-#write > h6:first-of-type strong,
-#write > h6:first-of-type strong::before {
+#write > h6:first-child strong,
+#write > h6:first-child strong::before {
     color: @coverAuthorColor;
     font-size: 0.6em !important;
     font-family: @subtitleFont;
@@ -5073,7 +5168,7 @@ h6 code {
 }
 
 // 作者信息前缀
-#write > h6:first-of-type strong::before {
+#write > h6:first-child strong::before {
     content: "By ";
     // font-size: 0.7em !important;
     // font-weight: normal;
@@ -5082,7 +5177,7 @@ h6 code {
 }
 
 // 封面内的版权信息
-#write > h6:first-of-type em {
+#write > h6:first-child em {
     color: @coverOwnerColor;
     font-size: 0.4em;
     font-family: @subtitleFont;
@@ -5115,9 +5210,9 @@ h6 code {
     }
 
     // 页面第1个H6为封面样式
-    #write > h6:first-of-type,
+    #write > h6:first-child,
     // 页面最后1个H6为封底样式
-    #write > h6:last-of-type {
+    #write > h6:last-child {
         font-size: 2em !important;
     }
 }
@@ -5217,7 +5312,9 @@ h6 code {
     .mdx-tool-tips,
     .mdx-info-tips,
     .mdx-bottom-tips,
-    .mdx-more-doc-content {
+    .mdx-more-doc-content,
+    .mdx-link-error-list,
+    .mdx-link-chk-result {
         display: none !important;
     }
 
@@ -5255,10 +5352,10 @@ h6 code {
         filter: none;
     }
 
-    #write > h6:first-of-type,
-    #write > h6:last-of-type,
-    #write > h6:first-of-type strong,
-    #write > h6:first-of-type em {
+    #write > h6:first-child,
+    #write > h6:last-child,
+    #write > h6:first-child strong,
+    #write > h6:first-child em {
         background: #FFFFFF none !important;
         color: @foreColorLight !important;
     }
@@ -5420,12 +5517,13 @@ h6 code {
     }
 
     // 封面、封底
-    // #write > h6:first-of-type,
-    // #write > h6:last-of-type {
+    // #write > h6:first-child,
+    // #write > h6:last-child {
     //     filter: brightness(90%);
     // }
 
-    img {
+    // img,
+    p > .md-image:only-child img {
         // background: @figureSolidBgDark !important;
     }
 
