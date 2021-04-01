@@ -2054,6 +2054,7 @@ VLOOK.report = {
         // 图片插图数据
         statData += "&img=" + $("img").length;
         statData += "&img-fold=" + $("p[data-vk-container='img'][data-vk-content-folded='true']").length;
+        statData += "&img-fill=" + $("img:not([data-vk-img-fill])").length;
         statData += "&img-invert=" + $("img[data-vk-darksrc='invert']").length;
         statData += "&img-alter=" + $("img[data-vk-darksrc='alter']").length;
         statData += "&img-cap1=" + $("div[id^=fig-num][data-vk-fig-type='img'] .mdx-figure-caption-1 strong").length;
@@ -7781,7 +7782,7 @@ ExtFigure.init = function () {
 
         img.attr("data-vk-img-fill", params["fill"]);
 
-        // 图片为 SVG 格式时，将源文件注入到 HTML 文档中
+        // 图片为 SVG 格式时，将源文件通过 SVGInject 注入到 HTML 文档中
         if (src.indexOf(".svg") > -1)
             SVGInject(img[0]);
     }
@@ -7920,10 +7921,13 @@ ExtFigure.adjustColorScheme = function (grid) {
     $("img[data-vk-darksrc='invert']").each(function () {
         let img = $(this);
         if (darkMode === true) {
-            // 设置默认的 srcset
-            img.attr("srcset", img.attr("data-vk-srcset-light"));
-            // 添加反转样式
-            img.addClass("mdx-img-invert-dark");
+            // 如果图片没有指定替换颜色时才进行处理
+            if (img.attr("data-vk-img-fill") === undefined) {
+                // 设置默认的 srcset
+                img.attr("srcset", img.attr("data-vk-srcset-light"));
+                // 添加反转样式
+                img.addClass("mdx-img-invert-dark");
+            }
         }
         else {
             img.removeClass("mdx-img-invert-dark");

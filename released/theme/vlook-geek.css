@@ -1,16 +1,16 @@
 /**************************************
 * VLOOK CSS 字体主题
 *
-* V10.1
-* 2021-03-19
+* V10.2-dev
+* 2021-03-22
 * 配合 base.less 进行使用
 *
 ***************************************/
 /**************************************
 * VLOOK CSS 调色板
 *
-* V10.1
-* 2021-03-19
+* V10.2
+* 2021-04-01
 * 配合 base.less 进行使用
 *
 ***************************************/
@@ -20,8 +20,8 @@
 /**************************************
  * VLOOK CSS 基础库
  *
- * V10.1
- * 2021-03-19
+ * V10.2
+ * 2021-04-01
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -36,13 +36,15 @@
 ---------- 云顶 UI 区 ----------
 
 欢迎屏 / .mdx-welcome-screen / z-index: 6000;
+
+激光笔 / .mdx-laser-pointer / z-index: 5500;
+底部信息栏 / .mdx-bottom-tips / z-index: 5001;
 聚光灯 / .mdx-spotlight / z-index: 5000;
-无效链接清单 / .mdx-link-chk-result / z-index: 4501;
-无效链接清单 / .mdx-link-error-list / z-index: 4500;
-底部信息栏 / .mdx-bottom-tips / z-index: 4000;
 
 ---------- 高优先信息 UI 区 -----
 
+无效链接结果 / .mdx-link-chk-result / z-index: 4501;
+    无效链接清单 / .mdx-link-error-list / z-index: 4500;
 工具栏提示、弹窗提示、字体风格切换 / .mdx-tool-tips, .mdx-info-tips, .mdx-font-styler / z-index: 3000;
 
 ---------- 二级 UI 区 ----------
@@ -74,7 +76,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 **************************************/
 :root {
   --vlook-theme-name: "vlook-geek";
-  --vlook-theme-version: "V10.1";
+  --vlook-theme-version: "V10.2";
   --vlook-default-font-style: sans;
   --vlook-color-scheme: light;
   --vlook-toc-box-width: 350px;
@@ -83,6 +85,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
   --vlook-small-radius: 6px;
   --vlook-table-radius: 10px;
   --vlook-tag-radius: 0.5em;
+  --vlook-circle-radius: 50%;
   --vlook-invert-dark-light: invert(0) brightness(100%);
   --vlook-brightness-dark-light: brightness(100%);
   --doc-bg-color-light: #FFFFFF;
@@ -97,11 +100,11 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
   --tips-bg-color-inset-light: #181A1E;
   --a-color-light: #181A1E;
   --mark-color-light: rgba(255, 192, 32, 0.35);
-  --table-color-light: #B0B4B8;
   --table-border-color-light: rgba(176, 180, 184, 0.8);
+  --table-header-color-light: #959ba0;
   --table-th-bg-color-light: rgba(176, 180, 184, 0.4);
-  --table-th-border-color-light: rgba(176, 180, 184, 0.8);
-  --table-rowfolding-alpha-light: 0.15;
+  --table-td-bg-color-light: rgba(176, 180, 184, 0.2);
+  --table-cell-border-color-light: rgba(176, 180, 184, 0.3);
   --del-color-light: #737c8f;
   --toc-header-num-color-light: rgba(24, 26, 30, 0.5);
   --header-color-light: #D98982;
@@ -112,22 +115,22 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
   --code-name-bg-color-light: #181A1E;
   --code-name-shadow-color-light: rgba(0, 0, 0, 0.3);
   --accent-color-red-light: #C72334;
-  --accent-color-red-alt-light: #ed969f;
+  --accent-color-red-alt-light: #fcedef;
   --accent-color-red-fade-light: rgba(199, 35, 52, 0.25);
   --accent-color-orange-light: #E27D09;
-  --accent-color-orange-alt-light: #fbd2a2;
+  --accent-color-orange-alt-light: #fdead3;
   --accent-color-orange-fade-light: rgba(226, 125, 9, 0.25);
   --accent-color-yellow-light: #DFB50C;
-  --accent-color-yellow-alt-light: #fae9a3;
+  --accent-color-yellow-alt-light: #fdf5d4;
   --accent-color-yellow-fade-light: rgba(223, 181, 12, 0.25);
   --accent-color-green-light: #38AB21;
-  --accent-color-green-alt-light: #a3ea94;
+  --accent-color-green-alt-light: #daf7d4;
   --accent-color-green-fade-light: rgba(56, 171, 33, 0.25);
   --accent-color-cyan-light: #18A8BF;
-  --accent-color-cyan-alt-light: #98e6f2;
+  --accent-color-cyan-alt-light: #dbf6fb;
   --accent-color-cyan-fade-light: rgba(24, 168, 191, 0.25);
   --accent-color-blue-light: #056BF0;
-  --accent-color-blue-alt-light: #aacefd;
+  --accent-color-blue-alt-light: #dcebfe;
   --accent-color-blue-fade-light: rgba(5, 107, 240, 0.25);
   --accent-color-purple-light: #7738DC;
   --accent-color-purple-alt-light: #dfd0f7;
@@ -136,37 +139,37 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
   --accent-color-pink-alt-light: #f8d9ef;
   --accent-color-pink-fade-light: rgba(219, 67, 178, 0.25);
   --accent-color-brown-light: #A47546;
-  --accent-color-brown-alt-light: #e2cebb;
+  --accent-color-brown-alt-light: #f1e8de;
   --accent-color-brown-fade-light: rgba(164, 117, 70, 0.25);
-  --accent-color-gray-light: #636569;
-  --accent-color-gray-alt-light: #bdbfc1;
-  --accent-color-gray-fade-light: rgba(99, 101, 105, 0.25);
+  --accent-color-gray-light: #7B7D82;
+  --accent-color-gray-alt-light: #f1f1f2;
+  --accent-color-gray-fade-light: rgba(123, 125, 130, 0.25);
   --accent-color-theme1-light: #292C33;
-  --accent-color-theme1-alt-light: #7a8294;
+  --accent-color-theme1-alt-light: #cfd2d8;
   --accent-color-theme1-fade-light: rgba(41, 44, 51, 0.25);
   --accent-color-theme2-light: #E62E4D;
-  --accent-color-theme2-alt-light: #f9cdd5;
+  --accent-color-theme2-alt-light: #fce4e8;
   --accent-color-theme2-fade-light: rgba(230, 46, 77, 0.25);
   --mermaid-accent-color-red-light: #C72334;
-  --mermaid-accent-color-red-alt-light: #ed969f;
+  --mermaid-accent-color-red-alt-light: #fcedef;
   --mermaid-accent-color-orange-light: #E27D09;
-  --mermaid-accent-color-orange-alt-light: #fbd2a2;
+  --mermaid-accent-color-orange-alt-light: #fdead3;
   --mermaid-accent-color-yellow-light: #DFB50C;
-  --mermaid-accent-color-yellow-alt-light: #fae9a3;
+  --mermaid-accent-color-yellow-alt-light: #fdf5d4;
   --mermaid-accent-color-green-light: #38AB21;
-  --mermaid-accent-color-green-alt-light: #a3ea94;
+  --mermaid-accent-color-green-alt-light: #daf7d4;
   --mermaid-accent-color-cyan-light: #18A8BF;
-  --mermaid-accent-color-cyan-alt-light: #98e6f2;
+  --mermaid-accent-color-cyan-alt-light: #dbf6fb;
   --mermaid-accent-color-blue-light: #056BF0;
-  --mermaid-accent-color-blue-alt-light: #aacefd;
+  --mermaid-accent-color-blue-alt-light: #dcebfe;
   --mermaid-accent-color-purple-light: #7738DC;
   --mermaid-accent-color-purple-alt-light: #dfd0f7;
   --mermaid-accent-color-pink-light: #DB43B2;
   --mermaid-accent-color-pink-alt-light: #f8d9ef;
   --mermaid-accent-color-brown-light: #A47546;
-  --mermaid-accent-color-brown-alt-light: #e2cebb;
-  --mermaid-accent-color-gray-light: #636569;
-  --mermaid-accent-color-gray-alt-light: #bdbfc1;
+  --mermaid-accent-color-brown-alt-light: #f1e8de;
+  --mermaid-accent-color-gray-light: #7B7D82;
+  --mermaid-accent-color-gray-alt-light: #f1f1f2;
   --cm-keyword-light: #770088;
   --cm-variable-light: #181A1E;
   --cm-variable-2-light: #0055AA;
@@ -197,16 +200,16 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
   --fore-color-dark: #E0E4E8;
   --fore-color-alt-dark: #8898a7;
   --blockquote-color-dark: rgba(224, 228, 232, 0.2);
-  --blockquote-bg-dark: rgba(224, 228, 232, 0.1);
+  --blockquote-bg-dark: rgba(224, 228, 232, 0.08);
   --tips-bg-color-dark: #3a3f49;
   --tips-bg-color-inset-dark: #E0E4E8;
   --a-color-dark: #FFFFFF;
   --mark-color-dark: rgba(255, 192, 32, 0.25);
-  --table-color-dark: #505458;
-  --table-border-color-dark: rgba(80, 84, 88, 0.8);
-  --table-th-bg-color-dark: rgba(156, 161, 165, 0.3);
-  --table-th-border-color-dark: rgba(80, 84, 88, 0.8);
-  --table-rowfolding-alpha-dark: 0.4;
+  --table-border-color-dark: rgba(112, 116, 120, 0.8);
+  --table-header-color-dark: #8a8e91;
+  --table-th-bg-color-dark: rgba(112, 116, 120, 0.4);
+  --table-td-bg-color-dark: rgba(112, 116, 120, 0.2);
+  --table-cell-border-color-dark: rgba(112, 116, 120, 0.3);
   --del-color-dark: #a5b1bd;
   --toc-header-num-color-dark: rgba(224, 228, 232, 0.5);
   --header-color-dark: #D98982;
@@ -217,61 +220,61 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
   --code-name-bg-color-dark: #E0E4E8;
   --code-name-shadow-color-dark: rgba(255, 255, 255, 0.3);
   --accent-color-red-dark: #70141d;
-  --accent-color-red-alt-dark: #dd4050;
+  --accent-color-red-alt-dark: #9c1b29;
   --accent-color-red-fade-dark: rgba(199, 35, 52, 0.35);
   --accent-color-yellow-dark: #7e6607;
-  --accent-color-yellow-alt-dark: #f5d143;
+  --accent-color-yellow-alt-dark: #967a08;
   --accent-color-yellow-fade-dark: rgba(223, 181, 12, 0.35);
   --accent-color-orange-dark: #804705;
-  --accent-color-orange-alt-dark: #f7a240;
+  --accent-color-orange-alt-dark: #985406;
   --accent-color-orange-fade-dark: rgba(226, 125, 9, 0.35);
   --accent-color-green-dark: #1c5510;
-  --accent-color-green-alt-dark: #59da3f;
+  --accent-color-green-alt-dark: #2a8019;
   --accent-color-green-fade-dark: rgba(56, 171, 33, 0.35);
   --accent-color-cyan-dark: #0d5864;
-  --accent-color-cyan-alt-dark: #3dcfe7;
+  --accent-color-cyan-alt-dark: #128092;
   --accent-color-cyan-fade-dark: rgba(24, 168, 191, 0.35);
   --accent-color-blue-dark: #033e8c;
-  --accent-color-blue-alt-dark: #4695fb;
+  --accent-color-blue-alt-dark: #0455be;
   --accent-color-blue-fade-dark: rgba(5, 107, 240, 0.35);
   --accent-color-purple-dark: #491a94;
-  --accent-color-purple-alt-dark: #a379e7;
+  --accent-color-purple-alt-dark: #541eaa;
   --accent-color-purple-fade-dark: rgba(119, 56, 220, 0.35);
   --accent-color-pink-dark: #9a1e79;
-  --accent-color-pink-alt-dark: #e783cc;
+  --accent-color-pink-alt-dark: #851968;
   --accent-color-pink-fade-dark: rgba(219, 67, 178, 0.35);
   --accent-color-brown-dark: #5d4227;
-  --accent-color-brown-alt-dark: #c39b73;
+  --accent-color-brown-alt-dark: #6e4f2f;
   --accent-color-brown-fade-dark: rgba(164, 117, 70, 0.35);
-  --accent-color-gray-dark: #323335;
-  --accent-color-gray-alt-dark: #898b90;
-  --accent-color-gray-fade-dark: rgba(99, 101, 105, 0.35);
-  --accent-color-theme1-dark: #000000;
-  --accent-color-theme1-alt-dark: #4b515d;
-  --accent-color-theme1-fade-dark: rgba(0, 0, 0, 0.35);
+  --accent-color-gray-dark: #494b4e;
+  --accent-color-gray-alt-dark: #626468;
+  --accent-color-gray-fade-dark: rgba(123, 125, 130, 0.35);
+  --accent-color-theme1-dark: #40444f;
+  --accent-color-theme1-alt-dark: #62697a;
+  --accent-color-theme1-fade-dark: rgba(64, 68, 79, 0.35);
   --accent-color-theme2-dark: #9b132a;
-  --accent-color-theme2-alt-dark: #ee7287;
+  --accent-color-theme2-alt-dark: #c91836;
   --accent-color-theme2-fade-dark: rgba(155, 19, 42, 0.35);
-  --mermaid-accent-color-red-dark: #dd4050;
+  --mermaid-accent-color-red-dark: #9c1b29;
   --mermaid-accent-color-red-alt-dark: #70141d;
-  --mermaid-accent-color-orange-dark: #f7a240;
+  --mermaid-accent-color-orange-dark: #985406;
   --mermaid-accent-color-orange-alt-dark: #804705;
-  --mermaid-accent-color-yellow-dark: #f5d143;
+  --mermaid-accent-color-yellow-dark: #967a08;
   --mermaid-accent-color-yellow-alt-dark: #7e6607;
-  --mermaid-accent-color-green-dark: #59da3f;
+  --mermaid-accent-color-green-dark: #2a8019;
   --mermaid-accent-color-green-alt-dark: #1c5510;
-  --mermaid-accent-color-cyan-dark: #3dcfe7;
+  --mermaid-accent-color-cyan-dark: #128092;
   --mermaid-accent-color-cyan-alt-dark: #0d5864;
-  --mermaid-accent-color-blue-dark: #4695fb;
+  --mermaid-accent-color-blue-dark: #0455be;
   --mermaid-accent-color-blue-alt-dark: #033e8c;
-  --mermaid-accent-color-purple-dark: #a379e7;
+  --mermaid-accent-color-purple-dark: #541eaa;
   --mermaid-accent-color-purple-alt-dark: #491a94;
-  --mermaid-accent-color-pink-dark: #e783cc;
+  --mermaid-accent-color-pink-dark: #851968;
   --mermaid-accent-color-pink-alt-dark: #9a1e79;
-  --mermaid-accent-color-brown-dark: #c39b73;
+  --mermaid-accent-color-brown-dark: #6e4f2f;
   --mermaid-accent-color-brown-alt-dark: #5d4227;
-  --mermaid-accent-color-gray-dark: #898b90;
-  --mermaid-accent-color-gray-alt-dark: #323335;
+  --mermaid-accent-color-gray-dark: #626468;
+  --mermaid-accent-color-gray-alt-dark: #494b4e;
   --cm-keyword-dark: #C88FD0;
   --cm-variable-dark: #E0E4E8;
   --cm-variable-2-dark: #9FBAD5;
@@ -307,11 +310,11 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
   --tips-bg-color-inset: var(--tips-bg-color-inset-light);
   --a-color: var(--a-color-light);
   --mark-color: var(--mark-color-light);
-  --table-color: var(--table-color-light);
   --table-border-color: var(--table-border-color-light);
+  --table-header-color: var(--table-header-color-light);
   --table-th-bg-color: var(--table-th-bg-color-light);
-  --table-th-border-color: var(--table-th-border-color-light);
-  --table-rowfolding-alpha: var(--table-rowfolding-alpha-light);
+  --table-td-bg-color: var(--table-td-bg-color-light);
+  --table-cell-border-color: var(--table-cell-border-color-light);
   --del-color: var(--del-color-light);
   --toc-header-num-color: var(--toc-header-num-color-light);
   --header-color: var(--header-color-light);
@@ -401,7 +404,6 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 }
 html {
   font-size: 1em;
-  cursor: default;
 }
 ::selection {
   background: rgba(230, 46, 77, 0.3);
@@ -489,19 +491,8 @@ svg[data-inject-url*="mode=logo"] {
   border-radius: 0 !important;
   background: none !important;
 }
-img[src*="mode=icon"]:first-child,
-svg[data-inject-url*="mode=icon"]:first-child,
-a.md-header-anchor:first-child + svg[data-inject-url*="mode=icon"],
-img[src*="mode=logo"]:first-child,
-svg[data-inject-url*="mode=logo"]:first-child,
-a.md-header-anchor:first-child + svg[data-inject-url*="mode=logo"]:first-child {
-  margin-left: 0 !important;
-}
-img[src$=".wav"] {
-  border: 10px solid #F00 !important;
-  width: 200px !important;
-  height: 50px !important;
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiB2aWV3Qm94PSIwIDAgNTAwIDUwMCI+CiAgPHBhdGggZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMzU4LjI4MzczNCw1Ljc2NTkwNzk2ZS0xNSBDNDA3LjkwOTI4OSwtMy4zNTAxNTg1N2UtMTUgNDI1LjkwNDcxNCw1LjE2NzA1MDYyIDQ0NC4wNDcwNzUsMTQuODY5NjkxNSBDNDYyLjE4OTQzNiwyNC41NzIzMzI0IDQ3Ni40Mjc2NjgsMzguODEwNTYzNiA0ODYuMTMwMzA4LDU2Ljk1MjkyNDcgQzQ5NS44MzI5NDksNzUuMDk1Mjg1OCA1MDEsOTMuMDkwNzExMiA1MDEsMTQyLjcxNjI2NiBMNTAxLDM1Ny4yODM3MzQgQzUwMSw0MDYuOTA5Mjg5IDQ5NS44MzI5NDksNDI0LjkwNDcxNCA0ODYuMTMwMzA4LDQ0My4wNDcwNzUgQzQ3Ni40Mjc2NjgsNDYxLjE4OTQzNiA0NjIuMTg5NDM2LDQ3NS40Mjc2NjggNDQ0LjA0NzA3NSw0ODUuMTMwMzA4IEM0MjUuOTA0NzE0LDQ5NC44MzI5NDkgNDA3LjkwOTI4OSw1MDAgMzU4LjI4MzczNCw1MDAgTDE0My43MTYyNjYsNTAwIEM5NC4wOTA3MTEyLDUwMCA3Ni4wOTUyODU4LDQ5NC44MzI5NDkgNTcuOTUyOTI0Nyw0ODUuMTMwMzA4IEMzOS44MTA1NjM2LDQ3NS40Mjc2NjggMjUuNTcyMzMyNCw0NjEuMTg5NDM2IDE1Ljg2OTY5MTUsNDQzLjA0NzA3NSBDNi4xNjcwNTA2Miw0MjQuOTA0NzE0IDEsNDA2LjkwOTI4OSAxLDM1Ny4yODM3MzQgTDEsMTQyLjcxNjI2NiBDMSw5My4wOTA3MTEyIDYuMTY3MDUwNjIsNzUuMDk1Mjg1OCAxNS44Njk2OTE1LDU2Ljk1MjkyNDcgQzI1LjU3MjMzMjQsMzguODEwNTYzNiAzOS44MTA1NjM2LDI0LjU3MjMzMjQgNTcuOTUyOTI0NywxNC44Njk2OTE1IEM3Ni4wOTUyODU4LDUuMTY3MDUwNjIgOTQuMDkwNzExMiwzLjM1MDE1ODU3ZS0xNSAxNDMuNzE2MjY2LC01Ljc2NTkwNzk2ZS0xNSBMMzU4LjI4MzczNCw1Ljc2NTkwNzk2ZS0xNSBaIE0yNTQuODQxMTA2LDM2OC4yMDA5MjIgQzI1Mi42MTYwMzEsMzY2LjM0NjY5MiAyNDkuMzgzOTY5LDM2Ni4zNDY2OTIgMjQ3LjE1ODg5NCwzNjguMjAwOTIyIEwyNDcuMTU4ODk0LDM2OC4yMDA5MjIgTDIyNS4xNDE4NTIsMzg2LjU0ODQ1NiBDMjIyLjc4NjI2NSwzODguNTExNDQ2IDIyMi4yODk3ODcsMzkxLjkzNDY4IDIyMy45OTA2NTcsMzk0LjQ4NTk4NSBMMjIzLjk5MDY1NywzOTQuNDg1OTg1IEwyNDYuMDA3Njk4LDQyNy41MTE1NDcgQzI0Ni40NDcxMDcsNDI4LjE3MDY2MSAyNDcuMDEyNjg1LDQyOC43MzYyMzkgMjQ3LjY3MTc5OSw0MjkuMTc1NjQ4IEMyNTAuNDI4OTcxLDQzMS4wMTM3NjMgMjU0LjE1NDE4Nyw0MzAuMjY4NzE5IDI1NS45OTIzMDIsNDI3LjUxMTU0NyBMMjU1Ljk5MjMwMiw0MjcuNTExNTQ3IEwyNzguMDA5MzQzLDM5NC40ODU5ODUgQzI3OS43MTAyMTMsMzkxLjkzNDY4IDI3OS4yMTM3MzUsMzg4LjUxMTQ0NiAyNzYuODU4MTQ4LDM4Ni41NDg0NTYgTDI3Ni44NTgxNDgsMzg2LjU0ODQ1NiBaIE0xNDEsMTg1IEM4NS43NzE1MjUsMTg1IDQxLDIyOS43NzE1MjUgNDEsMjg1IEM0MSwzNDAuMjI4NDc1IDg1Ljc3MTUyNSwzODUgMTQxLDM4NSBDMTk2LjIyODQ3NSwzODUgMjQxLDM0MC4yMjg0NzUgMjQxLDI4NSBDMjQxLDIyOS43NzE1MjUgMTk2LjIyODQ3NSwxODUgMTQxLDE4NSBaIE0zNjEsMTg1IEMzMDUuNzcxNTI1LDE4NSAyNjEsMjI5Ljc3MTUyNSAyNjEsMjg1IEMyNjEsMzQwLjIyODQ3NSAzMDUuNzcxNTI1LDM4NSAzNjEsMzg1IEM0MTYuMjI4NDc1LDM4NSA0NjEsMzQwLjIyODQ3NSA0NjEsMjg1IEM0NjEsMjI5Ljc3MTUyNSA0MTYuMjI4NDc1LDE4NSAzNjEsMTg1IFogTTE0MSwyMTUgQzE3OS42NTk5MzIsMjE1IDIxMSwyNDYuMzQwMDY4IDIxMSwyODUgQzIxMSwzMjMuNjU5OTMyIDE3OS42NTk5MzIsMzU1IDE0MSwzNTUgQzEwMi4zNDAwNjgsMzU1IDcxLDMyMy42NTk5MzIgNzEsMjg1IEM3MSwyNDYuMzQwMDY4IDEwMi4zNDAwNjgsMjE1IDE0MSwyMTUgWiBNMzYxLDIxNSBDMzk5LjY1OTkzMiwyMTUgNDMxLDI0Ni4zNDAwNjggNDMxLDI4NSBDNDMxLDMyMy42NTk5MzIgMzk5LjY1OTkzMiwzNTUgMzYxLDM1NSBDMzIyLjM0MDA2OCwzNTUgMjkxLDMyMy42NTk5MzIgMjkxLDI4NSBDMjkxLDI0Ni4zNDAwNjggMzIyLjM0MDA2OCwyMTUgMzYxLDIxNSBaIE00MDkuMTAxMDYsODcuNjU1MDAxNSBDNDA1LjY0NzkzNiw4MC4yNDk3NTI2IDM5Ni45MTg3NjMsNzYuOTg4MzY4OSAzODkuNDc2NTAxLDgwLjI1OTU3MTYgTDM4OS40NzY1MDEsODAuMjU5NTcxNiBMMzg5LjE2NzE2OSw4MC4zOTk2NTg2IEwyNTAuMzU2LDE0NS4xMjY2OTYgTDExMS41NDU5OCw4MC4zOTk2NTg2IEwxMTEuMjM2NjQ4LDgwLjI1OTU3MTYgQzEwMy43OTQzODYsNzYuOTg4MzY4OSA5NS4wNjUyMTM2LDgwLjI0OTc1MjYgOTEuNjEyMDg5NCw4Ny42NTUwMDE1IEM4OC4xMTEwMDUxLDk1LjE2MzEwMSA5MS4zNTkzMzI3LDEwNC4wODc4MDggOTguODY3NDMyMiwxMDcuNTg4ODkyIEw5OC44Njc0MzIyLDEwNy41ODg4OTIgTDI0My44NzY2NzgsMTc1LjIwNzgxNCBMMjQ0LjE4NjAxLDE3NS4zNDc5MDEgQzI0Ni4xOTIyOTgsMTc2LjIyOTc1MyAyNDguMjkyMTEsMTc2LjYzNjg1OSAyNTAuMzU2MjgxLDE3Ni42MTYwMTYgQzI1Mi40MjEwNCwxNzYuNjM2ODU5IDI1NC41MjA4NTIsMTc2LjIyOTc1MyAyNTYuNTI3MTM5LDE3NS4zNDc5MDEgTDI1Ni41MjcxMzksMTc1LjM0NzkwMSBMMjU2LjgzNjQ3MSwxNzUuMjA3ODE0IEw0MDEuODQ1NzE3LDEwNy41ODg4OTIgTDQwMi4xNDM3NjMsMTA3LjQ0NTk3MiBDNDA5LjQzOTIzOSwxMDMuODUwMDY4IDQxMi41NTU0NjMsOTUuMDYyOTkzIDQwOS4xMDEwNiw4Ny42NTUwMDE1IFoiLz4KPC9zdmc+Cg==") !important;
+.md-header-anchor {
+  margin: 0 !important;
 }
 audio {
   margin: 0 10px 0 10px;
@@ -513,8 +504,6 @@ a {
   font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
   text-decoration: none;
-  margin-left: 0.1em;
-  margin-right: 0.1em;
 }
 a[href*="lnkcss=none"] {
   border-bottom: none;
@@ -528,6 +517,9 @@ a kbd {
   background-color: #292C33 !important;
   margin-left: -0.1em;
   margin-right: -0.1em;
+  border: 0;
+  border-radius: var(--vlook-small-radius);
+  display: inline-block;
 }
 a[href*="lnkcss=none"]:hover,
 kbd a:hover {
@@ -542,10 +534,10 @@ a kbd:hover {
 a:hover {
   color: #E62E4D !important;
   box-shadow: 0 -0.3em 0 0 rgba(230, 46, 77, 0.3) inset;
-  border-bottom: 2px solid rgba(230, 46, 77, 0.3);
 }
 a:hover img {
   filter: brightness(1.1);
+  transform: translateY(-2px);
 }
 a:hover img[data-vk-img-fill="text"],
 a:hover img[data-vk-img-fill="theme1"],
@@ -554,9 +546,12 @@ a:hover img[data-vk-img-fill="theme2"] {
   filter: drop-shadow(12345px 0px #E62E4D) !important;
   position: relative;
 }
+a:active img {
+  transform: translateY(2px);
+}
 a:active {
-  color: #c35164 !important;
-  border-color: #c35164;
+  color: var(--doc-bg-color) !important;
+  background-color: #E62E4D;
 }
 a[href*="lnkcss=none"]:active,
 kbd a:active {
@@ -564,6 +559,8 @@ kbd a:active {
 }
 a kbd:active {
   background-color: #c35164 !important;
+  transform: translateY(2px);
+  box-shadow: none;
 }
 a:not([name^="ref-footnote"]):hover::before {
   content: "URL";
@@ -572,7 +569,7 @@ a:not([name^="ref-footnote"]):hover::before {
   vertical-align: super;
   line-height: 1;
   color: #FFFFFF;
-  border-radius: 4px;
+  border-radius: var(--vlook-tag-radius);
   padding: 2px 3px;
   font-size: 0.5em;
   font-weight: 900;
@@ -584,9 +581,10 @@ table th a:not([name^="ref-footnote"]):hover::before,
 table td a:not([name^="ref-footnote"]):hover::before {
   margin-top: -14px;
 }
+a[class*="md-toc-inner"]:hover::before,
 a[href^="#"]:hover::before {
   content: "#";
-  background-color: #636569;
+  background-color: #7B7D82;
 }
 a[href^="http://"]:hover::before {
   content: "HTTP";
@@ -877,7 +875,7 @@ blockquote > ol {
   margin-top: 0;
 }
 blockquote > blockquote {
-  border-left: 5px solid rgba(99, 101, 105, 0.2);
+  border-left: 5px solid rgba(123, 125, 130, 0.2);
   background: none;
   border-radius: 0;
   padding-top: 0;
@@ -890,10 +888,13 @@ blockquote > strong {
   padding: 10px;
   position: fixed;
   color: var(--fore-color);
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  width: var(---vlook-toc-box-width);
+  font-size: 0.9em;
+  line-height: 1.5;
+  border-radius: var(--vlook-base-radius);
   background-color: var(--doc-bg-color-alt);
   overflow: auto;
   z-index: 4500;
@@ -909,7 +910,7 @@ blockquote > strong {
   bottom: 20px;
   width: 40px;
   height: 40px;
-  border-radius: 20px;
+  border-radius: var(--vlook-circle-radius);
   z-index: 4501;
 }
 .mdx-link-result-ok {
@@ -952,19 +953,19 @@ table > thead > tr > td {
   background-color: var(--table-th-bg-color);
   font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
-  border-right: 1px solid rgba(176, 180, 184, 0.1);
+  border-right: 1px solid var(--table-cell-border-color);
   margin: 0;
   padding: 0.5em;
-  box-shadow: 0 1px 0 var(--table-th-border-color);
+  box-shadow: 0 1px 0 var(--table-cell-border-color);
 }
 table > tbody > tr:first-child > td {
-  box-shadow: 0 -1px 0 var(--table-th-border-color);
+  box-shadow: 0 -2px 0 0 var(--table-header-color);
 }
 table > tbody > tr:not(:first-child) > td {
-  box-shadow: 0 -1px 0 rgba(176, 180, 184, 0.2);
+  box-shadow: 0 -1px 0 0 var(--table-cell-border-color);
 }
 table > tbody > tr:nth-child(2n) {
-  background-color: rgba(176, 180, 184, 0.1);
+  background-color: var(--table-td-bg-color);
 }
 table > thead > tr:first-child > th:first-child {
   border-top-left-radius: var(--vlook-table-radius);
@@ -985,7 +986,7 @@ table > tbody > tr:last-child > td:last-child {
   border-bottom-right-radius: var(--vlook-table-radius);
 }
 table tr > td {
-  border-right: 1px solid rgba(176, 180, 184, 0.1);
+  border-right: 1px solid var(--table-cell-border-color);
   margin: 0;
   padding: 5px;
   vertical-align: top;
@@ -1269,26 +1270,28 @@ code {
   top: 3px;
   left: 8px;
 }
+#write > pre.md-meta-block {
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", monospace;
+  font-size: 1em;
+  line-height: 1.5;
+  border-radius: var(--vlook-base-radius);
+  padding: 4px 10px;
+  color: var(--fore-color);
+  background-color: var(--code-bg-color);
+}
 .mathjax-block > .code-tooltip {
   bottom: 0.375em;
-}
-.md-image > .md-meta {
-  border: 1px solid rgba(176, 180, 184, 0.8);
-  background-color: rgba(24, 26, 30, 0.05);
-  border-radius: 3px;
-  padding: 2px 4px 0 4px;
-  color: inherit;
 }
 .md-tag {
   color: inherit;
 }
 #typora-quick-open {
-  border: 1px solid rgba(176, 180, 184, 0.8);
+  border: 1px solid var(--table-border-color);
   background-color: rgba(24, 26, 30, 0.05);
 }
 #typora-quick-open-item {
   background-color: rgba(24, 26, 30, 0.05);
-  border-color: rgba(176, 180, 184, 0.8);
+  border-color: var(--table-border-color);
   border-style: solid;
   border-width: 1px;
 }
@@ -1772,7 +1775,7 @@ div.mermaidTooltip {
   padding: 2px !important;
   background: var(--fore-color-alt) !important;
   border: 1px solid #d0d0d0 !important;
-  border-radius: 2px !important;
+  border-radius: var(--vlook-small-radius) !important;
   pointer-events: none !important;
   z-index: 100 !important;
 }
@@ -2088,6 +2091,7 @@ div.mermaidTooltip {
   text-decoration: none;
   box-shadow: none;
 }
+.mdx-toc-item,
 .md-toc-item {
   color: var(--fore-color);
   font-family: "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
@@ -2100,23 +2104,25 @@ div.mermaidTooltip {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  cursor: pointer;
+}
+.mdx-toc-item {
+  padding-left: 5px;
+  padding-right: 5px;
+  display: block;
 }
 .md-toc-item::before {
   color: var(--toc-header-num-color);
   padding-left: 5px;
 }
+.mdx-toc-item:hover,
 .md-toc-item:hover {
-  color: #FFFFFF;
-  background-color: #E62E4D;
-  transform: translateY(-2px);
+  background-color: var(--table-border-color);
 }
-.md-toc-item:hover::before {
-  color: #FFFFFF;
-}
-.md-toc-item:active {
-  background-color: #c35164;
-  box-shadow: none;
-  transform: none;
+.md-toc-item:active,
+.md-toc-item:active::before {
+  color: var(--doc-bg-color);
+  background-color: var(--fore-color-alt);
 }
 .md-toc,
 .mdx-toc {
@@ -2125,17 +2131,6 @@ div.mermaidTooltip {
   border-radius: 0;
   line-height: 2;
 }
-.md-toc-h1 {
-  font-size: 1em;
-}
-.md-toc-h2 {
-  font-size: 1em;
-}
-.md-toc-h3,
-.md-toc-h4,
-.md-toc-h5 {
-  font-size: 1em;
-}
 .md-toc-item a {
   text-decoration: none;
   padding: 0 0 0 0;
@@ -2143,8 +2138,7 @@ div.mermaidTooltip {
   border: 0;
 }
 .md-toc-item a:hover {
-  color: #FFFFFF !important;
-  background-color: rgba(255, 255, 255, 0);
+  color: var(--fore-color) !important;
   box-shadow: none;
   text-decoration: none;
   border: 0;
@@ -2179,7 +2173,7 @@ kbd {
   border-radius: var(--vlook-small-radius);
   margin: 0 0.3em;
   padding: 0.2em 0.5em 0.1em 0.5em;
-  border: 0;
+  border: 1px solid var(--fore-color-alt);
   color: var(--doc-bg-color);
   background-color: var(--fore-color);
   box-shadow: 0 0.2em 0 0 var(--fore-color-alt);
@@ -2300,6 +2294,9 @@ li > p + ul {
   pointer-events: none;
   z-index: 5000;
 }
+.mdx-cursor-pointer {
+  cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAAGXcA1uAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAGKADAAQAAAABAAAAGAAAAADB/VeXAAADi0lEQVRIDXWVO28UZxSGz7J2JEeJ5UCDskVmI4iJAghSQItLtzRIoUtPQ0vDb3D6/IUUNESRgBKBFAdcWICV/ZAgoQFbIGEpkpk8zzdzliGXI7977pf5bo4Y0Ei5rX9xcKh3HMB3qoznsxQ22lOnWgxXDSuxtaVjlgXOoHwPpuA2+NGqK+BGe/p02z54YKr4ITNWBhm3MP6E3hFRy+CT1DPjKoY1MAO3awZRF8FWO5m07dKS9W+As44Ij2/i+vWIy5cRo/FH65k+KifaQF/JHheJabq4uINxszowVCLyLMIUIFbS/zsoCHtaakIfuIbeAPnXwLn+AJuggFvg5zHBywjfAtt/F5PJ0bh27VBcujSKxcXl2N7+CvvHoIA3C/y8A9IMvIjd3Uncuxdx+HDEkyfV0fuqnCO55I4ipqABUgEWkrsVv4H3xHi2doShvaDsZtTQUW0kuX91VJyvMzD5PIFAx5qCBqQdc11SV6qSlVx0z+MFkAlyaSbMokJNWkBx7gtgDRjo5n0OXL1tUCmT7LAKDGzAeiwtjeP48YhXr8bx7NlJbEkFYdPdTDJpHOvrEVeudJhM9Lnr+hx9ORMaDZXcsPPnu407ckRTxlS5fjRS6XGy7vLGhiPlTv+JbwakAxNUGmDbR/Hw4SpArOTV/hUUMfIs8bPHbCaJX8Bj8CWQPNpPQfpd3o5IcjkbMO15gUsG3yGwHo95gh6ScrdVJUzxmKC3VePng4Q0yol0Qz8CDRjGWWSoz9D/wjAvij6nYWA1kp1TNX2UPOPSZtG0KUsF+AjuqSRl0PBzpzi/AC4s/bpDAW/AkEqvZDM3QJuYN8rLMJy6IcAm8mOAc8uJ/Dd5jD0GPhO+8g4zJ5TaxMvj/c2CzUB21yfcDVrQ4xi9PMVSHsqdnXHs75/A8inIBiNk4bu74xcs9k6Nw0be0K7wuXPd9ZCPCLt7N6K7Jjz69R+QscO1n6Fbb8EGfqaKExTQAMnrP67TvnzZTe3jKe1yZLXJOzLWfOtYPOmdN+e1np4Un6YCPxHPny/EzZsR9+93S+SHu0Rif99QB/QdKsDiNqlk7aqQ4plfBVPQ9IDNdV/EoyBfDid+AfyEAiwslR7qjyj+tjZAqUSjf54m/U3nrc0IqRPKSy9bTCpAeX5Ekd9/jkoS2dnIQnkf0p3c5vpLb/igcG/77wbpTE4Vj6EFh0vUYniTMf/H/waqhybg9DhG8AAAAABJRU5ErkJggg=="), auto !important;
+}
 .mdx-tool-tips,
 .mdx-info-tips {
   display: none;
@@ -2339,7 +2336,7 @@ li > p + ul {
   position: fixed;
   display: none;
   pointer-events: none;
-  z-index: 4000;
+  z-index: 5001;
 }
 .mdx-bottom-tips > div {
   bottom: 5px;
@@ -2367,7 +2364,6 @@ li > p + ul {
 .mdx-font-styler-info {
   width: 100%;
   overflow: auto;
-  background-color: var(--doc-bg-color);
   border-radius: var(--vlook-small-radius);
 }
 .mdx-fontstyle-sans {
@@ -2383,14 +2379,14 @@ li > p + ul {
 .mdx-fontstyle-sans:hover,
 .mdx-fontstyle-serif:hover {
   filter: opacity(1);
-  box-shadow: 0 0 0 3px #E62E4D;
+  box-shadow: 0 0 0 2px #E62E4D;
 }
 .mdx-fontstyle-sans:active,
 .mdx-fontstyle-serif:active {
-  box-shadow: 0 0 0 3px var(--header-color);
+  box-shadow: 0 0 0 2px #c35164;
 }
 .mdx-font-styler-current {
-  box-shadow: 0 0 0 3px var(--header-color) !important;
+  box-shadow: 0 0 0 4px var(--header-color) !important;
   filter: opacity(1) !important;
 }
 .mdx-fontinfo-sans,
@@ -2532,11 +2528,14 @@ li > p + ul {
 .md-diagram-panel svg {
   width: auto;
 }
+.mdx-figure {
+  cursor: pointer;
+}
 .md-diagram-panel svg[viewBox^="-"],
 .mdx-figure-content svg[viewBox^="-"] {
   padding-bottom: 8px;
 }
-.mdx-figure-content svg {
+.mdx-figure-content svg:not([data-inject-url]) {
   width: 100%;
 }
 .mdx-blockquote-folder {
@@ -2559,18 +2558,18 @@ li > p + ul {
 .mdx-toc-panel-float {
   top: 10px;
   bottom: 40px;
-  box-shadow: 0 0 0 1px rgba(41, 44, 51, 0.3) inset, 0 2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 .mdx-toc-panel-block {
   top: 60px;
   bottom: 10px;
-  box-shadow: 0 0 0 1px rgba(41, 44, 51, 0.3) inset, 0 2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--table-border-color) inset;
 }
 .mdx-toc-panel-header {
   color: #181A1E;
   font-family: "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal;
-  font-size: 1.2em;
+  font-size: 1em;
   height: 70px;
   padding: 10px 0 0 0;
   background: linear-gradient(180deg, var(--doc-bg-color-alt) 50px, var(--doc-bg-color-alt-transparent));
@@ -2588,27 +2587,17 @@ li > p + ul {
   border-radius: var(--vlook-small-radius);
   left: 10px;
   right: 10px;
+  width: 295px !important;
+  display: inline-block;
   padding-left: 10px;
   padding-right: 10px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: 1em;
   font-family: "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
   color: var(--a-color);
   cursor: pointer;
-}
-.mdx-toc-panel-title:hover {
-  color: #FFFFFF;
-  background-color: #E62E4D;
-  transform: translateY(-2px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-.mdx-toc-panel-title:active {
-  background-color: #c35164;
-  box-shadow: none;
-  transform: none;
 }
 .mdx-toc-panel-body-scroll {
   width: 100%;
@@ -2720,12 +2709,18 @@ li > p + ul {
   border-bottom-right-radius: var(--vlook-base-radius);
   left: 10px;
   top: 10px;
+  padding: 10px;
   width: var(--vlook-toc-box-width);
   height: 50px;
   position: fixed;
   background-color: #292C33;
   display: none;
   z-index: 100;
+}
+.mdx-toolbar-smallscreen {
+  top: 50px;
+  padding-left: 0;
+  padding-right: 0;
 }
 .mdx-btn-outline {
   display: flex;
@@ -2737,8 +2732,6 @@ li > p + ul {
   width: 30px;
   height: 30px;
   padding-top: 0;
-  margin-top: 10px;
-  margin-left: 10px;
   text-align: center;
   visibility: visible;
 }
@@ -2768,7 +2761,7 @@ li > p + ul {
   color: #D98982;
   cursor: pointer;
   padding: 0;
-  width: 40px;
+  width: 38px;
   height: 30px;
   border-radius: var(--vlook-small-radius);
 }
@@ -2803,7 +2796,7 @@ li > p + ul {
 .mdx-audio-mini-control-disabled {
   color: var(--fore-color);
   background-color: #B0B4B8;
-  border-radius: 15px;
+  border-radius: var(--vlook-circle-radius);
   text-align: center;
   line-height: 30px;
   height: 30px;
@@ -2816,7 +2809,7 @@ li > p + ul {
 .mdx-audio-mini-control {
   color: #D98982;
   background-color: #292C33;
-  border-radius: 15px;
+  border-radius: var(--vlook-circle-radius);
   text-align: center;
   line-height: 30px;
   height: 30px;
@@ -2922,7 +2915,6 @@ li > p + ul {
   white-space: nowrap;
   overflow: hidden;
   position: absolute;
-  cursor: pointer;
   display: block;
 }
 .mdx-chapter-nav-current {
@@ -3031,40 +3023,102 @@ li > p + ul {
   white-space: nowrap;
   overflow: hidden;
   position: absolute;
-  cursor: pointer;
   display: block;
 }
-.mdx-btn-fullscreen {
-  margin-top: 10px;
-  margin-left: 5px;
-  float: left;
-  display: none;
-}
 .mdx-btn-color-scheme {
-  margin-top: 10px;
   margin-right: 5px;
   float: right;
 }
 .mdx-btn-font-style {
-  margin-top: 10px;
   margin-right: 5px;
   float: right;
 }
-.mdx-btn-figure-viewer {
-  margin-top: 10px;
+.mdx-btn-figure-nav {
   margin-left: 5px;
   visibility: hidden;
   float: left;
 }
-.mdx-btn-spotlight {
-  margin-top: 10px;
+.mdx-btn-paragraph-nav {
   margin-right: 5px;
+  margin-left: 15px;
   float: right;
 }
+.mdx-btn-spotlight {
+  float: right;
+}
+.mdx-accent-btn {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  text-align: center;
+  border-radius: var(--vlook-small-radius);
+  cursor: pointer;
+}
+.mdx-btn-search-toc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  right: 10px;
+}
+.mdx-search-toc-keyword {
+  display: none;
+  padding: 0 10px;
+  margin-left: 10px;
+  position: absolute;
+  width: 290px;
+  height: 30px;
+  color: var(--fore-color);
+  background-color: var(--doc-bg-color);
+  border-radius: var(--vlook-small-radius);
+  border: 0;
+  font-size: 0.9em;
+  vertical-align: top;
+  outline: 0 solid transparent;
+  box-shadow: 0 0 0 1px var(--table-border-color);
+}
+.mdx-search-toc-keyword:focus {
+  outline: 0 solid transparent;
+  box-shadow: 0 0 0 2px var(--header-color);
+}
+.mdx-search-toc-result {
+  display: none;
+  width: 100%;
+  height: 100%;
+  font-size: 0.9rem;
+  padding: 0 0 10px 0;
+  margin-top: 1.5em;
+  overflow-y: scroll;
+}
+.mdx-search-toc-result-tips,
+.mdx-search-toc-result-none {
+  display: block;
+  line-height: 3;
+  padding: 0 10px;
+  color: var(--fore-color-alt);
+  font-family: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, Courier, "Courier New", "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
+  font-weight: 900;
+}
+.mdx-search-toc-result-none {
+  text-align: center;
+}
+.mdx-btn-cancle-search-toc {
+  display: none;
+  right: 10px;
+  border-radius: var(--vlook-circle-radius);
+}
+.mdx-accent-btn-hover:hover {
+  background-color: var(--table-border-color);
+}
+.mdx-accent-btn-hover:active {
+  color: var(--doc-bg-color);
+  background-color: var(--fore-color-alt);
+}
+.mdx-accent-btn-hover:active > svg > use {
+  fill: var(--doc-bg-color);
+}
 .mdx-btn-print {
-  margin-top: 10px;
-  margin-right: 10px;
-  margin-left: 30px;
+  margin-right: 5px;
   float: right;
 }
 .mdx-figure-nav {
@@ -3077,7 +3131,7 @@ li > p + ul {
   display: none;
   z-index: 2200;
 }
-.mdx-btn-figure-nav {
+.mdx-figure-nav-btns {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3112,7 +3166,7 @@ li > p + ul {
 .mdx-btn-figure-active {
   fill: #c35164 !important;
 }
-.mdx-btn-close-figure-viewer {
+.mdx-btn-close-figure-nav {
   display: flex;
   justify-content: flex-end;
   vertical-align: middle;
@@ -3129,12 +3183,12 @@ li > p + ul {
   border-radius: 0 0 0 50px;
   position: absolute;
 }
-.mdx-btn-close-figure-viewer:hover {
+.mdx-btn-close-figure-nav:hover {
   background-color: #E62E4D;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   transform: translate(-2px, 2px);
 }
-.mdx-btn-close-figure-viewer:active {
+.mdx-btn-close-figure-nav:active {
   background-color: #c35164;
   box-shadow: none;
   transform: none;
@@ -3176,7 +3230,7 @@ li > p + ul {
 .mdx-img-invert-dark {
   background-color: #FFFFFF !important;
   filter: var(--vlook-invert-dark);
-  border-color: rgba(175, 171, 167, 0.8) !important;
+  border-color: rgba(143, 139, 135, 0.8) !important;
 }
 .mdx-img-invert-dark:hover {
   border-color: #19d1b2 !important;
@@ -3257,8 +3311,8 @@ use.mdx-svg-ico-light {
 use.mdx-svg-ico-dark {
   fill: var(--fore-color);
 }
-use.mdx-svg-ico-btn {
-  fill: #292C33;
+use.mdx-svg-ico-theme {
+  fill: var(--header-color);
 }
 use.mdx-folder-ico,
 use.mdx-folder2-ico {
@@ -3304,6 +3358,20 @@ use.mdx-folder2-ico:active {
 .mdx-quote-red {
   background-color: var(--accent-color-red-fade);
 }
+.mdx-quote-red .mdx-std-code {
+  background-color: var(--accent-color-red-alt);
+}
+.mdx-quote-red a {
+  border-color: var(--accent-color-red);
+}
+.mdx-quote-red a:hover {
+  color: var(--accent-color-red) !important;
+  box-shadow: 0 -0.3em 0 0 rgba(199, 35, 52, 0.3) inset;
+}
+.mdx-quote-red a:active {
+  color: var(--doc-bg-color) !important;
+  background-color: var(--accent-color-red);
+}
 .mdx-quote-title-red {
   color: var(--accent-color-red);
 }
@@ -3312,6 +3380,20 @@ use.mdx-folder2-ico:active {
 }
 .mdx-quote-orange {
   background-color: var(--accent-color-orange-fade);
+}
+.mdx-quote-orange .mdx-std-code {
+  background-color: var(--accent-color-orange-alt);
+}
+.mdx-quote-orange a {
+  border-color: var(--accent-color-orange);
+}
+.mdx-quote-orange a:hover {
+  color: var(--accent-color-orange) !important;
+  box-shadow: 0 -0.3em 0 0 rgba(226, 125, 9, 0.3) inset;
+}
+.mdx-quote-orange a:active {
+  color: var(--doc-bg-color) !important;
+  background-color: var(--accent-color-orange);
 }
 .mdx-quote-title-orange {
   color: var(--accent-color-orange);
@@ -3322,6 +3404,20 @@ use.mdx-folder2-ico:active {
 .mdx-quote-yellow {
   background-color: var(--accent-color-yellow-fade);
 }
+.mdx-quote-yellow .mdx-std-code {
+  background-color: var(--accent-color-yellow-alt);
+}
+.mdx-quote-yellow a {
+  border-color: var(--accent-color-yellow);
+}
+.mdx-quote-yellow a:hover {
+  color: var(--accent-color-yellow) !important;
+  box-shadow: 0 -0.3em 0 0 rgba(223, 181, 12, 0.3) inset;
+}
+.mdx-quote-yellow a:active {
+  color: var(--doc-bg-color) !important;
+  background-color: var(--accent-color-yellow);
+}
 .mdx-quote-title-yellow {
   color: var(--accent-color-yellow);
 }
@@ -3330,6 +3426,20 @@ use.mdx-folder2-ico:active {
 }
 .mdx-quote-green {
   background-color: var(--accent-color-green-fade);
+}
+.mdx-quote-green .mdx-std-code {
+  background-color: var(--accent-color-green-alt);
+}
+.mdx-quote-green a {
+  border-color: var(--accent-color-green);
+}
+.mdx-quote-green a:hover {
+  color: var(--accent-color-green) !important;
+  box-shadow: 0 -0.3em 0 0 rgba(56, 171, 33, 0.3) inset;
+}
+.mdx-quote-green a:active {
+  color: var(--doc-bg-color) !important;
+  background-color: var(--accent-color-green);
 }
 .mdx-quote-title-green {
   color: var(--accent-color-green);
@@ -3340,6 +3450,20 @@ use.mdx-folder2-ico:active {
 .mdx-quote-cyan {
   background-color: var(--accent-color-cyan-fade);
 }
+.mdx-quote-cyan .mdx-std-code {
+  background-color: var(--accent-color-cyan-alt);
+}
+.mdx-quote-cyan a {
+  border-color: var(--accent-color-cyan);
+}
+.mdx-quote-cyan a:hover {
+  color: var(--accent-color-cyan) !important;
+  box-shadow: 0 -0.3em 0 0 rgba(24, 168, 191, 0.3) inset;
+}
+.mdx-quote-cyan a:active {
+  color: var(--doc-bg-color) !important;
+  background-color: var(--accent-color-cyan);
+}
 .mdx-quote-title-cyan {
   color: var(--accent-color-cyan);
 }
@@ -3348,6 +3472,20 @@ use.mdx-folder2-ico:active {
 }
 .mdx-quote-blue {
   background-color: var(--accent-color-blue-fade);
+}
+.mdx-quote-blue .mdx-std-code {
+  background-color: var(--accent-color-blue-alt);
+}
+.mdx-quote-blue a {
+  border-color: var(--accent-color-blue);
+}
+.mdx-quote-blue a:hover {
+  color: var(--accent-color-blue) !important;
+  box-shadow: 0 -0.3em 0 0 rgba(5, 107, 240, 0.3) inset;
+}
+.mdx-quote-blue a:active {
+  color: var(--doc-bg-color) !important;
+  background-color: var(--accent-color-blue);
 }
 .mdx-quote-title-blue {
   color: var(--accent-color-blue);
@@ -3358,6 +3496,20 @@ use.mdx-folder2-ico:active {
 .mdx-quote-purple {
   background-color: var(--accent-color-purple-fade);
 }
+.mdx-quote-purple .mdx-std-code {
+  background-color: var(--accent-color-purple-alt);
+}
+.mdx-quote-purple a {
+  border-color: var(--accent-color-purple);
+}
+.mdx-quote-purple a:hover {
+  color: var(--accent-color-purple) !important;
+  box-shadow: 0 -0.3em 0 0 rgba(119, 56, 220, 0.3) inset;
+}
+.mdx-quote-purple a:active {
+  color: var(--doc-bg-color) !important;
+  background-color: var(--accent-color-purple);
+}
 .mdx-quote-title-purple {
   color: var(--accent-color-purple);
 }
@@ -3366,6 +3518,20 @@ use.mdx-folder2-ico:active {
 }
 .mdx-quote-pink {
   background-color: var(--accent-color-pink-fade);
+}
+.mdx-quote-pink .mdx-std-code {
+  background-color: var(--accent-color-pink-alt);
+}
+.mdx-quote-pink a {
+  border-color: var(--accent-color-pink);
+}
+.mdx-quote-pink a:hover {
+  color: var(--accent-color-pink) !important;
+  box-shadow: 0 -0.3em 0 0 rgba(219, 67, 178, 0.3) inset;
+}
+.mdx-quote-pink a:active {
+  color: var(--doc-bg-color) !important;
+  background-color: var(--accent-color-pink);
 }
 .mdx-quote-title-pink {
   color: var(--accent-color-pink);
@@ -3376,6 +3542,20 @@ use.mdx-folder2-ico:active {
 .mdx-quote-brown {
   background-color: var(--accent-color-brown-fade);
 }
+.mdx-quote-brown .mdx-std-code {
+  background-color: var(--accent-color-brown-alt);
+}
+.mdx-quote-brown a {
+  border-color: var(--accent-color-brown);
+}
+.mdx-quote-brown a:hover {
+  color: var(--accent-color-brown) !important;
+  box-shadow: 0 -0.3em 0 0 rgba(164, 117, 70, 0.3) inset;
+}
+.mdx-quote-brown a:active {
+  color: var(--doc-bg-color) !important;
+  background-color: var(--accent-color-brown);
+}
 .mdx-quote-title-brown {
   color: var(--accent-color-brown);
 }
@@ -3384,6 +3564,20 @@ use.mdx-folder2-ico:active {
 }
 .mdx-quote-gray {
   background-color: var(--accent-color-gray-fade);
+}
+.mdx-quote-gray .mdx-std-code {
+  background-color: var(--accent-color-gray-alt);
+}
+.mdx-quote-gray a {
+  border-color: var(--accent-color-gray);
+}
+.mdx-quote-gray a:hover {
+  color: var(--accent-color-gray) !important;
+  box-shadow: 0 -0.3em 0 0 rgba(123, 125, 130, 0.3) inset;
+}
+.mdx-quote-gray a:active {
+  color: var(--doc-bg-color) !important;
+  background-color: var(--accent-color-gray);
 }
 .mdx-quote-title-gray {
   color: var(--accent-color-gray);
@@ -3394,6 +3588,20 @@ use.mdx-folder2-ico:active {
 .mdx-quote-theme1 {
   background-color: var(--accent-color-theme1-fade);
 }
+.mdx-quote-theme1 .mdx-std-code {
+  background-color: var(--accent-color-theme1-alt);
+}
+.mdx-quote-theme1 a {
+  border-color: var(--accent-color-theme1);
+}
+.mdx-quote-theme1 a:hover {
+  color: var(--accent-color-theme1) !important;
+  box-shadow: 0 -0.3em 0 0 rgba(41, 44, 51, 0.3) inset;
+}
+.mdx-quote-theme1 a:active {
+  color: var(--doc-bg-color) !important;
+  background-color: var(--accent-color-theme1);
+}
 .mdx-quote-title-theme1 {
   color: var(--header-color);
 }
@@ -3402,6 +3610,20 @@ use.mdx-folder2-ico:active {
 }
 .mdx-quote-theme2 {
   background-color: var(--accent-color-theme2-fade);
+}
+.mdx-quote-theme2 a {
+  border-color: var(--accent-color-theme2);
+}
+.mdx-quote-theme2 a:hover {
+  color: var(--accent-color-theme2) !important;
+  box-shadow: 0 -0.3em 0 0 rgba(230, 46, 77, 0.3) inset;
+}
+.mdx-quote-theme2 a:active {
+  color: var(--doc-bg-color) !important;
+  background-color: var(--accent-color-theme2);
+}
+.mdx-quote-theme2 .mdx-std-code {
+  background-color: var(--accent-color-theme2-alt);
 }
 .mdx-quote-title-theme2 {
   color: var(--accent-color-theme2);
@@ -3605,6 +3827,7 @@ h6 code {
 /**************************************
 * 封面、封底
 **************************************/
+#write > pre.md-meta-block:first-child + h6,
 #write > h6:first-child,
 #write > h6:last-child {
   display: block;
@@ -3640,20 +3863,53 @@ h6 code {
   background-repeat: no-repeat, no-repeat, repeat-x;
   background-position: top left, bottom right, top left;
 }
+#write > pre.md-meta-block:first-child + h6::before,
 #write > h6:first-child::before,
 #write > h6:last-child::before {
   content: "";
 }
+#write > pre.md-meta-block:first-child + h6 sub,
 #write > h6:first-child sub {
   color: #D98982;
   font-family: "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
 }
+#write > pre.md-meta-block:first-child + h6 sup,
 #write > h6:first-child sup {
   color: #D98982;
   font-family: "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: 900;
 }
+#write > pre.md-meta-block:first-child + h6 code,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-red,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-orange,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-yellow,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-green,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-cyan,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-blue,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-purple,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-pink #write > pre.md-meta-block:first-child + h6 .mdx-tag-brown,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-gray,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-name-red,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-name-orange,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-name-yellow,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-name-green,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-name-cyan,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-name-blue,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-name-purple,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-name-pink,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-name-brown,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-name-gray,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-value-red,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-value-orange,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-value-yellow,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-value-green,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-value-cyan,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-value-blue,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-value-purple,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-value-pink,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-value-brown,
+#write > pre.md-meta-block:first-child + h6 .mdx-tag-value-gray,
 #write > h6:first-child code,
 #write > h6:first-child .mdx-tag-red,
 #write > h6:first-child .mdx-tag-orange,
@@ -3686,6 +3942,8 @@ h6 code {
 #write > h6:first-child .mdx-tag-value-gray {
   font-size: 0.5em !important;
 }
+#write > pre.md-meta-block:first-child + h6 strong,
+#write > pre.md-meta-block:first-child + h6 strong::before,
 #write > h6:first-child strong,
 #write > h6:first-child strong::before {
   color: #D98982;
@@ -3693,9 +3951,11 @@ h6 code {
   font-family: "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", "Microsoft YaHei", "微软雅黑", SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK", sans-serif;
   font-weight: normal !important;
 }
+#write > pre.md-meta-block:first-child + h6 strong::before,
 #write > h6:first-child strong::before {
   content: "By ";
 }
+#write > pre.md-meta-block:first-child + h6 em,
 #write > h6:first-child em {
   color: #D98982;
   font-size: 0.4em;
@@ -3722,6 +3982,7 @@ h6 code {
   table {
     white-space: pre !important;
   }
+  #write > pre.md-meta-block:first-child + h6,
   #write > h6:first-child,
   #write > h6:last-child {
     font-size: 2em !important;
@@ -3817,18 +4078,28 @@ h6 code {
   }
   .mdx-toolbar,
   .mdx-btn-outline,
-  .mdx-btn-figure-viewer,
+  .mdx-btn-figure-nav,
   .mdx-chapter-nav,
   .mdx-toc-panel,
   .mdx-toc-panel-header,
-  .mdx-toc-panel-body-scroll {
+  .mdx-toc-panel-body-scroll,
+  .mdx-link-chk-result {
     display: none;
     visibility: hidden;
     filter: none;
   }
+  #write > pre.md-meta-block:first-child + h6,
   #write > h6:first-child,
   #write > h6:last-child,
+  #write > pre.md-meta-block:first-child + h6 sub,
+  #write > h6:first-child sub,
+  #write > pre.md-meta-block:first-child + h6 sup,
+  #write > h6:first-child sup,
+  #write > pre.md-meta-block:first-child + h6 strong,
+  #write > pre.md-meta-block:first-child + h6 strong::before,
+  #write > pre.md-meta-block:first-child + h6 em,
   #write > h6:first-child strong,
+  #write > h6:first-child strong::before,
   #write > h6:first-child em {
     background: #FFFFFF none !important;
     color: #181A1E !important;
@@ -3866,11 +4137,11 @@ h6 code {
     --tips-bg-color-inset: var(--tips-bg-color-inset-dark);
     --a-color: var(--a-color-dark);
     --mark-color: var(--mark-color-dark);
-    --table-color: var(--table-color-dark);
+    --table-header-color: var(--table-header-color-dark);
     --table-border-color: var(--table-border-color-dark);
     --table-th-bg-color: var(--table-th-bg-color-dark);
-    --table-th-border-color: var(--table-th-border-color-dark);
-    --table-rowfolding-alpha: var(--table-rowfolding-alpha-dark);
+    --table-td-bg-color: var(--table-td-bg-color-dark);
+    --table-cell-border-color: var(--table-cell-border-color-dark);
     --del-color: var(--del-color-dark);
     --toc-header-num-color: var(--toc-header-num-color-dark);
     --header-color: var(--header-color-dark);
@@ -3966,7 +4237,7 @@ h6 code {
   }
   img[src*="darksrc=invert"] {
     filter: var(--vlook-invert-dark);
-    border-color: rgba(175, 171, 167, 0.8) !important;
+    border-color: rgba(143, 139, 135, 0.8) !important;
     background: #FFFFFF;
   }
   img[src*="darksrc=invert"][src*="grid=line"] {

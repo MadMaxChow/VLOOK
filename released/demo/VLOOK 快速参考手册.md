@@ -1033,7 +1033,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ###### 示例
 
-> ###### ![red](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-red.svg?mode=icon&fill=text) 彩虹引用 6 级标题
+> ###### ![red](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-red.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
 >
 > 这是一个彩虹引用，使用的颜色标识为：`red`　　　🛈 进一步了解[颜色标识](#彩虹标签)
 >
