@@ -4,6 +4,13 @@
 * 颜色主题
 ***************************************/
 
+// 主题圆角配置
+@baseRadius: 12px; // 标准圆角
+@smallRadius: 6px; // 标准圆角内的小圆角
+@tableRadius: 10px; // 表格圆角
+@tagRadius: 0.5em; // 标签圆角
+@circleRadius: 50%; // 半距圆角
+
 // 主题信息
 @themeName: "vlook-geek";
 @themeLogoLight: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAMAAAC8EZcfAAAAz1BMVEUAAAApLDQpLDMqLDMqLTQqLDMpLTMvLzopLDQsLDUpLDQpLDMqLDQqLDMqLDMqLTQqLTQrLDMrLDQqLjMrLjMqLTMrLzUrMDQrMjktLTU7OzspLDPZiYKZZ2WUZWMtLjXMgnzJgHs/Nz05NDpgSkzWh4HDfXhNP0O4eHNoTU9KPUKJX15/WVq+e3aPYmBTQkYxMDfPg31tUFE2MzmzdXF1VFVDOj+ibGmdamfRhX6uc29lTE67eXWob2yEXFxYRUjUhn95VlddR0rHf3lyUlP0r4RBAAAAG3RSTlMA7cesm277GPEt9+bi1dC8tpaKhl9VRjskIg2JfgWJAAAHGElEQVR42szX2U7CYBQE4PPvhbJ2oS0DGBSMJpCg0Rj0wgvf/52UQCJhhxZ6vidoZnomLR3nktiEWjVlvSa8qrXIwdqqJ2p12VQ6NHHiKKc00lLgioTUUUoX6mgfN+HrDp0tCwRuSAQZnaOicHOqQqdyCqVQjk5iPJTEM6e0K1EiebRnY1EqeyTENkrXpv26LTDQ6tIergEWGm5PfkyeD2jszpBFv0stpvdx8FIMWDFb+2zBit1cbAlmJOuCt0p2HtjxHP1TYEitXQhYqvAOcC3CDExltBSAqYCWBJgSq/9fsNWhBQ22NC34YMunPykYS4koAmMR71cQ0Bw/tNZJziu4WkIH1hwlYC2hGMW5/5r036bD+Xg+nH4OJqMH5BaTQTFmr/2f3qbpYHSHXAyFKMLoY9zb7aX/jRzCImZw9v7YO+Tp+fIYNSnk9Etrne42CkNhGM7MSFVVteoFfB8xSyDNBgkhGzRb2/u/plEVXGiLg8Hh+Y/06hzZRqxs1gkytPSv9wwzxxl1pGO08mz4kMwtavKnaONv7wkGooD6UhfNPfUe0V7s84fZ5hAPjtFxEE82v+LtCI09mjzFE36z6GdLlHnZdscyf4Sm/vTu0ZbFsjQTldd3wLIpGrrvPUBNv28fQUF8TzygmYfeHdrpsxAMcIWIHRaOaOSuh3bOLPTnuM5LS7OGBvPAo0/JX6HegZKNZtoFujalxRt0HOUXM9QzD9xTCtbQs3a0T4l5YEzJcaHLeyHJVKCOeaC3YO4UQd88tqwY9cwDQ0oxTHUR6PrMhTDVSaDFXCJgqotA78TcGKY6CZx2u2DzQIcXvgdjXQRGGgMU4+NQwIBJYMicC5WzTXJ3MEg0CQx4kUJhmfLi1UVj5oFr5j6gsKGUoDHzwBFzHqplLKzQlHlgKPcHhZSFGZoyD0zqzrDNEgEVb3SOh6KDQKfuN8FnyRLVlhY/BW83DxTMRVAIWNip+mbMjW4d6NbNBiELG3yJwvTlyzulhXu7wHF22O5fmYOKZ1M6rZETIRU2twkUA8shFctT3jNnSFuq2LcIXE5s/uBA7e2yQXsEyaLa2jhQnG3+8o4rludNsp96kPq8YmgamAWsEEBfyGs8s0CxZaUE2ia8JoFRoJew2gd0HSj5eys3K23YKHD8zmp96JpSWkSQ1g5zK5gERjt+cwqSbTiZTKYRSuajcBtmApVWRd8QBXfLT7MBTALd/9WdbW+bMBCA1ddN06ZpmqZ9OBOH1xAgCQ2BvNEmTfb/f9PWEfVGE9vnmknm+VZVok9JON+B73BbAcsJcrjALmqym4Tih1Rl+rwDMBHkMUMiDGqC/DB0BmfE+O+NQAVd8Dz6D0suXtgo0P3ogiUePvZAxJTml0DngsUDruc5CJkY+JkJprSQsjfwMxDEGzCqO45DAz8TQVzfowJkbJiKRQVk6IJ+qEjtMcogG+ec7ABIh4IlOeF9xBqTg5TqV5pd3sGQzLN5pSOIxWVYgQI/Zg3HBGTkU8xi2ySL5lT4GoI5O+GAEp69BKT9wAcZRSR6nDjbYzAnCx7YiQMQ4KPDKAdEsSw5gxYYB2pOFMQcbs2hG2ZMDZ5cteCKdonQSRmFGBC5YIx1YzcsGYU1IHJB9+2NCdsE15SHz91/xDUgcsGQUlR3f5GkgCjPoL5g4kzC4XKnDDNumxB/UZAFXVyIyaShLDsrItGuioCdCA9AFqxZwxbIYPm7GjcErROSD5raaQ5vCZpQXY+ALrjUDjMzSSGCddzTOIdz8m3qpAEHsiBedCugMmDIWalJhS641V7qXKZjaCzo05MFDEzmhnRBqHXvwQyZjqG5YEZNWDGx1jE0F/SY5mUyZjqG5oJ4RqiHX2BtUv7hadiKNgYIdr/tXv9cASS8CWtwq+bnqJvC+F4gCBvd3Wp5+vASmJwCoEvDe9EGx0R/cwxPsDYhGeag5pNwi+gUqxwO78KbyAwPj2sWLkrVsT8KN9ly/NovfHgXvtAQ18ZYcewr8TZl/4iZ2hyMDeeV9w8pVkocZHyWbPQe7dkrdfA+w5qJIaVMX3CrvCL6RtMZ/y+GE5BxLW02GO/bi0L8OHjK/lLOgEYRMxU5SPgqb9cYHZmIZd6VoQcSbtoNL/RnYfT4WCxMzuCtqmWIT0N2mSMQ4Q6TsQEZ39VNV8mGMcMnsluXiZGHsDtK29rsYrbngAZV0CZlxITuB63xz8vqs5rNBxOew5MfByk/ya2T/jZd1u6aNRwdH8xIBtF+slJGqw/2N5/a375rfQO09S3k1jfhWz/GwOYv4W0/RmnYGwmv+jLOxfqBONaPFLJ/KJOdp/CmT4PBrB+tZmHSdd238X62fch3/Rsxaf+QTvvHnFo/KNb+Ubt2XCnf+j3u2f6B2faPHO/B0Hb7x9734MUBPXj1Qh9eXiF4/QcYof36j9+ogC0NIpnJ+wAAAABJRU5ErkJggg==";
@@ -13,15 +20,15 @@
 @theme1: #292C33;
 @theme2: #E62E4D;
 @theme3: #D98982;
-@theme1Dark: darken(@theme1, 20%);
-@theme1Alt: lighten(@theme1, 35%);
-@theme1AltDark: darken(@theme1Alt, 20%);
+@theme1Dark: lighten(@theme1, 10%);
+@theme1Alt: lighten(@theme1, 65%);
+@theme1AltDark: darken(@theme1Alt, 40%);
 @theme2Dark: darken(@theme2, 20%);
-@theme2Alt: lighten(@theme2, 35%);
-@theme2AltDark: darken(@theme2Alt, 20%);
+@theme2Alt: lighten(@theme2, 40%);
+@theme2AltDark: darken(@theme2Alt, 50%);
 @theme3Dark: darken(@theme3, 20%);
-@theme3Alt: lighten(@theme3, 35%);
-@theme3AltDark: darken(@theme3Alt, 20%);
+@theme3Alt: lighten(@theme3, 40%);
+@theme3AltDark: darken(@theme3Alt, 50%);
 
 @themeForeColor: @theme3;
 @themeForeColorFade: fade(@themeForeColor, 50%);

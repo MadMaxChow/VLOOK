@@ -4,6 +4,13 @@
 * 颜色主题
 ***************************************/
 
+// 主题圆角配置
+@baseRadius: 12px; // 标准圆角
+@smallRadius: 6px; // 标准圆角内的小圆角
+@tableRadius: 10px; // 表格圆角
+@tagRadius: 0.5em; // 标签圆角
+@circleRadius: 50%; // 半距圆角
+
 // 主题信息
 @themeName: "vlook-owl";
 @themeLogoLight: "data:image/png;base64,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";
@@ -11,17 +18,17 @@
 
 // 主题主色
 @theme1: #00A8BE;
-@theme2: #4D4AC9;
+@theme2: #7735CC;
 @theme3: #00DAD8;
-@theme1Dark: darken(@theme1, 20%);
-@theme1Alt: lighten(@theme1, 35%);
-@theme1AltDark: darken(@theme1Alt, 20%);
-@theme2Dark: darken(@theme2, 20%);
-@theme2Alt: lighten(@theme2, 35%);
-@theme2AltDark: darken(@theme2Alt, 20%);
-@theme3Dark: darken(@theme3, 20%);
-@theme3Alt: lighten(@theme3, 35%);
-@theme3AltDark: darken(@theme3Alt, 20%);
+@theme1Dark: darken(@theme1, 10%);
+@theme1Alt: lighten(@theme1, 52%);
+@theme1AltDark: darken(@theme1Alt, 62%);
+@theme2Dark: darken(@theme2, 10%);
+@theme2Alt: lighten(@theme2, 52%);
+@theme2AltDark: darken(@theme2Alt, 52%);
+@theme3Dark: darken(@theme3, 10%);
+@theme3Alt: lighten(@theme3, 50%);
+@theme3AltDark: darken(@theme3Alt, 60%);
 
 @themeForeColor: @theme3;
 @themeForeColorFade: fade(@themeForeColor, 50%);
@@ -50,7 +57,7 @@
 @boldColorDark: @foreColorDark;
 
 // 链接颜色
-@aBorderWidth: 1px;
+@aBorderWidth: 2px;
 @aColor: @boldColorLight;
 @aColorDark: @docBgColorLight;
 @aLineColor: @theme2;

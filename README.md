@@ -16,26 +16,28 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ---
 
-![让 Markdown 的自动化排版和交互性上了 N 个台阶](https://s3.ax1x.com/2021/01/21/shYQAg.png)
+![让 Markdown 的自动化排版和交互性上了 N 个台阶](https://z3.ax1x.com/2021/03/30/cF20BD.png)
 
-![内置多套原创主题，一键切换，支持私人定制](https://s3.ax1x.com/2021/01/18/s6jqNF.png)
+![内置多套原创文档主题、字体主题，一键切换，支持私人定制](https://z3.ax1x.com/2021/03/30/cF2wnO.png)
 
-![表格排版+：单元格合并、列格式、表格行分组、自动编号、…](https://s3.ax1x.com/2021/01/21/shJSoQ.png)
+![表格排版+：单元格合并、列格式、表格行分组、自动编号、…](https://z3.ax1x.com/2021/03/30/cF2ajK.png)
 
-![音/视频、标签、引用折叠、高清插图、…30+特性开箱即用](https://s3.ax1x.com/2021/01/27/szH9m9.png)
+![零成本的图片自动排版～题注、高分屏、反色、替换、版式、…](https://z3.ax1x.com/2021/03/30/cF2rAH.png)
 
-![火力全开的演示辅助～聚光灯、表格十字光标、新标签打开](https://s3.ax1x.com/2021/01/18/s6jTBV.png)
+![火力全开的图片自动排版、演示辅助～聚光灯、激光笔、注意](https://z3.ax1x.com/2021/03/29/cCoKu6.png)
 
-![OMG! 可以按大纲、逐章、逐段、插图多种方式导航](https://s3.ax1x.com/2021/01/21/shY89s.png)
+![OMG! 可以按大纲、逐章、段落、插图多种方式导航](https://z3.ax1x.com/2021/03/30/cF2N1x.png)
 
-![完美适配 Dark 模式，Markdown 变得更 Cool 了](https://s3.ax1x.com/2021/01/18/s6j5Xq.png)
+![完美适配 Dark 模式，Markdown 变得更 Cool 了](https://z3.ax1x.com/2021/03/30/cF2BHe.png)
+
+![音/视频、标签、引用折叠、高清插图、…30+特性开箱即用](https://z3.ax1x.com/2021/03/30/cF2Uc6.png)
 
 ---
 
 # 打赏
 
 **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**<br />
-![打赏 VLOOK™](https://s3.ax1x.com/2021/01/24/sHf82D.png)
+![打赏 VLOOK™](https://z3.ax1x.com/2021/01/24/sHf82D.png)
 
 ---
 
@@ -43,18 +45,27 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ## Step 1•下载与配置
 
-1. 访问 VLOOK™ 在 [GitHub](https://github.com/MadMaxChow/VLOOK/releases) 或 [Gitee](https://gitee.com/madmaxchow/VLOOK/releases) 的主页下载最新发布的版本；
-2. （可选）下载并安装 VLOOK™ 主题配套字体包 ••• [字体主题](#字体主题)；
-3. 下载并安装 [Typora](https://www.typora.io) ，启动后进入「偏好设置」，并开启以下选项，详见下图：
+1. **下载插件：**
+   1. 从 VLOOK™ 在 ![Github](https://s1.ax1x.com/2020/11/11/BjMANq.png?mode=icon&darksrc=invert)**[GitHub](https://github.com/MadMaxChow/VLOOK/releases)** 或 ![Gitee](https://s1.ax1x.com/2020/11/06/BWBGmq.png?mode=icon)**[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)** 的主页下载最新发布的版本
+2. **安装字体：（可选）**
+   1. 下载并安装 VLOOK™ 主题配套字体包 •• 详见「[字体主题](#字体主题)」
+3. **安装 Typora：**
+   1. 下载并安装 ![Typora](https://s3.ax1x.com/2020/11/13/DpZXtI.png?mode=icon)[Typora](https://www.typora.io) 的最新版本
+   2. 启动后进入「偏好设置」，并开启以下选项。详见下图：
 
-![开启「偏好设置 ▸ Markdown」下的相关的选项」下的所有选项](https://s3.ax1x.com/2021/01/24/sHR4wq.png)
+![开启「偏好设置 ▸ Markdown」下的相关的选项」下的所有选项](https://z3.ax1x.com/2021/01/24/sHR4wq.png)
 
 
 ## Step 2•安装并选择主题
 
-1. 将`released\theme`下所有 CSS 文件复制至 Typora 的主题目录（ Typora「偏好设置」中点击「外观 - 打开主题目录」定位到该目录）；
-2. 重启 Typora ，点击菜单`主题`，选择以`vlook-*`形式命名的主题，即可启用对应的 VLOOK™ 主题样式；
-3. 可基于`released\demo`下的`VLOOK-Document-Template.md` 为模板来创建你自己的 Markdown 文档。
+1. **安装主题：**
+   1. 将`released\theme`下所有 CSS 文件复制至 Typora 的主题目录（ Typora「偏好设置」中点击「外观 - 打开主题目录」定位到该目录）；
+2. **选用主题：**
+   1. 重启 Typora
+   2. 点击菜单`主题`，选择以`vlook-*`形式命名的主题即可
+3. **编写文档：**
+   1. 建议基于 VLOOK™ 提供的文档模板来创建，这样能更快上手
+   2. 模板文件位于`released`下的`VLOOK-Document-Template.md` 为模板来创建你自己的 Markdown 文档
 
 ## Step 3•应用插件
 
@@ -83,6 +94,8 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 ```
 
 1. 保存，大吉大利。
+
+###### 选择合适的浏览器
 
 > 强烈建议使用以下浏览器进行访问：
 >
