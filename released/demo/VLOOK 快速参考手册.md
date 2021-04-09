@@ -1888,7 +1888,7 @@ void quickSort(int arr[], int left, int right) {
 
 `#VLOOK:#(theme1)` 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
-> - 通过工具栏上的 ![聚光灯/激光笔](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-spotlight.png?mode=icon2x&darksrc=invert) 按钮打开「聚光灯」，并按 <kbd>X</kbd> 切换至「激光笔」；
+> - 通过工具栏上的 ![聚光灯/激光笔](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-spotlight.png?mode=icon2x&darksrc=invert) 按钮打开「聚光灯」，并按 <kbd>P</kbd> 切换至「激光笔」；
 > - 也可通过快捷键 <kbd>P</kbd> 直接快速打开激光笔。
 
 `#小提示#(green)` *激光笔在新标签打开的页面中也可以使用喔～*
