@@ -53,7 +53,7 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
    1. 下载并安装 ![Typora](https://s3.ax1x.com/2020/11/13/DpZXtI.png?mode=icon)[Typora](https://www.typora.io) 的最新版本
    2. 启动后进入「偏好设置」，并开启以下选项。详见下图：
 
-![开启「偏好设置 ▸ Markdown」下的相关的选项」下的所有选项](https://z3.ax1x.com/2021/01/24/sHR4wq.png)
+![开启「偏好设置 ▸ Markdown」下的相关的选项」下的所有选项](https://z3.ax1x.com/2021/03/28/cpkIFs.png)
 
 
 ## Step 2•安装并选择主题
@@ -93,7 +93,7 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 </body>
 ```
 
-1. 保存，大吉大利。
+4. 保存，大吉大利。
 
 ###### 选择合适的浏览器
 
