@@ -252,7 +252,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
 * VLOOK CSS 调色板
 *
 * V10.2
-* 2021-04-01
+* 2021-04-09
 * 配合 base.less 进行使用
 *
 ***************************************/
@@ -263,7 +263,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
  * VLOOK CSS 基础库
  *
  * V10.2
- * 2021-04-01
+ * 2021-04-09
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -4521,7 +4521,7 @@ h6 code {
 <!--                           (!!! standalone !!!)                         -->
 <!--                                  V10.2                                 -->
 <!--                                                                        -->
-<!--                               2021-04-01                               -->
+<!--                               2021-04-09                               -->
 <!--                           powered by MAX°孟兆                          -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -4576,7 +4576,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
  * VLOOK.js - Typora Plugin
  *
  * V10.2
- * 2021-04-01
+ * 2021-04-09
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -4650,8 +4650,6 @@ let iToolbar = undefined,
     iWelcomeScreen = undefined,
     iToolTips = undefined,
     iInfoTips = undefined,
-    // iBottomTips = undefined,
-    // iMask = undefined,
     iFootNote = undefined,
     iContentFolding = undefined;
     iLinkChecker = undefined;
@@ -5581,6 +5579,9 @@ VLOOK.initKernel = function (colorScheme) {
     console.info("- Outline & Chapter Nav");
     iStopwatch.lapStart();
     if (OutlineNav.init()) {
+        if (!env.device.mobile)
+            iOutlineNav.showHandle();
+
         // 更新工具栏标题
         iOutlineNav.title.text($(document).attr("title"));
         iOutlineNav.title.attr("title", ($(document).attr("title")));
@@ -6144,14 +6145,14 @@ VLOOK.ui = {
             });
         }
 
-        let transitionTarget = "a, a:active, .CodeMirror-line, .mdx-figure, .mdx-folder-ico, .mdx-folder2-ico, .MathJax_SVG, .MathJax_SVG_Display, .md-toc-item, .mdx-btn-welcome-screen-done, .mdx-blockquote-folder, .mdx-toc-panel-title, .mdx-btn, .mdx-chapter-nav-prev, .mdx-chapter-nav-current, .mdx-chapter-nav-next, .mdx-btn-figure-prev, .mdx-btn-figure-next, .mdx-btn-close-figure-nav, .mdx-clickable-hover, .mdx-OINTable-hover";
+        let transitionScope = "a, a:active, .CodeMirror-line, .mdx-figure, .mdx-folder-ico, .mdx-folder2-ico, .MathJax_SVG, .MathJax_SVG_Display, .md-toc-item, .mdx-btn-welcome-screen-done, .mdx-blockquote-folder, .mdx-toc-panel-title, .mdx-btn, .mdx-chapter-nav-prev, .mdx-chapter-nav-current, .mdx-chapter-nav-next, .mdx-btn-figure-prev, .mdx-btn-figure-next, .mdx-btn-close-figure-nav, .mdx-clickable-hover, .mdx-OINTable-hover";
 
         // 启用 normal 级特效
         // VLOOK.ui.enableAnimation = true;
         if (VLOOK.ui.effect === 1) {
-            VLOOK.ui.adjustEffect($(transitionTarget));
+            VLOOK.ui.adjustEffect($(transitionScope));
             VLOOK.ui.adjustEffect($("#write, .mdx-toolbar, .mdx-chapter-nav, .mdx-toc-panel"));
-            // $(transitionTarget).css({
+            // $(transitionScope).css({
             //     "transition": "all " + VLOOK.animate.speed + "ms ease-in"
             // });
             // $("#write, .mdx-toolbar, .mdx-chapter-nav, .mdx-toc-panel").css({
@@ -6174,8 +6175,8 @@ VLOOK.ui = {
         // 启用 good 级特效
         // VLOOK.ui.effect = "good";
         if (VLOOK.ui.effect === 2) {
-            VLOOK.ui.adjustEffect($(transitionTarget));
-            // $(transitionTarget).css({
+            VLOOK.ui.adjustEffect($(transitionScope));
+            // $(transitionScope).css({
             //     "transition": "all " + VLOOK.animate.speed + "ms ease-in"
             // });
         }
@@ -6251,8 +6252,6 @@ VLOOK.ui = {
                         return;
                     if (iFigureNav.ui.isHidden())
                         iToolbar.buttons["figure-nav"].trigger("click");
-                    // else
-                    //     iFigureNav.hide();
                     break;
                 case 68: // D
                     // VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
@@ -6267,17 +6266,17 @@ VLOOK.ui = {
                     break;
                 case 80: // P
                     // VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
-                    if (iSpotlight.isShowed() === false) {
+                    // if (iSpotlight.isShowed() === false) {
                         iParagraphNav.hide(true);
                         iSpotlight.useLaserPointer();
-                    }
+                    // }
                     break;
                 case 83: // S
                     // VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
-                    if (iSpotlight.isShowed() === false) {
+                    // if (iSpotlight.isShowed() === false) {
                         iParagraphNav.hide(true);
                         iSpotlight.useSpotlight();
-                    }
+                    // }
                     break;
                 case 27: // ESC
                     // VLOOK.report.push(['Hotkey', combKeys, 'ESC', 0]);
@@ -6504,13 +6503,11 @@ VLOOK.print = {
 
         // 展开折叠的引用块
         $("[data-vk-blockquote-folded='true']").each(function () {
-            // $(this).attr("data-vk-content-before-print-folded", $(this).attr("data-vk-content-folded"));
             ExtQuote.unfold($(this));
         });
 
         // 展开所有折叠的长内容
         $("[data-vk-content-folded='true']").each(function () {
-            // $(this).attr("data-vk-content-before-print-folded", $(this).attr("data-vk-content-folded"));
             $(this).next(".mdx-content-expander").children(".mdx-btn").trigger("click");
         });
 
@@ -7276,7 +7273,8 @@ function Spotlight(radius, tips) {
         x : -1,
         y : -1
     };
-    this.pointerMode = false; // 激光笔模式
+    this.pointer = false; // 激光笔模式
+    this.lastMode = "S"; // S: Spotlight, P: Pointer
     // 激光笔模式时鼠标形状影响的范围
     this.pointerScope = "body, #write, .mdx-toc-panel, .md-toc-item, .mdx-toc-item, .mdx-btn, .mdx-accent-btn, .mdx-toolbar, .mdx-figure, .mdx-figure-nav, .mdx-figure-content, .mdx-btn-figure-nav, .mdx-figure-nav-btns, .mdx-btn-close-figure-nav, .mdx-black-curtain, a, img, .mdx-chapter-nav-prev, .mdx-chapter-nav-current, .mdx-chapter-nav-next, .mdx-link-result-error";
 
@@ -7300,12 +7298,13 @@ function Spotlight(radius, tips) {
      * 使用激光笔模式
      */
     this.useLaserPointer = function () {
-        this.pointerMode = true;
+        this.pointer = true;
+        this.lastMode = "P";
         this.ui.hide();
-        $(this.pointerScope).addClass("mdx-cursor-pointer");
+        $(this.pointerScope).addClass("mdx-cursor-laser");
         this.repaint();
 
-        let key = "<kbd>X</kbd>",
+        let key = "<kbd>S</kbd>",
             key2 = "&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<kbd>ESC</kbd>";
         this.tips.show([
             key + "切换为 <strong>聚光灯</strong> 模式" + key2 + "退出",
@@ -7324,13 +7323,14 @@ function Spotlight(radius, tips) {
      * 使用聚光灯模式
      */
     this.useSpotlight = function () {
-        this.pointerMode = false;
+        this.pointer = false;
+        this.lastMode = "S";
         this.ui.show();
-        $(this.pointerScope).removeClass("mdx-cursor-pointer");
+        $(this.pointerScope).removeClass("mdx-cursor-laser");
         this.repaint();
 
         let key1 = "<kbd>⇧ Shift</kbd>",
-            key2 = "&nbsp;&nbsp;&nbsp;&nbsp;<kbd>X</kbd>";
+            key2 = "&nbsp;&nbsp;&nbsp;&nbsp;<kbd>P</kbd>";
             key3 = "&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<kbd>ESC</kbd>";
         this.tips.show([
             key1 + "调整聚光灯大小" + key2 + "切换为 <strong>激光笔</strong> 模式" + key3 + "退出",
@@ -7362,9 +7362,8 @@ function Spotlight(radius, tips) {
         if (this.isShowed === false)
             return;
 
-        // 聚光灯模式（非激光笔模式）
-        if (this.pointerMode === false) {
-            // else {
+        // 非激光笔模式（即：聚光灯模式）
+        if (this.pointer === false) {
             this.ui.css("background", "radial-gradient(circle at "
                 + this.lastPos.x + "px " + this.lastPos.y + "px, "
                 + "transparent " + this.radius + "px, "
@@ -7377,7 +7376,7 @@ function Spotlight(radius, tips) {
      */
     this.isShowed = function () {
         return this.ui.isShowed()
-            || this.pointerMode === true;
+            || this.pointer === true;
     }
 
     /**
@@ -7393,12 +7392,10 @@ function Spotlight(radius, tips) {
         // 未打开，则打开
         else {
             // 切换使用不同的聚焦工具
-            if (this.pointerMode === true)
+            if (this.lastMode === "P")
                 this.useLaserPointer();
             else
                 this.useSpotlight();
-
-            this.repaint();
             return true;
         }
         return false;
@@ -7412,10 +7409,11 @@ function Spotlight(radius, tips) {
     this.hide = function (keepTips) {
         if (keepTips !== true) {
             iMoreDocContent.refresh();
+            this.pointer = false;
             this.tips.hide();
         }
         this.ui.hide();
-        $(this.pointerScope).removeClass("mdx-cursor-pointer");
+        $(this.pointerScope).removeClass("mdx-cursor-laser");
     }
 
     /**
@@ -7431,18 +7429,18 @@ function Spotlight(radius, tips) {
         switch (code) {
             case 16: // Shift
                 // VLOOK.report.push(['Hotkey', combKeys, '', 0]);
-                if (this.ui.isShowed())
+                if (this.pointer === false)
                     this.toggleZoom();
                 break;
-            case 88: // X
-                if (this.ui.isShowed()
-                    || this.pointerMode === true) {
-                    if (this.pointerMode === true)
-                        this.useSpotlight();
-                    else
-                        this.useLaserPointer();
-                }
-                break;
+            // case 88: // X
+            //     if (this.ui.isShowed()
+            //         || this.pointer === true) {
+            //         if (this.lastMode === "S")
+            //             this.useSpotlight();
+            //         else
+            //             this.useLaserPointer();
+            //     }
+            //     break;
             case 27: // ESC
                 this.hide();
                 break;
@@ -7460,6 +7458,7 @@ function Spotlight(radius, tips) {
  */
 function OutlineNav(mask, searchToc) {
     this.ui = $(".mdx-toc-panel"); // 大纲面板主界面
+    this.handle = $(".mdx-toc-handle"); // 大纲引导把手
 
     this.title = $(".mdx-toc-panel-title"); // 大纲面板标题
     let that = this;
@@ -7517,7 +7516,6 @@ function OutlineNav(mask, searchToc) {
         this.headers.push(href.substring(1, href.length));
 
         // 自定义大纲节点元数据
-        // item.css("cursor", "pointer"); // 添加鼠标形状
         item.attr({
             "id": "v-header-" + item.attr("data-ref"), // 添加id属性
             "data-vk-node": "0", // 添加节点类型：0:叶子节点, 1:目录节点
@@ -7752,6 +7750,7 @@ function OutlineNav(mask, searchToc) {
             typeof(callback) === "function" && callback();
         }
 
+        this.handle.hide();
         this.showed = true;
 
         return true;
@@ -7767,8 +7766,6 @@ function OutlineNav(mask, searchToc) {
         if (this.showed === false // 已隐藏
             || this.ui.offset().left < 10) // 在以动画隐藏过程中
             return false;
-
-        this.showed = false;
 
         // 若最后一次显示以是「占位方式」显示
         if (this.displayMode === "block") {
@@ -7810,6 +7807,11 @@ function OutlineNav(mask, searchToc) {
 
         this.mask.hide();
 
+        if (!env.device.mobile)
+            this.showHandle();
+
+        this.showed = false;
+
         return true;
     }
 
@@ -7834,6 +7836,16 @@ function OutlineNav(mask, searchToc) {
             }
         }
         return result;
+    }
+
+    /**
+     * 显示大纲引导把手
+     */
+    this.showHandle = function () {
+        this.handle.css({
+            "top": ($(window).height() - this.handle.height()) / 2
+        });
+        this.handle.show();
     }
 
     /**
@@ -8344,8 +8356,6 @@ function ParagraphNav(tips) {
             return true;
         }
         else {
-            // iMoreDocContent.refresh();
-            // iBottomTips.hide();
             this.hide();
         }
         return false;
@@ -8508,7 +8518,6 @@ function ParagraphNav(tips) {
                 break;
             case 75: // K
                 // VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
-                // iFontStyler.hide();
                 ExtTable.cellCross.hide(true);
                 if (this.prev(1)) // 步长1
                     ExtQuote.autoUnfold(); // 自动展开引用
@@ -8678,7 +8687,9 @@ function Toolbar(outlineNav, chapterNav) {
                 this.ui.children("div").removeClass("mdx-float-card");
                   this.ui.addClass("mdx-float-card");
                 this.ui.css({
-                    top: 0
+                    top: 0,
+                    paddingLeft: 10,
+                    paddingRight: 10
                 });
 
                 // 为增加了工具栏按钮的背景去掉浮动样式
@@ -8832,26 +8843,26 @@ ColorScheme.refresh = function () {
         "--accent-color-theme2",
         "--accent-color-theme2-alt",
         "--accent-color-theme2-fade",
-        "--mermaid-accent-color-red",
-        "--mermaid-accent-color-red-alt",
-        "--mermaid-accent-color-orange",
-        "--mermaid-accent-color-orange-alt",
-        "--mermaid-accent-color-yellow",
-        "--mermaid-accent-color-yellow-alt",
-        "--mermaid-accent-color-green",
-        "--mermaid-accent-color-green-alt",
-        "--mermaid-accent-color-cyan",
-        "--mermaid-accent-color-cyan-alt",
-        "--mermaid-accent-color-blue",
-        "--mermaid-accent-color-blue-alt",
-        "--mermaid-accent-color-purple",
-        "--mermaid-accent-color-purple-alt",
-        "--mermaid-accent-color-pink",
-        "--mermaid-accent-color-pink-alt",
-        "--mermaid-accent-color-brown",
-        "--mermaid-accent-color-brown-alt",
-        "--mermaid-accent-color-gray",
-        "--mermaid-accent-color-gray-alt",
+        "--mermaid-color-red",
+        "--mermaid-color-red-alt",
+        "--mermaid-color-orange",
+        "--mermaid-color-orange-alt",
+        "--mermaid-color-yellow",
+        "--mermaid-color-yellow-alt",
+        "--mermaid-color-green",
+        "--mermaid-color-green-alt",
+        "--mermaid-color-cyan",
+        "--mermaid-color-cyan-alt",
+        "--mermaid-color-blue",
+        "--mermaid-color-blue-alt",
+        "--mermaid-color-purple",
+        "--mermaid-color-purple-alt",
+        "--mermaid-color-pink",
+        "--mermaid-color-pink-alt",
+        "--mermaid-color-brown",
+        "--mermaid-color-brown-alt",
+        "--mermaid-color-gray",
+        "--mermaid-color-gray-alt",
         "--cm-keyword",
         "--cm-variable",
         "--cm-variable-2",
@@ -9342,7 +9353,6 @@ function FontStyler(mask) {
 
         $(bold).addClass("mdx-font-bold-" + style);
 
-        // $(number).removeClass("mdx-font-bold-" + this.style); // 针对 bold.addClass 后的二次调整
         $(number).addClass("mdx-font-number-" + this.style);
 
         $(subtitle).removeClass("mdx-font-header-" + style); // 针对 header.addClass 后的二次调整
@@ -9354,12 +9364,6 @@ function FontStyler(mask) {
         $(title).addClass("mdx-font-title-" + style);
 
         $(fontWeight).addClass("mdx-font-weight-bold-" + style);
-
-        // 更新绑定的按钮图标
-        // this.button.html("<svg width='20px' height='20px'><use xlink:href='#icoFont' class='mdx-svg-ico-light'/></svg>");
-        // this.button.html("<svg width='18px' height='16px'><use xlink:href='#icoFont-"
-        //     + this.style
-        //     + "' class='mdx-svg-ico-light'/></svg>");
 
         // 保存最后一次应用的字体风格
         localStorage["VLOOK-" + VLOOK.version + "-font-style"] = iFontStyler.style;
@@ -9543,7 +9547,6 @@ function LinkChecker(mask) {
         // RepairTool.fixTyporaInnerLink();
 
         // 检查所有页内链接对应的锚点是否都存在
-        // $("#write a[href^='#']").each(function () {
         $("#write a").each(function () {
             let href = $(this).attr("href");
             // 忽略空链接，如 href="#"
@@ -9592,7 +9595,6 @@ function LinkChecker(mask) {
                     that.mask.show();
                     that.ui.show();
                     that.result.html(that.iconClose);
-                    // VLOOK.doc.scroll.freeze();
                 }
                 else
                     that.hide();
@@ -10003,8 +10005,9 @@ function ToolTips() {
 
         this.ui.css({
             "left": left,
-            "top": fp.offset().top - $(document).scrollTop() + fp.height() +
-                (fp.css("background-color") === "rgba(0, 0, 0, 0)" ? 0 : 10)
+            "top": fp.offset().top - $(document).scrollTop()
+                + parseInt(fp.css("padding-top")) + parseInt(fp.css("padding-bottom"))
+                + fp.height() + 10
         });
 
         let that = this;
@@ -10105,9 +10108,6 @@ function InfoTips(mask) {
                         that.hide();
                     }, delay);
         }
-
-        // 冻结滚动
-        // VLOOK.doc.scroll.freeze();
 
         // 显示遮罩
         if (mask === true)
@@ -10267,7 +10267,6 @@ CaptionGenerator.action = function (target) {
     if (fc != null && fc.trim().length > 0) {
         // 添加 <span> 用主要用于区分题注是默认无内容的，还是指定内容的
         caption = caption + ": " + fc;
-        // caption = caption + ": <strong>" + fc + "</strong>";
     }
 
     // 代码块
@@ -10352,7 +10351,6 @@ CaptionGenerator.actionForFigureLike = function (target, tagName) {
     // 有指定的题注文本
     if (fc != null && fc.trim().length > 0)
         caption = caption + ": " + fc;
-        // caption = caption + ": <strong>" + fc + "</strong>";
 
     // 为插图（mermaid）增加题注
     if (tagName === "svg")
@@ -10729,13 +10727,11 @@ ExtTable.init = function () {
             ContentAssist.lastHoverContent = $(this);
             // 表格没有被折叠时
             if ($(this).parent().parent().attr("data-vk-content-folded") === "false") {
-                // $(this).addClass("mdx-clickable-hover");
                 VLOOK.ui.adjustEffect($(this));
             }
             if (VLOOK.doc.newTab === false)
                 ContentAssist.showOpenInNewTabButton();
         }, function () {
-            // $(this).removeClass("mdx-clickable-hover");
             ContentAssist.hideButtons();
         });
 
@@ -10771,7 +10767,6 @@ ExtTable.init = function () {
         cellMerge(table);
 
         // 合并后，针对列头纵向合并的情况二次执行列格式处理
-        // ExtTable.columnFormatting.format(table);
         table.find("thead > tr > th").each(function () {
             ExtTable.columnFormatting.init(table, $(this));
         });
@@ -12179,7 +12174,6 @@ ExtFigure.init = function () {
             initColorScheme(fig, params);
 
             // 初始化图片对高分屏的适配处理
-            // if (dpr > 1)
             initHighDPI(fig, params);
 
             // 跳过带指定显示版式的图片
@@ -12636,26 +12630,22 @@ function FigureNav() {
                 $(this).css({
                     "transform": "translateY(-2px)"
                 });
-                // $(this).find("svg > use").addClass("mdx-btn-figure-hover");
             }, function () {
                 $(this).css({
                     "transform": "none"
                 });
-                // $(this).find("svg > use").removeClass("mdx-btn-figure-hover");
             });
             // 鼠标键按下事件，模拟 :active
             this.button.ui.mousedown(function () {
                 $(this).css({
                     "transform": "none"
                 });
-                // $(this).find("svg > use").addClass("mdx-btn-figure-active");
             });
             // 鼠标键释放事件，模拟恢复正常
             this.button.ui.mouseup(function () {
                 $(this).css({
                     "transform": "translateY(-2px)"
                 });
-                // $(this).find("svg > use").removeClass("mdx-btn-figure-active");
             });
         }
     }
@@ -12671,8 +12661,6 @@ function FigureNav() {
 
         if (VLOOK.doc.counter.figure === 0)
             return;
-        // if (this.figIndex < 0)
-        //     this.figIndex = 0;
         if (fig == null)
             fig = $("[fig-id='mdx-figure-" + this.figIndex + "']");
 
@@ -12938,11 +12926,12 @@ Restyler.forMermaid = function () {
     // 修正顺序图整体的样式
     $(".md-diagram-panel svg[id^='mermaidChart'][viewBox^='-']").each(function () {
         let target = $(this),
-            viewBox = target.attr("viewBox").split(" ");
+            viewBox = target.attr("viewBox").split(/\s+/),
+            paddingBottom = (target.css("padding-bottom"));
         // 修正顺序图的下边距，前提先在 CSS 中设置了合适的 padding-bottom 值
         target.attr("viewBox",
             viewBox[0] + " " + viewBox[1] + " " + viewBox[2] + " "
-            + (parseInt(viewBox[3]) + parseInt(target.css("padding-bottom"))));
+            + (parseInt(viewBox[3]) + parseInt(paddingBottom)));
         // 重置 CSS 中的 padding-bottom 值，因为已由上面的下边距值替换
         target.css("padding-bottom", "0px");
     });
@@ -12978,32 +12967,25 @@ Restyler.forMermaid = function () {
                 "y1": parseInt(line.attr("y1")) + 10,
                 "y2": parseInt(line.attr("y2")) - 20
             });
-            actor.addClass("mdx-actor-person");
             actor.prev("line").addClass("mdx-actor-person");
-            // prefix = "🙂 ";
             text.text(prefix + tmpText.substring(1, tmpText.length));
         }
         // 更新 <重要系统角色> 样式
         else if (keySys.test(tmpText) === true) {
-            // actor.css("stroke-width", "3");
-            // text.css("font-weight", "bold");
             actor.addClass("mdx-actor-key-sys");
             actor.prev("line").addClass("mdx-actor-key-sys");
             actor.nextAll("text").children().addClass("mdx-actor-key-sys");
-            // prefix = "☢️ ";
             text.text(prefix + tmpText.substring(2, tmpText.length));
         }
         // 更新 <外部系统角色> 样式
         else if (extSys.test(tmpText) === true) {
             // actor.css("stroke-dasharray", "5 2");
             actor.addClass("mdx-actor-ext-sys");
-            actor.prev("line").addClass("mdx-actor-ext-sys");
+            // actor.prev("line").addClass("mdx-actor-ext-sys");
             actor.nextAll("text").children().addClass("mdx-actor-ext-sys");
-            // prefix = " ";
             text.text(prefix + tmpText.substring(2, tmpText.length));
         }
         else {
-            // prefix = "△ ";
             text.text(prefix + tmpText);
         }
     });
@@ -13014,20 +12996,23 @@ Restyler.forMermaid = function () {
             g = fragment.parent();
 
         // 默认的样式（par 片断）
-        let bgColor = "var(--mermaid-accent-color-orange-alt)";
-        let borderColor = "var(--mermaid-accent-color-orange-alt)";
-        let textColor = "var(--mermaid-accent-color-orange)";
+        let bgColor = "var(--mermaid-color-orange-light)",
+            borderColor = "var(--mermaid-color-orange-light)",
+            titleColor = "var(--mermaid-color-orange-light)",
+            labelText = "var(--mermaid-color-orange-alt-light)";
         // 为 alt 片断设置样式
         if (fragment.text() === "alt") {
-            bgColor = "var(--mermaid-accent-color-red-alt)";
-            borderColor = "var(--mermaid-accent-color-red-alt)";
-            textColor = "var(--mermaid-accent-color-red)";
+            bgColor = "var(--mermaid-color-red-light)";
+            borderColor = "var(--mermaid-color-red-light)";
+            titleColor = "var(--mermaid-color-red-light)";
+            labelText = "var(--mermaid-color-red-alt-light)";
         }
         // 为 loop 片断设置样式
         else if (fragment.text() === "loop") {
-            bgColor = "var(--mermaid-accent-color-cyan-alt)";
-            borderColor = "var(--mermaid-accent-color-cyan-alt)";
-            textColor = "var(--mermaid-accent-color-cyan)";
+            bgColor = "var(--mermaid-color-cyan-light)";
+            borderColor = "var(--mermaid-color-cyan-light)";
+            titleColor = "var(--mermaid-color-cyan-light)";
+            labelText = "var(--mermaid-color-cyan-alt-light)";
         }
 
         // 为 alt、loop、par 片断应用样式设置
@@ -13037,10 +13022,10 @@ Restyler.forMermaid = function () {
             // 边框色
             g.find("line.loopLine").css("cssText", "stroke: " + borderColor + " !important;");
             // 片断类型名称颜色
-            g.find("text.labelText").css("cssText", "fill:" + textColor + " !important;");
-            g.find("text.labelText").css("cssText", "fill:" + textColor + " !important;");
+            g.find("text.labelText").css("cssText", "fill:" + labelText + " !important;");
+            g.find("text.labelText").css("cssText", "fill:" + labelText + " !important;");
             // 片断标题颜色
-            g.find("text.loopText > tspan").css("cssText", "fill:" + textColor + " !important;");
+            g.find("text.loopText, text.loopText > tspan").css("cssText", "fill:" + titleColor + " !important;");
         }
 
         // 将 alt(alternative)、opt(optional)、loop(loops) 片断文本翻译为其他语言
@@ -13095,19 +13080,25 @@ Restyler.forMermaid = function () {
     });
 
     // 调整片断的标题文本
-    $(".md-diagram-panel .loopText tspan").each(function () {
+    $("text.loopText > tspan").each(function () {
         // 去掉文本内容前后的中括号
         let fragmentTitle = $(this);
         fragmentTitle.parent().attr("style", "text-anchor: start");
-        fragmentTitle.text(fragmentTitle.text().substr(1, fragmentTitle.text().length - 2));
+        // fragmentTitle.text(fragmentTitle.text().substr(1, fragmentTitle.text().length - 2));
 
         // 调整文本的位置
         let label = fragmentTitle.parent().parent().find(".labelBox"),
-            rect = label[0].getBBox(),
-            y = parseInt(fragmentTitle.parent().attr("y"));
+            rect = label[0].getBBox();
+            // y = parseInt(fragmentTitle.parent().attr("y"));
         fragmentTitle.attr("x", rect.x + rect.width + 10);
-        if (isNaN(y) !== true)
-        fragmentTitle.attr("y", y);
+        // if (isNaN(y) !== true)
+        //     fragmentTitle.attr("y", y);
+        console.log(fragmentTitle.parent().attr("class"), fragmentTitle.parent().next().attr("class"));
+        let nextText = fragmentTitle.parent().next();
+        if (nextText !== undefined && nextText.attr("class") !== undefined && nextText.attr("class").indexOf("loopText") > -1) {
+        //     console.log(fragmentTitle.parent().text());
+            nextText.attr("x", rect.x + rect.width + 40);
+        }
     });
 
     // 针对 VLOOK 衍生的 Mermaid 的状态图节点、子图
@@ -13726,7 +13717,6 @@ OINT.updateFigureCaption = function (type, caption1, caption2) {
         prefix = caption1.substring(0, caption1.indexOf(" - ") + 3);
         cap = caption1.substring(caption1.indexOf(" - ") + 3, caption1.length);
         $(".mdx-figure-caption > .mdx-figure-caption-1").html(prefix + cap);
-        // $(".mdx-figure-caption > .mdx-figure-caption-1").html(prefix + "<strong>" + cap + "</strong>");
     } else
         $(".mdx-figure-caption > .mdx-figure-caption-1").html(caption1);
 
@@ -14077,8 +14067,8 @@ function loadVLOOKui() {
     ui += '</div>';
 
     // --------------------------------------------------
-    // 大纲收起/展开把手
-    // ui += '<div class="mdx-toc-handle"></div>';
+    // 大纲收起/展开引导把手
+    ui += '<div class="mdx-toc-handle"></div>';
 
     // --------------------------------------------------
     // 逐章导航栏
@@ -14259,7 +14249,6 @@ function loadVLOOK() {
     // 推荐的浏览器类型检测
     if (env.browser.Chrome === false &&
         env.browser.Firefox === false) {
-        // env.browser.Safari === false) {
         VLOOK.report.push(['Error', 'Browser', navigator.userAgent, ]);
 
         alert([

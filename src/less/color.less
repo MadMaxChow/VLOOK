@@ -2,7 +2,7 @@
 * VLOOK CSS 调色板
 *
 * V10.2
-* 2021-04-01
+* 2021-04-09
 * 配合 base.less 进行使用
 *
 ***************************************/
@@ -54,7 +54,8 @@
 // 指定在 Dark Mode 时反转的图片边框颜色（先使用反色，这样在反转时则能保持与色一致）
 @imgInvertInDarkBorderColor: rgba(255 - red(@tableBorderColorDark), 255 - green(@tableBorderColorDark), 255 - blue(@tableBorderColorDark), alpha(@tableBorderColorDark));
 
-// 强调色色板
+// --------------------
+// 通用的强调色色板
 @accentColorRed: #C72334;
 @accentColorRedDark: darken(@accentColorRed, 20%);
 @accentColorRedAlt: lighten(@accentColorRed, 50%);
@@ -114,3 +115,35 @@
 @accentColorGrayAlt: lighten(@accentColorGray, 45%);
 @accentColorGrayAltDark: darken(@accentColorGrayAlt, 55%);
 // @accentColorGrayFade: fade(@accentColorGray, 25%);
+
+// --------------------
+// Mermaid 专用的强调色色板
+@mermaidColorRed: @accentColorRed;
+@mermaidColorRedAlt: lighten(@mermaidColorRed, 35%);
+
+@mermaidColorOrange: @accentColorOrange;
+@mermaidColorOrangeAlt: lighten(@mermaidColorOrange, 35%);
+
+@mermaidColorYellow: @accentColorYellow;
+@mermaidColorYellowAlt: lighten(@mermaidColorYellow, 35%);
+
+@mermaidColorGreen: @accentColorGreen;
+@mermaidColorGreenAlt: lighten(@mermaidColorGreen, 35%);
+
+@mermaidColorCyan: @accentColorCyan;
+@mermaidColorCyanAlt: lighten(@mermaidColorCyan, 35%);
+
+@mermaidColorBlue: @accentColorBlue;
+@mermaidColorBlueAlt: lighten(@mermaidColorBlue, 35%);
+
+@mermaidColorPurple: @accentColorPurple;
+@mermaidColorPurpleAlt: lighten(@mermaidColorPurple, 35%);
+
+@mermaidColorPink: @accentColorPink;
+@mermaidColorPinkAlt: lighten(@mermaidColorPink, 35%);
+
+@mermaidColorBrown: @accentColorBrown;
+@mermaidColorBrownAlt: lighten(@mermaidColorBrown, 35%);
+
+@mermaidColorGray: @accentColorGray;
+@mermaidColorGrayAlt: lighten(@mermaidColorGray, 35%);

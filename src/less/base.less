@@ -2,7 +2,7 @@
  * VLOOK CSS 基础库
  *
  * V10.2
- * 2021-04-01
+ * 2021-04-09
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -33,6 +33,7 @@
 
 插图导航 / .mdx-figure-nav / z-index: 2200;
 脚注面板 / .mdx-footer-note-panel / z-index: 2100;
+大纲收起/展开引导把手 / .mdx-toc-handle / z-index: 2000;
 大纲面板 / .mdx-toc-panel / z-index: 2000;
     大纲面板头部 / .mdx-toc-panel-header / z-index: 10;
     大纲面板脚部 / .mdx-toc-panel-footer / z-index: 10;
@@ -94,6 +95,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --vlook-small-radius:@smallRadius; // 标准圆角内的小圆角
     --vlook-table-radius:@tableRadius; // 表格圆角
     --vlook-tag-radius:@tagRadius; // 标签圆角
+    --vlook-tag-small-radius:@tagSmallRadius; // 标签小圆角
     --vlook-circle-radius:@circleRadius; // 半距圆角
 
     // --------------------
@@ -106,36 +108,28 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --doc-bg-color-alt-transparent-light: fade(@docBgColorLightAlt, 0%);
     --fore-color-light: @foreColorLight;
     --fore-color-alt-light: @foreColorLightAlt;
+
     --blockquote-color-light: fade(@foreColorLight, 20%);
     --blockquote-bg-light: fade(@foreColorLight, 8%);
     --tips-bg-color-light: @foreColorDark;
     --tips-bg-color-inset-light: @foreColorLight;
-    // --shadow-color-light: 0, 0, 0;
     --a-color-light: @aColor;
     --mark-color-light: rgba(255, 192, 32, 0.35);
-    // --a-line-color-light: @aLineColor;
-    // --a-active-color-light: @aActiveColor;
-    // --theme-bg-color-fade-light: @themeBgColorFade;
     --table-border-color-light: @tableBorderColor;
     --table-header-color-light: @tableHeaderColor;
     --table-th-bg-color-light: @tableThBgColor;
     --table-td-bg-color-light: @tableTdBgColor;
     --table-cell-border-color-light: @tableCellBorderColor;
-    // --table-th-border-color-light: @tableThBorderColor;
-    // --table-rowfolding-alpha-light: 0.15;
-    //   --table-td-bg-color2-light: @tableTdBgColor2;
-    // --img-dark-filter-light: none;
     --del-color-light: @foreColorLightAlt;
     --toc-header-num-color-light: @tocHeaderNumColor;
-    // --content-header-num-color-light: @contentHeaderNumColor;
     --header-color-light: @headerColor;
     --header-box-shadow-light: fade(@headerColor, 20%);
     --header-bg-start-color-light: fade(@headerColor, 0%);
     --header-bg-end-color-light: fade(@headerColor, 10%);
     --code-bg-color-light: @codeBgColor;
-    // --code-bg-color-transparent-light: fade(@codeBgColor, 0%);
     --code-name-bg-color-light: @foreColorLight;
     --code-name-shadow-color-light: rgba(0, 0, 0, 0.3);
+
     --accent-color-red-light: @accentColorRed;
     --accent-color-red-alt-light: @accentColorRedAlt;
     --accent-color-red-fade-light: fade(@accentColorRed, 25%);
@@ -172,26 +166,27 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --accent-color-theme2-light: @theme2;
     --accent-color-theme2-alt-light: @theme2Alt;
     --accent-color-theme2-fade-light: fade(@theme2, 25%);
-    --mermaid-accent-color-red-light: @accentColorRed;
-    --mermaid-accent-color-red-alt-light: @accentColorRedAlt;
-    --mermaid-accent-color-orange-light: @accentColorOrange;
-    --mermaid-accent-color-orange-alt-light: @accentColorOrangeAlt;
-    --mermaid-accent-color-yellow-light: @accentColorYellow;
-    --mermaid-accent-color-yellow-alt-light: @accentColorYellowAlt;
-    --mermaid-accent-color-green-light: @accentColorGreen;
-    --mermaid-accent-color-green-alt-light: @accentColorGreenAlt;
-    --mermaid-accent-color-cyan-light: @accentColorCyan;
-    --mermaid-accent-color-cyan-alt-light: @accentColorCyanAlt;
-    --mermaid-accent-color-blue-light: @accentColorBlue;
-    --mermaid-accent-color-blue-alt-light: @accentColorBlueAlt;
-    --mermaid-accent-color-purple-light: @accentColorPurple;
-    --mermaid-accent-color-purple-alt-light: @accentColorPurpleAlt;
-    --mermaid-accent-color-pink-light: @accentColorPink;
-    --mermaid-accent-color-pink-alt-light: @accentColorPinkAlt;
-    --mermaid-accent-color-brown-light: @accentColorBrown;
-    --mermaid-accent-color-brown-alt-light: @accentColorBrownAlt;
-    --mermaid-accent-color-gray-light: @accentColorGray;
-    --mermaid-accent-color-gray-alt-light: @accentColorGrayAlt;
+
+    --mermaid-color-red-light: @mermaidColorRed;
+    --mermaid-color-red-alt-light: @mermaidColorRedAlt;
+    --mermaid-color-orange-light: @mermaidColorOrange;
+    --mermaid-color-orange-alt-light: @mermaidColorOrangeAlt;
+    --mermaid-color-yellow-light: @mermaidColorYellow;
+    --mermaid-color-yellow-alt-light: @mermaidColorYellowAlt;
+    --mermaid-color-green-light: @mermaidColorGreen;
+    --mermaid-color-green-alt-light: @mermaidColorGreenAlt;
+    --mermaid-color-cyan-light: @mermaidColorCyan;
+    --mermaid-color-cyan-alt-light: @mermaidColorCyanAlt;
+    --mermaid-color-blue-light: @mermaidColorBlue;
+    --mermaid-color-blue-alt-light: @mermaidColorBlueAlt;
+    --mermaid-color-purple-light: @mermaidColorPurple;
+    --mermaid-color-purple-alt-light: @mermaidColorPurpleAlt;
+    --mermaid-color-pink-light: @mermaidColorPink;
+    --mermaid-color-pink-alt-light: @mermaidColorPinkAlt;
+    --mermaid-color-brown-light: @mermaidColorBrown;
+    --mermaid-color-brown-alt-light: @mermaidColorBrownAlt;
+    --mermaid-color-gray-light: @mermaidColorGray;
+    --mermaid-color-gray-alt-light: @mermaidColorGrayAlt;
     --cm-keyword-light: #770088;
     --cm-variable-light: @foreColorLight;
     --cm-variable-2-light: #0055AA;
@@ -224,36 +219,28 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --doc-bg-color-alt-transparent-dark: fade(@docBgColorDarkAlt, 0%);
     --fore-color-dark: @foreColorDark;
     --fore-color-alt-dark: @foreColorDarkAlt;
+
     --blockquote-color-dark: fade(@foreColorDark, 20%);
     --blockquote-bg-dark: fade(@foreColorDark, 8%);
     --tips-bg-color-dark: @docBgColorDarkAlt;
     --tips-bg-color-inset-dark: @foreColorDark;
-    // --shadow-color-dark: 0, 0, 0;
     --a-color-dark: @aColorDark;
     --mark-color-dark: rgba(255, 192, 32, 0.25);
-    // --a-line-color-dark: @aLineColor;
-    // --a-active-color-dark: @aActiveColor;
-    // --theme-bg-color-fade-dark: @themeBgColorFade;
     --table-border-color-dark: @tableBorderColorDark;
     --table-header-color-dark: @tableHeaderColorDark;
     --table-th-bg-color-dark: @tableThBgColorDark;
     --table-td-bg-color-dark: @tableTdBgColorDark;
     --table-cell-border-color-dark: @tableCellBorderColorDark;
-    // --table-th-border-color-dark: @tableThBorderColorDark;
-    // --table-rowfolding-alpha-dark: 0.4;
-    //   --table-td-bg-color2-dark: @tableTdBgColor2;
-    // --img-dark-filter-dark: brightness(0.9);
     --del-color-dark: darken(@foreColorDark, 20%);
     --toc-header-num-color-dark: fade(@foreColorDark, 50%);
-    // --content-header-num-color-dark: lighten(@contentHeaderNumColor, 15%);
     --header-color-dark: @headerColorDark;
     --header-box-shadow-dark: fade(@headerColorDark, 20%);
     --header-bg-start-color-dark: fade(@headerColorDark, 0%);
     --header-bg-end-color-dark: fade(@headerColorDark, 15%);
     --code-bg-color-dark: @codeBgColorDark;
-    // --code-bg-color-transparent-dark: fade(@codeBgColorDark, 0%);
     --code-name-bg-color-dark: @foreColorDark;
     --code-name-shadow-color-dark: rgba(255, 255, 255, 0.3);
+
     --accent-color-red-dark: @accentColorRedDark;
     --accent-color-red-alt-dark: @accentColorRedAltDark;
     --accent-color-red-fade-dark: fade(@accentColorRed, 35%);
@@ -290,26 +277,27 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --accent-color-theme2-dark: @theme2Dark;
     --accent-color-theme2-alt-dark: @theme2AltDark;
     --accent-color-theme2-fade-dark: fade(@theme2Dark, 35%);
-    --mermaid-accent-color-red-dark: @accentColorRedAltDark;
-    --mermaid-accent-color-red-alt-dark: @accentColorRedDark;
-    --mermaid-accent-color-orange-dark: @accentColorOrangeAltDark;
-    --mermaid-accent-color-orange-alt-dark: @accentColorOrangeDark;
-    --mermaid-accent-color-yellow-dark: @accentColorYellowAltDark;
-    --mermaid-accent-color-yellow-alt-dark: @accentColorYellowDark;
-    --mermaid-accent-color-green-dark: @accentColorGreenAltDark;
-    --mermaid-accent-color-green-alt-dark: @accentColorGreenDark;
-    --mermaid-accent-color-cyan-dark: @accentColorCyanAltDark;
-    --mermaid-accent-color-cyan-alt-dark: @accentColorCyanDark;
-    --mermaid-accent-color-blue-dark: @accentColorBlueAltDark;
-    --mermaid-accent-color-blue-alt-dark: @accentColorBlueDark;
-    --mermaid-accent-color-purple-dark: @accentColorPurpleAltDark;
-    --mermaid-accent-color-purple-alt-dark: @accentColorPurpleDark;
-    --mermaid-accent-color-pink-dark: @accentColorPinkAltDark;
-    --mermaid-accent-color-pink-alt-dark: @accentColorPinkDark;
-    --mermaid-accent-color-brown-dark: @accentColorBrownAltDark;
-    --mermaid-accent-color-brown-alt-dark: @accentColorBrownDark;
-    --mermaid-accent-color-gray-dark: @accentColorGrayAltDark;
-    --mermaid-accent-color-gray-alt-dark: @accentColorGrayDark;
+
+    --mermaid-color-red-dark: @mermaidColorRedAlt;
+    --mermaid-color-red-alt-dark: @mermaidColorRed;
+    --mermaid-color-orange-dark: @mermaidColorOrangeAlt;
+    --mermaid-color-orange-alt-dark: @mermaidColorOrange;
+    --mermaid-color-yellow-dark: @mermaidColorYellowAlt;
+    --mermaid-color-yellow-alt-dark: @mermaidColorYellow;
+    --mermaid-color-green-dark: @mermaidColorGreenAlt;
+    --mermaid-color-green-alt-dark: @mermaidColorGreen;
+    --mermaid-color-cyan-dark: @mermaidColorCyanAlt;
+    --mermaid-color-cyan-alt-dark: @mermaidColorCyan;
+    --mermaid-color-blue-dark: @mermaidColorBlueAlt;
+    --mermaid-color-blue-alt-dark: @mermaidColorBlue;
+    --mermaid-color-purple-dark: @mermaidColorPurpleAlt;
+    --mermaid-color-purple-alt-dark: @mermaidColorPurple;
+    --mermaid-color-pink-dark: @mermaidColorPinkAlt;
+    --mermaid-color-pink-alt-dark: @mermaidColorPink;
+    --mermaid-color-brown-dark: @mermaidColorBrownAlt;
+    --mermaid-color-brown-alt-dark: @mermaidColorBrown;
+    --mermaid-color-gray-dark: @mermaidColorGrayAlt;
+    --mermaid-color-gray-alt-dark: @mermaidColorGray;
     --cm-keyword-dark: #C88FD0;
     --cm-variable-dark: @foreColorDark;
     --cm-variable-2-dark: #9FBAD5;
@@ -342,35 +330,28 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --doc-bg-color-alt-transparent: var(--doc-bg-color-alt-transparent-light);
     --fore-color: var(--fore-color-light);
     --fore-color-alt: var(--fore-color-alt-light);
+
     --blockquote-color: var(--blockquote-color-light);
     --blockquote-bg: var(--blockquote-bg-light);
     --tips-bg-color: var(--tips-bg-color-light);
     --tips-bg-color-inset: var(--tips-bg-color-inset-light);
-    // --shadow-color: var(--shadow-color-light);
     --a-color: var(--a-color-light);
     --mark-color: var(--mark-color-light);
-    // --a-line-color: var(--a-line-color-light);
-    // --a-active-color: var(--a-active-color-light);
-    // --theme-bg-color-fade: var(--theme-bg-color-fade-light);
     --table-border-color: var(--table-border-color-light);
     --table-header-color: var(--table-header-color-light);
     --table-th-bg-color: var(--table-th-bg-color-light);
     --table-td-bg-color: var(--table-td-bg-color-light);
     --table-cell-border-color: var(--table-cell-border-color-light);
-    // --table-th-border-color: var(--table-th-border-color-light);
-    // --table-rowfolding-alpha: var(--table-rowfolding-alpha-light);
-    // --img-dark-filter: var(--img-dark-filter-light);
     --del-color: var(--del-color-light);
     --toc-header-num-color: var(--toc-header-num-color-light);
-    // --content-header-num-color: var(--content-header-num-color-light);
     --header-color: var(--header-color-light);
     --header-box-shadow: var(--header-box-shadow-light);
     --header-bg-start-color: var(--header-bg-start-color-light);
     --header-bg-end-color: var(--header-bg-end-color-light);
     --code-bg-color: var(--code-bg-color-light);
-    // --code-bg-color-transparent: var(--code-bg-color-transparent-light);
     --code-name-bg-color: var(--code-name-bg-color-light);
     --code-name-shadow-color: var(--code-name-shadow-color-light);
+
     --accent-color-red: var(--accent-color-red-light);
     --accent-color-red-alt: var(--accent-color-red-alt-light);
     --accent-color-red-fade: var(--accent-color-red-fade-light);
@@ -407,27 +388,27 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --accent-color-theme2: var(--accent-color-theme2-light);
     --accent-color-theme2-alt: var(--accent-color-theme2-alt-light);
     --accent-color-theme2-fade: var(--accent-color-theme2-fade-light);
-    // --accent-color-gray-alt: var(--accent-color-gray-alt-light);
-    --mermaid-accent-color-red: var(--mermaid-accent-color-red-light);
-    --mermaid-accent-color-red-alt: var(--mermaid-accent-color-red-alt-light);
-    --mermaid-accent-color-orange: var(--mermaid-accent-color-orange-light);
-    --mermaid-accent-color-orange-alt: var(--mermaid-accent-color-orange-alt-light);
-    --mermaid-accent-color-yellow: var(--mermaid-accent-color-yellow-light);;
-    --mermaid-accent-color-yellow-alt: var(--mermaid-accent-color-yellow-alt-light);
-    --mermaid-accent-color-green: var(--mermaid-accent-color-green-light);
-    --mermaid-accent-color-green-alt: var(--mermaid-accent-color-green-alt-light);
-    --mermaid-accent-color-cyan: var(--mermaid-accent-color-cyan-light);
-    --mermaid-accent-color-cyan-alt: var(--mermaid-accent-color-cyan-alt-light);
-    --mermaid-accent-color-blue: var(--mermaid-accent-color-blue-light);
-    --mermaid-accent-color-blue-alt: var(--mermaid-accent-color-blue-alt-light);
-    --mermaid-accent-color-purple: var(--mermaid-accent-color-purple-light);
-    --mermaid-accent-color-purple-alt: var(--mermaid-accent-color-purple-alt-light);
-    --mermaid-accent-color-pink: var(--mermaid-accent-color-pink-light);
-    --mermaid-accent-color-pink-alt: var(--mermaid-accent-color-pink-alt-light);
-    --mermaid-accent-color-brown: var(--mermaid-accent-color-brown-light);
-    --mermaid-accent-color-brown-alt: var(--mermaid-accent-color-brown-alt-light);
-    --mermaid-accent-color-gray: var(--mermaid-accent-color-gray-light);
-    --mermaid-accent-color-gray-alt: var(--mermaid-accent-color-gray-alt-light);
+
+    --mermaid-color-red: var(--mermaid-color-red-light);
+    --mermaid-color-red-alt: var(--mermaid-color-red-alt-light);
+    --mermaid-color-orange: var(--mermaid-color-orange-light);
+    --mermaid-color-orange-alt: var(--mermaid-color-orange-alt-light);
+    --mermaid-color-yellow: var(--mermaid-color-yellow-light);;
+    --mermaid-color-yellow-alt: var(--mermaid-color-yellow-alt-light);
+    --mermaid-color-green: var(--mermaid-color-green-light);
+    --mermaid-color-green-alt: var(--mermaid-color-green-alt-light);
+    --mermaid-color-cyan: var(--mermaid-color-cyan-light);
+    --mermaid-color-cyan-alt: var(--mermaid-color-cyan-alt-light);
+    --mermaid-color-blue: var(--mermaid-color-blue-light);
+    --mermaid-color-blue-alt: var(--mermaid-color-blue-alt-light);
+    --mermaid-color-purple: var(--mermaid-color-purple-light);
+    --mermaid-color-purple-alt: var(--mermaid-color-purple-alt-light);
+    --mermaid-color-pink: var(--mermaid-color-pink-light);
+    --mermaid-color-pink-alt: var(--mermaid-color-pink-alt-light);
+    --mermaid-color-brown: var(--mermaid-color-brown-light);
+    --mermaid-color-brown-alt: var(--mermaid-color-brown-alt-light);
+    --mermaid-color-gray: var(--mermaid-color-gray-light);
+    --mermaid-color-gray-alt: var(--mermaid-color-gray-alt-light);
     --cm-keyword: var(--cm-keyword-light);
     --cm-variable: var(--cm-variable-light);
     --cm-variable-2: var(--cm-variable-2-light);
@@ -2207,29 +2188,29 @@ svg[id^="mermaidChart"] {
 
 // 方角矩形
 .node rect[rx="0"][ry="0"] {
-    fill: var(--mermaid-accent-color-blue-alt) !important;
-    stroke: var(--mermaid-accent-color-blue) !important;
+    fill: var(--mermaid-color-blue-alt) !important;
+    stroke: var(--mermaid-color-blue) !important;
     stroke-width: 5px !important;
 }
 
 // 圆角矩形
 .node rect[rx="5"][ry="5"] {
-    fill: var(--mermaid-accent-color-blue-alt) !important;
-    stroke: var(--mermaid-accent-color-blue) !important;
+    fill: var(--mermaid-color-blue-alt) !important;
+    stroke: var(--mermaid-color-blue) !important;
     stroke-width: 1px !important;
 }
 
 // 圆形
 .node circle {
     fill: var(--doc-bg-color) !important;
-    stroke: var(--mermaid-accent-color-green) !important;
+    stroke: var(--mermaid-color-green) !important;
     stroke-width: 2px !important;
 }
 
 // 自定义：条件、分支的菱形
 .node polygon {
-    fill: var(--mermaid-accent-color-red-alt) !important;
-    stroke: var(--mermaid-accent-color-red) !important;
+    fill: var(--mermaid-color-red-alt) !important;
+    stroke: var(--mermaid-color-red) !important;
     stroke-width: 1px !important;
 }
 
@@ -2237,7 +2218,7 @@ svg[id^="mermaidChart"] {
 .node[id^="page"] polygon,
 .node[id^="flowchart-page"] polygon {
     fill: var(--doc-bg-color) !important;
-    stroke: var(--mermaid-accent-color-green) !important;
+    stroke: var(--mermaid-color-green) !important;
     stroke-width: 2px !important;
 }
 
@@ -2333,8 +2314,8 @@ g[id^=flowchart-INIT] .label div {
 // 与「初始」状态同级的所有矩形节点
 #INIT ~ g > rect,
 g[id^=flowchart-INIT] ~ g > rect {
-    fill: var(--mermaid-accent-color-purple-alt) !important;
-    stroke: var(--mermaid-accent-color-purple) !important;
+    fill: var(--mermaid-color-purple-alt) !important;
+    stroke: var(--mermaid-color-purple) !important;
     stroke-width: 3px !important;
 }
 
@@ -2350,8 +2331,8 @@ g[id^=flowchart-FINAL] circle {
 
 // 角色
 .actor {
-    stroke: var(--mermaid-accent-color-blue) !important;
-    fill: var(--mermaid-accent-color-blue-alt) !important;
+    stroke: var(--mermaid-color-blue) !important;
+    fill: var(--mermaid-color-blue-alt) !important;
     font-size: 1em !important;
     stroke-width: 1px !important;
 }
@@ -2386,7 +2367,7 @@ text.actor > tspan {
 
 // 角色生命线
 .actor-line {
-    stroke: var(--mermaid-accent-color-blue) !important;
+    stroke: var(--mermaid-color-blue) !important;
     stroke-width: 1px !important;
 }
 
@@ -2438,32 +2419,36 @@ text.actor > tspan {
 .activation0,
 .activation1,
 .activation2 {
-    fill: var(--mermaid-accent-color-blue-alt) !important;
+    fill: var(--mermaid-color-blue-alt) !important;
     stroke-width: 0 !important;
 }
 
 // 片断的类型标签背景
 .labelBox {
     stroke: none !important;
-    fill: var(--mermaid-accent-color-purple-alt) !important;
+    // fill: var(--mermaid-color-purple-alt) !important;
+    fill: var(--mermaid-color-purple-light) !important;
 }
 
 // 角标
-// 片断的标题文本
+// 片断的类型文本
 // .labelText tspan,
 .labelBox+.labelText {
-    fill: var(--mermaid-accent-color-purple) !important;
+    fill: var(--mermaid-color-purple-alt-light) !important;
+    // fill: var(--doc-bg-color) !important;
     font-size: 0.9em !important;
     font-family: @boldFont !important;
     font-weight: @fontWeight4Serif !important;
 }
 
-// 片断的类型标签文本
-.loopText tspan {
-    fill: var(--mermaid-accent-color-purple) !important;
-    font-size: 0.9em !important;
+// 片断的标题标签文本
+.loopText,
+.loopText > tspan {
+    fill: var(--fore-color) !important;
+    fill: var(--mermaid-color-purple-light) !important;
+    // font-size: 0.9em !important;
     font-family: @boldFont !important;
-    font-weight: normal !important;
+    font-weight: bold !important;
     // text-anchor: start !important;
 }
 
@@ -2471,14 +2456,15 @@ text.actor > tspan {
 .loopLine {
     stroke-width: 2px !important;
     stroke-dasharray: 3px, 3px !important;
-    stroke: var(--mermaid-accent-color-purple-alt) !important;
+    // stroke: var(--mermaid-color-purple-alt) !important;
+    stroke: var(--mermaid-color-purple-light) !important;
 }
 
 // 备注背景
 .note {
-    stroke: var(--mermaid-accent-color-yellow) !important;
+    stroke: var(--mermaid-color-yellow) !important;
     stroke-dasharray: 5px !important;
-    fill: var(--mermaid-accent-color-yellow-alt) !important;
+    fill: var(--mermaid-color-yellow-alt) !important;
 }
 
 // 备注文本
@@ -2498,8 +2484,8 @@ g.stateGroup circle {
 }
 g.stateGroup rect,
 g.stateGroup line {
-    fill: var(--mermaid-accent-color-blue-alt) !important;
-    stroke: var(--mermaid-accent-color-blue) !important;
+    fill: var(--mermaid-color-purple-alt) !important;
+    stroke: var(--mermaid-color-purple) !important;
 }
 g.stateGroup rect[height="7"] {
     fill: var(--fore-color) !important;
@@ -2524,8 +2510,8 @@ g.stateGroup text {
 }
 
 g.state-note {
-    fill: var(--mermaid-accent-color-gray-alt);
-    stroke: var(--mermaid-accent-color-gray);
+    fill: var(--mermaid-color-gray-alt);
+    stroke: var(--mermaid-color-gray);
 }
 
 /* ----- class diagram 类图 ----- */
@@ -2540,19 +2526,19 @@ g.classLabel .label {
 }
 
 g.classGroup rect {
-  fill: var(--mermaid-accent-color-blue-alt) !important;
-  stroke: var(--mermaid-accent-color-blue) !important;
+  fill: var(--mermaid-color-brown-alt) !important;
+  stroke: var(--mermaid-color-brown) !important;
 }
 
 g.classGroup line {
-  stroke: var(--mermaid-accent-color-blue) !important;
+  stroke: var(--mermaid-color-brown) !important;
   stroke-width: 1px !important;
 }
 
 g.classLabel .box {
   stroke: none !important;
   stroke-width: 0 !important;
-  fill: var(--mermaid-accent-color-blue-alt) !important;
+  fill: var(--mermaid-color-brown-alt) !important;
   opacity: 0.5 !important;
 }
 
@@ -2632,7 +2618,7 @@ div.mermaidTooltip {
 
 .today {
     fill: none;
-    stroke: var(--mermaid-accent-color-red) !important;
+    stroke: var(--mermaid-color-red) !important;
     stroke-width: 3px !important;
 }
 
@@ -2668,15 +2654,15 @@ div.mermaidTooltip {
 .active1,
 .active2,
 .active3 {
-    fill: var(--mermaid-accent-color-blue-alt) !important;
-    stroke: var(--mermaid-accent-color-blue) !important;
+    fill: var(--mermaid-color-blue-alt) !important;
+    stroke: var(--mermaid-color-blue) !important;
 }
 
 .activeText0,
 .activeText1,
 .activeText2,
 .activeText3 {
-    fill: var(--mermaid-accent-color-blue) !important;
+    fill: var(--mermaid-color-blue) !important;
 }
 
 /* 已完成的任务 */
@@ -2686,7 +2672,7 @@ div.mermaidTooltip {
 .done2,
 .done3 {
     stroke: none !important;
-    fill: var(--mermaid-accent-color-blue-alt) !important;
+    fill: var(--mermaid-color-blue-alt) !important;
     stroke-width: 2px !important;
     stroke-dasharray: 2px !important;
 }
@@ -2698,7 +2684,7 @@ div.mermaidTooltip {
 .task2,
 .task3 {
     fill: var(--doc-bg-color) !important;
-    stroke: var(--mermaid-accent-color-blue) !important;
+    stroke: var(--mermaid-color-blue) !important;
     stroke-dasharray: 2px !important;
 }
 
@@ -2732,8 +2718,8 @@ div.mermaidTooltip {
 .activeCrit1,
 .activeCrit2,
 .activeCrit3 {
-    stroke: var(--mermaid-accent-color-red) !important;
-    fill: var(--mermaid-accent-color-red-alt) !important;
+    stroke: var(--mermaid-color-red) !important;
+    fill: var(--mermaid-color-red-alt) !important;
     stroke-width: 2px !important;
 }
 
@@ -2741,7 +2727,7 @@ div.mermaidTooltip {
 .activeCritText1,
 .activeCritText2,
 .activeCritText3 {
-    fill: var(--mermaid-accent-color-red) !important;
+    fill: var(--mermaid-color-red) !important;
 }
 
 /* 已完成的关键路径任务 */
@@ -2751,7 +2737,7 @@ div.mermaidTooltip {
 .doneCrit2,
 .doneCrit3 {
     stroke: none !important;
-    fill: var(--mermaid-accent-color-red-alt) !important;
+    fill: var(--mermaid-color-red-alt) !important;
     stroke-width: 2px !important;
     cursor: pointer !important;
     shape-rendering: crispEdges !important;
@@ -2763,7 +2749,7 @@ div.mermaidTooltip {
 .crit1,
 .crit2,
 .crit3 {
-    stroke: var(--mermaid-accent-color-red) !important;
+    stroke: var(--mermaid-color-red) !important;
     fill: var(--doc-bg-color) !important;
     stroke-width: 2px !important;
     stroke-dasharray: 2px !important;
@@ -2791,6 +2777,14 @@ div.mermaidTooltip {
     font-family: @boldFont !important;
     font-weight: @fontWeight4Serif !important;
     fill: var(--fore-color) !important;
+}
+
+
+/* ----- entity 实体关系图 ----- */
+
+.entityBox {
+    fill: var(--mermaid-color-pink-alt) !important;
+    stroke: var(--mermaid-color-pink) !important;
 }
 
 /**************************************
@@ -3350,8 +3344,8 @@ li > p + ul {
 // }
 
 // 激光笔鼠标形状
-.mdx-cursor-pointer {
-    cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAAGXcA1uAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAGKADAAQAAAABAAAAGAAAAADB/VeXAAADi0lEQVRIDXWVO28UZxSGz7J2JEeJ5UCDskVmI4iJAghSQItLtzRIoUtPQ0vDb3D6/IUUNESRgBKBFAdcWICV/ZAgoQFbIGEpkpk8zzdzliGXI7977pf5bo4Y0Ei5rX9xcKh3HMB3qoznsxQ22lOnWgxXDSuxtaVjlgXOoHwPpuA2+NGqK+BGe/p02z54YKr4ITNWBhm3MP6E3hFRy+CT1DPjKoY1MAO3awZRF8FWO5m07dKS9W+As44Ij2/i+vWIy5cRo/FH65k+KifaQF/JHheJabq4uINxszowVCLyLMIUIFbS/zsoCHtaakIfuIbeAPnXwLn+AJuggFvg5zHBywjfAtt/F5PJ0bh27VBcujSKxcXl2N7+CvvHoIA3C/y8A9IMvIjd3Uncuxdx+HDEkyfV0fuqnCO55I4ipqABUgEWkrsVv4H3xHi2doShvaDsZtTQUW0kuX91VJyvMzD5PIFAx5qCBqQdc11SV6qSlVx0z+MFkAlyaSbMokJNWkBx7gtgDRjo5n0OXL1tUCmT7LAKDGzAeiwtjeP48YhXr8bx7NlJbEkFYdPdTDJpHOvrEVeudJhM9Lnr+hx9ORMaDZXcsPPnu407ckRTxlS5fjRS6XGy7vLGhiPlTv+JbwakAxNUGmDbR/Hw4SpArOTV/hUUMfIs8bPHbCaJX8Bj8CWQPNpPQfpd3o5IcjkbMO15gUsG3yGwHo95gh6ScrdVJUzxmKC3VePng4Q0yol0Qz8CDRjGWWSoz9D/wjAvij6nYWA1kp1TNX2UPOPSZtG0KUsF+AjuqSRl0PBzpzi/AC4s/bpDAW/AkEqvZDM3QJuYN8rLMJy6IcAm8mOAc8uJ/Dd5jD0GPhO+8g4zJ5TaxMvj/c2CzUB21yfcDVrQ4xi9PMVSHsqdnXHs75/A8inIBiNk4bu74xcs9k6Nw0be0K7wuXPd9ZCPCLt7N6K7Jjz69R+QscO1n6Fbb8EGfqaKExTQAMnrP67TvnzZTe3jKe1yZLXJOzLWfOtYPOmdN+e1np4Un6YCPxHPny/EzZsR9+93S+SHu0Rif99QB/QdKsDiNqlk7aqQ4plfBVPQ9IDNdV/EoyBfDid+AfyEAiwslR7qjyj+tjZAqUSjf54m/U3nrc0IqRPKSy9bTCpAeX5Ekd9/jkoS2dnIQnkf0p3c5vpLb/igcG/77wbpTE4Vj6EFh0vUYniTMf/H/waqhybg9DhG8AAAAABJRU5ErkJggg=="), auto !important;
+.mdx-cursor-laser {
+    cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAb1BMVEUAAAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AAD/AgH/Mxn/UCj/mUz/bjf/QSD/Fgv/JBL/JRP/tlv/fD7/bTf/bTYZRQO+AAAAGHRSTlMAFTdiSB5AJgxRLmpZcyf56svIknt/337xJiLtAAABQ0lEQVQ4y4WT63aDIBCEg8pFFDRqUvASTfT9n7FDS41HUt0fHo/zMYOwe9mVuByUIL7ER1UQSrXmXHNKiQgYyFzK6Kek5HTvAhkqYwmKMTBAAp0laZqj0jRhkdQgtrqT8ziOswyP3CEbD0G106Eq1TRKgfklhNcJlyzJIddVWRRlVQPJEyY5Ed5ARliffV2Nr+stg0ckvQXBBpx+N2vdHYEQ8meAAOXWP0Zrp4fzUAjxFoRKZ1Dj82iHth3siNfaWUhK1gRVYb1t+6WfWwuPSq0ZAFxCCYNhfnXdqx8mY0qX4QENIGsKY2DQPZ/d0lpjiiYDoL3DCiwO6FcgjOhdxPKO0OEm5+0mPfD+zSn8zf1BTdaOu4M6OmokbC/r9s9lnV83LPinhtFUHLUcdHLetFtCB20fDI4OBiccPR6M3unwntc3fToiq4uGipsAAAAASUVORK5CYII="), auto !important;
 }
 
 // 空白的鼠标形状
@@ -3809,18 +3803,18 @@ li > p + ul {
     z-index: 10;
 }
 
-// .mdx-toc-handle {
-//     position: fixed;
-//     display: block;
-//     top: 390px;
-//     left: 368px;
-//     width: 4px;
-//     height: 80px;
-//     background-color: var(--table-th-bg-color);
-//     border-radius: 2px;
-//     cursor: pointer;
-//     z-index: 2000;
-// }
+.mdx-toc-handle {
+    position: fixed;
+    display: none;
+    top: 390px;
+    left: 0;
+    width: 5px;
+    height: 100px;
+    background-color: var(--table-border-color);
+    border-radius: 0 5px 5px 0;
+    // cursor: pointer;
+    z-index: 2000;
+}
 
 .mdx-copyright {
     left: 0;
@@ -5123,69 +5117,82 @@ use.mdx-folder2-ico:active {
     color: @docBgColorLight;
     padding: 0.1em 0.5em;
     margin: 0 0.1em;
-    border-radius: var(--vlook-tag-radius);
+    // border-radius: var(--vlook-tag-radius);
+    border-radius: var(--vlook-tag-small-radius) var(--vlook-tag-radius) var(--vlook-tag-radius) var(--vlook-tag-radius);
     white-space: pre;
     box-shadow: 0 0 0 1px var(--code-name-shadow-color) inset;
     // text-shadow: 1px 1px 0 rgb(0, 0, 0, 0.3);
 }
 
 .mdx-tag-red {
-    background-color: var(--accent-color-red);
+    // background-color: var(--accent-color-red);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-red) 0.5em, var(--accent-color-red) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-red-light) inset;
 }
 
 .mdx-tag-orange {
-    background-color: var(--accent-color-orange);
+    // background-color: var(--accent-color-orange);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-orange) 0.5em, var(--accent-color-orange) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-orange-light) inset;
 }
 
 .mdx-tag-yellow {
-    background-color: var(--accent-color-yellow);
+    // background-color: var(--accent-color-yellow);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-yellow) 0.5em, var(--accent-color-yellow) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-yellow-light) inset;
 }
 
 .mdx-tag-green {
-    background-color: var(--accent-color-green);
+    // background-color: var(--accent-color-green);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-green) 0.5em, var(--accent-color-green) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-green-light) inset;
 }
 
 .mdx-tag-cyan {
-    background-color: var(--accent-color-cyan);
+    // background-color: var(--accent-color-cyan);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-cyan) 0.5em, var(--accent-color-cyan) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-cyan-light) inset;
 }
 
 .mdx-tag-blue {
-    background-color: var(--accent-color-blue);
+    // background-color: var(--accent-color-blue);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-blue) 0.5em, var(--accent-color-blue) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-blue-light) inset;
 }
 
 .mdx-tag-purple {
-    background-color: var(--accent-color-purple);
+    // background-color: var(--accent-color-purple);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-purple) 0.5em, var(--accent-color-purple) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-purple-light) inset;
 }
 
 .mdx-tag-pink {
-    background-color: var(--accent-color-pink);
+    // background-color: var(--accent-color-pink);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-pink) 0.5em, var(--accent-color-pink) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-pink-light) inset;
 }
 
 .mdx-tag-brown {
-    background-color: var(--accent-color-brown);
+    // background-color: var(--accent-color-brown);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-brown) 0.5em, var(--accent-color-brown) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-brown-light) inset;
 }
 
 .mdx-tag-gray {
-    background-color: var(--accent-color-gray);
+    // background-color: var(--accent-color-gray);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-gray) 0.5em, var(--accent-color-gray) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-gray-light) inset;
 }
 
 .mdx-tag-theme1 {
-    background-color: var(--accent-color-theme1);
+    // background-color: var(--accent-color-theme1);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-theme1) 0.5em, var(--accent-color-theme1) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-theme1-light) inset;
 }
 
 .mdx-tag-theme2 {
-    background-color: var(--accent-color-theme2);
+    // background-color: var(--accent-color-theme2);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-theme2) 0.5em, var(--accent-color-theme2) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-theme2-light) inset;
 }
 
@@ -5206,6 +5213,7 @@ use.mdx-folder2-ico:active {
     font-weight: normal;
     margin-right: 0;
     border-radius: var(--vlook-tag-radius) 0 0 var(--vlook-tag-radius);
+    // border-radius: var(--vlook-tag-small-radius) 0 0 var(--vlook-tag-radius);
     color: var(--doc-bg-color);
     background: var(--code-name-bg-color);
     padding: 0.1em 0.5em 0.1em 0.5em;
@@ -5242,6 +5250,7 @@ use.mdx-folder2-ico:active {
 
 // 药丸标签样式
 .mdx-tag-name-red {
+    // background: linear-gradient(135deg, var(--accent-color-red) 0.5em, var(--code-name-bg-color) 0.5em, var(--code-name-bg-color) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-red-light) inset;
 }
 .mdx-tag-value-red {
@@ -5251,6 +5260,7 @@ use.mdx-folder2-ico:active {
 
 // 药丸标签样式
 .mdx-tag-name-orange {
+    // background: linear-gradient(135deg, var(--accent-color-orange) 0.5em, var(--code-name-bg-color) 0.5em, var(--code-name-bg-color) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-orange-light) inset;
 }
 .mdx-tag-value-orange {
@@ -5260,6 +5270,7 @@ use.mdx-folder2-ico:active {
 
 // 药丸标签样式
 .mdx-tag-name-yellow {
+    // background: linear-gradient(135deg, var(--accent-color-yellow) 0.5em, var(--code-name-bg-color) 0.5em, var(--code-name-bg-color) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-yellow-light) inset;
 }
 .mdx-tag-value-yellow {
@@ -5269,6 +5280,7 @@ use.mdx-folder2-ico:active {
 
 // 药丸标签样式
 .mdx-tag-name-green {
+    // background: linear-gradient(135deg, var(--accent-color-green) 0.5em, var(--code-name-bg-color) 0.5em, var(--code-name-bg-color) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-green-light) inset;
 }
 .mdx-tag-value-green {
@@ -5278,6 +5290,7 @@ use.mdx-folder2-ico:active {
 
 // 药丸标签样式
 .mdx-tag-name-cyan {
+    // background: linear-gradient(135deg, var(--accent-color-cyan) 0.5em, var(--code-name-bg-color) 0.5em, var(--code-name-bg-color) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-cyan-light) inset;
 }
 .mdx-tag-value-cyan {
@@ -5287,6 +5300,7 @@ use.mdx-folder2-ico:active {
 
 // 药丸标签样式
 .mdx-tag-name-blue {
+    // background: linear-gradient(135deg, var(--accent-color-blue) 0.5em, var(--code-name-bg-color) 0.5em, var(--code-name-bg-color) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-blue-light) inset;
 }
 .mdx-tag-value-blue {
@@ -5296,6 +5310,7 @@ use.mdx-folder2-ico:active {
 
 // 药丸标签样式
 .mdx-tag-name-purple {
+    // background: linear-gradient(135deg, var(--accent-color-purple) 0.5em, var(--code-name-bg-color) 0.5em, var(--code-name-bg-color) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-purple-light) inset;
 }
 .mdx-tag-value-purple {
@@ -5305,6 +5320,7 @@ use.mdx-folder2-ico:active {
 
 // 药丸标签样式
 .mdx-tag-name-pink {
+    // background: linear-gradient(135deg, var(--accent-color-pink) 0.5em, var(--code-name-bg-color) 0.5em, var(--code-name-bg-color) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-pink-light) inset;
 }
 .mdx-tag-value-pink {
@@ -5314,6 +5330,7 @@ use.mdx-folder2-ico:active {
 
 // 药丸标签样式
 .mdx-tag-name-brown {
+    // background: linear-gradient(135deg, var(--accent-color-brown) 0.5em, var(--code-name-bg-color) 0.5em, var(--code-name-bg-color) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-brown-light) inset;
 }
 .mdx-tag-value-brown {
@@ -5323,6 +5340,7 @@ use.mdx-folder2-ico:active {
 
 // 药丸标签样式
 .mdx-tag-name-gray {
+    // background: linear-gradient(135deg, var(--accent-color-gray) 0.5em, var(--code-name-bg-color) 0.5em, var(--code-name-bg-color) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-gray-light) inset;
 }
 .mdx-tag-value-gray {
@@ -5332,6 +5350,7 @@ use.mdx-folder2-ico:active {
 
 // 药丸标签样式
 .mdx-tag-name-theme1 {
+    // background: linear-gradient(135deg, var(--accent-color-theme1) 0.5em, var(--code-name-bg-color) 0.5em, var(--code-name-bg-color) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-theme1-light) inset;
 }
 .mdx-tag-value-theme1 {
@@ -5341,6 +5360,7 @@ use.mdx-folder2-ico:active {
 
 // 药丸标签样式
 .mdx-tag-name-theme2 {
+    // background: linear-gradient(135deg, var(--accent-color-theme2) 0.5em, var(--code-name-bg-color) 0.5em, var(--code-name-bg-color) 100%);
     // box-shadow: 0 0 0 1px var(--accent-color-theme2-light) inset;
 }
 .mdx-tag-value-theme2 {
@@ -5706,10 +5726,6 @@ h6 code {
         background-color: var(--doc-bg-color-alt);
     }
 
-    .mdx-btn-open-in-new-tab {
-        display: none;
-    }
-
     .mdx-img-invert-dark {
         filter: none;
     }
@@ -5729,6 +5745,8 @@ h6 code {
     .mdx-bottom-tips,
     .mdx-more-doc-content,
     .mdx-link-error-list,
+    .mdx-btn-open-in-new-tab,
+    .mdx-toc-handle,
     .mdx-link-chk-result {
         display: none !important;
     }
@@ -5833,29 +5851,20 @@ h6 code {
         --blockquote-bg: var(--blockquote-bg-dark);
         --tips-bg-color: var(--tips-bg-color-dark);
         --tips-bg-color-inset: var(--tips-bg-color-inset-dark);
-        // --shadow-color: var(--shadow-color-dark);
         --a-color: var(--a-color-dark);
         --mark-color: var(--mark-color-dark);
-        // --a-line-color: var(--a-line-color-dark);
-        // --a-active-color: var(--a-active-color-dark);
-        // --theme-bg-color-fade: var(--theme-bg-color-fade-dark);
         --table-header-color: var(--table-header-color-dark);
         --table-border-color: var(--table-border-color-dark);
         --table-th-bg-color: var(--table-th-bg-color-dark);
         --table-td-bg-color: var(--table-td-bg-color-dark);
         --table-cell-border-color: var(--table-cell-border-color-dark);
-        // --table-th-border-color: var(--table-th-border-color-dark);
-        // --table-rowfolding-alpha: var(--table-rowfolding-alpha-dark);
-    // --img-dark-filter: var(--img-dark-filter-dark);
         --del-color: var(--del-color-dark);
         --toc-header-num-color: var(--toc-header-num-color-dark);
-        // --content-header-num-color: var(--content-header-num-color-dark);
         --header-color: var(--header-color-dark);
         --header-box-shadow: var(--header-box-shadow-dark);
         --header-bg-start-color: var(--header-bg-start-color-dark);
         --header-bg-end-color: var(--header-bg-end-color-dark);
         --code-bg-color: var(--code-bg-color-dark);
-        // --code-bg-color-transparent: var(--code-bg-color-transparent-dark);
         --code-name-bg-color: var(--code-name-bg-color-dark);
         --code-name-shadow-color: var(--code-name-shadow-color-dark);
         --accent-color-red: var(--accent-color-red-dark);
@@ -5894,26 +5903,26 @@ h6 code {
         --accent-color-theme2: var(--accent-color-theme2-dark);
         --accent-color-theme2-alt: var(--accent-color-theme2-alt-dark);
         --accent-color-theme2-fade: var(--accent-color-theme2-fade-dark);
-        --mermaid-accent-color-red: var(--mermaid-accent-color-red-dark);
-        --mermaid-accent-color-red-alt: var(--mermaid-accent-color-red-alt-dark);
-        --mermaid-accent-color-orange: var(--mermaid-accent-color-orange-dark);
-        --mermaid-accent-color-orange-alt: var(--mermaid-accent-color-orange-alt-dark);
-        --mermaid-accent-color-yellow: var(--mermaid-accent-color-yellow-dark);;
-        --mermaid-accent-color-yellow-alt: var(--mermaid-accent-color-yellow-alt-dark);
-        --mermaid-accent-color-green: var(--mermaid-accent-color-green-dark);
-        --mermaid-accent-color-green-alt: var(--mermaid-accent-color-green-alt-dark);
-        --mermaid-accent-color-cyan: var(--mermaid-accent-color-cyan-dark);
-        --mermaid-accent-color-cyan-alt: var(--mermaid-accent-color-cyan-alt-dark);
-        --mermaid-accent-color-blue: var(--mermaid-accent-color-blue-dark);
-        --mermaid-accent-color-blue-alt: var(--mermaid-accent-color-blue-alt-dark);
-        --mermaid-accent-color-purple: var(--mermaid-accent-color-purple-dark);
-        --mermaid-accent-color-purple-alt: var(--mermaid-accent-color-purple-alt-dark);
-        --mermaid-accent-color-pink: var(--mermaid-accent-color-pink-dark);
-        --mermaid-accent-color-pink-alt: var(--mermaid-accent-color-pink-alt-dark);
-        --mermaid-accent-color-brown: var(--mermaid-accent-color-brown-dark);
-        --mermaid-accent-color-brown-alt: var(--mermaid-accent-color-brown-alt-dark);
-        --mermaid-accent-color-gray: var(--mermaid-accent-color-gray-dark);
-        --mermaid-accent-color-gray-alt: var(--mermaid-accent-color-gray-alt-dark);
+        --mermaid-color-red: var(--mermaid-color-red-dark);
+        --mermaid-color-red-alt: var(--mermaid-color-red-alt-dark);
+        --mermaid-color-orange: var(--mermaid-color-orange-dark);
+        --mermaid-color-orange-alt: var(--mermaid-color-orange-alt-dark);
+        --mermaid-color-yellow: var(--mermaid-color-yellow-dark);;
+        --mermaid-color-yellow-alt: var(--mermaid-color-yellow-alt-dark);
+        --mermaid-color-green: var(--mermaid-color-green-dark);
+        --mermaid-color-green-alt: var(--mermaid-color-green-alt-dark);
+        --mermaid-color-cyan: var(--mermaid-color-cyan-dark);
+        --mermaid-color-cyan-alt: var(--mermaid-color-cyan-alt-dark);
+        --mermaid-color-blue: var(--mermaid-color-blue-dark);
+        --mermaid-color-blue-alt: var(--mermaid-color-blue-alt-dark);
+        --mermaid-color-purple: var(--mermaid-color-purple-dark);
+        --mermaid-color-purple-alt: var(--mermaid-color-purple-alt-dark);
+        --mermaid-color-pink: var(--mermaid-color-pink-dark);
+        --mermaid-color-pink-alt: var(--mermaid-color-pink-alt-dark);
+        --mermaid-color-brown: var(--mermaid-color-brown-dark);
+        --mermaid-color-brown-alt: var(--mermaid-color-brown-alt-dark);
+        --mermaid-color-gray: var(--mermaid-color-gray-dark);
+        --mermaid-color-gray-alt: var(--mermaid-color-gray-alt-dark);
         --cm-keyword: var(--cm-keyword-dark);
         --cm-variable: var(--cm-variable-dark);
         --cm-variable-2: var(--cm-variable-2-dark);
