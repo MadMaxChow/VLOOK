@@ -20,7 +20,7 @@ tags:
 >
 >VLOOK™ 是针对 ![Typora](https://s3.ax1x.com/2020/11/13/DpZXtI.png?mode=icon)[Typora](https://www.typora.io)[^Typora] （跨平台 Markdown 编辑器）的 **主题包** 和 **增强插件**（针对导出的 HTML 文件）。
 >
->VLOOK™ 属于开源软件（遵从 **MIT License**），也是 ![OSChina](https://s1.ax1x.com/2020/11/06/BWB3Xn.png?mode=icon)**[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源产品。
+>VLOOK™ 属于开源软件（遵从 **MIT License**），也是 ![OSChina](https://s1.ax1x.com/2020/11/06/BWB3Xn.png?mode=icon) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源产品。
 >
 >`>(theme1)`
 
@@ -36,9 +36,9 @@ tags:
 > > THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 > > ```
 >
-> [+] ![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?mode=icon&fill=text)**Markdown 是什么？**
+> [+] ![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark-solid.svg?mode=icon&fill=text) **Markdown 是什么？**
 >
-> > - 2004 年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了[![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?mode=icon&fill=text)Markdown](https://en.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的`文本标记语言`。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）；
+> > - 2004 年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了 [![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark-solid.svg?mode=icon&fill=text) Markdown](https://en.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的`文本标记语言`。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）；
 > >- Markdown 文档以`纯文本格式存储`，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过 Markdown 编辑器导出为带排版的富文本文档、HTML 网页等等。==纯粹、简洁、易用、灵活==，都是人们喜欢 Markdown 的原因；
 > > - 目前 Markdown 的标准化项目是 [CommonMark](http://commonmark.org)。
 > > 
@@ -73,11 +73,11 @@ tags:
 ## Step 1•下载与配置
 
 1. **下载插件：**
-   1. 从 VLOOK™ 在 ![Github](https://s1.ax1x.com/2020/11/11/BjMANq.png?mode=icon&darksrc=invert)**[GitHub](https://github.com/MadMaxChow/VLOOK/releases)** 或 ![Gitee](https://s1.ax1x.com/2020/11/06/BWBGmq.png?mode=icon)**[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)** 的主页下载最新发布的版本
+   1. 从 VLOOK™ 在 ![Github](https://s1.ax1x.com/2020/11/11/BjMANq.png?mode=icon&darksrc=invert) **[GitHub](https://github.com/MadMaxChow/VLOOK/releases)** 或 ![Gitee](https://s1.ax1x.com/2020/11/06/BWBGmq.png?mode=icon) **[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)** 的主页下载最新发布的版本
 2. **安装字体：（可选）**
    1. 下载并安装 VLOOK™ 主题配套字体包 •• 详见「[字体主题](#字体主题)」
 3. **安装 Typora：**
-   1. 下载并安装 ![Typora](https://s3.ax1x.com/2020/11/13/DpZXtI.png?mode=icon)[Typora](https://www.typora.io) 的最新版本
+   1. 下载并安装 ![Typora](https://s3.ax1x.com/2020/11/13/DpZXtI.png?mode=icon) [Typora](https://www.typora.io) 的最新版本
    2. 启动后进入「偏好设置」，并开启以下选项。详见下图：
 
 ![开启「偏好设置 ▸ Markdown」下的相关的选项](https://z3.ax1x.com/2021/03/28/cpkIFs.png?darksrc=cpkhwQ.png&srcset=cpkoYn.png@2x&darksrcset=cpk4oj.png@2x)
@@ -124,7 +124,7 @@ tags:
 
 > 为保障最佳的使用体验，强烈建议使用以下浏览器访问：
 >
-> ![Chrome](https://s3.ax1x.com/2021/01/20/sfwtQs.png?mode=icon)Google **[Chrome](https://www.google.cn/chrome/)**　　![Edge](https://s3.ax1x.com/2021/01/20/sfwGWQ.png?mode=icon)Microsoft **[Edge](https://www.microsoft.com/zh-cn/edge)**^(Chromium)^　　![Firefox](https://s3.ax1x.com/2021/01/20/sfwJzj.png?mode=icon)Mozilla **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
+> ![Chrome](https://s3.ax1x.com/2021/01/20/sfwtQs.png?mode=icon) Google **[Chrome](https://www.google.cn/chrome/)**　　![Edge](https://s3.ax1x.com/2021/01/20/sfwGWQ.png?mode=icon) Microsoft **[Edge](https://www.microsoft.com/zh-cn/edge)**^(Chromium)^　　![Firefox](https://s3.ax1x.com/2021/01/20/sfwJzj.png?mode=icon) Mozilla **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
 >
 > `>(brown)`
 
@@ -783,9 +783,9 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ###### 示例2：icon、icon2x 模式
 
-![VLOOK](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-light.svg?mode=icon&darksrc=vlook-dark.svg)**VLOOK™** 是 ![OSChina](https://s1.ax1x.com/2020/11/06/BWB3Xn.png?mode=icon)**[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
+![VLOOK](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-light.svg?mode=icon&darksrc=vlook-dark.svg) **VLOOK™** 是 ![OSChina](https://s1.ax1x.com/2020/11/06/BWB3Xn.png?mode=icon) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
 
-![VLOOK](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-light.svg?mode=icon2x&darksrc=vlook-dark.svg)**VLOOK™** 是 ![OSChina](https://s1.ax1x.com/2020/11/06/BWB3Xn.png?mode=icon2x)**[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
+![VLOOK](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-light.svg?mode=icon2x&darksrc=vlook-dark.svg) **VLOOK™** 是 ![OSChina](https://s1.ax1x.com/2020/11/06/BWB3Xn.png?mode=icon2x) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
 
 ###### 示例3：logo 模式
 
@@ -819,13 +819,13 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ###### 示例：链接内图片
 
-- 什么是[![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?mode=icon&fill=text)Markdown](https://en.wikipedia.org/wiki/Markdown)？
+- 什么是 [![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark-solid.svg?mode=icon&fill=text) Markdown](https://en.wikipedia.org/wiki/Markdown)？
 
 ###### 示例：正文图文混排
 
-- 替换为==文本的颜色==：![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?mode=icon&fill=text)Markdown 是一种专门针对网络写作的文本标记语言。
-- 替换为==主题的主色==：![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?mode=icon&fill=theme1)Markdown 是一种专门针对网络写作的文本标记语言。
-- 替换为==主题的辅助色==：![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?mode=icon&fill=theme2)Markdown 是一种专门针对网络写作的文本标记语言。
+- 替换为==文本的颜色==：![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark-solid.svg?mode=icon&fill=text) Markdown 是一种专门针对网络写作的文本标记语言。
+- 替换为==主题的主色==：![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark-solid.svg?mode=icon&fill=theme1) Markdown 是一种专门针对网络写作的文本标记语言。
+- 替换为==主题的辅助色==：![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark-solid.svg?mode=icon&fill=theme2) Markdown 是一种专门针对网络写作的文本标记语言。
 
 ###### 示例：彩虹引用及标题
 
@@ -1424,11 +1424,11 @@ end
 
 > ###### 所有注音均支持线上的扩展服务
 >
-> [+] 被注音的文字内容为**中文**，由[![汉典](https://www.zdic.net/images/logo.png?mode=icon)](https://www.zdic.net/?lnkcss=none)提供服务
+> [+] 被注音的文字内容为**中文**，由 [![汉典](https://www.zdic.net/images/logo.png?mode=icon)](https://www.zdic.net/?lnkcss=none) 提供服务
 >
 > > - 点击可打开「汉典」官网，显示对应的「文字内容」释义
 >
-> [+] 被注音的文字内容**不是中文**，由[![Google](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/google-logo.svg?mode=icon)•![翻译](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/google-translate.png?mode=icon)](https://translate.google.cn/?lnkcss=none)提供服务
+> [+] 被注音的文字内容**不是中文**，由 [![Google](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/google-logo.svg?mode=icon)•![翻译](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/google-translate.png?mode=icon)](https://translate.google.cn/?lnkcss=none) 提供服务
 >
 > > - 点击可打开「谷歌翻译」官网，自动对注音为日文「假名」部分进行**翻译**
 > > - 其他情况，则自动对「文字内容」进行翻译
@@ -1670,7 +1670,7 @@ void quickSort(int arr[], int left, int right) {
 
 `#VLOOK:#(theme1)` 所有 VLOOK™ 的主题都会自动根据浏览器或系统的 Dark Mode（深色模式）的设置进行自动适配。
 
-> 也可通过工具栏上的 ![Light Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-light-mode.png?mode=icon2x&darksrc=invert)/![Dark Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-dark-mode.png?mode=icon2x&darksrc=invert) 按钮进行手动切换
+> 也可通过工具栏上的 ![Light Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-light-mode.png?mode=icon2x&darksrc=invert) / ![Dark Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-dark-mode.png?mode=icon2x&darksrc=invert) 按钮进行手动切换
 
 > 若希望文档在显示后强制指定为 Light / Dark Mode ，可通过为 HTML 的 URL 添加 VLOOK™ 规范的参数来启用这一特性：
 >

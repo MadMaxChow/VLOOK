@@ -46,11 +46,11 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 ## Step 1•下载与配置
 
 1. **下载插件：**
-   1. 从 VLOOK™ 在 ![Github](https://s1.ax1x.com/2020/11/11/BjMANq.png?mode=icon&darksrc=invert)**[GitHub](https://github.com/MadMaxChow/VLOOK/releases)** 或 ![Gitee](https://s1.ax1x.com/2020/11/06/BWBGmq.png?mode=icon)**[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)** 的主页下载最新发布的版本
+   1. 从 VLOOK™ 在 **[GitHub](https://github.com/MadMaxChow/VLOOK/releases)** 或 **[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)** 的主页下载最新发布的版本
 2. **安装字体：（可选）**
    1. 下载并安装 VLOOK™ 主题配套字体包 •• 详见「[字体主题](#字体主题)」
 3. **安装 Typora：**
-   1. 下载并安装 ![Typora](https://s3.ax1x.com/2020/11/13/DpZXtI.png?mode=icon)[Typora](https://www.typora.io) 的最新版本
+   1. 下载并安装 **[Typora](https://www.typora.io)** 的最新版本
    2. 启动后进入「偏好设置」，并开启以下选项。详见下图：
 
 ![开启「偏好设置 ▸ Markdown」下的相关的选项」下的所有选项](https://z3.ax1x.com/2021/03/28/cpkIFs.png)
@@ -134,9 +134,9 @@ VLOOK™ 提供了两套字体风格，可根据个人喜好进行选用。
 
 VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的互联网化应用场景，在 **文档排版**、**内容导航**、**演示辅助**、**交互体验** 等方面提供了 **一致**、**简洁**、**友好** 的体验。
 
-> - 有关 VLOOK™ 特性的详细介绍、样例及使用说明详见《VLOOK™ 快速参考手册》••• [GitHub](https://madmaxchow.github.io/VLOOK/index.html) • [Gitee](https://madmaxchow.gitee.io/vlook/index.html)
+> - 有关 VLOOK™ 特性的详细介绍、样例及使用说明详见《VLOOK™ 快速参考手册》••• [GitHub](https://madmaxchow.github.io/VLOOK/index.html) •• [Gitee](https://madmaxchow.gitee.io/vlook/index.html)
 
-> - 有关脚本化图表的详细介绍、样例及使用说明详见《脚本化图表参考指南》••• [GitHub](https://madmaxchow.github.io/VLOOK/chart.html) • [Gitee](https://madmaxchow.gitee.io/vlook/chart.html)
+> - 有关脚本化图表的详细介绍、样例及使用说明详见《脚本化图表参考指南》••• [GitHub](https://madmaxchow.github.io/VLOOK/chart.html) •• [Gitee](https://madmaxchow.gitee.io/vlook/chart.html)
 
 ---
 
