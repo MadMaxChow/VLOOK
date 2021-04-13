@@ -9,8 +9,8 @@
 /**************************************
 * VLOOK CSS 调色板
 *
-* V10.2
-* 2021-04-09
+* V10.2.1
+* 2021-04-13
 * 配合 base.less 进行使用
 *
 ***************************************/
@@ -20,8 +20,8 @@
 /**************************************
  * VLOOK CSS 基础库
  *
- * V10.2
- * 2021-04-09
+ * V10.2.1
+ * 2021-04-13
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -77,11 +77,11 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 **************************************/
 :root {
   --vlook-theme-name: "vlook-owl";
-  --vlook-theme-version: "V10.2";
+  --vlook-theme-version: "V10.2.1";
   --vlook-default-font-style: sans;
   --vlook-color-scheme: light;
-  --vlook-toc-box-width: 350px;
-  --vlook-toc-box-hidden-left: -370px;
+  --vlook-toc-box-width: 360px;
+  --vlook-toc-box-hidden-left: -380px;
   --vlook-base-radius: 12px;
   --vlook-small-radius: 6px;
   --vlook-table-radius: 10px;
@@ -107,6 +107,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
   --table-th-bg-color-light: rgba(176, 180, 184, 0.4);
   --table-td-bg-color-light: rgba(176, 180, 184, 0.2);
   --table-cell-border-color-light: rgba(176, 180, 184, 0.3);
+  --table-rowgroup-alpha-light: 0.15;
   --del-color-light: #737c8f;
   --toc-header-num-color-light: rgba(24, 26, 30, 0.5);
   --header-color-light: #00A8BE;
@@ -212,6 +213,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
   --table-th-bg-color-dark: rgba(112, 116, 120, 0.4);
   --table-td-bg-color-dark: rgba(112, 116, 120, 0.2);
   --table-cell-border-color-dark: rgba(112, 116, 120, 0.3);
+  --table-rowgroup-alpha-dark: 0.4;
   --del-color-dark: #a5b1bd;
   --toc-header-num-color-dark: rgba(224, 228, 232, 0.5);
   --header-color-dark: #00A8BE;
@@ -317,6 +319,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
   --table-th-bg-color: var(--table-th-bg-color-light);
   --table-td-bg-color: var(--table-td-bg-color-light);
   --table-cell-border-color: var(--table-cell-border-color-light);
+  --table-rowgroup-alpha: var(--table-rowgroup-alpha-light);
   --del-color: var(--del-color-light);
   --toc-header-num-color: var(--toc-header-num-color-light);
   --header-color: var(--header-color-light);
@@ -472,8 +475,6 @@ img[data-vk-img-fill="theme2"] {
 img[src*="mode=icon"],
 svg[data-inject-url*="mode=icon"] {
   display: inline !important;
-  margin-left: 4px !important;
-  margin-right: 4px !important;
   height: 1.25em;
   width: auto;
   margin-top: -4px !important;
@@ -1041,7 +1042,7 @@ table tr > td:last-child {
 .mdx-table-rowfolding-folder {
   text-align: left !important;
 }
-td .mdx-table-rowfolding-not-folder {
+td.mdx-table-rowfolding-not-folder {
   text-align: left !important;
   padding-left: 50px !important;
 }
@@ -2780,7 +2781,7 @@ li > p + ul {
   color: #FFFFFF;
   cursor: pointer;
   padding: 0;
-  width: 38px;
+  width: 40px;
   height: 30px;
   border-radius: var(--vlook-small-radius);
 }
@@ -3059,7 +3060,7 @@ li > p + ul {
 }
 .mdx-btn-paragraph-nav {
   margin-right: 5px;
-  margin-left: 15px;
+  margin-left: 10px;
   float: right;
 }
 .mdx-btn-spotlight {
@@ -4160,6 +4161,7 @@ h6 code {
     --table-th-bg-color: var(--table-th-bg-color-dark);
     --table-td-bg-color: var(--table-td-bg-color-dark);
     --table-cell-border-color: var(--table-cell-border-color-dark);
+    --table-rowgroup-alpha-dark: var(--table-rowgroup-alpha-dark);
     --del-color: var(--del-color-dark);
     --toc-header-num-color: var(--toc-header-num-color-dark);
     --header-color: var(--header-color-dark);

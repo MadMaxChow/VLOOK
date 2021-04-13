@@ -1,9 +1,9 @@
 <!--========================================================================-->
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                           (!!! standalone !!!)                         -->
-<!--                                  V10.2                                 -->
+<!--                                  V10.2.1                                 -->
 <!--                                                                        -->
-<!--                               2021-04-09                               -->
+<!--                               2021-04-13                               -->
 <!--                           powered by MAX°孟兆                          -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -57,8 +57,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
  *
  * VLOOK.js - Typora Plugin
  *
- * V10.2
- * 2021-04-09
+ * V10.2.1
+ * 2021-04-13
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -106,7 +106,7 @@ theme
 
 **************************************/
 
-let vlookVersion = "V10.2";
+let vlookVersion = "V10.2.1";
 
 console.log(":::::::::::::::::::");
 console.log("!!! " + (vlookDevMode === true ? "- DEBUG -" : "RELEASED" ) + " !!!");
@@ -1158,8 +1158,8 @@ VLOOK.initKernel = function (colorScheme) {
 
     // 绑定文档的单击事件
     $(document).unbind("click").click(function () {
-        if (ExtTable.cellCross.lastTable !== undefined)
-            ExtTable.cellCross.hide(true);
+        if (CellCross.lastTable !== undefined)
+            CellCross.hide(true);
     });
 
     // 绑定文档的滚动事件
@@ -1767,7 +1767,7 @@ VLOOK.ui = {
                         iLinkChecker.hide();
                     }
 
-                    ExtTable.cellCross.hide(true);
+                    CellCross.hide(true);
 
                     // 拦截该按键事件，避免退出全屏（如：Safari）
                     window.event.returnValue = false;
@@ -1995,7 +1995,7 @@ VLOOK.print = {
 
         // 展开所有折叠的表格行
         $(".mdx-table-rowfolding-button").each(function () {
-            ExtTable.rowFolding.open($(this).parent().parent());
+            RowGroup.open($(this).parent().parent());
         });
 
         // 若存在「刮刮卡」内容，则先让用户确认是否显示
@@ -2208,7 +2208,7 @@ VLOOK.report = {
         statData += "&tbl-cell-merge=" + $("table[data-vk-cell-merge='true']").length;
 
         // 带行折叠的表格数
-        statData += "&tbl-row-folding=" + $("table[data-vk-row-folding='true']").length;
+        statData += "&tbl-row-folding=" + $("table[data-vk-row-group='true']").length;
 
         // 代码块数据
         statData += "&cb=" + $(".md-fences").length;
@@ -2941,6 +2941,16 @@ function Spotlight(radius, tips) {
 function OutlineNav(mask, searchToc) {
     this.ui = $(".mdx-toc-panel"); // 大纲面板主界面
     this.handle = $(".mdx-toc-handle"); // 大纲引导把手
+    this.icon = {
+        // 大纲章节图标：已收起
+        folded : '<svg width="16px" height="16px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoFolded" class="mdx-folder-ico"/></svg>',
+        // 大纲章节图标：已展开
+        unfold : '<svg width="16px" height="16px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoUnfold" class="mdx-folder-ico"/></svg>',
+        // 大纲图标：已打开
+        opened : '<svg width="20px" height="14px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoOutline-Opened" class="mdx-folder-ico"/></svg>',
+        // 大纲图标：已关闭
+        closed : '<svg width="20px" height="14px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoOutline-Closed" class="mdx-folder-ico"/></svg>'
+    };
 
     this.title = $(".mdx-toc-panel-title"); // 大纲面板标题
     let that = this;
@@ -2964,11 +2974,6 @@ function OutlineNav(mask, searchToc) {
     this.foldItems = []; // 非叶子章节集
     this.lastHeaderFolder = undefined; // 上一个非叶子章节
     this.lastHeaderLevel = 0; // 上一个章节的层级
-
-    // 大纲章节图标：已收起
-    this.iconFolded = '<svg width="16px" height="16px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoFolded" class="mdx-folder-ico"/></svg>';
-    // 大纲章节图标：已展开
-    this.iconUnfold = '<svg width="16px" height="16px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoUnfold" class="mdx-folder-ico"/></svg>';
 
     this.lastDocScrollTop = 0; // 记录最后一次文档滚动位置
 
@@ -3034,7 +3039,7 @@ function OutlineNav(mask, searchToc) {
                 this.foldItems.push(this.lastHeaderFolder);
 
                 // 为非叶子的章节添加折叠图标
-                let folder = this.lastHeaderFolder.html(this.iconUnfold);
+                let folder = this.lastHeaderFolder.html(this.icon.unfold);
                 folder.parent().attr({
                     "data-vk-node": "1", // 0:叶子, 1:目录
                     "data-vk-folded": "false" // true:收起， false:展开
@@ -3204,7 +3209,7 @@ function OutlineNav(mask, searchToc) {
             this.ui.addClass("mdx-float-card");
 
             // 若文档可视空间比大纲宽度要小，则进行微调
-            if ($(window).width() < this.width + 40)
+            if ($(window).width() < this.width + 20)
                 this.ui.css("width", $(window).width() - 20);
             // 若文档空间比大纲宽度大，则直接显示原始大小
             else
@@ -3402,14 +3407,14 @@ function OutlineNav(mask, searchToc) {
         // 若对应的章节已收起
         if (tocItem.attr("data-vk-folded") === "true") {
             tocItem.attr("data-vk-folded", "false");
-            folderIco.prop("outerHTML", this.iconUnfold);
+            folderIco.prop("outerHTML", this.icon.unfold);
 
             this.disposeFold(id, "expand", true);
         }
         // 若对应的章节已展开
         else {
             tocItem.attr("data-vk-folded", "true");
-            folderIco.prop("outerHTML", this.iconFolded);
+            folderIco.prop("outerHTML", this.icon.folded);
 
             this.disposeFold(id, "collect", true);
         }
@@ -3994,25 +3999,25 @@ function ParagraphNav(tips) {
         switch (code) {
             case 74: // J
                 // VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
-                ExtTable.cellCross.hide(true);
+                CellCross.hide(true);
                 if (this.next(1)) // 步长1
                     ExtQuote.autoUnfold(); // 自动展开引用
                 break;
             case 75: // K
                 // VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
-                ExtTable.cellCross.hide(true);
+                CellCross.hide(true);
                 if (this.prev(1)) // 步长1
                     ExtQuote.autoUnfold(); // 自动展开引用
                 break;
             case 72: // H
                 // VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
-                ExtTable.cellCross.hide(true);
+                CellCross.hide(true);
                 if (this.prev(10)) // 步长10，快速移动
                     ExtQuote.autoUnfold(); // 自动展开引用
                 break;
             case 76: // L
                 // VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
-                ExtTable.cellCross.hide(true);
+                CellCross.hide(true);
                 if (this.next(10)) // 步长10，快速移动
                     ExtQuote.autoUnfold(); // 自动展开引用
                 break;
@@ -4054,8 +4059,8 @@ ParagraphNav.init = function() {
                 // VLOOK.report.push(['ParagraphNav', 'Action', 'Mouse', 0]);
 
                 // 当前内容块内表格已显示十字光标
-                if (ExtTable.cellCross.checkFallWith($(this)) === false) {
-                    ExtTable.cellCross.hide(false);
+                if (CellCross.checkFallWith($(this)) === false) {
+                    CellCross.hide(false);
                     iParagraphNav.goto(item);
                     event.stopPropagation(); // 停止事件冒泡
                 }
@@ -5012,8 +5017,11 @@ function LinkChecker(mask) {
     this.ui = $(".mdx-link-error-list"); // 坏链列表
     this.result = $(".mdx-link-chk-result"); // 检查结果
 
-    this.iconError = '<svg width="20px" height="18px"><use class="mdx-svg-ico-light" xlink:href="#icoLinkError"></use></svg>';
-    this.iconClose = '<svg width="16px" height="16px"><use class="mdx-svg-ico-light" xlink:href="#icoClose"></use></svg>';
+    this.icon = {
+        error : '<svg width="20px" height="18px"><use class="mdx-svg-ico-light" xlink:href="#icoLinkError"></use></svg>',
+        close : '<svg width="16px" height="16px"><use class="mdx-svg-ico-light" xlink:href="#icoClose"></use></svg>'
+    }
+
     // 遮罩
     this.mask = mask;
     this.mask.bindPartner(this);
@@ -5071,12 +5079,12 @@ function LinkChecker(mask) {
         let that = this;
         if (badLink.length > 0) {
             this.result.addClass("mdx-link-result-error");
-            this.result.html(this.iconError);
+            this.result.html(this.icon.error);
             this.result.unbind("click").click(function () {
                 if (that.ui.css("display") === "none") {
                     that.mask.show();
                     that.ui.show();
-                    that.result.html(that.iconClose);
+                    that.result.html(that.icon.close);
                 }
                 else
                     that.hide();
@@ -5102,7 +5110,7 @@ function LinkChecker(mask) {
     this.hide = function () {
         this.ui.hide();
         this.mask.hide();
-        this.result.html(this.iconError);
+        this.result.html(this.icon.error);
         VLOOK.doc.scroll.unfreeze();
     }
 
@@ -6180,14 +6188,6 @@ ExtQuote.autoUnfold = function () {
 
 function ExtTable() {}
 
-ExtTable.checkboxSyntax = /^\[(\s|x|-)](\s.+)*/; // 复选框列格式语法
-
-// 单元格合并语法
-ExtTable.cellMergeSyntax = {
-    row : /^(:|\^\^)$/, // 行，纵向合并
-    col : /^(==|<<)$/ // 列，横向合并
-}
-
 /**
  * 初始化表格数据
  */
@@ -6223,7 +6223,7 @@ ExtTable.init = function () {
             // 根据显示时其对应表格的水平滚动的偏移量，调整十字光标的位置
             $("div.mdx-table-cross").each(function () {
                 $(this).css({
-                    "left": ExtTable.cellCross.lastCellPos[$(this).attr("data-vk-direction")] - scrollLeft
+                    "left": CellCross.lastCellPos[$(this).attr("data-vk-direction")] - scrollLeft
                 });
             });
         });
@@ -6246,11 +6246,11 @@ ExtTable.init = function () {
     stopwatch.lapStart();
     $("table[data-vk-cell-merge='true']").each(function () {
         let table = $(this);
-        cellMerge(table);
+        CellMerge.dispose(table);
 
         // 合并后，针对列头纵向合并的情况二次执行列格式处理
         table.find("thead > tr > th").each(function () {
-            ExtTable.columnFormatting.init(table, $(this));
+            ColumnFormatting.init(table, $(this));
         });
     });
     stopwatch.lapStop("    ├ Table/Merge: ");
@@ -6259,16 +6259,16 @@ ExtTable.init = function () {
     // 对表格单元格初始化处理中标记为带列格式的表格，进行列格式化处理
     stopwatch.lapStart();
     $("table[data-vk-column-formatting='true']").each(function () {
-        ExtTable.columnFormatting.format($(this));
+        ColumnFormatting.format($(this));
     });
     stopwatch.lapStop("    ├ Table/Column Format: ");
 
     // ----------------------------------------
     // 表格行折叠
     stopwatch.lapStart();
-    $("table[data-vk-row-folding='true']").each(function () {
+    $("table[data-vk-row-group='true']").each(function () {
         let table = $(this);
-        ExtTable.rowFolding.init(table);
+        RowGroup.init(table);
 
         // 修正目录行的首个单元格的缩进
         table.find("tr[data-vk-folder='true']").each(function () {
@@ -6315,8 +6315,8 @@ ExtTable.init = function () {
                 // 检测是否带合并单元格语法
                 if (needCheckCellMerge === true
                     && table.attr("data-vk-cell-merge") !== "true"
-                    && (ExtTable.cellMergeSyntax.row.test(cell.text()) === true
-                        || ExtTable.cellMergeSyntax.col.test(cell.text()) === true)) {
+                    && (CellMerge.syntax.row.test(cell.text()) === true
+                        || CellMerge.syntax.col.test(cell.text()) === true)) {
                     // 将表格标记为带合并单元格语法
                     table.attr("data-vk-cell-merge", "true");
                     needCheckCellMerge = false;
@@ -6324,7 +6324,7 @@ ExtTable.init = function () {
 
                 // 检测是否带列格式语法
                 if (needCheckColumnFormatting === true) {
-                    if (ExtTable.columnFormatting.init(table, cell) === true)
+                    if (ColumnFormatting.init(table, cell) === true)
                         needCheckColumnFormatting = false;
                 }
 
@@ -6335,7 +6335,7 @@ ExtTable.init = function () {
 
                 // ---------- 非列头的单元格十字光标处理 ----------
                 // 鼠标点击单元格时显示十字光标
-                ExtTable.cellCross.bind(table, cell);
+                CellCross.bind(table, cell);
             });
         });
 
@@ -6343,7 +6343,7 @@ ExtTable.init = function () {
         table.find("tbody > tr").each(function () {
             let colIndex = 0,
                 needCheckCellMerge = true,
-                needCheckRowFolding = true;
+                needCheckRowGroup = true;
 
             // 遍历单元格
             $(this).find("td").each(function () {
@@ -6353,21 +6353,21 @@ ExtTable.init = function () {
                 // 检测是否带合并单元格语法
                 if (needCheckCellMerge === true
                     && table.attr("data-vk-cell-merge") !== "true"
-                    && (ExtTable.cellMergeSyntax.row.test(cell.text()) === true
-                        || ExtTable.cellMergeSyntax.col.test(cell.text()) === true)) {
+                    && (CellMerge.syntax.row.test(cell.text()) === true
+                        || CellMerge.syntax.col.test(cell.text()) === true)) {
                     // 将表格标记为带合并单元格语法
                     table.attr("data-vk-cell-merge", "true");
                     needCheckCellMerge = false;
                 }
 
                 // 检测是否带行折叠语法
-                if (needCheckRowFolding === true
+                if (needCheckRowGroup === true
                     && colIndex === 0 // 只检测第 1 列
-                    && table.attr("data-vk-row-folding") !== "true"
-                    && ExtTable.rowFolding.syntaxTag.test(cell.text()) === true) {
+                    && table.attr("data-vk-row-group") !== "true"
+                    && RowGroup.syntax.tag.test(cell.text()) === true) {
                     // 将表格标记为带行折叠语法
-                    table.attr("data-vk-row-folding", "true");
-                    needCheckRowFolding = false;
+                    table.attr("data-vk-row-group", "true");
+                    needCheckRowGroup = false;
                 }
 
                 // 对于单元格的内容，都以 <mark> 标签包裹的，则转换为单元格的样式
@@ -6384,798 +6384,822 @@ ExtTable.init = function () {
 
                 // ---------- 列头的单元格十字光标处理 ----------
                 // 鼠标点击单元格时显示十字光标
-                ExtTable.cellCross.bind(table, cell);
+                CellCross.bind(table, cell);
             }); // find(th, td)
             // colIndex = 0;
         }); // find(tr)
     }
+}
 
-    /**
-     * 表格单元格合并
-     */
-    function cellMerge(table) {
-        let colSpanCount = 0,
-            colSpanCell = null,
-            colIndex = 0,
-            colCount = 0,
-            lastCell = null,
-            tblData = [],
-            tblSpan = [],
-            tblTd2ThData = [],
-            rowIndex = 0,
-            needRowSpan = false;
+// ==================== 表格单元格合并类 ==================== //
 
-        table.find("tr").each(function () {
-            tblData[rowIndex] = [];
-            tblSpan[rowIndex] = [];
-            let tr = $(this);
-            tr.find("td, th").each(function () {
-                let cell = $(this);
+function CellMerge() {}
 
-                // --- 行合并预处理 ---
-                // 克隆表格数据
-                tblData[rowIndex][colIndex] = cell;
-                tblSpan[rowIndex][colIndex] = 0;
-                if (ExtTable.cellMergeSyntax.row.test(cell.text()) === true) {
-                    tblSpan[rowIndex][colIndex] = 1;
-                    needRowSpan = true;
-                }
-                colIndex++;
-                colCount++;
-
-                // --- 列合并 ---
-                // 是列合并标记
-                if (ExtTable.cellMergeSyntax.col.test(cell.text()) === true) {
-                    colSpanCount++;
-                    cell.remove();
-                    if (colSpanCount === 1)
-                        colSpanCell = lastCell;
-                }
-                // 不是列标记，则进行最近列标记数据进行处理
-                else {
-                    if (colSpanCount > 0 && colSpanCell != null) {
-                        colSpanCell.attr("colspan", colSpanCount + 1);
-                        colSpanCell.css("text-align", "center");
-                    }
-                    colSpanCount = 0;
-                }
-                lastCell = cell;
-            }); // find(td, th)
-
-            // 如果列合并了所有列，则取消表格行号等样式
-            if (colCount === colSpanCount + 1) {
-                tr.addClass("mdx-table-colspan-all");
-                tr.children().css("padding-left", "5px");
-            }
-
-            // 列合并（对于最后一列的补充处理）
-            if (colSpanCount > 0 && colSpanCell != null) {
-                colSpanCell.attr("colspan", colSpanCount + 1);
-                colSpanCell.css("text-align", "center");
-            }
-            colSpanCount = 0;
-
-            rowIndex++;
-            colIndex = 0;
-            colCount = 0;
-        }); // tr
-
-        rowIndex = 0;
-
-        // 行合并
-        if (needRowSpan === true) {
-            tblTd2ThData = [];
-            // 列式遍历（从左到右）
-            for (let c = 0, len = tblSpan[0].length; c < len; c++) {
-                let rowSpanCount = 0,
-                    rowSpanCell = null;
-                let r = 0,
-                    thSpanFlag = false;
-
-                // 列式遍历（从上到下）
-                while (r < tblSpan.length) {
-                    if (tblSpan[r][c] === 1) { // 要合并
-                        rowSpanCount++;
-                        if (rowSpanCell == null) {
-                            rowSpanCell = tblData[r - 1][c];
-                        }
-                        // 记录最大列头行合并深度
-                        if (r === 1)
-                            thSpanFlag = true;
-                        if (thSpanFlag === true)
-                            tblTd2ThData[tblTd2ThData.length] = tblData[r][c].parent();
-                        tblData[r][c].remove(); // 移除要被合并的单元格
-
-                        // 后接的单元格会变成第 1 列，但不需要预留表格行号显示的空间
-                        if (c + 1 < tblSpan[r].length)
-                            tblData[r][c + 1].css("padding-left", "5px");
-                    } else {
-                        thSpanFlag = false;
-                        // 单元格行合并
-                        if (rowSpanCount > 0 && rowSpanCell != null) {
-                            rowSpanCell.attr("rowspan", rowSpanCount + 1);
-                            rowSpanCount = 0;
-                            rowSpanCell = null;
-                        }
-                    }
-                    r++;
-                } // while
-                // 单元格行合并（对于最后一行的补充处理）
-                if (rowSpanCount > 0 && rowSpanCell != null) {
-                    rowSpanCell.attr("rowspan", rowSpanCount + 1);
-                    rowSpanCell.css("text-align", "center");
-                }
-            } // for
-
-            // 处理列头的纵向合并（行合并）
-            for (let i = 0, len = tblTd2ThData.length; i < len; i++) {
-                tblData[0][0].parent().parent().append(tblTd2ThData[i]);
-                // 将 thead 内的 td 标签转换为 th
-                tblTd2ThData[i].find("td").each(function () {
-                    // 暂存 td 的属性数据
-                    let style = $(this).attr("style"),
-                        tblCol = $(this).attr("data-vk-tbl-col"),
-                        classValue = $(this).attr("class"),
-                        colspan = $(this).attr("data-vk-colspan");
-                    // 转换为 th 标签
-                    let th = $(this).contents().unwrap().wrap('<th/>');
-                    // 将暂存的 td 的属性数据，恢复到新标签中
-                    th.parent().attr("style", style);
-                    th.parent().attr("data-vk-tbl-col", tblCol);
-                    th.parent().attr("class", classValue);
-                    th.parent().attr("data-vk-colspan", colspan);
-                });
-            }
-        } // if
-
-        needRowSpan = false;
-    }
+// 单元格合并语法
+CellMerge.syntax = {
+    row : /^(:|\^\^)$/, // 行，纵向合并
+    col : /^(==|<<)$/ // 列，横向合并
 }
 
 /**
- * 表格单元格十字光标
+ * 表格单元格合并
  *
- * @param {table} 目标表格
+ * @param {table} 要进行单元格合并处理的表格对象
  */
-ExtTable.cellCross = {
-    // 最后/当前显示十字光标的表格
-    lastTable : undefined,
+CellMerge.dispose = function (table) {
+    let colSpanCount = 0,
+        colSpanCell = null,
+        colIndex = 0,
+        colCount = 0,
+        lastCell = null,
+        tblData = [],
+        tblSpan = [],
+        tblTd2ThData = [],
+        rowIndex = 0,
+        needRowSpan = false;
 
-    // 最后/当前显示十字光标的表格单元格
-    lastCell : undefined,
+    // 遍历表格行
+    table.find("tr").each(function () {
+        tblData[rowIndex] = [];
+        tblSpan[rowIndex] = [];
+        let tr = $(this);
+        tr.find("td, th").each(function () {
+            let cell = $(this);
 
-    // 表格十字光标四条边的位置
-    lastCellPos : {},
+            // --- 行合并预处理 ---
+            // 克隆表格数据
+            tblData[rowIndex][colIndex] = cell;
+            tblSpan[rowIndex][colIndex] = 0;
+            if (CellMerge.syntax.row.test(cell.text()) === true) {
+                tblSpan[rowIndex][colIndex] = 1;
+                needRowSpan = true;
+            }
+            colIndex++;
+            colCount++;
 
-    /**
-     * 绑定单元格，鼠标点击单元格时显示十字光标
-     *
-     * @param {table} 单元格所属表格对象
-     * @param {cell} 单元格对象
-     */
-    bind : function (table, cell) {
-        cell.unbind("click").click(function () {
-            VLOOK.report.push(['Interactive', 'Table', 'CellCross', 0]);
+            // --- 列合并 ---
+            // 是列合并标记
+            if (CellMerge.syntax.col.test(cell.text()) === true) {
+                colSpanCount++;
+                cell.remove();
+                if (colSpanCount === 1)
+                    colSpanCell = lastCell;
+            }
+            // 不是列标记，则进行最近列标记数据进行处理
+            else {
+                if (colSpanCount > 0 && colSpanCell != null) {
+                    colSpanCell.attr("colspan", colSpanCount + 1);
+                    colSpanCell.css("text-align", "center");
+                }
+                colSpanCount = 0;
+            }
+            lastCell = cell;
+        }); // find(td, th)
 
-            if (table.parent().parent().attr("data-vk-content-folded") === "true")
-                return;
-
-            ExtTable.cellCross.hide(false);
-            if (iParagraphNav !== undefined)
-                iParagraphNav.hide();
-
-            ExtTable.cellCross.lastCell = cell;
-            ExtTable.cellCross.lastTable = table;
-
-            let tdH = parseInt(ExtTable.cellCross.lastCell.css("height")),
-                tdW = parseInt(ExtTable.cellCross.lastCell.css("width")),
-                tbW = parseInt(ExtTable.cellCross.lastTable.css("width")),
-                scrollLeft = table.parent().parent().scrollLeft();
-
-            // 横向左边
-            let crossLeft = $(".mdx-table-cross-left"),
-                w = ExtTable.cellCross.lastCell.offset().left - ExtTable.cellCross.lastTable.offset().left;
-                crossLeft.css({
-                "top": ExtTable.cellCross.lastCell.offset().top,
-                "left": ExtTable.cellCross.lastTable.offset().left,
-                "height": tdH,
-                "width": w,
-                "z-index": 9
-            });
-            ExtTable.cellCross.adjust(crossLeft, w, scrollLeft);
-
-            // 横向右边
-            let crossRight = $(".mdx-table-cross-right");
-            w = ExtTable.cellCross.lastTable.offset().left + tbW - ExtTable.cellCross.lastCell.offset().left - tdW;
-            crossRight.css({
-                "top": ExtTable.cellCross.lastCell.offset().top,
-                "left": ExtTable.cellCross.lastCell.offset().left + tdW,
-                "height": tdH,
-                "width": w,
-                "z-index": 9
-            });
-            ExtTable.cellCross.adjust(crossRight, w, scrollLeft);
-
-            // 竖向上边
-            let crossUp = $(".mdx-table-cross-up"),
-                h = ExtTable.cellCross.lastCell.offset().top - ExtTable.cellCross.lastTable.offset().top;
-                crossUp.css({
-                "top": ExtTable.cellCross.lastTable.offset().top,
-                "left": ExtTable.cellCross.lastCell.offset().left,
-                "height": h,
-                "width": tdW,
-                "z-index": 9
-            });
-            ExtTable.cellCross.adjust(crossUp, h, scrollLeft);
-
-            // 竖向下边
-            let crossDown = $(".mdx-table-cross-down");
-            h = ExtTable.cellCross.lastTable.offset().top + parseInt(ExtTable.cellCross.lastTable.css("height")) -
-                ExtTable.cellCross.lastCell.offset().top - tdH;
-            crossDown.css({
-                "top": ExtTable.cellCross.lastCell.offset().top + tdH,
-                "left": ExtTable.cellCross.lastCell.offset().left,
-                "height": h,
-                "width": tdW,
-                "z-index": 9
-            });
-            ExtTable.cellCross.adjust(crossDown, h, scrollLeft);
-
-            event.stopPropagation(); // 停止事件冒泡
-        });
-    },
-
-    /**
-     * 适配调整表格十字光标位置、显示
-     *
-     * @param {target} 十字光标任意边的对象实例（左/右/上/下）
-     * @param {limit} 指定要进行隐藏判断的尺寸（宽度或高度），小于该值则不显示对应的 target
-     * @param {scrollLeft} 表格水平滚动的偏移量
-     */
-    adjust : function (target, limit, scrollLeft) {
-        if (limit < 5) // 任意边的尺寸（宽度或高度）小于最小值时隐藏
-            target.hide();
-        else {
-            // 动画式显示
-            if (VLOOK.ui.effect >= 2)
-                target.velocity("fadeIn", {
-                    duration: VLOOK.animate.speed
-                });
-            else
-                target.show();
+        // 如果列合并了所有列，则取消表格行号等样式
+        if (colCount === colSpanCount + 1) {
+            tr.addClass("mdx-table-colspan-all");
+            tr.children().css("padding-left", "5px");
         }
-        // 保存最后显示的十字光标任意边的 left 值及水平方向上的滚动偏移量
-        ExtTable.cellCross.lastCellPos[target.attr("data-vk-direction")] =  parseInt(target.css("left")) + scrollLeft;
-    },
 
-    /**
-     * 隐藏表格十字光标
-     *
-     * @param {animate} 隐藏的过程是否启用动画
-     */
-    hide : function (animate) {
-        if (ExtTable.cellCross.lastCell === undefined)
+        // 列合并（对于最后一列的补充处理）
+        if (colSpanCount > 0 && colSpanCell != null) {
+            colSpanCell.attr("colspan", colSpanCount + 1);
+            colSpanCell.css("text-align", "center");
+        }
+        colSpanCount = 0;
+
+        rowIndex++;
+        colIndex = 0;
+        colCount = 0;
+    }); // tr
+
+    rowIndex = 0;
+
+    // 行合并
+    if (needRowSpan === true) {
+        tblTd2ThData = [];
+        // 列式遍历（从左到右）
+        for (let c = 0, len = tblSpan[0].length; c < len; c++) {
+            let rowSpanCount = 0,
+                rowSpanCell = null;
+            let r = 0,
+                thSpanFlag = false;
+
+            // 列式遍历（从上到下）
+            while (r < tblSpan.length) {
+                if (tblSpan[r][c] === 1) { // 要合并
+                    rowSpanCount++;
+                    if (rowSpanCell == null) {
+                        rowSpanCell = tblData[r - 1][c];
+                    }
+                    // 记录最大列头行合并深度
+                    if (r === 1)
+                        thSpanFlag = true;
+                    if (thSpanFlag === true)
+                        tblTd2ThData[tblTd2ThData.length] = tblData[r][c].parent();
+                    tblData[r][c].remove(); // 移除要被合并的单元格
+
+                    // 后接的单元格会变成第 1 列，但不需要预留表格行号显示的空间
+                    if (c + 1 < tblSpan[r].length)
+                        tblData[r][c + 1].css("padding-left", "5px");
+                } else {
+                    thSpanFlag = false;
+                    // 单元格行合并
+                    if (rowSpanCount > 0 && rowSpanCell != null) {
+                        rowSpanCell.attr("rowspan", rowSpanCount + 1);
+                        rowSpanCount = 0;
+                        rowSpanCell = null;
+                    }
+                }
+                r++;
+            } // while
+            // 单元格行合并（对于最后一行的补充处理）
+            if (rowSpanCount > 0 && rowSpanCell != null) {
+                rowSpanCell.attr("rowspan", rowSpanCount + 1);
+                rowSpanCell.css("text-align", "center");
+            }
+        } // for
+
+        // 处理列头的纵向合并（行合并）
+        for (let i = 0, len = tblTd2ThData.length; i < len; i++) {
+            tblData[0][0].parent().parent().append(tblTd2ThData[i]);
+            // 将 thead 内的 td 标签转换为 th
+            tblTd2ThData[i].find("td").each(function () {
+                // 暂存 td 的属性数据
+                let style = $(this).attr("style"),
+                    tblCol = $(this).attr("data-vk-tbl-col"),
+                    classValue = $(this).attr("class"),
+                    colspan = $(this).attr("data-vk-colspan");
+                // 转换为 th 标签
+                let th = $(this).contents().unwrap().wrap('<th/>');
+                // 将暂存的 td 的属性数据，恢复到新标签中
+                th.parent().attr("style", style);
+                th.parent().attr("data-vk-tbl-col", tblCol);
+                th.parent().attr("class", classValue);
+                th.parent().attr("data-vk-colspan", colspan);
+            });
+        }
+    } // if
+
+    needRowSpan = false;
+}
+
+// ==================== 表格列格式化类 ==================== //
+
+function CellCross() {}
+
+// 最后/当前显示十字光标的表格
+CellCross.lastTable = undefined;
+
+// 最后/当前显示十字光标的表格单元格
+CellCross.lastCell = undefined;
+
+// 表格十字光标四条边的位置
+CellCross.lastCellPos = {};
+
+/**
+ * 绑定单元格，鼠标点击单元格时显示十字光标
+ *
+ * @param {table} 单元格所属表格对象
+ * @param {cell} 单元格对象
+ */
+CellCross.bind = function (table, cell) {
+    cell.unbind("click").click(function () {
+        VLOOK.report.push(['Interactive', 'Table', 'CellCross', 0]);
+
+        if (table.parent().parent().attr("data-vk-content-folded") === "true")
             return;
 
-        if (animate === true) {
-            // 动画式显示
-            if (VLOOK.ui.effect >= 2)
-                $(".mdx-table-cross").velocity("fadeOut", {
-                    duration: VLOOK.animate.speed
-                });
-            else
-                $(".mdx-table-cross").hide();
-        }
+        CellCross.hide(false);
+        if (iParagraphNav !== undefined)
+            iParagraphNav.hide();
+
+        CellCross.lastCell = cell;
+        CellCross.lastTable = table;
+
+        let tdH = parseInt(CellCross.lastCell.css("height")),
+            tdW = parseInt(CellCross.lastCell.css("width")),
+            tbW = parseInt(CellCross.lastTable.css("width")),
+            scrollLeft = table.parent().parent().scrollLeft();
+
+        // 横向左边
+        let crossLeft = $(".mdx-table-cross-left"),
+            w = CellCross.lastCell.offset().left - CellCross.lastTable.offset().left;
+            crossLeft.css({
+            "top": CellCross.lastCell.offset().top,
+            "left": CellCross.lastTable.offset().left,
+            "height": tdH,
+            "width": w,
+            "z-index": 9
+        });
+        CellCross.adjust(crossLeft, w, scrollLeft);
+
+        // 横向右边
+        let crossRight = $(".mdx-table-cross-right");
+        w = CellCross.lastTable.offset().left + tbW - CellCross.lastCell.offset().left - tdW;
+        crossRight.css({
+            "top": CellCross.lastCell.offset().top,
+            "left": CellCross.lastCell.offset().left + tdW,
+            "height": tdH,
+            "width": w,
+            "z-index": 9
+        });
+        CellCross.adjust(crossRight, w, scrollLeft);
+
+        // 竖向上边
+        let crossUp = $(".mdx-table-cross-up"),
+            h = CellCross.lastCell.offset().top - CellCross.lastTable.offset().top;
+            crossUp.css({
+            "top": CellCross.lastTable.offset().top,
+            "left": CellCross.lastCell.offset().left,
+            "height": h,
+            "width": tdW,
+            "z-index": 9
+        });
+        CellCross.adjust(crossUp, h, scrollLeft);
+
+        // 竖向下边
+        let crossDown = $(".mdx-table-cross-down");
+        h = CellCross.lastTable.offset().top + parseInt(CellCross.lastTable.css("height")) -
+            CellCross.lastCell.offset().top - tdH;
+        crossDown.css({
+            "top": CellCross.lastCell.offset().top + tdH,
+            "left": CellCross.lastCell.offset().left,
+            "height": h,
+            "width": tdW,
+            "z-index": 9
+        });
+        CellCross.adjust(crossDown, h, scrollLeft);
+
+        event.stopPropagation(); // 停止事件冒泡
+    });
+}
+
+/**
+ * 适配调整表格十字光标位置、显示
+ *
+ * @param {target} 十字光标任意边的对象实例（左/右/上/下）
+ * @param {limit} 指定要进行隐藏判断的尺寸（宽度或高度），小于该值则不显示对应的 target
+ * @param {scrollLeft} 表格水平滚动的偏移量
+ */
+CellCross.adjust = function (target, limit, scrollLeft) {
+    if (limit < 5) // 任意边的尺寸（宽度或高度）小于最小值时隐藏
+        target.hide();
+    else {
+        // 动画式显示
+        if (VLOOK.ui.effect >= 2)
+            target.velocity("fadeIn", {
+                duration: VLOOK.animate.speed
+            });
+        else
+            target.show();
+    }
+    // 保存最后显示的十字光标任意边的 left 值及水平方向上的滚动偏移量
+    CellCross.lastCellPos[target.attr("data-vk-direction")] =  parseInt(target.css("left")) + scrollLeft;
+}
+
+/**
+ * 隐藏表格十字光标
+ *
+ * @param {animate} 隐藏的过程是否启用动画
+ */
+CellCross.hide = function (animate) {
+    if (CellCross.lastCell === undefined)
+        return;
+
+    if (animate === true) {
+        // 动画式显示
+        if (VLOOK.ui.effect >= 2)
+            $(".mdx-table-cross").velocity("fadeOut", {
+                duration: VLOOK.animate.speed
+            });
         else
             $(".mdx-table-cross").hide();
-
-        ExtTable.cellCross.lastCell = undefined;
-        ExtTable.cellCross.lastTable = undefined;
-    },
-
-    /**
-     * 判断当前内容块是否与已显示了十字光标的表格重叠
-     */
-    checkFallWith : function (target) {
-        return (ExtTable.cellCross.lastTable !== undefined
-            && target.children().attr("id") === ExtTable.cellCross.lastTable.attr("id"));
     }
+    else
+        $(".mdx-table-cross").hide();
+
+    CellCross.lastCell = undefined;
+    CellCross.lastTable = undefined;
 }
 
 /**
- * 表格整列格式化
- */
-ExtTable.columnFormatting = {
-    /**
-     * 初始化
-     *
-     * @param {table} 表格对象
-     * @param {cell} 单元格对象
-     */
-    init : function (table, cell) {
-        if (table.attr("data-vk-column-formatting") !== "true"
-            && (cell.find("strong, em, u, mark, del").length > 0 // 普通列格式
-                || cell.css("text-align") === "right" // 右对齐表示使用数值格式
-                || ExtTable.checkboxSyntax.test(cell.text()) === true)) {
-            // 将表格标记为带列格式语法
-            table.attr("data-vk-column-formatting", "true");
-            return true; // 匹配到列格式
-        }
-        return false; // 未匹配到列格式
-    },
+ * 判断当前内容块是否与已显示了十字光标的表格重叠
+ *
+ * @param {target} 内容块对象
+*/
+CellCross.checkFallWith = function (target) {
+    return (CellCross.lastTable !== undefined
+        && target.children().attr("id") === CellCross.lastTable.attr("id"));
+}
 
-    /**
-     * 返回表格内所有非合并的同列单元格对象集合
-     *
-     * @param {th} 列头单元格对象
-     * @param {cells} 集合变量
-     */
-    getCells : function (th, cells) {
-        if (cells === undefined)
-            cells = $("[data-vk-colspan!='true'][data-vk-tbl-col='" + th.attr("data-vk-tbl-col") + "']");
-        return cells;
-    },
+// ==================== 表格列格式化类 ==================== //
 
-    /**
-     * 返回表格 tbody 内的同列单元格对象集合
-     *
-     * @param {th} 列头单元格对象
-     * @param {tbodyCells} 集合变量
-     */
-    getTbodyCells : function (th, tbodyCells) {
-        if (tbodyCells === undefined)
-            tbodyCells = $("tbody [data-vk-tbl-col='" + th.attr("data-vk-tbl-col") + "']");
-        return tbodyCells;
-    },
+function ColumnFormatting() {}
 
-    /**
-     * 列格式化
-     *
-     * @param {table} 表格对象
-     */
-    format : function (table) {
-        table.find("thead th, thead td").each(function () {
-            let th = $(this),
-                cells = undefined,
-                tbodyCells = undefined,
-                cellsCSS = "";
-
-            // 粗体
-            if (th.find("strong:first-child").length > 0) {
-                cells = ExtTable.columnFormatting.getCells(th, cells);
-                cellsCSS += "mdx-table-column-format-bold ";
-            }
-            // 斜体
-            if (th.find("em:first-child").length > 0) {
-                cells = ExtTable.columnFormatting.getCells(th, cells);
-                cellsCSS += "mdx-table-column-format-em ";
-            }
-            // 高亮
-            if (th.find("mark:first-child").length > 0
-                || th.attr("class") !== undefined
-                && th.attr("class").indexOf("mdx-table-column-format-mark") > -1) {
-                $("[data-vk-tbl-col='" + th.attr("data-vk-tbl-col") + "']").find("mark").children().unwrap();
-                cells = ExtTable.columnFormatting.getCells(th, cells);
-                cellsCSS += "mdx-table-column-format-mark ";
-            }
-            // 批量添加以上列样式
-            if (cellsCSS.length > 0)
-                cells.addClass(cellsCSS);
-
-            // 下划线
-            if (th.find("u:first-child").length > 0) {
-                tbodyCells = ExtTable.columnFormatting.getTbodyCells(th, tbodyCells);
-                tbodyCells.contents().wrap("<u></u>");
-            }
-
-            // 删除线
-            if (th.find("del:first-child").length > 0) {
-                tbodyCells = ExtTable.columnFormatting.getTbodyCells(th, tbodyCells);
-                tbodyCells.contents().wrap("<del></del>");
-            }
-
-            // 复选框
-            if (ExtTable.checkboxSyntax.test(th.text()) === true) {
-                cells = ExtTable.columnFormatting.getCells(th, cells);
-                cells.addClass("mdx-table-column-format-checkbox");
-
-                // 删除列头的复选框语法
-                ExtTable.columnFormatting.removeCheckboxSyntax(th);
-
-                tbodyCells = ExtTable.columnFormatting.getTbodyCells(th, tbodyCells);
-                tbodyCells.each(function () {
-                    let ce = $(this),
-                        syntaxText = ce.text(),
-                        chkStatus = "uncheck",
-                        chkStyle = "dark";
-
-                    // 移除单元格的复选框语法内容
-                    ExtTable.columnFormatting.removeCheckboxSyntax(ce);
-
-                    // 指定为 checked- 已选择
-                    if (syntaxText.startsWith("[x]"))
-                        chkStatus = "checked";
-                    // 指定为 indeterminate - 不确定选择
-                    else if (syntaxText.startsWith("[-]"))
-                        chkStatus = "indeterminate";
-                    // 无指定
-                    else
-                        ce.replaceHTML("&nbsp;", "");
-
-                    // 添加复选框样式
-                    ce.prepend("<svg width='14px' height='14px' style='display: inline-block; vertical-align: middle; margin-top: -4px;'><use xlink:href='#icoCheckbox_"
-                        + chkStatus + "' class='mdx-svg-ico-" + chkStyle + "'/></svg>");
-                });
-            }
-
-            // 数值格式
-            if (th.css("text-align") === "right") {
-                tbodyCells = ExtTable.columnFormatting.getTbodyCells(th, tbodyCells);
-                // 设置为等宽字体
-                tbodyCells.addClass("mdx-table-column-format-number");
-                // 数值格式化处理
-                tbodyCells.each(function () {
-                    let ce = $(this),
-                        text = ce.text();
-                    // 内容为数值
-                    if (text.isNumber()) {
-                        // 添加千位符
-                        ce.html(VLOOK.formatting.decimal( // 添加千位符
-                            VLOOK.formatting.thousands(ce.html()))); // 对小数进行格式化处理
-                        // 根据正负号进行着色处理
-                        ExtTable.columnFormatting.coloringNumber(ce, text, true);
-                    }
-                    // 内容为百分数
-                    else if (text.isPercent()) {
-                        // 对小数进行处理
-                        ce.html(VLOOK.formatting.percent( // 对小数进行处理
-                            VLOOK.formatting.decimal(ce.html()))); // 对百分数进行格式化处理
-                        // 根据正负号进行着色处理
-                        let coloring = ExtTable.columnFormatting.coloringNumber(ce, text, true),
-                            percent = text.replace(/(-|\+|\s)/g, ""),
-                            percentValue = Math.round(percent.replace("%", "")),
-                            bg1 = "rgba(128, 128, 128, 0.1)",
-                            bg2 = "rgba(128, 128, 128, 0.4)",
-                            bgSplit = "rgba(128, 128, 128, 0.8)";
-                        // 对有首色的进行渐变颜色调整
-                        if (coloring === true) {
-                            let baseBg = ce.css("color").replace("rgb", "rgba");
-                            bg1 = baseBg.replace(")", ", 0.05)");
-                            bg2 = baseBg.replace(")", ", 0.2)");
-                            bgSplit = baseBg.replace(")", ", 0.7)");
-                        }
-                        // 根据百分比生成渐变背景色、最小宽度
-                        ce.css({
-                            "background": "linear-gradient(90deg, " + bg1 + " 0%, " + bg2 + " " + (percentValue > 1 ? percentValue - 1 : 0)
-                            + "%, " + bgSplit + " " + percent
-                            + ", transparent " + percent + ")",
-                            "min-width": "100px"
-                        });
-                        // 对 +/- 符号进行处理
-                        ce.html(ce.html().replace(">+", ">▴ ").replace(">-", ">▾ "));
-                    }
-                    // 内容为货币
-                    else if (text.isCurrency()) {
-                        // 对货币符号进行格式货
-                        ce.html(VLOOK.formatting.decimal( // 对货币符号进行格式货
-                            VLOOK.formatting.thousands( // 添加千位符
-                                VLOOK.formatting.currency(ce.html())))); // 对小数进行格式化处理
-                        // 根据正负号进行着色处理
-                        ExtTable.columnFormatting.coloringNumber(ce, text, false);
-                    }
-                });
-            } // 数值格式
-
-            // 标记单元格是否为横向合并，横向合并的单元不应用列格式
-            if (th.attr("colspan") !== undefined)
-                th.attr("data-vk-colspan", "true");
-            else
-                th.attr("data-vk-colspan", "false");
-        });
-    },
-
-    /**
-     * 根据数值的正、负号进行着色处理
-     *
-     * @param {target} 着色的对象
-     * @param {text} 依据的数值文本
-     * @param {mode} 正负号位置模式，true：在开头，false: 在任意位置
-     *
-     * @return 着色结果，true：有着色，false：没有着色
-     */
-    coloringNumber : function (target, text, mode) {
-        // 正、负号在文本的开头
-        if (mode === true) {
-            if (text.startsWith("-")) {
-                target.addClass("mdx-table-column-format-number-negative");
-                return true;
-            }
-            else if (text.startsWith("+")) {
-                target.addClass("mdx-table-column-format-number-positive");
-                return true;
-            }
-        }
-        // 正、负号在文本的任意位置
-        else {
-            if (text.indexOf("-") > -1) {
-                target.addClass("mdx-table-column-format-number-negative");
-                return true;
-            }
-            else if (text.indexOf("+") > -1) {
-                target.addClass("mdx-table-column-format-number-positive");
-                return true;
-            }
-        }
-        return false;
-    },
-
-    /**
-     * 移除复选框的语法内容
-     */
-     removeCheckboxSyntax : function (target) {
-        target.replaceHTML(/\[(\s|x|-)]\s*/, "");
-    }
+ColumnFormatting.syntax = {
+    checkbox : /^\[(\s|x|-)](\s.+)*/ // 复选框列格式语法
 }
 
 /**
- * 表格行折叠处理
+ * 初始化
+ *
+ * @param {table} 表格对象
+ * @param {cell} 单元格对象
  */
-ExtTable.rowFolding = {
-    folderCount : 0, // 折叠行内目录行类型的数量
-    syntaxTag : /^>+(\s)./, // 用于匹配行折叠语法
-    syntaxTag2Replace : /(&gt;)+(\s)/, // 用于匹配将行折叠语法替换为指定字符
-    spliter : "> ", // 行折叠语法与内容的分隔标识
-    parentStack : [], // 上级行的堆栈
-    colorStack : [], // 不同分组的背景颜色堆栈
+ColumnFormatting.init = function (table, cell) {
+    if (table.attr("data-vk-column-formatting") !== "true"
+        && (cell.find("strong, em, u, mark, del").length > 0 // 普通列格式
+            || cell.css("text-align") === "right" // 右对齐表示使用数值格式
+            || ColumnFormatting.syntax.checkbox.test(cell.text()) === true)) {
+        // 将表格标记为带列格式语法
+        table.attr("data-vk-column-formatting", "true");
+        return true; // 匹配到列格式
+    }
+    return false; // 未匹配到列格式
+}
 
-    // 表格折叠行图标：已收起
-    iconClosed : '<svg width="12px" height="12px" style="display: inline-block; vertical-align: middle; margin-top: -4px; margin-right: 5px;"><use xlink:href="#icoTableRowClosed" class="mdx-folder2-ico"/></svg>',
-    // 表格折叠行图标：已展开
-    iconOpened : '<svg width="12px" height="12px" style="display: inline-block; vertical-align: middle; margin-top: -4px; margin-right: 5px;"><use xlink:href="#icoTableRowOpened" class="mdx-folder2-ico"/></svg>',
+/**
+ * 返回表格内所有非合并的同列单元格对象集合
+ *
+ * @param {th} 列头单元格对象
+ * @param {cells} 集合变量
+ */
+ColumnFormatting.getCells = function (th, cells) {
+    if (cells === undefined)
+        cells = $("[data-vk-colspan!='true'][data-vk-tbl-col='" + th.attr("data-vk-tbl-col") + "']");
+    return cells;
+}
 
-    /**
-     * 初始化
-     *
-     * @param {table} 表格对象
-     */
-    init : function (table) {
-        // 若不是在新标签打开的，将第 1 列的设置缩进样式
-        if (VLOOK.doc.newTab === false) {
-            table.find("[data-vk-tbl-col$='-0']").addClass("mdx-table-rowfolding-not-folder");
+/**
+ * 返回表格 tbody 内的同列单元格对象集合
+ *
+ * @param {th} 列头单元格对象
+ * @param {tbodyCells} 集合变量
+ */
+ColumnFormatting.getTbodyCells = function (th, tbodyCells) {
+    if (tbodyCells === undefined)
+        tbodyCells = $("tbody [data-vk-tbl-col='" + th.attr("data-vk-tbl-col") + "']");
+    return tbodyCells;
+}
+
+/**
+ * 列格式化
+ *
+ * @param {table} 表格对象
+ */
+ColumnFormatting.format = function (table) {
+    table.find("thead th, thead td").each(function () {
+        let th = $(this),
+            cells = undefined,
+            tbodyCells = undefined,
+            cellsCSS = "";
+
+        // 粗体
+        if (th.find("strong:first-child").length > 0) {
+            cells = ColumnFormatting.getCells(th, cells);
+            cellsCSS += "mdx-table-column-format-bold ";
+        }
+        // 斜体
+        if (th.find("em:first-child").length > 0) {
+            cells = ColumnFormatting.getCells(th, cells);
+            cellsCSS += "mdx-table-column-format-em ";
+        }
+        // 高亮
+        if (th.find("mark:first-child").length > 0
+            || th.attr("class") !== undefined
+            && th.attr("class").indexOf("mdx-table-column-format-mark") > -1) {
+            $("[data-vk-tbl-col='" + th.attr("data-vk-tbl-col") + "']").find("mark").children().unwrap();
+            cells = ColumnFormatting.getCells(th, cells);
+            cellsCSS += "mdx-table-column-format-mark ";
+        }
+        // 批量添加以上列样式
+        if (cellsCSS.length > 0)
+            cells.addClass(cellsCSS);
+
+        // 下划线
+        if (th.find("u:first-child").length > 0) {
+            tbodyCells = ColumnFormatting.getTbodyCells(th, tbodyCells);
+            tbodyCells.contents().wrap("<u></u>");
         }
 
-        let lastLevel = 0, // 上一个缩进等级
-            currentLevel = 0, // 当前缩进等级
-            randomColor = new RandomColor();
+        // 删除线
+        if (th.find("del:first-child").length > 0) {
+            tbodyCells = ColumnFormatting.getTbodyCells(th, tbodyCells);
+            tbodyCells.contents().wrap("<del></del>");
+        }
 
-        // 遍历所有行的第 1 个单元格
-        table.find("td:first-child").each(function () {
-            let td = $(this),
-                tr = td.parent(),
-                text = td.text();
+        // 复选框
+        if (ColumnFormatting.syntax.checkbox.test(th.text()) === true) {
+            cells = ColumnFormatting.getCells(th, cells);
+            cells.addClass("mdx-table-column-format-checkbox");
 
-            // 判断每行的首列，是否有行折叠标记
-            // 没有则进入下一个循环
-            if (ExtTable.rowFolding.syntaxTag.test(text) === false) {
-                lastLevel = 0;
-                ExtTable.rowFolding.parentStack.length = 0;
-                ExtTable.rowFolding.colorStack.length = 0;
-                return true;
-            }
+            // 删除列头的复选框语法
+            ColumnFormatting.removeCheckboxSyntax(th);
 
-            // 从语法中获得当前缩进等级
-            currentLevel = text.indexOf(ExtTable.rowFolding.spliter) + 1;
-            // 当前等级比上一次等级要深
-            if (currentLevel > lastLevel) {
-                let beforeChanged = lastLevel;
-                lastLevel = currentLevel;
-                // 设置为新的目录行
-                let bgColor = randomColor.format(randomColor.dissimilarRgb(), "var(--table-rowfolding-alpha)"); // light 和 dark 使用不同的透明度
+            tbodyCells = ColumnFormatting.getTbodyCells(th, tbodyCells);
+            tbodyCells.each(function () {
+                let ce = $(this),
+                    syntaxText = ce.text(),
+                    chkStatus = "uncheck",
+                    chkStyle = "dark";
 
-                ExtTable.rowFolding.newFolder(tr, bgColor, currentLevel, beforeChanged === 0);
-                // 设置为行缩进行
-                ExtTable.rowFolding.ident(tr, td, currentLevel);
-            }
-            // 当前等级不比上一次等级要深
-            else {
-                // 获得等级差进行
-                let count = lastLevel - currentLevel;
-                // 获得当前行对应的上级行
-                if (count > 0) {
-                    for (let i = 0; i < count; i++) {
-                        ExtTable.rowFolding.parentStack.pop();
-                        ExtTable.rowFolding.colorStack.pop();
-                    }
+                // 移除单元格的复选框语法内容
+                ColumnFormatting.removeCheckboxSyntax(ce);
+
+                // 指定为 checked- 已选择
+                if (syntaxText.startsWith("[x]"))
+                    chkStatus = "checked";
+                // 指定为 indeterminate - 不确定选择
+                else if (syntaxText.startsWith("[-]"))
+                    chkStatus = "indeterminate";
+                // 无指定
+                else
+                    ce.replaceHTML("&nbsp;", "");
+
+                // 添加复选框样式
+                ce.prepend("<svg width='14px' height='14px' style='display: inline-block; vertical-align: middle; margin-top: -4px;'><use xlink:href='#icoCheckbox_"
+                    + chkStatus + "' class='mdx-svg-ico-" + chkStyle + "'/></svg>");
+            });
+        }
+
+        // 数值格式
+        if (th.css("text-align") === "right") {
+            tbodyCells = ColumnFormatting.getTbodyCells(th, tbodyCells);
+            // 设置为等宽字体
+            tbodyCells.addClass("mdx-table-column-format-number");
+            // 数值格式化处理
+            tbodyCells.each(function () {
+                let ce = $(this),
+                    text = ce.text();
+                // 内容为数值
+                if (text.isNumber()) {
+                    // 添加千位符
+                    ce.html(VLOOK.formatting.decimal( // 添加千位符
+                        VLOOK.formatting.thousands(ce.html()))); // 对小数进行格式化处理
+                    // 根据正负号进行着色处理
+                    ColumnFormatting.coloringNumber(ce, text, true);
                 }
-                lastLevel = currentLevel;
-                // 设置为行缩进行
-                ExtTable.rowFolding.ident(tr, td, currentLevel);
-            }
-        });
-
-        // 因为在新标签中打开的内容已无未解析的含语法的原始内容
-        // 所以须对已解析后的对象直接进行绑定鼠标事件
-        if (VLOOK.doc.newTab === true) {
-            $(".mdx-table-rowfolding-button").each(function () {
-                let folderRow = $(this).parent().parent();
-                $(this).unbind("click").click(function () {
-                    ExtTable.rowFolding.toggle(folderRow);
-                });
+                // 内容为百分数
+                else if (text.isPercent()) {
+                    // 对小数进行处理
+                    ce.html(VLOOK.formatting.percent( // 对小数进行处理
+                        VLOOK.formatting.decimal(ce.html()))); // 对百分数进行格式化处理
+                    // 根据正负号进行着色处理
+                    let coloring = ColumnFormatting.coloringNumber(ce, text, true),
+                        percent = text.replace(/(-|\+|\s)/g, ""),
+                        percentValue = Math.round(percent.replace("%", "")),
+                        bg1 = "rgba(128, 128, 128, 0.1)",
+                        bg2 = "rgba(128, 128, 128, 0.4)",
+                        bgSplit = "rgba(128, 128, 128, 0.8)";
+                    // 对有首色的进行渐变颜色调整
+                    if (coloring === true) {
+                        let baseBg = ce.css("color").replace("rgb", "rgba");
+                        bg1 = baseBg.replace(")", ", 0.05)");
+                        bg2 = baseBg.replace(")", ", 0.2)");
+                        bgSplit = baseBg.replace(")", ", 0.7)");
+                    }
+                    // 根据百分比生成渐变背景色、最小宽度
+                    ce.css({
+                        "background": "linear-gradient(90deg, " + bg1 + " 0%, " + bg2 + " " + (percentValue > 1 ? percentValue - 1 : 0)
+                        + "%, " + bgSplit + " " + percent
+                        + ", transparent " + percent + ")",
+                        "min-width": "100px"
+                    });
+                    // 对 +/- 符号进行处理
+                    ce.html(ce.html().replace(">+", ">▴ ").replace(">-", ">▾ "));
+                }
+                // 内容为货币
+                else if (text.isCurrency()) {
+                    // 对货币符号进行格式货
+                    ce.html(VLOOK.formatting.decimal( // 对货币符号进行格式货
+                        VLOOK.formatting.thousands( // 添加千位符
+                            VLOOK.formatting.currency(ce.html())))); // 对小数进行格式化处理
+                    // 根据正负号进行着色处理
+                    ColumnFormatting.coloringNumber(ce, text, false);
+                }
             });
+        } // 数值格式
+
+        // 标记单元格是否为横向合并，横向合并的单元不应用列格式
+        if (th.attr("colspan") !== undefined)
+            th.attr("data-vk-colspan", "true");
+        else
+            th.attr("data-vk-colspan", "false");
+    });
+}
+
+/**
+ * 根据数值的正、负号进行着色处理
+ *
+ * @param {target} 着色的对象
+ * @param {text} 依据的数值文本
+ * @param {mode} 正负号位置模式，true：在开头，false: 在任意位置
+ *
+ * @return 着色结果，true：有着色，false：没有着色
+ */
+ColumnFormatting.coloringNumber = function (target, text, mode) {
+    // 正、负号在文本的开头
+    if (mode === true) {
+        if (text.startsWith("-")) {
+            target.addClass("mdx-table-column-format-number-negative");
+            return true;
         }
-    },
-
-    /**
-     * 获得最近一个分组目录行对象
-     */
-    lastParent : function () {
-        return ExtTable.rowFolding.parentStack[ExtTable.rowFolding.parentStack.length - 1];
-    },
-
-    /**
-     * 获得最近一个分组颜色对象
-     */
-    lastColor : function () {
-        return ExtTable.rowFolding.colorStack[ExtTable.rowFolding.colorStack.length - 1];
-    },
-
-    /**
-     * 设置为新的目录行
-     *
-     * @param {tr} 对应的行对象
-     * @param {color} 该分组背景色
-     * @param {level} 缩进层级
-     * @param {reset} 是否重置回第一级
-     */
-    newFolder : function (tr, color, level, reset) {
-        let folderRow = tr.prev();
-        ExtTable.rowFolding.folderCount++;
-
-        // 将当前目录行的 id 入栈
-        ExtTable.rowFolding.parentStack.push(ExtTable.rowFolding.folderCount);
-        // 生成分组的随机背景颜色
-        ExtTable.rowFolding.colorStack.push(color);
-
-        // 设置折叠目录行的属性
-        folderRow.attr("data-vk-folder-id", ExtTable.rowFolding.folderCount);
-        folderRow.attr("data-vk-folder", "true");
-        folderRow.attr("data-vk-row-folded", "true");
-
-        // 上一行没有背景
-        let c1 = folderRow.prev().css("background-color");
-        if (c1 === "rgba(0, 0, 0, 0)" || reset === true) {
-            folderRow.css({
-                "background-color" :
-                    ExtTable.rowFolding.lastColor()
-            });
+        else if (text.startsWith("+")) {
+            target.addClass("mdx-table-column-format-number-positive");
+            return true;
         }
-        // 上一行有背景色，则采用组合背景色表达相关性
+    }
+    // 正、负号在文本的任意位置
+    else {
+        if (text.indexOf("-") > -1) {
+            target.addClass("mdx-table-column-format-number-negative");
+            return true;
+        }
+        else if (text.indexOf("+") > -1) {
+            target.addClass("mdx-table-column-format-number-positive");
+            return true;
+        }
+    }
+    return false;
+}
+
+/**
+ * 移除复选框的语法内容
+ */
+ColumnFormatting.removeCheckboxSyntax = function (target) {
+    target.replaceHTML(/\[(\s|x|-)]\s*/, "");
+}
+
+// ==================== 表格行分组/折叠类 ==================== //
+
+function RowGroup() {}
+
+RowGroup.icon = {
+    // 表格折叠行图标：已收起
+    closed : '<svg width="12px" height="12px" style="display: inline-block; vertical-align: middle; margin-top: -4px; margin-right: 5px;"><use xlink:href="#icoRowGroupClosed" class="mdx-folder2-ico"/></svg>',
+    // 表格折叠行图标：已展开
+    opened : '<svg width="12px" height="12px" style="display: inline-block; vertical-align: middle; margin-top: -4px; margin-right: 5px;"><use xlink:href="#icoRowGroupOpened" class="mdx-folder2-ico"/></svg>'
+}
+
+RowGroup.folderCount = 0; // 折叠行内目录行类型的数量
+
+RowGroup.syntax = {
+    tag : /^>+(\s)./, // 用于匹配行折叠语法
+    tag2Replace : /(&gt;)+(\s)/ // 用于匹配将行折叠语法替换为指定字符
+}
+// RowGroup.syntax
+
+RowGroup.spliter = "> "; // 行折叠语法与内容的分隔标识
+
+RowGroup.parentStack = []; // 上级行的堆栈
+
+RowGroup.colorStack = []; // 不同分组的背景颜色堆栈
+
+/**
+ * 初始化
+ *
+ * @param {table} 表格对象
+ */
+RowGroup.init = function (table) {
+    // 若不是在新标签打开的，将第 1 列的设置缩进样式
+    if (VLOOK.doc.newTab === false) {
+        table.find("[data-vk-tbl-col$='-0']").addClass("mdx-table-rowfolding-not-folder");
+    }
+
+    let lastLevel = 0, // 上一个缩进等级
+        currentLevel = 0, // 当前缩进等级
+        randomColor = new RandomColor();
+
+    // 遍历所有行的第 1 个单元格
+    table.find("td:first-child").each(function () {
+        let td = $(this),
+            tr = td.parent(),
+            text = td.text();
+
+        // 判断每行的首列，是否有行折叠标记
+        // 没有则进入下一个循环
+        if (RowGroup.syntax.tag.test(text) === false) {
+            lastLevel = 0;
+            RowGroup.parentStack.length = 0;
+            RowGroup.colorStack.length = 0;
+            return true;
+        }
+
+        // 从语法中获得当前缩进等级
+        currentLevel = text.indexOf(RowGroup.spliter) + 1;
+        // 当前等级比上一次等级要深
+        if (currentLevel > lastLevel) {
+            let beforeChanged = lastLevel;
+            lastLevel = currentLevel;
+            // 设置为新的目录行
+            let bgColor = randomColor.format(randomColor.dissimilarRgb(), "var(--table-rowgroup-alpha)"); // light 和 dark 使用不同的透明度
+
+            RowGroup.newFolder(tr, bgColor, currentLevel, beforeChanged === 0);
+            // 设置为行缩进行
+            RowGroup.ident(tr, td, currentLevel);
+        }
+        // 当前等级不比上一次等级要深
         else {
-            let c2 = ExtTable.rowFolding.lastColor(),
-                c1Width = level * 50;
-            folderRow.css({
-                "background" :
-                    "linear-gradient(135deg, " + c1 + " " + c1Width + "px, "
-                    + c2 + " " + c1Width + "px)"
+            // 获得等级差进行
+            let count = lastLevel - currentLevel;
+            // 获得当前行对应的上级行
+            if (count > 0) {
+                for (let i = 0; i < count; i++) {
+                    RowGroup.parentStack.pop();
+                    RowGroup.colorStack.pop();
+                }
+            }
+            lastLevel = currentLevel;
+            // 设置为行缩进行
+            RowGroup.ident(tr, td, currentLevel);
+        }
+    });
+
+    // 因为在新标签中打开的内容已无未解析的含语法的原始内容
+    // 所以须对已解析后的对象直接进行绑定鼠标事件
+    if (VLOOK.doc.newTab === true) {
+        $(".mdx-table-rowfolding-button").each(function () {
+            let folderRow = $(this).parent().parent();
+            $(this).unbind("click").click(function () {
+                RowGroup.toggle(folderRow);
             });
-        }
-
-        // 获得折叠目录行首个单元格
-        let td = folderRow.children("td:first"),
-            tdSpan = td.children("span"),
-            tdHadIdent = td.children(".mdx-table-rowfolding-identer:last");
-
-        // 添加代表目录的括号及样式
-        tdSpan.html("[<strong>" + tdSpan.html() + "</strong>]");
-
-        // 设置折叠控件样式
-        if (tdHadIdent.length > 0)
-            tdHadIdent.after("<span class='mdx-table-rowfolding-button'>" + ExtTable.rowFolding.iconClosed + "</span>");
-        else
-            td.prepend("<label class='mdx-table-rowfolding-button'>" + ExtTable.rowFolding.iconClosed + "</label>");
-
-        // 调整折叠行的缩进样式
-        td.removeClass("mdx-table-rowfolding-not-folder");
-        td.addClass("mdx-table-rowfolding-folder");
-        tdHadIdent.addClass("mdx-table-rowfolding-identer-folder");
-
-        // 设置展开、收起事件
-        td.children(".mdx-table-rowfolding-button:first").click(function () {
-            ExtTable.rowFolding.toggle(folderRow);
-        });
-    },
-
-    /**
-     * 展开、收起表格表分组下的表格行
-     *
-     * @param {folderRow} 折叠按钮所在的表格行对象
-     */
-    toggle : function (folderRow) {
-        // 取消事件冒泡，用于避免显示表格的十字光标
-        event.stopPropagation();
-
-        // 处理目录行的打开、关闭
-        if (folderRow.attr("data-vk-row-folded") === "true")
-            ExtTable.rowFolding.open(folderRow);
-        else
-            ExtTable.rowFolding.close(folderRow);
-
-        // 强制取消表格的十字光标
-        ExtTable.cellCross.hide();
-    },
-
-    /**
-     * 设置为缩进行
-     *
-     * @param {tr} 对应的行对象
-     * @param {td} 对应的行的首个单元格
-     * @param {level} 缩进层级
-     */
-    ident : function (tr, td, level) {
-        // 统一缩进节点符号转换，尾行在完成的有处理后再进行修正
-        td.replaceHTML(ExtTable.rowFolding.syntaxTag2Replace, "");
-
-        // 设置被折叠行的属性
-        tr.attr("data-vk-parent-folder-id", ExtTable.rowFolding.lastParent());
-        // 设置被折叠行的背景色，层级越深颜色越深
-        tr.css("background-color", ExtTable.rowFolding.lastColor());
-        // 设置缩进样式
-        td.attr("data-vk-ident-level", level);
-        // 调整样式
-        td.removeClass("mdx-table-rowfolding-not-folder");
-        td.addClass("mdx-table-rowfolding-sub");
-
-        // 生成缩进占位元素
-        for (let i = 0; i < level; i++) {
-            let identer = td.children(".mdx-table-rowfolding-identer:last"),
-                identObj = "<label class='mdx-table-rowfolding-identer'></label>";
-            if (identer.length > 0)
-                identer.after(identObj);
-            else
-                td.prepend(identObj);
-        }
-
-        // 隐藏被折叠的行
-        tr.css("display", "table-column");
-    },
-
-    /**
-     * 打开表格目录行
-     *
-     * @param {folderRow} 目录行对象
-     */
-    open : function (folderRow) {
-        let id = folderRow.attr("data-vk-folder-id"),
-            subRows = $("tr[data-vk-parent-folder-id='" + id + "']"),
-            folderButton = folderRow.children("td:first").children(".mdx-table-rowfolding-button:last");
-
-        folderRow.attr("data-vk-row-folded", "false");
-        folderButton.prop("innerHTML", ExtTable.rowFolding.iconOpened);
-        subRows.css("display", "");
-    },
-
-    /**
-     * 关闭折叠表格目录行
-     *
-     * @param {folderRow} 目录行对象
-     */
-    close : function (folderRow) {
-        let id = folderRow.attr("data-vk-folder-id"),
-            subRows = $("tr[data-vk-parent-folder-id='" + id + "']"),
-            folderButton = folderRow.children("td:first").children(".mdx-table-rowfolding-button:last");
-
-        folderRow.attr("data-vk-row-folded", "true");
-        folderButton.prop("innerHTML", ExtTable.rowFolding.iconClosed);
-
-        // 折叠所有子行（包括目录行）
-        subRows.each(function () {
-            let tr = $(this);
-            if (tr.attr("data-vk-folder") === "true")
-                ExtTable.rowFolding.close(tr);
-            tr.css("display", "table-column");
         });
     }
 }
+
+/**
+ * 获得最近一个分组目录行对象
+ */
+RowGroup.lastParent = function () {
+    return RowGroup.parentStack[RowGroup.parentStack.length - 1];
+}
+
+/**
+ * 获得最近一个分组颜色对象
+ */
+RowGroup.lastColor = function () {
+    return RowGroup.colorStack[RowGroup.colorStack.length - 1];
+}
+
+/**
+ * 设置为新的目录行
+ *
+ * @param {tr} 对应的行对象
+ * @param {color} 该分组背景色
+ * @param {level} 缩进层级
+ * @param {reset} 是否重置回第一级
+ */
+RowGroup.newFolder = function (tr, color, level, reset) {
+    let folderRow = tr.prev();
+    RowGroup.folderCount++;
+
+    // 将当前目录行的 id 入栈
+    RowGroup.parentStack.push(RowGroup.folderCount);
+    // 生成分组的随机背景颜色
+    RowGroup.colorStack.push(color);
+
+    // 设置折叠目录行的属性
+    folderRow.attr("data-vk-folder-id", RowGroup.folderCount);
+    folderRow.attr("data-vk-folder", "true");
+    folderRow.attr("data-vk-row-folded", "true");
+
+    // 上一行没有背景
+    let c1 = folderRow.prev().css("background-color");
+    if (c1 === "rgba(0, 0, 0, 0)" || reset === true) {
+        folderRow.css({
+            "background-color" :
+                RowGroup.lastColor()
+        });
+    }
+    // 上一行有背景色，则采用组合背景色表达相关性
+    else {
+        let c2 = RowGroup.lastColor(),
+            c1Width = level * 50;
+        folderRow.css({
+            "background" :
+                "linear-gradient(135deg, " + c1 + " " + c1Width + "px, "
+                + c2 + " " + c1Width + "px)"
+        });
+    }
+
+    // 获得折叠目录行首个单元格
+    let td = folderRow.children("td:first"),
+        tdSpan = td.children("span"),
+        tdHadIdent = td.children(".mdx-table-rowfolding-identer:last");
+
+    // 添加代表目录的括号及样式
+    tdSpan.html("[<strong>" + tdSpan.html() + "</strong>]");
+
+    // 设置折叠控件样式
+    if (tdHadIdent.length > 0)
+        tdHadIdent.after("<span class='mdx-table-rowfolding-button'>" + RowGroup.icon.closed + "</span>");
+    else
+        td.prepend("<label class='mdx-table-rowfolding-button'>" + RowGroup.icon.closed + "</label>");
+
+    // 调整折叠行的缩进样式
+    td.removeClass("mdx-table-rowfolding-not-folder");
+    td.addClass("mdx-table-rowfolding-folder");
+    tdHadIdent.addClass("mdx-table-rowfolding-identer-folder");
+
+    // 设置展开、收起事件
+    td.children(".mdx-table-rowfolding-button:first").click(function () {
+        RowGroup.toggle(folderRow);
+    });
+}
+
+/**
+ * 展开、收起表格表分组下的表格行
+ *
+ * @param {folderRow} 折叠按钮所在的表格行对象
+ */
+RowGroup.toggle = function (folderRow) {
+    // 取消事件冒泡，用于避免显示表格的十字光标
+    event.stopPropagation();
+
+    // 处理目录行的打开、关闭
+    if (folderRow.attr("data-vk-row-folded") === "true")
+        RowGroup.open(folderRow);
+    else
+        RowGroup.close(folderRow);
+
+    // 强制取消表格的十字光标
+    CellCross.hide();
+}
+
+/**
+ * 设置为缩进行
+ *
+ * @param {tr} 对应的行对象
+ * @param {td} 对应的行的首个单元格
+ * @param {level} 缩进层级
+ */
+RowGroup.ident = function (tr, td, level) {
+    // 统一缩进节点符号转换，尾行在完成的有处理后再进行修正
+    td.replaceHTML(RowGroup.syntax.tag2Replace, "");
+
+    // 设置被折叠行的属性
+    tr.attr("data-vk-parent-folder-id", RowGroup.lastParent());
+    // 设置被折叠行的背景色，层级越深颜色越深
+    tr.css("background-color", RowGroup.lastColor());
+    // 设置缩进样式
+    td.attr("data-vk-ident-level", level);
+    // 调整样式
+    td.removeClass("mdx-table-rowfolding-not-folder");
+    td.addClass("mdx-table-rowfolding-sub");
+
+    // 生成缩进占位元素
+    for (let i = 0; i < level; i++) {
+        let identer = td.children(".mdx-table-rowfolding-identer:last"),
+            identObj = "<label class='mdx-table-rowfolding-identer'></label>";
+        if (identer.length > 0)
+            identer.after(identObj);
+        else
+            td.prepend(identObj);
+    }
+
+    // 隐藏被折叠的行
+    tr.css("display", "table-column");
+}
+
+/**
+ * 打开表格目录行
+ *
+ * @param {folderRow} 目录行对象
+ */
+RowGroup.open = function (folderRow) {
+    let id = folderRow.attr("data-vk-folder-id"),
+        subRows = $("tr[data-vk-parent-folder-id='" + id + "']"),
+        folderButton = folderRow.children("td:first").children(".mdx-table-rowfolding-button:last");
+
+    folderRow.attr("data-vk-row-folded", "false");
+    folderButton.prop("innerHTML", RowGroup.icon.opened);
+    subRows.css("display", "");
+}
+
+/**
+ * 关闭折叠表格目录行
+ *
+ * @param {folderRow} 目录行对象
+ */
+RowGroup.close = function (folderRow) {
+    let id = folderRow.attr("data-vk-folder-id"),
+        subRows = $("tr[data-vk-parent-folder-id='" + id + "']"),
+        folderButton = folderRow.children("td:first").children(".mdx-table-rowfolding-button:last");
+
+    folderRow.attr("data-vk-row-folded", "true");
+    folderButton.prop("innerHTML", RowGroup.icon.closed);
+
+    // 折叠所有子行（包括目录行）
+    subRows.each(function () {
+        let tr = $(this);
+        if (tr.attr("data-vk-folder") === "true")
+            RowGroup.close(tr);
+        tr.css("display", "table-column");
+    });
+}
+
 
 // ==================== 音频增强类 ==================== //
 
@@ -8575,7 +8599,7 @@ Restyler.forMermaid = function () {
         fragmentTitle.attr("x", rect.x + rect.width + 10);
         // if (isNaN(y) !== true)
         //     fragmentTitle.attr("y", y);
-        console.log(fragmentTitle.parent().attr("class"), fragmentTitle.parent().next().attr("class"));
+        // console.log(fragmentTitle.parent().attr("class"), fragmentTitle.parent().next().attr("class"));
         let nextText = fragmentTitle.parent().next();
         if (nextText !== undefined && nextText.attr("class") !== undefined && nextText.attr("class").indexOf("loopText") > -1) {
         //     console.log(fragmentTitle.parent().text());
@@ -9341,6 +9365,14 @@ function loadVLOOKui() {
     ui += '<symbol id="icoOutline">';
     ui += '<path d="M6,0 L19,0 C19.5522847,0 20,0.44771525 20,1 C20,1.55228475 19.5522847,2 19,2 L6,2 C5.44771525,2 5,1.55228475 5,1 C5,0.44771525 5.44771525,0 6,0 Z M1,0 L2,0 C2.55228475,0 3,0.44771525 3,1 C3,1.55228475 2.55228475,2 2,2 L1,2 C0.44771525,2 0,1.55228475 0,1 C0,0.44771525 0.44771525,0 1,0 Z M1,6 L2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 L1,8 C0.44771525,8 0,7.55228475 0,7 C0,6.44771525 0.44771525,6 1,6 Z M1,12 L2,12 C2.55228475,12 3,12.4477153 3,13 C3,13.5522847 2.55228475,14 2,14 L1,14 C0.44771525,14 0,13.5522847 0,13 C0,12.4477153 0.44771525,12 1,12 Z M6,6 L19,6 C19.5522847,6 20,6.44771525 20,7 C20,7.55228475 19.5522847,8 19,8 L6,8 C5.44771525,8 5,7.55228475 5,7 C5,6.44771525 5.44771525,6 6,6 Z M6,12 L19,12 C19.5522847,12 20,12.4477153 20,13 C20,13.5522847 19.5522847,14 19,14 L6,14 C5.44771525,14 5,13.5522847 5,13 C5,12.4477153 5.44771525,12 6,12 Z"></path>';
     ui += '</symbol>';
+    // SVG 图标集：图标|大纲|已打开
+    ui += '<symbol id="icoOutline-Opened">';
+    ui += '<path d="M12,0 L20,0 C20.5522847,0 21,0.44771525 21,1 C21,1.55228475 20.5522847,2 20,2 L12,2 C11.4477153,2 11,1.55228475 11,1 C11,0.44771525 11.4477153,0 12,0 Z M7.5,0 L8.5,0 C9.05228475,0 9.5,0.44771525 9.5,1 C9.5,1.55228475 9.05228475,2 8.5,2 L7.5,2 C6.94771525,2 6.5,1.55228475 6.5,1 C6.5,0.44771525 6.94771525,0 7.5,0 Z M7.5,6 L8.5,6 C9.05228475,6 9.5,6.44771525 9.5,7 C9.5,7.55228475 9.05228475,8 8.5,8 L7.5,8 C6.94771525,8 6.5,7.55228475 6.5,7 C6.5,6.44771525 6.94771525,6 7.5,6 Z M7.5,12 L8.5,12 C9.05228475,12 9.5,12.4477153 9.5,13 C9.5,13.5522847 9.05228475,14 8.5,14 L7.5,14 C6.94771525,14 6.5,13.5522847 6.5,13 C6.5,12.4477153 6.94771525,12 7.5,12 Z M0.82,7 L4.45,12 L4.45,2 L0.82,7 Z M12,6 L20,6 C20.5522847,6 21,6.44771525 21,7 C21,7.55228475 20.5522847,8 20,8 L12,8 C11.4477153,8 11,7.55228475 11,7 C11,6.44771525 11.4477153,6 12,6 Z M12,12 L20,12 C20.5522847,12 21,12.4477153 21,13 C21,13.5522847 20.5522847,14 20,14 L12,14 C11.4477153,14 11,13.5522847 11,13 C11,12.4477153 11.4477153,12 12,12 Z"></path>';
+    ui += '</symbol>';
+    // SVG 图标集：图标|大纲|已关闭
+    ui += '<symbol id="icoOutline-Closed">';
+    ui += '<path d="M5.5,0 L13.5,0 C14.0522847,0 14.5,0.44771525 14.5,1 C14.5,1.55228475 14.0522847,2 13.5,2 L5.5,2 C4.94771525,2 4.5,1.55228475 4.5,1 C4.5,0.44771525 4.94771525,0 5.5,0 Z M1,0 L2,0 C2.55228475,0 3,0.44771525 3,1 C3,1.55228475 2.55228475,2 2,2 L1,2 C0.44771525,2 0,1.55228475 0,1 C0,0.44771525 0.44771525,0 1,0 Z M1,6 L2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 L1,8 C0.44771525,8 0,7.55228475 0,7 C0,6.44771525 0.44771525,6 1,6 Z M1,12 L2,12 C2.55228475,12 3,12.4477153 3,13 C3,13.5522847 2.55228475,14 2,14 L1,14 C0.44771525,14 0,13.5522847 0,13 C0,12.4477153 0.44771525,12 1,12 Z M20.13,7 L16.5,12 L16.5,2 L20.13,7 Z M5.5,6 L13.5,6 C14.0522847,6 14.5,6.44771525 14.5,7 C14.5,7.55228475 14.0522847,8 13.5,8 L5.5,8 C4.94771525,8 4.5,7.55228475 4.5,7 C4.5,6.44771525 4.94771525,6 5.5,6 Z M5.5,12 L13.5,12 C14.0522847,12 14.5,12.4477153 14.5,13 C14.5,13.5522847 14.0522847,14 13.5,14 L5.5,14 C4.94771525,14 4.5,13.5522847 4.5,13 C4.5,12.4477153 4.94771525,12 5.5,12 Z"></path>';
+    ui += '</symbol>';
     // SVG 图标集：图标|插图导航的上一张
     ui += '<symbol id="icoPrevFig">';
     ui += '<path d="M11.0303682,0.091084328 C11.7948436,0.375093579 12.1890102,1.237894 11.9107639,2.018203 L3.00130389,26.9997408 L11.9107639,51.981797 C12.1726428,52.7162055 11.8388895,53.5236859 11.1613701,53.8529228 L11.0303682,53.9089157 C10.310862,54.1762185 9.51976648,53.8355526 9.19721032,53.1440006 L9.14235361,53.0102855 C5.13199059,41.7636939 2.12421833,33.3287502 0.11903682,27.7054544 C0.11186687,27.6853471 0,27.43485 0,26.9997408 C0,26.5646315 0.111310594,26.3162129 0.119265149,26.2939053 C2.12439592,20.6707518 5.13209207,12.2360215 9.14235361,0.989714523 C9.4205999,0.20940552 10.2658928,-0.192924923 11.0303682,0.091084328 Z"></path>';
@@ -9379,12 +9411,12 @@ function loadVLOOKui() {
     ui += '<rect x="4" y="7" width="8" height="2" rx="1"></rect>';
     ui += '</symbol>';
     // SVG 图标集：图标|已收起的表格折叠行节点
-    ui += '<symbol id="icoTableRowClosed">';
+    ui += '<symbol id="icoRowGroupClosed">';
     ui += '<rect fill-opacity="0" x="1" y="1" width="10" height="10"></rect>';
     ui += '<path d="M8,0 C10.209139,-4.05812251e-16 12,1.790861 12,4 L12,8 C12,10.209139 10.209139,12 8,12 L4,12 C1.790861,12 2.705415e-16,10.209139 0,8 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 L8,0 Z M6,2 C5.44771525,2 5,2.44771525 5,3 L5,3 L5,5 L3,5 C2.44771525,5 2,5.44771525 2,6 C2,6.55228475 2.44771525,7 3,7 L3,7 L5,7 L5,9 C5,9.55228475 5.44771525,10 6,10 C6.55228475,10 7,9.55228475 7,9 L7,9 L7,7 L9,7 C9.55228475,7 10,6.55228475 10,6 C10,5.44771525 9.55228475,5 9,5 L9,5 L7,5 L7,3 C7,2.44771525 6.55228475,2 6,2 Z"></path>';
     ui += '</symbol>';
     // SVG 图标集：图标|已展开的表格折叠行节点
-    ui += '<symbol id="icoTableRowOpened">';
+    ui += '<symbol id="icoRowGroupOpened">';
     ui += '<rect fill-opacity="0" x="1" y="1" width="10" height="10"></rect>';
     ui += '<path d="M8,0 C10.209139,-4.05812251e-16 12,1.790861 12,4 L12,8 C12,10.209139 10.209139,12 8,12 L4,12 C1.790861,12 2.705415e-16,10.209139 0,8 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 L8,0 Z M8,1 L4,1 C2.34314575,1 1,2.34314575 1,4 L1,4 L1,8 C1,9.65685425 2.34314575,11 4,11 L4,11 L8,11 C9.65685425,11 11,9.65685425 11,8 L11,8 L11,4 C11,2.34314575 9.65685425,1 8,1 L8,1 Z"></path>';
     ui += '<rect x="3" y="5" width="6" height="2" rx="1"></rect>';
@@ -9526,7 +9558,7 @@ function loadVLOOKui() {
     ui += '<svg height="24px" width="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()">';
     ui += '<use xlink:href="#icoVLOOK-dark"></use>';
     ui += '</svg>&nbsp;&nbsp;';
-    ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.2) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">MAX°孟兆</a></strong>';
+    ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.2.1) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">MAX°孟兆</a></strong>';
     ui += '</div>';
     ui += '</div>';
 
@@ -9589,7 +9621,7 @@ function loadVLOOKui() {
     ui += '</div>';
     ui += '<div class="mdx-copyright">';
     ui += '<svg width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()"><use xlink:href="#icoVLOOK-dark"></use></svg>&nbsp;&nbsp;';
-    ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.2) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">MAX°孟兆</a></strong>';
+    ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.2.1) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">MAX°孟兆</a></strong>';
     ui += '</div>';
     ui += '</div>';
 

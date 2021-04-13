@@ -1,8 +1,8 @@
 /**************************************
  * VLOOK CSS 基础库
  *
- * V10.2
- * 2021-04-09
+ * V10.2.1
+ * 2021-04-13
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -82,13 +82,13 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 
 :root {
     --vlook-theme-name: @themeName; // 主题名称
-    --vlook-theme-version: "V10.2"; // 主题版本，对应适配 VLOOK.JS 的版本
+    --vlook-theme-version: "V10.2.1"; // 主题版本，对应适配 VLOOK.JS 的版本
     --vlook-default-font-style: @defaultFontStyle; // 默认字体风格
     --vlook-color-scheme: light; // 默认颜色模式为：Light 明亮
 
     // 大纲面板、工具栏宽度
-    --vlook-toc-box-width:350px;
-    --vlook-toc-box-hidden-left:-370px;
+    --vlook-toc-box-width:360px;
+    --vlook-toc-box-hidden-left:-380px;
 
     // 圆角配置
     --vlook-base-radius:@baseRadius; // 标准圆角
@@ -120,6 +120,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --table-th-bg-color-light: @tableThBgColor;
     --table-td-bg-color-light: @tableTdBgColor;
     --table-cell-border-color-light: @tableCellBorderColor;
+    --table-rowgroup-alpha-light: 0.15;
     --del-color-light: @foreColorLightAlt;
     --toc-header-num-color-light: @tocHeaderNumColor;
     --header-color-light: @headerColor;
@@ -231,6 +232,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --table-th-bg-color-dark: @tableThBgColorDark;
     --table-td-bg-color-dark: @tableTdBgColorDark;
     --table-cell-border-color-dark: @tableCellBorderColorDark;
+    --table-rowgroup-alpha-dark: 0.4;
     --del-color-dark: darken(@foreColorDark, 20%);
     --toc-header-num-color-dark: fade(@foreColorDark, 50%);
     --header-color-dark: @headerColorDark;
@@ -342,6 +344,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --table-th-bg-color: var(--table-th-bg-color-light);
     --table-td-bg-color: var(--table-td-bg-color-light);
     --table-cell-border-color: var(--table-cell-border-color-light);
+    --table-rowgroup-alpha: var(--table-rowgroup-alpha-light);
     --del-color: var(--del-color-light);
     --toc-header-num-color: var(--toc-header-num-color-light);
     --header-color: var(--header-color-light);
@@ -1416,7 +1419,7 @@ table tr > td:last-child {
 }
 
 // 带表格带行折叠时，不是目录行的样式
-td .mdx-table-rowfolding-not-folder {
+td.mdx-table-rowfolding-not-folder {
     text-align: left !important;
     // text-align: left;
     padding-left: 50px !important;
@@ -3990,7 +3993,7 @@ li > p + ul {
     cursor: pointer;
     padding: 0;
     // font-size: 0.85em;
-    width: 38px;
+    width: 40px;
     height: 30px;
     border-radius: var(--vlook-small-radius);
 // 性能优化    transition: all 0.3s ease-in-out;
@@ -4367,7 +4370,7 @@ li > p + ul {
 .mdx-btn-paragraph-nav {
     // margin-top: 10px;
     margin-right: 5px;
-    margin-left: 15px;
+    margin-left: 10px;
     float: right;
 }
 
@@ -5858,6 +5861,7 @@ h6 code {
         --table-th-bg-color: var(--table-th-bg-color-dark);
         --table-td-bg-color: var(--table-td-bg-color-dark);
         --table-cell-border-color: var(--table-cell-border-color-dark);
+        --table-rowgroup-alpha-dark: var(--table-rowgroup-alpha-dark);
         --del-color: var(--del-color-dark);
         --toc-header-num-color: var(--toc-header-num-color-dark);
         --header-color: var(--header-color-dark);
