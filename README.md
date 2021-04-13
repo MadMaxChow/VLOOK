@@ -41,6 +41,16 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ---
 
+# 快速参考手册
+
+VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的互联网化应用场景，在 **文档排版**、**内容导航**、**演示辅助**、**交互体验** 等方面提供了 **一致**、**简洁**、**友好** 的体验。
+
+> - 有关 VLOOK™ 特性的详细介绍、样例及使用说明详见《VLOOK™ 快速参考手册》••• [GitHub](https://madmaxchow.github.io/VLOOK/index.html) •• [Gitee](https://madmaxchow.gitee.io/vlook/index.html)
+
+> - 有关脚本化图表的详细介绍、样例及使用说明详见《脚本化图表参考指南》••• [GitHub](https://madmaxchow.github.io/VLOOK/chart.html) •• [Gitee](https://madmaxchow.gitee.io/vlook/chart.html)
+
+---
+
 # 如何使用
 
 ## Step 1•下载与配置
@@ -103,6 +113,18 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ---
 
+# 私人定制主题
+
+目前 VLOOK™ 项目已开放了主题的 **私人定制** 服务，定制样品示例如下：
+
+![私人定制主题](https://s3.ax1x.com/2021/01/27/szoo9S.png)
+
+（以上仅为效果仅为样品展示，非正式定制服务成品）
+
+私人定制主题服务微信：**MaxChow**
+
+---
+
 # 字体主题
 
 「**模板主题让文档颜值倍增，而字体则是文档气质担当！**」
@@ -127,28 +149,6 @@ VLOOK™ 提供了两套字体风格，可根据个人喜好进行选用。
 ![蓝奏云](https://s3.ax1x.com/2020/12/13/reJiee.png?mode=logo&srcset=reJCLD.png@2x) ••• [下载字体▾](https://wws.lanzous.com/ieVDhj1aokj)
 
 ![百度网盘](https://s3.ax1x.com/2020/12/13/reJFdH.png?mode=logo&srcset=reJkod.png@2x) •••`密码：11ta`••• [下载字体▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)
-
----
-
-# 快速参考手册
-
-VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的互联网化应用场景，在 **文档排版**、**内容导航**、**演示辅助**、**交互体验** 等方面提供了 **一致**、**简洁**、**友好** 的体验。
-
-> - 有关 VLOOK™ 特性的详细介绍、样例及使用说明详见《VLOOK™ 快速参考手册》••• [GitHub](https://madmaxchow.github.io/VLOOK/index.html) •• [Gitee](https://madmaxchow.gitee.io/vlook/index.html)
-
-> - 有关脚本化图表的详细介绍、样例及使用说明详见《脚本化图表参考指南》••• [GitHub](https://madmaxchow.github.io/VLOOK/chart.html) •• [Gitee](https://madmaxchow.gitee.io/vlook/chart.html)
-
----
-
-# 私人定制主题
-
-目前 VLOOK™ 项目已开放了主题的 **私人定制** 服务，定制样品示例如下：
-
-![私人定制主题](https://s3.ax1x.com/2021/01/27/szoo9S.png)
-
-（以上仅为效果仅为样品展示，非正式定制服务成品）
-
-私人定制主题服务微信：**MaxChow**
 
 ---
 
