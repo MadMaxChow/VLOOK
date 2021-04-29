@@ -16,19 +16,19 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ---
 
-![让 Markdown 的自动化排版和交互性上了 N 个台阶](https://z3.ax1x.com/2021/03/30/cF20BD.png)
+![让 Markdown 的自动化排版和交互性上了 N 个台阶](https://z3.ax1x.com/2021/04/28/giajEQ.png)
 
 ![内置多套原创文档主题、字体主题，一键切换，支持私人定制](https://z3.ax1x.com/2021/03/30/cF2wnO.png)
 
 ![表格排版+：单元格合并、列格式、表格行分组、自动编号、…](https://z3.ax1x.com/2021/03/30/cF2ajK.png)
 
-![零成本的图片自动排版～题注、高分屏、反色、替换、版式、…](https://z3.ax1x.com/2021/03/30/cF2rAH.png)
+![零成本的图片自动排版～题注、高分屏、反色、替换、版式、…](https://z3.ax1x.com/2021/04/28/gifcvD.png)
 
-![火力全开的图片自动排版、演示辅助～聚光灯、激光笔、注意](https://z3.ax1x.com/2021/03/30/cF2t91.png)
+![火力全开的图片自动排版、演示辅助～聚光灯、激光笔、注意](https://z3.ax1x.com/2021/04/28/gifsC6.png)
 
-![OMG! 可以按大纲、逐章、段落、插图多种方式导航](https://z3.ax1x.com/2021/03/30/cF2N1x.png)
+![OMG! 可以按大纲、逐章、段落、插图多种方式导航](https://z3.ax1x.com/2021/04/28/gif6gO.png)
 
-![完美适配 Dark 模式，Markdown 变得更 Cool 了](https://z3.ax1x.com/2021/03/30/cF2BHe.png)
+![完美适配 Dark 模式，Markdown 变得更 Cool 了](https://z3.ax1x.com/2021/04/28/gify8K.png)
 
 ![音/视频、标签、引用折叠、高清插图、…30+特性开箱即用](https://z3.ax1x.com/2021/03/30/cF2Uc6.png)
 
@@ -57,53 +57,42 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 1. **下载插件：**
    1. 从 VLOOK™ 在 **[GitHub](https://github.com/MadMaxChow/VLOOK/releases)** 或 **[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)** 的主页下载最新发布的版本
+   2. 也可直接在项目主页中下载单个[主题文件](https://github.com/MadMaxChow/VLOOK/tree/master/released/theme)（[备用链接](https://gitee.com/madmaxchow/VLOOK/tree/master/released/theme)）
 2. **安装字体：（可选）**
    1. 下载并安装 VLOOK™ 主题配套字体包 •• 详见「[字体主题](#字体主题)」
 3. **安装 Typora：**
    1. 下载并安装 **[Typora](https://www.typora.io)** 的最新版本
-   2. 启动后进入「偏好设置」，并开启以下选项。详见下图：
+   2. 启动 Typora 并进入「偏好设置」，启用「Markdown 扩展语法、代码块」下的所有选项。详见下图：
 
-![开启「偏好设置 ▸ Markdown」下的相关的选项」下的所有选项](https://z3.ax1x.com/2021/03/28/cpkIFs.png)
+![开启「Typora▸偏好设置▸Markdown」相关选项](https://z3.ax1x.com/2021/04/28/gP1qsA.png?darksrc=gP1bMd.png&srcset=gP1LqI.png@2x&darksrcset=gP1XZt.png@2x)
 
 
 ## Step 2•安装并选择主题
 
 1. **安装主题：**
-   1. 将`released\theme`下所有 CSS 文件复制至 Typora 的主题目录（ Typora「偏好设置」中点击「外观 - 打开主题目录」定位到该目录）；
+   1. 将`released\theme`下所有 CSS 文件复制至 Typora 的主题目录
+   2. 主题目录在哪？可通过「偏好设置」中点击「**外观▸打开主题目录**」定位到该目录
 2. **选用主题：**
    1. 重启 Typora
-   2. 点击菜单`主题`，选择以`vlook-*`形式命名的主题即可
+   2. 点击「**主题**」菜单，选择以`Vlook-*`形式命名的任意主题即可
 3. **编写文档：**
-   1. 建议基于 VLOOK™ 提供的文档模板来创建，这样能更快上手
-   2. 模板文件位于`released`下的`VLOOK-Document-Template.md` 为模板来创建你自己的 Markdown 文档
+   1. 建议基于 VLOOK™ 规范的文档模板来创建你自己的 Markdown 文档，这样能更快上手
+   2. 模板文件在哪？在目录`released`下的文件「**VLOOK-Document-Template.md**」
 
 ## Step 3•应用插件
 
-首先在 Typora 中将 Markdown 文件导出为「**HTML**」文件；
+![进入「Typora▸偏好设置▸导出」进行配置](https://z3.ax1x.com/2021/04/28/gP1TRe.png?darksrc=gP1IPO.png&srcset=gP17xH.png@2x&darksrcset=gP1oGD.png@2x)
 
-###### 方式一（仅适用于 Windows 用户）：
-
-1. 启动自动植入插件小工具：released\\plugin\\**v-drop.exe**
-2. 启动 v-drop.exe，并将导出后的「HTML」文件拖到其界面上即可
-3. 说明：默认自动读取 `plugin.txt` 的内容，该文件的默认内容为离线版插件，根据需要选择在线版内容进行覆盖。
-
-###### 方式二：
-
-1. 根据需要打开对应的「插件文件」，全选所有内容，并复制
-   - 在线版插件（自动在线更新）：released\\plugin\\**plugin_live.txt**
-   - 离线版插件（无网络场景）：released\\plugin\\**plugin_standalone.txt**
-
-2. 用纯文件编辑器，如：记事本、[Visual Studio Code](https://code.visualstudio.com/)，打开导出后的 HTML 文件；
-3. 搜索`<body`，并将复制的内容粘贴到 body 标签所在行的关闭符`>`之后：
-
-```html
-<body ...>
-◀ ◀ ◀ 将「插件内容」粘贴于此！
-...
-</body>
-```
-
-4. 保存，大吉大利。
+1. **配置导出选项安装 Typora：**
+   1. 启动 Typora 并进入「**偏好设置**」
+   2. 点击「导出」，添加配置（选择 HTML 模板），并将配置命名为`HTML (VLOOK)`
+2. **安装插件代码：**
+   1. 打开插件文件：released\plugin\\**plugin.txt**，或直接打开线上版本的 [plugin.txt](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin.txt)（[备用链接](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt)）
+   2. 全选里面的所有内容，并复制
+   3. 回到导出配置「**HTML (VLOOK)**」中的`在<body />中添加`，将内容粘贴至下方的文本框内即可
+3. **一键导出：**
+   1. 打开符合 VLOOK™ 规范的 md 文件
+   2. 点击「**文件▸导出▸HTML (VLOOK)**」即可
 
 ###### 选择合适的浏览器
 

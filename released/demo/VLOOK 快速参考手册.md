@@ -1,13 +1,14 @@
 ---
 title: VLOOK™ 快速参考手册 - Markdown 编辑器 Typora 的主题包和增强插件
-date: 2021-03-20
-tags:
-- Markdown
-- Typora
-- VLOOK
+author: MAX°孟兆
+keywords:
+- Markdown,Typora,VLOOK,Plugin,插件,自动排版,跨平台,i18n,开源,MIT,开源中国,OSC,编辑推荐
+- 表格增强,单元格合并,行分组,十字光标,刮刮卡,黑幕,标签,图片增强,演示辅助,聚光灯,激光笔,自动折叠,打印,Mermaid,音频,视频,注音,主题,字体,模板,深色模式,Dark Mode,封面,封底,私人定制
+- PRD,设计,需求,文档,博客,手册,指南,在线,运维,知识库,WIKI
+- 产品经理,程序员,运维工程师,售前,售后
 ---
 
-###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>快速参考手册</sup><br />`#最新版本|V10.2#(theme2)`<br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2021. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>快速参考手册</sup><br />`#最新版本|V10.3#(theme2)`<br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2021. MAX°DESIGN.*
 
 [TOC]
 
@@ -18,9 +19,9 @@ tags:
 >
 >
 >
->VLOOK™ 是针对 ![Typora](https://s3.ax1x.com/2020/11/13/DpZXtI.png?mode=icon)[Typora](https://www.typora.io)[^Typora] （跨平台 Markdown 编辑器）的 **主题包** 和 **增强插件**（针对导出的 HTML 文件）。
+>VLOOK™ 是针对 ![Typora](https://z3.ax1x.com/2021/04/27/gCRILn.png?mode=icon)[Typora](https://www.typora.io)[^Typora] （跨平台 Markdown 编辑器）的 **主题包** 和 **增强插件**（针对导出的 HTML 文件）。
 >
->VLOOK™ 属于开源软件（遵从 **MIT License**），也是 ![OSChina](https://s1.ax1x.com/2020/11/06/BWB3Xn.png?mode=icon) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源产品。
+>VLOOK™ 属于开源软件（遵从 **MIT License**），也是 ![OSChina](https://s1.ax1x.com/2020/11/06/BWB3Xn.png?mode=icon) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源产品、Typora 的首个增强插件。
 >
 >`>(theme1)`
 
@@ -28,6 +29,10 @@ tags:
 
 > [+] **许可协议**
 >
+> > VLOOK™ 属于开源软件，遵从以下开源协议：
+> >
+> > ![VLOOK™ 的许可协议]
+> >
 > > ```
 > > MIT License
 > > Copyright (c) 2016-2021 MAX°DESIGN | Max Chow
@@ -70,55 +75,45 @@ tags:
 
 # 安装与使用
 
-## Step 1•下载与配置
+## Step 1•下载与设置
 
 1. **下载插件：**
    1. 从 VLOOK™ 在 ![Github](https://s1.ax1x.com/2020/11/11/BjMANq.png?mode=icon&darksrc=invert) **[GitHub](https://github.com/MadMaxChow/VLOOK/releases)** 或 ![Gitee](https://s1.ax1x.com/2020/11/06/BWBGmq.png?mode=icon) **[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)** 的主页下载最新发布的版本
+   2. 也可直接在项目主页中下载单个[主题文件](https://github.com/MadMaxChow/VLOOK/tree/master/released/theme)（[备用链接](https://gitee.com/madmaxchow/VLOOK/tree/master/released/theme)）
 2. **安装字体：（可选）**
    1. 下载并安装 VLOOK™ 主题配套字体包 •• 详见「[字体主题](#字体主题)」
 3. **安装 Typora：**
-   1. 下载并安装 ![Typora](https://s3.ax1x.com/2020/11/13/DpZXtI.png?mode=icon) [Typora](https://www.typora.io) 的最新版本
-   2. 启动后进入「偏好设置」，并开启以下选项。详见下图：
+   1. 下载并安装 ![Typora](https://s3.ax1x.com/2020/11/13/DpZXtI.png?mode=icon) [Typora](https://www.typora.io) 的最新版本（Version 0.10.3 或更高版本）
+   2. 启动 Typora 并进入「偏好设置」，启用「Markdown 扩展语法、代码块」下的所有选项。详见下图：
 
-![开启「偏好设置 ▸ Markdown」下的相关的选项](https://z3.ax1x.com/2021/03/28/cpkIFs.png?darksrc=cpkhwQ.png&srcset=cpkoYn.png@2x&darksrcset=cpk4oj.png@2x)
+![开启「Typora▸偏好设置▸Markdown」相关选项](https://z3.ax1x.com/2021/04/28/gP1qsA.png?darksrc=gP1bMd.png&srcset=gP1LqI.png@2x&darksrcset=gP1XZt.png@2x)
 
 ## Step 2•安装并选择主题
 
 1. **安装主题：**
-   1. 将`released\theme`下所有 CSS 文件复制至 Typora 的主题目录（ Typora「偏好设置」中点击「外观 - 打开主题目录」定位到该目录）；
+   1. 将`released\theme`下所有 CSS 文件复制至 Typora 的主题目录
+   2. 主题目录在哪？可通过「偏好设置」中点击「**外观▸打开主题目录**」定位到该目录
 2. **选用主题：**
    1. 重启 Typora
-   2. 点击菜单`主题`，选择以`vlook-*`形式命名的主题即可
+   2. 点击「**主题**」菜单，选择以`Vlook-*`形式命名的任意主题即可
 3. **编写文档：**
-   1. 建议基于 VLOOK™ 提供的文档模板来创建，这样能更快上手
-   2. 模板文件位于`released`下的`VLOOK-Document-Template.md` 为模板来创建你自己的 Markdown 文档
+   1. 建议基于 VLOOK™ 规范的文档模板来创建你自己的 Markdown 文档，这样能更快上手
+   2. 模板文件在哪？在目录`released`下的文件「**VLOOK-Document-Template.md**」
 
-## Step 3•应用插件
+## Step 3•配置插件与导出
 
-首先在 Typora 中将 Markdown 文件导出为「**HTML**」文件；
+![进入「Typora▸偏好设置▸导出」进行配置](https://z3.ax1x.com/2021/04/28/gP1TRe.png?darksrc=gP1IPO.png&srcset=gP17xH.png@2x&darksrcset=gP1oGD.png@2x)
 
-###### 方式一（仅适用于 Windows 用户）：
-
-1. 启动自动植入插件小工具：released\\plugin\\**v-drop.exe**
-2. 启动 v-drop.exe，并将导出后的「HTML」文件拖到其界面上即可
-3. 说明：默认自动读取 `plugin.txt` 的内容，该文件的默认内容为离线版插件，根据需要选择在线版内容进行覆盖。
-
-###### 方式二：
-
-1. 根据需要打开对应的「插件文件」，全选所有内容，并复制
-   - 在线版插件（自动在线更新）：released\\plugin\\**plugin_live.txt**
-   - 离线版插件（无网络场景）：released\\plugin\\**plugin_standalone.txt**
-2. 用纯文件编辑器，如：记事本、[Visual Studio Code](https://code.visualstudio.com/)，打开导出后的 HTML 文件；
-3. 搜索`<body`，并将复制的内容粘贴到 body 标签所在行的关闭符`>`之后：
-
-```html
-<body ...>
-◀ ◀ ◀ 将「插件内容」粘贴于此！
-...
-</body>
-```
-
-5. 保存，大吉大利。
+1. **配置导出选项安装 Typora：**
+   1. 启动 Typora 并进入「**偏好设置**」
+   2. 点击「导出」，添加配置（选择 HTML 模板），并将配置命名为`HTML (VLOOK)`
+2. **安装插件代码：**
+   1. 打开插件文件：released\plugin\\**plugin.txt**，或直接打开线上版本的 [plugin.txt](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin.txt)（[备用链接](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt)）
+   2. 全选里面的所有内容，并复制
+   3. 回到导出配置「**HTML (VLOOK)**」中的`在<body />中添加`，将内容粘贴至下方的文本框内即可
+3. **一键导出：**
+   1. 打开符合 VLOOK™ 规范的 md 文件
+   2. 点击「**文件▸导出▸HTML (VLOOK)**」即可
 
 ###### 选择合适的浏览器
 
@@ -192,13 +187,13 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 >敬请你根据需要和喜好随时、轻松享用～
 >
->`>(theme1)`
+>`>(theme1)`      
 
 ![VLOOK™ 的「内容导航」工具及适用场景]
 
 | **内容导航工具** | 适用场景                                                     |
 | :--------------: | ------------------------------------------------------------ |
-|     大纲导航     | 适用于内容层次明确，**全文档**跨章节的快速定位 [••](#大纲导航) |
+|     导航中心     | 适用于按目录、分类内容索引（目录/插图/表格/多媒体/代码块）进行**全文档**跨章节的快速定位 [••](#导航中心) |
 |     逐章导航     | 适用于前后章节相关度高，**按章节**顺序一章一章进行浏览 [••](#逐章导航) |
 |     逐段导航     | 适用于文档评审或演示，**按段落**一段一段进行聚焦式浏览 [••](#段落导航) |
 |     插图导航     | 适用于**按图索骥**，快速浏览文档中的插图，以及快速**定位**到文档中对应的位置 [••](#插图导航) |
@@ -522,6 +517,8 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 - **示例二：在有序、无序列表下的缩进表格**
 
+  ![示例二：在有序、无序列表下的缩进表格]
+  
   | 列1              | 列2              |        列3         |              列4 |
   | ---------------- | ---------------- | :----------------: | ---------------: |
   | 第一行           | 左对齐（长内容） |      居中对齐      | 右对齐（长内容） |
@@ -543,7 +540,6 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > - 使用 Markdown 的引用的语法`>(空格)`，即可表示该行缩进一级，其前一行即为上一级的分组
 > - 多个`>`表示缩进多级，如三级缩进`>>>(空格)`
->
 
 ###### 写法如下第 2 列所示
 
@@ -693,7 +689,6 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > - 如果临时没有图片的高清分辨率，VLOOK™ 也可以将其转换 2x 资源，这样在高分屏上也能提高图片显示清晰度（但图片大小会相应缩小 50%）
 >- 可通过在「**文档 URL**」中添加 VLOOK™ 规范的参数`srcset=auto`来启用这个特性
-> 
 
 ---
 
@@ -1310,7 +1305,6 @@ end
 > - **语法：**`![音频题注](音频URL "音频第2题注")`
 > - **语法示例：**`![这是音频](audio.mp3)`
 > - **支持的音频格式：**MP3 (.mp3)、Ogg (.ogg)、Wav (.wav)、M4a (.m4a)
->
 
 > **音频的界面默认为「标准控件」，支持指定使用 VLOOK™ 定制的「Mini 控件」，AMAZING!**
 >
@@ -1363,7 +1357,6 @@ end
 > - **语法：**`![视频题注](视频 URL "音频第2题注")`
 > - **语法示例：**`![这是视频](video.m4a)`
 > - **支持的音频格式：**Ogg (.ogv)、MPEG4 (.mp4)、WebM (.webm)
->
 
 ###### 示例
 
@@ -1450,7 +1443,6 @@ end
 `#VLOOK:#(theme1)` 无须任何设置，即可自动对文档内所有「代码块」进行统一的自动编号，编号内容举例：`代码块 1` `代码块 2`
 
 > 给「代码块」添加题注的方式，与给「表格」添加题注的方式是一致的 •• [了解详情](#表格自动编号与题注)
->
 
 ###### 示例
 
@@ -1521,7 +1513,7 @@ void quickSort(int arr[], int left, int right) {
 
 > **建议启用 Typora 中的显示代码块行号配置，以获得更好的体验。**
 >
-> 启用方式：「文件 ▸ 偏好设置 ▸ Markdown ▸ 代码块 - 显示行号」
+> 启用方式：「Typora▸偏好设置▸Markdown▸代码块▸显示行号」
 >
 > `>(theme1)`
 
@@ -1587,6 +1579,8 @@ void quickSort(int arr[], int left, int right) {
 「**你的 Markdown 文档能一键换肤吗？！**」
 
 `#VLOOK:#(theme1)` 内置了多套原创、独具风格的模板主题，能满足多种应用场景需要，完全超越你对 Markdown 主题的印象！
+
+![VLOOK™ 内置主题]"（共 5 免费主题，可支持私人定制）"
 
 |                       VLOOK™ 内置主题                        |                              ==                              |                              ==                              |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
@@ -1676,11 +1670,13 @@ void quickSort(int arr[], int left, int right) {
 >
 > - HTML 的 URL 参数：`cs=xxx`
 
-| URL 参数 | URL 参数取值 | 说明                                                 | 参数应用示例                   |
-| :------: | :----------: | ---------------------------------------------------- | ------------------------------ |
-|   `cs`   |    不指定    | 默认自动跟随浏览器或系统的 Dark Mode（深色模式）设置 |                                |
-|    :     |   `light`    | 强制显示为 Light 模式                                | 你的文档.html==**?cs=light**== |
-|    :     |    `dark`    | 强制显示为 Dark Mode                                 | 你的文档.html==**?cs=dark**==  |
+![强制指定文档配色模式的文档 URL 参数（cs）说明]
+
+| 文档 URL 参数 | URL 参数取值 | 说明                                                 | 参数应用示例                   |
+| :-----------: | :----------: | ---------------------------------------------------- | ------------------------------ |
+|     `cs`      |    不指定    | 默认自动跟随浏览器或系统的 Dark Mode（深色模式）设置 |                                |
+|       :       |   `light`    | 强制显示为 Light 模式                                | 你的文档.html==**?cs=light**== |
+|       :       |    `dark`    | 强制显示为 Dark Mode                                 | 你的文档.html==**?cs=dark**==  |
 
 > `#小提示#(green)` *如果你的图片在 Dark Mode 下显得不够和谐，可以尝试选择让[图片适配 Dark Mode](#图片适配 Dark Mode)。*
 
@@ -1762,22 +1758,19 @@ void quickSort(int arr[], int left, int right) {
 
 # °内容导航
 
-## 大纲导航
+## 导航中心
 
-「**大纲导航是文档中最常用的导航方式，适用于内容层次明确，全文档跨章节的快速定位**」
+「**按大纲/索引进行导航是文档中最常用的导航方式，适用于内容层次明确，全文档跨章节的快速定位**」
 
-`#VLOOK:#(theme1)` Typora 支持 GFM 标准，其导出的 HTML 后会自动生成大纲，VLOOK™ 可自动接管并优化大纲的使用体验。
+`#VLOOK:#(theme1)` Typora 支持 GFM 标准，其导出的 HTML 后会自动生成大纲，VLOOK™ 可自动接管并提供更强大的导航特性。
 
 > 按 VLOOK™ 文档模板规范，建议在「[封面](#封面、封底)」后添加目录标记`[TOC]`
->
 
-由 VLOOK™ 自动接管后，提供以下==专属特性==：
+**由 VLOOK™ 自动接管后，提供以下增强特性：**
 
-- 支持对章节进行折叠、展开
-- 支持对章节进行搜索、过滤
-- 文档当前位置在「封面」时，点击左上角的大纲按钮打开大纲导航面板
-- 不在封面时，会以占位方式在文档左侧固定显示大纲导航面板
-- 支持移动端、PC 端
+- 支持丰富的分类内容索引：==目录==、==插图==、==表格==、==多媒体==、==代码块==
+- 所有类型的索引均支持按关键进行快速过滤筛选
+- 支持自动记录访问历史，随时一键回跳
 
 ---
 
@@ -1837,7 +1830,7 @@ void quickSort(int arr[], int left, int right) {
 
 `#VLOOK:#(theme1)` 文档中的所有图片、Mermaid[^Mermaid] 图表都支持快速浏览，一键跳转到对应位置。
 
-> - 点击任意插图可直接启动插图导航，或点击工具栏上 ![插图导航](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-figure-nav.png?mode=icon2x&darksrc=invert) 按钮打开；
+> - 点击任意插图可直接启动插图导航，或点击导航中心插图索引面板上的 ![插图导航](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-figure-nav.png?mode=icon2x&darksrc=invert) 按钮打开；
 > - 点击插图导航内的插图，能直接跳转到文档中对应的位置。
 
 [^Mermaid]: Mermaid 是一个用于画流程图、状态图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [Mermaid 官网](https://mermaidjs.github.io)，或 VLOOK™ 的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
@@ -1937,7 +1930,7 @@ void quickSort(int arr[], int left, int right) {
 >
 > `#小提示#(green)` 打印输出前，可根据提示选择 **显示** 或 **隐藏** 刮刮卡的内容。
 
-###### 示例
+###### 示例：刮刮卡
 
 | 语法示例                                                     |           效果（点击以下的「刮刮卡」显示原始内容）           |
 | ------------------------------------------------------------ | :----------------------------------------------------------: |
@@ -2000,7 +1993,7 @@ void quickSort(int arr[], int left, int right) {
 
 > **自动识别缺失的图片**
 >
-> 识别出无法加载的图片，并替换为图片缺失提示图，示例如下：
+> 识别出无法加载的图片，并进行提示，示例如下：
 
 ![缺失的图片](vlook-lost-image.jpg?darksrc=invert)
 
@@ -2008,7 +2001,7 @@ void quickSort(int arr[], int left, int right) {
 >
 > 自动检查页面内部链接的正确性。
 >
-> 若存在无效的页内链接，则在文档的右下角显示![](https://s3.ax1x.com/2021/03/16/6sH5EF.png?mode=icon2x)图标，点击可查看无效链接的详细信息。
+> 若存在无效的页内链接，则在文档的右下角显示 ![](https://s3.ax1x.com/2021/03/16/6sH5EF.png?mode=icon2x) 图标，点击可查看无效链接的详细信息。
 
 > **重名章节标题检查**
 >
@@ -2029,7 +2022,6 @@ void quickSort(int arr[], int left, int right) {
 > **外部链接强制在新标签打开**
 >
 > 为提高文档阅读与交互体验，对于外链（如：http、https、ftp等），自动强制设置为在新标签页中打开。
->
 
 > **识别链接类型**（鼠标悬停看看效果）：
 >
@@ -2064,10 +2056,33 @@ void quickSort(int arr[], int left, int right) {
 
 完成加载处理后会自动关闭并显示文档，也可以通过在「文档 URL」中添加 VLOOK™ 规范的参数指定不同的行为：
 
+![指定文档欢迎屏显示模式的文档 URL 参数（ws）说明]
+
 | 参数 | 参数取值 | 说明                                 | 参数应用示例                  |
 | :--: | :------: | ------------------------------------ | ----------------------------- |
 |  ws  |  `none`  | 不显示欢迎屏                         | 你的文档.html==**?ws=none**== |
 |  :   |  `wait`  | 文档和插件加载完成后，手动关闭欢迎屏 | 你的文档.html==**?ws=wait**== |
+
+> [+] **如何自定义欢迎屏的内容？**
+>
+> > 通过在文档最开始位置添加 [YAML Front Matter](https://support.typora.io/YAML/) 内容，并添加指定的变量`welcome`，举例如下：
+> >
+> > ![自定义欢迎屏的 YAML Front Matter 示例]
+> >
+> > ```yaml
+> > ---
+> > title: 两行 --- 包裹的内容就是 YAML Front Matter 的内容
+> > welcome：在这里添加欢迎屏的自定义内容，可包括 HTML 标记，如：<strong>欢迎屏信息</strong>
+> > ---
+> > 从这里开始是 Markdown 文档的内容
+> > ```
+> > 然后在导出配置「[HTML (VLOOK)](#Step 3•配置插件与导出)」的`在<head />中添加`中输入以下内容后，然后再导出 HTML 即可！
+> >
+> > ![导出配置中添加自定义欢迎屏的配置]
+> >
+> > ```html
+> > <meta name="welcome" content="${welcome}">
+> > ```
 
 > `#参考#(green)` *如果对 URL 参数的使用有疑问，可以去「[延伸内容](#延伸内容)」那深入再了解了解～*
 
@@ -2113,7 +2128,7 @@ $\lim_{x \to \infty} \exp{-x}=0$
 | :--------------------------: | --------------------------------------- |
 |           ==全局==           | ==                                      |
 |         <kbd>D</kbd>         | 开启、关闭 Dark Mode                    |
-|         <kbd>O</kbd>         | 显示、隐藏「[大纲导航](#大纲导航)」面板 |
+|         <kbd>O</kbd>         | 显示、隐藏「[导航中心](#导航中心)」面板 |
 |         <kbd>A</kbd>         | 选择字体风格，详见[字体主题](#字体主题) |
 |         <kbd>I</kbd>         | 显示、关闭「[插图导航](#插图导航)」     |
 |         <kbd>P</kbd>         | 打开、关闭「[激活笔](#激光笔)」         |
