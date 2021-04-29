@@ -79,7 +79,7 @@ keywords:
 
 1. **下载插件：**
    1. 从 VLOOK™ 在 ![Github](https://s1.ax1x.com/2020/11/11/BjMANq.png?mode=icon&darksrc=invert) **[GitHub](https://github.com/MadMaxChow/VLOOK/releases)** 或 ![Gitee](https://s1.ax1x.com/2020/11/06/BWBGmq.png?mode=icon) **[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)** 的主页下载最新发布的版本
-   2. 也可直接在项目主页中下载单个[主题文件](https://github.com/MadMaxChow/VLOOK/tree/master/released/theme)（[备用链接](https://gitee.com/madmaxchow/VLOOK/tree/master/released/theme)）
+   2. 也可直接在项目主页中[下载主题文件](https://github.com/MadMaxChow/VLOOK/tree/master/released/theme)（[备用链接](https://gitee.com/madmaxchow/VLOOK/tree/master/released/theme)）
 2. **安装字体：（可选）**
    1. 下载并安装 VLOOK™ 主题配套字体包 •• 详见「[字体主题](#字体主题)」
 3. **安装 Typora：**
@@ -98,7 +98,7 @@ keywords:
    2. 点击「**主题**」菜单，选择以`Vlook-*`形式命名的任意主题即可
 3. **编写文档：**
    1. 建议基于 VLOOK™ 规范的文档模板来创建你自己的 Markdown 文档，这样能更快上手
-   2. 模板文件在哪？在目录`released`下的文件「**VLOOK-Document-Template.md**」
+   2. 文档模板在哪？在目录`released`下的文件「**VLOOK-Document-Template.md**」，也可直接在项目主页中[下载文档模板](https://github.com/MadMaxChow/VLOOK/tree/master/released)（[备用链接](https://gitee.com/madmaxchow/VLOOK/tree/master/released)）
 
 ## Step 3•配置插件与导出
 
