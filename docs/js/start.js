@@ -64,7 +64,7 @@ let jsSrc = [
     jsHost + "js/jquery.js",
 // jsHost + "js/velocity.js",
     jsHost + "js/clipboard.js",
-    jsHost + (startVersion.indexOf("dev") > 0 ? "js/vlook.js" : "js/vlook-min.js"),
+    jsHost + (startVersion.indexOf("dev") > 0 ? "js/vlook-dev.js" : "js/vlook.js"),
     jsHost + "js/svg-inject.js"];
 for (let i = 0; i < jsSrc.length; i++) {
     let js = document.createElement("script");
