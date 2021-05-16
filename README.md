@@ -16,21 +16,21 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ---
 
-![让 Markdown 的自动化排版和交互性上了 N 个台阶](https://z3.ax1x.com/2021/04/28/giajEQ.png)
+![让 Markdown 的自动化排版和交互性上了 N 个台阶](https://z3.ax1x.com/2021/05/14/grfvNj.png)
 
-![内置多套原创文档主题、字体主题，一键切换，支持私人定制](https://z3.ax1x.com/2021/03/30/cF2wnO.png)
+![内置多套原创文档主题、字体主题，一键切换，支持私人定制](https://z3.ax1x.com/2021/05/14/grfT3t.png)
 
-![表格排版+：单元格合并、列格式、表格行分组、自动编号、…](https://z3.ax1x.com/2021/03/30/cF2ajK.png)
+![表格排版+：单元格合并、列格式、表格行分组、自动编号、…](https://z3.ax1x.com/2021/05/14/grfOHg.png)
 
-![零成本的图片自动排版～题注、高分屏、反色、替换、版式、…](https://z3.ax1x.com/2021/04/28/gifcvD.png)
+![零成本的图片自动排版～题注、高分屏、反色、替换、版式、…](https://z3.ax1x.com/2021/05/14/grfjEQ.png)
 
-![火力全开的图片自动排版、演示辅助～聚光灯、激光笔、注意](https://z3.ax1x.com/2021/04/28/gifsC6.png)
+![火力全开的图片自动排版、演示辅助～聚光灯、激光笔、注意](https://z3.ax1x.com/2021/05/14/grfqu8.png)
 
-![OMG! 可以按大纲、逐章、段落、插图多种方式导航](https://z3.ax1x.com/2021/04/28/gif6gO.png)
+![OMG! 可以按大纲、逐章、段落、插图多种方式导航](https://z3.ax1x.com/2021/05/14/grfHjf.png)
 
-![完美适配 Dark 模式，Markdown 变得更 Cool 了](https://z3.ax1x.com/2021/04/28/gify8K.png)
+![完美适配 Dark 模式，Markdown 变得更 Cool 了](https://z3.ax1x.com/2021/05/14/grfLDS.png)
 
-![音/视频、标签、引用折叠、高清插图、…30+特性开箱即用](https://z3.ax1x.com/2021/03/30/cF2Uc6.png)
+![音/视频、标签、引用折叠、高清插图、…30+特性开箱即用](https://z3.ax1x.com/2021/05/14/gsKdSO.png)
 
 ---
 
@@ -64,7 +64,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
    1. 下载并安装 **[Typora](https://www.typora.io)** 的最新版本
    2. 启动 Typora 并进入「偏好设置」，启用「Markdown 扩展语法、代码块」下的所有选项。详见下图：
 
-![开启「Typora▸偏好设置▸Markdown」相关选项](https://z3.ax1x.com/2021/04/28/gP1qsA.png?darksrc=gP1bMd.png&srcset=gP1LqI.png@2x&darksrcset=gP1XZt.png@2x)
+![开启「Typora▸偏好设置▸Markdown」相关选项](https://z3.ax1x.com/2021/05/13/gBcrbn.png?srcset=gBc6U0.png&darksrc=gBcyEq.png&darksrcset=gBcc5V.png@2x)
 
 
 ## Step 2•安装并选择主题

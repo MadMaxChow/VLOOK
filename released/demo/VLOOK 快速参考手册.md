@@ -19,7 +19,7 @@ keywords:
 >
 >
 >
->VLOOK™ 是针对 ![Typora](https://z3.ax1x.com/2021/04/27/gCRILn.png?mode=icon)[Typora](https://www.typora.io)[^Typora] （跨平台 Markdown 编辑器）的 **主题包** 和 **增强插件**（针对导出的 HTML 文件）。
+>VLOOK™ 是针对 ![Typora](https://z3.ax1x.com/2021/04/27/gCRILn.png?mode=icon) [Typora](https://www.typora.io)[^Typora] （跨平台 Markdown 编辑器）的 **主题包** 和 **增强插件**（针对导出的 HTML 文件）。
 >
 >VLOOK™ 属于开源软件（遵从 **MIT License**），也是 ![OSChina](https://s1.ax1x.com/2020/11/06/BWB3Xn.png?mode=icon) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源产品、Typora 的首个增强插件。
 >
@@ -83,10 +83,10 @@ keywords:
 2. **安装字体：（可选）**
    1. 下载并安装 VLOOK™ 主题配套字体包 •• 详见「[字体主题](#字体主题)」
 3. **安装 Typora：**
-   1. 下载并安装 ![Typora](https://s3.ax1x.com/2020/11/13/DpZXtI.png?mode=icon) [Typora](https://www.typora.io) 的最新版本（Version 0.10.3 或更高版本）
+   1. 下载并安装 ![Typora](https://z3.ax1x.com/2021/04/27/gCRILn.png?mode=icon) [Typora](https://www.typora.io) 的最新版本（Version 0.10.3 或更高版本）
    2. 启动 Typora 并进入「偏好设置」，启用「Markdown 扩展语法、代码块」下的所有选项。详见下图：
 
-![开启「Typora▸偏好设置▸Markdown」相关选项](https://z3.ax1x.com/2021/04/28/gP1qsA.png?darksrc=gP1bMd.png&srcset=gP1LqI.png@2x&darksrcset=gP1XZt.png@2x)
+![开启「Typora▸偏好设置▸Markdown」相关选项](https://z3.ax1x.com/2021/05/13/gBcrbn.png?srcset=gBc6U0.png&darksrc=gBcyEq.png&darksrcset=gBcc5V.png@2x)
 
 ## Step 2•安装并选择主题
 
@@ -119,7 +119,7 @@ keywords:
 
 > 为保障最佳的使用体验，强烈建议使用以下浏览器访问：
 >
-> ![Chrome](https://s3.ax1x.com/2021/01/20/sfwtQs.png?mode=icon) Google **[Chrome](https://www.google.cn/chrome/)**　　![Edge](https://s3.ax1x.com/2021/01/20/sfwGWQ.png?mode=icon) Microsoft **[Edge](https://www.microsoft.com/zh-cn/edge)**^(Chromium)^　　![Firefox](https://s3.ax1x.com/2021/01/20/sfwJzj.png?mode=icon) Mozilla **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
+> ![Chrome](https://z3.ax1x.com/2021/01/20/sfwtQs.png?mode=icon) Google **[Chrome](https://www.google.cn/chrome/)**　　![Edge](https://z3.ax1x.com/2021/01/20/sfwGWQ.png?mode=icon) Microsoft **[Edge](https://www.microsoft.com/zh-cn/edge)**^(Chromium)^　　![Firefox](https://z3.ax1x.com/2021/01/20/sfwJzj.png?mode=icon) Mozilla **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
 >
 > `>(brown)`
 
@@ -131,7 +131,8 @@ keywords:
 
 **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**
 
-![打赏 VLOOK™](https://s3.ax1x.com/2021/01/24/sHf82D.png?darksrc=sHfQ56.png&srcset=sHfGxe.png@2x&darksrcset=sHfMUx.png@2x)
+![打赏 VLOOK™](https://z3.ax1x.com/2021/01/24/sHf82D.png?darksrc=sHfQ56.png&srcset=sHfGxe.png@2x&darksrcset=sHfMUx.png@2x)
+**THANKS TO DONATE**
 
 # 快速入坑
 
@@ -251,7 +252,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 | 为不同类型的文档设置不同的模板主题 [••](#模板主题) | :    | 长内容会自动折叠了，长插图、长表格、长代码 [••](#长内容自动折叠) |
 | 为文档选择不同的字体主题 [••](#字体主题)           | :    | 更好友的脚注、更美观的公式 [••](#更友好的脚注)               |
 | Dark Mode is NOW [••](#Dark Mode)                  | :    | 支持快捷键操作 [••](#快捷键操作)                             |
-| 为文档添加封面、封底 [••](#封面、封底)             | :    | 支持跨平台、国际化 [••](#跨平台支持)                         |
+| 为文档添加封面、封底 [••](#封面、封底)             | :    | 支持跨平台、国际化、毛玻璃 [••](#跨平台、毛玻璃特效支持)     |
 
 # °文档排版
 
@@ -265,13 +266,13 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 > ###### ![←](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/i_merge1.svg?mode=icon&fill=text&darksrc=invert) 跨列合并（横向合并）
 >
-> 在要==被合并==的单元格内输入列合并标识`==`或`<<`，该单元格将会与==左侧相邻==的单元格进行合并，以此类推。
+> 在要==被合并==的单元格内输入列合并标识 `==` 或 `<<`，该单元格将会与==左侧相邻==的单元格进行合并，以此类推。
 >
 > `>(theme1)`
 
 > ###### ![↑](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/i_merge2.svg?mode=icon&fill=text&darksrc=invert) 跨行合并（纵向合并）
 >
-> 在要==被合并==的单元格内输入行合并标识`:`或`^^`，该单元格将会与==上方相邻==的单元格进行合并，以此类推。
+> 在要==被合并==的单元格内输入行合并标识 `:` 或 `^^`，该单元格将会与==上方相邻==的单元格进行合并，以此类推。
 >
 > `>(theme2)`
 
@@ -552,26 +553,30 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ###### 示例一：表格行分组折叠
 
-| 列头1                                     | [ ] 勾选列 | 列头2            |
-| ----------------------------------------- | :--------: | ---------------- |
-| 普通行                                    |            |                  |
-| 分组 1                                    |    [-]     |                  |
-| > 这是属于分组 1 的内容 1.1               |    [x]     | 该行是被折叠的行 |
-| > 这是属于分组 1 的内容 1.2               |            | 该行是被折叠的行 |
-| 分组间间隔了普通行                        |            |                  |
-| 分组 2                                    |    [-]     |                  |
-| > 这是属于分组 2 的内容 2.1               |    [x]     | 该行为被折叠的行 |
-| > 这是属于分组 2 的内容 2.2               |            | 该行为被折叠的行 |
-| > 这是属于分组 2 的内容 2.3               |    [-]     | 该行为被折叠的行 |
-| >> 这是属于二级分组 2.3 的内容 2.3.1      |    [x]     | 该行为被折叠的行 |
-| >> 这是属于二级分组 2.3 的内容 2.3.2      |     <<     | <<               |
-| >>> 这是属于三级分组 2.3.2 的内容 2.3.2.1 |    [x]     | 该行为被折叠的行 |
-| > 这是属于分组 2 的内容 2.4               |            | 该行为被折叠的行 |
-| 普通行                                    |            |                  |
+| 列1                                       | [ ] 勾选列 | 列2              | 列3              |
+| ----------------------------------------- | :--------: | ---------------- | ---------------- |
+| 普通行                                    |            |                  |                  |
+| 分组 1                                    |    [-]     |                  |                  |
+| > 这是属于分组 1 的内容 1.1               |    [x]     | 该行是被折叠的行 | 该行是被折叠的行 |
+| > 这是属于分组 1 的内容 1.2               |            | 该行是被折叠的行 | 该行是被折叠的行 |
+| 分组间间隔了普通行                        |            |                  |                  |
+| 分组 2                                    |    [-]     |                  |                  |
+| > 这是属于分组 2 的内容 2.1               |    [x]     | 该行为被折叠的行 | 该行是被折叠的行 |
+| > 这是属于分组 2 的内容 2.2               |            | 该行为被折叠的行 | 该行是被折叠的行 |
+| > 这是属于分组 2 的内容 2.3               |    [-]     | 该行为被折叠的行 | 该行是被折叠的行 |
+| >> 这是属于二级分组 2.3 的内容 2.3.1      |    [x]     | 该行为被折叠的行 | 该行是被折叠的行 |
+| >> 这是属于二级分组 2.3 的内容 2.3.2      |     ==     | ==               | ==               |
+| >>> 这是属于三级分组 2.3.2 的内容 2.3.2.1 |    [x]     | 该行为被折叠的行 | 该行是被折叠的行 |
+| > 这是属于分组 2 的内容 2.4               |            | 该行为被折叠的行 | 该行是被折叠的行 |
+| 普通行                                    |            |                  |                  |
+| 分组 3                                    |            |                  |                  |
+| >                                         |            | 数据项 1         | 数据项 A         |
+| >                                         |            | 数据项 2         | 数据项 B         |
+| >                                         |            | 数据项 3         | 数据项 C         |
 
 ###### 示例二：表格行分组折叠
 
-| 列头1                                        | [ ] 勾选列 | 列头2            |
+| 列1                                          | [ ] 勾选列 | 列2              |
 | -------------------------------------------- | :--------: | ---------------- |
 | 普通行                                       |            |                  |
 | 分组 1                                       |    [-]     |                  |
@@ -743,7 +748,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ###### 示例
 
-![默认不适配 Dark Mode](https://s3.ax1x.com/2021/01/15/swDZlQ.png?mode=figure&padding=true&srcset=swDeyj.png@2x,swDmOs.png@3x)　　![Dark Mode 时：替换成指定图片](https://s3.ax1x.com/2021/01/15/swDZlQ.png?mode=figure&darksrc=swBrss.png&padding=true&srcset=swDeyj.png@2x,swDmOs.png@3x&darksrcset=swBgoV.png@2x,swB6Zq.png@3x)
+![默认不适配 Dark Mode](https://z3.ax1x.com/2021/01/15/swDZlQ.png?mode=figure&padding=true&srcset=swDeyj.png@2x,swDmOs.png@3x)　　![Dark Mode 时：替换成指定图片](https://z3.ax1x.com/2021/01/15/swDZlQ.png?mode=figure&darksrc=swBrss.png&padding=true&srcset=swDeyj.png@2x,swDmOs.png@3x&darksrcset=swBgoV.png@2x,swB6Zq.png@3x)
 
 ---
 
@@ -1584,8 +1589,8 @@ void quickSort(int arr[], int left, int right) {
 
 |                       VLOOK™ 内置主题                        |                              ==                              |                              ==                              |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| [![Hope 海洋之心](https://z3.ax1x.com/2021/03/29/c9GiQS.png?mode=logo&srcset=c9GFsg.png@2x)](https://madmaxchow.github.io/VLOOK/theme-hope.html?lnkcss=none) | [![Joint 榫卯](https://s3.ax1x.com/2020/12/12/rVxIbR.png?mode=logo&srcset=rVx7Ux.png@2x)](https://madmaxchow.github.io/VLOOK/theme-joint.html?lnkcss=none) | [![Geek 极邃](https://s3.ax1x.com/2020/12/12/rVx5r9.png?mode=logo&srcset=rVxH56.png@2x)](https://madmaxchow.github.io/VLOOK/theme-geek.html?lnkcss=none) |
-| [![Fancy 慕幻](https://s3.ax1x.com/2020/12/12/rVxL8O.png?mode=logo&srcset=rVxXxe.png@2x)](https://madmaxchow.github.io/VLOOK/theme-fancy.html?lnkcss=none) | [![Thinking 静思](https://z3.ax1x.com/2021/03/29/c9G9Rf.png?mode=logo&srcset=c9GCz8.png@2x)](https://madmaxchow.github.io/VLOOK/theme-thinking.html?lnkcss=none) | ![私人定制](https://s3.ax1x.com/2020/12/12/rVzYL9.png?mode=logo&srcset=rVzJsJ.png@2x) |
+| [![Hope 海洋之心](https://z3.ax1x.com/2021/03/29/c9GiQS.png?mode=logo&srcset=c9GFsg.png@2x)](https://madmaxchow.github.io/VLOOK/theme-hope.html?lnkcss=none) | [![Joint 榫卯](https://z3.ax1x.com/2020/12/12/rVxIbR.png?mode=logo&srcset=rVx7Ux.png@2x)](https://madmaxchow.github.io/VLOOK/theme-joint.html?lnkcss=none) | [![Geek 极邃](https://z3.ax1x.com/2020/12/12/rVx5r9.png?mode=logo&srcset=rVxH56.png@2x)](https://madmaxchow.github.io/VLOOK/theme-geek.html?lnkcss=none) |
+| [![Fancy 慕幻](https://z3.ax1x.com/2020/12/12/rVxL8O.png?mode=logo&srcset=rVxXxe.png@2x)](https://madmaxchow.github.io/VLOOK/theme-fancy.html?lnkcss=none) | [![Thinking 静思](https://z3.ax1x.com/2021/03/29/c9G9Rf.png?mode=logo&srcset=c9GCz8.png@2x)](https://madmaxchow.github.io/VLOOK/theme-thinking.html?lnkcss=none) | ![私人定制](https://z3.ax1x.com/2020/12/12/rVzYL9.png?mode=logo&srcset=rVzJsJ.png@2x) |
 
 > **私人定制**
 >
@@ -1611,7 +1616,7 @@ void quickSort(int arr[], int left, int right) {
 >
 > 整体视觉为「**清新、简约、明快**」，主要采用无衬线的免费或开源的东亚和拉丁字体。
 >
-> ![字体风格_小清新](https://s3.ax1x.com/2021/01/05/skBoA1.png?darksrc=invert&srcset=skBTtx.png@2x,skB7h6.png@3x)
+> ![字体风格_小清新](https://z3.ax1x.com/2021/01/05/skBoA1.png?darksrc=invert&srcset=skBTtx.png@2x,skB7h6.png@3x)
 >
 > `>(gray)`
 
@@ -1619,16 +1624,16 @@ void quickSort(int arr[], int left, int right) {
 >
 > 整体视觉为「**优雅、韵动、个性**」，主要采用衬线、无衬线的免费或开源的东亚和拉丁字体，多种字重进行**混搭组合**。
 >
-> ![字体风格_文艺范](https://s3.ax1x.com/2021/01/05/skBLcD.png?darksrc=invert&srcset=skBjnH.png@2x,skBOje.png@3x)
+> ![字体风格_文艺范](https://z3.ax1x.com/2021/01/05/skBLcD.png?darksrc=invert&srcset=skBjnH.png@2x,skBOje.png@3x)
 >
 > `>(gray)`
 
 `#注意#(red)`<br />**因为 Windows / MacOS 系统默认不预装字体主题配套的字体包，VLOOK™ 目前可同时支持在线和本地两种使用方式。**
 **若你的工作环境无法访问互联网，建议直接下载字体包并安装到本地，以获得最佳的视觉体验。**
 
-![蓝奏云](https://s3.ax1x.com/2020/12/13/reJiee.png?mode=logo&srcset=reJCLD.png@2x) •• [下载字体▾](https://wws.lanzous.com/ieVDhj1aokj)
+![蓝奏云](https://z3.ax1x.com/2020/12/13/reJiee.png?mode=logo&srcset=reJCLD.png@2x) •• [下载字体▾](https://wws.lanzous.com/ieVDhj1aokj)
 
-![百度网盘](https://s3.ax1x.com/2020/12/13/reJFdH.png?mode=logo&srcset=reJkod.png@2x) ••`密码：11ta`•• [下载字体▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)
+![百度网盘](https://z3.ax1x.com/2020/12/13/reJFdH.png?mode=logo&srcset=reJkod.png@2x) •••• [下载字体▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)
 
 ---
 
@@ -2001,7 +2006,7 @@ void quickSort(int arr[], int left, int right) {
 >
 > 自动检查页面内部链接的正确性。
 >
-> 若存在无效的页内链接，则在文档的右下角显示 ![](https://s3.ax1x.com/2021/03/16/6sH5EF.png?mode=icon2x) 图标，点击可查看无效链接的详细信息。
+> 若存在无效的页内链接，则在文档的右下角显示 ![](https://z3.ax1x.com/2021/03/16/6sH5EF.png?mode=icon2x) 图标，点击可查看无效链接的详细信息。
 
 > **重名章节标题检查**
 >
@@ -2114,9 +2119,57 @@ void quickSort(int arr[], int left, int right) {
 
 ## 更美观的公式
 
-###### 行内公式
+###### 段落内混排的公式
 
-$\lim_{x \to \infty} \exp{-x}=0$
+这是行内混排的「**数学公式**」$\lim_{x \to \infty} \exp{-x} = 0$，也可以是「**化学公式**」$\ce{CH4 + 2 $\left( \ce{O2 + 79/21 N2} \right)$}$
+
+> [+] **看看以上公式的代码**
+>
+> > 数学公式的代码：`$\lim_{x \to \infty} \exp{-x} = 0$`
+> >
+> > 化学公式的代码：`$\ce{CH4 + 2 $\left( \ce{O2 + 79/21 N2} \right)$}$`
+
+###### 独占一行的公式块
+
+$$
+\begin{align*}
+y = y(x,t) &= A e^{i\theta} \\
+&= A (\cos \theta + i \sin \theta) \label{mymath-1}\tag{My Math - 1} \\
+&= A (\cos(kx - \omega t) + i \sin(kx - \omega t)) \\
+&= A\cos(kx - \omega t) + i A\sin(kx - \omega t)  \\
+&= A\cos \Big(\frac{2\pi}{\lambda}x - \frac{2\pi v}{\lambda} t \Big) + i A\sin \Big(\frac{2\pi}{\lambda}x - \frac{2\pi v}{\lambda} t \Big) \label{mymath-2}\tag{My Math - 2} \\
+&= A\cos \frac{2\pi}{\lambda} (x - v t) + i A\sin \frac{2\pi}{\lambda} (x - v t) \label{mymath-3}\tag{My Math - 3}
+\end{align*}
+$$
+
+> [+] **看看以上公式的代码**
+>
+> > ![独占一行的公式块]
+> >
+> > ```latex
+> > $$
+> > \begin{align*}
+> > y = y(x,t) &= A e^{i\theta} \\
+> > &= A (\cos \theta + i \sin \theta) \label{mymath-1}\tag{My Math - 1} \\
+> > &= A (\cos(kx - \omega t) + i \sin(kx - \omega t)) \\
+> > &= A\cos(kx - \omega t) + i A\sin(kx - \omega t)  \\
+> > &= A\cos \Big(\frac{2\pi}{\lambda}x - \frac{2\pi v}{\lambda} t \Big) + i A\sin \Big(\frac{2\pi}{\lambda}x - \frac{2\pi v}{\lambda} t \Big) \label{mymath-2}\tag{My Math - 2} \\
+> > &= A\cos \frac{2\pi}{\lambda} (x - v t) + i A\sin \frac{2\pi}{\lambda} (x - v t) \label{mymath-3}\tag{My Math - 3}
+> > \end{align*}
+> > $$
+> > ```
+
+还可以引用公式序号，例如参考公式：$\ref{mymath-2}$
+
+###### 表格内的公式
+
+|               标题               | 公式                                                         | 说明                                                         |
+| :------------------------------: | :----------------------------------------------------------- | ------------------------------------------------------------ |
+| 勾股定理<br />（毕达哥拉斯定理） | $a^2+b^2=c^2$                                                | 在平面上的一个直角三角形中，两个直角边边长的平方加起来等于斜边长的平方。<br />如果设直角三角形的两条直角边长度分别是 $a$ 和 $b$，斜边长度是 $c$ |
+|             质能方程             | $E=mc^2$                                                     | 其中，<br />$E$ 是能量，单位是[焦耳](https://baike.baidu.com/item/焦耳/5489626)（$J$）<br />$m$ 是质量，单位是[千克](https://baike.baidu.com/item/千克)（$Kg$）<br />$c$ 是真空中[光速](https://baike.baidu.com/item/光速)（$m/s$），$c=299792458 m/s$ |
+|          麦克斯韦方程组          | $\nabla \cdot \mathbf{E} = \cfrac{\rho}{\varepsilon_0}$<br />$\nabla \cdot \mathbf{B} = 0$<br />$\nabla \times \mathbf{E} = -\cfrac{\partial \mathbf{B}}{\partial t}$<br />$\nabla \cdot \mathbf{B} = \mu _0 \mathbf{J} + \mu _0 \varepsilon_0 \cfrac{\partial \mathbf{E}}{\partial t}$ | [麦克斯韦方程组](https://baike.baidu.com/item/%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E6%96%B9%E7%A8%8B%E7%BB%84)（英语：Maxwell's equations） |
+
+
 
 ## 快捷键操作
 
@@ -2155,40 +2208,38 @@ $\lim_{x \to \infty} \exp{-x}=0$
 |         <kbd>X</kbd>         | 切换至「聚光灯」                        |
 |        <kbd>ESC</kbd>        | 退出「激光笔」模式                      |
 
-## 跨平台支持
+## 跨平台、毛玻璃特效支持
 
 - 应用 VLOOK™ 插件的文档能自适应在 PC、平板、手机端访问；
 
 - 推荐使用以下浏览器及最新版本：
 
-  ![Chrome](https://s3.ax1x.com/2021/01/20/sfwtQs.png?mode=icon) Google **Chrome** `#Version|87+#(gray)` [••](https://www.google.cn/chrome/)
+  ![Chrome](https://z3.ax1x.com/2021/01/20/sfwtQs.png?mode=icon) Google **Chrome**  [••](https://www.google.cn/chrome/)
 
-  ![Edge](https://s3.ax1x.com/2021/01/20/sfwGWQ.png?mode=icon) Microsoft **Edge**^(Chromium)^ `#Version|87+#(gray)` [••](https://www.microsoft.com/zh-cn/edge)
+  ![Edge](https://z3.ax1x.com/2021/01/20/sfwGWQ.png?mode=icon) Microsoft **Edge**^(Chromium)^  [••](https://www.microsoft.com/zh-cn/edge)
 
-  ![Firefox](https://s3.ax1x.com/2021/01/20/sfwJzj.png?mode=icon) Mozilla **Firefox** `#Version|84+#(gray)` [••](https://www.mozilla.org/zh-CN/firefox/)
+  ![Firefox](https://z3.ax1x.com/2021/01/20/sfwJzj.png?mode=icon) Mozilla **Firefox**  [••](https://www.mozilla.org/zh-CN/firefox/)
+
+- 使用以上浏览器都会自动打开毛玻璃特效（如：遮罩背景）。
+
+> 其中 Firefox 目前须手工开启配置后才能启用毛玻璃特效，具体如下：
+>
+> - 在地址栏输入：`about:config`
+> - 搜索配置项：`layout.css.backdrop-filter.enabled`，并设置为`true`
 
 ## i18n 支持
 
 - VLOOK™ 插件的界面语言，自动适配浏览器的语言设置；
 
 - 目前支持以下语言：
-
   🇨🇳 简体中文 (Simplified Chinese)
-
   🇭🇰 繁体中文 (Traditional Chinese)
-
   🇬🇧 英文 (English)
-
   🇫🇷 法文 (French)
-
   🇩🇪 德文 (German)
-
   🇪🇸 西班牙文 (Spanish)
-
   🇷🇺 俄文 (Russian)
-
   🇯🇵 日文 (Japanese)
-
   🇰🇷 韩文 (Korean)
 
 # 延伸内容
@@ -2211,66 +2262,15 @@ $\lim_{x \to \infty} \exp{-x}=0$
 
 ![色轮 Color Wheel](https://z3.ax1x.com/2021/04/09/cN3hEq.png?darksrc=cN34U0.png&srcset=cN3oCT.png@2x&darksrcset=cN355V.png@2x&padding=true)
 
-### 单色方案
+###### 基于色轮的配色方案
 
-**由一个颜色的暗/中/明色调组成（如：暗绿、绿、粉绿）。**
-
-![单色方案](https://z3.ax1x.com/2021/04/09/cNlaxH.png?mode=logo&srcset=cNlBqI.png@2x)
-
-> 单色搭配上并没有形成颜色的层次，但形成了明暗的层次。
->
-> 这种搭配在设计中应用时，出来的效果永远不错，其重要性也可见一斑。
-
-### 类比色方案
-
-**色轮上某个颜色的相邻的颜色（如：橙黄色、黄色、橙色）。**
-
-![单色方案](https://z3.ax1x.com/2021/04/09/cNlURe.png?mode=logo&srcset=cNlsdP.png@2x)
-
-> 类比色都拥有共同的三原色颜色（在上图中，是黄色及红色）。
->
-> 这种颜色搭配产生了一种令人悦目、低对比度的和谐美感。类比色非常丰富，在设计时应用这种搭配同样让你轻易产生不错的视觉效果。
-
-### 补色方案
-
-**色轮上直线相对的两种颜色（如：红、绿）。**
-
-![单色方案](https://z3.ax1x.com/2021/04/09/cNlNGD.png?mode=logo&srcset=cNlrZt.png@2x)
-
-> 补色形成强列的对比效果，传达出活力、能量、兴奋等意义。
->
-> 补色要达到最佳的效果，最好是其中一种面积比较小，另一种比较大。比如在一个蓝色的区域里搭配橙色的小圆点。
-
-### 分裂补色方案
-
-**色轮上某颜色（如：红色）及其补色的类比色（如：绿、青）。**
-
-![单色方案](https://z3.ax1x.com/2021/04/09/cNltPO.png?mode=logo&srcset=cNlci8.png@2x)
-
-> 这种颜色搭配既具有类比色的低对比度的美感，又具有补色的力量感。
->
-> 形成了一种既和谐又有重点的颜色关系。如在上面三种颜色中，红色就显得更加突出。
-
-### 二次色方案
-
-**二次色容易构成协调的搭配（如：绿、橙、紫）。**
-
-![单色方案](https://z3.ax1x.com/2021/04/09/cNlJIK.png?mode=logo&srcset=cNlyIf.png@2x)
-
-> 任意两个二次色之间都拥有一种共同的颜色，所以它们轻易能够形成协调的搭配。
->
-> 如果三种二次色同时使用，则显得很舒适、吸引，具有丰富的色调，以及深度和广度。
-
-### 原色方案
-
-**三原色同时使用是比较少。**
-
-![原色方案](https://z3.ax1x.com/2021/04/09/cNl0sA.png?mode=logo&srcset=cNlwMd.png@2x)
-
-> 红黄搭配较受欢迎。从快餐店到加油站，我们都可以看见这两种颜色同时在一起。
->
-> 蓝红搭配也很常见，但只有当两者的区域是分离时，才会显得吸引人，如果是紧邻在一起，则会产生冲突感。
-
-
+| 配色示例                                                     | 说明                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![单色方案](https://z3.ax1x.com/2021/04/09/cNlaxH.png?mode=logo&srcset=cNlBqI.png@2x) | **==单色方案==**<br />由一个颜色的暗/中/明色调组成（如：暗绿、绿、粉绿）<br /><br />单色搭配上并没有形成颜色的层次，但形成了明暗的层次。<br />这种搭配在设计中应用时，出来的效果永远不错，其重要性也可见一斑。 |
+| ![单色方案](https://z3.ax1x.com/2021/04/09/cNlURe.png?mode=logo&srcset=cNlsdP.png@2x) | **==类比色方案==**<br />色轮上某个颜色的相邻的颜色（如：橙黄色、黄色、橙色）<br /><br />类比色都拥有共同的三原色颜色（在上图中，是黄色及红色）。<br />这种颜色搭配产生了一种令人悦目、低对比度的和谐美感。<br />类比色非常丰富，在设计时应用这种搭配同样让你轻易产生不错的视觉效果。 |
+| ![单色方案](https://z3.ax1x.com/2021/04/09/cNlNGD.png?mode=logo&srcset=cNlrZt.png@2x) | **==补色方案==**<br />色轮上直线相对的两种颜色（如：红、绿）<br /><br />补色形成强列的对比效果，传达出活力、能量、兴奋等意义。<br />补色要达到最佳的效果，最好是其中一种面积比较小，另一种比较大。<br />比如在一个蓝色的区域里搭配橙色的小圆点。 |
+| ![单色方案](https://z3.ax1x.com/2021/04/09/cNltPO.png?mode=logo&srcset=cNlci8.png@2x) | **==分裂补色方案==**<br />色轮上某颜色（如：红色）及其补色的类比色（如：绿、青）<br /><br />这种颜色搭配既具有类比色的低对比度的美感，又具有补色的力量感。<br />形成了一种既和谐又有重点的颜色关系。<br />如在上面三种颜色中，红色就显得更加突出。 |
+| ![单色方案](https://z3.ax1x.com/2021/04/09/cNlJIK.png?mode=logo&srcset=cNlyIf.png@2x) | **==二次色方案==**<br />二次色容易构成协调的搭配（如：绿、橙、紫）<br /><br />任意两个二次色之间都拥有一种共同的颜色，所以它们轻易能够形成协调的搭配。<br />如果三种二次色同时使用，则显得很舒适、吸引，具有丰富的色调，以及深度和广度。 |
+| ![原色方案](https://z3.ax1x.com/2021/04/09/cNl0sA.png?mode=logo&srcset=cNlwMd.png@2x) | **==原色方案==**<br />三原色同时使用是比较少<br /><br />红黄搭配较受欢迎。从快餐店到加油站，我们都可以看见这两种颜色同时在一起。<br />蓝红搭配也很常见，但只有当两者的区域是分离时，才会显得吸引人。<br />注意：如果是紧邻在一起，则会产生冲突感，需进行分离。 |
 
 ###### The End

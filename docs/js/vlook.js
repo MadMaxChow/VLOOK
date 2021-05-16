@@ -2,8 +2,8 @@
  *
  * VLOOK.js - Typora Plugin
  *
- * V10.3
- * 2021-04-28
+ * V10.4
+ * 2021-05-16
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -51,7 +51,7 @@ theme
 
 **************************************/
 
-let vlookVersion = "V10.3";
+let vlookVersion = "V10.4";
 
 console.log(":::::::::::::::::::");
 console.log("!!! " + (vlookDevMode === true ? "- DEBUG -" : "RELEASED" ) + " !!!");
@@ -178,8 +178,8 @@ $.prototype.isShowed = function () {
 /**
  * 替换 innerHTML 的内容
  *
- * @param {regExp} 用于匹配内容的正则表达式
- * @param {replaceValue} 将匹配的内容替换成该内容
+ * @param regExp 用于匹配内容的正则表达式
+ * @param replaceValue 将匹配的内容替换成该内容
 */
 $.prototype.replaceHTML = function (regExp, replaceValue) {
     this.html(this.html().replace(regExp, replaceValue));
@@ -188,8 +188,8 @@ $.prototype.replaceHTML = function (regExp, replaceValue) {
 /**
  * 在元素前后以指定的前缀和后缀文本进行包裹
  *
- * @param {prefix} 前缀文本
- * @param {suffix} 后缀文本
+ * @param prefix 前缀文本
+ * @param suffix 后缀文本
 */
 $.prototype.wrapText = function (prefix, suffix) {
     this.html(prefix + this.html() + suffix);
@@ -341,7 +341,7 @@ const env = {
     /**
      * 打印环境信息
      *
-     * @param {slient} 是否为静默模式，静默模式只反馈环境信息值，不打印到控制台
+     * @param slient 是否为静默模式，静默模式只反馈环境信息值，不打印到控制台
      * @return 返回环境信息值
      */
     print : function (slient) {
@@ -452,7 +452,7 @@ VLOOK.util = {
     /**
      * 获取 URL 中的参数数组
      *
-     * @param {url} 完整的 URL 内容
+     * @param url 完整的 URL 内容
      */
     getQueryParams : function (url) {
         let hash = url.indexOf("#");
@@ -480,7 +480,7 @@ VLOOK.util = {
     /**
      * 获取 URL 中的参数字符串
      *
-     * @param {url} 完整的 URL 内容
+     * @param url 完整的 URL 内容
      */
     getQueryString : function (url) {
         let queryIndex = url.indexOf("?");
@@ -490,7 +490,7 @@ VLOOK.util = {
     /**
      * 获得 URL 中的路径部分
      *
-     * @param {url} URL 地址
+     * @param url URL 地址
      */
     getPath : function (url) {
         let queryIndex = url.indexOf("?"),
@@ -510,14 +510,14 @@ VLOOK.util = {
             if (hash.startsWith("#vk-idx-")) {
                 setTimeout(function () {
                     window.location.href = hash;
-                    VLOOK.ui.tuningScrollTop(decodeURI(hash.substring(1, hash.length)));
+                    VLOOK.ui.tuningScrollTop(hash.substring(1, hash.length));
                 }, 3000);
             }
             // 由 Typora 导出时自动生成的锚点，直接垂定向
             else {
                 window.location.href = hash;
                 // 微调滚动条位置
-                VLOOK.ui.tuningScrollTop(decodeURI(hash.substring(1, hash.length)));
+                VLOOK.ui.tuningScrollTop(hash.substring(1, hash.length));
             }
         }
     },
@@ -525,7 +525,7 @@ VLOOK.util = {
     /**
      * 获取 CSS 变量值
      *
-     * @param {varName} CSS 变量名
+     * @param varName CSS 变量名
      */
     getStyleValue : function (varName) {
         return getComputedStyle(document.documentElement).getPropertyValue(varName);
@@ -534,8 +534,8 @@ VLOOK.util = {
     /**
      * 设置 CSS 变量值
      *
-     * @param {varName} CSS 变量名
-     * @param {varValue} CSS 变量值
+     * @param varName CSS 变量名
+     * @param varValue CSS 变量值
      */
     setStyleValue : function (varName, varValue) {
         document.documentElement.style.setProperty(varName, varValue);
@@ -549,7 +549,7 @@ VLOOK.formatting = {
     /**
      * 添加千位符
      *
-     * @param {target} 需要进行格式化的目标字符串
+     * @param target 需要进行格式化的目标字符串
      * @return 格式化后的字符串
      */
     thousands : function (target) {
@@ -559,7 +559,7 @@ VLOOK.formatting = {
     /**
      * 对小数部分进行格式化
      *
-     * @param {target} 需要进行格式化的目标字符串
+     * @param target 需要进行格式化的目标字符串
      * @return 格式化后的字符串
      */
     decimal : function (target) {
@@ -569,7 +569,7 @@ VLOOK.formatting = {
     /**
      * 对百分号进行格式化
      *
-     * @param {target} 需要进行格式化的目标字符串
+     * @param target 需要进行格式化的目标字符串
      * @return 格式化后的字符串
      */
     percent : function (target) {
@@ -579,7 +579,7 @@ VLOOK.formatting = {
     /**
      * 对货币符号进行格式化
      *
-     * @param {target} 需要进行格式化的目标字符串
+     * @param target 需要进行格式化的目标字符串
      * @return 格式化后的字符串
      */
     currency : function (target) {
@@ -715,7 +715,7 @@ VLOOK.checkSpecification = function () {
 VLOOK.initIntance = function (newTab) {
     VLOOK.doc.newTab = newTab;
 
-    iFontStyler = new FontStyler(new BackgroundMask());
+    iFontStyler = new FontStyler(new BackgroundMask("font-styler", "center"));
     if (iFontStyler === false)
         alert("Instantiation failed [ iFontStyler ]");
     else
@@ -724,7 +724,7 @@ VLOOK.initIntance = function (newTab) {
     // ==================== UI --------------------
 
     // 聚光灯
-    iSpotlight = new Spotlight(180, new BottomTips());
+    iSpotlight = new Spotlight(180, new BottomTips("spotlight"));
     if (iSpotlight === false)
         alert("Instantiation failed [ iSpotlight ]");
 
@@ -734,7 +734,7 @@ VLOOK.initIntance = function (newTab) {
         alert("Instantiation failed [ iContentFolding ]");
 
     // 导航中心
-    iNavCenter = new NavCenter(new BackgroundMask(), new TocCatalog(), new TocFigure(), new TocTable(), new TocMultimedia(), new TocCodeblock(), new TocHistory());
+    iNavCenter = new NavCenter(new BackgroundMask("nav-center", "left", true));
     if (iNavCenter === false)
         alert("Instantiation failed [ iNavCenter ]");
 
@@ -778,7 +778,7 @@ VLOOK.initIntance = function (newTab) {
     if (iToolbar === false)
         alert("Instantiation failed [ iToolbar ]");
     else {
-        // 大纲按钮
+        // 导航中心按钮
         iToolbar.add("outline", $(".mdx-btn-outline"));
         iToolbar.buttons["outline"].unbind("click").click(function () {
             iToolTips.hide();
@@ -846,7 +846,7 @@ VLOOK.initIntance = function (newTab) {
         iToolbar.buttons["spotlight"].unbind("click").click(function () {
             iToolTips.hide();
             if (iSpotlight.toggle() === true)
-                iParagraphNav.hide(true);
+                iParagraphNav.hide();
         });
         iToolbar.buttons["spotlight"].hover(function () {
             iToolTips.show($(this), "auto");
@@ -883,17 +883,17 @@ VLOOK.initIntance = function (newTab) {
     if (iToolTips.length === 0)
         alert("Instantiation failed [ iToolTips ]");
 
-    iInfoTips = new InfoTips(new BackgroundMask());
+    iInfoTips = new InfoTips(new BackgroundMask("info-tips", "center"));
     if (iInfoTips.length === 0)
         alert("Instantiation failed [ iInfoTips ]");
 
     // 脚注
-    iFootNote = new FootNote(new BackgroundMask());
+    iFootNote = new FootNote(new BackgroundMask("foot-note", "bottom", true));
     if (iFootNote === false)
         alert("Instantiation failed [ iFootNote ]");
 
     // 链接检查
-    iLinkChecker = new LinkChecker(new BackgroundMask());
+    iLinkChecker = new LinkChecker(new BackgroundMask("link-checker", "right", true));
     if (iLinkChecker.length === 0)
         alert("Instantiation failed [ iLinkChecker ]");
 }
@@ -901,7 +901,7 @@ VLOOK.initIntance = function (newTab) {
 /**
  * 初始化 VLOOK 核心模块
  *
- * @param {colorScheme} 指定默认的颜色方案 light/dark
+ * @param colorScheme 指定默认的颜色方案 light/dark
  */
 VLOOK.initKernel = function (colorScheme) {
     // 应用于在新标签中打开内容时初始化颜色模式
@@ -966,7 +966,7 @@ VLOOK.initKernel = function (colorScheme) {
             }
         });
         ExtFigure.init();
-        VLOOK.ui.addAnimate($(".mdx-figure, .mdx-figure-nav, .mdx-btn-close-figure-nav, .mdx-figure-nav-btns"));
+        // VLOOK.ui.addAnimate($(".mdx-figure, .mdx-figure-nav, .mdx-btn-close-figure-nav, .mdx-figure-nav-btns"));
 
         stopwatch.lapStop("* Figure: ");
     }, 0);
@@ -992,7 +992,7 @@ VLOOK.initKernel = function (colorScheme) {
         // 增强脚注
         stopwatch.lapStart();
         FootNote.init();
-        stopwatch.lapStop("* Footer Note: ");
+        stopwatch.lapStop("* Foot Note: ");
 
         // 主要针对小屏情况，完成表格初始化后进行适配
         // 如果不是小屏，则由 adjustAll 触发
@@ -1014,7 +1014,8 @@ VLOOK.initKernel = function (colorScheme) {
         iChapterNav.adjust();
         iToolbar.adjust();
 
-        VLOOK.ui.addAnimate($("a, a > kbd, a > img, .md-toc-item, md-toc-item:active::before, .mdx-btn, .mdx-accent-btn"));
+        // .md-toc-item, md-toc-item:active::before,
+        // VLOOK.ui.addAnimate($("a, a > kbd, a > img, .mdx-btn, .mdx-accent-btn"));
     }
     iStopwatch.lapStop("    ");
 
@@ -1111,9 +1112,8 @@ VLOOK.initKernel = function (colorScheme) {
         // ----------------------------------------
         // 控制执行频率，避免处理过快影响性能
         if (scrollTop < 100
-            || currentTime - VLOOK.doc.scroll.lastUpdateTime > 1000
-            || (Math.abs(scrollTop - VLOOK.doc.scroll.lastTop) > 100 && (currentTime - VLOOK.doc.scroll.lastUpdateTime) > 500)) {
-
+            || currentTime - VLOOK.doc.scroll.lastUpdateTime > 500
+            || (Math.abs(scrollTop - VLOOK.doc.scroll.lastTop) > 50 && (currentTime - VLOOK.doc.scroll.lastUpdateTime) > 500)) {
             VLOOK.doc.scroll.update(currentTime, $(document).scrollTop());
             VLOOK.ui.adjustAll(false);
         }
@@ -1145,16 +1145,17 @@ VLOOK.initKernel = function (colorScheme) {
         iNavCenter.history.add(hash);
 
         // 锚点未显示的处理（如所在父元素被隐藏）
-        let aObj = $("a[name='" + anchor + "']");
+        let aObj = $("#" + decodeURI(anchor) + ", a[name='" + anchor + "']");
         if (aObj !== undefined && aObj.offset() !== undefined && aObj.offset().top === 0) {
-            if (aObj.parent().css("display") === "none") {
+            let hiddenObj = aObj.parent().parent();
+            if (hiddenObj.css("display") === "none") {
                 // 若属于被折叠的引用，则模拟点击展开
-                let folder = aObj.parent().prev().find(".mdx-blockquote-folder");
+                let folder = hiddenObj.prev().find(".mdx-blockquote-folder");
                 if (folder.length > 0) {
                     folder.trigger("mouseup");
                     window.location.href = hash;
                     // 微调滚动条位置
-                    VLOOK.ui.tuningScrollTop(decodeURI(anchor));
+                    VLOOK.ui.tuningScrollTop(anchor);
                 }
             }
         }
@@ -1174,7 +1175,7 @@ VLOOK.initKernel = function (colorScheme) {
 /**
  * 初始化须在页面 body 显示后才能执行的部分
  *
- * @param {colorScheme} 指定默认的颜色方案 light/dark
+ * @param colorScheme 指定默认的颜色方案 light/dark
  */
 VLOOK.initRestyle = function () {
     let stopwatch = new Stopwatch();
@@ -1208,9 +1209,9 @@ VLOOK.ui = {
     /**
      * 淡入显示
      *
-     * @param {target} 目标对象
+     * @param target 目标对象
      */
-    fadeIn : function (target) {
+    show : function (target) {
         if (target === undefined)
             return;
 
@@ -1223,9 +1224,9 @@ VLOOK.ui = {
     /**
      * 淡出隐藏
      *
-     * @param {target} 目标对象
+     * @param target 目标对象
      */
-    fadeOut : function (target) {
+    hide : function (target) {
         if (target === undefined)
             return;
 
@@ -1249,7 +1250,7 @@ VLOOK.ui = {
         let top = parseInt(iChapterNav.ui.css("top")),
             height = parseInt(iChapterNav.ui.css("height")),
             offsetY = 10,
-            target = $("#" + anchor + ", a[name='" + anchor + "']"),
+            target = $("#" + decodeURI(anchor) + ", a[name='" + anchor + "']"),
             tagName = undefined;
 
         if (target !== undefined)
@@ -1269,16 +1270,17 @@ VLOOK.ui = {
 
     /**
      * 生成 SVG 图标
+     *
+     * @param icon 图标资源集标识
+     * @param width 图标宽度
+     * @param height 图标高度
+     * @param color 内置图标样式 mdx-svg-ico-xxx 标识：light / dark / alpha / ...
+     * @param style 扩展补充的 style 样式
      */
-    generateSvgIcon : function (id, width, height, style) {
-        return '<svg width="' + width + 'px" height="' + height + 'px">'
-            + '<use class="mdx-svg-ico-' + style + '" xlink:href="#' + id + '">'
-            + '</use></svg>';
-    },
-    // for 章节导航栏
-    generateSvgIcon2 : function (id, width, height, style, extStyle) {
-        return '<svg width="' + width + 'px" height="' + height + 'px" style="position: absolute; top: 18px; ' + extStyle + '">'
-            + '<use class="mdx-svg-ico-' + style + '" xlink:href="#' + id + '">'
+    generateSvgIcon : function (icon, width, height, color, style) {
+        style = (style !== undefined) ? ' style="' + style + '"' : ""
+        return '<svg width="' + width + 'px" height="' + height + 'px"' + style + '>'
+            + '<use class="mdx-svg-ico-' + color + '" xlink:href="#' + icon + '">'
             + '</use></svg>';
     },
 
@@ -1525,7 +1527,7 @@ VLOOK.ui = {
         ][VLOOK.lang.id]);
     },
 
-    showInCenter : function (target) {
+    moveToCenter : function (target) {
         if (env.device.mobile) {
             target.css({
                 "left" : 10,
@@ -1545,7 +1547,7 @@ VLOOK.ui = {
     /**
      * 进行文档导航相关的 UI 元素的适配处理
      *
-     * @param {force} 强制标记
+     * @param force 强制标记
      */
     adjustAll : function () {
         if (iNavCenter.adjust() === true)
@@ -1558,7 +1560,7 @@ VLOOK.ui = {
     /**
      * 模拟等待页面完成跳转后，再进行导航中心布局自适应处理
      *
-     * @param {force} 强制标记
+     * @param force 强制标记
      */
     adjustAllDelay : function () {
         setTimeout(function () {
@@ -1573,7 +1575,7 @@ VLOOK.ui = {
         // 移动设备时解绑样式事件
         if (env.device.mobile) {
             $(".mdx-btn").unbind("hover");
-            $(".mdx-toc-tab-btn").unbind("hover");
+            $(".mdx-segment-btn").unbind("hover");
             $(".mdx-accent-btn").unbind("hover");
             // $(".mdx-nav-center-title").unbind("hover");
             iChapterNav.adjustHoverStyle("mobile");
@@ -1587,11 +1589,11 @@ VLOOK.ui = {
             }, function () {
                 $(this).removeClass("mdx-btn-hover");
             });
-            // 所有大纲标签按钮 hover 事件处理
-            $(".mdx-toc-tab-btn").hover(function () {
-                $(this).addClass("mdx-toc-tab-btn-hover");
+            // 所有导航中心分段控制按钮 hover 事件处理
+            $(".mdx-segment-btn").hover(function () {
+                $(this).addClass("mdx-segment-btn-hover");
             }, function () {
-                $(this).removeClass("mdx-toc-tab-btn-hover");
+                $(this).removeClass("mdx-segment-btn-hover");
             });
             // 所有辅助按钮 hover 事件处理
             $(".mdx-accent-btn").hover(function () {
@@ -1622,26 +1624,50 @@ VLOOK.ui = {
             VLOOK.util.setStyleValue("--vlook-transition-value", "none");
 
         // 针对 macOS 的指定浏览器开启模糊背景特效（如遮罩、插图浏览器背景）
-        if (env.os.macOS && (env.browser.Chrome || env.browser.Edge)) {
-            $(".mdx-backdrop-blurs").css({
-                "backdrop-filter" : "blur(10px)",
-                "-webkit-backdrop-filter" : "blur(10px)"
-            });
+        // if (env.os.macOS && (env.browser.Chrome || env.browser.Edge)) {
+            $(".mdx-backdrop-blurs").addClass("enabled");
+        // }
+    },
+
+    /**
+     * 为指定对象添加过渡动画
+     *
+     * @param target 目标对象
+     * @param property 应用的属性，不指定时默认为 “all”
+     */
+    addAnimate : function (target, property) {
+        if (VLOOK.ui.effects >= 1) {
+            target.addClass("mdx-transition-"
+                + (property === undefined ? "all" : property));
         }
     },
 
     /**
-     * 对象根据特效级别进行适配
+     * 为指定对象移除过渡动画
      *
-     * @param {target} 目标对象
-     * @param {property} 应用的属性，不指定时默认为 “all”
+     * @param target 目标对象
+     * @param property 应用的属性，不指定时默认为 “all”
      */
-    addAnimate : function (target, property) {
-        if (VLOOK.ui.effects >= 1) {
-            if (property === undefined)
-                property = "all";
-            target.addClass("mdx-transition-" + property);
-        }
+    removeAnimate : function (target, property) {
+        target.removeClass("mdx-transition-"
+            + (property === undefined ? "all" : property));
+    },
+
+    /**
+     * 检查目标对象是否有指定的任意过渡动画
+     *
+     * @param target 目标对象
+     * @returns true：有，false：无
+     */
+    existAnimate : function (target) {
+        return target.attr("class").indexOf("mdx-transition-") > -1;
+    },
+
+    /**
+     * 返回动画时长
+     */
+    animateDuration : function () {
+        return parseInt(VLOOK.util.getStyleValue("--vlook-transition-duration"));
     },
 
     /**
@@ -1709,12 +1735,12 @@ VLOOK.ui = {
                         iFontStyler.hide();
                     break;
                 case 80: // P
-                    iParagraphNav.hide(true);
+                    iParagraphNav.hide();
                     iSpotlight.useLaserPointer();
                     break;
                 case 83: // S
                     // VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
-                    iParagraphNav.hide(true);
+                    iParagraphNav.hide();
                     iSpotlight.useSpotlight();
                     break;
                 case 27: // ESC
@@ -1796,8 +1822,8 @@ VLOOK.doc = {
         /**
          * 更新页面滚动信息
          *
-         * @param {updateTime} 最后更新滚动信息的时间时间
-         * @param {lastTop} 最后更新的滚动位置
+         * @param updateTime 最后更新滚动信息的时间时间
+         * @param lastTop 最后更新的滚动位置
          */
         update : function (updateTime, lastTop) {
             this.lastUpdateTime = updateTime;
@@ -1823,18 +1849,15 @@ VLOOK.doc = {
         }
     },
 
-    // 内容信息
+    // 内容计数器
     counter : {
         figure: 0, // 插图总数
         table: 0, // 表格总数
         codeblock: 0, // 代码块总数
-        audio: 0, // 音频总数
+        audio: 0, // 非 mini 模式音频总数
+        audiomini: 0, // mini 模式音频总数
         video: 0, // 视频总数
     },
-
-    // 图片加载失败后的默认填充图片（BASE64编码）
-    // defaultImage : "data:image/png;base64,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",
-    // defaultImage2x : "data:image/png;base64,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",
 
     /**
      * 判断当前位置是否在封面
@@ -2160,7 +2183,7 @@ VLOOK.report = {
         statData += "&tbl-cell-merge=" + $("table[data-vk-cell-merge='true']").length;
 
         // 带行折叠的表格数
-        statData += "&tbl-row-folding=" + $("table[data-vk-row-group='true']").length;
+        statData += "&tbl-row-group=" + $("table[data-vk-row-group='true']").length;
 
         // 代码块数据
         statData += "&cb=" + $(".md-fences").length;
@@ -2197,7 +2220,7 @@ VLOOK.report = {
      * 上报事件统计数据（基于百度统计）
      * 为兼容在本地打开的 HTML 文件，所以通过 iframe 的方式进行数据上报
      *
-     * @param {data} 数据数组，与百度统计的 _hmt.push(["_trackEvent", data[0], data[1], data[2], data[3]) 的参数保持一致
+     * @param data 数据数组，与百度统计的 _hmt.push(["_trackEvent", data[0], data[1], data[2], data[3]) 的参数保持一致
      */
     push : function (data) {
         $("body").append('<iframe name="v-event-' + VLOOK.report.eventCount + '" style="display: block; margin: 0; border: none; overflow: hidden; width: 100%; height: 0;"'
@@ -2321,8 +2344,8 @@ function RandomColor() {
     /**
      * 格式化颜色为 rgba 格式
      *
-     * @param {rgb} RGB 颜色分量数组
-     * @param {opacity} 透明度，0:透明，1:不透明
+     * @param rgb RGB 颜色分量数组
+     * @param opacity 透明度，0:透明，1:不透明
      */
     this.format = function (rgb, opacity) {
         return "rgba(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ", " + opacity + ")";
@@ -2362,8 +2385,8 @@ function Stopwatch() {
     /**
      * 一次中间计时结束
      *
-     * @param {prefix} 输出内容前缀
-     * @param {silent} 是否为静默模式，true：是
+     * @param prefix 输出内容前缀
+     * @param silent 是否为静默模式，true：是
      */
     this.lapStop = function (prefix, silent) {
         let timeCost = new Date().getTime() - this.lapTime;
@@ -2396,7 +2419,7 @@ function Stopwatch() {
 /**
  * 构造函数
  *
- * @param {mode} 欢迎屏显示模式。none：不显示，auto：显示，并在加载完成后自动关闭。默认为显示，加载完成后手动关闭
+ * @param mode 欢迎屏显示模式。none：不显示，auto：显示，并在加载完成后自动关闭。默认为显示，加载完成后手动关闭
  */
 function WelcomeScreen(mode) {
     let that = this;
@@ -2411,7 +2434,7 @@ function WelcomeScreen(mode) {
     if (this.mode === "none")
         this.ui.hide();
     else
-        VLOOK.ui.fadeIn(this.ui);
+        VLOOK.ui.show(this.ui);
 
     /**
      * 完成所有内容加载后调用
@@ -2463,7 +2486,7 @@ function WelcomeScreen(mode) {
             "top" : -this.ui.height()
             // "top" : -800
         });
-        VLOOK.ui.fadeOut(this.ui);
+        VLOOK.ui.hide(this.ui);
         // this.ui.hide();
 
         VLOOK.doc.scroll.unfreeze();
@@ -2472,8 +2495,8 @@ function WelcomeScreen(mode) {
     /**
      * 处理热键操作
      *
-     * @param {code} 非功能键键
-     * @param {combKeys} 功能组合键 Ctrl / Shift / Alt / Win / Cmd
+     * @param code 非功能键键
+     * @param combKeys 功能组合键 Ctrl / Shift / Alt / Win / Cmd
      */
     this.disposeHotkey = function (code, combKeys) {
         if (this.finished === false || this.ui.isHidden())
@@ -2600,14 +2623,14 @@ ContentAssist.showOpenInNewTabButton = function () {
         return;
 
     // 显示在新标签打开的按钮
-    VLOOK.ui.fadeOut(ContentAssist.button.openInNewTab);
+    VLOOK.ui.hide(ContentAssist.button.openInNewTab);
     ContentAssist.button.openInNewTab.css({
         "left" : ContentAssist.lastHoverContent.offset().left,
         "top" : ContentAssist.lastHoverContent.offset().top
     });
 
     return 0; // 临时禁用
-    VLOOK.ui.fadeIn(ContentAssist.button.openInNewTab);
+    VLOOK.ui.show(ContentAssist.button.openInNewTab);
 }
 
 /**
@@ -2618,7 +2641,7 @@ ContentAssist.showCopyCodeBlockButton = function () {
     if (env.device.mobile)
         return;
 
-    VLOOK.ui.fadeOut(ContentAssist.button.copyCodeBlock);
+    VLOOK.ui.hide(ContentAssist.button.copyCodeBlock);
 
     ContentAssist.button.copyCodeBlock.css({
         "left" : ContentAssist.lastHoverContent.offset().left
@@ -2627,7 +2650,7 @@ ContentAssist.showCopyCodeBlockButton = function () {
         "top" : ContentAssist.lastHoverContent.offset().top
     });
 
-    VLOOK.ui.fadeIn(ContentAssist.button.copyCodeBlock);
+    VLOOK.ui.show(ContentAssist.button.copyCodeBlock);
 }
 
 /**
@@ -2635,8 +2658,8 @@ ContentAssist.showCopyCodeBlockButton = function () {
  */
 ContentAssist.hideButtons = function () {
     if (ContentAssist.lastHoverContent === undefined || ContentAssist.mouseDropIn() === false) {
-        VLOOK.ui.fadeOut(ContentAssist.button.openInNewTab);
-        VLOOK.ui.fadeOut(ContentAssist.button.copyCodeBlock);
+        VLOOK.ui.hide(ContentAssist.button.openInNewTab);
+        VLOOK.ui.hide(ContentAssist.button.copyCodeBlock);
     }
 }
 
@@ -2657,8 +2680,8 @@ ContentAssist.mouseDropIn = function () {
 /**
  * 构造函数
  *
- * @param {radius} 半径大小
- * @param {tips} 操作提示栏对象
+ * @param radius 半径大小
+ * @param tips 操作提示栏对象
  */
 function Spotlight(radius, tips) {
     this.ui = $(".mdx-spotlight");
@@ -2679,7 +2702,7 @@ function Spotlight(radius, tips) {
     this.toolbar = undefined; // 联动的工具栏
 
     // 激光笔模式时鼠标形状影响的范围
-    this.pointerScope = "body, #write, .mdx-nav-center, .md-toc-item, .mdx-toc-item, .mdx-btn, .mdx-accent-btn, .mdx-toolbar, .mdx-figure, .mdx-figure-nav, .mdx-figure-content, .mdx-figure-nav-btns, .mdx-btn-close-figure-nav, .mdx-black-curtain, a, img, .mdx-chapter-nav-prev, .mdx-chapter-nav-current, .mdx-chapter-nav-next, .mdx-link-result-error, .mdx-toc-tab-button";
+    this.pointerScope = "body, rt, #write, .mdx-textfield > input, .mdx-blockquote-folder, audio, video, .mdx-audio-mini-control, .mdx-table-rowfolding-button, .mdx-textfield-action, .mdx-segment-btn, .mdx-nav-center, .md-toc-item, .mdx-toc-item, .mdx-btn, .mdx-accent-btn, .mdx-toolbar, .mdx-figure, .mdx-figure-nav, .mdx-figure-content, .mdx-figure-nav-btns, .mdx-btn-close-figure-nav, .mdx-black-curtain, a, img, .mdx-chapter-nav-prev, .mdx-chapter-nav-current, .mdx-chapter-nav-next, .mdx-link-result-error, .mdx-toc-tab-button";
 
     /**
      * 切换聚光灯的不同大小
@@ -2755,7 +2778,7 @@ function Spotlight(radius, tips) {
     /**
      * 刷新聚光灯的显示
      *
-     * @param {event} window.event 鼠标事件对象
+     * @param event window.event 鼠标事件对象
      */
     this.repaint = function (event) {
         // 记录鼠标最新位置
@@ -2769,12 +2792,12 @@ function Spotlight(radius, tips) {
         if (this.isShowed === false)
             return;
 
-        // 非激光笔模式（即：聚光灯模式）
+        // 聚光灯模式
         if (this.pointer === false) {
             this.ui.css("background", "radial-gradient(circle at "
                 + this.lastPos.x + "px " + this.lastPos.y + "px, "
                 + "transparent " + this.radius + "px, "
-                + "rgba(0, 0, 0, 0.5)" + (this.radius + 1) + "px)");
+                + "rgba(0, 0, 0, 0.4)" + (this.radius + 2) + "px, rgba(0, 0, 0, 0.9) 900px)");
         }
     }
 
@@ -2810,15 +2833,11 @@ function Spotlight(radius, tips) {
 
     /**
      * 隐藏聚光灯
-     *
-     * @param {keepTips} 是否保留操作提示栏，默认为否
      */
-    this.hide = function (keepTips) {
-        if (keepTips !== true) {
-            iMoreDocContent.refresh();
-            this.pointer = false;
-            this.tips.hide();
-        }
+    this.hide = function () {
+        iMoreDocContent.refresh();
+        this.pointer = false;
+        this.tips.hide();
         this.toolbar.buttons["spotlight"].removeClass("selected");
         this.ui.hide();
         $(this.pointerScope).removeClass("mdx-cursor-laser");
@@ -2827,8 +2846,8 @@ function Spotlight(radius, tips) {
     /**
      * 处理热键操作
      *
-     * @param {code} 非功能键键
-     * @param {combKeys} 功能组合键 Ctrl / Shift / Alt / Win / Cmd
+     * @param code 非功能键键
+     * @param combKeys 功能组合键 Ctrl / Shift / Alt / Win / Cmd
      */
     this.disposeHotkey = function (code, combKeys) {
         if (VLOOK.doc.block === true)
@@ -2847,26 +2866,111 @@ function Spotlight(radius, tips) {
     }
 }
 
+// ==================== 分段控制器类 ==================== //
+
+/**
+ *
+ * @param control 控件 UI 对象
+ * @param group 分段控制器分组标识
+ */
+function SegmentControl(control, group) {
+    let that = this;
+    this.ui = control;
+    this.group = group;
+
+    this.last = undefined;
+    this.segments = [];
+    this.segmentsLength = 0;
+
+    this.ui.append('<span class="mdx-segment-indicator"></span>');
+    this.indicator = this.ui.children(".mdx-segment-indicator"); // 当前选中分段的滑块
+
+    VLOOK.ui.addAnimate(this.indicator);
+
+    /**
+     * 添加分段
+     *
+     * @param target 分段对应的组件
+     * @param name 分段的标识名称
+     * @param icon 分段使用的图标标识
+     * @param checked 是否为默认选中
+     */
+    this.add = function (target, name, icon, checked) {
+        this.segments[name] = target;
+        this.segmentsLength++;
+
+        // 新增段的 UI
+        let id = this.group + "-" + name,
+            ui = '<input id="' + id + '" onfocus="this.blur()" type="radio" name="' + this.group + '" value="' + name + '"' + (checked === true ? ' checked' : '' ) + ' />'
+            + '<label for="' + id + '" class="mdx-segment-btn ' + name + '">'
+            + VLOOK.ui.generateSvgIcon(icon, 16, 14, "alt")
+            + '</label>';
+        this.ui.append(ui);
+        target.ui.entry = this.ui.children(".mdx-segment-btn." + name);
+
+        // 指定为默认选项
+        if (checked === true)
+            this.last = target;
+
+        // 为新添加的段绑定事件
+        this.ui.find("input#" + id).change(function () {
+            // 隐藏切换前选择的组件
+            that.last.hide();
+            // 显示最新选择的组件
+            that.last = that.segments[$(this).val()];
+            that.last.show();
+            that.update();
+        });
+        // VLOOK.ui.addAnimate(this.ui.find("label[for='" + id + "']"));
+
+        return this.segments[name];
+    }
+
+    /**
+     * 更新分段控制器界面
+     *
+     * @param target 目标分段的入口按钮对象
+     */
+    this.update = function () {
+        // 更新各分段 UI 大小、间隔等
+        let space = 2,
+            spacePercent = (space * (this.segmentsLength - 1)) / this.ui.width() * 100,
+            width = (100 - spacePercent) / this.segmentsLength;
+        this.ui.children(".mdx-segment-btn").css({
+            "margin" : "0 0 0 " + space + "px",
+            "width" : width + "%"
+        });
+        // 修正第一个
+        this.ui.children(".mdx-segment-btn:first").css({
+            "margin" : 0
+        });
+
+        // 更新当前选择分段相关 UI
+        if (this.last === undefined)
+            return;
+        let target = this.last.ui.entry;
+        this.indicator.css({
+            "left" : target.position().left + parseInt(target.css("margin-left")),
+            "width" : target.width()
+        });
+        // 更新图标
+        // this.indicator.html(target.children().clone());
+    }
+}
+
 // ==================== 导航中心类 ==================== //
 
 /**
  * 构造函数
  *
- * @param {mask} 遮罩对象
- * @param {tocCatalog} 目录索引组件对象
- * @param {tocFigure} 插图索引组件对象
- * @param {tocTable} 表格索引组件对象
- * @param {tocMultimedia} 多媒体索引组件对象
- * @param {tocCodeblock} 代码块索引组件对象
- * @param {tocHistory} 访问历史组件对象
+ * @param mask 遮罩对象
  */
-function NavCenter(mask, tocCatalog, tocFigure, tocTable, tocMultimedia, tocCodeblock, tocHistory) {
+function NavCenter(mask) {
     let that = this;
     this.ui = $(".mdx-nav-center"); // 导航中心主界面
-    this.tabbar = $(".mdx-toc-tabbar"); // 导航中心标签栏
-    this.handle = $(".mdx-toc-handle"); // 大纲引导把手
+    this.handle = $(".mdx-toc-handle"); // 导航中心引导把手
 
-    this.closeMode = "auto"; // 关闭大纲的方式
+    this.closeMode = "auto"; // 关闭导航中心的方式
     this.displayMode = "float"; // 最后一次的显示方式（float/block）
     this.showed = false; // 是否已显示
 
@@ -2878,94 +2982,27 @@ function NavCenter(mask, tocCatalog, tocFigure, tocTable, tocMultimedia, tocCode
 
     this.snapTimer = null; // 鼠标在边缘悬停计时器
 
+    // 索引内容分类选择
+    this.indexs = new SegmentControl($(".mdx-segment.toc"), "toc-segment");
+
     // 目录索引组件
-    this.catalog = tocCatalog;
-
+    this.catalog = this.indexs.add(new TocCatalog(), "catalog", "icoTocTabCatalog", true);
     // 插图索引组件
-    this.figure = tocFigure;
-    this.figure.hide();
-
+    this.figure = this.indexs.add(new TocFigure(true), "figure", "icoTocTabFigure");
     // 表格索引组件
-    this.table = tocTable;
-    this.table.hide();
-
+    this.table = this.indexs.add(new TocTable(true), "table", "icoTocTabTable");
     // 多媒体索引组件
-    this.multimedia = tocMultimedia;
-    this.multimedia.hide();
-
+    this.multimedia = this.indexs.add(new TocMultimedia(true), "multimedia", "icoTocTabMultimedia");
     // 代码块索引组件
-    this.codeblock = tocCodeblock;
-    this.codeblock.hide();
-
+    this.codeblock = this.indexs.add(new TocCodeblock(true), "codeblock", "icoTocTabCodeblock");
     // 访问历史组件
-    this.history = tocHistory;
-    this.history.hide();
+    this.history = this.indexs.add(new TocHistory(true), "history", "icoTocTabHistory");
 
     // 遮罩
     this.mask = mask;
     this.mask.bindPartner(this, this.ui);
 
-    VLOOK.ui.addAnimate(this.ui, "left");
-
-    // 标签栏事件处理
-    this.tabbar.find("input[name='toc-tab']").change(function () {
-        let value = $(this).val();
-        // 目录索引组件
-        if (value === "catalog") {
-            that.catalog.show();
-            that.catalog.scrollToCurrent();
-            that.figure.hide();
-            that.table.hide();
-            that.multimedia.hide();
-            that.codeblock.hide();
-            that.history.hide();
-        }
-        // 插图索引组件
-        else if (value === "figure") {
-            that.catalog.hide();
-            that.figure.show();
-            that.table.hide();
-            that.multimedia.hide();
-            that.codeblock.hide();
-            that.history.hide();
-        }
-        // 表格索引组件
-        else if (value === "table") {
-            that.catalog.hide();
-            that.figure.hide();
-            that.table.show();
-            that.multimedia.hide();
-            that.codeblock.hide();
-            that.history.hide();
-        }
-        // 多媒体索引组件
-        else if (value === "multimedia") {
-            that.catalog.hide();
-            that.figure.hide();
-            that.table.hide();
-            that.multimedia.show();
-            that.codeblock.hide();
-            that.history.hide();
-        }
-        // 代码块索引组件
-        else if (value === "codeblock") {
-            that.catalog.hide();
-            that.figure.hide();
-            that.table.hide();
-            that.multimedia.hide();
-            that.codeblock.show();
-            that.history.hide();
-        }
-        // 访问历史组件
-        else if (value === "history") {
-            that.catalog.hide();
-            that.figure.hide();
-            that.table.hide();
-            that.multimedia.hide();
-            that.codeblock.hide();
-            that.history.show();
-        }
-    });
+    this.indexs.update();
 
     /**
      * 当前章节变化事件
@@ -3018,7 +3055,7 @@ function NavCenter(mask, tocCatalog, tocFigure, tocTable, tocMultimedia, tocCode
     /**
      * 显示/隐藏导航中心
      *
-     * @param {callback} 显示/隐藏大纲后执行回调函数
+     * @param callback 显示/隐藏导航中心后执行回调函数
      */
     this.toggle = function (callback) {
         // VLOOK.report.push(['Outline', 'Assist', 'Show/Hide', 0]);
@@ -3049,13 +3086,18 @@ function NavCenter(mask, tocCatalog, tocFigure, tocTable, tocMultimedia, tocCode
     /**
      * 显示导航中心
      *
-     * @param {displayMode} float: 以浮动形式显示，block: 以占位形式显示
+     * @param displayMode float: 以浮动形式显示，block: 以占位形式显示
      * @return true: 需要处理显示，false: 已显示，无须重复处理
      */
     this.show = function (displayMode) {
         if (this.showed === true // 已显示
             || this.ui.offset().left > -this.width) // 在以动画显示过程中
             return false;
+
+        this.ui.css({
+            "left" : 10
+        });
+        this.handle.hide();
 
         // 以「占位方式」显示导航中心
         this.displayMode = displayMode;
@@ -3065,7 +3107,7 @@ function NavCenter(mask, tocCatalog, tocFigure, tocTable, tocMultimedia, tocCode
             this.ui.removeClass("mdx-float-card");
             this.ui.addClass("mdx-nav-center-block");
 
-            // 更新工具栏大纲按钮图标
+            // 更新工具栏导航中心按钮图标
             if (!env.device.mobile)
                 this.toolbar.buttons["outline"].addClass("selected");
 
@@ -3078,35 +3120,30 @@ function NavCenter(mask, tocCatalog, tocFigure, tocTable, tocMultimedia, tocCode
         }
         // 以「浮动方式」显示导航中心
         else if (this.displayMode === "float") {
-            // 显示联动的遮罩
-            this.mask.show();
             // 浮动方式的样式设置
             this.ui.removeClass("mdx-nav-center-block");
             this.ui.addClass("mdx-nav-center-float");
             this.ui.addClass("mdx-float-card");
 
-            // 若文档可视空间比大纲宽度要小，则进行微调
+            // 显示联动的遮罩
+            this.mask.show();
+
+            // 若文档可视空间比导航中心宽度要小，则进行微调
             if ($(window).width() < this.width + 20)
                 this.ui.css("width", $(window).width() - 20);
-            // 若文档空间比大纲宽度大，则直接显示原始大小
+            // 若文档空间比导航中心宽度大，则直接显示原始大小
             else
                 this.ui.css("width", this.width);
         }
 
-        this.ui.css({
-            "left" : 10
-        });
-
-        this.handle.hide();
         this.showed = true;
-
         return true;
     }
 
     /**
-     * 隐藏大纲
+     * 隐藏导航中心
      *
-     * @param {closeMode} 关闭大纲的的方式（auto/manual）
+     * @param closeMode 关闭导航中心的的方式（auto/manual）
      * @return true: 需要处理隐藏，false: 已显示，无须重复处理
      */
     this.hide = function (closeMode) {
@@ -3119,7 +3156,7 @@ function NavCenter(mask, tocCatalog, tocFigure, tocTable, tocMultimedia, tocCode
             // 记录是否手动关闭
             this.closeMode = closeMode;
 
-            // 更新工具栏大纲按钮图标
+            // 更新工具栏导航中心按钮图标
             if (!env.device.mobile)
                 this.toolbar.buttons["outline"].removeClass("selected");
 
@@ -3128,9 +3165,8 @@ function NavCenter(mask, tocCatalog, tocFigure, tocTable, tocMultimedia, tocCode
             });
         }
 
-        let hiddenLeft = VLOOK.util.getStyleValue("--vlook-nav-center-hidden-left");
         this.ui.css({
-            "left" : hiddenLeft
+            "left" : VLOOK.util.getStyleValue("--vlook-nav-center-hidden-left")
         });
 
         // 恢复不挤压文档正文区
@@ -3163,21 +3199,29 @@ function NavCenter(mask, tocCatalog, tocFigure, tocTable, tocMultimedia, tocCode
             VOM.doc().css({
                 "margin-left" : this.width + 20
             });
+
         this.catalog.adjust();
         this.figure.adjust();
         this.table.adjust();
         this.multimedia.adjust();
         this.codeblock.adjust();
+        // 根据最新窗口大小调整宽度
         this.ui.css({
             "width" : "var(--vlook-nav-center-width)"
         });
+        this.indexs.update();
 
         // 在封面，或为小屏
         if (this.catalog.inHeader() === false || VLOOK.ui.isSmallScreen() === true) {
-        // 自动隐藏导航中心
+            // 自动隐藏导航中心
             result = this.hide("auto");
 
-            // 更新工具栏大纲按钮图标
+            // 根据最新窗口大小调整收起位置
+            this.ui.css({
+                "left" : "var(--vlook-nav-center-hidden-left)"
+            });
+
+            // 更新工具栏导航中心按钮图标
             if (!env.device.mobile)
                 this.toolbar.buttons["outline"].removeClass("selected");
         }
@@ -3188,7 +3232,7 @@ function NavCenter(mask, tocCatalog, tocFigure, tocTable, tocMultimedia, tocCode
                 // 以占位方式显示导航中心
                 result = this.show("block");
 
-                // 更新工具栏大纲按钮图标
+                // 更新工具栏导航中心按钮图标
                 if (!env.device.mobile)
                     this.toolbar.buttons["outline"].addClass("selected");
             }
@@ -3197,7 +3241,7 @@ function NavCenter(mask, tocCatalog, tocFigure, tocTable, tocMultimedia, tocCode
     }
 
     /**
-     * 显示大纲引导把手
+     * 显示导航中心引导把手
      */
     this.showHandle = function () {
         this.handle.css({
@@ -3207,7 +3251,7 @@ function NavCenter(mask, tocCatalog, tocFigure, tocTable, tocMultimedia, tocCode
     }
 
     /**
-     * 鼠标位置变化对大纲处理
+     * 鼠标位置变化对导航中心处理
      */
     this.snap = function (event) {
         // 已显示则跳过
@@ -3219,13 +3263,13 @@ function NavCenter(mask, tocCatalog, tocFigure, tocTable, tocMultimedia, tocCode
             if (this.snapTimer != null)
                 return;
 
-            // 延时（模拟悬停一定时间）以浮动方式显示大纲
+            // 延时（模拟悬停一定时间）以浮动方式显示导航中心
             this.snapTimer = setTimeout(function () {
                 that.show("float");
             }, 500);
         }
         else {
-            // 未显示大纲前离开边缘则取消显示
+            // 未显示导航中心前离开边缘则取消显示
             if (this.snapTimer != null) {
                 clearTimeout(this.snapTimer);
                 this.snapTimer = null;
@@ -3234,7 +3278,7 @@ function NavCenter(mask, tocCatalog, tocFigure, tocTable, tocMultimedia, tocCode
     }
 
     /**
-     * 显示/隐藏大纲，并进行关联处理
+     * 显示/隐藏导航中心，并进行关联处理
      */
      this.afterToggle = function () {
         ContentAssist.button.openInNewTab.hide();
@@ -3245,8 +3289,8 @@ function NavCenter(mask, tocCatalog, tocFigure, tocTable, tocMultimedia, tocCode
     /**
      * 处理热键操作
      *
-     * @param {code} 非功能键键
-     * @param {combKeys} 功能组合键 Ctrl / Shift / Alt / Win / Cmd
+     * @param code 非功能键键
+     * @param combKeys 功能组合键 Ctrl / Shift / Alt / Win / Cmd
      */
     this.disposeHotkey = function (code, combKeys) {
         if (this.ui.isHidden())
@@ -3290,7 +3334,7 @@ NavCenter.init = function () {
 
     // 有目录内容
     tocContent.children(".md-toc-h1, .md-toc-h2, .md-toc-h3, .md-toc-h4, .md-toc-h5, .md-toc-h6").each(function () {
-        // 只处理 h1-h5，添加为实际的大纲节点
+        // 只处理 h1-h5，添加为实际的目录节点
         if ($(this).attr("class").indexOf("md-toc-h6") === -1)
             iNavCenter.catalog.add($(this));
         // 移除 h6
@@ -3302,7 +3346,7 @@ NavCenter.init = function () {
 }
 
 /**
- * 隐藏大纲（异常情况使用）
+ * 隐藏导航中心（异常情况使用）
  */
 NavCenter.hideOnError = function () {
     iNavCenter.hide();
@@ -3325,7 +3369,7 @@ NavCenter.hideOnError = function () {
 /**
  * 构造函数
  *
- * @param {navCenter} 关联的导航中心对象
+ * @param navCenter 关联的导航中心对象
  */
 function ChapterNav(navCenter) {
     let that = this;
@@ -3346,7 +3390,7 @@ function ChapterNav(navCenter) {
         text : $(".mdx-chapter-nav-next-text"), // 后一章文本界面
     };
 
-    // 关联的大纲对象
+    // 关联的导航中心对象
     this.navCenter = navCenter;
 
     // 初始化动效
@@ -3497,7 +3541,7 @@ function ChapterNav(navCenter) {
     /**
      * 逐章导航导航按钮在不同终端的适配处理
      *
-     * @param {flag} "mobile": 移动端，"desktop"：桌面端
+     * @param flag "mobile": 移动端，"desktop"：桌面端
      */
     this.adjustHoverStyle = function (flag) {
         // 移动设备时解绑样式事件
@@ -3550,8 +3594,8 @@ function ChapterNav(navCenter) {
     /**
      * 处理热键操作
      *
-     * @param {code} 非功能键键
-     * @param {combKeys} 功能组合键 Ctrl / Shift / Alt / Win / Cmd
+     * @param code 非功能键键
+     * @param combKeys 功能组合键 Ctrl / Shift / Alt / Win / Cmd
      */
     this.disposeHotkey = function (code, combKeys) {
         if (VLOOK.doc.block === true)
@@ -3583,7 +3627,7 @@ function ChapterNav(navCenter) {
 /**
  * 构造函数
  *
- * @param {tips} 操作提示栏对象
+ * @param tips 操作提示栏对象
  */
 function ParagraphNav(tips) {
     this.tips = tips;
@@ -3652,7 +3696,7 @@ function ParagraphNav(tips) {
     /**
      * 上一个段
      *
-     * @param {step} 跳转的步长
+     * @param step 跳转的步长
      * @return 跳转结果，true=成功，false=失败
      */
     this.prev = function (step) {
@@ -3682,7 +3726,7 @@ function ParagraphNav(tips) {
     /**
      * 下一个段
      *
-     * @param {step} 跳转的步长
+     * @param step 跳转的步长
      * @return 跳转结果，true=成功，false=失败
      */
     this.next = function (step) {
@@ -3713,7 +3757,7 @@ function ParagraphNav(tips) {
     /**
      * 跳到指定的内容块，或最新的_blockFocusItemIndex指定的内容块
      *
-     * @param {target} 跳转的目标。null: 指定跳到上/下一个位置，非null: 指定的目标位置
+     * @param target 跳转的目标。null: 指定跳到上/下一个位置，非null: 指定的目标位置
      */
     this.goto = function (target) {
         this.blurFocus();
@@ -3755,14 +3799,10 @@ function ParagraphNav(tips) {
 
     /**
      * 隐藏当前段落的高亮样式
-     *
-     * @param {keepTips} 是否保留操作提示栏，默认为否
      */
-    this.hide = function (keepTips) {
-        if (keepTips !== true) {
-            iMoreDocContent.refresh();
-            this.tips.hide();
-        }
+    this.hide = function () {
+        iMoreDocContent.refresh();
+        this.tips.hide();
         this.toolbar.buttons["paragraph-nav"].removeClass("selected");
         this.enabled = false;
         this.blurFocus();
@@ -3771,8 +3811,8 @@ function ParagraphNav(tips) {
     /**
      * 处理热键操作
      *
-     * @param {code} 非功能键键
-     * @param {combKeys} 功能组合键 Ctrl / Shift / Alt / Win / Cmd
+     * @param code 非功能键键
+     * @param combKeys 功能组合键 Ctrl / Shift / Alt / Win / Cmd
      */
     this.disposeHotkey = function (code, combKeys) {
         if (this.enabled === false)
@@ -3814,7 +3854,7 @@ function ParagraphNav(tips) {
  * 初始化段落导航模式
  */
 ParagraphNav.init = function() {
-    iParagraphNav = new ParagraphNav(new BottomTips());
+    iParagraphNav = new ParagraphNav(new BottomTips("paragraph-nav"));
     // 添加关联组件
     iParagraphNav.toolbar = iToolbar;
 
@@ -3831,7 +3871,7 @@ ParagraphNav.init = function() {
             // 双击内容块激活/关闭段落导航模式模式
             item.dblclick(function () {
                 if (iParagraphNav.toggle(item) === true)
-                    iSpotlight.hide(true);
+                    iSpotlight.hide();
             });
 
             // 单击内容块处理
@@ -3858,8 +3898,8 @@ ParagraphNav.init = function() {
 /**
  * 构造函数
  *
- * @param {navCenter} 导航中心对象
- * @param {chapterNav} 章节导航对象
+ * @param navCenter 导航中心对象
+ * @param chapterNav 章节导航对象
  */
 function Toolbar(navCenter, chapterNav) {
     this.ui = $(".mdx-toolbar"); // 工具栏主界面
@@ -3870,11 +3910,11 @@ function Toolbar(navCenter, chapterNav) {
     /**
      * 添加按钮
      *
-     * @param {name} 按钮标识
-     * @param {button} 按钮对象
+     * @param name 按钮标识
+     * @param target 按钮对象
      */
-    this.add = function (name, button) {
-        this.buttons[name] = button;
+    this.add = function (name, target) {
+        this.buttons[name] = target;
     }
 
     /**
@@ -3886,6 +3926,7 @@ function Toolbar(navCenter, chapterNav) {
             this.buttons["paragraph-nav"].hide();
             this.buttons["spotlight"].hide();
             this.buttons["print"].hide();
+            this.buttons["toolbar-spliter"].hide();
         }
 
         // 如果是小屏，或在封面
@@ -3908,12 +3949,8 @@ function Toolbar(navCenter, chapterNav) {
             });
 
             // 调整工具栏样式
-            // this.ui.removeClass("mdx-backdrop-blurs");
             this.ui.removeClass("mdx-float-card");
-            this.ui.css({
-                "width" : $(window).width() - 20,
-                "background" : "none"
-            });
+            this.ui.addClass("cover");
 
             // 为去掉工具栏背景的按钮添加浮动样式
             this.ui.children(".mdx-btn").addClass("mdx-btn-float");
@@ -3958,17 +3995,9 @@ function Toolbar(navCenter, chapterNav) {
         // 宽屏，且不在封面
         else {
             if (this.ui.offset().top !== 0) {
-                this.ui.css({
-                    "width" : "var(--vlook-nav-center-width)",
-                    "background-color" : this.chapterNav.ui.css("background-color")
-                });
-                this.ui.children("div").removeClass("mdx-float-card");
-                  this.ui.addClass("mdx-float-card");
-                this.ui.css({
-                    "top" : 0,
-                    "padding-left" : 10,
-                    "padding-right" : 10
-                });
+                this.ui.removeClass("cover");
+                this.ui.children(".mdx-btn").removeClass("mdx-float-card");
+                this.ui.addClass("mdx-float-card");
 
                 // 微调工具栏分隔宽度
                 let btnCount = this.ui.children(".mdx-btn").length;
@@ -3977,6 +4006,11 @@ function Toolbar(navCenter, chapterNav) {
                         + (btnCount * 40 + parseInt(this.ui.css("padding-left")) * 2 + (btnCount - 2 ) * 5) + "px) / 2)"
                 });
 
+                this.ui.css({
+                    "padding-left" : 10,
+                    "padding-right" : 10,
+                    "top" : 0
+                });
                 // 为增加了工具栏按钮的背景去掉浮动样式
                 this.ui.children(".mdx-btn").removeClass("mdx-btn-float");
             }
@@ -3994,7 +4028,6 @@ function ColorScheme(button) {}
 
 ColorScheme.scheme = "light"; // 当前颜色以方案，light/dark
 ColorScheme.schemeBeforePrint = "light"; // 打印前的颜色方案
-// ColorScheme.syncTimer = null; // 控制与系统颜色方案同步
 
 /**
  * 初始化
@@ -4035,7 +4068,7 @@ ColorScheme.init = function () {
 /**
  * 切换颜色方案
  *
- * @param {scheme} 指定方案，为空时则轮换
+ * @param scheme 指定方案，为空时则轮换
  */
 ColorScheme.toggle = function (scheme) {
     // VLOOK.report.push(['Style', 'ColorScheme', '', 0]);
@@ -4066,18 +4099,16 @@ ColorScheme.refresh = function () {
         "--doc-bg-color-transparent",
         "--doc-bg-color-alt-transparent",
         "--fore-color",
+        // "--backdrop-blurs-bg",
         "--blockquote-color",
         "--blockquote-bg",
-        // "--shadow-color",
         "--a-color",
         "--mark-color",
-        "--footer-note-bg-color",
         "--table-border-color",
         "--table－header-color",
         "--table-th-bg-color",
         "--table-td-bg-color",
         "--table-cell-border-color",
-        // "--img-dark-filter",
         "--table-rowgroup-alpha",
         "--del-color",
         "--toc-header-num-color",
@@ -4086,7 +4117,6 @@ ColorScheme.refresh = function () {
         "--header-bg-start-color",
         "--header-bg-end-color",
         "--code-bg-color",
-        // "--code-bg-color-transparent",
         "--code-name-bg-color",
         "--code-name-shadow-color",
         "--tips-bg-color-inset",
@@ -4177,7 +4207,7 @@ ColorScheme.refresh = function () {
     for (let i = 0, len = varList.length; i < len; i++) {
         schemeVarList.push(VLOOK.util.getStyleValue(varList[i] + "-" + ColorScheme.scheme));
     }
-    // 遍历所有变量实现ColorScheme切换
+    // 遍历所有变量实现 ColorScheme 切换
     for (let i = 0, len = varList.length; i < len; i++) {
         VLOOK.util.setStyleValue(varList[i], schemeVarList[i]);
     }
@@ -4212,16 +4242,6 @@ ColorScheme.refresh = function () {
  */
 ColorScheme.afterToggle = function () {
     $(".mdx-copyright").children("svg").html("<use xlink:href='#icoVLOOK-" + ColorScheme.scheme + "'></use>");
-
-    // 根据不同的颜色方案设置不同的遮盖样式
-    if (ColorScheme.scheme === "dark") {
-        iNavCenter.mask.ui.css("background-color", "rgba(0, 0, 0, 0.9)");
-        iFigureNav.ui.css("background-color", "rgba(0, 0, 0, 0.9)");
-    }
-    else {
-        iNavCenter.mask.ui.css("background-color", "rgba(0, 0, 0, 0.8)");
-        iFigureNav.ui.css("background-color", "rgba(0, 0, 0, 0.8)");
-    }
 }
 
 // ==================== 字体风格选项、选择器类 ==================== //
@@ -4229,8 +4249,8 @@ ColorScheme.afterToggle = function () {
 /**
  * 构造函数
  *
- * @param {ui} 选项的 UI
- * @param {fonts} 字体集数组
+ * @param ui 选项的 UI
+ * @param fonts 字体集数组
  */
 function FontStyleOption(ui, fonts) {
     this.ui = ui;
@@ -4241,7 +4261,7 @@ function FontStyleOption(ui, fonts) {
 /**
  * 构造函数
  *
- * @param {mask} 遮罩对象
+ * @param mask 遮罩对象
  */
 function FontStyler(mask) {
     let that = this;
@@ -4264,6 +4284,8 @@ function FontStyler(mask) {
     // 遮罩
     this.mask = mask;
     this.mask.bindPartner(this, this.ui);
+
+    VLOOK.ui.addAnimate(this.ui);
 
     // 绑定各字体风格选项事件
     this.sansStyle.ui.unbind("click").click(function () {
@@ -4328,22 +4350,22 @@ function FontStyler(mask) {
     /**
      * 绑定选择字体风格操作按钮
      *
-     * @param {button} 绑定的工具栏按钮
+     * @param button 绑定的工具栏按钮
      */
     this.bindButton = function (button) {
         this.button = button; // 绑定的工具栏按钮
     }
 
-    /*
+    /**
      * 加载自定义字体
      *
-     * @param {fontFamily} 自定义字体名称
-     * @param {fontStyle} 字体样式
-     * @param {fontWeight} 字重
-     * @param {srcFontName} 字体源名称
-     * @param {srcFontSubName} 字体源子名称
-     * @param {suffix} 字体扩展名，支持 otf ttf
-     * @param {woff} 加载 woff 的版本，支持 woff woff2，不加载不指定
+     * @param fontFamily 自定义字体名称
+     * @param fontStyle 字体样式
+     * @param fontWeight 字重
+     * @param srcFontName 字体源名称
+     * @param srcFontSubName 字体源子名称
+     * @param suffix 字体扩展名，支持 otf ttf
+     * @param woff 加载 woff 的版本，支持 woff woff2，不加载不指定
      */
     this.loadFont = function (fontFamily, fontStyle, fontWeight, srcFontName, srcFontSubName, suffix, woff) {
         if (document.fonts && !this.isExist(fontFamily, fontStyle, fontWeight)) {
@@ -4416,12 +4438,12 @@ function FontStyler(mask) {
         }
     }
 
-    /*
+    /**
      * 检测指定自定义字体是否已加载
      *
-     * @param {fontFamily} 自定义字体名称
-     * @param {fontStyle} 字体样式
-     * @param {fontWeight} 字重
+     * @param fontFamily 自定义字体名称
+     * @param fontStyle 字体样式
+     * @param fontWeight 字重
      */
     this.isExist = function (fontFamily, fontStyle, fontWeight) {
         let values = document.fonts.values(),
@@ -4445,17 +4467,17 @@ function FontStyler(mask) {
      * 显示字体风格选择器
      */
     this.show = function () {
-        VLOOK.ui.showInCenter(this.ui);
         this.mask.show();
+        VLOOK.ui.moveToCenter(this.ui);
         this.ui.show();
 
         if (this.style === "sans") {
-            this.sansStyle.ui.addClass("mdx-font-styler-current");
-            this.serifStyle.ui.removeClass("mdx-font-styler-current");
+            this.sansStyle.ui.addClass("selected");
+            this.serifStyle.ui.removeClass("selected");
         }
         else {
-            this.serifStyle.ui.addClass("mdx-font-styler-current");
-            this.sansStyle.ui.removeClass("mdx-font-styler-current");
+            this.serifStyle.ui.addClass("selected");
+            this.sansStyle.ui.removeClass("selected");
         }
     }
 
@@ -4482,7 +4504,7 @@ function FontStyler(mask) {
     /**
      * 应用指定字体风格
      *
-     * @param {style} 指定应用的字体风格（sans/serif），不指定则以为当前字体风格
+     * @param style 指定应用的字体风格（sans/serif），不指定则以为当前字体风格
      */
     this.apply = function (style) {
         // 修正无指定样式的情况
@@ -4492,7 +4514,7 @@ function FontStyler(mask) {
         VLOOK.report.push(['Style', 'FontStyle', style, 0]);
 
         // 需要进行字体风格应用的分类与范围
-        let text = "html, body"
+        let text = "body"
             + ", .noteText tspan";
             // + ", ruby";
         let title = "#write > pre.md-meta-block:first-child + h6, #write > h6:first-child"
@@ -4630,8 +4652,8 @@ function FontStyler(mask) {
     /**
      * 处理热键操作
      *
-     * @param {code} 非功能键键
-     * @param {combKeys} 功能组合键 Ctrl / Shift / Alt / Win / Cmd
+     * @param code 非功能键键
+     * @param combKeys 功能组合键 Ctrl / Shift / Alt / Win / Cmd
      */
     this.disposeHotkey = function (code, combKeys) {
         if (this.ui.isHidden())
@@ -4650,21 +4672,21 @@ function FontStyler(mask) {
 /**
  * 构造函数
  *
- * @param {mask} 遮罩对象
+ * @param mask 遮罩对象
  */
 function FootNote(mask) {
     let that = this;
-    this.ui = $(".mdx-footer-note-panel"); // 脚注主界面
-    this.content = $(".mdx-footer-note-panel-content"); // 脚注内容区
+    this.ui = $(".mdx-foot-note-panel"); // 脚注主界面
+    this.content = $(".mdx-foot-note-panel-content"); // 脚注内容区
 
-    this.buttonSeeAll = $(".mdx-footer-note-panel-all"); // 查看所有脚注按钮
+    this.buttonSeeAll = $(".mdx-foot-note-panel-all"); // 查看所有脚注按钮
     this.buttonSeeAll.unbind("click").click(function () {
         that.hide();
         // 跳转至所有脚注区域
         window.location.href = "#xFooterArea";
     });
 
-    VLOOK.ui.addAnimate(this.ui);
+    // VLOOK.ui.addAnimate(this.ui);
 
     // 遮罩
     this.mask = mask;
@@ -4688,29 +4710,30 @@ function FootNote(mask) {
                 "right" : "15%"
             });
 
-        this.ui.css({
-            "bottom" : 90,
-        });
-        VLOOK.ui.fadeIn(this.ui);
+        // this.ui.css({
+        //     "bottom" : 90,
+        // });
+        // VLOOK.ui.show(this.ui);
+        this.ui.show();
     }
 
     /**
      * 隐藏脚注弹层
      */
     this.hide = function () {
-        this.ui.css({
-            "bottom" : -this.ui.height()
-        });
-        VLOOK.ui.fadeOut(this.ui);
-
+        // this.ui.css({
+        //     "bottom" : -this.ui.height()
+        // });
+        // VLOOK.ui.hide(this.ui);
+        this.ui.hide();
         this.mask.hide();
     }
 
     /**
      * 处理热键操作
      *
-     * @param {code} 非功能键键
-     * @param {combKeys} 功能组合键 Ctrl / Shift / Alt / Win / Cmd
+     * @param code 非功能键键
+     * @param combKeys 功能组合键 Ctrl / Shift / Alt / Win / Cmd
      */
     this.disposeHotkey = function (code, combKeys) {
         if (this.ui.isHidden())
@@ -4770,7 +4793,7 @@ function LinkChecker(mask) {
         close : VLOOK.ui.generateSvgIcon("icoClose", 16, 16, "light")
     }
 
-    VLOOK.ui.addAnimate(this.ui.list);
+    // VLOOK.ui.addAnimate(this.ui.list);
 
     // 遮罩
     this.mask = mask;
@@ -4857,10 +4880,11 @@ function LinkChecker(mask) {
      * 显示坏链列表
      */
     this.show = function () {
-        that.ui.list.css({
-            "right" : 10
-        });
-        VLOOK.ui.fadeIn(that.ui.list);
+        // that.ui.list.css({
+        //     "right" : 10
+        // });
+        // VLOOK.ui.show(that.ui.list);
+        this.ui.list.show()
         that.mask.show();
     }
 
@@ -4868,10 +4892,11 @@ function LinkChecker(mask) {
      * 隐藏坏链列表
      */
     this.hide = function () {
-        that.ui.list.css({
-            "right" : "var(--vlook-nav-center-hidden-left)"
-        });
-        VLOOK.ui.fadeOut(this.ui.list);
+        // that.ui.list.css({
+        //     "right" : "var(--vlook-nav-center-hidden-left)"
+        // });
+        // VLOOK.ui.hide(this.ui.list);
+        this.ui.list.hide()
         this.mask.hide();
 
         this.ui.result.html(this.icon.error);
@@ -4881,8 +4906,8 @@ function LinkChecker(mask) {
     /**
      * 处理热键操作
      *
-     * @param {code} 非功能键键
-     * @param {combKeys} 功能组合键 Ctrl / Shift / Alt / Win / Cmd
+     * @param code 非功能键键
+     * @param combKeys 功能组合键 Ctrl / Shift / Alt / Win / Cmd
      */
     this.disposeHotkey = function (code, combKeys) {
         if (this.ui.list.isHidden())
@@ -4900,19 +4925,46 @@ function LinkChecker(mask) {
 
 /**
  * 构造函数
+ *
+ * @param id 标识
+ * @param style 扩展样式：left / right / bottom / center
+ * @param closer 是否显示关闭提示器
  */
-function BackgroundMask() {
+function BackgroundMask(id, style, closer) {
     let that = this;
-    this.ui = $(".mdx-mask");
+    this.style = style;
+
+    DOM.body().after('<div class="mdx-mask ' + (style !== undefined ? style + ' ' : '') + id + ' mdx-backdrop-blurs">'
+        + '<div class="mdx-copyright">'
+        + '<svg height="24px" width="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()">'
+        + '<use xlink:href="#icoVLOOK-dark"></use>'
+        + '</svg>&nbsp;&nbsp;'
+        + '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.4) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">MAX°孟兆</a></strong>'
+        + '</div></div>');
+
+    // 根据特效等级初始化遮罩样式
+    VLOOK.ui.initEffects();
+
+    this.ui = $(".mdx-mask." + id);
+    this.closer = undefined;
+
+    // 生成关闭提示器
+    if (closer !== undefined && closer === true) {
+        this.ui.append('<div class="mdx-mask-closer ' + this.style + '">'
+            + VLOOK.ui.generateSvgIcon("icoCloserTo-" + this.style, 60, 60, "alt")
+            + '</div>');
+        this.closer = this.ui.children(".mdx-mask-closer");
+    }
+
     this.partner = undefined;
     this.partnerUI = undefined;
 
-    VLOOK.ui.addAnimate(this.ui, "opacity");
+    // VLOOK.ui.addAnimate(this.ui, "opacity");
 
     /**
      * 绑定联动对象
      *
-     * @param {partner} 联动对象
+     * @param partner 联动对象
      */
     this.bindPartner = function (partner, ui) {
         this.partner = partner;
@@ -4929,6 +4981,36 @@ function BackgroundMask() {
 
         // 总是在 target 下显示
         this.ui.css("z-index", this.partnerUI.css("z-index") - 1);
+
+        // 「关闭提示器」的处理
+        if (this.closer !== undefined) {
+            // 默认是 style = left 的位置
+            let offset = 30,
+                x = parseInt(this.partnerUI.css("left")) + this.partnerUI.width() + offset,
+                y = parseInt(this.partnerUI.css("top")) + (this.partnerUI.height() - this.closer.height()) / 2;
+            // left / right 的处理
+            if (this.style === "left" || this.style === "right") {
+                this.closer.css({
+                    "left" : this.style === "right"
+                        ? parseInt(this.partnerUI.css("left")) - this.closer.width() - offset
+                        : x,
+                    "top" : y
+                });
+            }
+            // bottom 的处理
+            else if (this.style === "bottom") {
+                x = parseInt(this.partnerUI.css("left")) + (this.partnerUI.width() - this.closer.width()) / 2;
+                y = parseInt(this.partnerUI.css("bottom")) + this.partnerUI.height() + offset;
+                this.closer.css({
+                    "left" : "auto",
+                    "top" : "auto",
+                    "bottom" : y,
+                    "margin-left" : "-" + (this.closer.width() / 2) + 'px',
+                    "padding" : "0px 50%"
+                });
+            }
+        }
+
         // 点击遮罩隐藏联动对象
         this.ui.unbind("click").click(function () {
             // 取消冻结滚动
@@ -4939,7 +5021,8 @@ function BackgroundMask() {
             that.hide();
         });
 
-        VLOOK.ui.fadeIn(this.ui);
+        this.ui.show();
+        // VLOOK.ui.show(this.ui);
     }
 
     /**
@@ -4950,7 +5033,13 @@ function BackgroundMask() {
         VLOOK.doc.scroll.unfreeze();
         VLOOK.doc.block = false;
 
-        VLOOK.ui.fadeOut(this.ui);
+        // if (VLOOK.ui.existAnimate(this.partnerUI))
+        //     setTimeout(function () {
+        //         // VLOOK.ui.hide(that.ui);
+        //         that.ui.hide();
+        //     }, VLOOK.ui.animateDuration());
+        // else
+        this.ui.hide();
     }
 }
 
@@ -4986,7 +5075,7 @@ function ContentFolding() {
     /**
      * 重建部分内容展开操作区，主要是 img, table, .md-fences 等会因导航中心的显示/关闭
      * 导致文档宽度变化而引起的内容高度也跟随变化的情况
-     * 如在不显示大纲时因宽度较变，高度等比变高，或高度反而变短
+     * 如在不显示导航中心时因宽度较变，高度等比变高，或高度反而变短
      * 会导致应该显示展开操作区即不显示，或不应显示却显示的情况
      */
     this.rebuild = function () {
@@ -5026,8 +5115,8 @@ function ContentFolding() {
     /**
      * 检测内容是否过长，过长则进行处理。适用于「插图、表格、代码块」等
      *
-     * @param {target} 折叠的目标对象
-     * @param {rebuild} 本次折叠是否属于重建的（如在页面加载后，由于页面正文区宽度变化后调用时属于重建）
+     * @param target 折叠的目标对象
+     * @param rebuild 本次折叠是否属于重建的（如在页面加载后，由于页面正文区宽度变化后调用时属于重建）
      */
     this.checkAndProcess = function (target, rebuild) {
         // 若为在新标签打开的，则忽略
@@ -5091,11 +5180,11 @@ function ContentFolding() {
     /**
      * 构建内容展开操作区
      *
-     * @param {target} 为目标对象创建展开操作区（如 table）
-     * @param {container} 指定对象所属的容器（如 table 的容器为父元素 figure）
-     * @param {tagName} target 的 HTML 标签名
-     * @param {tHeight} target 的高度
-     * @param {oldExpander} 上一轮重建前的展开操作区（没有则为 undefined）
+     * @param target 为目标对象创建展开操作区（如 table）
+     * @param container 指定对象所属的容器（如 table 的容器为父元素 figure）
+     * @param tagName target 的 HTML 标签名
+     * @param tHeight target 的高度
+     * @param oldExpander 上一轮重建前的展开操作区（没有则为 undefined）
      */
     this.buildContentExpander = function (target, container, tagName, tHeight, oldExpander) {
         // 设置为已折叠
@@ -5206,9 +5295,9 @@ function ToolTips() {
     /**
     * 显示工具提示信息
     *
-    * @param {follow} 提示的目标元素
-    * @param {align} 强制指定工具提示的水平对齐方式（auto/left/center/right）
-    * @param {style} 指定微调的样式
+    * @param follow 提示的目标元素
+    * @param align 强制指定工具提示的水平对齐方式（auto/left/center/right）
+    * @param style 指定微调的样式
     */
     this.show = function (follow, align, style) {
         if (env.device.mobile === true)
@@ -5258,7 +5347,7 @@ function ToolTips() {
         });
 
         this.aniTimer = setTimeout(function () {
-            VLOOK.ui.fadeIn(that.ui);
+            VLOOK.ui.show(that.ui);
         }, 500);
     }
 
@@ -5268,7 +5357,7 @@ function ToolTips() {
     this.hide = function () {
         VLOOK.doc.scroll.unfreeze();
         clearTimeout(this.aniTimer);
-        VLOOK.ui.fadeOut(this.ui);
+        VLOOK.ui.hide(this.ui);
         if (this.lastStyle !== undefined)
             this.ui.removeClass(this.lastStyle);
     }
@@ -5279,14 +5368,14 @@ function ToolTips() {
 /**
  * 构造函数
  *
- * @param {mask} 遮罩对象
+ * @param mask 遮罩对象
  */
 function InfoTips(mask) {
     let that = this;
     this.ui = $(".mdx-info-tips");
     this.aniTimer = null;
 
-    VLOOK.ui.addAnimate(this.ui, "opacity");
+    // VLOOK.ui.addAnimate(this.ui, "opacity");
 
     // 绑定点击事件
     this.ui.unbind("click").click = function () {
@@ -5300,10 +5389,10 @@ function InfoTips(mask) {
     /**
     * 显示通知提示信息
     *
-    * @param {message} 提示内容
-    * @param {delay} 延时指定 ms 时间后自动关闭提示
-    * @param {fullscreen} 是否为全屏显示
-    * @param {mask} 是否显示遮罩
+    * @param message 提示内容
+    * @param delay 延时指定 ms 时间后自动关闭提示
+    * @param fullscreen 是否为全屏显示
+    * @param mask 是否显示遮罩
     */
     this.show = function (message, delay, fullscreen, mask) {
         clearTimeout(this.aniTimer);
@@ -5334,10 +5423,11 @@ function InfoTips(mask) {
         }
         // 非全屏显示
         else {
-            VLOOK.ui.showInCenter(this.ui);
+            VLOOK.ui.moveToCenter(this.ui);
         }
 
-        VLOOK.ui.fadeIn(this.ui);
+        // VLOOK.ui.show(this.ui);
+        this.ui.show();
 
         if (delay != null) // 延时后自动关闭
             this.aniTimer = setTimeout(function () {
@@ -5353,15 +5443,16 @@ function InfoTips(mask) {
      * 隐藏弹窗信息
      */
     this.hide = function () {
-        VLOOK.ui.fadeOut(this.ui);
+        // VLOOK.ui.hide(this.ui);
+        this.ui.hide();
         this.mask.hide();
     }
 
     /**
      * 处理热键操作
      *
-     * @param {code} 非功能键键
-     * @param {combKeys} 功能组合键 Ctrl / Shift / Alt / Win / Cmd
+     * @param code 非功能键键
+     * @param combKeys 功能组合键 Ctrl / Shift / Alt / Win / Cmd
      */
     this.disposeHotkey = function (code, combKeys) {
         if (this.ui.isHidden())
@@ -5379,14 +5470,18 @@ function InfoTips(mask) {
 
 /**
  * 构造函数
+ *
+ * @param id 对象标识
  */
-function BottomTips() {
-    this.ui = $(".mdx-bottom-tips");
+function BottomTips(id) {
+    DOM.body().after('<div class="mdx-bottom-tips ' + id + '"><div></div></div>');
+
+    this.ui = $(".mdx-bottom-tips." + id);
 
     /**
      * 显示底部提示栏
      *
-     * @param {message} 提示内容
+     * @param message 提示内容
      */
     this.show = function (message) {
         this.ui.children("div").html(message);
@@ -5416,7 +5511,7 @@ function MoreDocContent(chapterNav) {
     /**
      * 刷新显示更多内容遮罩栏
      *
-     * @param {scrollTop} 文档当前滚动位置，如果为空则自动获取
+     * @param scrollTop 文档当前滚动位置，如果为空则自动获取
      */
     this.refresh = function (scrollTop) {
         if (scrollTop === undefined)
@@ -5450,7 +5545,7 @@ function CaptionGenerator() {}
 /**
  * 生成题注
  *
- * @param {target} 需要添加题注的对象
+ * @param target 需要添加题注的对象
  */
 CaptionGenerator.action = function (target) {
     let tagName = target.prop("tagName").toLowerCase(),
@@ -5534,8 +5629,8 @@ CaptionGenerator.action = function (target) {
 /**
  * 针对插图（img、mermaid）生成题注
  *
- * @param {target} 需要添加题注的对象
- * @param {tagName} HTML 标签名
+ * @param target 需要添加题注的对象
+ * @param tagName HTML 标签名
  */
 CaptionGenerator.actionForFigureLike = function (target, tagName) {
     let fc = target.attr("alt"), // 默认尝试获取图片的 alt 内容作为题注内容
@@ -5879,7 +5974,7 @@ ExtQuote.init = function () {
     /**
      * 展开/收起引用块
      *
-     * @param {target} 用于折叠其下引用块对象
+     * @param target 用于折叠其下引用块对象
      */
     function toggleQuoteFolding(target) {
         if (target.attr("data-vk-blockquote-folded") === "true") {
@@ -5892,7 +5987,7 @@ ExtQuote.init = function () {
     /**
      * 分离折叠引子中的标题
      *
-     * @param {target} 带折叠引子的行对象
+     * @param target 带折叠引子的行对象
      */
     function separateTitle(target) {
         let firstSpan = target.children("span:first"),
@@ -5924,7 +6019,7 @@ ExtQuote.adjustColorScheme = function () {
 /**
  * 收起引用块
  *
- * @param {target} 用于折叠其下引用块对象
+ * @param target 用于折叠其下引用块对象
  */
 ExtQuote.fold = function (target) {
     let nextQuote = target.next("blockquote");
@@ -6071,7 +6166,7 @@ ExtTable.init = function () {
     /**
      * 表格单元格初始化
      *
-     * @param {table} 表格对象
+     * @param table 表格对象
      */
     function initCell(table) {
         // 遍历表格「列头」行
@@ -6178,7 +6273,7 @@ CellMerge.syntax = {
 /**
  * 表格单元格合并
  *
- * @param {table} 要进行单元格合并处理的表格对象
+ * @param table 要进行单元格合并处理的表格对象
  */
 CellMerge.dispose = function (table) {
     let colSpanCount = 0,
@@ -6342,15 +6437,20 @@ CellCross.init = function () {
 /**
  * 绑定单元格，鼠标点击单元格时显示十字光标
  *
- * @param {table} 单元格所属表格对象
- * @param {cell} 单元格对象
+ * @param table 单元格所属表格对象
+ * @param cell 单元格对象
  */
 CellCross.bind = function (table, cell) {
     cell.unbind("click").click(function () {
         VLOOK.report.push(['Interactive', 'Table', 'CellCross', 0]);
 
+        // 跳过折叠的表格
         if (table.parent().parent().attr("data-vk-content-folded") === "true")
             return;
+
+        // 不同表格之间点击，先强制移除动画
+        if (CellCross.lastTable !== table)
+            VLOOK.ui.removeAnimate(CellCross.ui);
 
         CellCross.hide();
         if (iParagraphNav !== undefined)
@@ -6413,6 +6513,9 @@ CellCross.bind = function (table, cell) {
         });
         CellCross.adjust(crossDown, h, scrollLeft);
 
+        // 针对不同表格之间点击强制移除动画后的恢复
+        VLOOK.ui.addAnimate(CellCross.ui);
+
         event.stopPropagation(); // 停止事件冒泡
     });
 }
@@ -6420,16 +6523,16 @@ CellCross.bind = function (table, cell) {
 /**
  * 适配调整表格十字光标位置、显示
  *
- * @param {target} 十字光标任意边的对象实例（左/右/上/下）
- * @param {size} 指定要进行隐藏判断的尺寸（宽度或高度），小于该值则不显示对应的 target
- * @param {scrollLeft} 表格水平滚动的偏移量
+ * @param target 十字光标任意边的对象实例（左/右/上/下）
+ * @param size 指定要进行隐藏判断的尺寸（宽度或高度），小于该值则不显示对应的 target
+ * @param scrollLeft 表格水平滚动的偏移量
  */
 CellCross.adjust = function (target, size, scrollLeft) {
     // 任意边的尺寸（宽度或高度）小于最小值时隐藏
     if (size < 5)
-        VLOOK.ui.fadeOut(target);
+        VLOOK.ui.hide(target);
     else {
-        VLOOK.ui.fadeIn(target);
+        VLOOK.ui.show(target);
     }
     // 保存最后显示的十字光标任意边的 left 值及水平方向上的滚动偏移量
     CellCross.lastCellPos[target.attr("data-vk-direction")] =  parseInt(target.css("left")) + scrollLeft;
@@ -6442,7 +6545,7 @@ CellCross.hide = function () {
     if (CellCross.lastCell === undefined)
         return;
 
-    VLOOK.ui.fadeOut(CellCross.ui);
+    VLOOK.ui.hide(CellCross.ui);
 
     CellCross.lastCell = undefined;
     CellCross.lastTable = undefined;
@@ -6451,7 +6554,7 @@ CellCross.hide = function () {
 /**
  * 判断当前内容块是否与已显示了十字光标的表格重叠
  *
- * @param {target} 内容块对象
+ * @param target 内容块对象
 */
 CellCross.checkFallWith = function (target) {
     return (CellCross.lastTable !== undefined
@@ -6469,8 +6572,8 @@ ColumnFormatting.syntax = {
 /**
  * 初始化
  *
- * @param {table} 表格对象
- * @param {cell} 单元格对象
+ * @param table 表格对象
+ * @param cell 单元格对象
  */
 ColumnFormatting.init = function (table, cell) {
     if (table.attr("data-vk-column-formatting") !== "true"
@@ -6487,8 +6590,8 @@ ColumnFormatting.init = function (table, cell) {
 /**
  * 返回表格内所有非合并的同列单元格对象集合
  *
- * @param {th} 列头单元格对象
- * @param {cells} 集合变量
+ * @param th 列头单元格对象
+ * @param cells 集合变量
  */
 ColumnFormatting.getCells = function (th, cells) {
     if (cells === undefined)
@@ -6499,8 +6602,8 @@ ColumnFormatting.getCells = function (th, cells) {
 /**
  * 返回表格 tbody 内的同列单元格对象集合
  *
- * @param {th} 列头单元格对象
- * @param {tbodyCells} 集合变量
+ * @param th 列头单元格对象
+ * @param tbodyCells 集合变量
  */
 ColumnFormatting.getTbodyCells = function (th, tbodyCells) {
     if (tbodyCells === undefined)
@@ -6511,7 +6614,7 @@ ColumnFormatting.getTbodyCells = function (th, tbodyCells) {
 /**
  * 列格式化
  *
- * @param {table} 表格对象
+ * @param table 表格对象
  */
 ColumnFormatting.format = function (table) {
     table.find("thead th, thead td").each(function () {
@@ -6657,9 +6760,9 @@ ColumnFormatting.format = function (table) {
 /**
  * 根据数值的正、负号进行着色处理
  *
- * @param {target} 着色的对象
- * @param {text} 依据的数值文本
- * @param {mode} 正负号位置模式，true：在开头，false: 在任意位置
+ * @param target 着色的对象
+ * @param text 依据的数值文本
+ * @param mode 正负号位置模式，true：在开头，false: 在任意位置
  *
  * @return 着色结果，true：有着色，false：没有着色
  */
@@ -6724,7 +6827,7 @@ RowGroup.colorStack = []; // 不同分组的背景颜色堆栈
 /**
  * 初始化
  *
- * @param {table} 表格对象
+ * @param table 表格对象
  */
 RowGroup.init = function (table) {
     // 若不是在新标签打开的，将第 1 列的设置缩进样式
@@ -6810,10 +6913,10 @@ RowGroup.lastColor = function () {
 /**
  * 设置为新的目录行
  *
- * @param {tr} 对应的行对象
- * @param {color} 该分组背景色
- * @param {level} 缩进层级
- * @param {reset} 是否重置回第一级
+ * @param tr 对应的行对象
+ * @param color 该分组背景色
+ * @param level 缩进层级
+ * @param reset 是否重置回第一级
  */
 RowGroup.newFolder = function (tr, color, level, reset) {
     let folderRow = tr.prev();
@@ -6876,7 +6979,7 @@ RowGroup.newFolder = function (tr, color, level, reset) {
 /**
  * 展开、收起表格表分组下的表格行
  *
- * @param {folderRow} 折叠按钮所在的表格行对象
+ * @param folderRow 折叠按钮所在的表格行对象
  */
 RowGroup.toggle = function (folderRow) {
     // 取消事件冒泡，用于避免显示表格的十字光标
@@ -6895,9 +6998,9 @@ RowGroup.toggle = function (folderRow) {
 /**
  * 设置为缩进行
  *
- * @param {tr} 对应的行对象
- * @param {td} 对应的行的首个单元格
- * @param {level} 缩进层级
+ * @param tr 对应的行对象
+ * @param td 对应的行的首个单元格
+ * @param level 缩进层级
  */
 RowGroup.ident = function (tr, td, level) {
     // 统一缩进节点符号转换，尾行在完成的有处理后再进行修正
@@ -6930,7 +7033,7 @@ RowGroup.ident = function (tr, td, level) {
 /**
  * 打开表格目录行
  *
- * @param {folderRow} 目录行对象
+ * @param folderRow 目录行对象
  */
 RowGroup.open = function (folderRow) {
     let id = folderRow.attr("data-vk-folder-id"),
@@ -6945,7 +7048,7 @@ RowGroup.open = function (folderRow) {
 /**
  * 关闭折叠表格目录行
  *
- * @param {folderRow} 目录行对象
+ * @param folderRow 目录行对象
  */
 RowGroup.close = function (folderRow) {
     let id = folderRow.attr("data-vk-folder-id"),
@@ -6993,23 +7096,23 @@ ExtAudio.init = function () {
             // 将 URL 为音频资源的 img 标签转换为 audio
             audio = transToAudio(audioLike, src);
             // 设置 audio id 用于自定义 mini 控件
-            audio.attr("id", "v-audio-" + VLOOK.doc.counter.audio);
+            audio.attr("id", "v-audio-" + VLOOK.doc.counter.audiomini);
 
             // 添加音频播放 mini 控件
-            audio.after("<div id='v-audio-" + VLOOK.doc.counter.audio + "-control"
+            audio.after("<div id='v-audio-" + VLOOK.doc.counter.audiomini + "-control"
                 + "' class='mdx-audio-mini-control'></div>");
 
             // 开始加载音频
             audio.bind("loadstart", function () {
                 let controls = $("#" + $(this).attr("id") + "-control");
-                controls.addClass("mdx-audio-mini-control-loading");
+                controls.addClass("mdx-audio-mini-control").addClass("loading");
                 controls.html(ExtAudio.icon.loading);
             });
 
             // 音频就绪可以开始播放
             audio.bind("canplay", function () {
                 let controls = $("#" + $(this).attr("id") + "-control");
-                controls.removeClass("mdx-audio-mini-control-loading");
+                controls.removeClass("loading");
 
                 // 绑定点击事件
                 controls.unbind("click").click(function () {
@@ -7036,7 +7139,7 @@ ExtAudio.init = function () {
                 let controls = $("#" + $(this).attr("id") + "-control"),
                     pause = controls.attr("data-vk-pause");
 
-                controls.addClass("mdx-audio-mini-control-playing");
+                controls.addClass("mdx-audio-mini-control").addClass("playing");
 
                 // 支持暂停播放
                 if (pause !== undefined && pause === "true") {
@@ -7053,22 +7156,32 @@ ExtAudio.init = function () {
             audio.bind("ended", function () {
                 let controls = $("#" + $(this).attr("id") + "-control");
                 controls.html(ExtAudio.icon.play);
-                controls.removeClass("mdx-audio-mini-control-playing");
+                controls.removeClass("playing");
             });
 
             // 故障或不可用
             audio.bind("emptied", function () {
                 let controls = $("#" + $(this).attr("id") + "-control");
-                controls.removeClass("mdx-audio-mini-control-loading");
+                controls.removeClass("loading");
                 controls.html(ExtAudio.icon.forbidden);
-                controls.removeClass("mdx-audio-mini-control");
-                controls.addClass("mdx-audio-mini-control-disabled");
+                // controls.removeClass("mdx-audio-mini-control");
+                controls.addClass("mdx-audio-mini-control").addClass("disabled");
             });
 
             // 加载错误
             audio.bind("error", function () {
                 audio.trigger("emptied");
             });
+
+            // 鼠标 hover 事件
+            audio.hover(function () {
+                if ($(this).attr("class").indexOf("disabled") === -1)
+                    $(this).addClass("mdx-audio-mini-control-hover");
+            }, function () {
+                $(this).removeClass("mdx-audio-mini-control-hover");
+            });
+
+            VLOOK.doc.counter.audiomini++;
         }
         // 标准控件模式
         else {
@@ -7083,16 +7196,16 @@ ExtAudio.init = function () {
             // 若有第 2 题注，则微调样式
             if (audio.next(".mdx-figure-caption-2").length > 0)
                 audio.css("margin-bottom", "-10px");
-        }
 
-        VLOOK.doc.counter.audio++;
+            VLOOK.doc.counter.audio++;
+        }
     });
 
     /**
      * 转换为 audio 标签
      *
-     * @param {audioLike} 类 audio 标签（即 src 为音频的 img 标签)
-     * @param {src} 音频 URL
+     * @param audioLike 类 audio 标签（即 src 为音频的 img 标签)
+     * @param src 音频 URL
      */
     function transToAudio(audioLike, src) {
         let tips = ["您的浏览器不支持音频标签。",
@@ -7128,8 +7241,8 @@ ExtAudio.init = function () {
     /**
      * 播放音频
      *
-     * @param {self} 自定义的播放控件对象
-     * @param {audio} 音频的 JavaScript 对象
+     * @param self 自定义的播放控件对象
+     * @param audio 音频的 JavaScript 对象
      */
     function play(self, audio) {
         let controls = $(self);
@@ -7141,7 +7254,7 @@ ExtAudio.init = function () {
         // 播放中
         else {
             controls.html(ExtAudio.icon.play);
-            controls.removeClass("mdx-audio-mini-control-playing");
+            controls.removeClass("playing");
             audio.pause();
 
             // 不支持暂时播放时，暂时即结束
@@ -7176,8 +7289,8 @@ ExtVideo.init = function () {
     /**
      * 转换为 video 标签
      *
-     * @param {videoLike} 类 video 标签（即 src 为视频的 img 标签)
-     * @param {src} 视频 URL
+     * @param videoLike 类 video 标签（即 src 为视频的 img 标签)
+     * @param src 视频 URL
      */
     function transToVideo(videoLike, src) {
         let tips = ["您的浏览器不支持视频标签。",
@@ -7220,11 +7333,17 @@ ExtVideo.init = function () {
 
 // ==================== 文本输入框类 ==================== //
 
-function TextBox(id) {
+/**
+ * 构造函数
+ *
+ * @param target 须在其后添加文本输入组件的目标对象
+ * @param id 对象标识
+ */
+function TextField(target, id) {
     let that = this;
     // 文本输入框属性
-    this.id = id;
     this.ui = undefined;
+    this.icon = undefined;
     this.input = undefined;
     this.reset = undefined;
     this.action = undefined;
@@ -7233,32 +7352,35 @@ function TextBox(id) {
     this.onInput = undefined;
     this.onKeyDown = undefined;
     this.onAction = undefined;
+    this.pressEnter = undefined;
+    this.pressESC = undefined;
 
     /**
      * 将文本输入框实例添加到指定对象之后
      *
-     * @param {target} 指定对象
+     * @param target 指定对象
      */
-    this.appendTo = function (target) {
+    this.appendTo = function (target, id) {
         // 文本输入框 UI
-        let ui = '<div id="' + id + '" class="mdx-textbox">'
+        let ui = '<div class="mdx-textfield ' + id + '">'
+            + '<div class="mdx-textfield-icon" style="display: none"></div>'
             + '<input type="text" />'
-            + '<div class="mdx-textbox-action" style="display: none"></div>'
-            + '<div class="mdx-textbox-reset">'
+            + '<div class="mdx-textfield-action" style="display: none"></div>'
+            + '<div class="mdx-textfield-reset">'
             + VLOOK.ui.generateSvgIcon("icoResetInput", 16, 16, "alpha")
             + '</div></div>';
         target.after(ui);
 
         // 获得实例的各关键对象
-        this.ui = $(".mdx-textbox[id='" + this.id + "']");
+        this.ui = $(".mdx-textfield." + id);
         this.input = this.ui.children("input");
-        this.reset = this.ui.children(".mdx-textbox-reset");
+        this.reset = this.ui.children(".mdx-textfield-reset");
 
         VLOOK.ui.addAnimate(this.ui, "box-shadow");
         VLOOK.ui.addAnimate(this.reset);
 
         // 设置默认宽度
-        this.width(200);
+        this.setWidth(200);
 
         /**
          * 绑定文本输入事件
@@ -7291,10 +7413,10 @@ function TextBox(id) {
             typeof(that.onInput) == "function" && that.onInput(that.input, value);
         });
         this.input.focus(function () {
-            that.ui.addClass("mdx-textbox-focus");
+            that.ui.addClass("mdx-textfield-focus");
         });
         this.input.blur(function () {
-            that.ui.removeClass("mdx-textbox-focus");
+            that.ui.removeClass("mdx-textfield-focus");
         });
 
         /**
@@ -7305,10 +7427,13 @@ function TextBox(id) {
                 value = that.input.val();
             switch (code) {
                 case 13: // ENTER
-                    that.action.trigger("click");
+                    if (that.action !== undefined)
+                        that.action.trigger("click");
+                    typeof(that.pressEnter) == "function" && that.pressEnter(that.input, value);
                     break;
                 case 27: // ESC
                     that.reset.trigger("click");
+                    typeof(that.pressESC) == "function" && that.pressESC(that.input);
                     break;
             }
             // 触发外部重定义事件
@@ -7340,12 +7465,24 @@ function TextBox(id) {
     }
 
     /**
+     * 开启输入框前图标
+     *
+     * @param icon 图标
+     */
+    this.setIcon = function (icon) {
+        this.icon = this.ui.children(".mdx-textfield-icon");
+        this.icon.html(icon);
+        this.icon.show();
+
+    }
+
+    /**
      * 开启动作按钮
      *
-     * @param {icon} 按钮图标
+     * @param icon 按钮图标
      */
     this.setAction = function (icon) {
-        this.action = this.ui.children(".mdx-textbox-action");
+        this.action = this.ui.children(".mdx-textfield-action");
         this.action.html(icon);
         this.action.show();
 
@@ -7370,16 +7507,16 @@ function TextBox(id) {
     /**
      * 动作按钮鼠标 hover 处理
      *
-     * @param {enter} true: 鼠标光标进入，false: 鼠标光标离开
+     * @param enter true: 鼠标光标进入，false: 鼠标光标离开
      */
     this.actionHover = function (enter) {
         if (enter === true) {
-            that.action.addClass("mdx-textbox-action-hover");
+            that.action.addClass("mdx-textfield-action-hover");
             if (that.action.attr("class").indexOf("enabled") !== -1)
                 that.ui.addClass("hover-action");
         }
         else {
-            that.action.removeClass("mdx-textbox-action-hover");
+            that.action.removeClass("mdx-textfield-action-hover");
             that.ui.removeClass("hover-action");
         }
     }
@@ -7387,7 +7524,7 @@ function TextBox(id) {
     /**
      * 设置提示文本
      *
-     * @param {text} 提示文本
+     * @param text 提示文本
      */
     this.placeholder = function (text) {
         this.input.attr("placeholder", text);
@@ -7403,7 +7540,7 @@ function TextBox(id) {
     /**
      * 设置输入框内容
      *
-     * @param {value} 输入框内容
+     * @param value 输入框内容
      */
     this.val = function (value) {
         this.input.val(value);
@@ -7414,7 +7551,7 @@ function TextBox(id) {
      */
     this.show = function () {
         this.ui.show();
-        this.input.focus();
+        // this.input.focus();
     }
 
     /**
@@ -7427,31 +7564,66 @@ function TextBox(id) {
     /**
      * 设置文本框宽度
      *
-     * @param {width} 宽度
+     * @param width 宽度
      */
-    this.width = function (width) {
+    this.setWidth = function (width) {
         this.ui.css({
             "width" : width
         });
         this.input.css({
-            "width" : width - this.reset.width() - (this.action === undefined ? 0 : this.action.width()) - 10
+            "width" : width - this.reset.width()
+                - (this.icon === undefined ? 0 : this.icon.width())
+                - (this.action === undefined ? 0 : this.action.width()) - 10
         });
+        if (this.icon !== undefined)
+            this.input.addClass("set-icon");
+    }
+
+    // 生成控件
+    this.appendTo(target, id);
+}
+
+// ==================== 过滤结果导航器类 ==================== //
+
+function FilterResultNavigator(result) {
+    this.index = 0;
+    this.result = result;
+
+    this.nextItem = function () {
+        if (this.result.isHidden())
+            return;
+
+        let set = this.result.children(":visible"),
+            item = set.eq(this.index);
+        this.index++;
+        if (this.index >= set.length)
+            this.index = 0;
+        return item;
+    }
+
+    this.restart = function () {
+        this.index = 0;
     }
 }
 
-// ==================== 导航中心目录索引组件类 ==================== //
+// ==================== 导航中心【目录】组件类 ==================== //
 
-function TocCatalog() {
+/**
+ * 构造函数
+ *
+ * @param hidden 是否默认为隐藏
+ */
+function TocCatalog(hidden) {
     let that = this;
     this.ui = {
-        entry : $(".mdx-toc-tab-btn.catalog"), // 入口
+        entry : $(".mdx-segment-btn.catalog"), // 入口
         body : $(".mdx-toc-catalog-body"), // 目录索引内容
         cover : $(".mdx-accent-btn.cover"), // 回到封面
-        keyword : new TextBox("toc-filter-catalog"), // 关键字输入框
+        keyword : new TextField($(".mdx-accent-btn.cover"), "toc-filter-catalog"), // 关键字输入框
         result : $(".mdx-toc-filter-catalog-result") // 过滤结果面板
     }
 
-    this.headers = []; // 大纲目录集
+    this.headers = []; // 目录集
     this.currentHeaderIndex = -1; // 当前章节在目录集中的索引
     this.currentItem = undefined; // 当前章节对象
 
@@ -7460,6 +7632,8 @@ function TocCatalog() {
     this.lastHeaderLevel = 0; // 上一个章节的层级
 
     this.lastDocScrollTop = 0; // 记录最后一次文档滚动位置
+
+    this.resultNav = new FilterResultNavigator(this.ui.result); // 过滤结果导航器
 
     VLOOK.ui.addAnimate(this.ui.entry);
 
@@ -7493,8 +7667,7 @@ function TocCatalog() {
     this.onClickHash = undefined;
 
     // 关键字输入组件属性设置
-    this.ui.keyword.appendTo($(".mdx-accent-btn.cover"));
-    this.ui.keyword.setAction(VLOOK.ui.generateSvgIcon("icoFilter", 16, 16, "alpha"));
+    this.ui.keyword.setIcon(VLOOK.ui.generateSvgIcon("icoRetrieval", 16, 16, "alpha"));
     this.ui.keyword.placeholder([
         "搜索目录",
         "搜索目錄",
@@ -7509,34 +7682,26 @@ function TocCatalog() {
 
     // 绑定输入框事件处理
     this.ui.keyword.onInput = function (source, value) {
+        that.resultNav.restart();
+
         if (value.trim() === "") {
             that.ui.result.empty();
             that.ui.body.show();
             that.hideFilterResult();
             that.scrollToCurrent();
         }
+        else
+            // 执行按关键字过滤
+            that.filterByKeyword(value.toLowerCase());
     }
 
     // 绑定输入框事件处理
-    this.ui.keyword.onKeyDown = function (source, value, code) {
-        switch (code) {
-            case 13: // ENTER
-                // 执行按关键字过滤
-                that.filterByKeyword(value.toLowerCase());
-                break;
-            case 27: // ESC
-                that.ui.body.show();
-                that.hideFilterResult();
-                break;
-        }
+    this.ui.keyword.pressEnter = function (source, value) {
+        that.resultNav.nextItem().trigger("click");
+        that.ui.keyword.input.focus();
     }
 
-    // 执行过滤
-    this.ui.keyword.onAction = function (source, value) {
-        that.filterByKeyword(value.toLowerCase());
-    }
-
-    // 大纲相关图标集
+    // 目录相关图标集
     this.icon = {
         // 章节：已收起
         folded : '<svg width="16px" height="16px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoFolded" class="mdx-folder-ico"/></svg>',
@@ -7548,23 +7713,22 @@ function TocCatalog() {
      * 自适应界面样式
      */
     this.adjust = function () {
-        this.ui.keyword.width(parseInt(VLOOK.util.getStyleValue("--vlook-nav-center-width")) - this.ui.cover.width() - 32);
+        this.ui.keyword.setWidth(parseInt(VLOOK.util.getStyleValue("--vlook-nav-center-width")) - this.ui.cover.width() - 32);
     }
     this.adjust();
 
     /**
-     * 添加大纲节点
+     * 添加目录节点
      *
-     * @param {item} 由 Typora 生成的 [TOC] 大纲节点
+     * @param item 由 Typora 生成的 [TOC] 目录节点
      */
     this.add = function (item) {
-        let a = item.children("a");
-
         // 将章节记录到目录集中
-        let href = a.attr("href");
+        let a = item.children("a"),
+            href = a.attr("href");
         this.headers.push(href.substring(1, href.length));
 
-        // 自定义大纲节点元数据
+        // 自定义目录节点元数据
         item.attr({
             "id" : "v-header-" + item.attr("data-ref"), // 添加id属性
             "data-vk-node" : "0", // 添加节点类型：0:叶子节点, 1:目录节点
@@ -7575,7 +7739,7 @@ function TocCatalog() {
         a.after(a.text());
         a.text("");
 
-        // 点击大纲节点事件
+        // 点击目录节点事件
         item.unbind("click").click(function () {
             // VLOOK.report.push(['Outline', 'Goto', 'TOC', 0]);
             // 跳转至对应的页内锚点
@@ -7589,8 +7753,8 @@ function TocCatalog() {
         });
 
         // -----------------------------------
-        // 大纲非叶子章节的折叠功能实现
-        // 所有大纲节点都添加 folding 空白控件备用
+        // 目录非叶子章节的折叠功能实现
+        // 所有目录节点都添加 folding 空白控件备用
         $("<div id='fd-v-header-" + item.attr("data-ref")
             + "' class='mdx-folder'>&nbsp;</div>").insertBefore(item.find("a"));
 
@@ -7622,7 +7786,7 @@ function TocCatalog() {
     }
 
     /**
-     * 页面滚动时根据页面当前的位置，高亮对应大纲中的章节
+     * 页面滚动时根据页面当前的位置，高亮对应目录中的章节
      */
     this.focusHeader = function () {
         // ----------------------------------------
@@ -7640,7 +7804,7 @@ function TocCatalog() {
             let anchor = (env.browser.Firefox === false)
                     ? this.headers[i] // 非 Firefox 浏览器
                     : decodeURI(this.headers[i]), // Firefox 浏览器
-                target = $("[id='" + anchor + "'], a[name='" + anchor + "']");
+                target = $("#" + decodeURI(anchor) + ", a[name='" + anchor + "']");
             let headerHeight = target.height();
             // 将最近一个章节从文档可视空间上方滚出的章节定义为「当前章节」
             if ((target.offset().top - $(document).scrollTop()) > (headerHeight * 3)) {
@@ -7659,8 +7823,8 @@ function TocCatalog() {
         // 当前文档位置在实际内容章节中时
         if (this.inHeader() === true) {
             // ----------------------------------------
-            // 更新大纲内当前节点的样式
-            // 先清除大纲中上一次的「当前章节」的样式
+            // 更新目录内当前节点的样式
+            // 先清除目录中上一次的「当前章节」的样式
             if (this.currentItem !== undefined)
                 this.currentItem.removeClass("mdx-toc-item-current");
             // 更新「当前章节」的样式
@@ -7682,10 +7846,10 @@ function TocCatalog() {
         if (this.currentItem === undefined)
             return;
 
-        // 根据当前节点情况，大纲内的可视空间自动滚动该节点所在位置
-        const preDis = this.currentItem.height() * 3, // 用于大纲节点触动滚动的大小
-            sTop = this.ui.body.scrollTop(), // 大纲内当前滚动位置
-            sBottom = sTop + this.ui.body.height(); // 当前可视空间中位于大纲底部的位置
+        // 根据当前节点情况，目录内的可视空间自动滚动该节点所在位置
+        const preDis = this.currentItem.height() * 3, // 用于目录节点触动滚动的大小
+            sTop = this.ui.body.scrollTop(), // 目录内当前滚动位置
+            sBottom = sTop + this.ui.body.height(); // 当前可视空间中位于目录底部的位置
 
         // 若当前节点在可视区域的上方，则滚动到该节点的位置
         if (this.currentItem.position().top < sTop)
@@ -7703,9 +7867,9 @@ function TocCatalog() {
     }
 
     /**
-     * 绑定对象
+     * 按关键字过滤
      *
-     * @param {value} 过滤的关键字内容
+     * @param value 过滤的关键字内容
      */
     this.filterByKeyword = function (value) {
         if (value.trim() === "")
@@ -7715,12 +7879,12 @@ function TocCatalog() {
 
         let matched = false;
         this.ui.result.empty();
-        // 遍历大纲节点进行关键字匹配
+        // 遍历目录节点进行关键字匹配
         $("#vlook-toc > .md-toc-item").each(function () {
             let item = $(this),
                 title = item.attr("title");
             if (title.toLowerCase().indexOf(value) > -1) {
-                // 匹配结果后，从大纲节点中复制节点并移除不必要的样式和内容
+                // 匹配结果后，从目录节点中复制节点并移除不必要的样式和内容
                 let newItem = item.clone();
                 newItem.removeClass("md-toc-item").addClass("mdx-toc-item");
                 newItem.removeClass("md-toc-h1");
@@ -7774,6 +7938,7 @@ function TocCatalog() {
         this.hideKeywordBar();
         this.hideFilterResult();
     }
+    if (hidden) this.hide();
 
     /**
      * 显示按关键过滤输入栏
@@ -7841,7 +8006,7 @@ function TocCatalog() {
     /**
      * 收起/展开章节目录
      *
-     * @param {id} 对象的id值
+     * @param id 对象的id值
      */
     this.foldChapterItem = function (id) {
         let tocItem = $("#" + id),
@@ -7866,9 +8031,9 @@ function TocCatalog() {
     /**
      * 处理展开或收起指定章节下的子章节
      *
-     * @param {id} 对象的id值
-     * @param {action} 执行动作（collect/expand）
-     * @param {child} 是否遍历子元素
+     * @param id 对象的id值
+     * @param action 执行动作（collect/expand）
+     * @param child 是否遍历子元素
      */
     this.disposeFold = function (id, action, child) {
         let lastItem = null,
@@ -7906,41 +8071,212 @@ function TocCatalog() {
     }
 }
 
-// ==================== 导航中心插图插图组件类 ==================== //
+// ==================== 导航中心分类索引通用类 ==================== //
 
-function TocFigure() {
+function TocIndex() {}
+
+/**
+ * 初始化 UI
+ *
+ * @param indexObj 目标对象
+ * @param placeholder 关键字输入提示文本
+ */
+TocIndex.initUI = function (indexObj, placeholder) {
+    let ui = indexObj.ui;
+
+    VLOOK.ui.addAnimate(ui.entry);
+
+    // 生成提示信息 UI
+    ui.result.append("<div class='mdx-toc-filter-result-none'></div>");
+    ui.tips = ui.result.children(".mdx-toc-filter-result-none");
+
+    // 设置关键字输入组件属性设置
+    ui.keyword.setIcon(VLOOK.ui.generateSvgIcon("icoRetrieval", 16, 16, "alpha"));
+    ui.keyword.placeholder(placeholder);
+
+    // 绑定输入框事件处理
+    ui.keyword.onInput = function (source, value) {
+        indexObj.resultNav.restart();
+
+        if (value.trim() === "") {
+            let items = ui.result.children(".mdx-toc-item");
+            items.show();
+            if (items.length === 0)
+                showTips();
+            else
+                ui.tips.hide();
+        }
+        else
+            // 执行按关键字过滤
+            TocIndex.filterByKeyword(indexObj, value.toLowerCase());
+    }
+
+    // 绑定输入框事件处理
+    ui.keyword.pressEnter = function (source, value) {
+        indexObj.resultNav.nextItem().trigger("click");
+        ui.keyword.input.focus();
+    }
+
+    /**
+     * 显示提示信息
+     */
+    function showTips() {
+        ui.tips.text([
+            "无此类内容",
+            "無此類內容",
+            "No such content",
+            "Aucun contenu de ce type",
+            "Kein solcher Inhalt",
+            "No hay tal contenido",
+            "Нет такого контента",
+            "そのようなコンテンツはありません",
+            "그러한 콘텐츠 없음"
+        ][VLOOK.lang.id]);
+        ui.tips.show();
+    }
+
+    showTips();
+}
+
+/**
+ * 适配处理
+ *
+ * @param indexObj 目标对象
+ */
+TocIndex.adjust = function (indexObj, offset) {
+    indexObj.ui.keyword.setWidth(
+        parseInt(VLOOK.util.getStyleValue("--vlook-nav-center-width")) - offset);
+}
+
+/**
+ * 添加索引项目
+ *
+ * @param indexObj 目标对象
+ * @param text 显示的文本
+ * @param anchor 锚点
+ */
+TocIndex.add = function (indexObj, text, anchor) {
+    if (indexObj.ui.tips.isShowed())
+        indexObj.ui.tips.hide();
+    let item = $('<span class="mdx-toc-item">' + text + "</span>");
+    indexObj.ui.result.append(item);
+    // VLOOK.ui.addAnimate(item);
+    item.unbind("click").click(function () {
+        indexObj.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
+        item.addClass("mdx-toc-item-current");
+
+        window.location.href = "#" + anchor;
+        // 微调滚动条位置
+        VLOOK.ui.tuningScrollTop(anchor);
+
+        // 触发锚点点击事件
+        typeof(indexObj.onClickHash) == "function" && indexObj.onClickHash();
+    });
+}
+
+/**
+ * 按关键字过滤
+ *
+ * @param indexObj 目标对象
+ * @param value 过滤的关键字内容
+ */
+TocIndex.filterByKeyword = function (indexObj, value) {
+    if (value.trim() === "")
+        return;
+
+    let matched = false;
+    indexObj.ui.tips.hide();
+    indexObj.ui.result.children().hide();
+    indexObj.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
+    // 遍历目录节点进行关键字匹配
+    indexObj.ui.result.children(".mdx-toc-item").each(function () {
+        let item = $(this);
+        if (item.text().toLowerCase().indexOf(value) > -1) {
+            item.show();
+            matched = true;
+        }
+    });
+
+    // 过滤结果为空
+    if (matched === false) {
+        indexObj.ui.tips.text([
+            "无匹配结果!",
+            "無匹配結果!",
+            "No Results!",
+            "Aucun résultat!",
+            "Keine Ergebnisse!",
+            "¡No hay resultados!",
+            "Нет результатов!",
+            "結果がありません!",
+            "결과가 없습니다!"
+        ][VLOOK.lang.id]);
+        indexObj.ui.tips.show();
+    }
+}
+
+/**
+ * 显示索引组件
+ *
+ * @param indexObj 目标对象
+ */
+TocIndex.show = function (indexObj) {
+    indexObj.ui.keyword.clear();
+    indexObj.ui.keyword.show();
+    indexObj.adjust();
+
+    indexObj.ui.result.show();
+    indexObj.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
+}
+
+/**
+ * 隐藏索引组件
+ *
+ * @param indexObj 目标对象
+ */
+TocIndex.hide = function (indexObj) {
+    indexObj.ui.keyword.hide();
+    indexObj.ui.result.hide();
+}
+
+// ==================== 导航中心【插图】组件类 ==================== //
+
+/**
+ * 构造函数
+ *
+ * @param hidden 是否默认为隐藏
+ */
+function TocFigure(hidden) {
     let that = this;
     this.ui = {
-        entry : $(".mdx-toc-tab-btn.figure"), // 入口
+        entry : $(".mdx-segment-btn.figure"), // 入口
         figureNav : $(".mdx-accent-btn.figure-nav"), // 插图浏览器
-        keyword : new TextBox("toc-filter-figure"), // 关键字输入框
-        result : $(".mdx-toc-filter-figure-result") // 过滤结果面板
+        keyword : new TextField($(".mdx-accent-btn.figure-nav"), "toc-filter-figure"), // 关键字输入框
+        result : $(".mdx-toc-filter-figure-result"), // 过滤结果面板
+        tips : undefined
     };
 
-    VLOOK.ui.addAnimate(this.ui.entry);
+    this.resultNav = new FilterResultNavigator(this.ui.result); // 过滤结果导航器
 
     // 锚点点击事件
     this.onClickHash = undefined;
 
     // 关键字输入组件属性设置
-    this.ui.keyword.appendTo($(".mdx-accent-btn.figure-nav"));
-    this.ui.keyword.setAction(VLOOK.ui.generateSvgIcon("icoFilter", 16, 16, "alpha"));
-    this.ui.keyword.placeholder([
+    TocIndex.initUI(this, [
         "搜索插图",
         "搜索插圖",
-        "Type to search",
-        "Suche nach Abbildungen",
-        "Rechercher des illustrations",
-        "Buscar ilustraciones",
-        "Искать иллюстрации",
-        "イラストを探す",
-        "일러스트레이션 검색"
+        "Search for figures",
+        "Recherche de chiffres",
+        "Suche nach Zahlen",
+        "Búsqueda de figuras",
+        "Искать цифры",
+        "フィギュアを探す",
+        "그림 검색"
     ][VLOOK.lang.id]);
 
     // 插图浏览器属性设置
     this.ui.figureNav.attr("data-vk-tips", "<kbd>I</kbd> " + [
         "浏览插图",
-        "查看文檔插圖",
+        "瀏覽插圖",
         "Browse figures",
         "Parcourir la figures",
         "Zahlen durchsuchen",
@@ -7963,91 +8299,22 @@ function TocFigure() {
         iToolTips.hide();
     });
 
-    // 绑定输入框事件处理
-    this.ui.keyword.onInput = function (source, value) {
-        that.ui.result.children().show();
-    }
-
-    // 绑定输入框事件处理
-    this.ui.keyword.onKeyDown = function (source, value, code) {
-        switch (code) {
-            case 13: // ENTER
-                // 执行按关键字过滤
-                that.filterByKeyword(value.toLowerCase());
-                break;
-        }
-    }
-
-    // 执行过滤
-    this.ui.keyword.onAction = function (source, value) {
-        that.filterByKeyword(value.toLowerCase());
-    }
-
     /**
      * 自适应界面样式
      */
     this.adjust = function () {
-        this.ui.keyword.width(parseInt(VLOOK.util.getStyleValue("--vlook-nav-center-width")) - this.ui.figureNav.width() - 32);
+        TocIndex.adjust(this, this.ui.figureNav.width() + 32);
+        // this.ui.keyword.setWidth(parseInt(VLOOK.util.getStyleValue("--vlook-nav-center-width")) - this.ui.figureNav.width() - 32);
     }
 
     /**
      * 初始化插图索引
      *
-     * @param {text} 显示的文本
-     * @param {anchor} 锚点
+     * @param text 显示的文本
+     * @param anchor 锚点
      */
     this.add = function (text, anchor) {
-        let item = $('<span class="mdx-toc-item">' + text + "</span>");
-        this.ui.result.append(item);
-        VLOOK.ui.addAnimate(item);
-        item.unbind("click").click(function () {
-            that.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
-            item.addClass("mdx-toc-item-current");
-
-            window.location.href = "#" + anchor;
-            // 微调滚动条位置
-            VLOOK.ui.tuningScrollTop(anchor);
-
-            // 触发锚点点击事件
-            typeof(that.onClickHash) == "function" && that.onClickHash();
-        });
-    }
-
-    /**
-     * 绑定对象
-     *
-     * @param {value} 过滤的关键字内容
-     */
-    this.filterByKeyword = function (value) {
-        if (value.trim() === "")
-            return;
-
-        let matched = false;
-        this.ui.result.children().hide();
-        that.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
-        // 遍历大纲节点进行关键字匹配
-        $(".mdx-toc-filter-figure-result > .mdx-toc-item").each(function () {
-            let item = $(this);
-            if (item.text().toLowerCase().indexOf(value) > -1) {
-                item.show();
-                matched = true;
-            }
-        });
-
-        // 过滤结果为空
-        if (matched === false) {
-            this.ui.result.append("<div class='mdx-toc-filter-result-none'>" + [
-                "无匹配结果!",
-                "無匹配結果!",
-                "No Results!",
-                "Aucun résultat!",
-                "Keine Ergebnisse!",
-                "¡No hay resultados!",
-                "Нет результатов!",
-                "結果がありません!",
-                "결과가 없습니다!"
-            ][VLOOK.lang.id] + "</div>");
-        }
+        TocIndex.add(this, text, anchor);
     }
 
     /**
@@ -8055,11 +8322,7 @@ function TocFigure() {
      */
     this.show = function () {
         this.ui.figureNav.show();
-        this.ui.keyword.clear();
-        this.ui.keyword.show();
-        this.adjust();
-        this.ui.result.show();
-        that.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
+        TocIndex.show(this);
     }
 
     /**
@@ -8067,30 +8330,34 @@ function TocFigure() {
      */
     this.hide = function () {
         this.ui.figureNav.hide();
-        this.ui.keyword.hide();
-        this.ui.result.hide();
+        TocIndex.hide(this);
     }
+    if (hidden) this.hide();
 }
 
-// ==================== 导航中心表格组件类 ==================== //
+// ==================== 导航中心【表格】组件类 ==================== //
 
-function TocTable() {
+/**
+ * 构造函数
+ *
+ * @param hidden 是否默认为隐藏
+ */
+function TocTable(hidden) {
     let that = this;
     this.ui = {
-        entry : $(".mdx-toc-tab-btn.table"), // 入口
-        keyword : new TextBox("toc-filter-table"), // 关键字输入框
-        result : $(".mdx-toc-filter-table-result") // 过滤结果面板
+        entry : $(".mdx-segment-btn.table"), // 入口
+        keyword : new TextField($(".mdx-segment"), "toc-filter-table"), // 关键字输入框
+        result : $(".mdx-toc-filter-table-result"), // 过滤结果面板
+        tips : undefined
     };
 
-    VLOOK.ui.addAnimate(this.ui.entry);
+    this.resultNav = new FilterResultNavigator(this.ui.result); // 过滤结果导航器
 
     // 锚点点击事件
     this.onClickHash = undefined;
 
     // 关键字输入组件属性设置
-    this.ui.keyword.appendTo($(".mdx-toc-tabbar"));
-    this.ui.keyword.setAction(VLOOK.ui.generateSvgIcon("icoFilter", 16, 16, "alpha"));
-    this.ui.keyword.placeholder([
+    TocIndex.initUI(this, [
         "搜索表格",
         "搜索表格",
         "Search table",
@@ -8102,133 +8369,62 @@ function TocTable() {
         "표 검색"
     ][VLOOK.lang.id]);
 
-    // 绑定输入框事件处理
-    this.ui.keyword.onInput = function (source, value) {
-        that.ui.result.children().show();
-        that.ui.result.children(".mdx-toc-filter-result-none").remove();
-    }
-
-    // 绑定输入框事件处理
-    this.ui.keyword.onKeyDown = function (source, value, code) {
-        switch (code) {
-            case 13: // ENTER
-                // 执行按关键字过滤
-                that.filterByKeyword(value.toLowerCase());
-                break;
-        }
-    }
-
-    // 执行过滤
-    this.ui.keyword.onAction = function (source, value) {
-        that.filterByKeyword(value.toLowerCase());
-    }
-
     /**
      * 自适应界面样式
      */
      this.adjust = function () {
-        this.ui.keyword.width(parseInt(VLOOK.util.getStyleValue("--vlook-nav-center-width")) - 22);
+        TocIndex.adjust(this, 22);
     }
 
     /**
      * 初始化表格索引
      *
-     * @param {text} 显示的文本
-     * @param {anchor} 锚点
+     * @param text 显示的文本
+     * @param anchor 锚点
      */
     this.add = function (text, anchor) {
-        let item = $('<span class="mdx-toc-item">' + text + "</span>");
-        this.ui.result.append(item);
-        VLOOK.ui.addAnimate(item);
-        item.unbind("click").click(function () {
-            that.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
-            item.addClass("mdx-toc-item-current");
-
-            window.location.href = "#" + anchor;
-            // 微调滚动条位置
-            VLOOK.ui.tuningScrollTop(anchor);
-
-            // 触发锚点点击事件
-            typeof(that.onClickHash) == "function" && that.onClickHash();
-        });
-    }
-
-    /**
-     * 绑定对象
-     *
-     * @param {value} 过滤的关键字内容
-     */
-    this.filterByKeyword = function (value) {
-        if (value.trim() === "")
-            return;
-
-        let matched = false;
-        this.ui.result.children().hide();
-        that.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
-        // 遍历大纲节点进行关键字匹配
-        $(".mdx-toc-filter-table-result > .mdx-toc-item").each(function () {
-            let item = $(this);
-            if (item.text().toLowerCase().indexOf(value) > -1) {
-                item.show();
-                matched = true;
-            }
-        });
-
-        // 过滤结果为空
-        if (matched === false) {
-            this.ui.result.append("<div class='mdx-toc-filter-result-none'>" + [
-                "无匹配结果!",
-                "無匹配結果!",
-                "No Results!",
-                "Aucun résultat!",
-                "Keine Ergebnisse!",
-                "¡No hay resultados!",
-                "Нет результатов!",
-                "結果がありません!",
-                "결과가 없습니다!"
-            ][VLOOK.lang.id] + "</div>");
-        }
+        TocIndex.add(this, text, anchor);
     }
 
     /**
      * 显示表格组件
      */
     this.show = function () {
-        this.ui.keyword.clear();
-        this.ui.keyword.show();
-        this.adjust();
-        this.ui.result.show();
-        that.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
+        TocIndex.show(this);
     }
 
     /**
      * 隐藏表格组件
      */
     this.hide = function () {
-        this.ui.keyword.hide();
-        this.ui.result.hide();
+        TocIndex.hide(this);
     }
+    if (hidden) this.hide();
 }
 
-// ==================== 导航中心多媒体组件类 ==================== //
+// ==================== 导航中心【多媒体】组件类 ==================== //
 
-function TocMultimedia() {
+/**
+ * 构造函数
+ *
+ * @param hidden 是否默认为隐藏
+ */
+function TocMultimedia(hidden) {
     let that = this;
     this.ui = {
-        entry : $(".mdx-toc-tab-btn.multimedia"), // 入口
-        keyword : new TextBox("toc-filter-multimedia"), // 关键字输入框
-        result : $(".mdx-toc-filter-multimedia-result") // 过滤结果面板
+        entry : $(".mdx-segment-btn.multimedia"), // 入口
+        keyword : new TextField($(".mdx-segment"), "toc-filter-multimedia"), // 关键字输入框
+        result : $(".mdx-toc-filter-multimedia-result"), // 过滤结果面板
+        tips : undefined
     };
 
-    VLOOK.ui.addAnimate(this.ui.entry);
+    this.resultNav = new FilterResultNavigator(this.ui.result); // 过滤结果导航器
 
     // 锚点点击事件
     this.onClickHash = undefined;
 
     // 关键字输入组件属性设置
-    this.ui.keyword.appendTo($(".mdx-toc-tabbar"));
-    this.ui.keyword.setAction(VLOOK.ui.generateSvgIcon("icoFilter", 16, 16, "alpha"));
-    this.ui.keyword.placeholder([
+    TocIndex.initUI(this, [
         "搜索多媒体",
         "搜索多媒體",
         "Search multimedia",
@@ -8240,133 +8436,62 @@ function TocMultimedia() {
         "멀티미디어 검색"
     ][VLOOK.lang.id]);
 
-    // 绑定输入框事件处理
-    this.ui.keyword.onInput = function (source, value) {
-        that.ui.result.children().show();
-        that.ui.result.children(".mdx-toc-filter-result-none").remove();
-    }
-
-    // 绑定输入框事件处理
-    this.ui.keyword.onKeyDown = function (source, value, code) {
-        switch (code) {
-            case 13: // ENTER
-                // 执行按关键字过滤
-                that.filterByKeyword(value.toLowerCase());
-                break;
-        }
-    }
-
-    // 执行过滤
-    this.ui.keyword.onAction = function (source, value) {
-        that.filterByKeyword(value.toLowerCase());
-    }
-
     /**
      * 自适应界面样式
      */
      this.adjust = function () {
-        this.ui.keyword.width(parseInt(VLOOK.util.getStyleValue("--vlook-nav-center-width")) - 22);
+        TocIndex.adjust(this, 22);
     }
 
     /**
      * 初始化多媒体索引
      *
-     * @param {text} 显示的文本
-     * @param {anchor} 锚点
+     * @param text 显示的文本
+     * @param anchor 锚点
      */
     this.add = function (text, anchor) {
-        let item = $('<span class="mdx-toc-item">' + text + "</span>");
-        this.ui.result.append(item);
-        VLOOK.ui.addAnimate(item);
-        item.unbind("click").click(function () {
-            that.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
-            item.addClass("mdx-toc-item-current");
-
-            window.location.href = "#" + anchor;
-            // 微调滚动条位置
-            VLOOK.ui.tuningScrollTop(anchor);
-
-            // 触发锚点点击事件
-            typeof(that.onClickHash) == "function" && that.onClickHash();
-        });
-    }
-
-    /**
-     * 绑定对象
-     *
-     * @param {value} 过滤的关键字内容
-     */
-    this.filterByKeyword = function (value) {
-        if (value.trim() === "")
-            return;
-
-        let matched = false;
-        this.ui.result.children().hide();
-        that.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
-        // 遍历大纲节点进行关键字匹配
-        $(".mdx-toc-filter-multimedia-result > .mdx-toc-item").each(function () {
-            let item = $(this);
-            if (item.text().toLowerCase().indexOf(value) > -1) {
-                item.show();
-                matched = true;
-            }
-        });
-
-        // 过滤结果为空
-        if (matched === false) {
-            this.ui.result.append("<div class='mdx-toc-filter-result-none'>" + [
-                "无匹配结果!",
-                "無匹配結果!",
-                "No Results!",
-                "Aucun résultat!",
-                "Keine Ergebnisse!",
-                "¡No hay resultados!",
-                "Нет результатов!",
-                "結果がありません!",
-                "결과가 없습니다!"
-            ][VLOOK.lang.id] + "</div>");
-        }
+        TocIndex.add(this, text, anchor);
     }
 
     /**
      * 显示多媒体组件
      */
     this.show = function () {
-        this.ui.keyword.clear();
-        this.ui.keyword.show();
-        this.adjust();
-        this.ui.result.show();
-        that.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
+        TocIndex.show(this);
     }
 
     /**
      * 隐藏多媒体组件
      */
     this.hide = function () {
-        this.ui.keyword.hide();
-        this.ui.result.hide();
+        TocIndex.hide(this);
     }
+    if (hidden) this.hide();
 }
 
-// ==================== 导航中心代码块组件类 ==================== //
+// ==================== 导航中心【代码块】组件类 ==================== //
 
-function TocCodeblock() {
+/**
+ * 构造函数
+ *
+ * @param hidden 是否默认为隐藏
+ */
+function TocCodeblock(hidden) {
     let that = this;
     this.ui = {
-        entry : $(".mdx-toc-tab-btn.codeblock"), // 入口
-        keyword : new TextBox("toc-filter-codeblock"), // 关键字输入框
-        result : $(".mdx-toc-filter-codeblock-result") // 过滤结果面板
+        entry : $(".mdx-segment-btn.codeblock"), // 入口
+        keyword : new TextField($(".mdx-segment"), "toc-filter-codeblock"), // 关键字输入框
+        result : $(".mdx-toc-filter-codeblock-result"), // 过滤结果面板
+        tips : undefined
     };
 
-    VLOOK.ui.addAnimate(this.ui.entry);
+    this.resultNav = new FilterResultNavigator(this.ui.result); // 过滤结果导航器
 
     // 锚点点击事件
     this.onClickHash = undefined;
 
     // 关键字输入组件属性设置
-    this.ui.keyword.appendTo($(".mdx-toc-tabbar"));
-    this.ui.keyword.setAction(VLOOK.ui.generateSvgIcon("icoFilter", 16, 16, "alpha"));
-    this.ui.keyword.placeholder([
+    TocIndex.initUI(this, [
         "搜索代码块",
         "搜索代碼塊",
         "Search code block",
@@ -8378,120 +8503,50 @@ function TocCodeblock() {
         "코드 블록 검색"
     ][VLOOK.lang.id]);
 
-    // 绑定输入框事件处理
-    this.ui.keyword.onInput = function (source, value) {
-        that.ui.result.children().show();
-        that.ui.result.children(".mdx-toc-filter-result-none").remove();
-    }
-
-    // 绑定输入框事件处理
-    this.ui.keyword.onKeyDown = function (source, value, code) {
-        switch (code) {
-            case 13: // ENTER
-                // 执行按关键字过滤
-                that.filterByKeyword(value.toLowerCase());
-                break;
-        }
-    }
-
-    // 执行过滤
-    this.ui.keyword.onAction = function (source, value) {
-        that.filterByKeyword(value.toLowerCase());
-    }
-
     /**
      * 自适应界面样式
      */
      this.adjust = function () {
-        this.ui.keyword.width(parseInt(VLOOK.util.getStyleValue("--vlook-nav-center-width")) - 22);
+        TocIndex.adjust(this, 22);
     }
 
     /**
      * 初始化代码块索引
      *
-     * @param {text} 显示的文本
-     * @param {anchor} 锚点
+     * @param text 显示的文本
+     * @param anchor 锚点
      */
     this.add = function (text, anchor) {
-        let item = $('<span class="mdx-toc-item">' + text + "</span>");
-        this.ui.result.append(item);
-        VLOOK.ui.addAnimate(item);
-        item.unbind("click").click(function () {
-            that.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
-            item.addClass("mdx-toc-item-current");
-
-            window.location.href = "#" + anchor;
-            // 微调滚动条位置
-            VLOOK.ui.tuningScrollTop(anchor);
-
-            // 触发锚点点击事件
-            typeof(that.onClickHash) == "function" && that.onClickHash();
-        });
-    }
-
-    /**
-     * 绑定对象
-     *
-     * @param {value} 过滤的关键字内容
-     */
-    this.filterByKeyword = function (value) {
-        if (value.trim() === "")
-            return;
-
-        let matched = false;
-        this.ui.result.children().hide();
-        that.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
-        // 遍历大纲节点进行关键字匹配
-        $(".mdx-toc-filter-codeblock-result > .mdx-toc-item").each(function () {
-            let item = $(this);
-            if (item.text().toLowerCase().indexOf(value) > -1) {
-                item.show();
-                matched = true;
-            }
-        });
-
-        // 过滤结果为空
-        if (matched === false) {
-            this.ui.result.append("<div class='mdx-toc-filter-result-none'>" + [
-                "无匹配结果!",
-                "無匹配結果!",
-                "No Results!",
-                "Aucun résultat!",
-                "Keine Ergebnisse!",
-                "¡No hay resultados!",
-                "Нет результатов!",
-                "結果がありません!",
-                "결과가 없습니다!"
-            ][VLOOK.lang.id] + "</div>");
-        }
+        TocIndex.add(this, text, anchor);
     }
 
     /**
      * 显示代码块组件
      */
     this.show = function () {
-        this.ui.keyword.clear();
-        this.ui.keyword.show();
-        this.adjust();
-        this.ui.result.show();
-        that.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
+        TocIndex.show(this);
     }
 
     /**
      * 隐藏代码块组件
      */
     this.hide = function () {
-        this.ui.keyword.hide();
-        this.ui.result.hide();
+        TocIndex.hide(this);
     }
+    if (hidden) this.hide();
 }
 
-// ==================== 导航中心访问历史组件类 ==================== //
+// ==================== 导航中心【访问历史】组件类 ==================== //
 
-function TocHistory() {
+/**
+ * 构造函数
+ *
+ * @param hidden 是否默认为隐藏
+ */
+function TocHistory(hidden) {
     let that = this;
     this.ui = {
-        entry : $(".mdx-toc-tab-btn.history"), // 入口
+        entry : $(".mdx-segment-btn.history"), // 入口
         title : $(".mdx-toc-history-title"), // 历史记录标题
         history : $(".mdx-toc-history-result") // 历史记录面板
     };
@@ -8504,7 +8559,7 @@ function TocHistory() {
     /**
      * 添加访问历史记录
      *
-     * @param {hash} 页内锚点链接
+     * @param hash 页内锚点链接
      */
     this.add = function (hash) {
         if (hash === "#" || hash.trim() === "")
@@ -8540,7 +8595,7 @@ function TocHistory() {
         // 为新增加 / 移动后的记录添加鼠标事件
         let item = that.ui.history.children("span[data-vk-history='" + hash + "']");
         item.addClass("mdx-toc-item-current");
-        VLOOK.ui.addAnimate(item);
+        // VLOOK.ui.addAnimate(item);
         item.unbind("click").click(function () {
             window.location.href = hash;
             // 微调滚动条位置
@@ -8592,6 +8647,7 @@ function TocHistory() {
         that.ui.title.hide();
         that.ui.history.hide();
     }
+    if (hidden) this.hide();
 }
 
 // ==================== 插图增强类 ==================== //
@@ -8615,10 +8671,10 @@ ExtFigure.init = function () {
 
     // ----------------------------------------
     stopwatch.lapStart();
-    // let dpr = env.display.DPR;
     // 对所有插图（图片、Mermaid 图、插图导航的插图）进行初始化处理
     // p > .md-image:not(:only-child) img 是指 p 内只有 img 的才被视为插图
-    $("p > img:only-child, p > .md-image:only-child img, img[src*='mode=figure'], img[src*='mode=icon'],  img[src*='mode=logo'], .md-diagram-panel svg, .mdx-figure-content svg").each(function () {
+    // $("p > img:only-child, p > .md-image:only-child img, img[src*='mode=figure'], img[src*='mode=icon'],  img[src*='mode=logo'], .md-diagram-panel svg, .mdx-figure-content svg").each(function () {
+    $("p > img, p > .md-image img, img[src*='mode=figure'], img[src*='mode=icon'],  img[src*='mode=logo'], .md-diagram-panel svg, .mdx-figure-content svg").each(function () {
         let fig = $(this),
             src = fig.attr("src"),
             tagName = fig.prop("tagName").toLowerCase();
@@ -8779,8 +8835,8 @@ ExtFigure.init = function () {
     /**
      * 初始化图片对齐方式的处理
      *
-     * @param {container} img 的题注容器对象
-     * @param {params} img 对象 src 值的 URL 参数数组
+     * @param container img 的题注容器对象
+     * @param params img 对象 src 值的 URL 参数数组
      */
      function initAlign(container, params) {
         let align = params["align"];
@@ -8792,8 +8848,8 @@ ExtFigure.init = function () {
     /**
      * 初始化图片对网格背景的的适配处理
      *
-     * @param {img} img 对象
-     * @param {params} img 对象 src 值的 URL 参数数组
+     * @param img img 对象
+     * @param params img 对象 src 值的 URL 参数数组
      */
     function initBackground(img, params) {
         let grid = params["grid"];
@@ -8805,9 +8861,9 @@ ExtFigure.init = function () {
     /**
      * 初始化图片颜色替换的适配处理
      *
-     * @param {img} img 对象
-     * @param {params} img 对象 src 值的 URL 参数数组
-     * @param {src} img 对象的 src 值
+     * @param img img 对象
+     * @param params img 对象 src 值的 URL 参数数组
+     * @param src img 对象的 src 值
      */
     function initFillAlter(img, params, src) {
         if (params["fill"] === undefined)
@@ -8823,8 +8879,8 @@ ExtFigure.init = function () {
     /**
      * 初始化图片对颜色方案（Light / Dark）的适配处理
      *
-     * @param {img} img 对象
-     * @param {params} img 对象 src 值的 URL 参数数组
+     * @param img img 对象
+     * @param params img 对象 src 值的 URL 参数数组
      */
     function initColorScheme(img, params) {
         // 未指定 darksrc 参数，或同时指定了 fill 参数，则跳过
@@ -8863,8 +8919,8 @@ ExtFigure.init = function () {
     /**
      * 初始化图片高分屏的适配处理
      *
-     * @param {img} img 对象
-     * @param {params} img 对象 src 值的 URL 参数数组
+     * @param img img 对象
+     * @param params img 对象 src 值的 URL 参数数组
      */
     function initHighDPI(img, params) {
         let src = img.attr("src"),
@@ -8889,7 +8945,7 @@ ExtFigure.init = function () {
     /**
      * 加载默认图片
      *
-     * @param {target} 目标 img 对象
+     * @param target 目标 img 对象
      */
     function loadDefaultOnError(target) {
         let alt = target.attr("alt");
@@ -8899,26 +8955,13 @@ ExtFigure.init = function () {
             target.removeAttr("alt");
         }
         target.addClass("mdx-img-lost");
-        // target.css({
-        //     "background-image" : "url(" + VLOOK.doc.defaultImage + ")",
-        //     "border" : 0,
-        //     "width" : 400,
-        //     "height" : 200
-        // });
-        // target.attr("width", "400");
-        // target.attr("height", "200");
-        // target.attr({
-        //     "src-org" : target.attr("src"),
-        //     "src" : VLOOK.doc.defaultImage,
-        //     "srcset" : VLOOK.doc.defaultImage2x + " 2x"
-        // });
     }
 
     /**
      * 转换图片 URL 中的 srcset / darksrcset 参数为符合 <img> srcset 属性的格式
      *
-     * @param {src} 图片 URL
-     * @param {srcset} srcset 或 darksrcset 参数的内容
+     * @param src 图片 URL
+     * @param srcset srcset 或 darksrcset 参数的内容
      */
     function transUrlSrcSet(src, srcset) {
         // 针对 html 与 图片同一目录的情况
@@ -8957,7 +9000,7 @@ ExtFigure.init = function () {
 /**
  * 适配指定图片在 Light / Dark Mode 的适配处理
  *
- * @param {grid} 是否进行网格背景适配处理：true / false
+ * @param grid 是否进行网格背景适配处理：true / false
  */
 ExtFigure.adjustColorScheme = function (grid) {
     let scheme = ColorScheme.scheme,
@@ -9055,8 +9098,8 @@ ExtFigure.adjustColorScheme = function (grid) {
 /**
  * 适配 *.svg 格式的 img 图片注入为 SVG 实例后，对颜色进行替换的适配处理
  *
- * @param {fill} 图片颜色替换方式：text / theme1 / theme2
- * @param {svg} SVG 实例对象
+ * @param fill 图片颜色替换方式：text / theme1 / theme2
+ * @param svg SVG 实例对象
  */
 ExtFigure.adjustFillAlterForSVG = function (fill, svg) {
     if (fill === "text")
@@ -9116,7 +9159,7 @@ function FigureNav() {
     /**
      * 插图导航导航按钮在不同终端的适配处理
      *
-     * @param {flag} "mobile" : 移动端，"desktop"：桌面端
+     * @param flag "mobile" : 移动端，"desktop"：桌面端
      */
     this.adjustHoverStyle = function (flag) {
         // 移动设备时解绑样式事件
@@ -9169,7 +9212,7 @@ function FigureNav() {
         // 在插图导航中显示对应插图
         this.figNum = parseInt(fig.attr("vk-idx-fig-num"));
 
-        VLOOK.ui.fadeIn(this.ui);
+        VLOOK.ui.show(this.ui);
         this.display();
         this.updateUI();
     }
@@ -9179,7 +9222,7 @@ function FigureNav() {
      */
     this.hide = function () {
         this.content.empty();
-        VLOOK.ui.fadeOut(this.ui);
+        VLOOK.ui.hide(this.ui);
 
         // 调整插图动作按钮层级
         let actIdx = parseInt(ContentAssist.button.openInNewTab.css("z-index")),
@@ -9210,7 +9253,7 @@ function FigureNav() {
             "max-height" : $(window).height() - 90,
             "border-radius" : "var(--vlook-base-radius)"
         });
-        VLOOK.ui.fadeOut(newFig);
+        VLOOK.ui.hide(newFig);
 
         // 添加鼠标移入/移出事件
         newFig.hover(function () {
@@ -9231,7 +9274,7 @@ function FigureNav() {
         });
 
         this.content.append(newFig);
-        VLOOK.ui.fadeIn(newFig);
+        VLOOK.ui.show(newFig);
     }
 
     /**
@@ -9291,8 +9334,8 @@ function FigureNav() {
     /**
      * 处理热键操作
      *
-     * @param {code} 非功能键键
-     * @param {combKeys} 功能组合键 Ctrl / Shift / Alt / Win / Cmd
+     * @param code 非功能键键
+     * @param combKeys 功能组合键 Ctrl / Shift / Alt / Win / Cmd
      */
     this.disposeHotkey = function (code, combKeys) {
         if (iFigureNav.ui.isHidden())
@@ -9801,9 +9844,9 @@ RepairTool.fixMermaidRender85 = function () {
 /**
  * 按倍数调整函数元组数据，目前只支持单个函数，且只能有两个参数
  *
- * @param {funcString} 函数字符串，如：translate(-12,-18)
- * @param {rate}1 对第1个参数的调整倍数
- * @param {rate}2 对第2个参数的调整倍数
+ * @param funcString 函数字符串，如：translate(-12,-18)
+ * @param rate1 对第1个参数的调整倍数
+ * @param rate2 对第2个参数的调整倍数
  */
 RepairTool.scaleTupleByTimes = function (funcString, rate1, rate2) {
     let lbIndex = funcString.indexOf("("),
@@ -9828,7 +9871,7 @@ function CodeMagic() {}
 /**
  * 获得获取对应样式的标识
  *
- * @param {color} 文档中指定的预置颜色值
+ * @param color 文档中指定的预置颜色值
  * @return 返回有效的的颜色值
  */
 CodeMagic.getStyle = function (color) {
@@ -9890,8 +9933,8 @@ RainbowTag.syntax = /^#(.+)#(\((red|orange|yellow|green|cyan|blue|purple|pink|br
 /**
  * 构建单标签样式
  *
- * @param {target} 目标 code 对象
- * @param {result} code 内容与语法正则表达式匹配后的结果数组
+ * @param target 目标 code 对象
+ * @param result code 内容与语法正则表达式匹配后的结果数组
  */
 RainbowTag.build = function (target, result) {
     let tag = result[1],
@@ -9912,8 +9955,8 @@ RainbowGroupTag.syntax = /^#(.+)\|(.+)#(\((red|orange|yellow|green|cyan|blue|pur
 /**
  * 构建药丸标签样式
  *
- * @param {target} 目标 code 对象
- * @param {result} code 内容与语法正则表达式匹配后的结果数组
+ * @param target 目标 code 对象
+ * @param result code 内容与语法正则表达式匹配后的结果数组
  */
 RainbowGroupTag.build = function (target, result) {
     let color = CodeMagic.getStyle(result[4]),
@@ -9940,8 +9983,8 @@ RainbowQuote.syntax = /^>\((red|orange|yellow|green|cyan|blue|purple|pink|brown|
 /**
  * 构建彩虹引用样式
  *
- * @param {target} 目标 code 对象
- * @param {result} code 内容与语法正则表达式匹配后的结果数组
+ * @param target 目标 code 对象
+ * @param result code 内容与语法正则表达式匹配后的结果数组
  */
 RainbowQuote.build = function (target, result) {
     let quote = target.parent().parent(),
@@ -9963,8 +10006,8 @@ TextPhonetic.syntax = /^{(.+)}\((.+)\)$/i;
 /**
  * 构建「注音」
  *
- * @param {target} 源对象
- * @param {result} 语法通过正则解析后的结果数组
+ * @param target 源对象
+ * @param result 语法通过正则解析后的结果数组
  */
 TextPhonetic.build = function (target, result) {
     let text = result[1],
@@ -9978,8 +10021,8 @@ TextPhonetic.build = function (target, result) {
 /**
  * 释义或翻译
  *
- * @param {text} 被注音的内容
- * @param {symbol} 注音
+ * @param text 被注音的内容
+ * @param symbol 注音
  */
 TextPhonetic.translation = function (text, symbol) {
     event.stopPropagation(); // 停止事件冒泡
@@ -10005,8 +10048,8 @@ BlackCurtain.syntax = /^\*{(.*)}\((\S+)(\s"(red|orange|yellow|green|cyan|blue|pu
 /**
  * 构建「刮刮卡」
  *
- * @param {target} 源对象
- * @param {result} 语法通过正则解析后的结果数组
+ * @param target 源对象
+ * @param result 语法通过正则解析后的结果数组
  */
 BlackCurtain.build = function (target, result) {
     let tips = " **** ",
@@ -10051,8 +10094,8 @@ BlackCurtain.build = function (target, result) {
     /**
      * 根据提示信息字数生成条纹背景
      *
-     * @param {charCount} 提示信息字数
-     * @param {color} 条纹背景色
+     * @param charCount 提示信息字数
+     * @param color 条纹背景色
      * @return 生成 CSS 规范的背景
      */
     function generateBg(charCount, color) {
@@ -10083,7 +10126,7 @@ BlackCurtain.build = function (target, result) {
 /**
  * 显示 / 隐藏「刮刮卡」的内容
  *
- * @param {target} 刮刮卡对象
+ * @param target 刮刮卡对象
  */
 BlackCurtain.toggle = function (target) {
     event.stopPropagation(); // 停止事件冒泡
@@ -10097,7 +10140,7 @@ BlackCurtain.toggle = function (target) {
 /**
  * 显示「刮刮卡」的内容
  *
- * @param {target} 刮刮卡对象
+ * @param target 刮刮卡对象
  */
 BlackCurtain.show = function (target) {
     let tmp = target.text();
@@ -10113,7 +10156,7 @@ BlackCurtain.show = function (target) {
 /**
  * 隐藏「刮刮卡」的内容
  *
- * @param {target} 刮刮卡对象
+ * @param target 刮刮卡对象
  */
 BlackCurtain.hide = function (target) {
     let tmp = target.text();
@@ -10188,33 +10231,49 @@ VLOOKui.loadIconSet = function () {
     ui += '<symbol id="icoCover">';
     ui += '<path d="M3.57422129,13.6887758 C3.57422129,13.232197 3.23103845,12.8611754 2.80785961,12.8611754 L0.765561722,12.8611754 C0.343182841,12.8611754 9.9475983e-14,13.2313744 9.9475983e-14,13.6887758 C9.9475983e-14,14.1453545 0.343982801,14.5163762 0.765561722,14.5163762 L2.80785961,14.5163762 C3.23183841,14.5163762 3.57422129,14.1453545 3.57422129,13.6887758 Z M9.99200722e-14,8.99958867 C9.99200722e-14,9.45699008 0.343982801,9.82636639 0.765561722,9.82636639 L2.80785961,9.82636639 C3.23183841,9.82636639 3.57422129,9.45616741 3.57422129,8.99958867 C3.57422129,8.54218726 3.23103845,8.17116561 2.80785961,8.17116561 L0.765561722,8.17116561 C0.343982801,8.17116561 9.99200722e-14,8.54136459 9.99200722e-14,8.99958867 Z M0.765561722,5.13717929 L2.80785961,5.13717929 C3.23183841,5.13717929 3.57422129,4.76698031 3.57422129,4.3095789 C3.57422129,3.85217749 3.23183841,3.48280117 2.80785961,3.48280117 L0.765561722,3.48280117 C0.343182841,3.48280117 9.9475983e-14,3.85300015 9.9475983e-14,4.3095789 C9.9475983e-14,4.76615764 0.343182841,5.13800195 0.765561722,5.13800195 L0.765561722,5.13717929 Z M11,7.15935132 L12.5332144,6.00037568 C12.7997224,5.78999436 13.2669046,5.78999436 13.6000397,6.00037568 L13.6000397,6.00037568 L15,7.15872519 L15,0.000626134869 L16,0 C17.1045695,7.78148667e-16 18,0.8954305 18,2 L18,16 C18,17.1045695 17.1045695,18 16,18 L3.75,18 C2.6454305,18 1.75,17.1045695 1.75,16 L1.749,15.516 L2.80785961,15.5163762 C3.30441272,15.5163762 3.75727314,15.3058129 4.08347347,14.9535464 C4.38331192,14.6297484 4.57422129,14.1839226 4.57422129,13.6887758 C4.57422129,13.1938235 4.38323306,12.7480421 4.08336979,12.4242172 C3.79314057,12.1107963 3.40281186,11.9096956 2.97143481,11.8688759 L2.80785961,11.8611754 L1.749,11.861 L1.749,10.826 L2.80785961,10.8263664 C3.3044231,10.8263664 3.75714238,10.6160051 4.08323992,10.2641997 C4.38317726,9.94061687 4.57422129,9.4950166 4.57422129,8.99958867 C4.57422129,8.50422578 4.38328776,8.05851591 4.08379013,7.73476442 C3.79349633,7.4209621 3.40303333,7.21971793 2.97149603,7.17887111 L2.80785961,7.17116561 L1.749,7.171 L1.749,6.137 L2.80785961,6.13718726 C3.30461065,6.13718726 3.75749045,5.92668971 4.08366066,5.57445578 C4.38323199,5.25094619 4.57422129,4.8054174 4.57422129,4.3095789 C4.57422129,3.81345899 4.38309701,3.36815569 4.08342707,3.0448613 C3.79358939,2.7321743 3.4036658,2.53127841 2.97170291,2.49049521 L2.80785961,2.48280117 L1.749,2.482 L1.75,2 C1.75,0.8954305 2.6454305,2.02906125e-16 3.75,0 L11,0 L11,7.15935132 Z"></path>';
     ui += '</symbol>';
-    // SVG 图标集：图标|大纲标签栏|目录索引
+    // SVG 图标集：图标|导航中心分段控制|目录索引
     ui += '<symbol id="icoTocTabCatalog">';
     ui += '<path d="M5.8,-1.21569421e-13 L15.2,-1.21569421e-13 C15.6418278,-1.21569421e-13 16,0.351776268 16,0.785714286 C16,1.2196523 15.6418278,1.57142857 15.2,1.57142857 L5.8,1.57142857 C5.3581722,1.57142857 5,1.2196523 5,0.785714286 C5,0.351776268 5.3581722,-1.21569421e-13 5.8,-1.21569421e-13 Z M0.8,-1.21569421e-13 L2.20895932,-1.21569421e-13 C2.65078712,-1.21569421e-13 3.00895932,0.351776268 3.00895932,0.785714286 C3.00895932,1.2196523 2.65078712,1.57142857 2.20895932,1.57142857 L0.8,1.57142857 C0.3581722,1.57142857 -1.29252165e-12,1.2196523 -1.29252165e-12,0.785714286 C-1.29252165e-12,0.351776268 0.3581722,-1.21569421e-13 0.8,-1.21569421e-13 Z M0.8,5.71896434 L2.20895932,5.71896434 C2.65078712,5.71896434 3.00895932,6.07074061 3.00895932,6.50467862 C3.00895932,6.93861664 2.65078712,7.29039291 2.20895932,7.29039291 L0.8,7.29039291 C0.3581722,7.29039291 -1.27897692e-12,6.93861664 -1.27897692e-12,6.50467862 C-1.27897692e-12,6.07074061 0.3581722,5.71896434 0.8,5.71896434 Z M0.8,11.43 L2.20895932,11.43 C2.65078712,11.43 3.00895932,11.7817763 3.00895932,12.2157143 C3.00895932,12.6496523 2.65078712,13.0014286 2.20895932,13.0014286 L0.8,13.0014286 C0.3581722,13.0014286 -1.1937118e-12,12.6496523 -1.1937118e-12,12.2157143 C-1.1937118e-12,11.7817763 0.3581722,11.43 0.8,11.43 Z M5.8,5.71896434 L15.2,5.71896434 C15.6418278,5.71896434 16,6.07074061 16,6.50467862 C16,6.93861664 15.6418278,7.29039291 15.2,7.29039291 L5.8,7.29039291 C5.3581722,7.29039291 5,6.93861664 5,6.50467862 C5,6.07074061 5.3581722,5.71896434 5.8,5.71896434 Z M5.8,11.43 L15.2,11.43 C15.6418278,11.43 16,11.7817763 16,12.2157143 C16,12.6496523 15.6418278,13.0014286 15.2,13.0014286 L5.8,13.0014286 C5.3581722,13.0014286 5,12.6496523 5,12.2157143 C5,11.7817763 5.3581722,11.43 5.8,11.43 Z"></path>';
     ui += '</symbol>';
-    // SVG 图标集：图标|大纲标签栏|插图索引
+    // SVG 图标集：图标|导航中心分段控制|插图索引
     ui += '<symbol id="icoTocTabFigure">';
     ui += '<path d="M13.5,0 C14.8807119,-2.53632657e-16 16,1.11928813 16,2.5 L16,11.5 C16,12.8807119 14.8807119,14 13.5,14 L2.5,14 C1.11928813,14 1.69088438e-16,12.8807119 0,11.5 L0,2.5 C-1.69088438e-16,1.11928813 1.11928813,2.53632657e-16 2.5,0 L13.5,0 Z M13.2,1.3 L2.8,1.3 C1.97157288,1.3 1.3,1.97157288 1.3,2.8 L1.3,2.8 L1.299,10.903 L3.65967176,7.09631997 C3.95065747,6.62690996 4.56708,6.48226849 5.03649002,6.77325421 C5.10793456,6.81754244 5.17350994,6.87066207 5.23166471,6.93135632 L7.95061382,9.76903564 C8.22764272,10.0581617 8.65043195,10.1541566 9.02515448,10.0130114 L11.7051177,9.00356109 C12.0740534,8.86459565 12.4902054,8.9553626 12.7677664,9.23533546 L14.7,11.184 L14.7,2.8 C14.7,2.02030388 14.1051119,1.37955132 13.34446,1.30686658 L13.2,1.3 Z M10,2.5 C11.1045695,2.5 12,3.3954305 12,4.5 C12,5.6045695 11.1045695,6.5 10,6.5 C8.8954305,6.5 8,5.6045695 8,4.5 C8,3.3954305 8.8954305,2.5 10,2.5 Z"></path>';
     ui += '</symbol>';
-    // SVG 图标集：图标|大纲标签栏|表格索引
+    // SVG 图标集：图标|导航中心分段控制|表格索引
     ui += '<symbol id="icoTocTabTable">';
-    ui += '<path d="M13.2856,0 L2.7144,0 C1.2161387,0.0013225203 0.0017641647,1.21533915 0,2.71359999 L0,11.2848 C0.00132252119,12.7835031 1.21569733,13.9982358 2.7144,14 L13.2856,14 C14.7844854,13.9986761 15.9991178,12.7836857 16,11.2848 L16,2.71359999 C15.9986761,1.21515646 14.7840439,0.000882151918 13.2856,0 Z M6.1664,8.49366407 L6.1664,5.50813261 L9.8328,5.50813261 L9.8328,8.49366407 L6.1664,8.49366407 Z M9.8328,9.69366407 L9.8328,12.8 L6.1664,12.8 L6.1664,9.69366407 L9.8328,9.69366407 Z M1.19999999,5.50813261 L4.96639999,5.50813261 L4.96639999,8.49366407 L1.19999999,8.49366407 L1.19999999,5.50813261 Z M6.1664,4.30813261 L6.1664,1.19999999 L9.8328,1.19999999 L9.8328,4.30813261 L6.1664,4.30813261 Z M11.0328,5.50813261 L14.8,5.50813261 L14.8,8.49366407 L11.0328,8.49366407 L11.0328,5.50813261 Z M14.8,2.71359999 L14.8,4.30813261 L11.0328,4.30813261 L11.0328,1.19999999 L13.2856,1.19999999 C14.1208,1.19999999 14.8,1.87839998 14.8,2.71359999 Z M2.7144,1.19999999 L4.9656,1.19999999 L4.9656,4.30813261 L1.19999999,4.30813261 L1.19999999,2.71359999 C1.19999999,1.87839998 1.87999998,1.19999999 2.7144,1.19999999 Z M1.19999999,11.2848 L1.19999999,9.69366407 L4.96639999,9.69366407 L4.96639999,12.8 L2.7144,12.8 C1.87825613,12.7986775 1.20088095,12.1209445 1.19999999,11.2848 Z M11.0328,12.8 L11.0328,9.69366407 L14.8,9.69366407 L14.8,11.2848 C14.799119,12.1209445 14.1217439,12.7986775 13.2856,12.8 L11.0328,12.8 Z"></path>';
+    ui += '<path d="M13.2856,0 L2.7144,0 C1.2161387,0.0013225203 0.0017641647,1.21533915 0,2.71359999 L0,11.2848 C0.00132252119,12.7835031 1.21569733,13.9982358 2.7144,14 L13.2856,14 C14.7844854,13.9986761 15.9991178,12.7836857 16,11.2848 L16,2.71359999 C15.9986761,1.21515646 14.7840439,0.000882151918 13.2856,0 Z M1.19999999,5.50813261 L7.49802003,5.50813261 L7.49802003,8.49366407 L1.19999999,8.49366407 L1.19999999,5.50813261 Z M2.7144,1.19999999 L7.49722004,1.19999999 L7.49722004,4.30813261 L1.19999999,4.30813261 L1.19999999,2.71359999 C1.19999999,1.87839998 1.87999998,1.19999999 2.7144,1.19999999 Z M7.49802003,9.69366407 L7.49802003,12.8 L2.7144,12.8 C1.87825613,12.7986775 1.20088095,12.1209445 1.19999999,11.2848 L1.19999999,9.69366407 L7.49802003,9.69366407 Z M14.8,9.69366407 L14.8,11.2848 C14.799119,12.1209445 14.1217439,12.7986775 13.2856,12.8 L8.49038695,12.8 L8.49038695,9.69366407 L14.8,9.69366407 Z M14.8,5.50813261 L14.8,8.49366407 L8.49038695,8.49366407 L8.49038695,5.50813261 L14.8,5.50813261 Z M13.2856,1.19999999 C14.1208,1.19999999 14.8,1.87839998 14.8,2.71359999 L14.8,4.30813261 L8.49038695,4.30813261 L8.49038695,1.19999999 L13.2856,1.19999999 Z"></path>';
     ui += '</symbol>';
-    // SVG 图标集：图标|大纲标签栏|多媒体索引
+    // SVG 图标集：图标|导航中心分段控制|多媒体索引
     ui += '<symbol id="icoTocTabMultimedia">';
     ui += '<path d="M9.74826953,7.40006458 L7.08122616,9.40038747 C6.85972595,9.56538586 6.54781749,9.52018082 6.38056223,9.30093639 C6.31501625,9.21504682 6.28111315,9.10881498 6.28111315,9.00032289 L6.28111315,4.99967711 C6.28111315,4.72392638 6.50487357,4.50016145 6.78061873,4.50016145 C6.88910863,4.50016145 6.99307812,4.53632548 7.08122616,4.59961253 L9.74826953,6.59993542 C9.96976974,6.76493381 10.0149739,7.07910881 9.8477186,7.3006135 C9.82059613,7.33677753 9.78669304,7.3706813 9.74826953,7.40006458 Z M2.00028253,0 L13.9997175,0 C15.1049583,0 16,0.895059735 16,2.00032289 L16,11.9996771 C16,13.1049403 15.1049583,14 13.9997175,14 L2.00028253,14 C0.895041673,14 0,13.1049403 0,11.9996771 L0,2.00032289 C0,0.895059735 0.897301879,0 2.00028253,0 Z M11.9994349,1.00129157 L4.00056505,1.00129157 L4.00056505,13.0009687 L11.9994349,13.0009687 L11.9994349,1.00129157 Z M1.00127137,4.00064579 L3.00155389,4.00064579 L3.00155389,1.00129157 L2.00254273,1.00129157 C1.45105241,1.00129157 1.00353157,1.44882144 1.00353157,2.00032289 L1.00353157,4.00064579 L1.00127137,4.00064579 Z M14.9987286,4.00064579 L14.9987286,2.00032289 C14.9987286,1.44882144 14.5512078,1.00129157 13.9997175,1.00129157 L13.0007063,1.00129157 L13.0007063,4.00064579 L14.9987286,4.00064579 L14.9987286,4.00064579 Z M1.00127137,9.99935421 L1.00127137,11.9996771 C1.00127137,12.5511786 1.4487922,12.9987084 2.00028253,12.9987084 L2.99929369,12.9987084 L2.99929369,9.99935421 L1.00127137,9.99935421 L1.00127137,9.99935421 Z M1.00127137,9.00032289 L3.00155389,9.00032289 L3.00155389,4.99967711 L1.00127137,4.99967711 L1.00127137,9.00032289 Z M14.9987286,9.99935421 L12.9984461,9.99935421 L12.9984461,12.9987084 L13.9974573,12.9987084 C14.5489476,12.9987084 14.9964684,12.5511786 14.9964684,11.9996771 L14.9964684,9.99935421 L14.9987286,9.99935421 Z M14.9987286,9.00032289 L14.9987286,4.99967711 L12.9984461,4.99967711 L12.9984461,9.00032289 L14.9987286,9.00032289 Z"></path>';
     ui += '</symbol>';
-    // SVG 图标集：图标|大纲标签栏|代码块索引
+    // SVG 图标集：图标|导航中心分段控制|代码块索引
     ui += '<symbol id="icoTocTabCodeblock">';
     ui += '<path d="M13.3333333,0 C14.8060927,0 16,1.19390733 16,2.66666667 L16,11.3333333 C16,12.8060927 14.8060927,14 13.3333333,14 L2.66666667,14 C1.19390733,14 0,12.8060927 0,11.3333333 L0,2.66666667 C0,1.19390733 1.19390733,0 2.66666667,0 L13.3333333,0 Z M13.3399998,1.19999974 L2.66000017,1.19999974 C1.94829535,1.1997742 1.25677804,1.85019704 1.20340021,2.56235312 L1.19999976,2.66470606 L1.19999976,11.3352941 C1.19977498,12.0494615 1.84829981,12.7430256 2.55800017,12.7965882 L2.66000017,12.7999999 L13.3399998,12.7999999 C14.0517047,12.8002259 14.743222,12.1498031 14.7965998,11.437647 L14.7999999,11.3352941 L14.7999999,2.66470606 C14.800225,1.95053859 14.1517002,1.2569745 13.4419998,1.20341197 L13.3399998,1.19999974 Z M9.488,3.93466667 L9.468,4.01 L7.49133333,10.01 C7.38183425,10.3466845 7.02825967,10.5390548 6.68609745,10.4481071 C6.34393524,10.3571593 6.13254166,10.0146186 6.20466667,9.668 L6.22466667,9.59266667 L8.20133333,3.59266667 C8.25663976,3.42467117 8.37643583,3.28553776 8.53435282,3.20589159 C8.6922698,3.12624541 8.8753638,3.11261479 9.04333333,3.168 C9.36456133,3.27377427 9.55569585,3.60331656 9.488,3.93466667 Z M5.396,4.768 L5.34933333,4.838 L3.73933333,6.98466667 L5.35,9.13133333 C5.55203719,9.40031383 5.52201979,9.77767555 5.28,10.0113333 L5.21666667,10.0646667 C4.94813556,10.2666509 4.57125481,10.2372205 4.33733333,9.996 L4.28333333,9.932 L2.37266667,7.38533333 C2.21409416,7.17401976 2.19526731,6.88900223 2.32466667,6.65866667 L2.37266667,6.58533333 L4.28333333,4.03866667 C4.38941993,3.89721787 4.54735181,3.80370519 4.72238576,3.77870034 C4.89741972,3.75369549 5.07521787,3.79924674 5.21666667,3.90533333 C5.48539743,4.10617538 5.56224658,4.47613692 5.396,4.768 Z M11.6626667,3.97466667 L11.7173333,4.038 L13.6273333,6.58466667 L13.6753333,6.658 C13.7893578,6.86085249 13.7893578,7.10848085 13.6753333,7.31133333 L13.6273333,7.38466667 L11.7173333,9.93133333 L11.6626667,9.996 C11.450984,10.2144191 11.1183033,10.2618666 10.854,10.1113333 L10.784,10.0646667 L10.72,10.0113333 C10.5010274,9.79971134 10.4532845,9.4666086 10.604,9.202 L10.6506667,9.132 L12.2606667,6.98466667 L10.6506667,4.838 L10.604,4.768 C10.4378957,4.47597654 10.5150376,4.10598124 10.784,3.90466667 C11.05219,3.70302715 11.4290973,3.73303114 11.6626667,3.97466667 Z"></path>';
     ui += '</symbol>';
-    // SVG 图标集：图标|大纲标签栏|访问史
+    // SVG 图标集：图标|导航中心分段控制|访问史
     ui += '<symbol id="icoTocTabHistory">';
     ui += '<path d="M7,0 C4.65384023,0 2.58144052,1.15669465 1.31248855,2.92895617 L1.31248855,1.75001654 C1.31248855,1.38755428 1.01866796,1.09376769 0.656244274,1.09376769 C0.293820591,1.09376769 0,1.38756898 0,1.75001654 L0,4.37501195 C0,4.73738599 0.293820591,5.0312608 0.656244274,5.0312608 L3.49997435,5.0312608 C3.86239803,5.0312608 4.15621862,4.73740069 4.15621862,4.37501195 C4.15621862,4.01254969 3.86239803,3.71876309 3.49997435,3.71876309 L2.35846581,3.71876309 C3.3880399,2.26360643 5.08180332,1.31252711 7.00002199,1.31252711 C10.1410468,1.31252711 12.6874528,3.85892262 12.6874528,7.00002205 C12.6874528,10.1410627 10.1410468,12.687517 7.00002199,12.687517 C4.35255832,12.687517 2.13415716,10.8759849 1.50017957,8.42675866 L1.4887897,8.43031668 C1.40036794,8.17250726 1.16285172,7.98434387 0.874982593,7.98434387 C0.51255891,7.98434387 0.218738319,8.27814517 0.218738319,8.64051921 C0.218738319,8.70519578 0.238146544,8.76378549 0.255531857,8.82274276 L0.248700865,8.82490404 C0.253010547,8.84079751 0.260911629,8.85501489 0.265309263,8.87082014 C0.270132002,8.88356726 0.273342275,8.89629968 0.27892727,8.90869394 C1.11160462,11.8440016 3.7978994,14 7.00006596,14 C10.8660261,14 14,10.8659578 14,7 C14,3.1339834 10.8659821,0 7,0 L7,0 Z M6.60624427,2.8 C6.24382059,2.8 5.95,3.09380129 5.95,3.45624885 L5.95,7.39374196 C5.95,7.75620422 6.24382059,8.04999081 6.60624427,8.04999081 L9.44995969,8.04999081 C9.81238337,8.04999081 10.106204,7.75618952 10.106204,7.39381547 C10.106204,7.0312944 9.81238337,6.73756662 9.44995969,6.73756662 L7.26248855,6.73756662 L7.26248855,3.45624885 C7.26248855,3.09378659 6.9686533,2.8 6.60622962,2.8 L6.60624427,2.8 Z"></path>';
     ui += '</symbol>';
-    // SVG 图标集：图标|前进
+    // SVG 图标集：图标|过滤
     ui += '<symbol id="icoFilter">';
     ui += '<path d="M8.84956005,15.9164574 L6.03223988,14.3895147 C5.77665501,14.2866085 5.61736842,14.0233946 5.64069537,13.7425051 L5.64069537,8.43795061 L0.161772723,1.28572151 C-0.021205139,1.02861724 -0.0513123934,0.68888983 0.0834638197,0.402091243 C0.233954752,0.150943046 0.501082607,-0.00145082454 0.78824392,1.04144974e-05 L14.8757449,1.04144974e-05 C15.1429049,0.00501946587 15.3967557,0.120689845 15.5796249,0.320752891 C15.714969,0.607760947 15.684842,0.94806687 15.501316,1.20530746 L10.0232934,8.35753657 L10.0232934,15.1890338 C10.0245887,15.4836328 9.87617952,15.7576004 9.63174894,15.9118359 C9.47423103,15.9118359 9.39682224,15.99225 9.24020443,15.99225 C9.10536415,16.0147418 8.96711356,15.9879185 8.84956005,15.9164574 L8.84956005,15.9164574 Z M12.5867848,15.6853826 C12.1289439,15.6853826 11.7577905,15.3042516 11.7577905,14.8341028 C11.7577905,14.3639539 12.1289439,13.982823 12.5867848,13.982823 L17.1710057,13.982823 C17.4671769,13.982823 17.7408503,14.145076 17.8889358,14.4084629 C18.0370214,14.6718497 18.0370214,14.9963558 17.8889358,15.2597427 C17.7408503,15.5231296 17.4671769,15.6853826 17.1710057,15.6853826 L12.5867848,15.6853826 Z M12.5867848,12.2793391 C12.2906136,12.2793391 12.0169402,12.1170861 11.8688547,11.8536992 C11.7207691,11.5903123 11.7207691,11.2658063 11.8688547,11.0024194 C12.0169402,10.7390325 12.2906136,10.5767795 12.5867848,10.5767795 L17.1710057,10.5767795 C17.4671769,10.5767795 17.7408503,10.7390325 17.8889358,11.0024194 C18.0370214,11.2658063 18.0370214,11.5903123 17.8889358,11.8536992 C17.7408503,12.1170861 17.4671769,12.2793391 17.1710057,12.2793391 L12.5867848,12.2793391 Z M12.5867848,8.87329565 C12.1289439,8.87329565 11.7577905,8.49216471 11.7577905,8.02201586 C11.7577905,7.55186702 12.1289439,7.17073607 12.5867848,7.17073607 L17.1710057,7.17073607 C17.6288466,7.17073607 18,7.55186702 18,8.02201586 C18,8.49216471 17.6288466,8.87329565 17.1710057,8.87329565 L12.5867848,8.87329565 Z"></path>';
+    ui += '</symbol>';
+    // SVG 图标集：图标|检索
+    ui += '<symbol id="icoRetrieval">';
+    ui += '<path d="M6.54545451,0 C7.43175754,0 8.2792727,0.173333386 9.08799997,0.520000057 C9.89672724,0.866666727 10.5927272,1.33163643 11.176,1.91490915 C11.7592727,2.49818188 12.2242424,3.19418188 12.5709091,4.00290915 C12.9175757,4.81163642 13.0909091,5.65915158 13.0909091,6.54545461 C13.0909091,7.30666674 12.9667879,8.03587886 12.7185454,8.73309097 C12.470303,9.43030308 12.1170909,10.0627879 11.6589091,10.6305455 L15.7898182,14.7556364 C15.9299394,14.8957576 16,15.0681213 16,15.2727273 C16,15.4812122 15.9309091,15.6545455 15.7927273,15.7927273 C15.6545455,15.9309091 15.4812121,16 15.2727273,16 C15.0681212,16 14.8957576,15.9299394 14.7556364,15.7898182 L10.6305455,11.6589091 C10.062303,12.117091 9.42981819,12.4703031 8.73309092,12.7185455 C8.03636364,12.9667879 7.30715153,13.0909091 6.54545456,13.0909091 C5.65915153,13.0909091 4.81163637,12.9175758 4.0029091,12.5709091 C3.19418183,12.2242424 2.49818183,11.7592727 1.9149091,11.176 C1.33163637,10.5927273 0.866666676,9.89672729 0.520000005,9.08800002 C0.173333335,8.27927275 0,7.43175759 0,6.54545456 C0,5.65915153 0.173333335,4.81163637 0.520000005,4.0029091 C0.866666676,3.19418183 1.33163637,2.49818183 1.9149091,1.9149091 C2.49818183,1.33163637 3.19418183,0.866666676 4.0029091,0.520000005 C4.81163637,0.173333335 5.65915153,0 6.54545456,0 L6.54545451,0 Z M6.54545451,1.4545455 C5.85599996,1.4545455 5.19684845,1.58909095 4.56799996,1.85818186 C3.93915147,2.12727277 3.39757571,2.48896974 2.94327269,2.94327278 C2.48896967,3.39757581 2.1272727,3.93915157 1.85818178,4.56800004 C1.58909086,5.19684852 1.45454541,5.85600004 1.45454541,6.54545459 C1.45454541,7.23490915 1.58909088,7.89406067 1.85818178,8.52290914 C2.12727268,9.15175762 2.48896965,9.69333338 2.94327269,10.1476364 C3.39757574,10.6019394 3.93915149,10.9636364 4.56799996,11.2327273 C5.19684842,11.5018182 5.85599994,11.6363637 6.54545451,11.6363637 C7.23490908,11.6363637 7.89406059,11.5018182 8.52290906,11.2327273 C9.15175753,10.9636364 9.69333328,10.6019394 10.1476363,10.1476364 C10.6019394,9.69333338 10.9636363,9.15175762 11.2327272,8.52290914 C11.5018181,7.89406067 11.6363636,7.23490915 11.6363636,6.54545459 C11.6363636,5.85600004 11.5018182,5.19684852 11.2327272,4.56800004 C10.9636363,3.93915157 10.6019393,3.39757581 10.1476363,2.94327278 C9.6933333,2.48896974 9.15175755,2.12727277 8.52290906,1.85818186 C7.89406057,1.58909095 7.23490905,1.4545455 6.54545451,1.4545455 Z"></path>';
+    ui += '</symbol>';
+    // SVG 图标集：图标|向左关闭
+    ui += '<symbol id="icoCloserTo-left">';
+    ui += '<path d="M13.9791715,0.176477427 L14.0154251,0.189323743 C15.5212,0.722890207 16.3261424,2.31174457 15.875093,3.79570421 L6.20859385,30 L15.8197795,56.039902 C16.3646269,57.5145002 15.632921,59.1369628 14.1798211,59.7471073 L13.9791715,59.8235226 C12.4774152,60.3556651 10.8245904,59.6444033 10.1979056,58.2273068 L10.1325565,58.0669743 L0.314759836,31.9158354 C-0.104917664,30.6730285 -0.104920005,29.3272583 0.31475317,28.0844499 L10.1325565,1.93302569 C10.7019517,0.409988422 12.4217946,-0.375374037 13.9791715,0.176477427 Z"></path>';
+    ui += '</symbol>';
+    // SVG 图标集：图标|向右关闭
+    ui += '<symbol id="icoCloserTo-right">';
+    ui += '<path d="M13.9791715,0.176477427 L14.0154251,0.189323743 C15.5212,0.722890207 16.3261424,2.31174457 15.875093,3.79570421 L6.20859385,30 L15.8197795,56.039902 C16.3646269,57.5145002 15.632921,59.1369628 14.1798211,59.7471073 L13.9791715,59.8235226 C12.4774152,60.3556651 10.8245904,59.6444033 10.1979056,58.2273068 L10.1325565,58.0669743 L0.314759836,31.9158354 C-0.104917664,30.6730285 -0.104920005,29.3272583 0.31475317,28.0844499 L10.1325565,1.93302569 C10.7019517,0.409988422 12.4217946,-0.375374037 13.9791715,0.176477427 Z" transform="translate(8.000000, 30.000000) scale(-1, 1) translate(-8.000000, -30.000000) "></path>';
+    ui += '</symbol>';
+    // SVG 图标集：图标|向下关闭
+    ui += '<symbol id="icoCloserTo-bottom">';
+    ui += '<path d="M35.9791715,-21.8235226 L36.0154251,-21.8106763 C37.5212,-21.2771098 38.3261424,-19.6882554 37.875093,-18.2042958 L28.2085938,8 L37.8197795,34.039902 C38.3646269,35.5145002 37.632921,37.1369628 36.1798211,37.7471073 L35.9791715,37.8235226 C34.4774152,38.3556651 32.8245904,37.6444033 32.1979056,36.2273068 L32.1325565,36.0669743 L22.3147598,9.91583543 C21.8950823,8.67302848 21.89508,7.32725835 22.3147532,6.08444994 L32.1325565,-20.0669743 C32.7019517,-21.5900116 34.4217946,-22.375374 35.9791715,-21.8235226 Z" transform="translate(30.000000, 8.000000) rotate(270.000000) translate(-30.000000, -8.000000) "></path>';
     ui += '</symbol>';
     // SVG 图标集：图标|插图导航的上一张
     ui += '<symbol id="icoPrevFig">';
@@ -10232,12 +10291,12 @@ VLOOKui.loadIconSet = function () {
     ui += '<symbol id="icoNextChapter">';
     ui += '<path d="M2.73310223,7.09086552 L7.70619469,12.063958 C8.09671898,12.4544823 8.09671898,13.0876472 7.70619469,13.4781715 C7.3156704,13.8686958 6.68250542,13.8686958 6.29198113,13.4781715 L0.635126876,7.82131729 C0.455346772,7.64153719 0.358329473,7.41033487 0.344074979,7.17505536 C0.313997467,6.88568746 0.409832337,6.58570828 0.631579589,6.36396103 L6.28843384,0.707106781 C6.67895813,0.316582489 7.31212311,0.316582489 7.7026474,0.707106781 C8.09317169,1.09763107 8.09317169,1.73079605 7.7026474,2.12132034 L2.73310223,7.09086552 Z"transform="translate(4.168887, 7.092639) scale(-1, 1) translate(-4.168887, -7.092639) "></path>';
     ui += '</symbol>';
-    // SVG 图标集：图标|已收起的大纲节点
+    // SVG 图标集：图标|已收起的目录节点
     ui += '<symbol id="icoFolded">';
     ui += '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
     ui += '<path d="M8,1 C11.8659932,1 15,4.13400675 15,8 C15,11.8659932 11.8659932,15 8,15 C4.13400675,15 1,11.8659932 1,8 C1,4.13400675 4.13400675,1 8,1 Z M7.66396103,3.75735931 C7.27343674,3.36683502 6.64027176,3.36683502 6.24974747,3.75735931 C5.85922318,4.1478836 5.85922318,4.78104858 6.24974747,5.17157288 L6.24974747,5.17157288 L9.08528137,8.00710678 L6.24974747,10.8426407 C5.85922318,11.233165 5.85922318,11.86633 6.24974747,12.2568542 C6.64027176,12.6473785 7.27343674,12.6473785 7.66396103,12.2568542 L7.66396103,12.2568542 L11.1994949,8.72132034 C11.3947571,8.5260582 11.4923882,8.27013588 11.4923882,8.01421356 L11.4923882,8.01421356 L11.4923882,8 C11.4923882,7.74407768 11.3947571,7.48815536 11.1994949,7.29289322 L11.1994949,7.29289322 Z"></path>';
     ui += '</symbol>';
-    // SVG 图标集：图标|已展开的大纲节点
+    // SVG 图标集：图标|已展开的目录节点
     ui += '<symbol id="icoUnfold">';
     ui += '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
     ui += '<path d="M11.500027,1.86500179 C12.0523118,1.86500179 12.500027,2.31271704 12.500027,2.86500179 C12.500027,3.41728654 12.0523118,3.86500179 11.500027,3.86500179 L5.49500179,3.86500179 L5.49500179,9.87002705 C5.49500179,10.4223118 5.04728654,10.870027 4.49500179,10.870027 C3.94271704,10.870027 3.49500179,10.4223118 3.49500179,9.87002705 L3.49500179,2.87002705 C3.49500179,2.59244142 3.60810365,2.34127215 3.79073809,2.16008851 C3.97127215,1.97810365 4.22244142,1.86500179 4.50002705,1.86500179 L11.500027,1.86500179 Z" transform="translate(7.997514, 6.367514) rotate(-135.000000) translate(-7.997514, -6.367514) "></path>';
@@ -10410,38 +10469,8 @@ VLOOKui.loadNavTools = function () {
     ui += '<div class="mdx-nav-center mdx-float-card">';
     // --- 导航中心头部 ---
     ui += '<div class="mdx-nav-center-header">';
-    // 大纲标签栏
-    ui += '<div class="mdx-toc-tabbar">';
-    // 目录索引 tab
-    ui += '<input id="toc-tab-catalog" onfocus="this.blur()" type="radio" name="toc-tab" value="catalog" checked />';
-    ui += '<label for="toc-tab-catalog" class="mdx-toc-tab-btn catalog">';
-    ui += VLOOK.ui.generateSvgIcon("icoTocTabCatalog", 16, 13, "alt");
-    ui += '</label>';
-    // 插图索引 tab
-    ui += '<input id="toc-tab-figure" onfocus="this.blur()" type="radio" name="toc-tab" value="figure" />';
-    ui += '<label for="toc-tab-figure" class="mdx-toc-tab-btn figure">';
-    ui += VLOOK.ui.generateSvgIcon("icoTocTabFigure", 16, 14, "alt");
-    ui += '</label>';
-    // 表格索引 tab
-    ui += '<input id="toc-tab-table" onfocus="this.blur()" type="radio" name="toc-tab" value="table" />';
-    ui += '<label for="toc-tab-table" class="mdx-toc-tab-btn table">';
-    ui += VLOOK.ui.generateSvgIcon("icoTocTabTable", 16, 14, "alt");
-    ui += '</label>';
-    // 多媒体索引 tab
-    ui += '<input id="toc-tab-multimedia" onfocus="this.blur()" type="radio" name="toc-tab" value="multimedia" />';
-    ui += '<label for="toc-tab-multimedia" class="mdx-toc-tab-btn multimedia">';
-    ui += VLOOK.ui.generateSvgIcon("icoTocTabMultimedia", 16, 14, "alt");
-    ui += '</label>';
-    // 代码块索引 tab
-    ui += '<input id="toc-tab-codeblock" onfocus="this.blur()" type="radio" name="toc-tab" value="codeblock" />';
-    ui += '<label for="toc-tab-codeblock" class="mdx-toc-tab-btn codeblock">';
-    ui += VLOOK.ui.generateSvgIcon("icoTocTabCodeblock", 16, 14, "alt");
-    ui += '</label>';
-    // 访问历史 tab
-    ui += '<input id="toc-tab-history" onfocus="this.blur()" type="radio" name="toc-tab" value="history" />';
-    ui += '<label for="toc-tab-history" class="mdx-toc-tab-btn history">';
-    ui += VLOOK.ui.generateSvgIcon("icoTocTabHistory", 14, 14, "alt");
-    ui += '</label></div>';
+    // 分段控制器组件
+    ui += '<div class="mdx-segment toc"></div>';
     // 回到封面按钮
     ui += '<div class="mdx-accent-btn cover">';
     ui += VLOOK.ui.generateSvgIcon("icoCover", 18, 18, "alt");
@@ -10468,7 +10497,7 @@ VLOOKui.loadNavTools = function () {
     ui += '</div>';
 
     // --------------------------------------------------
-    // 大纲收起/展开引导把手
+    // 导航中心收起/展开引导把手
     ui += '<div class="mdx-toc-handle"></div>';
 
     // --------------------------------------------------
@@ -10476,7 +10505,7 @@ VLOOKui.loadNavTools = function () {
     ui += '<div class="mdx-chapter-nav">';
     // 上一章
     ui += '<div class="mdx-chapter-nav-prev">';
-    ui += VLOOK.ui.generateSvgIcon2("icoPrevChapter", 10, 15, "light", "left: 10px;");
+    ui += VLOOK.ui.generateSvgIcon("icoPrevChapter", 10, 15, "light", "position: absolute; top: 18px; left: 10px;");
     ui += '<div class="mdx-chapter-nav-prev-text"></div>';
     ui += '</div>';
     // 当前章节
@@ -10484,7 +10513,7 @@ VLOOKui.loadNavTools = function () {
     // 下一章
     ui += '<div class="mdx-chapter-nav-next">';
     ui += '<div class="mdx-chapter-nav-next-text">next</div>';
-    ui += VLOOK.ui.generateSvgIcon2("icoNextChapter", 10, 15, "light", "right: 10px;");
+    ui += VLOOK.ui.generateSvgIcon("icoNextChapter", 10, 15, "light", "position: absolute; top: 18px; right: 10px;");
     ui += '</div>';
     ui += '</div>';
 
@@ -10504,7 +10533,7 @@ VLOOKui.loadNavTools = function () {
     ui += '</div>';
     ui += '<div class="mdx-copyright">';
     ui += '<svg width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()"><use xlink:href="#icoVLOOK-dark"></use></svg>&nbsp;&nbsp;';
-    ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.3) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">MAX°孟兆</a></strong>';
+    ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.4) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">MAX°孟兆</a></strong>';
     ui += '</div>';
     ui += '</div>';
     return ui;
@@ -10518,7 +10547,7 @@ VLOOKui.loadToolbar = function () {
         // --------------------------------------------------
     // 页面工具栏
     ui += '<div class="mdx-toolbar">';
-    // 页面工具栏按钮：大纲
+    // 页面工具栏按钮：导航中心
     ui += '<div class="mdx-btn mdx-btn-outline">';
     ui += VLOOK.ui.generateSvgIcon("icoNavCenter", 20, 20, "light");
     ui += '</div>';
@@ -10572,22 +10601,11 @@ VLOOKui.loadToolbar = function () {
 VLOOKui.loadCommon = function () {
     let ui = '';
     // --------------------------------------------------
-    // 遮罩
-    ui += '<div class="mdx-mask mdx-backdrop-blurs">';
-    ui += '<div class="mdx-copyright">';
-    ui += '<svg height="24px" width="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()">';
-    ui += '<use xlink:href="#icoVLOOK-dark"></use>';
-    ui += '</svg>&nbsp;&nbsp;';
-    ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.3) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">MAX°孟兆</a></strong>';
-    ui += '</div>';
-    ui += '</div>';
-
-    // --------------------------------------------------
     // 脚注弹层
-    ui += '<div class="mdx-footer-note-panel">';
-    ui += '<div class="mdx-footer-note-panel-content"></div>';
-    ui += '<div class="mdx-footer-note-panel-header"></div>';
-    ui += '<div class="mdx-footer-note-panel-all"><a>查看所有脚注 ▶</a></div>';
+    ui += '<div class="mdx-foot-note-panel">';
+    ui += '<div class="mdx-foot-note-panel-content"></div>';
+    ui += '<div class="mdx-foot-note-panel-header"></div>';
+    ui += '<div class="mdx-foot-note-panel-all"><a>查看所有脚注 ▶</a></div>';
     ui += '<a name="xFooterArea"></a>';
     ui += '</div>';
 
@@ -10607,7 +10625,7 @@ VLOOKui.loadCommon = function () {
     // 提示信息
     ui += '<div class="mdx-tool-tips"></div>';
     ui += '<div class="mdx-info-tips mdx-float-card"></div>';
-    ui += '<div class="mdx-bottom-tips"><div></div></div>';
+    // ui += '<div class="mdx-bottom-tips"><div></div></div>';
 
     // --------------------------------------------------
     // 文档更多内容遮罩栏
@@ -10653,7 +10671,7 @@ VLOOKui.loadCommon = function () {
 function OINT() {}
 
 OINT.init = function () {
-    $(".mdx-before-write").remove();
+    $(".mdx-vlook-inside").remove();
     $("#write").remove();
     DOM.body().append("<div id='write'></div>");
     iToolbar.ui.remove();
@@ -10803,7 +10821,7 @@ function loadVLOOKui() {
     ui += VLOOKui.loadToolbar();
     ui += VLOOKui.loadCommon();
 
-    $(".mdx-before-write").after(ui);
+    $(".mdx-vlook-inside").after(ui);
 }
 
 /**
