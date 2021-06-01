@@ -1,9 +1,9 @@
 <!--========================================================================-->
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
-<!--                                 V10.4                                  -->
+<!--                                 V10.5                                  -->
 <!--                                                                        -->
-<!--                               2021-05-16                               -->
+<!--                               2021-06-01                               -->
 <!--                           powered by MAX°孟兆                          -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -29,17 +29,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <div id="VLOOK"><div></div></div>
 <!-- ==================== VLOOK JS ==================== -->
 <script type="text/javascript">
-    let liveVersion = "V10.4";
+    let liveVersion = "V10.5";
     let vlookDevMode = liveVersion.indexOf("dev") > 0 ? true : false, vlookDebugMode = false;
     let fontHost = "https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/",
-        jsHost = vlookDevMode ? "http://localhost/" : "https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/",
-        cssHost = vlookDevMode ? jsHost : "https://madmaxchow.gitee.io/vlook/";
+        jsHost = vlookDevMode ? "http://localhost/js/" : "https://madmaxchow.gitee.io/vlook/js/",
+        cssHost = vlookDevMode ? "http://localhost/css/" : "https://madmaxchow.gitee.io/vlook/css/";
+        // https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/
 // ==================== NON-standalone ====================
 // ▽ ▽ ▽ ▽ ▽
     let startjs = document.createElement("script"),
         ts = vlookDevMode ? new Date().getTime() : Math.round(new Date().getTime()/1000/60); // 1000/60/60/24 按天
     startjs.setAttribute("type", "text/javascript");
-    startjs.setAttribute("src", jsHost + "js/start.js?ts=" + ts);
+    startjs.setAttribute("src", jsHost + "start.js?ts=" + ts);
     document.getElementsByTagName("HEAD")[0].appendChild(startjs);
 </script>
 <!--========================================================================-->

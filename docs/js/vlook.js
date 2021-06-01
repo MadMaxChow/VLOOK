@@ -2,8 +2,8 @@
  *
  * VLOOK.js - Typora Plugin
  *
- * V10.4
- * 2021-05-16
+ * V10.5
+ * 2021-06-01
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -41,17 +41,16 @@ srcset
     取值范围：
     auto：对于没有指定 srcset 时，自动将当前图片作为 2x 资源
 
-effect
-    使用的特效等级。可指定为：
-    （未完成，忽略）
+effects
+    使用的动效等级。可指定为：0 - 关闭，1 - 标准，2 - 增强
 
 theme
-    动态加载指定的主题（在线版本）
-    主题名称中的关键名称，如：hope, geek 等
+    动态加载指定的主题（仅限在线版本）
+    主题名称中的关键名称，如：vlook-hope, vlook-x-apple-support 等
 
 **************************************/
 
-let vlookVersion = "V10.4";
+let vlookVersion = "V10.5";
 
 console.log(":::::::::::::::::::");
 console.log("!!! " + (vlookDevMode === true ? "- DEBUG -" : "RELEASED" ) + " !!!");
@@ -506,19 +505,12 @@ VLOOK.util = {
         let hash = window.location.hash;
         // 如果 URL 带锚点
         if (hash.length > 0) {
-            // 对于由 VLOOK 生成的锚点，须延时待生成后后再进行重定向
-            if (hash.startsWith("#vk-idx-")) {
-                setTimeout(function () {
-                    window.location.href = hash;
-                    VLOOK.ui.tuningScrollTop(hash.substring(1, hash.length));
-                }, 3000);
-            }
-            // 由 Typora 导出时自动生成的锚点，直接垂定向
-            else {
+            setTimeout(function () {
+                // 延时待生成后后再进行重定向
                 window.location.href = hash;
-                // 微调滚动条位置
+                // 因重定向前后是同一锚点，所以需要手动触发微调滚动条位置
                 VLOOK.ui.tuningScrollTop(hash.substring(1, hash.length));
-            }
+            }, 3000);
         }
     },
 
@@ -824,16 +816,16 @@ VLOOK.initIntance = function (newTab) {
         iToolbar.buttons["paragraph-nav"].unbind("click").click(function () {
             iToolTips.hide();
             iInfoTips.show([
-                "开启方式：<br /><strong>双击文档中的「任意段落」</strong>",
-                "开启方式：<br /><strong>双击文档中的「任意段落」</strong>",
-                "Open method:<br /><strong>double click \"any paragraph\" in the document</strong>",
-                "Méthode ouverte: <br /><strong>double-cliquez sur \"n'importe quel paragraphe\" dans le document</strong>",
-                "Methode öffnen: <br /><strong>Doppelklicken Sie im Dokument auf \"einen beliebigen Absatz\"</strong>",
-                "Método abierto: <br /><strong>haga doble clic en \"cualquier párrafo\" en el documento</strong>",
-                "Метод открытия: <br /><strong>дважды щелкните «любой абзац» в документе.</strong>",
-                "開く方法：<br /><strong>ドキュメント内の「任意の段落」をダブルクリックします</strong>",
-                "열기 방법 : <br /><strong>문서에서 \"모든 단락\"을 두 번 클릭합니다.</strong>"
-            ][VLOOK.lang.id], 4000, false, true);
+                "开启方式：<br /><strong>三击文档中的「任意段落」</strong>",
+                "开启方式：<br /><strong>三击文档中的「任意段落」</strong>",
+                "Open method:<br /><strong>three click \"any paragraph\" in the document</strong>",
+                "Méthode ouverte: <br /><strong>trois clics \"n'importe quel paragraphe\" dans le document</strong>",
+                "Methode öffnen: <br /><strong>drei Klick Sie im Dokument auf \"einen beliebigen Absatz\"</strong>",
+                "Método abierto: <br /><strong>haga tres clics en \"cualquier párrafo\" en el documento</strong>",
+                "Метод открытия: <br /><strong>тройной щелчок «любой абзац» в документе.</strong>",
+                "開く方法：<br /><strong>ドキュメント内の「任意の段落」をスリークリックします</strong>",
+                "열기 방법 : <br /><strong>문서에서 \"임 의 단락\"세 번 클릭.</strong>"
+            ][VLOOK.lang.id], 4000, true);
         });
         iToolbar.buttons["paragraph-nav"].hover(function () {
             iToolTips.show($(this), "auto");
@@ -938,6 +930,8 @@ VLOOK.initKernel = function (colorScheme) {
         // 初始化引用块
         stopwatch.lapStart();
         ExtQuote.init();
+        // 根据设备类型自适应hover样式
+        VLOOK.ui.adjustHoverStyle();
         stopwatch.lapStop("* Quote: ");
     }, 0);
 
@@ -966,7 +960,6 @@ VLOOK.initKernel = function (colorScheme) {
             }
         });
         ExtFigure.init();
-        // VLOOK.ui.addAnimate($(".mdx-figure, .mdx-figure-nav, .mdx-btn-close-figure-nav, .mdx-figure-nav-btns"));
 
         stopwatch.lapStop("* Figure: ");
     }, 0);
@@ -1014,8 +1007,8 @@ VLOOK.initKernel = function (colorScheme) {
         iChapterNav.adjust();
         iToolbar.adjust();
 
-        // .md-toc-item, md-toc-item:active::before,
-        // VLOOK.ui.addAnimate($("a, a > kbd, a > img, .mdx-btn, .mdx-accent-btn"));
+        // 根据设备类型自适应hover样式
+        VLOOK.ui.adjustHoverStyle();
     }
     iStopwatch.lapStop("    ");
 
@@ -1077,15 +1070,6 @@ VLOOK.initKernel = function (colorScheme) {
     iStopwatch.lapStop("    ");
 
     // ----------------------------------------
-    // 根据设备类型自适应hover样式
-    iStopwatch.lapStart();
-    console.info("- Adjust for Mobile");
-    VLOOK.ui.adjustHoverStyle();
-    // 隐藏插图动作按钮
-    ContentAssist.hideButtons();
-    iStopwatch.lapStop("    ");
-
-    // ----------------------------------------
     console.info("- Binding Event");
     iStopwatch.lapStart();
     // 绑定文档鼠标移动事件，聚光灯跟随鼠标移动
@@ -1105,9 +1089,8 @@ VLOOK.initKernel = function (colorScheme) {
             scrollTop = $(document).scrollTop();
 
         // 显示或隐藏文档更多内容遮罩栏
-        if (currentTime - VLOOK.doc.scroll.lastUpdateTime > 200) {
+        if (currentTime - VLOOK.doc.scroll.lastUpdateTime > 200)
             iMoreDocContent.refresh(scrollTop);
-        }
 
         // ----------------------------------------
         // 控制执行频率，避免处理过快影响性能
@@ -1154,17 +1137,17 @@ VLOOK.initKernel = function (colorScheme) {
                 if (folder.length > 0) {
                     folder.trigger("mouseup");
                     window.location.href = hash;
-                    // 微调滚动条位置
-                    VLOOK.ui.tuningScrollTop(anchor);
                 }
             }
         }
 
-        // 从底部脚注列表回到脚注位置
-        if (anchor.startsWith("ref-footnote")) {
-            // 微调滚动条位置
+        // 微调滚动条位置：VLOOK 生成的索引锚点
+        if (anchor.startsWith("vk-idx-"))
             VLOOK.ui.tuningScrollTop(anchor);
-        }
+        // 由 Typora 导出 HTML 时自动生成的锚点
+        else
+            VLOOK.ui.tuningScrollTop(decodeURI(anchor));
+
 
         VLOOK.ui.adjustAllDelay();
     });
@@ -1204,7 +1187,7 @@ VLOOK.initRestyle = function () {
 
 // VLOOK UI
 VLOOK.ui = {
-    effects : 0, // 0: 无特效
+    effects : 0, // 0: 无动效
 
     /**
      * 淡入显示
@@ -1254,14 +1237,18 @@ VLOOK.ui = {
             tagName = undefined;
 
         if (target !== undefined)
-            tagName = target.parent().prop("tagName");
+            tagName = target.prop("tagName").toLowerCase();
         // h1-6
-        if (target !== undefined && tagName !== undefined && tagName.toLowerCase().startsWith("h"))
-            offsetY += target.parent().height() + 20 + (parseInt(tagName.substring(1, 2)) - 1) * 6;
+        if (target !== undefined && tagName !== undefined && "h1h2h3h4h5h6".indexOf(tagName) > -1) {
+            if (tagName === "h6")
+                offsetY += top + height + 16;
+            else
+                offsetY += target.height() + 10 + (parseInt(tagName.substring(1, 2)) - 1) * 6;
+        }
         // 从底部脚注列表回到脚注位置
         else if (target !== undefined && anchor.startsWith("ref-footnote"))
             offsetY += 70;
-        // 非 h1-6
+        // 其他情况
         else
             offsetY += top + height;
         // 微调滚动位置
@@ -1527,21 +1514,46 @@ VLOOK.ui = {
         ][VLOOK.lang.id]);
     },
 
-    moveToCenter : function (target) {
-        if (env.device.mobile) {
-            target.css({
-                "left" : 10,
-                "right" : 10,
-                "top" : ($(window).height() - target.height()) / 2
-            });
+    /**
+     * 移动到中间
+     *
+     * @param source 源对象
+     */
+    moveToCenter : function (source) {
+        let left = ($(window).width() - source.width()) / 2,
+            right = "auto";
+        if (env.device.mobile) { // 移动端
+            left = 10;
+            right = 10;
         }
-        else {
-            target.css({
-                "left" : ($(window).width() - target.width()) / 2,
-                "right" : "auto",
-                "top" : ($(window).height() - target.height()) / 2
-            });
-        }
+
+        source.css({
+            "left" : left,
+            "right" : right,
+            "top" : ($(window).height() - source.height()) / 2
+        });
+    },
+
+    /**
+     * 移动到中间
+     *
+     * @param source 源对象
+     * @param target 目标对象
+     */
+    moveToTarget : function (source, target) {
+        let left = target.offset().left,
+            top = target.offset().top - $(document).scrollTop(),
+            sourceWidth = source.width() + parseInt(source.css("padding-left"))
+                + parseInt(source.css("padding-right"))
+                + parseInt(source.css("border-width")) * 2;
+
+        if (left + sourceWidth + 10 > $(window).width())
+            left = $(window).width() - sourceWidth - 10;
+
+        source.css({
+            "left" : left,
+            "top" : top + target.height() + 10
+        });
     },
 
     /**
@@ -1577,7 +1589,7 @@ VLOOK.ui = {
             $(".mdx-btn").unbind("hover");
             $(".mdx-segment-btn").unbind("hover");
             $(".mdx-accent-btn").unbind("hover");
-            // $(".mdx-nav-center-title").unbind("hover");
+            $(".mdx-folder-ico, .mdx-folder2-ico").unbind("hover");
             iChapterNav.adjustHoverStyle("mobile");
             iFigureNav.adjustHoverStyle("mobile");
         }
@@ -1601,11 +1613,17 @@ VLOOK.ui = {
             }, function () {
                 $(this).removeClass("mdx-accent-btn-hover");
             });
-            // $(".mdx-nav-center-title").hover(function () {
-            //     $(this).addClass("mdx-nav-center-title-hover");
-            // }, function () {
-            //     $(this).removeClass("mdx-nav-center-title-hover");
-            // });
+            // SVG 小图标
+            $(".mdx-folder-ico").hover(function () {
+                $(this).addClass("mdx-folder-ico-hover");
+            }, function () {
+                $(this).removeClass("mdx-folder-ico-hover");
+            });
+            $(".mdx-folder2-ico").hover(function () {
+                $(this).addClass("mdx-folder2-ico-hover");
+            }, function () {
+                $(this).removeClass("mdx-folder2-ico-hover");
+            });
 
             iChapterNav.adjustHoverStyle("desktop");
             iFigureNav.adjustHoverStyle("desktop");
@@ -1616,17 +1634,16 @@ VLOOK.ui = {
     },
 
     /**
-     * 初始化特效处理
+     * 初始化动效处理
      */
     initEffects : function () {
-        // 不启用特效
+        // 不启用动效
         if (VLOOK.ui.effects < 1)
             VLOOK.util.setStyleValue("--vlook-transition-value", "none");
 
-        // 针对 macOS 的指定浏览器开启模糊背景特效（如遮罩、插图浏览器背景）
-        // if (env.os.macOS && (env.browser.Chrome || env.browser.Edge)) {
+        // 特殊等级为 2 或更高级时才开启毛玻璃动效（如遮罩、插图浏览器背景）
+        if (VLOOK.ui.effects >= 2)
             $(".mdx-backdrop-blurs").addClass("enabled");
-        // }
     },
 
     /**
@@ -2539,7 +2556,7 @@ ContentAssist.init = function () {
 
     // 复制代码块按钮事件
     ContentAssist.button.copyCodeBlock.unbind("click").click(function () {
-        ExtCodeBlock.copy();
+        ExtCodeBlock.copy($(this));
     });
     ContentAssist.button.copyCodeBlock.mouseout(function () {
         mouseout();
@@ -2643,12 +2660,18 @@ ContentAssist.showCopyCodeBlockButton = function () {
 
     VLOOK.ui.hide(ContentAssist.button.copyCodeBlock);
 
+    // vvv 避免不同代码块之间动画跳跃影响，先强制移除动画 vvv
+    VLOOK.ui.removeAnimate(ContentAssist.button.copyCodeBlock);
     ContentAssist.button.copyCodeBlock.css({
         "left" : ContentAssist.lastHoverContent.offset().left
             + ContentAssist.lastHoverContent.width()
             - ContentAssist.button.copyCodeBlock.width() + 4,
         "top" : ContentAssist.lastHoverContent.offset().top
     });
+    // jquery bug? 不强制读取一次，会导致后续操作比修改 top 值要早执行？
+    let t = ContentAssist.button.copyCodeBlock.css("top");
+    // ^^^ 完成设置后恢复动画设置 ^^^
+    VLOOK.ui.addAnimate(ContentAssist.button.copyCodeBlock);
 
     VLOOK.ui.show(ContentAssist.button.copyCodeBlock);
 }
@@ -3247,7 +3270,16 @@ function NavCenter(mask) {
         this.handle.css({
             "top" : ($(window).height() - this.handle.height()) / 2
         });
-        this.handle.show();
+        that.handle.show();
+
+        // 显示操作提示动画
+        let delay = VLOOK.ui.animateDuration();
+        setTimeout(function () {
+            that.handle.addClass("mdx-toc-handle-prompt");
+            setTimeout(function () {
+                that.handle.removeClass("mdx-toc-handle-prompt");
+            }, delay);
+        }, delay);
     }
 
     /**
@@ -3411,8 +3443,6 @@ function ChapterNav(navCenter) {
      */
     this.prev.ui.unbind("click").click(function () {
         that.navCenter.catalog.gotoHeader(that.prev.text);
-        // 微调滚动条位置
-        VLOOK.ui.tuningScrollTop(that.prev.text.attr("data-vk-anchor"));
     });
 
     /**
@@ -3420,8 +3450,6 @@ function ChapterNav(navCenter) {
      */
     this.current.ui.unbind("click").click(function () {
         that.navCenter.catalog.gotoHeader(that.current.ui);
-        // 微调滚动条位置
-        VLOOK.ui.tuningScrollTop(that.current.ui.attr("data-vk-anchor"));
     });
 
     /**
@@ -3429,8 +3457,6 @@ function ChapterNav(navCenter) {
      */
     this.next.ui.unbind("click").click(function () {
         that.navCenter.catalog.gotoHeader(that.next.text);
-        // 微调滚动条位置
-        VLOOK.ui.tuningScrollTop(that.next.text.attr("data-vk-anchor"));
     });
 
     /**
@@ -3870,15 +3896,19 @@ ParagraphNav.init = function() {
 
             // 双击内容块激活/关闭段落导航模式模式
             item.dblclick(function () {
-                if (iParagraphNav.toggle(item) === true)
-                    iSpotlight.hide();
+                ThreeClicker.active();
             });
 
             // 单击内容块处理
             item.unbind("click").click(function () {
+
                 // 未激活段落导航模式模式
-                if (iParagraphNav.enabled === false)
+                if (iParagraphNav.enabled === false) {
+                    if (ThreeClicker.tick() === true
+                        && iParagraphNav.toggle(item) === true)
+                            iSpotlight.hide();
                     return;
+                }
 
                 // VLOOK.report.push(['ParagraphNav', 'Action', 'Mouse', 0]);
 
@@ -3891,6 +3921,38 @@ ParagraphNav.init = function() {
             });
         } // if
     });
+}
+
+// ==================== 三击处理器 ==================== //
+
+function ThreeClicker() {}
+
+ThreeClicker.activeTime = 0;
+
+/**
+ * 进入激活状态（在双击事件中触发）
+ */
+ThreeClicker.active = function () {
+    ThreeClicker.activeTime = new Date().getTime();
+}
+
+/**
+ * 三击触发尝试
+ *
+ * @returns true：成功触发三击，false：未满足触发三击
+ */
+ThreeClicker.tick = function () {
+    // 未进入激活状态
+    if (ThreeClicker.activeTime === 0)
+        return false;
+
+        // 与进入激活状态时间隔小于指定时间，则满足触发三击条件
+    if (new Date().getTime() - ThreeClicker.activeTime < 300)
+        return true;
+
+    // 超过指定时间隔音则恢复为未激活
+    ThreeClicker.activeTime = 0;
+    return false;
 }
 
 // ==================== 工具栏类 ==================== //
@@ -4532,7 +4594,6 @@ function FontStyler(mask) {
             + ", .mdx-content-expander"
             + ", .mdx-welcome-screen-loading"
             + ", .mdx-nav-center-header"
-            // + ", .mdx-nav-center-title"
             + ", .mdx-chapter-nav-prev-text"
             + ", .mdx-chapter-nav-current"
             + ", .mdx-chapter-nav-next-text"
@@ -4686,8 +4747,6 @@ function FootNote(mask) {
         window.location.href = "#xFooterArea";
     });
 
-    // VLOOK.ui.addAnimate(this.ui);
-
     // 遮罩
     this.mask = mask;
     this.mask.bindPartner(this, this.ui);
@@ -4710,10 +4769,6 @@ function FootNote(mask) {
                 "right" : "15%"
             });
 
-        // this.ui.css({
-        //     "bottom" : 90,
-        // });
-        // VLOOK.ui.show(this.ui);
         this.ui.show();
     }
 
@@ -4721,10 +4776,6 @@ function FootNote(mask) {
      * 隐藏脚注弹层
      */
     this.hide = function () {
-        // this.ui.css({
-        //     "bottom" : -this.ui.height()
-        // });
-        // VLOOK.ui.hide(this.ui);
         this.ui.hide();
         this.mask.hide();
     }
@@ -4766,7 +4817,7 @@ FootNote.init = function () {
         // 更新脚注弹层内容区
         iFootNote.content.html(target);
         // 移除默认的返回链接
-        target.find("a[name^='dfref-footnote']")[0].remove();
+        target.find("a[name^='dfref-footnote']").remove();
 
         // 显示脚注弹层
         iFootNote.show();
@@ -4774,6 +4825,8 @@ FootNote.init = function () {
 
     // 将脚注区锚点调整到生成HTML后的实际位置
     $("a[name='xFooterArea']").insertBefore(footnotesArea);
+
+    $("a[name^='dfref-footnote'").hide();
 }
 
 // ==================== 链接检查类 ==================== //
@@ -4880,10 +4933,6 @@ function LinkChecker(mask) {
      * 显示坏链列表
      */
     this.show = function () {
-        // that.ui.list.css({
-        //     "right" : 10
-        // });
-        // VLOOK.ui.show(that.ui.list);
         this.ui.list.show()
         that.mask.show();
     }
@@ -4892,10 +4941,6 @@ function LinkChecker(mask) {
      * 隐藏坏链列表
      */
     this.hide = function () {
-        // that.ui.list.css({
-        //     "right" : "var(--vlook-nav-center-hidden-left)"
-        // });
-        // VLOOK.ui.hide(this.ui.list);
         this.ui.list.hide()
         this.mask.hide();
 
@@ -4939,10 +4984,10 @@ function BackgroundMask(id, style, closer) {
         + '<svg height="24px" width="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()">'
         + '<use xlink:href="#icoVLOOK-dark"></use>'
         + '</svg>&nbsp;&nbsp;'
-        + '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.4) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">MAX°孟兆</a></strong>'
+        + '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.5) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">MAX°孟兆</a></strong>'
         + '</div></div>');
 
-    // 根据特效等级初始化遮罩样式
+    // 根据动效等级初始化遮罩样式
     VLOOK.ui.initEffects();
 
     this.ui = $(".mdx-mask." + id);
@@ -4958,8 +5003,6 @@ function BackgroundMask(id, style, closer) {
 
     this.partner = undefined;
     this.partnerUI = undefined;
-
-    // VLOOK.ui.addAnimate(this.ui, "opacity");
 
     /**
      * 绑定联动对象
@@ -5033,12 +5076,6 @@ function BackgroundMask(id, style, closer) {
         VLOOK.doc.scroll.unfreeze();
         VLOOK.doc.block = false;
 
-        // if (VLOOK.ui.existAnimate(this.partnerUI))
-        //     setTimeout(function () {
-        //         // VLOOK.ui.hide(that.ui);
-        //         that.ui.hide();
-        //     }, VLOOK.ui.animateDuration());
-        // else
         this.ui.hide();
     }
 }
@@ -5190,7 +5227,7 @@ function ContentFolding() {
         // 设置为已折叠
         container.attr("data-vk-content-folded", "true");
 
-        // 表格或 Mermaid 图表的特性处理
+        // 表格、Mermaid 图表的特性处理
         if (tagName === "table" || tagName === "svg") {
             container.css({
                 "height" : this.limit,
@@ -5202,7 +5239,7 @@ function ContentFolding() {
         else {
             container.css({
                 "height" : this.limit,
-                "overflow" : "hidden"
+                "overflow-y" : "hidden"
             });
         }
 
@@ -5264,6 +5301,11 @@ function ContentFolding() {
             if (tagName === "svg" || tagName === "table")
                 container.css({
                     "overflow" : "auto"
+                });
+            // 非表格、非 Mermaid 图表的处理
+            else
+                container.css({
+                    "overflow-y" : "initial"
                 });
 
             // 如果处理对象为表格，恢复显示表格行号，find 过滤器的的内容与对应的 css 要同步更新
@@ -5391,10 +5433,10 @@ function InfoTips(mask) {
     *
     * @param message 提示内容
     * @param delay 延时指定 ms 时间后自动关闭提示
-    * @param fullscreen 是否为全屏显示
     * @param mask 是否显示遮罩
+    * @param target 事件源，不为空时则跟随显示
     */
-    this.show = function (message, delay, fullscreen, mask) {
+    this.show = function (message, delay, mask, target) {
         clearTimeout(this.aniTimer);
 
         this.ui.html(message);
@@ -5408,31 +5450,23 @@ function InfoTips(mask) {
             "border-radius" : "var(--vlook-base-radius)"
         });
 
-        // 全屏显示
-        if (fullscreen === true) {
-            this.ui.css({
-                "display" : "table", // 配合子元素的 display: table-cell 实现内容的垂直居中
-                "width" : "100%",
-                "height" : "100%",
-                "left" : 0,
-                "top" : 0,
-                "right" : 0,
-                "bottom" : 0,
-                "border-radius" : 0
-            });
+        // 跟随事件源显示
+        if (target !== undefined) {
+            VLOOK.ui.moveToTarget(this.ui, target);
         }
-        // 非全屏显示
-        else {
+        // 居中显示
+        else
             VLOOK.ui.moveToCenter(this.ui);
-        }
 
         // VLOOK.ui.show(this.ui);
         this.ui.show();
 
-        if (delay != null) // 延时后自动关闭
+        // 延时后自动关闭
+        if (delay != null) {
             this.aniTimer = setTimeout(function () {
                     that.hide();
                 }, delay);
+        }
 
         // 显示遮罩
         if (mask === true)
@@ -5596,7 +5630,7 @@ CaptionGenerator.action = function (target) {
 
     if (fc != null && fc.trim().length > 0) {
         // 添加 <span> 用主要用于区分题注是默认无内容的，还是指定内容的
-        caption = caption + ": " + fc;
+        caption = caption + " - " + fc;
     }
 
     // 代码块
@@ -5692,7 +5726,7 @@ CaptionGenerator.actionForFigureLike = function (target, tagName) {
 
     // 有指定的题注文本
     if (fc != null && fc.trim().length > 0)
-        caption = caption + ": " + fc;
+        caption = caption + " - " + fc;
 
     // 为插图（mermaid）增加题注
     if (tagName === "svg") {
@@ -5762,7 +5796,7 @@ CaptionGenerator.actionForFigureLike = function (target, tagName) {
 CaptionGenerator.getCaptions = function (caption, tagName) {
     let fcSet = [], // 题注集
         captionTagName = caption.prop("tagName"),
-        hideCaptionSrc = false; // img 不隐藏题注，其他情况默认隐藏题注源
+        hideCaptionSrc = false; // 是否隐藏题注源
 
     // 双题注的标准语法
     if (getCaptionCount(caption) === 2) {
@@ -5776,11 +5810,17 @@ CaptionGenerator.getCaptions = function (caption, tagName) {
         fcSet[1] = null;
         hideCaptionSrc = true;
     }
-    // 无题注语法，但由 h6 引导ss
+    // 无题注语法，但由有 h6 引导
     else if (captionTagName !== undefined && captionTagName.toLowerCase() === "h6") {
         fcSet[0] = caption.text().trim();
         fcSet[1] = null;
-        hideCaptionSrc = true; // 不隐藏题注源
+        // 不能直接隐藏，会影响页内链接跳转至该位置
+        // 设置为不可见，并调整位置布局实现隐藏效果，同时不影响跳转
+        // hideCaptionSrc = false;
+        caption.css({
+            "visibility" : "hidden",
+            "position" : "absolute"
+        });
     }
 
     // 若成功匹配出题注，则隐藏原始内容
@@ -5859,7 +5899,7 @@ ExtCodeBlock.init = function () {
 /**
  * 复制代码块内容增强版（兼容所有浏览器）
  */
-ExtCodeBlock.copy = function () {
+ExtCodeBlock.copy = function (source) {
     VLOOK.report.push(['Interactive', 'CodeBlock', 'Copy', 0]);
     if (ContentAssist.lastHoverContent === undefined)
         return;
@@ -5877,18 +5917,19 @@ ExtCodeBlock.copy = function () {
     let clipboard = new ClipboardJS(btnCopyClassName);
     // 复制成功事件
     clipboard.on("success", function(e) {
-        // 显示复制成功提示
-        iInfoTips.show([
-            "已复制",
-            "已復制",
-            "Copied",
-            "Copié",
-            "Kopiert",
-            "Copiado",
-            "скопированный",
-            "コピー済み",
-            "복사"
-        ][VLOOK.lang.id], 2000, false, true);
+        // 显示已复制动效
+        let codeBlock = ContentAssist.lastHoverContent.children().find(".CodeMirror-sizer > div");
+        VLOOK.ui.removeAnimate(codeBlock);
+        codeBlock.css({
+            "background-color" : "var(--mark-color)"
+        });
+        // 延时后消退
+        setTimeout(function () {
+            VLOOK.ui.addAnimate(codeBlock);
+            codeBlock.css({
+                "background-color" : "inherit"
+            });
+        }, 500);
 
         e.clearSelection();
     });
@@ -5905,7 +5946,7 @@ ExtCodeBlock.copy = function () {
             "Я очень сожалею ~ Я не поддерживаю копирование в этом браузере",
             "すみません〜このブラウザでのコピーはサポートしていません",
             "죄송합니다 ~이 브라우저에서 복사를 지원하지 않습니다"
-        ][VLOOK.lang.id], 3000, false, true);
+        ][VLOOK.lang.id], 3000, false, source);
     });
 }
 
@@ -5938,7 +5979,8 @@ ExtQuote.init = function () {
                 // "background" : "none",
                 "display" : "none"
             });
-            target.html(target.html().replace("[+] ", "<span class='mdx-blockquote-folder'>" + ExtQuote.icoClosed) + "</span>"); // ▶
+            // target.html(target.html().replace("[+] ", "<span class='mdx-blockquote-folder'>" + ExtQuote.icoClosed) + "</span>"); // ▶
+            target.replaceHTML("[+] ", "<span class='mdx-blockquote-folder'>" + ExtQuote.icoClosed + "</span>"); // ▶
 
             target.attr("data-vk-blockquote-folded", "true");
 
@@ -5955,7 +5997,8 @@ ExtQuote.init = function () {
             separateTitle(target);
 
             target.css("color", "var(--header-color)");
-            target.html(target.html().replace("[-] ", "<span class='mdx-blockquote-folder'>" + ExtQuote.icoOpened) + "</span>"); // ⊖▽
+            // target.html(target.html().replace("[-] ", "<span class='mdx-blockquote-folder'>" + ExtQuote.icoOpened) + "</span>"); // ⊖▽
+            target.replaceHTML("[-] ", "<span class='mdx-blockquote-folder'>" + ExtQuote.icoOpened + "</span>"); // ⊖▽
 
             target.attr("data-vk-blockquote-folded", "false");
 
@@ -6139,7 +6182,7 @@ ExtTable.init = function () {
         let table = $(this);
         RowGroup.init(table);
 
-        // 修正目录行的首个单元格的缩进
+        // 修正行分组的首个单元格的缩进
         table.find("tr[data-vk-folder='true']").each(function () {
             let td = $(this).children("td:first");
             if (td.attr("data-vk-ident-level") !== undefined)
@@ -6163,6 +6206,15 @@ ExtTable.init = function () {
     });
     stopwatch.lapStop("    └ Table/Row Folding: ");
 
+    // ----------------------------------------
+    // 表格单元格重复表头引用处理，group 模式重复将在行分组展开/收起时再进行处理
+    stopwatch.lapStart();
+    $("table[data-vk-th-rpt='true']").each(function () {
+        let table = $(this);
+        ThRepeater.init(table);
+    });
+    stopwatch.lapStop("    └ Table/Th Repeater: ");
+
     /**
      * 表格单元格初始化
      *
@@ -6170,22 +6222,24 @@ ExtTable.init = function () {
      */
     function initCell(table) {
         // 遍历表格「列头」行
-        let colIndex = 0;
+        let colIndex = 0,
+            maxCol = 0;
         table.find("thead > tr").each(function () {
             colIndex = 0;
             let needCheckCellMerge = true,
-                needCheckColumnFormatting = true;
+                needCheckColumnFormatting = true,
+                needCheckThRpt = true;
 
             // 遍历单元格
             $(this).find("th").each(function () {
-                let cell = $(this);
+                let th = $(this);
 
                 // ---------- 表格排版增强预处理 ----------
                 // 检测是否带合并单元格语法
                 if (needCheckCellMerge === true
                     && table.attr("data-vk-cell-merge") !== "true"
-                    && (CellMerge.syntax.row.test(cell.text()) === true
-                        || CellMerge.syntax.col.test(cell.text()) === true)) {
+                    && (CellMerge.syntax.row.test(th.text()) === true
+                        || CellMerge.syntax.col.test(th.text()) === true)) {
                     // 将表格标记为带合并单元格语法
                     table.attr("data-vk-cell-merge", "true");
                     needCheckCellMerge = false;
@@ -6193,20 +6247,34 @@ ExtTable.init = function () {
 
                 // 检测是否带列格式语法
                 if (needCheckColumnFormatting === true) {
-                    if (ColumnFormatting.init(table, cell) === true)
+                    if (ColumnFormatting.init(table, th) === true)
                         needCheckColumnFormatting = false;
+                }
+
+                // 检测是否带重复表头语法
+                if (needCheckThRpt === true
+                    && colIndex === 0 // 只检测第 1 列
+                    && ThRepeater.syntax.tag.test(th.text()) === true) {
+                    // 将表格标记为带行折叠语法
+                    table.attr("data-vk-th-rpt", "true");
+                    // th.html(th.html().replaceAll(" ##", ""));
+                    th.replaceHTML(" ##", "");
+                    needCheckThRpt = false;
                 }
 
                 // ---------- 单元格高亮样式处理 ----------
                 // 添加列号标识，用于列格式化时使用
-                cell.attr("data-vk-tbl-col", "data-vk-tbl-" + VLOOK.doc.counter.table + "-" + colIndex);
+                th.attr("data-vk-tbl-col", "data-vk-tbl-" + VLOOK.doc.counter.table + "-" + colIndex);
                 colIndex++;
 
                 // ---------- 非列头的单元格十字光标处理 ----------
                 // 鼠标点击单元格时显示十字光标
-                CellCross.bind(table, cell);
+                CellCross.bind(table, th);
             });
+            if (colIndex > maxCol)
+                maxCol = colIndex;
         });
+        table.attr("data-vk-max-col", maxCol);
 
         // 遍历表格「非列头」行
         table.find("tbody > tr").each(function () {
@@ -6216,14 +6284,16 @@ ExtTable.init = function () {
 
             // 遍历单元格
             $(this).find("td").each(function () {
-                let cell = $(this);
+                let td = $(this);
+                // 添加列号标识，用于列格式化时使用
+                td.attr("data-vk-tbl-col", "data-vk-tbl-" + VLOOK.doc.counter.table + "-" + colIndex);
 
                 // ---------- 表格排版增强预处理 ----------
                 // 检测是否带合并单元格语法
                 if (needCheckCellMerge === true
                     && table.attr("data-vk-cell-merge") !== "true"
-                    && (CellMerge.syntax.row.test(cell.text()) === true
-                        || CellMerge.syntax.col.test(cell.text()) === true)) {
+                    && (CellMerge.syntax.row.test(td.text()) === true
+                        || CellMerge.syntax.col.test(td.text()) === true)) {
                     // 将表格标记为带合并单元格语法
                     table.attr("data-vk-cell-merge", "true");
                     needCheckCellMerge = false;
@@ -6233,7 +6303,7 @@ ExtTable.init = function () {
                 if (needCheckRowGroup === true
                     && colIndex === 0 // 只检测第 1 列
                     && table.attr("data-vk-row-group") !== "true"
-                    && RowGroup.syntax.tag.test(cell.text()) === true) {
+                    && RowGroup.syntax.tag.test(td.text()) === true) {
                     // 将表格标记为带行折叠语法
                     table.attr("data-vk-row-group", "true");
                     needCheckRowGroup = false;
@@ -6241,21 +6311,17 @@ ExtTable.init = function () {
 
                 // 对于单元格的内容，都以 <mark> 标签包裹的，则转换为单元格的样式
                 // 同时转换后，在 Table.columnFormatting 的 init 处理中对应添加对应的过滤条件
-                if (/^<mark>.+<\/mark>$/.test(cell.html()) === true) {
-                    cell.children().children().unwrap(); // 解包 <mark>
-                    cell.addClass("mdx-table-column-format-mark");
+                if (/^<mark>.+<\/mark>$/.test(td.html()) === true) {
+                    td.children().children().unwrap(); // 解包 <mark>
+                    td.addClass("mdx-table-column-format-mark");
                 }
 
-                // ---------- 单元格高亮样式处理 ----------
-                // 添加列号标识，用于列格式化时使用
-                cell.attr("data-vk-tbl-col", "data-vk-tbl-" + VLOOK.doc.counter.table + "-" + colIndex);
                 colIndex++;
 
                 // ---------- 列头的单元格十字光标处理 ----------
                 // 鼠标点击单元格时显示十字光标
-                CellCross.bind(table, cell);
+                CellCross.bind(table, td);
             }); // find(th, td)
-            // colIndex = 0;
         }); // find(tr)
     }
 }
@@ -6295,7 +6361,7 @@ CellMerge.dispose = function (table) {
         tr.find("td, th").each(function () {
             let cell = $(this);
 
-            // --- 行合并预处理 ---
+            // --- 行合并：预处理（纵向） ---
             // 克隆表格数据
             tblData[rowIndex][colIndex] = cell;
             tblSpan[rowIndex][colIndex] = 0;
@@ -6306,7 +6372,7 @@ CellMerge.dispose = function (table) {
             colIndex++;
             colCount++;
 
-            // --- 列合并 ---
+            // --- 列合并（横向） ---
             // 是列合并标记
             if (CellMerge.syntax.col.test(cell.text()) === true) {
                 colSpanCount++;
@@ -6319,6 +6385,7 @@ CellMerge.dispose = function (table) {
                 if (colSpanCount > 0 && colSpanCell != null) {
                     colSpanCell.attr("colspan", colSpanCount + 1);
                     colSpanCell.css("text-align", "center");
+                    // colSpanCell.css("vertical-align", "middle");
                 }
                 colSpanCount = 0;
             }
@@ -6331,10 +6398,11 @@ CellMerge.dispose = function (table) {
             tr.children().css("padding-left", "5px");
         }
 
-        // 列合并（对于最后一列的补充处理）
+        // 列合并：对于最后一列的补充处理
         if (colSpanCount > 0 && colSpanCell != null) {
             colSpanCell.attr("colspan", colSpanCount + 1);
             colSpanCell.css("text-align", "center");
+            // colSpanCell.css("vertical-align", "middle");
         }
         colSpanCount = 0;
 
@@ -6345,7 +6413,7 @@ CellMerge.dispose = function (table) {
 
     rowIndex = 0;
 
-    // 行合并
+    // --- 行合并（纵向）---
     if (needRowSpan === true) {
         tblTd2ThData = [];
         // 列式遍历（从左到右）
@@ -6377,16 +6445,20 @@ CellMerge.dispose = function (table) {
                     // 单元格行合并
                     if (rowSpanCount > 0 && rowSpanCell != null) {
                         rowSpanCell.attr("rowspan", rowSpanCount + 1);
+                        // rowSpanCell.css("text-align", "center");
+                        // rowSpanCell.css("vertical-align", "middle");
                         rowSpanCount = 0;
                         rowSpanCell = null;
                     }
                 }
                 r++;
             } // while
-            // 单元格行合并（对于最后一行的补充处理）
+
+            // 行合并：对于最后一行的补充处理
             if (rowSpanCount > 0 && rowSpanCell != null) {
                 rowSpanCell.attr("rowspan", rowSpanCount + 1);
                 rowSpanCell.css("text-align", "center");
+                // rowSpanCell.css("vertical-align", "middle");
             }
         } // for
 
@@ -6399,14 +6471,16 @@ CellMerge.dispose = function (table) {
                 let style = $(this).attr("style"),
                     tblCol = $(this).attr("data-vk-tbl-col"),
                     classValue = $(this).attr("class"),
-                    colspan = $(this).attr("data-vk-colspan");
+                    colspan = $(this).attr("data-vk-colspan"),
+                    td = $(this);
                 // 转换为 th 标签
-                let th = $(this).contents().unwrap().wrap('<th/>');
+                // let th = $(this).contents().unwrap().wrap('<th/>');
+                td.prop("outerHTML", td.prop("outerHTML").replaceAll("<td ", "<th "));
                 // 将暂存的 td 的属性数据，恢复到新标签中
-                th.parent().attr("style", style);
-                th.parent().attr("data-vk-tbl-col", tblCol);
-                th.parent().attr("class", classValue);
-                th.parent().attr("data-vk-colspan", colspan);
+                td.parent().attr("style", style);
+                td.parent().attr("data-vk-tbl-col", tblCol);
+                td.parent().attr("class", classValue);
+                td.parent().attr("data-vk-colspan", colspan);
             });
         }
     } // if
@@ -6448,7 +6522,7 @@ CellCross.bind = function (table, cell) {
         if (table.parent().parent().attr("data-vk-content-folded") === "true")
             return;
 
-        // 不同表格之间点击，先强制移除动画
+        // vvv 不同表格之间点击，先强制移除动画 vvv
         if (CellCross.lastTable !== table)
             VLOOK.ui.removeAnimate(CellCross.ui);
 
@@ -6634,7 +6708,8 @@ ColumnFormatting.format = function (table) {
             cellsCSS += "mdx-table-column-format-em ";
         }
         // 高亮
-        if (th.find("mark:first-child").length > 0
+        let thHTML = th.html();
+        if (thHTML.startsWith("<mark") && thHTML.endWith("</mark>")
             || th.attr("class") !== undefined
             && th.attr("class").indexOf("mdx-table-column-format-mark") > -1) {
             $("[data-vk-tbl-col='" + th.attr("data-vk-tbl-col") + "']").find("mark").children().unwrap();
@@ -6810,7 +6885,7 @@ RowGroup.icon = {
     opened : '<svg width="12px" height="12px" style="display: inline-block; vertical-align: middle; margin-top: -4px; margin-right: 5px;"><use xlink:href="#icoRowGroupOpened" class="mdx-folder2-ico"/></svg>'
 }
 
-RowGroup.folderCount = 0; // 折叠行内目录行类型的数量
+RowGroup.folderCount = 0; // 折叠行内行分组类型的数量
 
 RowGroup.syntax = {
     tag : /^>+(\s)./, // 用于匹配行折叠语法
@@ -6819,9 +6894,7 @@ RowGroup.syntax = {
 // RowGroup.syntax
 
 RowGroup.spliter = "> "; // 行折叠语法与内容的分隔标识
-
 RowGroup.parentStack = []; // 上级行的堆栈
-
 RowGroup.colorStack = []; // 不同分组的背景颜色堆栈
 
 /**
@@ -6860,7 +6933,7 @@ RowGroup.init = function (table) {
         if (currentLevel > lastLevel) {
             let beforeChanged = lastLevel;
             lastLevel = currentLevel;
-            // 设置为新的目录行
+            // 设置为新的行分组
             let bgColor = randomColor.format(randomColor.dissimilarRgb(), "var(--table-rowgroup-alpha)"); // light 和 dark 使用不同的透明度
 
             RowGroup.newFolder(tr, bgColor, currentLevel, beforeChanged === 0);
@@ -6897,7 +6970,7 @@ RowGroup.init = function (table) {
 }
 
 /**
- * 获得最近一个分组目录行对象
+ * 获得最近一个分组行分组对象
  */
 RowGroup.lastParent = function () {
     return RowGroup.parentStack[RowGroup.parentStack.length - 1];
@@ -6911,7 +6984,7 @@ RowGroup.lastColor = function () {
 }
 
 /**
- * 设置为新的目录行
+ * 设置为新的行分组
  *
  * @param tr 对应的行对象
  * @param color 该分组背景色
@@ -6922,12 +6995,12 @@ RowGroup.newFolder = function (tr, color, level, reset) {
     let folderRow = tr.prev();
     RowGroup.folderCount++;
 
-    // 将当前目录行的 id 入栈
+    // 将当前行分组的 id 入栈
     RowGroup.parentStack.push(RowGroup.folderCount);
     // 生成分组的随机背景颜色
     RowGroup.colorStack.push(color);
 
-    // 设置折叠目录行的属性
+    // 设置折叠行分组的属性
     folderRow.attr("data-vk-folder-id", RowGroup.folderCount);
     folderRow.attr("data-vk-folder", "true");
     folderRow.attr("data-vk-row-folded", "true");
@@ -6951,7 +7024,7 @@ RowGroup.newFolder = function (tr, color, level, reset) {
         });
     }
 
-    // 获得折叠目录行首个单元格
+    // 获得折叠行分组首个单元格
     let td = folderRow.children("td:first"),
         tdSpan = td.children("span"),
         tdHadIdent = td.children(".mdx-table-rowfolding-identer:last");
@@ -6985,7 +7058,7 @@ RowGroup.toggle = function (folderRow) {
     // 取消事件冒泡，用于避免显示表格的十字光标
     event.stopPropagation();
 
-    // 处理目录行的打开、关闭
+    // 处理行分组的打开、关闭
     if (folderRow.attr("data-vk-row-folded") === "true")
         RowGroup.open(folderRow);
     else
@@ -7031,11 +7104,12 @@ RowGroup.ident = function (tr, td, level) {
 }
 
 /**
- * 打开表格目录行
+ * 展开表格行分组
  *
- * @param folderRow 目录行对象
+ * @param folderRow 行分组对象
  */
 RowGroup.open = function (folderRow) {
+    // 处理展开行分组
     let id = folderRow.attr("data-vk-folder-id"),
         subRows = $("tr[data-vk-parent-folder-id='" + id + "']"),
         folderButton = folderRow.children("td:first").children(".mdx-table-rowfolding-button:last");
@@ -7043,14 +7117,40 @@ RowGroup.open = function (folderRow) {
     folderRow.attr("data-vk-row-folded", "false");
     folderButton.prop("innerHTML", RowGroup.icon.opened);
     subRows.css("display", "");
+
+    // 如表格指定了重复表头则进行对应处理
+    let table = folderRow.parent().parent(),
+        thRow = table.find("thead > tr:last-child");
+    if (table.attr("data-vk-th-rpt") === "group") {
+        // 从第 2 列开始进行处理
+        folderRow.find("td:not(:first-child)").each(function () {
+            let td = $(this),
+                tdHTML = td.html().trim();
+            // console.log("'" + td.text().trim() + "'", td.text().trim().length);
+            if (tdHTML.length === 0 || tdHTML === "&nbsp;") {
+                let colID = td.attr("data-vk-tbl-col"),
+                    th = thRow.find("th[data-vk-tbl-col='" + colID + "']").html();
+                // 如果对应的列头可能因向下合并单元格为空时，尝试找上一行对应的列头
+                if (th === undefined) {
+                    let prevThRow = thRow.prev();
+                    if (prevThRow !== undefined)
+                        th = prevThRow.find("th[data-vk-tbl-col='" + colID + "']").html();
+                }
+                // 临时将行分组中的单元格替换为对应的列头
+                td.html(th);
+                td.addClass("mdx-th-repeater");
+            }
+        });
+    }
 }
 
 /**
- * 关闭折叠表格目录行
+ * 折叠表格行分组
  *
- * @param folderRow 目录行对象
+ * @param folderRow 行分组对象
  */
 RowGroup.close = function (folderRow) {
+    // 处理折叠行分组
     let id = folderRow.attr("data-vk-folder-id"),
         subRows = $("tr[data-vk-parent-folder-id='" + id + "']"),
         folderButton = folderRow.children("td:first").children(".mdx-table-rowfolding-button:last");
@@ -7058,15 +7158,97 @@ RowGroup.close = function (folderRow) {
     folderRow.attr("data-vk-row-folded", "true");
     folderButton.prop("innerHTML", RowGroup.icon.closed);
 
-    // 折叠所有子行（包括目录行）
+    // 折叠所有子行（包括行分组）
     subRows.each(function () {
         let tr = $(this);
         if (tr.attr("data-vk-folder") === "true")
             RowGroup.close(tr);
         tr.css("display", "table-column");
     });
+
+    // 如表格指定了重复表头则进行对应处理
+    let table = folderRow.parent().parent(),
+        thRow = table.children("thead > tr:last-child");
+    if (table.attr("data-vk-th-rpt") === "group") {
+        // 从第 2 列开始进行处理
+        folderRow.find("td:not(:first-child)").each(function () {
+            let td = $(this),
+                colID = td.attr("data-vk-tbl-col");
+            // 将行分组中临时替换的列头删除
+            if (td.attr("class").indexOf("mdx-th-repeater") > -1) {
+                td.html("");
+                td.removeClass("mdx-th-repeater");
+            }
+        });
+    }
 }
 
+// ==================== 表格列头重复生成器 ==================== //
+
+function ThRepeater() {}
+
+ThRepeater.syntax = {
+    tag : /.+(\s##)$/ // 用于匹配表格列头重复的语法
+}
+
+/**
+ * 初始化重复表头处理
+ */
+ThRepeater.init = function (table) {
+    let hasRowGroup = table.attr("data-vk-row-group") === "true";
+
+    // 带行分组时，表头重复模式为 group，其他则为 page
+    table.attr("data-vk-th-rpt", hasRowGroup ? "group" : "page");
+    if (hasRowGroup)
+        return;
+
+    // 处理 page 模式的表头重复
+    let rowIndex = 1,
+        pageSize = 15 + rowIndex,
+        thRow = table.find("thead > tr"),
+        skipRowCount = 0,
+        lastSkipRowCount = 0,
+        tbody = table.find("tbody > tr"),
+        rowCount = tbody.length;
+    tbody.each(function () {
+        let tr = $(this),
+            td = tr.children("td[rowspan]");
+
+        // 跳过有跨行合并的行
+        if (tr.text(), td.length > 0) {
+            td.each(function () {
+                let rowSpan = parseInt($(this).attr("rowspan"));
+                if (rowSpan > skipRowCount)
+                skipRowCount = rowSpan - 1;
+                lastSkipRowCount = skipRowCount - 1;
+            });
+        }
+
+        // 每 15 行为 1 页
+        if (skipRowCount === 0 && rowIndex % (pageSize + lastSkipRowCount - 1) === 0
+            && rowIndex < rowCount) {
+            let colIndex = 0;
+            thRow.each(function () {
+                tr.after($(this).prop("outerHTML").replaceAll("<th ", "<td "));
+                tr.next().children("td").addClass("mdx-th-repeater");
+                if (colIndex === 0)
+                    tr.next().children(".mdx-th-repeater").addClass("first");
+                else
+                    tr.next().children(".mdx-th-repeater").addClass("not-first");
+                tr = tr.next();
+                colIndex++;
+            });
+        }
+        rowIndex++;
+
+        // 未完成须跳过的行
+        if (skipRowCount > 0)
+            skipRowCount--;
+        // 已完成须跳过的行
+        else
+            lastSkipRowCount = 0;
+    });
+}
 
 // ==================== 音频增强类 ==================== //
 
@@ -7745,8 +7927,6 @@ function TocCatalog(hidden) {
             // 跳转至对应的页内锚点
             let hash = $("#" + item.attr("id")).children("a").attr("href");
             window.location.href = hash;
-            // 微调滚动条位置
-            VLOOK.ui.tuningScrollTop(hash.substring(1, hash.length));
 
             // 触发锚点点击事件
             typeof(that.onClickHash) == "function" && that.onClickHash();
@@ -8166,8 +8346,6 @@ TocIndex.add = function (indexObj, text, anchor) {
         item.addClass("mdx-toc-item-current");
 
         window.location.href = "#" + anchor;
-        // 微调滚动条位置
-        VLOOK.ui.tuningScrollTop(anchor);
 
         // 触发锚点点击事件
         typeof(indexObj.onClickHash) == "function" && indexObj.onClickHash();
@@ -8598,12 +8776,6 @@ function TocHistory(hidden) {
         // VLOOK.ui.addAnimate(item);
         item.unbind("click").click(function () {
             window.location.href = hash;
-            // 微调滚动条位置
-            if (anchor.startsWith("vk-idx-"))
-                VLOOK.ui.tuningScrollTop(anchor);
-            else
-                VLOOK.ui.tuningScrollTop(anchorText);
-
             // 触发锚点点击事件
             typeof(that.onClickHash) == "function" && that.onClickHash();
         });
@@ -9267,8 +9439,6 @@ function FigureNav() {
         newFig.unbind("click").click(function () {
             // 跳转到对应位置
             window.location.href = "#vk-idx-fig-num" + that.figNum;
-            // 微调滚动条位置
-            VLOOK.ui.tuningScrollTop("vk-idx-fig-num" + that.figNum);
 
             that.hide();
         });
@@ -10193,16 +10363,16 @@ VLOOKui.loadWelcomeScreen = function () {
         metaContent = defalutContent;
     // --------------------------------------------------
     // 欢迎屏
-    ui += '<div class="mdx-welcome-screen">';
-    // 文档专属图标
-    ui += '<div class="mdx-doc-logo-light"></div><div class="mdx-doc-logo-dark"></div>';
-    // 欢迎信息
-    ui += '<div class="mdx-welcome-screen-tips">';
-    ui += metaContent.trim();
-    ui += '</div>';
-    // 文档加载进度及进入按钮
-    ui += '<div class="mdx-welcome-screen-loading">Loading...</div>';
-    ui += '</div>';
+    ui += '<div class="mdx-welcome-screen">'
+        // 文档专属图标
+        + '<div class="mdx-doc-logo-light"></div><div class="mdx-doc-logo-dark"></div>'
+        // 欢迎信息
+        + '<div class="mdx-welcome-screen-tips">'
+        + metaContent.trim()
+        + '</div>'
+        // 文档加载进度及进入按钮
+        + '<div class="mdx-welcome-screen-loading">Loading...</div>'
+        + '</div>';
     return ui;
 }
 
@@ -10212,250 +10382,250 @@ VLOOKui.loadWelcomeScreen = function () {
 VLOOKui.loadIconSet = function () {
     let ui = '<svg style="display: none;">';
     // SVG 图标集：图标|VLOOK LOGO for Light Mode
-    ui += '<symbol id="icoVLOOK-light">';
-    ui += '<g id="VLOOK-light" fill="#303438">';
-    ui += '<path d="M17.1496192,2.76763582e-16 C19.5316459,-1.60807611e-16 20.3954263,0.24801843 21.2662596,0.713745193 C22.1370929,1.17947196 22.820528,1.86290705 23.2862548,2.73374039 C23.7519816,3.60457372 24,4.46835414 24,6.85038077 L24,17.1496192 C24,19.5316459 23.7519816,20.3954263 23.2862548,21.2662596 C22.820528,22.1370929 22.1370929,22.820528 21.2662596,23.2862548 C20.3954263,23.7519816 19.5316459,24 17.1496192,24 L6.85038077,24 C4.46835414,24 3.60457372,23.7519816 2.73374039,23.2862548 C1.86290705,22.820528 1.17947196,22.1370929 0.713745193,21.2662596 C0.24801843,20.3954263 1.07205074e-16,19.5316459 -1.84509055e-16,17.1496192 L1.84509055e-16,6.85038077 C-1.07205074e-16,4.46835414 0.24801843,3.60457372 0.713745193,2.73374039 C1.17947196,1.86290705 1.86290705,1.17947196 2.73374039,0.713745193 C3.60457372,0.24801843 4.46835414,1.60807611e-16 6.85038077,-2.76763582e-16 L17.1496192,2.76763582e-16 Z M12.2146664,16.9756299 C12.1180865,16.895267 11.9779135,16.895267 11.8813336,16.9756299 L11.8813336,16.9756299 L10.9253862,17.7710616 C10.8229145,17.856327 10.8013222,18.0051829 10.875344,18.1160496 L10.875344,18.1160496 L11.8312914,19.5478266 C11.8503268,19.576337 11.8748008,19.600811 11.9033112,19.6198464 C12.0229961,19.6997558 12.1847992,19.6675114 12.2647086,19.5478266 L12.2647086,19.5478266 L13.220656,18.1160496 C13.2946778,18.0051829 13.2730855,17.856327 13.1706138,17.7710616 L13.1706138,17.7710616 Z M7.27085714,9.29167619 C4.87236337,9.29167619 2.928,11.2331323 2.928,13.6280398 C2.928,16.0229473 4.87236337,17.9644035 7.27085714,17.9644035 C9.66935091,17.9644035 11.6137143,16.0229473 11.6137143,13.6280398 C11.6137143,11.2331323 9.66935091,9.29167619 7.27085714,9.29167619 Z M16.8251429,9.29167619 C14.4266491,9.29167619 12.4822857,11.2331323 12.4822857,13.6280398 C12.4822857,16.0229473 14.4266491,17.9644035 16.8251429,17.9644035 C19.2236366,17.9644035 21.168,16.0229473 21.168,13.6280398 C21.168,11.2331323 19.2236366,9.29167619 16.8251429,9.29167619 Z M7.27085714,10.5925853 C8.94980278,10.5925853 10.3108571,11.9516046 10.3108571,13.6280398 C10.3108571,15.3044751 8.94980278,16.6634944 7.27085714,16.6634944 C5.5919115,16.6634944 4.23085714,15.3044751 4.23085714,13.6280398 C4.23085714,11.9516046 5.5919115,10.5925853 7.27085714,10.5925853 Z M16.8251429,10.5925853 C18.5040885,10.5925853 19.8651429,11.9516046 19.8651429,13.6280398 C19.8651429,15.3044751 18.5040885,16.6634944 16.8251429,16.6634944 C15.1461972,16.6634944 13.7851429,15.3044751 13.7851429,13.6280398 C13.7851429,11.9516046 15.1461972,10.5925853 16.8251429,10.5925853 Z M19.7076586,5.41807306 C19.5576382,5.09691923 19.1785253,4.95542019 18.8553524,5.09721484 L18.8553524,5.09721484 L18.84192,5.10328717 L12.047,7.93263636 L5.25388278,5.10328717 L5.24045038,5.09721484 C4.91727744,4.95542019 4.53816455,5.09691923 4.38814418,5.41807306 C4.2360402,5.74368736 4.37695721,6.13068784 4.70306552,6.28244085 L4.70306552,6.28244085 L11.738187,9.21340744 L11.7516194,9.21947977 C11.8488977,9.26216139 11.9512445,9.2791746 12.0508883,9.27366779 C12.1486432,9.27848497 12.2488474,9.26130919 12.3441834,9.21947977 L12.3441834,9.21947977 L12.3576158,9.21340744 L19.3927372,6.28244085 L19.4770033,6.23544395 C19.7420451,6.06083144 19.8459349,5.71408606 19.7076586,5.41807306 Z"></path>';
-    ui += '</g>';
-    ui += '</symbol>';
+    ui += '<symbol id="icoVLOOK-light">'
+        + '<g id="VLOOK-light" fill="#303438">'
+        + '<path d="M17.1496192,2.76763582e-16 C19.5316459,-1.60807611e-16 20.3954263,0.24801843 21.2662596,0.713745193 C22.1370929,1.17947196 22.820528,1.86290705 23.2862548,2.73374039 C23.7519816,3.60457372 24,4.46835414 24,6.85038077 L24,17.1496192 C24,19.5316459 23.7519816,20.3954263 23.2862548,21.2662596 C22.820528,22.1370929 22.1370929,22.820528 21.2662596,23.2862548 C20.3954263,23.7519816 19.5316459,24 17.1496192,24 L6.85038077,24 C4.46835414,24 3.60457372,23.7519816 2.73374039,23.2862548 C1.86290705,22.820528 1.17947196,22.1370929 0.713745193,21.2662596 C0.24801843,20.3954263 1.07205074e-16,19.5316459 -1.84509055e-16,17.1496192 L1.84509055e-16,6.85038077 C-1.07205074e-16,4.46835414 0.24801843,3.60457372 0.713745193,2.73374039 C1.17947196,1.86290705 1.86290705,1.17947196 2.73374039,0.713745193 C3.60457372,0.24801843 4.46835414,1.60807611e-16 6.85038077,-2.76763582e-16 L17.1496192,2.76763582e-16 Z M12.2146664,16.9756299 C12.1180865,16.895267 11.9779135,16.895267 11.8813336,16.9756299 L11.8813336,16.9756299 L10.9253862,17.7710616 C10.8229145,17.856327 10.8013222,18.0051829 10.875344,18.1160496 L10.875344,18.1160496 L11.8312914,19.5478266 C11.8503268,19.576337 11.8748008,19.600811 11.9033112,19.6198464 C12.0229961,19.6997558 12.1847992,19.6675114 12.2647086,19.5478266 L12.2647086,19.5478266 L13.220656,18.1160496 C13.2946778,18.0051829 13.2730855,17.856327 13.1706138,17.7710616 L13.1706138,17.7710616 Z M7.27085714,9.29167619 C4.87236337,9.29167619 2.928,11.2331323 2.928,13.6280398 C2.928,16.0229473 4.87236337,17.9644035 7.27085714,17.9644035 C9.66935091,17.9644035 11.6137143,16.0229473 11.6137143,13.6280398 C11.6137143,11.2331323 9.66935091,9.29167619 7.27085714,9.29167619 Z M16.8251429,9.29167619 C14.4266491,9.29167619 12.4822857,11.2331323 12.4822857,13.6280398 C12.4822857,16.0229473 14.4266491,17.9644035 16.8251429,17.9644035 C19.2236366,17.9644035 21.168,16.0229473 21.168,13.6280398 C21.168,11.2331323 19.2236366,9.29167619 16.8251429,9.29167619 Z M7.27085714,10.5925853 C8.94980278,10.5925853 10.3108571,11.9516046 10.3108571,13.6280398 C10.3108571,15.3044751 8.94980278,16.6634944 7.27085714,16.6634944 C5.5919115,16.6634944 4.23085714,15.3044751 4.23085714,13.6280398 C4.23085714,11.9516046 5.5919115,10.5925853 7.27085714,10.5925853 Z M16.8251429,10.5925853 C18.5040885,10.5925853 19.8651429,11.9516046 19.8651429,13.6280398 C19.8651429,15.3044751 18.5040885,16.6634944 16.8251429,16.6634944 C15.1461972,16.6634944 13.7851429,15.3044751 13.7851429,13.6280398 C13.7851429,11.9516046 15.1461972,10.5925853 16.8251429,10.5925853 Z M19.7076586,5.41807306 C19.5576382,5.09691923 19.1785253,4.95542019 18.8553524,5.09721484 L18.8553524,5.09721484 L18.84192,5.10328717 L12.047,7.93263636 L5.25388278,5.10328717 L5.24045038,5.09721484 C4.91727744,4.95542019 4.53816455,5.09691923 4.38814418,5.41807306 C4.2360402,5.74368736 4.37695721,6.13068784 4.70306552,6.28244085 L4.70306552,6.28244085 L11.738187,9.21340744 L11.7516194,9.21947977 C11.8488977,9.26216139 11.9512445,9.2791746 12.0508883,9.27366779 C12.1486432,9.27848497 12.2488474,9.26130919 12.3441834,9.21947977 L12.3441834,9.21947977 L12.3576158,9.21340744 L19.3927372,6.28244085 L19.4770033,6.23544395 C19.7420451,6.06083144 19.8459349,5.71408606 19.7076586,5.41807306 Z"></path>'
+        + '</g>'
+        + '</symbol>'
     // SVG 图标集：图标|VLOOK LOGO for Dark Mode
-    ui += '<symbol id="icoVLOOK-dark">';
-    ui += '<g id="VLOOK-dark" fill="#FFFFFF">';
-    ui += '<path d="M17.1496192,-1.49959326e-15 C19.5316459,-1.93716445e-15 20.3954263,0.24801843 21.2662596,0.713745193 C22.1370929,1.17947196 22.820528,1.86290705 23.2862548,2.73374039 C23.7519816,3.60457372 24,4.46835414 24,6.85038077 L24,17.1496192 C24,19.5316459 23.7519816,20.3954263 23.2862548,21.2662596 C22.820528,22.1370929 22.1370929,22.820528 21.2662596,23.2862548 C20.3954263,23.7519816 19.5316459,24 17.1496192,24 L6.85038077,24 C4.46835414,24 3.60457372,23.7519816 2.73374039,23.2862548 C1.86290705,22.820528 1.17947196,22.1370929 0.713745193,21.2662596 C0.24801843,20.3954263 1.07205074e-16,19.5316459 -1.84509055e-16,17.1496192 L1.84509055e-16,6.85038077 C-1.07205074e-16,4.46835414 0.24801843,3.60457372 0.713745193,2.73374039 C1.17947196,1.86290705 1.86290705,1.17947196 2.73374039,0.713745193 C3.60457372,0.24801843 4.46835414,-1.61554923e-15 6.85038077,-2.05312042e-15 L17.1496192,-1.49959326e-15 Z M12.1666664,16.9756299 C12.0700865,16.895267 11.9299135,16.895267 11.8333336,16.9756299 L11.8333336,16.9756299 L10.8773862,17.7710616 C10.7749145,17.856327 10.7533222,18.0051829 10.827344,18.1160496 L10.827344,18.1160496 L11.7832914,19.5478266 C11.8023268,19.576337 11.8268008,19.600811 11.8553112,19.6198464 C11.9749961,19.6997558 12.1367992,19.6675114 12.2167086,19.5478266 L12.2167086,19.5478266 L13.172656,18.1160496 C13.2466778,18.0051829 13.2250855,17.856327 13.1226138,17.7710616 L13.1226138,17.7710616 Z M7.22285714,9.29167619 C4.82436337,9.29167619 2.88,11.2331323 2.88,13.6280398 C2.88,16.0229473 4.82436337,17.9644035 7.22285714,17.9644035 C9.62135091,17.9644035 11.5657143,16.0229473 11.5657143,13.6280398 C11.5657143,11.2331323 9.62135091,9.29167619 7.22285714,9.29167619 Z M16.7771429,9.29167619 C14.3786491,9.29167619 12.4342857,11.2331323 12.4342857,13.6280398 C12.4342857,16.0229473 14.3786491,17.9644035 16.7771429,17.9644035 C19.1756366,17.9644035 21.12,16.0229473 21.12,13.6280398 C21.12,11.2331323 19.1756366,9.29167619 16.7771429,9.29167619 Z M7.22285714,10.5925853 C8.90180278,10.5925853 10.2628571,11.9516046 10.2628571,13.6280398 C10.2628571,15.3044751 8.90180278,16.6634944 7.22285714,16.6634944 C5.5439115,16.6634944 4.18285714,15.3044751 4.18285714,13.6280398 C4.18285714,11.9516046 5.5439115,10.5925853 7.22285714,10.5925853 Z M16.7771429,10.5925853 C18.4560885,10.5925853 19.8171429,11.9516046 19.8171429,13.6280398 C19.8171429,15.3044751 18.4560885,16.6634944 16.7771429,16.6634944 C15.0981972,16.6634944 13.7371429,15.3044751 13.7371429,13.6280398 C13.7371429,11.9516046 15.0981972,10.5925853 16.7771429,10.5925853 Z M19.6596586,5.41807306 C19.5096382,5.09691923 19.1305253,4.95542019 18.8073524,5.09721484 L18.8073524,5.09721484 L18.79392,5.10328717 L11.999,7.93263636 L5.20588278,5.10328717 L5.19245038,5.09721484 C4.86927744,4.95542019 4.49016455,5.09691923 4.34014418,5.41807306 C4.1880402,5.74368736 4.32895721,6.13068784 4.65506552,6.28244085 L4.65506552,6.28244085 L11.690187,9.21340744 L11.7036194,9.21947977 C11.8008977,9.26216139 11.9032445,9.2791746 12.0028883,9.27366779 C12.1006432,9.27848497 12.2008474,9.26130919 12.2961834,9.21947977 L12.2961834,9.21947977 L12.3096158,9.21340744 L19.3447372,6.28244085 L19.4290033,6.23544395 C19.6940451,6.06083144 19.7979349,5.71408606 19.6596586,5.41807306 Z"></path>';
-    ui += '</g>';
-    ui += '</symbol>';
+        + '<symbol id="icoVLOOK-dark">'
+        + '<g id="VLOOK-dark" fill="#FFFFFF">'
+        + '<path d="M17.1496192,-1.49959326e-15 C19.5316459,-1.93716445e-15 20.3954263,0.24801843 21.2662596,0.713745193 C22.1370929,1.17947196 22.820528,1.86290705 23.2862548,2.73374039 C23.7519816,3.60457372 24,4.46835414 24,6.85038077 L24,17.1496192 C24,19.5316459 23.7519816,20.3954263 23.2862548,21.2662596 C22.820528,22.1370929 22.1370929,22.820528 21.2662596,23.2862548 C20.3954263,23.7519816 19.5316459,24 17.1496192,24 L6.85038077,24 C4.46835414,24 3.60457372,23.7519816 2.73374039,23.2862548 C1.86290705,22.820528 1.17947196,22.1370929 0.713745193,21.2662596 C0.24801843,20.3954263 1.07205074e-16,19.5316459 -1.84509055e-16,17.1496192 L1.84509055e-16,6.85038077 C-1.07205074e-16,4.46835414 0.24801843,3.60457372 0.713745193,2.73374039 C1.17947196,1.86290705 1.86290705,1.17947196 2.73374039,0.713745193 C3.60457372,0.24801843 4.46835414,-1.61554923e-15 6.85038077,-2.05312042e-15 L17.1496192,-1.49959326e-15 Z M12.1666664,16.9756299 C12.0700865,16.895267 11.9299135,16.895267 11.8333336,16.9756299 L11.8333336,16.9756299 L10.8773862,17.7710616 C10.7749145,17.856327 10.7533222,18.0051829 10.827344,18.1160496 L10.827344,18.1160496 L11.7832914,19.5478266 C11.8023268,19.576337 11.8268008,19.600811 11.8553112,19.6198464 C11.9749961,19.6997558 12.1367992,19.6675114 12.2167086,19.5478266 L12.2167086,19.5478266 L13.172656,18.1160496 C13.2466778,18.0051829 13.2250855,17.856327 13.1226138,17.7710616 L13.1226138,17.7710616 Z M7.22285714,9.29167619 C4.82436337,9.29167619 2.88,11.2331323 2.88,13.6280398 C2.88,16.0229473 4.82436337,17.9644035 7.22285714,17.9644035 C9.62135091,17.9644035 11.5657143,16.0229473 11.5657143,13.6280398 C11.5657143,11.2331323 9.62135091,9.29167619 7.22285714,9.29167619 Z M16.7771429,9.29167619 C14.3786491,9.29167619 12.4342857,11.2331323 12.4342857,13.6280398 C12.4342857,16.0229473 14.3786491,17.9644035 16.7771429,17.9644035 C19.1756366,17.9644035 21.12,16.0229473 21.12,13.6280398 C21.12,11.2331323 19.1756366,9.29167619 16.7771429,9.29167619 Z M7.22285714,10.5925853 C8.90180278,10.5925853 10.2628571,11.9516046 10.2628571,13.6280398 C10.2628571,15.3044751 8.90180278,16.6634944 7.22285714,16.6634944 C5.5439115,16.6634944 4.18285714,15.3044751 4.18285714,13.6280398 C4.18285714,11.9516046 5.5439115,10.5925853 7.22285714,10.5925853 Z M16.7771429,10.5925853 C18.4560885,10.5925853 19.8171429,11.9516046 19.8171429,13.6280398 C19.8171429,15.3044751 18.4560885,16.6634944 16.7771429,16.6634944 C15.0981972,16.6634944 13.7371429,15.3044751 13.7371429,13.6280398 C13.7371429,11.9516046 15.0981972,10.5925853 16.7771429,10.5925853 Z M19.6596586,5.41807306 C19.5096382,5.09691923 19.1305253,4.95542019 18.8073524,5.09721484 L18.8073524,5.09721484 L18.79392,5.10328717 L11.999,7.93263636 L5.20588278,5.10328717 L5.19245038,5.09721484 C4.86927744,4.95542019 4.49016455,5.09691923 4.34014418,5.41807306 C4.1880402,5.74368736 4.32895721,6.13068784 4.65506552,6.28244085 L4.65506552,6.28244085 L11.690187,9.21340744 L11.7036194,9.21947977 C11.8008977,9.26216139 11.9032445,9.2791746 12.0028883,9.27366779 C12.1006432,9.27848497 12.2008474,9.26130919 12.2961834,9.21947977 L12.2961834,9.21947977 L12.3096158,9.21340744 L19.3447372,6.28244085 L19.4290033,6.23544395 C19.6940451,6.06083144 19.7979349,5.71408606 19.6596586,5.41807306 Z"></path>'
+        + '</g>'
+        + '</symbol>'
     // SVG 图标集：图标|导航中心
-    ui += '<symbol id="icoNavCenter">';
-    ui += '<path d="M10,0 C4.48214286,0 0,4.48214286 0,10 C0,15.5178571 4.48214286,20 10,20 C15.5178571,20 20,15.5178571 20,10 C20,4.48214286 15.5178571,0 10,0 Z M15.7142857,4.28571429 C15.5535714,4.44642857 12.25,12.2321429 12.25,12.2321429 C12.25,12.2321429 4.46428571,15.5357143 4.30357143,15.6964286 C4.21428571,15.6964286 7.78571429,7.75 7.78571429,7.75 C7.78571429,7.75 15.875,4.125 15.7142857,4.28571429 Z M7.19642857,12.8214286 C7.5,12.1607143 8.44642857,9.75 8.76785714,9.01785714 L10.8928571,11.125 C10.3035714,11.3928571 7.32142857,12.7678571 7.19642857,12.8214286 Z" transform="translate(10.000000, 10.000000) scale(-1, 1) translate(-10.000000, -10.000000) "></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoNavCenter">'
+        + '<path d="M10,0 C4.48214286,0 0,4.48214286 0,10 C0,15.5178571 4.48214286,20 10,20 C15.5178571,20 20,15.5178571 20,10 C20,4.48214286 15.5178571,0 10,0 Z M15.7142857,4.28571429 C15.5535714,4.44642857 12.25,12.2321429 12.25,12.2321429 C12.25,12.2321429 4.46428571,15.5357143 4.30357143,15.6964286 C4.21428571,15.6964286 7.78571429,7.75 7.78571429,7.75 C7.78571429,7.75 15.875,4.125 15.7142857,4.28571429 Z M7.19642857,12.8214286 C7.5,12.1607143 8.44642857,9.75 8.76785714,9.01785714 L10.8928571,11.125 C10.3035714,11.3928571 7.32142857,12.7678571 7.19642857,12.8214286 Z" transform="translate(10.000000, 10.000000) scale(-1, 1) translate(-10.000000, -10.000000) "></path>'
+        + '</symbol>'
     // SVG 图标集：图标|封面
-    ui += '<symbol id="icoCover">';
-    ui += '<path d="M3.57422129,13.6887758 C3.57422129,13.232197 3.23103845,12.8611754 2.80785961,12.8611754 L0.765561722,12.8611754 C0.343182841,12.8611754 9.9475983e-14,13.2313744 9.9475983e-14,13.6887758 C9.9475983e-14,14.1453545 0.343982801,14.5163762 0.765561722,14.5163762 L2.80785961,14.5163762 C3.23183841,14.5163762 3.57422129,14.1453545 3.57422129,13.6887758 Z M9.99200722e-14,8.99958867 C9.99200722e-14,9.45699008 0.343982801,9.82636639 0.765561722,9.82636639 L2.80785961,9.82636639 C3.23183841,9.82636639 3.57422129,9.45616741 3.57422129,8.99958867 C3.57422129,8.54218726 3.23103845,8.17116561 2.80785961,8.17116561 L0.765561722,8.17116561 C0.343982801,8.17116561 9.99200722e-14,8.54136459 9.99200722e-14,8.99958867 Z M0.765561722,5.13717929 L2.80785961,5.13717929 C3.23183841,5.13717929 3.57422129,4.76698031 3.57422129,4.3095789 C3.57422129,3.85217749 3.23183841,3.48280117 2.80785961,3.48280117 L0.765561722,3.48280117 C0.343182841,3.48280117 9.9475983e-14,3.85300015 9.9475983e-14,4.3095789 C9.9475983e-14,4.76615764 0.343182841,5.13800195 0.765561722,5.13800195 L0.765561722,5.13717929 Z M11,7.15935132 L12.5332144,6.00037568 C12.7997224,5.78999436 13.2669046,5.78999436 13.6000397,6.00037568 L13.6000397,6.00037568 L15,7.15872519 L15,0.000626134869 L16,0 C17.1045695,7.78148667e-16 18,0.8954305 18,2 L18,16 C18,17.1045695 17.1045695,18 16,18 L3.75,18 C2.6454305,18 1.75,17.1045695 1.75,16 L1.749,15.516 L2.80785961,15.5163762 C3.30441272,15.5163762 3.75727314,15.3058129 4.08347347,14.9535464 C4.38331192,14.6297484 4.57422129,14.1839226 4.57422129,13.6887758 C4.57422129,13.1938235 4.38323306,12.7480421 4.08336979,12.4242172 C3.79314057,12.1107963 3.40281186,11.9096956 2.97143481,11.8688759 L2.80785961,11.8611754 L1.749,11.861 L1.749,10.826 L2.80785961,10.8263664 C3.3044231,10.8263664 3.75714238,10.6160051 4.08323992,10.2641997 C4.38317726,9.94061687 4.57422129,9.4950166 4.57422129,8.99958867 C4.57422129,8.50422578 4.38328776,8.05851591 4.08379013,7.73476442 C3.79349633,7.4209621 3.40303333,7.21971793 2.97149603,7.17887111 L2.80785961,7.17116561 L1.749,7.171 L1.749,6.137 L2.80785961,6.13718726 C3.30461065,6.13718726 3.75749045,5.92668971 4.08366066,5.57445578 C4.38323199,5.25094619 4.57422129,4.8054174 4.57422129,4.3095789 C4.57422129,3.81345899 4.38309701,3.36815569 4.08342707,3.0448613 C3.79358939,2.7321743 3.4036658,2.53127841 2.97170291,2.49049521 L2.80785961,2.48280117 L1.749,2.482 L1.75,2 C1.75,0.8954305 2.6454305,2.02906125e-16 3.75,0 L11,0 L11,7.15935132 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoCover">'
+        + '<path d="M3.57422129,13.6887758 C3.57422129,13.232197 3.23103845,12.8611754 2.80785961,12.8611754 L0.765561722,12.8611754 C0.343182841,12.8611754 9.9475983e-14,13.2313744 9.9475983e-14,13.6887758 C9.9475983e-14,14.1453545 0.343982801,14.5163762 0.765561722,14.5163762 L2.80785961,14.5163762 C3.23183841,14.5163762 3.57422129,14.1453545 3.57422129,13.6887758 Z M9.99200722e-14,8.99958867 C9.99200722e-14,9.45699008 0.343982801,9.82636639 0.765561722,9.82636639 L2.80785961,9.82636639 C3.23183841,9.82636639 3.57422129,9.45616741 3.57422129,8.99958867 C3.57422129,8.54218726 3.23103845,8.17116561 2.80785961,8.17116561 L0.765561722,8.17116561 C0.343982801,8.17116561 9.99200722e-14,8.54136459 9.99200722e-14,8.99958867 Z M0.765561722,5.13717929 L2.80785961,5.13717929 C3.23183841,5.13717929 3.57422129,4.76698031 3.57422129,4.3095789 C3.57422129,3.85217749 3.23183841,3.48280117 2.80785961,3.48280117 L0.765561722,3.48280117 C0.343182841,3.48280117 9.9475983e-14,3.85300015 9.9475983e-14,4.3095789 C9.9475983e-14,4.76615764 0.343182841,5.13800195 0.765561722,5.13800195 L0.765561722,5.13717929 Z M11,7.15935132 L12.5332144,6.00037568 C12.7997224,5.78999436 13.2669046,5.78999436 13.6000397,6.00037568 L13.6000397,6.00037568 L15,7.15872519 L15,0.000626134869 L16,0 C17.1045695,7.78148667e-16 18,0.8954305 18,2 L18,16 C18,17.1045695 17.1045695,18 16,18 L3.75,18 C2.6454305,18 1.75,17.1045695 1.75,16 L1.749,15.516 L2.80785961,15.5163762 C3.30441272,15.5163762 3.75727314,15.3058129 4.08347347,14.9535464 C4.38331192,14.6297484 4.57422129,14.1839226 4.57422129,13.6887758 C4.57422129,13.1938235 4.38323306,12.7480421 4.08336979,12.4242172 C3.79314057,12.1107963 3.40281186,11.9096956 2.97143481,11.8688759 L2.80785961,11.8611754 L1.749,11.861 L1.749,10.826 L2.80785961,10.8263664 C3.3044231,10.8263664 3.75714238,10.6160051 4.08323992,10.2641997 C4.38317726,9.94061687 4.57422129,9.4950166 4.57422129,8.99958867 C4.57422129,8.50422578 4.38328776,8.05851591 4.08379013,7.73476442 C3.79349633,7.4209621 3.40303333,7.21971793 2.97149603,7.17887111 L2.80785961,7.17116561 L1.749,7.171 L1.749,6.137 L2.80785961,6.13718726 C3.30461065,6.13718726 3.75749045,5.92668971 4.08366066,5.57445578 C4.38323199,5.25094619 4.57422129,4.8054174 4.57422129,4.3095789 C4.57422129,3.81345899 4.38309701,3.36815569 4.08342707,3.0448613 C3.79358939,2.7321743 3.4036658,2.53127841 2.97170291,2.49049521 L2.80785961,2.48280117 L1.749,2.482 L1.75,2 C1.75,0.8954305 2.6454305,2.02906125e-16 3.75,0 L11,0 L11,7.15935132 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|导航中心分段控制|目录索引
-    ui += '<symbol id="icoTocTabCatalog">';
-    ui += '<path d="M5.8,-1.21569421e-13 L15.2,-1.21569421e-13 C15.6418278,-1.21569421e-13 16,0.351776268 16,0.785714286 C16,1.2196523 15.6418278,1.57142857 15.2,1.57142857 L5.8,1.57142857 C5.3581722,1.57142857 5,1.2196523 5,0.785714286 C5,0.351776268 5.3581722,-1.21569421e-13 5.8,-1.21569421e-13 Z M0.8,-1.21569421e-13 L2.20895932,-1.21569421e-13 C2.65078712,-1.21569421e-13 3.00895932,0.351776268 3.00895932,0.785714286 C3.00895932,1.2196523 2.65078712,1.57142857 2.20895932,1.57142857 L0.8,1.57142857 C0.3581722,1.57142857 -1.29252165e-12,1.2196523 -1.29252165e-12,0.785714286 C-1.29252165e-12,0.351776268 0.3581722,-1.21569421e-13 0.8,-1.21569421e-13 Z M0.8,5.71896434 L2.20895932,5.71896434 C2.65078712,5.71896434 3.00895932,6.07074061 3.00895932,6.50467862 C3.00895932,6.93861664 2.65078712,7.29039291 2.20895932,7.29039291 L0.8,7.29039291 C0.3581722,7.29039291 -1.27897692e-12,6.93861664 -1.27897692e-12,6.50467862 C-1.27897692e-12,6.07074061 0.3581722,5.71896434 0.8,5.71896434 Z M0.8,11.43 L2.20895932,11.43 C2.65078712,11.43 3.00895932,11.7817763 3.00895932,12.2157143 C3.00895932,12.6496523 2.65078712,13.0014286 2.20895932,13.0014286 L0.8,13.0014286 C0.3581722,13.0014286 -1.1937118e-12,12.6496523 -1.1937118e-12,12.2157143 C-1.1937118e-12,11.7817763 0.3581722,11.43 0.8,11.43 Z M5.8,5.71896434 L15.2,5.71896434 C15.6418278,5.71896434 16,6.07074061 16,6.50467862 C16,6.93861664 15.6418278,7.29039291 15.2,7.29039291 L5.8,7.29039291 C5.3581722,7.29039291 5,6.93861664 5,6.50467862 C5,6.07074061 5.3581722,5.71896434 5.8,5.71896434 Z M5.8,11.43 L15.2,11.43 C15.6418278,11.43 16,11.7817763 16,12.2157143 C16,12.6496523 15.6418278,13.0014286 15.2,13.0014286 L5.8,13.0014286 C5.3581722,13.0014286 5,12.6496523 5,12.2157143 C5,11.7817763 5.3581722,11.43 5.8,11.43 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoTocTabCatalog">'
+        + '<path d="M5.8,-1.21569421e-13 L15.2,-1.21569421e-13 C15.6418278,-1.21569421e-13 16,0.351776268 16,0.785714286 C16,1.2196523 15.6418278,1.57142857 15.2,1.57142857 L5.8,1.57142857 C5.3581722,1.57142857 5,1.2196523 5,0.785714286 C5,0.351776268 5.3581722,-1.21569421e-13 5.8,-1.21569421e-13 Z M0.8,-1.21569421e-13 L2.20895932,-1.21569421e-13 C2.65078712,-1.21569421e-13 3.00895932,0.351776268 3.00895932,0.785714286 C3.00895932,1.2196523 2.65078712,1.57142857 2.20895932,1.57142857 L0.8,1.57142857 C0.3581722,1.57142857 -1.29252165e-12,1.2196523 -1.29252165e-12,0.785714286 C-1.29252165e-12,0.351776268 0.3581722,-1.21569421e-13 0.8,-1.21569421e-13 Z M0.8,5.71896434 L2.20895932,5.71896434 C2.65078712,5.71896434 3.00895932,6.07074061 3.00895932,6.50467862 C3.00895932,6.93861664 2.65078712,7.29039291 2.20895932,7.29039291 L0.8,7.29039291 C0.3581722,7.29039291 -1.27897692e-12,6.93861664 -1.27897692e-12,6.50467862 C-1.27897692e-12,6.07074061 0.3581722,5.71896434 0.8,5.71896434 Z M0.8,11.43 L2.20895932,11.43 C2.65078712,11.43 3.00895932,11.7817763 3.00895932,12.2157143 C3.00895932,12.6496523 2.65078712,13.0014286 2.20895932,13.0014286 L0.8,13.0014286 C0.3581722,13.0014286 -1.1937118e-12,12.6496523 -1.1937118e-12,12.2157143 C-1.1937118e-12,11.7817763 0.3581722,11.43 0.8,11.43 Z M5.8,5.71896434 L15.2,5.71896434 C15.6418278,5.71896434 16,6.07074061 16,6.50467862 C16,6.93861664 15.6418278,7.29039291 15.2,7.29039291 L5.8,7.29039291 C5.3581722,7.29039291 5,6.93861664 5,6.50467862 C5,6.07074061 5.3581722,5.71896434 5.8,5.71896434 Z M5.8,11.43 L15.2,11.43 C15.6418278,11.43 16,11.7817763 16,12.2157143 C16,12.6496523 15.6418278,13.0014286 15.2,13.0014286 L5.8,13.0014286 C5.3581722,13.0014286 5,12.6496523 5,12.2157143 C5,11.7817763 5.3581722,11.43 5.8,11.43 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|导航中心分段控制|插图索引
-    ui += '<symbol id="icoTocTabFigure">';
-    ui += '<path d="M13.5,0 C14.8807119,-2.53632657e-16 16,1.11928813 16,2.5 L16,11.5 C16,12.8807119 14.8807119,14 13.5,14 L2.5,14 C1.11928813,14 1.69088438e-16,12.8807119 0,11.5 L0,2.5 C-1.69088438e-16,1.11928813 1.11928813,2.53632657e-16 2.5,0 L13.5,0 Z M13.2,1.3 L2.8,1.3 C1.97157288,1.3 1.3,1.97157288 1.3,2.8 L1.3,2.8 L1.299,10.903 L3.65967176,7.09631997 C3.95065747,6.62690996 4.56708,6.48226849 5.03649002,6.77325421 C5.10793456,6.81754244 5.17350994,6.87066207 5.23166471,6.93135632 L7.95061382,9.76903564 C8.22764272,10.0581617 8.65043195,10.1541566 9.02515448,10.0130114 L11.7051177,9.00356109 C12.0740534,8.86459565 12.4902054,8.9553626 12.7677664,9.23533546 L14.7,11.184 L14.7,2.8 C14.7,2.02030388 14.1051119,1.37955132 13.34446,1.30686658 L13.2,1.3 Z M10,2.5 C11.1045695,2.5 12,3.3954305 12,4.5 C12,5.6045695 11.1045695,6.5 10,6.5 C8.8954305,6.5 8,5.6045695 8,4.5 C8,3.3954305 8.8954305,2.5 10,2.5 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoTocTabFigure">'
+        + '<path d="M13.5,0 C14.8807119,-2.53632657e-16 16,1.11928813 16,2.5 L16,11.5 C16,12.8807119 14.8807119,14 13.5,14 L2.5,14 C1.11928813,14 1.69088438e-16,12.8807119 0,11.5 L0,2.5 C-1.69088438e-16,1.11928813 1.11928813,2.53632657e-16 2.5,0 L13.5,0 Z M13.2,1.3 L2.8,1.3 C1.97157288,1.3 1.3,1.97157288 1.3,2.8 L1.3,2.8 L1.299,10.903 L3.65967176,7.09631997 C3.95065747,6.62690996 4.56708,6.48226849 5.03649002,6.77325421 C5.10793456,6.81754244 5.17350994,6.87066207 5.23166471,6.93135632 L7.95061382,9.76903564 C8.22764272,10.0581617 8.65043195,10.1541566 9.02515448,10.0130114 L11.7051177,9.00356109 C12.0740534,8.86459565 12.4902054,8.9553626 12.7677664,9.23533546 L14.7,11.184 L14.7,2.8 C14.7,2.02030388 14.1051119,1.37955132 13.34446,1.30686658 L13.2,1.3 Z M10,2.5 C11.1045695,2.5 12,3.3954305 12,4.5 C12,5.6045695 11.1045695,6.5 10,6.5 C8.8954305,6.5 8,5.6045695 8,4.5 C8,3.3954305 8.8954305,2.5 10,2.5 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|导航中心分段控制|表格索引
-    ui += '<symbol id="icoTocTabTable">';
-    ui += '<path d="M13.2856,0 L2.7144,0 C1.2161387,0.0013225203 0.0017641647,1.21533915 0,2.71359999 L0,11.2848 C0.00132252119,12.7835031 1.21569733,13.9982358 2.7144,14 L13.2856,14 C14.7844854,13.9986761 15.9991178,12.7836857 16,11.2848 L16,2.71359999 C15.9986761,1.21515646 14.7840439,0.000882151918 13.2856,0 Z M1.19999999,5.50813261 L7.49802003,5.50813261 L7.49802003,8.49366407 L1.19999999,8.49366407 L1.19999999,5.50813261 Z M2.7144,1.19999999 L7.49722004,1.19999999 L7.49722004,4.30813261 L1.19999999,4.30813261 L1.19999999,2.71359999 C1.19999999,1.87839998 1.87999998,1.19999999 2.7144,1.19999999 Z M7.49802003,9.69366407 L7.49802003,12.8 L2.7144,12.8 C1.87825613,12.7986775 1.20088095,12.1209445 1.19999999,11.2848 L1.19999999,9.69366407 L7.49802003,9.69366407 Z M14.8,9.69366407 L14.8,11.2848 C14.799119,12.1209445 14.1217439,12.7986775 13.2856,12.8 L8.49038695,12.8 L8.49038695,9.69366407 L14.8,9.69366407 Z M14.8,5.50813261 L14.8,8.49366407 L8.49038695,8.49366407 L8.49038695,5.50813261 L14.8,5.50813261 Z M13.2856,1.19999999 C14.1208,1.19999999 14.8,1.87839998 14.8,2.71359999 L14.8,4.30813261 L8.49038695,4.30813261 L8.49038695,1.19999999 L13.2856,1.19999999 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoTocTabTable">'
+        + '<path d="M13.2856,0 L2.7144,0 C1.2161387,0.0013225203 0.0017641647,1.21533915 0,2.71359999 L0,11.2848 C0.00132252119,12.7835031 1.21569733,13.9982358 2.7144,14 L13.2856,14 C14.7844854,13.9986761 15.9991178,12.7836857 16,11.2848 L16,2.71359999 C15.9986761,1.21515646 14.7840439,0.000882151918 13.2856,0 Z M1.19999999,5.50813261 L7.49802003,5.50813261 L7.49802003,8.49366407 L1.19999999,8.49366407 L1.19999999,5.50813261 Z M2.7144,1.19999999 L7.49722004,1.19999999 L7.49722004,4.30813261 L1.19999999,4.30813261 L1.19999999,2.71359999 C1.19999999,1.87839998 1.87999998,1.19999999 2.7144,1.19999999 Z M7.49802003,9.69366407 L7.49802003,12.8 L2.7144,12.8 C1.87825613,12.7986775 1.20088095,12.1209445 1.19999999,11.2848 L1.19999999,9.69366407 L7.49802003,9.69366407 Z M14.8,9.69366407 L14.8,11.2848 C14.799119,12.1209445 14.1217439,12.7986775 13.2856,12.8 L8.49038695,12.8 L8.49038695,9.69366407 L14.8,9.69366407 Z M14.8,5.50813261 L14.8,8.49366407 L8.49038695,8.49366407 L8.49038695,5.50813261 L14.8,5.50813261 Z M13.2856,1.19999999 C14.1208,1.19999999 14.8,1.87839998 14.8,2.71359999 L14.8,4.30813261 L8.49038695,4.30813261 L8.49038695,1.19999999 L13.2856,1.19999999 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|导航中心分段控制|多媒体索引
-    ui += '<symbol id="icoTocTabMultimedia">';
-    ui += '<path d="M9.74826953,7.40006458 L7.08122616,9.40038747 C6.85972595,9.56538586 6.54781749,9.52018082 6.38056223,9.30093639 C6.31501625,9.21504682 6.28111315,9.10881498 6.28111315,9.00032289 L6.28111315,4.99967711 C6.28111315,4.72392638 6.50487357,4.50016145 6.78061873,4.50016145 C6.88910863,4.50016145 6.99307812,4.53632548 7.08122616,4.59961253 L9.74826953,6.59993542 C9.96976974,6.76493381 10.0149739,7.07910881 9.8477186,7.3006135 C9.82059613,7.33677753 9.78669304,7.3706813 9.74826953,7.40006458 Z M2.00028253,0 L13.9997175,0 C15.1049583,0 16,0.895059735 16,2.00032289 L16,11.9996771 C16,13.1049403 15.1049583,14 13.9997175,14 L2.00028253,14 C0.895041673,14 0,13.1049403 0,11.9996771 L0,2.00032289 C0,0.895059735 0.897301879,0 2.00028253,0 Z M11.9994349,1.00129157 L4.00056505,1.00129157 L4.00056505,13.0009687 L11.9994349,13.0009687 L11.9994349,1.00129157 Z M1.00127137,4.00064579 L3.00155389,4.00064579 L3.00155389,1.00129157 L2.00254273,1.00129157 C1.45105241,1.00129157 1.00353157,1.44882144 1.00353157,2.00032289 L1.00353157,4.00064579 L1.00127137,4.00064579 Z M14.9987286,4.00064579 L14.9987286,2.00032289 C14.9987286,1.44882144 14.5512078,1.00129157 13.9997175,1.00129157 L13.0007063,1.00129157 L13.0007063,4.00064579 L14.9987286,4.00064579 L14.9987286,4.00064579 Z M1.00127137,9.99935421 L1.00127137,11.9996771 C1.00127137,12.5511786 1.4487922,12.9987084 2.00028253,12.9987084 L2.99929369,12.9987084 L2.99929369,9.99935421 L1.00127137,9.99935421 L1.00127137,9.99935421 Z M1.00127137,9.00032289 L3.00155389,9.00032289 L3.00155389,4.99967711 L1.00127137,4.99967711 L1.00127137,9.00032289 Z M14.9987286,9.99935421 L12.9984461,9.99935421 L12.9984461,12.9987084 L13.9974573,12.9987084 C14.5489476,12.9987084 14.9964684,12.5511786 14.9964684,11.9996771 L14.9964684,9.99935421 L14.9987286,9.99935421 Z M14.9987286,9.00032289 L14.9987286,4.99967711 L12.9984461,4.99967711 L12.9984461,9.00032289 L14.9987286,9.00032289 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoTocTabMultimedia">'
+        + '<path d="M9.74826953,7.40006458 L7.08122616,9.40038747 C6.85972595,9.56538586 6.54781749,9.52018082 6.38056223,9.30093639 C6.31501625,9.21504682 6.28111315,9.10881498 6.28111315,9.00032289 L6.28111315,4.99967711 C6.28111315,4.72392638 6.50487357,4.50016145 6.78061873,4.50016145 C6.88910863,4.50016145 6.99307812,4.53632548 7.08122616,4.59961253 L9.74826953,6.59993542 C9.96976974,6.76493381 10.0149739,7.07910881 9.8477186,7.3006135 C9.82059613,7.33677753 9.78669304,7.3706813 9.74826953,7.40006458 Z M2.00028253,0 L13.9997175,0 C15.1049583,0 16,0.895059735 16,2.00032289 L16,11.9996771 C16,13.1049403 15.1049583,14 13.9997175,14 L2.00028253,14 C0.895041673,14 0,13.1049403 0,11.9996771 L0,2.00032289 C0,0.895059735 0.897301879,0 2.00028253,0 Z M11.9994349,1.00129157 L4.00056505,1.00129157 L4.00056505,13.0009687 L11.9994349,13.0009687 L11.9994349,1.00129157 Z M1.00127137,4.00064579 L3.00155389,4.00064579 L3.00155389,1.00129157 L2.00254273,1.00129157 C1.45105241,1.00129157 1.00353157,1.44882144 1.00353157,2.00032289 L1.00353157,4.00064579 L1.00127137,4.00064579 Z M14.9987286,4.00064579 L14.9987286,2.00032289 C14.9987286,1.44882144 14.5512078,1.00129157 13.9997175,1.00129157 L13.0007063,1.00129157 L13.0007063,4.00064579 L14.9987286,4.00064579 L14.9987286,4.00064579 Z M1.00127137,9.99935421 L1.00127137,11.9996771 C1.00127137,12.5511786 1.4487922,12.9987084 2.00028253,12.9987084 L2.99929369,12.9987084 L2.99929369,9.99935421 L1.00127137,9.99935421 L1.00127137,9.99935421 Z M1.00127137,9.00032289 L3.00155389,9.00032289 L3.00155389,4.99967711 L1.00127137,4.99967711 L1.00127137,9.00032289 Z M14.9987286,9.99935421 L12.9984461,9.99935421 L12.9984461,12.9987084 L13.9974573,12.9987084 C14.5489476,12.9987084 14.9964684,12.5511786 14.9964684,11.9996771 L14.9964684,9.99935421 L14.9987286,9.99935421 Z M14.9987286,9.00032289 L14.9987286,4.99967711 L12.9984461,4.99967711 L12.9984461,9.00032289 L14.9987286,9.00032289 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|导航中心分段控制|代码块索引
-    ui += '<symbol id="icoTocTabCodeblock">';
-    ui += '<path d="M13.3333333,0 C14.8060927,0 16,1.19390733 16,2.66666667 L16,11.3333333 C16,12.8060927 14.8060927,14 13.3333333,14 L2.66666667,14 C1.19390733,14 0,12.8060927 0,11.3333333 L0,2.66666667 C0,1.19390733 1.19390733,0 2.66666667,0 L13.3333333,0 Z M13.3399998,1.19999974 L2.66000017,1.19999974 C1.94829535,1.1997742 1.25677804,1.85019704 1.20340021,2.56235312 L1.19999976,2.66470606 L1.19999976,11.3352941 C1.19977498,12.0494615 1.84829981,12.7430256 2.55800017,12.7965882 L2.66000017,12.7999999 L13.3399998,12.7999999 C14.0517047,12.8002259 14.743222,12.1498031 14.7965998,11.437647 L14.7999999,11.3352941 L14.7999999,2.66470606 C14.800225,1.95053859 14.1517002,1.2569745 13.4419998,1.20341197 L13.3399998,1.19999974 Z M9.488,3.93466667 L9.468,4.01 L7.49133333,10.01 C7.38183425,10.3466845 7.02825967,10.5390548 6.68609745,10.4481071 C6.34393524,10.3571593 6.13254166,10.0146186 6.20466667,9.668 L6.22466667,9.59266667 L8.20133333,3.59266667 C8.25663976,3.42467117 8.37643583,3.28553776 8.53435282,3.20589159 C8.6922698,3.12624541 8.8753638,3.11261479 9.04333333,3.168 C9.36456133,3.27377427 9.55569585,3.60331656 9.488,3.93466667 Z M5.396,4.768 L5.34933333,4.838 L3.73933333,6.98466667 L5.35,9.13133333 C5.55203719,9.40031383 5.52201979,9.77767555 5.28,10.0113333 L5.21666667,10.0646667 C4.94813556,10.2666509 4.57125481,10.2372205 4.33733333,9.996 L4.28333333,9.932 L2.37266667,7.38533333 C2.21409416,7.17401976 2.19526731,6.88900223 2.32466667,6.65866667 L2.37266667,6.58533333 L4.28333333,4.03866667 C4.38941993,3.89721787 4.54735181,3.80370519 4.72238576,3.77870034 C4.89741972,3.75369549 5.07521787,3.79924674 5.21666667,3.90533333 C5.48539743,4.10617538 5.56224658,4.47613692 5.396,4.768 Z M11.6626667,3.97466667 L11.7173333,4.038 L13.6273333,6.58466667 L13.6753333,6.658 C13.7893578,6.86085249 13.7893578,7.10848085 13.6753333,7.31133333 L13.6273333,7.38466667 L11.7173333,9.93133333 L11.6626667,9.996 C11.450984,10.2144191 11.1183033,10.2618666 10.854,10.1113333 L10.784,10.0646667 L10.72,10.0113333 C10.5010274,9.79971134 10.4532845,9.4666086 10.604,9.202 L10.6506667,9.132 L12.2606667,6.98466667 L10.6506667,4.838 L10.604,4.768 C10.4378957,4.47597654 10.5150376,4.10598124 10.784,3.90466667 C11.05219,3.70302715 11.4290973,3.73303114 11.6626667,3.97466667 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoTocTabCodeblock">'
+        + '<path d="M13.3333333,0 C14.8060927,0 16,1.19390733 16,2.66666667 L16,11.3333333 C16,12.8060927 14.8060927,14 13.3333333,14 L2.66666667,14 C1.19390733,14 0,12.8060927 0,11.3333333 L0,2.66666667 C0,1.19390733 1.19390733,0 2.66666667,0 L13.3333333,0 Z M13.3399998,1.19999974 L2.66000017,1.19999974 C1.94829535,1.1997742 1.25677804,1.85019704 1.20340021,2.56235312 L1.19999976,2.66470606 L1.19999976,11.3352941 C1.19977498,12.0494615 1.84829981,12.7430256 2.55800017,12.7965882 L2.66000017,12.7999999 L13.3399998,12.7999999 C14.0517047,12.8002259 14.743222,12.1498031 14.7965998,11.437647 L14.7999999,11.3352941 L14.7999999,2.66470606 C14.800225,1.95053859 14.1517002,1.2569745 13.4419998,1.20341197 L13.3399998,1.19999974 Z M9.488,3.93466667 L9.468,4.01 L7.49133333,10.01 C7.38183425,10.3466845 7.02825967,10.5390548 6.68609745,10.4481071 C6.34393524,10.3571593 6.13254166,10.0146186 6.20466667,9.668 L6.22466667,9.59266667 L8.20133333,3.59266667 C8.25663976,3.42467117 8.37643583,3.28553776 8.53435282,3.20589159 C8.6922698,3.12624541 8.8753638,3.11261479 9.04333333,3.168 C9.36456133,3.27377427 9.55569585,3.60331656 9.488,3.93466667 Z M5.396,4.768 L5.34933333,4.838 L3.73933333,6.98466667 L5.35,9.13133333 C5.55203719,9.40031383 5.52201979,9.77767555 5.28,10.0113333 L5.21666667,10.0646667 C4.94813556,10.2666509 4.57125481,10.2372205 4.33733333,9.996 L4.28333333,9.932 L2.37266667,7.38533333 C2.21409416,7.17401976 2.19526731,6.88900223 2.32466667,6.65866667 L2.37266667,6.58533333 L4.28333333,4.03866667 C4.38941993,3.89721787 4.54735181,3.80370519 4.72238576,3.77870034 C4.89741972,3.75369549 5.07521787,3.79924674 5.21666667,3.90533333 C5.48539743,4.10617538 5.56224658,4.47613692 5.396,4.768 Z M11.6626667,3.97466667 L11.7173333,4.038 L13.6273333,6.58466667 L13.6753333,6.658 C13.7893578,6.86085249 13.7893578,7.10848085 13.6753333,7.31133333 L13.6273333,7.38466667 L11.7173333,9.93133333 L11.6626667,9.996 C11.450984,10.2144191 11.1183033,10.2618666 10.854,10.1113333 L10.784,10.0646667 L10.72,10.0113333 C10.5010274,9.79971134 10.4532845,9.4666086 10.604,9.202 L10.6506667,9.132 L12.2606667,6.98466667 L10.6506667,4.838 L10.604,4.768 C10.4378957,4.47597654 10.5150376,4.10598124 10.784,3.90466667 C11.05219,3.70302715 11.4290973,3.73303114 11.6626667,3.97466667 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|导航中心分段控制|访问史
-    ui += '<symbol id="icoTocTabHistory">';
-    ui += '<path d="M7,0 C4.65384023,0 2.58144052,1.15669465 1.31248855,2.92895617 L1.31248855,1.75001654 C1.31248855,1.38755428 1.01866796,1.09376769 0.656244274,1.09376769 C0.293820591,1.09376769 0,1.38756898 0,1.75001654 L0,4.37501195 C0,4.73738599 0.293820591,5.0312608 0.656244274,5.0312608 L3.49997435,5.0312608 C3.86239803,5.0312608 4.15621862,4.73740069 4.15621862,4.37501195 C4.15621862,4.01254969 3.86239803,3.71876309 3.49997435,3.71876309 L2.35846581,3.71876309 C3.3880399,2.26360643 5.08180332,1.31252711 7.00002199,1.31252711 C10.1410468,1.31252711 12.6874528,3.85892262 12.6874528,7.00002205 C12.6874528,10.1410627 10.1410468,12.687517 7.00002199,12.687517 C4.35255832,12.687517 2.13415716,10.8759849 1.50017957,8.42675866 L1.4887897,8.43031668 C1.40036794,8.17250726 1.16285172,7.98434387 0.874982593,7.98434387 C0.51255891,7.98434387 0.218738319,8.27814517 0.218738319,8.64051921 C0.218738319,8.70519578 0.238146544,8.76378549 0.255531857,8.82274276 L0.248700865,8.82490404 C0.253010547,8.84079751 0.260911629,8.85501489 0.265309263,8.87082014 C0.270132002,8.88356726 0.273342275,8.89629968 0.27892727,8.90869394 C1.11160462,11.8440016 3.7978994,14 7.00006596,14 C10.8660261,14 14,10.8659578 14,7 C14,3.1339834 10.8659821,0 7,0 L7,0 Z M6.60624427,2.8 C6.24382059,2.8 5.95,3.09380129 5.95,3.45624885 L5.95,7.39374196 C5.95,7.75620422 6.24382059,8.04999081 6.60624427,8.04999081 L9.44995969,8.04999081 C9.81238337,8.04999081 10.106204,7.75618952 10.106204,7.39381547 C10.106204,7.0312944 9.81238337,6.73756662 9.44995969,6.73756662 L7.26248855,6.73756662 L7.26248855,3.45624885 C7.26248855,3.09378659 6.9686533,2.8 6.60622962,2.8 L6.60624427,2.8 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoTocTabHistory">'
+        + '<path d="M7,0 C4.65384023,0 2.58144052,1.15669465 1.31248855,2.92895617 L1.31248855,1.75001654 C1.31248855,1.38755428 1.01866796,1.09376769 0.656244274,1.09376769 C0.293820591,1.09376769 0,1.38756898 0,1.75001654 L0,4.37501195 C0,4.73738599 0.293820591,5.0312608 0.656244274,5.0312608 L3.49997435,5.0312608 C3.86239803,5.0312608 4.15621862,4.73740069 4.15621862,4.37501195 C4.15621862,4.01254969 3.86239803,3.71876309 3.49997435,3.71876309 L2.35846581,3.71876309 C3.3880399,2.26360643 5.08180332,1.31252711 7.00002199,1.31252711 C10.1410468,1.31252711 12.6874528,3.85892262 12.6874528,7.00002205 C12.6874528,10.1410627 10.1410468,12.687517 7.00002199,12.687517 C4.35255832,12.687517 2.13415716,10.8759849 1.50017957,8.42675866 L1.4887897,8.43031668 C1.40036794,8.17250726 1.16285172,7.98434387 0.874982593,7.98434387 C0.51255891,7.98434387 0.218738319,8.27814517 0.218738319,8.64051921 C0.218738319,8.70519578 0.238146544,8.76378549 0.255531857,8.82274276 L0.248700865,8.82490404 C0.253010547,8.84079751 0.260911629,8.85501489 0.265309263,8.87082014 C0.270132002,8.88356726 0.273342275,8.89629968 0.27892727,8.90869394 C1.11160462,11.8440016 3.7978994,14 7.00006596,14 C10.8660261,14 14,10.8659578 14,7 C14,3.1339834 10.8659821,0 7,0 L7,0 Z M6.60624427,2.8 C6.24382059,2.8 5.95,3.09380129 5.95,3.45624885 L5.95,7.39374196 C5.95,7.75620422 6.24382059,8.04999081 6.60624427,8.04999081 L9.44995969,8.04999081 C9.81238337,8.04999081 10.106204,7.75618952 10.106204,7.39381547 C10.106204,7.0312944 9.81238337,6.73756662 9.44995969,6.73756662 L7.26248855,6.73756662 L7.26248855,3.45624885 C7.26248855,3.09378659 6.9686533,2.8 6.60622962,2.8 L6.60624427,2.8 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|过滤
-    ui += '<symbol id="icoFilter">';
-    ui += '<path d="M8.84956005,15.9164574 L6.03223988,14.3895147 C5.77665501,14.2866085 5.61736842,14.0233946 5.64069537,13.7425051 L5.64069537,8.43795061 L0.161772723,1.28572151 C-0.021205139,1.02861724 -0.0513123934,0.68888983 0.0834638197,0.402091243 C0.233954752,0.150943046 0.501082607,-0.00145082454 0.78824392,1.04144974e-05 L14.8757449,1.04144974e-05 C15.1429049,0.00501946587 15.3967557,0.120689845 15.5796249,0.320752891 C15.714969,0.607760947 15.684842,0.94806687 15.501316,1.20530746 L10.0232934,8.35753657 L10.0232934,15.1890338 C10.0245887,15.4836328 9.87617952,15.7576004 9.63174894,15.9118359 C9.47423103,15.9118359 9.39682224,15.99225 9.24020443,15.99225 C9.10536415,16.0147418 8.96711356,15.9879185 8.84956005,15.9164574 L8.84956005,15.9164574 Z M12.5867848,15.6853826 C12.1289439,15.6853826 11.7577905,15.3042516 11.7577905,14.8341028 C11.7577905,14.3639539 12.1289439,13.982823 12.5867848,13.982823 L17.1710057,13.982823 C17.4671769,13.982823 17.7408503,14.145076 17.8889358,14.4084629 C18.0370214,14.6718497 18.0370214,14.9963558 17.8889358,15.2597427 C17.7408503,15.5231296 17.4671769,15.6853826 17.1710057,15.6853826 L12.5867848,15.6853826 Z M12.5867848,12.2793391 C12.2906136,12.2793391 12.0169402,12.1170861 11.8688547,11.8536992 C11.7207691,11.5903123 11.7207691,11.2658063 11.8688547,11.0024194 C12.0169402,10.7390325 12.2906136,10.5767795 12.5867848,10.5767795 L17.1710057,10.5767795 C17.4671769,10.5767795 17.7408503,10.7390325 17.8889358,11.0024194 C18.0370214,11.2658063 18.0370214,11.5903123 17.8889358,11.8536992 C17.7408503,12.1170861 17.4671769,12.2793391 17.1710057,12.2793391 L12.5867848,12.2793391 Z M12.5867848,8.87329565 C12.1289439,8.87329565 11.7577905,8.49216471 11.7577905,8.02201586 C11.7577905,7.55186702 12.1289439,7.17073607 12.5867848,7.17073607 L17.1710057,7.17073607 C17.6288466,7.17073607 18,7.55186702 18,8.02201586 C18,8.49216471 17.6288466,8.87329565 17.1710057,8.87329565 L12.5867848,8.87329565 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoFilter">'
+        + '<path d="M8.84956005,15.9164574 L6.03223988,14.3895147 C5.77665501,14.2866085 5.61736842,14.0233946 5.64069537,13.7425051 L5.64069537,8.43795061 L0.161772723,1.28572151 C-0.021205139,1.02861724 -0.0513123934,0.68888983 0.0834638197,0.402091243 C0.233954752,0.150943046 0.501082607,-0.00145082454 0.78824392,1.04144974e-05 L14.8757449,1.04144974e-05 C15.1429049,0.00501946587 15.3967557,0.120689845 15.5796249,0.320752891 C15.714969,0.607760947 15.684842,0.94806687 15.501316,1.20530746 L10.0232934,8.35753657 L10.0232934,15.1890338 C10.0245887,15.4836328 9.87617952,15.7576004 9.63174894,15.9118359 C9.47423103,15.9118359 9.39682224,15.99225 9.24020443,15.99225 C9.10536415,16.0147418 8.96711356,15.9879185 8.84956005,15.9164574 L8.84956005,15.9164574 Z M12.5867848,15.6853826 C12.1289439,15.6853826 11.7577905,15.3042516 11.7577905,14.8341028 C11.7577905,14.3639539 12.1289439,13.982823 12.5867848,13.982823 L17.1710057,13.982823 C17.4671769,13.982823 17.7408503,14.145076 17.8889358,14.4084629 C18.0370214,14.6718497 18.0370214,14.9963558 17.8889358,15.2597427 C17.7408503,15.5231296 17.4671769,15.6853826 17.1710057,15.6853826 L12.5867848,15.6853826 Z M12.5867848,12.2793391 C12.2906136,12.2793391 12.0169402,12.1170861 11.8688547,11.8536992 C11.7207691,11.5903123 11.7207691,11.2658063 11.8688547,11.0024194 C12.0169402,10.7390325 12.2906136,10.5767795 12.5867848,10.5767795 L17.1710057,10.5767795 C17.4671769,10.5767795 17.7408503,10.7390325 17.8889358,11.0024194 C18.0370214,11.2658063 18.0370214,11.5903123 17.8889358,11.8536992 C17.7408503,12.1170861 17.4671769,12.2793391 17.1710057,12.2793391 L12.5867848,12.2793391 Z M12.5867848,8.87329565 C12.1289439,8.87329565 11.7577905,8.49216471 11.7577905,8.02201586 C11.7577905,7.55186702 12.1289439,7.17073607 12.5867848,7.17073607 L17.1710057,7.17073607 C17.6288466,7.17073607 18,7.55186702 18,8.02201586 C18,8.49216471 17.6288466,8.87329565 17.1710057,8.87329565 L12.5867848,8.87329565 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|检索
-    ui += '<symbol id="icoRetrieval">';
-    ui += '<path d="M6.54545451,0 C7.43175754,0 8.2792727,0.173333386 9.08799997,0.520000057 C9.89672724,0.866666727 10.5927272,1.33163643 11.176,1.91490915 C11.7592727,2.49818188 12.2242424,3.19418188 12.5709091,4.00290915 C12.9175757,4.81163642 13.0909091,5.65915158 13.0909091,6.54545461 C13.0909091,7.30666674 12.9667879,8.03587886 12.7185454,8.73309097 C12.470303,9.43030308 12.1170909,10.0627879 11.6589091,10.6305455 L15.7898182,14.7556364 C15.9299394,14.8957576 16,15.0681213 16,15.2727273 C16,15.4812122 15.9309091,15.6545455 15.7927273,15.7927273 C15.6545455,15.9309091 15.4812121,16 15.2727273,16 C15.0681212,16 14.8957576,15.9299394 14.7556364,15.7898182 L10.6305455,11.6589091 C10.062303,12.117091 9.42981819,12.4703031 8.73309092,12.7185455 C8.03636364,12.9667879 7.30715153,13.0909091 6.54545456,13.0909091 C5.65915153,13.0909091 4.81163637,12.9175758 4.0029091,12.5709091 C3.19418183,12.2242424 2.49818183,11.7592727 1.9149091,11.176 C1.33163637,10.5927273 0.866666676,9.89672729 0.520000005,9.08800002 C0.173333335,8.27927275 0,7.43175759 0,6.54545456 C0,5.65915153 0.173333335,4.81163637 0.520000005,4.0029091 C0.866666676,3.19418183 1.33163637,2.49818183 1.9149091,1.9149091 C2.49818183,1.33163637 3.19418183,0.866666676 4.0029091,0.520000005 C4.81163637,0.173333335 5.65915153,0 6.54545456,0 L6.54545451,0 Z M6.54545451,1.4545455 C5.85599996,1.4545455 5.19684845,1.58909095 4.56799996,1.85818186 C3.93915147,2.12727277 3.39757571,2.48896974 2.94327269,2.94327278 C2.48896967,3.39757581 2.1272727,3.93915157 1.85818178,4.56800004 C1.58909086,5.19684852 1.45454541,5.85600004 1.45454541,6.54545459 C1.45454541,7.23490915 1.58909088,7.89406067 1.85818178,8.52290914 C2.12727268,9.15175762 2.48896965,9.69333338 2.94327269,10.1476364 C3.39757574,10.6019394 3.93915149,10.9636364 4.56799996,11.2327273 C5.19684842,11.5018182 5.85599994,11.6363637 6.54545451,11.6363637 C7.23490908,11.6363637 7.89406059,11.5018182 8.52290906,11.2327273 C9.15175753,10.9636364 9.69333328,10.6019394 10.1476363,10.1476364 C10.6019394,9.69333338 10.9636363,9.15175762 11.2327272,8.52290914 C11.5018181,7.89406067 11.6363636,7.23490915 11.6363636,6.54545459 C11.6363636,5.85600004 11.5018182,5.19684852 11.2327272,4.56800004 C10.9636363,3.93915157 10.6019393,3.39757581 10.1476363,2.94327278 C9.6933333,2.48896974 9.15175755,2.12727277 8.52290906,1.85818186 C7.89406057,1.58909095 7.23490905,1.4545455 6.54545451,1.4545455 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoRetrieval">'
+        + '<path d="M6.54545451,0 C7.43175754,0 8.2792727,0.173333386 9.08799997,0.520000057 C9.89672724,0.866666727 10.5927272,1.33163643 11.176,1.91490915 C11.7592727,2.49818188 12.2242424,3.19418188 12.5709091,4.00290915 C12.9175757,4.81163642 13.0909091,5.65915158 13.0909091,6.54545461 C13.0909091,7.30666674 12.9667879,8.03587886 12.7185454,8.73309097 C12.470303,9.43030308 12.1170909,10.0627879 11.6589091,10.6305455 L15.7898182,14.7556364 C15.9299394,14.8957576 16,15.0681213 16,15.2727273 C16,15.4812122 15.9309091,15.6545455 15.7927273,15.7927273 C15.6545455,15.9309091 15.4812121,16 15.2727273,16 C15.0681212,16 14.8957576,15.9299394 14.7556364,15.7898182 L10.6305455,11.6589091 C10.062303,12.117091 9.42981819,12.4703031 8.73309092,12.7185455 C8.03636364,12.9667879 7.30715153,13.0909091 6.54545456,13.0909091 C5.65915153,13.0909091 4.81163637,12.9175758 4.0029091,12.5709091 C3.19418183,12.2242424 2.49818183,11.7592727 1.9149091,11.176 C1.33163637,10.5927273 0.866666676,9.89672729 0.520000005,9.08800002 C0.173333335,8.27927275 0,7.43175759 0,6.54545456 C0,5.65915153 0.173333335,4.81163637 0.520000005,4.0029091 C0.866666676,3.19418183 1.33163637,2.49818183 1.9149091,1.9149091 C2.49818183,1.33163637 3.19418183,0.866666676 4.0029091,0.520000005 C4.81163637,0.173333335 5.65915153,0 6.54545456,0 L6.54545451,0 Z M6.54545451,1.4545455 C5.85599996,1.4545455 5.19684845,1.58909095 4.56799996,1.85818186 C3.93915147,2.12727277 3.39757571,2.48896974 2.94327269,2.94327278 C2.48896967,3.39757581 2.1272727,3.93915157 1.85818178,4.56800004 C1.58909086,5.19684852 1.45454541,5.85600004 1.45454541,6.54545459 C1.45454541,7.23490915 1.58909088,7.89406067 1.85818178,8.52290914 C2.12727268,9.15175762 2.48896965,9.69333338 2.94327269,10.1476364 C3.39757574,10.6019394 3.93915149,10.9636364 4.56799996,11.2327273 C5.19684842,11.5018182 5.85599994,11.6363637 6.54545451,11.6363637 C7.23490908,11.6363637 7.89406059,11.5018182 8.52290906,11.2327273 C9.15175753,10.9636364 9.69333328,10.6019394 10.1476363,10.1476364 C10.6019394,9.69333338 10.9636363,9.15175762 11.2327272,8.52290914 C11.5018181,7.89406067 11.6363636,7.23490915 11.6363636,6.54545459 C11.6363636,5.85600004 11.5018182,5.19684852 11.2327272,4.56800004 C10.9636363,3.93915157 10.6019393,3.39757581 10.1476363,2.94327278 C9.6933333,2.48896974 9.15175755,2.12727277 8.52290906,1.85818186 C7.89406057,1.58909095 7.23490905,1.4545455 6.54545451,1.4545455 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|向左关闭
-    ui += '<symbol id="icoCloserTo-left">';
-    ui += '<path d="M13.9791715,0.176477427 L14.0154251,0.189323743 C15.5212,0.722890207 16.3261424,2.31174457 15.875093,3.79570421 L6.20859385,30 L15.8197795,56.039902 C16.3646269,57.5145002 15.632921,59.1369628 14.1798211,59.7471073 L13.9791715,59.8235226 C12.4774152,60.3556651 10.8245904,59.6444033 10.1979056,58.2273068 L10.1325565,58.0669743 L0.314759836,31.9158354 C-0.104917664,30.6730285 -0.104920005,29.3272583 0.31475317,28.0844499 L10.1325565,1.93302569 C10.7019517,0.409988422 12.4217946,-0.375374037 13.9791715,0.176477427 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoCloserTo-left">'
+        + '<path d="M13.9791715,0.176477427 L14.0154251,0.189323743 C15.5212,0.722890207 16.3261424,2.31174457 15.875093,3.79570421 L6.20859385,30 L15.8197795,56.039902 C16.3646269,57.5145002 15.632921,59.1369628 14.1798211,59.7471073 L13.9791715,59.8235226 C12.4774152,60.3556651 10.8245904,59.6444033 10.1979056,58.2273068 L10.1325565,58.0669743 L0.314759836,31.9158354 C-0.104917664,30.6730285 -0.104920005,29.3272583 0.31475317,28.0844499 L10.1325565,1.93302569 C10.7019517,0.409988422 12.4217946,-0.375374037 13.9791715,0.176477427 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|向右关闭
-    ui += '<symbol id="icoCloserTo-right">';
-    ui += '<path d="M13.9791715,0.176477427 L14.0154251,0.189323743 C15.5212,0.722890207 16.3261424,2.31174457 15.875093,3.79570421 L6.20859385,30 L15.8197795,56.039902 C16.3646269,57.5145002 15.632921,59.1369628 14.1798211,59.7471073 L13.9791715,59.8235226 C12.4774152,60.3556651 10.8245904,59.6444033 10.1979056,58.2273068 L10.1325565,58.0669743 L0.314759836,31.9158354 C-0.104917664,30.6730285 -0.104920005,29.3272583 0.31475317,28.0844499 L10.1325565,1.93302569 C10.7019517,0.409988422 12.4217946,-0.375374037 13.9791715,0.176477427 Z" transform="translate(8.000000, 30.000000) scale(-1, 1) translate(-8.000000, -30.000000) "></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoCloserTo-right">'
+        + '<path d="M13.9791715,0.176477427 L14.0154251,0.189323743 C15.5212,0.722890207 16.3261424,2.31174457 15.875093,3.79570421 L6.20859385,30 L15.8197795,56.039902 C16.3646269,57.5145002 15.632921,59.1369628 14.1798211,59.7471073 L13.9791715,59.8235226 C12.4774152,60.3556651 10.8245904,59.6444033 10.1979056,58.2273068 L10.1325565,58.0669743 L0.314759836,31.9158354 C-0.104917664,30.6730285 -0.104920005,29.3272583 0.31475317,28.0844499 L10.1325565,1.93302569 C10.7019517,0.409988422 12.4217946,-0.375374037 13.9791715,0.176477427 Z" transform="translate(8.000000, 30.000000) scale(-1, 1) translate(-8.000000, -30.000000) "></path>'
+        + '</symbol>'
     // SVG 图标集：图标|向下关闭
-    ui += '<symbol id="icoCloserTo-bottom">';
-    ui += '<path d="M35.9791715,-21.8235226 L36.0154251,-21.8106763 C37.5212,-21.2771098 38.3261424,-19.6882554 37.875093,-18.2042958 L28.2085938,8 L37.8197795,34.039902 C38.3646269,35.5145002 37.632921,37.1369628 36.1798211,37.7471073 L35.9791715,37.8235226 C34.4774152,38.3556651 32.8245904,37.6444033 32.1979056,36.2273068 L32.1325565,36.0669743 L22.3147598,9.91583543 C21.8950823,8.67302848 21.89508,7.32725835 22.3147532,6.08444994 L32.1325565,-20.0669743 C32.7019517,-21.5900116 34.4217946,-22.375374 35.9791715,-21.8235226 Z" transform="translate(30.000000, 8.000000) rotate(270.000000) translate(-30.000000, -8.000000) "></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoCloserTo-bottom">'
+        + '<path d="M35.9791715,-21.8235226 L36.0154251,-21.8106763 C37.5212,-21.2771098 38.3261424,-19.6882554 37.875093,-18.2042958 L28.2085938,8 L37.8197795,34.039902 C38.3646269,35.5145002 37.632921,37.1369628 36.1798211,37.7471073 L35.9791715,37.8235226 C34.4774152,38.3556651 32.8245904,37.6444033 32.1979056,36.2273068 L32.1325565,36.0669743 L22.3147598,9.91583543 C21.8950823,8.67302848 21.89508,7.32725835 22.3147532,6.08444994 L32.1325565,-20.0669743 C32.7019517,-21.5900116 34.4217946,-22.375374 35.9791715,-21.8235226 Z" transform="translate(30.000000, 8.000000) rotate(270.000000) translate(-30.000000, -8.000000) "></path>'
+        + '</symbol>'
     // SVG 图标集：图标|插图导航的上一张
-    ui += '<symbol id="icoPrevFig">';
-    ui += '<path d="M11.0303682,0.091084328 C11.7948436,0.375093579 12.1890102,1.237894 11.9107639,2.018203 L3.00130389,26.9997408 L11.9107639,51.981797 C12.1726428,52.7162055 11.8388895,53.5236859 11.1613701,53.8529228 L11.0303682,53.9089157 C10.310862,54.1762185 9.51976648,53.8355526 9.19721032,53.1440006 L9.14235361,53.0102855 C5.13199059,41.7636939 2.12421833,33.3287502 0.11903682,27.7054544 C0.11186687,27.6853471 0,27.43485 0,26.9997408 C0,26.5646315 0.111310594,26.3162129 0.119265149,26.2939053 C2.12439592,20.6707518 5.13209207,12.2360215 9.14235361,0.989714523 C9.4205999,0.20940552 10.2658928,-0.192924923 11.0303682,0.091084328 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoPrevFig">'
+        + '<path d="M11.0303682,0.091084328 C11.7948436,0.375093579 12.1890102,1.237894 11.9107639,2.018203 L3.00130389,26.9997408 L11.9107639,51.981797 C12.1726428,52.7162055 11.8388895,53.5236859 11.1613701,53.8529228 L11.0303682,53.9089157 C10.310862,54.1762185 9.51976648,53.8355526 9.19721032,53.1440006 L9.14235361,53.0102855 C5.13199059,41.7636939 2.12421833,33.3287502 0.11903682,27.7054544 C0.11186687,27.6853471 0,27.43485 0,26.9997408 C0,26.5646315 0.111310594,26.3162129 0.119265149,26.2939053 C2.12439592,20.6707518 5.13209207,12.2360215 9.14235361,0.989714523 C9.4205999,0.20940552 10.2658928,-0.192924923 11.0303682,0.091084328 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|插图导航的下一张
-    ui += '<symbol id="icoNextFig">';
-    ui += '<path d="M11.0303682,0.091084328 C11.7948436,0.375093579 12.1890102,1.237894 11.9107639,2.018203 L3.00130389,26.9997408 L11.9107639,51.981797 C12.1726428,52.7162055 11.8388895,53.5236859 11.1613701,53.8529228 L11.0303682,53.9089157 C10.310862,54.1762185 9.51976648,53.8355526 9.19721032,53.1440006 L9.14235361,53.0102855 C5.13199059,41.7636939 2.12421833,33.3287502 0.11903682,27.7054544 C0.11186687,27.6853471 0,27.43485 0,26.9997408 C0,26.5646315 0.111310594,26.3162129 0.119265149,26.2939053 C2.12439592,20.6707518 5.13209207,12.2360215 9.14235361,0.989714523 C9.4205999,0.20940552 10.2658928,-0.192924923 11.0303682,0.091084328 Z" transform="translate(6.000000, 27.000000) scale(-1, 1) translate(-6.000000, -27.000000) "></path>';
-    ui += '</symbol>';
-    // SVG 图标集：图标|逐章导航的上一章';
-    ui += '<symbol id="icoPrevChapter">';
-    ui += '<path d="M2.56507664,7.09086552 L7.5381691,12.063958 C7.92869339,12.4544823 7.92869339,13.0876472 7.5381691,13.4781715 C7.14764481,13.8686958 6.51447983,13.8686958 6.12395554,13.4781715 L0.467101288,7.82131729 C0.287321184,7.64153719 0.190303885,7.41033487 0.176049391,7.17505536 C0.145971879,6.88568746 0.241806749,6.58570828 0.463554001,6.36396103 L6.12040825,0.707106781 C6.51093254,0.316582489 7.14409752,0.316582489 7.53462181,0.707106781 C7.9251461,1.09763107 7.9251461,1.73079605 7.53462181,2.12132034 L2.56507664,7.09086552 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoNextFig">'
+        + '<path d="M11.0303682,0.091084328 C11.7948436,0.375093579 12.1890102,1.237894 11.9107639,2.018203 L3.00130389,26.9997408 L11.9107639,51.981797 C12.1726428,52.7162055 11.8388895,53.5236859 11.1613701,53.8529228 L11.0303682,53.9089157 C10.310862,54.1762185 9.51976648,53.8355526 9.19721032,53.1440006 L9.14235361,53.0102855 C5.13199059,41.7636939 2.12421833,33.3287502 0.11903682,27.7054544 C0.11186687,27.6853471 0,27.43485 0,26.9997408 C0,26.5646315 0.111310594,26.3162129 0.119265149,26.2939053 C2.12439592,20.6707518 5.13209207,12.2360215 9.14235361,0.989714523 C9.4205999,0.20940552 10.2658928,-0.192924923 11.0303682,0.091084328 Z" transform="translate(6.000000, 27.000000) scale(-1, 1) translate(-6.000000, -27.000000) "></path>'
+        + '</symbol>'
+    // SVG 图标集：图标|逐章导航的上一章'
+        + '<symbol id="icoPrevChapter">'
+        + '<path d="M2.56507664,7.09086552 L7.5381691,12.063958 C7.92869339,12.4544823 7.92869339,13.0876472 7.5381691,13.4781715 C7.14764481,13.8686958 6.51447983,13.8686958 6.12395554,13.4781715 L0.467101288,7.82131729 C0.287321184,7.64153719 0.190303885,7.41033487 0.176049391,7.17505536 C0.145971879,6.88568746 0.241806749,6.58570828 0.463554001,6.36396103 L6.12040825,0.707106781 C6.51093254,0.316582489 7.14409752,0.316582489 7.53462181,0.707106781 C7.9251461,1.09763107 7.9251461,1.73079605 7.53462181,2.12132034 L2.56507664,7.09086552 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|逐章导航的下一章
-    ui += '<symbol id="icoNextChapter">';
-    ui += '<path d="M2.73310223,7.09086552 L7.70619469,12.063958 C8.09671898,12.4544823 8.09671898,13.0876472 7.70619469,13.4781715 C7.3156704,13.8686958 6.68250542,13.8686958 6.29198113,13.4781715 L0.635126876,7.82131729 C0.455346772,7.64153719 0.358329473,7.41033487 0.344074979,7.17505536 C0.313997467,6.88568746 0.409832337,6.58570828 0.631579589,6.36396103 L6.28843384,0.707106781 C6.67895813,0.316582489 7.31212311,0.316582489 7.7026474,0.707106781 C8.09317169,1.09763107 8.09317169,1.73079605 7.7026474,2.12132034 L2.73310223,7.09086552 Z"transform="translate(4.168887, 7.092639) scale(-1, 1) translate(-4.168887, -7.092639) "></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoNextChapter">'
+        + '<path d="M2.73310223,7.09086552 L7.70619469,12.063958 C8.09671898,12.4544823 8.09671898,13.0876472 7.70619469,13.4781715 C7.3156704,13.8686958 6.68250542,13.8686958 6.29198113,13.4781715 L0.635126876,7.82131729 C0.455346772,7.64153719 0.358329473,7.41033487 0.344074979,7.17505536 C0.313997467,6.88568746 0.409832337,6.58570828 0.631579589,6.36396103 L6.28843384,0.707106781 C6.67895813,0.316582489 7.31212311,0.316582489 7.7026474,0.707106781 C8.09317169,1.09763107 8.09317169,1.73079605 7.7026474,2.12132034 L2.73310223,7.09086552 Z"transform="translate(4.168887, 7.092639) scale(-1, 1) translate(-4.168887, -7.092639) "></path>'
+        + '</symbol>'
     // SVG 图标集：图标|已收起的目录节点
-    ui += '<symbol id="icoFolded">';
-    ui += '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
-    ui += '<path d="M8,1 C11.8659932,1 15,4.13400675 15,8 C15,11.8659932 11.8659932,15 8,15 C4.13400675,15 1,11.8659932 1,8 C1,4.13400675 4.13400675,1 8,1 Z M7.66396103,3.75735931 C7.27343674,3.36683502 6.64027176,3.36683502 6.24974747,3.75735931 C5.85922318,4.1478836 5.85922318,4.78104858 6.24974747,5.17157288 L6.24974747,5.17157288 L9.08528137,8.00710678 L6.24974747,10.8426407 C5.85922318,11.233165 5.85922318,11.86633 6.24974747,12.2568542 C6.64027176,12.6473785 7.27343674,12.6473785 7.66396103,12.2568542 L7.66396103,12.2568542 L11.1994949,8.72132034 C11.3947571,8.5260582 11.4923882,8.27013588 11.4923882,8.01421356 L11.4923882,8.01421356 L11.4923882,8 C11.4923882,7.74407768 11.3947571,7.48815536 11.1994949,7.29289322 L11.1994949,7.29289322 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoFolded">'
+        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>'
+        + '<path d="M8,1 C11.8659932,1 15,4.13400675 15,8 C15,11.8659932 11.8659932,15 8,15 C4.13400675,15 1,11.8659932 1,8 C1,4.13400675 4.13400675,1 8,1 Z M7.66396103,3.75735931 C7.27343674,3.36683502 6.64027176,3.36683502 6.24974747,3.75735931 C5.85922318,4.1478836 5.85922318,4.78104858 6.24974747,5.17157288 L6.24974747,5.17157288 L9.08528137,8.00710678 L6.24974747,10.8426407 C5.85922318,11.233165 5.85922318,11.86633 6.24974747,12.2568542 C6.64027176,12.6473785 7.27343674,12.6473785 7.66396103,12.2568542 L7.66396103,12.2568542 L11.1994949,8.72132034 C11.3947571,8.5260582 11.4923882,8.27013588 11.4923882,8.01421356 L11.4923882,8.01421356 L11.4923882,8 C11.4923882,7.74407768 11.3947571,7.48815536 11.1994949,7.29289322 L11.1994949,7.29289322 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|已展开的目录节点
-    ui += '<symbol id="icoUnfold">';
-    ui += '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
-    ui += '<path d="M11.500027,1.86500179 C12.0523118,1.86500179 12.500027,2.31271704 12.500027,2.86500179 C12.500027,3.41728654 12.0523118,3.86500179 11.500027,3.86500179 L5.49500179,3.86500179 L5.49500179,9.87002705 C5.49500179,10.4223118 5.04728654,10.870027 4.49500179,10.870027 C3.94271704,10.870027 3.49500179,10.4223118 3.49500179,9.87002705 L3.49500179,2.87002705 C3.49500179,2.59244142 3.60810365,2.34127215 3.79073809,2.16008851 C3.97127215,1.97810365 4.22244142,1.86500179 4.50002705,1.86500179 L11.500027,1.86500179 Z" transform="translate(7.997514, 6.367514) rotate(-135.000000) translate(-7.997514, -6.367514) "></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoUnfold">'
+        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>'
+        + '<path d="M11.500027,1.86500179 C12.0523118,1.86500179 12.500027,2.31271704 12.500027,2.86500179 C12.500027,3.41728654 12.0523118,3.86500179 11.500027,3.86500179 L5.49500179,3.86500179 L5.49500179,9.87002705 C5.49500179,10.4223118 5.04728654,10.870027 4.49500179,10.870027 C3.94271704,10.870027 3.49500179,10.4223118 3.49500179,9.87002705 L3.49500179,2.87002705 C3.49500179,2.59244142 3.60810365,2.34127215 3.79073809,2.16008851 C3.97127215,1.97810365 4.22244142,1.86500179 4.50002705,1.86500179 L11.500027,1.86500179 Z" transform="translate(7.997514, 6.367514) rotate(-135.000000) translate(-7.997514, -6.367514) "></path>'
+        + '</symbol>'
     // SVG 图标集：图标|已收起的引用折叠
-    ui += '<symbol id="icoQuoteClosed">';
-    ui += '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
-    ui += '<path d="M11,1 C13.209139,1 15,2.790861 15,5 L15,11 C15,13.209139 13.209139,15 11,15 L5,15 C2.790861,15 1,13.209139 1,11 L1,5 C1,2.790861 2.790861,1 5,1 L11,1 Z M8,3 C7.44771525,3 7,3.44771525 7,4 L7,4 L7,7 L4,7 C3.44771525,7 3,7.44771525 3,8 C3,8.55228475 3.44771525,9 4,9 L4,9 L7,9 L7,12 C7,12.5522847 7.44771525,13 8,13 C8.55228475,13 9,12.5522847 9,12 L9,12 L9,9 L12,9 C12.5522847,9 13,8.55228475 13,8 C13,7.44771525 12.5522847,7 12,7 L12,7 L9,7 L9,4 C9,3.44771525 8.55228475,3 8,3 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoQuoteClosed">'
+        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>'
+        + '<path d="M11,1 C13.209139,1 15,2.790861 15,5 L15,11 C15,13.209139 13.209139,15 11,15 L5,15 C2.790861,15 1,13.209139 1,11 L1,5 C1,2.790861 2.790861,1 5,1 L11,1 Z M8,3 C7.44771525,3 7,3.44771525 7,4 L7,4 L7,7 L4,7 C3.44771525,7 3,7.44771525 3,8 C3,8.55228475 3.44771525,9 4,9 L4,9 L7,9 L7,12 C7,12.5522847 7.44771525,13 8,13 C8.55228475,13 9,12.5522847 9,12 L9,12 L9,9 L12,9 C12.5522847,9 13,8.55228475 13,8 C13,7.44771525 12.5522847,7 12,7 L12,7 L9,7 L9,4 C9,3.44771525 8.55228475,3 8,3 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|已展开的引用折叠
-    ui += '<symbol id="icoQuoteOpened">';
-    ui += '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
-    ui += '<path d="M11,1 C13.209139,1 15,2.790861 15,5 L15,11 C15,13.209139 13.209139,15 11,15 L5,15 C2.790861,15 1,13.209139 1,11 L1,5 C1,2.790861 2.790861,1 5,1 L11,1 Z M11,2 L5,2 C3.34314575,2 2,3.34314575 2,5 L2,5 L2,11 C2,12.6568542 3.34314575,14 5,14 L5,14 L11,14 C12.6568542,14 14,12.6568542 14,11 L14,11 L14,5 C14,3.34314575 12.6568542,2 11,2 L11,2 Z"></path>';
-    ui += '<rect x="4" y="7" width="8" height="2" rx="1"></rect>';
-    ui += '</symbol>';
+        + '<symbol id="icoQuoteOpened">'
+        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>'
+        + '<path d="M11,1 C13.209139,1 15,2.790861 15,5 L15,11 C15,13.209139 13.209139,15 11,15 L5,15 C2.790861,15 1,13.209139 1,11 L1,5 C1,2.790861 2.790861,1 5,1 L11,1 Z M11,2 L5,2 C3.34314575,2 2,3.34314575 2,5 L2,5 L2,11 C2,12.6568542 3.34314575,14 5,14 L5,14 L11,14 C12.6568542,14 14,12.6568542 14,11 L14,11 L14,5 C14,3.34314575 12.6568542,2 11,2 L11,2 Z"></path>'
+        + '<rect x="4" y="7" width="8" height="2" rx="1"></rect>'
+        + '</symbol>'
     // SVG 图标集：图标|已收起的表格折叠行节点
-    ui += '<symbol id="icoRowGroupClosed">';
-    ui += '<rect fill-opacity="0" x="1" y="1" width="10" height="10"></rect>';
-    ui += '<path d="M8,0 C10.209139,-4.05812251e-16 12,1.790861 12,4 L12,8 C12,10.209139 10.209139,12 8,12 L4,12 C1.790861,12 2.705415e-16,10.209139 0,8 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 L8,0 Z M6,2 C5.44771525,2 5,2.44771525 5,3 L5,3 L5,5 L3,5 C2.44771525,5 2,5.44771525 2,6 C2,6.55228475 2.44771525,7 3,7 L3,7 L5,7 L5,9 C5,9.55228475 5.44771525,10 6,10 C6.55228475,10 7,9.55228475 7,9 L7,9 L7,7 L9,7 C9.55228475,7 10,6.55228475 10,6 C10,5.44771525 9.55228475,5 9,5 L9,5 L7,5 L7,3 C7,2.44771525 6.55228475,2 6,2 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoRowGroupClosed">'
+        + '<rect fill-opacity="0" x="1" y="1" width="10" height="10"></rect>'
+        + '<path d="M8,0 C10.209139,-4.05812251e-16 12,1.790861 12,4 L12,8 C12,10.209139 10.209139,12 8,12 L4,12 C1.790861,12 2.705415e-16,10.209139 0,8 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 L8,0 Z M6,2 C5.44771525,2 5,2.44771525 5,3 L5,3 L5,5 L3,5 C2.44771525,5 2,5.44771525 2,6 C2,6.55228475 2.44771525,7 3,7 L3,7 L5,7 L5,9 C5,9.55228475 5.44771525,10 6,10 C6.55228475,10 7,9.55228475 7,9 L7,9 L7,7 L9,7 C9.55228475,7 10,6.55228475 10,6 C10,5.44771525 9.55228475,5 9,5 L9,5 L7,5 L7,3 C7,2.44771525 6.55228475,2 6,2 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|已展开的表格折叠行节点
-    ui += '<symbol id="icoRowGroupOpened">';
-    ui += '<rect fill-opacity="0" x="1" y="1" width="10" height="10"></rect>';
-    ui += '<path d="M8,0 C10.209139,-4.05812251e-16 12,1.790861 12,4 L12,8 C12,10.209139 10.209139,12 8,12 L4,12 C1.790861,12 2.705415e-16,10.209139 0,8 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 L8,0 Z M8,1 L4,1 C2.34314575,1 1,2.34314575 1,4 L1,4 L1,8 C1,9.65685425 2.34314575,11 4,11 L4,11 L8,11 C9.65685425,11 11,9.65685425 11,8 L11,8 L11,4 C11,2.34314575 9.65685425,1 8,1 L8,1 Z"></path>';
-    ui += '<rect x="3" y="5" width="6" height="2" rx="1"></rect>';
-    ui += '</symbol>';
+        + '<symbol id="icoRowGroupOpened">'
+        + '<rect fill-opacity="0" x="1" y="1" width="10" height="10"></rect>'
+        + '<path d="M8,0 C10.209139,-4.05812251e-16 12,1.790861 12,4 L12,8 C12,10.209139 10.209139,12 8,12 L4,12 C1.790861,12 2.705415e-16,10.209139 0,8 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 L8,0 Z M8,1 L4,1 C2.34314575,1 1,2.34314575 1,4 L1,4 L1,8 C1,9.65685425 2.34314575,11 4,11 L4,11 L8,11 C9.65685425,11 11,9.65685425 11,8 L11,8 L11,4 C11,2.34314575 9.65685425,1 8,1 L8,1 Z"></path>'
+        + '<rect x="3" y="5" width="6" height="2" rx="1"></rect>'
+        + '</symbol>'
     // SVG 图标集：图标|展开长内容
-    ui += '<symbol id="icoExtend">';
-    ui += '<path d="M13,1.65685425 C13.5522847,1.65685425 14,2.1045695 14,2.65685425 C14,3.209139 13.5522847,3.65685425 13,3.65685425 L8,3.65685425 L8,8.65685425 C8,9.209139 7.55228475,9.65685425 7,9.65685425 C6.44771525,9.65685425 6,9.209139 6,8.65685425 L6,2.65685425 C6,2.1045695 6.44771525,1.65685425 7,1.65685425 L13,1.65685425 Z" transform="translate(10.000000, 5.656854) rotate(-135.000000) translate(-10.000000, -5.656854) "></path>';
-    ui += '<path d="M13,7.65685425 C13.5522847,7.65685425 14,8.1045695 14,8.65685425 C14,9.209139 13.5522847,9.65685425 13,9.65685425 L8,9.65685425 L8,14.6568542 C8,15.209139 7.55228475,15.6568542 7,15.6568542 C6.44771525,15.6568542 6,15.209139 6,14.6568542 L6,8.65685425 C6,8.1045695 6.44771525,7.65685425 7,7.65685425 L13,7.65685425 Z" transform="translate(10.000000, 11.656854) rotate(-135.000000) translate(-10.000000, -11.656854) "></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoExtend">'
+        + '<path d="M13,1.65685425 C13.5522847,1.65685425 14,2.1045695 14,2.65685425 C14,3.209139 13.5522847,3.65685425 13,3.65685425 L8,3.65685425 L8,8.65685425 C8,9.209139 7.55228475,9.65685425 7,9.65685425 C6.44771525,9.65685425 6,9.209139 6,8.65685425 L6,2.65685425 C6,2.1045695 6.44771525,1.65685425 7,1.65685425 L13,1.65685425 Z" transform="translate(10.000000, 5.656854) rotate(-135.000000) translate(-10.000000, -5.656854) "></path>'
+        + '<path d="M13,7.65685425 C13.5522847,7.65685425 14,8.1045695 14,8.65685425 C14,9.209139 13.5522847,9.65685425 13,9.65685425 L8,9.65685425 L8,14.6568542 C8,15.209139 7.55228475,15.6568542 7,15.6568542 C6.44771525,15.6568542 6,15.209139 6,14.6568542 L6,8.65685425 C6,8.1045695 6.44771525,7.65685425 7,7.65685425 L13,7.65685425 Z" transform="translate(10.000000, 11.656854) rotate(-135.000000) translate(-10.000000, -11.656854) "></path>'
+        + '</symbol>'
     // SVG 图标集：图标|关闭
-    ui += '<symbol id="icoClose">';
-    ui += '<path d="M7,7 L7,-1 C7,-1.55228475 7.44771525,-2 8,-2 C8.55228475,-2 9,-1.55228475 9,-1 L9,7 L17,7 C17.5522847,7 18,7.44771525 18,8 C18,8.55228475 17.5522847,9 17,9 L9,9 L9,17 C9,17.5522847 8.55228475,18 8,18 C7.44771525,18 7,17.5522847 7,17 L7,9 L-1,9 C-1.55228475,9 -2,8.55228475 -2,8 C-2,7.44771525 -1.55228475,7 -1,7 L7,7 Z" transform="translate(8.000000, 8.000000) rotate(45.000000) translate(-8.000000, -8.000000) "></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoClose">'
+        + '<path d="M7,7 L7,-1 C7,-1.55228475 7.44771525,-2 8,-2 C8.55228475,-2 9,-1.55228475 9,-1 L9,7 L17,7 C17.5522847,7 18,7.44771525 18,8 C18,8.55228475 17.5522847,9 17,9 L9,9 L9,17 C9,17.5522847 8.55228475,18 8,18 C7.44771525,18 7,17.5522847 7,17 L7,9 L-1,9 C-1.55228475,9 -2,8.55228475 -2,8 C-2,7.44771525 -1.55228475,7 -1,7 L7,7 Z" transform="translate(8.000000, 8.000000) rotate(45.000000) translate(-8.000000, -8.000000) "></path>'
+        + '</symbol>'
     // SVG 图标集：图标|清空输入
-    ui += '<symbol id="icoResetInput">';
-    ui += '<path d="M8,0 C12.418278,-8.11624501e-16 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.581722,16 5.41083001e-16,12.418278 0,8 C-5.41083001e-16,3.581722 3.581722,8.11624501e-16 8,0 Z M5.7372583,4.60588745 C5.42483887,4.29346802 4.91830688,4.29346802 4.60588745,4.60588745 C4.29346802,4.91830688 4.29346802,5.42483887 4.60588745,5.7372583 L4.60588745,5.7372583 L6.86862915,8 L4.60588745,10.2627417 C4.29346802,10.5751611 4.29346802,11.0816931 4.60588745,11.3941125 C4.91830688,11.706532 5.42483887,11.706532 5.7372583,11.3941125 L5.7372583,11.3941125 L8,9.13137085 L10.2627417,11.3941125 C10.5751611,11.706532 11.0816931,11.706532 11.3941125,11.3941125 C11.706532,11.0816931 11.706532,10.5751611 11.3941125,10.2627417 L11.3941125,10.2627417 L9.13137085,8 L11.3941125,5.7372583 C11.706532,5.42483887 11.706532,4.91830688 11.3941125,4.60588745 C11.0816931,4.29346802 10.5751611,4.29346802 10.2627417,4.60588745 L10.2627417,4.60588745 L8,6.86862915 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoResetInput">'
+        + '<path d="M8,0 C12.418278,-8.11624501e-16 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.581722,16 5.41083001e-16,12.418278 0,8 C-5.41083001e-16,3.581722 3.581722,8.11624501e-16 8,0 Z M5.7372583,4.60588745 C5.42483887,4.29346802 4.91830688,4.29346802 4.60588745,4.60588745 C4.29346802,4.91830688 4.29346802,5.42483887 4.60588745,5.7372583 L4.60588745,5.7372583 L6.86862915,8 L4.60588745,10.2627417 C4.29346802,10.5751611 4.29346802,11.0816931 4.60588745,11.3941125 C4.91830688,11.706532 5.42483887,11.706532 5.7372583,11.3941125 L5.7372583,11.3941125 L8,9.13137085 L10.2627417,11.3941125 C10.5751611,11.706532 11.0816931,11.706532 11.3941125,11.3941125 C11.706532,11.0816931 11.706532,10.5751611 11.3941125,10.2627417 L11.3941125,10.2627417 L9.13137085,8 L11.3941125,5.7372583 C11.706532,5.42483887 11.706532,4.91830688 11.3941125,4.60588745 C11.0816931,4.29346802 10.5751611,4.29346802 10.2627417,4.60588745 L10.2627417,4.60588745 L8,6.86862915 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|插图导航
-    ui += '<symbol id="icoFigureNav">';
-    ui += '<path d="M13.5,4 C14.8807119,4 16,5.11928813 16,6.5 L16,15.5 C16,16.8807119 14.8807119,18 13.5,18 L2.5,18 C1.11928813,18 1.69088438e-16,16.8807119 0,15.5 L0,6.5 C-1.69088438e-16,5.11928813 1.11928813,4 2.5,4 L13.5,4 Z M13.2,5.3 L2.8,5.3 C1.97157288,5.3 1.3,5.97157288 1.3,6.8 L1.3,6.8 L1.3,14.902 L3.65967176,11.09632 C3.95065747,10.62691 4.56708,10.4822685 5.03649002,10.7732542 C5.10793456,10.8175424 5.17350994,10.8706621 5.23166471,10.9313563 L7.95061382,13.7690356 C8.22764272,14.0581617 8.65043195,14.1541566 9.02515448,14.0130114 L11.7051177,13.0035611 C12.0740534,12.8645957 12.4902054,12.9553626 12.7677664,13.2353355 L14.7,15.184 L14.7,6.8 C14.7,6.02030388 14.1051119,5.37955132 13.34446,5.30686658 L13.2,5.3 Z M17.5,0 C18.8807119,-2.53632657e-16 20,1.11928813 20,2.5 L20,11.5 C20,12.7244642 19.1197055,13.7433247 17.9574562,13.9582417 C17.9762556,13.858923 17.9888975,13.757836 17.9952366,13.6551669 L18,13.5 L18.0000265,12.4690711 C18.3822827,12.2275893 18.6478677,11.8181696 18.6931334,11.34446 L18.7,11.2 L18.7,2.8 C18.7,1.97157288 18.0284271,1.3 17.2,1.3 L6.8,1.3 C6.26569931,1.3 5.79664541,1.57935471 5.53092891,1.99997351 L4.5,2 C4.34346069,2 4.19028174,2.01438741 4.04171335,2.04191203 C4.25677412,0.880209138 5.27559513,2.24919526e-16 6.5,0 L17.5,0 Z M10,6.5 C11.1045695,6.5 12,7.3954305 12,8.5 C12,9.6045695 11.1045695,10.5 10,10.5 C8.8954305,10.5 8,9.6045695 8,8.5 C8,7.3954305 8.8954305,6.5 10,6.5 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoFigureNav">'
+        + '<path d="M13.5,4 C14.8807119,4 16,5.11928813 16,6.5 L16,15.5 C16,16.8807119 14.8807119,18 13.5,18 L2.5,18 C1.11928813,18 1.69088438e-16,16.8807119 0,15.5 L0,6.5 C-1.69088438e-16,5.11928813 1.11928813,4 2.5,4 L13.5,4 Z M13.2,5.3 L2.8,5.3 C1.97157288,5.3 1.3,5.97157288 1.3,6.8 L1.3,6.8 L1.3,14.902 L3.65967176,11.09632 C3.95065747,10.62691 4.56708,10.4822685 5.03649002,10.7732542 C5.10793456,10.8175424 5.17350994,10.8706621 5.23166471,10.9313563 L7.95061382,13.7690356 C8.22764272,14.0581617 8.65043195,14.1541566 9.02515448,14.0130114 L11.7051177,13.0035611 C12.0740534,12.8645957 12.4902054,12.9553626 12.7677664,13.2353355 L14.7,15.184 L14.7,6.8 C14.7,6.02030388 14.1051119,5.37955132 13.34446,5.30686658 L13.2,5.3 Z M17.5,0 C18.8807119,-2.53632657e-16 20,1.11928813 20,2.5 L20,11.5 C20,12.7244642 19.1197055,13.7433247 17.9574562,13.9582417 C17.9762556,13.858923 17.9888975,13.757836 17.9952366,13.6551669 L18,13.5 L18.0000265,12.4690711 C18.3822827,12.2275893 18.6478677,11.8181696 18.6931334,11.34446 L18.7,11.2 L18.7,2.8 C18.7,1.97157288 18.0284271,1.3 17.2,1.3 L6.8,1.3 C6.26569931,1.3 5.79664541,1.57935471 5.53092891,1.99997351 L4.5,2 C4.34346069,2 4.19028174,2.01438741 4.04171335,2.04191203 C4.25677412,0.880209138 5.27559513,2.24919526e-16 6.5,0 L17.5,0 Z M10,6.5 C11.1045695,6.5 12,7.3954305 12,8.5 C12,9.6045695 11.1045695,10.5 10,10.5 C8.8954305,10.5 8,9.6045695 8,8.5 C8,7.3954305 8.8954305,6.5 10,6.5 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|亮色模式
-    ui += '<symbol id="icoLightMode">';
-    ui += '<path d="M10.8333333,0.83333334 L10.8333333,2.5 C10.8333333,2.9602373 10.4602373,3.33333334 10,3.33333334 C9.5397627,3.33333334 9.16666666,2.9602373 9.16666666,2.5 L9.16666666,0.83333334 C9.16666666,0.373096045 9.5397627,8.45442195e-17 10,0 C10.4602373,-8.45442195e-17 10.8333333,0.373096045 10.8333333,0.83333334 Z M10,16.6666667 C9.5397627,16.6666667 9.16666666,17.0397627 9.16666666,17.5 L9.16666666,19.1666667 C9.16666666,19.626904 9.5397627,20 10,20 C10.4602373,20 10.8333333,19.626904 10.8333333,19.1666667 L10.8333333,17.5 C10.8333333,17.0397627 10.4602373,16.6666667 10,16.6666667 Z M2.92895834,2.92895834 C2.77266874,3.08523989 2.68486548,3.29720799 2.68486548,3.51822917 C2.68486548,3.73925035 2.77266874,3.95121845 2.92895834,4.1075 L4.1075,5.28604166 C4.43294529,5.61148694 4.96059636,5.61148694 5.28604165,5.28604165 C5.61148694,4.96059636 5.61148694,4.43294529 5.28604166,4.1075 L4.1075,2.92895834 C3.95121845,2.77266874 3.73925035,2.68486548 3.51822917,2.68486548 C3.29720799,2.68486548 3.08523989,2.77266874 2.92895834,2.92895834 Z M14.7139583,14.7139583 C14.3886401,15.0393749 14.3886401,15.5668751 14.7139583,15.8922917 L14.7139583,15.8925 L15.8925,17.0710417 C16.1030262,17.2815679 16.4098748,17.3637877 16.6974589,17.2867298 C16.985043,17.2096718 17.2096718,16.985043 17.2867298,16.6974589 C17.3637877,16.4098748 17.2815679,16.1030262 17.0710417,15.8925 L15.8925,14.7139583 C15.7362456,14.5576177 15.5242673,14.4697791 15.3032292,14.4697791 C15.082191,14.4697791 14.8702128,14.5576177 14.7139583,14.7139583 Z M0,10 C5.6362813e-17,10.4602373 0.373096045,10.8333333 0.83333334,10.8333333 L2.5,10.8333333 C2.9602373,10.8333333 3.33333334,10.4602373 3.33333334,10 C3.33333334,9.5397627 2.9602373,9.16666666 2.5,9.16666666 L0.83333334,9.16666666 C0.373096045,9.16666666 5.6362813e-17,9.5397627 0,10 Z M16.6666667,10 C16.6666667,10.4602373 17.0397627,10.8333333 17.5,10.8333333 L19.1666667,10.8333333 C19.626904,10.8333333 20,10.4602373 20,10 C20,9.5397627 19.626904,9.16666666 19.1666667,9.16666666 L17.5,9.16666666 C17.0397627,9.16666666 16.6666667,9.5397627 16.6666667,10 Z M2.92895834,17.0710417 C3.08523989,17.2273313 3.29720799,17.3151345 3.51822917,17.3151345 C3.73925035,17.3151345 3.95121845,17.2273313 4.1075,17.0710417 L5.28583334,15.8925 C5.60509309,15.5660706 5.60221508,15.0435127 5.27937916,14.7206197 C4.95654324,14.3977267 4.43398579,14.3947563 4.1075,14.7139583 L2.92895834,15.8925 C2.77266874,16.0487816 2.68486548,16.2607497 2.68486548,16.4817708 C2.68486548,16.702792 2.77266874,16.9147601 2.92895834,17.0710417 Z M14.7139583,5.28604166 C15.0393749,5.61135993 15.5668751,5.61135993 15.8922917,5.28604166 L15.8925,5.28604166 L17.0710417,4.1075 C17.396487,3.78205471 17.396487,3.25440363 17.0710417,2.92895834 C16.7455964,2.60351305 16.2179453,2.60351305 15.8925,2.92895834 L14.7139583,4.1075 C14.5576177,4.26375444 14.4697791,4.4757327 14.4697791,4.69677083 C14.4697791,4.91780896 14.5576177,5.12978722 14.7139583,5.28604166 Z M15,10 C15,12.7614583 12.7614583,15 10,15 C7.23854166,15 5,12.7614583 5,10 C5,7.23854166 7.23854166,5 10,5 C12.7614583,5 15,7.23854166 15,10 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoLightMode">'
+        + '<path d="M10.8333333,0.83333334 L10.8333333,2.5 C10.8333333,2.9602373 10.4602373,3.33333334 10,3.33333334 C9.5397627,3.33333334 9.16666666,2.9602373 9.16666666,2.5 L9.16666666,0.83333334 C9.16666666,0.373096045 9.5397627,8.45442195e-17 10,0 C10.4602373,-8.45442195e-17 10.8333333,0.373096045 10.8333333,0.83333334 Z M10,16.6666667 C9.5397627,16.6666667 9.16666666,17.0397627 9.16666666,17.5 L9.16666666,19.1666667 C9.16666666,19.626904 9.5397627,20 10,20 C10.4602373,20 10.8333333,19.626904 10.8333333,19.1666667 L10.8333333,17.5 C10.8333333,17.0397627 10.4602373,16.6666667 10,16.6666667 Z M2.92895834,2.92895834 C2.77266874,3.08523989 2.68486548,3.29720799 2.68486548,3.51822917 C2.68486548,3.73925035 2.77266874,3.95121845 2.92895834,4.1075 L4.1075,5.28604166 C4.43294529,5.61148694 4.96059636,5.61148694 5.28604165,5.28604165 C5.61148694,4.96059636 5.61148694,4.43294529 5.28604166,4.1075 L4.1075,2.92895834 C3.95121845,2.77266874 3.73925035,2.68486548 3.51822917,2.68486548 C3.29720799,2.68486548 3.08523989,2.77266874 2.92895834,2.92895834 Z M14.7139583,14.7139583 C14.3886401,15.0393749 14.3886401,15.5668751 14.7139583,15.8922917 L14.7139583,15.8925 L15.8925,17.0710417 C16.1030262,17.2815679 16.4098748,17.3637877 16.6974589,17.2867298 C16.985043,17.2096718 17.2096718,16.985043 17.2867298,16.6974589 C17.3637877,16.4098748 17.2815679,16.1030262 17.0710417,15.8925 L15.8925,14.7139583 C15.7362456,14.5576177 15.5242673,14.4697791 15.3032292,14.4697791 C15.082191,14.4697791 14.8702128,14.5576177 14.7139583,14.7139583 Z M0,10 C5.6362813e-17,10.4602373 0.373096045,10.8333333 0.83333334,10.8333333 L2.5,10.8333333 C2.9602373,10.8333333 3.33333334,10.4602373 3.33333334,10 C3.33333334,9.5397627 2.9602373,9.16666666 2.5,9.16666666 L0.83333334,9.16666666 C0.373096045,9.16666666 5.6362813e-17,9.5397627 0,10 Z M16.6666667,10 C16.6666667,10.4602373 17.0397627,10.8333333 17.5,10.8333333 L19.1666667,10.8333333 C19.626904,10.8333333 20,10.4602373 20,10 C20,9.5397627 19.626904,9.16666666 19.1666667,9.16666666 L17.5,9.16666666 C17.0397627,9.16666666 16.6666667,9.5397627 16.6666667,10 Z M2.92895834,17.0710417 C3.08523989,17.2273313 3.29720799,17.3151345 3.51822917,17.3151345 C3.73925035,17.3151345 3.95121845,17.2273313 4.1075,17.0710417 L5.28583334,15.8925 C5.60509309,15.5660706 5.60221508,15.0435127 5.27937916,14.7206197 C4.95654324,14.3977267 4.43398579,14.3947563 4.1075,14.7139583 L2.92895834,15.8925 C2.77266874,16.0487816 2.68486548,16.2607497 2.68486548,16.4817708 C2.68486548,16.702792 2.77266874,16.9147601 2.92895834,17.0710417 Z M14.7139583,5.28604166 C15.0393749,5.61135993 15.5668751,5.61135993 15.8922917,5.28604166 L15.8925,5.28604166 L17.0710417,4.1075 C17.396487,3.78205471 17.396487,3.25440363 17.0710417,2.92895834 C16.7455964,2.60351305 16.2179453,2.60351305 15.8925,2.92895834 L14.7139583,4.1075 C14.5576177,4.26375444 14.4697791,4.4757327 14.4697791,4.69677083 C14.4697791,4.91780896 14.5576177,5.12978722 14.7139583,5.28604166 Z M15,10 C15,12.7614583 12.7614583,15 10,15 C7.23854166,15 5,12.7614583 5,10 C5,7.23854166 7.23854166,5 10,5 C12.7614583,5 15,7.23854166 15,10 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|深色模式
-    ui += '<symbol id="icoDarkMode">';
-    ui += '<path d="M4.1439375,12.4783274 C8.7496875,12.4783274 12.4801875,8.74489828 12.4801875,4.14181693 C12.4801875,2.62583206 12.045375,1.22347573 11.33775,0 C15.17625,1.10703459 18,4.60533142 18,8.800025 C18,13.8801213 13.8825,18 8.802,18 C4.6074375,18 1.107,15.1744742 0,11.3375418 C1.22625,12.0429388 2.628,12.4783274 4.1439375,12.4783274 Z M4.44974747,8.44974747 L3.74264069,10.2426407 L3.03553391,8.44974747 L1.24264069,7.74264069 L3.03553391,7.03553391 L3.74264069,5.24264069 L4.44974747,7.03553391 L6.24264069,7.74264069 L4.44974747,8.44974747 Z M8.39411255,4.39411255 L7.82842712,5.82842712 L7.2627417,4.39411255 L5.82842712,3.82842712 L7.2627417,3.2627417 L7.82842712,1.82842712 L8.39411255,3.2627417 L9.82842712,3.82842712 L8.39411255,4.39411255 Z M3.75269119,2.75269119 L3.32842712,3.82842712 L2.90416306,2.75269119 L1.82842712,2.32842712 L2.90416306,1.90416306 L3.32842712,0.828427125 L3.75269119,1.90416306 L4.82842712,2.32842712 L3.75269119,2.75269119 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoDarkMode">'
+        + '<path d="M4.1439375,12.4783274 C8.7496875,12.4783274 12.4801875,8.74489828 12.4801875,4.14181693 C12.4801875,2.62583206 12.045375,1.22347573 11.33775,0 C15.17625,1.10703459 18,4.60533142 18,8.800025 C18,13.8801213 13.8825,18 8.802,18 C4.6074375,18 1.107,15.1744742 0,11.3375418 C1.22625,12.0429388 2.628,12.4783274 4.1439375,12.4783274 Z M4.44974747,8.44974747 L3.74264069,10.2426407 L3.03553391,8.44974747 L1.24264069,7.74264069 L3.03553391,7.03553391 L3.74264069,5.24264069 L4.44974747,7.03553391 L6.24264069,7.74264069 L4.44974747,8.44974747 Z M8.39411255,4.39411255 L7.82842712,5.82842712 L7.2627417,4.39411255 L5.82842712,3.82842712 L7.2627417,3.2627417 L7.82842712,1.82842712 L8.39411255,3.2627417 L9.82842712,3.82842712 L8.39411255,4.39411255 Z M3.75269119,2.75269119 L3.32842712,3.82842712 L2.90416306,2.75269119 L1.82842712,2.32842712 L2.90416306,1.90416306 L3.32842712,0.828427125 L3.75269119,1.90416306 L4.82842712,2.32842712 L3.75269119,2.75269119 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|搜索
-    ui += '<symbol id="icoSearch">';
-    ui += '<path d="M528.455431,171.449968 C527.72681,172.183344 526.545225,172.183344 525.816124,171.449968 L522.393223,168.134885 C521.038907,169.008011 519.437731,169.529774 517.709652,169.529774 C512.899726,169.529774 509,165.605956 509,160.764898 C509,155.924138 512.899726,152 517.709652,152 C522.52015,152 526.419327,155.924138 526.419327,160.764898 C526.419327,162.504086 525.901039,164.11525 525.032622,165.478481 L528.455408,168.793541 C529.184624,169.527465 529.184624,170.716112 528.455431,171.449968 Z M517.709652,154.504244 C514.274066,154.504244 511.488381,157.3073 511.488381,160.764898 C511.488381,164.222748 514.274066,167.02553 517.709652,167.02553 C521.14581,167.02553 523.930901,164.222748 523.930901,160.764898 C523.930901,157.3073 521.14581,154.504244 517.709652,154.504244 Z" transform="translate(-509 -152)"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoSearch">'
+        + '<path d="M528.455431,171.449968 C527.72681,172.183344 526.545225,172.183344 525.816124,171.449968 L522.393223,168.134885 C521.038907,169.008011 519.437731,169.529774 517.709652,169.529774 C512.899726,169.529774 509,165.605956 509,160.764898 C509,155.924138 512.899726,152 517.709652,152 C522.52015,152 526.419327,155.924138 526.419327,160.764898 C526.419327,162.504086 525.901039,164.11525 525.032622,165.478481 L528.455408,168.793541 C529.184624,169.527465 529.184624,170.716112 528.455431,171.449968 Z M517.709652,154.504244 C514.274066,154.504244 511.488381,157.3073 511.488381,160.764898 C511.488381,164.222748 514.274066,167.02553 517.709652,167.02553 C521.14581,167.02553 523.930901,164.222748 523.930901,160.764898 C523.930901,157.3073 521.14581,154.504244 517.709652,154.504244 Z" transform="translate(-509 -152)"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|聚光灯
-    ui += '<symbol id="icoSpotlight">';
-    ui += '<path d="M11,0 C11.5522847,-1.01453063e-16 12,0.44771525 12,1 L12.0009885,2.10785544 C16.1609647,2.56148027 19.469266,5.84999811 19.9532602,10.0007767 L21,10 C21.5522847,10 22,10.4477153 22,11 C22,11.5522847 21.5522847,12 21,12 L19.9650784,12.001106 C19.525899,16.2022087 16.1966102,19.5434042 12.0009885,20.000916 L12,21 C12,21.5522847 11.5522847,22 11,22 C10.4477153,22 10,21.5522847 10,21 L10.000464,19.9979192 C5.81761434,19.5290051 2.50170985,16.1931587 2.06347654,12.001106 L1,12 C0.44771525,12 6.76353751e-17,11.5522847 0,11 C-6.76353751e-17,10.4477153 0.44771525,10 1,10 L2.07529477,10.0007767 C2.5582374,5.85901628 5.85322806,2.57577391 10.000464,2.11085226 L10,1 C10,0.44771525 10.4477153,1.01453063e-16 11,0 Z M12.0001716,3.1145332 L12,4 C12,4.55228475 11.5522847,5 11,5 C10.4477153,5 10,4.55228475 10,4 L10.0002766,3.11803789 C6.40620697,3.57264611 3.55544055,6.41177089 3.08310478,10.0002847 L4,10 C4.55228475,10 5,10.4477153 5,11 C5,11.5522847 4.55228475,12 4,12 L3.0696251,12.0003979 C3.49838896,15.6398682 6.37019638,18.5315704 10.0002766,18.9907335 L10,18 C10,17.4477153 10.4477153,17 11,17 C11.5522847,17 12,17.4477153 12,18 L12.0001716,18.9942382 C15.6435265,18.5464839 18.52906,15.6492564 18.9589299,12.0003979 L18,12 C17.4477153,12 17,11.5522847 17,11 C17,10.4477153 17.4477153,10 18,10 L18.9454502,10.0002847 C18.4718838,6.40242145 15.6074772,3.55785721 12.0001716,3.1145332 Z M9.01427748,7.59028411 C10.2518818,6.87575291 11.7766732,6.87575291 13.0142775,7.59028411 C14.2518818,8.3048153 15.0142775,9.62532339 15.0142775,11.0543857 C15.0142775,13.2635247 13.2234165,15.0543857 11.0142775,15.0543857 C8.80513848,15.0543857 7.01427748,13.2635247 7.01427748,11.0543857 C7.01427748,9.62532339 7.77667314,8.3048153 9.01427748,7.59028411 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoSpotlight">'
+        + '<path d="M11,0 C11.5522847,-1.01453063e-16 12,0.44771525 12,1 L12.0009885,2.10785544 C16.1609647,2.56148027 19.469266,5.84999811 19.9532602,10.0007767 L21,10 C21.5522847,10 22,10.4477153 22,11 C22,11.5522847 21.5522847,12 21,12 L19.9650784,12.001106 C19.525899,16.2022087 16.1966102,19.5434042 12.0009885,20.000916 L12,21 C12,21.5522847 11.5522847,22 11,22 C10.4477153,22 10,21.5522847 10,21 L10.000464,19.9979192 C5.81761434,19.5290051 2.50170985,16.1931587 2.06347654,12.001106 L1,12 C0.44771525,12 6.76353751e-17,11.5522847 0,11 C-6.76353751e-17,10.4477153 0.44771525,10 1,10 L2.07529477,10.0007767 C2.5582374,5.85901628 5.85322806,2.57577391 10.000464,2.11085226 L10,1 C10,0.44771525 10.4477153,1.01453063e-16 11,0 Z M12.0001716,3.1145332 L12,4 C12,4.55228475 11.5522847,5 11,5 C10.4477153,5 10,4.55228475 10,4 L10.0002766,3.11803789 C6.40620697,3.57264611 3.55544055,6.41177089 3.08310478,10.0002847 L4,10 C4.55228475,10 5,10.4477153 5,11 C5,11.5522847 4.55228475,12 4,12 L3.0696251,12.0003979 C3.49838896,15.6398682 6.37019638,18.5315704 10.0002766,18.9907335 L10,18 C10,17.4477153 10.4477153,17 11,17 C11.5522847,17 12,17.4477153 12,18 L12.0001716,18.9942382 C15.6435265,18.5464839 18.52906,15.6492564 18.9589299,12.0003979 L18,12 C17.4477153,12 17,11.5522847 17,11 C17,10.4477153 17.4477153,10 18,10 L18.9454502,10.0002847 C18.4718838,6.40242145 15.6074772,3.55785721 12.0001716,3.1145332 Z M9.01427748,7.59028411 C10.2518818,6.87575291 11.7766732,6.87575291 13.0142775,7.59028411 C14.2518818,8.3048153 15.0142775,9.62532339 15.0142775,11.0543857 C15.0142775,13.2635247 13.2234165,15.0543857 11.0142775,15.0543857 C8.80513848,15.0543857 7.01427748,13.2635247 7.01427748,11.0543857 C7.01427748,9.62532339 7.77667314,8.3048153 9.01427748,7.59028411 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|段落导航
-    ui += '<symbol id="icoParagraphNav">';
-    ui += '<path d="M3.01977401,12 C3.39265537,12 3.69774011,12.3050847 3.69774011,12.6779661 L3.69774011,12.6779661 L3.69774011,17.714056 L4.87288136,16.5389147 C5.13276836,16.2677283 5.56214689,16.2677283 5.79943503,16.5389147 C6.05932203,16.8101012 6.05932203,17.2394797 5.79943503,17.4993667 L5.79943503,17.4993667 L3.50564972,19.793152 C3.38135593,19.9287452 3.20056497,19.9965418 3.03107345,19.9965418 L3.03107345,19.9965418 L2.96327684,19.9965418 C2.79378531,19.9965418 2.62429379,19.9287452 2.48870056,19.793152 L2.48870056,19.793152 L0.194915254,17.4993667 C-0.0649717514,17.2281803 -0.0649717514,16.7988017 0.194915254,16.5389147 C0.466101695,16.2790277 0.895480226,16.2790277 1.15536723,16.5389147 L1.15536723,16.5389147 L2.34180791,17.7253554 L2.34180791,12.6779661 C2.34180791,12.3050847 2.64689266,12 3.01977401,12 Z M19,16 C19.5522847,16 20,16.4477153 20,17 C20,17.5522847 19.5522847,18 19,18 L8,18 C7.44771525,18 7,17.5522847 7,17 C7,16.4477153 7.44771525,16 8,16 L19,16 Z M15,12.5 C15.5522847,12.5 16,12.9477153 16,13.5 C16,14.0522847 15.5522847,14.5 15,14.5 L8,14.5 C7.44771525,14.5 7,14.0522847 7,13.5 C7,12.9477153 7.44771525,12.5 8,12.5 L15,12.5 Z M19,9 C19.5522847,9 20,9.44771525 20,10 C20,10.5522847 19.5522847,11 19,11 L8,11 C7.44771525,11 7,10.5522847 7,10 C7,9.44771525 7.44771525,9 8,9 L19,9 Z M3.03107345,0 C3.20056497,0 3.38135593,0.0677966102 3.50564972,0.203389831 L5.79943503,2.49717514 C6.05932203,2.75706215 6.05932203,3.18644068 5.79943503,3.45762712 C5.56214689,3.72881356 5.13276836,3.72881356 4.87288136,3.45762712 L3.69774011,2.28248588 L3.69774011,7.31857574 C3.69774011,7.6914571 3.39265537,7.99654184 3.01977401,7.99654184 C2.64689266,7.99654184 2.34180791,7.6914571 2.34180791,7.31857574 L2.34180791,2.27118644 L1.15536723,3.45762712 C0.895480226,3.71751412 0.466101695,3.71751412 0.194915254,3.45762712 C-0.0649717514,3.19774011 -0.0649717514,2.76836158 0.194915254,2.49717514 L2.48870056,0.203389831 C2.62429379,0.0677966102 2.79378531,0 2.96327684,0 L3.03107345,0 Z M15,5.5 C15.5522847,5.5 16,5.94771525 16,6.5 C16,7.05228475 15.5522847,7.5 15,7.5 L8,7.5 C7.44771525,7.5 7,7.05228475 7,6.5 C7,5.94771525 7.44771525,5.5 8,5.5 L15,5.5 Z M19,2 C19.5522847,2 20,2.44771525 20,3 C20,3.55228475 19.5522847,4 19,4 L8,4 C7.44771525,4 7,3.55228475 7,3 C7,2.44771525 7.44771525,2 8,2 L19,2 Z" id="形状结合"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoParagraphNav">'
+        + '<path d="M3.01977401,12 C3.39265537,12 3.69774011,12.3050847 3.69774011,12.6779661 L3.69774011,12.6779661 L3.69774011,17.714056 L4.87288136,16.5389147 C5.13276836,16.2677283 5.56214689,16.2677283 5.79943503,16.5389147 C6.05932203,16.8101012 6.05932203,17.2394797 5.79943503,17.4993667 L5.79943503,17.4993667 L3.50564972,19.793152 C3.38135593,19.9287452 3.20056497,19.9965418 3.03107345,19.9965418 L3.03107345,19.9965418 L2.96327684,19.9965418 C2.79378531,19.9965418 2.62429379,19.9287452 2.48870056,19.793152 L2.48870056,19.793152 L0.194915254,17.4993667 C-0.0649717514,17.2281803 -0.0649717514,16.7988017 0.194915254,16.5389147 C0.466101695,16.2790277 0.895480226,16.2790277 1.15536723,16.5389147 L1.15536723,16.5389147 L2.34180791,17.7253554 L2.34180791,12.6779661 C2.34180791,12.3050847 2.64689266,12 3.01977401,12 Z M19,16 C19.5522847,16 20,16.4477153 20,17 C20,17.5522847 19.5522847,18 19,18 L8,18 C7.44771525,18 7,17.5522847 7,17 C7,16.4477153 7.44771525,16 8,16 L19,16 Z M15,12.5 C15.5522847,12.5 16,12.9477153 16,13.5 C16,14.0522847 15.5522847,14.5 15,14.5 L8,14.5 C7.44771525,14.5 7,14.0522847 7,13.5 C7,12.9477153 7.44771525,12.5 8,12.5 L15,12.5 Z M19,9 C19.5522847,9 20,9.44771525 20,10 C20,10.5522847 19.5522847,11 19,11 L8,11 C7.44771525,11 7,10.5522847 7,10 C7,9.44771525 7.44771525,9 8,9 L19,9 Z M3.03107345,0 C3.20056497,0 3.38135593,0.0677966102 3.50564972,0.203389831 L5.79943503,2.49717514 C6.05932203,2.75706215 6.05932203,3.18644068 5.79943503,3.45762712 C5.56214689,3.72881356 5.13276836,3.72881356 4.87288136,3.45762712 L3.69774011,2.28248588 L3.69774011,7.31857574 C3.69774011,7.6914571 3.39265537,7.99654184 3.01977401,7.99654184 C2.64689266,7.99654184 2.34180791,7.6914571 2.34180791,7.31857574 L2.34180791,2.27118644 L1.15536723,3.45762712 C0.895480226,3.71751412 0.466101695,3.71751412 0.194915254,3.45762712 C-0.0649717514,3.19774011 -0.0649717514,2.76836158 0.194915254,2.49717514 L2.48870056,0.203389831 C2.62429379,0.0677966102 2.79378531,0 2.96327684,0 L3.03107345,0 Z M15,5.5 C15.5522847,5.5 16,5.94771525 16,6.5 C16,7.05228475 15.5522847,7.5 15,7.5 L8,7.5 C7.44771525,7.5 7,7.05228475 7,6.5 C7,5.94771525 7.44771525,5.5 8,5.5 L15,5.5 Z M19,2 C19.5522847,2 20,2.44771525 20,3 C20,3.55228475 19.5522847,4 19,4 L8,4 C7.44771525,4 7,3.55228475 7,3 C7,2.44771525 7.44771525,2 8,2 L19,2 Z" id="形状结合"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|字体风格
-    ui += '<symbol id="icoFont">';
-    ui += '<path d="M13.5762602,0 L19.6240589,2.72949935 C19.8423438,2.82801594 19.9601208,3.06747857 19.9049054,3.30051307 L19.9049054,3.30051307 L18.9255405,7.43389084 C18.9239258,7.44070599 18.9222394,7.44750398 18.9204818,7.4542837 C18.781886,7.98889537 18.2361435,8.30992963 17.7015318,8.1713338 L17.7015318,8.1713338 L16.6090545,7.88811365 L17.0004095,16.9530131 C17.0010298,16.9673822 17.0013401,16.981763 17.0013401,16.9961455 C17.0013401,17.5484303 16.5536248,17.9961455 16.0013401,17.9961455 L16.0013401,17.9961455 L4.0220839,17.9961455 C4.00856119,17.9961455 3.99503987,17.9958712 3.98152828,17.9953228 C3.42969791,17.9729246 3.00050837,17.5074203 3.02290662,16.9555899 L3.02290662,16.9555899 L3.39094547,7.88814065 L2.2984682,8.1713608 C2.29168849,8.17311841 2.2848905,8.17480475 2.27807535,8.17641954 C1.74066982,8.30375271 1.20179262,7.97132338 1.07445945,7.43391784 L1.07445945,7.43391784 L0.0950940831,3.300538 C0.0398789749,3.06750442 0.157654736,2.82804263 0.375938263,2.72952533 L0.375938263,2.72952533 L6.42371282,0 C6.84120201,1.17779603 8.35034026,1.92020134 10.0273836,1.92020134 C11.7041575,1.92020134 13.1584477,1.17779606 13.5762602,0 L13.5762602,0 Z M14.3362925,15 L5.33629254,15 C5.06015017,15 4.83629254,15.2238576 4.83629254,15.5 C4.83629254,15.7761424 5.06015017,16 5.33629254,16 L5.33629254,16 L14.3362925,16 C14.6124349,16 14.8362925,15.7761424 14.8362925,15.5 C14.8362925,15.2238576 14.6124349,15 14.3362925,15 L14.3362925,15 Z M14.3362925,13 L5.33629254,13 C5.06015017,13 4.83629254,13.2238576 4.83629254,13.5 C4.83629254,13.7761424 5.06015017,14 5.33629254,14 L5.33629254,14 L14.3362925,14 C14.6124349,14 14.8362925,13.7761424 14.8362925,13.5 C14.8362925,13.2238576 14.6124349,13 14.3362925,13 L14.3362925,13 Z M10.1692801,4 L9.49356401,4 C9.10681163,4 8.75473295,4.22301476 8.58946486,4.57267725 L8.58946486,4.57267725 L5.51323262,11.0811511 C5.47258031,11.1671604 5.45149579,11.2611105 5.45149579,11.3562431 C5.45149579,11.7117802 5.73971557,12 6.09525268,12 L6.09525268,12 L6.47408711,12 C6.86292903,12 7.21651458,11.7745963 7.38064094,11.4220902 L7.38064094,11.4220902 L7.98538301,10.1232417 L11.6882178,10.1232417 L12.2536219,11.4038874 C12.4135943,11.7662263 12.772349,12 13.1684307,12 L13.1684307,12 L13.5590129,12 C13.6567871,12 13.7533353,11.9782359 13.8416532,11.9362865 C14.1702934,11.7801886 14.3101665,11.3872307 14.1540686,11.0585905 L14.1540686,11.0585905 L11.0725642,4.57095699 C10.9069259,4.22223103 10.5553447,4 10.1692801,4 L10.1692801,4 Z M9.83629254,5.81301032 L11.1439071,8.7799378 L8.55457137,8.7799378 L9.83629254,5.81301032 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoFont">'
+        + '<path d="M13.5762602,0 L19.6240589,2.72949935 C19.8423438,2.82801594 19.9601208,3.06747857 19.9049054,3.30051307 L19.9049054,3.30051307 L18.9255405,7.43389084 C18.9239258,7.44070599 18.9222394,7.44750398 18.9204818,7.4542837 C18.781886,7.98889537 18.2361435,8.30992963 17.7015318,8.1713338 L17.7015318,8.1713338 L16.6090545,7.88811365 L17.0004095,16.9530131 C17.0010298,16.9673822 17.0013401,16.981763 17.0013401,16.9961455 C17.0013401,17.5484303 16.5536248,17.9961455 16.0013401,17.9961455 L16.0013401,17.9961455 L4.0220839,17.9961455 C4.00856119,17.9961455 3.99503987,17.9958712 3.98152828,17.9953228 C3.42969791,17.9729246 3.00050837,17.5074203 3.02290662,16.9555899 L3.02290662,16.9555899 L3.39094547,7.88814065 L2.2984682,8.1713608 C2.29168849,8.17311841 2.2848905,8.17480475 2.27807535,8.17641954 C1.74066982,8.30375271 1.20179262,7.97132338 1.07445945,7.43391784 L1.07445945,7.43391784 L0.0950940831,3.300538 C0.0398789749,3.06750442 0.157654736,2.82804263 0.375938263,2.72952533 L0.375938263,2.72952533 L6.42371282,0 C6.84120201,1.17779603 8.35034026,1.92020134 10.0273836,1.92020134 C11.7041575,1.92020134 13.1584477,1.17779606 13.5762602,0 L13.5762602,0 Z M14.3362925,15 L5.33629254,15 C5.06015017,15 4.83629254,15.2238576 4.83629254,15.5 C4.83629254,15.7761424 5.06015017,16 5.33629254,16 L5.33629254,16 L14.3362925,16 C14.6124349,16 14.8362925,15.7761424 14.8362925,15.5 C14.8362925,15.2238576 14.6124349,15 14.3362925,15 L14.3362925,15 Z M14.3362925,13 L5.33629254,13 C5.06015017,13 4.83629254,13.2238576 4.83629254,13.5 C4.83629254,13.7761424 5.06015017,14 5.33629254,14 L5.33629254,14 L14.3362925,14 C14.6124349,14 14.8362925,13.7761424 14.8362925,13.5 C14.8362925,13.2238576 14.6124349,13 14.3362925,13 L14.3362925,13 Z M10.1692801,4 L9.49356401,4 C9.10681163,4 8.75473295,4.22301476 8.58946486,4.57267725 L8.58946486,4.57267725 L5.51323262,11.0811511 C5.47258031,11.1671604 5.45149579,11.2611105 5.45149579,11.3562431 C5.45149579,11.7117802 5.73971557,12 6.09525268,12 L6.09525268,12 L6.47408711,12 C6.86292903,12 7.21651458,11.7745963 7.38064094,11.4220902 L7.38064094,11.4220902 L7.98538301,10.1232417 L11.6882178,10.1232417 L12.2536219,11.4038874 C12.4135943,11.7662263 12.772349,12 13.1684307,12 L13.1684307,12 L13.5590129,12 C13.6567871,12 13.7533353,11.9782359 13.8416532,11.9362865 C14.1702934,11.7801886 14.3101665,11.3872307 14.1540686,11.0585905 L14.1540686,11.0585905 L11.0725642,4.57095699 C10.9069259,4.22223103 10.5553447,4 10.1692801,4 L10.1692801,4 Z M9.83629254,5.81301032 L11.1439071,8.7799378 L8.55457137,8.7799378 L9.83629254,5.81301032 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|非衬线字（小清新）体风格
-    ui += '<symbol id="icoFont-sans">';
-    ui += '<path d="M18,16 L14.0598232,16 L12.4935418,12.2464833 L5.32290959,12.2464833 L3.84228416,16 L0,16 L6.98708362,0 L10.8171312,0 L18,16 Z M11.3310673,9.55987559 L8.8592794,3.62602064 L6.4364378,9.55987559 L11.3310673,9.55987559 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoFont-sans">'
+        + '<path d="M18,16 L14.0598232,16 L12.4935418,12.2464833 L5.32290959,12.2464833 L3.84228416,16 L0,16 L6.98708362,0 L10.8171312,0 L18,16 Z M11.3310673,9.55987559 L8.8592794,3.62602064 L6.4364378,9.55987559 L11.3310673,9.55987559 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|衬线（文艺范）字体风格
-    ui += '<symbol id="icoFont-serif">';
-    ui += '<path d="M10.45,11.2169143 L4.4625,11.2169143 L3.75,12.8525809 C3.5166655,13.3978058 3.4,13.8480227 3.4,14.203245 C3.4,14.6741211 3.59166475,15.0210772 3.975,15.2441238 C4.20000112,15.3762995 4.75416225,15.4754298 5.6375,15.5415177 L5.6375,16 L0,16 L0,15.5415177 C0.608336375,15.4506469 1.10833138,15.2007559 1.5,14.7918372 C1.89166862,14.3829185 2.37499713,13.5382455 2.95,12.257793 L9.0125,0 L9.25,0 L15.3625,12.6295355 C15.9458363,13.9347709 16.4249981,14.7567265 16.8,15.0954268 C17.0833347,15.3515173 17.4833307,15.5002128 18,15.5415177 L18,16 L9.8,16 L9.8,15.5415177 L10.1375,15.5415177 C10.7958366,15.5415177 11.258332,15.4506482 11.525,15.2689066 C11.7083342,15.1367308 11.8,14.9467311 11.8,14.6989016 C11.8,14.5502038 11.7750002,14.3973779 11.725,14.2404192 C11.7083332,14.1660704 11.5833345,13.8562881 11.35,13.3110632 L10.45,11.2169143 Z M10.025,10.2619342 L7.5,4.49650206 L4.9,10.2619342 L10.025,10.2619342 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoFont-serif">'
+        + '<path d="M10.45,11.2169143 L4.4625,11.2169143 L3.75,12.8525809 C3.5166655,13.3978058 3.4,13.8480227 3.4,14.203245 C3.4,14.6741211 3.59166475,15.0210772 3.975,15.2441238 C4.20000112,15.3762995 4.75416225,15.4754298 5.6375,15.5415177 L5.6375,16 L0,16 L0,15.5415177 C0.608336375,15.4506469 1.10833138,15.2007559 1.5,14.7918372 C1.89166862,14.3829185 2.37499713,13.5382455 2.95,12.257793 L9.0125,0 L9.25,0 L15.3625,12.6295355 C15.9458363,13.9347709 16.4249981,14.7567265 16.8,15.0954268 C17.0833347,15.3515173 17.4833307,15.5002128 18,15.5415177 L18,16 L9.8,16 L9.8,15.5415177 L10.1375,15.5415177 C10.7958366,15.5415177 11.258332,15.4506482 11.525,15.2689066 C11.7083342,15.1367308 11.8,14.9467311 11.8,14.6989016 C11.8,14.5502038 11.7750002,14.3973779 11.725,14.2404192 C11.7083332,14.1660704 11.5833345,13.8562881 11.35,13.3110632 L10.45,11.2169143 Z M10.025,10.2619342 L7.5,4.49650206 L4.9,10.2619342 L10.025,10.2619342 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|打印
-    ui += '<symbol id="icoPrint">';
-    ui += '<path d="M15,7.38964445e-12 C16.1045695,7.38944155e-12 17,0.8954305 17,2 L17,6 L18,6 C19.1045695,6 20,6.8954305 20,8 L20,14 C20,15.1045695 19.1045695,16 18,16 L17,16 L17,17 C17,18.1045695 16.1045695,19 15,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,16 L2,16 C0.8954305,16 1.3527075e-16,15.1045695 0,14 L0,8 C-1.3527075e-16,6.8954305 0.8954305,6 2,6 L3,6 L3,2 C3,0.8954305 3.8954305,7.38984736e-12 5,7.38964445e-12 L15,7.38964445e-12 Z M16,13 L4,13 L4,17 C4,17.5522847 4.44771525,18 5,18 L5,18 L15,18 C15.5522847,18 16,17.5522847 16,17 L16,17 L16,13 Z M14,15 L14,16 L6,16 L6,15 L14,15 Z M17.5,8 L16.5,8 C16.2238576,8 16,8.22385763 16,8.5 C16,8.77614237 16.2238576,9 16.5,9 L16.5,9 L17.5,9 C17.7761424,9 18,8.77614237 18,8.5 C18,8.22385763 17.7761424,8 17.5,8 L17.5,8 Z M14.1275656,8 C13.8514233,8 13.6275656,8.22385763 13.6275656,8.5 C13.6275656,8.77614237 13.8514233,9 14.1275656,9 C14.403708,9 14.6275656,8.77614237 14.6275656,8.5 C14.6275656,8.22385763 14.403708,8 14.1275656,8 Z M15,1 L5,1 C4.44771525,1 4,1.44771525 4,2 L4,2 L4,6 L16,6 L16,2 C16,1.48716416 15.6139598,1.06449284 15.1166211,1.00672773 L15,1 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoPrint">'
+        + '<path d="M15,7.38964445e-12 C16.1045695,7.38944155e-12 17,0.8954305 17,2 L17,6 L18,6 C19.1045695,6 20,6.8954305 20,8 L20,14 C20,15.1045695 19.1045695,16 18,16 L17,16 L17,17 C17,18.1045695 16.1045695,19 15,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,16 L2,16 C0.8954305,16 1.3527075e-16,15.1045695 0,14 L0,8 C-1.3527075e-16,6.8954305 0.8954305,6 2,6 L3,6 L3,2 C3,0.8954305 3.8954305,7.38984736e-12 5,7.38964445e-12 L15,7.38964445e-12 Z M16,13 L4,13 L4,17 C4,17.5522847 4.44771525,18 5,18 L5,18 L15,18 C15.5522847,18 16,17.5522847 16,17 L16,17 L16,13 Z M14,15 L14,16 L6,16 L6,15 L14,15 Z M17.5,8 L16.5,8 C16.2238576,8 16,8.22385763 16,8.5 C16,8.77614237 16.2238576,9 16.5,9 L16.5,9 L17.5,9 C17.7761424,9 18,8.77614237 18,8.5 C18,8.22385763 17.7761424,8 17.5,8 L17.5,8 Z M14.1275656,8 C13.8514233,8 13.6275656,8.22385763 13.6275656,8.5 C13.6275656,8.77614237 13.8514233,9 14.1275656,9 C14.403708,9 14.6275656,8.77614237 14.6275656,8.5 C14.6275656,8.22385763 14.403708,8 14.1275656,8 Z M15,1 L5,1 C4.44771525,1 4,1.44771525 4,2 L4,2 L4,6 L16,6 L16,2 C16,1.48716416 15.6139598,1.06449284 15.1166211,1.00672773 L15,1 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|新标签打开
-    ui += '<symbol id="icoNewTab">';
-    ui += '<path d="M17.9987947,9 C18.5510794,9 18.9987924,9.44771525 18.9987924,10 L18.9987924,16 C18.9987924,16.5522847 18.5510794,17 17.9987947,17 C17.4465099,17 16.9987947,16.5522847 16.9987947,16 L16.9982218,12.47 L11.7071091,17.7054567 C11.3165848,18.095981 10.6834198,18.095981 10.2928955,17.7054567 C9.90237124,17.3149324 9.90237124,16.6817674 10.2928955,16.2912431 L15.6402218,11 L11.9987947,11 C11.4465099,11 10.9987947,10.5522847 10.9987947,10 C10.9987947,9.44771525 11.4465099,9 11.9987947,9 L17.9987947,9 Z"></path>';
-    ui += '<path d="M1,5 L1,13.499817 C1,14.2795131 1.59488808,14.9202656 2.35553999,14.9929504 L2.5,14.999817 L8.51827299,14.999817 C8.79441537,14.999817 9.01827299,15.2236746 9.01827299,15.499817 C9.01827299,15.7452769 8.84139783,15.9494253 8.60814863,15.9917613 L8.51827299,15.999817 L2.5,15.999817 C1.1745166,15.999817 0.089961328,14.968281 0.00531767968,13.6641926 L0,13.499817 L0,2.5 C0,1.1745166 1.03153594,0.089961328 2.33562431,0.00531767968 L2.5,-1.95399252e-14 L16.5,-1.95399252e-14 C17.8254834,-1.95399252e-14 18.9100387,1.03153594 18.9946823,2.33562431 L19,2.5 L19,6.49976186 C19,6.77590424 18.7761424,6.99976186 18.5,6.99976186 C18.2545401,6.99976186 18.0503916,6.8228867 18.0080557,6.58963749 L18,6.49976186 L18,5 L1,5 Z M1,4 L18,4 L18,2.5 C18,1.72030388 17.4051119,1.07955132 16.64446,1.00686658 L16.5,1 L2.5,1 C1.72030388,1 1.07955132,1.59488808 1.00686658,2.35553999 L1,2.5 L1,4 Z"></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoNewTab">'
+        + '<path d="M17.9987947,9 C18.5510794,9 18.9987924,9.44771525 18.9987924,10 L18.9987924,16 C18.9987924,16.5522847 18.5510794,17 17.9987947,17 C17.4465099,17 16.9987947,16.5522847 16.9987947,16 L16.9982218,12.47 L11.7071091,17.7054567 C11.3165848,18.095981 10.6834198,18.095981 10.2928955,17.7054567 C9.90237124,17.3149324 9.90237124,16.6817674 10.2928955,16.2912431 L15.6402218,11 L11.9987947,11 C11.4465099,11 10.9987947,10.5522847 10.9987947,10 C10.9987947,9.44771525 11.4465099,9 11.9987947,9 L17.9987947,9 Z"></path>'
+        + '<path d="M1,5 L1,13.499817 C1,14.2795131 1.59488808,14.9202656 2.35553999,14.9929504 L2.5,14.999817 L8.51827299,14.999817 C8.79441537,14.999817 9.01827299,15.2236746 9.01827299,15.499817 C9.01827299,15.7452769 8.84139783,15.9494253 8.60814863,15.9917613 L8.51827299,15.999817 L2.5,15.999817 C1.1745166,15.999817 0.089961328,14.968281 0.00531767968,13.6641926 L0,13.499817 L0,2.5 C0,1.1745166 1.03153594,0.089961328 2.33562431,0.00531767968 L2.5,-1.95399252e-14 L16.5,-1.95399252e-14 C17.8254834,-1.95399252e-14 18.9100387,1.03153594 18.9946823,2.33562431 L19,2.5 L19,6.49976186 C19,6.77590424 18.7761424,6.99976186 18.5,6.99976186 C18.2545401,6.99976186 18.0503916,6.8228867 18.0080557,6.58963749 L18,6.49976186 L18,5 L1,5 Z M1,4 L18,4 L18,2.5 C18,1.72030388 17.4051119,1.07955132 16.64446,1.00686658 L16.5,1 L2.5,1 C1.72030388,1 1.07955132,1.59488808 1.00686658,2.35553999 L1,2.5 L1,4 Z"></path>'
+        + '</symbol>'
     // SVG 图标集：图标|复制代码块
-    ui += '<symbol id="icoCopyCodeBlock">';
-    ui += '<path d="M15.91965,0 C17.0679061,0.0012395937 17.998512,0.931644206 18,2.07989999 L18,13.6701 C17.998512,14.8183558 17.0679061,15.7487604 15.91965,15.75 L13.05,15.75 L13.05,15.9201 C13.0487599,17.068283 12.118283,17.9987599 10.9701,18 L2.07989999,18 C0.931716995,17.9987599 0.00124007732,17.068283 0,15.9201 L0,4.32989999 C0.00124007732,3.18171699 0.931716995,2.25124007 2.07989999,2.25 L4.95,2.25 L4.95,2.07989999 C4.95148801,0.931644206 5.88209392,0.0012395937 7.03035,0 L15.91965,0 Z M2.08035,16.65 L10.96965,16.65 C11.3725278,16.6492579 11.6990096,16.3229773 11.7,15.9201 L11.7,4.32989999 C11.7,3.92759999 11.3724,3.6 10.9701,3.6 L2.08035,3.6 C1.67805,3.6 1.34999999,3.92759999 1.34999999,4.32989999 L1.34999999,15.9201 C1.34999999,16.32285 1.67805,16.65 2.08035,16.65 Z M9.22500001,6.29999999 C9.5977922,6.29999999 9.89999998,6.6022078 9.89999998,6.97499999 C9.89999998,7.34779219 9.5977922,7.65 9.22500001,7.65 L3.82499999,7.65 C3.45220779,7.65 3.15000001,7.34779219 3.15000001,6.97499999 C3.15000001,6.6022078 3.45220779,6.29999999 3.82499999,6.29999999 L9.22500001,6.29999999 L9.22500001,6.29999999 Z M9.22500001,9.45 C9.5977922,9.45 9.89999998,9.7522078 9.89999998,10.125 C9.89999998,10.4977922 9.5977922,10.8 9.22500001,10.8 L3.82499999,10.8 C3.45220779,10.8 3.15000001,10.4977922 3.15000001,10.125 C3.15000001,9.7522078 3.45220779,9.45 3.82499999,9.45 L9.22500001,9.45 L9.22500001,9.45 Z M7.42500001,12.6 C7.79779221,12.6 8.10000001,12.9022078 8.10000001,13.275 C8.10000001,13.6477922 7.79779221,13.95 7.42500001,13.95 L3.82499999,13.95 C3.45220778,13.95 3.14999999,13.6477922 3.14999999,13.275 C3.14999999,12.9022078 3.45220778,12.6 3.82499999,12.6 L7.42500001,12.6 Z" transform="translate(9.000000, 9.000000) scale(-1, 1) translate(-9.000000, -9.000000) "></path>';
-    ui += '</symbol>';
+        + '<symbol id="icoCopyCodeBlock">'
+        + '<path d="M15.91965,0 C17.0679061,0.0012395937 17.998512,0.931644206 18,2.07989999 L18,13.6701 C17.998512,14.8183558 17.0679061,15.7487604 15.91965,15.75 L13.05,15.75 L13.05,15.9201 C13.0487599,17.068283 12.118283,17.9987599 10.9701,18 L2.07989999,18 C0.931716995,17.9987599 0.00124007732,17.068283 0,15.9201 L0,4.32989999 C0.00124007732,3.18171699 0.931716995,2.25124007 2.07989999,2.25 L4.95,2.25 L4.95,2.07989999 C4.95148801,0.931644206 5.88209392,0.0012395937 7.03035,0 L15.91965,0 Z M2.08035,16.65 L10.96965,16.65 C11.3725278,16.6492579 11.6990096,16.3229773 11.7,15.9201 L11.7,4.32989999 C11.7,3.92759999 11.3724,3.6 10.9701,3.6 L2.08035,3.6 C1.67805,3.6 1.34999999,3.92759999 1.34999999,4.32989999 L1.34999999,15.9201 C1.34999999,16.32285 1.67805,16.65 2.08035,16.65 Z M9.22500001,6.29999999 C9.5977922,6.29999999 9.89999998,6.6022078 9.89999998,6.97499999 C9.89999998,7.34779219 9.5977922,7.65 9.22500001,7.65 L3.82499999,7.65 C3.45220779,7.65 3.15000001,7.34779219 3.15000001,6.97499999 C3.15000001,6.6022078 3.45220779,6.29999999 3.82499999,6.29999999 L9.22500001,6.29999999 L9.22500001,6.29999999 Z M9.22500001,9.45 C9.5977922,9.45 9.89999998,9.7522078 9.89999998,10.125 C9.89999998,10.4977922 9.5977922,10.8 9.22500001,10.8 L3.82499999,10.8 C3.45220779,10.8 3.15000001,10.4977922 3.15000001,10.125 C3.15000001,9.7522078 3.45220779,9.45 3.82499999,9.45 L9.22500001,9.45 L9.22500001,9.45 Z M7.42500001,12.6 C7.79779221,12.6 8.10000001,12.9022078 8.10000001,13.275 C8.10000001,13.6477922 7.79779221,13.95 7.42500001,13.95 L3.82499999,13.95 C3.45220778,13.95 3.14999999,13.6477922 3.14999999,13.275 C3.14999999,12.9022078 3.45220778,12.6 3.82499999,12.6 L7.42500001,12.6 Z" transform="translate(9.000000, 9.000000) scale(-1, 1) translate(-9.000000, -9.000000) "></path>'
+        + '</symbol>'
     // SVG 图标集：图标|加载中
-    ui += '<symbol id="icoLoading">';
-    ui += '<g id="loading">';
-    ui += '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
-    ui += '<path d="M6.72865086,1.26496983 C6.71911605,1.71977213 6.95629588,2.14416725 7.34865392,2.37436546 C7.74101196,2.60456367 8.2271863,2.60456367 8.61954434,2.37436546 C9.01190238,2.14416725 9.24908222,1.71977213 9.23954741,1.26496983 C9.23959745,0.816309443 9.00026873,0.401708736 8.61172578,0.177364095 C8.22318283,-0.0469805467 7.74446372,-0.0469805467 7.35592077,0.177364095 C6.96737782,0.401708736 6.72804909,0.816309443 6.72809913,1.26496983 L6.72865086,1.26496983 L6.72865086,1.26496983 Z M1.85885777,3.33890086 C1.85885777,4.01230737 2.4047616,4.5582112 3.07816811,4.5582112 C3.75157462,4.5582112 4.29747845,4.01230737 4.29747845,3.33890086 C4.29747845,2.66549435 3.75157462,2.11959052 3.07816811,2.11959052 C2.4047616,2.11959052 1.85885777,2.66549435 1.85885777,3.33890086 L1.85885777,3.33890086 Z M0.00285776562,7.92428017 C0.00293049529,8.5373029 0.499903995,9.03421744 1.11292673,9.03421744 C1.72594946,9.03421744 2.22292296,8.5373029 2.22299569,7.92428017 C2.22292296,7.31125744 1.72594946,6.8143429 1.11292673,6.8143429 C0.499903995,6.8143429 0.00293049529,7.31125744 0.00285776562,7.92428017 Z M1.96809914,12.9275905 C1.96816693,13.4601736 2.39992984,13.8918816 2.93251293,13.8918816 C3.46509602,13.8918816 3.89685893,13.4601736 3.89692672,12.9275905 C3.89685893,12.3950074 3.46509602,11.9632995 2.93251293,11.9632995 C2.39992984,11.9632995 1.96816693,12.3950074 1.96809914,12.9275905 L1.96809914,12.9275905 Z M7.18382328,15.0175215 C7.18382328,15.4809837 7.55953357,15.856694 8.0229957,15.856694 C8.48645782,15.856694 8.86216811,15.4809837 8.86216811,15.0175215 C8.86216811,14.5540594 8.48645782,14.1783491 8.0229957,14.1783491 C7.55953357,14.1783491 7.18382328,14.5540594 7.18382328,15.0175215 Z M12.5874095,13.0920043 C12.5874095,13.4241369 12.8566562,13.6933836 13.1887888,13.6933836 C13.5209214,13.6933836 13.7901681,13.4241369 13.7901681,13.0920043 C13.7901681,12.7598717 13.5209214,12.490625 13.1887888,12.490625 C12.8566562,12.490625 12.5874095,12.7598717 12.5874095,13.0920043 Z M15.0892026,7.90138363 C15.0892026,8.13677119 15.2800219,8.32759052 15.5154095,8.32759052 C15.7507971,8.32759052 15.9416164,8.13677119 15.9416164,7.90138363 C15.9416164,7.66599606 15.7507971,7.47517673 15.5154095,7.47517673 C15.2800219,7.47517673 15.0892026,7.66599606 15.0892026,7.90138363 Z M13.8089267,3.4310388 C13.8089267,3.59916189 13.9452174,3.73545259 14.1133405,3.73545259 C14.2814636,3.73545259 14.4177543,3.59916189 14.4177543,3.4310388 C14.4177543,3.2629157 14.2814636,3.126625 14.1133405,3.126625 C13.9452174,3.126625 13.8089267,3.2629157 13.8089267,3.4310388 Z"></path>';
-    ui += '</g>';
-    ui += '</symbol>';
+        + '<symbol id="icoLoading">'
+        + '<g id="loading">'
+        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>'
+        + '<path d="M6.72865086,1.26496983 C6.71911605,1.71977213 6.95629588,2.14416725 7.34865392,2.37436546 C7.74101196,2.60456367 8.2271863,2.60456367 8.61954434,2.37436546 C9.01190238,2.14416725 9.24908222,1.71977213 9.23954741,1.26496983 C9.23959745,0.816309443 9.00026873,0.401708736 8.61172578,0.177364095 C8.22318283,-0.0469805467 7.74446372,-0.0469805467 7.35592077,0.177364095 C6.96737782,0.401708736 6.72804909,0.816309443 6.72809913,1.26496983 L6.72865086,1.26496983 L6.72865086,1.26496983 Z M1.85885777,3.33890086 C1.85885777,4.01230737 2.4047616,4.5582112 3.07816811,4.5582112 C3.75157462,4.5582112 4.29747845,4.01230737 4.29747845,3.33890086 C4.29747845,2.66549435 3.75157462,2.11959052 3.07816811,2.11959052 C2.4047616,2.11959052 1.85885777,2.66549435 1.85885777,3.33890086 L1.85885777,3.33890086 Z M0.00285776562,7.92428017 C0.00293049529,8.5373029 0.499903995,9.03421744 1.11292673,9.03421744 C1.72594946,9.03421744 2.22292296,8.5373029 2.22299569,7.92428017 C2.22292296,7.31125744 1.72594946,6.8143429 1.11292673,6.8143429 C0.499903995,6.8143429 0.00293049529,7.31125744 0.00285776562,7.92428017 Z M1.96809914,12.9275905 C1.96816693,13.4601736 2.39992984,13.8918816 2.93251293,13.8918816 C3.46509602,13.8918816 3.89685893,13.4601736 3.89692672,12.9275905 C3.89685893,12.3950074 3.46509602,11.9632995 2.93251293,11.9632995 C2.39992984,11.9632995 1.96816693,12.3950074 1.96809914,12.9275905 L1.96809914,12.9275905 Z M7.18382328,15.0175215 C7.18382328,15.4809837 7.55953357,15.856694 8.0229957,15.856694 C8.48645782,15.856694 8.86216811,15.4809837 8.86216811,15.0175215 C8.86216811,14.5540594 8.48645782,14.1783491 8.0229957,14.1783491 C7.55953357,14.1783491 7.18382328,14.5540594 7.18382328,15.0175215 Z M12.5874095,13.0920043 C12.5874095,13.4241369 12.8566562,13.6933836 13.1887888,13.6933836 C13.5209214,13.6933836 13.7901681,13.4241369 13.7901681,13.0920043 C13.7901681,12.7598717 13.5209214,12.490625 13.1887888,12.490625 C12.8566562,12.490625 12.5874095,12.7598717 12.5874095,13.0920043 Z M15.0892026,7.90138363 C15.0892026,8.13677119 15.2800219,8.32759052 15.5154095,8.32759052 C15.7507971,8.32759052 15.9416164,8.13677119 15.9416164,7.90138363 C15.9416164,7.66599606 15.7507971,7.47517673 15.5154095,7.47517673 C15.2800219,7.47517673 15.0892026,7.66599606 15.0892026,7.90138363 Z M13.8089267,3.4310388 C13.8089267,3.59916189 13.9452174,3.73545259 14.1133405,3.73545259 C14.2814636,3.73545259 14.4177543,3.59916189 14.4177543,3.4310388 C14.4177543,3.2629157 14.2814636,3.126625 14.1133405,3.126625 C13.9452174,3.126625 13.8089267,3.2629157 13.8089267,3.4310388 Z"></path>'
+        + '</g>'
+        + '</symbol>'
     // SVG 图标集：图标|播放
-    ui += '<symbol id="icoPlay">';
-    ui += '<g id="play">';
-    ui += '<path d="M14.1329221,9.60458431 L6.2734657,15.6325342 C5.34309563,16.2655554 4.05015741,16.0602894 3.38560736,15.1740596 C3.13481735,14.8396114 3,14.4388779 3,14.0278733 L3,1.97197357 C3,0.882882638 3.92685626,-1.95399252e-14 5.07019139,-1.95399252e-14 C5.50166685,-1.95399252e-14 5.92235968,0.128421099 6.2734657,0.367312671 L14.1329221,6.39526252 C15.0632922,7.02828376 15.2787819,8.25988003 14.6142318,9.14610977 C14.4814505,9.32318416 14.318816,9.4781026 14.1329221,9.60458431 Z"></path>';
-    ui += '<rect id="Rectangle" fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
-    ui += '</g>';
-    ui += '</symbol>';
+        + '<symbol id="icoPlay">'
+        + '<g id="play">'
+        + '<path d="M14.1329221,9.60458431 L6.2734657,15.6325342 C5.34309563,16.2655554 4.05015741,16.0602894 3.38560736,15.1740596 C3.13481735,14.8396114 3,14.4388779 3,14.0278733 L3,1.97197357 C3,0.882882638 3.92685626,-1.95399252e-14 5.07019139,-1.95399252e-14 C5.50166685,-1.95399252e-14 5.92235968,0.128421099 6.2734657,0.367312671 L14.1329221,6.39526252 C15.0632922,7.02828376 15.2787819,8.25988003 14.6142318,9.14610977 C14.4814505,9.32318416 14.318816,9.4781026 14.1329221,9.60458431 Z"></path>'
+        + '<rect id="Rectangle" fill-opacity="0" x="0" y="0" width="16" height="16"></rect>'
+        + '</g>'
+        + '</symbol>'
     // SVG 图标集：图标|暂停
-    ui += '<symbol id="icoPause">';
-    ui += '<g id="pause">';
-    ui += '<path d="M4,2 C5.1045695,2 6,2.8954305 6,4 L6,12 C6,13.1045695 5.1045695,14 4,14 L3,14 C1.8954305,14 1,13.1045695 1,12 L1,4 C1,2.8954305 1.8954305,2 3,2 L4,2 Z M13,2 C14.1045695,2 15,2.8954305 15,4 L15,12 C15,13.1045695 14.1045695,14 13,14 L12,14 C10.8954305,14 10,13.1045695 10,12 L10,4 C10,2.8954305 10.8954305,2 12,2 L13,2 Z"></path>';
-    ui += '<rect  fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
-    ui += '</g>';
-    ui += '</symbol>';
+        + '<symbol id="icoPause">'
+        + '<g id="pause">'
+        + '<path d="M4,2 C5.1045695,2 6,2.8954305 6,4 L6,12 C6,13.1045695 5.1045695,14 4,14 L3,14 C1.8954305,14 1,13.1045695 1,12 L1,4 C1,2.8954305 1.8954305,2 3,2 L4,2 Z M13,2 C14.1045695,2 15,2.8954305 15,4 L15,12 C15,13.1045695 14.1045695,14 13,14 L12,14 C10.8954305,14 10,13.1045695 10,12 L10,4 C10,2.8954305 10.8954305,2 12,2 L13,2 Z"></path>'
+        + '<rect  fill-opacity="0" x="0" y="0" width="16" height="16"></rect>'
+        + '</g>'
+        + '</symbol>'
     // SVG 图标集：图标|停止
-    ui += '<symbol id="icoStop">';
-    ui += '<g id="stop">';
-    ui += '<rect x="2" y="2" width="12" height="12" rx="2"></rect>';
-    ui += '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
-    ui += '</g>';
-    ui += '</symbol>';
+        + '<symbol id="icoStop">'
+        + '<g id="stop">'
+        + '<rect x="2" y="2" width="12" height="12" rx="2"></rect>'
+        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>'
+        + '</g>'
+        + '</symbol>'
     // SVG 图标集：图标|无法播放
-    ui += '<symbol id="icoForbidden">';
-    ui += '<g id="forbidden">';
-    ui += '<path d="M3.11014702,4.52295457 C1.18968426,7.22400289 1.82212581,10.9699964 4.52157146,12.8902277 C6.60400096,14.3708881 9.39599904,14.3708881 11.4784285,12.8902277 L3.11014702,4.52295457 Z M4.52157146,3.10977226 L12.889853,11.4770454 C14.8103157,8.77599711 14.1798024,5.03000361 11.4784285,3.10977226 C9.39599904,1.62911194 6.60400096,1.62911194 4.52157146,3.10977226 L4.52157146,3.10977226 Z M8,16 C3.58062184,16 0,12.4178817 0,8.00096397 C0,3.58404627 3.58062184,0 8,0 C12.4193782,0 16,3.58211833 16,8.00096397 C16,12.4198096 12.4193782,16 8,16 Z"></path>';
-    ui += '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>';
-    ui += '</g>';
-    ui += '</symbol>';
+        + '<symbol id="icoForbidden">'
+        + '<g id="forbidden">'
+        + '<path d="M3.11014702,4.52295457 C1.18968426,7.22400289 1.82212581,10.9699964 4.52157146,12.8902277 C6.60400096,14.3708881 9.39599904,14.3708881 11.4784285,12.8902277 L3.11014702,4.52295457 Z M4.52157146,3.10977226 L12.889853,11.4770454 C14.8103157,8.77599711 14.1798024,5.03000361 11.4784285,3.10977226 C9.39599904,1.62911194 6.60400096,1.62911194 4.52157146,3.10977226 L4.52157146,3.10977226 Z M8,16 C3.58062184,16 0,12.4178817 0,8.00096397 C0,3.58404627 3.58062184,0 8,0 C12.4193782,0 16,3.58211833 16,8.00096397 C16,12.4198096 12.4193782,16 8,16 Z"></path>'
+        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>'
+        + '</g>'
+        + '</symbol>'
     // SVG 图标集：图标|复选框（未选择）
-    ui += '<symbol id="icoCheckbox_uncheck">';
-    ui += '<g id="uncheck">';
-    ui += '<path d="M10,0 C12.209139,-8.49901461e-16 14,1.790861 14,4 L14,10 C14,12.209139 12.209139,14 10,14 L4,14 C1.790861,14 -1.73547709e-16,12.209139 0,10 L0,4 C-7.1463071e-16,1.790861 1.790861,-3.82769592e-17 4,0 L10,0 Z M10,1 L4,1 L3.79460158,1.00692108 C3.04801112,1.05740265 2.37633177,1.38102754 1.87867966,1.87867966 C1.33578644,2.42157288 1,3.17157288 1,4 L1,4 L1,10 L1.00692108,10.2053984 C1.05740265,10.9519889 1.38102754,11.6236682 1.87867966,12.1213203 C2.42157288,12.6642136 3.17157288,13 4,13 L4,13 L10,13 L10.2053984,12.9930789 C10.9519889,12.9425974 11.6236682,12.6189725 12.1213203,12.1213203 C12.6642136,11.5784271 13,10.8284271 13,10 L13,10 L13,4 L12.9930789,3.79460158 C12.9425974,3.04801112 12.6189725,2.37633177 12.1213203,1.87867966 C11.5784271,1.33578644 10.8284271,1 10,1 L10,1 Z" opacity="0.5"></path>';
-    ui += '</g>';
-    ui += '</symbol>';
+        + '<symbol id="icoCheckbox_uncheck">'
+        + '<g id="uncheck">'
+        + '<path d="M10,0 C12.209139,-8.49901461e-16 14,1.790861 14,4 L14,10 C14,12.209139 12.209139,14 10,14 L4,14 C1.790861,14 -1.73547709e-16,12.209139 0,10 L0,4 C-7.1463071e-16,1.790861 1.790861,-3.82769592e-17 4,0 L10,0 Z M10,1 L4,1 L3.79460158,1.00692108 C3.04801112,1.05740265 2.37633177,1.38102754 1.87867966,1.87867966 C1.33578644,2.42157288 1,3.17157288 1,4 L1,4 L1,10 L1.00692108,10.2053984 C1.05740265,10.9519889 1.38102754,11.6236682 1.87867966,12.1213203 C2.42157288,12.6642136 3.17157288,13 4,13 L4,13 L10,13 L10.2053984,12.9930789 C10.9519889,12.9425974 11.6236682,12.6189725 12.1213203,12.1213203 C12.6642136,11.5784271 13,10.8284271 13,10 L13,10 L13,4 L12.9930789,3.79460158 C12.9425974,3.04801112 12.6189725,2.37633177 12.1213203,1.87867966 C11.5784271,1.33578644 10.8284271,1 10,1 L10,1 Z" opacity="0.5"></path>'
+        + '</g>'
+        + '</symbol>'
     // SVG 图标集：图标|复选框（已选择）
-    ui += '<symbol id="icoCheckbox_checked">';
-    ui += '<g id="checked">';
-    ui += '<path d="M10,0 C12.209139,-8.49901461e-16 14,1.790861 14,4 L14,10 C14,12.209139 12.209139,14 10,14 L4,14 C1.790861,14 -1.13860385e-13,12.209139 -1.13686838e-13,10 L-1.13686838e-13,4 C-1.14401468e-13,1.790861 1.790861,-3.82769592e-17 4,0 L10,0 Z M10.4345054,3.35937475 C9.98210026,3.04259723 9.35855448,3.15254517 9.04177696,3.60495035 L9.04177696,3.60495035 L5.70337129,8.3716637 L4.42132034,7.08974545 C4.03079605,6.69922116 3.39763107,6.69922116 3.00710678,7.08974545 C2.61658249,7.48026975 2.61658249,8.11343472 3.00710678,8.50395902 L3.00710678,8.50395902 L5.12842712,10.6252794 C5.44611554,10.9429678 5.92437612,11.0022192 6.30159501,10.8029483 C6.31888566,10.7941174 6.33594939,10.7847657 6.35288228,10.7742207 L6.36250295,10.7684416 L6.36250295,10.7684416 L6.37216074,10.7632115 C6.48435662,10.6938722 6.58459456,10.6010641 6.665046,10.4861675 L6.665046,10.4861675 L10.6800811,4.75210323 C10.9968586,4.29969805 10.8869106,3.67615226 10.4345054,3.35937475 Z"></path>';
-    ui += '</g>';
-    ui += '</symbol>';
+        + '<symbol id="icoCheckbox_checked">'
+        + '<g id="checked">'
+        + '<path d="M10,0 C12.209139,-8.49901461e-16 14,1.790861 14,4 L14,10 C14,12.209139 12.209139,14 10,14 L4,14 C1.790861,14 -1.13860385e-13,12.209139 -1.13686838e-13,10 L-1.13686838e-13,4 C-1.14401468e-13,1.790861 1.790861,-3.82769592e-17 4,0 L10,0 Z M10.4345054,3.35937475 C9.98210026,3.04259723 9.35855448,3.15254517 9.04177696,3.60495035 L9.04177696,3.60495035 L5.70337129,8.3716637 L4.42132034,7.08974545 C4.03079605,6.69922116 3.39763107,6.69922116 3.00710678,7.08974545 C2.61658249,7.48026975 2.61658249,8.11343472 3.00710678,8.50395902 L3.00710678,8.50395902 L5.12842712,10.6252794 C5.44611554,10.9429678 5.92437612,11.0022192 6.30159501,10.8029483 C6.31888566,10.7941174 6.33594939,10.7847657 6.35288228,10.7742207 L6.36250295,10.7684416 L6.36250295,10.7684416 L6.37216074,10.7632115 C6.48435662,10.6938722 6.58459456,10.6010641 6.665046,10.4861675 L6.665046,10.4861675 L10.6800811,4.75210323 C10.9968586,4.29969805 10.8869106,3.67615226 10.4345054,3.35937475 Z"></path>'
+        + '</g>'
+        + '</symbol>'
     // SVG 图标集：图标|复选框（不确定选择）
-    ui += '<symbol id="icoCheckbox_indeterminate">';
-    ui += '<g id="indeterminate">';
-    ui += '<path d="M10,0 C12.209139,-8.49901461e-16 14,1.790861 14,4 L14,10 C14,12.209139 12.209139,14 10,14 L4,14 C1.790861,14 2.27200128e-13,12.209139 2.27373675e-13,10 L2.27373675e-13,4 C2.26659045e-13,1.790861 1.790861,-3.82769592e-17 4,0 L10,0 Z M10,6 L4,6 C3.44771525,6 3,6.44771525 3,7 C3,7.55228475 3.44771525,8 4,8 L4,8 L10,8 C10.5522847,8 11,7.55228475 11,7 C11,6.44771525 10.5522847,6 10,6 L10,6 Z" opacity="0.5"></path>';
-    ui += '<path d="M10,0 C12.209139,-8.49901461e-16 14,1.790861 14,4 L14,10 C14,12.209139 12.209139,14 10,14 L4,14 C1.790861,14 1.1351329e-13,12.209139 1.13686838e-13,10 L1.13686838e-13,4 C1.12972207e-13,1.790861 1.790861,-3.82769592e-17 4,0 L10,0 Z M10,1 L4,1 L3.79460158,1.00692108 C3.04801112,1.05740265 2.37633177,1.38102754 1.87867966,1.87867966 C1.33578644,2.42157288 1,3.17157288 1,4 L1,4 L1,10 L1.00692108,10.2053984 C1.05740265,10.9519889 1.38102754,11.6236682 1.87867966,12.1213203 C2.42157288,12.6642136 3.17157288,13 4,13 L4,13 L10,13 L10.2053984,12.9930789 C10.9519889,12.9425974 11.6236682,12.6189725 12.1213203,12.1213203 C12.6642136,11.5784271 13,10.8284271 13,10 L13,10 L13,4 L12.9930789,3.79460158 C12.9425974,3.04801112 12.6189725,2.37633177 12.1213203,1.87867966 C11.5784271,1.33578644 10.8284271,1 10,1 L10,1 Z"></path>';
-    ui += '</g>';
-    ui += '</symbol>';
+        + '<symbol id="icoCheckbox_indeterminate">'
+        + '<g id="indeterminate">'
+        + '<path d="M10,0 C12.209139,-8.49901461e-16 14,1.790861 14,4 L14,10 C14,12.209139 12.209139,14 10,14 L4,14 C1.790861,14 2.27200128e-13,12.209139 2.27373675e-13,10 L2.27373675e-13,4 C2.26659045e-13,1.790861 1.790861,-3.82769592e-17 4,0 L10,0 Z M10,6 L4,6 C3.44771525,6 3,6.44771525 3,7 C3,7.55228475 3.44771525,8 4,8 L4,8 L10,8 C10.5522847,8 11,7.55228475 11,7 C11,6.44771525 10.5522847,6 10,6 L10,6 Z" opacity="0.5"></path>'
+        + '<path d="M10,0 C12.209139,-8.49901461e-16 14,1.790861 14,4 L14,10 C14,12.209139 12.209139,14 10,14 L4,14 C1.790861,14 1.1351329e-13,12.209139 1.13686838e-13,10 L1.13686838e-13,4 C1.12972207e-13,1.790861 1.790861,-3.82769592e-17 4,0 L10,0 Z M10,1 L4,1 L3.79460158,1.00692108 C3.04801112,1.05740265 2.37633177,1.38102754 1.87867966,1.87867966 C1.33578644,2.42157288 1,3.17157288 1,4 L1,4 L1,10 L1.00692108,10.2053984 C1.05740265,10.9519889 1.38102754,11.6236682 1.87867966,12.1213203 C2.42157288,12.6642136 3.17157288,13 4,13 L4,13 L10,13 L10.2053984,12.9930789 C10.9519889,12.9425974 11.6236682,12.6189725 12.1213203,12.1213203 C12.6642136,11.5784271 13,10.8284271 13,10 L13,10 L13,4 L12.9930789,3.79460158 C12.9425974,3.04801112 12.6189725,2.37633177 12.1213203,1.87867966 C11.5784271,1.33578644 10.8284271,1 10,1 L10,1 Z"></path>'
+        + '</g>'
+        + '</symbol>'
     // SVG 图标集：图标|链接检查结果正常
-    ui += '<symbol id="icoLinkOK">';
-    ui += '<g id="linkok">';
-    ui += '<path d="M10.8685137,7.01413306 C10.8603674,6.99758704 10.8549366,6.98104102 10.8467903,6.964495 C10.8440748,6.96173733 10.8440748,6.95897966 10.8413594,6.95346432 C10.6458484,6.55360221 10.2249565,6.29438125 9.75790233,6.33023095 C9.14693029,6.37986901 8.6880224,6.92312996 8.73690017,7.54360565 C8.75047732,7.7035505 8.79392422,7.849707 8.86181,7.98207515 C9.17136917,8.69079628 9.03559761,9.55394691 8.46535704,10.1358152 L5.47838262,13.1747673 C4.73706988,13.9276112 3.53141839,13.9276112 2.79010565,13.1747673 C2.04879291,12.4219235 2.04879291,11.1975181 2.79010565,10.4446743 L3.90343247,9.31402964 L3.89528618,9.30575664 C4.15325215,9.07962771 4.30260087,8.73491899 4.27544656,8.36539124 C4.2265688,7.74491555 3.69162883,7.27886936 3.08065679,7.32850741 C2.78739022,7.35056877 2.53213967,7.48845226 2.34749035,7.69251982 L2.34477492,7.68976215 L1.20972464,8.84246811 C-0.403241546,10.480524 -0.403241546,13.1334023 1.20972464,14.7714581 C2.82269082,16.409514 5.43493572,16.409514 7.04790191,14.7714581 L10.0430226,11.7297484 C11.2975519,10.4529473 11.569095,8.56394347 10.8685137,7.01413306 L10.8685137,7.01413306 Z"></path>';
-    ui += '<path d="M14.7923119,1.22854188 C13.1793458,-0.409513961 10.5671009,-0.409513961 8.95413467,1.22854188 L5.95901396,4.27025164 C4.7044847,5.54429507 4.43294158,7.43329886 5.13080742,8.98310927 C5.13895371,8.99965529 5.14438457,9.01620131 5.15253087,9.03274733 C5.1552463,9.035505 5.1552463,9.03826267 5.15796173,9.04377801 C5.35347278,9.44364012 5.77436463,9.70286108 6.24141881,9.66701138 C6.85239085,9.61737332 7.31129874,9.07411238 7.26242098,8.45363668 C7.24884382,8.29369183 7.20539692,8.14753533 7.13751114,8.01516718 C6.82795197,7.30644605 6.96372354,6.44329542 7.53396411,5.86142709 L10.523654,2.82523268 C11.2649667,2.07238883 12.4706182,2.07238883 13.2119309,2.82523268 C13.9532437,3.57807653 13.9532437,4.8024819 13.2119309,5.55532575 L12.0986041,6.68597036 L12.1067504,6.69424336 C11.8487844,6.92037229 11.6994357,7.26508101 11.72659,7.63460876 C11.7754678,8.25508445 12.3104077,8.72113064 12.9213798,8.67149259 C13.2146464,8.64943123 13.4698969,8.51154774 13.6545462,8.30748018 L13.6572617,8.31023785 L14.7923119,7.15753189 C16.4025627,5.51947604 16.4025627,2.86384006 14.7923119,1.22854188 Z"></path>';
-    ui += '<path d="M16,10 C18.2091404,10 20,11.7908606 20,14 C20,16.2091394 18.2091404,18 16,18 C13.7908596,18 12,16.2091394 12,14 C12,11.7908606 13.7908596,10 16,10 Z M17.6822792,12.5943032 L17.6771246,12.5990389 L15.1407928,14.9394845 L14.2240628,14.1910878 L14.2147843,14.1837134 C14.0430722,14.0516383 13.7963288,14.079336 13.6584279,14.2482481 C13.5194611,14.4184535 13.5431028,14.6682744 13.7103242,14.8095238 L13.7156012,14.8138925 L14.8814335,15.7656793 L14.890712,15.7730537 C14.9667027,15.831608 15.0611853,15.8609385 15.1569732,15.8557099 C15.2615489,15.8607738 15.3639537,15.8247085 15.4422806,15.7552294 L15.4484837,15.7496024 L18.2223678,13.189882 L18.2311046,13.1815815 C18.38585,13.0301092 18.3929966,12.7820183 18.2451708,12.6218261 C18.0961916,12.4603582 17.8456041,12.4486675 17.6822792,12.5943032 Z"></path>';
-    ui += '</g>';
-    ui += '</symbol>';
+        + '<symbol id="icoLinkOK">'
+        + '<g id="linkok">'
+        + '<path d="M10.8685137,7.01413306 C10.8603674,6.99758704 10.8549366,6.98104102 10.8467903,6.964495 C10.8440748,6.96173733 10.8440748,6.95897966 10.8413594,6.95346432 C10.6458484,6.55360221 10.2249565,6.29438125 9.75790233,6.33023095 C9.14693029,6.37986901 8.6880224,6.92312996 8.73690017,7.54360565 C8.75047732,7.7035505 8.79392422,7.849707 8.86181,7.98207515 C9.17136917,8.69079628 9.03559761,9.55394691 8.46535704,10.1358152 L5.47838262,13.1747673 C4.73706988,13.9276112 3.53141839,13.9276112 2.79010565,13.1747673 C2.04879291,12.4219235 2.04879291,11.1975181 2.79010565,10.4446743 L3.90343247,9.31402964 L3.89528618,9.30575664 C4.15325215,9.07962771 4.30260087,8.73491899 4.27544656,8.36539124 C4.2265688,7.74491555 3.69162883,7.27886936 3.08065679,7.32850741 C2.78739022,7.35056877 2.53213967,7.48845226 2.34749035,7.69251982 L2.34477492,7.68976215 L1.20972464,8.84246811 C-0.403241546,10.480524 -0.403241546,13.1334023 1.20972464,14.7714581 C2.82269082,16.409514 5.43493572,16.409514 7.04790191,14.7714581 L10.0430226,11.7297484 C11.2975519,10.4529473 11.569095,8.56394347 10.8685137,7.01413306 L10.8685137,7.01413306 Z"></path>'
+        + '<path d="M14.7923119,1.22854188 C13.1793458,-0.409513961 10.5671009,-0.409513961 8.95413467,1.22854188 L5.95901396,4.27025164 C4.7044847,5.54429507 4.43294158,7.43329886 5.13080742,8.98310927 C5.13895371,8.99965529 5.14438457,9.01620131 5.15253087,9.03274733 C5.1552463,9.035505 5.1552463,9.03826267 5.15796173,9.04377801 C5.35347278,9.44364012 5.77436463,9.70286108 6.24141881,9.66701138 C6.85239085,9.61737332 7.31129874,9.07411238 7.26242098,8.45363668 C7.24884382,8.29369183 7.20539692,8.14753533 7.13751114,8.01516718 C6.82795197,7.30644605 6.96372354,6.44329542 7.53396411,5.86142709 L10.523654,2.82523268 C11.2649667,2.07238883 12.4706182,2.07238883 13.2119309,2.82523268 C13.9532437,3.57807653 13.9532437,4.8024819 13.2119309,5.55532575 L12.0986041,6.68597036 L12.1067504,6.69424336 C11.8487844,6.92037229 11.6994357,7.26508101 11.72659,7.63460876 C11.7754678,8.25508445 12.3104077,8.72113064 12.9213798,8.67149259 C13.2146464,8.64943123 13.4698969,8.51154774 13.6545462,8.30748018 L13.6572617,8.31023785 L14.7923119,7.15753189 C16.4025627,5.51947604 16.4025627,2.86384006 14.7923119,1.22854188 Z"></path>'
+        + '<path d="M16,10 C18.2091404,10 20,11.7908606 20,14 C20,16.2091394 18.2091404,18 16,18 C13.7908596,18 12,16.2091394 12,14 C12,11.7908606 13.7908596,10 16,10 Z M17.6822792,12.5943032 L17.6771246,12.5990389 L15.1407928,14.9394845 L14.2240628,14.1910878 L14.2147843,14.1837134 C14.0430722,14.0516383 13.7963288,14.079336 13.6584279,14.2482481 C13.5194611,14.4184535 13.5431028,14.6682744 13.7103242,14.8095238 L13.7156012,14.8138925 L14.8814335,15.7656793 L14.890712,15.7730537 C14.9667027,15.831608 15.0611853,15.8609385 15.1569732,15.8557099 C15.2615489,15.8607738 15.3639537,15.8247085 15.4422806,15.7552294 L15.4484837,15.7496024 L18.2223678,13.189882 L18.2311046,13.1815815 C18.38585,13.0301092 18.3929966,12.7820183 18.2451708,12.6218261 C18.0961916,12.4603582 17.8456041,12.4486675 17.6822792,12.5943032 Z"></path>'
+        + '</g>'
+        + '</symbol>'
     // SVG 图标集：图标|链接检查结果异常
-    ui += '<symbol id="icoLinkError">';
-    ui += '<g id="linkerror">';
-    ui += '<path d="M15,9 C15.2886741,9 15.5545759,9.15405217 15.6943297,9.40226501 L15.6943297,9.40226501 L19.8999835,16.8412623 C20.0367271,17.0829025 20.0330292,17.3776316 19.8902645,17.6158855 C19.7474998,17.8541393 19.4870188,18.0002871 19.2056539,18 L19.2056539,18 L10.7943461,18 C10.5129812,18.0002871 10.2525002,17.8541393 10.1097355,17.6158855 C9.96697079,17.3776316 9.9632729,17.0829025 10.1000165,16.8412623 L10.1000165,16.8412623 L14.3056703,9.40226501 C14.4454241,9.15405217 14.7113259,9 15,9 Z M15,15.6606918 C14.4741015,15.6606918 14.0477765,16.0796293 14.0477765,16.5964148 C14.0477765,16.9307164 14.2292692,17.2396238 14.5238882,17.4067746 C14.8185072,17.5739254 15.1814928,17.5739254 15.4761118,17.4067746 C15.7707308,17.2396238 15.9522235,16.9307164 15.9522235,16.5964148 C15.9522235,16.0796293 15.5258985,15.6606918 15,15.6606918 Z M15,10.9820772 L14.8732573,10.9874923 C14.4287394,11.0272027 14.2064804,11.2853208 14.2064804,11.7618463 L14.2064804,11.7618463 L14.2064804,14.1011536 C14.2064804,14.6209997 14.4709869,14.8809227 15,14.8809227 L15,14.8809227 L15.1267427,14.8755077 C15.5712606,14.8357972 15.7935196,14.5776792 15.7935196,14.1011536 L15.7935196,14.1011536 L15.7935196,11.7618463 C15.7935196,11.2420002 15.5290131,10.9820772 15,10.9820772 L15,10.9820772 Z"></path>';
-    ui += '<path d="M8.61062487,5.50299998 C8.99983668,5.47312522 9.35057989,5.68914268 9.51350577,6.02236112 C9.51576863,6.02695723 9.51576863,6.02925529 9.51803149,6.03155335 C9.52482007,6.0453417 9.52934579,6.05913005 9.53613436,6.07291839 C10.1199521,7.36442707 9.89366615,8.9385969 8.8482251,10.0025978 L8.8482251,10.0025978 L6.35229118,12.5373559 C5.00815269,13.9024025 2.83128194,13.9024025 1.48714346,12.5373559 C0.14300497,11.1723094 0.14300497,8.96157748 1.48714346,7.59653094 L1.48714346,7.59653094 L2.43301869,6.63594264 C2.58915599,6.46818439 2.80186477,6.35328149 3.04625359,6.33489702 C3.55539695,6.29353198 4.00118026,6.6819038 4.04191173,7.19896688 C4.06454032,7.50690667 3.94008305,7.79416394 3.72511141,7.98260471 L3.72511141,7.98260471 L3.73189999,7.98949888 L2.80412763,8.93170272 C2.18636701,9.55907259 2.18636701,10.5794104 2.80412763,11.2067803 C3.42188825,11.8341502 4.42659783,11.8341502 5.04435844,11.2067803 L5.04435844,11.2067803 L7.53350379,8.67432021 C8.00870426,8.18942994 8.12184723,7.47013774 7.86388126,6.8795368 C7.80730978,6.76923001 7.77110403,6.64743293 7.75978973,6.51414556 C7.71905826,5.99708248 8.1014815,5.54436502 8.61062487,5.50299998 Z M11.392581,0.774705066 C13.2202354,0.200475309 15.1422982,1.22245422 15.6882515,3.05875357 C16.2332857,4.89196151 15.1943311,6.84595101 13.3686747,7.42124311 L13.3686747,7.42124311 L12.0825475,7.82533072 C11.8659287,7.90015044 11.6241744,7.90174296 11.3997609,7.80324188 C10.9307943,7.60073671 10.7195205,7.04854216 10.9263032,6.57288029 C11.0508923,6.29036211 11.2956406,6.09515815 11.5739169,6.0296979 L11.5739169,6.0296979 L11.5711596,6.02042366 L12.8326718,5.62406979 C13.6726544,5.36015611 14.151674,4.45925129 13.9007561,3.61529553 C13.6498381,2.77133977 12.7627322,2.29965719 11.9227497,2.56357087 L11.9227497,2.56357087 L8.53512766,3.62792603 C7.88790836,3.83296561 7.45032181,4.41494552 7.4008219,5.05752289 C7.39898565,5.18147671 7.37377317,5.30601472 7.32118847,5.42901222 C7.11440581,5.90467409 6.56420816,6.12486304 6.09524153,5.92235788 C5.73756255,5.76601184 5.52928873,5.41061578 5.5418703,5.0399123 C5.54203006,5.03479182 5.54310893,5.03276276 5.54218982,5.02967135 C5.5426691,5.01430991 5.54514636,5.00001083 5.54562564,4.98464939 C5.63846977,3.57129144 6.57729636,2.2876168 7.99880532,1.84099365 L7.99880532,1.84099365 Z"></path>';
-    ui += '<path d="M0.782543585,3.4507195 L3.40869759,3.9137813 C3.7712938,3.9777168 4.01340614,4.32348905 3.94947064,4.68608526 C3.88553515,5.04868146 3.53976289,5.2907938 3.17716669,5.22685831 L0.551012682,4.7637965 C0.188416479,4.69986101 -0.0536958622,4.35408875 0.0102396313,3.99149255 C0.0741751249,3.62889634 0.419947383,3.386784 0.782543585,3.4507195 Z M3.67286326,0.33344465 L5.0061966,2.64284573 C5.19029151,2.96170748 5.08104141,3.36943441 4.76217966,3.55352933 C4.44331791,3.73762425 4.03559098,3.62837414 3.85149606,3.30951239 L2.51816273,1.00011132 C2.33406781,0.681249568 2.44331791,0.273522631 2.76217966,0.0894277143 C3.08104141,-0.0946672023 3.48876835,0.0145829012 3.67286326,0.33344465 Z"></path>';
-    ui += '</g>';
-    ui += '</symbol>';
-    ui += '</svg>';
+        + '<symbol id="icoLinkError">'
+        + '<g id="linkerror">'
+        + '<path d="M15,9 C15.2886741,9 15.5545759,9.15405217 15.6943297,9.40226501 L15.6943297,9.40226501 L19.8999835,16.8412623 C20.0367271,17.0829025 20.0330292,17.3776316 19.8902645,17.6158855 C19.7474998,17.8541393 19.4870188,18.0002871 19.2056539,18 L19.2056539,18 L10.7943461,18 C10.5129812,18.0002871 10.2525002,17.8541393 10.1097355,17.6158855 C9.96697079,17.3776316 9.9632729,17.0829025 10.1000165,16.8412623 L10.1000165,16.8412623 L14.3056703,9.40226501 C14.4454241,9.15405217 14.7113259,9 15,9 Z M15,15.6606918 C14.4741015,15.6606918 14.0477765,16.0796293 14.0477765,16.5964148 C14.0477765,16.9307164 14.2292692,17.2396238 14.5238882,17.4067746 C14.8185072,17.5739254 15.1814928,17.5739254 15.4761118,17.4067746 C15.7707308,17.2396238 15.9522235,16.9307164 15.9522235,16.5964148 C15.9522235,16.0796293 15.5258985,15.6606918 15,15.6606918 Z M15,10.9820772 L14.8732573,10.9874923 C14.4287394,11.0272027 14.2064804,11.2853208 14.2064804,11.7618463 L14.2064804,11.7618463 L14.2064804,14.1011536 C14.2064804,14.6209997 14.4709869,14.8809227 15,14.8809227 L15,14.8809227 L15.1267427,14.8755077 C15.5712606,14.8357972 15.7935196,14.5776792 15.7935196,14.1011536 L15.7935196,14.1011536 L15.7935196,11.7618463 C15.7935196,11.2420002 15.5290131,10.9820772 15,10.9820772 L15,10.9820772 Z"></path>'
+        + '<path d="M8.61062487,5.50299998 C8.99983668,5.47312522 9.35057989,5.68914268 9.51350577,6.02236112 C9.51576863,6.02695723 9.51576863,6.02925529 9.51803149,6.03155335 C9.52482007,6.0453417 9.52934579,6.05913005 9.53613436,6.07291839 C10.1199521,7.36442707 9.89366615,8.9385969 8.8482251,10.0025978 L8.8482251,10.0025978 L6.35229118,12.5373559 C5.00815269,13.9024025 2.83128194,13.9024025 1.48714346,12.5373559 C0.14300497,11.1723094 0.14300497,8.96157748 1.48714346,7.59653094 L1.48714346,7.59653094 L2.43301869,6.63594264 C2.58915599,6.46818439 2.80186477,6.35328149 3.04625359,6.33489702 C3.55539695,6.29353198 4.00118026,6.6819038 4.04191173,7.19896688 C4.06454032,7.50690667 3.94008305,7.79416394 3.72511141,7.98260471 L3.72511141,7.98260471 L3.73189999,7.98949888 L2.80412763,8.93170272 C2.18636701,9.55907259 2.18636701,10.5794104 2.80412763,11.2067803 C3.42188825,11.8341502 4.42659783,11.8341502 5.04435844,11.2067803 L5.04435844,11.2067803 L7.53350379,8.67432021 C8.00870426,8.18942994 8.12184723,7.47013774 7.86388126,6.8795368 C7.80730978,6.76923001 7.77110403,6.64743293 7.75978973,6.51414556 C7.71905826,5.99708248 8.1014815,5.54436502 8.61062487,5.50299998 Z M11.392581,0.774705066 C13.2202354,0.200475309 15.1422982,1.22245422 15.6882515,3.05875357 C16.2332857,4.89196151 15.1943311,6.84595101 13.3686747,7.42124311 L13.3686747,7.42124311 L12.0825475,7.82533072 C11.8659287,7.90015044 11.6241744,7.90174296 11.3997609,7.80324188 C10.9307943,7.60073671 10.7195205,7.04854216 10.9263032,6.57288029 C11.0508923,6.29036211 11.2956406,6.09515815 11.5739169,6.0296979 L11.5739169,6.0296979 L11.5711596,6.02042366 L12.8326718,5.62406979 C13.6726544,5.36015611 14.151674,4.45925129 13.9007561,3.61529553 C13.6498381,2.77133977 12.7627322,2.29965719 11.9227497,2.56357087 L11.9227497,2.56357087 L8.53512766,3.62792603 C7.88790836,3.83296561 7.45032181,4.41494552 7.4008219,5.05752289 C7.39898565,5.18147671 7.37377317,5.30601472 7.32118847,5.42901222 C7.11440581,5.90467409 6.56420816,6.12486304 6.09524153,5.92235788 C5.73756255,5.76601184 5.52928873,5.41061578 5.5418703,5.0399123 C5.54203006,5.03479182 5.54310893,5.03276276 5.54218982,5.02967135 C5.5426691,5.01430991 5.54514636,5.00001083 5.54562564,4.98464939 C5.63846977,3.57129144 6.57729636,2.2876168 7.99880532,1.84099365 L7.99880532,1.84099365 Z"></path>'
+        + '<path d="M0.782543585,3.4507195 L3.40869759,3.9137813 C3.7712938,3.9777168 4.01340614,4.32348905 3.94947064,4.68608526 C3.88553515,5.04868146 3.53976289,5.2907938 3.17716669,5.22685831 L0.551012682,4.7637965 C0.188416479,4.69986101 -0.0536958622,4.35408875 0.0102396313,3.99149255 C0.0741751249,3.62889634 0.419947383,3.386784 0.782543585,3.4507195 Z M3.67286326,0.33344465 L5.0061966,2.64284573 C5.19029151,2.96170748 5.08104141,3.36943441 4.76217966,3.55352933 C4.44331791,3.73762425 4.03559098,3.62837414 3.85149606,3.30951239 L2.51816273,1.00011132 C2.33406781,0.681249568 2.44331791,0.273522631 2.76217966,0.0894277143 C3.08104141,-0.0946672023 3.48876835,0.0145829012 3.67286326,0.33344465 Z"></path>'
+        + '</g>'
+        + '</symbol>'
+        + '</svg>';
     return ui;
 }
 
@@ -10466,35 +10636,35 @@ VLOOKui.loadNavTools = function () {
     let ui = '';
     // --------------------------------------------------
     // 导航中心
-    ui += '<div class="mdx-nav-center mdx-float-card">';
-    // --- 导航中心头部 ---
-    ui += '<div class="mdx-nav-center-header">';
-    // 分段控制器组件
-    ui += '<div class="mdx-segment toc"></div>';
-    // 回到封面按钮
-    ui += '<div class="mdx-accent-btn cover">';
-    ui += VLOOK.ui.generateSvgIcon("icoCover", 18, 18, "alt");
-    ui += '</div>';
-    // 打开插图浏览器
-    ui += '<div class="mdx-accent-btn figure-nav">';
-    ui += VLOOK.ui.generateSvgIcon("icoFigureNav", 20, 18, "alt");
-    ui += '</div>';
-    // 访问历史标题
-    ui += '<div class="mdx-toc-history-title">访问历史</div>';
-    ui += '</div>';
+    ui += '<div class="mdx-nav-center mdx-float-card">'
+        // --- 导航中心头部 ---
+        + '<div class="mdx-nav-center-header">'
+        // 分段控制器组件
+        + '<div class="mdx-segment toc"></div>'
+        // 回到封面按钮
+        + '<div class="mdx-accent-btn cover">'
+        + VLOOK.ui.generateSvgIcon("icoCover", 18, 18, "alt")
+        + '</div>'
+        // 打开插图浏览器
+        + '<div class="mdx-accent-btn figure-nav">'
+        + VLOOK.ui.generateSvgIcon("icoFigureNav", 20, 18, "alt")
+        + '</div>'
+        // 访问历史标题
+        + '<div class="mdx-toc-history-title">访问历史</div>'
+        + '</div>';
 
     // --- 导航中心内容区 ---
-    ui += '<div class="mdx-nav-center-body-scroll">';
-    ui += '<div class="mdx-toc-catalog-body"></div>';
-    ui += '<div class="mdx-toc-filter-catalog-result"></div>';
-    ui += '<div class="mdx-toc-filter-figure-result"></div>';
-    ui += '<div class="mdx-toc-filter-table-result"></div>';
-    ui += '<div class="mdx-toc-filter-multimedia-result"></div>';
-    ui += '<div class="mdx-toc-filter-codeblock-result"></div>';
-    ui += '<div class="mdx-toc-history-result"></div>';
-    ui += '</div>';
-    ui += '<div class="mdx-nav-center-footer"></div>';
-    ui += '</div>';
+    ui += '<div class="mdx-nav-center-body-scroll">'
+        + '<div class="mdx-toc-catalog-body"></div>'
+        + '<div class="mdx-toc-filter-catalog-result"></div>'
+        + '<div class="mdx-toc-filter-figure-result"></div>'
+        + '<div class="mdx-toc-filter-table-result"></div>'
+        + '<div class="mdx-toc-filter-multimedia-result"></div>'
+        + '<div class="mdx-toc-filter-codeblock-result"></div>'
+        + '<div class="mdx-toc-history-result"></div>'
+        + '</div>'
+        + '<div class="mdx-nav-center-footer"></div>'
+        + '</div>';
 
     // --------------------------------------------------
     // 导航中心收起/展开引导把手
@@ -10502,40 +10672,40 @@ VLOOKui.loadNavTools = function () {
 
     // --------------------------------------------------
     // 逐章导航栏
-    ui += '<div class="mdx-chapter-nav">';
+    ui += '<div class="mdx-chapter-nav">'
     // 上一章
-    ui += '<div class="mdx-chapter-nav-prev">';
-    ui += VLOOK.ui.generateSvgIcon("icoPrevChapter", 10, 15, "light", "position: absolute; top: 18px; left: 10px;");
-    ui += '<div class="mdx-chapter-nav-prev-text"></div>';
-    ui += '</div>';
+        + '<div class="mdx-chapter-nav-prev">'
+        + VLOOK.ui.generateSvgIcon("icoPrevChapter", 10, 15, "light", "position: absolute; top: 18px; left: 10px;")
+        + '<div class="mdx-chapter-nav-prev-text"></div>'
+        + '</div>'
     // 当前章节
-    ui += '<div class="mdx-chapter-nav-current"></div>';
+        + '<div class="mdx-chapter-nav-current"></div>'
     // 下一章
-    ui += '<div class="mdx-chapter-nav-next">';
-    ui += '<div class="mdx-chapter-nav-next-text">next</div>';
-    ui += VLOOK.ui.generateSvgIcon("icoNextChapter", 10, 15, "light", "position: absolute; top: 18px; right: 10px;");
-    ui += '</div>';
-    ui += '</div>';
+        + '<div class="mdx-chapter-nav-next">'
+        + '<div class="mdx-chapter-nav-next-text">next</div>'
+        + VLOOK.ui.generateSvgIcon("icoNextChapter", 10, 15, "light", "position: absolute; top: 18px; right: 10px;")
+        + '</div>'
+        + '</div>';
 
     // --------------------------------------------------
     // 插图导航面板
-    ui += '<div class="mdx-figure-nav mdx-backdrop-blurs">';
-    ui += '<div class="mdx-figure-content"></div>';
-    ui += '<div class="mdx-figure-nav-title"></div>';
-    ui += '<div class="mdx-figure-nav-btns mdx-btn-figure-prev">';
-    ui += VLOOK.ui.generateSvgIcon("icoPrevFig", 12, 54, "light");
-    ui += '</div>';
-    ui += '<div class="mdx-figure-nav-btns mdx-btn-figure-next">';
-    ui += VLOOK.ui.generateSvgIcon("icoNextFig", 12, 54, "light");
-    ui += '</div>';
-    ui += '<div class="mdx-btn-close-figure-nav">';
-    ui += VLOOK.ui.generateSvgIcon("icoClose", 16, 16, "light");
-    ui += '</div>';
-    ui += '<div class="mdx-copyright">';
-    ui += '<svg width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()"><use xlink:href="#icoVLOOK-dark"></use></svg>&nbsp;&nbsp;';
-    ui += '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.4) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">MAX°孟兆</a></strong>';
-    ui += '</div>';
-    ui += '</div>';
+    ui += '<div class="mdx-figure-nav mdx-backdrop-blurs">'
+        + '<div class="mdx-figure-content"></div>'
+        + '<div class="mdx-figure-nav-title"></div>'
+        + '<div class="mdx-figure-nav-btns mdx-btn-figure-prev">'
+        + VLOOK.ui.generateSvgIcon("icoPrevFig", 12, 54, "light")
+        + '</div>'
+        + '<div class="mdx-figure-nav-btns mdx-btn-figure-next">'
+        + VLOOK.ui.generateSvgIcon("icoNextFig", 12, 54, "light")
+        + '</div>'
+        + '<div class="mdx-btn-close-figure-nav">'
+        + VLOOK.ui.generateSvgIcon("icoClose", 16, 16, "light")
+        + '</div>'
+        + '<div class="mdx-copyright">'
+        + '<svg width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()"><use xlink:href="#icoVLOOK-dark"></use></svg>&nbsp;&nbsp;'
+        + '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.5) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">MAX°孟兆</a></strong>'
+        + '</div>'
+        + '</div>';
     return ui;
 }
 
@@ -10546,34 +10716,34 @@ VLOOKui.loadToolbar = function () {
     let ui = '';
         // --------------------------------------------------
     // 页面工具栏
-    ui += '<div class="mdx-toolbar">';
-    // 页面工具栏按钮：导航中心
-    ui += '<div class="mdx-btn mdx-btn-outline">';
-    ui += VLOOK.ui.generateSvgIcon("icoNavCenter", 20, 20, "light");
-    ui += '</div>';
-    // 页面工具栏按钮：打印
-    ui += '<div class="mdx-btn mdx-btn-print">';
-    ui += VLOOK.ui.generateSvgIcon("icoPrint", 20, 19, "light");
-    ui += '</div>';
-    // 页面工具栏按钮：聚光灯
-    ui += '<div for="toolbar-spotlight" class="mdx-btn mdx-btn-spotlight">';
-    ui += VLOOK.ui.generateSvgIcon("icoSpotlight", 22, 22, "light");
-    ui += '</div>';
-    // 页面工具栏按钮：段落导航
-    ui += '<div class="mdx-btn mdx-btn-paragraph-nav">';
-    ui += VLOOK.ui.generateSvgIcon("icoParagraphNav", 20, 20, "light");
-    ui += '</div>';
-    // 分隔符
-    ui += '<div class="mdx-toolbar-spliter"></div>';
-    // 页面工具栏按钮：Light/Dark模式
-    ui += '<div class="mdx-btn mdx-btn-color-scheme">';
-    ui += VLOOK.ui.generateSvgIcon("icoLightMode", 20, 20, "light");
-    ui += '</div>';
-    // 页面工具栏按钮：字体风格
-    ui += '<div class="mdx-btn mdx-btn-font-style">';
-    ui += VLOOK.ui.generateSvgIcon("icoFont", 20, 18, "light");
-    ui += '</div>';
-    ui += '</div>';
+    ui += '<div class="mdx-toolbar">'
+        // 导航中心
+        + '<div class="mdx-btn mdx-btn-outline">'
+        + VLOOK.ui.generateSvgIcon("icoNavCenter", 20, 20, "light")
+        + '</div>'
+        // 打印
+        + '<div class="mdx-btn mdx-btn-print">'
+        + VLOOK.ui.generateSvgIcon("icoPrint", 20, 19, "light")
+        + '</div>'
+        // 聚光灯
+        + '<div for="toolbar-spotlight" class="mdx-btn mdx-btn-spotlight">'
+        + VLOOK.ui.generateSvgIcon("icoSpotlight", 22, 22, "light")
+        + '</div>'
+        // 段落导航
+        + '<div class="mdx-btn mdx-btn-paragraph-nav">'
+        + VLOOK.ui.generateSvgIcon("icoParagraphNav", 20, 20, "light")
+        + '</div>'
+        // 分隔符
+        + '<div class="mdx-toolbar-spliter"></div>'
+        // Light/Dark模式
+        + '<div class="mdx-btn mdx-btn-color-scheme">'
+        + VLOOK.ui.generateSvgIcon("icoLightMode", 20, 20, "light")
+        + '</div>'
+        // 字体风格
+        + '<div class="mdx-btn mdx-btn-font-style">'
+        + VLOOK.ui.generateSvgIcon("icoFont", 20, 18, "light")
+        + '</div>'
+        + '</div>';
 
     // --------------------------------------------------
     // 聚光灯
@@ -10581,17 +10751,17 @@ VLOOKui.loadToolbar = function () {
 
     // --------------------------------------------------
     // 字体风格选择器
-    ui += '<div class="mdx-font-styler">';
-    ui += '<div style="float: left; margin-bottom: 30px;">';
-    ui += '<img alt="小清新" class="mdx-fontstyle-sans" src="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-sans.png" srcset="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-sans@2x.png 2x">';
-    ui += '<div class="mdx-fontinfo-sans"><span class="mdx-font-package">Font Package - </span><span id="fontset-sans-status">Loading... 0%</span></div>';
-    ui += '</div>';
-    ui += '<div style="float: right; margin-bottom: 30px;">';
-    ui += '<img alt="文艺范" class="mdx-fontstyle-serif" src="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-serif.png" srcset="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-serif@2x.png 2x">';
-    ui += '<div class="mdx-fontinfo-serif"><span class="mdx-font-package">Font Package - </span><span id="fontset-serif-status">Loading... 0%</span></div>';
-    ui += '</div>';
-    ui += '<div class="mdx-font-styler-info">Download Font Package</div>';
-    ui += '</div>';
+    ui += '<div class="mdx-font-styler">'
+        + '<div style="float: left; margin-bottom: 30px;">'
+        + '<img alt="小清新" class="mdx-fontstyle-sans" src="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-sans.png" srcset="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-sans@2x.png 2x">'
+        + '<div class="mdx-fontinfo-sans"><span class="mdx-font-package">Font Package - </span><span id="fontset-sans-status">Loading... 0%</span></div>'
+        + '</div>'
+        + '<div style="float: right; margin-bottom: 30px;">'
+        + '<img alt="文艺范" class="mdx-fontstyle-serif" src="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-serif.png" srcset="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-serif@2x.png 2x">'
+        + '<div class="mdx-fontinfo-serif"><span class="mdx-font-package">Font Package - </span><span id="fontset-serif-status">Loading... 0%</span></div>'
+        + '</div>'
+        + '<div class="mdx-font-styler-info">Download Font Package</div>'
+        + '</div>';
     return ui;
 }
 
@@ -10602,58 +10772,57 @@ VLOOKui.loadCommon = function () {
     let ui = '';
     // --------------------------------------------------
     // 脚注弹层
-    ui += '<div class="mdx-foot-note-panel">';
-    ui += '<div class="mdx-foot-note-panel-content"></div>';
-    ui += '<div class="mdx-foot-note-panel-header"></div>';
-    ui += '<div class="mdx-foot-note-panel-all"><a>查看所有脚注 ▶</a></div>';
-    ui += '<a name="xFooterArea"></a>';
-    ui += '</div>';
+    ui += '<div class="mdx-foot-note-panel">'
+        + '<div class="mdx-foot-note-panel-content"></div>'
+        + '<div class="mdx-foot-note-panel-header"></div>'
+        + '<div class="mdx-foot-note-panel-all"><a>查看所有脚注 ▶</a></div>'
+        + '<a name="xFooterArea"></a>'
+        + '</div>';
 
     // --------------------------------------------------
     // 在新标签打开的按钮
-    ui += '<div class="mdx-btn mdx-btn-open-in-new-tab">';
-    ui += VLOOK.ui.generateSvgIcon("icoNewTab", 20, 18, "light");
-    ui += '</div>';
+    ui += '<div class="mdx-btn mdx-btn-open-in-new-tab">'
+        + VLOOK.ui.generateSvgIcon("icoNewTab", 20, 18, "light")
+        + '</div>';
 
     // --------------------------------------------------
     // 复制代码块内容的按钮
-    ui += '<div class="mdx-btn mdx-btn-copy-code-block">';
-    ui += VLOOK.ui.generateSvgIcon("icoCopyCodeBlock", 18, 18, "light");
-    ui += '</div>';
+    ui += '<div class="mdx-btn mdx-btn-copy-code-block">'
+        + VLOOK.ui.generateSvgIcon("icoCopyCodeBlock", 18, 18, "light")
+        + '</div>';
 
     // --------------------------------------------------
     // 提示信息
-    ui += '<div class="mdx-tool-tips"></div>';
-    ui += '<div class="mdx-info-tips mdx-float-card"></div>';
-    // ui += '<div class="mdx-bottom-tips"><div></div></div>';
+    ui += '<div class="mdx-tool-tips"></div>'
+        + '<div class="mdx-info-tips mdx-float-card"></div>';
 
     // --------------------------------------------------
     // 文档更多内容遮罩栏
-    ui += '<div class="mdx-more-doc-content-before"></div>';
-    ui += '<div class="mdx-more-doc-content-after"></div>';
+    ui += '<div class="mdx-more-doc-content-before"></div>'
+        + '<div class="mdx-more-doc-content-after"></div>';
 
     // --------------------------------------------------
     // 表格十字光标
-    ui += '<div data-vk-direction="left" class="mdx-table-cross left">&nbsp;</div>';
-    ui += '<div data-vk-direction="right" class="mdx-table-cross right">&nbsp;</div>';
-    ui += '<div data-vk-direction="up" class="mdx-table-cross up">&nbsp;</div>';
-    ui += '<div data-vk-direction="down" class="mdx-table-cross down">&nbsp;</div>';
+    ui += '<div data-vk-direction="left" class="mdx-table-cross left">&nbsp;</div>'
+        + '<div data-vk-direction="right" class="mdx-table-cross right">&nbsp;</div>'
+        + '<div data-vk-direction="up" class="mdx-table-cross up">&nbsp;</div>'
+        + '<div data-vk-direction="down" class="mdx-table-cross down">&nbsp;</div>';
 
     // --------------------------------------------------
     // 内容展开操作区
-    ui += '<div class="mdx-content-expander">';
-    ui += '<div class="mdx-btn">';
-    ui += '<span></span>';
-    ui += VLOOK.ui.generateSvgIcon("icoExtend", 20, 20, "light");
-    ui += '</div>';
-    ui += '</div>';
+    ui += '<div class="mdx-content-expander">'
+        + '<div class="mdx-btn">'
+        + '<span></span>'
+        + VLOOK.ui.generateSvgIcon("icoExtend", 20, 20, "light")
+        + '</div>'
+        + '</div>';
 
     // --------------------------------------------------
     // 页面坏链检查结果及错误列表
-    ui += '<div class="mdx-link-error-list mdx-float-card"></div>';
-    ui += '<div class="mdx-link-chk-result mdx-float-card">';
-    ui += VLOOK.ui.generateSvgIcon("icoLinkOK", 20, 18, "light");
-    ui += '</div>';
+    ui += '<div class="mdx-link-error-list mdx-float-card"></div>'
+        + '<div class="mdx-link-chk-result mdx-float-card">'
+        + VLOOK.ui.generateSvgIcon("icoLinkOK", 20, 18, "light")
+        + '</div>';
 
     // --------------------------------------------------
     //统计数据上报中转页面
@@ -10753,11 +10922,11 @@ $(document).ready(function () {
     loadVLOOKui();
 
     // ----------------------------------------
-    // 特效初始化
+    // 动效初始化
     iStopwatch.lapStart();
     console.info("- Effect");
     let effects = VLOOK.util.getQueryParams(window.location.href)["effects"];
-    VLOOK.ui.effects = (effects === undefined) ? 1 : parseInt(effects);
+    VLOOK.ui.effects = (effects === undefined) ? 2 : parseInt(effects);
     VLOOK.ui.effects = env.device.mobile ? 0 : VLOOK.ui.effects;
     console.log("    └ Level [ " + VLOOK.ui.effects + " ]");
     VLOOK.ui.initEffects();
@@ -10814,14 +10983,11 @@ document.fonts.ready.then(function() {
  * 加载 VLOOK UI 资源
  */
 function loadVLOOKui() {
-    let ui = '';
-    ui += VLOOKui.loadWelcomeScreen();
-    ui += VLOOKui.loadIconSet();
-    ui += VLOOKui.loadNavTools();
-    ui += VLOOKui.loadToolbar();
-    ui += VLOOKui.loadCommon();
-
-    $(".mdx-vlook-inside").after(ui);
+    $(".mdx-vlook-inside").after(VLOOKui.loadWelcomeScreen()
+        + VLOOKui.loadIconSet()
+        + VLOOKui.loadNavTools()
+        + VLOOKui.loadToolbar()
+        + VLOOKui.loadCommon());
 }
 
 /**
@@ -10829,8 +10995,7 @@ function loadVLOOKui() {
  */
 function loadVLOOKplugin() {
     // 推荐的浏览器类型检测
-    if (env.browser.Chrome === false &&
-        env.browser.Firefox === false) {
+    if (env.browser.Chrome === false && env.browser.Firefox === false) {
         VLOOK.report.push(['Error', 'Browser', navigator.userAgent, ]);
 
         alert([

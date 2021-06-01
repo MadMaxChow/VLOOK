@@ -16,21 +16,21 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ---
 
-![让 Markdown 的自动化排版和交互性上了 N 个台阶](https://z3.ax1x.com/2021/05/14/grfvNj.png)
+![让 Markdown 的自动化排版和交互性上了 N 个台阶](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A01.png)
 
-![内置多套原创文档主题、字体主题，一键切换，支持私人定制](https://z3.ax1x.com/2021/05/14/grfT3t.png)
+![内置多套原创文档主题、字体主题，一键切换，支持私人定制](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A02.png)
 
-![表格排版+：单元格合并、列格式、表格行分组、自动编号、…](https://z3.ax1x.com/2021/05/14/grfOHg.png)
+![表格排版+：单元格合并、列格式、表格行分组、自动编号、…](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A03.png)
 
-![零成本的图片自动排版～题注、高分屏、反色、替换、版式、…](https://z3.ax1x.com/2021/05/14/grfjEQ.png)
+![零成本的图片自动排版～题注、高分屏、反色、替换、版式、…](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A04.png)
 
-![火力全开的图片自动排版、演示辅助～聚光灯、激光笔、注意](https://z3.ax1x.com/2021/05/14/grfqu8.png)
+![火力全开的图片自动排版、演示辅助～聚光灯、激光笔、注意](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A05.png)
 
-![OMG! 可以按大纲、逐章、段落、插图多种方式导航](https://z3.ax1x.com/2021/05/14/grfHjf.png)
+![OMG! 可以按大纲、逐章、段落、插图多种方式导航](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A06.png)
 
-![完美适配 Dark 模式，Markdown 变得更 Cool 了](https://z3.ax1x.com/2021/05/14/grfLDS.png)
+![完美适配 Dark 模式，Markdown 变得更 Cool 了](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A07.png)
 
-![音/视频、标签、引用折叠、高清插图、…30+特性开箱即用](https://z3.ax1x.com/2021/05/14/gsKdSO.png)
+![音/视频、标签、引用折叠、高清插图、…30+特性开箱即用](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A08.png)
 
 ---
 
@@ -38,6 +38,8 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**<br />
 ![打赏 VLOOK™](https://z3.ax1x.com/2021/01/24/sHf82D.png)
+
+**THANKS TO DONATE**
 
 ---
 
@@ -64,7 +66,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
    1. 下载并安装 **[Typora](https://www.typora.io)** 的最新版本
    2. 启动 Typora 并进入「偏好设置」，启用「Markdown 扩展语法、代码块」下的所有选项。详见下图：
 
-![开启「Typora▸偏好设置▸Markdown」相关选项](https://z3.ax1x.com/2021/05/13/gBcrbn.png?srcset=gBc6U0.png&darksrc=gBcyEq.png&darksrcset=gBcc5V.png@2x)
+![开启「Typora▸偏好设置▸Markdown」相关选项](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/typora-opt1-light.png)
 
 
 ## Step 2•安装并选择主题
@@ -81,7 +83,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 ## Step 3•应用插件
 
-![进入「Typora▸偏好设置▸导出」进行配置](https://z3.ax1x.com/2021/04/28/gP1TRe.png?darksrc=gP1IPO.png&srcset=gP17xH.png@2x&darksrcset=gP1oGD.png@2x)
+![进入「Typora▸偏好设置▸导出」进行配置](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/typora-opt2-light.png)
 
 1. **配置导出选项安装 Typora：**
    1. 启动 Typora 并进入「**偏好设置**」
@@ -93,6 +95,17 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 3. **一键导出：**
    1. 打开符合 VLOOK™ 规范的 md 文件
    2. 点击「**文件▸导出▸HTML (VLOOK)**」即可
+
+###### 在线版插件
+
+> 以上配置方式为离线插件，完整的插件代码与 HTML 文件集成，适合浏览文档时须在内网或无网络的情况，但不便于实时更新插件和[在线切换模板主题](https://madmaxchow.gitee.io/vlook/index.html#模板主题)等。
+>
+> 
+>
+> 目前 VLOOK 支持提供在线版插件方式，可参考以上方式增加新的「导出配置」即可（建议配置命名为`HTML (VLOOK live)`）。
+>
+> 在线版的插件文件为：released\plugin\\**plugin-live.txt**，或直接打开线上版本的 [plugin-live.txt](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin-live.txt)（[备用链接](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt)）
+>
 
 ###### 选择合适的浏览器
 

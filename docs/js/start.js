@@ -3,8 +3,8 @@
  * starter of VLOOK.js - Typora Plugin
  * 配合 vlook.js 进行使用
  *
- * V10.4
- * 2021-05-16
+ * V10.5
+ * 2021-06-01
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -14,7 +14,7 @@
  *
  *************************************/
 
-let startVersion = "V10.4";
+let startVersion = "V10.5";
 
 /**
  * 获取 URL 中的参数数组
@@ -49,23 +49,24 @@ if (theme !== undefined || themmeVersion !== startVersion) {
     if (theme === undefined && themmeVersion !== startVersion)
         theme = getComputedStyle(document.documentElement).getPropertyValue("--vlook-theme-name").trim().replace(/"/g, "");
 
-    theme = theme === "" ? "vlook-owl" : theme;
+    theme = (theme === "") ? "vlook-owl" : theme;
     console.log("Reload Theme :: " + theme);
     console.log("Theme Version :: " + themmeVersion);
     let style = document.createElement("link");
     style.rel = "stylesheet";
     style.type = "text/css";
-    style.href = cssHost + "css/" + theme + ".css?ts=" + (vlookDevMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60)); // 1000/60/60/24 按天
-    // document.getElementsByTagName("HEAD").item(0).appendChild(style);
+    style.href = cssHost + theme + ".css?ts=" + (vlookDevMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60)); // 1000/60/60/24 按天
+    console.log(style);
+    document.getElementsByTagName("HEAD").item(0).appendChild(style);
 }
 
 // 动态加载 VLOOK 所须的 js 资源
 let jsSrc = [
-    jsHost + "js/jquery.js",
+    jsHost + "jquery.js",
 // jsHost + "js/velocity.js",
-    jsHost + "js/clipboard.js",
-    jsHost + (startVersion.indexOf("dev") > 0 ? "js/vlook-dev.js" : "js/vlook.js"),
-    jsHost + "js/svg-inject.js"];
+    jsHost + "clipboard.js",
+    jsHost + (startVersion.indexOf("dev") > 0 ? "vlook.js" : "vlook-min.js"),
+    jsHost + "svg-inject.js"];
 for (let i = 0; i < jsSrc.length; i++) {
     let js = document.createElement("script");
     js.setAttribute("type", "text/javascript");
