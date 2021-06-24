@@ -1,12 +1,14 @@
-# 「 **VLOOK™ ── 让你的 Markdown 有了新看(wán)法** 」
+# VLOOK™ ── 让你的 Markdown 有了新看(wán)法
+
+# 好用实用 Typora/Markdown 主题包 与 增强插件
 
 **开源中国（[OSChina.net](https://www.oschina.net/p/vlook)）推荐的国产开源产品。**
 
 ![VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-mark-light.svg)
 
-[VLOOK™](https://github.com/MadMaxChow/VLOOK) 是针对 [Typora](https://www.typora.io)（跨平台 Markdown 编辑器）的 **主题包** 和 **增强插件**（针对导出的 HTML 文件）。
+[VLOOK™](https://github.com/MadMaxChow/VLOOK) 是针对 [Typora](https://www.typora.io)（跨平台 Markdown 编辑器）的 **主题包** 和 **增强插件**。
 
-[VLOOK™](https://github.com/MadMaxChow/VLOOK) is a **Theme Pack** and **Enhanced Plug-in** for [Typora](https://www.typora.io) (for exported HTML files).
+[VLOOK™](https://github.com/MadMaxChow/VLOOK) is a **Theme Pack** and **Enhanced Plug-in** for [Typora](https://www.typora.io).
 
 VLOOK™ 也许是目前最好的 Markdown 增强插件之一，也是**开源中国（[OSChina.net](https://www.oschina.net/p/vlook)）推荐的国产开源产品。**
 
@@ -91,7 +93,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 2. **安装插件代码：**
    1. 打开插件文件：released\plugin\\**plugin.txt**，或直接打开线上版本的 [plugin.txt](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin.txt)（[备用链接](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt)）
    2. 全选里面的所有内容，并复制
-   3. 回到导出配置「**HTML (VLOOK)**」中的`在<body />中添加`，将内容粘贴至下方的文本框内即可
+   3. 回到导出配置「**HTML (VLOOK)**」中的在`<body />`中添加，将内容粘贴至下方的文本框内即可
 3. **一键导出：**
    1. 打开符合 VLOOK™ 规范的 md 文件
    2. 点击「**文件▸导出▸HTML (VLOOK)**」即可
@@ -105,7 +107,6 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 > 目前 VLOOK 支持提供在线版插件方式，可参考以上方式增加新的「导出配置」即可（建议配置命名为`HTML (VLOOK live)`）。
 >
 > 在线版的插件文件为：released\plugin\\**plugin-live.txt**，或直接打开线上版本的 [plugin-live.txt](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin-live.txt)（[备用链接](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt)）
->
 
 ###### 选择合适的浏览器
 

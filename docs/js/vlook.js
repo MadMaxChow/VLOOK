@@ -2,8 +2,8 @@
  *
  * VLOOK.js - Typora Plugin
  *
- * V10.5
- * 2021-06-01
+ * V10.6
+ * 2021-06-24
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -18,7 +18,7 @@
 URL 参数说明
 
 ws
-    欢迎屏模式。默认完成加载后自动关闭
+    欢迎页模式。默认完成加载后自动关闭
     取值范围：
     none: 不显示，wait: 显示，加载完成后需手动关闭
 
@@ -50,7 +50,7 @@ theme
 
 **************************************/
 
-let vlookVersion = "V10.5";
+let vlookVersion = "V10.6";
 
 console.log(":::::::::::::::::::");
 console.log("!!! " + (vlookDevMode === true ? "- DEBUG -" : "RELEASED" ) + " !!!");
@@ -71,13 +71,14 @@ let iToolbar = undefined,
     iParagraphNav = undefined,
     iMoreDocContent = undefined,
     iSpotlight = undefined,
+    iLaserPointer = undefined,
     iFontStyler = undefined,
     iFigureNav = undefined,
-    iWelcomeScreen = undefined,
+    iWelcomePage = undefined,
     iToolTips = undefined,
     iInfoTips = undefined,
     iFootNote = undefined,
-    iContentFolding = undefined;
+    iContentFolder = undefined,
     iLinkChecker = undefined;
 
 // ==================== 文档对象模型 ==================== //
@@ -85,25 +86,25 @@ let iToolbar = undefined,
 function DOM() {}
 
 // 文档的 html 对象
-DOM._html = undefined;
+DOM.__html = undefined;
 DOM.html = function () {
-    if (DOM._html === undefined) {
-        DOM._html = $("html");
-        if (DOM._html.length === 0)
+    if (DOM.__html === undefined) {
+        DOM.__html = $("html");
+        if (DOM.__html.length === 0)
             console.error("Instantiation failed [ DOM.html ]");
     }
-    return DOM._html;
+    return DOM.__html;
 }
 
 // 文档的 body 对象
-DOM._body = undefined;
+DOM.__body = undefined;
 DOM.body = function () {
-    if (DOM._body === undefined) {
-        DOM._body = $("body");
-        if (DOM._body.length === 0)
+    if (DOM.__body === undefined) {
+        DOM.__body = $("body");
+        if (DOM.__body.length === 0)
             console.error("Instantiation failed [ DOM.body ]");
     }
-    return DOM._body;
+    return DOM.__body;
 }
 
 // ==================== VLOOK 对象模型 ==================== //
@@ -111,39 +112,39 @@ DOM.body = function () {
 function VOM() {}
 
 // Markdown 导出为 HTML 的内容对象
-VOM._doc = undefined;
+VOM.__doc = undefined;
 VOM.doc = function () {
-    if (VOM._doc === undefined) {
-        VOM._doc = $("#write");
-        if (VOM._doc.length === 0)
+    if (VOM.__doc === undefined) {
+        VOM.__doc = $("#write");
+        if (VOM.__doc.length === 0)
             console.error("Instantiation failed [ VOM.doc ]");
     }
-    return VOM._doc;
+    return VOM.__doc;
 }
 
 // 封面对象
-VOM._cover = undefined;
+VOM.__cover = undefined;
 VOM.cover = function () {
-    if (VOM._cover === undefined) {
-        VOM._cover = $("#write > pre.md-meta-block:first-child + h6, #write > h6:first-child");
-        if (VOM._cover.length === 0)
+    if (VOM.__cover === undefined) {
+        VOM.__cover = $("#write > pre.md-meta-block:first-child + h6, #write > h6:first-child");
+        if (VOM.__cover.length === 0)
             console.error("Instantiation failed [ VOM.cover ]");
     }
-    return VOM._cover;
+    return VOM.__cover;
 }
 
 // 封面对象
-VOM._backcover = undefined;
+VOM.__backcover = undefined;
 VOM.backcover = function () {
-    if (VOM._backcover === undefined) {
-        VOM._backcover = $("#write > h6:last-child"); // 封底已调整到脚注后的情况
-        if (VOM._backcover.length === 0) {
-            VOM._backcover = $("#write > h6:last-of-type"); // 封底未调整到脚注后的情况
-            if (VOM._backcover.length === 0)
+    if (VOM.__backcover === undefined) {
+        VOM.__backcover = $("#write > h6:last-child"); // 封底已调整到脚注后的情况
+        if (VOM.__backcover.length === 0) {
+            VOM.__backcover = $("#write > h6:last-of-type"); // 封底未调整到脚注后的情况
+            if (VOM.__backcover.length === 0)
                 console.error("Instantiation failed [ VOM.backcover ]");
         }
     }
-    return VOM._backcover;
+    return VOM.__backcover;
 }
 
 // ==================== 通用方法 ==================== //
@@ -156,20 +157,16 @@ $.prototype.isEmpty = function () {
 }
 
 /**
- * 判断对象是否为可视
- */
-$.prototype.isVisible = function () {
-    return this !== undefined && this.css("visibility") === "visible";
-}
-
-/**
- * 判断对象是否已显示
+ * 判断对象是否已隐藏
  */
 $.prototype.isHidden = function () {
     return this !== undefined
         && (this.css("display") === "none" || this.css("visibility") === "hidden");
 }
 
+/**
+ * 判断对象是否已显示
+ */
 $.prototype.isShowed = function () {
     return !this.isHidden();
 }
@@ -204,6 +201,10 @@ String.prototype.replaceAll = function (f, e) {
 
 /**
  * 从指定内容开始，替换之后的匹配的内容
+ *
+ * @param startValue 从指定内容出现的位置开始进行替换
+ * @param searchValue 被替换的内容
+ * @param replaceValue 用于替换的新内容
  */
 String.prototype.replaceAfter = function (startValue, searchValue, replaceValue) {
     let sIndex = this.indexOf(startValue);
@@ -340,20 +341,20 @@ const env = {
     /**
      * 打印环境信息
      *
-     * @param slient 是否为静默模式，静默模式只反馈环境信息值，不打印到控制台
-     * @return 返回环境信息值
+     * @param silent 是否为静默模式，静默模式只反馈环境信息值，不打印到控制台
+     * @returns string 环境信息
      */
-    print : function (slient) {
+    print : function (silent) {
         let info = "::: Environmental :::\n",
             fullInfo = info;
-        if (!slient) console.log(info);
+        if (!silent) console.log(info);
 
         info = "    ├ Language [ "
             + env.language.base
             + (env.language.subset.length > 0 ? "_" + env.language.subset : "")
             + " ]\n";
         fullInfo += info;
-        if (!slient) console.log(info);
+        if (!silent) console.log(info);
 
         info = "    ├ Device   [ "
             + (env.device.mobile ? "Mobile" : "")
@@ -363,7 +364,7 @@ const env = {
             + (env.device.iPad ? "/iPad" : "")
             + "]\n";
         fullInfo += info;
-        if (!slient) console.log(info);
+        if (!silent) console.log(info);
 
         info = "    ├ OS       " +
             (env.os.macOS ? "[ macOS ]"
@@ -372,7 +373,7 @@ const env = {
                         : (env.os.Linux ? "[Linux]" : "[Others]"))))
             + "\n";
         fullInfo += info;
-        if (!slient) console.log(info);
+        if (!silent) console.log(info);
 
         info = "    ├ Browser  [ "
             + (env.browser.Chrome ? "Chrome / " + env.browserVersion.Chrome : "")
@@ -381,7 +382,7 @@ const env = {
             + (env.browser.Edge ? " Edge / " + env.browserVersion.Edge : "")
             + " ]\n";
         fullInfo += info;
-        if (!slient) console.log(info);
+        if (!silent) console.log(info);
 
         info = "    ├ Core     [ "
             + (env.core.gecko ? "Gecko" : "")
@@ -390,17 +391,17 @@ const env = {
             + (env.core.webkit ? "WebKit" : "")
             + " ]\n";
         fullInfo += info;
-        if (!slient) console.log(info);
+        if (!silent) console.log(info);
 
         info = "    └ DPR      [ "
             + env.display.DPR
             + " ]\n"; // Device Pixel Ratio
         fullInfo += info;
-        if (!slient) console.log(info);
+        if (!silent) console.log(info);
 
         info = navigator.userAgent + "\n";
         fullInfo += info;
-        if (!slient) console.log(info);
+        if (!silent) console.log(info);
 
         return fullInfo;
     },
@@ -422,6 +423,7 @@ const env = {
      **/
     show : function () {
         let info = env.print() + env.printMermaidDPR();
+        info += "\n----------\nPowered by MAX°孟兆\n";
         alert(info);
     }
 };
@@ -502,16 +504,30 @@ VLOOK.util = {
      * 重定位至锚点
      */
     redirectToHash : function () {
-        let hash = window.location.hash;
+        let lastHash = decodeURI(window.location.hash),
+            hash = window.location.hash;
         // 如果 URL 带锚点
         if (hash.length > 0) {
-            setTimeout(function () {
-                // 延时待生成后后再进行重定向
-                window.location.href = hash;
-                // 因重定向前后是同一锚点，所以需要手动触发微调滚动条位置
-                VLOOK.ui.tuningScrollTop(hash.substring(1, hash.length));
-            }, 3000);
+            console.log("    ↩ Hash: " + decodeURI(hash));
+            $(document).scrollTop($(document).scrollTop() + 500);
+            window.location.href = hash;
+            if (lastHash === decodeURI(hash)) {
+                setTimeout(function () {
+                    VLOOK.ui.tuningScrollTop(hash);
+                }, 500);
+            }
         }
+    },
+
+    /**
+     * 跳转至页内锚点，并自动进行位置微调适配
+     */
+    gotoHash : function (hash) {
+        let lastHash = decodeURI(window.location.hash);
+        window.location.href = hash;
+        // 若前后锚点一样，则会导致不会触发 hashchange 事件，须强制进行一次微调
+        if (lastHash === decodeURI(hash))
+            VLOOK.ui.tuningScrollTop(hash);
     },
 
     /**
@@ -542,7 +558,7 @@ VLOOK.formatting = {
      * 添加千位符
      *
      * @param target 需要进行格式化的目标字符串
-     * @return 格式化后的字符串
+     * @returns string 格式化后的字符串
      */
     thousands : function (target) {
         return target.replace(/(\d)(?=(\d{3})+(\.\d+)*(\D)*$)/g, "$1,");
@@ -552,31 +568,31 @@ VLOOK.formatting = {
      * 对小数部分进行格式化
      *
      * @param target 需要进行格式化的目标字符串
-     * @return 格式化后的字符串
+     * @returns string 格式化后的字符串
      */
     decimal : function (target) {
-        return target.replace(/\.(\d+)/, ".<span class='mdx-table-column-format-number-decimal'>$1</span>");
+        return target.replace(/\.(\d+)/, ".<span class='mdx-tbl-col-fmt-num-decimal'>$1</span>");
     },
 
     /**
      * 对百分号进行格式化
      *
      * @param target 需要进行格式化的目标字符串
-     * @return 格式化后的字符串
+     * @returns string 格式化后的字符串
      */
     percent : function (target) {
-        return target.replace(/%</, "<span class='mdx-table-column-format-percent'> %</span><");
+        return target.replace(/%</, "<span class='mdx-tbl-col-fmt-percent'> %</span><");
     },
 
     /**
      * 对货币符号进行格式化
      *
      * @param target 需要进行格式化的目标字符串
-     * @return 格式化后的字符串
+     * @returns string 格式化后的字符串
      */
     currency : function (target) {
         // 因 html() 中含有 > 字符，所以替换的内容中须进行 > 的前后拼接调整
-        return target.replace(/(>.{1,3}\s)/, "><span class='mdx-table-column-format-currency'$1</span>");
+        return target.replace(/(>.{1,3}\s)/, "><span class='mdx-tbl-col-fmt-currency'$1</span>");
     }
 }
 
@@ -704,118 +720,97 @@ VLOOK.checkSpecification = function () {
 /**
  * 初始化关键组件实例
  */
-VLOOK.initIntance = function (newTab) {
-    VLOOK.doc.newTab = newTab;
-
+VLOOK.initIntance = function () {
+    let stopwatch = new Stopwatch();
+    stopwatch.lapStart();
     iFontStyler = new FontStyler(new BackgroundMask("font-styler", "center"));
     if (iFontStyler === false)
         alert("Instantiation failed [ iFontStyler ]");
     else
         iFontStyler.init(); // 初始化
+    stopwatch.lapStop("    ├ Font Styler: ");
 
     // ==================== UI --------------------
 
     // 聚光灯
+    stopwatch.lapStart();
     iSpotlight = new Spotlight(180, new BottomTips("spotlight"));
     if (iSpotlight === false)
         alert("Instantiation failed [ iSpotlight ]");
+    stopwatch.lapStop("    ├ Spotlight: ");
+
+    iLaserPointer = new LaserPointer(new BottomTips("laserPointe"));
+    if (iLaserPointer === false)
+        alert("Instantiation failed [ iLaserPointer ]");
+    stopwatch.lapStop("    ├ LaserPointer: ");
 
     // 长内容折叠
-    iContentFolding = new ContentFolding();
-    if (iContentFolding.length === 0)
-        alert("Instantiation failed [ iContentFolding ]");
+    stopwatch.lapStart();
+    iContentFolder = new ContentFolder();
+    if (iContentFolder.length === 0)
+        alert("Instantiation failed [ iContentFolder ]");
+    stopwatch.lapStop("    ├ Content Folding: ");
+
+    // 工具提示
+    iToolTips = new ToolTips();
+    if (iToolTips.length === 0)
+        alert("Instantiation failed [ iToolTips ]");
+
+    // 弹窗信息提示
+    iInfoTips = new InfoTips(new BackgroundMask("info-tips", "center"));
+    if (iInfoTips.length === 0)
+        alert("Instantiation failed [ iInfoTips ]");
 
     // 导航中心
+    stopwatch.lapStart();
     iNavCenter = new NavCenter(new BackgroundMask("nav-center", "left", true));
     if (iNavCenter === false)
         alert("Instantiation failed [ iNavCenter ]");
+    stopwatch.lapStop("    ├ Nav Center: ");
 
     // 逐章导航
-    iChapterNav = new ChapterNav(iNavCenter);
+    stopwatch.lapStart();
+    iChapterNav = new ChapterNav(iNavCenter, iToolTips);
     if (iChapterNav === false)
         alert("Instantiation failed [ iChapterNav ]");
     else {
         // 添加关联组件
         iNavCenter.chapterNav = iChapterNav;
-
-        // hover 事件处理
-        iChapterNav.prev.ui.hover(function () {
-            iToolTips.show($(this), "auto");
-        }, function () {
-            iToolTips.hide();
-        });
-
-        // hover 事件处理
-        iChapterNav.current.ui.hover(function () {
-            iToolTips.show($(this), "center");
-        }, function () {
-            iToolTips.hide();
-        });
-
-        // hover 事件处理
-        iChapterNav.next.ui.hover(function () {
-            iToolTips.show($(this), "right");
-        }, function () {
-            iToolTips.hide();
-        });
     }
-
-    // 文档更多内容栏遮罩栏
-    iMoreDocContent = new MoreDocContent(iChapterNav);
-    if (iMoreDocContent === false)
-        alert("Instantiation failed [ iMoreDocContent ]");
+    stopwatch.lapStop("    ├ Chapter Nav: ");
 
     // 工具栏
-    iToolbar = new Toolbar(iNavCenter, iChapterNav);
+    stopwatch.lapStart();
+    iToolbar = new Toolbar(iNavCenter, iChapterNav, iToolTips);
     if (iToolbar === false)
         alert("Instantiation failed [ iToolbar ]");
     else {
         // 导航中心按钮
-        iToolbar.add("outline", $(".mdx-btn-outline"));
-        iToolbar.buttons["outline"].unbind("click").click(function () {
-            iToolTips.hide();
+        iToolbar.add("outline", function () {
             iNavCenter.toggle();
-        });
-        // hover 事件处理
-        iToolbar.buttons["outline"].hover(function () {
-            iToolTips.show($(this), "auto");
-        }, function () {
-            iToolTips.hide();
         });
 
         // 字体风格
-        iToolbar.add("font-style", $(".mdx-btn-font-style"));
-        iToolbar.buttons["font-style"].unbind("click").click(function () {
-            iToolTips.hide();
+        iToolbar.add("font-style", function () {
             iFontStyler.toggle();
-        });
-        // hover 事件处理
-        iToolbar.buttons["font-style"].hover(function () {
-            iToolTips.show($(this), "auto");
-        }, function () {
-            iToolTips.hide();
         });
 
         // 颜色方案（Light/Dark）
-        iToolbar.add("color-scheme", $(".mdx-btn-color-scheme"));
-        iToolbar.buttons["color-scheme"].unbind("click").click(function () {
-            iToolTips.hide();
+        iToolbar.add("color-scheme", function () {
             ColorScheme.toggle();
-        });
-        iToolbar.buttons["color-scheme"].hover(function () {
-            iToolTips.show($(this), "auto");
-        }, function () {
-            iToolTips.hide();
         });
 
         // 分隔条
-        iToolbar.add("toolbar-spliter", $(".mdx-toolbar-spliter"));
+        iToolbar.addSpliter("toolbar-spliter");
+
+        // 表格十字光标
+        iToolbar.add("table-cross", function () {
+            TableCross.toggle();
+        });
 
         // 段落导航
-        iToolbar.add("paragraph-nav", $(".mdx-btn-paragraph-nav"));
-        iToolbar.buttons["paragraph-nav"].unbind("click").click(function () {
-            iToolTips.hide();
-            iInfoTips.show([
+        iToolbar.add("paragraph-nav", function () {
+            iInfoTips.inform([
                 "开启方式：<br /><strong>三击文档中的「任意段落」</strong>",
                 "开启方式：<br /><strong>三击文档中的「任意段落」</strong>",
                 "Open method:<br /><strong>three click \"any paragraph\" in the document</strong>",
@@ -827,57 +822,50 @@ VLOOK.initIntance = function (newTab) {
                 "열기 방법 : <br /><strong>문서에서 \"임 의 단락\"세 번 클릭.</strong>"
             ][VLOOK.lang.id], 4000, true);
         });
-        iToolbar.buttons["paragraph-nav"].hover(function () {
-            iToolTips.show($(this), "auto");
-        }, function () {
-            iToolTips.hide();
-        });
 
         // 聚光灯
-        iToolbar.add("spotlight", $(".mdx-btn-spotlight"));
-        iToolbar.buttons["spotlight"].unbind("click").click(function () {
-            iToolTips.hide();
+        iToolbar.add("spotlight", function () {
+            iLaserPointer.hide();
             if (iSpotlight.toggle() === true)
                 iParagraphNav.hide();
         });
-        iToolbar.buttons["spotlight"].hover(function () {
-            iToolTips.show($(this), "auto");
-        }, function () {
-            iToolTips.hide();
+
+        // 激光笔
+        iToolbar.add("laser-pointer", function () {
+            iSpotlight.hide();
+            if (iLaserPointer.toggle() === true)
+                iParagraphNav.hide();
         });
 
         // 打印按钮
-        iToolbar.add("print", $(".mdx-btn-print"));
-        iToolbar.buttons["print"].unbind("click").click(function () {
-            iToolTips.hide();
+        iToolbar.add("print", function () {
             VLOOK.print.ready();
-        });
-        // hover 事件处理
-        iToolbar.buttons["print"].hover(function () {
-            iToolTips.show($(this), "auto");
-        }, function () {
-            iToolTips.hide();
         });
 
         // 添加关联组件
         iNavCenter.toolbar = iToolbar;
         iSpotlight.toolbar = iToolbar;
+        iLaserPointer.toolbar = iToolbar;
 
         // 绑定选择字体风格的工具栏按钮
         iFontStyler.bindButton(iToolbar.buttons["font-style"]);
     }
+    stopwatch.lapStop("    ├ Toolbar: ");
 
+    // 插图浏览器
+    stopwatch.lapStart();
     iFigureNav = new FigureNav();
     if (iFigureNav === false)
         alert("Instantiation failed [ iFigureNav ]");
+    stopwatch.lapStop("    ├ Figure Nav: ");
 
-    iToolTips = new ToolTips();
-    if (iToolTips.length === 0)
-        alert("Instantiation failed [ iToolTips ]");
+    // ----------------------------------------
+    stopwatch.lapStart();
 
-    iInfoTips = new InfoTips(new BackgroundMask("info-tips", "center"));
-    if (iInfoTips.length === 0)
-        alert("Instantiation failed [ iInfoTips ]");
+    // 文档更多内容栏遮罩栏
+    iMoreDocContent = new MoreDocContent(iChapterNav);
+    if (iMoreDocContent === false)
+        alert("Instantiation failed [ iMoreDocContent ]");
 
     // 脚注
     iFootNote = new FootNote(new BackgroundMask("foot-note", "bottom", true));
@@ -888,190 +876,135 @@ VLOOK.initIntance = function (newTab) {
     iLinkChecker = new LinkChecker(new BackgroundMask("link-checker", "right", true));
     if (iLinkChecker.length === 0)
         alert("Instantiation failed [ iLinkChecker ]");
+    stopwatch.lapStop("    └ Misc: ");
 }
 
 /**
  * 初始化 VLOOK 核心模块
- *
- * @param colorScheme 指定默认的颜色方案 light/dark
  */
-VLOOK.initKernel = function (colorScheme) {
-    // 应用于在新标签中打开内容时初始化颜色模式
-    if (colorScheme != null)
-        ColorScheme.scheme = colorScheme;
-
+VLOOK.initKernel = function () {
     // ----------------------------------------
     // 加载本文档主题配套的 Logo 图标
-    iStopwatch.lapStart();
-    console.info("- Document Logo");
+    iStopwatch.lapStart("* Document Logo");
     let docIconLight = $(".mdx-doc-logo-light").css("background-image"),
         docIconDark = $(".mdx-doc-logo-dark").css("background-image");
-    $($("head")[0]).append("<link rel='icon' id='doc-icon-light' href='" + docIconLight.substring(5, docIconLight.length - 2) + "' type='image/x-icon'/>");
-    $($("head")[0]).append("<link rel='icon' id='doc-icon-dark' href='" + docIconDark.substring(5, docIconDark.length - 2) + "' type='image/x-icon'/>");
+    $("head").append("<link rel='icon' id='doc-icon-light' href='" + docIconLight.substring(5, docIconLight.length - 2) + "' type='image/x-icon'/>"
+        + "<link rel='icon' id='doc-icon-dark' href='" + docIconDark.substring(5, docIconDark.length - 2) + "' type='image/x-icon'/>");
     iStopwatch.lapStop("    ");
 
     // ----------------------------------------
     // 初始化国际化 UI
-    iStopwatch.lapStart();
-    console.info("- UI i18n");
+    iStopwatch.lapStart("* UI i18n");
     VLOOK.ui.initI18n();
     iStopwatch.lapStop("    ");
 
-    // 独立线程进行处理
-    setTimeout(function () {
-        let stopwatch = new Stopwatch();
-        // ----------------------------------------
-        stopwatch.lapStart();
-        // 重置行内代码code样式
-        CodeMagic.init();
-        stopwatch.lapStop("* Code°Magic: ");
-
-        // ----------------------------------------
-        // 初始化引用块
-        stopwatch.lapStart();
-        ExtQuote.init();
-        // 根据设备类型自适应hover样式
-        VLOOK.ui.adjustHoverStyle();
-        stopwatch.lapStop("* Quote: ");
-    }, 0);
-
-    // 独立线程进行处理
-    setTimeout(function () {
-        let stopwatch = new Stopwatch();
-        // ----------------------------------------
-        // 初始化音频数据
-        stopwatch.lapStart();
-        ExtAudio.init();
-        stopwatch.lapStop("* Audio: ");
-
-        // ----------------------------------------
-        // 初始化视频数据
-        stopwatch.lapStart();
-        ExtVideo.init();
-        stopwatch.lapStop("* Video: ");
-
-        // ----------------------------------------
-        // 初始化插图数据
-        stopwatch.lapStart();
-        SVGInject.setOptions({
-            afterInject: function(img, svg) {
-                let svgObj = $(svg);
-                ExtFigure.adjustFillAlterForSVG(svgObj.attr("data-vk-img-fill"), svgObj);
-            }
-        });
-        ExtFigure.init();
-
-        stopwatch.lapStop("* Figure: ");
-    }, 0);
-
-    // 独立线程进行处理
-    setTimeout(function () {
-        let stopwatch = new Stopwatch();
-        // ----------------------------------------
-        // 初始化表格
-        stopwatch.lapStart();
-        ExtTable.init();
-        stopwatch.lapStop("* Table: ");
-
-        CellCross.init();
-
-        // ----------------------------------------
-        // 初始化代码块
-        stopwatch.lapStart();
-        ExtCodeBlock.init();
-        stopwatch.lapStop("* Code Block: ");
-
-        // ----------------------------------------
-        // 增强脚注
-        stopwatch.lapStart();
-        FootNote.init();
-        stopwatch.lapStop("* Foot Note: ");
-
-        // 主要针对小屏情况，完成表格初始化后进行适配
-        // 如果不是小屏，则由 adjustAll 触发
-        iContentFolding.adjust();
-    }, 500);
+    VLOOK.ui.adjustHoverStyle();
 
     // ----------------------------------------
-    // 初始化Outline数据
-    console.info("- Outline & Chapter Nav");
-    iStopwatch.lapStart();
+    iStopwatch.lapStart("* Code°Magic: ");
+    // 重置行内代码code样式
+    CodeMagic.init();
+    iStopwatch.lapStop("    ");
+
+    // ----------------------------------------
+    // 初始化引用块
+    iStopwatch.lapStart("* Quote: ");
+    ExtQuote.init();
+    ExtQuote.adjustHoverStyle();
+    iStopwatch.lapStop("    ");
+
+    // ----------------------------------------
+    // 初始化音频数据
+    iStopwatch.lapStart("* Audio: ");
+    ExtAudio.init();
+    iStopwatch.lapStop("    ");
+
+    // ----------------------------------------
+    // 初始化视频数据
+    iStopwatch.lapStart("* Video: ");
+    ExtVideo.init();
+    iStopwatch.lapStop("    ");
+
+    // ----------------------------------------
+    // 初始化插图数据
+    iStopwatch.lapStart("* Figure: ");
+    SVGInject.setOptions({
+        afterInject : function (img, svg) {
+            let svgObj = $(svg);
+            ExtFigure.adjustFillAlterForSVG(svgObj.attr("data-vk-img-fill"), svgObj);
+        },
+        onFail : function (img, svg) {
+            console.error("SVGInject ERROR:", $(img).attr("src"));
+        }
+    });
+    ExtFigure.init();
+    iStopwatch.lapStop("    COST ");
+
+    // ----------------------------------------
+    // 初始化表格
+    iStopwatch.lapStart("* Table: ");
+    ExtTable.init();
+    iStopwatch.lapStop("    COST ");
+
+    TableCross.init();
+    RowGroup.adjustHoverStyle();
+
+    // ----------------------------------------
+    // 初始化代码块
+    iStopwatch.lapStart("* Code Block: ");
+    ExtCodeBlock.init();
+    iStopwatch.lapStop("    ");
+
+    // ----------------------------------------
+    // 增强脚注
+    iStopwatch.lapStart("* Foot Note: ");
+    FootNote.init();
+    iStopwatch.lapStop("    ");
+
+    // 主要针对小屏情况，完成表格初始化后进行适配
+    // 如果不是小屏，则由 adjustAll 触发
+    iContentFolder.adjust();
+
+    // ----------------------------------------
+    // 初始化 导航中心、章节导航 数据
+    iStopwatch.lapStart("* Adjust NavCenter/ChapterNav/FigureNav/Toolbar");
     if (NavCenter.init()) {
         if (!env.device.mobile)
             iNavCenter.showHandle();
-
-        // 自适应页面内容显示
-        iNavCenter.catalog.focusHeader();
 
         iNavCenter.adjust();
         iChapterNav.adjust();
         iToolbar.adjust();
 
-        // 根据设备类型自适应hover样式
-        VLOOK.ui.adjustHoverStyle();
+        // 根据设备类型自适应 hover 样式
+        iNavCenter.catalog.adjustHoverStyle();
+        iChapterNav.adjustHoverStyle();
+        iFigureNav.adjustHoverStyle();
     }
     iStopwatch.lapStop("    ");
 
-    // 独立线程进行处理
-    setTimeout(function () {
-        let stopwatch = new Stopwatch();
-        // ----------------------------------------
-        // 初始化字体风格
-        stopwatch.lapStart();
-        // 清空历史存储
-        if (VLOOK.util.getQueryParams(window.location.href)["reset"] === "true") {
-            console.warn("!!! Reset Local Storage !!!");
-            localStorage.removeItem("VLOOK-" + VLOOK.version + "-font-style");
-        }
-        // 若手动切换过字体风格，则恢复为上次设置字体风格
-        const style = localStorage["VLOOK-" + VLOOK.version + "-font-style"];
-        iFontStyler.style = VLOOK.util.getStyleValue("--vlook-default-font-style").trim();
-        if (window.localStorage && style !== undefined) {
-            console.info("* Last Font Style: " + style);
-            iFontStyler.apply(style);
-        }
-        else {
-            console.info("* Default Font Style: " + iFontStyler.style);
-            iFontStyler.apply();
-        }
-        stopwatch.lapStop("* Font Style: ");
-    }, 0);
-
-    // 独立线程进行处理
-    setTimeout(function () {
-        let stopwatch = new Stopwatch();
-        // ----------------------------------------
-        // 初始化外部链接
-        stopwatch.lapStart();
-        VLOOK.doc.link.adjustExternal();
-        stopwatch.lapStop("* External Link: ");
-
-        // ----------------------------------------
-        // 在新标签中初始化时不处理
-        stopwatch.lapStart();
-        if (VLOOK.doc.newTab === false) {
-            // 检查页内链接坏链
-            iLinkChecker.checkInner();
-        }
-        stopwatch.lapStop("* Check Inner Bad Link: ");
-
-        // ----------------------------------------
-        // 检查重复的Header
-        stopwatch.lapStart();
-        VLOOK.doc.checkDuplicateHeader();
-        stopwatch.lapStop("* Check Duplicate Header: ");
-    }, 2000);
-
     // ----------------------------------------
-    // 初始化全局热键
-    iStopwatch.lapStart();
-    console.info("- Hotkey");
-    VLOOK.ui.initHotkey();
+    // 初始化字体风格
+    iStopwatch.lapStart("* Font Style: ");
+    // 清空历史存储
+    if (VLOOK.util.getQueryParams(window.location.href)["reset"] === "true") {
+        console.warn("!!! Reset Local Storage !!!");
+        localStorage.removeItem("VLOOK-" + VLOOK.version + "-font-style");
+    }
+    // 若手动切换过字体风格，且与默认字体风格不同，则恢复为最后一次选择的字体风格
+    const style = localStorage["VLOOK-" + VLOOK.version + "-font-style"];
+    iFontStyler.style = VLOOK.util.getStyleValue("--vlook-default-font-style").trim();
+    if (window.localStorage && style !== undefined && style !== iFontStyler.style) {
+        console.info("    └ Last Font Style: " + style);
+        iFontStyler.apply(style);
+    }
+    else {
+        console.info("    └ Default Font Style: " + iFontStyler.style);
+    }
     iStopwatch.lapStop("    ");
 
     // ----------------------------------------
-    console.info("- Binding Event");
-    iStopwatch.lapStart();
+    iStopwatch.lapStart("* Binding Event");
     // 绑定文档鼠标移动事件，聚光灯跟随鼠标移动
     document.addEventListener("mousemove", function () {
         iSpotlight.repaint(event || window.event);
@@ -1080,7 +1013,7 @@ VLOOK.initKernel = function (colorScheme) {
 
     // 绑定文档的单击事件
     $(document).unbind("click").click(function () {
-        CellCross.hide();
+        TableCross.hide();
     });
 
     // 绑定文档的滚动事件
@@ -1097,8 +1030,10 @@ VLOOK.initKernel = function (colorScheme) {
         if (scrollTop < 100
             || currentTime - VLOOK.doc.scroll.lastUpdateTime > 500
             || (Math.abs(scrollTop - VLOOK.doc.scroll.lastTop) > 50 && (currentTime - VLOOK.doc.scroll.lastUpdateTime) > 500)) {
-            VLOOK.doc.scroll.update(currentTime, $(document).scrollTop());
-            VLOOK.ui.adjustAll(false);
+                // 更新控制执行频率相关判断数据
+                VLOOK.doc.scroll.update(currentTime, $(document).scrollTop());
+                // 根据是屏幕大小进行不同的适配控制
+                VLOOK.ui.adjustAll();
         }
 
         // 由于涉及到章节导航栏数据更新等不同逻辑处理，执行频率由 focusHeader 内进行控制
@@ -1109,9 +1044,10 @@ VLOOK.initKernel = function (colorScheme) {
     $(window).resize(function () {
         iNavCenter.catalog.focusHeader();
 
-        iNavCenter.adjust();
-        iChapterNav.adjust();
-        iToolbar.adjust();
+        VLOOK.ui.adjustAll();
+        // iNavCenter.adjust();
+        // iChapterNav.adjust();
+        // iToolbar.adjust();
     });
 
     // 绑定打印前的触发事件
@@ -1122,17 +1058,20 @@ VLOOK.initKernel = function (colorScheme) {
     };
 
     // 监听页内锚点链接跳转，同一个锚点连续点击不会触发该事件
-    $(window).on("hashchange", function(event) {
+    $(window).on("hashchange", function() {
         let hash = window.location.hash,
             anchor = hash.substring(1, hash.length);
+        if (anchor.trim().length === 0)
+            return;
+
         iNavCenter.history.add(hash);
 
         // 锚点未显示的处理（如所在父元素被隐藏）
         let aObj = $("#" + decodeURI(anchor) + ", a[name='" + anchor + "']");
         if (aObj !== undefined && aObj.offset() !== undefined && aObj.offset().top === 0) {
             let hiddenObj = aObj.parent().parent();
-            if (hiddenObj.css("display") === "none") {
-                // 若属于被折叠的引用，则模拟点击展开
+            // 若属于被折叠的引用，则模拟点击展开，并重新定位到该益
+            if (hiddenObj.isHidden()) {
                 let folder = hiddenObj.prev().find(".mdx-blockquote-folder");
                 if (folder.length > 0) {
                     folder.trigger("mouseup");
@@ -1141,15 +1080,12 @@ VLOOK.initKernel = function (colorScheme) {
             }
         }
 
-        // 微调滚动条位置：VLOOK 生成的索引锚点
-        if (anchor.startsWith("vk-idx-"))
-            VLOOK.ui.tuningScrollTop(anchor);
-        // 由 Typora 导出 HTML 时自动生成的锚点
-        else
-            VLOOK.ui.tuningScrollTop(decodeURI(anchor));
+        // 微调滚动条位置
+        VLOOK.ui.tuningScrollTop(decodeURI(anchor));
 
-
-        VLOOK.ui.adjustAllDelay();
+        // 若导航中心已隐藏，则强制进行延时适配处理
+        if (iNavCenter.showed === false)
+            VLOOK.ui.adjustAllDelay();
     });
 
     iStopwatch.lapStop("    ");
@@ -1157,8 +1093,6 @@ VLOOK.initKernel = function (colorScheme) {
 
 /**
  * 初始化须在页面 body 显示后才能执行的部分
- *
- * @param colorScheme 指定默认的颜色方案 light/dark
  */
 VLOOK.initRestyle = function () {
     let stopwatch = new Stopwatch();
@@ -1167,22 +1101,13 @@ VLOOK.initRestyle = function () {
     // 重置任务列表样式
     stopwatch.lapStart();
     Restyler.forTaskList();
-    stopwatch.lapStop("- Restyle TaskList: ");
+    stopwatch.lapStop("    ├ TaskList: ");
 
     // ----------------------------------------
     // 重置脚本化图表样式，须在以上页面内容恢复显示后再处理
     stopwatch.lapStart();
     Restyler.forMermaid();
-    stopwatch.lapStop("- Restyle Mermaid: ");
-
-    // ----------------------------------------
-    // 修正 Mermaid 的渲染 BUG
-    stopwatch.lapStart();
-    env.printMermaidDPR();
-    // 修正 Mermaid 的渲染 BUG
-    if (VLOOK.util.getQueryParams(window.location.href)["fix-mermaid"] !== "false")
-        RepairTool.fixMermaidRender();
-    stopwatch.lapStop("- Mermaid Fix: ");
+    stopwatch.lapStop("    └ Mermaid: ");
 }
 
 // VLOOK UI
@@ -1220,6 +1145,34 @@ VLOOK.ui = {
     },
 
     /**
+     * 获得滚动条宽度
+     */
+    scrollWidth : function () {
+        let noScroll,
+            scroll,
+            div = document.createElement("DIV");
+        div.style.cssText = "position: absolute; top: -9999px; width: 100px; height: 100px; overflow: hidden;";
+        noScroll = document.body.appendChild(div).clientWidth;
+        div.style.overflowY = "scroll";
+        scroll = div.clientWidth;
+        document.body.removeChild(div);
+        return noScroll - scroll;
+    },
+
+    /**
+     * 获得 VLOOK 与技术支持信息内容
+     *
+     * @returns string VLOOK 与技术支持信息内容
+     */
+    copyrightInfo : function () {
+        return '<div class="mdx-copyright">'
+            + '<svg width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()"><use xlink:href="#icoVLOOK-dark"></use></svg>&nbsp;&nbsp;'
+            + '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.6) for <a href="https://www.typora.io" target="_blank">Typora</a>.'
+            + '&nbsp;&nbsp;&nbsp;&nbsp;Support by <strong><a href="https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi">QQ Group</a></strong> or <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">email</a></strong>.'
+            + '</div>'
+    },
+
+    /**
      * 判断是否为小屏
      */
     isSmallScreen : function () {
@@ -1228,22 +1181,30 @@ VLOOK.ui = {
 
     /**
      * 微调页内跳转后的滚动条位置
+     *
+     * @param anchor 锚点名称，不含 #，如含 # 会自动过滤
      */
     tuningScrollTop : function (anchor) {
+        if (anchor !== undefined && anchor.startsWith("#"))
+            anchor = anchor.substring(1, anchor.length);
+        if (anchor === undefined || anchor.trim().length === 0)
+            return;
+
         let top = parseInt(iChapterNav.ui.css("top")),
             height = parseInt(iChapterNav.ui.css("height")),
             offsetY = 10,
             target = $("#" + decodeURI(anchor) + ", a[name='" + anchor + "']"),
-            tagName = undefined;
+            tagName = target.prop("tagName");
 
-        if (target !== undefined)
-            tagName = target.prop("tagName").toLowerCase();
+        if (tagName !== undefined)
+            tagName = tagName.toLowerCase();
+
         // h1-6
         if (target !== undefined && tagName !== undefined && "h1h2h3h4h5h6".indexOf(tagName) > -1) {
-            if (tagName === "h6")
-                offsetY += top + height + 16;
-            else
-                offsetY += target.height() + 10 + (parseInt(tagName.substring(1, 2)) - 1) * 6;
+            offsetY += (tagName === "h6")
+                ? (top + height + 16)
+                : (target.height() + 10 + (parseInt(tagName.substring(1, 2)) - 1) * 6);
+            offsetY -= parseInt(VLOOK.util.getStyleValue("--vlook-top-margin"));
         }
         // 从底部脚注列表回到脚注位置
         else if (target !== undefined && anchor.startsWith("ref-footnote"))
@@ -1275,7 +1236,7 @@ VLOOK.ui = {
      * 初始 UI 国际化
      */
     initI18n : function () {
-        iContentFolding.ui.find("div > span").attr("title", [
+        iContentFolder.ui.find("div > span").attr("title", [
             "查看更多",
             "查看更多",
             "View More",
@@ -1323,6 +1284,18 @@ VLOOK.ui = {
             "글꼴 스타일 전환"
         ][VLOOK.lang.id]);
 
+        iToolbar.buttons["table-cross"].attr("data-vk-tips", "<kbd>X</kbd> " + [
+            "表格十字光标 模式",
+            "表格十字光標 模式",
+            "Table Cross Cursor mode",
+            "Mode curseur croisé de table",
+            "Tabellen-Kreuzcursor-Modus",
+            "Modo de cursor cruzado de tabla",
+            "Режим Table Cross Cursor",
+            "テーブルクロスカーソルモード",
+            "테이블 크로스 커서 모드"
+        ][VLOOK.lang.id]);
+
         iToolbar.buttons["paragraph-nav"].attr("data-vk-tips", [
             "段落导航 模式",
             "段落導航 模式",
@@ -1335,18 +1308,28 @@ VLOOK.ui = {
             "단락 탐색 모드"
         ][VLOOK.lang.id]);
 
-        let key1 = "<kbd>S</kbd> ",
-            key2 = "<kbd>P</kbd> ";
-        iToolbar.buttons["spotlight"].attr("data-vk-tips", [
-            key1 + "聚光灯<br>" + key2 + "激光笔",
-            key1 + "聚光燈<br>" + key2 + "激光筆",
-            key1 + "Spotlight><br>" + key2 + "Laser Pointer",
-            key1 + "Projecteur<br>" + key2 + "Pointeur Laser",
-            key1 + "Scheinwerfer<br>" + key2 + "Laserpointer",
-            key1 + "Destacar<br>" + key2 + "Puntero Láser",
-            key1 + "Прожектор<br>" + key2 + "Лазерный Указатель",
-            key1 + "スポットライト<br>" + key2 + "レーザーポインター",
-            key1 + "스포트라이트<br>" + key2 + "레이저 포인터"
+        iToolbar.buttons["spotlight"].attr("data-vk-tips", "<kbd>S</kbd> " + [
+            "聚光灯",
+            "聚光燈",
+            "Spotlight>",
+            "Projecteur",
+            "Scheinwerfer",
+            "Destacar",
+            "Прожектор",
+            "スポットライト",
+            "스포트라이트"
+        ][VLOOK.lang.id]);
+
+        iToolbar.buttons["laser-pointer"].attr("data-vk-tips", "<kbd>P</kbd> " + [
+            "激光笔",
+            "激光筆",
+            "Laser Pointer",
+            "Pointeur Laser",
+            "Laserpointer",
+            "Puntero Láser",
+            "Лазерный Указатель",
+            "レーザーポインター",
+            "레이저 포인터"
         ][VLOOK.lang.id]);
 
         iToolbar.buttons["print"].attr("data-vk-tips", [
@@ -1489,18 +1472,6 @@ VLOOK.ui = {
             "모든 각주보기"
         ][VLOOK.lang.id] + " ▶");
 
-        ContentAssist.button.openInNewTab.attr("title", [
-            "在新标签页中打开",
-            "在新標籤頁中打開",
-            "Open in new tab",
-            "Ouvrir dans un nouvel onglet",
-            "In neuem Tab öffnen",
-            "Abrir en una pestaña nueva",
-            "Открыть в новой вкладке",
-            "新しいタブで開く",
-            "새 탭에서 열기"
-        ][VLOOK.lang.id]);
-
         ContentAssist.button.copyCodeBlock.attr("title", [
             "复制全部代码",
             "複製全部代碼",
@@ -1558,23 +1529,19 @@ VLOOK.ui = {
 
     /**
      * 进行文档导航相关的 UI 元素的适配处理
-     *
-     * @param force 强制标记
      */
     adjustAll : function () {
         if (iNavCenter.adjust() === true)
-            iContentFolding.adjust();
-        iNavCenter.adjust();
+            iContentFolder.adjust();
         iChapterNav.adjust();
         iToolbar.adjust();
     },
 
     /**
      * 模拟等待页面完成跳转后，再进行导航中心布局自适应处理
-     *
-     * @param force 强制标记
      */
     adjustAllDelay : function () {
+        // console.log("Adjust all delay ...");
         setTimeout(function () {
             VLOOK.ui.adjustAll()
         }, 500);
@@ -1589,48 +1556,30 @@ VLOOK.ui = {
             $(".mdx-btn").unbind("hover");
             $(".mdx-segment-btn").unbind("hover");
             $(".mdx-accent-btn").unbind("hover");
-            $(".mdx-folder-ico, .mdx-folder2-ico").unbind("hover");
-            iChapterNav.adjustHoverStyle("mobile");
-            iFigureNav.adjustHoverStyle("mobile");
         }
         // 非移动设备时绑定样式事件
         else {
             // 所有常规按钮 hover 事件处理
-            $(".mdx-btn").hover(function () {
-                $(this).addClass("mdx-btn-hover");
-            }, function () {
-                $(this).removeClass("mdx-btn-hover");
-            });
+            VLOOK.ui.bindHover($(".mdx-btn"), "mdx-btn-hover");
             // 所有导航中心分段控制按钮 hover 事件处理
-            $(".mdx-segment-btn").hover(function () {
-                $(this).addClass("mdx-segment-btn-hover");
-            }, function () {
-                $(this).removeClass("mdx-segment-btn-hover");
-            });
+            VLOOK.ui.bindHover($(".mdx-segment-btn"), "mdx-segment-btn-hover");
             // 所有辅助按钮 hover 事件处理
-            $(".mdx-accent-btn").hover(function () {
-                $(this).addClass("mdx-accent-btn-hover");
-            }, function () {
-                $(this).removeClass("mdx-accent-btn-hover");
-            });
-            // SVG 小图标
-            $(".mdx-folder-ico").hover(function () {
-                $(this).addClass("mdx-folder-ico-hover");
-            }, function () {
-                $(this).removeClass("mdx-folder-ico-hover");
-            });
-            $(".mdx-folder2-ico").hover(function () {
-                $(this).addClass("mdx-folder2-ico-hover");
-            }, function () {
-                $(this).removeClass("mdx-folder2-ico-hover");
-            });
-
-            iChapterNav.adjustHoverStyle("desktop");
-            iFigureNav.adjustHoverStyle("desktop");
+            VLOOK.ui.bindHover($(".mdx-accent-btn"), "mdx-accent-btn-hover");
         }
+    },
 
-        // 适配对插图浏览器处理
-        ExtFigure.adjustFigureNav();
+    /**
+     * 为对象绑定 hover 事件，添加 / 移除指定的 hover 样式
+     *
+     * @param target 目标对象
+     * @param hoverClass hover 样式名称
+     */
+    bindHover : function (target, hoverClass) {
+        target.hover(function () {
+            $(this).addClass(hoverClass);
+        }, function () {
+            $(this).removeClass(hoverClass);
+        });
     },
 
     /**
@@ -1640,9 +1589,8 @@ VLOOK.ui = {
         // 不启用动效
         if (VLOOK.ui.effects < 1)
             VLOOK.util.setStyleValue("--vlook-transition-value", "none");
-
         // 特殊等级为 2 或更高级时才开启毛玻璃动效（如遮罩、插图浏览器背景）
-        if (VLOOK.ui.effects >= 2)
+        else if (VLOOK.ui.effects >= 2)
             $(".mdx-backdrop-blurs").addClass("enabled");
     },
 
@@ -1674,7 +1622,7 @@ VLOOK.ui = {
      * 检查目标对象是否有指定的任意过渡动画
      *
      * @param target 目标对象
-     * @returns true：有，false：无
+     * @returns boolean true：有，false：无
      */
     existAnimate : function (target) {
         return target.attr("class").indexOf("mdx-transition-") > -1;
@@ -1684,7 +1632,7 @@ VLOOK.ui = {
      * 返回动画时长
      */
     animateDuration : function () {
-        return parseInt(VLOOK.util.getStyleValue("--vlook-transition-duration"));
+        return 200;//parseInt(VLOOK.util.getStyleValue("--vlook-transition-duration"));
     },
 
     /**
@@ -1709,9 +1657,10 @@ VLOOK.ui = {
             // 焦点不在文档内容上时的子模块热键操作处理
             // 第一梯队，避免同时触发（如 ESC 导致同时退出多个）
             iSpotlight.disposeHotkey(code, combKeys);
+            iLaserPointer.disposeHotkey(code, combKeys);
             iParagraphNav.disposeHotkey(code, combKeys);
             // 第二梯队
-            iWelcomeScreen.disposeHotkey(code, combKeys);
+            iWelcomePage.disposeHotkey(code, combKeys);
             iFigureNav.disposeHotkey(code, combKeys);
             iNavCenter.disposeHotkey(code, combKeys);
             iFontStyler.disposeHotkey(code, combKeys);
@@ -1720,8 +1669,7 @@ VLOOK.ui = {
             iLinkChecker.disposeHotkey(code, combKeys);
 
             // 文档的热键操作处理，只在文档为当前焦点且没有弹层时才有效
-            if (VLOOK.doc.block === true
-                || document.activeElement.tagName.toLowerCase() !== "body")
+            if (VLOOK.doc.block === true || document.activeElement.tagName.toLowerCase() !== "body")
                 return;
 
             // 逐章导航热键操作处理
@@ -1729,45 +1677,52 @@ VLOOK.ui = {
 
             switch (code) {
                 case 79: // O
-                    // VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
+                    VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
                     if (iFigureNav.ui.isShowed())
                         return;
                     iToolbar.buttons["outline"].trigger("click");
                     break;
                 case 73: // I
-                    // VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
+                    VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
                     // 文档无插图时不处理
                     if (iFigureNav.ui.isHidden())
                         iNavCenter.figure.ui.figureNav.trigger("click");
                     break;
                 case 68: // D
-                    // VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
+                    VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
                     iToolbar.buttons["color-scheme"].trigger("click");
                     break;
                 case 65: // A
-                    // VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
+                    VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
                     if (iFontStyler.ui.isHidden())
                         iToolbar.buttons["font-style"].trigger("click");
                     else
                         iFontStyler.hide();
                     break;
+                case 88: // X
+                    VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
+                    TableCross.toggle();
+                    break;
                 case 80: // P
+                    VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
                     iParagraphNav.hide();
-                    iSpotlight.useLaserPointer();
+                    iSpotlight.hide();
+                    iLaserPointer.toggle();
                     break;
                 case 83: // S
-                    // VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
+                    VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
                     iParagraphNav.hide();
-                    iSpotlight.useSpotlight();
+                    iLaserPointer.hide();
+                    iSpotlight.toggle();
                     break;
                 case 27: // ESC
-                    // VLOOK.report.push(['Hotkey', combKeys, 'ESC', 0]);
+                    VLOOK.report.push(['Hotkey', combKeys, 'ESC', 0]);
                     if (VLOOK.doc.block === false) {
                         iToolTips.hide();
                         iLinkChecker.hide();
                     }
 
-                    CellCross.hide();
+                    TableCross.hide();
 
                     // 拦截该按键事件，避免退出全屏（如：Safari）
                     window.event.returnValue = false;
@@ -1827,8 +1782,6 @@ VLOOK.animate = {
 
 // 文档类
 VLOOK.doc = {
-    newTab : false, // 当前页面是通过 VLOOK 的在新标签打开功能生成的
-
     block : false, // 当前文档是否被模态窗口阻塞
 
     // 滚动信息
@@ -1881,42 +1834,6 @@ VLOOK.doc = {
      */
     inCover : function () {
         return $(document).scrollTop() < VOM.cover().outerHeight();
-    },
-
-    /**
-     * 检查重名的Header
-     */
-    checkDuplicateHeader : function () {
-        let h = [];
-        $("h1, h2, h3, h4, h5").each(function () {
-            h.push($(this).text());
-        });
-        let dupHeaders = [];
-            //ignoreHeaders = [];//"业务规则,画图脚本,需求说明,说明,通用的业务规则,用户界面与交互,通用的用户界面与交互,页面流程,业务主流程,流程图,状态图,数据接入,需求说明,原型,状态机图";
-        for (let i = 0, len = h.length; i < len; i++) {
-            if (h.hasOwnProperty(i)) {
-                for (let k = 0, len = h.length; k < len; k++) {
-                    if (h.hasOwnProperty(k)) {
-                        if (i !== k && h[i] === h[k])
-                            //&& ignoreHeaders.indexOf(h[k]) < 0)
-                            dupHeaders.push(h[i]);
-                    }
-                }
-            }
-        }
-        // 输出警告信息
-        for (let i = 0, len = dupHeaders.length; i < len; i++)
-            console.warn([
-                "重名的标题 [",
-                "重複的標題 [",
-                "Duplicate Header [",
-                "Titre en double [",
-                "Doppelter Header [",
-                "Encabezado duplicado [",
-                "Дублирующее название [",
-                "重複するタイトル [",
-                "중복 제목 ["
-            ][VLOOK.lang.id] + i + "]：" + dupHeaders[i]);
     },
 
     /**
@@ -1986,7 +1903,7 @@ VLOOK.print = {
         });
 
         // 展开所有折叠的表格行
-        $(".mdx-table-rowfolding-button").each(function () {
+        $(".mdx-tbl-row-g-btn").each(function () {
             RowGroup.open($(this).parent().parent());
         });
 
@@ -1995,7 +1912,7 @@ VLOOK.print = {
         if (blackCurtains.length > 0) {
             if (confirm("文档含有「刮刮卡」内容，打印前是否显示实际内容？") === true) {
                 blackCurtains.each(function () {
-                    if ($(this).attr("data-vk-black-curtain-showed") === "false")
+                    if ($(this).attr("data-vk-black-curtain-showed").startsWith("f"))
                         BlackCurtain.show($(this));
                 });
             }
@@ -2042,7 +1959,7 @@ VLOOK.print = {
 
         // 隐藏所有刮刮卡
         $(".mdx-black-curtain").each(function () {
-            if ($(this).attr("data-vk-black-curtain-showed") === "true")
+            if ($(this).attr("data-vk-black-curtain-showed").startsWith("t"))
                 BlackCurtain.hide($(this));
         });
     },
@@ -2096,30 +2013,30 @@ VLOOK.report = {
         statData += "&time=" + loadTimeCost; // 加载文档时间
 
         // 图片插图数据
-        statData += "&img=" + $("img").length;
+        statData += "&img=" + $(".mdx-figure").length;
         statData += "&img-fold=" + $("p[data-vk-container='img'][data-vk-content-folded='true']").length;
         statData += "&img-fill=" + $("img:not([data-vk-img-fill])").length;
         statData += "&img-invert=" + $("img[data-vk-darksrc='invert']").length;
         statData += "&img-alter=" + $("img[data-vk-darksrc='alter']").length;
-        statData += "&img-cap1=" + $("div[id^=vk-idx-fig-num][data-vk-idx-fig-type='img'] .mdx-figure-caption-1 strong").length;
-        statData += "&img-cap2=" + $("div[id^=vk-idx-fig-num][data-vk-idx-fig-type='img'] .mdx-figure-caption-2").length;
+        statData += "&img-cap1=" + $("div[id^=vk-id-fig][data-vk-id-fig-type='img'] .mdx-figure-caption-1 strong").length;
+        statData += "&img-cap2=" + $("div[id^=vk-id-fig][data-vk-id-fig-type='img'] .mdx-figure-caption-2").length;
 
         // Mermaid 插图数据
         let mermaid = $(".md-diagram-panel");
         statData += "&mm=" + mermaid.length;
         statData += "&mm-fold=" + $("div[data-vk-container='svg'][data-vk-content-folded='true']").length;
-        statData += "&mm-cap1=" + $("div[id^=vk-idx-fig-num][data-vk-idx-fig-type='svg'] .mdx-figure-caption-1 strong").length;
-        statData += "&mm-cap2=" + $("div[id^=vk-idx-fig-num][data-vk-idx-fig-type='svg'] .mdx-figure-caption-2").length;
+        statData += "&mm-cap1=" + $("div[id^=vk-id-fig][data-vk-id-fig-type='svg'] .mdx-figure-caption-1 strong").length;
+        statData += "&mm-cap2=" + $("div[id^=vk-id-fig][data-vk-id-fig-type='svg'] .mdx-figure-caption-2").length;
 
         // Mermaid 音频数据
         statData += "&audio=" + $("audio").length;
-        statData += "&mm-cap1=" + $("div[id^=vk-idx-audio-num] .mdx-figure-caption-1 strong").length;
-        statData += "&mm-cap2=" + $("div[id^=vk-idx-audio-num] .mdx-figure-caption-2").length;
+        statData += "&mm-cap1=" + $("div[id^=vk-id-audio] .mdx-figure-caption-1 strong").length;
+        statData += "&mm-cap2=" + $("div[id^=vk-id-audio] .mdx-figure-caption-2").length;
 
         // Mermaid 视频数据
         statData += "&video=" + $("video").length;
-        statData += "&mm-cap1=" + $("div[id^=vk-idx-video-num] .mdx-figure-caption-1 strong").length;
-        statData += "&mm-cap2=" + $("div[id^=vk-idx-video-num] .mdx-figure-caption-2").length;
+        statData += "&mm-cap1=" + $("div[id^=vk-id-video] .mdx-figure-caption-1 strong").length;
+        statData += "&mm-cap2=" + $("div[id^=vk-id-video] .mdx-figure-caption-2").length;
 
         // Mermaid 图的细类
         let pie = 0,
@@ -2161,8 +2078,8 @@ VLOOK.report = {
         // 表格数据
         statData += "&tbl=" + $("table").length;
         statData += "&tbl-fold=" + $("figure[data-vk-container='table'][data-vk-content-folded='true']").length;
-        statData += "&tbl-cap1=" + $("div[id^=vk-idx-tbl-num] .mdx-figure-caption-1 strong").length;
-        statData += "&tbl-cap2=" + $("div[id^=vk-idx-tbl-num] .mdx-figure-caption-2").length;
+        statData += "&tbl-cap1=" + $("div[id^=vk-id-tbl] .mdx-figure-caption-1 strong").length;
+        statData += "&tbl-cap2=" + $("div[id^=vk-id-tbl] .mdx-figure-caption-2").length;
 
         // 表格列格式数据
         let fmBold = 0,
@@ -2173,19 +2090,19 @@ VLOOK.report = {
             fmChk = 0,
             fmNum = 0;
         $("table[data-vk-column-formatting='true']").each(function () {
-            if ($(this).find("thead mdx-table-column-format-bold").length > 0)
+            if ($(this).find("thead .mdx-tbl-col-fmt-bold").length > 0)
                 fmBold++;
-            if ($(this).find("thead mdx-table-column-format-em").length > 0)
+            if ($(this).find("thead .mdx-tbl-col-fmt-em").length > 0)
                 fmEm++;
             if ($(this).find("thead u").length > 0)
                 fmUnderline++;
-            if ($(this).find("thead mdx-table-column-format-mark").length > 0)
+            if ($(this).find("thead .mdx-tbl-col-fmt-mark").length > 0)
                 fmMark++;
             if ($(this).find("thead del").length > 0)
                 fmDel++;
-            if ($(this).find("thead mdx-table-column-format-checkbox").length > 0)
+            if ($(this).find("thead .mdx-tbl-col-fmt-checkbox").length > 0)
                 fmChk++;
-            if ($(this).find("thead mdx-table-column-format-number").length > 0)
+            if ($(this).find("thead .mdx-tbl-col-fmt-num").length > 0)
                 fmNum++;
         });
         statData += "&tbl-fm-b=" + fmBold;
@@ -2205,8 +2122,8 @@ VLOOK.report = {
         // 代码块数据
         statData += "&cb=" + $(".md-fences").length;
         statData += "&cb-fold=" + $("p[data-vk-container='pre'][data-vk-content-folded='true']").length;
-        statData += "&cb-cap1=" + $("div[id^=vk-idx-codeblock-num] .mdx-figure-caption-1 strong").length;
-        statData += "&cb-cap2=" + $("div[id^=vk-idx-codeblock-num] .mdx-figure-caption-2").length;
+        statData += "&cb-cap1=" + $("div[id^=vk-id-codeblock] .mdx-figure-caption-1 strong").length;
+        statData += "&cb-cap2=" + $("div[id^=vk-id-codeblock] .mdx-figure-caption-2").length;
 
         // 标签数据
         statData += "&tag=" + $("code[class^=mdx-tag-c]").length;
@@ -2240,7 +2157,7 @@ VLOOK.report = {
      * @param data 数据数组，与百度统计的 _hmt.push(["_trackEvent", data[0], data[1], data[2], data[3]) 的参数保持一致
      */
     push : function (data) {
-        $("body").append('<iframe name="v-event-' + VLOOK.report.eventCount + '" style="display: block; margin: 0; border: none; overflow: hidden; width: 100%; height: 0;"'
+        $("body").append('<iframe name="vk-event-' + VLOOK.report.eventCount + '" style="display: block; margin: 0; border: none; overflow: hidden; width: 100%; height: 0;"'
             + ' src="https://madmaxchow.gitee.io/vlook/act/'
             + (VLOOK.debugMode ? "dev-" : "")
             + 'event-gitee.html'
@@ -2273,7 +2190,7 @@ VLOOK.report = {
      * 移除上报事件的资源
      */
     recycleResources : function () {
-        $("iframe[name^=v-event-]").each(function () {
+        $("iframe[name^=vk-event-]").each(function () {
             $(this).remove();
             return false; // 执行一次即跳出，即每次只删除当前最早创建的
         });
@@ -2292,7 +2209,7 @@ function RandomColor() {
     /**
      * 生成随机颜色
      *
-     * @return R/G/B 颜色分量是数组
+     * @returns string R/G/B 颜色分量是数组
      */
     this.generate = function () {
         let rgb = [0, 0, 0],
@@ -2316,7 +2233,7 @@ function RandomColor() {
     /**
      * 生成不相似的随机颜色
      *
-     * @return R/G/B 颜色分量是数组
+     * @returns string R/G/B 颜色分量是数组
      */
     this.dissimilarRgb = function () {
         // 色板为空时，生成随机颜色后直接返回
@@ -2395,7 +2312,9 @@ function Stopwatch() {
     /**
      * 一次中间计时开始
      */
-    this.lapStart = function () {
+    this.lapStart = function (title) {
+        if (title !== undefined)
+            console.log(title);
         this.lapTime = new Date().getTime();
     }
 
@@ -2431,22 +2350,20 @@ function Stopwatch() {
     this.reset();
 }
 
-// ==================== 欢迎屏 ==================== //
+// ==================== 欢迎页 ==================== //
 
 /**
  * 构造函数
  *
- * @param mode 欢迎屏显示模式。none：不显示，auto：显示，并在加载完成后自动关闭。默认为显示，加载完成后手动关闭
+ * @param mode 欢迎页显示模式
  */
-function WelcomeScreen(mode) {
+function WelcomePage(mode) {
     let that = this;
-    this.ui = $(".mdx-welcome-screen"); // 欢迎屏主界面
-    this.buttonEnter = $(".mdx-welcome-screen-loading"); // 关闭欢迎屏按钮
-    this.tips = $(".mdx-welcome-screen-tips"); // 欢迎信息
+    this.ui = $(".mdx-welcome-page"); // 欢迎页主界面
+    this.buttonEnter = $(".mdx-welcome-page-loading"); // 关闭欢迎页按钮
+    this.tips = $(".mdx-welcome-page-tips"); // 欢迎信息
     this.finished = false; // 是否已加载
     this.mode = mode; // 模式：
-
-    VLOOK.ui.addAnimate(this.ui);
 
     if (this.mode === "none")
         this.ui.hide();
@@ -2457,10 +2374,58 @@ function WelcomeScreen(mode) {
      * 完成所有内容加载后调用
      */
     this.done = function () {
+        // 关闭欢迎页事件
+        this.buttonEnter.unbind("click").click(function () {
+            that.close();
+        });
+
         this.ui.css("cursor", "default");
         this.stopAnimation();
 
-        this.buttonEnter.text([
+        this.tips.css("animation", "none");
+
+        this.updateCloseButton(null);
+        this.buttonEnter.addClass("mdx-btn-welcome-page-done");
+
+        this.finished = true;
+
+        // auto 模式时延时自动关闭
+        if (this.mode === "auto") {
+            this.autoClose();
+            return;
+        }
+        // wait 模式
+        else if (this.mode === "wait")
+            this.buttonEnter.addClass("wait");
+    }
+
+    /**
+     * 自动延时关闭
+     */
+    this.autoClose = function () {
+        let sec = 0,
+            closeTimer = null;
+
+        __timeToClose();
+        function __timeToClose() {
+            that.updateCloseButton(5 - sec);
+            sec++;
+            if (sec > 5) { // 倒计时结束
+                clearTimeout(closeTimer);
+                that.close();
+            }
+            else
+                closeTimer = setTimeout(__timeToClose, 1000);
+        }
+    }
+
+    /**
+     * 更新关闭按钮
+     *
+     * @param sec 显示倒计时的秒数
+     */
+     this.updateCloseButton = function (sec) {
+        that.buttonEnter.html([
             "轻一点，轻轻一点",
             "輕一點，輕輕一點",
             "Click to Start",
@@ -2470,22 +2435,8 @@ function WelcomeScreen(mode) {
             "Нажмите, чтобы начать",
             "クリックして開始",
             "클릭하여 시작"
-        ][VLOOK.lang.id]);
-
-        this.tips.css("animation", "none");
-        this.buttonEnter.addClass("mdx-btn-welcome-screen-done");
-
-        // 关闭欢迎屏事件
-        this.buttonEnter.unbind("click").click(function () {
-            that.close();
-        });
-
-        // 模式为 none 或不为 wait 时的处理
-        if (this.mode === "none" || this.mode !== "wait") {
-            this.close();
-        }
-
-        this.finished = true;
+        ][VLOOK.lang.id]
+            + ((sec == null) ? "" : " <span>(" + sec + "s)</span>"));
     }
 
     /**
@@ -2496,16 +2447,10 @@ function WelcomeScreen(mode) {
     }
 
     /**
-     * 关闭欢迎屏
+     * 关闭欢迎页
      */
     this.close = function () {
-        this.ui.css({
-            "top" : -this.ui.height()
-            // "top" : -800
-        });
-        VLOOK.ui.hide(this.ui);
-        // this.ui.hide();
-
+        this.ui.hide();
         VLOOK.doc.scroll.unfreeze();
     }
 
@@ -2521,8 +2466,7 @@ function WelcomeScreen(mode) {
 
         switch (code) {
             case 13: // ENTER
-                // 关闭欢迎屏
-                // VLOOK.report.push(['Hotkey', combKeys, 'ENTER', 0]);
+                // 关闭欢迎页
                 this.close();
                 break;
         }
@@ -2534,7 +2478,6 @@ function WelcomeScreen(mode) {
 function ContentAssist() {}
 
 ContentAssist.button = {
-    openInNewTab : undefined, // 在新标签中打开按钮
     copyCodeBlock : undefined // 复制代码块按钮
 }
 
@@ -2542,113 +2485,29 @@ ContentAssist.button = {
  * 初始化内容辅助工具
  */
 ContentAssist.init = function () {
-    ContentAssist.button.openInNewTab = $(".mdx-btn-open-in-new-tab");
-    ContentAssist.button.copyCodeBlock = $(".mdx-btn-copy-code-block");
-
-    // 绑定在新标签中打开按钮事件
-    ContentAssist.button.openInNewTab.unbind("click").click(function () {
-        openInNewTab();
-    });
-    ContentAssist.button.openInNewTab.mouseout(function () {
-        mouseout();
-    });
-    VLOOK.ui.addAnimate(ContentAssist.button.openInNewTab);
+    ContentAssist.button.copyCodeBlock = $(".mdx-btn.copy-code-block");
 
     // 复制代码块按钮事件
     ContentAssist.button.copyCodeBlock.unbind("click").click(function () {
         ExtCodeBlock.copy($(this));
     });
     ContentAssist.button.copyCodeBlock.mouseout(function () {
-        mouseout();
+        __mouseout();
     });
-    VLOOK.ui.addAnimate(ContentAssist.button.copyCodeBlock);
+    // VLOOK.ui.addAnimate(ContentAssist.button.copyCodeBlock);
 
     /**
      * 鼠标移出内容动作按钮后
      */
-    function mouseout() {
+    function __mouseout() {
         if (ContentAssist.mouseDropIn() === false) {
             ContentAssist.hideButtons();
         }
-    }
-
-    /**
-     * 在新标签页中打开插图/表格等内容
-     */
-    function openInNewTab() {
-        ContentAssist.button.openInNewTab.hide();
-
-        if (ContentAssist.lastHoverContent === undefined)
-            return;
-
-        let newTab = window.open("", "_blank"),
-            content = ContentAssist.lastHoverContent.clone(), // 复制要在新标签中打开的内容
-            tagName = ContentAssist.lastHoverContent.prop("tagName").toLowerCase();
-
-        VLOOK.report.push(['Interactive', VLOOK.report.transTagName(tagName), 'OpenInNewTab', 0]);
-
-        // 动态生成新标签的页面
-        newTab.document.write("<!doctype html>");
-        newTab.document.write($("html").html());
-        // 取内容对应的题注为新标签页的标题
-        newTab.document.title = ContentAssist.lastHoverContent.prev().text();
-
-        // 初始化在新标签打开的页面的关键组件实例
-        newTab.VLOOK.initIntance(true);
-        newTab.OINT.init();
-
-        // 内容为表格时
-        if (tagName === "table") {
-            // 恢复表格行号
-            let rowNumFilter = "table tr > th:first-child, table tr > td:first-child, table tbody tr > td:first-child",
-                container = content.wrap("<figure></figure>").parent();
-            container.find(rowNumFilter).removeClass("mdx-table-row-num-hidden");
-
-            // 添加 <h1> 是为能激活表格显示等号的样式
-            newTab.OINT.append("<h6 style='display:none'></h1>");
-            newTab.OINT.append(container);
-        }
-        // 内容为 Mermaid 图表时
-        else if (tagName === "svg")
-            newTab.OINT.append(content.wrap("<div class='md-diagram-panel'></div>").parent());
-        // 内容为：图片、代码块
-        else
-            newTab.OINT.append(content);
-
-        // 初始化在新标签打开的页面的 VLOOK
-        newTab.VLOOK.initKernel(ColorScheme.scheme);
-
-        // 将主文档中对应内容的题注数据更新到新标签中
-        let caption1 = ContentAssist.lastHoverContent.prev().text(),
-            caption2 = ContentAssist.lastHoverContent.next().attr("class") === "mdx-figure-caption-2" ? ContentAssist.lastHoverContent.next()
-                .text() : null;
-        newTab.OINT.updateFigureCaption(tagName, caption1, caption2);
-
-        newTab.OINT.done();
     }
 }
 
 // 最后显示新标签打开按钮的内容（插图/表格等）
 ContentAssist.lastHoverContent = undefined;
-
-/**
- * 显示文档内容动作按钮
- */
-ContentAssist.showOpenInNewTabButton = function () {
-    // 移动端不显示该动作按钮
-    if (env.device.mobile)
-        return;
-
-    // 显示在新标签打开的按钮
-    VLOOK.ui.hide(ContentAssist.button.openInNewTab);
-    ContentAssist.button.openInNewTab.css({
-        "left" : ContentAssist.lastHoverContent.offset().left,
-        "top" : ContentAssist.lastHoverContent.offset().top
-    });
-
-    return 0; // 临时禁用
-    VLOOK.ui.show(ContentAssist.button.openInNewTab);
-}
 
 /**
  * 显示文档内容动作按钮
@@ -2660,18 +2519,12 @@ ContentAssist.showCopyCodeBlockButton = function () {
 
     VLOOK.ui.hide(ContentAssist.button.copyCodeBlock);
 
-    // vvv 避免不同代码块之间动画跳跃影响，先强制移除动画 vvv
-    VLOOK.ui.removeAnimate(ContentAssist.button.copyCodeBlock);
     ContentAssist.button.copyCodeBlock.css({
         "left" : ContentAssist.lastHoverContent.offset().left
-            + ContentAssist.lastHoverContent.width()
-            - ContentAssist.button.copyCodeBlock.width() + 4,
-        "top" : ContentAssist.lastHoverContent.offset().top
+            + ContentAssist.lastHoverContent.width() + 1
+            - ContentAssist.button.copyCodeBlock.width(),
+        "top" : ContentAssist.lastHoverContent.offset().top + 3
     });
-    // jquery bug? 不强制读取一次，会导致后续操作比修改 top 值要早执行？
-    let t = ContentAssist.button.copyCodeBlock.css("top");
-    // ^^^ 完成设置后恢复动画设置 ^^^
-    VLOOK.ui.addAnimate(ContentAssist.button.copyCodeBlock);
 
     VLOOK.ui.show(ContentAssist.button.copyCodeBlock);
 }
@@ -2681,7 +2534,6 @@ ContentAssist.showCopyCodeBlockButton = function () {
  */
 ContentAssist.hideButtons = function () {
     if (ContentAssist.lastHoverContent === undefined || ContentAssist.mouseDropIn() === false) {
-        VLOOK.ui.hide(ContentAssist.button.openInNewTab);
         VLOOK.ui.hide(ContentAssist.button.copyCodeBlock);
     }
 }
@@ -2719,13 +2571,7 @@ function Spotlight(radius, tips) {
         y : -1
     };
 
-    this.pointer = false; // 激光笔模式
-    this.lastMode = "S"; // S: Spotlight, P: Pointer
-
     this.toolbar = undefined; // 联动的工具栏
-
-    // 激光笔模式时鼠标形状影响的范围
-    this.pointerScope = "body, rt, #write, .mdx-textfield > input, .mdx-blockquote-folder, audio, video, .mdx-audio-mini-control, .mdx-table-rowfolding-button, .mdx-textfield-action, .mdx-segment-btn, .mdx-nav-center, .md-toc-item, .mdx-toc-item, .mdx-btn, .mdx-accent-btn, .mdx-toolbar, .mdx-figure, .mdx-figure-nav, .mdx-figure-content, .mdx-figure-nav-btns, .mdx-btn-close-figure-nav, .mdx-black-curtain, a, img, .mdx-chapter-nav-prev, .mdx-chapter-nav-current, .mdx-chapter-nav-next, .mdx-link-result-error, .mdx-toc-tab-button";
 
     /**
      * 切换聚光灯的不同大小
@@ -2744,57 +2590,30 @@ function Spotlight(radius, tips) {
     }
 
     /**
-     * 使用激光笔模式
-     */
-    this.useLaserPointer = function () {
-        this.toolbar.buttons["spotlight"].addClass("selected");
-
-        this.pointer = true;
-        this.lastMode = "P";
-        this.ui.hide();
-        $(this.pointerScope).addClass("mdx-cursor-laser");
-        this.repaint();
-
-        let key = "<kbd>S</kbd>",
-            key2 = "&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<kbd>ESC</kbd>";
-        this.tips.show([
-            key + "切换为 <strong>聚光灯</strong> 模式" + key2 + "退出",
-            key + "切換為 <strong>聚光燈</strong> 模式" + key2 + "退出",
-            key + "Switch to <strong>Spotlight</strong> mode" + key2 + "Exit",
-            key + "Passer en mode <strong>Spotlight</strong>" + key2 + "Sortie",
-            key + "Wechseln Sie in den <strong>Spotlight</strong> -Modus" + key2 + "Ausfahrt",
-            key + "Cambiar al modo <strong>Spotlight</strong>" + key2 + "Salida",
-            key + "Перейти в режим <strong>Прожектор</strong>" + key2 + "Выход",
-            key + "<strong>スポットライト</strong>モードに切り替えます" + key2 + "終了",
-            key + "<strong>Spotlight</strong> 모드로 전환" + key2 + "종료"
-        ][VLOOK.lang.id]);
-    }
-
-    /**
      * 使用聚光灯模式
      */
     this.useSpotlight = function () {
+        this.toolbar.buttons["laser-pointer"].removeClass("selected");
         this.toolbar.buttons["spotlight"].addClass("selected");
 
         this.pointer = false;
-        this.lastMode = "S";
+        this.mode = "S";
         this.ui.show();
         $(this.pointerScope).removeClass("mdx-cursor-laser");
         this.repaint();
 
         let key1 = "<kbd>⇧ Shift</kbd>",
-            key2 = "&nbsp;&nbsp;&nbsp;&nbsp;<kbd>P</kbd>";
-            key3 = "&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<kbd>ESC</kbd>";
+            key2 = "&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<kbd>ESC</kbd>";
         this.tips.show([
-            key1 + "调整聚光灯大小" + key2 + "切换为 <strong>激光笔</strong> 模式" + key3 + "退出",
-            key1 + "調整聚光燈大小" + key2 + "切換為 <strong>激光筆</strong> 模式" + key3 + "退出",
-            key1 + "Adjust the size of the spotlight" + key2 + "Switch to <strong>Laser Pointer</strong> mode" + key3 + "Exit",
-            key1 + "Ajustez la taille du projecteur" + key2 + "Passer en mode <strong>Pointeur laser</strong>" + key3 + "Sortie",
-            key1 + "Passen Sie die Größe des Scheinwerfers an" + key2 + "Wechseln Sie in den <strong>Laser Pointer</strong> -Modus" + key3 + "Ausfahrt",
-            key1 + "Ajusta el tamaño del foco" + key2 + "Cambiar al modo <strong>Puntero láser</strong>" + key3 + "Salida",
-            key1 + "Отрегулируйте размер прожектора" + key2 + "Перейти в режим <strong>Лазерная указка</strong>" + key3 + "Выход",
-            key1 + "スポットライトのサイズを調整します" + key2 + "<strong>レーザーポインター</strong> モードに切り替えます" + key3 + "終了",
-            key1 + "스포트라이트의 크기를 조정하십시오" + key2 + "<strong>레이저 포인터</strong> 모드로 전환" + key3 + "종료"
+            key1 + "调整聚光灯大小" + key2 + "退出",
+            key1 + "調整聚光燈大小" + key2 + "退出",
+            key1 + "Adjust the size of the spotlight" + key2 + "Exit",
+            key1 + "Ajustez la taille du projecteur" + key2 + "Sortie",
+            key1 + "Passen Sie die Größe des Scheinwerfers an" + key2 + "Ausfahrt",
+            key1 + "Ajusta el tamaño del foco" + key2 + "Salida",
+            key1 + "Отрегулируйте размер прожектора" + key2 + "Выход",
+            key1 + "スポットライトのサイズを調整します" + key2 + "終了",
+            key1 + "스포트라이트의 크기를 조정하십시오" + key2 + "종료"
         ][VLOOK.lang.id]);
     }
 
@@ -2804,15 +2623,16 @@ function Spotlight(radius, tips) {
      * @param event window.event 鼠标事件对象
      */
     this.repaint = function (event) {
-        // 记录鼠标最新位置
+        // 记录鼠标最新位置，避免通过快捷键显示时无法在鼠标位置正常渲染
         if (event !== undefined) {
             if (event.clientX !== undefined)
                 this.lastPos.x = event.clientX;
             if (event.clientY !== undefined)
                 this.lastPos.y = event.clientY;
         }
+
         // 未启用则跳过
-        if (this.isShowed === false)
+        if (this.isEnabled() === false)
             return;
 
         // 聚光灯模式
@@ -2827,9 +2647,8 @@ function Spotlight(radius, tips) {
     /**
      * 是否已显示
      */
-    this.isShowed = function () {
-        return this.ui.isShowed()
-            || this.pointer === true;
+    this.isEnabled = function () {
+        return this.ui.isShowed();
     }
 
     /**
@@ -2839,16 +2658,12 @@ function Spotlight(radius, tips) {
         VLOOK.report.push(['Presentation', 'Spotlight', 'Show/Hide', 0]);
 
         // 已打开，则关闭
-        if (this.isShowed()) {
+        if (this.isEnabled()) {
             this.hide();
         }
         // 未打开，则打开
         else {
-            // 切换使用不同的聚焦工具
-            if (this.lastMode === "P")
-                this.useLaserPointer();
-            else
-                this.useSpotlight();
+            this.useSpotlight();
             return true;
         }
         return false;
@@ -2859,11 +2674,9 @@ function Spotlight(radius, tips) {
      */
     this.hide = function () {
         iMoreDocContent.refresh();
-        this.pointer = false;
         this.tips.hide();
         this.toolbar.buttons["spotlight"].removeClass("selected");
         this.ui.hide();
-        $(this.pointerScope).removeClass("mdx-cursor-laser");
     }
 
     /**
@@ -2878,10 +2691,101 @@ function Spotlight(radius, tips) {
 
         switch (code) {
             case 16: // Shift
-                // VLOOK.report.push(['Hotkey', combKeys, '', 0]);
                 if (this.pointer === false)
                     this.toggleZoom();
                 break;
+            case 27: // ESC
+                this.hide();
+                break;
+        }
+    }
+}
+
+// ==================== 激光笔类 ==================== //
+
+/**
+ * 构造函数
+ * @param tips 操作提示栏对象
+ */
+ function LaserPointer(tips) {
+    this.tips = tips;
+    this.toolbar = undefined; // 联动的工具栏
+
+    this.enable = false;
+
+    // 激光笔模式时鼠标形状影响的范围
+    this.pointerScope = "body, rt, #write, .mdx-textfield > input, .mdx-blockquote-folder, audio, video, .mdx-audio-mini-control, .mdx-tbl-row-g-btn, .mdx-textfield-action, .mdx-segment-btn, .mdx-nav-center, .md-toc-item, .mdx-toc-item, .mdx-btn, .mdx-accent-btn, .mdx-toolbar, .mdx-figure, .mdx-figure-nav, .mdx-figure-content, .mdx-figure-nav-btns, .mdx-btn-close-figure-nav, .mdx-black-curtain, a, img, .mdx-chapter-nav-prev, .mdx-chapter-nav-current, .mdx-chapter-nav-next, .mdx-link-result-error, .mdx-toc-tab-button";
+
+    /**
+     * 使用激光笔模式
+     */
+    this.useLaserPointer = function () {
+        this.toolbar.buttons["spotlight"].removeClass("selected");
+        this.toolbar.buttons["laser-pointer"].addClass("selected");
+
+        this.enable = true;
+        $(this.pointerScope).addClass("mdx-cursor-laser");
+
+        this.tips.show("<kbd>ESC</kbd>" + [
+            "退出",
+            "退出",
+            "Exit",
+            "Sortie",
+            "Ausfahrt",
+            "Salida",
+            "Выход",
+            "終了",
+            "종료"
+        ][VLOOK.lang.id]);
+    }
+
+    /**
+     * 是否已显示
+     */
+    this.isEnabled = function () {
+        return this.enable === true;
+    }
+
+    /**
+     * 切换聚光灯的开关
+     */
+    this.toggle = function () {
+        VLOOK.report.push(['Presentation', 'LaserPointer', 'Show/Hide', 0]);
+
+        // 已打开，则关闭
+        if (this.isEnabled()) {
+            this.hide();
+        }
+        // 未打开，则打开
+        else {
+            this.useLaserPointer();
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 隐藏聚光灯
+     */
+    this.hide = function () {
+        iMoreDocContent.refresh();
+        this.tips.hide();
+        this.enable = false;
+        this.toolbar.buttons["laser-pointer"].removeClass("selected");
+        $(this.pointerScope).removeClass("mdx-cursor-laser");
+    }
+
+    /**
+     * 处理热键操作
+     *
+     * @param code 非功能键键
+     * @param combKeys 功能组合键 Ctrl / Shift / Alt / Win / Cmd
+     */
+     this.disposeHotkey = function (code, combKeys) {
+        if (VLOOK.doc.block === true)
+            return;
+
+        switch (code) {
             case 27: // ESC
                 this.hide();
                 break;
@@ -2903,7 +2807,7 @@ function SegmentControl(control, group) {
 
     this.last = undefined;
     this.segments = [];
-    this.segmentsLength = 0;
+    this.segmentCount = 0;
 
     this.ui.append('<span class="mdx-segment-indicator"></span>');
     this.indicator = this.ui.children(".mdx-segment-indicator"); // 当前选中分段的滑块
@@ -2919,46 +2823,58 @@ function SegmentControl(control, group) {
      * @param checked 是否为默认选中
      */
     this.add = function (target, name, icon, checked) {
+        this.segmentCount++;
         this.segments[name] = target;
-        this.segmentsLength++;
 
         // 新增段的 UI
         let id = this.group + "-" + name,
-            ui = '<input id="' + id + '" onfocus="this.blur()" type="radio" name="' + this.group + '" value="' + name + '"' + (checked === true ? ' checked' : '' ) + ' />'
-            + '<label for="' + id + '" class="mdx-segment-btn ' + name + '">'
-            + VLOOK.ui.generateSvgIcon(icon, 16, 14, "alt")
-            + '</label>';
+            ui = '<input id="' + id + '" onfocus="this.blur()" type="radio" name="' + this.group
+                    + '" value="' + name + '"' + (checked === true ? ' checked' : '' ) + ' />'
+                + '<label for="' + id + '" class="mdx-segment-btn ' + name + '" data-vk-icon="' + icon + '">'
+                + VLOOK.ui.generateSvgIcon(icon, 16, 16, "alt")
+                + '</label>';
         this.ui.append(ui);
         target.ui.entry = this.ui.children(".mdx-segment-btn." + name);
 
         // 指定为默认选项
-        if (checked === true)
+        if (checked === true) {
             this.last = target;
+            __updateIcon(true);
+        }
 
         // 为新添加的段绑定事件
         this.ui.find("input#" + id).change(function () {
             // 隐藏切换前选择的组件
             that.last.hide();
+            __updateIcon(false);
             // 显示最新选择的组件
             that.last = that.segments[$(this).val()];
+            __updateIcon(true);
             that.last.show();
             that.update();
         });
-        // VLOOK.ui.addAnimate(this.ui.find("label[for='" + id + "']"));
 
         return this.segments[name];
+
+        /**
+         * 更新分段的图标
+         *
+         * @param checked 是否为选择状态
+         */
+        function __updateIcon(checked) {
+            that.last.ui.entry.html(VLOOK.ui.generateSvgIcon(that.last.ui.entry.attr("data-vk-icon")
+                + (checked ? "-checked" : "") , 16, 16, "alt"));
+        }
     }
 
     /**
      * 更新分段控制器界面
-     *
-     * @param target 目标分段的入口按钮对象
      */
     this.update = function () {
         // 更新各分段 UI 大小、间隔等
         let space = 2,
-            spacePercent = (space * (this.segmentsLength - 1)) / this.ui.width() * 100,
-            width = (100 - spacePercent) / this.segmentsLength;
+            spacePercent = (space * (this.segmentCount - 1)) / this.ui.width() * 100,
+            width = (100 - spacePercent) / this.segmentCount;
         this.ui.children(".mdx-segment-btn").css({
             "margin" : "0 0 0 " + space + "px",
             "width" : width + "%"
@@ -2976,8 +2892,6 @@ function SegmentControl(control, group) {
             "left" : target.position().left + parseInt(target.css("margin-left")),
             "width" : target.width()
         });
-        // 更新图标
-        // this.indicator.html(target.children().clone());
     }
 }
 
@@ -2997,8 +2911,7 @@ function NavCenter(mask) {
     this.displayMode = "float"; // 最后一次的显示方式（float/block）
     this.showed = false; // 是否已显示
 
-    // 导航中心宽度
-    this.width = parseInt(VLOOK.util.getStyleValue("--vlook-nav-center-width"));
+    this.width = this.ui.width(); // 导航中心宽度
 
     this.chapterNav = undefined; // 联动的章节导航栏
     this.toolbar = undefined; // 联动的工具栏
@@ -3081,8 +2994,6 @@ function NavCenter(mask) {
      * @param callback 显示/隐藏导航中心后执行回调函数
      */
     this.toggle = function (callback) {
-        // VLOOK.report.push(['Outline', 'Assist', 'Show/Hide', 0]);
-
         // 导航中心已显示
         if (this.showed === true) {
             this.hide("manual");
@@ -3110,20 +3021,20 @@ function NavCenter(mask) {
      * 显示导航中心
      *
      * @param displayMode float: 以浮动形式显示，block: 以占位形式显示
-     * @return true: 需要处理显示，false: 已显示，无须重复处理
+     * @returns boolean true: 需要处理显示，false: 已显示，无须重复处理
      */
     this.show = function (displayMode) {
-        if (this.showed === true // 已显示
-            || this.ui.offset().left > -this.width) // 在以动画显示过程中
+        // 已显示，或在以动画显示过程中
+        if (this.showed === true || this.ui.offset().left > -this.width)
             return false;
 
         this.ui.css({
-            "left" : 10
+            "left" : 20
         });
         this.handle.hide();
 
-        // 以「占位方式」显示导航中心
         this.displayMode = displayMode;
+        // 以「占位方式」显示导航中心
         if (this.displayMode === "block") {
             // 占位方式的样式设置
             this.ui.removeClass("mdx-nav-center-float");
@@ -3135,11 +3046,13 @@ function NavCenter(mask) {
                 this.toolbar.buttons["outline"].addClass("selected");
 
             VOM.doc().css({
-                "margin-left" : this.width + 20
+                "margin-left" : "calc(var(--vlook-nav-center-width) + 30px)"
             });
 
             // 因为占位显示后，会影响文档内容布局，所以须重定位至当前锚点
-            setTimeout(VLOOK.util.redirectToHash, 500);
+            setTimeout(function () {
+                VLOOK.util.redirectToHash();
+            }, 500);
         }
         // 以「浮动方式」显示导航中心
         else if (this.displayMode === "float") {
@@ -3167,11 +3080,11 @@ function NavCenter(mask) {
      * 隐藏导航中心
      *
      * @param closeMode 关闭导航中心的的方式（auto/manual）
-     * @return true: 需要处理隐藏，false: 已显示，无须重复处理
+     * @returns boolean true: 需要处理隐藏，false: 已显示，无须重复处理
      */
     this.hide = function (closeMode) {
-        if (this.showed === false // 已隐藏
-            || this.ui.offset().left < 10) // 在以动画隐藏过程中
+        // 已隐藏，或在以动画隐藏过程中
+        if (this.showed === false || this.ui.offset().left < 10)
             return false;
 
         // 若最后一次显示以是「占位方式」显示
@@ -3183,9 +3096,9 @@ function NavCenter(mask) {
             if (!env.device.mobile)
                 this.toolbar.buttons["outline"].removeClass("selected");
 
-            VOM.doc().css({
-                "margin-left" : 0
-            });
+            // VOM.doc().css({
+            //     "margin-left" : 0
+            // });
         }
 
         this.ui.css({
@@ -3211,31 +3124,31 @@ function NavCenter(mask) {
     /**
      * 导航中心根据规则进行布局的自适应处理
      *
-     * @return true: 需要处理显示/隐藏，false: 已显示/隐藏，无须重复处理
+     * @returns boolean true: 需要处理显示/隐藏，false: 已显示/隐藏，无须重复处理
      */
     this.adjust = function () {
         let result = false;
 
         // 根据导航中心宽度更新相关界面组件的样式
-        this.width = parseInt(VLOOK.util.getStyleValue("--vlook-nav-center-width"));
         if (this.showed && this.displayMode === "block")
             VOM.doc().css({
-                "margin-left" : this.width + 20
+                "margin-left" : "calc(var(--vlook-nav-center-width) + 30px)"
             });
+
+        this.width = this.ui.width();
 
         this.catalog.adjust();
         this.figure.adjust();
         this.table.adjust();
         this.multimedia.adjust();
         this.codeblock.adjust();
+
         // 根据最新窗口大小调整宽度
-        this.ui.css({
-            "width" : "var(--vlook-nav-center-width)"
-        });
         this.indexs.update();
 
         // 在封面，或为小屏
         if (this.catalog.inHeader() === false || VLOOK.ui.isSmallScreen() === true) {
+            // console.log("IN COVER or SMALL-SCREEN");
             // 自动隐藏导航中心
             result = this.hide("auto");
 
@@ -3250,10 +3163,16 @@ function NavCenter(mask) {
         }
         // 不在封面
         else {
+            // console.log("NOT IN COVER");
             // 没有手动关闭导航中心时，自动显示导航中心
             if (this.closeMode === "auto") {
                 // 以占位方式显示导航中心
                 result = this.show("block");
+
+                // 根据最新窗口大小调整导航中心宽度
+                this.ui.css({
+                    "width" : "var(--vlook-nav-center-width)"
+                });
 
                 // 更新工具栏导航中心按钮图标
                 if (!env.device.mobile)
@@ -3271,15 +3190,6 @@ function NavCenter(mask) {
             "top" : ($(window).height() - this.handle.height()) / 2
         });
         that.handle.show();
-
-        // 显示操作提示动画
-        let delay = VLOOK.ui.animateDuration();
-        setTimeout(function () {
-            that.handle.addClass("mdx-toc-handle-prompt");
-            setTimeout(function () {
-                that.handle.removeClass("mdx-toc-handle-prompt");
-            }, delay);
-        }, delay);
     }
 
     /**
@@ -3291,7 +3201,7 @@ function NavCenter(mask) {
             return;
 
         // 鼠标离左边缘小于指定值时
-        if (event.clientX <= 5) {
+        if (event.clientX <= 10) {
             if (this.snapTimer != null)
                 return;
 
@@ -3313,9 +3223,8 @@ function NavCenter(mask) {
      * 显示/隐藏导航中心，并进行关联处理
      */
      this.afterToggle = function () {
-        ContentAssist.button.openInNewTab.hide();
         if (iNavCenter.displayMode === "block")
-            iContentFolding.adjust();
+            iContentFolder.adjust();
     }
 
     /**
@@ -3364,7 +3273,7 @@ NavCenter.init = function () {
         return false;
     }
 
-    // 有目录内容
+    // 有 Typora 生成的原始目录
     tocContent.children(".md-toc-h1, .md-toc-h2, .md-toc-h3, .md-toc-h4, .md-toc-h5, .md-toc-h6").each(function () {
         // 只处理 h1-h5，添加为实际的目录节点
         if ($(this).attr("class").indexOf("md-toc-h6") === -1)
@@ -3372,6 +3281,11 @@ NavCenter.init = function () {
         // 移除 h6
         else
             $(this).remove();
+    });
+
+    // 默认收起所有含子章节的 h1 章节
+    tocContent.children(".md-toc-h1[data-vk-node='1'][data-vk-folded='false']").each(function () {
+        iNavCenter.catalog.disposeFold($(this).attr("id"), "c", true);
     });
 
     return true;
@@ -3402,8 +3316,9 @@ NavCenter.hideOnError = function () {
  * 构造函数
  *
  * @param navCenter 关联的导航中心对象
+ * @param toolTips 工具提示对象
  */
-function ChapterNav(navCenter) {
+function ChapterNav(navCenter, toolTips) {
     let that = this;
     // 逐章导航面板主界面
     this.ui = $(".mdx-chapter-nav");
@@ -3424,6 +3339,7 @@ function ChapterNav(navCenter) {
 
     // 关联的导航中心对象
     this.navCenter = navCenter;
+    this.toolTips = toolTips;
 
     // 初始化动效
     // 因 CSS 的 transition 不变动渐变背景过渡效果，须通过增/减不同的预置样式实现过渡效果
@@ -3444,6 +3360,13 @@ function ChapterNav(navCenter) {
     this.prev.ui.unbind("click").click(function () {
         that.navCenter.catalog.gotoHeader(that.prev.text);
     });
+    // hover 事件处理
+    this.prev.ui.hover(function () {
+        that.toolTips.show($(this), "auto");
+    }, function () {
+        that.toolTips.hide();
+    });
+
 
     /**
      * 跳转至当前章节
@@ -3451,12 +3374,24 @@ function ChapterNav(navCenter) {
     this.current.ui.unbind("click").click(function () {
         that.navCenter.catalog.gotoHeader(that.current.ui);
     });
+    // hover 事件处理
+    this.current.ui.hover(function () {
+        that.toolTips.show($(this), "center");
+    }, function () {
+        that.toolTips.hide();
+    });
 
     /**
      * 跳转至后一章节
      */
     this.next.ui.unbind("click").click(function () {
         that.navCenter.catalog.gotoHeader(that.next.text);
+    });
+    // hover 事件处理
+    this.next.ui.hover(function () {
+        that.toolTips.show($(this), "right");
+    }, function () {
+        that.toolTips.hide();
     });
 
     /**
@@ -3551,6 +3486,7 @@ function ChapterNav(navCenter) {
      * 逐章导航栏自适应显示
      */
     this.adjust = function () {
+        // console.log("ChapterNav adjust");
         // 在封面时，隐藏逐章导航栏
         if (this.navCenter.catalog.inHeader() === false) {
             this.hide();
@@ -3566,12 +3502,10 @@ function ChapterNav(navCenter) {
 
     /**
      * 逐章导航导航按钮在不同终端的适配处理
-     *
-     * @param flag "mobile": 移动端，"desktop"：桌面端
      */
-    this.adjustHoverStyle = function (flag) {
+    this.adjustHoverStyle = function () {
         // 移动设备时解绑样式事件
-        if (flag === "mobile") {
+        if (env.device.mobile) {
             this.prev.ui.unbind("hover");
             this.current.ui.unbind("hover");
             this.next.ui.unbind("hover");
@@ -3630,14 +3564,12 @@ function ChapterNav(navCenter) {
         switch (code) {
             case 188: // <
             case 37: // ←
-                // VLOOK.report.push(['Hotkey', combKeys, '<←', 0]);
                 this.prev.ui.trigger("click");
                 // 自适应页面内容显示
                 this.navCenter.catalog.focusHeader();
                 break;
             case 190: // >
             case 39: // →
-                // VLOOK.report.push(['Hotkey', combKeys, '>→', 0]);
                 this.next.ui.trigger("click");
                 // 强制设置滚动间隔已超时，以强制触发 focusHeader 中的处理
                 VLOOK.doc.scroll.update(0, 0);
@@ -3656,6 +3588,7 @@ function ChapterNav(navCenter) {
  * @param tips 操作提示栏对象
  */
 function ParagraphNav(tips) {
+    let that = this;
     this.tips = tips;
     this.count = 0; // 段的总数量
     this.currentIndex = -1; // 当前段索引号
@@ -3669,13 +3602,13 @@ function ParagraphNav(tips) {
     this.current = function () {
         if (this.currentIndex === -1)
             return undefined;
-        return $("[data-vk-id='vk-blockfocus-" + this.currentIndex + "']");
+        return $("[data-vk-id='vk-pg-" + this.currentIndex + "']");
     }
 
     /**
      * 切换段落导航开关
      *
-     * @returns true：开启，false：关闭
+     * @returns boolean true：开启，false：关闭
      */
     this.toggle = function (target) {
         this.enabled = !this.enabled;
@@ -3714,22 +3647,36 @@ function ParagraphNav(tips) {
      * 添加段落
      */
     this.add = function (item) {
-        item.attr("data-vk-id", "vk-blockfocus-" + this.count);
-        item.attr("data-vk-blockfocus-idx", this.count);
+        item.attr("data-vk-id", "vk-pg-" + this.count);
+        item.attr("data-vk-pg-idx", this.count);
         this.count++;
+
+        // 单击内容块处理
+        item.unbind("click").click(function () {
+            // 未激活段落导航模式模式
+            if (iParagraphNav.enabled === false) {
+                if (ThreeClicker.tick() === true
+                    && iParagraphNav.toggle(item) === true) {
+                        iSpotlight.hide();
+                        iLaserPointer.hide();
+                    }
+            }
+            else {
+                // event.stopPropagation(); // 停止事件冒泡
+                that.goto(item);
+            }
+        });
     }
 
     /**
      * 上一个段
      *
      * @param step 跳转的步长
-     * @return 跳转结果，true=成功，false=失败
+     * @returns boolean 跳转结果，true：成功，false：失败
      */
     this.prev = function (step) {
         if (this.enabled === false)
             return;
-
-        // VLOOK.report.push(['ParagraphNav', 'Action', 'Keyboard',0]);
 
         this.blurFocus();
 
@@ -3753,13 +3700,11 @@ function ParagraphNav(tips) {
      * 下一个段
      *
      * @param step 跳转的步长
-     * @return 跳转结果，true=成功，false=失败
+     * @returns boolean 跳转结果，true：成功，false：失败
      */
     this.next = function (step) {
         if (this.enabled === false)
             return;
-
-        // VLOOK.report.push(['ParagraphNav', 'Action', 'Keyboard', 0]);
 
         this.blurFocus();
 
@@ -3795,21 +3740,19 @@ function ParagraphNav(tips) {
 
         // 若目标聚焦块为空（可能是对象已在其他处理过程中被删除）、不可视等情况
         // 则返回跳转失败
-        if (item === undefined
-            || item.isHidden()
-            || item.offset() === undefined)
+        if (item === undefined || item.isHidden() || item.offset() === undefined)
             return false;
 
         // 添加高亮样式
-        item.addClass("mdx-current-blockfocus-item");
-        this.currentIndex = parseInt(item.attr("data-vk-blockfocus-idx"));
+        item.addClass("mdx-pg-current-item");
+        this.currentIndex = parseInt(item.attr("data-vk-pg-idx"));
 
         // 或目标段不在当前窗口显示区域内，则跳转到对应位置
         let height = item.height() * 3;
         if (item.offset().top !== 0
             && ((item.offset().top - height) < $(document).scrollTop()
             || (item.offset().top + height) > ($(document).scrollTop() + $(window).height()))) {
-            DOM.html().scrollTop(item.offset().top - $(window).height() / 2);
+                DOM.html().scrollTop(item.offset().top - $(window).height() / 2);
         }
 
         return true; // 返回跳转成功
@@ -3820,7 +3763,7 @@ function ParagraphNav(tips) {
      */
     this.blurFocus = function () {
         if (this.current() !== undefined)
-            this.current().removeClass("mdx-current-blockfocus-item");
+            this.current().removeClass("mdx-pg-current-item");
     }
 
     /**
@@ -3846,26 +3789,22 @@ function ParagraphNav(tips) {
 
         switch (code) {
             case 74: // J
-                // VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
-                CellCross.hide();
+                TableCross.hide();
                 if (this.next(1)) // 步长1
                     ExtQuote.autoUnfold(); // 自动展开引用
                 break;
             case 75: // K
-                // VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
-                CellCross.hide();
+                TableCross.hide();
                 if (this.prev(1)) // 步长1
                     ExtQuote.autoUnfold(); // 自动展开引用
                 break;
             case 72: // H
-                // VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
-                CellCross.hide();
+                TableCross.hide();
                 if (this.prev(10)) // 步长10，快速移动
                     ExtQuote.autoUnfold(); // 自动展开引用
                 break;
             case 76: // L
-                // VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
-                CellCross.hide();
+                TableCross.hide();
                 if (this.next(10)) // 步长10，快速移动
                     ExtQuote.autoUnfold(); // 自动展开引用
                 break;
@@ -3900,25 +3839,22 @@ ParagraphNav.init = function() {
             });
 
             // 单击内容块处理
-            item.unbind("click").click(function () {
+            // item.unbind("click").click(function () {
+            //     // 未激活段落导航模式模式
+            //     if (iParagraphNav.enabled === false) {
+            //         if (ThreeClicker.tick() === true
+            //             && iParagraphNav.toggle(item) === true)
+            //                 iSpotlight.hide();
+            //         // return;
+            //     }
 
-                // 未激活段落导航模式模式
-                if (iParagraphNav.enabled === false) {
-                    if (ThreeClicker.tick() === true
-                        && iParagraphNav.toggle(item) === true)
-                            iSpotlight.hide();
-                    return;
-                }
-
-                // VLOOK.report.push(['ParagraphNav', 'Action', 'Mouse', 0]);
-
-                // 当前内容块内表格已显示十字光标
-                if (CellCross.checkFallWith($(this)) === false) {
-                    CellCross.hide();
-                    iParagraphNav.goto(item);
-                    event.stopPropagation(); // 停止事件冒泡
-                }
-            });
+            //     // 当前内容块内表格已显示十字光标
+            //     // if (TableCross.checkFallWith($(this)) === false) {
+            //     //     TableCross.hide();
+            //     //     iParagraphNav.goto(item);
+            //     //     event.stopPropagation(); // 停止事件冒泡
+            //     // }
+            // });
         } // if
     });
 }
@@ -3939,7 +3875,7 @@ ThreeClicker.active = function () {
 /**
  * 三击触发尝试
  *
- * @returns true：成功触发三击，false：未满足触发三击
+ * @returns boolean true：成功触发三击，false：未满足触发三击
  */
 ThreeClicker.tick = function () {
     // 未进入激活状态
@@ -3962,27 +3898,51 @@ ThreeClicker.tick = function () {
  *
  * @param navCenter 导航中心对象
  * @param chapterNav 章节导航对象
+ * @param toolTips 工具提示对象
  */
-function Toolbar(navCenter, chapterNav) {
+function Toolbar(navCenter, chapterNav, toolTips) {
+    let that = this;
     this.ui = $(".mdx-toolbar"); // 工具栏主界面
     this.buttons = []; // 工具栏按钮集
     this.navCenter = navCenter;
     this.chapterNav = chapterNav;
+    this.toolTips = toolTips;
 
     /**
      * 添加按钮
      *
      * @param name 按钮标识
-     * @param target 按钮对象
      */
-    this.add = function (name, target) {
-        this.buttons[name] = target;
+    this.add = function (name, clickEvent) {
+        this.buttons[name] = $(".mdx-btn." + name);
+
+        this.buttons[name].unbind("click").click(function () {
+            that.toolTips.hide();
+            typeof(clickEvent) == "function" && clickEvent();
+        });
+
+        // hover 事件处理
+        this.buttons[name].hover(function () {
+            that.toolTips.show($(this), "auto");
+        }, function () {
+            that.toolTips.hide();
+        });
+    }
+
+    /**
+     * 添加分隔条
+     *
+     * @param name 分隔条标识
+     */
+    this.addSpliter = function (name) {
+        this.buttons[name] = $(".mdx-" + name);
     }
 
     /**
      * 自适应显示工具栏
      */
     this.adjust = function () {
+        // console.log("Toolbar adjust");
         // 移动端下隐藏不必要的功能入口
         if (env.device.mobile === true) {
             this.buttons["paragraph-nav"].hide();
@@ -3993,6 +3953,9 @@ function Toolbar(navCenter, chapterNav) {
 
         // 如果是小屏，或在封面
         if (VLOOK.ui.isSmallScreen() || this.navCenter.catalog.inHeader() === false) {
+            // 调整具栏按钮分隔空间
+            VLOOK.util.setStyleValue("--vlook-toolbar-btn-space", "5px");
+
             this.ui.children(".mdx-btn").addClass("mdx-float-card");
 
             let offsetY = parseInt(this.chapterNav.ui.css("top"));
@@ -4017,16 +3980,23 @@ function Toolbar(navCenter, chapterNav) {
             // 为去掉工具栏背景的按钮添加浮动样式
             this.ui.children(".mdx-btn").addClass("mdx-btn-float");
 
-            // 大屏，回到封面及最开始位置后进行二次调整
+            // 大屏，回到封面及最开始位置进行二次调整
             if (VLOOK.ui.isSmallScreen() === false
-                && this.navCenter.catalog.inHeader() === false
-                // && VLOOK.doc.inCover() === true
-                && $(document).scrollTop() === 0) {
-                this.ui.css({
-                    "padding-left" : 10,
-                    "padding-right" : 10,
-                    "top" : 10
-                });
+                && this.navCenter.catalog.inHeader() === false) {
+                if ($(document).scrollTop() <= 5) {
+                    this.ui.css({
+                        "padding-left" : 10,
+                        "padding-right" : 10,
+                        "top" : 10
+                    });
+                }
+                else {
+                    this.ui.css({
+                        "padding-left" : 10,
+                        "padding-right" : 10,
+                        "top" : 0
+                    });
+                }
             }
             else {
                 // 小屏，在非封面位置进行二次调整
@@ -4037,8 +4007,8 @@ function Toolbar(navCenter, chapterNav) {
                         "top" : 50 + offsetY
                     });
                 else {
-                    // 小屏，在封面及最开始后位置进行二次调整
-                    if ($(document).scrollTop() === 0)
+                    // 小屏，在封面及最开始位置进行二次调整
+                    if ($(document).scrollTop() <= 5)
                         this.ui.css({
                             "padding-left" : 10,
                             "padding-right" : 10,
@@ -4056,29 +4026,52 @@ function Toolbar(navCenter, chapterNav) {
         }
         // 宽屏，且不在封面
         else {
-            if (this.ui.offset().top !== 0) {
-                this.ui.removeClass("cover");
-                this.ui.children(".mdx-btn").removeClass("mdx-float-card");
-                this.ui.addClass("mdx-float-card");
+            if (this.ui.offset().top === 0)
+                return;
 
-                // 微调工具栏分隔宽度
-                let btnCount = this.ui.children(".mdx-btn").length;
-                this.buttons["toolbar-spliter"].css({
-                    "width" : "calc((var(--vlook-nav-center-width) - "
-                        + (btnCount * 40 + parseInt(this.ui.css("padding-left")) * 2 + (btnCount - 2 ) * 5) + "px) / 2)"
-                });
+            // 调整具栏按钮分隔空间
+            VLOOK.util.setStyleValue("--vlook-toolbar-btn-space", "2px");
 
-                this.ui.css({
-                    "padding-left" : 10,
-                    "padding-right" : 10,
-                    "top" : 0
-                });
-                // 为增加了工具栏按钮的背景去掉浮动样式
-                this.ui.children(".mdx-btn").removeClass("mdx-btn-float");
-            }
+            this.ui.removeClass("cover");
+            this.ui.children(".mdx-btn").removeClass("mdx-float-card");
+            this.ui.addClass("mdx-float-card");
+
+            // 微调工具栏分隔宽度
+            let btnCount = this.ui.children(".mdx-btn").length,
+                btnWidth = parseInt(VLOOK.util.getStyleValue("--vlook-toolbar-btn-width")),
+                space = parseInt(VLOOK.util.getStyleValue("--vlook-toolbar-btn-space"));
+            this.buttons["toolbar-spliter"].css({
+                "width" : "calc((var(--vlook-nav-center-width) - "
+                    + (btnCount * btnWidth + parseInt(this.ui.css("padding-left")) * 2 + (btnCount - 2 ) * space) + "px) / 2)"
+            });
+
+            this.ui.css({
+                "padding-left" : 10,
+                "padding-right" : 10,
+                "top" : 0
+            });
+            // 为增加了工具栏按钮的背景去掉浮动样式
+            this.ui.children(".mdx-btn").removeClass("mdx-btn-float");
         } // else
         this.ui.show();
     }
+
+    /**
+     * 更新工具栏按钮图标
+     */
+    this.updateIcons = function () {
+        // 调整模式切换按钮图标
+        if (ColorScheme.scheme === "light")
+            this.buttons["color-scheme"].html(
+                "<svg width='18px' height='18px'><use xlink:href='#icoDarkMode' class='mdx-svg-ico-light'/></svg>"
+            );
+        else
+            this.buttons["color-scheme"].html(
+                "<svg width='20px' height='20px'><use xlink:href='#icoLightMode' class='mdx-svg-ico-light'/></svg>"
+            );
+}
+
+
 }
 
 // ==================== 颜色方案类 ==================== //
@@ -4095,36 +4088,52 @@ ColorScheme.schemeBeforePrint = "light"; // 打印前的颜色方案
  * 初始化
  */
 ColorScheme.init = function () {
-    const lightIcon = document.querySelector('link#doc-icon-light');
-    const darkIcon = document.querySelector('link#doc-icon-dark');
+    const __lightIcon = document.querySelector('link#doc-icon-light');
+    const __darkIcon = document.querySelector('link#doc-icon-dark');
 
     // Light Mode 时的文档图标
-    function setLight() {
-        document.head.append(lightIcon);
-        darkIcon.remove();
-        ColorScheme.toggle("light");
+    function __setLightIcon() {
+        __darkIcon.remove();
+        document.head.append(__lightIcon);
     }
 
     // Dark Mode 时的文档图标
-    function setDark() {
-        lightIcon.remove();
-        document.head.append(darkIcon);
-        ColorScheme.toggle("dark");
+    function __setDarkIcon() {
+        __lightIcon.remove();
+        document.head.append(__darkIcon);
     }
 
-    // 根据系统 Color Scheme 变化进行适配更新
-    function update(matcher) {
-        if (matcher.matches === true)
-            setDark();
-        else
-            setLight();
+    // 根据系统 Color Scheme 变化进行适配更新颜色方案
+    function __syncScheme(matcher) {
+        if (matcher.matches === true) {
+            __updateIcons(true);
+            ColorScheme.toggle("dark");
+        }
+        else {
+            __updateIcons(false);
+            ColorScheme.toggle("light");
+        }
     }
+
+    // 根据系统 Color Scheme 变化进行适配更新图标
+    function __updateIcons(flag) {
+        if (flag === true) {
+            __setDarkIcon();
+            ColorScheme.scheme = "dark";
+        }
+        else {
+            __setLightIcon();
+            ColorScheme.scheme = "light";
+        }
+        iToolbar.updateIcons();
+    }
+
     // 监听系统的 Color Scheme 变化
     const matcher = window.matchMedia('(prefers-color-scheme:dark)');
-    matcher.addListener(update);
+    matcher.addListener(__syncScheme);
 
     // 初始执行
-    update(matcher);
+    __updateIcons(matcher.matches);
 }
 
 /**
@@ -4133,25 +4142,20 @@ ColorScheme.init = function () {
  * @param scheme 指定方案，为空时则轮换
  */
 ColorScheme.toggle = function (scheme) {
-    // VLOOK.report.push(['Style', 'ColorScheme', '', 0]);
-
     if (scheme === undefined)
         scheme = (ColorScheme.scheme === "light") ? "dark" : "light";
 
     ColorScheme.scheme = scheme;
-    console.info("... Switching to [ " + ColorScheme.scheme + " ]");
-
+    console.info("    Switch to ... [ " + ColorScheme.scheme + " ]");
     // 应用最新颜色方案
     ColorScheme.refresh();
+    console.info("    DONE!");
 }
 
 /**
  * 根据指定的颜色方案进行文档刷新
  */
 ColorScheme.refresh = function () {
-    let stopwatch = new Stopwatch();
-    stopwatch.lapStart();
-
     // CSS 变量名称列表
     const varList = [
         "--vlook-invert-dark",
@@ -4161,17 +4165,15 @@ ColorScheme.refresh = function () {
         "--doc-bg-color-transparent",
         "--doc-bg-color-alt-transparent",
         "--fore-color",
-        // "--backdrop-blurs-bg",
         "--blockquote-color",
         "--blockquote-bg",
         "--a-color",
         "--mark-color",
-        "--table-border-color",
-        "--table－header-color",
-        "--table-th-bg-color",
-        "--table-td-bg-color",
-        "--table-cell-border-color",
-        "--table-rowgroup-alpha",
+        "--tbl-border-color",
+        "--tbl-th-bg-color",
+        "--tbl-td-bg-color",
+        "--tbl-cell-border-color",
+        "--tbl-row-g-alpha",
         "--del-color",
         "--toc-header-num-color",
         "--header-color",
@@ -4183,62 +4185,74 @@ ColorScheme.refresh = function () {
         "--code-name-shadow-color",
         "--tips-bg-color-inset",
         "--tips-bg-color",
-        "--accent-color-red",
-        "--accent-color-red-alt",
-        "--accent-color-red-fade",
-        "--accent-color-orange",
-        "--accent-color-orange-alt",
-        "--accent-color-orange-fade",
-        "--accent-color-yellow",
-        "--accent-color-yellow-alt",
-        "--accent-color-yellow-fade",
-        "--accent-color-green",
-        "--accent-color-green-alt",
-        "--accent-color-green-fade",
-        "--accent-color-cyan",
-        "--accent-color-cyan-alt",
-        "--accent-color-cyan-fade",
-        "--accent-color-blue",
-        "--accent-color-blue-alt",
-        "--accent-color-blue-fade",
-        "--accent-color-purple",
-        "--accent-color-purple-alt",
-        "--accent-color-purple-fade",
-        "--accent-color-pink",
-        "--accent-color-pink-alt",
-        "--accent-color-pink-fade",
-        "--accent-color-brown",
-        "--accent-color-brown-alt",
-        "--accent-color-brown-fade",
-        "--accent-color-gray",
-        "--accent-color-gray-alt",
-        "--accent-color-gray-fade",
-        "--accent-color-theme1",
-        "--accent-color-theme1-alt",
-        "--accent-color-theme1-fade",
-        "--accent-color-theme2",
-        "--accent-color-theme2-alt",
-        "--accent-color-theme2-fade",
-        "--mermaid-color-red",
-        "--mermaid-color-red-alt",
-        "--mermaid-color-orange",
-        "--mermaid-color-orange-alt",
-        "--mermaid-color-yellow",
-        "--mermaid-color-yellow-alt",
-        "--mermaid-color-green",
-        "--mermaid-color-green-alt",
-        "--mermaid-color-cyan",
-        "--mermaid-color-cyan-alt",
-        "--mermaid-color-blue",
-        "--mermaid-color-blue-alt",
-        "--mermaid-color-purple",
-        "--mermaid-color-purple-alt",
-        "--mermaid-color-pink",
-        "--mermaid-color-pink-alt",
-        "--mermaid-color-brown",
-        "--mermaid-color-brown-alt",
-        "--mermaid-color-gray",
-        "--mermaid-color-gray-alt",
+        "--acc-color-red",
+        "--acc-color-red-alt",
+        "--acc-color-red-fade",
+        "--acc-color-red-title",
+        "--acc-color-orange",
+        "--acc-color-orange-alt",
+        "--acc-color-orange-fade",
+        "--acc-color-orange-title",
+        "--acc-color-yellow",
+        "--acc-color-yellow-alt",
+        "--acc-color-yellow-fade",
+        "--acc-color-yellow-title",
+        "--acc-color-green",
+        "--acc-color-green-alt",
+        "--acc-color-green-fade",
+        "--acc-color-green-title",
+        "--acc-color-cyan",
+        "--acc-color-cyan-alt",
+        "--acc-color-cyan-fade",
+        "--acc-color-cyan-title",
+        "--acc-color-blue",
+        "--acc-color-blue-alt",
+        "--acc-color-blue-fade",
+        "--acc-color-blue-title",
+        "--acc-color-purple",
+        "--acc-color-purple-alt",
+        "--acc-color-purple-fade",
+        "--acc-color-purple-title",
+        "--acc-color-pink",
+        "--acc-color-pink-alt",
+        "--acc-color-pink-fade",
+        "--acc-color-pink-title",
+        "--acc-color-brown",
+        "--acc-color-brown-alt",
+        "--acc-color-brown-fade",
+        "--acc-color-brown-title",
+        "--acc-color-gray",
+        "--acc-color-gray-alt",
+        "--acc-color-gray-fade",
+        "--acc-color-gray-title",
+        "--acc-color-theme1",
+        "--acc-color-theme1-alt",
+        "--acc-color-theme1-fade",
+        "--acc-color-theme1-title",
+        "--acc-color-theme2",
+        "--acc-color-theme2-alt",
+        "--acc-color-theme2-fade",
+        "--acc-color-theme2-title",
+        "--mm-color-red",
+        "--mm-color-red-alt",
+        "--mm-color-orange",
+        "--mm-color-orange-alt",
+        "--mm-color-yellow",
+        "--mm-color-yellow-alt",
+        "--mm-color-green",
+        "--mm-color-green-alt",
+        "--mm-color-cyan",
+        "--mm-color-cyan-alt",
+        "--mm-color-blue",
+        "--mm-color-blue-alt",
+        "--mm-color-purple",
+        "--mm-color-purple-alt",
+        "--mm-color-pink",
+        "--mm-color-pink-alt",
+        "--mm-color-brown",
+        "--mm-color-brown-alt",
+        "--mm-color-gray",
+        "--mm-color-gray-alt",
         "--cm-keyword",
         "--cm-variable",
         "--cm-variable-2",
@@ -4262,7 +4276,7 @@ ColorScheme.refresh = function () {
         "--cm-number"
     ];
 
-    updateUI();
+    iToolbar.updateIcons();
 
     // 生成目标颜色方案值列表
     let schemeVarList = [];
@@ -4275,28 +4289,8 @@ ColorScheme.refresh = function () {
     }
 
     // 针对 Dark Mode 进行适配处理
-    ExtQuote.adjustColorScheme();
     ExtFigure.adjustColorScheme(true);
 
-    stopwatch.lapStop("    ");
-
-    /**
-     * 更新颜色方案 UI
-     */
-    function updateUI() {
-        if (ColorScheme.scheme === "light") {
-            // 调整模式切换按钮图标
-            iToolbar.buttons["color-scheme"].html(
-                "<svg width='18px' height='18px'><use xlink:href='#icoDarkMode' class='mdx-svg-ico-light'/></svg>"
-            );
-        }
-        else {
-            // 调整模式切换按钮图标
-            iToolbar.buttons["color-scheme"].html(
-                "<svg width='20px' height='20px'><use xlink:href='#icoLightMode' class='mdx-svg-ico-light'/></svg>"
-            );
-        }
-    }
 }
 
 /**
@@ -4479,7 +4473,7 @@ function FontStyler(mask) {
                 let sansLoadedCount = that.sansStyle.fontCount - that.sansStyle.fonts.length,
                     sansStatus = $("#fontset-sans-status");
                 if (sansLoadedCount < that.sansStyle.fontCount)
-                    sansStatus.text(langLoading + "... (" + (sansLoadedCount / that.sansStyle.fontCount * 100) + "%)");
+                    sansStatus.text(langLoading + "... (" + Math.round(sansLoadedCount / that.sansStyle.fontCount * 100) + "%)");
                 else
                     sansStatus.text(langReady);
 
@@ -4493,7 +4487,7 @@ function FontStyler(mask) {
                 let serifLoadedCount = that.serifStyle.fontCount - that.serifStyle.fonts.length,
                     serifStatus = $("#fontset-serif-status");
                 if (serifLoadedCount < that.serifStyle.fontCount)
-                    serifStatus.text(langLoading + "... (" + (serifLoadedCount / that.serifStyle.fontCount * 100) + "%)");
+                    serifStatus.text(langLoading + "... (" + Math.round(serifLoadedCount / that.serifStyle.fontCount * 100) + "%)");
                 else
                     serifStatus.text(langReady);
             });
@@ -4516,9 +4510,9 @@ function FontStyler(mask) {
             if (fontFace.family === fontFamily
                 && fontFace.style === fontStyle
                 && fontFace.weight === fontWeight) {
-                isHave = true;
-                console.log("///// FONT IS EXIST /////");
-                console.log(fontFamily + "/" + fontStyle + "/" + fontWeight);
+                    isHave = true;
+                    console.log("///// FONT IS EXIST /////");
+                    console.log(fontFamily + "/" + fontStyle + "/" + fontWeight);
             }
             item = values.next();
         }
@@ -4581,7 +4575,7 @@ function FontStyler(mask) {
             // + ", ruby";
         let title = "#write > pre.md-meta-block:first-child + h6, #write > h6:first-child"
             + ", #write > h6:last-of-type"
-            + ", .mdx-welcome-screen";
+            + ", .mdx-welcome-page";
         let subtitle = ".mdx-copyright"
             + ", #write > pre.md-meta-block:first-child + h6 strong, #write > h6:first-child strong"
             + ", #write > pre.md-meta-block:first-child + h6 strong::before, #write > h6:first-child strong::before"
@@ -4592,7 +4586,7 @@ function FontStyler(mask) {
             + ", .mdx-tool-tips"
             + ", .mdx-info-tips"
             + ", .mdx-content-expander"
-            + ", .mdx-welcome-screen-loading"
+            + ", .mdx-welcome-page-loading"
             + ", .mdx-nav-center-header"
             + ", .mdx-chapter-nav-prev-text"
             + ", .mdx-chapter-nav-current"
@@ -4622,9 +4616,9 @@ function FontStyler(mask) {
         let bold = "a, strong"
             + ", table > thead > tr > th"
             + ", table > thead > tr > td"
-            + ", .mdx-table-column-format-bold"
+            + ", .mdx-tbl-col-fmt-bold"
             + ", .md-fn-count"
-            + ", a[name^='ref-footnote-']"
+            + ", a[name^='ref-footnote-'], a[id^='ref-footnote-']"
             + ", .pieTitleText"
             + ", .legend text"
             + ", .slice"
@@ -4644,7 +4638,7 @@ function FontStyler(mask) {
             + ", .titleText"
             + ", .mdx-figure-caption > p"
             + ", rp, rt";
-        let number = ".mdx-table-column-format-number";
+        let number = ".mdx-tbl-col-fmt-num";
         let code = "figure table tr::before"
             + ", tt, code"
             + ", .md-fences"
@@ -4657,7 +4651,7 @@ function FontStyler(mask) {
             + ", ::marker"
             + ", table > thead > tr > th"
             + ", table > thead > tr > td"
-            + ", .mdx-table-column-format-bold"
+            + ", .mdx-tbl-col-fmt-bold"
             + ", .pieTitleText"
             + ", .legend text"
             + ", .slice"
@@ -4744,7 +4738,7 @@ function FootNote(mask) {
     this.buttonSeeAll.unbind("click").click(function () {
         that.hide();
         // 跳转至所有脚注区域
-        window.location.href = "#xFooterArea";
+        window.location.href = "#vk-footer-area";
     });
 
     // 遮罩
@@ -4807,29 +4801,29 @@ FootNote.init = function () {
     footnotesArea.insertBefore(VOM.backcover());
 
     // 移除默认的跳转属性
-    let a = $("a[name^='ref-footnote-']");
+    let a = $("a[name^='ref-footnote-'], a[id^='ref-footnote-']");
     a.removeAttr("href");
 
     // 将脚注角标的事件替换为指定的处理事件
     a.unbind("click").click(function () {
-        let target = $("a[name='df" + $(this).attr("name") + "']").parent().clone();
+        let target = $("a[name='df" + $(this).attr("name") + "']", "a[id='df" + $(this).attr("name") + "']").parent().clone();
 
         // 更新脚注弹层内容区
         iFootNote.content.html(target);
         // 移除默认的返回链接
-        target.find("a[name^='dfref-footnote']").remove();
+        target.find("a[name^='dfref-footnote'], a[id^='dfref-footnote']").remove();
 
         // 显示脚注弹层
         iFootNote.show();
     });
 
     // 将脚注区锚点调整到生成HTML后的实际位置
-    $("a[name='xFooterArea']").insertBefore(footnotesArea);
+    $("#vk-footer-area").insertBefore(footnotesArea);
 
-    $("a[name^='dfref-footnote'").hide();
+    $("a[name^='dfref-footnote'], a[id^='dfref-footnote']").remove();
 }
 
-// ==================== 链接检查类 ==================== //
+// ==================== 链接检查器类 ==================== //
 
 /**
  * 构造函数
@@ -4837,7 +4831,10 @@ FootNote.init = function () {
 function LinkChecker(mask) {
     let that = this;
     this.ui = {
-        list : $(".mdx-link-error-list"), // 坏链列表
+        list : $(".mdx-link-error-list"), // 坏链主界面
+        header : $(".mdx-link-error-list-header"),
+        body : $(".mdx-link-error-list-items"), // 坏链内容列表
+        footer : $(".mdx-link-error-list-footer"),
         result : $(".mdx-link-chk-result") // 检查结果
     };
 
@@ -4846,86 +4843,95 @@ function LinkChecker(mask) {
         close : VLOOK.ui.generateSvgIcon("icoClose", 16, 16, "light")
     }
 
-    // VLOOK.ui.addAnimate(this.ui.list);
-
     // 遮罩
     this.mask = mask;
     this.mask.bindPartner(this, this.ui.list);
 
-    /**
-     * 检查内链
-     */
-    this.checkInner = function () {
-        let count = 0,
-            badLink = "";
+    // 滚动事件处理
+    this.ui.body.scroll(function () {
+        // 滚出了顶部则显示顶部渐变条
+        if (that.ui.header.isHidden() && that.ui.body.scrollTop() > 10)
+            that.ui.header.show()
+        // 否则隐藏
+        else if (that.ui.body.scrollTop() <= 10)
+            that.ui.header.hide()
+    });
 
-        // 修复 Typora 内链 BUG
-        // RepairTool.fixTyporaInnerLink();
+    /**
+     * 检查链接
+     */
+    this.checkLink = function () {
+        let count = 0;
 
         // 检查所有页内链接对应的锚点是否都存在
         $("#write a").each(function () {
-            let href = $(this).attr("href");
+            let a = $(this),
+                href = $(this).attr("href");
             // 忽略空链接，如 href="#"
             if (href === undefined || href.length <= 1)
                 return true;
 
+            // --------------------
             // 页内链接
-            if (href[0] === "#") {
+            if (href.startsWith("#")) {
                 // 检索是否存在与该内链对应的锚点
                 let anchor = href.substring(1, href.length);
                 // 没有检索到对应的锚点
-                if ($("#write #" + anchor + ", #write a[name='" + anchor + "']").length === 0) {
+                // if ($("#write #" + anchor + ", #write a[name='" + anchor + "']").length === 0) {
+                if ($("#write #" + anchor).length === 0) {
                     count++;
 
-                    let comment = "<strong>" + [
-                        "无效页内链接 [",
-                        "無效頁內鏈接 [",
-                        "Invalid Inner Link [",
-                        "Lien de page non valide [",
-                        "Ungültiger innerer Link [",
-                        "Enlace interno no válido [",
-                        "Недопустимая ссылка на страницу [",
-                        "ページリンクが無効です[",
-                        "잘못된 페이지 링크["
-                    ][VLOOK.lang.id];
+                    // 设置坏链 id 值，用于跳转定位
+                    let id = "vk-error-anchor" + count;
+                    a.attr("id", id);
 
-                    badLink += comment + count + "]：</strong>" + $(this).text()
-                        + "(#" + anchor + ")<br /><span>\"" + $(this).parent().text() + "\"</span><hr>";
-                    console.error(comment + count + "]：" + $(this).text()
-                        + "(#" + anchor + ")\n\"" + $(this).parent().text() + "\"\n");
+                    that.add(id, "🔗 <strong>" + [
+                        "无效页内链接",
+                        "無效頁內鏈接",
+                        "Invalid Inner Link",
+                        "Lien de page non valide",
+                        "Ungültiger innerer Link",
+                        "Enlace interno no válido",
+                        "Недопустимая ссылка на страницу",
+                        "ページリンクが無効です",
+                        "잘못된 페이지 링크"
+                    ][VLOOK.lang.id] + ":</strong> " + $(this).text());
                 }
-            }
-            // 非页内链接
-            else {
-                // todo
             }
         });
+    }
 
-        // 存在坏链
-        if (badLink.length > 0) {
+    /**
+     * 添加坏链项目
+     *
+     * @param id 坏链对象的标识
+     * @param content 坏链项目显示的内容
+     */
+    this.add = function (id, content) {
+        let item = $('<span data-vk-anchor="#' + id + '" class="mdx-toc-item">' + content + "</span>");
+        // 添加链接异常样式及属性
+        $(item.attr("data-vk-anchor")).attr("tabindex", 0).addClass("mdx-link-error-source");
+        // 添加节点
+        this.ui.body.append(item);
+        item.unbind("click").click(function () {
+            that.ui.body.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
+            item.addClass("mdx-toc-item-current");
+
+            VLOOK.util.gotoHash(item.attr("data-vk-anchor"));
+            that.hide();
+        });
+
+        // 显示错误链接错误图标
+        if (this.ui.result.isHidden()) {
             this.ui.result.addClass("mdx-link-result-error");
             this.ui.result.html(this.icon.error);
+            // 点击图标行为
             this.ui.result.unbind("click").click(function () {
-                if (that.ui.list.isHidden()) {
-
+                if (that.ui.list.isHidden())
                     that.show();
-                    that.ui.result.html(that.icon.close);
-                }
                 else
                     that.hide();
             });
-            this.ui.list.html(badLink);
-        }
-        // 不存在坏链
-        else {
-            this.ui.result.addClass("mdx-link-result-ok");
-            this.ui.result.unbind("click").click(function () {
-                that.ui.result.hide();
-            });
-            // 延时隐藏检查结果
-            setTimeout(function () {
-                that.ui.result.hide();
-            }, 2000);
         }
     }
 
@@ -4979,13 +4985,10 @@ function BackgroundMask(id, style, closer) {
     let that = this;
     this.style = style;
 
-    DOM.body().after('<div class="mdx-mask ' + (style !== undefined ? style + ' ' : '') + id + ' mdx-backdrop-blurs">'
-        + '<div class="mdx-copyright">'
-        + '<svg height="24px" width="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()">'
-        + '<use xlink:href="#icoVLOOK-dark"></use>'
-        + '</svg>&nbsp;&nbsp;'
-        + '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.5) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">MAX°孟兆</a></strong>'
-        + '</div></div>');
+    DOM.body().after('<div class="mdx-mask '
+        + (style !== undefined ? style + ' ' : '') + id + ' mdx-backdrop-blurs">'
+        + VLOOK.ui.copyrightInfo()
+        + '</div>');
 
     // 根据动效等级初始化遮罩样式
     VLOOK.ui.initEffects();
@@ -4996,7 +4999,7 @@ function BackgroundMask(id, style, closer) {
     // 生成关闭提示器
     if (closer !== undefined && closer === true) {
         this.ui.append('<div class="mdx-mask-closer ' + this.style + '">'
-            + VLOOK.ui.generateSvgIcon("icoCloserTo-" + this.style, 60, 60, "alt")
+            + VLOOK.ui.generateSvgIcon("icoCloserTo-" + this.style, 60, 60, "light")
             + '</div>');
         this.closer = this.ui.children(".mdx-mask-closer");
     }
@@ -5008,6 +5011,7 @@ function BackgroundMask(id, style, closer) {
      * 绑定联动对象
      *
      * @param partner 联动对象
+     * @param ui 联动对象的 UI
      */
     this.bindPartner = function (partner, ui) {
         this.partner = partner;
@@ -5042,7 +5046,7 @@ function BackgroundMask(id, style, closer) {
             }
             // bottom 的处理
             else if (this.style === "bottom") {
-                x = parseInt(this.partnerUI.css("left")) + (this.partnerUI.width() - this.closer.width()) / 2;
+                // x = parseInt(this.partnerUI.css("left")) + (this.partnerUI.width() - this.closer.width()) / 2;
                 y = parseInt(this.partnerUI.css("bottom")) + this.partnerUI.height() + offset;
                 this.closer.css({
                     "left" : "auto",
@@ -5082,7 +5086,7 @@ function BackgroundMask(id, style, closer) {
 
 // ==================== 长内容折叠类 ==================== //
 
-function ContentFolding() {
+function ContentFolder() {
     let that = this;
     this.ui = $(".mdx-content-expander"); // 展开操作区的 UI 模板
     this.limit = VLOOK.debugMode ? 300 : 600; // 内容须折叠的高度限值
@@ -5156,12 +5160,6 @@ function ContentFolding() {
      * @param rebuild 本次折叠是否属于重建的（如在页面加载后，由于页面正文区宽度变化后调用时属于重建）
      */
     this.checkAndProcess = function (target, rebuild) {
-        // 若为在新标签打开的，则忽略
-        if (VLOOK.doc.newTab === true) {
-            this.buildTimers.shift();
-            return;
-        }
-
         let container = target.parent(),
             tagName = target.prop("tagName").toLowerCase();
 
@@ -5172,17 +5170,17 @@ function ContentFolding() {
         // 获得上一轮构建时生成的展开操作区，没有则初始为 undefined
         let oldExpander = container.next(),
             className = oldExpander.attr("class");
-        if (oldExpander !== undefined) {
-            if (className === undefined
-                || className.indexOf("mdx-content-expander") === -1)
-                oldExpander = undefined;
-        }
+        if (className === undefined || className.indexOf("mdx-content-expander") === -1)
+            oldExpander = undefined;
 
         // 已被点击展开过了，在重建时则跳过
-        if (container.attr("data-vk-content-expanded") === "true"
-            && container.attr("data-vk-before-print-folded") !== "true") {
-            this.buildTimers.shift();
-            return;
+        let expanded = container.attr("data-vk-content-expanded");
+        if (expanded !== undefined && expanded.startsWith("t")) {
+            let folded = container.attr("data-vk-before-print-folded");
+            if (folded !== undefined && startsWith("t") === false) {
+                this.buildTimers.shift();
+                return;
+            }
         }
 
         // 针对 img 内容，进行父容器的正确性处理
@@ -5227,8 +5225,8 @@ function ContentFolding() {
         // 设置为已折叠
         container.attr("data-vk-content-folded", "true");
 
-        // 表格、Mermaid 图表的特性处理
-        if (tagName === "table" || tagName === "svg") {
+        // 表格 <table>、Mermaid <svg> 图表的特性处理
+        if (tagName.startsWith("t") || tagName.startsWith("s")) {
             container.css({
                 "height" : this.limit,
                 "overflow-x" : "auto", // 可横向滚动
@@ -5243,13 +5241,13 @@ function ContentFolding() {
             });
         }
 
-        let expander = undefined,
+        let expander,
             rowNumFilter = "table tbody tr",
             w = parseInt(container.css("width"));
 
         // 上一轮构建时没有生成展开操作区，则生成一个新的
         if (oldExpander === undefined) {
-            expander = iContentFolding.ui.clone();
+            expander = iContentFolder.ui.clone();
             container.after(expander);
         }
         // 直接复用上一轮构建时生成的展开操作区
@@ -5258,12 +5256,12 @@ function ContentFolding() {
 
         // 如果处理对象为表格，先隐藏表格行号，find 过滤器的内容与对应的 css 要同步更新
         if (container.find("table").length > 0)
-            container.find(rowNumFilter).addClass("mdx-table-row-num-hidden");
+            container.find(rowNumFilter).addClass("mdx-tbl-row-num-hidden");
 
         // 动态生成按钮文本内容
         let btn = expander.find("div > span");
         btn.html(btn.attr("title") + " <span style='font-weight: normal;'>"
-            + parseInt((1 - this.limit / tHeight) * 100) + "%</span>");
+            + Math.round((1 - this.limit / tHeight) * 100) + "%</span>");
 
         // 重新适配展开操作区尺寸
         if (w > parseInt(target.css("width"))) {
@@ -5297,8 +5295,8 @@ function ContentFolding() {
             container.css({
                 "height" : "auto"
             });
-            // 针对表格、Mermaid 图表增加滚动属性
-            if (tagName === "svg" || tagName === "table")
+            // 针对表格 <table>、Mermaid <svg> 图表增加滚动属性
+            if (tagName.startsWith("t") || tagName.startsWith("s"))
                 container.css({
                     "overflow" : "auto"
                 });
@@ -5310,14 +5308,10 @@ function ContentFolding() {
 
             // 如果处理对象为表格，恢复显示表格行号，find 过滤器的的内容与对应的 css 要同步更新
             if (container.find("table").length > 0)
-                container.find(rowNumFilter).removeClass("mdx-table-row-num-hidden");
+                container.find(rowNumFilter).removeClass("mdx-tbl-row-num-hidden");
         });
         // 展开按钮 hover 事件处理
-        expander.children(".mdx-btn").hover(function () {
-            $(this).addClass("mdx-btn-hover");
-        }, function () {
-            $(this).removeClass("mdx-btn-hover");
-        });
+        VLOOK.ui.bindHover(expander.children(".mdx-btn"), "mdx-btn-hover");
     }
 }
 
@@ -5429,19 +5423,45 @@ function InfoTips(mask) {
     this.mask.bindPartner(this, this.ui);
 
     /**
-    * 显示通知提示信息
-    *
-    * @param message 提示内容
-    * @param delay 延时指定 ms 时间后自动关闭提示
-    * @param mask 是否显示遮罩
-    * @param target 事件源，不为空时则跟随显示
-    */
-    this.show = function (message, delay, mask, target) {
+     * 显示通知信息
+     *
+     * @param message 提示内容
+     * @param delay 延时指定 ms 时间后自动关闭提示
+     * @param mask 是否显示遮罩
+     * @param target 事件源，不为空时则跟随显示
+     */
+    this.inform = function (message, delay, mask, target) {
+        this.show(message, delay, mask, "inform", target);
+    }
+
+    /**
+     * 显示错误信息
+     *
+     * @param message 提示内容
+     * @param delay 延时指定 ms 时间后自动关闭提示
+     * @param mask 是否显示遮罩
+     * @param target 事件源，不为空时则跟随显示
+     */
+    this.error = function (message, delay, mask, target) {
+        this.show(message, delay, mask, "error", target);
+    }
+
+    /**
+     * 显示通知提示信息
+     *
+     * @param message 提示内容
+     * @param delay 延时指定 ms 时间后自动关闭提示
+     * @param mask 是否显示遮罩
+     * @param type 类型。info/error
+     * @param target 事件源，不为空时则跟随显示
+     */
+    this.show = function (message, delay, mask, type, target) {
         clearTimeout(this.aniTimer);
 
         this.ui.html(message);
 
         // 先重置为默认值
+        this.ui.removeClass("error");
         this.ui.css({
             "width" : "",
             "height" : "",
@@ -5449,6 +5469,8 @@ function InfoTips(mask) {
             "bottom" : "auto",
             "border-radius" : "var(--vlook-base-radius)"
         });
+        if (type === "error")
+            this.ui.addClass("error");
 
         // 跟随事件源显示
         if (target !== undefined) {
@@ -5477,7 +5499,6 @@ function InfoTips(mask) {
      * 隐藏弹窗信息
      */
     this.hide = function () {
-        // VLOOK.ui.hide(this.ui);
         this.ui.hide();
         this.mask.hide();
     }
@@ -5556,12 +5577,10 @@ function MoreDocContent(chapterNav) {
         else
             this.ui.before.hide();
 
-        if (scrollTop + $(window).height() > ($(document).height() - 20)) {
+        if (scrollTop + $(window).height() > ($(document).height() - 20))
             this.ui.after.hide();
-        }
-        else if (VLOOK.doc.newTab === false) {
+        else
             this.ui.after.show();
-        }
     }
 
     /**
@@ -5576,19 +5595,21 @@ function MoreDocContent(chapterNav) {
 
 function CaptionGenerator() {}
 
+CaptionGenerator.spliter = ". ";
+
 /**
  * 生成题注
  *
  * @param target 需要添加题注的对象
+ * @param tagName HTML 标签名称
  */
-CaptionGenerator.action = function (target) {
-    let tagName = target.prop("tagName").toLowerCase(),
-        caption = "",
+CaptionGenerator.actionForTextContent = function (target, tagName) {
+    let caption = "",
         indexObj = undefined,
         anchor = "";
 
-    // 代码块
-    if (tagName === "pre") {
+    // 代码块 <pre>
+    if (tagName.startsWith("p")) {
         indexObj = iNavCenter.codeblock;
         caption = [
             "代码块 ",
@@ -5600,10 +5621,10 @@ CaptionGenerator.action = function (target) {
             "Блок Кода ",
             "コードブロック ",
             "코드 블록 "
-        ][VLOOK.lang.id] + (VLOOK.doc.counter.codeblock + 1);
+        ][VLOOK.lang.id] + (VLOOK.doc.counter.codeblock);
     }
-    // 表格
-    else if (tagName === "table") {
+    // 表格 <table>
+    else if (tagName.startsWith("t")) {
         indexObj = iNavCenter.table;
         caption = [
             "表 ",
@@ -5615,12 +5636,7 @@ CaptionGenerator.action = function (target) {
             "Таблица ",
             "テーブル ",
             "표 "
-        ][VLOOK.lang.id] + (VLOOK.doc.counter.table + 1);
-    }
-    // 插图
-    else {
-        CaptionGenerator.actionForFigureLike(target, tagName);
-        return;
+        ][VLOOK.lang.id] + (VLOOK.doc.counter.table);
     }
 
     // 有指定的题注文本
@@ -5630,17 +5646,17 @@ CaptionGenerator.action = function (target) {
 
     if (fc != null && fc.trim().length > 0) {
         // 添加 <span> 用主要用于区分题注是默认无内容的，还是指定内容的
-        caption = caption + " - " + fc;
+        caption = "<span>" + caption + CaptionGenerator.spliter + "</span>" + fc;
     }
 
-    // 代码块
-    if (tagName === "pre") {
-        anchor = "vk-idx-codeblock-num" + VLOOK.doc.counter.codeblock;
+    // 代码块 <pre>
+    if (tagName.startsWith("p")) {
+        anchor = "vk-id-codeblock" + VLOOK.doc.counter.codeblock;
         target.wrap("<div id='" + anchor + "' class='mdx-figure-caption' style='width: 100%'>");
     }
-    // 表格
-    else if (tagName === "table") {
-        anchor = "vk-idx-tbl-num" + VLOOK.doc.counter.table;
+    // 表格 <table>
+    else if (tagName.startsWith("t")) {
+        anchor = "vk-id-tbl" + VLOOK.doc.counter.table;
         target.wrap("<div id='" + anchor + "' class='mdx-figure-caption'>");
     }
 
@@ -5652,6 +5668,7 @@ CaptionGenerator.action = function (target) {
         target.after("<p class='mdx-figure-caption-2'>" + fc2 + "</p>");
         target.parent().attr("data-vk-caption-count", "2");
     }
+    // ----------------------------------------
     // 添加到对应的内容索引
     if (indexObj !== undefined) {
         let text = caption + (has2Captions ? " 丨 " + fc2 : "");
@@ -5664,9 +5681,9 @@ CaptionGenerator.action = function (target) {
  * 针对插图（img、mermaid）生成题注
  *
  * @param target 需要添加题注的对象
- * @param tagName HTML 标签名
+ * @param tagName HTML 标签名称
  */
-CaptionGenerator.actionForFigureLike = function (target, tagName) {
+CaptionGenerator.actionForMediaContent = function (target, tagName) {
     let fc = target.attr("alt"), // 默认尝试获取图片的 alt 内容作为题注内容
         fc2 = target.attr("title"), // 默认尝试获得图片的 title 作为第二题注内容
         indexObj = iNavCenter.figure,
@@ -5692,9 +5709,9 @@ CaptionGenerator.actionForFigureLike = function (target, tagName) {
             "карта ",
             "図 ",
             "그림 "
-        ][VLOOK.lang.id] + (VLOOK.doc.counter.figure + 1);
-    // 音频题注
-    if (tagName === "audio") {
+        ][VLOOK.lang.id] + (VLOOK.doc.counter.figure);
+    // 音频题注 <audio>
+    if (tagName.startsWith("a")) {
         indexObj = iNavCenter.multimedia;
         caption = [
             "音频 ",
@@ -5706,10 +5723,10 @@ CaptionGenerator.actionForFigureLike = function (target, tagName) {
             "аудио ",
             "オーディオ ",
             "오디오 "
-        ][VLOOK.lang.id] + (VLOOK.doc.counter.audio + 1);
+        ][VLOOK.lang.id] + (VLOOK.doc.counter.audio);
     }
-    // 视频频题注
-    else if (tagName === "video"){
+    // 视频频题注 <video>
+    else if (tagName.startsWith("v")) {
         indexObj = iNavCenter.multimedia;
         caption = [
             "视频 ",
@@ -5721,35 +5738,35 @@ CaptionGenerator.actionForFigureLike = function (target, tagName) {
             "видео ",
             "ビデオ ",
             "비디오 "
-        ][VLOOK.lang.id] + (VLOOK.doc.counter.video + 1);
+        ][VLOOK.lang.id] + (VLOOK.doc.counter.video);
     }
 
     // 有指定的题注文本
     if (fc != null && fc.trim().length > 0)
-        caption = caption + " - " + fc;
+        caption = "<span>" + caption + CaptionGenerator.spliter + "</span>" + fc;
 
-    // 为插图（mermaid）增加题注
-    if (tagName === "svg") {
-        anchor = "vk-idx-fig-num" + VLOOK.doc.counter.figure;
+    // 为插图（mermaid）增加题注 <svg>
+    if (tagName.startsWith("s")) {
+        anchor = "vk-id-fig" + VLOOK.doc.counter.figure;
         // 针对 Mermaid 插图，添加额外的类，用于打印前后处理时直接定位 Mermaid 插图的题注
         target.wrap("<div id='" + anchor + "' data-vk-fig-type='" + tagName
             + "' class='mdx-figure-caption mdx-figure-caption-mermaid'></div>");
     }
-    // 为插图（img）增加题注
-    else if (tagName === "img") {
-        anchor = "vk-idx-fig-num" + VLOOK.doc.counter.figure;
+    // 为插图（img）增加题注 <img>
+    else if (tagName.startsWith("i")) {
+        anchor = "vk-id-fig" + VLOOK.doc.counter.figure;
         target.wrap("<div id='" + anchor + "' data-vk-fig-type='" + tagName
             + "' class='mdx-figure-caption'></div>");
     }
-    // 为音频增加题注
-    else if (tagName === "audio") {
-        anchor = "vk-idx-audio-num" + VLOOK.doc.counter.audio;
+    // 为音频增加题注 <audio>
+    else if (tagName.startsWith("a")) {
+        anchor = "vk-id-audio" + VLOOK.doc.counter.audio;
         target.wrap("<div id='" + anchor + "' data-vk-fig-type='" + tagName
             + "' class='mdx-figure-caption'>");
     }
-    // 为视频增加题注
-    else if (tagName === "video") {
-        anchor = "vk-idx-video-num" + VLOOK.doc.counter.video;
+    // 为视频增加题注 <video>
+    else if (tagName.startsWith("v")) {
+        anchor = "vk-id-video" + VLOOK.doc.counter.video;
         target.wrap("<div id='" + anchor + "' data-vk-fig-type='" + tagName
             + "' class='mdx-figure-caption'>");
     }
@@ -5762,6 +5779,7 @@ CaptionGenerator.actionForFigureLike = function (target, tagName) {
         target.after("<p class='mdx-figure-caption-2'>" + fc2 + "</p>");
         target.parent().attr("data-vk-caption-count", "2");
     }
+    // ----------------------------------------
     // 添加到对应的内容索引
     if (indexObj !== undefined) {
         let text = caption + (has2Captions ? " 丨 " + fc2 : "");
@@ -5769,8 +5787,9 @@ CaptionGenerator.actionForFigureLike = function (target, tagName) {
         indexObj.add(text, anchor);
     }
 
-    // 修正在 SVG 插图套上题注后的自适应尺寸
-    if (tagName === "svg") {
+    // ----------------------------------------
+    // 修正在 SVG 插图套上题注后的自适应尺寸 <svg>
+    if (tagName.startsWith("s")) {
         if (target.attr("height") !== "none" || target.css("height") !== "none") { // 有指定高度的
             target.removeAttr("height");
             target.css("height", "");
@@ -5799,19 +5818,19 @@ CaptionGenerator.getCaptions = function (caption, tagName) {
         hideCaptionSrc = false; // 是否隐藏题注源
 
     // 双题注的标准语法
-    if (getCaptionCount(caption) === 2) {
-        fcSet[0] = getCaptionSet(caption, 2)[0];
-        fcSet[1] = getCaptionSet(caption, 2)[1];
+    if (__getCaptionCount(caption) === 2) {
+        fcSet[0] = __getCaptionSet(caption, 2)[0];
+        fcSet[1] = __getCaptionSet(caption, 2)[1];
         hideCaptionSrc = true;
     }
     // 单题注的标准语法
-    else if (getCaptionCount(caption) === 1) {
-        fcSet[0] = getCaptionSet(caption, 1)[0];
+    else if (__getCaptionCount(caption) === 1) {
+        fcSet[0] = __getCaptionSet(caption, 1)[0];
         fcSet[1] = null;
         hideCaptionSrc = true;
     }
     // 无题注语法，但由有 h6 引导
-    else if (captionTagName !== undefined && captionTagName.toLowerCase() === "h6") {
+    else if (captionTagName !== undefined && captionTagName.toLowerCase().endWith("6")) {
         fcSet[0] = caption.text().trim();
         fcSet[1] = null;
         // 不能直接隐藏，会影响页内链接跳转至该位置
@@ -5823,18 +5842,17 @@ CaptionGenerator.getCaptions = function (caption, tagName) {
         });
     }
 
-    // 若成功匹配出题注，则隐藏原始内容
-    if (tagName !== "img" && hideCaptionSrc === true) {
+    // 若成功匹配出题注，且为不 <img> 则隐藏原始内容
+    if (hideCaptionSrc === true && tagName.startsWith("i") === false)
         caption.hide();
-    }
     return fcSet;
 
     /**
      * 返回匹配的题注数量
      *
-     * @return 0/1/2
+     * @returns number
      */
-    function getCaptionCount(target) {
+    function __getCaptionCount(target) {
         let reg2 = /^!\[.+]".+"$/; // 有2个题注
         let reg1 = /^!\[.+]$/; // 只有1个题注
         if (reg2.test(target.text().trim()) === true)
@@ -5847,14 +5865,14 @@ CaptionGenerator.getCaptions = function (caption, tagName) {
     /**
      * 返回题注数据数组
      *
-     * @return [0] 为第 1 个题注，[1] 为第 2 个题注
+     * @returns [] [0] 为第 1 个题注，[1] 为第 2 个题注
      */
-    function getCaptionSet(target, count) {
+    function __getCaptionSet(target, count) {
         let fcSet = [],
             text = target.text().trim();
-        fcSet[0] = text.substring(2, text.indexOf("]"));
+        fcSet[0] = text.substring(2, text.indexOf("]", 2));
         if (count === 2)
-            fcSet[1] = text.substring(text.indexOf("]\"") + 2, text.length - 1);
+            fcSet[1] = text.substring(text.indexOf("]\"", 2) + 2, text.length - 1);
         return fcSet;
     }
 }
@@ -5867,32 +5885,35 @@ function ExtCodeBlock() {}
  * 初始化代码块
  */
 ExtCodeBlock.init = function () {
+    // 获取自动编号和生成题注的行数下限
+    let lmc = VLOOK.util.getQueryParams(window.location.href)["lmc"];
+    lmc = (lmc === undefined ? 1 : parseInt(lmc));
+    // 遍历所有代码块
     $(".md-fences").each(function () {
         let codeblock = $(this);
-
-        // 外套一个 <p> 标签，用于内容折叠时与插图、表格的 DOM 结构一致
-        codeblock.wrap("<p data-vk-container='pre' style='" +
-            "border-radius: 0 0 var(--vlook-base-radius) var(--vlook-base-radius);" +
-            "margin-bottom: 20px;" +
-            "'></p>");
 
         // 添加鼠标移入/移出事件
         codeblock.hover(function () {
             ContentAssist.lastHoverContent = $(this);
             ContentAssist.showCopyCodeBlockButton();
-            if (VLOOK.doc.newTab === false)
-                ContentAssist.showOpenInNewTabButton();
         }, function () {
             ContentAssist.hideButtons();
         });
 
         // 折叠长代码块
-        iContentFolding.add(codeblock);
+        iContentFolder.add(codeblock);
 
-        // 生成代码块插图题注
-        CaptionGenerator.action(codeblock);
+        // 生成代码块插图题注（行数 > 1 的才进行处理）
+        if (codeblock.find(".CodeMirror-line").length > lmc) {
+            VLOOK.doc.counter.codeblock++;
+            // 外套一个 <p> 标签，用于内容折叠时与插图、表格的 DOM 结构一致
+            codeblock.wrap("<p data-vk-container='pre' style='" +
+            "border-radius: 0 0 var(--vlook-base-radius) var(--vlook-base-radius);" +
+            "margin-bottom: 20px;" +
+            "'></p>");
 
-        VLOOK.doc.counter.codeblock++;
+            CaptionGenerator.actionForTextContent(codeblock, "pre");
+        }
     });
 }
 
@@ -5904,13 +5925,32 @@ ExtCodeBlock.copy = function (source) {
     if (ContentAssist.lastHoverContent === undefined)
         return;
 
+    let code = "",
+        lines = ContentAssist.lastHoverContent.children().find(".CodeMirror-code .CodeMirror-line"),
+        lineNo = 0,
+        lineCount = lines.length;
     // 逐行读取代码
-    let code = "";
-    ContentAssist.lastHoverContent.children().find(".CodeMirror-code .CodeMirror-line").each(function () {
-        code += $(this).text() + "\n";
+    lines.each(function () {
+        lineNo++;
+        let encodeText = encodeURI($(this).text()),
+            badChars = [
+                "%E2%80%8B", // ZERO WIDTH SPACE \u200b
+                "%C2%A0" // NO-BREAK SPACE \u00A0
+            ],
+            goodChars = [
+                "", // 替换 ZERO WIDTH SPACE
+                "%20" // for NO-BREAK SPACE
+            ];
+        // 清除特殊字符
+        for (let i = 0; i < badChars.length; i++) {
+            if (encodeText.indexOf(badChars[i]) > -1)
+                encodeText = encodeText.replaceAll(badChars[i], goodChars[i]);
+        }
+        code += decodeURI(encodeText) + (lineNo < lineCount ? "\n" : "");
     });
+
     // 将要复制的内容赋予给 clipboard.js 指定的对象属性 data-clipboard-text
-    let btnCopyClassName = ".mdx-btn-copy-code-block";
+    let btnCopyClassName = ".mdx-btn.copy-code-block";
     $(btnCopyClassName).attr("data-clipboard-text", code);
 
     // 创建 clipboard.js 对象用于实现复制
@@ -5936,7 +5976,7 @@ ExtCodeBlock.copy = function (source) {
     // 复制失败事件
     clipboard.on("error", function() {
         // 显示复制失败提示
-        iInfoTips.show([
+        iInfoTips.error([
             "非常抱歉～暂不支持在该浏览器中复制",
             "非常抱歉～暫不支持在該瀏覽器中復制",
             "I'm very sorry~ I don't support copying in this browser",
@@ -5954,8 +5994,8 @@ ExtCodeBlock.copy = function (source) {
 
 function ExtQuote() {}
 
-ExtQuote.icoClosed = '<svg width="16px" height="16px" style="display: inline-block; vertical-align: middle; margin-top: -4px; margin-right: 2px;"><use xlink:href="#icoQuoteClosed" class="mdx-folder2-ico"/></svg>&nbsp;';
-ExtQuote.icoOpened = '<svg width="16px" height="16px" style="display: inline-block; vertical-align: middle; margin-top: -4px; margin-right: 2px;"><use xlink:href="#icoQuoteOpened" class="mdx-folder2-ico"/></svg>&nbsp;';
+ExtQuote.icoClosed = '<svg width="16px" height="16px" style="display: inline-block; vertical-align: middle; margin-top: -4px; margin-right: 2px;"><use xlink:href="#icoQuoteClosed" class="mdx-blockquote-folder-ico"/></svg>&nbsp;';
+ExtQuote.icoOpened = '<svg width="16px" height="16px" style="display: inline-block; vertical-align: middle; margin-top: -4px; margin-right: 2px;"><use xlink:href="#icoQuoteOpened" class="mdx-blockquote-folder-ico"/></svg>&nbsp;';
 
 /**
  * 初始化引用块以实现折叠支持
@@ -5969,35 +6009,31 @@ ExtQuote.init = function () {
         // 默认收起
         if (text.startsWith("[+] ")
             && next.length > 0
-            && next.prop("tagName").toLowerCase() === "blockquote") {
+            && next.prop("tagName").toLowerCase().startsWith("bl")) { // <blockquote>
+                // 分离折叠引子中的标题
+                __separateTitle(target);
 
-            // 分离折叠引子中的标题
-            separateTitle(target);
+                target.css("color", "var(--header-color)");
+                target.next("blockquote").css({
+                    "display" : "none"
+                });
+                target.replaceHTML("[+] ", "<span class='mdx-blockquote-folder'>" + ExtQuote.icoClosed + "</span>"); // ▶
 
-            target.css("color", "var(--header-color)");
-            target.next("blockquote").css({
-                // "background" : "none",
-                "display" : "none"
-            });
-            // target.html(target.html().replace("[+] ", "<span class='mdx-blockquote-folder'>" + ExtQuote.icoClosed) + "</span>"); // ▶
-            target.replaceHTML("[+] ", "<span class='mdx-blockquote-folder'>" + ExtQuote.icoClosed + "</span>"); // ▶
+                target.attr("data-vk-blockquote-folded", "true");
 
-            target.attr("data-vk-blockquote-folded", "true");
-
-            // 因此处的 click 会与 $(document).unbind("click").click() 冲突
-            // 所以改为 mouseup
-            target.find(".mdx-blockquote-folder").unbind("mouseup").mouseup(function () {
-                VLOOK.report.push(['Interactive', 'Quote', 'Fold/Unfold', 0]);
-                toggleQuoteFolding(target);
-            });
+                // 因此处的 click 会与 $(document).unbind("click").click() 冲突
+                // 所以改为 mouseup
+                target.find(".mdx-blockquote-folder").unbind("mouseup").mouseup(function () {
+                    VLOOK.report.push(['Interactive', 'Quote', 'Fold/Unfold', 0]);
+                    __toggleQuoteFolding(target);
+                });
         }
         // 默认展开
         else if (text.startsWith("[-] ")) {
             // 分离折叠引子中的标题
-            separateTitle(target);
+            __separateTitle(target);
 
             target.css("color", "var(--header-color)");
-            // target.html(target.html().replace("[-] ", "<span class='mdx-blockquote-folder'>" + ExtQuote.icoOpened) + "</span>"); // ⊖▽
             target.replaceHTML("[-] ", "<span class='mdx-blockquote-folder'>" + ExtQuote.icoOpened + "</span>"); // ⊖▽
 
             target.attr("data-vk-blockquote-folded", "false");
@@ -6006,12 +6042,12 @@ ExtQuote.init = function () {
             // 所以改为 mouseup
             target.find(".mdx-blockquote-folder").unbind("mouseup").mouseup(function () {
                 VLOOK.report.push(['Interactive', 'Quote', 'Fold/Unfold', 0]);
-                toggleQuoteFolding(target);
+                __toggleQuoteFolding(target);
             });
         }
 
         // 针对 Dark Mode 进行适配处理
-        ExtQuote.adjustColorScheme();
+        // ExtQuote.adjustColorScheme();
     });
 
     /**
@@ -6019,8 +6055,8 @@ ExtQuote.init = function () {
      *
      * @param target 用于折叠其下引用块对象
      */
-    function toggleQuoteFolding(target) {
-        if (target.attr("data-vk-blockquote-folded") === "true") {
+    function __toggleQuoteFolding(target) {
+        if (target.attr("data-vk-blockquote-folded").startsWith("t")) {
             ExtQuote.unfold(target);
         } else {
             ExtQuote.fold(target);
@@ -6032,13 +6068,13 @@ ExtQuote.init = function () {
      *
      * @param target 带折叠引子的行对象
      */
-    function separateTitle(target) {
+    function __separateTitle(target) {
         let firstSpan = target.children("span:first"),
             text = firstSpan.text();
         // 折叠的标题与引子在同一个 <span> 对象内，则需要进行剥离
         if (text.length > 4) {
             let folder = text.substring(0, 4);
-            firstSpan.html(firstSpan.replaceHTML(/\[(\+|-)]\s/, ""));
+            firstSpan.html(firstSpan.replaceHTML(/\[([+\-])]\s/, ""));
             firstSpan.before("<span>" + folder + "</span>");
         }
     }
@@ -6047,16 +6083,26 @@ ExtQuote.init = function () {
 /**
  * 适配引用在 Light / Dark Mode 的适配处理
  */
-ExtQuote.adjustColorScheme = function () {
-    // 适配彩虹引用中的 6 级标题样式的处理
-    let colors = ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "pink", "brown", "gray", "theme1", "theme2"],
-        scheme = ColorScheme.scheme,
-        rmScheme = scheme === "dark" ? "light" : "dark";
-    for (let i = 0; i < colors.length; i++) {
-        $(".mdx-quote-title-" + colors[i])
-            .addClass("mdx-quote-title-" + colors[i] + "-" + scheme)
-            .removeClass("mdx-quote-title-" + colors[i] + "-" + rmScheme);
-    }
+// ExtQuote.adjustColorScheme = function () {
+//     // 适配彩虹引用中的 6 级标题样式的处理
+//     let colors = ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "pink", "brown", "gray", "theme1", "theme2"],
+//         scheme = ColorScheme.scheme,
+//         rmScheme = scheme === "dark" ? "light" : "dark";
+//     for (let i = 0; i < colors.length; i++) {
+//         $(".mdx-quote-title-" + colors[i])
+//             .addClass("mdx-quote-title-" + colors[i] + "-" + scheme)
+//             .removeClass("mdx-quote-title-" + colors[i] + "-" + rmScheme);
+//     }
+// }
+
+/**
+ * 根据设备类型自适应hover样式
+ */
+ExtQuote.adjustHoverStyle = function () {
+    if (env.device.mobile) // 移动设备时解绑样式事件
+        $(".mdx-blockquote-folder").unbind("hover");
+    else // 为折叠的引用的折叠控件绑定 hover 事件
+        VLOOK.ui.bindHover($(".mdx-blockquote-folder"), "mdx-blockquote-folder-hover");
 }
 
 /**
@@ -6090,10 +6136,12 @@ ExtQuote.autoUnfold = function () {
 
     let target = iParagraphNav.current();
     // 或目标段是引用块折叠操作区，且为未展开状态
-    if (target.attr("class") !== undefined
-        && target.attr("data-vk-blockquote-folded") === "true")
-        // 模拟操作
-        ExtQuote.unfold(target);
+    if (target.attr("class") !== undefined) {
+        let folded = target.attr("data-vk-blockquote-folded");
+        if (folded !== undefined && folded.startsWith("t"))
+            // 模拟操作
+            ExtQuote.unfold(target);
+    }
 }
 
 // ==================== 表格增强类 ==================== //
@@ -6110,48 +6158,47 @@ ExtTable.init = function () {
     // 表格预处理
     stopwatch.lapStart();
     $("table").each(function () {
-        let table = $(this);
+        let table = $(this),
+            container = table.parent();
 
-        // 表格索引号
-        table.attr("id", "data-vk-tbl-" + VLOOK.doc.counter.table);
-        table.parent().attr("data-vk-container", "table");
+        VLOOK.doc.counter.table++;
+
+        // 表格自定义属性数据
+        container.attr("data-vk-container", "table");
+        container.addClass("mdx-caption-container");
 
         // 添加鼠标移入/移出事件
         table.hover(function () {
             ContentAssist.lastHoverContent = $(this);
             // 表格没有被折叠时
-            if ($(this).parent().parent().attr("data-vk-content-folded") === "false") {
+            let folded = $(this).parent().parent().attr("data-vk-content-folded");
+            if (folded !== undefined && folded.startsWith("f"))
                 VLOOK.ui.addAnimate($(this));
-            }
-            if (VLOOK.doc.newTab === false)
-                ContentAssist.showOpenInNewTabButton();
         }, function () {
             ContentAssist.hideButtons();
         });
 
         // 表格滚动事件
-        table.parent().scroll(function () {
+        container.scroll(function () {
             let scrollLeft = $(this).scrollLeft();
             // 根据显示时其对应表格的水平滚动的偏移量，调整十字光标的位置
             $("div.mdx-table-cross").each(function () {
                 $(this).css({
-                    "left" : CellCross.lastCellPos[$(this).attr("data-vk-direction")] - scrollLeft
+                    "left" : TableCross.lastCellPos[$(this).attr("data-vk-direction")] - scrollLeft
                 });
             });
         });
 
         // 表格单元格初始化处理
-        initCell(table);
+        __initCell(table);
 
         // 折叠长表格
-        iContentFolding.add(table);
+        iContentFolder.add(table);
 
         // 生成表格题注
-        CaptionGenerator.action(table);
-
-        VLOOK.doc.counter.table++;
+        CaptionGenerator.actionForTextContent(table, "table");
     }); // table
-    stopwatch.lapStop("    ├ Table/Prepare: ");
+    stopwatch.lapStop("    ├ Prepare: ");
 
     // ----------------------------------------
     // 表格单元格合并
@@ -6165,7 +6212,7 @@ ExtTable.init = function () {
             ColumnFormatting.init(table, $(this));
         });
     });
-    stopwatch.lapStop("    ├ Table/Merge: ");
+    stopwatch.lapStop("    ├ Merge: ");
 
     // ----------------------------------------
     // 对表格单元格初始化处理中标记为带列格式的表格，进行列格式化处理
@@ -6173,7 +6220,7 @@ ExtTable.init = function () {
     $("table[data-vk-column-formatting='true']").each(function () {
         ColumnFormatting.format($(this));
     });
-    stopwatch.lapStop("    ├ Table/Column Format: ");
+    stopwatch.lapStop("    ├ Column Format: ");
 
     // ----------------------------------------
     // 表格行折叠
@@ -6189,22 +6236,22 @@ ExtTable.init = function () {
                 td.css("padding-left", "0.5em");
         });
 
-        // 将每层最后一个缩进行的语法前缀符转换为指定字符
-        let translatedLevel = [];
-        $(table.find(".mdx-table-rowfolding-sub").get().reverse()).each(function () {
-            let td = $(this),
-                parentId = td.parent().attr("data-vk-parent-folder-id"),
-                level = td.attr("data-vk-ident-level"),
-                key = "-" + parentId + "-" + level + "-";
-            if (translatedLevel.includes(key) === false) {
-                translatedLevel.push(key);
-                td.parent().next().find(".mdx-table-rowfolding-identer:last")
-                    .prev().removeClass("mdx-table-rowfolding-identer")
-                    .addClass("mdx-table-rowfolding-identer-blank");
-            }
-        });
+        // 含有嵌套组时，对其嵌套组后的缩进行的进行处理，以正确显示其缩进级别
+        // let translatedLevel = [];
+        // $(table.find(".mdx-tbl-row-g-sub").get().reverse()).each(function () {
+        //     let td = $(this),
+        //         parentId = td.parent().attr("data-vk-parent-folder-id"),
+        //         level = td.attr("data-vk-ident-level"),
+        //         key = "-" + parentId + "-" + level + "-";
+        //     if (translatedLevel.includes(key) === false) {
+        //         translatedLevel.push(key);
+        //         td.parent().next().find(".mdx-tbl-row-g-identer:last")
+        //             .prev().removeClass("mdx-tbl-row-g-identer")
+        //             .addClass("mdx-tbl-row-g-identer-blank");
+        //     }
+        // });
     });
-    stopwatch.lapStop("    └ Table/Row Folding: ");
+    stopwatch.lapStop("    ├ Row Group: ");
 
     // ----------------------------------------
     // 表格单元格重复表头引用处理，group 模式重复将在行分组展开/收起时再进行处理
@@ -6213,14 +6260,14 @@ ExtTable.init = function () {
         let table = $(this);
         ThRepeater.init(table);
     });
-    stopwatch.lapStop("    └ Table/Th Repeater: ");
+    stopwatch.lapStop("    └ Th Repeater: ");
 
     /**
      * 表格单元格初始化
      *
      * @param table 表格对象
      */
-    function initCell(table) {
+    function __initCell(table) {
         // 遍历表格「列头」行
         let colIndex = 0,
             maxCol = 0;
@@ -6229,98 +6276,93 @@ ExtTable.init = function () {
             let needCheckCellMerge = true,
                 needCheckColumnFormatting = true,
                 needCheckThRpt = true;
-
+            // ----------------------------------------
             // 遍历单元格
             $(this).find("th").each(function () {
-                let th = $(this);
-
+                let th = $(this),
+                    text = th.text();
                 // ---------- 表格排版增强预处理 ----------
                 // 检测是否带合并单元格语法
                 if (needCheckCellMerge === true
                     && table.attr("data-vk-cell-merge") !== "true"
-                    && (CellMerge.syntax.row.test(th.text()) === true
-                        || CellMerge.syntax.col.test(th.text()) === true)) {
-                    // 将表格标记为带合并单元格语法
-                    table.attr("data-vk-cell-merge", "true");
-                    needCheckCellMerge = false;
+                    && (CellMerge.syntax.row.test(text) === true
+                    || CellMerge.syntax.col.test(text) === true)) {
+                        // 将表格标记为带合并单元格语法
+                        table.attr("data-vk-cell-merge", "true");
+                        needCheckCellMerge = false;
                 }
-
                 // 检测是否带列格式语法
                 if (needCheckColumnFormatting === true) {
-                    if (ColumnFormatting.init(table, th) === true)
+                    if (ColumnFormatting.init(table, th, text) === true)
                         needCheckColumnFormatting = false;
                 }
-
                 // 检测是否带重复表头语法
                 if (needCheckThRpt === true
                     && colIndex === 0 // 只检测第 1 列
-                    && ThRepeater.syntax.tag.test(th.text()) === true) {
-                    // 将表格标记为带行折叠语法
-                    table.attr("data-vk-th-rpt", "true");
-                    // th.html(th.html().replaceAll(" ##", ""));
-                    th.replaceHTML(" ##", "");
-                    needCheckThRpt = false;
+                    && ThRepeater.syntax.tag.test(text) === true) {
+                        // 将表格标记为带行折叠语法
+                        table.attr("data-vk-th-rpt", "true");
+                        th.replaceHTML(" ##", "");
+                        needCheckThRpt = false;
                 }
 
-                // ---------- 单元格高亮样式处理 ----------
+                // ----------------------------------------
                 // 添加列号标识，用于列格式化时使用
-                th.attr("data-vk-tbl-col", "data-vk-tbl-" + VLOOK.doc.counter.table + "-" + colIndex);
+                th.attr("data-vk-tbl-col", "tbl-" + VLOOK.doc.counter.table + "-" + colIndex);
                 colIndex++;
 
                 // ---------- 非列头的单元格十字光标处理 ----------
                 // 鼠标点击单元格时显示十字光标
-                CellCross.bind(table, th);
+                TableCross.bind(table, th);
             });
             if (colIndex > maxCol)
                 maxCol = colIndex;
         });
-        table.attr("data-vk-max-col", maxCol);
 
+        // ----------------------------------------
         // 遍历表格「非列头」行
         table.find("tbody > tr").each(function () {
             let colIndex = 0,
                 needCheckCellMerge = true,
                 needCheckRowGroup = true;
-
+            // ----------------------------------------
             // 遍历单元格
             $(this).find("td").each(function () {
-                let td = $(this);
-                // 添加列号标识，用于列格式化时使用
-                td.attr("data-vk-tbl-col", "data-vk-tbl-" + VLOOK.doc.counter.table + "-" + colIndex);
-
+                let td = $(this),
+                    text = td.text();
                 // ---------- 表格排版增强预处理 ----------
                 // 检测是否带合并单元格语法
                 if (needCheckCellMerge === true
                     && table.attr("data-vk-cell-merge") !== "true"
-                    && (CellMerge.syntax.row.test(td.text()) === true
-                        || CellMerge.syntax.col.test(td.text()) === true)) {
-                    // 将表格标记为带合并单元格语法
-                    table.attr("data-vk-cell-merge", "true");
-                    needCheckCellMerge = false;
+                    && (CellMerge.syntax.row.test(text) === true
+                    || CellMerge.syntax.col.test(text) === true)) {
+                        // 将表格标记为带合并单元格语法
+                        table.attr("data-vk-cell-merge", "true");
+                        needCheckCellMerge = false;
                 }
-
                 // 检测是否带行折叠语法
                 if (needCheckRowGroup === true
                     && colIndex === 0 // 只检测第 1 列
                     && table.attr("data-vk-row-group") !== "true"
-                    && RowGroup.syntax.tag.test(td.text()) === true) {
-                    // 将表格标记为带行折叠语法
-                    table.attr("data-vk-row-group", "true");
-                    needCheckRowGroup = false;
+                    && RowGroup.syntax.tag.test(text) === true) {
+                        // 将表格标记为带行折叠语法
+                        table.attr("data-vk-row-group", "true");
+                        needCheckRowGroup = false;
                 }
-
                 // 对于单元格的内容，都以 <mark> 标签包裹的，则转换为单元格的样式
                 // 同时转换后，在 Table.columnFormatting 的 init 处理中对应添加对应的过滤条件
-                if (/^<mark>.+<\/mark>$/.test(td.html()) === true) {
+                if (/^<ma.+rk>$/.test(td.html()) === true) {
                     td.children().children().unwrap(); // 解包 <mark>
-                    td.addClass("mdx-table-column-format-mark");
+                    td.addClass("mdx-tbl-col-fmt-mark");
                 }
 
+                // 添加列号标识，用于列格式化时使用
+                td.attr("data-vk-tbl-col", "tbl-" + VLOOK.doc.counter.table + "-" + colIndex);
                 colIndex++;
 
                 // ---------- 列头的单元格十字光标处理 ----------
                 // 鼠标点击单元格时显示十字光标
-                CellCross.bind(table, td);
+                TableCross.bind(table, td);
             }); // find(th, td)
         }); // find(tr)
     }
@@ -6384,6 +6426,7 @@ CellMerge.dispose = function (table) {
             else {
                 if (colSpanCount > 0 && colSpanCell != null) {
                     colSpanCell.attr("colspan", colSpanCount + 1);
+                    CellMerge.emptyBlankCell(colSpanCell);
                     colSpanCell.css("text-align", "center");
                     // colSpanCell.css("vertical-align", "middle");
                 }
@@ -6395,12 +6438,12 @@ CellMerge.dispose = function (table) {
         // 如果列合并了所有列，则取消表格行号等样式
         if (colCount === colSpanCount + 1) {
             tr.addClass("mdx-table-colspan-all");
-            tr.children().css("padding-left", "5px");
         }
 
         // 列合并：对于最后一列的补充处理
         if (colSpanCount > 0 && colSpanCell != null) {
             colSpanCell.attr("colspan", colSpanCount + 1);
+            CellMerge.emptyBlankCell(colSpanCell);
             colSpanCell.css("text-align", "center");
             // colSpanCell.css("vertical-align", "middle");
         }
@@ -6445,8 +6488,9 @@ CellMerge.dispose = function (table) {
                     // 单元格行合并
                     if (rowSpanCount > 0 && rowSpanCell != null) {
                         rowSpanCell.attr("rowspan", rowSpanCount + 1);
+                        CellMerge.emptyBlankCell(rowSpanCell);
                         // rowSpanCell.css("text-align", "center");
-                        // rowSpanCell.css("vertical-align", "middle");
+                        rowSpanCell.css("vertical-align", "middle");
                         rowSpanCount = 0;
                         rowSpanCell = null;
                     }
@@ -6457,8 +6501,9 @@ CellMerge.dispose = function (table) {
             // 行合并：对于最后一行的补充处理
             if (rowSpanCount > 0 && rowSpanCell != null) {
                 rowSpanCell.attr("rowspan", rowSpanCount + 1);
-                rowSpanCell.css("text-align", "center");
-                // rowSpanCell.css("vertical-align", "middle");
+                CellMerge.emptyBlankCell(rowSpanCell);
+                // rowSpanCell.css("text-align", "center");
+                rowSpanCell.css("vertical-align", "middle");
             }
         } // for
 
@@ -6488,24 +6533,66 @@ CellMerge.dispose = function (table) {
     needRowSpan = false;
 }
 
-// ==================== 表格列格式化类 ==================== //
+/**
+ * 清空单元格内容（无内容情况下清空空格 &nbsp;）
+ *
+ * @param cell 表格单元格对象
+ */
+CellMerge.emptyBlankCell = function (cell) {
+    if (cell.text().trim().length === 0) {
+        cell.html("");
+        cell.addClass("mdx-empty-cell");
+    }
+}
 
-function CellCross() {}
+// ==================== 表格十字光标类 ==================== //
 
-CellCross.ui = undefined;
+function TableCross() {}
+
+TableCross.enabled = false;
+
+TableCross.ui = undefined;
 
 // 最后/当前显示十字光标的表格
-CellCross.lastTable = undefined;
+TableCross.lastTable = undefined;
 
 // 最后/当前显示十字光标的表格单元格
-CellCross.lastCell = undefined;
+TableCross.lastCell = undefined;
 
 // 表格十字光标四条边的位置
-CellCross.lastCellPos = {};
+TableCross.lastCellPos = {};
 
-CellCross.init = function () {
-    CellCross.ui = $(".mdx-table-cross");
-    VLOOK.ui.addAnimate(CellCross.ui);
+TableCross.init = function () {
+    TableCross.ui = $(".mdx-table-cross");
+    VLOOK.ui.addAnimate(TableCross.ui);
+}
+
+/**
+ * 切换表格十字光标开关
+ */
+TableCross.toggle = function () {
+    // 已打开，则关闭
+    if (TableCross.enabled)
+        TableCross.disable();
+    // 未打开，则打开
+    else
+        TableCross.enable();
+}
+
+// 打开表格十字光标
+TableCross.enable = function () {
+    VLOOK.report.push(['Presentation', 'Table Cross', 'Enabled', 0]);
+    // iParagraphNav.hide();
+
+    TableCross.enabled = true;
+    iToolbar.buttons["table-cross"].addClass("selected");
+}
+
+// 关闭表格十字光标
+TableCross.disable = function () {
+    TableCross.enabled = false;
+    iToolbar.buttons["table-cross"].removeClass("selected");
+    TableCross.hide();
 }
 
 /**
@@ -6514,81 +6601,82 @@ CellCross.init = function () {
  * @param table 单元格所属表格对象
  * @param cell 单元格对象
  */
-CellCross.bind = function (table, cell) {
+TableCross.bind = function (table, cell) {
     cell.unbind("click").click(function () {
-        VLOOK.report.push(['Interactive', 'Table', 'CellCross', 0]);
+        if (TableCross.enabled === false)
+            return;
 
         // 跳过折叠的表格
-        if (table.parent().parent().attr("data-vk-content-folded") === "true")
+        if (table.parent().parent().attr("data-vk-content-folded").startsWith("t"))
             return;
 
         // vvv 不同表格之间点击，先强制移除动画 vvv
-        if (CellCross.lastTable !== table)
-            VLOOK.ui.removeAnimate(CellCross.ui);
+        if (TableCross.lastTable !== table)
+            VLOOK.ui.removeAnimate(TableCross.ui);
 
-        CellCross.hide();
-        if (iParagraphNav !== undefined)
-            iParagraphNav.hide();
+        TableCross.hide();
+        // if (iParagraphNav !== undefined)
+        //     iParagraphNav.hide();
 
-        CellCross.lastCell = cell;
-        CellCross.lastTable = table;
+        TableCross.lastCell = cell;
+        TableCross.lastTable = table;
 
-        let tdH = parseInt(CellCross.lastCell.css("height")),
-            tdW = parseInt(CellCross.lastCell.css("width")),
-            tbW = parseInt(CellCross.lastTable.css("width")),
+        let tdH = parseInt(TableCross.lastCell.css("height")),
+            tdW = parseInt(TableCross.lastCell.css("width")),
+            tbW = parseInt(TableCross.lastTable.css("width")),
             scrollLeft = table.parent().parent().scrollLeft();
 
         // 横向左边
         let crossLeft = $(".mdx-table-cross.left"),
-            w = CellCross.lastCell.offset().left - CellCross.lastTable.offset().left;
+            w = TableCross.lastCell.offset().left - TableCross.lastTable.offset().left;
             crossLeft.css({
-            "top" : CellCross.lastCell.offset().top,
-            "left" : CellCross.lastTable.offset().left,
+            "top" : TableCross.lastCell.offset().top,
+            "left" : TableCross.lastTable.offset().left,
             "height" : tdH,
             "width" : w,
             "z-index" : 9
         });
-        CellCross.adjust(crossLeft, w, scrollLeft);
+        TableCross.adjust(crossLeft, w, scrollLeft);
 
         // 横向右边
         let crossRight = $(".mdx-table-cross.right");
-        w = CellCross.lastTable.offset().left + tbW - CellCross.lastCell.offset().left - tdW;
+        w = TableCross.lastTable.offset().left + tbW - TableCross.lastCell.offset().left - tdW;
         crossRight.css({
-            "top" : CellCross.lastCell.offset().top,
-            "left" : CellCross.lastCell.offset().left + tdW,
+            "top" : TableCross.lastCell.offset().top,
+            "left" : TableCross.lastCell.offset().left + tdW,
             "height" : tdH,
             "width" : w,
             "z-index" : 9
         });
-        CellCross.adjust(crossRight, w, scrollLeft);
+        TableCross.adjust(crossRight, w, scrollLeft);
 
         // 竖向上边
         let crossUp = $(".mdx-table-cross.up"),
-            h = CellCross.lastCell.offset().top - CellCross.lastTable.offset().top;
+            h = TableCross.lastCell.offset().top - TableCross.lastTable.offset().top;
             crossUp.css({
-            "top" : CellCross.lastTable.offset().top,
-            "left" : CellCross.lastCell.offset().left,
+            "top" : TableCross.lastTable.offset().top,
+            "left" : TableCross.lastCell.offset().left,
             "height" : h,
             "width" : tdW,
             "z-index" : 9
         });
-        CellCross.adjust(crossUp, h, scrollLeft);
+        TableCross.adjust(crossUp, h, scrollLeft);
 
         // 竖向下边
         let crossDown = $(".mdx-table-cross.down");
-        h = CellCross.lastTable.offset().top + parseInt(CellCross.lastTable.css("height")) -
-            CellCross.lastCell.offset().top - tdH;
+        h = TableCross.lastTable.offset().top + parseInt(TableCross.lastTable.css("height")) -
+            TableCross.lastCell.offset().top - tdH;
         crossDown.css({
-            "top" : CellCross.lastCell.offset().top + tdH,
-            "left" : CellCross.lastCell.offset().left,
+            "top" : TableCross.lastCell.offset().top + tdH,
+            "left" : TableCross.lastCell.offset().left,
             "height" : h,
             "width" : tdW,
             "z-index" : 9
         });
-        CellCross.adjust(crossDown, h, scrollLeft);
+        TableCross.adjust(crossDown, h, scrollLeft);
 
         // 针对不同表格之间点击强制移除动画后的恢复
-        VLOOK.ui.addAnimate(CellCross.ui);
+        VLOOK.ui.addAnimate(TableCross.ui);
 
         event.stopPropagation(); // 停止事件冒泡
     });
@@ -6601,7 +6689,7 @@ CellCross.bind = function (table, cell) {
  * @param size 指定要进行隐藏判断的尺寸（宽度或高度），小于该值则不显示对应的 target
  * @param scrollLeft 表格水平滚动的偏移量
  */
-CellCross.adjust = function (target, size, scrollLeft) {
+TableCross.adjust = function (target, size, scrollLeft) {
     // 任意边的尺寸（宽度或高度）小于最小值时隐藏
     if (size < 5)
         VLOOK.ui.hide(target);
@@ -6609,20 +6697,20 @@ CellCross.adjust = function (target, size, scrollLeft) {
         VLOOK.ui.show(target);
     }
     // 保存最后显示的十字光标任意边的 left 值及水平方向上的滚动偏移量
-    CellCross.lastCellPos[target.attr("data-vk-direction")] =  parseInt(target.css("left")) + scrollLeft;
+    TableCross.lastCellPos[target.attr("data-vk-direction")] =  parseInt(target.css("left")) + scrollLeft;
 }
 
 /**
  * 隐藏表格十字光标
  */
-CellCross.hide = function () {
-    if (CellCross.lastCell === undefined)
+TableCross.hide = function () {
+    if (TableCross.lastCell === undefined)
         return;
 
-    VLOOK.ui.hide(CellCross.ui);
+    VLOOK.ui.hide(TableCross.ui);
 
-    CellCross.lastCell = undefined;
-    CellCross.lastTable = undefined;
+    TableCross.lastCell = undefined;
+    TableCross.lastTable = undefined;
 }
 
 /**
@@ -6630,9 +6718,9 @@ CellCross.hide = function () {
  *
  * @param target 内容块对象
 */
-CellCross.checkFallWith = function (target) {
-    return (CellCross.lastTable !== undefined
-        && target.children().attr("id") === CellCross.lastTable.attr("id"));
+TableCross.checkFallWith = function (target) {
+    return (TableCross.lastTable !== undefined
+        && target.children().attr("id") === TableCross.lastTable.attr("id"));
 }
 
 // ==================== 表格列格式化类 ==================== //
@@ -6648,15 +6736,16 @@ ColumnFormatting.syntax = {
  *
  * @param table 表格对象
  * @param cell 单元格对象
+ * @param text 单元格文本
  */
-ColumnFormatting.init = function (table, cell) {
+ColumnFormatting.init = function (table, cell, text) {
     if (table.attr("data-vk-column-formatting") !== "true"
         && (cell.find("strong, em, u, mark, del").length > 0 // 普通列格式
-            || cell.css("text-align") === "right" // 右对齐表示使用数值格式
-            || ColumnFormatting.syntax.checkbox.test(cell.text()) === true)) {
-        // 将表格标记为带列格式语法
-        table.attr("data-vk-column-formatting", "true");
-        return true; // 匹配到列格式
+        || cell.css("text-align") === "right" // 右对齐表示使用数值格式
+        || ColumnFormatting.syntax.checkbox.test(text) === true)) { // 复选框列格式
+            // 将表格标记为带列格式语法
+            table.attr("data-vk-column-formatting", "true");
+            return true; // 匹配到列格式
     }
     return false; // 未匹配到列格式
 }
@@ -6664,24 +6753,26 @@ ColumnFormatting.init = function (table, cell) {
 /**
  * 返回表格内所有非合并的同列单元格对象集合
  *
+ * @param table 表格格对象
  * @param th 列头单元格对象
  * @param cells 集合变量
  */
-ColumnFormatting.getCells = function (th, cells) {
+ColumnFormatting.getCells = function (table, th, cells) {
     if (cells === undefined)
-        cells = $("[data-vk-colspan!='true'][data-vk-tbl-col='" + th.attr("data-vk-tbl-col") + "']");
+        cells = table.find("[data-vk-colspan!='true'][data-vk-tbl-col='" + th.attr("data-vk-tbl-col") + "']");
     return cells;
 }
 
 /**
  * 返回表格 tbody 内的同列单元格对象集合
  *
+ * @param table 表格格对象
  * @param th 列头单元格对象
- * @param tbodyCells 集合变量
+ * @param tbodyCells 集合变量，为 undefined 则重新生成
  */
-ColumnFormatting.getTbodyCells = function (th, tbodyCells) {
+ColumnFormatting.getTbodyCells = function (table, th, tbodyCells) {
     if (tbodyCells === undefined)
-        tbodyCells = $("tbody [data-vk-tbl-col='" + th.attr("data-vk-tbl-col") + "']");
+        tbodyCells = table.find("td[data-vk-tbl-col='" + th.attr("data-vk-tbl-col") + "']");
     return tbodyCells;
 }
 
@@ -6691,7 +6782,7 @@ ColumnFormatting.getTbodyCells = function (th, tbodyCells) {
  * @param table 表格对象
  */
 ColumnFormatting.format = function (table) {
-    table.find("thead th, thead td").each(function () {
+    table.find("thead th").each(function () {
         let th = $(this),
             cells = undefined,
             tbodyCells = undefined,
@@ -6699,53 +6790,61 @@ ColumnFormatting.format = function (table) {
 
         // 粗体
         if (th.find("strong:first-child").length > 0) {
-            cells = ColumnFormatting.getCells(th, cells);
-            cellsCSS += "mdx-table-column-format-bold ";
+            cells = ColumnFormatting.getCells(table, th, cells);
+            cellsCSS += "mdx-tbl-col-fmt-bold ";
         }
+
         // 斜体
         if (th.find("em:first-child").length > 0) {
-            cells = ColumnFormatting.getCells(th, cells);
-            cellsCSS += "mdx-table-column-format-em ";
+            cells = ColumnFormatting.getCells(table, th, cells);
+            cellsCSS += "mdx-tbl-col-fmt-em ";
         }
+
         // 高亮
         let thHTML = th.html();
-        if (thHTML.startsWith("<mark") && thHTML.endWith("</mark>")
+        if (thHTML.startsWith("<ma") && thHTML.endWith("rk>") // <mark>...</mark>
             || th.attr("class") !== undefined
-            && th.attr("class").indexOf("mdx-table-column-format-mark") > -1) {
-            $("[data-vk-tbl-col='" + th.attr("data-vk-tbl-col") + "']").find("mark").children().unwrap();
-            cells = ColumnFormatting.getCells(th, cells);
-            cellsCSS += "mdx-table-column-format-mark ";
+            && th.attr("class").indexOf("mdx-tbl-col-fmt-mark") > -1) {
+                $("[data-vk-tbl-col='" + th.attr("data-vk-tbl-col") + "']").find("mark").children().unwrap();
+                cells = ColumnFormatting.getCells(table, th, cells);
+                cellsCSS += "mdx-tbl-col-fmt-mark ";
         }
+
         // 批量添加以上列样式
-        if (cellsCSS.length > 0)
+        if (cells !== undefined && cellsCSS.length > 0)
             cells.addClass(cellsCSS);
 
         // 下划线
         if (th.find("u:first-child").length > 0) {
-            tbodyCells = ColumnFormatting.getTbodyCells(th, tbodyCells);
+            tbodyCells = ColumnFormatting.getTbodyCells(table, th, tbodyCells);
             tbodyCells.contents().wrap("<u></u>");
         }
 
         // 删除线
         if (th.find("del:first-child").length > 0) {
-            tbodyCells = ColumnFormatting.getTbodyCells(th, tbodyCells);
+            tbodyCells = ColumnFormatting.getTbodyCells(table, th, tbodyCells);
             tbodyCells.contents().wrap("<del></del>");
         }
 
         // 复选框
         if (ColumnFormatting.syntax.checkbox.test(th.text()) === true) {
-            cells = ColumnFormatting.getCells(th, cells);
-            cells.addClass("mdx-table-column-format-checkbox");
+            cells = ColumnFormatting.getCells(table, th, cells);
+            cells.addClass("mdx-tbl-col-fmt-checkbox");
 
             // 删除列头的复选框语法
             ColumnFormatting.removeCheckboxSyntax(th);
 
-            tbodyCells = ColumnFormatting.getTbodyCells(th, tbodyCells);
+            tbodyCells = ColumnFormatting.getTbodyCells(table, th, tbodyCells);
+
             tbodyCells.each(function () {
                 let ce = $(this),
                     syntaxText = ce.text(),
                     chkStatus = "uncheck",
                     chkStyle = "dark";
+
+                // 跳过横向合并的单元格
+                if (ce.attr("colspan") !== undefined)
+                    return true;
 
                 // 移除单元格的复选框语法内容
                 ColumnFormatting.removeCheckboxSyntax(ce);
@@ -6767,10 +6866,10 @@ ColumnFormatting.format = function (table) {
         }
 
         // 数值格式
-        if (th.css("text-align") === "right") {
-            tbodyCells = ColumnFormatting.getTbodyCells(th, tbodyCells);
+        if (th.css("text-align").startsWith("r")) {
+            tbodyCells = ColumnFormatting.getTbodyCells(table, th, tbodyCells);
             // 设置为等宽字体
-            tbodyCells.addClass("mdx-table-column-format-number");
+            tbodyCells.addClass("mdx-tbl-col-fmt-num");
             // 数值格式化处理
             tbodyCells.each(function () {
                 let ce = $(this),
@@ -6838,29 +6937,28 @@ ColumnFormatting.format = function (table) {
  * @param target 着色的对象
  * @param text 依据的数值文本
  * @param mode 正负号位置模式，true：在开头，false: 在任意位置
- *
- * @return 着色结果，true：有着色，false：没有着色
+ * @returns boolean 着色结果，true：有着色，false：没有着色
  */
 ColumnFormatting.coloringNumber = function (target, text, mode) {
     // 正、负号在文本的开头
     if (mode === true) {
         if (text.startsWith("-")) {
-            target.addClass("mdx-table-column-format-number-negative");
+            target.addClass("mdx-tbl-col-fmt-num-negative");
             return true;
         }
         else if (text.startsWith("+")) {
-            target.addClass("mdx-table-column-format-number-positive");
+            target.addClass("mdx-tbl-col-fmt-num-positive");
             return true;
         }
     }
     // 正、负号在文本的任意位置
     else {
         if (text.indexOf("-") > -1) {
-            target.addClass("mdx-table-column-format-number-negative");
+            target.addClass("mdx-tbl-col-fmt-num-negative");
             return true;
         }
         else if (text.indexOf("+") > -1) {
-            target.addClass("mdx-table-column-format-number-positive");
+            target.addClass("mdx-tbl-col-fmt-num-positive");
             return true;
         }
     }
@@ -6880,9 +6978,9 @@ function RowGroup() {}
 
 RowGroup.icon = {
     // 表格折叠行图标：已收起
-    closed : '<svg width="12px" height="12px" style="display: inline-block; vertical-align: middle; margin-top: -4px; margin-right: 5px;"><use xlink:href="#icoRowGroupClosed" class="mdx-folder2-ico"/></svg>',
+    closed : '<svg width="12px" height="12px" style="display: inline-block; vertical-align: middle; margin-top: -4px; margin-right: 5px;"><use xlink:href="#icoRowGroupClosed" class="mdx-rowgroup-folder-ico"/></svg>',
     // 表格折叠行图标：已展开
-    opened : '<svg width="12px" height="12px" style="display: inline-block; vertical-align: middle; margin-top: -4px; margin-right: 5px;"><use xlink:href="#icoRowGroupOpened" class="mdx-folder2-ico"/></svg>'
+    opened : '<svg width="12px" height="12px" style="display: inline-block; vertical-align: middle; margin-top: -4px; margin-right: 5px;"><use xlink:href="#icoRowGroupOpened" class="mdx-rowgroup-folder-ico"/></svg>'
 }
 
 RowGroup.folderCount = 0; // 折叠行内行分组类型的数量
@@ -6904,9 +7002,7 @@ RowGroup.colorStack = []; // 不同分组的背景颜色堆栈
  */
 RowGroup.init = function (table) {
     // 若不是在新标签打开的，将第 1 列的设置缩进样式
-    if (VLOOK.doc.newTab === false) {
-        table.find("[data-vk-tbl-col$='-0']").addClass("mdx-table-rowfolding-not-folder");
-    }
+    table.find("[data-vk-tbl-col$='-0']").addClass("mdx-tbl-row-g-not-folder");
 
     let lastLevel = 0, // 上一个缩进等级
         currentLevel = 0, // 当前缩进等级
@@ -6934,9 +7030,8 @@ RowGroup.init = function (table) {
             let beforeChanged = lastLevel;
             lastLevel = currentLevel;
             // 设置为新的行分组
-            let bgColor = randomColor.format(randomColor.dissimilarRgb(), "var(--table-rowgroup-alpha)"); // light 和 dark 使用不同的透明度
-
-            RowGroup.newFolder(tr, bgColor, currentLevel, beforeChanged === 0);
+            RowGroup.newFolder(tr, currentLevel, beforeChanged === 0,
+                randomColor.format(randomColor.dissimilarRgb(), "var(--tbl-row-g-alpha)"));
             // 设置为行缩进行
             RowGroup.ident(tr, td, currentLevel);
         }
@@ -6956,17 +7051,6 @@ RowGroup.init = function (table) {
             RowGroup.ident(tr, td, currentLevel);
         }
     });
-
-    // 因为在新标签中打开的内容已无未解析的含语法的原始内容
-    // 所以须对已解析后的对象直接进行绑定鼠标事件
-    if (VLOOK.doc.newTab === true) {
-        $(".mdx-table-rowfolding-button").each(function () {
-            let folderRow = $(this).parent().parent();
-            $(this).unbind("click").click(function () {
-                RowGroup.toggle(folderRow);
-            });
-        });
-    }
 }
 
 /**
@@ -6987,17 +7071,17 @@ RowGroup.lastColor = function () {
  * 设置为新的行分组
  *
  * @param tr 对应的行对象
- * @param color 该分组背景色
  * @param level 缩进层级
  * @param reset 是否重置回第一级
+ * @param color 该分组背景色
  */
-RowGroup.newFolder = function (tr, color, level, reset) {
+RowGroup.newFolder = function (tr, level, reset, color) {
     let folderRow = tr.prev();
     RowGroup.folderCount++;
 
     // 将当前行分组的 id 入栈
     RowGroup.parentStack.push(RowGroup.folderCount);
-    // 生成分组的随机背景颜色
+    // 将当前行分组的随机背景颜色入栈
     RowGroup.colorStack.push(color);
 
     // 设置折叠行分组的属性
@@ -7026,27 +7110,45 @@ RowGroup.newFolder = function (tr, color, level, reset) {
 
     // 获得折叠行分组首个单元格
     let td = folderRow.children("td:first"),
-        tdSpan = td.children("span"),
-        tdHadIdent = td.children(".mdx-table-rowfolding-identer:last");
-
-    // 添加代表目录的括号及样式
-    tdSpan.html("[<strong>" + tdSpan.html() + "</strong>]");
+        tdHadIdent = td.find(".mdx-tbl-row-g-identer:last");
 
     // 设置折叠控件样式
     if (tdHadIdent.length > 0)
-        tdHadIdent.after("<span class='mdx-table-rowfolding-button'>" + RowGroup.icon.closed + "</span>");
+        tdHadIdent.after("<span class='mdx-tbl-row-g-btn'>" + RowGroup.icon.closed + "</span>");
     else
-        td.prepend("<label class='mdx-table-rowfolding-button'>" + RowGroup.icon.closed + "</label>");
+        td.prepend("<label class='mdx-tbl-row-g-btn'>" + RowGroup.icon.closed + "</label>");
 
     // 调整折叠行的缩进样式
-    td.removeClass("mdx-table-rowfolding-not-folder");
-    td.addClass("mdx-table-rowfolding-folder");
-    tdHadIdent.addClass("mdx-table-rowfolding-identer-folder");
+    td.removeClass("mdx-tbl-row-g-not-folder");
+    td.addClass("mdx-tbl-row-g-folder");
+    tdHadIdent.addClass("mdx-tbl-row-g-identer-folder");
+
+    // 添加代表目录的括号及样式
+    // 重新组合生成新的单元格内容，以支持原始带格式的单元格内容
+    let preClass = ".mdx-tbl-row-g-identer, .mdx-tbl-row-g-btn",
+        preObjs = td.find(preClass),
+        cloneTd = td.clone();
+    cloneTd.children(preClass).remove();
+    td.html(__echoOuterHTML(preObjs) + "[<strong>" + cloneTd.html() + "</strong>]");
 
     // 设置展开、收起事件
-    td.children(".mdx-table-rowfolding-button:first").click(function () {
+    td.children(".mdx-tbl-row-g-btn:first").click(function () {
         RowGroup.toggle(folderRow);
     });
+
+    /**
+     * 遍历获得指定对象集合的所有 outerHTML 内容
+     *
+     * @param objectSet 对象集合
+     * @returns String
+     */
+    function __echoOuterHTML(objectSet) {
+        let outerHTML = "";
+        objectSet.each(function () {
+            outerHTML += $(this).prop("outerHTML");
+        });
+        return outerHTML;
+    }
 }
 
 /**
@@ -7059,13 +7161,13 @@ RowGroup.toggle = function (folderRow) {
     event.stopPropagation();
 
     // 处理行分组的打开、关闭
-    if (folderRow.attr("data-vk-row-folded") === "true")
+    if (folderRow.attr("data-vk-row-folded").startsWith("t"))
         RowGroup.open(folderRow);
     else
         RowGroup.close(folderRow);
 
     // 强制取消表格的十字光标
-    CellCross.hide();
+    TableCross.hide();
 }
 
 /**
@@ -7081,18 +7183,18 @@ RowGroup.ident = function (tr, td, level) {
 
     // 设置被折叠行的属性
     tr.attr("data-vk-parent-folder-id", RowGroup.lastParent());
-    // 设置被折叠行的背景色，层级越深颜色越深
-    tr.css("background-color", RowGroup.lastColor());
     // 设置缩进样式
     td.attr("data-vk-ident-level", level);
     // 调整样式
-    td.removeClass("mdx-table-rowfolding-not-folder");
-    td.addClass("mdx-table-rowfolding-sub");
+    td.removeClass("mdx-tbl-row-g-not-folder");
+    td.addClass("mdx-tbl-row-g-sub");
+    // 设置被折叠行的背景色，层级越深颜色越深
+    tr.css("background-color", RowGroup.lastColor());
 
     // 生成缩进占位元素
     for (let i = 0; i < level; i++) {
-        let identer = td.children(".mdx-table-rowfolding-identer:last"),
-            identObj = "<label class='mdx-table-rowfolding-identer'></label>";
+        let identer = td.find(".mdx-tbl-row-g-identer:last"),
+            identObj = "<label class='mdx-tbl-row-g-identer'></label>";
         if (identer.length > 0)
             identer.after(identObj);
         else
@@ -7112,7 +7214,7 @@ RowGroup.open = function (folderRow) {
     // 处理展开行分组
     let id = folderRow.attr("data-vk-folder-id"),
         subRows = $("tr[data-vk-parent-folder-id='" + id + "']"),
-        folderButton = folderRow.children("td:first").children(".mdx-table-rowfolding-button:last");
+        folderButton = folderRow.children("td:first").children(".mdx-tbl-row-g-btn:last");
 
     folderRow.attr("data-vk-row-folded", "false");
     folderButton.prop("innerHTML", RowGroup.icon.opened);
@@ -7153,27 +7255,27 @@ RowGroup.close = function (folderRow) {
     // 处理折叠行分组
     let id = folderRow.attr("data-vk-folder-id"),
         subRows = $("tr[data-vk-parent-folder-id='" + id + "']"),
-        folderButton = folderRow.children("td:first").children(".mdx-table-rowfolding-button:last");
+        folderButton = folderRow.children("td:first").children(".mdx-tbl-row-g-btn:last");
 
     folderRow.attr("data-vk-row-folded", "true");
     folderButton.prop("innerHTML", RowGroup.icon.closed);
 
     // 折叠所有子行（包括行分组）
     subRows.each(function () {
-        let tr = $(this);
-        if (tr.attr("data-vk-folder") === "true")
+        let tr = $(this),
+            folder = tr.attr("data-vk-folder");
+        if (folder !== undefined && folder.startsWith("t"))
             RowGroup.close(tr);
         tr.css("display", "table-column");
     });
 
     // 如表格指定了重复表头则进行对应处理
-    let table = folderRow.parent().parent(),
-        thRow = table.children("thead > tr:last-child");
+    let table = folderRow.parent().parent();
     if (table.attr("data-vk-th-rpt") === "group") {
         // 从第 2 列开始进行处理
         folderRow.find("td:not(:first-child)").each(function () {
-            let td = $(this),
-                colID = td.attr("data-vk-tbl-col");
+            let td = $(this);
+                // colID = td.attr("data-vk-tbl-col");
             // 将行分组中临时替换的列头删除
             if (td.attr("class").indexOf("mdx-th-repeater") > -1) {
                 td.html("");
@@ -7181,6 +7283,16 @@ RowGroup.close = function (folderRow) {
             }
         });
     }
+}
+
+/**
+ * 根据设备类型自适应hover样式
+ */
+RowGroup.adjustHoverStyle = function () {
+    if (env.device.mobile) // 移动设备时解绑样式事件
+        $(".mdx-tbl-row-g-btn").unbind("hover");
+    else // 为表格行分组的折叠控件绑定 hover 事件
+        VLOOK.ui.bindHover($(".mdx-tbl-row-g-btn"), "mdx-tbl-row-g-btn-hover");
 }
 
 // ==================== 表格列头重复生成器 ==================== //
@@ -7210,12 +7322,13 @@ ThRepeater.init = function (table) {
         lastSkipRowCount = 0,
         tbody = table.find("tbody > tr"),
         rowCount = tbody.length;
+
     tbody.each(function () {
         let tr = $(this),
             td = tr.children("td[rowspan]");
 
         // 跳过有跨行合并的行
-        if (tr.text(), td.length > 0) {
+        if (td.length > 0) {
             td.each(function () {
                 let rowSpan = parseInt($(this).attr("rowspan"));
                 if (rowSpan > skipRowCount)
@@ -7227,17 +7340,17 @@ ThRepeater.init = function (table) {
         // 每 15 行为 1 页
         if (skipRowCount === 0 && rowIndex % (pageSize + lastSkipRowCount - 1) === 0
             && rowIndex < rowCount) {
-            let colIndex = 0;
-            thRow.each(function () {
-                tr.after($(this).prop("outerHTML").replaceAll("<th ", "<td "));
-                tr.next().children("td").addClass("mdx-th-repeater");
-                if (colIndex === 0)
-                    tr.next().children(".mdx-th-repeater").addClass("first");
-                else
-                    tr.next().children(".mdx-th-repeater").addClass("not-first");
-                tr = tr.next();
-                colIndex++;
-            });
+                let colIndex = 0;
+                thRow.each(function () {
+                    tr.after($(this).prop("outerHTML").replaceAll("<th ", "<td "));
+                    tr.next().children("td").addClass("mdx-th-repeater");
+                    if (colIndex === 0)
+                        tr.next().children(".mdx-th-repeater").addClass("first");
+                    else
+                        tr.next().children(".mdx-th-repeater").addClass("not-first");
+                    tr = tr.next();
+                    colIndex++;
+                });
         }
         rowIndex++;
 
@@ -7275,13 +7388,16 @@ ExtAudio.init = function () {
 
         // 指定为 mini 模式（扩展的自定义控件）
         if (params["controls"] === "mini") {
+            VLOOK.doc.counter.audiomini++;
+
             // 将 URL 为音频资源的 img 标签转换为 audio
-            audio = transToAudio(audioLike, src);
+            audio = __transToAudio(audioLike, src);
             // 设置 audio id 用于自定义 mini 控件
-            audio.attr("id", "v-audio-" + VLOOK.doc.counter.audiomini);
+            audio.attr("id", "vk-id-mini-audio" + VLOOK.doc.counter.audiomini);
 
             // 添加音频播放 mini 控件
-            audio.after("<div id='v-audio-" + VLOOK.doc.counter.audiomini + "-control"
+            audio.after("<div id='vk-id-mini-audio" + VLOOK.doc.counter.audiomini + "-control"
+                + "' data-vk-title='mini audio " + (VLOOK.doc.counter.audiomini)
                 + "' class='mdx-audio-mini-control'></div>");
 
             // 开始加载音频
@@ -7298,21 +7414,28 @@ ExtAudio.init = function () {
 
                 // 绑定点击事件
                 controls.unbind("click").click(function () {
-                    play(this, audio[0]);
+                    __play(this, audio[0]);
                 });
                 controls.html(ExtAudio.icon.play);
                 controls.attr("data-vk-pause", params["pause"]);
 
                 // 须显示持续时长
-                if (params["duration"] === "true"
-                    && audio.attr("v-display-duration") !== "true") {
-                    // 计算音频时长
-                    let duration = audio[0].duration,
-                        min = Math.floor(duration / 60),
-                        sec = Math.floor(duration -  min * 60);
-                    let minStr = min > 0 ? "<strong>" + min + "</strong>′" : "";
-                    audio.next().after(" <sup class='mdx-duration-info' style='color: var(--header-color)'>" + minStr + "<strong>" + sec + "</strong>″</sup>");
-                    audio.attr("v-display-duration", "true");
+                let dur = params["duration"];
+                // console.error("dur", dur, $(this).attr("id"));
+                if (dur !== undefined && dur.startsWith("t")) {
+                    // console.error("has dur", $(this).attr("id"));
+                    let dur2 = audio.attr("data-vk-duration");
+                    // console.error("dur2", dur2, $(this).attr("id"));
+                    if (dur2 === undefined || dur2.startsWith("t") === false) {
+                        // console.error("has dur2", $(this).attr("id"));
+                        // 计算音频时长
+                        let duration = audio[0].duration,
+                            min = Math.floor(duration / 60),
+                            sec = Math.floor(duration -  min * 60);
+                        let minStr = min > 0 ? min + "′" : "";
+                        audio.next().after(" <sup class='mdx-duration-info'>" + minStr + sec + "″</sup>");
+                        audio.attr("data-vk-duration", "true");
+                    }
                 }
             });
 
@@ -7324,7 +7447,7 @@ ExtAudio.init = function () {
                 controls.addClass("mdx-audio-mini-control").addClass("playing");
 
                 // 支持暂停播放
-                if (pause !== undefined && pause === "true") {
+                if (pause !== undefined && pause.startsWith("t")) {
                     controls.html(ExtAudio.icon.pause);
                 }
                 // 不支持暂停播放，暂时即结束
@@ -7343,11 +7466,13 @@ ExtAudio.init = function () {
 
             // 故障或不可用
             audio.bind("emptied", function () {
-                let controls = $("#" + $(this).attr("id") + "-control");
+                let id = $(this).attr("id") + "-control",
+                    controls = $("#" + id);
                 controls.removeClass("loading");
                 controls.html(ExtAudio.icon.forbidden);
-                // controls.removeClass("mdx-audio-mini-control");
                 controls.addClass("mdx-audio-mini-control").addClass("disabled");
+                // 将无法加载的音频信息添加到链接检查器
+                __addToLinkChecker(id, controls.attr("data-vk-title"));
             });
 
             // 加载错误
@@ -7362,16 +7487,16 @@ ExtAudio.init = function () {
             }, function () {
                 $(this).removeClass("mdx-audio-mini-control-hover");
             });
-
-            VLOOK.doc.counter.audiomini++;
         }
         // 标准控件模式
         else {
+            VLOOK.doc.counter.audio++;
+
             // 先根据插图的语法生成题注
-            CaptionGenerator.actionForFigureLike(audioLike, "audio");
+            CaptionGenerator.actionForMediaContent(audioLike, "audio");
 
             // 将 URL 为音频资源的 img 标签转换为 audio
-            audio = transToAudio(audioLike, src);
+            audio = __transToAudio(audioLike, src);
             // 设置 audio 为标准控件
             audio.attr("controls", "controls");
 
@@ -7379,7 +7504,37 @@ ExtAudio.init = function () {
             if (audio.next(".mdx-figure-caption-2").length > 0)
                 audio.css("margin-bottom", "-10px");
 
-            VLOOK.doc.counter.audio++;
+            // 故障或不可用
+            audio.bind("emptied", function () {
+                // 将无法加载的音频信息添加到链接检查器
+                __addToLinkChecker(audio.parent().attr("id"), audio.parent().attr("data-vk-title"));
+            });
+
+            // 加载错误
+            audio.bind("error", function () {
+                audio.trigger("emptied");
+            });
+        }
+
+        /**
+         * 将无效音频源的信息添加到链接检查器
+         *
+         * @param id 坏链对象的标识
+         * @param content 显示的内容
+         */
+        function __addToLinkChecker(id, content) {
+            // 将无法加载的音频信息添加到链接检查器
+            iLinkChecker.add(id, "🔈 <strong>" + [
+                "无效的音频源",
+                "無效的音頻源",
+                "Invalid audio source",
+                "Source audio invalide",
+                "Ungültige Audioquelle",
+                "Fuente de audio no válida",
+                "Недействительный источник звука",
+                "無効なオーディオ ソース",
+                "잘못된 오디오 소스"
+            ][VLOOK.lang.id] + ":</strong> " + content);
         }
     });
 
@@ -7389,8 +7544,9 @@ ExtAudio.init = function () {
      * @param audioLike 类 audio 标签（即 src 为音频的 img 标签)
      * @param src 音频 URL
      */
-    function transToAudio(audioLike, src) {
-        let tips = ["您的浏览器不支持音频标签。",
+    function __transToAudio(audioLike, src) {
+        let tips = [
+            "您的浏览器不支持音频标签。",
             "您的瀏覽器不支持音頻標籤。",
             "Your browser does not support the <audio> tag.",
             "Votre navigateur ne prend pas en charge la balise <audio>.",
@@ -7426,7 +7582,7 @@ ExtAudio.init = function () {
      * @param self 自定义的播放控件对象
      * @param audio 音频的 JavaScript 对象
      */
-    function play(self, audio) {
+    function __play(self, audio) {
         let controls = $(self);
 
         // 已暂停、未播放
@@ -7457,16 +7613,48 @@ ExtVideo.init = function () {
     // 支持指定类型的音频，以及支持带参数的 URL
     $("img[src$='.ogv'],[src$='.mp4'],[src$='.webm'],[src*='.ogv?'],[src*='.mp4?'],[src*='.webm?']").each(function () {
         let videoLike = $(this),
+            video = undefined,
             src = videoLike.attr("src");
+        VLOOK.doc.counter.video++;
 
         // 先根据插图的语法生成题注
-        CaptionGenerator.actionForFigureLike(videoLike, "video");
+        CaptionGenerator.actionForMediaContent(videoLike, "video");
 
         // 将 URL 为音频资源的 img 标签转换为 video
-        transToVideo(videoLike, src);
+        video = __transToVideo(videoLike, src);
 
-        VLOOK.doc.counter.video++;
+        // 故障或不可用
+        video.bind("emptied", function () {
+            // 将无法加载的音频信息添加到链接检查器
+            __addToLinkChecker(video.parent().attr("id"), video.parent().attr("data-vk-title"));
+        });
+
+        // 加载错误
+        video.bind("error", function () {
+            video.trigger("emptied");
+        });
     });
+
+    /**
+     * 将无效视频源的信息添加到链接检查器
+     *
+     * @param id 坏链对象的标识
+     * @param content 用于显示的内容
+     */
+    function __addToLinkChecker(id, content) {
+        // 将无法加载的音频信息添加到链接检查器
+        iLinkChecker.add(id, "📺 <strong>" + [
+            "无效的视频源",
+            "無效的視頻源",
+            "Invalid video source",
+            "Source vidéo non valide",
+            "Ungültige Videoquelle",
+            "Fuente de video no válida",
+            "Недействительный источник видео",
+            "無効なビデオ ソース",
+            "잘못된 비디오 소스"
+        ][VLOOK.lang.id] + ":</strong> " + content);
+    }
 
     /**
      * 转换为 video 标签
@@ -7474,8 +7662,9 @@ ExtVideo.init = function () {
      * @param videoLike 类 video 标签（即 src 为视频的 img 标签)
      * @param src 视频 URL
      */
-    function transToVideo(videoLike, src) {
-        let tips = ["您的浏览器不支持视频标签。",
+    function __transToVideo(videoLike, src) {
+        let tips = [
+            "您的浏览器不支持视频标签。",
             "您的瀏覽器不支持視頻標籤。",
             "Your browser does not support the <video> tag.",
             "Votre navigateur ne prend pas en charge la balise <video>.",
@@ -7541,6 +7730,7 @@ function TextField(target, id) {
      * 将文本输入框实例添加到指定对象之后
      *
      * @param target 指定对象
+     * @param id 添加到目标对象的 id 值
      */
     this.appendTo = function (target, id) {
         // 文本输入框 UI
@@ -7554,15 +7744,12 @@ function TextField(target, id) {
         target.after(ui);
 
         // 获得实例的各关键对象
-        this.ui = $(".mdx-textfield." + id);
+        this.ui = target.parent().children(".mdx-textfield." + id);
         this.input = this.ui.children("input");
         this.reset = this.ui.children(".mdx-textfield-reset");
 
-        VLOOK.ui.addAnimate(this.ui, "box-shadow");
-        VLOOK.ui.addAnimate(this.reset);
-
         // 设置默认宽度
-        this.setWidth(200);
+        // this.setWidth(200);
 
         /**
          * 绑定文本输入事件
@@ -7655,7 +7842,6 @@ function TextField(target, id) {
         this.icon = this.ui.children(".mdx-textfield-icon");
         this.icon.html(icon);
         this.icon.show();
-
     }
 
     /**
@@ -7667,8 +7853,6 @@ function TextField(target, id) {
         this.action = this.ui.children(".mdx-textfield-action");
         this.action.html(icon);
         this.action.show();
-
-        VLOOK.ui.addAnimate(this.action);
 
         this.action.hover(function () {
             that.actionHover(true);
@@ -7733,7 +7917,6 @@ function TextField(target, id) {
      */
     this.show = function () {
         this.ui.show();
-        // this.input.focus();
     }
 
     /**
@@ -7796,13 +7979,14 @@ function FilterResultNavigator(result) {
  * @param hidden 是否默认为隐藏
  */
 function TocCatalog(hidden) {
-    let that = this;
+    let that = this,
+        __cover = $(".mdx-accent-btn.cover");
     this.ui = {
         entry : $(".mdx-segment-btn.catalog"), // 入口
         body : $(".mdx-toc-catalog-body"), // 目录索引内容
-        cover : $(".mdx-accent-btn.cover"), // 回到封面
-        keyword : new TextField($(".mdx-accent-btn.cover"), "toc-filter-catalog"), // 关键字输入框
-        result : $(".mdx-toc-filter-catalog-result") // 过滤结果面板
+        cover : __cover, // 回到封面
+        keyword : new TextField(__cover, "toc-filter-catalog"), // 关键字输入框
+        result : $(".mdx-toc-filter-result.catalog") // 过滤结果面板
     }
 
     this.headers = []; // 目录集
@@ -7816,8 +8000,6 @@ function TocCatalog(hidden) {
     this.lastDocScrollTop = 0; // 记录最后一次文档滚动位置
 
     this.resultNav = new FilterResultNavigator(this.ui.result); // 过滤结果导航器
-
-    VLOOK.ui.addAnimate(this.ui.entry);
 
     // 回到封面属性设置
     this.ui.cover.attr("data-vk-tips", [
@@ -7847,6 +8029,7 @@ function TocCatalog(hidden) {
     this.onGotoCover = undefined;
     // 锚点点击事件
     this.onClickHash = undefined;
+
 
     // 关键字输入组件属性设置
     this.ui.keyword.setIcon(VLOOK.ui.generateSvgIcon("icoRetrieval", 16, 16, "alpha"));
@@ -7886,18 +8069,27 @@ function TocCatalog(hidden) {
     // 目录相关图标集
     this.icon = {
         // 章节：已收起
-        folded : '<svg width="16px" height="16px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoFolded" class="mdx-folder-ico"/></svg>',
+        folded : '<svg width="16px" height="16px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoFolded" class="mdx-toc-folder-ico"/></svg>',
         // 章节：已展开
-        unfold : '<svg width="16px" height="16px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoUnfold" class="mdx-folder-ico"/></svg>',
+        unfold : '<svg width="16px" height="16px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoUnfold" class="mdx-toc-folder-ico"/></svg>',
     };
 
     /**
      * 自适应界面样式
      */
     this.adjust = function () {
-        this.ui.keyword.setWidth(parseInt(VLOOK.util.getStyleValue("--vlook-nav-center-width")) - this.ui.cover.width() - 32);
+        TocIndex.adjust(this, this.ui.cover.width() + 32);
     }
-    this.adjust();
+
+    /**
+     * 根据设备类型自适应hover样式
+     */
+    this.adjustHoverStyle = function () {
+        if (env.device.mobile) // 移动设备时解绑样式事件
+            $(".mdx-toc-folder").unbind("hover");
+        else // 非移动设备时绑定样式事件
+            VLOOK.ui.bindHover($(".mdx-toc-folder"), "mdx-toc-folder-hover");
+    }
 
     /**
      * 添加目录节点
@@ -7912,7 +8104,7 @@ function TocCatalog(hidden) {
 
         // 自定义目录节点元数据
         item.attr({
-            "id" : "v-header-" + item.attr("data-ref"), // 添加id属性
+            "id" : "vk-header-" + item.attr("data-ref"), // 添加id属性
             "data-vk-node" : "0", // 添加节点类型：0:叶子节点, 1:目录节点
             "data-vk-folded" : "false", // 添加节点状态：true:收起, false:展开
             "title" : a.text().trim()
@@ -7923,10 +8115,9 @@ function TocCatalog(hidden) {
 
         // 点击目录节点事件
         item.unbind("click").click(function () {
-            // VLOOK.report.push(['Outline', 'Goto', 'TOC', 0]);
             // 跳转至对应的页内锚点
             let hash = $("#" + item.attr("id")).children("a").attr("href");
-            window.location.href = hash;
+            VLOOK.util.gotoHash(hash);
 
             // 触发锚点点击事件
             typeof(that.onClickHash) == "function" && that.onClickHash();
@@ -7935,13 +8126,14 @@ function TocCatalog(hidden) {
         // -----------------------------------
         // 目录非叶子章节的折叠功能实现
         // 所有目录节点都添加 folding 空白控件备用
-        $("<div id='fd-v-header-" + item.attr("data-ref")
-            + "' class='mdx-folder'>&nbsp;</div>").insertBefore(item.find("a"));
+        $("<div id='fd-vk-header-" + item.attr("data-ref")
+            + "' class='mdx-toc-folder'>&nbsp;</div>").insertBefore(item.find("a"));
 
         // 记录所有非叶子节点的folder控件
         if (this.lastHeaderFolder !== undefined) {
             // 当前节点比上一个节点层级低，则上一节点为可折叠的节点
             if (this.parseHeaderLevel(item) > this.lastHeaderLevel) {
+                // 将最近一个子目录节点折叠控件入栈
                 this.foldItems.push(this.lastHeaderFolder);
 
                 // 为非叶子的章节添加折叠图标
@@ -7953,15 +8145,24 @@ function TocCatalog(hidden) {
 
                 // 折叠控件事件
                 folder.unbind("click").click(function () {
-                    VLOOK.report.push(['Outline', 'Assist', 'Fold/Unfold', 0]);
-                    that.foldChapterItem($(this).parent().attr("id"));
+                    let id = $(this).parent().attr("id");
+                    that.disposeFold(id, ($("#" + id).attr("data-vk-folded").startsWith("t")) ? "e" : "c", true);
                     event.cancelBubble = true;
                 });
             }
+
+            // 右当前节点比上一个节点层级高，则视为从下级回到上级
+            // 并将最近一个子目录节点折叠控件出栈
+            if (this.parseHeaderLevel(item) < this.lastHeaderLevel)
+                this.foldItems.pop();
+
+            // 设置当前节点的父级信息
+            if (this.foldItems.length > 0)
+                item.attr("data-vk-pid", this.foldItems[this.foldItems.length - 1].parent().attr("id"));
         }
 
         // 更新最后处理的folder控件
-        this.lastHeaderFolder = $("#fd-v-header-" + item.attr("data-ref"));
+        this.lastHeaderFolder = $("#fd-vk-header-" + item.attr("data-ref"));
         this.lastHeaderLevel = this.parseHeaderLevel(item);
     }
 
@@ -7969,11 +8170,14 @@ function TocCatalog(hidden) {
      * 页面滚动时根据页面当前的位置，高亮对应目录中的章节
      */
     this.focusHeader = function () {
+        // console.log("focusHeader 1");
         // ----------------------------------------
         // 控制执行频率，避免处理过快影响性能
         let scrollTop = $(document).scrollTop();
         if (Math.abs(scrollTop - this.lastDocScrollTop) < 20)
             return;
+
+        // console.log("focusHeader 2");
         this.lastDocScrollTop = scrollTop;
 
         // ----------------------------------------
@@ -7984,7 +8188,8 @@ function TocCatalog(hidden) {
             let anchor = (env.browser.Firefox === false)
                     ? this.headers[i] // 非 Firefox 浏览器
                     : decodeURI(this.headers[i]), // Firefox 浏览器
-                target = $("#" + decodeURI(anchor) + ", a[name='" + anchor + "']");
+                target = $("#" + decodeURI(anchor));
+                // target = $("#" + decodeURI(anchor) + ", a[name='" + anchor + "']");
             let headerHeight = target.height();
             // 将最近一个章节从文档可视空间上方滚出的章节定义为「当前章节」
             if ((target.offset().top - $(document).scrollTop()) > (headerHeight * 3)) {
@@ -7996,6 +8201,7 @@ function TocCatalog(hidden) {
         // 章节没有变化则直接退出
         if (this.currentHeaderIndex === currentIndex)
             return;
+        // console.log("focusHeader 3");
 
         // 章节有变化，并记录
         this.currentHeaderIndex = currentIndex;
@@ -8011,12 +8217,31 @@ function TocCatalog(hidden) {
             this.currentItem = $("#vlook-toc a[href='#" + this.headers[currentIndex] + "']").parent();
             this.currentItem.addClass("mdx-toc-item-current");
 
+            // 若当前目录节点被折叠隐藏，则向上展开父级目录节点
+            if (this.currentItem.isHidden())
+                __expandUpFolder(this.currentItem.attr("data-vk-pid"));
+
             // 导航中心内容自动滚动当前章节所在位置
             this.scrollToCurrent();
         }
 
         // 触发当前章节变化事件
         typeof(that.onChapterChanged) == "function" && that.onChapterChanged();
+
+        /**
+         * 向上展开父级目录
+         *
+         * @param id 父级目录 id 值
+         */
+        function __expandUpFolder(id) {
+            // 展开
+            that.disposeFold(id, "e", true);
+            // 若未到 h1（即第一级目录），则继续向上展开
+            let item = $("#" + id),
+                tagName = item.prop("tagName");
+            if (tagName !== undefined && tagName.toLowerCase() !== "h1")
+                __expandUpFolder(item.attr("data-vk-pid"));
+        }
     }
 
     /**
@@ -8072,7 +8297,8 @@ function TocCatalog(hidden) {
                 newItem.removeClass("md-toc-h3");
                 newItem.removeClass("md-toc-h4");
                 newItem.removeClass("md-toc-h5");
-                newItem.children(".mdx-folder").remove();
+                newItem.children(".mdx-toc-folder").remove();
+                newItem.show();
                 // 绑定同源的点击事件
                 newItem.unbind("click").click(function () {
                     that.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
@@ -8158,7 +8384,7 @@ function TocCatalog(hidden) {
      * 跳转回文档封面
      */
     this.gotoCover = function () {
-        // VLOOK.report.push(['Outline', 'Goto', 'Cover', 0]);
+        VLOOK.report.push(['Outline', 'Goto', 'Cover', 0]);
         location.href = "#";
         if (this.currentItem !== undefined) {
             this.currentItem.removeClass("mdx-toc-item-current");
@@ -8172,72 +8398,54 @@ function TocCatalog(hidden) {
      * 跳转至指定章节
      */
     this.gotoHeader = function (target) {
-        let dataAnchor = target.attr("data-vk-anchor");
-        if (dataAnchor === "cover") {
-            // VLOOK.report.push(['ChapterNav', 'Nav', 'Cover', 0]);
+        if (target.attr("data-vk-anchor") === "cover")
             this.gotoCover();
-        }
-        else {
-            // VLOOK.report.push(['ChapterNav', 'Nav', 'Chapter', 0]);
+        else
             window.location.href = "#" + target.attr("data-vk-anchor");
-        }
-    }
-
-    /**
-     * 收起/展开章节目录
-     *
-     * @param id 对象的id值
-     */
-    this.foldChapterItem = function (id) {
-        let tocItem = $("#" + id),
-            folderIco = $("#fd-" + id + " > svg");
-
-        // 若对应的章节已收起
-        if (tocItem.attr("data-vk-folded") === "true") {
-            tocItem.attr("data-vk-folded", "false");
-            folderIco.prop("outerHTML", this.icon.unfold);
-
-            this.disposeFold(id, "expand", true);
-        }
-        // 若对应的章节已展开
-        else {
-            tocItem.attr("data-vk-folded", "true");
-            folderIco.prop("outerHTML", this.icon.folded);
-
-            this.disposeFold(id, "collect", true);
-        }
     }
 
     /**
      * 处理展开或收起指定章节下的子章节
      *
      * @param id 对象的id值
-     * @param action 执行动作（collect/expand）
-     * @param child 是否遍历子元素
+     * @param action 执行动作（c: collect, e: expand）
+     * @param traversal 是否遍历子元素
      */
-    this.disposeFold = function (id, action, child) {
+    this.disposeFold = function (id, action, traversal) {
         let lastItem = null,
-            itemSet = $("#" + id).nextAll();
+            item = $("#" + id),
+            itemSet = item.nextAll(),
+            btnFolder = $("#fd-" + id);
+
+        // 更新折叠控件图标
+        item.attr("data-vk-folded", (action === "e") ? "false" : "true");
+        btnFolder.html((action === "e") ? this.icon.unfold : this.icon.folded);
+
+        // 将指定节点后的所有节点进行处理
         for (let i = 0, len = itemSet.length; i < len; i++) {
             let item = $(itemSet[i]);
+            // 对前后节点层级不一致的处理
             if (lastItem != null) {
                 const hd1 = this.parseHeaderLevel(item);
                 const hd2 = this.parseHeaderLevel(lastItem);
-                if (hd1 > hd2)
+                if (hd1 > hd2) // 当前节点层级大于上一个节点的层级，继续
                     continue;
-                else if (hd1 < hd2)
+                else if (hd1 < hd2) // 当前节点层级小于上一个节点的层级，终止
                     break;
             }
 
-            // 如果是目录节点，同时是已展开的，才进行递归调用展开子节点
-            if (child === true && item.attr("data-vk-node") === "1" && item.attr("data-vk-folded") === "false")
-                this.disposeFold(item.attr("id"), action, child);
+            // 如果是目录节点，同时是已展开，且执行动作为「收起」，才进行递归调用展开子节点
+            if (traversal === true
+                && item.attr("data-vk-node") === "1"
+                && item.attr("data-vk-folded").startsWith("f")
+                && action === "c") {
+                    item.attr("data-vk-folded", "true");
+                    // 递归处理
+                    this.disposeFold(item.attr("id"), action, traversal);
+            }
 
-            if (action === "collect") // 收起
-                item.css("display", "none");
-            else if (action === "expand") // 展开
-                item.css("display", "block");
-
+            // 收起 / 展开
+            item.css("display", (action === "c") ? "none" : "block");
             lastItem = item;
         }
     }
@@ -8278,11 +8486,11 @@ TocIndex.initUI = function (indexObj, placeholder) {
     ui.keyword.onInput = function (source, value) {
         indexObj.resultNav.restart();
 
-        if (value.trim() === "") {
+        if (value.trim().length === 0) {
             let items = ui.result.children(".mdx-toc-item");
             items.show();
             if (items.length === 0)
-                showTips();
+                __showTips();
             else
                 ui.tips.hide();
         }
@@ -8300,7 +8508,7 @@ TocIndex.initUI = function (indexObj, placeholder) {
     /**
      * 显示提示信息
      */
-    function showTips() {
+    function __showTips() {
         ui.tips.text([
             "无此类内容",
             "無此類內容",
@@ -8315,17 +8523,17 @@ TocIndex.initUI = function (indexObj, placeholder) {
         ui.tips.show();
     }
 
-    showTips();
+    __showTips();
 }
 
 /**
  * 适配处理
  *
  * @param indexObj 目标对象
+ * @param offset 偏移量
  */
 TocIndex.adjust = function (indexObj, offset) {
-    indexObj.ui.keyword.setWidth(
-        parseInt(VLOOK.util.getStyleValue("--vlook-nav-center-width")) - offset);
+    indexObj.ui.keyword.setWidth(iNavCenter.width - offset);
 }
 
 /**
@@ -8340,12 +8548,11 @@ TocIndex.add = function (indexObj, text, anchor) {
         indexObj.ui.tips.hide();
     let item = $('<span class="mdx-toc-item">' + text + "</span>");
     indexObj.ui.result.append(item);
-    // VLOOK.ui.addAnimate(item);
     item.unbind("click").click(function () {
         indexObj.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
         item.addClass("mdx-toc-item-current");
 
-        window.location.href = "#" + anchor;
+        VLOOK.util.gotoHash("#" + anchor);
 
         // 触发锚点点击事件
         typeof(indexObj.onClickHash) == "function" && indexObj.onClickHash();
@@ -8359,7 +8566,7 @@ TocIndex.add = function (indexObj, text, anchor) {
  * @param value 过滤的关键字内容
  */
 TocIndex.filterByKeyword = function (indexObj, value) {
-    if (value.trim() === "")
+    if (value.trim().length === 0)
         return;
 
     let matched = false;
@@ -8424,12 +8631,13 @@ TocIndex.hide = function (indexObj) {
  * @param hidden 是否默认为隐藏
  */
 function TocFigure(hidden) {
-    let that = this;
+    let that = this,
+        __figNav = $(".mdx-accent-btn.figure-nav");
     this.ui = {
         entry : $(".mdx-segment-btn.figure"), // 入口
-        figureNav : $(".mdx-accent-btn.figure-nav"), // 插图浏览器
-        keyword : new TextField($(".mdx-accent-btn.figure-nav"), "toc-filter-figure"), // 关键字输入框
-        result : $(".mdx-toc-filter-figure-result"), // 过滤结果面板
+        figureNav : __figNav, // 插图浏览器
+        keyword : new TextField(__figNav, "toc-filter-figure"), // 关键字输入框
+        result : $(".mdx-toc-filter-result.figure"), // 过滤结果面板
         tips : undefined
     };
 
@@ -8482,7 +8690,6 @@ function TocFigure(hidden) {
      */
     this.adjust = function () {
         TocIndex.adjust(this, this.ui.figureNav.width() + 32);
-        // this.ui.keyword.setWidth(parseInt(VLOOK.util.getStyleValue("--vlook-nav-center-width")) - this.ui.figureNav.width() - 32);
     }
 
     /**
@@ -8525,7 +8732,7 @@ function TocTable(hidden) {
     this.ui = {
         entry : $(".mdx-segment-btn.table"), // 入口
         keyword : new TextField($(".mdx-segment"), "toc-filter-table"), // 关键字输入框
-        result : $(".mdx-toc-filter-table-result"), // 过滤结果面板
+        result : $(".mdx-toc-filter-result.table"), // 过滤结果面板
         tips : undefined
     };
 
@@ -8592,7 +8799,7 @@ function TocMultimedia(hidden) {
     this.ui = {
         entry : $(".mdx-segment-btn.multimedia"), // 入口
         keyword : new TextField($(".mdx-segment"), "toc-filter-multimedia"), // 关键字输入框
-        result : $(".mdx-toc-filter-multimedia-result"), // 过滤结果面板
+        result : $(".mdx-toc-filter-result.multimedia"), // 过滤结果面板
         tips : undefined
     };
 
@@ -8659,7 +8866,7 @@ function TocCodeblock(hidden) {
     this.ui = {
         entry : $(".mdx-segment-btn.codeblock"), // 入口
         keyword : new TextField($(".mdx-segment"), "toc-filter-codeblock"), // 关键字输入框
-        result : $(".mdx-toc-filter-codeblock-result"), // 过滤结果面板
+        result : $(".mdx-toc-filter-result.codeblock"), // 过滤结果面板
         tips : undefined
     };
 
@@ -8729,7 +8936,7 @@ function TocHistory(hidden) {
         history : $(".mdx-toc-history-result") // 历史记录面板
     };
 
-    VLOOK.ui.addAnimate(this.ui.entry);
+    // VLOOK.ui.addAnimate(this.ui.entry);
 
     // 锚点点击事件
     this.onClickHash = undefined;
@@ -8740,17 +8947,19 @@ function TocHistory(hidden) {
      * @param hash 页内锚点链接
      */
     this.add = function (hash) {
-        if (hash === "#" || hash.trim() === "")
+        if (hash === undefined || hash === "#" || hash.trim().length === 0)
             return;
 
         // 清空当前条目的样式
         that.ui.history.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
 
-        // 对由 VLOOK 生成的题注类内容的页内锚点，取其对应的文本
+        // 对由 VLOOK 生成的页内锚点，对其显示的条目文本进行处理
         let title = undefined,
             anchor = hash.substring(1, hash.length);
-        if (hash.startsWith("#vk-idx"))
+        if (anchor.startsWith("vk-id"))
             title = $(hash).attr("data-vk-title");
+        else if (anchor.startsWith("vk-err")) // 错误的内链
+            title = $(hash).text();
 
         let anchorText = (title === undefined ? decodeURI(anchor) : title), // 生成访问历史记录显示的文本
             result = that.ui.history.children("span[data-vk-history='" + hash + "']");
@@ -8773,9 +8982,8 @@ function TocHistory(hidden) {
         // 为新增加 / 移动后的记录添加鼠标事件
         let item = that.ui.history.children("span[data-vk-history='" + hash + "']");
         item.addClass("mdx-toc-item-current");
-        // VLOOK.ui.addAnimate(item);
         item.unbind("click").click(function () {
-            window.location.href = hash;
+            VLOOK.util.gotoHash(hash);
             // 触发锚点点击事件
             typeof(that.onClickHash) == "function" && that.onClickHash();
         });
@@ -8834,170 +9042,176 @@ ExtFigure.init = function () {
         stopwatch = new Stopwatch();
 
     // ----------------------------------------
+    // 对 svg 类插图（Mermaid）进行初始化处理
     stopwatch.lapStart();
     // 针对 Mermaid 饼图为双 SVG 结构（标准的 Mermaid 是单 SVG 结构），进行规范化调整
     $(".md-diagram-panel > svg > svg > g").each(function () {
         $(this).unwrap();
     });
-    stopwatch.lapStop("    ├ Figure/1: ");
+    stopwatch.lapStop("    ├ prepare svg: ");
 
     // ----------------------------------------
+    // 对 img 类插图（Mermaid）进行初始化处理
     stopwatch.lapStart();
-    // 对所有插图（图片、Mermaid 图、插图导航的插图）进行初始化处理
-    // p > .md-image:not(:only-child) img 是指 p 内只有 img 的才被视为插图
-    // $("p > img:only-child, p > .md-image:only-child img, img[src*='mode=figure'], img[src*='mode=icon'],  img[src*='mode=logo'], .md-diagram-panel svg, .mdx-figure-content svg").each(function () {
-    $("p > img, p > .md-image img, img[src*='mode=figure'], img[src*='mode=icon'],  img[src*='mode=logo'], .md-diagram-panel svg, .mdx-figure-content svg").each(function () {
+    $("#write p > img, img[src*='mode=figure'], img[src*='mode=icon'], img[src*='mode=logo'], #write .md-diagram-panel svg").each(function () {
         let fig = $(this),
             src = fig.attr("src"),
-            tagName = fig.prop("tagName").toLowerCase();
-
-        // img 插图的处理 1
-        let params = null;
-        if (tagName === "img") {
-            params = VLOOK.util.getQueryParams(src);
-
-            // 初始化图片背景的适配处理
-            initBackground(fig, params);
+            container = fig,
+            tagName = (src !== undefined ? "img" : "svg");
+        // ----------------------------------------
+        // img 类插图的处理
+        if (src !== undefined) {
+            // 对于 img 类插图的预处理
+            let params = VLOOK.util.getQueryParams(src);
 
             // 初始化图片颜色替换的适配处理
-            initFillAlter(fig, params, src);
+            __initFillAlter(fig, params, src);
 
             // 初始化图片对颜色方案的适配处理
-            initColorScheme(fig, params);
+            __initColorScheme(fig, params);
 
             // 初始化图片对高分屏的适配处理
-            initHighDPI(fig, params);
+            __initHighDPI(fig, params);
 
             // 对图片加载结果进行是跟踪检查
-            bindLoadChecker(fig);
+            __bindLoadChecker(fig);
 
             // 跳过带指定显示版式的图片
-            if (src.indexOf("mode=icon") > -1
-                || src.indexOf("mode=logo") > -1) {
-                ExtFigure.adjustColorScheme(false);
-                // 进行一下轮循环
+            let mi = src.indexOf("mode", 5), // 分段检过提高处理性能
+                iconMode = src.indexOf("=icon", mi + 4) > -1,
+                logoModeIndex = src.indexOf("=logo", mi + 4);
+            if (mi > -1 && iconMode || logoModeIndex > -1)
                 return true;
-            }
-        }
 
-        // 添加插图标识数据
-        fig.attr({
-            // "vk-fig-id" : "mdx-figure-" + VLOOK.doc.counter.figure,
-            "vk-idx-fig-num" : VLOOK.doc.counter.figure
-        });
+            // 初始化图片背景的适配处理
+            __initBackground(fig, params);
 
-        // 添加插图样式
-        fig.addClass("mdx-figure");
-
-        // 添加鼠标单击事件
-        fig.unbind("click").click(function () {
-            if (VLOOK.doc.newTab === false)
-                iFigureNav.show(fig);
-        });
-        // 添加鼠标移入/移出事件
-        fig.hover(function () {
-            ContentAssist.lastHoverContent = $(this);
-
-            if (VLOOK.doc.newTab === false) {
-                $(this).addClass("mdx-OINTable-hover");
-                ContentAssist.showOpenInNewTabButton();
-            }
-        }, function () {
-            $(this).removeClass("mdx-OINTable-hover");
-            ContentAssist.hideButtons();
-        });
-
-        // img 插图的处理 2
-        if (tagName === "img") {
-            let container = fig.parent();
-
+            // 添加插图容器
+            container = fig.parent();
             // 确保 img 有独立的父容器，一般情况下 Typora 导出的为 <p>
             if (container.prop("tagName").toLowerCase() !== "p") {
                 fig.wrap("<p></p>");
                 container = fig.parent();
             }
 
-            // 为父容器增加 img 容器标识，用于折叠内容时使用
-            container.attr("data-vk-container", "img");
-            container.css({
-                "border-radius" : "var(--vlook-base-radius)",
-                "margin-bottom" : "20px"
-            });
-
             // 初始化对齐方式
-            initAlign(container, params);
-        } // if img
-        // svg (mermaid) 插图的处理
-        else if (tagName === "svg") {
-            fig.parent().attr("data-vk-container", "svg");
+            __initAlign(container, params);
         }
 
-        // 折叠长插图
-        iContentFolding.add(fig);
-
-        // 生成插图题注
-        CaptionGenerator.action(fig);
-
         VLOOK.doc.counter.figure++;
+
+        // 绑定操作相关事件
+        __bindEvent(fig);
+
+        // 处理题注
+        __disposeCaption(fig, tagName);
+
+        // 设置容器数据，用于折叠内容时使用
+        container.attr("data-vk-container", tagName);
+        container.addClass("mdx-caption-container");
+        // 折叠长插图
+        iContentFolder.add(fig);
     }); // 结束初始化处理
-    stopwatch.lapStop("    ├ Figure/2: ");
+    stopwatch.lapStop("    ├ figure set: ");
 
     // ----------------------------------------
+    // srcset 为 auto 模式的处理
     stopwatch.lapStart();
     // 在当前环境的 DPR > 1 时，对于没有指定 srcset 的 img 类插图，自动强制将 src 直接指定 2x 图片
     // 可通过 URL 参数 srcset=auto 来启用
     if (env.display.DPR > 1
         && VLOOK.util.getQueryParams(window.location.href)["srcset"] === "auto") {
-        $("p[data-vk-container='img'] img").each(function () {
-            let fig = $(this);
-            if (fig.attr("src").indexOf(".svg") === -1 // 跳过 svg 文件
-                && fig.attr("srcset") === undefined) {
-                fig.attr("srcset", fig.attr("src") + " 2x");
-            }
-        });
+            $("p[data-vk-container='img'] img").each(function () {
+                let fig = $(this);
+                if (fig.attr("src").indexOf(".svg", 1) === -1 // 跳过 svg 文件
+                    && fig.attr("srcset") === undefined) {
+                        fig.attr("srcset", fig.attr("src") + " 2x");
+                }
+            });
     }
 
-    // 适配对插图浏览器处理
-    ExtFigure.adjustFigureNav();
+    // 若文档没有插图
+    if (VLOOK.doc.counter.figure === 0) {
+        iNavCenter.figure.ui.figureNav.addClass("disabled");
+        iNavCenter.figure.ui.figureNav.attr("data-vk-tips", [
+            "本文档无插图",
+            "本文檔無插圖",
+            "No figures in this document",
+            "Pas de chiffres dans ce document",
+            "Keine Zahlen in diesem Dokument",
+            "No hay cifras en este documento",
+            "В этом документе нет цифр",
+            "このドキュメントにはイラストはありません",
+            "이 문서에는 그림이 없습니다."
+        ][VLOOK.lang.id]);
+    }
 
     // 进行图片对颜色方案的适配处理
     ExtFigure.adjustColorScheme(false);
-    stopwatch.lapStop("    └ Figure/3: ");
+    stopwatch.lapStop("    └ DPR & misc.: ");
+
+    /**
+     * 绑定操作相关事件
+     *
+     * @param fig 插图对象
+     */
+    function __bindEvent(fig) {
+        // 添加鼠标单击事件
+        fig.unbind("click").click(function () {
+            iFigureNav.show(fig);
+        });
+        // 添加鼠标移入/移出事件
+        fig.hover(function () {
+            ContentAssist.lastHoverContent = $(this);
+            $(this).addClass("mdx-interactive-hover");
+        }, function () {
+            $(this).removeClass("mdx-interactive-hover");
+            ContentAssist.hideButtons();
+        });
+    }
+
+    /**
+     * 处理题注
+     *
+     * @param fig 插图对象
+     * @param tagName 插图所属标签 img、svg
+     */
+     function __disposeCaption(fig, tagName) {
+       // 设置插图属性数据
+       fig.attr("data-vk-fig-num", VLOOK.doc.counter.figure);
+       fig.addClass("mdx-figure");
+
+       // 生成插图题注
+       CaptionGenerator.actionForMediaContent(fig, tagName);
+    }
 
     /**
      * 绑定加载失败处理
+     *
+     * @param fig 插图对象
      */
-    function bindLoadChecker(fig) {
+    function __bindLoadChecker(fig) {
         let src = fig.attr("src");
         // 图片无法加载时加载默认图片
         fig.bind("error", function () {
-            if (src.indexOf("vlook-lost-image.jpg") === -1)
-                if (ignoreImgLost === false) {
-                    let msg = [
-                        "图片缺失：",
-                        "圖片缺失：",
-                        "Lost Image: ",
-                        "Image perdue: ",
-                        "Потерянное изображение: ",
-                        "失われた画像：",
-                        "잃어버린 이미지 : "
-                    ][VLOOK.lang.id] + fig.parent().text() + "\"" + fig.attr("src") + "\"";
+            if (ignoreImgLost === false) {
+                // 将无法加载的图片信息添加到链接检查器
+                let cp1 = fig.parent().find(".mdx-figure-caption-1").html(),
+                    cp2 = fig.parent().find(".mdx-figure-caption-2").text();
+                iLinkChecker.add(fig.parent().attr("id"), "🖼 <strong>" + [
+                    "无效的图片源",
+                    "無效的圖片源",
+                    "Invalid image source",
+                    "Source d'image non valide",
+                    "Ungültige Bildquelle",
+                    "Fuente de imagen no válida",
+                    "Неверный источник изображения",
+                    "無効な画像ソース",
+                    "잘못된 이미지 소스"
+                ][VLOOK.lang.id] + ":</strong> " + cp1 + (cp2.trim().length > 0 ? " | " + cp2 : ""));
+            }
 
-                    console.error(msg);
-                    ignoreImgLost = !confirm(msg + [
-                        "\n\n继续检查吗？",
-                        "\n\n繼續檢查嗎？",
-                        "\n\nContinue to check?",
-                        "\n\nContinuer à vérifier?",
-                        "\n\nWeiter prüfen?",
-                        "\n\n¿Continuar comprobando?Continue to check?",
-                        "\n\nПродолжить проверку?",
-                        "\n\nチェックを続けますか？",
-                        "\n\n계속 확인 하시겠습니까?"
-                    ][VLOOK.lang.id]);
-                }
-
-            loadDefaultOnError($(this));
+            __loadDefaultOnError($(this));
         });
 
         // 强制重新加载一次以触发error事件
@@ -9010,7 +9224,7 @@ ExtFigure.init = function () {
      * @param container img 的题注容器对象
      * @param params img 对象 src 值的 URL 参数数组
      */
-     function initAlign(container, params) {
+     function __initAlign(container, params) {
         let align = params["align"];
         if (align === undefined)
             return;
@@ -9023,7 +9237,7 @@ ExtFigure.init = function () {
      * @param img img 对象
      * @param params img 对象 src 值的 URL 参数数组
      */
-    function initBackground(img, params) {
+    function __initBackground(img, params) {
         let grid = params["grid"];
         if (grid === undefined)
             return;
@@ -9037,14 +9251,14 @@ ExtFigure.init = function () {
      * @param params img 对象 src 值的 URL 参数数组
      * @param src img 对象的 src 值
      */
-    function initFillAlter(img, params, src) {
+    function __initFillAlter(img, params, src) {
         if (params["fill"] === undefined)
             return;
 
         img.attr("data-vk-img-fill", params["fill"]);
 
         // 图片为 SVG 格式时，将源文件通过 SVGInject 注入到 HTML 文档中
-        if (src.indexOf(".svg") > -1)
+        if (src.indexOf(".svg", 1) > -1)
             SVGInject(img[0]);
     }
 
@@ -9054,7 +9268,7 @@ ExtFigure.init = function () {
      * @param img img 对象
      * @param params img 对象 src 值的 URL 参数数组
      */
-    function initColorScheme(img, params) {
+    function __initColorScheme(img, params) {
         // 未指定 darksrc 参数，或同时指定了 fill 参数，则跳过
         if (params["darksrc"] === undefined)
             return;
@@ -9094,14 +9308,14 @@ ExtFigure.init = function () {
      * @param img img 对象
      * @param params img 对象 src 值的 URL 参数数组
      */
-    function initHighDPI(img, params) {
+    function __initHighDPI(img, params) {
         let src = img.attr("src"),
             srcset = params["srcset"],
             darksrcset = params["darksrcset"];
 
         // Light Mode 对应的图片集
         if (srcset !== undefined) {
-            srcset = transUrlSrcSet(src, srcset);
+            srcset = __transUrlSrcSet(src, srcset);
             img.attr("data-vk-srcset-light", srcset);
             // 设置默认值
             img.attr("srcset", srcset);
@@ -9109,7 +9323,7 @@ ExtFigure.init = function () {
 
         // Dark Mode 对应的图片集
         if (darksrcset !== undefined) {
-            darksrcset = transUrlSrcSet(img.attr("data-vk-src-dark"), darksrcset);
+            darksrcset = __transUrlSrcSet(img.attr("data-vk-src-dark"), darksrcset);
             img.attr("data-vk-srcset-dark", darksrcset);
         }
     }
@@ -9119,7 +9333,7 @@ ExtFigure.init = function () {
      *
      * @param target 目标 img 对象
      */
-    function loadDefaultOnError(target) {
+    function __loadDefaultOnError(target) {
         let alt = target.attr("alt");
         // 将 alt 替换为 title 避免无法指定 width、height 属性
         if (alt !== undefined && alt.length > 0) {
@@ -9135,14 +9349,14 @@ ExtFigure.init = function () {
      * @param src 图片 URL
      * @param srcset srcset 或 darksrcset 参数的内容
      */
-    function transUrlSrcSet(src, srcset) {
+    function __transUrlSrcSet(src, srcset) {
         // 针对 html 与 图片同一目录的情况
         let path = VLOOK.util.getPath(src);
 
         // @2x/@3x 图片资源为自动匹配名称的语法
         // 2x/3x 的文件名为 <文件名@2x.xxx> 或 <文件名@3x.xxx> 的情况
         if (/^@[2]x(,@[3]x)?$/.test(srcset) === true) {
-            let pureSrc = src.substring(0, src.indexOf("?")),
+            let pureSrc = src.substring(0, src.indexOf("?", 5)),
                 fileName = pureSrc.substring(0, pureSrc.lastIndexOf(".")), // 图片资源文件名（不含扩展名）
                 suffix = pureSrc.substring(pureSrc.lastIndexOf("."), pureSrc.length); // 图片资源扩展名
             // 自动补全图片资源 URL
@@ -9162,7 +9376,7 @@ ExtFigure.init = function () {
         if (sss[0].indexOf("/") === -1) // 仅为文件名时才添加路径
             srcset = path + srcset;
         // 为 3x 图添加图片路径
-        if (sss.length > 1 && [1].indexOf("/") === -1) // 仅为文件名时才添加路径
+        if (sss.length > 1 && sss[1].indexOf("/") === -1) // 仅为文件名时才添加路径
             srcset = srcset.replace(" 2x,", " 2x," + path);
 
         return srcset;
@@ -9177,28 +9391,29 @@ ExtFigure.init = function () {
 ExtFigure.adjustColorScheme = function (grid) {
     let scheme = ColorScheme.scheme,
         darkMode = scheme === "dark";
-
     // --------------------
-    // 对图片在 Dark Mode 适配的处理
-    // 适配方式为「反转」的处理
-    $("img[data-vk-darksrc='invert']").each(function () {
-        let img = $(this);
+    // 对图片在 Dark Mode 时的适配处理
+    // 1. 对适配方式为「反转」的处理
+    $("img[data-vk-darksrc='invert'], svg[data-vk-darksrc='invert']").each(function () {
+        let img = $(this),
+            src = img.attr("src");
         if (darkMode === true) {
             // 如果图片没有指定替换颜色时才进行处理
             if (img.attr("data-vk-img-fill") === undefined) {
                 // 设置默认的 srcset
-                img.attr("srcset", img.attr("data-vk-srcset-light"));
+                if (src !== undefined)
+                    img.attr("srcset", img.attr("data-vk-srcset-light"));
                 // 添加反转样式
                 img.addClass("mdx-img-invert-dark");
             }
         }
         else {
             img.removeClass("mdx-img-invert-dark");
-            img.attr("srcset", img.attr("data-vk-srcset-light"));
+            if (src !== undefined)
+                img.attr("srcset", img.attr("data-vk-srcset-light"));
         }
     });
-
-    // 适配方式为「替换」的处理
+    // 2. 对适配方式为「替换」的处理
     $("img[data-vk-darksrc='alter']").each(function () {
         let img = $(this);
         img.removeClass("mdx-img-invert-dark");
@@ -9209,23 +9424,21 @@ ExtFigure.adjustColorScheme = function (grid) {
     // --------------------
     // 对图片指定为颜色替换的处理
     $("img[data-vk-img-fill='text'], img[data-vk-img-fill='theme1'], img[data-vk-img-fill='theme2'], svg[data-vk-img-fill='text'], svg[data-vk-img-fill='theme1'], svg[data-vk-img-fill='theme2']").each(function () {
-        let img = $(this),
-            fill = img.attr("data-vk-img-fill");
+        let fig = $(this),
+            fill = fig.attr("data-vk-img-fill");
         // SVG 对象或 src 为 .svg 的 img 对象
-        if (img.prop("tagName").toLowerCase() === "svg"
-            || img.attr("src").indexOf(".svg") > -1) {
-            ExtFigure.adjustFillAlterForSVG(fill, img);
+        if (fig.prop("tagName").toLowerCase().startsWith("s") || fig.attr("src").indexOf(".svg", 1) > -1) {
+            ExtFigure.adjustFillAlterForSVG(fill, fig);
         }
         // 其他情况
         else {
             if (fill === "text")
-                img.css("filter", "drop-shadow(12345px 0px " + img.parent().css("color") + ")");
+                fig.css("filter", "drop-shadow(12345px 0px " + fig.parent().css("color") + ")");
             else
-                img.css("filter", "drop-shadow(12345px 0px var(--accent-color-" + fill + "-light))");
+                fig.css("filter", "drop-shadow(12345px 0px var(--acc-color-" + fill + "-light))");
 
-            if (img.attr("vk-idx-fig-num") !== undefined) {
-                img.css("background", "none");
-            }
+            if (fig.attr("data-vk-fig-num") !== undefined)
+                fig.css("background", "none");
         }
     });
 
@@ -9274,28 +9487,15 @@ ExtFigure.adjustColorScheme = function (grid) {
  * @param svg SVG 实例对象
  */
 ExtFigure.adjustFillAlterForSVG = function (fill, svg) {
+    // console.error("fill", fill);
     if (fill === "text")
         svg.find("path, rect, ellipse, polygon").css({
             "fill" : svg.parent().css("color")
         });
     else
         svg.find("path, rect, ellipse, polygon").css({
-            "fill" : "var(--accent-color-" + fill + "-light)"
+            "fill" : "var(--acc-color-" + fill + "-light)"
         });
-}
-
-/**
- * 适配插图浏览器相关特性
- */
-ExtFigure.adjustFigureNav = function () {
-    // 若文档没有插图
-    if (VLOOK.doc.counter.figure === 0) {
-        // iNavCenter.figure.ui.figureNav.unbind("click");
-        iNavCenter.figure.ui.figureNav.addClass("disabled");
-    }
-    else {
-        iNavCenter.figure.ui.figureNav.removeClass("disabled");
-    }
 }
 
 // ==================== 插图导航模块 ==================== //
@@ -9305,12 +9505,12 @@ function FigureNav() {
     this.ui = $(".mdx-figure-nav"); // 插图导航主界面
     this.button = {
         ui : $(".mdx-figure-nav-btns"), // 所有导航按钮
-        prev : $(".mdx-btn-figure-prev"), // 上一张插图按钮
-        next : $(".mdx-btn-figure-next"), // 下一张插图按钮
+        prev : $(".mdx-figure-nav-btns.prev"), // 上一张插图按钮
+        next : $(".mdx-figure-nav-btns.next"), // 下一张插图按钮
         close : $(".mdx-btn-close-figure-nav"), // 关闭按钮
     };
     this.content = $(".mdx-figure-content"); // 显示插图内容的控件
-    this.figNum = 0; // 当前插图索引序号，对应 vk-idx-fig-num 中的值
+    this.figNum = 0; // 当前插图索引序号，对应 vk-id-fig 中的值
 
     VLOOK.ui.addAnimate(this.content.children("img, svg"));
 
@@ -9330,12 +9530,10 @@ function FigureNav() {
 
     /**
      * 插图导航导航按钮在不同终端的适配处理
-     *
-     * @param flag "mobile" : 移动端，"desktop"：桌面端
      */
-    this.adjustHoverStyle = function (flag) {
+    this.adjustHoverStyle = function () {
         // 移动设备时解绑样式事件
-        if (flag === "mobile") {
+        if (env.device.mobile) {
             this.button.prev.unbind("hover");
             this.button.next.unbind("hover");
         }
@@ -9377,12 +9575,12 @@ function FigureNav() {
         VLOOK.doc.block = true;
 
         if (fig == null)
-            fig = $("[vk-idx-fig-num='" + this.figNum + "']");
+            fig = $("[data-vk-fig-num='" + this.figNum + "']");
 
         ContentAssist.hideButtons();
 
         // 在插图导航中显示对应插图
-        this.figNum = parseInt(fig.attr("vk-idx-fig-num"));
+        this.figNum = parseInt(fig.attr("data-vk-fig-num"));
 
         VLOOK.ui.show(this.ui);
         this.display();
@@ -9396,12 +9594,6 @@ function FigureNav() {
         this.content.empty();
         VLOOK.ui.hide(this.ui);
 
-        // 调整插图动作按钮层级
-        let actIdx = parseInt(ContentAssist.button.openInNewTab.css("z-index")),
-            viewerIdx = parseInt(this.ui.css("z-index"));
-        if (actIdx > viewerIdx)
-            ContentAssist.button.openInNewTab.css("z-index", actIdx - viewerIdx);
-
         ContentAssist.hideButtons();
         VLOOK.doc.scroll.unfreeze();
         VLOOK.doc.block = false;
@@ -9411,7 +9603,7 @@ function FigureNav() {
      * 显示插图内容
      */
     this.display = function () {
-        let fig = $("[vk-idx-fig-num='" + this.figNum + "']");
+        let fig = $("[data-vk-fig-num='" + this.figNum + "']");
         this.content.empty();
         this.content.show();
         this.content.css({
@@ -9428,18 +9620,12 @@ function FigureNav() {
         VLOOK.ui.hide(newFig);
 
         // 添加鼠标移入/移出事件
-        newFig.hover(function () {
-            if (VLOOK.doc.newTab === false)
-                $(this).addClass("mdx-OINTable-hover");
-        }, function () {
-            if (VLOOK.doc.newTab === false)
-                $(this).removeClass("mdx-OINTable-hover");
-        });
+        VLOOK.ui.bindHover(newFig, "mdx-interactive-hover");
+
         // 添加鼠标点击事件
         newFig.unbind("click").click(function () {
             // 跳转到对应位置
-            window.location.href = "#vk-idx-fig-num" + that.figNum;
-
+            window.location.href = "#vk-id-fig" + that.figNum;
             that.hide();
         });
 
@@ -9451,7 +9637,6 @@ function FigureNav() {
      * 查看上一个插图
      */
     this.prev = function () {
-        // VLOOK.report.push(['Interactive', 'FigureNav', 'Prev', 0]);
         if (this.figNum > 0) {
             this.figNum--;
             ContentAssist.hideButtons();
@@ -9464,7 +9649,6 @@ function FigureNav() {
      * 查看下一个插图
      */
     this.next = function () {
-        // VLOOK.report.push(['Interactive', 'FigureNav', 'Next', 0]);
         if (this.figNum < VLOOK.doc.counter.figure - 1) {
             this.figNum++;
             ContentAssist.hideButtons();
@@ -9481,7 +9665,7 @@ function FigureNav() {
 
         pageNum.html("<span class='mdx-figure-page-num'>"
             + (this.figNum + 1) + "/" + VLOOK.doc.counter.figure + "</span> "
-            + $("#vk-idx-fig-num" + this.figNum + " > .mdx-figure-caption-1").text());
+            + $("#vk-id-fig" + this.figNum + " > .mdx-figure-caption-1").text());
 
         // 更新导航按钮位置
         this.button.prev.css("top", (this.ui.height() - this.button.prev.height()) / 2);
@@ -9514,12 +9698,10 @@ function FigureNav() {
         switch (code) {
             case 188: // <
             case 37: // ←
-                // VLOOK.report.push(['Hotkey', combKeys, '<←', 0]);
                 this.prev();
                 break;
             case 190: // >
             case 39: // →
-                // VLOOK.report.push(['Hotkey', combKeys, '>→', 0]);
                 this.next();
                 break;
             case 27: // ESC
@@ -9568,7 +9750,8 @@ Restyler.forTaskList = function () {
             chkStyle = "dark"; // 默认样式
 
         // 已完成
-        if ($(this).attr("checked") === "checked") {
+        let checked = $(this).attr("checked");
+        if (checked !== undefined && checked.startsWith("c")) { // checked
             chkStatus = "checked";
             chkStyle = "btn";
         }
@@ -9662,23 +9845,23 @@ Restyler.forMermaid = function () {
             g = fragment.parent();
 
         // 默认的样式（par 片断）
-        let bgColor = "var(--mermaid-color-orange-light)",
-            borderColor = "var(--mermaid-color-orange-light)",
-            titleColor = "var(--mermaid-color-orange-light)",
-            labelText = "var(--mermaid-color-orange-alt-light)";
+        let bgColor = "var(--mm-color-orange-light)",
+            borderColor = "var(--mm-color-orange-light)",
+            titleColor = "var(--mm-color-orange-light)",
+            labelText = "var(--mm-color-orange-alt-light)";
         // 为 alt 片断设置样式
         if (fragment.text() === "alt") {
-            bgColor = "var(--mermaid-color-red-light)";
-            borderColor = "var(--mermaid-color-red-light)";
-            titleColor = "var(--mermaid-color-red-light)";
-            labelText = "var(--mermaid-color-red-alt-light)";
+            bgColor = "var(--mm-color-red-light)";
+            borderColor = "var(--mm-color-red-light)";
+            titleColor = "var(--mm-color-red-light)";
+            labelText = "var(--mm-color-red-alt-light)";
         }
         // 为 loop 片断设置样式
         else if (fragment.text() === "loop") {
-            bgColor = "var(--mermaid-color-cyan-light)";
-            borderColor = "var(--mermaid-color-cyan-light)";
-            titleColor = "var(--mermaid-color-cyan-light)";
-            labelText = "var(--mermaid-color-cyan-alt-light)";
+            bgColor = "var(--mm-color-cyan-light)";
+            borderColor = "var(--mm-color-cyan-light)";
+            titleColor = "var(--mm-color-cyan-light)";
+            labelText = "var(--mm-color-cyan-alt-light)";
         }
 
         // 为 alt、loop、par 片断应用样式设置
@@ -9784,234 +9967,6 @@ RepairTool.mermaidDPR = {
 }
 
 /**
- * 【补丁】修复 Typora (0.9.9.31.5及更早的版本) 文档内链带标点符号时，导出的 HTML 后不能跳转的 BUG
- */
-RepairTool.fixTyporaInnerLink = function () {
-    // 清理内链 href 中「无效」的符号，这个是目前 Typora 导出 HTML 的 BUG 引起的
-    let invalidHrefSymbol = " `~!@#$%^&*()_+=[]{}\\|;:'\",.<>?/！…（【】「」、：“”，。《》？〈〉『』";
-    $("a[href^='#']").each(function () {
-        $(this).attr("href", $(this).attr("href").toLowerCase());
-        for (let i = 0, len = invalidHrefSymbol.length; i < len; i++) {
-            let href = $(this).attr("href"),
-                ch = invalidHrefSymbol.substr(i, 1);
-            if ($(this).attr("href").indexOf(ch) > -1) {
-                let newStr = (i === 0) ? "-" : "";
-                $(this).attr("href", "#" + href.substring(1, href.length).replaceAll(ch, newStr));
-            }
-        }
-    });
-}
-
-/**
- * 【补丁】修正 Mermaid 8.5 在导出 HTML 的渲染 BUG
- */
-RepairTool.fixMermaidRender = function () {
-    return 0; // 临时禁用
-    // 环境配置预处理
-    $(".md-diagram-panel .label > g > foreignObject > div").each(function () {
-        let transformValue = $(this).parent().parent().attr("transform");
-        // 生成 Mermaid 时系统的 DPR = 1 时，其形状文本的父父级元素的 transform 的第 2 个参数一般大于 -10
-        if (parseInt(transformValue.substring(transformValue.indexOf(",") + 1, transformValue.length - 1)) < -7)
-            RepairTool.mermaidDPR.builder = 2;
-        // 通过形状的标签文本的行高来判断，正常 DPR = 1 时小于 16
-        if (parseInt($(this).css("line-height")) > 20)
-            RepairTool.mermaidDPR.render = 2;
-        return false;
-    });
-    env.printMermaidDPR();
-
-    // 当前系统为 macOS，或其 DPR = 1
-    // 其中，DPR = 1 默认指 Windows 无缩放分辨率，其他平台未测试
-    if (env.os.macOS || env.display.DPR === 1) {
-        // 生成 Mermaid 时的系统的 DPR = 1
-        if (RepairTool.mermaidDPR.builder === 1) {
-            // 调整流形状内的文本
-            $(".md-diagram-panel .label foreignObject").each(function () {
-                let text = $(this).find("div"),
-                    transform = $(this).parent();
-                $(this).attr("height", parseInt(text.css("height")));
-                transform.attr("transform", RepairTool.scaleTupleByTimes(transform.attr("transform"), 1, 1.2));
-            });
-            // 流程图线条上的文本
-            $(".md-diagram-panel .edgeLabel foreignObject").each(function () {
-                let text = $(this).find("div > span");
-                $(this).attr("width", parseInt(text.css("width")));
-                $(this).attr("height", parseInt(text.css("height")));
-            });
-        }
-        else if (RepairTool.mermaidDPR.builder === 2) {
-            // 流程图形状内的文本
-            $(".md-diagram-panel .label foreignObject").each(function () {
-                let transform = $(this).parent();
-                transform.attr("transform", RepairTool.scaleTupleByTimes(transform.attr("transform"), 1, 0.5));
-            });
-            // 流程图线条上的文本
-            $(".md-diagram-panel .edgeLabel foreignObject").each(function () {
-                let transform = $(this).parent();
-                transform.attr("transform", RepairTool.scaleTupleByTimes(transform.attr("transform"), 1, 0.5));
-            });
-        }
-    }
-    // 当前系统为 Windows，且其 DPR = 2
-    else if (env.os.Windows && env.display.DPR === 2) {
-        // 针对 RepairTool.mermaidDPR.render = 1，例如：Firefox
-        if (RepairTool.mermaidDPR.render === 1) {
-            // 流程图线条上的文本
-            $(".md-diagram-panel .edgeLabel foreignObject").each(function () {
-                let text = $(this).find("div > span");
-                $(this).attr("width", parseInt(text.css("width")));
-                $(this).attr("height", parseInt(text.css("height")) * 2);
-            });
-
-            // 针对 Chrome 浏览器
-            if (env.browser.Chrome || env.browser.Edge) {
-                // 流程图形状内的文本
-                $(".md-diagram-panel .label foreignObject").each(function () {
-                    let text = $(this).find("div"),
-                        transform = $(this).parent();
-                    $(this).attr("height", parseInt(text.css("height")) * 2);
-                    transform.attr("transform", RepairTool.scaleTupleByTimes(transform.attr("transform"), 1, 2));
-                });
-            }
-            // 针对 Firefox 浏览器
-            else if (env.browser.Firefox) {
-                // 流程图形状内的文本
-                $(".md-diagram-panel .label foreignObject").each(function () {
-                    let text = $(this).find("div"),
-                        transform = $(this).parent();
-                    $(this).attr("height", parseInt(text.css("height")) * 2);
-                    transform.attr("transform", RepairTool.scaleTupleByTimes(transform.attr("transform"), 1, 1.5));
-                });
-            }
-        }
-        // RepairTool.mermaidDPR.render = 2，例如：Chrome / Edge
-        else if (RepairTool.mermaidDPR.render === 2) {
-            // 针对Chrome浏览器
-            if (env.browser.Chrome || env.browser.Edge) {
-                // 流程图形状内的文本
-                $(".md-diagram-panel .label foreignObject").each(function () {
-                    let text = $(this).find("div"),
-                        transform = $(this).parent();
-                    $(this).attr("height", parseInt(text.css("height")) * 2);
-                    transform.attr("transform", RepairTool.scaleTupleByTimes(transform.attr("transform"), 1, 2.3));
-                });
-                // 流程图线条上的文本
-                $(".md-diagram-panel .edgeLabel foreignObject").each(function () {
-                    let text = $(this).find("div"),
-                        transform = $(this).parent();
-                    $(this).attr("height", parseInt(text.css("height")) * 2);
-                    transform.attr("transform", RepairTool.scaleTupleByTimes(transform.attr("transform"), 1, 1.1));
-                });
-            }
-        }
-    }
-}
-
-/**
- * 【补丁】修正 Mermaid 8.5 在导出 HTML 的渲染 BUG
- */
-RepairTool.fixMermaidRender85 = function () {
-    $(".md-diagram-panel .label > g > foreignObject > div").each(function () {
-        let transformValue = $(this).parent().parent().attr("transform");
-        // 生成 Mermaid 时系统的 DPR = 1 时，其形状文本的父父级元素的 transform 的第 2 个参数一般大于 -10
-        if (parseInt(transformValue.substring(transformValue.indexOf(",") + 1, transformValue.length - 1)) < -7)
-            RepairTool.mermaidDPR.builder = 2;
-        // 通过形状的标签文本的行高来判断，正常 DPR = 1 时小于 16
-        if (parseInt($(this).css("line-height")) > 20)
-            RepairTool.mermaidDPR.render = 2;
-        return false;
-    });
-
-    // 移除 edgeLabel 内的多余 rect，由 Mermaid V8.5 添加的结构
-    $(".edgeLabel > .label > rect").remove();
-
-    // 当前系统为 macOS，或其 DPR = 1
-    // 其中，DPR = 1 默认指 Windows 无缩放分辨率，其他平台未测试
-    if (env.os.macOS || env.display.DPR === 1) {
-        if (RepairTool.mermaidDPR.builder === 1) {
-            // 调整流形状内的文本
-            $(".md-diagram-panel .label foreignObject").each(function () {
-                let text = $(this).find("div"),
-                    transform = $(this).parent();
-                $(this).attr("height", parseInt(text.css("height")));
-                transform.attr("transform", RepairTool.scaleTupleByTimes(transform.attr("transform"), 1, 1.2));
-            });
-            // 流程图线条上的文本
-            $(".md-diagram-panel .edgeLabel foreignObject").each(function () {
-                let text = $(this).find("div > span");
-                $(this).attr("width", parseInt(text.css("width")));
-                $(this).attr("height", parseInt(text.css("height")));
-            });
-        }
-        else if (RepairTool.mermaidDPR.builder === 2) {
-            // 流程图形状内的文本
-            $(".md-diagram-panel .label foreignObject").each(function () {
-                let transform = $(this).parent();
-                transform.attr("transform", RepairTool.scaleTupleByTimes(transform.attr("transform"), 1, 0.5));
-            });
-            // 流程图线条上的文本
-            $(".md-diagram-panel .edgeLabel foreignObject").each(function () {
-                let transform = $(this).parent();
-                transform.attr("transform", RepairTool.scaleTupleByTimes(transform.attr("transform"), 1, 0.5));
-            });
-        }
-    }
-    // 当前系统为 Windows，且其 DPR = 2
-    else if (env.os.Windows && env.display.DPR === 2) {
-        // 针对 RepairTool.mermaidDPR.render = 1，例如：Firefox
-        if (RepairTool.mermaidDPR.render === 1) {
-            // 流程图线条上的文本
-            $(".md-diagram-panel .edgeLabel foreignObject").each(function () {
-                let text = $(this).find("div > span");
-                $(this).attr("width", parseInt(text.css("width")));
-                $(this).attr("height", parseInt(text.css("height")) * 2);
-            });
-
-            // 针对 Chrome 浏览器
-            if (env.browser.Chrome || env.browser.Edge) {
-                // 流程图形状内的文本
-                $(".md-diagram-panel .label foreignObject").each(function () {
-                    let text = $(this).find("div"),
-                        transform = $(this).parent();
-                    $(this).attr("height", parseInt(text.css("height")) * 2);
-                    transform.attr("transform", RepairTool.scaleTupleByTimes(transform.attr("transform"), 1, 2));
-                });
-            }
-            // 针对 Firefox 浏览器
-            else if (env.browser.Firefox) {
-                // 流程图形状内的文本
-                $(".md-diagram-panel .label foreignObject").each(function () {
-                    let text = $(this).find("div"),
-                        transform = $(this).parent();
-                    $(this).attr("height", parseInt(text.css("height")) * 2);
-                    transform.attr("transform", RepairTool.scaleTupleByTimes(transform.attr("transform"), 1, 1.5));
-                });
-            }
-        }
-        // RepairTool.mermaidDPR.render = 2，例如：Chrome / Edge
-        else if (RepairTool.mermaidDPR.render === 2) {
-            // 针对Chrome浏览器
-            if (env.browser.Chrome || env.browser.Edge) {
-                // 流程图形状内的文本
-                $(".md-diagram-panel .label foreignObject").each(function () {
-                    let text = $(this).find("div"),
-                        transform = $(this).parent();
-                    $(this).attr("height", parseInt(text.css("height")) * 2);
-                    transform.attr("transform", RepairTool.scaleTupleByTimes(transform.attr("transform"), 1, 2.3));
-                });
-                // 流程图线条上的文本
-                $(".md-diagram-panel .edgeLabel foreignObject").each(function () {
-                    let text = $(this).find("div"),
-                        transform = $(this).parent();
-                    $(this).attr("height", parseInt(text.css("height")) * 2);
-                    transform.attr("transform", RepairTool.scaleTupleByTimes(transform.attr("transform"), 1, 1.1));
-                });
-            }
-        }
-    }
-}
-
-/**
  * 按倍数调整函数元组数据，目前只支持单个函数，且只能有两个参数
  *
  * @param funcString 函数字符串，如：translate(-12,-18)
@@ -10042,7 +9997,7 @@ function CodeMagic() {}
  * 获得获取对应样式的标识
  *
  * @param color 文档中指定的预置颜色值
- * @return 返回有效的的颜色值
+ * @returns string 返回有效的的颜色值
  */
 CodeMagic.getStyle = function (color) {
     // 没有指定样式，则为默认样式
@@ -10057,39 +10012,26 @@ CodeMagic.getStyle = function (color) {
 CodeMagic.init = function () {
     $("code").each(function () {
         let codeText = $(this).text(),
-            result = null;
+            result;
 
         // 药丸标签格式
-        if ((result = codeText.match(RainbowGroupTag.syntax)) != null) {
+        if ((result = codeText.match(RainbowGroupTag.syntax)) != null)
             RainbowGroupTag.build($(this), result);
-        }
         // 彩虹单标签格式
-        else if ((result = codeText.match(RainbowTag.syntax)) != null) {
+        else if ((result = codeText.match(RainbowTag.syntax)) != null)
             RainbowTag.build($(this), result);
-        }
         // 文字注音格式
-        else if ((result = codeText.match(TextPhonetic.syntax)) != null) {
+        else if ((result = codeText.match(TextPhonetic.syntax)) != null)
             TextPhonetic.build($(this), result);
-        }
         // 刮刮卡格式
-        else if ((result = codeText.match(BlackCurtain.syntax)) != null) {
+        else if ((result = codeText.match(BlackCurtain.syntax)) != null)
             BlackCurtain.build($(this), result);
-        }
         // 彩虹引用
-        else if ((result = codeText.match(RainbowQuote.syntax)) != null) {
+        else if ((result = codeText.match(RainbowQuote.syntax)) != null)
             RainbowQuote.build($(this), result);
-        }
         // 普通代码增加样式标识，以用于深色模式时的识别
         else
             $(this).addClass("mdx-std-code");
-
-        // 因为在新标签中打开的内容已无未解析的含语法的原始内容
-        // 所以须对已解析后的对象直接进行绑定鼠标事件
-        if (VLOOK.doc.newTab === true) {
-            $(".mdx-black-curtain").unbind("click").click(function () {
-                BlackCurtain.toggle($(this));
-            });
-        }
     });
 }
 
@@ -10159,7 +10101,7 @@ RainbowQuote.syntax = /^>\((red|orange|yellow|green|cyan|blue|purple|pink|brown|
 RainbowQuote.build = function (target, result) {
     let quote = target.parent().parent(),
         color = CodeMagic.getStyle(result[1]);
-    if (quote.prop("tagName").toLowerCase() === "blockquote") {
+    if (quote.prop("tagName").toLowerCase().startsWith("bl")) { // <blockquote>
         target.parent().remove();
         quote.addClass("mdx-quote-" + color);
         quote.find("h6").addClass("mdx-quote-title-" + color);
@@ -10232,7 +10174,7 @@ BlackCurtain.build = function (target, result) {
     // 自定义颜色
     if (result[4] !== undefined) {
         curtainColor = result[4];
-        curtainColor = "var(--accent-color-" + curtainColor + "-light)";
+        curtainColor = "var(--acc-color-" + curtainColor + "-light)";
     }
 
     // 初始化「刮刮卡」数据
@@ -10252,7 +10194,7 @@ BlackCurtain.build = function (target, result) {
         ][VLOOK.lang.id]);
     target.text(tips);
     target.css({
-        "background" : generateBg(tips.length, curtainColor),
+        "background" : __generateBg(tips.length, curtainColor),
         "border-color" : curtainColor
         });
 
@@ -10266,11 +10208,10 @@ BlackCurtain.build = function (target, result) {
      *
      * @param charCount 提示信息字数
      * @param color 条纹背景色
-     * @return 生成 CSS 规范的背景
+     * @returns string 生成 CSS 规范的背景
      */
-    function generateBg(charCount, color) {
+    function __generateBg(charCount, color) {
         let count = 16,
-            step = 10,
             result = "linear-gradient(45deg, ";
         // 根据字数调整条纹数量
         if (charCount <= 8)
@@ -10280,7 +10221,7 @@ BlackCurtain.build = function (target, result) {
         else if (charCount <= 20)
             count = 10;
         // 计算每个条纹的步长
-        step = 100 / count;
+        let step = 100 / count;
         // 自动生成条纹背景
         for (let i = 0; i < count; i++) {
             let start = i * step,
@@ -10301,7 +10242,7 @@ BlackCurtain.build = function (target, result) {
 BlackCurtain.toggle = function (target) {
     event.stopPropagation(); // 停止事件冒泡
 
-    if (target.attr("data-vk-black-curtain-showed") === "false")
+    if (target.attr("data-vk-black-curtain-showed").startsWith("f"))
         BlackCurtain.show(target);
     else
         BlackCurtain.hide(target);
@@ -10344,9 +10285,9 @@ BlackCurtain.hide = function (target) {
 function VLOOKui() {}
 
 /**
- * 加载欢迎屏资源
+ * 加载欢迎页资源
  */
-VLOOKui.loadWelcomeScreen = function () {
+VLOOKui.loadWelcomePage = function () {
     let ui = '',
         defalutContent = '<div>Don\'t worry, the best will always appear in the most casual time.</div>'
             + '<div>不要著急，最好的總會在最不經意的時候出現。</div>'
@@ -10358,20 +10299,20 @@ VLOOKui.loadWelcomeScreen = function () {
             + '<div>Не волнуйтесь, лучшее всегда будет появляться в самое случайное время.<br><br>:</div>',
         metaContent = $("meta[name='welcome']").attr("content");
 
-    // 无指定欢迎屏内容，则使用默认内容
+    // 无指定欢迎页内容，则使用默认内容
     if (metaContent === undefined || metaContent.trim() === "${welcome}")
         metaContent = defalutContent;
     // --------------------------------------------------
-    // 欢迎屏
-    ui += '<div class="mdx-welcome-screen">'
+    // 欢迎页
+    ui += '<div class="mdx-welcome-page">'
         // 文档专属图标
         + '<div class="mdx-doc-logo-light"></div><div class="mdx-doc-logo-dark"></div>'
         // 欢迎信息
-        + '<div class="mdx-welcome-screen-tips">'
+        + '<div class="mdx-welcome-page-tips">'
         + metaContent.trim()
         + '</div>'
         // 文档加载进度及进入按钮
-        + '<div class="mdx-welcome-screen-loading">Loading...</div>'
+        + '<div class="mdx-welcome-page-loading">Loading...</div>'
         + '</div>';
     return ui;
 }
@@ -10383,247 +10324,244 @@ VLOOKui.loadIconSet = function () {
     let ui = '<svg style="display: none;">';
     // SVG 图标集：图标|VLOOK LOGO for Light Mode
     ui += '<symbol id="icoVLOOK-light">'
-        + '<g id="VLOOK-light" fill="#303438">'
-        + '<path d="M17.1496192,2.76763582e-16 C19.5316459,-1.60807611e-16 20.3954263,0.24801843 21.2662596,0.713745193 C22.1370929,1.17947196 22.820528,1.86290705 23.2862548,2.73374039 C23.7519816,3.60457372 24,4.46835414 24,6.85038077 L24,17.1496192 C24,19.5316459 23.7519816,20.3954263 23.2862548,21.2662596 C22.820528,22.1370929 22.1370929,22.820528 21.2662596,23.2862548 C20.3954263,23.7519816 19.5316459,24 17.1496192,24 L6.85038077,24 C4.46835414,24 3.60457372,23.7519816 2.73374039,23.2862548 C1.86290705,22.820528 1.17947196,22.1370929 0.713745193,21.2662596 C0.24801843,20.3954263 1.07205074e-16,19.5316459 -1.84509055e-16,17.1496192 L1.84509055e-16,6.85038077 C-1.07205074e-16,4.46835414 0.24801843,3.60457372 0.713745193,2.73374039 C1.17947196,1.86290705 1.86290705,1.17947196 2.73374039,0.713745193 C3.60457372,0.24801843 4.46835414,1.60807611e-16 6.85038077,-2.76763582e-16 L17.1496192,2.76763582e-16 Z M12.2146664,16.9756299 C12.1180865,16.895267 11.9779135,16.895267 11.8813336,16.9756299 L11.8813336,16.9756299 L10.9253862,17.7710616 C10.8229145,17.856327 10.8013222,18.0051829 10.875344,18.1160496 L10.875344,18.1160496 L11.8312914,19.5478266 C11.8503268,19.576337 11.8748008,19.600811 11.9033112,19.6198464 C12.0229961,19.6997558 12.1847992,19.6675114 12.2647086,19.5478266 L12.2647086,19.5478266 L13.220656,18.1160496 C13.2946778,18.0051829 13.2730855,17.856327 13.1706138,17.7710616 L13.1706138,17.7710616 Z M7.27085714,9.29167619 C4.87236337,9.29167619 2.928,11.2331323 2.928,13.6280398 C2.928,16.0229473 4.87236337,17.9644035 7.27085714,17.9644035 C9.66935091,17.9644035 11.6137143,16.0229473 11.6137143,13.6280398 C11.6137143,11.2331323 9.66935091,9.29167619 7.27085714,9.29167619 Z M16.8251429,9.29167619 C14.4266491,9.29167619 12.4822857,11.2331323 12.4822857,13.6280398 C12.4822857,16.0229473 14.4266491,17.9644035 16.8251429,17.9644035 C19.2236366,17.9644035 21.168,16.0229473 21.168,13.6280398 C21.168,11.2331323 19.2236366,9.29167619 16.8251429,9.29167619 Z M7.27085714,10.5925853 C8.94980278,10.5925853 10.3108571,11.9516046 10.3108571,13.6280398 C10.3108571,15.3044751 8.94980278,16.6634944 7.27085714,16.6634944 C5.5919115,16.6634944 4.23085714,15.3044751 4.23085714,13.6280398 C4.23085714,11.9516046 5.5919115,10.5925853 7.27085714,10.5925853 Z M16.8251429,10.5925853 C18.5040885,10.5925853 19.8651429,11.9516046 19.8651429,13.6280398 C19.8651429,15.3044751 18.5040885,16.6634944 16.8251429,16.6634944 C15.1461972,16.6634944 13.7851429,15.3044751 13.7851429,13.6280398 C13.7851429,11.9516046 15.1461972,10.5925853 16.8251429,10.5925853 Z M19.7076586,5.41807306 C19.5576382,5.09691923 19.1785253,4.95542019 18.8553524,5.09721484 L18.8553524,5.09721484 L18.84192,5.10328717 L12.047,7.93263636 L5.25388278,5.10328717 L5.24045038,5.09721484 C4.91727744,4.95542019 4.53816455,5.09691923 4.38814418,5.41807306 C4.2360402,5.74368736 4.37695721,6.13068784 4.70306552,6.28244085 L4.70306552,6.28244085 L11.738187,9.21340744 L11.7516194,9.21947977 C11.8488977,9.26216139 11.9512445,9.2791746 12.0508883,9.27366779 C12.1486432,9.27848497 12.2488474,9.26130919 12.3441834,9.21947977 L12.3441834,9.21947977 L12.3576158,9.21340744 L19.3927372,6.28244085 L19.4770033,6.23544395 C19.7420451,6.06083144 19.8459349,5.71408606 19.7076586,5.41807306 Z"></path>'
-        + '</g>'
+        + '<path d="M17.1496192,2.76763582e-16 C19.5316459,-1.60807611e-16 20.3954263,0.24801843 21.2662596,0.713745193 C22.1370929,1.17947196 22.820528,1.86290705 23.2862548,2.73374039 C23.7519816,3.60457372 24,4.46835414 24,6.85038077 L24,17.1496192 C24,19.5316459 23.7519816,20.3954263 23.2862548,21.2662596 C22.820528,22.1370929 22.1370929,22.820528 21.2662596,23.2862548 C20.3954263,23.7519816 19.5316459,24 17.1496192,24 L6.85038077,24 C4.46835414,24 3.60457372,23.7519816 2.73374039,23.2862548 C1.86290705,22.820528 1.17947196,22.1370929 0.713745193,21.2662596 C0.24801843,20.3954263 1.07205074e-16,19.5316459 -1.84509055e-16,17.1496192 L1.84509055e-16,6.85038077 C-1.07205074e-16,4.46835414 0.24801843,3.60457372 0.713745193,2.73374039 C1.17947196,1.86290705 1.86290705,1.17947196 2.73374039,0.713745193 C3.60457372,0.24801843 4.46835414,1.60807611e-16 6.85038077,-2.76763582e-16 L17.1496192,2.76763582e-16 Z M12.2146664,16.9756299 C12.1180865,16.895267 11.9779135,16.895267 11.8813336,16.9756299 L11.8813336,16.9756299 L10.9253862,17.7710616 C10.8229145,17.856327 10.8013222,18.0051829 10.875344,18.1160496 L10.875344,18.1160496 L11.8312914,19.5478266 C11.8503268,19.576337 11.8748008,19.600811 11.9033112,19.6198464 C12.0229961,19.6997558 12.1847992,19.6675114 12.2647086,19.5478266 L12.2647086,19.5478266 L13.220656,18.1160496 C13.2946778,18.0051829 13.2730855,17.856327 13.1706138,17.7710616 L13.1706138,17.7710616 Z M7.27085714,9.29167619 C4.87236337,9.29167619 2.928,11.2331323 2.928,13.6280398 C2.928,16.0229473 4.87236337,17.9644035 7.27085714,17.9644035 C9.66935091,17.9644035 11.6137143,16.0229473 11.6137143,13.6280398 C11.6137143,11.2331323 9.66935091,9.29167619 7.27085714,9.29167619 Z M16.8251429,9.29167619 C14.4266491,9.29167619 12.4822857,11.2331323 12.4822857,13.6280398 C12.4822857,16.0229473 14.4266491,17.9644035 16.8251429,17.9644035 C19.2236366,17.9644035 21.168,16.0229473 21.168,13.6280398 C21.168,11.2331323 19.2236366,9.29167619 16.8251429,9.29167619 Z M7.27085714,10.5925853 C8.94980278,10.5925853 10.3108571,11.9516046 10.3108571,13.6280398 C10.3108571,15.3044751 8.94980278,16.6634944 7.27085714,16.6634944 C5.5919115,16.6634944 4.23085714,15.3044751 4.23085714,13.6280398 C4.23085714,11.9516046 5.5919115,10.5925853 7.27085714,10.5925853 Z M16.8251429,10.5925853 C18.5040885,10.5925853 19.8651429,11.9516046 19.8651429,13.6280398 C19.8651429,15.3044751 18.5040885,16.6634944 16.8251429,16.6634944 C15.1461972,16.6634944 13.7851429,15.3044751 13.7851429,13.6280398 C13.7851429,11.9516046 15.1461972,10.5925853 16.8251429,10.5925853 Z M19.7076586,5.41807306 C19.5576382,5.09691923 19.1785253,4.95542019 18.8553524,5.09721484 L18.8553524,5.09721484 L18.84192,5.10328717 L12.047,7.93263636 L5.25388278,5.10328717 L5.24045038,5.09721484 C4.91727744,4.95542019 4.53816455,5.09691923 4.38814418,5.41807306 C4.2360402,5.74368736 4.37695721,6.13068784 4.70306552,6.28244085 L4.70306552,6.28244085 L11.738187,9.21340744 L11.7516194,9.21947977 C11.8488977,9.26216139 11.9512445,9.2791746 12.0508883,9.27366779 C12.1486432,9.27848497 12.2488474,9.26130919 12.3441834,9.21947977 L12.3441834,9.21947977 L12.3576158,9.21340744 L19.3927372,6.28244085 L19.4770033,6.23544395 C19.7420451,6.06083144 19.8459349,5.71408606 19.7076586,5.41807306 Z" fill="#303438"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|VLOOK LOGO for Dark Mode
+        // SVG 图标集：图标|VLOOK LOGO for Dark Mode
         + '<symbol id="icoVLOOK-dark">'
-        + '<g id="VLOOK-dark" fill="#FFFFFF">'
-        + '<path d="M17.1496192,-1.49959326e-15 C19.5316459,-1.93716445e-15 20.3954263,0.24801843 21.2662596,0.713745193 C22.1370929,1.17947196 22.820528,1.86290705 23.2862548,2.73374039 C23.7519816,3.60457372 24,4.46835414 24,6.85038077 L24,17.1496192 C24,19.5316459 23.7519816,20.3954263 23.2862548,21.2662596 C22.820528,22.1370929 22.1370929,22.820528 21.2662596,23.2862548 C20.3954263,23.7519816 19.5316459,24 17.1496192,24 L6.85038077,24 C4.46835414,24 3.60457372,23.7519816 2.73374039,23.2862548 C1.86290705,22.820528 1.17947196,22.1370929 0.713745193,21.2662596 C0.24801843,20.3954263 1.07205074e-16,19.5316459 -1.84509055e-16,17.1496192 L1.84509055e-16,6.85038077 C-1.07205074e-16,4.46835414 0.24801843,3.60457372 0.713745193,2.73374039 C1.17947196,1.86290705 1.86290705,1.17947196 2.73374039,0.713745193 C3.60457372,0.24801843 4.46835414,-1.61554923e-15 6.85038077,-2.05312042e-15 L17.1496192,-1.49959326e-15 Z M12.1666664,16.9756299 C12.0700865,16.895267 11.9299135,16.895267 11.8333336,16.9756299 L11.8333336,16.9756299 L10.8773862,17.7710616 C10.7749145,17.856327 10.7533222,18.0051829 10.827344,18.1160496 L10.827344,18.1160496 L11.7832914,19.5478266 C11.8023268,19.576337 11.8268008,19.600811 11.8553112,19.6198464 C11.9749961,19.6997558 12.1367992,19.6675114 12.2167086,19.5478266 L12.2167086,19.5478266 L13.172656,18.1160496 C13.2466778,18.0051829 13.2250855,17.856327 13.1226138,17.7710616 L13.1226138,17.7710616 Z M7.22285714,9.29167619 C4.82436337,9.29167619 2.88,11.2331323 2.88,13.6280398 C2.88,16.0229473 4.82436337,17.9644035 7.22285714,17.9644035 C9.62135091,17.9644035 11.5657143,16.0229473 11.5657143,13.6280398 C11.5657143,11.2331323 9.62135091,9.29167619 7.22285714,9.29167619 Z M16.7771429,9.29167619 C14.3786491,9.29167619 12.4342857,11.2331323 12.4342857,13.6280398 C12.4342857,16.0229473 14.3786491,17.9644035 16.7771429,17.9644035 C19.1756366,17.9644035 21.12,16.0229473 21.12,13.6280398 C21.12,11.2331323 19.1756366,9.29167619 16.7771429,9.29167619 Z M7.22285714,10.5925853 C8.90180278,10.5925853 10.2628571,11.9516046 10.2628571,13.6280398 C10.2628571,15.3044751 8.90180278,16.6634944 7.22285714,16.6634944 C5.5439115,16.6634944 4.18285714,15.3044751 4.18285714,13.6280398 C4.18285714,11.9516046 5.5439115,10.5925853 7.22285714,10.5925853 Z M16.7771429,10.5925853 C18.4560885,10.5925853 19.8171429,11.9516046 19.8171429,13.6280398 C19.8171429,15.3044751 18.4560885,16.6634944 16.7771429,16.6634944 C15.0981972,16.6634944 13.7371429,15.3044751 13.7371429,13.6280398 C13.7371429,11.9516046 15.0981972,10.5925853 16.7771429,10.5925853 Z M19.6596586,5.41807306 C19.5096382,5.09691923 19.1305253,4.95542019 18.8073524,5.09721484 L18.8073524,5.09721484 L18.79392,5.10328717 L11.999,7.93263636 L5.20588278,5.10328717 L5.19245038,5.09721484 C4.86927744,4.95542019 4.49016455,5.09691923 4.34014418,5.41807306 C4.1880402,5.74368736 4.32895721,6.13068784 4.65506552,6.28244085 L4.65506552,6.28244085 L11.690187,9.21340744 L11.7036194,9.21947977 C11.8008977,9.26216139 11.9032445,9.2791746 12.0028883,9.27366779 C12.1006432,9.27848497 12.2008474,9.26130919 12.2961834,9.21947977 L12.2961834,9.21947977 L12.3096158,9.21340744 L19.3447372,6.28244085 L19.4290033,6.23544395 C19.6940451,6.06083144 19.7979349,5.71408606 19.6596586,5.41807306 Z"></path>'
-        + '</g>'
+        + '<path d="M17.1496192,-1.49959326e-15 C19.5316459,-1.93716445e-15 20.3954263,0.24801843 21.2662596,0.713745193 C22.1370929,1.17947196 22.820528,1.86290705 23.2862548,2.73374039 C23.7519816,3.60457372 24,4.46835414 24,6.85038077 L24,17.1496192 C24,19.5316459 23.7519816,20.3954263 23.2862548,21.2662596 C22.820528,22.1370929 22.1370929,22.820528 21.2662596,23.2862548 C20.3954263,23.7519816 19.5316459,24 17.1496192,24 L6.85038077,24 C4.46835414,24 3.60457372,23.7519816 2.73374039,23.2862548 C1.86290705,22.820528 1.17947196,22.1370929 0.713745193,21.2662596 C0.24801843,20.3954263 1.07205074e-16,19.5316459 -1.84509055e-16,17.1496192 L1.84509055e-16,6.85038077 C-1.07205074e-16,4.46835414 0.24801843,3.60457372 0.713745193,2.73374039 C1.17947196,1.86290705 1.86290705,1.17947196 2.73374039,0.713745193 C3.60457372,0.24801843 4.46835414,-1.61554923e-15 6.85038077,-2.05312042e-15 L17.1496192,-1.49959326e-15 Z M12.1666664,16.9756299 C12.0700865,16.895267 11.9299135,16.895267 11.8333336,16.9756299 L11.8333336,16.9756299 L10.8773862,17.7710616 C10.7749145,17.856327 10.7533222,18.0051829 10.827344,18.1160496 L10.827344,18.1160496 L11.7832914,19.5478266 C11.8023268,19.576337 11.8268008,19.600811 11.8553112,19.6198464 C11.9749961,19.6997558 12.1367992,19.6675114 12.2167086,19.5478266 L12.2167086,19.5478266 L13.172656,18.1160496 C13.2466778,18.0051829 13.2250855,17.856327 13.1226138,17.7710616 L13.1226138,17.7710616 Z M7.22285714,9.29167619 C4.82436337,9.29167619 2.88,11.2331323 2.88,13.6280398 C2.88,16.0229473 4.82436337,17.9644035 7.22285714,17.9644035 C9.62135091,17.9644035 11.5657143,16.0229473 11.5657143,13.6280398 C11.5657143,11.2331323 9.62135091,9.29167619 7.22285714,9.29167619 Z M16.7771429,9.29167619 C14.3786491,9.29167619 12.4342857,11.2331323 12.4342857,13.6280398 C12.4342857,16.0229473 14.3786491,17.9644035 16.7771429,17.9644035 C19.1756366,17.9644035 21.12,16.0229473 21.12,13.6280398 C21.12,11.2331323 19.1756366,9.29167619 16.7771429,9.29167619 Z M7.22285714,10.5925853 C8.90180278,10.5925853 10.2628571,11.9516046 10.2628571,13.6280398 C10.2628571,15.3044751 8.90180278,16.6634944 7.22285714,16.6634944 C5.5439115,16.6634944 4.18285714,15.3044751 4.18285714,13.6280398 C4.18285714,11.9516046 5.5439115,10.5925853 7.22285714,10.5925853 Z M16.7771429,10.5925853 C18.4560885,10.5925853 19.8171429,11.9516046 19.8171429,13.6280398 C19.8171429,15.3044751 18.4560885,16.6634944 16.7771429,16.6634944 C15.0981972,16.6634944 13.7371429,15.3044751 13.7371429,13.6280398 C13.7371429,11.9516046 15.0981972,10.5925853 16.7771429,10.5925853 Z M19.6596586,5.41807306 C19.5096382,5.09691923 19.1305253,4.95542019 18.8073524,5.09721484 L18.8073524,5.09721484 L18.79392,5.10328717 L11.999,7.93263636 L5.20588278,5.10328717 L5.19245038,5.09721484 C4.86927744,4.95542019 4.49016455,5.09691923 4.34014418,5.41807306 C4.1880402,5.74368736 4.32895721,6.13068784 4.65506552,6.28244085 L4.65506552,6.28244085 L11.690187,9.21340744 L11.7036194,9.21947977 C11.8008977,9.26216139 11.9032445,9.2791746 12.0028883,9.27366779 C12.1006432,9.27848497 12.2008474,9.26130919 12.2961834,9.21947977 L12.2961834,9.21947977 L12.3096158,9.21340744 L19.3447372,6.28244085 L19.4290033,6.23544395 C19.6940451,6.06083144 19.7979349,5.71408606 19.6596586,5.41807306 Z" fill="#FFFFFF"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|导航中心
+        // SVG 图标集：图标|导航中心
         + '<symbol id="icoNavCenter">'
         + '<path d="M10,0 C4.48214286,0 0,4.48214286 0,10 C0,15.5178571 4.48214286,20 10,20 C15.5178571,20 20,15.5178571 20,10 C20,4.48214286 15.5178571,0 10,0 Z M15.7142857,4.28571429 C15.5535714,4.44642857 12.25,12.2321429 12.25,12.2321429 C12.25,12.2321429 4.46428571,15.5357143 4.30357143,15.6964286 C4.21428571,15.6964286 7.78571429,7.75 7.78571429,7.75 C7.78571429,7.75 15.875,4.125 15.7142857,4.28571429 Z M7.19642857,12.8214286 C7.5,12.1607143 8.44642857,9.75 8.76785714,9.01785714 L10.8928571,11.125 C10.3035714,11.3928571 7.32142857,12.7678571 7.19642857,12.8214286 Z" transform="translate(10.000000, 10.000000) scale(-1, 1) translate(-10.000000, -10.000000) "></path>'
         + '</symbol>'
-    // SVG 图标集：图标|封面
+        // SVG 图标集：图标|封面
         + '<symbol id="icoCover">'
         + '<path d="M3.57422129,13.6887758 C3.57422129,13.232197 3.23103845,12.8611754 2.80785961,12.8611754 L0.765561722,12.8611754 C0.343182841,12.8611754 9.9475983e-14,13.2313744 9.9475983e-14,13.6887758 C9.9475983e-14,14.1453545 0.343982801,14.5163762 0.765561722,14.5163762 L2.80785961,14.5163762 C3.23183841,14.5163762 3.57422129,14.1453545 3.57422129,13.6887758 Z M9.99200722e-14,8.99958867 C9.99200722e-14,9.45699008 0.343982801,9.82636639 0.765561722,9.82636639 L2.80785961,9.82636639 C3.23183841,9.82636639 3.57422129,9.45616741 3.57422129,8.99958867 C3.57422129,8.54218726 3.23103845,8.17116561 2.80785961,8.17116561 L0.765561722,8.17116561 C0.343982801,8.17116561 9.99200722e-14,8.54136459 9.99200722e-14,8.99958867 Z M0.765561722,5.13717929 L2.80785961,5.13717929 C3.23183841,5.13717929 3.57422129,4.76698031 3.57422129,4.3095789 C3.57422129,3.85217749 3.23183841,3.48280117 2.80785961,3.48280117 L0.765561722,3.48280117 C0.343182841,3.48280117 9.9475983e-14,3.85300015 9.9475983e-14,4.3095789 C9.9475983e-14,4.76615764 0.343182841,5.13800195 0.765561722,5.13800195 L0.765561722,5.13717929 Z M11,7.15935132 L12.5332144,6.00037568 C12.7997224,5.78999436 13.2669046,5.78999436 13.6000397,6.00037568 L13.6000397,6.00037568 L15,7.15872519 L15,0.000626134869 L16,0 C17.1045695,7.78148667e-16 18,0.8954305 18,2 L18,16 C18,17.1045695 17.1045695,18 16,18 L3.75,18 C2.6454305,18 1.75,17.1045695 1.75,16 L1.749,15.516 L2.80785961,15.5163762 C3.30441272,15.5163762 3.75727314,15.3058129 4.08347347,14.9535464 C4.38331192,14.6297484 4.57422129,14.1839226 4.57422129,13.6887758 C4.57422129,13.1938235 4.38323306,12.7480421 4.08336979,12.4242172 C3.79314057,12.1107963 3.40281186,11.9096956 2.97143481,11.8688759 L2.80785961,11.8611754 L1.749,11.861 L1.749,10.826 L2.80785961,10.8263664 C3.3044231,10.8263664 3.75714238,10.6160051 4.08323992,10.2641997 C4.38317726,9.94061687 4.57422129,9.4950166 4.57422129,8.99958867 C4.57422129,8.50422578 4.38328776,8.05851591 4.08379013,7.73476442 C3.79349633,7.4209621 3.40303333,7.21971793 2.97149603,7.17887111 L2.80785961,7.17116561 L1.749,7.171 L1.749,6.137 L2.80785961,6.13718726 C3.30461065,6.13718726 3.75749045,5.92668971 4.08366066,5.57445578 C4.38323199,5.25094619 4.57422129,4.8054174 4.57422129,4.3095789 C4.57422129,3.81345899 4.38309701,3.36815569 4.08342707,3.0448613 C3.79358939,2.7321743 3.4036658,2.53127841 2.97170291,2.49049521 L2.80785961,2.48280117 L1.749,2.482 L1.75,2 C1.75,0.8954305 2.6454305,2.02906125e-16 3.75,0 L11,0 L11,7.15935132 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|导航中心分段控制|目录索引
+        // SVG 图标集：图标|导航中心分段控制|目录索引
         + '<symbol id="icoTocTabCatalog">'
-        + '<path d="M5.8,-1.21569421e-13 L15.2,-1.21569421e-13 C15.6418278,-1.21569421e-13 16,0.351776268 16,0.785714286 C16,1.2196523 15.6418278,1.57142857 15.2,1.57142857 L5.8,1.57142857 C5.3581722,1.57142857 5,1.2196523 5,0.785714286 C5,0.351776268 5.3581722,-1.21569421e-13 5.8,-1.21569421e-13 Z M0.8,-1.21569421e-13 L2.20895932,-1.21569421e-13 C2.65078712,-1.21569421e-13 3.00895932,0.351776268 3.00895932,0.785714286 C3.00895932,1.2196523 2.65078712,1.57142857 2.20895932,1.57142857 L0.8,1.57142857 C0.3581722,1.57142857 -1.29252165e-12,1.2196523 -1.29252165e-12,0.785714286 C-1.29252165e-12,0.351776268 0.3581722,-1.21569421e-13 0.8,-1.21569421e-13 Z M0.8,5.71896434 L2.20895932,5.71896434 C2.65078712,5.71896434 3.00895932,6.07074061 3.00895932,6.50467862 C3.00895932,6.93861664 2.65078712,7.29039291 2.20895932,7.29039291 L0.8,7.29039291 C0.3581722,7.29039291 -1.27897692e-12,6.93861664 -1.27897692e-12,6.50467862 C-1.27897692e-12,6.07074061 0.3581722,5.71896434 0.8,5.71896434 Z M0.8,11.43 L2.20895932,11.43 C2.65078712,11.43 3.00895932,11.7817763 3.00895932,12.2157143 C3.00895932,12.6496523 2.65078712,13.0014286 2.20895932,13.0014286 L0.8,13.0014286 C0.3581722,13.0014286 -1.1937118e-12,12.6496523 -1.1937118e-12,12.2157143 C-1.1937118e-12,11.7817763 0.3581722,11.43 0.8,11.43 Z M5.8,5.71896434 L15.2,5.71896434 C15.6418278,5.71896434 16,6.07074061 16,6.50467862 C16,6.93861664 15.6418278,7.29039291 15.2,7.29039291 L5.8,7.29039291 C5.3581722,7.29039291 5,6.93861664 5,6.50467862 C5,6.07074061 5.3581722,5.71896434 5.8,5.71896434 Z M5.8,11.43 L15.2,11.43 C15.6418278,11.43 16,11.7817763 16,12.2157143 C16,12.6496523 15.6418278,13.0014286 15.2,13.0014286 L5.8,13.0014286 C5.3581722,13.0014286 5,12.6496523 5,12.2157143 C5,11.7817763 5.3581722,11.43 5.8,11.43 Z"></path>'
+        + '<rect fill-opacity="0" x="1.30739863e-12" y="0" width="16" height="16"></rect><path d="M13.5,1 C14.8807119,1 16,2.11928813 16,3.5 L16,12.5 C16,13.8807119 14.8807119,15 13.5,15 L2.5,15 C1.11928813,15 1.30756772e-12,13.8807119 1.30739863e-12,12.5 L1.30739863e-12,3.5 C1.30722955e-12,2.11928813 1.11928813,1 2.5,1 L13.5,1 Z M13.5,2 L2.5,2 C1.67157288,2 1,2.67157288 1,3.5 L1,3.5 L1,12.5 C1,13.3284271 1.67157288,14 2.5,14 L2.5,14 L13.5,14 C14.3284271,14 15,13.3284271 15,12.5 L15,12.5 L15,3.5 C15,2.67157288 14.3284271,2 13.5,2 L13.5,2 Z M6,3.5 L13,3.5 C13.5522847,3.5 14,3.94771525 14,4.5 C14,5.05228475 13.5522847,5.5 13,5.5 L6,5.5 C5.44771525,5.5 5,5.05228475 5,4.5 C5,3.94771525 5.44771525,3.5 6,3.5 Z M3,3.5 C3.55228475,3.5 4,3.94771525 4,4.5 C4,5.05228475 3.55228475,5.5 3,5.5 C2.44771525,5.5 2,5.05228475 2,4.5 C2,3.94771525 2.44771525,3.5 3,3.5 Z M9,7 L13,7 C13.5522847,7 14,7.44771525 14,8 C14,8.55228475 13.5522847,9 13,9 L9,9 C8.44771525,9 8,8.55228475 8,8 C8,7.44771525 8.44771525,7 9,7 Z M6,7 C6.55228475,7 7,7.44771525 7,8 C7,8.55228475 6.55228475,9 6,9 C5.44771525,9 5,8.55228475 5,8 C5,7.44771525 5.44771525,7 6,7 Z M9,10.5 L13,10.5 C13.5522847,10.5 14,10.9477153 14,11.5 C14,12.0522847 13.5522847,12.5 13,12.5 L9,12.5 C8.44771525,12.5 8,12.0522847 8,11.5 C8,10.9477153 8.44771525,10.5 9,10.5 Z M6,10.5 C6.55228475,10.5 7,10.9477153 7,11.5 C7,12.0522847 6.55228475,12.5 6,12.5 C5.44771525,12.5 5,12.0522847 5,11.5 C5,10.9477153 5.44771525,10.5 6,10.5 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|导航中心分段控制|插图索引
+        + '<symbol id="icoTocTabCatalog-checked">'
+        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect><path d="M13.5,1 C14.8807119,1 16,2.11928813 16,3.5 L16,12.5 C16,13.8807119 14.8807119,15 13.5,15 L2.5,15 C1.11928813,15 1.69088438e-16,13.8807119 0,12.5 L0,3.5 C-1.69088438e-16,2.11928813 1.11928813,1 2.5,1 L13.5,1 Z M13,10.5 L9,10.5 C8.44771525,10.5 8,10.9477153 8,11.5 C8,12.0522847 8.44771525,12.5 9,12.5 L9,12.5 L13,12.5 C13.5522847,12.5 14,12.0522847 14,11.5 C14,10.9477153 13.5522847,10.5 13,10.5 L13,10.5 Z M6,10.5 C5.44771525,10.5 5,10.9477153 5,11.5 C5,12.0522847 5.44771525,12.5 6,12.5 C6.55228475,12.5 7,12.0522847 7,11.5 C7,10.9477153 6.55228475,10.5 6,10.5 Z M13,7 L9,7 C8.44771525,7 8,7.44771525 8,8 C8,8.55228475 8.44771525,9 9,9 L9,9 L13,9 C13.5522847,9 14,8.55228475 14,8 C14,7.44771525 13.5522847,7 13,7 L13,7 Z M6,7 C5.44771525,7 5,7.44771525 5,8 C5,8.55228475 5.44771525,9 6,9 C6.55228475,9 7,8.55228475 7,8 C7,7.44771525 6.55228475,7 6,7 Z M13,3.5 L6,3.5 C5.44771525,3.5 5,3.94771525 5,4.5 C5,5.05228475 5.44771525,5.5 6,5.5 L6,5.5 L13,5.5 C13.5522847,5.5 14,5.05228475 14,4.5 C14,3.94771525 13.5522847,3.5 13,3.5 L13,3.5 Z M3,3.5 C2.44771525,3.5 2,3.94771525 2,4.5 C2,5.05228475 2.44771525,5.5 3,5.5 C3.55228475,5.5 4,5.05228475 4,4.5 C4,3.94771525 3.55228475,3.5 3,3.5 Z"></path>'
+        + '</symbol>'
+        // SVG 图标集：图标|导航中心分段控制|插图索引
         + '<symbol id="icoTocTabFigure">'
-        + '<path d="M13.5,0 C14.8807119,-2.53632657e-16 16,1.11928813 16,2.5 L16,11.5 C16,12.8807119 14.8807119,14 13.5,14 L2.5,14 C1.11928813,14 1.69088438e-16,12.8807119 0,11.5 L0,2.5 C-1.69088438e-16,1.11928813 1.11928813,2.53632657e-16 2.5,0 L13.5,0 Z M13.2,1.3 L2.8,1.3 C1.97157288,1.3 1.3,1.97157288 1.3,2.8 L1.3,2.8 L1.299,10.903 L3.65967176,7.09631997 C3.95065747,6.62690996 4.56708,6.48226849 5.03649002,6.77325421 C5.10793456,6.81754244 5.17350994,6.87066207 5.23166471,6.93135632 L7.95061382,9.76903564 C8.22764272,10.0581617 8.65043195,10.1541566 9.02515448,10.0130114 L11.7051177,9.00356109 C12.0740534,8.86459565 12.4902054,8.9553626 12.7677664,9.23533546 L14.7,11.184 L14.7,2.8 C14.7,2.02030388 14.1051119,1.37955132 13.34446,1.30686658 L13.2,1.3 Z M10,2.5 C11.1045695,2.5 12,3.3954305 12,4.5 C12,5.6045695 11.1045695,6.5 10,6.5 C8.8954305,6.5 8,5.6045695 8,4.5 C8,3.3954305 8.8954305,2.5 10,2.5 Z"></path>'
+        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect><path d="M13.5,1 C14.8807119,1 16,2.11928813 16,3.5 L16,12.5 C16,13.8807119 14.8807119,15 13.5,15 L2.5,15 C1.11928813,15 1.69088438e-16,13.8807119 0,12.5 L0,3.5 C-1.69088438e-16,2.11928813 1.11928813,1 2.5,1 L13.5,1 Z M13.5,2 L2.5,2 C1.67157288,2 1,2.67157288 1,3.5 L1,3.5 L1,12.5 C1,13.3284271 1.67157288,14 2.5,14 L2.5,14 L13.5,14 C14.3284271,14 15,13.3284271 15,12.5 L15,12.5 L15,3.5 C15,2.67157288 14.3284271,2 13.5,2 L13.5,2 Z M5.8225503,7.72018987 C5.93390796,7.78471541 6.03176293,7.8701303 6.11074482,7.9717469 L7.9320726,10.3150324 C8.25259425,10.7274095 8.83648624,10.8236668 9.27241436,10.535994 L10.838902,9.50225523 C11.2701177,9.21769223 11.8471129,9.30845987 12.170134,9.71167255 L13.3584006,11.1949323 C13.6346433,11.5397536 13.5790493,12.0432255 13.234228,12.3194683 C13.0923089,12.4331622 12.9158905,12.495114 12.7340463,12.495114 L3.28815434,12.495114 C2.84632654,12.495114 2.48815434,12.1369418 2.48815434,11.695114 C2.48815434,11.554259 2.52534365,11.4159008 2.59596244,11.2940275 L4.45595231,8.08407163 C4.73284475,7.60621285 5.34469151,7.44329743 5.8225503,7.72018987 Z M10,4 C11.1045695,4 12,4.8954305 12,6 C12,7.1045695 11.1045695,8 10,8 C8.8954305,8 8,7.1045695 8,6 C8,4.8954305 8.8954305,4 10,4 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|导航中心分段控制|表格索引
+        + '<symbol id="icoTocTabFigure-checked">'
+        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect><path d="M13.5,1 C14.8807119,1 16,2.11928813 16,3.5 L16,12.5 C16,13.8807119 14.8807119,15 13.5,15 L2.5,15 C1.11928813,15 1.69088438e-16,13.8807119 0,12.5 L0,3.5 C-1.69088438e-16,2.11928813 1.11928813,1 2.5,1 L13.5,1 Z M5.8225503,7.72018987 C5.34469151,7.44329743 4.73284475,7.60621285 4.45595231,8.08407163 L4.45595231,8.08407163 L2.59596244,11.2940275 C2.52534365,11.4159008 2.48815434,11.554259 2.48815434,11.695114 C2.48815434,12.1369418 2.84632654,12.495114 3.28815434,12.495114 L3.28815434,12.495114 L12.7340463,12.495114 C12.9158905,12.495114 13.0923089,12.4331622 13.234228,12.3194683 C13.5790493,12.0432255 13.6346433,11.5397536 13.3584006,11.1949323 L13.3584006,11.1949323 L12.170134,9.71167255 C11.8471129,9.30845987 11.2701177,9.21769223 10.838902,9.50225523 L10.838902,9.50225523 L9.27241436,10.535994 C8.83648624,10.8236668 8.25259425,10.7274095 7.9320726,10.3150324 L7.9320726,10.3150324 L6.11074482,7.9717469 C6.03176293,7.8701303 5.93390796,7.78471541 5.8225503,7.72018987 Z M10,4 C8.8954305,4 8,4.8954305 8,6 C8,7.1045695 8.8954305,8 10,8 C11.1045695,8 12,7.1045695 12,6 C12,4.8954305 11.1045695,4 10,4 Z"></path>'
+        + '</symbol>'
+        // SVG 图标集：图标|导航中心分段控制|表格索引
         + '<symbol id="icoTocTabTable">'
-        + '<path d="M13.2856,0 L2.7144,0 C1.2161387,0.0013225203 0.0017641647,1.21533915 0,2.71359999 L0,11.2848 C0.00132252119,12.7835031 1.21569733,13.9982358 2.7144,14 L13.2856,14 C14.7844854,13.9986761 15.9991178,12.7836857 16,11.2848 L16,2.71359999 C15.9986761,1.21515646 14.7840439,0.000882151918 13.2856,0 Z M1.19999999,5.50813261 L7.49802003,5.50813261 L7.49802003,8.49366407 L1.19999999,8.49366407 L1.19999999,5.50813261 Z M2.7144,1.19999999 L7.49722004,1.19999999 L7.49722004,4.30813261 L1.19999999,4.30813261 L1.19999999,2.71359999 C1.19999999,1.87839998 1.87999998,1.19999999 2.7144,1.19999999 Z M7.49802003,9.69366407 L7.49802003,12.8 L2.7144,12.8 C1.87825613,12.7986775 1.20088095,12.1209445 1.19999999,11.2848 L1.19999999,9.69366407 L7.49802003,9.69366407 Z M14.8,9.69366407 L14.8,11.2848 C14.799119,12.1209445 14.1217439,12.7986775 13.2856,12.8 L8.49038695,12.8 L8.49038695,9.69366407 L14.8,9.69366407 Z M14.8,5.50813261 L14.8,8.49366407 L8.49038695,8.49366407 L8.49038695,5.50813261 L14.8,5.50813261 Z M13.2856,1.19999999 C14.1208,1.19999999 14.8,1.87839998 14.8,2.71359999 L14.8,4.30813261 L8.49038695,4.30813261 L8.49038695,1.19999999 L13.2856,1.19999999 Z"></path>'
+        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect><path d="M13.2856,1 L2.7144,1 C1.2161387,1.00132252 0.0017641647,2.21533915 0,3.71359999 L0,12.2848 C0.00132252119,13.7835031 1.21569733,14.9982358 2.7144,15 L13.2856,15 C14.7844854,14.9986761 15.9991178,13.7836857 16,12.2848 L16,3.71359999 C15.9986761,2.21515646 14.7840439,1.00088215 13.2856,1 Z M1.19999999,6.50813261 L7.49802003,6.50813261 L7.49802003,9.49366407 L1.19999999,9.49366407 L1.19999999,6.50813261 Z M2.7144,2.19999999 L7.49722004,2.19999999 L7.49722004,5.30813261 L1.19999999,5.30813261 L1.19999999,3.71359999 C1.19999999,2.87839998 1.87999998,2.19999999 2.7144,2.19999999 Z M7.49802003,10.6936641 L7.49802003,13.8 L2.7144,13.8 C1.87825613,13.7986775 1.20088095,13.1209445 1.19999999,12.2848 L1.19999999,10.6936641 L7.49802003,10.6936641 Z M14.8,10.6936641 L14.8,12.2848 C14.799119,13.1209445 14.1217439,13.7986775 13.2856,13.8 L8.49038695,13.8 L8.49038695,10.6936641 L14.8,10.6936641 Z M14.8,6.50813261 L14.8,9.49366407 L8.49038695,9.49366407 L8.49038695,6.50813261 L14.8,6.50813261 Z M13.2856,2.19999999 C14.1208,2.19999999 14.8,2.87839998 14.8,3.71359999 L14.8,5.30813261 L8.49038695,5.30813261 L8.49038695,2.19999999 L13.2856,2.19999999 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|导航中心分段控制|多媒体索引
+        + '<symbol id="icoTocTabTable-checked">'
+        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect><path d="M7.5,11 L7.5,15 L2.7144,15 C1.21569733,14.9982358 0.00132252119,13.7835031 0,12.2848 L0,12.2848 L0,11 L7.5,11 Z M16,11 L16,12.2848 C15.9991178,13.7836857 14.7844854,14.9986761 13.2856,15 L13.2856,15 L8.5,15 L8.5,11 L16,11 Z M7.5,6.199 L7.5,9.8 L0,9.8 L0,6.2 L7.5,6.199 Z M16,6.2 L16,9.8 L8.5,9.8 L8.5,6.199 L16,6.2 Z M13.2856,1 C14.7840439,1.00088215 15.9986761,2.21515646 16,3.71359999 L16,3.71359999 L16,5 L8.5,4.999 L8.5,1 Z M7.5,4.999 L0,5 L0,3.71359999 C0.0017641647,2.21533915 1.2161387,1.00132252 2.7144,1 L2.7144,1 L7.5,1 L7.5,4.999 Z"></path>'
+        + '</symbol>'
+        // SVG 图标集：图标|导航中心分段控制|多媒体索引
         + '<symbol id="icoTocTabMultimedia">'
-        + '<path d="M9.74826953,7.40006458 L7.08122616,9.40038747 C6.85972595,9.56538586 6.54781749,9.52018082 6.38056223,9.30093639 C6.31501625,9.21504682 6.28111315,9.10881498 6.28111315,9.00032289 L6.28111315,4.99967711 C6.28111315,4.72392638 6.50487357,4.50016145 6.78061873,4.50016145 C6.88910863,4.50016145 6.99307812,4.53632548 7.08122616,4.59961253 L9.74826953,6.59993542 C9.96976974,6.76493381 10.0149739,7.07910881 9.8477186,7.3006135 C9.82059613,7.33677753 9.78669304,7.3706813 9.74826953,7.40006458 Z M2.00028253,0 L13.9997175,0 C15.1049583,0 16,0.895059735 16,2.00032289 L16,11.9996771 C16,13.1049403 15.1049583,14 13.9997175,14 L2.00028253,14 C0.895041673,14 0,13.1049403 0,11.9996771 L0,2.00032289 C0,0.895059735 0.897301879,0 2.00028253,0 Z M11.9994349,1.00129157 L4.00056505,1.00129157 L4.00056505,13.0009687 L11.9994349,13.0009687 L11.9994349,1.00129157 Z M1.00127137,4.00064579 L3.00155389,4.00064579 L3.00155389,1.00129157 L2.00254273,1.00129157 C1.45105241,1.00129157 1.00353157,1.44882144 1.00353157,2.00032289 L1.00353157,4.00064579 L1.00127137,4.00064579 Z M14.9987286,4.00064579 L14.9987286,2.00032289 C14.9987286,1.44882144 14.5512078,1.00129157 13.9997175,1.00129157 L13.0007063,1.00129157 L13.0007063,4.00064579 L14.9987286,4.00064579 L14.9987286,4.00064579 Z M1.00127137,9.99935421 L1.00127137,11.9996771 C1.00127137,12.5511786 1.4487922,12.9987084 2.00028253,12.9987084 L2.99929369,12.9987084 L2.99929369,9.99935421 L1.00127137,9.99935421 L1.00127137,9.99935421 Z M1.00127137,9.00032289 L3.00155389,9.00032289 L3.00155389,4.99967711 L1.00127137,4.99967711 L1.00127137,9.00032289 Z M14.9987286,9.99935421 L12.9984461,9.99935421 L12.9984461,12.9987084 L13.9974573,12.9987084 C14.5489476,12.9987084 14.9964684,12.5511786 14.9964684,11.9996771 L14.9964684,9.99935421 L14.9987286,9.99935421 Z M14.9987286,9.00032289 L14.9987286,4.99967711 L12.9984461,4.99967711 L12.9984461,9.00032289 L14.9987286,9.00032289 Z"></path>'
+        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect><path d="M9.74826953,8.40006458 L7.08122616,10.4003875 C6.85972595,10.5653859 6.54781749,10.5201808 6.38056223,10.3009364 C6.31501625,10.2150468 6.28111315,10.108815 6.28111315,10.0003229 L6.28111315,5.99967711 C6.28111315,5.72392638 6.50487357,5.50016145 6.78061873,5.50016145 C6.88910863,5.50016145 6.99307812,5.53632548 7.08122616,5.59961253 L9.74826953,7.59993542 C9.96976974,7.76493381 10.0149739,8.07910881 9.8477186,8.3006135 C9.82059613,8.33677753 9.78669304,8.3706813 9.74826953,8.40006458 Z M2.00028253,1 L13.9997175,1 C15.1049583,1 16,1.89505974 16,3.00032289 L16,12.9996771 C16,14.1049403 15.1049583,15 13.9997175,15 L2.00028253,15 C0.895041673,15 0,14.1049403 0,12.9996771 L0,3.00032289 C0,1.89505974 0.897301879,1 2.00028253,1 Z M11.9994349,2.00129157 L4.00056505,2.00129157 L4.00056505,14.0009687 L11.9994349,14.0009687 L11.9994349,2.00129157 Z M1.00127137,5.00064579 L3.00155389,5.00064579 L3.00155389,2.00129157 L2.00254273,2.00129157 C1.45105241,2.00129157 1.00353157,2.44882144 1.00353157,3.00032289 L1.00353157,5.00064579 L1.00127137,5.00064579 Z M14.9987286,5.00064579 L14.9987286,3.00032289 C14.9987286,2.44882144 14.5512078,2.00129157 13.9997175,2.00129157 L13.0007063,2.00129157 L13.0007063,5.00064579 L14.9987286,5.00064579 L14.9987286,5.00064579 Z M1.00127137,10.9993542 L1.00127137,12.9996771 C1.00127137,13.5511786 1.4487922,13.9987084 2.00028253,13.9987084 L2.99929369,13.9987084 L2.99929369,10.9993542 L1.00127137,10.9993542 L1.00127137,10.9993542 Z M1.00127137,10.0003229 L3.00155389,10.0003229 L3.00155389,5.99967711 L1.00127137,5.99967711 L1.00127137,10.0003229 Z M14.9987286,10.9993542 L12.9984461,10.9993542 L12.9984461,13.9987084 L13.9974573,13.9987084 C14.5489476,13.9987084 14.9964684,13.5511786 14.9964684,12.9996771 L14.9964684,10.9993542 L14.9987286,10.9993542 Z M14.9987286,10.0003229 L14.9987286,5.99967711 L12.9984461,5.99967711 L12.9984461,10.0003229 L14.9987286,10.0003229 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|导航中心分段控制|代码块索引
+        + '<symbol id="icoTocTabMultimedia-checked">'
+        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect><path d="M3,11 L3,15 L2.00028253,15 C0.895041673,15 0,14.1049403 0,12.9996771 L0,11 L3,11 Z M13.9997175,1 C15.1049583,1 16,1.89505974 16,3.00032289 L16,5 L13,5 L13,1 L13.9997175,1 Z M13,11 L16,11 L16,12.9996771 C16,14.1049403 15.1049583,15 13.9997175,15 L13,15 L13,11 Z M6.78061873,5.50016145 C6.50487357,5.50016145 6.28111315,5.72392638 6.28111315,5.99967711 L6.28111315,5.99967711 L6.28111315,10.0003229 C6.28111315,10.108815 6.31501625,10.2150468 6.38056223,10.3009364 C6.54781749,10.5201808 6.85972595,10.5653859 7.08122616,10.4003875 L7.08122616,10.4003875 L9.74826953,8.40006458 C9.78669304,8.3706813 9.82059613,8.33677753 9.8477186,8.3006135 C10.0149739,8.07910881 9.96976974,7.76493381 9.74826953,7.59993542 L9.74826953,7.59993542 L7.08122616,5.59961253 C6.99307812,5.53632548 6.88910863,5.50016145 6.78061873,5.50016145 Z M13,6 L16,6 L16,10 L13,10 L13,6 Z M3,6 L3,10 L0,10 L0,6 L3,6 Z M3,1 L3,5 L0,5 L0,3.00032289 C0,1.89505974 0.897301879,1 2.00028253,1 L3,1 Z M12,15 L4,15 L4,1 L12,1 L12,15 Z"></path>'
+        + '</symbol>'
+        // SVG 图标集：图标|导航中心分段控制|代码块索引
         + '<symbol id="icoTocTabCodeblock">'
-        + '<path d="M13.3333333,0 C14.8060927,0 16,1.19390733 16,2.66666667 L16,11.3333333 C16,12.8060927 14.8060927,14 13.3333333,14 L2.66666667,14 C1.19390733,14 0,12.8060927 0,11.3333333 L0,2.66666667 C0,1.19390733 1.19390733,0 2.66666667,0 L13.3333333,0 Z M13.3399998,1.19999974 L2.66000017,1.19999974 C1.94829535,1.1997742 1.25677804,1.85019704 1.20340021,2.56235312 L1.19999976,2.66470606 L1.19999976,11.3352941 C1.19977498,12.0494615 1.84829981,12.7430256 2.55800017,12.7965882 L2.66000017,12.7999999 L13.3399998,12.7999999 C14.0517047,12.8002259 14.743222,12.1498031 14.7965998,11.437647 L14.7999999,11.3352941 L14.7999999,2.66470606 C14.800225,1.95053859 14.1517002,1.2569745 13.4419998,1.20341197 L13.3399998,1.19999974 Z M9.488,3.93466667 L9.468,4.01 L7.49133333,10.01 C7.38183425,10.3466845 7.02825967,10.5390548 6.68609745,10.4481071 C6.34393524,10.3571593 6.13254166,10.0146186 6.20466667,9.668 L6.22466667,9.59266667 L8.20133333,3.59266667 C8.25663976,3.42467117 8.37643583,3.28553776 8.53435282,3.20589159 C8.6922698,3.12624541 8.8753638,3.11261479 9.04333333,3.168 C9.36456133,3.27377427 9.55569585,3.60331656 9.488,3.93466667 Z M5.396,4.768 L5.34933333,4.838 L3.73933333,6.98466667 L5.35,9.13133333 C5.55203719,9.40031383 5.52201979,9.77767555 5.28,10.0113333 L5.21666667,10.0646667 C4.94813556,10.2666509 4.57125481,10.2372205 4.33733333,9.996 L4.28333333,9.932 L2.37266667,7.38533333 C2.21409416,7.17401976 2.19526731,6.88900223 2.32466667,6.65866667 L2.37266667,6.58533333 L4.28333333,4.03866667 C4.38941993,3.89721787 4.54735181,3.80370519 4.72238576,3.77870034 C4.89741972,3.75369549 5.07521787,3.79924674 5.21666667,3.90533333 C5.48539743,4.10617538 5.56224658,4.47613692 5.396,4.768 Z M11.6626667,3.97466667 L11.7173333,4.038 L13.6273333,6.58466667 L13.6753333,6.658 C13.7893578,6.86085249 13.7893578,7.10848085 13.6753333,7.31133333 L13.6273333,7.38466667 L11.7173333,9.93133333 L11.6626667,9.996 C11.450984,10.2144191 11.1183033,10.2618666 10.854,10.1113333 L10.784,10.0646667 L10.72,10.0113333 C10.5010274,9.79971134 10.4532845,9.4666086 10.604,9.202 L10.6506667,9.132 L12.2606667,6.98466667 L10.6506667,4.838 L10.604,4.768 C10.4378957,4.47597654 10.5150376,4.10598124 10.784,3.90466667 C11.05219,3.70302715 11.4290973,3.73303114 11.6626667,3.97466667 Z"></path>'
+        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect><path d="M13.3333333,1 C14.8060927,1 16,2.19390733 16,3.66666667 L16,12.3333333 C16,13.8060927 14.8060927,15 13.3333333,15 L2.66666667,15 C1.19390733,15 0,13.8060927 0,12.3333333 L0,3.66666667 C0,2.19390733 1.19390733,1 2.66666667,1 L13.3333333,1 Z M13.4970588,2 L2.50294159,2 C1.77030428,1.99976668 1.05844823,2.67261789 1.00350047,3.40933106 L1,3.51521341 L1,12.4847871 C0.999768614,13.2235811 1.66736769,13.9410611 2.39794159,13.9964707 L2.50294159,14 L13.4970588,14 C14.2296961,14.0002339 14.9415522,13.3273827 14.9964999,12.5906695 L15,12.4847871 L15,3.51521341 C15.0002318,2.77641949 14.3326327,2.0589394 13.6020588,2.00352989 L13.4970588,2 Z M9.59742608,4.43019805 L9.57742608,4.50553138 L7.60075942,11.5055314 C7.49126034,11.8422158 7.13768575,12.0345862 6.79552353,11.9436384 C6.45336132,11.8526907 6.24196775,11.51015 6.31409275,11.1635314 L6.33409275,11.088198 L8.31075942,4.08819805 C8.36606584,3.92020255 8.48586192,3.78106914 8.6437789,3.70142297 C8.80169589,3.62177679 8.98478988,3.60814617 9.15275942,3.66353138 C9.47398741,3.76930565 9.66512194,4.09884794 9.59742608,4.43019805 Z M5.396,5.768 L5.34933333,5.838 L3.73933333,7.98466667 L5.35,10.1313333 C5.55203719,10.4003138 5.52201979,10.7776755 5.28,11.0113333 L5.21666667,11.0646667 C4.94813556,11.2666509 4.57125481,11.2372205 4.33733333,10.996 L4.28333333,10.932 L2.37266667,8.38533333 C2.21409416,8.17401976 2.19526731,7.88900223 2.32466667,7.65866667 L2.37266667,7.58533333 L4.28333333,5.03866667 C4.38941993,4.89721787 4.54735181,4.80370519 4.72238576,4.77870034 C4.89741972,4.75369549 5.07521787,4.79924674 5.21666667,4.90533333 C5.48539743,5.10617538 5.56224658,5.47613692 5.396,5.768 Z M11.6626667,4.97466667 L11.7173333,5.038 L13.6273333,7.58466667 L13.6753333,7.658 C13.7893578,7.86085249 13.7893578,8.10848085 13.6753333,8.31133333 L13.6273333,8.38466667 L11.7173333,10.9313333 L11.6626667,10.996 C11.450984,11.2144191 11.1183033,11.2618666 10.854,11.1113333 L10.784,11.0646667 L10.72,11.0113333 C10.5010274,10.7997113 10.4532845,10.4666086 10.604,10.202 L10.6506667,10.132 L12.2606667,7.98466667 L10.6506667,5.838 L10.604,5.768 C10.4378957,5.47597654 10.5150376,5.10598124 10.784,4.90466667 C11.05219,4.70302715 11.4290973,4.73303114 11.6626667,4.97466667 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|导航中心分段控制|访问史
+        + '<symbol id="icoTocTabCodeblock-checked">'
+        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect><path d="M13.3333333,1 C14.8060927,1 16,2.19390733 16,3.66666667 L16,12.3333333 C16,13.8060927 14.8060927,15 13.3333333,15 L2.66666667,15 C1.19390733,15 0,13.8060927 0,12.3333333 L0,3.66666667 C0,2.19390733 1.19390733,1 2.66666667,1 L13.3333333,1 Z M9.15275942,3.66353138 C8.98478988,3.60814617 8.80169589,3.62177679 8.6437789,3.70142297 C8.48586192,3.78106914 8.36606584,3.92020255 8.31075942,4.08819805 L8.31075942,4.08819805 L6.33409275,11.088198 L6.31409275,11.1635314 C6.24196775,11.51015 6.45336132,11.8526907 6.79552353,11.9436384 C7.13768575,12.0345862 7.49126034,11.8422158 7.60075942,11.5055314 L7.60075942,11.5055314 L9.57742608,4.50553138 L9.59742608,4.43019805 C9.66512194,4.09884794 9.47398741,3.76930565 9.15275942,3.66353138 Z M4.82742493,4.77208399 L4.72238576,4.77870034 C4.54735181,4.80370519 4.38941993,4.89721787 4.28333333,5.03866667 L4.28333333,5.03866667 L2.37266667,7.58533333 L2.32466667,7.65866667 C2.19526731,7.88900223 2.21409416,8.17401976 2.37266667,8.38533333 L2.37266667,8.38533333 L4.28333333,10.932 L4.33733333,10.996 C4.57125481,11.2372205 4.94813556,11.2666509 5.21666667,11.0646667 L5.21666667,11.0646667 L5.28,11.0113333 C5.52201979,10.7776755 5.55203719,10.4003138 5.35,10.1313333 L5.35,10.1313333 L3.73933333,7.98466667 L5.34933333,5.838 L5.396,5.768 C5.56224658,5.47613692 5.48539743,5.10617538 5.21666667,4.90533333 C5.07521787,4.79924674 4.89741972,4.75369549 4.72238576,4.77870034 Z M11.6626667,4.97466667 C11.4290973,4.73303114 11.05219,4.70302715 10.784,4.90466667 C10.5150376,5.10598124 10.4378957,5.47597654 10.604,5.768 L10.604,5.768 L10.6506667,5.838 L12.2606667,7.98466667 L10.6506667,10.132 L10.604,10.202 C10.4532845,10.4666086 10.5010274,10.7997113 10.72,11.0113333 L10.72,11.0113333 L10.784,11.0646667 L10.854,11.1113333 C11.1183033,11.2618666 11.450984,11.2144191 11.6626667,10.996 L11.6626667,10.996 L11.7173333,10.9313333 L13.6273333,8.38466667 L13.6753333,8.31133333 C13.7893578,8.10848085 13.7893578,7.86085249 13.6753333,7.658 L13.6753333,7.658 L13.6273333,7.58466667 L11.7173333,5.038 Z"></path>'
+        + '</symbol>'
+        // SVG 图标集：图标|导航中心分段控制|访问史
         + '<symbol id="icoTocTabHistory">'
-        + '<path d="M7,0 C4.65384023,0 2.58144052,1.15669465 1.31248855,2.92895617 L1.31248855,1.75001654 C1.31248855,1.38755428 1.01866796,1.09376769 0.656244274,1.09376769 C0.293820591,1.09376769 0,1.38756898 0,1.75001654 L0,4.37501195 C0,4.73738599 0.293820591,5.0312608 0.656244274,5.0312608 L3.49997435,5.0312608 C3.86239803,5.0312608 4.15621862,4.73740069 4.15621862,4.37501195 C4.15621862,4.01254969 3.86239803,3.71876309 3.49997435,3.71876309 L2.35846581,3.71876309 C3.3880399,2.26360643 5.08180332,1.31252711 7.00002199,1.31252711 C10.1410468,1.31252711 12.6874528,3.85892262 12.6874528,7.00002205 C12.6874528,10.1410627 10.1410468,12.687517 7.00002199,12.687517 C4.35255832,12.687517 2.13415716,10.8759849 1.50017957,8.42675866 L1.4887897,8.43031668 C1.40036794,8.17250726 1.16285172,7.98434387 0.874982593,7.98434387 C0.51255891,7.98434387 0.218738319,8.27814517 0.218738319,8.64051921 C0.218738319,8.70519578 0.238146544,8.76378549 0.255531857,8.82274276 L0.248700865,8.82490404 C0.253010547,8.84079751 0.260911629,8.85501489 0.265309263,8.87082014 C0.270132002,8.88356726 0.273342275,8.89629968 0.27892727,8.90869394 C1.11160462,11.8440016 3.7978994,14 7.00006596,14 C10.8660261,14 14,10.8659578 14,7 C14,3.1339834 10.8659821,0 7,0 L7,0 Z M6.60624427,2.8 C6.24382059,2.8 5.95,3.09380129 5.95,3.45624885 L5.95,7.39374196 C5.95,7.75620422 6.24382059,8.04999081 6.60624427,8.04999081 L9.44995969,8.04999081 C9.81238337,8.04999081 10.106204,7.75618952 10.106204,7.39381547 C10.106204,7.0312944 9.81238337,6.73756662 9.44995969,6.73756662 L7.26248855,6.73756662 L7.26248855,3.45624885 C7.26248855,3.09378659 6.9686533,2.8 6.60622962,2.8 L6.60624427,2.8 Z"></path>'
+        + '<path d="M8,0 C12.4113555,0 16,3.58880564 16,8.00001836 C16,12.4112127 12.4113555,16 8,16 C3.58864449,16 0,12.4112311 0,8.00003673 C0,3.58880564 3.58864449,0 8,0 Z M8.00000918,1.50433377 C4.41951807,1.50433377 1.5043355,4.41956809 1.5043355,8.00001836 C1.5043355,11.5804503 4.41953644,14.4956662 8.00000918,14.4956662 C11.5804819,14.4956662 14.4956645,11.5804686 14.4956645,8.00001836 C14.4956645,4.41956809 11.5804636,1.50433377 8.00000918,1.50433377 Z M8.69469927,3.12936833 L8.69486454,3.14510581 L8.69486454,7.97032467 L11.0890204,10.5135155 C11.3696142,10.8116094 11.3597346,11.278243 11.0698856,11.5642721 L11.056921,11.5767592 C10.7588268,11.8573527 10.2921743,11.8474732 10.0061632,11.5576245 L9.99367608,11.5446599 L7.39502465,8.78421111 C7.2683526,8.64965351 7.19564981,8.47317198 7.19078613,8.2884347 L7.19052904,8.2686389 L7.19052904,3.14510581 C7.19052904,2.72968785 7.52727836,2.39293892 7.94269679,2.39293892 C8.3528449,2.39293892 8.68632553,2.7212223 8.69469927,3.12936833 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|过滤
+        + '<symbol id="icoTocTabHistory-checked">'
+        + '<path d="M8,0 C12.4113555,0 16,3.58880564 16,8.00001836 C16,12.4112127 12.4113555,16 8,16 C3.58864449,16 0,12.4112311 0,8.00003673 C0,3.58880564 3.58864449,0 8,0 Z M7.94269679,2.39293892 C7.52727836,2.39293892 7.19052904,2.72968785 7.19052904,3.14510581 L7.19052904,3.14510581 L7.19078613,8.2884347 C7.19564981,8.47317198 7.2683526,8.64965351 7.39502465,8.78421111 L7.39502465,8.78421111 L9.99367608,11.5446599 L10.0061632,11.5576245 C10.2921743,11.8474732 10.7588268,11.8573527 11.056921,11.5767592 L11.056921,11.5767592 L11.0698856,11.5642721 C11.3597346,11.278243 11.3696142,10.8116094 11.0890204,10.5135155 L11.0890204,10.5135155 L8.69486454,7.97032467 L8.69469927,3.12936833 C8.68632553,2.7212223 8.3528449,2.39293892 7.94269679,2.39293892 Z"></path>'
+        + '</symbol>'
+        // SVG 图标集：图标|过滤
         + '<symbol id="icoFilter">'
         + '<path d="M8.84956005,15.9164574 L6.03223988,14.3895147 C5.77665501,14.2866085 5.61736842,14.0233946 5.64069537,13.7425051 L5.64069537,8.43795061 L0.161772723,1.28572151 C-0.021205139,1.02861724 -0.0513123934,0.68888983 0.0834638197,0.402091243 C0.233954752,0.150943046 0.501082607,-0.00145082454 0.78824392,1.04144974e-05 L14.8757449,1.04144974e-05 C15.1429049,0.00501946587 15.3967557,0.120689845 15.5796249,0.320752891 C15.714969,0.607760947 15.684842,0.94806687 15.501316,1.20530746 L10.0232934,8.35753657 L10.0232934,15.1890338 C10.0245887,15.4836328 9.87617952,15.7576004 9.63174894,15.9118359 C9.47423103,15.9118359 9.39682224,15.99225 9.24020443,15.99225 C9.10536415,16.0147418 8.96711356,15.9879185 8.84956005,15.9164574 L8.84956005,15.9164574 Z M12.5867848,15.6853826 C12.1289439,15.6853826 11.7577905,15.3042516 11.7577905,14.8341028 C11.7577905,14.3639539 12.1289439,13.982823 12.5867848,13.982823 L17.1710057,13.982823 C17.4671769,13.982823 17.7408503,14.145076 17.8889358,14.4084629 C18.0370214,14.6718497 18.0370214,14.9963558 17.8889358,15.2597427 C17.7408503,15.5231296 17.4671769,15.6853826 17.1710057,15.6853826 L12.5867848,15.6853826 Z M12.5867848,12.2793391 C12.2906136,12.2793391 12.0169402,12.1170861 11.8688547,11.8536992 C11.7207691,11.5903123 11.7207691,11.2658063 11.8688547,11.0024194 C12.0169402,10.7390325 12.2906136,10.5767795 12.5867848,10.5767795 L17.1710057,10.5767795 C17.4671769,10.5767795 17.7408503,10.7390325 17.8889358,11.0024194 C18.0370214,11.2658063 18.0370214,11.5903123 17.8889358,11.8536992 C17.7408503,12.1170861 17.4671769,12.2793391 17.1710057,12.2793391 L12.5867848,12.2793391 Z M12.5867848,8.87329565 C12.1289439,8.87329565 11.7577905,8.49216471 11.7577905,8.02201586 C11.7577905,7.55186702 12.1289439,7.17073607 12.5867848,7.17073607 L17.1710057,7.17073607 C17.6288466,7.17073607 18,7.55186702 18,8.02201586 C18,8.49216471 17.6288466,8.87329565 17.1710057,8.87329565 L12.5867848,8.87329565 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|检索
+        // SVG 图标集：图标|检索
         + '<symbol id="icoRetrieval">'
         + '<path d="M6.54545451,0 C7.43175754,0 8.2792727,0.173333386 9.08799997,0.520000057 C9.89672724,0.866666727 10.5927272,1.33163643 11.176,1.91490915 C11.7592727,2.49818188 12.2242424,3.19418188 12.5709091,4.00290915 C12.9175757,4.81163642 13.0909091,5.65915158 13.0909091,6.54545461 C13.0909091,7.30666674 12.9667879,8.03587886 12.7185454,8.73309097 C12.470303,9.43030308 12.1170909,10.0627879 11.6589091,10.6305455 L15.7898182,14.7556364 C15.9299394,14.8957576 16,15.0681213 16,15.2727273 C16,15.4812122 15.9309091,15.6545455 15.7927273,15.7927273 C15.6545455,15.9309091 15.4812121,16 15.2727273,16 C15.0681212,16 14.8957576,15.9299394 14.7556364,15.7898182 L10.6305455,11.6589091 C10.062303,12.117091 9.42981819,12.4703031 8.73309092,12.7185455 C8.03636364,12.9667879 7.30715153,13.0909091 6.54545456,13.0909091 C5.65915153,13.0909091 4.81163637,12.9175758 4.0029091,12.5709091 C3.19418183,12.2242424 2.49818183,11.7592727 1.9149091,11.176 C1.33163637,10.5927273 0.866666676,9.89672729 0.520000005,9.08800002 C0.173333335,8.27927275 0,7.43175759 0,6.54545456 C0,5.65915153 0.173333335,4.81163637 0.520000005,4.0029091 C0.866666676,3.19418183 1.33163637,2.49818183 1.9149091,1.9149091 C2.49818183,1.33163637 3.19418183,0.866666676 4.0029091,0.520000005 C4.81163637,0.173333335 5.65915153,0 6.54545456,0 L6.54545451,0 Z M6.54545451,1.4545455 C5.85599996,1.4545455 5.19684845,1.58909095 4.56799996,1.85818186 C3.93915147,2.12727277 3.39757571,2.48896974 2.94327269,2.94327278 C2.48896967,3.39757581 2.1272727,3.93915157 1.85818178,4.56800004 C1.58909086,5.19684852 1.45454541,5.85600004 1.45454541,6.54545459 C1.45454541,7.23490915 1.58909088,7.89406067 1.85818178,8.52290914 C2.12727268,9.15175762 2.48896965,9.69333338 2.94327269,10.1476364 C3.39757574,10.6019394 3.93915149,10.9636364 4.56799996,11.2327273 C5.19684842,11.5018182 5.85599994,11.6363637 6.54545451,11.6363637 C7.23490908,11.6363637 7.89406059,11.5018182 8.52290906,11.2327273 C9.15175753,10.9636364 9.69333328,10.6019394 10.1476363,10.1476364 C10.6019394,9.69333338 10.9636363,9.15175762 11.2327272,8.52290914 C11.5018181,7.89406067 11.6363636,7.23490915 11.6363636,6.54545459 C11.6363636,5.85600004 11.5018182,5.19684852 11.2327272,4.56800004 C10.9636363,3.93915157 10.6019393,3.39757581 10.1476363,2.94327278 C9.6933333,2.48896974 9.15175755,2.12727277 8.52290906,1.85818186 C7.89406057,1.58909095 7.23490905,1.4545455 6.54545451,1.4545455 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|向左关闭
+        // SVG 图标集：图标|向左关闭
         + '<symbol id="icoCloserTo-left">'
         + '<path d="M13.9791715,0.176477427 L14.0154251,0.189323743 C15.5212,0.722890207 16.3261424,2.31174457 15.875093,3.79570421 L6.20859385,30 L15.8197795,56.039902 C16.3646269,57.5145002 15.632921,59.1369628 14.1798211,59.7471073 L13.9791715,59.8235226 C12.4774152,60.3556651 10.8245904,59.6444033 10.1979056,58.2273068 L10.1325565,58.0669743 L0.314759836,31.9158354 C-0.104917664,30.6730285 -0.104920005,29.3272583 0.31475317,28.0844499 L10.1325565,1.93302569 C10.7019517,0.409988422 12.4217946,-0.375374037 13.9791715,0.176477427 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|向右关闭
+        // SVG 图标集：图标|向右关闭
         + '<symbol id="icoCloserTo-right">'
         + '<path d="M13.9791715,0.176477427 L14.0154251,0.189323743 C15.5212,0.722890207 16.3261424,2.31174457 15.875093,3.79570421 L6.20859385,30 L15.8197795,56.039902 C16.3646269,57.5145002 15.632921,59.1369628 14.1798211,59.7471073 L13.9791715,59.8235226 C12.4774152,60.3556651 10.8245904,59.6444033 10.1979056,58.2273068 L10.1325565,58.0669743 L0.314759836,31.9158354 C-0.104917664,30.6730285 -0.104920005,29.3272583 0.31475317,28.0844499 L10.1325565,1.93302569 C10.7019517,0.409988422 12.4217946,-0.375374037 13.9791715,0.176477427 Z" transform="translate(8.000000, 30.000000) scale(-1, 1) translate(-8.000000, -30.000000) "></path>'
         + '</symbol>'
-    // SVG 图标集：图标|向下关闭
+        // SVG 图标集：图标|向下关闭
         + '<symbol id="icoCloserTo-bottom">'
         + '<path d="M35.9791715,-21.8235226 L36.0154251,-21.8106763 C37.5212,-21.2771098 38.3261424,-19.6882554 37.875093,-18.2042958 L28.2085938,8 L37.8197795,34.039902 C38.3646269,35.5145002 37.632921,37.1369628 36.1798211,37.7471073 L35.9791715,37.8235226 C34.4774152,38.3556651 32.8245904,37.6444033 32.1979056,36.2273068 L32.1325565,36.0669743 L22.3147598,9.91583543 C21.8950823,8.67302848 21.89508,7.32725835 22.3147532,6.08444994 L32.1325565,-20.0669743 C32.7019517,-21.5900116 34.4217946,-22.375374 35.9791715,-21.8235226 Z" transform="translate(30.000000, 8.000000) rotate(270.000000) translate(-30.000000, -8.000000) "></path>'
         + '</symbol>'
-    // SVG 图标集：图标|插图导航的上一张
+        // SVG 图标集：图标|插图导航的上一张
         + '<symbol id="icoPrevFig">'
         + '<path d="M11.0303682,0.091084328 C11.7948436,0.375093579 12.1890102,1.237894 11.9107639,2.018203 L3.00130389,26.9997408 L11.9107639,51.981797 C12.1726428,52.7162055 11.8388895,53.5236859 11.1613701,53.8529228 L11.0303682,53.9089157 C10.310862,54.1762185 9.51976648,53.8355526 9.19721032,53.1440006 L9.14235361,53.0102855 C5.13199059,41.7636939 2.12421833,33.3287502 0.11903682,27.7054544 C0.11186687,27.6853471 0,27.43485 0,26.9997408 C0,26.5646315 0.111310594,26.3162129 0.119265149,26.2939053 C2.12439592,20.6707518 5.13209207,12.2360215 9.14235361,0.989714523 C9.4205999,0.20940552 10.2658928,-0.192924923 11.0303682,0.091084328 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|插图导航的下一张
+        // SVG 图标集：图标|插图导航的下一张
         + '<symbol id="icoNextFig">'
         + '<path d="M11.0303682,0.091084328 C11.7948436,0.375093579 12.1890102,1.237894 11.9107639,2.018203 L3.00130389,26.9997408 L11.9107639,51.981797 C12.1726428,52.7162055 11.8388895,53.5236859 11.1613701,53.8529228 L11.0303682,53.9089157 C10.310862,54.1762185 9.51976648,53.8355526 9.19721032,53.1440006 L9.14235361,53.0102855 C5.13199059,41.7636939 2.12421833,33.3287502 0.11903682,27.7054544 C0.11186687,27.6853471 0,27.43485 0,26.9997408 C0,26.5646315 0.111310594,26.3162129 0.119265149,26.2939053 C2.12439592,20.6707518 5.13209207,12.2360215 9.14235361,0.989714523 C9.4205999,0.20940552 10.2658928,-0.192924923 11.0303682,0.091084328 Z" transform="translate(6.000000, 27.000000) scale(-1, 1) translate(-6.000000, -27.000000) "></path>'
         + '</symbol>'
-    // SVG 图标集：图标|逐章导航的上一章'
+        // SVG 图标集：图标|逐章导航的上一章'
         + '<symbol id="icoPrevChapter">'
         + '<path d="M2.56507664,7.09086552 L7.5381691,12.063958 C7.92869339,12.4544823 7.92869339,13.0876472 7.5381691,13.4781715 C7.14764481,13.8686958 6.51447983,13.8686958 6.12395554,13.4781715 L0.467101288,7.82131729 C0.287321184,7.64153719 0.190303885,7.41033487 0.176049391,7.17505536 C0.145971879,6.88568746 0.241806749,6.58570828 0.463554001,6.36396103 L6.12040825,0.707106781 C6.51093254,0.316582489 7.14409752,0.316582489 7.53462181,0.707106781 C7.9251461,1.09763107 7.9251461,1.73079605 7.53462181,2.12132034 L2.56507664,7.09086552 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|逐章导航的下一章
+        // SVG 图标集：图标|逐章导航的下一章
         + '<symbol id="icoNextChapter">'
-        + '<path d="M2.73310223,7.09086552 L7.70619469,12.063958 C8.09671898,12.4544823 8.09671898,13.0876472 7.70619469,13.4781715 C7.3156704,13.8686958 6.68250542,13.8686958 6.29198113,13.4781715 L0.635126876,7.82131729 C0.455346772,7.64153719 0.358329473,7.41033487 0.344074979,7.17505536 C0.313997467,6.88568746 0.409832337,6.58570828 0.631579589,6.36396103 L6.28843384,0.707106781 C6.67895813,0.316582489 7.31212311,0.316582489 7.7026474,0.707106781 C8.09317169,1.09763107 8.09317169,1.73079605 7.7026474,2.12132034 L2.73310223,7.09086552 Z"transform="translate(4.168887, 7.092639) scale(-1, 1) translate(-4.168887, -7.092639) "></path>'
+        + '<path d="M2.73310223,7.09086552 L7.70619469,12.063958 C8.09671898,12.4544823 8.09671898,13.0876472 7.70619469,13.4781715 C7.3156704,13.8686958 6.68250542,13.8686958 6.29198113,13.4781715 L0.635126876,7.82131729 C0.455346772,7.64153719 0.358329473,7.41033487 0.344074979,7.17505536 C0.313997467,6.88568746 0.409832337,6.58570828 0.631579589,6.36396103 L6.28843384,0.707106781 C6.67895813,0.316582489 7.31212311,0.316582489 7.7026474,0.707106781 C8.09317169,1.09763107 8.09317169,1.73079605 7.7026474,2.12132034 L2.73310223,7.09086552 Z" transform="translate(4.168887, 7.092639) scale(-1, 1) translate(-4.168887, -7.092639) "></path>'
         + '</symbol>'
-    // SVG 图标集：图标|已收起的目录节点
+        // SVG 图标集：图标|已收起的目录节点
         + '<symbol id="icoFolded">'
         + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>'
         + '<path d="M8,1 C11.8659932,1 15,4.13400675 15,8 C15,11.8659932 11.8659932,15 8,15 C4.13400675,15 1,11.8659932 1,8 C1,4.13400675 4.13400675,1 8,1 Z M7.66396103,3.75735931 C7.27343674,3.36683502 6.64027176,3.36683502 6.24974747,3.75735931 C5.85922318,4.1478836 5.85922318,4.78104858 6.24974747,5.17157288 L6.24974747,5.17157288 L9.08528137,8.00710678 L6.24974747,10.8426407 C5.85922318,11.233165 5.85922318,11.86633 6.24974747,12.2568542 C6.64027176,12.6473785 7.27343674,12.6473785 7.66396103,12.2568542 L7.66396103,12.2568542 L11.1994949,8.72132034 C11.3947571,8.5260582 11.4923882,8.27013588 11.4923882,8.01421356 L11.4923882,8.01421356 L11.4923882,8 C11.4923882,7.74407768 11.3947571,7.48815536 11.1994949,7.29289322 L11.1994949,7.29289322 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|已展开的目录节点
+        // SVG 图标集：图标|已展开的目录节点
         + '<symbol id="icoUnfold">'
         + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>'
         + '<path d="M11.500027,1.86500179 C12.0523118,1.86500179 12.500027,2.31271704 12.500027,2.86500179 C12.500027,3.41728654 12.0523118,3.86500179 11.500027,3.86500179 L5.49500179,3.86500179 L5.49500179,9.87002705 C5.49500179,10.4223118 5.04728654,10.870027 4.49500179,10.870027 C3.94271704,10.870027 3.49500179,10.4223118 3.49500179,9.87002705 L3.49500179,2.87002705 C3.49500179,2.59244142 3.60810365,2.34127215 3.79073809,2.16008851 C3.97127215,1.97810365 4.22244142,1.86500179 4.50002705,1.86500179 L11.500027,1.86500179 Z" transform="translate(7.997514, 6.367514) rotate(-135.000000) translate(-7.997514, -6.367514) "></path>'
         + '</symbol>'
-    // SVG 图标集：图标|已收起的引用折叠
+        // SVG 图标集：图标|已收起的引用折叠
         + '<symbol id="icoQuoteClosed">'
         + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>'
         + '<path d="M11,1 C13.209139,1 15,2.790861 15,5 L15,11 C15,13.209139 13.209139,15 11,15 L5,15 C2.790861,15 1,13.209139 1,11 L1,5 C1,2.790861 2.790861,1 5,1 L11,1 Z M8,3 C7.44771525,3 7,3.44771525 7,4 L7,4 L7,7 L4,7 C3.44771525,7 3,7.44771525 3,8 C3,8.55228475 3.44771525,9 4,9 L4,9 L7,9 L7,12 C7,12.5522847 7.44771525,13 8,13 C8.55228475,13 9,12.5522847 9,12 L9,12 L9,9 L12,9 C12.5522847,9 13,8.55228475 13,8 C13,7.44771525 12.5522847,7 12,7 L12,7 L9,7 L9,4 C9,3.44771525 8.55228475,3 8,3 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|已展开的引用折叠
+        // SVG 图标集：图标|已展开的引用折叠
         + '<symbol id="icoQuoteOpened">'
         + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>'
         + '<path d="M11,1 C13.209139,1 15,2.790861 15,5 L15,11 C15,13.209139 13.209139,15 11,15 L5,15 C2.790861,15 1,13.209139 1,11 L1,5 C1,2.790861 2.790861,1 5,1 L11,1 Z M11,2 L5,2 C3.34314575,2 2,3.34314575 2,5 L2,5 L2,11 C2,12.6568542 3.34314575,14 5,14 L5,14 L11,14 C12.6568542,14 14,12.6568542 14,11 L14,11 L14,5 C14,3.34314575 12.6568542,2 11,2 L11,2 Z"></path>'
         + '<rect x="4" y="7" width="8" height="2" rx="1"></rect>'
         + '</symbol>'
-    // SVG 图标集：图标|已收起的表格折叠行节点
+        // SVG 图标集：图标|已收起的表格折叠行节点
         + '<symbol id="icoRowGroupClosed">'
         + '<rect fill-opacity="0" x="1" y="1" width="10" height="10"></rect>'
         + '<path d="M8,0 C10.209139,-4.05812251e-16 12,1.790861 12,4 L12,8 C12,10.209139 10.209139,12 8,12 L4,12 C1.790861,12 2.705415e-16,10.209139 0,8 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 L8,0 Z M6,2 C5.44771525,2 5,2.44771525 5,3 L5,3 L5,5 L3,5 C2.44771525,5 2,5.44771525 2,6 C2,6.55228475 2.44771525,7 3,7 L3,7 L5,7 L5,9 C5,9.55228475 5.44771525,10 6,10 C6.55228475,10 7,9.55228475 7,9 L7,9 L7,7 L9,7 C9.55228475,7 10,6.55228475 10,6 C10,5.44771525 9.55228475,5 9,5 L9,5 L7,5 L7,3 C7,2.44771525 6.55228475,2 6,2 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|已展开的表格折叠行节点
+        // SVG 图标集：图标|已展开的表格折叠行节点
         + '<symbol id="icoRowGroupOpened">'
         + '<rect fill-opacity="0" x="1" y="1" width="10" height="10"></rect>'
         + '<path d="M8,0 C10.209139,-4.05812251e-16 12,1.790861 12,4 L12,8 C12,10.209139 10.209139,12 8,12 L4,12 C1.790861,12 2.705415e-16,10.209139 0,8 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 L8,0 Z M8,1 L4,1 C2.34314575,1 1,2.34314575 1,4 L1,4 L1,8 C1,9.65685425 2.34314575,11 4,11 L4,11 L8,11 C9.65685425,11 11,9.65685425 11,8 L11,8 L11,4 C11,2.34314575 9.65685425,1 8,1 L8,1 Z"></path>'
         + '<rect x="3" y="5" width="6" height="2" rx="1"></rect>'
         + '</symbol>'
-    // SVG 图标集：图标|展开长内容
+        // SVG 图标集：图标|展开长内容
         + '<symbol id="icoExtend">'
         + '<path d="M13,1.65685425 C13.5522847,1.65685425 14,2.1045695 14,2.65685425 C14,3.209139 13.5522847,3.65685425 13,3.65685425 L8,3.65685425 L8,8.65685425 C8,9.209139 7.55228475,9.65685425 7,9.65685425 C6.44771525,9.65685425 6,9.209139 6,8.65685425 L6,2.65685425 C6,2.1045695 6.44771525,1.65685425 7,1.65685425 L13,1.65685425 Z" transform="translate(10.000000, 5.656854) rotate(-135.000000) translate(-10.000000, -5.656854) "></path>'
         + '<path d="M13,7.65685425 C13.5522847,7.65685425 14,8.1045695 14,8.65685425 C14,9.209139 13.5522847,9.65685425 13,9.65685425 L8,9.65685425 L8,14.6568542 C8,15.209139 7.55228475,15.6568542 7,15.6568542 C6.44771525,15.6568542 6,15.209139 6,14.6568542 L6,8.65685425 C6,8.1045695 6.44771525,7.65685425 7,7.65685425 L13,7.65685425 Z" transform="translate(10.000000, 11.656854) rotate(-135.000000) translate(-10.000000, -11.656854) "></path>'
         + '</symbol>'
-    // SVG 图标集：图标|关闭
+        // SVG 图标集：图标|关闭
         + '<symbol id="icoClose">'
         + '<path d="M7,7 L7,-1 C7,-1.55228475 7.44771525,-2 8,-2 C8.55228475,-2 9,-1.55228475 9,-1 L9,7 L17,7 C17.5522847,7 18,7.44771525 18,8 C18,8.55228475 17.5522847,9 17,9 L9,9 L9,17 C9,17.5522847 8.55228475,18 8,18 C7.44771525,18 7,17.5522847 7,17 L7,9 L-1,9 C-1.55228475,9 -2,8.55228475 -2,8 C-2,7.44771525 -1.55228475,7 -1,7 L7,7 Z" transform="translate(8.000000, 8.000000) rotate(45.000000) translate(-8.000000, -8.000000) "></path>'
         + '</symbol>'
-    // SVG 图标集：图标|清空输入
+        // SVG 图标集：图标|清空输入
         + '<symbol id="icoResetInput">'
         + '<path d="M8,0 C12.418278,-8.11624501e-16 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.581722,16 5.41083001e-16,12.418278 0,8 C-5.41083001e-16,3.581722 3.581722,8.11624501e-16 8,0 Z M5.7372583,4.60588745 C5.42483887,4.29346802 4.91830688,4.29346802 4.60588745,4.60588745 C4.29346802,4.91830688 4.29346802,5.42483887 4.60588745,5.7372583 L4.60588745,5.7372583 L6.86862915,8 L4.60588745,10.2627417 C4.29346802,10.5751611 4.29346802,11.0816931 4.60588745,11.3941125 C4.91830688,11.706532 5.42483887,11.706532 5.7372583,11.3941125 L5.7372583,11.3941125 L8,9.13137085 L10.2627417,11.3941125 C10.5751611,11.706532 11.0816931,11.706532 11.3941125,11.3941125 C11.706532,11.0816931 11.706532,10.5751611 11.3941125,10.2627417 L11.3941125,10.2627417 L9.13137085,8 L11.3941125,5.7372583 C11.706532,5.42483887 11.706532,4.91830688 11.3941125,4.60588745 C11.0816931,4.29346802 10.5751611,4.29346802 10.2627417,4.60588745 L10.2627417,4.60588745 L8,6.86862915 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|插图导航
+        // SVG 图标集：图标|插图导航
         + '<symbol id="icoFigureNav">'
-        + '<path d="M13.5,4 C14.8807119,4 16,5.11928813 16,6.5 L16,15.5 C16,16.8807119 14.8807119,18 13.5,18 L2.5,18 C1.11928813,18 1.69088438e-16,16.8807119 0,15.5 L0,6.5 C-1.69088438e-16,5.11928813 1.11928813,4 2.5,4 L13.5,4 Z M13.2,5.3 L2.8,5.3 C1.97157288,5.3 1.3,5.97157288 1.3,6.8 L1.3,6.8 L1.3,14.902 L3.65967176,11.09632 C3.95065747,10.62691 4.56708,10.4822685 5.03649002,10.7732542 C5.10793456,10.8175424 5.17350994,10.8706621 5.23166471,10.9313563 L7.95061382,13.7690356 C8.22764272,14.0581617 8.65043195,14.1541566 9.02515448,14.0130114 L11.7051177,13.0035611 C12.0740534,12.8645957 12.4902054,12.9553626 12.7677664,13.2353355 L14.7,15.184 L14.7,6.8 C14.7,6.02030388 14.1051119,5.37955132 13.34446,5.30686658 L13.2,5.3 Z M17.5,0 C18.8807119,-2.53632657e-16 20,1.11928813 20,2.5 L20,11.5 C20,12.7244642 19.1197055,13.7433247 17.9574562,13.9582417 C17.9762556,13.858923 17.9888975,13.757836 17.9952366,13.6551669 L18,13.5 L18.0000265,12.4690711 C18.3822827,12.2275893 18.6478677,11.8181696 18.6931334,11.34446 L18.7,11.2 L18.7,2.8 C18.7,1.97157288 18.0284271,1.3 17.2,1.3 L6.8,1.3 C6.26569931,1.3 5.79664541,1.57935471 5.53092891,1.99997351 L4.5,2 C4.34346069,2 4.19028174,2.01438741 4.04171335,2.04191203 C4.25677412,0.880209138 5.27559513,2.24919526e-16 6.5,0 L17.5,0 Z M10,6.5 C11.1045695,6.5 12,7.3954305 12,8.5 C12,9.6045695 11.1045695,10.5 10,10.5 C8.8954305,10.5 8,9.6045695 8,8.5 C8,7.3954305 8.8954305,6.5 10,6.5 Z"></path>'
+        + '<path d="M18,3 C19.1045695,3 20,3.8954305 20,5 L20,14 C20,15.1045695 19.1045695,16 18,16 L4,16 C2.9456382,16 2.08183488,15.1841222 2.00548574,14.1492623 L2,14 L15.5,14 C16.8807119,14 18,12.8807119 18,11.5 L18,3 Z M15,0 C16.1045695,-1.18396092e-15 17,0.8954305 17,2 L17,11 C17,12.1045695 16.1045695,13 15,13 L2,13 C0.8954305,13 -1.13551567e-13,12.1045695 -1.13686838e-13,11 L-1.13686838e-13,2 C-1.13822108e-13,0.8954305 0.8954305,2.02906125e-16 2,0 L15,0 Z M5.73928706,4.46929968 C5.247001,4.21895416 4.64497916,4.41508571 4.39463363,4.90737177 L4.39463363,4.90737177 L2.03225639,9.55281283 C1.96084272,9.69324256 1.92361915,9.84855852 1.92361915,10.0061035 C1.92361915,10.5583883 2.3713344,11.0061035 2.92361915,11.0061035 L2.92361915,11.0061035 L14.2120421,11.0061035 C14.4392714,11.0061035 14.6597254,10.9287155 14.8370963,10.7866848 C15.2681995,10.4414769 15.3378313,9.81215247 14.9926234,9.38104929 L14.9926234,9.38104929 L12.9645536,6.84835144 C12.6449335,6.44920285 12.075683,6.35548344 11.6449719,6.63110012 L11.6449719,6.63110012 L9.29545309,8.13458249 C9.28589453,8.14069912 9.27623255,8.14665259 9.26647134,8.15244033 C8.79141623,8.43411583 8.17796486,8.27735069 7.89628936,7.80229559 L7.89628936,7.80229559 L6.14615975,4.85064382 C6.04943866,4.68752049 5.90832711,4.55526275 5.73928706,4.46929968 Z M11,2 C9.8954305,2 9,2.8954305 9,4 C9,5.1045695 9.8954305,6 11,6 C12.1045695,6 13,5.1045695 13,4 C13,2.8954305 12.1045695,2 11,2 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|亮色模式
+        // SVG 图标集：图标|亮色模式
         + '<symbol id="icoLightMode">'
-        + '<path d="M10.8333333,0.83333334 L10.8333333,2.5 C10.8333333,2.9602373 10.4602373,3.33333334 10,3.33333334 C9.5397627,3.33333334 9.16666666,2.9602373 9.16666666,2.5 L9.16666666,0.83333334 C9.16666666,0.373096045 9.5397627,8.45442195e-17 10,0 C10.4602373,-8.45442195e-17 10.8333333,0.373096045 10.8333333,0.83333334 Z M10,16.6666667 C9.5397627,16.6666667 9.16666666,17.0397627 9.16666666,17.5 L9.16666666,19.1666667 C9.16666666,19.626904 9.5397627,20 10,20 C10.4602373,20 10.8333333,19.626904 10.8333333,19.1666667 L10.8333333,17.5 C10.8333333,17.0397627 10.4602373,16.6666667 10,16.6666667 Z M2.92895834,2.92895834 C2.77266874,3.08523989 2.68486548,3.29720799 2.68486548,3.51822917 C2.68486548,3.73925035 2.77266874,3.95121845 2.92895834,4.1075 L4.1075,5.28604166 C4.43294529,5.61148694 4.96059636,5.61148694 5.28604165,5.28604165 C5.61148694,4.96059636 5.61148694,4.43294529 5.28604166,4.1075 L4.1075,2.92895834 C3.95121845,2.77266874 3.73925035,2.68486548 3.51822917,2.68486548 C3.29720799,2.68486548 3.08523989,2.77266874 2.92895834,2.92895834 Z M14.7139583,14.7139583 C14.3886401,15.0393749 14.3886401,15.5668751 14.7139583,15.8922917 L14.7139583,15.8925 L15.8925,17.0710417 C16.1030262,17.2815679 16.4098748,17.3637877 16.6974589,17.2867298 C16.985043,17.2096718 17.2096718,16.985043 17.2867298,16.6974589 C17.3637877,16.4098748 17.2815679,16.1030262 17.0710417,15.8925 L15.8925,14.7139583 C15.7362456,14.5576177 15.5242673,14.4697791 15.3032292,14.4697791 C15.082191,14.4697791 14.8702128,14.5576177 14.7139583,14.7139583 Z M0,10 C5.6362813e-17,10.4602373 0.373096045,10.8333333 0.83333334,10.8333333 L2.5,10.8333333 C2.9602373,10.8333333 3.33333334,10.4602373 3.33333334,10 C3.33333334,9.5397627 2.9602373,9.16666666 2.5,9.16666666 L0.83333334,9.16666666 C0.373096045,9.16666666 5.6362813e-17,9.5397627 0,10 Z M16.6666667,10 C16.6666667,10.4602373 17.0397627,10.8333333 17.5,10.8333333 L19.1666667,10.8333333 C19.626904,10.8333333 20,10.4602373 20,10 C20,9.5397627 19.626904,9.16666666 19.1666667,9.16666666 L17.5,9.16666666 C17.0397627,9.16666666 16.6666667,9.5397627 16.6666667,10 Z M2.92895834,17.0710417 C3.08523989,17.2273313 3.29720799,17.3151345 3.51822917,17.3151345 C3.73925035,17.3151345 3.95121845,17.2273313 4.1075,17.0710417 L5.28583334,15.8925 C5.60509309,15.5660706 5.60221508,15.0435127 5.27937916,14.7206197 C4.95654324,14.3977267 4.43398579,14.3947563 4.1075,14.7139583 L2.92895834,15.8925 C2.77266874,16.0487816 2.68486548,16.2607497 2.68486548,16.4817708 C2.68486548,16.702792 2.77266874,16.9147601 2.92895834,17.0710417 Z M14.7139583,5.28604166 C15.0393749,5.61135993 15.5668751,5.61135993 15.8922917,5.28604166 L15.8925,5.28604166 L17.0710417,4.1075 C17.396487,3.78205471 17.396487,3.25440363 17.0710417,2.92895834 C16.7455964,2.60351305 16.2179453,2.60351305 15.8925,2.92895834 L14.7139583,4.1075 C14.5576177,4.26375444 14.4697791,4.4757327 14.4697791,4.69677083 C14.4697791,4.91780896 14.5576177,5.12978722 14.7139583,5.28604166 Z M15,10 C15,12.7614583 12.7614583,15 10,15 C7.23854166,15 5,12.7614583 5,10 C5,7.23854166 7.23854166,5 10,5 C12.7614583,5 15,7.23854166 15,10 Z"></path>'
+        + '<path d="M10,17 C10.5522847,17 11,17.4477153 11,18 L11,19 C11,19.5522847 10.5522847,20 10,20 C9.44771525,20 9,19.5522847 9,19 L9,18 C9,17.4477153 9.44771525,17 10,17 Z M16.363961,14.9497475 L17.0710678,15.6568542 C17.4615921,16.0473785 17.4615921,16.6805435 17.0710678,17.0710678 C16.6805435,17.4615921 16.0473785,17.4615921 15.6568542,17.0710678 L14.9497475,16.363961 C14.5592232,15.9734367 14.5592232,15.3402718 14.9497475,14.9497475 C15.3402718,14.5592232 15.9734367,14.5592232 16.363961,14.9497475 Z M5.05025253,14.9497475 C5.44077682,15.3402718 5.44077682,15.9734367 5.05025253,16.363961 L4.34314575,17.0710678 C3.95262146,17.4615921 3.31945648,17.4615921 2.92893219,17.0710678 C2.5384079,16.6805435 2.5384079,16.0473785 2.92893219,15.6568542 L3.63603897,14.9497475 C4.02656326,14.5592232 4.65972824,14.5592232 5.05025253,14.9497475 Z M10,4 C13.31375,4 16,6.68624999 16,10 C16,13.31375 13.31375,16 10,16 C6.68624999,16 4,13.31375 4,10 C4,6.68624999 6.68624999,4 10,4 Z M19,9 C19.5522847,9 20,9.44771525 20,10 C20,10.5522847 19.5522847,11 19,11 L18,11 C17.4477153,11 17,10.5522847 17,10 C17,9.44771525 17.4477153,9 18,9 L19,9 Z M2,9 C2.55228475,9 3,9.44771525 3,10 C3,10.5522847 2.55228475,11 2,11 L1,11 C0.44771525,11 2.4125371e-16,10.5522847 3.83475851e-17,10 C-1.6455854e-16,9.44771525 0.44771525,9 1,9 L2,9 Z M17.0710678,2.92893219 C17.4615921,3.31945648 17.4615921,3.95262146 17.0710678,4.34314575 L16.363961,5.05025253 C15.9734367,5.44077682 15.3402718,5.44077682 14.9497475,5.05025253 C14.5592232,4.65972824 14.5592232,4.02656326 14.9497475,3.63603897 L15.6568542,2.92893219 C16.0473785,2.5384079 16.6805435,2.5384079 17.0710678,2.92893219 Z M4.34314575,2.92893219 L5.05025253,3.63603897 C5.44077682,4.02656326 5.44077682,4.65972824 5.05025253,5.05025253 C4.65972824,5.44077682 4.02656326,5.44077682 3.63603897,5.05025253 L2.92893219,4.34314575 C2.5384079,3.95262146 2.5384079,3.31945648 2.92893219,2.92893219 C3.31945648,2.5384079 3.95262146,2.5384079 4.34314575,2.92893219 Z M10,0 C10.5522847,-1.01453063e-16 11,0.44771525 11,1 L11,2 C11,2.55228475 10.5522847,3 10,3 C9.44771525,3 9,2.55228475 9,2 L9,1 C9,0.44771525 9.44771525,1.01453063e-16 10,0 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|深色模式
+        // SVG 图标集：图标|深色模式
         + '<symbol id="icoDarkMode">'
-        + '<path d="M4.1439375,12.4783274 C8.7496875,12.4783274 12.4801875,8.74489828 12.4801875,4.14181693 C12.4801875,2.62583206 12.045375,1.22347573 11.33775,0 C15.17625,1.10703459 18,4.60533142 18,8.800025 C18,13.8801213 13.8825,18 8.802,18 C4.6074375,18 1.107,15.1744742 0,11.3375418 C1.22625,12.0429388 2.628,12.4783274 4.1439375,12.4783274 Z M4.44974747,8.44974747 L3.74264069,10.2426407 L3.03553391,8.44974747 L1.24264069,7.74264069 L3.03553391,7.03553391 L3.74264069,5.24264069 L4.44974747,7.03553391 L6.24264069,7.74264069 L4.44974747,8.44974747 Z M8.39411255,4.39411255 L7.82842712,5.82842712 L7.2627417,4.39411255 L5.82842712,3.82842712 L7.2627417,3.2627417 L7.82842712,1.82842712 L8.39411255,3.2627417 L9.82842712,3.82842712 L8.39411255,4.39411255 Z M3.75269119,2.75269119 L3.32842712,3.82842712 L2.90416306,2.75269119 L1.82842712,2.32842712 L2.90416306,1.90416306 L3.32842712,0.828427125 L3.75269119,1.90416306 L4.82842712,2.32842712 L3.75269119,2.75269119 Z"></path>'
+        + '<path d="M11.33775,0 C15.17625,1.10703459 18,4.60533142 18,8.800025 C18,13.8801213 13.8825,18 8.802,18 C4.6074375,18 1.107,15.1744742 0,11.3375418 C1.22625,12.0429388 2.628,12.4783274 4.1439375,12.4783274 C8.7496875,12.4783274 12.4801875,8.74489828 12.4801875,4.14181693 C12.4801875,2.62583206 12.045375,1.22347573 11.33775,0 Z M4.74264069,5.24264069 L5.57324417,7.34866397 C5.67488851,7.60638666 5.87889472,7.81039286 6.1366174,7.91203721 L8.24264069,8.74264069 L6.1366174,9.57324417 C5.87889472,9.67488851 5.67488851,9.87889472 5.57324417,10.1366174 L4.74264069,12.2426407 L3.91203721,10.1366174 C3.81039286,9.87889472 3.60638666,9.67488851 3.34866397,9.57324417 L1.24264069,8.74264069 L3.34866397,7.91203721 C3.60638666,7.81039286 3.81039286,7.60638666 3.91203721,7.34866397 L4.74264069,5.24264069 Z M8.82842712,0.828427125 L9.51760925,2.57587176 C9.61925359,2.83359445 9.8232598,3.03760066 10.0809825,3.139245 L11.8284271,3.82842712 L10.0809825,4.51760925 C9.8232598,4.61925359 9.61925359,4.8232598 9.51760925,5.08098249 L8.82842712,6.82842712 L8.139245,5.08098249 C8.03760066,4.8232598 7.83359445,4.61925359 7.57587176,4.51760925 L5.82842712,3.82842712 L7.57587176,3.139245 C7.83359445,3.03760066 8.03760066,2.83359445 8.139245,2.57587176 L8.82842712,0.828427125 Z M3.32842712,0.828427125 L3.87618789,2.21729312 C3.97783224,2.47501581 4.18183844,2.67902201 4.43956113,2.78066636 L5.82842712,3.32842712 L4.43956113,3.87618789 C4.18183844,3.97783224 3.97783224,4.18183844 3.87618789,4.43956113 L3.32842712,5.82842712 L2.78066636,4.43956113 C2.67902201,4.18183844 2.47501581,3.97783224 2.21729312,3.87618789 L0.828427125,3.32842712 L2.21729312,2.78066636 C2.47501581,2.67902201 2.67902201,2.47501581 2.78066636,2.21729312 L3.32842712,0.828427125 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|搜索
+        // SVG 图标集：图标|搜索
         + '<symbol id="icoSearch">'
         + '<path d="M528.455431,171.449968 C527.72681,172.183344 526.545225,172.183344 525.816124,171.449968 L522.393223,168.134885 C521.038907,169.008011 519.437731,169.529774 517.709652,169.529774 C512.899726,169.529774 509,165.605956 509,160.764898 C509,155.924138 512.899726,152 517.709652,152 C522.52015,152 526.419327,155.924138 526.419327,160.764898 C526.419327,162.504086 525.901039,164.11525 525.032622,165.478481 L528.455408,168.793541 C529.184624,169.527465 529.184624,170.716112 528.455431,171.449968 Z M517.709652,154.504244 C514.274066,154.504244 511.488381,157.3073 511.488381,160.764898 C511.488381,164.222748 514.274066,167.02553 517.709652,167.02553 C521.14581,167.02553 523.930901,164.222748 523.930901,160.764898 C523.930901,157.3073 521.14581,154.504244 517.709652,154.504244 Z" transform="translate(-509 -152)"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|聚光灯
+        // SVG 图标集：图标|聚光灯
         + '<symbol id="icoSpotlight">'
-        + '<path d="M11,0 C11.5522847,-1.01453063e-16 12,0.44771525 12,1 L12.0009885,2.10785544 C16.1609647,2.56148027 19.469266,5.84999811 19.9532602,10.0007767 L21,10 C21.5522847,10 22,10.4477153 22,11 C22,11.5522847 21.5522847,12 21,12 L19.9650784,12.001106 C19.525899,16.2022087 16.1966102,19.5434042 12.0009885,20.000916 L12,21 C12,21.5522847 11.5522847,22 11,22 C10.4477153,22 10,21.5522847 10,21 L10.000464,19.9979192 C5.81761434,19.5290051 2.50170985,16.1931587 2.06347654,12.001106 L1,12 C0.44771525,12 6.76353751e-17,11.5522847 0,11 C-6.76353751e-17,10.4477153 0.44771525,10 1,10 L2.07529477,10.0007767 C2.5582374,5.85901628 5.85322806,2.57577391 10.000464,2.11085226 L10,1 C10,0.44771525 10.4477153,1.01453063e-16 11,0 Z M12.0001716,3.1145332 L12,4 C12,4.55228475 11.5522847,5 11,5 C10.4477153,5 10,4.55228475 10,4 L10.0002766,3.11803789 C6.40620697,3.57264611 3.55544055,6.41177089 3.08310478,10.0002847 L4,10 C4.55228475,10 5,10.4477153 5,11 C5,11.5522847 4.55228475,12 4,12 L3.0696251,12.0003979 C3.49838896,15.6398682 6.37019638,18.5315704 10.0002766,18.9907335 L10,18 C10,17.4477153 10.4477153,17 11,17 C11.5522847,17 12,17.4477153 12,18 L12.0001716,18.9942382 C15.6435265,18.5464839 18.52906,15.6492564 18.9589299,12.0003979 L18,12 C17.4477153,12 17,11.5522847 17,11 C17,10.4477153 17.4477153,10 18,10 L18.9454502,10.0002847 C18.4718838,6.40242145 15.6074772,3.55785721 12.0001716,3.1145332 Z M9.01427748,7.59028411 C10.2518818,6.87575291 11.7766732,6.87575291 13.0142775,7.59028411 C14.2518818,8.3048153 15.0142775,9.62532339 15.0142775,11.0543857 C15.0142775,13.2635247 13.2234165,15.0543857 11.0142775,15.0543857 C8.80513848,15.0543857 7.01427748,13.2635247 7.01427748,11.0543857 C7.01427748,9.62532339 7.77667314,8.3048153 9.01427748,7.59028411 Z"></path>'
+        + '<path d="M7,0 C10.7551223,0 13.8196406,2.95682698 13.9923239,6.66924983 C16.3611232,7.79146111 18,10.2043405 18,13 C18,16.8659932 14.8659932,20 11,20 C7.24487772,20 4.18035939,17.043173 4.00767611,13.3307502 C1.6388768,12.2085389 0,9.79565954 0,7 C0,3.13400675 3.13400675,0 7,0 Z M11,6 C7.13400675,6 4,9.13400675 4,13 C4,13.110871 4.00257759,13.2211399 4.00767611,13.3307502 C4.91543987,13.7597761 5.92966629,14 7,14 C10.8659932,14 14,10.8659932 14,7 C14,6.88912903 13.9974224,6.77886009 13.9923239,6.66924983 C13.0845601,6.24022387 12.0703337,6 11,6 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|段落导航
+        // SVG 图标集：图标|激光笔
+        + '<symbol id="icoLaserPointer">'
+        + '<path d="M10.951381,5.00614803 L12.0396176,6.57032267 L17.3457737,14.2000489 C17.8961516,14.9915099 18.1116877,15.9707153 17.9449559,16.9222029 C17.7782241,17.8736904 17.2428856,18.7194998 16.4567352,19.2735207 L16.3604784,19.340826 C15.8164041,19.7245739 15.1829366,19.9467693 14.5310651,19.9915531 L14.3131903,19.9998885 C14.0948286,20.0016095 13.8752985,19.9834224 13.657229,19.9447397 C12.7122615,19.7771146 11.8721398,19.2383609 11.3217023,18.4470119 L4.92864642,9.25311104 C4.37771148,8.46171625 4.16171393,7.48230924 4.32820583,6.53050734 C4.49469773,5.57870545 5.03002974,4.73253928 5.81634803,4.1782931 L5.91394173,4.11098782 C7.55057037,2.95790063 9.80564043,3.35862983 10.951381,5.00614803 Z M7.09843515,5.50959151 L6.95137615,5.6038189 L6.95137615,5.60247278 L6.85378242,5.67112416 C6.09067447,6.20903376 5.85807951,7.24252802 6.31634864,8.05911542 L6.40993164,8.20718703 L7.498,9.772 L10.558,7.614 L9.47009576,6.05072592 C8.93586473,5.28236342 7.90943819,5.04816688 7.09843515,5.50959151 Z M1.0863958,6.34552304 L2.18800139,6.47071085 C2.42489812,6.49754112 2.64024445,6.62177293 2.78303568,6.81398205 C2.92582691,7.00619117 2.98336171,7.2492805 2.94201299,7.48567445 C2.85211159,7.99749099 2.38283962,8.3509847 1.8698192,8.29333778 L0.766876686,8.16814995 C0.53025693,8.14128643 0.315151709,8.01724676 0.172401749,7.82534805 C0.0296517894,7.63344933 -0.0280750656,7.39072097 0.0128650894,7.15453248 L0.0128650894,7.15318638 C0.102787372,6.64079459 0.572890352,6.28711589 1.0863958,6.34552304 Z M4.60779042,0.695918042 L5.38720313,1.81587785 C5.66642036,2.23467814 5.56142729,2.80144903 5.15103845,3.09073596 C4.74064962,3.3800229 4.17580662,3.28542572 3.88051682,2.87795514 L3.10110412,1.75664921 C2.96147742,1.55550829 2.90697688,1.30673553 2.94960445,1.06511502 C2.99223201,0.823494514 3.12849183,0.608841455 3.32837711,0.468426199 L3.32704019,0.468426199 C3.74312293,0.175245254 4.31645492,0.277082713 4.60779042,0.695918042 Z M10.5182254,0.0147886333 C10.754798,0.0568442423 10.9641128,0.194205748 11.0978347,0.395153585 C11.2315566,0.596101422 11.2781236,0.843260997 11.2267824,1.07955814 L11.004857,2.10259834 C10.895061,2.60771659 10.4089597,2.93559952 9.90325135,2.84564861 C9.66696618,2.80356486 9.45789382,2.66640177 9.32421017,2.46576537 C9.19052652,2.26512898 9.14376269,2.01832555 9.19469435,1.78222523 L9.41661976,0.759185021 C9.52581005,0.253521611 10.0120966,-0.0750804945 10.5182254,0.0147886333 Z"></path>'
+        + '</symbol>'
+        // SVG 图标集：图标|段落导航
         + '<symbol id="icoParagraphNav">'
         + '<path d="M3.01977401,12 C3.39265537,12 3.69774011,12.3050847 3.69774011,12.6779661 L3.69774011,12.6779661 L3.69774011,17.714056 L4.87288136,16.5389147 C5.13276836,16.2677283 5.56214689,16.2677283 5.79943503,16.5389147 C6.05932203,16.8101012 6.05932203,17.2394797 5.79943503,17.4993667 L5.79943503,17.4993667 L3.50564972,19.793152 C3.38135593,19.9287452 3.20056497,19.9965418 3.03107345,19.9965418 L3.03107345,19.9965418 L2.96327684,19.9965418 C2.79378531,19.9965418 2.62429379,19.9287452 2.48870056,19.793152 L2.48870056,19.793152 L0.194915254,17.4993667 C-0.0649717514,17.2281803 -0.0649717514,16.7988017 0.194915254,16.5389147 C0.466101695,16.2790277 0.895480226,16.2790277 1.15536723,16.5389147 L1.15536723,16.5389147 L2.34180791,17.7253554 L2.34180791,12.6779661 C2.34180791,12.3050847 2.64689266,12 3.01977401,12 Z M19,16 C19.5522847,16 20,16.4477153 20,17 C20,17.5522847 19.5522847,18 19,18 L8,18 C7.44771525,18 7,17.5522847 7,17 C7,16.4477153 7.44771525,16 8,16 L19,16 Z M15,12.5 C15.5522847,12.5 16,12.9477153 16,13.5 C16,14.0522847 15.5522847,14.5 15,14.5 L8,14.5 C7.44771525,14.5 7,14.0522847 7,13.5 C7,12.9477153 7.44771525,12.5 8,12.5 L15,12.5 Z M19,9 C19.5522847,9 20,9.44771525 20,10 C20,10.5522847 19.5522847,11 19,11 L8,11 C7.44771525,11 7,10.5522847 7,10 C7,9.44771525 7.44771525,9 8,9 L19,9 Z M3.03107345,0 C3.20056497,0 3.38135593,0.0677966102 3.50564972,0.203389831 L5.79943503,2.49717514 C6.05932203,2.75706215 6.05932203,3.18644068 5.79943503,3.45762712 C5.56214689,3.72881356 5.13276836,3.72881356 4.87288136,3.45762712 L3.69774011,2.28248588 L3.69774011,7.31857574 C3.69774011,7.6914571 3.39265537,7.99654184 3.01977401,7.99654184 C2.64689266,7.99654184 2.34180791,7.6914571 2.34180791,7.31857574 L2.34180791,2.27118644 L1.15536723,3.45762712 C0.895480226,3.71751412 0.466101695,3.71751412 0.194915254,3.45762712 C-0.0649717514,3.19774011 -0.0649717514,2.76836158 0.194915254,2.49717514 L2.48870056,0.203389831 C2.62429379,0.0677966102 2.79378531,0 2.96327684,0 L3.03107345,0 Z M15,5.5 C15.5522847,5.5 16,5.94771525 16,6.5 C16,7.05228475 15.5522847,7.5 15,7.5 L8,7.5 C7.44771525,7.5 7,7.05228475 7,6.5 C7,5.94771525 7.44771525,5.5 8,5.5 L15,5.5 Z M19,2 C19.5522847,2 20,2.44771525 20,3 C20,3.55228475 19.5522847,4 19,4 L8,4 C7.44771525,4 7,3.55228475 7,3 C7,2.44771525 7.44771525,2 8,2 L19,2 Z" id="形状结合"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|字体风格
+        // SVG 图标集：图标|表格十字光标
+        + '<symbol id="icoTableCross">'
+        + '<path d="M17,0 C18.6568542,-3.04359188e-16 20,1.34314575 20,3 L20,15 C20,16.6568542 18.6568542,18 17,18 L3,18 C1.34314575,18 2.02906125e-16,16.6568542 0,15 L0,3 C-2.02906125e-16,1.34314575 1.34314575,-1.39730022e-16 3,0 L17,0 Z M1,15 C1,16.0543618 1.81587779,16.9181651 2.85073766,16.9945143 L3,17 L6,17 L6,13 L14,13 L14,17 L17,17 C18.0543618,17 18.9181651,16.1841222 18.9945143,15.1492623 L19,15 L19,13 L14,13 L14,9 L19,9 L19,3 C19,1.8954305 18.1045695,1 17,1 L14,1 L14,9 L6,9 L6,1 L3,1 C1.9456382,1 1.08183488,1.81587779 1.00548574,2.85073766 L1,3 L1,9 L6,9 L6,13 L1,13 L1,15 Z"></path>'
+        + '</symbol>'
+        // SVG 图标集：图标|字体风格
         + '<symbol id="icoFont">'
         + '<path d="M13.5762602,0 L19.6240589,2.72949935 C19.8423438,2.82801594 19.9601208,3.06747857 19.9049054,3.30051307 L19.9049054,3.30051307 L18.9255405,7.43389084 C18.9239258,7.44070599 18.9222394,7.44750398 18.9204818,7.4542837 C18.781886,7.98889537 18.2361435,8.30992963 17.7015318,8.1713338 L17.7015318,8.1713338 L16.6090545,7.88811365 L17.0004095,16.9530131 C17.0010298,16.9673822 17.0013401,16.981763 17.0013401,16.9961455 C17.0013401,17.5484303 16.5536248,17.9961455 16.0013401,17.9961455 L16.0013401,17.9961455 L4.0220839,17.9961455 C4.00856119,17.9961455 3.99503987,17.9958712 3.98152828,17.9953228 C3.42969791,17.9729246 3.00050837,17.5074203 3.02290662,16.9555899 L3.02290662,16.9555899 L3.39094547,7.88814065 L2.2984682,8.1713608 C2.29168849,8.17311841 2.2848905,8.17480475 2.27807535,8.17641954 C1.74066982,8.30375271 1.20179262,7.97132338 1.07445945,7.43391784 L1.07445945,7.43391784 L0.0950940831,3.300538 C0.0398789749,3.06750442 0.157654736,2.82804263 0.375938263,2.72952533 L0.375938263,2.72952533 L6.42371282,0 C6.84120201,1.17779603 8.35034026,1.92020134 10.0273836,1.92020134 C11.7041575,1.92020134 13.1584477,1.17779606 13.5762602,0 L13.5762602,0 Z M14.3362925,15 L5.33629254,15 C5.06015017,15 4.83629254,15.2238576 4.83629254,15.5 C4.83629254,15.7761424 5.06015017,16 5.33629254,16 L5.33629254,16 L14.3362925,16 C14.6124349,16 14.8362925,15.7761424 14.8362925,15.5 C14.8362925,15.2238576 14.6124349,15 14.3362925,15 L14.3362925,15 Z M14.3362925,13 L5.33629254,13 C5.06015017,13 4.83629254,13.2238576 4.83629254,13.5 C4.83629254,13.7761424 5.06015017,14 5.33629254,14 L5.33629254,14 L14.3362925,14 C14.6124349,14 14.8362925,13.7761424 14.8362925,13.5 C14.8362925,13.2238576 14.6124349,13 14.3362925,13 L14.3362925,13 Z M10.1692801,4 L9.49356401,4 C9.10681163,4 8.75473295,4.22301476 8.58946486,4.57267725 L8.58946486,4.57267725 L5.51323262,11.0811511 C5.47258031,11.1671604 5.45149579,11.2611105 5.45149579,11.3562431 C5.45149579,11.7117802 5.73971557,12 6.09525268,12 L6.09525268,12 L6.47408711,12 C6.86292903,12 7.21651458,11.7745963 7.38064094,11.4220902 L7.38064094,11.4220902 L7.98538301,10.1232417 L11.6882178,10.1232417 L12.2536219,11.4038874 C12.4135943,11.7662263 12.772349,12 13.1684307,12 L13.1684307,12 L13.5590129,12 C13.6567871,12 13.7533353,11.9782359 13.8416532,11.9362865 C14.1702934,11.7801886 14.3101665,11.3872307 14.1540686,11.0585905 L14.1540686,11.0585905 L11.0725642,4.57095699 C10.9069259,4.22223103 10.5553447,4 10.1692801,4 L10.1692801,4 Z M9.83629254,5.81301032 L11.1439071,8.7799378 L8.55457137,8.7799378 L9.83629254,5.81301032 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|非衬线字（小清新）体风格
+        // SVG 图标集：图标|非衬线字（小清新）体风格
         + '<symbol id="icoFont-sans">'
         + '<path d="M18,16 L14.0598232,16 L12.4935418,12.2464833 L5.32290959,12.2464833 L3.84228416,16 L0,16 L6.98708362,0 L10.8171312,0 L18,16 Z M11.3310673,9.55987559 L8.8592794,3.62602064 L6.4364378,9.55987559 L11.3310673,9.55987559 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|衬线（文艺范）字体风格
+        // SVG 图标集：图标|衬线（文艺范）字体风格
         + '<symbol id="icoFont-serif">'
         + '<path d="M10.45,11.2169143 L4.4625,11.2169143 L3.75,12.8525809 C3.5166655,13.3978058 3.4,13.8480227 3.4,14.203245 C3.4,14.6741211 3.59166475,15.0210772 3.975,15.2441238 C4.20000112,15.3762995 4.75416225,15.4754298 5.6375,15.5415177 L5.6375,16 L0,16 L0,15.5415177 C0.608336375,15.4506469 1.10833138,15.2007559 1.5,14.7918372 C1.89166862,14.3829185 2.37499713,13.5382455 2.95,12.257793 L9.0125,0 L9.25,0 L15.3625,12.6295355 C15.9458363,13.9347709 16.4249981,14.7567265 16.8,15.0954268 C17.0833347,15.3515173 17.4833307,15.5002128 18,15.5415177 L18,16 L9.8,16 L9.8,15.5415177 L10.1375,15.5415177 C10.7958366,15.5415177 11.258332,15.4506482 11.525,15.2689066 C11.7083342,15.1367308 11.8,14.9467311 11.8,14.6989016 C11.8,14.5502038 11.7750002,14.3973779 11.725,14.2404192 C11.7083332,14.1660704 11.5833345,13.8562881 11.35,13.3110632 L10.45,11.2169143 Z M10.025,10.2619342 L7.5,4.49650206 L4.9,10.2619342 L10.025,10.2619342 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|打印
+        // SVG 图标集：图标|打印
         + '<symbol id="icoPrint">'
         + '<path d="M15,7.38964445e-12 C16.1045695,7.38944155e-12 17,0.8954305 17,2 L17,6 L18,6 C19.1045695,6 20,6.8954305 20,8 L20,14 C20,15.1045695 19.1045695,16 18,16 L17,16 L17,17 C17,18.1045695 16.1045695,19 15,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,16 L2,16 C0.8954305,16 1.3527075e-16,15.1045695 0,14 L0,8 C-1.3527075e-16,6.8954305 0.8954305,6 2,6 L3,6 L3,2 C3,0.8954305 3.8954305,7.38984736e-12 5,7.38964445e-12 L15,7.38964445e-12 Z M16,13 L4,13 L4,17 C4,17.5522847 4.44771525,18 5,18 L5,18 L15,18 C15.5522847,18 16,17.5522847 16,17 L16,17 L16,13 Z M14,15 L14,16 L6,16 L6,15 L14,15 Z M17.5,8 L16.5,8 C16.2238576,8 16,8.22385763 16,8.5 C16,8.77614237 16.2238576,9 16.5,9 L16.5,9 L17.5,9 C17.7761424,9 18,8.77614237 18,8.5 C18,8.22385763 17.7761424,8 17.5,8 L17.5,8 Z M14.1275656,8 C13.8514233,8 13.6275656,8.22385763 13.6275656,8.5 C13.6275656,8.77614237 13.8514233,9 14.1275656,9 C14.403708,9 14.6275656,8.77614237 14.6275656,8.5 C14.6275656,8.22385763 14.403708,8 14.1275656,8 Z M15,1 L5,1 C4.44771525,1 4,1.44771525 4,2 L4,2 L4,6 L16,6 L16,2 C16,1.48716416 15.6139598,1.06449284 15.1166211,1.00672773 L15,1 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|新标签打开
-        + '<symbol id="icoNewTab">'
-        + '<path d="M17.9987947,9 C18.5510794,9 18.9987924,9.44771525 18.9987924,10 L18.9987924,16 C18.9987924,16.5522847 18.5510794,17 17.9987947,17 C17.4465099,17 16.9987947,16.5522847 16.9987947,16 L16.9982218,12.47 L11.7071091,17.7054567 C11.3165848,18.095981 10.6834198,18.095981 10.2928955,17.7054567 C9.90237124,17.3149324 9.90237124,16.6817674 10.2928955,16.2912431 L15.6402218,11 L11.9987947,11 C11.4465099,11 10.9987947,10.5522847 10.9987947,10 C10.9987947,9.44771525 11.4465099,9 11.9987947,9 L17.9987947,9 Z"></path>'
-        + '<path d="M1,5 L1,13.499817 C1,14.2795131 1.59488808,14.9202656 2.35553999,14.9929504 L2.5,14.999817 L8.51827299,14.999817 C8.79441537,14.999817 9.01827299,15.2236746 9.01827299,15.499817 C9.01827299,15.7452769 8.84139783,15.9494253 8.60814863,15.9917613 L8.51827299,15.999817 L2.5,15.999817 C1.1745166,15.999817 0.089961328,14.968281 0.00531767968,13.6641926 L0,13.499817 L0,2.5 C0,1.1745166 1.03153594,0.089961328 2.33562431,0.00531767968 L2.5,-1.95399252e-14 L16.5,-1.95399252e-14 C17.8254834,-1.95399252e-14 18.9100387,1.03153594 18.9946823,2.33562431 L19,2.5 L19,6.49976186 C19,6.77590424 18.7761424,6.99976186 18.5,6.99976186 C18.2545401,6.99976186 18.0503916,6.8228867 18.0080557,6.58963749 L18,6.49976186 L18,5 L1,5 Z M1,4 L18,4 L18,2.5 C18,1.72030388 17.4051119,1.07955132 16.64446,1.00686658 L16.5,1 L2.5,1 C1.72030388,1 1.07955132,1.59488808 1.00686658,2.35553999 L1,2.5 L1,4 Z"></path>'
-        + '</symbol>'
-    // SVG 图标集：图标|复制代码块
+        // SVG 图标集：图标|复制代码块
         + '<symbol id="icoCopyCodeBlock">'
-        + '<path d="M15.91965,0 C17.0679061,0.0012395937 17.998512,0.931644206 18,2.07989999 L18,13.6701 C17.998512,14.8183558 17.0679061,15.7487604 15.91965,15.75 L13.05,15.75 L13.05,15.9201 C13.0487599,17.068283 12.118283,17.9987599 10.9701,18 L2.07989999,18 C0.931716995,17.9987599 0.00124007732,17.068283 0,15.9201 L0,4.32989999 C0.00124007732,3.18171699 0.931716995,2.25124007 2.07989999,2.25 L4.95,2.25 L4.95,2.07989999 C4.95148801,0.931644206 5.88209392,0.0012395937 7.03035,0 L15.91965,0 Z M2.08035,16.65 L10.96965,16.65 C11.3725278,16.6492579 11.6990096,16.3229773 11.7,15.9201 L11.7,4.32989999 C11.7,3.92759999 11.3724,3.6 10.9701,3.6 L2.08035,3.6 C1.67805,3.6 1.34999999,3.92759999 1.34999999,4.32989999 L1.34999999,15.9201 C1.34999999,16.32285 1.67805,16.65 2.08035,16.65 Z M9.22500001,6.29999999 C9.5977922,6.29999999 9.89999998,6.6022078 9.89999998,6.97499999 C9.89999998,7.34779219 9.5977922,7.65 9.22500001,7.65 L3.82499999,7.65 C3.45220779,7.65 3.15000001,7.34779219 3.15000001,6.97499999 C3.15000001,6.6022078 3.45220779,6.29999999 3.82499999,6.29999999 L9.22500001,6.29999999 L9.22500001,6.29999999 Z M9.22500001,9.45 C9.5977922,9.45 9.89999998,9.7522078 9.89999998,10.125 C9.89999998,10.4977922 9.5977922,10.8 9.22500001,10.8 L3.82499999,10.8 C3.45220779,10.8 3.15000001,10.4977922 3.15000001,10.125 C3.15000001,9.7522078 3.45220779,9.45 3.82499999,9.45 L9.22500001,9.45 L9.22500001,9.45 Z M7.42500001,12.6 C7.79779221,12.6 8.10000001,12.9022078 8.10000001,13.275 C8.10000001,13.6477922 7.79779221,13.95 7.42500001,13.95 L3.82499999,13.95 C3.45220778,13.95 3.14999999,13.6477922 3.14999999,13.275 C3.14999999,12.9022078 3.45220778,12.6 3.82499999,12.6 L7.42500001,12.6 Z" transform="translate(9.000000, 9.000000) scale(-1, 1) translate(-9.000000, -9.000000) "></path>'
+        + '<path d="M14.1508,0 C15.1714721,0.00110186107 15.9986773,0.828128183 16,1.84879999 L16,12.1512 C15.9986773,13.1718718 15.1714721,13.9988981 14.1508,14 L11.6,14 L11.6,14.1512 C11.5988977,15.1718071 10.7718071,15.9988977 9.7512,16 L1.84879999,16 C0.828192884,15.9988977 0.00110229095,15.1718071 0,14.1512 L0,3.84879999 C0.00110229095,2.82819288 0.828192884,2.00110229 1.84879999,2 L4.4,2 L4.4,1.84879999 C4.40132267,0.828128183 5.22852793,0.00110186107 6.2492,0 L14.1508,0 Z M1.8492,14.8 L9.7508,14.8 C10.1089136,14.7993404 10.3991196,14.5093131 10.4,14.1512 L10.4,3.84879999 C10.4,3.49119999 10.1088,3.2 9.7512,3.2 L1.8492,3.2 C1.4916,3.2 1.19999999,3.49119999 1.19999999,3.84879999 L1.19999999,14.1512 C1.19999999,14.5092 1.4916,14.8 1.8492,14.8 Z M8.20000001,5.59999999 C8.53137085,5.59999999 8.80000001,5.86862915 8.80000001,6.19999999 C8.80000001,6.53137083 8.53137085,6.8 8.20000001,6.8 L3.39999999,6.8 C3.06862915,6.8 2.80000001,6.53137083 2.80000001,6.19999999 C2.80000001,5.86862915 3.06862915,5.59999999 3.39999999,5.59999999 L8.20000001,5.59999999 L8.20000001,5.59999999 Z M8.20000001,8.4 C8.53137085,8.4 8.80000001,8.66862916 8.80000001,9 C8.80000001,9.33137084 8.53137085,9.6 8.20000001,9.6 L3.39999999,9.6 C3.06862915,9.6 2.80000001,9.33137084 2.80000001,9 C2.80000001,8.66862916 3.06862915,8.4 3.39999999,8.4 L8.20000001,8.4 L8.20000001,8.4 Z M6.60000001,11.2 C6.93137086,11.2 7.20000001,11.4686292 7.20000001,11.8 C7.20000001,12.1313709 6.93137086,12.4 6.60000001,12.4 L3.39999999,12.4 C3.06862914,12.4 2.79999999,12.1313709 2.79999999,11.8 C2.79999999,11.4686292 3.06862914,11.2 3.39999999,11.2 L6.60000001,11.2 Z"></path>'
         + '</symbol>'
-    // SVG 图标集：图标|加载中
+        // SVG 图标集：图标|加载中
         + '<symbol id="icoLoading">'
-        + '<g id="loading">'
         + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>'
         + '<path d="M6.72865086,1.26496983 C6.71911605,1.71977213 6.95629588,2.14416725 7.34865392,2.37436546 C7.74101196,2.60456367 8.2271863,2.60456367 8.61954434,2.37436546 C9.01190238,2.14416725 9.24908222,1.71977213 9.23954741,1.26496983 C9.23959745,0.816309443 9.00026873,0.401708736 8.61172578,0.177364095 C8.22318283,-0.0469805467 7.74446372,-0.0469805467 7.35592077,0.177364095 C6.96737782,0.401708736 6.72804909,0.816309443 6.72809913,1.26496983 L6.72865086,1.26496983 L6.72865086,1.26496983 Z M1.85885777,3.33890086 C1.85885777,4.01230737 2.4047616,4.5582112 3.07816811,4.5582112 C3.75157462,4.5582112 4.29747845,4.01230737 4.29747845,3.33890086 C4.29747845,2.66549435 3.75157462,2.11959052 3.07816811,2.11959052 C2.4047616,2.11959052 1.85885777,2.66549435 1.85885777,3.33890086 L1.85885777,3.33890086 Z M0.00285776562,7.92428017 C0.00293049529,8.5373029 0.499903995,9.03421744 1.11292673,9.03421744 C1.72594946,9.03421744 2.22292296,8.5373029 2.22299569,7.92428017 C2.22292296,7.31125744 1.72594946,6.8143429 1.11292673,6.8143429 C0.499903995,6.8143429 0.00293049529,7.31125744 0.00285776562,7.92428017 Z M1.96809914,12.9275905 C1.96816693,13.4601736 2.39992984,13.8918816 2.93251293,13.8918816 C3.46509602,13.8918816 3.89685893,13.4601736 3.89692672,12.9275905 C3.89685893,12.3950074 3.46509602,11.9632995 2.93251293,11.9632995 C2.39992984,11.9632995 1.96816693,12.3950074 1.96809914,12.9275905 L1.96809914,12.9275905 Z M7.18382328,15.0175215 C7.18382328,15.4809837 7.55953357,15.856694 8.0229957,15.856694 C8.48645782,15.856694 8.86216811,15.4809837 8.86216811,15.0175215 C8.86216811,14.5540594 8.48645782,14.1783491 8.0229957,14.1783491 C7.55953357,14.1783491 7.18382328,14.5540594 7.18382328,15.0175215 Z M12.5874095,13.0920043 C12.5874095,13.4241369 12.8566562,13.6933836 13.1887888,13.6933836 C13.5209214,13.6933836 13.7901681,13.4241369 13.7901681,13.0920043 C13.7901681,12.7598717 13.5209214,12.490625 13.1887888,12.490625 C12.8566562,12.490625 12.5874095,12.7598717 12.5874095,13.0920043 Z M15.0892026,7.90138363 C15.0892026,8.13677119 15.2800219,8.32759052 15.5154095,8.32759052 C15.7507971,8.32759052 15.9416164,8.13677119 15.9416164,7.90138363 C15.9416164,7.66599606 15.7507971,7.47517673 15.5154095,7.47517673 C15.2800219,7.47517673 15.0892026,7.66599606 15.0892026,7.90138363 Z M13.8089267,3.4310388 C13.8089267,3.59916189 13.9452174,3.73545259 14.1133405,3.73545259 C14.2814636,3.73545259 14.4177543,3.59916189 14.4177543,3.4310388 C14.4177543,3.2629157 14.2814636,3.126625 14.1133405,3.126625 C13.9452174,3.126625 13.8089267,3.2629157 13.8089267,3.4310388 Z"></path>'
-        + '</g>'
         + '</symbol>'
-    // SVG 图标集：图标|播放
+        // SVG 图标集：图标|播放
         + '<symbol id="icoPlay">'
-        + '<g id="play">'
         + '<path d="M14.1329221,9.60458431 L6.2734657,15.6325342 C5.34309563,16.2655554 4.05015741,16.0602894 3.38560736,15.1740596 C3.13481735,14.8396114 3,14.4388779 3,14.0278733 L3,1.97197357 C3,0.882882638 3.92685626,-1.95399252e-14 5.07019139,-1.95399252e-14 C5.50166685,-1.95399252e-14 5.92235968,0.128421099 6.2734657,0.367312671 L14.1329221,6.39526252 C15.0632922,7.02828376 15.2787819,8.25988003 14.6142318,9.14610977 C14.4814505,9.32318416 14.318816,9.4781026 14.1329221,9.60458431 Z"></path>'
         + '<rect id="Rectangle" fill-opacity="0" x="0" y="0" width="16" height="16"></rect>'
-        + '</g>'
         + '</symbol>'
-    // SVG 图标集：图标|暂停
+        // SVG 图标集：图标|暂停
         + '<symbol id="icoPause">'
-        + '<g id="pause">'
         + '<path d="M4,2 C5.1045695,2 6,2.8954305 6,4 L6,12 C6,13.1045695 5.1045695,14 4,14 L3,14 C1.8954305,14 1,13.1045695 1,12 L1,4 C1,2.8954305 1.8954305,2 3,2 L4,2 Z M13,2 C14.1045695,2 15,2.8954305 15,4 L15,12 C15,13.1045695 14.1045695,14 13,14 L12,14 C10.8954305,14 10,13.1045695 10,12 L10,4 C10,2.8954305 10.8954305,2 12,2 L13,2 Z"></path>'
         + '<rect  fill-opacity="0" x="0" y="0" width="16" height="16"></rect>'
-        + '</g>'
         + '</symbol>'
-    // SVG 图标集：图标|停止
+        // SVG 图标集：图标|停止
         + '<symbol id="icoStop">'
-        + '<g id="stop">'
         + '<rect x="2" y="2" width="12" height="12" rx="2"></rect>'
         + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>'
-        + '</g>'
         + '</symbol>'
-    // SVG 图标集：图标|无法播放
+        // SVG 图标集：图标|无法播放
         + '<symbol id="icoForbidden">'
-        + '<g id="forbidden">'
         + '<path d="M3.11014702,4.52295457 C1.18968426,7.22400289 1.82212581,10.9699964 4.52157146,12.8902277 C6.60400096,14.3708881 9.39599904,14.3708881 11.4784285,12.8902277 L3.11014702,4.52295457 Z M4.52157146,3.10977226 L12.889853,11.4770454 C14.8103157,8.77599711 14.1798024,5.03000361 11.4784285,3.10977226 C9.39599904,1.62911194 6.60400096,1.62911194 4.52157146,3.10977226 L4.52157146,3.10977226 Z M8,16 C3.58062184,16 0,12.4178817 0,8.00096397 C0,3.58404627 3.58062184,0 8,0 C12.4193782,0 16,3.58211833 16,8.00096397 C16,12.4198096 12.4193782,16 8,16 Z"></path>'
         + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect>'
-        + '</g>'
         + '</symbol>'
-    // SVG 图标集：图标|复选框（未选择）
+        // SVG 图标集：图标|复选框（未选择）
         + '<symbol id="icoCheckbox_uncheck">'
-        + '<g id="uncheck">'
         + '<path d="M10,0 C12.209139,-8.49901461e-16 14,1.790861 14,4 L14,10 C14,12.209139 12.209139,14 10,14 L4,14 C1.790861,14 -1.73547709e-16,12.209139 0,10 L0,4 C-7.1463071e-16,1.790861 1.790861,-3.82769592e-17 4,0 L10,0 Z M10,1 L4,1 L3.79460158,1.00692108 C3.04801112,1.05740265 2.37633177,1.38102754 1.87867966,1.87867966 C1.33578644,2.42157288 1,3.17157288 1,4 L1,4 L1,10 L1.00692108,10.2053984 C1.05740265,10.9519889 1.38102754,11.6236682 1.87867966,12.1213203 C2.42157288,12.6642136 3.17157288,13 4,13 L4,13 L10,13 L10.2053984,12.9930789 C10.9519889,12.9425974 11.6236682,12.6189725 12.1213203,12.1213203 C12.6642136,11.5784271 13,10.8284271 13,10 L13,10 L13,4 L12.9930789,3.79460158 C12.9425974,3.04801112 12.6189725,2.37633177 12.1213203,1.87867966 C11.5784271,1.33578644 10.8284271,1 10,1 L10,1 Z" opacity="0.5"></path>'
-        + '</g>'
         + '</symbol>'
-    // SVG 图标集：图标|复选框（已选择）
+        // SVG 图标集：图标|复选框（已选择）
         + '<symbol id="icoCheckbox_checked">'
-        + '<g id="checked">'
         + '<path d="M10,0 C12.209139,-8.49901461e-16 14,1.790861 14,4 L14,10 C14,12.209139 12.209139,14 10,14 L4,14 C1.790861,14 -1.13860385e-13,12.209139 -1.13686838e-13,10 L-1.13686838e-13,4 C-1.14401468e-13,1.790861 1.790861,-3.82769592e-17 4,0 L10,0 Z M10.4345054,3.35937475 C9.98210026,3.04259723 9.35855448,3.15254517 9.04177696,3.60495035 L9.04177696,3.60495035 L5.70337129,8.3716637 L4.42132034,7.08974545 C4.03079605,6.69922116 3.39763107,6.69922116 3.00710678,7.08974545 C2.61658249,7.48026975 2.61658249,8.11343472 3.00710678,8.50395902 L3.00710678,8.50395902 L5.12842712,10.6252794 C5.44611554,10.9429678 5.92437612,11.0022192 6.30159501,10.8029483 C6.31888566,10.7941174 6.33594939,10.7847657 6.35288228,10.7742207 L6.36250295,10.7684416 L6.36250295,10.7684416 L6.37216074,10.7632115 C6.48435662,10.6938722 6.58459456,10.6010641 6.665046,10.4861675 L6.665046,10.4861675 L10.6800811,4.75210323 C10.9968586,4.29969805 10.8869106,3.67615226 10.4345054,3.35937475 Z"></path>'
-        + '</g>'
         + '</symbol>'
-    // SVG 图标集：图标|复选框（不确定选择）
+        // SVG 图标集：图标|复选框（不确定选择）
         + '<symbol id="icoCheckbox_indeterminate">'
-        + '<g id="indeterminate">'
         + '<path d="M10,0 C12.209139,-8.49901461e-16 14,1.790861 14,4 L14,10 C14,12.209139 12.209139,14 10,14 L4,14 C1.790861,14 2.27200128e-13,12.209139 2.27373675e-13,10 L2.27373675e-13,4 C2.26659045e-13,1.790861 1.790861,-3.82769592e-17 4,0 L10,0 Z M10,6 L4,6 C3.44771525,6 3,6.44771525 3,7 C3,7.55228475 3.44771525,8 4,8 L4,8 L10,8 C10.5522847,8 11,7.55228475 11,7 C11,6.44771525 10.5522847,6 10,6 L10,6 Z" opacity="0.5"></path>'
         + '<path d="M10,0 C12.209139,-8.49901461e-16 14,1.790861 14,4 L14,10 C14,12.209139 12.209139,14 10,14 L4,14 C1.790861,14 1.1351329e-13,12.209139 1.13686838e-13,10 L1.13686838e-13,4 C1.12972207e-13,1.790861 1.790861,-3.82769592e-17 4,0 L10,0 Z M10,1 L4,1 L3.79460158,1.00692108 C3.04801112,1.05740265 2.37633177,1.38102754 1.87867966,1.87867966 C1.33578644,2.42157288 1,3.17157288 1,4 L1,4 L1,10 L1.00692108,10.2053984 C1.05740265,10.9519889 1.38102754,11.6236682 1.87867966,12.1213203 C2.42157288,12.6642136 3.17157288,13 4,13 L4,13 L10,13 L10.2053984,12.9930789 C10.9519889,12.9425974 11.6236682,12.6189725 12.1213203,12.1213203 C12.6642136,11.5784271 13,10.8284271 13,10 L13,10 L13,4 L12.9930789,3.79460158 C12.9425974,3.04801112 12.6189725,2.37633177 12.1213203,1.87867966 C11.5784271,1.33578644 10.8284271,1 10,1 L10,1 Z"></path>'
-        + '</g>'
         + '</symbol>'
-    // SVG 图标集：图标|链接检查结果正常
+        // SVG 图标集：图标|链接检查结果正常
         + '<symbol id="icoLinkOK">'
-        + '<g id="linkok">'
         + '<path d="M10.8685137,7.01413306 C10.8603674,6.99758704 10.8549366,6.98104102 10.8467903,6.964495 C10.8440748,6.96173733 10.8440748,6.95897966 10.8413594,6.95346432 C10.6458484,6.55360221 10.2249565,6.29438125 9.75790233,6.33023095 C9.14693029,6.37986901 8.6880224,6.92312996 8.73690017,7.54360565 C8.75047732,7.7035505 8.79392422,7.849707 8.86181,7.98207515 C9.17136917,8.69079628 9.03559761,9.55394691 8.46535704,10.1358152 L5.47838262,13.1747673 C4.73706988,13.9276112 3.53141839,13.9276112 2.79010565,13.1747673 C2.04879291,12.4219235 2.04879291,11.1975181 2.79010565,10.4446743 L3.90343247,9.31402964 L3.89528618,9.30575664 C4.15325215,9.07962771 4.30260087,8.73491899 4.27544656,8.36539124 C4.2265688,7.74491555 3.69162883,7.27886936 3.08065679,7.32850741 C2.78739022,7.35056877 2.53213967,7.48845226 2.34749035,7.69251982 L2.34477492,7.68976215 L1.20972464,8.84246811 C-0.403241546,10.480524 -0.403241546,13.1334023 1.20972464,14.7714581 C2.82269082,16.409514 5.43493572,16.409514 7.04790191,14.7714581 L10.0430226,11.7297484 C11.2975519,10.4529473 11.569095,8.56394347 10.8685137,7.01413306 L10.8685137,7.01413306 Z"></path>'
         + '<path d="M14.7923119,1.22854188 C13.1793458,-0.409513961 10.5671009,-0.409513961 8.95413467,1.22854188 L5.95901396,4.27025164 C4.7044847,5.54429507 4.43294158,7.43329886 5.13080742,8.98310927 C5.13895371,8.99965529 5.14438457,9.01620131 5.15253087,9.03274733 C5.1552463,9.035505 5.1552463,9.03826267 5.15796173,9.04377801 C5.35347278,9.44364012 5.77436463,9.70286108 6.24141881,9.66701138 C6.85239085,9.61737332 7.31129874,9.07411238 7.26242098,8.45363668 C7.24884382,8.29369183 7.20539692,8.14753533 7.13751114,8.01516718 C6.82795197,7.30644605 6.96372354,6.44329542 7.53396411,5.86142709 L10.523654,2.82523268 C11.2649667,2.07238883 12.4706182,2.07238883 13.2119309,2.82523268 C13.9532437,3.57807653 13.9532437,4.8024819 13.2119309,5.55532575 L12.0986041,6.68597036 L12.1067504,6.69424336 C11.8487844,6.92037229 11.6994357,7.26508101 11.72659,7.63460876 C11.7754678,8.25508445 12.3104077,8.72113064 12.9213798,8.67149259 C13.2146464,8.64943123 13.4698969,8.51154774 13.6545462,8.30748018 L13.6572617,8.31023785 L14.7923119,7.15753189 C16.4025627,5.51947604 16.4025627,2.86384006 14.7923119,1.22854188 Z"></path>'
         + '<path d="M16,10 C18.2091404,10 20,11.7908606 20,14 C20,16.2091394 18.2091404,18 16,18 C13.7908596,18 12,16.2091394 12,14 C12,11.7908606 13.7908596,10 16,10 Z M17.6822792,12.5943032 L17.6771246,12.5990389 L15.1407928,14.9394845 L14.2240628,14.1910878 L14.2147843,14.1837134 C14.0430722,14.0516383 13.7963288,14.079336 13.6584279,14.2482481 C13.5194611,14.4184535 13.5431028,14.6682744 13.7103242,14.8095238 L13.7156012,14.8138925 L14.8814335,15.7656793 L14.890712,15.7730537 C14.9667027,15.831608 15.0611853,15.8609385 15.1569732,15.8557099 C15.2615489,15.8607738 15.3639537,15.8247085 15.4422806,15.7552294 L15.4484837,15.7496024 L18.2223678,13.189882 L18.2311046,13.1815815 C18.38585,13.0301092 18.3929966,12.7820183 18.2451708,12.6218261 C18.0961916,12.4603582 17.8456041,12.4486675 17.6822792,12.5943032 Z"></path>'
-        + '</g>'
         + '</symbol>'
-    // SVG 图标集：图标|链接检查结果异常
+        // SVG 图标集：图标|链接检查结果异常
         + '<symbol id="icoLinkError">'
-        + '<g id="linkerror">'
         + '<path d="M15,9 C15.2886741,9 15.5545759,9.15405217 15.6943297,9.40226501 L15.6943297,9.40226501 L19.8999835,16.8412623 C20.0367271,17.0829025 20.0330292,17.3776316 19.8902645,17.6158855 C19.7474998,17.8541393 19.4870188,18.0002871 19.2056539,18 L19.2056539,18 L10.7943461,18 C10.5129812,18.0002871 10.2525002,17.8541393 10.1097355,17.6158855 C9.96697079,17.3776316 9.9632729,17.0829025 10.1000165,16.8412623 L10.1000165,16.8412623 L14.3056703,9.40226501 C14.4454241,9.15405217 14.7113259,9 15,9 Z M15,15.6606918 C14.4741015,15.6606918 14.0477765,16.0796293 14.0477765,16.5964148 C14.0477765,16.9307164 14.2292692,17.2396238 14.5238882,17.4067746 C14.8185072,17.5739254 15.1814928,17.5739254 15.4761118,17.4067746 C15.7707308,17.2396238 15.9522235,16.9307164 15.9522235,16.5964148 C15.9522235,16.0796293 15.5258985,15.6606918 15,15.6606918 Z M15,10.9820772 L14.8732573,10.9874923 C14.4287394,11.0272027 14.2064804,11.2853208 14.2064804,11.7618463 L14.2064804,11.7618463 L14.2064804,14.1011536 C14.2064804,14.6209997 14.4709869,14.8809227 15,14.8809227 L15,14.8809227 L15.1267427,14.8755077 C15.5712606,14.8357972 15.7935196,14.5776792 15.7935196,14.1011536 L15.7935196,14.1011536 L15.7935196,11.7618463 C15.7935196,11.2420002 15.5290131,10.9820772 15,10.9820772 L15,10.9820772 Z"></path>'
         + '<path d="M8.61062487,5.50299998 C8.99983668,5.47312522 9.35057989,5.68914268 9.51350577,6.02236112 C9.51576863,6.02695723 9.51576863,6.02925529 9.51803149,6.03155335 C9.52482007,6.0453417 9.52934579,6.05913005 9.53613436,6.07291839 C10.1199521,7.36442707 9.89366615,8.9385969 8.8482251,10.0025978 L8.8482251,10.0025978 L6.35229118,12.5373559 C5.00815269,13.9024025 2.83128194,13.9024025 1.48714346,12.5373559 C0.14300497,11.1723094 0.14300497,8.96157748 1.48714346,7.59653094 L1.48714346,7.59653094 L2.43301869,6.63594264 C2.58915599,6.46818439 2.80186477,6.35328149 3.04625359,6.33489702 C3.55539695,6.29353198 4.00118026,6.6819038 4.04191173,7.19896688 C4.06454032,7.50690667 3.94008305,7.79416394 3.72511141,7.98260471 L3.72511141,7.98260471 L3.73189999,7.98949888 L2.80412763,8.93170272 C2.18636701,9.55907259 2.18636701,10.5794104 2.80412763,11.2067803 C3.42188825,11.8341502 4.42659783,11.8341502 5.04435844,11.2067803 L5.04435844,11.2067803 L7.53350379,8.67432021 C8.00870426,8.18942994 8.12184723,7.47013774 7.86388126,6.8795368 C7.80730978,6.76923001 7.77110403,6.64743293 7.75978973,6.51414556 C7.71905826,5.99708248 8.1014815,5.54436502 8.61062487,5.50299998 Z M11.392581,0.774705066 C13.2202354,0.200475309 15.1422982,1.22245422 15.6882515,3.05875357 C16.2332857,4.89196151 15.1943311,6.84595101 13.3686747,7.42124311 L13.3686747,7.42124311 L12.0825475,7.82533072 C11.8659287,7.90015044 11.6241744,7.90174296 11.3997609,7.80324188 C10.9307943,7.60073671 10.7195205,7.04854216 10.9263032,6.57288029 C11.0508923,6.29036211 11.2956406,6.09515815 11.5739169,6.0296979 L11.5739169,6.0296979 L11.5711596,6.02042366 L12.8326718,5.62406979 C13.6726544,5.36015611 14.151674,4.45925129 13.9007561,3.61529553 C13.6498381,2.77133977 12.7627322,2.29965719 11.9227497,2.56357087 L11.9227497,2.56357087 L8.53512766,3.62792603 C7.88790836,3.83296561 7.45032181,4.41494552 7.4008219,5.05752289 C7.39898565,5.18147671 7.37377317,5.30601472 7.32118847,5.42901222 C7.11440581,5.90467409 6.56420816,6.12486304 6.09524153,5.92235788 C5.73756255,5.76601184 5.52928873,5.41061578 5.5418703,5.0399123 C5.54203006,5.03479182 5.54310893,5.03276276 5.54218982,5.02967135 C5.5426691,5.01430991 5.54514636,5.00001083 5.54562564,4.98464939 C5.63846977,3.57129144 6.57729636,2.2876168 7.99880532,1.84099365 L7.99880532,1.84099365 Z"></path>'
         + '<path d="M0.782543585,3.4507195 L3.40869759,3.9137813 C3.7712938,3.9777168 4.01340614,4.32348905 3.94947064,4.68608526 C3.88553515,5.04868146 3.53976289,5.2907938 3.17716669,5.22685831 L0.551012682,4.7637965 C0.188416479,4.69986101 -0.0536958622,4.35408875 0.0102396313,3.99149255 C0.0741751249,3.62889634 0.419947383,3.386784 0.782543585,3.4507195 Z M3.67286326,0.33344465 L5.0061966,2.64284573 C5.19029151,2.96170748 5.08104141,3.36943441 4.76217966,3.55352933 C4.44331791,3.73762425 4.03559098,3.62837414 3.85149606,3.30951239 L2.51816273,1.00011132 C2.33406781,0.681249568 2.44331791,0.273522631 2.76217966,0.0894277143 C3.08104141,-0.0946672023 3.48876835,0.0145829012 3.67286326,0.33344465 Z"></path>'
-        + '</g>'
         + '</symbol>'
         + '</svg>';
     return ui;
@@ -10647,20 +10585,20 @@ VLOOKui.loadNavTools = function () {
         + '</div>'
         // 打开插图浏览器
         + '<div class="mdx-accent-btn figure-nav">'
-        + VLOOK.ui.generateSvgIcon("icoFigureNav", 20, 18, "alt")
+        + VLOOK.ui.generateSvgIcon("icoFigureNav", 20, 16, "alt")
         + '</div>'
         // 访问历史标题
         + '<div class="mdx-toc-history-title">访问历史</div>'
         + '</div>';
 
     // --- 导航中心内容区 ---
-    ui += '<div class="mdx-nav-center-body-scroll">'
+    ui += '<div class="mdx-nav-center-body">'
         + '<div class="mdx-toc-catalog-body"></div>'
-        + '<div class="mdx-toc-filter-catalog-result"></div>'
-        + '<div class="mdx-toc-filter-figure-result"></div>'
-        + '<div class="mdx-toc-filter-table-result"></div>'
-        + '<div class="mdx-toc-filter-multimedia-result"></div>'
-        + '<div class="mdx-toc-filter-codeblock-result"></div>'
+        + '<div class="mdx-toc-filter-result catalog"></div>'
+        + '<div class="mdx-toc-filter-result figure"></div>'
+        + '<div class="mdx-toc-filter-result table"></div>'
+        + '<div class="mdx-toc-filter-result multimedia"></div>'
+        + '<div class="mdx-toc-filter-result codeblock"></div>'
         + '<div class="mdx-toc-history-result"></div>'
         + '</div>'
         + '<div class="mdx-nav-center-footer"></div>'
@@ -10673,14 +10611,14 @@ VLOOKui.loadNavTools = function () {
     // --------------------------------------------------
     // 逐章导航栏
     ui += '<div class="mdx-chapter-nav">'
-    // 上一章
+        // 上一章
         + '<div class="mdx-chapter-nav-prev">'
         + VLOOK.ui.generateSvgIcon("icoPrevChapter", 10, 15, "light", "position: absolute; top: 18px; left: 10px;")
         + '<div class="mdx-chapter-nav-prev-text"></div>'
         + '</div>'
-    // 当前章节
+        // 当前章节
         + '<div class="mdx-chapter-nav-current"></div>'
-    // 下一章
+        // 下一章
         + '<div class="mdx-chapter-nav-next">'
         + '<div class="mdx-chapter-nav-next-text">next</div>'
         + VLOOK.ui.generateSvgIcon("icoNextChapter", 10, 15, "light", "position: absolute; top: 18px; right: 10px;")
@@ -10692,19 +10630,16 @@ VLOOKui.loadNavTools = function () {
     ui += '<div class="mdx-figure-nav mdx-backdrop-blurs">'
         + '<div class="mdx-figure-content"></div>'
         + '<div class="mdx-figure-nav-title"></div>'
-        + '<div class="mdx-figure-nav-btns mdx-btn-figure-prev">'
+        + '<div class="mdx-figure-nav-btns prev">'
         + VLOOK.ui.generateSvgIcon("icoPrevFig", 12, 54, "light")
         + '</div>'
-        + '<div class="mdx-figure-nav-btns mdx-btn-figure-next">'
+        + '<div class="mdx-figure-nav-btns next">'
         + VLOOK.ui.generateSvgIcon("icoNextFig", 12, 54, "light")
         + '</div>'
         + '<div class="mdx-btn-close-figure-nav">'
         + VLOOK.ui.generateSvgIcon("icoClose", 16, 16, "light")
         + '</div>'
-        + '<div class="mdx-copyright">'
-        + '<svg width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()"><use xlink:href="#icoVLOOK-dark"></use></svg>&nbsp;&nbsp;'
-        + '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.5) for <a href="https://www.typora.io" target="_blank">Typora</a>. Powered by <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">MAX°孟兆</a></strong>'
-        + '</div>'
+        + VLOOK.ui.copyrightInfo()
         + '</div>';
     return ui;
 }
@@ -10718,29 +10653,37 @@ VLOOKui.loadToolbar = function () {
     // 页面工具栏
     ui += '<div class="mdx-toolbar">'
         // 导航中心
-        + '<div class="mdx-btn mdx-btn-outline">'
+        + '<div class="mdx-btn outline">'
         + VLOOK.ui.generateSvgIcon("icoNavCenter", 20, 20, "light")
         + '</div>'
         // 打印
-        + '<div class="mdx-btn mdx-btn-print">'
+        + '<div class="mdx-btn print">'
         + VLOOK.ui.generateSvgIcon("icoPrint", 20, 19, "light")
         + '</div>'
+        // 激光笔
+        + '<div class="mdx-btn laser-pointer">'
+        + VLOOK.ui.generateSvgIcon("icoLaserPointer", 18, 20, "light")
+        + '</div>'
         // 聚光灯
-        + '<div for="toolbar-spotlight" class="mdx-btn mdx-btn-spotlight">'
-        + VLOOK.ui.generateSvgIcon("icoSpotlight", 22, 22, "light")
+        + '<div class="mdx-btn spotlight">'
+        + VLOOK.ui.generateSvgIcon("icoSpotlight", 18, 20, "light")
         + '</div>'
         // 段落导航
-        + '<div class="mdx-btn mdx-btn-paragraph-nav">'
+        + '<div class="mdx-btn paragraph-nav">'
         + VLOOK.ui.generateSvgIcon("icoParagraphNav", 20, 20, "light")
+        + '</div>'
+        // 表格十字光标
+        + '<div class="mdx-btn table-cross">'
+        + VLOOK.ui.generateSvgIcon("icoTableCross", 20, 18, "light")
         + '</div>'
         // 分隔符
         + '<div class="mdx-toolbar-spliter"></div>'
         // Light/Dark模式
-        + '<div class="mdx-btn mdx-btn-color-scheme">'
-        + VLOOK.ui.generateSvgIcon("icoLightMode", 20, 20, "light")
+        + '<div class="mdx-btn color-scheme">'
+        + VLOOK.ui.generateSvgIcon("icoDarkMode", 18, 18, "light")
         + '</div>'
         // 字体风格
-        + '<div class="mdx-btn mdx-btn-font-style">'
+        + '<div class="mdx-btn font-style">'
         + VLOOK.ui.generateSvgIcon("icoFont", 20, 18, "light")
         + '</div>'
         + '</div>';
@@ -10776,19 +10719,13 @@ VLOOKui.loadCommon = function () {
         + '<div class="mdx-foot-note-panel-content"></div>'
         + '<div class="mdx-foot-note-panel-header"></div>'
         + '<div class="mdx-foot-note-panel-all"><a>查看所有脚注 ▶</a></div>'
-        + '<a name="xFooterArea"></a>'
-        + '</div>';
-
-    // --------------------------------------------------
-    // 在新标签打开的按钮
-    ui += '<div class="mdx-btn mdx-btn-open-in-new-tab">'
-        + VLOOK.ui.generateSvgIcon("icoNewTab", 20, 18, "light")
+        + '<a id="vk-footer-area"></a>'
         + '</div>';
 
     // --------------------------------------------------
     // 复制代码块内容的按钮
-    ui += '<div class="mdx-btn mdx-btn-copy-code-block">'
-        + VLOOK.ui.generateSvgIcon("icoCopyCodeBlock", 18, 18, "light")
+    ui += '<div class="mdx-btn copy-code-block mdx-float-card">'
+        + VLOOK.ui.generateSvgIcon("icoCopyCodeBlock", 16, 16, "light")
         + '</div>';
 
     // --------------------------------------------------
@@ -10819,7 +10756,11 @@ VLOOKui.loadCommon = function () {
 
     // --------------------------------------------------
     // 页面坏链检查结果及错误列表
-    ui += '<div class="mdx-link-error-list mdx-float-card"></div>'
+    ui += '<div class="mdx-link-error-list mdx-float-card">'
+        + '<div class="mdx-link-error-list-header"></div>'
+        + '<div class="mdx-link-error-list-body"><div class="mdx-link-error-list-items"></div></div>'
+        + '<div class="mdx-link-error-list-footer"></div>'
+        + '</div>'
         + '<div class="mdx-link-chk-result mdx-float-card">'
         + VLOOK.ui.generateSvgIcon("icoLinkOK", 20, 18, "light")
         + '</div>';
@@ -10829,71 +10770,6 @@ VLOOKui.loadCommon = function () {
     ui += '<iframe name="vlook-stat-gitee" style="display: block; margin: 0; border: none; overflow: hidden; width: 100%; height: 0;"></iframe>';
     return ui;
 }
-
-// ==================== 新标签打开类 ==================== //
-
-// ↓ ↓ ↓ ↓ ↓ 以下是属新标签中打开的页面使用  ↓ ↓ ↓ ↓ ↓
-
-/**
- * 针对在新标签中打开的页面进行二次初始化
- */
-function OINT() {}
-
-OINT.init = function () {
-    $(".mdx-vlook-inside").remove();
-    $("#write").remove();
-    DOM.body().append("<div id='write'></div>");
-    iToolbar.ui.remove();
-    iNavCenter.ui.remove();
-    iChapterNav.ui.remove();
-    iMoreDocContent.hide();
-    ContentAssist.button.openInNewTab.remove();
-}
-
-/**
- * 在新标签页中打开的页面中添加元素
- */
-OINT.append = function (content) {
-    $("#write").append(content);
-}
-
-/**
- * 更新插图的题注（用于在新标签打开插图、表格后的强制更新对应内容）
- */
-OINT.updateFigureCaption = function (type, caption1, caption2) {
-    let splitIdx = caption1.indexOf(" - "),
-        prefix = null,
-        cap = null;
-
-    // 存在自定义题注内容
-    if (splitIdx > -1) {
-        prefix = caption1.substring(0, caption1.indexOf(" - ") + 3);
-        cap = caption1.substring(caption1.indexOf(" - ") + 3, caption1.length);
-        $(".mdx-figure-caption > .mdx-figure-caption-1").html(prefix + cap);
-    } else
-        $(".mdx-figure-caption > .mdx-figure-caption-1").html(caption1);
-
-    if (type !== "img" && caption2 != null) {
-        $(".mdx-figure-caption").append("<p class='mdx-figure-caption-2'>");
-        $(".mdx-figure-caption > .mdx-figure-caption-2").text(caption2);
-    }
-}
-
-/**
- * 完成在新标签打开页面后进行收尾处理
- */
-OINT.done = function() {
-    // 设置为可滚动
-    DOM.body().css({
-        "overflow" : "scroll"
-    });
-
-    VOM.doc().css({
-        "filter" : "none"
-    });
-}
-
-// ↑ ↑ ↑ ↑ ↑ 以上是属新标签中打开的页面使用 ↑ ↑ ↑ ↑ ↑
 
 // ==================== 加载与初始化 VLOOK ==================== //
 
@@ -10923,50 +10799,51 @@ $(document).ready(function () {
 
     // ----------------------------------------
     // 动效初始化
-    iStopwatch.lapStart();
-    console.info("- Effect");
+    iStopwatch.lapStart("* Effect");
     let effects = VLOOK.util.getQueryParams(window.location.href)["effects"];
     VLOOK.ui.effects = (effects === undefined) ? 2 : parseInt(effects);
     VLOOK.ui.effects = env.device.mobile ? 0 : VLOOK.ui.effects;
     console.log("    └ Level [ " + VLOOK.ui.effects + " ]");
     VLOOK.ui.initEffects();
-    iStopwatch.lapStop("    ");
+    iStopwatch.lapStop("    COST ");
 
     // ----------------------------------------
     // 初始化内容辅助工具
     // 须隐藏文档原始内容前执行，避免部分样式失效
+    iStopwatch.lapStart("* Content Assist");
     ContentAssist.init();
 
     // 先隐藏文档原始内容，减少页面重绘
     VOM.doc().hide();
+    iStopwatch.lapStop("    COST ");
 
     // ----------------------------------------
-    // 初始化欢迎屏
-    console.info("- Welcome Screen Init");
+    // 初始化欢迎页
+    iStopwatch.lapStart("* Welcome Page Init");
     let wsMode = VLOOK.util.getQueryParams(window.location.href)["ws"];
+    wsMode = (wsMode === undefined) ? "auto" : wsMode;
     console.log("    └ mode: " + wsMode);
-    iWelcomeScreen = new WelcomeScreen(wsMode);
-    if (iWelcomeScreen === false)
-        alert("Instantiation failed [ iWelcomeScreen ]");
+    iWelcomePage = new WelcomePage(wsMode);
+    if (iWelcomePage === false)
+        alert("Instantiation failed [ iWelcomePage ]");
 
     // 文档不符合 VLOOK 规范则不加载 VLOOK 插件
     if (VLOOK.checkSpecification() === false) {
-        $(".mdx-welcome-screen").hide();
+        $(".mdx-welcome-page").hide();
         $(".mdx-toolbar").hide();
         $(".mdx-btn").hide();
         return;
     }
-    iStopwatch.lapStop("    ");
+    iStopwatch.lapStop("    COST ");
 
     // ----------------------------------------
     // 初始化关键组件实例
-    iStopwatch.lapStart();
-    console.info("- Intance");
-    VLOOK.initIntance(false);
-    iStopwatch.lapStop("    ");
+    iStopwatch.lapStart("* Intance");
+    VLOOK.initIntance();
+    iStopwatch.lapStop("    COST ");
 
     // ----------------------------------------
-    // 延后加载 VLOOK 插件，避免欢迎屏的 UI 刷新阻塞
+    // 延后加载 VLOOK 插件，避免欢迎页的 UI 刷新阻塞
     // 独立线程进行处理
     setTimeout(loadVLOOKplugin, 100);
 });
@@ -10983,7 +10860,7 @@ document.fonts.ready.then(function() {
  * 加载 VLOOK UI 资源
  */
 function loadVLOOKui() {
-    $(".mdx-vlook-inside").after(VLOOKui.loadWelcomeScreen()
+    $(".mdx-vlook-inside").after(VLOOKui.loadWelcomePage()
         + VLOOKui.loadIconSet()
         + VLOOKui.loadNavTools()
         + VLOOKui.loadToolbar()
@@ -10994,7 +10871,9 @@ function loadVLOOKui() {
  * 加载 VLOOK 插件
  */
 function loadVLOOKplugin() {
+    // ----------------------------------------
     // 推荐的浏览器类型检测
+    iStopwatch.lapStart("* Browser Check");
     if (env.browser.Chrome === false && env.browser.Firefox === false) {
         VLOOK.report.push(['Error', 'Browser', navigator.userAgent, ]);
 
@@ -11013,62 +10892,133 @@ function loadVLOOKplugin() {
 
     // 锁定页面滚动
     VLOOK.doc.scroll.freeze();
+    iStopwatch.lapStop("    ");
+
+    // ========================================
+    // 初始化 VLOOK 核心模块
+    VLOOK.initKernel();
 
     // ----------------------------------------
-    // 初始化 VLOOK 核心模块
-    VLOOK.initKernel(null);
-
     // 段落导航初始化
-    ParagraphNav.init();
+    iStopwatch.lapStart("* fork thread [Paragraph Nav]");
+    setTimeout(function () {
+        let stopwatch = new Stopwatch();
+        stopwatch.lapStart("* thread * [Paragraph Nav]");
+        ParagraphNav.init();
+        stopwatch.lapStop("    ");
+    }, 100);
+    iStopwatch.lapStop("    ");
 
     // ----------------------------------------
     // 完成初始化后恢复显示
-    iStopwatch.lapStart();
-    console.info("- Writer Ready");
-    VOM.doc().show();
+    iStopwatch.lapStart("* Write Ready");
     VOM.doc().css({
-        "filter" : "none"
+        "filter" : "none",
+        "display" : "block"
     });
+    iStopwatch.lapStop("    ");
+
+    // ----------------------------------------
+    // 初始化外部链接
+    iStopwatch.lapStart("* fork thread [External Link]");
+    setTimeout(function () {
+        let stopwatch = new Stopwatch();
+        stopwatch.lapStart("* thread * External Link: ");
+        VLOOK.doc.link.adjustExternal();
+        stopwatch.lapStop("    ");
+    }, 100);
+    iStopwatch.lapStop("    ");
+
+    // ----------------------------------------
+    // 初始化全局热键
+    iStopwatch.lapStart("* fork thread [Hotkey]");
+    setTimeout(function () {
+        let stopwatch = new Stopwatch();
+        stopwatch.lapStart("* thread * Hotkey");
+        VLOOK.ui.initHotkey();
+        stopwatch.lapStop("    ");
+    }, 150);
     iStopwatch.lapStop("    ");
 
     // ----------------------------------------
     // 初始化须在页面 body 显示后才能执行的部分
     // 独立线程进行处理
-    setTimeout(VLOOK.initRestyle,500);
+    iStopwatch.lapStart("* fork thread [Restyle]");
+    setTimeout(function () {
+        let stopwatch = new Stopwatch();
+        stopwatch.lapStart("* thread * [Restyle]");
+        VLOOK.initRestyle();
+        stopwatch.lapStop("    COST ");
+    }, 200);
+    iStopwatch.lapStop("    ");
 
     // ----------------------------------------
-    // 更新欢迎屏
-    iStopwatch.lapStart();
-    console.info("- Welcome Screen Done");
-    iWelcomeScreen.done();
+    // 在新标签中初始化时不处理
+    iStopwatch.lapStart("* fork thread [Check Hash Link]");
+    setTimeout(function () {
+        let stopwatch = new Stopwatch();
+        stopwatch.lapStart("* thread * Check Hash Link: ");
+        // 检查页内链接坏链
+        iLinkChecker.checkLink();
+        stopwatch.lapStop("    ");
+    }, 250);
     iStopwatch.lapStop("    ");
+
+    // ----------------------------------------
+    // 初始化，并安装自动适配器，实时跟随系统 Color Scheme 的变化
+    iStopwatch.lapStart("* fork thread [Color Scheme]");
+    setTimeout(function () {
+        let stopwatch = new Stopwatch();
+        stopwatch.lapStart("* thread * [Color Scheme]");
+        ColorScheme.scheme = VLOOK.util.getStyleValue("--vlook-color-scheme").trim();
+        console.info("    System [ " + ColorScheme.scheme + " ]");
+        ColorScheme.init();
+        // 判断是否强制使用指定的颜色方案
+        let colorScheme = VLOOK.util.getQueryParams(window.location.href)["cs"];
+        if (colorScheme === "light" || colorScheme === "dark") {
+            console.info("    Force use [ " + colorScheme + " ]");
+            ColorScheme.toggle(colorScheme);
+        }
+        stopwatch.lapStop("    ");
+    }, 300);
+    iStopwatch.lapStop("    ");
+
+    // ----------------------------------------
+    // 提交统计数据
+    iStopwatch.lapStart("* fork thread [Push Stat]");
+    setTimeout(function () {
+        let stopwatch = new Stopwatch();
+        stopwatch.lapStart("* thread * [Push Stat]");
+        VLOOK.report.submit(gTotalLoadTimeCost - gDocLoadTimeCost);
+        VLOOK.report.push(['DocLoadTime', 'All', 'Times', gDocLoadTimeCost]);
+        VLOOK.report.push(['VlookLoadTime', 'All', 'Times', gTotalLoadTimeCost - gDocLoadTimeCost]);
+        stopwatch.lapStop("    ");
+    }, 350);
+    iStopwatch.lapStop("    ");
+
+    // ----------------------------------------
+    // URL 带锚点的处理
+    iStopwatch.lapStart("* fork thread [Redirect to Hash]");
+    setTimeout(function () {
+        let stopwatch = new Stopwatch();
+        stopwatch.lapStart("* thread * [Redirect to Hash]");
+        VLOOK.util.redirectToHash();
+        stopwatch.lapStop("    ");
+    }, 400);
+    iStopwatch.lapStop("    ");
+
+    // ----------------------------------------
+    // 更新欢迎页
+    iStopwatch.lapStart();
+    console.info("* Welcome Page Done (" + iWelcomePage.mode + ")");
+    iWelcomePage.done();
+    iStopwatch.lapStop("    COST ");
 
     // ----------------------------------------
     // VLOOK 加载完成
     gTotalLoadTimeCost = iStopwatch.stop() - 200;
-    console.info("=== ALL DONE !!! ===");
-    console.info("- Total Time Cost");
-    console.info("    ├ Docment ⏱ " + gDocLoadTimeCost + " ms");
-    console.info("    └ VLOOK   ⏱ " + (gTotalLoadTimeCost - gDocLoadTimeCost) + " ms");
-    console.info("    ⏱ " + gTotalLoadTimeCost + " ms");
-
-    // 提交统计数据
-    VLOOK.report.submit(gTotalLoadTimeCost - gDocLoadTimeCost);
-    VLOOK.report.push(['DocLoadTime', 'All', 'Times', gDocLoadTimeCost]);
-    VLOOK.report.push(['VlookLoadTime', 'All', 'Times', gTotalLoadTimeCost - gDocLoadTimeCost]);
-
-    // ----------------------------------------
-    // 初始化，并安装自动适配器，实时跟随系统 Color Scheme 的变化
-    ColorScheme.init();
-    // 判断是否强制使用指定的颜色方案
-    ColorScheme.scheme = VLOOK.util.getStyleValue("--vlook-color-scheme").trim();
-    console.info("System Color Scheme [ " + ColorScheme.scheme + " ]");
-    let colorScheme = VLOOK.util.getQueryParams(window.location.href)["cs"];
-    if (colorScheme === "light" || colorScheme === "dark") {
-        console.info("Change Color Scheme to [ " + colorScheme + " ]");
-        ColorScheme.toggle(colorScheme);
-    }
-
-    // URL 带锚点的处理
-    VLOOK.util.redirectToHash();
+    console.info("=== !!! MAIN PROCESS DONE !!! ===");
+    console.info("TOTAL COST   ⏱ " + gTotalLoadTimeCost + " ms");
+    console.info("    ├ HTML   ⏱ " + gDocLoadTimeCost + " ms");
+    console.info("    └ VLOOK  ⏱ " + (gTotalLoadTimeCost - gDocLoadTimeCost) + " ms");
 }

@@ -110,7 +110,7 @@ keywords:
 2. **安装插件代码：**
    1. 打开插件文件：released\plugin\\**plugin.txt**，或直接打开线上版本的 [plugin.txt](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin.txt)（[备用链接](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt)）
    2. 全选里面的所有内容，并复制
-   3. 回到导出配置「**HTML (VLOOK)**」中的 `在<body />中添加`，将内容粘贴至下方的文本框内即可
+   3. 回到导出配置「**HTML (VLOOK)**」中的 在`<body />`中添加，将内容粘贴至下方的文本框内即可
 3. **一键导出：**
    1. 打开符合 VLOOK™ 规范的 md 文件
    2. 点击「**文件▸导出▸HTML (VLOOK)**」即可
@@ -144,7 +144,6 @@ keywords:
 **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**
 
 ![打赏 VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x)
-**THANKS TO DONATE**
 
 # 快速入坑
 
@@ -177,19 +176,19 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 | - 给表格的**每一行**都进行**自动编号** [••](#表格逐行自动编号) |  :   | - 为图片添加工程风的网格背景 [••](#图片网格背景)             |
 | - 对同属一类内容的**表格行**进行分组、分类，并能**自动折叠** [••](#表格行分组折叠) |  :   | - 指定图片的**对齐方式** [••](#图片对齐方式)                 |
 | - 指定表格可**重复显示表头** [••](#表格重复显示表头)         |  :   | - 图片边缘能**留白** [••](#图片边缘留白)                     |
-|                                                              |  :   |                                                              |
-| ==**流程图、状态机图、顺序图**==                             |  :   |                                                              |
-| - **扩展** Mermaid 的**图表**，并优化了**样式** [••](#°Mermaid) |  :   | ==**标签、标签组**==                                         |
-| - 解决 Mermaid 图表的**高分屏**的 **Bug** [••](#兼容性补丁)  |  :   | - 将特定关键字设置为**标签**样式 [••](#彩虹标签)             |
-|                                                              |  :   | - 将特定的**二元组**内容设置为**标签组**样式 [••](#药丸标签) |
-| ==**音频、视频、注音**==                                     |  :   |                                                              |
-| - 为文档添加音频内容 [••](#音频)                             |  :   | ==**引用、引用块**==                                         |
-| - 为文档添加视频内容 [••](#视频)                             |  :   | - 重要的引用指定使用突出的样式（如：重要提示） [••](#彩虹引用) |
-| - 要给生`{僻}(pì)`字，或东亚小语种**添加注音** [••](#注音)   |  :   | - **引用**的内容支持**自定义折叠** [••](#折叠吧引用)         |
-|                                                              |  :   |                                                              |
-| ==**代码块**==                                               |  :   | ==**任务列表**==                                             |
+|                                                              |  ==  | ==                                                           |
+| ==**流程图、状态机图、顺序图**==                             |      | ==**标签、标签组**==                                         |
+| - **扩展** Mermaid 的**图表**，并优化了**样式** [••](#°Mermaid) |  :   | - 将特定关键字设置为**标签**样式 [••](#彩虹标签)             |
+| - 解决 Mermaid 图表的**高分屏**的 **Bug** [••](#兼容性补丁)  |  :   | - 将特定的**二元组**内容设置为**标签组**样式 [••](#药丸标签) |
+|                                                              |  ==  | ==                                                           |
+| ==**音频、视频、注音**==                                     |      | ==**引用、引用块**==                                         |
+| - 为文档添加音频内容 [••](#音频)                             |  :   | - 重要的引用指定使用突出的样式（如：重要提示） [••](#彩虹引用) |
+| - 为文档添加视频内容 [••](#视频)                             |  :   | - **引用**的内容支持**自定义折叠** [••](#折叠吧引用)         |
+| - 要给生`{僻}(pì)`字，或东亚小语种**添加注音** [••](#注音)   |  :   |                                                              |
+|                                                              |  ==  | ==                                                           |
+| ==**代码块**==                                               |      | ==**任务列表**==                                             |
 | - 给每个代码块进行自动编号、**添加题注** [••](#代码块自动编号与题注) |  :   | - 任务列表的序号，给你找回来了 [••](#任务列表自动编号)       |
-| - 代码块高亮当前行、一键复制代码 [••](#代码块增强)           |  :   | - 对于多级任务列表，「**任务组状态**」能自动识别了 [••](     |
+| - 代码块高亮当前行、一键复制代码 [••](#代码块增强)           |  :   | - 对于多级任务列表，「**任务组完成状态**」能自动识别了 [••](#任务组完成状态) |
 
 ## 快速入坑°内容导航
 
@@ -233,14 +232,13 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 |      激光笔      | 对文档内容进行**精确指向** [••](#激光笔)                     |
 |   表格十字光标   | 针对表格内容，特别是行、列关联性强的**表格**，快速识别**纵横关联**的单元格序列 [••](#表格十字光标) |
 |      刮刮卡      | - 制作培训、猜迷互动类文档时，希望将预置的**答案隐藏**起来 [••](#刮刮卡) |
-|    新标签打开    | 针对须**频繁**在多个插图、表格、代码块间进行**切换**时的场景，无须在文档内来回跳转 |
 
 ![VLOOK™ 的「出版辅助」工具及适用场景]
 
 | **出版辅助工具** | 适用场景                                                     |
 | :--------------: | ------------------------------------------------------------ |
 | 章节标题自动编号 | 对文档内的章节标题进行**自动分级编号** [••](#章节标题自动编号) |
-|   文档内容检查   | 对文档内的**链接**、**重名章节**检查及处理提示 [••](#文档内容检查) |
+|   文档内容检查   | 对文档的**图片、音频、视频、页内链接**等内容进行检查并提示 [••](#内容失效检查) |
 |  链接识别与优化  | **自动识别**并提示文档内的**链接**类型，并针对外链进行了**优化** [••](#链接识别与优化) |
 |   适配打印输出   | 在打印前将文档的样式调整和简化，以**适配打印**输出的应用需要 [••](#适配打印输出) |
 
@@ -300,7 +298,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 | 普通单元格           | :                    | 普通单元格           | 普通单元格 | 普通单元格 | 普通单元格 | :                    |
 | 普通单元格           | :                    | 普通单元格           | 普通单元格 | 普通单元格 | 普通单元格 | :                    |
 
-###### 示例 2－列头纵向、横向合并
+###### 示例 2－表头纵向、横向合并
 
 | 列 A 纵向合并`#×2#(gray)` | 列 B 横向合并`#×2#(gray)` | ==         | 列 D 纵向合并`#×3#(gray)` | 列 E 横向合并`#×3#(gray)` | <<         | <<         |
 | ------------------------- | ------------------------- | ---------- | :-----------------------: | ------------------------- | ---------- | ---------- |
@@ -321,7 +319,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 表格列格式：常规
 
@@ -345,7 +343,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 | **普通列** | 嵌套的常规格式          | ==                              | ==                     | ==                     |
 | :--------: | :---------------------- | ------------------------------- | ---------------------- | ---------------------- |
-|     :      | ==<u>高亮＋下划线</u>== | ***<u>加粗＋斜体＋下划线</u>*** | **==加粗＋高亮==**     | ~~**删除线+加粗列**~~  |
+|     :      | ==<u>高亮＋下划线</u>== | ***<u>加粗＋斜体＋下划线</u>*** | ==**加粗＋高亮**==     | ~~**删除线+加粗列**~~  |
 |     A      | 单元格 afgiklo 10       | 单元格 afgiklo 10               | 单元格                 | 单元格`#标签组|标签#`  |
 |     B      | 单元格 afgiklo 10       | 单元格 afgiklo 10               | 单元格内有**加粗**内容 | 单元格内有内容         |
 |     C      | 单元格 afgiklo 10       | 单元格 afgiklo 10               | 单元格内容             | 单元格有`行内代码`内容 |
@@ -354,7 +352,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 表格列格式：数值、百分数、货币
 
@@ -373,13 +371,13 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ###### 示例－普通数字
 
-| 原始内容    |  数值情况  | ==       |    ==    |     ==     |      数值列 |
-| ----------- | :--------: | -------- | :------: | :--------: | ----------: |
-| :           | [ ] 含小数 | [ ] 正数 | [ ] 负数 | [ ] 超三位 |           : |
-| 123         |            |          |          |            |         123 |
-| -12345      |            |          |   [x]    |    [x]     |      -12345 |
-| +5678.00    |    [x]     | [x]      |          |    [x]     |    +5678.00 |
-| -2345678.00 |    [x]     |          |   [x]    |    [x]     | -2345678.00 |
+| 原始内容    |  数值情况  |    ==    |    ==    |     ==     |      |      数值列 |
+| ----------- | :--------: | :------: | :------: | :--------: | ---- | ----------: |
+| :           | [ ] 含小数 | [ ] 正数 | [ ] 负数 | [ ] 超三位 | :    |           : |
+| 123         |            |          |          |            |      |         123 |
+| -12345      |            |          |   [x]    |    [x]     | :    |      -12345 |
+| +5678.00    |    [x]     |   [x]    |          |    [x]     | :    |    +5678.00 |
+| -2345678.00 |    [x]     |          |   [x]    |    [x]     | :    | -2345678.00 |
 
 > [+] 表格列头说明
 >
@@ -396,14 +394,14 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ###### 示例－百分数
 
-| 原始内容 |  数值情况  | ==       |    ==    |     ==     |  数值列 |
-| -------- | :--------: | -------- | :------: | :--------: | ------: |
-| :        | [ ] 含小数 | [ ] 正数 | [ ] 负数 | [ ] 超三位 |       : |
-| 79%      |            |          |          |            |     79% |
-| 88.88%   |    [x]     |          |          |            |  88.88% |
-| +38%     |            | [x]      |          |            |    +38% |
-| -57.30%  |    [x]     |          |   [x]    |            | -57.30% |
-| 100%     |            |          |          |            |    100% |
+| 原始内容 |  数值情况  |    ==    |    ==    |     ==     |      |  数值列 |
+| -------- | :--------: | :------: | :------: | :--------: | ---- | ------: |
+| :        | [ ] 含小数 | [ ] 正数 | [ ] 负数 | [ ] 超三位 | :    |       : |
+| 79%      |            |          |          |            |      |     79% |
+| 88.88%   |    [x]     |          |          |            | :    |  88.88% |
+| +38%     |            |   [x]    |          |            | :    |    +38% |
+| -57.30%  |    [x]     |          |   [x]    |            | :    | -57.30% |
+| 100%     |            |          |          |            | :    |    100% |
 
 > ###### ![货币](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/i_currency.svg?mode=icon&fill=text&darksrc=invert)「货币」自动格式
 >
@@ -416,24 +414,26 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ###### 示例－货币
 
-| **币种** | 原始内容       |  数值情况  |    ==    |    ==    |     ==     |     **数值列** |
-| :------: | -------------- | :--------: | :------: | :------: | :--------: | -------------: |
-|    :     | :              | [ ] 含小数 | [ ] 正数 | [ ] 负数 | [ ] 超三位 |              : |
-|  人民币  | ￥ 123456.99   |    [x]     |          |          |    [x]     |   ￥ 123456.99 |
-|    :     | CNY -987654.99 |    [x]     |          |   [x]    |    [x]     | CNY -987654.99 |
-|    :     | ¥ +1024        |            |   [x]    |          |    [x]     |        ¥ +1024 |
-|   港元   | HK$ 3456.78    |    [x]     |          |          |    [x]     |    HK$ 3456.78 |
-|    :     | HKD 3456.78    |    [x]     |          |          |    [x]     |    HKD 3456.78 |
-|   美元   | $ +555.38      |            |          |          |            |      $ +555.38 |
-|    :     | USD 555        |            |          |          |            |        USD 555 |
-|   澳元   | A$ 56789       |            |          |          |    [x]     |       A$ 56789 |
-|    :     | AUD -56789     |            |          |   [x]    |    [x]     |     AUD -56789 |
+| **币种** | 原始内容      |  数值情况  |    ==    |    ==    |     ==     |      |    **数值列** |
+| :------: | ------------- | :--------: | :------: | :------: | :--------: | ---- | ------------: |
+|    :     | :             | [ ] 含小数 | [ ] 正数 | [ ] 负数 | [ ] 超三位 | :    |             : |
+|  人民币  | ￥ +123456.99 |    [x]     |   [x]    |          |    [x]     |      | ￥ +123456.99 |
+|    :     | CNY 987654.99 |    [x]     |          |   [x]    |    [x]     | :    | CNY 987654.99 |
+|          | ==            |     ==     |    ==    |    ==    |     ==     | ==   |            == |
+|   港元   | HK$ 3456      |            |          |          |    [x]     |      |   HK$ 3456.78 |
+|    :     | HKD 3456.78   |    [x]     |          |          |    [x]     | :    |   HKD 3456.78 |
+|          | ==            |     ==     |    ==    |    ==    |     ==     | ==   |            == |
+|   美元   | $ +555.38     |    [x]     |   [x]    |          |            |      |     $ +555.38 |
+|    :     | USD 555       |            |          |          |            | :    |       USD 555 |
+|          | ==            |     ==     |    ==    |    ==    |     ==     | ==   |            == |
+|   澳元   | A$ 56789      |            |          |          |    [x]     |      |      A$ 56789 |
+|    :     | AUD -56789    |            |          |   [x]    |    [x]     | :    |    AUD -56789 |
 
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 表格列格式：复选框
 
@@ -462,7 +462,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 表格自动编号与题注
 
@@ -472,7 +472,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 > ###### 单题注
 >
-> 若希望为表格在自动编号之后，添加指定的题注，如：`表 1 - 2020 年全球经济体 GDP 排名`
+> 若希望为表格在自动编号之后，添加指定的题注，如：`表 1. 2020 年全球经济体 GDP 排名`
 >
 > - 在表格前添加一个 `6 级` 标题（快捷键<kbd>Ctrl</kbd>+<kbd>6</kbd>，或<kbd>Command</kbd>+<kbd>6</kbd>），并输入题注内容
 > - 该条标题内容即为表格的题注
@@ -507,7 +507,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 表格逐行自动编号
 
@@ -542,7 +542,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 表格行分组折叠
 
@@ -575,55 +575,55 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 | > 这是属于分组 1 的内容 1.1               |    [x]     | 该行是被折叠的行 | 该行是被折叠的行 |
 | > 这是属于分组 1 的内容 1.2               |            | 该行是被折叠的行 | 该行是被折叠的行 |
 | 间隔了普通行                              |            |                  |                  |
-| 分组 2                                    |    [-]     |                  |                  |
-| > 这是属于分组 2 的内容 2.1               |    [x]     | 该行为被折叠的行 | 该行是被折叠的行 |
-| > 这是属于分组 2 的内容 2.2               |            | 该行为被折叠的行 | 该行是被折叠的行 |
-| > 这是属于分组 2 的内容 2.3               |    [-]     | 该行为被折叠的行 | 该行是被折叠的行 |
+| **==带格式的分组 2==**                    |    [-]     |                  |                  |
+| > 这是属于**分组 2** 的内容 2.1           |    [x]     | 该行为被折叠的行 | 该行是被折叠的行 |
+| > 这是属于**分组 2** 的内容 2.2           |            | 该行为被折叠的行 | 该行是被折叠的行 |
+| > 这是属于**分组 2** 的内容 2.3           |    [-]     | 该行为被折叠的行 | 该行是被折叠的行 |
 | >> 这是属于二级分组 2.3 的内容 2.3.1      |    [x]     | 该行为被折叠的行 | 该行是被折叠的行 |
 | >> 这是属于二级分组 2.3 的内容 2.3.2      |     ==     | ==               | ==               |
 | >>> 这是属于三级分组 2.3.2 的内容 2.3.2.1 |    [x]     | 该行为被折叠的行 | 该行是被折叠的行 |
 | > 这是属于分组 2 的内容 2.4               |            | 该行为被折叠的行 | 该行是被折叠的行 |
 | 普通行                                    |            |                  |                  |
-| 分组 3                                    |            |                  |                  |
-| >                                         |            | 数据项 1         | 数据项 A         |
-| >                                         |            | 数据项 2         | 数据项 B         |
-| >                                         |            | 数据项 3         | 数据项 C         |
+| 空白内容的分组 3                          |            |                  |                  |
+| >&nbsp;　&nbsp;                           |            | 数据项 1         | 数据项 A         |
+| >&nbsp;　&nbsp;                           |            | 数据项 2         | 数据项 B         |
+| >&nbsp;　&nbsp;                           |            | 数据项 3         | 数据项 C         |
 
 ###### 示例 2－表格行分组折叠
 
-| 列 A                                         | [ ] 勾选列 | 列 B             |
-| -------------------------------------------- | :--------: | ---------------- |
-| 普通行                                       |            |                  |
-| 分组 1                                       |    [-]     |                  |
-| > 这是属于分组 1 的内容 1.1                  |    [x]     | 该行是被折叠的行 |
-| > 这是属于分组 1 的内容 1.2                  |            | 该行是被折叠的行 |
-| 连续分组                                     |    [-]     |                  |
-| > 这是属于分组 2 的内容 2.1                  |    [x]     | 该行为被折叠的行 |
-| > 这是属于分组 2 的内容 2.2                  |            | 该行为被折叠的行 |
-| > 这是属于分组 2 的内容 2.3                  |    [-]     | 该行为被折叠的行 |
-| >> 这是属于二级分组 2.3 的内容 2.3.1         |            | 该行为被折叠的行 |
-| >> 这是属于二级分组 2.3 的内容 2.3.2         |    [-]     |                  |
-| >>> 这是属于三级分组 2.3.2 的内容 2.3.2.1    |    [x]     | 该行为被折叠的行 |
-| >>> 这是属于三级分组 2.3.2 的内容 2.3.2.2    |            | 该行为被折叠的行 |
-| >>> 这是属于三级分组 2.3.2 的内容 2.3.2.3    |            | 该行为被折叠的行 |
-| >>> 这是属于三级分组 2.3.2 的内容 2.3.2.4    |    [x]     | 该行为被折叠的行 |
-| >>>> 这是属于三级分组 2.3.2 的内容 2.3.2.2.1 |    [x]     | 该行为被折叠的行 |
-| >> 这是属于三级分组 2.3.2 的内容 2.3.3       |            | 该行为被折叠的行 |
-| > 这是属于分组 2 的内容 2.4                  |            | 该行为被折叠的行 |
-| > 这是属于分组 2 的内容 2.5                  |            | 该行为被折叠的行 |
-| > 这是属于分组 2 的内容 2.6                  |    [x]     | 该行为被折叠的行 |
-| > 这是属于分组 2 的内容 2.7                  |            | 该行为被折叠的行 |
-| > 这是属于分组 2 的内容 2.8                  |            | 该行为被折叠的行 |
-| > 这是属于分组 2 的内容 2.9                  |            | 该行为被折叠的行 |
-| > 这是属于分组 2 的内容 2.10                 |            | 该行为被折叠的行 |
-| > 这是属于分组 2 的内容 2.11                 |            | 该行为被折叠的行 |
-| 普通行                                       |    [x]     | 单元格内容       |
+| 列 A                                          | [ ] 勾选列 | 列 B             |
+| --------------------------------------------- | :--------: | ---------------- |
+| 普通行                                        |            |                  |
+| 分组 1                                        |    [-]     |                  |
+| > 这是属于分组 1 的内容 1.1                   |    [x]     | 该行是被折叠的行 |
+| > 这是属于分组 1 的内容 1.2                   |            | 该行是被折叠的行 |
+| 连续分组                                      |    [-]     |                  |
+| > 这是属于**连续分组**的内容 2.1              |    [x]     | 该行为被折叠的行 |
+| > 这是属于连续分组的内容 2.2                  |            | 该行为被折叠的行 |
+| > 这是属于**==连续分组==**的内容 2.3          |    [-]     | 该行为被折叠的行 |
+| >> 这是属于二级**分组 2.3** 的内容 2.3.1      |            | 该行为被折叠的行 |
+| >> 这是属于二级**分组 2.3** 的内容 2.3.2      |    [-]     |                  |
+| >>> 这是属于三级**分组 2.3.2** 的内容 2.3.2.1 |    [x]     | 该行为被折叠的行 |
+| >>> 这是属于三级分组 2.3.2 的内容 2.3.2.2     |            | 该行为被折叠的行 |
+| >>> 这是属于三级分组 2.3.2 的内容 2.3.2.3     |            | 该行为被折叠的行 |
+| >>> 这是属于三级分组 2.3.2 的内容 **2.3.2.4** |    [x]     | 该行为被折叠的行 |
+| >>>> 这是属于分组 **2.3.2.4** 的内容 2.3.4.1  |    [x]     | 该行为被折叠的行 |
+| >>> 这是属于三级分组 2.3.2 的内容 2.3.2.5     |            | 该行为被折叠的行 |
+| > 这是属于分组 2 的内容 2.4                   |            | 该行为被折叠的行 |
+| > 这是属于分组 2 的内容 2.5                   |            | 该行为被折叠的行 |
+| > 这是属于分组 2 的内容 2.6                   |    [x]     | 该行为被折叠的行 |
+| > 这是属于分组 2 的内容 2.7                   |            | 该行为被折叠的行 |
+| > 这是属于分组 2 的内容 2.8                   |            | 该行为被折叠的行 |
+| > 这是属于分组 2 的内容 2.9                   |            | 该行为被折叠的行 |
+| > 这是属于分组 2 的内容 2.10                  |            | 该行为被折叠的行 |
+| > 这是属于分组 2 的内容 2.11                  |            | 该行为被折叠的行 |
+| 普通行                                        |    [x]     | 单元格内容       |
 
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 表格重复显示表头
 
@@ -647,7 +647,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ![示例 1－按分组重复表头]
 
-| 列 A ##    | 列 B               |                    | ==                 | 列 C       |
+| 列 A ##    | 列 B               | ==                 | ==                 | 列 C       |
 | ---------- | ------------------ | ------------------ | ------------------ | ---------- |
 | :          | 列 B.1             | 列 B.2             | 列 B.3             | :          |
 | 分组 1     |                    |                    |                    |            |
@@ -717,7 +717,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ## °图片
 
@@ -754,7 +754,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 图片适配高分屏
 
@@ -793,7 +793,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 图片适配 Dark Mode
 
@@ -821,7 +821,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 #### 适配方式：替换
 
@@ -848,7 +848,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 图片显示版式
 
@@ -862,42 +862,55 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ###### 图片不同显示版式的 URL 参数（mode）的取值及用法
 
-| 版式标识 | 应用说明                                                     | 完整语法参考                   |
-| :------: | ------------------------------------------------------------ | ------------------------------ |
-|   icon   | 缩小为与单行正文高度适配的小图标<br />主要用于与正文内容进行混排 | `![图片](xxx.png?mode=icon)`   |
-|  icon2x  | 比 `icon` 尺寸增大 60%                                       | `![图片](xxx.png?mode=icon2x)` |
-|   logo   | 不调整图片大小<br />主要用于展示 Logo 或不是作为「插图」的图片 | `![图片](xxx.png?mode=logo)`   |
-|  figure  | 强制指定为插图，适用于一行多图的情况<br />独占一行的图片默认为插图，无须指定 | `![图片](xxx.png?mode=figure)` |
+| 版式类型  |    版式标识    | 应用说明                                                     | 完整语法参考                   |
+| --------- | :------------: | ------------------------------------------------------------ | ------------------------------ |
+| 图标版式  |      icon      | 缩小为与单行正文高度适配的小图标<br />主要用于与正文内容进行混排 | `![图片](xxx.png?mode=icon)`   |
+| :         | icon**==2x==** | 比 `icon` 尺寸增大 60%                                       | `![图片](xxx.png?mode=icon2x)` |
+|           |       ==       | ==                                                           | ==                             |
+| logo 版式 |      logo      | 不调整图片大小，且不为作「插图」<br />主要用于展示图片的原始大小和样式 | `![图片](xxx.png?mode=logo)`   |
+| :         | logo**==l==**  | 在 `logo` 基础上，支持文字环绕排版（图片**左**对齐）         | `![图片](xxx.png?mode=logol)`  |
+| :         | logo**==r==**  | 在 `logo` 基础上，支持文字环绕排版（图片**右**对齐）         | `![图片](xxx.png?mode=logor)`  |
+|           |       ==       | ==                                                           | ==                             |
+| 插图版式  |     figure     | 强制指定为插图，主要用于一行多图的情况，<br />对于独占一行的图片默认为插图，无须指定 | `![图片](xxx.png?mode=figure)` |
 
 > `#参考#(green)` *如果对 URL 参数的使用有疑问，可以去「[延伸内容](#延伸内容)」那深入再了解了解～*
 
-###### 示例1：不指定，效果差
+#### 图片版式示例：icon
 
-![VLOOK](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-light.svg?darksrc=vlook-dark.svg)**VLOOK™** 是 ![OSChina](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/oschina.png)**[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
+- ![VLOOK](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-light.svg?mode=icon&darksrc=vlook-dark.svg) **VLOOK™** 是 ![OSChina](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/oschina.png?mode=icon) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
+- ![VLOOK](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-light.svg?mode=icon2x&darksrc=vlook-dark.svg) **VLOOK™** 是 ![OSChina](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/oschina.png?mode=icon2x) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
 
-###### 示例2：指定为 icon、icon2x 模式，图文混排效果好
+#### 图片版式示例：logo
 
-![VLOOK](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-light.svg?mode=icon&darksrc=vlook-dark.svg) **VLOOK™** 是 ![OSChina](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/oschina.png?mode=icon) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
+###### 指定为 `logo` 模式
 
-![VLOOK](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-light.svg?mode=icon2x&darksrc=vlook-dark.svg) **VLOOK™** 是 ![OSChina](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/oschina.png?mode=icon2x) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
+- 对于深色的图片或图标，可配合「[图片适配 Dark Mode](#图片适配 Dark Mode)」来自动更好适配 Dark Mode 下的显示，现在就试试按下键盘的<kbd>D</kbd>键，然后看看下图的变化～
 
-###### 示例3：指定为 logo 模式，显示为原生态效果
+![Logo 模式](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-mark-light.svg?mode=logo&darksrc=invert) 
 
-对于深色的图片或图标，可配合「[图片适配 Dark Mode](#图片适配 Dark Mode)」来自动更好适配 Dark Mode 下的显示，现在就试试按下键盘的<kbd>D</kbd>键，然后看看下图的变化～
+---
 
-![Markdown Mark](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?mode=logo&darksrc=invert)
+###### 指定为 `logol` 模式
+
+![Logo 模式：图片左对齐＋文字环绕](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-mark-light.svg?mode=logol&darksrc=invert)　　**设置为 logol 模式后，实现图片左对齐＋文字环绕的排版效果**。我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK。
+
+---
+
+###### 指定为 `logor` 模式
+
+![Logo 模式：图片右对齐＋文字环绕](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-mark-light.svg?mode=logor&darksrc=invert)　　**设置为 logor 模式后，实现图片右对齐＋文字环绕的排版效果**。我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK。
 
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 图片颜色替换
 
 「**希望文档中的图片能自动跟随文档主题本色，或文字颜色，而不用重新制作多个版本的图片资源**」
 
-`#VLOOK:#(theme1)` 可以针对[显示版式](#图片显示版式)为 icon、logo 的图片（透明背景的 png 或 svg 图片），按指定规则自动替换为指定的颜色。
+`#VLOOK:#(theme1)` 可以针对[显示版式](#图片显示版式)为 icon、logo 的图片（建议为透明背景的 png 或 svg 图片），按指定规则自动替换为指定的颜色。
 
 > 在「图片 URL」中添加 VLOOK™ 规范的参数的方式来启用这一特性：
 >
@@ -937,7 +950,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 图片网格背景
 
@@ -974,11 +987,11 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 图片对齐方式
 
-「**希望可以自由设置图片的对齐式，同时保持 Markdown 的简洁性？**」
+「**希望可以自由设置插图的对齐式，同时保持 Markdown 的简洁性？**」
 
 `#VLOOK:#(theme1)` 在 Markdown 对图片千篇一律的排版的反馈中，尝试打开了一道小小的裂缝～
 
@@ -1010,7 +1023,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 图片边缘留白
 
@@ -1035,7 +1048,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ## °标签
 
@@ -1076,7 +1089,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 药丸标签
 
@@ -1109,7 +1122,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ## °引用
 
@@ -1203,7 +1216,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 折叠吧引用
 
@@ -1240,7 +1253,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > > 这里默认为==展开==的引用内容。
 
-###### 示例一对应的 Markdown 源码内容
+###### 示例 1 对应的 Markdown 源码内容
 
 ```markdown
 > [+] 默认为折叠的引用的标题
@@ -1252,7 +1265,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ## °Mermaid
 
@@ -1392,9 +1405,9 @@ end
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
-## °音频、视频、注音
+## °音频、视频
 
 ### 音频
 
@@ -1446,7 +1459,7 @@ end
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 视频
 
@@ -1484,9 +1497,9 @@ end
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
-### 注音
+## 注音
 
 「**希望 Markdown 文档能方便添加注音（如：拼音、外文对照），这样我语言培训文档和电子书就可以更出彩了**」
 
@@ -1499,11 +1512,11 @@ end
 > - `text`：要添加「注音、拼音、注释」的文字
 > - `symbol`：text 对应的注音、拼音符号，或注释内容
 
-###### 示例一
+###### 示例 1
 
 「==`{道}(dào)`生一，一生二，二`{生}(shēng)`三，三生`{万物}(wàn wù)`==」── 道德经•老子
 
-###### 示例二
+###### 示例 2
 
 ![多语种的注音应用]"中/日/韩/英"
 
@@ -1534,7 +1547,7 @@ end
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ## °代码块
 
@@ -1545,8 +1558,24 @@ end
 `#VLOOK:#(theme1)` 无须任何设置，即可自动对文档内所有「代码块」进行统一的自动编号，编号内容举例：`代码块 1` `代码块 2`
 
 > 给「代码块」添加题注的方式，与给「表格」添加题注的方式是一致的 •• [了解详情](#表格自动编号与题注)
+>
+> 默认只对行数超过 1 行的代码块自动编号和添加题注。
+>
+> 若希望调整该行数规则，可通过为 HTML 的 URL 添加 VLOOK™ 规范的参数来启用这一特性：
 
-###### 示例
+![指定自动添加代码块题注的行为限制的文档 URL 参数（lmc）说明]
+
+| 文档 URL 参数 | URL 参数取值 | 说明                                   | 参数应用示例                |
+| :-----------: | :----------: | -------------------------------------- | --------------------------- |
+|     `lmc`     |     整数     | 大于该行数的才会进行自动编号与生成题注 | 你的文档.html==**?lmc=3**== |
+
+###### 示例 1
+
+```sh
+ ps -ef|grep zypper|grep -v ar|awk '{print $2,$3,$8,$9}'
+```
+
+###### 示例 2
 
 ![VLOOK™ 的代码块自动编号与题注示例]"程序语言：PASCAL"
 
@@ -1561,7 +1590,7 @@ end.
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 代码块增强
 
@@ -1623,7 +1652,7 @@ void quickSort(int arr[], int left, int right) {
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ## °任务列表
 
@@ -1635,9 +1664,9 @@ void quickSort(int arr[], int left, int right) {
 
 ▿▿▿ 示例效果详见下面的章节介绍 ▿▿▿
 
-### 任务组状态
+### 任务组完成状态
 
-「**多级任务组的情况下，如果子任务中部分完成，部分未完成，这部分状态 GFM 标准做不到啊～**」
+「**多级任务组的情况下，如果子任务中部分完成，部分未完成，这个任务组的状态 GFM 标准做不到啊～**」
 
 `#VLOOK:#(theme1)` 子任务，甚至是子任务的子任务，都可以自动根据其完成状态，自动标识其上级任务组的状态。
 
@@ -1672,7 +1701,7 @@ void quickSort(int arr[], int left, int right) {
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 # °主题
 
@@ -1709,7 +1738,7 @@ void quickSort(int arr[], int left, int right) {
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>⟨ 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 ## 字体主题
 
@@ -1717,7 +1746,7 @@ void quickSort(int arr[], int left, int right) {
 
 `#VLOOK:#(theme1)` 提供了两套字体风格，可根据个人喜好进行选用。
 
-> 通过工具栏上的 ![字体主题](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-font-style.png?mode=icon2x&darksrc=invert) 按钮进行选择
+> 通过工具栏上的 ![字体主题](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-font-style.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮进行选择
 
 > ###### 小•清•新
 >
@@ -1742,9 +1771,9 @@ void quickSort(int arr[], int left, int right) {
 >
 >`>(red)`
 
-![蓝奏云](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/lanzou.png?mode=logo&srcset=@2x) •• [下载字体▾](https://wws.lanzous.com/ieVDhj1aokj)
+![蓝奏云](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/lanzou.png?mode=logo&srcset=@2x) •• [下载字体▾](https://wwe.lanzoui.com/ieVDhj1aokj)
 
-![百度网盘](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/baidupan.png?mode=logo&srcset=@2x) •••• [下载字体▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)
+![百度网盘](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/baidupan.png?mode=logo&srcset=@2x) •• [下载字体▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)（提取码`11ta`)
 
 ---
 
@@ -1772,7 +1801,7 @@ void quickSort(int arr[], int left, int right) {
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>⟨ 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 ## Dark Mode 
 
@@ -1780,7 +1809,7 @@ void quickSort(int arr[], int left, int right) {
 
 `#VLOOK:#(theme1)` 所有 VLOOK™ 的主题都会自动根据浏览器或系统的 Dark Mode（深色模式）的设置进行自动适配。
 
-> 也可通过工具栏上的 ![Light Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-light-mode.png?mode=icon2x&darksrc=invert) / ![Dark Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-dark-mode.png?mode=icon2x&darksrc=invert) 按钮进行手动切换
+> 也可通过工具栏上的 ![Light Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-light-mode.svg?mode=icon2x&fill=theme1&darksrc=invert) / ![Dark Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-dark-mode.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮进行手动切换
 
 > 若希望文档在显示后强制指定为 Light / Dark Mode ，可通过为 HTML 的 URL 添加 VLOOK™ 规范的参数来启用这一特性：
 >
@@ -1802,7 +1831,7 @@ void quickSort(int arr[], int left, int right) {
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>⟨ 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 ## 封面、封底
 
@@ -1870,7 +1899,7 @@ void quickSort(int arr[], int left, int right) {
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>⟨ 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 # °内容导航
 
@@ -1878,7 +1907,7 @@ void quickSort(int arr[], int left, int right) {
 
 「**按大纲/索引进行导航是文档中最常用的导航方式，适用于内容层次明确，全文档跨章节的快速定位**」
 
-`#VLOOK:#(theme1)` Typora 支持 GFM 标准，其导出的 HTML 后会自动生成大纲，VLOOK™ 可自动接管并提供更强大的导航特性。
+`#VLOOK:#(theme1)` Typora 支持 GFM 标准，其导出的 HTML 后会自动生成各类内容的索引大纲，VLOOK™ 可自动接管并提供更强大的导航特性。
 
 > 按 VLOOK™ 文档模板规范，建议在「[封面](#封面、封底)」后添加目录标记 `[TOC]`
 
@@ -1892,7 +1921,7 @@ void quickSort(int arr[], int left, int right) {
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
+[<kbd>⟨ 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
 ## 逐章导航
 
@@ -1915,7 +1944,7 @@ void quickSort(int arr[], int left, int right) {
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
+[<kbd>⟨ 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
 ## 段落导航
 
@@ -1938,7 +1967,7 @@ void quickSort(int arr[], int left, int right) {
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
+[<kbd>⟨ 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
 ## 插图导航
 
@@ -1946,7 +1975,7 @@ void quickSort(int arr[], int left, int right) {
 
 `#VLOOK:#(theme1)` 文档中的所有图片、Mermaid[^Mermaid] 图表都支持快速浏览，一键跳转到对应位置。
 
-> - 点击任意插图可直接启动插图导航，或点击导航中心插图索引面板上的 ![插图导航](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-figure-nav.png?mode=icon2x&darksrc=invert) 按钮打开；
+> - 点击任意插图可直接启动插图导航，或点击导航中心插图索引面板上的 ![插图导航](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-figure-nav.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开；
 > - 点击插图导航内的插图，能直接跳转到文档中对应的位置。
 
 [^Mermaid]: Mermaid 是一个用于画流程图、状态图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [Mermaid 官网](https://mermaidjs.github.io)，或 VLOOK™ 的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
@@ -1970,7 +1999,7 @@ void quickSort(int arr[], int left, int right) {
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
+[<kbd>⟨ 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
 # °演示与出版辅助
 
@@ -1980,16 +2009,14 @@ void quickSort(int arr[], int left, int right) {
 
 `#VLOOK:#(theme1)` 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
-> - 通过工具栏上的 ![聚光灯/激光笔](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-spotlight.png?mode=icon2x&darksrc=invert) 按钮打开、关闭，也可通过快捷键 <kbd>S</kbd> 快速打开；
-> - 打开聚光灯后，可支持按通过 <kbd>⇧ Shift</kbd> 键调节聚光灯的大小。
-
-`#小提示#(green)` *聚光灯在新标签打开的页面中也可以使用喔～*
+> - 通过工具栏上的 ![聚光灯/激光笔](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-spotlight.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开、关闭，也可通过快捷键 <kbd>S</kbd> 快速打开；
+> - 打开聚光灯后，可支持按通过 <kbd>⇧Shift</kbd> 键调节聚光灯的大小。
 
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>⟨ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 ## 激光笔
 
@@ -1997,16 +2024,13 @@ void quickSort(int arr[], int left, int right) {
 
 `#VLOOK:#(theme1)` 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
-> - 通过工具栏上的 ![聚光灯/激光笔](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-spotlight.png?mode=icon2x&darksrc=invert) 按钮打开「聚光灯」，并按 <kbd>P</kbd> 切换至「激光笔」；
-> - 也可通过快捷键 <kbd>P</kbd> 直接快速打开激光笔。
-
-`#小提示#(green)` *激光笔在新标签打开的页面中也可以使用喔～*
+> - 通过工具栏上的 ![聚光灯/激光笔](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-laser-pointer.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开「聚光灯」，也可通过快捷键 <kbd>P</kbd> 快速打开。
 
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>⟨ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 ## 表格十字光标
 
@@ -2014,8 +2038,9 @@ void quickSort(int arr[], int left, int right) {
 
 `#VLOOK:#(theme1)` 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
-> - 鼠标点击表格上的任意单元格后，会自动显示十字光标，高亮其横向、纵向关联对应的单元格；
-> - 点击文档空白位置，或按下<kbd>ESC</kbd>取消显示。
+> - 通过工具栏上的 ![聚光灯/激光笔](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-table-cross.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开、关闭，也可通过快捷键 <kbd>X</kbd> 进行操作；
+> - 鼠标点击表格上的任意单元格后，会自动显示十字光标，高亮其横向、纵向方向上的对应的单元格；
+> - 点击文档空白位置，或按下<kbd>ESC</kbd>临时取消显示。
 
 ###### 试试点击表格的任意单元格，或让鼠标光标在以下表格行间进行移动
 
@@ -2024,13 +2049,11 @@ void quickSort(int arr[], int left, int right) {
 | 第一行           | 左对齐（长内容） |      居中对齐      | 右对齐（长内容） |
 | 第二行（长内容） | 左对齐           | 居中对齐（长内容） |           右对齐 |
 
-`#小提示#(green)` *表格十字光标在新标签打开的页面中也可以使用喔～*
-
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>⟨ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 ## 刮刮卡
 
@@ -2070,22 +2093,7 @@ void quickSort(int arr[], int left, int right) {
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
-
-## 在新标签打开插图、表格、代码块
-
-「**要看内容比较多的文档时，希望能在多个插图、表格、代码块间快速切换查看。**」
-
-`#VLOOK:#(theme1)` 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
-
-> - 支持在新标签中打开文档中的 **插图**、**表格**、**代码块**；
-> - 鼠标悬念在这些文档内容上时会在左上角显示「在新标签打开」的按钮，点击即可。
-
----
-
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
-
-[<kbd>＜ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ## 章节标题自动编号
 
@@ -2103,33 +2111,37 @@ void quickSort(int arr[], int left, int right) {
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>⟨ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
-## 文档内容检查
+## 内容失效检查
 
-> **自动识别缺失的图片**
+> ###### 无效的图片
 >
-> 识别出无法加载的图片，并进行提示，示例如下：
+> 在编辑时、发布后识别出无法加载的图片，并进行提示，示例如下：
+>
+> ![缺失的图片](vlook-lost-image.jpg?darksrc=invert)
+>
+> `>(yellow)`
 
-![缺失的图片](vlook-lost-image.jpg?darksrc=invert)
+> ###### 无效的页内链接
+>
+> 自动检查页面内部链接的正确性，是否存在[无效的页内链接](#这是无效页内链接)。
+>
+> `>(orange)`
 
-> **页内链接检查**
+> ###### 无效的音频、视频
 >
-> 自动检查页面内部链接的正确性。
+> 自动检查音频源、视频源链接的有效性。
 >
-> 若存在无效的页内链接，则在文档的右下角显示 ![](https://z3.ax1x.com/2021/03/16/6sH5EF.png?mode=icon2x) 图标，点击可查看无效链接的详细信息。
+> `>(red)`
 
-> **重名章节标题检查**
->
-> 自动检查文档是否存在重名的标题，以提示作者检查是否会存在页内链接不能跳转到重名的标题位置的可能性。
->
-> `#注意#(red)` 重名章节标题的警告提示信息须启动浏览器的开发者工具或调试工具后，打开其控制台窗口进行查看。
+`#注意#` **存在以上异常结果时，都会在文档的右下角显示 ![](https://z3.ax1x.com/2021/03/16/6sH5EF.png?mode=icon2x) 图标，点击可查看详细信息。**
 
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>⟨ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 ## 链接识别与优化
 
@@ -2150,54 +2162,53 @@ void quickSort(int arr[], int left, int right) {
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>⟨ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 ## 适配打印输出
 
 **使用 VLOOK™ 提供的定制打印功能，可以在打印输出时自动调整、简化页面排版和样式，以适应用打印输出的需要。**
 
-> 通过点击顶部工具栏的 ![打印](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-print.png?mode=icon2x&darksrc=invert) 按钮，看看文档的打印预览效果～
+> 通过点击顶部工具栏的 ![打印](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-print.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮，看看文档的打印预览效果～
 
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>⟨ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 # °不杂项
 
-## 欢迎屏
+## 欢迎页
 
-**应用了 VLOOK™ 插件的文档在加载处理过程中会显示欢迎屏，提示插件加载过程。**
+**应用了 VLOOK™ 插件的文档在加载处理过程中会显示欢迎页，提示插件加载过程。**
 
 完成加载处理后会自动关闭并显示文档，也可以通过在「文档 URL」中添加 VLOOK™ 规范的参数指定不同的行为：
 
-![指定文档欢迎屏显示模式的文档 URL 参数（ws）说明]
+![指定文档欢迎页显示模式的文档 URL 参数（ws）说明]
 
-| 参数 | 参数取值 | 说明                                 | 参数应用示例                  |
-| :--: | :------: | ------------------------------------ | ----------------------------- |
-|  ws  |  `none`  | 不显示欢迎屏                         | 你的文档.html==**?ws=none**== |
-|  :   |  `wait`  | 文档和插件加载完成后，手动关闭欢迎屏 | 你的文档.html==**?ws=wait**== |
+| 参数 | 参数取值 | 说明                                                      | 参数应用示例                  |
+| :--: | :------: | --------------------------------------------------------- | ----------------------------- |
+|  ws  |  `auto`  | 默认选项。文档和插件加载完成后，延时（5秒）自动关闭欢迎页 |                               |
+|  :   |  `wait`  | 文档和插件加载完成后，手动关闭欢迎页                      | 你的文档.html==**?ws=wait**== |
+|  :   |  `none`  | 不显示欢迎页                                              | 你的文档.html==**?ws=none**== |
 
-> [+] **如何自定义欢迎屏的内容？**
+> [+] **如何自定义欢迎页的内容？**
 >
 > > 通过在文档最开始位置添加 [YAML Front Matter](https://support.typora.io/YAML/) 内容，并添加指定的变量 `welcome`，举例如下：
 > >
-> > ![自定义欢迎屏的 YAML Front Matter 示例]
+> > ![自定义欢迎页的 YAML Front Matter 示例]
 > >
 > > ```yaml
 > > ---
 > > title: 两行 --- 包裹的内容就是 YAML Front Matter 的内容
-> > welcome：在这里添加欢迎屏的自定义内容，可包括 HTML 标记，如：<strong>欢迎屏信息</strong>
+> > welcome：在这里添加欢迎页的自定义内容，可包括 HTML 标记，如：<strong>欢迎页信息</strong>
 > > ---
 > > 从这里开始是 Markdown 文档的内容
 > > ```
 > > 然后在导出配置「[HTML (VLOOK)](#Step 3•配置插件与导出)」的 `在<head />中添加` 中输入以下内容后，然后再导出 HTML 即可！
 > >
-> > ![导出配置中添加自定义欢迎屏的配置]
-> >
 > > ```html
-> > <meta name="welcome" content="${welcome}">
+> ><meta name="welcome" content="${welcome}">
 > > ```
 
 > `#参考#(green)` *如果对 URL 参数的使用有疑问，可以去「[延伸内容](#延伸内容)」那深入再了解了解～*
@@ -2206,7 +2217,7 @@ void quickSort(int arr[], int left, int right) {
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>＜ 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>⟨ 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 ## 长内容自动折叠
 
@@ -2256,36 +2267,35 @@ void quickSort(int arr[], int left, int right) {
 
 ![快捷键操作汇总]
 
-|            快捷键            | 功能                                    |
-| :--------------------------: | --------------------------------------- |
-|           ==全局==           | ==                                      |
-|         <kbd>D</kbd>         | 开启、关闭 Dark Mode                    |
-|         <kbd>O</kbd>         | 显示、隐藏「[导航中心](#导航中心)」面板 |
-|         <kbd>A</kbd>         | 选择字体风格，详见[字体主题](#字体主题) |
-|         <kbd>I</kbd>         | 显示、关闭「[插图导航](#插图导航)」     |
-|         <kbd>P</kbd>         | 打开、关闭「[激活笔](#激光笔)」         |
-|         <kbd>S</kbd>         | 打开、关闭「[聚光灯](#聚光灯)」         |
-|  ==[字体主题](#字体主题)==   | ==                                      |
-|        <kbd>ESC</kbd>        | 退出「字体主题」选择                    |
-|  ==[逐章导航](#逐章导航)==   | ==                                      |
-| <kbd>◀</kbd> 或 <kbd>,</kbd> | 前一章节                                |
-| <kbd>▶</kbd> 或 <kbd>.</kbd> | 后一章节                                |
-|  ==[段落导航](#段落导航)==   | ==                                      |
-|         <kbd>J</kbd>         | 跳到**下一个**段落                      |
-|         <kbd>K</kbd>         | 跳到**上一个**段落                      |
-|         <kbd>H</kbd>         | 往前跳**十个**段落                      |
-|         <kbd>L</kbd>         | 往后跳**十个**段落                      |
-|  ==[插图导航](#插图导航)==   | ==                                      |
-| <kbd>◀</kbd> 或 <kbd>,</kbd> | 前一张插图                              |
-| <kbd>▶</kbd> 或 <kbd>.</kbd> | 后一张插图                              |
-|        <kbd>ESC</kbd>        | 退出「插图导航」模式                    |
-|    ==[聚光灯](#聚光灯)==     | ==                                      |
-|      <kbd>⇧ Shift</kbd>      | 调节聚光灯的大小                        |
-|         <kbd>X</kbd>         | 切换至「激光笔」                        |
-|        <kbd>ESC</kbd>        | 退出「聚光灯」模式                      |
-|    ==[激光笔](#激光笔)==     | ==                                      |
-|         <kbd>X</kbd>         | 切换至「聚光灯」                        |
-|        <kbd>ESC</kbd>        | 退出「激光笔」模式                      |
+|            快捷键            | 功能                                        |
+| :--------------------------: | ------------------------------------------- |
+|           ==全局==           | ==                                          |
+|         <kbd>D</kbd>         | 开启、关闭 Dark Mode                        |
+|         <kbd>O</kbd>         | 显示、隐藏「[导航中心](#导航中心)」面板     |
+|         <kbd>A</kbd>         | 选择字体风格，详见[字体主题](#字体主题)     |
+|         <kbd>I</kbd>         | 显示「[插图导航](#插图导航)」               |
+|         <kbd>X</kbd>         | 打开、关闭「[表格十字光标](#表格十字光标)」 |
+|         <kbd>P</kbd>         | 打开「[激活笔](#激光笔)」                   |
+|         <kbd>S</kbd>         | 打开「[聚光灯](#聚光灯)」                   |
+|  ==[字体主题](#字体主题)==   | ==                                          |
+|        <kbd>ESC</kbd>        | 退出「字体主题」选择                        |
+|  ==[逐章导航](#逐章导航)==   | ==                                          |
+| <kbd>◀</kbd> 或 <kbd>,</kbd> | 前一章节                                    |
+| <kbd>▶</kbd> 或 <kbd>.</kbd> | 后一章节                                    |
+|  ==[段落导航](#段落导航)==   | ==                                          |
+|         <kbd>J</kbd>         | 跳到**下一个**段落                          |
+|         <kbd>K</kbd>         | 跳到**上一个**段落                          |
+|         <kbd>H</kbd>         | 往前跳**十个**段落                          |
+|         <kbd>L</kbd>         | 往后跳**十个**段落                          |
+|  ==[插图导航](#插图导航)==   | ==                                          |
+| <kbd>◀</kbd> 或 <kbd>,</kbd> | 前一张插图                                  |
+| <kbd>▶</kbd> 或 <kbd>.</kbd> | 后一张插图                                  |
+|        <kbd>ESC</kbd>        | 退出「插图导航」模式                        |
+|    ==[聚光灯](#聚光灯)==     | ==                                          |
+|      <kbd>⇧Shift</kbd>       | 调节聚光灯的大小                            |
+|        <kbd>ESC</kbd>        | 退出「聚光灯」模式                          |
+|    ==[激光笔](#激光笔)==     | ==                                          |
+|        <kbd>ESC</kbd>        | 退出「激光笔」模式                          |
 
 ## 跨平台、动效支持
 

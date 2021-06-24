@@ -3,8 +3,8 @@
  * starter of VLOOK.js - Typora Plugin
  * 配合 vlook.js 进行使用
  *
- * V10.5
- * 2021-06-01
+ * V10.6
+ * 2021-06-24
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -14,7 +14,7 @@
  *
  *************************************/
 
-let startVersion = "V10.5";
+let startVersion = "V10.6";
 
 /**
  * 获取 URL 中的参数数组
@@ -45,7 +45,7 @@ function parseQueryString(url) {
 // 动态加载指定的 VLOOK 主题
 let theme = parseQueryString(window.location.href)["theme"],
     themmeVersion = getComputedStyle(document.documentElement).getPropertyValue("--vlook-theme-version").trim().replace(/"/g, "");
-if (theme !== undefined || themmeVersion !== startVersion) {
+if (theme !== undefined || (startVersion.indexOf("dev") === -1 && themmeVersion !== startVersion)) {
     if (theme === undefined && themmeVersion !== startVersion)
         theme = getComputedStyle(document.documentElement).getPropertyValue("--vlook-theme-name").trim().replace(/"/g, "");
 

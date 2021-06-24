@@ -1,8 +1,8 @@
 /**************************************
  * VLOOK CSS 基础库
  *
- * V10.5
- * 2021-06-01
+ * V10.6
+ * 2021-06-24
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -17,16 +17,14 @@
 
 ---------- 云顶 UI 区 ----------
 
-欢迎屏 / .mdx-welcome-screen / z-index: 6000;
+欢迎页 / .mdx-welcome-page / z-index: 6000;
 
-激光笔 / .mdx-laser-pointer / z-index: 5500;
 底部信息栏 / .mdx-bottom-tips / z-index: 5001;
 聚光灯 / .mdx-spotlight / z-index: 5000;
 
 ---------- 高优先信息 UI 区 -----
 
-无效链接结果 / .mdx-link-chk-result / z-index: 4501;
-    无效链接清单 / .mdx-link-error-list / z-index: 4500;
+无效链接清单 / .mdx-link-error-list / z-index: 4500;
 工具栏提示、弹窗提示、字体风格切换 / .mdx-tool-tips, .mdx-info-tips, .mdx-font-styler / z-index: 3000;
 
 ---------- 二级 UI 区 ----------
@@ -47,13 +45,14 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 ---------- 增强工具操作区 ----------
 
 工具栏 / .mdx-toolbar / z-index: 100;
+无效链接结果 / .mdx-link-chk-result / z-index: 100;
 逐章导航面板 / .mdx-chapter-nav / z-index: 100;
 文档更多内容遮挡栏 / .mdx-more-doc-content-before, .mdx-more-doc-content-after / z-index: 99;
 
 ---------- 文档内容交互区 ----------
 
 在新标签中打开按钮 / .mdx-btn-open-in-new-tab / z-index: 50;
-复制代码块按钮 / .mdx-btn-copy-code-block / z-index: 50;
+复制代码块按钮 / .mdx-btn.copy-code-block / z-index: 50;
 内容展开操作区 / .mdx-content-expander / z-index: 10;
 
 导航中心内的分段控制按钮 .mdx-segment-indicator / z-index: 10
@@ -84,17 +83,20 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 @figureGridBlockDarkInvert: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEXwrmvNlVyQaUGvf09WPygcqEMaAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=";
 
 :root {
-    --mermaid-sequence-numbers: on;
-    --mermaid-flowchart-curve: basis;
+    --mm-sequence-numbers: on;
+    --mm-flowchart-curve: basis;
 
     --vlook-theme-name: @themeName; // 主题名称
-    --vlook-theme-version: "V10.5"; // 主题版本，对应适配 VLOOK.JS 的版本
+    --vlook-theme-version: "V10.6"; // 主题版本，对应适配 VLOOK.JS 的版本
     --vlook-default-font-style: @defaultFontStyle; // 默认字体风格
     --vlook-color-scheme: light; // 默认颜色模式为：Light 明亮
 
-    // 导航中心、工具栏宽度
+    // 导航中心、工具栏相关 UI 尺寸
     --vlook-nav-center-width:360px;
     --vlook-nav-center-hidden-left:-370px;
+    --vlook-toolbar-btn-width:36px;
+    --vlook-toolbar-btn-space:5px;
+    --vlook-top-margin:8px;
 
     // 过渡效果设置
     --vlook-transition-duration: 200ms;
@@ -127,12 +129,12 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --tips-bg-color-inset-light: @foreColorLight;
     --a-color-light: @aColor;
     --mark-color-light: rgba(255, 192, 32, 0.35);
-    --table-border-color-light: @tableBorderColor;
-    --table-header-color-light: @tableHeaderColor;
-    --table-th-bg-color-light: @tableThBgColor;
-    --table-td-bg-color-light: @tableTdBgColor;
-    --table-cell-border-color-light: @tableCellBorderColor;
-    --table-rowgroup-alpha-light: 0.15;
+    --tbl-border-color-light: @tableBorderColor;
+    --tbl-header-color-light: @tableHeaderColor;
+    --tbl-th-bg-color-light: @tableThBgColor;
+    --tbl-td-bg-color-light: @tableTdBgColor;
+    --tbl-cell-border-color-light: @tableCellBorderColor;
+    --tbl-row-g-alpha-light: 0.15;
     --del-color-light: @foreColorLightAlt;
     --toc-header-num-color-light: @tocHeaderNumColor;
     --header-color-light: @headerColor;
@@ -143,63 +145,75 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --code-name-bg-color-light: @foreColorLight;
     --code-name-shadow-color-light: rgba(0, 0, 0, 0.3);
 
-    --accent-color-red-light: @accentColorRed;
-    --accent-color-red-alt-light: @accentColorRedAlt;
-    --accent-color-red-fade-light: fade(@accentColorRed, 25%);
-    --accent-color-orange-light: @accentColorOrange;
-    --accent-color-orange-alt-light: @accentColorOrangeAlt;
-    --accent-color-orange-fade-light: fade(@accentColorOrange, 25%);
-    --accent-color-yellow-light: @accentColorYellow;
-    --accent-color-yellow-alt-light: @accentColorYellowAlt;
-    --accent-color-yellow-fade-light: fade(@accentColorYellow, 25%);
-    --accent-color-green-light: @accentColorGreen;
-    --accent-color-green-alt-light: @accentColorGreenAlt;
-    --accent-color-green-fade-light: fade(@accentColorGreen, 25%);
-    --accent-color-cyan-light: @accentColorCyan;
-    --accent-color-cyan-alt-light: @accentColorCyanAlt;
-    --accent-color-cyan-fade-light: fade(@accentColorCyan, 25%);
-    --accent-color-blue-light: @accentColorBlue;
-    --accent-color-blue-alt-light: @accentColorBlueAlt;
-    --accent-color-blue-fade-light: fade(@accentColorBlue, 25%);
-    --accent-color-purple-light: @accentColorPurple;
-    --accent-color-purple-alt-light: @accentColorPurpleAlt;
-    --accent-color-purple-fade-light: fade(@accentColorPurple, 25%);
-    --accent-color-pink-light: @accentColorPink;
-    --accent-color-pink-alt-light: @accentColorPinkAlt;
-    --accent-color-pink-fade-light: fade(@accentColorPink, 25%);
-    --accent-color-brown-light: @accentColorBrown;
-    --accent-color-brown-alt-light: @accentColorBrownAlt;
-    --accent-color-brown-fade-light: fade(@accentColorBrown, 25%);
-    --accent-color-gray-light: @accentColorGray;
-    --accent-color-gray-alt-light: @accentColorGrayAlt;
-    --accent-color-gray-fade-light: fade(@accentColorGray, 25%);
-    --accent-color-theme1-light: @theme1;
-    --accent-color-theme1-alt-light: @theme1Alt;
-    --accent-color-theme1-fade-light: fade(@theme1, 30%);
-    --accent-color-theme2-light: @theme2;
-    --accent-color-theme2-alt-light: @theme2Alt;
-    --accent-color-theme2-fade-light: fade(@theme2, 30%);
+    --acc-color-red-light: @accColorRed;
+    --acc-color-red-alt-light: @accColorRedAlt;
+    --acc-color-red-fade-light: fade(@accColorRed, 25%);
+    --acc-color-red-title-light: @accColorRed;
+    --acc-color-orange-light: @accColorOrange;
+    --acc-color-orange-alt-light: @accColorOrangeAlt;
+    --acc-color-orange-fade-light: fade(@accColorOrange, 25%);
+    --acc-color-orange-title-light: @accColorOrange;
+    --acc-color-yellow-light: @accColorYellow;
+    --acc-color-yellow-alt-light: @accColorYellowAlt;
+    --acc-color-yellow-fade-light: fade(@accColorYellow, 25%);
+    --acc-color-yellow-title-light: @accColorYellow;
+    --acc-color-green-light: @accColorGreen;
+    --acc-color-green-alt-light: @accColorGreenAlt;
+    --acc-color-green-fade-light: fade(@accColorGreen, 25%);
+    --acc-color-green-title-light: @accColorGreen;
+    --acc-color-cyan-light: @accColorCyan;
+    --acc-color-cyan-alt-light: @accColorCyanAlt;
+    --acc-color-cyan-fade-light: fade(@accColorCyan, 25%);
+    --acc-color-cyan-title-light: @accColorCyan;
+    --acc-color-blue-light: @accColorBlue;
+    --acc-color-blue-alt-light: @accColorBlueAlt;
+    --acc-color-blue-fade-light: fade(@accColorBlue, 25%);
+    --acc-color-blue-title-light: @accColorBlue;
+    --acc-color-purple-light: @accColorPurple;
+    --acc-color-purple-alt-light: @accColorPurpleAlt;
+    --acc-color-purple-fade-light: fade(@accColorPurple, 25%);
+    --acc-color-purple-title-light: @accColorPurple;
+    --acc-color-pink-light: @accColorPink;
+    --acc-color-pink-alt-light: @accColorPinkAlt;
+    --acc-color-pink-fade-light: fade(@accColorPink, 25%);
+    --acc-color-pink-title-light: @accColorPink;
+    --acc-color-brown-light: @accColorBrown;
+    --acc-color-brown-alt-light: @accColorBrownAlt;
+    --acc-color-brown-fade-light: fade(@accColorBrown, 25%);
+    --acc-color-brown-title-light: @accColorBrown;
+    --acc-color-gray-light: @accColorGray;
+    --acc-color-gray-alt-light: @accColorGrayAlt;
+    --acc-color-gray-fade-light: fade(@accColorGray, 25%);
+    --acc-color-gray-title-light: @accColorGray;
+    --acc-color-theme1-light: @theme1;
+    --acc-color-theme1-alt-light: @theme1Alt;
+    --acc-color-theme1-fade-light: fade(@theme1, 30%);
+    --acc-color-theme1-title-light: @theme1;
+    --acc-color-theme2-light: @theme2;
+    --acc-color-theme2-alt-light: @theme2Alt;
+    --acc-color-theme2-fade-light: fade(@theme2, 30%);
+    --acc-color-theme2-title-light: @theme2;
 
-    --mermaid-color-red-light: @mermaidColorRed;
-    --mermaid-color-red-alt-light: @mermaidColorRedAlt;
-    --mermaid-color-orange-light: @mermaidColorOrange;
-    --mermaid-color-orange-alt-light: @mermaidColorOrangeAlt;
-    --mermaid-color-yellow-light: @mermaidColorYellow;
-    --mermaid-color-yellow-alt-light: @mermaidColorYellowAlt;
-    --mermaid-color-green-light: @mermaidColorGreen;
-    --mermaid-color-green-alt-light: @mermaidColorGreenAlt;
-    --mermaid-color-cyan-light: @mermaidColorCyan;
-    --mermaid-color-cyan-alt-light: @mermaidColorCyanAlt;
-    --mermaid-color-blue-light: @mermaidColorBlue;
-    --mermaid-color-blue-alt-light: @mermaidColorBlueAlt;
-    --mermaid-color-purple-light: @mermaidColorPurple;
-    --mermaid-color-purple-alt-light: @mermaidColorPurpleAlt;
-    --mermaid-color-pink-light: @mermaidColorPink;
-    --mermaid-color-pink-alt-light: @mermaidColorPinkAlt;
-    --mermaid-color-brown-light: @mermaidColorBrown;
-    --mermaid-color-brown-alt-light: @mermaidColorBrownAlt;
-    --mermaid-color-gray-light: @mermaidColorGray;
-    --mermaid-color-gray-alt-light: @mermaidColorGrayAlt;
+    --mm-color-red-light: @mmColorRed;
+    --mm-color-red-alt-light: @mmColorRedAlt;
+    --mm-color-orange-light: @mmColorOrange;
+    --mm-color-orange-alt-light: @mmColorOrangeAlt;
+    --mm-color-yellow-light: @mmColorYellow;
+    --mm-color-yellow-alt-light: @mmColorYellowAlt;
+    --mm-color-green-light: @mmColorGreen;
+    --mm-color-green-alt-light: @mmColorGreenAlt;
+    --mm-color-cyan-light: @mmColorCyan;
+    --mm-color-cyan-alt-light: @mmColorCyanAlt;
+    --mm-color-blue-light: @mmColorBlue;
+    --mm-color-blue-alt-light: @mmColorBlueAlt;
+    --mm-color-purple-light: @mmColorPurple;
+    --mm-color-purple-alt-light: @mmColorPurpleAlt;
+    --mm-color-pink-light: @mmColorPink;
+    --mm-color-pink-alt-light: @mmColorPinkAlt;
+    --mm-color-brown-light: @mmColorBrown;
+    --mm-color-brown-alt-light: @mmColorBrownAlt;
+    --mm-color-gray-light: @mmColorGray;
+    --mm-color-gray-alt-light: @mmColorGrayAlt;
     --cm-keyword-light: #770088;
     --cm-variable-light: @foreColorLight;
     --cm-variable-2-light: #0055AA;
@@ -241,12 +255,12 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --tips-bg-color-inset-dark: @foreColorDark;
     --a-color-dark: @aColorDark;
     --mark-color-dark: rgba(255, 192, 32, 0.25);
-    --table-border-color-dark: @tableBorderColorDark;
-    --table-header-color-dark: @tableHeaderColorDark;
-    --table-th-bg-color-dark: @tableThBgColorDark;
-    --table-td-bg-color-dark: @tableTdBgColorDark;
-    --table-cell-border-color-dark: @tableCellBorderColorDark;
-    --table-rowgroup-alpha-dark: 0.3;
+    --tbl-border-color-dark: @tableBorderColorDark;
+    --tbl-header-color-dark: @tableHeaderColorDark;
+    --tbl-th-bg-color-dark: @tableThBgColorDark;
+    --tbl-td-bg-color-dark: @tableTdBgColorDark;
+    --tbl-cell-border-color-dark: @tableCellBorderColorDark;
+    --tbl-row-g-alpha-dark: 0.3;
     --del-color-dark: darken(@foreColorDark, 20%);
     --toc-header-num-color-dark: fade(@foreColorDark, 50%);
     --header-color-dark: @headerColorDark;
@@ -257,63 +271,75 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --code-name-bg-color-dark: @foreColorDark;
     --code-name-shadow-color-dark: rgba(255, 255, 255, 0.3);
 
-    --accent-color-red-dark: @accentColorRedDark;
-    --accent-color-red-alt-dark: @accentColorRedAltDark;
-    --accent-color-red-fade-dark: fade(@accentColorRed, 35%);
-    --accent-color-yellow-dark: @accentColorYellowDark;
-    --accent-color-yellow-alt-dark: @accentColorYellowAltDark;
-    --accent-color-yellow-fade-dark: fade(@accentColorYellow, 35%);
-    --accent-color-orange-dark: @accentColorOrangeDark;
-    --accent-color-orange-alt-dark: @accentColorOrangeAltDark;
-    --accent-color-orange-fade-dark: fade(@accentColorOrange, 35%);
-    --accent-color-green-dark: @accentColorGreenDark;
-    --accent-color-green-alt-dark: @accentColorGreenAltDark;
-    --accent-color-green-fade-dark: fade(@accentColorGreen, 35%);
-    --accent-color-cyan-dark: @accentColorCyanDark;
-    --accent-color-cyan-alt-dark: @accentColorCyanAltDark;
-    --accent-color-cyan-fade-dark: fade(@accentColorCyan, 35%);
-    --accent-color-blue-dark: @accentColorBlueDark;
-    --accent-color-blue-alt-dark: @accentColorBlueAltDark;
-    --accent-color-blue-fade-dark: fade(@accentColorBlue, 35%);
-    --accent-color-purple-dark: @accentColorPurpleDark;
-    --accent-color-purple-alt-dark: @accentColorPurpleAltDark;
-    --accent-color-purple-fade-dark: fade(@accentColorPurple, 35%);
-    --accent-color-pink-dark: @accentColorPinkDark;
-    --accent-color-pink-alt-dark: @accentColorPinkAltDark;
-    --accent-color-pink-fade-dark: fade(@accentColorPink, 35%);
-    --accent-color-brown-dark: @accentColorBrownDark;
-    --accent-color-brown-alt-dark: @accentColorBrownAltDark;
-    --accent-color-brown-fade-dark: fade(@accentColorBrown, 35%);
-    --accent-color-gray-dark: @accentColorGrayDark;
-    --accent-color-gray-alt-dark: @accentColorGrayAltDark;
-    --accent-color-gray-fade-dark: fade(@accentColorGray, 35%);
-    --accent-color-theme1-dark: @theme1Dark;
-    --accent-color-theme1-alt-dark: @theme1AltDark;
-    --accent-color-theme1-fade-dark: fade(@theme1Dark, 30%);
-    --accent-color-theme2-dark: @theme2Dark;
-    --accent-color-theme2-alt-dark: @theme2AltDark;
-    --accent-color-theme2-fade-dark: fade(@theme2Dark, 30%);
+    --acc-color-red-dark: @accColorRedDark;
+    --acc-color-red-alt-dark: @accColorRedAltDark;
+    --acc-color-red-fade-dark: fade(@accColorRed, 35%);
+    --acc-color-red-title-dark: #FFFFFF;
+    --acc-color-yellow-dark: @accColorYellowDark;
+    --acc-color-yellow-alt-dark: @accColorYellowAltDark;
+    --acc-color-yellow-fade-dark: fade(@accColorYellow, 35%);
+    --acc-color-yellow-title-dark: #FFFFFF;
+    --acc-color-orange-dark: @accColorOrangeDark;
+    --acc-color-orange-alt-dark: @accColorOrangeAltDark;
+    --acc-color-orange-fade-dark: fade(@accColorOrange, 35%);
+    --acc-color-orange-title-dark: #FFFFFF;
+    --acc-color-green-dark: @accColorGreenDark;
+    --acc-color-green-alt-dark: @accColorGreenAltDark;
+    --acc-color-green-fade-dark: fade(@accColorGreen, 35%);
+    --acc-color-green-title-dark: #FFFFFF;
+    --acc-color-cyan-dark: @accColorCyanDark;
+    --acc-color-cyan-alt-dark: @accColorCyanAltDark;
+    --acc-color-cyan-fade-dark: fade(@accColorCyan, 35%);
+    --acc-color-cyan-title-dark: #FFFFFF;
+    --acc-color-blue-dark: @accColorBlueDark;
+    --acc-color-blue-alt-dark: @accColorBlueAltDark;
+    --acc-color-blue-fade-dark: fade(@accColorBlue, 35%);
+    --acc-color-blue-title-dark: #FFFFFF;
+    --acc-color-purple-dark: @accColorPurpleDark;
+    --acc-color-purple-alt-dark: @accColorPurpleAltDark;
+    --acc-color-purple-fade-dark: fade(@accColorPurple, 35%);
+    --acc-color-purple-title-dark: #FFFFFF;
+    --acc-color-pink-dark: @accColorPinkDark;
+    --acc-color-pink-alt-dark: @accColorPinkAltDark;
+    --acc-color-pink-fade-dark: fade(@accColorPink, 35%);
+    --acc-color-pink-title-dark: #FFFFFF;
+    --acc-color-brown-dark: @accColorBrownDark;
+    --acc-color-brown-alt-dark: @accColorBrownAltDark;
+    --acc-color-brown-fade-dark: fade(@accColorBrown, 35%);
+    --acc-color-brown-title-dark: #FFFFFF;
+    --acc-color-gray-dark: @accColorGrayDark;
+    --acc-color-gray-alt-dark: @accColorGrayAltDark;
+    --acc-color-gray-fade-dark: fade(@accColorGray, 35%);
+    --acc-color-gray-title-dark: #FFFFFF;
+    --acc-color-theme1-dark: @theme1Dark;
+    --acc-color-theme1-alt-dark: @theme1AltDark;
+    --acc-color-theme1-fade-dark: fade(@theme1Dark, 30%);
+    --acc-color-theme1-title-dark: #FFFFFF;
+    --acc-color-theme2-dark: @theme2Dark;
+    --acc-color-theme2-alt-dark: @theme2AltDark;
+    --acc-color-theme2-fade-dark: fade(@theme2Dark, 30%);
+    --acc-color-theme2-title-dark: #FFFFFF;
 
-    --mermaid-color-red-dark: @mermaidColorRedAlt;
-    --mermaid-color-red-alt-dark: @mermaidColorRed;
-    --mermaid-color-orange-dark: @mermaidColorOrangeAlt;
-    --mermaid-color-orange-alt-dark: @mermaidColorOrange;
-    --mermaid-color-yellow-dark: @mermaidColorYellowAlt;
-    --mermaid-color-yellow-alt-dark: @mermaidColorYellow;
-    --mermaid-color-green-dark: @mermaidColorGreenAlt;
-    --mermaid-color-green-alt-dark: @mermaidColorGreen;
-    --mermaid-color-cyan-dark: @mermaidColorCyanAlt;
-    --mermaid-color-cyan-alt-dark: @mermaidColorCyan;
-    --mermaid-color-blue-dark: @mermaidColorBlueAlt;
-    --mermaid-color-blue-alt-dark: @mermaidColorBlue;
-    --mermaid-color-purple-dark: @mermaidColorPurpleAlt;
-    --mermaid-color-purple-alt-dark: @mermaidColorPurple;
-    --mermaid-color-pink-dark: @mermaidColorPinkAlt;
-    --mermaid-color-pink-alt-dark: @mermaidColorPink;
-    --mermaid-color-brown-dark: @mermaidColorBrownAlt;
-    --mermaid-color-brown-alt-dark: @mermaidColorBrown;
-    --mermaid-color-gray-dark: @mermaidColorGrayAlt;
-    --mermaid-color-gray-alt-dark: @mermaidColorGray;
+    --mm-color-red-dark: @mmColorRedAlt;
+    --mm-color-red-alt-dark: @mmColorRed;
+    --mm-color-orange-dark: @mmColorOrangeAlt;
+    --mm-color-orange-alt-dark: @mmColorOrange;
+    --mm-color-yellow-dark: @mmColorYellowAlt;
+    --mm-color-yellow-alt-dark: @mmColorYellow;
+    --mm-color-green-dark: @mmColorGreenAlt;
+    --mm-color-green-alt-dark: @mmColorGreen;
+    --mm-color-cyan-dark: @mmColorCyanAlt;
+    --mm-color-cyan-alt-dark: @mmColorCyan;
+    --mm-color-blue-dark: @mmColorBlueAlt;
+    --mm-color-blue-alt-dark: @mmColorBlue;
+    --mm-color-purple-dark: @mmColorPurpleAlt;
+    --mm-color-purple-alt-dark: @mmColorPurple;
+    --mm-color-pink-dark: @mmColorPinkAlt;
+    --mm-color-pink-alt-dark: @mmColorPink;
+    --mm-color-brown-dark: @mmColorBrownAlt;
+    --mm-color-brown-alt-dark: @mmColorBrown;
+    --mm-color-gray-dark: @mmColorGrayAlt;
+    --mm-color-gray-alt-dark: @mmColorGray;
     --cm-keyword-dark: #C88FD0;
     --cm-variable-dark: @foreColorDark;
     --cm-variable-2-dark: #9FBAD5;
@@ -355,12 +381,12 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --tips-bg-color-inset: var(--tips-bg-color-inset-light);
     --a-color: var(--a-color-light);
     --mark-color: var(--mark-color-light);
-    --table-border-color: var(--table-border-color-light);
-    --table-header-color: var(--table-header-color-light);
-    --table-th-bg-color: var(--table-th-bg-color-light);
-    --table-td-bg-color: var(--table-td-bg-color-light);
-    --table-cell-border-color: var(--table-cell-border-color-light);
-    --table-rowgroup-alpha: var(--table-rowgroup-alpha-light);
+    --tbl-border-color: var(--tbl-border-color-light);
+    --tbl-header-color: var(--tbl-header-color-light);
+    --tbl-th-bg-color: var(--tbl-th-bg-color-light);
+    --tbl-td-bg-color: var(--tbl-td-bg-color-light);
+    --tbl-cell-border-color: var(--tbl-cell-border-color-light);
+    --tbl-row-g-alpha: var(--tbl-row-g-alpha-light);
     --del-color: var(--del-color-light);
     --toc-header-num-color: var(--toc-header-num-color-light);
     --header-color: var(--header-color-light);
@@ -371,63 +397,75 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --code-name-bg-color: var(--code-name-bg-color-light);
     --code-name-shadow-color: var(--code-name-shadow-color-light);
 
-    --accent-color-red: var(--accent-color-red-light);
-    --accent-color-red-alt: var(--accent-color-red-alt-light);
-    --accent-color-red-fade: var(--accent-color-red-fade-light);
-    --accent-color-orange: var(--accent-color-orange-light);
-    --accent-color-orange-alt: var(--accent-color-orange-alt-light);
-    --accent-color-orange-fade: var(--accent-color-orange-fade-light);
-    --accent-color-yellow: var(--accent-color-yellow-light);
-    --accent-color-yellow-alt: var(--accent-color-yellow-alt-light);
-    --accent-color-yellow-fade: var(--accent-color-yellow-fade-light);
-    --accent-color-green: var(--accent-color-green-light);
-    --accent-color-green-alt: var(--accent-color-green-alt-light);
-    --accent-color-green-fade: var(--accent-color-green-fade-light);
-    --accent-color-cyan: var(--accent-color-cyan-light);
-    --accent-color-cyan-alt: var(--accent-color-cyan-alt-light);
-    --accent-color-cyan-fade: var(--accent-color-cyan-fade-light);
-    --accent-color-blue: var(--accent-color-blue-light);
-    --accent-color-blue-alt: var(--accent-color-blue-alt-light);
-    --accent-color-blue-fade: var(--accent-color-blue-fade-light);
-    --accent-color-purple: var(--accent-color-purple-light);
-    --accent-color-purple-alt: var(--accent-color-purple-alt-light);
-    --accent-color-purple-fade: var(--accent-color-purple-fade-light);
-    --accent-color-pink: var(--accent-color-pink-light);
-    --accent-color-pink-alt: var(--accent-color-pink-alt-light);
-    --accent-color-pink-fade: var(--accent-color-pink-fade-light);
-    --accent-color-brown: var(--accent-color-brown-light);
-    --accent-color-brown-alt: var(--accent-color-brown-alt-light);
-    --accent-color-brown-fade: var(--accent-color-brown-fade-light);
-    --accent-color-gray: var(--accent-color-gray-light);
-    --accent-color-gray-alt: var(--accent-color-gray-alt-light);
-    --accent-color-gray-fade: var(--accent-color-gray-fade-light);
-    --accent-color-theme1: var(--accent-color-theme1-light);
-    --accent-color-theme1-alt: var(--accent-color-theme1-alt-light);
-    --accent-color-theme1-fade: var(--accent-color-theme1-fade-light);
-    --accent-color-theme2: var(--accent-color-theme2-light);
-    --accent-color-theme2-alt: var(--accent-color-theme2-alt-light);
-    --accent-color-theme2-fade: var(--accent-color-theme2-fade-light);
+    --acc-color-red: var(--acc-color-red-light);
+    --acc-color-red-alt: var(--acc-color-red-alt-light);
+    --acc-color-red-fade: var(--acc-color-red-fade-light);
+    --acc-color-red-title: var(--acc-color-red-title-light);
+    --acc-color-orange: var(--acc-color-orange-light);
+    --acc-color-orange-alt: var(--acc-color-orange-alt-light);
+    --acc-color-orange-fade: var(--acc-color-orange-fade-light);
+    --acc-color-orange-title: var(--acc-color-orange-title-light);
+    --acc-color-yellow: var(--acc-color-yellow-light);
+    --acc-color-yellow-alt: var(--acc-color-yellow-alt-light);
+    --acc-color-yellow-fade: var(--acc-color-yellow-fade-light);
+    --acc-color-yellow-title: var(--acc-color-yellow-title-light);
+    --acc-color-green: var(--acc-color-green-light);
+    --acc-color-green-alt: var(--acc-color-green-alt-light);
+    --acc-color-green-fade: var(--acc-color-green-fade-light);
+    --acc-color-green-title: var(--acc-color-green-title-light);
+    --acc-color-cyan: var(--acc-color-cyan-light);
+    --acc-color-cyan-alt: var(--acc-color-cyan-alt-light);
+    --acc-color-cyan-fade: var(--acc-color-cyan-fade-light);
+    --acc-color-cyan-title: var(--acc-color-cyan-title-light);
+    --acc-color-blue: var(--acc-color-blue-light);
+    --acc-color-blue-alt: var(--acc-color-blue-alt-light);
+    --acc-color-blue-fade: var(--acc-color-blue-fade-light);
+    --acc-color-blue-title: var(--acc-color-blue-title-light);
+    --acc-color-purple: var(--acc-color-purple-light);
+    --acc-color-purple-alt: var(--acc-color-purple-alt-light);
+    --acc-color-purple-fade: var(--acc-color-purple-fade-light);
+    --acc-color-purple-title: var(--acc-color-purple-title-light);
+    --acc-color-pink: var(--acc-color-pink-light);
+    --acc-color-pink-alt: var(--acc-color-pink-alt-light);
+    --acc-color-pink-fade: var(--acc-color-pink-fade-light);
+    --acc-color-pink-title: var(--acc-color-pink-title-light);
+    --acc-color-brown: var(--acc-color-brown-light);
+    --acc-color-brown-alt: var(--acc-color-brown-alt-light);
+    --acc-color-brown-fade: var(--acc-color-brown-fade-light);
+    --acc-color-brown-title: var(--acc-color-brown-title-light);
+    --acc-color-gray: var(--acc-color-gray-light);
+    --acc-color-gray-alt: var(--acc-color-gray-alt-light);
+    --acc-color-gray-fade: var(--acc-color-gray-fade-light);
+    --acc-color-gray-title: var(--acc-color-gray-title-light);
+    --acc-color-theme1: var(--acc-color-theme1-light);
+    --acc-color-theme1-alt: var(--acc-color-theme1-alt-light);
+    --acc-color-theme1-fade: var(--acc-color-theme1-fade-light);
+    --acc-color-theme1-title: var(--acc-color-theme1-title-light);
+    --acc-color-theme2: var(--acc-color-theme2-light);
+    --acc-color-theme2-alt: var(--acc-color-theme2-alt-light);
+    --acc-color-theme2-fade: var(--acc-color-theme2-fade-light);
+    --acc-color-theme2-title: var(--acc-color-theme2-title-light);
 
-    --mermaid-color-red: var(--mermaid-color-red-light);
-    --mermaid-color-red-alt: var(--mermaid-color-red-alt-light);
-    --mermaid-color-orange: var(--mermaid-color-orange-light);
-    --mermaid-color-orange-alt: var(--mermaid-color-orange-alt-light);
-    --mermaid-color-yellow: var(--mermaid-color-yellow-light);
-    --mermaid-color-yellow-alt: var(--mermaid-color-yellow-alt-light);
-    --mermaid-color-green: var(--mermaid-color-green-light);
-    --mermaid-color-green-alt: var(--mermaid-color-green-alt-light);
-    --mermaid-color-cyan: var(--mermaid-color-cyan-light);
-    --mermaid-color-cyan-alt: var(--mermaid-color-cyan-alt-light);
-    --mermaid-color-blue: var(--mermaid-color-blue-light);
-    --mermaid-color-blue-alt: var(--mermaid-color-blue-alt-light);
-    --mermaid-color-purple: var(--mermaid-color-purple-light);
-    --mermaid-color-purple-alt: var(--mermaid-color-purple-alt-light);
-    --mermaid-color-pink: var(--mermaid-color-pink-light);
-    --mermaid-color-pink-alt: var(--mermaid-color-pink-alt-light);
-    --mermaid-color-brown: var(--mermaid-color-brown-light);
-    --mermaid-color-brown-alt: var(--mermaid-color-brown-alt-light);
-    --mermaid-color-gray: var(--mermaid-color-gray-light);
-    --mermaid-color-gray-alt: var(--mermaid-color-gray-alt-light);
+    --mm-color-red: var(--mm-color-red-light);
+    --mm-color-red-alt: var(--mm-color-red-alt-light);
+    --mm-color-orange: var(--mm-color-orange-light);
+    --mm-color-orange-alt: var(--mm-color-orange-alt-light);
+    --mm-color-yellow: var(--mm-color-yellow-light);
+    --mm-color-yellow-alt: var(--mm-color-yellow-alt-light);
+    --mm-color-green: var(--mm-color-green-light);
+    --mm-color-green-alt: var(--mm-color-green-alt-light);
+    --mm-color-cyan: var(--mm-color-cyan-light);
+    --mm-color-cyan-alt: var(--mm-color-cyan-alt-light);
+    --mm-color-blue: var(--mm-color-blue-light);
+    --mm-color-blue-alt: var(--mm-color-blue-alt-light);
+    --mm-color-purple: var(--mm-color-purple-light);
+    --mm-color-purple-alt: var(--mm-color-purple-alt-light);
+    --mm-color-pink: var(--mm-color-pink-light);
+    --mm-color-pink-alt: var(--mm-color-pink-alt-light);
+    --mm-color-brown: var(--mm-color-brown-light);
+    --mm-color-brown-alt: var(--mm-color-brown-alt-light);
+    --mm-color-gray: var(--mm-color-gray-light);
+    --mm-color-gray-alt: var(--mm-color-gray-alt-light);
     --cm-keyword: var(--cm-keyword-light);
     --cm-variable: var(--cm-variable-light);
     --cm-variable-2: var(--cm-variable-2-light);
@@ -592,7 +630,8 @@ svg[data-inject-url*="mode=icon"] {
     border-radius: 0 !important;
     background: none !important;
 }
-img[src*="mode=icon2x"] {
+img[src*="mode=icon2x"],
+svg[data-inject-url*="mode=icon2x"] {
     height: 2em;
 }
 
@@ -605,15 +644,16 @@ svg[data-inject-url*="mode=logo"] {
     border-radius: 0 !important;
     background: none !important;
 }
-
-// 图片作为第一个子元素时
-// img[src*="mode=icon"]:first-child,
-// svg[data-inject-url*="mode=icon"]:first-child,
-// a.md-header-anchor:first-child + svg[data-inject-url*="mode=icon"], // 注入为 SVG 实例后，前有空白的段落锚点的情况
-// img[src*="mode=logo"]:first-child,
-// svg[data-inject-url*="mode=logo"]:first-child,
-// a.md-header-anchor:first-child + svg[data-inject-url*="mode=logo"]:first-child { // 注入为 SVG 实例后，前有空白的段落锚点的情况
-// }
+img[src*="mode=logol"],
+svg[data-inject-url*="mode=logol"] {
+    float: left;
+    padding: 0 20px 0 0;
+}
+img[src*="mode=logor"],
+svg[data-inject-url*="mode=logor"] {
+    float: right;
+    padding: 0 0 0 20px;
+}
 
 // header 锚点占位
 .md-header-anchor {
@@ -649,11 +689,12 @@ kbd a {
 a kbd {
     color: @buttonForeColor !important;
     background-color: @buttonBgColor !important;
-    margin-left: -0.1em;
-    margin-right: -0.1em;
+    margin: 0;
     border: 0;
-    border-radius: var(--vlook-small-radius);
+    border-radius: var(--vlook-base-radius);
     display: inline-block;
+    box-shadow: @buttonShadow, @contrastBorder;
+    padding: 5px 10px;
 }
 
 // 指定不使用链接样式
@@ -710,7 +751,7 @@ kbd a:active {
 // 链接中的 kbd 样式
 a kbd:active {
     background-color: @aActiveColor !important;
-    transform: translateY(2px);
+    // transform: translateY(2px);
     box-shadow: 0 0 0 2px fade(@aActiveColor, 50%);
     // box-shadow: none;
 }
@@ -739,40 +780,40 @@ table td a:not([name^="ref-footnote"]):hover::before {
 a[class*="md-toc-inner"]:hover::before,
 a[href^="#"]:hover::before {
     content: "#";
-    background-color: @accentColorGray;
+    background-color: @accColorGray;
 }
 // HTTPS 协议
 a[href^="http://"]:hover::before {
     content: "HTTP";
-    background-color: @accentColorBrown;
+    background-color: @accColorBrown;
 }
 a[href^="https://"]:hover::before {
     content: "Secure HTTP";
-    background-color: @accentColorGreen;
+    background-color: @accColorGreen;
 }
 // MAILTO 协议
 a[href^="mailto:"]:hover::before {
     content: "Email";
-    background-color: @accentColorBlue;
+    background-color: @accColorBlue;
 }
 // FTP 协议
 a[href^="ftp://"]:hover::before {
     content: "FTP";
-    background-color: @accentColorBrown;
+    background-color: @accColorBrown;
 }
 a[href^="ftps://"]:hover::before {
     content: "Secure FTP";
-    background-color: @accentColorGreen;
+    background-color: @accColorGreen;
 }
 // FILE 协议
 a[href^="file://"]:hover::before {
     content: "Local File";
-    background-color: @accentColorBrown;
+    background-color: @accColorBrown;
 }
 // SMB 协议
 a[href^="smb://"]:hover::before {
     content: "SMB";
-    background-color: @accentColorPurple;
+    background-color: @accColorPurple;
 }
 // 文档资源
 a[href$=".pdf"]:hover::before,
@@ -785,7 +826,7 @@ a[href$=".pptx"]:hover::before,
 a[href$=".txt"]:hover::before,
 a[href$=".csv"]:hover::before {
     content: "Document";
-    background-color: @accentColorCyan;
+    background-color: @accColorCyan;
 }
 // 归档资源
 a[href$=".zip"]:hover::before,
@@ -796,13 +837,13 @@ a[href$=".tar"]:hover::before,
 a[href$=".dmg"]:hover::before,
 a[href$=".cab"]:hover::before {
     content: "Archive File";
-    background-color: @accentColorOrange;
+    background-color: @accColorOrange;
 }
 // 可执行文件
 a[href$=".exe"]:hover::before,
 a[href$=".sh"]:hover::before {
     content: "!! High Risk !!";
-    background-color: @accentColorRed;
+    background-color: @accColorRed;
 }
 
 // 下划线
@@ -991,7 +1032,7 @@ a:first-child > h6 {
     padding-top: 0;
 }
 
-// 配合内容块聚焦模式使用
+// 配合段落导航使用
 ul > li,
 ol > li,
 p,
@@ -1093,10 +1134,11 @@ blockquote > ol {
 
 // 双重引用
 blockquote > blockquote {
-    border-left: 5px solid fade(@accentColorGray, 20%);
+    border-left: 5px solid fade(@accColorGray, 20%);
     background: none;
     border-radius: 0;
     padding-top: 0;
+    padding-bottom: 0;
 }
 
 blockquote > strong {
@@ -1114,24 +1156,56 @@ blockquote > strong {
 
 // 坏链列表
 .mdx-link-error-list {
-    // visibility: hidden;
-    // opacity: 0;
     display: none;
-    padding: 15px;
+    padding: 10px 0;
     position: fixed;
     color: var(--fore-color);
-    top: 10px;
-    // right: var(--vlook-nav-center-hidden-left);
-    right: 10px;
-    bottom: 10px;
+    top: 20px;
+    right: 20px;
+    bottom: 50px;
     width: var(--vlook-nav-center-width);
-    font-size: 0.9em;
     line-height: 1.5;
     border-radius: var(--vlook-base-radius);
     background-color: var(--doc-bg-color-alt);
     overflow: auto;
     z-index: 4500;
 }
+.mdx-link-error-list-header {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    border-radius: var(--vlook-base-radius) var(--vlook-base-radius) 0 0;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 100%;
+    background: linear-gradient(180deg, var(--doc-bg-color-alt) 10px, var(--doc-bg-color-alt-transparent));
+    pointer-events: none;
+}
+.mdx-link-error-list-body {
+    padding: 10px 0;
+    height: 100%;
+    // overflow-y: scroll;
+    z-index: 0;
+}
+.mdx-link-error-list-items {
+    overflow-y: scroll;
+    height: 100%;
+    z-index: 0;
+}
+.mdx-link-error-list-footer {
+    position: absolute;
+    z-index: 10;
+    border-radius: 0 0 var(--vlook-base-radius) var(--vlook-base-radius);
+    top: auto;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+    background: linear-gradient(0deg, var(--doc-bg-color-alt) 10px, var(--doc-bg-color-alt-transparent));
+    pointer-events: none;
+}
+
 // 链接检查结果
 .mdx-link-chk-result {
     display: none;
@@ -1140,38 +1214,50 @@ blockquote > strong {
     align-items: center;
     vertical-align: middle;
     background-color: var(--doc-bg-color-alt);
-    right: 20px;
+    right: 30px;
     bottom: 20px;
     width: 40px;
     height: 40px;
     border-radius: var(--vlook-circle-radius);
-    z-index: 4501;
+    z-index: 100;
 }
 // 无坏链
 .mdx-link-result-ok {
     display: flex;
-    background-color: var(--accent-color-green-light);
+    background-color: var(--acc-color-green-light);
 }
 // 链接检查结果：有坏链
 .mdx-link-result-error {
     display: flex;
     cursor: pointer;
-    background-color: var(--accent-color-red-light);
+    background-color: var(--acc-color-red-light);
 }
 .mdx-link-result-error:hover {
-    background-color: var(--doc-bg-color-light);
-  }
-  .mdx-link-result-error:hover > svg > use {
-      fill: var(--accent-color-red);
-  }
-.mdx-link-error-list > hr {
-    border-width: 1px;
-    border-color: var(--fore-color-alt);
+    background-color: var(--fore-color);
 }
-.mdx-link-error-list > span {
-    color: var(--fore-color-alt);
-    font-size: 0.9em;
+.mdx-link-result-error:hover > svg > use {
+    fill: var(--doc-bg-color);
 }
+.mdx-link-result-error:active {
+    background-color: var(--acc-color-red-light);
+    box-shadow: 0 0 0 2px fade(@accColorRed, 50%);
+}
+.mdx-link-result-error:active > svg > use {
+    fill: #FFFFFF;
+}
+
+.mdx-link-error-source:focus {
+    outline: 2px dashed var(--acc-color-red-light);
+}
+
+// .mdx-link-error-list > hr {
+//     border-width: 1px;
+//     border-color: var(--fore-color-alt);
+// }
+// .mdx-link-error-list > span {
+//     color: var(--fore-color-alt);
+//     font-size: 0.9em;
+// }
 
 table {
     border-collapse: inherit;
@@ -1180,7 +1266,7 @@ table {
     line-height: 1.5;
     word-break: break-all;
     white-space: pre-wrap;
-    border: 2px solid var(--table-border-color);
+    border: 2px solid var(--tbl-border-color);
     border-radius: var(--vlook-base-radius);
     background-color: var(--doc-bg-color);
 }
@@ -1193,27 +1279,27 @@ thead {
 // 表格表头
 table > thead > tr > th,
 table > thead > tr > td {
-    background-color: var(--table-th-bg-color);
+    background-color: var(--tbl-th-bg-color);
     font-family: @boldFont;
     font-weight: @fontWeight4Serif;
-    border-right: 1px solid var(--table-cell-border-color);
+    border-right: 1px solid var(--tbl-cell-border-color);
     margin: 0;
     padding: 0.5em;
-    box-shadow: 0 1px 0 var(--table-cell-border-color);
+    box-shadow: 0 1px 0 var(--tbl-cell-border-color);
 }
 
 // 首行
 table > tbody > tr:first-child > td {
-    box-shadow: 0 -2px 0 0 var(--table-header-color);
+    box-shadow: 0 -2px 0 0 var(--tbl-header-color);
 }
 // 非首行
 table > tbody > tr:not(:first-child) > td {
-    box-shadow: 0 -1px 0 0 var(--table-cell-border-color);
+    box-shadow: 0 -1px 0 0 var(--tbl-cell-border-color);
 }
 
 // 偶数行
 table > tbody > tr:nth-child(2n) {
-    background-color: var(--table-td-bg-color);
+    background-color: var(--tbl-td-bg-color);
 }
 
 // 表头首行的首列
@@ -1244,7 +1330,7 @@ table > tbody > tr:last-child > td:last-child {
 }
 
 table tr > td {
-    border-right: 1px solid var(--table-cell-border-color);
+    border-right: 1px solid var(--tbl-cell-border-color);
     margin: 0;
     padding: 5px;
     vertical-align: top;
@@ -1261,60 +1347,75 @@ table tr > td:last-child {
     border-right: 0;
 }
 
+// 空白单元格
+.mdx-empty-cell {
+    padding: 1px;
+    background-color: var(--tbl-header-color);
+    // box-shadow: none !important;
+}
+// 非首行内的空白单元格
+table > tbody > tr:not(:first-child) > td.mdx-empty-cell {
+    box-shadow: none !important;
+}
+
 // 重复表头样式
 .mdx-th-repeater {
     font-weight: @fontWeight4Serif;
-    background-color: var(--table-th-bg-color);
-    // box-shadow: 0 -2px 0 0 var(--table-header-color), 0 1px 0 0 var(--table-header-color) !important;
+    background-color: var(--tbl-th-bg-color);
+    // box-shadow: 0 -2px 0 0 var(--tbl-header-color), 0 1px 0 0 var(--tbl-header-color) !important;
     vertical-align: middle !important;
 }
 .mdx-th-repeater.first {
-    box-shadow: 0 -2px 0 0 var(--table-header-color), 0 1px 0 0 var(--table-header-color) !important;
+    box-shadow: 0 -2px 0 0 var(--tbl-header-color), 0 1px 0 0 var(--tbl-header-color) !important;
 }
 .mdx-th-repeater.not-first {
-    box-shadow: 0 1px 0 0 var(--table-header-color) !important;
+    box-shadow: 0 1px 0 0 var(--tbl-header-color) !important;
 }
 
 // 合并了所有列样式
+.mdx-table-colspan-all {
+    padding-left: 5px;
+    background-color: var(--tbl-th-bg-color);
+}
 .mdx-table-colspan-all::before {
     content: "";
 }
 
 // 表格列格式：加粗
-.mdx-table-column-format-bold {
+.mdx-tbl-col-fmt-bold {
     font-family: @boldFont;
     font-weight: @fontWeight4Serif;
 }
 
 // 表格列格式：斜体
-.mdx-table-column-format-em {
+.mdx-tbl-col-fmt-em {
     font-style: italic;
 }
 
 // 表格列格式：高亮
-.mdx-table-column-format-mark {
+.mdx-tbl-col-fmt-mark {
     background-color: var(--mark-color) !important;
     color: var(--fore-bg-color) !important;
 }
 
 // 表格列格式：数值
-.mdx-table-column-format-number {
+.mdx-tbl-col-fmt-num {
     font-family: @numberFont !important;
 }
 // 表格列格式：负数
-.mdx-table-column-format-number-positive {
+.mdx-tbl-col-fmt-num-positive {
     color: #D00000;
 }
 // 表格列格式：正数
-.mdx-table-column-format-number-negative {
+.mdx-tbl-col-fmt-num-negative {
     color: #00B000;
 }
 // 表格列格式：数值－小数部分
-.mdx-table-column-format-number-decimal {
+.mdx-tbl-col-fmt-num-decimal {
     font-size: 0.8em;
 }
 // 表格列格式：数值－货币
-.mdx-table-column-format-currency {
+.mdx-tbl-col-fmt-currency {
     float: left;
     font-size: 0.9em;
     padding-right: 10px;
@@ -1322,42 +1423,49 @@ table tr > td:last-child {
     font-weight: normal;
 }
 // 表格列格式：数值－百分号
-.mdx-table-column-format-percent {
+.mdx-tbl-col-fmt-percent {
     opacity: 0.6;
     font-size: 0.8em;
 }
 
 // 带表格带行折叠时，是目录行的样式
-.mdx-table-rowfolding-folder {
+.mdx-tbl-row-g-folder {
     text-align: left !important;
 }
 
 // 带表格带行折叠时，不是目录行的样式（有行自动编号）
-li > figure table tbody > tr > td.mdx-table-rowfolding-not-folder,
-h6 + figure table tbody > tr > td.mdx-table-rowfolding-not-folder {
+li > figure table tbody > tr > td.mdx-tbl-row-g-not-folder,
+h6 + figure table tbody > tr > td.mdx-tbl-row-g-not-folder {
   text-align: left !important;
   padding-left: 50px !important;
 }
 // 带表格带行折叠时，不是目录行的样式（无行自动编号）
-td.mdx-table-rowfolding-not-folder {
+td.mdx-tbl-row-g-not-folder {
     text-align: left !important;
     padding-left: 25px !important;
 }
 
 // 折叠按钮样式
-.mdx-table-rowfolding-button {
+.mdx-tbl-row-g-btn {
     cursor: pointer;
 }
 
+.mdx-tbl-row-g-btn-hover > svg > use {
+    fill: @aHoverColor !important;
+}
+.mdx-tbl-row-g-btn-hover:active > svg > use {
+    fill: @aActiveColor !important;
+}
+
 // 被折叠行的样式
-.mdx-table-rowfolding-sub {
+.mdx-tbl-row-g-sub {
     text-align: left !important;
     padding-left: 5px !important;
 }
 
 // 缩进的占位元素样式
-.mdx-table-rowfolding-identer,
-.mdx-table-rowfolding-identer-blank {
+.mdx-tbl-row-g-identer {
+// .mdx-tbl-row-g-identer-blank {
     width: 4px;
     height: 32px;
     display: inline-block;
@@ -1365,41 +1473,41 @@ td.mdx-table-rowfolding-not-folder {
     margin: -10px 58px -10px 4px;
 }
 // 带表格行号的样式微调
-h6 + figure table .mdx-table-rowfolding-identer,
-h6 + figure table .mdx-table-rowfolding-identer-blank,
-li > figure table .mdx-table-rowfolding-identer,
-li > figure table .mdx-table-rowfolding-identer-blank {
+h6 + figure table .mdx-tbl-row-g-identer,
+// h6 + figure table .mdx-tbl-row-g-identer-blank,
+li > figure table .mdx-tbl-row-g-identer {
+// li > figure table .mdx-tbl-row-g-identer-blank {
     margin-right: 82px;
 }
 
 // 连续缩进的占位元素进行修正
-.mdx-table-rowfolding-identer + .mdx-table-rowfolding-identer,
-.mdx-table-rowfolding-identer + .mdx-table-rowfolding-identer-blank,
-.mdx-table-rowfolding-identer-blank + .mdx-table-rowfolding-identer {
+.mdx-tbl-row-g-identer + .mdx-tbl-row-g-identer {
+// .mdx-tbl-row-g-identer + .mdx-tbl-row-g-identer-blank,
+// .mdx-tbl-row-g-identer-blank + .mdx-tbl-row-g-identer {
     margin-left: -12px !important;
 }
 // 带表格行号的样式微调
-h6 + figure table .mdx-table-rowfolding-identer + .mdx-table-rowfolding-identer,
-h6 + figure table .mdx-table-rowfolding-identer + .mdx-table-rowfolding-identer-blank,
-h6 + figure table .mdx-table-rowfolding-identer-blank + .mdx-table-rowfolding-identer,
-li > figure table .mdx-table-rowfolding-identer + .mdx-table-rowfolding-identer,
-li > figure table .mdx-table-rowfolding-identer + .mdx-table-rowfolding-identer-blank,
-li > figure table .mdx-table-rowfolding-identer-blank + .mdx-table-rowfolding-identer {
+h6 + figure table .mdx-tbl-row-g-identer + .mdx-tbl-row-g-identer,
+// h6 + figure table .mdx-tbl-row-g-identer + .mdx-tbl-row-g-identer-blank,
+// h6 + figure table .mdx-tbl-row-g-identer-blank + .mdx-tbl-row-g-identer,
+li > figure table .mdx-tbl-row-g-identer + .mdx-tbl-row-g-identer {
+// li > figure table .mdx-tbl-row-g-identer + .mdx-tbl-row-g-identer-blank,
+// li > figure table .mdx-tbl-row-g-identer-blank + .mdx-tbl-row-g-identer {
     margin-right: 52px !important;
 }
 
 // 缩进的单元格为目录节点
-.mdx-table-rowfolding-identer-folder {
+.mdx-tbl-row-g-identer-folder {
     margin-right: 38px;
 }
 // 带表格行号的样式微调
-h6 + figure table .mdx-table-rowfolding-identer-folder,
-li > figure table .mdx-table-rowfolding-identer-folder {
+h6 + figure table .mdx-tbl-row-g-identer-folder,
+li > figure table .mdx-tbl-row-g-identer-folder {
     margin-right: 62px !important;
 }
 // 连续缩进的占位元素修正
-h6 + figure table .mdx-table-rowfolding-identer + .mdx-table-rowfolding-identer-folder,
-li > figure table .mdx-table-rowfolding-identer + .mdx-table-rowfolding-identer-folder {
+h6 + figure table .mdx-tbl-row-g-identer + .mdx-tbl-row-g-identer-folder,
+li > figure table .mdx-tbl-row-g-identer + .mdx-tbl-row-g-identer-folder {
     margin-right: 30px !important;
 }
 
@@ -1449,7 +1557,7 @@ li > figure table tbody tr:hover::before {
 }
 
 // 表格折叠后强制隐藏表格行号
-.mdx-table-row-num-hidden::before {
+.mdx-tbl-row-num-hidden::before {
     content: "" !important;
 }
 
@@ -1573,18 +1681,18 @@ del code {
 
 // 脚注行序末返回链接
 .reversefootnote {
-    color: @accentColorBlue;
+    color: @accColorBlue;
 }
 
 .reversefootnote:hover {
-    color: @accentColorRed;
+    color: @accColorRed;
 }
 
 // 脚注上标
 a[name^="ref-footnote-"] {
     font-family: @boldFont;
     font-weight: normal;
-    color: @accentColorBlue;
+    color: @accColorBlue;
 }
 
 a[name^="ref-footnote-"]:hover {
@@ -1606,7 +1714,7 @@ tt,
 code {
     color: var(--fore-color);
     font-family: @codeFont;
-    font-weight: normal;
+    // font-weight: normal;
     background-color: var(--code-bg-color);
     border-radius: var(--vlook-small-radius);
     padding: 0.1em 0.2em;
@@ -1621,9 +1729,9 @@ code {
 .md-fences {
     color: var(--fore-color);
     font-family: @codeFont;
-    font-weight: normal;
+    // font-weight: normal;
     border-radius: var(--vlook-base-radius);
-    border: 2px solid var(--table-border-color);
+    border: 2px solid var(--tbl-border-color);
     margin: 0 0 20px 0;
 }
 // 生成题注后的样式调整，未生成题注前的样式主要在编辑时使用
@@ -1664,13 +1772,13 @@ code {
 }
 
 #typora-quick-open {
-    border: 1px solid var(--table-border-color);
+    border: 1px solid var(--tbl-border-color);
     background-color: @foreColorLightFade3;
 }
 
 #typora-quick-open-item {
     background-color: @foreColorLightFade3;
-    border-color: var(--table-border-color);
+    border-color: var(--tbl-border-color);
     border-style: solid;
     border-width: 1px;
 }
@@ -1932,29 +2040,29 @@ svg[id^="mermaidChart"] {
 
 // 方角矩形
 .node rect[rx="0"][ry="0"] {
-    fill: var(--mermaid-color-blue-alt) !important;
-    stroke: var(--mermaid-color-blue) !important;
+    fill: var(--mm-color-blue-alt) !important;
+    stroke: var(--mm-color-blue) !important;
     stroke-width: 5px !important;
 }
 
 // 圆角矩形
 .node rect[rx="5"][ry="5"] {
-    fill: var(--mermaid-color-blue-alt) !important;
-    stroke: var(--mermaid-color-blue) !important;
+    fill: var(--mm-color-blue-alt) !important;
+    stroke: var(--mm-color-blue) !important;
     stroke-width: 1px !important;
 }
 
 // 圆形
 .node circle {
     fill: var(--doc-bg-color) !important;
-    stroke: var(--mermaid-color-green) !important;
+    stroke: var(--mm-color-green) !important;
     stroke-width: 2px !important;
 }
 
 // 自定义：条件、分支的菱形
 .node polygon {
-    fill: var(--mermaid-color-red-alt) !important;
-    stroke: var(--mermaid-color-red) !important;
+    fill: var(--mm-color-red-alt) !important;
+    stroke: var(--mm-color-red) !important;
     stroke-width: 1px !important;
 }
 
@@ -1962,7 +2070,7 @@ svg[id^="mermaidChart"] {
 .node[id^="page"] polygon,
 .node[id^="flowchart-page"] polygon {
     fill: var(--doc-bg-color) !important;
-    stroke: var(--mermaid-color-green) !important;
+    stroke: var(--mm-color-green) !important;
     stroke-width: 2px !important;
 }
 
@@ -2058,8 +2166,8 @@ g[id^=flowchart-INIT] .label div {
 // 与「初始」状态同级的所有矩形节点
 #INIT ~ g > rect,
 g[id^=flowchart-INIT] ~ g > rect {
-    fill: var(--mermaid-color-purple-alt) !important;
-    stroke: var(--mermaid-color-purple) !important;
+    fill: var(--mm-color-purple-alt) !important;
+    stroke: var(--mm-color-purple) !important;
     stroke-width: 3px !important;
 }
 
@@ -2075,8 +2183,8 @@ g[id^=flowchart-FINAL] circle {
 
 // 角色
 .actor {
-    stroke: var(--mermaid-color-blue) !important;
-    fill: var(--mermaid-color-blue-alt) !important;
+    stroke: var(--mm-color-blue) !important;
+    fill: var(--mm-color-blue-alt) !important;
     font-size: 1em !important;
     stroke-width: 1px !important;
 }
@@ -2110,7 +2218,7 @@ text.actor > tspan {
 
 // 角色生命线
 .actor-line {
-    stroke: var(--mermaid-color-blue) !important;
+    stroke: var(--mm-color-blue) !important;
     stroke-width: 1px !important;
 }
 
@@ -2162,21 +2270,21 @@ text.actor > tspan {
 .activation0,
 .activation1,
 .activation2 {
-    fill: var(--mermaid-color-blue-alt) !important;
+    fill: var(--mm-color-blue-alt) !important;
     stroke-width: 0 !important;
 }
 
 // 片断的类型标签背景
 .labelBox {
     stroke: none !important;
-    fill: var(--mermaid-color-purple-light) !important;
+    fill: var(--mm-color-purple-light) !important;
 }
 
 // 角标
 // 片断的类型文本
 // .labelText tspan,
 .labelBox+.labelText {
-    fill: var(--mermaid-color-purple-alt-light) !important;
+    fill: var(--mm-color-purple-alt-light) !important;
     font-size: 0.9em !important;
     font-family: @boldFont !important;
     font-weight: @fontWeight4Serif !important;
@@ -2186,7 +2294,7 @@ text.actor > tspan {
 .loopText,
 .loopText > tspan {
     fill: var(--fore-color) !important;
-    fill: var(--mermaid-color-purple-light) !important;
+    fill: var(--mm-color-purple-light) !important;
     font-family: @boldFont !important;
     font-weight: bold !important;
 }
@@ -2195,14 +2303,14 @@ text.actor > tspan {
 .loopLine {
     stroke-width: 2px !important;
     stroke-dasharray: 3px, 3px !important;
-    stroke: var(--mermaid-color-purple-light) !important;
+    stroke: var(--mm-color-purple-light) !important;
 }
 
 // 备注背景
 .note {
-    stroke: var(--mermaid-color-yellow) !important;
+    stroke: var(--mm-color-yellow) !important;
     stroke-dasharray: 5px !important;
-    fill: var(--mermaid-color-yellow-alt) !important;
+    fill: var(--mm-color-yellow-alt) !important;
 }
 
 // 备注文本
@@ -2222,8 +2330,8 @@ g.stateGroup circle {
 }
 g.stateGroup rect,
 g.stateGroup line {
-    fill: var(--mermaid-color-purple-alt) !important;
-    stroke: var(--mermaid-color-purple) !important;
+    fill: var(--mm-color-purple-alt) !important;
+    stroke: var(--mm-color-purple) !important;
 }
 g.stateGroup rect[height="7"] {
     fill: var(--fore-color) !important;
@@ -2248,8 +2356,8 @@ g.stateGroup text {
 }
 
 g.state-note {
-    fill: var(--mermaid-color-gray-alt);
-    stroke: var(--mermaid-color-gray);
+    fill: var(--mm-color-gray-alt);
+    stroke: var(--mm-color-gray);
 }
 
 /* ----- class diagram 类图 ----- */
@@ -2264,19 +2372,19 @@ g.classLabel .label {
 }
 
 g.classGroup rect {
-  fill: var(--mermaid-color-brown-alt) !important;
-  stroke: var(--mermaid-color-brown) !important;
+  fill: var(--mm-color-brown-alt) !important;
+  stroke: var(--mm-color-brown) !important;
 }
 
 g.classGroup line {
-  stroke: var(--mermaid-color-brown) !important;
+  stroke: var(--mm-color-brown) !important;
   stroke-width: 1px !important;
 }
 
 g.classLabel .box {
   stroke: none !important;
   stroke-width: 0 !important;
-  fill: var(--mermaid-color-brown-alt) !important;
+  fill: var(--mm-color-brown-alt) !important;
   opacity: 0.5 !important;
 }
 
@@ -2356,7 +2464,7 @@ div.mermaidTooltip {
 
 .today {
     fill: none;
-    stroke: var(--mermaid-color-red) !important;
+    stroke: var(--mm-color-red) !important;
     stroke-width: 3px !important;
 }
 
@@ -2392,15 +2500,15 @@ div.mermaidTooltip {
 .active1,
 .active2,
 .active3 {
-    fill: var(--mermaid-color-blue-alt) !important;
-    stroke: var(--mermaid-color-blue) !important;
+    fill: var(--mm-color-blue-alt) !important;
+    stroke: var(--mm-color-blue) !important;
 }
 
 .activeText0,
 .activeText1,
 .activeText2,
 .activeText3 {
-    fill: var(--mermaid-color-blue) !important;
+    fill: var(--mm-color-blue) !important;
 }
 
 /* 已完成的任务 */
@@ -2410,7 +2518,7 @@ div.mermaidTooltip {
 .done2,
 .done3 {
     stroke: none !important;
-    fill: var(--mermaid-color-blue-alt) !important;
+    fill: var(--mm-color-blue-alt) !important;
     stroke-width: 2px !important;
     stroke-dasharray: 2px !important;
 }
@@ -2422,7 +2530,7 @@ div.mermaidTooltip {
 .task2,
 .task3 {
     fill: var(--doc-bg-color) !important;
-    stroke: var(--mermaid-color-blue) !important;
+    stroke: var(--mm-color-blue) !important;
     stroke-dasharray: 2px !important;
 }
 
@@ -2456,8 +2564,8 @@ div.mermaidTooltip {
 .activeCrit1,
 .activeCrit2,
 .activeCrit3 {
-    stroke: var(--mermaid-color-red) !important;
-    fill: var(--mermaid-color-red-alt) !important;
+    stroke: var(--mm-color-red) !important;
+    fill: var(--mm-color-red-alt) !important;
     stroke-width: 2px !important;
 }
 
@@ -2465,7 +2573,7 @@ div.mermaidTooltip {
 .activeCritText1,
 .activeCritText2,
 .activeCritText3 {
-    fill: var(--mermaid-color-red) !important;
+    fill: var(--mm-color-red) !important;
 }
 
 /* 已完成的关键路径任务 */
@@ -2475,7 +2583,7 @@ div.mermaidTooltip {
 .doneCrit2,
 .doneCrit3 {
     stroke: none !important;
-    fill: var(--mermaid-color-red-alt) !important;
+    fill: var(--mm-color-red-alt) !important;
     stroke-width: 2px !important;
     cursor: pointer !important;
     shape-rendering: crispEdges !important;
@@ -2487,7 +2595,7 @@ div.mermaidTooltip {
 .crit1,
 .crit2,
 .crit3 {
-    stroke: var(--mermaid-color-red) !important;
+    stroke: var(--mm-color-red) !important;
     fill: var(--doc-bg-color) !important;
     stroke-width: 2px !important;
     stroke-dasharray: 2px !important;
@@ -2521,8 +2629,8 @@ div.mermaidTooltip {
 /* ----- entity 实体关系图 ----- */
 
 .entityBox {
-    fill: var(--mermaid-color-pink-alt) !important;
-    stroke: var(--mermaid-color-pink) !important;
+    fill: var(--mm-color-pink-alt) !important;
+    stroke: var(--mm-color-pink) !important;
 }
 
 /**************************************
@@ -2532,7 +2640,8 @@ div.mermaidTooltip {
 #write {
     max-width: 100%;
     margin: 0 auto;
-    padding: 0 10px 0 10px;
+    // margin-left: calc(var(--vlook-nav-center-width) + 20px);
+    padding: 0 20px;
     overflow-y: auto;
 }
 
@@ -2569,7 +2678,7 @@ div.mermaidTooltip {
 }
 
 .CodeMirror.cm-s-inner {
-    border-radius: var(--vlook-base-radius);
+    border-radius: var(--vlook-table-radius);
 }
 
 .CodeMirror div.CodeMirror-cursor {
@@ -2719,11 +2828,6 @@ div.mermaidTooltip {
     box-shadow: none;
 }
 
-// .md-toc-h1,
-// .md-toc-h2,
-// .md-toc-h3,
-// .md-toc-h4,
-// .md-toc-h5,
 .mdx-toc-item, // 用于替代默认的样式，但不设置 ::before
 .md-toc-item {
     color: var(--fore-color);
@@ -2738,41 +2842,42 @@ div.mermaidTooltip {
     white-space: nowrap;
     overflow: hidden;
     cursor: pointer;
-    }
+}
+
 .mdx-toc-item {
+    white-space: normal;
     line-height: 1.5;
     padding: 5px;
     margin-bottom: 5px;
     display: block;
 }
-
-
-// .md-toc-h1::before,
-// .md-toc-h2::before,
-// .md-toc-h3::before,
-// .md-toc-h4::before,
-// .md-toc-h5::before,
 .md-toc-item::before {
     color: var(--toc-header-num-color);
     padding-left: 5px;
 }
-
 .mdx-toc-item:hover,
 .md-toc-item:hover {
     background-color: var(--blockquote-bg);
 }
-
 .mdx-toc-item:active,
 .md-toc-item:active {
     color: var(--doc-bg-color);
     background-color: var(--fore-color-alt);
-    box-shadow: 0 0 0 2px var(--table-border-color);
+    box-shadow: 0 0 0 2px var(--tbl-border-color);
 }
 .mdx-toc-item:active::before,
 .md-toc-item:active::before {
     color: var(--doc-bg-color);
     // jQuery 选择器无法选择 ::before，所以须直接指定
-    transition: var(--vlook-transition-value);
+    // transition: var(--vlook-transition-value);
+}
+
+.mdx-figure-caption-1 > span,
+.mdx-toc-item > span {
+    color: var(--fore-color-alt);
+}
+.mdx-toc-item:active > span {
+    color: var(--doc-bg-color);
 }
 
 .md-toc,
@@ -2829,14 +2934,14 @@ sup.md-footnote > a:hover {
 kbd {
     font-family: @codeFont;
     font-weight: @fontWeight;
-    font-size: 0.85em;
-    border-radius: var(--vlook-small-radius);
-    margin: 0 0.3em;
-    padding: 0.2em 0.5em 0.1em 0.5em;
-    border: 1px solid var(--fore-color-alt);
+    font-size: 1em;
+    border-radius: var(--vlook-tag-radius);
+    margin: 0 5px;
+    padding: 1px 8px;
+    border: 2px solid var(--fore-color);
     color: var(--doc-bg-color);
     background-color: var(--fore-color);
-    box-shadow: 0 0.2em 0 0 var(--fore-color-alt);
+    box-shadow: 0 0 0 2px var(--doc-bg-color-alt) inset;
 }
 
 // task list - 1
@@ -3031,13 +3136,18 @@ li > p + ul {
     text-align: center;
     white-space: pre-wrap;
     border-radius: var(--vlook-base-radius);
-    border: 1px solid var(--table-border-color);
+    border: 1px solid var(--tbl-border-color);
     font-family: @subtitleFont;
     font-weight: normal;
     color: var(--tips-bg-color-inset);
     background-color: var(--tips-bg-color);
     cursor: default;
     z-index: 3000;
+}
+.mdx-info-tips.error {
+    color: #FFFFFF;
+    border-color: var(--acc-color-red-light);
+    background-color: var(--acc-color-red-light);
 }
 
 .mdx-tool-tips {
@@ -3083,6 +3193,8 @@ li > p + ul {
 .mdx-bottom-tips kbd {
     color: #000000;
     background-color: #ffffff;
+    box-shadow: 0 0 0 2px #000000 inset;
+    border: 2px solid var(--doc-bg-color-alt);
 }
 
 // 字体风格选择器
@@ -3095,7 +3207,7 @@ li > p + ul {
     padding: 10px;
     text-align: center;
     border-radius: var(--vlook-base-radius);
-    border: 1px solid var(--table-border-color);
+    border: 1px solid var(--tbl-border-color);
     font-family: @subtitleFont;
     font-weight: normal;
     color: var(--tips-bg-color-inset);
@@ -3206,7 +3318,7 @@ li > p + ul {
     background-position: top center;
 }
 
-.mdx-welcome-screen {
+.mdx-welcome-page {
     cursor: wait;
     position: fixed;
     color: @buttonForeColor;
@@ -3228,7 +3340,7 @@ li > p + ul {
 @keyframes breathe-text {
     0% {
       opacity: 1;
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
     100% {
       opacity: 0.8;
@@ -3240,28 +3352,28 @@ li > p + ul {
 @keyframes breathe-button {
     0% {
         opacity: 1;
-        transform: scale(1.05);
+        transform: scale(1.1);
         filter: brightness(120%);
     }
     100% {
         opacity: 0.8;
-        transform: scale(0.97);
+        transform: scale(1);
         filter: brightness(100%);
     }
 }
 
-.mdx-welcome-screen-tips {
+.mdx-welcome-page-tips {
     padding: 20px 20px 10px 20px;
     animation: 1s breathe-text infinite alternate;
 }
 
-.mdx-welcome-screen-tips > div {
+.mdx-welcome-page-tips > div {
     text-align: center;
     line-height: 1;
     margin-bottom: 1em;
 }
 
-.mdx-welcome-screen-loading {
+.mdx-welcome-page-loading {
     cursor: not-allowed;
     padding-left: 1em;
     padding-right: 1em;
@@ -3274,34 +3386,52 @@ li > p + ul {
     margin-bottom: 2em;
 }
 
-.mdx-btn-welcome-screen-done {
+.mdx-btn-welcome-page-done {
     cursor: pointer;
-    border: none;
+    // border: none;
+    border: 2px solid @buttonForeHoverColor;
     font-size: 1.2em;
     font-weight: @fontWeight;
     color: @buttonForeHoverColor;
     background-color: @aLineColor;
-    animation: 1s breathe-button infinite alternate;
+    animation: 1s breathe-button 1 alternate;
 }
-
-.mdx-btn-welcome-screen-done:hover {
+.mdx-btn-welcome-page-done:hover {
     color: @aLineColor;
     background-color: @buttonForeHoverColor;
     box-shadow: @buttonShadow;
 }
-
-.mdx-btn-welcome-screen-done:active {
+.mdx-btn-welcome-page-done:active {
+    border: none;
     color: @buttonForeHoverColor;
     background-color: @aLineColor;
+    box-shadow: 0 0 0 2px fade(@aLineColor, 50%);
     transform: none;
-    box-shadow: none;
 }
 
-// 用于列表项、段落聚焦模式
-.mdx-current-blockfocus-item {
+.mdx-btn-welcome-page-done.wait {
+    animation: 1s breathe-button infinite alternate;
+}
+
+.mdx-btn-welcome-page-done > span {
+    font-weight: normal;
+}
+
+// 用于段落导航
+.mdx-pg-current-item {
     box-shadow: 0 0 10px 0 @aLineColor;
     border-radius: var(--vlook-base-radius);
 }
+
+// 水平滚动空间内更多内容的阴影
+// .mdx-scroll-y-shadow {
+//     position: absolute;
+//     width: 20px;
+//     height: 250px;
+//     right: 20px;
+//     margin: 2px 0;
+//     background: linear-gradient(90deg, rgba(255,255,255,0), rgba(0,0,0,0.3));
+// }
 
 .md-diagram-panel svg {
     width: auto;
@@ -3325,6 +3455,13 @@ li > p + ul {
     cursor: pointer;
 }
 
+.mdx-blockquote-folder-hover > svg > use {
+    fill: @aHoverColor !important;
+}
+  .mdx-blockquote-folder-hover:active > svg > use {
+    fill: @aActiveColor !important;
+}
+
 .mdx-nav-center {
     background-color: var(--doc-bg-color-alt);
     border-radius: var(--vlook-base-radius);
@@ -3341,15 +3478,15 @@ li > p + ul {
 }
 
 .mdx-nav-center-float {
-    top: 10px;
-    bottom: 40px;
+    top: 20px;
+    bottom: 50px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .mdx-nav-center-block {
     top: 60px;
     bottom: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--table-border-color) inset;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--tbl-border-color) inset;
 }
 
 // 导航中心头部
@@ -3423,7 +3560,7 @@ li > p + ul {
 }
 .mdx-segment-btn:active {
     background-color: var(--fore-color-alt);
-    box-shadow: 0 0 0 2px var(--table-border-color);
+    box-shadow: 0 0 0 2px var(--tbl-border-color);
 }
 .mdx-segment-btn:active > svg > use {
     fill: var(--doc-bg-color);
@@ -3475,7 +3612,7 @@ li > p + ul {
     background-color: var(--blockquote-bg);
 }
 
-.mdx-nav-center-body-scroll {
+.mdx-nav-center-body {
     width: 100%;
     height: 100%;
     padding: 70px 1px 10px 1px;
@@ -3490,7 +3627,7 @@ li > p + ul {
 .mdx-toc-catalog-body {
     width: 100%;
     height: 100%;
-    padding: 10px 0 10px 0;
+    padding: 10px 0 0 0;
     overflow-y: scroll;
 }
 
@@ -3507,24 +3644,19 @@ li > p + ul {
     border-bottom-left-radius: var(--vlook-base-radius);
     position: absolute;
     z-index: 10;
+    pointer-events: none;
 }
 
 .mdx-toc-handle {
     position: fixed;
     display: none;
     top: 390px;
-    left: 0;
-    width: 5px;
+    left: 7px;
+    width: 6px;
     height: 100px;
-    background-color: var(--table-border-color);
-    border-radius: 0 5px 5px 0;
+    background-color: var(--tbl-border-color);
+    border-radius: 3px;
     z-index: 2000;
-    transition: all var(--vlook-transition-duration) ease-in-out;
-}
-// 提示动画样式
-.mdx-toc-handle-prompt {
-    transform-origin: 0px 50px;
-    transform: scale(4);
     transition: all var(--vlook-transition-duration) ease-in-out;
 }
 
@@ -3627,7 +3759,7 @@ li > p + ul {
 .mdx-toolbar {
     border-bottom-left-radius: var(--vlook-base-radius);
     border-bottom-right-radius: var(--vlook-base-radius);
-    left: 10px;
+    left: 20px;
     top: 10px;
     padding: 10px;
     width: var(--vlook-nav-center-width);
@@ -3639,7 +3771,7 @@ li > p + ul {
 }
 .mdx-toolbar.cover {
     width: auto;
-    right: 10px;
+    right: 20px;
     background: none;
 }
 // .mdx-toolbar.not-cover {
@@ -3664,14 +3796,14 @@ li > p + ul {
     padding-right: 0;
 }
 
-.mdx-btn-outline {
+.mdx-btn.outline {
     display: flex;
     justify-content: center;
     align-items: center;
     color: @docBgColorLight;
     cursor: pointer;
     float: left;
-    width: 30px;
+    // width: var(--vlook-toolbar-btn-space);
     height: 30px;
     padding-top: 0;
     text-align: center;
@@ -3686,7 +3818,7 @@ li > p + ul {
 }
 
 .mdx-toc-item-current::before {
-    color: @headerColor;
+    // color: @headerColor;
 }
 
 // .mdx-toc-item-current a {
@@ -3694,16 +3826,19 @@ li > p + ul {
 
 // .mdx-toc-item-current a::after {}
 
-.mdx-folder {
+.mdx-toc-folder {
     color: @foreColorLightAlt;
     float: left;
     width: 20px;
     text-align: center;
 }
 
-// .mdx-folder:hover {
-//     color: @aActiveColor;
-// }
+.mdx-toc-folder-hover > svg > use {
+    fill: @aHoverColor !important;
+}
+.mdx-toc-folder-hover:active > svg > use {
+    fill: @buttonForeColor !important;
+}
 
 .mdx-btn {
     display: flex;
@@ -3713,7 +3848,7 @@ li > p + ul {
     color: @buttonForeColor;
     cursor: pointer;
     padding: 0;
-    width: 40px;
+    width: var(--vlook-toolbar-btn-width);
     height: 30px;
     border-radius: var(--vlook-small-radius);
 }
@@ -3726,9 +3861,12 @@ li > p + ul {
     fill: @buttonForeHoverColor;
 }
 
+.mdx-btn-hover {
+    transition: all var(--vlook-transition-duration) ease-in-out;
+}
 .mdx-btn-hover:hover {
-    background-color: @aHoverColor;
-    color: @buttonForeHoverColor;
+    background-color: @aHoverColor !important;
+    color: @buttonForeHoverColor !important;
 }
 
 .mdx-btn-hover:hover > svg > use {
@@ -3740,8 +3878,8 @@ li > p + ul {
 }
 
 .mdx-btn:active {
-    background-color: @aActiveColor;
-    box-shadow: 0 0 0 2px fade(@aActiveColor, 50%);
+    background-color: @aActiveColor !important;
+    box-shadow: 0 0 0 2px fade(@aActiveColor, 50%) !important;
 }
 
 // 音频资源加载中动画
@@ -3780,15 +3918,17 @@ li > p + ul {
     width: 30px;
     padding: 2px;
     box-shadow: 0 0 1px fade(@buttonForeHoverColor, 70%);
-    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
     cursor: pointer;
 }
 
-.mdx-audio-mini-control {
-    color: @buttonForeColor;
-    background-color: @buttonBgColor;
-    cursor: pointer;
-}
+// .mdx-audio-mini-control {
+//     color: @buttonForeColor;
+//     background-color: @buttonBgColor;
+//     cursor: pointer;
+// }
 
 .mdx-audio-mini-control-hover:hover {
     background-color: @aHoverColor;
@@ -3798,6 +3938,14 @@ li > p + ul {
 
 .mdx-audio-mini-control-hover:active {
     background-color: @aActiveColor;
+}
+
+.mdx-duration-info {
+    color: var(--doc-bg-color);
+    border-radius: 0 var(--vlook-tag-radius) var(--vlook-tag-radius) var(--vlook-tag-radius);
+    padding: 0 5px;
+    background-color: var(--fore-color-alt);
+    font-weight: bold;
 }
 
 // 音频播放中状态
@@ -3819,8 +3967,8 @@ li > p + ul {
     border-bottom-left-radius: var(--vlook-base-radius);
     border-bottom-right-radius: var(--vlook-base-radius);
     top: -50px;
-    left: calc(~"var(--vlook-nav-center-width) + 30px");
-    right: 10px;
+    left: calc(~"var(--vlook-nav-center-width) + 50px");
+    right: 20px;
     height: 50px;
     position: fixed;
     padding: 0;
@@ -4011,30 +4159,33 @@ li > p + ul {
     display: block;
 }
 
-.mdx-btn-color-scheme {
-    margin-left: 5px;
+.mdx-btn.color-scheme {
+    margin-left: var(--vlook-toolbar-btn-space);
     float: right;
 }
 
-.mdx-btn-font-style {
-    margin-left: 5px;
+.mdx-btn.font-style {
+    margin-left: var(--vlook-toolbar-btn-space);
     float: right;
 }
 
-.mdx-accent-btn.figure-nav.disabled {
-    cursor:not-allowed;
-}
-.mdx-accent-btn.figure-nav.disabled > svg > use {
-    fill: var(--blockquote-bg);
-}
-
-.mdx-btn-paragraph-nav {
-    margin-left: 5px;
+.mdx-btn.table-cross {
+    margin-left: var(--vlook-toolbar-btn-space);
     float: right;
 }
 
-.mdx-btn-spotlight {
-    margin-left: 5px;
+.mdx-btn.paragraph-nav {
+    margin-left: var(--vlook-toolbar-btn-space);
+    float: right;
+}
+
+.mdx-btn.spotlight {
+    margin-left: var(--vlook-toolbar-btn-space);
+    float: right;
+}
+
+.mdx-btn.laser-pointer {
+    margin-left: var(--vlook-toolbar-btn-space);
     float: right;
 }
 
@@ -4045,7 +4196,7 @@ li > p + ul {
     position: absolute;
     text-align: center;
     border-radius: var(--vlook-small-radius);
-    box-shadow: 0 0 0 1px var(--table-border-color) inset;
+    box-shadow: 0 0 0 1px var(--tbl-border-color) inset;
     cursor: pointer;
 }
 
@@ -4060,7 +4211,7 @@ li > p + ul {
 .mdx-accent-btn:active {
     color: var(--doc-bg-color);
     background-color: var(--fore-color-alt);
-    box-shadow: 0 0 0 2px var(--table-border-color);
+    box-shadow: 0 0 0 2px var(--tbl-border-color);
 }
 .mdx-accent-btn:active > svg > use {
     fill: var(--doc-bg-color);
@@ -4070,11 +4221,18 @@ li > p + ul {
   margin: 0 10px 0 0;
 }
 
+.mdx-accent-btn.figure-nav.disabled {
+    cursor:not-allowed;
+}
+.mdx-accent-btn.figure-nav.disabled > svg > use {
+    fill: var(--blockquote-bg);
+}
+
 // 输入框
 .mdx-textfield {
     background-color: var(--doc-bg-color);
     border-radius: var(--vlook-small-radius);
-    box-shadow: 0 0 0 1px var(--table-border-color) inset;
+    box-shadow: 0 0 0 1px var(--tbl-border-color) inset;
     margin: 0 10px 0 0;
     height: 30px;
     float: right;
@@ -4166,27 +4324,28 @@ li > p + ul {
     margin: 0 10px 10px 10px;
 }
 
-.mdx-toc-filter-catalog-result,
-.mdx-toc-filter-figure-result,
-.mdx-toc-filter-table-result,
-.mdx-toc-filter-multimedia-result,
-.mdx-toc-filter-codeblock-result,
+// .mdx-toc-filter-catalog-result,
+// .mdx-toc-filter-figure-result,
+// .mdx-toc-filter-table-result,
+// .mdx-toc-filter-multimedia-result,
+// .mdx-toc-filter-codeblock-result,
+.mdx-toc-filter-result,
 .mdx-toc-history-result {
     display: none;
     width: 100%;
     height: 100%;
-    padding: 30px 0 50px 0;
+    padding: 30px 0 10px 0;
     overflow-y: scroll;
 }
 
-.mdx-toc-filter-catalog-result > .mdx-toc-item,
-.mdx-toc-filter-figure-result > .mdx-toc-item,
-.mdx-toc-filter-table-result > .mdx-toc-item,
-.mdx-toc-filter-multimedia-result > .mdx-toc-item,
-.mdx-toc-filter-codeblock-result > .mdx-toc-item,
-.mdx-toc-history-result > .mdx-toc-item {
-    white-space: normal;
-}
+// .mdx-toc-filter-catalog-result > .mdx-toc-item,
+// .mdx-toc-filter-figure-result > .mdx-toc-item,
+// .mdx-toc-filter-table-result > .mdx-toc-item,
+// .mdx-toc-filter-multimedia-result > .mdx-toc-item,
+// .mdx-toc-filter-codeblock-result > .mdx-toc-item,
+// .mdx-toc-history-result > .mdx-toc-item {
+//     white-space: normal;
+// }
 
 .mdx-toc-history-none,
 .mdx-toc-filter-result-none {
@@ -4214,8 +4373,8 @@ li > p + ul {
     color: var(--a-color);
 }
 
-.mdx-btn-print {
-    margin-left: 5px;
+.mdx-btn.print {
+    margin-left: var(--vlook-toolbar-btn-space);
     float: left;
 }
 
@@ -4244,7 +4403,7 @@ li > p + ul {
     padding: 0;
 }
 // 插图导航中的上一插图按钮
-.mdx-btn-figure-prev {
+.mdx-figure-nav-btns.prev {
     left: 10px;
     top: auto;
     width: 30px;
@@ -4255,7 +4414,7 @@ li > p + ul {
     bottom: 10px;
 }
 // 插图导航中的下一插图按钮
-.mdx-btn-figure-next {
+.mdx-figure-nav-btns.next {
     right: 10px;
     top: auto;
     width: 30px;
@@ -4315,10 +4474,11 @@ li > p + ul {
     z-index: 50;
 }
 
-.mdx-btn-copy-code-block {
+.mdx-btn.copy-code-block {
     top: 0;
-    border-radius: 0 var(--vlook-base-radius) 0 var(--vlook-base-radius);
-    box-shadow: @contrastBorder;
+    width: 32px;
+    height: 26px;
+    border-radius: var(--vlook-tag-radius);
     background-color: @buttonBgColor;
     position: absolute;
     visibility: hidden;
@@ -4336,15 +4496,13 @@ li > p + ul {
     border-color: @aHoverColor !important;
 }
 
-.mdx-OINTable-hover {
+.mdx-interactive-hover {
     border-color: @aHoverColor !important;
 }
-.mdx-OINTable-hover:active {
+.mdx-interactive-hover:active {
     box-shadow: 0 0 0 2px fade(@aHoverColor, 50%);
 }
-
-
-.mdx-OINTable:active {
+.mdx-interactive:active {
     border-color: @aActiveColor !important;
     box-shadow: none;
     transform: none;
@@ -4426,7 +4584,7 @@ li > p + ul {
     display: inline-block;
     border-radius: var(--vlook-base-radius);
     background-color: var(--doc-bg-color-alt);
-    margin-bottom: 1em;
+    // margin-top: 1em;
 }
 
 .mdx-figure-caption > p {
@@ -4441,6 +4599,11 @@ li > p + ul {
 .mdx-figure-caption hr {
     border-bottom: 2px solid @foreColorLightAlt;
     margin: 0.5em auto;
+}
+
+.mdx-caption-container {
+    border-radius: var(--vlook-base-radius);
+    margin-bottom: 20px;
 }
 
 use.mdx-svg-ico-light {
@@ -4465,22 +4628,16 @@ use.mdx-svg-ico-alt {
 }
 
 // 折叠按钮样式
-use.mdx-folder-ico,
-use.mdx-folder2-ico {
+use.mdx-toc-folder-ico,
+use.mdx-rowgroup-folder-ico,
+use.mdx-blockquote-folder-ico {
     fill: @buttonBgColor;
 }
 
-use.mdx-folder-ico-hover {
-    fill: @buttonForeHoverColor !important;
-}
-use.mdx-folder-ico:active {
-    fill: @transparencyColor3 !important;
-}
-
-use.mdx-folder2-ico-hover {
+use.mdx-blockquote-folder-ico-hover {
     fill: @aHoverColor;
 }
-use.mdx-folder2-ico:active {
+use.mdx-blockquote-folder-ico:active {
     fill: @aActiveColor;
 }
 
@@ -4501,19 +4658,19 @@ use.mdx-folder2-ico:active {
 // 遮罩扩展样式
 .mdx-mask.left {
     // background: linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
-    background: linear-gradient(90deg, @themeBgColorDark, fade(@themeBgColorDark, 50%));
+    background: linear-gradient(90deg, @themeBgColorDark 20%, fade(@themeBgColorDark, 50%));
 }
 .mdx-mask.right {
     // background: linear-gradient(270deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
-    background: linear-gradient(270deg, @themeBgColorDark, fade(@themeBgColorDark, 50%));
+    background: linear-gradient(270deg, @themeBgColorDark 20%, fade(@themeBgColorDark, 50%));
 }
 .mdx-mask.bottom {
     // background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
-    background: linear-gradient(0deg, @themeBgColorDark, fade(@themeBgColorDark, 50%));
+    background: linear-gradient(0deg, @themeBgColorDark 20%, fade(@themeBgColorDark, 50%));
 }
 .mdx-mask.center {
     // background: radial-gradient(ellipse, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9));
-    background: radial-gradient(ellipse, @themeBgColorDark, fade(@themeBgColorDark, 50%));
+    background: radial-gradient(ellipse, @themeBgColorDark 10%, fade(@themeBgColorDark, 50%));
 }
 
 // 遮罩关闭提示器样式
@@ -4563,333 +4720,344 @@ use.mdx-folder2-ico:active {
 }
 // red
 .mdx-quote-red {
-    background-color: var(--accent-color-red-fade);
+    background-color: var(--acc-color-red-fade);
 }
 .mdx-quote-red .mdx-std-code {
-    background-color: var(--accent-color-red-alt);
+    background-color: var(--acc-color-red-alt);
 }
 .mdx-quote-red a {
-    // border-color: var(--accent-color-red);
-    border-color: var(--doc-bg-color);
+    // border-color: var(--acc-color-red);
+    // border-color: var(--doc-bg-color);
+    border-color: @accColorRed;
 }
 .mdx-quote-red a:hover {
-    // color: var(--accent-color-red) !important;
+    // color: var(--acc-color-red) !important;
     color: var(--fore-color) !important;
-    box-shadow: 0 -0.3em 0 0 rgba(@accentColorRed, 0.3) inset;
+    box-shadow: 0 -0.3em 0 0 rgba(@accColorRed, 0.3) inset;
 }
 .mdx-quote-red a:active {
     // color: var(--doc-bg-color) !important;
-    // background-color: var(--accent-color-red);
+    // background-color: var(--acc-color-red);
     // box-shadow: 0 0 0 2px var(--doc-bg-color);
     background-color:var(--doc-bg-color-alt);
-    box-shadow: 0 0 0 2px rgba(@accentColorRed, 0.3);
+    box-shadow: 0 0 0 2px rgba(@accColorRed, 0.3);
     border-bottom: 0;
     border-radius: var(--vlook-small-radius);
 }
 .mdx-quote-title-red {
-    color: var(--accent-color-red);
+    color: var(--acc-color-red-title);
 }
-.mdx-quote-title-red-light {
-    color: var(--accent-color-red) !important;
-}
+// .mdx-quote-title-red-light {
+//     color: var(--acc-color-red);// !important;
+// }
 // orange
 .mdx-quote-orange {
-    background-color: var(--accent-color-orange-fade);
+    background-color: var(--acc-color-orange-fade);
 }
 .mdx-quote-orange .mdx-std-code {
-    background-color: var(--accent-color-orange-alt);
+    background-color: var(--acc-color-orange-alt);
 }
 .mdx-quote-orange a {
-    // border-color: var(--accent-color-orange);
-    border-color: var(--doc-bg-color);
+    // border-color: var(--acc-color-orange);
+    // border-color: var(--doc-bg-color);
+    border-color: @accColorOrange;
 }
 .mdx-quote-orange a:hover {
-    // color: var(--accent-color-orange) !important;
+    // color: var(--acc-color-orange) !important;
     color: var(--fore-color) !important;
-    box-shadow: 0 -0.3em 0 0 rgba(@accentColorOrange, 0.3) inset;
+    box-shadow: 0 -0.3em 0 0 rgba(@accColorOrange, 0.3) inset;
 }
 .mdx-quote-orange a:active {
     // color: var(--doc-bg-color) !important;
-    // background-color: var(--accent-color-orange);
+    // background-color: var(--acc-color-orange);
     // box-shadow: 0 0 0 2px var(--doc-bg-color);
     background-color:var(--doc-bg-color-alt);
-    box-shadow: 0 0 0 2px rgba(@accentColorOrange, 0.3);
+    box-shadow: 0 0 0 2px rgba(@accColorOrange, 0.3);
     border-bottom: 0;
     border-radius: var(--vlook-small-radius);
 }
 .mdx-quote-title-orange {
-    color: var(--accent-color-orange);
+    color: var(--acc-color-orange-title);
 }
-.mdx-quote-title-orange-light {
-    color: var(--accent-color-orange) !important;
-}
+// .mdx-quote-title-orange-light {
+//     color: var(--acc-color-orange);// !important;
+// }
 // yellow
 .mdx-quote-yellow {
-    background-color: var(--accent-color-yellow-fade);
+    background-color: var(--acc-color-yellow-fade);
 }
 .mdx-quote-yellow .mdx-std-code {
-    background-color: var(--accent-color-yellow-alt);
+    background-color: var(--acc-color-yellow-alt);
 }
 .mdx-quote-yellow a {
-    // border-color: var(--accent-color-yellow);
-    border-color: var(--doc-bg-color);
+    // border-color: var(--acc-color-yellow);
+    // border-color: var(--doc-bg-color);
+    border-color: @accColorYellow;
 }
 .mdx-quote-yellow a:hover {
-    // color: var(--accent-color-yellow) !important;
+    // color: var(--acc-color-yellow) !important;
     color: var(--fore-color) !important;
-    box-shadow: 0 -0.3em 0 0 rgba(@accentColorYellow, 0.3) inset;
+    box-shadow: 0 -0.3em 0 0 rgba(@accColorYellow, 0.3) inset;
 }
 .mdx-quote-yellow a:active {
     // color: var(--doc-bg-color) !important;
-    // background-color: var(--accent-color-yellow);
+    // background-color: var(--acc-color-yellow);
     // box-shadow: 0 0 0 2px var(--doc-bg-color);
     background-color:var(--doc-bg-color-alt);
-    box-shadow: 0 0 0 2px rgba(@accentColorYellow, 0.3);
+    box-shadow: 0 0 0 2px rgba(@accColorYellow, 0.3);
     border-bottom: 0;
     border-radius: var(--vlook-small-radius);
 }
 .mdx-quote-title-yellow {
-    color: var(--accent-color-yellow);
+    color: var(--acc-color-yellow-title);
 }
-.mdx-quote-title-yellow-light {
-    color: var(--accent-color-yellow) !important;
-}
+// .mdx-quote-title-yellow-light {
+//     color: var(--acc-color-yellow);// !important;
+// }
 // green
 .mdx-quote-green {
-    background-color: var(--accent-color-green-fade);
+    background-color: var(--acc-color-green-fade);
 }
 .mdx-quote-green .mdx-std-code {
-    background-color: var(--accent-color-green-alt);
+    background-color: var(--acc-color-green-alt);
 }
 .mdx-quote-green a {
-    // border-color: var(--accent-color-green);
-    border-color: var(--doc-bg-color);
+    // border-color: var(--acc-color-green);
+    // border-color: var(--doc-bg-color);
+    border-color: @accColorGreen;
 }
 .mdx-quote-green a:hover {
-    // color: var(--accent-color-green) !important;
+    // color: var(--acc-color-green) !important;
     color: var(--fore-color) !important;
-    box-shadow: 0 -0.3em 0 0 rgba(@accentColorGreen, 0.3) inset;
+    box-shadow: 0 -0.3em 0 0 rgba(@accColorGreen, 0.3) inset;
 }
 .mdx-quote-green a:active {
     // color: var(--doc-bg-color) !important;
-    // background-color: var(--accent-color-green);
+    // background-color: var(--acc-color-green);
     // box-shadow: 0 0 0 2px var(--doc-bg-color);
     background-color:var(--doc-bg-color-alt);
-    box-shadow: 0 0 0 2px rgba(@accentColorGreen, 0.3);
+    box-shadow: 0 0 0 2px rgba(@accColorGreen, 0.3);
     border-bottom: 0;
     border-radius: var(--vlook-small-radius);
 }
 .mdx-quote-title-green {
-    color: var(--accent-color-green);
+    color: var(--acc-color-green-title);
 }
-.mdx-quote-title-green-light {
-    color: var(--accent-color-green) !important;
-}
+// .mdx-quote-title-green-light {
+//     color: var(--acc-color-green);// !important;
+// }
 // cyan
 .mdx-quote-cyan {
-    background-color: var(--accent-color-cyan-fade);
+    background-color: var(--acc-color-cyan-fade);
 }
 .mdx-quote-cyan .mdx-std-code {
-    background-color: var(--accent-color-cyan-alt);
+    background-color: var(--acc-color-cyan-alt);
 }
 .mdx-quote-cyan a {
-    // border-color: var(--accent-color-cyan);
-    border-color: var(--doc-bg-color);
+    // border-color: var(--acc-color-cyan);
+    // border-color: var(--doc-bg-color);
+    border-color: @accColorCyan
 }
 .mdx-quote-cyan a:hover {
-    // color: var(--accent-color-cyan) !important;
+    // color: var(--acc-color-cyan) !important;
     color: var(--fore-color) !important;
-    box-shadow: 0 -0.3em 0 0 rgba(@accentColorCyan, 0.3) inset;
+    box-shadow: 0 -0.3em 0 0 rgba(@accColorCyan, 0.3) inset;
 }
 .mdx-quote-cyan a:active {
     // color: var(--doc-bg-color) !important;
-    // background-color: var(--accent-color-cyan);
+    // background-color: var(--acc-color-cyan);
     // box-shadow: 0 0 0 2px var(--doc-bg-color);
     background-color:var(--doc-bg-color-alt);
-    box-shadow: 0 0 0 2px rgba(@accentColorCyan, 0.3);
+    box-shadow: 0 0 0 2px rgba(@accColorCyan, 0.3);
     border-bottom: 0;
     border-radius: var(--vlook-small-radius);
 }
 .mdx-quote-title-cyan {
-    color: var(--accent-color-cyan);
+    color: var(--acc-color-cyan-title);
 }
-.mdx-quote-title-cyan-light {
-    color: var(--accent-color-cyan) !important;
-}
+// .mdx-quote-title-cyan-light {
+//     color: var(--acc-color-cyan);// !important;
+// }
 // blue
 .mdx-quote-blue {
-    background-color: var(--accent-color-blue-fade);
+    background-color: var(--acc-color-blue-fade);
 }
 .mdx-quote-blue .mdx-std-code {
-    background-color: var(--accent-color-blue-alt);
+    background-color: var(--acc-color-blue-alt);
 }
 .mdx-quote-blue a {
-    // border-color: var(--accent-color-blue);
-    border-color: var(--doc-bg-color);
+    // border-color: var(--acc-color-blue);
+    // border-color: var(--doc-bg-color);
+    border-color: @accColorBlue;
 }
 .mdx-quote-blue a:hover {
-    // color: var(--accent-color-blue) !important;
+    // color: var(--acc-color-blue) !important;
     color: var(--fore-color) !important;
-    box-shadow: 0 -0.3em 0 0 rgba(@accentColorBlue, 0.3) inset;
+    box-shadow: 0 -0.3em 0 0 rgba(@accColorBlue, 0.3) inset;
 }
 .mdx-quote-blue a:active {
     // color: var(--doc-bg-color) !important;
-    // background-color: var(--accent-color-blue);
+    // background-color: var(--acc-color-blue);
     // box-shadow: 0 0 0 2px var(--doc-bg-color);
     background-color:var(--doc-bg-color-alt);
-    box-shadow: 0 0 0 2px rgba(@accentColorBlue, 0.3);
+    box-shadow: 0 0 0 2px rgba(@accColorBlue, 0.3);
     border-bottom: 0;
     border-radius: var(--vlook-small-radius);
 }
 .mdx-quote-title-blue {
-    color: var(--accent-color-blue);
+    color: var(--acc-color-blue-title);
 }
-.mdx-quote-title-blue-light {
-    color: var(--accent-color-blue) !important;
-}
+// .mdx-quote-title-blue-light {
+//     color: var(--acc-color-blue);// !important;
+// }
 // purple
 .mdx-quote-purple {
-    background-color: var(--accent-color-purple-fade);
+    background-color: var(--acc-color-purple-fade);
 }
 .mdx-quote-purple .mdx-std-code {
-    background-color: var(--accent-color-purple-alt);
+    background-color: var(--acc-color-purple-alt);
 }
 .mdx-quote-purple a {
-    // border-color: var(--accent-color-purple);
-    border-color: var(--doc-bg-color);
+    // border-color: var(--acc-color-purple);
+    // border-color: var(--doc-bg-color);
+    border-color: @accColorPurple;
 }
 .mdx-quote-purple a:hover {
-    // color: var(--accent-color-purple) !important;
+    // color: var(--acc-color-purple) !important;
     color: var(--fore-color) !important;
-    box-shadow: 0 -0.3em 0 0 rgba(@accentColorPurple, 0.3) inset;
+    box-shadow: 0 -0.3em 0 0 rgba(@accColorPurple, 0.3) inset;
 }
 .mdx-quote-purple a:active {
     // color: var(--doc-bg-color) !important;
-    // background-color: var(--accent-color-purple);
+    // background-color: var(--acc-color-purple);
     // box-shadow: 0 0 0 2px var(--doc-bg-color);
     background-color:var(--doc-bg-color-alt);
-    box-shadow: 0 0 0 2px rgba(@accentColorPurple, 0.3);
+    box-shadow: 0 0 0 2px rgba(@accColorPurple, 0.3);
     border-bottom: 0;
     border-radius: var(--vlook-small-radius);
 }
 .mdx-quote-title-purple {
-    color: var(--accent-color-purple);
+    color: var(--acc-color-purple-title);
 }
-.mdx-quote-title-purple-light {
-    color: var(--accent-color-purple) !important;
-}
+// .mdx-quote-title-purple-light {
+//     color: var(--acc-color-purple);// !important;
+// }
 // pink
 .mdx-quote-pink {
-    background-color: var(--accent-color-pink-fade);
+    background-color: var(--acc-color-pink-fade);
 }
 .mdx-quote-pink .mdx-std-code {
-    background-color: var(--accent-color-pink-alt);
+    background-color: var(--acc-color-pink-alt);
 }
 .mdx-quote-pink a {
-    // border-color: var(--accent-color-pink);
-    border-color: var(--doc-bg-color);
+    // border-color: var(--acc-color-pink);
+    // border-color: var(--doc-bg-color);
+    border-color: @accColorPink;
 }
 .mdx-quote-pink a:hover {
-    // color: var(--accent-color-pink) !important;
+    // color: var(--acc-color-pink) !important;
     color: var(--fore-color) !important;
-    box-shadow: 0 -0.3em 0 0 rgba(@accentColorPink, 0.3) inset;
+    box-shadow: 0 -0.3em 0 0 rgba(@accColorPink, 0.3) inset;
 }
 .mdx-quote-pink a:active {
     // color: var(--doc-bg-color) !important;
-    // background-color: var(--accent-color-pink);
+    // background-color: var(--acc-color-pink);
     // box-shadow: 0 0 0 2px var(--doc-bg-color);
     background-color:var(--doc-bg-color-alt);
-    box-shadow: 0 0 0 2px rgba(@accentColorPink, 0.3);
+    box-shadow: 0 0 0 2px rgba(@accColorPink, 0.3);
     border-bottom: 0;
     border-radius: var(--vlook-small-radius);
 }
 .mdx-quote-title-pink {
-    color: var(--accent-color-pink);
+    color: var(--acc-color-pink-title);
 }
-.mdx-quote-title-pink-light {
-    color: var(--accent-color-pink) !important;
-}
+// .mdx-quote-title-pink-light {
+//     color: var(--acc-color-pink);// !important;
+// }
 // brown
 .mdx-quote-brown {
-    background-color: var(--accent-color-brown-fade);
+    background-color: var(--acc-color-brown-fade);
 }
 .mdx-quote-brown .mdx-std-code {
-    background-color: var(--accent-color-brown-alt);
+    background-color: var(--acc-color-brown-alt);
 }
 .mdx-quote-brown a {
-    // border-color: var(--accent-color-brown);
-    border-color: var(--doc-bg-color);
+    // border-color: var(--acc-color-brown);
+    // border-color: var(--doc-bg-color);
+    border-color: @accColorBrown;
 }
 .mdx-quote-brown a:hover {
-    // color: var(--accent-color-brown) !important;
+    // color: var(--acc-color-brown) !important;
     color: var(--fore-color) !important;
-    box-shadow: 0 -0.3em 0 0 rgba(@accentColorBrown, 0.3) inset;
+    box-shadow: 0 -0.3em 0 0 rgba(@accColorBrown, 0.3) inset;
 }
 .mdx-quote-brown a:active {
     // color: var(--doc-bg-color) !important;
-    // background-color: var(--accent-color-brown);
+    // background-color: var(--acc-color-brown);
     // box-shadow: 0 0 0 2px var(--doc-bg-color);
     background-color:var(--doc-bg-color-alt);
-    box-shadow: 0 0 0 2px rgba(@accentColorBrown, 0.3);
+    box-shadow: 0 0 0 2px rgba(@accColorBrown, 0.3);
     border-bottom: 0;
     border-radius: var(--vlook-small-radius);
 }
 .mdx-quote-title-brown {
-    color: var(--accent-color-brown);
+    color: var(--acc-color-brown-title);
 }
-.mdx-quote-title-brown-light {
-    color: var(--accent-color-brown) !important;
-}
+// .mdx-quote-title-brown-light {
+//     color: var(--acc-color-brown);// !important;
+// }
 // gray
 .mdx-quote-gray {
-    background-color: var(--accent-color-gray-fade);
+    background-color: var(--acc-color-gray-fade);
 }
 .mdx-quote-gray .mdx-std-code {
-    background-color: var(--accent-color-gray-alt);
+    background-color: var(--acc-color-gray-alt);
 }
 .mdx-quote-gray a {
-    // border-color: var(--accent-color-gray);
-    border-color: var(--doc-bg-color);
+    // border-color: var(--acc-color-gray);
+    // border-color: var(--doc-bg-color);
+    border-color: @accColorGray;
 }
 .mdx-quote-gray a:hover {
-    // color: var(--accent-color-gray) !important;
+    // color: var(--acc-color-gray) !important;
     color: var(--fore-color) !important;
-    box-shadow: 0 -0.3em 0 0 rgba(@accentColorGray, 0.3) inset;
+    box-shadow: 0 -0.3em 0 0 rgba(@accColorGray, 0.3) inset;
 }
 .mdx-quote-gray a:active {
     // color: var(--doc-bg-color) !important;
-    // background-color: var(--accent-color-gray);
+    // background-color: var(--acc-color-gray);
     // box-shadow: 0 0 0 2px var(--doc-bg-color);
     background-color:var(--doc-bg-color-alt);
-    box-shadow: 0 0 0 2px rgba(@accentColorGray, 0.3);
+    box-shadow: 0 0 0 2px rgba(@accColorGray, 0.3);
     border-bottom: 0;
     border-radius: var(--vlook-small-radius);
 }
 .mdx-quote-title-gray {
-    color: var(--accent-color-gray);
+    color: var(--acc-color-gray-title);
 }
-.mdx-quote-title-gray-light {
-    color: var(--accent-color-gray) !important;
-}
+// .mdx-quote-title-gray-light {
+//     color: var(--acc-color-gray);// !important;
+// }
 // theme1
 .mdx-quote-theme1 {
-    background-color: var(--accent-color-theme1-fade);
+    background-color: var(--acc-color-theme1-fade);
 }
 .mdx-quote-theme1 .mdx-std-code {
-    background-color: var(--accent-color-theme1-alt);
+    background-color: var(--acc-color-theme1-alt);
 }
 .mdx-quote-theme1 a {
-    // border-color: var(--accent-color-theme1);
-    border-color: var(--doc-bg-color);
+    // border-color: var(--acc-color-theme1);
+    // border-color: var(--doc-bg-color);
+    border-color: @theme1;
 }
 .mdx-quote-theme1 a:hover {
-    // color: var(--accent-color-theme1) !important;
+    // color: var(--acc-color-theme1) !important;
     color: var(--fore-color) !important;
     box-shadow: 0 -0.3em 0 0 rgba(@theme1, 0.3) inset;
 }
 .mdx-quote-theme1 a:active {
     // color: var(--doc-bg-color) !important;
-    // background-color: var(--accent-color-theme1);
+    // background-color: var(--acc-color-theme1);
     // box-shadow: 0 0 0 2px var(--doc-bg-color);
     background-color:var(--doc-bg-color-alt);
     box-shadow: 0 0 0 2px rgba(@theme1, 0.3);
@@ -4897,27 +5065,28 @@ use.mdx-folder2-ico:active {
     border-radius: var(--vlook-small-radius);
 }
 .mdx-quote-title-theme1 {
-    color: var(--header-color);
+    color: var(--header-color-title);
 }
-.mdx-quote-title-theme1-light {
-    color: var(--header-color) !important;
-}
+// .mdx-quote-title-theme1-light {
+//     color: var(--header-color);// !important;
+// }
 // theme2
 .mdx-quote-theme2 {
-    background-color: var(--accent-color-theme2-fade);
+    background-color: var(--acc-color-theme2-fade);
 }
 .mdx-quote-theme2 a {
-    // border-color: var(--accent-color-theme2);
-    border-color: var(--doc-bg-color);
+    // border-color: var(--acc-color-theme2);
+    // border-color: var(--doc-bg-color);
+    border-color: @theme2
 }
 .mdx-quote-theme2 a:hover {
-    // color: var(--accent-color-theme2) !important;
+    // color: var(--acc-color-theme2) !important;
     color: var(--fore-color) !important;
     box-shadow: 0 -0.3em 0 0 rgba(@theme2, 0.3) inset;
 }
 .mdx-quote-theme2 a:active {
     // color: var(--doc-bg-color) !important;
-    // background-color: var(--accent-color-theme2);
+    // background-color: var(--acc-color-theme2);
     // box-shadow: 0 0 0 2px var(--doc-bg-color);
     background-color:var(--doc-bg-color-alt);
     box-shadow: 0 0 0 2px rgba(@theme2, 0.3);
@@ -4925,28 +5094,28 @@ use.mdx-folder2-ico:active {
     border-radius: var(--vlook-small-radius);
 }
 .mdx-quote-theme2 .mdx-std-code {
-    background-color: var(--accent-color-theme2-alt);
+    background-color: var(--acc-color-theme2-alt);
 }
 .mdx-quote-title-theme2 {
-    color: var(--accent-color-theme2);
+    color: var(--acc-color-theme2);
 }
-.mdx-quote-title-theme2-light {
-    color: var(--accent-color-theme2) !important;
-}
-.mdx-quote-title-red-dark,
-.mdx-quote-title-orange-dark,
-.mdx-quote-title-yellow-dark,
-.mdx-quote-title-green-dark,
-.mdx-quote-title-cyan-dark,
-.mdx-quote-title-blue-dark,
-.mdx-quote-title-purple-dark,
-.mdx-quote-title-pink-dark,
-.mdx-quote-title-brown-dark,
-.mdx-quote-title-gray-dark,
-.mdx-quote-title-theme1-dark,
-.mdx-quote-title-theme2-dark {
-    color: #FFFFFF !important;
-}
+// .mdx-quote-title-theme2-light {
+//     color: var(--acc-color-theme2);// !important;
+// }
+// .mdx-quote-title-red-dark,
+// .mdx-quote-title-orange-dark,
+// .mdx-quote-title-yellow-dark,
+// .mdx-quote-title-green-dark,
+// .mdx-quote-title-cyan-dark,
+// .mdx-quote-title-blue-dark,
+// .mdx-quote-title-purple-dark,
+// .mdx-quote-title-pink-dark,
+// .mdx-quote-title-brown-dark,
+// .mdx-quote-title-gray-dark,
+// .mdx-quote-title-theme1-dark,
+// .mdx-quote-title-theme2-dark {
+//     color: #FFFFFF !important;
+// }
 
 // 标签式公用样式（风格2）
 .mdx-tag-red,
@@ -4973,51 +5142,51 @@ use.mdx-folder2-ico:active {
 }
 
 .mdx-tag-red {
-    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-red) 0.5em, var(--accent-color-red) 100%);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--acc-color-red) 0.5em, var(--acc-color-red) 100%);
 }
 
 .mdx-tag-orange {
-    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-orange) 0.5em, var(--accent-color-orange) 100%);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--acc-color-orange) 0.5em, var(--acc-color-orange) 100%);
 }
 
 .mdx-tag-yellow {
-    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-yellow) 0.5em, var(--accent-color-yellow) 100%);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--acc-color-yellow) 0.5em, var(--acc-color-yellow) 100%);
 }
 
 .mdx-tag-green {
-    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-green) 0.5em, var(--accent-color-green) 100%);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--acc-color-green) 0.5em, var(--acc-color-green) 100%);
 }
 
 .mdx-tag-cyan {
-    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-cyan) 0.5em, var(--accent-color-cyan) 100%);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--acc-color-cyan) 0.5em, var(--acc-color-cyan) 100%);
 }
 
 .mdx-tag-blue {
-    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-blue) 0.5em, var(--accent-color-blue) 100%);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--acc-color-blue) 0.5em, var(--acc-color-blue) 100%);
 }
 
 .mdx-tag-purple {
-    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-purple) 0.5em, var(--accent-color-purple) 100%);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--acc-color-purple) 0.5em, var(--acc-color-purple) 100%);
 }
 
 .mdx-tag-pink {
-    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-pink) 0.5em, var(--accent-color-pink) 100%);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--acc-color-pink) 0.5em, var(--acc-color-pink) 100%);
 }
 
 .mdx-tag-brown {
-    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-brown) 0.5em, var(--accent-color-brown) 100%);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--acc-color-brown) 0.5em, var(--acc-color-brown) 100%);
 }
 
 .mdx-tag-gray {
-    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-gray) 0.5em, var(--accent-color-gray) 100%);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--acc-color-gray) 0.5em, var(--acc-color-gray) 100%);
 }
 
 .mdx-tag-theme1 {
-    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-theme1) 0.5em, var(--accent-color-theme1) 100%);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--acc-color-theme1) 0.5em, var(--acc-color-theme1) 100%);
 }
 
 .mdx-tag-theme2 {
-    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--accent-color-theme2) 0.5em, var(--accent-color-theme2) 100%);
+    background: linear-gradient(135deg, var(--fore-color) 0.5em, var(--acc-color-theme2) 0.5em, var(--acc-color-theme2) 100%);
 }
 
 // 药丸标签样式右边公共样式
@@ -5073,84 +5242,84 @@ use.mdx-folder2-ico:active {
 .mdx-tag-name-red {
 }
 .mdx-tag-value-red {
-    background-color: var(--accent-color-red);
+    background-color: var(--acc-color-red);
 }
 
 // 药丸标签样式
 .mdx-tag-name-orange {
 }
 .mdx-tag-value-orange {
-    background-color: var(--accent-color-orange);
+    background-color: var(--acc-color-orange);
 }
 
 // 药丸标签样式
 .mdx-tag-name-yellow {
 }
 .mdx-tag-value-yellow {
-    background-color: var(--accent-color-yellow);
+    background-color: var(--acc-color-yellow);
 }
 
 // 药丸标签样式
 .mdx-tag-name-green {
 }
 .mdx-tag-value-green {
-    background-color: var(--accent-color-green);
+    background-color: var(--acc-color-green);
 }
 
 // 药丸标签样式
 .mdx-tag-name-cyan {
 }
 .mdx-tag-value-cyan {
-    background-color: var(--accent-color-cyan);
+    background-color: var(--acc-color-cyan);
 }
 
 // 药丸标签样式
 .mdx-tag-name-blue {
 }
 .mdx-tag-value-blue {
-    background-color: var(--accent-color-blue);
+    background-color: var(--acc-color-blue);
 }
 
 // 药丸标签样式
 .mdx-tag-name-purple {
 }
 .mdx-tag-value-purple {
-    background-color: var(--accent-color-purple);
+    background-color: var(--acc-color-purple);
 }
 
 // 药丸标签样式
 .mdx-tag-name-pink {
 }
 .mdx-tag-value-pink {
-    background-color: var(--accent-color-pink);
+    background-color: var(--acc-color-pink);
 }
 
 // 药丸标签样式
 .mdx-tag-name-brown {
 }
 .mdx-tag-value-brown {
-    background-color: var(--accent-color-brown);
+    background-color: var(--acc-color-brown);
 }
 
 // 药丸标签样式
 .mdx-tag-name-gray {
 }
 .mdx-tag-value-gray {
-    background-color: var(--accent-color-gray);
+    background-color: var(--acc-color-gray);
 }
 
 // 药丸标签样式
 .mdx-tag-name-theme1 {
 }
 .mdx-tag-value-theme1 {
-    background-color: var(--accent-color-theme1);
+    background-color: var(--acc-color-theme1);
 }
 
 // 药丸标签样式
 .mdx-tag-name-theme2 {
 }
 .mdx-tag-value-theme2 {
-    background-color: var(--accent-color-theme2);
+    background-color: var(--acc-color-theme2);
 }
 
 // 注音
@@ -5169,7 +5338,7 @@ rt:hover {
     box-shadow: 0 -0.4em 0 0 fade(@aLineColor, 30%) inset;
     border-bottom: @aBorderWidth solid fade(@aLineColor, 30%);
     transform-origin: center bottom;
-    transform: scale(1.2);
+    transform: scale(1.5);
     cursor: pointer;
 }
 
@@ -5362,6 +5531,9 @@ h6 code {
 // 针对大于该分辨设备的 UI 调整
 @media screen and (min-height: 801px) {
     // 工具栏、逐章导航栏不在封面显示时的样式
+    :root {
+        --vlook-top-margin:-3px;
+    }
     .mdx-toolbar.mdx-float-card,
     .mdx-chapter-nav.mdx-float-card {
         top: 10px !important;
@@ -5391,8 +5563,9 @@ h6 code {
 // 针对大于该分辨设备的 UI 调整
 @media screen and (min-width: 1441px) {
     :root {
-        --vlook-nav-center-width: 400px;
-        --vlook-nav-center-hidden-left: -410px;
+        --vlook-nav-center-width:400px;
+        --vlook-nav-center-hidden-left:-410px;
+        --vlook-toolbar-btn-width:40px;
     }
 }
 
@@ -5401,7 +5574,7 @@ h6 code {
 @media screen and (max-width: 1024px) {
     // 逐章导航UI
     .mdx-chapter-nav {
-        left: 10px !important;
+        left: 20px !important;
     }
     .mdx-chapter-nav-current {
         margin-left: 40px !important;
@@ -5431,21 +5604,21 @@ h6 code {
 
 // 针对超大屏手机、iPad 等设备的 UI 调整
 @media screen and (min-width: 641px) and (max-width: 1023px) {
-    .mdx-welcome-screen {
+    .mdx-welcome-page {
         font-size: 1.2em !important;
     }
 }
 
 // 针对大屏手机的 UI 调整
 @media screen and (min-width: 361px) and (max-width: 639px) {
-    .mdx-welcome-screen {
+    .mdx-welcome-page {
         font-size: 1.1em !important;
     }
 }
 
 // 针对中小屏手机的 UI 调整
 @media screen and (max-width: 360px) {
-    .mdx-welcome-screen {
+    .mdx-welcome-page {
         font-size: 1em !important;
     }
 }
@@ -5486,7 +5659,7 @@ h6 code {
     }
 
     table:hover {
-        border-color: var(--table-border-color) !important;
+        border-color: var(--tbl-border-color) !important;
     }
 
     .mdx-figure-caption:hover {
@@ -5501,7 +5674,7 @@ h6 code {
         display: block !important;
     }
 
-    .mdx-welcome-screen,
+    .mdx-welcome-page,
     .mdx-tool-tips,
     .mdx-info-tips,
     .mdx-bottom-tips,
@@ -5514,7 +5687,7 @@ h6 code {
         display: none !important;
     }
 
-    .mdx-current-blockfocus-item {
+    .mdx-pg-current-item {
         box-shadow: none !important;
     }
 
@@ -5541,7 +5714,7 @@ h6 code {
     .mdx-chapter-nav,
     .mdx-nav-center,
     .mdx-nav-center-header,
-    .mdx-nav-center-body-scroll,
+    .mdx-nav-center-body,
     .mdx-link-chk-result {
         display: none;
         visibility: hidden;
@@ -5566,12 +5739,18 @@ h6 code {
     }
 }
 
+.mdx-color-scheme {
+    color: #FFFFFF;
+}
 // 结束针对打印的配置
 // --------------------
 
 // 针对 Dark Mode的配置
 @media (prefers-color-scheme: dark) {
-    :root {
+    .mdx-color-scheme {
+        color: #000000;
+    }
+        :root {
         --vlook-color-scheme: dark;
         --vlook-invert-dark: invert(1) brightness(90%); // Dark Mode下图片滤镜
         --vlook-brightness-dark: brightness(90%); // Dark Mode下封面、封底滤镜
@@ -5618,12 +5797,12 @@ h6 code {
         --tips-bg-color-inset: var(--tips-bg-color-inset-dark);
         --a-color: var(--a-color-dark);
         --mark-color: var(--mark-color-dark);
-        --table-header-color: var(--table-header-color-dark);
-        --table-border-color: var(--table-border-color-dark);
-        --table-th-bg-color: var(--table-th-bg-color-dark);
-        --table-td-bg-color: var(--table-td-bg-color-dark);
-        --table-cell-border-color: var(--table-cell-border-color-dark);
-        --table-rowgroup-alpha: var(--table-rowgroup-alpha-dark);
+        --tbl-header-color: var(--tbl-header-color-dark);
+        --tbl-border-color: var(--tbl-border-color-dark);
+        --tbl-th-bg-color: var(--tbl-th-bg-color-dark);
+        --tbl-td-bg-color: var(--tbl-td-bg-color-dark);
+        --tbl-cell-border-color: var(--tbl-cell-border-color-dark);
+        --tbl-row-g-alpha: var(--tbl-row-g-alpha-dark);
         --del-color: var(--del-color-dark);
         --toc-header-num-color: var(--toc-header-num-color-dark);
         --header-color: var(--header-color-dark);
@@ -5634,63 +5813,75 @@ h6 code {
         --code-name-bg-color: var(--code-name-bg-color-dark);
         --code-name-shadow-color: var(--code-name-shadow-color-dark);
 
-        --accent-color-red: var(--accent-color-red-dark);
-        --accent-color-red-alt: var(--accent-color-red-alt-dark);
-        --accent-color-red-fade: var(--accent-color-red-fade-dark);
-        --accent-color-orange: var(--accent-color-orange-dark);
-        --accent-color-orange-alt: var(--accent-color-orange-alt-dark);
-        --accent-color-orange-fade: var(--accent-color-orange-fade-dark);
-        --accent-color-yellow: var(--accent-color-yellow-dark);
-        --accent-color-yellow-alt: var(--accent-color-yellow-alt-dark);
-        --accent-color-yellow-fade: var(--accent-color-yellow-fade-dark);
-        --accent-color-green: var(--accent-color-green-dark);
-        --accent-color-green-alt: var(--accent-color-green-alt-dark);
-        --accent-color-green-fade: var(--accent-color-green-fade-dark);
-        --accent-color-cyan: var(--accent-color-cyan-dark);
-        --accent-color-cyan-alt: var(--accent-color-cyan-alt-dark);
-        --accent-color-cyan-fade: var(--accent-color-cyan-fade-dark);
-        --accent-color-blue: var(--accent-color-blue-dark);
-        --accent-color-blue-alt: var(--accent-color-blue-alt-dark);
-        --accent-color-blue-fade: var(--accent-color-blue-fade-dark);
-        --accent-color-purple: var(--accent-color-purple-dark);
-        --accent-color-purple-alt: var(--accent-color-purple-alt-dark);
-        --accent-color-purple-fade: var(--accent-color-purple-fade-dark);
-        --accent-color-pink: var(--accent-color-pink-dark);
-        --accent-color-pink-alt: var(--accent-color-pink-alt-dark);
-        --accent-color-pink-fade: var(--accent-color-pink-fade-dark);
-        --accent-color-brown: var(--accent-color-brown-dark);
-        --accent-color-brown-alt: var(--accent-color-brown-alt-dark);
-        --accent-color-brown-fade: var(--accent-color-brown-fade-dark);
-        --accent-color-gray: var(--accent-color-gray-dark);
-        --accent-color-gray-alt: var(--accent-color-gray-alt-dark);
-        --accent-color-gray-fade: var(--accent-color-gray-fade-dark);
-        --accent-color-theme1: var(--accent-color-theme1-dark);
-        --accent-color-theme1-alt: var(--accent-color-theme1-alt-dark);
-        --accent-color-theme1-fade: var(--accent-color-theme1-fade-dark);
-        --accent-color-theme2: var(--accent-color-theme2-dark);
-        --accent-color-theme2-alt: var(--accent-color-theme2-alt-dark);
-        --accent-color-theme2-fade: var(--accent-color-theme2-fade-dark);
+        --acc-color-red: var(--acc-color-red-dark);
+        --acc-color-red-alt: var(--acc-color-red-alt-dark);
+        --acc-color-red-fade: var(--acc-color-red-fade-dark);
+        --acc-color-red-title: var(--acc-color-red-title-dark);
+        --acc-color-orange: var(--acc-color-orange-dark);
+        --acc-color-orange-alt: var(--acc-color-orange-alt-dark);
+        --acc-color-orange-fade: var(--acc-color-orange-fade-dark);
+        --acc-color-orange-title: var(--acc-color-orange-title-dark);
+        --acc-color-yellow: var(--acc-color-yellow-dark);
+        --acc-color-yellow-alt: var(--acc-color-yellow-alt-dark);
+        --acc-color-yellow-fade: var(--acc-color-yellow-fade-dark);
+        --acc-color-yellow-title: var(--acc-color-yellow-title-dark);
+        --acc-color-green: var(--acc-color-green-dark);
+        --acc-color-green-alt: var(--acc-color-green-alt-dark);
+        --acc-color-green-fade: var(--acc-color-green-fade-dark);
+        --acc-color-green-title: var(--acc-color-green-title-dark);
+        --acc-color-cyan: var(--acc-color-cyan-dark);
+        --acc-color-cyan-alt: var(--acc-color-cyan-alt-dark);
+        --acc-color-cyan-fade: var(--acc-color-cyan-fade-dark);
+        --acc-color-cyan-title: var(--acc-color-cyan-title-dark);
+        --acc-color-blue: var(--acc-color-blue-dark);
+        --acc-color-blue-alt: var(--acc-color-blue-alt-dark);
+        --acc-color-blue-fade: var(--acc-color-blue-fade-dark);
+        --acc-color-blue-title: var(--acc-color-blue-title-dark);
+        --acc-color-purple: var(--acc-color-purple-dark);
+        --acc-color-purple-alt: var(--acc-color-purple-alt-dark);
+        --acc-color-purple-fade: var(--acc-color-purple-fade-dark);
+        --acc-color-purple-title: var(--acc-color-purple-title-dark);
+        --acc-color-pink: var(--acc-color-pink-dark);
+        --acc-color-pink-alt: var(--acc-color-pink-alt-dark);
+        --acc-color-pink-fade: var(--acc-color-pink-fade-dark);
+        --acc-color-pink-title: var(--acc-color-pink-title-dark);
+        --acc-color-brown: var(--acc-color-brown-dark);
+        --acc-color-brown-alt: var(--acc-color-brown-alt-dark);
+        --acc-color-brown-fade: var(--acc-color-brown-fade-dark);
+        --acc-color-brown-title: var(--acc-color-brown-title-dark);
+        --acc-color-gray: var(--acc-color-gray-dark);
+        --acc-color-gray-alt: var(--acc-color-gray-alt-dark);
+        --acc-color-gray-fade: var(--acc-color-gray-fade-dark);
+        --acc-color-gray-title: var(--acc-color-gray-title-dark);
+        --acc-color-theme1: var(--acc-color-theme1-dark);
+        --acc-color-theme1-alt: var(--acc-color-theme1-alt-dark);
+        --acc-color-theme1-fade: var(--acc-color-theme1-fade-dark);
+        --acc-color-theme1-title: var(--acc-color-theme1-title-dark);
+        --acc-color-theme2: var(--acc-color-theme2-dark);
+        --acc-color-theme2-alt: var(--acc-color-theme2-alt-dark);
+        --acc-color-theme2-fade: var(--acc-color-theme2-fade-dark);
+        --acc-color-theme2-title: var(--acc-color-theme2-title-dark);
 
-        --mermaid-color-red: var(--mermaid-color-red-dark);
-        --mermaid-color-red-alt: var(--mermaid-color-red-alt-dark);
-        --mermaid-color-orange: var(--mermaid-color-orange-dark);
-        --mermaid-color-orange-alt: var(--mermaid-color-orange-alt-dark);
-        --mermaid-color-yellow: var(--mermaid-color-yellow-dark);;
-        --mermaid-color-yellow-alt: var(--mermaid-color-yellow-alt-dark);
-        --mermaid-color-green: var(--mermaid-color-green-dark);
-        --mermaid-color-green-alt: var(--mermaid-color-green-alt-dark);
-        --mermaid-color-cyan: var(--mermaid-color-cyan-dark);
-        --mermaid-color-cyan-alt: var(--mermaid-color-cyan-alt-dark);
-        --mermaid-color-blue: var(--mermaid-color-blue-dark);
-        --mermaid-color-blue-alt: var(--mermaid-color-blue-alt-dark);
-        --mermaid-color-purple: var(--mermaid-color-purple-dark);
-        --mermaid-color-purple-alt: var(--mermaid-color-purple-alt-dark);
-        --mermaid-color-pink: var(--mermaid-color-pink-dark);
-        --mermaid-color-pink-alt: var(--mermaid-color-pink-alt-dark);
-        --mermaid-color-brown: var(--mermaid-color-brown-dark);
-        --mermaid-color-brown-alt: var(--mermaid-color-brown-alt-dark);
-        --mermaid-color-gray: var(--mermaid-color-gray-dark);
-        --mermaid-color-gray-alt: var(--mermaid-color-gray-alt-dark);
+        --mm-color-red: var(--mm-color-red-dark);
+        --mm-color-red-alt: var(--mm-color-red-alt-dark);
+        --mm-color-orange: var(--mm-color-orange-dark);
+        --mm-color-orange-alt: var(--mm-color-orange-alt-dark);
+        --mm-color-yellow: var(--mm-color-yellow-dark);;
+        --mm-color-yellow-alt: var(--mm-color-yellow-alt-dark);
+        --mm-color-green: var(--mm-color-green-dark);
+        --mm-color-green-alt: var(--mm-color-green-alt-dark);
+        --mm-color-cyan: var(--mm-color-cyan-dark);
+        --mm-color-cyan-alt: var(--mm-color-cyan-alt-dark);
+        --mm-color-blue: var(--mm-color-blue-dark);
+        --mm-color-blue-alt: var(--mm-color-blue-alt-dark);
+        --mm-color-purple: var(--mm-color-purple-dark);
+        --mm-color-purple-alt: var(--mm-color-purple-alt-dark);
+        --mm-color-pink: var(--mm-color-pink-dark);
+        --mm-color-pink-alt: var(--mm-color-pink-alt-dark);
+        --mm-color-brown: var(--mm-color-brown-dark);
+        --mm-color-brown-alt: var(--mm-color-brown-alt-dark);
+        --mm-color-gray: var(--mm-color-gray-dark);
+        --mm-color-gray-alt: var(--mm-color-gray-alt-dark);
         --cm-keyword: var(--cm-keyword-dark);
         --cm-variable: var(--cm-variable-dark);
         --cm-variable-2: var(--cm-variable-2-dark);
@@ -5737,23 +5928,23 @@ h6 code {
     }
 
     // Dark Mode的彩虹引用内的 6 级标题
-    .mdx-quote-title-red,
-    .mdx-quote-title-orange,
-    .mdx-quote-title-yellow,
-    .mdx-quote-title-green,
-    .mdx-quote-title-cyan,
-    .mdx-quote-title-blue,
-    .mdx-quote-title-purple,
-    .mdx-quote-title-pink,
-    .mdx-quote-title-brown,
-    .mdx-quote-title-gray,
-    .mdx-quote-title-theme1,
-    .mdx-quote-title-theme2 {
-        color: #FFFFFF;
-    }
+    // .mdx-quote-title-red,
+    // .mdx-quote-title-orange,
+    // .mdx-quote-title-yellow,
+    // .mdx-quote-title-green,
+    // .mdx-quote-title-cyan,
+    // .mdx-quote-title-blue,
+    // .mdx-quote-title-purple,
+    // .mdx-quote-title-pink,
+    // .mdx-quote-title-brown,
+    // .mdx-quote-title-gray,
+    // .mdx-quote-title-theme1,
+    // .mdx-quote-title-theme2 {
+    //     color: #FFFFFF;
+    // }
 }
 
 :root {
-    --mermaid-font-family: @boldFont !important;
-    --mermaid-alt-font-family: @boldFont !important;
+    --mm-font-family: @boldFont !important;
+    --mm-alt-font-family: @boldFont !important;
 }

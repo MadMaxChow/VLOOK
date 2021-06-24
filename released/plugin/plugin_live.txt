@@ -1,9 +1,9 @@
 <!--========================================================================-->
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
-<!--                                 V10.5                                  -->
+<!--                                 V10.6                                  -->
 <!--                                                                        -->
-<!--                               2021-06-01                               -->
+<!--                               2021-06-24                               -->
 <!--                           powered by MAX°孟兆                          -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -29,7 +29,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <div id="VLOOK"><div></div></div>
 <!-- ==================== VLOOK JS ==================== -->
 <script type="text/javascript">
-    let liveVersion = "V10.5";
+    let liveVersion = "V10.6";
     let vlookDevMode = liveVersion.indexOf("dev") > 0 ? true : false, vlookDebugMode = false;
     let fontHost = "https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/",
         jsHost = vlookDevMode ? "http://localhost/js/" : "https://madmaxchow.gitee.io/vlook/js/",
