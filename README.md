@@ -149,9 +149,9 @@ VLOOK™ 提供了两套字体风格，可根据个人喜好进行选用。
 **因为 Windows / MacOS 系统默认不预装字体主题配套的字体包，VLOOK™ 目前可同时支持在线和本地两种使用方式。**
 **若你的工作环境无法访问互联网，建议直接下载字体包并安装到本地，以获得最佳的视觉体验。**
 
-![蓝奏云](https://s3.ax1x.com/2020/12/13/reJiee.png?mode=logo&srcset=reJCLD.png@2x) ••• [下载字体▾](https://wws.lanzous.com/ieVDhj1aokj)
+![蓝奏云](https://s3.ax1x.com/2020/12/13/reJiee.png?mode=logo&srcset=reJCLD.png@2x) •• [下载字体▾](https://wwe.lanzoui.com/ieVDhj1aokj)
 
-![百度网盘](https://s3.ax1x.com/2020/12/13/reJFdH.png?mode=logo&srcset=reJkod.png@2x) •••`密码：11ta`••• [下载字体▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)
+![百度网盘](https://s3.ax1x.com/2020/12/13/reJFdH.png?mode=logo&srcset=reJkod.png@2x) •• [下载字体▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)（提取码`11ta`)
 
 ---
 
