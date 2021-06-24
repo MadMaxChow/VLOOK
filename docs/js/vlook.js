@@ -3205,16 +3205,20 @@ function NavCenter(mask) {
             if (this.snapTimer != null)
                 return;
 
+            this.handle.addClass("hover");
+
             // 延时（模拟悬停一定时间）以浮动方式显示导航中心
             this.snapTimer = setTimeout(function () {
+                that.handle.removeClass("hover");
                 that.show("float");
-            }, 500);
+            }, 600);
         }
         else {
             // 未显示导航中心前离开边缘则取消显示
             if (this.snapTimer != null) {
                 clearTimeout(this.snapTimer);
                 this.snapTimer = null;
+                this.handle.removeClass("hover");
             }
         }
     }
