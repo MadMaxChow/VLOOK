@@ -4,7 +4,7 @@
 
 **开源中国（[OSChina.net](https://www.oschina.net/p/vlook)）推荐的国产开源产品。**
 
-![VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-mark-light.svg)
+![VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-mark-light.svg)
 
 [VLOOK™](https://github.com/MadMaxChow/VLOOK) 是针对 [Typora](https://www.typora.io)（跨平台 Markdown 编辑器）的 **主题包** 和 **增强插件**。
 
@@ -18,23 +18,23 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ---
 
-![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A00.png)
+![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-screenshot-A00.png)
 
-![让你的 Markdown 文档在自动化排版、可交互性上了 N 个台阶](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A01.png)
+![让你的 Markdown 文档在自动化排版、可交互性上了 N 个台阶](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-screenshot-A01.png)
 
-![内置多套原创文档主题 & 字体主题，一键切换！支持私人定制！](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A02.png)
+![内置多套原创文档主题 & 字体主题，一键切换！支持私人定制！](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-screenshot-A02.png)
 
-![图片排版 plus：题注、高分屏、版式、Dark 模式适配反色/替换…](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A03.png)
+![图片排版 plus：题注、高分屏、版式、Dark 模式适配反色/替换…](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-screenshot-A03.png)
 
-![表格排版 plus：单元格合并、列格式、行分组、重复表头、自动编号…](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A04.png)
+![表格排版 plus：单元格合并、列格式、行分组、重复表头、自动编号…](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-screenshot-A04.png)
 
-![索引、逐章、逐段三种导航模式，插图/表格/媒体/代码分类索引与搜索](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A05.png)
+![索引、逐章、逐段三种导航模式，插图/表格/媒体/代码分类索引与搜索](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-screenshot-A05.png)
 
-![火力全开的演示辅助～画中画、聚光灯、激光笔、表格十字光标、刮刮卡…](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A06.png)
+![火力全开的演示辅助～画中画、聚光灯、激光笔、表格十字光标、刮刮卡…](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-screenshot-A06.png)
 
-![所有特性完美适配 Dark 模式，你的 Markdown 变得更拉风了](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A07.png)
+![所有特性完美适配 Dark 模式，你的 Markdown 变得更拉风了](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-screenshot-A07.png)
 
-![还有音频、视频、标签、引用折叠、高清插图、…30+特性等你开箱即用](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A08.png)
+![还有音频、视频、标签、引用折叠、高清插图、…30+特性等你开箱即用](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-screenshot-A08.png)
 
 ---
 
@@ -70,7 +70,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
    1. 下载并安装 **[Typora](https://www.typora.io)** 的最新版本
    2. 启动 Typora 并进入「偏好设置」，启用「Markdown 扩展语法、代码块」下的所有选项。详见下图：
 
-![开启「Typora▸偏好设置▸Markdown」相关选项](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/typora-opt1-light.png)
+![开启「Typora▸偏好设置▸Markdown」相关选项](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/typora-opt1-light.png)
 
 
 ## Step 2•安装并选择主题
@@ -89,7 +89,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 ## Step 3•应用插件
 
-![进入「Typora▸偏好设置▸导出」进行配置](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/typora-opt2-light.png)
+![进入「Typora▸偏好设置▸导出」进行配置](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/typora-opt2-light.png)
 
 1. **配置导出选项安装 Typora：**
    1. 启动 Typora 并进入「**偏好设置**」
