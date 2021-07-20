@@ -20,21 +20,21 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A00.png)
 
-![让 Markdown 的自动化排版和交互性上了 N 个台阶](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A01.png)
+![让你的 Markdown 文档在自动化排版、可交互性上了 N 个台阶](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A01.png)
 
-![内置多套原创文档主题、字体主题，一键切换，支持私人定制](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A02.png)
+![内置多套原创文档主题 & 字体主题，一键切换！支持私人定制！](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A02.png)
 
-![表格排版+：单元格合并、列格式、表格行分组、自动编号、…](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A03.png)
+![图片排版 plus：题注、高分屏、版式、Dark 模式适配反色/替换…](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A03.png)
 
-![零成本的图片自动排版～题注、高分屏、反色、替换、版式、…](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A04.png)
+![表格排版 plus：单元格合并、列格式、行分组、重复表头、自动编号…](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A04.png)
 
-![火力全开的图片自动排版、演示辅助～聚光灯、激光笔、注意](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A05.png)
+![索引、逐章、逐段三种导航模式，插图/表格/媒体/代码分类索引与搜索](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A05.png)
 
-![OMG! 可以按大纲、逐章、段落、插图多种方式导航](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A06.png)
+![火力全开的演示辅助～画中画、聚光灯、激光笔、表格十字光标、刮刮卡…](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A06.png)
 
-![完美适配 Dark 模式，Markdown 变得更 Cool 了](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A07.png)
+![所有特性完美适配 Dark 模式，你的 Markdown 变得更拉风了](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A07.png)
 
-![音/视频、标签、引用折叠、高清插图、…30+特性开箱即用](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A08.png)
+![还有音频、视频、标签、引用折叠、高清插图、…30+特性等你开箱即用](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A08.png)
 
 ---
 
