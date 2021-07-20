@@ -1,6 +1,6 @@
 # VLOOK™ ── 让你的 Markdown 有了新看(wán)法
 
-# 好用实用 Typora/Markdown 主题包 与 增强插件
+# 好用实用的 Typora/Markdown 主题包 与 增强插件
 
 **开源中国（[OSChina.net](https://www.oschina.net/p/vlook)）推荐的国产开源产品。**
 
@@ -17,6 +17,8 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 > **[加入 VLOOK™ 官方Q群：805502564](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&)**
 
 ---
+
+![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A00.png)
 
 ![让 Markdown 的自动化排版和交互性上了 N 个台阶](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-screenshot-A01.png)
 
@@ -81,7 +83,9 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
    2. 点击「**主题**」菜单，选择以`Vlook-*`形式命名的任意主题即可
 3. **编写文档：**
    1. 建议基于 VLOOK™ 规范的文档模板来创建你自己的 Markdown 文档，这样能更快上手
-   2. 模板文件在哪？在目录`released`下的文件「**VLOOK-Document-Template.md**」，也可直接在项目主页中[下载文档模板](https://github.com/MadMaxChow/VLOOK/tree/master/released)（[备用链接](https://gitee.com/madmaxchow/VLOOK/tree/master/released)）
+   2. 模板文件在哪？
+      1. 在目录`released`下的文件「**VLOOK-Doc-Template.md** 或 **VLOOK-Doc-Template_nocover.md**」
+      2. 也可直接在项目主页中[下载文档模板](https://github.com/MadMaxChow/VLOOK/tree/master/released/demo)（[备用链接](https://gitee.com/madmaxchow/VLOOK/tree/master/released/demo)）
 
 ## Step 3•应用插件
 
@@ -161,13 +165,12 @@ VLOOK™ 提供了两套字体风格，可根据个人喜好进行选用。
 | ---------- | ---------------------------- |
 | [ **docs** ] | VLOOK™ 快速参考手册、官网及在线服务相关文件 |
 | [ **released** ] | 发布版本的主目录          |
-| ├&nbsp;&nbsp;┠─ [ **demo** ] | 基于 VLOOK™ 主题的 Markdown 示例文件 |
-| ├&nbsp;&nbsp;┠─ [ **theme** ] | 主题文件                     |
-| ├&nbsp;&nbsp;┖─ [ **plugin** ] | 插件主目录                |
-| ├&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┠─ plugin.txt | 自动植入版本_插件（通过 `v-drop.exe` 自动植入，内容可从以下两个版本中复制进行覆盖） |
-| ├&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┠─ plugin_live.txt | 在线版本°插件 |
-| ├&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┖─ plugin_standalone.txt | 离线版本°插件 |
+| &nbsp;&nbsp;&nbsp;┠─ [ **demo** ] | 基于 VLOOK™ 主题的 Markdown 示例/模板文件 |
+| &nbsp;&nbsp;&nbsp;┠─ [ **theme** ] | 主题文件                     |
+| &nbsp;&nbsp;&nbsp;┖─ [ **plugin** ] | 插件主目录                |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┠─ plugin_live.txt | 在线版本°插件 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┖─ plugin_standalone.txt | 离线版本°插件 |
 | [ **src** ] | 源码目录                     |
-| ├&nbsp;&nbsp;┠─ [ **dev** ] | 开发测试用文件 |
-| ├&nbsp;&nbsp;┠─ [ **less** ] | 主题 CSS 文件的源文件 |
-| ├&nbsp;&nbsp;┖─ [ **logo** ] | VLOOK™ 的 logo 资源 |
+| &nbsp;&nbsp;&nbsp;┠─ [ **dev** ] | 开发测试用文件 |
+| &nbsp;&nbsp;&nbsp;┠─ [ **less** ] | 主题 CSS 文件的源文件 |
+| &nbsp;&nbsp;&nbsp;┖─ [ **logo** ] | VLOOK™ 的 logo 资源 |
