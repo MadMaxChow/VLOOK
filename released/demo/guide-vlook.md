@@ -8,7 +8,7 @@ keywords:
 - 产品经理,程序员,运维工程师,售前,售后
 ---
 
-###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>快速参考手册</sup><br />`#最新版本|V10.5#(theme2)`<br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2021. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>快速参考手册</sup><br />`#最新版本|V10.7#(theme2)`<br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2021. MAX°DESIGN.*
 
 [TOC]
 
@@ -67,15 +67,15 @@ keywords:
 - 需要支持==跨平台==、==跨终端==进行文档浏览和文档发布方式
 - 输出的文档能在阅读、评审、演示时，能提供交互辅助的工具（如目录大纲、聚光灯、激光笔、脚注等）
 
-> 📌 **你知道吗？**
+> 💡 **你知道吗？**
 >
-> 你正在浏览在这个 VLOOK™ 快速参考手册，就是由 Typora 编辑并应用 VLOOK™ 插件生成的！**AMAZING!!！**
+> 你正在浏览的这个 VLOOK™ 快速参考手册，就是由 Typora 编辑并应用 VLOOK™ 插件生成的！**AMAZING!!！**
 >
 > `>(brown)`
 
 # 安装与使用
 
-## Step 1•下载与设置
+## Step 1•下载与偏好设置
 
 1. **下载插件：**
    1. 从 VLOOK™ 在 **[GitHub](https://github.com/MadMaxChow/VLOOK/releases)** 或 **[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)** 的主页下载最新发布的版本
@@ -88,7 +88,7 @@ keywords:
 
 ![开启「Typora▸偏好设置▸Markdown」相关选项](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/typora-opt1-light.png?srcset=@2x&darksrc=typora-opt1-dark.png&darksrcset=@2x)
 
-## Step 2•安装并选择主题
+## Step 2•安装主题包
 
 1. **安装主题：**
    1. 将 `released\theme` 下所有 CSS 文件复制至 Typora 的主题目录
@@ -98,9 +98,11 @@ keywords:
    2. 点击「**主题**」菜单，选择以 `Vlook-*` 形式命名的任意主题即可
 3. **编写文档：**
    1. 建议基于 VLOOK™ 规范的文档模板来创建你自己的 Markdown 文档，这样能更快上手
-   2. 文档模板在哪？在目录 `released` 下的文件「**VLOOK-Document-Template.md**」，也可直接在项目主页中[下载文档模板](https://github.com/MadMaxChow/VLOOK/tree/master/released)（[备用链接](https://gitee.com/madmaxchow/VLOOK/tree/master/released)）
+   2. 文档模板在哪？
+      1. 在目录 `released` 下的文件「**VLOOK-Doc-Template.md** 或 **VLOOK-Doc-Template_nocover.md**」
+      2. 也可直接在项目主页中[下载文档模板](https://github.com/MadMaxChow/VLOOK/tree/master/released/demo)（[备用链接](https://gitee.com/madmaxchow/VLOOK/tree/master/released/demo)）
 
-## Step 3•配置插件与导出
+## Step 3•配置导出选项
 
 ![进入「Typora▸偏好设置▸导出」进行配置](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
 
@@ -114,6 +116,14 @@ keywords:
 3. **一键导出：**
    1. 打开符合 VLOOK™ 规范的 md 文件
    2. 点击「**文件▸导出▸HTML (VLOOK)**」即可
+
+## 补充说明
+
+###### 更新插件
+
+> 旧版本的 VLOOK 若要升级到最新版本，按以上的 **Step 1** 下载最新发布版本，并按 **Step 2**、**Step 3** 更新对应的「主题」和「导出配置」即可。
+>
+> `>(theme1)`
 
 ###### 在线版插件
 
@@ -231,6 +241,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 |      聚光灯      | 对屏幕内容的局部进行视觉**聚焦** [••](#聚光灯)               |
 |      激光笔      | 对文档内容进行**精确指向** [••](#激光笔)                     |
 |   表格十字光标   | 针对表格内容，特别是行、列关联性强的**表格**，快速识别**纵横关联**的单元格序列 [••](#表格十字光标) |
+|      画中画      | 插图/表格/代码块 一键开启「画中画」浮动显示，方便在文档相关内容间对比 [••](#画中画) |
 |      刮刮卡      | - 制作培训、猜迷互动类文档时，希望将预置的**答案隐藏**起来 [••](#刮刮卡) |
 
 ![VLOOK™ 的「出版辅助」工具及适用场景]
@@ -273,7 +284,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**Markdown 粉呼声最高的是什么？———— 表格单元格合并！**」
 
-`#VLOOK:#(theme1)` 现在可以轻松让你实现 —— **Wow! Wow!**～Markdown 粉们的欢呼声！！！
+`#VLOOK|say#(theme1)` 现在可以轻松让你实现 —— **Wow! Wow!**～Markdown 粉们的欢呼声！！！
 
 > ###### ![←](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/i_merge1.svg?mode=icon&fill=text&darksrc=invert) 跨列合并（横向合并）
 >
@@ -325,7 +336,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**Markdown 表格如何快速设置整列的格式（加粗、高亮、下划线、斜体、删除线）？**」
 
-`#VLOOK:#(theme1)` SO EASY～ 只须在表头按以标准的 Markdown 或 GFM 的格式设置语法设置对应的格式即可实现这样的格式化。
+`#VLOOK|say#(theme1)` SO EASY～ 只须在表头按以标准的 Markdown 或 GFM 的格式设置语法设置对应的格式即可实现这样的格式化。
 
 > 温故一下标准 Markdown 或 GFM 的格式语法：
 >
@@ -358,7 +369,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**除常规的格式外，还有更高级的格式要求？数字、百分数、货币……一个都不能少！**」
 
-`#VLOOK:#(theme1)` 可以支持对「数值类」内容进行整列的自动格式设置了！方式依然的很优雅，很 VLOOK！
+`#VLOOK|say#(theme1)` 可以支持对「数值类」内容进行整列的自动格式设置了！方式依然的很优雅，很 VLOOK！
 
 > 将表格列的对齐设置为「**右对齐**」，即可自动识别不同的数值内容进行自动进行格式化！
 
@@ -439,7 +450,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**表格的列格式，除了排版格式外，如果希望能支持复选框（勾选框）呢？**」
 
-`#VLOOK:#(theme1)` 虽然要求有点高了，但也可以实现，将整列自动设置为「复选框」格式了！
+`#VLOOK|say#(theme1)` 虽然要求有点高了，但也可以实现，将整列自动设置为「复选框」格式了！
 
 > 表格列头内容前，添加 `[(空格)](空格)`（如 `[ ] 必填项` ），就可以为该列自动设置为 `未选择` 的状态。
 >
@@ -468,7 +479,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**文档中的表格很多，怎么才能像 Word 那样添加编号和题注呢？**」
 
-`#VLOOK:#(theme1)` 无须任何设置，即可自动对文档内所有「表格」进行统一的自动编号，编号内容举例：`表 1` `表 2`
+`#VLOOK|say#(theme1)` 无须任何设置，即可自动对文档内所有「表格」进行统一的自动编号，编号内容举例：`表 1` `表 2`
 
 > ###### 单题注
 >
@@ -513,7 +524,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**表格有很多行，能像 Excel 一样有行号的话，那就更方便沟通和定位了……**」
 
-`#VLOOK:#(theme1)` 可以一键实现对表格逐行进行自动编号！
+`#VLOOK|say#(theme1)` 可以一键实现对表格逐行进行自动编号！
 
 > 通过以下两种试，都可以为表格的每一行进行自动编号：
 >
@@ -548,7 +559,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**表格行都是一维的数据，但如果表格的数据有层次关系怎么办？**」
 
-`#VLOOK:#(theme1)` 可以对文档（如 PRD、API 类文档）在同一个表格内，会对属于同一类或同一级的多行进行分组和折叠。
+`#VLOOK|say#(theme1)` 可以对文档（如 PRD、API 类文档）在同一个表格内，会对属于同一类或同一级的多行进行分组和折叠。
 
 > 对于作为下级的行，在表格行的首列通过以下规则即可实现自动分组和折叠：
 >
@@ -629,7 +640,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**表格太长了，看着看着都分不清哪列是哪列了，希望能在设置重复显示表头，该怎么办？**」
 
-`#VLOOK:#(theme1)` 这可算是表格中的高阶应用了，现在 VLOOK™ 也可以轻松实现了～
+`#VLOOK|say#(theme1)` 这可算是表格中的高阶应用了，现在 VLOOK™ 也可以轻松实现了～
 
 > 只需要在表头第一个单元格内容的末尾输入表头重复标识 `(空格)##`，则该表格的表头就会自动根据预置的规则进行重复显示。
 >
@@ -708,7 +719,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**在编辑，或浏览表格内容时，希望能知道哪行是当前行～**」
 
-`#VLOOK:#(theme1)` 这个可以有，锦上添花的，不赚多～
+`#VLOOK|say#(theme1)` 这个可以有，锦上添花的，不赚多～
 
 > - 使用了 VLOOK™ 的主题后，在 Typora 中编辑表格，或浏览 HTML 时能自动生效；
 > - 鼠标滑过表格行时，在其左侧会通过突出的**游标**进行指标，便于辨识出当前行。
@@ -725,11 +736,11 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**文档中的图片很多，怎么才能像 Word 那样添加编号和题注呢？**」
 
-`#VLOOK:#(theme1)` 对于独占一行的图片，或强制指定[显示版式](#图片显示版式)为插图的，VLOOK™ 会将以其「插图[^插图]」的形式处理，如统一自动编号和题注，编号内容举例：`图 1` `图 2`
+`#VLOOK|say#(theme1)` 对于独占一行的图片，或强制指定[显示版式](#图片显示版式)为插图的，VLOOK™ 会将以其「插图[^插图]」的形式处理，如统一自动编号和题注，编号内容举例：`图 1` `图 2`
 
 [^插图]: 主要是指图片（如：jpg、png 等），以及脚本化图表（如：Mermaid 的流程图、状态机图、顺序图、甘特图、类图等）
 
-> ###### 为「图片」添加题注
+> ###### 🖼 为「图片」添加题注
 >
 > 只要按以 Markdown 的语法添加图片就可以实现，即：`![图片标题](图片URL "可选子标题")`
 >
@@ -742,7 +753,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > **示例：**图片题注，[去看一看](#示例－长图片、双题注)
 
-> ###### 为「Mermaid 图表」添加题注
+> ###### 🔀 为「Mermaid 图表」添加题注
 >
 > 添加的方式与为「表格」添加题注方式是一致的 •• [了解详情](#表格自动编号与题注)
 >
@@ -760,7 +771,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**高分屏看到的图片会变得模糊，Markdown 的图片语法又不支持不同分辨率图片集，怎么办？**」
 
-`#VLOOK:#(theme1)` 保持 Markdown 图片语法不变的情况下，轻松在高分辨率的屏幕上显示高清分辨率的图片！
+`#VLOOK|say#(theme1)` 保持 Markdown 图片语法不变的情况下，轻松在高分辨率的屏幕上显示高清分辨率的图片！
 
 > 在「图片 URL」中添加 VLOOK™ 规范的参数来启用这一特性：
 >
@@ -784,7 +795,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ![普通分辨率图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone-home-light.png?mode=figure&padding=true&darksrc=iphone-home-dark.png)　　![支持 2x 分辨率图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone-home-light.png?mode=figure&padding=true&darksrc=iphone-home-dark.png&srcset=@2x&darksrcset=@2x)　　![支持 2x, 3x 分辨率的图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone-home-light.png?mode=figure&padding=true&darksrc=iphone-home-dark.png&srcset=@2x,@3x&darksrcset=@2x,@3x)
 
-> **没有准备高清图片，也希望不模糊？**
+> 💡 **没有准备高清图片，也希望不模糊？**
 >
 > - 如果临时没有图片的高清分辨率，VLOOK™ 也可以将其转换 2x 资源，这样在高分屏上也能提高图片显示清晰度（但图片大小会相应缩小 50%）
 >- 可通过在「**文档 URL**」中添加 VLOOK™ 规范的参数 `srcset=auto` 来启用这个特性
@@ -799,7 +810,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**系统开启 Dark Mode 后，图片显示得有点不太和谐，怎么办？**」
 
-`#VLOOK:#(theme1)` 支持指定图片在 Dark Mode 时的适配方式，目前支持**反色**和**替换**，满足不同的需求！
+`#VLOOK|say#(theme1)` 支持指定图片在 Dark Mode 时的适配方式，目前支持**反色**和**替换**，满足不同的需求！
 
 #### 适配方式：反色
 
@@ -854,7 +865,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**希望统一图文混排的图标大小，以及指定图片不以「插图」形式被处理，该怎么操作呢？**」
 
-`#VLOOK:#(theme1)` 在 VLOOK™ 中图片是默认以「插图」或「混排」形式进行呈现，同时可在不影响 Markdown 的简洁和优雅的前提下，实现支持多种不同的显示版式。
+`#VLOOK|say#(theme1)` 在 VLOOK™ 中图片是默认以「插图」或「混排」形式进行呈现，同时可在不影响 Markdown 的简洁和优雅的前提下，实现支持多种不同的显示版式。
 
 > 在「图片 URL」中添加 VLOOK™ 规范的参数的方式来启用这一特性：
 >
@@ -910,7 +921,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**希望文档中的图片能自动跟随文档主题本色，或文字颜色，而不用重新制作多个版本的图片资源**」
 
-`#VLOOK:#(theme1)` 可以针对[显示版式](#图片显示版式)为 icon、logo 的图片（建议为透明背景的 png 或 svg 图片），按指定规则自动替换为指定的颜色。
+`#VLOOK|say#(theme1)` 可以针对[显示版式](#图片显示版式)为 icon、logo 的图片（建议为透明背景的 png 或 svg 图片），按指定规则自动替换为指定的颜色。
 
 > 在「图片 URL」中添加 VLOOK™ 规范的参数的方式来启用这一特性：
 >
@@ -956,7 +967,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**在使用工程或设计类的图片时，希望能自动添加统一的网格作为背景**」
 
-`#VLOOK:#(theme1)` 支持针对透明背景的图片（如 PNG、SVG 格式图片），添加指定的网格背景。
+`#VLOOK|say#(theme1)` 支持针对透明背景的图片（如 PNG、SVG 格式图片），添加指定的网格背景。
 
 > 在「图片 URL」中添加 VLOOK™ 规范的参数的方式来启用这一特性：
 >
@@ -993,7 +1004,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**希望可以自由设置插图的对齐式，同时保持 Markdown 的简洁性？**」
 
-`#VLOOK:#(theme1)` 在 Markdown 对图片千篇一律的排版的反馈中，尝试打开了一道小小的裂缝～
+`#VLOOK|say#(theme1)` 在 Markdown 对图片千篇一律的排版的反馈中，尝试打开了一道小小的裂缝～
 
 > ###### 图片对齐
 >
@@ -1029,7 +1040,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**我的插图边缘没有留白，视觉上看得比较挤，可以怎么调整？**」
 
-`#VLOOK:#(theme1)` 在 Markdown 对图片千篇一律的排版的反馈中，叕尝试打开了一道小小的裂缝～
+`#VLOOK|say#(theme1)` 在 Markdown 对图片千篇一律的排版的反馈中，叕尝试打开了一道小小的裂缝～
 
 > ###### 图片四边留白
 >
@@ -1054,7 +1065,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**用 Markdown 写文档，想通过「标签」来区分或突出内容，这个想法会不会不现实呢？**」
 
-`#VLOOK:#(theme1)` 对 Markdown 行内代码（Code）语法 `` ` ` `` 进行了扩展，满足实用的「标签」排版需求！
+`#VLOOK|say#(theme1)` 对 Markdown 行内代码（Code）语法 `` ` ` `` 进行了扩展，满足实用的「标签」排版需求！
 
 例如：可以单个 `#标签#(orange)`，还可以是标签组 `#我是|药丸标签#(pink)`，继续往下看看就知道这是怎么做到的～
 
@@ -1130,7 +1141,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**希望可以在 Markdown 文档中能拉个横幅或板子，在上面写上一些重要的事～**」
 
-`#VLOOK:#(theme1)` 通过对 Markdown 行内代码（Code）语法 `` ` ` `` 进行了扩展，满足实用的多色彩「引用」的排版需求！
+`#VLOOK|say#(theme1)` 通过对 Markdown 行内代码（Code）语法 `` ` ` `` 进行了扩展，满足实用的多色彩「引用」的排版需求！
 
 > **语法：** `` `>(color)` ``，==须添加到引用中，具体位置不限（如：首行、末尾）==
 >
@@ -1222,7 +1233,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**在编写 Markdown 文档时，对于部分内容较长的引用内容，希望在默认时能以折叠的形式存在，需要阅读时再点击打开。**」
 
-`#VLOOK:#(theme1)` 通过对 Markdown 「引用」`> ` 语法进行了扩展，实现对引用内容的动态的折叠、展开操作！
+`#VLOOK|say#(theme1)` 通过对 Markdown 「引用」`> ` 语法进行了扩展，实现对引用内容的动态的折叠、展开操作！
 
 > 语法：`> [folder] title`，即在正常的引用语法的首行内容前，添加折叠引子
 >
@@ -1271,7 +1282,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 「**如果不喜欢 Mermaid 默认的样式，还希望自动适配 Dark Mode，怎么办？**」
 
-`#VLOOK:#(theme1)` 自动提供了深度的样式优化，以及适配 Dark Mode，还了针对高分屏、跨平台的兼容性补丁。
+`#VLOOK|say#(theme1)` 自动提供了深度的样式优化，以及适配 Dark Mode，还了针对高分屏、跨平台的兼容性补丁。
 
 ### 样式优化
 
@@ -1413,7 +1424,7 @@ end
 
 「**希望 Markdown 可以支持音频，这样我就可以制作电子有声书了～**」
 
-`#VLOOK:#(theme1)` 目前 Markdown 工具都还没有针对音频的支持，但现在可以几乎「零」成本实现了！
+`#VLOOK|say#(theme1)` 目前 Markdown 工具都还没有针对音频的支持，但现在可以几乎「零」成本实现了！
 
 > 语法与 Mardown 的插入图片完全一致！
 >
@@ -1434,7 +1445,7 @@ end
 
 ###### 示例 2－Mini 模式
 
-![](media/whistle.mp3?controls=mini) **◀ 点击播放**
+![](media/whistle.mp3?controls=mini) **◄ 点击播放**
 
 > **除音频基本的控制外，同样支持 W3C 标准的控制功能！**
 >
@@ -1465,7 +1476,7 @@ end
 
 「**希望 Markdown 可以支持视频，这样我就可以制作多媒体的文档了～**」
 
-`#VLOOK:#(theme1)` 目前 Markdown 工具都还没有针对视频的支持，现在可以几乎「零」成本实现了！
+`#VLOOK|say#(theme1)` 目前 Markdown 工具都还没有针对视频的支持，现在可以几乎「零」成本实现了！
 
 > 语法与 Mardown 的插入图片完全一致！
 >
@@ -1503,7 +1514,7 @@ end
 
 「**希望 Markdown 文档能方便添加注音（如：拼音、外文对照），这样我语言培训文档和电子书就可以更出彩了**」
 
-`#VLOOK:#(theme1)` 通过对 Markdown 行内代码（Code）语法 `` ` ` `` 进行了扩展，轻松满足实用的「注音」排版需求！
+`#VLOOK|say#(theme1)` 通过对 Markdown 行内代码（Code）语法 `` ` ` `` 进行了扩展，轻松满足实用的「注音」排版需求！
 
 > 效果等价于 HTML 5 中 **[ruby](https://www.runoob.com/tags/tag-ruby.html)**、**[rp](https://www.runoob.com/tags/tag-rp.html)**、**[rt](https://www.runoob.com/tags/tag-rt.html)** 标签，并支持点击进行释义或翻译:
 >
@@ -1555,7 +1566,7 @@ end
 
 「**文档中的代码块（代码示例、片断）很多，怎么才能像 Word 那样添加编号和题注呢？**」
 
-`#VLOOK:#(theme1)` 无须任何设置，即可自动对文档内所有「代码块」进行统一的自动编号，编号内容举例：`代码块 1` `代码块 2`
+`#VLOOK|say#(theme1)` 无须任何设置，即可自动对文档内所有「代码块」进行统一的自动编号，编号内容举例：`代码块 1` `代码块 2`
 
 > 给「代码块」添加题注的方式，与给「表格」添加题注的方式是一致的 •• [了解详情](#表格自动编号与题注)
 >
@@ -1596,7 +1607,7 @@ end.
 
 「**用 Markdown 生成的文档中的代码块，希望可以一键复制代码～**」
 
-`#VLOOK:#(theme1)` 针对 Markdown 的代码块进行自动增强，支持高亮当前行、一键复制代码、适配 [Dark Mode](#Dark Mode)！
+`#VLOOK|say#(theme1)` 针对 Markdown 的代码块进行自动增强，支持高亮当前行、一键复制代码、适配 [Dark Mode](#Dark Mode)！
 
 ###### 示例
 
@@ -1660,7 +1671,7 @@ void quickSort(int arr[], int left, int right) {
 
 「**目前 GFM 标准的任务列表（to-do）默认会取消其列表编号，这真不太友好～**」
 
-`#VLOOK:#(theme1)` 只要使用了 VLOOK™ 的主题，这都不是问题。
+`#VLOOK|say#(theme1)` 只要使用了 VLOOK™ 的主题，这都不是问题。
 
 ▿▿▿ 示例效果详见下面的章节介绍 ▿▿▿
 
@@ -1668,7 +1679,7 @@ void quickSort(int arr[], int left, int right) {
 
 「**多级任务组的情况下，如果子任务中部分完成，部分未完成，这个任务组的状态 GFM 标准做不到啊～**」
 
-`#VLOOK:#(theme1)` 子任务，甚至是子任务的子任务，都可以自动根据其完成状态，自动标识其上级任务组的状态。
+`#VLOOK|say#(theme1)` 子任务，甚至是子任务的子任务，都可以自动根据其完成状态，自动标识其上级任务组的状态。
 
 > - 激活插件后，自动根据「子任务项」的完成状态调整「上级任务项」的「任务组状态」
 > - 任务组状态支持：**未完成**、**已完成**、**部分完成**。
@@ -1709,7 +1720,7 @@ void quickSort(int arr[], int left, int right) {
 
 「**你的 Markdown 文档能一键换肤吗？！**」
 
-`#VLOOK:#(theme1)` 内置了多套原创、独具风格的模板主题，能满足多种应用场景需要，完全超越你对 Markdown 主题的印象！
+`#VLOOK|say#(theme1)` 内置了多套原创、独具风格的模板主题，能满足多种应用场景需要，完全超越你对 Markdown 主题的印象！
 
 ![VLOOK™ 内置主题]"（共 5 免费主题，可支持私人定制）"
 
@@ -1744,7 +1755,7 @@ void quickSort(int arr[], int left, int right) {
 
 「**模板主题让文档颜值倍增，而字体则是文档气质担当！**」
 
-`#VLOOK:#(theme1)` 提供了两套字体风格，可根据个人喜好进行选用。
+`#VLOOK|say#(theme1)` 提供了两套字体风格，可根据个人喜好进行选用。
 
 > 通过工具栏上的 ![字体主题](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-font-style.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮进行选择
 
@@ -1779,23 +1790,23 @@ void quickSort(int arr[], int left, int right) {
 
 ###### 文艺范_选用的字体及应用
 
-| 字体在 VLOOK™ 主题的应用                         |              字体名称               | 使用的字重  |     ==     |    ==    |    ==     |
-| :----------------------------------------------- | :---------------------------------: | :---------: | :--------: | :------: | :-------: |
-| :                                                |                  :                  | [ ] Regular | [ ] Medium | [ ] Bold | [ ] Black |
-| 封面、正文（东亚）等                             | Noto Serif CJK SC<br />（思源宋体） |             |    [x]     |          |    [x]    |
-| 封面、标题、表头、题注、<br />彩虹、粗体标签等   | Noto Sans CJK SC<br />（思源黑体）  |     [x]     |            |   [x]    |    [x]    |
-| 正文（拉丁）                                     |              Luxi Mono              |     [x]     |            |   [x]    |           |
-| 链接、代码等                                     |           Noto Sans Mono            |     [x]     |    [x]     |   [x]    |    [x]    |
-| 表格列格式 [••](#表格列格式：数值、百分数、货币) |                 DIN                 |     [x]     |            |   [x]    |           |
+| 字体在 VLOOK™ 主题的应用                                     |              字体名称               | 使用的字重  |     ==     |    ==    |    ==     |
+| :----------------------------------------------------------- | :---------------------------------: | :---------: | :--------: | :------: | :-------: |
+| :                                                            |                  :                  | [ ] Regular | [ ] Medium | [ ] Bold | [ ] Black |
+| 封面大标题、章节标题、<br />正文(CJK)等                      | Noto Serif CJK SC<br />（思源宋体） |             |    [x]     |          |    [x]    |
+| 封面小标题、表头、题注、<br />彩虹标签、加粗文本等           | Noto Sans CJK SC<br />（思源黑体）  |     [x]     |            |   [x]    |    [x]    |
+| 正文（非CJK）                                                |              Luxi Mono              |     [x]     |            |   [x]    |           |
+| 链接、代码等                                                 |           Noto Sans Mono            |     [x]     |    [x]     |   [x]    |    [x]    |
+| 表格列格式(数值/百分数/货币) [••](#表格列格式：数值、百分数、货币) |                 DIN                 |     [x]     |            |   [x]    |           |
 
 ###### 小清新_选用的字体及应用
 
 | 字体在 VLOOK™ 主题的应用                                     |              字体名称              |    字重     |     ==     |    ==    |    ==     |
 | :----------------------------------------------------------- | :--------------------------------: | :---------: | :--------: | :------: | :-------: |
 | :                                                            |                 :                  | [ ] Regular | [ ] Medium | [ ] Bold | [ ] Black |
-| 封面、标题、正文（东亚）、<br />链接、表头、题注、彩虹标签等 | Noto Sans CJK SC<br />（思源黑体） |     [x]     |            |   [x]    |    [x]    |
-| 正文（拉丁）、链接、代码等                                   |           Noto Sans Mono           |     [x]     |    [x]     |   [x]    |    [x]    |
-| 表格列格式 [••](#表格列格式：数值、百分数、货币)             |                DIN                 |     [x]     |            |   [x]    |           |
+| 封面、标题、正文(CJK)、<br />链接、表头、题注、彩虹、标签等  | Noto Sans CJK SC<br />（思源黑体） |     [x]     |            |   [x]    |    [x]    |
+| 正文(非CJK)、链接、代码等                                    |           Noto Sans Mono           |     [x]     |    [x]     |   [x]    |    [x]    |
+| 表格列格式(数值/百分数/货币) [••](#表格列格式：数值、百分数、货币) |                DIN                 |     [x]     |            |   [x]    |           |
 
 ---
 
@@ -1807,7 +1818,7 @@ void quickSort(int arr[], int left, int right) {
 
 「**希望 Markdown 的文档能适配系统的深色模式，保持良好、一致的体验～**」
 
-`#VLOOK:#(theme1)` 所有 VLOOK™ 的主题都会自动根据浏览器或系统的 Dark Mode（深色模式）的设置进行自动适配。
+`#VLOOK|say#(theme1)` 所有 VLOOK™ 的主题都会自动根据浏览器或系统的 Dark Mode（深色模式）的设置进行自动适配。
 
 > 也可通过工具栏上的 ![Light Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-light-mode.svg?mode=icon2x&fill=theme1&darksrc=invert) / ![Dark Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-dark-mode.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮进行手动切换
 
@@ -1836,7 +1847,7 @@ void quickSort(int arr[], int left, int right) {
 ## 封面、封底
 
 「**如何让 Markdown 的文档支持封面、封底**（例如像本文档的封面、封底）？」
-`#VLOOK:#(theme1)` 在应用了 VLOOK™ 的「[模板主题](#模板主题)」后，使用 Markdown 的标准语法也能让文档支持封面、封底，通过遵从 VLOOK™ 约定的使用规范即可激活。
+`#VLOOK|say#(theme1)` 在应用了 VLOOK™ 的「[模板主题](#模板主题)」后，使用 Markdown 的标准语法也能让文档支持封面、封底，通过遵从 VLOOK™ 约定的使用规范即可激活。
 
 > ###### 激活「封面」
 >
@@ -1907,7 +1918,7 @@ void quickSort(int arr[], int left, int right) {
 
 「**按大纲/索引进行导航是文档中最常用的导航方式，适用于内容层次明确，全文档跨章节的快速定位**」
 
-`#VLOOK:#(theme1)` Typora 支持 GFM 标准，其导出的 HTML 后会自动生成各类内容的索引大纲，VLOOK™ 可自动接管并提供更强大的导航特性。
+`#VLOOK|say#(theme1)` Typora 支持 GFM 标准，其导出的 HTML 后会自动生成各类内容的索引大纲，VLOOK™ 可自动接管并提供更强大的导航特性。
 
 > 按 VLOOK™ 文档模板规范，建议在「[封面](#封面、封底)」后添加目录标记 `[TOC]`
 
@@ -1927,7 +1938,7 @@ void quickSort(int arr[], int left, int right) {
 
 「**除了大纲外，希望可以按章节顺序一章一章进行浏览。**」
 
-`#VLOOK:#(theme1)` 由 VLOOK™ 接管后，会自动扩展提供「逐章导航栏」，正如你现在看到顶部的导航栏那样。
+`#VLOOK|say#(theme1)` 由 VLOOK™ 接管后，会自动扩展提供「逐章导航栏」，正如你现在看到顶部的导航栏那样。
 
 当滚动至文档正文区后，会自动在顶部显示逐章导航条，在封面时会自动收起隐藏，支持对 1~5 级章节进行逐章浏览。
 
@@ -1950,7 +1961,7 @@ void quickSort(int arr[], int left, int right) {
 
 「**希望在进行文档评审或演示时，按段落一段一段地突出，进行聚焦式浏览。**」
 
-`#VLOOK:#(theme1)` 直接用鼠标「三击」文档任意段落就可以进入「段落导航」模式了。
+`#VLOOK|say#(theme1)` 直接用鼠标「三击」文档任意段落就可以进入「段落导航」模式了。
 
 支持鼠标和键盘操作：
 
@@ -1973,10 +1984,10 @@ void quickSort(int arr[], int left, int right) {
 
 「**希望能按图索骥，快速浏览文档中的插图，以及快速定位到文档中对应的位置。**」
 
-`#VLOOK:#(theme1)` 文档中的所有图片、Mermaid[^Mermaid] 图表都支持快速浏览，一键跳转到对应位置。
+`#VLOOK|say#(theme1)` 文档中的所有图片、Mermaid[^Mermaid] 图表都支持快速浏览，一键跳转到对应位置。
 
-> - 点击任意插图可直接启动插图导航，或点击导航中心插图索引面板上的 ![插图导航](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-figure-nav.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开；
-> - 点击插图导航内的插图，能直接跳转到文档中对应的位置。
+> - 所有插图可支持通过在插图浏览器中打开，并进行前后插图的导航；
+> - 鼠标悬停在插图后，通过右上角内容助手上的 ![画中画](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-full-screen.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开，点击插图浏览器中的插图，也能直接跳转到文档中对应的位置。
 
 [^Mermaid]: Mermaid 是一个用于画流程图、状态图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [Mermaid 官网](https://mermaidjs.github.io)，或 VLOOK™ 的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
 > [+] **支持的插图类型**
@@ -1988,8 +1999,8 @@ void quickSort(int arr[], int left, int right) {
 
 |            快捷键            | 功能       |
 | :--------------------------: | ---------- |
-| <kbd>◀</kbd> 或 <kbd>,</kbd> | 前一张插图 |
-| <kbd>▶</kbd> 或 <kbd>.</kbd> | 后一张插图 |
+| <kbd>◄</kbd> 或 <kbd>,</kbd> | 前一张插图 |
+| <kbd>►</kbd> 或 <kbd>.</kbd> | 后一张插图 |
 
 ###### 示例－长图片、双题注
 
@@ -2007,9 +2018,9 @@ void quickSort(int arr[], int left, int right) {
 
 「**在进行文档评审或演示时，可以通过 聚光灯 来让观众聚焦于文档的特定区域和内容。**」
 
-`#VLOOK:#(theme1)` 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
+`#VLOOK|say#(theme1)` 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
-> - 通过工具栏上的 ![聚光灯/激光笔](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-spotlight.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开、关闭，也可通过快捷键 <kbd>S</kbd> 快速打开；
+> - 通过工具栏上的 ![聚光灯](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-spotlight.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开、关闭，也可通过快捷键 <kbd>S</kbd> 快速打开；
 > - 打开聚光灯后，可支持按通过 <kbd>⇧Shift</kbd> 键调节聚光灯的大小。
 
 ---
@@ -2022,9 +2033,9 @@ void quickSort(int arr[], int left, int right) {
 
 「**在进行文档评审或演示时，可以通过 激光笔 来让观众注意力精确跟随演讲者指向的内容。**」
 
-`#VLOOK:#(theme1)` 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
+`#VLOOK|say#(theme1)` 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
-> - 通过工具栏上的 ![聚光灯/激光笔](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-laser-pointer.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开「聚光灯」，也可通过快捷键 <kbd>P</kbd> 快速打开。
+> - 通过工具栏上的 ![激光笔](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-laser-pointer.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开「聚光灯」，也可通过快捷键 <kbd>P</kbd> 快速打开。
 
 ---
 
@@ -2036,9 +2047,9 @@ void quickSort(int arr[], int left, int right) {
 
 「**表格行、列很多时，希望能快速显示任意单元格相关的行、列都有哪些？**」
 
-`#VLOOK:#(theme1)` 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
+`#VLOOK|say#(theme1)` 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
-> - 通过工具栏上的 ![聚光灯/激光笔](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-table-cross.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开、关闭，也可通过快捷键 <kbd>X</kbd> 进行操作；
+> - 鼠标悬停在表格后，通过右上角内容助手上的 ![表格十字光标](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-table-cross.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开、关闭，也可通过快捷键 <kbd>X</kbd> 进行操作；
 > - 鼠标点击表格上的任意单元格后，会自动显示十字光标，高亮其横向、纵向方向上的对应的单元格；
 > - 点击文档空白位置，或按下<kbd>ESC</kbd>临时取消显示。
 
@@ -2055,11 +2066,28 @@ void quickSort(int arr[], int left, int right) {
 
 [<kbd>⟨ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
+## 画中画
+
+「**希望插图、表格、代码块也能像视频那样，可以设置为「画中画」的浮动显示模式，方便在文档相关内容间对比**」
+
+`#VLOOK|say#(theme1)` 这个可以有，VLOOK™ 激活后开箱即用～
+
+> - 鼠标悬停在插图、表格、代码块后，通过右上角内容助手上的 ![画中画](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-pic-in-pic.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮一键开启；
+> - 开启后默认缩小为 75% 大小进行显示，也可通过缩放按钮调整为原始大小进行显示。
+
+快去文档中的任意插图、表格、代码块上试试吧～
+
+---
+
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+
+[<kbd>⟨ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+
 ## 刮刮卡
 
 「**用 Markdown 制作交互式的培训文档时，希望能将一些关键信息（如：答案）先隐藏，点击再显示**」
 
-`#VLOOK:#(theme1)` 通过对 Markdown 行内代码（Code）语法 `` ` ` `` 进行了扩展，轻松满足「培训、猜迷互动」等场景的排版需求！
+`#VLOOK|say#(theme1)` 通过对 Markdown 行内代码（Code）语法 `` ` ` `` 进行了扩展，轻松满足「培训、猜迷互动」等场景的排版需求！
 
 > **语法：**`` `*{tips}(text "color")` ``
 >

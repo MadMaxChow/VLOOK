@@ -1,8 +1,8 @@
 /**************************************
 * VLOOK CSS 调色板
 *
-* V10.6
-* 2021-06-24
+* V10.7
+* 2021-07-20
 *
 * 配合 base.less 进行使用
 *
@@ -53,7 +53,7 @@
 @tableCellBorderColorDark: fade(@tableColorDark, 30%); // 单元格边框
 
 // 指定在 Dark Mode 时反转的图片边框颜色（先使用反色，这样在反转时则能保持与色一致）
-@imgInvertInDarkBorderColor: rgba(255 - red(@tableBorderColorDark), 255 - green(@tableBorderColorDark), 255 - blue(@tableBorderColorDark), alpha(@tableBorderColorDark));
+@imgInvertInDarkBorderColor: rgb(255 - red(@docBgColorDarkAlt), 255 - green(@docBgColorDarkAlt), 255 - blue(@docBgColorDarkAlt));
 
 // --------------------
 // 通用的强调色色板

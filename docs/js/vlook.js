@@ -2,8 +2,8 @@
  *
  * VLOOK.js - Typora Plugin
  *
- * V10.6
- * 2021-06-24
+ * V10.7
+ * 2021-07-20
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -50,10 +50,10 @@ theme
 
 **************************************/
 
-let vlookVersion = "V10.6";
+let vlookVersion = "V10.7";
 
 console.log(":::::::::::::::::::");
-console.log("!!! " + (vlookDevMode === true ? "- DEBUG -" : "RELEASED" ) + " !!!");
+console.log("!!! " + (vlookDevMode === true ? "- DEV -" : "RELEASED" ) + " !!!");
 console.log("::: " + vlookVersion + " :::");
 console.log(":::::::::::::::::::");
 
@@ -79,7 +79,8 @@ let iToolbar = undefined,
     iInfoTips = undefined,
     iFootNote = undefined,
     iContentFolder = undefined,
-    iLinkChecker = undefined;
+    iLinkChecker = undefined,
+    iContentAssistor = undefined;
 
 // ==================== 文档对象模型 ==================== //
 
@@ -90,8 +91,10 @@ DOM.__html = undefined;
 DOM.html = function () {
     if (DOM.__html === undefined) {
         DOM.__html = $("html");
-        if (DOM.__html.length === 0)
+        if (DOM.__html.length === 0) {
+            DOM.__html = undefined;
             console.error("Instantiation failed [ DOM.html ]");
+        }
     }
     return DOM.__html;
 }
@@ -101,8 +104,10 @@ DOM.__body = undefined;
 DOM.body = function () {
     if (DOM.__body === undefined) {
         DOM.__body = $("body");
-        if (DOM.__body.length === 0)
+        if (DOM.__body.length === 0) {
+            DOM.__body = undefined;
             console.error("Instantiation failed [ DOM.body ]");
+        }
     }
     return DOM.__body;
 }
@@ -116,8 +121,10 @@ VOM.__doc = undefined;
 VOM.doc = function () {
     if (VOM.__doc === undefined) {
         VOM.__doc = $("#write");
-        if (VOM.__doc.length === 0)
+        if (VOM.__doc.length === 0) {
+            VOM.__doc = undefined;
             console.error("Instantiation failed [ VOM.doc ]");
+        }
     }
     return VOM.__doc;
 }
@@ -127,8 +134,11 @@ VOM.__cover = undefined;
 VOM.cover = function () {
     if (VOM.__cover === undefined) {
         VOM.__cover = $("#write > pre.md-meta-block:first-child + h6, #write > h6:first-child");
-        if (VOM.__cover.length === 0)
-            console.error("Instantiation failed [ VOM.cover ]");
+        if (VOM.__cover.length === 0) {
+            VOM.__cover = undefined;
+            if (VOM.docTitle() === undefined)
+                console.warn("Instantiation failed [ VOM.cover ], maybe no cover");
+        }
     }
     return VOM.__cover;
 }
@@ -137,14 +147,29 @@ VOM.cover = function () {
 VOM.__backcover = undefined;
 VOM.backcover = function () {
     if (VOM.__backcover === undefined) {
-        VOM.__backcover = $("#write > h6:last-child"); // 封底已调整到脚注后的情况
+        VOM.__backcover = $("#write > .mdx-backcover, #write > h6:last-child"); // 封底已调整到脚注后的情况
         if (VOM.__backcover.length === 0) {
             VOM.__backcover = $("#write > h6:last-of-type"); // 封底未调整到脚注后的情况
-            if (VOM.__backcover.length === 0)
-                console.error("Instantiation failed [ VOM.backcover ]");
+            if (VOM.__backcover.length === 0) {
+                VOM.__backcover = undefined;
+                console.warn("Instantiation failed [ VOM.backcover ], maybe no backcover");
+            }
         }
     }
     return VOM.__backcover;
+}
+
+// 文档标题对象（无封面模式）
+VOM.__docTitle = undefined;
+VOM.docTitle = function () {
+    if (VOM.__docTitle === undefined) {
+        VOM.__docTitle = $("#vk-id-doc-title");
+        if (VOM.__docTitle.length === 0) {
+            VOM.__docTitle = undefined;
+            console.warn("Instantiation failed [ VOM.docTitle ]");
+        }
+    }
+    return VOM.__docTitle;
 }
 
 // ==================== 通用方法 ==================== //
@@ -502,21 +527,26 @@ VLOOK.util = {
 
     /**
      * 重定位至锚点
+     *
+     * @return boolean true：已进行重定向，false：无须进行重定向
      */
     redirectToHash : function () {
         let lastHash = decodeURI(window.location.hash),
             hash = window.location.hash;
         // 如果 URL 带锚点
-        if (hash.length > 0) {
-            console.log("    ↩ Hash: " + decodeURI(hash));
+        if (hash.length > 0 && hash !== "#vk-id-doc-title") {
+            console.log("    ↩ Redirect to hash: " + decodeURI(hash));
             $(document).scrollTop($(document).scrollTop() + 500);
             window.location.href = hash;
+            // 若最后访问的锚点与本次相同，则强制进行一次微调
             if (lastHash === decodeURI(hash)) {
                 setTimeout(function () {
                     VLOOK.ui.tuningScrollTop(hash);
                 }, 500);
             }
+            return true;
         }
+        return false;
     },
 
     /**
@@ -557,11 +587,11 @@ VLOOK.formatting = {
     /**
      * 添加千位符
      *
-     * @param target 需要进行格式化的目标字符串
+     * @param value 需要进行格式化的目标字符串
      * @returns string 格式化后的字符串
      */
-    thousands : function (target) {
-        return target.replace(/(\d)(?=(\d{3})+(\.\d+)*(\D)*$)/g, "$1,");
+    thousands : function (value) {
+        return value.replace(/(\d)(?=(\d{3})+(\.\d+)*(\D)*$)/g, "$1,");
     },
 
     /**
@@ -629,22 +659,6 @@ VLOOK.checkSpecification = function () {
         valid = false;
     }
 
-    // 缺少封面
-    if (VOM.cover().length === 0) {
-        missContent += [
-            "• 缺少符合 VLOOK 规范的「封面」内容\n",
-            "• 缺少符合 VLOOK 規範的「封面」內容\n",
-            "• Missing \"Cover\" content that meets VLOOK specifications\n",
-            "• Contenu de \"Couverture\" manquant conforme aux spécifications VLOOK\n",
-            "• Fehlender \"Cover\" -Inhalt, der den VLOOK-Spezifikationen entspricht\n",
-            "• Falta contenido de \"Portada\" que cumpla con las especificaciones de VLOOK\n",
-            "• Отсутствует содержание \"обложки\", соответствующее спецификациям VLOOK\n",
-            "• VLOOK 仕様を満たす「カバー」コンテンツがありません\n",
-            "• VVLOOK 사양을 충족하는 \"커버\" 컨텐츠가 없습니다\n"
-            ][VLOOK.lang.id];
-        valid = false;
-    }
-
     // 缺少目录
     if ($(".md-toc").length === 0) {
         missContent += [
@@ -658,41 +672,6 @@ VLOOK.checkSpecification = function () {
             "• [TOC] がない、GFM標準の「目次」\n",
             "•GFM 표준 '목차'인 [TOC] 누락\n"
             ][VLOOK.lang.id];
-    }
-
-    // 缺少封底（有文档脚注时）
-    if ($(".footnotes-area").length === 0) {
-        if (VOM.backcover().length === 0) {
-            missContent += [
-                "• 缺少符合 VLOOK 规范的「封底」内容\n",
-                "• 缺少符合 VLOOK 規範的「封底」內容\n",
-                "• Missing \"Back cover\" content that meets VLOOK specifications\n",
-                "• Contenu manquant \"Couverture arrière\" conforme aux spécifications VLOOK\n",
-                "• Fehlender \"Back Cover\" -Inhalt, der den VLOOK-Spezifikationen entspricht\n",
-                "• Falta contenido de \"Contraportada\" que cumpla con las especificaciones de VLOOK\n",
-                "• Отсутствует содержимое \"задней обложки\", которое соответствует спецификациям VLOOK\n",
-                "• VLOOK 仕様を満たす「裏表紙」のコンテンツがありません\n",
-                "• VLOOK 사양을 충족하는 \"뒷 표지\" 내용이 없습니다\n"
-                ][VLOOK.lang.id];
-            valid = false;
-        }
-    }
-    //（无文档脚注时）
-    else {
-        if (VOM.doc().children("h6:nth-last-child(2)").length === 0) {
-            missContent += [
-                "• 缺少符合 VLOOK 规范的「封底」内容\n",
-                "• 缺少符合 VLOOK 規範的「封底」內容\n",
-                "• Missing \"Back cover\" content that meets VLOOK specifications\n",
-                "• Contenu manquant \"Couverture arrière\" conforme aux spécifications VLOOK\n",
-                "• Fehlender \"Back Cover\" -Inhalt, der den VLOOK-Spezifikationen entspricht\n",
-                "• Falta contenido de \"Contraportada\" que cumpla con las especificaciones de VLOOK\n",
-                "• Отсутствует содержимое \"задней обложки\", которое соответствует спецификациям VLOOK\n",
-                "• VLOOK仕様を満たす「裏表紙」のコンテンツがありません\n",
-                "• VLOOK 사양을 충족하는 \"뒷 표지\" 내용이 없습니다\n"
-                ][VLOOK.lang.id];
-            valid = false;
-        }
     }
 
     // 存在不符合规范的情况
@@ -770,7 +749,7 @@ VLOOK.initIntance = function () {
 
     // 逐章导航
     stopwatch.lapStart();
-    iChapterNav = new ChapterNav(iNavCenter, iToolTips);
+    iChapterNav = new ChapterNav(iNavCenter);
     if (iChapterNav === false)
         alert("Instantiation failed [ iChapterNav ]");
     else {
@@ -781,7 +760,7 @@ VLOOK.initIntance = function () {
 
     // 工具栏
     stopwatch.lapStart();
-    iToolbar = new Toolbar(iNavCenter, iChapterNav, iToolTips);
+    iToolbar = new Toolbar(iNavCenter, iChapterNav);
     if (iToolbar === false)
         alert("Instantiation failed [ iToolbar ]");
     else {
@@ -802,11 +781,6 @@ VLOOK.initIntance = function () {
 
         // 分隔条
         iToolbar.addSpliter("toolbar-spliter");
-
-        // 表格十字光标
-        iToolbar.add("table-cross", function () {
-            TableCross.toggle();
-        });
 
         // 段落导航
         iToolbar.add("paragraph-nav", function () {
@@ -876,6 +850,11 @@ VLOOK.initIntance = function () {
     iLinkChecker = new LinkChecker(new BackgroundMask("link-checker", "right", true));
     if (iLinkChecker.length === 0)
         alert("Instantiation failed [ iLinkChecker ]");
+
+    // 内容助手
+    iContentAssistor = new ContentAssistor();
+    if (iContentAssistor.length === 0)
+        alert("Instantiation failed [ iContentAssistor ]");
     stopwatch.lapStop("    └ Misc: ");
 }
 
@@ -891,6 +870,12 @@ VLOOK.initKernel = function () {
     $("head").append("<link rel='icon' id='doc-icon-light' href='" + docIconLight.substring(5, docIconLight.length - 2) + "' type='image/x-icon'/>"
         + "<link rel='icon' id='doc-icon-dark' href='" + docIconDark.substring(5, docIconDark.length - 2) + "' type='image/x-icon'/>");
     iStopwatch.lapStop("    ");
+
+    // ----------------------------------------
+    // 封底封面处理
+    if (VOM.cover() === undefined) {
+        VOM.doc().prepend('<div id="vk-id-doc-title" class="mdx-doc-title">' + $(document).attr("title") +'</div>');
+    }
 
     // ----------------------------------------
     // 初始化国际化 UI
@@ -928,15 +913,7 @@ VLOOK.initKernel = function () {
     // ----------------------------------------
     // 初始化插图数据
     iStopwatch.lapStart("* Figure: ");
-    SVGInject.setOptions({
-        afterInject : function (img, svg) {
-            let svgObj = $(svg);
-            ExtFigure.adjustFillAlterForSVG(svgObj.attr("data-vk-img-fill"), svgObj);
-        },
-        onFail : function (img, svg) {
-            console.error("SVGInject ERROR:", $(img).attr("src"));
-        }
-    });
+
     ExtFigure.init();
     iStopwatch.lapStop("    COST ");
 
@@ -1043,11 +1020,7 @@ VLOOK.initKernel = function () {
     // 绑定窗口大小缩放事件
     $(window).resize(function () {
         iNavCenter.catalog.focusHeader();
-
         VLOOK.ui.adjustAll();
-        // iNavCenter.adjust();
-        // iChapterNav.adjust();
-        // iToolbar.adjust();
     });
 
     // 绑定打印前的触发事件
@@ -1057,8 +1030,9 @@ VLOOK.initKernel = function () {
         VLOOK.print.done();
     };
 
-    // 监听页内锚点链接跳转，同一个锚点连续点击不会触发该事件
-    $(window).on("hashchange", function() {
+    // 监听页内锚点链接跳转
+    // 注意：同一个锚点连续点击不会触发该事件
+    $(window).on("hashchange", function(event) {
         let hash = window.location.hash,
             anchor = hash.substring(1, hash.length);
         if (anchor.trim().length === 0)
@@ -1070,7 +1044,7 @@ VLOOK.initKernel = function () {
         let aObj = $("#" + decodeURI(anchor) + ", a[name='" + anchor + "']");
         if (aObj !== undefined && aObj.offset() !== undefined && aObj.offset().top === 0) {
             let hiddenObj = aObj.parent().parent();
-            // 若属于被折叠的引用，则模拟点击展开，并重新定位到该益
+            // 若属于被折叠的引用，则模拟点击展开，并重新定位到该引用
             if (hiddenObj.isHidden()) {
                 let folder = hiddenObj.prev().find(".mdx-blockquote-folder");
                 if (folder.length > 0) {
@@ -1081,9 +1055,12 @@ VLOOK.initKernel = function () {
         }
 
         // 微调滚动条位置
-        VLOOK.ui.tuningScrollTop(decodeURI(anchor));
+        // Firefox 若不延时微调会存在微调无效的情况
+        setTimeout(function () {
+            VLOOK.ui.tuningScrollTop(decodeURI(anchor));
+        }, env.browser.Firefox ? 500 : 0);
 
-        // 若导航中心已隐藏，则强制进行延时适配处理
+        // 若导航中心没有显示，则强制进行延时适配处理（如从封面直接到指定章节）
         if (iNavCenter.showed === false)
             VLOOK.ui.adjustAllDelay();
     });
@@ -1167,7 +1144,7 @@ VLOOK.ui = {
     copyrightInfo : function () {
         return '<div class="mdx-copyright">'
             + '<svg width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()"><use xlink:href="#icoVLOOK-dark"></use></svg>&nbsp;&nbsp;'
-            + '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.6) for <a href="https://www.typora.io" target="_blank">Typora</a>.'
+            + '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.7) for <a href="https://www.typora.io" target="_blank">Typora</a>.'
             + '&nbsp;&nbsp;&nbsp;&nbsp;Support by <strong><a href="https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi">QQ Group</a></strong> or <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">email</a></strong>.'
             + '</div>'
     },
@@ -1200,14 +1177,14 @@ VLOOK.ui = {
             tagName = tagName.toLowerCase();
 
         // h1-6
-        if (target !== undefined && tagName !== undefined && "h1h2h3h4h5h6".indexOf(tagName) > -1) {
+        if (tagName !== undefined && "h1h2h3h4h5h6".indexOf(tagName) > -1) {
             offsetY += (tagName === "h6")
                 ? (top + height + 16)
                 : (target.height() + 10 + (parseInt(tagName.substring(1, 2)) - 1) * 6);
             offsetY -= parseInt(VLOOK.util.getStyleValue("--vlook-top-margin"));
         }
         // 从底部脚注列表回到脚注位置
-        else if (target !== undefined && anchor.startsWith("ref-footnote"))
+        else if (anchor.startsWith("ref-footnote"))
             offsetY += 70;
         // 其他情况
         else
@@ -1284,18 +1261,6 @@ VLOOK.ui = {
             "글꼴 스타일 전환"
         ][VLOOK.lang.id]);
 
-        iToolbar.buttons["table-cross"].attr("data-vk-tips", "<kbd>X</kbd> " + [
-            "表格十字光标 模式",
-            "表格十字光標 模式",
-            "Table Cross Cursor mode",
-            "Mode curseur croisé de table",
-            "Tabellen-Kreuzcursor-Modus",
-            "Modo de cursor cruzado de tabla",
-            "Режим Table Cross Cursor",
-            "テーブルクロスカーソルモード",
-            "테이블 크로스 커서 모드"
-        ][VLOOK.lang.id]);
-
         iToolbar.buttons["paragraph-nav"].attr("data-vk-tips", [
             "段落导航 模式",
             "段落導航 模式",
@@ -1344,7 +1309,7 @@ VLOOK.ui = {
             "인쇄..."
         ][VLOOK.lang.id]);
 
-        iChapterNav.prev.ui.attr("data-vk-tips", "<kbd>◀</kbd> " + [
+        iChapterNav.prev.ui.attr("data-vk-tips", "<kbd>◄</kbd> " + [
             "前一章",
             "前一章",
             "Previous Chapter",
@@ -1356,7 +1321,7 @@ VLOOK.ui = {
             "이전 장"
         ][VLOOK.lang.id]);
 
-        iChapterNav.next.ui.attr("data-vk-tips", "<kbd>▶</kbd> " + [
+        iChapterNav.next.ui.attr("data-vk-tips", "<kbd>►</kbd> " + [
             "后一章",
             "後一章",
             "Next Chapter",
@@ -1366,6 +1331,18 @@ VLOOK.ui = {
             "Следующая глава",
             "次の章",
             "다음 장"
+        ][VLOOK.lang.id]);
+
+        iChapterNav.docTitle.attr("data-vk-tips", [
+            "回到封面",
+            "回到封面",
+            "Back to cover",
+            "Retour à la couverture",
+            "Zurück zur Titelseite",
+            "Volver a la portada",
+            "Вернуться к обложке",
+            "表紙に戻る",
+            "표지로 돌아 가기"
         ][VLOOK.lang.id]);
 
         iChapterNav.current.ui.attr("data-vk-tips", [
@@ -1380,7 +1357,7 @@ VLOOK.ui = {
             "이 장의 시작 부분으로 돌아 가기"
         ][VLOOK.lang.id]);
 
-        iFigureNav.button.prev.attr("title", "[ ← ] " + [
+        iFigureNav.buttons.prev.attr("title", "[ ← ] " + [
             "前一张",
             "前一張",
             "Previous",
@@ -1392,7 +1369,7 @@ VLOOK.ui = {
             "이전"
         ][VLOOK.lang.id]);
 
-        iFigureNav.button.next.attr("title", "[ → ] " + [
+        iFigureNav.buttons.next.attr("title", "[ → ] " + [
             "后一张",
             "後一張",
             "Next",
@@ -1404,7 +1381,7 @@ VLOOK.ui = {
             "다음"
         ][VLOOK.lang.id]);
 
-        iFigureNav.button.close.attr("title", "[ ESC ] " + [
+        iFigureNav.buttons.close.attr("title", "[ ESC ] " + [
             "关闭",
             "關閉",
             "Close",
@@ -1472,7 +1449,43 @@ VLOOK.ui = {
             "모든 각주보기"
         ][VLOOK.lang.id] + " ▶");
 
-        ContentAssist.button.copyCodeBlock.attr("title", [
+        iContentAssistor.buttons.openInFigureNav.attr("data-vk-tips", [
+            "全屏显示",
+            "全屏顯示",
+            "Full screen",
+            "Plein écran",
+            "Vollbild",
+            "Pantalla completa",
+            "Полноэкранный",
+            "全画面表示",
+            "전체 화면"
+        ][VLOOK.lang.id]);
+
+        iContentAssistor.buttons.tableCross.attr("data-vk-tips", "<kbd>X</kbd> " + [
+            "表格十字光标",
+            "表格十字光標",
+            "Table Cross Cursor",
+            "Curseur en croix de table",
+            "Tabellenkreuzcursor",
+            "Cursor en cruz de mesa",
+            "Перекрестный курсор таблицы",
+            "テーブルクロスカーソル",
+            "테이블 크로스 커서"
+        ][VLOOK.lang.id]);
+
+        iContentAssistor.buttons.picInPic.attr("data-vk-tips", [
+            "画中画",
+            "畫中畫",
+            "Picture in picture",
+            "Image dans l'image",
+            "Bild im Bild",
+            "Imagen en imagen",
+            "Картинка в картинке",
+            "ピクチャーインピクチャー",
+            "사진 속 사진"
+        ][VLOOK.lang.id]);
+
+        iContentAssistor.buttons.copyCodeBlock.attr("data-vk-tips", [
             "复制全部代码",
             "複製全部代碼",
             "Copy all code",
@@ -1560,26 +1573,34 @@ VLOOK.ui = {
         // 非移动设备时绑定样式事件
         else {
             // 所有常规按钮 hover 事件处理
-            VLOOK.ui.bindHover($(".mdx-btn"), "mdx-btn-hover");
+            VLOOK.ui.bindHover($(".mdx-btn, .mdx-btn-group"));
             // 所有导航中心分段控制按钮 hover 事件处理
-            VLOOK.ui.bindHover($(".mdx-segment-btn"), "mdx-segment-btn-hover");
+            VLOOK.ui.bindHover($(".mdx-segment-btn"));
             // 所有辅助按钮 hover 事件处理
-            VLOOK.ui.bindHover($(".mdx-accent-btn"), "mdx-accent-btn-hover");
+            VLOOK.ui.bindHover($(".mdx-accent-btn"));
         }
     },
 
     /**
-     * 为对象绑定 hover 事件，添加 / 移除指定的 hover 样式
+     * 为对象绑定 hover 事件
      *
      * @param target 目标对象
-     * @param hoverClass hover 样式名称
      */
-    bindHover : function (target, hoverClass) {
+    bindHover : function (target) {
         target.hover(function () {
-            $(this).addClass(hoverClass);
+            $(this).addClass("hover");
         }, function () {
-            $(this).removeClass(hoverClass);
+            $(this).removeClass("hover");
         });
+    },
+
+    /**
+     * 为对象取消 hover 事件绑定
+     *
+     * @param target 目标对象
+     */
+    unbindHover : function (target) {
+        target.unbind("mouseenter").unbind("mouseleave");
     },
 
     /**
@@ -1589,9 +1610,12 @@ VLOOK.ui = {
         // 不启用动效
         if (VLOOK.ui.effects < 1)
             VLOOK.util.setStyleValue("--vlook-transition-value", "none");
-        // 特殊等级为 2 或更高级时才开启毛玻璃动效（如遮罩、插图浏览器背景）
+        // 特效等级为 2 或更高级时才开启毛玻璃动效（如遮罩、插图浏览器背景）
         else if (VLOOK.ui.effects >= 2)
             $(".mdx-backdrop-blurs").addClass("enabled");
+        // 特效等级为 1 或更高级时才开启
+        VLOOK.ui.addAnimate($(".mdx-btn, .mdx-btn-group"));
+        VLOOK.ui.addAnimate($("a, a kbd, a img"));
     },
 
     /**
@@ -1602,8 +1626,13 @@ VLOOK.ui = {
      */
     addAnimate : function (target, property) {
         if (VLOOK.ui.effects >= 1) {
-            target.addClass("mdx-transition-"
-                + (property === undefined ? "all" : property));
+            if  (property === undefined)
+                target.addClass("mdx-transition-all");
+            else {
+                let attrSet = property.split(" ");
+                for (let i = 0; i < attrSet.length; i++)
+                    target.addClass("mdx-transition-" + attrSet[i]);
+            }
         }
     },
 
@@ -1614,8 +1643,13 @@ VLOOK.ui = {
      * @param property 应用的属性，不指定时默认为 “all”
      */
     removeAnimate : function (target, property) {
-        target.removeClass("mdx-transition-"
-            + (property === undefined ? "all" : property));
+        if  (property === undefined)
+            target.removeClass("mdx-transition-all");
+        else {
+            let attrSet = property.split(" ");
+            for (let i = 0; i < attrSet.length; i++)
+                target.removeClass("mdx-transition-" + attrSet[i]);
+        }
     },
 
     /**
@@ -1626,13 +1660,6 @@ VLOOK.ui = {
      */
     existAnimate : function (target) {
         return target.attr("class").indexOf("mdx-transition-") > -1;
-    },
-
-    /**
-     * 返回动画时长
-     */
-    animateDuration : function () {
-        return 200;//parseInt(VLOOK.util.getStyleValue("--vlook-transition-duration"));
     },
 
     /**
@@ -1830,13 +1857,6 @@ VLOOK.doc = {
     },
 
     /**
-     * 判断当前位置是否在封面
-     */
-    inCover : function () {
-        return $(document).scrollTop() < VOM.cover().outerHeight();
-    },
-
-    /**
      * 检查页内链接坏链
      */
     link : {
@@ -1868,13 +1888,13 @@ VLOOK.print = {
         }
 
         // 将 Mermaid 图表题注 width 等属性临时禁用，并调整为 100%，以适应打印纸张宽度
-        $(".mdx-figure-caption-mermaid").each(function () {
+        $(".mdx-caption.mermaid").each(function () {
             $(this).attr("before-print-width", $(this).css("width"));
             $(this).css("width", "100%");
         });
 
         // 将 Mermaid 图表的 width, max-width 等属性临时禁用，并调整为 100%，以适应打印纸张宽度
-        $(".mdx-figure-caption-mermaid svg").each(function () {
+        $(".mdx-caption.mermaid svg").each(function () {
             if ($(this).attr("width") === "100%") {
                 // 针对流程图
                 if ($(this).attr("style").indexOf("max-width:") > -1) {
@@ -1907,6 +1927,9 @@ VLOOK.print = {
             RowGroup.open($(this).parent().parent());
         });
 
+        // 隐藏画中画
+        PicInPic.hide();
+
         // 若存在「刮刮卡」内容，则先让用户确认是否显示
         let blackCurtains = $(".mdx-black-curtain");
         if (blackCurtains.length > 0) {
@@ -1933,13 +1956,13 @@ VLOOK.print = {
         }
 
         // 恢复打印前的配置，详见 VLOOK.print.ready()
-        $(".mdx-figure-caption-mermaid").each(function () {
+        $(".mdx-caption.mermaid").each(function () {
             $(this).css("width", $(this).attr("before-print-width"));
             $(this).removeAttr("before-print-width");
         });
 
         //恢复打印前的配置，详见 VLOOK.print.ready()
-        $(".mdx-figure-caption-mermaid svg").each(function () {
+        $(".mdx-caption.mermaid svg").each(function () {
             if ($(this).attr("width") === "100%") {
                 // 针对流程图
                 if ($(this).attr("style").indexOf("max-width:") > -1) {
@@ -2018,25 +2041,25 @@ VLOOK.report = {
         statData += "&img-fill=" + $("img:not([data-vk-img-fill])").length;
         statData += "&img-invert=" + $("img[data-vk-darksrc='invert']").length;
         statData += "&img-alter=" + $("img[data-vk-darksrc='alter']").length;
-        statData += "&img-cap1=" + $("div[id^=vk-id-fig][data-vk-id-fig-type='img'] .mdx-figure-caption-1 strong").length;
-        statData += "&img-cap2=" + $("div[id^=vk-id-fig][data-vk-id-fig-type='img'] .mdx-figure-caption-2").length;
+        statData += "&img-cap1=" + $("div[id^=vk-id-fig][data-vk-id-fig-type='img'] .mdx-caption-1 strong").length;
+        statData += "&img-cap2=" + $("div[id^=vk-id-fig][data-vk-id-fig-type='img'] .mdx-caption-2").length;
 
         // Mermaid 插图数据
         let mermaid = $(".md-diagram-panel");
         statData += "&mm=" + mermaid.length;
         statData += "&mm-fold=" + $("div[data-vk-container='svg'][data-vk-content-folded='true']").length;
-        statData += "&mm-cap1=" + $("div[id^=vk-id-fig][data-vk-id-fig-type='svg'] .mdx-figure-caption-1 strong").length;
-        statData += "&mm-cap2=" + $("div[id^=vk-id-fig][data-vk-id-fig-type='svg'] .mdx-figure-caption-2").length;
+        statData += "&mm-cap1=" + $("div[id^=vk-id-fig][data-vk-id-fig-type='svg'] .mdx-caption-1 strong").length;
+        statData += "&mm-cap2=" + $("div[id^=vk-id-fig][data-vk-id-fig-type='svg'] .mdx-caption-2").length;
 
         // Mermaid 音频数据
         statData += "&audio=" + $("audio").length;
-        statData += "&mm-cap1=" + $("div[id^=vk-id-audio] .mdx-figure-caption-1 strong").length;
-        statData += "&mm-cap2=" + $("div[id^=vk-id-audio] .mdx-figure-caption-2").length;
+        statData += "&mm-cap1=" + $("div[id^=vk-id-audio] .mdx-caption-1 strong").length;
+        statData += "&mm-cap2=" + $("div[id^=vk-id-audio] .mdx-caption-2").length;
 
         // Mermaid 视频数据
         statData += "&video=" + $("video").length;
-        statData += "&mm-cap1=" + $("div[id^=vk-id-video] .mdx-figure-caption-1 strong").length;
-        statData += "&mm-cap2=" + $("div[id^=vk-id-video] .mdx-figure-caption-2").length;
+        statData += "&mm-cap1=" + $("div[id^=vk-id-video] .mdx-caption-1 strong").length;
+        statData += "&mm-cap2=" + $("div[id^=vk-id-video] .mdx-caption-2").length;
 
         // Mermaid 图的细类
         let pie = 0,
@@ -2078,8 +2101,8 @@ VLOOK.report = {
         // 表格数据
         statData += "&tbl=" + $("table").length;
         statData += "&tbl-fold=" + $("figure[data-vk-container='table'][data-vk-content-folded='true']").length;
-        statData += "&tbl-cap1=" + $("div[id^=vk-id-tbl] .mdx-figure-caption-1 strong").length;
-        statData += "&tbl-cap2=" + $("div[id^=vk-id-tbl] .mdx-figure-caption-2").length;
+        statData += "&tbl-cap1=" + $("div[id^=vk-id-tbl] .mdx-caption-1 strong").length;
+        statData += "&tbl-cap2=" + $("div[id^=vk-id-tbl] .mdx-caption-2").length;
 
         // 表格列格式数据
         let fmBold = 0,
@@ -2122,8 +2145,8 @@ VLOOK.report = {
         // 代码块数据
         statData += "&cb=" + $(".md-fences").length;
         statData += "&cb-fold=" + $("p[data-vk-container='pre'][data-vk-content-folded='true']").length;
-        statData += "&cb-cap1=" + $("div[id^=vk-id-codeblock] .mdx-figure-caption-1 strong").length;
-        statData += "&cb-cap2=" + $("div[id^=vk-id-codeblock] .mdx-figure-caption-2").length;
+        statData += "&cb-cap1=" + $("div[id^=vk-id-codeblock] .mdx-caption-1 strong").length;
+        statData += "&cb-cap2=" + $("div[id^=vk-id-codeblock] .mdx-caption-2").length;
 
         // 标签数据
         statData += "&tag=" + $("code[class^=mdx-tag-c]").length;
@@ -2360,7 +2383,7 @@ function Stopwatch() {
 function WelcomePage(mode) {
     let that = this;
     this.ui = $(".mdx-welcome-page"); // 欢迎页主界面
-    this.buttonEnter = $(".mdx-welcome-page-loading"); // 关闭欢迎页按钮
+    this.button = $(".mdx-welcome-page-loading"); // 关闭欢迎页按钮
     this.tips = $(".mdx-welcome-page-tips"); // 欢迎信息
     this.finished = false; // 是否已加载
     this.mode = mode; // 模式：
@@ -2375,7 +2398,7 @@ function WelcomePage(mode) {
      */
     this.done = function () {
         // 关闭欢迎页事件
-        this.buttonEnter.unbind("click").click(function () {
+        this.button.unbind("click").click(function () {
             that.close();
         });
 
@@ -2385,18 +2408,16 @@ function WelcomePage(mode) {
         this.tips.css("animation", "none");
 
         this.updateCloseButton(null);
-        this.buttonEnter.addClass("mdx-btn-welcome-page-done");
+        this.button.addClass("mdx-btn-welcome-page-done");
 
         this.finished = true;
 
         // auto 模式时延时自动关闭
-        if (this.mode === "auto") {
+        if (this.mode === "auto")
             this.autoClose();
-            return;
-        }
         // wait 模式
         else if (this.mode === "wait")
-            this.buttonEnter.addClass("wait");
+            this.button.addClass("wait");
     }
 
     /**
@@ -2425,7 +2446,7 @@ function WelcomePage(mode) {
      * @param sec 显示倒计时的秒数
      */
      this.updateCloseButton = function (sec) {
-        that.buttonEnter.html([
+        that.button.html([
             "轻一点，轻轻一点",
             "輕一點，輕輕一點",
             "Click to Start",
@@ -2436,7 +2457,7 @@ function WelcomePage(mode) {
             "クリックして開始",
             "클릭하여 시작"
         ][VLOOK.lang.id]
-            + ((sec == null) ? "" : " <span>(" + sec + "s)</span>"));
+            + (sec == null ? "" : " <span> (" + sec + "s)</span>"));
     }
 
     /**
@@ -2473,81 +2494,395 @@ function WelcomePage(mode) {
     }
 }
 
-// ==================== 内容辅助工具类 ==================== //
+// ==================== 内容助手类 ==================== //
 
-function ContentAssist() {}
+function ContentAssistor() {
+    let that = this;
+    this.ui = $(".mdx-content-assistor");
+    this.buttons = {
+        openInFigureNav : $(".mdx-btn.assistor.open-in-figure-nav"), // 插图浏览器中打开
+        tableCross : $(".mdx-btn.assistor.table-cross"), // 表格十字光标
+        copyCodeBlock : $(".mdx-btn.assistor.copy-code-block"), // 复制代码块
+        picInPic : $(".mdx-btn.assistor.pic-in-pic") // 「画中画」
+    }
 
-ContentAssist.button = {
-    copyCodeBlock : undefined // 复制代码块按钮
-}
-
-/**
- * 初始化内容辅助工具
- */
-ContentAssist.init = function () {
-    ContentAssist.button.copyCodeBlock = $(".mdx-btn.copy-code-block");
-
-    // 复制代码块按钮事件
-    ContentAssist.button.copyCodeBlock.unbind("click").click(function () {
-        ExtCodeBlock.copy($(this));
-    });
-    ContentAssist.button.copyCodeBlock.mouseout(function () {
-        __mouseout();
-    });
-    // VLOOK.ui.addAnimate(ContentAssist.button.copyCodeBlock);
+    // 最后显示新标签打开按钮的内容（插图/表格等）
+    this.lastHover = undefined;
 
     /**
-     * 鼠标移出内容动作按钮后
+     * 初始化内容助手
      */
-    function __mouseout() {
-        if (ContentAssist.mouseDropIn() === false) {
-            ContentAssist.hideButtons();
+    this.init = function () {
+        // 在插图浏览器中打开
+        this.buttons.openInFigureNav.unbind("click").click(function () {
+            iContentAssistor.hide();
+            iFigureNav.show(that.lastHover);
+        });
+        //  形状表格十字光标
+        this.buttons.tableCross.unbind("click").click(function () {
+            TableCross.toggle();
+        });
+        // 复制代码块
+        this.buttons.copyCodeBlock.unbind("click").click(function () {
+            ExtCodeBlock.copy($(this));
+        });
+        // 画中画
+        this.buttons.picInPic.unbind("click").click(function () {
+            PicInPic.show(that.lastHover);
+        });
+
+        __bindButtonEvent(this.buttons.openInFigureNav);
+        __bindButtonEvent(this.buttons.tableCross);
+        __bindButtonEvent(this.buttons.copyCodeBlock);
+        __bindButtonEvent(this.buttons.picInPic);
+
+        /**
+         * 绑定事件
+         * @param source 源对象
+         */
+        function __bindButtonEvent(source) {
+            source.hover(function () {
+                iToolTips.show($(this), "auto");
+            }, function () {
+                iToolTips.hide();
+            });
         }
     }
+
+    /**
+     * 绑定对象的 hover 行为
+     *
+     * @param target 目标对象
+     * @param contentType 内容类型：Figure/Table/CodeBlock
+     */
+    this.bindHover = function (target, contentType) {
+        target.hover(function () {
+            VLOOK.ui.removeAnimate(that.ui);
+            if (that.lastHover !== target)
+                that.hide();
+            that.lastHover = target;
+            that.show(contentType);
+        }, function () {
+            if (__mouseDropIn(that.lastHover) === false) {
+                console.warn("out");
+                that.hide();
+            }
+        });
+    }
+
+    /**
+     * 显示指定内容的内容助手
+     *
+     * @param contentType 内容类型：Figure/Table/CodeBlock
+     */
+    this.show = function (contentType) {
+        // 移动端不显示
+        if (env.device.mobile)
+            return;
+
+        // 插图
+        if (contentType === "Figure") {
+            this.buttons.openInFigureNav.addClass("enabled first");
+            this.buttons.tableCross.removeClass("enabled");
+            this.buttons.copyCodeBlock.removeClass("enabled");
+            this.buttons.picInPic.removeClass("first").addClass("enabled last");
+        }
+        // 表格
+        else if (contentType === "Table") {
+            this.buttons.openInFigureNav.removeClass("enabled");
+            this.buttons.tableCross.addClass("enabled first");
+            this.buttons.copyCodeBlock.removeClass("enabled");
+            this.buttons.picInPic.addClass("enabled").removeClass("first").addClass("last");
+        }
+        // 代码块
+        else if (contentType === "CodeBlock") {
+            this.buttons.openInFigureNav.removeClass("enabled");
+            this.buttons.tableCross.removeClass("enabled");
+            this.buttons.copyCodeBlock.addClass("enabled first");
+            this.buttons.picInPic.addClass("enabled").addClass("last");
+        }
+
+        // ----------------------------------------
+        // 计算助手显示的位置
+        let caption = this.lastHover.parent(),
+            className = caption.attr("class"),
+            container = caption.parent(),
+            offset = 0;
+            // 对于存在横向滚动的情况时，须计算其偏移量用来位置调整
+        if (className !== undefined && className.indexOf("mdx-caption") > -1
+            && container !== undefined) {
+                className = container.attr("class");
+                if (className !== undefined && className.indexOf("mdx-caption-container") > -1) {
+                    let capWidth = parseInt(caption.width()),
+                        conWidth = parseInt(container.width());
+                    if (capWidth > conWidth)
+                        offset = capWidth - conWidth + 1;
+                }
+        }
+        this.ui.css({
+            "left" : this.lastHover.offset().left
+                + this.lastHover.width() + 1
+                - this.ui.width()
+                + parseInt(this.lastHover.css("padding-left"))
+                + parseInt(this.lastHover.css("padding-right"))
+                - offset,
+            "top" : this.lastHover.offset().top + 3
+        });
+
+        // 须延时后再执行显示，让以上代码先完成
+        setTimeout(function () {
+            VLOOK.ui.addAnimate(that.ui);
+            VLOOK.ui.show(that.ui);
+        }, 50);
+    }
+
+    /**
+     * 隐藏内容辅助动作按钮
+     */
+    this.hide = function () {
+        VLOOK.ui.hide(this.ui);
+    }
+
+    /**
+     * 判断鼠标当前位置是否落在指定对象的区域范围内
+     *
+     * @param target 指定对象
+     */
+    __mouseDropIn = function (target) {
+        let e = (event || window.event),
+            mx = e.pageX || e.clientX + document.body.scrollLeft,
+            my = e.pageY || e.clientY + document.body.scrollTop,
+            padding = parseInt(target.css("padding-top")) * 2;
+        return !(mx < target.offset().left || mx > (target.offset().left + target.width() + padding)
+            || my < target.offset().top || my > (target.offset().top + target.height() + padding));
+    }
 }
 
-// 最后显示新标签打开按钮的内容（插图/表格等）
-ContentAssist.lastHoverContent = undefined;
+// ==================== 画中画类 ==================== //
+
+function PicInPic() {}
+
+PicInPic.ui = {
+    body : undefined,
+    content : undefined,
+    close : undefined
+}
+
+PicInPic.ratio = 0.75;
+
+PicInPic.size = {
+    width : 0,
+    height : 0
+}
 
 /**
- * 显示文档内容动作按钮
+ * 初始化画中画
  */
-ContentAssist.showCopyCodeBlockButton = function () {
-    // 移动端不显示该动作按钮
-    if (env.device.mobile)
-        return;
+PicInPic.init = function () {
+    PicInPic.ui.body = $(".mdx-pic-in-pic");
+    PicInPic.ui.content = $(".mdx-pic-in-pic > .mdx-content");
+    PicInPic.ui.zoom = $(".mdx-pip-btn.mdx-zoom");
+    PicInPic.ui.close = $(".mdx-pip-btn.mdx-close");
 
-    VLOOK.ui.hide(ContentAssist.button.copyCodeBlock);
-
-    ContentAssist.button.copyCodeBlock.css({
-        "left" : ContentAssist.lastHoverContent.offset().left
-            + ContentAssist.lastHoverContent.width() + 1
-            - ContentAssist.button.copyCodeBlock.width(),
-        "top" : ContentAssist.lastHoverContent.offset().top + 3
+    // 缩放事件处理
+    PicInPic.ui.zoom.unbind("click").click(function () {
+        let zoom = $(this),
+            pipBtn = $(".mdx-pip-btn");
+        if (PicInPic.ratio === 1) {
+            PicInPic.ratio = 0.75;
+            pipBtn.removeClass("zoom-in").addClass("zoom-out");
+            zoom.html(VLOOK.ui.generateSvgIcon("icoZoomIn", 16, 16, "theme"));
+        }
+        else {
+            PicInPic.ratio = 1;
+            pipBtn.removeClass("zoom-out").addClass("zoom-in");
+            zoom.html(VLOOK.ui.generateSvgIcon("icoZoomOut", 16, 16, "theme"));
+        }
+        PicInPic.zoom();
     });
 
-    VLOOK.ui.show(ContentAssist.button.copyCodeBlock);
+    PicInPic.ui.close.unbind("click").click(function () {
+        PicInPic.hide();
+    });
+
+    PicInPic.ui.body.hover(function () {
+        // 高度过小时调整操作按钮位置
+        if (PicInPic.ui.body.height() < 30) {
+            PicInPic.ui.zoom.addClass("min");
+            PicInPic.ui.close.addClass("min");
+        }
+        else {
+            PicInPic.ui.zoom.removeClass("min");
+            PicInPic.ui.close.removeClass("min");
+        }
+        VLOOK.ui.show(PicInPic.ui.zoom);
+        VLOOK.ui.show(PicInPic.ui.close);
+    }, function () {
+        VLOOK.ui.hide(PicInPic.ui.zoom);
+        VLOOK.ui.hide(PicInPic.ui.close);
+    });
 }
 
 /**
- * 隐藏内容辅助动作按钮
+ * 显示画中画
+ *
+ * @param source 显示内容的来源对象
  */
-ContentAssist.hideButtons = function () {
-    if (ContentAssist.lastHoverContent === undefined || ContentAssist.mouseDropIn() === false) {
-        VLOOK.ui.hide(ContentAssist.button.copyCodeBlock);
+PicInPic.show = function (source) {
+    PicInPic.calcSize();
+
+    // 清空原有内容（除关闭按钮）
+    PicInPic.ui.content.empty();
+
+    // 为画中画进行克隆处理
+    let pic = __cloneForPicInPic(source);
+
+    // 缩放并显示
+    PicInPic.zoom();
+    PicInPic.ui.body.show();
+
+    // 根据内容调整画中画的展示
+    PicInPic.fitContentSize(pic);
+    PicInPic.ui.content.scrollTop(0);
+
+    /**
+     * 为画中画进行克隆处理
+     *
+     * @param source 源对象
+     */
+    function __cloneForPicInPic (source) {
+        let openAll = false,
+            tagName = source.prop("tagName").toLowerCase();
+        // 针对表格的处理
+        if (tagName === "table") {
+            // 1. 先展开所有行分组
+            openAll = RowGroup.openAll(source);
+            // 2. 先展开长内容
+            let container = source.parent().parent();
+            if (container.attr("data-vk-content-folded") === "true")
+                iContentFolder.expand(container.next());
+        }
+
+        // 将来源对象的内容进行克隆
+        let newClone = source.clone();
+        newClone.css({
+            "margin" : 0,
+            "border" : 0
+        });
+        PicInPic.ui.content.append(newClone);
+
+        // 针对插图的处理
+        if (tagName === "img" || tagName === "svg") {
+            newClone.removeAttr("data-vk-fig-num");
+        }
+
+        // 对展开了所有行分组的表格进行克隆后的干净处理
+        if (openAll === true) {
+            RowGroup.reset(newClone); // 重置、切断
+            RowGroup.closeAll(source); // 全部收起
+        }
+
+        return newClone;
     }
 }
 
 /**
- * 鼠标光标落入最后 Hover 的内容上
+ * 隐藏画中画
  */
-ContentAssist.mouseDropIn = function () {
-    let e = (event || window.event),
-        target = ContentAssist.lastHoverContent;
-    const mx = e.pageX || e.clientX + document.body.scrollLeft;
-    const my = e.pageY || e.clientY + document.body.scrollTop;
-    return !(mx < target.offset().left || mx > (target.offset().left + target.width()) ||
-        my < target.offset().top || my > (target.offset().top + target.height()));
+PicInPic.hide = function () {
+    PicInPic.ui.body.hide();
+}
+
+/**
+ * 计算画中画建议的基准尺寸
+ */
+PicInPic.calcSize = function () {
+    // 计算基准大小
+    let baseW = 550,
+        baseH = 350,
+        w = $(window).width() / 2.5,
+        h = $(window).height() / 3;
+    PicInPic.size.width = w < baseW ? baseW : w;
+    PicInPic.size.height = h < baseH ? baseH : h;
+    PicInPic.ui.body.css({
+        "width" : PicInPic.size.width,
+        "height" : PicInPic.size.height
+    });
+}
+
+/**
+ * 调整画中画的基准大小，以适应内容的实际大小
+ */
+PicInPic.fitContentSize = function (source) {
+    // 宽度
+    let tagName = source.prop("tagName").toLowerCase(),
+        w = source.width(),
+        h = source.height(),
+        sourcePadding = parseInt(source.css("padding-top")) * 2,
+        uiPadding = parseInt(PicInPic.ui.body.css("padding-top")) * 2;
+
+    // 针对图片尺寸的兼容性处理（部分浏览器不使用该处理尺寸不正常，如：Firefox）
+    if (tagName === "img") {
+        let img = new Image();
+        img.src = source.attr("src");
+        if (img.complete)
+            __getImgSize(img);
+        else
+            img.onload = function () {
+                __getImgSize(img);
+            }
+    }
+
+    // 宽度
+    let wWithPadding = w + sourcePadding;
+    if (w > 0 && (wWithPadding) < PicInPic.size.width) {
+        PicInPic.size.width = w;
+        PicInPic.ui.body.css({
+            "width" : wWithPadding,
+            "transform-origin" : PicInPic.size.width + "px " + PicInPic.size.height + "px"
+        });
+    }
+    // 高度
+    let hWithPadding = h + uiPadding + sourcePadding;
+    if (h > 0 && (hWithPadding) < PicInPic.size.height) {
+        // 针对会进行等比缩放的对象进行高度微调
+        if ((tagName === "img" || tagName === "svg")
+            && h > source.height()) {
+                h = source.height();
+        }
+        PicInPic.size.height = h;
+        PicInPic.ui.body.css({
+            "height" : hWithPadding,
+            "transform-origin" : PicInPic.size.width + "px " + PicInPic.size.height + "px"
+        });
+    }
+
+    /**
+     * 获得 img 对象的实际长宽
+     * @param img img 对象
+     */
+    function __getImgSize(img) {
+        w = img.width;
+        h = img.height;
+    }
+}
+
+/**
+ * 放大、缩放显示
+ */
+PicInPic.zoom = function () {
+    VLOOK.ui.removeAnimate(PicInPic.ui.zoom);
+    VLOOK.ui.removeAnimate(PicInPic.ui.close);
+
+    PicInPic.ui.body.css({
+        "transform" : "scale(" + PicInPic.ratio + ")",
+        "transform-origin" : PicInPic.size.width + "px " + PicInPic.size.height + "px"
+    });
+
+    setTimeout(function () {
+        VLOOK.ui.addAnimate(PicInPic.ui.zoom);
+        VLOOK.ui.addAnimate(PicInPic.ui.close);
+    }, 50);
 }
 
 // ==================== 聚光灯类 ==================== //
@@ -2726,17 +3061,7 @@ function Spotlight(radius, tips) {
         this.enable = true;
         $(this.pointerScope).addClass("mdx-cursor-laser");
 
-        this.tips.show("<kbd>ESC</kbd>" + [
-            "退出",
-            "退出",
-            "Exit",
-            "Sortie",
-            "Ausfahrt",
-            "Salida",
-            "Выход",
-            "終了",
-            "종료"
-        ][VLOOK.lang.id]);
+        this.tips.show("<kbd>ESC</kbd>" + ["退出", "退出", "Exit", "Sortie", "Ausfahrt", "Salida", "Выход", "終了", "종료"][VLOOK.lang.id]);
     }
 
     /**
@@ -2835,6 +3160,7 @@ function SegmentControl(control, group) {
                 + '</label>';
         this.ui.append(ui);
         target.ui.entry = this.ui.children(".mdx-segment-btn." + name);
+        VLOOK.ui.addAnimate(target.ui.entry);
 
         // 指定为默认选项
         if (checked === true) {
@@ -2922,23 +3248,25 @@ function NavCenter(mask) {
     this.indexs = new SegmentControl($(".mdx-segment.toc"), "toc-segment");
 
     // 目录索引组件
-    this.catalog = this.indexs.add(new TocCatalog(), "catalog", "icoTocTabCatalog", true);
+    this.catalog = this.indexs.add(new TocCatalog(this.indexs.ui, false), "catalog", "icoTocTabCatalog", true);
     // 插图索引组件
-    this.figure = this.indexs.add(new TocFigure(true), "figure", "icoTocTabFigure");
+    this.figure = this.indexs.add(new TocFigure(this.indexs.ui, true), "figure", "icoTocTabFigure");
     // 表格索引组件
-    this.table = this.indexs.add(new TocTable(true), "table", "icoTocTabTable");
+    this.table = this.indexs.add(new TocTable(this.indexs.ui, true), "table", "icoTocTabTable");
     // 多媒体索引组件
-    this.multimedia = this.indexs.add(new TocMultimedia(true), "multimedia", "icoTocTabMultimedia");
+    this.multimedia = this.indexs.add(new TocMultimedia(this.indexs.ui, true), "multimedia", "icoTocTabMultimedia");
     // 代码块索引组件
-    this.codeblock = this.indexs.add(new TocCodeblock(true), "codeblock", "icoTocTabCodeblock");
+    this.codeblock = this.indexs.add(new TocCodeblock(this.indexs.ui, true), "codeblock", "icoTocTabCodeblock");
     // 访问历史组件
-    this.history = this.indexs.add(new TocHistory(true), "history", "icoTocTabHistory");
+    this.history = this.indexs.add(new TocHistory(this.indexs.ui, true), "history", "icoTocTabHistory");
 
     // 遮罩
     this.mask = mask;
     this.mask.bindPartner(this, this.ui);
 
     this.indexs.update();
+
+    VLOOK.ui.addAnimate(this.handle);
 
     /**
      * 当前章节变化事件
@@ -2952,11 +3280,11 @@ function NavCenter(mask) {
     /**
      * 回到封面事件
      */
-    this.catalog.onGotoCover = function () {
-        that.adjust();
-        that.chapterNav.adjust();
-        that.toolbar.adjust();
-    }
+    // this.catalog.onGotoCover = function () {
+    //     that.adjust();
+    //     that.chapterNav.adjust();
+    //     that.toolbar.adjust();
+    // }
 
     /**
      * 组件内触发锚点点击
@@ -2978,6 +3306,29 @@ function NavCenter(mask) {
     }
     this.history.onClickHash = function () {
         that.adjustClickHash();
+    }
+
+    /**
+     * 跳转回文档封面
+     */
+    this.gotoCover = function () {
+        VLOOK.report.push(['Outline', 'Goto', 'Cover', 0]);
+        window.location.href = "#";
+        // 【有封面】模式时处理
+        if (VOM.cover() !== undefined) {
+            if (this.catalog.currentItem !== undefined) {
+                this.catalog.currentItem.removeClass("mdx-toc-item-current");
+                this.catalog.currentHeaderIndex = -1;
+            }
+            this.adjust();
+            this.chapterNav.adjust();
+            this.toolbar.adjust();
+        }
+        // 【无封面】模式时处理
+        else {
+            // VLOOK.ui.unbindHover(this.chapterNav.docTitle);
+            iToolTips.hide();
+        }
     }
 
     /**
@@ -3201,7 +3552,7 @@ function NavCenter(mask) {
             return;
 
         // 鼠标离左边缘小于指定值时
-        if (event.clientX <= 10) {
+        if (event.clientX <= 20) {
             if (this.snapTimer != null)
                 return;
 
@@ -3211,7 +3562,7 @@ function NavCenter(mask) {
             this.snapTimer = setTimeout(function () {
                 that.handle.removeClass("hover");
                 that.show("float");
-            }, 600);
+            }, 500);
         }
         else {
             // 未显示导航中心前离开边缘则取消显示
@@ -3320,57 +3671,73 @@ NavCenter.hideOnError = function () {
  * 构造函数
  *
  * @param navCenter 关联的导航中心对象
- * @param toolTips 工具提示对象
  */
-function ChapterNav(navCenter, toolTips) {
-    let that = this;
+function ChapterNav(navCenter) {
+    let that = this,
+        __prev = ".mdx-chapter-nav-prev",
+        __current = ".mdx-chapter-nav-current",
+        __next = ".mdx-chapter-nav-next",
+        __docTitle = ".mdx-chapter-nav-doc-title";
     // 逐章导航面板主界面
     this.ui = $(".mdx-chapter-nav");
 
     this.prev = {
-        ui : $(".mdx-chapter-nav-prev"), // 前一章界面
+        ui : $(__prev), // 前一章界面
         text: $(".mdx-chapter-nav-prev-text"), // 前一章文本界面
     };
 
     this.current = {
-        ui : $(".mdx-chapter-nav-current"), // 当前章节界面
+        ui : $(__current), // 当前章节界面
     };
 
     this.next = {
-        ui : $(".mdx-chapter-nav-next"), // 后一章界面
+        ui : $(__next), // 后一章界面
         text : $(".mdx-chapter-nav-next-text"), // 后一章文本界面
     };
 
+    // 文档标题
+    this.docTitle = $(__docTitle);
+    this.docTitle.text($(document).attr("title"));
+
     // 关联的导航中心对象
     this.navCenter = navCenter;
-    this.toolTips = toolTips;
 
-    // 初始化动效
-    // 因 CSS 的 transition 不变动渐变背景过渡效果，须通过增/减不同的预置样式实现过渡效果
-    if (VLOOK.ui.effects >= 1) {
-        this.prev.ui.addClass("mdx-chapter-nav-prev-effect");
-        VLOOK.ui.addAnimate($(".mdx-chapter-nav-prev-effect"));
-
-        this.current.ui.addClass("mdx-chapter-nav-current-effect");
-        VLOOK.ui.addAnimate($(".mdx-chapter-nav-current-effect"));
-
-        this.next.ui.addClass("mdx-chapter-nav-next-effect");
-        VLOOK.ui.addAnimate($(".mdx-chapter-nav-next-effect"));
+    /**
+     * 初始化动效
+     */
+    this.adjustEffects = function (target) {
+        // 因 CSS 的 transition 不变动渐变背景过渡效果，须通过增/减不同的预置样式实现过渡效果
+        if (VLOOK.ui.effects >= 1) {
+            $(target).addClass("effect");
+            VLOOK.ui.addAnimate($(target + ".effect"));
+        }
+        else {
+            target.removeClass("effect").addClass("noeffect");
+        }
     }
+    // 初始化动效
+    this.adjustEffects(__prev);
+    this.adjustEffects(__current);
+    this.adjustEffects(__next);
+    this.adjustEffects(__docTitle);
 
     /**
      * 跳转至前一章节
      */
     this.prev.ui.unbind("click").click(function () {
-        that.navCenter.catalog.gotoHeader(that.prev.text);
-    });
-    // hover 事件处理
-    this.prev.ui.hover(function () {
-        that.toolTips.show($(this), "auto");
-    }, function () {
-        that.toolTips.hide();
+        if (that.prev.text.attr("data-vk-anchor") === "cover")
+            that.navCenter.gotoCover();
+        else
+            that.navCenter.catalog.gotoHeader(that.prev.text);
     });
 
+    /**
+     * 回到封面
+     */
+    this.docTitle.unbind("click").click(function () {
+        if ($(this).attr("disabled") === undefined)
+            that.navCenter.gotoCover();
+    });
 
     /**
      * 跳转至当前章节
@@ -3378,24 +3745,12 @@ function ChapterNav(navCenter, toolTips) {
     this.current.ui.unbind("click").click(function () {
         that.navCenter.catalog.gotoHeader(that.current.ui);
     });
-    // hover 事件处理
-    this.current.ui.hover(function () {
-        that.toolTips.show($(this), "center");
-    }, function () {
-        that.toolTips.hide();
-    });
 
     /**
      * 跳转至后一章节
      */
     this.next.ui.unbind("click").click(function () {
         that.navCenter.catalog.gotoHeader(that.next.text);
-    });
-    // hover 事件处理
-    this.next.ui.hover(function () {
-        that.toolTips.show($(this), "right");
-    }, function () {
-        that.toolTips.hide();
     });
 
     /**
@@ -3407,36 +3762,50 @@ function ChapterNav(navCenter, toolTips) {
         // ----------------------------------------
         // 更新「上一章」导航内容
         if (currentIndex > 0) {
+            this.prev.ui.show();
             this.prev.ui.css("display", "block");
-            // this.prev.text.text($("a[href='#" + this.navCenter.catalog.headers[currentIndex - 1] + "']").parent().attr("title"));
             this.prev.text.text($("#" + this.navCenter.catalog.headers[currentIndex - 1]).text());
             this.prev.text.attr({
                 "title" : this.prev.text.text(),
                 "data-vk-anchor" : this.navCenter.catalog.headers[currentIndex - 1]
             });
+
+            // 【无封面】模式时处理
+            if (VOM.cover() === undefined) {
+                this.docTitle.removeClass("in-start");
+                this.docTitle.removeAttr("disabled");
+                this.adjustEffects(__docTitle);
+                __bindEvent(this.docTitle, "center");
+            }
         }
-        // 当前章节为第1章时特殊处理，设置为「封面」
-        else if (currentIndex === 0) {
-            this.prev.text.text([
-                "封面",
-                "封面",
-                "Cover",
-                "Couverture",
-                "Startseite",
-                "Cubrir",
-                "передняя крышка",
-                "カバー",
-                "표지"
-            ][VLOOK.lang.id]);
+        // 当前章节为第 1 章时特殊处理，设置为「封面」
+        else if (this.navCenter.catalog.inFirstHeader()) {
+            this.prev.text.text(["封面", "封面", "Cover", "Couverture", "Startseite", "Cubrir", "передняя крышка", "カバー", "표지"][VLOOK.lang.id]);
             this.prev.text.attr({
                 "title" : this.prev.text.text(),
                 "data-vk-anchor" : "cover"
             });
         }
+        // 「无封面」模式时对「文档标题」章节的特殊处理
+        else if (this.navCenter.catalog.inDocTitle()) {
+            this.prev.ui.hide();
+            this.current.ui.hide();
+            // 调整为在文档开始位置时的样式
+            this.docTitle.removeClass("noeffect effect hover");
+            this.docTitle.addClass("in-start");
+            this.docTitle.attr("disabled", "true");
+            VLOOK.ui.unbindHover(this.docTitle);
+        }
 
         // ----------------------------------------
         // 更新「当前章节」导航内容
         if (this.navCenter.catalog.currentItem !== undefined) {
+            // 【无封面】模式
+            if (this.navCenter.catalog.inDocTitle())
+                this.current.ui.hide();
+            else
+                this.current.ui.show();
+
             this.current.ui.text(this.navCenter.catalog.currentItem.attr("title"));
             this.current.ui.attr("data-vk-anchor", this.navCenter.catalog.headers[currentIndex]);
         }
@@ -3500,8 +3869,10 @@ function ChapterNav(navCenter, toolTips) {
             this.next.text.attr("data-vk-anchor", this.navCenter.catalog.headers[0]);
         }
         // 不在封面时，显示逐章导航栏
-        else
+        else {
             this.show();
+            this.update();
+        }
     }
 
     /**
@@ -3517,42 +3888,30 @@ function ChapterNav(navCenter, toolTips) {
         // 非移动设备时绑定样式事件
         else {
             // 上一章
-            this.prev.ui.hover(function () {
-                if (VLOOK.ui.effects >= 1)
-                    $(this).addClass("mdx-chapter-nav-prev-effect-hover");
-                else
-                    $(this).addClass("mdx-chapter-nav-prev-noeffect-hover");
-            }, function () {
-                if (VLOOK.ui.effects >= 1)
-                    $(this).removeClass("mdx-chapter-nav-prev-effect-hover");
-                else
-                    $(this).removeClass("mdx-chapter-nav-prev-noeffect-hover");
-            });
+            __bindEvent(this.prev.ui, "auto");
+            // 文档标题
+            __bindEvent(this.docTitle, "center");
             // 当前章节
-            this.current.ui.hover(function () {
-                if (VLOOK.ui.effects >= 1)
-                    $(this).addClass("mdx-chapter-nav-current-effect-hover");
-                else
-                    $(this).addClass("mdx-chapter-nav-current-noeffect-hover");
-            }, function () {
-                if (VLOOK.ui.effects >= 1)
-                    $(this).removeClass("mdx-chapter-nav-current-effect-hover");
-                else
-                    $(this).removeClass("mdx-chapter-nav-current-noeffect-hover");
-            });
-            // 下一单
-            this.next.ui.hover(function () {
-                if (VLOOK.ui.effects >= 1)
-                    $(this).addClass("mdx-chapter-nav-next-effect-hover");
-                else
-                    $(this).addClass("mdx-chapter-nav-next-noeffect-hover");
-            }, function () {
-                if (VLOOK.ui.effects >= 1)
-                    $(this).removeClass("mdx-chapter-nav-next-effect-hover");
-                else
-                    $(this).removeClass("mdx-chapter-nav-next-noeffect-hover");
-            });
+            __bindEvent(this.current.ui, "center");
+            // 下一章
+            __bindEvent(this.next.ui, "right");
         }
+    }
+
+    /**
+     *
+     * 绑定操作相关事件
+     *
+     * @param source 对象
+     * @param align 对齐方式，auto/center/right
+     */
+    function __bindEvent(source, align) {
+        VLOOK.ui.bindHover(source);
+        source.hover(function () {
+            iToolTips.show(source, align);
+        }, function () {
+            iToolTips.hide();
+        });
     }
 
     /**
@@ -3831,7 +4190,7 @@ ParagraphNav.init = function() {
     $("li > p:only-child").contents().unwrap();
 
     // 初始化
-    $("h1, h2, h3, h4, h5, h6, ul > li, ol > li, p[class!=md-toc-content][class!=mdx-figure-caption-1][class!=mdx-figure-caption-2], figure, .md-diagram-panel, .MathJax_SVG_Display").each(function () {
+    $("h1, h2, h3, h4, h5, h6, ul > li, ol > li, p[class!=md-toc-content][class!=mdx-caption-1][class!=mdx-caption-2], figure, .md-diagram-panel, .MathJax_SVG_Display").each(function () {
         let item = $(this);
         // 跳过子元素有嵌套p的情况，如li > p
         if (item.children("p").length === 0) {
@@ -3902,34 +4261,41 @@ ThreeClicker.tick = function () {
  *
  * @param navCenter 导航中心对象
  * @param chapterNav 章节导航对象
- * @param toolTips 工具提示对象
  */
-function Toolbar(navCenter, chapterNav, toolTips) {
+function Toolbar(navCenter, chapterNav) {
     let that = this;
     this.ui = $(".mdx-toolbar"); // 工具栏主界面
     this.buttons = []; // 工具栏按钮集
     this.navCenter = navCenter;
     this.chapterNav = chapterNav;
-    this.toolTips = toolTips;
 
     /**
      * 添加按钮
      *
      * @param name 按钮标识
+     * @param clickEvent 按钮点击事件回调函数
      */
     this.add = function (name, clickEvent) {
         this.buttons[name] = $(".mdx-btn." + name);
 
         this.buttons[name].unbind("click").click(function () {
-            that.toolTips.hide();
+            iToolTips.hide();
             typeof(clickEvent) == "function" && clickEvent();
         });
 
         // hover 事件处理
         this.buttons[name].hover(function () {
-            that.toolTips.show($(this), "auto");
+            let btn = $(this),
+                btnGroup = btn.attr("data-vk-btn-group");
+            if (btnGroup !== undefined)
+                $(".mdx-btn-group." + btnGroup).addClass("hover");
+            iToolTips.show(btn, "auto");
         }, function () {
-            that.toolTips.hide();
+            let btn = $(this),
+                btnGroup = btn.attr("data-vk-btn-group");
+            if (btnGroup !== undefined)
+                $(".mdx-btn-group." + btnGroup).removeClass("hover");
+            iToolTips.hide();
         });
     }
 
@@ -3960,8 +4326,6 @@ function Toolbar(navCenter, chapterNav, toolTips) {
             // 调整具栏按钮分隔空间
             VLOOK.util.setStyleValue("--vlook-toolbar-btn-space", "5px");
 
-            this.ui.children(".mdx-btn").addClass("mdx-float-card");
-
             let offsetY = parseInt(this.chapterNav.ui.css("top"));
             // 小屏
             if (VLOOK.ui.isSmallScreen()) {
@@ -3982,7 +4346,8 @@ function Toolbar(navCenter, chapterNav, toolTips) {
             this.ui.addClass("cover");
 
             // 为去掉工具栏背景的按钮添加浮动样式
-            this.ui.children(".mdx-btn").addClass("mdx-btn-float");
+            this.ui.children(".mdx-btn, .mdx-btn-group").addClass("mdx-float-card");
+            this.ui.children(".mdx-btn, .mdx-btn-group").addClass("float");
 
             // 大屏，回到封面及最开始位置进行二次调整
             if (VLOOK.ui.isSmallScreen() === false
@@ -4036,17 +4401,17 @@ function Toolbar(navCenter, chapterNav, toolTips) {
             // 调整具栏按钮分隔空间
             VLOOK.util.setStyleValue("--vlook-toolbar-btn-space", "2px");
 
+            // 调整工具栏样式
             this.ui.removeClass("cover");
-            this.ui.children(".mdx-btn").removeClass("mdx-float-card");
             this.ui.addClass("mdx-float-card");
 
             // 微调工具栏分隔宽度
-            let btnCount = this.ui.children(".mdx-btn").length,
+            let btnCount = this.ui.find(".mdx-btn").length,
                 btnWidth = parseInt(VLOOK.util.getStyleValue("--vlook-toolbar-btn-width")),
                 space = parseInt(VLOOK.util.getStyleValue("--vlook-toolbar-btn-space"));
             this.buttons["toolbar-spliter"].css({
                 "width" : "calc((var(--vlook-nav-center-width) - "
-                    + (btnCount * btnWidth + parseInt(this.ui.css("padding-left")) * 2 + (btnCount - 2 ) * space) + "px) / 2)"
+                    + (btnCount * btnWidth + parseInt(this.ui.css("padding-left")) * 2 + (btnCount - 4) * space) + "px) / 2)"
             });
 
             this.ui.css({
@@ -4055,7 +4420,8 @@ function Toolbar(navCenter, chapterNav, toolTips) {
                 "top" : 0
             });
             // 为增加了工具栏按钮的背景去掉浮动样式
-            this.ui.children(".mdx-btn").removeClass("mdx-btn-float");
+            this.ui.children(".mdx-btn, .mdx-btn-group").removeClass("mdx-float-card");
+            this.ui.children(".mdx-btn, .mdx-btn-group").removeClass("float");
         } // else
         this.ui.show();
     }
@@ -4073,9 +4439,7 @@ function Toolbar(navCenter, chapterNav, toolTips) {
             this.buttons["color-scheme"].html(
                 "<svg width='20px' height='20px'><use xlink:href='#icoLightMode' class='mdx-svg-ico-light'/></svg>"
             );
-}
-
-
+    }
 }
 
 // ==================== 颜色方案类 ==================== //
@@ -4389,17 +4753,7 @@ function FontStyler(mask) {
 
         // 加载超时检测
         setTimeout(function () {
-            let langTimeout = "❌ " + [
-                    "超时",
-                    "超時",
-                    "Timeout",
-                    "Temps libre",
-                    "Auszeit",
-                    "Se acabó el tiempo",
-                    "Тайм-аут",
-                    "タイムアウト",
-                    "타임 아웃"
-                ][VLOOK.lang.id];
+            let langTimeout = "❌ " + ["超时", "超時", "Timeout", "Temps libre", "Auszeit", "Se acabó el tiempo", "Тайм-аут", "タイムアウト", "타임 아웃"][VLOOK.lang.id];
             if (that.sansStyle.fonts.length > 0)
                 $("#fontset-sans-status").text(langTimeout);
             if (that.serifStyle.fonts.length > 0)
@@ -4442,28 +4796,8 @@ function FontStyler(mask) {
                 document.fonts.add(loadedFontFace);
 
                 let fontID = fontFamily + "/" + fontStyle + "/" + fontWeight,
-                    langReady = "✅ " + [
-                        "已就绪",
-                        "已就緒",
-                        "Ready",
-                        "Prêt",
-                        "Bereit",
-                        "Listo",
-                        "готов",
-                        "準備完了",
-                        "준비된"
-                    ][VLOOK.lang.id],
-                    langLoading = [
-                        "加载中",
-                        "加載中",
-                        "Loading",
-                        "Chargement",
-                        "Wird geladen",
-                        "Cargando",
-                        "Загрузка",
-                        "読み込み中",
-                        "로딩 중"
-                    ][VLOOK.lang.id];
+                    langReady = "✅ " + ["已就绪", "已就緒", "Ready", "Prêt", "Bereit", "Listo", "готов", "準備完了", "준비된"][VLOOK.lang.id],
+                    langLoading = ["加载中", "加載中", "Loading", "Chargement", "Wird geladen", "Cargando", "Загрузка", "読み込み中", "로딩 중"][VLOOK.lang.id];
                 console.log("_____ FONT LOADED _____ ");
                 console.log(fontID);
 
@@ -4578,7 +4912,7 @@ function FontStyler(mask) {
             + ", .noteText tspan";
             // + ", ruby";
         let title = "#write > pre.md-meta-block:first-child + h6, #write > h6:first-child"
-            + ", #write > h6:last-of-type"
+            + ", .mdx-backcover, #write > h6:last-of-type"
             + ", .mdx-welcome-page";
         let subtitle = ".mdx-copyright"
             + ", #write > pre.md-meta-block:first-child + h6 strong, #write > h6:first-child strong"
@@ -4614,9 +4948,7 @@ function FontStyler(mask) {
             + ", .mdx-tag-value4"
             + ", .mdx-tag-value5"
             + ", .mdx-tag-value6";
-        let header = "h1, h2, h3, h4, h5, h6"
-            + ", #write > pre.md-meta-block:first-child + h6 sub, #write > h6:first-child sub"
-            + ", #write > pre.md-meta-block:first-child + h6 sup, #write > h6:first-child sup";
+        let header = "h1, h2, h3, h4, h5, h6";
         let bold = "a, strong"
             + ", table > thead > tr > th"
             + ", table > thead > tr > td"
@@ -4640,7 +4972,7 @@ function FontStyler(mask) {
             + ", .taskTextOutsideRight"
             + ", .taskTextOutsideLeft"
             + ", .titleText"
-            + ", .mdx-figure-caption > p"
+            + ", .mdx-caption > p"
             + ", rp, rt";
         let number = ".mdx-tbl-col-fmt-num";
         let code = "figure table tr::before"
@@ -4800,19 +5132,28 @@ function FootNote(mask) {
  * 初始化脚注
  */
 FootNote.init = function () {
-    // 将脚注调整到封底前，VLOOK 规范的文档中最后一个 <h6> 是封底
+    // 将 Typora 的脚注调整到封底前，VLOOK 规范的文档中最后一个 <h6> 是封底
     let footnotesArea = $(".footnotes-area");
-    footnotesArea.insertBefore(VOM.backcover());
+    // 「有封面」模式
+    if (VOM.backcover() === undefined)
+        footnotesArea.insertBefore(VOM.backcover());
+    // 「无封面」模式
+    else
+        VOM.doc().append(footnotesArea);
+
+    // 将 VLOOK 生成的脚注区锚点调整到生成 HTML 后的实际位置
+    $("#vk-footer-area").insertBefore(footnotesArea);
 
     // 移除默认的跳转属性
     let a = $("a[name^='ref-footnote-'], a[id^='ref-footnote-']");
     a.removeAttr("href");
-
     // 将脚注角标的事件替换为指定的处理事件
     a.unbind("click").click(function () {
-        let target = $("a[name='df" + $(this).attr("name") + "']", "a[id='df" + $(this).attr("name") + "']").parent().clone();
+        // 获取脚注【返回】链接对应的脚注原文信息
+        let target = $("a[name='df" + $(this).attr("name") + "'], a[id='df" + $(this).attr("name") + "']").parent().clone();
 
         // 更新脚注弹层内容区
+        console.log(target, target.text());
         iFootNote.content.html(target);
         // 移除默认的返回链接
         target.find("a[name^='dfref-footnote'], a[id^='dfref-footnote']").remove();
@@ -4820,11 +5161,8 @@ FootNote.init = function () {
         // 显示脚注弹层
         iFootNote.show();
     });
-
-    // 将脚注区锚点调整到生成HTML后的实际位置
-    $("#vk-footer-area").insertBefore(footnotesArea);
-
-    $("a[name^='dfref-footnote'], a[id^='dfref-footnote']").remove();
+    // 隐藏脚注中的【返回】链接
+    $("a[name^='dfref-footnote'], a[id^='dfref-footnote']").hide();
 }
 
 // ==================== 链接检查器类 ==================== //
@@ -4929,6 +5267,12 @@ function LinkChecker(mask) {
         if (this.ui.result.isHidden()) {
             this.ui.result.addClass("mdx-link-result-error");
             this.ui.result.html(this.icon.error);
+
+            // 更新状态栏中的样式
+            $(".mdx-doc-info").css({
+                "border-radius" : "var(--vlook-small-radius) 0 0 var(--vlook-small-radius)"
+            });
+
             // 点击图标行为
             this.ui.result.unbind("click").click(function () {
                 if (that.ui.list.isHidden())
@@ -4983,9 +5327,9 @@ function LinkChecker(mask) {
  *
  * @param id 标识
  * @param style 扩展样式：left / right / bottom / center
- * @param closer 是否显示关闭提示器
+ * @param close 是否显示关闭提示器
  */
-function BackgroundMask(id, style, closer) {
+function BackgroundMask(id, style, close) {
     let that = this;
     this.style = style;
 
@@ -4998,14 +5342,14 @@ function BackgroundMask(id, style, closer) {
     VLOOK.ui.initEffects();
 
     this.ui = $(".mdx-mask." + id);
-    this.closer = undefined;
+    this.close = undefined;
 
     // 生成关闭提示器
-    if (closer !== undefined && closer === true) {
-        this.ui.append('<div class="mdx-mask-closer ' + this.style + '">'
-            + VLOOK.ui.generateSvgIcon("icoCloserTo-" + this.style, 60, 60, "light")
+    if (close !== undefined && close === true) {
+        this.ui.append('<div class="mdx-mask-close ' + this.style + '">'
+            + VLOOK.ui.generateSvgIcon("icoCloseTo-" + this.style, 60, 60, "light")
             + '</div>');
-        this.closer = this.ui.children(".mdx-mask-closer");
+        this.close = this.ui.children(".mdx-mask-close");
     }
 
     this.partner = undefined;
@@ -5034,29 +5378,29 @@ function BackgroundMask(id, style, closer) {
         this.ui.css("z-index", this.partnerUI.css("z-index") - 1);
 
         // 「关闭提示器」的处理
-        if (this.closer !== undefined) {
+        if (this.close !== undefined) {
             // 默认是 style = left 的位置
             let offset = 30,
                 x = parseInt(this.partnerUI.css("left")) + this.partnerUI.width() + offset,
-                y = parseInt(this.partnerUI.css("top")) + (this.partnerUI.height() - this.closer.height()) / 2;
+                y = parseInt(this.partnerUI.css("top")) + (this.partnerUI.height() - this.close.height()) / 2;
             // left / right 的处理
             if (this.style === "left" || this.style === "right") {
-                this.closer.css({
+                this.close.css({
                     "left" : this.style === "right"
-                        ? parseInt(this.partnerUI.css("left")) - this.closer.width() - offset
+                        ? parseInt(this.partnerUI.css("left")) - this.close.width() - offset
                         : x,
                     "top" : y
                 });
             }
             // bottom 的处理
             else if (this.style === "bottom") {
-                // x = parseInt(this.partnerUI.css("left")) + (this.partnerUI.width() - this.closer.width()) / 2;
+                // x = parseInt(this.partnerUI.css("left")) + (this.partnerUI.width() - this.close.width()) / 2;
                 y = parseInt(this.partnerUI.css("bottom")) + this.partnerUI.height() + offset;
-                this.closer.css({
+                this.close.css({
                     "left" : "auto",
                     "top" : "auto",
                     "bottom" : y,
-                    "margin-left" : "-" + (this.closer.width() / 2) + 'px',
+                    "margin-left" : "-" + (this.close.width() / 2) + 'px',
                     "padding" : "0px 50%"
                 });
             }
@@ -5096,6 +5440,8 @@ function ContentFolder() {
     this.limit = VLOOK.debugMode ? 300 : 600; // 内容须折叠的高度限值
     this.contents = []; // 须进行折叠判断和处理的内容集
     this.buildTimers = [];
+
+    this.rowNumFilter = "table tbody tr";
 
     /**
      * 添加内容
@@ -5246,7 +5592,6 @@ function ContentFolder() {
         }
 
         let expander,
-            rowNumFilter = "table tbody tr",
             w = parseInt(container.css("width"));
 
         // 上一轮构建时没有生成展开操作区，则生成一个新的
@@ -5260,7 +5605,7 @@ function ContentFolder() {
 
         // 如果处理对象为表格，先隐藏表格行号，find 过滤器的内容与对应的 css 要同步更新
         if (container.find("table").length > 0)
-            container.find(rowNumFilter).addClass("mdx-tbl-row-num-hidden");
+            container.find(this.rowNumFilter).addClass("mdx-tbl-row-num-hidden");
 
         // 动态生成按钮文本内容
         let btn = expander.find("div > span");
@@ -5285,37 +5630,46 @@ function ContentFolder() {
 
         // 展开按钮 click 事件处理
         expander.children(".mdx-btn").unbind("click").click(function () {
-            VLOOK.report.push(['Interactive', VLOOK.report.transTagName(tagName), 'ExpandLongContent', 0]);
-
-            let expander = $(this).parent(),
-                container = expander.prev();
-
-            // 移除内容展开操作区
-            expander.remove();
-
-            // 展开对应的内容
-            container.attr("data-vk-content-folded", "false");
-            container.attr("data-vk-content-expanded", "true");
-            container.css({
-                "height" : "auto"
-            });
-            // 针对表格 <table>、Mermaid <svg> 图表增加滚动属性
-            if (tagName.startsWith("t") || tagName.startsWith("s"))
-                container.css({
-                    "overflow" : "auto"
-                });
-            // 非表格、非 Mermaid 图表的处理
-            else
-                container.css({
-                    "overflow-y" : "initial"
-                });
-
-            // 如果处理对象为表格，恢复显示表格行号，find 过滤器的的内容与对应的 css 要同步更新
-            if (container.find("table").length > 0)
-                container.find(rowNumFilter).removeClass("mdx-tbl-row-num-hidden");
+            that.expand(expander);
         });
+
         // 展开按钮 hover 事件处理
-        VLOOK.ui.bindHover(expander.children(".mdx-btn"), "mdx-btn-hover");
+        VLOOK.ui.bindHover(expander.children(".mdx-btn"));
+    }
+
+    /**
+     * 展开被折叠的内容
+     *
+     * @param expander 点击的按钮所在父元素
+     */
+    this.expand = function (expander) {
+        let container = expander.prev(),
+            tagName = expander.attr("data-vk-content-type");
+        VLOOK.report.push(['Interactive', VLOOK.report.transTagName(tagName), 'ExpandLongContent', 0]);
+
+        // 移除内容展开操作区
+        expander.remove();
+
+        // 展开对应的内容
+        container.attr("data-vk-content-folded", "false");
+        container.attr("data-vk-content-expanded", "true");
+        container.css({
+            "height" : "auto"
+        });
+        // 针对表格 <table>、Mermaid <svg> 图表增加滚动属性
+        if (tagName.startsWith("t") || tagName.startsWith("s"))
+            container.css({
+                "overflow" : "auto"
+            });
+        // 非表格、非 Mermaid 图表的处理
+        else
+            container.css({
+                "overflow-y" : "initial"
+            });
+
+        // 如果处理对象为表格，恢复显示表格行号，find 过滤器的的内容与对应的 css 要同步更新
+        if (container.find("table").length > 0)
+            container.find(that.rowNumFilter).removeClass("mdx-tbl-row-num-hidden");
     }
 }
 
@@ -5352,7 +5706,7 @@ function ToolTips() {
 
         const ow = this.ui.width();
         const ww = $(window).width();
-        const gap = 30;
+        const gap = 20;
         let left = follow.offset().left;
         this.ui.css({
             "border-top-left-radius" : "0",
@@ -5414,8 +5768,6 @@ function InfoTips(mask) {
     let that = this;
     this.ui = $(".mdx-info-tips");
     this.aniTimer = null;
-
-    // VLOOK.ui.addAnimate(this.ui, "opacity");
 
     // 绑定点击事件
     this.ui.unbind("click").click = function () {
@@ -5610,37 +5962,22 @@ CaptionGenerator.spliter = ". ";
 CaptionGenerator.actionForTextContent = function (target, tagName) {
     let caption = "",
         indexObj = undefined,
-        anchor = "";
+        anchor = "",
+        title = target.attr("title");
+    if (title === undefined)
+        title = "";
 
     // 代码块 <pre>
     if (tagName.startsWith("p")) {
         indexObj = iNavCenter.codeblock;
-        caption = [
-            "代码块 ",
-            "代碼塊 ",
-            "Code Block ",
-            "Bloc de Code ",
-            "Codeblock ",
-            "Bloque de código ",
-            "Блок Кода ",
-            "コードブロック ",
-            "코드 블록 "
-        ][VLOOK.lang.id] + (VLOOK.doc.counter.codeblock);
+        caption = [ "代码块 ", "代碼塊 ", "Code Block ", "Bloc de Code ", "Codeblock ", "Bloque de código ", "Блок Кода ", "コードブロック ", "코드 블록 "][VLOOK.lang.id]
+            + (VLOOK.doc.counter.codeblock);
     }
     // 表格 <table>
     else if (tagName.startsWith("t")) {
         indexObj = iNavCenter.table;
-        caption = [
-            "表 ",
-            "表 ",
-            "Table ",
-            "Table ",
-            "Tabelle ",
-            "Mesa ",
-            "Таблица ",
-            "テーブル ",
-            "표 "
-        ][VLOOK.lang.id] + (VLOOK.doc.counter.table);
+        caption = ["表 ", "表 ", "Table ", "Table ", "Tabelle ", "Mesa ", "Таблица ", "テーブル ", "표 "][VLOOK.lang.id]
+            + (VLOOK.doc.counter.table);
     }
 
     // 有指定的题注文本
@@ -5656,20 +5993,22 @@ CaptionGenerator.actionForTextContent = function (target, tagName) {
     // 代码块 <pre>
     if (tagName.startsWith("p")) {
         anchor = "vk-id-codeblock" + VLOOK.doc.counter.codeblock;
-        target.wrap("<div id='" + anchor + "' class='mdx-figure-caption' style='width: 100%'>");
+        target.wrap("<div id='" + anchor + "' class='mdx-caption' style='width: 100%'>");
+        title += target.find(".CodeMirror-line").text();
     }
     // 表格 <table>
     else if (tagName.startsWith("t")) {
         anchor = "vk-id-tbl" + VLOOK.doc.counter.table;
-        target.wrap("<div id='" + anchor + "' class='mdx-figure-caption'>");
+        target.wrap("<div id='" + anchor + "' class='mdx-caption'>");
+        title += target.text();
     }
 
     // 添加第 1 题注
-    target.before("<p class='mdx-figure-caption-1'>" + caption + "</p>");
+    target.before("<p class='mdx-caption-1'>" + caption + "</p>");
     // 添加第 2 题注
     let has2Captions = (fc2 != null && fc2.length > 0);
     if (has2Captions) {
-        target.after("<p class='mdx-figure-caption-2'>" + fc2 + "</p>");
+        target.after("<p class='mdx-caption-2'>" + fc2 + "</p>");
         target.parent().attr("data-vk-caption-count", "2");
     }
     // ----------------------------------------
@@ -5677,7 +6016,7 @@ CaptionGenerator.actionForTextContent = function (target, tagName) {
     if (indexObj !== undefined) {
         let text = caption + (has2Captions ? " 丨 " + fc2 : "");
         $("#" + anchor).attr("data-vk-title", text);
-        indexObj.add(text, anchor);
+        indexObj.add(text, anchor, title);
     }
 }
 
@@ -5691,7 +6030,10 @@ CaptionGenerator.actionForMediaContent = function (target, tagName) {
     let fc = target.attr("alt"), // 默认尝试获取图片的 alt 内容作为题注内容
         fc2 = target.attr("title"), // 默认尝试获得图片的 title 作为第二题注内容
         indexObj = iNavCenter.figure,
-        anchor = "";
+        anchor = "",
+        title = target.attr("title");
+    if (title === undefined)
+        title = "";
 
     // 尝试获取最近的段落（如<p>、<h6>）作为题注内容
     let fcSet = CaptionGenerator.getCaptions(target.parent().prev(), tagName);
@@ -5703,46 +6045,19 @@ CaptionGenerator.actionForMediaContent = function (target, tagName) {
     }
 
     // 插图（img、mermaid）题注前缀
-    let caption = [
-            "图 ",
-            "圖 ",
-            "Figure ",
-            "La figure ",
-            "Zahl ",
-            "Figura ",
-            "карта ",
-            "図 ",
-            "그림 "
-        ][VLOOK.lang.id] + (VLOOK.doc.counter.figure);
+    let caption = ["图 ", "圖 ", "Figure ", "La figure ", "Zahl ", "Figura ", "карта ", "図 ", "그림 "][VLOOK.lang.id]
+            + (VLOOK.doc.counter.figure);
     // 音频题注 <audio>
     if (tagName.startsWith("a")) {
         indexObj = iNavCenter.multimedia;
-        caption = [
-            "音频 ",
-            "音頻 ",
-            "Audio ",
-            "l'audio ",
-            "Audio ",
-            "Audio ",
-            "аудио ",
-            "オーディオ ",
-            "오디오 "
-        ][VLOOK.lang.id] + (VLOOK.doc.counter.audio);
+        caption = ["音频 ", "音頻 ", "Audio ", "l'audio ", "Audio ", "Audio ", "аудио ", "オーディオ ", "오디오 "][VLOOK.lang.id]
+            + (VLOOK.doc.counter.audio);
     }
     // 视频频题注 <video>
     else if (tagName.startsWith("v")) {
         indexObj = iNavCenter.multimedia;
-        caption = [
-            "视频 ",
-            "視頻 ",
-            "Video ",
-            "Vidéo ",
-            "Video ",
-            "Vídeo ",
-            "видео ",
-            "ビデオ ",
-            "비디오 "
-        ][VLOOK.lang.id] + (VLOOK.doc.counter.video);
+        caption = ["视频 ", "視頻 ", "Video ", "Vidéo ", "Video ", "Vídeo ", "видео ", "ビデオ ", "비디오 "][VLOOK.lang.id]
+            + (VLOOK.doc.counter.video);
     }
 
     // 有指定的题注文本
@@ -5754,33 +6069,34 @@ CaptionGenerator.actionForMediaContent = function (target, tagName) {
         anchor = "vk-id-fig" + VLOOK.doc.counter.figure;
         // 针对 Mermaid 插图，添加额外的类，用于打印前后处理时直接定位 Mermaid 插图的题注
         target.wrap("<div id='" + anchor + "' data-vk-fig-type='" + tagName
-            + "' class='mdx-figure-caption mdx-figure-caption-mermaid'></div>");
+            + "' class='mdx-caption mermaid'></div>");
+        title += target.find("div, span, tspan, text").text();
     }
     // 为插图（img）增加题注 <img>
     else if (tagName.startsWith("i")) {
         anchor = "vk-id-fig" + VLOOK.doc.counter.figure;
         target.wrap("<div id='" + anchor + "' data-vk-fig-type='" + tagName
-            + "' class='mdx-figure-caption'></div>");
+            + "' class='mdx-caption'></div>");
     }
     // 为音频增加题注 <audio>
     else if (tagName.startsWith("a")) {
         anchor = "vk-id-audio" + VLOOK.doc.counter.audio;
         target.wrap("<div id='" + anchor + "' data-vk-fig-type='" + tagName
-            + "' class='mdx-figure-caption'>");
+            + "' class='mdx-caption'>");
     }
     // 为视频增加题注 <video>
     else if (tagName.startsWith("v")) {
         anchor = "vk-id-video" + VLOOK.doc.counter.video;
         target.wrap("<div id='" + anchor + "' data-vk-fig-type='" + tagName
-            + "' class='mdx-figure-caption'>");
+            + "' class='mdx-caption'>");
     }
 
     // 生成第 1 题注
-    target.before("<p class='mdx-figure-caption-1'>" + caption + "</p>");
+    target.before("<p class='mdx-caption-1'>" + caption + "</p>");
     // 生成第 2 题注
     let has2Captions = (fc !== undefined && fc2 != null && fc2.length > 0);
     if (has2Captions) {
-        target.after("<p class='mdx-figure-caption-2'>" + fc2 + "</p>");
+        target.after("<p class='mdx-caption-2'>" + fc2 + "</p>");
         target.parent().attr("data-vk-caption-count", "2");
     }
     // ----------------------------------------
@@ -5788,7 +6104,7 @@ CaptionGenerator.actionForMediaContent = function (target, tagName) {
     if (indexObj !== undefined) {
         let text = caption + (has2Captions ? " 丨 " + fc2 : "");
         $("#" + anchor).attr("data-vk-title", text);
-        indexObj.add(text, anchor);
+        indexObj.add(text, anchor, title);
     }
 
     // ----------------------------------------
@@ -5896,13 +6212,8 @@ ExtCodeBlock.init = function () {
     $(".md-fences").each(function () {
         let codeblock = $(this);
 
-        // 添加鼠标移入/移出事件
-        codeblock.hover(function () {
-            ContentAssist.lastHoverContent = $(this);
-            ContentAssist.showCopyCodeBlockButton();
-        }, function () {
-            ContentAssist.hideButtons();
-        });
+        // 绑定内容助手
+        iContentAssistor.bindHover($(this), "CodeBlock");
 
         // 折叠长代码块
         iContentFolder.add(codeblock);
@@ -5918,6 +6229,9 @@ ExtCodeBlock.init = function () {
 
             CaptionGenerator.actionForTextContent(codeblock, "pre");
         }
+        else {
+            codeblock.attr("data-vk-lmc", "true");
+        }
     });
 }
 
@@ -5926,11 +6240,11 @@ ExtCodeBlock.init = function () {
  */
 ExtCodeBlock.copy = function (source) {
     VLOOK.report.push(['Interactive', 'CodeBlock', 'Copy', 0]);
-    if (ContentAssist.lastHoverContent === undefined)
+    if (iContentAssistor.lastHover === undefined)
         return;
 
     let code = "",
-        lines = ContentAssist.lastHoverContent.children().find(".CodeMirror-code .CodeMirror-line"),
+        lines = iContentAssistor.lastHover.children().find(".CodeMirror-code .CodeMirror-line"),
         lineNo = 0,
         lineCount = lines.length;
     // 逐行读取代码
@@ -5962,7 +6276,7 @@ ExtCodeBlock.copy = function (source) {
     // 复制成功事件
     clipboard.on("success", function(e) {
         // 显示已复制动效
-        let codeBlock = ContentAssist.lastHoverContent.children().find(".CodeMirror-sizer > div");
+        let codeBlock = iContentAssistor.lastHover.children().find(".CodeMirror-sizer > div");
         VLOOK.ui.removeAnimate(codeBlock);
         codeBlock.css({
             "background-color" : "var(--mark-color)"
@@ -6021,7 +6335,7 @@ ExtQuote.init = function () {
                 target.next("blockquote").css({
                     "display" : "none"
                 });
-                target.replaceHTML("[+] ", "<span class='mdx-blockquote-folder'>" + ExtQuote.icoClosed + "</span>"); // ▶
+                target.replaceHTML("[+] ", "<span class='mdx-blockquote-folder'>" + ExtQuote.icoClosed + "</span>");
 
                 target.attr("data-vk-blockquote-folded", "true");
 
@@ -6085,28 +6399,13 @@ ExtQuote.init = function () {
 }
 
 /**
- * 适配引用在 Light / Dark Mode 的适配处理
- */
-// ExtQuote.adjustColorScheme = function () {
-//     // 适配彩虹引用中的 6 级标题样式的处理
-//     let colors = ["red", "orange", "yellow", "green", "cyan", "blue", "purple", "pink", "brown", "gray", "theme1", "theme2"],
-//         scheme = ColorScheme.scheme,
-//         rmScheme = scheme === "dark" ? "light" : "dark";
-//     for (let i = 0; i < colors.length; i++) {
-//         $(".mdx-quote-title-" + colors[i])
-//             .addClass("mdx-quote-title-" + colors[i] + "-" + scheme)
-//             .removeClass("mdx-quote-title-" + colors[i] + "-" + rmScheme);
-//     }
-// }
-
-/**
  * 根据设备类型自适应hover样式
  */
 ExtQuote.adjustHoverStyle = function () {
     if (env.device.mobile) // 移动设备时解绑样式事件
         $(".mdx-blockquote-folder").unbind("hover");
     else // 为折叠的引用的折叠控件绑定 hover 事件
-        VLOOK.ui.bindHover($(".mdx-blockquote-folder"), "mdx-blockquote-folder-hover");
+        VLOOK.ui.bindHover($(".mdx-blockquote-folder"));
 }
 
 /**
@@ -6167,20 +6466,12 @@ ExtTable.init = function () {
 
         VLOOK.doc.counter.table++;
 
+        // 绑定内容助手
+        iContentAssistor.bindHover($(this), "Table");
+
         // 表格自定义属性数据
         container.attr("data-vk-container", "table");
         container.addClass("mdx-caption-container");
-
-        // 添加鼠标移入/移出事件
-        table.hover(function () {
-            ContentAssist.lastHoverContent = $(this);
-            // 表格没有被折叠时
-            let folded = $(this).parent().parent().attr("data-vk-content-folded");
-            if (folded !== undefined && folded.startsWith("f"))
-                VLOOK.ui.addAnimate($(this));
-        }, function () {
-            ContentAssist.hideButtons();
-        });
 
         // 表格滚动事件
         container.scroll(function () {
@@ -6439,8 +6730,8 @@ CellMerge.dispose = function (table) {
             lastCell = cell;
         }); // find(td, th)
 
-        // 如果列合并了所有列，则取消表格行号等样式
-        if (colCount === colSpanCount + 1) {
+        // 如果列合并了所有列，且内容为空，则取消表格行号等样式
+        if (colCount === colSpanCount + 1 && tr.text().trim().length === 0) {
             tr.addClass("mdx-table-colspan-all");
         }
 
@@ -6586,16 +6877,15 @@ TableCross.toggle = function () {
 // 打开表格十字光标
 TableCross.enable = function () {
     VLOOK.report.push(['Presentation', 'Table Cross', 'Enabled', 0]);
-    // iParagraphNav.hide();
 
     TableCross.enabled = true;
-    iToolbar.buttons["table-cross"].addClass("selected");
+    iContentAssistor.buttons.tableCross.addClass("selected");
 }
 
 // 关闭表格十字光标
 TableCross.disable = function () {
     TableCross.enabled = false;
-    iToolbar.buttons["table-cross"].removeClass("selected");
+    iContentAssistor.buttons.tableCross.removeClass("selected");
     TableCross.hide();
 }
 
@@ -6632,55 +6922,60 @@ TableCross.bind = function (table, cell) {
 
         // 横向左边
         let crossLeft = $(".mdx-table-cross.left"),
-            w = TableCross.lastCell.offset().left - TableCross.lastTable.offset().left;
-            crossLeft.css({
+            w1 = TableCross.lastCell.offset().left - TableCross.lastTable.offset().left;
+        crossLeft.css({
             "top" : TableCross.lastCell.offset().top,
             "left" : TableCross.lastTable.offset().left,
             "height" : tdH,
-            "width" : w,
+            "width" : w1,
             "z-index" : 9
         });
-        TableCross.adjust(crossLeft, w, scrollLeft);
+        // TableCross.adjust(crossLeft, w, scrollLeft);
 
         // 横向右边
-        let crossRight = $(".mdx-table-cross.right");
-        w = TableCross.lastTable.offset().left + tbW - TableCross.lastCell.offset().left - tdW;
+        let crossRight = $(".mdx-table-cross.right"),
+            w2 = TableCross.lastTable.offset().left + tbW - TableCross.lastCell.offset().left - tdW;
         crossRight.css({
             "top" : TableCross.lastCell.offset().top,
             "left" : TableCross.lastCell.offset().left + tdW,
             "height" : tdH,
-            "width" : w,
+            "width" : w2,
             "z-index" : 9
         });
-        TableCross.adjust(crossRight, w, scrollLeft);
+        // TableCross.adjust(crossRight, w, scrollLeft);
 
         // 竖向上边
         let crossUp = $(".mdx-table-cross.up"),
-            h = TableCross.lastCell.offset().top - TableCross.lastTable.offset().top;
-            crossUp.css({
+            h1 = TableCross.lastCell.offset().top - TableCross.lastTable.offset().top;
+        crossUp.css({
             "top" : TableCross.lastTable.offset().top,
             "left" : TableCross.lastCell.offset().left,
-            "height" : h,
+            "height" : h1,
             "width" : tdW,
             "z-index" : 9
         });
-        TableCross.adjust(crossUp, h, scrollLeft);
+        // TableCross.adjust(crossUp, h, scrollLeft);
 
         // 竖向下边
-        let crossDown = $(".mdx-table-cross.down");
-        h = TableCross.lastTable.offset().top + parseInt(TableCross.lastTable.css("height")) -
-            TableCross.lastCell.offset().top - tdH;
+        let crossDown = $(".mdx-table-cross.down"),
+            h2 = TableCross.lastTable.offset().top + parseInt(TableCross.lastTable.css("height")) - TableCross.lastCell.offset().top - tdH;
         crossDown.css({
             "top" : TableCross.lastCell.offset().top + tdH,
             "left" : TableCross.lastCell.offset().left,
-            "height" : h,
+            "height" : h2,
             "width" : tdW,
             "z-index" : 9
         });
-        TableCross.adjust(crossDown, h, scrollLeft);
 
-        // 针对不同表格之间点击强制移除动画后的恢复
-        VLOOK.ui.addAnimate(TableCross.ui);
+        // 须延时后再执行显示，让以上代码先完成
+        setTimeout(function () {
+            // 针对不同表格之间点击强制移除动画后的恢复
+            VLOOK.ui.addAnimate(TableCross.ui);
+            TableCross.adjust(crossLeft, w1, scrollLeft);
+            TableCross.adjust(crossRight, w2, scrollLeft);
+            TableCross.adjust(crossUp, h1, scrollLeft);
+            TableCross.adjust(crossDown, h2, scrollLeft);
+        }, 50);
 
         event.stopPropagation(); // 停止事件冒泡
     });
@@ -7136,7 +7431,7 @@ RowGroup.newFolder = function (tr, level, reset, color) {
     td.html(__echoOuterHTML(preObjs) + "[<strong>" + cloneTd.html() + "</strong>]");
 
     // 设置展开、收起事件
-    td.children(".mdx-tbl-row-g-btn:first").click(function () {
+    td.children(".mdx-tbl-row-g-btn").click(function () {
         RowGroup.toggle(folderRow);
     });
 
@@ -7156,7 +7451,7 @@ RowGroup.newFolder = function (tr, level, reset, color) {
 }
 
 /**
- * 展开、收起表格表分组下的表格行
+ * 展开、收起表格行分组下的表格行
  *
  * @param folderRow 折叠按钮所在的表格行对象
  */
@@ -7172,6 +7467,53 @@ RowGroup.toggle = function (folderRow) {
 
     // 强制取消表格的十字光标
     TableCross.hide();
+}
+
+/**
+ * 展开所有表格行分组
+ *
+ * @param table 指定的表格对象
+ * @returns 处理结果。true: 已展开，false: 不符合展开条件
+ */
+RowGroup.openAll = function (table) {
+    if (table.attr("data-vk-row-group") !== "true")
+        return false;
+
+    table.find(".mdx-tbl-row-g-btn").each(function () {
+        let folderRow = $(this).parent().parent();
+        if (folderRow.attr("data-vk-row-folded") === "true")
+            RowGroup.open(folderRow);
+    });
+    return true;
+}
+
+/**
+ * 收起全部表格行分级
+ *
+ * @param table 指定的表格对象
+ * @returns 处理结果。true: 已展开，false: 不符合展开条件
+ */
+RowGroup.closeAll = function (table) {
+    if (table.attr("data-vk-row-group") !== "true")
+        return false;
+
+    // 只对第一级的行分组进行处理，非第一级的行分级为 span.mdx-tbl-row-g-btn
+    table.find("label.mdx-tbl-row-g-btn").each(function () {
+        let folderRow = $(this).parent().parent();
+        if (folderRow.attr("data-vk-row-folded") !== "true")
+            RowGroup.close(folderRow);
+    });
+    return true;
+}
+
+/**
+ * 重置清空表格中的行分组相关信息
+ *
+ * @param target 目标表格
+ */
+RowGroup.reset = function (target) {
+    target.removeAttr("data-vk-row-group");
+    target.find("tr[data-vk-parent-folder-id]").removeAttr("data-vk-parent-folder-id");
 }
 
 /**
@@ -7217,7 +7559,8 @@ RowGroup.ident = function (tr, td, level) {
 RowGroup.open = function (folderRow) {
     // 处理展开行分组
     let id = folderRow.attr("data-vk-folder-id"),
-        subRows = $("tr[data-vk-parent-folder-id='" + id + "']"),
+        table = folderRow.parent().parent(),
+        subRows = table.find("tr[data-vk-parent-folder-id='" + id + "']"),
         folderButton = folderRow.children("td:first").children(".mdx-tbl-row-g-btn:last");
 
     folderRow.attr("data-vk-row-folded", "false");
@@ -7225,14 +7568,13 @@ RowGroup.open = function (folderRow) {
     subRows.css("display", "");
 
     // 如表格指定了重复表头则进行对应处理
-    let table = folderRow.parent().parent(),
-        thRow = table.find("thead > tr:last-child");
+    // let table = folderRow.parent().parent(),
+    let thRow = table.find("thead > tr:last-child");
     if (table.attr("data-vk-th-rpt") === "group") {
         // 从第 2 列开始进行处理
         folderRow.find("td:not(:first-child)").each(function () {
             let td = $(this),
                 tdHTML = td.html().trim();
-            // console.log("'" + td.text().trim() + "'", td.text().trim().length);
             if (tdHTML.length === 0 || tdHTML === "&nbsp;") {
                 let colID = td.attr("data-vk-tbl-col"),
                     th = thRow.find("th[data-vk-tbl-col='" + colID + "']").html();
@@ -7296,7 +7638,7 @@ RowGroup.adjustHoverStyle = function () {
     if (env.device.mobile) // 移动设备时解绑样式事件
         $(".mdx-tbl-row-g-btn").unbind("hover");
     else // 为表格行分组的折叠控件绑定 hover 事件
-        VLOOK.ui.bindHover($(".mdx-tbl-row-g-btn"), "mdx-tbl-row-g-btn-hover");
+        VLOOK.ui.bindHover($(".mdx-tbl-row-g-btn"));
 }
 
 // ==================== 表格列头重复生成器 ==================== //
@@ -7487,9 +7829,9 @@ ExtAudio.init = function () {
             // 鼠标 hover 事件
             audio.hover(function () {
                 if ($(this).attr("class").indexOf("disabled") === -1)
-                    $(this).addClass("mdx-audio-mini-control-hover");
+                    $(this).addClass("hover");
             }, function () {
-                $(this).removeClass("mdx-audio-mini-control-hover");
+                $(this).removeClass("hover");
             });
         }
         // 标准控件模式
@@ -7505,7 +7847,7 @@ ExtAudio.init = function () {
             audio.attr("controls", "controls");
 
             // 若有第 2 题注，则微调样式
-            if (audio.next(".mdx-figure-caption-2").length > 0)
+            if (audio.next(".mdx-caption-2").length > 0)
                 audio.css("margin-bottom", "-10px");
 
             // 故障或不可用
@@ -7766,7 +8108,7 @@ function TextField(target, id) {
                 // 无内容时移除样式
                 if (that.action !== undefined && that.action.attr("class").indexOf("enabled") !== -1) {
                     that.action.removeClass("enabled");
-                    that.action.unbind("mouseenter").unbind("mouseleave");
+                    VLOOK.ui.unbindHover(that.action);
                 }
             }
             else {
@@ -7823,7 +8165,7 @@ function TextField(target, id) {
 
             if (that.action !== undefined && that.action.attr("class").indexOf("enabled") !== -1) {
                 that.action.removeClass("enabled");
-                that.action.unbind("mouseenter").unbind("mouseleave");
+                VLOOK.ui.unbindHover(that.action);
             }
             // 触发外部重定义事件
             typeof(that.onInput) == "function" && that.onInput(that.input, "");
@@ -7881,12 +8223,12 @@ function TextField(target, id) {
      */
     this.actionHover = function (enter) {
         if (enter === true) {
-            that.action.addClass("mdx-textfield-action-hover");
+            that.action.addClass("hover");
             if (that.action.attr("class").indexOf("enabled") !== -1)
                 that.ui.addClass("hover-action");
         }
         else {
-            that.action.removeClass("mdx-textfield-action-hover");
+            that.action.removeClass("hover");
             that.ui.removeClass("hover-action");
         }
     }
@@ -7981,19 +8323,24 @@ function FilterResultNavigator(result) {
  * 构造函数
  *
  * @param hidden 是否默认为隐藏
+ * @param segment 分段控件对象
  */
-function TocCatalog(hidden) {
-    let that = this,
-        __cover = $(".mdx-accent-btn.cover");
+function TocCatalog(segment, hidden) {
+    let that = this;
+        // __cover = $(".mdx-accent-btn.cover");
     this.ui = {
         entry : $(".mdx-segment-btn.catalog"), // 入口
         body : $(".mdx-toc-catalog-body"), // 目录索引内容
-        cover : __cover, // 回到封面
-        keyword : new TextField(__cover, "toc-filter-catalog"), // 关键字输入框
+        // cover : __cover, // 回到封面
+        keyword : new TextField(segment, "toc-filter-catalog"), // 关键字输入框
         result : $(".mdx-toc-filter-result.catalog") // 过滤结果面板
     }
 
     this.headers = []; // 目录集
+    // 针对无封面的情况
+    if (VOM.cover() === undefined)
+        this.headers.push("vk-id-doc-title");
+
     this.currentHeaderIndex = -1; // 当前章节在目录集中的索引
     this.currentItem = undefined; // 当前章节对象
 
@@ -8005,32 +8352,32 @@ function TocCatalog(hidden) {
 
     this.resultNav = new FilterResultNavigator(this.ui.result); // 过滤结果导航器
 
+    VLOOK.ui.addAnimate(this.ui.body.find(".md-toc-item, .mdx-toc-item"));
+
     // 回到封面属性设置
-    this.ui.cover.attr("data-vk-tips", [
-        "封面",
-        "封面",
-        "Cover",
-        "Couverture",
-        "Startseite",
-        "Cubrir",
-        "передняя крышка",
-        "カバー",
-        "표지"
-    ][VLOOK.lang.id]);
-    // 回到封面事件绑定
-    this.ui.cover.unbind("click").click(function () {
-        that.gotoCover();
-    });
-    this.ui.cover.hover(function () {
-        iToolTips.show($(this), "auto", "accent");
-    }, function () {
-        iToolTips.hide();
-    });
+    // this.ui.cover.attr("data-vk-tips", [
+    //     "封面",
+    //     "封面",
+    //     "Cover",
+    //     "Couverture",
+    //     "Startseite",
+    //     "Cubrir",
+    //     "передняя крышка",
+    //     "カバー",
+    //     "표지"
+    // ][VLOOK.lang.id]);
+    // // 回到封面事件绑定
+    // this.ui.cover.unbind("click").click(function () {
+    //     that.gotoCover();
+    // });
+    // this.ui.cover.hover(function () {
+    //     iToolTips.show($(this), "auto", "accent");
+    // }, function () {
+    //     iToolTips.hide();
+    // });
 
     // 当前章节变化事件
     this.onChapterChanged = undefined;
-    // 回到封面事件
-    this.onGotoCover = undefined;
     // 锚点点击事件
     this.onClickHash = undefined;
 
@@ -8082,7 +8429,8 @@ function TocCatalog(hidden) {
      * 自适应界面样式
      */
     this.adjust = function () {
-        TocIndex.adjust(this, this.ui.cover.width() + 32);
+        // TocIndex.adjust(this, this.ui.cover.width() + 32);
+        TocIndex.adjust(this, 22);
     }
 
     /**
@@ -8092,7 +8440,7 @@ function TocCatalog(hidden) {
         if (env.device.mobile) // 移动设备时解绑样式事件
             $(".mdx-toc-folder").unbind("hover");
         else // 非移动设备时绑定样式事件
-            VLOOK.ui.bindHover($(".mdx-toc-folder"), "mdx-toc-folder-hover");
+            VLOOK.ui.bindHover($(".mdx-toc-folder"));
     }
 
     /**
@@ -8113,6 +8461,8 @@ function TocCatalog(hidden) {
             "data-vk-folded" : "false", // 添加节点状态：true:收起, false:展开
             "title" : a.text().trim()
         });
+        VLOOK.ui.addAnimate(item);
+
         // 使用完 <a> 的内容后，将章节中的链接文字提到链接外，用于实现长章节内容截断的 CSS 新式
         a.after(a.text());
         a.text("");
@@ -8252,7 +8602,7 @@ function TocCatalog(hidden) {
      * 导航中心内容自动滚动到当前章节所在位置
      */
     this.scrollToCurrent = function () {
-        if (this.currentItem === undefined)
+        if (this.currentItem === undefined || this.currentItem.position() === undefined)
             return;
 
         // 根据当前节点情况，目录内的可视空间自动滚动该节点所在位置
@@ -8276,6 +8626,20 @@ function TocCatalog(hidden) {
     }
 
     /**
+     * 当前章节为第1章时特殊处理（有封面模式时）
+     */
+    this.inFirstHeader = function () {
+        return (VOM.cover() !== undefined && this.currentHeaderIndex === 0);
+    }
+
+    /**
+     * 当前文档位置位于文档标题（无封面模式时）
+     */
+    this.inDocTitle = function () {
+        return (VOM.cover() === undefined && this.currentHeaderIndex === 0);
+    }
+
+    /**
      * 按关键字过滤
      *
      * @param value 过滤的关键字内容
@@ -8294,23 +8658,22 @@ function TocCatalog(hidden) {
                 title = item.attr("title");
             if (title.toLowerCase().indexOf(value) > -1) {
                 // 匹配结果后，从目录节点中复制节点并移除不必要的样式和内容
-                let newItem = item.clone();
-                newItem.removeClass("md-toc-item").addClass("mdx-toc-item");
-                newItem.removeClass("md-toc-h1");
-                newItem.removeClass("md-toc-h2");
-                newItem.removeClass("md-toc-h3");
-                newItem.removeClass("md-toc-h4");
-                newItem.removeClass("md-toc-h5");
-                newItem.children(".mdx-toc-folder").remove();
-                newItem.show();
+                let cloneItem = item.clone();
+                cloneItem.addClass("mdx-toc-item");
+                cloneItem.removeClass("md-toc-item md-toc-h1 md-toc-h2 md-toc-h3 md-toc-h4 md-toc-h5");
+                cloneItem.children(".mdx-toc-folder").remove();
+                cloneItem.prepend("<span>" + ["标题", "標題", "Title", "Titre", "Titel", "Título", "Заголовок", "題名", "표제"][VLOOK.lang.id] + ". </span>");
+                cloneItem.show();
+
+                VLOOK.ui.addAnimate(cloneItem);
                 // 绑定同源的点击事件
-                newItem.unbind("click").click(function () {
+                cloneItem.unbind("click").click(function () {
                     that.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
                     item.trigger("click");
                     $(this).addClass("mdx-toc-item-current");
                 });
                 // 将匹配的节点添加到过滤结果中
-                that.ui.result.append(newItem);
+                that.ui.result.append(cloneItem);
                 matched = true;
             }
         });
@@ -8354,7 +8717,7 @@ function TocCatalog(hidden) {
      * 显示按关键过滤输入栏
      */
     this.showKeywordBar = function () {
-        this.ui.cover.show();
+        // this.ui.cover.show();
         this.ui.keyword.clear();
         this.ui.keyword.show();
     }
@@ -8373,7 +8736,7 @@ function TocCatalog(hidden) {
      * 隐藏按关键过滤输入栏
      */
     this.hideKeywordBar = function () {
-        this.ui.cover.hide();
+        // this.ui.cover.hide();
         this.ui.keyword.hide();
     }
 
@@ -8385,27 +8748,10 @@ function TocCatalog(hidden) {
     }
 
     /**
-     * 跳转回文档封面
-     */
-    this.gotoCover = function () {
-        VLOOK.report.push(['Outline', 'Goto', 'Cover', 0]);
-        location.href = "#";
-        if (this.currentItem !== undefined) {
-            this.currentItem.removeClass("mdx-toc-item-current");
-            this.currentHeaderIndex = -1;
-        }
-
-        typeof(this.onGotoCover) == "function" && this.onGotoCover();
-    }
-
-    /**
      * 跳转至指定章节
      */
     this.gotoHeader = function (target) {
-        if (target.attr("data-vk-anchor") === "cover")
-            this.gotoCover();
-        else
-            window.location.href = "#" + target.attr("data-vk-anchor");
+        VLOOK.util.gotoHash("#" + target.attr("data-vk-anchor"));
     }
 
     /**
@@ -8546,12 +8892,15 @@ TocIndex.adjust = function (indexObj, offset) {
  * @param indexObj 目标对象
  * @param text 显示的文本
  * @param anchor 锚点
+ * @param title HTML 标签 title 属性数据
  */
-TocIndex.add = function (indexObj, text, anchor) {
+TocIndex.add = function (indexObj, text, anchor, title) {
     if (indexObj.ui.tips.isShowed())
         indexObj.ui.tips.hide();
-    let item = $('<span class="mdx-toc-item">' + text + "</span>");
+    let item = $('<span class="mdx-toc-item" title="'
+            + (title === undefined ? "" : title) + '">' + text + "</span>");
     indexObj.ui.result.append(item);
+    VLOOK.ui.addAnimate(item);
     item.unbind("click").click(function () {
         indexObj.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
         item.addClass("mdx-toc-item-current");
@@ -8579,10 +8928,12 @@ TocIndex.filterByKeyword = function (indexObj, value) {
     indexObj.ui.result.children(".mdx-toc-item-current").removeClass("mdx-toc-item-current");
     // 遍历目录节点进行关键字匹配
     indexObj.ui.result.children(".mdx-toc-item").each(function () {
-        let item = $(this);
-        if (item.text().toLowerCase().indexOf(value) > -1) {
-            item.show();
-            matched = true;
+        let item = $(this),
+            title = item.attr("title");
+        if (item.text().toLowerCase().indexOf(value) > -1
+            || (title !== undefined && title.toLowerCase().indexOf(value) > -1)) {
+                item.show();
+                matched = true;
         }
     });
 
@@ -8633,8 +8984,9 @@ TocIndex.hide = function (indexObj) {
  * 构造函数
  *
  * @param hidden 是否默认为隐藏
+ * @param segment 分段控件对象
  */
-function TocFigure(hidden) {
+function TocFigure(segment, hidden) {
     let that = this,
         __figNav = $(".mdx-accent-btn.figure-nav");
     this.ui = {
@@ -8701,9 +9053,10 @@ function TocFigure(hidden) {
      *
      * @param text 显示的文本
      * @param anchor 锚点
+     * @param title HTML 标签 title 属性数据，其内容由 VLOOK 生成
      */
-    this.add = function (text, anchor) {
-        TocIndex.add(this, text, anchor);
+    this.add = function (text, anchor, title) {
+        TocIndex.add(this, text, anchor, title);
     }
 
     /**
@@ -8730,12 +9083,13 @@ function TocFigure(hidden) {
  * 构造函数
  *
  * @param hidden 是否默认为隐藏
+ * @param segment 分段控件对象
  */
-function TocTable(hidden) {
+function TocTable(segment, hidden) {
     let that = this;
     this.ui = {
         entry : $(".mdx-segment-btn.table"), // 入口
-        keyword : new TextField($(".mdx-segment"), "toc-filter-table"), // 关键字输入框
+        keyword : new TextField(segment, "toc-filter-table"), // 关键字输入框
         result : $(".mdx-toc-filter-result.table"), // 过滤结果面板
         tips : undefined
     };
@@ -8770,9 +9124,10 @@ function TocTable(hidden) {
      *
      * @param text 显示的文本
      * @param anchor 锚点
+     * @param title HTML 标签 title 属性数据，其内容由 VLOOK 生成
      */
-    this.add = function (text, anchor) {
-        TocIndex.add(this, text, anchor);
+    this.add = function (text, anchor, title) {
+        TocIndex.add(this, text, anchor, title);
     }
 
     /**
@@ -8797,12 +9152,13 @@ function TocTable(hidden) {
  * 构造函数
  *
  * @param hidden 是否默认为隐藏
+ * @param segment 分段控件对象
  */
-function TocMultimedia(hidden) {
+function TocMultimedia(segment, hidden) {
     let that = this;
     this.ui = {
         entry : $(".mdx-segment-btn.multimedia"), // 入口
-        keyword : new TextField($(".mdx-segment"), "toc-filter-multimedia"), // 关键字输入框
+        keyword : new TextField(segment, "toc-filter-multimedia"), // 关键字输入框
         result : $(".mdx-toc-filter-result.multimedia"), // 过滤结果面板
         tips : undefined
     };
@@ -8864,12 +9220,13 @@ function TocMultimedia(hidden) {
  * 构造函数
  *
  * @param hidden 是否默认为隐藏
+ * @param segment 分段控件对象
  */
-function TocCodeblock(hidden) {
+function TocCodeblock(segment, hidden) {
     let that = this;
     this.ui = {
         entry : $(".mdx-segment-btn.codeblock"), // 入口
-        keyword : new TextField($(".mdx-segment"), "toc-filter-codeblock"), // 关键字输入框
+        keyword : new TextField(segment, "toc-filter-codeblock"), // 关键字输入框
         result : $(".mdx-toc-filter-result.codeblock"), // 过滤结果面板
         tips : undefined
     };
@@ -8904,9 +9261,10 @@ function TocCodeblock(hidden) {
      *
      * @param text 显示的文本
      * @param anchor 锚点
+     * @param title HTML 标签 title 属性数据，其内容由 VLOOK 生成
      */
-    this.add = function (text, anchor) {
-        TocIndex.add(this, text, anchor);
+    this.add = function (text, anchor, title) {
+        TocIndex.add(this, text, anchor, title);
     }
 
     /**
@@ -8940,8 +9298,6 @@ function TocHistory(hidden) {
         history : $(".mdx-toc-history-result") // 历史记录面板
     };
 
-    // VLOOK.ui.addAnimate(this.ui.entry);
-
     // 锚点点击事件
     this.onClickHash = undefined;
 
@@ -8964,15 +9320,15 @@ function TocHistory(hidden) {
             title = $(hash).attr("data-vk-title");
         else if (anchor.startsWith("vk-err")) // 错误的内链
             title = $(hash).text();
-
-        let anchorText = (title === undefined ? decodeURI(anchor) : title), // 生成访问历史记录显示的文本
-            result = that.ui.history.children("span[data-vk-history='" + hash + "']");
+        if (title === undefined)
+            title = "<span>" + ["标题", "標題", "Title", "Titre", "Titel", "Título", "Заголовок", "題名", "표제"][VLOOK.lang.id] + ". </span>" + decodeURI(anchor);
+        let result = that.ui.history.children("span[data-vk-history='" + hash + "']");
 
         // 不存在相同的历史访问记录
         if (result.length === 0) {
             that.ui.history.prepend('<span data-vk-history="'
                 + hash + '" class="mdx-toc-item">'
-                + anchorText + '</span>');
+                + title + '</span>');
         }
         // 已存在相同的历史访问记录
         else {
@@ -8986,6 +9342,7 @@ function TocHistory(hidden) {
         // 为新增加 / 移动后的记录添加鼠标事件
         let item = that.ui.history.children("span[data-vk-history='" + hash + "']");
         item.addClass("mdx-toc-item-current");
+        VLOOK.ui.addAnimate(item);
         item.unbind("click").click(function () {
             VLOOK.util.gotoHash(hash);
             // 触发锚点点击事件
@@ -9060,7 +9417,7 @@ ExtFigure.init = function () {
     $("#write p > img, img[src*='mode=figure'], img[src*='mode=icon'], img[src*='mode=logo'], #write .md-diagram-panel svg").each(function () {
         let fig = $(this),
             src = fig.attr("src"),
-            container = fig,
+            container = fig.parent(),
             tagName = (src !== undefined ? "img" : "svg");
         // ----------------------------------------
         // img 类插图的处理
@@ -9068,16 +9425,16 @@ ExtFigure.init = function () {
             // 对于 img 类插图的预处理
             let params = VLOOK.util.getQueryParams(src);
 
-            // 初始化图片颜色替换的适配处理
+            // 初始化图片「颜色替换」的适配处理
             __initFillAlter(fig, params, src);
 
-            // 初始化图片对颜色方案的适配处理
+            // 初始化图片对「颜色方案」的适配处理
             __initColorScheme(fig, params);
 
-            // 初始化图片对高分屏的适配处理
+            // 初始化图片对「高分屏」的适配处理
             __initHighDPI(fig, params);
 
-            // 对图片加载结果进行是跟踪检查
+            // 对图片「加载结果」进行是跟踪检查
             __bindLoadChecker(fig);
 
             // 跳过带指定显示版式的图片
@@ -9102,10 +9459,10 @@ ExtFigure.init = function () {
             __initAlign(container, params);
         }
 
-        VLOOK.doc.counter.figure++;
+        // 绑定内容助手
+        iContentAssistor.bindHover(fig, "Figure");
 
-        // 绑定操作相关事件
-        __bindEvent(fig);
+        VLOOK.doc.counter.figure++;
 
         // 处理题注
         __disposeCaption(fig, tagName);
@@ -9155,26 +9512,6 @@ ExtFigure.init = function () {
     stopwatch.lapStop("    └ DPR & misc.: ");
 
     /**
-     * 绑定操作相关事件
-     *
-     * @param fig 插图对象
-     */
-    function __bindEvent(fig) {
-        // 添加鼠标单击事件
-        fig.unbind("click").click(function () {
-            iFigureNav.show(fig);
-        });
-        // 添加鼠标移入/移出事件
-        fig.hover(function () {
-            ContentAssist.lastHoverContent = $(this);
-            $(this).addClass("mdx-interactive-hover");
-        }, function () {
-            $(this).removeClass("mdx-interactive-hover");
-            ContentAssist.hideButtons();
-        });
-    }
-
-    /**
      * 处理题注
      *
      * @param fig 插图对象
@@ -9200,8 +9537,8 @@ ExtFigure.init = function () {
         fig.bind("error", function () {
             if (ignoreImgLost === false) {
                 // 将无法加载的图片信息添加到链接检查器
-                let cp1 = fig.parent().find(".mdx-figure-caption-1").html(),
-                    cp2 = fig.parent().find(".mdx-figure-caption-2").text();
+                let cp1 = fig.parent().find(".mdx-caption-1").html(),
+                    cp2 = fig.parent().find(".mdx-caption-2").text();
                 iLinkChecker.add(fig.parent().attr("id"), "🖼 <strong>" + [
                     "无效的图片源",
                     "無效的圖片源",
@@ -9262,8 +9599,22 @@ ExtFigure.init = function () {
         img.attr("data-vk-img-fill", params["fill"]);
 
         // 图片为 SVG 格式时，将源文件通过 SVGInject 注入到 HTML 文档中
-        if (src.indexOf(".svg", 1) > -1)
-            SVGInject(img[0]);
+        if (src.indexOf(".svg", 1) > -1) {
+            SVGInject(img[0], {
+                // SVG 注入成功
+                afterInject : function (img, svg) {
+                    let svgObj = $(svg);
+                    // 绑定内容助手
+                    iContentAssistor.bindHover(svgObj, "Figure");
+                    // 对颜色进行替换的适配处理
+                    ExtFigure.adjustFillAlterForSVG(svgObj.attr("data-vk-img-fill"), svgObj);
+                },
+                // SVG 注入失败
+                onFail : function (img, svg) {
+                    console.error("SVGInject ERROR:", $(img).attr("src"));
+                }
+            });
+        }
     }
 
     /**
@@ -9491,7 +9842,6 @@ ExtFigure.adjustColorScheme = function (grid) {
  * @param svg SVG 实例对象
  */
 ExtFigure.adjustFillAlterForSVG = function (fill, svg) {
-    // console.error("fill", fill);
     if (fill === "text")
         svg.find("path, rect, ellipse, polygon").css({
             "fill" : svg.parent().css("color")
@@ -9507,7 +9857,7 @@ ExtFigure.adjustFillAlterForSVG = function (fill, svg) {
 function FigureNav() {
     let that = this;
     this.ui = $(".mdx-figure-nav"); // 插图导航主界面
-    this.button = {
+    this.buttons = {
         ui : $(".mdx-figure-nav-btns"), // 所有导航按钮
         prev : $(".mdx-figure-nav-btns.prev"), // 上一张插图按钮
         next : $(".mdx-figure-nav-btns.next"), // 下一张插图按钮
@@ -9519,13 +9869,13 @@ function FigureNav() {
     VLOOK.ui.addAnimate(this.content.children("img, svg"));
 
     // 绑定各按钮事件
-    this.button.prev.unbind("click").click(function () {
+    this.buttons.prev.unbind("click").click(function () {
         that.prev();
     });
-    this.button.next.unbind("click").click(function () {
+    this.buttons.next.unbind("click").click(function () {
         that.next();
     });
-    this.button.close.unbind("click").click(function () {
+    this.buttons.close.unbind("click").click(function () {
         that.hide();
     });
     this.content.unbind("click").click(function () {
@@ -9538,12 +9888,12 @@ function FigureNav() {
     this.adjustHoverStyle = function () {
         // 移动设备时解绑样式事件
         if (env.device.mobile) {
-            this.button.prev.unbind("hover");
-            this.button.next.unbind("hover");
+            this.buttons.prev.unbind("hover");
+            this.buttons.next.unbind("hover");
         }
         // 非移动设备时绑定样式事件
         else {
-            this.button.ui.hover(function () {
+            this.buttons.ui.hover(function () {
                 $(this).css({
                     "transform" : "translateY(-2px)"
                 });
@@ -9553,13 +9903,13 @@ function FigureNav() {
                 });
             });
             // 鼠标键按下事件，模拟 :active
-            this.button.ui.mousedown(function () {
+            this.buttons.ui.mousedown(function () {
                 $(this).css({
                     "transform" : "none"
                 });
             });
             // 鼠标键释放事件，模拟恢复正常
-            this.button.ui.mouseup(function () {
+            this.buttons.ui.mouseup(function () {
                 $(this).css({
                     "transform" : "translateY(-2px)"
                 });
@@ -9581,12 +9931,11 @@ function FigureNav() {
         if (fig == null)
             fig = $("[data-vk-fig-num='" + this.figNum + "']");
 
-        ContentAssist.hideButtons();
-
         // 在插图导航中显示对应插图
         this.figNum = parseInt(fig.attr("data-vk-fig-num"));
 
         VLOOK.ui.show(this.ui);
+
         this.display();
         this.updateUI();
     }
@@ -9598,7 +9947,6 @@ function FigureNav() {
         this.content.empty();
         VLOOK.ui.hide(this.ui);
 
-        ContentAssist.hideButtons();
         VLOOK.doc.scroll.unfreeze();
         VLOOK.doc.block = false;
     }
@@ -9621,15 +9969,16 @@ function FigureNav() {
             "max-height" : $(window).height() - 90,
             "border-radius" : "var(--vlook-base-radius)"
         });
+        newFig.addClass("mdx-interactive");
         VLOOK.ui.hide(newFig);
 
         // 添加鼠标移入/移出事件
-        VLOOK.ui.bindHover(newFig, "mdx-interactive-hover");
+        VLOOK.ui.bindHover(newFig);
 
         // 添加鼠标点击事件
         newFig.unbind("click").click(function () {
             // 跳转到对应位置
-            window.location.href = "#vk-id-fig" + that.figNum;
+            VLOOK.util.gotoHash("#vk-id-fig" + that.figNum);
             that.hide();
         });
 
@@ -9643,7 +9992,6 @@ function FigureNav() {
     this.prev = function () {
         if (this.figNum > 0) {
             this.figNum--;
-            ContentAssist.hideButtons();
             this.display();
             this.updateUI();
         }
@@ -9655,7 +10003,6 @@ function FigureNav() {
     this.next = function () {
         if (this.figNum < VLOOK.doc.counter.figure - 1) {
             this.figNum++;
-            ContentAssist.hideButtons();
             this.display();
             this.updateUI();
         }
@@ -9669,23 +10016,23 @@ function FigureNav() {
 
         pageNum.html("<span class='mdx-figure-page-num'>"
             + (this.figNum + 1) + "/" + VLOOK.doc.counter.figure + "</span> "
-            + $("#vk-id-fig" + this.figNum + " > .mdx-figure-caption-1").text());
+            + $("#vk-id-fig" + this.figNum + " > .mdx-caption-1").text());
 
         // 更新导航按钮位置
-        this.button.prev.css("top", (this.ui.height() - this.button.prev.height()) / 2);
-        this.button.next.css({
-            "top" : this.button.prev.css("top"),
+        this.buttons.prev.css("top", (this.ui.height() - this.buttons.prev.height()) / 2);
+        this.buttons.next.css({
+            "top" : this.buttons.prev.css("top"),
             "right" : "10px"
         });
 
         // 根据当前插图索引更新浏览按钮有效状态
-        this.button.prev.css("opacity", "0");
-        this.button.next.css("opacity", "0");
+        this.buttons.prev.css("opacity", "0");
+        this.buttons.next.css("opacity", "0");
         if (this.figNum > 0) {
-            this.button.prev.css("opacity", "1");
+            this.buttons.prev.css("opacity", "1");
         }
         if (this.figNum < VLOOK.doc.counter.figure - 1) {
-            this.button.next.css("opacity", "1");
+            this.buttons.next.css("opacity", "1");
         }
     }
 
@@ -9883,53 +10230,13 @@ Restyler.forMermaid = function () {
 
         // 将 alt(alternative)、opt(optional)、loop(loops) 片断文本翻译为其他语言
         if (fragment.text() === "alt")
-            fragment.text([
-                "选择",
-                "選擇",
-                "Alt.",
-                "Alt.",
-                "Alt.",
-                "Alt.",
-                "Alt.",
-                "代替",
-                "대안"
-            ][VLOOK.lang.id]);
+            fragment.text(["选择", "選擇", "Alt.", "Alt.", "Alt.", "Alt.", "Alt.", "代替", "대안"][VLOOK.lang.id]);
         else if (fragment.text() === "opt")
-            fragment.text([
-                "可选",
-                "可選",
-                "Opt.",
-                "Opt.",
-                "Opt.",
-                "Opt.",
-                "Opt.",
-                "ション",
-                "매칭"
-            ][VLOOK.lang.id]);
+            fragment.text(["可选",  "可選", "Opt.", "Opt.", "Opt.", "Opt.", "Opt.", "ション", "매칭"][VLOOK.lang.id]);
         else if (fragment.text() === "loop")
-            fragment.text([
-                "循环",
-                "循環",
-                "Loop.",
-                "Loop.",
-                "Loop.",
-                "Loop.",
-                "Loop.",
-                "ループ",
-                "루프"
-            ][VLOOK.lang.id]);
+            fragment.text(["循环", "循環", "Loop.", "Loop.", "Loop.", "Loop.", "Loop.", "ループ", "루프"][VLOOK.lang.id]);
         else if (fragment.text() === "par")
-            fragment.text([
-                "平行",
-                "平行",
-                "Par.",
-                "Par.",
-                "Par.",
-                "Par.",
-                "Par.",
-                "平行",
-                "평행"
-            ][VLOOK.lang.id]);
+            fragment.text(["平行", "平行", "Par.", "Par.", "Par.", "Par.", "Par.", "平行", "평행"][VLOOK.lang.id]);
     });
 
     // 调整片断的标题文本
@@ -10372,17 +10679,17 @@ VLOOKui.loadIconSet = function () {
         + '</symbol>'
         // SVG 图标集：图标|导航中心分段控制|代码块索引
         + '<symbol id="icoTocTabCodeblock">'
-        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect><path d="M13.3333333,1 C14.8060927,1 16,2.19390733 16,3.66666667 L16,12.3333333 C16,13.8060927 14.8060927,15 13.3333333,15 L2.66666667,15 C1.19390733,15 0,13.8060927 0,12.3333333 L0,3.66666667 C0,2.19390733 1.19390733,1 2.66666667,1 L13.3333333,1 Z M13.4970588,2 L2.50294159,2 C1.77030428,1.99976668 1.05844823,2.67261789 1.00350047,3.40933106 L1,3.51521341 L1,12.4847871 C0.999768614,13.2235811 1.66736769,13.9410611 2.39794159,13.9964707 L2.50294159,14 L13.4970588,14 C14.2296961,14.0002339 14.9415522,13.3273827 14.9964999,12.5906695 L15,12.4847871 L15,3.51521341 C15.0002318,2.77641949 14.3326327,2.0589394 13.6020588,2.00352989 L13.4970588,2 Z M9.59742608,4.43019805 L9.57742608,4.50553138 L7.60075942,11.5055314 C7.49126034,11.8422158 7.13768575,12.0345862 6.79552353,11.9436384 C6.45336132,11.8526907 6.24196775,11.51015 6.31409275,11.1635314 L6.33409275,11.088198 L8.31075942,4.08819805 C8.36606584,3.92020255 8.48586192,3.78106914 8.6437789,3.70142297 C8.80169589,3.62177679 8.98478988,3.60814617 9.15275942,3.66353138 C9.47398741,3.76930565 9.66512194,4.09884794 9.59742608,4.43019805 Z M5.396,5.768 L5.34933333,5.838 L3.73933333,7.98466667 L5.35,10.1313333 C5.55203719,10.4003138 5.52201979,10.7776755 5.28,11.0113333 L5.21666667,11.0646667 C4.94813556,11.2666509 4.57125481,11.2372205 4.33733333,10.996 L4.28333333,10.932 L2.37266667,8.38533333 C2.21409416,8.17401976 2.19526731,7.88900223 2.32466667,7.65866667 L2.37266667,7.58533333 L4.28333333,5.03866667 C4.38941993,4.89721787 4.54735181,4.80370519 4.72238576,4.77870034 C4.89741972,4.75369549 5.07521787,4.79924674 5.21666667,4.90533333 C5.48539743,5.10617538 5.56224658,5.47613692 5.396,5.768 Z M11.6626667,4.97466667 L11.7173333,5.038 L13.6273333,7.58466667 L13.6753333,7.658 C13.7893578,7.86085249 13.7893578,8.10848085 13.6753333,8.31133333 L13.6273333,8.38466667 L11.7173333,10.9313333 L11.6626667,10.996 C11.450984,11.2144191 11.1183033,11.2618666 10.854,11.1113333 L10.784,11.0646667 L10.72,11.0113333 C10.5010274,10.7997113 10.4532845,10.4666086 10.604,10.202 L10.6506667,10.132 L12.2606667,7.98466667 L10.6506667,5.838 L10.604,5.768 C10.4378957,5.47597654 10.5150376,5.10598124 10.784,4.90466667 C11.05219,4.70302715 11.4290973,4.73303114 11.6626667,4.97466667 Z"></path>'
+        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect><path d="M13.3333333,1 C14.8060927,1 16,2.19390733 16,3.66666667 L16,12.3333333 C16,13.8060927 14.8060927,15 13.3333333,15 L2.66666667,15 C1.19390733,15 0,13.8060927 0,12.3333333 L0,3.66666667 C0,2.19390733 1.19390733,1 2.66666667,1 L13.3333333,1 Z M13.4970588,2 L2.50294159,2 C1.77030428,1.99976668 1.05844823,2.67261789 1.00350047,3.40933106 L1,3.51521341 L1,12.4847871 C0.999768614,13.2235811 1.66736769,13.9410611 2.39794159,13.9964707 L2.50294159,14 L13.4970588,14 C14.2296961,14.0002339 14.9415522,13.3273827 14.9964999,12.5906695 L15,12.4847871 L15,3.51521341 C15.0002318,2.77641949 14.3326327,2.0589394 13.6020588,2.00352989 L13.4970588,2 Z M9.70105374,3.81728068 L9.68105374,3.89261402 L7.60075942,12.5353709 C7.49126034,12.8720553 7.13768575,13.0644257 6.79552353,12.9734779 C6.45336132,12.8825301 6.24196775,12.5399895 6.31409275,12.1933709 L6.33409275,12.1180375 L8.41438707,3.47528068 C8.4696935,3.30728519 8.58948957,3.16815178 8.74740655,3.08850561 C8.90532354,3.00885943 9.08841753,2.99522881 9.25638707,3.05061402 C9.57761506,3.15638829 9.76874959,3.48593058 9.70105374,3.81728068 Z M5.396,5.768 L5.34933333,5.838 L3.73933333,7.98466667 L5.35,10.1313333 C5.55203719,10.4003138 5.52201979,10.7776755 5.28,11.0113333 L5.21666667,11.0646667 C4.94813556,11.2666509 4.57125481,11.2372205 4.33733333,10.996 L4.28333333,10.932 L2.37266667,8.38533333 C2.21409416,8.17401976 2.19526731,7.88900223 2.32466667,7.65866667 L2.37266667,7.58533333 L4.28333333,5.03866667 C4.38941993,4.89721787 4.54735181,4.80370519 4.72238576,4.77870034 C4.89741972,4.75369549 5.07521787,4.79924674 5.21666667,4.90533333 C5.48539743,5.10617538 5.56224658,5.47613692 5.396,5.768 Z M11.6626667,4.97466667 L11.7173333,5.038 L13.6273333,7.58466667 L13.6753333,7.658 C13.7893578,7.86085249 13.7893578,8.10848085 13.6753333,8.31133333 L13.6273333,8.38466667 L11.7173333,10.9313333 L11.6626667,10.996 C11.450984,11.2144191 11.1183033,11.2618666 10.854,11.1113333 L10.784,11.0646667 L10.72,11.0113333 C10.5010274,10.7997113 10.4532845,10.4666086 10.604,10.202 L10.6506667,10.132 L12.2606667,7.98466667 L10.6506667,5.838 L10.604,5.768 C10.4378957,5.47597654 10.5150376,5.10598124 10.784,4.90466667 C11.05219,4.70302715 11.4290973,4.73303114 11.6626667,4.97466667 Z"></path>'
         + '</symbol>'
         + '<symbol id="icoTocTabCodeblock-checked">'
-        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect><path d="M13.3333333,1 C14.8060927,1 16,2.19390733 16,3.66666667 L16,12.3333333 C16,13.8060927 14.8060927,15 13.3333333,15 L2.66666667,15 C1.19390733,15 0,13.8060927 0,12.3333333 L0,3.66666667 C0,2.19390733 1.19390733,1 2.66666667,1 L13.3333333,1 Z M9.15275942,3.66353138 C8.98478988,3.60814617 8.80169589,3.62177679 8.6437789,3.70142297 C8.48586192,3.78106914 8.36606584,3.92020255 8.31075942,4.08819805 L8.31075942,4.08819805 L6.33409275,11.088198 L6.31409275,11.1635314 C6.24196775,11.51015 6.45336132,11.8526907 6.79552353,11.9436384 C7.13768575,12.0345862 7.49126034,11.8422158 7.60075942,11.5055314 L7.60075942,11.5055314 L9.57742608,4.50553138 L9.59742608,4.43019805 C9.66512194,4.09884794 9.47398741,3.76930565 9.15275942,3.66353138 Z M4.82742493,4.77208399 L4.72238576,4.77870034 C4.54735181,4.80370519 4.38941993,4.89721787 4.28333333,5.03866667 L4.28333333,5.03866667 L2.37266667,7.58533333 L2.32466667,7.65866667 C2.19526731,7.88900223 2.21409416,8.17401976 2.37266667,8.38533333 L2.37266667,8.38533333 L4.28333333,10.932 L4.33733333,10.996 C4.57125481,11.2372205 4.94813556,11.2666509 5.21666667,11.0646667 L5.21666667,11.0646667 L5.28,11.0113333 C5.52201979,10.7776755 5.55203719,10.4003138 5.35,10.1313333 L5.35,10.1313333 L3.73933333,7.98466667 L5.34933333,5.838 L5.396,5.768 C5.56224658,5.47613692 5.48539743,5.10617538 5.21666667,4.90533333 C5.07521787,4.79924674 4.89741972,4.75369549 4.72238576,4.77870034 Z M11.6626667,4.97466667 C11.4290973,4.73303114 11.05219,4.70302715 10.784,4.90466667 C10.5150376,5.10598124 10.4378957,5.47597654 10.604,5.768 L10.604,5.768 L10.6506667,5.838 L12.2606667,7.98466667 L10.6506667,10.132 L10.604,10.202 C10.4532845,10.4666086 10.5010274,10.7997113 10.72,11.0113333 L10.72,11.0113333 L10.784,11.0646667 L10.854,11.1113333 C11.1183033,11.2618666 11.450984,11.2144191 11.6626667,10.996 L11.6626667,10.996 L11.7173333,10.9313333 L13.6273333,8.38466667 L13.6753333,8.31133333 C13.7893578,8.10848085 13.7893578,7.86085249 13.6753333,7.658 L13.6753333,7.658 L13.6273333,7.58466667 L11.7173333,5.038 Z"></path>'
+        + '<rect fill-opacity="0" x="0" y="0" width="16" height="16"></rect><path d="M13.3333333,1 C14.8060927,1 16,2.19390733 16,3.66666667 L16,12.3333333 C16,13.8060927 14.8060927,15 13.3333333,15 L2.66666667,15 C1.19390733,15 0,13.8060927 0,12.3333333 L0,3.66666667 C0,2.19390733 1.19390733,1 2.66666667,1 L13.3333333,1 Z M9.25638707,3.05061402 C9.08841753,2.99522881 8.90532354,3.00885943 8.74740655,3.08850561 C8.58948957,3.16815178 8.4696935,3.30728519 8.41438707,3.47528068 L8.41438707,3.47528068 L6.33409275,12.1180375 L6.31409275,12.1933709 C6.24196775,12.5399895 6.45336132,12.8825301 6.79552353,12.9734779 C7.13768575,13.0644257 7.49126034,12.8720553 7.60075942,12.5353709 L7.60075942,12.5353709 L9.68105374,3.89261402 L9.70105374,3.81728068 C9.76874959,3.48593058 9.57761506,3.15638829 9.25638707,3.05061402 Z M4.82742493,4.77208399 L4.72238576,4.77870034 C4.54735181,4.80370519 4.38941993,4.89721787 4.28333333,5.03866667 L4.28333333,5.03866667 L2.37266667,7.58533333 L2.32466667,7.65866667 C2.19526731,7.88900223 2.21409416,8.17401976 2.37266667,8.38533333 L2.37266667,8.38533333 L4.28333333,10.932 L4.33733333,10.996 C4.57125481,11.2372205 4.94813556,11.2666509 5.21666667,11.0646667 L5.21666667,11.0646667 L5.28,11.0113333 C5.52201979,10.7776755 5.55203719,10.4003138 5.35,10.1313333 L5.35,10.1313333 L3.73933333,7.98466667 L5.34933333,5.838 L5.396,5.768 C5.56224658,5.47613692 5.48539743,5.10617538 5.21666667,4.90533333 C5.07521787,4.79924674 4.89741972,4.75369549 4.72238576,4.77870034 Z M11.6626667,4.97466667 C11.4290973,4.73303114 11.05219,4.70302715 10.784,4.90466667 C10.5150376,5.10598124 10.4378957,5.47597654 10.604,5.768 L10.604,5.768 L10.6506667,5.838 L12.2606667,7.98466667 L10.6506667,10.132 L10.604,10.202 C10.4532845,10.4666086 10.5010274,10.7997113 10.72,11.0113333 L10.72,11.0113333 L10.784,11.0646667 L10.854,11.1113333 C11.1183033,11.2618666 11.450984,11.2144191 11.6626667,10.996 L11.6626667,10.996 L11.7173333,10.9313333 L13.6273333,8.38466667 L13.6753333,8.31133333 C13.7893578,8.10848085 13.7893578,7.86085249 13.6753333,7.658 L13.6753333,7.658 L13.6273333,7.58466667 L11.7173333,5.038 Z"></path>'
         + '</symbol>'
         // SVG 图标集：图标|导航中心分段控制|访问史
         + '<symbol id="icoTocTabHistory">'
-        + '<path d="M8,0 C12.4113555,0 16,3.58880564 16,8.00001836 C16,12.4112127 12.4113555,16 8,16 C3.58864449,16 0,12.4112311 0,8.00003673 C0,3.58880564 3.58864449,0 8,0 Z M8.00000918,1.50433377 C4.41951807,1.50433377 1.5043355,4.41956809 1.5043355,8.00001836 C1.5043355,11.5804503 4.41953644,14.4956662 8.00000918,14.4956662 C11.5804819,14.4956662 14.4956645,11.5804686 14.4956645,8.00001836 C14.4956645,4.41956809 11.5804636,1.50433377 8.00000918,1.50433377 Z M8.69469927,3.12936833 L8.69486454,3.14510581 L8.69486454,7.97032467 L11.0890204,10.5135155 C11.3696142,10.8116094 11.3597346,11.278243 11.0698856,11.5642721 L11.056921,11.5767592 C10.7588268,11.8573527 10.2921743,11.8474732 10.0061632,11.5576245 L9.99367608,11.5446599 L7.39502465,8.78421111 C7.2683526,8.64965351 7.19564981,8.47317198 7.19078613,8.2884347 L7.19052904,8.2686389 L7.19052904,3.14510581 C7.19052904,2.72968785 7.52727836,2.39293892 7.94269679,2.39293892 C8.3528449,2.39293892 8.68632553,2.7212223 8.69469927,3.12936833 Z"></path>'
+        + '<path d="M8,0 C12.4113555,0 16,3.58880564 16,8.00001836 C16,12.4112127 12.4113555,16 8,16 C3.58864449,16 0,12.4112311 0,8.00003673 C0,3.58880564 3.58864449,0 8,0 Z M8,1 C4.14152278,1 1,4.14157771 1,8.00001979 C1,11.8584421 4.14154257,15 8,15 C11.8584772,15 15,11.8584619 15,8.00001979 C15,4.14157771 11.8584574,1 8,1 Z M8.69469927,2.77007623 L8.69486454,2.7858137 L8.69486454,7.97032467 L11.0890204,10.5135155 C11.3696142,10.8116094 11.3597346,11.278243 11.0698856,11.5642721 L11.056921,11.5767592 C10.7588268,11.8573527 10.2921743,11.8474732 10.0061632,11.5576245 L9.99367608,11.5446599 L7.39502465,8.78421111 C7.2683526,8.64965351 7.19564981,8.47317198 7.19078613,8.2884347 L7.19052904,8.2686389 L7.19052904,2.7858137 C7.19052904,2.37039575 7.52727836,2.03364682 7.94269679,2.03364682 C8.3528449,2.03364682 8.68632553,2.3619302 8.69469927,2.77007623 Z"></path>'
         + '</symbol>'
         + '<symbol id="icoTocTabHistory-checked">'
-        + '<path d="M8,0 C12.4113555,0 16,3.58880564 16,8.00001836 C16,12.4112127 12.4113555,16 8,16 C3.58864449,16 0,12.4112311 0,8.00003673 C0,3.58880564 3.58864449,0 8,0 Z M7.94269679,2.39293892 C7.52727836,2.39293892 7.19052904,2.72968785 7.19052904,3.14510581 L7.19052904,3.14510581 L7.19078613,8.2884347 C7.19564981,8.47317198 7.2683526,8.64965351 7.39502465,8.78421111 L7.39502465,8.78421111 L9.99367608,11.5446599 L10.0061632,11.5576245 C10.2921743,11.8474732 10.7588268,11.8573527 11.056921,11.5767592 L11.056921,11.5767592 L11.0698856,11.5642721 C11.3597346,11.278243 11.3696142,10.8116094 11.0890204,10.5135155 L11.0890204,10.5135155 L8.69486454,7.97032467 L8.69469927,3.12936833 C8.68632553,2.7212223 8.3528449,2.39293892 7.94269679,2.39293892 Z"></path>'
+        + '<path d="M8,0 C12.4113555,0 16,3.58880564 16,8.00001836 C16,12.4112127 12.4113555,16 8,16 C3.58864449,16 0,12.4112311 0,8.00003673 C0,3.58880564 3.58864449,0 8,0 Z M7.94269679,2.03364682 C7.52727836,2.03364682 7.19052904,2.37039575 7.19052904,2.7858137 L7.19052904,2.7858137 L7.19078613,8.2884347 C7.19564981,8.47317198 7.2683526,8.64965351 7.39502465,8.78421111 L7.39502465,8.78421111 L9.99367608,11.5446599 L10.0061632,11.5576245 C10.2921743,11.8474732 10.7588268,11.8573527 11.056921,11.5767592 L11.056921,11.5767592 L11.0698856,11.5642721 C11.3597346,11.278243 11.3696142,10.8116094 11.0890204,10.5135155 L11.0890204,10.5135155 L8.69486454,7.97032467 L8.69469927,2.77007623 C8.68632553,2.3619302 8.3528449,2.03364682 7.94269679,2.03364682 Z"></path>'
         + '</symbol>'
         // SVG 图标集：图标|过滤
         + '<symbol id="icoFilter">'
@@ -10393,15 +10700,15 @@ VLOOKui.loadIconSet = function () {
         + '<path d="M6.54545451,0 C7.43175754,0 8.2792727,0.173333386 9.08799997,0.520000057 C9.89672724,0.866666727 10.5927272,1.33163643 11.176,1.91490915 C11.7592727,2.49818188 12.2242424,3.19418188 12.5709091,4.00290915 C12.9175757,4.81163642 13.0909091,5.65915158 13.0909091,6.54545461 C13.0909091,7.30666674 12.9667879,8.03587886 12.7185454,8.73309097 C12.470303,9.43030308 12.1170909,10.0627879 11.6589091,10.6305455 L15.7898182,14.7556364 C15.9299394,14.8957576 16,15.0681213 16,15.2727273 C16,15.4812122 15.9309091,15.6545455 15.7927273,15.7927273 C15.6545455,15.9309091 15.4812121,16 15.2727273,16 C15.0681212,16 14.8957576,15.9299394 14.7556364,15.7898182 L10.6305455,11.6589091 C10.062303,12.117091 9.42981819,12.4703031 8.73309092,12.7185455 C8.03636364,12.9667879 7.30715153,13.0909091 6.54545456,13.0909091 C5.65915153,13.0909091 4.81163637,12.9175758 4.0029091,12.5709091 C3.19418183,12.2242424 2.49818183,11.7592727 1.9149091,11.176 C1.33163637,10.5927273 0.866666676,9.89672729 0.520000005,9.08800002 C0.173333335,8.27927275 0,7.43175759 0,6.54545456 C0,5.65915153 0.173333335,4.81163637 0.520000005,4.0029091 C0.866666676,3.19418183 1.33163637,2.49818183 1.9149091,1.9149091 C2.49818183,1.33163637 3.19418183,0.866666676 4.0029091,0.520000005 C4.81163637,0.173333335 5.65915153,0 6.54545456,0 L6.54545451,0 Z M6.54545451,1.4545455 C5.85599996,1.4545455 5.19684845,1.58909095 4.56799996,1.85818186 C3.93915147,2.12727277 3.39757571,2.48896974 2.94327269,2.94327278 C2.48896967,3.39757581 2.1272727,3.93915157 1.85818178,4.56800004 C1.58909086,5.19684852 1.45454541,5.85600004 1.45454541,6.54545459 C1.45454541,7.23490915 1.58909088,7.89406067 1.85818178,8.52290914 C2.12727268,9.15175762 2.48896965,9.69333338 2.94327269,10.1476364 C3.39757574,10.6019394 3.93915149,10.9636364 4.56799996,11.2327273 C5.19684842,11.5018182 5.85599994,11.6363637 6.54545451,11.6363637 C7.23490908,11.6363637 7.89406059,11.5018182 8.52290906,11.2327273 C9.15175753,10.9636364 9.69333328,10.6019394 10.1476363,10.1476364 C10.6019394,9.69333338 10.9636363,9.15175762 11.2327272,8.52290914 C11.5018181,7.89406067 11.6363636,7.23490915 11.6363636,6.54545459 C11.6363636,5.85600004 11.5018182,5.19684852 11.2327272,4.56800004 C10.9636363,3.93915157 10.6019393,3.39757581 10.1476363,2.94327278 C9.6933333,2.48896974 9.15175755,2.12727277 8.52290906,1.85818186 C7.89406057,1.58909095 7.23490905,1.4545455 6.54545451,1.4545455 Z"></path>'
         + '</symbol>'
         // SVG 图标集：图标|向左关闭
-        + '<symbol id="icoCloserTo-left">'
+        + '<symbol id="icoCloseTo-left">'
         + '<path d="M13.9791715,0.176477427 L14.0154251,0.189323743 C15.5212,0.722890207 16.3261424,2.31174457 15.875093,3.79570421 L6.20859385,30 L15.8197795,56.039902 C16.3646269,57.5145002 15.632921,59.1369628 14.1798211,59.7471073 L13.9791715,59.8235226 C12.4774152,60.3556651 10.8245904,59.6444033 10.1979056,58.2273068 L10.1325565,58.0669743 L0.314759836,31.9158354 C-0.104917664,30.6730285 -0.104920005,29.3272583 0.31475317,28.0844499 L10.1325565,1.93302569 C10.7019517,0.409988422 12.4217946,-0.375374037 13.9791715,0.176477427 Z"></path>'
         + '</symbol>'
         // SVG 图标集：图标|向右关闭
-        + '<symbol id="icoCloserTo-right">'
+        + '<symbol id="icoCloseTo-right">'
         + '<path d="M13.9791715,0.176477427 L14.0154251,0.189323743 C15.5212,0.722890207 16.3261424,2.31174457 15.875093,3.79570421 L6.20859385,30 L15.8197795,56.039902 C16.3646269,57.5145002 15.632921,59.1369628 14.1798211,59.7471073 L13.9791715,59.8235226 C12.4774152,60.3556651 10.8245904,59.6444033 10.1979056,58.2273068 L10.1325565,58.0669743 L0.314759836,31.9158354 C-0.104917664,30.6730285 -0.104920005,29.3272583 0.31475317,28.0844499 L10.1325565,1.93302569 C10.7019517,0.409988422 12.4217946,-0.375374037 13.9791715,0.176477427 Z" transform="translate(8.000000, 30.000000) scale(-1, 1) translate(-8.000000, -30.000000) "></path>'
         + '</symbol>'
         // SVG 图标集：图标|向下关闭
-        + '<symbol id="icoCloserTo-bottom">'
+        + '<symbol id="icoCloseTo-bottom">'
         + '<path d="M35.9791715,-21.8235226 L36.0154251,-21.8106763 C37.5212,-21.2771098 38.3261424,-19.6882554 37.875093,-18.2042958 L28.2085938,8 L37.8197795,34.039902 C38.3646269,35.5145002 37.632921,37.1369628 36.1798211,37.7471073 L35.9791715,37.8235226 C34.4774152,38.3556651 32.8245904,37.6444033 32.1979056,36.2273068 L32.1325565,36.0669743 L22.3147598,9.91583543 C21.8950823,8.67302848 21.89508,7.32725835 22.3147532,6.08444994 L32.1325565,-20.0669743 C32.7019517,-21.5900116 34.4217946,-22.375374 35.9791715,-21.8235226 Z" transform="translate(30.000000, 8.000000) rotate(270.000000) translate(-30.000000, -8.000000) "></path>'
         + '</symbol>'
         // SVG 图标集：图标|插图导航的上一张
@@ -10465,6 +10772,14 @@ VLOOKui.loadIconSet = function () {
         + '<symbol id="icoResetInput">'
         + '<path d="M8,0 C12.418278,-8.11624501e-16 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.581722,16 5.41083001e-16,12.418278 0,8 C-5.41083001e-16,3.581722 3.581722,8.11624501e-16 8,0 Z M5.7372583,4.60588745 C5.42483887,4.29346802 4.91830688,4.29346802 4.60588745,4.60588745 C4.29346802,4.91830688 4.29346802,5.42483887 4.60588745,5.7372583 L4.60588745,5.7372583 L6.86862915,8 L4.60588745,10.2627417 C4.29346802,10.5751611 4.29346802,11.0816931 4.60588745,11.3941125 C4.91830688,11.706532 5.42483887,11.706532 5.7372583,11.3941125 L5.7372583,11.3941125 L8,9.13137085 L10.2627417,11.3941125 C10.5751611,11.706532 11.0816931,11.706532 11.3941125,11.3941125 C11.706532,11.0816931 11.706532,10.5751611 11.3941125,10.2627417 L11.3941125,10.2627417 L9.13137085,8 L11.3941125,5.7372583 C11.706532,5.42483887 11.706532,4.91830688 11.3941125,4.60588745 C11.0816931,4.29346802 10.5751611,4.29346802 10.2627417,4.60588745 L10.2627417,4.60588745 L8,6.86862915 Z"></path>'
         + '</symbol>'
+        // SVG 图标集：图标|画中画的放大模式
+        + '<symbol id="icoZoomIn">'
+        + '<path d="M8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 Z M11.4996893,6.75 C11.0853041,6.75 10.7493786,7.08578644 10.7493786,7.5 L10.7493786,7.5 L10.7493786,10.4956177 L10.7427732,10.5529405 C10.7168519,10.6633843 10.6176708,10.7456177 10.499275,10.7456177 L10.499275,10.7456177 L7.50031071,10.7456177 L7.39849799,10.7524644 C7.03227077,10.8021268 6.75,11.115922 6.75,11.4956177 C6.75,11.9098313 7.08592555,12.2456177 7.50031071,12.2456177 L7.50031071,12.2456177 L10.499275,12.2456177 L10.6428617,12.2398165 C11.5425968,12.1668101 12.25,11.4137911 12.25,10.4956177 L12.25,10.4956177 L12.25,7.5 L12.2431505,7.39822944 C12.1934676,7.03215388 11.8795424,6.75 11.4996893,6.75 Z M8.49772239,3.75 L5.5,3.75 L5.35647279,3.7558012 C4.45711027,3.82880766 3.75,4.5818266 3.75,5.5 L3.75,5.5 L3.75,8.49561775 L3.75684662,8.5973883 C3.80650904,8.96346387 4.12030423,9.24561775 4.5,9.24561775 C4.91421356,9.24561775 5.25,8.90983131 5.25,8.49561775 L5.25,8.49561775 L5.25,5.5 L5.25660268,5.44267729 C5.28251318,5.33223341 5.38165327,5.25 5.5,5.25 L5.5,5.25 L8.49772239,5.25 L8.59949294,5.24315338 C8.96556851,5.19349096 9.24772239,4.87969577 9.24772239,4.5 C9.24772239,4.08578644 8.91193595,3.75 8.49772239,3.75 L8.49772239,3.75 Z"></path>'
+        + '</symbol>'
+        // SVG 图标集：图标|画中画的缩小模式
+        + '<symbol id="icoZoomOut">'
+        + '<path d="M8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 Z M12.9977224,8.25 L10,8.25 L9.85647279,8.2558012 C8.95711027,8.32880766 8.25,9.0818266 8.25,10 L8.25,10 L8.25,12.9956177 L8.25684662,13.0973883 C8.30650904,13.4634639 8.62030423,13.7456177 9,13.7456177 C9.41421356,13.7456177 9.75,13.4098313 9.75,12.9956177 L9.75,12.9956177 L9.75,10 L9.75660268,9.94267729 C9.78251318,9.83223341 9.88165327,9.75 10,9.75 L10,9.75 L12.9977224,9.75 L13.0994929,9.74315338 C13.4655685,9.69349096 13.7477224,9.37969577 13.7477224,9 C13.7477224,8.58578644 13.4119359,8.25 12.9977224,8.25 L12.9977224,8.25 Z M6.99968929,2.25 C6.58530412,2.25 6.24937858,2.58578644 6.24937858,3 L6.24937858,3 L6.24937858,5.99561775 L6.24277316,6.05294045 C6.21685193,6.16338433 6.11767077,6.24561775 5.999275,6.24561775 L5.999275,6.24561775 L3.00031071,6.24561775 L2.89849799,6.25246436 C2.53227077,6.30212679 2.25,6.61592198 2.25,6.99561775 C2.25,7.40983131 2.58592555,7.74561775 3.00031071,7.74561775 L3.00031071,7.74561775 L5.999275,7.74561775 L6.14286167,7.73981655 C7.04259678,7.66681009 7.75,6.91379114 7.75,5.99561775 L7.75,5.99561775 L7.75,3 L7.74315055,2.89822944 C7.69346755,2.53215388 7.37954235,2.25 6.99968929,2.25 Z"></path>'
+        + '</symbol>'
         // SVG 图标集：图标|插图导航
         + '<symbol id="icoFigureNav">'
         + '<path d="M18,3 C19.1045695,3 20,3.8954305 20,5 L20,14 C20,15.1045695 19.1045695,16 18,16 L4,16 C2.9456382,16 2.08183488,15.1841222 2.00548574,14.1492623 L2,14 L15.5,14 C16.8807119,14 18,12.8807119 18,11.5 L18,3 Z M15,0 C16.1045695,-1.18396092e-15 17,0.8954305 17,2 L17,11 C17,12.1045695 16.1045695,13 15,13 L2,13 C0.8954305,13 -1.13551567e-13,12.1045695 -1.13686838e-13,11 L-1.13686838e-13,2 C-1.13822108e-13,0.8954305 0.8954305,2.02906125e-16 2,0 L15,0 Z M5.73928706,4.46929968 C5.247001,4.21895416 4.64497916,4.41508571 4.39463363,4.90737177 L4.39463363,4.90737177 L2.03225639,9.55281283 C1.96084272,9.69324256 1.92361915,9.84855852 1.92361915,10.0061035 C1.92361915,10.5583883 2.3713344,11.0061035 2.92361915,11.0061035 L2.92361915,11.0061035 L14.2120421,11.0061035 C14.4392714,11.0061035 14.6597254,10.9287155 14.8370963,10.7866848 C15.2681995,10.4414769 15.3378313,9.81215247 14.9926234,9.38104929 L14.9926234,9.38104929 L12.9645536,6.84835144 C12.6449335,6.44920285 12.075683,6.35548344 11.6449719,6.63110012 L11.6449719,6.63110012 L9.29545309,8.13458249 C9.28589453,8.14069912 9.27623255,8.14665259 9.26647134,8.15244033 C8.79141623,8.43411583 8.17796486,8.27735069 7.89628936,7.80229559 L7.89628936,7.80229559 L6.14615975,4.85064382 C6.04943866,4.68752049 5.90832711,4.55526275 5.73928706,4.46929968 Z M11,2 C9.8954305,2 9,2.8954305 9,4 C9,5.1045695 9.8954305,6 11,6 C12.1045695,6 13,5.1045695 13,4 C13,2.8954305 12.1045695,2 11,2 Z"></path>'
@@ -10493,10 +10808,6 @@ VLOOKui.loadIconSet = function () {
         + '<symbol id="icoParagraphNav">'
         + '<path d="M3.01977401,12 C3.39265537,12 3.69774011,12.3050847 3.69774011,12.6779661 L3.69774011,12.6779661 L3.69774011,17.714056 L4.87288136,16.5389147 C5.13276836,16.2677283 5.56214689,16.2677283 5.79943503,16.5389147 C6.05932203,16.8101012 6.05932203,17.2394797 5.79943503,17.4993667 L5.79943503,17.4993667 L3.50564972,19.793152 C3.38135593,19.9287452 3.20056497,19.9965418 3.03107345,19.9965418 L3.03107345,19.9965418 L2.96327684,19.9965418 C2.79378531,19.9965418 2.62429379,19.9287452 2.48870056,19.793152 L2.48870056,19.793152 L0.194915254,17.4993667 C-0.0649717514,17.2281803 -0.0649717514,16.7988017 0.194915254,16.5389147 C0.466101695,16.2790277 0.895480226,16.2790277 1.15536723,16.5389147 L1.15536723,16.5389147 L2.34180791,17.7253554 L2.34180791,12.6779661 C2.34180791,12.3050847 2.64689266,12 3.01977401,12 Z M19,16 C19.5522847,16 20,16.4477153 20,17 C20,17.5522847 19.5522847,18 19,18 L8,18 C7.44771525,18 7,17.5522847 7,17 C7,16.4477153 7.44771525,16 8,16 L19,16 Z M15,12.5 C15.5522847,12.5 16,12.9477153 16,13.5 C16,14.0522847 15.5522847,14.5 15,14.5 L8,14.5 C7.44771525,14.5 7,14.0522847 7,13.5 C7,12.9477153 7.44771525,12.5 8,12.5 L15,12.5 Z M19,9 C19.5522847,9 20,9.44771525 20,10 C20,10.5522847 19.5522847,11 19,11 L8,11 C7.44771525,11 7,10.5522847 7,10 C7,9.44771525 7.44771525,9 8,9 L19,9 Z M3.03107345,0 C3.20056497,0 3.38135593,0.0677966102 3.50564972,0.203389831 L5.79943503,2.49717514 C6.05932203,2.75706215 6.05932203,3.18644068 5.79943503,3.45762712 C5.56214689,3.72881356 5.13276836,3.72881356 4.87288136,3.45762712 L3.69774011,2.28248588 L3.69774011,7.31857574 C3.69774011,7.6914571 3.39265537,7.99654184 3.01977401,7.99654184 C2.64689266,7.99654184 2.34180791,7.6914571 2.34180791,7.31857574 L2.34180791,2.27118644 L1.15536723,3.45762712 C0.895480226,3.71751412 0.466101695,3.71751412 0.194915254,3.45762712 C-0.0649717514,3.19774011 -0.0649717514,2.76836158 0.194915254,2.49717514 L2.48870056,0.203389831 C2.62429379,0.0677966102 2.79378531,0 2.96327684,0 L3.03107345,0 Z M15,5.5 C15.5522847,5.5 16,5.94771525 16,6.5 C16,7.05228475 15.5522847,7.5 15,7.5 L8,7.5 C7.44771525,7.5 7,7.05228475 7,6.5 C7,5.94771525 7.44771525,5.5 8,5.5 L15,5.5 Z M19,2 C19.5522847,2 20,2.44771525 20,3 C20,3.55228475 19.5522847,4 19,4 L8,4 C7.44771525,4 7,3.55228475 7,3 C7,2.44771525 7.44771525,2 8,2 L19,2 Z" id="形状结合"></path>'
         + '</symbol>'
-        // SVG 图标集：图标|表格十字光标
-        + '<symbol id="icoTableCross">'
-        + '<path d="M17,0 C18.6568542,-3.04359188e-16 20,1.34314575 20,3 L20,15 C20,16.6568542 18.6568542,18 17,18 L3,18 C1.34314575,18 2.02906125e-16,16.6568542 0,15 L0,3 C-2.02906125e-16,1.34314575 1.34314575,-1.39730022e-16 3,0 L17,0 Z M1,15 C1,16.0543618 1.81587779,16.9181651 2.85073766,16.9945143 L3,17 L6,17 L6,13 L14,13 L14,17 L17,17 C18.0543618,17 18.9181651,16.1841222 18.9945143,15.1492623 L19,15 L19,13 L14,13 L14,9 L19,9 L19,3 C19,1.8954305 18.1045695,1 17,1 L14,1 L14,9 L6,9 L6,1 L3,1 C1.9456382,1 1.08183488,1.81587779 1.00548574,2.85073766 L1,3 L1,9 L6,9 L6,13 L1,13 L1,15 Z"></path>'
-        + '</symbol>'
         // SVG 图标集：图标|字体风格
         + '<symbol id="icoFont">'
         + '<path d="M13.5762602,0 L19.6240589,2.72949935 C19.8423438,2.82801594 19.9601208,3.06747857 19.9049054,3.30051307 L19.9049054,3.30051307 L18.9255405,7.43389084 C18.9239258,7.44070599 18.9222394,7.44750398 18.9204818,7.4542837 C18.781886,7.98889537 18.2361435,8.30992963 17.7015318,8.1713338 L17.7015318,8.1713338 L16.6090545,7.88811365 L17.0004095,16.9530131 C17.0010298,16.9673822 17.0013401,16.981763 17.0013401,16.9961455 C17.0013401,17.5484303 16.5536248,17.9961455 16.0013401,17.9961455 L16.0013401,17.9961455 L4.0220839,17.9961455 C4.00856119,17.9961455 3.99503987,17.9958712 3.98152828,17.9953228 C3.42969791,17.9729246 3.00050837,17.5074203 3.02290662,16.9555899 L3.02290662,16.9555899 L3.39094547,7.88814065 L2.2984682,8.1713608 C2.29168849,8.17311841 2.2848905,8.17480475 2.27807535,8.17641954 C1.74066982,8.30375271 1.20179262,7.97132338 1.07445945,7.43391784 L1.07445945,7.43391784 L0.0950940831,3.300538 C0.0398789749,3.06750442 0.157654736,2.82804263 0.375938263,2.72952533 L0.375938263,2.72952533 L6.42371282,0 C6.84120201,1.17779603 8.35034026,1.92020134 10.0273836,1.92020134 C11.7041575,1.92020134 13.1584477,1.17779606 13.5762602,0 L13.5762602,0 Z M14.3362925,15 L5.33629254,15 C5.06015017,15 4.83629254,15.2238576 4.83629254,15.5 C4.83629254,15.7761424 5.06015017,16 5.33629254,16 L5.33629254,16 L14.3362925,16 C14.6124349,16 14.8362925,15.7761424 14.8362925,15.5 C14.8362925,15.2238576 14.6124349,15 14.3362925,15 L14.3362925,15 Z M14.3362925,13 L5.33629254,13 C5.06015017,13 4.83629254,13.2238576 4.83629254,13.5 C4.83629254,13.7761424 5.06015017,14 5.33629254,14 L5.33629254,14 L14.3362925,14 C14.6124349,14 14.8362925,13.7761424 14.8362925,13.5 C14.8362925,13.2238576 14.6124349,13 14.3362925,13 L14.3362925,13 Z M10.1692801,4 L9.49356401,4 C9.10681163,4 8.75473295,4.22301476 8.58946486,4.57267725 L8.58946486,4.57267725 L5.51323262,11.0811511 C5.47258031,11.1671604 5.45149579,11.2611105 5.45149579,11.3562431 C5.45149579,11.7117802 5.73971557,12 6.09525268,12 L6.09525268,12 L6.47408711,12 C6.86292903,12 7.21651458,11.7745963 7.38064094,11.4220902 L7.38064094,11.4220902 L7.98538301,10.1232417 L11.6882178,10.1232417 L12.2536219,11.4038874 C12.4135943,11.7662263 12.772349,12 13.1684307,12 L13.1684307,12 L13.5590129,12 C13.6567871,12 13.7533353,11.9782359 13.8416532,11.9362865 C14.1702934,11.7801886 14.3101665,11.3872307 14.1540686,11.0585905 L14.1540686,11.0585905 L11.0725642,4.57095699 C10.9069259,4.22223103 10.5553447,4 10.1692801,4 L10.1692801,4 Z M9.83629254,5.81301032 L11.1439071,8.7799378 L8.55457137,8.7799378 L9.83629254,5.81301032 Z"></path>'
@@ -10512,6 +10823,18 @@ VLOOKui.loadIconSet = function () {
         // SVG 图标集：图标|打印
         + '<symbol id="icoPrint">'
         + '<path d="M15,7.38964445e-12 C16.1045695,7.38944155e-12 17,0.8954305 17,2 L17,6 L18,6 C19.1045695,6 20,6.8954305 20,8 L20,14 C20,15.1045695 19.1045695,16 18,16 L17,16 L17,17 C17,18.1045695 16.1045695,19 15,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,16 L2,16 C0.8954305,16 1.3527075e-16,15.1045695 0,14 L0,8 C-1.3527075e-16,6.8954305 0.8954305,6 2,6 L3,6 L3,2 C3,0.8954305 3.8954305,7.38984736e-12 5,7.38964445e-12 L15,7.38964445e-12 Z M16,13 L4,13 L4,17 C4,17.5522847 4.44771525,18 5,18 L5,18 L15,18 C15.5522847,18 16,17.5522847 16,17 L16,17 L16,13 Z M14,15 L14,16 L6,16 L6,15 L14,15 Z M17.5,8 L16.5,8 C16.2238576,8 16,8.22385763 16,8.5 C16,8.77614237 16.2238576,9 16.5,9 L16.5,9 L17.5,9 C17.7761424,9 18,8.77614237 18,8.5 C18,8.22385763 17.7761424,8 17.5,8 L17.5,8 Z M14.1275656,8 C13.8514233,8 13.6275656,8.22385763 13.6275656,8.5 C13.6275656,8.77614237 13.8514233,9 14.1275656,9 C14.403708,9 14.6275656,8.77614237 14.6275656,8.5 C14.6275656,8.22385763 14.403708,8 14.1275656,8 Z M15,1 L5,1 C4.44771525,1 4,1.44771525 4,2 L4,2 L4,6 L16,6 L16,2 C16,1.48716416 15.6139598,1.06449284 15.1166211,1.00672773 L15,1 Z"></path>'
+        + '</symbol>'
+        // SVG 图标集：图标|插图浏览器中打开
+        + '<symbol id="icoOpenInFigureNav">'
+        + '<path d="M13,0 C14.6568542,-3.04359188e-16 16,1.34314575 16,3 L16,11 C16,12.6568542 14.6568542,14 13,14 L3,14 C1.34314575,14 2.02906125e-16,12.6568542 0,11 L0,3 C-2.02906125e-16,1.34314575 1.34314575,3.04359188e-16 3,0 L13,0 Z M13.2496893,6.5 C12.8353041,6.5 12.4993786,6.83578644 12.4993786,7.25 L12.4993786,7.25 L12.4993786,10.2456177 L12.4927732,10.3029405 C12.4668519,10.4133843 12.3676708,10.4956177 12.249275,10.4956177 L12.249275,10.4956177 L9.25031071,10.4956177 L9.14849799,10.5024644 C8.78227077,10.5521268 8.5,10.865922 8.5,11.2456177 C8.5,11.6598313 8.83592555,11.9956177 9.25031071,11.9956177 L9.25031071,11.9956177 L12.249275,11.9956177 L12.3928617,11.9898165 C13.2925968,11.9168101 14,11.1637911 14,10.2456177 L14,10.2456177 L14,7.25 L13.9931505,7.14822944 C13.9434676,6.78215388 13.6295424,6.5 13.2496893,6.5 Z M6.74772239,2 L3.75,2 L3.60647279,2.0058012 C2.70711027,2.07880766 2,2.8318266 2,3.75 L2,3.75 L2,6.74561775 L2.00684662,6.8473883 C2.05650904,7.21346387 2.37030423,7.49561775 2.75,7.49561775 C3.16421356,7.49561775 3.5,7.15983131 3.5,6.74561775 L3.5,6.74561775 L3.5,3.75 L3.50660268,3.69267729 C3.53251318,3.58223341 3.63165327,3.5 3.75,3.5 L3.75,3.5 L6.74772239,3.5 L6.84949294,3.49315338 C7.21556851,3.44349096 7.49772239,3.12969577 7.49772239,2.75 C7.49772239,2.33578644 7.16193595,2 6.74772239,2 L6.74772239,2 Z"></path>'
+        + '</symbol>'
+        // SVG 图标集：图标|表格十字光标
+        + '<symbol id="icoTableCross">'
+        + '<path d="M13,0 C14.6568542,-3.04359188e-16 16,1.34314575 16,3 L16,11 C16,12.6568542 14.6568542,14 13,14 L3,14 C1.34314575,14 2.02906125e-16,12.6568542 0,11 L0,3 C-2.02906125e-16,1.34314575 1.34314575,3.04359188e-16 3,0 L13,0 Z M1,11 C1,12.0543618 1.81587779,12.9181651 2.85073766,12.9945143 L3,13 L5,13 L5,10 L11,10 L11,13 L13,13 C14.0543618,13 14.9181651,12.1841222 14.9945143,11.1492623 L15,11 L15,10 L11,10 L11,7 L15,7 L15,3 C15,1.8954305 14.1045695,1 13,1 L11,1 L11,7 L5,7 L5,1 L3,1 C1.9456382,1 1.08183488,1.81587779 1.00548574,2.85073766 L1,3 L1,7 L5,7 L5,10 L1,10 L1,11 Z"></path>'
+        + '</symbol>'
+        // SVG 图标集：图标|画中画
+        + '<symbol id="icoPicInPic">'
+        + '<path d="M13,0 C14.6568542,-3.04359188e-16 16,1.34314575 16,3 L16,6 L15,6 L15,3 C15,1.9456382 14.1841222,1.08183488 13.1492623,1.00548574 L13,1 L3,1 C1.8954305,1 1,1.8954305 1,3 L1,3 L1,11 C1,12.1045695 1.8954305,13 3,13 L3,13 L7,13 L7,14 L3,14 C1.34314575,14 2.02906125e-16,12.6568542 0,11 L0,3 C-2.02906125e-16,1.34314575 1.34314575,3.04359188e-16 3,0 L13,0 Z M14,7 C15.1045695,7 16,7.8954305 16,9 L16,12 C16,13.1045695 15.1045695,14 14,14 L10,14 C8.8954305,14 8,13.1045695 8,12 L8,9 C8,7.8954305 8.8954305,7 10,7 L14,7 Z M2.66274033,2.66274829 C2.87972744,2.44575057 3.23153306,2.44575057 3.44852017,2.66274829 L3.44852017,2.66274829 L6.38842247,5.57186872 L6.38874078,3.61039798 C6.38874078,3.30351686 6.63750491,3.05474055 6.94437103,3.05474055 C7.25123715,3.05474055 7.5,3.30351686 7.5,3.61039798 L7.5,3.61039798 L7.5,6.94434257 C7.5,7.25122369 7.25123715,7.5 6.94437103,7.5 L6.94437103,7.5 L3.61058951,7.5 C3.30372339,7.5 3.05495926,7.25122369 3.05495926,6.94434257 C3.05495926,6.63746144 3.30372339,6.38868514 3.61058951,6.38868514 L3.61058951,6.38868514 L5.63387659,6.38868514 L2.66274033,3.44856657 C2.44575322,3.23156884 2.44575322,2.87974602 2.66274033,2.66274829 Z"></path>'
         + '</symbol>'
         // SVG 图标集：图标|复制代码块
         + '<symbol id="icoCopyCodeBlock">'
@@ -10579,33 +10902,32 @@ VLOOKui.loadNavTools = function () {
     // --------------------------------------------------
     // 导航中心
     ui += '<div class="mdx-nav-center mdx-float-card">'
-        // --- 导航中心头部 ---
-        + '<div class="mdx-nav-center-header">'
-        // 分段控制器组件
-        + '<div class="mdx-segment toc"></div>'
-        // 回到封面按钮
-        + '<div class="mdx-accent-btn cover">'
-        + VLOOK.ui.generateSvgIcon("icoCover", 18, 18, "alt")
-        + '</div>'
-        // 打开插图浏览器
-        + '<div class="mdx-accent-btn figure-nav">'
-        + VLOOK.ui.generateSvgIcon("icoFigureNav", 20, 16, "alt")
-        + '</div>'
-        // 访问历史标题
-        + '<div class="mdx-toc-history-title">访问历史</div>'
-        + '</div>';
-
-    // --- 导航中心内容区 ---
-    ui += '<div class="mdx-nav-center-body">'
-        + '<div class="mdx-toc-catalog-body"></div>'
-        + '<div class="mdx-toc-filter-result catalog"></div>'
-        + '<div class="mdx-toc-filter-result figure"></div>'
-        + '<div class="mdx-toc-filter-result table"></div>'
-        + '<div class="mdx-toc-filter-result multimedia"></div>'
-        + '<div class="mdx-toc-filter-result codeblock"></div>'
-        + '<div class="mdx-toc-history-result"></div>'
-        + '</div>'
-        + '<div class="mdx-nav-center-footer"></div>'
+            // --- 导航中心头部 ---
+            + '<div class="mdx-nav-center-header">'
+                // 分段控制器组件
+                + '<div class="mdx-segment toc"></div>'
+            // 回到封面按钮
+            // + '<div class="mdx-accent-btn cover">'
+            // + VLOOK.ui.generateSvgIcon("icoCover", 18, 18, "alt")
+            // + '</div>'
+                // 打开插图浏览器
+                + '<div class="mdx-accent-btn figure-nav">'
+                    + VLOOK.ui.generateSvgIcon("icoFigureNav", 20, 16, "alt")
+                + '</div>'
+            // 访问历史标题
+            + '<div class="mdx-toc-history-title">访问历史</div>'
+            + '</div>'
+            // --- 导航中心内容区 ---
+            + '<div class="mdx-nav-center-body">'
+                + '<div class="mdx-toc-catalog-body"></div>'
+                + '<div class="mdx-toc-filter-result catalog"></div>'
+                + '<div class="mdx-toc-filter-result figure"></div>'
+                + '<div class="mdx-toc-filter-result table"></div>'
+                + '<div class="mdx-toc-filter-result multimedia"></div>'
+                + '<div class="mdx-toc-filter-result codeblock"></div>'
+                + '<div class="mdx-toc-history-result"></div>'
+            + '</div>'
+            + '<div class="mdx-nav-center-footer"></div>'
         + '</div>';
 
     // --------------------------------------------------
@@ -10615,35 +10937,37 @@ VLOOKui.loadNavTools = function () {
     // --------------------------------------------------
     // 逐章导航栏
     ui += '<div class="mdx-chapter-nav">'
-        // 上一章
-        + '<div class="mdx-chapter-nav-prev">'
-        + VLOOK.ui.generateSvgIcon("icoPrevChapter", 10, 15, "light", "position: absolute; top: 18px; left: 10px;")
-        + '<div class="mdx-chapter-nav-prev-text"></div>'
-        + '</div>'
-        // 当前章节
-        + '<div class="mdx-chapter-nav-current"></div>'
-        // 下一章
-        + '<div class="mdx-chapter-nav-next">'
-        + '<div class="mdx-chapter-nav-next-text">next</div>'
-        + VLOOK.ui.generateSvgIcon("icoNextChapter", 10, 15, "light", "position: absolute; top: 18px; right: 10px;")
-        + '</div>'
+            // 上一章
+            + '<div class="mdx-chapter-nav-prev">'
+                + VLOOK.ui.generateSvgIcon("icoPrevChapter", 10, 15, "light", "position: absolute; top: 18px; left: 10px;")
+            + '<div class="mdx-chapter-nav-prev-text"></div>'
+            + '</div>'
+            // 文档标题
+            + '<div class="mdx-chapter-nav-doc-title">Document title</div>'
+            // 当前章节
+            + '<div class="mdx-chapter-nav-current"></div>'
+            // 下一章
+            + '<div class="mdx-chapter-nav-next">'
+                + '<div class="mdx-chapter-nav-next-text">next</div>'
+                    + VLOOK.ui.generateSvgIcon("icoNextChapter", 10, 15, "light", "position: absolute; top: 18px; right: 10px;")
+            + '</div>'
         + '</div>';
 
     // --------------------------------------------------
     // 插图导航面板
     ui += '<div class="mdx-figure-nav mdx-backdrop-blurs">'
-        + '<div class="mdx-figure-content"></div>'
-        + '<div class="mdx-figure-nav-title"></div>'
-        + '<div class="mdx-figure-nav-btns prev">'
-        + VLOOK.ui.generateSvgIcon("icoPrevFig", 12, 54, "light")
-        + '</div>'
-        + '<div class="mdx-figure-nav-btns next">'
-        + VLOOK.ui.generateSvgIcon("icoNextFig", 12, 54, "light")
-        + '</div>'
-        + '<div class="mdx-btn-close-figure-nav">'
-        + VLOOK.ui.generateSvgIcon("icoClose", 16, 16, "light")
-        + '</div>'
-        + VLOOK.ui.copyrightInfo()
+            + '<div class="mdx-figure-content"></div>'
+            + '<div class="mdx-figure-nav-title"></div>'
+            + '<div class="mdx-figure-nav-btns prev">'
+                + VLOOK.ui.generateSvgIcon("icoPrevFig", 12, 54, "light")
+            + '</div>'
+            + '<div class="mdx-figure-nav-btns next">'
+                + VLOOK.ui.generateSvgIcon("icoNextFig", 12, 54, "light")
+            + '</div>'
+            + '<div class="mdx-btn-close-figure-nav">'
+                + VLOOK.ui.generateSvgIcon("icoClose", 16, 16, "light")
+            + '</div>'
+            + VLOOK.ui.copyrightInfo()
         + '</div>';
     return ui;
 }
@@ -10656,40 +10980,38 @@ VLOOKui.loadToolbar = function () {
         // --------------------------------------------------
     // 页面工具栏
     ui += '<div class="mdx-toolbar">'
-        // 导航中心
-        + '<div class="mdx-btn outline">'
-        + VLOOK.ui.generateSvgIcon("icoNavCenter", 20, 20, "light")
-        + '</div>'
-        // 打印
-        + '<div class="mdx-btn print">'
-        + VLOOK.ui.generateSvgIcon("icoPrint", 20, 19, "light")
-        + '</div>'
-        // 激光笔
-        + '<div class="mdx-btn laser-pointer">'
-        + VLOOK.ui.generateSvgIcon("icoLaserPointer", 18, 20, "light")
-        + '</div>'
-        // 聚光灯
-        + '<div class="mdx-btn spotlight">'
-        + VLOOK.ui.generateSvgIcon("icoSpotlight", 18, 20, "light")
-        + '</div>'
-        // 段落导航
-        + '<div class="mdx-btn paragraph-nav">'
-        + VLOOK.ui.generateSvgIcon("icoParagraphNav", 20, 20, "light")
-        + '</div>'
-        // 表格十字光标
-        + '<div class="mdx-btn table-cross">'
-        + VLOOK.ui.generateSvgIcon("icoTableCross", 20, 18, "light")
-        + '</div>'
-        // 分隔符
-        + '<div class="mdx-toolbar-spliter"></div>'
-        // Light/Dark模式
-        + '<div class="mdx-btn color-scheme">'
-        + VLOOK.ui.generateSvgIcon("icoDarkMode", 18, 18, "light")
-        + '</div>'
-        // 字体风格
-        + '<div class="mdx-btn font-style">'
-        + VLOOK.ui.generateSvgIcon("icoFont", 20, 18, "light")
-        + '</div>'
+            // 导航中心
+            + '<div class="mdx-btn outline">'
+                + VLOOK.ui.generateSvgIcon("icoNavCenter", 20, 20, "light")
+            + '</div>'
+            // 打印
+            + '<div class="mdx-btn print">'
+                + VLOOK.ui.generateSvgIcon("icoPrint", 20, 19, "light")
+            + '</div>'
+            + '<div class="mdx-btn-group prs">'
+                // 段落导航
+                + '<div data-vk-btn-group="prs" class="mdx-btn paragraph-nav">'
+                    + VLOOK.ui.generateSvgIcon("icoParagraphNav", 20, 20, "light")
+                + '</div>'
+                // 聚光灯
+                + '<div data-vk-btn-group="prs" class="mdx-btn spotlight">'
+                    + VLOOK.ui.generateSvgIcon("icoSpotlight", 18, 20, "light")
+                + '</div>'
+                // 激光笔
+                + '<div data-vk-btn-group="prs" class="mdx-btn laser-pointer">'
+                    + VLOOK.ui.generateSvgIcon("icoLaserPointer", 18, 20, "light")
+                + '</div>'
+            + '</div>'
+            // 分隔符
+            + '<div class="mdx-toolbar-spliter"></div>'
+            // Light/Dark模式
+            + '<div class="mdx-btn color-scheme">'
+                + VLOOK.ui.generateSvgIcon("icoDarkMode", 18, 18, "light")
+            + '</div>'
+            // 字体风格
+            + '<div class="mdx-btn font-style">'
+                + VLOOK.ui.generateSvgIcon("icoFont", 20, 18, "light")
+            + '</div>'
         + '</div>';
 
     // --------------------------------------------------
@@ -10699,15 +11021,15 @@ VLOOKui.loadToolbar = function () {
     // --------------------------------------------------
     // 字体风格选择器
     ui += '<div class="mdx-font-styler">'
-        + '<div style="float: left; margin-bottom: 30px;">'
-        + '<img alt="小清新" class="mdx-fontstyle-sans" src="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-sans.png" srcset="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-sans@2x.png 2x">'
-        + '<div class="mdx-fontinfo-sans"><span class="mdx-font-package">Font Package - </span><span id="fontset-sans-status">Loading... 0%</span></div>'
-        + '</div>'
-        + '<div style="float: right; margin-bottom: 30px;">'
-        + '<img alt="文艺范" class="mdx-fontstyle-serif" src="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-serif.png" srcset="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-serif@2x.png 2x">'
-        + '<div class="mdx-fontinfo-serif"><span class="mdx-font-package">Font Package - </span><span id="fontset-serif-status">Loading... 0%</span></div>'
-        + '</div>'
-        + '<div class="mdx-font-styler-info">Download Font Package</div>'
+            + '<div style="float: left; margin-bottom: 30px;">'
+                + '<img alt="小清新" class="mdx-fontstyle-sans" src="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-sans.png" srcset="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-sans@2x.png 2x">'
+                + '<div class="mdx-fontinfo-sans"><span class="mdx-font-package">Font Package - </span><span id="fontset-sans-status">Loading... 0%</span></div>'
+            + '</div>'
+            + '<div style="float: right; margin-bottom: 30px;">'
+                + '<img alt="文艺范" class="mdx-fontstyle-serif" src="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-serif.png" srcset="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-serif@2x.png 2x">'
+                + '<div class="mdx-fontinfo-serif"><span class="mdx-font-package">Font Package - </span><span id="fontset-serif-status">Loading... 0%</span></div>'
+            + '</div>'
+            + '<div class="mdx-font-styler-info">Download Font Package</div>'
         + '</div>';
     return ui;
 }
@@ -10720,16 +11042,40 @@ VLOOKui.loadCommon = function () {
     // --------------------------------------------------
     // 脚注弹层
     ui += '<div class="mdx-foot-note-panel">'
-        + '<div class="mdx-foot-note-panel-content"></div>'
-        + '<div class="mdx-foot-note-panel-header"></div>'
-        + '<div class="mdx-foot-note-panel-all"><a>查看所有脚注 ▶</a></div>'
-        + '<a id="vk-footer-area"></a>'
+            + '<div class="mdx-foot-note-panel-content"></div>'
+            + '<div class="mdx-foot-note-panel-header"></div>'
+            + '<div class="mdx-foot-note-panel-all"><a>查看所有脚注</a></div>'
+            + '<a id="vk-footer-area"></a>'
         + '</div>';
 
     // --------------------------------------------------
     // 复制代码块内容的按钮
-    ui += '<div class="mdx-btn copy-code-block mdx-float-card">'
-        + VLOOK.ui.generateSvgIcon("icoCopyCodeBlock", 16, 16, "light")
+    ui += '<div class="mdx-content-assistor mdx-float-card">'
+            + '<div class="mdx-btn assistor open-in-figure-nav">'
+                + VLOOK.ui.generateSvgIcon("icoOpenInFigureNav", 16, 14, "light")
+            + '</div>'
+            + '<div class="mdx-btn assistor table-cross">'
+                + VLOOK.ui.generateSvgIcon("icoTableCross", 16, 14, "light")
+            + '</div>'
+            + '<div class="mdx-btn assistor copy-code-block">'
+                + VLOOK.ui.generateSvgIcon("icoCopyCodeBlock", 16, 16, "light")
+            + '</div>'
+            + '<div class="mdx-btn assistor pic-in-pic">'
+                + VLOOK.ui.generateSvgIcon("icoPicInPic", 16, 14, "light")
+            + '</div>'
+        + '</div>';
+
+    // --------------------------------------------------
+    // 画中画容器
+    ui += '<div class="mdx-pic-in-pic">'
+            + '<div class="mdx-pip-btn mdx-zoom zoom-out mdx-float-card">'
+                + VLOOK.ui.generateSvgIcon("icoZoomIn", 16, 16, "theme")
+            + '</div>'
+            + '<div class="mdx-pip-btn mdx-close zoom-out mdx-float-card">'
+                + VLOOK.ui.generateSvgIcon("icoResetInput", 16, 16, "theme")
+            + '</div>'
+            + '<div class="mdx-content">'
+            + '</div>'
         + '</div>';
 
     // --------------------------------------------------
@@ -10752,21 +11098,24 @@ VLOOKui.loadCommon = function () {
     // --------------------------------------------------
     // 内容展开操作区
     ui += '<div class="mdx-content-expander">'
-        + '<div class="mdx-btn">'
-        + '<span></span>'
-        + VLOOK.ui.generateSvgIcon("icoExtend", 20, 20, "light")
-        + '</div>'
+            + '<div class="mdx-btn">'
+            + '<span></span>'
+                + VLOOK.ui.generateSvgIcon("icoExtend", 20, 20, "light")
+            + '</div>'
         + '</div>';
 
     // --------------------------------------------------
     // 页面坏链检查结果及错误列表
     ui += '<div class="mdx-link-error-list mdx-float-card">'
-        + '<div class="mdx-link-error-list-header"></div>'
-        + '<div class="mdx-link-error-list-body"><div class="mdx-link-error-list-items"></div></div>'
-        + '<div class="mdx-link-error-list-footer"></div>'
+            + '<div class="mdx-link-error-list-header"></div>'
+            + '<div class="mdx-link-error-list-body"><div class="mdx-link-error-list-items"></div></div>'
+            + '<div class="mdx-link-error-list-footer"></div>'
         + '</div>'
-        + '<div class="mdx-link-chk-result mdx-float-card">'
-        + VLOOK.ui.generateSvgIcon("icoLinkOK", 20, 18, "light")
+        + '<div class="mdx-status-bar mdx-float-card mdx-backdrop-blurs">'
+            + '<div class="mdx-doc-info">- - / - -</div>'
+            + '<div class="mdx-link-chk-result">'
+                + VLOOK.ui.generateSvgIcon("icoLinkOK", 20, 18, "light")
+            + '</div>'
         + '</div>';
 
     // --------------------------------------------------
@@ -10811,15 +11160,8 @@ $(document).ready(function () {
     VLOOK.ui.initEffects();
     iStopwatch.lapStop("    COST ");
 
-    // ----------------------------------------
-    // 初始化内容辅助工具
-    // 须隐藏文档原始内容前执行，避免部分样式失效
-    iStopwatch.lapStart("* Content Assist");
-    ContentAssist.init();
-
     // 先隐藏文档原始内容，减少页面重绘
     VOM.doc().hide();
-    iStopwatch.lapStop("    COST ");
 
     // ----------------------------------------
     // 初始化欢迎页
@@ -10878,9 +11220,8 @@ function loadVLOOKplugin() {
     // ----------------------------------------
     // 推荐的浏览器类型检测
     iStopwatch.lapStart("* Browser Check");
-    if (env.browser.Chrome === false && env.browser.Firefox === false) {
+    if (env.browser.Chrome === false && env.browser.Firefox === false && env.browser.Safari === false) {
         VLOOK.report.push(['Error', 'Browser', navigator.userAgent, ]);
-
         alert([
             "为获得最佳兼容性，建议使用 Chrome / Edge / Firefox 浏览器",
             "為獲得最佳兼容性，建議使用 Chrome / Edge / Firefox 瀏覽器",
@@ -10904,14 +11245,9 @@ function loadVLOOKplugin() {
 
     // ----------------------------------------
     // 段落导航初始化
-    iStopwatch.lapStart("* fork thread [Paragraph Nav]");
-    setTimeout(function () {
-        let stopwatch = new Stopwatch();
-        stopwatch.lapStart("* thread * [Paragraph Nav]");
+    __forkThread("Paragraph Nav", function () {
         ParagraphNav.init();
-        stopwatch.lapStop("    ");
     }, 100);
-    iStopwatch.lapStop("    ");
 
     // ----------------------------------------
     // 完成初始化后恢复显示
@@ -10924,92 +11260,76 @@ function loadVLOOKplugin() {
 
     // ----------------------------------------
     // 初始化外部链接
-    iStopwatch.lapStart("* fork thread [External Link]");
-    setTimeout(function () {
-        let stopwatch = new Stopwatch();
-        stopwatch.lapStart("* thread * External Link: ");
+    __forkThread("External Link", function () {
         VLOOK.doc.link.adjustExternal();
-        stopwatch.lapStop("    ");
     }, 100);
-    iStopwatch.lapStop("    ");
 
     // ----------------------------------------
     // 初始化全局热键
-    iStopwatch.lapStart("* fork thread [Hotkey]");
-    setTimeout(function () {
-        let stopwatch = new Stopwatch();
-        stopwatch.lapStart("* thread * Hotkey");
+    __forkThread("Hotkey", function () {
         VLOOK.ui.initHotkey();
-        stopwatch.lapStop("    ");
     }, 150);
-    iStopwatch.lapStop("    ");
 
     // ----------------------------------------
     // 初始化须在页面 body 显示后才能执行的部分
-    // 独立线程进行处理
-    iStopwatch.lapStart("* fork thread [Restyle]");
-    setTimeout(function () {
-        let stopwatch = new Stopwatch();
-        stopwatch.lapStart("* thread * [Restyle]");
+    __forkThread("Restyle", function () {
         VLOOK.initRestyle();
-        stopwatch.lapStop("    COST ");
     }, 200);
-    iStopwatch.lapStop("    ");
 
     // ----------------------------------------
-    // 在新标签中初始化时不处理
-    iStopwatch.lapStart("* fork thread [Check Hash Link]");
-    setTimeout(function () {
-        let stopwatch = new Stopwatch();
-        stopwatch.lapStart("* thread * Check Hash Link: ");
-        // 检查页内链接坏链
+    // 检查页内链接坏链
+    __forkThread("Check Hash Link", function () {
         iLinkChecker.checkLink();
-        stopwatch.lapStop("    ");
     }, 250);
-    iStopwatch.lapStop("    ");
 
     // ----------------------------------------
     // 初始化，并安装自动适配器，实时跟随系统 Color Scheme 的变化
-    iStopwatch.lapStart("* fork thread [Color Scheme]");
-    setTimeout(function () {
-        let stopwatch = new Stopwatch();
-        stopwatch.lapStart("* thread * [Color Scheme]");
+    __forkThread("Color Scheme", function () {
         ColorScheme.scheme = VLOOK.util.getStyleValue("--vlook-color-scheme").trim();
         console.info("    System [ " + ColorScheme.scheme + " ]");
         ColorScheme.init();
-        // 判断是否强制使用指定的颜色方案
+        // 判断当前文档是否强制指定了颜色方案
         let colorScheme = VLOOK.util.getQueryParams(window.location.href)["cs"];
         if (colorScheme === "light" || colorScheme === "dark") {
             console.info("    Force use [ " + colorScheme + " ]");
             ColorScheme.toggle(colorScheme);
         }
-        stopwatch.lapStop("    ");
+        // 若系统当前颜色方案是 dark，则强制同步
+        else if (ColorScheme.scheme === "dark")
+            ColorScheme.toggle(ColorScheme.scheme);
     }, 300);
-    iStopwatch.lapStop("    ");
 
     // ----------------------------------------
     // 提交统计数据
-    iStopwatch.lapStart("* fork thread [Push Stat]");
-    setTimeout(function () {
-        let stopwatch = new Stopwatch();
-        stopwatch.lapStart("* thread * [Push Stat]");
+    __forkThread("Push Stat", function () {
         VLOOK.report.submit(gTotalLoadTimeCost - gDocLoadTimeCost);
         VLOOK.report.push(['DocLoadTime', 'All', 'Times', gDocLoadTimeCost]);
         VLOOK.report.push(['VlookLoadTime', 'All', 'Times', gTotalLoadTimeCost - gDocLoadTimeCost]);
-        stopwatch.lapStop("    ");
     }, 350);
-    iStopwatch.lapStop("    ");
+
+    // ----------------------------------------
+    // 初始化内容助手
+    // 须隐藏文档原始内容前执行，避免部分样式失效
+    __forkThread("Content Assistor", function () {
+        iContentAssistor.init();
+        PicInPic.init();
+    }, 400);
 
     // ----------------------------------------
     // URL 带锚点的处理
-    iStopwatch.lapStart("* fork thread [Redirect to Hash]");
-    setTimeout(function () {
-        let stopwatch = new Stopwatch();
-        stopwatch.lapStart("* thread * [Redirect to Hash]");
-        VLOOK.util.redirectToHash();
-        stopwatch.lapStop("    ");
-    }, 400);
-    iStopwatch.lapStop("    ");
+    __forkThread("Redirect to Hash", function () {
+        let redirect = VLOOK.util.redirectToHash();
+        if (VOM.cover() === undefined && redirect === false) {
+            iNavCenter.catalog.currentHeaderIndex = 0;
+            VLOOK.ui.adjustAll();
+        }
+    }, 450);
+
+    // ----------------------------------------
+    // 字数统计
+    __forkThread("Words count", function () {
+        __countWord();
+    }, 500);
 
     // ----------------------------------------
     // 更新欢迎页
@@ -11025,4 +11345,52 @@ function loadVLOOKplugin() {
     console.info("TOTAL COST   ⏱ " + gTotalLoadTimeCost + " ms");
     console.info("    ├ HTML   ⏱ " + gDocLoadTimeCost + " ms");
     console.info("    └ VLOOK  ⏱ " + (gTotalLoadTimeCost - gDocLoadTimeCost) + " ms");
+
+    /**
+     * 创建独立线程执行
+     *
+     * @param msg 线程信息
+     * @param callback 线程执行的回调函数
+     * @param delay 0 - 立即时间，>0 - 延时执行（毫秒）
+     */
+    function __forkThread(msg, callback, delay) {
+        setTimeout(function () {
+            let stopwatch = new Stopwatch();
+            stopwatch.lapStart("* thread * [" + msg + "]");
+            typeof(callback) === "function" && callback();
+            stopwatch.lapStop("    ");
+        }, delay);
+    }
+
+    /**
+     * 统计字数
+     */
+    function __countWord() {
+        let wordCount = 0,
+            latin = VOM.doc().text().match(/[\w\-]+/g),
+            cjk = VOM.doc().text().match(/\p{Unified_Ideograph}/ug),
+            docInfo = $(".mdx-doc-info");
+        if (latin != null)
+            wordCount += latin.length;
+        if (cjk != null)
+            wordCount += cjk.length;
+
+        // 默认信息
+        docInfo.attr("data-vk-default",
+            parseInt(wordCount / 120) + " "
+            + ["分钟", "分鐘", "minutes", "minutes", "Protokoll", "minutos", "минут", "分", "의사록"][VLOOK.lang.id]
+            + " / " + VLOOK.formatting.thousands(wordCount.toString()) + " "
+            + ["字", "字", "words", "mots", "Wörter", "palabras", "слова", "言葉", "말"][VLOOK.lang.id]);
+        // 扩展信息
+        docInfo.attr("data-vk-extend",
+            " ( " + VLOOK.formatting.thousands(cjk.length.toString()) + " " + ["中日韩，", "中日韓，", "CJK, ", "CJK, ", "CJK, ", "CJK, ", "CJK, ", "CJK，", "CJK, "][VLOOK.lang.id]
+            + VLOOK.formatting.thousands(latin.length.toString()) + " " + ["非中日韩", "非中日韓", "Non-CJK", "Non CJC", "Nicht-CJK", "No CJK", "Не-CJK", "非CJK", "비 CJK"][VLOOK.lang.id] + " )");
+        // hover 时显示扩展信息
+        docInfo.hover(function () {
+            docInfo.html(docInfo.attr("data-vk-default") + " <span style='color: var(--fore-color-alt)'>" + docInfo.attr("data-vk-extend") + "</span>");
+        }, function () {
+            docInfo.html(docInfo.attr("data-vk-default"));
+        });
+        docInfo.html(docInfo.attr("data-vk-default"));
+    }
 }

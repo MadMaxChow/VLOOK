@@ -1,9 +1,9 @@
 <!--========================================================================-->
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
-<!--                                 V10.6                                  -->
+<!--                                 V10.7                                  -->
 <!--                                                                        -->
-<!--                               2021-06-24                               -->
+<!--                               2021-07-20                               -->
 <!--                           powered by MAX°孟兆                          -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -20,16 +20,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <!-- ==================== VLOOK UI ==================== -->
 <div class="mdx-vlook-inside"></div>
 <style type='text/css'>
-    :root { --vlook-color: #FFFFFF; }
+    :root { --vlook-color: #FFFFFF; --vlook-background: #808488; }
     @keyframes breathe-vlook { 0% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
     @media (prefers-color-scheme: dark) { :root { --vlook-color: #181A1E; } }
     #VLOOK { left: 0; top: 0; background: var(--vlook-color); width: 100%; height: 100vh; display: flex; align-items: center; position: fixed; z-index: 99999; }
-    #VLOOK > div { margin: 0 auto; background: #00DAD8; width: 30px; height: 30px; border-radius: 10px; animation: 1s breathe-vlook infinite alternate; }
+    #VLOOK > div { margin: 0 auto; background: var(--vlook-background); width: 30px; height: 30px; border-radius: 10px; animation: 1s breathe-vlook infinite alternate; }
 </style>
 <div id="VLOOK"><div></div></div>
 <!-- ==================== VLOOK JS ==================== -->
 <script type="text/javascript">
-    let liveVersion = "V10.6";
+    let liveVersion = "V10.7";
     let vlookDevMode = liveVersion.indexOf("dev") > 0 ? true : false, vlookDebugMode = false;
     let fontHost = "https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/",
         jsHost = vlookDevMode ? "http://localhost/js/" : "https://madmaxchow.gitee.io/vlook/js/",

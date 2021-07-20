@@ -1,8 +1,8 @@
 /**************************************
  * VLOOK CSS 基础库
  *
- * V10.6
- * 2021-06-24
+ * V10.7
+ * 2021-07-20
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -39,20 +39,20 @@
 ---------- UI 间隔区 ----------
 
 遮罩 / .mdx-mask / z-index: 1000;
-Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
-？？ / .CodeMirror div.CodeMirror-cursor / z-index: 3;
+画中画 / .mdx-pic-in-pic / z-index: 500;
 
 ---------- 增强工具操作区 ----------
 
+Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 工具栏 / .mdx-toolbar / z-index: 100;
-无效链接结果 / .mdx-link-chk-result / z-index: 100;
+状态栏 / .mdx-status-bar / z-index: 100;
 逐章导航面板 / .mdx-chapter-nav / z-index: 100;
 文档更多内容遮挡栏 / .mdx-more-doc-content-before, .mdx-more-doc-content-after / z-index: 99;
 
 ---------- 文档内容交互区 ----------
 
 在新标签中打开按钮 / .mdx-btn-open-in-new-tab / z-index: 50;
-复制代码块按钮 / .mdx-btn.copy-code-block / z-index: 50;
+内容辅助操作栏 / .mdx-content-assist-bar / z-index: 50;
 内容展开操作区 / .mdx-content-expander / z-index: 10;
 
 导航中心内的分段控制按钮 .mdx-segment-indicator / z-index: 10
@@ -87,7 +87,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --mm-flowchart-curve: basis;
 
     --vlook-theme-name: @themeName; // 主题名称
-    --vlook-theme-version: "V10.6"; // 主题版本，对应适配 VLOOK.JS 的版本
+    --vlook-theme-version: "V10.7"; // 主题版本，对应适配 VLOOK.JS 的版本
     --vlook-default-font-style: @defaultFontStyle; // 默认字体风格
     --vlook-color-scheme: light; // 默认颜色模式为：Light 明亮
 
@@ -106,6 +106,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --vlook-base-radius:@baseRadius; // 标准圆角
     --vlook-small-radius:@smallRadius; // 标准圆角内的小圆角
     --vlook-table-radius:@tableRadius; // 表格圆角
+    --vlook-small-inner-radius:calc(var(--vlook-table-radius) - 2px); // 标准圆角内的小圆角
     --vlook-tag-radius:@tagRadius; // 标签圆角
     --vlook-tag-small-radius:@tagSmallRadius; // 标签小圆角
     --vlook-circle-radius:@circleRadius; // 半距圆角
@@ -661,6 +662,11 @@ svg[data-inject-url*="mode=logor"] {
     vertical-align: top !important;
 }
 
+// 重新定义 emoji 符号在编辑时的排版
+.md-emoji-span:before {
+    vertical-align: baseline;
+}
+
 // img[src$=".wav"] {
 // }
 
@@ -730,17 +736,15 @@ a:hover img[data-vk-img-fill="theme2"] {
 // 链接 active 时，链接内图片样式
 a:active img {
     filter: brightness(0.8);
-    // transform: translateY(2px);
-    // box-shadow: 0 0 0 2px fade(@aActiveColor, 50%);
 }
 
 a:active {
     color: var(--fore-color) !important;
     background-color:var(--doc-bg-color-alt);
     border-bottom: 0;
-    //  background-color: @aHoverColor;
     box-shadow: 0 0 0 2px fade(@aHoverColor, 50%);
     border-radius: var(--vlook-small-radius);
+    transition: none;
 }
 // 指定不使用链接样式
 a[href*="lnkcss=none"]:active,
@@ -751,9 +755,8 @@ kbd a:active {
 // 链接中的 kbd 样式
 a kbd:active {
     background-color: @aActiveColor !important;
-    // transform: translateY(2px);
     box-shadow: 0 0 0 2px fade(@aActiveColor, 50%);
-    // box-shadow: none;
+    transition: none;
 }
 
 // 默认的超链接样式
@@ -777,6 +780,10 @@ table td a:not([name^="ref-footnote"]):hover::before {
     margin-top: -14px;
 }
 // 页面内链接样式
+// a[class*="md-toc-inner"]::before,
+// a[href^="#"]::before {
+//     content: "#";
+// }
 a[class*="md-toc-inner"]:hover::before,
 a[href^="#"]:hover::before {
     content: "#";
@@ -885,7 +892,7 @@ h6+ol {
 }
 
 h1 {
-    margin-top: 5em;
+    margin-top: 3em;
     font-size: 2em;
     box-shadow: 0 7px 0 0 var(--header-box-shadow) inset;
 }
@@ -950,6 +957,7 @@ h6 {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     font-family: @subtitleFont;
+    font-weight: @fontWeight;
     font-size: 1em;
     box-shadow: none;
     background: none;
@@ -979,11 +987,11 @@ li > h6::before {
 
 strong {
     font-family: @boldFont;
-    font-weight: @fontWeight4Serif;
+    font-weight: @fontWeight;
 }
 
 strong a {
-    font-weight: @fontWeight4Serif;
+    font-weight: @fontWeight;
 }
 
 hr {
@@ -1206,20 +1214,61 @@ blockquote > strong {
     pointer-events: none;
 }
 
-// 链接检查结果
-.mdx-link-chk-result {
-    display: none;
+.mdx-status-bar {
     position: fixed;
     justify-content: center;
     align-items: center;
-    vertical-align: middle;
-    background-color: var(--doc-bg-color-alt);
+    // vertical-align: middle;
+    border-radius: var(--vlook-small-radius);
     right: 30px;
     bottom: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: var(--vlook-circle-radius);
+    // width: auto;
+    height: 30px;
     z-index: 100;
+}
+
+.mdx-doc-info {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    color: var(--fore-color);
+    font-family: @subtitleFont;
+    font-size: 0.85em;
+    background-color: var(--doc-bg-color-alt);
+    padding: 0 10px;
+    min-width: 80px;
+    height: 30px;
+    border-radius: var(--vlook-small-radius);
+    // float: right;
+    opacity: 0.6;
+    cursor: default;
+    // pointer-events: none;
+}
+// 非唯一子元素时（如有坏链提示）
+// .mdx-doc-info:not(:only-child) {
+//     border-radius: var(--vlook-small-radius) 0 0 var(--vlook-small-radius);
+// }
+// .mdx-doc-info.hover {
+    // box-shadow: 0 0 0 1px var(--tbl-border-color) inset;
+    // opacity: 1;
+// }
+
+// 链接检查结果
+.mdx-link-chk-result {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    color: var(--fore-color);
+    background-color: var(--doc-bg-color-alt);
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 0 var(--vlook-small-radius) var(--vlook-small-radius) 0;
+    // float: right;
+    // margin-left: 5px;
 }
 // 无坏链
 .mdx-link-result-ok {
@@ -1228,7 +1277,7 @@ blockquote > strong {
 }
 // 链接检查结果：有坏链
 .mdx-link-result-error {
-    display: flex;
+    display: inline-flex;
     cursor: pointer;
     background-color: var(--acc-color-red-light);
 }
@@ -1281,7 +1330,7 @@ table > thead > tr > th,
 table > thead > tr > td {
     background-color: var(--tbl-th-bg-color);
     font-family: @boldFont;
-    font-weight: @fontWeight4Serif;
+    font-weight: @fontWeight;
     border-right: 1px solid var(--tbl-cell-border-color);
     margin: 0;
     padding: 0.5em;
@@ -1360,7 +1409,8 @@ table > tbody > tr:not(:first-child) > td.mdx-empty-cell {
 
 // 重复表头样式
 .mdx-th-repeater {
-    font-weight: @fontWeight4Serif;
+    font-family: @boldFont;
+    font-weight: @fontWeight;
     background-color: var(--tbl-th-bg-color);
     // box-shadow: 0 -2px 0 0 var(--tbl-header-color), 0 1px 0 0 var(--tbl-header-color) !important;
     vertical-align: middle !important;
@@ -1377,6 +1427,7 @@ table > tbody > tr:not(:first-child) > td.mdx-empty-cell {
     padding-left: 5px;
     background-color: var(--tbl-th-bg-color);
 }
+// 空白行，不显示对应的行号
 .mdx-table-colspan-all::before {
     content: "";
 }
@@ -1384,7 +1435,7 @@ table > tbody > tr:not(:first-child) > td.mdx-empty-cell {
 // 表格列格式：加粗
 .mdx-tbl-col-fmt-bold {
     font-family: @boldFont;
-    font-weight: @fontWeight4Serif;
+    font-weight: @fontWeight;
 }
 
 // 表格列格式：斜体
@@ -1450,10 +1501,10 @@ td.mdx-tbl-row-g-not-folder {
     cursor: pointer;
 }
 
-.mdx-tbl-row-g-btn-hover > svg > use {
+.mdx-tbl-row-g-btn.hover > svg > use {
     fill: @aHoverColor !important;
 }
-.mdx-tbl-row-g-btn-hover:active > svg > use {
+.mdx-tbl-row-g-btn.hover:active > svg > use {
     fill: @aActiveColor !important;
 }
 
@@ -1545,7 +1596,7 @@ li > figure table tbody tr::before {
     content: counter(tableRowNumber);
     text-align: right;
     margin-top: 4px;
-    margin-left: -10px;
+    margin-left: -15px;
     font-size: 0.6em;
     color: var(--fore-color-alt);
     position: absolute;
@@ -1566,7 +1617,7 @@ h6 + figure table tbody tr::before {
     content: counter(tableRowNumber);
     text-align: right;
     margin-top: 4px;
-    margin-left: -0px;
+    margin-left: 5px;
     font-size: 0.6em;
     color: var(--fore-color-alt);
     position: absolute;
@@ -1714,7 +1765,7 @@ tt,
 code {
     color: var(--fore-color);
     font-family: @codeFont;
-    // font-weight: normal;
+    font-weight: normal;
     background-color: var(--code-bg-color);
     border-radius: var(--vlook-small-radius);
     padding: 0.1em 0.2em;
@@ -1735,7 +1786,7 @@ code {
     margin: 0 0 20px 0;
 }
 // 生成题注后的样式调整，未生成题注前的样式主要在编辑时使用
-.mdx-figure-caption > .md-fences {
+.mdx-caption > .md-fences {
     margin: 0;
 }
 
@@ -1755,6 +1806,7 @@ code {
 // YAML 的样式
 #write > pre.md-meta-block {
     font-family: @codeFont;
+    font-weight: normal;
     font-size: 1em;
     line-height: 2;
     border-radius: var(--vlook-base-radius);
@@ -1851,6 +1903,7 @@ footer {}
 
 .md-toc-h1 > .md-toc-inner {
     margin-left: 0;
+    font-weight: @titleFontWeight;
 }
 
 .md-toc-h2::before {
@@ -2006,18 +2059,18 @@ h6.md-focus::before {
 .pieTitleText {
     fill: var(--fore-color) !important;
     font-family: @boldFont !important;
-    font-weight: @fontWeight4Serif !important;
+    font-weight: @fontWeight !important;
     font-size: 1.5em !important;
 }
 .legend text {
     fill: var(--fore-color) !important;
     font-family: @boldFont !important;
-    font-weight: @fontWeight4Serif !important;
+    font-weight: @fontWeight !important;
 }
 
 .slice {
     font-family: @boldFont !important;
-    font-weight: @fontWeight4Serif !important;
+    font-weight: @fontWeight !important;
 }
 
 /* ----- flow diagram 流程图 ----- */
@@ -2198,7 +2251,7 @@ g[id^=flowchart-FINAL] circle {
 // 重要系统角色
 .mdx-actor-key-sys {
     stroke-width: 3px !important;
-    font-weight: @fontWeight4Serif !important;
+    font-weight: @fontWeight !important;
 }
 
 // 外部系统角色
@@ -2287,7 +2340,7 @@ text.actor > tspan {
     fill: var(--mm-color-purple-alt-light) !important;
     font-size: 0.9em !important;
     font-family: @boldFont !important;
-    font-weight: @fontWeight4Serif !important;
+    font-weight: @fontWeight !important;
 }
 
 // 片断的标题标签文本
@@ -2621,7 +2674,7 @@ div.mermaidTooltip {
     font-size: 1.5em !important;
     line-height: 2em !important;
     font-family: @boldFont !important;
-    font-weight: @fontWeight4Serif !important;
+    font-weight: @fontWeight !important;
     fill: var(--fore-color) !important;
 }
 
@@ -2641,8 +2694,8 @@ div.mermaidTooltip {
     max-width: 100%;
     margin: 0 auto;
     // margin-left: calc(var(--vlook-nav-center-width) + 20px);
-    padding: 0 20px;
-    overflow-y: auto;
+    padding: 10px 20px;
+    // overflow-y: auto;
 }
 
 // VLOOK 未加载完成前的样式
@@ -2864,6 +2917,7 @@ div.mermaidTooltip {
     color: var(--doc-bg-color);
     background-color: var(--fore-color-alt);
     box-shadow: 0 0 0 2px var(--tbl-border-color);
+    transition: none;
 }
 .mdx-toc-item:active::before,
 .md-toc-item:active::before {
@@ -2872,9 +2926,10 @@ div.mermaidTooltip {
     // transition: var(--vlook-transition-value);
 }
 
-.mdx-figure-caption-1 > span,
+.mdx-caption-1 > span,
 .mdx-toc-item > span {
     color: var(--fore-color-alt);
+    font-size: 0.85em;
 }
 .mdx-toc-item:active > span {
     color: var(--doc-bg-color);
@@ -2925,6 +2980,7 @@ sup.md-footnote > a {
 
 sup.md-footnote > a:hover {
     background-color: @aLineColor;
+    color: @buttonForeColor !important;
 }
 
 .footnote-line > a:not(.reversefootnote) {
@@ -3124,6 +3180,9 @@ li > p + ul {
 .mdx-transition-left {
     transition: left var(--vlook-transition-duration) ease-in-out;
 }
+.mdx-transition-background {
+    transition: background var(--vlook-transition-duration) ease-in-out;
+}
 
 .mdx-tool-tips,
 .mdx-info-tips {
@@ -3132,7 +3191,7 @@ li > p + ul {
     display: none;
     position: fixed;
     margin-left: auto;
-    padding: 0.5em 1em;
+    padding: 10px;
     text-align: center;
     white-space: pre-wrap;
     border-radius: var(--vlook-base-radius);
@@ -3154,10 +3213,12 @@ li > p + ul {
     visibility: hidden;
     opacity: 0;
     display: block;
+    padding: 5px 10px;
     border-top: 0;
     box-shadow: 0 2px 0 0 @aLineColor inset, @buttonShadow, @contrastBorder;
     text-align: left;
     white-space: pre;
+    font-size: 0.85em;
 }
 
 .mdx-tool-tips.accent {
@@ -3172,7 +3233,8 @@ li > p + ul {
 
 // 底部信息栏
 .mdx-bottom-tips {
-    font-family: @headerFont;
+    font-family: @subtitleFont;
+    font-weight: @fontWeight;
     color: #FFFFFF;
     width: 100%;
     height: 60px;
@@ -3292,7 +3354,7 @@ li > p + ul {
     font-size: 0.85em;
     border-radius: var(--vlook-small-radius);
     background-color: @buttonBgColor;
-    display: inline-flex;
+    // display: inline-flex;
 }
 
 // Light Mode 的文档图标（标签栏、收藏夹图标）
@@ -3437,7 +3499,7 @@ li > p + ul {
     width: auto;
 }
 .mdx-figure {
-    cursor: pointer;
+    // cursor: pointer;
 }
 
 // 修正在 SVG 顺序图的下边界与 actor 无间隔问题
@@ -3455,10 +3517,10 @@ li > p + ul {
     cursor: pointer;
 }
 
-.mdx-blockquote-folder-hover > svg > use {
+.mdx-blockquote-folder.hover > svg > use {
     fill: @aHoverColor !important;
 }
-  .mdx-blockquote-folder-hover:active > svg > use {
+.mdx-blockquote-folder.hover:active > svg > use {
     fill: @aActiveColor !important;
 }
 
@@ -3511,7 +3573,7 @@ li > p + ul {
     text-align: center;
     height: 34px;
     border-radius: var(--vlook-small-radius);
-    margin: 9px;
+    margin: 10px;
     padding: 2px;
     background-color: var(--blockquote-bg);
 }
@@ -3528,8 +3590,8 @@ li > p + ul {
 
 .mdx-segment-indicator {
     position: absolute;
-    left: 11px;
-    top: 11px;
+    left: 12px;
+    top: 12px;
     width: 40px;
     height: 30px;
     background-color: var(--doc-bg-color);
@@ -3552,10 +3614,10 @@ li > p + ul {
     position: relative;
     z-index: 10;
 }
-.mdx-segment-btn-hover:hover {
+.mdx-segment-btn.hover:hover {
     background-color: var(--blockquote-bg);
 }
-.mdx-segment-btn-hover:hover > svg > use {
+.mdx-segment-btn.hover:hover > svg > use {
     fill: var(--fore-color);
 }
 .mdx-segment-btn:active {
@@ -3590,27 +3652,27 @@ li > p + ul {
     margin: 0;
 }
 
-.mdx-nav-center-title {
-    text-align: center;
-    position: absolute;
-    border-radius: var(--vlook-small-radius);
-    left: 10px;
-    right: 10px;
-    width: 336px !important;
-    display: inline-block;
-    padding-left: 10px;
-    padding-right: 10px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    font-family: @subtitleFont;
-    font-weight: @fontWeight;
-    color: var(--a-color);
-    cursor: pointer;
-}
-.mdx-nav-center-title-hover:hover {
-    background-color: var(--blockquote-bg);
-}
+// .mdx-nav-center-title {
+//     text-align: center;
+//     position: absolute;
+//     border-radius: var(--vlook-small-radius);
+//     left: 10px;
+//     right: 10px;
+//     width: 336px !important;
+//     display: inline-block;
+//     padding-left: 10px;
+//     padding-right: 10px;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+//     overflow: hidden;
+//     font-family: @subtitleFont;
+//     font-weight: @fontWeight;
+//     color: var(--a-color);
+//     cursor: pointer;
+// }
+// .mdx-nav-center-title-hover:hover {
+//     background-color: var(--blockquote-bg);
+// }
 
 .mdx-nav-center-body {
     width: 100%;
@@ -3651,11 +3713,11 @@ li > p + ul {
     position: fixed;
     display: none;
     top: 390px;
-    left: 7px;
-    width: 6px;
-    height: 100px;
+    left: 8px;
+    width: 4px;
+    height: 80px;
     background-color: var(--tbl-border-color);
-    border-radius: 3px;
+    border-radius: 2px;
     z-index: 2000;
     // transition: all var(--vlook-transition-duration) ease-in-out;
 }
@@ -3814,7 +3876,7 @@ li > p + ul {
 }
 
 .mdx-toc-item-current {
-    font-weight: @fontWeight;
+    font-weight: @titleFontWeight;
     color: @headerColor;
     background-color: var(--doc-bg-color);
     box-shadow: 0 0 0 2px @themeBgColorFade inset;
@@ -3836,18 +3898,18 @@ li > p + ul {
     text-align: center;
 }
 
-.mdx-toc-folder-hover > svg > use {
+.mdx-toc-folder.hover > svg > use {
     fill: @aHoverColor !important;
 }
-.mdx-toc-folder-hover:active > svg > use {
+.mdx-toc-folder.hover:active > svg > use {
     fill: @buttonForeColor !important;
 }
 
 .mdx-btn {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    vertical-align: middle;
+    vertical-align: top;
     color: @buttonForeColor;
     cursor: pointer;
     padding: 0;
@@ -3858,31 +3920,45 @@ li > p + ul {
 
 // 按钮 pin 状态
 .mdx-btn.selected {
-    background-color: @aHoverColor;
+    background-color: darken(@buttonBgColor, 20%) !important;
+    box-shadow: @contrastBorder;
 }
-.mdx-btn.selected > svg > use {
-    fill: @buttonForeHoverColor;
+// .mdx-btn.selected > svg > use {
+//     fill: var(--doc-bg-color);
+// }
+
+.mdx-btn.first {
+    border-radius: var(--vlook-small-inner-radius) 0 0 var(--vlook-small-inner-radius) !important;
+}
+.mdx-btn.middle {
+    border-radius: 0 !important;
+}
+.mdx-btn.last {
+    border-radius: 0 var(--vlook-small-inner-radius) var(--vlook-small-inner-radius) 0 !important;
 }
 
-.mdx-btn-hover {
-    transition: all var(--vlook-transition-duration) ease-in-out;
-}
-.mdx-btn-hover:hover {
+// .mdx-btn.hover {
+//     transition: all var(--vlook-transition-duration) ease-in-out;
+// }
+.mdx-btn.hover:hover {
     background-color: @aHoverColor !important;
     color: @buttonForeHoverColor !important;
 }
 
-.mdx-btn-hover:hover > svg > use {
+.mdx-btn.hover:hover > svg > use {
     fill: @buttonForeHoverColor;
 }
 
-.mdx-btn-float {
+.mdx-btn.float,
+.mdx-btn-group.float {
     background-color: @buttonBgColor;
 }
 
 .mdx-btn:active {
     background-color: @aActiveColor !important;
     box-shadow: 0 0 0 2px fade(@aActiveColor, 50%) !important;
+    transition: none;
+    z-index: 1;
 }
 
 // 音频资源加载中动画
@@ -3898,21 +3974,8 @@ li > p + ul {
     animation: loading-circle 2s linear infinite;
 }
 
-.mdx-audio-mini-control.disabled {
-    color: var(--fore-color);
-    background-color: #B0B4B8;
-    border-radius: var(--vlook-circle-radius);
-    text-align: center;
-    line-height: 30px;
-    height: 30px;
-    width: 30px;
-    padding: 2px;
-    box-shadow: 0 0 1px fade(@buttonForeHoverColor, 70%);
-    display: inline-block;
-    cursor: not-allowed;
-}
 .mdx-audio-mini-control {
-    color: @buttonForeColor;
+    // color: @buttonForeColor;
     background-color: @buttonBgColor;
     border-radius: var(--vlook-circle-radius);
     text-align: center;
@@ -3920,11 +3983,26 @@ li > p + ul {
     height: 30px;
     width: 30px;
     padding: 2px;
-    box-shadow: 0 0 1px fade(@buttonForeHoverColor, 70%);
+    // box-shadow: 0 0 1px fade(@buttonForeHoverColor, 70%);
     justify-content: center;
     align-items: center;
+    vertical-align: middle;
     display: inline-flex;
     cursor: pointer;
+}
+
+.mdx-audio-mini-control.disabled {
+    // color: var(--fore-color);
+    background-color: #B0B4B8;
+    // border-radius: var(--vlook-circle-radius);
+    // text-align: center;
+    // line-height: 30px;
+    // height: 30px;
+    // width: 30px;
+    // padding: 2px;
+    // box-shadow: 0 0 1px fade(@buttonForeHoverColor, 70%);
+    // display: inline-block;
+    cursor: not-allowed;
 }
 
 // .mdx-audio-mini-control {
@@ -3933,13 +4011,13 @@ li > p + ul {
 //     cursor: pointer;
 // }
 
-.mdx-audio-mini-control-hover:hover {
+.mdx-audio-mini-control.hover:hover {
     background-color: @aHoverColor;
     box-shadow: @buttonShadow;
     color: @buttonForeHoverColor;
 }
 
-.mdx-audio-mini-control-hover:active {
+.mdx-audio-mini-control.hover:active {
     background-color: @aActiveColor;
 }
 
@@ -3991,21 +4069,21 @@ li > p + ul {
     border-bottom-left-radius: var(--vlook-base-radius);
 }
 // 无特效（effect=0）时使用的样式
-.mdx-chapter-nav-prev-noeffect-hover {
+.mdx-chapter-nav-prev.noeffect.hover {
     background: linear-gradient(to right, @aHoverColor, @buttonBgColor);
-    text-shadow: @buttonShadow;
+    // text-shadow: @buttonShadow;
     border-bottom-left-radius: var(--vlook-base-radius);
 }
-.mdx-chapter-nav-prev-effect-hover > svg > use,
-.mdx-chapter-nav-prev-noeffect-hover > svg > use {
+.mdx-chapter-nav-prev.effect.hover > svg > use,
+.mdx-chapter-nav-prev.noeffect.hover > svg > use {
     fill: @buttonForeHoverColor;
 }
-.mdx-chapter-nav-prev-effect-hover > .mdx-chapter-nav-prev-text,
-.mdx-chapter-nav-prev-noeffect-hover > .mdx-chapter-nav-prev-text {
+.mdx-chapter-nav-prev.effect.hover > .mdx-chapter-nav-prev-text,
+.mdx-chapter-nav-prev.noeffect.hover > .mdx-chapter-nav-prev-text {
     color: @buttonForeHoverColor;
 }
 // 有特效（effect>=1）时使用的样式
-.mdx-chapter-nav-prev-effect::before {
+.mdx-chapter-nav-prev.effect::before {
     content: "";
     position: absolute;
     left: 0;
@@ -4020,13 +4098,13 @@ li > p + ul {
     transition: all var(--vlook-transition-duration) ease-in;
 }
 // 有特效（effect>=1）时使用的样式
-.mdx-chapter-nav-prev-effect-hover::before {
+.mdx-chapter-nav-prev.effect.hover::before {
     opacity: 1;
 }
 // 无特效（effect=0）时，有特效（effect>=1）时使用的样式
-.mdx-chapter-nav-prev-noeffect:active,
-.mdx-chapter-nav-prev-effect:active,
-.mdx-chapter-nav-prev-effect:active::before {
+.mdx-chapter-nav-prev.noeffect:active,
+.mdx-chapter-nav-prev.effect:active,
+.mdx-chapter-nav-prev.effect:active::before {
     background: linear-gradient(to right, desaturate(@aHoverColor, 30%), @buttonBgColor);
 }
 
@@ -4047,51 +4125,96 @@ li > p + ul {
     display: block;
 }
 
-.mdx-chapter-nav-current {
+.mdx-chapter-nav-doc-title {
     font-family: @subtitleFont;
+    font-size: 0.75em;
     font-weight: normal;
-    font-size: 1.4em;
-    font-weight: @fontWeight;
     text-align: center;
-    line-height: 50px;
-    margin-left: 220px;
-    margin-right: 220px;
+    line-height: 24px;
+    margin-left: 200px;
+    margin-right: 200px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     width: auto;
-    height: 50px;
+    height: 22px !important;
     cursor: pointer;
     display: block;
 }
-// 无特效（effect=0）时使用的样式
-.mdx-chapter-nav-current-effect-hover,
-.mdx-chapter-nav-current-noeffect-hover {
-    background: linear-gradient(90deg, fade(@aHoverColor, 0%), @aHoverColor, fade(@aHoverColor, 0%));
-    text-shadow: @buttonShadow;
+.mdx-chapter-nav-doc-title.in-start {
+    margin-left: 15px;
+    font-size: 1.25em;
+    font-weight: @titleFontWeight;
+    text-align: left;
+    height: 50px !important;
+    line-height: 50px;
+    cursor: default;
+}
+
+.mdx-chapter-nav-current {
+    font-family: @subtitleFont;
+    // font-size: 1em;
+    font-weight: @titleFontWeight;
+    text-align: center;
+    line-height: 22px;
+    margin-left: 200px;
+    margin-right: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: auto;
+    height: 28px;
+    cursor: pointer;
+    display: block;
+}
+.mdx-chapter-nav-doc-title.effect.hover,
+.mdx-chapter-nav-current.effect.hover {
     color: @buttonForeHoverColor;
 }
+
+// 无特效（effect=0）时使用的样式
+// .mdx-chapter-nav-doc-title.effect.hover,
+.mdx-chapter-nav-doc-title.noeffect.hover,
+// .mdx-chapter-nav-current.effect.hover,
+.mdx-chapter-nav-current.noeffect.hover {
+    background: linear-gradient(90deg, fade(@aHoverColor, 0%), @aHoverColor, fade(@aHoverColor, 0%));
+    height: 28px;
+    // text-shadow: @buttonShadow;
+    color: @buttonForeHoverColor;
+}
+
 // 有特效（effect>=1）时使用的样式
-.mdx-chapter-nav-current-effect::before {
+.mdx-chapter-nav-doc-title.effect::before,
+.mdx-chapter-nav-current.effect::before {
     content: "";
     position: absolute;
+    top: 22px;
+    bottom: 0;
     left: 30%;
     right: 30%;
-    top: 0;
-    bottom: 0;
+    height: 28px;
     background: linear-gradient(90deg, fade(@aHoverColor, 0%), @aHoverColor, fade(@aHoverColor, 0%));
     opacity: 0;
     z-index: -1;
     transition: all 200ms ease-in;
 }
+.mdx-chapter-nav-doc-title.effect::before {
+    top: 0;
+    height: 22px;
+}
+
 // 有特效（effect>=1）时使用的样式
-.mdx-chapter-nav-current-effect-hover::before {
+.mdx-chapter-nav-doc-title.effect.hover::before,
+.mdx-chapter-nav-current.effect.hover::before {
     opacity: 1;
 }
 // 无特效（effect=0）时，有特效（effect>=1）时使用的样式
-.mdx-chapter-nav-current-noeffect:active,
-.mdx-chapter-nav-current-effect:active,
-.mdx-chapter-nav-current-effect:active::before {
+.mdx-chapter-nav-doc-title.noeffect:active,
+.mdx-chapter-nav-doc-title.effect:active,
+.mdx-chapter-nav-doc-title.effect:active::before,
+.mdx-chapter-nav-current.noeffect:active,
+.mdx-chapter-nav-current.effect:active,
+.mdx-chapter-nav-current.effect:active::before {
     background: linear-gradient(90deg, fade(desaturate(@aHoverColor, 30%), 0%), desaturate(@aHoverColor, 30%), fade(desaturate(@aHoverColor, 30%), 0%));
     box-shadow: none;
 }
@@ -4106,21 +4229,21 @@ li > p + ul {
     border-bottom-right-radius: var(--vlook-base-radius);
 }
 // 无特效（effect=0）时使用的样式
-.mdx-chapter-nav-next-noeffect-hover {
+.mdx-chapter-nav-next.noeffect.hover {
     background: linear-gradient(to left, @aHoverColor, @buttonBgColor);
-    text-shadow: @buttonShadow;
+    // text-shadow: @buttonShadow;
     border-bottom-right-radius: var(--vlook-base-radius);
 }
-.mdx-chapter-nav-next-effect-hover > svg > use,
-.mdx-chapter-nav-next-noeffect-hover > svg > use {
+.mdx-chapter-nav-next.effect.hover > svg > use,
+.mdx-chapter-nav-next.noeffect.hover > svg > use {
     fill: @buttonForeHoverColor;
 }
-.mdx-chapter-nav-next-noeffect-hover > .mdx-chapter-nav-next-text,
-.mdx-chapter-nav-next-effect-hover > .mdx-chapter-nav-next-text {
+.mdx-chapter-nav-next.noeffect.hover > .mdx-chapter-nav-next-text,
+.mdx-chapter-nav-next.effect.hover > .mdx-chapter-nav-next-text {
     color: @buttonForeHoverColor;
 }
 // 有特效（effect>=1）时使用的样式
-.mdx-chapter-nav-next-effect::before {
+.mdx-chapter-nav-next.effect::before {
     content: "";
     position: absolute;
     left: 0;
@@ -4135,13 +4258,13 @@ li > p + ul {
     transition: all 200ms ease-in;
 }
 // 有特效（effect>=1）时使用的样式
-.mdx-chapter-nav-next-effect-hover::before {
+.mdx-chapter-nav-next.effect.hover::before {
     opacity: 1;
 }
 // 无特效（effect=0）时，有特效（effect>=1）时使用的样式
-.mdx-chapter-nav-next-noeffect:active,
-.mdx-chapter-nav-next-effect:active,
-.mdx-chapter-nav-next-effect:active::before {
+.mdx-chapter-nav-next.noeffect:active,
+.mdx-chapter-nav-next.effect:active,
+.mdx-chapter-nav-next.effect:active::before {
     background: linear-gradient(to left, desaturate(@aHoverColor, 30%), @buttonBgColor);
 }
 
@@ -4172,24 +4295,38 @@ li > p + ul {
     float: right;
 }
 
-.mdx-btn.table-cross {
-    margin-left: var(--vlook-toolbar-btn-space);
-    float: right;
-}
+// .mdx-btn.table-cross {
+//     margin-left: var(--vlook-toolbar-btn-space);
+//     float: right;
+// }
 
 .mdx-btn.paragraph-nav {
-    margin-left: var(--vlook-toolbar-btn-space);
-    float: right;
+    // margin-left: var(--vlook-toolbar-btn-space);
+    // float: right;
 }
 
 .mdx-btn.spotlight {
-    margin-left: var(--vlook-toolbar-btn-space);
-    float: right;
+    // margin-left: var(--vlook-toolbar-btn-space);
+    // float: right;
 }
 
 .mdx-btn.laser-pointer {
-    margin-left: var(--vlook-toolbar-btn-space);
+    // margin-left: var(--vlook-toolbar-btn-space);
+    // float: right;
+}
+
+.mdx-btn-group.prs {
+    margin: 0;
+    height: 30px;
     float: right;
+    border-radius: var(--vlook-small-radius);
+    margin-left: var(--vlook-toolbar-btn-space);
+}
+
+.mdx-btn-group.hover {
+    background-color: darken(@buttonBgColor, 6%);
+    box-shadow: @contrastBorder;
+    // transition: all var(--vlook-transition-duration) ease-in-out;
 }
 
 // 辅助类按钮
@@ -4207,7 +4344,7 @@ li > p + ul {
     fill: @buttonBgColor;
 }
 
-.mdx-accent-btn-hover:hover {
+.mdx-accent-btn.hover:hover {
     background-color: var(--blockquote-bg);
 }
 
@@ -4291,14 +4428,14 @@ li > p + ul {
   fill: @buttonForeColor;
   opacity: 1;
 }
-.mdx-textfield-action-hover:hover {
+.mdx-textfield-action.hover:hover {
     background-color: @aHoverColor;
     cursor: pointer;
 }
-.mdx-textfield-action-hover:hover > svg > use {
+.mdx-textfield-action.hover:hover > svg > use {
     fill: @buttonForeHoverColor;
 }
-.mdx-textfield-action-hover:active {
+.mdx-textfield-action.hover:active {
     background-color: @aActiveColor;
 }
 
@@ -4314,14 +4451,14 @@ li > p + ul {
     cursor: pointer;
 }
 .mdx-textfield-reset:hover > svg > use {
-    opacity: 0.3;
+    opacity: 0.4;
 }
 .mdx-textfield-reset:active > svg > use {
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 // tab 栏内按钮
-.mdx-accent-btn.cover,
+// .mdx-accent-btn.cover,
 .mdx-accent-btn.figure-nav {
     display: inline-block;
     margin: 0 10px 10px 10px;
@@ -4428,13 +4565,9 @@ li > p + ul {
     bottom: 10px;
 }
 
-.mdx-btn-figure-hover {
-    fill: @aLineColor !important;
-}
-
-.mdx-btn-figure-active {
-    fill: @aActiveColor !important;
-}
+// .mdx-btn-figure-active {
+//     fill: @aActiveColor !important;
+// }
 
 .mdx-btn-close-figure-nav {
     display: flex;
@@ -4467,26 +4600,101 @@ li > p + ul {
     transform: none;
 }
 
-.mdx-btn-open-in-new-tab {
-    border-radius: var(--vlook-base-radius) 0 var(--vlook-base-radius) 0;
-    box-shadow: @contrastBorder;
-    background-color: @buttonBgColor;
-    position: absolute;
+.mdx-content-assistor {
+    // display: none;
     visibility: hidden;
-    opacity: 0;
+    opacity: 1;
+    position: absolute;
+    border-radius: var(--vlook-small-inner-radius);
+    height: 26px;
     z-index: 50;
 }
 
-.mdx-btn.copy-code-block {
+.mdx-btn.assistor {
     top: 0;
-    width: 32px;
+    width: 30px;
     height: 26px;
-    border-radius: var(--vlook-tag-radius);
+    border-radius: var(--vlook-small-inner-radius);
     background-color: @buttonBgColor;
+    position: relative;
+    display: none;
+}
+.mdx-btn.assistor.enabled {
+    display: inline-flex;
+}
+
+.mdx-pic-in-pic {
+    display: none;
+    position: fixed;
+    background-color: var(--header-color);
+    border-radius: calc(var(--vlook-base-radius) + var(--vlook-base-radius) - var(--vlook-table-radius));
+    // border-radius: var(--vlook-base-radius);
+    right: 20px;
+    bottom: 10px;
+    padding: 2px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--header-color) inset;
+    z-index: 500;
+}
+.mdx-pic-in-pic > .mdx-content {
+    overflow: auto;
+    height: 100%;
+    border-radius: var(--vlook-base-radius);
+}
+.mdx-pip-btn {
     position: absolute;
+    display: inline-flex;
     visibility: hidden;
     opacity: 0;
-    z-index: 50;
+    background-color: var(--doc-bg-color);
+    border-radius: 50%;
+    top: 8px;
+    // width: 24px;
+    // height: 24px;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    cursor: pointer;
+    z-index: 20;
+}
+.mdx-pip-btn.min.zoom-in {
+    top: 6px;
+}
+.mdx-pip-btn.min.zoom-out {
+    top: 3px;
+}
+
+.mdx-pip-btn.mdx-close {
+    right: 8px;
+}
+
+.mdx-pip-btn.mdx-zoom.zoom-in {
+    right: 32px;
+}
+.mdx-pip-btn.mdx-zoom.zoom-out {
+    right: 38px;
+}
+
+.mdx-pip-btn.zoom-in {
+    width: 20px;
+    height: 20px;
+}
+.mdx-pip-btn.zoom-out {
+    width: 26px;
+    height: 26px;
+}
+
+.mdx-pip-btn.zoom-in > svg {
+    transform: scale(1);
+}
+.mdx-pip-btn.zoom-out > svg {
+    transform: scale(1.33);
+}
+.mdx-pip-btn:hover > svg > use {
+    fill: @aHoverColor;
+}
+.mdx-pip-btn:active > svg > use {
+    fill: @aActiveColor;
 }
 
 .md-diagram-panel {
@@ -4495,17 +4703,20 @@ li > p + ul {
     padding: 0;
 }
 
-.mdx-clickable-hover {
-    border-color: @aHoverColor !important;
-}
+// .mdx-clickable.hover {
+//     border-color: @aHoverColor !important;
+// }
 
-.mdx-interactive-hover {
+.mdx-interactive {
+    cursor: pointer;
+}
+.mdx-interactive.hover {
     border-color: @aHoverColor !important;
 }
-.mdx-interactive-hover:active {
+.mdx-interactive.hover:active {
     box-shadow: 0 0 0 2px fade(@aHoverColor, 50%);
 }
-.mdx-interactive:active {
+.mdx-interactive.hover:active {
     border-color: @aActiveColor !important;
     box-shadow: none;
     transform: none;
@@ -4519,11 +4730,11 @@ li > p + ul {
 }
 
 // 指定在 Dark Mode 时反转的图片的hover样式（先使用反色，这样在反转时则能保持与色一致）
-.mdx-img-invert-dark:hover {
-    border-color: rgb(255 - red(@aHoverColor),
-            255 - green(@aHoverColor),
-            255 - blue(@aHoverColor)) !important;
-}
+// .mdx-img-invert-dark:hover {
+//     border-color: rgb(255 - red(@aHoverColor),
+//             255 - green(@aHoverColor),
+//             255 - blue(@aHoverColor)) !important;
+// }
 
 // Light 模式的插图网格背景
 .mdx-figure-solid-bg-light {
@@ -4576,6 +4787,7 @@ li > p + ul {
 
 .mdx-figure-page-num {
     border-radius: var(--vlook-small-radius);
+    color: #FFFFFF;
     background-color: var(--fore-color-alt);
     padding-left: 4px;
     padding-right: 4px;
@@ -4583,14 +4795,14 @@ li > p + ul {
     font-family: @boldFont;
 }
 
-.mdx-figure-caption {
+.mdx-caption {
     display: inline-block;
     border-radius: var(--vlook-base-radius);
     background-color: var(--doc-bg-color-alt);
     // margin-top: 1em;
 }
 
-.mdx-figure-caption > p {
+.mdx-caption > p {
     color: var(--fore-color);
     font-size: 0.85em;
     font-family: @boldFont;
@@ -4599,7 +4811,7 @@ li > p + ul {
     width: auto !important;
 }
 
-.mdx-figure-caption hr {
+.mdx-caption hr {
     border-bottom: 2px solid @foreColorLightAlt;
     margin: 0.5em auto;
 }
@@ -4637,9 +4849,9 @@ use.mdx-blockquote-folder-ico {
     fill: @buttonBgColor;
 }
 
-use.mdx-blockquote-folder-ico-hover {
-    fill: @aHoverColor;
-}
+// use.mdx-blockquote-folder-ico-hover {
+//     fill: @aHoverColor;
+// }
 use.mdx-blockquote-folder-ico:active {
     fill: @aActiveColor;
 }
@@ -4677,7 +4889,7 @@ use.mdx-blockquote-folder-ico:active {
 }
 
 // 遮罩关闭提示器样式
-.mdx-mask-closer {
+.mdx-mask-close {
     position: fixed;
     justify-content: center;
     align-items: center;
@@ -4687,15 +4899,15 @@ use.mdx-blockquote-folder-ico:active {
     opacity: 0.7;
 }
 // 遮罩关闭提示器扩展样式
-.mdx-mask-closer.left {
+.mdx-mask-close.left {
     width: 16px;
     height: 60px;
 }
-.mdx-mask-closer.right {
+.mdx-mask-close.right {
     width: 16px;
     height: 60px;
 }
-.mdx-mask-closer.bottom {
+.mdx-mask-close.bottom {
     width: 60px;
     height: 16px;
 }
@@ -5068,7 +5280,7 @@ use.mdx-blockquote-folder-ico:active {
     border-radius: var(--vlook-small-radius);
 }
 .mdx-quote-title-theme1 {
-    color: var(--header-color-title);
+    color: var(--acc-color-theme1);
 }
 // .mdx-quote-title-theme1-light {
 //     color: var(--header-color);// !important;
@@ -5352,7 +5564,7 @@ rt:hover {
     color: var(--doc-bg-color);
     font-size: 1em;
     font-family: @codeFont !important;
-    font-weight: @fontWeight4Serif;
+    font-weight: @fontWeight;
     cursor: pointer;
 }
 .mdx-black-curtain:hover {
@@ -5375,9 +5587,20 @@ h6 code {
 * 封面、封底
 **************************************/
 
+// 无标准封面时的封面样式
+.mdx-doc-title {
+    color: @headerColor;
+    font-size: 2.5em;
+    font-family: @titleFont;
+    font-weight: @titleFontWeight;
+    line-height: 1.3 !important;
+    padding-top: 70px;
+    opacity: 0.5;
+}
+
 // 封面：#write 下 H6 作为第一个元素时
-#write > pre.md-meta-block:first-child + h6,
-#write > h6:first-child,
+#write > pre.md-meta-block:first-child + h6, // 有 YAML 的情况
+#write > h6:first-child, // 无 YAML 的情况
 // 封底：#write 下 H6 作为最后一个元素时
 #write > h6:last-child {
     display: block;
@@ -5389,7 +5612,7 @@ h6 code {
     filter: var(--vlook-brightness-dark);
     height: 950px;//25cm;
     padding: @coverTextPadding;
-    margin: 10px 0 3em;
+    margin: 0 0 3em;
     border: 0;
     border-radius: var(--vlook-base-radius);
     box-shadow: @contrastBorderForCover;
@@ -5415,6 +5638,8 @@ h6 code {
     background-repeat: @backCoverBackgroundRepeat;
     background-position: @backCoverBackgroundPosition;
 }
+
+// 封面、封底的前信息
 #write > pre.md-meta-block:first-child + h6::before,
 #write > h6:first-child::before,
 #write > h6:last-child::before {
@@ -5425,16 +5650,16 @@ h6 code {
 #write > pre.md-meta-block:first-child + h6 sub,
 #write > h6:first-child sub {
     color: @coverSubColor;
-    font-family: @headerFont;
-    font-weight: @fontWeight4Serif;
+    font-family: @subtitleFont;
+    font-weight: @fontWeight;
 }
 
 // 封面内上标信息
 #write > pre.md-meta-block:first-child + h6 sup,
 #write > h6:first-child sup {
     color: @coverSupColor;
-    font-family: @headerFont;
-    font-weight: @fontWeight4Serif;
+    font-family: @subtitleFont;
+    font-weight: @fontWeight;
 }
 
 // 封面内密级信息
@@ -5526,7 +5751,7 @@ h6 code {
     color: @coverOwnerColor;
     font-size: 0.4em;
     font-family: @subtitleFont;
-    font-weight: @fontWeight4Serif;
+    font-weight: @fontWeight;
     font-style: normal !important;
 }
 
@@ -5544,15 +5769,15 @@ h6 code {
         border-top-right-radius: var(--vlook-base-radius);
     }
 
-    .mdx-chapter-nav-prev-noeffect-hover,
-    .mdx-chapter-nav-prev-effect-hover,
-    .mdx-chapter-nav-prev-effect::before {
+    .mdx-chapter-nav-prev.noeffect.hover,
+    .mdx-chapter-nav-prev.effect.hover,
+    .mdx-chapter-nav-prev.effect::before {
         border-top-left-radius: var(--vlook-base-radius);
     }
 
-    .mdx-chapter-nav-next-noeffect-hover,
-    .mdx-chapter-nav-next-effect::before,
-    .mdx-chapter-nav-next-effect-hover {
+    .mdx-chapter-nav-next.noeffect.hover,
+    .mdx-chapter-nav-next.effect::before,
+    .mdx-chapter-nav-next.effect.hover {
         border-top-right-radius: var(--vlook-base-radius);
     }
 
@@ -5579,6 +5804,7 @@ h6 code {
     .mdx-chapter-nav {
         left: 20px !important;
     }
+    .mdx-chapter-nav-doc-title,
     .mdx-chapter-nav-current {
         margin-left: 40px !important;
         margin-right: 40px !important;
@@ -5643,7 +5869,11 @@ h6 code {
     }
 
     #write {
-        margin: 0 !important;
+        margin: 20px !important;
+    }
+
+    .mdx-doc-title {
+        opacity: 1;
     }
 
     h1,
@@ -5665,7 +5895,7 @@ h6 code {
         border-color: var(--tbl-border-color) !important;
     }
 
-    .mdx-figure-caption:hover {
+    .mdx-caption:hover {
         background-color: var(--doc-bg-color-alt);
     }
 
@@ -5686,8 +5916,16 @@ h6 code {
     .mdx-link-error-list,
     .mdx-btn-open-in-new-tab,
     .mdx-toc-handle,
-    .mdx-link-chk-result {
+    .mdx-toolbar,
+    .mdx-btn-outline,
+    .mdx-chapter-nav,
+    .mdx-nav-center,
+    .mdx-nav-center-header,
+    .mdx-nav-center-body,
+    .mdx-status-bar {
+        // .mdx-link-chk-result {
         display: none !important;
+        filter: none;
     }
 
     .mdx-pg-current-item {
@@ -5710,18 +5948,6 @@ h6 code {
     .mdx-toc {
         display: block !important;
         visibility: visible !important;
-    }
-
-    .mdx-toolbar,
-    .mdx-btn-outline,
-    .mdx-chapter-nav,
-    .mdx-nav-center,
-    .mdx-nav-center-header,
-    .mdx-nav-center-body,
-    .mdx-link-chk-result {
-        display: none;
-        visibility: hidden;
-        filter: none;
     }
 
     #write > pre.md-meta-block:first-child + h6,
