@@ -84,7 +84,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 3. **编写文档：**
    1. 建议基于 VLOOK™ 规范的文档模板来创建你自己的 Markdown 文档，这样能更快上手
    2. 模板文件在哪？
-      1. 在目录`released`下的文件「**VLOOK-Doc-Template.md** 或 **VLOOK-Doc-Template_nocover.md**」
+      1. 在目录`released`下的文件「**VLOOK-Document-Template.md** 或 **VLOOK-Document-Template_nocover.md**」
       2. 也可直接在项目主页中[下载文档模板](https://github.com/MadMaxChow/VLOOK/tree/master/released/demo)（[备用链接](https://gitee.com/madmaxchow/VLOOK/tree/master/released/demo)）
 
 ## Step 3•应用插件
