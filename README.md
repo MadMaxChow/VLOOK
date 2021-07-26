@@ -93,7 +93,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 1. **配置导出选项安装 Typora：**
    1. 启动 Typora 并进入「**偏好设置**」
-   2. 点击「导出」，添加配置（选择 HTML 模板），并将配置命名为`HTML (VLOOK)`
+   2. 点击「导出」，添加配置（选择 HTML 模板），并将配置命名为`VLOOK`
 2. **安装插件代码：**
    1. 打开插件文件：released\plugin\\**plugin.txt**，或直接打开线上版本的 [plugin.txt](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin.txt)（[备用链接](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt)）
    2. 全选里面的所有内容，并复制
@@ -108,7 +108,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 >
 > 
 >
-> 目前 VLOOK 支持提供在线版插件方式，可参考以上方式增加新的「导出配置」即可（建议配置命名为`HTML (VLOOK live)`）。
+> 目前 VLOOK 支持提供在线版插件方式，可参考以上方式增加新的「导出配置」即可（建议配置命名为`VLOOK (live)`）。
 >
 > 在线版的插件文件为：released\plugin\\**plugin-live.txt**，或直接打开线上版本的 [plugin-live.txt](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin-live.txt)（[备用链接](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt)）
 
