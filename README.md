@@ -97,10 +97,10 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 2. **安装插件代码：**
    1. 打开插件文件：released\plugin\\**plugin.txt**，或直接打开线上版本的 [plugin.txt](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin.txt)（[备用链接](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt)）
    2. 全选里面的所有内容，并复制
-   3. 回到导出配置「**HTML (VLOOK)**」中的在`<body />`中添加，将内容粘贴至下方的文本框内即可
+   3. 回到 VLOOK 的导出配置界面中，在`<body />`中添加，将内容粘贴至下方的文本框内即可
 3. **一键导出：**
    1. 打开符合 VLOOK™ 规范的 md 文件
-   2. 点击「**文件▸导出▸HTML (VLOOK)**」即可
+   2. 点击「**文件▸导出▸VLOOK**  或 **VLOOK (live)**」即可
 
 ###### 在线版插件
 
