@@ -1,8 +1,8 @@
 /**************************************
  * VLOOK CSS 基础库
  *
- * V10.7
- * 2021-07-20
+ * V10.7.1
+ * 2021-08-02
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -87,7 +87,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --mm-flowchart-curve: basis;
 
     --vlook-theme-name: @themeName; // 主题名称
-    --vlook-theme-version: "V10.7"; // 主题版本，对应适配 VLOOK.JS 的版本
+    --vlook-theme-version: "V10.7.1"; // 主题版本，对应适配 VLOOK.JS 的版本
     --vlook-default-font-style: @defaultFontStyle; // 默认字体风格
     --vlook-color-scheme: light; // 默认颜色模式为：Light 明亮
 
@@ -496,6 +496,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 
 html {
     font-size: @fontSize;
+    // zoom: 1;
 }
 
 ::selection {
@@ -701,6 +702,16 @@ a kbd {
     display: inline-block;
     box-shadow: @buttonShadow, @contrastBorder;
     padding: 5px 10px;
+}
+// 标题内链接样式
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+    color: @headerColor !important;
+    font-weight: inherit;
 }
 
 // 指定不使用链接样式
@@ -958,9 +969,25 @@ h6 {
     padding-bottom: 0.5em;
     font-family: @subtitleFont;
     font-weight: @fontWeight;
-    font-size: 1em;
+    font-size: 1.2em;
     box-shadow: none;
     background: none;
+}
+h6::after {
+    content: "";
+    display: block;
+    width: 3.5em;
+    margin-left: 1.25em;
+    padding-bottom: 4px;
+    border-bottom: 2px solid @contentHeaderNumColor;
+}
+#write > pre.md-meta-block:first-child + h6::after, // 封面，有 YAML 的情况
+#write > h6:first-child::after, // 封面，无 YAML 的情况
+#write > h6:last-child::after, // 封底
+blockquote h6::after {
+    margin-left: 0;
+    padding-bottom: 0;
+    border: 0;
 }
 
 h1 + h6,
@@ -1138,6 +1165,11 @@ blockquote h6::before {
 blockquote > ul,
 blockquote > ol {
     margin-top: 0;
+}
+
+h6 + blockquote,
+li > blockquote {
+    width: fit-content !important;
 }
 
 // 双重引用
@@ -1359,7 +1391,7 @@ table > thead > tr:first-child > th:first-child {
 
 table th,
 table td {
-    white-space: pre !important;
+    // white-space: pre !important;
     font-size: 0.9em;
 }
 
@@ -2008,7 +2040,13 @@ h4 {
 
 // h6.md-focus.md-heading::before,
 #write h6::before {
-    content: "◎ ";
+    content: "❖ "; // ◎
+}
+// 封面、封底的前信息
+#write > pre.md-meta-block:first-child + h6::before,
+#write > h6:first-child::before,
+#write > h6:last-child::before {
+    content: "";
 }
 
 /** override the default style for focused headings */
@@ -2990,7 +3028,7 @@ sup.md-footnote > a:hover {
 kbd {
     font-family: @codeFont;
     font-weight: @fontWeight;
-    font-size: 1em;
+    font-size: 0.875em;
     border-radius: var(--vlook-tag-radius);
     margin: 0 5px;
     padding: 1px 8px;
@@ -3612,6 +3650,7 @@ li > p + ul {
     float: left;
     cursor: pointer;
     position: relative;
+    display: inline-flex;
     z-index: 10;
 }
 .mdx-segment-btn.hover:hover {
@@ -5351,7 +5390,7 @@ use.mdx-blockquote-folder-ico:active {
     color: @docBgColorLight;
     padding: 0.1em 0.5em;
     margin: 0 0.1em;
-    border-radius: var(--vlook-tag-small-radius) var(--vlook-tag-radius) var(--vlook-tag-radius) var(--vlook-tag-radius);
+    // border-radius: var(--vlook-tag-small-radius) var(--vlook-tag-radius) var(--vlook-tag-radius) var(--vlook-tag-radius);
     white-space: pre;
     box-shadow: 0 0 0 1px var(--code-name-shadow-color) inset;
 }
@@ -5578,7 +5617,7 @@ rt:hover {
     text-shadow: none;
 }
 
-// h6内的code标签强制取消加粗
+// h6 内的 code 标签强制取消加粗
 h6 code {
     font-weight: normal;
 }
@@ -5637,13 +5676,6 @@ h6 code {
     background-size: @backCoverBackgroundSize;
     background-repeat: @backCoverBackgroundRepeat;
     background-position: @backCoverBackgroundPosition;
-}
-
-// 封面、封底的前信息
-#write > pre.md-meta-block:first-child + h6::before,
-#write > h6:first-child::before,
-#write > h6:last-child::before {
-    content: "";
 }
 
 // 封面内下标信息
@@ -5795,6 +5827,11 @@ h6 code {
         --vlook-nav-center-hidden-left:-410px;
         --vlook-toolbar-btn-width:40px;
     }
+
+    html {
+        // font-size: @fontSizeBigger;
+        // zoom: 1.125 !important;
+    }
 }
 
 // ---------------
@@ -5866,6 +5903,7 @@ h6 code {
 @media print {
     html {
         font-size: 1em !important;
+        // zoom: 1 !important;
     }
 
     #write {

@@ -29,9 +29,10 @@ welcome: 自定义文档加载过程中显示的欢迎屏信息（须在导出�
 
 ==接下来，请开始属于你的表演吧～==
 
-# 更多参考
+# 关于的封面、封底
 
->  有关「封面、封底」，以及 VLOOK™ 的更多信息，详见《[VLOOK 快速参考手册](https://madmaxchow.github.io/VLOOK/index.html#封面封底)》
+>  - 有关「封面、封底」，以及 VLOOK™ 的更多信息，详见《[VLOOK 快速参考手册](https://madmaxchow.github.io/VLOOK/index.html#封面封底)》
+>  - 若你的文档需要封面、封底，可以将本文档中开始与结束位置的 6 级标题内容删除即可。
 
 
 ###### 在这填写文档封底结束语

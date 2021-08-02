@@ -2,8 +2,8 @@
  *
  * VLOOK.js - Typora Plugin
  *
- * V10.7
- * 2021-07-20
+ * V10.7.1
+ * 2021-08-02
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -50,7 +50,7 @@ theme
 
 **************************************/
 
-let vlookVersion = "V10.7";
+let vlookVersion = "V10.7.1";
 
 console.log(":::::::::::::::::::");
 console.log("!!! " + (vlookDevMode === true ? "- DEV -" : "RELEASED" ) + " !!!");
@@ -81,6 +81,12 @@ let iToolbar = undefined,
     iContentFolder = undefined,
     iLinkChecker = undefined,
     iContentAssistor = undefined;
+
+    addEventListener("message", function (e) {
+        //     // if (e.data[0].toString() === "data-vdoc-lib") {
+                console.log("主窗口收到", e.data, "origin:", e.origin);
+        //     // }
+        });
 
 // ==================== 文档对象模型 ==================== //
 
@@ -143,17 +149,21 @@ VOM.cover = function () {
     return VOM.__cover;
 }
 
-// 封面对象
+// 封底对象
 VOM.__backcover = undefined;
 VOM.backcover = function () {
+    // 注意该方法调用，必须在 #vk-footer-area 的位置调整前完成
     if (VOM.__backcover === undefined) {
-        VOM.__backcover = $("#write > .mdx-backcover, #write > h6:last-child"); // 封底已调整到脚注后的情况
-        if (VOM.__backcover.length === 0) {
-            VOM.__backcover = $("#write > h6:last-of-type"); // 封底未调整到脚注后的情况
-            if (VOM.__backcover.length === 0) {
-                VOM.__backcover = undefined;
-                console.warn("Instantiation failed [ VOM.backcover ], maybe no backcover");
-            }
+        let footnotes = $(".footnotes-area");
+        if (footnotes !== undefined) {
+            let backcover = footnotes.prev(),
+                tagName = backcover.prop("tagName");
+            if (tagName !== undefined && tagName.toLowerCase() === "h6")
+                VOM.__backcover = backcover;
+        }
+        else {
+            VOM.__backcover = undefined;
+            console.warn("Instantiation failed [ VOM.backcover ], maybe no backcover");
         }
     }
     return VOM.__backcover;
@@ -1144,7 +1154,7 @@ VLOOK.ui = {
     copyrightInfo : function () {
         return '<div class="mdx-copyright">'
             + '<svg width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()"><use xlink:href="#icoVLOOK-dark"></use></svg>&nbsp;&nbsp;'
-            + '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.7) for <a href="https://www.typora.io" target="_blank">Typora</a>.'
+            + '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.7.1) for <a href="https://www.typora.io" target="_blank">Typora</a>.'
             + '&nbsp;&nbsp;&nbsp;&nbsp;Support by <strong><a href="https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi">QQ Group</a></strong> or <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">email</a></strong>.'
             + '</div>'
     },
@@ -2166,7 +2176,7 @@ VLOOK.report = {
         statData = encodeURI(statData);
 
         // 提交统计数据
-        let vlookStat = $("iframe[name=vlook-stat-gitee]");
+        let vlookStat = $("iframe[name='vlook-stat-gitee']");
         vlookStat.attr("src",
             "https://madmaxchow.gitee.io/vlook/act/" + (VLOOK.debugMode ? "dev-" : "") + "stat-gitee.html"
             + statData);
@@ -2564,7 +2574,6 @@ function ContentAssistor() {
             that.show(contentType);
         }, function () {
             if (__mouseDropIn(that.lastHover) === false) {
-                console.warn("out");
                 that.hide();
             }
         });
@@ -2835,20 +2844,23 @@ PicInPic.fitContentSize = function (source) {
 
     // 宽度
     let wWithPadding = w + sourcePadding;
-    if (w > 0 && (wWithPadding) < PicInPic.size.width) {
+    if (w > 0 && wWithPadding < PicInPic.size.width) {
         PicInPic.size.width = w;
         PicInPic.ui.body.css({
             "width" : wWithPadding,
             "transform-origin" : PicInPic.size.width + "px " + PicInPic.size.height + "px"
         });
     }
+
     // 高度
+    h = source.height(); // 重新获得画中画最新高度
     let hWithPadding = h + uiPadding + sourcePadding;
-    if (h > 0 && (hWithPadding) < PicInPic.size.height) {
+    if (h > 0 && hWithPadding < PicInPic.size.height) {
         // 针对会进行等比缩放的对象进行高度微调
         if ((tagName === "img" || tagName === "svg")
             && h > source.height()) {
                 h = source.height();
+                hWithPadding = h + uiPadding + sourcePadding;
         }
         PicInPic.size.height = h;
         PicInPic.ui.body.css({
@@ -5135,7 +5147,7 @@ FootNote.init = function () {
     // 将 Typora 的脚注调整到封底前，VLOOK 规范的文档中最后一个 <h6> 是封底
     let footnotesArea = $(".footnotes-area");
     // 「有封面」模式
-    if (VOM.backcover() === undefined)
+    if (VOM.backcover() !== undefined)
         footnotesArea.insertBefore(VOM.backcover());
     // 「无封面」模式
     else
@@ -5215,7 +5227,8 @@ function LinkChecker(mask) {
 
             // --------------------
             // 页内链接
-            if (href.startsWith("#")) {
+            // 以 #mjx- 开始的链接为行间公式的页内引用，会导致 jQuery 的正则表达式解析错误，须跳过
+            if (href.startsWith("#") && !href.startsWith("#mjx-")) {
                 // 检索是否存在与该内链对应的锚点
                 let anchor = href.substring(1, href.length);
                 // 没有检索到对应的锚点
@@ -6118,7 +6131,7 @@ CaptionGenerator.actionForMediaContent = function (target, tagName) {
         // 调整SVG插图，尽量按其真实插图的大小显示，超出浏览器宽度的，则左右滚动浏览
         if (target.css("max-width") !== "none") // CSS 中指定了最大宽度
             target.parent().css("width", target.css("max-width"));
-        else if (target.attr("style").indexOf("width") > -1) // 通过 style 指定了宽度
+        else if (target.attr("style") !== undefined && target.attr("style").indexOf("width") > -1) // 通过 style 指定了宽度
             target.parent().css("width", target.css("width"));
         else if (target.attr("width") !== "100%") // 指定了 width 属性，且不为 100%
             target.parent().css("width", parseInt(target.attr("width")) + 4); // 4 为两边 border 的宽度
@@ -10591,6 +10604,22 @@ BlackCurtain.hide = function (target) {
     target.attr("data-vk-black-curtain-showed", "false");
 }
 
+// ==================== 文档库模块 ==================== //
+
+function DocLib() {}
+
+DocLib.init = function () {
+//     // let docLib = $("#vlook-doc-lib");
+//     addEventListener("message", function (e) {
+//     //     // if (e.data[0].toString() === "data-vdoc-lib") {
+//             console.log("主窗口收到", e.data, "origin:", e.origin);
+//     //     // }
+//     });
+//     // docLib.get(0).contentWindow.postMessage("getVdocLib", "*");
+    console.warn("send to iframe");
+    document.getElementById("vlook-doc-lib").contentWindow.postMessage("hello", "*");
+}
+
 // ==================== VLOOK UI 模块 ==================== //
 
 function VLOOKui() {}
@@ -11121,6 +11150,7 @@ VLOOKui.loadCommon = function () {
     // --------------------------------------------------
     //统计数据上报中转页面
     ui += '<iframe name="vlook-stat-gitee" style="display: block; margin: 0; border: none; overflow: hidden; width: 100%; height: 0;"></iframe>';
+    // ui += '<iframe id="vlook-doc-lib" name="vlook-doc-lib" src="dev-vdoc-lib.html" style="display: block; margin: 0; border: none; overflow: hidden; width: 100%; height: 300px;"></iframe>';
     return ui;
 }
 
@@ -11345,6 +11375,8 @@ function loadVLOOKplugin() {
     console.info("TOTAL COST   ⏱ " + gTotalLoadTimeCost + " ms");
     console.info("    ├ HTML   ⏱ " + gDocLoadTimeCost + " ms");
     console.info("    └ VLOOK  ⏱ " + (gTotalLoadTimeCost - gDocLoadTimeCost) + " ms");
+
+    // DocLib.init();
 
     /**
      * 创建独立线程执行

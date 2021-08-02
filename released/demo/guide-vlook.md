@@ -8,24 +8,24 @@ keywords:
 - 产品经理,程序员,运维工程师,售前,售后
 ---
 
-###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>快速参考手册</sup><br />`#最新版本|V10.7#(theme2)`<br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2021. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>快速参考手册</sup><br />`#最新版本|V10.7.1#(theme2)`<br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2021. MAX°DESIGN.*
 
 [TOC]
 
 # VLOOK™ 是什么
 
 >
->![VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-mark-light.svg?mode=logo&darksrc=vlook-mark-dark.svg)
+>![VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-mark-light.svg?mode=logo&darksrc=vlook-mark-dark.svg)
 >
 >
 >
->VLOOK™ 是针对 ![Typora](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/typora.png?mode=icon) [Typora](https://www.typora.io)[^Typora] （跨平台 Markdown 编辑器）的 **主题包** 和 **增强插件**（针对导出的 HTML 文件)。
+>VLOOK™ 是针对 ![Typora](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/typora.png?mode=icon) [Typora](https://www.typora.io)[^Typora] （跨平台 Markdown 编辑器）的 **主题包** 和 **增强插件**（针对导出的 HTML 文件)。
 >
->VLOOK™ 属于开源软件（遵从 **MIT License**），也是 ![OSChina](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/oschina.png?mode=icon) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源产品、Typora 的首个增强插件。
+>VLOOK™ 属于开源软件（遵从 **MIT License**），也是 ![OSChina](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/oschina.png?mode=icon) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源产品、Typora 的首个增强插件。
 >
 >`>(theme1)`
 
-> 代码托管：[![Github](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/github-light.svg?mode=logo&darksrc=github-dark.svg)](https://github.com/madmaxchow/VLOOK?lnkcss=none) & [![Gitee](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/gitee-light.svg?mode=logo&darksrc=gitee-dark.svg)](https://gitee.com/madmaxchow/VLOOK?lnkcss=none)　　　　CDN：[![JSDELIVR](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/jsdelivr-light.svg?mode=logo&darksrc=jsdelivr-dark.svg)](https://www.jsdelivr.com/?lnkcss=none)　　　　图床：[![路过图床](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/imgchr-light.png?mode=logo&darksrc=imgchr-dark.png&srcset=@2x&darksrcset=@2x)](https://imgchr.com/?lnkcss=none)
+> 代码托管：[![Github](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/github-light.svg?mode=logo&darksrc=github-dark.svg)](https://github.com/madmaxchow/VLOOK?lnkcss=none) & [![Gitee](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/gitee-light.svg?mode=logo&darksrc=gitee-dark.svg)](https://gitee.com/madmaxchow/VLOOK?lnkcss=none)　　　　CDN：[![JSDELIVR](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/jsdelivr-light.svg?mode=logo&darksrc=jsdelivr-dark.svg)](https://www.jsdelivr.com/?lnkcss=none)　　　　图床：[![路过图床](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/imgchr-light.png?mode=logo&darksrc=imgchr-dark.png&srcset=@2x&darksrcset=@2x)](https://imgchr.com/?lnkcss=none)
 
 > [+] **许可协议**
 >
@@ -41,13 +41,13 @@ keywords:
 > > THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 > > ```
 >
-> [+] ![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark-solid.svg?mode=icon&fill=text) **Markdown 是什么？**
+> [+] ![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark-solid.svg?mode=icon&fill=text) **Markdown 是什么？**
 >
-> > - 2004 年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了 [![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark-solid.svg?mode=icon&fill=text) Markdown](https://en.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的 `文本标记语言`。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）；
+> > - 2004 年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了 [![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark-solid.svg?mode=icon&fill=text) Markdown](https://zh.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的 `文本标记语言`。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）；
 > >- Markdown 文档以 `纯文本格式存储`，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过 Markdown 编辑器导出为带排版的富文本文档、HTML 网页等等。==纯粹、简洁、易用、灵活==，都是人们喜欢 Markdown 的原因；
 > > - 目前 Markdown 的标准化项目是 [CommonMark](http://commonmark.org)。
 > > 
-> > ![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?mode=logo&fill=text)
+> > ![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark.svg?mode=logo&fill=text)
 >
 > [+] **60 秒学会、10 分钟深入学习 Markdown 语法**
 >
@@ -86,7 +86,7 @@ keywords:
    1. 下载并安装 [Typora](https://www.typora.io) 的最新版本（Version 0.10.3 或更高版本）
    2. 启动 Typora 并进入「偏好设置」，启用「Markdown 扩展语法、代码块」下的所有选项。详见下图：
 
-![开启「Typora▸偏好设置▸Markdown」相关选项](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/typora-opt1-light.png?srcset=@2x&darksrc=typora-opt1-dark.png&darksrcset=@2x)
+![开启「Typora▸偏好设置▸Markdown」相关选项](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/typora-opt1-light.png?srcset=@2x&darksrc=typora-opt1-dark.png&darksrcset=@2x)
 
 ## Step 2•安装主题包
 
@@ -104,18 +104,18 @@ keywords:
 
 ## Step 3•配置导出选项
 
-![进入「Typora▸偏好设置▸导出」进行配置](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
+![进入「Typora▸偏好设置▸导出」进行配置](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
 
 1. **配置导出选项安装 Typora：**
    1. 启动 Typora 并进入「**偏好设置**」
-   2. 点击「导出」，添加配置（选择 HTML 模板），并将配置命名为 `HTML (VLOOK)`
+   2. 点击「导出」，添加配置（选择 HTML 模板），并将配置命名为 `VLOOK`
 2. **安装插件代码：**
    1. 打开插件文件：released\plugin\\**plugin.txt**，或直接打开线上版本的 [plugin.txt](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin.txt)（[备用链接](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt)）
    2. 全选里面的所有内容，并复制
-   3. 回到导出配置「**HTML (VLOOK)**」中的 在`<body />`中添加，将内容粘贴至下方的文本框内即可
+   3. 回到 VLOOK 的导出配置界面中，在`<body />`中添加，将内容粘贴至下方的文本框内即可
 3. **一键导出：**
    1. 打开符合 VLOOK™ 规范的 md 文件
-   2. 点击「**文件▸导出▸HTML (VLOOK)**」即可
+   2. 点击「**文件▸导出▸VLOOK** 或 **VLOOK (live)**」即可
 
 ## 补充说明
 
@@ -131,7 +131,7 @@ keywords:
 >
 > 
 >
-> 目前 VLOOK 支持提供在线版插件方式，可参考以上方式增加新的「导出配置」即可（建议配置命名为`HTML (VLOOK live)`）。
+> 目前 VLOOK 支持提供在线版插件方式，可参考以上方式增加新的「导出配置」即可（建议配置命名为`VLOOK (live)`）。
 >
 > 在线版的插件文件为：released\plugin\\**plugin-live.txt**，或直接打开线上版本的 [plugin-live.txt](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin-live.txt)（[备用链接](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt)）
 >
@@ -141,19 +141,19 @@ keywords:
 
 > 为保障最佳的使用体验，强烈建议使用以下浏览器访问：
 >
-> ![Chrome](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/chrome.png?mode=icon) Google **[Chrome](https://www.google.cn/chrome/)**　　![Edge](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/edge.png?mode=icon) Microsoft **[Edge](https://www.microsoft.com/zh-cn/edge)**^(Chromium)^　　![Firefox](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/firefox.png?mode=icon) Mozilla **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
+> ![Chrome](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/chrome.png?mode=icon) Google **[Chrome](https://www.google.cn/chrome/)**　　![Edge](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/edge.png?mode=icon) Microsoft **[Edge](https://www.microsoft.com/zh-cn/edge)**^(Chromium)^　　![Firefox](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/firefox.png?mode=icon) Mozilla **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
 >
 > `>(brown)`
 
 ---
 
-如有建议和需求，欢迎随时反馈～ [![VLOOK™ @ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如有建议和需求，欢迎随时反馈～ [![VLOOK™ @ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 # 打赏
 
 **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**
 
-![打赏 VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x)
+![打赏 VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x)
 
 # 快速入坑
 
@@ -163,7 +163,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ## 快速入坑°文档排版
 
->　###### ![°文档排版](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-types-light.svg?mode=icon2x&fill=text) ° 文档排版
+>　###### ![°文档排版](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-types-light.svg?mode=icon2x&fill=text) ° 文档排版
 >
 > ---
 >
@@ -202,7 +202,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ## 快速入坑°内容导航
 
-> ###### ![°内容导航](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-nav-light.svg?mode=icon2x&fill=text) ° 内容导航
+> ###### ![°内容导航](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-nav-light.svg?mode=icon2x&fill=text) ° 内容导航
 >
 > ---
 >
@@ -224,7 +224,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 ## 快速入坑°演示与出版辅助
 
 >
-> ###### ![°演示与出版辅助](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-pres-light.svg?mode=icon2x&fill=text) ° 演示与出版辅助
+> ###### ![°演示与出版辅助](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-pres-light.svg?mode=icon2x&fill=text) ° 演示与出版辅助
 >
 > ---
 >
@@ -256,7 +256,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 ## 快速入坑°主题与不杂项
 
 >
-> ###### ![°主题与不杂项](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-theme-light.svg?mode=icon2x&fill=text) ° 主题与不杂项
+> ###### ![°主题与不杂项](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-theme-light.svg?mode=icon2x&fill=text) ° 主题与不杂项
 >
 > ---
 >
@@ -286,13 +286,13 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 `#VLOOK|say#(theme1)` 现在可以轻松让你实现 —— **Wow! Wow!**～Markdown 粉们的欢呼声！！！
 
-> ###### ![←](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/i_merge1.svg?mode=icon&fill=text&darksrc=invert) 跨列合并（横向合并）
+> ###### ![←](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/i_merge1.svg?mode=icon&fill=text&darksrc=invert) 跨列合并（横向合并）
 >
 > 在要==被合并==的单元格内输入列合并标识 `==` 或 `<<`，该单元格将会与==左侧相邻==的单元格进行合并，以此类推。
 >
 > `>(theme1)`
 
-> ###### ![↑](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/i_merge2.svg?mode=icon&fill=text&darksrc=invert) 跨行合并（纵向合并）
+> ###### ![↑](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/i_merge2.svg?mode=icon&fill=text&darksrc=invert) 跨行合并（纵向合并）
 >
 > 在要==被合并==的单元格内输入行合并标识 `:` 或 `^^`，该单元格将会与==上方相邻==的单元格进行合并，以此类推。
 >
@@ -328,7 +328,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -361,7 +361,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -373,7 +373,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 > 将表格列的对齐设置为「**右对齐**」，即可自动识别不同的数值内容进行自动进行格式化！
 
-> ###### ![普通数值](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/i_digital.svg?mode=icon&fill=text&darksrc=invert)「普通数值」自动格式化
+> ###### ![普通数值](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/i_digital.svg?mode=icon&fill=text&darksrc=invert)「普通数值」自动格式化
 >
 > - 添加千位符，并以更小字号显示小数部分
 > - 通过在数字前增加「正号 `+`」或「负号 `-`」，会通过不同的颜色突出显示
@@ -396,7 +396,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > >
 > > **数值列**：被 VLOOK™ 自动格式化后的样式
 
-> ###### ![百分数](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/i_percent.svg?mode=icon&fill=text&darksrc=invert)「百分数」自动格式化
+> ###### ![百分数](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/i_percent.svg?mode=icon&fill=text&darksrc=invert)「百分数」自动格式化
 >
 > - 自动继承「普通数字」的格式
 > - 以更小字号和视觉弱化来显示百分号 `%`，并以进度条比例显示对应的百分数值
@@ -414,7 +414,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 | -57.30%  |    [x]     |          |   [x]    |            | :    | -57.30% |
 | 100%     |            |          |          |            | :    |    100% |
 
-> ###### ![货币](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/i_currency.svg?mode=icon&fill=text&darksrc=invert)「货币」自动格式
+> ###### ![货币](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/i_currency.svg?mode=icon&fill=text&darksrc=invert)「货币」自动格式
 >
 > - 自动继承「普通数字」的格式
 > - 对货币符号（如：`¥` `$`），或货币简写（如：`CNY` `USD` `HKD`等）进行左侧对齐和视觉弱化
@@ -442,7 +442,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -471,7 +471,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -516,7 +516,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -551,7 +551,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -632,7 +632,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -726,7 +726,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -763,7 +763,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -793,7 +793,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ###### 示例
 
-![普通分辨率图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone-home-light.png?mode=figure&padding=true&darksrc=iphone-home-dark.png)　　![支持 2x 分辨率图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone-home-light.png?mode=figure&padding=true&darksrc=iphone-home-dark.png&srcset=@2x&darksrcset=@2x)　　![支持 2x, 3x 分辨率的图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone-home-light.png?mode=figure&padding=true&darksrc=iphone-home-dark.png&srcset=@2x,@3x&darksrcset=@2x,@3x)
+![普通分辨率图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/iphone-home-light.png?mode=figure&padding=true&darksrc=iphone-home-dark.png)　　![支持 2x 分辨率图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/iphone-home-light.png?mode=figure&padding=true&darksrc=iphone-home-dark.png&srcset=@2x&darksrcset=@2x)　　![支持 2x, 3x 分辨率的图片](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/iphone-home-light.png?mode=figure&padding=true&darksrc=iphone-home-dark.png&srcset=@2x,@3x&darksrcset=@2x,@3x)
 
 > 💡 **没有准备高清图片，也希望不模糊？**
 >
@@ -802,7 +802,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -826,11 +826,11 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ###### 示例
 
-![默认不适配 Dark Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?mode=figure&padding=true&srcset=@2x)　　![Dark Mode 时：图片反色](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/iphone.jpg?mode=figure&padding=true&srcset=@2x&darksrc=invert)
+![默认不适配 Dark Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/iphone.jpg?mode=figure&padding=true&srcset=@2x)　　![Dark Mode 时：图片反色](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/iphone.jpg?mode=figure&padding=true&srcset=@2x&darksrc=invert)
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -857,7 +857,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -888,8 +888,8 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 #### 图片版式示例：icon
 
-- ![VLOOK](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-light.svg?mode=icon&darksrc=vlook-dark.svg) **VLOOK™** 是 ![OSChina](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/oschina.png?mode=icon) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
-- ![VLOOK](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-light.svg?mode=icon2x&darksrc=vlook-dark.svg) **VLOOK™** 是 ![OSChina](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/oschina.png?mode=icon2x) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
+- ![VLOOK](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-light.svg?mode=icon&darksrc=vlook-dark.svg) **VLOOK™** 是 ![OSChina](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/oschina.png?mode=icon) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
+- ![VLOOK](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-light.svg?mode=icon2x&darksrc=vlook-dark.svg) **VLOOK™** 是 ![OSChina](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/oschina.png?mode=icon2x) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
 
 #### 图片版式示例：logo
 
@@ -897,23 +897,23 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 - 对于深色的图片或图标，可配合「[图片适配 Dark Mode](#图片适配 Dark Mode)」来自动更好适配 Dark Mode 下的显示，现在就试试按下键盘的<kbd>D</kbd>键，然后看看下图的变化～
 
-![Logo 模式](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-mark-light.svg?mode=logo&darksrc=invert) 
+![Logo 模式](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-mark-light.svg?mode=logo&darksrc=invert) 
 
 ---
 
 ###### 指定为 `logol` 模式
 
-![Logo 模式：图片左对齐＋文字环绕](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-mark-light.svg?mode=logol&darksrc=invert)　　**设置为 logol 模式后，实现图片左对齐＋文字环绕的排版效果**。我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK。
+![Logo 模式：图片左对齐＋文字环绕](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-mark-light.svg?mode=logol&darksrc=invert)　　**设置为 logol 模式后，实现图片左对齐＋文字环绕的排版效果**。我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK。
 
 ---
 
 ###### 指定为 `logor` 模式
 
-![Logo 模式：图片右对齐＋文字环绕](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-mark-light.svg?mode=logor&darksrc=invert)　　**设置为 logor 模式后，实现图片右对齐＋文字环绕的排版效果**。我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK。
+![Logo 模式：图片右对齐＋文字环绕](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-mark-light.svg?mode=logor&darksrc=invert)　　**设置为 logor 模式后，实现图片右对齐＋文字环绕的排版效果**。我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK。
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -937,17 +937,17 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ###### 示例－链接内图片
 
-- 什么是 [![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark-solid.svg?mode=icon&fill=text) Markdown](https://en.wikipedia.org/wiki/Markdown)？
+- 什么是 [![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark-solid.svg?mode=icon&fill=text) Markdown](https://en.wikipedia.org/wiki/Markdown)？
 
 ###### 示例－正文图文混排
 
-- 替换为==文本的颜色==：![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark-solid.svg?mode=icon&fill=text) Markdown 是一种专门针对网络写作的文本标记语言。
-- 替换为==主题的主色==：![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark-solid.svg?mode=icon&fill=theme1) Markdown 是一种专门针对网络写作的文本标记语言。
-- 替换为==主题的辅助色==：![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark-solid.svg?mode=icon&fill=theme2) Markdown 是一种专门针对网络写作的文本标记语言。
+- 替换为==文本的颜色==：![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark-solid.svg?mode=icon&fill=text) Markdown 是一种专门针对网络写作的文本标记语言。
+- 替换为==主题的主色==：![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark-solid.svg?mode=icon&fill=theme1) Markdown 是一种专门针对网络写作的文本标记语言。
+- 替换为==主题的辅助色==：![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark-solid.svg?mode=icon&fill=theme2) Markdown 是一种专门针对网络写作的文本标记语言。
 
 ###### 示例－彩虹引用及标题
 
-> ###### 这是![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?mode=icon&fill=text)Markdown 的 6 级标题
+> ###### 这是![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark.svg?mode=icon&fill=text)Markdown 的 6 级标题
 >
 > 这里是正文内容。
 >
@@ -955,11 +955,11 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ###### 示例－插图（实验性）
 
-![原始颜色](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?mode=figure)　　![颜色替换](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?mode=figure&fill=theme2)
+![原始颜色](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark.svg?mode=figure)　　![颜色替换](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark.svg?mode=figure&fill=theme2)
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -984,19 +984,19 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ###### 示例 1－线条网格
 
-![图片指定为线条网格背景](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-set.svg?grid=line&darksrc=invert "指定在 Dark Mode 时反色")
+![图片指定为线条网格背景](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-set.svg?grid=line&darksrc=invert "指定在 Dark Mode 时反色")
 
-![图片指定为线条网络背景](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-mark-light.svg?grid=line&padding=true&darksrc=vlook-mark-dark.svg "指定在 Dark Mode 时替换为指定图片")
+![图片指定为线条网络背景](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-mark-light.svg?grid=line&padding=true&darksrc=vlook-mark-dark.svg "指定在 Dark Mode 时替换为指定图片")
 
 ###### 示例 2－方块网格
 
-![图片指定为方块网格背景](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-set.svg?grid=block&darksrc=invert "指定在 Dark Mode 时反色")
+![图片指定为方块网格背景](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-set.svg?grid=block&darksrc=invert "指定在 Dark Mode 时反色")
 
-![图片指定为方块网络背景](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-mark-dark.svg?mode=figure&grid=block&padding=true "指定在 Dark Mode 时不处理")　
+![图片指定为方块网络背景](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-mark-dark.svg?mode=figure&grid=block&padding=true "指定在 Dark Mode 时不处理")　
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1024,15 +1024,15 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ###### 示例
 
-![左对齐](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?darksrc=invert)
+![左对齐](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark.svg?darksrc=invert)
 
-![居中对齐](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?darksrc=invert&align=center)
+![居中对齐](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark.svg?darksrc=invert&align=center)
 
-![右对齐](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/markdown-mark.svg?darksrc=invert&align=right)
+![右对齐](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark.svg?darksrc=invert&align=right)
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1053,11 +1053,11 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ###### 示例
 
-![图片边缘不留白（默认）](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/remote-control.svg?mode=figure&grid=block)　　![图片边缘添加留白](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/remote-control.svg?mode=figure&grid=block&padding=true)
+![图片边缘不留白（默认）](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/remote-control.svg?mode=figure&grid=block)　　![图片边缘添加留白](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/remote-control.svg?mode=figure&grid=block&padding=true)
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1098,7 +1098,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1131,7 +1131,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1149,83 +1149,93 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > `color`：指定标签显示对应的预置颜色标识，预置颜色标识与「[彩虹标签](#彩虹标签)」的颜色标识保持一致
 
-###### 示例
+###### 示例 1－正文内的彩虹标签
 
-> ###### ![red](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-red.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
+> ###### ![red](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-red.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
 >
 > 这是一个彩虹引用，使用的颜色标识为：`red`　　　🛈 进一步了解[颜色标识](#彩虹标签)
 >
 > `>(red)`
 
-> ###### ![orange](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-orange.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
+> ###### ![orange](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-orange.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
 >
 > 这是一个彩虹引用，使用的颜色标识为：`orange`　　　🛈 进一步了解[颜色标识](#彩虹标签)
 >
 > `>(orange)`
 
-> ###### ![yellow](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-yellow.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
+> ###### ![yellow](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-yellow.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
 >
 > 这是一个彩虹引用，使用的颜色标识为：`yellow`　　　🛈 进一步了解[颜色标识](#彩虹标签)
 >
 > `>(yellow)`
 
-> ###### ![green](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-green.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
+> ###### ![green](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-green.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
 >
 > 这是一个彩虹引用，使用的颜色标识为：`green`　　　🛈 进一步了解[颜色标识](#彩虹标签)
 >
 > `>(green)`
 
-> ###### ![cyan](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-cyan.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
+> ###### ![cyan](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-cyan.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
 >
 > 这是一个彩虹引用，使用的颜色标识为：`cyan`　　　🛈 进一步了解[颜色标识](#彩虹标签)
 >
 > `>(cyan)`
 
-> ###### ![blue](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-blue.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
+> ###### ![blue](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-blue.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
 >
 > 这是一个彩虹引用，使用的颜色标识为：`blue`　　　🛈 进一步了解[颜色标识](#彩虹标签)
 >
 > `>(blue)`
 
-> ###### ![purple](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-purple.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
+> ###### ![purple](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-purple.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
 >
 > 这是一个彩虹引用，使用的颜色标识为：`purple`　　　🛈进一步了解[颜色标识](#彩虹标签)
 >
 > `>(purple)`
 
-> ###### ![pink](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-pink.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
+> ###### ![pink](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-pink.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
 >
 > 这是一个彩虹引用，使用的颜色标识为：`pink`　　　🛈 进一步了解[颜色标识](#彩虹标签)
 >
 > `>(pink)`
 
-> ###### ![brown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-brown.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
+> ###### ![brown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-brown.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
 >
 > 这是一个彩虹引用，使用的颜色标识为：`brown`　　　🛈 进一步了解[颜色标识](#彩虹标签)
 >
 > `>(brown)`
 
-> ###### ![gray](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-gray.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
+> ###### ![gray](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-gray.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
 >
 > 这是一个彩虹引用，使用的颜色标识为：`gray`　　　🛈 进一步了解[颜色标识](#彩虹标签)
 >
 > `>(gray)`
 
-> ###### ![theme1](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-theme1.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
+> ###### ![theme1](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-theme1.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
 >
 > 这是一个彩虹引用，使用的颜色标识为：`theme1`　　　🛈 进一步了解[颜色标识](#彩虹标签)
 >
 > `>(theme1)`
 
-> ###### ![theme2](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/qico-theme2.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
+> ###### ![theme2](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-theme2.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
 >
 > 这是一个彩虹引用，使用的颜色标识为：`theme2`　　　🛈 进一步了解[颜色标识](#彩虹标签)
 >
 > `>(theme2)`
 
+###### 示例 2－列表内的彩虹标签
+
+- 这是列表项，以下为列表项内的彩虹标签：
+
+  > ###### ![theme2](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-theme2.svg?mode=icon&fill=text&darksrc=invert) 彩虹引用 6 级标题
+  >
+  > 这是一个彩虹引用，使用的颜色标识为：`theme2`　　　🛈 进一步了解[颜色标识](#彩虹标签)
+  >
+  > `>(theme2)`
+
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1274,7 +1284,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1414,7 +1424,7 @@ end
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1468,7 +1478,7 @@ end
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1506,7 +1516,7 @@ end
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1547,7 +1557,7 @@ end
 >
 > > - 点击可打开「汉典」官网，显示对应的「文字内容」释义
 >
-> [+] 被注音的文字内容**不是中文**，由 [![Google](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/google-logo.svg?mode=icon)•![翻译](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/google-translate.png?mode=icon)](https://translate.google.cn/?lnkcss=none) 提供服务
+> [+] 被注音的文字内容**不是中文**，由 [![Google](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/google-logo.svg?mode=icon)•![翻译](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/google-translate.png?mode=icon)](https://translate.google.cn/?lnkcss=none) 提供服务
 >
 > > - 点击可打开「谷歌翻译」官网，自动对注音为日文「假名」部分进行**翻译**
 > > - 其他情况，则自动对「文字内容」进行翻译
@@ -1556,7 +1566,7 @@ end
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1599,7 +1609,7 @@ end.
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1661,7 +1671,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1710,7 +1720,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1747,7 +1757,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
@@ -1757,13 +1767,13 @@ void quickSort(int arr[], int left, int right) {
 
 `#VLOOK|say#(theme1)` 提供了两套字体风格，可根据个人喜好进行选用。
 
-> 通过工具栏上的 ![字体主题](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-font-style.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮进行选择
+> 通过工具栏上的 ![字体主题](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-font-style.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮进行选择
 
 > ###### 小•清•新
 >
 > 整体视觉为「**清新、简约、明快**」，主要采用无衬线的免费或开源的东亚和拉丁字体。
 >
-> ![字体风格_小清新](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/小清新.png?darksrc=invert&srcset=@2x,@3x)
+> ![字体风格_小清新](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/小清新.png?darksrc=invert&srcset=@2x,@3x)
 >
 > `>(gray)`
 
@@ -1771,7 +1781,7 @@ void quickSort(int arr[], int left, int right) {
 >
 > 整体视觉为「**优雅、韵动、个性**」，主要采用衬线、无衬线的免费或开源的东亚和拉丁字体，多种字重进行**混搭组合**。
 >
-> ![字体风格_文艺范](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/文艺范.png?darksrc=invert&srcset=@2x,@3x)
+> ![字体风格_文艺范](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/文艺范.png?darksrc=invert&srcset=@2x,@3x)
 >
 > `>(gray)`
 
@@ -1782,9 +1792,9 @@ void quickSort(int arr[], int left, int right) {
 >
 >`>(red)`
 
-![蓝奏云](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/lanzou.png?mode=logo&srcset=@2x) •• [下载字体▾](https://wwe.lanzoui.com/ieVDhj1aokj)
+![蓝奏云](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/lanzou.png?mode=logo&srcset=@2x) •• [下载字体▾](https://wwe.lanzoui.com/ieVDhj1aokj)
 
-![百度网盘](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/baidupan.png?mode=logo&srcset=@2x) •• [下载字体▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)（提取码`11ta`)
+![百度网盘](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/baidupan.png?mode=logo&srcset=@2x) •• [下载字体▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)（提取码`11ta`)
 
 ---
 
@@ -1810,7 +1820,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
@@ -1820,7 +1830,7 @@ void quickSort(int arr[], int left, int right) {
 
 `#VLOOK|say#(theme1)` 所有 VLOOK™ 的主题都会自动根据浏览器或系统的 Dark Mode（深色模式）的设置进行自动适配。
 
-> 也可通过工具栏上的 ![Light Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-light-mode.svg?mode=icon2x&fill=theme1&darksrc=invert) / ![Dark Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-dark-mode.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮进行手动切换
+> 也可通过工具栏上的 ![Light Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-light-mode.svg?mode=icon2x&fill=theme1&darksrc=invert) / ![Dark Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-dark-mode.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮进行手动切换
 
 > 若希望文档在显示后强制指定为 Light / Dark Mode ，可通过为 HTML 的 URL 添加 VLOOK™ 规范的参数来启用这一特性：
 >
@@ -1836,11 +1846,11 @@ void quickSort(int arr[], int left, int right) {
 
 > `#小提示#(green)` *如果你的图片在 Dark Mode 下显得不够和谐，可以尝试选择让[图片适配 Dark Mode](#图片适配 Dark Mode)。*
 
-![Light / Dark 效果预览](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/vlook-color-scheme-preview.png?srcset=@2x)
+![Light / Dark 效果预览](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-color-scheme-preview.png?srcset=@2x)
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
@@ -1908,7 +1918,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
@@ -1930,7 +1940,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
@@ -1953,7 +1963,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
@@ -1976,7 +1986,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
@@ -1987,7 +1997,7 @@ void quickSort(int arr[], int left, int right) {
 `#VLOOK|say#(theme1)` 文档中的所有图片、Mermaid[^Mermaid] 图表都支持快速浏览，一键跳转到对应位置。
 
 > - 所有插图可支持通过在插图浏览器中打开，并进行前后插图的导航；
-> - 鼠标悬停在插图后，通过右上角内容助手上的 ![画中画](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-full-screen.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开，点击插图浏览器中的插图，也能直接跳转到文档中对应的位置。
+> - 鼠标悬停在插图后，通过右上角内容助手上的 ![画中画](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-full-screen.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开，点击插图浏览器中的插图，也能直接跳转到文档中对应的位置。
 
 [^Mermaid]: Mermaid 是一个用于画流程图、状态图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [Mermaid 官网](https://mermaidjs.github.io)，或 VLOOK™ 的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.html)》
 > [+] **支持的插图类型**
@@ -2008,7 +2018,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
@@ -2020,12 +2030,12 @@ void quickSort(int arr[], int left, int right) {
 
 `#VLOOK|say#(theme1)` 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
-> - 通过工具栏上的 ![聚光灯](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-spotlight.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开、关闭，也可通过快捷键 <kbd>S</kbd> 快速打开；
+> - 通过工具栏上的 ![聚光灯](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-spotlight.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开、关闭，也可通过快捷键 <kbd>S</kbd> 快速打开；
 > - 打开聚光灯后，可支持按通过 <kbd>⇧Shift</kbd> 键调节聚光灯的大小。
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
@@ -2035,11 +2045,11 @@ void quickSort(int arr[], int left, int right) {
 
 `#VLOOK|say#(theme1)` 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
-> - 通过工具栏上的 ![激光笔](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-laser-pointer.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开「聚光灯」，也可通过快捷键 <kbd>P</kbd> 快速打开。
+> - 通过工具栏上的 ![激光笔](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-laser-pointer.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开「聚光灯」，也可通过快捷键 <kbd>P</kbd> 快速打开。
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
@@ -2049,7 +2059,7 @@ void quickSort(int arr[], int left, int right) {
 
 `#VLOOK|say#(theme1)` 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
-> - 鼠标悬停在表格后，通过右上角内容助手上的 ![表格十字光标](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-table-cross.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开、关闭，也可通过快捷键 <kbd>X</kbd> 进行操作；
+> - 鼠标悬停在表格后，通过右上角内容助手上的 ![表格十字光标](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-table-cross.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮打开、关闭，也可通过快捷键 <kbd>X</kbd> 进行操作；
 > - 鼠标点击表格上的任意单元格后，会自动显示十字光标，高亮其横向、纵向方向上的对应的单元格；
 > - 点击文档空白位置，或按下<kbd>ESC</kbd>临时取消显示。
 
@@ -2062,7 +2072,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
@@ -2072,14 +2082,14 @@ void quickSort(int arr[], int left, int right) {
 
 `#VLOOK|say#(theme1)` 这个可以有，VLOOK™ 激活后开箱即用～
 
-> - 鼠标悬停在插图、表格、代码块后，通过右上角内容助手上的 ![画中画](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-pic-in-pic.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮一键开启；
+> - 鼠标悬停在插图、表格、代码块后，通过右上角内容助手上的 ![画中画](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-pic-in-pic.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮一键开启；
 > - 开启后默认缩小为 75% 大小进行显示，也可通过缩放按钮调整为原始大小进行显示。
 
 快去文档中的任意插图、表格、代码块上试试吧～
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
@@ -2119,7 +2129,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -2137,7 +2147,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
@@ -2167,7 +2177,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
@@ -2188,7 +2198,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
@@ -2196,11 +2206,11 @@ void quickSort(int arr[], int left, int right) {
 
 **使用 VLOOK™ 提供的定制打印功能，可以在打印输出时自动调整、简化页面排版和样式，以适应用打印输出的需要。**
 
-> 通过点击顶部工具栏的 ![打印](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/icon-print.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮，看看文档的打印预览效果～
+> 通过点击顶部工具栏的 ![打印](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-print.svg?mode=icon2x&fill=theme1&darksrc=invert) 按钮，看看文档的打印预览效果～
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
@@ -2233,7 +2243,7 @@ void quickSort(int arr[], int left, int right) {
 > > ---
 > > 从这里开始是 Markdown 文档的内容
 > > ```
-> > 然后在导出配置「[HTML (VLOOK)](#Step 3•配置插件与导出)」的 `在<head />中添加` 中输入以下内容后，然后再导出 HTML 即可！
+> > 然后在 [VLOOK 的导出配置界面](#Step 3•配置插件与导出)」中的 `在<head />中添加` 中输入以下内容后，然后再导出 HTML 即可！
 > >
 > > ```html
 > ><meta name="welcome" content="${welcome}">
@@ -2243,7 +2253,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?mode=logo&darksrc=feedback-dark.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 [<kbd>⟨ 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
@@ -2278,6 +2288,21 @@ void quickSort(int arr[], int left, int right) {
 > > 数学公式的代码：`$\lim_{x \to \infty} \exp{-x} = 0$`
 > >
 > > 化学公式的代码：`$\ce{CH4 + 2 $\left( \ce{O2 + 79/21 N2} \right)$}$`
+
+###### 独占一行的公式块
+
+$$
+\begin{align*}
+y = y(x,t) &= A e^{i\theta} \\
+&= A (\cos \theta + i \sin \theta) \label{mymath-1}\tag{My Math - 1} \\
+&= A (\cos(kx - \omega t) + i \sin(kx - \omega t)) \\
+&= A\cos(kx - \omega t) + i A\sin(kx - \omega t)  \\
+&= A\cos \Big(\frac{2\pi}{\lambda}x - \frac{2\pi v}{\lambda} t \Big) + i A\sin \Big(\frac{2\pi}{\lambda}x - \frac{2\pi v}{\lambda} t \Big) \label{mymath-2}\tag{My Math - 2} \\
+&= A\cos \frac{2\pi}{\lambda} (x - v t) + i A\sin \frac{2\pi}{\lambda} (x - v t) \label{mymath-3}\tag{My Math - 3}
+\end{align*}
+$$
+
+还可以引用公式序号，例如参考公式：$\ref{mymath-1}$
 
 ###### 表格内的公式
 
@@ -2333,11 +2358,11 @@ void quickSort(int arr[], int left, int right) {
 
 - 推荐使用以下浏览器及最新版本：
 
-  ![Chrome](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/chrome.png?mode=icon) Google **Chrome**  [••](https://www.google.cn/chrome/)
+  ![Chrome](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/chrome.png?mode=icon) Google **Chrome**  [••](https://www.google.cn/chrome/)
 
-  ![Edge](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/edge.png?mode=icon) Microsoft **Edge**^(Chromium)^  [••](https://www.microsoft.com/zh-cn/edge)
+  ![Edge](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/edge.png?mode=icon) Microsoft **Edge**^(Chromium)^  [••](https://www.microsoft.com/zh-cn/edge)
 
-  ![Firefox](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/firefox.png?mode=icon) Mozilla **Firefox**  [••](https://www.mozilla.org/zh-CN/firefox/)
+  ![Firefox](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/firefox.png?mode=icon) Mozilla **Firefox**  [••](https://www.mozilla.org/zh-CN/firefox/)
 
 ###### 动效
 
@@ -2389,17 +2414,17 @@ void quickSort(int arr[], int left, int right) {
 
 ## 基于色轮的配色方案
 
-![色轮 Color Wheel](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/color-wheel.png?darksrc=color-wheel-dark.png&srcset=@2x&darksrcset=@2x&padding=true)
+![色轮 Color Wheel](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/color-wheel.png?darksrc=color-wheel-dark.png&srcset=@2x&darksrcset=@2x&padding=true)
 
 ###### 基于色轮的配色方案
 
 | 配色示例                                                     | 说明                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![单色方案](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/单色.png?mode=logo&srcset=@2x) | **==单色方案==**<br />由一个颜色的暗/中/明色调组成（如：暗绿、绿、粉绿）<br /><br />单色搭配上并没有形成颜色的层次，但形成了明暗的层次。<br />这种搭配在设计中应用时，出来的效果永远不错，其重要性也可见一斑。 |
-| ![类比色方案](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/类比色.png?mode=logo&srcset=@2x) | **==类比色方案==**<br />色轮上某个颜色的相邻的颜色（如：橙黄色、黄色、橙色）<br /><br />类比色都拥有共同的三原色颜色（在上图中，是黄色及红色）。<br />这种颜色搭配产生了一种令人悦目、低对比度的和谐美感。<br />类比色非常丰富，在设计时应用这种搭配同样让你轻易产生不错的视觉效果。 |
-| ![补色方案](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/补色.png?mode=logo&srcset=@2x) | **==补色方案==**<br />色轮上直线相对的两种颜色（如：红、绿）<br /><br />补色形成强列的对比效果，传达出活力、能量、兴奋等意义。<br />补色要达到最佳的效果，最好是其中一种面积比较小，另一种比较大。<br />比如在一个蓝色的区域里搭配橙色的小圆点。 |
-| ![分裂补色方案](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/分裂补色.png?mode=logo&srcset=@2x) | **==分裂补色方案==**<br />色轮上某颜色（如：红色）及其补色的类比色（如：绿、青）<br /><br />这种颜色搭配既具有类比色的低对比度的美感，又具有补色的力量感。<br />形成了一种既和谐又有重点的颜色关系。<br />如在上面三种颜色中，红色就显得更加突出。 |
-| ![二次色方案](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/二次色.png?mode=logo&srcset=@2x) | **==二次色方案==**<br />二次色容易构成协调的搭配（如：绿、橙、紫）<br /><br />任意两个二次色之间都拥有一种共同的颜色，所以它们轻易能够形成协调的搭配。<br />如果三种二次色同时使用，则显得很舒适、吸引，具有丰富的色调，以及深度和广度。 |
-| ![原色方案](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/原色.png?mode=logo&srcset=@2x) | **==原色方案==**<br />三原色同时使用是比较少<br /><br />红黄搭配较受欢迎。从快餐店到加油站，我们都可以看见这两种颜色同时在一起。<br />蓝红搭配也很常见，但只有当两者的区域是分离时，才会显得吸引人。<br />注意：如果是紧邻在一起，则会产生冲突感，需进行分离。 |
+| ![单色方案](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/单色.png?mode=logo&srcset=@2x) | **==单色方案==**<br />由一个颜色的暗/中/明色调组成（如：暗绿、绿、粉绿）<br /><br />单色搭配上并没有形成颜色的层次，但形成了明暗的层次。<br />这种搭配在设计中应用时，出来的效果永远不错，其重要性也可见一斑。 |
+| ![类比色方案](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/类比色.png?mode=logo&srcset=@2x) | **==类比色方案==**<br />色轮上某个颜色的相邻的颜色（如：橙黄色、黄色、橙色）<br /><br />类比色都拥有共同的三原色颜色（在上图中，是黄色及红色）。<br />这种颜色搭配产生了一种令人悦目、低对比度的和谐美感。<br />类比色非常丰富，在设计时应用这种搭配同样让你轻易产生不错的视觉效果。 |
+| ![补色方案](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/补色.png?mode=logo&srcset=@2x) | **==补色方案==**<br />色轮上直线相对的两种颜色（如：红、绿）<br /><br />补色形成强列的对比效果，传达出活力、能量、兴奋等意义。<br />补色要达到最佳的效果，最好是其中一种面积比较小，另一种比较大。<br />比如在一个蓝色的区域里搭配橙色的小圆点。 |
+| ![分裂补色方案](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/分裂补色.png?mode=logo&srcset=@2x) | **==分裂补色方案==**<br />色轮上某颜色（如：红色）及其补色的类比色（如：绿、青）<br /><br />这种颜色搭配既具有类比色的低对比度的美感，又具有补色的力量感。<br />形成了一种既和谐又有重点的颜色关系。<br />如在上面三种颜色中，红色就显得更加突出。 |
+| ![二次色方案](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/二次色.png?mode=logo&srcset=@2x) | **==二次色方案==**<br />二次色容易构成协调的搭配（如：绿、橙、紫）<br /><br />任意两个二次色之间都拥有一种共同的颜色，所以它们轻易能够形成协调的搭配。<br />如果三种二次色同时使用，则显得很舒适、吸引，具有丰富的色调，以及深度和广度。 |
+| ![原色方案](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/原色.png?mode=logo&srcset=@2x) | **==原色方案==**<br />三原色同时使用是比较少<br /><br />红黄搭配较受欢迎。从快餐店到加油站，我们都可以看见这两种颜色同时在一起。<br />蓝红搭配也很常见，但只有当两者的区域是分离时，才会显得吸引人。<br />注意：如果是紧邻在一起，则会产生冲突感，需进行分离。 |
 
 ###### The End
