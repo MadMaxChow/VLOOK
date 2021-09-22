@@ -1,13 +1,16 @@
 ---
 title: Markdown 脚本化图表参考指南 - VLOOK™ / Markdown 编辑器 Typora 的主题包和增强插件
-tags:
-- Mermaid
-- Markdown
-- Typora
-- VLOOK
+author: MAX°孟兆
+keywords:
+- Markdown,Typora,VLOOK,Plugin,插件,主题包,自动排版,跨平台,i18n,开源,MIT,开源中国,OSC,编辑推荐
+- 表格增强,单元格合并,行分组,表格阅读模式,表格十字光标,重复表头,刮刮卡,黑幕,标签,图片增强,演示辅助,聚光灯,激光笔,自动折叠,打印,Mermaid,音频,视频,注音,主题,字体,模板,深色模式,Dark Mode,封面,封底,私人定制
+- PRD,设计,需求,文档,博客,手册,指南,在线,运维,知识库,WIKI
+- 产品经理,程序员,运维工程师,售前,售后
+vlook-query: effects=2&ws=auto&lmc=1
+vlook-doc-lib: vlook-lib.html
 ---
 
-###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>脚本化图表参考指南</sup><br /><br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2017-2020. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>脚本化图表参考指南</sup><br /><br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2017-2021. MAX°DESIGN.*
 
 [TOC]
 
@@ -15,18 +18,22 @@ tags:
 
 ###### Markdown 是什么？
 
-十四年前，John Gruber 创造了 Markdown，一种专门针对网络写作的文本标记语言。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）。
-
-Markdown 文档以纯文本格式存储，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过 Markdown 编辑器导出为带排版的富文本文档、HTML 网页等等。纯粹、简洁、易用、灵活，都是人们喜欢 Markdown 的原因。目前 Markdown 的标准化项目是 [CommonMark](http://commonmark.org)。
+- 2004 年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了 [![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark-solid.svg?mode=icon&fill=text) Markdown](https://zh.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的 `文本标记语言`。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）；
+- Markdown 文档以 `纯文本格式存储`，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过 Markdown 编辑器导出为带排版的富文本文档、HTML 网页等等。==纯粹、简洁、易用、灵活==，都是人们喜欢 Markdown 的原因；
+- 目前 Markdown 的标准化项目是 [CommonMark](http://commonmark.org)。
 
 ###### Markdown 语法参考：
 
-- 标准化 CommonMark 语法参考：[60秒学会 Markdown 语法](http://commonmark.org/help/)、[10分钟深入学习 Markdown](http://commonmark.org/help/tutorial/)
-- GitHub 采用 Flavored Markdown 的语法参考：Typora 目前采用该标准  [详细](https://support.typora.io/Markdown-Reference/)
+- `#推荐#` **Github Flavored Markdown** (GFM) 语法参考：Typora 目前采用该标准 [详细](https://support.typora.io/Markdown-Reference/)；
+- 标准化 **CommonMark** 语法参考：[60 秒学会 Markdown 语法](http://commonmark.org/help/)、[10 分钟深入学习 Markdown](http://commonmark.org/help/tutorial/)。
 
 # 主推方案 (Mermaid)
 
-mermaid 是一个用于画流程图、状态图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [mermaid 官网](https://mermaidjs.github.io)。
+Mermaid 是一个用于画流程图、状态图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [Mermaid 官网](https://mermaidjs.github.io)。
+
+**目前 Typora + VLOOK™ 的最新版本，可支持下脚本化图表的制作和生成：**
+
+[![流程图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-flowcharts.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](#流程图)　　[![顺序图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-seq.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](#顺序图)　　[![状态图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-state.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](#状态图)　　[![类图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-class.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](#类图)　　[![实体关系图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-er.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](#实体关系图)　　[![客户旅程地图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-uj.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](#客户旅程地图)　　[![甘特图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-gantt.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](#甘特图)　　[![饼图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-pie.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](#饼图)
 
 ## 流程图
 
@@ -100,9 +107,9 @@ END(结束)
 
 5. 支持 FontAwesome [官网](http://fontawesome.com)。
 
-## 顺序图 / 顺序图 / 泳道图
+## 顺序图
 
-###### 顺序图 / 顺序图 / 泳道图
+###### 顺序图（也称：时序图 / 泳道图）
 
 ```mermaid
 sequenceDiagram
@@ -391,7 +398,7 @@ join_state --> 状态4
 ###### 以上「状态机图」的画图脚本示例
 
 ```
-​```mermaid
+```mermaid
 stateDiagram
 state fork_state <<fork>>
 
@@ -469,7 +476,7 @@ FINAL(( ))
 ###### 以上「状态机图」的画图脚本示例
 
 ```
-​```mermaid
+```mermaid
 graph LR
 %% 流程图走方说明
 %% LR：从左到图，RL：从右到左，TB：从上到下，BT：从下到上
@@ -488,7 +495,7 @@ FINAL(( ))
 
 ## 甘特图
 
-###### 甘特图
+###### 甘特图示例
 
 ```mermaid
 gantt
@@ -515,7 +522,7 @@ section 区块C
 ###### ![以上「甘特图」的画图脚本示例]
 
 ```
-​```mermaid
+```mermaid
 gantt
 dateFormat  YYYY-MM-DD
 title 这里显示甘特图标题
@@ -556,7 +563,7 @@ pie title Q3 2019 中国线上智能手机市场主要品牌市场份额
 ###### 以上「饼图」的画图脚本示例
 
 ```
-​```mermaid
+```mermaid
 pie title Q3 2019 中国线上智能手机市场主要品牌市场份额
 "华为" : 26
 "荣耀" : 20
@@ -568,7 +575,9 @@ pie title Q3 2019 中国线上智能手机市场主要品牌市场份额
 ​```
 ```
 
-## 实体关系图 / ER图 <sup>`beta`</sup>
+## 实体关系图
+
+###### 实体关系图（也称为：ER图）
 
 ```mermaid
 erDiagram
@@ -577,11 +586,13 @@ erDiagram
     CUSTOMER }|..|{ DELIVERY-ADDRESS : uses 
 ```
 
-## 用户体验地图 / 用户旅程地图 <sup>`beta`</sup>
+## 客户旅程地图
+
+###### 客户旅程地图（也称：用户体验地图）
 
 ```mermaid
 journey
-    title My working day
+    title 我一天的工作
     section Go to work
       Make tea: 5: Me
       Go upstairs: 3: Me

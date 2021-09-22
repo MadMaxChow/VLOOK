@@ -1,8 +1,8 @@
 /**************************************
  * VLOOK CSS 基础库
  *
- * V10.7.1
- * 2021-08-02
+ * V11.0
+ * 2021-09-22
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -55,6 +55,9 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 内容辅助操作栏 / .mdx-content-assist-bar / z-index: 50;
 内容展开操作区 / .mdx-content-expander / z-index: 10;
 
+---------- 导航中心 ----------
+
+导航中心内文档抽屉入口 .mdx-doc-lib-board / z-index: 20;
 导航中心内的分段控制按钮 .mdx-segment-indicator / z-index: 10
 导航中心内的当前分段选择指示器 .mdx-segment-indicator / z-index: 0
 
@@ -87,7 +90,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --mm-flowchart-curve: basis;
 
     --vlook-theme-name: @themeName; // 主题名称
-    --vlook-theme-version: "V10.7.1"; // 主题版本，对应适配 VLOOK.JS 的版本
+    --vlook-theme-version: "V11.0"; // 主题版本，对应适配 VLOOK.JS 的版本
     --vlook-default-font-style: @defaultFontStyle; // 默认字体风格
     --vlook-color-scheme: light; // 默认颜色模式为：Light 明亮
 
@@ -113,7 +116,8 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 
     // --------------------
     // Light 模式的颜色值
-    --vlook-invert-dark-light: invert(0) brightness(100%); // Light 模式下图片滤镜
+    --vlook-invert-dark-light: invert(0) brightness(100%); // Light Mode 下图片滤镜
+    // --vlook-invert-hover-light: invert(0) brightness(1.1); // Light Mode 下图片链接的 hover 滤镜
     --vlook-brightness-dark-light: brightness(100%); // Light 模式下封面、封底的滤镜
     --doc-bg-color-light: @docBgColorLight;
     --doc-bg-color-alt-light: @docBgColorLightAlt;
@@ -124,12 +128,11 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 
     // --backdrop-blurs-bg-light : radial-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.5));
 
-    --blockquote-color-light: fade(@foreColorLight, 20%);
     --blockquote-bg-light: fade(@foreColorLight, 10%);
     --tips-bg-color-light: @foreColorDark;
     --tips-bg-color-inset-light: @foreColorLight;
     --a-color-light: @aColor;
-    --mark-color-light: rgba(255, 192, 32, 0.35);
+    --mark-color-light: fade(@headerColor, 25%);//rgba(255, 192, 32, 0.35);
     --tbl-border-color-light: @tableBorderColor;
     --tbl-header-color-light: @tableHeaderColor;
     --tbl-th-bg-color-light: @tableThBgColor;
@@ -239,7 +242,8 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 
     // --------------------
     // Dark Mode的颜色值
-    --vlook-invert-dark-dark: invert(1) brightness(90%); // Dark Mode下图片滤镜
+    --vlook-invert-dark-dark: invert(1) brightness(90%); // Dark Mode 下图片滤镜
+    // --vlook-invert-hover-dark: invert(1) brightness(1.3); // Dark Mode 下图片链接的 hover 滤镜
     --vlook-brightness-dark-dark: brightness(90%); // Dark Mode下封面、封底的滤镜
     --doc-bg-color-dark: @docBgColorDark;
     --doc-bg-color-alt-dark: @docBgColorDarkAlt;
@@ -250,12 +254,11 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 
     // --backdrop-blurs-bg-dark : radial-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.5));
 
-    --blockquote-color-dark: fade(@foreColorDark, 20%);
     --blockquote-bg-dark: fade(@foreColorDark, 10%);
     --tips-bg-color-dark: @docBgColorDarkAlt;
     --tips-bg-color-inset-dark: @foreColorDark;
     --a-color-dark: @aColorDark;
-    --mark-color-dark: rgba(255, 192, 32, 0.25);
+    --mark-color-dark: fade(@headerColorDark, 45%);//rgba(255, 192, 32, 0.25);
     --tbl-border-color-dark: @tableBorderColorDark;
     --tbl-header-color-dark: @tableHeaderColorDark;
     --tbl-th-bg-color-dark: @tableThBgColorDark;
@@ -366,6 +369,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     // --------------------
     // 颜色变量
     --vlook-invert-dark: var(--vlook-invert-dark-light); // 默认的图片滤镜
+    --vlook-invert-hover: var(--vlook-invert-hover-light); // 默认的图片链接的 hover 滤镜
     --vlook-brightness-dark: var(--vlook-brightness-dark-light); // 默认的封面、封底滤镜
     --doc-bg-color: var(--doc-bg-color-light);
     --doc-bg-color-alt: var(--doc-bg-color-alt-light);
@@ -376,7 +380,6 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 
     // --backdrop-blurs-bg : var(--backdrop-blurs-bg-light);
 
-    --blockquote-color: var(--blockquote-color-light);
     --blockquote-bg: var(--blockquote-bg-light);
     --tips-bg-color: var(--tips-bg-color-light);
     --tips-bg-color-inset: var(--tips-bg-color-inset-light);
@@ -508,6 +511,11 @@ body.typora-export #write {
     filter: grayscale(50%) opacity(0.4);
     // display: none;
 }
+// VLOOK 已完成加载的样式
+.mdx-vlook-load-done {
+    filter: none !important;
+    display: block !important;
+}
 
 // html,
 body {
@@ -530,6 +538,15 @@ body > *:first-child {
 
 body > *:last-child {
     margin-bottom: 0 !important;
+}
+
+// 解结，可滚动
+body.freeze {
+    overflow: hidden;
+}
+// 冻结，不可滚动
+body.unfreeze {
+    overflow: auto;
 }
 
 // 针对在编辑模式时无效图片链接的样式
@@ -566,6 +583,7 @@ body > *:last-child {
 p > img:only-child,
 p > .md-image:only-child:not(.md-img-error) img, // 是指 p 内只有 img 的才被视为插图
 img[src*="mode=figure"],
+svg[data-inject-url*="mode=figure"],
 .mdx-figure,
 .md-diagram-panel svg {
     background-color: var(--doc-bg-color);
@@ -574,28 +592,46 @@ img[src*="mode=figure"],
     border: 2px solid var(--doc-bg-color-alt);
 }
 
+.mdx-mermaid-restyler {
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: -10px !important;
+}
+
 // 图片默认对齐方式，或 URL 参数指定左对齐
 // img,
 img[src*="mode=figure"],
+svg[data-inject-url*="mode=figure"],
 p > img:only-child,
 p > .md-image:only-child:not(.md-img-error) img, // 是指 p 内只有 img 的才被视为插图
 p > img:only-child[src*="align=left"],
-p > .md-image:only-child:not(.md-img-error) img[src*="align=left"] {
+p > svg[data-inject-url*="align=left"],
+p > .md-image:only-child:not(.md-img-error) img[src*="align=left"],
+p > .md-image:only-child:not(.md-img-error) svg[data-inject-url*="align=left"] {
     margin: 0 !important;
 }
 // 图片 URL 参数指定居中对齐
-p > .md-image:only-child:not(.md-img-error) img[src*="align=center"] {
+p > .md-image:only-child:not(.md-img-error) img[src*="align=center"],
+p > .md-image:only-child:not(.md-img-error) svg[data-inject-url*="align=center"] {
     margin: auto !important;
 }
 // 图片 URL 参数指定右对齐
-p > .md-image:only-child:not(.md-img-error) img[src*="align=right"] {
+p > .md-image:only-child:not(.md-img-error) img[src*="align=right"],
+p > .md-image:only-child:not(.md-img-error) svg[data-inject-url*="align=right"] {
     margin: auto !important;
     margin-right: 0 !important;
 }
 
 // 图片 URL 参数指定是否填充边缘
-img[src*="padding=true"] {
+img[src*="padding=true"],
+svg[data-inject-url*="padding=true"] {
     padding: 20px !important;
+}
+// 图片 URL 参数指定是否使用行内样式
+img[src*="inline=true"],
+svg[data-inject-url*="inline=true"] {
+    margin-bottom: 20px !important;
+    // margin-right: 20px !important;
 }
 
 // 图片 URL 参数指定是否独占一行
@@ -604,10 +640,12 @@ img[src*="padding=true"] {
 // }
 
 // 图片 URL 参数指定是否使用网格背景
-img[src*="grid=line"] {
+img[src*="grid=line"],
+svg[data-inject-url*="grid=line"] {
     background: url(@figureGridLineLight);
 }
-img[src*="grid=block"] {
+img[src*="grid=block"],
+svg[data-inject-url*="grid=block"] {
     background: url(@figureGridBlockLight);
 }
 
@@ -624,7 +662,7 @@ img[data-vk-img-fill="theme2"] {
 img[src*="mode=icon"],
 svg[data-inject-url*="mode=icon"] {
     display: inline !important;
-    height: 1.25em;
+    height: 1.2em;
     width: auto;
     margin-top: -4px !important;
     vertical-align: middle;
@@ -646,14 +684,39 @@ svg[data-inject-url*="mode=logo"] {
     border-radius: 0 !important;
     background: none !important;
 }
+// 左对齐
 img[src*="mode=logol"],
 svg[data-inject-url*="mode=logol"] {
-    float: left;
+    float: left !important;
     padding: 0 20px 0 0;
 }
+// 右对齐
 img[src*="mode=logor"],
 svg[data-inject-url*="mode=logor"] {
-    float: right;
+    float: right !important;
+    padding: 0 0 0 20px;
+}
+
+// 图片 URL 参数指定图片的显示版式为：frame
+img[src*="mode=frame"],
+svg[data-inject-url*="mode=frame"] {
+    display: inline !important;
+    vertical-align: middle;
+    border: 2px solid var(--doc-bg-color-alt) !important;
+    border-radius: var(--vlook-base-radius) !important;
+    background: none !important;
+    margin-bottom: 20px !important;
+}
+// 左对齐
+img[src*="mode=framel"],
+svg[data-inject-url*="mode=framel"] {
+    float: left !important;
+    padding: 0 20px 0 0;
+}
+// 右对齐
+img[src*="mode=framer"],
+svg[data-inject-url*="mode=framer"] {
+    float: right !important;
     padding: 0 0 0 20px;
 }
 
@@ -695,14 +758,21 @@ kbd a {
 // 链接中的 kbd 样式
 a kbd {
     color: @buttonForeColor !important;
+    font-family: @subtitleFont !important;
     background-color: @buttonBgColor !important;
-    margin: 0;
+    margin: 5px 0;
+    // margin: 0;
     border: 0;
     border-radius: var(--vlook-base-radius);
     display: inline-block;
     box-shadow: @buttonShadow, @contrastBorder;
     padding: 5px 10px;
 }
+blockquote a kbd {
+    border-radius: var(--vlook-small-radius);
+    padding: 2px 8px;
+}
+
 // 标题内链接样式
 h1 a,
 h2 a,
@@ -723,6 +793,18 @@ kbd a:hover {
     border-bottom: none;
 }
 // 链接中的 kbd 样式
+.mdx-quote-red a kbd:hover,
+.mdx-quote-orange a kbd:hover,
+.mdx-quote-yellow a kbd:hover,
+.mdx-quote-green a kbd:hover,
+.mdx-quote-cyan a kbd:hover,
+.mdx-quote-blue a kbd:hover,
+.mdx-quote-purple a kbd:hover,
+.mdx-quote-pink a kbd:hover,
+.mdx-quote-brown a kbd:hover,
+.mdx-quote-gray a kbd:hover,
+.mdx-quote-theme1 a kbd:hover,
+.mdx-quote-theme2 a kbd:hover,
 a kbd:hover {
     color: @buttonForeHoverColor !important;
     background-color: @aHoverColor !important;
@@ -733,9 +815,18 @@ a:hover {
     box-shadow: 0 -0.3em 0 0 fade(@aLineColor, 30%) inset;
 }
 // 链接 hover 时，链接内图片样式
-a:hover img {
-    filter: brightness(1.2);
+a:hover img,
+a:hover svg {
+    filter: brightness(1.1);
+    // filter: var(--vlook-invert-dark) brightness(1.2);
+    // filter: var(--vlook-invert-hover);
 }
+a:hover img[src*="darksrc=invert"],
+a:hover svg[data-inject-url*="darksrc=invert"] {
+    filter: var(--vlook-invert-dark) brightness(1.3);
+    // filter: var(--vlook-invert-hover);
+}
+
 // 链接 hover 时含图片颜色替换的样式
 a:hover img[data-vk-img-fill="text"],
 a:hover img[data-vk-img-fill="theme1"],
@@ -743,6 +834,19 @@ a:hover img[data-vk-img-fill="theme2"] {
     left: -12345px;
     filter: drop-shadow(12345px 0px @aHoverColor) !important;
     position: relative;
+}
+// 链接 hover 时其内嵌按钮的内嵌 img 图片
+a:hover kbd img[data-vk-img-fill="text"],
+a:hover kbd img[data-vk-img-fill="theme1"],
+a:hover kbd img[data-vk-img-fill="theme2"] {
+    filter: drop-shadow(12345px 0px @buttonForeHoverColor) !important;
+}
+// 链接 hover 时其内嵌按钮的内嵌 svg 图片颜色替换的样式
+a:hover kbd svg[data-vk-img-fill] path,
+a:hover kbd svg[data-vk-img-fill] rect,
+a:hover kbd svg[data-vk-img-fill] ellipse,
+a:hover kbd svg[data-vk-img-fill] polygon {
+    fill: @buttonForeHoverColor !important;
 }
 // 链接 active 时，链接内图片样式
 a:active img {
@@ -951,7 +1055,7 @@ h3 + h4 {
 }
 
 h5 {
-    font-size: 1.2em;
+    font-size: 1.25em;
     box-shadow: 0 0 0 0 var(--header-box-shadow) inset;
 }
 
@@ -969,7 +1073,7 @@ h6 {
     padding-bottom: 0.5em;
     font-family: @subtitleFont;
     font-weight: @fontWeight;
-    font-size: 1.2em;
+    font-size: 1.25em;
     box-shadow: none;
     background: none;
 }
@@ -1022,8 +1126,8 @@ strong a {
 }
 
 hr {
-    margin-top: 1.2em;
-    margin-bottom: 1.2em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
     border: 2px solid var(--doc-bg-color-alt);
     overflow: hidden;
     box-sizing: content-box;
@@ -1086,13 +1190,13 @@ figure {
 // 有序、无序列表符号样式
 ::marker,
 li::before {
-    font-family: @subtitleFont;
+    font-family: @numberFont;
     color: var(--fore-color-alt);
 }
 
 ul,
 ol {
-    padding-left: 2em;
+    padding-left: 1.25em;
     padding-bottom: 0;
 }
 
@@ -1130,13 +1234,89 @@ ul > li > ul > li > ul > li { // 3级
 blockquote {
     border-radius: var(--vlook-base-radius);
     // width: fit-content;
+    // padding: 0.5em 1em 1em 1em;
     padding: 0.5em 1em;
-    // padding: 0.5em;
     margin-top: 0;
     margin-bottom: 1em;
     color: var(--fore-color);
     background-color: var(--blockquote-bg);
 }
+
+// 以双栏方式显示，98/2*2+2*1=100
+hr + blockquote,
+hr + blockquote + blockquote,
+.md-hr + blockquote,
+.md-hr + blockquote + blockquote {
+    display: inline-block !important;
+    max-width: 49% !important;
+    min-width: 49% !important;
+    vertical-align: top;
+}
+// 双栏内容之间的样式
+hr + blockquote + blockquote,
+.md-hr + blockquote + blockquote  {
+    margin-left: 2% !important;
+}
+
+// 以三栏方式显示，96/3*3+2*2=100
+hr + hr + blockquote,
+hr + hr + blockquote + blockquote,
+hr + hr + blockquote + blockquote + blockquote,
+.md-hr + .md-hr + blockquote,
+.md-hr + .md-hr + blockquote + blockquote,
+.md-hr + .md-hr + blockquote + blockquote + blockquote {
+    display: inline-block !important;
+    max-width: 32% !important;
+    min-width: 32% !important;
+    vertical-align: top;
+}
+// 三栏内容之间的样式
+hr + hr + blockquote + blockquote,
+hr + hr + blockquote + blockquote + blockquote,
+.md-hr + .md-hr + blockquote + blockquote,
+.md-hr + .md-hr + blockquote + blockquote + blockquote  {
+    margin-left: 2% !important;
+}
+
+// 以四栏方式显示，94/4*4+2*3=100
+hr + hr + hr + blockquote,
+hr + hr + hr + blockquote + blockquote,
+hr + hr + hr + blockquote + blockquote + blockquote,
+hr + hr + hr + blockquote + blockquote + blockquote + blockquote,
+.md-hr + .md-hr + .md-hr + blockquote,
+.md-hr + .md-hr + .md-hr + blockquote + blockquote,
+.md-hr + .md-hr + .md-hr + blockquote + blockquote + blockquote,
+.md-hr + .md-hr + .md-hr + blockquote + blockquote + blockquote + blockquote {
+    display: inline-block !important;
+    max-width: 23.5% !important;
+    min-width: 23.5% !important;
+    vertical-align: top;
+}
+// 四栏内容之间的样式
+hr + hr + hr + blockquote + blockquote,
+hr + hr + hr + blockquote + blockquote + blockquote,
+hr + hr + hr + blockquote + blockquote + blockquote + blockquote,
+.md-hr + .md-hr + .md-hr + blockquote + blockquote,
+.md-hr + .md-hr + .md-hr + blockquote + blockquote + blockquote,
+.md-hr + .md-hr + .md-hr + blockquote + blockquote + blockquote + blockquote  {
+    margin-left: 2% !important;
+}
+
+// 多行双栏、三栏、四栏内容之间的样式
+// blockquote + blockquote + hr,
+// blockquote + blockquote + hr + hr,
+// blockquote + blockquote + hr + hr + hr,
+// blockquote + blockquote + .md-hr,
+// blockquote + blockquote + .md-hr + .md-hr,
+// blockquote + blockquote + .md-hr + .md-hr + .md-hr {
+//     // display: none;
+//     margin-top: -1em;
+// }
+hr + hr,
+.md-hr + .md-hr {
+    margin-top: -1em;
+}
+
 
 blockquote > p {
     margin-bottom: 0;
@@ -1144,13 +1324,14 @@ blockquote > p {
 
 blockquote hr {
     border-color: var(--doc-bg-color);
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 blockquote h6 {
-    padding-left: 0;
-    padding-right: 0;
+    padding: 5px 0;
     color: var(--fore-color);
-    font-size: 1.2em;
+    font-size: 1.25em;
 }
 
 blockquote h6 a {
@@ -1258,6 +1439,9 @@ blockquote > strong {
     height: 30px;
     z-index: 100;
 }
+// .mdx-status-bar.mini {
+//     display: none;
+// }
 
 .mdx-doc-info {
     display: inline-flex;
@@ -1478,12 +1662,16 @@ table > tbody > tr:not(:first-child) > td.mdx-empty-cell {
 // 表格列格式：高亮
 .mdx-tbl-col-fmt-mark {
     background-color: var(--mark-color) !important;
+    text-shadow: 0 1px 0 var(--doc-bg-color);
     color: var(--fore-bg-color) !important;
 }
 
 // 表格列格式：数值
 .mdx-tbl-col-fmt-num {
     font-family: @numberFont !important;
+}
+.mdx-tbl-col-fmt-num > span {
+    font-size: 1.2em;
 }
 // 表格列格式：负数
 .mdx-tbl-col-fmt-num-positive {
@@ -1500,7 +1688,8 @@ table > tbody > tr:not(:first-child) > td.mdx-empty-cell {
 // 表格列格式：数值－货币
 .mdx-tbl-col-fmt-currency {
     float: left;
-    font-size: 0.9em;
+    font-size: 0.8em;
+    padding-top: 3px;
     padding-right: 10px;
     color: var(--fore-color-alt);
     font-weight: normal;
@@ -1610,7 +1799,7 @@ h6 + figure table tbody tr {
 figure table tr::before {
     content: "";
     color: var(--toc-header-num-color);
-    font-family: @codeFont;
+    font-family: @numberFont;
     font-weight: normal !important;
     font-style: normal !important;
     font-size: 0.8em;
@@ -1629,6 +1818,7 @@ li > figure table tbody tr::before {
     text-align: right;
     margin-top: 4px;
     margin-left: -15px;
+    // font-family: @codeFont;
     font-size: 0.6em;
     color: var(--fore-color-alt);
     position: absolute;
@@ -1650,6 +1840,7 @@ h6 + figure table tbody tr::before {
     text-align: right;
     margin-top: 4px;
     margin-left: 5px;
+    // font-family: @codeFont;
     font-size: 0.6em;
     color: var(--fore-color-alt);
     position: absolute;
@@ -1683,7 +1874,7 @@ h6 + figure {
     margin-top: 0;
 }
 
-// 表格十字光标
+// 表格阅读模式（十字光标）
 .mdx-table-cross {
     top: 0;
     width: 100px;
@@ -1713,6 +1904,7 @@ h6 + figure {
 // 高亮
 mark {
     box-shadow: 0 -0.9em 0 0 var(--mark-color) inset;
+    text-shadow: 0 1px 0 var(--doc-bg-color);
     background: none;
     margin-left: 0.1em;
     margin-right: 0.1em;
@@ -1791,6 +1983,7 @@ a[name^="ref-footnote-"]:hover {
 
 .CodeMirror-linenumber {
     color: @foreColorLightAlt;
+    font-family: @numberFont;
 }
 
 tt,
@@ -1800,8 +1993,8 @@ code {
     font-weight: normal;
     background-color: var(--code-bg-color);
     border-radius: var(--vlook-small-radius);
-    padding: 0.1em 0.2em;
-    margin: 0 0.1em;
+    padding: 2px 5px;
+    margin: 0;
     box-shadow: 0 0 0 1px var(--doc-bg-color) inset;
     font-size: 0.9em;
     display: inline;
@@ -2256,7 +2449,9 @@ g[id^=flowchart-INIT] .label div {
 
 // 与「初始」状态同级的所有矩形节点
 #INIT ~ g > rect,
-g[id^=flowchart-INIT] ~ g > rect {
+// g[id^=flowchart-INIT] ~ g > rect[rx="0"][ry="0"],
+// g[id^=flowchart-INIT] ~ g > rect[rx="5"][ry="5"],
+g[id^=flowchart-INIT] ~ g > rect[rx][ry] {
     fill: var(--mm-color-purple-alt) !important;
     stroke: var(--mm-color-purple) !important;
     stroke-width: 3px !important;
@@ -2270,7 +2465,7 @@ g[id^=flowchart-FINAL] circle {
     stroke-width: 5px !important;
 }
 
-/* ----- sequeuce diagram 时序图 ----- */
+/* ----- sequeuce diagram 顺序图 / 时序图 ----- */
 
 // 角色
 .actor {
@@ -2313,33 +2508,61 @@ text.actor > tspan {
     stroke-width: 1px !important;
 }
 
-// 消息序号
-.sequenceNumber {
-    fill: var(--doc-bg-color) !important;
-    font-weight: @fontWeight !important;
-}
-// 消息序号背景
-#sequencenumber {
-    fill: var(--fore-color) !important;
-}
-
 // 实线消息
 .messageLine0 {
     stroke-width: 2px !important;
     stroke: var(--fore-color) !important;
 }
 
-// 实线箭头
+// 实线/虚线箭头
 #arrowhead,
-#arrowhead path {
+#arrowhead path,
+[id^=arrowhead],
+[id^=arrowhead] path {
     fill: var(--fore-color) !important;
+    stroke: none !important;
 }
 
 // 虚线消息
 .messageLine1 {
     stroke-width: 2px !important;
+    stroke-dasharray: 3px, 3px !important;
     stroke: var(--fore-color) !important;
 }
+
+// 消息序号
+.sequenceNumber {
+    fill: var(--doc-bg-color) !important;
+    font-weight: @fontWeight !important;
+}
+
+// 消息序号背景
+#sequencenumber {
+    fill: var(--mm-color-blue) !important;
+    // fill: var(--fore-color) !important;
+    // stroke-width: 0 !important;
+    stroke: var(--doc-bg-color) !important;
+    transform: scale(0.7);
+    transform-origin: 15px 15px;
+}
+//  .mdx-vlook-load-done #sequencenumber circle {
+//     transform: scale(0.7);
+//     transform-origin: 19px 19px;
+// }
+
+// ----------------------------------------
+// VLOOK 加载后微调样式
+// .mdx-vlook-load-done .messageLine0 {
+//     stroke-width: 3px !important;
+// }
+// .mdx-vlook-load-done .messageLine1 {
+//     stroke-width: 3px !important;
+// }
+// .mdx-vlook-load-done  #sequencenumber circle {
+//     transform: scale(0.7);
+//     transform-origin: 15px 15px;
+// }
+// ----------------------------------------
 
 // 异步消息箭头
 #crosshead,
@@ -2392,8 +2615,8 @@ text.actor > tspan {
 
 // 片断的线框
 .loopLine {
-    stroke-width: 2px !important;
-    stroke-dasharray: 3px, 3px !important;
+    stroke-width: 1px !important;
+    stroke-dasharray: 8px, 8px !important;
     stroke: var(--mm-color-purple-light) !important;
 }
 
@@ -3031,7 +3254,7 @@ kbd {
     font-size: 0.875em;
     border-radius: var(--vlook-tag-radius);
     margin: 0 5px;
-    padding: 1px 8px;
+    padding: 2px 8px;
     border: 2px solid var(--fore-color);
     color: var(--doc-bg-color);
     background-color: var(--fore-color);
@@ -3076,7 +3299,7 @@ ul > li > ul > li > ul > li > ul > li > ul > li > ul > .md-task-list-item {
 
 // task list text
 .md-task-list-item > p {
-    margin-left: 1.2em !important;
+    margin-left: 1.25em !important;
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -3429,7 +3652,7 @@ li > p + ul {
     height: 100%;
     text-align: center;
     font-family: @titleFont;
-    font-size: 1.3em;
+    font-size: 1.25em;
     overflow: auto;
     visibility: hidden;
     opacity: 0;
@@ -3490,7 +3713,7 @@ li > p + ul {
     cursor: pointer;
     // border: none;
     border: 2px solid @buttonForeHoverColor;
-    font-size: 1.2em;
+    font-size: 1.25em;
     font-weight: @fontWeight;
     color: @buttonForeHoverColor;
     background-color: @aLineColor;
@@ -3653,10 +3876,10 @@ li > p + ul {
     display: inline-flex;
     z-index: 10;
 }
-.mdx-segment-btn.hover:hover {
+.mdx-segment-btn.hover {
     background-color: var(--blockquote-bg);
 }
-.mdx-segment-btn.hover:hover > svg > use {
+.mdx-segment-btn.hover > svg > use {
     fill: var(--fore-color);
 }
 .mdx-segment-btn:active {
@@ -3724,6 +3947,9 @@ li > p + ul {
     overflow: auto;
     overflow-y: hidden;
 }
+.mdx-nav-center-body.mini {
+    padding-bottom: 85px;
+}
 
 .mdx-toc-catalog-body {
     width: 100%;
@@ -3747,6 +3973,10 @@ li > p + ul {
     z-index: 10;
     pointer-events: none;
 }
+.mdx-nav-center-footer.mini {
+    bottom: 76px;
+    border-radius: 0;
+}
 
 .mdx-toc-handle {
     position: fixed;
@@ -3763,6 +3993,9 @@ li > p + ul {
 .mdx-toc-handle.hover {
     background-color: var(--fore-color);
 }
+// .vlook.mini .mdx-toc-handle {
+//     display: none;
+// }
 
 .mdx-copyright {
     left: 0;
@@ -3979,12 +4212,12 @@ li > p + ul {
 // .mdx-btn.hover {
 //     transition: all var(--vlook-transition-duration) ease-in-out;
 // }
-.mdx-btn.hover:hover {
+.mdx-btn.hover {
     background-color: @aHoverColor !important;
     color: @buttonForeHoverColor !important;
 }
 
-.mdx-btn.hover:hover > svg > use {
+.mdx-btn.hover > svg > use {
     fill: @buttonForeHoverColor;
 }
 
@@ -4050,7 +4283,7 @@ li > p + ul {
 //     cursor: pointer;
 // }
 
-.mdx-audio-mini-control.hover:hover {
+.mdx-audio-mini-control.hover {
     background-color: @aHoverColor;
     box-shadow: @buttonShadow;
     color: @buttonForeHoverColor;
@@ -4235,7 +4468,7 @@ li > p + ul {
     background: linear-gradient(90deg, fade(@aHoverColor, 0%), @aHoverColor, fade(@aHoverColor, 0%));
     opacity: 0;
     z-index: -1;
-    transition: all 200ms ease-in;
+    transition: all var(--vlook-transition-duration) ease-in;
 }
 .mdx-chapter-nav-doc-title.effect::before {
     top: 0;
@@ -4294,7 +4527,7 @@ li > p + ul {
     border-bottom-right-radius: var(--vlook-base-radius);
     opacity: 0;
     z-index: -1;
-    transition: all 200ms ease-in;
+    transition: all var(--vlook-transition-duration) ease-in;
 }
 // 有特效（effect>=1）时使用的样式
 .mdx-chapter-nav-next.effect.hover::before {
@@ -4383,7 +4616,7 @@ li > p + ul {
     fill: @buttonBgColor;
 }
 
-.mdx-accent-btn.hover:hover {
+.mdx-accent-btn.hover {
     background-color: var(--blockquote-bg);
 }
 
@@ -4428,6 +4661,10 @@ li > p + ul {
     box-shadow: 0 0 0 2px fade(@buttonBgColor, 50%), 0 0 0 1px @buttonBgColor inset;
 }
 
+input::placeholder {
+    color: var(--fore-color-alt);
+}
+
 // 输入框内的输入控件
 .mdx-textfield > input {
     padding: 0;
@@ -4467,11 +4704,11 @@ li > p + ul {
   fill: @buttonForeColor;
   opacity: 1;
 }
-.mdx-textfield-action.hover:hover {
+.mdx-textfield-action.hover {
     background-color: @aHoverColor;
     cursor: pointer;
 }
-.mdx-textfield-action.hover:hover > svg > use {
+.mdx-textfield-action.hover > svg > use {
     fill: @buttonForeHoverColor;
 }
 .mdx-textfield-action.hover:active {
@@ -4670,7 +4907,7 @@ li > p + ul {
     // border-radius: var(--vlook-base-radius);
     right: 20px;
     bottom: 10px;
-    padding: 2px;
+    padding: 4px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--header-color) inset;
     z-index: 500;
@@ -4678,8 +4915,17 @@ li > p + ul {
 .mdx-pic-in-pic > .mdx-content {
     overflow: auto;
     height: 100%;
-    border-radius: var(--vlook-base-radius);
+    border-radius: calc(var(--vlook-base-radius) - 2px);
 }
+.mdx-pic-in-pic > .mdx-content > table,
+.mdx-pic-in-pic > .mdx-content > .mdx-figure {
+    border-radius: calc(var(--vlook-base-radius) - 2px) !important;
+}
+.mdx-pic-in-pic > .mdx-content > table th,
+.mdx-pic-in-pic > .mdx-content > table td {
+    white-space: pre !important;
+}
+
 .mdx-pip-btn {
     position: absolute;
     display: inline-flex;
@@ -4734,6 +4980,120 @@ li > p + ul {
 }
 .mdx-pip-btn:active > svg > use {
     fill: @aActiveColor;
+}
+
+// 文档抽屉面板
+.mdx-doc-lib-board {
+    display: none;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    height: 50px;
+    z-index: 20;
+}
+
+// 文档抽屉面板下的按钮
+.mdx-doc-lib-board.item {
+    border-radius: var(--vlook-small-radius);
+    color: @buttonForeColor;
+    background-color: @buttonBgColor;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDgwIDEwIj48cGF0aCBmaWxsPSIjRkZGIiBmaWxsLW9wYWNpdHk9Ii4yIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wIDJoODB2NGE0IDQgMCAwIDEtNCA0SDRhNCA0IDAgMCAxLTQtNFYyeiIvPjwvc3ZnPg==");
+    background-position: top center;
+    background-repeat: no-repeat;
+    font-family: @subtitleFont;
+    font-weight: @fontWeight;
+    font-size: 1.25em;
+    line-height: 1.5;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 12px 10px 0px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 23;
+}
+// 文档抽屉面板下的文档条
+.mdx-doc-lib-board.flip {
+    left: 70px;
+    right: 70px;
+    bottom: 68px;
+    height: 4px;
+    position: absolute;
+    background-color: var(--fore-color);
+    opacity: 0.18;
+    border-radius: calc(var(--vlook-small-radius) - 3px) calc(var(--vlook-small-radius) - 3px) 0 0;
+    z-index: 21;
+}
+.mdx-doc-lib-board.flip + .flip {
+    left: 40px;
+    right: 40px;
+    bottom: 61px;
+    height: 6px;
+    background-color: var(--fore-color);
+    opacity: 0.3;
+    border-radius: calc(var(--vlook-small-radius) - 1px) calc(var(--vlook-small-radius) - 1px) 0 0;
+    z-index: 22;
+}
+// hover
+.mdx-doc-lib-board.item.hover {
+    background-color: @aHoverColor;
+    color: @buttonForeHoverColor;
+}
+.mdx-doc-lib-board.item.hover + .flip {
+    left: 50px;
+    right: 50px;
+    bottom: 76px;
+    height: 8px;
+    border-radius: calc(var(--vlook-small-radius) - 2px) calc(var(--vlook-small-radius) - 2px) 0 0;
+}
+.mdx-doc-lib-board.item.hover + .flip + .flip {
+    left: 30px;
+    right: 30px;
+    bottom: 62px;
+    height: 12px;
+    border-radius: calc(var(--vlook-small-radius) - 1px) calc(var(--vlook-small-radius) - 1px) 0 0;
+}
+// active
+.mdx-doc-lib-board.item:active {
+    background-color: @aActiveColor !important;
+    box-shadow: 0 0 0 2px fade(@aActiveColor, 50%) !important;
+}
+
+// 文档抽屉
+.mdx-doc-lib {
+    display: none;
+    // opacity: 0;
+    // visibility: hidden;
+    background-color: var(--doc-bg-color);
+    box-shadow: 0 0 0 2px var(--tbl-border-color);
+    margin: 0;
+    border: none;
+    border-radius: var(--vlook-base-radius);
+    overflow: auto;
+    position: fixed;
+    left: 15%;
+    top: 10%;
+    right: 15%;
+    bottom: 15%;
+    // width: var(--vlook-nav-center-width);
+    // height: 50px;
+    z-index: 5000;
+}
+// .mdx-doc-lib.opened {
+//     // display: block;
+//     left: 15%;
+//     top: 10%;
+//     right: 15%;
+//     bottom: 10%;
+//     width: auto;
+//     height: auto;
+// }
+.mdx-doc-lib > iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    overflow: auto;
 }
 
 .md-diagram-panel {
@@ -4979,6 +5339,9 @@ use.mdx-blockquote-folder-ico:active {
 .mdx-quote-red .mdx-std-code {
     background-color: var(--acc-color-red-alt);
 }
+.mdx-quote-red a kbd {
+    background-color: var(--acc-color-red-light) !important;
+}
 .mdx-quote-red a {
     // border-color: var(--acc-color-red);
     // border-color: var(--doc-bg-color);
@@ -5010,6 +5373,9 @@ use.mdx-blockquote-folder-ico:active {
 }
 .mdx-quote-orange .mdx-std-code {
     background-color: var(--acc-color-orange-alt);
+}
+.mdx-quote-orange a kbd {
+    background-color: var(--acc-color-orange-light) !important;
 }
 .mdx-quote-orange a {
     // border-color: var(--acc-color-orange);
@@ -5043,6 +5409,9 @@ use.mdx-blockquote-folder-ico:active {
 .mdx-quote-yellow .mdx-std-code {
     background-color: var(--acc-color-yellow-alt);
 }
+.mdx-quote-yellow a kbd {
+    background-color: var(--acc-color-yellow-light) !important;
+}
 .mdx-quote-yellow a {
     // border-color: var(--acc-color-yellow);
     // border-color: var(--doc-bg-color);
@@ -5074,6 +5443,9 @@ use.mdx-blockquote-folder-ico:active {
 }
 .mdx-quote-green .mdx-std-code {
     background-color: var(--acc-color-green-alt);
+}
+.mdx-quote-green a kbd {
+    background-color: var(--acc-color-green-light) !important;
 }
 .mdx-quote-green a {
     // border-color: var(--acc-color-green);
@@ -5107,6 +5479,9 @@ use.mdx-blockquote-folder-ico:active {
 .mdx-quote-cyan .mdx-std-code {
     background-color: var(--acc-color-cyan-alt);
 }
+.mdx-quote-cyan a kbd {
+    background-color: var(--acc-color-cyan-light) !important;
+}
 .mdx-quote-cyan a {
     // border-color: var(--acc-color-cyan);
     // border-color: var(--doc-bg-color);
@@ -5138,6 +5513,9 @@ use.mdx-blockquote-folder-ico:active {
 }
 .mdx-quote-blue .mdx-std-code {
     background-color: var(--acc-color-blue-alt);
+}
+.mdx-quote-blue a kbd {
+    background-color: var(--acc-color-blue-light) !important;
 }
 .mdx-quote-blue a {
     // border-color: var(--acc-color-blue);
@@ -5171,6 +5549,9 @@ use.mdx-blockquote-folder-ico:active {
 .mdx-quote-purple .mdx-std-code {
     background-color: var(--acc-color-purple-alt);
 }
+.mdx-quote-purple a kbd {
+    background-color: var(--acc-color-purple-light) !important;
+}
 .mdx-quote-purple a {
     // border-color: var(--acc-color-purple);
     // border-color: var(--doc-bg-color);
@@ -5202,6 +5583,9 @@ use.mdx-blockquote-folder-ico:active {
 }
 .mdx-quote-pink .mdx-std-code {
     background-color: var(--acc-color-pink-alt);
+}
+.mdx-quote-pink a kbd {
+    background-color: var(--acc-color-pink-light) !important;
 }
 .mdx-quote-pink a {
     // border-color: var(--acc-color-pink);
@@ -5235,6 +5619,9 @@ use.mdx-blockquote-folder-ico:active {
 .mdx-quote-brown .mdx-std-code {
     background-color: var(--acc-color-brown-alt);
 }
+.mdx-quote-brown a kbd {
+    background-color: var(--acc-color-brown-light) !important;
+}
 .mdx-quote-brown a {
     // border-color: var(--acc-color-brown);
     // border-color: var(--doc-bg-color);
@@ -5266,6 +5653,9 @@ use.mdx-blockquote-folder-ico:active {
 }
 .mdx-quote-gray .mdx-std-code {
     background-color: var(--acc-color-gray-alt);
+}
+.mdx-quote-gray a kbd {
+    background-color: var(--acc-color-gray-light) !important;
 }
 .mdx-quote-gray a {
     // border-color: var(--acc-color-gray);
@@ -5299,6 +5689,9 @@ use.mdx-blockquote-folder-ico:active {
 .mdx-quote-theme1 .mdx-std-code {
     background-color: var(--acc-color-theme1-alt);
 }
+.mdx-quote-theme1 a kbd {
+    background-color: var(--acc-color-theme1-light) !important;
+}
 .mdx-quote-theme1 a {
     // border-color: var(--acc-color-theme1);
     // border-color: var(--doc-bg-color);
@@ -5319,7 +5712,7 @@ use.mdx-blockquote-folder-ico:active {
     border-radius: var(--vlook-small-radius);
 }
 .mdx-quote-title-theme1 {
-    color: var(--acc-color-theme1);
+    color: var(--acc-color-theme1-title);
 }
 // .mdx-quote-title-theme1-light {
 //     color: var(--header-color);// !important;
@@ -5327,6 +5720,12 @@ use.mdx-blockquote-folder-ico:active {
 // theme2
 .mdx-quote-theme2 {
     background-color: var(--acc-color-theme2-fade);
+}
+.mdx-quote-theme2 .mdx-std-code {
+    background-color: var(--acc-color-theme2-alt);
+}
+.mdx-quote-theme2 a kbd {
+    background-color: var(--acc-color-theme2-light) !important;
 }
 .mdx-quote-theme2 a {
     // border-color: var(--acc-color-theme2);
@@ -5347,11 +5746,8 @@ use.mdx-blockquote-folder-ico:active {
     border-bottom: 0;
     border-radius: var(--vlook-small-radius);
 }
-.mdx-quote-theme2 .mdx-std-code {
-    background-color: var(--acc-color-theme2-alt);
-}
 .mdx-quote-title-theme2 {
-    color: var(--acc-color-theme2);
+    color: var(--acc-color-theme2-title);
 }
 // .mdx-quote-title-theme2-light {
 //     color: var(--acc-color-theme2);// !important;
@@ -5636,6 +6032,9 @@ h6 code {
     padding-top: 70px;
     opacity: 0.5;
 }
+.mdx-doc-title.mini {
+    padding-top: 10px;
+}
 
 // 封面：#write 下 H6 作为第一个元素时
 #write > pre.md-meta-block:first-child + h6, // 有 YAML 的情况
@@ -5667,7 +6066,8 @@ h6 code {
 #write > h6:last-child {
     height: 550px;//14cm;
     margin-top: 3em;
-    margin-bottom: 10px;
+    margin-bottom: 0;
+    // margin-bottom: 10px;
     padding: @backCoverTextPadding;
     color: @backCoverTextColor !important;
     text-align: @backCoverTextAlign;
@@ -5828,9 +6228,58 @@ h6 code {
         --vlook-toolbar-btn-width:40px;
     }
 
-    html {
-        // font-size: @fontSizeBigger;
-        // zoom: 1.125 !important;
+    // 以双栏方式显示，98.5/2*2+1.5*1=100
+    hr + blockquote,
+    hr + blockquote + blockquote,
+    .md-hr + blockquote,
+    .md-hr + blockquote + blockquote {
+        max-width: 49.25% !important;
+        min-width: 49.25% !important;
+    }
+    // 双栏内容之间的样式
+    hr + blockquote + blockquote,
+    .md-hr + blockquote + blockquote  {
+        margin-left: 1.5% !important;
+    }
+
+    // 以三栏方式显示，97.02/3*3+1.49*2=100
+    hr + hr + blockquote,
+    hr + hr + blockquote + blockquote,
+    hr + hr + blockquote + blockquote + blockquote,
+    .md-hr + .md-hr + blockquote,
+    .md-hr + .md-hr + blockquote + blockquote,
+    .md-hr + .md-hr + blockquote + blockquote + blockquote {
+        max-width: 32.34% !important;
+        min-width: 32.34% !important;
+    }
+    // 三栏内容之间的样式
+    hr + hr + blockquote + blockquote,
+    hr + hr + blockquote + blockquote + blockquote,
+    .md-hr + .md-hr + blockquote + blockquote,
+    .md-hr + .md-hr + blockquote + blockquote + blockquote  {
+        margin-left: 1.49% !important;
+    }
+
+    // 以四栏方式显示，95.5/4*4+1.5*3=100
+    hr + hr + hr + blockquote,
+    hr + hr + hr + blockquote + blockquote,
+    hr + hr + hr + blockquote + blockquote + blockquote,
+    hr + hr + hr + blockquote + blockquote + blockquote + blockquote,
+    .md-hr + .md-hr + .md-hr + blockquote,
+    .md-hr + .md-hr + .md-hr + blockquote + blockquote,
+    .md-hr + .md-hr + .md-hr + blockquote + blockquote + blockquote,
+    .md-hr + .md-hr + .md-hr + blockquote + blockquote + blockquote + blockquote {
+        max-width: 23.875% !important;
+        min-width: 23.875% !important;
+    }
+    // 四栏内容之间的样式
+    hr + hr + hr + blockquote + blockquote,
+    hr + hr + hr + blockquote + blockquote + blockquote,
+    hr + hr + hr + blockquote + blockquote + blockquote + blockquote,
+    .md-hr + .md-hr + .md-hr + blockquote + blockquote,
+    .md-hr + .md-hr + .md-hr + blockquote + blockquote + blockquote,
+    .md-hr + .md-hr + .md-hr + blockquote + blockquote + blockquote + blockquote  {
+        margin-left: 1.5% !important;
     }
 }
 
@@ -5871,7 +6320,7 @@ h6 code {
 // 针对超大屏手机、iPad 等设备的 UI 调整
 @media screen and (min-width: 641px) and (max-width: 1023px) {
     .mdx-welcome-page {
-        font-size: 1.2em !important;
+        font-size: 1.25em !important;
     }
 }
 
@@ -6017,10 +6466,12 @@ h6 code {
     .mdx-color-scheme {
         color: #000000;
     }
-        :root {
+    :root {
         --vlook-color-scheme: dark;
-        --vlook-invert-dark: invert(1) brightness(90%); // Dark Mode下图片滤镜
-        --vlook-brightness-dark: brightness(90%); // Dark Mode下封面、封底滤镜
+        --vlook-invert-dark: var(--vlook-invert-dark-dark); // Dark Mode下图片滤镜
+        // --vlook-invert-hover: invert(1) brightness(1.3) !important; // Dark Mode下图片滤镜
+        --vlook-brightness-dark: var(--vlook-brightness-dark-dark); // Dark Mode下封面、封底滤镜
+        // --vlook-brightness-dark: brightness(90%); // Dark Mode下封面、封底滤镜
 
         // --------------------
         // Typora UI 颜色变量
@@ -6058,7 +6509,6 @@ h6 code {
 
         // --backdrop-blurs-bg : var(--backdrop-blurs-bg-dark);
 
-        --blockquote-color: var(--blockquote-color-dark);
         --blockquote-bg: var(--blockquote-bg-dark);
         --tips-bg-color: var(--tips-bg-color-dark);
         --tips-bg-color-inset: var(--tips-bg-color-inset-dark);
@@ -6173,25 +6623,41 @@ h6 code {
     }
 
     // 图片 URL 参数指定是否使用网格背景
-    img[src*="grid=line"] {
+    img[src*="grid=line"],
+    svg[data-inject-url*="grid=line"] {
         background: url(@figureGridLineDark);
     }
-    img[src*="grid=block"] {
+    img[src*="grid=block"],
+    svg[data-inject-url*="grid=block"] {
         background: url(@figureGridBlockDark);
     }
 
-    // 图片URL参数指定在 Dark Mode时反色
-    img[src*="darksrc=invert"] {
+    // 图片 URL 参数指定在 Dark Mode 时反色
+    img[src*="darksrc=invert"],
+    svg[data-inject-url*="darksrc=invert"] {
         filter: var(--vlook-invert-dark);
         border-color: @imgInvertInDarkBorderColor !important;
         // 使用反色后的背景，以适应在反色中显示为正常效果
         background: @figureSolidBgLight;
     }
-    img[src*="darksrc=invert"][src*="grid=line"] {
+    img[src*="darksrc=invert"][src*="grid=line"],
+    svg[data-inject-url*="darksrc=invert"][data-inject-url*="grid=line"] {
         background: url(@figureGridLineDarkInvert);
     }
-    img[src*="darksrc=invert"][src*="grid=block"] {
+    img[src*="darksrc=invert"][src*="grid=block"],
+    svg[data-inject-url*="darksrc=invert"],[data-inject-url*="grid=block"] {
         background: url(@figureGridBlockDarkInvert);
+    }
+
+    a:hover img[src*="darksrc=invert"],
+    a:hover svg[data-inject-url*="darksrc=invert"] {
+        filter: var(--vlook-invert-dark) brightness(1.3) !important;
+        // filter: var(--vlook-invert-dark) brightness(1.4);
+    }
+
+    // 备注文本
+    .noteText tspan {
+        fill: var(--fore-color-light) !important;
     }
 
     // Dark Mode的彩虹引用内的 6 级标题

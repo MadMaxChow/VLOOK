@@ -2,8 +2,8 @@
  *
  * VLOOK.js - Typora Plugin
  *
- * V10.7.1
- * 2021-08-02
+ * V11.0
+ * 2021-09-22
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -17,19 +17,22 @@
 
 URL 参数说明
 
-ws
-    欢迎页模式。默认完成加载后自动关闭
-    取值范围：
-    none: 不显示，wait: 显示，加载完成后需手动关闭
-
 cs
-    强制指定颜色方案。
-    取值范围：light，dark
+    强制指定颜色方案。light - Light Mode，dark - Dark Mode
+
+dl
+    文库功能开关。
+    取值范围：none - 关闭
+
+effects
+    使用的动效等级。可指定为：0 - 关闭，1 - 标准，2 - 增强
 
 fix-mermaid
     是否启用修正 Mermaid 的渲染 bug。默认启用。
-    取值范围：
-    false: 取消修正
+    取值范围：false - 取消修正
+
+lmc
+    指定代码块自动生成题注并编号的行数下限，大于该行数的代码才会自动生成题注和编号
 
 reset
     重置指定数据。
@@ -38,19 +41,23 @@ reset
 
 srcset
     在 DPR > 1 时，自动将 src 直接指定 2x 图片
-    取值范围：
-    auto：对于没有指定 srcset 时，自动将当前图片作为 2x 资源
-
-effects
-    使用的动效等级。可指定为：0 - 关闭，1 - 标准，2 - 增强
+    取值范围：auto - 对于没有指定 srcset 时，自动将当前图片作为 2x 资源
 
 theme
     动态加载指定的主题（仅限在线版本）
     主题名称中的关键名称，如：vlook-hope, vlook-x-apple-support 等
 
+type
+    指定文档导航工具启用模式
+    取值范围：max - 完整（默认），mini - 迷你（指定的「文库」强制为该类型）
+
+ws
+    欢迎页模式。默认完成加载后自动关闭
+    取值范围：none - 不显示，wait - 显示，加载完成后需手动关闭
+
 **************************************/
 
-let vlookVersion = "V10.7.1";
+let vlookVersion = "V11.0";
 
 console.log(":::::::::::::::::::");
 console.log("!!! " + (vlookDevMode === true ? "- DEV -" : "RELEASED" ) + " !!!");
@@ -60,7 +67,8 @@ console.log(":::::::::::::::::::");
 // 初始化计时器
 let iStopwatch = new Stopwatch(),
     gDocLoadTimeCost = 0,
-    gTotalLoadTimeCost = 0;
+    gTotalLoadTimeCost = 0,
+    gLastHash = null;
 iStopwatch.lapStart();
 console.info("=== Load Document ===");
 
@@ -69,6 +77,7 @@ let iToolbar = undefined,
     iNavCenter = undefined,
     iChapterNav = undefined,
     iParagraphNav = undefined,
+    iDocLib = undefined,
     iMoreDocContent = undefined,
     iSpotlight = undefined,
     iLaserPointer = undefined,
@@ -81,12 +90,6 @@ let iToolbar = undefined,
     iContentFolder = undefined,
     iLinkChecker = undefined,
     iContentAssistor = undefined;
-
-    addEventListener("message", function (e) {
-        //     // if (e.data[0].toString() === "data-vdoc-lib") {
-                console.log("主窗口收到", e.data, "origin:", e.origin);
-        //     // }
-        });
 
 // ==================== 文档对象模型 ==================== //
 
@@ -196,7 +199,7 @@ $.prototype.isEmpty = function () {
  */
 $.prototype.isHidden = function () {
     return this !== undefined
-        && (this.css("display") === "none" || this.css("visibility") === "hidden");
+        && (this.css("display") === "none" || this.css("visibility") === "hidden" || this.css("opacity") === "0");
 }
 
 /**
@@ -384,14 +387,14 @@ const env = {
             fullInfo = info;
         if (!silent) console.log(info);
 
-        info = "    ├ Language [ "
+        info = "    ├ Language   [ "
             + env.language.base
             + (env.language.subset.length > 0 ? "_" + env.language.subset : "")
             + " ]\n";
         fullInfo += info;
         if (!silent) console.log(info);
 
-        info = "    ├ Device   [ "
+        info = "    ├ Device     [ "
             + (env.device.mobile ? "Mobile" : "")
             + (env.device.iOS ? "/iOS" : "")
             + (env.device.android ? "/Android" : "")
@@ -401,7 +404,7 @@ const env = {
         fullInfo += info;
         if (!silent) console.log(info);
 
-        info = "    ├ OS       " +
+        info = "    ├ OS         " +
             (env.os.macOS ? "[ macOS ]"
                 : (env.os.Windows ? "[ Windows ]"
                     : (env.os.iOS ? "[ iOS ]"
@@ -410,7 +413,7 @@ const env = {
         fullInfo += info;
         if (!silent) console.log(info);
 
-        info = "    ├ Browser  [ "
+        info = "    ├ Browser    [ "
             + (env.browser.Chrome ? "Chrome / " + env.browserVersion.Chrome : "")
             + (env.browser.Firefox ? " Firefox / " + env.browserVersion.Firefox : "")
             + (env.browser.Safari ? " Safari / " + env.browserVersion.Safari : "")
@@ -419,7 +422,7 @@ const env = {
         fullInfo += info;
         if (!silent) console.log(info);
 
-        info = "    ├ Core     [ "
+        info = "    ├ Core       [ "
             + (env.core.gecko ? "Gecko" : "")
             + (env.core.presto ? "Presto" : "")
             + (env.core.trident ? "Trident" : "")
@@ -428,8 +431,14 @@ const env = {
         fullInfo += info;
         if (!silent) console.log(info);
 
-        info = "    └ DPR      [ "
+        info = "    └ DPR        [ "
             + env.display.DPR
+            + " ]\n"; // Device Pixel Ratio
+        fullInfo += info;
+        if (!silent) console.log(info);
+
+        info = "    └ VLOOK Type [ "
+            + VLOOK.type
             + " ]\n"; // Device Pixel Ratio
         fullInfo += info;
         if (!silent) console.log(info);
@@ -473,6 +482,21 @@ VLOOK.version = vlookVersion;
 // 是否为开发模式
 VLOOK.debugMode = vlookDebugMode;
 
+// 插件运行类型：max, pro, mini
+VLOOK.type = "max";
+
+// VLOOK 的启动参数
+VLOOK.params = {
+    __url : [],
+    __yaml : [],
+
+    init : function () {
+        VLOOK.params.__url = VLOOK.util.getQueryParams(window.location.href);
+        let vp = VLOOK.util.getMetaByName("vlook-query");
+        VLOOK.params.__yaml = VLOOK.util.getQueryParams("file.html" + (vp !== undefined ? "?" + vp : ""));
+    }
+}
+
 /**
  * 在 debug 模式下输出调试信息
  */
@@ -482,9 +506,47 @@ VLOOK.debug = function (...info) {
 }
 
 /**
+ * VLOOK 本地数据读/写
+ */
+VLOOK.data = {
+    // 获得数据
+    get : function (key) {
+        return localStorage["VLOOK-" + VLOOK.version + "-" + key];
+    },
+    // 写入数据
+    set : function (key, value) {
+        localStorage["VLOOK-" + VLOOK.version + "-" + key] = value;
+    }
+}
+
+/**
  * 工具
  */
 VLOOK.util = {
+    /**
+     * 获取 HTML <meta> 标签的内容
+     * @param metaName 指定 meta 的名称
+     * @returns 指定 meta 的内容
+     */
+    getMetaByName (metaName) {
+        let content = $("meta[name='" + metaName + "']").attr("content");
+        return (content === "${" + metaName + "}" ? undefined : content);
+    },
+
+    /**
+     * 获取启动参数的值
+     *
+     * @param param 启动参数名称
+     * @returns 启动参数的值
+     */
+    getParamValue : function (param) {
+        let value = VLOOK.params.__url[param];
+        // URL 中无指定，则深度通过 YAML 中获取
+        if (value === undefined)
+            value = VLOOK.params.__yaml[param];
+        return value;
+    },
+
     /**
      * 获取 URL 中的参数数组
      *
@@ -536,24 +598,154 @@ VLOOK.util = {
     },
 
     /**
+     * 进行 HTML 特殊符号进行转义
+     *
+     * @param text 原始文本
+     * @return String 转义后文本
+     */
+    htmlEncode : function (text) {
+        if (text.length === 0)
+            return "";
+        text = text.replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/ /g, "&nbsp;")
+            .replace(/'/g, "&apos;")
+            .replace(/"/g, "&quot;")
+            .replace(/<br>/g, "");
+        return text;
+    },
+
+    /**
+     * 进行 HTML 标签符转义
+     *
+     * @param text 原始文本
+     * @return String 转义后文本
+     */
+    htmlTagEncode : function (text) {
+        if (text.length === 0)
+            return "";
+        text = text.replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+        return text;
+    },
+
+    /**
+     * 进行 HTML 单、双引号转义
+     *
+     * @param text 原始文本
+     * @return String 转义后文本
+     */
+    htmlQuotEncode : function (text) {
+        if (text.length === 0)
+            return "";
+        text = text.replace(/'/g, "&apos;")
+            .replace(/"/g, "&quot;");
+        return text;
+    },
+
+    /**
+     * 清理 HTML 中的单、双引号
+     *
+     * @param text 原始文本
+     * @return String 清理后的文本
+     */
+    clearHtmlQuot : function (text) {
+        if (text.length === 0)
+            return "";
+        text = text.replace(/'/g, "")
+            .replace(/"/g, "");
+        return text;
+    },
+
+    /**
+     * 处理并返回省略后的文本
+     *
+     * @param text 原始文本
+     * @param limit 头、尾长度限制
+     * @return String 省略后的文本
+     */
+    ellipsisText : function (text, limit) {
+        // 多个空格替换为 1 个
+        text = text.replace(/\s+/g, " ");
+
+        // 不需要进行省略处理
+        if (text.length <= limit * 2)
+            return VLOOK.util.htmlTagEncode(text);
+
+        // 默认先按 1 个字占 1 个字节长度取头、尾部分
+        let header = text.substring(0, limit).trim(),
+            tailer = text.substring(text.length - limit, text.length).trim();
+        // 判断头、尾部分是否含中文
+        let cjkHeader = header.match(/\p{Unified_Ideograph}/ug),
+            cjkTailer = tailer.match(/\p{Unified_Ideograph}/ug);
+        if (cjkHeader != null && cjkHeader.length > 0)
+            header = __getChars(header, limit, cjkHeader);
+        if (cjkTailer != null && cjkTailer.length > 0)
+            tailer = __getCharsReversal(tailer, limit, cjkTailer);
+
+        /**
+         * 正序获取字符串（ 1 个 CJK 算两个字符）
+         *
+         * @param {*} str 原始字符
+         * @param {*} limit 限制长度
+         * @param {*} cjk CJK 字符数组
+         * @returns 新的字符串
+         */
+        function __getChars(str, limit, cjk) {
+            let count = 0;
+            while (limit > 0) {
+                if (cjk.indexOf(str[count]) > -1)
+                    limit -= 2;
+                else
+                    limit--;
+                count++;
+            }
+            return str.substring(0, count);
+        }
+        /**
+         * 反序获取字符串（ 1 个 CJK 算两个字符）
+         *
+         * @param {*} str 原始字符
+         * @param {*} limit 限制长度
+         * @param {*} cjk CJK 字符数组
+         * @returns 新的字符串
+         */
+        function __getCharsReversal(str, limit, cjk) {
+            let count = 0,
+                len = str.length - 1;
+            while (limit > 0) {
+                if (cjk.indexOf(str[len - count]) > -1)
+                    limit -= 2;
+                else
+                    limit--;
+                count++;
+            }
+            return str.substring(len + 1 - count);
+        }
+
+        return VLOOK.util.htmlTagEncode(header + " . . . " + tailer);
+    },
+
+    /**
      * 重定位至锚点
      *
      * @return boolean true：已进行重定向，false：无须进行重定向
      */
     redirectToHash : function () {
-        let lastHash = decodeURI(window.location.hash),
-            hash = window.location.hash;
+        // let lastHash = decodeURI(window.location.hash),
+        let hash = window.location.hash;
         // 如果 URL 带锚点
         if (hash.length > 0 && hash !== "#vk-id-doc-title") {
             console.log("    ↩ Redirect to hash: " + decodeURI(hash));
-            $(document).scrollTop($(document).scrollTop() + 500);
+            window.location.href = "#"; // 强制先清空当前 hash
             window.location.href = hash;
             // 若最后访问的锚点与本次相同，则强制进行一次微调
-            if (lastHash === decodeURI(hash)) {
+            // if (lastHash === decodeURI(hash)) {
                 setTimeout(function () {
                     VLOOK.ui.tuningScrollTop(hash);
-                }, 500);
-            }
+                }, 300);
+            // }
             return true;
         }
         return false;
@@ -847,7 +1039,7 @@ VLOOK.initIntance = function () {
     stopwatch.lapStart();
 
     // 文档更多内容栏遮罩栏
-    iMoreDocContent = new MoreDocContent(iChapterNav);
+    iMoreDocContent = new MoreDocContent();
     if (iMoreDocContent === false)
         alert("Instantiation failed [ iMoreDocContent ]");
 
@@ -865,6 +1057,7 @@ VLOOK.initIntance = function () {
     iContentAssistor = new ContentAssistor();
     if (iContentAssistor.length === 0)
         alert("Instantiation failed [ iContentAssistor ]");
+
     stopwatch.lapStop("    └ Misc: ");
 }
 
@@ -882,9 +1075,10 @@ VLOOK.initKernel = function () {
     iStopwatch.lapStop("    ");
 
     // ----------------------------------------
-    // 封底封面处理
+    // 封面、封底处理
     if (VOM.cover() === undefined) {
-        VOM.doc().prepend('<div id="vk-id-doc-title" class="mdx-doc-title">' + $(document).attr("title") +'</div>');
+        let vkType = (VLOOK.type === "mini" ? " mini" : "");
+        VOM.doc().prepend('<div id="vk-id-doc-title" class="mdx-doc-title' + vkType + '">' + $(document).attr("title") +'</div>');
     }
 
     // ----------------------------------------
@@ -974,12 +1168,12 @@ VLOOK.initKernel = function () {
     // 初始化字体风格
     iStopwatch.lapStart("* Font Style: ");
     // 清空历史存储
-    if (VLOOK.util.getQueryParams(window.location.href)["reset"] === "true") {
+    if (VLOOK.util.getParamValue("reset") === "true") {
         console.warn("!!! Reset Local Storage !!!");
         localStorage.removeItem("VLOOK-" + VLOOK.version + "-font-style");
     }
     // 若手动切换过字体风格，且与默认字体风格不同，则恢复为最后一次选择的字体风格
-    const style = localStorage["VLOOK-" + VLOOK.version + "-font-style"];
+    const style = VLOOK.data.get("font-style");
     iFontStyler.style = VLOOK.util.getStyleValue("--vlook-default-font-style").trim();
     if (window.localStorage && style !== undefined && style !== iFontStyler.style) {
         console.info("    └ Last Font Style: " + style);
@@ -1009,12 +1203,15 @@ VLOOK.initKernel = function () {
             scrollTop = $(document).scrollTop();
 
         // 显示或隐藏文档更多内容遮罩栏
-        if (currentTime - VLOOK.doc.scroll.lastUpdateTime > 200)
-            iMoreDocContent.refresh(scrollTop);
+        if (scrollTop < 10
+            || scrollTop > (scrollTop - 10)
+            || currentTime - VLOOK.doc.scroll.lastUpdateTime > 500)
+                iMoreDocContent.refresh(scrollTop);
 
         // ----------------------------------------
         // 控制执行频率，避免处理过快影响性能
-        if (scrollTop < 100
+        if (scrollTop < 10
+            || scrollTop > (scrollTop - 10)
             || currentTime - VLOOK.doc.scroll.lastUpdateTime > 500
             || (Math.abs(scrollTop - VLOOK.doc.scroll.lastTop) > 50 && (currentTime - VLOOK.doc.scroll.lastUpdateTime) > 500)) {
                 // 更新控制执行频率相关判断数据
@@ -1053,9 +1250,9 @@ VLOOK.initKernel = function () {
         // 锚点未显示的处理（如所在父元素被隐藏）
         let aObj = $("#" + decodeURI(anchor) + ", a[name='" + anchor + "']");
         if (aObj !== undefined && aObj.offset() !== undefined && aObj.offset().top === 0) {
-            let hiddenObj = aObj.parent().parent();
+            let hiddenObj = aObj.closest("blockquote");
             // 若属于被折叠的引用，则模拟点击展开，并重新定位到该引用
-            if (hiddenObj.isHidden()) {
+            if (hiddenObj.length > 0 && hiddenObj.isHidden()) {
                 let folder = hiddenObj.prev().find(".mdx-blockquote-folder");
                 if (folder.length > 0) {
                     folder.trigger("mouseup");
@@ -1064,11 +1261,14 @@ VLOOK.initKernel = function () {
             }
         }
 
-        // 微调滚动条位置
-        // Firefox 若不延时微调会存在微调无效的情况
-        setTimeout(function () {
-            VLOOK.ui.tuningScrollTop(decodeURI(anchor));
-        }, env.browser.Firefox ? 500 : 0);
+        // 页内位置改变后，微调滚动条位置
+        if (gLastHash == null || gLastHash !== hash) {
+            // 其中对于 Firefox 若不延时微调会存在微调无效的情况
+            setTimeout(function () {
+                VLOOK.ui.tuningScrollTop(decodeURI(anchor));
+            }, env.browser.Firefox ? 300 : 0);
+        }
+        gLastHash = hash;
 
         // 若导航中心没有显示，则强制进行延时适配处理（如从封面直接到指定章节）
         if (iNavCenter.showed === false)
@@ -1154,8 +1354,8 @@ VLOOK.ui = {
     copyrightInfo : function () {
         return '<div class="mdx-copyright">'
             + '<svg width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()"><use xlink:href="#icoVLOOK-dark"></use></svg>&nbsp;&nbsp;'
-            + '<a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK™</strong></a> (V10.7.1) for <a href="https://www.typora.io" target="_blank">Typora</a>.'
-            + '&nbsp;&nbsp;&nbsp;&nbsp;Support by <strong><a href="https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi">QQ Group</a></strong> or <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">email</a></strong>.'
+            + 'Published with <a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK</strong></a>™ (V11.0) &amp; <a href="https://www.typora.io" target="_blank"><strong>Typora</strong></a>.'
+            + '&nbsp;&nbsp;Support: <strong><a href="https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi">QQ Group</a></strong> / <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">Email</a></strong>.'
             + '</div>'
     },
 
@@ -1472,15 +1672,15 @@ VLOOK.ui = {
         ][VLOOK.lang.id]);
 
         iContentAssistor.buttons.tableCross.attr("data-vk-tips", "<kbd>X</kbd> " + [
-            "表格十字光标",
-            "表格十字光標",
-            "Table Cross Cursor",
-            "Curseur en croix de table",
-            "Tabellenkreuzcursor",
-            "Cursor en cruz de mesa",
-            "Перекрестный курсор таблицы",
-            "テーブルクロスカーソル",
-            "테이블 크로스 커서"
+            "阅读模式",
+            "閱讀模式",
+            "Reading mode",
+            "Mode de lecture",
+            "Lesemodus",
+            "Modo de lectura",
+            "Режим чтения",
+            "読書モード",
+            "읽기 모드"
         ][VLOOK.lang.id]);
 
         iContentAssistor.buttons.picInPic.attr("data-vk-tips", [
@@ -1588,6 +1788,8 @@ VLOOK.ui = {
             VLOOK.ui.bindHover($(".mdx-segment-btn"));
             // 所有辅助按钮 hover 事件处理
             VLOOK.ui.bindHover($(".mdx-accent-btn"));
+            // 文库按钮 hover 事件处理
+            VLOOK.ui.bindHover($(".mdx-doc-lib-board.item"));
         }
     },
 
@@ -1620,11 +1822,11 @@ VLOOK.ui = {
         // 不启用动效
         if (VLOOK.ui.effects < 1)
             VLOOK.util.setStyleValue("--vlook-transition-value", "none");
-        // 特效等级为 2 或更高级时才开启毛玻璃动效（如遮罩、插图浏览器背景）
+        // 动效等级为 2 或更高级时才开启毛玻璃动效（如遮罩、插图浏览器背景）
         else if (VLOOK.ui.effects >= 2)
             $(".mdx-backdrop-blurs").addClass("enabled");
-        // 特效等级为 1 或更高级时才开启
-        VLOOK.ui.addAnimate($(".mdx-btn, .mdx-btn-group"));
+        // 以下动效等级为 1 或更高级时才开启
+        VLOOK.ui.addAnimate($(".mdx-btn, .mdx-btn-group, .mdx-doc-lib-board, .mdx-doc-lib-board.flip"));
         VLOOK.ui.addAnimate($("a, a kbd, a img"));
     },
 
@@ -1759,7 +1961,10 @@ VLOOK.ui = {
                         iLinkChecker.hide();
                     }
 
-                    TableCross.hide();
+                    // 表格为阅读模式时，则退出
+                    if (!TableCross.ui.isHidden())
+                        TableCross.disable();
+                        // TableCross.hide();
 
                     // 拦截该按键事件，避免退出全屏（如：Safari）
                     window.event.returnValue = false;
@@ -1841,18 +2046,20 @@ VLOOK.doc = {
          * 冻结文档滚动
          */
         freeze : function () {
-            DOM.body().css({
-                "overflow" : "hidden" // 禁用网页滚动
-            });
+            DOM.body().removeClass("unfreeze").addClass("freeze");
+            // DOM.body().css({
+            //     "overflow" : "hidden" // 禁用网页滚动
+            // });
         },
 
         /**
          * 解冻文档滚动
          */
         unfreeze : function () {
-            DOM.body().css({
-                "overflow" : "auto" // 恢复网页滚动
-            });
+            DOM.body().removeClass("freeze").addClass("unfreeze");
+            // DOM.body().css({
+            //     "overflow" : "auto" // 恢复网页滚动
+            // });
         }
     },
 
@@ -2292,9 +2499,9 @@ function RandomColor() {
                 d[1] = (this.palette[i][1] - rgb[1]) / 256;
                 d[2] = (this.palette[i][2] - rgb[2]) / 256;
                 // 比例两个颜色的 RGB 色差来作为相似性的依据（0.3 为经验值，值越大差异最大）
-                if (Math.sqrt(d[0] * d[0] + d[1] * d[1] + d[2] * d[2]) > 0.3)
-                    continue;
-                else
+                if (Math.sqrt(d[0] * d[0] + d[1] * d[1] + d[2] * d[2]) < 0.3)
+                //     continue;
+                // else
                     break;
             }
 
@@ -2398,11 +2605,6 @@ function WelcomePage(mode) {
     this.finished = false; // 是否已加载
     this.mode = mode; // 模式：
 
-    if (this.mode === "none")
-        this.ui.hide();
-    else
-        VLOOK.ui.show(this.ui);
-
     /**
      * 完成所有内容加载后调用
      */
@@ -2434,14 +2636,14 @@ function WelcomePage(mode) {
      * 自动延时关闭
      */
     this.autoClose = function () {
-        let sec = 0,
+        let delaySecs = 3,
             closeTimer = null;
 
         __timeToClose();
         function __timeToClose() {
-            that.updateCloseButton(5 - sec);
-            sec++;
-            if (sec > 5) { // 倒计时结束
+            that.updateCloseButton(delaySecs);
+            delaySecs--;
+            if (delaySecs < 0) { // 倒计时结束
                 clearTimeout(closeTimer);
                 that.close();
             }
@@ -2502,6 +2704,12 @@ function WelcomePage(mode) {
                 break;
         }
     }
+
+    // 初始执行
+    if (this.mode === "none")
+        this.close();
+    else
+        VLOOK.ui.show(this.ui);
 }
 
 // ==================== 内容助手类 ==================== //
@@ -2511,7 +2719,7 @@ function ContentAssistor() {
     this.ui = $(".mdx-content-assistor");
     this.buttons = {
         openInFigureNav : $(".mdx-btn.assistor.open-in-figure-nav"), // 插图浏览器中打开
-        tableCross : $(".mdx-btn.assistor.table-cross"), // 表格十字光标
+        tableCross : $(".mdx-btn.assistor.table-cross"), // 表格阅读模式（十字光标）
         copyCodeBlock : $(".mdx-btn.assistor.copy-code-block"), // 复制代码块
         picInPic : $(".mdx-btn.assistor.pic-in-pic") // 「画中画」
     }
@@ -2528,9 +2736,9 @@ function ContentAssistor() {
             iContentAssistor.hide();
             iFigureNav.show(that.lastHover);
         });
-        //  形状表格十字光标
+        //  开/关表格阅读模式（十字光标）
         this.buttons.tableCross.unbind("click").click(function () {
-            TableCross.toggle();
+            TableCross.toggle(that.lastHover);
         });
         // 复制代码块
         this.buttons.copyCodeBlock.unbind("click").click(function () {
@@ -2565,7 +2773,7 @@ function ContentAssistor() {
      * @param target 目标对象
      * @param contentType 内容类型：Figure/Table/CodeBlock
      */
-    this.bindHover = function (target, contentType) {
+    this.bind = function (target, contentType) {
         target.hover(function () {
             VLOOK.ui.removeAnimate(that.ui);
             if (that.lastHover !== target)
@@ -2783,6 +2991,8 @@ PicInPic.show = function (source) {
         // 针对插图的处理
         if (tagName === "img" || tagName === "svg") {
             newClone.removeAttr("data-vk-fig-num");
+            if (tagName === "svg")
+                newClone.addClass("mdx-mermaid-restyler");
         }
 
         // 对展开了所有行分组的表格进行克隆后的干净处理
@@ -3064,7 +3274,7 @@ function Spotlight(radius, tips) {
     this.pointerScope = "body, rt, #write, .mdx-textfield > input, .mdx-blockquote-folder, audio, video, .mdx-audio-mini-control, .mdx-tbl-row-g-btn, .mdx-textfield-action, .mdx-segment-btn, .mdx-nav-center, .md-toc-item, .mdx-toc-item, .mdx-btn, .mdx-accent-btn, .mdx-toolbar, .mdx-figure, .mdx-figure-nav, .mdx-figure-content, .mdx-figure-nav-btns, .mdx-btn-close-figure-nav, .mdx-black-curtain, a, img, .mdx-chapter-nav-prev, .mdx-chapter-nav-current, .mdx-chapter-nav-next, .mdx-link-result-error, .mdx-toc-tab-button";
 
     /**
-     * 使用激光笔模式
+     * 使用激光笔
      */
     this.useLaserPointer = function () {
         this.toolbar.buttons["spotlight"].removeClass("selected");
@@ -3084,7 +3294,7 @@ function Spotlight(radius, tips) {
     }
 
     /**
-     * 切换聚光灯的开关
+     * 切换激活笔开关
      */
     this.toggle = function () {
         VLOOK.report.push(['Presentation', 'LaserPointer', 'Show/Hide', 0]);
@@ -3102,7 +3312,7 @@ function Spotlight(radius, tips) {
     }
 
     /**
-     * 隐藏聚光灯
+     * 隐藏激活笔
      */
     this.hide = function () {
         iMoreDocContent.refresh();
@@ -3260,17 +3470,20 @@ function NavCenter(mask) {
     this.indexs = new SegmentControl($(".mdx-segment.toc"), "toc-segment");
 
     // 目录索引组件
-    this.catalog = this.indexs.add(new TocCatalog(this.indexs.ui, false), "catalog", "icoTocTabCatalog", true);
+    this.catalog = this.indexs.add(new TocCatalog(this, false), "catalog", "icoTocTabCatalog", true);
     // 插图索引组件
-    this.figure = this.indexs.add(new TocFigure(this.indexs.ui, true), "figure", "icoTocTabFigure");
+    this.figure = this.indexs.add(new TocFigure(this, true), "figure", "icoTocTabFigure");
     // 表格索引组件
-    this.table = this.indexs.add(new TocTable(this.indexs.ui, true), "table", "icoTocTabTable");
+    this.table = this.indexs.add(new TocTable(this, true), "table", "icoTocTabTable");
     // 多媒体索引组件
-    this.multimedia = this.indexs.add(new TocMultimedia(this.indexs.ui, true), "multimedia", "icoTocTabMultimedia");
+    this.multimedia = this.indexs.add(new TocMultimedia(this, true), "multimedia", "icoTocTabMultimedia");
     // 代码块索引组件
-    this.codeblock = this.indexs.add(new TocCodeblock(this.indexs.ui, true), "codeblock", "icoTocTabCodeblock");
+    this.codeblock = this.indexs.add(new TocCodeblock(this, true), "codeblock", "icoTocTabCodeblock");
     // 访问历史组件
-    this.history = this.indexs.add(new TocHistory(this.indexs.ui, true), "history", "icoTocTabHistory");
+    this.history = this.indexs.add(new TocHistory(this, true), "history", "icoTocTabHistory");
+
+    // 文库
+    this.docLib = new DocLib(new BackgroundMask("doc-lib", "center"), this);
 
     // 遮罩
     this.mask = mask;
@@ -3290,34 +3503,19 @@ function NavCenter(mask) {
     }
 
     /**
-     * 回到封面事件
+     * 触发互动事件
      */
-    // this.catalog.onGotoCover = function () {
-    //     that.adjust();
-    //     that.chapterNav.adjust();
-    //     that.toolbar.adjust();
-    // }
+    this.onInteractive = function () {
+        that.adjustClickHash();
+    }
 
-    /**
-     * 组件内触发锚点点击
-     */
-    this.catalog.onClickHash = function () {
-        that.adjustClickHash();
-    }
-    this.figure.onClickHash = function () {
-        that.adjustClickHash();
-    }
-    this.table.onClickHash = function () {
-        that.adjustClickHash();
-    }
-    this.multimedia.onClickHash = function () {
-        that.adjustClickHash();
-    }
-    this.codeblock.onClickHash = function () {
-        that.adjustClickHash();
-    }
-    this.history.onClickHash = function () {
-        that.adjustClickHash();
+    // 当前文档不是 mini 类型（文库类文档一般为 mini 类型）
+    if (VLOOK.type !== "mini") {
+        // 文库
+        if (this.docLib.length === 0)
+            alert("Instantiation failed [ iDocLib ]");
+        else if (VLOOK.util.getParamValue("dl") !== "none")
+            this.docLib.init();
     }
 
     /**
@@ -3338,7 +3536,6 @@ function NavCenter(mask) {
         }
         // 【无封面】模式时处理
         else {
-            // VLOOK.ui.unbindHover(this.chapterNav.docTitle);
             iToolTips.hide();
         }
     }
@@ -3388,8 +3585,10 @@ function NavCenter(mask) {
      */
     this.show = function (displayMode) {
         // 已显示，或在以动画显示过程中
-        if (this.showed === true || this.ui.offset().left > -this.width)
+        if (VLOOK.type !== "max" || this.showed === true || this.ui.offset().left > -this.width) {
+            // this.handle.hide();
             return false;
+        }
 
         this.ui.css({
             "left" : 20
@@ -3412,10 +3611,12 @@ function NavCenter(mask) {
                 "margin-left" : "calc(var(--vlook-nav-center-width) + 30px)"
             });
 
-            // 因为占位显示后，会影响文档内容布局，所以须重定位至当前锚点
-            setTimeout(function () {
-                VLOOK.util.redirectToHash();
-            }, 500);
+            // 因为从切换为占位显示后，会影响文档内容布局，所以须重定位至当前锚点
+            if (this.showed !== true) {
+                setTimeout(function () {
+                    VLOOK.util.redirectToHash();
+                }, 300);
+            }
         }
         // 以「浮动方式」显示导航中心
         else if (this.displayMode === "float") {
@@ -3549,6 +3750,9 @@ function NavCenter(mask) {
      * 显示导航中心引导把手
      */
     this.showHandle = function () {
+        if (VLOOK.type !== "max")
+            return;
+
         this.handle.css({
             "top" : ($(window).height() - this.handle.height()) / 2
         });
@@ -3560,7 +3764,7 @@ function NavCenter(mask) {
      */
     this.snap = function (event) {
         // 已显示则跳过
-        if (this.showed === true)
+        if (this.showed === true || env.device.mobile)
             return;
 
         // 鼠标离左边缘小于指定值时
@@ -3601,13 +3805,20 @@ function NavCenter(mask) {
      * @param combKeys 功能组合键 Ctrl / Shift / Alt / Win / Cmd
      */
     this.disposeHotkey = function (code, combKeys) {
+        // 文档库热键操作
+        this.docLib.disposeHotkey(code, combKeys);
+
         if (this.ui.isHidden())
             return;
 
         switch (code) {
+            case 76: // L
+                if (that.docLib.enabled === true)
+                    that.docLib.handle.trigger("click");
+                break;
             case 27: // ESC
-                if (iNavCenter.displayMode === "float")
-                    iNavCenter.hide();
+                if (that.displayMode === "float")
+                    that.hide();
                 break;
         }
     }
@@ -3714,6 +3925,9 @@ function ChapterNav(navCenter) {
     // 关联的导航中心对象
     this.navCenter = navCenter;
 
+    if (VLOOK.type !== "max")
+        this.ui.hide();
+
     /**
      * 初始化动效
      */
@@ -3724,7 +3938,7 @@ function ChapterNav(navCenter) {
             VLOOK.ui.addAnimate($(target + ".effect"));
         }
         else {
-            target.removeClass("effect").addClass("noeffect");
+            $(target).removeClass("effect").addClass("noeffect");
         }
     }
     // 初始化动效
@@ -3842,7 +4056,7 @@ function ChapterNav(navCenter) {
      */
     this.show = function () {
         // 若已显示则直接退出
-        if (parseInt(this.ui.css("top")) >= 0)
+        if (VLOOK.type !== "max" || parseInt(this.ui.css("top")) >= 0)
             return;
 
         this.ui.addClass("mdx-float-card");
@@ -3991,7 +4205,7 @@ function ParagraphNav(tips) {
             VLOOK.report.push(['ParagraphNav', 'Action', 'Enabled', 0]);
 
             this.toolbar.buttons["paragraph-nav"].addClass("selected");
-            iMoreDocContent.hide();
+            iMoreDocContent.hideAfter();
 
             // 显示工具底栏提示信息
             let key1 = "<kbd>J</kbd>/<kbd>K</kbd>",
@@ -4223,7 +4437,7 @@ ParagraphNav.init = function() {
             //         // return;
             //     }
 
-            //     // 当前内容块内表格已显示十字光标
+            //     // 当前内容块内表格已显示阅读模式（十字光标）
             //     // if (TableCross.checkFallWith($(this)) === false) {
             //     //     TableCross.hide();
             //     //     iParagraphNav.goto(item);
@@ -4281,6 +4495,9 @@ function Toolbar(navCenter, chapterNav) {
     this.navCenter = navCenter;
     this.chapterNav = chapterNav;
 
+    if (VLOOK.type !== "max")
+        this.ui.hide();
+
     /**
      * 添加按钮
      *
@@ -4324,6 +4541,9 @@ function Toolbar(navCenter, chapterNav) {
      * 自适应显示工具栏
      */
     this.adjust = function () {
+        if (VLOOK.type !== "max")
+            return;
+
         // console.log("Toolbar adjust");
         // 移动端下隐藏不必要的功能入口
         if (env.device.mobile === true) {
@@ -4529,6 +4749,10 @@ ColorScheme.toggle = function (scheme) {
     console.info("    Switch to ... [ " + ColorScheme.scheme + " ]");
     // 应用最新颜色方案
     ColorScheme.refresh();
+
+    if (iNavCenter.docLib.enabled === true) {
+        iNavCenter.docLib.reload(ColorScheme.scheme);
+    }
     console.info("    DONE!");
 }
 
@@ -4539,13 +4763,13 @@ ColorScheme.refresh = function () {
     // CSS 变量名称列表
     const varList = [
         "--vlook-invert-dark",
+        // "--vlook-invert-hover",
         "--vlook-brightness-dark",
         "--doc-bg-color",
         "--doc-bg-color-alt",
         "--doc-bg-color-transparent",
         "--doc-bg-color-alt-transparent",
         "--fore-color",
-        "--blockquote-color",
         "--blockquote-bg",
         "--a-color",
         "--mark-color",
@@ -5049,7 +5273,7 @@ function FontStyler(mask) {
         $(fontWeight).addClass("mdx-font-weight-bold-" + style);
 
         // 保存最后一次应用的字体风格
-        localStorage["VLOOK-" + VLOOK.version + "-font-style"] = iFontStyler.style;
+        VLOOK.data.set("font-style", iFontStyler.style);
     }
 
     /**
@@ -5174,7 +5398,7 @@ FootNote.init = function () {
         iFootNote.show();
     });
     // 隐藏脚注中的【返回】链接
-    $("a[name^='dfref-footnote'], a[id^='dfref-footnote']").hide();
+    // $("a[name^='dfref-footnote'], a[id^='dfref-footnote']").hide();
 }
 
 // ==================== 链接检查器类 ==================== //
@@ -5232,8 +5456,7 @@ function LinkChecker(mask) {
                 // 检索是否存在与该内链对应的锚点
                 let anchor = href.substring(1, href.length);
                 // 没有检索到对应的锚点
-                // if ($("#write #" + anchor + ", #write a[name='" + anchor + "']").length === 0) {
-                if ($("#write #" + anchor).length === 0) {
+                if ($("#write #" + anchor + ", #write a[name='" + anchor + "']").length === 0) {
                     count++;
 
                     // 设置坏链 id 值，用于跳转定位
@@ -5925,8 +6148,8 @@ function BottomTips(id) {
 /**
  * 构造函数
  */
-function MoreDocContent(chapterNav) {
-    this.chapterNav = chapterNav;
+function MoreDocContent() {
+    // this.chapterNav = chapterNav;
     this.ui = {
         before : $(".mdx-more-doc-content-before"),
         after : $(".mdx-more-doc-content-after")
@@ -5941,12 +6164,13 @@ function MoreDocContent(chapterNav) {
         if (scrollTop === undefined)
             scrollTop = $(document).scrollTop();
 
-        if (this.chapterNav.ui.css("display") === "block" &&  scrollTop > 800)
+        // if (this.chapterNav.ui.css("display") === "block" &&  scrollTop > 800)
+        if (scrollTop > 10)
             this.ui.before.show();
         else
             this.ui.before.hide();
 
-        if (scrollTop + $(window).height() > ($(document).height() - 20))
+        if (scrollTop + $(window).height() > ($(document).height() - 10))
             this.ui.after.hide();
         else
             this.ui.after.show();
@@ -5955,7 +6179,7 @@ function MoreDocContent(chapterNav) {
     /**
      * 隐藏更多内容遮罩栏
      */
-    this.hide = function () {
+    this.hideAfter = function () {
         this.ui.after.hide();
     }
 }
@@ -5976,9 +6200,7 @@ CaptionGenerator.actionForTextContent = function (target, tagName) {
     let caption = "",
         indexObj = undefined,
         anchor = "",
-        title = target.attr("title");
-    if (title === undefined)
-        title = "";
+        dataForSearch = "";
 
     // 代码块 <pre>
     if (tagName.startsWith("p")) {
@@ -5998,22 +6220,29 @@ CaptionGenerator.actionForTextContent = function (target, tagName) {
     let fc = fcSet[0], // 第 1 题注
         fc2 = fcSet[1]; // 第 2 题注
 
-    if (fc != null && fc.trim().length > 0) {
-        // 添加 <span> 用主要用于区分题注是默认无内容的，还是指定内容的
-        caption = "<span>" + caption + CaptionGenerator.spliter + "</span>" + fc;
+    // 无指定的题注文本，则取其部分内容作为自动题注内容
+    if (fc == null || fc.trim().length === 0) {
+        fc = "";
+        if (tagName.startsWith("p")) // 代码块
+            fc = target.find(".CodeMirror-line").text().trim();
+        else if (tagName.startsWith("t")) // 表格
+            fc = target.text().trim();
+        // 省略中间内容处理
+        fc = VLOOK.util.ellipsisText(fc.trim(), 20);
     }
+    caption = "<span>" + caption + CaptionGenerator.spliter + "</span>" + fc;
 
     // 代码块 <pre>
     if (tagName.startsWith("p")) {
         anchor = "vk-id-codeblock" + VLOOK.doc.counter.codeblock;
         target.wrap("<div id='" + anchor + "' class='mdx-caption' style='width: 100%'>");
-        title += target.find(".CodeMirror-line").text();
+        dataForSearch += target.find(".CodeMirror-line").text();
     }
     // 表格 <table>
     else if (tagName.startsWith("t")) {
         anchor = "vk-id-tbl" + VLOOK.doc.counter.table;
         target.wrap("<div id='" + anchor + "' class='mdx-caption'>");
-        title += target.text();
+        dataForSearch += target.text();
     }
 
     // 添加第 1 题注
@@ -6027,9 +6256,9 @@ CaptionGenerator.actionForTextContent = function (target, tagName) {
     // ----------------------------------------
     // 添加到对应的内容索引
     if (indexObj !== undefined) {
-        let text = caption + (has2Captions ? " 丨 " + fc2 : "");
-        $("#" + anchor).attr("data-vk-title", text);
-        indexObj.add(text, anchor, title);
+        dataForSearch += has2Captions ? fc2 : "";
+        $("#" + anchor).attr("data-vk-title", caption);
+        indexObj.add(caption, anchor, dataForSearch);
     }
 }
 
@@ -6044,9 +6273,7 @@ CaptionGenerator.actionForMediaContent = function (target, tagName) {
         fc2 = target.attr("title"), // 默认尝试获得图片的 title 作为第二题注内容
         indexObj = iNavCenter.figure,
         anchor = "",
-        title = target.attr("title");
-    if (title === undefined)
-        title = "";
+        dataForSearch = "";
 
     // 尝试获取最近的段落（如<p>、<h6>）作为题注内容
     let fcSet = CaptionGenerator.getCaptions(target.parent().prev(), tagName);
@@ -6073,9 +6300,18 @@ CaptionGenerator.actionForMediaContent = function (target, tagName) {
             + (VLOOK.doc.counter.video);
     }
 
-    // 有指定的题注文本
+    // 无指定的题注文本，则取其部分内容作为自动题注内容
+    if (fc == null || fc.trim().length === 0) {
+        fc = "";
+        if (tagName.startsWith("s")) // Mermaid SVG
+            fc = target.find("g").text().trim();
+        // 省略中间内容处理
+        fc = VLOOK.util.ellipsisText(fc.trim(), 20);
+    }
     if (fc != null && fc.trim().length > 0)
         caption = "<span>" + caption + CaptionGenerator.spliter + "</span>" + fc;
+    else
+        caption = "<span>" + caption + "</span>";
 
     // 为插图（mermaid）增加题注 <svg>
     if (tagName.startsWith("s")) {
@@ -6083,19 +6319,21 @@ CaptionGenerator.actionForMediaContent = function (target, tagName) {
         // 针对 Mermaid 插图，添加额外的类，用于打印前后处理时直接定位 Mermaid 插图的题注
         target.wrap("<div id='" + anchor + "' data-vk-fig-type='" + tagName
             + "' class='mdx-caption mermaid'></div>");
-        title += target.find("div, span, tspan, text").text();
+        dataForSearch += target.find("div, span, tspan, text").text();
     }
     // 为插图（img）增加题注 <img>
     else if (tagName.startsWith("i")) {
         anchor = "vk-id-fig" + VLOOK.doc.counter.figure;
         target.wrap("<div id='" + anchor + "' data-vk-fig-type='" + tagName
             + "' class='mdx-caption'></div>");
+        dataForSearch += target.attr("src");
     }
     // 为音频增加题注 <audio>
     else if (tagName.startsWith("a")) {
         anchor = "vk-id-audio" + VLOOK.doc.counter.audio;
         target.wrap("<div id='" + anchor + "' data-vk-fig-type='" + tagName
             + "' class='mdx-caption'>");
+        dataForSearch += target.attr("src");
     }
     // 为视频增加题注 <video>
     else if (tagName.startsWith("v")) {
@@ -6115,9 +6353,9 @@ CaptionGenerator.actionForMediaContent = function (target, tagName) {
     // ----------------------------------------
     // 添加到对应的内容索引
     if (indexObj !== undefined) {
-        let text = caption + (has2Captions ? " 丨 " + fc2 : "");
-        $("#" + anchor).attr("data-vk-title", text);
-        indexObj.add(text, anchor, title);
+        dataForSearch += has2Captions ? fc2 : "";
+        $("#" + anchor).attr("data-vk-title", caption);
+        indexObj.add(caption, anchor, dataForSearch);
     }
 
     // ----------------------------------------
@@ -6129,9 +6367,10 @@ CaptionGenerator.actionForMediaContent = function (target, tagName) {
         }
 
         // 调整SVG插图，尽量按其真实插图的大小显示，超出浏览器宽度的，则左右滚动浏览
+        let style = undefined;
         if (target.css("max-width") !== "none") // CSS 中指定了最大宽度
             target.parent().css("width", target.css("max-width"));
-        else if (target.attr("style") !== undefined && target.attr("style").indexOf("width") > -1) // 通过 style 指定了宽度
+        else if ((style = target.attr("style")) !== undefined && style.indexOf("width") > -1) // 通过 style 指定了宽度
             target.parent().css("width", target.css("width"));
         else if (target.attr("width") !== "100%") // 指定了 width 属性，且不为 100%
             target.parent().css("width", parseInt(target.attr("width")) + 4); // 4 为两边 border 的宽度
@@ -6150,6 +6389,9 @@ CaptionGenerator.getCaptions = function (caption, tagName) {
         captionTagName = caption.prop("tagName"),
         hideCaptionSrc = false; // 是否隐藏题注源
 
+    if (captionTagName !== undefined)
+        captionTagName = captionTagName.toLowerCase();
+
     // 双题注的标准语法
     if (__getCaptionCount(caption) === 2) {
         fcSet[0] = __getCaptionSet(caption, 2)[0];
@@ -6162,17 +6404,19 @@ CaptionGenerator.getCaptions = function (caption, tagName) {
         fcSet[1] = null;
         hideCaptionSrc = true;
     }
-    // 无题注语法，但由有 h6 引导
-    else if (captionTagName !== undefined && captionTagName.toLowerCase().endWith("6")) {
+    // 无题注语法，但由有 h1-h6 引导
+    else if (captionTagName !== undefined && captionTagName.startsWith("h")) {
         fcSet[0] = caption.text().trim();
         fcSet[1] = null;
         // 不能直接隐藏，会影响页内链接跳转至该位置
         // 设置为不可见，并调整位置布局实现隐藏效果，同时不影响跳转
-        // hideCaptionSrc = false;
-        caption.css({
-            "visibility" : "hidden",
-            "position" : "absolute"
-        });
+        if (captionTagName === "h6") { // 只针对 h6，h1-h5不隐藏
+            // hideCaptionSrc = false;
+           caption.css({
+                "visibility" : "hidden",
+                "position" : "absolute"
+            });
+        }
     }
 
     // 若成功匹配出题注，且为不 <img> 则隐藏原始内容
@@ -6218,15 +6462,15 @@ function ExtCodeBlock() {}
  * 初始化代码块
  */
 ExtCodeBlock.init = function () {
-    // 获取自动编号和生成题注的行数下限
-    let lmc = VLOOK.util.getQueryParams(window.location.href)["lmc"];
+    // 获取自动生成题注并编号的行数下限，大于该行数的代码才会自动生成题注和编号
+    let lmc = VLOOK.util.getParamValue("lmc");
     lmc = (lmc === undefined ? 1 : parseInt(lmc));
     // 遍历所有代码块
     $(".md-fences").each(function () {
         let codeblock = $(this);
 
         // 绑定内容助手
-        iContentAssistor.bindHover($(this), "CodeBlock");
+        iContentAssistor.bind($(this), "CodeBlock");
 
         // 折叠长代码块
         iContentFolder.add(codeblock);
@@ -6376,9 +6620,25 @@ ExtQuote.init = function () {
                 __toggleQuoteFolding(target);
             });
         }
+    });
 
-        // 针对 Dark Mode 进行适配处理
-        // ExtQuote.adjustColorScheme();
+    // 针对分栏引用进行修正
+    $("hr + blockquote").each(function () {
+        let hr1 = $(this).prev(),
+            tag2 = hr1.prev(),
+            tag3 = tag2.prev(),
+            tagName2 = tag2.prop("tagName").toLowerCase(),
+            tagName3 = tag3.prop("tagName").toLowerCase();
+        // 隐藏 <hr>
+        hr1.css("display", "none");
+
+        // 连续两个 <hr> 标签
+        if (tagName2 === "hr")
+                tag2.css("display", "none");
+
+        // 连续三个 <hr> 标签
+        if (tagName3 === "hr")
+            tag3.css("display", "none");
     });
 
     /**
@@ -6480,7 +6740,7 @@ ExtTable.init = function () {
         VLOOK.doc.counter.table++;
 
         // 绑定内容助手
-        iContentAssistor.bindHover($(this), "Table");
+        iContentAssistor.bind($(this), "Table");
 
         // 表格自定义属性数据
         container.attr("data-vk-container", "table");
@@ -6489,7 +6749,7 @@ ExtTable.init = function () {
         // 表格滚动事件
         container.scroll(function () {
             let scrollLeft = $(this).scrollLeft();
-            // 根据显示时其对应表格的水平滚动的偏移量，调整十字光标的位置
+            // 根据显示时其对应表格的水平滚动的偏移量，调整阅读模式（十字光标）的位置
             $("div.mdx-table-cross").each(function () {
                 $(this).css({
                     "left" : TableCross.lastCellPos[$(this).attr("data-vk-direction")] - scrollLeft
@@ -6619,8 +6879,8 @@ ExtTable.init = function () {
                 th.attr("data-vk-tbl-col", "tbl-" + VLOOK.doc.counter.table + "-" + colIndex);
                 colIndex++;
 
-                // ---------- 非列头的单元格十字光标处理 ----------
-                // 鼠标点击单元格时显示十字光标
+                // ---------- 非列头的单元格阅读模式（十字光标）处理 ----------
+                // 鼠标点击单元格时显示阅读模式（十字光标）
                 TableCross.bind(table, th);
             });
             if (colIndex > maxCol)
@@ -6668,8 +6928,8 @@ ExtTable.init = function () {
                 td.attr("data-vk-tbl-col", "tbl-" + VLOOK.doc.counter.table + "-" + colIndex);
                 colIndex++;
 
-                // ---------- 列头的单元格十字光标处理 ----------
-                // 鼠标点击单元格时显示十字光标
+                // ---------- 列头的单元格阅读模式（十字光标）处理 ----------
+                // 鼠标点击单元格时显示阅读模式（十字光标）
                 TableCross.bind(table, td);
             }); // find(th, td)
         }); // find(tr)
@@ -6853,7 +7113,7 @@ CellMerge.emptyBlankCell = function (cell) {
     }
 }
 
-// ==================== 表格十字光标类 ==================== //
+// ==================== 表格阅读模式（十字光标）类 ==================== //
 
 function TableCross() {}
 
@@ -6861,13 +7121,13 @@ TableCross.enabled = false;
 
 TableCross.ui = undefined;
 
-// 最后/当前显示十字光标的表格
+// 最后/当前显示阅读模式（十字光标）的表格
 TableCross.lastTable = undefined;
 
-// 最后/当前显示十字光标的表格单元格
+// 最后/当前显示阅读模式（十字光标）的表格单元格
 TableCross.lastCell = undefined;
 
-// 表格十字光标四条边的位置
+// 表格阅读模式（十字光标）四条边的位置
 TableCross.lastCellPos = {};
 
 TableCross.init = function () {
@@ -6876,26 +7136,29 @@ TableCross.init = function () {
 }
 
 /**
- * 切换表格十字光标开关
+ * 切换表格阅读模式（十字光标）开关
  */
-TableCross.toggle = function () {
+TableCross.toggle = function (table) {
     // 已打开，则关闭
     if (TableCross.enabled)
         TableCross.disable();
     // 未打开，则打开
     else
-        TableCross.enable();
+        TableCross.enable(table);
 }
 
-// 打开表格十字光标
-TableCross.enable = function () {
+// 打开表格阅读模式（十字光标）
+TableCross.enable = function (table) {
     VLOOK.report.push(['Presentation', 'Table Cross', 'Enabled', 0]);
 
     TableCross.enabled = true;
     iContentAssistor.buttons.tableCross.addClass("selected");
+
+    if (table !== undefined && table != null)
+        table.parent().parent().next(".mdx-content-expander").children(".mdx-btn").trigger("click");
 }
 
-// 关闭表格十字光标
+// 关闭表格阅读模式（十字光标）
 TableCross.disable = function () {
     TableCross.enabled = false;
     iContentAssistor.buttons.tableCross.removeClass("selected");
@@ -6903,7 +7166,7 @@ TableCross.disable = function () {
 }
 
 /**
- * 绑定单元格，鼠标点击单元格时显示十字光标
+ * 绑定单元格，鼠标点击单元格时显示阅读模式（十字光标）
  *
  * @param table 单元格所属表格对象
  * @param cell 单元格对象
@@ -6913,9 +7176,12 @@ TableCross.bind = function (table, cell) {
         if (TableCross.enabled === false)
             return;
 
-        // 跳过折叠的表格
-        if (table.parent().parent().attr("data-vk-content-folded").startsWith("t"))
+        let container = table.parent().parent();
+        // 跳过被折叠表格
+        if (container.attr("data-vk-content-folded").startsWith("t")) {
+            // container.next(".mdx-content-expander").children(".mdx-btn").trigger("click");
             return;
+        }
 
         // vvv 不同表格之间点击，先强制移除动画 vvv
         if (TableCross.lastTable !== table)
@@ -6931,7 +7197,7 @@ TableCross.bind = function (table, cell) {
         let tdH = parseInt(TableCross.lastCell.css("height")),
             tdW = parseInt(TableCross.lastCell.css("width")),
             tbW = parseInt(TableCross.lastTable.css("width")),
-            scrollLeft = table.parent().parent().scrollLeft();
+            scrollLeft = container.scrollLeft();
 
         // 横向左边
         let crossLeft = $(".mdx-table-cross.left"),
@@ -6992,12 +7258,23 @@ TableCross.bind = function (table, cell) {
 
         event.stopPropagation(); // 停止事件冒泡
     });
+
+    // cell.dblclick(function () {
+    //     let container = table.parent().parent();
+    //     // 表格被折叠，则先展开
+    //     if (container.attr("data-vk-content-folded").startsWith("t"))
+    //         container.next(".mdx-content-expander").children(".mdx-btn").trigger("click");
+
+    //     // TableCross.toggle(table);
+    //     TableCross.enable(table);
+    //     $(this).trigger("click");
+    // });
 }
 
 /**
- * 适配调整表格十字光标位置、显示
+ * 适配调整表格阅读模式（十字光标）位置、显示
  *
- * @param target 十字光标任意边的对象实例（左/右/上/下）
+ * @param target 阅读模式（十字光标）任意边的对象实例（左/右/上/下）
  * @param size 指定要进行隐藏判断的尺寸（宽度或高度），小于该值则不显示对应的 target
  * @param scrollLeft 表格水平滚动的偏移量
  */
@@ -7008,25 +7285,24 @@ TableCross.adjust = function (target, size, scrollLeft) {
     else {
         VLOOK.ui.show(target);
     }
-    // 保存最后显示的十字光标任意边的 left 值及水平方向上的滚动偏移量
+    // 保存最后显示的阅读模式（十字光标）任意边的 left 值及水平方向上的滚动偏移量
     TableCross.lastCellPos[target.attr("data-vk-direction")] =  parseInt(target.css("left")) + scrollLeft;
 }
 
 /**
- * 隐藏表格十字光标
+ * 隐藏表格阅读模式（十字光标）
  */
 TableCross.hide = function () {
-    if (TableCross.lastCell === undefined)
-        return;
-
     VLOOK.ui.hide(TableCross.ui);
 
-    TableCross.lastCell = undefined;
-    TableCross.lastTable = undefined;
+    if (TableCross.lastCell !== undefined) {
+        TableCross.lastCell = undefined;
+        TableCross.lastTable = undefined;
+    }
 }
 
 /**
- * 判断当前内容块是否与已显示了十字光标的表格重叠
+ * 判断当前内容块是否与已显示了阅读模式（十字光标）的表格重叠
  *
  * @param target 内容块对象
 */
@@ -7441,7 +7717,7 @@ RowGroup.newFolder = function (tr, level, reset, color) {
         preObjs = td.find(preClass),
         cloneTd = td.clone();
     cloneTd.children(preClass).remove();
-    td.html(__echoOuterHTML(preObjs) + "[<strong>" + cloneTd.html() + "</strong>]");
+    td.html(__echoOuterHTML(preObjs) + "[ <strong>" + cloneTd.html() + " </strong>]");
 
     // 设置展开、收起事件
     td.children(".mdx-tbl-row-g-btn").click(function () {
@@ -7469,7 +7745,7 @@ RowGroup.newFolder = function (tr, level, reset, color) {
  * @param folderRow 折叠按钮所在的表格行对象
  */
 RowGroup.toggle = function (folderRow) {
-    // 取消事件冒泡，用于避免显示表格的十字光标
+    // 取消事件冒泡，用于避免显示表格的阅读模式（十字光标）
     event.stopPropagation();
 
     // 处理行分组的打开、关闭
@@ -7478,7 +7754,8 @@ RowGroup.toggle = function (folderRow) {
     else
         RowGroup.close(folderRow);
 
-    // 强制取消表格的十字光标
+    // 隐藏表格的阅读模式（十字光标）
+    // TableCross.disable();
     TableCross.hide();
 }
 
@@ -8335,19 +8612,21 @@ function FilterResultNavigator(result) {
 /**
  * 构造函数
  *
+ * @param holder 关联的上级容器
  * @param hidden 是否默认为隐藏
- * @param segment 分段控件对象
  */
-function TocCatalog(segment, hidden) {
+function TocCatalog(holder, hidden) {
     let that = this;
         // __cover = $(".mdx-accent-btn.cover");
     this.ui = {
         entry : $(".mdx-segment-btn.catalog"), // 入口
         body : $(".mdx-toc-catalog-body"), // 目录索引内容
         // cover : __cover, // 回到封面
-        keyword : new TextField(segment, "toc-filter-catalog"), // 关键字输入框
+        keyword : new TextField(holder.indexs.ui, "toc-filter-catalog"), // 关键字输入框
         result : $(".mdx-toc-filter-result.catalog") // 过滤结果面板
     }
+
+    this.holder = holder;
 
     this.headers = []; // 目录集
     // 针对无封面的情况
@@ -8392,7 +8671,7 @@ function TocCatalog(segment, hidden) {
     // 当前章节变化事件
     this.onChapterChanged = undefined;
     // 锚点点击事件
-    this.onClickHash = undefined;
+    // this.onClickHash = undefined;
 
 
     // 关键字输入组件属性设置
@@ -8487,7 +8766,8 @@ function TocCatalog(segment, hidden) {
             VLOOK.util.gotoHash(hash);
 
             // 触发锚点点击事件
-            typeof(that.onClickHash) == "function" && that.onClickHash();
+            typeof(that.holder.onInteractive) == "function" && that.holder.onInteractive();
+            // typeof(that.onClickHash) == "function" && that.onClickHash();
         });
 
         // -----------------------------------
@@ -8905,13 +9185,14 @@ TocIndex.adjust = function (indexObj, offset) {
  * @param indexObj 目标对象
  * @param text 显示的文本
  * @param anchor 锚点
- * @param title HTML 标签 title 属性数据
+ * @param forSearch 用于搜索时检索的内容
  */
-TocIndex.add = function (indexObj, text, anchor, title) {
+TocIndex.add = function (indexObj, text, anchor, forSearch) {
     if (indexObj.ui.tips.isShowed())
         indexObj.ui.tips.hide();
-    let item = $('<span class="mdx-toc-item" title="'
-            + (title === undefined ? "" : title) + '">' + text + "</span>");
+    let item = $('<span class="mdx-toc-item" data-for-search="'
+            + VLOOK.util.clearHtmlQuot((forSearch === undefined || forSearch.trim().length === 0) ? "" : forSearch)
+            + '">' + text + "</span>");
     indexObj.ui.result.append(item);
     VLOOK.ui.addAnimate(item);
     item.unbind("click").click(function () {
@@ -8921,7 +9202,8 @@ TocIndex.add = function (indexObj, text, anchor, title) {
         VLOOK.util.gotoHash("#" + anchor);
 
         // 触发锚点点击事件
-        typeof(indexObj.onClickHash) == "function" && indexObj.onClickHash();
+        typeof(indexObj.holder.onInteractive) == "function" && indexObj.holder.onInteractive();
+        // typeof(indexObj.onClickHash) == "function" && indexObj.onClickHash();
     });
 }
 
@@ -8942,9 +9224,9 @@ TocIndex.filterByKeyword = function (indexObj, value) {
     // 遍历目录节点进行关键字匹配
     indexObj.ui.result.children(".mdx-toc-item").each(function () {
         let item = $(this),
-            title = item.attr("title");
+            dataForSearch = item.attr("data-for-search");
         if (item.text().toLowerCase().indexOf(value) > -1
-            || (title !== undefined && title.toLowerCase().indexOf(value) > -1)) {
+            || (dataForSearch !== undefined && dataForSearch.toLowerCase().indexOf(value) > -1)) {
                 item.show();
                 matched = true;
         }
@@ -8996,10 +9278,10 @@ TocIndex.hide = function (indexObj) {
 /**
  * 构造函数
  *
+ * @param holder 关联的上级容器
  * @param hidden 是否默认为隐藏
- * @param segment 分段控件对象
  */
-function TocFigure(segment, hidden) {
+function TocFigure(holder, hidden) {
     let that = this,
         __figNav = $(".mdx-accent-btn.figure-nav");
     this.ui = {
@@ -9010,10 +9292,12 @@ function TocFigure(segment, hidden) {
         tips : undefined
     };
 
+    this.holder = holder;
+
     this.resultNav = new FilterResultNavigator(this.ui.result); // 过滤结果导航器
 
     // 锚点点击事件
-    this.onClickHash = undefined;
+    // this.onClickHash = undefined;
 
     // 关键字输入组件属性设置
     TocIndex.initUI(this, [
@@ -9066,10 +9350,10 @@ function TocFigure(segment, hidden) {
      *
      * @param text 显示的文本
      * @param anchor 锚点
-     * @param title HTML 标签 title 属性数据，其内容由 VLOOK 生成
+     * @param forSearch 用于搜索时检索的内容
      */
-    this.add = function (text, anchor, title) {
-        TocIndex.add(this, text, anchor, title);
+    this.add = function (text, anchor, forSearch) {
+        TocIndex.add(this, text, anchor, forSearch);
     }
 
     /**
@@ -9095,22 +9379,24 @@ function TocFigure(segment, hidden) {
 /**
  * 构造函数
  *
+ * @param holder 关联的上级容器
  * @param hidden 是否默认为隐藏
- * @param segment 分段控件对象
  */
-function TocTable(segment, hidden) {
+function TocTable(holder, hidden) {
     let that = this;
     this.ui = {
         entry : $(".mdx-segment-btn.table"), // 入口
-        keyword : new TextField(segment, "toc-filter-table"), // 关键字输入框
+        keyword : new TextField(holder.indexs.ui, "toc-filter-table"), // 关键字输入框
         result : $(".mdx-toc-filter-result.table"), // 过滤结果面板
         tips : undefined
     };
 
+    this.holder = holder;
+
     this.resultNav = new FilterResultNavigator(this.ui.result); // 过滤结果导航器
 
     // 锚点点击事件
-    this.onClickHash = undefined;
+    // this.onClickHash = undefined;
 
     // 关键字输入组件属性设置
     TocIndex.initUI(this, [
@@ -9137,10 +9423,10 @@ function TocTable(segment, hidden) {
      *
      * @param text 显示的文本
      * @param anchor 锚点
-     * @param title HTML 标签 title 属性数据，其内容由 VLOOK 生成
+     * @param forSearch 用于搜索时检索的内容
      */
-    this.add = function (text, anchor, title) {
-        TocIndex.add(this, text, anchor, title);
+    this.add = function (text, anchor, forSearch) {
+        TocIndex.add(this, text, anchor, forSearch);
     }
 
     /**
@@ -9164,22 +9450,24 @@ function TocTable(segment, hidden) {
 /**
  * 构造函数
  *
+ * @param holder 关联的上级容器
  * @param hidden 是否默认为隐藏
- * @param segment 分段控件对象
  */
-function TocMultimedia(segment, hidden) {
+function TocMultimedia(holder, hidden) {
     let that = this;
     this.ui = {
         entry : $(".mdx-segment-btn.multimedia"), // 入口
-        keyword : new TextField(segment, "toc-filter-multimedia"), // 关键字输入框
+        keyword : new TextField(holder.indexs.ui, "toc-filter-multimedia"), // 关键字输入框
         result : $(".mdx-toc-filter-result.multimedia"), // 过滤结果面板
         tips : undefined
     };
 
+    this.holder = holder;
+
     this.resultNav = new FilterResultNavigator(this.ui.result); // 过滤结果导航器
 
     // 锚点点击事件
-    this.onClickHash = undefined;
+    // this.onClickHash = undefined;
 
     // 关键字输入组件属性设置
     TocIndex.initUI(this, [
@@ -9206,9 +9494,10 @@ function TocMultimedia(segment, hidden) {
      *
      * @param text 显示的文本
      * @param anchor 锚点
+     * @param forSearch 用于搜索时检索的内容
      */
-    this.add = function (text, anchor) {
-        TocIndex.add(this, text, anchor);
+    this.add = function (text, anchor, forSearch) {
+        TocIndex.add(this, text, anchor, forSearch);
     }
 
     /**
@@ -9232,22 +9521,24 @@ function TocMultimedia(segment, hidden) {
 /**
  * 构造函数
  *
+ * @param holder 关联的上级容器
  * @param hidden 是否默认为隐藏
- * @param segment 分段控件对象
  */
-function TocCodeblock(segment, hidden) {
+function TocCodeblock(holder, hidden) {
     let that = this;
     this.ui = {
         entry : $(".mdx-segment-btn.codeblock"), // 入口
-        keyword : new TextField(segment, "toc-filter-codeblock"), // 关键字输入框
+        keyword : new TextField(holder.indexs.ui, "toc-filter-codeblock"), // 关键字输入框
         result : $(".mdx-toc-filter-result.codeblock"), // 过滤结果面板
         tips : undefined
     };
 
+    this.holder = holder;
+
     this.resultNav = new FilterResultNavigator(this.ui.result); // 过滤结果导航器
 
     // 锚点点击事件
-    this.onClickHash = undefined;
+    // this.onClickHash = undefined;
 
     // 关键字输入组件属性设置
     TocIndex.initUI(this, [
@@ -9274,10 +9565,10 @@ function TocCodeblock(segment, hidden) {
      *
      * @param text 显示的文本
      * @param anchor 锚点
-     * @param title HTML 标签 title 属性数据，其内容由 VLOOK 生成
+     * @param forSearch 用于搜索时检索的内容
      */
-    this.add = function (text, anchor, title) {
-        TocIndex.add(this, text, anchor, title);
+    this.add = function (text, anchor, forSearch) {
+        TocIndex.add(this, text, anchor, forSearch);
     }
 
     /**
@@ -9301,9 +9592,10 @@ function TocCodeblock(segment, hidden) {
 /**
  * 构造函数
  *
+ * @param holder 关联的上级容器
  * @param hidden 是否默认为隐藏
  */
-function TocHistory(hidden) {
+function TocHistory(holder, hidden) {
     let that = this;
     this.ui = {
         entry : $(".mdx-segment-btn.history"), // 入口
@@ -9311,8 +9603,10 @@ function TocHistory(hidden) {
         history : $(".mdx-toc-history-result") // 历史记录面板
     };
 
+    this.holder = holder;
+
     // 锚点点击事件
-    this.onClickHash = undefined;
+    // this.onClickHash = undefined;
 
     /**
      * 添加访问历史记录
@@ -9359,7 +9653,8 @@ function TocHistory(hidden) {
         item.unbind("click").click(function () {
             VLOOK.util.gotoHash(hash);
             // 触发锚点点击事件
-            typeof(that.onClickHash) == "function" && that.onClickHash();
+            typeof(that.holder.onInteractive) == "function" && that.holder.onInteractive();
+            // typeof(that.onClickHash) == "function" && that.onClickHash();
         });
     }
 
@@ -9404,6 +9699,119 @@ function TocHistory(hidden) {
     if (hidden) this.hide();
 }
 
+// ==================== 导航中心 DocLib 文库类 ==================== //
+
+/**
+ * 构造函数
+ *
+ * @param mask 遮罩对象
+ * @param holder 关联的上级容器
+ */
+ function DocLib(mask, holder) {
+    let that = this;
+    this.ui = $(".mdx-doc-lib");
+    this.iframe = undefined;
+    this.handle = $(".mdx-doc-lib-board.item");
+    this.enabled = false;
+    this.src = undefined;
+    // this.placeholder = "•• Loading Doc Lib ••";
+
+    this.holder = holder;
+
+    // 遮罩
+    this.mask = mask;
+    this.mask.bindPartner(this, this.ui);
+
+    VLOOK.ui.addAnimate(this.ui);
+
+    this.init = function () {
+        let docLibBoard = $(".mdx-doc-lib-board"),
+            timerGetTitle = null;
+
+        this.iframe = $("iframe[name='vlook-doc-lib']");
+        this.src = VLOOK.util.getMetaByName("vlook-doc-lib");
+
+        // 有指定文库
+        if (this.src !== undefined) {
+            this.enabled = true;
+            this.iframe.attr("src", this.src + "?ws=none&type=mini");
+            // docLibBoard.show();
+            // 尝试获得 DocLib 的文档标题
+            __getDoDrawerTitle();
+        }
+
+        this.handle.unbind("click").click(function () {
+            that.show();
+        });
+
+        /**
+         * 获得文库的文档标题
+         */
+        function __getDoDrawerTitle() {
+            VLOOK.data.set(encodeURI(window.location.path) + "doc-lib-title", "");
+            timerGetTitle = setTimeout(function () {
+                let title = VLOOK.data.get(encodeURI(window.location.path) + "doc-lib-title");
+                if (title === undefined || title.length === 0)
+                    __getDoDrawerTitle();
+                else {
+                    docLibBoard.show();
+                    that.handle.text(title);
+                    that.handle.attr("title", title);
+                    $(".mdx-nav-center-body, .mdx-nav-center-footer").addClass("mini");
+                    clearTimeout(timerGetTitle);
+                }
+            }, 1000);
+        }
+    }
+
+    /**
+     * 重新加载文库内容
+     *
+     * @param scheme （可选）指定的颜色方案，light / dark
+     */
+    this.reload = function (scheme) {
+        let cs = "";
+        if (scheme !== undefined)
+            cs = "&cs=" + scheme;
+        this.iframe.attr("src", this.src + "?ws=none&type=mini" + cs);
+    }
+
+    /**
+     * 显示文库
+     */
+    this.show = function () {
+        typeof(this.holder.onInteractive) == "function" && this.holder.onInteractive();
+
+        this.mask.show();
+        this.ui.show();
+    }
+
+    /**
+     * 隐藏文库
+     */
+    this.hide = function () {
+        this.ui.hide();
+        this.mask.hide();
+    }
+
+    /**
+     * 处理热键操作
+     *
+     * @param code 非功能键键
+     * @param combKeys 功能组合键 Ctrl / Shift / Alt / Win / Cmd
+     */
+    this.disposeHotkey = function (code, combKeys) {
+        if (this.ui.isHidden())
+            return;
+
+        switch (code) {
+            case 27: // ESC
+                this.hide();
+                break;
+        }
+    }
+}
+
 // ==================== 插图增强类 ==================== //
 
 function ExtFigure() {}
@@ -9427,7 +9835,7 @@ ExtFigure.init = function () {
     // ----------------------------------------
     // 对 img 类插图（Mermaid）进行初始化处理
     stopwatch.lapStart();
-    $("#write p > img, img[src*='mode=figure'], img[src*='mode=icon'], img[src*='mode=logo'], #write .md-diagram-panel svg").each(function () {
+    $("#write p > img, img[src*='mode=figure'], img[src*='mode=icon'], img[src*='mode=logo'], img[src*='mode=frame'], #write .md-diagram-panel svg").each(function () {
         let fig = $(this),
             src = fig.attr("src"),
             container = fig.parent(),
@@ -9451,10 +9859,7 @@ ExtFigure.init = function () {
             __bindLoadChecker(fig);
 
             // 跳过带指定显示版式的图片
-            let mi = src.indexOf("mode", 5), // 分段检过提高处理性能
-                iconMode = src.indexOf("=icon", mi + 4) > -1,
-                logoModeIndex = src.indexOf("=logo", mi + 4);
-            if (mi > -1 && iconMode || logoModeIndex > -1)
+            if (__isNotFigure(src))
                 return true;
 
             // 初始化图片背景的适配处理
@@ -9473,7 +9878,7 @@ ExtFigure.init = function () {
         }
 
         // 绑定内容助手
-        iContentAssistor.bindHover(fig, "Figure");
+        iContentAssistor.bind(fig, "Figure");
 
         VLOOK.doc.counter.figure++;
 
@@ -9494,7 +9899,7 @@ ExtFigure.init = function () {
     // 在当前环境的 DPR > 1 时，对于没有指定 srcset 的 img 类插图，自动强制将 src 直接指定 2x 图片
     // 可通过 URL 参数 srcset=auto 来启用
     if (env.display.DPR > 1
-        && VLOOK.util.getQueryParams(window.location.href)["srcset"] === "auto") {
+        && VLOOK.util.getParamValue("srcset") === "auto") {
             $("p[data-vk-container='img'] img").each(function () {
                 let fig = $(this);
                 if (fig.attr("src").indexOf(".svg", 1) === -1 // 跳过 svg 文件
@@ -9573,6 +9978,20 @@ ExtFigure.init = function () {
     }
 
     /**
+     * 判断是否属于插图
+     *
+     * @param src 插图路径
+     * @returns true：不属于插图，false：属于插图
+     */
+    function __isNotFigure(src) {
+        let mi = src.indexOf("mode", 5), // 分段检过提高处理性能
+            iconMode = src.indexOf("=icon", mi + 4) > -1,
+            logoMode = src.indexOf("=logo", mi + 4) > -1,
+            frameMode = src.indexOf("=frame", mi + 4) > -1;
+        return mi > -1 && (iconMode || logoMode || frameMode);
+    }
+
+    /**
      * 初始化图片对齐方式的处理
      *
      * @param container img 的题注容器对象
@@ -9617,8 +10036,9 @@ ExtFigure.init = function () {
                 // SVG 注入成功
                 afterInject : function (img, svg) {
                     let svgObj = $(svg);
-                    // 绑定内容助手
-                    iContentAssistor.bindHover(svgObj, "Figure");
+                    // 属于插图的，则绑定内容助手
+                    if (!__isNotFigure(src))
+                        iContentAssistor.bind(svgObj, "Figure");
                     // 对颜色进行替换的适配处理
                     ExtFigure.adjustFillAlterForSVG(svgObj.attr("data-vk-img-fill"), svgObj);
                 },
@@ -9855,13 +10275,18 @@ ExtFigure.adjustColorScheme = function (grid) {
  * @param svg SVG 实例对象
  */
 ExtFigure.adjustFillAlterForSVG = function (fill, svg) {
+    // 先取消可能会因数 darksrc=invert 的 CSS 配置影响
+    svg.css({
+        "filter" : "none"
+    });
+    // 再针对进行微调
     if (fill === "text")
         svg.find("path, rect, ellipse, polygon").css({
             "fill" : svg.parent().css("color")
         });
     else
         svg.find("path, rect, ellipse, polygon").css({
-            "fill" : "var(--acc-color-" + fill + "-light)"
+            "fill" : "var(--acc-color-" + fill + "-light)",
         });
 }
 
@@ -10146,7 +10571,7 @@ Restyler.forMermaid = function () {
             viewBox[0] + " " + viewBox[1] + " " + viewBox[2] + " "
             + (parseInt(viewBox[3]) + parseInt(paddingBottom)));
         // 重置 CSS 中的 padding-bottom 值，因为已由上面的下边距值替换
-        target.css("padding-bottom", "0px");
+        target.addClass("mdx-mermaid-restyler");
     });
 
     // 更新顺序图中的角色样式
@@ -10201,6 +10626,12 @@ Restyler.forMermaid = function () {
         else {
             text.text(prefix + tmpText);
         }
+    });
+
+    // 更新顺序图中消息序号的样式
+    $(".md-diagram-panel svg[id^='mermaidChart'] > text.sequenceNumber").each(function () {
+        // 移除文本宽度，避免不同字体大小时显示效果问题
+        $(this).removeAttr("textLength");
     });
 
     // 更新顺序图中的片断（如：loop、opt、par、alt）样式和位置
@@ -10479,7 +10910,8 @@ TextPhonetic.translation = function (text, symbol) {
 function BlackCurtain() {}
 
 // 语法：*{tips}(text "color")
-BlackCurtain.syntax = /^\*{(.*)}\((\S+)(\s"(red|orange|yellow|green|cyan|blue|purple|pink|brown|gray|theme1|theme2)")?\)$/i;
+BlackCurtain.syntax = /^\*{(.*)}\(([^"]+)(\s"(red|orange|yellow|green|cyan|blue|purple|pink|brown|gray|theme1|theme2)")?\)$/;
+///^\*{(.*)}\((\S+)(\s"(red|orange|yellow|green|cyan|blue|purple|pink|brown|gray|theme1|theme2)")?\)$/i;
 
 /**
  * 构建「刮刮卡」
@@ -10604,22 +11036,6 @@ BlackCurtain.hide = function (target) {
     target.attr("data-vk-black-curtain-showed", "false");
 }
 
-// ==================== 文档库模块 ==================== //
-
-function DocLib() {}
-
-DocLib.init = function () {
-//     // let docLib = $("#vlook-doc-lib");
-//     addEventListener("message", function (e) {
-//     //     // if (e.data[0].toString() === "data-vdoc-lib") {
-//             console.log("主窗口收到", e.data, "origin:", e.origin);
-//     //     // }
-//     });
-//     // docLib.get(0).contentWindow.postMessage("getVdocLib", "*");
-    console.warn("send to iframe");
-    document.getElementById("vlook-doc-lib").contentWindow.postMessage("hello", "*");
-}
-
 // ==================== VLOOK UI 模块 ==================== //
 
 function VLOOKui() {}
@@ -10637,10 +11053,10 @@ VLOOKui.loadWelcomePage = function () {
             + '<div>걱정하지 마세요. 최고는 항상 가장 캐주얼 한 시간에 나타납니다.</div>'
             + '<div>Ne vous inquiétez pas, le meilleur apparaîtra toujours au moment le plus décontracté.</div>'
             + '<div>Не волнуйтесь, лучшее всегда будет появляться в самое случайное время.<br><br>:</div>',
-        metaContent = $("meta[name='welcome']").attr("content");
+        metaContent = VLOOK.util.getMetaByName("vlook-welcome");
 
     // 无指定欢迎页内容，则使用默认内容
-    if (metaContent === undefined || metaContent.trim() === "${welcome}")
+    if (metaContent === undefined)
         metaContent = defalutContent;
     // --------------------------------------------------
     // 欢迎页
@@ -10857,7 +11273,7 @@ VLOOKui.loadIconSet = function () {
         + '<symbol id="icoOpenInFigureNav">'
         + '<path d="M13,0 C14.6568542,-3.04359188e-16 16,1.34314575 16,3 L16,11 C16,12.6568542 14.6568542,14 13,14 L3,14 C1.34314575,14 2.02906125e-16,12.6568542 0,11 L0,3 C-2.02906125e-16,1.34314575 1.34314575,3.04359188e-16 3,0 L13,0 Z M13.2496893,6.5 C12.8353041,6.5 12.4993786,6.83578644 12.4993786,7.25 L12.4993786,7.25 L12.4993786,10.2456177 L12.4927732,10.3029405 C12.4668519,10.4133843 12.3676708,10.4956177 12.249275,10.4956177 L12.249275,10.4956177 L9.25031071,10.4956177 L9.14849799,10.5024644 C8.78227077,10.5521268 8.5,10.865922 8.5,11.2456177 C8.5,11.6598313 8.83592555,11.9956177 9.25031071,11.9956177 L9.25031071,11.9956177 L12.249275,11.9956177 L12.3928617,11.9898165 C13.2925968,11.9168101 14,11.1637911 14,10.2456177 L14,10.2456177 L14,7.25 L13.9931505,7.14822944 C13.9434676,6.78215388 13.6295424,6.5 13.2496893,6.5 Z M6.74772239,2 L3.75,2 L3.60647279,2.0058012 C2.70711027,2.07880766 2,2.8318266 2,3.75 L2,3.75 L2,6.74561775 L2.00684662,6.8473883 C2.05650904,7.21346387 2.37030423,7.49561775 2.75,7.49561775 C3.16421356,7.49561775 3.5,7.15983131 3.5,6.74561775 L3.5,6.74561775 L3.5,3.75 L3.50660268,3.69267729 C3.53251318,3.58223341 3.63165327,3.5 3.75,3.5 L3.75,3.5 L6.74772239,3.5 L6.84949294,3.49315338 C7.21556851,3.44349096 7.49772239,3.12969577 7.49772239,2.75 C7.49772239,2.33578644 7.16193595,2 6.74772239,2 L6.74772239,2 Z"></path>'
         + '</symbol>'
-        // SVG 图标集：图标|表格十字光标
+        // SVG 图标集：图标|表格阅读模式（十字光标）
         + '<symbol id="icoTableCross">'
         + '<path d="M13,0 C14.6568542,-3.04359188e-16 16,1.34314575 16,3 L16,11 C16,12.6568542 14.6568542,14 13,14 L3,14 C1.34314575,14 2.02906125e-16,12.6568542 0,11 L0,3 C-2.02906125e-16,1.34314575 1.34314575,3.04359188e-16 3,0 L13,0 Z M1,11 C1,12.0543618 1.81587779,12.9181651 2.85073766,12.9945143 L3,13 L5,13 L5,10 L11,10 L11,13 L13,13 C14.0543618,13 14.9181651,12.1841222 14.9945143,11.1492623 L15,11 L15,10 L11,10 L11,7 L15,7 L15,3 C15,1.8954305 14.1045695,1 13,1 L11,1 L11,7 L5,7 L5,1 L3,1 C1.9456382,1 1.08183488,1.81587779 1.00548574,2.85073766 L1,3 L1,7 L5,7 L5,10 L1,10 L1,11 Z"></path>'
         + '</symbol>'
@@ -10935,10 +11351,6 @@ VLOOKui.loadNavTools = function () {
             + '<div class="mdx-nav-center-header">'
                 // 分段控制器组件
                 + '<div class="mdx-segment toc"></div>'
-            // 回到封面按钮
-            // + '<div class="mdx-accent-btn cover">'
-            // + VLOOK.ui.generateSvgIcon("icoCover", 18, 18, "alt")
-            // + '</div>'
                 // 打开插图浏览器
                 + '<div class="mdx-accent-btn figure-nav">'
                     + VLOOK.ui.generateSvgIcon("icoFigureNav", 20, 16, "alt")
@@ -10957,6 +11369,12 @@ VLOOKui.loadNavTools = function () {
                 + '<div class="mdx-toc-history-result"></div>'
             + '</div>'
             + '<div class="mdx-nav-center-footer"></div>'
+            // 文库
+            + '<div class="mdx-doc-lib-board">'
+                + '<div class="mdx-doc-lib-board item"></div>'
+                + '<div class="mdx-doc-lib-board flip"></div>'
+                + '<div class="mdx-doc-lib-board flip"></div>'
+                + '</div>'
         + '</div>';
 
     // --------------------------------------------------
@@ -11118,7 +11536,7 @@ VLOOKui.loadCommon = function () {
         + '<div class="mdx-more-doc-content-after"></div>';
 
     // --------------------------------------------------
-    // 表格十字光标
+    // 表格阅读模式（十字光标）
     ui += '<div data-vk-direction="left" class="mdx-table-cross left">&nbsp;</div>'
         + '<div data-vk-direction="right" class="mdx-table-cross right">&nbsp;</div>'
         + '<div data-vk-direction="up" class="mdx-table-cross up">&nbsp;</div>'
@@ -11140,7 +11558,7 @@ VLOOKui.loadCommon = function () {
             + '<div class="mdx-link-error-list-body"><div class="mdx-link-error-list-items"></div></div>'
             + '<div class="mdx-link-error-list-footer"></div>'
         + '</div>'
-        + '<div class="mdx-status-bar mdx-float-card mdx-backdrop-blurs">'
+        + '<div class="mdx-status-bar' + (VLOOK.type === "mini" ? " mini" : "") + ' mdx-float-card mdx-backdrop-blurs">'
             + '<div class="mdx-doc-info">- - / - -</div>'
             + '<div class="mdx-link-chk-result">'
                 + VLOOK.ui.generateSvgIcon("icoLinkOK", 20, 18, "light")
@@ -11150,7 +11568,7 @@ VLOOKui.loadCommon = function () {
     // --------------------------------------------------
     //统计数据上报中转页面
     ui += '<iframe name="vlook-stat-gitee" style="display: block; margin: 0; border: none; overflow: hidden; width: 100%; height: 0;"></iframe>';
-    // ui += '<iframe id="vlook-doc-lib" name="vlook-doc-lib" src="dev-vdoc-lib.html" style="display: block; margin: 0; border: none; overflow: hidden; width: 100%; height: 300px;"></iframe>';
+    ui += '<div class="mdx-doc-lib mdx-float-card"><iframe name="vlook-doc-lib"></iframe></div>';
     return ui;
 }
 
@@ -11162,6 +11580,18 @@ VLOOKui.loadCommon = function () {
 $(document).ready(function () {
     // 完成页面加载后，移除预加载的初始 UI
     $("#VLOOK").remove();
+
+    // ----------------------------------------
+    // 初始化启动参数
+    VLOOK.params.init();
+
+    // 判断加载模式
+    if (VLOOK.util.getParamValue("type") === "mini") {
+        VLOOK.type = "mini";
+        VLOOK.data.set(encodeURI(window.location.path) + "doc-lib-title", $(document).attr("title"));
+        // VOM.docTitle().addClass("mini");
+        // DOM.body().addClass("vlook drawer");
+    }
 
     // ----------------------------------------
     console.info("- Ready");
@@ -11183,7 +11613,7 @@ $(document).ready(function () {
     // ----------------------------------------
     // 动效初始化
     iStopwatch.lapStart("* Effect");
-    let effects = VLOOK.util.getQueryParams(window.location.href)["effects"];
+    let effects = VLOOK.util.getParamValue("effects");
     VLOOK.ui.effects = (effects === undefined) ? 2 : parseInt(effects);
     VLOOK.ui.effects = env.device.mobile ? 0 : VLOOK.ui.effects;
     console.log("    └ Level [ " + VLOOK.ui.effects + " ]");
@@ -11196,7 +11626,7 @@ $(document).ready(function () {
     // ----------------------------------------
     // 初始化欢迎页
     iStopwatch.lapStart("* Welcome Page Init");
-    let wsMode = VLOOK.util.getQueryParams(window.location.href)["ws"];
+    let wsMode = VLOOK.util.getParamValue("ws");
     wsMode = (wsMode === undefined) ? "auto" : wsMode;
     console.log("    └ mode: " + wsMode);
     iWelcomePage = new WelcomePage(wsMode);
@@ -11266,7 +11696,7 @@ function loadVLOOKplugin() {
     }
 
     // 锁定页面滚动
-    VLOOK.doc.scroll.freeze();
+    // VLOOK.doc.scroll.freeze();
     iStopwatch.lapStop("    ");
 
     // ========================================
@@ -11282,10 +11712,11 @@ function loadVLOOKplugin() {
     // ----------------------------------------
     // 完成初始化后恢复显示
     iStopwatch.lapStart("* Write Ready");
-    VOM.doc().css({
-        "filter" : "none",
-        "display" : "block"
-    });
+    VOM.doc().addClass("mdx-vlook-load-done");
+    // VOM.doc().css({
+    //     "filter" : "none",
+    //     "display" : "block"
+    // });
     iStopwatch.lapStop("    ");
 
     // ----------------------------------------
@@ -11319,7 +11750,7 @@ function loadVLOOKplugin() {
         console.info("    System [ " + ColorScheme.scheme + " ]");
         ColorScheme.init();
         // 判断当前文档是否强制指定了颜色方案
-        let colorScheme = VLOOK.util.getQueryParams(window.location.href)["cs"];
+        let colorScheme = VLOOK.util.getParamValue("cs");
         if (colorScheme === "light" || colorScheme === "dark") {
             console.info("    Force use [ " + colorScheme + " ]");
             ColorScheme.toggle(colorScheme);
@@ -11376,8 +11807,6 @@ function loadVLOOKplugin() {
     console.info("    ├ HTML   ⏱ " + gDocLoadTimeCost + " ms");
     console.info("    └ VLOOK  ⏱ " + (gTotalLoadTimeCost - gDocLoadTimeCost) + " ms");
 
-    // DocLib.init();
-
     /**
      * 创建独立线程执行
      *
@@ -11398,25 +11827,27 @@ function loadVLOOKplugin() {
      * 统计字数
      */
     function __countWord() {
-        let wordCount = 0,
-            latin = VOM.doc().text().match(/[\w\-]+/g),
+        let latin = VOM.doc().text().match(/[\w\-]+/g),
             cjk = VOM.doc().text().match(/\p{Unified_Ideograph}/ug),
             docInfo = $(".mdx-doc-info");
-        if (latin != null)
-            wordCount += latin.length;
-        if (cjk != null)
-            wordCount += cjk.length;
+        let latinCount = (latin == null) ? 0 : latin.length,
+            cjkCount = (cjk == null) ? 0 : cjk.length,
+            wordCount = latinCount + cjkCount,
+            readCountPerMin = 120;
 
+        // 计算阅读时长
+        let mins = wordCount < readCountPerMin ? 1 : parseInt(wordCount / readCountPerMin),
+            times = mins + " " + ["分钟", "分鐘", "minutes", "minutes", "minute", "minutos", "минута", "分", "분."][VLOOK.lang.id];
+        if (mins > 60)
+            times = (mins / 60).toFixed(1) + " " + ["小时", "小時", "hours", "heures", "stunden", "horas", "час", "時間", "시간."][VLOOK.lang.id];
         // 默认信息
         docInfo.attr("data-vk-default",
-            parseInt(wordCount / 120) + " "
-            + ["分钟", "分鐘", "minutes", "minutes", "Protokoll", "minutos", "минут", "分", "의사록"][VLOOK.lang.id]
-            + " / " + VLOOK.formatting.thousands(wordCount.toString()) + " "
+            times + " / " + VLOOK.formatting.thousands(wordCount.toString()) + " "
             + ["字", "字", "words", "mots", "Wörter", "palabras", "слова", "言葉", "말"][VLOOK.lang.id]);
         // 扩展信息
         docInfo.attr("data-vk-extend",
-            " ( " + VLOOK.formatting.thousands(cjk.length.toString()) + " " + ["中日韩，", "中日韓，", "CJK, ", "CJK, ", "CJK, ", "CJK, ", "CJK, ", "CJK，", "CJK, "][VLOOK.lang.id]
-            + VLOOK.formatting.thousands(latin.length.toString()) + " " + ["非中日韩", "非中日韓", "Non-CJK", "Non CJC", "Nicht-CJK", "No CJK", "Не-CJK", "非CJK", "비 CJK"][VLOOK.lang.id] + " )");
+            " ( " + VLOOK.formatting.thousands(cjkCount.toString()) + " " + ["中日韩，", "中日韓，", "CJK, ", "CJK, ", "CJK, ", "CJK, ", "CJK, ", "CJK，", "CJK, "][VLOOK.lang.id]
+            + VLOOK.formatting.thousands(latinCount.toString()) + " " + ["非中日韩", "非中日韓", "Non-CJK", "Non CJC", "Nicht-CJK", "No CJK", "Не-CJK", "非CJK", "비 CJK"][VLOOK.lang.id] + " )");
         // hover 时显示扩展信息
         docInfo.hover(function () {
             docInfo.html(docInfo.attr("data-vk-default") + " <span style='color: var(--fore-color-alt)'>" + docInfo.attr("data-vk-extend") + "</span>");
