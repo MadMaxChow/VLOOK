@@ -70,7 +70,7 @@ Learn more about VLOOK™, [click here to start](https://madmaxchow.github.io/VL
 
 # How To Use
 
-You can start a brand **new Markdown experience** in just **3 steps**, [click here to start](https://madmaxchow.github.io/VLOOK/index.html#how-to-use) ( [alternative link](https://madmaxchow.gitee.io/VLOOK/index.html#how-to-use) )
+You can start a brand **new Markdown experience** in just **3 steps**, [click here to start](https://madmaxchow.github.io/VLOOK/index-en.html#how-to-use) ( [alternative link](https://madmaxchow.gitee.io/VLOOK/index-en.html#how-to-use) )
 
 ---
 
