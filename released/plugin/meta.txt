@@ -1,0 +1,10 @@
+<!--
+VLOOK V12.0 - Typora Plugin ( head meta )
+Paste to "Export Setting ▸ VLOOK / VLOOK (live) ▸ Append in <head />"
+粘贴至「导出设置... ▸ VLOOK / VLOOK (live) ▸ 在 <head /> 中添加」
+-->
+<meta name="author" content="${author}">
+<meta name="keywords" content="${keywords}">
+<meta name="vlook-welcome" content="${vlook-welcome}">
+<meta name="vlook-query" content="${vlook-query}">
+<meta name="vlook-doc-lib" content="${vlook-doc-lib}">

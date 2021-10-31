@@ -1,9 +1,14 @@
+<!--
+VLOOK V12.0 - Typora Plugin ( live )
+Paste to "Export Setting ▸ VLOOK (live) ▸ Append in <body />"
+粘贴至「导出设置... ▸ VLOOK (live) ▸ 在 <body /> 中添加」
+-->
 <!--========================================================================-->
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
-<!--                                 V11.0                                  -->
+<!--                                 V12.0                                  -->
 <!--                                                                        -->
-<!--                               2021-09-22                               -->
+<!--                               2021-10-30                               -->
 <!--                           powered by MAX°孟兆                          -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -29,7 +34,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <div id="VLOOK"><div></div></div>
 <!-- ==================== VLOOK JS ==================== -->
 <script type="text/javascript">
-    let liveVersion = "V11.0";
+    let liveVersion = "V12.0";
     let vlookDevMode = liveVersion.indexOf("dev") > 0 ? true : false, vlookDebugMode = false;
     let fontHost = "https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/",
         jsHost = vlookDevMode ? "http://localhost/js/" : "https://madmaxchow.gitee.io/vlook/js/",

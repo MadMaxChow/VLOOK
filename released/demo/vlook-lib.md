@@ -1,11 +1,8 @@
 ---
-title: 更多 VLOOK™ 与 Markdown 的话题
-vlook-query: ws=none
+title: 浏览更多 VLOOK™ 的话题
 ---
 
 
-
----
 
 ---
 
@@ -13,15 +10,11 @@ vlook-query: ws=none
 >
 > ---
 >
-> VLOOK™ 是什么？为谁而准备？
->
-> 4 套内置主题＋私人定制，30+ 增强特性……总有能打动你的～
->
-> 
+> VLOOK™ 是什么？为谁而准备？5 套内置主题＋私人定制，30+ 增强特性……总有能打动你的～
 >
 > [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](index.html)
 >
-> `>(gray)`
+> `>(theme1)`
 
 > ###### 🕹 安 装 与 使 用
 >
@@ -29,25 +22,59 @@ vlook-query: ws=none
 >
 > 只需要三步，让你快速上车，开启不一样的 Mardown 体验之旅！让你的 Markdown 有了新`{看}(wán)`法！
 >
-> 
->
 > [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](index.html#安装与使用)
 >
-> `>(brown)`
+> `>(theme1)`
 
-> ###### 🎯 快 速 参 考 指 南
+> ###### <center>🎯 快 速 参 考 指 南</center>
 >
 > ---
 >
-> [<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-types-light.svg?mode=icon&fill=text) °文档排版 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°文档排版)
+> ---
 >
-> [<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-nav-light.svg?mode=icon&fill=text) °内容导航 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°内容导航)
+> ---
 >
-> [<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-pres-light.svg?mode=icon&fill=text) °演示与出版辅助 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°演示与出版辅助)
+> > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-types-light.svg?mode=icon&fill=text) °文档排版
+> >
+> > ---
+> >
+> > 全面提升了 Markdown 的自动化排版能力
+> >
+> > [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°文档排版)
+> >
+> > `>(purple)`
 >
-> [<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-theme-light.svg?mode=icon&fill=text) °主题与不杂项 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°主题与不杂项)
+> > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-nav-light.svg?mode=icon&fill=text) °内容导航
+> >
+> > ---
+> >
+> > 集成多种导航、快速定位和内容组织的工具
+> >
+> > [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°内容导航)
+> >
+> > `>(blue)`
 >
-> `>(cyan)`
+> > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-pres-light.svg?mode=icon&fill=text) °演示与出版辅助
+> >
+> > ---
+> >
+> > 内置了灵活便捷演示与出版辅助的工具
+> >
+> > [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°演示与出版辅助)
+> >
+> > `>(orange)`
+>
+> > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-theme-light.svg?mode=icon&fill=text) °主题与不杂项
+> >
+> > ---
+> >
+> > 精致、细腻的阅读体验是愉悦和美好的
+> >
+> > [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°主题与不杂项)
+> >
+> > `>(green)`
+>
+> `>(gray)`
 
 
 

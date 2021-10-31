@@ -1,7 +1,6 @@
 ---
 title: 自定义导出 HTML 后的文档标题（文档库）
 welcome: 自定义文档加载过程中显示的欢迎屏信息（须在导出设置中添加对应的 head 信息，详见 VLOOK™ 快速参考手册）
-vlook-query: ws=none
 ---
 
 

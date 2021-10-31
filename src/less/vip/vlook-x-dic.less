@@ -14,7 +14,8 @@
 @circleRadius: 50%; // 半距圆角
 
 // 主题信息
-@themeName: "vlook-x-liby-dic";
+@themeName: "vlook-x-dic";
+@themeDesc: "DIC";
 @themeLogoLight: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAMAAAC8EZcfAAABm1BMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////XFRcAn+n+9PQRpuvvpaXtlZaL0/TiU1Qire2d2vfwqqvumpqfOU763t/g9P2j3fiR1fYIourysLHfQkPbKCr4/f+t4fnvnp/s+P7//f3Z8vzL7PtGuvD96+z3z8/jW137/v9zy/NhxPJTv/Ebquz1vr/ma2zYGh295vqU1/ZtyPM+t+83tO4oru3zt7jsi4zodnfncXLlZmfkYGHhUFLePD7cMTTaISPYHiDYGBrl9Pu25Pn++PiF0fV+z/QtsO352dn2ycrwoqPskJHqhYbqgYLoenvgR0ndNjfx+f7u+P3E6fqg2/f41NWzk6VyVnq6Y3HiVlfPKS/R7vzZ6fTO3+375OTAy926vtC3s8Ylh8X1xMS0pLe3dITAUV3hTE7HO0TI2OjG1eUJmeBFc6a0iZtTapi0hJbriImSQlu8RVC3KTZBQjxaAAAAHHRSTlMAqv2++PPdpXFMKgXqtJiLfj80IRgP09HHdmFWkZlOiAAABWlJREFUeNrt2WdXE0EUgOExoSZKUbDe3UA0gKAbBEMgiBSRJtIEpCmIYEOw99792YZ4kp3NbJy7yRy5H+b9A/McDjP3LjCdTqfT6XQ6nU6n0+VTMFB+rLKidN8ex9w7WOUvAhK56Q5VlQCZRF6g1AeEyubV0OIJwLJiIJaDV3sAyOW4HIeBXpyvej8QzPYdJ/Lw5QKWE7u92cAAuevrBNYSmh1uwKAfqMZSVQLZ/u4uRC9IBngU6LbrOwGE2wUeAcLtPtFAuSSQ4ArjANYQvsIpYBmQjjG6QyQVCxaB2kIF1gGOWDUoLBTemDMK7Ao4UvorGL1mFF4zOGIVoKywoaDZDnCk8I5cmVcB3ABnrAQUlZg1VDQBzpiyT7lxQ0lN4IwVg6Ja1QBfgzMGigoZakqAnVJgtxrfObBTC1xVA9wBOzmwZalrJZK74RauLSPZhWauiXyA6x6AbcuW+c/OAte2kWwcuC7kA2zEA2NjpqTLwPVImKN5zb0HaGDPiCkrBnbX7TlayLWeX0QDL0p9dcD10Ug2B1w38wHOABYYs6TALuB6KczR8/kAJ9HABlPaReD6KszRq/kA19DAXjnwPnC9S70yTeeTra7WJ2ucyWtbRQNX5MBO/krNGUp6hgX2WHJgG9g9UeObBSzwsdw3BlzP1QDfo4FnMo6hhhwNAdcbI1lrPVdqjszUY1rLrOJX0cCL3GPnXvsScL0V5uikfaCkkL1JnkcDu9LAEXDvstUOXB+MZFHgmkkfKGtx2sh0Ew3sTwOHwbVOy4yD3R1hji7Opw+U1DFl2IWwwLtmugZwK15nWsD1VJijD4QDhcT3/BpggfdcHzs4my5imqPA9UKYo43CgTea3HIsjRfQwCHXxy5ucvUC15YwR9ftA/FffbdkQHHQRRwXlwc6XpltYY7uCAdOyYFRNHA0zegDrmUeeO/f2+o54cBNOfAGGpgZdMvA1ccD7/LbqjBHE8KBIblvsAMLbMkwHI9dhPP1A9cnYY6+tg/Ef5a2ggQo/rI5H7vc26owR5uEA+vlwEto4FKaYQlvj+u2+l0YaxPCgbflwLAMKP6yjeZcss84tlVhrG0IB07LgQNo4JjrYzfMAx+DXdtg9ljrmBMOPCcHJrDANsv105z/DrUc26ow1pqFAxOYP8tggZ3un+Z1HHDFsa0KYy0qHDggB06jgffdP81Nrj5hWxXH2rTHv1/flgBl2+oCD3Ruq+JYEw68JAeuooFdro/dSR64IGyr4lir9/j31240sN/1ses8w3WHXx7FsSYeGG3MkS0PYYEx7tMc09McYy0EiJoyvk3AAi9z2yqmF+5jbRMQRY1MU2jgWW5bxbTlPtamQN7AoA38gQb22p/mqLbdx9o4SOue47dVNHA0AzyJ6lHqJxjmSo21ybA0x/hrRgMt01OvVP3/AQuMm976ogY4iQa2ewQ+VAMcQAOXPQJ/KvG1AhrY5xH4W4VvsBsPjHjzfTZUFAY0sM3cg0u8Bnhgp0fgNwUvTBQ8ABv+9yWeXU+AF+CwV+Bp136dwrRz6dZACMATcMRUUjuoSQTWqQHGwE4p8LoaXxfYqQUuKNBx36vqgSeV+PpAVcXZwF4Vvv4YqGp/NnBFhS8OyirJAvZYhftGWkBd/ixgvPAf31APKKwiC9heV0iR0eGFHlBaGQPaVRMHFgWJA/2MOLCMONBXQxx4gBEHlhMHHmHEgSeIA48y2kDfQeLASkYb6A/SBpbUMtLA4gAjDfSVM9LAouOMNHB/NSMNPHyIkQYeqGWUgcVljBEG+kprGGGgrzTAGF1gSdUhxqgCi/xVB5l7+/a40orKY+WBINPpdDqdTqfT6XQ6XR79AaHVNQCh3aypAAAAAElFTkSuQmCC";
 @themeLogoDark: @themeLogoLight;
 
@@ -60,8 +61,8 @@
 
 // 链接颜色
 @aBorderWidth: 1px;
-@aColor: @boldColorLight;
-@aColorDark: @boldColorDark;
+@aColor: @headerColor;
+@aColorDark: @headerColorDark;
 @aLineColor: @theme2;
 @aHoverColor: @aLineColor;
 @aActiveColor: desaturate(@aLineColor, 30%);

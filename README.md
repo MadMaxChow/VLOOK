@@ -72,7 +72,7 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 # 安装与使用
 
-只需三步，即可开启全新的 Markdown 体验，[点击这里开始](https://madmaxchow.github.io/VLOOK/index.html#how-to-use)（[备用链接](https://madmaxchow.gitee.io/VLOOK/index.html#how-to-use)）
+只需三步，即可开启全新的 Markdown 体验，[点击这里开始](https://madmaxchow.github.io/VLOOK/index.html#安装与使用)（[备用链接](https://madmaxchow.gitee.io/VLOOK/index.html#安装与使用)）
 
 ---
 

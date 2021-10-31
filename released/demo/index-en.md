@@ -10,7 +10,7 @@ vlook-query: effects=2&ws=auto&lmc=1
 vlook-doc-lib: vlook-lib-en.html
 ---
 
-###### <sub>VLOOK™</sub><br />Make Your Markdown A New Perspective<br />──<br /><sup>Introduction</sup><br />`#Latest|V11.0#(theme2)`<br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2021. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br />Make Your Markdown A New Perspective<br />──<br /><sup>Introduction</sup><br />`#Latest|V12.0#(theme2)`<br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2021. MAX°DESIGN.*
 
 [TOC]
 
@@ -99,7 +99,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 
 ---
 
->　　　　###### ![°文档排版](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-types-light.svg?mode=icon2x&fill=text&darksrc=invert) ° LAYOUT
+>　　　　###### ![°文档排版](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-types-light.svg?mode=icon&fill=text&darksrc=invert) ° LAYOUT
 >
 >---
 >
@@ -111,26 +111,26 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 >[<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°文档排版)
 >
->`>(blue)`
+>`>(purple)`
 
-> ###### ![°内容导航](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-nav-light.svg?mode=icon2x&fill=text&darksrc=invert) ° NAVIGATION
+> ###### ![°内容导航](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-nav-light.svg?mode=icon&fill=text&darksrc=invert) ° NAVIGATION
 >
 > ---
 >
 > **VLOOK ™ provides tools for document chapters, figures, tables, and multimedia to provide multiple forms of navigation, rapid positioning, and content organization to improve and improve the browsing experience and efficiency of published HTML files.**
 >
-> No extra action, just focus on document writing. When one-click export, that is, the date of automatic generation of navigation~
+> No extra action, focus on document writing. Automatic integration is completed when you click export~
 >
 > 
 >
 > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°内容导航)
 >
-> `>(cyan)`
+> `>(blue)`
 
 ---
 
 >
->###### ![°演示与出版辅助](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-pres-light.svg?mode=icon2x&fill=text&darksrc=invert) ° PRESENTATION & PUBLICATION
+>###### ![°演示与出版辅助](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-pres-light.svg?mode=icon&fill=text&darksrc=invert) ° PRESENTATION & PUBLICATION
 >
 >---
 >
@@ -145,7 +145,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >`>(orange)`
 
 >
->###### ![°主题与不杂项](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-theme-light.svg?mode=icon2x&fill=text&darksrc=invert) ° THEME & not MISC.
+>###### ![°主题与不杂项](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-theme-light.svg?mode=icon&fill=text&darksrc=invert) ° THEME & not MISC.
 >
 >---
 >
@@ -167,73 +167,73 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > `>(brown)`
 
-###### Step 1 • Download and Configure
+## Download and Configure
 
----
-
----
-
-> ###### Download the Plug-in
+> ---
 >
 > ---
 >
-> 1. Download the latest version from the homepage of VLOOK™ on **[GitHub](https://github.com/MadMaxChow/VLOOK/releases)** or **[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)** ;
-> 2. You can also [download the theme file](https://github.com/MadMaxChow/VLOOK/tree/master/released/theme) ( [alternate link](https://gitee.com/madmaxchow/VLOOK/tree/master/released/theme) ) directly on the project homepage .
+> > ###### Download the Plug-in
+> >
+> > ---
+> >
+> > 1. Download the latest version from the homepage of VLOOK™ on **[GitHub](https://github.com/MadMaxChow/VLOOK/releases)** or **[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)** ;
+> > 2. You can also [download the theme file](https://github.com/MadMaxChow/VLOOK/tree/master/released/theme) ( [alternate link](https://gitee.com/madmaxchow/VLOOK/tree/master/released/theme) ) directly on the project homepage .
+> >
+> > `>(theme1)`
 >
-> `>(theme1)`
-
-> ###### Install Typora
+> > ###### Install Typora
+> >
+> > ---
+> >
+> > 1. Download and install the latest version of [Typora](https://www.typora.io) ;
+> > 2. Start Typora and enter "**Preferences**", enable all options under "**Markdown Extended Syntax, Code Blocks**". See the figure below for details:
+> >
+> > `>(theme1)`
 >
-> ---
->
-> 1. Download and install the latest version of [Typora](https://www.typora.io) ;
-> 2. Start Typora and enter "Preferences", enable all options under "Markdown Extended Syntax, Code Blocks". See the figure below for details:
->
-> `>(theme1)`
-
-> ###### Install Fonts (optional)
->
-> ---
->
-> Download and install the VLOOK™ theme matching font pack•• See " [Font Themes](guide.html#字体主题) " for details.
->
-> `>(gray)`
+> > ###### Install Fonts (optional)
+> >
+> > ---
+> >
+> > Download and install the VLOOK™ theme matching font pack•• See "[Font Themes](guide.html#字体主题)" for details.
+> >
+> > `>(gray)`
 
 ![Typora ▸ Preferences ▸ Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/typora-opt1-light.png?srcset=@2x&darksrc=typora-opt1-dark.png&darksrcset=@2x)
 
 ---
 
-###### Step 2 • Install the Theme Package
+## Install the Theme Package
 
----
-
----
-
-> ###### Install the Theme
+> ---
 >
 > ---
 >
-> 1. The `released\theme`all CSS files are copied to Typora theme directory;
-> 2. Where is the theme directory? You can navigate to this directory by clicking " **Appearance ▸ Open Theme Directory** " in "Preferences".
+> > ###### Install the Theme
+> >
+> > ---
+> >
+> > 1. The `released\theme`all CSS files are copied to Typora theme directory;
+> > 2. Where is the theme directory? You can navigate to this directory by clicking "**Preferences ▸ Appearance ▸ Open Theme Directory**".
+> >
+> > `>(orange)`
 >
-> `>(theme1)`
-
-> ###### Select Theme
+> > ###### Select Theme
+> >
+> > ---
+> >
+> > 1. Restart Typora;
+> > 2. Click the "**Theme**" menu, select to `Vlook-*` any topic can be in the form of naming.
+> >
+> > `>(orange)`
 >
-> ---
->
-> 1. Restart Typora;
-> 2. Click the " **Theme** " menu, select to `Vlook-*`any topic can be in the form of naming.
->
-> `>(theme1)`
-
-> ###### Start Writing from the Template
->
-> ---
->
-> It is recommended to create your own Markdown document based on the document template of the VLOOK™ specification, so that you can get started faster.
->
-> `>(theme1)`
+> > ###### Start Writing from the Template
+> >
+> > ---
+> >
+> > It is recommended to create your own Markdown document based on the document template of the VLOOK™ specification, so that you can get started faster.
+> >
+> > `>(orange)`
 
 **Where are the template files?**
 
@@ -245,49 +245,55 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 
 ---
 
-###### Step 3 • Configure Export Options
+## Configure Export Options
 
----
-
----
-
-> ###### Install the Theme
+> ---
 >
 > ---
 >
-> 1. The `released\theme` all CSS files are copied to Typora theme directory;
-> 2. Where is the theme directory? You can navigate to this directory by clicking " **Appearance ▸ Open Theme Directory** " in "Preferences".
->
-> `>(theme1)`
-
-> ###### Select Theme
->
 > ---
 >
-> 1. Restart Typora;
-> 2. Click the " **Theme** " menu, select to `Vlook-*` any topic can be in the form of naming.
+> > ###### Configure export setting
+> >
+> > ---
+> >
+> > 1. Start Typora and enter "**Preferences**";
+> > 2. Click "**Export**", add configuration (==select HTML template==), and name the configuration `VLOOK`.
+> >
+> > `>(blue)`
 >
-> `>(theme1)`
-
-> ###### Start Writing from the Template
+> > ###### Install meta tag code
+> >
+> > ---
+> >
+> > 1. Open the meta tag file: released\plugin\\[**meta.txt**](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/meta.txt) ( [alternate link](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/meta.txt) );
+> > 2. Select and copy all contents;
+> > 3. Paste to "**Preferences ▸ Export ▸ VLOOK ▸ Append in &lt;head /&gt;**".
+> >
+> > `>(blue)`
 >
-> ---
+> > ###### Install the plugin code
+> >
+> > ---
+> >
+> > 1. Open the plug-in file: released\plugin\\[**plugin.txt**](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin.txt) ( [alternate link](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt) );
+> > 2. Select and copy all contents;
+> > 3. Paste to "**Preferences ▸ Export ▸ VLOOK ▸ Append in &lt;body /&gt;**".
+> >
+> > `>(blue)`
 >
-> It is recommended to create your own Markdown document based on the document template of the VLOOK™ specification, so that you can get started faster.
->
-> `>(theme1)`
+> > ###### One-click export
+> >
+> > ---
+> >
+> > 1. Open the md file conforming to the VLOOK™ specification;
+> > 2. Click "**File ▸ Export ▸ VLOOK** or **VLOOK (live)**".
+> >
+> > `>(blue)`
 
 ![Typora ▸ Preferences ▸ Export](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
 
 ## Supplement
-
-> ###### Update plugin
->
-> ---
->
-> To upgrade the old version of VLOOK to the latest version, click **Step 1** above to download the latest released version, and click **Step 2** and **Step 3** to update the corresponding "Theme" and "Export Configuration".
->
-> `>(theme1)`
 
 > ###### Online version plug-in
 >
@@ -303,7 +309,17 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > The online version of the plugin file is: released\plugin \ **plugin-live.txt** , or directly open the online version of [plugin-live.txt](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin-live.txt) ( [alternative link](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt) )
 >
-> `>(red)`
+> `>(theme1)`
+
+---
+
+> ###### Update plugin
+>
+> ---
+>
+> To upgrade the old version of vlook to the latest version, repeat **step 1** above to download the latest release version, and press **steps 2 and 3** to update the corresponding "theme" and "export configuration".
+>
+> `>(green)`
 
 > ###### Choose the right browser
 >
@@ -311,9 +327,9 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > In order to ensure the best user experience, it is strongly recommended to use the following browsers to access:
 >
-> ![Chrome](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/chrome.png?mode=icon) Google **[Chrome](https://www.google.cn/chrome/)**　　![Edge](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/edge.png?mode=icon) Microsoft **[Edge](https://www.microsoft.com/zh-cn/edge)**^(Chromium)^　　![Firefox](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/firefox.png?mode=icon) Mozilla **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
+> ![Chrome](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/chrome.png?mode=icon2x) **[Chrome](https://www.google.cn/chrome/)**　　![Edge](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/edge.png?mode=icon2x) **[Edge](https://www.microsoft.com/zh-cn/edge)**　　![Firefox](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/firefox.png?mode=icon2x) **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
 >
-> `>(brown)`
+> `>(blue)`
 
 ---
 
@@ -343,4 +359,4 @@ See " [Customize Welcome Page Content](guide.html#自定义欢迎页内容) " fo
 
 See " [Startup Parameters](guide.html#启动参数) " for details
 
-###### The End
+# The End

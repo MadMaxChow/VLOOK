@@ -10,7 +10,7 @@ vlook-query: effects=2&ws=auto&lmc=1
 vlook-doc-lib: vlook-lib.html
 ---
 
-###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>脚本化图表参考指南</sup><br /><br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2017-2021. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>脚本化图表参考指南</sup><br />`#最新版本|V12.0#(theme2)`<br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2017-2021. MAX°DESIGN.*
 
 [TOC]
 
@@ -562,7 +562,7 @@ pie title Q3 2019 中国线上智能手机市场主要品牌市场份额
 
 ###### 以上「饼图」的画图脚本示例
 
-```
+````
 ```mermaid
 pie title Q3 2019 中国线上智能手机市场主要品牌市场份额
 "华为" : 26
@@ -572,8 +572,8 @@ pie title Q3 2019 中国线上智能手机市场主要品牌市场份额
 "Apple" : 9
 "OPPO" : 5
 "其他" : 16
-​```
 ```
+````
 
 ## 实体关系图
 
@@ -614,4 +614,4 @@ flowchart.js 基于 SVG 的流程图插件，它仅需几行代码即可在 Web 
 
 JS sequence diagrams 是一个方便建立 UML 的顺序图（序列图 or 循序图）在线工具，使用简单。详见 [JS Sequence Diagrams 官网](https://bramp.github.io/js-sequence-diagrams/)。
 
-######The End 
+#The End 

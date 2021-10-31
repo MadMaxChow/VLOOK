@@ -1,8 +1,8 @@
 /**************************************
 * VLOOK CSS 字体主题
 *
-* V11.0
-* 2021-09-22
+* V12.0
+* 2021-10-30
 *
 * 配合 base.less 进行使用
 *
@@ -103,9 +103,25 @@
 //     display: swap;
 // }
 
+@font-face {
+    font-family: "color-emoji";
+    src: local("Apple Color Emoji"),
+         local("Segoe UI Emoji"),
+         local("Segoe UI Symbol"),
+         local("Noto Color Emoji");
+    // 适用的编码范围
+    unicode-range: U+1F000-1FAFF, U+2139-3299;
+    // 参考链接：
+    // https://unicode-table.com/cn/blocks/mahjong-tiles/
+    // ...
+    // https://unicode-table.com/cn/blocks/miscellaneous-technical/
+}
+
 // =========================================
 // 基础字体信息
 // -----------------------------------------
+// Emoji / symbol 等符号字体
+@emoji: "color-emoji";
 // 基础等宽字体
 @base_mono: Courier, "Courier New";
 // 数值字体
@@ -183,28 +199,28 @@
 // 风格 － Microsoft SC
 // @sansFont: @msyh;
 // @monoSansFont: @msyh_mono;
-// @fontWeight4Sans: @msyh_fw_bold;
+// @fontBoldWeight4Sans: @msyh_fw_bold;
 // ----------------------------------------
 // 风格 － Microsoft TC
 // @sansFont: @msjh;
 // @monoSansFont: @msjh_mono;
-// @fontWeight4Sans: @msjh_fw_bold;
+// @fontBoldWeight4Sans: @msjh_fw_bold;
 // ----------------------------------------
 // 风格 － Alibaba
 // @sansFont: @ali;
 // @monoSansFont: @ali_mono;
-// @fontWeight4Sans: @ali_fw_bold;
+// @fontBoldWeight4Sans: @ali_fw_bold;
 // ----------------------------------------
 // 风格 － Freedom
 @sansFont: @noto;
 @monoSansFont: @noto_mono;
-@fontWeight4Sans: @noto_fw_bold;
-@fontWeightText4Sans: @noto_fw_text;
+@fontBoldWeight4Sans: @noto_fw_bold;
+@fontBoldWeightText4Sans: @noto_fw_text;
 // ----------------------------------------
 // 风格 － Mellow
 // @sansFont: @gen;
 // @monoSansFont: @gen_mono;
-// @fontWeight4Sans: @gen_fw_bold;
+// @fontBoldWeight4Sans: @gen_fw_bold;
 
 //=========================================
 // 混搭字体风格组合
@@ -215,8 +231,8 @@
 // @serifTitle: @cross_win_title;
 // @serifHeader: @cross_win_header;
 // @monoSerifFont: @cross_win_mono;
-// @fontWeight4Serif: @cross_win_fw_bold;
-// @fontWeight4Title: @cross_win_fw_title;
+// @fontBoldWeight4Serif: @cross_win_fw_bold;
+// @fontBoldWeight4Title: @cross_win_fw_title;
 // ----------------------------------------
 // 风格 － 现代
 @serifFont: @cross_noto_serif;
@@ -224,9 +240,9 @@
 @serifTitle: @cross_noto_title;
 @serifHeader: @cross_noto_header;
 @monoSerifFont: @cross_noto_mono;
-@fontWeight4Serif: @cross_noto_fw_bold;
-@fontWeight4Title: @cross_noto_fw_title;
-@fontWeightText4Serif: @cross_noto_fw_text;
+@fontBoldWeight4Serif: @cross_noto_fw_bold;
+@fontBoldWeight4Title: @cross_noto_fw_title;
+@fontBoldWeightText4Serif: @cross_noto_fw_text;
 
 //=========================================
 // 注意：添加、修改或删除以下变量，或是 bass.less 中调整字体配置后，
@@ -234,18 +250,18 @@
 
 // 非衬线风格 Sans，启用则取消以下注释，并将 Serif + Sans 注释掉
 @defaultFontStyle: sans;
-@titleFont: @sansFont;
-@subtitleFont: @sansFont;
-@headerFont: @sansFont;
-@textFont: @sansFont; // @base_mono_sans_en, @sansFont;
-@boldFont: @sansFont; // @base_mono_sans_en, @sansFont;
-@numberFont: @number_font, @base_mono_sans_en, @sansFont;
-@tagFont: @boldFont;
-@codeFont: @base_mono_sans_en, @monoSansFont;
-// @fontWeight4Serif: @fontWeight4Sans;
-@fontWeight: @fontWeight4Sans;
-@titleFontWeight: @fontWeight4Sans;
-@textFontWeight: @fontWeightText4Sans;
+@titleFont: @emoji, @sansFont;
+@subtitleFont: @emoji, @sansFont;
+@headerFont: @emoji, @sansFont;
+@textFont: @emoji, @sansFont; // @base_mono_sans_en, @sansFont;
+@boldFont: @emoji, @sansFont; // @base_mono_sans_en, @sansFont;
+@numberFont: @emoji, @number_font, @base_mono_sans_en, @sansFont;
+@tagFont: @emoji, @boldFont;
+@codeFont: @emoji, @base_mono_sans_en, @monoSansFont;
+// @fontBoldWeight4Serif: @fontBoldWeight4Sans;
+@fontBoldWeight: @fontBoldWeight4Sans;
+@titleFontWeight: @fontBoldWeight4Sans;
+@textFontWeight: @fontBoldWeightText4Sans;
 
 // 衬线+非衬线混排风格 Serif + Sans，启用则取消以下注释，并将 Sans 注释掉
 // @defaultFontStyle: serif;
@@ -257,6 +273,6 @@
 // @numberFont: @number_font, @base_mono_sans_en, @sansFont;
 // @tagFont: @boldFont;
 // @codeFont: @base_mono_sans_en, @monoSerifFont;
-// @fontWeight: @fontWeight4Serif;
-// @titleFontWeight: @fontWeight4Title;
-// @textFontWeight: @fontWeightText4Serif;
+// @fontBoldWeight: @fontBoldWeight4Serif;
+// @titleFontWeight: @fontBoldWeight4Title;
+// @textFontWeight: @fontBoldWeightText4Serif;
