@@ -1,5 +1,11 @@
 Select language ❯  [🇬🇧 **English**](README-en.md)
 
+
+
+> **VLOOK 正在参与 [2021 年度 OSC 中国开源项目评选](https://www.oschina.net/project/top_cn_2021)，请投票支持！**
+>
+> **（进入后直接在右上角搜索 `VLOOK` 即可定位到对应的投票箱～）**
+
 # VLOOK™ ── 让你的 Markdown 有了新看(wán)法
 
 
