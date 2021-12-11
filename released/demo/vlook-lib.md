@@ -42,7 +42,7 @@ title: 浏览更多 VLOOK™ 的话题
 > >
 > > [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°文档排版)
 > >
-> > `>(purple)`
+> > `>(green!)`
 >
 > > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-nav-light.svg?mode=icon&fill=text) °内容导航
 > >
@@ -52,7 +52,7 @@ title: 浏览更多 VLOOK™ 的话题
 > >
 > > [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°内容导航)
 > >
-> > `>(blue)`
+> > `>(blue!)`
 >
 > > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-pres-light.svg?mode=icon&fill=text) °演示与出版辅助
 > >
@@ -62,7 +62,7 @@ title: 浏览更多 VLOOK™ 的话题
 > >
 > > [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°演示与出版辅助)
 > >
-> > `>(orange)`
+> > `>(orange!)`
 >
 > > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-theme-light.svg?mode=icon&fill=text) °主题与不杂项
 > >
@@ -72,7 +72,7 @@ title: 浏览更多 VLOOK™ 的话题
 > >
 > > [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°主题与不杂项)
 > >
-> > `>(green)`
+> > `>(brown!)`
 >
 > `>(gray)`
 

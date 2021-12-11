@@ -1,0 +1,504 @@
+/**************************************
+* VLOOK CSS - @media 相关的样式
+*
+* V13.0
+* 2021-12-11
+*
+* 配合 base.less 进行使用
+*
+***************************************/
+
+// ---------------
+// 针对大于该分辨设备的 UI 调整
+@media screen and (min-height: 801px) {
+    // 工具栏、逐章导航栏不在封面显示时的样式
+    :root {
+        --vlook-top-margin:-3px;
+    }
+
+    .mdx-toolbar.mdx-float-card,
+    .mdx-chapter-nav.mdx-float-card {
+        top: 10px !important;
+        border-top-left-radius: var(--vlook-base-radius);
+        border-top-right-radius: var(--vlook-base-radius);
+    }
+
+    .mdx-chapter-nav-prev.noeffect.hover,
+    .mdx-chapter-nav-prev.effect.hover,
+    .mdx-chapter-nav-prev.effect::before {
+        border-top-left-radius: var(--vlook-base-radius);
+    }
+
+    .mdx-chapter-nav-next.noeffect.hover,
+    .mdx-chapter-nav-next.effect::before,
+    .mdx-chapter-nav-next.effect.hover {
+        border-top-right-radius: var(--vlook-base-radius);
+    }
+
+    // 导航中心占位方式时高度
+    .mdx-nav-center-block {
+        top: 70px;
+    }
+}
+
+// ---------------
+// 针对大于该分辨设备的 UI 调整
+@media screen and (min-width: 1441px) {
+    :root {
+        --vlook-nav-center-width:400px;
+        --vlook-nav-center-hidden-left:-410px;
+        --vlook-toolbar-btn-width:40px;
+    }
+
+    // 以双栏方式显示，98.5/2*2+1.5*1=100
+    #write hr + blockquote,
+    #write hr + blockquote + blockquote,
+    #write .md-hr + blockquote,
+    #write .md-hr + blockquote + blockquote {
+        max-width: 49.25% !important;
+        min-width: 49.25% !important;
+    }
+    // 双栏内容之间的样式
+    #write hr + blockquote + blockquote,
+    #write .md-hr + blockquote + blockquote  {
+        margin-left: 1.5% !important;
+    }
+
+    // 以三栏方式显示，97.02/3*3+1.49*2=100
+    #write hr + hr + blockquote,
+    #write hr + hr + blockquote + blockquote,
+    #write hr + hr + blockquote + blockquote + blockquote,
+    #write .md-hr + .md-hr + blockquote,
+    #write .md-hr + .md-hr + blockquote + blockquote,
+    #write .md-hr + .md-hr + blockquote + blockquote + blockquote {
+        max-width: 32.34% !important;
+        min-width: 32.34% !important;
+    }
+    // 三栏内容之间的样式
+    #write hr + hr + blockquote + blockquote,
+    #write hr + hr + blockquote + blockquote + blockquote,
+    #write .md-hr + .md-hr + blockquote + blockquote,
+    #write .md-hr + .md-hr + blockquote + blockquote + blockquote  {
+        margin-left: 1.49% !important;
+    }
+
+    // 以四栏方式显示，95.5/4*4+1.5*3=100
+    #write hr + hr + hr + blockquote,
+    #write hr + hr + hr + blockquote + blockquote,
+    #write hr + hr + hr + blockquote + blockquote + blockquote,
+    #write hr + hr + hr + blockquote + blockquote + blockquote + blockquote,
+    #write .md-hr + .md-hr + .md-hr + blockquote,
+    #write .md-hr + .md-hr + .md-hr + blockquote + blockquote,
+    #write .md-hr + .md-hr + .md-hr + blockquote + blockquote + blockquote,
+    #write .md-hr + .md-hr + .md-hr + blockquote + blockquote + blockquote + blockquote {
+        max-width: 23.875% !important;
+        min-width: 23.875% !important;
+    }
+    // 四栏内容之间的样式
+    #write hr + hr + hr + blockquote + blockquote,
+    #write hr + hr + hr + blockquote + blockquote + blockquote,
+    #write hr + hr + hr + blockquote + blockquote + blockquote + blockquote,
+    #write .md-hr + .md-hr + .md-hr + blockquote + blockquote,
+    #write .md-hr + .md-hr + .md-hr + blockquote + blockquote + blockquote,
+    #write .md-hr + .md-hr + .md-hr + blockquote + blockquote + blockquote + blockquote  {
+        margin-left: 1.5% !important;
+    }
+}
+
+// ---------------
+// 针对小于该分辨设备的 UI 调整
+@media screen and (max-width: 1024px) {
+    // 逐章导航UI
+    .mdx-chapter-nav {
+        left: 20px !important;
+    }
+    .mdx-chapter-nav-doc-title,
+    .mdx-chapter-nav-current {
+        margin-left: 40px !important;
+        margin-right: 40px !important;
+    }
+    .mdx-chapter-nav-prev,
+    .mdx-chapter-nav-next {
+        width: 20% !important;
+    }
+    .mdx-chapter-nav-prev-text,
+    .mdx-chapter-nav-next-text {
+        display: none !important;
+    }
+    // 取消自动换行
+    #write table,
+    body.typora-export table {
+        white-space: pre !important;
+    }
+
+    // 页面第1个H6为封面样式
+    #write > pre.md-meta-block:first-child + h6,
+    #write > h6:first-child,
+    // 页面最后 1 个 H6 为封底样式
+    #write > h1:last-child {
+    // #write > h6:last-child {
+        font-size: 2em !important;
+    }
+}
+
+// 针对超大屏手机、iPad 等设备的 UI 调整
+@media screen and (min-width: 641px) and (max-width: 1023px) {
+    .mdx-welcome-page {
+        font-size: 1.25em !important;
+    }
+}
+
+// 针对大屏手机的 UI 调整
+@media screen and (min-width: 361px) and (max-width: 639px) {
+    .mdx-welcome-page {
+        font-size: 1.1em !important;
+    }
+}
+
+// 针对中小屏手机的 UI 调整
+@media screen and (max-width: 360px) {
+    .mdx-welcome-page {
+        font-size: 1em !important;
+    }
+}
+
+// ---------------
+// 针对不的 DRP
+@media  (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
+    // 为减少主题包大小，先不启用
+    // .mdx-img-lost {
+    //     background-image: url("data:image/png;base64,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") !important;
+    // }
+}
+
+// ---------------
+// 针对打印的配置
+@media print {
+    html {
+        font-size: 1em !important;
+        // zoom: 1 !important;
+    }
+
+    #write {
+        margin: 20px !important;
+    }
+
+    .mdx-doc-title {
+        opacity: 1;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        box-shadow: none !important;
+        background: none !important;
+    }
+
+    .mdx-table-cross {
+        box-shadow: none !important;
+        background: none !important;
+    }
+
+    #write table:hover,
+    body.typora-export table:hover {
+        border-color: var(--tbl-border-color) !important;
+    }
+
+    // 打印时先关闭 VLOOK 未加载完成前样式
+    body.typora-export #write::before {
+        display: none !important;
+    }
+
+    .mdx-caption:hover {
+        background-color: var(--doc-bg-color-alt);
+    }
+
+    .mdx-img-invert-dark {
+        filter: none;
+    }
+
+    blockquote {
+        display: block !important;
+    }
+
+    .mdx-welcome-page,
+    .mdx-tool-tips,
+    .mdx-info-tips,
+    .mdx-bottom-tips,
+    .mdx-more-doc-content-before,
+    .mdx-more-doc-content-after,
+    .mdx-link-error-list,
+    .mdx-btn-open-in-new-tab,
+    .mdx-toc-handle,
+    .mdx-toolbar,
+    .mdx-btn-outline,
+    .mdx-chapter-nav,
+    .mdx-nav-center,
+    .mdx-nav-center-header,
+    .mdx-nav-center-body,
+    .mdx-status-bar {
+        display: none !important;
+        // filter: none;
+    }
+
+    .mdx-pg-current-item {
+        box-shadow: none !important;
+    }
+
+    // 显示原始的目录
+    #write .md-toc {
+        display: block !important;
+    }
+
+    // 清空当前章节的样式
+    .mdx-toc-item-current {
+        background: none !important;
+    }
+    .mdx-toc-item-current a {
+        color: var(--fore-color) !important;
+    }
+
+    .mdx-toc {
+        display: block !important;
+        visibility: visible !important;
+    }
+
+    #write > pre.md-meta-block:first-child + h6,
+    #write > h6:first-child,
+    #write > h1:last-child,
+    // #write > h6:last-child,
+    #write > pre.md-meta-block:first-child + h6 sub,
+    #write > h6:first-child sub,
+    #write > pre.md-meta-block:first-child + h6 sup,
+    #write > h6:first-child sup,
+    #write > pre.md-meta-block:first-child + h6 strong,
+    #write > pre.md-meta-block:first-child + h6 strong::before,
+    #write > pre.md-meta-block:first-child + h6 em,
+    #write > h6:first-child strong,
+    #write > h6:first-child strong::before,
+    #write > h6:first-child em {
+        background: #FFFFFF none !important;
+        color: @foreColorLight !important;
+    }
+}
+
+// 针对 Dark Mode的配置
+@media (prefers-color-scheme: dark) {
+    :root {
+        --vlook-color-scheme: dark;
+        --vlook-invert-dark: var(--vlook-invert-dark-dark); // Dark Mode下图片滤镜
+        --vlook-brightness-dark: var(--vlook-brightness-dark-dark); // Dark Mode下封面、封底滤镜
+
+        // --------------------
+        // 颜色变量
+        --doc-bg-color: var(--doc-bg-color-dark);
+        --doc-bg-color-alt: var(--doc-bg-color-alt-dark);
+        --doc-bg-color-transparent: var(--doc-bg-color-transparent-dark);
+        --doc-bg-color-alt-transparent: var(--doc-bg-color-alt-transparent-dark);
+        --fore-color: var(--fore-color-dark);
+        --fore-color-alt: var(--fore-color-alt-dark);
+
+        --blockquote-bg: var(--blockquote-bg-dark);
+        --tips-bg-color: var(--tips-bg-color-dark);
+        --tips-bg-color-inset: var(--tips-bg-color-inset-dark);
+        --a-color: var(--a-color-dark);
+        --mark-color: var(--mark-color-dark);
+        --tbl-header-color: var(--tbl-header-color-dark);
+        --tbl-border-color: var(--tbl-border-color-dark);
+        --tbl-th-bg-color: var(--tbl-th-bg-color-dark);
+        --tbl-td-bg-color: var(--tbl-td-bg-color-dark);
+        --tbl-cell-border-color: var(--tbl-cell-border-color-dark);
+        --tbl-row-g-alpha: var(--tbl-row-g-alpha-dark);
+        --del-color: var(--del-color-dark);
+        --toc-header-num-color: var(--toc-header-num-color-dark);
+        --header-color: var(--header-color-dark);
+        --header-box-shadow: var(--header-box-shadow-dark);
+        --header-bg-start-color: var(--header-bg-start-color-dark);
+        --header-bg-end-color: var(--header-bg-end-color-dark);
+        --code-bg-color: var(--code-bg-color-dark);
+        --code-name-shadow-color: var(--code-name-shadow-color-dark);
+
+        --keycap-color: var(--keycap-color-dark);
+        --keycap-reflect-color: var(--keycap-reflect-color-dark);
+        --keycap-shadow-color: var(--keycap-shadow-color-dark);
+
+        --acc-color-red: var(--acc-color-red-dark);
+        --acc-color-red-alt: var(--acc-color-red-alt-dark);
+        --acc-color-red-fade: var(--acc-color-red-fade-dark);
+        --acc-color-red-title: var(--acc-color-red-title-dark);
+        --acc-color-orange: var(--acc-color-orange-dark);
+        --acc-color-orange-alt: var(--acc-color-orange-alt-dark);
+        --acc-color-orange-fade: var(--acc-color-orange-fade-dark);
+        --acc-color-orange-title: var(--acc-color-orange-title-dark);
+        --acc-color-yellow: var(--acc-color-yellow-dark);
+        --acc-color-yellow-alt: var(--acc-color-yellow-alt-dark);
+        --acc-color-yellow-fade: var(--acc-color-yellow-fade-dark);
+        --acc-color-yellow-title: var(--acc-color-yellow-title-dark);
+        --acc-color-lime: var(--acc-color-lime-dark);
+        --acc-color-lime-alt: var(--acc-color-lime-alt-dark);
+        --acc-color-lime-fade: var(--acc-color-lime-fade-dark);
+        --acc-color-lime-title: var(--acc-color-lime-title-dark);
+        --acc-color-green: var(--acc-color-green-dark);
+        --acc-color-green-alt: var(--acc-color-green-alt-dark);
+        --acc-color-green-fade: var(--acc-color-green-fade-dark);
+        --acc-color-green-title: var(--acc-color-green-title-dark);
+        --acc-color-aqua: var(--acc-color-aqua-dark);
+        --acc-color-aqua-alt: var(--acc-color-aqua-alt-dark);
+        --acc-color-aqua-fade: var(--acc-color-aqua-fade-dark);
+        --acc-color-aqua-title: var(--acc-color-aqua-title-dark);
+        --acc-color-cyan: var(--acc-color-cyan-dark);
+        --acc-color-cyan-alt: var(--acc-color-cyan-alt-dark);
+        --acc-color-cyan-fade: var(--acc-color-cyan-fade-dark);
+        --acc-color-cyan-title: var(--acc-color-cyan-title-dark);
+        --acc-color-blue: var(--acc-color-blue-dark);
+        --acc-color-blue-alt: var(--acc-color-blue-alt-dark);
+        --acc-color-blue-fade: var(--acc-color-blue-fade-dark);
+        --acc-color-blue-title: var(--acc-color-blue-title-dark);
+        --acc-color-sea: var(--acc-color-sea-dark);
+        --acc-color-sea-alt: var(--acc-color-sea-alt-dark);
+        --acc-color-sea-fade: var(--acc-color-sea-fade-dark);
+        --acc-color-sea-title: var(--acc-color-sea-title-dark);
+        --acc-color-purple: var(--acc-color-purple-dark);
+        --acc-color-purple-alt: var(--acc-color-purple-alt-dark);
+        --acc-color-purple-fade: var(--acc-color-purple-fade-dark);
+        --acc-color-purple-title: var(--acc-color-purple-title-dark);
+        --acc-color-magenta: var(--acc-color-magenta-dark);
+        --acc-color-magenta-alt: var(--acc-color-magenta-alt-dark);
+        --acc-color-magenta-fade: var(--acc-color-magenta-fade-dark);
+        --acc-color-magenta-title: var(--acc-color-magenta-title-dark);
+        --acc-color-pink: var(--acc-color-pink-dark);
+        --acc-color-pink-alt: var(--acc-color-pink-alt-dark);
+        --acc-color-pink-fade: var(--acc-color-pink-fade-dark);
+        --acc-color-pink-title: var(--acc-color-pink-title-dark);
+        --acc-color-gold: var(--acc-color-gold-dark);
+        --acc-color-gold-alt: var(--acc-color-gold-alt-dark);
+        --acc-color-gold-fade: var(--acc-color-gold-fade-dark);
+        --acc-color-gold-title: var(--acc-color-gold-title-dark);
+        --acc-color-brown: var(--acc-color-brown-dark);
+        --acc-color-brown-alt: var(--acc-color-brown-alt-dark);
+        --acc-color-brown-fade: var(--acc-color-brown-fade-dark);
+        --acc-color-brown-title: var(--acc-color-brown-title-dark);
+        --acc-color-gray: var(--acc-color-gray-dark);
+        --acc-color-gray-alt: var(--acc-color-gray-alt-dark);
+        --acc-color-gray-fade: var(--acc-color-gray-fade-dark);
+        --acc-color-gray-title: var(--acc-color-gray-title-dark);
+        --acc-color-theme1: var(--acc-color-theme1-dark);
+        --acc-color-theme1-alt: var(--acc-color-theme1-alt-dark);
+        --acc-color-theme1-fade: var(--acc-color-theme1-fade-dark);
+        --acc-color-theme1-title: var(--acc-color-theme1-title-dark);
+        --acc-color-theme2: var(--acc-color-theme2-dark);
+        --acc-color-theme2-alt: var(--acc-color-theme2-alt-dark);
+        --acc-color-theme2-fade: var(--acc-color-theme2-fade-dark);
+        --acc-color-theme2-title: var(--acc-color-theme2-title-dark);
+
+        // Mermaid 样式变量
+        --mm-color-red: var(--mm-color-red-dark);
+        --mm-color-red-alt: var(--mm-color-red-alt-dark);
+        --mm-color-orange: var(--mm-color-orange-dark);
+        --mm-color-orange-alt: var(--mm-color-orange-alt-dark);
+        --mm-color-yellow: var(--mm-color-yellow-dark);;
+        --mm-color-yellow-alt: var(--mm-color-yellow-alt-dark);
+        --mm-color-green: var(--mm-color-green-dark);
+        --mm-color-green-alt: var(--mm-color-green-alt-dark);
+        --mm-color-cyan: var(--mm-color-cyan-dark);
+        --mm-color-cyan-alt: var(--mm-color-cyan-alt-dark);
+        --mm-color-blue: var(--mm-color-blue-dark);
+        --mm-color-blue-alt: var(--mm-color-blue-alt-dark);
+        --mm-color-purple: var(--mm-color-purple-dark);
+        --mm-color-purple-alt: var(--mm-color-purple-alt-dark);
+        --mm-color-pink: var(--mm-color-pink-dark);
+        --mm-color-pink-alt: var(--mm-color-pink-alt-dark);
+        --mm-color-brown: var(--mm-color-brown-dark);
+        --mm-color-brown-alt: var(--mm-color-brown-alt-dark);
+        --mm-color-gray: var(--mm-color-gray-dark);
+        --mm-color-gray-alt: var(--mm-color-gray-alt-dark);
+
+        // Typora 代码块着色样式变量
+        --cm-keyword: var(--cm-keyword-dark);
+        --cm-variable: var(--cm-variable-dark);
+        --cm-variable-2: var(--cm-variable-2-dark);
+        --cm-variable-3: var(--cm-variable-3-dark);
+        --cm-tag: var(--cm-tag-dark);
+        --cm-attribute: var(--cm-attribute-dark);
+        // --cm-CodeMirror-cursor: var(--cm-CodeMirror-cursor-dark);
+        --cm-string: var(--cm-string-dark);
+        --cm-string-2: var(--cm-string-2-dark);
+        --cm-comment: var(--cm-comment-dark);
+        --cm-header: var(--cm-header-dark);
+        --cm-quote: var(--cm-quote-dark);
+        --cm-hr: var(--cm-hr-dark);
+        --cm-link: var(--cm-link-dark);
+        --cm-negative: var(--cm-negative-dark);
+        --cm-positive: var(--cm-positive-dark);
+        --cm-meta: var(--cm-meta-dark);
+        --cm-bulidin: var(--cm-buliddark);
+        --cm-bracket: var(--cm-bracket-dark);
+        --cm-atom: var(--cm-atom-dark);
+        --cm-number: var(--cm-atom-dark);
+
+        // --------------------
+        // Typora UI 颜色变量
+        --bg-color: var(--doc-bg-color-dark);
+        --side-bar-bg-color: var(--doc-bg-color-dark);
+        --text-color: var(--fore-color-dark);
+
+        --select-text-bg-color: @themeBgColorFade;
+
+        --control-text-color: var(--fore-color-dark);
+        --control-text-hover-color: var(--fore-color-dark);
+        --window-border: 1px solid var(--doc-bg-color-alt-dark);
+
+        --active-file-bg-color:  var(--doc-bg-color-dark);
+        --active-file-border-color: var(--select-text-bg-color);
+        --active-file-text-color: var(--fore-color-dark);
+
+        --item-hover-bg-color: var(--doc-bg-color-alt-dark);
+        --item-hover-text-color: var(--fore-color-dark);
+
+        --primary-color: @themeBgColor;
+
+        --rawblock-edit-panel-bd: var(--doc-bg-color-dark);
+
+        --search-select-bg-color: @themeBgColorFade;
+    }
+
+    // 图片 URL 参数指定是否使用网格背景
+    #write img[src*="grid=line"],
+    #write svg[data-inject-url*="grid=line"] {
+        background: url(@figureGridLineDark);
+    }
+    #write img[src*="grid=block"],
+    #write svg[data-inject-url*="grid=block"] {
+        background: url(@figureGridBlockDark);
+    }
+
+    // 图片 URL 参数指定在 Dark Mode 时反色
+    #write img[src*="darksrc=invert"],
+    #write svg[data-inject-url*="darksrc=invert"] {
+        filter: var(--vlook-invert-dark);
+        border-color: @imgInvertInDarkBorderColor !important;
+        // 使用反色后的背景，以适应在反色中显示为正常效果
+        background: @figureSolidBgLight;
+    }
+    #write img[src*="darksrc=invert"][src*="grid=line"],
+    #write svg[data-inject-url*="darksrc=invert"][data-inject-url*="grid=line"] {
+        background: url(@figureGridLineDarkInvert);
+    }
+    #write img[src*="darksrc=invert"][src*="grid=block"],
+    #write svg[data-inject-url*="darksrc=invert"],[data-inject-url*="grid=block"] {
+        background: url(@figureGridBlockDarkInvert);
+    }
+
+    #write a:hover img[src*="darksrc=invert"],
+    #write a:hover svg[data-inject-url*="darksrc=invert"] {
+        filter: var(--vlook-invert-dark) brightness(1.3) !important;
+    }
+
+    // 备注文本
+    .noteText tspan {
+        fill: var(--fore-color-light) !important;
+    }
+}

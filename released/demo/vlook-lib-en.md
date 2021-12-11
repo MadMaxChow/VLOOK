@@ -39,45 +39,46 @@ title: More Topics about VLOOK™
 > ---
 >
 > > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-types-light.svg?mode=icon&fill=text) °Layout
->>>
+> >
 > > ---
 > >
 > > The automatic typesetting ability of markdown has been comprehensively improved
 > >
 > > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°文档排版)
 > >
-> > `>(purple)`
-> 
+> > `>(green!)`
+>
+> >
 > > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-nav-light.svg?mode=icon&fill=text) °Navigation
->>>
+> > 
 > > ---
 > >
 > > Integrated tools for navigation, rapid positioning, and content organization
 > >
 > > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°内容导航)
 > >
-> > `>(blue)`
-> 
+> > `>(blue!)`
+>
 > > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-pres-light.svg?mode=icon&fill=text) °Present.＆ Pub.
->>>
+> > 
 > > ---
 > >
 > > Built in flexible and convenient tools for presentation and publishing
 > >
 > > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°演示与出版辅助)
 > >
-> > `>(orange)`
-> 
+> > `>(orange!)`
+>
 > > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-theme-light.svg?mode=icon&fill=text) °Theme＆ not Misc.
->>>
+> > 
 > > ---
 > >
 > > The exquisite and delicate reading experience is pleasant and beautiful
 > >
 > > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°主题与不杂项)
 > >
-> > `>(green)`
-> 
+> > `>(brown!)`
+>
 > `>(gray)`
 
 

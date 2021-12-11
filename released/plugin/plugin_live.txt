@@ -1,14 +1,14 @@
 <!--
-VLOOK V12.0 - Typora Plugin ( live )
+VLOOK V13.0 - Typora Plugin ( live )
 Paste to "Export Setting ▸ VLOOK (live) ▸ Append in <body />"
 粘贴至「导出设置... ▸ VLOOK (live) ▸ 在 <body /> 中添加」
 -->
 <!--========================================================================-->
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
-<!--                                 V12.0                                  -->
+<!--                                 V13.0                                  -->
 <!--                                                                        -->
-<!--                               2021-10-30                               -->
+<!--                               2021-12-11                               -->
 <!--                           powered by MAX°孟兆                          -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -25,16 +25,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <!-- ==================== VLOOK UI ==================== -->
 <div class="mdx-vlook-inside"></div>
 <style type='text/css'>
-    :root { --vlook-color: #FFFFFF; --vlook-background: #808488; }
     @keyframes breathe-vlook { 0% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
-    @media (prefers-color-scheme: dark) { :root { --vlook-color: #181A1E; } }
-    #VLOOK { left: 0; top: 0; background: var(--vlook-color); width: 100%; height: 100vh; display: flex; align-items: center; position: fixed; z-index: 99999; }
-    #VLOOK > div { margin: 0 auto; background: var(--vlook-background); width: 30px; height: 30px; border-radius: 10px; animation: 1s breathe-vlook infinite alternate; }
+    #VLOOK { left: 0; top: 0; background: linear-gradient(var(--vlook-theme-bg-color-dark) 0%, var(--vlook-btn-bg-color) 50%, var(--vlook-btn-bg-color)); width: 100%; height: 100vh; display: flex; align-items: center; position: fixed; z-index: 99999; }
+    #VLOOK > div { margin: 0 auto; background: var(--vlook-btn-fore-color); width: 30px; height: 30px; border-radius: 10px; animation: 1s breathe-vlook infinite alternate; }
 </style>
 <div id="VLOOK"><div></div></div>
 <!-- ==================== VLOOK JS ==================== -->
 <script type="text/javascript">
-    let liveVersion = "V12.0";
+    // theme-color
+    let metaTheme = document.createElement("meta");
+    metaTheme.name = "theme-color";
+    metaTheme.content = getComputedStyle(document.documentElement).getPropertyValue("--vlook-btn-bg-color");
+    document.getElementsByTagName("head")[0].appendChild(metaTheme);
+    // VLOOK
+    let liveVersion = "V13.0";
     let vlookDevMode = liveVersion.indexOf("dev") > 0 ? true : false, vlookDebugMode = false;
     let fontHost = "https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/",
         jsHost = vlookDevMode ? "http://localhost/js/" : "https://madmaxchow.gitee.io/vlook/js/",

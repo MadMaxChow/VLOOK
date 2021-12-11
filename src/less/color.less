@@ -1,43 +1,43 @@
 /**************************************
 * VLOOK CSS 调色板
 *
-* V12.0
-* 2021-10-30
+* V13.0
+* 2021-12-11
 *
 * 配合 base.less 进行使用
 *
 ***************************************/
 
 // 纯透明色
-@transparencyColor0: fade(#FFFFFF, 0);
-@transparencyColor1: fade(#FFFFFF, 20%);
-@transparencyColor2: fade(#FFFFFF, 40%);
-@transparencyColor3: fade(#FFFFFF, 60%);
-@transparencyColor4: fade(#FFFFFF, 80%);
+// @transparencyColor0: fade(#FFFFFF, 0);
+// @transparencyColor1: fade(#FFFFFF, 20%);
+// @transparencyColor2: fade(#FFFFFF, 40%);
+// @transparencyColor3: fade(#FFFFFF, 60%);
+// @transparencyColor4: fade(#FFFFFF, 80%);
 
 // 文档背景色（浅色方案）
 @docBgColorLight: #FFFFFF;
 @docBgColorLightAlt: darken(@docBgColorLight, 8%);
 @docBgColorLightFade: fade(@docBgColorLight, 30%);
 // 文档背景色（深色方案）
-@docBgColorDark: #181A1E;
+@docBgColorDark: #181A1C;
 @docBgColorDarkAlt: lighten(@docBgColorDark, 15%);
 @docBgColorDarkFade: fade(@docBgColorDark, 30%);
 
-// 文档前景色（浅色方案）
-@foreColorLight: #181A1E;
+// 文档文字色（浅色方案）
+@foreColorLight: #181A1C;
 @foreColorLightAlt: lighten(@foreColorLight, 40%);
 @foreColorLightFade: fade(@foreColorLight, 50%);
 @foreColorLightFade1: fade(@foreColorLight, 15%);
 @foreColorLightFade2: fade(@foreColorLight, 10%);
 @foreColorLightFade3: fade(@foreColorLight, 5%);
-// 文档前景色（深色方案）
-@foreColorDark: #E0E4E8;
+// 文档文字色（深色方案）
+@foreColorDark: #F0F2F4;
 @foreColorDarkAlt: darken(@foreColorDark, 30%);
 @foreColorDarkFade: fade(@foreColorDark, 50%);
 
 // 表格（浅色方案）
-@tableColor: #B0B4B8; // 表格基础色
+@tableColor: #B0B2B4; // 表格基础色
 @tableBorderColor: fade(@tableColor, 80%); // 表格边框
 @tableHeaderColor: darken(@tableColor, 10%);
 @tableThBgColor: fade(@tableColor, 40%); // 表头背景
@@ -45,7 +45,7 @@
 @tableCellBorderColor: fade(@tableColor, 30%); // 单元格边框
 
 // 表格（深色方案）
-@tableColorDark: #707478; // 表格基础色
+@tableColorDark: #707274; // 表格基础色
 @tableBorderColorDark: fade(@tableColorDark, 80%); // 表格边框
 @tableHeaderColorDark: lighten(@tableColorDark, 10%);
 @tableThBgColorDark: fade(@tableColorDark, 40%); // 表头背景
@@ -55,65 +55,99 @@
 // 指定在 Dark Mode 时反转的图片边框颜色（先使用反色，这样在反转时则能保持与色一致）
 @imgInvertInDarkBorderColor: rgb(255 - red(@docBgColorDarkAlt), 255 - green(@docBgColorDarkAlt), 255 - blue(@docBgColorDarkAlt));
 
+// 键帽
+@keycapColor: #484A4C;
+@keycapColorDark: #D8DADC;
+
 // --------------------
 // 通用的强调色色板
-@accColorRed: #C72334;
+@accColorRed: #D63646;//#C72334;
 @accColorRedDark: darken(@accColorRed, 20%);
-@accColorRedAlt: lighten(@accColorRed, 50%);
+@accColorRedAlt: lighten(@accColorRed, 40%);
 @accColorRedAltDark: darken(@accColorRedAlt, 60%);
 // @accColorRedFade: fade(@accColorRed, 25%);
 
-@accColorOrange: #E27D09;
+@accColorOrange: #F87000;//#E27D09;
 @accColorOrangeDark: darken(@accColorOrange, 20%);
-@accColorOrangeAlt: lighten(@accColorOrange, 48%);
+@accColorOrangeAlt: lighten(@accColorOrange, 45%);
 @accColorOrangeAltDark: darken(@accColorOrangeAlt, 60%);
 // @accColorOrangeFade: fade(@accColorOrange, 25%);
 
-@accColorYellow: #DEB307;
+@accColorYellow: #FDC000;//#DEB307;
 @accColorYellowDark: darken(@accColorYellow, 20%);
-@accColorYellowAlt: lighten(@accColorYellow, 50%);
+@accColorYellowAlt: lighten(@accColorYellow, 40%);
 @accColorYellowAltDark: darken(@accColorYellowAlt, 60%);
 // @accColorYellowFade: fade(@accColorYellow, 25%);
 
-@accColorGreen: #38AB21;
+@accColorLime: #B2D115;//#DEB307;
+@accColorLimeDark: darken(@accColorLime, 30%);
+@accColorLimeAlt: lighten(@accColorLime, 40%);
+@accColorLimeAltDark: darken(@accColorLimeAlt, 60%);
+// @accColorLimeFade: fade(@accColorLime, 25%);
+
+@accColorGreen: #30A830;//#38AB21;
 @accColorGreenDark: darken(@accColorGreen, 20%);
-@accColorGreenAlt: lighten(@accColorGreen, 55%);
+@accColorGreenAlt: lighten(@accColorGreen, 45%);
 @accColorGreenAltDark: darken(@accColorGreenAlt, 60%);
 // @accColorGreenFade: fade(@accColorGreen, 25%);
 
-@accColorCyan: #18A8BF;
+@accColorAqua: #2DE0C8;//#38AB21;
+@accColorAquaDark: darken(@accColorAqua, 25%);
+@accColorAquaAlt: lighten(@accColorAqua, 40%);
+@accColorAquaAltDark: darken(@accColorAquaAlt, 60%);
+// @accColorAquaFade: fade(@accColorAqua, 25%);
+
+@accColorCyan: #17B1C2;//#18A8BF;
 @accColorCyanDark: darken(@accColorCyan, 20%);
-@accColorCyanAlt: lighten(@accColorCyan, 55%);
+@accColorCyanAlt: lighten(@accColorCyan, 48%);
 @accColorCyanAltDark: darken(@accColorCyanAlt, 60%);
 // @accColorCyanFade: fade(@accColorCyan, 25%);
 
-@accColorBlue: #056BF0;
+@accColorBlue: #1884F0;//#056BF0;
 @accColorBlueDark: darken(@accColorBlue, 20%);
-@accColorBlueAlt: lighten(@accColorBlue, 45%);
+@accColorBlueAlt: lighten(@accColorBlue, 40%);
 @accColorBlueAltDark: darken(@accColorBlueAlt, 55%);
 // @accColorBlueFade: fade(@accColorBlue, 25%);
 
-@accColorPurple: #7738DC;
-@accColorPurpleDark: darken(@accColorPurple, 20%);
-@accColorPurpleAlt: lighten(@accColorPurple, 40%);
+@accColorSea: #5449E6;//#056BF0;
+@accColorSeaDark: darken(desaturate(@accColorSea, 30%), 20%);
+@accColorSeaAlt: lighten(@accColorSea, 30%);
+@accColorSeaAltDark: darken(@accColorSeaAlt, 50%);
+// @accColorSeaFade: fade(@accColorSea, 25%);
+
+@accColorPurple: #A545E6;//#7838D8;//#7738DC;
+@accColorPurpleDark: darken(desaturate(@accColorPurple, 30%), 25%);
+@accColorPurpleAlt: lighten(@accColorPurple, 35%);
 @accColorPurpleAltDark: darken(@accColorPurpleAlt, 50%);
 // @accColorPurpleFade: fade(@accColorPurple, 25%);
 
-@accColorPink: #DB43B2;
-@accColorPinkDark: darken(@accColorPink, 20%);
-@accColorPinkAlt: lighten(@accColorPink, 38%);
+@accColorMagenta: #E64ED6;//#DB43B2;
+@accColorMagentaDark: darken(desaturate(@accColorMagenta, 30%), 35%);
+@accColorMagentaAlt: lighten(@accColorMagenta, 32%);
+@accColorMagentaAltDark: darken(@accColorMagentaAlt, 60%);
+// @accColorMagentaFade: fade(@accColorMagenta, 25%);
+
+@accColorPink: #FAB9D1;//#DB43B2;
+@accColorPinkDark: darken(desaturate(@accColorPink, 40%), 50%);
+@accColorPinkAlt: lighten(@accColorPink, 10%);
 @accColorPinkAltDark: darken(@accColorPinkAlt, 60%);
 // @accColorPinkFade: fade(@accColorPink, 25%);
 
-@accColorBrown: #A47546;
+@accColorGold: #E0BF9D;//#D6B696;//#DB43B2;
+@accColorGoldDark: darken(@accColorGold, 48%);
+@accColorGoldAlt: lighten(@accColorGold, 20%);
+@accColorGoldAltDark: darken(@accColorGoldAlt, 60%);
+// @accColorGoldFade: fade(@accColorGold, 25%);
+
+@accColorBrown: #855F3A;//#A47546;
 @accColorBrownDark: darken(@accColorBrown, 20%);
 @accColorBrownAlt: lighten(@accColorBrown, 48%);
 @accColorBrownAltDark: darken(@accColorBrownAlt, 60%);
 // @accColorBrownFade: fade(@accColorBrown, 25%);
 
-@accColorGray: #7B7D82;
+@accColorGray: #808890;//#8B8D9F;
 @accColorGrayDark: darken(@accColorGray, 20%);
-@accColorGrayAlt: lighten(@accColorGray, 45%);
+@accColorGrayAlt: lighten(@accColorGray, 38%);
 @accColorGrayAltDark: darken(@accColorGrayAlt, 55%);
 // @accColorGrayFade: fade(@accColorGray, 25%);
 

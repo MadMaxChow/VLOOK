@@ -10,13 +10,15 @@ vlook-query: effects=2&ws=auto&lmc=1
 vlook-doc-lib: vlook-lib.html
 ---
 
-###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>简介</sup><br />`#最新版本|V12.0#(theme2)`<br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2021. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>简介</sup><br />`#最新版本|V13.0#(theme2!)`<br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2021. MAX°DESIGN.*
 
 [TOC]
 
 > **Select language ❯ **[<kbd>🇬🇧 English</kbd>](index-en.html)
 
 # VLOOK™ 是什么
+
+`#Editor|Typora#(gray)` `#OS|macOS#(black)` `#OS|Windows#(blue)` `#License|MIT#(red)`
 
 >
 >![VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-mark-light.svg?mode=logo&darksrc=vlook-mark-dark.svg)
@@ -81,7 +83,7 @@ vlook-doc-lib: vlook-lib.html
 >
 > 你正在浏览的这份文档，就是由 Typora 编辑并应用 VLOOK™ 插件生成的！**AMAZING!!！**
 >
-> `>(brown)`
+> `>(brown!)`
 
 # 快速入坑
 
@@ -103,7 +105,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 >[<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°文档排版)
 >
->`>(purple)`
+>`>(green!)`
 
 > ###### ![°内容导航](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-nav-light.svg?mode=icon&fill=text&darksrc=invert) ° 内容导航
 >
@@ -117,7 +119,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°内容导航)
 >
-> `>(blue)`
+> `>(blue!)`
 
 ---
 
@@ -134,7 +136,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 >[<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°演示与出版辅助)
 >
->`>(orange)`
+>`>(orange!)`
 
 >
 >###### ![°主题与不杂项](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-theme-light.svg?mode=icon&fill=text&darksrc=invert) ° 主题与不杂项
@@ -149,11 +151,11 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 >[<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°主题与不杂项)
 >
->`>(green)`
+>`>(brown!)`
 
 # 打赏
 
-**若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**
+**若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)** `#支付方式|微信支付#(green!)`
 
 ![打赏 VLOOK™ (微信支付)](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/donate-wechat-light.png?mode=frame&darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x)
 
@@ -163,7 +165,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 让你的 Markdown 有了新`{看}(wán)`法！
 >
-> `>(brown)`
+> `>(brown!)`
 
 ## 下载与设置
 
@@ -221,7 +223,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > > ---
 > >
 > > 1. 重启 Typora；
-> > 2. 点击「**主题**」菜单，选择以 `Vlook-*` 形式命名的任意主题即可。
+> > 2. 点击「**主题**」菜单，选择以 `Vlook *` 形式命名的任意主题即可。
 > >
 > > `>(orange)`
 >
@@ -231,7 +233,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > >
 > > 建议基于 VLOOK™ 规范的文档模板来创建你自己的 Markdown 文档，这样能更快上手
 > >
-> > `>(orange)
+> > `>(orange)`
 
 **模板文件在哪？**
 
@@ -307,7 +309,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 在线版的插件文件为：released\plugin\\**plugin-live.txt**，或直接打开线上版本的 [plugin-live.txt](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin-live.txt)（[备用链接](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt)）
 >
-> `>(theme)`
+> `>(theme1)`
 
 ---
 

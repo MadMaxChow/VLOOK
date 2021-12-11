@@ -1,17 +1,21 @@
+/**************************************
+ *
+ * VLOOK 模板主题
+ *
+ * powered by MAX°孟兆
+ *
+ * QQ Group: 805502564
+ * email: maxchow@qq.com
+ *
+ *************************************/
+
 @import "../font";
 @import "../color";
 
-/**************************************
-* 颜色主题
-***************************************/
-
-// 主题圆角配置
-@baseRadius: 12px; // 标准圆角
-@smallRadius: 6px; // 标准圆角内的小圆角
-@tableRadius: 10px; // 表格圆角
-@tagRadius: 0.5em; // 标签圆角
-@tagSmallRadius: 0.25em; // 标签小圆角
-@circleRadius: 50%; // 半距圆角
+// 指定字体主题
+.applyFontStyle(sans);
+// 指定主题配套的圆角
+.applyThemeRadius(small);
 
 // 主题信息
 @themeName: "vlook-x-liby";
@@ -68,10 +72,10 @@
 @aActiveColor: desaturate(@aLineColor, 30%);
 
 // 选中内容的背景色
-@selectionColor: fade(@aLineColor, 30%);
+@selectionColor: @aLineColor;//fade(@aLineColor, 50%);
 
 // 表格十字光标颜色
-@tableCrossBgColor: fade(@aLineColor, 15%);
+@tableCrossBgColor: fade(@aLineColor, 50%);
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: right;

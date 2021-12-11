@@ -1,5 +1,5 @@
 <!--
-VLOOK V12.0 - Typora Plugin ( head meta )
+VLOOK V13.0 (2021-12-11) - Typora Plugin (head meta)
 Paste to "Export Setting ▸ VLOOK / VLOOK (live) ▸ Append in <head />"
 粘贴至「导出设置... ▸ VLOOK / VLOOK (live) ▸ 在 <head /> 中添加」
 -->
@@ -8,3 +8,4 @@ Paste to "Export Setting ▸ VLOOK / VLOOK (live) ▸ Append in <head />"
 <meta name="vlook-welcome" content="${vlook-welcome}">
 <meta name="vlook-query" content="${vlook-query}">
 <meta name="vlook-doc-lib" content="${vlook-doc-lib}">
+<meta name="vlook-auto-caption" content="${vlook-auto-caption}">

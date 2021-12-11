@@ -1,7 +1,7 @@
 /**************************************
-* VLOOK CSS 字体主题
+* VLOOK CSS 字体主题、圆角样式
 *
-* V12.0
+* V13-dev
 * 2021-10-30
 *
 * 配合 base.less 进行使用
@@ -21,87 +21,6 @@
 //   700 - Bold
 //   800 - Extra Bold (Ultra Bold)
 //   900 - Black (Heavy)
-
-// // VLOOK 文艺范字体（等宽拉丁）
-// @font-face {
-//     font-family: "VLOOK Serif Mono";
-//     src: url("https://cdn.jsdelivr.net/gh/madmaxchow/openfonts@master/LuxiMono-woff2/LuxiMono-Regular.woff2") format('woff2');
-//     font-weight: normal;
-//     display: swap;
-// }
-// @font-face {
-//     font-family: "VLOOK Serif Mono";
-//     src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@masterLuxiMono-woff2/LuxiMono-Bold.woff2") format('woff2');
-//     font-weight: bold;
-//     display: swap;
-// }
-// @font-face {
-//     font-family: "VLOOK Serif Mono";
-//     src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/LuxiMono-woff2/LuxiMono-Italic-Regular.woff2") format('woff2');
-//     font-style: italic;
-//     font-weight: normal;
-//     display: swap;
-// }
-// @font-face {
-//     font-family: "VLOOK Serif Mono";
-//     src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/LuxiMono-woff2/LuxiMono-Italic-Bold.woff2") format('woff2');
-//     font-style: italic;
-//     font-weight: bold;
-//     display: swap;
-// }
-
-// // VLOOK 文艺范字体（东亚）
-
-
-// // VLOOK 小清新字体（等宽拉丁）
-// @font-face {
-//     font-family: "VLOOK Sans Mono";
-//     src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/NotoSansMono-woff2/NotoSansMono-Regular.woff2") format('woff2');
-//     font-weight: normal;
-//     display: swap;
-// }
-// @font-face {
-//     font-family: "VLOOK Sans Mono";
-//     src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/NotoSansMono-woff2/NotoSansMono-Medium.woff2") format('woff2');
-//     font-weight: 500;
-//     display: swap;
-// }
-// @font-face {
-//     font-family: "VLOOK Sans Mono";
-//     src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/NotoSansMono-woff2/NotoSansMono-Bold.woff2") format('woff2');
-//     font-weight: bold;
-//     display: swap;
-// }
-// @font-face {
-//     font-family: "VLOOK Sans Mono";
-//     src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/NotoSansMono-woff2/NotoSansMono-Black.woff2") format('woff2');
-//     font-weight: 900;
-//     display: swap;
-// }
-
-// // VLOOK 小清新字体（东亚）
-
-
-// // VLOOK 字体（数值）
-// @font-face {
-//     font-family: "VLOOK Number";
-//     src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/Altinn-DIN-woff2/Altinn-DIN.woff2") format('woff2');
-//     font-weight: normal;
-//     display: swap;
-// }
-// @font-face {
-//     font-family: "VLOOK Number";
-//     src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/Altinn-DIN-woff2/Altinn-DIN-Bold.woff2") format('woff2');
-//     font-weight: bold;
-//     display: swap;
-// }
-// @font-face {
-//     font-family: "VLOOK Number";
-//     src: url("https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/Altinn-DIN-woff2/Altinn-DIN-Italic.woff2") format('woff2');
-//     font-weight: normal;
-//     font-style: italic;
-//     display: swap;
-// }
 
 @font-face {
     font-family: "color-emoji";
@@ -128,113 +47,53 @@
 @number_font: "VLOOK Number", "Altinn-DIN", "Bebas Neue", "DIN";
 // 基础非衬线字体
 @base_sans_en: "Helvetica Neue", Helvetica, Arial, Tahoma;
-@base_sans_cn: SimHei, "黑体", "PingFang SC", "PingFang TC", "PingFang HK";
+@base_sans_cn: "PingFang SC", "PingFang TC", "PingFang HK", SimHei, "黑体";
 @base_mono_sans_en: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, @base_mono;
 // 基础衬线字体
 @base_serif_en: "Times New Roman", Times;
-@base_serif_cn: "Songti SC", SimSun, "宋体", STZhongsong, "华文中宋";
+@base_serif_cn: "Songti SC", STZhongsong, "华文中宋", SimSun, "宋体";
 @base_mono_serif_en: "VLOOK Serif Mono", "Luxi Mono", "Iosevka Slab", "PT Mono", @base_mono, @base_mono_sans_en;
+// 字体主题集
+@base_noto_sans_sets: "Noto Sans CJK SC", "Noto Sans CJK HK", "Noto Sans CJK TW";
+@base_noto_serif_sets: "Noto Serif CJK SC", "Noto Serif CJK HK", "Noto Serif CJK TW";
+@base_source_sans_sets: "思源黑体", "Source Han Sans SC", "Source Han Sans CN", "Source Han Sans HK", "Source Han Sans HC", "Source Han Sans TW", "Source Han Sans TC";
+@base_source_serif_sets: "思源宋体", "Source Han Serif SC", "Source Han Serif CN", "Source Han Serif HK", "Source Han Serif HC", "Source Han Serif TW", "Source Han Serif TC";
 
 //=========================================
 // 非衬线风格字体信息
 // ----------------------------------------
 // Microsoft YaHei 微软雅黑
-// @msyh: "Segoe UI", @base_sans_en, "Microsoft YaHei", "微软雅黑", @base_sans_cn, sans-serif;
 @msyh: "Microsoft YaHei", "微软雅黑", @base_sans_cn, sans-serif;
-@msyh_mono: @base_mono_sans_en, "Microsoft YaHei", "微软雅黑", @base_sans_cn, monospace;
-@msyh_fw_bold: bold;
-@msyh_fw_text: normal;
+@msyh_mono: "Microsoft YaHei", "微软雅黑", @base_sans_cn, monospace;
 // ----------------------------------------
 // Microsoft JhengHei 微軟正黑體
-@msjh: "Segoe UI", @base_sans_en, "Microsoft JhengHei", "微軟正黑體", @base_sans_cn, sans-serif;
-@msjh_mono: @base_mono_sans_en, "Microsoft JhengHei", "微軟正黑體", @base_sans_cn, monospace;
-@msjh_fw_bold: bold;
-@msjh_fw_text: normal;
-// ----------------------------------------
-// 阿里普惠体
-@ali: "Alibaba PuHuiTi", @msyh;
-@ali_mono: @base_mono_sans_en, @msyh_mono;
-@ali_fw_bold: bold;
-@ali_fw_text: normal;
+@msjh: "Microsoft JhengHei", "微軟正黑體", @base_sans_cn, sans-serif;
+@msjh_mono: "Microsoft JhengHei", "微軟正黑體", @base_sans_cn, monospace;
 // ----------------------------------------
 // 思源黑体
-@noto: "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", @msyh;
-@noto_mono: @base_mono_sans_en, "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", @msyh_mono;
+@noto: "VLOOK Sans", @base_noto_sans_sets, @base_source_sans_sets, -apple-system, Roboto, @msyh, @msjh;
+@noto_mono: @base_mono_sans_en, "VLOOK Sans", @base_noto_sans_sets, @base_source_sans_sets, -apple-system, Roboto, @msyh_mono, @msjh_mono;
 @noto_fw_bold: 900;
 @noto_fw_text: normal;
-// ----------------------------------------
-// GenSenMaruGothic TW TTF 源泉圓體（思源黑体变种）
-// https://www.maoken.com/freefonts/693.html
-@gen: "GenSenMaruGothic TW TTF", @msyh;
-@gen_mono: @base_mono_sans_en, "GenSenMaruGothic TW TTF", @msyh_mono;
-@gen_fw_bold: 900;
-@gen_fw_text: normal;
-
-//=========================================
-// 衬线混搭风格字体信息
-// ----------------------------------------
-// 经典宋体＋黑体
-@cross_win_serif: @base_serif_en, @base_serif_cn, serif;
-@cross_win_bold:  @base_sans_en, @base_sans_cn, sans-serif;
-@cross_win_title: @cross_win_bold;
-@cross_win_header: @cross_win_bold;
-@cross_win_mono: @base_mono_serif_en, @base_sans_cn, monospace;
-@cross_win_fw_bold: bold;
-@cross_win_fw_title: bold;
-@cross_win_fw_text: 500;
-// ----------------------------------------
-// 思源宋体＋黑体
-@cross_noto_serif: "VLOOK Serif", "Noto Serif CJK SC", "Source Han Serif SC", "思源宋体", @base_serif_en, @base_serif_cn, serif;
-@cross_noto_bold: "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", @base_sans_en, @base_sans_cn, sans-serif;
-@cross_noto_title: @cross_noto_serif;
-@cross_noto_header: @cross_noto_serif;
-@cross_noto_mono: @base_mono_serif_en, "VLOOK Sans", "Noto Sans CJK SC", "Source Han Sans SC", "思源黑体", @base_sans_cn, monospace;
-@cross_noto_fw_bold: bold;
-@cross_noto_fw_title: 900;
-@cross_noto_fw_text: 500;
-
-//=========================================
-// 非衬线字体风格组合
-// ----------------------------------------
-// 风格 － Microsoft SC
-// @sansFont: @msyh;
-// @monoSansFont: @msyh_mono;
-// @fontBoldWeight4Sans: @msyh_fw_bold;
-// ----------------------------------------
-// 风格 － Microsoft TC
-// @sansFont: @msjh;
-// @monoSansFont: @msjh_mono;
-// @fontBoldWeight4Sans: @msjh_fw_bold;
-// ----------------------------------------
-// 风格 － Alibaba
-// @sansFont: @ali;
-// @monoSansFont: @ali_mono;
-// @fontBoldWeight4Sans: @ali_fw_bold;
-// ----------------------------------------
-// 风格 － Freedom
+// ---
 @sansFont: @noto;
 @monoSansFont: @noto_mono;
 @fontBoldWeight4Sans: @noto_fw_bold;
 @fontBoldWeightText4Sans: @noto_fw_text;
-// ----------------------------------------
-// 风格 － Mellow
-// @sansFont: @gen;
-// @monoSansFont: @gen_mono;
-// @fontBoldWeight4Sans: @gen_fw_bold;
 
 //=========================================
-// 混搭字体风格组合
+// 衬线混搭风格字体信息
 // ----------------------------------------
-// 风格 － 经典
-// @serifFont: @cross_win_serif;
-// @serifBoldFont: @cross_win_bold;
-// @serifTitle: @cross_win_title;
-// @serifHeader: @cross_win_header;
-// @monoSerifFont: @cross_win_mono;
-// @fontBoldWeight4Serif: @cross_win_fw_bold;
-// @fontBoldWeight4Title: @cross_win_fw_title;
-// ----------------------------------------
-// 风格 － 现代
+// 思源宋体＋黑体
+@cross_noto_serif: "VLOOK Serif", @base_noto_serif_sets, @base_source_serif_sets, @base_serif_en, @base_serif_cn, serif;
+@cross_noto_bold: "VLOOK Sans", @base_noto_sans_sets, @base_source_sans_sets, @base_sans_en, @base_sans_cn, sans-serif;
+@cross_noto_title: @cross_noto_serif;
+@cross_noto_header: @cross_noto_serif;
+@cross_noto_mono: @base_mono_serif_en, "VLOOK Serif", @base_noto_serif_sets, @base_source_serif_sets, @base_serif_en, @base_serif_cn, monospace;
+@cross_noto_fw_bold: bold;
+@cross_noto_fw_title: 900;
+@cross_noto_fw_text: 500;
+// ---
 @serifFont: @cross_noto_serif;
 @serifBoldFont: @cross_noto_bold;
 @serifTitle: @cross_noto_title;
@@ -245,34 +104,132 @@
 @fontBoldWeightText4Serif: @cross_noto_fw_text;
 
 //=========================================
-// 注意：添加、修改或删除以下变量，或是 bass.less 中调整字体配置后，
-// 须同步结合 base.less、FontStyler 类调整对应的样式内容
+// 不同字体风格配置集
+:root {
+    // ---
+    // 非衬线风格 Sans
+    --vlook-font-family-title-sans: @emoji, @sansFont;
+    --vlook-font-family-subtitle-sans: @emoji, @sansFont;
+    --vlook-font-family-header-sans: @emoji, @sansFont;
+    --vlook-font-family-text-sans: @emoji, @sansFont;
+    --vlook-font-family-bold-sans: @emoji, @sansFont;
+    --vlook-font-family-number-sans: @emoji, @number_font, @base_mono_sans_en, @sansFont;
+    --vlook-font-family-tag-sans: @emoji, @sansFont;
+    --vlook-font-family-code-sans: @emoji, @monoSansFont;
+    --vlook-font-weight-bold-sans: @fontBoldWeight4Sans;
+    --vlook-font-weight-title-sans: @fontBoldWeight4Sans;
+    --vlook-font-weight-text-sans: @fontBoldWeightText4Sans;
 
-// 非衬线风格 Sans，启用则取消以下注释，并将 Serif + Sans 注释掉
-@defaultFontStyle: sans;
-@titleFont: @emoji, @sansFont;
-@subtitleFont: @emoji, @sansFont;
-@headerFont: @emoji, @sansFont;
-@textFont: @emoji, @sansFont; // @base_mono_sans_en, @sansFont;
-@boldFont: @emoji, @sansFont; // @base_mono_sans_en, @sansFont;
-@numberFont: @emoji, @number_font, @base_mono_sans_en, @sansFont;
-@tagFont: @emoji, @boldFont;
-@codeFont: @emoji, @base_mono_sans_en, @monoSansFont;
-// @fontBoldWeight4Serif: @fontBoldWeight4Sans;
-@fontBoldWeight: @fontBoldWeight4Sans;
-@titleFontWeight: @fontBoldWeight4Sans;
-@textFontWeight: @fontBoldWeightText4Sans;
+    // ---
+    // 衬线+非衬线混排风格 Serif + Sans
+    --vlook-font-family-title-serif: @emoji, @serifTitle;
+    --vlook-font-family-subtitle-serif: @emoji, @serifBoldFont;
+    --vlook-font-family-header-serif: @emoji, @serifHeader;
+    --vlook-font-family-text-serif: @emoji, @serifFont;
+    --vlook-font-family-bold-serif: @emoji, @serifBoldFont;
+    --vlook-font-family-number-serif: @emoji, @number_font, @base_mono_sans_en, @sansFont;
+    --vlook-font-family-tag-serif: @emoji, @serifBoldFont;
+    --vlook-font-family-code-serif: @emoji, @monoSerifFont;
+    --vlook-font-weight-bold-serif: @fontBoldWeight4Serif;
+    --vlook-font-weight-title-serif: @fontBoldWeight4Title;
+    --vlook-font-weight-text-serif: @fontBoldWeightText4Serif;
+}
+// ---
+// 应用 Sans 风格
+.applyFontStyle(@fontStyle) when (@fontStyle = sans)  {
+    :root {
+        --vlook-font-theme: sans; // 默认字体风格
+        --vlook-font-family-title: var(--vlook-font-family-title-sans);
+        --vlook-font-family-subtitle: var(--vlook-font-family-subtitle-sans);
+        --vlook-font-family-header: var(--vlook-font-family-header-sans);
+        --vlook-font-family-text: var(--vlook-font-family-text-sans);
+        --vlook-font-family-bold: var(--vlook-font-family-bold-sans);
+        --vlook-font-family-number: var(--vlook-font-family-number-sans);
+        --vlook-font-family-tag: var(--vlook-font-family-tag-sans);
+        --vlook-font-family-code: var(--vlook-font-family-code-sans);
+        --vlook-font-weight-bold: var(--vlook-font-weight-bold-sans);
+        --vlook-font-weight-title: var(--vlook-font-weight-title-sans);
+        --vlook-font-weight-text: var(--vlook-font-weight-text-sans);
+    }
+}
+// ---
+// 应用 Serif 风格
+.applyFontStyle(@fontStyle) when (@fontStyle = serif)  {
+    :root {
+        --vlook-font-theme: serif; // 默认字体风格
+        --vlook-font-family-title: var(--vlook-font-family-title-serif);
+        --vlook-font-family-subtitle: var(--vlook-font-family-subtitle-serif);
+        --vlook-font-family-header: var(--vlook-font-family-header-serif);
+        --vlook-font-family-text: var(--vlook-font-family-text-serif);
+        --vlook-font-family-bold: var(--vlook-font-family-bold-serif);
+        --vlook-font-family-number: var(--vlook-font-family-number-serif);
+        --vlook-font-family-tag: var(--vlook-font-family-tag-serif);
+        --vlook-font-family-code: var(--vlook-font-family-code-serif);
+        --vlook-font-weight-bold: var(--vlook-font-weight-bold-serif);
+        --vlook-font-weight-title: var(--vlook-font-weight-title-serif);
+        --vlook-font-weight-text: var(--vlook-font-weight-text-serif);
+    }
+}
 
-// 衬线+非衬线混排风格 Serif + Sans，启用则取消以下注释，并将 Sans 注释掉
-// @defaultFontStyle: serif;
-// @titleFont: @serifTitle;
-// @subtitleFont: @serifBoldFont;
-// @headerFont: @serifHeader;
-// @textFont: @serifFont; // @base_mono_serif_en, @serifFont;
-// @boldFont: @serifBoldFont; // @base_mono_sans_en, @serifBoldFont;
-// @numberFont: @number_font, @base_mono_sans_en, @sansFont;
-// @tagFont: @boldFont;
-// @codeFont: @base_mono_sans_en, @monoSerifFont;
-// @fontBoldWeight: @fontBoldWeight4Serif;
-// @titleFontWeight: @fontBoldWeight4Title;
-// @textFontWeight: @fontBoldWeightText4Serif;
+//=========================================
+// 配套圆角风格集
+:root {
+    // ---
+    // 小号圆角
+    --vlook-base-radius-small: 8px; // 标准圆角
+    --vlook-small-radius-small: 4px; // 标准圆角内的小圆角
+    --vlook-table-radius-small: 6px; // 表格圆角
+    --vlook-small-inner-radius-small: calc(var(--vlook-table-radius-small)- 2px); // 标准圆角内的小圆角
+    --vlook-tag-radius-small: 0.3em; // 标签圆角
+    // --vlook-tag-small-radius-small: 0.25em; // 标签小圆角
+    --vlook-circle-radius-small: 50%; // 半距圆角
+
+    // ---
+    // 大号圆角
+    --vlook-base-radius-big: 12px; // 标准圆角
+    --vlook-small-radius-big: 6px; // 标准圆角内的小圆角
+    --vlook-table-radius-big: 10px; // 表格圆角
+    --vlook-small-inner-radius-big: calc(var(--vlook-table-radius-big)- 2px); // 标准圆角内的小圆角
+    --vlook-tag-radius-big: 0.5em; // 标签圆角
+    // --vlook-tag-small-radius-big: 0.25em; // 标签小圆角
+    --vlook-circle-radius-big: 50%; // 半距圆角
+}
+// ---
+// 应用大号圆角
+.applyThemeRadius(@themeRadius) when (@themeRadius = big)  {
+    :root {
+        --vlook-base-radius: var(--vlook-base-radius-big); // 标准圆角
+        --vlook-small-radius: var(--vlook-small-radius-big); // 标准圆角内的小圆角
+        --vlook-table-radius: var(--vlook-table-radius-big); // 表格圆角
+        --vlook-small-inner-radius:calc(var(--vlook-table-radius) - 2px); // 标准圆角内的小圆角
+        --vlook-tag-radius: var(--vlook-tag-radius-big); // 标签圆角
+        // --vlook-tag-small-radius: var(--vlook-tag-small-radius-big); // 标签小圆角
+        --vlook-circle-radius: var(--vlook-circle-radius-big); // 半距圆角
+    }
+}
+// ---
+// 应用小号圆角
+.applyThemeRadius(@themeRadius) when (@themeRadius = small)  {
+    :root {
+        --vlook-base-radius: var(--vlook-base-radius-small); // 标准圆角
+        --vlook-small-radius: var(--vlook-small-radius-small); // 标准圆角内的小圆角
+        --vlook-table-radius: var(--vlook-table-radius-small); // 表格圆角
+        --vlook-small-inner-radius:calc(var(--vlook-table-radius) - 2px); // 标准圆角内的小圆角
+        --vlook-tag-radius: var(--vlook-tag-radius-small); // 标签圆角
+        // --vlook-tag-small-radius: var(--vlook-tag-small-radius-small); // 标签小圆角
+        --vlook-circle-radius: var(--vlook-circle-radius-small); // 半距圆角
+    }
+}
+// ---
+// 应用无圆角
+.applyThemeRadius(@themeRadius) when (@themeRadius = none)  {
+    :root {
+        --vlook-base-radius: 0; // 标准圆角
+        --vlook-small-radius: 0; // 标准圆角内的小圆角
+        --vlook-table-radius: 0; // 表格圆角
+        --vlook-small-inner-radius: calc(var(--vlook-table-radius) - 2px); // 标准圆角内的小圆角
+        --vlook-tag-radius: 0; // 标签圆角
+        // --vlook-tag-small-radius: var(--vlook-tag-small-radius-small); // 标签小圆角
+        --vlook-circle-radius: 0; // 半距圆角
+    }
+}

@@ -1,0 +1,740 @@
+/**************************************
+* VLOOK CSS - Mermaid 自定义样式
+*
+* V13.0
+* 2021-12-11
+*
+* 配合 base.less 进行使用
+*
+***************************************/
+
+:root {
+    // #Mermaid_Var
+    --mm-sequence-numbers: on;
+    --mm-flowchart-curve: basis;
+
+    --mm-font-family: var(--vlook-font-family-bold) !important;
+    --mm-alt-font-family: var(--vlook-font-family-bold) !important;
+
+    --mm-color-red-light: @mmColorRed;
+    --mm-color-red-alt-light: @mmColorRedAlt;
+    --mm-color-orange-light: @mmColorOrange;
+    --mm-color-orange-alt-light: @mmColorOrangeAlt;
+    --mm-color-yellow-light: @mmColorYellow;
+    --mm-color-yellow-alt-light: @mmColorYellowAlt;
+    --mm-color-green-light: @mmColorGreen;
+    --mm-color-green-alt-light: @mmColorGreenAlt;
+    --mm-color-cyan-light: @mmColorCyan;
+    --mm-color-cyan-alt-light: @mmColorCyanAlt;
+    --mm-color-blue-light: @mmColorBlue;
+    --mm-color-blue-alt-light: @mmColorBlueAlt;
+    --mm-color-purple-light: @mmColorPurple;
+    --mm-color-purple-alt-light: @mmColorPurpleAlt;
+    --mm-color-pink-light: @mmColorPink;
+    --mm-color-pink-alt-light: @mmColorPinkAlt;
+    --mm-color-brown-light: @mmColorBrown;
+    --mm-color-brown-alt-light: @mmColorBrownAlt;
+    --mm-color-gray-light: @mmColorGray;
+    --mm-color-gray-alt-light: @mmColorGrayAlt;
+
+    --mm-color-red-dark: @mmColorRedAlt;
+    --mm-color-red-alt-dark: @mmColorRed;
+    --mm-color-orange-dark: @mmColorOrangeAlt;
+    --mm-color-orange-alt-dark: @mmColorOrange;
+    --mm-color-yellow-dark: @mmColorYellowAlt;
+    --mm-color-yellow-alt-dark: @mmColorYellow;
+    --mm-color-green-dark: @mmColorGreenAlt;
+    --mm-color-green-alt-dark: @mmColorGreen;
+    --mm-color-cyan-dark: @mmColorCyanAlt;
+    --mm-color-cyan-alt-dark: @mmColorCyan;
+    --mm-color-blue-dark: @mmColorBlueAlt;
+    --mm-color-blue-alt-dark: @mmColorBlue;
+    --mm-color-purple-dark: @mmColorPurpleAlt;
+    --mm-color-purple-alt-dark: @mmColorPurple;
+    --mm-color-pink-dark: @mmColorPinkAlt;
+    --mm-color-pink-alt-dark: @mmColorPink;
+    --mm-color-brown-dark: @mmColorBrownAlt;
+    --mm-color-brown-alt-dark: @mmColorBrown;
+    --mm-color-gray-dark: @mmColorGrayAlt;
+    --mm-color-gray-alt-dark: @mmColorGray;
+
+    --mm-color-red: var(--mm-color-red-light);
+    --mm-color-red-alt: var(--mm-color-red-alt-light);
+    --mm-color-orange: var(--mm-color-orange-light);
+    --mm-color-orange-alt: var(--mm-color-orange-alt-light);
+    --mm-color-yellow: var(--mm-color-yellow-light);
+    --mm-color-yellow-alt: var(--mm-color-yellow-alt-light);
+    --mm-color-green: var(--mm-color-green-light);
+    --mm-color-green-alt: var(--mm-color-green-alt-light);
+    --mm-color-cyan: var(--mm-color-cyan-light);
+    --mm-color-cyan-alt: var(--mm-color-cyan-alt-light);
+    --mm-color-blue: var(--mm-color-blue-light);
+    --mm-color-blue-alt: var(--mm-color-blue-alt-light);
+    --mm-color-purple: var(--mm-color-purple-light);
+    --mm-color-purple-alt: var(--mm-color-purple-alt-light);
+    --mm-color-pink: var(--mm-color-pink-light);
+    --mm-color-pink-alt: var(--mm-color-pink-alt-light);
+    --mm-color-brown: var(--mm-color-brown-light);
+    --mm-color-brown-alt: var(--mm-color-brown-alt-light);
+    --mm-color-gray: var(--mm-color-gray-light);
+    --mm-color-gray-alt: var(--mm-color-gray-alt-light);
+}
+
+// ** 注意 **
+// 更改些段与字体相关的样式时，须同步修改切换字体样式的 JS 代码
+
+/* ----- pie diagram 饼图 ----- */
+
+// 标题、图例文本
+.pieTitleText {
+    fill: var(--fore-color) !important;
+    font-family: var(--vlook-font-family-bold) !important;
+    font-weight: var(--vlook-font-weight-bold) !important;
+    font-size: 1.5em !important;
+}
+.legend text {
+    fill: var(--fore-color) !important;
+    font-family: var(--vlook-font-family-bold) !important;
+    font-weight: var(--vlook-font-weight-bold) !important;
+}
+
+.slice {
+    font-family: var(--vlook-font-family-bold) !important;
+    font-weight: var(--vlook-font-weight-bold) !important;
+}
+
+/* ----- flow diagram 流程图 ----- */
+
+.mermaid .label div,
+.mdx-figure .label div,
+.label {
+    font-size: 0.875em !important;
+}
+
+#write svg[id^="mermaidChart"] {
+    color: var(--fore-color) !important;
+}
+
+// 矩形（方角/圆角/圆形/菱形/旗形）
+.label div {
+    color: var(--fore-color) !important;
+    font-family: var(--vlook-font-family-bold) !important;
+    font-weight: normal !important;
+}
+
+// 方角矩形
+.node rect[rx="0"][ry="0"] {
+    fill: var(--mm-color-blue-alt) !important;
+    stroke: var(--mm-color-blue) !important;
+    stroke-width: 5px !important;
+}
+
+// 圆角矩形
+.node:not([id^=flowchart-START]):not([id^=flowchart-END]) rect[rx="5"][ry="5"] {
+    fill: var(--mm-color-blue-alt) !important;
+    stroke: var(--mm-color-blue) !important;
+    stroke-width: 1px !important;
+}
+
+// 圆形
+.node circle {
+    fill: var(--doc-bg-color) !important;
+    stroke: var(--mm-color-green) !important;
+    stroke-width: 2px !important;
+}
+
+// 自定义：条件、分支的菱形
+.node polygon {
+    fill: var(--mm-color-red-alt) !important;
+    stroke: var(--mm-color-red) !important;
+    stroke-width: 1px !important;
+}
+
+// 自定义：分页的旗形
+.node[id^="page"] polygon,
+.node[id^="flowchart-page"] polygon {
+    fill: var(--doc-bg-color) !important;
+    stroke: var(--mm-color-green) !important;
+    stroke-width: 2px !important;
+}
+
+// 自定义：状态机图的菱形
+.node[id^="trans"] polygon,
+.node[id^="flowchart-trans"] polygon {
+    fill: var(--fore-color) !important;
+    stroke-width: 0 !important;
+}
+
+// 线条
+.edgePath .path {
+    stroke: var(--fore-color) !important;
+    stroke-width: 2px;
+}
+
+// 线条箭头
+.arrowheadPath {
+    fill: var(--fore-color);
+}
+
+// 线条文本
+.edgeLabel .label span,
+.edgeLabel {
+    color: var(--fore-color) !important;
+    fill: var(--doc-bg-color) !important;
+    line-height: 1em !important;
+}
+
+// 线条文本背景
+.edgeLabel div,
+.edgeLabel .label rect {
+    fill: var(--doc-bg-color) !important;
+}
+
+// 子图
+.cluster rect {
+    fill: var(--doc-bg-color-alt) !important;
+    stroke: var(--fore-color) !important;
+    stroke-width: 1px !important;
+    stroke-dasharray: 3px !important;
+}
+
+// 子图文本
+.cluster text {
+    color: var(--fore-color) !important;
+    fill: var(--fore-color) !important;
+    font-family: var(--vlook-font-family-bold) !important;
+    font-weight: normal !important;
+}
+
+// 自定义：流程图「开始」样式
+#START rect,
+.node[id^=flowchart-START] rect {
+    fill: var(--fore-color) !important;
+    stroke: var(--fore-color) !important;
+    stroke-width: 5px !important;
+}
+
+#START rect+.label div,
+.node[id^=flowchart-START] rect+.label div {
+    color: var(--doc-bg-color) !important;
+    font-weight: var(--vlook-font-weight-bold) !important;
+}
+
+// 自定义：流程图「结束」节点样式
+#END rect,
+.node[id^=flowchart-END] rect {
+    color: var(--fore-color) !important;
+    fill: var(--doc-bg-color) !important;
+    stroke: var(--fore-color) !important;
+    stroke-width: 5px !important;
+}
+
+#END rect+.label div,
+.node[id^=flowchart-END] rect+.label div {
+    font-weight: var(--vlook-font-weight-bold) !important;
+}
+
+// 自定义：状态机图「初始」状态样式
+#INIT circle,
+g[id^=flowchart-INIT] circle {
+    fill: var(--fore-color) !important;
+    stroke: var(--fore-color) !important;
+    stroke-width: 0 !important;
+}
+
+#INIT .label div,
+g[id^=flowchart-INIT] .label div {
+    color: var(--fore-color) !important;
+}
+
+// 与「初始」状态同级的所有矩形节点
+#INIT ~ g > rect,
+g[id^=flowchart-INIT] ~ g > rect[rx][ry] {
+    fill: var(--mm-color-purple-alt) !important;
+    stroke: var(--mm-color-purple) !important;
+    stroke-width: 4px !important;
+}
+
+// 自定义：状态机图「最终」状态节点样式
+#FINAL circle,
+g[id^=flowchart-FINAL] circle {
+    fill: none !important;
+    stroke: var(--fore-color) !important;
+    stroke-width: 5px !important;
+}
+
+/* ----- sequeuce diagram 顺序图 / 时序图 ----- */
+
+// 角色
+.actor {
+    stroke: var(--mm-color-blue) !important;
+    fill: var(--mm-color-blue-alt) !important;
+    font-size: 1em !important;
+    stroke-width: 1px !important;
+}
+
+// 人物角色
+.mdx-actor-person {
+    fill: var(--doc-bg-color-alt) !important;
+    stroke: var(--fore-color-alt) !important;
+}
+
+// 重要系统角色
+.mdx-actor-key-sys {
+    stroke-width: 3px !important;
+    font-weight: var(--vlook-font-weight-bold) !important;
+}
+
+// 外部系统角色
+.mdx-actor-ext-sys {
+    stroke-dasharray: 5px, 2px !important;
+    font-style: italic !important;
+}
+
+// 角色文本
+// text.actor,
+text.actor > tspan {
+    fill: var(--fore-color) !important;
+    stroke: none !important;
+    font-size: 0.875em !important;
+    font-family: var(--vlook-font-family-bold) !important;
+    font-weight: var(--vlook-font-weight-bold);
+}
+
+// 角色生命线
+.actor-line {
+    stroke: var(--mm-color-blue) !important;
+    stroke-width: 1px !important;
+}
+
+// 实线消息
+.messageLine0 {
+    stroke-width: 2px !important;
+    stroke: var(--fore-color) !important;
+}
+
+// 实线/虚线箭头
+#arrowhead,
+#arrowhead path,
+[id^=arrowhead],
+[id^=arrowhead] path {
+    fill: var(--fore-color) !important;
+    stroke: none !important;
+}
+
+// 虚线消息
+.messageLine1 {
+    stroke-width: 2px !important;
+    stroke-dasharray: 3px, 3px !important;
+    stroke: var(--fore-color) !important;
+}
+
+// 消息序号
+.sequenceNumber {
+    fill: var(--mm-color-blue) !important;//var(--doc-bg-color) !important;
+    font-weight: var(--vlook-font-weight-bold) !important;
+}
+
+// 消息序号背景
+#sequencenumber {
+    fill: var(--doc-bg-color) !important;//var(--mm-color-blue) !important;
+    stroke: var(--mm-color-blue) !important;//var(--doc-bg-color) !important;
+    transform: scale(0.7);
+    transform-origin: 15px 15px;
+}
+
+// 异步消息箭头
+#crosshead,
+#crosshead path {
+    fill: var(--fore-color-alt) !important;
+    stroke: var(--fore-color) !important;
+}
+
+// 消息文本
+.messageText {
+    fill: var(--fore-color) !important;
+    stroke: none !important;
+    font-size: 0.875em !important;
+    font-family: var(--vlook-font-family-bold) !important;
+    font-weight: normal !important;
+    line-height: 2em !important;
+}
+
+.activation0,
+.activation1,
+.activation2 {
+    fill: var(--mm-color-blue-alt) !important;
+    stroke-width: 0 !important;
+}
+
+// 片断的类型标签背景
+.labelBox {
+    stroke: none !important;
+    fill: var(--mm-color-purple-light) !important;
+}
+
+// 角标
+// 片断的类型文本
+.labelBox + .labelText {
+    fill: var(--mm-color-purple-alt-light) !important;
+    font-size: 0.875em !important;
+    font-family: var(--vlook-font-family-bold) !important;
+    font-weight: var(--vlook-font-weight-bold) !important;
+}
+
+// 片断的标题标签文本
+.loopText,
+.loopText > tspan {
+    fill: var(--fore-color) !important;
+    // fill: var(--mm-color-purple-light) !important;
+    // fill: fade(@docBgColorLight, 90%) !important;
+    font-family: var(--vlook-font-family-bold) !important;
+    font-size: 0.875em;
+    font-weight: bold !important;
+}
+.loopText > tspan {
+    font-size: 1em;
+}
+
+// 片断的线框
+.loopLine {
+    stroke-width: 1px !important;
+    stroke-dasharray: 8px, 8px !important;
+    stroke: var(--mm-color-purple-light) !important;
+}
+
+// 备注背景
+.note {
+    stroke: var(--mm-color-yellow) !important;
+    stroke-dasharray: 5px !important;
+    fill: var(--mm-color-yellow-alt) !important;
+}
+
+// 备注文本
+.noteText tspan {
+    fill: var(--fore-color) !important;
+    stroke: none !important;
+    font-size: 0.875em !important;
+    font-family: var(--vlook-font-family-text) !important;
+    // font-weight: var(--vlook-font-family-text)Weight !important;
+}
+
+/* ----- state diagram 状态机图 ----- */
+
+g.stateGroup circle {
+    fill: var(--fore-color) !important;
+    stroke: var(--doc-bg-color) !important;
+}
+g.stateGroup rect,
+g.stateGroup line {
+    fill: var(--mm-color-purple-alt) !important;
+    stroke: var(--mm-color-purple) !important;
+}
+g.stateGroup rect[height="7"] {
+    fill: var(--fore-color) !important;
+    stroke: none !important;
+}
+.transition {
+    stroke: var(--fore-color) !important;
+}
+g.stateGroup .composit {
+    fill: var(--doc-bg-color) !important;
+}
+g.stateGroup .state-title,
+g.stateGroup text {
+    fill: var(--fore-color) !important;
+    font-family: var(--vlook-font-family-bold) !important;
+    font-weight: normal !important;
+    font-size: 0.5em !important;
+}
+
+.stateLabel text {
+    font-size: 0.5em !important;
+}
+
+g.state-note {
+    fill: var(--mm-color-gray-alt);
+    stroke: var(--mm-color-gray);
+}
+
+/* ----- class diagram 类图 ----- */
+
+g.cardinality text,
+g.classGroup text,
+g.classLabel .label {
+    font-family: var(--vlook-font-family-code) !important;
+    font-weight: normal !important;
+    fill: var(--fore-color) !important;
+    stroke: none !important;
+}
+
+g.classGroup rect {
+  fill: var(--mm-color-brown-alt) !important;
+  stroke: var(--mm-color-brown) !important;
+}
+
+g.classGroup line {
+  stroke: var(--mm-color-brown) !important;
+  stroke-width: 1px !important;
+}
+
+g.classLabel .box {
+  stroke: none !important;
+  stroke-width: 0 !important;
+  fill: var(--mm-color-brown-alt) !important;
+  opacity: 0.5 !important;
+}
+
+.relation {
+  stroke: var(--fore-color) !important;
+  stroke-width: 1px !important;
+  fill: none !important;
+}
+
+.composition,
+#compositionStart,
+#compositionEnd,
+.aggregation,
+#aggregationStart,
+#aggregationEnd,
+#dependencyStart,
+#dependencyEnd,
+#extensionStart,
+#extensionEnd {
+  fill: var(--fore-color) !important;
+  stroke:  var(--fore-color) !important;
+  stroke-width: 1px !important;
+}
+
+div.mermaidTooltip {
+    position: absolute !important;
+    text-align: center !important;
+    max-width: 200px !important;
+    padding: 2px !important;
+    background: var(--fore-color-alt) !important;
+    border: 1px solid #d0d0d0 !important;
+    border-radius: var(--vlook-small-radius) !important;
+    pointer-events: none !important;
+    z-index: 100 !important;
+}
+
+/* ----- gantt diagram 甘特图 ----- */
+
+.section {
+    stroke: none !important;
+}
+
+.section0 {
+    fill: var(--fore-color-alt) !important;
+}
+
+.section2 {
+    fill: var(--fore-color-alt) !important;
+}
+
+.section1,
+.section3 {
+    fill: @foreColorLightFade3 !important;
+}
+
+.sectionTitle0,
+.sectionTitle1,
+.sectionTitle2,
+.sectionTitle3 {
+    fill: var(--fore-color) !important;
+}
+
+.sectionTitle {
+    text-anchor: start !important;
+    font-size: 0.8em !important;
+    line-height: 2em !important;
+}
+
+.grid .tick {
+    stroke: var(--fore-color-alt) !important;
+    shape-rendering: crispEdges !important;
+}
+
+.grid path {
+    stroke-width: 0 !important;
+}
+
+.today {
+    fill: none;
+    stroke: var(--mm-color-red) !important;
+    stroke-width: 3px !important;
+}
+
+.task {
+    stroke-width: 2px !important;
+}
+
+.taskText {
+    text-anchor: middle !important;
+    font-size: 0.8em !important;
+    line-height: 2em !important;
+    font-family: var(--vlook-font-family-bold) !important;
+    font-weight: normal !important;
+}
+
+.taskTextOutsideRight {
+    fill: var(--fore-color) !important;
+    font-family: var(--vlook-font-family-bold) !important;
+    font-weight: normal !important;
+    text-anchor: start !important;
+}
+
+.taskTextOutsideLeft {
+    fill: var(--fore-color) !important;
+    font-family: var(--vlook-font-family-bold) !important;
+    font-weight: normal !important;
+    text-anchor: end !important;
+}
+
+/* 当前的任务 */
+
+.active0,
+.active1,
+.active2,
+.active3 {
+    fill: var(--mm-color-blue-alt) !important;
+    stroke: var(--mm-color-blue) !important;
+}
+
+.activeText0,
+.activeText1,
+.activeText2,
+.activeText3 {
+    fill: var(--mm-color-blue) !important;
+}
+
+/* 已完成的任务 */
+
+.done0,
+.done1,
+.done2,
+.done3 {
+    stroke: none !important;
+    fill: var(--mm-color-blue-alt) !important;
+    stroke-width: 2px !important;
+    stroke-dasharray: 2px !important;
+}
+
+/* 未来的任务 */
+
+.task0,
+.task1,
+.task2,
+.task3 {
+    fill: var(--doc-bg-color) !important;
+    stroke: var(--mm-color-blue) !important;
+    stroke-dasharray: 2px !important;
+}
+
+.taskText0,
+.taskText1,
+.taskText2,
+.taskText3 {
+    fill: var(--fore-color) !important;
+}
+
+.taskTextOutside0,
+.taskTextOutside2 {
+    fill: var(--fore-color) !important;
+}
+
+.taskTextOutside1,
+.taskTextOutside3 {
+    fill: var(--fore-color) !important;
+}
+
+.doneText0,
+.doneText1,
+.doneText2,
+.doneText3 {
+    fill: var(--doc-bg-color-light) !important;
+}
+
+/* 当前关键路径的任务 */
+
+.activeCrit0,
+.activeCrit1,
+.activeCrit2,
+.activeCrit3 {
+    stroke: var(--mm-color-red) !important;
+    fill: var(--mm-color-red-alt) !important;
+    stroke-width: 2px !important;
+}
+
+.activeCritText0,
+.activeCritText1,
+.activeCritText2,
+.activeCritText3 {
+    fill: var(--mm-color-red) !important;
+}
+
+/* 已完成的关键路径任务 */
+
+.doneCrit0,
+.doneCrit1,
+.doneCrit2,
+.doneCrit3 {
+    stroke: none !important;
+    fill: var(--mm-color-red-alt) !important;
+    stroke-width: 2px !important;
+    cursor: pointer !important;
+    shape-rendering: crispEdges !important;
+}
+
+/* 未来的关键路径任务 */
+
+.crit0,
+.crit1,
+.crit2,
+.crit3 {
+    stroke: var(--mm-color-red) !important;
+    fill: var(--doc-bg-color) !important;
+    stroke-width: 2px !important;
+    stroke-dasharray: 2px !important;
+}
+
+.critText0,
+.critText1,
+.critText2,
+.critText3 {
+    fill: var(--fore-color) !important;
+}
+
+.doneCritText0,
+.doneCritText1,
+.doneCritText2,
+.doneCritText3 {
+    fill: var(--fore-color) !important;
+}
+
+/* 标题 */
+.titleText {
+    text-anchor: middle !important;
+    font-size: 1.5em !important;
+    line-height: 2em !important;
+    font-family: var(--vlook-font-family-bold) !important;
+    font-weight: var(--vlook-font-weight-bold) !important;
+    fill: var(--fore-color) !important;
+}
+
+
+/* ----- entity 实体关系图 ----- */
+
+.entityBox {
+    fill: var(--mm-color-pink-alt) !important;
+    stroke: var(--mm-color-pink) !important;
+}
+
+/**************************************
+* VLOOK 针对 Mermaid 增加
+**************************************/
+.mdx-mermaid-restyler {
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: -9px !important;
+}

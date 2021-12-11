@@ -10,13 +10,15 @@ vlook-query: effects=2&ws=auto&lmc=1
 vlook-doc-lib: vlook-lib-en.html
 ---
 
-###### <sub>VLOOK™</sub><br />Make Your Markdown A New Perspective<br />──<br /><sup>Introduction</sup><br />`#Latest|V12.0#(theme2)`<br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2021. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br />Make Your Markdown A New Perspective<br />──<br /><sup>Introduction</sup><br />`#Latest|V13.0#(theme2!)`<br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2021. MAX°DESIGN.*
 
 [TOC]
 
 > **选择语言 ❯ **[<kbd>🇨🇳 简体中文</kbd>](index.html)
 
 # What is VLOOK™
+
+`#Editor|Typora#(gray)` `#OS|macOS#(black)` `#OS|Windows#(blue)` `#License|MIT#(red)`
 
 >
 >![VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-mark-light.svg?mode=logo&darksrc=vlook-mark-dark.svg)
@@ -83,11 +85,11 @@ vlook-doc-lib: vlook-lib-en.html
 >
 > This document is created by Typora and using the VLOOK™ plug-in! **AMAZING!!!**
 >
-> `>(brown)`
+> `>(brown!)`
 
 # Donate
 
-**If you like VLOOK™, you can contribute a cup of coffee :-)**
+**If you like VLOOK™, you can contribute a cup of coffee :-)** `#Pay via|PayPal#(cyan!)`
 
 [![打赏 VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/donate-paypal-light.png?mode=frame&darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x)](https://paypal.me/madmaxchow?lnkcss=none)
 
@@ -111,7 +113,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 >[<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°文档排版)
 >
->`>(purple)`
+>`>(green!)`
 
 > ###### ![°内容导航](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-nav-light.svg?mode=icon&fill=text&darksrc=invert) ° NAVIGATION
 >
@@ -125,7 +127,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°内容导航)
 >
-> `>(blue)`
+> `>(blue!)`
 
 ---
 
@@ -142,7 +144,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 >[<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°演示与出版辅助)
 >
->`>(orange)`
+>`>(orange!)`
 
 >
 >###### ![°主题与不杂项](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-theme-light.svg?mode=icon&fill=text&darksrc=invert) ° THEME & not MISC.
@@ -157,7 +159,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 >[<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°主题与不杂项)
 >
->`>(green)`
+>`>(brown!)`
 
 # How To Use
 
@@ -223,7 +225,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 > > ---
 > >
 > > 1. Restart Typora;
-> > 2. Click the "**Theme**" menu, select to `Vlook-*` any topic can be in the form of naming.
+> > 2. Click the "**Theme**" menu, select to `Vlook *` any topic can be in the form of naming.
 > >
 > > `>(orange)`
 >

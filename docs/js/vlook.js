@@ -2,8 +2,8 @@
  *
  * VLOOK.js - Typora Plugin
  *
- * V12.0
- * 2021-10-30
+ * V13.0
+ * 2021-12-11
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -17,47 +17,59 @@
 
 URL 参数说明
 
+type
+    （不对外公布）指定文档应用类型
+    取值范围：max - 完整（默认），mini - 迷你（指定的「文库」强制为该类型）
+
 cs
     强制指定颜色方案。light - Light Mode，dark - Dark Mode
 
 dl
     文库功能开关。
-    取值范围：none - 关闭
+    取值范围：off - 关闭
 
-effects
+el
     使用的动效等级。可指定为：0 - 关闭，1 - 标准，2 - 增强
-
-fix-mermaid
-    是否启用修正 Mermaid 的渲染 bug。默认启用。
-    取值范围：false - 取消修正
 
 lmc
     指定代码块自动生成题注并编号的行数下限，大于该行数的代码才会自动生成题注和编号
+
+nc
+    导航中心初始的运行模式，默认是自动，在封面时自动关闭、在正文时自动展开
+    取值范围：auto - 自动，close - 收起
 
 reset
     重置指定数据。
     取值范围：
     true: 本地缓存的用户数据
 
+radius
+    使用指定的圆角样式，忽略 VLOOK 主题自带的样式
+    取值范围：none - 不使用圆角，small - 使用小号圆角，big - 使用大号圆角
+
 srcset
     在 DPR > 1 时，自动将 src 直接指定 2x 图片
     取值范围：auto - 对于没有指定 srcset 时，自动将当前图片作为 2x 资源
 
-theme
-    动态加载指定的主题（仅限在线版本）
-    主题名称中的关键名称，如：vlook-hope, vlook-x-apple-support 等
-
-type
-    指定文档导航工具启用模式
-    取值范围：max - 完整（默认），mini - 迷你（指定的「文库」强制为该类型）
+wf
+    控制是否使用 WebFont（网络字体），默认自动开启
+    取值范围：off - 不开启
 
 ws
     欢迎页模式。默认完成加载后自动关闭
     取值范围：none - 不显示，wait - 显示，加载完成后需手动关闭
 
+theme
+    动态加载指定的主题（仅限在线版本）
+    主题名称中的关键名称，如：vlook-hope, vlook-x-apple-support 等
+
+tr
+    指定表格阅读模式默认开关
+    取值范围：off - 不开启，on - 开启
+
 **************************************/
 
-let vlookVersion = "V12.0";
+let vlookVersion = "V13.0";
 
 console.log(":::::::::::::::::::");
 console.log("!!! " + (vlookDevMode === true ? "- DEV -" : "RELEASED" ) + " !!!");
@@ -81,7 +93,7 @@ let iToolbar = undefined,
     iMoreDocContent = undefined,
     iSpotlight = undefined,
     iLaserPointer = undefined,
-    iFontStyler = undefined,
+    iFontTheme = undefined,
     iFigureNav = undefined,
     iWelcomePage = undefined,
     iToolTips = undefined,
@@ -512,13 +524,23 @@ VLOOK.data = {
     // 获得数据
     get : function (key) {
         return localStorage["VLOOK-" + key];
-        // return localStorage["VLOOK-" + VLOOK.version + "-" + key];
     },
     // 写入数据
     set : function (key, value) {
         localStorage["VLOOK-" + key] = value;
-        // localStorage["VLOOK-" + VLOOK.version + "-" + key] = value;
     }
+}
+
+
+/**
+ * VLOOK 自动题注配置
+ */
+ VLOOK.autoCaption = {
+    off : false, // true：不启用自动题注
+    figure : true, // 插图自动题注子开关
+    table : true, // 表格自动题注子开关
+    media : true, // 媒体（音频、视频）自动题注子开关
+    codeblock : true // 代码块自动题注子开关
 }
 
 /**
@@ -585,6 +607,29 @@ VLOOK.util = {
     getQueryString : function (url) {
         let queryIndex = url.indexOf("?");
         return queryIndex > -1 ? url.substring(queryIndex + 1, url.length) : "";
+    },
+
+    /**
+     * 批量修改指定的 CSS 变量集
+     *
+     * @param varSet 变量数组
+     * @param flag 修改为指定变量集的标识
+     */
+    changeCssVarSet : function (varSet, flag) {
+        // 生成目标颜色方案值列表
+        let targetVarSet = [];
+        if (flag !== undefined) {
+            for (let i = 0, len = varSet.length; i < len; i++) {
+                targetVarSet.push(VLOOK.util.getStyleValue(varSet[i] + "-" + flag));
+            }
+        }
+        // 遍历所有变量实现 ColorScheme 切换
+        for (let i = 0, len = varSet.length; i < len; i++) {
+            if (flag !== undefined)
+                VLOOK.util.setStyleValue(varSet[i], targetVarSet[i]);
+            else
+                VLOOK.util.setStyleValue(varSet[i], 0);
+        }
     },
 
     /**
@@ -903,12 +948,12 @@ VLOOK.checkSpecification = function () {
 VLOOK.initIntance = function () {
     let stopwatch = new Stopwatch();
     stopwatch.lapStart();
-    iFontStyler = new FontStyler(new BackgroundMask("font-styler", "center"));
-    if (iFontStyler === false)
-        alert("Instantiation failed [ iFontStyler ]");
+    iFontTheme = new FontTheme(new BackgroundMask("font-theme", "center"), VLOOK.util.getStyleValue("--vlook-font-theme"));
+    if (iFontTheme === false)
+        alert("Instantiation failed [ iFontTheme ]");
     else
-        iFontStyler.init(); // 初始化
-    stopwatch.lapStop("    ├ Font Styler: ");
+        iFontTheme.init(); // 初始化
+    stopwatch.lapStop("    ├ Font Themer: ");
 
     // ==================== UI --------------------
 
@@ -943,7 +988,8 @@ VLOOK.initIntance = function () {
 
     // 导航中心
     stopwatch.lapStart();
-    iNavCenter = new NavCenter(new BackgroundMask("nav-center", "left", true));
+    let runMode = VLOOK.util.getParamValue("nc");
+    iNavCenter = new NavCenter(new BackgroundMask("nav-center", "left", true), runMode);
     if (iNavCenter === false)
         alert("Instantiation failed [ iNavCenter ]");
     stopwatch.lapStop("    ├ Nav Center: ");
@@ -971,8 +1017,8 @@ VLOOK.initIntance = function () {
         });
 
         // 字体风格
-        iToolbar.add("font-style", function () {
-            iFontStyler.toggle();
+        iToolbar.add("font-theme", function () {
+            iFontTheme.toggle();
         });
 
         // 颜色方案（Light/Dark）
@@ -1023,7 +1069,7 @@ VLOOK.initIntance = function () {
         iLaserPointer.toolbar = iToolbar;
 
         // 绑定选择字体风格的工具栏按钮
-        iFontStyler.bindButton(iToolbar.buttons["font-style"]);
+        iFontTheme.bindButton(iToolbar.buttons["font-theme"]);
     }
     stopwatch.lapStop("    ├ Toolbar: ");
 
@@ -1127,6 +1173,9 @@ VLOOK.initKernel = function () {
     iStopwatch.lapStop("    COST ");
 
     TableCross.init();
+    // 设置表格阅读模式的开关状态（不指定则默认开启）
+    if (VLOOK.util.getParamValue("tr") !== "off")
+        TableCross.toggle();
     RowGroup.adjustHoverStyle();
 
     // ----------------------------------------
@@ -1165,23 +1214,24 @@ VLOOK.initKernel = function () {
 
     // ----------------------------------------
     // 初始化字体风格
-    iStopwatch.lapStart("* Font Style: ");
-    // 清空历史存储
-    if (VLOOK.util.getParamValue("reset") === "true") {
-        console.warn("!!! Reset Local Storage !!!");
-        localStorage.removeItem("VLOOK-" + VLOOK.version + "-font-style");
-    }
-    // 若手动切换过字体风格，且与默认字体风格不同，则恢复为最后一次选择的字体风格
-    const style = VLOOK.data.get("font-style");
-    iFontStyler.style = VLOOK.util.getStyleValue("--vlook-default-font-style").trim();
-    if (window.localStorage && style !== undefined && style !== iFontStyler.style) {
-        console.info("    └ Last Font Style: " + style);
-        iFontStyler.apply(style);
-    }
-    else {
-        console.info("    └ Default Font Style: " + iFontStyler.style);
-    }
-    iStopwatch.lapStop("    ");
+    // iStopwatch.lapStart("* Font Theme: ");
+    // // 清空历史存储
+    // if (VLOOK.util.getParamValue("reset") === "true") {
+    //     console.warn("!!! Reset Local Storage !!!");
+    //     localStorage.removeItem("VLOOK-font-theme");
+    // }
+    // // 若手动切换过字体风格，且与默认字体风格不同，则恢复为最后一次选择的字体风格
+    // const lastFontTheme = VLOOK.data.get("font-theme");
+    // iFontTheme.theme = VLOOK.util.getStyleValue("--vlook-font-theme").trim();
+    // if (window.localStorage && lastFontTheme !== undefined && lastFontTheme !== iFontTheme.theme) {
+    //     console.info("    ├ Document Font Theme: " + iFontTheme.theme);
+    //     console.info("    └ Last Font Theme: " + lastFontTheme);
+    //     iFontTheme.apply(iFontTheme.theme);
+    // }
+    // else {
+    //     console.info("    └ Default Font Theme: " + iFontTheme.theme);
+    // }
+    // iStopwatch.lapStop("    ");
 
     // ----------------------------------------
     iStopwatch.lapStart("* Binding Event");
@@ -1230,9 +1280,27 @@ VLOOK.initKernel = function () {
     });
 
     // 绑定打印前的触发事件
-    window.onbeforeprint = function () {};
+    window.onbeforeprint = function () {
+        if (VLOOK.type === "mini")
+            return;
+        // 不是通过 VLOOK 打印按钮进行打印时进行提醒
+        if (VLOOK.print.mode !== "VLOOK")
+            alert([
+                "注意！为确保打印正常，建议使用文档内工具栏左侧的【打印】按钮进行打印！",
+                "注意！為保證打印正常，建議使用文檔中工具欄左側的【打印】按鈕進行打印！",
+                "Notice! To ensure normal printing, it is recommended to use the [Print] button on the left side of the toolbar in the document to print!",
+                "Avis! Pour assurer une impression normale, il est recommandé d'utiliser le bouton [Imprimer] sur le côté gauche de la barre d'outils dans le document à imprimer !",
+                "Notiz! Um einen normalen Druck zu gewährleisten, wird empfohlen, die Schaltfläche [Drucken] auf der linken Seite der Symbolleiste im Dokument zum Drucken zu verwenden!",
+                "¡Aviso! Para garantizar una impresión normal, se recomienda utilizar el botón [Imprimir] en el lado izquierdo de la barra de herramientas del documento para imprimir.",
+                "Уведомление! Чтобы обеспечить нормальную печать, рекомендуется использовать кнопку [Печать] в левой части панели инструментов документа для печати!",
+                "知らせ！ 通常の印刷を行うために、ドキュメントのツールバーの左側にある[印刷]ボタンを使用して印刷することをお勧めします。",
+                "알아 채다! 정상적인 인쇄를 위해서는 인쇄할 문서의 툴바 왼쪽에 있는 [인쇄] 버튼을 이용하시는 것을 권장합니다!"
+            ][VLOOK.lang.id]);
+    };
     // 绑定打印后的触发事件
     window.onafterprint = function () {
+        if (VLOOK.type === "mini")
+            return;
         VLOOK.print.done();
     };
 
@@ -1298,7 +1366,7 @@ VLOOK.initRestyle = function () {
 
 // VLOOK UI
 VLOOK.ui = {
-    effects : 0, // 0: 无动效
+    effect : 0, // 0: 无动效
 
     /**
      * 淡入显示
@@ -1353,7 +1421,7 @@ VLOOK.ui = {
     copyrightInfo : function () {
         return '<div class="mdx-copyright">'
             + '<svg width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;" onclick="env.show()"><use xlink:href="#icoVLOOK-dark"></use></svg>&nbsp;&nbsp;'
-            + 'Published with <a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK</strong></a>™ (V12.0) &amp; <a href="https://www.typora.io" target="_blank"><strong>Typora</strong></a>.'
+            + 'Published with <a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK</strong></a>™ (V13.0) &amp; <a href="https://www.typora.io" target="_blank"><strong>Typora</strong></a>.'
             + '&nbsp;&nbsp;Support: <strong><a href="https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi">QQ Group</a></strong> / <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + VLOOK.version + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(true)) + '">Email</a></strong>.'
             + '</div>'
     },
@@ -1458,10 +1526,10 @@ VLOOK.ui = {
             "<strong>다크</strong> / <strong>라이트</strong> 모드 전환"
         ][VLOOK.lang.id]);
 
-        iToolbar.buttons["font-style"].attr("data-vk-tips", "<kbd>A</kbd> " + [
+        iToolbar.buttons["font-theme"].attr("data-vk-tips", "<kbd>A</kbd> " + [
             "切换 字体风格",
             "切換 字體風格",
-            "Switch Font Style",
+            "Switch Font Theme",
             "Changer de style de police",
             "Schriftart wechseln",
             "Cambiar estilo de fuente",
@@ -1485,7 +1553,7 @@ VLOOK.ui = {
         iToolbar.buttons["spotlight"].attr("data-vk-tips", "<kbd>S</kbd> " + [
             "聚光灯",
             "聚光燈",
-            "Spotlight>",
+            "Spotlight",
             "Projecteur",
             "Scheinwerfer",
             "Destacar",
@@ -1602,7 +1670,7 @@ VLOOK.ui = {
             "닫기"
         ][VLOOK.lang.id]);
 
-        iFontStyler.ui.find(".mdx-font-package").text([
+        iFontTheme.ui.find(".mdx-font-package").text([
             "字体包",
             "字體包",
             "Font Package",
@@ -1614,7 +1682,7 @@ VLOOK.ui = {
             "글꼴 패키지"
         ][VLOOK.lang.id] + " •• ");
 
-        iFontStyler.ui.find(".mdx-font-styler-info").html([
+        iFontTheme.ui.find(".mdx-font-theme-info").html([
             "若无法连接互联网加载在线版本字体，建议将字体直接下载到本地",
             "若無法連接互聯網加載在線版本字體，建議將字體直接下載到本地",
             "If you cannot connect to the Internet to load the online version of the font, it is recommended to download the font directly to the local",
@@ -1817,16 +1885,15 @@ VLOOK.ui = {
     /**
      * 初始化动效处理
      */
-    initEffects : function () {
+     initEffectLevel : function () {
         // 不启用动效
-        if (VLOOK.ui.effects < 1)
+        if (VLOOK.ui.effect < 1)
             VLOOK.util.setStyleValue("--vlook-transition-value", "none");
         // 动效等级为 2 或更高级时才开启毛玻璃动效（如遮罩、插图浏览器背景）
-        else if (VLOOK.ui.effects >= 2)
+        else if (VLOOK.ui.effect >= 2)
             $(".mdx-backdrop-blurs").addClass("enabled");
         // 以下动效等级为 1 或更高级时才开启
         VLOOK.ui.addAnimate($(".mdx-btn, .mdx-btn-group, .mdx-doc-lib-board, .mdx-doc-lib-board.flip"));
-        // VLOOK.ui.addAnimate($("a, a kbd, a img"));
         VLOOK.ui.addAnimate($("a kbd, a img"));
     },
 
@@ -1837,7 +1904,7 @@ VLOOK.ui = {
      * @param property 应用的属性，不指定时默认为 “all”
      */
     addAnimate : function (target, property) {
-        if (VLOOK.ui.effects >= 1) {
+        if (VLOOK.ui.effect >= 1) {
             if  (property === undefined)
                 target.addClass("mdx-transition-all");
             else {
@@ -1902,7 +1969,7 @@ VLOOK.ui = {
             iWelcomePage.disposeHotkey(code, combKeys);
             iFigureNav.disposeHotkey(code, combKeys);
             iNavCenter.disposeHotkey(code, combKeys);
-            iFontStyler.disposeHotkey(code, combKeys);
+            iFontTheme.disposeHotkey(code, combKeys);
             iInfoTips.disposeHotkey(code, combKeys);
             iFootNote.disposeHotkey(code, combKeys);
             iLinkChecker.disposeHotkey(code, combKeys);
@@ -1932,10 +1999,10 @@ VLOOK.ui = {
                     break;
                 case 65: // A
                     VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
-                    if (iFontStyler.ui.isHidden())
-                        iToolbar.buttons["font-style"].trigger("click");
+                    if (iFontTheme.ui.isHidden())
+                        iToolbar.buttons["font-theme"].trigger("click");
                     else
-                        iFontStyler.hide();
+                        iFontTheme.hide();
                     break;
                 case 88: // X
                     VLOOK.report.push(['Hotkey', combKeys, String.fromCharCode(code), 0]);
@@ -2083,11 +2150,15 @@ VLOOK.doc = {
 
 // 打印类
 VLOOK.print = {
+    // 打印模式。none：指由直接使用浏览器自带的打印，vlook：指先通过 vlook 进行预处理
+    mode : "none",
+
     /**
      * 打印文档前处理
      */
     ready : function () {
         VLOOK.report.push(['Style', 'Print', '', 0]);
+        VLOOK.print.mode = "VLOOK";
 
         // 若当前为 Dark Mode 则强制临时切换为 Light 模式
         if (ColorScheme.scheme === "dark") {
@@ -2152,7 +2223,9 @@ VLOOK.print = {
 
         // 调用浏览器的打印功能
         // 延后是为以上相关的异步和界面完成刷新
-        setTimeout(window.print, 2000);
+        setTimeout(function () {
+            window.print();
+        }, 2000);
     },
 
     /**
@@ -2194,6 +2267,8 @@ VLOOK.print = {
             if ($(this).attr("data-vk-black-curtain-showed").startsWith("t"))
                 BlackCurtain.hide($(this));
         });
+
+        VLOOK.print.mode = "none";
     },
 } // VLOOK.print
 
@@ -2358,8 +2433,8 @@ VLOOK.report = {
         statData += "&cb-cap2=" + $("div[id^=vk-id-codeblock] .mdx-caption-2").length;
 
         // 标签数据
-        statData += "&tag=" + $("code[class^=mdx-tag-c]").length;
-        statData += "&tag2=" + $("code[class^=mdx-tag-name]").length;
+        statData += "&tag=" + $("code[class^=mdx-tag]").length;
+        statData += "&badge=" + $("code[class^=mdx-badge-name]").length;
 
         // 引用数据
         statData += "&bq=" + $("blockquote").length;
@@ -2485,8 +2560,9 @@ function RandomColor() {
         while (finished === false && times < 20) {
             rgb = this.generate();
             // 判断新生成的随机颜色，色板中是否已有相似的
-            let i = 0;
-            for (i = 0; i < this.palette.length; i++) {
+            let idx = 0;
+            for (let i = 0; i < this.palette.length; i++) {
+                idx = i;
                 d[0] = (this.palette[i][0] - rgb[0]) / 256;
                 d[1] = (this.palette[i][1] - rgb[1]) / 256;
                 d[2] = (this.palette[i][2] - rgb[2]) / 256;
@@ -2496,7 +2572,7 @@ function RandomColor() {
             }
 
             // 色板中没有找到相似的颜色
-            if (i === this.palette.length) {
+            if (idx === this.palette.length) {
                 this.palette.push(rgb);
                 finished = true;
             }
@@ -2855,7 +2931,7 @@ function ContentAssistor() {
      *
      * @param target 指定对象
      */
-    __mouseDropIn = function (target) {
+    function __mouseDropIn (target) {
         let e = (event || window.event),
             mx = e.pageX || e.clientX + document.body.scrollLeft,
             my = e.pageY || e.clientY + document.body.scrollTop,
@@ -3473,8 +3549,9 @@ function SegmentControl(control, group) {
  * 构造函数
  *
  * @param mask 遮罩对象
+ * @param runMode 关闭模式
  */
-function NavCenter(mask) {
+function NavCenter(mask, runMode) {
     let that = this;
     this.ui = $(".mdx-nav-center"); // 导航中心主界面
     this.handle = $(".mdx-toc-handle"); // 导航中心引导把手
@@ -3483,8 +3560,8 @@ function NavCenter(mask) {
     this.__keywordBody = $(".mdx-search-by-keyword");
     this.keyword = new TextField(this.__keywordBody, "toc-filter-nav-center", true);
 
-    this.closeMode = "auto"; // 关闭导航中心的方式
-    this.displayMode = "float"; // 最后一次的显示方式（float/block）
+    this.runMode = (runMode === undefined) ? "auto" : runMode; // 导航中心运行方式
+    this.lastDisplayType = "float"; // 最后一次的显示方式（float/block）
     this.showed = false; // 是否已显示
 
     this.width = this.ui.width(); // 导航中心宽度
@@ -3521,7 +3598,7 @@ function NavCenter(mask) {
     this.segments.update();
 
     VLOOK.ui.addAnimate(this.handle);
-    VLOOK.ui.addAnimate(this.keyword.ui);
+    // VLOOK.ui.addAnimate(this.keyword.ui);
 
     /**
      * 当前章节变化事件
@@ -3580,11 +3657,11 @@ function NavCenter(mask) {
     }
 
     this.keyword.onFocus = function (source) {
-        if (that.displayMode !== "float") {
+        if (that.lastDisplayType !== "float") {
             VOM.doc().addClass("actived");
             let search = $(".mdx-focus-search");
             search.addClass("actived");
-            VLOOK.ui.addAnimate(search);
+            // VLOOK.ui.addAnimate(search);
         }
     }
 
@@ -3610,7 +3687,7 @@ function NavCenter(mask) {
         // 文库
         if (this.docLib.length === 0)
             alert("Instantiation failed [ iDocLib ]");
-        else if (VLOOK.util.getParamValue("dl") !== "none")
+        else if (VLOOK.util.getParamValue("dl") !== "off")
             this.docLib.init();
     }
 
@@ -3640,7 +3717,7 @@ function NavCenter(mask) {
      * 适配锚点击事件
      */
     this.adjustClickHash = function () {
-        if (that.displayMode === "float")
+        if (that.lastDisplayType === "float")
             that.hide("auto");
     }
 
@@ -3652,19 +3729,19 @@ function NavCenter(mask) {
     this.toggle = function (callback) {
         // 导航中心已显示
         if (this.showed === true) {
-            this.hide("manual");
+            this.hide("closed");
         }
         // 导航中心未显示
         else {
-            this.closeMode = "auto";
+            this.runMode = "auto";
             // 在封面，或小屏
             if (this.catalog.inHeader() === false || VLOOK.ui.isSmallScreen() === true) {
                 this.show("float");
             }
             // 在章节内，非小屏
             else {
-                // 没有手动关闭导航中心时，自动显示导航中心
-                if (this.closeMode === "auto")
+                // 导航中心运行模式为 auto 时，自动显示导航中心
+                if (this.runMode === "auto")
                     this.show("block");
             }
         }
@@ -3676,10 +3753,10 @@ function NavCenter(mask) {
     /**
      * 显示导航中心
      *
-     * @param displayMode float: 以浮动形式显示，block: 以占位形式显示
+     * @param lastDisplayType float: 以浮动形式显示，block: 以占位形式显示
      * @returns boolean true: 需要处理显示，false: 已显示，无须重复处理
      */
-    this.show = function (displayMode) {
+    this.show = function (lastDisplayType) {
         // 已显示，或在以动画显示过程中
         if (VLOOK.type !== "max" || this.showed === true || this.ui.offset().left > -this.width) {
             // this.handle.hide();
@@ -3691,9 +3768,9 @@ function NavCenter(mask) {
         });
         this.handle.hide();
 
-        this.displayMode = displayMode;
+        this.lastDisplayType = lastDisplayType;
         // 以「占位方式」显示导航中心
-        if (this.displayMode === "block") {
+        if (this.lastDisplayType === "block") {
             // 占位方式的样式设置
             this.ui.removeClass("mdx-nav-center-float");
             this.ui.removeClass("mdx-float-card");
@@ -3715,7 +3792,7 @@ function NavCenter(mask) {
             }
         }
         // 以「浮动方式」显示导航中心
-        else if (this.displayMode === "float") {
+        else if (this.lastDisplayType === "float") {
             // 浮动方式的样式设置
             this.ui.removeClass("mdx-nav-center-block");
             this.ui.addClass("mdx-nav-center-float");
@@ -3739,18 +3816,18 @@ function NavCenter(mask) {
     /**
      * 隐藏导航中心
      *
-     * @param closeMode 关闭导航中心的的方式（auto/manual）
+     * @param runMode 导航中心的运行模式（auto/closed）
      * @returns boolean true: 需要处理隐藏，false: 已显示，无须重复处理
      */
-    this.hide = function (closeMode) {
+    this.hide = function (runMode) {
         // 已隐藏，或在以动画隐藏过程中
         if (this.showed === false || this.ui.offset().left < 10)
             return false;
 
         // 若最后一次显示以是「占位方式」显示
-        if (this.displayMode === "block") {
-            // 记录是否手动关闭
-            this.closeMode = closeMode;
+        if (this.lastDisplayType === "block") {
+            // 更新运行模式
+            this.runMode = runMode;
 
             // 更新工具栏导航中心按钮图标
             if (!env.device.mobile)
@@ -3786,7 +3863,7 @@ function NavCenter(mask) {
         let result = false;
 
         // 根据导航中心宽度更新相关界面组件的样式
-        if (this.showed && this.displayMode === "block")
+        if (this.showed && this.lastDisplayType === "block")
             VOM.doc().css({
                 "margin-left" : "calc(var(--vlook-nav-center-width) + 30px)"
             });
@@ -3814,8 +3891,8 @@ function NavCenter(mask) {
         }
         // 不在封面
         else {
-            // 没有手动关闭导航中心时，自动显示导航中心
-            if (this.closeMode === "auto") {
+            // 导航中心运行模式为 auto 时，自动显示导航中心
+            if (this.runMode === "auto") {
                 // 以占位方式显示导航中心
                 result = this.show("block");
 
@@ -3880,7 +3957,7 @@ function NavCenter(mask) {
      * 显示/隐藏导航中心，并进行关联处理
      */
      this.afterToggle = function () {
-        if (iNavCenter.displayMode === "block")
+        if (iNavCenter.lastDisplayType === "block")
             iContentFolder.adjust();
     }
 
@@ -3899,7 +3976,7 @@ function NavCenter(mask) {
 
         switch (code) {
             case 27: // ESC
-                if (that.displayMode === "float")
+                if (that.lastDisplayType === "float")
                     that.hide();
                 break;
         }
@@ -4024,9 +4101,9 @@ function ChapterNav(navCenter) {
     /**
      * 初始化动效
      */
-    this.adjustEffects = function (target) {
+    this.adjustEffectLevel = function (target) {
         // 因 CSS 的 transition 不变动渐变背景过渡效果，须通过增/减不同的预置样式实现过渡效果
-        if (VLOOK.ui.effects >= 1) {
+        if (VLOOK.ui.effect >= 1) {
             $(target).addClass("effect");
             VLOOK.ui.addAnimate($(target + ".effect"));
         }
@@ -4035,10 +4112,10 @@ function ChapterNav(navCenter) {
         }
     }
     // 初始化动效
-    this.adjustEffects(__prev);
-    this.adjustEffects(__current);
-    this.adjustEffects(__next);
-    this.adjustEffects(__docTitle);
+    this.adjustEffectLevel(__prev);
+    this.adjustEffectLevel(__current);
+    this.adjustEffectLevel(__next);
+    this.adjustEffectLevel(__docTitle);
 
     /**
      * 跳转至前一章节
@@ -4093,7 +4170,7 @@ function ChapterNav(navCenter) {
             if (VOM.cover() === undefined) {
                 this.docTitle.removeClass("in-start");
                 this.docTitle.removeAttr("disabled");
-                this.adjustEffects(__docTitle);
+                this.adjustEffectLevel(__docTitle);
                 __bindEvent(this.docTitle, "center");
             }
         }
@@ -4834,8 +4911,10 @@ ColorScheme.toggle = function (scheme) {
  * 根据指定的颜色方案进行文档刷新
  */
 ColorScheme.refresh = function () {
-    // CSS 变量名称列表
-    const varList = [
+    iToolbar.updateIcons();
+
+    // 批量修改颜色方案相关的 CSS 变量为指定的新值
+    VLOOK.util.changeCssVarSet([
         "--vlook-invert-dark",
         "--vlook-brightness-dark",
         "--doc-bg-color",
@@ -4861,6 +4940,9 @@ ColorScheme.refresh = function () {
         "--code-name-shadow-color",
         "--tips-bg-color-inset",
         "--tips-bg-color",
+        "--keycap-color",
+        "--keycap-reflect-color",
+        "--keycap-shadow-color",
         "--acc-color-red",
         "--acc-color-red-alt",
         "--acc-color-red-fade",
@@ -4873,10 +4955,18 @@ ColorScheme.refresh = function () {
         "--acc-color-yellow-alt",
         "--acc-color-yellow-fade",
         "--acc-color-yellow-title",
+        "--acc-color-lime",
+        "--acc-color-lime-alt",
+        "--acc-color-lime-fade",
+        "--acc-color-lime-title",
         "--acc-color-green",
         "--acc-color-green-alt",
         "--acc-color-green-fade",
         "--acc-color-green-title",
+        "--acc-color-aqua",
+        "--acc-color-aqua-alt",
+        "--acc-color-aqua-fade",
+        "--acc-color-aqua-title",
         "--acc-color-cyan",
         "--acc-color-cyan-alt",
         "--acc-color-cyan-fade",
@@ -4885,14 +4975,26 @@ ColorScheme.refresh = function () {
         "--acc-color-blue-alt",
         "--acc-color-blue-fade",
         "--acc-color-blue-title",
+        "--acc-color-sea",
+        "--acc-color-sea-alt",
+        "--acc-color-sea-fade",
+        "--acc-color-sea-title",
         "--acc-color-purple",
         "--acc-color-purple-alt",
         "--acc-color-purple-fade",
         "--acc-color-purple-title",
+        "--acc-color-magenta",
+        "--acc-color-magenta-alt",
+        "--acc-color-magenta-fade",
+        "--acc-color-magenta-title",
         "--acc-color-pink",
         "--acc-color-pink-alt",
         "--acc-color-pink-fade",
         "--acc-color-pink-title",
+        "--acc-color-gold",
+        "--acc-color-gold-alt",
+        "--acc-color-gold-fade",
+        "--acc-color-gold-title",
         "--acc-color-brown",
         "--acc-color-brown-alt",
         "--acc-color-brown-fade",
@@ -4950,19 +5052,7 @@ ColorScheme.refresh = function () {
         "--cm-bracket",
         "--cm-atom",
         "--cm-number"
-    ];
-
-    iToolbar.updateIcons();
-
-    // 生成目标颜色方案值列表
-    let schemeVarList = [];
-    for (let i = 0, len = varList.length; i < len; i++) {
-        schemeVarList.push(VLOOK.util.getStyleValue(varList[i] + "-" + ColorScheme.scheme));
-    }
-    // 遍历所有变量实现 ColorScheme 切换
-    for (let i = 0, len = varList.length; i < len; i++) {
-        VLOOK.util.setStyleValue(varList[i], schemeVarList[i]);
-    }
+    ], ColorScheme.scheme);
 
     // 针对 Dark Mode 进行适配处理
     ExtFigure.adjustColorScheme(true);
@@ -4984,7 +5074,7 @@ ColorScheme.afterToggle = function () {
  * @param ui 选项的 UI
  * @param fonts 字体集数组
  */
-function FontStyleOption(ui, fonts) {
+function FontThemeOption(ui, fonts) {
     this.ui = ui;
     this.fonts = fonts;
     this.fontCount = this.fonts.length;
@@ -4994,20 +5084,21 @@ function FontStyleOption(ui, fonts) {
  * 构造函数
  *
  * @param mask 遮罩对象
+ * @param theme 默认的字体主题
  */
-function FontStyler(mask) {
+function FontTheme(mask, theme) {
     let that = this;
-    this.style = undefined; // 当前字体风格，sans：非衬线（小清新），serif：衬线（文艺范）
-    this.ui = $(".mdx-font-styler"); // 字体风格切换选择界面
+    this.theme = theme; // 当前字体风格，sans：非衬线（小清新），serif：衬线（文艺范）
+    this.ui = $(".mdx-font-theme"); // 字体风格切换选择界面
     // 小清新字体风格选项
-    this.sansStyle = new FontStyleOption($(".mdx-fontstyle-sans"),
+    this.sansTheme = new FontThemeOption($(".mdx-font-theme-opt-sans"),
         [
             "VLOOK Number/normal/normal", "VLOOK Number/normal/bold", "VLOOK Number/italic/normal",
             "VLOOK Sans Mono/normal/normal", "VLOOK Sans Mono/normal/500", "VLOOK Sans Mono/normal/bold", "VLOOK Sans Mono/normal/900",
             "VLOOK Sans/normal/normal", "VLOOK Sans/normal/bold", "VLOOK Sans/normal/900"
             ]);
     // 艺术范字体风格选项
-    this.serifStyle = new FontStyleOption($(".mdx-fontstyle-serif"),
+    this.serifTheme = new FontThemeOption($(".mdx-font-theme-opt-serif"),
         [
             "VLOOK Number/normal/normal", "VLOOK Number/normal/bold", "VLOOK Number/italic/normal",
             "VLOOK Sans Mono/normal/normal", "VLOOK Sans Mono/normal/500", "VLOOK Sans Mono/normal/bold", "VLOOK Sans Mono/normal/900",
@@ -5020,11 +5111,11 @@ function FontStyler(mask) {
     VLOOK.ui.addAnimate(this.ui);
 
     // 绑定各字体风格选项事件
-    this.sansStyle.ui.unbind("click").click(function () {
+    this.sansTheme.ui.unbind("click").click(function () {
         that.apply("sans");
         that.hide();
     });
-    this.serifStyle.ui.unbind("click").click(function () {
+    this.serifTheme.ui.unbind("click").click(function () {
         that.apply("serif");
         that.hide();
     });
@@ -5033,6 +5124,15 @@ function FontStyler(mask) {
      * 初始化
      */
     this.init = function () {
+        // 没有指定关闭 WebFont 则默认开启
+        if (VLOOK.util.getParamValue("wf") !== "off")
+            this.initWebFont();
+    }
+
+    /**
+     * 初始化 WebFont
+     */
+    this.initWebFont = function () {
         // 动态加载字体 VLOOK Sans Mono
         this.loadFont("VLOOK Sans Mono", "normal", "normal", "NotoSansMono", "NotoSansMono-Regular", "ttf", "woff2");
         this.loadFont("VLOOK Sans Mono", "normal", "500", "NotoSansMono", "NotoSansMono-Medium", "ttf", "woff2");
@@ -5062,9 +5162,9 @@ function FontStyler(mask) {
         // 加载超时检测
         setTimeout(function () {
             let langTimeout = "❌ " + ["超时", "超時", "Timeout", "Temps libre", "Auszeit", "Se acabó el tiempo", "Тайм-аут", "タイムアウト", "타임 아웃"][VLOOK.lang.id];
-            if (that.sansStyle.fonts.length > 0)
+            if (that.sansTheme.fonts.length > 0)
                 $("#fontset-sans-status").text(langTimeout);
-            if (that.serifStyle.fonts.length > 0)
+            if (that.serifTheme.fonts.length > 0)
                 $("#fontset-serif-status").text(langTimeout);
         }, 600000); // 10 分钟后进行超时检测
     }
@@ -5104,38 +5204,38 @@ function FontStyler(mask) {
                 document.fonts.add(loadedFontFace);
 
                 let fontID = fontFamily + "/" + fontStyle + "/" + fontWeight,
-                    langReady = "✅ " + ["已就绪", "已就緒", "Ready", "Prêt", "Bereit", "Listo", "готов", "準備完了", "준비된"][VLOOK.lang.id],
-                    langLoading = ["加载中", "加載中", "Loading", "Chargement", "Wird geladen", "Cargando", "Загрузка", "読み込み中", "로딩 중"][VLOOK.lang.id];
+                    webFontReady = "✅ " + ["已就绪", "已就緒", "Ready", "Prêt", "Bereit", "Listo", "готов", "準備完了", "준비된"][VLOOK.lang.id],
+                    webFontLoading = ["加载中", "加載中", "Loading", "Chargement", "Wird geladen", "Cargando", "Загрузка", "読み込み中", "로딩 중"][VLOOK.lang.id];
                 console.log("_____ FONT LOADED _____ ");
                 console.log(fontID);
 
                 // 更新小清新风格字体包下载进度
-                for (let i = 0; i < that.sansStyle.fonts.length; i++) {
-                    if (that.sansStyle.fonts[i] === fontID) {
-                        that.sansStyle.fonts.splice(i, 1);
+                for (let i = 0; i < that.sansTheme.fonts.length; i++) {
+                    if (that.sansTheme.fonts[i] === fontID) {
+                        that.sansTheme.fonts.splice(i, 1);
                         break;
                     }
                 }
-                let sansLoadedCount = that.sansStyle.fontCount - that.sansStyle.fonts.length,
+                let sansLoadedCount = that.sansTheme.fontCount - that.sansTheme.fonts.length,
                     sansStatus = $("#fontset-sans-status");
-                if (sansLoadedCount < that.sansStyle.fontCount)
-                    sansStatus.text(langLoading + "... (" + Math.round(sansLoadedCount / that.sansStyle.fontCount * 100) + "%)");
+                if (sansLoadedCount < that.sansTheme.fontCount)
+                    sansStatus.text(webFontLoading + "... (" + Math.round(sansLoadedCount / that.sansTheme.fontCount * 100) + "%)");
                 else
-                    sansStatus.text(langReady);
+                    sansStatus.text(webFontReady);
 
                 // 更新艺术范风格字体包下载进度
-                for (let i = 0; i < that.serifStyle.fonts.length; i++) {
-                    if (that.serifStyle.fonts[i] === fontID) {
-                        that.serifStyle.fonts.splice(i, 1);
+                for (let i = 0; i < that.serifTheme.fonts.length; i++) {
+                    if (that.serifTheme.fonts[i] === fontID) {
+                        that.serifTheme.fonts.splice(i, 1);
                         break;
                     }
                 }
-                let serifLoadedCount = that.serifStyle.fontCount - that.serifStyle.fonts.length,
+                let serifLoadedCount = that.serifTheme.fontCount - that.serifTheme.fonts.length,
                     serifStatus = $("#fontset-serif-status");
-                if (serifLoadedCount < that.serifStyle.fontCount)
-                    serifStatus.text(langLoading + "... (" + Math.round(serifLoadedCount / that.serifStyle.fontCount * 100) + "%)");
+                if (serifLoadedCount < that.serifTheme.fontCount)
+                    serifStatus.text(webFontLoading + "... (" + Math.round(serifLoadedCount / that.serifTheme.fontCount * 100) + "%)");
                 else
-                    serifStatus.text(langReady);
+                    serifStatus.text(webFontReady);
             });
         }
     }
@@ -5151,6 +5251,7 @@ function FontStyler(mask) {
         let values = document.fonts.values(),
             isHave = false,
             item = values.next();
+
         while (!item.done && isHave === false) {
             let fontFace = item.value;
             if (fontFace.family === fontFamily
@@ -5173,13 +5274,14 @@ function FontStyler(mask) {
         VLOOK.ui.moveToCenter(this.ui);
         this.ui.show();
 
-        if (this.style === "sans") {
-            this.sansStyle.ui.addClass("selected");
-            this.serifStyle.ui.removeClass("selected");
+        console.log("'" + this.theme + "'");
+        if (this.theme === "sans") {
+            this.sansTheme.ui.addClass("selected");
+            this.serifTheme.ui.removeClass("selected");
         }
         else {
-            this.serifStyle.ui.addClass("selected");
-            this.sansStyle.ui.removeClass("selected");
+            this.serifTheme.ui.addClass("selected");
+            this.sansTheme.ui.removeClass("selected");
         }
     }
 
@@ -5206,146 +5308,39 @@ function FontStyler(mask) {
     /**
      * 应用指定字体风格
      *
-     * @param style 指定应用的字体风格（sans/serif），不指定则以为当前字体风格
+     * @param theme 指定应用的字体风格（sans/serif），不指定则以为当前字体风格
      */
-    this.apply = function (style) {
+    this.apply = function (theme) {
         // 修正无指定样式的情况
-        if (style === undefined)
-            style = this.style;
+        if (theme === undefined)
+            theme = this.theme;
+        this.theme = theme;
 
-        VLOOK.report.push(['Style', 'FontStyle', style, 0]);
+        VLOOK.report.push(['Style', 'FontTheme', theme, 0]);
 
-        // 需要进行字体风格应用的分类与范围
-        let text = "body"
-            + ", .noteText tspan";
-            // + ", ruby";
-        let title = "#write > pre.md-meta-block:first-child + h6, #write > h6:first-child"
-            + ", .mdx-backcover, #write > h1:last-child"
-            + ", .mdx-welcome-page";
-        let subtitle = ".mdx-copyright"
-            + ", #write > pre.md-meta-block:first-child + h6 strong, #write > h6:first-child strong"
-            + ", #write > pre.md-meta-block:first-child + h6 strong::before, #write > h6:first-child strong::before"
-            + ", #write > pre.md-meta-block:first-child + h6 em, #write > h6:first-child em"
-            + ", h6"
-            + ", .outline-item"
-            + ", .md-toc-item"
-            + ", .mdx-tool-tips"
-            + ", .mdx-info-tips"
-            + ", .mdx-content-expander"
-            + ", .mdx-welcome-page-loading"
-            + ", .mdx-nav-center-header"
-            + ", .mdx-chapter-nav-prev-text"
-            + ", .mdx-chapter-nav-current"
-            + ", .mdx-chapter-nav-next-text"
-            + ", ::marker";
-        let tag = ".mdx-tag-c1"
-            + ", .mdx-tag-c2"
-            + ", .mdx-tag-c3"
-            + ", .mdx-tag-c4"
-            + ", .mdx-tag-c5"
-            + ", .mdx-tag-c6"
-            + ", .mdx-tag-name1"
-            + ", .mdx-tag-name2"
-            + ", .mdx-tag-name3"
-            + ", .mdx-tag-name4"
-            + ", .mdx-tag-name5"
-            + ", .mdx-tag-name6"
-            + ", .mdx-tag-value1"
-            + ", .mdx-tag-value2"
-            + ", .mdx-tag-value3"
-            + ", .mdx-tag-value4"
-            + ", .mdx-tag-value5"
-            + ", .mdx-tag-value6";
-        let header = "h1, h2, h3, h4, h5, h6";
-        let bold = "a, strong"
-            + ", table > thead > tr > th"
-            + ", table > thead > tr > td"
-            + ", .mdx-tbl-col-fmt-bold"
-            + ", .md-fn-count"
-            + ", a[name^='ref-footnote-'], a[id^='ref-footnote-']"
-            + ", .pieTitleText"
-            + ", .legend text"
-            + ", .slice"
-            + ", .mermaid .label div"
-            + ", .mdx-figure .label div"
-            + ", .label div"
-            + ", .cluster text"
-            + ", #START rect+.label div"
-            + ", text.actor"
-            + ", .labelText tspan"
-            + ", .loopText tspan"
-            + ", g.stateGroup .state-title"
-            + ", g.stateGroup text"
-            + ", .taskText"
-            + ", .taskTextOutsideRight"
-            + ", .taskTextOutsideLeft"
-            + ", .titleText"
-            + ", .mdx-caption > p"
-            + ", rp, rt";
-        let number = ".mdx-tbl-col-fmt-num";
-        let code = "figure table tr::before"
-            + ", tt, code"
-            + ", .md-fences"
-            + ", g.cardinality text"
-            + ", g.classGroup text"
-            + ", g.classLabel .label"
-            + ", kbd";
-        // 字重配置
-        let fontWeight = "strong"
-            + ", ::marker"
-            + ", table > thead > tr > th"
-            + ", table > thead > tr > td"
-            + ", .mdx-tbl-col-fmt-bold"
-            + ", .pieTitleText"
-            + ", .legend text"
-            + ", .slice"
-            + ", .mdx-actor-key-sys"
-            + ", .labelText tspan"
-            + ", .titleText"
-            + ", strong a"
-            + ", .mdx-black-curtain"
-            + ", #write > pre.md-meta-block:first-child + h6 sub, #write > h6:first-child sub"
-            + ", #write > pre.md-meta-block:first-child + h6 sup, #write > h6:first-child sup"
-            + ", #write > pre.md-meta-block:first-child + h6 em, #write > h6:first-child em";
-
-        // 移除当前的字体风格
-        $(code).removeClass("mdx-font-code-" + this.style);
-        $(tag).removeClass("mdx-font-code-" + this.style);
-        $(tag).removeClass("mdx-font-tag-" + this.style);
-        $(text).removeClass("mdx-font-text-" + this.style);
-        $(header).removeClass("mdx-font-header-" + this.style);
-        $(title).removeClass("mdx-font-title-" + this.style);
-        $(bold).removeClass("mdx-font-bold-" + this.style);
-        $(number).removeClass("mdx-font-number-" + this.style);
-        $(subtitle).removeClass("mdx-font-subtitle-" + this.style);
-        $(fontWeight).removeClass("mdx-font-weight-bold-" + this.style);
-
-        // 更新到指定的字体风格
-        this.style = style;
-        $(code).addClass("mdx-font-code-" + style);
-
-        $(tag).removeClass("mdx-font-code-" + style); // 针对 code.addClass 后的二次调整
-        $(tag).addClass("mdx-font-tag-" + style);
-
-        $(text).addClass("mdx-font-text-" + style);
-        $(header).addClass("mdx-font-header-" + style);
-
-        $(bold).addClass("mdx-font-bold-" + style);
-
-        $(number).addClass("mdx-font-number-" + this.style);
-
-        $(subtitle).removeClass("mdx-font-header-" + style); // 针对 header.addClass 后的二次调整
-        $(subtitle).removeClass("mdx-font-bold-" + style); // 针对 header.addClass 后的二次调整
-        $(subtitle).addClass("mdx-font-subtitle-" + style);
-
-        $(title).removeClass("mdx-font-header-" + style); // 针对 header.addClass 后的二次调整
-        $(title).removeClass("mdx-font-subtitle-" + style); // 针对 header.addClass 后的二次调整
-        $(title).addClass("mdx-font-title-" + style);
-
-        $(fontWeight).addClass("mdx-font-weight-bold-" + style);
-
-        // 保存最后一次应用的字体风格
-        VLOOK.data.set("font-style", iFontStyler.style);
+        // CSS 变量名称列表
+        const varList = [
+            "--vlook-font-family-title",
+            "--vlook-font-family-subtitle",
+            "--vlook-font-family-header",
+            "--vlook-font-family-text",
+            "--vlook-font-family-bold",
+            "--vlook-font-family-number",
+            "--vlook-font-family-tag",
+            "--vlook-font-family-code",
+            "--vlook-font-weight-bold",
+            "--vlook-font-weight-title",
+            "--vlook-font-weight-text"
+        ];
+        // 生成目标字体主题变量值列表
+        let fontVarList = [];
+        for (let i = 0, len = varList.length; i < len; i++) {
+            fontVarList.push(VLOOK.util.getStyleValue(varList[i] + "-" + this.theme));
+        }
+        // 遍历所有变量实现字体主题的切换
+        for (let i = 0, len = varList.length; i < len; i++) {
+            VLOOK.util.setStyleValue(varList[i], fontVarList[i]);
+        }
     }
 
     /**
@@ -5646,7 +5641,7 @@ function BackgroundMask(id, style, close) {
         + '</div>');
 
     // 根据动效等级初始化遮罩样式
-    VLOOK.ui.initEffects();
+    VLOOK.ui.initEffectLevel();
 
     this.ui = $(".mdx-mask." + id);
     this.close = undefined;
@@ -6287,7 +6282,7 @@ CaptionGenerator.actionForTextContent = function (target, tagName) {
             + (VLOOK.doc.counter.table);
     }
 
-    // 有指定的题注文本
+    // 尝试获得带题注语法的内容
     let fcSet = CaptionGenerator.getCaptions(target.parent().prev(), tagName);
     let fc = fcSet[0], // 第 1 题注
         fc2 = fcSet[1]; // 第 2 题注
@@ -6297,8 +6292,8 @@ CaptionGenerator.actionForTextContent = function (target, tagName) {
         fc = "";
         if (tagName.startsWith("p")) // 代码块
             fc = target.find(".CodeMirror-line").text().trim();
-        else if (tagName.startsWith("t")) // 表格
-            fc = target.find("td").text().trim();
+        else if (tagName.startsWith("t")) // 表格，并过滤掉列格式相关语法标记内容
+            fc = target.find("td").text().trim().replace(/(==|\[\s\]|\.\.|<<|^^|##\s)/ig, "");
         // 省略中间内容处理
         fc = VLOOK.util.ellipsisText(fc.trim(), 20);
     }
@@ -6338,7 +6333,7 @@ CaptionGenerator.actionForTextContent = function (target, tagName) {
  * 针对插图（img、mermaid）生成题注
  *
  * @param target 需要添加题注的对象
- * @param tagName HTML 标签名称
+ * @param tagName 添加题注的目标对象的 HTML 标签名称
  */
 CaptionGenerator.actionForMediaContent = function (target, tagName) {
     let fc = target.attr("alt"), // 默认尝试获取图片的 alt 内容作为题注内容
@@ -6347,9 +6342,10 @@ CaptionGenerator.actionForMediaContent = function (target, tagName) {
         anchor = "",
         dataForSearch = "";
 
-    // 尝试获取最近的段落（如<p>、<h6>）作为题注内容
-    let fcSet = CaptionGenerator.getCaptions(target.parent().prev(), tagName);
-    if ((fc === undefined || fc.trim().length === 0) && fcSet[0] != null) {
+    let fcSet = null;
+    // 若图片 alt 无内容，则尝试获取前面段落（如<p>、<h6>）作为第 1、2 题注的内容
+    if (fc === undefined || fc.trim().length === 0) {
+        fcSet = CaptionGenerator.getCaptions(target.parent().prev(), tagName);
         if (fcSet[0] != null)
             fc = fcSet[0];
         if (fcSet[1] != null)
@@ -6455,6 +6451,9 @@ CaptionGenerator.actionForMediaContent = function (target, tagName) {
 
 /**
  * 返回插图、表格、代码块上方的题注
+ *
+ * @param caption 潜在的题注内容对象
+ * @param tagName 添加题注的目标对象的 HTML 标签名称
  */
 CaptionGenerator.getCaptions = function (caption, tagName) {
     let fcSet = [], // 题注集
@@ -6490,9 +6489,10 @@ CaptionGenerator.getCaptions = function (caption, tagName) {
         }
     }
 
-    // 若成功匹配出题注，且为不 <img> 则隐藏原始内容
-    if (hideCaptionSrc === true && tagName.startsWith("i") === false)
+    // 若成功匹配出题注，且内容不是 <img> 则隐藏原始内容
+    if (hideCaptionSrc === true && tagName.startsWith("i") === false) {
         caption.hide();
+    }
     return fcSet;
 
     /**
@@ -6550,10 +6550,7 @@ ExtCodeBlock.init = function () {
         if (codeblock.find(".CodeMirror-line").length > lmc) {
             VLOOK.doc.counter.codeblock++;
             // 外套一个 <p> 标签，用于内容折叠时与插图、表格的 DOM 结构一致
-            codeblock.wrap("<p data-vk-container='pre' style='" +
-            "border-radius: 0 0 var(--vlook-base-radius) var(--vlook-base-radius);" +
-            "margin-bottom: 20px;" +
-            "'></p>");
+            codeblock.wrap("<p data-vk-container='pre' class='mdx-caption-container'></p>");
 
             CaptionGenerator.actionForTextContent(codeblock, "pre");
         }
@@ -6640,14 +6637,14 @@ ExtCodeBlock.copy = function (source) {
 
 function ExtQuote() {}
 
-ExtQuote.icoClosed = '<svg width="16px" height="16px" style="display: inline-block; vertical-align: middle; margin-top: -4px; margin-right: 2px;"><use xlink:href="#icoQuoteClosed" class="mdx-blockquote-folder-ico"/></svg>&nbsp;';
-ExtQuote.icoOpened = '<svg width="16px" height="16px" style="display: inline-block; vertical-align: middle; margin-top: -4px; margin-right: 2px;"><use xlink:href="#icoQuoteOpened" class="mdx-blockquote-folder-ico"/></svg>&nbsp;';
+ExtQuote.icoClosed = '<svg width="16px" height="16px" class="mdx-svg-small-ico"><use xlink:href="#icoQuoteClosed" class="mdx-blockquote-folder-ico"/></svg>&nbsp;';
+ExtQuote.icoOpened = '<svg width="16px" height="16px" class="mdx-svg-small-ico"><use xlink:href="#icoQuoteOpened" class="mdx-blockquote-folder-ico"/></svg>&nbsp;';
 
 /**
  * 初始化引用块以实现折叠支持
  */
 ExtQuote.init = function () {
-    $("blockquote > p").each(function () {
+    $("blockquote > p, blockquote li > p").each(function () {
         let target = $(this),
             next = target.next("blockquote"),
             text = target.text();
@@ -6825,13 +6822,7 @@ ExtTable.init = function () {
 
         // 表格滚动事件
         container.scroll(function () {
-            let scrollLeft = $(this).scrollLeft();
-            // 根据显示时其对应表格的水平滚动的偏移量，调整阅读模式（十字光标）的位置
-            $("div.mdx-table-cross").each(function () {
-                $(this).css({
-                    "left" : TableCross.lastCellPos[$(this).attr("data-vk-direction")] - scrollLeft
-                });
-            });
+            TableCross.hide();
         });
 
         // 表格单元格初始化处理
@@ -6932,7 +6923,7 @@ ExtTable.init = function () {
                     && ThRepeater.syntax.tag.test(text) === true) {
                         // 将表格标记为带行折叠语法
                         table.attr("data-vk-th-rpt", "true");
-                        th.replaceHTML(" ##", "");
+                        th.replaceHTML("## ", "");
                         needCheckThRpt = false;
                 }
 
@@ -7070,7 +7061,7 @@ CellMerge.dispose = function (table) {
             tr.addClass("mdx-table-colspan-all");
         }
 
-        // 列合并：对于最后一列的补充处理
+        // 列间合并：对于最后一列的补充处理
         if (colSpanCount > 0 && colSpanCell != null) {
             colSpanCell.attr("colspan", colSpanCount + 1);
             CellMerge.emptyBlankCell(colSpanCell);
@@ -7086,7 +7077,7 @@ CellMerge.dispose = function (table) {
 
     rowIndex = 0;
 
-    // --- 行合并（纵向）---
+    // --- 行间合并（纵向）---
     if (needRowSpan === true) {
         tblTd2ThData = [];
         // 列式遍历（从左到右）
@@ -7141,15 +7132,17 @@ CellMerge.dispose = function (table) {
         for (let i = 0, len = tblTd2ThData.length; i < len; i++) {
             tblData[0][0].parent().parent().append(tblTd2ThData[i]);
             // 将 thead 内的 td 标签转换为 th
+            let foundTd = false;
             tblTd2ThData[i].find("td").each(function () {
+                foundTd = true;
                 // 暂存 td 的属性数据
-                let style = $(this).attr("style"),
-                    tblCol = $(this).attr("data-vk-tbl-col"),
-                    classValue = $(this).attr("class"),
-                    colspan = $(this).attr("data-vk-colspan"),
-                    td = $(this);
-                // 转换为 th 标签
-                // let th = $(this).contents().unwrap().wrap('<th/>');
+                let td = $(this),
+                    style = td.attr("style"),
+                    tblCol = td.attr("data-vk-tbl-col"),
+                    classValue = td.attr("class"),
+                    colspan = td.attr("data-vk-colspan");
+                // td 转换为 th 标签
+                td.attr("data-vk-td2th", "true");
                 td.prop("outerHTML", td.prop("outerHTML").replaceAll("<td ", "<th "));
                 // 将暂存的 td 的属性数据，恢复到新标签中
                 td.parent().attr("style", style);
@@ -7157,6 +7150,12 @@ CellMerge.dispose = function (table) {
                 td.parent().attr("class", classValue);
                 td.parent().attr("data-vk-colspan", colspan);
             });
+            // 对被从 td 转换为 th 单元格，重新绑定：鼠标点击单元格时显示阅读模式（十字光标）
+            if (foundTd === true) {
+                tblTd2ThData[i].find("th[data-vk-td2th]").each(function () {
+                    TableCross.bind(table, $(this));
+                });
+            }
         }
     } // if
 
@@ -7188,9 +7187,6 @@ TableCross.lastTable = undefined;
 
 // 最后/当前显示阅读模式（十字光标）的表格单元格
 TableCross.lastCell = undefined;
-
-// 表格阅读模式（十字光标）四条边的位置
-TableCross.lastCellPos = {};
 
 TableCross.init = function () {
     TableCross.ui = $(".mdx-table-cross");
@@ -7241,7 +7237,6 @@ TableCross.bind = function (table, cell) {
         let container = table.parent().parent();
         // 跳过被折叠表格
         if (container.attr("data-vk-content-folded").startsWith("t")) {
-            // container.next(".mdx-content-expander").children(".mdx-btn").trigger("click");
             return;
         }
 
@@ -7250,56 +7245,63 @@ TableCross.bind = function (table, cell) {
             VLOOK.ui.removeAnimate(TableCross.ui);
 
         TableCross.hide();
+        cell.addClass("mdx-table-cross-cell");
 
         TableCross.lastCell = cell;
         TableCross.lastTable = table;
 
-        let tdH = parseInt(TableCross.lastCell.css("height")),
-            tdW = parseInt(TableCross.lastCell.css("width")),
-            tbW = parseInt(TableCross.lastTable.css("width")),
+        let tblWidth = parseInt(table.css("width")),
+            tblHeight = parseInt(table.css("height")),
             scrollLeft = container.scrollLeft();
 
-        // 横向左边
-        let crossLeft = $(".mdx-table-cross.left"),
-            w1 = TableCross.lastCell.offset().left - TableCross.lastTable.offset().left;
-        crossLeft.css({
-            "top" : TableCross.lastCell.offset().top,
-            "left" : TableCross.lastTable.offset().left,
-            "height" : tdH,
-            "width" : w1,
+        let cellWidth = parseInt(cell.css("width")),
+            cellHeight = parseInt(cell.css("height")),
+            cornerLeftX = table.offset().left,
+            cornerUpY = table.offset().top,
+            cornerLeftWidth = cell.offset().left - table.offset().left,
+            cornerUpHeight = cell.offset().top - table.offset().top,
+            cornerRightX = cell.offset().left  + cellWidth,
+            cornerDownY = cell.offset().top + cellHeight,
+            cornerRightWidth = tblWidth - cornerLeftWidth - cellWidth,
+            cornerDownHeight = tblHeight - cornerUpHeight - cellHeight;
+
+        // 1. 左上角
+        let leftUp = $(".mdx-table-cross.left-up");
+        leftUp.css({
+            "left" : cornerLeftX,
+            "top" : cornerUpY,
+            "width" :  cornerLeftWidth,
+            "height" :  cornerUpHeight,
             "z-index" : 9
         });
 
-        // 横向右边
-        let crossRight = $(".mdx-table-cross.right"),
-            w2 = TableCross.lastTable.offset().left + tbW - TableCross.lastCell.offset().left - tdW;
-        crossRight.css({
-            "top" : TableCross.lastCell.offset().top,
-            "left" : TableCross.lastCell.offset().left + tdW,
-            "height" : tdH,
-            "width" : w2,
+        // 2. 右上角
+        let rightUp = $(".mdx-table-cross.right-up");
+        rightUp.css({
+            "left" : cornerRightX,
+            "top" : cornerUpY,
+            "width" : cornerRightWidth,
+            "height" :  cornerUpHeight,
             "z-index" : 9
         });
 
-        // 竖向上边
-        let crossUp = $(".mdx-table-cross.up"),
-            h1 = TableCross.lastCell.offset().top - TableCross.lastTable.offset().top;
-        crossUp.css({
-            "top" : TableCross.lastTable.offset().top,
-            "left" : TableCross.lastCell.offset().left,
-            "height" : h1,
-            "width" : tdW,
+        // 3. 左下角
+        let leftDown = $(".mdx-table-cross.left-down");
+        leftDown.css({
+            "left" : cornerLeftX,
+            "top" : cornerDownY,
+            "width" : cornerLeftWidth,
+            "height" : cornerDownHeight,
             "z-index" : 9
         });
 
-        // 竖向下边
-        let crossDown = $(".mdx-table-cross.down"),
-            h2 = TableCross.lastTable.offset().top + parseInt(TableCross.lastTable.css("height")) - TableCross.lastCell.offset().top - tdH;
-        crossDown.css({
-            "top" : TableCross.lastCell.offset().top + tdH,
-            "left" : TableCross.lastCell.offset().left,
-            "height" : h2,
-            "width" : tdW,
+        // 4. 右下角
+        let rightDown = $(".mdx-table-cross.right-down");
+        rightDown.css({
+            "left" : cornerRightX,
+            "top" : cornerDownY,
+            "width" : cornerRightWidth,
+            "height" : cornerDownHeight,
             "z-index" : 9
         });
 
@@ -7307,10 +7309,10 @@ TableCross.bind = function (table, cell) {
         setTimeout(function () {
             // 针对不同表格之间点击强制移除动画后的恢复
             VLOOK.ui.addAnimate(TableCross.ui);
-            TableCross.adjust(crossLeft, w1, scrollLeft);
-            TableCross.adjust(crossRight, w2, scrollLeft);
-            TableCross.adjust(crossUp, h1, scrollLeft);
-            TableCross.adjust(crossDown, h2, scrollLeft);
+            VLOOK.ui.show(leftUp);
+            VLOOK.ui.show(rightUp);
+            VLOOK.ui.show(leftDown);
+            VLOOK.ui.show(rightDown);
         }, 50);
 
         event.stopPropagation(); // 停止事件冒泡
@@ -7318,33 +7320,17 @@ TableCross.bind = function (table, cell) {
 }
 
 /**
- * 适配调整表格阅读模式（十字光标）位置、显示
- *
- * @param target 阅读模式（十字光标）任意边的对象实例（左/右/上/下）
- * @param size 指定要进行隐藏判断的尺寸（宽度或高度），小于该值则不显示对应的 target
- * @param scrollLeft 表格水平滚动的偏移量
- */
-TableCross.adjust = function (target, size, scrollLeft) {
-    // 任意边的尺寸（宽度或高度）小于最小值时隐藏
-    if (size < 5)
-        VLOOK.ui.hide(target);
-    else {
-        VLOOK.ui.show(target);
-    }
-    // 保存最后显示的阅读模式（十字光标）任意边的 left 值及水平方向上的滚动偏移量
-    TableCross.lastCellPos[target.attr("data-vk-direction")] =  parseInt(target.css("left")) + scrollLeft;
-}
-
-/**
  * 隐藏表格阅读模式（十字光标）
  */
 TableCross.hide = function () {
+    if (TableCross.lastCell === undefined)
+        return;
+
     VLOOK.ui.hide(TableCross.ui);
 
-    if (TableCross.lastCell !== undefined) {
-        TableCross.lastCell = undefined;
-        TableCross.lastTable = undefined;
-    }
+    TableCross.lastCell.removeClass("mdx-table-cross-cell");
+    TableCross.lastCell = undefined;
+    TableCross.lastTable = undefined;
 }
 
 /**
@@ -7494,7 +7480,7 @@ ColumnFormatting.format = function (table) {
                     ce.replaceHTML("&nbsp;", "");
 
                 // 添加复选框样式
-                ce.prepend("<svg width='14px' height='14px' style='display: inline-block; vertical-align: middle; margin-top: -4px;'><use xlink:href='#icoCheckbox_"
+                ce.prepend("<svg width='14px' height='14px' class='mdx-svg-small-ico'><use xlink:href='#icoCheckbox_"
                     + chkStatus + "' class='mdx-svg-ico-" + chkStyle + "'/></svg>");
             });
         }
@@ -7612,9 +7598,9 @@ function RowGroup() {}
 
 RowGroup.icon = {
     // 表格折叠行图标：已收起
-    closed : '<svg width="12px" height="12px" style="display: inline-block; vertical-align: middle; margin-top: -4px; margin-right: 5px;"><use xlink:href="#icoRowGroupClosed" class="mdx-rowgroup-folder-ico"/></svg>',
+    closed : '<svg width="12px" height="12px" class="mdx-svg-small-ico"><use xlink:href="#icoRowGroupClosed" class="mdx-rowgroup-folder-ico"/></svg>',
     // 表格折叠行图标：已展开
-    opened : '<svg width="12px" height="12px" style="display: inline-block; vertical-align: middle; margin-top: -4px; margin-right: 5px;"><use xlink:href="#icoRowGroupOpened" class="mdx-rowgroup-folder-ico"/></svg>'
+    opened : '<svg width="12px" height="12px" class="mdx-svg-small-ico"><use xlink:href="#icoRowGroupOpened" class="mdx-rowgroup-folder-ico"/></svg>'
 }
 
 RowGroup.folderCount = 0; // 折叠行内行分组类型的数量
@@ -7763,7 +7749,7 @@ RowGroup.newFolder = function (tr, level, reset, color) {
         preObjs = td.find(preClass),
         cloneTd = td.clone();
     cloneTd.children(preClass).remove();
-    td.html(__echoOuterHTML(preObjs) + "[ <strong>" + cloneTd.html() + " </strong>]");
+    td.html(__echoOuterHTML(preObjs) + " <span class='folder-marker'>[</span> <strong>" + cloneTd.html() + " </strong><span class='folder-marker'>]</span>");
 
     // 设置展开、收起事件
     td.children(".mdx-tbl-row-g-btn").click(function () {
@@ -7992,7 +7978,8 @@ RowGroup.adjustHoverStyle = function () {
 function ThRepeater() {}
 
 ThRepeater.syntax = {
-    tag : /.+(\s##)$/ // 用于匹配表格列头重复的语法
+    tag : /^(##\s).+/ // 用于匹配表格列头重复的语法
+    // tag : /.+(\s##)$/ // 用于匹配表格列头重复的语法
 }
 
 /**
@@ -8023,8 +8010,9 @@ ThRepeater.init = function (table) {
         if (td.length > 0) {
             td.each(function () {
                 let rowSpan = parseInt($(this).attr("rowspan"));
-                if (rowSpan > skipRowCount)
-                skipRowCount = rowSpan - 1;
+                if (rowSpan > skipRowCount) {
+                    skipRowCount = rowSpan - 1;
+                }
                 lastSkipRowCount = skipRowCount - 1;
             });
         }
@@ -8736,7 +8724,7 @@ function TocCatalog(holder, hidden) {
 
     this.resultNav = new FilterResultNavigator(this.ui.result); // 过滤结果导航器
 
-    VLOOK.ui.addAnimate(this.ui.body.find(".md-toc-item, .mdx-toc-item"));
+    // VLOOK.ui.addAnimate(this.ui.body.find(".md-toc-item, .mdx-toc-item"));
 
     // 当前章节变化事件
     this.onChapterChanged = undefined;
@@ -8744,9 +8732,9 @@ function TocCatalog(holder, hidden) {
     // 目录相关图标集
     this.icon = {
         // 章节：已收起
-        folded : '<svg width="16px" height="16px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoFolded" class="mdx-toc-folder-ico"/></svg>',
+        folded : '<svg width="16px" height="16px" class="mdx-svg-small-ico"><use xlink:href="#icoFolded" class="mdx-toc-folder-ico"/></svg>',
         // 章节：已展开
-        unfold : '<svg width="16px" height="16px" style="display: inline-block; vertical-align: middle; margin-top: -4px;"><use xlink:href="#icoUnfold" class="mdx-toc-folder-ico"/></svg>',
+        unfold : '<svg width="16px" height="16px" class="mdx-svg-small-ico"><use xlink:href="#icoUnfold" class="mdx-toc-folder-ico"/></svg>',
     };
 
     // 更新无目录情况下的提示信息
@@ -8964,7 +8952,7 @@ function TocCatalog(holder, hidden) {
     }
 
     /**
-     * 当前章节为第1章时特殊处理（有封面模式时）
+     * 当前章节为第 1 章时特殊处理（有封面模式时）
      */
     this.inFirstHeader = function () {
         return (VOM.cover() !== undefined && this.currentHeaderIndex === 0);
@@ -9755,7 +9743,10 @@ function TocHistory(holder, hidden) {
         if (this.src !== undefined) {
             console.log("    ├ DocLib: " + this.src);
             this.enabled = true;
-            this.iframe.attr("src", this.src + "?ws=none&type=mini");
+            // 传递父页面的 wf 启动参数
+            let wf = VLOOK.util.getParamValue("wf");
+            wf = (wf !== undefined) ? "&wf=" + wf : "";
+            this.iframe.attr("src", this.src + "?ws=none&type=mini" + wf);
             // 尝试获得 DocLib 的文档标题
             __getDocLibTitle();
         }
@@ -9797,7 +9788,7 @@ function TocHistory(holder, hidden) {
                     docLibBoard.show();
                     that.handle.text(title);
                     that.handle.attr("title", title);
-                    $(".mdx-nav-center-body, .mdx-nav-center-footer").addClass("mini");
+                    $(".mdx-nav-center-body, .mdx-nav-center-footer").addClass("has-doc-lib");
                     clearTimeout(timerGetTitle);
                 }
             }, 1000);
@@ -10238,7 +10229,7 @@ ExtFigure.adjustColorScheme = function (grid) {
     $("img[data-vk-img-fill='text'], img[data-vk-img-fill='theme1'], img[data-vk-img-fill='theme2'], svg[data-vk-img-fill='text'], svg[data-vk-img-fill='theme1'], svg[data-vk-img-fill='theme2']").each(function () {
         let fig = $(this),
             fill = fig.attr("data-vk-img-fill");
-        // SVG 对象或 src 为 .svg 的 img 对象
+        // SVG 对象，或 src 为 .svg 的 img 对象
         if (fig.prop("tagName").toLowerCase().startsWith("s") || fig.attr("src").indexOf(".svg", 1) > -1) {
             ExtFigure.adjustFillAlterForSVG(fill, fig);
         }
@@ -10326,7 +10317,7 @@ function FigureNav() {
         close : $(".mdx-btn-close-figure-nav"), // 关闭按钮
     };
     this.content = $(".mdx-figure-content"); // 显示插图内容的控件
-    this.figNum = 0; // 当前插图索引序号，对应 vk-id-fig 中的值
+    this.figNum = 1; // 当前插图索引序号，对应 vk-id-fig 中的值
 
     VLOOK.ui.addAnimate(this.content.children("img, svg"));
 
@@ -10452,7 +10443,7 @@ function FigureNav() {
      * 查看上一个插图
      */
     this.prev = function () {
-        if (this.figNum > 0) {
+        if (this.figNum > 1) {
             this.figNum--;
             this.display();
             this.updateUI();
@@ -10463,7 +10454,7 @@ function FigureNav() {
      * 查看下一个插图
      */
     this.next = function () {
-        if (this.figNum < VLOOK.doc.counter.figure - 1) {
+        if (this.figNum < VLOOK.doc.counter.figure) {
             this.figNum++;
             this.display();
             this.updateUI();
@@ -10477,7 +10468,7 @@ function FigureNav() {
         let pageNum = $(".mdx-figure-nav-title");
 
         pageNum.html("<span class='mdx-figure-page-num'>"
-            + (this.figNum + 1) + "/" + VLOOK.doc.counter.figure + "</span> "
+            + this.figNum + "/" + VLOOK.doc.counter.figure + "</span> "
             + $("#vk-id-fig" + this.figNum + " > .mdx-caption-1").text());
 
         // 更新导航按钮位置
@@ -10490,10 +10481,10 @@ function FigureNav() {
         // 根据当前插图索引更新浏览按钮有效状态
         this.buttons.prev.css("opacity", "0");
         this.buttons.next.css("opacity", "0");
-        if (this.figNum > 0) {
+        if (this.figNum > 1) {
             this.buttons.prev.css("opacity", "1");
         }
-        if (this.figNum < VLOOK.doc.counter.figure - 1) {
+        if (this.figNum < VLOOK.doc.counter.figure) {
             this.buttons.next.css("opacity", "1");
         }
     }
@@ -10575,7 +10566,7 @@ Restyler.forTaskList = function () {
         }
 
         // 替换为 SVG 图标
-        $(this).before("<svg width='14px' height='14px' style='position: absolute; margin-top: 0.6em; display: inline-block; vertical-align: middle;'><use xlink:href='#icoCheckbox_"
+        $(this).before("<svg width='14px' height='14px' class='mdx-svg-input-checkbox'><use xlink:href='#icoCheckbox_"
             + chkStatus + "' class='mdx-svg-ico-" + chkStyle + "'/></svg>");
         $(this).remove();
     });
@@ -10609,11 +10600,11 @@ Restyler.forMermaid = function () {
             extSys = /^--.+/g; // 外部系统角色
 
         // 统一调整角色的圆角
-        let radius = VLOOK.util.getStyleValue("--vlook-small-radius");
-        actor.attr({
-            "rx" : radius,
-            "ry" : radius
-        });
+        // let radius = VLOOK.util.getStyleValue("--vlook-small-radius");
+        // actor.attr({
+        //     "rx" : radius,
+        //     "ry" : radius
+        // });
 
         // 更新 <人物角色> 样式
         if (person.test(tmpText) === true) {
@@ -10726,7 +10717,7 @@ Restyler.forMermaid = function () {
     });
 
     // 针对 VLOOK 衍生的 Mermaid 的状态图节点、子图
-    let radius = VLOOK.util.getStyleValue("--vlook-base-radius");
+    let radius = "12px";
     $("#START rect, #END rect, g[id^=flowchart-START] rect, #INIT ~ g > rect, g[id^=flowchart-END] rect, g[id^=flowchart-INIT] ~ g > rect, .cluster rect, rect[class=rect]").each(function () {
         $(this).attr({
             "rx" : radius,
@@ -10793,9 +10784,9 @@ CodeMagic.init = function () {
         let codeText = $(this).text(),
             result;
 
-        // 药丸标签格式
-        if ((result = codeText.match(RainbowGroupTag.syntax)) != null)
-            RainbowGroupTag.build($(this), result);
+        // 徽章格式
+        if ((result = codeText.match(RainbowBadge.syntax.color)) != null)
+            RainbowBadge.build($(this), result);
         // 彩虹单标签格式
         else if ((result = codeText.match(RainbowTag.syntax)) != null)
             RainbowTag.build($(this), result);
@@ -10819,7 +10810,7 @@ CodeMagic.init = function () {
 function RainbowTag() {}
 
 // 语法：#tag#(color)
-RainbowTag.syntax = /^#(.+)#(\((red|orange|yellow|green|cyan|blue|purple|pink|brown|gray|theme1|theme2)\))?$/i;
+RainbowTag.syntax = /^#(.+)#(\((red|orange|yellow|lime|green|aqua|cyan|blue|sea|purple|magenta|pink|gold|brown|gray|black|theme1|theme2)\))?$/i;
 
 /**
  * 构建单标签样式
@@ -10836,29 +10827,39 @@ RainbowTag.build = function (target, result) {
     target.attr("class", "mdx-tag " + color);
 }
 
-// ==================== Code Magic：药丸标签模块 ==================== //
+// ==================== Code Magic：徽章模块 ==================== //
 
-function RainbowGroupTag() {}
+function RainbowBadge() {}
 
-// 语法：#tag1|tag2#(color)
-RainbowGroupTag.syntax = /^#(.+)\|(.+)#(\((red|orange|yellow|green|cyan|blue|purple|pink|brown|gray|theme1|theme2)\))?$/i;
+// 语法：#badge_name|badge_value#(color{{variable}})
+RainbowBadge.syntax = {
+    color : /^#(.+)\|(.+)#(\((red|orange|yellow|lime|green|aqua|cyan|blue|sea|purple|magenta|pink|gold|brown|gray|black|theme1|theme2)(!)?\))?$/i, // 颜色
+    variable : /^(.*)(\{\{.+\}\}|%.+%|\$\{.+\})(.*)$/i // 变量语法
+}
 
 /**
- * 构建药丸标签样式
+ * 构建徽章样式
  *
  * @param target 目标 code 对象
  * @param result code 内容与语法正则表达式匹配后的结果数组
  */
-RainbowGroupTag.build = function (target, result) {
-    let color = CodeMagic.getStyle(result[4]),
-        tag1 = result[1],
-        tag2 = result[2];
-
+RainbowBadge.build = function (target, result) {
+    let color = CodeMagic.getStyle(result[4]), // 颜色标识
+        em = result[5], // 强调样式的标识
+        badgeName = result[1],
+        badgeValue = result[2],
+        varStr;
     // 左标签
-    target.wrap("<code class='mdx-tag-name " + color + "'>" + tag1 + "</code>");
+    target.wrap("<code class='mdx-badge-name " + color + "'>" + badgeName + "</code>");
     // 右标签
-    target.text(tag2);
-    target.attr("class", "mdx-tag-value " + color);
+    if ((varStr = badgeValue.match(RainbowBadge.syntax.variable)) != null) { // 含变量
+        badgeValue = badgeValue.replace(varStr[2], "<span class='var " + color + "'>" + varStr[2] + "</span>");
+    }
+    target.html(badgeValue);
+    target.addClass("mdx-badge-value");
+    // 指定的颜色标识带强调样式
+    if (em !== undefined)
+        target.addClass(color);
 }
 
 // ==================== Code Magic：彩虹引用模块 ==================== //
@@ -10866,7 +10867,7 @@ RainbowGroupTag.build = function (target, result) {
 function RainbowQuote() {}
 
 // 语法：>(color)
-RainbowQuote.syntax = /^>\((red|orange|yellow|green|cyan|blue|purple|pink|brown|gray|theme1|theme2)\)$/i;
+RainbowQuote.syntax = /^>\((red|orange|yellow|lime|green|aqua|cyan|blue|sea|purple|magenta|pink|gold|brown|gray|theme1|theme2)(!)?\)$/i;
 
 /**
  * 构建彩虹引用样式
@@ -10876,11 +10877,12 @@ RainbowQuote.syntax = /^>\((red|orange|yellow|green|cyan|blue|purple|pink|brown|
  */
 RainbowQuote.build = function (target, result) {
     let quote = target.parent().parent(),
-        color = CodeMagic.getStyle(result[1]);
+        color = CodeMagic.getStyle(result[1]), // 颜色标识
+        em = (result[2] !== undefined) ? " em" : " "; // 判断是否指定了强调样式
     if (quote.prop("tagName").toLowerCase().startsWith("bl")) { // <blockquote>
         target.parent().remove();
-        quote.addClass("mdx-quote " + color);
-        quote.children("h6").addClass("title-" + color);
+        quote.addClass("mdx-quote " + color + em);
+        quote.children("h6").addClass("title-" + color + em);
     }
 }
 
@@ -11405,7 +11407,7 @@ VLOOKui.loadNavTools = function () {
     ui += '<div class="mdx-chapter-nav mdx-focus-search">'
             // 上一章
             + '<div class="mdx-chapter-nav-prev">'
-                + VLOOK.ui.generateSvgIcon("icoPrevChapter", 10, 15, "light", "position: absolute; top: 18px; left: 10px;")
+                + VLOOK.ui.generateSvgIcon("icoPrevChapter", 10, 15, "light", "position: absolute; top: 18px; left: 15px;")
             + '<div class="mdx-chapter-nav-prev-text"></div>'
             + '</div>'
             // 文档标题
@@ -11415,7 +11417,7 @@ VLOOKui.loadNavTools = function () {
             // 下一章
             + '<div class="mdx-chapter-nav-next">'
                 + '<div class="mdx-chapter-nav-next-text">next</div>'
-                    + VLOOK.ui.generateSvgIcon("icoNextChapter", 10, 15, "light", "position: absolute; top: 18px; right: 10px;")
+                    + VLOOK.ui.generateSvgIcon("icoNextChapter", 10, 15, "light", "position: absolute; top: 18px; right: 15px;")
             + '</div>'
         + '</div>';
 
@@ -11475,7 +11477,7 @@ VLOOKui.loadToolbar = function () {
                 + VLOOK.ui.generateSvgIcon("icoDarkMode", 18, 18, "light")
             + '</div>'
             // 字体风格
-            + '<div class="mdx-btn font-style">'
+            + '<div class="mdx-btn font-theme">'
                 + VLOOK.ui.generateSvgIcon("icoFont", 20, 18, "light")
             + '</div>'
         + '</div>';
@@ -11486,16 +11488,16 @@ VLOOKui.loadToolbar = function () {
 
     // --------------------------------------------------
     // 字体风格选择器
-    ui += '<div class="mdx-font-styler">'
+    ui += '<div class="mdx-font-theme">'
             + '<div style="float: left; margin-bottom: 30px;">'
-                + '<img alt="小清新" class="mdx-fontstyle-sans" src="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-sans.png" srcset="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-sans@2x.png 2x">'
+                + '<img alt="小清新" class="mdx-font-theme-opt-sans" src="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-sans.png" srcset="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-sans@2x.png 2x">'
                 + '<div class="mdx-fontinfo-sans"><span class="mdx-font-package">Font Package - </span><span id="fontset-sans-status">Loading... 0%</span></div>'
             + '</div>'
             + '<div style="float: right; margin-bottom: 30px;">'
-                + '<img alt="文艺范" class="mdx-fontstyle-serif" src="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-serif.png" srcset="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-serif@2x.png 2x">'
+                + '<img alt="文艺范" class="mdx-font-theme-opt-serif" src="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-serif.png" srcset="https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres@master/pic/fs-serif@2x.png 2x">'
                 + '<div class="mdx-fontinfo-serif"><span class="mdx-font-package">Font Package - </span><span id="fontset-serif-status">Loading... 0%</span></div>'
             + '</div>'
-            + '<div class="mdx-font-styler-info">Download Font Package</div>'
+            + '<div class="mdx-font-theme-info">Download Font Package</div>'
         + '</div>';
     return ui;
 }
@@ -11556,10 +11558,10 @@ VLOOKui.loadCommon = function () {
 
     // --------------------------------------------------
     // 表格阅读模式（十字光标）
-    ui += '<div data-vk-direction="left" class="mdx-table-cross left">&nbsp;</div>'
-        + '<div data-vk-direction="right" class="mdx-table-cross right">&nbsp;</div>'
-        + '<div data-vk-direction="up" class="mdx-table-cross up">&nbsp;</div>'
-        + '<div data-vk-direction="down" class="mdx-table-cross down">&nbsp;</div>';
+    ui += '<div data-vk-direction="1" class="mdx-table-cross left-up">&nbsp;</div>'
+        + '<div data-vk-direction="2" class="mdx-table-cross right-up">&nbsp;</div>'
+        + '<div data-vk-direction="3" class="mdx-table-cross left-down">&nbsp;</div>'
+        + '<div data-vk-direction="4" class="mdx-table-cross right-down">&nbsp;</div>';
 
     // --------------------------------------------------
     // 内容展开操作区
@@ -11599,12 +11601,14 @@ VLOOKui.loadCommon = function () {
 $(document).ready(function () {
     // 完成页面加载后，移除预加载的初始 UI
     $("#VLOOK").remove();
+    // 添加主题色
+    // $("head").append("<meta name='theme-color' content='" + VLOOK.util.getStyleValue("--vlook-btn-bg-color") + "'>");
 
     // ----------------------------------------
     // 初始化启动参数
     VLOOK.params.init();
 
-    // 判断加载模式
+    // 判断文档类型
     if (VLOOK.util.getParamValue("type") === "mini") {
         VLOOK.type = "mini";
         VLOOK.data.set("doc-lib-title", $(document).attr("title"));
@@ -11630,11 +11634,11 @@ $(document).ready(function () {
     // ----------------------------------------
     // 动效初始化
     iStopwatch.lapStart("* Effect");
-    let effects = VLOOK.util.getParamValue("effects");
-    VLOOK.ui.effects = (effects === undefined) ? 2 : parseInt(effects);
-    VLOOK.ui.effects = env.device.mobile ? 0 : VLOOK.ui.effects;
-    console.log("    └ Level [ " + VLOOK.ui.effects + " ]");
-    VLOOK.ui.initEffects();
+    let effect = VLOOK.util.getParamValue("el");
+    VLOOK.ui.effect = (effect === undefined) ? 2 : parseInt(effect);
+    VLOOK.ui.effect = env.device.mobile ? 0 : VLOOK.ui.effect;
+    console.log("    └ Level [ " + VLOOK.ui.effect + " ]");
+    VLOOK.ui.initEffectLevel();
     iStopwatch.lapStop("    COST ");
 
     // 先隐藏文档原始内容，减少页面重绘
@@ -11717,6 +11721,32 @@ function loadVLOOKplugin() {
     // ========================================
     // 初始化 VLOOK 核心模块
     VLOOK.initKernel();
+
+    // ----------------------------------------
+    // 修改主题默认的圆角风格
+    let newRadius = VLOOK.util.getParamValue("radius");
+    if (newRadius === "small" || newRadius === "big") {
+        // 批量修改圆角相关的 CSS 变量为指定的新值
+        VLOOK.util.changeCssVarSet([
+            "--vlook-base-radius",
+            "--vlook-small-radius",
+            "--vlook-table-radius",
+            "--vlook-tag-radius",
+            "--vlook-tag-small-radius",
+            "--vlook-circle-radius"
+        ], newRadius);
+    }
+    else if (newRadius === "none") {
+        // 批量修改圆角相关的 CSS 变量为 0
+        VLOOK.util.changeCssVarSet([
+            "--vlook-base-radius",
+            "--vlook-small-radius",
+            "--vlook-table-radius",
+            "--vlook-tag-radius",
+            "--vlook-tag-small-radius",
+            "--vlook-circle-radius"
+        ]);
+    }
 
     // ----------------------------------------
     // 段落导航初始化
