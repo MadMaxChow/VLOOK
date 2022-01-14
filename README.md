@@ -4,14 +4,6 @@ Select language ❯  [🇬🇧 **English**](README-en.md)
 
 ---
 
-> **VLOOK 正在参与 [2021 年度 OSC 中国开源项目评选](https://www.oschina.net/project/top_cn_2021/?id=5)，请投票支持！**
->
-> 建议直接 **微信扫码** 投票～
->
-> ![微信扫码投票](https://s1.ax1x.com/2021/12/10/ooZGeP.png)
-
----
-
 # VLOOK™ ── 让你的 Markdown 有了新看(wán)法
 
 
@@ -22,7 +14,7 @@ Select language ❯  [🇬🇧 **English**](README-en.md)
 
 ![VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-mark-light.svg)
 
-**开源中国（[OSChina.net](https://www.oschina.net/p/vlook)）推荐的国产开源产品。**
+**[OSCHINA (开源中国)](https://www.oschina.net/p/vlook)、[Gitee (码云)](https://gitee.com/madmaxchow/VLOOK) 推荐的国产开源项目。**
 
 
 
