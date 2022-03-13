@@ -1,184 +1,549 @@
 /**************************************
-* VLOOK CSS 调色板
-*
-* V13.0
-* 2021-12-11
-*
-* 配合 base.less 进行使用
-*
-***************************************/
+ *
+ * VLOOK CSS 调色板
+ * (配合 base.less 进行使用)
+ *
+ * V14.0
+ * 2022-03-13
+ * powered by MAX°孟兆
+ *
+ * QQ Group: 805502564
+ * email: maxchow@qq.com
+ *
+ * https://github.com/MadMaxChow/VLOOK
+ * https://gitee.com/madmaxchow/VLOOK
+ *
+ *************************************/
 
-// 纯透明色
-// @transparencyColor0: fade(#FFFFFF, 0);
-// @transparencyColor1: fade(#FFFFFF, 20%);
-// @transparencyColor2: fade(#FFFFFF, 40%);
-// @transparencyColor3: fade(#FFFFFF, 60%);
-// @transparencyColor4: fade(#FFFFFF, 80%);
+// --------------------
+// 主题的文档纹理背景
+// 格子
+@docBgImgLight_Grid: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4AQMAAAADqqSRAAAABlBMVEUAAAAAAAClZ7nPAAAAAnRSTlMACHhIRQoAAAAlSURBVDjLYwABRgQxyh/l05T/HxUMuHtG+SOLP5r+RvmDKP0BALD8LjNR4HGxAAAAAElFTkSuQmCC");
+@docBgImgDark_Grid: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4AQMAAAADqqSRAAAABlBMVEUAAAD///+l2Z/dAAAAAnRSTlMAD+Ys0KkAAAAlSURBVDjLYwABRgQxyh/l05T/HxUMuHtG+SOLP5r+RvmDKP0BALD8LjNR4HGxAAAAAElFTkSuQmCC");
+// 双重格子
+@docBgImgLight_Grid2: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4AgMAAABECt5BAAAACVBMVEUAAAAAAAAAABp+ARC6AAAAA3RSTlMABQpn1NmFAAAASklEQVRIx2NgYBBgYAQRTNhYI1Y6FAbCsLEGs8tHQ22oSY+GGjnSq/CCwezy0bQ21KRHQ2001EbLtcEsPZrWRkNtNNQGszT+cg0Aff3B0vb/kO4AAAAASUVORK5CYII=");
+@docBgImgDark_Grid2: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4AgMAAABECt5BAAAACVBMVEUAAAD///////9zeKVjAAAAA3RSTlMACg+QJjHFAAAASklEQVRIx2NgYBBgYAQRTNhYI1Y6FAbCsLEGs8tHQ22oSY+GGjnSq/CCwezy0bQ21KRHQ2001EbLtcEsPZrWRkNtNNQGszT+cg0Aff3B0vb/kO4AAAAASUVORK5CYII=");
+// 斜纹
+@docBgImgLight_Twill: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgAgMAAACf9p+rAAAACVBMVEUAgIAAFxcAJCSKq6crAAAAA3RSTlMBCweGJOKBAAAALElEQVRIx+3NwQAAAAgEwfvmEUmEIUewBO0ITBakQQpkgIeHh4eHh4fHp+MAyUI93xXtGOkAAAAASUVORK5CYII=");
+@docBgImgDark_Twill: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgAgMAAACf9p+rAAAACVBMVEX///////////+OSuX+AAAAA3RSTlMBDQhAwViWAAAALElEQVRIx+3NwQAAAAgEwfvmEUmEIUewBO0ITBakQQpkgIeHh4eHh4fHp+MAyUI93xXtGOkAAAAASUVORK5CYII=");
+// 反斜纹
+@docBgImgLight_Twill_R: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgAgMAAACf9p+rAAAACVBMVEUAgIAAFxcAJCSKq6crAAAAA3RSTlMBCweGJOKBAAAALElEQVRIx+3NwQAAAAgEwXvFEF4qmUewBO0ITAqkQQZkgYeHh4eHh4fHp+MApP8932G+Z1sAAAAASUVORK5CYII=");
+@docBgImgDark_Twill_R: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgAgMAAACf9p+rAAAACVBMVEX///////////+OSuX+AAAAA3RSTlMBDQhAwViWAAAALElEQVRIx+3NwQAAAAgEwXvFEF4qmUewBO0ITAqkQQZkgYeHh4eHh4fHp+MApP8932G+Z1sAAAAASUVORK5CYII=");
+// 电路
+@docBgImgLight_EC: url("data:image/png;base64,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");
+@docBgImgDark_EC: url("data:image/png;base64,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");
+// 波浪
+@docBgImgLight_Wave: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABaAQMAAABniyE+AAAABlBMVEUAAAAAAAClZ7nPAAAAAnRSTlMABHH+CSEAAACISURBVDjL7c+xDQIxDIXhP4p0blDuSopIrJDSHStlAjCbWWIRswElBRK0ka6+Lu793vvY3Q1WJ33gCvCDS5C/cDdIT0M7UuDlkB9OV4qQPEAIolKzZevYQscL5+SZhhVa8gXFhQ0/ocmERixsw1svMIRqhaGyKuOg9c04V2LHmcAJnMAJPBT4B1dv8/3llFzqAAAAAElFTkSuQmCC");
+@docBgImgDark_Wave: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABaAQMAAABniyE+AAAABlBMVEUAAAD///+l2Z/dAAAAAnRSTlMABHH+CSEAAACRSURBVDjL7ZG9CcMwEIU/IfA1QXaZQuAVVKrLSpoguWx2kEUuG6RMYXCqgMAT2Pj17+fjsdEdRiN84QawwuzEBR4K4aXUhiR4G8Sn0SpJCOYgOJ7JUaM2dKBhiWuwSEETJdhAxYQJu1CDCgUfmDpbS9CF1gxdZa70g8YP/VzxDc5eAWWBVZkPC3g+uHfA88G/fqPg9bn0TknkAAAAAElFTkSuQmCC");
 
-// 文档背景色（浅色方案）
-@docBgColorLight: #FFFFFF;
-@docBgColorLightAlt: darken(@docBgColorLight, 8%);
-@docBgColorLightFade: fade(@docBgColorLight, 30%);
-// 文档背景色（深色方案）
-@docBgColorDark: #181A1C;
-@docBgColorDarkAlt: lighten(@docBgColorDark, 15%);
-@docBgColorDarkFade: fade(@docBgColorDark, 30%);
+/**
+ * 文档背景色
+ * @param colorLight 在 Light Mode 的颜色
+ * @param colorDark 在 Dark Mode 的颜色
+ */
+.applyDocBgColor(@colorLight, @colorDark) {
+    :root {
+        --d-bc-lg: @colorLight;
+        --d-bc-tsp-lg: fade(@colorLight, 0%);
 
-// 文档文字色（浅色方案）
-@foreColorLight: #181A1C;
-@foreColorLightAlt: lighten(@foreColorLight, 40%);
-@foreColorLightFade: fade(@foreColorLight, 50%);
-@foreColorLightFade1: fade(@foreColorLight, 15%);
-@foreColorLightFade2: fade(@foreColorLight, 10%);
-@foreColorLightFade3: fade(@foreColorLight, 5%);
-// 文档文字色（深色方案）
-@foreColorDark: #F0F2F4;
-@foreColorDarkAlt: darken(@foreColorDark, 30%);
-@foreColorDarkFade: fade(@foreColorDark, 50%);
+        --d-bc-dk: @colorDark;
+        --d-bc-tsp-dk: fade(@colorDark, 0%);
+    }
+}
+.applyDocBgColor(#FFFFFF, #181A1D);
 
-// 表格（浅色方案）
-@tableColor: #B0B2B4; // 表格基础色
-@tableBorderColor: fade(@tableColor, 80%); // 表格边框
-@tableHeaderColor: darken(@tableColor, 10%);
-@tableThBgColor: fade(@tableColor, 40%); // 表头背景
-@tableTdBgColor: fade(@tableColor, 20%); // 表体偶数行
-@tableCellBorderColor: fade(@tableColor, 30%); // 单元格边框
+/**
+ * 文档背景图片
+ * @param bgImgLight 在 Light Mode 的图片
+ * @param bgImgDark 在 Dark Mode 的图片
+ */
+.applyDocBgImg(@bgImgLight, @bgImgDark) {
+    :root {
+        --d-bi-lg: @bgImgLight;
+        --d-bi-dk: @bgImgDark;
+    }
+}
+.applyDocBgImg(url(""), url(""));
+// .applyDocBgImg(#FFFFFF, #181A1D);
 
-// 表格（深色方案）
-@tableColorDark: #707274; // 表格基础色
-@tableBorderColorDark: fade(@tableColorDark, 80%); // 表格边框
-@tableHeaderColorDark: lighten(@tableColorDark, 10%);
-@tableThBgColorDark: fade(@tableColorDark, 40%); // 表头背景
-@tableTdBgColorDark: fade(@tableColorDark, 20%); // 表体偶数行
-@tableCellBorderColorDark: fade(@tableColorDark, 30%); // 单元格边框
+/**
+ * 文档文字色
+ * @param colorLight 在 Light Mode 的颜色
+ * @param colorDark 在 Dark Mode 的颜色
+ */
+.applyDocTextColor(@colorLight, @colorDark) {
+    :root {
+        --d-f-c-lg: @colorLight;
+        --d-f-c-alt-lg: lighten(@colorLight, 40%);
+        --toc-h-num-color-lg: fade(@colorLight, 50%);
 
-// 指定在 Dark Mode 时反转的图片边框颜色（先使用反色，这样在反转时则能保持与色一致）
-@imgInvertInDarkBorderColor: rgb(255 - red(@docBgColorDarkAlt), 255 - green(@docBgColorDarkAlt), 255 - blue(@docBgColorDarkAlt));
+        --d-f-c-dk: @colorDark;
+        --d-f-c-alt-dk: darken(@colorDark, 30%);
+        --toc-h-num-color-dk: fade(@colorDark, 50%);
+    }
+}
+.applyDocTextColor(#181A1D, #F0F2F4);
+
+/**
+ * 面板颜色
+ * @param colorLight 在 Light Mode 的颜色
+ * @param colorDark 在 Dark Mode 的颜色
+ */
+.applyPanelColor(@colorLight, @colorDark) {
+    :root {
+        --pn-c-lg: @colorLight;
+        --pn-c-alt-lg: darken(@colorLight, 10%);
+        --pn-c-tsp-lg: fade(@colorLight, 0%);
+        --blockquote-bg-lg: @colorLight;
+
+        --pn-c-dk: @colorDark;
+        --pn-c-alt-dk: lighten(@colorDark, 10%);
+        --pn-c-tsp-dk: fade(@colorDark, 0%);
+        --blockquote-bg-dk: @colorDark;
+
+        // 指定在 Dark Mode 时反转的图片边框颜色（先使用反色，这样在反转时则能保持与色一致）
+        @tmpBorderColor: @colorDark;
+        --img-bder-invert: rgb(255 - red(@tmpBorderColor), 255 - green(@tmpBorderColor), 255 - blue(@tmpBorderColor));
+    }
+}
+.applyPanelColor(#E8EAED, #303234);
+
+/**
+ * 表格文字色
+ * @param colorLight 在 Light Mode 的颜色
+ * @param colorDark 在 Dark Mode 的颜色
+ */
+.applyTableColor(@colorLight, @colorDark) {
+    :root {
+        --tbl-bder-lg: @colorLight; // 表格边框
+        --tbl-h-br-lg: darken(@colorLight, 10%);
+        --tbl-th-bg-lg: fade(@colorLight, 40%); // 表头背景
+        --tbl-td-bg-lg: fade(@colorLight, 20%); // 表体偶数行
+        --tbl-cell-bder-lg: fade(@colorLight, 30%); // 单元格边框
+
+        --tbl-bder-dk: @colorDark; // 表格边框
+        --tbl-h-br-dk: lighten(@colorDark, 10%);
+        --tbl-th-bg-dk: fade(@colorDark, 40%); // 表头背景
+        --tbl-td-bg-dk: fade(@colorDark, 20%); // 表体偶数行
+        --tbl-cell-bder-dk: fade(@colorDark, 30%); // 单元格边框
+    }
+}
+.applyTableColor(#B0B2B4, #707274);
 
 // 键帽
-@keycapColor: #484A4C;
-@keycapColorDark: #D8DADC;
+@keycapColor: #484A4D;
+@keycapColorDark: #D8DADD;
 
 // --------------------
 // 通用的强调色色板
-@accColorRed: #D63646;//#C72334;
+@accColorRed: #CC3140;//#D63646;
 @accColorRedDark: darken(@accColorRed, 20%);
 @accColorRedAlt: lighten(@accColorRed, 40%);
 @accColorRedAltDark: darken(@accColorRedAlt, 60%);
-// @accColorRedFade: fade(@accColorRed, 25%);
 
-@accColorOrange: #F87000;//#E27D09;
+@accColorOrange: #F87000;
 @accColorOrangeDark: darken(@accColorOrange, 20%);
 @accColorOrangeAlt: lighten(@accColorOrange, 45%);
 @accColorOrangeAltDark: darken(@accColorOrangeAlt, 60%);
-// @accColorOrangeFade: fade(@accColorOrange, 25%);
 
-@accColorYellow: #FDC000;//#DEB307;
+@accColorYellow: #FDC000;
 @accColorYellowDark: darken(@accColorYellow, 20%);
 @accColorYellowAlt: lighten(@accColorYellow, 40%);
 @accColorYellowAltDark: darken(@accColorYellowAlt, 60%);
-// @accColorYellowFade: fade(@accColorYellow, 25%);
 
-@accColorLime: #B2D115;//#DEB307;
+@accColorLime: #B2D115;
 @accColorLimeDark: darken(@accColorLime, 30%);
 @accColorLimeAlt: lighten(@accColorLime, 40%);
 @accColorLimeAltDark: darken(@accColorLimeAlt, 60%);
-// @accColorLimeFade: fade(@accColorLime, 25%);
 
-@accColorGreen: #30A830;//#38AB21;
+@accColorGreen: #30A830;
 @accColorGreenDark: darken(@accColorGreen, 20%);
 @accColorGreenAlt: lighten(@accColorGreen, 45%);
 @accColorGreenAltDark: darken(@accColorGreenAlt, 60%);
-// @accColorGreenFade: fade(@accColorGreen, 25%);
 
-@accColorAqua: #2DE0C8;//#38AB21;
+@accColorAqua: #2DE0C8;
 @accColorAquaDark: darken(@accColorAqua, 25%);
 @accColorAquaAlt: lighten(@accColorAqua, 40%);
 @accColorAquaAltDark: darken(@accColorAquaAlt, 60%);
-// @accColorAquaFade: fade(@accColorAqua, 25%);
 
-@accColorCyan: #17B1C2;//#18A8BF;
+@accColorCyan: #17B1C2;
 @accColorCyanDark: darken(@accColorCyan, 20%);
 @accColorCyanAlt: lighten(@accColorCyan, 48%);
 @accColorCyanAltDark: darken(@accColorCyanAlt, 60%);
-// @accColorCyanFade: fade(@accColorCyan, 25%);
 
-@accColorBlue: #1884F0;//#056BF0;
+@accColorBlue: #2290F0;
 @accColorBlueDark: darken(@accColorBlue, 20%);
 @accColorBlueAlt: lighten(@accColorBlue, 40%);
 @accColorBlueAltDark: darken(@accColorBlueAlt, 55%);
-// @accColorBlueFade: fade(@accColorBlue, 25%);
 
-@accColorSea: #5449E6;//#056BF0;
-@accColorSeaDark: darken(desaturate(@accColorSea, 30%), 20%);
-@accColorSeaAlt: lighten(@accColorSea, 30%);
-@accColorSeaAltDark: darken(@accColorSeaAlt, 50%);
-// @accColorSeaFade: fade(@accColorSea, 25%);
+@accColorSea: #2D51E0;//#4F49E6;
+@accColorSeaDark: darken(@accColorSea, 10%);
+@accColorSeaAlt: lighten(@accColorSea, 40%);
+@accColorSeaAltDark: darken(@accColorSeaAlt, 35%);
 
-@accColorPurple: #A545E6;//#7838D8;//#7738DC;
+@accColorSteel: #7073D6;//#7578E0;//#7B7EDB;//#7C85E6;
+@accColorSteelDark: darken(desaturate(@accColorSteel, 20%), 10%);
+@accColorSteelAlt: lighten(@accColorSteel, 25%);
+@accColorSteelAltDark: @accColorSteelDark;
+
+@accColorPurple: #954ECC;//#933CD6
 @accColorPurpleDark: darken(desaturate(@accColorPurple, 30%), 25%);
 @accColorPurpleAlt: lighten(@accColorPurple, 35%);
 @accColorPurpleAltDark: darken(@accColorPurpleAlt, 50%);
-// @accColorPurpleFade: fade(@accColorPurple, 25%);
 
-@accColorMagenta: #E64ED6;//#DB43B2;
+@accColorMagenta: #E64ED6;
 @accColorMagentaDark: darken(desaturate(@accColorMagenta, 30%), 35%);
 @accColorMagentaAlt: lighten(@accColorMagenta, 32%);
 @accColorMagentaAltDark: darken(@accColorMagentaAlt, 60%);
-// @accColorMagentaFade: fade(@accColorMagenta, 25%);
 
-@accColorPink: #FAB9D1;//#DB43B2;
+@accColorPink: #FAB9D1;
 @accColorPinkDark: darken(desaturate(@accColorPink, 40%), 50%);
 @accColorPinkAlt: lighten(@accColorPink, 10%);
 @accColorPinkAltDark: darken(@accColorPinkAlt, 60%);
-// @accColorPinkFade: fade(@accColorPink, 25%);
 
-@accColorGold: #E0BF9D;//#D6B696;//#DB43B2;
+@accColorGold: #E0BF9D;
 @accColorGoldDark: darken(@accColorGold, 48%);
 @accColorGoldAlt: lighten(@accColorGold, 20%);
 @accColorGoldAltDark: darken(@accColorGoldAlt, 60%);
-// @accColorGoldFade: fade(@accColorGold, 25%);
 
-@accColorBrown: #855F3A;//#A47546;
+@accColorBrown: #855F3A;
 @accColorBrownDark: darken(@accColorBrown, 20%);
 @accColorBrownAlt: lighten(@accColorBrown, 48%);
 @accColorBrownAltDark: darken(@accColorBrownAlt, 60%);
-// @accColorBrownFade: fade(@accColorBrown, 25%);
 
-@accColorGray: #808890;//#8B8D9F;
+@accColorGray: #9498A0;
 @accColorGrayDark: darken(@accColorGray, 20%);
 @accColorGrayAlt: lighten(@accColorGray, 38%);
 @accColorGrayAltDark: darken(@accColorGrayAlt, 55%);
-// @accColorGrayFade: fade(@accColorGray, 25%);
 
 // --------------------
 // Mermaid 专用的强调色色板
 @mmColorRed: @accColorRed;
-@mmColorRedAlt: lighten(@mmColorRed, 35%);
+@mmColorRedAlt: lighten(@mmColorRed, 40%);
 
 @mmColorOrange: @accColorOrange;
-@mmColorOrangeAlt: lighten(@mmColorOrange, 35%);
+@mmColorOrangeAlt: lighten(@mmColorOrange, 45%);
 
 @mmColorYellow: @accColorYellow;
-@mmColorYellowAlt: lighten(@mmColorYellow, 35%);
+@mmColorYellowAlt: lighten(@mmColorYellow, 40%);
 
 @mmColorGreen: @accColorGreen;
-@mmColorGreenAlt: lighten(@mmColorGreen, 35%);
+@mmColorGreenAlt: lighten(@mmColorGreen, 45%);
 
 @mmColorCyan: @accColorCyan;
-@mmColorCyanAlt: lighten(@mmColorCyan, 35%);
+@mmColorCyanAlt: lighten(@mmColorCyan, 48%);
 
 @mmColorBlue: @accColorBlue;
-@mmColorBlueAlt: lighten(@mmColorBlue, 35%);
+@mmColorBlueAlt: lighten(@mmColorBlue, 40%);
 
 @mmColorPurple: @accColorPurple;
 @mmColorPurpleAlt: lighten(@mmColorPurple, 35%);
 
 @mmColorPink: @accColorPink;
-@mmColorPinkAlt: lighten(@mmColorPink, 35%);
+@mmColorPinkAlt: lighten(@mmColorPink, 10%);
 
 @mmColorBrown: @accColorBrown;
-@mmColorBrownAlt: lighten(@mmColorBrown, 35%);
+@mmColorBrownAlt: lighten(@mmColorBrown, 48%);
 
 @mmColorGray: @accColorGray;
-@mmColorGrayAlt: lighten(@mmColorGray, 35%);
+@mmColorGrayAlt: lighten(@mmColorGray, 38%);
+
+:root {
+    // --------------------
+    // #Color_Scheme
+    // Light 模式的颜色值
+    --v-invert-dark-lg: invert(0) brightness(100%); // Light Mode 下图片滤镜
+    --v-brightness-dark-lg: brightness(100%); // Light 模式下封面、封底的滤镜
+
+    --a-color-lg: @aColor;
+    --mark-bg-lg: rgba(255, 192, 32, 0.4);
+    --tbl-row-g-alpha-lg: 0.15;
+    --h-f-lg: @headerColor;
+    --h-box-shadow-lg: fade(@headerColor, 20%);
+    --h-bg-start-lg: fade(@headerColor, 0%);
+    --h-bg-end-lg: fade(@headerColor, 10%);
+    --code-bg-lg: @codeBgColor;
+    --std-code-shadow-lg: rgba(255, 255, 255, 0.5);
+    --rb-code-shadow-lg: rgba(0, 0, 0, 0.3);
+
+    --key-bg-lg: @keycapColor;
+    --key-reflect-lg: lighten(@keycapColor, 20%);
+    --key-shadow-lg: darken(@keycapColor, 30%);
+
+    --ac-red-lg: @accColorRed;
+    --ac-red-alt-lg: @accColorRedAlt;
+    --ac-red-fade-lg: fade(@accColorRed, 25%);
+    --ac-red-title-lg: @accColorRed;
+    --ac-orange-lg: @accColorOrange;
+    --ac-orange-alt-lg: @accColorOrangeAlt;
+    --ac-orange-fade-lg: fade(@accColorOrange, 25%);
+    --ac-orange-title-lg: @accColorOrange;
+    --ac-yellow-lg: @accColorYellow;
+    --ac-yellow-alt-lg: @accColorYellowAlt;
+    --ac-yellow-fade-lg: fade(@accColorYellow, 25%);
+    --ac-yellow-title-lg: @accColorYellow;
+    --ac-lime-lg: @accColorLime;
+    --ac-lime-alt-lg: @accColorLimeAlt;
+    --ac-lime-fade-lg: fade(@accColorLime, 25%);
+    --ac-lime-title-lg: @accColorLime;
+    --ac-green-lg: @accColorGreen;
+    --ac-green-alt-lg: @accColorGreenAlt;
+    --ac-green-fade-lg: fade(@accColorGreen, 25%);
+    --ac-green-title-lg: @accColorGreen;
+    --ac-aqua-lg: @accColorAqua;
+    --ac-aqua-alt-lg: @accColorAquaAlt;
+    --ac-aqua-fade-lg: fade(@accColorAqua, 25%);
+    --ac-aqua-title-lg: @accColorAqua;
+    --ac-cyan-lg: @accColorCyan;
+    --ac-cyan-alt-lg: @accColorCyanAlt;
+    --ac-cyan-fade-lg: fade(@accColorCyan, 25%);
+    --ac-cyan-title-lg: @accColorCyan;
+    --ac-blue-lg: @accColorBlue;
+    --ac-blue-alt-lg: @accColorBlueAlt;
+    --ac-blue-fade-lg: fade(@accColorBlue, 25%);
+    --ac-blue-title-lg: @accColorBlue;
+    --ac-sea-lg: @accColorSea;
+    --ac-sea-alt-lg: @accColorSeaAlt;
+    --ac-sea-fade-lg: fade(@accColorSea, 25%);
+    --ac-sea-title-lg: @accColorSea;
+    --ac-steel-lg: @accColorSteel;
+    --ac-steel-alt-lg: @accColorSteelAlt;
+    --ac-steel-fade-lg: fade(@accColorSteel, 25%);
+    --ac-steel-title-lg: @accColorSteel;
+    --ac-purple-lg: @accColorPurple;
+    --ac-purple-alt-lg: @accColorPurpleAlt;
+    --ac-purple-fade-lg: fade(@accColorPurple, 25%);
+    --ac-purple-title-lg: @accColorPurple;
+    --ac-magenta-lg: @accColorMagenta;
+    --ac-magenta-alt-lg: @accColorMagentaAlt;
+    --ac-magenta-fade-lg: fade(@accColorMagenta, 25%);
+    --ac-magenta-title-lg: @accColorMagenta;
+    --ac-pink-lg: @accColorPink;
+    --ac-pink-alt-lg: @accColorPinkAlt;
+    --ac-pink-fade-lg: fade(@accColorPink, 25%);
+    --ac-pink-title-lg: @accColorPink;
+    --ac-gold-lg: @accColorGold;
+    --ac-gold-alt-lg: @accColorGoldAlt;
+    --ac-gold-fade-lg: fade(@accColorGold, 25%);
+    --ac-gold-title-lg: @accColorGold;
+    --ac-brown-lg: @accColorBrown;
+    --ac-brown-alt-lg: @accColorBrownAlt;
+    --ac-brown-fade-lg: fade(@accColorBrown, 25%);
+    --ac-brown-title-lg: @accColorBrown;
+    --ac-gray-lg: @accColorGray;
+    --ac-gray-alt-lg: @accColorGrayAlt;
+    --ac-gray-fade-lg: fade(@accColorGray, 25%);
+    --ac-gray-title-lg: @accColorGray;
+    --ac-theme1-lg: @theme1;
+    --ac-theme1-alt-lg: @theme1Alt;
+    --ac-theme1-fade-lg: fade(@theme1, 25%);
+    --ac-theme1-title-lg: @theme1;
+    --ac-theme2-lg: @theme2;
+    --ac-theme2-alt-lg: @theme2Alt;
+    --ac-theme2-fade-lg: fade(@theme2, 25%);
+    --ac-theme2-title-lg: @theme2;
+
+    // --------------------
+    // #Color_Scheme
+    // Dark Mode的颜色值
+    --v-invert-dark-dk: invert(1) brightness(90%); // Dark Mode 下图片滤镜
+    --v-brightness-dark-dk: brightness(90%); // Dark Mode下封面、封底的滤镜
+    --a-color-dk: @aColorDark;
+    --mark-bg-dk: rgba(255, 192, 32, 0.3);
+    --tbl-row-g-alpha-dk: 0.25;
+    --h-f-dk: @headerColorDark;
+    --h-box-shadow-dk: fade(@headerColorDark, 20%);
+    --h-bg-start-dk: fade(@headerColorDark, 0%);
+    --h-bg-end-dk: fade(@headerColorDark, 15%);
+    --code-bg-dk: @codeBgColorDark;
+    --std-code-shadow-dk: rgba(0, 0, 0, 0.5);
+    --rb-code-shadow-dk: rgba(255, 255, 255, 0.3);
+
+    --key-bg-dk: @keycapColorDark;
+    --key-reflect-dk: lighten(@keycapColorDark, 20%);
+    --key-shadow-dk: darken(@keycapColorDark, 20%);
+
+    --ac-red-dk: @accColorRedDark;
+    --ac-red-alt-dk: @accColorRedAltDark;
+    --ac-red-fade-dk: fade(@accColorRed, 35%);
+    --ac-red-title-dk: var(--d-f-c-dk); //@docTextColorDark;
+    --ac-yellow-dk: @accColorYellowDark;
+    --ac-yellow-alt-dk: @accColorYellowAltDark;
+    --ac-yellow-fade-dk: fade(@accColorYellow, 35%);
+    --ac-yellow-title-dk: var(--d-f-c-dk);
+    --ac-orange-dk: @accColorOrangeDark;
+    --ac-orange-alt-dk: @accColorOrangeAltDark;
+    --ac-orange-fade-dk: fade(@accColorOrange, 35%);
+    --ac-orange-title-dk: var(--d-f-c-dk);
+    --ac-lime-dk: @accColorLimeDark;
+    --ac-lime-alt-dk: @accColorLimeAltDark;
+    --ac-lime-fade-dk: fade(@accColorLime, 35%);
+    --ac-lime-title-dk: var(--d-f-c-dk);
+    --ac-green-dk: @accColorGreenDark;
+    --ac-green-alt-dk: @accColorGreenAltDark;
+    --ac-green-fade-dk: fade(@accColorGreen, 35%);
+    --ac-green-title-dk: var(--d-f-c-dk);
+    --ac-aqua-dk: @accColorAquaDark;
+    --ac-aqua-alt-dk: @accColorAquaAltDark;
+    --ac-aqua-fade-dk: fade(@accColorAqua, 35%);
+    --ac-aqua-title-dk: var(--d-f-c-dk);
+    --ac-cyan-dk: @accColorCyanDark;
+    --ac-cyan-alt-dk: @accColorCyanAltDark;
+    --ac-cyan-fade-dk: fade(@accColorCyan, 35%);
+    --ac-cyan-title-dk: var(--d-f-c-dk);
+    --ac-blue-dk: @accColorBlueDark;
+    --ac-blue-alt-dk: @accColorBlueAltDark;
+    --ac-blue-fade-dk: fade(@accColorBlue, 35%);
+    --ac-blue-title-dk: var(--d-f-c-dk);
+    --ac-sea-dk: @accColorSeaDark;
+    --ac-sea-alt-dk: @accColorSeaAltDark;
+    --ac-sea-fade-dk: fade(@accColorSea, 35%);
+    --ac-sea-title-dk: var(--d-f-c-dk);
+    --ac-steel-dk: @accColorSteelDark;
+    --ac-steel-alt-dk: @accColorSteelAltDark;
+    --ac-steel-fade-dk: fade(@accColorSteel, 35%);
+    --ac-steel-title-dk: var(--d-f-c-dk);
+    --ac-purple-dk: @accColorPurpleDark;
+    --ac-purple-alt-dk: @accColorPurpleAltDark;
+    --ac-purple-fade-dk: fade(@accColorPurple, 35%);
+    --ac-purple-title-dk: var(--d-f-c-dk);
+    --ac-magenta-dk: @accColorMagentaDark;
+    --ac-magenta-alt-dk: @accColorMagentaAltDark;
+    --ac-magenta-fade-dk: fade(@accColorMagenta, 35%);
+    --ac-magenta-title-dk: var(--d-f-c-dk);
+    --ac-pink-dk: @accColorPinkDark;
+    --ac-pink-alt-dk: @accColorPinkAltDark;
+    --ac-pink-fade-dk: fade(@accColorPink, 35%);
+    --ac-pink-title-dk: var(--d-f-c-dk);
+    --ac-gold-dk: @accColorGoldDark;
+    --ac-gold-alt-dk: @accColorGoldAltDark;
+    --ac-gold-fade-dk: fade(@accColorGold, 35%);
+    --ac-gold-title-dk: var(--d-f-c-dk);
+    --ac-brown-dk: @accColorBrownDark;
+    --ac-brown-alt-dk: @accColorBrownAltDark;
+    --ac-brown-fade-dk: fade(@accColorBrown, 35%);
+    --ac-brown-title-dk: var(--d-f-c-dk);
+    --ac-gray-dk: @accColorGrayDark;
+    --ac-gray-alt-dk: @accColorGrayAltDark;
+    --ac-gray-fade-dk: fade(@accColorGray, 35%);
+    --ac-gray-title-dk: var(--d-f-c-dk);
+    --ac-theme1-dk: @theme1Dark;
+    --ac-theme1-alt-dk: @theme1AltDark;
+    --ac-theme1-fade-dk: fade(@theme1Dark, 35%);
+    --ac-theme1-title-dk: var(--d-f-c-dk);
+    --ac-theme2-dk: @theme2Dark;
+    --ac-theme2-alt-dk: @theme2AltDark;
+    --ac-theme2-fade-dk: fade(@theme2Dark, 35%);
+    --ac-theme2-title-dk: var(--d-f-c-dk);
+
+    // --------------------
+    // #Color_Scheme
+    // 实际应用的颜色变量（自动适配 Color Scheme）
+    --v-invert-dark: var(--v-invert-dark-lg); // 默认的图片滤镜
+    --v-invert-hover: var(--v-invert-hover-lg); // 默认的图片链接的 hover 滤镜
+    --v-brightness-dark: var(--v-brightness-dark-lg); // 默认的封面、封底滤镜
+    --d-bc: var(--d-bc-lg);
+    --d-bc-tsp: var(--d-bc-tsp-lg);
+    --d-bi: var(--d-bi-lg);
+    --d-f-c: var(--d-f-c-lg);
+    --d-f-c-alt: var(--d-f-c-alt-lg);
+
+    --pn-c: var(--pn-c-lg);
+    --pn-c-alt: var(--pn-c-alt-lg);
+    --pn-c-tsp: var(--d-bc-alt-transparent-lg);
+    --blockquote-bg: var(--blockquote-bg-lg);
+
+    --a-color: var(--a-color-lg);
+    --mark-bg: var(--mark-bg-lg);
+    --tbl-bder: var(--tbl-bder-lg);
+    --tbl-h-br: var(--tbl-h-br-lg);
+    --tbl-th-bg: var(--tbl-th-bg-lg);
+    --tbl-td-bg: var(--tbl-td-bg-lg);
+    --tbl-cell-bder: var(--tbl-cell-bder-lg);
+    --tbl-row-g-alpha: var(--tbl-row-g-alpha-lg);
+    --toc-h-num-color: var(--toc-h-num-color-lg);
+    --h-f: var(--h-f-lg);
+    --h-box-shadow: var(--h-box-shadow-lg);
+    --h-bg-start: var(--h-bg-start-lg);
+    --h-bg-end: var(--h-bg-end-lg);
+    --code-bg: var(--code-bg-lg);
+    --std-code-shadow: var(--std-code-shadow-lg);
+    --rb-code-shadow: var(--rb-code-shadow-lg);
+
+    --key-bg: var(--key-bg-lg);
+    --key-reflect: var(--key-reflect-lg);
+    --key-shadow: var(--key-shadow-lg);
+
+    --ac-red: var(--ac-red-lg);
+    --ac-red-alt: var(--ac-red-alt-lg);
+    --ac-red-fade: var(--ac-red-fade-lg);
+    --ac-red-title: var(--ac-red-title-lg);
+    --ac-orange: var(--ac-orange-lg);
+    --ac-orange-alt: var(--ac-orange-alt-lg);
+    --ac-orange-fade: var(--ac-orange-fade-lg);
+    --ac-orange-title: var(--ac-orange-title-lg);
+    --ac-yellow: var(--ac-yellow-lg);
+    --ac-yellow-alt: var(--ac-yellow-alt-lg);
+    --ac-yellow-fade: var(--ac-yellow-fade-lg);
+    --ac-yellow-title: var(--ac-yellow-title-lg);
+    --ac-lime: var(--ac-lime-lg);
+    --ac-lime-alt: var(--ac-lime-alt-lg);
+    --ac-lime-fade: var(--ac-lime-fade-lg);
+    --ac-lime-title: var(--ac-lime-title-lg);
+    --ac-green: var(--ac-green-lg);
+    --ac-green-alt: var(--ac-green-alt-lg);
+    --ac-green-fade: var(--ac-green-fade-lg);
+    --ac-green-title: var(--ac-green-title-lg);
+    --ac-aqua: var(--ac-aqua-lg);
+    --ac-aqua-alt: var(--ac-aqua-alt-lg);
+    --ac-aqua-fade: var(--ac-aqua-fade-lg);
+    --ac-aqua-title: var(--ac-aqua-title-lg);
+    --ac-cyan: var(--ac-cyan-lg);
+    --ac-cyan-alt: var(--ac-cyan-alt-lg);
+    --ac-cyan-fade: var(--ac-cyan-fade-lg);
+    --ac-cyan-title: var(--ac-cyan-title-lg);
+    --ac-blue: var(--ac-blue-lg);
+    --ac-blue-alt: var(--ac-blue-alt-lg);
+    --ac-blue-fade: var(--ac-blue-fade-lg);
+    --ac-blue-title: var(--ac-blue-title-lg);
+    --ac-sea: var(--ac-sea-lg);
+    --ac-sea-alt: var(--ac-sea-alt-lg);
+    --ac-sea-fade: var(--ac-sea-fade-lg);
+    --ac-sea-title: var(--ac-sea-title-lg);
+    --ac-steel: var(--ac-steel-lg);
+    --ac-steel-alt: var(--ac-steel-alt-lg);
+    --ac-steel-fade: var(--ac-steel-fade-lg);
+    --ac-steel-title: var(--ac-steel-title-lg);
+    --ac-purple: var(--ac-purple-lg);
+    --ac-purple-alt: var(--ac-purple-alt-lg);
+    --ac-purple-fade: var(--ac-purple-fade-lg);
+    --ac-purple-title: var(--ac-purple-title-lg);
+    --ac-magenta: var(--ac-magenta-lg);
+    --ac-magenta-alt: var(--ac-magenta-alt-lg);
+    --ac-magenta-fade: var(--ac-magenta-fade-lg);
+    --ac-magenta-title: var(--ac-magenta-title-lg);
+    --ac-pink: var(--ac-pink-lg);
+    --ac-pink-alt: var(--ac-pink-alt-lg);
+    --ac-pink-fade: var(--ac-pink-fade-lg);
+    --ac-pink-title: var(--ac-pink-title-lg);
+    --ac-gold: var(--ac-gold-lg);
+    --ac-gold-alt: var(--ac-gold-alt-lg);
+    --ac-gold-fade: var(--ac-gold-fade-lg);
+    --ac-gold-title: var(--ac-gold-title-lg);
+    --ac-brown: var(--ac-brown-lg);
+    --ac-brown-alt: var(--ac-brown-alt-lg);
+    --ac-brown-fade: var(--ac-brown-fade-lg);
+    --ac-brown-title: var(--ac-brown-title-lg);
+    --ac-gray: var(--ac-gray-lg);
+    --ac-gray-alt: var(--ac-gray-alt-lg);
+    --ac-gray-fade: var(--ac-gray-fade-lg);
+    --ac-gray-title: var(--ac-gray-title-lg);
+    --ac-theme1: var(--ac-theme1-lg);
+    --ac-theme1-alt: var(--ac-theme1-alt-lg);
+    --ac-theme1-fade: var(--ac-theme1-fade-lg);
+    --ac-theme1-title: var(--ac-theme1-title-lg);
+    --ac-theme2: var(--ac-theme2-lg);
+    --ac-theme2-alt: var(--ac-theme2-alt-lg);
+    --ac-theme2-fade: var(--ac-theme2-fade-lg);
+    --ac-theme2-title: var(--ac-theme2-title-lg);
+}

@@ -112,13 +112,13 @@ VLOOK™ provides two sets of font styles, which can be selected according to pe
 >
 > 整体视觉为「**清新、简约、明快**」，主要采用无衬线的免费或开源的东亚和拉丁字体。
 >
-> ![字体风格_小清新](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/小清新.png?srcset=@2x,@3x)
+> ![字体风格_小清新](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/小清新@2x.png)
 
 > **文•艺•范**
 >
 > 整体视觉为「**优雅、韵动、个性**」，主要采用衬线、无衬线的免费或开源的东亚和拉丁字体，多种字重进行**混搭组合**。
 >
-> ![字体风格_文艺范](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/文艺范.png?srcset=@2x,@3x)
+> ![字体风格_文艺范](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/文艺范@2x.png)
 
 **Because Windows / MacOS systems do not pre-install font packages with font themes by default, VLOOK™ currently supports both online and local usage.**  **If your working environment cannot access the Internet, it is recommended to download the font package directly and install it locally to get the best visual experience.**
 

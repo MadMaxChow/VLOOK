@@ -29,13 +29,13 @@
 @theme3: #000000;
 @theme1Dark: darken(@theme1, 20%);
 @theme1Alt: lighten(@theme1, 40%);
-@theme1AltDark: darken(@theme1Alt, 20%);
+@theme1AltDark: @codeBgColorDark;
 @theme2Dark: darken(@theme2, 20%);
 @theme2Alt: lighten(@theme2, 40%);
 @theme2AltDark: darken(@theme2Alt, 20%);
-@theme3Dark: darken(@theme3, 20%);
-@theme3Alt: lighten(@theme3, 40%);
-@theme3AltDark: darken(@theme3Alt, 20%);
+// @theme3Dark: darken(@theme3, 20%);
+// @theme3Alt: lighten(@theme3, 40%);
+// @theme3AltDark: darken(@theme3Alt, 20%);
 
 @themeForeColor: @theme3;
 @themeForeColorFade: fade(@themeForeColor, 50%);
@@ -47,8 +47,37 @@
 // 标题色
 @headerColor: darken(@themeBgColor, 10%);
 @headerColorDark: darken(@themeBgColor, 20%);
-@tocHeaderNumColor: @foreColorLightFade;
+// @tocHeaderNumColor: @docTextColorLightFade;
 @contentHeaderNumColor: @themeBgColorFade;
+@headerBackground: linear-gradient(270deg, var(--header-bg-start-color), var(--header-bg-end-color));
+@multiHeaderBG: @headerBackground;
+@headerTextAlign: right;
+@headerPadding: 10px 30px 10px 10px;
+@headerLetterSpacing: 0.3em;
+@h1Shadown: none;
+@h2Shadown: none;
+@h3Shadown: none;
+@h4Shadown: none;
+@h5Shadown: none;
+@h6Shadown: none;
+@h1BorderLeft: 15px solid var(--header-box-shadow);
+@h2BorderLeft: 15px solid var(--header-box-shadow);
+@h3BorderLeft: 15px solid var(--header-box-shadow);
+@h4BorderLeft: 15px solid var(--header-box-shadow);
+@h5BorderLeft: 15px solid var(--header-box-shadow);
+@h6BorderLeft: 0;
+@h1BorderRight: 5px solid var(--header-box-shadow);
+@h2BorderRight: 5px solid var(--header-box-shadow);
+@h3BorderRight: 5px solid var(--header-box-shadow);
+@h4BorderRight: 5px solid var(--header-box-shadow);
+@h5BorderRight: 5px solid var(--header-box-shadow);
+@h6BorderRight: 0;
+@h1BorderTop: 0;
+@h2BorderTop: 0;
+@h3BorderTop: 0;
+@h4BorderTop: 0;
+@h5BorderTop: 0;
+@h6BorderTop: 0;
 
 // 行内代码背景色
 @codeBgColor: lighten(@themeBgColor, 25%);
@@ -60,8 +89,8 @@
 @buttonBgColor: @themeBgColor;
 
 // 加粗文字颜色
-@boldColorLight: @foreColorLight;//#202224;
-@boldColorDark: @foreColorDark;
+// @boldColorLight: @docTextColorLight;//#202224;
+// @boldColorDark: @docTextColorDark;
 
 // 链接颜色
 @aBorderWidth: 1px;
@@ -79,7 +108,7 @@
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: left;
-@coverTextPadding: 445px 60px 50px;
+@coverTextPadding: 400px 60px 50px;
 @coverTextColor: @themeForeColor;
 @coverSubColor: #108078;
 @coverSupColor: @coverSubColor;

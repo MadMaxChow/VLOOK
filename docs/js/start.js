@@ -1,20 +1,21 @@
 /**************************************
  *
  * starter of VLOOK.js - Typora Plugin
- * 配合 vlook.js 进行使用
+ * (配合 vlook.js 进行使用)
  *
- * V13.0
- * 2021-12-11
+ * V14.0
+ * 2022-03-13
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
  * email: maxchow@qq.com
  *
  * https://github.com/MadMaxChow/VLOOK
+ * https://gitee.com/madmaxchow/VLOOK
  *
  *************************************/
 
-let startVersion = "V13.0";
+let sVer = "V14.0";
 
 /**
  * 获取 URL 中的参数数组
@@ -44,10 +45,10 @@ function parseQueryString(url) {
 
 // 动态加载指定的 VLOOK 主题
 let theme = parseQueryString(window.location.href)["theme"],
-    themmeVersion = getComputedStyle(document.documentElement).getPropertyValue("--vlook-theme-version").trim().replace(/"/g, "");
-if (theme !== undefined || (startVersion.indexOf("dev") === -1 && themmeVersion !== startVersion)) {
-    if (theme === undefined && themmeVersion !== startVersion)
-        theme = getComputedStyle(document.documentElement).getPropertyValue("--vlook-theme-name").trim().replace(/"/g, "");
+    themmeVersion = getComputedStyle(document.documentElement).getPropertyValue("--v-theme-version").trim().replace(/"/g, "");
+if (theme !== undefined || (sVer.indexOf("dev") === -1 && themmeVersion !== sVer)) {
+    if (theme === undefined && themmeVersion !== sVer)
+        theme = getComputedStyle(document.documentElement).getPropertyValue("--v-theme-name").trim().replace(/"/g, "");
 
     theme = (theme === "") ? "vlook-owl" : theme;
     console.log("Reload Theme :: " + theme);
@@ -55,7 +56,7 @@ if (theme !== undefined || (startVersion.indexOf("dev") === -1 && themmeVersion 
     let style = document.createElement("link");
     style.rel = "stylesheet";
     style.type = "text/css";
-    style.href = cssHost + theme + ".css?ts=" + (vlookDevMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60)); // 1000/60/60/24 按天
+    style.href = cssHost + theme + ".css?ts=" + (devMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60)); // 1000/60/60/24 按天
     console.log(style);
     document.getElementsByTagName("HEAD").item(0).appendChild(style);
 }
@@ -73,6 +74,6 @@ for (let i = 0; i < jsSrc.length; i++) {
     let js = document.createElement("script");
     js.setAttribute("type", "text/javascript");
     // js.setAttribute("async", "async"); // 异步
-    js.setAttribute("src", jsSrc[i] + "?ts=" + (vlookDevMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60))); // 1000/60/60/24 按天
+    js.setAttribute("src", jsSrc[i] + "?ts=" + (devMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60))); // 1000/60/60/24 按天
     document.getElementsByTagName("HEAD")[0].appendChild(js);
 }

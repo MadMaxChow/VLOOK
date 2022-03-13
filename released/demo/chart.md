@@ -10,15 +10,23 @@ vlook-query: el=2&ws=auto&lmc=1
 vlook-doc-lib: vlook-lib.html
 ---
 
-###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>脚本化图表参考指南</sup><br />`#最新版本|V13.0#(theme2!)`<br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2017-2021. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>脚本化图表参考指南</sup><br />`#最新版本|V14.0#`<br /><br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2017-2022. MAX°DESIGN.*
 
 [TOC]
+
+# 关于 Mermaid
+
+Mermaid 是一个用于画流程图、状态图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [Mermaid 官网](https://mermaidjs.github.io)。
+
+**目前 Typora + VLOOK™ 的最新版本，可支持下脚本化图表的制作和生成：**
+
+[![流程图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-flowcharts.png?inline=true&srcset=@2x&darksrc=invert#frame)](#流程图)　　[![顺序图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-seq.png?inline=true&srcset=@2x&darksrc=invert#frame)](#顺序图)　　[![状态图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-state.png?inline=true&srcset=@2x&darksrc=invert#frame)](#状态图)　　[![类图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-class.png?inline=true&srcset=@2x&darksrc=invert#frame)](#类图)　　[![实体关系图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-er.png?inline=true&srcset=@2x&darksrc=invert#frame)](#实体关系图)　　[![客户旅程地图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-uj.png?inline=true&srcset=@2x&darksrc=invert#frame)](#客户旅程地图)　　[![甘特图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-gantt.png?inline=true&srcset=@2x&darksrc=invert#frame)](#甘特图)　　[![饼图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-pie.png?inline=true&srcset=@2x&darksrc=invert#frame)](#饼图)
 
 # 关于 Markdown
 
 ###### Markdown 是什么？
 
-- 2004 年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了 [![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark-solid.svg?mode=icon&fill=text) Markdown](https://zh.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的 `文本标记语言`。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）；
+- 2004 年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了 [![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark-solid.svg?fill=text#icon) Markdown](https://zh.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的 `文本标记语言`。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）；
 - Markdown 文档以 `纯文本格式存储`，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过 Markdown 编辑器导出为带排版的富文本文档、HTML 网页等等。==纯粹、简洁、易用、灵活==，都是人们喜欢 Markdown 的原因；
 - 目前 Markdown 的标准化项目是 [CommonMark](http://commonmark.org)。
 
@@ -27,87 +35,90 @@ vlook-doc-lib: vlook-lib.html
 - `#推荐#` **Github Flavored Markdown** (GFM) 语法参考：Typora 目前采用该标准 [详细](https://support.typora.io/Markdown-Reference/)；
 - 标准化 **CommonMark** 语法参考：[60 秒学会 Markdown 语法](http://commonmark.org/help/)、[10 分钟深入学习 Markdown](http://commonmark.org/help/tutorial/)。
 
-# 主推方案 (Mermaid)
-
-Mermaid 是一个用于画流程图、状态图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [Mermaid 官网](https://mermaidjs.github.io)。
-
-**目前 Typora + VLOOK™ 的最新版本，可支持下脚本化图表的制作和生成：**
-
-[![流程图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-flowcharts.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](#流程图)　　[![顺序图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-seq.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](#顺序图)　　[![状态图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-state.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](#状态图)　　[![类图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-class.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](#类图)　　[![实体关系图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-er.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](#实体关系图)　　[![客户旅程地图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-uj.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](#客户旅程地图)　　[![甘特图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-gantt.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](#甘特图)　　[![饼图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-pie.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](#饼图)
-
-## 流程图
+# 流程图
 
 ###### ![流程图]"（以上的「分支流程」内容由下图进行接续）"
 
 ```mermaid
-graph LR
-START(开始) --> node1(普通节点)
+graph TB
+%% 图的方向说明
+%% LR：从左到图，RL：从右到左，TB：从上到下，BT：从下到上
+
+%% 连续连接
+START([开始]) --> pre1{{准备}} --> node2[节点]
+pre1 --> node1(可选)
 subgraph 子图
-	node1 --> |情况1|groud1[流程组节点]
-  node1 --> |情况2|A1((A))
+	%% 一对多
+	node1 --> |汇总|join1(( ))
+	join1 --> groud1[[子流程]] & database[(存档)] & inpage1(("A<br>(同页)"))
+  %% click clickable "#Mermaid 的状态图"
 end
+
+node2 --> data1[/数据/]
+node2 --> data2[\文件\]
 
 %% this is a comment
 
-groud1 ==> |重要分支|cond1{ }
+groud1 ==> |重要分支|cond1{"判断？"}
 cond1 --> |条件1|END
-cond1 -.-> |条件2|page2>分支流程]
-A2((A)) --> END
-END(结束)
+cond1 --> |条件2|B[/手工输入\]
+cond1 --> |条件3|B2[\手动操作/]
+cond1 -.-> |条件4|outpage2>"B (离页)"]
+
+inpage2(("A<br>(同页)")) --> END
+END([结束])
 ```
 
 ###### 分支流程（接续上图）
 
 ```mermaid
 graph LR
-page2>分支流程] --> node2(普通节点)
-node2 --> END
-END(结束)
+outpage2>"B (离页)"] --> node2(节点) --> END([结束])
 ```
 
 ###### 以上「流程图」的画图脚本示例
 
 ```
 graph LR
-START(开始) --> node1(普通节点)
+%% 图的方向说明
+%% LR：从左到图，RL：从右到左，TB：从上到下，BT：从下到上
+
+%% 连续连接
+START([开始]) --> pre1{{准备}} --> node2[节点]
+pre1 --> node1(可选)
 subgraph 子图
-	node1 --> |情况1|groud1[流程组节点]
-  node1 --> |情况2|A1((A))
+	%% 一对多
+	node1 --> |汇总|join1(( ))
+	join1 --> groud1[[子流程]] & database[(数据库 / 存档)] & inpage1(("A<br>(同页)"))
+  %% click clickable "#Mermaid 的状态图"
 end
+
+node2 --> data1[/数据/]
+node2 --> data2[\文件\]
 
 %% this is a comment
 
-groud1 ==> |重要分支|cond1{条件判断}
-cond1 --> |是|END
-cond1 -.-> |否|page2>分支流程]
-A2((A)) --> END
-END(结束)
+groud1 ==> |重要分支|cond1{"判断？"}
+cond1 --> |条件1|END
+cond1 --> |条件2|B[/手工输入\]
+cond1 --> |条件3|B2[\手动操作/]
+cond1 -.-> |条件4|outpage2>"B (离页)"]
+
+inpage2(("A<br>(同页)")) --> END
+END([结束])
 ```
 
-###### 说明
+###### 扩展应用说明
 
-1. 针对流程图及不同图元的应用，重绘为不同的外观、形状；
+VLOOK™ 针对流程图中特定的节点类型进行扩展，实现重绘为不同的样式，具体如下：
 
-2. 特定节点命名规范：
+| **应用建议** |    节点形状    | 说明                                                         |
+| :----------: | :------------: | ------------------------------------------------------------ |
+|  开始、结束  | 体育场（药丸） | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br />- **开始**：命名为 `START` ，如：`START([开始])`<br />- **结束**：命名为 `END` ，如：`END([结束])` |
+|   同页符号   |      圆形      | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br />以 `inpage` 为前缀，如：`inpageA1((A))` |
+|   离页符号   |      旗形      | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br />以 `outpage` 为前缀，如：`inpageB1((B))` |
 
-   - `START`：开始结点
-   - `END`：结束结点
-
-3. 支持节点形状/类型：
-
-   | **节点形状** | 应用建议                   | 说明                                                         |
-   | :----------: | :------------------------- | ------------------------------------------------------------ |
-   |   圆角矩形   | 普通流程节点               | 结合别名（如：node1、page2 等，可自由定义），并通过 `()` 指定，举例：`node1(普通节点)` |
-   |     菱形     | 条件判断节点               | 结合别名，并通过 `{}` 指定，举例：`cond1{条件判断}`<br />`#注意#(yellow)`「条件判断节点」的别名建议统一以 `cond` 为前缀 |
-   |   方角矩形   | 普通流程节点/子流程/状态图 | 不使用别名时的默认样式，也可以通过 `[]` 来强制指定，举例：`node1[流程组]` |
-   |     圆形     | 同页标志                   | 结合别名，并通过 `(())` 指定，举例：`node1((圆形节点)`       |
-   |     旗形     | 离页标志                   | 结合别名，并通过 `>]` 指定，举例：`page1>条件判断节点]`<br />`#注意#(yellow)`「离页标志节点」的别名必须以 `page` 为前缀，否则样式会与「菱形」条件判断节点冲突 |
-
-4. 支持指定流程图方向：`LR`（从左到右）、`RL`（从右到左）、`TB`（从上到下）、`BT`（从下到上）；
-
-5. 支持 FontAwesome [官网](http://fontawesome.com)。
-
-## 顺序图
+# 顺序图
 
 ###### 顺序图（也称：时序图 / 泳道图）
 
@@ -210,11 +221,11 @@ end
    - `par...end`：平行
 7. 支持备注说明。
 
-## 类图
+# 类图
 
 须mermaid V8.4及更新版本支持。
 
-###### 标准类图 (1)
+###### 类图示例 1
 
 ```mermaid
 classDiagram
@@ -222,8 +233,8 @@ classA <|-- classB : Inheritance
 classC *-- classD : Composition
 classE o-- classF : Aggregation
 classG "*" <-- "1" classH : Association
-classI "many" -- classJ : Link(Solid)
-classK "1" ..> "1..n" classL : Dependency
+classI "*" -- classJ : Link(Solid)
+classK ..> "n" classL : Dependency
 classM <|.. classN : Realization
 classO .. classP : Link(Dashed)
 
@@ -249,51 +260,16 @@ class classC{
 }
 ```
 
-###### 标准类图 (2)
-
-```mermaid
-classDiagram
-classA <|-- classB : Inheritance
-classC *-- classD : Composition
-classE o-- classF : Aggregation
-classG "*" <-- "1" classH : Association
-classI "many" -- classJ : Link(Solid)
-classK "1" ..> "1..n" classL : Dependency
-classM <|.. classN : Realization
-classO .. classP : Link(Dashed)
-
-class classA{
-    <<interface>>
-    +public attribute
-    -private attribute
-    #protected attribute
-    ~package attribute
-    +public method()
-    -private method()
-    #protected method()
-    ~package method()
-}
-
-class classC{
-    <<enumeration>>
-    RED
-    BLUE
-    GREEN
-    WHITE
-    BLACK
-}
-```
-
-###### 以上「类图」的画图脚本示例
+###### 以上标准类图 1 的画图脚本示例
 
 ```
 classDiagram
 classA <|-- classB : Inheritance
 classC *-- classD : Composition
 classE o-- classF : Aggregation
-classG "*" <-- "1" classH : Association
+classG "*" <-- classH : Association
 classI "many" -- classJ : Link(Solid)
-classK "1" ..> "1..n" classL : Dependency
+classK ..> "n" classL : Dependency
 classM <|.. classN : Realization
 classO .. classP : Link(Dashed)
 
@@ -319,9 +295,121 @@ class classC{
 }
 ```
 
-## 状态图
+###### 类图示例 2
 
-### 标准状态机图
+```mermaid
+classDiagram
+
+人_Person <|-- 学生_Student : Inheritance
+人_Person <|-- 老师_Techer : Inheritance
+老师_Techer "*" *-- "*" 班级_Class : Composition
+班级_Class *-- "*" 学生_Student : Composition
+学校_School <.. "*" 老师_Techer : Dependency
+学校_School o-- "*" 班级_Class : Composition
+学校_School <.. "*" 学生_Student : Dependency
+
+class 人_Person {
+  姓名
+  性别
+  年龄
+}
+class 学校_School {
+  学校名称
+  所属省份
+  所属城市
+  学校类型
+}
+class 学生_Student {
+  所属学校
+  所属班级
+  学号
+  +交作业()
+}
+class 老师_Techer {
+  所属学校
+  老师证号
+  +授课()
+}
+class 班级_Class {
+  所属学校
+  所属年级
+  班名
+}
+
+公司 o-- "*" 抽象部门 : Composition
+抽象部门 <|-- 市场类部门 : Inheritance
+市场类部门 <|-- 策划部 : Inheritance
+市场类部门 <|-- 销售部 : Inheritance
+抽象部门 <|-- 生产类部门 : Inheritance
+生产类部门 <|-- 研发部 : Inheritance
+生产类部门 <|-- 实施部 : Inheritance
+生产类部门 <|-- IT部 : Inheritance
+抽象部门 <|-- 支持类部门 : Inheritance
+支持类部门 <|-- 质量部 : Inheritance
+支持类部门 <|-- 财务部 : Inheritance
+支持类部门 <|-- 行政人事部 : Inheritance
+支持类部门 <|-- IT部 : Inheritance
+```
+
+###### 以上标准类图 2 的画图脚本示例
+
+```
+classDiagram
+
+人_Person <|-- 学生_Student : Inheritance
+人_Person <|-- 老师_Techer : Inheritance
+老师_Techer "*" *-- "*" 班级_Class : Composition
+班级_Class *-- "*" 学生_Student : Composition
+学校_School <.. "*" 老师_Techer : Dependency
+学校_School o-- "*" 班级_Class : Composition
+学校_School <.. "*" 学生_Student : Dependency
+
+class 人_Person {
+  姓名
+  性别
+  年龄
+}
+class 学校_School {
+  学校名称
+  所属省份
+  所属城市
+  学校类型
+}
+class 学生_Student {
+  所属学校
+  所属班级
+  学号
+  +交作业()
+}
+class 老师_Techer {
+  所属学校
+  老师证号
+  +授课()
+}
+class 班级_Class {
+  所属学校
+  所属年级
+  班名
+}
+
+公司 o-- "*" 抽象部门 : Composition
+抽象部门 <|-- 市场类部门 : Inheritance
+市场类部门 <|-- 策划部 : Inheritance
+市场类部门 <|-- 销售部 : Inheritance
+抽象部门 <|-- 生产类部门 : Inheritance
+生产类部门 <|-- 研发部 : Inheritance
+生产类部门 <|-- 实施部 : Inheritance
+生产类部门 <|-- IT部 : Inheritance
+抽象部门 <|-- 支持类部门 : Inheritance
+支持类部门 <|-- 质量部 : Inheritance
+支持类部门 <|-- 财务部 : Inheritance
+支持类部门 <|-- 行政人事部 : Inheritance
+支持类部门 <|-- IT部 : Inheritance
+```
+
+# 状态图
+
+## 标准状态机图
 
 ###### 环境要求
 
@@ -335,6 +423,7 @@ stateDiagram
 [*] --> 状态A
 状态A --> 状态B : 状态转换说明
 状态B --> 状态C : 状态转换说明
+状态C --> 状态B : 状态转换说明
 状态C --> 状态A : 状态转换说明
 状态C --> [*]
 ```
@@ -397,7 +486,7 @@ join_state --> 状态4
 
 ###### 以上「状态机图」的画图脚本示例
 
-```
+````
 ```mermaid
 stateDiagram
 state fork_state <<fork>>
@@ -439,36 +528,30 @@ state join_state <<join>>
 状态组3 --> join_state
 join_state --> 状态4
 状态4 --> [*]
-​```
 ```
+````
 
-### 旧版状态图
+## 流程图扩展的状态机图
 
-###### 说明
-
-1. 该样式的状态图是借用**流程图**脚本实现，是mermaid未支持[标准状态图](#标准状态机图)时的变通方案；
-2. 针对该类状态图及不同图元的应用，重绘不同的外观、形状；
-3. 特定节点命名规范：
-   - `INIT`：初始状态
-   - `FINAL`：最终状态
-4. 建议使用 `方角矩形` 节点来表示状态；
-5. 根据情况适当使用别名（如：A、B、C 等，可自由定义）；
-6. 可适当结合 `菱形 `节点用于表示**分支**和**聚合**。
-
-###### 旧版状态机图（兼容性较高）
+###### 流程图扩展的状态机图（兼容性较高）
 
 ```mermaid
-graph LR
-%% 流程图走方说明
+graph TB
+%% 图的方向说明
 %% LR：从左到图，RL：从右到左，TB：从上到下，BT：从下到上
 
-INIT(( )) -->	|初始|A[状态A]
-A --> |复杂变更|fork1{ }
-fork1 --> |变更条件说明|B[状态B]
-B --> |变更条件说明|C[状态C]
-fork1 -.-> |非正常/次要变更条件说明|C
+%% 正常情况
+INIT(( )) -->	|初始|A([状态 A])
+A --> |情况分支|join2{ } --> |汇聚|join1(( ))
+join1 --> |"<角色：行为>"<br>Act / 变更处理说明|B([状态 B])
+subgraph 状态集
+	B --> |"<角色：行为>"<br>Act / 变更处理说明|C([状态 C])
+end
 C --> FINAL
-fork1 -.-> |非正常/次要变更条件说明|D[状态D]
+
+%% 异常情况
+join1 -.-> |"<角色：行为>"<br>Act / 变更处理说明|C
+join1 -.-> |Act / 变更处理说明|D([状态 D])
 D --> FINAL
 FINAL(( ))
 ```
@@ -476,24 +559,39 @@ FINAL(( ))
 ###### 以上「状态机图」的画图脚本示例
 
 ````
-```mermaid
 graph LR
-%% 流程图走方说明
+%% 图的方向说明
 %% LR：从左到图，RL：从右到左，TB：从上到下，BT：从下到上
 
-INIT(( )) --> |初始|A[状态A]
-A --> |复杂变更|fork1(( ))
-fork1(( )) --> |变更条件说明|B[状态B]
-B --> |变更条件说明|C[状态C]
-fork1{ } -.-> |非正常/次要变更条件说明|C
+%% 正常情况
+INIT(( )) -->	|初始|A([状态 A])
+A --> |情况分支|join2{ } --> |汇聚|join1(( ))
+join1 --> |"<角色：行为>"<br>Act / 变更处理说明|B([状态 B])
+subgraph 状态集
+	B --> |"<角色：行为>"<br>Act / 变更处理说明|C([状态 C])
+end
 C --> FINAL
-fork1{ } -.-> |非正常/次要变更条件说明|D[状态D]
+
+%% 异常情况
+join1 -.-> |"<角色：行为>"<br>Act / 变更处理说明|C
+join1 -.-> |Act / 变更处理说明|D([状态D])
 D --> FINAL
 FINAL(( ))
-```
 ````
 
-## 甘特图
+###### 扩展应用说明
+
+VLOOK™ 针对流程图中特定的节点类型进行扩展，实现重绘为不同的样式，具体如下：
+
+| **应用建议** | 节点形状 | 说明                                                         |
+| :----------: | :------: | ------------------------------------------------------------ |
+|  初始、终止  |   圆形   | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br />- **初始**：命名为 `INIT` ，如：`INIT([ ])`<br />- **结束**：命名为 `FINAL` ，如：`FINAL([ ])` |
+|  汇聚、转换  |   圆形   | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br />以 `join` 为前缀，如：`join1(( ))` |
+|      :       |   菱形   | 以 `join` 为前缀，如：`join1{ }`                             |
+|   同页符号   |    :     | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br />以 `inpage` 为前缀，如：`inpageA1((A))` |
+|   离页符号   |   旗形   | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br />以 `outpage` 为前缀，如：`inpageB1((B))` |
+
+# 甘特图
 
 ###### 甘特图示例
 
@@ -545,7 +643,7 @@ section 区块C
 ```
 ````
 
-## 饼图
+# 饼图
 
 ###### ![Q3 2019 中国线上智能手机市场主要品牌市场份额]"数据来自：互联网"
 
@@ -575,7 +673,7 @@ pie title Q3 2019 中国线上智能手机市场主要品牌市场份额
 ```
 ````
 
-## 实体关系图
+# 实体关系图
 
 ###### 实体关系图（也称为：ER图）
 
@@ -586,7 +684,7 @@ erDiagram
     CUSTOMER }|..|{ DELIVERY-ADDRESS : uses 
 ```
 
-## 客户旅程地图
+# 客户旅程地图
 
 ###### 客户旅程地图（也称：用户体验地图）
 
@@ -601,17 +699,5 @@ journey
       Go downstairs: 5: Me
       Sit down: 5: Me
 ```
-
-# 备选方案
-
-`#注意#(yellow)`**（从 VLOOK 9.2 版本开始不再支持备选方案）**
-
-## flowchart.js (流程图)
-
-flowchart.js 基于 SVG 的流程图插件，它仅需几行代码即可在 Web 上完成流程图的构建。可以从文字表述中画出简单的 SVG 流程图，也可以画出彩色的图表。详见 [flowchart.js 官网](http://flowchart.js.org)。
-
-## JS Sequence Diagrams (顺序图)
-
-JS sequence diagrams 是一个方便建立 UML 的顺序图（序列图 or 循序图）在线工具，使用简单。详见 [JS Sequence Diagrams 官网](https://bramp.github.io/js-sequence-diagrams/)。
 
 #The End 

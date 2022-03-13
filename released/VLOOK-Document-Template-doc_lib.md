@@ -59,3 +59,10 @@ welcome: 自定义文档加载过程中显示的欢迎屏信息（须在导出�
 >
 > `>(green)`
 
+
+
+> ###### 其他参考模板
+>
+> - [标准模板（VLOOK-Document-Template.md）](VLOOK-Document-Template.md?mdx=off)
+> - [无封面模板（VLOOK-Document-Template-nocover.md）](VLOOK-Document-Template-nocover.md?mdx=off)
+> - [文库（VLOOK-Document-Template-doc_lib.md）](VLOOK-Document-Template-doc_lib.md?mdx=off)

@@ -1,33 +1,37 @@
 <!--
-VLOOK V13.0 - Typora Plugin ( live )
+VLOOK V14.0 (2022-03-13) - Typora Plugin ( live )
 Paste to "Export Setting ▸ VLOOK (live) ▸ Append in <body />"
 粘贴至「导出设置... ▸ VLOOK (live) ▸ 在 <body /> 中添加」
 -->
 <!--========================================================================-->
+<!--                                                                        -->
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
-<!--                                 V13.0                                  -->
 <!--                                                                        -->
-<!--                               2021-12-11                               -->
+<!--                                 V14.0                                  -->
+<!--                               2022-03-13                               -->
 <!--                           powered by MAX°孟兆                          -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
 <!--                         email: maxchow@qq.com                          -->
+<!--                                                                        -->
 <!--                  https://github.com/MadMaxChow/VLOOK                   -->
+<!--                  https://gitee.com/madmaxchow/VLOOK                    -->
+<!--                                                                        -->
 <!--========================================================================-->
 <!--
 MIT License
-Copyright (c) 2016-2021 MAX°DESIGN | Max Chow
+Copyright (c) 2016-2022 MAX°DESIGN | Max Chow
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
 <!-- ==================== VLOOK UI ==================== -->
-<div class="mdx-vlook-inside"></div>
+<div class="v-vlook-inside"></div>
 <style type='text/css'>
     @keyframes breathe-vlook { 0% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
-    #VLOOK { left: 0; top: 0; background: linear-gradient(var(--vlook-theme-bg-color-dark) 0%, var(--vlook-btn-bg-color) 50%, var(--vlook-btn-bg-color)); width: 100%; height: 100vh; display: flex; align-items: center; position: fixed; z-index: 99999; }
-    #VLOOK > div { margin: 0 auto; background: var(--vlook-btn-fore-color); width: 30px; height: 30px; border-radius: 10px; animation: 1s breathe-vlook infinite alternate; }
+    #VLOOK { left: 0; top: 0; background-color: var(--v-btn-bg); width: 100%; height: 100vh; display: flex; align-items: center; position: fixed; z-index: 99999; }
+    #VLOOK > div { margin: 0 auto; background-color: var(--v-btn-f); width: 30px; height: 30px; border-radius: 10px; animation: 1s breathe-vlook infinite alternate; }
 </style>
 <div id="VLOOK"><div></div></div>
 <!-- ==================== VLOOK JS ==================== -->
@@ -35,19 +39,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     // theme-color
     let metaTheme = document.createElement("meta");
     metaTheme.name = "theme-color";
-    metaTheme.content = getComputedStyle(document.documentElement).getPropertyValue("--vlook-btn-bg-color");
+    metaTheme.content = getComputedStyle(document.documentElement).getPropertyValue("--v-btn-bg");
     document.getElementsByTagName("head")[0].appendChild(metaTheme);
     // VLOOK
-    let liveVersion = "V13.0";
-    let vlookDevMode = liveVersion.indexOf("dev") > 0 ? true : false, vlookDebugMode = false;
+    let lVer = "V14.0";
+    let devMode = lVer.indexOf("dev") > 0 ? true : false, debugMode = false;
     let fontHost = "https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/",
-        jsHost = vlookDevMode ? "http://localhost/js/" : "https://madmaxchow.gitee.io/vlook/js/",
-        cssHost = vlookDevMode ? "http://localhost/css/" : "https://madmaxchow.gitee.io/vlook/css/";
+        jsHost = devMode ? "http://localhost/js/" : "https://madmaxchow.gitee.io/vlook/js/",
+        cssHost = devMode ? "http://localhost/css/" : "https://madmaxchow.gitee.io/vlook/css/";
         // https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/
 // ==================== NON-standalone ====================
 // ▽ ▽ ▽ ▽ ▽
     let startjs = document.createElement("script"),
-        ts = vlookDevMode ? new Date().getTime() : Math.round(new Date().getTime()/1000/60); // 1000/60/60/24 按天
+        ts = devMode ? new Date().getTime() : Math.round(new Date().getTime()/1000/60); // 1000/60/60/24 按天
     startjs.setAttribute("type", "text/javascript");
     startjs.setAttribute("src", jsHost + "start.js?ts=" + ts);
     document.getElementsByTagName("HEAD")[0].appendChild(startjs);

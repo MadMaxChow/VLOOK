@@ -28,14 +28,14 @@
 @theme2: #CC0100;
 @theme3: #FFFFFF;
 @theme1Dark: darken(@theme1, 20%);
-@theme1Alt: lighten(@theme1, 40%);
-@theme1AltDark: darken(@theme1Alt, 20%);
+@theme1Alt: lighten(@theme1, 60%);
+@theme1AltDark: @codeBgColorDark;
 @theme2Dark: darken(@theme2, 20%);
 @theme2Alt: lighten(@theme2, 40%);
 @theme2AltDark: darken(@theme2Alt, 20%);
-@theme3Dark: darken(@theme3, 20%);
-@theme3Alt: lighten(@theme3, 40%);
-@theme3AltDark: darken(@theme3Alt, 20%);
+// @theme3Dark: darken(@theme3, 20%);
+// @theme3Alt: lighten(@theme3, 40%);
+// @theme3AltDark: darken(@theme3Alt, 20%);
 
 @themeForeColor: @theme3;
 @themeForeColorFade: fade(@themeForeColor, 50%);
@@ -46,9 +46,38 @@
 
 // 标题色
 @headerColor: @aLineColor;
-@headerColorDark: @aLineColor;
-@tocHeaderNumColor: @foreColorLightFade;
+@headerColorDark: darken(desaturate(@aLineColor, 10%), 10%);
+// @tocHeaderNumColor: @docTextColorLightFade;
 @contentHeaderNumColor: @themeBgColorFade;
+@headerBackground: linear-gradient(0deg, var(--header-bg-start-color), var(--header-bg-end-color));
+@multiHeaderBG: none;
+@headerTextAlign: left;
+@headerPadding: 10px;
+@headerLetterSpacing: 0;
+@h1Shadown: none;
+@h2Shadown: none;
+@h3Shadown: none;
+@h4Shadown: none;
+@h5Shadown: none;
+@h6Shadown: none;
+@h1BorderLeft: 0;
+@h2BorderLeft: 0;
+@h3BorderLeft: 0;
+@h4BorderLeft: 0;
+@h5BorderLeft: 0;
+@h6BorderLeft: 0;
+@h1BorderRight: 0;
+@h2BorderRight: 0;
+@h3BorderRight: 0;
+@h4BorderRight: 0;
+@h5BorderRight: 0;
+@h6BorderRight: 0;
+@h1BorderTop: 9px solid var(--header-box-shadow);
+@h2BorderTop: 7px solid var(--header-box-shadow);
+@h3BorderTop: 5px solid var(--header-box-shadow);
+@h4BorderTop: 3px solid var(--header-box-shadow);
+@h5BorderTop: 1px solid var(--header-box-shadow);
+@h6BorderTop: 0;
 
 // 行内代码背景色
 @codeBgColor: lighten(@aLineColor, 55%);;
@@ -60,8 +89,8 @@
 @buttonBgColor: @theme1;
 
 // 加粗文字颜色
-@boldColorLight: @foreColorLight;//#202224;
-@boldColorDark: @foreColorDark;
+// @boldColorLight: @docTextColorLight;//#202224;
+// @boldColorDark: @docTextColorDark;
 
 // 链接颜色
 @aBorderWidth: 1px;

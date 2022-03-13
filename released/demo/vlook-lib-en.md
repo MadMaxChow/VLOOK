@@ -10,11 +10,11 @@ title: More Topics about VLOOK™
 >
 > ---
 >
-> What is VLOOK™? For whom? **5 sets** of built-in **themes**, **30+** enhanced **features**...
+> What is VLOOK™? For whom? **6 sets** of built-in **themes**, **60+** enhanced **features**...
 >
 > There is always something that can impress you~
 >
-> [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](index-en.html)
+> [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](index-en.md)
 >
 > `>(theme1)`
 
@@ -26,60 +26,53 @@ title: More Topics about VLOOK™
 >
 > Make your Markdown a new perspective!
 >
-> [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](index-en.html#how-to-use)
+> [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](index-en.md#how-to-use)
 >
 > `>(theme1)`
+
+
 
 > ###### <center>🎯 GUIDE</center>
 >
 > ---
 >
-> ---
->
-> ---
->
-> > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-types-light.svg?mode=icon&fill=text) °Layout
-> >
-> > ---
+> > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-types-light.svg?fill=text#icon) °Layout
 > >
 > > The automatic typesetting ability of markdown has been comprehensively improved
 > >
-> > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°文档排版)
+> > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°文档排版)
 > >
 > > `>(green!)`
 >
 > >
-> > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-nav-light.svg?mode=icon&fill=text) °Navigation
+> > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-nav-light.svg?fill=text#icon) °Navigation
 > > 
 > > ---
 > >
 > > Integrated tools for navigation, rapid positioning, and content organization
 > >
-> > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°内容导航)
+> > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°内容导航)
 > >
 > > `>(blue!)`
 >
-> > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-pres-light.svg?mode=icon&fill=text) °Present.＆ Pub.
-> > 
-> > ---
+> ---
+>
+> > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-pres-light.svg?fill=text#icon) °Present.＆ Pub.
 > >
 > > Built in flexible and convenient tools for presentation and publishing
-> >
-> > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°演示与出版辅助)
-> >
-> > `>(orange!)`
->
-> > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-theme-light.svg?mode=icon&fill=text) °Theme＆ not Misc.
+> > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°演示与出版辅助)
 > > 
-> > ---
+> >`>(orange!)`
+> 
+>> ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-theme-light.svg?fill=text#icon) °Theme＆ not Misc.
 > >
 > > The exquisite and delicate reading experience is pleasant and beautiful
 > >
-> > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?mode=icon&fill=text)</kbd>](guide.html#快速入坑°主题与不杂项)
+> > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°主题与不杂项)
 > >
 > > `>(brown!)`
->
-> `>(gray)`
+> 
+>`>(gray)`
 
 
 
@@ -93,6 +86,8 @@ title: More Topics about VLOOK™
 >
 > **At present, the latest version of Typora + VLOOK™ can support the creation and generation of scripted charts:**
 >
+> 
+>
+> [![流程图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-flowcharts.png?inline=true&srcset=@2x&darksrc=invert#frame)](chart.md#流程图)　 [![顺序图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-seq.png?inline=true&srcset=@2x&darksrc=invert#frame)](chart.md#顺序图)　[![状态图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-state.png?inline=true&srcset=@2x&darksrc=invert#frame)](chart.md#状态图)　[![类图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-class.png?inline=true&srcset=@2x&darksrc=invert#frame)](chart.md#类图)　[![实体关系图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-er.png?inline=true&srcset=@2x&darksrc=invert#frame)](chart.md#实体关系图)　[![用户体验地图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-uj.png?inline=true&srcset=@2x&darksrc=invert#frame)](chart.md#用户体验地图)　[![甘特图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-gantt.png?inline=true&srcset=@2x&darksrc=invert#frame)](chart.md#甘特图)　[![饼图](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-pie.png?inline=true&srcset=@2x&darksrc=invert#frame)](chart.md#饼图)
+>
 > `>(yellow)`
-
-[![Flowcharts](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-flowcharts.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](chart.html#流程图)　 [![Sequence diagrams](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-seq.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](chart.html#顺序图)　[![State diagrams](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-state.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](chart.html#状态图)　[![Class diagrams](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-class.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](chart.html#类图)　[![Entity Relationship](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-er.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](chart.html#实体关系图)　[![User Journey Diagrams](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-uj.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](chart.html#客户旅程地图)　[![Gantt diagrams](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-gantt.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](chart.html#甘特图)　[![Pie chart diagrams](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/dg-pie.png?mode=frame&inline=true&srcset=@2x&darksrc=invert)](chart.html#饼图)
