@@ -151,7 +151,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-###### **[点击这里，浏览更多 VLOOK™ 的话题 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)](vlook-doc-lib)**
+###### **[点击这里，浏览更多 VLOOK™ 的话题 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)](vlook://doc-lib)**
 
 # 打赏
 

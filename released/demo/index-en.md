@@ -159,7 +159,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 
 ---
 
-###### **[Click here to browse more VLOOK™ topics ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)](vlook-doc-lib)**
+###### **[Click here to browse more VLOOK™ topics ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)](vlook://doc-lib)**
 
 # How To Use
 

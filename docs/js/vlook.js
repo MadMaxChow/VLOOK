@@ -10332,7 +10332,7 @@ function DocLib(mask, holder) {
     T.handle = $(".v-doc-lib-board.item");
     T.enabled = gFalse;
     T.src = gUndefined;
-    T.identifier = "vlook-doc-lib";
+    T.identifier = "vlook://doc-lib";
     // T.placeholder = "•• Loading Doc Lib ••";
 
     T.holder = holder;
