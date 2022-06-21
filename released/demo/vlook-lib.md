@@ -44,7 +44,7 @@ title: 浏览更多 VLOOK™ 的话题
 > >
 > > 集成多种导航、快速定位和内容组织的工具
 > >
-> > [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°内容导航)
+> > [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°内容导航)
 > >
 > > `>(blue!)`
 > 
@@ -54,7 +54,7 @@ title: 浏览更多 VLOOK™ 的话题
 > >
 > > 内置了灵活便捷演示与出版辅助的工具
 > >
-> > [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°演示与出版辅助)
+> > [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°演示与出版辅助)
 > >
 > > `>(orange!)`
 > 
@@ -62,7 +62,7 @@ title: 浏览更多 VLOOK™ 的话题
 > >
 > > 精致、细腻的阅读体验是愉悦和美好的
 > >
-> > [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°主题与不杂项)
+> > [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°主题与不杂项)
 > >
 > > `>(brown!)`
 >>

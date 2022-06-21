@@ -3,8 +3,8 @@
  * VLOOK CSS - Mermaid 自定义样式
  * (配合 base.less 进行使用)
  *
- * V14.0
- * 2022-03-13
+ * V15.0
+ * 2022-06-20
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -120,29 +120,27 @@
     pointer-events: none;
 }
 // .md-diagram-panel .label div,
-// .v-fig .label div,
-.label,
-.actor > tspan {
+.label {
+    // font-size: 1em !important;
     font-size: 0.875em !important;
-}
-
-#write svg[id^="mermaidChart"] {
+    fill: var(--d-f-c) !important;
     color: var(--d-f-c) !important;
 }
 
+// #write svg[id^="mermaidChart"] {
+.md-diagram-panel {
+    color: var(--d-f-c) !important;
+    line-height: 1 !important;
+    padding-bottom: 8px; // 针对 Mermaid 图表，不添加会导致出现滚动条
+}
+
 // 矩形（方角/圆角/圆形/菱形/旗形/多边形/不规则形状）
-.label div {
+.label div,
+.label span {
     color: var(--d-f-c) !important;
     font-family: var(--v-f-fm-tag) !important;
     font-weight: normal !important;
 }
-
-// 方角矩形
-// .node rect[rx="0"][ry="0"] {
-//     fill: var(--pn-c) !important;
-//     stroke: var(--d-f-c) !important;
-//     stroke-width: 4 !important;
-// }
 
 // 圆形
 .node circle,
@@ -152,134 +150,99 @@
 .node path,
 // 方角矩形
 .node rect[rx="0"][ry="0"],
-// 开始 / 结束、药丸形
-.node rect[rx="20"][ry="20"],
-.node rect[rx="24"][ry="24"],
 // 圆角矩形
-.node:not([id^=flowchart-START]):not([id^=flowchart-END]) rect[rx="5"][ry="5"] {
+.node rect[rx="5"][ry="5"] {
     fill: var(--pn-c) !important;
     stroke: var(--d-f-c) !important;
     stroke-width: 2 !important;
 }
 // 开始 / 结束、药丸形
 .node rect[rx="20"][ry="20"], // keyword: graph
-.node rect[rx="24"][ry="24"] { // keyword: flowchart
-    stroke-width: 4 !important;
+.node rect[rx="18"][ry="18"] { // keyword: flowchart
+    fill: var(--d-f-c-alt) !important;
+    stroke: var(--d-f-c) !important;
+    stroke-width: 0 !important;
 }
 // 开始 / 结束、药丸形的文本
 .node rect[rx="20"][ry="20"] + .label div, // keyword: graph
-.node rect[rx="24"][ry="24"] + .label div { // keyword: flowchart
+.node rect[rx="18"][ry="18"] + .label div { // keyword: flowchart
     font-weight: var(--v-f-w-title) !important;
+    color: var(--d-bc) !important;
 }
-
-// // 圆形
-// .node circle,
-// // 多边形（菱形、梯形、平行四边形等）
-// .node polygon,
-// // 路径图形（数据库等）
-// .node path {
-//     // fill: var(--d-bc) !important;
-//     // stroke: var(--mm-c-green) !important;
-//     fill: var(--pn-c) !important;
-//     stroke: var(--d-f-c) !important;
-//     stroke-width: 2 !important;
-// }
-// 实心圆形、汇聚
-// .node[id^="join"] circle {
-//     fill: var(--pn-c) !important;
-//     stroke: var(--d-f-c) !important;
-//     stroke-width: 4 !important;
-// }
-
-// 自定义：条件、分支的菱形，默认样式
-// .node polygon {
-//     // fill: var(--mm-c-red-alt) !important;
-//     // stroke: var(--mm-c-red) !important;
-//     fill: var(--pn-c) !important;
-//     stroke: var(--d-f-c) !important;
-//     stroke-width: 2 !important;
-// }
 
 // 自定义：同页
-// .node[id^="inpage"] circle,
 .node[id^="flowchart-inpage"] circle,
 // 自定义：离页、旗形、多边形、不规则形状
-// .node[id^="outpage"] polygon,
 .node[id^="flowchart-outpage"] polygon {
-    // fill: var(--d-bc) !important;
-    // stroke: var(--mm-c-green) !important;
-    // fill: var(--pn-c) !important;
     stroke: var(--d-f-c-alt) !important;
     stroke-width: 1 !important;
-    // stroke-width: 1.5 !important;
     stroke-dasharray: 8 1 !important;
 }
-// .node[id^="inpage"] circle + .label div,
 .node[id^="flowchart-inpage"] circle + .label div,
-// .node[id^="outpage"] polygon,
 .node[id^="flowchart-outpage"] polygon + .label div {
     color: var(--d-f-c-alt) !important;
 }
 
-// 自定义：平行四边形、数据
-// .node[id^="data"] polygon,
-// .node[id^="flowchart-data"] polygon {
-//     // fill: var(--mm-c-purple-alt) !important;
-//     // stroke: var(--mm-c-purple) !important;
-//     fill: var(--pn-c) !important;
-//     stroke: var(--d-f-c) !important;
-//     stroke-width: 2 !important;
-// }
-
-// 自定义：六边形、准备
-// .node[id^="hex"] polygon,
-// .node[id^="flowchart-hex"] polygon {
-//     // fill: var(--mm-c-brown-alt) !important;
-//     // stroke: var(--mm-c-brown) !important;
-//     fill: var(--pn-c) !important;
-//     stroke: var(--d-f-c) !important;
-//     stroke-width: 2 !important;
-// }
-
 // 自定义：汇聚样式的多边形（菱形、梯形、平行四边形等）
-.node[id^="join"] polygon,
+.node[id^="flowchart-join"] rect[rx][ry],
 .node[id^="flowchart-join"] polygon,
 // 自定义：汇聚样式的圆形
-.node[id^="join"] circle,
 .node[id^="flowchart-join"] circle {
     fill: var(--d-f-c) !important;
+    opacity: 0.6 !important;
     stroke-width: 0 !important;
 }
+.node[id^="flowchart-join"] rect[rx][ry] {
+    x: -50px !important;
+    y: -4px !important;
+    width: 100px !important;
+    height: 8px !important;
+}
+.node[id^="flowchart-joinv"] rect[rx][ry] {
+    x: -4px !important;
+    y: -50px !important;
+    width: 8px !important;
+    height: 100px !important;
+}
 
-// 鼠标悬停
-.node rect:hover,
-.node rect[rx][ry]:hover,
-// .node rect[rx="0"][ry="0"]:hover,
-// .node rect[rx="20"][ry="20"]:hover,
-// .node rect[rx="24"][ry="24"]:hover,
-.node:not([id^=flowchart-START]):not([id^=flowchart-END]) rect[rx="5"][ry="5"]:hover,
-.node circle:hover,
-.node polygon:hover,
-.node path:hover,
-.node[id^="flowchart-inpage"] polygon:hover,
-.node[id^="flowchart-outpage"] polygon:hover,
-.node[id^="flowchart-join"] polygon:hover {
+// 鼠标在图元上悬停
+.node[id^="flowchart-END"]:hover rect[rx="20"][ry="20"],
+.node[id^="flowchart-END"]:hover rect[rx="18"][ry="18"],
+.node[id^="flowchart-FINAL"]:hover circle,
+.node:hover rect,
+.node:hover rect[rx][ry],
+.node:hover rect[rx="0"][ry="0"],
+.node:hover rect[rx="5"][ry="5"],
+.node[id^=flowchart-inpage]:hover circle,
+.node:hover polygon,
+.node:hover path {
     fill: var(--ac-theme1-alt) !important;
-    // fill: var(--pn-c-alt) !important;
     stroke: @aColor !important;
-    // stroke-width: 5 !important;
-    // cursor: url(@blankCursor), crosshair !important;
     cursor: crosshair;
 }
-.node:hover .label div {
-    // color:@buttonBgColor !important;
-    font-weight: var(--v-f-w-title) !important;
+// 针对特定图元
+.node[id^="flowchart-START"]:hover rect[rx="20"][ry="20"],
+.node[id^="flowchart-START"]:hover rect[rx="18"][ry="18"],
+.node[id^="flowchart-INIT"]:hover circle,
+.node[id^="flowchart-join"]:hover rect[rx][ry],
+.node[id^="flowchart-join"]:hover circle,
+.node[id^="flowchart-join"]:hover polygon,
+.node:hover rect[rx="20"][ry="20"],
+.node:hover rect[rx="18"][ry="18"] {
+    fill: @aColor !important;
+    cursor: crosshair;
+}
+
+// 鼠标在图元文本上悬停
+.node:hover .label div, // keyword: graph
+.node:hover .label span { // keyword: flowchart
+    color: @aColor !important;
+    // font-weight: var(--v-f-w-title) !important;
 }
 
 // 实条
 .edgePath .path, // keyword: graph
 .flowchart-link { // keyword: flowchart
-    // fill: var(--d-f-c) !important;
     stroke: var(--d-f-c) !important;
 }
 // 虚线
@@ -297,22 +260,25 @@
 }
 
 // 线条文本
-.edgeLabel .label span,
-.edgeLabel {
+span.edgeLabel {
+// .edgeLabel .label span {
     color: var(--d-f-c) !important;
     fill: var(--d-bc) !important;
     line-height: 1em !important;
+    background-color: transparent !important;
+    // background-color: var(--d-bc) !important;
 }
-// .edgeLabel .label,
 // .edgeLabel .label span {
-//     pointer-events: none;
+//     background-color: transparent !important;
 // }
+g.root span.edgeLabel { // keyword: flowchart
+    // background-color: var(--d-bc) !important;
+    background: linear-gradient(0deg, var(--d-bc), transparent);
+}
 .edgeLabel:hover .label span {
-// .edgeLabel .label span:hover {
     color: @aColor !important;
-    font-weight: var(--v-f-w-title) !important;
+    // font-weight: var(--v-f-w-title) !important;
     cursor: crosshair;
-    // cursor: url(@blankCursor), crosshair !important;
 }
 
 // 线条文本背景
@@ -333,91 +299,73 @@
 .cluster > .label div, // keyword: graph
 .cluster-label div > span { // keyword: flowchart
     color: var(--d-f-c-alt) !important;
-    margin-left: 0.5em !important;
+    margin-left: 0 !important;
     font-style: italic;
     font-weight: var(--v-f-w-title) !important;
-    font-size: 0.875em !important;
     font-family: var(--v-f-fm-tag) !important;
 }
+.cluster-label div > span { // keyword: flowchart
+    font-size: 0.875em !important;
+}
 .cluster-label div > span {
-    font-size: 0.75em !important;
+    // font-size: 0.75em !important;
     padding-right: 0.5em !important;
 }
 
 .cluster:hover rect {
     fill: var(--ac-theme1-alt) !important;
-    // fill: var(--pn-c) !important;
     stroke: @aColor !important;
-    // cursor: url(@blankCursor), crosshair !important;
     cursor: crosshair;
 }
 .cluster:hover > .label div {
-    // color: @buttonBgColor !important;
     font-weight: var(--v-f-w-title) !important;
-    // cursor: url(@blankCursor), crosshair !important;
     cursor: crosshair;
 }
 
 // 自定义：流程图「开始」样式
-#START rect,
-.node[id^=flowchart-START] rect,
-.node[id^=flowchart-START] rect[rx="20"][ry="20"],
-.node[id^=flowchart-START] rect[rx="24"][ry="24"] {
+.node[id^="flowchart-START"] rect,
+.node[id^="flowchart-START"] rect[rx="20"][ry="20"],
+.node[id^="flowchart-START"] rect[rx="18"][ry="18"] {
     fill: var(--d-f-c) !important;
     stroke: var(--d-f-c) !important;
-    // stroke-width: 4 !important;
+    stroke-width: 0 !important;
 }
 
-#START rect + .label div,
-.node[id^=flowchart-START] rect+.label div {
+.node[id^="flowchart-START"] rect + .label div, // keyword: graph
+.node[id^="flowchart-START"] rect + .label span { // keyword: flowchart
     color: var(--d-bc) !important;
     font-weight: var(--v-f-w-title) !important;
 }
 
 // 自定义：流程图「结束」节点样式
-#END rect,
-.node[id^=flowchart-END] rect,
-.node[id^=flowchart-END] rect[rx="20"][ry="20"],
-.node[id^=flowchart-END] rect[rx="24"][ry="24"] {
-    // color: var(--d-f-c) !important;
+.node[id^="flowchart-END"] rect,
+.node[id^="flowchart-END"] rect[rx="20"][ry="20"],
+.node[id^="flowchart-END"] rect[rx="18"][ry="18"] {
     fill: var(--d-bc) !important;
-    // stroke: var(--d-f-c) !important;
-    // stroke-width: 4 !important;
+    stroke: var(--d-f-c) !important;
+    stroke-width: 4 !important;
 }
 
-#END rect + .label div,
-.node[id^=flowchart-END] rect+.label div {
+.node[id^="flowchart-END"] rect[rx="20"][ry="20"] + .label div,
+.node[id^="flowchart-END"] rect[rx="18"][ry="18"] + .label div {
     font-weight: var(--v-f-w-title) !important;
+    color: var(--d-f-c) !important;
 }
 
 // 自定义：状态机图「初始」状态样式
-#INIT circle,
-g[id^=flowchart-INIT] circle {
+.node[id^="flowchart-INIT"] circle {
     fill: var(--d-f-c) !important;
-    // stroke: var(--d-f-c) !important;
     stroke-width: 0 !important;
 }
-// 自定义：状态机图「初始」状态文本样式
-// #INIT .label div,
-// g[id^=flowchart-INIT] .label div {
-//     color: var(--d-f-c) !important;
-// }
-
-// 与「初始」状态同级的所有矩形节点
-// #INIT ~ g > rect,
-// g[id^=flowchart-INIT] ~ g > rect[rx][ry],
-// .node .v-status-node[rx][ry] {
-//     fill: var(--pn-c) !important;
-//     stroke: var(--d-f-c) !important;
-//     stroke-width: 4 !important;
-// }
 
 // 自定义：状态机图「最终」状态节点样式
-#FINAL circle,
-g[id^=flowchart-FINAL] circle {
+.node[id^="flowchart-FINAL"] circle {
     fill: none !important;
     stroke: var(--d-f-c) !important;
     stroke-width: 4 !important;
+}
+.node[id^="flowchart-FINAL"] circle + .label div {
+    color: var(--d-f-c) !important;
 }
 
 /* ----- sequeuce diagram 顺序图 / 时序图 ----- */
@@ -430,17 +378,12 @@ g[id^=flowchart-FINAL] circle {
     stroke-width: 1 !important;
 }
 g:hover > rect.actor,
-g:hover > .actor-line {
+g:hover > .actor-line,
+g:hover > line[id^="actor"] { // 后续须跟踪 mermaid 是否已修复该 class="200" 的 bug
     fill: var(--ac-theme1-alt) !important;
-    // fill: var(--pn-c-alt) !important;
     stroke: @aColor !important;
-    // stroke-width: 4 !important;
-    // cursor: url(@blankCursor), crosshair !important;
     cursor: crosshair;
 }
-// g:hover > text.actor > tspan {
-//     fill: @buttonBgColor !important;
-// }
 
 // 人物角色
 .v-actor-person {
@@ -450,18 +393,17 @@ g:hover > .actor-line {
 
 // 重要系统角色
 .v-actor-key-sys {
-    stroke-width: 3 !important;
+    stroke-width: 4 !important;
     font-weight: var(--v-f-w-title) !important;
 }
 
 // 外部系统角色
 .v-actor-ext-sys {
-    stroke-dasharray: 5, 2 !important;
+    stroke-dasharray: 6, 2 !important;
     font-style: italic !important;
 }
 
 // 角色文本
-// text.actor,
 text.actor > tspan {
     fill: var(--d-f-c) !important;
     stroke: none !important;
@@ -471,8 +413,9 @@ text.actor > tspan {
 }
 
 // 角色生命线
-.actor-line {
-    stroke: var(--d-f-c) !important;
+.actor-line,
+g > line[id^="actor"] { // 后续须跟踪 mermaid 是否已修复该 class="200" 的 bug
+    stroke: var(--d-f-c-alt) !important;
     stroke-width: 1 !important;
 }
 
@@ -480,7 +423,6 @@ text.actor > tspan {
 .messageLine0 {
     stroke-width: 2 !important;
     stroke: var(--d-f-c) !important;
-    // fill: var(--d-f-c-alt) !important;
 }
 
 // 虚线消息
@@ -488,11 +430,9 @@ text.actor > tspan {
     stroke-width: 2 !important;
     stroke: var(--d-f-c) !important;
     stroke-dasharray: 6, 3 !important;
-    // fill: var(--d-f-c-alt) !important;
 }
 
 // 实线/虚线箭头
-// #arrowhead,
 #arrowhead path,
 [id^=arrowhead],
 [id^=arrowhead] path {
@@ -505,7 +445,6 @@ text.actor > tspan {
 .messageText:hover + .messageLine1 + .sequenceNumber {
     fill: @aColor !important;
     font-weight: var(--v-f-w-title) !important;
-    // cursor: url(@blankCursor), crosshair !important;
     cursor: crosshair;
 }
 .messageText:hover + .messageLine0,
@@ -515,15 +454,17 @@ text.actor > tspan {
 
 // 消息序号
 .sequenceNumber {
-    fill: var(--d-bc-alt) !important;//var(--d-bc) !important;
+    color: var(--d-bc) !important;//var(--d-bc) !important;
+    fill: var(--d-bc) !important;//var(--d-bc) !important;
     font-weight: var(--v-f-w-title) !important;
     font-size: 0.875em;
 }
 
 // 消息序号背景
 #sequencenumber {
-    fill: var(--d-bc) !important;//var(--mm-c-blue) !important;
+    fill: var(--d-f-c) !important;//var(--mm-c-blue) !important;
     stroke: var(--d-f-c) !important;//var(--d-bc) !important;
+    stroke-width: 0 !important;
     transform: scale(0.5);
     transform-origin: 15px 15px;
 }
@@ -571,9 +512,7 @@ text.actor > tspan {
 // 片断的标题标签文本
 .loopText, // alter else
 .loopText > tspan {
-    fill: var(--d-f-c) !important;
-    // fill: var(--mm-c-purple-lg) !important;
-    // fill: fade(@docBgColorLight, 90%) !important;
+    fill: var(--mm-c-purple-lg) !important;
     font-family: var(--v-f-fm-tag) !important;
     font-size: 0.875em;
     font-weight: var(--v-f-w-title) !important;
@@ -590,7 +529,8 @@ text.actor > tspan {
 // 片断的线框
 .loopLine {
     stroke-width: 1 !important;
-    stroke-dasharray: 8, 8 !important;
+    // stroke-dasharray: 8, 8 !important;
+    stroke-dasharray: none !important;
     stroke: var(--mm-c-purple-lg) !important;
 }
 
@@ -607,7 +547,6 @@ text.actor > tspan {
     stroke: none !important;
     font-size: 0.875em !important;
     font-family: var(--v-f-fm-text) !important;
-    // font-weight: var(--v-f-fm-text)Weight !important;
 }
 
 /* ----- state diagram 状态机图 ----- */
@@ -650,84 +589,108 @@ g.state-note {
 
 /* ----- class diagram 类图 ----- */
 
-// 类文本
-g.classGroup text {
-    font-family: var(--v-f-fm-tag) !important;
-    font-size: 10px !important;
-    fill: var(--d-f-c-alt) !important;
-    stroke: none !important;
-}
-// g.classGroup text tspan:not([class=".title"]):hover {
-//     fill: var(--ac-theme1) !important;
-//     cursor: crosshair;
-// }
-// 类标题
-g.classGroup text .title {
-    font-weight: var(--v-f-w-title) !important;
-    fill: var(--d-f-c) !important;
-}
 // 类背景
-g.classGroup rect {
+g.node > rect.outer {
     fill: var(--pn-c) !important;
     stroke: var(--d-f-c) !important;
     stroke-width: 2 !important;
 }
-g.classGroup:hover {
+g.node:hover {
     cursor: crosshair;
 }
-g.classGroup:hover rect {
+g.node:hover rect.outer,
+g.node:hover rect.outer + line.divider {
     stroke: var(--ac-theme1) !important;
-    // stroke-width: 3 !important;
 }
-g.classGroup text tspan:hover {
-    fill: var(--ac-theme1) !important;
-    font-weight: var(--v-f-w-title) !important;
-}
+// g.node .label .nodeLabel:hover {
+//     color: var(--ac-theme1) !important;
+//     // fill: var(--ac-theme1) !important;
+//     // font-weight: var(--v-f-w-title) !important;
+// }
+
 // 类属性、方法分隔线
-g.classGroup line {
+g.node > line.divider {
     stroke: var(--d-f-c-alt) !important;
     stroke-width: 1;
 }
-
-// 关系标签文本
-g.classLabel .label {
-    font-family: var(--v-f-fm-tag) !important;
-    fill: var(--d-f-c-alt) !important;
-    font-size: 9px !important;
-    font-style: italic;
-}
-// 关系集合文本
-g.cardinality text {
-    font-family: var(--v-f-fm-tag) !important;
-    fill: var(--ac-theme2) !important;
-    font-size: 14px !important;
-    font-weight: var(--v-f-w-title) !important;
-}
-g.classLabel .label:hover,
-g.cardinality text:hover {
-    fill: var(--ac-theme1) !important;
-    font-weight: var(--v-f-w-title) !important;
-    cursor: crosshair;
-}
-// 关系背景
-g.classLabel .box {
-    stroke: none !important;
-    stroke-width: 0 !important;
-    fill: var(--d-bc) !important;
-    opacity: 0 !important;
-}
-// 关系线条
-g.classGroup .relation,
-.relation {
+g.node > rect.outer + line.divider {
     stroke: var(--d-f-c) !important;
-    stroke-width: 1 !important;
-    fill: none !important;
+    stroke-width: 2;
 }
-g.classGroup .relation:hover,
-.relation:hover {
-    stroke: var(--ac-theme1) !important;
-    cursor: crosshair;
-}
+
+// // 类文本
+// g.classGroup text {
+//     font-family: var(--v-f-fm-tag) !important;
+//     font-size: 10px !important;
+//     fill: var(--d-f-c-alt) !important;
+//     stroke: none !important;
+// }
+// // 类标题
+// g.classGroup text .title {
+//     font-weight: var(--v-f-w-title) !important;
+//     fill: var(--d-f-c) !important;
+// }
+// // 类背景
+// g.classGroup rect {
+//     fill: var(--pn-c) !important;
+//     stroke: var(--d-f-c) !important;
+//     stroke-width: 2 !important;
+// }
+// g.classGroup:hover {
+//     cursor: crosshair;
+// }
+// g.classGroup:hover rect {
+//     stroke: var(--ac-theme1) !important;
+// }
+// g.classGroup text tspan:hover {
+//     fill: var(--ac-theme1) !important;
+//     font-weight: var(--v-f-w-title) !important;
+// }
+// // 类属性、方法分隔线
+// g.classGroup line {
+//     stroke: var(--d-f-c-alt) !important;
+//     stroke-width: 1;
+// }
+
+// // 关系标签文本
+// g.classLabel .label {
+//     font-family: var(--v-f-fm-tag) !important;
+//     fill: var(--d-f-c-alt) !important;
+//     font-size: 9px !important;
+//     font-style: italic;
+// }
+// // 关系集合文本
+// g.cardinality text {
+//     font-family: var(--v-f-fm-tag) !important;
+//     fill: var(--ac-theme2) !important;
+//     font-size: 14px !important;
+//     font-weight: var(--v-f-w-title) !important;
+// }
+// g.classLabel .label:hover,
+// g.cardinality text:hover {
+//     fill: var(--ac-theme1) !important;
+//     font-weight: var(--v-f-w-title) !important;
+//     cursor: crosshair;
+// }
+// // 关系背景
+// g.classLabel .box {
+//     stroke: none !important;
+//     stroke-width: 0 !important;
+//     fill: var(--d-bc) !important;
+//     opacity: 0 !important;
+// }
+// // 关系线条
+// g.classGroup .relation,
+// .relation {
+//     stroke: var(--d-f-c) !important;
+//     stroke-width: 1 !important;
+//     fill: none !important;
+// }
+// g.classGroup .relation:hover,
+// .relation:hover {
+//     stroke: var(--ac-theme1) !important;
+//     cursor: crosshair;
+// }
 // 关系箭头
 #compositionStart path,
 #compositionEnd path,
@@ -751,17 +714,17 @@ g.classGroup .relation:hover,
     stroke-width: 1 !important;
 }
 
-div.mermaidTooltip {
-    position: absolute !important;
-    text-align: center !important;
-    max-width: 200px !important;
-    padding: 2px !important;
-    background: var(--d-f-c-alt) !important;
-    border: 1px solid #d0d0d0 !important;
-    border-radius: var(--v-r-s) !important;
-    pointer-events: none !important;
-    z-index: 100 !important;
-}
+// div.mermaidTooltip {
+//     position: absolute !important;
+//     text-align: center !important;
+//     max-width: 200px !important;
+//     padding: 2px !important;
+//     background: var(--d-f-c-alt) !important;
+//     border: 1px solid #d0d0d0 !important;
+//     border-radius: var(--v-r-s) !important;
+//     pointer-events: none !important;
+//     z-index: 100 !important;
+// }
 
 /* ----- gantt diagram 甘特图 ----- */
 

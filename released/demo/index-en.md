@@ -6,11 +6,12 @@ keywords:
 - Table enhancement, cell merging, row grouping, crosshairs, repeating header, scratch card, black screen, label, picture enhancement, presentation assistance, spotlight, laser pen, auto folding, printing, mermaid, audio, video, phonetic notation, theme, font, template, dark mode, dark mode, cover, back cover, private customization
 - PRD, design, requirements, documents, blogs, manuals, guides, online, operation and maintenance, knowledge base, wiki
 - Product manager, programmer, operation and maintenance engineer, pre-sales and after-sales
+vlook-chp-autonum: h1{{#ALPHA#. }},h2{{STEP-##-min#: }}
 vlook-query: effects=2&ws=auto&lmc=1
 vlook-doc-lib: vlook-lib-en.html
 ---
 
-###### <sub>VLOOK™</sub><br />Make Your Markdown A New Perspective<br />──<br /><sup>Introduction</sup><br />`#Latest|V14.0#`<br /><br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2022. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br>Make Your Markdown A New Perspective<br>──<br><sup>Introduction</sup><br>`#Latest|V14.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2022. MAX°DESIGN.*
 
 [TOC]
 
@@ -19,6 +20,8 @@ vlook-doc-lib: vlook-lib-en.html
 # What is VLOOK™
 
 `#Editor|Typora#(gray)` `#OS|macOS#(black)` `#OS|Windows#(blue)` `#License|MIT#(red)`
+
+
 
 >
 >![VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo)
@@ -31,13 +34,13 @@ vlook-doc-lib: vlook-lib-en.html
 >
 >`>(theme1)`
 
-> Code hosting: [![Github](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/github-light.svg?darksrc=github-dark.svg#logo)](https://github.com/MadMaxChow/VLOOK?lnkcss=none) & [![Gitee](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/gitee-light.svg?darksrc=gitee-dark.svg#logo)](https://gitee.com/madmaxchow/VLOOK?lnkcss=none)　　　　CDN：[![JSDELIVR](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/jsdelivr-light.svg?darksrc=jsdelivr-dark.svg#logo)](https://www.jsdelivr.com/?lnkcss=none)
+> Code hosting: [![Github](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/github-light.svg?darksrc=github-dark.svg#logo)](https://github.com/MadMaxChow/VLOOK?lnkcss=none)　　[![Gitee](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/gitee-light.svg?darksrc=gitee-dark.svg#logo)](https://gitee.com/madmaxchow/VLOOK?lnkcss=none)
 
 > [+] **Agreement**
 >
 > > VLOOK™ is open source software and complies with the following open source agreements:
 > >
-> > ![License Agreement of VLOOK™]
+> > *==License Agreement of VLOOK™==*
 > >
 > > ```
 > > MIT License
@@ -163,7 +166,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 
 # How To Use
 
-> You can start a brand **new Markdown experience** in just **3 steps**.
+> You can start a brand **new Markdown experience** in **just 3 steps**.
 >
 > Make your Markdown a new perspective!
 >
@@ -178,6 +181,8 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 > >
 > > ---
 > >
+> > 
+> >
 > > 1. Download the latest version from the homepage of VLOOK™ on **[GitHub](https://github.com/MadMaxChow/VLOOK/releases)** or **[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)** ;
 > > 2. You can also [download the theme file](https://github.com/MadMaxChow/VLOOK/tree/master/released/theme) ( [alternate link](https://gitee.com/madmaxchow/VLOOK/tree/master/released/theme) ) directly on the project homepage .
 > >
@@ -187,6 +192,8 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 > >
 > > ---
 > >
+> > 
+> >
 > > 1. Download and install the latest version of [Typora](https://www.typora.io) ;
 > > 2. Start Typora and enter "**Preferences**", enable all options under "**Markdown Extended Syntax, Code Blocks**". See the figure below for details:
 > >
@@ -195,6 +202,8 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 > > ###### Install Fonts (optional)
 > >
 > > ---
+> >
+> > 
 > >
 > > Download and install the VLOOK™ theme matching font pack•• See "[Font Themes](guide.md#字体主题)" for details.
 > >
@@ -216,6 +225,8 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 > >
 > > ---
 > >
+> > 
+> >
 > > 1. The `released\theme`all CSS files are copied to Typora theme directory;
 > > 2. Where is the theme directory? You can navigate to this directory by clicking "**Preferences ▸ Appearance ▸ Open Theme Directory**".
 > >
@@ -225,6 +236,8 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 > >
 > > ---
 > >
+> > 
+> >
 > > 1. Restart Typora;
 > > 2. Click the "**Theme**" menu, select to `Vlook *` any topic can be in the form of naming.
 > >
@@ -233,6 +246,8 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 > > ###### Start Writing from the Template
 > >
 > > ---
+> >
+> > 
 > >
 > > It is recommended to create your own Markdown document based on the document template of the VLOOK™ specification, so that you can get started faster.
 > >
@@ -262,6 +277,8 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 > >
 > > ---
 > >
+> > 
+> >
 > > 1. Start Typora and enter "**Preferences**";
 > > 2. Click "**Export**", add configuration (==select HTML template==), and name the configuration `VLOOK` .
 > >
@@ -270,6 +287,8 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 > > ###### Install meta tag code
 > >
 > > ---
+> >
+> > 
 > >
 > > 1. Open the meta tag file: released\plugin\\[**meta.txt**](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/meta.txt) ( [alternate link](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/meta.txt) );
 > > 2. Select and copy all contents;
@@ -281,6 +300,8 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 > >
 > > ---
 > >
+> > 
+> >
 > > 1. Open the plug-in file: released\plugin\\[**plugin.txt**](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin.txt) ( [alternate link](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt) );
 > > 2. Select and copy all contents;
 > > 3. Paste to "**Preferences ▸ Export ▸ VLOOK ▸ Append in &lt;body /&gt;**".
@@ -291,6 +312,8 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 > >
 > > ---
 > >
+> > 
+> >
 > > 1. Open the md file conforming to the VLOOK™ specification;
 > > 2. Click "**File ▸ Export ▸ VLOOK** or **VLOOK (live)**".
 > >
@@ -300,7 +323,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 
 ![Typora ▸ Preferences ▸ Export](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
 
-## Supplement
+# Supplement
 
 > ###### Online version plug-in
 >
@@ -337,29 +360,5 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 ---
 
 If you have any suggestions and needs, please feel free to give feedback~ [![VLOOK™ @ Email](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20&lnkcss=none)
-
-## YAML for advanced applications
-
-You can add YAML content at the very beginning of the document to achieve more extended personality requirements. Examples are as follows:
-
-```yaml
----
-// Edit YAML Front Matter content here
----
-```
-
-###### Custom document title
-
-```yaml
-title: // custom HTML document title here
-```
-
-###### Custom welcome screen content
-
-See " [Customize Welcome Page Content](guide.md#自定义欢迎页内容) " for details
-
-###### Custom plug-in preset options and tuning parameters
-
-See "[Plugin Preset Options](guide.md#插件预置选项)" "[Plugin Tuning Parameters](guide.md#插件调校参数)" for details.
 
 # The End

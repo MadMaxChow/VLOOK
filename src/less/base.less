@@ -2,8 +2,8 @@
  *
  * VLOOK CSS 基础库
  *
- * V14.0
- * 2022-03-13
+ * V15.0
+ * 2022-06-20
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -81,9 +81,10 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 @tableRowCursor: "▶️"; // 表格当前行鼠标 hover 游标
 @focusCursor: "✏️"; // 编辑焦点行游标
 @focusStyle: @aBorderWidth dashed @aLineColor; // 焦点、焦点行样式
-@paragraphPadding: 0.8em;
+@paragraphPadding: 0.75em;
+@miniLineHeight: 1;
 @defaultLineHeight: 1.5;
-@paragraphInnerHeight: 1.8;
+@paragraphInnerLineHeight: 1.8;
 
 :root {
     // 图片的线状网格背景（Light / Dark）
@@ -96,6 +97,11 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --v-fig-grid-l-invert: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEX78+v7xY/7nD37qlj7hxPQTWj+AAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
     --v-fig-grid-b-invert: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEXwrmvNlVyQaUGvf09WPygcqEMaAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
 
+    // 光标：复制
+    --cur-copy: var(--cur-copy-normal);
+    --cur-copy-normal: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGRlZnM+PHBhdGggZD0iTTAgMGgxOGE2IDYgMCAwIDEgNiA2djEyYTYgNiAwIDAgMS02IDZINmE2IDYgMCAwIDEtNi02VjB6IiBpZD0iYiIvPjxmaWx0ZXIgeD0iLTE2LjclIiB5PSItMTYuNyUiIHdpZHRoPSIxNDEuNyUiIGhlaWdodD0iMTQxLjclIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIGlkPSJhIj48ZmVPZmZzZXQgZHg9IjEiIGR5PSIxIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIi8+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMS41IiBpbj0ic2hhZG93T2Zmc2V0T3V0ZXIxIiByZXN1bHQ9InNoYWRvd0JsdXJPdXRlcjEiLz48ZmVDb21wb3NpdGUgaW49InNoYWRvd0JsdXJPdXRlcjEiIGluMj0iU291cmNlQWxwaGEiIG9wZXJhdG9yPSJvdXQiIHJlc3VsdD0ic2hhZG93Qmx1ck91dGVyMSIvPjxmZUNvbG9yTWF0cml4IHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMC4zIDAiIGluPSJzaGFkb3dCbHVyT3V0ZXIxIi8+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGcgZmlsbD0iIzAwMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMiAyKSI+PHVzZSBmaWx0ZXI9InVybCgjYSkiIHhsaW5rOmhyZWY9IiNiIi8+PHBhdGggc3Ryb2tlPSIjRkZGIiBkPSJNMTggLjVjMS41MTkgMCAyLjg5NC42MTYgMy44OSAxLjYxQTUuNDgzIDUuNDgzIDAgMCAxIDIzLjUgNnYxMmE1LjQ4MyA1LjQ4MyAwIDAgMS0xLjYxIDMuODlBNS40ODMgNS40ODMgMCAwIDEgMTggMjMuNUg2YTUuNDgzIDUuNDgzIDAgMCAxLTMuODktMS42MUE1LjQ4MyA1LjQ4MyAwIDAgMSAuNSAxOFYuNXoiIHN0cm9rZS1saW5lam9pbj0ic3F1YXJlIi8+PC9nPjxwYXRoIGQ9Ik0xOC42MTMgOEMxOS4zOCA4IDIwIDguNjIxIDIwIDkuMzg3djcuNzI2YTEuMzg4IDEuMzg4IDAgMCAxLTEuMzg3IDEuMzg3SDE2Ljd2LjExM2MwIC43NjYtLjYyMSAxLjM4Ni0xLjM4NyAxLjM4N0g5LjM4N0ExLjM4OCAxLjM4OCAwIDAgMSA4IDE4LjYxM3YtNy43MjZDOCAxMC4xMiA4LjYyMSA5LjUgOS4zODcgOS41SDExLjN2LS4xMTNBMS4zODggMS4zODggMCAwIDEgMTIuNjg3IDhoNS45MjZ6TTkuMzg3IDE5LjFoNS45MjZhLjQ4OC40ODggMCAwIDAgLjQ4Ny0uNDg3di03LjcyNmEuNDg3LjQ4NyAwIDAgMC0uNDg3LS40ODdIOS4zODdhLjQ4OC40ODggMCAwIDAtLjQ4Ny40ODd2Ny43MjZjMCAuMjY5LjIxOS40ODcuNDg3LjQ4N3ptNC43NjMtNi45YS40NS40NSAwIDAgMSAwIC45aC0zLjZhLjQ1LjQ1IDAgMCAxIDAtLjloMy42em0wIDIuMWEuNDUuNDUgMCAwIDEgMCAuOWgtMy42YS40NS40NSAwIDAgMSAwLS45aDMuNnptLTEuMiAyLjFhLjQ1LjQ1IDAgMCAxIDAgLjloLTIuNGEuNDUuNDUgMCAwIDEgMC0uOWgyLjR6IiBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L2c+PC9zdmc+"), auto !important;
+    --cur-copy-as-md: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCA1NiAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGRlZnM+PHBhdGggZD0iTTAgMGg0NGE2IDYgMCAwIDEgNiA2djEyYTYgNiAwIDAgMS02IDZINmE2IDYgMCAwIDEtNi02VjB6IiBpZD0iYiIvPjxmaWx0ZXIgeD0iLTglIiB5PSItMTYuNyUiIGhlaWdodD0iMTQxLjclIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIGlkPSJhIj48ZmVPZmZzZXQgZHg9IjEiIGR5PSIxIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIi8+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMS41IiBpbj0ic2hhZG93T2Zmc2V0T3V0ZXIxIiByZXN1bHQ9InNoYWRvd0JsdXJPdXRlcjEiLz48ZmVDb21wb3NpdGUgaW49InNoYWRvd0JsdXJPdXRlcjEiIGluMj0iU291cmNlQWxwaGEiIG9wZXJhdG9yPSJvdXQiIHJlc3VsdD0ic2hhZG93Qmx1ck91dGVyMSIvPjxmZUNvbG9yTWF0cml4IHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMC4zIDAiIGluPSJzaGFkb3dCbHVyT3V0ZXIxIi8+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGcgZmlsbD0iIzAwMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMiAyKSI+PHVzZSBmaWx0ZXI9InVybCgjYSkiIHhsaW5rOmhyZWY9IiNiIi8+PHBhdGggc3Ryb2tlPSIjRkZGIiBkPSJNNDQgLjVjMS41MTkgMCAyLjg5NC42MTYgMy44OSAxLjYxQTUuNDgzIDUuNDgzIDAgMCAxIDQ5LjUgNnYxMmE1LjQ4MyA1LjQ4MyAwIDAgMS0xLjYxIDMuODlBNS40ODMgNS40ODMgMCAwIDEgNDQgMjMuNUg2YTUuNDgzIDUuNDgzIDAgMCAxLTMuODktMS42MUE1LjQ4MyA1LjQ4MyAwIDAgMSAuNSAxOFYuNXoiIHN0cm9rZS1saW5lam9pbj0ic3F1YXJlIi8+PC9nPjxwYXRoIGQ9Ik0xOC42MTMgOEMxOS4zOCA4IDIwIDguNjIxIDIwIDkuMzg3djcuNzI2YTEuMzg4IDEuMzg4IDAgMCAxLTEuMzg3IDEuMzg3SDE2Ljd2LjExM2MwIC43NjYtLjYyMSAxLjM4Ni0xLjM4NyAxLjM4N0g5LjM4N0ExLjM4OCAxLjM4OCAwIDAgMSA4IDE4LjYxM3YtNy43MjZDOCAxMC4xMiA4LjYyMSA5LjUgOS4zODcgOS41SDExLjN2LS4xMTNBMS4zODggMS4zODggMCAwIDEgMTIuNjg3IDhoNS45MjZ6TTkuMzg3IDE5LjFoNS45MjZhLjQ4OC40ODggMCAwIDAgLjQ4Ny0uNDg3di03LjcyNmEuNDg3LjQ4NyAwIDAgMC0uNDg3LS40ODdIOS4zODdhLjQ4OC40ODggMCAwIDAtLjQ4Ny40ODd2Ny43MjZjMCAuMjY5LjIxOS40ODcuNDg3LjQ4N3ptNC43NjMtNi45YS40NS40NSAwIDAgMSAwIC45aC0zLjZhLjQ1LjQ1IDAgMCAxIDAtLjloMy42em0wIDIuMWEuNDUuNDUgMCAwIDEgMCAuOWgtMy42YS40NS40NSAwIDAgMSAwLS45aDMuNnptLTEuMiAyLjFhLjQ1LjQ1IDAgMCAxIDAgLjloLTIuNGEuNDUuNDUgMCAwIDEgMC0uOWgyLjR6IiBmaWxsLW9wYWNpdHk9Ii41IiBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNMjcgMThWOWgyLjU4bDIuNTgxIDMuMzA5TDM0Ljc0MSA5aDIuNTgydjloLTIuNTgxdi01LjE2MmwtMi41OCAzLjMxLTIuNTgxLTMuMzFWMThIMjd6bTE2LjEyOSAwbC0zLjg3LTQuMzY4aDIuNThWOWgyLjU4djQuNjMySDQ3TDQzLjEyOSAxOHoiIGZpbGw9IiNGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIvPjwvZz48L3N2Zz4="), auto !important;
+
     --v-float-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); // 按钮类外阴影
     --v-float-inn-shadow: 0 0 0 1px var(--tbl-th-bg) inset; // 按钮类内阴影（边框）
 }
@@ -105,7 +111,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 :root {
     // #VLOOK_Var
     --v-theme-name: @themeName; // 主题名称
-    --v-theme-version: "V14.0"; // 主题版本，对应适配 VLOOK.JS 的版本
+    --v-theme-version: "V15.0"; // 主题版本，对应适配 VLOOK.JS 的版本
     --v-color-scheme: light; // 默认颜色模式为：Light 明亮
 
     // 导航中心、工具栏相关 UI 尺寸
@@ -177,10 +183,10 @@ body {
     // background: var(--d-bc);
     background: var(--d-bc) var(--d-bi);
     color: var(--d-f-c);
-    font: var(--v-f-w-text) @fontSize/@paragraphInnerHeight var(--v-f-fm-text); // [style] [weight] [size/[line-height]] [family]
+    font: var(--v-f-w-text) @fontSize/@paragraphInnerLineHeight var(--v-f-fm-text); // [style] [weight] [size/[line-height]] [family]
     // font-weight: var(--v-f-w-text);
     // font-family: var(--v-f-fm-text);
-    // line-height: @paragraphInnerHeight;
+    // line-height: @paragraphInnerLineHeight;
     caret-color: @aHoverColor;
     -webkit-tap-highlight-color: transparent;
 }
@@ -207,11 +213,17 @@ body.unfreeze {
     overflow: auto;
 }
 
+// #write img {
+//     user-select: auto !important;
+//     pointer-events: auto !important;
+// }
+
 // img,
 #write p > img:only-child,
 #write p > .md-image:only-child:not(.md-img-error) img, // 是指 p 内只有 img 的才被视为插图
 #write img[src*="mode=figure"],
 #write svg[data-inject-url*="mode=figure"],
+#write .md-image[data-src*="#figure"] > img, // 编辑时
 #write img[src*="#figure"],
 #write svg[data-inject-url*="#figure"],
 .v-fig,
@@ -223,9 +235,17 @@ body.unfreeze {
     border: 2px solid var(--pn-c);
 }
 
+#write p > .md-image:only-child {
+    margin-left: -1em; // 编辑时图片因为 p 向右缩进了 1em，所以须向左相应缩进 1em 以适配
+    margin-top: -0.8em; // 因为 p 进行 margin-top 间隔，在此须取消
+    // font-size: 1em;
+    font-size: 16px;
+}
+
 // 图片 URL 参数指定是否填充边缘
 #write img[src*="padding=true"],
 #write svg[data-inject-url*="padding=true"],
+#write .md-image[data-src*="#padding"] > img, // 编辑时
 #write img[src*="#padding"],
 #write svg[data-inject-url*="#padding"] {
     padding: 20px !important;
@@ -233,9 +253,11 @@ body.unfreeze {
 // 图片 URL 参数指定是否使用行内样式
 #write img[src*="inline=true"],
 #write svg[data-inject-url*="inline=true"],
+#write .md-image[data-src*="#inline"] > img, // 编辑时
 #write img[src*="#inline"],
 #write svg[data-inject-url*="#inline"] {
-    margin-bottom: 20px !important;
+    margin-bottom: @paragraphPadding !important;
+    // margin-bottom: 20px !important;
     // margin-right: 20px !important;
 }
 
@@ -252,9 +274,9 @@ body.unfreeze {
 }
 
 // 图片 URL 参数指定进行颜色替换
-#write img[data-v-img-fill="text"],
-#write img[data-v-img-fill="theme1"],
-#write img[data-v-img-fill="theme2"] {
+#write img[d-img-fill="text"],
+#write img[d-img-fill="theme1"],
+#write img[d-img-fill="theme2"] {
     left: -12345px;
     border-color: transparent;
     position: relative;
@@ -263,6 +285,7 @@ body.unfreeze {
 // 图片 URL 参数指定图片的显示版式为：icon
 #write img[src*="mode=icon"],
 #write svg[data-inject-url*="mode=icon"],
+#write .md-image[data-src*="#icon"] > img, // 编辑时
 #write img[src*="#icon"],
 #write svg[data-inject-url*="#icon"] {
     display: inline !important;
@@ -276,6 +299,7 @@ body.unfreeze {
 }
 #write img[src*="mode=icon2x"],
 #write svg[data-inject-url*="mode=icon2x"],
+#write .md-image[data-src*="#icon2x"] > img, // 编辑时
 #write img[src*="#icon2x"],
 #write svg[data-inject-url*="#icon2x"] {
     height: 2em;
@@ -284,6 +308,7 @@ body.unfreeze {
 // 图片 URL 参数指定图片的显示版式为：logo
 #write img[src*="mode=logo"],
 #write svg[data-inject-url*="mode=logo"],
+#write .md-image[data-src*="#logo"] > img, // 编辑时
 #write img[src*="#logo"],
 #write svg[data-inject-url*="#logo"] {
     display: inline !important;
@@ -295,6 +320,7 @@ body.unfreeze {
 // 左对齐
 #write img[src*="mode=logol"],
 #write svg[data-inject-url*="mode=logol"],
+#write .md-image[data-src*="#logol"] > img, // 编辑时
 #write img[src*="#logol"],
 #write svg[data-inject-url*="#logol"] {
     float: left !important;
@@ -303,6 +329,7 @@ body.unfreeze {
 // 右对齐
 #write img[src*="mode=logor"],
 #write svg[data-inject-url*="mode=logor"],
+#write .md-image[data-src*="#logor"] > img, // 编辑时
 #write img[src*="#logor"],
 #write svg[data-inject-url*="#logor"] {
     float: right !important;
@@ -312,6 +339,7 @@ body.unfreeze {
 // 图片 URL 参数指定图片的显示版式为：frame
 #write img[src*="mode=frame"],
 #write svg[data-inject-url*="mode=frame"],
+#write .md-image[data-src*="#frame"] > img, // 编辑时
 #write img[src*="#frame"],
 #write svg[data-inject-url*="#frame"] {
     display: inline !important;
@@ -324,6 +352,7 @@ body.unfreeze {
 // 左对齐
 #write img[src*="mode=framel"],
 #write svg[data-inject-url*="mode=framel"],
+#write .md-image[data-src*="#framel"] > img, // 编辑时
 #write img[src*="#framel"],
 #write svg[data-inject-url*="#framel"] {
     float: left !important;
@@ -332,6 +361,7 @@ body.unfreeze {
 // 右对齐
 #write img[src*="mode=framer"],
 #write svg[data-inject-url*="mode=framer"],
+#write .md-image[data-src*="#framer"] > img, // 编辑时
 #write img[src*="#framer"],
 #write svg[data-inject-url*="#framer"] {
     float: right !important;
@@ -345,39 +375,42 @@ body.unfreeze {
 #write img[src*="mode=figure"],
 #write svg[data-inject-url*="mode=figure"],
 #write p > img:only-child,
-#write p > .md-image:only-child:not(.md-img-error) img, // 是指 p 内只有 img 的才被视为插图
+#write p > .md-image:only-child:not(.md-img-error) > img, // 是指 p 内只有 img 的才被视为插图
 #write p > img:only-child[src*="align=left"],
 #write p > svg[data-inject-url*="align=left"],
-#write p > .md-image:only-child:not(.md-img-error) img[src*="align=left"],
-#write p > .md-image:only-child:not(.md-img-error) svg[data-inject-url*="align=left"],
+#write p > .md-image:only-child:not(.md-img-error) > img[src*="align=left"],
+#write p > .md-image:only-child:not(.md-img-error) > svg[data-inject-url*="align=left"],
+#write p > .md-image:only-child[data-src*="#left"]:not(.md-img-error) > img, // 编辑时
 #write p > img:only-child[src*="#left"],
 #write p > svg[data-inject-url*="#left"],
-#write p > .md-image:only-child:not(.md-img-error) img[src*="#left"],
-#write p > .md-image:only-child:not(.md-img-error) svg[data-inject-url*="#left"] {
+#write p > .md-image:only-child:not(.md-img-error) > img[src*="#left"],
+#write p > .md-image:only-child:not(.md-img-error) > svg[data-inject-url*="#left"] {
     display: block !important;
     margin: 0 !important;
 }
 // 图片 URL 参数指定居中对齐
 #write p > img[src*="align=center"],
 #write p > svg[data-inject-url*="align=center"],
-#write p > .md-image:only-child:not(.md-img-error) img[src*="align=center"],
-#write p > .md-image:only-child:not(.md-img-error) svg[data-inject-url*="align=center"],
+#write p > .md-image:only-child:not(.md-img-error) > img[src*="align=center"],
+#write p > .md-image:only-child:not(.md-img-error) > svg[data-inject-url*="align=center"],
+#write p > .md-image:only-child[data-src*="#center"]:not(.md-img-error) > img, // 编辑时
 #write p > img[src*="#center"],
 #write p > svg[data-inject-url*="#center"],
-#write p > .md-image:only-child:not(.md-img-error) img[src*="#center"],
-#write p > .md-image:only-child:not(.md-img-error) svg[data-inject-url*="#center"] {
+#write p > .md-image:only-child:not(.md-img-error) > img[src*="#center"],
+#write p > .md-image:only-child:not(.md-img-error) > svg[data-inject-url*="#center"] {
     display: block !important;
     margin: auto !important;
 }
 // 图片 URL 参数指定右对齐
 #write p > img[src*="align=right"],
 #write p > svg[data-inject-url*="align=right"],
-#write p > .md-image:only-child:not(.md-img-error) img[src*="align=right"],
-#write p > .md-image:only-child:not(.md-img-error) svg[data-inject-url*="align=right"],
+#write p > .md-image:only-child:not(.md-img-error) > img[src*="align=right"],
+#write p > .md-image:only-child:not(.md-img-error) > svg[data-inject-url*="align=right"],
+#write p > .md-image:only-child[data-src*="#right"]:not(.md-img-error) > img, // 编辑时
 #write p > img[src*="#right"],
 #write p > svg[data-inject-url*="#right"],
-#write p > .md-image:only-child:not(.md-img-error) img[src*="#right"],
-#write p > .md-image:only-child:not(.md-img-error) svg[data-inject-url*="#right"] {
+#write p > .md-image:only-child:not(.md-img-error) > img[src*="#right"],
+#write p > .md-image:only-child:not(.md-img-error) > svg[data-inject-url*="#right"] {
     display: block !important;
     margin: auto !important;
     margin-right: 0 !important;
@@ -463,8 +496,9 @@ body.typora-export a {
 
 // 链接中的 kbd 样式
 #write a kbd {
-    color: @buttonForeColor !important;
-    font:  var(--v-f-w-bd) 0.875em/@paragraphInnerHeight var(--v-f-fm-key) !important; // [style] [weight] [size/[line-height]] [family]
+    color: @buttonForeColor;
+    // color: @buttonForeColor !important;
+    font:  var(--v-f-w-bd) 0.875em/@paragraphInnerLineHeight var(--v-f-fm-key) !important; // [style] [weight] [size/[line-height]] [family]
     // font-family: var(--v-f-fm-key) !important;
     background: @buttonBgColor;
     margin: 5px 0;
@@ -526,31 +560,31 @@ body.typora-export a:hover {
 }
 
 // 链接 hover 时含图片颜色替换的样式
-#write a:hover img[data-v-img-fill="text"],
-#write a:hover img[data-v-img-fill="theme1"],
-#write a:hover img[data-v-img-fill="theme2"] {
+#write a:hover img[d-img-fill="text"],
+#write a:hover img[d-img-fill="theme1"],
+#write a:hover img[d-img-fill="theme2"] {
     left: -12345px;
     filter: drop-shadow(12345px 0px @aHoverColor) !important;
     position: relative;
 }
 // 链接 hover 时其内嵌按钮的内嵌 img 图片
-#write a:hover kbd img[data-v-img-fill="text"],
-#write a:hover kbd img[data-v-img-fill="theme1"],
-#write a:hover kbd img[data-v-img-fill="theme2"] {
+#write a:hover kbd img[d-img-fill="text"],
+#write a:hover kbd img[d-img-fill="theme1"],
+#write a:hover kbd img[d-img-fill="theme2"] {
     filter: drop-shadow(12345px 0px @buttonForeHoverColor) !important;
 }
 // 链接 hover 时其内嵌按钮的内嵌 svg 图片颜色替换的样式
-#write a:hover kbd svg[data-v-img-fill] path,
-#write a:hover kbd svg[data-v-img-fill] rect,
-#write a:hover kbd svg[data-v-img-fill] ellipse,
-#write a:hover kbd svg[data-v-img-fill] polygon {
+#write a:hover kbd svg[d-img-fill] path,
+#write a:hover kbd svg[d-img-fill] rect,
+#write a:hover kbd svg[d-img-fill] ellipse,
+#write a:hover kbd svg[d-img-fill] polygon {
     fill: @buttonForeHoverColor !important;
 }
 // 针对彩虹引用内的情况
-#write .v-q a:hover kbd svg[data-v-img-fill] path,
-#write .v-q a:hover kbd svg[data-v-img-fill] rect,
-#write .v-q a:hover kbd svg[data-v-img-fill] ellipse,
-#write .v-q a:hover kbd svg[data-v-img-fill] polygon {
+#write .v-q a:hover kbd svg[d-img-fill] path,
+#write .v-q a:hover kbd svg[d-img-fill] rect,
+#write .v-q a:hover kbd svg[d-img-fill] ellipse,
+#write .v-q a:hover kbd svg[d-img-fill] polygon {
     fill: --d-bc-lg !important;
 }
 // 链接 active 时，链接内图片样式
@@ -583,10 +617,10 @@ body.typora-export a:active {
     text-shadow: none;
     border-radius: var(--v-r-tag);
     padding: 2px 3px;
-    font: var(--v-f-w-title) 0.5em/@paragraphInnerHeight var(--v-f-fm-key); // [style] [weight] [size/[line-height]] [family]
+    font: var(--v-f-w-title) 0.5em/@miniLineHeight var(--v-f-fm-key); // [style] [weight] [size/[line-height]] [family]
     // font-weight: var(--v-f-w-title);
     // font-size: 0.5em;
-    // line-height: @paragraphInnerHeight;
+    // line-height: @paragraphInnerLineHeight;
     // font-family: var(--v-f-fm-key);
     position: absolute;
     z-index: 99999;
@@ -885,12 +919,14 @@ body.typora-export table a:not([name^="ref-footnote"]):hover::before {
     color: @contentHeaderNumColor;
 }
 
+body.typora-export strong,
 #write strong {
     font: var(--v-f-w-bd) 1em var(--v-f-fm-bd); // [style] [weight] [size/[line-height]] [family]
     // font-weight: var(--v-f-w-bd);
     // font-family: var(--v-f-fm-bd);
 }
 
+body.typora-export strong a,
 #write strong a {
     font-weight: var(--v-f-w-bd);
 }
@@ -953,7 +989,8 @@ body > h6:first-child {
 
 #write figure {
     padding-bottom: 1px;
-    margin-bottom: 20px;
+    margin-bottom: @paragraphPadding;
+    // margin-bottom: 20px;
     border-radius: var(--v-r-b);
 }
 
@@ -962,7 +999,8 @@ body > h6:first-child {
 #write li::before {
     // font: normal 1em var(--v-f-fm-num); // [style] [weight] [size/[line-height]] [family]
     font-family: var(--v-f-fm-num);
-    color: var(--d-f-c-alt);
+    // color: var(--d-f-c-alt);
+    color: var(--h-f);
 }
 
 #write ul,
@@ -970,13 +1008,14 @@ ol {
     // padding-left: 1.25em;
     // padding-right: 0.625em;
     padding-left: 2em;
-    padding-right: @paragraphPadding;
+    padding-right: 1em;
     padding-bottom: 0;
 }
 // 除图片插图外的段落样式
-#write > p:not([class*=v-caption-container]) {
-    padding-left: @paragraphPadding;
-    padding-right: @paragraphPadding;
+#write > p:not([class*=v-cap-cntr]) {
+    padding-left: 1em; // 编辑时图片的向右缩进适配，通过 p > .md-image:only-child 调整
+    padding-right: 1em;
+    margin-bottom: 0;
 }
 // ----------------------------------------
 // 段落间距样式
@@ -1040,7 +1079,24 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     border-radius: var(--v-r-b);
     padding: 0.75em 1em;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: @paragraphPadding;
+    // margin-bottom: 20px;
+    // margin: 0 1em 20px 1em;
+}
+#write > blockquote {
+    margin-top: @paragraphPadding;
+}
+
+// 紧跟图片、表格后的引用样式微调
+#write .md-table-fig + blockquote,
+#write .md-fences + blockquote,
+// 紧跟带自动题注的内容（插图、代码块、表格、音频、视频）后的引用样式微调
+#write .v-cap-cntr + blockquote,
+#write .v-cap-cntr + .v-content-expander + blockquote {
+    background: var(--pn-c);
+    border-top-left-radius: 0;
+    // border-top-right-radius: 0;
+    margin-top: -10px;
 }
 
 // 以双栏方式显示，98/2*2+2*1=100
@@ -1147,6 +1203,54 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     margin-top: 0;
 }
 
+#write blockquote .CodeMirror-linenumber {
+    color: var(--h-f);
+}
+
+// 分栏列表
+#write hr + ul,
+#write hr + ol,
+#write .md-hr + ul,
+#write .md-hr + ol {
+    padding-left: 0 !important;
+}
+// 以双栏方式显示，98/2*2+2*1=100
+#write hr + ul > li,
+#write hr + ul > li + li,
+#write hr + ol > li,
+#write hr + ol > li + li,
+#write .md-hr + ul > li,
+#write .md-hr + ul > li + li,
+#write .md-hr + ol > li,
+#write .md-hr + ol > li + li {
+    display: inline-block;
+    list-style-type: none;
+    vertical-align: top;
+    padding-left: 0 !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 49% !important;
+    min-width: 49% !important;
+}
+// 双栏内容之间的样式
+#write hr + ol > li + li,
+#write .md-hr + ol > li + li {
+    margin-left: 2% !important;
+}
+// 双栏内容微调
+#write hr + ul > li > p,
+#write hr + ol > li > p,
+#write .md-hr + ul > li > p,
+#write .md-hr + ol > li > p {
+    font: var(--v-f-w-bd) 1em var(--v-f-fm-bd);
+    color: @buttonForeColor;
+    background: @buttonBgColor;
+    padding: 5px;
+    border-radius: var(--v-r-s);
+    text-align: center;
+}
+
 // 列表内的引用内容
 // #write li > blockquote {
 //     width: fit-content !important;
@@ -1186,7 +1290,8 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 }
 
 .v-img-lost {
-    background-image: url("data:image/png;base64,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") !important;
+    // background-image: url("data:image/png;base64,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") !important;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxyZWN0IGlkPSJhIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE1MCIgcng9IjEzIi8+PC9kZWZzPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PG1hc2sgaWQ9ImIiIGZpbGw9IiNmZmYiPjx1c2UgeGxpbms6aHJlZj0iI2EiLz48L21hc2s+PHVzZSBmaWxsPSIjRTBFNEU4IiB4bGluazpocmVmPSIjYSIvPjxwYXRoIGQ9Ik05MS4yMTMgMEwwIDkxLjIxM1Y0OC43ODdMNDguNzg3IDBoNDIuNDI2ek0xOTEuMjEzIDBsLTE1MCAxNTBIM2EzIDMgMCAwIDEtMi42NC0xLjU3M0wxNDguNzg3IDBoNDIuNDI2ek0yOTEuMjEzIDBMMTQxLjIxMiAxNTBIOTguNzg3bDE1MC0xNTBoNDIuNDI2ek0zOTEuMjEzIDBMMjQxLjIxMiAxNTBoLTQyLjQyNWwxNTAtMTUwaDQyLjQyNnpNNDAwIDQ4Ljc4N3Y0Mi40MjVMMzQxLjIxMiAxNTBoLTQyLjQyNUw0MDAgNDguNzg3eiIgZmlsbD0iI0M4Q0FDRSIgbWFzaz0idXJsKCNiKSIvPjxyZWN0IHN0cm9rZT0iI0EwQTRBOCIgc3Ryb2tlLXdpZHRoPSI1IiBtYXNrPSJ1cmwoI2IpIiB4PSIyLjUiIHk9IjIuNSIgd2lkdGg9IjM5NSIgaGVpZ2h0PSIxNDUiIHJ4PSIxMyIvPjxwYXRoIGQ9Ik0xMyAwaDM3NGM3LjE4IDAgMTMgNS44MiAxMyAxM3YxODdIMFYxM0MwIDUuODIgNS44MiAwIDEzIDB6Ii8+PHRleHQgZm9udC1mYW1pbHk9Ik5vdG9TYW5zQ0pLc2MtQmxhY2ssIE5vdG8gU2FucyBDSksgU0MiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiM1ODVBNUUiPjx0c3BhbiB4PSI2MCIgeT0iNDMiPuS4n+WkseeahOWclueJhzwvdHNwYW4+IDx0c3BhbiB4PSI1MC43NzUiIHk9IjY5Ij5Mb3N0IHBpY3R1cmU8L3RzcGFuPiA8dHNwYW4geD0iNDIuMjM0IiB5PSI5NSI+SW1hZ2UgcGVyZHVlPC90c3Bhbj48L3RleHQ+PHRleHQgZm9udC1mYW1pbHk9Ik5vdG9TYW5zQ0pLc2MtQmxhY2ssIE5vdG8gU2FucyBDSksgU0MiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiM1ODVBNUUiPjx0c3BhbiB4PSIxODAuNDQxIiB5PSI0MyI+0J/QvtGC0LXRgNGP0L3QvdCw0Y8g0LrQsNGA0YLQuNC90LA8L3RzcGFuPiA8dHNwYW4geD0iMjI1IiB5PSI2OSI+5YaZ55yf44KS5aSx44Gj44GfPC90c3Bhbj4gPHRzcGFuIHg9IjIyNy4yNTkiIHk9Ijk1Ij7snoPslrTrsoTrprAg7IKs7KeEPC90c3Bhbj48L3RleHQ+PHRleHQgZm9udC1mYW1pbHk9Ik5vdG9TYW5zQ0pLc2MtQmxhY2ssIE5vdG8gU2FucyBDSksgU0MiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiM1ODVBNUUiPjx0c3BhbiB4PSIxNjQuNjU2IiB5PSIxMzYiPlZMT09LIDwvdHNwYW4+IDx0c3BhbiB4PSIyMjMuOTY4IiB5PSIxMzYiIGZvbnQtZmFtaWx5PSJOb3RvU2Fuc0NKS3NjLVJlZ3VsYXIsIE5vdG8gU2FucyBDSksgU0MiIGZvbnQtd2VpZ2h0PSJub3JtYWwiPuKEojwvdHNwYW4+PC90ZXh0PjxwYXRoIGZpbGw9IiM4ODhBOEUiIGQ9Ik01NSAxNTBoMjB2NTBINTV6Ii8+PHBhdGggZD0iTTQ1IDE5MGg0MGE1IDUgMCAwIDEgNSA1djVINDB2LTVhNSA1IDAgMCAxIDUtNXoiIGZpbGw9IiNBMEE0QTgiLz48cGF0aCBmaWxsPSIjODg4QThFIiBkPSJNMzI1IDE1MGgyMHY1MGgtMjB6Ii8+PHBhdGggZD0iTTMxNSAxOTBoNDBhNSA1IDAgMCAxIDUgNXY1aC01MHYtNWE1IDUgMCAwIDEgNS01eiIgZmlsbD0iI0EwQTRBOCIvPjwvZz48L3N2Zz4=") !important;
     background-size: 400px 200px;
     background: var(--pn-c);
     border: 0;
@@ -1204,7 +1309,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     right: 20px;
     bottom: 50px;
     width: var(--v-nav-center-width);
-    line-height: @paragraphInnerHeight;
+    line-height: @paragraphInnerLineHeight;
     border-radius: var(--v-r-b);
     background: var(--pn-c);
     overflow: auto;
@@ -1571,6 +1676,7 @@ td.v-tbl-row-g-not-folder {
 // 折叠按钮样式
 .v-tbl-row-g-btn {
     cursor: pointer;
+    vertical-align: middle;
 }
 
 .v-tbl-row-g-btn.hover > svg > use {
@@ -1653,7 +1759,8 @@ body.typora-export h6 + figure table tbody tr {
 #write figure table tr::before,
 body.typora-export figure table tr::before {
     content: "";
-    color: var(--toc-h-num-color);
+    color: var(--h-f);
+    // color: var(--toc-h-num-color);
     font: normal normal 0.8em var(--v-f-fm-num) !important; // [style] [weight] [size/[line-height]] [family]
     // font-style: normal !important;
     // font-weight: normal !important;
@@ -1676,6 +1783,7 @@ body.typora-export li > figure table tbody tr::before {
     margin-top: @tableRowNumTop;
     margin-left: -20px;
     color: var(--d-f-c-alt);
+    color: var(--h-f);
     position: absolute;
 }
 // hover 时行号内容样式
@@ -1698,7 +1806,8 @@ body.typora-export h6 + figure table tbody tr::before {
     text-align: right;
     margin-top: @tableRowNumTop;
     margin-left: 0px;
-    color: var(--d-f-c-alt);
+    // color: var(--d-f-c-alt);
+    color: var(--h-f);
     position: absolute;
 }
 // hover 时行号内容样式
@@ -1827,20 +1936,6 @@ body.typora-export h6 + figure table tr > td:first-child {
     color: @aActiveColor;
 }
 
-.CodeMirror-gutters {
-    border-width: 0;
-    background: var(--pn-c);
-    border-right: 1px solid var(--pn-c);
-    height: 100% !important; // 避免代码块的题注 hover 样式的背景色透出
-}
-
-.CodeMirror-linenumber {
-    // color: @docTextColorLightAlt;
-    color: var(--tbl-bder);
-    // font: normal 1em var(--v-f-fm-num); // [style] [weight] [size/[line-height]] [family]
-    font-family: var(--v-f-fm-num);
-}
-
 tt,
 code {
     color: var(--d-f-c);
@@ -1855,9 +1950,11 @@ code {
     margin: 0;
     box-shadow: 0 0 0 1px var(--std-code-shadow) inset;
     display: inline-block;
+    text-align: inherit;
 }
 .v-std-code {
-    cursor: pointer;
+    // cursor: pointer;
+    cursor: var(--cur-copy);
 }
 .v-std-code.hover {
     filter: brightness(1.1);
@@ -1868,15 +1965,6 @@ strong code {
     font-weight: var(--v-f-w-bd);
 }
 
-// 多行代码样式
-.md-fences {
-    color: var(--d-f-c);
-    // font: normal 1em var(--v-f-fm-code); // [style] [weight] [size/[line-height]] [family]
-    font-family: var(--v-f-fm-code);
-    border-radius: var(--v-r-b);
-    border: 2px solid var(--tbl-bder);
-    margin: 0 0 20px 0;
-}
 // 生成题注后的样式调整，未生成题注前的样式主要在编辑时使用
 .v-caption > .md-fences {
     margin: 0;
@@ -1969,6 +2057,18 @@ strong code {
 #write h6::before {
     content: "❖ "; // ◎
 }
+
+// 导出 HTML 后的文档章节目录的自动编码内容
+body.typora-export #write h1::before,
+body.typora-export #write h2::before,
+body.typora-export #write h3::before,
+body.typora-export #write h4::before,
+body.typora-export #write h5::before,
+body.typora-export #write h6::before {
+    content: attr(d-header-num) !important;
+}
+
+
 // 封面、封底的前信息
 #write > pre.md-meta-block:first-child + h6::before,
 #write > h6:first-child::before,
@@ -2004,7 +2104,7 @@ table kbd {
     // margin-top: 0.625em;
 }
 // 有序、无序列表下的段落（题注段落除外）
-#write li p:not([class=v-caption-container]) {
+#write li p:not([class=v-cap-cntr]) {
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -2012,7 +2112,7 @@ table kbd {
 // 段落后紧跟有序、无序列表时，减少其行距间隔
 #write p + ul,
 #write p + ol {
-    margin-top: -1em;
+    // margin-top: -1em;
 }
 // 但在引用内则取消覆盖以上样式
 #write blockquote p + ul,
@@ -2092,7 +2192,7 @@ table kbd {
 }
 .v-info-tips.bubble {
     color: var(--d-bc);
-    // line-height: @paragraphInnerHeight;
+    // line-height: @paragraphInnerLineHeight;
     border-color: var(--d-f-c-alt);
     background: var(--d-f-c);
     // padding-top: 0;
@@ -2159,7 +2259,7 @@ table kbd {
 
 // 字体风格选择器
 .v-font-theme {
-    width: 630px;
+    width: 462px;
     display: none;
     // visibility: hidden;
     // opacity: 0;
@@ -2178,18 +2278,16 @@ table kbd {
 
 // 字体风格选择器字体包下载提示
 .v-font-theme-info {
+    font-size: 0.75em;
     width: 100%;
     overflow: auto;
     border-radius: var(--v-r-s);
 }
 
+// 字体风格选项：系统默认
+.v-font-theme-opt-local,
 // 字体风格选项：小清新
-.v-font-theme-opt-sans {
-    border-radius: var(--v-r-s) !important;
-    filter: opacity(0.6);
-    cursor: pointer;
-}
-
+.v-font-theme-opt-sans,
 // 字体风格选项：文艺范
 .v-font-theme-opt-serif {
     border-radius: var(--v-r-s) !important;
@@ -2198,17 +2296,20 @@ table kbd {
 }
 
 // 字体风格选项鼠标事件效果
+.v-font-theme-opt-local:hover,
 .v-font-theme-opt-sans:hover,
 .v-font-theme-opt-serif:hover {
     filter: opacity(1);
     box-shadow: 0 0 0 2px @aLineColor;
 }
+.v-font-theme-opt-local:active,
 .v-font-theme-opt-sans:active,
 .v-font-theme-opt-serif:active {
     box-shadow: 0 0 0 2px @aActiveColor;
 }
 
 // 当前选择的字体风格选项
+.v-font-theme-opt-local.selected,
 .v-font-theme-opt-sans.selected,
 .v-font-theme-opt-serif.selected {
     box-shadow: 0 0 0 4px var(--h-f) !important;
@@ -2216,6 +2317,7 @@ table kbd {
 }
 
 // 字体包信息
+.v-fontinfo-local,
 .v-fontinfo-sans,
 .v-fontinfo-serif {
     margin-top: 10px;
@@ -2223,8 +2325,9 @@ table kbd {
     font-size: 0.875em;
 }
 // 字体包加载状态
-.v-fontinfo-sans #fontset-sans-status,
-.v-fontinfo-serif #fontset-serif-status {
+.v-fontinfo-local > #fontset-status,
+.v-fontinfo-sans > #fontset-status,
+.v-fontinfo-serif > #fontset-status {
     color: var(--d-f-c-alt);
 }
 
@@ -2233,8 +2336,8 @@ table kbd {
     font: var(--v-f-w-bd) 1em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
     // font-weight: var(--v-f-w-bd);
     // font-family: var(--v-f-fm-subtitle);
-    height: 100px;
-    margin-top: -120px;
+    height: 110px;
+    margin-top: -110px;
     background: linear-gradient(0deg, var(--d-bc) 10px, var(--d-bc-tsp));
     border-radius: 0 0 var(--v-r-b) var(--v-r-b);
     position: absolute;
@@ -2335,7 +2438,7 @@ table kbd {
 
 .v-welcome-page > .v-tips > div {
     text-align: center;
-    line-height: 1;
+    line-height: @miniLineHeight;
     margin-bottom: 50px;
 }
 .v-welcome-page > .v-tips > .v-date {
@@ -2423,6 +2526,7 @@ table kbd {
 
 .v-blockquote-folder {
     cursor: pointer;
+    vertical-align: middle;
 }
 
 .v-blockquote-folder.hover > svg > use {
@@ -2496,7 +2600,7 @@ table kbd {
     fill: @buttonForeColor;
 }
 
-.v-segment > input[type="radio"][data-v-result="none"] + label,
+.v-segment > input[type="radio"][d-result="none"] + label,
 .v-result-none {
     opacity: 0.2;
     cursor: not-allowed;
@@ -2592,7 +2696,7 @@ table kbd {
     overflow-y: scroll;
 }
 .v-toc-catalog-body::after {
-    content: attr(data-v-catalog-empty);
+    content: attr(d-catalog-empty);
     color: var(--d-f-c-alt);
     position: absolute;
     text-align: center;
@@ -2850,10 +2954,10 @@ body.typora-export .v-foot-note-panel > a {
     fill: var(--d-bc);
 }
 
-.v-caption-1 > span,
-.v-toc-item > span {
+.v-toc-item > span, // 目录大纲搜索结果的自动编号
+.v-cap-1 > span {  // 题注前缀
     color: var(--d-f-c-alt);
-    font-size: 0.875em;
+    font-size: 0.85em;
 }
 
 .md-toc,
@@ -3135,6 +3239,7 @@ body.typora-export .v-foot-note-panel > a {
     text-align: center;
     margin-left: 200px;
     margin-right: 200px;
+    padding-top: 2px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -3142,6 +3247,9 @@ body.typora-export .v-foot-note-panel > a {
     height: 28px;
     cursor: pointer;
     display: block;
+}
+.v-chapter-nav-current > span {
+    opacity: 0.75;
 }
 .v-chapter-nav-doc-title.effect.hover,
 .v-chapter-nav-current.effect.hover {
@@ -3159,7 +3267,7 @@ body.typora-export .v-foot-note-panel > a {
 // 有特效（effect>=1）时使用的样式
 .v-chapter-nav-doc-title.effect::before,
 .v-chapter-nav-current.effect::before {
-    content: "";
+    content: attr(d-header-num);
     position: absolute;
     top: 22px;
     bottom: 0;
@@ -3372,7 +3480,7 @@ body.typora-export input:focus::placeholder {
 .v-textfield-icon {
     width: 30px;
     height: 30px;
-    padding: 4px;
+    padding: 5px;
     text-align: center;
     float: left;
 }
@@ -3408,6 +3516,7 @@ body.typora-export input:focus::placeholder {
 .v-textfield-reset {
     width: 30px;
     height: 30px;
+    padding: 4px;
     justify-content: center;
     align-items: center;
     vertical-align: middle;
@@ -3667,11 +3776,12 @@ body.typora-export input:focus::placeholder {
     right: 10px;
     bottom: 10px;
     height: 50px;
+    position: absolute;
     z-index: 20;
 }
 
 // 文档抽屉面板下的按钮
-.v-doc-lib-board.item {
+.v-doc-lib-board > .item {
     border-radius: var(--v-r-s);
     color: @buttonForeColor;
     background: @buttonBgColor;
@@ -3689,14 +3799,17 @@ body.typora-export input:focus::placeholder {
     overflow: hidden;
     padding: 12px 10px 0px;
     position: absolute;
+    display: block;
+    width: 100%;
+    height: 50px;
     cursor: pointer;
     z-index: 23;
 }
 // 文档抽屉面板下的文档条
-.v-doc-lib-board.flip {
+.v-doc-lib-board > .flip {
     left: 70px;
     right: 70px;
-    bottom: 68px;
+    bottom: 58px;
     height: 4px;
     position: absolute;
     background: var(--d-f-c);
@@ -3704,10 +3817,10 @@ body.typora-export input:focus::placeholder {
     border-radius: calc(var(--v-r-s) - 3px) calc(var(--v-r-s) - 3px) 0 0;
     z-index: 21;
 }
-.v-doc-lib-board.flip + .flip {
+.v-doc-lib-board > .flip + .flip {
     left: 40px;
     right: 40px;
-    bottom: 61px;
+    bottom: 51px;
     height: 6px;
     background: var(--d-f-c);
     opacity: 0.3;
@@ -3787,7 +3900,7 @@ body.typora-export input:focus::placeholder {
 
 // 指定在 Dark Mode 时反转的图片样式
 .v-img-invert-dark {
-    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
     filter: var(--v-invert-dk);
     border-color: var(--img-bder-invert) !important;
 }
@@ -3805,9 +3918,9 @@ body.typora-export input:focus::placeholder {
     // background: url(@figureGridBlockLight) !important;
 }
 
-// Dark Mode的插图网格背景
+// Dark Mode 的插图网格背景
 .v-fig-solid-bg-dark {
-    background: @figureSolidBgDark;
+    background-color: @figureSolidBgDark;
 }
 .v-fig-grid-line-dark {
     background: var(--v-fig-grid-l-dk) !important;
@@ -3863,8 +3976,8 @@ body.typora-export input:focus::placeholder {
     // margin-top: 1em;
 }
 
-.v-caption-1,
-.v-caption-2 {
+.v-cap-1,
+.v-cap-2 {
     color: var(--d-f-c);
     font: normal 0.875em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
     // font-size: 0.875em;
@@ -3874,15 +3987,17 @@ body.typora-export input:focus::placeholder {
     width: auto !important;
 }
 
-.v-caption-container {
+.v-cap-cntr {
     border-radius: var(--v-r-b);
-    margin-bottom: 20px;
+    margin-bottom: @paragraphPadding;
+    // margin-bottom: 20px;
 }
 
 // 用于折叠类、表格列格式复选框的小图标
 .v-svg-small-ico {
     display: inline-block;
-    vertical-align: middle;
+    // vertical-align: text-top;
+    // vertical-align: middle;
     // margin-top: -4px;
 }
 .v-svg-input-checkbox {
@@ -4020,26 +4135,33 @@ body.typora-export .v-q {
         box-shadow: 0 0 0 4px @fadeColor inset;
         background: none;
     }
+    // 强调样式
     #write .v-q.@{quoteMark}.em {
         box-shadow: none;
         background: @fadeColor !important;
     }
+    // 代码
     #write .v-q.@{quoteMark} .v-std-code,
     #write .v-q .v-q.@{quoteMark} .v-std-code {
         background: @altColor;
     }
+    // 折叠控件
     .v-q.@{quoteMark} .v-blockquote-folder > svg > use,
     .v-q.@{quoteMark} .v-svg-input-checkbox > use {
         fill: @lightColor;
     }
+    // 按钮链接
     #write .v-q.@{quoteMark} a kbd,
     #write .v-q .v-q.@{quoteMark} a kbd {
         background: @lightColor;
+        color: #FFFFFF;
     }
     #write .v-q.@{quoteMark} a kbd:hover,
     #write .v-q .v-q.@{quoteMark} a kbd:hover {
         background: @aHoverColor;
+        color: @buttonForeHoverColor;
     }
+    // 链接
     #write .v-q.@{quoteMark} a,
     #write .v-q .v-q.@{quoteMark} a {
         color: @lightColor !important;
@@ -4056,13 +4178,24 @@ body.typora-export .v-q {
         border-bottom: 0;
         border-radius: var(--v-r-s);
     }
+    // 标题
     #write .v-q > .title-@{quoteMark},
     #write .v-q .v-q > .title-@{quoteMark} {
         color: @titleLightColor;
     }
+    // 强调标题
     #write .v-q > .title-@{quoteMark}.em,
     #write .v-q .v-q > .title-@{quoteMark}.em {
         color: @titleColor;
+    }
+    // 列表符号
+    #write .v-q.@{quoteMark} ::marker,
+    #write .v-q.@{quoteMark} li::before {
+        color: @accColor;
+    }
+    // 代码行号
+    #write .v-q.@{quoteMark} .CodeMirror-linenumber {
+        color: @accColor;
     }
 }
 .genRainbowQuoteCSS(red, @accColorRed, var(--ac-red-fade), var(--ac-red-lg), var(--ac-red-alt), var(--ac-red-title), var(--ac-red-title-lg));
@@ -4076,7 +4209,7 @@ body.typora-export .v-q {
 .genRainbowQuoteCSS(sea, @accColorSea, var(--ac-sea-fade), var(--ac-sea-lg), var(--ac-sea-alt), var(--ac-sea-title), var(--ac-sea-title-lg));
 .genRainbowQuoteCSS(steel, @accColorSteel, var(--ac-steel-fade), var(--ac-steel-lg), var(--ac-steel-alt), var(--ac-steel-title), var(--ac-steel-title-lg));
 .genRainbowQuoteCSS(purple, @accColorPurple, var(--ac-purple-fade), var(--ac-purple-lg), var(--ac-purple-alt), var(--ac-purple-title), var(--ac-purple-title-lg));
-.genRainbowQuoteCSS(magenta, @accColorMagenta, var(--ac-magenta-fade), var(--ac-magenta-lg), var(--ac-magenta-alt), var(--ac-magenta-title), var(--ac-magenta-title-lg));
+.genRainbowQuoteCSS(rose, @accColorRose, var(--ac-rose-fade), var(--ac-rose-lg), var(--ac-rose-alt), var(--ac-rose-title), var(--ac-rose-title-lg));
 .genRainbowQuoteCSS(pink, @accColorPink, var(--ac-pink-fade), var(--ac-pink-lg), var(--ac-pink-alt), var(--ac-pink-title), var(--ac-pink-title-lg));
 .genRainbowQuoteCSS(gold, @accColorGold, var(--ac-gold-fade), var(--ac-gold-lg), var(--ac-gold-alt), var(--ac-gold-title), var(--ac-gold-title-lg));
 .genRainbowQuoteCSS(brown, @accColorBrown, var(--ac-brown-fade), var(--ac-brown-lg), var(--ac-brown-alt), var(--ac-brown-title), var(--ac-brown-title-lg));
@@ -4093,19 +4226,22 @@ body.typora-export .v-tag {
     // font-size: 0.875em;
     // font-family: var(--v-f-fm-tag);
     color: fade(#FFFFFF, 90%);
-    border-radius: var(--v-r-tag);
+    border-radius: 1em;//var(--v-r-tag);
     text-shadow: none;
-    padding: 2px 0.5em;
+    padding: 2px 5px;
+    // padding: 2px 0.5em;
     // margin: 0 0.1em;
     white-space: pre;
     box-shadow: 0 0 0 1px var(--rb-code-shadow) inset;
-    cursor: pointer;
+    // cursor: pointer;
+    cursor: var(--cur-copy);
 }
 .v-tag.hover {
     filter: brightness(1.1);
 }
-.v-tag::before {
-    content: "# ";
+.v-tag::before,
+.v-tag::after {
+    content: "#";
     opacity: 0.5;
     font-weight: normal;
 }
@@ -4142,7 +4278,7 @@ body.typora-export .v-tag {
 .genRainbowTagCSS(sea, var(--ac-sea), deep);
 .genRainbowTagCSS(steel, var(--ac-steel), deep);
 .genRainbowTagCSS(purple, var(--ac-purple), deep);
-.genRainbowTagCSS(magenta, var(--ac-magenta), deep);
+.genRainbowTagCSS(rose, var(--ac-rose), deep);
 .genRainbowTagCSS(pink, var(--ac-pink), light);
 .genRainbowTagCSS(gold, var(--ac-gold), light);
 .genRainbowTagCSS(brown, var(--ac-brown), deep);
@@ -4166,7 +4302,8 @@ body.typora-export .v-badge-name {
     padding: 2px 2px 2px 0.5em;
     white-space: pre;
     box-shadow: 0 0 0 1px var(--rb-code-shadow) inset;
-    cursor: pointer;
+    // cursor: pointer;
+    cursor: var(--cur-copy);
 }
 .v-badge-name.hover {
     filter: brightness(1.1);
@@ -4200,7 +4337,8 @@ body.typora-export table .v-badge-name {
     padding: 0 0.5em;
     margin: 1px 1px 1px 0.5em;
     white-space: pre;
-    cursor: pointer;
+    // cursor: pointer;
+    cursor: var(--cur-copy);
 }
 .v-badge-value.hover {
     filter: brightness(1.1);
@@ -4260,7 +4398,7 @@ body.typora-export table .v-badge-value {
 .genRainbowBadgeCSS(sea, var(--ac-sea), var(--ac-sea-lg), deep);
 .genRainbowBadgeCSS(steel, var(--ac-steel), var(--ac-steel-lg), deep);
 .genRainbowBadgeCSS(purple, var(--ac-purple), var(--ac-purple-lg), deep);
-.genRainbowBadgeCSS(magenta, var(--ac-magenta), var(--ac-magenta-lg), deep);
+.genRainbowBadgeCSS(rose, var(--ac-rose), var(--ac-rose-lg), deep);
 .genRainbowBadgeCSS(pink, var(--ac-pink), var(--ac-pink-lg), light);
 .genRainbowBadgeCSS(gold, var(--ac-gold), var(--ac-gold-lg), light);
 .genRainbowBadgeCSS(brown, var(--ac-brown), var(--ac-brown-lg), deep);

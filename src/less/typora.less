@@ -3,8 +3,8 @@
  * VLOOK CSS - Typora 编辑时内置样式
  * (配合 base.less 进行使用)
  *
- * V14.0
- * 2022-03-13
+ * V15.0
+ * 2022-06-20
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -16,70 +16,70 @@
  *************************************/
 
 :root {
-    --cm-keyword-light: #770088;
-    --cm-variable-light: var(--d-f-c-lg);
-    --cm-variable-2-light: #0055AA;
-    --cm-variable-3-light: #008855;
-    --cm-tag-light: #9ab696;
-    --cm-attribute-light: #0000CC;
-    // --cm-CodeMirror-cursor-light: @docTextColorLightAlt;
-    --cm-string-light: #AA1111;
-    --cm-string-2-light: #FF5500;
-    --cm-comment-light: #AA5500;
-    --cm-header-light: #0000FF;
-    --cm-quote-light: #009900;
-    --cm-hr-light: #999999;
-    --cm-link-light: #0000CC;
-    --cm-negative-light: #DD4444;
-    --cm-positive-light: #229922;
-    --cm-meta-light: #555555;
-    --cm-bulidin-light: #3300AA;
-    --cm-bracket-light: #999977;
-    --cm-atom-light: #221199;
-    --cm-number-light: #116644;
+    --cm-keyword-lg: #770088;
+    --cm-variable-lg: var(--d-f-c-lg);
+    --cm-variable-2-lg: #0055AA;
+    --cm-variable-3-lg: #008855;
+    --cm-tag-lg: #9ab696;
+    --cm-attribute-lg: #0000CC;
+    // --cm-CodeMirror-cursor-lg: @docTextColorLightAlt;
+    --cm-string-lg: #AA1111;
+    --cm-string-2-lg: #FF5500;
+    --cm-comment-lg: #AA5500;
+    --cm-header-lg: #0000FF;
+    --cm-quote-lg: #009900;
+    --cm-hr-lg: #999999;
+    --cm-link-lg: #0000CC;
+    --cm-negative-lg: #DD4444;
+    --cm-positive-lg: #229922;
+    --cm-meta-lg: #555555;
+    --cm-bulidin-lg: #3300AA;
+    --cm-bracket-lg: #999977;
+    --cm-atom-lg: #221199;
+    --cm-number-lg: #116644;
 
-    --cm-keyword-dark: #C88FD0;
-    --cm-variable-dark: var(--d-f-c-dk);
-    --cm-variable-2-dark: #9FBAD5;
-    --cm-variable-3-dark: #1CC685;
-    --cm-tag-dark: #7DF46A;
-    --cm-attribute-dark: #7575E4;
-    --cm-string-dark: #D26B6B;
-    --cm-string-2-dark: #FF5500;
-    --cm-comment-dark: #DA924A;
-    --cm-header-dark: #8D8DF0;
-    --cm-quote-dark: #57AC57;
-    --cm-hr-dark: #D8D5D5;
-    --cm-link-dark: #D3D3EF;
-    --cm-negative-dark: #D95050;
-    --cm-positive-dark: #50E650;
-    --cm-meta-dark: #B7B3B3;
-    --cm-buliddark: #F3B3F8;
-    --cm-bracket-dark: #999977;
-    --cm-atom-dark: #84B6CB;
-    --cm-number-dark: #64AB8F;
+    --cm-keyword-dk: #C88FD0;
+    --cm-variable-dk: var(--d-f-c-dk);
+    --cm-variable-2-dk: #9FBAD5;
+    --cm-variable-3-dk: #1CC685;
+    --cm-tag-dk: #7DF46A;
+    --cm-attribute-dk: #7575E4;
+    --cm-string-dk: #D26B6B;
+    --cm-string-2-dk: #FF5500;
+    --cm-comment-dk: #DA924A;
+    --cm-header-dk: #8D8DF0;
+    --cm-quote-dk: #57AC57;
+    --cm-hr-dk: #D8D5D5;
+    --cm-link-dk: #D3D3EF;
+    --cm-negative-dk: #D95050;
+    --cm-positive-dk: #50E650;
+    --cm-meta-dk: #B7B3B3;
+    --cm-bulidin-dk: #F3B3F8;
+    --cm-bracket-dk: #999977;
+    --cm-atom-dk: #84B6CB;
+    --cm-number-dk: #64AB8F;
 
-    --cm-keyword: var(--cm-keyword-light);
-    --cm-variable: var(--cm-variable-light);
-    --cm-variable-2: var(--cm-variable-2-light);
-    --cm-variable-3: var(--cm-variable-3-light);
-    --cm-tag: var(--cm-tag-light);
-    --cm-attribute: var(--cm-attribute-light);
-    --cm-CodeMirror-cursor: @aHoverColor;//var(--cm-CodeMirror-cursor-light);
-    --cm-string: var(--cm-string-light);
-    --cm-string-2: var(--cm-string-2-light);
-    --cm-comment: var(--cm-comment-light);
-    --cm-header: var(--cm-header-light);
-    --cm-quote: var(--cm-quote-light);
-    --cm-hr: var(--cm-hr-light);
-    --cm-link: var(--cm-link-light);
-    --cm-negative: var(--cm-negative-light);
-    --cm-positive: var(--cm-positive-light);
-    --cm-meta: var(--cm-meta-light);
-    --cm-bulidin: var(--cm-bulidin-light);
-    --cm-bracket: var(--cm-bracket-light);
-    --cm-atom: var(--cm-atom-light);
-    --cm-number: var(--cm-number-light);
+    --cm-keyword: var(--cm-keyword-lg);
+    --cm-variable: var(--cm-variable-lg);
+    --cm-variable-2: var(--cm-variable-2-lg);
+    --cm-variable-3: var(--cm-variable-3-lg);
+    --cm-tag: var(--cm-tag-lg);
+    --cm-attribute: var(--cm-attribute-lg);
+    --cm-CodeMirror-cursor: @aHoverColor;//var(--cm-CodeMirror-cursor-lg);
+    --cm-string: var(--cm-string-lg);
+    --cm-string-2: var(--cm-string-2-lg);
+    --cm-comment: var(--cm-comment-lg);
+    --cm-header: var(--cm-header-lg);
+    --cm-quote: var(--cm-quote-lg);
+    --cm-hr: var(--cm-hr-lg);
+    --cm-link: var(--cm-link-lg);
+    --cm-negative: var(--cm-negative-lg);
+    --cm-positive: var(--cm-positive-lg);
+    --cm-meta: var(--cm-meta-lg);
+    --cm-bulidin: var(--cm-bulidin-lg);
+    --cm-bracket: var(--cm-bracket-lg);
+    --cm-atom: var(--cm-atom-lg);
+    --cm-number: var(--cm-number-lg);
 
     // --------------------
     // Typora UI 颜色变量
@@ -356,7 +356,7 @@ kbd .md-link .md-url {
 // for Win
 body.os-windows .md-image-input-src-btn,
 body.os-windows .md-image-pick-file-btn {
-    line-height: @paragraphInnerHeight;
+    line-height: @paragraphInnerLineHeight;
 }
 
 // br 回车
@@ -433,7 +433,7 @@ li.md-task-list-item p.md-focus::before { // 任务列表微调
     // background: fade(@aLineColor, 20%) !important;
     color: var(--d-f-c) !important;
     background: var(--ac-theme2-alt) !important;
-    caret-color: var(--d-bc);
+    caret-color: @aHoverColor;//var(--d-bc);
 }
 // 封面：#write 下 H6 作为第一个元素时
 // #write > pre.md-meta-block:first-child + h6 .md-expand code, // 有 YAML 的情况
@@ -488,7 +488,7 @@ body.os-windows #top-titlebar, // 标题栏
 body.os-windows .ty-footer, // 底部栏
 body.os-windows #typora-sidebar, // 侧边栏
 body.os-windows #w-titlebar-left, // 标题栏主菜单入口
-body.os-windows #w-traffic-lights { // 最大化、最小化、关闭
+body.os-windows #w-traffic-lgs { // 最大化、最小化、关闭
     background: transparent;
 }
 body.os-windows .ty-footer { // 底栏
@@ -655,7 +655,7 @@ body.os-windows #file-library-tree {
     text-align: right;
     // top: 9px;
     right: 10px;
-    line-height: @paragraphInnerHeight;
+    line-height: @paragraphInnerLineHeight;
     font-size: 0.875em;
     font-style: normal !important;
 }
@@ -691,7 +691,7 @@ body.os-windows #file-library-tree {
 }
 // 大纲节点
 .outline-item {
-    line-height: @defaultLineHeight;
+    line-height: 1;//@defaultLineHeight;
     font-family: var(--v-f-fm-subtitle);
     font-weight: normal;
 }
@@ -884,6 +884,7 @@ body.os-windows .file-node-title { // for Win
     color: @aHoverColor;
     font-family: var(--monospace);
     font-weight: normal;
+    text-decoration: none;
 }
 // 图片语法内链接
 #typora-source .cm-string + .cm-link,
@@ -964,7 +965,7 @@ body.os-windows .file-node-title { // for Win
     font-style: italic;
     border: 4px dashed var(--ac-red-lg);
     border-radius: var(--v-r-b);
-    line-height: @paragraphInnerHeight;
+    line-height: @paragraphInnerLineHeight;
     padding: 1px;
 }
 // 排除多媒体类的
@@ -1019,7 +1020,7 @@ body.os-windows .file-node-title { // for Win
     font-family: var(--monospace);
     font-weight: var(--v-f-w-text);
     font-size: 0.875em;
-    line-height: @paragraphInnerHeight;
+    line-height: @paragraphInnerLineHeight;
     border-radius: var(--v-r-b);
     padding: 4px 10px;
     color: var(--d-f-c);
@@ -1099,6 +1100,10 @@ body.os-windows .file-node-title { // for Win
     padding-left: 50px;
 }
 
+.outline-label {
+    word-break: break-all;
+}
+
 .outline-label::before {
     color: var(--d-f-c-alt);
 }
@@ -1160,13 +1165,23 @@ body.os-windows .file-node-title { // for Win
     content: "";
 }
 
+// 导出 HTML 后的目录大纲内的自动编码内容
+body.typora-export .md-toc-h1::before,
+body.typora-export .md-toc-h2::before,
+body.typora-export .md-toc-h3::before,
+body.typora-export .md-toc-h4::before,
+body.typora-export .md-toc-h5::before {
+    content: attr(d-header-num) !important;
+}
+
 // 有序、无序列表下的图片、非图片段落
 #write li .md-p > span:not([class*=md-image]) {
     margin-top: 0;
     margin-bottom: 0;
 }
 #write li .md-p > span[class*=md-image] {
-    margin-bottom: 20px;
+    margin-bottom: @paragraphPadding;
+    // margin-bottom: 20px;
 }
 
 // 有序列表下的任务列表
@@ -1222,14 +1237,62 @@ body.os-windows .file-node-title { // for Win
     margin-bottom: 0;
 }
 
+.md-diagram-panel-preview {
+    padding-top: 0;
+}
+
 .md-diagram-panel {
     border-radius: var(--v-r-b);
-    margin-bottom: 20px;
+    margin-bottom: @paragraphPadding;
+    // margin-bottom: 20px;
     padding: 0;
 }
 
 .md-diagram-panel svg {
     width: auto;
+}
+
+// ====================
+// 第 1 题注（编辑时样式）
+// 高亮内的斜体，或斜体内的高亮
+// 针对题注简化语法的样式
+// #write p > em > mark,
+#write p > [md-inline="em"] > em > [md-inline="highlight"] > mark {
+    font: normal 0.875em var(--v-f-fm-bd);
+    background-color: var(--tbl-td-bg);
+    box-shadow: none;
+    text-shadow: none;
+    padding: 2px 10px;
+    margin: 0 0 0 calc(-1em - @aBorderWidth); // 非列表下的微调
+    border-radius: var(--v-r-b) var(--v-r-b) 0 0;
+}
+// 引用内微调
+// #write blockquote p > em > mark,
+#write blockquote p > [md-inline="em"] > em > [md-inline="highlight"] > mark {
+    margin: 0;
+}
+// #write li > p > em > mark,
+#write li > p > [md-inline="em"] > em > [md-inline="highlight"] > mark {
+    margin: 0; // 列表下的微调
+}
+// #write p > em > mark::before,
+#write p > [md-inline="em"] > em > [md-inline="highlight"] > mark::before {
+    content: "▼ 题注. ";
+    color: var(--d-f-c-alt);
+    font-size: 0.85em;
+}
+// --------------------
+// 第 2 题注（编辑时样式）
+// #write p > em > mark > em,
+#write p > [md-inline="em"] > em > [md-inline="highlight"] > mark > [md-inline="em"] > em {
+    font-style: normal;
+    // border-bottom: 0;
+}
+// #write p > em > mark > em::before,
+#write p > [md-inline="em"] > em > [md-inline="highlight"] > mark > [md-inline="em"] > em::before {
+    content: " │ ▲ 题注. ";
+    color: var(--d-f-c-alt);
+    font-size: 0.85em;
 }
 
 /**************************************
@@ -1251,6 +1314,17 @@ content > #write {
 #write > ul:first-child,
 #write > ol:first-child {
     margin-top: 30px;
+}
+
+// 多行代码样式
+.md-fences {
+    color: var(--d-f-c);
+    // font: normal 1em var(--v-f-fm-code); // [style] [weight] [size/[line-height]] [family]
+    font-family: var(--v-f-fm-code);
+    border-radius: var(--v-r-b);
+    border: 2px solid var(--tbl-bder);
+    margin: 0 0 @paragraphPadding 0;
+    // margin: 0 0 20px 0;
 }
 
 // 代码块相关样式
@@ -1287,6 +1361,21 @@ content > #write {
 
 .CodeMirror div.CodeMirror-cursor {
     border-left: 2px solid var(--cm-CodeMirror-cursor);
+}
+
+.CodeMirror-gutters {
+    border-width: 0;
+    background: var(--pn-c);
+    border-right: 1px solid var(--pn-c);
+    height: 100% !important; // 避免代码块的题注 hover 样式的背景色透出
+}
+
+.CodeMirror-linenumber {
+    // color: @docTextColorLightAlt;
+    // color: var(--d-f-c-alt);
+    color: var(--h-f);
+    // font: normal 1em var(--v-f-fm-num); // [style] [weight] [size/[line-height]] [family]
+    font-family: var(--v-f-fm-num);
 }
 
 .cm-s-inner .cm-variable,

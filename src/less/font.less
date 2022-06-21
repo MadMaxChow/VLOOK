@@ -3,8 +3,8 @@
  * VLOOK CSS 字体主题、圆角样式
  * (配合 base.less 进行使用)
  *
- * V14.0
- * 2022-03-13
+ * V15.0
+ * 2022-06-20
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -45,27 +45,71 @@
     // https://unicode-table.com/cn/blocks/miscellaneous-technical/
 }
 
+// Digital 字体适用的编码范围
 @unicodeRangeForDigital: U+0021-002F, // !"#$%&'()*+,-./（不含空格）
 U+0030-0039, // 0123456789
 U+003A-0040, // :;<=>?@
 U+005B-0060, // [\]^_`
 U+007B-007E; // {|}~
-@font-face {
+// ----------------------------------------
+// VLOOK Digital Sans CSS
+@font-face { // - Regular
     font-family: "VLOOK Digital Sans CSS";
-    // font-weight: bold !important;
-    src: local("Noto Sans Mono"), local("Menlo"), local("Consolas");
+    font-weight: normal;
+    src: local("Noto Sans Mono Regular");
+    unicode-range: @unicodeRangeForDigital;
+}
+@font-face { // - Medium
+    font-family: "VLOOK Digital Sans CSS";
+    font-weight: 500;
+    src: local("Noto Sans Mono Medium");
+    unicode-range: @unicodeRangeForDigital;
+}
+@font-face { // - Bold
+    font-family: "VLOOK Digital Sans CSS";
+    font-weight: bold;
+    src: local("Noto Sans Mono Bold");
+    unicode-range: @unicodeRangeForDigital;
+}
+@font-face { // - Black
+    font-family: "VLOOK Digital Sans CSS";
+    font-weight: 900;
+    src: local("Noto Sans Mono Black");
+    unicode-range: @unicodeRangeForDigital;
+}
+// ----------------------------------------
+// VDS-CSS local
+@font-face { // - Regular
+    font-family: "VLOOK Digital local";
+    font-weight: normal;
+    src: local("SF Mono Regular"), local("Menlo Regular"), local("Cascadia Mono Regular"), local("Consolas");
+    unicode-range: @unicodeRangeForDigital;
+}
+@font-face { // - Bold
+    font-family: "VLOOK Digital local";
+    font-weight: bold;
+    src: local("SF Mono Bold"), local("Menlo Bold"), local("Cascadia Mono Bold"), local("Consolas Bold");
     // 适用的编码范围
     unicode-range: @unicodeRangeForDigital;
 }
-@font-face {
+// ----------------------------------------
+// VLOOK Digital Serif CSS
+@font-face { // - Regular
     font-family: "VLOOK Digital Serif CSS";
-    // font-weight: bold !important;
-    src: local("Luxi Mono"), local("Menlo"), local("Consolas");
-    // 适用的编码范围
+    font-weight: normal;
+    src: local("Luxi Mono Regular");
     unicode-range: @unicodeRangeForDigital;
 }
-@vlookDigitalSans: "VLOOK Digital Sans, VLOOK Digital Sans CSS";
-@vlookDigitalSerif: "VLOOK Digital Serif, VLOOK Digital Serif CSS";
+@font-face { // - Bold
+    font-family: "VLOOK Digital Serif CSS";
+    font-weight: bold;
+    src: local("Luxi Mono Bold");
+    unicode-range: @unicodeRangeForDigital;
+}
+// ----------------------------------------
+@vlookDigitalLocal: "VLOOK Digital local";
+@vlookDigitalSans: "VLOOK Digital Sans", "VLOOK Digital Sans CSS", @vlookDigitalLocal;
+@vlookDigitalSerif: "VLOOK Digital Serif", "VLOOK Digital Serif CSS", @vlookDigitalLocal;
 
 // =========================================
 // 基础字体信息
@@ -75,11 +119,12 @@ U+007B-007E; // {|}~
 // 基础等宽字体
 @base_mono: Courier, "Courier New";
 // 数值字体
-@number_font: "VLOOK Number", "Altinn-DIN", "Bebas Neue", "DIN";
+@number_font: "VLOOK Number", "Altinn-DIN", "DIN", "DIN Alternate";
 // 基础非衬线字体
-@base_sans_en: "Helvetica Neue", Helvetica, Arial, Tahoma;
-@base_sans_cn: "PingFang SC", "PingFang TC", "PingFang HK", SimHei, "黑体";
-@base_mono_sans_en: "VLOOK Sans Mono", "Noto Sans Mono", Iosevka, "SF Mono", Menlo, "Cascadia Mono", Consolas, @base_mono;
+@base_sans_en: Arial, Tahoma, "Helvetica Neue", Helvetica;
+@base_sans_cn: SimHei, "黑体";
+@mono_local_en: "SF Mono", Menlo, "Cascadia Mono", Consolas, @base_mono;
+@base_mono_sans_en: "VLOOK Sans Mono", "Noto Sans Mono", @mono_local_en;
 // 基础衬线字体
 @base_serif_en: "Times New Roman", Times;
 @base_serif_cn: "Songti SC", STZhongsong, "华文中宋", SimSun, "宋体";
@@ -90,20 +135,31 @@ U+007B-007E; // {|}~
 @base_source_sans_sets: "思源黑体", "Source Han Sans SC", "Source Han Sans CN", "Source Han Sans HK", "Source Han Sans HC", "Source Han Sans TW", "Source Han Sans TC";
 @base_source_serif_sets: "思源宋体", "Source Han Serif SC", "Source Han Serif CN", "Source Han Serif HK", "Source Han Serif HC", "Source Han Serif TW", "Source Han Serif TC";
 
+// =========================================
+// 系统本地默认字体信息
+// ----------------------------------------
+// Apple SF PingFang 苹方
+@apple_sf: "SF Pro Text", "SF Pro Display", "PingFang SC", "PingFang TC", "PingFang HK";
+// Microsoft YaHei 微软雅黑
+@ms_yh: "Segoe UI", SegoeUI, "Microsoft YaHei", "微软雅黑", @base_sans_cn;
+@ms_yh_mono: @base_mono_sans_en, @ms_yh, monospace;
+@ms_yh_fw_bold: bold;
+@ms_yh_fw_text: normal;
+// Microsoft JhengHei 微軟正黑體
+@ms_jh: "Microsoft JhengHei", "微軟正黑體", @base_sans_cn;
+@msjh_mono: @base_mono_sans_en, @ms_jh, monospace;
+// ---
+@localFont: -apple-system, Roboto, @apple_sf, @ms_yh, @ms_jh;
+@monoLocalFont: @mono_local_en, @localFont, @base_sans_cn, monospace;//, @ms_yh_mono, @msjh_mono;
+@fontBoldWeight4Local: @ms_yh_fw_bold;
+@fontBoldWeightText4Local: @ms_yh_fw_text;
+
 //=========================================
 // 非衬线风格字体信息
 // ----------------------------------------
-// Microsoft YaHei 微软雅黑
-@msyh: "Microsoft YaHei", "微软雅黑", @base_sans_cn, sans-serif;
-@msyh_mono: "Microsoft YaHei", "微软雅黑", @base_sans_cn, monospace;
-// ----------------------------------------
-// Microsoft JhengHei 微軟正黑體
-@msjh: "Microsoft JhengHei", "微軟正黑體", @base_sans_cn, sans-serif;
-@msjh_mono: "Microsoft JhengHei", "微軟正黑體", @base_sans_cn, monospace;
-// ----------------------------------------
 // 思源黑体
-@noto: "VLOOK Sans", @base_noto_sans_sets, @base_source_sans_sets, -apple-system, Roboto, @msyh, @msjh;
-@noto_mono: @base_mono_sans_en, "VLOOK Sans", @base_noto_sans_sets, @base_source_sans_sets, -apple-system, Roboto, @msyh_mono, @msjh_mono;
+@noto: "VLOOK Sans", @base_noto_sans_sets, @base_source_sans_sets, @apple_sf, @ms_yh, @ms_jh, @base_sans_cn, sans-serif;
+@noto_mono: @base_mono_sans_en, "VLOOK Sans", @base_noto_sans_sets, @base_source_sans_sets, @apple_sf, @ms_yh_mono, @msjh_mono, @base_sans_cn, monospace;
 @noto_fw_bold: 900;
 @noto_fw_text: normal;
 // ---
@@ -117,7 +173,7 @@ U+007B-007E; // {|}~
 // ----------------------------------------
 // 思源宋体＋黑体
 @cross_noto_serif: "VLOOK Serif", @base_noto_serif_sets, @base_source_serif_sets, @base_serif_en, @base_serif_cn, serif;
-@cross_noto_bold: "VLOOK Sans", @base_noto_sans_sets, @base_source_sans_sets, @base_sans_en, @base_sans_cn, sans-serif;
+@cross_noto_bold: "VLOOK Sans", @base_noto_sans_sets, @base_source_sans_sets, @localFont, @base_sans_en, @base_sans_cn, sans-serif;
 @cross_noto_title: @cross_noto_serif;
 @cross_noto_header: @cross_noto_serif;
 @cross_noto_mono: @base_mono_serif_en, "VLOOK Serif", @base_noto_serif_sets, @base_source_serif_sets, @base_serif_en, @base_serif_cn, monospace;
@@ -137,6 +193,21 @@ U+007B-007E; // {|}~
 //=========================================
 // 不同字体风格配置集
 :root {
+    // ---
+    // 系统本地默认字体
+    --v-f-fm-title-local: @emoji, @localFont;
+    --v-f-fm-subtitle-local: @emoji, @localFont;
+    --v-f-fm-h-local: @emoji, @localFont;
+    --v-f-fm-text-local: @emoji, @vlookDigitalLocal, @localFont;
+    --v-f-fm-bd-local: @emoji, @vlookDigitalLocal, @localFont;
+    --v-f-fm-key-local: @localFont;
+    --v-f-fm-num-local: @emoji, @number_font, @base_mono_sans_en, @localFont;
+    --v-f-fm-tag-local: @emoji, @localFont;
+    --v-f-fm-code-local: @emoji, @monoLocalFont;
+    --v-f-w-bd-local: @fontBoldWeight4Local;
+    --v-f-w-title-local: @fontBoldWeight4Local;
+    --v-f-w-text-local: @fontBoldWeightText4Local;
+
     // ---
     // 非衬线风格 Sans
     --v-f-fm-title-sans: @emoji, @sansFont;
@@ -167,11 +238,31 @@ U+007B-007E; // {|}~
     --v-f-w-title-serif: @fontBoldWeight4Title;
     --v-f-w-text-serif: @fontBoldWeightText4Serif;
 }
+
+// ---
+// 应用 Local 风格
+.applyFontStyle(@fontStyle) when (@fontStyle = local) {
+    :root {
+        --v-f-theme: local; // 设置为默认的字体风格
+        --v-f-fm-title: var(--v-f-fm-title-local);
+        --v-f-fm-subtitle: var(--v-f-fm-subtitle-local);
+        --v-f-fm-h: var(--v-f-fm-h-local);
+        --v-f-fm-text: var(--v-f-fm-text-local);
+        --v-f-fm-bd: var(--v-f-fm-bd-local);
+        --v-f-fm-key: var(--v-f-fm-key-local);
+        --v-f-fm-num: var(--v-f-fm-num-local);
+        --v-f-fm-tag: var(--v-f-fm-tag-local);
+        --v-f-fm-code: var(--v-f-fm-code-local);
+        --v-f-w-bd: var(--v-f-w-bd-local);
+        --v-f-w-title: var(--v-f-w-title-local);
+        --v-f-w-text: var(--v-f-w-text-local);
+    }
+}
 // ---
 // 应用 Sans 风格
 .applyFontStyle(@fontStyle) when (@fontStyle = sans) {
     :root {
-        --v-f-theme: sans; // 默认字体风格
+        --v-f-theme: sans; // 设置为默认的字体风格
         --v-f-fm-title: var(--v-f-fm-title-sans);
         --v-f-fm-subtitle: var(--v-f-fm-subtitle-sans);
         --v-f-fm-h: var(--v-f-fm-h-sans);
@@ -190,7 +281,7 @@ U+007B-007E; // {|}~
 // 应用 Serif 风格
 .applyFontStyle(@fontStyle) when (@fontStyle = serif) {
     :root {
-        --v-f-theme: serif; // 默认字体风格
+        --v-f-theme: serif; // 设置为默认的字体风格
         --v-f-fm-title: var(--v-f-fm-title-serif);
         --v-f-fm-subtitle: var(--v-f-fm-subtitle-serif);
         --v-f-fm-h: var(--v-f-fm-h-serif);

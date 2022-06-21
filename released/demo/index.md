@@ -6,11 +6,12 @@ keywords:
 - 表格增强,单元格合并,行分组,表格阅读模式,表格十字光标,重复表头,刮刮卡,黑幕,标签,图片增强,演示辅助,聚光灯,激光笔,自动折叠,打印,Mermaid,音频,视频,注音,主题,字体,模板,深色模式,Dark Mode,封面,封底,私人定制
 - PRD,设计,需求,文档,博客,手册,指南,在线,运维,知识库,WIKI
 - 产品经理,程序员,运维工程师,售前,售后
+vlook-chp-autonum: h1{{#ZH# ° }},h2{{步骤 ##-min#：}}
 vlook-query: effects=2&ws=auto&lmc=1
 vlook-doc-lib: vlook-lib.html
 ---
 
-###### <sub>VLOOK™</sub><br />让你的 Markdown 有了新`{看}(wán)`法<br />──<br /><sup>简介</sup><br />`#最新版本|V14.0#`<br /><br /><br />**MAX°孟兆**<br />*COPYRIGHT © 2016-2022. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br>让你的 Markdown 有了新`{看}(wán)`法<br>──<br><sup>简介</sup><br>`#最新版本|V14.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2022. MAX°DESIGN.*
 
 [TOC]
 
@@ -19,6 +20,8 @@ vlook-doc-lib: vlook-lib.html
 # VLOOK™ 是什么
 
 `#Editor|Typora#(gray)` `#OS|macOS#(black)` `#OS|Windows#(blue)` `#License|MIT#(red)`
+
+
 
 >
 >![VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo)
@@ -31,13 +34,13 @@ vlook-doc-lib: vlook-lib.html
 >
 >`>(theme1)`
 
-> 代码托管：[![Github](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/github-light.svg?darksrc=github-dark.svg#logo)](https://github.com/MadMaxChow/VLOOK?lnkcss=none) & [![Gitee](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/gitee-light.svg?darksrc=gitee-dark.svg#logo)](https://gitee.com/madmaxchow/VLOOK?lnkcss=none)　　　　CDN：[![JSDELIVR](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/jsdelivr-light.svg?darksrc=jsdelivr-dark.svg#logo)](https://www.jsdelivr.com/?lnkcss=none)
+> 代码托管：[![Github](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/github-light.svg?darksrc=github-dark.svg#logo)](https://github.com/MadMaxChow/VLOOK?lnkcss=none)　　[![Gitee](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/gitee-light.svg?darksrc=gitee-dark.svg#logo)](https://gitee.com/madmaxchow/VLOOK?lnkcss=none)
 
 > [+] **许可协议**
 >
 > > VLOOK™ 属于开源软件，遵从以下开源协议：
 > >
-> > ![VLOOK™ 的许可协议]
+> > *==VLOOK™ 的许可协议==*
 > >
 > > ```
 > > MIT License
@@ -113,7 +116,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 
 >
-> [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°内容导航)
+> [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°内容导航)
 >
 > `>(blue!)`
 
@@ -130,7 +133,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 >
 >
->[<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°演示与出版辅助)
+>[<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°演示与出版辅助)
 >
 >`>(orange!)`
 
@@ -145,7 +148,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 >
 >
->[<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°主题与不杂项)
+>[<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°主题与不杂项)
 >
 >`>(brown!)`
 
@@ -178,6 +181,8 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > >
 > > ---
 > >
+> > 
+> >
 > > 1. 从 VLOOK™ 在 **[GitHub](https://github.com/MadMaxChow/VLOOK/releases)** 或 **[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)** 的主页下载最新发布的版本；
 > > 2. 也可直接在项目主页中[下载主题文件](https://github.com/MadMaxChow/VLOOK/tree/master/released/theme)（[备用链接](https://gitee.com/madmaxchow/VLOOK/tree/master/released/theme)）。
 > >
@@ -186,6 +191,8 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > > ###### 安装 Typora
 > >
 > > ---
+> >
+> > 
 > >
 > > 1. 下载并安装 [Typora](https://www.typora.io) 的最新版本；
 > > 2. 启动 Typora 并进入「**偏好设置**」，启用「**Markdown 扩展语法、代码块**」下的所有选项。详见下图：
@@ -196,13 +203,17 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > >
 > > ---
 > >
+> > 
+> >
 > > 下载并安装 VLOOK™ 主题配套字体包 •• 详见「[字体主题](guide.md#字体主题)」。
 > >
 > > `>(gray)`
 >
 > `>(gray!)`
 
-![Typora ▸ 偏好设置 ▸ Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/typora-opt1-light.png?srcset=@2x&darksrc=typora-opt1-dark.png&darksrcset=@2x)
+*==Typora ▸ 偏好设置 ▸ Markdown==*
+
+![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/typora-opt1-light.png?srcset=@2x&darksrc=typora-opt1-dark.png&darksrcset=@2x)
 
 ---
 
@@ -216,6 +227,8 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > >
 > > ---
 > >
+> > 
+> >
 > > 1. 将 `released\theme` 下所有 CSS 文件复制至 Typora 的主题目录；
 > > 2. 主题目录在哪？可通过「**偏好设置 ▸ 外观 ▸ 打开主题目录**」定位到该目录。
 > >
@@ -225,6 +238,8 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > >
 > > ---
 > >
+> > 
+> >
 > > 1. 重启 Typora；
 > > 2. 点击「**主题**」菜单，选择以 `Vlook *` 形式命名的任意主题即可。
 > >
@@ -233,6 +248,8 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > > ###### 从模板开始编写
 > >
 > > ---
+> >
+> > 
 > >
 > > 建议基于 VLOOK™ 规范的文档模板来创建你自己的 Markdown 文档，这样能更快上手
 > >
@@ -262,6 +279,8 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > >
 > > ---
 > >
+> > 
+> >
 > > 1. 启动 Typora 并进入「**偏好设置**」；
 > > 2. 点击「**导出**」，添加配置（==选择 HTML 模板==），并将配置命名为 `VLOOK` 。
 > >
@@ -270,6 +289,8 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > > ###### 安装元标签代码
 > >
 > > ---
+> >
+> > 
 > >
 > > 1. 打开元标签文件：released\plugin\\[**meta.txt**](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/meta.txt)（[备用链接](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/meta.txt)）；
 > > 2. 全选并复制所有内容；
@@ -281,6 +302,8 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > >
 > > ---
 > >
+> > 
+> >
 > > 1. 打开插件文件：released\plugin\\[**plugin.txt**](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin.txt)（[备用链接](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt)）；
 > > 2. 全选并复制所有内容；
 > > 3. 将内容粘贴至「**偏好设置 ▸ VLOOK ▸ 在 &lt;body /&gt; 中添加**」。
@@ -291,6 +314,8 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > >
 > > ---
 > >
+> > 
+> >
 > > 1. 打开符合 VLOOK™ 规范的 md 文件；
 > > 2. 点击「**文件 ▸ 导出 ▸ VLOOK**」即可。
 > >
@@ -298,9 +323,11 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > `>(gray!)`
 
-![Typora ▸ 偏好设置 ▸ 导出](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
+*==Typora ▸ 偏好设置 ▸ 导出==*
 
-## 补充说明
+![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
+
+# 补充说明
 
 > ###### 在线版插件
 >
@@ -337,29 +364,5 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 ---
 
 如有建议和需求，欢迎随时反馈～ [![VLOOK™ @ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
-
-## 进阶应用
-
-可通过在文档的最开始位置添加 YAML 内容实现更多扩展的个性需求，示例如下：
-
-```yaml
----
-// 在此编辑 YAML Front Matter 内容
----
-```
-
-###### 自定义文档标题
-
-```yaml
-title: // 自定义的 HTML 文档标题
-```
-
-###### 自定义欢迎屏内容
-
-详见「[自定义欢迎页内容](guide.md#自定义欢迎页内容)」
-
-###### 自定义插件预置选项与调校参数
-
-详见「[插件预置选项](guide.md#插件预置选项)」「[插件调校参数](guide.md#插件调校参数)」
 
 # The End

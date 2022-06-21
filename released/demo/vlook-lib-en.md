@@ -51,7 +51,7 @@ title: More Topics about VLOOK™
 > >
 > > Integrated tools for navigation, rapid positioning, and content organization
 > >
-> > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°内容导航)
+> > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°内容导航)
 > >
 > > `>(blue!)`
 >
@@ -60,7 +60,7 @@ title: More Topics about VLOOK™
 > > ###### ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-pres-light.svg?fill=text#icon) °Present.＆ Pub.
 > >
 > > Built in flexible and convenient tools for presentation and publishing
-> > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°演示与出版辅助)
+> > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°演示与出版辅助)
 > > 
 > >`>(orange!)`
 > 
@@ -68,7 +68,7 @@ title: More Topics about VLOOK™
 > >
 > > The exquisite and delicate reading experience is pleasant and beautiful
 > >
-> > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°主题与不杂项)
+> > [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°主题与不杂项)
 > >
 > > `>(brown!)`
 > 

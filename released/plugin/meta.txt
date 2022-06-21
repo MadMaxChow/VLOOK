@@ -1,12 +1,12 @@
 <!--
-VLOOK V14.0 (2022-03-13) - Typora Plugin (head meta)
+VLOOK V15.0 (2022-06-20) - Typora Plugin (head meta)
 Paste to "Export Setting ▸ VLOOK / VLOOK (live) ▸ Append in <head />"
 粘贴至「导出设置... ▸ VLOOK / VLOOK (live) ▸ 在 <head /> 中添加」
 -->
 <meta name="date" content="${date}">
 <meta name="author" content="${author}">
 <meta name="keywords" content="${keywords}">
-<meta name="vlook-welcome" content="${vlook-welcome}">
-<meta name="vlook-query" content="${vlook-query}">
+<meta name="vlook-chp-autonum" content="${vlook-chp-autonum}">
 <meta name="vlook-doc-lib" content="${vlook-doc-lib}">
-<meta name="vlook-auto-caption" content="${vlook-auto-caption}">
+<meta name="vlook-query" content="${vlook-query}">
+<meta name="vlook-welcome" content="${vlook-welcome}">

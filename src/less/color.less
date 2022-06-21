@@ -3,8 +3,8 @@
  * VLOOK CSS 调色板
  * (配合 base.less 进行使用)
  *
- * V14.0
- * 2022-03-13
+ * V15.0
+ * 2022-06-20
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -117,12 +117,14 @@
     :root {
         --tbl-bder-lg: @colorLight; // 表格边框
         --tbl-h-br-lg: darken(@colorLight, 10%);
+        // --tbl-th-bg-lg: lighten(@colorLight, 20%); // 表头背景
         --tbl-th-bg-lg: fade(@colorLight, 40%); // 表头背景
         --tbl-td-bg-lg: fade(@colorLight, 20%); // 表体偶数行
         --tbl-cell-bder-lg: fade(@colorLight, 30%); // 单元格边框
 
         --tbl-bder-dk: @colorDark; // 表格边框
         --tbl-h-br-dk: lighten(@colorDark, 10%);
+        // --tbl-th-bg-dk: darken(@colorDark, 20%); // 表头背景
         --tbl-th-bg-dk: fade(@colorDark, 40%); // 表头背景
         --tbl-td-bg-dk: fade(@colorDark, 20%); // 表体偶数行
         --tbl-cell-bder-dk: fade(@colorDark, 30%); // 单元格边框
@@ -156,7 +158,8 @@
 @accColorLimeAlt: lighten(@accColorLime, 40%);
 @accColorLimeAltDark: darken(@accColorLimeAlt, 60%);
 
-@accColorGreen: #30A830;
+// @accColorGreen: #2AAE67;
+@accColorGreen: #30AA60;
 @accColorGreenDark: darken(@accColorGreen, 20%);
 @accColorGreenAlt: lighten(@accColorGreen, 45%);
 @accColorGreenAltDark: darken(@accColorGreenAlt, 60%);
@@ -191,10 +194,10 @@
 @accColorPurpleAlt: lighten(@accColorPurple, 35%);
 @accColorPurpleAltDark: darken(@accColorPurpleAlt, 50%);
 
-@accColorMagenta: #E64ED6;
-@accColorMagentaDark: darken(desaturate(@accColorMagenta, 30%), 35%);
-@accColorMagentaAlt: lighten(@accColorMagenta, 32%);
-@accColorMagentaAltDark: darken(@accColorMagentaAlt, 60%);
+@accColorRose: #E64ED6;
+@accColorRoseDark: darken(desaturate(@accColorRose, 30%), 35%);
+@accColorRoseAlt: lighten(@accColorRose, 32%);
+@accColorRoseAltDark: darken(@accColorRoseAlt, 60%);
 
 @accColorPink: #FAB9D1;
 @accColorPinkDark: darken(desaturate(@accColorPink, 40%), 50%);
@@ -314,10 +317,10 @@
     --ac-purple-alt-lg: @accColorPurpleAlt;
     --ac-purple-fade-lg: fade(@accColorPurple, 25%);
     --ac-purple-title-lg: @accColorPurple;
-    --ac-magenta-lg: @accColorMagenta;
-    --ac-magenta-alt-lg: @accColorMagentaAlt;
-    --ac-magenta-fade-lg: fade(@accColorMagenta, 25%);
-    --ac-magenta-title-lg: @accColorMagenta;
+    --ac-rose-lg: @accColorRose;
+    --ac-rose-alt-lg: @accColorRoseAlt;
+    --ac-rose-fade-lg: fade(@accColorRose, 25%);
+    --ac-rose-title-lg: @accColorRose;
     --ac-pink-lg: @accColorPink;
     --ac-pink-alt-lg: @accColorPinkAlt;
     --ac-pink-fade-lg: fade(@accColorPink, 25%);
@@ -407,10 +410,10 @@
     --ac-purple-alt-dk: @accColorPurpleAltDark;
     --ac-purple-fade-dk: fade(@accColorPurple, 35%);
     --ac-purple-title-dk: var(--d-f-c-dk);
-    --ac-magenta-dk: @accColorMagentaDark;
-    --ac-magenta-alt-dk: @accColorMagentaAltDark;
-    --ac-magenta-fade-dk: fade(@accColorMagenta, 35%);
-    --ac-magenta-title-dk: var(--d-f-c-dk);
+    --ac-rose-dk: @accColorRoseDark;
+    --ac-rose-alt-dk: @accColorRoseAltDark;
+    --ac-rose-fade-dk: fade(@accColorRose, 35%);
+    --ac-rose-title-dk: var(--d-f-c-dk);
     --ac-pink-dk: @accColorPinkDark;
     --ac-pink-alt-dk: @accColorPinkAltDark;
     --ac-pink-fade-dk: fade(@accColorPink, 35%);
@@ -450,7 +453,8 @@
 
     --pn-c: var(--pn-c-lg);
     --pn-c-alt: var(--pn-c-alt-lg);
-    --pn-c-tsp: var(--d-bc-alt-transparent-lg);
+    --pn-c-tsp: var(--pn-c-tsp-lg);
+    // --pn-c-tsp: var(--d-bc-alt-transparent-lg);
     --blockquote-bg: var(--blockquote-bg-lg);
 
     --a-color: var(--a-color-lg);
@@ -518,10 +522,10 @@
     --ac-purple-alt: var(--ac-purple-alt-lg);
     --ac-purple-fade: var(--ac-purple-fade-lg);
     --ac-purple-title: var(--ac-purple-title-lg);
-    --ac-magenta: var(--ac-magenta-lg);
-    --ac-magenta-alt: var(--ac-magenta-alt-lg);
-    --ac-magenta-fade: var(--ac-magenta-fade-lg);
-    --ac-magenta-title: var(--ac-magenta-title-lg);
+    --ac-rose: var(--ac-rose-lg);
+    --ac-rose-alt: var(--ac-rose-alt-lg);
+    --ac-rose-fade: var(--ac-rose-fade-lg);
+    --ac-rose-title: var(--ac-rose-title-lg);
     --ac-pink: var(--ac-pink-lg);
     --ac-pink-alt: var(--ac-pink-alt-lg);
     --ac-pink-fade: var(--ac-pink-fade-lg);

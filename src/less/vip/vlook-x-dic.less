@@ -13,11 +13,13 @@
 @import "../color";
 
 // 指定字体主题
-.applyFontStyle(serif);
+.applyFontStyle(local);
+// .applyFontStyle(sans);
+// .applyFontStyle(serif);
 // 指定主题配套的圆角
 .applyThemeRadius(small);
 // 文档背景使用图片
-.applyDocBgImg(@docBgImgLight_Twill, @docBgImgDark_Twill);
+.applyDocBgImg(@docBgImgLight_Twill_R, @docBgImgDark_Twill_R);
 
 // 主题信息
 @themeName: "vlook-x-dic";
@@ -136,9 +138,9 @@
 // 封底背景设置
 @backCoverBackgroundColor: @coverBackgroundColor;
 @backCoverBackgroundImage: @coverBackgroundImage;
-@backCoverBackgroundSize: auto, auto, 100% 131px, 100% 220px, 52%;
+@backCoverBackgroundSize: auto, auto, 100% 131px, 100% 220px, auto;
 @backCoverBackgroundRepeat: @coverBackgroundRepeat;
-@backCoverBackgroundPosition: center 120px, center 450px, bottom, bottom center, center -30px;
+@backCoverBackgroundPosition: center 120px, center 450px, bottom, bottom center, center -260px;
 
 // 封面、封底素材资源
 :root {
