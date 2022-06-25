@@ -2,8 +2,8 @@
  *
  * VLOOK CSS 基础库
  *
- * V15.0
- * 2022-06-20
+ * V15.1
+ * 2022-06-25
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -111,7 +111,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 :root {
     // #VLOOK_Var
     --v-theme-name: @themeName; // 主题名称
-    --v-theme-version: "V15.0"; // 主题版本，对应适配 VLOOK.JS 的版本
+    --v-theme-version: "V15.1"; // 主题版本，对应适配 VLOOK.JS 的版本
     --v-color-scheme: light; // 默认颜色模式为：Light 明亮
 
     // 导航中心、工具栏相关 UI 尺寸
@@ -1022,8 +1022,10 @@ ol {
 #write p,
 #write li {
     margin-top: @paragraphPadding;
-    word-break: break-all;
+    // word-break: break-all;
     // word-wrap: break-word;
+    word-break: normal;
+    word-wrap: break-word;
 }
 #write blockquote > p:first-of-type,
 #write ol > li:first-of-type,
@@ -2337,7 +2339,7 @@ table kbd {
     // font-weight: var(--v-f-w-bd);
     // font-family: var(--v-f-fm-subtitle);
     height: 110px;
-    margin-top: -110px;
+    margin-top: -120px;
     background: linear-gradient(0deg, var(--d-bc) 10px, var(--d-bc-tsp));
     border-radius: 0 0 var(--v-r-b) var(--v-r-b);
     position: absolute;
@@ -4133,7 +4135,7 @@ body.typora-export .v-q {
 .genRainbowQuoteCSS(@quoteMark, @accColor, @fadeColor, @lightColor, @altColor, @titleColor, @titleLightColor) {
     #write .v-q.@{quoteMark} {
         box-shadow: 0 0 0 4px @fadeColor inset;
-        background: none;
+        background: none !important;
     }
     // 强调样式
     #write .v-q.@{quoteMark}.em {

@@ -1,5 +1,5 @@
 <!--
-VLOOK V15.0 (2022-06-20) - Typora Plugin (head meta)
+VLOOK V15.1 (2022-06-25) - Typora Plugin (head meta)
 Paste to "Export Setting ▸ VLOOK / VLOOK (live) ▸ Append in <head />"
 粘贴至「导出设置... ▸ VLOOK / VLOOK (live) ▸ 在 <head /> 中添加」
 -->

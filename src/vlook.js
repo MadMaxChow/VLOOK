@@ -2,8 +2,8 @@
  *
  * VLOOK JS - Typora Plugin
  *
- * V15.0
- * 2022-06-20
+ * V15.1
+ * 2022-06-25
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -14,7 +14,7 @@
  *
  *************************************/
 
-let vVer = "V15.0",
+let vVer = "V15.1",
     iStopwatch = new Stopwatch(), // 初始化计时器
     gUndefined = undefined,
     gTrue = true,
@@ -497,6 +497,21 @@ String.prototype.s = function (start, end) {
 // parseInt 简化版
 function JS_parseInt(value) {
     return parseInt(value);
+}
+
+// parseFloat 简化版
+function JS_parseFloat(value) {
+    return parseFloat(value);
+}
+
+// Math.round 简化版
+function JS_mathRound(value) {
+    return Math.round(value);
+}
+
+// Math.ceil 简化版
+function JS_mathCeil(value) {
+    return Math.ceil(value);
 }
 
 // decodeURI 简化版
@@ -1349,6 +1364,7 @@ function V_init() {
     // iContentFolder = new ContentFolder();
     // if (iContentFolder.length === 0)
         // ALERT(s_Failed + "iCtFolder ]");
+    ContentFolder_enabled = (V_util_getParamVal("cf") !== s_Off) ? true : false;
     ContentFolder_init();
     sw.ed("    ├ Content Folding: ");
 
@@ -1847,7 +1863,7 @@ function V_ui_copyrightInfo() {
     return '<div class="v-copyright">'
         + '<svg class="v-copyright-svg-ico" width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;"><use xlink:href="#icoVLOOK"></use></svg>' + tag_2space
         // + 'Document author: ' + V_util_getMetaByName("author") + '.' + tag_2space
-        + 'Published with <a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK</strong></a>™ (V15.0) &amp; <a href="https://www.typora.io" target="_blank"><strong>Typora</strong></a>.'
+        + 'Published with <a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK</strong></a>™ (V15.1) &amp; <a href="https://www.typora.io" target="_blank"><strong>Typora</strong></a>.'
         + tag_2space + 'Support: <strong><a href="https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi">QQ Group</a></strong> / <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + V_ver + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(gTrue)) + '">Email</a></strong>.'
         + '</div>'
 }
@@ -1914,17 +1930,19 @@ function V_ui_generateSvgIcon(i, w, h, c, s) {
  * 初始 UI 国际化
  */
 function V_ui_initI18n() {
-    ContentFolder_ui.f("div > span").a(s_Title, [
-        "查看更多",
-        // "查看更多",
-        "View More",
-        // "Voir Plus",
-        // "Mehr sehen",
-        // "Ver más",
-        // "Посмотреть ещё",
-        // "もっと見る",
-        // "더보기"
-    ][V_lang_id]);
+    if (ContentFolder_ui !== gUndefined) {
+        ContentFolder_ui.f("div > span").a(s_Title, [
+            "查看更多",
+            // "查看更多",
+            "View More",
+            // "Voir Plus",
+            // "Mehr sehen",
+            // "Ver más",
+            // "Посмотреть ещё",
+            // "もっと見る",
+            // "더보기"
+        ][V_lang_id]);
+    }
 
     iToolbar.btns[s_NavCenter].a(s_DataTips, [
         "<strong>隐藏</strong> / <strong>显示</strong> 导航中心",
@@ -5818,7 +5836,7 @@ function FontTheme(mask, theme) {
                 let sansLoadedCount = T.sansTheme.fontCount - T.sansTheme.fonts.length,
                     sansStatus = $(".v-fontinfo-sans > #fontset-status");
                 if (sansLoadedCount < T.sansTheme.fontCount)
-                    sansStatus.t(loadingMsg + "... (" + Math.round(sansLoadedCount / T.sansTheme.fontCount * 100) + "%)");
+                    sansStatus.t(loadingMsg + "... (" + JS_mathRound(sansLoadedCount / T.sansTheme.fontCount * 100) + "%)");
                 else
                     sansStatus.t(readyMsg);
 
@@ -5835,7 +5853,7 @@ function FontTheme(mask, theme) {
                 let serifLoadedCount = T.serifTheme.fontCount - T.serifTheme.fonts.length,
                     serifStatus = $(".v-fontinfo-serif > #fontset-status");
                 if (serifLoadedCount < T.serifTheme.fontCount)
-                    serifStatus.t(loadingMsg + "... (" + Math.round(serifLoadedCount / T.serifTheme.fontCount * 100) + "%)");
+                    serifStatus.t(loadingMsg + "... (" + JS_mathRound(serifLoadedCount / T.serifTheme.fontCount * 100) + "%)");
                 else
                     serifStatus.t(readyMsg);
             });
@@ -6533,13 +6551,16 @@ function BgMask(id, style, close) {
 
 // ==================== 长内容折叠类 ==================== //
 
-let ContentFolder_ui = gUndefined, // 展开操作区的 UI 模板
+let ContentFolder_enabled = true,
+    ContentFolder_ui = gUndefined, // 展开操作区的 UI 模板
     ContentFolder_limit = V_debugMode ? 300 : 600, // 内容须折叠的高度限值
     ContentFolder_contents = [], // 须进行折叠判断和处理的内容集
     ContentFolder_buildTimers = [],
     ContentFolder_rowNumFilter = s_Table + " tbody tr";
 
 function ContentFolder_init() {
+    if (!ContentFolder_enabled)
+        return;
     ContentFolder_ui = $("." + s_CssContentExpander)
 }
 
@@ -6547,6 +6568,9 @@ function ContentFolder_init() {
  * 添加内容
  */
 function ContentFolder_add(content) {
+    if (!ContentFolder_enabled)
+        return;
+
     ContentFolder_contents.push(content);
 }
 
@@ -6554,6 +6578,9 @@ function ContentFolder_add(content) {
  * 适配内容展开操作区
  */
 function ContentFolder_adjust() {
+    if (!ContentFolder_enabled)
+        return;
+
     // 提前中断未完成的处理
     if (ContentFolder_buildTimers.length > 0) {
         for (let i = 0, len = ContentFolder_buildTimers.length; i < len; i++)
@@ -6570,6 +6597,9 @@ function ContentFolder_adjust() {
  * 会导致应该显示展开操作区即不显示，或不应显示却显示的情况
  */
 function ContentFolder_rebuild() {
+    if (!ContentFolder_enabled)
+        return;
+
     // 重建需要重建的部分
     for (let i = 0, len = ContentFolder_contents.length; i < len; i++) {
         // img 类长内容
@@ -6609,6 +6639,9 @@ function ContentFolder_rebuild() {
  * @param rebuild 本次折叠是否属于重建的（如在页面加载后，由于页面正文区宽度变化后调用时属于重建）
  */
 function ContentFolder_checkAndProcess(target, rebuild) {
+    if (!ContentFolder_enabled)
+        return;
+
     let container = target.p(),
         tagName = target.prop(s_TagName).l();
 
@@ -6673,6 +6706,9 @@ function ContentFolder_checkAndProcess(target, rebuild) {
  * @param oldExpander 上一轮重建前的展开操作区（没有则为 undefined）
  */
 function ContentFolder_buildContentExpander(target, container, tagName, tHeight, oldExpander) {
+    if (!ContentFolder_enabled)
+        return;
+
     // 设置为已折叠
     container.a(s_DataContentFolded, s_True);
 
@@ -6689,7 +6725,8 @@ function ContentFolder_buildContentExpander(target, container, tagName, tHeight,
     }
 
     let expander,
-        w = JS_parseInt(container.c(s_Width));
+        w = JS_mathCeil(JS_parseFloat(container.c(s_Width)));
+        // w = JS_parseInt(container.c(s_Width));
 
     // 上一轮构建时没有生成展开操作区，则生成一个新的
     if (oldExpander === gUndefined) {
@@ -6707,10 +6744,10 @@ function ContentFolder_buildContentExpander(target, container, tagName, tHeight,
     // 动态生成按钮文本内容
     let btn = expander.f("div>span");
     btn.h(btn.a(s_Title) + " <span style='font-weight: normal;'>"
-        + Math.round((1 - ContentFolder_limit / tHeight) * 100) + "%</span>");
+        + JS_mathRound((1 - ContentFolder_limit / tHeight) * 100) + "%</span>");
 
     // 重新适配展开操作区尺寸
-    let tW = JS_parseInt(target.c(s_Width));
+    let tW = JS_mathCeil(JS_parseFloat(target.c(s_Width)));//JS_parseInt(target.c(s_Width));
     if (w > tW) {
         w = tW;// + JS_parseInt(target.c(s_BorderWidth)) * 2;
         // 表格、mermarid 插图与比容器宽度小时，右下角不是圆角，须进行适配调整
@@ -6736,6 +6773,9 @@ function ContentFolder_buildContentExpander(target, container, tagName, tHeight,
  * @param expander 点击的按钮所在父元素
  */
 function ContentFolder_expand(expander) {
+    if (!ContentFolder_enabled)
+        return;
+
     let container = expander.prev(),
         tagName = expander.a(s_DataContentType);
     V_report_push([s_Interactive, V_report_transTagName(tagName), 'ExpandLongContent', 0]);
@@ -8859,7 +8899,7 @@ function ColumnFormatting_format(table) {
                     // 根据正负号进行着色处理
                     let coloring = ColumnFormatting_coloringNumber(ce, text, gTrue),
                         percent = text.r(/(-|\+|\s)/g, ""),
-                        percentValue = Math.round(percent.r("%", "")),
+                        percentValue = JS_mathRound(percent.r("%", "")),
                         bg1 = "rgba(128, 128, 128, 0.1)",
                         bg2 = "rgba(128, 128, 128, 0.4)",
                         bgSplit = "rgba(128, 128, 128, 0.8)";
@@ -12348,7 +12388,10 @@ function RainbowQuote_build(target, result) {
         color = RainbowQuote_getColor(result[1]), // 颜色标识
         em = (result[2] !== gUndefined) ? " em" : " "; // 判断是否指定了强调样式
     if (quote.prop(s_TagName).l().sW("bl")) { // <blockquote>
-        target.p().remove();
+        if (target.p().children().length > 0)
+            target.remove();
+        else
+            target.p().remove();
         JQ_addClass(quote, "v-q " + color + em);
         JQ_addClass(quote.ch("h6"), "title-" + color + em);
     }
