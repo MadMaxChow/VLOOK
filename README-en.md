@@ -78,7 +78,7 @@ You can start a brand **new Markdown experience** in just **3 steps**, [click he
 
 # Quick Reference Manual
 
-VLOOK ™ through the ongoing **excavation and expansion of** Markdown and CSS, combined with Internet application scenarios document, the **document layout** , **content navigation** , **presentation aid** , **interactive experience** provides aspects such as **consistent** , **simple** , **and friendly** experience.
+VLOOK™ through the ongoing **excavation and expansion of** Markdown and CSS, combined with Internet application scenarios document, the **document layout**, **content navigation**, **presentation aid**, **interactive experience** provides aspects such as **consistent**, **simple**, **and friendly** experience.
 
 > - For detailed introduction, samples and instructions of VLOOK™ features, please refer to "VLOOK™ Quick Reference Manual"••• [GitHub](https://madmaxchow.github.io/VLOOK/guide.html) •• [Gitee](https://madmaxchow.gitee.io/vlook/guide.html)
 
