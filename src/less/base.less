@@ -2,7 +2,7 @@
  *
  * VLOOK CSS 基础库
  *
- * V15.1
+ * V16-dev
  * 2022-06-25
  * powered by MAX°孟兆
  *
@@ -97,10 +97,16 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --v-fig-grid-l-invert: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEX78+v7xY/7nD37qlj7hxPQTWj+AAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
     --v-fig-grid-b-invert: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEXwrmvNlVyQaUGvf09WPygcqEMaAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
 
+    // 代码块背景图（Light / Dark）
+    // --c-blk-bg-lg: @codeBlockBackground;
+    // --c-blk-bg-dk: @codeBlockBackgroundDark;
+
     // 光标：复制
     --cur-copy: var(--cur-copy-normal);
-    --cur-copy-normal: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGRlZnM+PHBhdGggZD0iTTAgMGgxOGE2IDYgMCAwIDEgNiA2djEyYTYgNiAwIDAgMS02IDZINmE2IDYgMCAwIDEtNi02VjB6IiBpZD0iYiIvPjxmaWx0ZXIgeD0iLTE2LjclIiB5PSItMTYuNyUiIHdpZHRoPSIxNDEuNyUiIGhlaWdodD0iMTQxLjclIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIGlkPSJhIj48ZmVPZmZzZXQgZHg9IjEiIGR5PSIxIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIi8+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMS41IiBpbj0ic2hhZG93T2Zmc2V0T3V0ZXIxIiByZXN1bHQ9InNoYWRvd0JsdXJPdXRlcjEiLz48ZmVDb21wb3NpdGUgaW49InNoYWRvd0JsdXJPdXRlcjEiIGluMj0iU291cmNlQWxwaGEiIG9wZXJhdG9yPSJvdXQiIHJlc3VsdD0ic2hhZG93Qmx1ck91dGVyMSIvPjxmZUNvbG9yTWF0cml4IHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMC4zIDAiIGluPSJzaGFkb3dCbHVyT3V0ZXIxIi8+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGcgZmlsbD0iIzAwMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMiAyKSI+PHVzZSBmaWx0ZXI9InVybCgjYSkiIHhsaW5rOmhyZWY9IiNiIi8+PHBhdGggc3Ryb2tlPSIjRkZGIiBkPSJNMTggLjVjMS41MTkgMCAyLjg5NC42MTYgMy44OSAxLjYxQTUuNDgzIDUuNDgzIDAgMCAxIDIzLjUgNnYxMmE1LjQ4MyA1LjQ4MyAwIDAgMS0xLjYxIDMuODlBNS40ODMgNS40ODMgMCAwIDEgMTggMjMuNUg2YTUuNDgzIDUuNDgzIDAgMCAxLTMuODktMS42MUE1LjQ4MyA1LjQ4MyAwIDAgMSAuNSAxOFYuNXoiIHN0cm9rZS1saW5lam9pbj0ic3F1YXJlIi8+PC9nPjxwYXRoIGQ9Ik0xOC42MTMgOEMxOS4zOCA4IDIwIDguNjIxIDIwIDkuMzg3djcuNzI2YTEuMzg4IDEuMzg4IDAgMCAxLTEuMzg3IDEuMzg3SDE2Ljd2LjExM2MwIC43NjYtLjYyMSAxLjM4Ni0xLjM4NyAxLjM4N0g5LjM4N0ExLjM4OCAxLjM4OCAwIDAgMSA4IDE4LjYxM3YtNy43MjZDOCAxMC4xMiA4LjYyMSA5LjUgOS4zODcgOS41SDExLjN2LS4xMTNBMS4zODggMS4zODggMCAwIDEgMTIuNjg3IDhoNS45MjZ6TTkuMzg3IDE5LjFoNS45MjZhLjQ4OC40ODggMCAwIDAgLjQ4Ny0uNDg3di03LjcyNmEuNDg3LjQ4NyAwIDAgMC0uNDg3LS40ODdIOS4zODdhLjQ4OC40ODggMCAwIDAtLjQ4Ny40ODd2Ny43MjZjMCAuMjY5LjIxOS40ODcuNDg3LjQ4N3ptNC43NjMtNi45YS40NS40NSAwIDAgMSAwIC45aC0zLjZhLjQ1LjQ1IDAgMCAxIDAtLjloMy42em0wIDIuMWEuNDUuNDUgMCAwIDEgMCAuOWgtMy42YS40NS40NSAwIDAgMSAwLS45aDMuNnptLTEuMiAyLjFhLjQ1LjQ1IDAgMCAxIDAgLjloLTIuNGEuNDUuNDUgMCAwIDEgMC0uOWgyLjR6IiBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L2c+PC9zdmc+"), auto !important;
-    --cur-copy-as-md: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCA1NiAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGRlZnM+PHBhdGggZD0iTTAgMGg0NGE2IDYgMCAwIDEgNiA2djEyYTYgNiAwIDAgMS02IDZINmE2IDYgMCAwIDEtNi02VjB6IiBpZD0iYiIvPjxmaWx0ZXIgeD0iLTglIiB5PSItMTYuNyUiIGhlaWdodD0iMTQxLjclIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIGlkPSJhIj48ZmVPZmZzZXQgZHg9IjEiIGR5PSIxIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIi8+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMS41IiBpbj0ic2hhZG93T2Zmc2V0T3V0ZXIxIiByZXN1bHQ9InNoYWRvd0JsdXJPdXRlcjEiLz48ZmVDb21wb3NpdGUgaW49InNoYWRvd0JsdXJPdXRlcjEiIGluMj0iU291cmNlQWxwaGEiIG9wZXJhdG9yPSJvdXQiIHJlc3VsdD0ic2hhZG93Qmx1ck91dGVyMSIvPjxmZUNvbG9yTWF0cml4IHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMC4zIDAiIGluPSJzaGFkb3dCbHVyT3V0ZXIxIi8+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGcgZmlsbD0iIzAwMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMiAyKSI+PHVzZSBmaWx0ZXI9InVybCgjYSkiIHhsaW5rOmhyZWY9IiNiIi8+PHBhdGggc3Ryb2tlPSIjRkZGIiBkPSJNNDQgLjVjMS41MTkgMCAyLjg5NC42MTYgMy44OSAxLjYxQTUuNDgzIDUuNDgzIDAgMCAxIDQ5LjUgNnYxMmE1LjQ4MyA1LjQ4MyAwIDAgMS0xLjYxIDMuODlBNS40ODMgNS40ODMgMCAwIDEgNDQgMjMuNUg2YTUuNDgzIDUuNDgzIDAgMCAxLTMuODktMS42MUE1LjQ4MyA1LjQ4MyAwIDAgMSAuNSAxOFYuNXoiIHN0cm9rZS1saW5lam9pbj0ic3F1YXJlIi8+PC9nPjxwYXRoIGQ9Ik0xOC42MTMgOEMxOS4zOCA4IDIwIDguNjIxIDIwIDkuMzg3djcuNzI2YTEuMzg4IDEuMzg4IDAgMCAxLTEuMzg3IDEuMzg3SDE2Ljd2LjExM2MwIC43NjYtLjYyMSAxLjM4Ni0xLjM4NyAxLjM4N0g5LjM4N0ExLjM4OCAxLjM4OCAwIDAgMSA4IDE4LjYxM3YtNy43MjZDOCAxMC4xMiA4LjYyMSA5LjUgOS4zODcgOS41SDExLjN2LS4xMTNBMS4zODggMS4zODggMCAwIDEgMTIuNjg3IDhoNS45MjZ6TTkuMzg3IDE5LjFoNS45MjZhLjQ4OC40ODggMCAwIDAgLjQ4Ny0uNDg3di03LjcyNmEuNDg3LjQ4NyAwIDAgMC0uNDg3LS40ODdIOS4zODdhLjQ4OC40ODggMCAwIDAtLjQ4Ny40ODd2Ny43MjZjMCAuMjY5LjIxOS40ODcuNDg3LjQ4N3ptNC43NjMtNi45YS40NS40NSAwIDAgMSAwIC45aC0zLjZhLjQ1LjQ1IDAgMCAxIDAtLjloMy42em0wIDIuMWEuNDUuNDUgMCAwIDEgMCAuOWgtMy42YS40NS40NSAwIDAgMSAwLS45aDMuNnptLTEuMiAyLjFhLjQ1LjQ1IDAgMCAxIDAgLjloLTIuNGEuNDUuNDUgMCAwIDEgMC0uOWgyLjR6IiBmaWxsLW9wYWNpdHk9Ii41IiBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNMjcgMThWOWgyLjU4bDIuNTgxIDMuMzA5TDM0Ljc0MSA5aDIuNTgydjloLTIuNTgxdi01LjE2MmwtMi41OCAzLjMxLTIuNTgxLTMuMzFWMThIMjd6bTE2LjEyOSAwbC0zLjg3LTQuMzY4aDIuNThWOWgyLjU4djQuNjMySDQ3TDQzLjEyOSAxOHoiIGZpbGw9IiNGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIvPjwvZz48L3N2Zz4="), auto !important;
+    --cur-copy-normal: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAzNSAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48Y2xpcFBhdGggaWQ9ImEiPjxwYXRoIGQ9Ik0xMC4yMjQgMEEuNzguNzggMCAwIDEgMTEgLjc4M3YxMi40MzRhLjc4MS43ODEgMCAwIDEtLjc3Ni43ODNILjc3NkEuNzguNzggMCAwIDEgMCAxMy4yMTdWLjc4M0EuNzguNzggMCAwIDEgLjc3NiAweiIvPjwvY2xpcFBhdGg+PGZpbHRlciBpZD0iYiIgeD0iLTM3LjUlIiB5PSItMzcuNSUiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjE1OC4zMzMlIiBoZWlnaHQ9IjE1OC4zMzMlIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxLjUiIGluPSJTb3VyY2VBbHBoYSIgcmVzdWx0PSJpMiIvPjxmZU9mZnNldCBkeD0iMSIgZHk9IjEiIGluPSJpMiIgcmVzdWx0PSJpMyIvPjxmZUNvbG9yTWF0cml4IHZhbHVlcz0iMCAwIDAgMC4wIDAgMCAwIDAgMC4wIDAgMCAwIDAgMC4wIDAgMCAwIDAgMC41IDAiIGluPSJpMyIvPjwvZmlsdGVyPjxjbGlwUGF0aCBpZD0iYyI+PHBhdGggZD0iTTE1LjkyIDBBMi4wODMgMi4wODMgMCAwIDEgMTggMi4wOHYxMS41OWEyLjA4MyAyLjA4MyAwIDAgMS0yLjA4IDIuMDhoLTIuODd2LjE3QTIuMDgyIDIuMDgyIDAgMCAxIDEwLjk3IDE4SDIuMDhBMi4wODIgMi4wODIgMCAwIDEgMCAxNS45MlY0LjMzYTIuMDgyIDIuMDgyIDAgMCAxIDIuMDgtMi4wOGgyLjg3di0uMTdBMi4wODMgMi4wODMgMCAwIDEgNy4wMyAwaDguODl6bS00Ljk1IDMuNkgyLjA4YS43MzEuNzMxIDAgMCAwLS43My43M3YxMS41OWMwIC40MDMuMzI4LjczLjczLjczaDguODljLjQwMyAwIC43MjktLjMyNy43My0uNzNWNC4zM2EuNzMuNzMgMCAwIDAtLjczLS43M3ptNC45NS0yLjI1SDcuMDNhLjczMS43MzEgMCAwIDAtLjczLjczdi4xN2g0LjY3YTIuMDgyIDIuMDgyIDAgMCAxIDIuMDggMi4wOFYxNC40aDIuODdjLjQwMiAwIC43My0uMzI3LjczLS43M1YyLjA4YS43MzEuNzMxIDAgMCAwLS43My0uNzN6TTcuNDI1IDEyLjZhLjY3NS42NzUgMCAwIDEgMCAxLjM1aC0zLjZhLjY3NS42NzUgMCAwIDEgMC0xLjM1aDMuNnptMS44LTMuMTVhLjY3NS42NzUgMCAwIDEgMCAxLjM1aC01LjRhLjY3NS42NzUgMCAwIDEgMC0xLjM1aDUuNHptMC0zLjE1YS42NzUuNjc1IDAgMCAxIDAgMS4zNWgtNS40YS42NzUuNjc1IDAgMCAxIDAtMS4zNWg1LjR6Ii8+PC9jbGlwUGF0aD48ZmlsdGVyIGlkPSJkIiB4PSItNDYuOTM3JSIgeT0iLTM0LjkzOSUiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjE2Ny4wNTMlIiBoZWlnaHQ9IjE1MC4wNDglIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0iaTYiLz48ZmVPZmZzZXQgZHg9IjEiIGR5PSIxIiBpbj0iaTYiIHJlc3VsdD0iaTciLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjAgMCAwIDAuMCAwIDAgMCAwIDAuMCAwIDAgMCAwIDAuMCAwIDAgMCAwIDAuNSAwIiBpbj0iaTciLz48L2ZpbHRlcj48Y2xpcFBhdGggaWQ9ImUiPjxwYXRoIGQ9Ik0uNzQzLjA5NWw4LjEyNiA3LjUxM0EuNDA3LjQwNyAwIDAgMSA5IDcuOTJhLjQ4MS40ODEgMCAwIDEtLjM5My40ODlsLTMuMTkuMjY2IDEuODM1IDMuOTU3Yy4wODguMjIyIDAgLjQ5LS4yMTguNTc4bC0xLjU3My43NTZjLS4yMTguMDg5LS40OCAwLS41NjgtLjIyMkwzLjAxNSA5LjY5OC43NDMgMTIuMDFhLjM5My4zOTMgMCAwIDEtLjMwNi4xMzNjLS4yNjIgMC0uNDM3LS4xNzgtLjQzNy0uNDQ0Vi40NUEuNDYyLjQ2MiAwIDAgMSAuNzQzLjA5NXoiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iZiI+PHBhdGggZD0iTTExLTEuOTlWMTZILTJWLTEuOTloMTN6TS43NDMuMDk0QS40NjIuNDYyIDAgMCAwIDAgLjQ1MXYxMS4yNDhjMCAuMjY2LjE3NS40NDQuNDM3LjQ0NGEuMzkzLjM5MyAwIDAgMCAuMzA2LS4xMzNsMi4yNzItMi4zMTIgMS44NzggNC4wNDZjLjA4OC4yMjIuMzUuMzEuNTY4LjIyMmwxLjU3My0uNzU2Yy4yMTgtLjA4OS4zMDYtLjM1Ni4yMTgtLjU3OEw1LjQxNyA4LjY3NWwzLjE5LS4yNjZBLjQ4MS40ODEgMCAwIDAgOSA3LjkxOWEuNDA3LjQwNyAwIDAgMC0uMTMxLS4zMXoiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjYSkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0IDUpIj48cGF0aCBkPSJNMCAwaDExdjE0SDBWMHoiLz48L2c+PGcgY2xpcC1wYXRoPSJ1cmwoI2EpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxOSAzKSI+PHBhdGggZD0iTTAgMGgxMXYxNEgwVjB6Ii8+PC9nPjxwYXRoIGQ9Ik0xNS45MiAwQTIuMDgzIDIuMDgzIDAgMCAxIDE4IDIuMDh2MTEuNTlhMi4wODMgMi4wODMgMCAwIDEtMi4wOCAyLjA4aC0yLjg3di4xN0EyLjA4MiAyLjA4MiAwIDAgMSAxMC45NyAxOEgyLjA4QTIuMDgyIDIuMDgyIDAgMCAxIDAgMTUuOTJWNC4zM2EyLjA4MiAyLjA4MiAwIDAgMSAyLjA4LTIuMDhoMi44N3YtLjE3QTIuMDgzIDIuMDgzIDAgMCAxIDcuMDMgMGg4Ljg5ek0yLjA4IDE2LjY1aDguODljLjQwMyAwIC43MjktLjMyNy43My0uNzNWNC4zM2EuNzMuNzMgMCAwIDAtLjczLS43M0gyLjA4YS43MzEuNzMxIDAgMCAwLS43My43M3YxMS41OWMwIC40MDMuMzI4LjczLjczLjczek0xNi42NSAyLjA4YS43MzEuNzMxIDAgMCAwLS43My0uNzNINy4wM2EuNzMxLjczMSAwIDAgMC0uNzMuNzN2LjE3aDQuNjdhMi4wODIgMi4wODIgMCAwIDEgMi4wOCAyLjA4VjE0LjRoMi44N2MuNDAyIDAgLjczLS4zMjcuNzMtLjczVjIuMDh6TTkuMjI1IDYuM2EuNjc1LjY3NSAwIDAgMSAwIDEuMzVoLTUuNGEuNjc1LjY3NSAwIDAgMSAwLTEuMzVoNS40em0wIDMuMTVhLjY3NS42NzUgMCAwIDEgMCAxLjM1aC01LjRhLjY3NS42NzUgMCAwIDEgMC0xLjM1aDUuNHptLTEuOCAzLjE1YS42NzUuNjc1IDAgMCAxIDAgMS4zNWgtMy42YS42NzUuNjc1IDAgMCAxIDAtMS4zNWgzLjZ6IiBmaWx0ZXI9InVybCgjYikiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzIDIpIi8+PGcgY2xpcC1wYXRoPSJ1cmwoI2MpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMyAyKSI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTAgMGgxOHYxOEgwVjB6Ii8+PC9nPjxnPjxwYXRoIGQ9Ik0tLjA1My0uODQ1Qy4zNy0xLjA0Ny43NS0uOTk0IDEuMDYzLS44OGw4LjY5MiA3Ljk0NGMuMjIyLjY5My4xNzMgMS4xMy4wOCAxLjQxNC0uMDg4LjI2OS0uMjMxLjQ2LS4zOTYuNjA0LS4yLjE3My0uNDQuMjc5LS43MDUuMzJsLTEuODA3LjE1IDEuMjQyIDIuNjc5Yy4xNTIuMzU5LjE1Ljc1OS4wMjIgMS4xYTEuMzkgMS4zOSAwIDAgMS0uNzQzLjc5bC0xLjU3My43NTZjLS4zNjUuMTYtLjc3MS4xNTktMS4xMTcuMDIzYTEuMzg5IDEuMzg5IDAgMCAxLS43OC0uNzU1TDIuNzE1IDExLjQzbC0xLjQ0NSAxLjQ3Yy0uNzM2LjI0LTEuMTg4LjE2LTEuNDcuMDQxYTEuMjU2IDEuMjU2IDAgMCAxLS42MTYtLjUzNUExLjM4IDEuMzggMCAwIDEtMSAxMS42OTlWLjE5Yy4zMjUtLjYzNi42NzUtLjkwNS45NDctMS4wMzV6IiBmaWx0ZXI9InVybCgjZCkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIgMykiLz48ZyBjbGlwLXBhdGg9InVybCgjZSkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIgMykiPjxwYXRoIGQ9Ik0wIDBoOXYxNEgwVjB6Ii8+PC9nPjxnIGNsaXAtcGF0aD0idXJsKCNmKSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMiAzKSI+PHBhdGggZD0iTTUuNDE3IDguNjc1bDEuODM1IDMuOTU3Yy4wODguMjIyIDAgLjQ5LS4yMTguNTc4bC0xLjU3My43NTZjLS4yMTguMDg5LS40OCAwLS41NjgtLjIyMkwzLjAxNSA5LjY5OC43NDMgMTIuMDFhLjM5My4zOTMgMCAwIDEtLjMwNi4xMzNjLS4yNjIgMC0uNDM3LS4xNzgtLjQzNy0uNDQ0Vi40NUEuNDYyLjQ2MiAwIDAgMSAuNzQzLjA5NWw4LjEyNiA3LjUxM0EuNDA3LjQwNyAwIDAgMSA5IDcuOTJhLjQ4MS40ODEgMCAwIDEtLjM5My40ODlsLTMuMTkuMjY2eiIgc3Ryb2tlPSIjRkZGIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1taXRlcmxpbWl0PSI1Ii8+PC9nPjwvZz48L3N2Zz4="), auto !important;
+    --cur-copy-as-md: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjEiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCA2MSAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48ZmlsdGVyIGlkPSJhIiB4PSItMzQuMjIlIiB5PSItNTcuMTE4JSIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB3aWR0aD0iMTQ3LjkwOCUiIGhlaWdodD0iMTc5Ljk2NSUiPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEuNSIgaW49IlNvdXJjZUFscGhhIiByZXN1bHQ9ImkxIi8+PGZlT2Zmc2V0IGR4PSIxIiBkeT0iMSIgaW49ImkxIiByZXN1bHQ9ImkyIi8+PGZlQ29sb3JNYXRyaXggdmFsdWVzPSIwIDAgMCAwLjAgMCAwIDAgMCAwLjAgMCAwIDAgMCAwLjAgMCAwIDAgMCAwLjUgMCIgaW49ImkyIi8+PC9maWx0ZXI+PGNsaXBQYXRoIGlkPSJiIj48cGF0aCBkPSJNMi41OCAwbDIuNTgxIDMuMzA5TDcuNzQxIDBoMi41ODJ2OUg3Ljc0MlYzLjgzOGwtMi41OCAzLjMxLTIuNTgxLTMuMzFWOUgwVjBoMi41OHptMTQuODQgMHY0LjYzMkgyMEwxNi4xMjkgOWwtMy44Ny00LjM2OGgyLjU4VjBoMi41OHoiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iYyI+PHBhdGggZD0iTTIzLjIyMy0ydjEzLjUwOEgtMlYtMmgyNS4yMjN6TTIuNTggMEgwdjloMi41OFYzLjgzOGwyLjU4MSAzLjMxIDIuNTgtMy4zMVY5aDIuNTgyVjBINy43NDJsLTIuNTggMy4zMDlMMi41OCAwem0xNC44MzggMGgtMi41OHY0LjYzMmgtMi41OEwxNi4xMjggOSAyMCA0LjYzMmgtMi41OFYweiIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSJkIj48cGF0aCBkPSJNMTAuMjI0IDBBLjc4Ljc4IDAgMCAxIDExIC43ODN2MTIuNDM0YS43ODEuNzgxIDAgMCAxLS43NzYuNzgzSC43NzZBLjc4Ljc4IDAgMCAxIDAgMTMuMjE3Vi43ODNBLjc4Ljc4IDAgMCAxIC43NzYgMHoiLz48L2NsaXBQYXRoPjxmaWx0ZXIgaWQ9ImUiIHg9Ii0zNy41JSIgeT0iLTM3LjUlIiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSIxNTguMzMzJSIgaGVpZ2h0PSIxNTguMzMzJSI+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMS41IiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0iaTciLz48ZmVPZmZzZXQgZHg9IjEiIGR5PSIxIiBpbj0iaTciIHJlc3VsdD0iaTgiLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjAgMCAwIDAuMCAwIDAgMCAwIDAuMCAwIDAgMCAwIDAuMCAwIDAgMCAwIDAuNSAwIiBpbj0iaTgiLz48L2ZpbHRlcj48Y2xpcFBhdGggaWQ9ImYiPjxwYXRoIGQ9Ik0xNS45MiAwQTIuMDgzIDIuMDgzIDAgMCAxIDE4IDIuMDh2MTEuNTlhMi4wODMgMi4wODMgMCAwIDEtMi4wOCAyLjA4aC0yLjg3di4xN0EyLjA4MiAyLjA4MiAwIDAgMSAxMC45NyAxOEgyLjA4QTIuMDgyIDIuMDgyIDAgMCAxIDAgMTUuOTJWNC4zM2EyLjA4MiAyLjA4MiAwIDAgMSAyLjA4LTIuMDhoMi44N3YtLjE3QTIuMDgzIDIuMDgzIDAgMCAxIDcuMDMgMGg4Ljg5em0tNC45NSAzLjZIMi4wOGEuNzMxLjczMSAwIDAgMC0uNzMuNzN2MTEuNTljMCAuNDAzLjMyOC43My43My43M2g4Ljg5Yy40MDMgMCAuNzI5LS4zMjcuNzMtLjczVjQuMzNhLjczLjczIDAgMCAwLS43My0uNzN6bTQuOTUtMi4yNUg3LjAzYS43MzEuNzMxIDAgMCAwLS43My43M3YuMTdoNC42N2EyLjA4MiAyLjA4MiAwIDAgMSAyLjA4IDIuMDhWMTQuNGgyLjg3Yy40MDIgMCAuNzMtLjMyNy43My0uNzNWMi4wOGEuNzMxLjczMSAwIDAgMC0uNzMtLjczek03LjQyNSAxMi42YS42NzUuNjc1IDAgMCAxIDAgMS4zNWgtMy42YS42NzUuNjc1IDAgMCAxIDAtMS4zNWgzLjZ6bTEuOC0zLjE1YS42NzUuNjc1IDAgMCAxIDAgMS4zNWgtNS40YS42NzUuNjc1IDAgMCAxIDAtMS4zNWg1LjR6bTAtMy4xNWEuNjc1LjY3NSAwIDAgMSAwIDEuMzVoLTUuNGEuNjc1LjY3NSAwIDAgMSAwLTEuMzVoNS40eiIvPjwvY2xpcFBhdGg+PGZpbHRlciBpZD0iZyIgeD0iLTQ2LjkzNyUiIHk9Ii0zNC45MzklIiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSIxNjcuMDUzJSIgaGVpZ2h0PSIxNTAuMDQ4JSI+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMSIgaW49IlNvdXJjZUFscGhhIiByZXN1bHQ9ImkxMSIvPjxmZU9mZnNldCBkeD0iMSIgZHk9IjEiIGluPSJpMTEiIHJlc3VsdD0iaTEyIi8+PGZlQ29sb3JNYXRyaXggdmFsdWVzPSIwIDAgMCAwLjAgMCAwIDAgMCAwLjAgMCAwIDAgMCAwLjAgMCAwIDAgMCAwLjUgMCIgaW49ImkxMiIvPjwvZmlsdGVyPjxjbGlwUGF0aCBpZD0iaCI+PHBhdGggZD0iTS43NDMuMDk1bDguMTI2IDcuNTEzQS40MDcuNDA3IDAgMCAxIDkgNy45MmEuNDgxLjQ4MSAwIDAgMS0uMzkzLjQ4OWwtMy4xOS4yNjYgMS44MzUgMy45NTdjLjA4OC4yMjIgMCAuNDktLjIxOC41NzhsLTEuNTczLjc1NmMtLjIxOC4wODktLjQ4IDAtLjU2OC0uMjIyTDMuMDE1IDkuNjk4Ljc0MyAxMi4wMWEuMzkzLjM5MyAwIDAgMS0uMzA2LjEzM2MtLjI2MiAwLS40MzctLjE3OC0uNDM3LS40NDRWLjQ1QS40NjIuNDYyIDAgMCAxIC43NDMuMDk1eiIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSJpIj48cGF0aCBkPSJNMTEtMS45OVYxNkgtMlYtMS45OWgxM3pNLjc0My4wOTRBLjQ2Mi40NjIgMCAwIDAgMCAuNDUxdjExLjI0OGMwIC4yNjYuMTc1LjQ0NC40MzcuNDQ0YS4zOTMuMzkzIDAgMCAwIC4zMDYtLjEzM2wyLjI3Mi0yLjMxMiAxLjg3OCA0LjA0NmMuMDg4LjIyMi4zNS4zMS41NjguMjIybDEuNTczLS43NTZjLjIxOC0uMDg5LjMwNi0uMzU2LjIxOC0uNTc4TDUuNDE3IDguNjc1bDMuMTktLjI2NkEuNDgxLjQ4MSAwIDAgMCA5IDcuOTE5YS40MDcuNDA3IDAgMCAwLS4xMzEtLjMxeiIvPjwvY2xpcFBhdGg+PC9kZWZzPjxwYXRoIGQ9Ik0zLjA2OS0xTDUuMTYgMS42ODMgNy4yNTQtMWg0LjA2OXYxMUg2Ljc0MlY2Ljc0NmwtMS41OCAyLjAyN0wzLjU4IDYuNzQ2VjEwSC0xVi0xaDQuMDY5em0xMC43NyAwaDQuNTh2NC42MzJoMy44MDRsLTYuMDk0IDYuODc2LTYuMDkzLTYuODc2aDMuODAzVi0xeiIgZmlsdGVyPSJ1cmwoI2EpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNCAzKSIvPjxnIGNsaXAtcGF0aD0idXJsKCNiKSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzQgMykiPjxwYXRoIGQ9Ik0wIDBoMjB2OUgwVjB6Ii8+PC9nPjxnIGNsaXAtcGF0aD0idXJsKCNjKSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzQgMykiPjxwYXRoIGQ9Ik0wIDlWMGgyLjU4bDIuNTgxIDMuMzA5TDcuNzQxIDBoMi41ODJ2OUg3Ljc0MlYzLjgzOGwtMi41OCAzLjMxLTIuNTgxLTMuMzFWOUgwem0xNi4xMjkgMGwtMy44Ny00LjM2OGgyLjU4VjBoMi41OHY0LjYzMkgyMEwxNi4xMjkgOXoiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbWl0ZXJsaW1pdD0iNSIvPjwvZz48ZyBjbGlwLXBhdGg9InVybCgjZCkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0IDUpIj48cGF0aCBmaWxsPSIjMzMzIiBkPSJNMCAwaDExdjE0SDBWMHoiLz48L2c+PGcgY2xpcC1wYXRoPSJ1cmwoI2QpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxOSAzKSI+PHBhdGggZmlsbD0iIzMzMyIgZD0iTTAgMGgxMXYxNEgwVjB6Ii8+PC9nPjxnPjxwYXRoIGQ9Ik0xNS45MiAwQTIuMDgzIDIuMDgzIDAgMCAxIDE4IDIuMDh2MTEuNTlhMi4wODMgMi4wODMgMCAwIDEtMi4wOCAyLjA4aC0yLjg3di4xN0EyLjA4MiAyLjA4MiAwIDAgMSAxMC45NyAxOEgyLjA4QTIuMDgyIDIuMDgyIDAgMCAxIDAgMTUuOTJWNC4zM2EyLjA4MiAyLjA4MiAwIDAgMSAyLjA4LTIuMDhoMi44N3YtLjE3QTIuMDgzIDIuMDgzIDAgMCAxIDcuMDMgMGg4Ljg5ek0yLjA4IDE2LjY1aDguODljLjQwMyAwIC43MjktLjMyNy43My0uNzNWNC4zM2EuNzMuNzMgMCAwIDAtLjczLS43M0gyLjA4YS43MzEuNzMxIDAgMCAwLS43My43M3YxMS41OWMwIC40MDMuMzI4LjczLjczLjczek0xNi42NSAyLjA4YS43MzEuNzMxIDAgMCAwLS43My0uNzNINy4wM2EuNzMxLjczMSAwIDAgMC0uNzMuNzN2LjE3aDQuNjdhMi4wODIgMi4wODIgMCAwIDEgMi4wOCAyLjA4VjE0LjRoMi44N2MuNDAyIDAgLjczLS4zMjcuNzMtLjczVjIuMDh6TTkuMjI1IDYuM2EuNjc1LjY3NSAwIDAgMSAwIDEuMzVoLTUuNGEuNjc1LjY3NSAwIDAgMSAwLTEuMzVoNS40em0wIDMuMTVhLjY3NS42NzUgMCAwIDEgMCAxLjM1aC01LjRhLjY3NS42NzUgMCAwIDEgMC0xLjM1aDUuNHptLTEuOCAzLjE1YS42NzUuNjc1IDAgMCAxIDAgMS4zNWgtMy42YS42NzUuNjc1IDAgMCAxIDAtMS4zNWgzLjZ6IiBmaWx0ZXI9InVybCgjZSkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzIDIpIi8+PGcgY2xpcC1wYXRoPSJ1cmwoI2YpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMyAyKSI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTAgMGgxOHYxOEgwVjB6Ii8+PC9nPjwvZz48Zz48cGF0aCBkPSJNLS4wNTMtLjg0NUMuMzctMS4wNDcuNzUtLjk5NCAxLjA2My0uODhsOC42OTIgNy45NDRjLjIyMi42OTMuMTczIDEuMTMuMDggMS40MTQtLjA4OC4yNjktLjIzMS40Ni0uMzk2LjYwNC0uMi4xNzMtLjQ0LjI3OS0uNzA1LjMybC0xLjgwNy4xNSAxLjI0MiAyLjY3OWMuMTUyLjM1OS4xNS43NTkuMDIyIDEuMWExLjM5IDEuMzkgMCAwIDEtLjc0My43OWwtMS41NzMuNzU2Yy0uMzY1LjE2LS43NzEuMTU5LTEuMTE3LjAyM2ExLjM4OSAxLjM4OSAwIDAgMS0uNzgtLjc1NUwyLjcxNSAxMS40M2wtMS40NDUgMS40N2MtLjczNi4yNC0xLjE4OC4xNi0xLjQ3LjA0MWExLjI1NiAxLjI1NiAwIDAgMS0uNjE2LS41MzVBMS4zOCAxLjM4IDAgMCAxLTEgMTEuNjk5Vi4xOWMuMzI1LS42MzYuNjc1LS45MDUuOTQ3LTEuMDM1eiIgZmlsdGVyPSJ1cmwoI2cpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyIDMpIi8+PGcgY2xpcC1wYXRoPSJ1cmwoI2gpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyIDMpIj48cGF0aCBkPSJNMCAwaDl2MTRIMFYweiIvPjwvZz48ZyBjbGlwLXBhdGg9InVybCgjaSkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIgMykiPjxwYXRoIGQ9Ik01LjQxNyA4LjY3NWwxLjgzNSAzLjk1N2MuMDg4LjIyMiAwIC40OS0uMjE4LjU3OGwtMS41NzMuNzU2Yy0uMjE4LjA4OS0uNDggMC0uNTY4LS4yMjJMMy4wMTUgOS42OTguNzQzIDEyLjAxYS4zOTMuMzkzIDAgMCAxLS4zMDYuMTMzYy0uMjYyIDAtLjQzNy0uMTc4LS40MzctLjQ0NFYuNDVBLjQ2Mi40NjIgMCAwIDEgLjc0My4wOTVsOC4xMjYgNy41MTNBLjQwNy40MDcgMCAwIDEgOSA3LjkyYS40ODEuNDgxIDAgMCAxLS4zOTMuNDg5bC0zLjE5LjI2NnoiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbWl0ZXJsaW1pdD0iNSIvPjwvZz48L2c+PC9zdmc+"), auto !important;
+    // --cur-copy-normal: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGRlZnM+PHBhdGggZD0iTTAgMGgxOGE2IDYgMCAwIDEgNiA2djEyYTYgNiAwIDAgMS02IDZINmE2IDYgMCAwIDEtNi02VjB6IiBpZD0iYiIvPjxmaWx0ZXIgeD0iLTE2LjclIiB5PSItMTYuNyUiIHdpZHRoPSIxNDEuNyUiIGhlaWdodD0iMTQxLjclIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIGlkPSJhIj48ZmVPZmZzZXQgZHg9IjEiIGR5PSIxIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIi8+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMS41IiBpbj0ic2hhZG93T2Zmc2V0T3V0ZXIxIiByZXN1bHQ9InNoYWRvd0JsdXJPdXRlcjEiLz48ZmVDb21wb3NpdGUgaW49InNoYWRvd0JsdXJPdXRlcjEiIGluMj0iU291cmNlQWxwaGEiIG9wZXJhdG9yPSJvdXQiIHJlc3VsdD0ic2hhZG93Qmx1ck91dGVyMSIvPjxmZUNvbG9yTWF0cml4IHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMC4zIDAiIGluPSJzaGFkb3dCbHVyT3V0ZXIxIi8+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGcgZmlsbD0iIzAwMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMiAyKSI+PHVzZSBmaWx0ZXI9InVybCgjYSkiIHhsaW5rOmhyZWY9IiNiIi8+PHBhdGggc3Ryb2tlPSIjRkZGIiBkPSJNMTggLjVjMS41MTkgMCAyLjg5NC42MTYgMy44OSAxLjYxQTUuNDgzIDUuNDgzIDAgMCAxIDIzLjUgNnYxMmE1LjQ4MyA1LjQ4MyAwIDAgMS0xLjYxIDMuODlBNS40ODMgNS40ODMgMCAwIDEgMTggMjMuNUg2YTUuNDgzIDUuNDgzIDAgMCAxLTMuODktMS42MUE1LjQ4MyA1LjQ4MyAwIDAgMSAuNSAxOFYuNXoiIHN0cm9rZS1saW5lam9pbj0ic3F1YXJlIi8+PC9nPjxwYXRoIGQ9Ik0xOC42MTMgOEMxOS4zOCA4IDIwIDguNjIxIDIwIDkuMzg3djcuNzI2YTEuMzg4IDEuMzg4IDAgMCAxLTEuMzg3IDEuMzg3SDE2Ljd2LjExM2MwIC43NjYtLjYyMSAxLjM4Ni0xLjM4NyAxLjM4N0g5LjM4N0ExLjM4OCAxLjM4OCAwIDAgMSA4IDE4LjYxM3YtNy43MjZDOCAxMC4xMiA4LjYyMSA5LjUgOS4zODcgOS41SDExLjN2LS4xMTNBMS4zODggMS4zODggMCAwIDEgMTIuNjg3IDhoNS45MjZ6TTkuMzg3IDE5LjFoNS45MjZhLjQ4OC40ODggMCAwIDAgLjQ4Ny0uNDg3di03LjcyNmEuNDg3LjQ4NyAwIDAgMC0uNDg3LS40ODdIOS4zODdhLjQ4OC40ODggMCAwIDAtLjQ4Ny40ODd2Ny43MjZjMCAuMjY5LjIxOS40ODcuNDg3LjQ4N3ptNC43NjMtNi45YS40NS40NSAwIDAgMSAwIC45aC0zLjZhLjQ1LjQ1IDAgMCAxIDAtLjloMy42em0wIDIuMWEuNDUuNDUgMCAwIDEgMCAuOWgtMy42YS40NS40NSAwIDAgMSAwLS45aDMuNnptLTEuMiAyLjFhLjQ1LjQ1IDAgMCAxIDAgLjloLTIuNGEuNDUuNDUgMCAwIDEgMC0uOWgyLjR6IiBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L2c+PC9zdmc+"), auto !important;
+    // --cur-copy-as-md: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCA1NiAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGRlZnM+PHBhdGggZD0iTTAgMGg0NGE2IDYgMCAwIDEgNiA2djEyYTYgNiAwIDAgMS02IDZINmE2IDYgMCAwIDEtNi02VjB6IiBpZD0iYiIvPjxmaWx0ZXIgeD0iLTglIiB5PSItMTYuNyUiIGhlaWdodD0iMTQxLjclIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIGlkPSJhIj48ZmVPZmZzZXQgZHg9IjEiIGR5PSIxIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIi8+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMS41IiBpbj0ic2hhZG93T2Zmc2V0T3V0ZXIxIiByZXN1bHQ9InNoYWRvd0JsdXJPdXRlcjEiLz48ZmVDb21wb3NpdGUgaW49InNoYWRvd0JsdXJPdXRlcjEiIGluMj0iU291cmNlQWxwaGEiIG9wZXJhdG9yPSJvdXQiIHJlc3VsdD0ic2hhZG93Qmx1ck91dGVyMSIvPjxmZUNvbG9yTWF0cml4IHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMC4zIDAiIGluPSJzaGFkb3dCbHVyT3V0ZXIxIi8+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGcgZmlsbD0iIzAwMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMiAyKSI+PHVzZSBmaWx0ZXI9InVybCgjYSkiIHhsaW5rOmhyZWY9IiNiIi8+PHBhdGggc3Ryb2tlPSIjRkZGIiBkPSJNNDQgLjVjMS41MTkgMCAyLjg5NC42MTYgMy44OSAxLjYxQTUuNDgzIDUuNDgzIDAgMCAxIDQ5LjUgNnYxMmE1LjQ4MyA1LjQ4MyAwIDAgMS0xLjYxIDMuODlBNS40ODMgNS40ODMgMCAwIDEgNDQgMjMuNUg2YTUuNDgzIDUuNDgzIDAgMCAxLTMuODktMS42MUE1LjQ4MyA1LjQ4MyAwIDAgMSAuNSAxOFYuNXoiIHN0cm9rZS1saW5lam9pbj0ic3F1YXJlIi8+PC9nPjxwYXRoIGQ9Ik0xOC42MTMgOEMxOS4zOCA4IDIwIDguNjIxIDIwIDkuMzg3djcuNzI2YTEuMzg4IDEuMzg4IDAgMCAxLTEuMzg3IDEuMzg3SDE2Ljd2LjExM2MwIC43NjYtLjYyMSAxLjM4Ni0xLjM4NyAxLjM4N0g5LjM4N0ExLjM4OCAxLjM4OCAwIDAgMSA4IDE4LjYxM3YtNy43MjZDOCAxMC4xMiA4LjYyMSA5LjUgOS4zODcgOS41SDExLjN2LS4xMTNBMS4zODggMS4zODggMCAwIDEgMTIuNjg3IDhoNS45MjZ6TTkuMzg3IDE5LjFoNS45MjZhLjQ4OC40ODggMCAwIDAgLjQ4Ny0uNDg3di03LjcyNmEuNDg3LjQ4NyAwIDAgMC0uNDg3LS40ODdIOS4zODdhLjQ4OC40ODggMCAwIDAtLjQ4Ny40ODd2Ny43MjZjMCAuMjY5LjIxOS40ODcuNDg3LjQ4N3ptNC43NjMtNi45YS40NS40NSAwIDAgMSAwIC45aC0zLjZhLjQ1LjQ1IDAgMCAxIDAtLjloMy42em0wIDIuMWEuNDUuNDUgMCAwIDEgMCAuOWgtMy42YS40NS40NSAwIDAgMSAwLS45aDMuNnptLTEuMiAyLjFhLjQ1LjQ1IDAgMCAxIDAgLjloLTIuNGEuNDUuNDUgMCAwIDEgMC0uOWgyLjR6IiBmaWxsLW9wYWNpdHk9Ii41IiBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNMjcgMThWOWgyLjU4bDIuNTgxIDMuMzA5TDM0Ljc0MSA5aDIuNTgydjloLTIuNTgxdi01LjE2MmwtMi41OCAzLjMxLTIuNTgxLTMuMzFWMThIMjd6bTE2LjEyOSAwbC0zLjg3LTQuMzY4aDIuNThWOWgyLjU4djQuNjMySDQ3TDQzLjEyOSAxOHoiIGZpbGw9IiNGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIvPjwvZz48L3N2Zz4="), auto !important;
 
     --v-float-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); // 按钮类外阴影
     --v-float-inn-shadow: 0 0 0 1px var(--tbl-th-bg) inset; // 按钮类内阴影（边框）
@@ -111,7 +117,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 :root {
     // #VLOOK_Var
     --v-theme-name: @themeName; // 主题名称
-    --v-theme-version: "V15.1"; // 主题版本，对应适配 VLOOK.JS 的版本
+    --v-theme-version: "V16-dev"; // 主题版本，对应适配 VLOOK.JS 的版本
     --v-color-scheme: light; // 默认颜色模式为：Light 明亮
 
     // 导航中心、工具栏相关 UI 尺寸
@@ -220,7 +226,7 @@ body.unfreeze {
 
 // img,
 #write p > img:only-child,
-#write p > .md-image:only-child:not(.md-img-error) img, // 是指 p 内只有 img 的才被视为插图
+#write p > .md-image:only-child:not(.md-img-error) img:not([src*="grid="]), // 是指 p 内只有 img 的才被视为插图
 #write img[src*="mode=figure"],
 #write svg[data-inject-url*="mode=figure"],
 #write .md-image[data-src*="#figure"] > img, // 编辑时
@@ -228,7 +234,7 @@ body.unfreeze {
 #write svg[data-inject-url*="#figure"],
 .v-fig,
 .md-diagram-panel svg {
-    background: var(--d-bc);
+    // background: var(--d-bc);
     // background: var(--d-bi);
     border-radius: var(--v-r-b);
     padding: 0;
@@ -285,7 +291,7 @@ body.unfreeze {
 // 图片 URL 参数指定图片的显示版式为：icon
 #write img[src*="mode=icon"],
 #write svg[data-inject-url*="mode=icon"],
-#write .md-image[data-src*="#icon"] > img, // 编辑时
+// #write .md-image[data-src*="#icon"] > img, // 编辑时
 #write img[src*="#icon"],
 #write svg[data-inject-url*="#icon"] {
     display: inline !important;
@@ -299,11 +305,19 @@ body.unfreeze {
 }
 #write img[src*="mode=icon2x"],
 #write svg[data-inject-url*="mode=icon2x"],
-#write .md-image[data-src*="#icon2x"] > img, // 编辑时
+// #write .md-image[data-src*="#icon2x"] > img, // 编辑时
 #write img[src*="#icon2x"],
 #write svg[data-inject-url*="#icon2x"] {
     height: 2em;
 }
+// 编辑时
+body content #write .md-image[data-src*="#icon"] > img {
+    margin-top: 5px !important;
+}
+body content #write .md-image[data-src*="#icon2x"] > img { // 编辑时
+    margin-top: 0 !important;
+}
+
 
 // 图片 URL 参数指定图片的显示版式为：logo
 #write img[src*="mode=logo"],
@@ -320,7 +334,7 @@ body.unfreeze {
 // 左对齐
 #write img[src*="mode=logol"],
 #write svg[data-inject-url*="mode=logol"],
-#write .md-image[data-src*="#logol"] > img, // 编辑时
+#write .md-image[data-src*="#logol"],// > img, // 编辑时
 #write img[src*="#logol"],
 #write svg[data-inject-url*="#logol"] {
     float: left !important;
@@ -329,7 +343,7 @@ body.unfreeze {
 // 右对齐
 #write img[src*="mode=logor"],
 #write svg[data-inject-url*="mode=logor"],
-#write .md-image[data-src*="#logor"] > img, // 编辑时
+#write .md-image[data-src*="#logor"],// > img, // 编辑时
 #write img[src*="#logor"],
 #write svg[data-inject-url*="#logor"] {
     float: right !important;
@@ -704,14 +718,23 @@ body.typora-export table a:not([name^="ref-footnote"]):hover::before {
 //     box-shadow: 0 -0.3em 0 0 fade(@accColorCyan, 30%) inset !important;
 // }
 #write a[href$=".pdf"]:hover::before,
+#write a[href$=".PDF"]:hover::before,
 #write a[href$=".doc"]:hover::before,
+#write a[href$=".DOC"]:hover::before,
 #write a[href$=".docx"]:hover::before,
+#write a[href$=".DOCX"]:hover::before,
 #write a[href$=".xls"]:hover::before,
+#write a[href$=".XLS"]:hover::before,
 #write a[href$=".xlsx"]:hover::before,
+#write a[href$=".XLSX"]:hover::before,
 #write a[href$=".ppt"]:hover::before,
+#write a[href$=".PPT"]:hover::before,
 #write a[href$=".pptx"]:hover::before,
+#write a[href$=".PPTX"]:hover::before,
 #write a[href$=".txt"]:hover::before,
-#write a[href$=".csv"]:hover::before {
+#write a[href$=".TXT"]:hover::before,
+#write a[href$=".csv"]:hover::before,
+#write a[href$=".CSV"]:hover::before {
     content: "Document";
     background: @accColorCyan;
 }
@@ -932,8 +955,10 @@ body.typora-export strong a,
 }
 
 #write hr {
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    // margin-top: 1.5em;
+    // margin-bottom: 1.5em;
     border: @aBorderWidth solid var(--pn-c);
     overflow: hidden;
     box-sizing: content-box;
@@ -1004,11 +1029,11 @@ body > h6:first-child {
 }
 
 #write ul,
-ol {
+#write ol {
     // padding-left: 1.25em;
     // padding-right: 0.625em;
     padding-left: 2em;
-    padding-right: 1em;
+    // padding-right: 1em;
     padding-bottom: 0;
 }
 // 除图片插图外的段落样式
@@ -1095,12 +1120,17 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 // 紧跟带自动题注的内容（插图、代码块、表格、音频、视频）后的引用样式微调
 #write .v-cap-cntr + blockquote,
 #write .v-cap-cntr + .v-content-expander + blockquote {
-    background: var(--pn-c);
+    // box-shadow: none !important;
+    width: fit-content;
+    max-width: 100%;
+    background: var(--pn-c) !important;
     border-top-left-radius: 0;
     // border-top-right-radius: 0;
     margin-top: -10px;
 }
 
+// --------------------
+// 引用分栏
 // 以双栏方式显示，98/2*2+2*1=100
 #write hr + blockquote,
 #write hr + blockquote + blockquote,
@@ -1111,6 +1141,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     max-width: 49% !important;
     min-width: 49% !important;
     vertical-align: top;
+    // margin-top: -0.5em;
 }
 // 双栏内容之间的样式
 #write hr + blockquote + blockquote,
@@ -1130,6 +1161,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     max-width: 32% !important;
     min-width: 32% !important;
     vertical-align: top;
+    margin-top: -0.5em;
 }
 // 三栏内容之间的样式
 #write hr + hr + blockquote + blockquote,
@@ -1153,6 +1185,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     max-width: 23.5% !important;
     min-width: 23.5% !important;
     vertical-align: top;
+    margin-top: -0.5em;
 }
 // 四栏内容之间的样式
 #write hr + hr + hr + blockquote + blockquote,
@@ -1166,7 +1199,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 
 #write hr + hr,
 #write .md-hr + .md-hr {
-    margin-top: -1em;
+    margin-top: -0.5em;
 }
 
 #write blockquote > p {
@@ -1209,14 +1242,49 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     color: var(--h-f);
 }
 
-// 分栏列表
+// 代码块内代码区域
+#write pre.ty-contain-cm .CodeMirror-lines {
+    background: var(--c-blk-bg);
+    background-size: @codeBlockBackgroundSize;
+    background-repeat: @codeBlockBackgroundRepeat;
+    background-position: @codeBlockBackgroundPosition;
+    // padding-top: 5px;
+    // padding-bottom: 5px;
+}
+
+// --------------------
+// 列表分栏
 #write hr + ul,
 #write hr + ol,
 #write .md-hr + ul,
 #write .md-hr + ol {
+    margin-top: -0.5em;
     padding-left: 0 !important;
 }
-// 以双栏方式显示，98/2*2+2*1=100
+
+#write hr + ul > li,
+#write hr + ol > li,
+#write .md-hr + ul > li,
+#write .md-hr + ol > li {
+    border: 2px solid var(--pn-c);
+    border-radius: var(--v-r-b);
+    margin-bottom: 1em;
+}
+
+// 列表分栏内容微调
+#write hr + ul > li > p,
+#write hr + ol > li > p,
+#write .md-hr + ul > li > p,
+#write .md-hr + ol > li > p {
+    font: var(--v-f-w-bd) 1em var(--v-f-fm-bd);
+    color: @buttonForeColor;
+    background: @buttonBgColor;
+    padding: 5px;
+    border-radius: var(--v-r-t);
+    text-align: center;
+}
+
+// 以双栏方式显示列表，98/2*2+2*1=100
 #write hr + ul > li,
 #write hr + ul > li + li,
 #write hr + ol > li,
@@ -1230,27 +1298,118 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     vertical-align: top;
     padding-left: 0 !important;
     margin-top: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    // margin-left: 0 !important;
+    // margin-right: 10px !important;
     max-width: 49% !important;
     min-width: 49% !important;
 }
-// 双栏内容之间的样式
-#write hr + ol > li + li,
-#write .md-hr + ol > li + li {
+// 双栏列表内容之间的样式
+#write hr + ul > li:nth-child(2n),
+#write .md-hr + ul > li:nth-child(2n),
+#write hr + ol > li:nth-child(2n),
+#write .md-hr + ol > li:nth-child(2n) {
     margin-left: 2% !important;
 }
-// 双栏内容微调
-#write hr + ul > li > p,
-#write hr + ol > li > p,
-#write .md-hr + ul > li > p,
-#write .md-hr + ol > li > p {
-    font: var(--v-f-w-bd) 1em var(--v-f-fm-bd);
-    color: @buttonForeColor;
-    background: @buttonBgColor;
-    padding: 5px;
-    border-radius: var(--v-r-s);
-    text-align: center;
+
+// 以三栏方式显示列表，96/3*3+2*2=100
+#write hr + hr + ul > li,
+#write hr + hr + ul > li + li,
+#write hr + hr + ul > li + li + li,
+#write hr + hr + ol > li,
+#write hr + hr + ol > li + li,
+#write hr + hr + ol > li + li + li,
+#write .md-hr + .md-hr + ul > li,
+#write .md-hr + .md-hr + ul > li + li,
+#write .md-hr + .md-hr + ul > li + li + li,
+#write .md-hr + .md-hr + ol > li,
+#write .md-hr + .md-hr + ol > li + li,
+#write .md-hr + .md-hr + ol > li + li + li {
+    display: inline-block;
+    list-style-type: none;
+    vertical-align: top;
+    padding-left: 0 !important;
+    margin-top: 0 !important;
+    margin-left: 2% !important;
+    // margin-right: 10px !important;
+    max-width: 32% !important;
+    min-width: 32% !important;
+}
+// 三栏列表内容之间的样式
+#write hr + hr + ul > li:nth-child(3n+1),
+#write .md-hr + .md-hr + ul > li:nth-child(3n+1),
+#write hr + hr + ol > li + li:nth-child(3n+1),
+#write .md-hr + .md-hr + ol > li:nth-child(3n+1) {
+    margin-left: 0 !important;
+}
+
+// 以四栏方式显示列表，94/4*4+2*3=100
+#write hr + hr + hr + ul > li,
+#write hr + hr + hr + ul > li + li,
+#write hr + hr + hr + ul > li + li + li,
+#write hr + hr + hr + ul > li + li + li + li,
+#write hr + hr + hr + ol > li,
+#write hr + hr + hr + ol > li + li,
+#write hr + hr + hr + ol > li + li + li,
+#write hr + hr + hr + ol > li + li + li + li,
+#write .md-hr + .md-hr + .md-hr + ul > li,
+#write .md-hr + .md-hr + .md-hr + ul > li + li,
+#write .md-hr + .md-hr + .md-hr + ul > li + li + li,
+#write .md-hr + .md-hr + .md-hr + ul > li + li + li + li,
+#write .md-hr + .md-hr + .md-hr + ol > li,
+#write .md-hr + .md-hr + .md-hr + ol > li + li,
+#write .md-hr + .md-hr + .md-hr + ol > li + li + li,
+#write .md-hr + .md-hr + .md-hr + ol > li + li + li + li {
+    display: inline-block;
+    list-style-type: none;
+    vertical-align: top;
+    padding-left: 0 !important;
+    margin-top: 0 !important;
+    margin-left: 2% !important;
+    // margin-right: 10px !important;
+    max-width: 23.5% !important;
+    min-width: 23.5% !important;
+}
+// 四栏列表内容之间的样式
+#write hr + hr + hr + ul > li:nth-child(4n+1),
+#write .md-hr + .md-hr + .md-hr + ul > li:nth-child(4n+1),
+#write hr + hr + hr + ol > li + li:nth-child(4n+1),
+#write .md-hr + .md-hr + .md-hr + ol > li:nth-child(4n+1) {
+    margin-left: 0 !important;
+}
+
+// 以五栏方式显示列表，94/5*5+2*4=100
+#write hr + hr + hr + hr + ul > li,
+#write hr + hr + hr + hr + ul > li + li,
+#write hr + hr + hr + hr + ul > li + li + li,
+#write hr + hr + hr + hr + ul > li + li + li + li,
+#write hr + hr + hr + hr + ol > li,
+#write hr + hr + hr + hr + ol > li + li,
+#write hr + hr + hr + hr + ol > li + li + li,
+#write hr + hr + hr + hr + ol > li + li + li + li,
+#write .md-hr + .md-hr + .md-hr + .md-hr + ul > li,
+#write .md-hr + .md-hr + .md-hr + .md-hr + ul > li + li,
+#write .md-hr + .md-hr + .md-hr + .md-hr + ul > li + li + li,
+#write .md-hr + .md-hr + .md-hr + .md-hr + ul > li + li + li + li,
+#write .md-hr + .md-hr + .md-hr + .md-hr + ol > li,
+#write .md-hr + .md-hr + .md-hr + .md-hr + ol > li + li,
+#write .md-hr + .md-hr + .md-hr + .md-hr + ol > li + li + li,
+#write .md-hr + .md-hr + .md-hr + .md-hr + ol > li + li + li + li {
+    display: inline-block;
+    list-style-type: none;
+    vertical-align: top;
+    padding-left: 0 !important;
+    margin-top: 0 !important;
+    margin-left: 2% !important;
+    // margin-right: 10px !important;
+    max-width: 18.4% !important;
+    min-width: 18.4% !important;
+}
+// 五栏列表内容之间的样式
+#write hr + hr + hr + hr + ul > li:nth-child(5n+1),
+#write .md-hr + .md-hr + .md-hr + .md-hr + ul > li:nth-child(5n+1),
+#write hr + hr + hr + hr + ol > li + li:nth-child(5n+1),
+#write .md-hr + .md-hr + .md-hr + .md-hr + ol > li:nth-child(5n+1) {
+    margin-left: 0 !important;
 }
 
 // 列表内的引用内容
@@ -1677,8 +1836,9 @@ td.v-tbl-row-g-not-folder {
 
 // 折叠按钮样式
 .v-tbl-row-g-btn {
-    cursor: pointer;
+    line-height: @miniLineHeight;//1;
     vertical-align: middle;
+    cursor: pointer;
 }
 
 .v-tbl-row-g-btn.hover > svg > use {
@@ -2124,7 +2284,8 @@ table kbd {
 // 在列表内，段落后紧跟有序、无序列表时，保持原行距间隔
 #write li > p + ol,
 #write li > p + ul {
-    margin-top: 0;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 /**************************************
@@ -2526,14 +2687,22 @@ table kbd {
     width: 100%;
 }
 
-.v-blockquote-folder {
+// 折叠引用所在行
+p[d-blockquote-folded] {
     cursor: pointer;
+}
+// 折叠引用按钮
+.v-blockquote-folder {
+    line-height: @miniLineHeight;//1;
     vertical-align: middle;
+    cursor: pointer;
 }
 
+p[d-blockquote-folded]:hover .v-blockquote-folder > svg > use,
 .v-blockquote-folder.hover > svg > use {
     fill: @aHoverColor !important;
 }
+p[d-blockquote-folded]:active .v-blockquote-folder > svg > use,
 .v-blockquote-folder.hover:active > svg > use {
     fill: @aActiveColor !important;
 }
@@ -2911,19 +3080,21 @@ body.typora-export .v-foot-note-panel > a {
     // margin-left: 10px;
     // margin-right: 10px;
     // margin-bottom: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     padding-right: 5px;
     border-radius: var(--v-r-s);
     text-overflow: ellipsis;
     white-space: nowrap;
+    line-height: @miniLineHeight;//1;
     overflow: hidden;
     cursor: pointer;
 }
 .v-toc-item {
     white-space: normal;
-    line-height: @defaultLineHeight;
-    padding: 5px;
+    // line-height: @defaultLineHeight;
+    line-height: @miniLineHeight;//1;
+    padding: 8px;
     margin-bottom: 5px;
     display: block;
 }
@@ -4130,12 +4301,13 @@ body.typora-export .v-q {
     border: none;
     border-radius: var(--v-r-b);
     padding: 0.75em 1em;
+    margin-top: 10px;
 }
 // 生成彩虹引用相关样式
 .genRainbowQuoteCSS(@quoteMark, @accColor, @fadeColor, @lightColor, @altColor, @titleColor, @titleLightColor) {
     #write .v-q.@{quoteMark} {
         box-shadow: 0 0 0 4px @fadeColor inset;
-        background: none !important;
+        background: none;
     }
     // 强调样式
     #write .v-q.@{quoteMark}.em {

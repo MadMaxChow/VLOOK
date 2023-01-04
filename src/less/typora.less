@@ -3,7 +3,7 @@
  * VLOOK CSS - Typora 编辑时内置样式
  * (配合 base.less 进行使用)
  *
- * V15.1
+ * V16-dev
  * 2022-06-25
  * powered by MAX°孟兆
  *
@@ -694,6 +694,8 @@ body.os-windows #file-library-tree {
     line-height: 1;//@defaultLineHeight;
     font-family: var(--v-f-fm-subtitle);
     font-weight: normal;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 // 当前大纲节点
 .pin-outline .outline-active,
@@ -1376,6 +1378,7 @@ content > #write {
     color: var(--h-f);
     // font: normal 1em var(--v-f-fm-num); // [style] [weight] [size/[line-height]] [family]
     font-family: var(--v-f-fm-num);
+    min-width: fit-content !important; // 避免某些窄字体，总行数为 11 行号时，第 10 行会错位
 }
 
 .cm-s-inner .cm-variable,

@@ -3,7 +3,7 @@
  * VLOOK CSS - @media 相关的样式
  * (配合 base.less 进行使用)
  *
- * V15.1
+ * V16-dev
  * 2022-06-25
  * powered by MAX°孟兆
  *
@@ -60,6 +60,8 @@
     //     font-size: @fontSizeXL;
     // }
 
+    // --------------------
+    // 引用分栏
     // 以双栏方式显示，98.5/2*2+1.5*1=100
     #write hr + blockquote,
     #write hr + blockquote + blockquote,
@@ -67,6 +69,7 @@
     #write .md-hr + blockquote + blockquote {
         max-width: 49.25% !important;
         min-width: 49.25% !important;
+        // margin-top: 0 !important;
     }
     // 双栏内容之间的样式
     #write hr + blockquote + blockquote,
@@ -223,6 +226,7 @@
         display: block !important;
         max-width: none !important;
         min-width: none !important;
+        margin-top: 0 !important;
     }
     // ----------------------------------------
     // 纵向显示的微调
@@ -261,6 +265,7 @@
         display: block !important;
         max-width: none !important;
         min-width: none !important;
+        margin-top: 0 !important;
     }
     // ----------------------------------------
     // 纵向显示的微调
@@ -309,6 +314,7 @@
         display: block !important;
         max-width: none !important;
         min-width: none !important;
+        margin-top: 0 !important;
     }
     // ----------------------------------------
     // 纵向显示的微调
@@ -473,6 +479,8 @@
         --code-bg: var(--code-bg-dk);
         --std-code-shadow: var(--std-code-shadow-dk);
         --rb-code-shadow: var(--rb-code-shadow-dk);
+
+        --c-blk-bg: var(--c-blk-bg-dk);
 
         --key-bg: var(--key-bg-dk);
         --key-reflect: var(--key-reflect-dk);
@@ -660,5 +668,13 @@
     // 备注文本
     .noteText tspan {
         fill: var(--d-f-c-lg) !important;
+    }
+
+    // 代码块内代码区域
+    #write pre.ty-contain-cm .CodeMirror-lines {
+        background: var(--c-blk-bg);
+        background-size: @codeBlockBackgroundSize;
+        background-repeat: @codeBlockBackgroundRepeat;
+        background-position: @codeBlockBackgroundPosition;
     }
 }
