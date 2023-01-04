@@ -2,7 +2,7 @@
  *
  * VLOOK JS - Typora Plugin
  *
- * V15.1
+ * V16-dev
  * 2022-06-25
  * powered by MAX°孟兆
  *
@@ -14,7 +14,7 @@
  *
  *************************************/
 
-let vVer = "V15.1",
+let vVer = "V16-dev",
     iStopwatch = new Stopwatch(), // 初始化计时器
     gUndefined = undefined,
     gTrue = true,
@@ -177,6 +177,7 @@ let vVer = "V15.1",
     s_Failed = "Failed [ ",
     s_False = "false",
     s_Fig = "fig",
+    s_Figure = "figure",
     s_Fill = "fill",
     s_Filter = "filter",
     s_Float = "float",
@@ -217,6 +218,7 @@ let vVer = "V15.1",
     s_None = "none",
     s_Normal = "normal",
     s_Off = "off",
+    s_On = "on",
     s_Opacity = "opacity",
     s_Opened = "opened",
     s_Overflow = "overflow",
@@ -1364,7 +1366,16 @@ function V_init() {
     // iContentFolder = new ContentFolder();
     // if (iContentFolder.length === 0)
         // ALERT(s_Failed + "iCtFolder ]");
-    ContentFolder_enabled = (V_util_getParamVal("cf") !== s_Off) ? true : false;
+    let cf = V_util_getParamVal("cf");
+    ContentFolder_enabled = (cf !== s_Off);
+    // 指定对象（table,figure,codeblock）启用的处理
+    if (cf !== gUndefined && cf !== s_On && cf !== s_Off) {
+        ContentFolder_enabled_table = (cf.i(s_Table) > -1);
+        ContentFolder_enabled_figure = (cf.i(s_Figure) > -1);
+        ContentFolder_enabled_codeblock = (cf.i(s_Codeblock) > -1);
+    }
+    // DEBUG("cf: ", ContentFolder_enabled_table, ContentFolder_enabled_figure, ContentFolder_enabled_codeblock);
+
     ContentFolder_init();
     sw.ed("    ├ Content Folding: ");
 
@@ -1542,7 +1553,7 @@ function V_initKernel() {
     //     ExtVideo_blockCapNum = gTrue;
     // if (capNum !== gUndefined && capNum.i(s_Codeblock) > -1)
     //     ExtCodeBlock_blockCapNum = gTrue;
-    if (V_util_getParamVal("capauto") === "on")
+    if (V_util_getParamVal("capauto") === s_On)
         CaptionGenerator_autoContent = gTrue;
 
     // ----------------------------------------
@@ -1559,6 +1570,7 @@ function V_initKernel() {
 
     // ========================================
     // 初始化引用块
+    // 须在 ExtFigure 处理前，避免引用折叠处理中，对其内含有 svg 颜色替换处理导致 DOM 冲突而失效
     iStopwatch.st("* Quote: ");
     ExtQuote_init();
     ExtQuote_adjustHoverStyle();
@@ -1588,8 +1600,7 @@ function V_initKernel() {
     ExtCodeBlock_init();
     iStopwatch.ed(s_4space);
 
-    // // ========================================
-    // // 初始化引用块
+    // ========================================
     // iStopwatch.st("* Quote: ");
     // ExtQuote_init();
     // ExtQuote_adjustHoverStyle();
@@ -1601,6 +1612,11 @@ function V_initKernel() {
     iStopwatch.st("* Code°Magic: ");
     CodeMagic_init();
     iStopwatch.ed(s_4space);
+    // ========================================
+
+    // ========================================
+    // 在插图、表格、代码等内容的题注处理后，进行引用的二次初始化
+    ExtQuote_initAfterCap();
     // ========================================
 
     // ----------------------------------------
@@ -1863,7 +1879,7 @@ function V_ui_copyrightInfo() {
     return '<div class="v-copyright">'
         + '<svg class="v-copyright-svg-ico" width="24px" height="24px" style="display: inline-block; vertical-align: middle; cursor: pointer;"><use xlink:href="#icoVLOOK"></use></svg>' + tag_2space
         // + 'Document author: ' + V_util_getMetaByName("author") + '.' + tag_2space
-        + 'Published with <a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK</strong></a>™ (V15.1) &amp; <a href="https://www.typora.io" target="_blank"><strong>Typora</strong></a>.'
+        + 'Published with <a href="https://github.com/MadMaxChow/VLOOK" target="_blank"><strong>VLOOK</strong></a>™ (V16-dev) &amp; <a href="https://www.typora.io" target="_blank"><strong>Typora</strong></a>.'
         + tag_2space + 'Support: <strong><a href="https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi">QQ Group</a></strong> / <strong><a href="mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + V_ver + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(gTrue)) + '">Email</a></strong>.'
         + '</div>'
 }
@@ -5120,7 +5136,7 @@ function Toolbar(chpNav) {
         T.btns[name].uC().ck(function () {
             // DEBUG(name);
             ToolTips_hide();
-            typeof(clickEvent) == s_Function && clickEvent();
+            typeof(clickEvent) === s_Function && clickEvent();
         });
 
         // hover 事件处理
@@ -5417,6 +5433,7 @@ ColorScheme.refresh = function () {
         "--code-bg",
         "--std-code-shadow",
         "--rb-code-shadow",
+        "--c-blk-bg",
         "--key-bg",
         "--key-reflect",
         "--key-shadow",
@@ -5606,13 +5623,13 @@ function FontTheme(mask, theme) {
     });
     T.sansTheme.ui.uC().ck(function () {
         T.apply("sans");
-        DEBUG("fontCount", T.sansTheme.fontCount, "fontLength", T.sansTheme.fonts.length);
+        // DEBUG("fontCount", T.sansTheme.fontCount, "fontLength", T.sansTheme.fonts.length);
         T.initWebFont();
         T.hide();
     });
     T.serifTheme.ui.uC().ck(function () {
         T.apply("serif");
-        DEBUG("fontCount", T.serifTheme.fontCount, "fontLength", T.serifTheme.fonts.length);
+        // DEBUG("fontCount", T.serifTheme.fontCount, "fontLength", T.serifTheme.fonts.length);
         T.initWebFont();
         T.hide();
     });
@@ -6525,7 +6542,7 @@ function BgMask(id, style, close) {
             // 取消冻结滚动
             V_doc_scroll_unfreeze();
             // 隐藏联动对应
-            if (typeof(T.partner) == s_Function)
+            if (typeof(T.partner) === s_Function)
                  T.partner();
             else
                 T.partner.hide();
@@ -6552,8 +6569,11 @@ function BgMask(id, style, close) {
 // ==================== 长内容折叠类 ==================== //
 
 let ContentFolder_enabled = true,
+    ContentFolder_enabled_table = true,
+    ContentFolder_enabled_figure = true,
+    ContentFolder_enabled_codeblock = true,
     ContentFolder_ui = gUndefined, // 展开操作区的 UI 模板
-    ContentFolder_limit = V_debugMode ? 300 : 600, // 内容须折叠的高度限值
+    ContentFolder_limit = V_debugMode ? 300 : 640, // 内容须折叠的高度限值
     ContentFolder_contents = [], // 须进行折叠判断和处理的内容集
     ContentFolder_buildTimers = [],
     ContentFolder_rowNumFilter = s_Table + " tbody tr";
@@ -6567,8 +6587,15 @@ function ContentFolder_init() {
 /**
  * 添加内容
  */
-function ContentFolder_add(content) {
+function ContentFolder_add(content, type) {
     if (!ContentFolder_enabled)
+        return;
+
+    if (type === s_Table && ContentFolder_enabled_table === false)
+        return;
+    if (type === s_Figure && ContentFolder_enabled_figure === false)
+        return;
+    if (type === s_Codeblock && ContentFolder_enabled_codeblock === false)
         return;
 
     ContentFolder_contents.push(content);
@@ -7434,7 +7461,7 @@ function ExtCodeBlock_init() {
 
         // 折叠长代码块
         // if (ExtCodeBlock_blockCapNum !== gTrue)
-            ContentFolder_add(_t);
+            ContentFolder_add(_t, s_Codeblock);
 
         // 生成代码块插图题注（行数 > 1 的才进行处理）
         if (_t.f("." + s_CssCodeMirrorLine).length > lmc) {
@@ -7612,7 +7639,7 @@ function ChpAutoNum_initToc() {
     ChpAutoNum_tocContent.ch(".md-toc-item").e(function () {
         let item = $(this);
         __genNumContent(item,
-            ChpAutoNum_parseTocHeaderLevel(item.a("class")));
+            ChpAutoNum_parseTocHeaderLevel(item.a(s_Class)));
     });
 
     // 对文档中的章节条目进行处理
@@ -7713,7 +7740,7 @@ function ChpAutoNum_resetTpl() {
 
     // 解析模板条目
     function __parseTplItem(lv) {
-        let result = null;
+        let result;// = null;
         // result = ChpAutoNum_tplSet[lv].m(ChpAutoNum_tpl_syntax);
         // DEBUG(result);
         if ((result = ChpAutoNum_tplSet[lv].m(ChpAutoNum_tpl_syntax)) != null
@@ -7937,8 +7964,10 @@ let ExtQuote_icoClosed = '<svg width="16px" height="16px" class="v-svg-small-ico
 function ExtQuote_init() {
     // 初始化彩虹引用的默认颜色标识
     let dcQuote = V_util_getParamVal("dc-quote");
-    if (dcQuote !== gUndefined)
+    if (dcQuote !== gUndefined) {
         RainbowQuote_defalutColor = dcQuote;
+        RainbowQuote_defalutColorPrefix = ">(" + dcQuote + ")".m(RainbowQuote_syntax)[0];
+    }
 
     // 遍历所有引用
     $(s_Blockquote).e(function () {
@@ -7975,12 +8004,13 @@ function ExtQuote_init() {
                 return gFalse;
             }
         });
-        // 引用内不包含彩虹引用语法的，才进行不处理
+        // 引用内不包含彩虹引用语法的，才进行处理
         if (rainbowQuote === gFalse) {
-            let preObj = _t.prev().a("class");
+            // let preObj = _t.prev().a(s_Class);
+            // DEBUG(preObj, _t.text());
             // 不处理紧跟表格、插图、代码块、媒体后的引用
-            if (preObj !== gUndefined && preObj.i("v-cap-") === -1)
-                _t.append("<p><code>&gt;(" + RainbowQuote_defalutColor + ")</code></p>");
+            // if (preObj !== gUndefined && preObj.i("v-cap-") === -1)
+                    _t.append("<p><code>&gt;(" + RainbowQuote_defalutColor + ")</code></p>");
         }
     });
 
@@ -8024,14 +8054,14 @@ function ExtQuote_init() {
                 target.next(s_Blockquote).c(s_Display, s_None);
                 target.rHTML("[+] ", "<span class='v-blockquote-folder'>" + ExtQuote_icoClosed + "</span>");
 
-                target.a(s_DataBlockquoteFolded, s_True);
+                // target.a(s_DataBlockquoteFolded, s_True);
 
-                // 因此处的 click 会与 $(document).uC().ck() 冲突
-                // 所以改为 mouseup
-                target.f("." + s_CssBlockquoteFolder).unbind(s_MouseUp).mouseup(function () {
-                    V_report_push([s_Interactive, 'Quote', 'Fold/Unfold', 0]);
-                    __toggleQuoteFolding(target);
-                });
+                // // 因此处的 click 会与 $(document).uC().ck() 冲突
+                // // 所以改为 mouseup
+                // target.f("." + s_CssBlockquoteFolder).unbind(s_MouseUp).mouseup(function () {
+                //     V_report_push([s_Interactive, 'Quote', 'Fold/Unfold', 0]);
+                //     __toggleQuoteFolding(target);
+                // });
         }
         // 默认展开
         else if (text.sW("[-] ")) {
@@ -8042,11 +8072,22 @@ function ExtQuote_init() {
             // target.c(s_Color, "var(--h-f)");
             target.rHTML("[-] ", "<span class='v-blockquote-folder'>" + ExtQuote_icoOpened + "</span>"); // ⊖▽
 
-            target.a(s_DataBlockquoteFolded, s_False);
+            // target.a(s_DataBlockquoteFolded, s_False);
+
+            // // 因此处的 click 会与 $(document).uC().ck() 冲突
+            // // 所以改为 mouseup
+            // target.f("." + s_CssBlockquoteFolder).unbind(s_MouseUp).mouseup(function () {
+            //     V_report_push([s_Interactive, 'Quote', 'Fold/Unfold', 0]);
+            //     __toggleQuoteFolding(target);
+            // });
+        }
+
+        if (matched) {
+            target.a(s_DataBlockquoteFolded, s_True);
 
             // 因此处的 click 会与 $(document).uC().ck() 冲突
             // 所以改为 mouseup
-            target.f("." + s_CssBlockquoteFolder).unbind(s_MouseUp).mouseup(function () {
+            target.f("." + s_CssBlockquoteFolder).parent().parent().unbind(s_MouseUp).mouseup(function () {
                 V_report_push([s_Interactive, 'Quote', 'Fold/Unfold', 0]);
                 __toggleQuoteFolding(target);
             });
@@ -8068,6 +8109,22 @@ function ExtQuote_init() {
             firstSpan.before("<span>" + folder + "</span>");
         }
     }
+}
+
+/**
+ * 在自动生成题注处理后，进行引用的二次初始化处理
+ */
+function ExtQuote_initAfterCap() {
+    // 遍历所有 RainbowQuote_defalutColorPrefix 的彩虹引用
+    $(s_Blockquote + ".v-q." + RainbowQuote_defalutColorPrefix + ".em").e(function () {
+        let _t = $(this);
+        let preObj = _t.prev(),
+            preObjClass = preObj.a(s_Class);
+        // 对紧跟表格、插图、代码块、媒体后的引用样式进行微调
+        if (preObjClass !== gUndefined &&
+            (preObjClass.i("v-cap-") > -1 || preObjClass.i(s_CssContentExpander) > -1))
+                JQ_removeClass(_t, RainbowQuote_defalutColorPrefix + " em");
+    });
 }
 
 /**
@@ -8246,7 +8303,7 @@ function ExtTable_init() {
 
         // if (ExtTable.blockCapNum !== gTrue) {
             // 折叠长表格
-            ContentFolder_add(_t);
+            ContentFolder_add(_t, s_Table);
             // 先根据题注语法生成题注
             CaptionGenerator_actionForTextContent(_t, s_Table);
         // }
@@ -9876,7 +9933,7 @@ function TextField(target, id, append) {
                 T.timerValueChanged = setTimeout(__checkComValueChanged, 800);
             }
             // 触发外部重定义事件
-            typeof(T.onFocus) == s_Function && T.onFocus(T.input);
+            typeof(T.onFocus) === s_Function && T.onFocus(T.input);
         });
         /**
          * 绑定文本失去焦点事件
@@ -9885,7 +9942,7 @@ function TextField(target, id, append) {
             JQ_removeClass(T.ui, s_CssTextFieldFocus);
             clearTimeout(T.timerValueChanged);
             // 触发外部重定义事件
-            typeof(T.onBlur) == s_Function && T.onBlur(T.input);
+            typeof(T.onBlur) === s_Function && T.onBlur(T.input);
         });
 
         /**
@@ -9916,7 +9973,7 @@ function TextField(target, id, append) {
                 }
             }
             // 触发外部重定义事件
-            typeof(T.onInput) == s_Function && T.onInput(T.input, value);
+            typeof(T.onInput) === s_Function && T.onInput(T.input, value);
         }
 
         /**
@@ -9929,15 +9986,15 @@ function TextField(target, id, append) {
                 case 13: // ENTER
                     if (T.action !== gUndefined)
                         T.action.tr(s_Click);
-                    typeof(T.pressEnter) == s_Function && T.pressEnter(T.input, value);
+                    typeof(T.pressEnter) === s_Function && T.pressEnter(T.input, value);
                     break;
                 case 27: // ESC
                     T.reset.tr(s_Click);
-                    typeof(T.pressESC) == s_Function && T.pressESC(T.input);
+                    typeof(T.pressESC) === s_Function && T.pressESC(T.input);
                     break;
             }
             // 触发外部重定义事件
-            typeof(T.onKeyDown) == s_Function && T.onKeyDown(T.input, value, code);
+            typeof(T.onKeyDown) === s_Function && T.onKeyDown(T.input, value, code);
         });
 
         /**
@@ -9953,7 +10010,7 @@ function TextField(target, id, append) {
                 V_ui_unbindHover(T.action);
             }
             // 触发外部重定义事件
-            typeof(T.onInput) == s_Function && T.onInput(T.input, "");
+            typeof(T.onInput) === s_Function && T.onInput(T.input, "");
         });
     }
 
@@ -9995,7 +10052,7 @@ function TextField(target, id, append) {
                 T.input.select();
 
             // 触发外部重定义事件
-            typeof(T.onAction) == s_Function && T.onAction(T.input, value);
+            typeof(T.onAction) === s_Function && T.onAction(T.input, value);
         });
     }
 
@@ -10194,8 +10251,8 @@ function TocCatalog(holder, hidden) {
             V_util_gotoHash(hash);
 
             // 触发锚点点击事件
-            typeof(T.holder.onInteractive) == s_Function && T.holder.onInteractive();
-            // typeof(T.onClickHash) == s_Function && T.onClickHash();
+            typeof(T.holder.onInteractive) === s_Function && T.holder.onInteractive();
+            // typeof(T.onClickHash) === s_Function && T.onClickHash();
         });
 
         // -----------------------------------
@@ -10205,7 +10262,7 @@ function TocCatalog(holder, hidden) {
             + "' class='v-toc-folder'>&nbsp;</div>").insertBefore(item.f("a"));
 
         // 记录所有非叶子节点的folder控件
-        let lv = ChpAutoNum_parseTocHeaderLevel(item.a("class"));
+        let lv = ChpAutoNum_parseTocHeaderLevel(item.a(s_Class));
         if (T.lastHeaderFolder !== gUndefined) {
             // 当前节点比上一个节点层级低，则上一节点为可折叠的节点
             if (lv > T.lastHeaderLevel) {
@@ -10297,7 +10354,7 @@ function TocCatalog(holder, hidden) {
         }
 
         // 触发当前章节变化事件
-        typeof(T.onChapterChanged) == s_Function && T.onChapterChanged();
+        typeof(T.onChapterChanged) === s_Function && T.onChapterChanged();
 
         /**
          * 向上展开父级目录
@@ -10496,8 +10553,8 @@ function TocCatalog(holder, hidden) {
             let item = $(itemSet[i]);
             // 对前后节点层级不一致的处理
             if (lastItem != null) {
-                const hd1 = ChpAutoNum_parseTocHeaderLevel(item.a("class"));
-                const hd2 = ChpAutoNum_parseTocHeaderLevel(lastItem.a("class"));
+                const hd1 = ChpAutoNum_parseTocHeaderLevel(item.a(s_Class));
+                const hd2 = ChpAutoNum_parseTocHeaderLevel(lastItem.a(s_Class));
                 if (hd1 > hd2) // 当前节点层级大于上一个节点的层级，继续
                     continue;
                 else if (hd1 < hd2) // 当前节点层级小于上一个节点的层级，终止
@@ -10610,8 +10667,8 @@ function TocIndex_add(indexObj, text, anchor, forSearch) {
         V_util_gotoHash("#" + anchor);
 
         // 触发锚点点击事件
-        typeof(indexObj.holder.onInteractive) == s_Function && indexObj.holder.onInteractive();
-        // typeof(indexObj.onClickHash) == s_Function && indexObj.onClickHash();
+        typeof(indexObj.holder.onInteractive) === s_Function && indexObj.holder.onInteractive();
+        // typeof(indexObj.onClickHash) === s_Function && indexObj.onClickHash();
     });
 }
 
@@ -11054,8 +11111,8 @@ function TocHistory(holder, hidden) {
         item.uC().ck(function () {
             V_util_gotoHash(hash);
             // 触发锚点点击事件
-            typeof(T.holder.onInteractive) == s_Function && T.holder.onInteractive();
-            // typeof(T.onClickHash) == s_Function && T.onClickHash();
+            typeof(T.holder.onInteractive) === s_Function && T.holder.onInteractive();
+            // typeof(T.onClickHash) === s_Function && T.onClickHash();
         });
 
         T.updateStatus();
@@ -11223,7 +11280,7 @@ function DocLib(mask, holder) {
      * 显示文库
      */
     T.show = function () {
-        typeof(T.holder.onInteractive) == s_Function && T.holder.onInteractive();
+        typeof(T.holder.onInteractive) === s_Function && T.holder.onInteractive();
 
         T.mask.show();
         T.ui.show();
@@ -11336,7 +11393,7 @@ function ExtFigure_init() {
         JQ_addClass(container, s_CssCaptionContainer);
         // 折叠长插图
         // if (ExtFigure_blockCapNum !== gTrue)
-            ContentFolder_add(fig);
+            ContentFolder_add(fig, s_Figure);
     }); // 结束初始化处理
     sw.ed("    ├ figure set: ");
 
@@ -12002,7 +12059,7 @@ function Restyler_forMermaid() {
     });
 
     // 更新顺序图中的角色样式
-    $(".md-diagram-panel svg[id^='mermaidChart']>g>rect[class='actor']").e(function () {
+    $(".md-diagram-panel svg[id^='mermaidChart'] g>rect[class='actor']").e(function () {
         let actor = $(this),
             text = actor.next(s_Text).ch(), // actor text object
             tmpText = text.t(),
@@ -12089,7 +12146,7 @@ function Restyler_forMermaid() {
         // 将 alt(alternative)、opt(optional)、loop(loops) 片断文本翻译为其他语言
         if (fragment.t() === s_Alt)
             fragment.t([
-                "选择",
+                "分支",
                 // "選擇",
                 "Alt.",
                 // "Alt.", "Alt.", "Alt.", "Alt.", "代替", "대안"
@@ -12376,7 +12433,8 @@ function RainbowBadge_getColor(color, target) {
 
 // 语法：>(color)
 let RainbowQuote_syntax = /^>\((red|orange|yellow|lime|green|aqua|cyan|blue|sea|steel|purple|rose|pink|gold|brown|gray|theme1|theme2)(!)?\)$/i,
-    RainbowQuote_defalutColor = "theme1!";
+    RainbowQuote_defalutColor = "theme1!",
+    RainbowQuote_defalutColorPrefix = "theme1";
 
 /**
  * 构建彩虹引用样式
@@ -12405,7 +12463,7 @@ function RainbowQuote_build(target, result) {
 function RainbowQuote_getColor(color) {
     // 没有指定颜色，则为默认颜色
     if (color === gUndefined)
-        return RainbowQuote_defalutColor;
+        return RainbowQuote_defalutColorPrefix;
     return color;
 }
 
@@ -12602,7 +12660,7 @@ function VLOOKui_loadWelcomePage() {
     // 无指定欢迎页内容，则使用默认内容
     if (metaContent === gUndefined)
         metaContent = defalutContent;
-    metaContent +=  s_Br + s_Br;
+    metaContent += s_Br + s_Br;
     // --------------------------------------------------
     // 欢迎页
     ui += '<div class="v-welcome-page">'
@@ -12718,7 +12776,8 @@ function VLOOKui_loadIconSet() {
         + '</symbol>'
         // SVG 图标集：图标|展开长内容
         + '<symbol id="icoExtend">'
-        + '<path fill="none" d="M0 1h20v20H0z"/><path d="M5.05 6.364A1 1 0 0 1 6.464 4.95L10 8.485l3.536-3.535a1 1 0 1 1 1.414 1.414l-4.243 4.243a1 1 0 0 1-1.414 0L5.05 6.364z" fill="#FFF"/><path d="M5.05 12.364a1 1 0 0 1 1.414-1.414L10 14.485l3.536-3.535a1 1 0 1 1 1.414 1.414l-4.243 4.243a1 1 0 0 1-1.414 0L5.05 12.364z"/>'
+        + '<path d="M5.05 6.364A1 1 0 0 1 6.464 4.95L10 8.485l3.536-3.535a1 1 0 1 1 1.414 1.414l-4.243 4.243a1 1 0 0 1-1.414 0L5.05 6.364z"/><path d="M5.05 12.364a1 1 0 0 1 1.414-1.414L10 14.485l3.536-3.535a1 1 0 1 1 1.414 1.414l-4.243 4.243a1 1 0 0 1-1.414 0L5.05 12.364z"/>'
+        //+ '<path fill="none" d="M0 1h20v20H0z"/><path d="M5.05 6.364A1 1 0 0 1 6.464 4.95L10 8.485l3.536-3.535a1 1 0 1 1 1.414 1.414l-4.243 4.243a1 1 0 0 1-1.414 0L5.05 6.364z" fill="#FFF"/><path d="M5.05 12.364a1 1 0 0 1 1.414-1.414L10 14.485l3.536-3.535a1 1 0 1 1 1.414 1.414l-4.243 4.243a1 1 0 0 1-1.414 0L5.05 12.364z"/>'
         + '</symbol>'
         // SVG 图标集：图标|关闭
         + '<symbol id="icoClose">'
@@ -12762,7 +12821,7 @@ function VLOOKui_loadIconSet() {
         + '</symbol>'
         // SVG 图标集：图标|表格阅读模式（十字光标）
         + '<symbol id="icoTableCross">'
-        + '<path d="M13 0a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3h10zM1 11a2 2 0 0 0 1.85 1.995L3 13h2v-3h6v3h2a2 2 0 0 0 1.995-1.85L15 11v-1h-4V7h4V3a2 2 0 0 0-2-2h-2v6H5V1H3a2 2 0 0 0-1.995 1.85L1 3v4h4v3H1v1z"/>'
+        + '<path d="M13.6 0A2.4 2.4 0 0 1 16 2.4v9.2a2.4 2.4 0 0 1-2.4 2.4H2.4A2.4 2.4 0 0 1 0 11.6V2.4A2.4 2.4 0 0 1 2.4 0h11.2zM11 1H5v4.5A1.5 1.5 0 0 1 3.5 7H1v3h2.5A1.5 1.5 0 0 1 5 11.5V13h6v-1.5a1.5 1.5 0 0 1 1.5-1.5H15V7h-2.5A1.5 1.5 0 0 1 11 5.5V1zM9.5 6A1.5 1.5 0 0 1 11 7.5v2A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-2A1.5 1.5 0 0 1 6.5 6h3zm-.167 1H6.667a.667.667 0 0 0-.66.568L6 7.667v1.666c0 .335.247.612.568.66l.099.007h2.666a.667.667 0 0 0 .66-.568L10 9.333V7.667A.667.667 0 0 0 9.333 7z"/>'
         + '</symbol>'
         // SVG 图标集：图标|画中画
         + '<symbol id="icoPicInPic">'
@@ -13030,10 +13089,14 @@ function VLOOKui_loadCommon() {
 
     // --------------------------------------------------
     // 表格阅读模式（十字光标）
-    ui += '<div d-direction="1" class="v-table-cross left-up">&nbsp;</div>'
-        + '<div d-direction="2" class="v-table-cross right-up">&nbsp;</div>'
-        + '<div d-direction="3" class="v-table-cross left-down">&nbsp;</div>'
-        + '<div d-direction="4" class="v-table-cross right-down">&nbsp;</div>';
+    ui += '<div class="v-table-cross left-up">&nbsp;</div>'
+        + '<div class="v-table-cross right-up">&nbsp;</div>'
+        + '<div class="v-table-cross left-down">&nbsp;</div>'
+        + '<div class="v-table-cross right-down">&nbsp;</div>';
+    // ui += '<div d-direction="1" class="v-table-cross left-up">&nbsp;</div>'
+    //     + '<div d-direction="2" class="v-table-cross right-up">&nbsp;</div>'
+    //     + '<div d-direction="3" class="v-table-cross left-down">&nbsp;</div>'
+    //     + '<div d-direction="4" class="v-table-cross right-down">&nbsp;</div>';
 
     // --------------------------------------------------
     // 内容展开操作区
@@ -13073,7 +13136,7 @@ function VLOOKui_loadCommon() {
  */
 $(document).ready(function () {
     // 完成页面加载后，移除预加载的初始 UI
-    $("#VLOOK").remove();
+    // $("#VLOOK").remove();
 
     // ----------------------------------------
     // 初始化启动参数
