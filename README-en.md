@@ -10,7 +10,7 @@
 
 
 
-![VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-mark-light.svg)
+![VLOOK™](https://madmaxchow.gitee.io/vlookres/pic/vlook-mark-light.svg)
 
 **[OSChina.net](https://www.oschina.net/p/vlook) RECOMMENDED DOMESTIC OPEN SOURCE PRODUCTS.**
 
@@ -92,7 +92,7 @@ VLOOK™ through the ongoing **excavation and expansion of** Markdown and CSS, c
 
 Currently VLOOK ™ project has opened the topic of **private customized** services, customized sample examples are as follows:
 
-![私人定制主题](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-theme-vip-demo.png)
+![私人定制主题](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-vip-demo.png)
 
 (The above is only the effect and sample display, informal customized service finished product)
 
@@ -112,21 +112,21 @@ VLOOK™ provides two sets of font styles, which can be selected according to pe
 >
 > 整体视觉为「**清新、简约、明快**」，主要采用无衬线的免费或开源的东亚和拉丁字体。
 >
-> ![字体风格_小清新](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/小清新@2x.png)
+> ![字体风格_小清新](https://madmaxchow.gitee.io/vlookres/pic/小清新@2x.png)
 
 > **文•艺•范**
 >
 > 整体视觉为「**优雅、韵动、个性**」，主要采用衬线、无衬线的免费或开源的东亚和拉丁字体，多种字重进行**混搭组合**。
 >
-> ![字体风格_文艺范](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/文艺范@2x.png)
+> ![字体风格_文艺范](https://madmaxchow.gitee.io/vlookres/pic/文艺范@2x.png)
 
 **Because Windows / MacOS systems do not pre-install font packages with font themes by default, VLOOK™ currently supports both online and local usage.**  **If your working environment cannot access the Internet, it is recommended to download the font package directly and install it locally to get the best visual experience.**
 
 
 
-![蓝奏云](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/lanzou.png?mode=logo&srcset=@2x) •• [Download fonts ▾](https://wwe.lanzoui.com/ieVDhj1aokj)
+![蓝奏云](https://madmaxchow.gitee.io/vlookres/pic/lanzou.png?mode=logo&srcset=@2x) •• [Download fonts ▾](https://wwe.lanzoui.com/ieVDhj1aokj)
 
-![百度网盘](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/baidupan.png?mode=logo&srcset=@2x) •• [Download fonts ▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)（extract code `11ta`)
+![百度网盘](https://madmaxchow.gitee.io/vlookres/pic/baidupan.png?mode=logo&srcset=@2x) •• [Download fonts ▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)（extract code `11ta`)
 
 ---
 

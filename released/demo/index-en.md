@@ -11,7 +11,7 @@ vlook-query: effects=2&ws=auto&lmc=1
 vlook-doc-lib: vlook-lib-en.html
 ---
 
-###### <sub>VLOOK™</sub><br>Make Your Markdown A New Perspective<br>──<br><sup>Introduction</sup><br>`#Latest|V14.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2022. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br>Let Your Markdown Have A New Perspective<br>──<br><sup>Introduction</sup><br>`#Latest|V16.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
 
 [TOC]
 
@@ -23,18 +23,17 @@ vlook-doc-lib: vlook-lib-en.html
 
 
 
+>![VLOOK™](https://madmaxchow.gitee.io/vlookres/pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo)
 >
->![VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo)
+>**A DOMESTICALLY DEVELOPED OPEN-SOURCE PRODUCT RECOMMENDED BY** ![OSChina](https://madmaxchow.gitee.io/vlookres/pic/oschina.png#icon) **[Open Source China](https://www.oschina.net/p/vlook)**.
 >
->![OSChina](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/oschina.png#icon) **[OSChina.net](https://www.oschina.net/p/vlook) RECOMMENDED DOMESTIC OPEN SOURCE PRODUCTS.**
+>![VLOOK](https://madmaxchow.gitee.io/vlookres/pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) [VLOOK](https://github.com/MadMaxChow/VLOOK)™ is a **THEME PACK** and **ENHANCEMENT PLUGIN** for Typora, a cross-platform Markdown editor that targets exported HTML files.
 >
->![VLOOK](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) [VLOOK](https://github.com/MadMaxChow/VLOOK)™ is for ![Typora](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/typora.png#icon) [Typora](https://www.typora.io) (cross-platform Markdown editor) of the **THEME PACKAGE** and **ENHANCED PLUG-IN**.
->
->VLOOK™ is open source software and complies with the **MIT license**.
+>VLOOK™ is an open-source software that follows the **MIT License**.
 >
 >`>(theme1)`
 
-> Code hosting: [![Github](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/github-light.svg?darksrc=github-dark.svg#logo)](https://github.com/MadMaxChow/VLOOK?lnkcss=none)　　[![Gitee](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/gitee-light.svg?darksrc=gitee-dark.svg#logo)](https://gitee.com/madmaxchow/VLOOK?lnkcss=none)
+> Code hosting: [![Github](https://madmaxchow.gitee.io/vlookres/pic/github-light.svg?darksrc=github-dark.svg#logo)](https://github.com/MadMaxChow/VLOOK?lnkcss=none)　　[![Gitee](https://madmaxchow.gitee.io/vlookres/pic/gitee-light.svg?darksrc=gitee-dark.svg#logo)](https://gitee.com/madmaxchow/VLOOK?lnkcss=none)
 
 > [+] **Agreement**
 >
@@ -50,13 +49,13 @@ vlook-doc-lib: vlook-lib-en.html
 > > THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 > > ```
 >
-> [+] ![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark-solid.svg?fill=text#icon) **What is Markdown?**
+> [+] ![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) **What is Markdown?**
 >
-> > - In 2004, [John Gruber](https://en.wikipedia.org/wiki/John_Gruber) created [![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark-solid.svg?fill=text#icon) Markdown](https://zh.wikipedia.org/wiki/Markdown) , a type of writing specifically for the Internet `Text markup language` . With Markdown, you only need to insert a small number of markup symbols in the writing process, and you can easily typeset (for example, set the title, bold, list, quote, etc.);
+> > - In 2004, [John Gruber](https://en.wikipedia.org/wiki/John_Gruber) created [![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) Markdown](https://zh.wikipedia.org/wiki/Markdown) , a type of writing specifically for the Internet `Text markup language` . With Markdown, you only need to insert a small number of markup symbols in the writing process, and you can easily typeset (for example, set the title, bold, list, quote, etc.);
 > >- Markdown documents are based on `Plain text format storage` , which means that they can be opened with almost any text editor. At the same time, it can be exported to rich text documents with typesetting, HTML web pages, etc. through the Markdown editor.Pure, concise, easy to use and flexible, Are the reasons why people like Markdown;
 > > - The current standardization project of Markdown is [CommonMark](http://commonmark.org) .
 > > 
-> > ![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark.svg?fill=text#logo)
+> > ![Markdown](pic/markdown-mark.svg?fill=text#logo)
 >
 > [+] **60 seconds to learn, 10 minutes to learn Markdown grammar in depth**
 >
@@ -65,7 +64,7 @@ vlook-doc-lib: vlook-lib-en.html
 
 [^Typora]: Typora is a cross-platform Markdown editor (perhaps the best editor at the moment), which supports direct preview and editing. For more detailed features, please refer to the [official websit](https://www.typora.io).
 
-# For whom
+# Prepared For
 
 **If you also have one or more of the following needs or pain points, you can safely try the Markdown-based document solution for document editing, publishing, and management. The recommended combination is Typora + VLOOK™:**
 
@@ -88,11 +87,11 @@ vlook-doc-lib: vlook-lib-en.html
 
 **If you like VLOOK™, you can contribute a cup of coffee :-)**
 
-`#Pay via|PayPal#(cyan!)`
+`#PayPal|@madmaxchow#(cyan!)`
 
-[![打赏 VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#frame)](https://paypal.me/madmaxchow?lnkcss=none)
+[![打赏 VLOOK™](https://madmaxchow.gitee.io/vlookres/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#frame)](https://paypal.me/madmaxchow?lnkcss=none)
 
-# Features
+# Quick Start
 
 VLOOK™ continues to **explore and expand** Markdown and CSS, and at the same time combines the Internet-based application scenarios of documents~
 
@@ -100,21 +99,21 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 
 ---
 
->　　　　###### ![°文档排版](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-types-light.svg?fill=text&darksrc=invert#icon) ° LAYOUT
+>　　　　###### ![°文档排版](pic/qico-types-light.svg?fill=text&darksrc=invert#icon) ° LAYOUT
 >
 >---
 >
->**With the support of VLOOK™ themes and plug-ins, you have a new understanding of the automatic typesetting capabilities of the Markdown editor (only Typora is currently supported).**
+>**With the support of VLOOK™ theme and plug-ins, you have a new understanding and application of the automatic typesetting ability of the Markdown editor (only supports Typora for now).**
 >
->Thanks to mature web browsers, HTML/CSS, and JavaScript technologies, static documents can be "moved" with you.
+>In addition to rich typography enhancements, based on the HTML format, static documents can also "move" with you~
 >
 >
 >
->[<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°文档排版)
+>[<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°文档排版)
 >
 >`>(green!)`
 
-> ###### ![°内容导航](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-nav-light.svg?fill=text&darksrc=invert#icon) ° NAVIGATION
+> ###### ![°内容导航](pic/qico-nav-light.svg?fill=text&darksrc=invert#icon) ° NAVIGATION
 >
 > ---
 >
@@ -124,14 +123,14 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > 
 >
-> [<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°内容导航)
+> [<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°内容导航)
 >
 > `>(blue!)`
 
 ---
 
 >
->###### ![°演示与出版辅助](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-pres-light.svg?fill=text&darksrc=invert#icon) ° PRESENTATION & PUBLICATION
+>###### ![°演示与出版辅助](pic/qico-pres-light.svg?fill=text&darksrc=invert#icon) ° PRESENTATION & PUBLICATION
 >
 >---
 >
@@ -141,12 +140,12 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 >
 >
->[<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°演示与出版辅助)
+>[<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°演示与出版辅助)
 >
 >`>(orange!)`
 
 >
->###### ![°主题与不杂项](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-theme-light.svg?fill=text&darksrc=invert#icon) ° THEME & not MISC.
+>###### ![°主题与不杂项](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon) ° THEME & not MISC.
 >
 >---
 >
@@ -156,13 +155,13 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 >
 >
->[<kbd>Learn more ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°主题与不杂项)
+>[<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°主题与不杂项)
 >
 >`>(brown!)`
 
 ---
 
-###### **[Click here to browse more VLOOK™ topics ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)](vlook://doc-lib)**
+###### **[Click here to browse more VLOOK™ topics ![](pic/icon-forward.svg?fill=text#icon)](vlook://doc-lib)**
 
 # How To Use
 
@@ -211,7 +210,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > `>(gray!)`
 
-![Typora ▸ Preferences ▸ Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/typora-opt1-light.png?srcset=@2x&darksrc=typora-opt1-dark.png&darksrcset=@2x)
+![Typora ▸ Preferences ▸ Markdown](https://madmaxchow.gitee.io/vlookres/pic/typora-opt1-light.png?srcset=@2x&darksrc=typora-opt1-dark.png&darksrcset=@2x)
 
 ---
 
@@ -321,7 +320,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > `>(gray!)`
 
-![Typora ▸ Preferences ▸ Export](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
+![Typora ▸ Preferences ▸ Export](https://madmaxchow.gitee.io/vlookres/pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
 
 # Supplement
 
@@ -353,12 +352,12 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > In order to ensure the best user experience, it is strongly recommended to use the following browsers to access:
 >
-> ![Chrome](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/chrome.png#icon2x) **[Chrome](https://www.google.cn/chrome/)**　　![Edge](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/edge.png#icon2x) **[Edge](https://www.microsoft.com/zh-cn/edge)**　　![Firefox](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/firefox.png#icon2x) **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
+> ![Chrome](https://madmaxchow.gitee.io/vlookres/pic/chrome.png#icon2x) **[Chrome](https://www.google.cn/chrome/)**　　![Edge](https://madmaxchow.gitee.io/vlookres/pic/edge.png#icon2x) **[Edge](https://www.microsoft.com/zh-cn/edge)**　　![Firefox](https://madmaxchow.gitee.io/vlookres/pic/firefox.png#icon2x) **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
 >
 > `>(blue)`
 
 ---
 
-If you have any suggestions and needs, please feel free to give feedback~ [![VLOOK™ @ Email](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20&lnkcss=none)
+If you have any suggestions and needs, please feel free to give feedback~ [![VLOOK™ @ Email](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20&lnkcss=none)
 
 # The End

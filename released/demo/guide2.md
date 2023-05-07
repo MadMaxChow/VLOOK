@@ -8,10 +8,10 @@ keywords:
 - 产品经理,程序员,运维工程师,售前,售后
 vlook-chp-autonum: h1{{第 ### 章 }},h3{{### - }}
 vlook-query: el=2&ws=auto&lmc=2&dc-tag=gray&dc-badge=theme1
-vlook-doc-lib: vlook-lib.html
+vlook-doc-lib: vlook-lib.html#abc
 ---
 
-###### <sub>VLOOK™</sub><br>让你的 Markdown 有了新`{看}(wán)`法<br>──<br><sup>快速参考手册<br><sup>(Part.II)</sup></sup><br>`#最新版本|V14.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2022. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br>让你的 Markdown 有了新`{看}(wán)`法<br>──<br><sup>快速参考手册<br><sup>(Part.II)</sup></sup><br>`#最新版本|V16.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
 
 [TOC]
 
@@ -19,9 +19,9 @@ vlook-doc-lib: vlook-lib.html
 
 **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-) **
 
-`#支付方式|微信支付#(green!)`
+`guide.md#微信支付|MaxChowguide.md#(green!)`
 
-![打赏 VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#frame)
+![打赏 VLOOK™](https://madmaxchow.gitee.io/vlookres/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2xguide.md#frame)
 
 # 快速入坑
 
@@ -31,7 +31,7 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ## 快速入坑°文档排版
 
-> ###### ![°文档排版](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-types-light.svg?fill=text&darksrc=invert#icon2x) ° 文档排版
+> ###### ![°文档排版](pic/qico-types-light.svg?fill=text&darksrc=invertguide.md#icon2x) ° 文档排版
 >
 > ------
 >
@@ -41,79 +41,98 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > `>(purple!)`
 
+###### 表格
+
+---
+
+---
+
+> [+] **内容组织**
+>
+> > - 横向 / 纵向**合并单元格** [❯❯❯](guide.md#表格单元格合并)
+> > - 自动编号、添加题注 [❯❯❯](guide.md#表格自动编号与题注)
+> > - 设置**重复显示表头** [❯❯❯](guide.md#表格重复显示表头)
+>
+> `>(purple)`
+
+> [+] **行格式**
+>
+> > - 给每个表格进行**自动编号**、**添加题注** [❯❯❯](guide.md#表格自动编号与题注)
+> > - 给表格的**每一行**都进行**自动编号** [❯❯❯](guide.md#表格逐行自动编号)
+> > - 对多个行进行**分组**、**分类**，并能**自动折叠** [❯❯❯](guide.md#表格行分组折叠)
+> > - 在表格中指示当前行 [❯❯❯](guide.md#表格当前行指标器)
+>
+> `>(purple)`
+
+> [+] **列格式**
+>
+> > - 设置为加粗、高亮、下划线、斜体 [❯❯❯](guide.md#表格列格式：常规)
+> > - 设置为**数值**、**百分比**、**货币** [❯❯❯](guide.md#表格列格式：数值、百分数、货币)
+> > - 设置为**复选框** [❯❯❯](guide.md#表格列格式：复选框)
+>
+> `>(purple)`
+
+###### 图片 • 图标 • 插图
+
 ---
 
 ---
 
-> [+] **表格**
+> [+] **内容组织**
 >
-> > [+] **内容组织**
-> >
-> > > - 自动编号、添加题注 [❯❯❯](guide.md#表格自动编号与题注)
-> > > - 设置**重复显示表头** [❯❯❯](guide.md#表格重复显示表头)
-> >
-> > [+] **单元格**
-> >
-> > > - 横向 / 纵向合并单元格 [❯❯❯](guide.md#表格单元格合并)
-> >
-> > [+] **行格式**
-> >
-> > > - 给每个表格进行**自动编号**、**添加题注** [❯❯❯](guide.md#表格自动编号与题注)
-> > > - 给表格的**每一行**都进行**自动编号** [❯❯❯](guide.md#表格逐行自动编号)
-> > > - 对多个行进行**分组**、**分类**，并能**自动折叠** [❯❯❯](guide.md#表格行分组折叠)
-> > > - 在表格中指示当前行 [❯❯❯](guide.md#表格当前行指标器)
-> >
-> > [+] **列格式**
-> >
-> > > - 设置为加粗、高亮、下划线、斜体 [❯❯❯](guide.md#表格列格式：常规)
-> > > - 设置为**数值**、**百分比**、**货币** [❯❯❯](guide.md#表格列格式：数值、百分数、货币)
-> > > - 设置为**复选框** [❯❯❯](guide.md#表格列格式：复选框)
+> > - 自动编号、添加题注 [❯❯❯](guide.md#插图自动编号与题注)
 >
 > `>(purple)`
 
-> [+] **图片、图标、插图**
+> [+] **版式**
 >
-> > [+] **内容组织**
-> >
-> > > - 自动编号、添加题注 [❯❯❯](guide.md#插图自动编号与题注)
-> >
-> > [+] **版式**
-> >
-> > > - 调整**对齐方式** [❯❯❯](guide.md#插图对齐方式)
-> > > - 设置以**小图标**方式显示 [❯❯❯](guide.md#图片显示版式)
-> > > - 设置为普通图片，不以插图的形式显示 [❯❯❯](guide.md#图片显示版式)
-> > > - 图片边缘能**留白** [❯❯❯](guide.md#图片边缘留白)
-> > > - **一行多图**自动换行后样式适配 [❯❯❯](guide.md#一行多图适配)
-> >
-> > [+] **外观**
-> >
-> > > - 在高分屏下自动适配显示**高清**的版本（2x、3x） [❯❯❯](guide.md#图片适配高分屏)
-> > > - 自动适配 **Dark Mode**  [❯❯❯](guide.md#图片适配 Dark Mode)
-> > > - 让图标的颜色与周围的元素更搭更和谐 [❯❯❯](guide.md#图片颜色替换)
-> > > - 为图片添加工程风的网格背景 [❯❯❯](guide.md#图片网格背景)
+> > - 调整**对齐方式** [❯❯❯](guide.md#插图对齐方式)
+> > - 设置以**小图标**方式显示 [❯❯❯](guide.md#图片显示版式)
+> > - 设置为普通图片，不以插图的形式显示 [❯❯❯](guide.md#图片显示版式)
+> > - 图片边缘能**留白** [❯❯❯](guide.md#图片边缘留白)
+> > - **一行多图**自动换行后样式适配 [❯❯❯](guide.md#一行多图适配)
 >
 > `>(purple)`
 
-> [+] **标签、徽章、引用、分栏**
+> [+] **外观**
 >
-> > [+] **突出关键信息、内容**
-> >
-> > > - 添加**标签**突出关键字信息 [❯❯❯](guide.md#彩虹标签)
-> > > - 将两项内容以**徽章（组合）**形式组织 [❯❯❯](guide.md#彩虹徽章)
-> > > - **重要**的引用使用**突出**的样式 [❯❯❯](guide.md#彩虹引用)
-> >
-> > [+] **对内容分级、分栏（卡片式）、分类展示**
-> >
-> > > - **分栏**（双栏 / 三栏 / 四栏）方式组织内容 [❯❯❯](guide.md#分栏引用)
-> > > - 将内容以分级、分类**折叠**的方式进行组 [❯❯❯](guide.md#折叠吧引用)
-> >
-> > [+] **引用多样化的自动排版**
-> >
-> > > - 引用内嵌普通引用 [❯❯❯](guide.md#示例 1_引用内嵌普通引用)
-> > > - 引用内嵌分栏引用 [❯❯❯](guide.md#示例 2_引用内嵌分栏引用)
-> > > - 列表内嵌引用 [❯❯❯](guide.md#示例 3_列表内嵌引用)
+> > - 在高分屏下自动适配显示**高清**的版本（2x、3x） [❯❯❯](guide.md#图片适配高分屏)
+> > - 自动适配 **Dark Mode**  [❯❯❯](guide.md#图片适配 Dark Mode)
+> > - 让图标的颜色与周围的元素更搭更和谐 [❯❯❯](guide.md#图片颜色替换)
+> > - 为图片添加工程风的网格背景 [❯❯❯](guide.md#图片网格背景)
 >
 > `>(purple)`
+
+###### 标签 • 徽章 • 引用 • 分栏
+
+---
+
+---
+
+> [+] **突出关键信息、内容**
+>
+> > - 添加**标签**突出关键字信息 [❯❯❯](guide.md#彩虹标签)
+> > - 将两项内容以**徽章（组合）**形式组织 [❯❯❯](guide.md#彩虹徽章)
+> > - **重要**的引用使用**突出**的样式 [❯❯❯](guide.md#彩虹引用)
+>
+> `>(purple)`
+
+> [+] **对内容分级、分栏/看板、分类展示**
+>
+> > - 以**分栏/看板**方式组织内容 [❯❯❯](guide.md#°分栏与看板)
+> > - 将内容以分级、分类**折叠**的方式进行组 [❯❯❯](guide.md#折叠引用)
+>
+> `>(purple)`
+
+> [+] **引用多样化的自动排版**
+>
+> > - 引用内嵌普通引用 [❯❯❯](guide.md#示例 1_引用内嵌普通引用)
+> > - 引用内嵌引用分栏 [❯❯❯](guide.md#示例 2_引用内嵌引用分栏)
+> > - 列表内嵌引用 [❯❯❯](guide.md#示例 3_列表内嵌引用)
+>
+> `>(purple)`
+
+###### 图表 • 多媒体 **•** 任务
 
 ---
 
@@ -121,7 +140,7 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 > [+] **流程、技术类内容排版与交互**
 >
-> > - **扩展优化** Mermaid 流程图、状态机图、顺序图 [❯❯❯](guide.md#°Mermaid)
+> > - **扩展优化** Mermaid **流程图、状态机图、顺序图** [❯❯❯](guide.md#°Mermaid)
 > > - 给每个代码块进行自动编号、**添加题注** [❯❯❯](guide.md#代码块自动编号与题注)
 > > - 代码块高亮当前行、一键复制代码 [❯❯❯](guide.md#代码块增强)
 >
@@ -145,7 +164,7 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ## 快速入坑°内容导航
 
-> ###### ![°内容导航](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-nav-light.svg?fill=text&darksrc=invert#icon2x) ° 内容导航
+> ###### ![°内容导航](pic/qico-nav-light.svg?fill=text&darksrc=invert#icon2x) ° 内容导航
 >
 > ------
 >
@@ -201,7 +220,7 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ## 快速入坑°演示与出版辅助
 
-> ###### ![°演示与出版辅助](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-pres-light.svg?fill=text&darksrc=invert#icon2x) ° 演示与出版辅助
+> ###### ![°演示与出版辅助](pic/qico-pres-light.svg?fill=text&darksrc=invert#icon2x) ° 演示与出版辅助
 >
 > ------
 >
@@ -212,6 +231,10 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > `>(orange!)`
 
 > ###### <center>内容助手</center>
+>
+> ---
+>
+> ---
 >
 > ---
 >
@@ -226,8 +249,6 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > > 支持将插图一键放大显示，及前后浏览  [❯❯❯](#插图放大显示)
 > >
 > > `>(orange)`
->
-> ---
 >
 > > ###### ° 表格阅读模式
 > >
@@ -315,6 +336,10 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > >
 > > `>(orange)`
 >
+> ---
+>
+> ---
+>
 > > ###### ° 适配打印输出
 > >
 > > 在打印前将文档的样式调整和简化，以**适配打印**输出的应用需要 [❯❯❯](#适配打印输出)
@@ -325,7 +350,7 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ## 快速入坑°主题与不杂项
 
-> ###### ![°主题与不杂项](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-theme-light.svg?fill=text&darksrc=invert#icon2x) ° 主题与不杂项
+> ###### ![°主题与不杂项](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon2x) ° 主题与不杂项
 >
 > ------
 >
@@ -367,9 +392,9 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 以下是 VLOOK™ 内置的 6 套免费主题（可点击进行效果预览）～
 
-[![Hope 海洋之心](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-theme-hope.png?srcset=@2x#logo#inline)](theme-hope.html?lnkcss=none)　　[![Joint 榫卯](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-theme-joint.png?srcset=@2x#logo#inline)](theme-joint.html?lnkcss=none)　　[![Geek 极邃](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-theme-geek.png?srcset=@2x#logo#inline)](theme-geek.html?lnkcss=none)　　[![Fancy 慕幻](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-theme-fancy.png?srcset=@2x#logo#inline)](theme-fancy.html?lnkcss=none)　　[![Thinking 静思](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-theme-thinking.png?srcset=@2x#logo#inline)](theme-thinking.html?lnkcss=none)　　[![Solaris](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-theme-solaris.png?srcset=@2x#logo#inline)](theme-solaris.html?lnkcss=none)
+[![Hope 海洋之心](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-hope.png?srcset=@2x#logo#inline)](theme-hope.html?lnkcss=none)　　[![Joint 榫卯](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-joint.png?srcset=@2x#logo#inline)](theme-joint.html?lnkcss=none)　　[![Geek 极邃](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-geek.png?srcset=@2x#logo#inline)](theme-geek.html?lnkcss=none)　　[![Fancy 慕幻](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-fancy.png?srcset=@2x#logo#inline)](theme-fancy.html?lnkcss=none)　　[![Thinking 静思](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-thinking.png?srcset=@2x#logo#inline)](theme-thinking.html?lnkcss=none)　　[![Solaris](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-solaris.png?srcset=@2x#logo#inline)](theme-solaris.html?lnkcss=none)
 
-![私人定制](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-theme-vip.png?srcset=@2x#logo#inline)
+![私人定制](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-vip.png?srcset=@2x#logo#inline)
 
 **若你使用在[线插件方式](index.html#在线版插件)，可通过「[插件调校参数](#插件调校参数)」`theme` 来动态指定任意 VLOOK 主题。**
 
@@ -379,13 +404,13 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > `>(brown!)`
 
-![私人定制主题](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-theme-vip-demo.png?grid=block&srcset=@2x "以上仅为私人定制的样品参考示例，非正式定制服务成品")
+![私人定制主题](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-vip-demo.png?grid=block&srcset=@2x "以上仅为私人定制的样品参考示例，非正式定制服务成品")
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 ## 字体主题
 
@@ -393,7 +418,7 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 `#VLOOK|👀#(theme2)` 提供了两套自定义的字体主题，可根据个人喜好进行选用。
 
-> 通过通过工具栏上的  ![字体主题](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-font-style.svg?fill=theme1&darksrc=invert#icon2x)  按钮进行选择（快捷键操作：<kbd>A</kbd> )。
+> 通过通过工具栏上的  ![字体主题](https://madmaxchow.gitee.io/vlookres/pic/icon-font-style.svg?fill=theme1&darksrc=invert#icon2x)  按钮进行选择（快捷键操作：<kbd>A</kbd> )。
 
 ---
 
@@ -401,7 +426,7 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 整体表现为「**清新、简约、明快**」，主要采用无衬线的东亚和拉丁字体。
 >
-> ![字体风格_小清新](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/小清新.png?darksrc=invert&srcset=@2x,@3x)
+> ![字体风格_小清新](https://madmaxchow.gitee.io/vlookres/pic/小清新.png?darksrc=invert&srcset=@2x,@3x)
 >
 > `>(cyan!)`
 
@@ -409,7 +434,7 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 整体表现为「**优雅、韵动、个性**」，主要采用衬线＋无衬线的东亚和拉丁字体进行**混搭**。
 >
-> ![字体风格_文艺范](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/文艺范.png?darksrc=invert&srcset=@2x,@3x)
+> ![字体风格_文艺范](https://madmaxchow.gitee.io/vlookres/pic/文艺范.png?darksrc=invert&srcset=@2x,@3x)
 >
 > `>(purple!)`
 
@@ -420,7 +445,7 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 >---
 >
->![蓝奏云](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/lanzou.png?srcset=@2x#logo) … [下载字体▾](https://wwe.lanzoui.com/ieVDhj1aokj)　　　　　![百度网盘](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/baidupan.png?srcset=@2x#logo) … [下载字体▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)（提取码`11ta`)
+>![蓝奏云](https://madmaxchow.gitee.io/vlookres/pic/lanzou.png?srcset=@2x#logo) … [下载字体▾](https://wwe.lanzoui.com/ieVDhj1aokj)　　　　　![百度网盘](https://madmaxchow.gitee.io/vlookres/pic/baidupan.png?srcset=@2x#logo) … [下载字体▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)（提取码`11ta`)
 >
 >`>(gray)`
 
@@ -448,9 +473,9 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 ## 封面、封底
 
@@ -521,14 +546,14 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 ###### 示例 2_本文档的封面内容
 
 ```markdown
-###### <sub>VLOOK™</sub><br>让你的 Markdown 有了新`{看}(wán)`法<br>──<br><sup>快速参考手册</sup><br>`#最新版本|V14.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2022. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br>让你的 Markdown 有了新`{看}(wán)`法<br>──<br><sup>快速参考手册</sup><br>`#最新版本|V14.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
 ```
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 ## Dark Mode 
 
@@ -536,7 +561,7 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 `#VLOOK|👀#(theme2)` 所有 VLOOK™ 的主题都会自动根据浏览器或系统的 Dark Mode（深色模式）的设置进行自动适配。
 
-> 可通过工具栏上的 ![Light Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-light-mode.svg?fill=theme1&darksrc=invert#icon2x) / ![Dark Mode](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-dark-mode.svg?fill=theme1&darksrc=invert#icon2x) 按钮进行手动切换（快捷键操作：<kbd>D</kbd> )。
+> 可通过工具栏上的 ![Light Mode](https://madmaxchow.gitee.io/vlookres/pic/icon-light-mode.svg?fill=theme1&darksrc=invert#icon2x) / ![Dark Mode](https://madmaxchow.gitee.io/vlookres/pic/icon-dark-mode.svg?fill=theme1&darksrc=invert#icon2x) 按钮进行手动切换（快捷键操作：<kbd>D</kbd> )。
 >
 > 若希望文档在显示后强制指定为 Light / Dark Mode ，可通过「[插件调校参数](#插件调校参数)」`cs` 来启用这一特性。
 >
@@ -544,13 +569,13 @@ VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > `#💡|小提示#(orange!)` *如果你的图片在 Dark Mode 下显得不够和谐，可以尝试选择让[图片适配 Dark Mode](guide.md#图片适配 Dark Mode)。*
 
-![Light / Dark 效果预览](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-color-scheme-preview.png?srcset=@2x)
+![Light / Dark 效果预览](https://madmaxchow.gitee.io/vlookres/pic/vlook-color-scheme-preview.png?srcset=@2x)
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 ## 更美观的公式
 
@@ -595,6 +620,9 @@ $$
 
 使用 VLOOK™ 插件后，默认支持对文档内的章节标题进行自动编号，默认的自动编号格式均为阿拉伯数字，如 `1. 一级章节名称` `3.2.5 三级章节名称` 。
 
+> - 所有 VLOOK™ 的主题都会自动对 `1 ~ 5级` 标题进行自动的分级编号；
+> - 因为 `6 级` 标题在 VLOOK™ 中应用于[封面和封底](#封面、封底)、段落小标题的排版等，所以不在自动编号范围内。
+
 `#Markdown 粉|🤟#`「**希望对文档中章节自动编号根据进行自定义，以适应具体文档的风格、标题内容的组织方式**」
 
 `#VLOOK|👀#(theme2)` VLOOK™ 开放了非常实用和丰富自定义章节编号格式，轻松实现对章节编号的自动格式化。
@@ -632,9 +660,9 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
 ## 导航中心
 
@@ -649,14 +677,15 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 - 支持丰富的分类内容索引：==目录==、==插图==、==表格==、==多媒体==、==代码块==
 - 所有类型的索引均支持按关键进行快速过滤筛选
 - 支持自动记录访问历史，随时一键回跳
+- 支持通过快捷键 <kbd>O</kbd> 显示或隐藏导航中心
 
 （若文档无以上可索引的内容，则导航中心会默认收起，须手动打开）
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
 ## 逐章导航
 
@@ -675,9 +704,9 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
 ## 逐段导航
 
@@ -698,18 +727,18 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
 ## 插图导航
 
-`#Markdown 粉|🤟#`「**希望能按图索骥，快速浏览文档中的插图，以及快速定位到文档中对应的位置。**」
+`#Markdown 粉|🤟#`「**希望能按图索骥，快速浏览文档中的所有插图，以及快速定位到文档中对应的位置。**」
 
 `#VLOOK|👀#(theme2)` 文档中的所有图片、Mermaid[^Mermaid] 图表都支持快速浏览，一键跳转到对应位置。
 
 > - 所有插图可支持通过在插图浏览器中打开，并进行前后插图的导航；
-> - 鼠标悬停在插图后，通过右上角内容助手上的 ![画中画](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-full-screen.svg?fill=theme1&darksrc=invert#icon2x) 按钮打开，点击插图浏览器中的插图，也能直接跳转到文档中对应的位置。
+> - 鼠标悬停在插图后，通过右上角内容助手上的 ![画中画](https://madmaxchow.gitee.io/vlookres/pic/icon-full-screen.svg?fill=theme1&darksrc=invert#icon2x) 按钮打开，点击插图浏览器中的插图，也能直接跳转到文档中对应的位置。
 
 [^Mermaid]: Mermaid 是一个用于画流程图、状态图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [Mermaid 官网](https://mermaidjs.github.io)，或 VLOOK™ 的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.md)》
 
@@ -725,13 +754,13 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ###### 示例_长图片、双题注
 
-![普通的图片示例（长图会自动折叠）](https://tva1.sinaimg.cn/large/00831rSTgy1gct75k6v6rj30u00u0b2b.jpg "（图片来源自互联网，版权尚不明确）")
+![普通的图片示例（长图会自动折叠）](https://madmaxchow.gitee.io/vlookres/pic/normal-pic.jpg "（图片来源自互联网，版权尚不明确）")
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
 ## 文库导航
 
@@ -766,10 +795,10 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 >
 > [+] **如何让普通链接也能打开「文库导航」？**
 >
-> > 只须设置链接的内容为 `vlook://doc-lib` 即可，示例如下：
+> > 只须设置链接的内容为 `vlook-doc-lib://` 即可，示例如下：
 > >
 > > ```markdown
-> > [点击打开文库](vlook://doc-lib)
+> > [点击打开文库](vlook-doc-lib://)
 > > ```
 >
 > [+] **如何关闭已发布文档中的「文库导航」？**
@@ -782,9 +811,9 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
 ## 脚注导航
 
@@ -798,9 +827,9 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
 # °演示与出版辅助
 
@@ -826,9 +855,9 @@ Hello World!
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 ### 插图放大显示
 
@@ -836,9 +865,9 @@ Hello World!
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 ### 表格阅读模式
 
@@ -846,7 +875,7 @@ Hello World!
 
 `#VLOOK|👀#(theme2)` 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
-> - 鼠标悬停在表格后，通过右上角内容助手上的 ![表格阅读模式](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-table-cross.svg?fill=theme1&darksrc=invert#icon2x) 按钮打开、关闭（快捷键操作：<kbd>X</kbd> )；
+> - 鼠标悬停在表格后，通过右上角内容助手上的 ![表格阅读模式](https://madmaxchow.gitee.io/vlookres/pic/icon-table-cross.svg?fill=theme1&darksrc=invert#icon2x) 按钮打开、关闭（快捷键操作：<kbd>X</kbd> )；
 > - 鼠标点击表格上的任意单元格后，会自动高亮其同一行、同一列的相关信息；
 > - 点击文档空白位置，或按下 <kbd>ESC</kbd> 临时取消显示。
 
@@ -859,9 +888,9 @@ Hello World!
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 ### 画中画
 
@@ -869,16 +898,16 @@ Hello World!
 
 `#VLOOK|👀#(theme2)` 这个可以有，VLOOK™ 激活后开箱即用～
 
-> - 鼠标悬停在插图、表格、代码块后，通过右上角内容助手上的 ![画中画](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-pic-in-pic.svg?fill=theme1&darksrc=invert\#icon2x) 按钮一键开启；
+> - 鼠标悬停在插图、表格、代码块后，通过右上角内容助手上的 ![画中画](https://madmaxchow.gitee.io/vlookres/pic/icon-pic-in-pic.svg?fill=theme1&darksrc=invert\#icon2x) 按钮一键开启；
 > - 开启后默认缩小为 75% 大小进行显示，也可通过缩放按钮调整为原始大小进行显示。
 
 快去文档中的任意插图、表格、代码块上试试吧～
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 ## °演示辅助
 
@@ -888,14 +917,14 @@ Hello World!
 
 `#VLOOK|👀#(theme2)` 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
-> - 通过工具栏上的 ![聚光灯](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-spotlight.svg?fill=theme1&darksrc=invert#icon2x) 按钮打开、关闭（快捷键操作：<kbd>S</kbd> )；
+> - 通过工具栏上的 ![聚光灯](https://madmaxchow.gitee.io/vlookres/pic/icon-spotlight.svg?fill=theme1&darksrc=invert#icon2x) 按钮打开、关闭（快捷键操作：<kbd>S</kbd> )；
 > - 打开聚光灯后，可支持按通过 <kbd>⇧ Shift</kbd> 键调节聚光灯的大小。
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 ### 激光笔
 
@@ -903,13 +932,13 @@ Hello World!
 
 `#VLOOK|👀#(theme2)` 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
-> 通过工具栏上的 ![激光笔](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-laser-pointer.svg?fill=theme1&darksrc=invert#icon2x) 按钮打开「聚光灯」（快捷键操作：<kbd>P</kbd> )。
+> 通过工具栏上的 ![激光笔](https://madmaxchow.gitee.io/vlookres/pic/icon-laser-pointer.svg?fill=theme1&darksrc=invert#icon2x) 按钮打开「聚光灯」（快捷键操作：<kbd>P</kbd> )。
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 ### Mermaid 图表元素高亮
 
@@ -917,9 +946,9 @@ Hello World!
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 
 
@@ -932,24 +961,6 @@ Hello World!
 > - 长长的**图片** … [查看示例 ❯](#示例_长图片、双题注)
 > - 长长的**表格** … [查看示例 ❯](#快捷键操作汇总)
 > - 长长的**代码** … [查看示例 ❯](guide.md#代码块增强)
-
-### 章节标题自动编号
-
-`#Markdown 粉|🤟#` 「**希望能像 Word 那样可以支持对标题、图表添加自动编号、题注的功能。**」
-
-`#VLOOK|👀#(theme2)`  你会惊喜地发现，基于 Markdown 也能做到，甚至能做得更好～既不需要进行额外的设置和语法支持，甚至还能对表格行进行自动行号编号，一起来看看吧。
-
-> **标题自动分级编号**
->
-> - 所有 VLOOK™ 的主题都会自动对 `1 ~ 5级` 标题进行自动的分级编号；
-> - 编号的格式就是你在本文各级章节标题所看到的那样；
-> - 因为 `6 级` 标题在 VLOOK™ 中应用于[封面](#封面、封底)、段落小标题的排版等，所以不在自动编号范围内。
-
----
-
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
-
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 ### 自定义欢迎页内容
 
@@ -969,9 +980,9 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 ### 内容失效检查
 
@@ -999,9 +1010,9 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 ### 链接内容识别
 
@@ -1011,7 +1022,9 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 > ###### VLOOK™ 文库专属链接
 >
-> [**点击打开当前文档的文库**](vlook://doc-lib)
+> [**点击打开当前文档的文库**](vlook-doc-lib://)
+>
+> [**点击打开当前文档的文库，并跳到指定锚点**](vlook-doc-lib://#📊-脚-本-化-图-表)
 >
 > （鼠标悬停看看效果）
 >
@@ -1019,7 +1032,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 > ###### 识别主流超链接资源
 >
-> [**#页内链接**](#) / [**md 文件 (编辑时)**](index.md) / [**站内链接**](xxx.html) / [**站外 http**](http://xxx) / [**站外 https**](https://xxx) / [**mailto**](mailto:)
+> [**#页内链接**](#) / [**md 文件**](index.md?mdx=off) / [**站内链接**](xxx.html) / [**站外 http**](http://xxx) / [**站外 https**](https://xxx) / [**mailto**](mailto:)
 >
 > （鼠标悬停看看效果）
 >
@@ -1055,9 +1068,9 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 ### 链接内容转换
 
@@ -1081,21 +1094,21 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 ### 适配打印输出
 
 **使用 VLOOK™ 提供的定制打印功能，可以在打印输出时自动调整、展开页面内容，以适应用打印输出的需要。**
 
-> 通过点击顶部工具栏的 ![打印](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-print.svg?fill=theme1&darksrc=invert#icon2x) 按钮，看看文档的打印预览效果～
+> 通过点击顶部工具栏的 ![打印](https://madmaxchow.gitee.io/vlookres/pic/icon-print.svg?fill=theme1&darksrc=invert#icon2x) 按钮，看看文档的打印预览效果～
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 # °不杂项
 
@@ -1178,9 +1191,9 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 ## 插件预置选项
 
@@ -1212,9 +1225,9 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 ## 插件调校参数
 
@@ -1230,7 +1243,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 |      capnum      | 指定==不要启用==自动生成内容索引与编号的范围（多项间可用英文逗号分隔），不启用的情况下，对应内容的超长后的[自动折叠](#长内容自动折叠)也会不启用<br>默认**全部启用** | `table` - 表格<br>`figure` - 插图<br>`audio` - 音频<br>`video` - 视频<br>`codeblock` - 代码块 |
 |     capauto      | 指定在内容索引无题注内容时，是否以索引对象（如表格、图片、代码块等）的内容自动生成<br>默认为 `off` | `off` - 不开启<br>`on` - 开启                                |
 |        cs        | 指定使用固定的颜色方案<br>默认为 `auto`                      | `light` - 强制显示为 Light Mode<br>`dark` - 强制显示为 Dark Mode<br>`auto` - 自动跟随系统配置 |
-|        cf        | 控制使用长内容自动折叠的开头<br>黑夜为 `on`                  | `off` - 不开启<br>`on` - 开启                                |
+|        cf        | 控制使用长内容自动折叠的开关<br>默认为 `on`<br><br>若有多个指定范围要开启，可用英文逗号「,」进行分隔 | `off` - 全不开启<br>`on` - 全开启<br><br>指定范围开启：<br>`table` - 指定「表格」<br>`figure` - 指定「插图」<br>`codeblock` - 指定「代码块」 |
 |      dc-tag      | 调整[彩虹标签](guide.md#彩虹标签)未指定颜色时默认使用的颜色标识<br>默认为 `theme1` | 对应的预置颜色标识，[详见这里](guide.md#彩虹标签)            |
 |     dc-badge     | 调整[彩虹徽章](guide.md#彩虹徽章)未指定颜色时默认使用的颜色标识<br>默认为 `gray` | 对应的预置颜色标识，[详见这里](guide.md#彩虹徽章)            |
 |     dc-quote     | 调整普通「引用」默认自动转换为指定颜色标识的[彩虹引用](guide.md#彩虹引用)<br>默认为 `theme1` | 对应的预置颜色标识，[详见这里](guide.md#彩虹引用)            |
@@ -1281,9 +1294,9 @@ vlook-query: 参数1=取值&参数2=取值...&参数n=取值
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 ## 快捷键操作汇总
 
@@ -1330,11 +1343,11 @@ vlook-query: 参数1=取值&参数2=取值...&参数n=取值
 
 - 推荐使用以下浏览器及最新版本：
 
-  ![Chrome](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/chrome.png#icon2x) **Google** [**Chrome**](https://www.google.cn/chrome/)
+  ![Chrome](https://madmaxchow.gitee.io/vlookres/pic/chrome.png#icon2x) **Google** [**Chrome**](https://www.google.cn/chrome/)
 
-  ![Edge](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/edge.png#icon2x) **Microsoft** [**Edge**](https://www.microsoft.com/zh-cn/edge)
+  ![Edge](https://madmaxchow.gitee.io/vlookres/pic/edge.png#icon2x) **Microsoft** [**Edge**](https://www.microsoft.com/zh-cn/edge)
 
-  ![Firefox](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/firefox.png#icon2x) **Mozilla** [**Firefox**](https://www.mozilla.org/zh-CN/firefox/)
+  ![Firefox](https://madmaxchow.gitee.io/vlookres/pic/firefox.png#icon2x) **Mozilla** [**Firefox**](https://www.mozilla.org/zh-CN/firefox/)
 
 ###### 动效
 
@@ -1568,11 +1581,11 @@ VLOOK™ 插件的界面语言，自动适配浏览器的语言设置。
 
 | 配色示例                                                     | 说明                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![单色方案](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/单色.png?srcset=@2x#logo) | **==单色方案==**<br>由一个颜色的暗/中/明色调组成（如：暗绿、绿、粉绿）<br><br>单色搭配上并没有形成颜色的层次，但形成了明暗的层次。<br>这种搭配在设计中应用时，出来的效果永远不错，其重要性也可见一斑。 |
-| ![类比色方案](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/类比色.png?srcset=@2x#logo) | **==类比色方案==**<br>色轮上某个颜色的相邻的颜色（如：橙黄色、黄色、橙色）<br><br>类比色都拥有共同的三原色颜色（在上图中，是黄色及红色）。<br>这种颜色搭配产生了一种令人悦目、低对比度的和谐美感。<br>类比色非常丰富，在设计时应用这种搭配同样让你轻易产生不错的视觉效果。 |
-| ![补色方案](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/补色.png?srcset=@2x#logo) | **==补色方案==**<br>色轮上直线相对的两种颜色（如：红、绿）<br><br>补色形成强列的对比效果，传达出活力、能量、兴奋等意义。<br>补色要达到最佳的效果，最好是其中一种面积比较小，另一种比较大。<br>比如在一个蓝色的区域里搭配橙色的小圆点。 |
-| ![分裂补色方案](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/分裂补色.png?srcset=@2x#logo) | **==分裂补色方案==**<br>色轮上某颜色（如：红色）及其补色的类比色（如：绿、青）<br><br>这种颜色搭配既具有类比色的低对比度的美感，又具有补色的力量感。<br>形成了一种既和谐又有重点的颜色关系。<br>如在上面三种颜色中，红色就显得更加突出。 |
-| ![二次色方案](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/二次色.png?srcset=@2x#logo) | **==二次色方案==**<br>二次色容易构成协调的搭配（如：绿、橙、紫）<br><br>任意两个二次色之间都拥有一种共同的颜色，所以它们轻易能够形成协调的搭配。<br>如果三种二次色同时使用，则显得很舒适、吸引，具有丰富的色调，以及深度和广度。 |
-| ![原色方案](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/原色.png?srcset=@2x#logo) | **==原色方案==**<br>三原色同时使用是比较少<br><br>红黄搭配较受欢迎。从快餐店到加油站，我们都可以看见这两种颜色同时在一起。<br>蓝红搭配也很常见，但只有当两者的区域是分离时，才会显得吸引人。<br>注意：如果是紧邻在一起，则会产生冲突感，需进行分离。 |
+| ![单色方案](https://madmaxchow.gitee.io/vlookres/pic/单色.png?srcset=@2x#logo) | **==单色方案==**<br>由一个颜色的暗/中/明色调组成（如：暗绿、绿、粉绿）<br><br>单色搭配上并没有形成颜色的层次，但形成了明暗的层次。<br>这种搭配在设计中应用时，出来的效果永远不错，其重要性也可见一斑。 |
+| ![类比色方案](https://madmaxchow.gitee.io/vlookres/pic/类比色.png?srcset=@2x#logo) | **==类比色方案==**<br>色轮上某个颜色的相邻的颜色（如：橙黄色、黄色、橙色）<br><br>类比色都拥有共同的三原色颜色（在上图中，是黄色及红色）。<br>这种颜色搭配产生了一种令人悦目、低对比度的和谐美感。<br>类比色非常丰富，在设计时应用这种搭配同样让你轻易产生不错的视觉效果。 |
+| ![补色方案](https://madmaxchow.gitee.io/vlookres/pic/补色.png?srcset=@2x#logo) | **==补色方案==**<br>色轮上直线相对的两种颜色（如：红、绿）<br><br>补色形成强列的对比效果，传达出活力、能量、兴奋等意义。<br>补色要达到最佳的效果，最好是其中一种面积比较小，另一种比较大。<br>比如在一个蓝色的区域里搭配橙色的小圆点。 |
+| ![分裂补色方案](https://madmaxchow.gitee.io/vlookres/pic/分裂补色.png?srcset=@2x#logo) | **==分裂补色方案==**<br>色轮上某颜色（如：红色）及其补色的类比色（如：绿、青）<br><br>这种颜色搭配既具有类比色的低对比度的美感，又具有补色的力量感。<br>形成了一种既和谐又有重点的颜色关系。<br>如在上面三种颜色中，红色就显得更加突出。 |
+| ![二次色方案](https://madmaxchow.gitee.io/vlookres/pic/二次色.png?srcset=@2x#logo) | **==二次色方案==**<br>二次色容易构成协调的搭配（如：绿、橙、紫）<br><br>任意两个二次色之间都拥有一种共同的颜色，所以它们轻易能够形成协调的搭配。<br>如果三种二次色同时使用，则显得很舒适、吸引，具有丰富的色调，以及深度和广度。 |
+| ![原色方案](https://madmaxchow.gitee.io/vlookres/pic/原色.png?srcset=@2x#logo) | **==原色方案==**<br>三原色同时使用是比较少<br><br>红黄搭配较受欢迎。从快餐店到加油站，我们都可以看见这两种颜色同时在一起。<br>蓝红搭配也很常见，但只有当两者的区域是分离时，才会显得吸引人。<br>注意：如果是紧邻在一起，则会产生冲突感，需进行分离。 |
 
 # The End

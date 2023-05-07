@@ -53,6 +53,10 @@
 // 标题色
 @headerColor: @themeForeColor;
 @headerColorDark: @themeForeColor;
+// 渐变标题色 h1-h5
+@lgHeaderBg: linear-gradient(135deg, @theme1 25%, #2060E0);
+@lgHeaderBgClip: text;
+@lgHeaderColor: transparent;
 // @tocHeaderNumColor: @docTextColorLightFade;
 @contentHeaderNumColor: @themeBgColorFade;
 @headerBackground: linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
@@ -86,13 +90,18 @@
 @h6BorderTop: 0;
 
 // 行内代码背景色
-@codeBgColor: lighten(@themeForeColor, 45%);
-@codeBgColorDark: darken(@themeForeColor, 25%);
+@codeBgColor: lighten(@theme2, 52%);
+@codeBgColorDark: darken(@theme2, 38%);
+@codeTextColor: @theme2;
 
 // 按钮色
 @buttonForeColor: @themeBgColor;
 @buttonForeHoverColor: @theme3;
 @buttonBgColor: @themeForeColor;
+// 文库按钮颜色
+@docLibButtonForeColor: @themeBgColor;
+@docLibButtonForeHoverColor: @theme3;
+@docLibButtonBgColor: @themeForeColor;
 
 // 加粗文字颜色
 // @boldColorLight: @docTextColorLight;//#202224;
@@ -122,8 +131,8 @@
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: center;
 @coverTextPadding: 240px 60px 50px;
-@coverTextColor: @aLineColor;
-@coverSubColor: @themeForeColor;
+@coverTextColor: @themeForeColor;
+@coverSubColor: @aLineColor;
 @coverSupColor: #606070;
 @coverAuthorColor: @coverSupColor;
 @coverOwnerColor: @coverAuthorColor;

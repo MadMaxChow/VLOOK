@@ -52,6 +52,10 @@
 // 标题色
 @headerColor: darken(@themeBgColor, 5%);
 @headerColorDark: darken(@themeBgColor, 10%);
+// 渐变标题色 h1-h5
+@lgHeaderBg: none;
+@lgHeaderBgClip: inherit;
+@lgHeaderColor: inherit;
 // @tocHeaderNumColor: @docTextColorLightFade;
 @contentHeaderNumColor: darken(@themeBgColorFade, 10%);
 @headerBackground: linear-gradient(270deg, var(--h-bg-end), var(--h-bg-start), var(--h-bg-end));
@@ -84,14 +88,19 @@
 @h5BorderTop: 0;
 @h6BorderTop: 0;
 
-// 行内代码背景色
-@codeBgColor: lighten(@themeBgColor, 30%);
-@codeBgColorDark:  darken(@themeBgColor, 40%);
+// 行内代码
+@codeBgColor: lighten(@theme2, 35%);
+@codeBgColorDark:  darken(@theme2, 50%);
+@codeTextColor: @theme2;
 
 // 按钮色
 @buttonForeColor: @themeForeColor;
-@buttonForeHoverColor: #EBBF2F;
+@buttonForeHoverColor: @theme1;
 @buttonBgColor: @themeBgColor;
+// 文库按钮颜色
+@docLibButtonForeColor: @themeForeColor;
+@docLibButtonForeHoverColor: @theme1;
+@docLibButtonBgColor: @themeBgColor;
 
 // 加粗文字颜色
 // @boldColorLight: @docTextColorLight;//#202224;

@@ -11,7 +11,7 @@ vlook-query: effects=2&ws=auto&lmc=1
 vlook-doc-lib: vlook-lib.html
 ---
 
-###### <sub>VLOOK™</sub><br>让你的 Markdown 有了新`{看}(wán)`法<br>──<br><sup>简介</sup><br>`#最新版本|V14.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2022. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br>让你的 Markdown 有了新`{看}(wán)`法<br>──<br><sup>简介</sup><br>`#最新版本|V16.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
 
 [TOC]
 
@@ -24,17 +24,17 @@ vlook-doc-lib: vlook-lib.html
 
 
 >
->![VLOOK™](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo)
+>![VLOOK™](https://madmaxchow.gitee.io/vlookres/pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo)
 >
->![OSChina](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/oschina.png#icon) **[开源中国](https://www.oschina.net/p/vlook) 推荐的国产开源产品。**
+>![OSChina](https://madmaxchow.gitee.io/vlookres/pic/oschina.png#icon) **[开源中国](https://www.oschina.net/p/vlook) 推荐的国产开源产品。**
 >
->![VLOOK](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) VLOOK™ 是针对 ![Typora](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/typora.png#icon) [Typora](https://www.typora.io)[^Typora] （跨平台 Markdown 编辑器）的 **主题包** 和 **增强插件**（针对导出的 HTML 文件)。
+>![VLOOK](https://madmaxchow.gitee.io/vlookres/pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) VLOOK™ 是针对 ![Typora](https://madmaxchow.gitee.io/vlookres/pic/typora.png#icon) [Typora](https://www.typora.io)[^Typora] （跨平台 Markdown 编辑器）的 **主题包** 和 **增强插件**（针对导出的 HTML 文件)。
 >
 >VLOOK™ 属于开源软件（遵从 **MIT License**）。
 >
 >`>(theme1)`
 
-> 代码托管：[![Github](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/github-light.svg?darksrc=github-dark.svg#logo)](https://github.com/MadMaxChow/VLOOK?lnkcss=none)　　[![Gitee](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/gitee-light.svg?darksrc=gitee-dark.svg#logo)](https://gitee.com/madmaxchow/VLOOK?lnkcss=none)
+> 代码托管：[![Github](https://madmaxchow.gitee.io/vlookres/pic/github-light.svg?darksrc=github-dark.svg#logo)](https://github.com/MadMaxChow/VLOOK?lnkcss=none)　　[![Gitee](https://madmaxchow.gitee.io/vlookres/pic/gitee-light.svg?darksrc=gitee-dark.svg#logo)](https://gitee.com/madmaxchow/VLOOK?lnkcss=none)
 
 > [+] **许可协议**
 >
@@ -44,19 +44,19 @@ vlook-doc-lib: vlook-lib.html
 > >
 > > ```
 > > MIT License
-> > Copyright (c) 2016-2022 MAX°DESIGN | Max Chow
+> > Copyright (c) 2016-2023 MAX°DESIGN | Max Chow
 > > Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 > > The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 > > THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 > > ```
 >
-> [+] ![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark-solid.svg?fill=text#icon) **Markdown 是什么？**
+> [+] ![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) **Markdown 是什么？**
 >
-> > - 2004 年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了 [![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark-solid.svg?fill=text#icon) Markdown](https://zh.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的 `文本标记语言` 。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）；
+> > - 2004 年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了 [![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) Markdown](https://zh.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的 `文本标记语言` 。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）；
 > >- Markdown 文档以 `纯文本格式存储` ，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过 Markdown 编辑器导出为带排版的富文本文档、HTML 网页等等。==纯粹、简洁、易用、灵活==，都是人们喜欢 Markdown 的原因；
 > > - 目前 Markdown 的标准化项目是 [CommonMark](http://commonmark.org)。
 > > 
-> > ![Markdown](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/markdown-mark.svg?fill=text#logo)
+> > ![Markdown](pic/markdown-mark.svg?fill=text#logo)
 >
 > [+] **60 秒学会、10 分钟深入学习 Markdown 语法**
 >
@@ -84,6 +84,14 @@ vlook-doc-lib: vlook-lib.html
 >
 > `>(brown!)`
 
+# 打赏
+
+**若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**
+
+`#微信支付|MaxChow#(green!)`
+
+![打赏 VLOOK™ (微信支付)](https://madmaxchow.gitee.io/vlookres/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#frame)
+
 # 快速入坑
 
 VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文档的互联网化应用场景～
@@ -92,21 +100,21 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
->　　　　###### ![°文档排版](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-types-light.svg?fill=text&darksrc=invert#icon) ° 文档排版
+>　　　　　　　　###### ![°文档排版](pic/qico-types-light.svg?fill=text&darksrc=invert#icon) ° 文档排版
 >
 >---
 >
->**有了 VLOOK™ 主题及插件的支持，让你对 Markdown 编辑器（暂只支持 Typora）的自动化排版能力有了全新的理解。**
+>**有了 VLOOK™ 主题及插件的支持，让你对 Markdown 编辑器（暂只支持 Typora）的自动化排版能力有了全新的理解和应用。**
 >
->得益于成熟的 Web 技术，让静态的文档也能与你一起「动」起来～
+>除丰富的排版增强特性外，基于 HTML 格式让静态的文档也能与你一起「动」起来～
 >
+>　　　　
 >
+>[<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°文档排版)
 >
->[<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°文档排版)
->
->`>(green!)`
+>　　　　`>(green!)`
 
-> ###### ![°内容导航](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-nav-light.svg?fill=text&darksrc=invert#icon) ° 内容导航
+> ###### ![°内容导航](pic/qico-nav-light.svg?fill=text&darksrc=invert#icon) ° 内容导航
 >
 > ---
 >
@@ -116,14 +124,13 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 
 >
-> [<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°内容导航)
+> [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°内容导航)
 >
 > `>(blue!)`
 
 ---
 
->
->###### ![°演示与出版辅助](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-pres-light.svg?fill=text&darksrc=invert#icon) ° 演示与出版辅助
+>###### ![°演示与出版辅助](pic/qico-pres-light.svg?fill=text&darksrc=invert#icon) ° 演示与出版辅助
 >
 >---
 >
@@ -133,12 +140,11 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 >
 >
->[<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°演示与出版辅助)
+>[<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°演示与出版辅助)
 >
 >`>(orange!)`
 
->
->###### ![°主题与不杂项](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/qico-theme-light.svg?fill=text&darksrc=invert#icon) ° 主题与不杂项
+>###### ![°主题与不杂项](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon) ° 主题与不杂项
 >
 >---
 >
@@ -148,21 +154,13 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 >
 >
->[<kbd>了解更多 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°主题与不杂项)
+>[<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°主题与不杂项)
 >
 >`>(brown!)`
 
 ---
 
-###### **[点击这里，浏览更多 VLOOK™ 的话题 ![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/icon-forward.svg?fill=text#icon)](vlook://doc-lib)**
-
-# 打赏
-
-**若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**
-
-`#支付方式|微信支付#(green!)`
-
-![打赏 VLOOK™ (微信支付)](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#frame)
+###### [点击这里，浏览更多 VLOOK™ 的话题 ![](pic/icon-forward.svg?fill=text#icon)](vlook://doc-lib)
 
 # 安装与使用
 
@@ -213,7 +211,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 *==Typora ▸ 偏好设置 ▸ Markdown==*
 
-![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/typora-opt1-light.png?srcset=@2x&darksrc=typora-opt1-dark.png&darksrcset=@2x)
+![](https://madmaxchow.gitee.io/vlookres/pic/typora-opt1-light.png?srcset=@2x&darksrc=typora-opt1-dark.png&darksrcset=@2x)
 
 ---
 
@@ -257,13 +255,13 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > `>(gray!)`
 
-**模板文件在哪？**
-
-1. 在目录 `released` 下的 ***.md** 文件
-   1. 标准模板：*VLOOK-Document-Template.md*
-   2. 无封面模板：*VLOOK-Document-Template-nocover.md*
-   3. 文库模板：*VLOOK-Document-Template-doc_lib.md*
-2. 也可直接在项目主页中[下载文档模板](https://github.com/MadMaxChow/VLOOK/tree/master/released/demo)（[备用链接](https://gitee.com/madmaxchow/VLOOK/tree/master/released/demo)）
+> [+] **模板文件在哪？**
+>
+> > 1. 在目录 `released` 下的 ***.md** 文件
+> >    1. 标准模板：*VLOOK-Document-Template.md*
+> >    2. 无封面模板：*VLOOK-Document-Template-nocover.md*
+> >    3. 文库模板：*VLOOK-Document-Template-doc_lib.md*
+> > 2. 也可直接在项目主页中[下载文档模板](https://github.com/MadMaxChow/VLOOK/tree/master/released/demo)（[备用链接](https://gitee.com/madmaxchow/VLOOK/tree/master/released/demo)）
 
 ---
 
@@ -325,7 +323,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 *==Typora ▸ 偏好设置 ▸ 导出==*
 
-![](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
+![](https://madmaxchow.gitee.io/vlookres/pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
 
 # 补充说明
 
@@ -357,12 +355,12 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 为保障最佳的使用体验，强烈建议使用以下浏览器访问：
 >
-> ![Chrome](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/chrome.png#icon2x) **[Chrome](https://www.google.cn/chrome/)**　　![Edge](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/edge.png#icon2x) **[Edge](https://www.microsoft.com/zh-cn/edge)**　　![Firefox](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/firefox.png#icon2x) **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
+> ![Chrome](https://madmaxchow.gitee.io/vlookres/pic/chrome.png#icon2x) **[Chrome](https://www.google.cn/chrome/)**　　![Edge](https://madmaxchow.gitee.io/vlookres/pic/edge.png#icon2x) **[Edge](https://www.microsoft.com/zh-cn/edge)**　　![Firefox](https://madmaxchow.gitee.io/vlookres/pic/firefox.png#icon2x) **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
 >
 > `>(blue)`
 
 ---
 
-如有建议和需求，欢迎随时反馈～ [![VLOOK™ @ QQ Group](https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOKres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如有建议和需求，欢迎随时反馈～ [![VLOOK™ @ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
 # The End

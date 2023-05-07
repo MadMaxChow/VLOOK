@@ -3,8 +3,8 @@
  * VLOOK CSS 调色板
  * (配合 base.less 进行使用)
  *
- * V16-dev
- * 2022-06-25
+ * V16.0
+ * 2023-05-07
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -259,15 +259,16 @@
     --v-brightness-dark-lg: brightness(100%); // Light 模式下封面、封底的滤镜
 
     --a-color-lg: @aColor;
-    --mark-bg-lg: rgba(255, 192, 32, 0.4);
-    --tbl-row-g-alpha-lg: 0.15;
+    --mark-bg-lg: rgba(255, 192, 32, .4);
+    --tbl-row-g-alpha-lg: .15;
     --h-f-lg: @headerColor;
     --h-box-shadow-lg: fade(@headerColor, 20%);
     --h-bg-start-lg: fade(@headerColor, 0%);
     --h-bg-end-lg: fade(@headerColor, 10%);
     --code-bg-lg: @codeBgColor;
-    --std-code-shadow-lg: rgba(255, 255, 255, 0.5);
-    --rb-code-shadow-lg: rgba(0, 0, 0, 0.3);
+    --code-t-lg: @codeTextColor;
+    --std-code-shadow-lg: rgba(255, 255, 255, .5);
+    --rb-code-shadow-lg: rgba(0, 0, 0, .3);
 
     // 代码块背景图（Light）
     --c-blk-bg-lg: @codeBlockBackground;
@@ -355,15 +356,16 @@
     --v-invert-dark-dk: invert(1) brightness(90%); // Dark Mode 下图片滤镜
     --v-brightness-dark-dk: brightness(90%); // Dark Mode下封面、封底的滤镜
     --a-color-dk: @aColorDark;
-    --mark-bg-dk: rgba(255, 192, 32, 0.3);
-    --tbl-row-g-alpha-dk: 0.25;
+    --mark-bg-dk: rgba(255, 192, 32, .3);
+    --tbl-row-g-alpha-dk: .25;
     --h-f-dk: @headerColorDark;
     --h-box-shadow-dk: fade(@headerColorDark, 20%);
     --h-bg-start-dk: fade(@headerColorDark, 0%);
     --h-bg-end-dk: fade(@headerColorDark, 15%);
     --code-bg-dk: @codeBgColorDark;
-    --std-code-shadow-dk: rgba(0, 0, 0, 0.5);
-    --rb-code-shadow-dk: rgba(255, 255, 255, 0.3);
+    --code-t-dk: @codeTextColor;
+    --std-code-shadow-dk: rgba(0, 0, 0, .5);
+    --rb-code-shadow-dk: rgba(255, 255, 255, .3);
 
     // 代码块背景图（Dark）
     --c-blk-bg-dk: @codeBlockBackgroundDark;
@@ -477,6 +479,7 @@
     --h-bg-start: var(--h-bg-start-lg);
     --h-bg-end: var(--h-bg-end-lg);
     --code-bg: var(--code-bg-lg);
+    --code-t: var(--code-t-lg);
     --std-code-shadow: var(--std-code-shadow-lg);
     --rb-code-shadow: var(--rb-code-shadow-lg);
 

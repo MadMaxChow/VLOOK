@@ -7,6 +7,8 @@
  * QQ Group: 805502564
  * email: maxchow@qq.com
  *
+ * For(wechat): lidao996
+ *
  *************************************/
 
 @import "../font";
@@ -52,6 +54,10 @@
 // 标题色
 @headerColor: @themeBgColor;
 @headerColorDark: lighten(@themeBgColor, 10%);
+@lgHeaderBg: none;
+// 渐变标题色 h1-h5
+@lgHeaderBgClip: inherit;
+@lgHeaderColor: inherit;
 // @tocHeaderNumColor: @docTextColorLightFade;
 @contentHeaderNumColor: @themeBgColorFade;
 @headerBackground: linear-gradient(270deg, var(--h-bg-end), var(--h-bg-start), var(--h-bg-end));
@@ -84,14 +90,19 @@
 @h5BorderTop: 0;
 @h6BorderTop: 0;
 
-// 行内代码背景色
-@codeBgColor: lighten(@themeBgColor, 45%);
-@codeBgColorDark:  darken(@themeBgColor, 20%);
+// 行内代码
+@codeBgColor: lighten(@theme2, 46%);
+@codeBgColorDark:  darken(@theme2, 36%);
+@codeTextColor: @theme2;
 
 // 按钮色
 @buttonForeColor: @themeForeColor;
 @buttonForeHoverColor: @theme3;
 @buttonBgColor: @themeBgColor;
+// 文库按钮颜色
+@docLibButtonForeColor: @themeForeColor;
+@docLibButtonForeHoverColor: @theme3;
+@docLibButtonBgColor: @themeBgColor;
 
 // 加粗文字颜色
 // @boldColorLight: @docTextColorLight;//#202224;
