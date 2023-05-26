@@ -54,8 +54,6 @@ VLOOK™ is open source software and complies with the **[MIT license](#许可�
 
 ![火力全开的演示辅助～画中画、聚光灯、激光笔、表格十字光标、刮刮卡…](https://madmaxchow.github.io/VLOOK/pic/vlook-screenshot-A06.png)
 
-![所有特性完美适配 Dark 模式，你的 Markdown 变得更拉风了](https://madmaxchow.github.io/VLOOK/pic/vlook-screenshot-A07.png)
-
 ![还有音频、视频、标签、引用折叠、高清插图、…30+特性等你开箱即用](https://madmaxchow.github.io/VLOOK/pic/vlook-screenshot-A08.png)
 
 ---
