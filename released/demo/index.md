@@ -9,9 +9,10 @@ keywords:
 vlook-chp-autonum: h1{{#ZH# ° }},h2{{步骤 ##-min#：}}
 vlook-query: effects=2&ws=auto&lmc=1
 vlook-doc-lib: vlook-lib.html
+vlook-image-host: https://madmaxchow.gitee.io/vlook/
 ---
 
-###### <sub>VLOOK™</sub><br>让你的 Markdown 有了新`{看}(wán)`法<br>──<br><sup>简介</sup><br>`#最新版本|V16.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br>让你的 Markdown 有了新`{看}(wán)`法<br>──<br><sup>简介</sup><br>`#最新版本|V17.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
 
 [TOC]
 
@@ -19,7 +20,9 @@ vlook-doc-lib: vlook-lib.html
 
 # VLOOK™ 是什么
 
-`#Editor|Typora#(gray)` `#OS|macOS#(black)` `#OS|Windows#(blue)` `#License|MIT#(red)`
+
+
+`#Editor|Typora#(gray)` `#License|MIT#(red)` `#OS|macOS#(black)` `#OS|Windows#(blue)`
 
 
 

@@ -8,6 +8,7 @@
  * email: maxchow@qq.com
  *
  * For: 1046218884@qq.com
+ * (wechat): wed3200
  *
  *************************************/
 
@@ -43,7 +44,7 @@
 @theme4: @bgLight4Theme;
 @theme1Dark: darken(@theme1, 20%);
 @theme1Alt: lighten(@theme1, 50%);
-@theme1AltDark: @codeBgColorDark;
+@theme1AltDark: darken(@theme1, 30%);//@codeBgColorDark;
 @theme2Dark: darken(@theme2, 20%);
 @theme2Alt: lighten(@theme2, 50%);
 @theme2AltDark: darken(@theme2Alt, 70%);
@@ -62,9 +63,12 @@
 @headerColor: @themeForeColor;
 @headerColorDark: @themeForeColor;
 // 渐变标题色 h1-h5
-@lgHeaderBg: linear-gradient(135deg, @theme1 25%, @theme2);
-@lgHeaderBgClip: text;
-@lgHeaderColor: transparent;
+@lgHeaderBg: none;
+@lgHeaderBgClip: inherit;
+@lgHeaderColor: @headerColor;
+// @lgHeaderBg: linear-gradient(135deg, @theme1 25%, @theme2);
+// @lgHeaderBgClip: text;
+// @lgHeaderColor: transparent;
 // @tocHeaderNumColor: @docTextColorLightFade;
 @contentHeaderNumColor: @themeBgColorFade;
 // @headerBackground: linear-gradient(270deg, var(--h-bg-end), var(--h-bg-start), var(--h-bg-end));
@@ -74,7 +78,7 @@
 @multiHeaderBG: none;
 @headerTextAlign: left;
 @headerPadding: 10px;
-@headerLetterSpacing: 0.15em;
+@headerLetterSpacing: 0;//0.15em;
 @h1Shadown: none;
 @h2Shadown: none;
 @h3Shadown: none;
@@ -99,6 +103,13 @@
 @h4BorderTop: 3px solid var(--h-box-shadow);
 @h5BorderTop: 1px solid var(--h-box-shadow);
 @h6BorderTop: 0;
+@h1MarginTop: 3em;
+@h2MarginTop: 3em;
+@h3MarginTop: 2em;
+@h4MarginTop: 2em;
+@h5MarginTop: 1.25em;
+@h6MarginTop: 1em;
+@hContinuous: 0;//-.5em;
 
 // 行内代码背景色
 @codeBgColor: lighten(@theme2, 55%);;
@@ -110,9 +121,9 @@
 @buttonForeHoverColor: @theme3;
 @buttonBgColor: @themeForeColor;
 // 文库按钮颜色
-@docLibButtonForeColor: @themeBgColor;
-@docLibButtonForeHoverColor: @theme3;
-@docLibButtonBgColor: @themeForeColor;
+@docLibButtonForeColor: @buttonForeColor;
+@docLibButtonForeHoverColor: @buttonForeHoverColor;
+@docLibButtonBgColor: @buttonBgColor;
 
 // 加粗文字颜色
 // @boldColorLight: @docTextColorLight;//#202224;
@@ -151,6 +162,24 @@
 @backCoverTextAlign: center;
 @backCoverTextPadding: 300px 0 0 0;
 @backCoverTextColor: @themeBgColor;
+
+// 封面装饰性文本样式 before
+@coverTextBeforeContent: "";
+@coverTextBeforePosition: initial;
+@coverTextBeforeLeft: initial;
+@coverTextBeforeTop: initial;
+@coverTextBeforeColor: initial;
+@coverTextBeforeFontSize: initial;
+@coverTextBeforeFontWeight: initial;
+@coverTextBeforeOpacity: initial;
+// 封面装饰性文本样式 after
+@coverTextAfterContent: "";
+@coverTextAfterTextAlign: initial;
+@coverTextAfterLeft: initial;
+@coverTextAfterTop: @coverTextBeforeTop;
+@coverTextAfterRight: initial;
+@coverTextAfterColor: @coverTextBeforeColor;
+@coverTextAfterFontSize: @coverTextBeforeFontSize;
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
 @contrastBorder: 0 0 0 0 rgba(0, 0, 0, 0);

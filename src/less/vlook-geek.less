@@ -34,7 +34,7 @@
 @theme3: #D98982;
 @theme1Dark: lighten(@theme1, 10%);
 @theme1Alt: lighten(@theme1, 65%);
-@theme1AltDark: @codeBgColorDark;
+@theme1AltDark: darken(@theme2, 45%);//@codeBgColorDark;
 @theme2Dark: darken(@theme2, 20%);
 @theme2Alt: lighten(@theme2, 40%);
 @theme2AltDark: darken(@theme2Alt, 70%);
@@ -62,7 +62,7 @@
 @multiHeaderBG: none;
 @headerTextAlign: left;
 @headerPadding: 10px 30px 10px 10px;
-@headerLetterSpacing: 0.3em;
+@headerLetterSpacing: 0;//0.3em;
 @h1Shadown: none;
 @h2Shadown: none;
 @h3Shadown: none;
@@ -87,6 +87,13 @@
 @h4BorderTop: 3px solid var(--h-box-shadow);
 @h5BorderTop: 1px solid var(--h-box-shadow);
 @h6BorderTop: 0;
+@h1MarginTop: 3em;
+@h2MarginTop: 3em;
+@h3MarginTop: 2em;
+@h4MarginTop: 2em;
+@h5MarginTop: 1.25em;
+@h6MarginTop: 1em;
+@hContinuous: 0;//-.5em;
 
 // 行内代码
 @codeBgColor: lighten(@theme2, 42%);
@@ -139,6 +146,24 @@
 @backCoverTextAlign: left;
 @backCoverTextPadding: 300px 80px 50px;
 @backCoverTextColor: @themeForeColor;
+
+// 封面装饰性文本样式 before
+@coverTextBeforeContent: "";
+@coverTextBeforePosition: initial;
+@coverTextBeforeLeft: initial;
+@coverTextBeforeTop: initial;
+@coverTextBeforeColor: initial;
+@coverTextBeforeFontSize: initial;
+@coverTextBeforeFontWeight: initial;
+@coverTextBeforeOpacity: initial;
+// 封面装饰性文本样式 after
+@coverTextAfterContent: "";
+@coverTextAfterTextAlign: initial;
+@coverTextAfterLeft: initial;
+@coverTextAfterTop: @coverTextBeforeTop;
+@coverTextAfterRight: initial;
+@coverTextAfterColor: @coverTextBeforeColor;
+@coverTextAfterFontSize: @coverTextBeforeFontSize;
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
 @contrastBorder: 0 0 0 1px rgba(255, 255, 255, 0.2) inset;

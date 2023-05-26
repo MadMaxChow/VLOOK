@@ -3,8 +3,8 @@
  * VLOOK CSS - Typora 编辑时内置样式
  * (配合 base.less 进行使用)
  *
- * V16.0
- * 2023-05-07
+ * V17.0
+ * 2023-05-26
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -106,6 +106,11 @@
     --primary-color: @themeBgColor;
 
     --rawblock-edit-panel-bd: var(--d-bc-lg);
+}
+
+// Typora 导出时自带的侧边栏
+.typora-export-sidebar {
+    display: none !important;
 }
 
 // 保留原始 fa 图标强制使用指定的字体
@@ -645,16 +650,33 @@ body.os-windows #file-library-tree {
 
 // ----- 自动收起模式 -----
 // 大纲面板的封面、封底条目
-.outline-content>li:first-child.outline-h6 .outline-item { // 封面
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-.outline-content>li:first-child.outline-h6 .outline-item, // 封面
+// .outline-content>li:first-child.outline-h6 .outline-item { // 封面
+//     padding-top: 10px;
+//     padding-bottom: 10px;
+// }
+.outline-content>li:first-child.outline-h6>.outline-item, // 封面
 .outline-content>.outline-h6:first-child ~ .outline-h1:last-child>.outline-item { // 封底
-    color: var(--d-f-c-alt);
-    font-style: italic !important;
+    // color: var(--d-f-c-alt);
+    color: var(--a-color);
+    font-size: 14px;
+    // font-style: italic !important;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+    // white-space: nowrap;
+    height: 40px;
+    padding-left: 20px !important;
 }
-.outline-content>li:first-child.outline-h6 .outline-item code, // 封面
+// .outline-content>.outline-h6:first-child ~ .outline-h1:last-child>.outline-item { // 封底
+//     color: var(--d-f-c-alt);
+//     font-style: italic !important;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+//     height: 40px;
+//     padding-left: 10px;
+//     // padding-right: 100px;
+// }
+.outline-content>li:first-child.outline-h6>.outline-item code, // 封面
 .outline-content>.outline-h6:first-child ~ .outline-h1:last-child>.outline-item code { // 封底
     color: inherit;
     background: none;
@@ -667,24 +689,75 @@ body.os-windows #file-library-tree {
     white-space: inherit;
 }
 // 大纲面板的封面、封底条目标识
-.outline-content>li:first-child.outline-h6 .outline-item::before, // 封面
+.outline-content>li:first-child.outline-h6>.outline-item::before, // 封面
 .outline-content>.outline-h6:first-child ~ .outline-h1:last-child>.outline-item::before { // 封底
-    content: "COVER ▸";
+    content: "COVER";
     position: absolute;
-    left: 10px;
+    left: 20px;
+    // right: 10px;
     color: @aHoverColor;
-    font-weight: var(--v-f-w-title);
+    // font-weight: var(--v-f-w-title);
+    // line-height: 2;//@paragraphInnerLineHeight;
+    font-size: .75em;
     font-style: normal !important;
+    // line-height: 1.7;
 }
+// 大纲面板的封面项止下的 outline-expander 节点
+.outline-content>li:first-child.outline-h6>.outline-item .outline-expander {
+    height: 10px !important;
+    display: block;
+}
+.outline-content>.outline-h6:first-child ~ .outline-h1:last-child>.outline-item .outline-expander {
+    height: 15px !important;
+    display: block;
+}
+// 大纲面板的封面项目下的内容节点
+.outline-content>li:first-child.outline-h6>.outline-item .outline-label,
+.outline-content>.outline-h6:first-child ~ .outline-h1:last-child>.outline-item .outline-label {
+    display: block; // 调整为该样式后，才能触发封面节点的省略显示
+    // height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.outline-content>li:first-child.outline-h6>.outline-item .outline-label::before,
+.outline-content>.outline-h6:first-child ~ .outline-h1:last-child>.outline-item .outline-label::before {
+    counter-increment: h6toc;
+    content: "";
+    position: absolute;
+    display: block;
+    background-color: var(--d-f-c-alt);
+    left: 5px;
+    top: 5px;
+    width: 6px;
+    height: 30px;
+    border-radius: calc(var(--v-r-s) - 4px);
+    opacity: .25;
+}
+.outline-content>li:first-child.outline-h6>.outline-item-active .outline-label::before,
+.outline-content>.outline-h6:first-child ~ .outline-h1:last-child>.outline-item-active .outline-label::before {
+    background-color: var(--a-color);
+    width: 10px;
+}
+// 大纲面板的封底项目下的内容节点
+// .outline-content>.outline-h6:first-child ~ .outline-h1:last-child>.outline-item .outline-label {
+//     display: block; // 调整为该样式后，才能触发封面节点的省略显示
+//     height: 15px;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+// }
 // 封底
 .outline-content>.outline-h6:first-child ~ .outline-h1:last-child>.outline-item::before {
-    content: "◂ BACK COVER";
-    text-align: right;
+    content: "BACK COVER";
+    // content: "◂ BACK COVER";
+    // left: 10px;
+    // text-align: right;
     // top: 9px;
-    right: 10px;
-    line-height: @paragraphInnerLineHeight;
-    font-size: .875em;
-    font-style: normal !important;
+    // right: 10px;
+    // line-height: @paragraphInnerLineHeight;
+    // font-size: .875em;
+    // font-style: normal !important;
 }
 .outline-content>.outline-h6:first-child ~ .outline-h1:last-child .outline-label::before {
     content: "";
@@ -721,8 +794,10 @@ body.os-windows #file-library-tree {
     line-height: 1;//@defaultLineHeight;
     font-family: var(--v-f-fm-subtitle);
     font-weight: normal;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    // padding: 5px !important;
 }
 // 当前大纲节点
 .pin-outline .outline-active,
@@ -939,11 +1014,12 @@ body.os-windows .file-node-title { // for Win
 #typora-source .cm-atom .cm-number {
     color: var(--d-f-c);
 }
-// 代码
+// 注释（code）
 #typora-source .cm-comment {
     font-size: .9em;
     font-family: var(--monospace);
     background: var(--code-bg);
+    color: var(--code-t);
 }
 // 粗体
 #typora-source .cm-strong {
@@ -984,7 +1060,7 @@ body.os-windows .file-node-title { // for Win
 }
 
 .md-meta {
-    color: @buttonBgColor;
+    color: var(--a-color);
 }
 
 // 针对在编辑模式时无效图片链接的样式
@@ -1120,6 +1196,33 @@ body.os-windows .file-node-title { // for Win
 .md-toc-h6,
 .outline-h6 {
     counter-reset: h6toc;
+    content: "";
+    font-size: 12px;
+    color: var(--d-f-c-alt);
+}
+
+// 微调大纲节点的缩进
+.outline-h1>.outline-item {
+	padding-left: .35em;
+}
+.outline-h2>.outline-item {
+	padding-left: 1.35em;
+}
+.outline-h3>.outline-item {
+	padding-left: 2.35em;
+}
+.outline-h4>.outline-item {
+	padding-left: 3.35em;
+}
+.outline-h5>.outline-item {
+	padding-left: 4.35em;
+}
+.outline-h6>.outline-item {
+	padding-left: 6em;
+}
+.outline-h6>.outline-item>.outline-label::before {
+    content: @h6BeforeContent;//"❖ "; // ◎
+    opacity: .5;
 }
 
 .md-toc-content>.md-toc-h6:first-child ~ .md-toc-h1:last-child, // 有封面的情况下，最后一个 h1 为封底
@@ -1130,7 +1233,7 @@ body.os-windows .file-node-title { // for Win
 }
 
 .outline-label {
-    word-break: break-all;
+    word-break: break-word;
 }
 
 .outline-label::before {
@@ -1483,6 +1586,8 @@ content>#write {
 
 .cm-s-inner .cm-link {
     color: var(--cm-link);
+    text-decoration: none;
+    border-bottom: 1px solid var(--cm-link);
 }
 
 .cm-s-inner .cm-negative {

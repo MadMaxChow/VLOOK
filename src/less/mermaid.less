@@ -3,8 +3,8 @@
  * VLOOK CSS - Mermaid 自定义样式
  * (配合 base.less 进行使用)
  *
- * V16.0
- * 2023-05-07
+ * V17.0
+ * 2023-05-26
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -298,7 +298,7 @@ svg[aria-roledescription^="flowchart"] .node[id^="flowchart-FINAL"] circle+.labe
 
 /* ----- sequeuce diagram 顺序图 / 时序图 ----- */
 
-// 人物角色
+// 前端触点角色
 svg[aria-roledescription="sequence"] .actor-man > :is(line, circle) {
     fill: var(--pn-c) !important;
     stroke: var(--d-f-c-alt) !important;
@@ -315,12 +315,12 @@ svg[aria-roledescription="sequence"] .actor-man:hover > circle {
     cursor: crosshair;
 }
 
-// 非人物角色
+// 默认角色
 svg[aria-roledescription="sequence"] .actor {
     stroke: var(--d-f-c-alt) !important;
     fill: var(--pn-c) !important;
     font-size: .875em !important;
-    stroke-width: 1 !important;
+    stroke-width: 1;
 }
 
 // 角色上鼠标悬停
@@ -441,10 +441,10 @@ svg[aria-roledescription="sequence"] .loopText > tspan {
     font-size: .875em !important;
     font-weight: var(--v-f-w-title) !important;
 }
-svg[aria-roledescription="sequence"] .loopText > tspan {
-    font-size: 1em;
-}
-svg[aria-roledescription="sequence"] .loopText:hover > tspan {
+// svg[aria-roledescription="sequence"] .loopText > tspan {
+//     font-size: 1em;
+// }
+svg[aria-roledescription="sequence"] :is(.loopText:hover, .loopText:hover > tspan) {
     fill: var(--ac-theme1) !important;
     cursor: crosshair;
 }
@@ -489,14 +489,14 @@ svg[aria-roledescription="sequence"] .noteText tspan {
 }
 
 // --- 供 VLOOK.js 使用 ---
-// 扩展：人物角色（旧有格式，前缀为 @）
-.v-actor-person {
+// 扩展：前端触点角色（前缀为 @）
+.v-actor-front {
     fill: var(--pn-c) !important;
     stroke: var(--d-f-c-alt) !important;
 }
 // 扩展：重要系统角色
 .v-actor-key-sys {
-    stroke-width: 4 !important;
+    stroke-width: 2 !important;
     font-weight: var(--v-f-w-title) !important;
 }
 // 扩展：外部系统角色

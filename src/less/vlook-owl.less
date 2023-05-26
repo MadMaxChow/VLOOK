@@ -34,7 +34,7 @@
 @theme3: #00DAD8;
 @theme1Dark: darken(@theme1, 10%);
 @theme1Alt: lighten(@theme1, 52%);
-@theme1AltDark: @codeBgColorDark;
+@theme1AltDark:darken(@theme1, 28%);//@codeBgColorDark;
 @theme2Dark: darken(@theme2, 10%);
 @theme2Alt: lighten(@theme2, 42%);
 @theme2AltDark: darken(@theme2Alt, 65%);
@@ -62,7 +62,7 @@
 @multiHeaderBG: none;
 @headerTextAlign: center;
 @headerPadding: 10px;
-@headerLetterSpacing: 0.15em;
+@headerLetterSpacing: 0;//0.15em;
 @h1Shadown: none;
 @h2Shadown: none;
 @h3Shadown: none;
@@ -87,6 +87,13 @@
 @h4BorderTop: 3px solid var(--h-box-shadow);
 @h5BorderTop: 1px solid var(--h-box-shadow);
 @h6BorderTop: 0;
+@h1MarginTop: 3em;
+@h2MarginTop: 3em;
+@h3MarginTop: 2em;
+@h4MarginTop: 2em;
+@h5MarginTop: 1.25em;
+@h6MarginTop: 1em;
+@hContinuous: 0;//-.5em;
 
 // 行内代码
 @codeBgColor: lighten(@theme2, 45%);
@@ -98,9 +105,9 @@
 @buttonForeHoverColor: @themeForeColor;
 @buttonBgColor: @themeBgColor;
 // 文库按钮颜色
-@docLibButtonForeColor: #FFFFFF;
-@docLibButtonForeHoverColor: @themeForeColor;
-@docLibButtonBgColor: @themeBgColor;
+@docLibButtonForeColor: @buttonForeColor;
+@docLibButtonForeHoverColor: @buttonForeHoverColor;
+@docLibButtonBgColor: @buttonBgColor;
 
 // 加粗文字颜色
 // @boldColorLight: @docTextColorLight;//#202224;
@@ -139,6 +146,37 @@
 @backCoverTextAlign: center;
 @backCoverTextPadding: 300px 80px 50px;
 @backCoverTextColor: @themeForeColor;
+
+// // 封面装饰性文本样式 before
+// @coverTextBeforeContent: "";
+// @coverTextBeforePosition: initial;
+// @coverTextBeforeLeft: initial;
+// @coverTextBeforeTop: initial;
+// @coverTextBeforeColor: initial;
+// @coverTextBeforeFontSize: initial;
+// @coverTextBeforeFontWeight: initial;
+// @coverTextBeforeOpacity: initial;
+// // 封面装饰性文本样式 after
+// @coverTextAfterContent: "";
+// @coverTextAfterTextAlign: initial;
+// @coverTextAfterLeft: initial;
+// @coverTextAfterRight: initial;
+@coverTextBeforeContent: "°⚬";//"{";
+@coverTextBeforePosition: absolute;
+@coverTextBeforeLeft: 70px;//40px;
+@coverTextBeforeTop: 150px;//250px;
+@coverTextBeforeColor: @coverTextColor;
+@coverTextBeforeFontSize: 5em;
+@coverTextBeforeFontWeight: 100;
+@coverTextBeforeOpacity:.5;
+// 封面装饰性文本样式 after
+@coverTextAfterContent: "⚬°";//"}";
+@coverTextAfterTextAlign: right;
+@coverTextAfterLeft: auto;
+@coverTextAfterTop: 380px;//@coverTextBeforeTop;
+@coverTextAfterRight: 90px;//40px;
+@coverTextAfterColor: @coverTextBeforeColor;
+@coverTextAfterFontSize: 3.5em;
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
 @contrastBorder: 0 0 0 0 rgba(0, 0, 0, 0);

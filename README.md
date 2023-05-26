@@ -32,6 +32,12 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 > - Issues ([**Issues**](https://github.com/MadMaxChow/VLOOK/issues))
 > - 邮件 (**maxchow@qq.com**)
 
+# 打赏
+
+**若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**
+
+![打赏 VLOOK™](https://madmaxchow.github.io/VLOOK/pic/donate-wechat-light.png?mode=frame&darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x)
+
 ---
 
 
@@ -55,18 +61,6 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 ![还有音频、视频、标签、引用折叠、高清插图、…30+特性等你开箱即用](https://madmaxchow.github.io/VLOOK/pic/vlook-screenshot-A08.png)
 
 ---
-
-
-
-# 打赏
-
-**若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**
-
-![打赏 VLOOK™](https://madmaxchow.github.io/VLOOK/pic/donate-wechat-light.png?mode=frame&darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x)
-
----
-
-
 
 # 简介
 

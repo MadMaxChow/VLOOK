@@ -11,7 +11,7 @@ vlook-query: el=2&ws=auto&lmc=1
 vlook-doc-lib: vlook-lib.html
 ---
 
-###### <sub>VLOOK™</sub><br>让你的 Markdown 有了新`{看}(wán)`法<br>──<br><sup>脚本化图表参考指南</sup><br>`#最新版本|V16.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br>让你的 Markdown 有了新`{看}(wán)`法<br>──<br><sup>脚本化图表参考指南</sup><br>`#最新版本|V17.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
 
 [TOC]
 
@@ -131,6 +131,8 @@ outpage2>"fa:fa-sign-in B (离页)"] --> node2(节点) --> END([结束])
 
 VLOOK™ 针对流程图中特定的节点类型进行扩展，实现重绘为不同的样式，具体如下：
 
+*==流程图特定标识应用说明==*
+
 | **应用建议** |    节点形状    | 说明                                                         |
 | :----------: | :------------: | ------------------------------------------------------------ |
 |  开始、结束  | 体育场（药丸） | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br>- **开始**：命名为 `START` ，如：`START([开始])`<br>- **结束**：命名为 `END` ，如：`END([结束])` |
@@ -223,7 +225,8 @@ sequenceDiagram
 autonumber
 
 actor User as 人物角色
-participant Client as 系统角色
+participant Client as @前端触点
+participant MP as 普通系统
 participant Server as **重要系统角色
 participant Extend as --外部系统角色
 
@@ -268,7 +271,8 @@ end
 > > autonumber
 > > 
 > > actor User as 人物角色
-> > participant Client as 系统角色
+> > participant Client as @前端触点
+> > participant MP as 普通系统
 > > participant Server as **重要系统角色
 > > participant Extend as --外部系统角色
 > > 
@@ -310,9 +314,9 @@ end
 3. 建议使用实体别名，以提高画图脚本的复用度和可维护性；
 4. 支持三类消息线条：同步请求消息、异步请求消息、返回消息；
 5. 角色在标准的一类样式的基础上，增加三类扩展的样式，在输出HTML后应用 [VLOOK™](https://github.com/madmaxchow/VLOOK) 插件后渲染为不同的样式：
-   - **人物角色**：在角色名称前添加 at 符号 `@`，如 `@人物角色`
-   - **重要系统角色**：在角色名称前添加两个星号 `**`，如 `**后端支撑系统名称`
-   - **外部系统角色**：在角色名称前添加两个减号 `--`，如 `--外部系统名称`
+   - **重要系统/角色**：在角色名称前添加两个星号 `**`，如 `**后端支撑系统名称`
+   - **外部系统/角色**：在角色名称前添加两个减号 `--`，如 `--外部系统名称`
+   - **前端触点/角色**：在角色名称前添加 at 符号 `@`，如 `@小程序名称`
 6. 支持对三类标签分组在输出 HTML 后应用 [VLOOK™](https://github.com/madmaxchow/VLOOK) 插件渲染为不同的样式：
    - `loop...end`：循环
    - `opt...end`：可选
@@ -406,6 +410,8 @@ FINAL(( ))
 ###### 扩展应用说明
 
 VLOOK™ 针对流程图中特定的节点类型进行扩展，实现重绘为不同的样式，具体如下：
+
+*==状态图特定标识应用说明==*
 
 | **应用建议** | 节点形状 | 说明                                                         |
 | :----------: | :------: | ------------------------------------------------------------ |

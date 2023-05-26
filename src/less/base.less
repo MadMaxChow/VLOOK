@@ -2,8 +2,8 @@
  *
  * VLOOK CSS 基础库
  *
- * V16.0
- * 2023-05-07
+ * V17.0
+ * 2023-05-26
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -80,11 +80,13 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 @tableRowNumTop: 2px; // 表格行自动编号的高度
 @tableRowCursor: "▶️"; // 表格当前行鼠标 hover 游标
 @focusCursor: "✏️"; // 编辑焦点行游标
+@h6BeforeContent: "❖ ";
 @focusStyle: @aBorderWidth dashed @aLineColor; // 焦点、焦点行样式
 @paragraphPadding: .5em;
 @miniLineHeight: 1;
 @defaultLineHeight: 1.5;
 @paragraphInnerLineHeight: 1.8;
+@hoverBrightness: 1.2;
 
 :root {
     // 图片的线状网格背景（Light / Dark）
@@ -111,7 +113,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 :root {
     // #VLOOK_Var
     --v-theme-name: @themeName; // 主题名称
-    --v-theme-version: "V16.0"; // 主题版本，对应适配 VLOOK.JS 的版本
+    --v-theme-version: "V17.0"; // 主题版本，对应适配 VLOOK.JS 的版本
     --v-color-scheme: light; // 默认颜色模式为：Light 明亮
 
     // 导航中心、工具栏相关 UI 尺寸
@@ -122,8 +124,8 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --v-top-margin:8px;
 
     // 过渡效果设置
-    --v-trans-dur: 200ms;
-    --v-trans-value: all var(--v-trans-dur) ease-in-out;
+    --v-trans-dur: 400ms;
+    --v-trans-value: all var(--v-trans-dur) ease-out;
 
     // --------------------
     // 用于 plugin*.txt 中
@@ -148,7 +150,10 @@ html {
 
 // VLOOK 未加载完成前的样式
 body.typora-export #write::before {
-    content: "Preparing VLOOK™ plugin ...";
+    content: "Preparing VLOOK™ plugin ...\a\a正在准备 VLOOK™ 插件 ...";
+    white-space: pre-wrap;
+    line-height: 2 !important;
+    padding-top: 5em;
     color: fade(@buttonForeColor, 50%);
     background: @buttonBgColor;
     font: italic var(--v-f-w-bd) 2em/10 var(--v-f-fm-bd); // [style] [weight] [size/[line-height]] [family]
@@ -160,6 +165,24 @@ body.typora-export #write::before {
     height: 100vh;
     position: fixed;
     z-index: 7000;
+
+    // 插件加载成功后，会清空该动画属性，相关样式 .v-load-done::before
+    // 在 60s 后该动画属性未被清空，则可能插件加载失败，或是没有使用正确的配置导出 HTML
+    animation: maybe-failed 500ms ease 60s 1 forwards;
+}
+
+@keyframes maybe-failed {
+    0% {
+    }
+    100% {
+        content: "Oops~!\a\aThe VLOOK™ plugin load failed, it may be due to network reasons, or the page was not exported in the correct way.\a
+        Please try refreshing the page later, or contact the publisher of the page.\a\a
+        VLOOK™ 插件加载失败，可能是网络原因，或没有使用正确的方式导出页面。\a
+        请稍后再刷新页面，或联系页面的发布者。";
+        font-size: 1.5em;
+        color: @buttonForeHoverColor;
+        background: @aLineColor;
+    }
 }
 
 // VLOOK 已完成加载的样式
@@ -169,6 +192,7 @@ body.typora-export #write::before {
 .v-load-done::before {
     display: none !important;
     font-style: normal;
+    animation: none;
 }
 
 body {
@@ -263,7 +287,7 @@ body.unfreeze {
 #write img[src*="#icon"],
 #write svg[data-inject-url*="#icon"] {
     display: inline !important;
-    height: 1.25em;
+    height: 1em;
     width: auto;
     margin-top: -4px !important;
     vertical-align: middle;
@@ -434,17 +458,17 @@ body.unfreeze {
     text-decoration: none;
 }
 // 链接内的上标、上标内的链接
-#write a sup,
-#write sup a,
-#write sup a span  {
-    color: @buttonBgColor;
-    border-bottom: none;
-    font-weight: var(--v-f-w-bd);
-}
-#write a:hover sup,
-#write sup a:hover span {
-    color: @aHoverColor !important;
-}
+// #write a sup,
+// #write sup a,
+// #write sup a span  {
+//     color: @buttonBgColor;
+//     border-bottom: none;
+//     font-weight: var(--v-f-w-bd);
+// }
+// #write a:hover sup,
+// #write sup a:hover span {
+//     color: @aHoverColor !important;
+// }
 
 // 指定不使用链接样式
 #write a[href*="lnkcss=none"] {
@@ -531,14 +555,14 @@ body.unfreeze {
 // #write a:hover img,
 // #write a:hover svg {
 #write a:hover :is(img, svg) {
-    filter: brightness(1.1);
+    filter: brightness(@hoverBrightness);
 }
 // #write a:hover img[src*="darksrc=invert"],
 // #write a:hover svg[data-inject-url*="darksrc=invert"] {
 #write a:hover :is(
 img[src*="darksrc=invert"],
 svg[data-inject-url*="darksrc=invert"]) {
-    filter: var(--v-invert-dk) brightness(1.3);
+    filter: var(--v-invert-dk) brightness(@hoverBrightness);
 }
 
 // 链接 hover 时含图片颜色替换的样式
@@ -604,7 +628,7 @@ kbd img[d-img-fill="theme2"]) {
     content: "Link - " attr(href); // 非页内链接的符号
     // white-space: pre;
     margin-top: -1.5em;
-    vertical-align: super;
+    // vertical-align: super;
     color: #FFFFFF;
     background: @accColorBrown;
     text-shadow: none;
@@ -612,6 +636,7 @@ kbd img[d-img-fill="theme2"]) {
     padding: 2px 3px;
     font: var(--v-f-w-title) .5em/@miniLineHeight var(--v-f-fm-key); // [style] [weight] [size/[line-height]] [family]
     position: absolute;
+    display: block;
     z-index: 99999;
     letter-spacing: 0;
 }
@@ -709,7 +734,7 @@ kbd img[d-img-fill="theme2"]) {
     color: var(--h-f);
     text-align: @headerTextAlign;
     position: relative;
-    margin: 1em 0 .5em 0;
+    margin: @h6MarginTop 0 0 0;
     padding: @headerPadding;
     line-height: @defaultLineHeight;
     font: var(--v-f-w-title) .5em var(--v-f-fm-h); // [style] [weight] [size/[line-height]] [family]
@@ -762,7 +787,7 @@ h6+ol) {
 }
 
 #write h1 {
-    margin-top: 3em;
+    margin-top: @h1MarginTop;
     font-size: 2em;
     box-shadow: @h1Shadown;
     border-left: @h1BorderLeft;
@@ -771,7 +796,7 @@ h6+ol) {
 }
 
 #write h2 {
-    margin-top: 3em;
+    margin-top: @h2MarginTop;
     font-size: 1.8em;
     box-shadow: @h2Shadown;
     border-left: @h2BorderLeft;
@@ -784,12 +809,12 @@ h6+ol) {
 #write h1+h2 {
     box-shadow: none;
     background: @multiHeaderBG;
-    margin-top: -.5em;
+    margin-top: @hContinuous;
     border-top: 0;
 }
 
 #write h3 {
-    margin-top: 2em;
+    margin-top: @h3MarginTop;
     font-size: 1.6em;
     box-shadow: @h3Shadown;
     border-left: @h3BorderLeft;
@@ -802,12 +827,12 @@ h6+ol) {
 #write h2+h3 {
     box-shadow: none;
     background: @multiHeaderBG;
-    margin-top: -.5em;
+    margin-top: @hContinuous;
     border-top: 0;
 }
 
 #write h4 {
-    margin-top: 2em;
+    margin-top: @h4MarginTop;
     font-size: 1.4em;
     box-shadow: @h4Shadown;
     border-left: @h4BorderLeft;
@@ -820,12 +845,12 @@ h6+ol) {
 #write h3+h4 {
     box-shadow: none;
     background: @multiHeaderBG;
-    margin-top: -.5em;
+    margin-top: @hContinuous;
     border-top: 0;
 }
 
 #write h5 {
-    font-size: 1.25em;
+    font-size: @h5MarginTop;
     box-shadow: @h5Shadown;
     border-left: @h5BorderLeft;
     border-right: @h5BorderRight;
@@ -837,7 +862,7 @@ h6+ol) {
 #write h4+h5 {
     box-shadow: none;
     background: @multiHeaderBG;
-    margin-top: -.5em;
+    margin-top: @hContinuous;
     border-top: 0;
 }
 
@@ -992,8 +1017,8 @@ h6:first-child) {
 // #write ul,
 // #write ol {
 #write :is(ul,ol) {
-    padding-left: 1em;
-    // padding-left: 1.25em;
+    // padding-left: 1em;
+    padding-left: 1.25em;
     padding-bottom: 0;
 }
 // 除图片插图外的段落样式
@@ -1014,9 +1039,9 @@ h6:first-child) {
     word-break: normal;
     word-wrap: break-word;
 }
-#write li {
-    margin-left: .5em;
-}
+// #write li {
+//     margin-left: .5em;
+// }
 // #write blockquote>p:first-of-type,
 // #write ol>li:first-of-type,
 // #write ul>li:first-of-type {
@@ -1256,7 +1281,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 #write :is(hr, .md-hr)+ul>li,
 #write :is(hr, .md-hr)+ol>li {
     border: 2px solid var(--pn-c);
-    // border-radius: var(--v-r-b);
+    border-radius: var(--v-r-b);
     margin-top: 0 !important;
     margin-bottom: 1em;
     padding-left: 10px;
@@ -1268,7 +1293,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     color: @buttonForeColor;
     background: @buttonBgColor;
     padding: 5px;
-    border-radius: var(--v-r-t);
+    border-radius: var(--v-r-t) var(--v-r-t) 0 0;
     text-align: center;
     margin-left: -10px;
     margin-right: -10px;
@@ -1599,7 +1624,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     align-items: center;
     vertical-align: top;
     color: var(--d-f-c);
-    font: normal .875em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
+    font: normal .75em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
     // font-size: .875em;
     // font-family: var(--v-f-fm-subtitle);
     background: var(--pn-c);
@@ -1616,7 +1641,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     justify-content: center;
     align-items: center;
     vertical-align: top;
-    color: @buttonBgColor;
+    color: var(--a-color);//@buttonBgColor;
     font: var(--v-f-w-title) .875em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
     // font-weight: var(--v-f-w-title);
     // font-size: .875em;
@@ -1796,6 +1821,11 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 // body.typora-export table>tbody>tr:not(:first-child)>td.v-empty-cell {
 :is(#write, body.typora-export) table>tbody>tr:not(:first-child)>td.v-empty-cell {
     box-shadow: none !important;
+}
+
+// 重复表头所在行，强制取消行号显示
+.v-tr-repeater::before {
+    content: "" !important;
 }
 
 // 重复表头样式
@@ -2189,7 +2219,7 @@ code {
     // font-family: var(--v-f-fm-code);
     background: var(--code-bg);
     border-radius: var(--v-r-s);
-    padding: 2px .5em;
+    padding: 1px 5px;
     margin: 0;
     box-shadow: 0 0 0 1px var(--std-code-shadow) inset;
     display: inline-block;
@@ -2200,7 +2230,7 @@ code {
     cursor: var(--cur-copy);
 }
 .v-std-code.hover {
-    filter: brightness(1.1);
+    filter: brightness(@hoverBrightness);
 }
 
 // strong tt,
@@ -2301,7 +2331,7 @@ strong :is(tt, code) {
 }
 
 #write h6::before {
-    content: "❖ "; // ◎
+    content: @h6BeforeContent;//"❖ "; // ◎
 }
 
 // 导出 HTML 后的文档章节目录的自动编码内容
@@ -2313,15 +2343,6 @@ strong :is(tt, code) {
 // body.typora-export #write h6::before {
 body.typora-export #write :is(h1,h2,h3,h4,h5,h6)::before {
     content: attr(d-header-num) !important;
-}
-
-
-// 封面、封底的前信息
-#write>pre.md-meta-block:first-child+h6::before,
-#write>h6:first-child::before,
-#write>h1:last-child::before {
-// #write>h6:last-child::before {
-    content: "";
 }
 
 kbd {
@@ -2398,19 +2419,19 @@ table kbd {
 
 // 过渡效果样式集
 .v-transition-all {
-    transition: all var(--v-trans-dur) ease-in-out;
+    transition: all var(--v-trans-dur) ease-out;
 }
 .v-transition-box-shadow {
-    transition: box-shadow var(--v-trans-dur) ease-in-out;
+    transition: box-shadow var(--v-trans-dur) ease-out;
 }
 .v-transition-opacity {
-    transition: opacity var(--v-trans-dur) ease-in-out;
+    transition: opacity var(--v-trans-dur) ease-out;
 }
 .v-transition-left {
-    transition: left var(--v-trans-dur) ease-in-out;
+    transition: left var(--v-trans-dur) ease-out;
 }
 .v-transition-background {
-    transition: background var(--v-trans-dur) ease-in-out;
+    transition: background var(--v-trans-dur) ease-out;
 }
 
 .v-tool-tips,
@@ -2703,7 +2724,7 @@ table kbd {
     margin-bottom: 20px;
 }
 .v-welcome-page>.v-tips>.v-author::before {
-    content: "By ";
+    content: "by";
     font-size: .625em;
     opacity: .6;
     display: block;
@@ -2735,7 +2756,7 @@ table kbd {
     color: @buttonForeHoverColor;
     background: @aLineColor;
     opacity: 1;
-    animation: 1s breathe-button 1 alternate;
+    animation: breathe-button 1s ease 1 alternate;
 }
 .v-welcome-page>.v-btn-done:hover {
     color: @aLineColor;
@@ -2751,7 +2772,7 @@ table kbd {
 }
 
 .v-welcome-page>.v-btn-done.wait {
-    animation: 1s breathe-button 10 alternate;
+    animation: breathe-button 1s 10 alternate;
 }
 
 .v-welcome-page>.v-btn-done>span {
@@ -3151,9 +3172,9 @@ body.typora-export .v-foot-note-panel>a {
     padding-right: 5px;
     border-radius: var(--v-r-s);
     text-overflow: ellipsis;
+    overflow: hidden;
     white-space: nowrap;
     line-height: @miniLineHeight;//1;
-    overflow: hidden;
     cursor: pointer;
 }
 .v-toc-item {
@@ -3198,8 +3219,10 @@ body.typora-export .v-foot-note-panel>a {
 :is(.v-toc-item, .v-cap-1)>span {  // 题注前缀
     color: var(--d-f-c-alt);
     font-size: .875em;
-    display: block;
     padding-bottom: 4px;
+}
+.v-toc-item>span {
+    display: block;
 }
 // .v-cap-1,
 // .v-cap-2 {
@@ -3309,7 +3332,8 @@ body.typora-export .v-foot-note-panel>a {
     }
 }
 .v-audio-mini-control.loading {
-    animation: loading-circle 2s linear infinite;
+    animation: loading-circle 2s ease infinite;
+    // breathe-button 1s ease 0s 1 alternate;
 }
 
 .v-audio-mini-control {
@@ -3360,7 +3384,7 @@ body.typora-export .v-foot-note-panel>a {
     }
 }
 .v-audio-mini-control.playing {
-    animation: 500ms breathe-circle infinite alternate;
+    animation: breathe-circle 500ms infinite alternate;
 }
 
 .v-chapter-nav {
@@ -3414,7 +3438,7 @@ body.typora-export .v-foot-note-panel>a {
     border-bottom-left-radius: var(--v-r-b);
     opacity: 0;
     z-index: -1;
-    transition: all var(--v-trans-dur) ease-in;
+    // transition: all var(--v-trans-dur) ease-in;
 }
 // 有特效（effect>=1）时使用的样式
 .v-chapter-nav-prev.effect.hover::before {
@@ -3436,8 +3460,8 @@ body.typora-export .v-foot-note-panel>a {
     color: @buttonForeColor;
     text-align: left;
     text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
+    white-space: nowrap;
     position: absolute;
     display: block;
 }
@@ -3448,8 +3472,8 @@ body.typora-export .v-foot-note-panel>a {
     margin-left: 200px;
     margin-right: 200px;
     text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
+    white-space: nowrap;
     width: auto;
     height: 22px !important;
     cursor: pointer;
@@ -3472,8 +3496,8 @@ body.typora-export .v-foot-note-panel>a {
     margin-right: 200px;
     padding-top: 2px;
     text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
+    white-space: nowrap;
     width: auto;
     height: 28px;
     cursor: pointer;
@@ -3508,7 +3532,7 @@ body.typora-export .v-foot-note-panel>a {
     background: linear-gradient(90deg, fade(@aHoverColor, 0%), @aHoverColor, fade(@aHoverColor, 0%));
     opacity: 0;
     z-index: -1;
-    transition: all var(--v-trans-dur) ease-in;
+    // transition: all var(--v-trans-dur) ease-in;
 }
 .v-chapter-nav-doc-title.effect::before {
     top: 0;
@@ -3565,7 +3589,7 @@ body.typora-export .v-foot-note-panel>a {
     border-bottom-right-radius: var(--v-r-b);
     opacity: 0;
     z-index: -1;
-    transition: all var(--v-trans-dur) ease-in;
+    // transition: all var(--v-trans-dur) ease-in;
 }
 // 有特效（effect>=1）时使用的样式
 .v-chapter-nav-next.effect.hover::before {
@@ -3587,8 +3611,8 @@ body.typora-export .v-foot-note-panel>a {
     color: @buttonForeColor;
     text-align: right;
     text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
+    white-space: nowrap;
     position: absolute;
     display: block;
 }
@@ -4011,8 +4035,8 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
     font: var(--v-f-w-bd) 1.25em/@defaultLineHeight var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
     text-align: center;
     text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
+    white-space: nowrap;
     padding: 12px 10px 0px;
     position: absolute;
     display: block;
@@ -4078,10 +4102,10 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
     border-radius: var(--v-r-b);
     overflow: auto;
     position: fixed;
-    left: 15%;
+    left: 10%;
     top: 10%;
-    right: 15%;
-    bottom: 15%;
+    right: 10%;
+    bottom: 10%;
     z-index: 5000;
 }
 .v-doc-lib>iframe {
@@ -4158,8 +4182,8 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
     top: 10px;
     position: absolute;
     text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .v-fig-page-num {
@@ -4421,70 +4445,105 @@ use.v-blockquote-folder-ico:active {
 .genRainbowQuoteCSS(theme1, @theme1, var(--ac-theme1-fade), var(--ac-theme1-lg), var(--ac-theme1-alt), var(--ac-theme1-title), var(--ac-theme1-title-lg));
 .genRainbowQuoteCSS(theme2, @theme2, var(--ac-theme2-fade), var(--ac-theme2-lg), var(--ac-theme2-alt), var(--ac-theme2-title), var(--ac-theme2-title-lg));
 
+#write .md-hr+.v-tag{
+
+}
+
 // 标签式公用样式（风格2）
 // .v-tag {
 // #write .v-tag,
 // body.typora-export .v-tag {
 :is(#write, body.typora-export) .v-tag {
-    font: var(--v-f-w-bd) .875em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
-    color: fade(#FFFFFF, 90%);
-    border-radius: 1em;//var(--v-r-tag);
+    font: var(--v-f-w-bd) .75em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
+    // color: fade(#FFFFFF, 90%);
+    background: transparent;
+    // background: var(--d-bc);
+    border-radius: calc(var(--v-r-tag) + 2px);//1em;//var(--v-r-tag);
     text-shadow: none;
-    padding: 2px 5px;
+    padding: 1px 5px 1px 3px;
+    // padding: 2px 6px 2px 4px;
     white-space: pre;
-    box-shadow: 0 0 0 1px var(--rb-code-shadow) inset;
+    // box-shadow: 0 0 0 1px var(--rb-code-shadow) inset;
     cursor: var(--cur-copy);
 }
-.v-tag.hover {
-    filter: brightness(1.1);
+:is(#write, body.typora-export) .v-tag.em {
+    box-shadow: 0 0 0 1px var(--rb-code-shadow) inset;
 }
-.v-tag::before,
-.v-tag::after {
-    content: "#";
+.v-tag.hover {
+    filter: brightness(@hoverBrightness);
+}
+.v-tag::before {
+    content: "°";
     opacity: .5;
+    font-size: 1.143em;
+    // font-size: .875em;
     font-weight: normal;
+    padding-right: 1px;
+    // margin-top: -1px;
+    // margin-left: -6px;
+    // display: inline-block;
+    // position: absolute;
 }
 
-// 生成彩虹引用相关样式
-.genRainbowTagCSS(@tagMark, @tagColor, @bgColorStyle) when (@bgColorStyle = deep) {
+// 生成彩虹标签相关样式
+.genRainbowTagCSS(@tagMark, @tagColor, @tagColorEm, @bgColorStyle) when (@bgColorStyle = deep) {
     .v-tag.@{tagMark} {
-        background: @tagColor;
+        color: @tagColor !important;
+        // background: var(--d-bc);
+        box-shadow: 0 0 0 1px @tagColor inset;
+    }
+    .v-tag.@{tagMark}.em {
+        color: fade(#FFFFFF, 90%) !important;
+        background: @tagColorEm !important;
+        // box-shadow: 0 0 0 1px var(--rb-code-shadow) inset;
         // background: linear-gradient(90deg, var(--d-f-c) .25em, @tagColor .25em, @tagColor 100%);
     }
 }
-.genRainbowTagCSS(@tagMark, @tagColor, @bgColorStyle) when (@bgColorStyle = light) {
+.genRainbowTagCSS(@tagMark, @tagColor, @tagColorEm, @bgColorStyle) when (@bgColorStyle = light) {
     .v-tag.@{tagMark} {
+        color: @tagColor !important;
+        // background: var(--d-bc);
+        box-shadow: 0 0 0 1px @tagColor inset;
+    }
+    .v-tag.@{tagMark}.em {
         color: var(--d-f-c) !important;
-        background: @tagColor;
+        background: @tagColorEm !important;
+        // box-shadow: 0 0 0 1px var(--rb-code-shadow) inset;
         // background: linear-gradient(90deg, var(--d-f-c) .25em, @tagColor .25em, @tagColor 100%);
     }
 }
-.genRainbowTagCSS(@tagMark, @tagColor, @bgColorStyle) when (@bgColorStyle = black) {
+.genRainbowTagCSS(@tagMark, @tagColor, @tagColorEm, @bgColorStyle) when (@bgColorStyle = black) {
     .v-tag.@{tagMark} {
+        color: @tagColor !important;
+        // background: var(--d-bc);
+        box-shadow: 0 0 0 1px @tagColor inset;
+    }
+    .v-tag.@{tagMark}.em {
         color: var(--d-bc) !important;
-        background: @tagColor;
+        background: @tagColorEm !important;
+        // box-shadow: 0 0 0 1px var(--rb-code-shadow) inset;
         // background: linear-gradient(90deg, var(--d-f-c) .25em, @tagColor .25em, @tagColor 100%);
     }
 }
-.genRainbowTagCSS(red, var(--ac-red), deep);
-.genRainbowTagCSS(orange, var(--ac-orange), deep);
-.genRainbowTagCSS(yellow, var(--ac-yellow), light);
-.genRainbowTagCSS(lime, var(--ac-lime), light);
-.genRainbowTagCSS(green, var(--ac-green), deep);
-.genRainbowTagCSS(aqua, var(--ac-aqua), light);
-.genRainbowTagCSS(cyan, var(--ac-cyan), deep);
-.genRainbowTagCSS(blue, var(--ac-blue), deep);
-.genRainbowTagCSS(sea, var(--ac-sea), deep);
-.genRainbowTagCSS(steel, var(--ac-steel), deep);
-.genRainbowTagCSS(purple, var(--ac-purple), deep);
-.genRainbowTagCSS(rose, var(--ac-rose), deep);
-.genRainbowTagCSS(pink, var(--ac-pink), light);
-.genRainbowTagCSS(gold, var(--ac-gold), light);
-.genRainbowTagCSS(brown, var(--ac-brown), deep);
-.genRainbowTagCSS(gray, var(--ac-gray), deep);
-.genRainbowTagCSS(black, var(--d-f-c), black);
-.genRainbowTagCSS(theme1, var(--ac-theme1), deep);
-.genRainbowTagCSS(theme2, var(--ac-theme2), deep);
+.genRainbowTagCSS(red, var(--ac-red-lg), var(--ac-red), deep);
+.genRainbowTagCSS(orange, var(--ac-orange-lg), var(--ac-orange), deep);
+.genRainbowTagCSS(yellow, var(--ac-yellow-lg), var(--ac-yellow), light);
+.genRainbowTagCSS(lime, var(--ac-lime-lg), var(--ac-lime), light);
+.genRainbowTagCSS(green, var(--ac-green-lg), var(--ac-green), deep);
+.genRainbowTagCSS(aqua, var(--ac-aqua-lg), var(--ac-aqua), light);
+.genRainbowTagCSS(cyan, var(--ac-cyan-lg), var(--ac-cyan), deep);
+.genRainbowTagCSS(blue, var(--ac-blue-lg), var(--ac-blue), deep);
+.genRainbowTagCSS(sea, var(--ac-sea-lg), var(--ac-sea), deep);
+.genRainbowTagCSS(steel, var(--ac-steel-lg), var(--ac-steel), deep);
+.genRainbowTagCSS(purple, var(--ac-purple-lg), var(--ac-purple), deep);
+.genRainbowTagCSS(rose, var(--ac-rose-lg), var(--ac-rose), deep);
+.genRainbowTagCSS(pink, var(--ac-pink-lg), var(--ac-pink), light);
+.genRainbowTagCSS(gold, var(--ac-gold-lg), var(--ac-gold), light);
+.genRainbowTagCSS(brown, var(--ac-brown-lg), var(--ac-brown), deep);
+.genRainbowTagCSS(gray, var(--ac-gray-lg), var(--ac-gray), deep);
+.genRainbowTagCSS(black, var(--d-f-c), var(--d-f-c), black);
+.genRainbowTagCSS(theme1, var(--ac-theme1-lg), var(--ac-theme1), deep);
+.genRainbowTagCSS(theme2, var(--ac-theme2-lg), var(--ac-theme2), deep);
 
 // 徽章样式名称公共样式
 // .v-badge-name {
@@ -4492,18 +4551,19 @@ use.v-blockquote-folder-ico:active {
 // body.typora-export .v-badge-name {
 :is(#write, body.typora-export) .v-badge-name {
     display: inline-block;
-    font: var(--v-f-w-bd) .875em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
+    font: var(--v-f-w-bd) .75em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
     margin-right: 0;
     border-radius: var(--v-r-tag);
     color: fade(#FFFFFF, 90%);
-    padding: 2px 2px 2px .5em;
+    padding: 1px 1px 1px 5px;
+    // padding: 2px 2px 2px .5em;
     white-space: pre;
     box-shadow: 0 0 0 1px var(--rb-code-shadow) inset;
     // cursor: pointer;
     cursor: var(--cur-copy);
 }
 .v-badge-name.hover {
-    filter: brightness(1.1);
+    filter: brightness(@hoverBrightness);
 }
 
 // 表格内的情况
@@ -4517,11 +4577,14 @@ use.v-blockquote-folder-ico:active {
     display: inline-block;
     margin: 1px 0;
 }
+:is(#write, body.typora-export) table .v-badge-name {
+    padding: 1px 1px 1px 5px;
+}
 // #write table .v-badge-name,
 // body.typora-export table .v-badge-name {
-:is(#write, body.typora-export) table .v-badge-name {
-    padding: 3px 3px 3px .5em;
-}
+// :is(#write, body.typora-export) table .v-badge-name {
+//     padding: 3px 3px 3px .5em;
+// }
 
 // 徽章样式内容公共样式
 .v-badge-value {
@@ -4531,14 +4594,14 @@ use.v-blockquote-folder-ico:active {
     opacity: .9;
     color: var(--d-f-c) !important;
     background: var(--d-bc) !important;
-    padding: 0 .5em;
-    margin: 1px 1px 1px .5em;
+    padding: 0 5px;
+    margin: 1px 1px 1px 5px;
     white-space: pre;
     // cursor: pointer;
     cursor: var(--cur-copy);
 }
 .v-badge-value.hover {
-    filter: brightness(1.1);
+    filter: brightness(@hoverBrightness);
 }
 
 // 表格内的情况
@@ -4547,7 +4610,7 @@ use.v-blockquote-folder-ico:active {
 // body.typora-export table .v-badge-value {
 :is(#write, body.typora-export) table .v-badge-value {
     display: inline-block;
-    margin: 0 0 0 .5em;
+    margin: 0 0 0 5px;
 }
 .v-badge-value>span.var {
     font-style: italic;
@@ -4685,6 +4748,9 @@ h6 code {
     background-position: @coverBackgroundPosition;
     letter-spacing: 0;
 }
+#write>h1:last-child > span {
+    color: @backCoverTextColor !important;
+}
 
 // 封底样式微调
 #write>h1:last-child {
@@ -4748,10 +4814,10 @@ h6 code {
 
 // 作者信息前缀
 :is(#write>pre.md-meta-block:first-child+h6, #write>h6:first-child) strong::before {
-    content: "By ";
+    content: "by";
     opacity: .6;
     display: block;
-    margin-bottom: -1em;
+    margin-bottom: -.5em;
 }
 
 // 封面内的版权信息
@@ -4759,6 +4825,44 @@ h6 code {
 #write>h6:first-child em {
     color: @coverOwnerColor;
     font: normal var(--v-f-w-bd) .4em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
+}
+
+// 封面、封底的前信息
+#write>pre.md-meta-block:first-child+h6::before,
+#write>h6:first-child::before,
+#write>h1:last-child::before {
+    content: "";
+}
+// 封面装饰文本样式 before
+// -- 导出后
+body.typora-export #write>pre.md-meta-block:first-child+h6::before,
+body.typora-export #write>h6:first-child::before,
+body.typora-export #write>pre.md-meta-block:first-child+h6::after,
+body.typora-export #write>h6:first-child::after,
+// -- 编辑时
+#write>pre.md-meta-block:first-child+h6::before,
+#write>h6:first-child::before,
+#write>pre.md-meta-block:first-child+h6::after,
+#write>h6:first-child::after {
+    content: @coverTextBeforeContent !important;
+    position: @coverTextBeforePosition;
+    left: @coverTextBeforeLeft;
+    top: @coverTextBeforeTop;
+    color: @coverTextBeforeColor;
+    font-size: @coverTextBeforeFontSize;
+    font-weight: @coverTextBeforeFontWeight;
+    opacity: @coverTextBeforeOpacity;
+}
+// 封面装饰文本样式 after
+#write>pre.md-meta-block:first-child+h6::after,
+#write>h6:first-child::after {
+    content: @coverTextAfterContent !important;
+    text-align: @coverTextAfterTextAlign;
+    left: @coverTextAfterLeft;
+    top: @coverTextAfterTop;
+    right: @coverTextAfterRight;
+    color: @coverTextAfterColor;
+    font-size: @coverTextAfterFontSize;
 }
 
 @import "media";

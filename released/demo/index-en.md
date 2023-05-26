@@ -11,7 +11,7 @@ vlook-query: effects=2&ws=auto&lmc=1
 vlook-doc-lib: vlook-lib-en.html
 ---
 
-###### <sub>VLOOK™</sub><br>Let Your Markdown Have A New Perspective<br>──<br><sup>Introduction</sup><br>`#Latest|V16.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
+###### <sub>VLOOK™</sub><br>Let Your Markdown Have A New Perspective<br>──<br><sup>Introduction</sup><br>`#Latest|V17.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
 
 [TOC]
 
@@ -59,7 +59,7 @@ vlook-doc-lib: vlook-lib-en.html
 >
 > [+] **60 seconds to learn, 10 minutes to learn Markdown grammar in depth**
 >
-> > 1. `#RECOMMANDED#(theme1)`  **Flavored the Markdown GitHub** (GFM) Syntax Reference: Typora the currently used standard [in detail](https://support.typora.io/Markdown-Reference/) ;
+> > 1. `#RECOMMANDED#`  **Flavored the Markdown GitHub** (GFM) Syntax Reference: Typora the currently used standard [in detail](https://support.typora.io/Markdown-Reference/) ;
 > > 2. Standardized **CommonMark** grammar reference: [60 seconds to learn Markdown grammar](http://commonmark.org/help/) , [10 minutes to learn Markdown in depth](http://commonmark.org/help/tutorial/) .
 
 [^Typora]: Typora is a cross-platform Markdown editor (perhaps the best editor at the moment), which supports direct preview and editing. For more detailed features, please refer to the [official websit](https://www.typora.io).

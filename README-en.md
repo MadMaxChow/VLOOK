@@ -30,6 +30,12 @@ VLOOK™ is open source software and complies with the **[MIT license](#许可�
 >- Issues ([**Issues**](https://github.com/MadMaxChow/VLOOK/issues))
 > - Email (**maxchow@qq.com**)
 
+# Donate
+
+**If you like VLOOK™, you can contribute a cup of coffee :-)**
+
+[![打赏 VLOOK™](https://madmaxchow.github.io/VLOOK/pic/donate-paypal-light.png?mode=frame&darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x)](https://paypal.me/madmaxchow?lnkcss=none)
+
 ---
 
 
@@ -53,18 +59,6 @@ VLOOK™ is open source software and complies with the **[MIT license](#许可�
 ![还有音频、视频、标签、引用折叠、高清插图、…30+特性等你开箱即用](https://madmaxchow.github.io/VLOOK/pic/vlook-screenshot-A08.png)
 
 ---
-
-
-
-# Donate
-
-**If you like VLOOK™, you can contribute a cup of coffee :-)**
-
-[![打赏 VLOOK™](https://madmaxchow.github.io/VLOOK/pic/donate-paypal-light.png?mode=frame&darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x)](https://paypal.me/madmaxchow?lnkcss=none)
-
----
-
-
 
 # Introduction
 
