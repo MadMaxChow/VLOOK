@@ -12,6 +12,12 @@
 @import "font";
 @import "color";
 
+@welcomeAutoCloseDelay: 3;
+
+// 主题信息
+@themeName: "vlook-thinking";
+@themeDesc: "Thinking";
+
 // 指定字体主题
 .applyFontStyle(local);
 // .applyFontStyle(sans);
@@ -20,9 +26,6 @@
 // 文档背景使用图片
 .applyDocBgImg(@docBgImgLight_Grid, @docBgImgDark_Grid);
 
-// 主题信息
-@themeName: "vlook-thinking";
-@themeDesc: "Thinking";
 :root {
     --thm-fav-logo-lg: url("data:image/png;base64,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");
     --thm-fav-logo-dk: var(--thm-fav-logo-lg);
@@ -36,11 +39,10 @@
 @theme1Alt: lighten(@theme1, 45%);
 @theme1AltDark: darken(@theme1, 30%);//@codeBgColorDark;
 @theme2Dark: darken(@theme2, 10%);
-@theme2Alt: lighten(@theme2, 50%);
-@theme2AltDark: darken(@theme2Alt, 75%);
-// @theme3Dark: darken(@theme3, 20%);
-// @theme3Alt: lighten(@theme3, 40%);
-// @theme3AltDark: darken(@theme3Alt, 20%);
+@theme2Alt: lighten(@theme2, 50%);//lighten(@theme2, 50%);
+@theme2AltDark: darken(@theme2, 38%);//darken(@theme2Alt, 75%);
+@theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
+@theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
 
 @themeForeColor: @theme1;
 @themeForeColorFade: fade(@themeForeColor, 50%);
@@ -56,12 +58,21 @@
 @lgHeaderBg: linear-gradient(135deg, @theme1 25%, @theme2);
 @lgHeaderBgClip: text;
 @lgHeaderColor: transparent;
+// 1-5 级标题前缀/自动编号内容
+@ChpAutoNum: on;
+@h1BeforeContent: counter(h1) ".  ";
+@h2BeforeContent: counter(h1) "." counter(h2) "  ";
+@h3BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "  ";
+@h4BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "  ";
+@h5BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "  ";
+// 6 级标题前缀内容
+@h6BeforeContent: "❖ ";
 // @tocHeaderNumColor: @docTextColorLightFade;
 @contentHeaderNumColor: @themeBgColorFade;
 @headerBackground: linear-gradient(270deg, var(--h-bg-start), var(--h-bg-end));
 @multiHeaderBG: @headerBackground;
 @headerTextAlign: right;
-@headerPadding: 10px 30px 10px 10px;
+@headerPadding: 5px 30px 5px 0;
 @headerLetterSpacing: 0;//0.3em;
 @h1Shadown: none;
 @h2Shadown: none;
@@ -87,17 +98,18 @@
 @h4BorderTop: 0;
 @h5BorderTop: 0;
 @h6BorderTop: 0;
-@h1MarginTop: 3em;
-@h2MarginTop: 3em;
-@h3MarginTop: 2em;
-@h4MarginTop: 2em;
-@h5MarginTop: 1.25em;
-@h6MarginTop: 1em;
+@hGap: 5px;
+@h1Margin: 3em 0 @hGap 0;
+@h2Margin: 3em 0 @hGap 0;
+@h3Margin: 2em 0 @hGap 0;
+@h4Margin: 2em 0 @hGap 0;
+@h5Margin: 1.25em 0 @hGap 0;
+@h6Margin: 1em 0 0 0;
 @hContinuous: 0;//-.5em;
 
 // 行内代码
-@codeBgColor: lighten(@theme2, 50%);
-@codeBgColorDark:  darken(@theme2, 38%);
+@codeBgColor: @theme2Alt;//lighten(@theme2, 50%);
+@codeBgColorDark: @theme2AltDark;//darken(@theme2, 38%);
 @codeTextColor: @theme2;
 
 // 按钮色
@@ -122,7 +134,7 @@
 @aActiveColor: desaturate(@aLineColor, 30%);
 
 // 选中内容的背景色
-@selectionColor: @aLineColor;//fade(@aLineColor, 50%);
+@selectionColor: fade(@aLineColor, 30%);
 
 // 表格十字光标颜色
 @tableCrossBgColor: fade(@aLineColor, 50%);
@@ -139,7 +151,7 @@
 @coverTextPadding: 420px 80px 50px;
 @coverTextColor: @theme3;
 @coverSubColor: @codeBgColor;
-@coverSupColor: @coverSubColor;
+@coverUnderlineColor: @coverSubColor;
 @coverAuthorColor: @themeBgColor;
 @coverOwnerColor: @coverAuthorColor;
 
@@ -191,4 +203,4 @@
     --thm-c-bn-green: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjU3MCIgdmlld0JveD0iMCAwIDEyMDAgNTcwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0idGhpbmtpbmctYmFubmVyLWdyZWVuLWEiIHgxPSIwJSIgeDI9Ijg5LjQ0OCUiIHkxPSI1MCUiIHkyPSI1MCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMjdDMkJEIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjdDMkJEIiBzdG9wLW9wYWNpdHk9Ii44Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSIzNTAiIGZpbGw9InVybCgjdGhpbmtpbmctYmFubmVyLWdyZWVuLWEpIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4KPC9zdmc+Cg==");
 }
 
-@import "base";
+// @import "base";

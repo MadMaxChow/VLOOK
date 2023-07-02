@@ -14,6 +14,12 @@
 @import "../font";
 @import "../color";
 
+@welcomeAutoCloseDelay: 3;
+
+// 主题信息
+@themeName: "vlook-x-vueb";
+@themeDesc: "× VueB";
+
 // 指定字体主题
 .applyFontStyle(local);
 // 指定主题配套的圆角
@@ -25,12 +31,9 @@
 @vueTextDark: #F0F2F4;
 .applyDocTextColor(@vueTextLight, @vueTextDark);
 
-// 主题信息
-@themeName: "vlook-x-vueb";
-@themeDesc: "VUEB";
 :root {
     --thm-fav-logo-lg: none;
-    --thm-fav-logo-dk: var(--thm-fav-logo);
+    --thm-fav-logo-dk: var(--thm-fav-logo-lg);
 }
 
 // 主题主色
@@ -41,11 +44,10 @@
 @theme1Alt: lighten(@theme1, 50%);
 @theme1AltDark: darken(@theme1, 35%);//@codeBgColorDark;
 @theme2Dark: darken(@theme2, 20%);
-@theme2Alt: lighten(@theme2, 50%);
-@theme2AltDark: darken(@theme2Alt, 75%);
-// @theme3Dark: darken(@theme3, 20%);
-// @theme3Alt: lighten(@theme3, 40%);
-// @theme3AltDark: darken(@theme3Alt, 30%);
+@theme2Alt: lighten(@theme2, 25%);//lighten(@theme2, 50%);
+@theme2AltDark: darken(@theme2, 65%);//darken(@theme2Alt, 75%);
+@theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
+@theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
 
 @themeForeColor: @theme1;
 @themeForeColorFade: fade(@themeForeColor, 50%);
@@ -61,12 +63,21 @@
 @lgHeaderBg: linear-gradient(135deg, @theme1 25%, @theme2); // rgb(100, 126, 255)
 @lgHeaderBgClip: text;
 @lgHeaderColor: transparent;
+// 1-5 级标题前缀/自动编号内容
+@ChpAutoNum: on;
+@h1BeforeContent: counter(h1) ".  ";
+@h2BeforeContent: counter(h1) "." counter(h2) "  ";
+@h3BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "  ";
+@h4BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "  ";
+@h5BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "  ";
+// 6 级标题前缀内容
+@h6BeforeContent: "❖ ";
 // @tocHeaderNumColor: @docTextColorLightFade;
 @contentHeaderNumColor: @themeBgColorFade;
 @headerBackground: none;//linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
 @multiHeaderBG: none;
 @headerTextAlign: left;
-@headerPadding: 10px 0;
+@headerPadding: 10px 0 0 0;
 @headerLetterSpacing: 0;//0.15em;
 @h1Shadown: none;
 @h2Shadown: none;
@@ -92,17 +103,17 @@
 @h4BorderTop: none;//3px solid var(--h-box-shadow);
 @h5BorderTop: none;//1px solid var(--h-box-shadow);
 @h6BorderTop: 0;
-@h1MarginTop: 2em;
-@h2MarginTop: 1.5em;
-@h3MarginTop: 1.5em;
-@h4MarginTop: 1em;
-@h5MarginTop: 1em;
-@h6MarginTop: 1em;
+@h1Margin: 2em 0 0 0;
+@h2Margin: 1.5em 0 0 0;
+@h3Margin: 1.5em 0 0 0;
+@h4Margin: 1em 0 0 0;
+@h5Margin: 1em 0 0 0;
+@h6Margin: 1em 0 0 0;
 @hContinuous: 0;//-.5em;
 
 // 行内代码
-@codeBgColor: lighten(@theme2, 25%);
-@codeBgColorDark: darken(@theme2, 65%);
+@codeBgColor: @theme2Alt;//lighten(@theme2, 25%);
+@codeBgColorDark: @theme2AltDark;//darken(@theme2, 65%);
 @codeTextColor: @theme2;
 
 // 按钮色
@@ -127,7 +138,7 @@
 @aActiveColor: desaturate(@aLineColor, 30%);
 
 // 选中内容的背景色
-@selectionColor: @aLineColor;//fade(@aLineColor, 50%);
+@selectionColor: fade(@aLineColor, 30%);
 
 // 表格十字光标颜色
 @tableCrossBgColor: fade(@aLineColor, 50%);
@@ -144,8 +155,8 @@
 @coverTextPadding: 240px 60px 50px;
 @coverTextColor: @themeForeColor;
 @coverSubColor: @aLineColor;
-@coverSupColor: #606070;
-@coverAuthorColor: @coverSupColor;
+@coverUnderlineColor: #606070;
+@coverAuthorColor: @coverUnderlineColor;
 @coverOwnerColor: @coverAuthorColor;
 
 @backCoverTextAlign: center;

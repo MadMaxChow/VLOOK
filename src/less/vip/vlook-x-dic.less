@@ -7,13 +7,22 @@
  * QQ Group: 805502564
  * email: maxchow@qq.com
  *
+ * For(wechat): MaxChow
+ *
  *************************************/
 
 @import "../font";
 @import "../color";
 
+@welcomeAutoCloseDelay: 3;
+
+// 主题信息
+@themeName: "vlook-x-dic";
+@themeDesc: "× DIC";
+
 // 指定字体主题
 .applyFontStyle(local);
+// .applyFontStyle(win);
 // .applyFontStyle(sans);
 // .applyFontStyle(serif);
 // 指定主题配套的圆角
@@ -21,27 +30,23 @@
 // 文档背景使用图片
 .applyDocBgImg(@docBgImgLight_Twill_R, @docBgImgDark_Twill_R);
 
-// 主题信息
-@themeName: "vlook-x-dic";
-@themeDesc: "DIC";
 :root {
     --thm-fav-logo-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAMAAAC8EZcfAAABm1BMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////XFRcAn+n+9PQRpuvvpaXtlZaL0/TiU1Qire2d2vfwqqvumpqfOU763t/g9P2j3fiR1fYIourysLHfQkPbKCr4/f+t4fnvnp/s+P7//f3Z8vzL7PtGuvD96+z3z8/jW137/v9zy/NhxPJTv/Ebquz1vr/ma2zYGh295vqU1/ZtyPM+t+83tO4oru3zt7jsi4zodnfncXLlZmfkYGHhUFLePD7cMTTaISPYHiDYGBrl9Pu25Pn++PiF0fV+z/QtsO352dn2ycrwoqPskJHqhYbqgYLoenvgR0ndNjfx+f7u+P3E6fqg2/f41NWzk6VyVnq6Y3HiVlfPKS/R7vzZ6fTO3+375OTAy926vtC3s8Ylh8X1xMS0pLe3dITAUV3hTE7HO0TI2OjG1eUJmeBFc6a0iZtTapi0hJbriImSQlu8RVC3KTZBQjxaAAAAHHRSTlMAqv2++PPdpXFMKgXqtJiLfj80IRgP09HHdmFWkZlOiAAABWlJREFUeNrt2WdXE0EUgOExoSZKUbDe3UA0gKAbBEMgiBSRJtIEpCmIYEOw99792YZ4kp3NbJy7yRy5H+b9A/McDjP3LjCdTqfT6XQ6nU6n0+VTMFB+rLKidN8ex9w7WOUvAhK56Q5VlQCZRF6g1AeEyubV0OIJwLJiIJaDV3sAyOW4HIeBXpyvej8QzPYdJ/Lw5QKWE7u92cAAuevrBNYSmh1uwKAfqMZSVQLZ/u4uRC9IBngU6LbrOwGE2wUeAcLtPtFAuSSQ4ArjANYQvsIpYBmQjjG6QyQVCxaB2kIF1gGOWDUoLBTemDMK7Ao4UvorGL1mFF4zOGIVoKywoaDZDnCk8I5cmVcB3ABnrAQUlZg1VDQBzpiyT7lxQ0lN4IwVg6Ja1QBfgzMGigoZakqAnVJgtxrfObBTC1xVA9wBOzmwZalrJZK74RauLSPZhWauiXyA6x6AbcuW+c/OAte2kWwcuC7kA2zEA2NjpqTLwPVImKN5zb0HaGDPiCkrBnbX7TlayLWeX0QDL0p9dcD10Ug2B1w38wHOABYYs6TALuB6KczR8/kAJ9HABlPaReD6KszRq/kA19DAXjnwPnC9S70yTeeTra7WJ2ucyWtbRQNX5MBO/krNGUp6hgX2WHJgG9g9UeObBSzwsdw3BlzP1QDfo4FnMo6hhhwNAdcbI1lrPVdqjszUY1rLrOJX0cCL3GPnXvsScL0V5uikfaCkkL1JnkcDu9LAEXDvstUOXB+MZFHgmkkfKGtx2sh0Ew3sTwOHwbVOy4yD3R1hji7Opw+U1DFl2IWwwLtmugZwK15nWsD1VJijD4QDhcT3/BpggfdcHzs4my5imqPA9UKYo43CgTea3HIsjRfQwCHXxy5ucvUC15YwR9ftA/FffbdkQHHQRRwXlwc6XpltYY7uCAdOyYFRNHA0zegDrmUeeO/f2+o54cBNOfAGGpgZdMvA1ccD7/LbqjBHE8KBIblvsAMLbMkwHI9dhPP1A9cnYY6+tg/Ef5a2ggQo/rI5H7vc26owR5uEA+vlwEto4FKaYQlvj+u2+l0YaxPCgbflwLAMKP6yjeZcss84tlVhrG0IB07LgQNo4JjrYzfMAx+DXdtg9ljrmBMOPCcHJrDANsv105z/DrUc26ow1pqFAxOYP8tggZ3un+Z1HHDFsa0KYy0qHDggB06jgffdP81Nrj5hWxXH2rTHv1/flgBl2+oCD3Ruq+JYEw68JAeuooFdro/dSR64IGyr4lir9/j31240sN/1ses8w3WHXx7FsSYeGG3MkS0PYYEx7tMc09McYy0EiJoyvk3AAi9z2yqmF+5jbRMQRY1MU2jgWW5bxbTlPtamQN7AoA38gQb22p/mqLbdx9o4SOue47dVNHA0AzyJ6lHqJxjmSo21ybA0x/hrRgMt01OvVP3/AQuMm976ogY4iQa2ewQ+VAMcQAOXPQJ/KvG1AhrY5xH4W4VvsBsPjHjzfTZUFAY0sM3cg0u8Bnhgp0fgNwUvTBQ8ABv+9yWeXU+AF+CwV+Bp136dwrRz6dZACMATcMRUUjuoSQTWqQHGwE4p8LoaXxfYqQUuKNBx36vqgSeV+PpAVcXZwF4Vvv4YqGp/NnBFhS8OyirJAvZYhftGWkBd/ixgvPAf31APKKwiC9heV0iR0eGFHlBaGQPaVRMHFgWJA/2MOLCMONBXQxx4gBEHlhMHHmHEgSeIA48y2kDfQeLASkYb6A/SBpbUMtLA4gAjDfSVM9LAouOMNHB/NSMNPHyIkQYeqGWUgcVljBEG+kprGGGgrzTAGF1gSdUhxqgCi/xVB5l7+/a40orKY+WBINPpdDqdTqfT6XQ6XR79AaHVNQCh3aypAAAAAElFTkSuQmCC");
-    --thm-fav-logo-dk: var(--thm-fav-logo);
+    --thm-fav-logo-dk: var(--thm-fav-logo-lg);
 }
 
 // 主题主色
-@theme1: #00A0E6;
-@theme2: #E60012;
+@theme1: #009FE9;//#00A0E6;
+@theme2: #D71517;//#E60012;
 @theme3: #FFFFFF;
 @theme1Dark: darken(@theme1, 20%);
-@theme1Alt: lighten(@theme1, 50%);
-@theme1AltDark: darken(@theme1, 30%);//@codeBgColorDark;
+@theme1Alt: lighten(@theme1, 48%);
+@theme1AltDark: darken(@theme1, 35%);//@codeBgColorDark;
 @theme2Dark: darken(@theme2, 20%);
-@theme2Alt: lighten(@theme2, 50%);
-@theme2AltDark: darken(@theme2Alt, 75%);
-// @theme3Dark: darken(@theme3, 20%);
-// @theme3Alt: lighten(@theme3, 40%);
-// @theme3AltDark: darken(@theme3Alt, 30%);
+@theme2Alt: lighten(@theme2, 45%);//lighten(@theme2, 50%);
+@theme2AltDark: darken(@theme2, 35%);//darken(@theme2Alt, 75%);
+@theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
+@theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
 
 @themeForeColor: @theme1;
 @themeForeColorFade: fade(@themeForeColor, 50%);
@@ -57,12 +62,21 @@
 @lgHeaderBg: linear-gradient(135deg, @theme1 25%, #2060E0);
 @lgHeaderBgClip: text;
 @lgHeaderColor: transparent;
+// 1-5 级标题前缀/自动编号内容
+@ChpAutoNum: on;
+@h1BeforeContent: counter(h1) ".  ";
+@h2BeforeContent: counter(h1) "." counter(h2) "  ";
+@h3BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "  ";
+@h4BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "  ";
+@h5BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "  ";
+// 6 级标题前缀内容
+@h6BeforeContent: "▰▱ "; // ■ ▱▰ ⏥▰▱
 // @tocHeaderNumColor: @docTextColorLightFade;
 @contentHeaderNumColor: @themeBgColorFade;
 @headerBackground: none;//linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
 @multiHeaderBG: none;
 @headerTextAlign: left;
-@headerPadding: 10px 0;
+@headerPadding: 10px 0 0 0;
 @headerLetterSpacing: 0;//0.15em;
 @h1Shadown: none;
 @h2Shadown: none;
@@ -88,17 +102,17 @@
 @h4BorderTop: none;//3px solid var(--h-box-shadow);
 @h5BorderTop: none;//1px solid var(--h-box-shadow);
 @h6BorderTop: 0;
-@h1MarginTop: 3em;
-@h2MarginTop: 3em;
-@h3MarginTop: 2em;
-@h4MarginTop: 2em;
-@h5MarginTop: 1.25em;
-@h6MarginTop: 1em;
+@h1Margin: 2em 0 0 0;
+@h2Margin: 2em 0 0 0;
+@h3Margin: 1.5em 0 0 0;
+@h4Margin: 1.5em 0 0 0;
+@h5Margin: 1.25em 0 0 0;
+@h6Margin: 1em 0 0 0;
 @hContinuous: 0;//-.5em;
 
 // 行内代码背景色
-@codeBgColor: lighten(@theme2, 52%);
-@codeBgColorDark: darken(@theme2, 38%);
+@codeBgColor: @theme2Alt;//lighten(@theme2, 50%);
+@codeBgColorDark: @theme2AltDark;//darken(@theme2, 40%);
 @codeTextColor: @theme2;
 
 // 按钮色
@@ -123,7 +137,7 @@
 @aActiveColor: desaturate(@aLineColor, 30%);
 
 // 选中内容的背景色
-@selectionColor: @aLineColor;//fade(@aLineColor, 50%);
+@selectionColor: fade(@aLineColor, 30%);
 
 // 表格十字光标颜色
 @tableCrossBgColor: fade(@aLineColor, 50%);
@@ -140,8 +154,8 @@
 @coverTextPadding: 240px 60px 50px;
 @coverTextColor: @themeForeColor;
 @coverSubColor: @aLineColor;
-@coverSupColor: #606070;
-@coverAuthorColor: @coverSupColor;
+@coverUnderlineColor: #606070;
+@coverAuthorColor: @coverUnderlineColor;
 @coverOwnerColor: @coverAuthorColor;
 
 @backCoverTextAlign: center;

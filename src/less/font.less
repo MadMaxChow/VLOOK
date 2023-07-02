@@ -3,8 +3,8 @@
  * VLOOK CSS 字体主题、圆角样式
  * (配合 base.less 进行使用)
  *
- * V17.0
- * 2023-05-26
+ * V18.0
+ * 2023-07-02
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -124,7 +124,11 @@ U+007B-007E; // {|}~
 @base_sans_en: Arial, Tahoma, "Helvetica Neue", Helvetica;
 @base_sans_cn: SimHei, "黑体";
 @mono_local_en: "SF Mono", Menlo, "Cascadia Mono", Consolas, @base_mono;
+@mono_macos_en: "SF Mono", Menlo, @base_mono;
+@mono_win_en: "Cascadia Mono", Consolas, @base_mono;
 @base_mono_sans_en: "VLOOK Sans Mono", "Noto Sans Mono", @mono_local_en;
+@base_mono_macos_en: "VLOOK Sans Mono", "Noto Sans Mono", @mono_macos_en;
+@base_mono_win_en: "VLOOK Sans Mono", "Noto Sans Mono", @mono_win_en;
 // 基础衬线字体
 @base_serif_en: "Times New Roman", Times;
 @base_serif_cn: "Songti SC", STZhongsong, "华文中宋", SimSun, "宋体";
@@ -142,17 +146,33 @@ U+007B-007E; // {|}~
 @apple_sf: "SF Pro Text", "SF Pro Display", "PingFang SC", "PingFang TC", "PingFang HK";
 // Microsoft YaHei 微软雅黑
 @ms_yh: "Segoe UI", SegoeUI, "Microsoft YaHei", "微软雅黑", @base_sans_cn;
-@ms_yh_mono: @base_mono_sans_en, @ms_yh, monospace;
+@ms_yh_mono: @base_mono_macos_en, @ms_yh, monospace;
 @ms_yh_fw_bold: bold;
 @ms_yh_fw_text: normal;
 // Microsoft JhengHei 微軟正黑體
 @ms_jh: "Microsoft JhengHei", "微軟正黑體", @base_sans_cn;
-@msjh_mono: @base_mono_sans_en, @ms_jh, monospace;
+@msjh_mono: @base_mono_macos_en, @ms_jh, monospace;
 // ---
 @localFont: -apple-system, Roboto, @apple_sf, @ms_yh, @ms_jh;
 @monoLocalFont: @mono_local_en, @localFont, @base_sans_cn, monospace;//, @ms_yh_mono, @msjh_mono;
 @fontBoldWeight4Local: @ms_yh_fw_bold;
 @fontBoldWeightText4Local: @ms_yh_fw_text;
+
+//=========================================
+// macOS 风格字体信息
+// ----------------------------------------
+@macosFont: -apple-system, Roboto, @apple_sf;
+@monoMacosFont: @mono_macos_en, @macosFont, @base_sans_cn, monospace;
+@fontBoldWeight4Macos: @ms_yh_fw_bold;
+@fontBoldWeightText4Macos: @ms_yh_fw_text;
+
+//=========================================
+// Windwos 风格字体信息
+// ----------------------------------------
+@winFont: @ms_yh, @ms_jh;
+@monoWinFont: @mono_win_en, @winFont, @base_sans_cn, monospace;
+@fontBoldWeight4Win: @ms_yh_fw_bold;
+@fontBoldWeightText4Win: @ms_yh_fw_text;
 
 //=========================================
 // 非衬线风格字体信息
@@ -209,6 +229,36 @@ U+007B-007E; // {|}~
     --v-f-w-text-local: @fontBoldWeightText4Local;
 
     // ---
+    // macOS 风格
+    --v-f-fm-title-macos: @emoji, @macosFont;
+    --v-f-fm-subtitle-macos: @emoji, @macosFont;
+    --v-f-fm-h-macos: @emoji, @macosFont;
+    --v-f-fm-text-macos: @emoji, @vlookDigitalSans, @macosFont;
+    --v-f-fm-bd-macos: @emoji, @vlookDigitalSans, @macosFont;
+    --v-f-fm-key-macos: @macosFont;
+    --v-f-fm-num-macos: @emoji, @number_font, @base_mono_sans_en, @macosFont;
+    --v-f-fm-tag-macos: @emoji, @macosFont;
+    --v-f-fm-code-macos: @emoji, @monoMacosFont;
+    --v-f-w-bd-macos: @fontBoldWeight4Macos;
+    --v-f-w-title-macos: @fontBoldWeight4Macos;
+    --v-f-w-text-macos: @fontBoldWeightText4Macos;
+
+    // ---
+    // Windows 风格
+    --v-f-fm-title-win: @emoji, @winFont;
+    --v-f-fm-subtitle-win: @emoji, @winFont;
+    --v-f-fm-h-win: @emoji, @winFont;
+    --v-f-fm-text-win: @emoji, @vlookDigitalSans, @winFont;
+    --v-f-fm-bd-win: @emoji, @vlookDigitalSans, @winFont;
+    --v-f-fm-key-win: @winFont;
+    --v-f-fm-num-win: @emoji, @number_font, @base_mono_sans_en, @winFont;
+    --v-f-fm-tag-win: @emoji, @winFont;
+    --v-f-fm-code-win: @emoji, @monoWinFont;
+    --v-f-w-bd-win: @fontBoldWeight4Win;
+    --v-f-w-title-win: @fontBoldWeight4Win;
+    --v-f-w-text-win: @fontBoldWeightText4Win;
+
+    // ---
     // 非衬线风格 Sans
     --v-f-fm-title-sans: @emoji, @sansFont;
     --v-f-fm-subtitle-sans: @emoji, @sansFont;
@@ -256,6 +306,44 @@ U+007B-007E; // {|}~
         --v-f-w-bd: var(--v-f-w-bd-local);
         --v-f-w-title: var(--v-f-w-title-local);
         --v-f-w-text: var(--v-f-w-text-local);
+    }
+}
+// ---
+// 应用 macOS 风格
+.applyFontStyle(@fontStyle) when (@fontStyle = macos) {
+    :root {
+        --v-f-theme: local; // 设置为默认的字体风格
+        --v-f-fm-title: var(--v-f-fm-title-macos);
+        --v-f-fm-subtitle: var(--v-f-fm-subtitle-macos);
+        --v-f-fm-h: var(--v-f-fm-h-macos);
+        --v-f-fm-text: var(--v-f-fm-text-macos);
+        --v-f-fm-bd: var(--v-f-fm-bd-macos);
+        --v-f-fm-key: var(--v-f-fm-key-macos);
+        --v-f-fm-num: var(--v-f-fm-num-macos);
+        --v-f-fm-tag: var(--v-f-fm-tag-macos);
+        --v-f-fm-code: var(--v-f-fm-code-macos);
+        --v-f-w-bd: var(--v-f-w-bd-macos);
+        --v-f-w-title: var(--v-f-w-title-macos);
+        --v-f-w-text: var(--v-f-w-text-macos);
+    }
+}
+// ---
+// 应用 Windows 风格
+.applyFontStyle(@fontStyle) when (@fontStyle = win) {
+    :root {
+        --v-f-theme: local; // 设置为默认的字体风格
+        --v-f-fm-title: var(--v-f-fm-title-win);
+        --v-f-fm-subtitle: var(--v-f-fm-subtitle-win);
+        --v-f-fm-h: var(--v-f-fm-h-win);
+        --v-f-fm-text: var(--v-f-fm-text-win);
+        --v-f-fm-bd: var(--v-f-fm-bd-win);
+        --v-f-fm-key: var(--v-f-fm-key-win);
+        --v-f-fm-num: var(--v-f-fm-num-win);
+        --v-f-fm-tag: var(--v-f-fm-tag-win);
+        --v-f-fm-code: var(--v-f-fm-code-win);
+        --v-f-w-bd: var(--v-f-w-bd-win);
+        --v-f-w-title: var(--v-f-w-title-win);
+        --v-f-w-text: var(--v-f-w-text-win);
     }
 }
 // ---

@@ -16,7 +16,7 @@ title: More Topics about VLOOK™
 >
 > [<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon)</kbd>](index-en.md)
 >
-> `>(theme1)`
+> ~(T1)~
 
 > ###### 🕹 HOW TO USE
 >
@@ -24,11 +24,11 @@ title: More Topics about VLOOK™
 >
 > You can start a brand **new Markdown experience** in just **3 steps**.
 >
-> Make your Markdown a new perspective!
+> Make your Markdown a new perspective^[Interaction]^!
 >
 > [<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon)</kbd>](index-en.md#how-to-use)
 >
-> `>(theme1)`
+> ~(T1)~
 
 
 
@@ -42,7 +42,7 @@ title: More Topics about VLOOK™
 > >
 > > [<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°文档排版)
 > >
-> > `>(green!)`
+> > ~(Gn!)~
 >
 > >
 > > ###### ![](pic/qico-nav-light.svg?fill=text#icon) °Navigation
@@ -53,7 +53,7 @@ title: More Topics about VLOOK™
 > >
 > > [<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°内容导航)
 > >
-> > `>(blue!)`
+> > ~(Bu!)~
 >
 > ---
 >
@@ -62,7 +62,7 @@ title: More Topics about VLOOK™
 > > Built in flexible and convenient tools for presentation and publishing
 > > [<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°演示与出版辅助)
 > > 
-> >`>(orange!)`
+> >~(Og!)~
 > 
 >> ###### ![](pic/qico-theme-light.svg?fill=text#icon) °Theme＆ not Misc.
 > >
@@ -70,9 +70,9 @@ title: More Topics about VLOOK™
 > >
 > > [<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°主题与不杂项)
 > >
-> > `>(brown!)`
+> > ~(Bn!)~
 > 
->`>(gray)`
+>~(Gy)~
 
 
 
@@ -90,4 +90,4 @@ title: More Topics about VLOOK™
 >
 > [![流程图](https://madmaxchow.gitee.io/vlookres/pic/dg-flowcharts.png?inline=true&srcset=@2x&darksrc=invert#frame)](#流程图)　　[![顺序图](https://madmaxchow.gitee.io/vlookres/pic/dg-seq.png?inline=true&srcset=@2x&darksrc=invert#frame)](#顺序图)　　[![状态机图](https://madmaxchow.gitee.io/vlookres/pic/dg-state.png?inline=true&srcset=@2x&darksrc=invert#frame)](#状态机图)　　[![类图](https://madmaxchow.gitee.io/vlookres/pic/dg-class.png?inline=true&srcset=@2x&darksrc=invert#frame)](#类图)　　[![实体关系图](https://madmaxchow.gitee.io/vlookres/pic/dg-er.png?inline=true&srcset=@2x&darksrc=invert#frame)](#实体关系图)　　[![用户旅程地图](https://madmaxchow.gitee.io/vlookres/pic/dg-uj.png?inline=true&srcset=@2x&darksrc=invert#frame)](#用户旅程地图)　　[![甘特图](https://madmaxchow.gitee.io/vlookres/pic/dg-gantt.png?inline=true&srcset=@2x&darksrc=invert#frame)](#甘特图)　　[![饼图](https://madmaxchow.gitee.io/vlookres/pic/dg-pie.png?inline=true&srcset=@2x&darksrc=invert#frame)](#饼图)　　[![Gitgraph 图](https://madmaxchow.gitee.io/vlookres/pic/dg-gitgraph.png?inline=true&srcset=@2x&darksrc=invert#frame)](#Gitgraph 图)　　[![思维导图](https://madmaxchow.gitee.io/vlookres/pic/dg-mindmap.png?inline=true&srcset=@2x&darksrc=invert#frame)](#思维导图)　　[![需求图](https://madmaxchow.gitee.io/vlookres/pic/dg-req.png?inline=true&srcset=@2x&darksrc=invert#frame)](#需求图)　　[![时间线](https://madmaxchow.gitee.io/vlookres/pic/dg-timeline.png?inline=true&srcset=@2x&darksrc=invert#frame)](#时间线)
 >
-> `>(yellow)`
+> ~(Ye)~
