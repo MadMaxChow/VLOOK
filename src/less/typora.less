@@ -4,7 +4,7 @@
  * (配合 base.less 进行使用)
  *
  * V18.0
- * 2023-07-02
+ * 2023-07-04
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -608,12 +608,6 @@ body.os-windows .info-panel-tab-title::after {
     border-radius: var(--v-r-b);
     background: none;
 }
-// #typora-sidebar .outline-content:empty::after {
-//     content: "Outline is Empty\a无大纲";
-//     white-space: pre;
-//     opacity: 1;
-//     color: var(--d-f-c);
-// }
 
 // 文件库
 .active-tab-files.use-file-tree-style .sidebar-content {
@@ -640,16 +634,6 @@ body.os-windows .info-panel-tab-title::after {
     border-radius: var(--v-r-b);
     background: none;
 }
-// #typora-sidebar #file-library-tree:empty::after, // for macOS
-// body.os-windows #typora-sidebar #file-library-list-children:empty::after,
-// #file-library-list-children:empty:after,
-// #file-library-tree:empty:after,
-// #outline-content:empty:after { // for Win
-//     content: "File is Opened\a文件列表为空";
-//     white-space: pre;
-//     // opacity: 1;
-//     color: var(--d-f-c-alt);
-// }
 
 // for Win 版样式的差异调整
 body.os-windows #file-library-tree {
@@ -687,10 +671,6 @@ body.os-windows #file-library-tree {
 
 // ----- 自动收起模式 -----
 // 大纲面板的封面、封底条目
-// .outline-content>li:first-child.outline-h6 .outline-item { // 封面
-//     padding-top: 10px;
-//     padding-bottom: 10px;
-// }
 .outline-content>li:first-child.outline-h6>.outline-item, // 封面
 .outline-content>.outline-h6:first-child ~ .outline-h1:last-child>.outline-item { // 封底
     color: var(--a-color);
@@ -1323,6 +1303,53 @@ body.typora-export :is(.md-toc-h1, .md-toc-h2, .md-toc-h3, .md-toc-h4, .md-toc-h
     content: attr(d-header-num) !important;
 }
 
+.typora-export-show-outline .typora-export-content {
+    max-width: none;
+    display: inherit;
+}
+
+// ====================
+// 编辑时预置颜色标识的公共样式
+content>#write blockquote p>sub:only-child, // 彩虹引用
+content>#write p>sub:first-child, // 彩虹文本（段落）
+content>#write table :is(th,td)>span>sub:first-child, // 单元格（段落）
+content>#write table :is(th,td)>span>sub:last-child,
+content>#write span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],[md-inline="highlight"],[md-inline="underline"])+sub { // 彩虹文本（指定格式）
+    color: var(--ac-t1-lg);//var(--d-f-c-alt);
+    border-radius: var(--v-r-tag);
+    padding-right: 2px;
+    opacity: .5;
+}
+// 针对彩虹引用的微调
+content>#write blockquote p>sub:only-child {
+    border: 1px solid var(--ac-t1-lg);//var(--d-f-c-alt);
+}
+
+// 前缀提示公共样式
+content>#write blockquote p>sub:only-child::before,
+content>#write p>sub:first-child::before,
+content>#write table :is(th,td)>span>sub:first-child::before,
+content>#write table :is(th,td)>span>sub:last-child::before,
+content>#write span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],[md-inline="highlight"],[md-inline="underline"])+sub::before {
+    font-size: .875em;
+    color: var(--ac-t1-lg);//var(--d-f-c-alt);
+}
+
+// 针对 彩虹引用 的前缀提示样式
+content>#write blockquote p>sub:only-child::before {
+    content: ">";
+    padding-left: 4px;
+}
+// 针对 彩虹文本/单元格（段落） 的前缀提示样式
+content>#write p>sub:first-child::before,
+content>#write table :is(th,td)>span>sub:first-child::before {
+    content: "¶";
+}
+// 针对 彩虹文本（指定格式） 的前缀提示样式
+content>#write span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],[md-inline="highlight"],[md-inline="underline"])+sub::before {
+    content: "";
+}
+
 // 有序、无序列表下的图片、非图片段落
 #write li .md-p>span:not([class*=md-image]) {
     margin-top: 0;
@@ -1444,7 +1471,8 @@ body.typora-export :is(.md-toc-h1, .md-toc-h2, .md-toc-h3, .md-toc-h4, .md-toc-h
 // #write p>em>mark::before,
 #write p>[md-inline="em"]>em>[md-inline="highlight"]>mark::before {
     content: "Caption/题注. ";
-    color: var(--d-f-c-alt);
+    color: var(--ac-t1-lg);//var(--d-f-c-alt);
+    opacity: .5;
     font-size: .85em;
 }
 // --------------------
@@ -1457,7 +1485,8 @@ body.typora-export :is(.md-toc-h1, .md-toc-h2, .md-toc-h3, .md-toc-h4, .md-toc-h
 // #write p>em>mark>em::before,
 #write p>[md-inline="em"]>em>[md-inline="highlight"]>mark>[md-inline="em"]>em::before {
     content: " │ B.Caption/底部题注. ";
-    color: var(--d-f-c-alt);
+    color: var(--ac-t1-lg);//var(--d-f-c-alt);
+    opacity: .5;
     font-size: .85em;
 }
 .md-expand mark .md-meta {
@@ -1484,6 +1513,31 @@ content>#write {
 // #write>ol:first-child {
 #write>:is(ul,ol):first-child {
     margin-top: 30px;
+}
+
+// 编辑时的 summary
+content>#write blockquote>blockquote:first-child>h6 {
+    padding: 0;
+    border-radius: 0;
+    border-bottom: 1px solid;
+    border-color: var(--d-bc);
+    padding-bottom: .3125em;
+    margin-bottom: .3125em;
+}
+// 编辑时的 summary 折叠展开样式
+content>#write blockquote>blockquote:first-child>h6::before {
+    content: "⊕╱⊖" !important; // ⊗
+    // content: "Fold\a折 叠" !important; // ⊗
+    opacity: .5;
+    color: var(--d-bc) !important;
+    background: var(--ac-t1-lg) !important;
+    font-size: .875em;
+    width: auto;
+    height: auto;
+    border-radius: var(--v-r-tag);
+    border: none;
+    // font-weight: var(--v-f-w-bd);
+    padding: 3px;
 }
 
 // 多行代码样式

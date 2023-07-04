@@ -4,7 +4,7 @@
  * (配合 base.less 进行使用)
  *
  * V18.0
- * 2023-07-02
+ * 2023-07-04
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -15,8 +15,10 @@
  *
  *************************************/
 
+ @gSmallScreenWidth:1279px;
+
 // ---------------
-// 针对大于该分辨设备的 UI 调整
+// 针对大于等于该分辨设备的 UI 调整
 @media screen and (min-width: 1441px) {
     :root {
         --v-nav-center-width:400px;
@@ -26,8 +28,8 @@
 }
 
 // ---------------
-// 针对大于该分辨设备的 UI 调整
-@media screen and (min-height: 801px) {
+// 针对大于等于该分辨设备的 UI 调整
+@media screen and (min-height: 800px) {
     // 工具栏、逐章导航栏不在封面显示时的样式
     :root {
         --v-top-margin:-3px;
@@ -35,8 +37,8 @@
 }
 
 // ---------------
-// 针对小于该分辨设备的 UI 调整
-@media screen and (max-width: 1280px) {
+// 针对小于等于该分辨设备的 UI 调整
+@media screen and (max-width: @gSmallScreenWidth) {
     .v-btn-group.hover {
         box-shadow: var(--v-float-shadow), @contrastBorder;
     }

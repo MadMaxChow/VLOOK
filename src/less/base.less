@@ -3,7 +3,7 @@
  * VLOOK CSS 基础库
  *
  * V18.0
- * 2023-07-02
+ * 2023-07-04
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -1164,38 +1164,6 @@ details[open]>summary::before {
     // box-shadow: 0 0 0 1px inset var(--pn-c);
 }
 
-// 编辑时的 summary
-#write blockquote>blockquote:first-child>h6 {
-    padding: 0;
-    border-radius: 0;
-    border-bottom: 1px solid;
-    border-color: var(--d-bc);
-    padding-bottom: .3125em;
-    margin-bottom: .3125em;
-}
-// 连续 details 时对 summary 的处理
-// #write blockquote:has(blockquote:first-child>h6)+blockquote>blockquote:first-child>h6 {
-//     border-top: 3px solid var(--d-bc);
-//     padding-top: .3125em;
-// }
-// 编辑时的 summary 折叠展开样式
-#write blockquote>blockquote:first-child>h6::before {
-    content: "Fold\a折 叠" !important; // ⊗
-    opacity: .5;
-    color: var(--d-bc) !important;
-    background: var(--ac-t1-lg) !important;
-    // color: var(--ac-t1-lg) !important;
-    // background: none !important;
-    font-size: .5em;
-    width: auto;
-    height: auto;
-    border-radius: var(--v-r-tag);
-    border: none;
-    // border: 1px solid;
-    font-weight: var(--v-f-w-bd);
-    padding: 2px;
-}
-
 // // 紧跟图片、表格后的引用样式微调
 // #write .md-table-fig+blockquote,
 // #write .md-fences+blockquote,
@@ -1217,7 +1185,7 @@ details[open]>summary::before {
 // 引用分栏
 
 // 引用分栏提示样式
-#write .md-hr+blockquote::before {
+content>#write .md-hr+blockquote::before {
     background-color: var(--pn-c-alt);
     color: var(--d-f-c);
     font-weight: bold;
@@ -1234,21 +1202,21 @@ details[open]>summary::before {
     opacity: .5;
     pointer-events: none;
 }
-#write .md-hr+blockquote::before {
+content>#write .md-hr+blockquote::before {
     content: "⬛︎ ⬛︎  2 Columns of Quote / 双栏引用  ⬛︎ ⬛︎";
-    margin-top: -3.5em;
+    margin-top: -3.3em;
 }
-#write .md-hr+.md-hr+blockquote::before {
+content>#write .md-hr+.md-hr+blockquote::before {
     content: "⬛︎ ⬛︎ ⬛︎  3 Columns of Quote / 三栏引用  ⬛︎ ⬛︎ ⬛︎";
-    margin-top: -5em;
+    margin-top: -4.8em;
     padding-top: .75em;
     padding-bottom: .75em;
 }
-#write .md-hr+.md-hr+.md-hr+blockquote::before {
+content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
     content: "⬛︎ ⬛︎ ⬛︎ ⬛︎  4 Columns of Quote / 四栏引用  ⬛︎ ⬛︎ ⬛︎ ⬛︎";
+    margin-top: -6.3em;
     padding-top: 1.4em;
     padding-bottom: 1.4em;
-    margin-top: -6.5em;
 }
 
 // -----
@@ -1324,7 +1292,8 @@ details[open]>summary::before {
 }
 
 #write blockquote h6 {
-    padding: 5px 0;
+    padding: 0;
+    // padding: 5px 0;
     margin-top: 0;
     color: var(--d-f-c);
     font-size: 1.125em;
@@ -1391,8 +1360,8 @@ details[open]>summary::before {
 }
 
 // 列表分栏提示样式
-#write .md-hr+ul::before,
-#write .md-hr+ol::before {
+content>#write .md-hr+ul::before,
+content>#write .md-hr+ol::before {
     background-color: var(--pn-c-alt);
     color: var(--d-f-c);
     font-weight: bold;
@@ -1409,30 +1378,30 @@ details[open]>summary::before {
     opacity: .5;
     pointer-events: none;
 }
-#write .md-hr+ul::before,
-#write .md-hr+ol::before {
+content>#write .md-hr+ul::before,
+content>#write .md-hr+ol::before {
     content: "⬛︎ ⬛︎  2 Columns of List / 双栏列表  ⬛︎ ⬛︎";
-    margin-top: -3.1em;
+    margin-top: -2.9em;
 }
-#write .md-hr+.md-hr+ul::before,
-#write .md-hr+.md-hr+ol::before {
+content>#write .md-hr+.md-hr+ul::before,
+content>#write .md-hr+.md-hr+ol::before {
     content: "⬛︎ ⬛︎ ⬛︎  3 Columns of List / 三栏列表  ⬛︎ ⬛︎ ⬛︎";
-    margin-top: -3.5em;
-    padding-top: .2em;
+    margin-top: -3em;
+    padding-top: 0;
     padding-bottom: .2em;
 }
-#write .md-hr+.md-hr+.md-hr+ul::before,
-#write .md-hr+.md-hr+.md-hr+ol::before {
+content>#write .md-hr+.md-hr+.md-hr+ul::before,
+content>#write .md-hr+.md-hr+.md-hr+ol::before {
     content: "⬛︎ ⬛︎ ⬛︎ ⬛︎  4 Columns of List / 四栏列表  ⬛︎ ⬛︎ ⬛︎ ⬛︎ ";
     margin-top: -4.5em;
-    padding-top: .7em;
+    padding-top: .9em;
     padding-bottom: .7em;
 }
-#write .md-hr+.md-hr+.md-hr+.md-hr+ul::before,
-#write .md-hr+.md-hr+.md-hr+ol::before {
+content>#write .md-hr+.md-hr+.md-hr+.md-hr+ul::before,
+content>#write .md-hr+.md-hr+.md-hr+ol::before {
     content: "⬛︎ ⬛︎ ⬛︎ ⬛︎ ⬛︎  5 Columns of List / 五栏列表  ⬛︎ ⬛︎ ⬛︎ ⬛︎ ⬛︎";
     margin-top: -5.9em;
-    padding-top: 1.4em;
+    padding-top: 1.6em;
     padding-bottom: 1.4em;
 }
 
@@ -4294,8 +4263,8 @@ use.v-blockquote-folder-ico:active {
     background: var(--d-bc) !important;
     border-radius: var(--v-r-s);
     padding: .75em 1em;
-    margin-top: .75em;
-    margin-bottom: .75em;
+    margin-top: .625em;
+    margin-bottom: .625em;
 }
 
 // 彩虹引用
@@ -4658,7 +4627,9 @@ rt:hover {
 // }
 
 // 上标、下标样式
-#write sup, sub {
+// content>#write blockquote p>sub:only-child,
+// content>#write blockquote p>sub:first-of-type,
+#write sup {
     color: var(--d-f-c-alt);
     // font-weight: normal;
 }

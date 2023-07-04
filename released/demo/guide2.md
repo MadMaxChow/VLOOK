@@ -138,7 +138,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-> > ###### 流程、技术类内容排版与交互
+> > ###### 流程类内容排版与交互
 >
 > - **扩展优化** Mermaid **流程图、状态机图、顺序图** [❯❯](guide.md#°Mermaid)
 > - 给每个代码块进行自动编号、**添加题注** [❯❯](guide.md#代码块自动编号与题注)
@@ -392,7 +392,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 以下是 VLOOK™ 内置的 6 套免费主题（可点击进行效果预览）～
 
-[![Hope 海洋之心](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-hope.png?srcset=@2x#logo#inline)](theme-hope.html?lnkcss=none)　　[![Joint 榫卯](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-joint.png?srcset=@2x#logo#inline)](theme-joint.html?lnkcss=none)　　[![Geek 极邃](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-geek.png?srcset=@2x#logo#inline)](theme-geek.html?lnkcss=none)　　[![Fancy 慕幻](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-fancy.png?srcset=@2x#logo#inline)](theme-fancy.html?lnkcss=none)　　[![Thinking 静思](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-thinking.png?srcset=@2x#logo#inline)](theme-thinking.html?lnkcss=none)　　[![Solaris](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-solaris.png?srcset=@2x#logo#inline)](theme-solaris.html?lnkcss=none)
+[![Hope 海洋之心](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-hope.png?srcset=@2x#logo#inline)](theme-hope.html?lnkcss=none)　[![Joint 榫卯](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-joint.png?srcset=@2x#logo#inline)](theme-joint.html?lnkcss=none)　[![Geek 极邃](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-geek.png?srcset=@2x#logo#inline)](theme-geek.html?lnkcss=none)　[![Fancy 慕幻](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-fancy.png?srcset=@2x#logo#inline)](theme-fancy.html?lnkcss=none)　[![Thinking 静思](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-thinking.png?srcset=@2x#logo#inline)](theme-thinking.html?lnkcss=none)　[![Solaris](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-solaris.png?srcset=@2x#logo#inline)](theme-solaris.html?lnkcss=none)
 
 ![私人定制](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-vip.png?srcset=@2x#logo#inline)
 
@@ -511,7 +511,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 > ###### **要进一步了解「封面」中特定类型信息（如小标题、作者等）的自动排版规则？**
 >
 > > > ###### 标题
->>
+> >
 > > - 默认格式就是标题格式，直接输入就可以了；
 >> - 可结合 HTML 的上标、下标方式进行「小标题、副标题」的延伸应用：
 > >   - 小标题：`<sub>文档大标题上的小标题</sub>`
@@ -520,7 +520,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 > > > ###### 文档类型、密级
 > >
 > > 可使用 VLOOK™ 的[彩虹徽章](guide.md#彩虹徽章)写法来实现，举例：
->>
+> >
 > > - `` `#文档密级|对外公开#`~(Gn)~ ``
 > > - `` `#文档密级|内部公开#`~(Og)~ ``
 > > - `` `#文档密级|机密资料#`~(caution)~ ``

@@ -3,7 +3,7 @@
  * VLOOK JS - Typora Plugin
  *
  * V18.0
- * 2023-07-02
+ * 2023-07-04
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -23,6 +23,7 @@ let vVer = "V18.0",
     gTotalTimes = 0,
     gHoldKeyAlt = gFalse,
     gLastHash = null,
+    gSmallScreenWidth = 1279, // 修改时须同步修改 media.less 的同名参数
     s_4space = "    ",
     s_Absolute = "absolute",
     s_Actived = "actived",
@@ -1943,7 +1944,7 @@ function V_ui_copyrightInfo() {
  * 判断是否为小屏
  */
 function V_ui_isSmallScreen() {
-    return $(window).w() <= 1280;
+    return $(window).w() <= gSmallScreenWidth;
 }
 
 /**
