@@ -28,7 +28,7 @@ title: More Topics about VLOOK™
 >
 > [<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon)</kbd>](index-en.md#how-to-use)
 >
-> ~(T1)~
+> ~(T2)~
 
 
 
@@ -42,7 +42,7 @@ title: More Topics about VLOOK™
 > >
 > > [<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°文档排版)
 > >
-> > ~(Gn!)~
+> > ~(Vn!)~
 >
 > >
 > > ###### ![](pic/qico-nav-light.svg?fill=text#icon) °Navigation
@@ -70,7 +70,7 @@ title: More Topics about VLOOK™
 > >
 > > [<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°主题与不杂项)
 > >
-> > ~(Bn!)~
+> > ~(Lm!)~
 > 
 >~(Gy)~
 

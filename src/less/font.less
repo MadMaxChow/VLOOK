@@ -3,8 +3,8 @@
  * VLOOK CSS 字体主题、圆角样式
  * (配合 base.less 进行使用)
  *
- * V18.0
- * 2023-07-04
+ * V19.0
+ * 2023-07-29
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -122,7 +122,7 @@ U+007B-007E; // {|}~
 @number_font: "VLOOK Number", "Altinn-DIN", "DIN", "DIN Alternate";
 // 基础非衬线字体
 @base_sans_en: Arial, Tahoma, "Helvetica Neue", Helvetica;
-@base_sans_cn: SimHei, "黑体";
+@base_sans_cn: "Heiti SC", "黑体-简", SimHei, "黑体";
 @mono_local_en: "SF Mono", Menlo, "Cascadia Mono", Consolas, @base_mono;
 @mono_macos_en: "SF Mono", Menlo, @base_mono;
 @mono_win_en: "Cascadia Mono", Consolas, @base_mono;
@@ -131,7 +131,8 @@ U+007B-007E; // {|}~
 @base_mono_win_en: "VLOOK Sans Mono", "Noto Sans Mono", @mono_win_en;
 // 基础衬线字体
 @base_serif_en: "Times New Roman", Times;
-@base_serif_cn: "Songti SC", STZhongsong, "华文中宋", SimSun, "宋体";
+@base_serif_cn: "Songti SC", "宋体-简", SimSun, "宋体";
+// @base_serif_cn: "Songti SC", STZhongsong, "华文中宋", SimSun, "宋体";
 @base_mono_serif_en: "VLOOK Serif Mono", "Luxi Mono", "Iosevka Slab", "PT Mono", @base_mono, @base_mono_sans_en;
 // 字体主题集
 @base_noto_sans_sets: "Noto Sans CJK SC", "Noto Sans CJK HK", "Noto Sans CJK TW";
@@ -207,8 +208,30 @@ U+007B-007E; // {|}~
 @serifHeader: @cross_noto_header;
 @monoSerifFont: @cross_noto_mono;
 @fontBoldWeight4Serif: @cross_noto_fw_bold;
-@fontBoldWeight4Title: @cross_noto_fw_title;
+@fontBoldWeight4SerifTitle: @cross_noto_fw_title;
 @fontBoldWeightText4Serif: @cross_noto_fw_text;
+
+//=========================================
+// Book 风格字体信息
+// ----------------------------------------
+// 宋体＋黑体
+@cross_book_serif: @base_serif_en, @base_serif_cn, serif;
+@cross_book_bold: @base_sans_en, @base_sans_cn, sans-serif;
+@cross_book_title: @base_sans_en, @base_sans_cn, sans-serif;
+@cross_book_header: @base_sans_en, @base_sans_cn, sans-serif;
+@cross_book_mono: @base_mono, @base_sans_en, @base_sans_cn, monospace;
+@cross_book_fw_bold: normal;
+@cross_book_fw_title: bold;
+@cross_book_fw_text: normal;
+// ---
+@bookFont: @cross_book_serif;
+@bookBoldFont: @cross_book_bold;
+@bookTitle: @cross_book_title;
+@bookHeader: @cross_book_header;
+@monoBookFont: @cross_book_mono;
+@fontBoldWeight4Book: @cross_book_fw_bold;
+@fontBoldWeight4BookTitle: @cross_book_fw_title;
+@fontBoldWeightText4Book: @cross_book_fw_text;
 
 //=========================================
 // 不同字体风格配置集
@@ -285,8 +308,23 @@ U+007B-007E; // {|}~
     --v-f-fm-tag-serif: @emoji, @serifBoldFont;
     --v-f-fm-code-serif: @emoji, @monoSerifFont;
     --v-f-w-bd-serif: @fontBoldWeight4Serif;
-    --v-f-w-title-serif: @fontBoldWeight4Title;
+    --v-f-w-title-serif: @fontBoldWeight4SerifTitle;
     --v-f-w-text-serif: @fontBoldWeightText4Serif;
+
+    // ---
+    // Book 风格 宋体 + 黑体
+    --v-f-fm-title-book: @emoji, @bookTitle;
+    --v-f-fm-subtitle-book: @emoji, @bookBoldFont;
+    --v-f-fm-h-book: @emoji, @bookHeader;
+    --v-f-fm-text-book: @emoji, @bookFont;
+    --v-f-fm-bd-book: @emoji, @bookBoldFont;
+    --v-f-fm-key-book: @bookBoldFont;
+    --v-f-fm-num-book: @emoji, @number_font, @base_mono_sans_en, @sansFont;
+    --v-f-fm-tag-book: @emoji, @bookBoldFont;
+    --v-f-fm-code-book: @emoji, @monoBookFont;
+    --v-f-w-bd-book: @fontBoldWeight4Book;
+    --v-f-w-title-book: @fontBoldWeight4BookTitle;
+    --v-f-w-text-book: @fontBoldWeightText4Book;
 }
 
 // ---
@@ -382,6 +420,25 @@ U+007B-007E; // {|}~
         --v-f-w-bd: var(--v-f-w-bd-serif);
         --v-f-w-title: var(--v-f-w-title-serif);
         --v-f-w-text: var(--v-f-w-text-serif);
+    }
+}
+// ---
+// 应用 Book 风格
+.applyFontStyle(@fontStyle) when (@fontStyle = book) {
+    :root {
+        --v-f-theme: book; // 设置为默认的字体风格
+        --v-f-fm-title: var(--v-f-fm-title-book);
+        --v-f-fm-subtitle: var(--v-f-fm-subtitle-book);
+        --v-f-fm-h: var(--v-f-fm-h-book);
+        --v-f-fm-text: var(--v-f-fm-text-book);
+        --v-f-fm-bd: var(--v-f-fm-bd-book);
+        --v-f-fm-key: var(--v-f-fm-key-book);
+        --v-f-fm-num: var(--v-f-fm-num-book);
+        --v-f-fm-tag: var(--v-f-fm-tag-book);
+        --v-f-fm-code: var(--v-f-fm-code-book);
+        --v-f-w-bd: var(--v-f-w-bd-book);
+        --v-f-w-title: var(--v-f-w-title-book);
+        --v-f-w-text: var(--v-f-w-text-book);
     }
 }
 

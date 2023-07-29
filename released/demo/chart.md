@@ -11,7 +11,7 @@ vlook-query: el=2&ws=auto&lmc=1
 vlook-doc-lib: vlook-lib.html
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>脚本化图表参考指南</u><br>`#最新版本|V18.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>脚本化图表参考指南</u><br>`#最新版本|V19.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
 
 [TOC]
 
@@ -36,7 +36,7 @@ Mermaid 是一个用于画流程图、状态机图、顺序图、甘特图的库
 - `#推荐#` **Github Flavored Markdown** (GFM) 语法参考：Typora 目前采用该标准 - [详情](https://support.typora.io/Markdown-Reference/)；
 - 标准化 **CommonMark** 语法参考：[60 秒学会 Markdown 语法](http://commonmark.org/help/)、[10 分钟深入学习 Markdown](http://commonmark.org/help/tutorial/)。
 
-# Mermaid 图表
+# 建模类图表
 
 ## 流程图
 
@@ -48,19 +48,19 @@ flowchart TB
 %% LR：从左到图，RL：从右到左，TB：从上到下，BT：从下到上
 
 %% 连续连接
-START([开始]) --> pre1{{fa:fa-camera-retro 准备}} --> node2[节点]
-pre1 --> node1(fa:fa-anchor 可选)
+START([开始]) --> pre1{{准备}} --> node2[节点]
+pre1 --> node1(可选)
 
 subgraph 子图
   subgraph 子图的子图
     %% 一对多
     node1 --> join1{ }
-    join1 --> |分支|groud1[[fa:fa-inbox 子流程]] & database[(fa:fa-archive 存档)] & inpage1(("fa:fa-arrows-alt A<br>(同页)"))
+    join1 --> |分支|groud1[[子流程]] & database[(存档)] & inpage1(("A<br>(同页)"))
     %% click clickable "#Mermaid 的状态机图"
   end  	
-node2 --> data1[/fa:fa-database 数据/]
-node2 --> data2[\fa:fa-file 文件\]
-node2 --> data3(((双圈圆<br>点击可访问<br>fa:fa-link Github)))
+node2 --> data1[/数据/]
+node2 --> data2[\文件\]
+node2 --> data3(((双圈圆<br>点击可访问<br>Github)))
 click data3 "https://www.github.com" _blank
 end
 
@@ -68,11 +68,11 @@ end
 
 groud1 ==> |重要分支|cond1{"判断？"}
 cond1 --> |条件1|END
-cond1 --> |条件2|B[/fa:fa-keyboard-o 手工输入\]
-cond1 --> |条件3|B2[\fa:fa-arrow-circle-right 手动操作/]
-cond1 -.-> |条件4|outpage2>"fa:fa-sign-out B (离页)"]
+cond1 --> |条件2|B[/手工输入\]
+cond1 --> |条件3|B2[\手动操作/]
+cond1 -.-> |条件4|outpage2>"B (离页)"]
 
-inpage2(("fa:fa-arrows-alt A<br>(同页)")) --> END
+inpage2(("A<br>(同页)")) --> END
 END([结束])
 ```
 
@@ -80,7 +80,7 @@ END([结束])
 
 ```mermaid
 flowchart LR
-outpage2>"fa:fa-sign-in B (离页)"] --> node2(节点) --> END([结束])
+outpage2>"B (离页)"] --> node2(节点) --> END([结束])
 ```
 
 > > ###### 查看完整画图脚本示例
@@ -94,19 +94,19 @@ outpage2>"fa:fa-sign-in B (离页)"] --> node2(节点) --> END([结束])
 > %% LR：从左到图，RL：从右到左，TB：从上到下，BT：从下到上
 > 
 > %% 连续连接
-> START([开始]) --> pre1{{fa:fa-camera-retro 准备}} --> node2[节点]
-> pre1 --> node1(fa:fa-anchor 可选)
+> START([开始]) --> pre1{{准备}} --> node2[节点]
+> pre1 --> node1(可选)
 > 
 > subgraph 子图
-> subgraph 子图的子图
->  %% 一对多
->  node1 --> join1{ }
->  join1 --> |分支|groud1[[fa:fa-inbox 子流程]] & database[(fa:fa-archive 存档)] & inpage1(("fa:fa-arrows-alt A<br>(同页)"))
->  %% click clickable "#Mermaid 的状态机图"
-> end  	
-> node2 --> data1[/fa:fa-database 数据/]
-> node2 --> data2[\fa:fa-file 文件\]
-> node2 --> data3(((双圈圆<br>点击可访问<br>fa:fa-link Github)))
+>   subgraph 子图的子图
+>     %% 一对多
+>     node1 --> join1{ }
+>     join1 --> |分支|groud1[[子流程]] & database[(存档)] & inpage1(("A<br>(同页)"))
+>     %% click clickable "#Mermaid 的状态机图"
+>   end  	
+> node2 --> data1[/数据/]
+> node2 --> data2[\文件\]
+> node2 --> data3(((双圈圆<br>点击可访问<br>Github)))
 > click data3 "https://www.github.com" _blank
 > end
 > 
@@ -114,11 +114,11 @@ outpage2>"fa:fa-sign-in B (离页)"] --> node2(节点) --> END([结束])
 > 
 > groud1 ==> |重要分支|cond1{"判断？"}
 > cond1 --> |条件1|END
-> cond1 --> |条件2|B[/fa:fa-keyboard-o 手工输入\]
-> cond1 --> |条件3|B2[\fa:fa-arrow-circle-right 手动操作/]
-> cond1 -.-> |条件4|outpage2>"fa:fa-sign-out B (离页)"]
+> cond1 --> |条件2|B[/手工输入\]
+> cond1 --> |条件3|B2[\手动操作/]
+> cond1 -.-> |条件4|outpage2>"B (离页)"]
 > 
-> inpage2(("fa:fa-arrows-alt A<br>(同页)")) --> END
+> inpage2(("A<br>(同页)")) --> END
 > END([结束])
 > ```
 > ````
@@ -155,7 +155,7 @@ end
 
 %% 角色B 相关的流程节点
 subgraph 角色B
-  node1 --> join1{ } --> node2("可点击打开<br>fa:fa-link Github")
+  node1 --> join1{ } --> node2("可点击打开<br>Github")
   click node2 "https://www.github.com" _blank
 end
 node2 --> END
@@ -193,7 +193,7 @@ END([结束])
 > 
 > %% 角色B 相关的流程节点
 > subgraph 角色B
-> node1 --> join1{ } --> node2("可点击打开<br>fa:fa-link Github")
+> node1 --> join1{ } --> node2("可点击打开<br>Github")
 > click node2 "https://www.github.com" _blank
 > end
 > node2 --> END
@@ -577,9 +577,9 @@ class classA~Class~{
 
 class classC{
     <<enumeration>>
-    Rd
-    Bu
-    Gn
+    Red
+    Blue
+    Green
     WHITE
     BLACK
 }
@@ -615,9 +615,9 @@ class classC{
 > 
 > class classC{
 >  <<enumeration>>
->  Rd
->  Bu
->  Gn
+>  Red
+>  Blue
+>  Green
 >  WHITE
 >  BLACK
 > }
@@ -954,6 +954,66 @@ test_req <- copies - test_entity2
 > ```
 > ````
 
+## ZenUML
+
+（待更新）
+
+
+
+# 应用类图表
+
+## 思维导图
+
+```mermaid
+mindmap
+  root((Mindmap))
+    Origins
+      📓 Long history
+      Popularisation
+        (British popular psychology author Tony Buzan)
+    Research
+      ))🍺 On effectiveness<br/>and features((
+      )On Automatic creation(
+        Uses
+            Creative techniques
+            {{Strategic planning}}
+            Argument mapping
+    Tools
+      Pen and paper
+      [Mermaid]
+```
+
+> > ###### 查看完整画图脚本示例
+>
+> *==思维导图的画图脚本示例==*
+>
+> ````
+> ```mermaid
+> mindmap
+> root((Mindmap))
+>  Origins
+>    Long history
+>    ::icon(fa fa-book)
+>    Popularisation
+>      (British popular psychology author Tony Buzan)
+>  Research
+>    ))On effectiveness<br/>and features((
+>    ::icon(fa fa-beer)
+>    )On Automatic creation(
+>      Uses
+>          Creative techniques
+>          {{Strategic planning}}
+>          Argument mapping
+>  Tools
+>    Pen and paper
+>    [Mermaid]
+> ```
+> ````
+
+###### 关于对 FontAwesome 的支持
+
+不建议使用 FontAwesome 图标库特性，除非你独立构建相关资源的环境
+
 ## Gitgraph 图
 
 ```mermaid
@@ -1077,6 +1137,72 @@ gitGraph
 > ```
 > ````
 
+## 时间线
+
+*==时间线示例 1==*
+
+```mermaid
+timeline
+    title History of Social Media Platform
+    2002 : LinkedIn
+    2004 : Facebook
+         : Google
+    2005 : Youtube
+    2006 : Twitter
+    2023 : GPT-3.5
+         : GPT-4
+```
+
+> > ###### 查看完整画图脚本示例
+>
+> *==时间线（1）图的画图脚本示例==*
+>
+> ````
+> ```mermaid
+> timeline
+>  title History of Social Media Platform
+>  2002 : LinkedIn
+>  2004 : Facebook
+>       : Google
+>  2005 : Youtube
+>  2006 : Twitter
+>  2023 : GPT-3.5
+>       : GPT-4
+> ```
+> ````
+
+*==时间线示例 2==*
+
+```mermaid
+timeline
+    title Timeline of Industrial Revolution
+    section 17th-20th century
+        Industry 1.0 : Machinery, Water power, Steam <br>power
+        Industry 2.0 : Electricity, Internal combustion engine, Mass production
+        Industry 3.0 : Electronics, Computers, Automation
+    section 21st century
+        Industry 4.0 : Internet, Robotics, Internet of Things
+        Industry 5.0 : Artificial intelligence, Big data,3D printing
+```
+
+> > ###### 查看完整画图脚本示例
+>
+> *==时间线（2）图的画图脚本示例==*
+>
+> ````
+> ```mermaid
+> timeline
+>  title Timeline of Industrial Revolution
+>  section 17th-20th century
+>      Industry 1.0 : Machinery, Water power, Steam <br>power
+>      Industry 2.0 : Electricity, Internal combustion engine, Mass production
+>      Industry 3.0 : Electronics, Computers, Automation
+>  section 21st century
+>      Industry 4.0 : Internet, Robotics, Internet of Things
+>      Industry 5.0 : Artificial intelligence, Big data,3D printing
+> ```
+> ````
+
 ## 饼图
 
 *==Q3 2019 中国线上智能手机市场主要品牌市场份额_数据来自：互联网_==*
@@ -1164,126 +1290,6 @@ section 区块C
 > 未来的关键路径任务			:crit, 2d
 > ```
 > ````
-
-## 时间线
-
-*==时间线示例 1==*
-
-```mermaid
-timeline
-    title History of Social Media Platform
-    2002 : LinkedIn
-    2004 : Facebook
-         : Google
-    2005 : Youtube
-    2006 : Twitter
-    2023 : GPT-3.5
-         : GPT-4
-```
-
-> > ###### 查看完整画图脚本示例
->
-> *==时间线（1）图的画图脚本示例==*
-> 
-> ````
-> ```mermaid
-> timeline
->  title History of Social Media Platform
->  2002 : LinkedIn
->  2004 : Facebook
->       : Google
->  2005 : Youtube
->  2006 : Twitter
->  2023 : GPT-3.5
->       : GPT-4
-> ```
-> ````
-
-*==时间线示例 2==*
-
-```mermaid
-timeline
-    title Timeline of Industrial Revolution
-    section 17th-20th century
-        Industry 1.0 : Machinery, Water power, Steam <br>power
-        Industry 2.0 : Electricity, Internal combustion engine, Mass production
-        Industry 3.0 : Electronics, Computers, Automation
-    section 21st century
-        Industry 4.0 : Internet, Robotics, Internet of Things
-        Industry 5.0 : Artificial intelligence, Big data,3D printing
-```
-
-> > ###### 查看完整画图脚本示例
->
-> *==时间线（2）图的画图脚本示例==*
-> 
-> ````
-> ```mermaid
-> timeline
->  title Timeline of Industrial Revolution
->  section 17th-20th century
->      Industry 1.0 : Machinery, Water power, Steam <br>power
->      Industry 2.0 : Electricity, Internal combustion engine, Mass production
->      Industry 3.0 : Electronics, Computers, Automation
->  section 21st century
->      Industry 4.0 : Internet, Robotics, Internet of Things
->      Industry 5.0 : Artificial intelligence, Big data,3D printing
-> ```
-> ````
-
-## 思维导图
-
-```mermaid
-mindmap
-  root((Mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        (British popular psychology author Tony Buzan)
-    Research
-      ))On effectiveness<br/>and features((
-      ::icon(fa fa-beer)
-      )On Automatic creation(
-        Uses
-            Creative techniques
-            {{Strategic planning}}
-            Argument mapping
-    Tools
-      Pen and paper
-      [Mermaid]
-```
-
-> > ###### 查看完整画图脚本示例
->
-> *==思维导图的画图脚本示例==*
-> 
-> ````
-> ```mermaid
-> mindmap
-> root((Mindmap))
->  Origins
->    Long history
->    ::icon(fa fa-book)
->    Popularisation
->      (British popular psychology author Tony Buzan)
->  Research
->    ))On effectiveness<br/>and features((
->    ::icon(fa fa-beer)
->    )On Automatic creation(
->      Uses
->          Creative techniques
->          {{Strategic planning}}
->          Argument mapping
->  Tools
->    Pen and paper
->    [Mermaid]
-> ```
-> ````
-
-###### 关于所支持的 FontAwesome 版本
-
-更多 FontAwesome 图标库及标识代码参考 - [详情](https://fontawesome.com.cn/v5)
 
 ## 用户旅程地图
 

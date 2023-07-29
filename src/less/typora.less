@@ -3,8 +3,8 @@
  * VLOOK CSS - Typora 编辑时内置样式
  * (配合 base.less 进行使用)
  *
- * V18.0
- * 2023-07-04
+ * V19.0
+ * 2023-07-29
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -87,7 +87,11 @@
     --side-bar-bg-color: var(--d-bc-lg);
     --text-color: var(--d-f-c-lg);
 
-    --select-text-font-color: var(--d-bc);
+    --border-color: var(--tbl-bd);
+
+    // 选择的文本前景
+    // --select-text-font-color: var(--d-f-c);
+    // 选择的文本背景
     --select-text-bg-color: @selectionColor;
 
     --search-select-bg-color: @selectionColor;
@@ -100,12 +104,19 @@
     --active-file-bder: var(--select-text-bg-color);
     --active-file-text-color: var(--d-f-c-lg);
 
-    --item-hover-bg-color: var(--pn-c-lg);
-    --item-hover-text-color: var(--d-f-c-lg);
+    --item-hover-bg-color: var(--d-f-c-alt);//var(--pn-c-lg);
+    --item-hover-text-color: var(--d-bc);//var(--d-f-c-lg);
 
     --primary-color: @themeBgColor;
 
-    --rawblock-edit-panel-bd: var(--d-bc-lg);
+    --rawblock-edit-panel-bd: var(--pn-c);
+}
+
+// 选中内容的样式
+::selection {
+    // color: var(--d-f-c) !important;
+    background: @selectionColor !important;
+    fill: var(--d-f-c) !important; // for SVG text
 }
 
 // Typora 导出时自带的侧边栏
@@ -172,9 +183,10 @@
 .ty-table-edit {
     margin-left: 0;
     margin-top: -26px !important;
-    background: var(--pn-c-alt);
-    border-radius: var(--v-r-b);
+    background: var(--d-f-c);//var(--pn-c-alt);
+    border-radius: var(--v-r-b) var(--v-r-b) @tableBorderRadius @tableBorderRadius;
     padding: 0 3px 2px 3px;
+    width: auto !important;
 }
 
 // 表格行列数调整面板样式
@@ -194,8 +206,8 @@
 }
 .md-grid-board a:hover,
 .md-grid-board a.md-active {
-    border-color: var(--ac-theme1) !important;
-    background: var(--ac-theme1) !important;
+    border-color: var(--ac-t1) !important;
+    background: var(--ac-t1) !important;
     box-shadow: none !important;
 }
 .md-grid-board tr::before,
@@ -205,13 +217,23 @@
 .md-grid-board tr>:is(th, td),
 .md-grid-board tr>:is(th, td):first-child {
     padding: 5px !important;
-    background: var(--ac-theme1) !important;
+    background: var(--ac-t1) !important;
     box-shadow: none !important;
 }
 
+// 调整表格大小
+.md-resize-table {
+    margin-right: 50px;
+}
+
 // 删除表格
-.md-delete-table .ty-icon {
-    color: var(--ac-red-lg);
+.md-delete-table {
+    margin-left: 50px;
+}
+.ty-icon.ty-delete {
+// .md-delete-table .ty-icon {
+    color: @aHoverColor;
+    // color: var(--ac-rd-lg);
 }
 
 .md-notification-container {
@@ -313,6 +335,7 @@ body:not([class]) :is(h1,h2,h3,h4,h5,h6) {
 .btn,
 .sidebar-footer-main-item-label {
     font-family: var(--v-f-fm-bd);
+    background: none;
 }
 
 .btn,
@@ -365,7 +388,6 @@ body.os-windows .active-tab-files #info-panel-tab-file .info-panel-tab-border,
 body.os-windows .active-tab-outline #info-panel-tab-outline .info-panel-tab-border {
     background: @buttonBgColor;
 }
-
 
 .md-image-src-span, // 图片链接
 .md-link .md-url { // 链接
@@ -445,7 +467,7 @@ kbd .md-image>.md-meta {
 
 // 编辑状态时，a 内的 kbd 获得焦点
 #write .md-focus a kbd:hover {
-    background: var(--ac-theme1) !important;
+    background: var(--ac-t1) !important;
 }
 
 // 当前焦点、焦点行
@@ -484,18 +506,6 @@ li p.md-focus::before { // 段落微调
 li.md-task-list-item p.md-focus::before { // 任务列表微调
     left: -50px;
 }
-
-// YAML / code 获得焦点
-#write>pre.md-meta-block.md-focus, // YAML 等获得焦点
-#write .md-expand code { // code 获得焦点
-    // color: var(--d-f-c) !important;
-    background: var(--ac-t2-alt) !important;
-    caret-color: @aHoverColor;//var(--d-bc);
-}
-#write>pre.md-meta-block:first-child {
-    margin-top: 20px;
-}
-
 
 // #write>h3.md-focus::before,
 // #write>h4.md-focus::before,
@@ -799,7 +809,7 @@ body.os-windows #file-library-tree {
 .outline-item-active {
     box-shadow: 0 0 0 2px fade(@headerColor, 50%) inset;
     border-radius: var(--v-r-s);
-    background: var(--blockquote-bg);
+    // background: var(--blockquote-bg);
     margin-left: 0;
     border-left-width: 0;
     margin-right: 0;
@@ -819,12 +829,15 @@ body.os-windows #file-library-tree {
 .outline-item:active,
 .outline-item:active .outline-label,
 .outline-item:active .outline-label::before,
-.outline-label:active {
+.outline-label:active,
+.file-library-file-node:active,
+.file-library-file-node:active span {
     color: var(--d-bc);
     background: var(--d-f-c-alt);
 }
-.outline-item:active {
-    box-shadow: 0 0 0 2px var(--tbl-bder);
+.outline-item:active,
+.file-library-file-node:active {
+    box-shadow: @tocItemActive_boxShadow;//0 0 0 2px fade(@headerColor, 50%);//var(--pn-c);//var(--tbl-bd);
 }
 // for before content, COVER, BACK COVER etc.
 .outline-item:active>.outline-expander::before,
@@ -842,7 +855,7 @@ body.os-windows #file-library-tree {
 }
 #md-searchpanel input {
     border-radius: var(--v-r-s);
-    border-color: var(--tbl-bder);
+    border-color: var(--tbl-bd);
 }
 .searchpanel-search-option-btn {
     color: @buttonBgColor;
@@ -867,7 +880,7 @@ body.os-windows #file-library-tree {
 #typora-quick-open-input input {
     border-radius: var(--v-r-s);
     max-height: 40px;
-    border-color: var(--tbl-bder);
+    border-color: var(--tbl-bd);
     font-size: 1.5em;
 }
 .ty-quick-open-category-title {
@@ -901,21 +914,6 @@ body.os-windows #file-library-tree {
     --monospace: var(--v-f-fm-code);
 }
 
-#write .code-tooltip {
-    color: var(--d-bc);
-    background: var(--d-f-c);
-    font-family: var(--v-f-fm-subtitle);
-    font-weight: var(--v-f-w-title);
-    border-radius: var(--v-r-si);
-    box-shadow: none;
-    padding: 0 2px;
-}
-#write .code-tooltip .ty-input:focus {
-    background: var(--d-bc);
-    color: var(--d-f-c);
-    border-radius: var(--v-r-s);
-}
-
 // 目录/文件节点
 .file-tree-node {
     font-family: var(--v-f-fm-bd);
@@ -927,6 +925,27 @@ body.os-windows #file-library-tree {
 .file-tree-node[data-has-sub=false] {
     font-weight: normal;
 }
+// 文件节点
+.file-library-file-node {
+    border-radius: var(--v-r-s);
+}
+.file-library-file-node:active {
+    box-shadow: @tocItemActive_boxShadow;//0 0 0 2px fade(@headerColor, 50%) !important;
+}
+// 当前节点
+.file-library-file-node.active {
+    box-shadow: @tocItemCurrent_boxShadow;//0 0 0 2px fade(@headerColor, 50%) inset;
+    // box-shadow: 0 0 0 2px @aHoverColor;
+}
+// 点击节点
+// .file-library-file-node:active {
+//     color: var(--d-bc);
+//     background: var(--d-f-c-alt);
+//     box-shadow: 0 0 0 2px var(--tbl-bd);
+// }
+// .file-library-file-node:active span {
+//     color: var(--d-bc);
+// }
 // 节点
 .file-node-content {
     cursor: pointer;
@@ -936,9 +955,9 @@ body.os-windows #file-library-tree {
     outline: 0;
 }
 // 文件名（含扩展名）
-.file-node-title {
-    margin-top: -4px;
-}
+// .file-node-title {
+//     // margin-top: -4px;
+// }
 body.os-windows .file-node-title { // for Win
     margin-top: 0px;
 }
@@ -1028,13 +1047,6 @@ body.os-windows .file-node-title { // for Win
     color: var(--d-f-c-alt);
     font-family: var(--v-f-fm-num);
 }
-// 源码模式下的 YAML
-#typora-source pre.cm-yaml {
-    font-family: var(--monospace);
-    font-weight: var(--v-f-w-text);
-    font-size: .875em;
-    background: var(--code-bg);
-}
 
 // #write sup.md-footnote {
 //     color: var(--d-f-c-alt);
@@ -1050,10 +1062,10 @@ body.os-windows .file-node-title { // for Win
 
 // 针对在编辑模式时无效图片链接的样式
 .md-img-error>.md-meta {
-    background: var(--ac-rd-alt);
+    // background: var(--ac-rd-alt);
     color: var(--ac-rd-lg) !important;
     font-style: italic;
-    border: 4px dashed var(--ac-rd-lg);
+    border: 2px dashed var(--ac-rd-lg);
     border-radius: var(--v-r-b);
     line-height: @paragraphInnerLineHeight;
     padding: 1px;
@@ -1073,11 +1085,31 @@ body.os-windows .file-node-title { // for Win
 .md-img-error[data-src*=".ogv"],
 .md-img-error[data-src*=".mp4"],
 .md-img-error[data-src*=".webm"])>.md-meta {
-    background: none;
-    color: var(--h-f);
+    // background: none;
+    border: none;
+    // background: var(--ac-t1-alt);
+    color: var(--h-f) !important;
     border: inherit;
     padding: inherit;
     border-radius: inherit;
+}
+:is(.md-img-error[data-src$=".mp3"],
+.md-img-error[data-src$=".m4a"],
+.md-img-error[data-src$=".ogg"],
+.md-img-error[data-src$=".wav"],
+.md-img-error[data-src*=".mp3?"],
+.md-img-error[data-src*=".m4a?"],
+.md-img-error[data-src*=".ogg?"],
+.md-img-error[data-src*=".wav?"])>.md-meta:first-of-type:before {
+    content: "🔊";
+}
+:is(.md-img-error[data-src$=".ogv"],
+.md-img-error[data-src$=".mp4"],
+.md-img-error[data-src$=".webm"],
+.md-img-error[data-src*=".ogv"],
+.md-img-error[data-src*=".mp4"],
+.md-img-error[data-src*=".webm"])>.md-meta:first-of-type:before {
+    content: "🎦";
 }
 
 // header 锚点占位
@@ -1112,8 +1144,50 @@ body.os-windows .file-node-title { // for Win
     font-size: .875em;
     line-height: @paragraphInnerLineHeight;
     border-radius: var(--v-r-b);
-    padding: 4px 10px;
-    color: var(--code-t);
+    padding: 30px 10px 5px 10px;
+    color: @aColor;//var(--code-t);
+    background: var(--code-bg);
+    border: 2px dashed var(--std-code-shadow);
+    // box-shadow: 0 0 0 2px var(--std-code-shadow) inset;
+}
+#write pre.md-meta-block:empty:before,
+#write>pre.md-meta-block::before {
+    content: "--- YAML Front Matter ---";
+    position: absolute;
+    font-size: 0.875em;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: -22px;
+    color: var(--d-f-c);
+    opacity: .5;
+}
+// YAML 内容为空时
+#write>pre.md-meta-block:empty {
+    padding: 5px 10px;
+}
+#write pre.md-meta-block:empty:before {
+    content: "input your YAML Front Matter ...";
+    font-style: normal;
+    font-weight: normal;
+    position: static;
+    opacity: .2;
+    // margin-top: 0;
+}
+// YAML / code 获得焦点
+#write>pre.md-meta-block.md-focus, // YAML 等获得焦点
+#write .md-expand code { // code 获得焦点
+    // color: var(--d-f-c) !important;
+    // background: var(--ac-t2-alt) !important;
+    caret-color: @aHoverColor;//var(--d-bc);
+}
+#write>pre.md-meta-block:first-child {
+    margin-top: 20px;
+}
+// 源码模式下的 YAML
+#typora-source pre.cm-yaml {
+    font-family: var(--monospace);
+    font-weight: var(--v-f-w-text);
+    font-size: .875em;
     background: var(--code-bg);
 }
 
@@ -1122,6 +1196,49 @@ body.os-windows .file-node-title { // for Win
 **************************************/
 
 /* No link underlines in TOC */
+
+content #write>h1:first-of-type::before
+content #write>#write>pre.md-meta-block+h1:first-of-type::before {
+    content: "NO TOC";
+}
+
+content .md-toc::before {
+    content: "☰ Table of contents / 目录 ☰";
+    font-size: .875em;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--d-f-c);
+    padding-left: 35px;
+    opacity: .5;
+}
+
+// 目录操作栏
+#write div.md-toc-tooltip {
+    background-color: var(--d-f-c);
+    line-height: 1.5;
+    color: var(--d-bc);
+    border: none;
+    margin-left: 30px;
+    padding-left: 5px;
+    width: 250px;
+    border-radius: var(--v-r-b) var(--v-r-b) @tableBorderRadius @tableBorderRadius;
+}
+#write div.md-toc-tooltip > span {
+    font-size: .875em;
+}
+#write div.md-toc-tooltip .btn {
+    padding: 1px 6px;
+    margin: 3px;
+}
+#write div.md-toc-tooltip .btn:hover {
+    background-color: var(--item-hover-bg-color);
+    color: var(--item-hover-text-color);
+}
+
+
+.md-toc:focus .md-toc-content {
+    border-color: var(--border-color);
+}
 
 .md-toc-content,
 .outline-content {
@@ -1316,13 +1433,21 @@ content>#write table :is(th,td)>span>sub:first-child, // 单元格（段落）
 content>#write table :is(th,td)>span>sub:last-child,
 content>#write span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],[md-inline="highlight"],[md-inline="underline"])+sub { // 彩虹文本（指定格式）
     color: var(--ac-t1-lg);//var(--d-f-c-alt);
+    font-family: var(--v-f-fm-code);
+    font-weight: bold;
+    font-size: .5em;
     border-radius: var(--v-r-tag);
     padding-right: 2px;
     opacity: .5;
 }
-// 针对彩虹引用的微调
+// 针对 彩虹标签/彩虹徽章 的微调
+// content>#write span[md-inline="code"]+sub {
+//     border-top: 1px solid var(--ac-t1);
+//     border-radius: 0;
+// }
+// 针对 彩虹引用 的微调
 content>#write blockquote p>sub:only-child {
-    border: 1px solid var(--ac-t1-lg);//var(--d-f-c-alt);
+    border: 1px solid var(--ac-t2);
 }
 
 // 前缀提示公共样式
@@ -1338,17 +1463,46 @@ content>#write span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],
 // 针对 彩虹引用 的前缀提示样式
 content>#write blockquote p>sub:only-child::before {
     content: ">";
+    color: var(--ac-t2);
+    font-weight: bold;
     padding-left: 4px;
 }
 // 针对 彩虹文本/单元格（段落） 的前缀提示样式
 content>#write p>sub:first-child::before,
 content>#write table :is(th,td)>span>sub:first-child::before {
     content: "¶";
+    color: var(--ac-t2);
 }
 // 针对 彩虹文本（指定格式） 的前缀提示样式
 content>#write span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],[md-inline="highlight"],[md-inline="underline"])+sub::before {
     content: "";
 }
+
+// 表格列格式
+content>#write table th :is(strong, em, u, mark, del)::before,
+content>#write table th[style*=":right"] span::before {
+    content: "Col-Format / 列格式";
+    position: absolute;
+    margin-top: -1em;
+    font-size: 0.5em;
+    font-weight: normal;
+    opacity: .5;
+}
+// content>#write table th strong::before {
+//     content: "** **";
+// }
+// content>#write table th em::before {
+//     content: "* *";
+// }
+// content>#write table th u::before {
+//     content: "<u> </u>";
+// }
+// content>#write table th mark::before {
+//     content: "== ==";
+// }
+// content>#write table th del::before {
+//     content: "~~ ~~";
+// }
 
 // 有序、无序列表下的图片、非图片段落
 #write li .md-p>span:not([class*=md-image]) {
@@ -1436,11 +1590,6 @@ content>#write span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],
     width: auto;
 }
 
-#write blockquote code {
-    background: var(--d-bc);
-    color: var(--ac-t2-lg);
-}
-
 // ====================
 // 模拟 details + summary
 // 引用内的第一个引用，且有 h6 子元素，则作为 details 的 summary
@@ -1463,6 +1612,7 @@ content>#write span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],
     text-shadow: none;
     padding: 2px 10px;
     border-radius: var(--v-r-b) var(--v-r-b) 0 0;
+    display: inline-block;
 }
 // #write li>p>em>mark,
 #write li>p>[md-inline="em"]>em>[md-inline="highlight"]>mark {
@@ -1501,6 +1651,32 @@ content>#write span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],
 // 强制指定使用被修改过后的 --bg-color，确保背景图片能在 Typora 编辑时正常显示
 content>#write {
     background: var(--d-bc) var(--d-bi);
+}
+
+content>#write img {
+    padding: 0;
+    border: unset;
+}
+// 图片带 srcset 参数的微调
+content>#write span[md-inline="image"][data-src*="srcset="]::before,
+content>#write span[md-inline="image"][data-src*="darksrc="]::before {
+    content: "◩";
+    // content: "◧ SrcSet / 设备适配 ";
+    color: var(--d-bc);
+    font-size: .75em;
+    font-style: italic;
+    font-weight: bold;
+    // border-radius: var(--v-r-b);
+    word-break: initial;
+    padding: 0 4px;
+    margin: 5px 0 0 5px;
+    position: absolute;
+    opacity: .5;
+    background: var(--d-f-c);
+}
+content>#write span[md-inline="image"][data-src*="mode=icon"]::before,
+content>#write span[md-inline="image"][data-src*="#icon"]::before {
+    content: "" !important;
 }
 
 #write {
@@ -1545,7 +1721,7 @@ content>#write blockquote>blockquote:first-child>h6::before {
     color: var(--d-f-c);
     font-family: var(--v-f-fm-code);
     border-radius: var(--v-r-b);
-    border: 2px solid var(--tbl-bder);
+    border: 2px solid var(--tbl-bd);
     margin: 0;
 }
 
@@ -1720,6 +1896,31 @@ content>#write pre.ty-contain-cm {
 // 行间（独占一行）数学公式
 .md-math-container {
     font-size: 1.5em !important;
+}
+
+// 行间公式预览
+#write .code-tooltip {
+    // color: var(--d-f-c);
+    background: var(--pn-c);
+    // color: var(--d-bc);
+    // background: var(--d-f-c);
+    font-family: var(--v-f-fm-subtitle);
+    font-weight: var(--v-f-w-title);
+    border-radius: var(--v-r-si);
+    box-shadow: none;
+    padding: 0 2px;
+}
+#write .code-tooltip .ty-input:focus {
+    // color: var(--d-f-c);
+    // background: var(--d-bc);
+    background: var(--pn-c);
+    border-radius: var(--v-r-s);
+}
+
+// 行内公式预览
+.code-tooltip.md-hover-tip,
+.md-hover-tip .md-arrow:after {
+    background: var(--pn-c);
 }
 
 // 行内数学公式

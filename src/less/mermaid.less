@@ -3,8 +3,8 @@
  * VLOOK CSS - Mermaid 自定义样式
  * (配合 base.less 进行使用)
  *
- * V18.0
- * 2023-07-04
+ * V19.0
+ * 2023-07-29
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -65,6 +65,14 @@ svg[aria-roledescription] {
     background-color: var(--d-bc) !important;
 }
 
+// 选中后的新式
+// svg[aria-roledescription] g circle.selected,
+// svg[aria-roledescription] g polygon.selected,
+// svg[aria-roledescription] g path.selected,
+// svg[aria-roledescription] g rect.selected {
+//     fill: var(--ac-ye) !important;
+// }
+
 // 鼠标悬停
 svg[aria-roledescription] .node:hover {
     cursor: crosshair;
@@ -73,7 +81,7 @@ svg[aria-roledescription] .node:hover circle,
 svg[aria-roledescription] .node:hover polygon,
 svg[aria-roledescription] .node:hover path,
 svg[aria-roledescription] .node:hover rect {
-    fill: var(--ac-theme1-alt) !important;
+    fill: var(--ac-t1-alt) !important;
     stroke: @aColor !important;
     cursor: crosshair;
 }
@@ -88,6 +96,7 @@ svg[aria-roledescription] .label div {
 
 .md-diagram-panel, svg {
     color: var(--d-f-c) !important;
+    // line-height: 0 !important;
     line-height: 1 !important;
 }
 
@@ -244,7 +253,7 @@ svg[aria-roledescription^="flowchart"] .cluster-label .nodeLabel { // keyword: f
 }
 // 鼠标悬停
 svg[aria-roledescription^="flowchart"] .cluster:hover rect {
-    fill: var(--ac-theme1-alt) !important;
+    fill: var(--ac-t1-alt) !important;
     stroke: @aColor !important;
     cursor: crosshair;
 }
@@ -306,7 +315,7 @@ svg[aria-roledescription="sequence"] .actor-man:hover>:is(line, circle, text)  {
     cursor: crosshair;
 }
 svg[aria-roledescription="sequence"] .actor-man:hover>circle {
-    fill: var(--ac-theme1-alt) !important;
+    fill: var(--ac-t1-alt) !important;
     stroke-width: 2 !important;
     cursor: crosshair;
 }
@@ -321,13 +330,13 @@ svg[aria-roledescription="sequence"] .actor {
 
 // 角色上鼠标悬停
 svg[aria-roledescription="sequence"] g:hover>:is(.actor, line[id^="actor"]) {
-    fill: var(--ac-theme1-alt) !important;
+    fill: var(--ac-t1-alt) !important;
     stroke: @aColor !important;
     stroke-width: 2 !important;
     cursor: crosshair;
 }
 svg[aria-roledescription="sequence"] g:hover>rect {
-    fill: var(--ac-theme1-alt) !important;
+    fill: var(--ac-t1-alt) !important;
     stroke: @aColor !important;
     stroke-width: 1 !important;
     cursor: crosshair;
@@ -443,7 +452,7 @@ svg[aria-roledescription="sequence"] .loopText>tspan {
 //     font-size: 1em;
 // }
 svg[aria-roledescription="sequence"] :is(.loopText:hover, .loopText:hover>tspan) {
-    fill: var(--ac-theme1) !important;
+    // fill: var(--ac-t1) !important;
     cursor: crosshair;
 }
 
@@ -456,14 +465,14 @@ svg[aria-roledescription="sequence"] .loopLine {
 
 // 片断上鼠标悬停
 svg[aria-roledescription="sequence"] g:hover>.loopLine {
-    // stroke: var(--ac-theme1) !important;
+    // stroke: var(--ac-t1) !important;
     stroke-width: 4 !important;
     stroke-linecap: round !important;
     cursor: crosshair;
 }
 svg[aria-roledescription="sequence"] g:hover>polygon,
 svg[aria-roledescription="sequence"] g:hover>.loopText>tspan {
-    // fill: var(--ac-theme1) !important;
+    // fill: var(--ac-t1) !important;
     cursor: crosshair;
 }
 svg[aria-roledescription="sequence"] g:hover>.labelText {
@@ -1041,21 +1050,101 @@ svg[aria-roledescription="timeline"] .eventWrapper>g[class*="section"] text>tspa
 /* ----- Mindmap 思维导图 ----- */
 
 // 节点
-svg[aria-roledescription="mindmap"] g .mindmap-node rect,
-svg[aria-roledescription="mindmap"] g .mindmap-node circle,
-svg[aria-roledescription="mindmap"] g .mindmap-node path,
-svg[aria-roledescription="mindmap"] g .mindmap-node polygon {
+svg[aria-roledescription="mindmap"] g .mindmap-node :is(rect, circle, path, polygon) {
     fill: var(--d-f-c-alt) !important;
 }
 svg[aria-roledescription="mindmap"] g .mindmap-node line {
     stroke: var(--d-f-c) !important;
+    stroke-width: 3px !important;
 }
 svg[aria-roledescription="mindmap"] g .mindmap-node text>tspan {
-    fill: var(--d-bc) !important;
+    fill: var(--d-f-c-lg) !important;
 }
-svg[aria-roledescription="mindmap"] g .section-root text>tspan {
+
+//
+svg[aria-roledescription="mindmap"] g .mindmap-node {
+    cursor: crosshair;
+}
+svg[aria-roledescription="mindmap"] g .mindmap-node:hover :is(rect, circle, path, polygon) {
+    fill: var(--d-f-c) !important;
+}
+svg[aria-roledescription="mindmap"] g .mindmap-node:hover text>tspan {
+    fill: var(--d-bc) !important;
+    text-decoration: underline;
+}
+
+// 节点：根节点
+svg[aria-roledescription="mindmap"] g .mindmap-node:first-child :is(rect, circle, path, polygon) {
+    fill: var(--d-f-c) !important;
+    stroke-width: 5px !important;
+    stroke: var(--d-f-c-alt) !important;
+}
+svg[aria-roledescription="mindmap"] g .mindmap-node:first-child text>tspan {
+    fill: var(--d-bc) !important;
     font-weight: bold !important;
 }
+
+// 节点：第 1 类节点
+svg[aria-roledescription="mindmap"] g .section-0 :is(rect, circle, path, polygon) {
+    fill: var(--ac-gd-lg) !important;
+}
+svg[aria-roledescription="mindmap"] .mindmap-edges .section-edge-0 {
+    stroke: var(--ac-gd-lg) !important;
+}
+svg[aria-roledescription="mindmap"] .mindmap-edges .edge-depth-0 {
+    opacity: .25 !important;
+}
+// 节点：第 2 类节点
+svg[aria-roledescription="mindmap"] g .section-1 :is(rect, circle, path, polygon) {
+    fill: var(--ac-lm-lg) !important;
+}
+svg[aria-roledescription="mindmap"] .mindmap-edges .section-edge-1 {
+    stroke: var(--ac-lm-lg) !important;
+}
+svg[aria-roledescription="mindmap"] .mindmap-edges .edge-depth-1 {
+    opacity: .4 !important;
+}
+// 节点：第 3 类节点
+svg[aria-roledescription="mindmap"] g .section-2 :is(rect, circle, path, polygon) {
+    fill: var(--ac-aq-lg) !important;
+}
+svg[aria-roledescription="mindmap"] .mindmap-edges .section-edge-2 {
+    stroke: var(--ac-aq-lg) !important;
+}
+svg[aria-roledescription="mindmap"] .mindmap-edges .edge-depth-2 {
+    opacity: .55 !important;
+}
+// 节点：第 4 类节点
+svg[aria-roledescription="mindmap"] g .section-3 :is(rect, circle, path, polygon) {
+    fill: var(--ac-pk-lg) !important;
+}
+svg[aria-roledescription="mindmap"] .mindmap-edges .section-edge-3 {
+    stroke: var(--ac-pk-lg) !important;
+}
+svg[aria-roledescription="mindmap"] .mindmap-edges .edge-depth-3 {
+    opacity: .7 !important;
+}
+// 节点：第 5 类节点
+svg[aria-roledescription="mindmap"] g .section-4 :is(rect, circle, path, polygon) {
+    fill: var(--ac-ye-lg) !important;
+}
+svg[aria-roledescription="mindmap"] .mindmap-edges .section-edge-4 {
+    stroke: var(--ac-ye-lg) !important;
+}
+svg[aria-roledescription="mindmap"] .mindmap-edges .edge-depth-4 {
+    opacity: .85 !important;
+}
+// 节点：第 6 类节点
+svg[aria-roledescription="mindmap"] g .section-5 :is(rect, circle, path, polygon) {
+    fill: var(--ac-gy-lg) !important;
+}
+svg[aria-roledescription="mindmap"] .mindmap-edges .section-edge-5 {
+    stroke: var(--ac-gy-lg) !important;
+}
+svg[aria-roledescription="mindmap"] .mindmap-edges .edge-depth-5 {
+    opacity: 1 !important;
+}
+
 // icon
 svg[aria-roledescription="mindmap"] g .mindmap-node i[class*="node-icon"] {
     color: var(--d-bc) !important;
@@ -1088,6 +1177,9 @@ svg[aria-roledescription="requirement"] g>.req-title-line {
 // 卡片上鼠档悬停
 svg[aria-roledescription="requirement"] g:hover>:is(.reqBox, .req-title-line) {
     stroke: @aColor !important;
+    cursor: crosshair;
+}
+svg[aria-roledescription="requirement"] g:hover>.reqLabel{
     cursor: crosshair;
 }
 

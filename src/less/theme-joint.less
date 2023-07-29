@@ -11,6 +11,7 @@
 
 @import "font";
 @import "color";
+@import "common";
 
 @welcomeAutoCloseDelay: 3;
 
@@ -35,12 +36,12 @@
 @theme1: #EBBF2F;
 @theme2: #6464D1;
 @theme3: #201D10;
-@theme1Dark: darken(@theme1, 20%);
-@theme1Alt: lighten(@theme1, 35%);
-@theme1AltDark: darken(@theme1, 45%);//@codeBgColorDark;
-@theme2Dark: darken(@theme2, 10%);
-@theme2Alt: lighten(@theme2, 35%);//lighten(@theme2, 30%);
-@theme2AltDark: darken(@theme2, 50%);//darken(@theme2Alt, 55%);
+@theme1Dark: #ECC33C;
+@theme1Alt: #FBF4DA;
+@theme1AltDark: #413306;
+@theme2Dark: #7171D5;
+@theme2Alt: #E0E0F6;
+@theme2AltDark: #1C1C5F;
 @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
 @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
 
@@ -54,13 +55,6 @@
 // 标题色
 @headerColor: darken(@themeBgColor, 5%);
 @headerColorDark: darken(@themeBgColor, 10%);
-// 1-5 级标题前缀/自动编号内容
-@ChpAutoNum: on;
-@h1BeforeContent: counter(h1) ".  ";
-@h2BeforeContent: counter(h1) "." counter(h2) "  ";
-@h3BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "  ";
-@h4BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "  ";
-@h5BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "  ";
 // 渐变标题色 h1-h5
 @lgHeaderBg: none;
 @lgHeaderBgClip: inherit;
@@ -74,12 +68,7 @@
 @headerTextAlign: center;
 @headerPadding: 5px 0;
 @headerLetterSpacing: 0;//0.15em;
-@h1Shadown: none;
-@h2Shadown: none;
-@h3Shadown: none;
-@h4Shadown: none;
-@h5Shadown: none;
-@h6Shadown: none;
+
 @h1BorderLeft: 10px solid var(--h-box-shadow);
 @h2BorderLeft: 10px solid var(--h-box-shadow);
 @h3BorderLeft: 10px solid var(--h-box-shadow);
@@ -92,12 +81,7 @@
 @h4BorderRight: 10px solid var(--h-box-shadow);
 @h5BorderRight: 10px solid var(--h-box-shadow);
 @h6BorderRight: 0;
-@h1BorderTop: 0;
-@h2BorderTop: 0;
-@h3BorderTop: 0;
-@h4BorderTop: 0;
-@h5BorderTop: 0;
-@h6BorderTop: 0;
+
 @hGap: 5px;
 @h1Margin: 3em 0 @hGap 0;
 @h2Margin: 3em 0 @hGap 0;
@@ -105,12 +89,6 @@
 @h4Margin: 2em 0 @hGap 0;
 @h5Margin: 1.25em 0 @hGap 0;
 @h6Margin: 1em 0 0 0;
-@hContinuous: 0;//-.5em;
-
-// 行内代码
-@codeBgColor: @theme2Alt;//lighten(@theme2, 35%);
-@codeBgColorDark: @theme2AltDark;//darken(@theme2, 50%);
-@codeTextColor: @theme2;
 
 // 按钮色
 @buttonForeColor: @theme3;
@@ -121,9 +99,6 @@
 @docLibButtonForeHoverColor: @buttonForeHoverColor;
 @docLibButtonBgColor: @buttonBgColor;
 
-// 加粗文字颜色
-// @boldColorLight: @docTextColorLight;//#202224;
-// @boldColorDark: @docTextColorDark;
 
 // 链接颜色
 @aBorderWidth: 2px;
@@ -132,19 +107,6 @@
 @aLineColor: @theme2;
 @aHoverColor: @aLineColor;
 @aActiveColor: desaturate(@aLineColor, 30%);
-
-// 选中内容的背景色
-@selectionColor: fade(@aLineColor, 30%);
-
-// 表格十字光标颜色
-@tableCrossBgColor: fade(@aLineColor, 50%);
-
-// 代码块背景图
-@codeBlockBackground: none;
-@codeBlockBackgroundDark: none;
-@codeBlockBackgroundSize: auto;
-@codeBlockBackgroundRepeat: inherit;
-@codeBlockBackgroundPosition: inherit;
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: center;

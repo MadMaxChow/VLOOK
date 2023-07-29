@@ -3,8 +3,8 @@
  * VLOOK CSS - @media 相关的样式
  * (配合 base.less 进行使用)
  *
- * V18.0
- * 2023-07-04
+ * V19.0
+ * 2023-07-29
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -65,10 +65,10 @@
     .v-chapter-nav-next.effect::before {
         border-radius: 0 !important;
     }
-    // 取消自动换行
-    #write table,
-    body.typora-export table {
-        white-space: pre !important;
+    // 取消表格的自动换行
+    // body.typora-export table,
+    #write table {
+        white-space: pre;
     }
 }
 
@@ -91,7 +91,7 @@
     // ========================================
     // 纵向显示的整体调整
     // ----------------------------------------
-    // 以四栏方式显示列表
+    // 以四栏列表方式显示列表
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li,
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li,
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li,
@@ -100,7 +100,7 @@
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li,
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li,
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li+li,
-    // 以五栏方式显示列表
+    // 以五栏列表方式显示列表
     #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li,
     #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li,
     #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li,
@@ -139,8 +139,12 @@
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote,
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote,
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote {
-        // display: block !important;
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details+details {
+    // display: block !important;
         // max-width: none !important;
         // min-width: none !important;
         min-width: 100% !important;
@@ -151,7 +155,10 @@
     // 四栏引用内容之间
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote,
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote {
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details+details {
         margin-left: 0 !important;
     }
 }
@@ -218,18 +225,24 @@
         margin-left: 0 !important;
     }
 
-
     // ----------------------------------------
     // 三栏引用
     #write :is(hr+hr, .md-hr+.md-hr)+blockquote,
     #write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote,
     #write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote+blockquote,
+    #write :is(hr+hr, .md-hr+.md-hr)+details,
+    #write :is(hr+hr, .md-hr+.md-hr)+details+details,
+    #write :is(hr+hr, .md-hr+.md-hr)+details+details+details,
     // 四栏引用
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote,
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote,
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote {
-        // display: block !important;
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details+details {
+    // display: block !important;
         min-width: 100% !important;
         // margin-top: 0 !important;
     }
@@ -238,11 +251,16 @@
     // 三栏引用内容之间
     #write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote,
     #write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote+blockquote,
+    #write :is(hr+hr, .md-hr+.md-hr)+details+details,
+    #write :is(hr+hr, .md-hr+.md-hr)+details+details+details,
     // 四栏引用内容之间
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote,
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote {
-        margin-left: 0 !important;
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details+details {
+            margin-left: 0 !important;
     }
 }
 
@@ -320,16 +338,25 @@
     // 双栏引用
     #write :is(hr, .md-hr)+blockquote,
     #write :is(hr, .md-hr)+blockquote+blockquote,
+    #write :is(hr, .md-hr)+details,
+    #write :is(hr, .md-hr)+details+details,
     // 三栏引用
     #write :is(hr+hr, .md-hr+.md-hr)+blockquote,
     #write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote,
     #write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote+blockquote,
+    #write :is(hr+hr, .md-hr+.md-hr)+details,
+    #write :is(hr+hr, .md-hr+.md-hr)+details+details,
+    #write :is(hr+hr, .md-hr+.md-hr)+details+details+details,
     // 四栏引用
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote,
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote,
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote {
-        // display: block !important;
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details+details {
+            // display: block !important;
         min-width: 100% !important;
         // margin-top: 0 !important;
     }
@@ -337,13 +364,19 @@
     // 纵向显示的微调
     // 双栏引用内容之间
     #write :is(hr, .md-hr)+blockquote+blockquote,
+    #write :is(hr, .md-hr)+details+details,
     // 三栏引用内容之间
     #write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote,
     #write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote+blockquote,
+    #write :is(hr+hr, .md-hr+.md-hr)+details+details,
+    #write :is(hr+hr, .md-hr+.md-hr)+details+details+details,
     // 四栏引用内容之间
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote,
     #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote {
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details,
+    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details+details {
         margin-left: 0 !important;
     }
 }
@@ -396,7 +429,7 @@
 
     #write table:hover,
     body.typora-export table:hover {
-        border-color: var(--tbl-bder) !important;
+        border-color: var(--tbl-bd) !important;
     }
 
     // 打印时先关闭 VLOOK 未加载完成前样式
@@ -481,11 +514,11 @@
 
         --a-color: var(--a-color-dk);
         --mark-bg: var(--mark-bg-dk);
-        --tbl-h-br: var(--tbl-h-br-dk);
-        --tbl-bder: var(--tbl-bder-dk);
+        --tbl-h-bd: var(--tbl-h-bd-dk);
+        --tbl-bd: var(--tbl-bd-dk);
         --tbl-th-bg: var(--tbl-th-bg-dk);
         --tbl-td-bg: var(--tbl-td-bg-dk);
-        --tbl-cell-bder: var(--tbl-cell-bder-dk);
+        --tbl-cell-bd: var(--tbl-cell-bd-dk);
         --tbl-row-g-alpha: var(--tbl-row-g-alpha-dk);
         --toc-h-num-color: var(--toc-h-num-color-dk);
         --h-f: var(--h-f-dk);
@@ -523,6 +556,18 @@
         --ac-gn-alt: var(--ac-gn-alt-dk);
         --ac-gn-fade: var(--ac-gn-fade-dk);
         --ac-gn-title: var(--ac-gn-title-dk);
+        --ac-mn: var(--ac-mn-dk);
+        --ac-mn-alt: var(--ac-mn-alt-dk);
+        --ac-mn-fade: var(--ac-mn-fade-dk);
+        --ac-mn-title: var(--ac-mn-title-dk);
+        --ac-ol: var(--ac-ol-dk);
+        --ac-ol-alt: var(--ac-ol-alt-dk);
+        --ac-ol-fade: var(--ac-ol-fade-dk);
+        --ac-ol-title: var(--ac-ol-title-dk);
+        --ac-wn: var(--ac-wn-dk);
+        --ac-wn-alt: var(--ac-wn-alt-dk);
+        --ac-wn-fade: var(--ac-wn-fade-dk);
+        --ac-wn-title: var(--ac-wn-title-dk);
         --ac-aq: var(--ac-aq-dk);
         --ac-aq-alt: var(--ac-aq-alt-dk);
         --ac-aq-fade: var(--ac-aq-fade-dk);
@@ -539,6 +584,14 @@
         --ac-se-alt: var(--ac-se-alt-dk);
         --ac-se-fade: var(--ac-se-fade-dk);
         --ac-se-title: var(--ac-se-title-dk);
+        --ac-la: var(--ac-la-dk);
+        --ac-la-alt: var(--ac-la-alt-dk);
+        --ac-la-fade: var(--ac-la-fade-dk);
+        --ac-la-title: var(--ac-la-title-dk);
+        --ac-vn: var(--ac-vn-dk);
+        --ac-vn-alt: var(--ac-vn-alt-dk);
+        --ac-vn-fade: var(--ac-vn-fade-dk);
+        --ac-vn-title: var(--ac-vn-title-dk);
         --ac-pu: var(--ac-pu-dk);
         --ac-pu-alt: var(--ac-pu-alt-dk);
         --ac-pu-fade: var(--ac-pu-fade-dk);
@@ -604,14 +657,14 @@
         --side-bar-bg-color: var(--d-bc-dk);
         --text-color: var(--d-f-c-dk);
 
-        --select-text-bg-color: @themeBgColorFade;
+        // --select-text-bg-color: @themeBgColorFade;
 
         --control-text-color: var(--d-f-c-dk);
         --control-text-hover-color: var(--d-f-c-dk);
         --window-border: 1px solid var(--pn-c-dk);
 
         --active-file-bg-color:  var(--d-bc-dk);
-        --active-file-bder: var(--select-text-bg-color);
+        // --active-file-bder: var(--select-text-bg-color);
         --active-file-text-color: var(--d-f-c-dk);
 
         --item-hover-bg-color: var(--pn-c-dk);
@@ -619,7 +672,7 @@
 
         --primary-color: @themeBgColor;
 
-        --rawblock-edit-panel-bd: var(--d-bc-dk);
+        // --rawblock-edit-panel-bd: var(--d-bc-dk);
 
         --serch-select-bg-color: @themeBgColorFade;
     }
@@ -639,7 +692,7 @@
     #write img[src*="darksrc=invert"],
     #write svg[data-inject-url*="darksrc=invert"] {
         filter: var(--v-invert-dark);
-        border-color: var(--img-bder-invert) !important;
+        border-color: var(--img-bd-invert) !important;
         // 使用反色后的背景，以适应在反色中显示为正常效果
         background-color: @figureSolidBgLight;
     }

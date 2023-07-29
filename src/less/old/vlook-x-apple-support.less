@@ -11,6 +11,7 @@
 
 @import "../font";
 @import "../color";
+@import "../common";
 
 // 指定字体主题
 .applyFontStyle(sans);
@@ -54,12 +55,7 @@
 @headerTextAlign: center;
 @headerPadding: 10px;
 @headerLetterSpacing: 0;
-@h1Shadown: none;
-@h2Shadown: none;
-@h3Shadown: none;
-@h4Shadown: none;
-@h5Shadown: none;
-@h6Shadown: none;
+
 @h1BorderLeft: 10px solid var(--header-box-shadow);
 @h2BorderLeft: 10px solid var(--header-box-shadow);
 @h3BorderLeft: 10px solid var(--header-box-shadow);
@@ -72,12 +68,7 @@
 @h4BorderRight: 10px solid var(--header-box-shadow);
 @h5BorderRight: 10px solid var(--header-box-shadow);
 @h6BorderRight: 0;
-@h1BorderTop: 0;
-@h2BorderTop: 0;
-@h3BorderTop: 0;
-@h4BorderTop: 0;
-@h5BorderTop: 0;
-@h6BorderTop: 0;
+
 
 // 行内代码背景色
 @codeBgColor: lighten(@theme2, 50%);;
@@ -88,9 +79,6 @@
 @buttonForeHoverColor: #FFFFFF;
 @buttonBgColor: @theme3;
 
-// 加粗文字颜色
-// @boldColorLight: @docTextColorLight;//#202224;
-// @boldColorDark: @docTextColorDark;
 
 // 链接颜色
 @aBorderWidth: 1px;
@@ -102,9 +90,6 @@
 
 // 选中内容的背景色
 @selectionColor: @aLineColor;//fade(@aLineColor, 50%);
-
-// 表格十字光标颜色
-@tableCrossBgColor: fade(@aLineColor, 50%);
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: center;

@@ -11,7 +11,7 @@ vlook-query: effects=2&ws=auto&lmc=1
 vlook-doc-lib: vlook-lib-en.html
 ---
 
-###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective^[Interaction]^<br>──<br><u>Introduction</u><br>`#Latest|V18.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
+###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective^[Interaction]^<br>──<br><u>Introduction</u><br>`#Latest|V19.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
 
 [TOC]
 
@@ -89,7 +89,7 @@ vlook-doc-lib: vlook-lib-en.html
 
 **If you like VLOOK™, you can contribute a cup of coffee :-)**
 
-`#PayPal|@madmaxchow#`~(cy!)~
+`#PayPal|@madmaxchow#`~(Cy!)~
 
 [![打赏 VLOOK™](https://madmaxchow.gitee.io/vlookres/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#frame)](https://paypal.me/madmaxchow?lnkcss=none)
 
@@ -113,7 +113,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 >[<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°文档排版)
 >
->~(Gn!)~
+>~(Vn!)~
 
 > ###### ![°内容导航](pic/qico-nav-light.svg?fill=text&darksrc=invert#icon) ° NAVIGATION
 >
@@ -159,7 +159,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 >[<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°主题与不杂项)
 >
->~(Bn!)~
+>~(Lm!)~
 
 ---
 
@@ -304,7 +304,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > To upgrade the old version of vlook to the latest version, repeat **step 1** above to download the latest release version, and press **steps 2 and 3** to update the corresponding "theme" and "export configuration".
 >
-> ~(cy!)~
+> ~(Cy!)~
 
 > ###### Recommend compatible browser !
 >

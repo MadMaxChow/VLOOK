@@ -11,22 +11,17 @@
  *
  *************************************/
 
-@import "../font";
-@import "../color";
-
-@welcomeAutoCloseDelay: 3;
+@import "../theme-thinking";
 
 // 主题信息
 @themeName: "vlook-x-dic";
 @themeDesc: "× DIC";
 
 // 指定字体主题
-.applyFontStyle(local);
+// .applyFontStyle(book);
 // .applyFontStyle(win);
 // .applyFontStyle(sans);
 // .applyFontStyle(serif);
-// 指定主题配套的圆角
-.applyThemeRadius(small);
 // 文档背景使用图片
 .applyDocBgImg(@docBgImgLight_Twill_R, @docBgImgDark_Twill_R);
 
@@ -39,12 +34,12 @@
 @theme1: #009FE9;//#00A0E6;
 @theme2: #D71517;//#E60012;
 @theme3: #FFFFFF;
-@theme1Dark: darken(@theme1, 20%);
-@theme1Alt: lighten(@theme1, 48%);
-@theme1AltDark: darken(@theme1, 35%);//@codeBgColorDark;
-@theme2Dark: darken(@theme2, 20%);
-@theme2Alt: lighten(@theme2, 45%);//lighten(@theme2, 50%);
-@theme2AltDark: darken(@theme2, 35%);//darken(@theme2Alt, 75%);
+@theme1Dark: #00A7F5;//darken(@theme1, 20%);
+@theme1Alt: #CCEFFF;//lighten(@theme1, 15%);
+@theme1AltDark: #004666;//darken(@theme1, 35%);//@codeBgColorDark;
+@theme2Dark: #DF1618;//darken(@theme2, 20%);
+@theme2Alt: #FAD1D1;//lighten(@theme2, 20%);//lighten(@theme2, 50%);
+@theme2AltDark: #5D090A;//darken(@theme2, 35%);//darken(@theme2Alt, 75%);
 @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
 @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
 
@@ -60,42 +55,21 @@
 @headerColorDark: @themeForeColor;
 // 渐变标题色 h1-h5
 @lgHeaderBg: linear-gradient(135deg, @theme1 25%, #2060E0);
-@lgHeaderBgClip: text;
-@lgHeaderColor: transparent;
-// 1-5 级标题前缀/自动编号内容
-@ChpAutoNum: on;
-@h1BeforeContent: counter(h1) ".  ";
-@h2BeforeContent: counter(h1) "." counter(h2) "  ";
-@h3BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "  ";
-@h4BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "  ";
-@h5BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "  ";
 // 6 级标题前缀内容
 @h6BeforeContent: "▰▱ "; // ■ ▱▰ ⏥▰▱
-// @tocHeaderNumColor: @docTextColorLightFade;
-@contentHeaderNumColor: @themeBgColorFade;
 @headerBackground: none;//linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
 @multiHeaderBG: none;
 @headerTextAlign: left;
 @headerPadding: 10px 0 0 0;
 @headerLetterSpacing: 0;//0.15em;
-@h1Shadown: none;
-@h2Shadown: none;
-@h3Shadown: none;
-@h4Shadown: none;
-@h5Shadown: none;
-@h6Shadown: none;
+// 标题的左边框
 @h1BorderLeft: 0;
 @h2BorderLeft: 0;
 @h3BorderLeft: 0;
 @h4BorderLeft: 0;
 @h5BorderLeft: 0;
 @h6BorderLeft: 0;
-@h1BorderRight: 0;
-@h2BorderRight: 0;
-@h3BorderRight: 0;
-@h4BorderRight: 0;
-@h5BorderRight: 0;
-@h6BorderRight: 0;
+// 标题的上边框
 @h1BorderTop: none;//9px solid var(--h-box-shadow);
 @h2BorderTop: none;//7px solid var(--h-box-shadow);
 @h3BorderTop: none;//5px solid var(--h-box-shadow);
@@ -107,47 +81,39 @@
 @h3Margin: 1.5em 0 0 0;
 @h4Margin: 1.5em 0 0 0;
 @h5Margin: 1.25em 0 0 0;
-@h6Margin: 1em 0 0 0;
-@hContinuous: 0;//-.5em;
 
-// 行内代码背景色
-@codeBgColor: @theme2Alt;//lighten(@theme2, 50%);
-@codeBgColorDark: @theme2AltDark;//darken(@theme2, 40%);
+// 行内代码
 @codeTextColor: @theme2;
 
 // 按钮色
 @buttonForeColor: @themeBgColor;
-@buttonForeHoverColor: @theme3;
 @buttonBgColor: @themeForeColor;
-// 文库按钮颜色
-@docLibButtonForeColor: @buttonForeColor;
-@docLibButtonForeHoverColor: @buttonForeHoverColor;
-@docLibButtonBgColor: @buttonBgColor;
-
-// 加粗文字颜色
-// @boldColorLight: @docTextColorLight;//#202224;
-// @boldColorDark: @docTextColorDark;
 
 // 链接颜色
 @aBorderWidth: 1px;
-@aColor: @headerColor;
-@aColorDark: @headerColorDark;
-@aLineColor: @theme2;
-@aHoverColor: @aLineColor;
-@aActiveColor: desaturate(@aLineColor, 30%);
 
-// 选中内容的背景色
-@selectionColor: fade(@aLineColor, 30%);
-
-// 表格十字光标颜色
-@tableCrossBgColor: fade(@aLineColor, 50%);
-
-// 代码块背景图
-@codeBlockBackground: none;
-@codeBlockBackgroundDark: none;
-@codeBlockBackgroundSize: auto;
-@codeBlockBackgroundRepeat: inherit;
-@codeBlockBackgroundPosition: inherit;
+// 表格边框
+@tblBdWidth: 1px;
+@tableBorderColor: var(--d-f-c-alt);
+@tableBorderWidth: 0;
+@tableBorderLeftWidth: 0;
+@tableBorderRightWidth: 0;
+@tableBorderTopWidth: 0;
+@tableBorderBottomWidth: 0;
+@tableThBorderRightWidth: 0;
+@tableTdBorderRightWidth: 0;
+// 表格圆角
+@tableBorderRadius: 0;
+// 表格背景
+@tableThColor: var(--d-f-c-alt);
+@tableThBakcground: inherit;
+// @tableTdBakcground: @tableThColor;
+// 表格单元格阴影
+@tableFirstThBoxShadow: none;//0 1px 0 var(--tbl-cell-bd);
+@tableThBoxShadow: 0 -1px 0 var(--tbl-cell-bd);
+@tableThRepeaterBoxShadow: 0 -@tblBdWidth 0 var(--tbl-h-bd);
+@tableFirstTdBoxShadow: 0 -@tblBdWidth 0 0 var(--tbl-h-bd);
+@tableTdBoxShadow: 0 -1px 0 0 var(--tbl-cell-bd);
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: center;
@@ -162,26 +128,7 @@
 @backCoverTextPadding: 220px 60px 50px 60px;
 @backCoverTextColor: @themeForeColor;
 
-// 封面装饰性文本样式 before
-@coverTextBeforeContent: "";
-@coverTextBeforePosition: initial;
-@coverTextBeforeLeft: initial;
-@coverTextBeforeTop: initial;
-@coverTextBeforeColor: initial;
-@coverTextBeforeFontSize: initial;
-@coverTextBeforeFontWeight: initial;
-@coverTextBeforeOpacity: initial;
-// 封面装饰性文本样式 after
-@coverTextAfterContent: "";
-@coverTextAfterTextAlign: initial;
-@coverTextAfterLeft: initial;
-@coverTextAfterTop: @coverTextBeforeTop;
-@coverTextAfterRight: initial;
-@coverTextAfterColor: @coverTextBeforeColor;
-@coverTextAfterFontSize: @coverTextBeforeFontSize;
-
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
-@contrastBorder: 0 0 0 0 rgba(0, 0, 0, 0);
 @contrastBorderForCover: 0 0 0 2px fade(@themeForeColor, 20%) inset;
 
 // 封面背景设置

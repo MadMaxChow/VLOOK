@@ -24,7 +24,7 @@ title: 浏览更多 VLOOK™ 的话题
 >
 > [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](index.md#安装与使用)
 >
-> ~(T1)~
+> ~(T2)~
 
 
 
@@ -38,7 +38,7 @@ title: 浏览更多 VLOOK™ 的话题
 > >
 > > [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°文档排版)
 > >
-> > ~(Gn!)~
+> > ~(Vn!)~
 > 
 > > ###### ![](pic/qico-nav-light.svg?fill=text#icon) °内容导航
 > >
@@ -64,7 +64,7 @@ title: 浏览更多 VLOOK™ 的话题
 > >
 > > [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°主题与不杂项)
 > >
-> > ~(Bn!)~
+> > ~(Lm!)~
 >>
 > ~(Gy)~
 

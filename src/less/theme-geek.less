@@ -11,6 +11,7 @@
 
 @import "font";
 @import "color";
+@import "common";
 
 @welcomeAutoCloseDelay: 3;
 
@@ -35,12 +36,12 @@
 @theme1: #292C33;
 @theme2: #E62E4D;
 @theme3: #D98982;
-@theme1Dark: lighten(@theme1, 10%);
-@theme1Alt: lighten(@theme1, 65%);
-@theme1AltDark: darken(@theme2, 45%);//@codeBgColorDark;
-@theme2Dark: darken(@theme2, 20%);
-@theme2Alt: lighten(@theme2, 42%);//lighten(@theme2, 40%);
-@theme2AltDark: darken(@theme2, 50%);//darken(@theme2Alt, 70%);
+@theme1Dark: #4F5663;
+@theme1Alt: #E8EAED;
+@theme1AltDark: #202228;
+@theme2Dark: #E73754;
+@theme2Alt: #FCE4E8;
+@theme2AltDark: #520A16;
 @theme1Fade: rgba(red(@theme3), green(@theme3), blue(@theme3), @accOpacity);
 @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
 
@@ -58,13 +59,6 @@
 @lgHeaderBg: linear-gradient(135deg, @theme3 25%, @theme2);
 @lgHeaderBgClip: text;
 @lgHeaderColor: transparent;
-// 1-5 级标题前缀/自动编号内容
-@ChpAutoNum: on;
-@h1BeforeContent: counter(h1) ".  ";
-@h2BeforeContent: counter(h1) "." counter(h2) "  ";
-@h3BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "  ";
-@h4BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "  ";
-@h5BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "  ";
 // 6 级标题前缀内容
 @h6BeforeContent: "❖ ";
 // @tocHeaderNumColor: @docTextColorLightFade;
@@ -74,24 +68,7 @@
 @headerTextAlign: left;
 @headerPadding: 5px 0 5px 10px;
 @headerLetterSpacing: 0;//0.3em;
-@h1Shadown: none;
-@h2Shadown: none;
-@h3Shadown: none;
-@h4Shadown: none;
-@h5Shadown: none;
-@h6Shadown: none;
-@h1BorderLeft: 0;
-@h2BorderLeft: 0;
-@h3BorderLeft: 0;
-@h4BorderLeft: 0;
-@h5BorderLeft: 0;
-@h6BorderLeft: 0;
-@h1BorderRight: 0;
-@h2BorderRight: 0;
-@h3BorderRight: 0;
-@h4BorderRight: 0;
-@h5BorderRight: 0;
-@h6BorderRight: 0;
+// 标题的上边框
 @h1BorderTop: 9px solid var(--h-box-shadow);
 @h2BorderTop: 7px solid var(--h-box-shadow);
 @h3BorderTop: 5px solid var(--h-box-shadow);
@@ -104,12 +81,6 @@
 @h4Margin: 2em 0 0 0;
 @h5Margin: 1.25em 0 0 0;
 @h6Margin: 1em 0 0 0;
-@hContinuous: 0;//-.5em;
-
-// 行内代码
-@codeBgColor: @theme2Alt;//lighten(@theme2, 42%);
-@codeBgColorDark: @theme2AltDark;//darken(@theme2, 50%);
-@codeTextColor: @theme2;
 
 // 按钮色
 @buttonForeColor: @themeForeColor;
@@ -120,9 +91,6 @@
 @docLibButtonForeHoverColor: #FFFFFF;
 @docLibButtonBgColor: @themeForeColor;
 
-// 加粗文字颜色
-// @boldColorLight: @docTextColorLight;//#202224;
-// @boldColorDark: @docTextColorDark;
 
 // 链接颜色
 @aBorderWidth: 2px;
@@ -131,19 +99,6 @@
 @aLineColor: @theme2;
 @aHoverColor: @aLineColor;
 @aActiveColor: desaturate(@aLineColor, 30%);
-
-// 选中内容的背景色
-@selectionColor: fade(@aLineColor, 30%);
-
-// 表格十字光标颜色
-@tableCrossBgColor: fade(@aLineColor, 50%);
-
-// 代码块背景图
-@codeBlockBackground: none;
-@codeBlockBackgroundDark: none;
-@codeBlockBackgroundSize: auto;
-@codeBlockBackgroundRepeat: inherit;
-@codeBlockBackgroundPosition: inherit;
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: left;

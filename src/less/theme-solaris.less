@@ -11,6 +11,7 @@
 
 @import "font";
 @import "color";
+@import "common";
 
 @welcomeAutoCloseDelay: 3;
 
@@ -19,16 +20,17 @@
 @themeDesc: "Solaris";
 
 // 指定字体主题
-.applyFontStyle(local);
+.applyFontStyle(book);
+// .applyFontStyle(local);
 // .applyFontStyle(serif);
 // 指定主题配套的圆角
 .applyThemeRadius(none);
 
 // 文档背景色
 @bgLight4Theme: #FCF9F2;
-@bgDark4Theme: #181B2B;
+@bgDark4Theme: #181C28;
 .applyDocBgColor(@bgLight4Theme, @bgDark4Theme);
-.applyDocTextColor(#181B2B, #FCF9F2);
+.applyDocTextColor(#181C28, #FCF9F2);
 
 // 面板颜色
 @tmpPanelColorLight: #CCD0E0;
@@ -46,13 +48,13 @@
 @theme1: #B24D7A;
 @theme2: #6868B0;
 @theme3: #B24D7A;
-@theme4: @bgLight4Theme;//#FFF7E9;
-@theme1Dark: lighten(@theme1, 10%);
-@theme1Alt: lighten(@theme1, 65%);
-@theme1AltDark: darken(@theme1, 35%);//@codeBgColorDark;
-@theme2Dark: darken(@theme2, 20%);
-@theme2Alt: lighten(@theme2, 40%);//lighten(@theme2, 40%);
-@theme2AltDark: darken(@theme2, 38%);//darken(@theme2Alt, 50%);
+@theme4: @bgLight4Theme;
+@theme1Dark: #B85B85;
+@theme1Alt: #F3E3EA ;
+@theme1AltDark: #401C2C;
+@theme2Dark: #7272B5;
+@theme2Alt: #E4E4F1;
+@theme2AltDark: #27274A;
 @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
 @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
 
@@ -70,13 +72,6 @@
 @lgHeaderBg: none;
 @lgHeaderBgClip: inherit;
 @lgHeaderColor: @headerColor;
-// 1-5 级标题前缀/自动编号内容
-@ChpAutoNum: on;
-@h1BeforeContent: counter(h1) ".  ";
-@h2BeforeContent: counter(h1) "." counter(h2) "  ";
-@h3BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "  ";
-@h4BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "  ";
-@h5BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "  ";
 // 6 级标题前缀内容
 @h6BeforeContent: "◼︎ ";
 // @tocHeaderNumColor: @docTextColorLightFade;
@@ -86,24 +81,7 @@
 @headerTextAlign: left;
 @headerPadding: 5px 0;
 @headerLetterSpacing: 0;//0.15em;
-@h1Shadown: none;
-@h2Shadown: none;
-@h3Shadown: none;
-@h4Shadown: none;
-@h5Shadown: none;
-@h6Shadown: none;
-@h1BorderLeft: 0;
-@h2BorderLeft: 0;
-@h3BorderLeft: 0;
-@h4BorderLeft: 0;
-@h5BorderLeft: 0;
-@h6BorderLeft: 0;
-@h1BorderRight: 0;
-@h2BorderRight: 0;
-@h3BorderRight: 0;
-@h4BorderRight: 0;
-@h5BorderRight: 0;
-@h6BorderRight: 0;
+// 标题的上边框
 @h1BorderTop: 9px solid var(--h-box-shadow);
 @h2BorderTop: 7px solid var(--h-box-shadow);
 @h3BorderTop: 5px solid var(--h-box-shadow);
@@ -116,12 +94,6 @@
 @h4Margin: 2em 0 0 0;
 @h5Margin: 1.25em 0 0 0;
 @h6Margin: 1em 0 0 0;
-@hContinuous: 0;//-.5em;
-
-// 行内代码
-@codeBgColor: @theme2Alt;//lighten(@theme2, 40%);
-@codeBgColorDark: @theme2AltDark;//darken(@theme2, 38%);
-@codeTextColor: @theme2;
 
 // 按钮色
 @buttonForeColor: #FFFFFF;
@@ -132,10 +104,6 @@
 @docLibButtonForeHoverColor: #buttonForeHoverColor;
 @docLibButtonBgColor: @buttonBgColor;
 
-// 加粗文字颜色
-// @boldColorLight: @docTextColorLight;//#202224;
-// @boldColorDark: @docTextColorDark;
-
 // 链接颜色
 @aBorderWidth: 2px;
 @aColor: @headerColor;
@@ -144,18 +112,29 @@
 @aHoverColor: @aLineColor;
 @aActiveColor: #282B3B;
 
-// 选中内容的背景色
-@selectionColor: fade(@aLineColor, 30%);
-
-// 表格十字光标颜色
-@tableCrossBgColor: fade(@aLineColor, 50%);
-
-// 代码块背景图
-@codeBlockBackground: none;
-@codeBlockBackgroundDark: none;
-@codeBlockBackgroundSize: auto;
-@codeBlockBackgroundRepeat: inherit;
-@codeBlockBackgroundPosition: inherit;
+// 表格边框
+@tblBdWidth: 3px;
+@tableBorderColor: var(--tbl-bd-c);
+@tableBorderWidth: @tblBdWidth;
+@tableBorderLeftWidth: 0;
+@tableBorderRightWidth: 0;
+@tableBorderTopWidth: @tblBdWidth;
+@tableBorderBottomWidth: @tblBdWidth;
+@tableThBorderRightWidth: 0;
+@tableTdBorderRightWidth: 0;
+// 表格圆角
+@tableBorderRadius: 0;
+// 表格背景
+@tableBackground: var(--d-bc);
+@tableThColor: inherit;
+@tableThBakcground: none;
+@tableTdBakcground: none;
+// 表格单元格阴影
+@tableFirstThBoxShadow: 0 1px 0 var(--tbl-h-bd);
+@tableThBoxShadow: @tableFirstThBoxShadow;
+@tableThRepeaterBoxShadow: 0 -@tblBdWidth 0 var(--tbl-h-bd), @tableThBoxShadow;
+@tableFirstTdBoxShadow: none;
+@tableTdBoxShadow: none;
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: left;
