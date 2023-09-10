@@ -471,7 +471,7 @@ $.prototype.p = function () {
 }
 
 // parents 简化版
-$.prototype.ps = function () {
+$.prototype.prs = function () {
     return this.parents();
 }
 
@@ -8187,7 +8187,7 @@ function ExtQuote_init() {
         details.ch("summary").ck(function () {
             let _t = $(this);
             // _t.parentsUntil(s_Blockquote + "[" + s_DataQuoteGroup + "]").last().p().c(s_Height, s_Auto);
-            _t.ps(s_Blockquote + "[" + s_DataQuoteGroup + "]").p().c(s_Height, s_Auto);
+            _t.prs(s_Blockquote + "[" + s_DataQuoteGroup + "]").p().c(s_Height, s_Auto);
             _t.p().c(s_Height, s_Auto);
         });
 
@@ -8341,7 +8341,7 @@ function ExtQuote_adjustHoverStyle() {
 function ExtQuote_fold(target) {
     // 先恢复默认高度
     // target.parentsUntil(s_Blockquote + "[" + s_DataQuoteGroup + "]").last().c(s_Height, s_Auto);
-    target.ps(s_Blockquote + "[" + s_DataQuoteGroup + "]").c(s_Height, s_Auto);
+    target.prs(s_Blockquote + "[" + s_DataQuoteGroup + "]").c(s_Height, s_Auto);
 
     target.next(s_Blockquote).c(s_Display, s_None);
     target.a(s_DataBlockquoteFolded, s_True);
@@ -8354,7 +8354,7 @@ function ExtQuote_fold(target) {
 function ExtQuote_unfold(target) {
     // 先恢复分组引用、普通引用默认高度
     // target.parentsUntil(s_Blockquote + "[" + s_DataQuoteGroup + "]").last().c(s_Height, s_Auto);
-    target.ps(s_Blockquote + "[" + s_DataQuoteGroup + "]").c(s_Height, s_Auto);
+    target.prs(s_Blockquote + "[" + s_DataQuoteGroup + "]").c(s_Height, s_Auto);
     target.p().c(s_Height, s_Auto);
 
     target.next(s_Blockquote).c(s_Display, s_Block);
@@ -12805,7 +12805,7 @@ function Restyler_forMermaid() {
             target.c(s_Width, zenuml.w())
                 .c(s_Height, zenuml.ht());
             // 同时修正题注框的宽度、高度
-            target.ps(".v-caption").c(s_Width, s_Auto)
+            target.prs(".v-caption").c(s_Width, s_Auto)
                     .c(s_Height, s_Auto);
         });
     });
