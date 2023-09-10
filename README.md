@@ -36,7 +36,11 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**
 
-![打赏 VLOOK™](https://madmaxchow.github.io/VLOOK/pic/donate-wechat-light.png?mode=frame&darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x)
+![打赏 VLOOK™](https://madmaxchow.github.io/VLOOK/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#frame)
+
+**感谢打赏支持 VLOOK™ 的客官（部分名单）：**
+
+＊＊军、＊＊鹏、李＊6、＊＊无、H＊t、＊＊二、F＊y、＊＊宇、＊＊琛、＊＊辉、＊＊秋、＊＊笑、＊＊豫、l＊a、＊＊心、整＊9、＊＊国、＊＊拉、＊＊龙、＊＊应、＊＊销、＊＊哦、……
 
 ---
 
@@ -115,9 +119,9 @@ VLOOK™ 提供了两套字体风格，可根据个人喜好进行选用。
 **因为 Windows / MacOS 系统默认不预装字体主题配套的字体包，VLOOK™ 目前可同时支持在线和本地两种使用方式。**
 **若你的工作环境无法访问互联网，建议直接下载字体包并安装到本地，以获得最佳的视觉体验。**
 
-![蓝奏云](https://madmaxchow.gitee.io/vlookres/pic/lanzou.png?mode=logo&srcset=@2x) •• [下载字体 ▾](https://wwe.lanzoui.com/ieVDhj1aokj)
+![蓝奏云](https://madmaxchow.gitee.io/vlookres/pic/lanzou.png?srcset=@2x#logo) •• [下载字体 ▾](https://wwe.lanzoui.com/ieVDhj1aokj)
 
-![百度网盘](https://madmaxchow.gitee.io/vlookres/pic/baidupan.png?mode=logo&srcset=@2x) •• [下载字体 ▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)（提取码 `11ta`)
+![百度网盘](https://madmaxchow.gitee.io/vlookres/pic/baidupan.png?srcset=@2x#logo) •• [下载字体 ▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)（提取码 `11ta`)
 
 ---
 

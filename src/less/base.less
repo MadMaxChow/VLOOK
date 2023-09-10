@@ -2,8 +2,8 @@
  *
  * VLOOK CSS 基础库
  *
- * V19.0
- * 2023-07-29
+ * V20.0
+ * 2023-09-10
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -78,21 +78,20 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 // #Common_LESS_Var
 @tableRowNumTop: 2px; // 表格行自动编号的高度
 @tableRowCursor: "▶️"; // 表格当前行鼠标 hover 游标
+// @tableCellPadding: 8px; // 表格单元格边距
 @focusCursor: "✏️"; // 编辑焦点行游标
 @focusStyle: @aBorderWidth dashed @aLineColor; // 焦点、焦点行样式
 @miniLineHeight: 1;
 @defaultLineHeight: 1.5;
 @paragraphPadding: .625em; // 段落空白
 @paragraphInnerLineHeight: 1.5;
+@figurePadding: 20px; // 插图内、间、行空白
 @hoverBrightness: 1.2;
 @scrollFix: 8px; // 针对 Mermaid 图表，不添加会导致出现滚动条
 
 // 目录、文件 的当前节点、点击节点样式
 @tocItemActive_boxShadow: 0 0 0 2px fade(@headerColor, 50%);
 @tocItemCurrent_boxShadow: 0 0 0 2px fade(@headerColor, 50%) inset;
-
-// 选中内容的背景色
-@selectionColor: fade(@aHoverColor, 30%);
 
 // -----
 // #Common_CSS_Var
@@ -102,7 +101,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 
     // #VLOOK_Var
     --v-theme-name: @themeName; // 主题名称
-    --v-theme-version: "V19.0"; // 主题版本，对应适配 VLOOK.JS 的版本
+    --v-theme-version: "V20.0"; // 主题版本，对应适配 VLOOK.JS 的版本
     --v-color-scheme: light; // 默认颜色模式为：Light 明亮
 
     // 导航中心、工具栏相关 UI 尺寸
@@ -116,12 +115,13 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --v-trans-dur: 200ms;
     --v-trans-value: all var(--v-trans-dur) ease-out;
 
+    --tbl-cell-padding: 8px;
+
     // --------------------
     // 用于 plugin*.txt 中
     --v-btn-bg: @buttonBgColor;
     --v-btn-f: @buttonForeColor;
-// }
-// :root {
+
     // 主题配套的是否启用章节分级自动编号
     --v-chp-auto-num: @ChpAutoNum;
 
@@ -137,11 +137,15 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 
     // 光标：复制
     --cur-copy: var(--cur-copy-normal);
-    --cur-copy-normal: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAzNSAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48Y2xpcFBhdGggaWQ9ImEiPjxwYXRoIGQ9Ik0xMC4yMjQgMEEuNzguNzggMCAwIDEgMTEgLjc4M3YxMi40MzRhLjc4MS43ODEgMCAwIDEtLjc3Ni43ODNILjc3NkEuNzguNzggMCAwIDEgMCAxMy4yMTdWLjc4M0EuNzguNzggMCAwIDEgLjc3NiAweiIvPjwvY2xpcFBhdGg+PGZpbHRlciBpZD0iYiIgeD0iLTM3LjUlIiB5PSItMzcuNSUiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjE1OC4zMzMlIiBoZWlnaHQ9IjE1OC4zMzMlIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxLjUiIGluPSJTb3VyY2VBbHBoYSIgcmVzdWx0PSJpMiIvPjxmZU9mZnNldCBkeD0iMSIgZHk9IjEiIGluPSJpMiIgcmVzdWx0PSJpMyIvPjxmZUNvbG9yTWF0cml4IHZhbHVlcz0iMCAwIDAgMC4wIDAgMCAwIDAgMC4wIDAgMCAwIDAgMC4wIDAgMCAwIDAgMC41IDAiIGluPSJpMyIvPjwvZmlsdGVyPjxjbGlwUGF0aCBpZD0iYyI+PHBhdGggZD0iTTE1LjkyIDBBMi4wODMgMi4wODMgMCAwIDEgMTggMi4wOHYxMS41OWEyLjA4MyAyLjA4MyAwIDAgMS0yLjA4IDIuMDhoLTIuODd2LjE3QTIuMDgyIDIuMDgyIDAgMCAxIDEwLjk3IDE4SDIuMDhBMi4wODIgMi4wODIgMCAwIDEgMCAxNS45MlY0LjMzYTIuMDgyIDIuMDgyIDAgMCAxIDIuMDgtMi4wOGgyLjg3di0uMTdBMi4wODMgMi4wODMgMCAwIDEgNy4wMyAwaDguODl6bS00Ljk1IDMuNkgyLjA4YS43MzEuNzMxIDAgMCAwLS43My43M3YxMS41OWMwIC40MDMuMzI4LjczLjczLjczaDguODljLjQwMyAwIC43MjktLjMyNy43My0uNzNWNC4zM2EuNzMuNzMgMCAwIDAtLjczLS43M3ptNC45NS0yLjI1SDcuMDNhLjczMS43MzEgMCAwIDAtLjczLjczdi4xN2g0LjY3YTIuMDgyIDIuMDgyIDAgMCAxIDIuMDggMi4wOFYxNC40aDIuODdjLjQwMiAwIC43My0uMzI3LjczLS43M1YyLjA4YS43MzEuNzMxIDAgMCAwLS43My0uNzN6TTcuNDI1IDEyLjZhLjY3NS42NzUgMCAwIDEgMCAxLjM1aC0zLjZhLjY3NS42NzUgMCAwIDEgMC0xLjM1aDMuNnptMS44LTMuMTVhLjY3NS42NzUgMCAwIDEgMCAxLjM1aC01LjRhLjY3NS42NzUgMCAwIDEgMC0xLjM1aDUuNHptMC0zLjE1YS42NzUuNjc1IDAgMCAxIDAgMS4zNWgtNS40YS42NzUuNjc1IDAgMCAxIDAtMS4zNWg1LjR6Ii8+PC9jbGlwUGF0aD48ZmlsdGVyIGlkPSJkIiB4PSItNDYuOTM3JSIgeT0iLTM0LjkzOSUiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjE2Ny4wNTMlIiBoZWlnaHQ9IjE1MC4wNDglIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0iaTYiLz48ZmVPZmZzZXQgZHg9IjEiIGR5PSIxIiBpbj0iaTYiIHJlc3VsdD0iaTciLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjAgMCAwIDAuMCAwIDAgMCAwIDAuMCAwIDAgMCAwIDAuMCAwIDAgMCAwIDAuNSAwIiBpbj0iaTciLz48L2ZpbHRlcj48Y2xpcFBhdGggaWQ9ImUiPjxwYXRoIGQ9Ik0uNzQzLjA5NWw4LjEyNiA3LjUxM0EuNDA3LjQwNyAwIDAgMSA5IDcuOTJhLjQ4MS40ODEgMCAwIDEtLjM5My40ODlsLTMuMTkuMjY2IDEuODM1IDMuOTU3Yy4wODguMjIyIDAgLjQ5LS4yMTguNTc4bC0xLjU3My43NTZjLS4yMTguMDg5LS40OCAwLS41NjgtLjIyMkwzLjAxNSA5LjY5OC43NDMgMTIuMDFhLjM5My4zOTMgMCAwIDEtLjMwNi4xMzNjLS4yNjIgMC0uNDM3LS4xNzgtLjQzNy0uNDQ0Vi40NUEuNDYyLjQ2MiAwIDAgMSAuNzQzLjA5NXoiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iZiI+PHBhdGggZD0iTTExLTEuOTlWMTZILTJWLTEuOTloMTN6TS43NDMuMDk0QS40NjIuNDYyIDAgMCAwIDAgLjQ1MXYxMS4yNDhjMCAuMjY2LjE3NS40NDQuNDM3LjQ0NGEuMzkzLjM5MyAwIDAgMCAuMzA2LS4xMzNsMi4yNzItMi4zMTIgMS44NzggNC4wNDZjLjA4OC4yMjIuMzUuMzEuNTY4LjIyMmwxLjU3My0uNzU2Yy4yMTgtLjA4OS4zMDYtLjM1Ni4yMTgtLjU3OEw1LjQxNyA4LjY3NWwzLjE5LS4yNjZBLjQ4MS40ODEgMCAwIDAgOSA3LjkxOWEuNDA3LjQwNyAwIDAgMC0uMTMxLS4zMXoiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjYSkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0IDUpIj48cGF0aCBkPSJNMCAwaDExdjE0SDBWMHoiLz48L2c+PGcgY2xpcC1wYXRoPSJ1cmwoI2EpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxOSAzKSI+PHBhdGggZD0iTTAgMGgxMXYxNEgwVjB6Ii8+PC9nPjxwYXRoIGQ9Ik0xNS45MiAwQTIuMDgzIDIuMDgzIDAgMCAxIDE4IDIuMDh2MTEuNTlhMi4wODMgMi4wODMgMCAwIDEtMi4wOCAyLjA4aC0yLjg3di4xN0EyLjA4MiAyLjA4MiAwIDAgMSAxMC45NyAxOEgyLjA4QTIuMDgyIDIuMDgyIDAgMCAxIDAgMTUuOTJWNC4zM2EyLjA4MiAyLjA4MiAwIDAgMSAyLjA4LTIuMDhoMi44N3YtLjE3QTIuMDgzIDIuMDgzIDAgMCAxIDcuMDMgMGg4Ljg5ek0yLjA4IDE2LjY1aDguODljLjQwMyAwIC43MjktLjMyNy43My0uNzNWNC4zM2EuNzMuNzMgMCAwIDAtLjczLS43M0gyLjA4YS43MzEuNzMxIDAgMCAwLS43My43M3YxMS41OWMwIC40MDMuMzI4LjczLjczLjczek0xNi42NSAyLjA4YS43MzEuNzMxIDAgMCAwLS43My0uNzNINy4wM2EuNzMxLjczMSAwIDAgMC0uNzMuNzN2LjE3aDQuNjdhMi4wODIgMi4wODIgMCAwIDEgMi4wOCAyLjA4VjE0LjRoMi44N2MuNDAyIDAgLjczLS4zMjcuNzMtLjczVjIuMDh6TTkuMjI1IDYuM2EuNjc1LjY3NSAwIDAgMSAwIDEuMzVoLTUuNGEuNjc1LjY3NSAwIDAgMSAwLTEuMzVoNS40em0wIDMuMTVhLjY3NS42NzUgMCAwIDEgMCAxLjM1aC01LjRhLjY3NS42NzUgMCAwIDEgMC0xLjM1aDUuNHptLTEuOCAzLjE1YS42NzUuNjc1IDAgMCAxIDAgMS4zNWgtMy42YS42NzUuNjc1IDAgMCAxIDAtMS4zNWgzLjZ6IiBmaWx0ZXI9InVybCgjYikiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzIDIpIi8+PGcgY2xpcC1wYXRoPSJ1cmwoI2MpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMyAyKSI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTAgMGgxOHYxOEgwVjB6Ii8+PC9nPjxnPjxwYXRoIGQ9Ik0tLjA1My0uODQ1Qy4zNy0xLjA0Ny43NS0uOTk0IDEuMDYzLS44OGw4LjY5MiA3Ljk0NGMuMjIyLjY5My4xNzMgMS4xMy4wOCAxLjQxNC0uMDg4LjI2OS0uMjMxLjQ2LS4zOTYuNjA0LS4yLjE3My0uNDQuMjc5LS43MDUuMzJsLTEuODA3LjE1IDEuMjQyIDIuNjc5Yy4xNTIuMzU5LjE1Ljc1OS4wMjIgMS4xYTEuMzkgMS4zOSAwIDAgMS0uNzQzLjc5bC0xLjU3My43NTZjLS4zNjUuMTYtLjc3MS4xNTktMS4xMTcuMDIzYTEuMzg5IDEuMzg5IDAgMCAxLS43OC0uNzU1TDIuNzE1IDExLjQzbC0xLjQ0NSAxLjQ3Yy0uNzM2LjI0LTEuMTg4LjE2LTEuNDcuMDQxYTEuMjU2IDEuMjU2IDAgMCAxLS42MTYtLjUzNUExLjM4IDEuMzggMCAwIDEtMSAxMS42OTlWLjE5Yy4zMjUtLjYzNi42NzUtLjkwNS45NDctMS4wMzV6IiBmaWx0ZXI9InVybCgjZCkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIgMykiLz48ZyBjbGlwLXBhdGg9InVybCgjZSkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIgMykiPjxwYXRoIGQ9Ik0wIDBoOXYxNEgwVjB6Ii8+PC9nPjxnIGNsaXAtcGF0aD0idXJsKCNmKSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMiAzKSI+PHBhdGggZD0iTTUuNDE3IDguNjc1bDEuODM1IDMuOTU3Yy4wODguMjIyIDAgLjQ5LS4yMTguNTc4bC0xLjU3My43NTZjLS4yMTguMDg5LS40OCAwLS41NjgtLjIyMkwzLjAxNSA5LjY5OC43NDMgMTIuMDFhLjM5My4zOTMgMCAwIDEtLjMwNi4xMzNjLS4yNjIgMC0uNDM3LS4xNzgtLjQzNy0uNDQ0Vi40NUEuNDYyLjQ2MiAwIDAgMSAuNzQzLjA5NWw4LjEyNiA3LjUxM0EuNDA3LjQwNyAwIDAgMSA5IDcuOTJhLjQ4MS40ODEgMCAwIDEtLjM5My40ODlsLTMuMTkuMjY2eiIgc3Ryb2tlPSIjRkZGIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHN0cm9rZS1taXRlcmxpbWl0PSI1Ii8+PC9nPjwvZz48L3N2Zz4="), auto !important;
-    --cur-copy-as-md: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjEiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCA2MSAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48ZmlsdGVyIGlkPSJhIiB4PSItMzQuMjIlIiB5PSItNTcuMTE4JSIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB3aWR0aD0iMTQ3LjkwOCUiIGhlaWdodD0iMTc5Ljk2NSUiPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEuNSIgaW49IlNvdXJjZUFscGhhIiByZXN1bHQ9ImkxIi8+PGZlT2Zmc2V0IGR4PSIxIiBkeT0iMSIgaW49ImkxIiByZXN1bHQ9ImkyIi8+PGZlQ29sb3JNYXRyaXggdmFsdWVzPSIwIDAgMCAwLjAgMCAwIDAgMCAwLjAgMCAwIDAgMCAwLjAgMCAwIDAgMCAwLjUgMCIgaW49ImkyIi8+PC9maWx0ZXI+PGNsaXBQYXRoIGlkPSJiIj48cGF0aCBkPSJNMi41OCAwbDIuNTgxIDMuMzA5TDcuNzQxIDBoMi41ODJ2OUg3Ljc0MlYzLjgzOGwtMi41OCAzLjMxLTIuNTgxLTMuMzFWOUgwVjBoMi41OHptMTQuODQgMHY0LjYzMkgyMEwxNi4xMjkgOWwtMy44Ny00LjM2OGgyLjU4VjBoMi41OHoiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iYyI+PHBhdGggZD0iTTIzLjIyMy0ydjEzLjUwOEgtMlYtMmgyNS4yMjN6TTIuNTggMEgwdjloMi41OFYzLjgzOGwyLjU4MSAzLjMxIDIuNTgtMy4zMVY5aDIuNTgyVjBINy43NDJsLTIuNTggMy4zMDlMMi41OCAwem0xNC44MzggMGgtMi41OHY0LjYzMmgtMi41OEwxNi4xMjggOSAyMCA0LjYzMmgtMi41OFYweiIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSJkIj48cGF0aCBkPSJNMTAuMjI0IDBBLjc4Ljc4IDAgMCAxIDExIC43ODN2MTIuNDM0YS43ODEuNzgxIDAgMCAxLS43NzYuNzgzSC43NzZBLjc4Ljc4IDAgMCAxIDAgMTMuMjE3Vi43ODNBLjc4Ljc4IDAgMCAxIC43NzYgMHoiLz48L2NsaXBQYXRoPjxmaWx0ZXIgaWQ9ImUiIHg9Ii0zNy41JSIgeT0iLTM3LjUlIiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSIxNTguMzMzJSIgaGVpZ2h0PSIxNTguMzMzJSI+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMS41IiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0iaTciLz48ZmVPZmZzZXQgZHg9IjEiIGR5PSIxIiBpbj0iaTciIHJlc3VsdD0iaTgiLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjAgMCAwIDAuMCAwIDAgMCAwIDAuMCAwIDAgMCAwIDAuMCAwIDAgMCAwIDAuNSAwIiBpbj0iaTgiLz48L2ZpbHRlcj48Y2xpcFBhdGggaWQ9ImYiPjxwYXRoIGQ9Ik0xNS45MiAwQTIuMDgzIDIuMDgzIDAgMCAxIDE4IDIuMDh2MTEuNTlhMi4wODMgMi4wODMgMCAwIDEtMi4wOCAyLjA4aC0yLjg3di4xN0EyLjA4MiAyLjA4MiAwIDAgMSAxMC45NyAxOEgyLjA4QTIuMDgyIDIuMDgyIDAgMCAxIDAgMTUuOTJWNC4zM2EyLjA4MiAyLjA4MiAwIDAgMSAyLjA4LTIuMDhoMi44N3YtLjE3QTIuMDgzIDIuMDgzIDAgMCAxIDcuMDMgMGg4Ljg5em0tNC45NSAzLjZIMi4wOGEuNzMxLjczMSAwIDAgMC0uNzMuNzN2MTEuNTljMCAuNDAzLjMyOC43My43My43M2g4Ljg5Yy40MDMgMCAuNzI5LS4zMjcuNzMtLjczVjQuMzNhLjczLjczIDAgMCAwLS43My0uNzN6bTQuOTUtMi4yNUg3LjAzYS43MzEuNzMxIDAgMCAwLS43My43M3YuMTdoNC42N2EyLjA4MiAyLjA4MiAwIDAgMSAyLjA4IDIuMDhWMTQuNGgyLjg3Yy40MDIgMCAuNzMtLjMyNy43My0uNzNWMi4wOGEuNzMxLjczMSAwIDAgMC0uNzMtLjczek03LjQyNSAxMi42YS42NzUuNjc1IDAgMCAxIDAgMS4zNWgtMy42YS42NzUuNjc1IDAgMCAxIDAtMS4zNWgzLjZ6bTEuOC0zLjE1YS42NzUuNjc1IDAgMCAxIDAgMS4zNWgtNS40YS42NzUuNjc1IDAgMCAxIDAtMS4zNWg1LjR6bTAtMy4xNWEuNjc1LjY3NSAwIDAgMSAwIDEuMzVoLTUuNGEuNjc1LjY3NSAwIDAgMSAwLTEuMzVoNS40eiIvPjwvY2xpcFBhdGg+PGZpbHRlciBpZD0iZyIgeD0iLTQ2LjkzNyUiIHk9Ii0zNC45MzklIiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSIxNjcuMDUzJSIgaGVpZ2h0PSIxNTAuMDQ4JSI+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMSIgaW49IlNvdXJjZUFscGhhIiByZXN1bHQ9ImkxMSIvPjxmZU9mZnNldCBkeD0iMSIgZHk9IjEiIGluPSJpMTEiIHJlc3VsdD0iaTEyIi8+PGZlQ29sb3JNYXRyaXggdmFsdWVzPSIwIDAgMCAwLjAgMCAwIDAgMCAwLjAgMCAwIDAgMCAwLjAgMCAwIDAgMCAwLjUgMCIgaW49ImkxMiIvPjwvZmlsdGVyPjxjbGlwUGF0aCBpZD0iaCI+PHBhdGggZD0iTS43NDMuMDk1bDguMTI2IDcuNTEzQS40MDcuNDA3IDAgMCAxIDkgNy45MmEuNDgxLjQ4MSAwIDAgMS0uMzkzLjQ4OWwtMy4xOS4yNjYgMS44MzUgMy45NTdjLjA4OC4yMjIgMCAuNDktLjIxOC41NzhsLTEuNTczLjc1NmMtLjIxOC4wODktLjQ4IDAtLjU2OC0uMjIyTDMuMDE1IDkuNjk4Ljc0MyAxMi4wMWEuMzkzLjM5MyAwIDAgMS0uMzA2LjEzM2MtLjI2MiAwLS40MzctLjE3OC0uNDM3LS40NDRWLjQ1QS40NjIuNDYyIDAgMCAxIC43NDMuMDk1eiIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSJpIj48cGF0aCBkPSJNMTEtMS45OVYxNkgtMlYtMS45OWgxM3pNLjc0My4wOTRBLjQ2Mi40NjIgMCAwIDAgMCAuNDUxdjExLjI0OGMwIC4yNjYuMTc1LjQ0NC40MzcuNDQ0YS4zOTMuMzkzIDAgMCAwIC4zMDYtLjEzM2wyLjI3Mi0yLjMxMiAxLjg3OCA0LjA0NmMuMDg4LjIyMi4zNS4zMS41NjguMjIybDEuNTczLS43NTZjLjIxOC0uMDg5LjMwNi0uMzU2LjIxOC0uNTc4TDUuNDE3IDguNjc1bDMuMTktLjI2NkEuNDgxLjQ4MSAwIDAgMCA5IDcuOTE5YS40MDcuNDA3IDAgMCAwLS4xMzEtLjMxeiIvPjwvY2xpcFBhdGg+PC9kZWZzPjxwYXRoIGQ9Ik0zLjA2OS0xTDUuMTYgMS42ODMgNy4yNTQtMWg0LjA2OXYxMUg2Ljc0MlY2Ljc0NmwtMS41OCAyLjAyN0wzLjU4IDYuNzQ2VjEwSC0xVi0xaDQuMDY5em0xMC43NyAwaDQuNTh2NC42MzJoMy44MDRsLTYuMDk0IDYuODc2LTYuMDkzLTYuODc2aDMuODAzVi0xeiIgZmlsdGVyPSJ1cmwoI2EpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNCAzKSIvPjxnIGNsaXAtcGF0aD0idXJsKCNiKSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzQgMykiPjxwYXRoIGQ9Ik0wIDBoMjB2OUgwVjB6Ii8+PC9nPjxnIGNsaXAtcGF0aD0idXJsKCNjKSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzQgMykiPjxwYXRoIGQ9Ik0wIDlWMGgyLjU4bDIuNTgxIDMuMzA5TDcuNzQxIDBoMi41ODJ2OUg3Ljc0MlYzLjgzOGwtMi41OCAzLjMxLTIuNTgxLTMuMzFWOUgwem0xNi4xMjkgMGwtMy44Ny00LjM2OGgyLjU4VjBoMi41OHY0LjYzMkgyMEwxNi4xMjkgOXoiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbWl0ZXJsaW1pdD0iNSIvPjwvZz48ZyBjbGlwLXBhdGg9InVybCgjZCkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0IDUpIj48cGF0aCBmaWxsPSIjMzMzIiBkPSJNMCAwaDExdjE0SDBWMHoiLz48L2c+PGcgY2xpcC1wYXRoPSJ1cmwoI2QpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxOSAzKSI+PHBhdGggZmlsbD0iIzMzMyIgZD0iTTAgMGgxMXYxNEgwVjB6Ii8+PC9nPjxnPjxwYXRoIGQ9Ik0xNS45MiAwQTIuMDgzIDIuMDgzIDAgMCAxIDE4IDIuMDh2MTEuNTlhMi4wODMgMi4wODMgMCAwIDEtMi4wOCAyLjA4aC0yLjg3di4xN0EyLjA4MiAyLjA4MiAwIDAgMSAxMC45NyAxOEgyLjA4QTIuMDgyIDIuMDgyIDAgMCAxIDAgMTUuOTJWNC4zM2EyLjA4MiAyLjA4MiAwIDAgMSAyLjA4LTIuMDhoMi44N3YtLjE3QTIuMDgzIDIuMDgzIDAgMCAxIDcuMDMgMGg4Ljg5ek0yLjA4IDE2LjY1aDguODljLjQwMyAwIC43MjktLjMyNy43My0uNzNWNC4zM2EuNzMuNzMgMCAwIDAtLjczLS43M0gyLjA4YS43MzEuNzMxIDAgMCAwLS43My43M3YxMS41OWMwIC40MDMuMzI4LjczLjczLjczek0xNi42NSAyLjA4YS43MzEuNzMxIDAgMCAwLS43My0uNzNINy4wM2EuNzMxLjczMSAwIDAgMC0uNzMuNzN2LjE3aDQuNjdhMi4wODIgMi4wODIgMCAwIDEgMi4wOCAyLjA4VjE0LjRoMi44N2MuNDAyIDAgLjczLS4zMjcuNzMtLjczVjIuMDh6TTkuMjI1IDYuM2EuNjc1LjY3NSAwIDAgMSAwIDEuMzVoLTUuNGEuNjc1LjY3NSAwIDAgMSAwLTEuMzVoNS40em0wIDMuMTVhLjY3NS42NzUgMCAwIDEgMCAxLjM1aC01LjRhLjY3NS42NzUgMCAwIDEgMC0xLjM1aDUuNHptLTEuOCAzLjE1YS42NzUuNjc1IDAgMCAxIDAgMS4zNWgtMy42YS42NzUuNjc1IDAgMCAxIDAtMS4zNWgzLjZ6IiBmaWx0ZXI9InVybCgjZSkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzIDIpIi8+PGcgY2xpcC1wYXRoPSJ1cmwoI2YpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMyAyKSI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTAgMGgxOHYxOEgwVjB6Ii8+PC9nPjwvZz48Zz48cGF0aCBkPSJNLS4wNTMtLjg0NUMuMzctMS4wNDcuNzUtLjk5NCAxLjA2My0uODhsOC42OTIgNy45NDRjLjIyMi42OTMuMTczIDEuMTMuMDggMS40MTQtLjA4OC4yNjktLjIzMS40Ni0uMzk2LjYwNC0uMi4xNzMtLjQ0LjI3OS0uNzA1LjMybC0xLjgwNy4xNSAxLjI0MiAyLjY3OWMuMTUyLjM1OS4xNS43NTkuMDIyIDEuMWExLjM5IDEuMzkgMCAwIDEtLjc0My43OWwtMS41NzMuNzU2Yy0uMzY1LjE2LS43NzEuMTU5LTEuMTE3LjAyM2ExLjM4OSAxLjM4OSAwIDAgMS0uNzgtLjc1NUwyLjcxNSAxMS40M2wtMS40NDUgMS40N2MtLjczNi4yNC0xLjE4OC4xNi0xLjQ3LjA0MWExLjI1NiAxLjI1NiAwIDAgMS0uNjE2LS41MzVBMS4zOCAxLjM4IDAgMCAxLTEgMTEuNjk5Vi4xOWMuMzI1LS42MzYuNjc1LS45MDUuOTQ3LTEuMDM1eiIgZmlsdGVyPSJ1cmwoI2cpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyIDMpIi8+PGcgY2xpcC1wYXRoPSJ1cmwoI2gpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyIDMpIj48cGF0aCBkPSJNMCAwaDl2MTRIMFYweiIvPjwvZz48ZyBjbGlwLXBhdGg9InVybCgjaSkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIgMykiPjxwYXRoIGQ9Ik01LjQxNyA4LjY3NWwxLjgzNSAzLjk1N2MuMDg4LjIyMiAwIC40OS0uMjE4LjU3OGwtMS41NzMuNzU2Yy0uMjE4LjA4OS0uNDggMC0uNTY4LS4yMjJMMy4wMTUgOS42OTguNzQzIDEyLjAxYS4zOTMuMzkzIDAgMCAxLS4zMDYuMTMzYy0uMjYyIDAtLjQzNy0uMTc4LS40MzctLjQ0NFYuNDVBLjQ2Mi40NjIgMCAwIDEgLjc0My4wOTVsOC4xMjYgNy41MTNBLjQwNy40MDcgMCAwIDEgOSA3LjkyYS40ODEuNDgxIDAgMCAxLS4zOTMuNDg5bC0zLjE5LjI2NnoiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbWl0ZXJsaW1pdD0iNSIvPjwvZz48L2c+PC9zdmc+"), auto !important;
+    --cur-copy-normal: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAzNiAyMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48ZmlsdGVyIHg9Ii0xMi42JSIgeT0iLTE2LjYlIiB3aWR0aD0iMTE5LjElIiBoZWlnaHQ9IjEyMy4yJSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiBpZD0iYSI+PGZlT2Zmc2V0IGR5PSIxIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIi8+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMSIgaW49InNoYWRvd09mZnNldE91dGVyMSIgcmVzdWx0PSJzaGFkb3dCbHVyT3V0ZXIxIi8+PGZlQ29sb3JNYXRyaXggdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwLjMgMCIgaW49InNoYWRvd0JsdXJPdXRlcjEiIHJlc3VsdD0ic2hhZG93TWF0cml4T3V0ZXIxIi8+PGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJzaGFkb3dNYXRyaXhPdXRlcjEiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbHRlcj0idXJsKCNhKSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIuMTQ5IC0uODM0KSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMjAuOTI1IDE4LjgzNGg5LjQ0OGMuNDI4IDAgLjc3NS0uMzUuNzc2LS43ODNWNS42MTdhLjc4Ljc4IDAgMCAwLS43NzYtLjc4M2gtOS40NDhhLjc4Ljc4IDAgMCAwLS43NzYuNzgzdjEyLjQzNGEuNzguNzggMCAwIDAgLjc3Ni43ODN6IiBmaWxsPSIjMDAwIi8+PHBhdGggZD0iTTI1LjkyNSAxNi44MzRoOS40NDhjLjQyOCAwIC43NzUtLjM1Ljc3Ni0uNzgzVjMuNjE3YS43OC43OCAwIDAgMC0uNzc2LS43ODNoLTkuNDQ4YS43OC43OCAwIDAgMC0uNzc2Ljc4M3YxMi40MzRhLjc4Ljc4IDAgMCAwIC43NzYuNzgzeiIgZmlsbD0iIzAwMCIvPjxwYXRoIGQ9Ik0zNS4yNjkgMS44MzRjMS4xNDguMDAxIDEuODc4LjczMiAxLjg4IDEuODh2MTEuOTljLS4wMDIgMS4xNDgtLjczMiAxLjg3OS0xLjg4IDEuODhoLTMuMDd2LjM3Yy0uMDAxIDEuMTQ4LS43MzIgMS44NzktMS44OCAxLjg4aC05LjI5Yy0xLjE0OC0uMDAxLTEuODc5LS43MzItMS44OC0xLjg4VjUuOTY0Yy4wMDEtMS4xNDguNzEyLTEuODc5IDEuODYtMS44OGgzLjA5di0uMzdjLjAwMS0xLjE0OC43MzItMS44NzkgMS44OC0xLjg4aDkuMjl6bS0xNC4yNCAxNi44NWg5LjI5Yy40MDIgMCAuNzI5LS4zMjcuNzMtLjczVjUuOTY0YS43My43MyAwIDAgMC0uNzMtLjczaC05LjI5YS43MzEuNzMxIDAgMCAwLS43My43M3YxMS45OWMwIC40MDMuMzI4LjczLjczLjczek0zNiAzLjcxNGEuNzMxLjczMSAwIDAgMC0uNzMtLjczaC05LjI5YS43MzEuNzMxIDAgMCAwLS43My43M3YuMzdoNC44N2EyLjA4MiAyLjA4MiAwIDAgMSAyLjA4IDIuMDh2MTAuMjdoMy4wN2MuNDAyIDAgLjczLS4zMjcuNzMtLjczVjMuNzE0em0tNy42MjUgNC40MmEuNjc1LjY3NSAwIDAgMSAwIDEuMzVoLTUuNGEuNjc1LjY3NSAwIDAgMSAwLTEuMzVoNS40em0wIDMuMTVhLjY3NS42NzUgMCAwIDEgMCAxLjM1aC01LjRhLjY3NS42NzUgMCAwIDEgMC0xLjM1aDUuNHptLTEuOCAzLjE1YS42NzUuNjc1IDAgMCAxIDAgMS4zNWgtMy42YS42NzUuNjc1IDAgMCAxIDAtMS4zNWgzLjZ6IiBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNC44MjcgMi4zOGExLjg2NSAxLjg2NSAwIDAgMSAxLjQ0NC4wMmMuNDQzLjE5MS44MTUuNTUyIDEuMDExIDEuMDM4bDEuNDA2IDMuNDggNC40MDEtMS4yMjZhMS44NyAxLjg3IDAgMCAxIDEuMzQxLjEzYy40MDIuMjAxLjczNS41NDYuOTE2Ljk5NGwxLjg5MSA0LjY4YTEuOTEgMS45MSAwIDAgMS0uMDA2IDEuNDQ4IDEuODcgMS44NyAwIDAgMS0xLjAyNiAxLjAxN2wtNi45NjkgMi44MTYtNS4zMjQtMS41NjhjLS43NjYtMS43MzUtLjUyLTIuMjI5LS4yMTEtMi41ODFsLjA3OC0uMDg2Yy4zNTMtLjM4Mi44NS0uNTk4IDEuMzctLjU5N2wxLjUxNS4wMDItMi44NjktNy4xYTEuOTA0IDEuOTA0IDAgMCAxIC4wMDYtMS40NUExLjg2NSAxLjg2NSAwIDAgMSA0LjgyNyAyLjM4eiIgc3Ryb2tlPSIjRkZGIiBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L2c+PC9zdmc+"), auto !important;
+    --cur-copy-as-md: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCA2MCAyMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48ZmlsdGVyIHg9Ii03LjclIiB5PSItMTYuNiUiIHdpZHRoPSIxMTMuNyUiIGhlaWdodD0iMTIzLjIlIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIGlkPSJhIj48ZmVPZmZzZXQgZHk9IjEiIGluPSJTb3VyY2VBbHBoYSIgcmVzdWx0PSJzaGFkb3dPZmZzZXRPdXRlcjEiLz48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxIiBpbj0ic2hhZG93T2Zmc2V0T3V0ZXIxIiByZXN1bHQ9InNoYWRvd0JsdXJPdXRlcjEiLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAuMyAwIiBpbj0ic2hhZG93Qmx1ck91dGVyMSIgcmVzdWx0PSJzaGFkb3dNYXRyaXhPdXRlcjEiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49InNoYWRvd01hdHJpeE91dGVyMSIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT48L2ZpbHRlcj48L2RlZnM+PGcgZmlsdGVyPSJ1cmwoI2EpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMi4xNDkgLS44MzQpIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik00Mi45NzQgMi4zMzRMNDUuMzEgNS4zM2wyLjMzNy0yLjk5NmgzLjMyNXYxMEg0Ny4zOVY4LjEyNmwtMi4wOCAyLjY2OC0yLjA4MS0yLjY2OHY0LjIwOGgtMy41ODF2LTEwaDMuMzI1em0xNS4wOTQgMHY0LjYzMmgzLjE5MmwtNC45ODIgNS42MjItNC45ODItNS42MjJoMy4xOTJWMi4zMzRoMy41OHoiIHN0cm9rZT0iI0ZGRiIgZmlsbD0iIzAwMCIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTIwLjkyNSAxOC44MzRoOS40NDhjLjQyOCAwIC43NzUtLjM1Ljc3Ni0uNzgzVjUuNjE3YS43OC43OCAwIDAgMC0uNzc2LS43ODNoLTkuNDQ4YS43OC43OCAwIDAgMC0uNzc2Ljc4M3YxMi40MzRhLjc4Ljc4IDAgMCAwIC43NzYuNzgzeiIgZmlsbD0iIzAwMCIvPjxwYXRoIGQ9Ik0yNS45MjUgMTYuODM0aDkuNDQ4Yy40MjggMCAuNzc1LS4zNS43NzYtLjc4M1YzLjYxN2EuNzguNzggMCAwIDAtLjc3Ni0uNzgzaC05LjQ0OGEuNzguNzggMCAwIDAtLjc3Ni43ODN2MTIuNDM0YS43OC43OCAwIDAgMCAuNzc2Ljc4M3oiIGZpbGw9IiMwMDAiLz48cGF0aCBkPSJNMzUuMjY5IDEuODM0YzEuMTQ4LjAwMSAxLjg3OC43MzIgMS44OCAxLjg4djExLjk5Yy0uMDAyIDEuMTQ4LS43MzIgMS44NzktMS44OCAxLjg4aC0zLjA3di4zN2MtLjAwMSAxLjE0OC0uNzMyIDEuODc5LTEuODggMS44OGgtOS4yOWMtMS4xNDgtLjAwMS0xLjg3OS0uNzMyLTEuODgtMS44OFY1Ljk2NGMuMDAxLTEuMTQ4LjcxMi0xLjg3OSAxLjg2LTEuODhoMy4wOXYtLjM3Yy4wMDEtMS4xNDguNzMyLTEuODc5IDEuODgtMS44OGg5LjI5em0tMTQuMjQgMTYuODVoOS4yOWMuNDAyIDAgLjcyOS0uMzI3LjczLS43M1Y1Ljk2NGEuNzMuNzMgMCAwIDAtLjczLS43M2gtOS4yOWEuNzMxLjczMSAwIDAgMC0uNzMuNzN2MTEuOTljMCAuNDAzLjMyOC43My43My43M3pNMzYgMy43MTRhLjczMS43MzEgMCAwIDAtLjczLS43M2gtOS4yOWEuNzMxLjczMSAwIDAgMC0uNzMuNzN2LjM3aDQuODdhMi4wODIgMi4wODIgMCAwIDEgMi4wOCAyLjA4djEwLjI3aDMuMDdjLjQwMiAwIC43My0uMzI3LjczLS43M1YzLjcxNHptLTcuNjI1IDQuNDJhLjY3NS42NzUgMCAwIDEgMCAxLjM1aC01LjRhLjY3NS42NzUgMCAwIDEgMC0xLjM1aDUuNHptMCAzLjE1YS42NzUuNjc1IDAgMCAxIDAgMS4zNWgtNS40YS42NzUuNjc1IDAgMCAxIDAtMS4zNWg1LjR6bS0xLjggMy4xNWEuNjc1LjY3NSAwIDAgMSAwIDEuMzVoLTMuNmEuNjc1LjY3NSAwIDAgMSAwLTEuMzVoMy42eiIgZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTQuODI3IDIuMzhhMS44NjUgMS44NjUgMCAwIDEgMS40NDQuMDJjLjQ0My4xOTEuODE1LjU1MiAxLjAxMSAxLjAzOGwxLjQwNiAzLjQ4IDQuNDAxLTEuMjI2YTEuODcgMS44NyAwIDAgMSAxLjM0MS4xM2MuNDAyLjIwMS43MzUuNTQ2LjkxNi45OTRsMS44OTEgNC42OGExLjkxIDEuOTEgMCAwIDEtLjAwNiAxLjQ0OCAxLjg3IDEuODcgMCAwIDEtMS4wMjYgMS4wMTdsLTYuOTY5IDIuODE2LTUuMzI0LTEuNTY4Yy0uNzY2LTEuNzM1LS41Mi0yLjIyOS0uMjExLTIuNTgxbC4wNzgtLjA4NmMuMzUzLS4zODIuODUtLjU5OCAxLjM3LS41OTdsMS41MTUuMDAyLTIuODY5LTcuMWExLjkwNCAxLjkwNCAwIDAgMSAuMDA2LTEuNDVBMS44NjUgMS44NjUgMCAwIDEgNC44MjcgMi4zOHoiIHN0cm9rZT0iI0ZGRiIgZmlsbD0iIzAwMCIgZmlsbC1ydWxlPSJub256ZXJvIi8+PC9nPjwvc3ZnPg=="), auto !important;
 
-    --v-float-shadow: 0 2px 10px rgba(0, 0, 0, .2); // 按钮类外阴影
-    --v-float-inn-shadow: 0 0 0 1px var(--tbl-th-bg) inset; // 按钮类内阴影（边框）
+    --v-float-shadow: 0 4px 16px rgba(0, 0, 0, .2); // 按钮类外阴影
+    --v-float-inn-shadow: 0 0 0 1px rgba(0, 0, 0, .2) inset; // 按钮类内阴影（边框）
+
+    --v-input-focus-shadow: 0 0 0 3px fade(@aColor, 35%); // 输入/编辑时阴影样式
+    --v-input-focus-inn-shadow: 0 0 0 1px @aColor inset; // 输入/编辑时阴影样式
+    --v-input-focus-border: @aColor;
 }
 
 @import "typora";
@@ -231,17 +235,20 @@ body.unfreeze {
 
 // img,
 #write p>img:only-child,
-#write p>.md-image:only-child:not(.md-img-error) img:not([src*="grid="]), // 是指 p 内只有 img 的才被视为插图
-#write img[src*="mode=figure"],
-#write svg[data-inject-url*="mode=figure"],
-#write .md-image[data-src*="#figure"]>img, // 编辑时
-#write img[src*="#figure"],
-#write svg[data-inject-url*="#figure"],
-.v-fig,
-.md-diagram-panel svg {
+// #write p>.md-image:only-child:not(.md-img-error) img:not([src*="grid="]), // 是指 p 内只有 img 的才被视为插图
+#write p>.md-image:only-child:not(.md-img-error) img:not([src*="#line"]), // 是指 p 内只有 img 的才被视为插图
+#write p>.md-image:only-child:not(.md-img-error) img:not([src*="#block"]), // 是指 p 内只有 img 的才被视为插图
+// #write img[src*="mode=figure"],
+// #write svg[data-inject-url*="mode=figure"],
+// #write .md-image[data-src*="#figure"]>img, // 编辑时
+// #write img[src*="#figure"],
+// #write svg[data-inject-url*="#figure"],
+.v-fig:not([aria-roledescription="zenuml"]),
+.md-diagram-panel>.md-diagram-panel-preview>svg, // 编辑时
+.md-diagram-panel>svg {
     border-radius: var(--v-r-b);
     padding: 0;
-    border: 2px solid var(--pn-c);
+    border: @imgBorderWidth solid var(--pn-c);
 }
 
 #write p>.md-image:only-child {
@@ -249,29 +256,43 @@ body.unfreeze {
 }
 
 // 图片 URL 参数指定是否填充边缘
-#write img[src*="padding=true"],
-#write svg[data-inject-url*="padding=true"],
+// #write img[src*="padding=true"],
+// #write svg[data-inject-url*="padding=true"],
 #write .md-image[data-src*="#padding"]>img, // 编辑时
 #write img[src*="#padding"],
 #write svg[data-inject-url*="#padding"] {
-    padding: 20px !important;
+    padding: @figurePadding !important;
 }
-// 图片 URL 参数指定是否使用行内样式
-#write img[src*="inline=true"],
-#write svg[data-inject-url*="inline=true"],
+// 图片 URL 参数指定是否使用行内样式（一行多图）
+// #write img[src*="inline=true"],
+// #write svg[data-inject-url*="inline=true"],
+// #write p :is(.md-image+.md-image, img+img, svg+svg, .v-caption+.v-caption),
+// 显式指定，一般图片被其他格式嵌套时，如链接内图片等
 #write .md-image[data-src*="#inline"]>img, // 编辑时
 #write img[src*="#inline"],
 #write svg[data-inject-url*="#inline"] {
-    margin-bottom: @paragraphPadding !important;
+    margin-right: @figurePadding !important;
+    margin-bottom: @figurePadding !important;
+}
+// 非显式指定时（即普通的连续图片、插图）
+#write p :is(.md-image+.md-image, img+img, svg+svg, .v-caption+.v-caption) {
+    margin-left: @figurePadding !important;
+    margin-bottom: @figurePadding !important;
 }
 
 // 图片 URL 参数指定是否使用网格背景
-#write img[src*="grid=line"],
-#write svg[data-inject-url*="grid=line"] {
+// #write img[src*="grid=line"],
+// #write svg[data-inject-url*="grid=line"],
+#write .md-image[data-src*="#line"]>img, // 编辑时
+#write img[src*="#line"],
+#write svg[data-inject-url*="#line"] {
     background: var(--v-fig-grid-l-lg);
 }
-#write img[src*="grid=block"],
-#write svg[data-inject-url*="grid=block"] {
+// #write img[src*="grid=block"],
+// #write svg[data-inject-url*="grid=block"],
+#write .md-image[data-src*="#block"]>img, // 编辑时
+#write img[src*="#block"],
+#write svg[data-inject-url*="#block"] {
     background: var(--v-fig-grid-b-lg);
 }
 
@@ -285,8 +306,8 @@ body.unfreeze {
 }
 
 // 图片 URL 参数指定图片的显示版式为：icon
-#write img[src*="mode=icon"],
-#write svg[data-inject-url*="mode=icon"],
+// #write img[src*="mode=icon"],
+// #write svg[data-inject-url*="mode=icon"],
 #write .md-image[data-src*="#icon"]>img, // 编辑时
 #write img[src*="#icon"],
 #write svg[data-inject-url*="#icon"] {
@@ -299,13 +320,13 @@ body.unfreeze {
     border-radius: 0 !important;
     background: none !important;
 }
-#write svg[data-inject-url*="mode=icon"],
+// #write svg[data-inject-url*="mode=icon"],
 #write svg[data-inject-url*="#icon"] {
     height: 1em;
 }
 // 图片 URL 参数指定图片的显示版式为：icon2x
-#write img[src*="mode=icon2x"],
-#write svg[data-inject-url*="mode=icon2x"],
+// #write img[src*="mode=icon2x"],
+// #write svg[data-inject-url*="mode=icon2x"],
 #write .md-image[data-src*="#icon2x"]>img, // 编辑时
 #write img[src*="#icon2x"],
 #write svg[data-inject-url*="#icon2x"] {
@@ -313,93 +334,137 @@ body.unfreeze {
 }
 
 // 图片 URL 参数指定图片的显示版式为：logo
-#write img[src*="mode=logo"],
-#write svg[data-inject-url*="mode=logo"],
+// #write img[src*="mode=logo"],
+// #write svg[data-inject-url*="mode=logo"],
 #write .md-image[data-src*="#logo"]>img, // 编辑时
 #write img[src*="#logo"],
 #write svg[data-inject-url*="#logo"] {
     display: inline !important;
     vertical-align: middle;
-    border: unset !important;
-    border-radius: 0 !important;
     background: none !important;
+    margin-bottom: @figurePadding !important;
+    border: none !important;
+    border-radius: 0 !important;
 }
 // 左对齐
-#write img[src*="mode=logol"],
-#write svg[data-inject-url*="mode=logol"],
+// #write img[src*="mode=logol"],
+// #write svg[data-inject-url*="mode=logol"],
 #write .md-image[data-src*="#logol"],//>img, // 编辑时
 #write img[src*="#logol"],
 #write svg[data-inject-url*="#logol"] {
     float: left !important;
-    padding: 0 20px 0 0;
+    padding: 0 @figurePadding 0 0;
 }
 // 右对齐
-#write img[src*="mode=logor"],
-#write svg[data-inject-url*="mode=logor"],
+// #write img[src*="mode=logor"],
+// #write svg[data-inject-url*="mode=logor"],
 #write .md-image[data-src*="#logor"],//>img, // 编辑时
 #write img[src*="#logor"],
 #write svg[data-inject-url*="#logor"] {
     float: right !important;
-    padding: 0 0 0 20px;
+    padding: 0 0 0 @figurePadding;
+}
+
+// 图片 URL 参数指定图片的显示版式为：card
+// #write img[src*="mode=card"],
+// #write svg[data-inject-url*="mode=card"],
+#write .md-image[data-src*="#card"]>img, // 编辑时
+#write img[src*="#card"],
+#write svg[data-inject-url*="#card"] {
+    display: inline !important;
+    vertical-align: middle;
+    border: none !important;
+    border-bottom: 3px solid @buttonBgColor !important;
+    // border: @imgBorderWidth solid var(--pn-c) !important;
+    border-radius: var(--v-r-b) var(--v-r-b) 0 0 !important;
+    background: none !important;
+}
+#write blockquote img[src*="#card"],
+#write blockquote svg[data-inject-url*="#card"] {
+    width: 100%;
+    // border: none !important;
+}
+// cardd Card Dual 模式
+#write blockquote img[src*="#cardd"]+.v-post-card,
+#write blockquote svg[data-inject-url*="#cardd"]+.v-post-card {
+    display: block !important;
+    position: initial !important;
+    box-shadow: none !important;
+    border-radius:  0 0 var(--v-r-b) var(--v-r-b) !important;
 }
 
 // 图片 URL 参数指定图片的显示版式为：frame
-#write img[src*="mode=frame"],
-#write svg[data-inject-url*="mode=frame"],
+// #write img[src*="mode=frame"],
+// #write svg[data-inject-url*="mode=frame"],
 #write .md-image[data-src*="#frame"]>img, // 编辑时
 #write img[src*="#frame"],
 #write svg[data-inject-url*="#frame"] {
     display: inline !important;
     vertical-align: middle;
-    border: 2px solid var(--pn-c) !important;
-    border-radius: var(--v-r-b) !important;
     background: none !important;
-    margin-bottom: 20px !important;
+    margin-bottom: @figurePadding !important;
+    border: @imgBorderWidth solid var(--pn-c) !important;
+    border-radius: var(--v-r-b) !important;
 }
 // 左对齐
-#write img[src*="mode=framel"],
-#write svg[data-inject-url*="mode=framel"],
+// #write img[src*="mode=framel"],
+// #write svg[data-inject-url*="mode=framel"],
 #write .md-image[data-src*="#framel"]>img, // 编辑时
 #write img[src*="#framel"],
 #write svg[data-inject-url*="#framel"] {
     float: left !important;
-    padding: 0 20px 0 0;
+    padding: 0 @figurePadding 0 0;
 }
 // 右对齐
-#write img[src*="mode=framer"],
-#write svg[data-inject-url*="mode=framer"],
+// #write img[src*="mode=framer"],
+// #write svg[data-inject-url*="mode=framer"],
 #write .md-image[data-src*="#framer"]>img, // 编辑时
 #write img[src*="#framer"],
 #write svg[data-inject-url*="#framer"] {
     float: right !important;
-    padding: 0 0 0 20px;
+    padding: 0 0 0 @figurePadding;
 }
+
+// 生成通过图片 URL 参数指定图片的缩放样式
+.genImgZoom(@zoom) {
+    #write .md-image[data-src*="#@{zoom}"]>img, // 编辑时
+    #write img[src*="#@{zoom}"],
+    #write svg[data-inject-url*="#@{zoom}"] {
+        width: @zoom;
+    }
+}
+.genImgZoom(200px);
+.genImgZoom(400px);
+.genImgZoom(600px);
+.genImgZoom(800px);
 
 // 图片默认对齐方式，或 URL 参数指定左对齐
 // 须放在各种版式的样式之后，避免 display 属性冲突
 // 导出为 HTML 后的插图（不包括版式为 logo / frame 等），由 vlook.js 进行二次调整，详见 __initAlign
 // img,
-#write img[src*="mode=figure"],
-#write svg[data-inject-url*="mode=figure"],
+// #write img[src*="mode=figure"],
+// #write svg[data-inject-url*="mode=figure"],
+// #write img[src*="#figure"],
+// #write svg[data-inject-url*="#figure"],
 #write p>img:only-child,
 #write p>.md-image:only-child:not(.md-img-error)>img, // 是指 p 内只有 img 的才被视为插图
-#write p>img:only-child[src*="align=left"],
-#write p>svg[data-inject-url*="align=left"],
-#write p>.md-image:only-child:not(.md-img-error)>img[src*="align=left"],
-#write p>.md-image:only-child:not(.md-img-error)>svg[data-inject-url*="align=left"],
+// #write p>img:only-child[src*="align=left"],
+// #write p>svg[data-inject-url*="align=left"],
+// #write p>.md-image:only-child:not(.md-img-error)>img[src*="align=left"],
+// #write p>.md-image:only-child:not(.md-img-error)>svg[data-inject-url*="align=left"],
 #write p>.md-image:only-child[data-src*="#left"]:not(.md-img-error)>img, // 编辑时
 #write p>img:only-child[src*="#left"],
 #write p>svg[data-inject-url*="#left"],
 #write p>.md-image:only-child:not(.md-img-error)>img[src*="#left"],
 #write p>.md-image:only-child:not(.md-img-error)>svg[data-inject-url*="#left"] {
-    display: block !important;
+    display: inline-block !important;
     margin: 0 !important;
 }
 // 图片 URL 参数指定居中对齐
-#write p>img[src*="align=center"],
-#write p>svg[data-inject-url*="align=center"],
-#write p>.md-image:only-child:not(.md-img-error)>img[src*="align=center"],
-#write p>.md-image:only-child:not(.md-img-error)>svg[data-inject-url*="align=center"],
+// #write p>img[src*="align=center"],
+// #write p>svg[data-inject-url*="align=center"],
+// #write p>.md-image:only-child:not(.md-img-error)>img[src*="align=center"],
+// #write p>.md-image:only-child:not(.md-img-error)>svg[data-inject-url*="align=center"],
 #write p>.md-image:only-child[data-src*="#center"]:not(.md-img-error)>img, // 编辑时
 #write p>img[src*="#center"],
 #write p>svg[data-inject-url*="#center"],
@@ -409,10 +474,10 @@ body.unfreeze {
     margin: auto !important;
 }
 // 图片 URL 参数指定右对齐
-#write p>img[src*="align=right"],
-#write p>svg[data-inject-url*="align=right"],
-#write p>.md-image:only-child:not(.md-img-error)>img[src*="align=right"],
-#write p>.md-image:only-child:not(.md-img-error)>svg[data-inject-url*="align=right"],
+// #write p>img[src*="align=right"],
+// #write p>svg[data-inject-url*="align=right"],
+// #write p>.md-image:only-child:not(.md-img-error)>img[src*="align=right"],
+// #write p>.md-image:only-child:not(.md-img-error)>svg[data-inject-url*="align=right"],
 #write p>.md-image:only-child[data-src*="#right"]:not(.md-img-error)>img, // 编辑时
 #write p>img[src*="#right"],
 #write p>svg[data-inject-url*="#right"],
@@ -497,18 +562,18 @@ body.typora-export a {
 
 // 链接中的 kbd 样式
 #write a kbd {
-    color: @buttonForeColor;
+    color: @docLibButtonForeColor;
+    caret-color: @buttonForeColor;
     font:  var(--v-f-w-bd) .875em/@paragraphInnerLineHeight var(--v-f-fm-key) !important; // [style] [weight] [size/[line-height]] [family]
-    background: @buttonBgColor;
+    background: @docLibButtonBgColor;
     margin: 5px 0;
     border: none;
     border-radius: var(--v-r-b);
     display: inline-block;
     // box-shadow: var(--v-float-shadow), @contrastBorder;
-    box-shadow: 0 3px darken(@buttonBgColor, 15%); // 按钮高 3px
+    box-shadow: 0 3px darken(@docLibButtonBgColor, 15%); // 按钮高 3px
     text-shadow: none;
     padding: 5px 10px;
-    caret-color: var(--d-bc);
 }
 // #write a kbd:hover,
 // #write .v-q a kbd:hover, // 针对彩虹引用内的情况
@@ -618,13 +683,13 @@ kbd img[d-img-fill="t2"]) {
     color: var(--d-f-c) !important;
     background: var(--pn-c);
     border-bottom: 0;
-    box-shadow: 0 0 0 2px fade(@aHoverColor, 50%);
     border-radius: var(--v-r-s);
+    // box-shadow: 0 0 0 2px fade(@aHoverColor, 50%);
     transition: none;
 }
-:is(#write, body.typora-export) a:active:has(kbd) {
-    box-shadow: none;
-}
+// :is(#write, body.typora-export) a:active:has(kbd) {
+//     box-shadow: none;
+// }
 
 // 默认的超链接样式
 // #write a:not([name^="ref-footnote"]):hover {
@@ -632,7 +697,8 @@ kbd img[d-img-fill="t2"]) {
 //     box-shadow: 0 -.3em 0 0 fade(@accColorBrown, 30%) inset !important;
 // }
 #write a:not([name^="ref-footnote"]):hover::before {
-    content: "Link - " attr(href); // 非页内链接的符号
+    // content: "Link - " attr(href); // 非页内链接的符号
+    content: "…"; // 非页内链接的符号
     white-space: pre;
     margin-top: -1em;
     color: #FFFFFF;
@@ -648,8 +714,7 @@ kbd img[d-img-fill="t2"]) {
 }
 
 // 页内链接
-#write a[class*="md-toc-inner"]:hover::before,
-#write a[href^="#"]:hover::before {
+#write :is(a[class*="md-toc-inner"], a[href^="#"]):hover::before {
     content: "#";
     background: @accColorGray;
 }
@@ -665,8 +730,7 @@ kbd img[d-img-fill="t2"]) {
     background: var(--d-f-c);
 }
 // VLOOK 文库专用链接
-#write a[href^="vlook-doc-lib://"]:hover::before,
-#write a[target^="vlook-doc-lib://"]:hover::before {
+#write :is(a[href^="vlook-doc-lib://"], a[target^="vlook-doc-lib://"]):hover::before {
     content: "❏ VLOOK™ Document Library";
     color: @buttonForeColor;
     background: @buttonBgColor;
@@ -686,41 +750,57 @@ kbd img[d-img-fill="t2"]) {
     background: @accColorBlue;
 }
 // 文档资源
-#write a[href$=".pdf"]:hover::before,
-#write a[href$=".PDF"]:hover::before,
-#write a[href$=".doc"]:hover::before,
-#write a[href$=".DOC"]:hover::before,
-#write a[href$=".docx"]:hover::before,
-#write a[href$=".DOCX"]:hover::before,
-#write a[href$=".xls"]:hover::before,
-#write a[href$=".XLS"]:hover::before,
-#write a[href$=".xlsx"]:hover::before,
-#write a[href$=".XLSX"]:hover::before,
-#write a[href$=".ppt"]:hover::before,
-#write a[href$=".PPT"]:hover::before,
-#write a[href$=".pptx"]:hover::before,
-#write a[href$=".PPTX"]:hover::before,
-#write a[href$=".txt"]:hover::before,
-#write a[href$=".TXT"]:hover::before,
-#write a[href$=".csv"]:hover::before,
-#write a[href$=".CSV"]:hover::before {
+// #write a[href$=".pdf"]:hover::before,
+// #write a[href$=".PDF"]:hover::before,
+// #write a[href$=".doc"]:hover::before,
+// #write a[href$=".DOC"]:hover::before,
+// #write a[href$=".docx"]:hover::before,
+// #write a[href$=".DOCX"]:hover::before,
+// #write a[href$=".xls"]:hover::before,
+// #write a[href$=".XLS"]:hover::before,
+// #write a[href$=".xlsx"]:hover::before,
+// #write a[href$=".XLSX"]:hover::before,
+// #write a[href$=".ppt"]:hover::before,
+// #write a[href$=".PPT"]:hover::before,
+// #write a[href$=".pptx"]:hover::before,
+// #write a[href$=".PPTX"]:hover::before,
+// #write a[href$=".txt"]:hover::before,
+// #write a[href$=".TXT"]:hover::before,
+// #write a[href$=".csv"]:hover::before,
+// #write a[href$=".CSV"]:hover::before {
+#write :is(a[href$=".pdf"], a[href$=".PDF"],
+a[href$=".doc"], a[href$=".DOC"],
+a[href$=".docx"], a[href$=".DOCX"],
+a[href$=".xls"], a[href$=".XLS"],
+a[href$=".xlsx"], a[href$=".XLSX"],
+a[href$=".ppt"], a[href$=".PPT"],
+a[href$=".pptx"], a[href$=".PPTX"],
+a[href$=".txt"], a[href$=".TXT"],
+a[href$=".csv"],
+a[href$=".CSV"]):hover::before {
     content: "Document";
     background: @accColorCyan;
 }
 // 归档资源
-#write a[href$=".zip"]:hover::before,
-#write a[href$=".rar"]:hover::before,
-#write a[href$=".7z"]:hover::before,
-#write a[href$=".gz"]:hover::before,
-#write a[href$=".tar"]:hover::before,
-#write a[href$=".dmg"]:hover::before,
-#write a[href$=".cab"]:hover::before {
+// #write a[href$=".zip"]:hover::before,
+// #write a[href$=".rar"]:hover::before,
+// #write a[href$=".7z"]:hover::before,
+// #write a[href$=".gz"]:hover::before,
+// #write a[href$=".tar"]:hover::before,
+// #write a[href$=".dmg"]:hover::before,
+// #write a[href$=".cab"]:hover::before {
+#write :is(a[href$=".zip"],
+a[href$=".rar"],
+a[href$=".7z"],
+a[href$=".gz"],
+a[href$=".tar"],
+a[href$=".dmg"],
+a[href$=".cab"]):hover::before {
     content: "Archive File";
     background: @accColorOrange;
 }
 // 可执行文件
-#write a[href$=".exe"]:hover::before,
-#write a[href$=".sh"]:hover::before {
+#write :is(a[href$=".exe"], a[href$=".sh"]):hover::before {
     content: "!! High Risk !!";
     background: @accColorRed;
 }
@@ -731,12 +811,13 @@ kbd img[d-img-fill="t2"]) {
     border-bottom: 1px solid var(--d-f-c);
 }
 
-#write h1,
-#write h2,
-#write h3,
-#write h4,
-#write h5,
-#write h6 {
+// #write h1,
+// #write h2,
+// #write h3,
+// #write h4,
+// #write h5,
+// #write h6 {
+#write :is(h1, h2, h3, h4, h5, h6) {
     color: var(--h-f);
     text-align: @headerTextAlign;
     position: relative;
@@ -749,11 +830,12 @@ kbd img[d-img-fill="t2"]) {
     letter-spacing: @headerLetterSpacing;
 }
 // 标题渐变色
-#write h1>span,
-#write h2>span,
-#write h3>span,
-#write h4>span,
-#write h5>span {
+// #write h1>span,
+// #write h2>span,
+// #write h3>span,
+// #write h4>span,
+// #write h5>span {
+#write :is(h1, h2, h3, h4, h5)>span {
     background: @lgHeaderBg;
     background-clip: @lgHeaderBgClip;
     -webkit-background-clip: @lgHeaderBgClip;
@@ -778,26 +860,29 @@ kbd img[d-img-fill="t2"]) {
 // #write h5+ol,
 // #write h6+ul,
 // #write h6+ol {
-#write :is(
-h1+ul,
-h1+ol,
-h2+ul,
-h2+ol,
-h3+ul,
-h3+ol,
-h4+ul,
-h4+ol,
-h5+ul,
-h5+ol,
-h6+ul,
-h6+ol) {
-    margin-top: 0;
-}
+// #write :is(
+// h1+ul,
+// h1+ol,
+// h2+ul,
+// h2+ol,
+// h3+ul,
+// h3+ol,
+// h4+ul,
+// h4+ol,
+// h5+ul,
+// h5+ol,
+// h6+ul,
+// h6+ol) {
+//     margin-top: 0;
+// }
 
 #write h1 {
     margin: @h1Margin;
     font-size: 2em;
-    box-shadow: @h1Shadown;
+    box-shadow: @h1Shadow;
+    -webkit-text-stroke: @h1TextStroke;
+    text-stroke: @h1TextStroke;
+    text-shadow: @h1TextShadow;
     border-left: @h1BorderLeft;
     border-right: @h1BorderRight;
     border-top: @h1BorderTop;
@@ -806,7 +891,10 @@ h6+ol) {
 #write h2 {
     margin: @h2Margin;
     font-size: 1.8em;
-    box-shadow: @h2Shadown;
+    box-shadow: @h2Shadow;
+    -webkit-text-stroke: @h2TextStroke;
+    text-stroke: @h2TextStroke;
+    text-shadow: @h2TextShadow;
     border-left: @h2BorderLeft;
     border-right: @h2BorderRight;
     border-top: @h2BorderTop;
@@ -825,7 +913,10 @@ h6+ol) {
 #write h3 {
     margin: @h3Margin;
     font-size: 1.6em;
-    box-shadow: @h3Shadown;
+    box-shadow: @h3Shadow;
+    -webkit-text-stroke: @h3TextStroke;
+    text-stroke: @h3TextStroke;
+    text-shadow: @h3TextShadow;
     border-left: @h3BorderLeft;
     border-right: @h3BorderRight;
     border-top: @h3BorderTop;
@@ -843,7 +934,10 @@ h6+ol) {
 #write h4 {
     margin: @h4Margin;
     font-size: 1.4em;
-    box-shadow: @h4Shadown;
+    box-shadow: @h4Shadow;
+    -webkit-text-stroke: @h4TextStroke;
+    text-stroke: @h4TextStroke;
+    text-shadow: @h4TextShadow;
     border-left: @h4BorderLeft;
     border-right: @h4BorderRight;
     border-top: @h4BorderTop;
@@ -860,7 +954,10 @@ h6+ol) {
 
 #write h5 {
     font-size: @h5Margin;
-    box-shadow: @h5Shadown;
+    box-shadow: @h5Shadow;
+    -webkit-text-stroke: @h5TextStroke;
+    text-stroke: @h5TextStroke;
+    text-shadow: @h5TextShadow;
     border-left: @h5BorderLeft;
     border-right: @h5BorderRight;
     border-top: @h5BorderTop;
@@ -880,7 +977,10 @@ h6+ol) {
     margin-bottom: 0;
     padding-left: 0;
     font: var(--v-f-w-bd) 1.125em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
-    box-shadow: @h6Shadown;
+    box-shadow: @h6Shadow;
+    -webkit-text-stroke: @h6TextStroke;
+    text-stroke: @h6TextStroke;
+    text-shadow: @h6TextShadow;
     border-left: @h6BorderLeft;
     border-right: @h6BorderRight;
     border-top: @h6BorderTop;
@@ -889,8 +989,9 @@ h6+ol) {
 #write>pre.md-meta-block:first-child+h6::after, // 封面，有 YAML 的情况
 #write>h6:first-child::after, // 封面，无 YAML 的情况
 #write>h1:last-child::after, // 封底
-#write blockquote h6::after,
-#write details h6::after {
+// #write blockquote h6::after,
+// #write details h6::after {
+#write :is(blockquote, details) h6::after {
     margin-left: 0;
     padding-bottom: 0;
     border: none;
@@ -984,6 +1085,31 @@ h6:first-child) {
     padding-top: 0;
 }
 
+// 图文卡片样式
+#write .v-post-card {
+    left: 0;
+    color: @buttonForeColor;
+    background: @buttonBgColor;
+    // background: linear-gradient(180deg, @buttonBgColor 50%, rgba(@buttonBgColor, .9));
+    // font-size: .875em;
+    position: absolute;
+    display: none;
+    overflow: hidden;
+    padding: 10px 20px;
+    border-radius: var(--v-r-b) var(--v-r-b) 0 0;
+    // text-shadow: 0 1px darken(@buttonForeColor, 75%);
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, .3);
+    // pointer-events: none;
+}
+#write .v-post-card>.v-card-title {
+    font-weight: var(--v-f-w-title);
+    font-size: 1.25em;
+    padding: 0 0 10px 0;
+}
+#write .v-post-card>.v-card-text p {
+    margin-top: 0;
+}
+
 // 配合段落导航使用
 // #write ul>li,
 // #write ol>li,
@@ -1021,7 +1147,7 @@ h6:first-child) {
     padding-bottom: 0;
 }
 // 除图片插图外的段落样式
-#write>p{//:not([class*=v-cap-cntr]) {
+#write>p {//:not([class*=v-cap-cntr]) {
     margin-top: @paragraphPadding;// margin-bottom: @paragraphPadding;
 }
 
@@ -1035,23 +1161,28 @@ h6:first-child) {
     word-break: normal;
     word-wrap: break-word;
 }
-#write p:has(.md-image) { // Typora 编辑时的图片段落
+content>#write p:has(.md-image) { // Typora 编辑时的图片段落
     margin-top: 0;
 }
 
 // #write blockquote>p:first-of-type,
 // #write ol>li:first-of-type,
 // #write ul>li:first-of-type {
-#write blockquote>p:first-of-type,
-#write blockquote>ol:first-of-type>li:first-of-type,
-#write blockquote>ul:first-of-type>li:first-of-type,
-#write blockquote>ol:first-of-type>li:first-of-type>p,
-#write blockquote>ul:first-of-type>li:first-of-type>p,
-#write details>p:first-of-type,
-#write details>ol:first-of-type>li:first-of-type,
-#write details>ul:first-of-type>li:first-of-type,
-#write details>ol:first-of-type>li:first-of-type>p,
-#write details>ul:first-of-type>li:first-of-type>p {
+// #write blockquote>p:first-of-type,
+// #write blockquote>ol:first-of-type>li:first-of-type,
+// #write blockquote>ul:first-of-type>li:first-of-type,
+// #write blockquote>ol:first-of-type>li:first-of-type>p,
+// #write blockquote>ul:first-of-type>li:first-of-type>p,
+// #write details>p:first-of-type,
+// #write details>ol:first-of-type>li:first-of-type,
+// #write details>ul:first-of-type>li:first-of-type,
+// #write details>ol:first-of-type>li:first-of-type>p,
+// #write details>ul:first-of-type>li:first-of-type>p {
+#write :is(blockquote, details)>p:first-of-type,
+#write :is(blockquote, details)>ol:first-of-type>li:first-of-type,
+#write :is(blockquote, details)>ul:first-of-type>li:first-of-type,
+#write :is(blockquote, details)>ol:first-of-type>li:first-of-type>p,
+#write :is(blockquote, details)>ul:first-of-type>li:first-of-type>p {
     margin-top: 0;
 }
 
@@ -1095,18 +1226,21 @@ h6:first-child) {
     list-style-type: circle;
 }
 
-#write ol>li>ol>li::before,
-#write ul>li>ul>li::before {
+// #write ol>li>ol>li::before,
+// #write ul>li>ul>li::before {
+#write :is(ol>li>ol>li, ul>li>ul>li)::before {
     color: var(--ac-t2-lg) !important;
 }
 
-#write blockquote[d-quote-group]+figcaption,
-#write details[d-quote-group]+figcaption {
+// #write blockquote[d-quote-group]+figcaption,
+// #write details[d-quote-group]+figcaption {
+#write :is(blockquote, details)[d-quote-group]+figcaption {
     margin-top: 1em;
 }
 
-#write blockquote,
-#write details,
+// #write blockquote,
+// #write details,
+#write :is(blockquote, details),
 body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     color: var(--d-f-c);
     background: var(--ac-t1-fade);
@@ -1114,8 +1248,9 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     padding: .75em 1em;
     margin-top: @paragraphPadding;// margin-bottom: @paragraphPadding;
 }
-#write>blockquote,
-#write>details {
+// #write>blockquote,
+// #write>details {
+#write>:is(blockquote, details) {
     margin-top: @paragraphPadding;
 }
 
@@ -1198,6 +1333,19 @@ details[open]>summary::before {
     border-top-left-radius: 0;
     margin-top: 0;
 }
+
+// --------------------
+// 引用后的紧跟独立的上标内容
+// #write .md-hr+p:has(sup) {
+//     margin-top: -1em;
+//     text-align: center;
+// }
+// #write .md-hr+p sup:only-child {
+//     font-size: 1em;
+//     color: var(--d-f-c-alt);
+//     border: 2px solid var(--d-f-c);
+//     background-color: var(--d-bc);
+// }
 
 // --------------------
 // 引用分栏
@@ -1303,6 +1451,17 @@ content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
     margin-left: 2% !important;
 }
 
+// 引用内的双栏、三栏、四栏
+#write blockquote>:is(hr, .md-hr)+blockquote,
+#write blockquote>:is(hr, .md-hr)+blockquote+blockquote,
+#write blockquote>:is(hr, .md-hr)+blockquote+blockquote+blockquote,
+#write blockquote>:is(hr, .md-hr)+blockquote+blockquote+blockquote+blockquote {
+    background: var(--d-bc);
+    padding: .75em 1em;
+    border-width: 0;
+}
+
+
 #write blockquote hr,
 #write details hr {
     border-color: var(--d-f-c);
@@ -1334,8 +1493,9 @@ content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
 //     margin-bottom: 0;
 // }
 
-#write blockquote .CodeMirror-linenumber,
-#write details .CodeMirror-linenumber {
+// #write blockquote .CodeMirror-linenumber,
+// #write details .CodeMirror-linenumber {
+#write :is(blockquote, details) .CodeMirror-linenumber {
     color: var(--h-f);
 }
 
@@ -1356,13 +1516,19 @@ content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
 }
 #write :is(hr, .md-hr)+ul>li,
 #write :is(hr, .md-hr)+ol>li {
-    border: 2px solid var(--pn-c);
+    // border: 2px solid var(--pn-c);
+    box-shadow: 0 0 0 2px var(--std-code-shadow) inset;
     border-radius: var(--v-r-b);
     margin-top: 0 !important;
     margin-bottom: 1em;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
+}
+#write :is(hr, .md-hr)+ul>li:hover,
+#write :is(hr, .md-hr)+ol>li:hover {
+    // border-color: @buttonBgColor;
+    box-shadow: 0 0 0 2px @buttonBgColor inset;
 }
 #write :is(hr, .md-hr)+ul>li>p:first-of-type,
 #write :is(hr, .md-hr)+ol>li>p:first-of-type {
@@ -1376,7 +1542,11 @@ content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
     margin-left: -10px;
     margin-right: -10px;
 }
-
+// #write :is(hr, .md-hr)+ul>li>p:first-of-type::before,
+// #write :is(hr, .md-hr)+ol>li>p:first-of-type::before {
+//     content: "☰ ";
+//     opacity: .5;
+// }
 // 列表分栏提示样式
 content>#write .md-hr+ul::before,
 content>#write .md-hr+ol::before {
@@ -1396,27 +1566,31 @@ content>#write .md-hr+ol::before {
     opacity: .5;
     pointer-events: none;
 }
-content>#write .md-hr+ul::before,
-content>#write .md-hr+ol::before {
+// content>#write .md-hr+ul::before,
+// content>#write .md-hr+ol::before {
+content>#write .md-hr+:is(ul, ol)::before {
     content: "⬛︎ ⬛︎  2 Columns of List / 双栏列表  ⬛︎ ⬛︎";
     margin-top: -2.9em;
 }
-content>#write .md-hr+.md-hr+ul::before,
-content>#write .md-hr+.md-hr+ol::before {
+// content>#write .md-hr+.md-hr+ul::before,
+// content>#write .md-hr+.md-hr+ol::before {
+content>#write .md-hr+.md-hr+:is(ul, ol)::before {
     content: "⬛︎ ⬛︎ ⬛︎  3 Columns of List / 三栏列表  ⬛︎ ⬛︎ ⬛︎";
     margin-top: -3em;
     padding-top: 0;
     padding-bottom: .2em;
 }
-content>#write .md-hr+.md-hr+.md-hr+ul::before,
-content>#write .md-hr+.md-hr+.md-hr+ol::before {
+// content>#write .md-hr+.md-hr+.md-hr+ul::before,
+// content>#write .md-hr+.md-hr+.md-hr+ol::before {
+content>#write .md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     content: "⬛︎ ⬛︎ ⬛︎ ⬛︎  4 Columns of List / 四栏列表  ⬛︎ ⬛︎ ⬛︎ ⬛︎ ";
     margin-top: -4.5em;
     padding-top: .9em;
     padding-bottom: .7em;
 }
-content>#write .md-hr+.md-hr+.md-hr+.md-hr+ul::before,
-content>#write .md-hr+.md-hr+.md-hr+ol::before {
+// content>#write .md-hr+.md-hr+.md-hr+.md-hr+ul::before,
+// content>#write .md-hr+.md-hr+.md-hr+ol::before {
+content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     content: "⬛︎ ⬛︎ ⬛︎ ⬛︎ ⬛︎  5 Columns of List / 五栏列表  ⬛︎ ⬛︎ ⬛︎ ⬛︎ ⬛︎";
     margin-top: -5.9em;
     padding-top: 1.6em;
@@ -1430,7 +1604,7 @@ content>#write .md-hr+.md-hr+.md-hr+ol::before {
 #write :is(hr, .md-hr)+ol>li,
 #write :is(hr, .md-hr)+ol>li+li {
     display: inline-block;
-    list-style-type: none;
+    // list-style-type: none;
     vertical-align: top;
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -1462,7 +1636,7 @@ content>#write .md-hr+.md-hr+.md-hr+ol::before {
 #write :is(hr+hr, .md-hr+.md-hr)+ol>li+li,
 #write :is(hr+hr, .md-hr+.md-hr)+ol>li+li+li {
     display: inline-block;
-    list-style-type: none;
+    // list-style-type: none;
     vertical-align: top;
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -1500,7 +1674,7 @@ content>#write .md-hr+.md-hr+.md-hr+ol::before {
 #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li,
 #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li+li {
     display: inline-block;
-    list-style-type: none;
+    // list-style-type: none;
     vertical-align: top;
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -1544,7 +1718,7 @@ content>#write .md-hr+.md-hr+.md-hr+ol::before {
 #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li,
 #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li+li {
     display: inline-block;
-    list-style-type: none;
+    // list-style-type: none;
     vertical-align: top;
     max-width: 19.2% !important;
     min-width: 19.2% !important;
@@ -1587,11 +1761,11 @@ content>#write .md-hr+.md-hr+.md-hr+ol::before {
     padding: 0 .5em;
 }
 // 引用内的最后一个引用
-#write blockquote>blockquote:last-child,
-// 详情内的最后一个引用
-#write :is(blockquote, details)>details:last-child,
-#write blockquote>:is(ol,ul):last-child,
-#write details>:is(ol,ul):last-child {
+// #write blockquote>blockquote:last-child,
+#write :is(blockquote, details)>:is(blockquote, details):last-child,
+// #write blockquote>:is(ol,ul):last-child,
+// #write details>:is(ol,ul):last-child {
+#write :is(blockquote, details)>:is(ol,ul):last-child {
     margin-bottom: 0;
 }
 
@@ -1606,18 +1780,24 @@ content>#write .md-hr+.md-hr+.md-hr+ol::before {
     padding: .75em 1em;
 }
 
-#write blockquote>strong,
-#write details>strong {
+// #write blockquote>strong,
+// #write details>strong {
+#write :is(blockquote, details)>strong {
     color: inherit !important;
 }
 
+// 无效图片样式
 .v-img-lost {
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxyZWN0IGlkPSJhIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE1MCIgcng9IjEzIi8+PC9kZWZzPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PG1hc2sgaWQ9ImIiIGZpbGw9IiNmZmYiPjx1c2UgeGxpbms6aHJlZj0iI2EiLz48L21hc2s+PHVzZSBmaWxsPSIjRTBFNEU4IiB4bGluazpocmVmPSIjYSIvPjxwYXRoIGQ9Ik05MS4yMTMgMEwwIDkxLjIxM1Y0OC43ODdMNDguNzg3IDBoNDIuNDI2ek0xOTEuMjEzIDBsLTE1MCAxNTBIM2EzIDMgMCAwIDEtMi42NC0xLjU3M0wxNDguNzg3IDBoNDIuNDI2ek0yOTEuMjEzIDBMMTQxLjIxMiAxNTBIOTguNzg3bDE1MC0xNTBoNDIuNDI2ek0zOTEuMjEzIDBMMjQxLjIxMiAxNTBoLTQyLjQyNWwxNTAtMTUwaDQyLjQyNnpNNDAwIDQ4Ljc4N3Y0Mi40MjVMMzQxLjIxMiAxNTBoLTQyLjQyNUw0MDAgNDguNzg3eiIgZmlsbD0iI0M4Q0FDRSIgbWFzaz0idXJsKCNiKSIvPjxyZWN0IHN0cm9rZT0iI0EwQTRBOCIgc3Ryb2tlLXdpZHRoPSI1IiBtYXNrPSJ1cmwoI2IpIiB4PSIyLjUiIHk9IjIuNSIgd2lkdGg9IjM5NSIgaGVpZ2h0PSIxNDUiIHJ4PSIxMyIvPjxwYXRoIGQ9Ik0xMyAwaDM3NGM3LjE4IDAgMTMgNS44MiAxMyAxM3YxODdIMFYxM0MwIDUuODIgNS44MiAwIDEzIDB6Ii8+PHRleHQgZm9udC1mYW1pbHk9Ik5vdG9TYW5zQ0pLc2MtQmxhY2ssIE5vdG8gU2FucyBDSksgU0MiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiM1ODVBNUUiPjx0c3BhbiB4PSI2MCIgeT0iNDMiPuS4n+WkseeahOWclueJhzwvdHNwYW4+IDx0c3BhbiB4PSI1MC43NzUiIHk9IjY5Ij5Mb3N0IHBpY3R1cmU8L3RzcGFuPiA8dHNwYW4geD0iNDIuMjM0IiB5PSI5NSI+SW1hZ2UgcGVyZHVlPC90c3Bhbj48L3RleHQ+PHRleHQgZm9udC1mYW1pbHk9Ik5vdG9TYW5zQ0pLc2MtQmxhY2ssIE5vdG8gU2FucyBDSksgU0MiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiM1ODVBNUUiPjx0c3BhbiB4PSIxODAuNDQxIiB5PSI0MyI+0J/QvtGC0LXRgNGP0L3QvdCw0Y8g0LrQsNGA0YLQuNC90LA8L3RzcGFuPiA8dHNwYW4geD0iMjI1IiB5PSI2OSI+5YaZ55yf44KS5aSx44Gj44GfPC90c3Bhbj4gPHRzcGFuIHg9IjIyNy4yNTkiIHk9Ijk1Ij7snoPslrTrsoTrprAg7IKs7KeEPC90c3Bhbj48L3RleHQ+PHRleHQgZm9udC1mYW1pbHk9Ik5vdG9TYW5zQ0pLc2MtQmxhY2ssIE5vdG8gU2FucyBDSksgU0MiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiM1ODVBNUUiPjx0c3BhbiB4PSIxNjQuNjU2IiB5PSIxMzYiPlZMT09LIDwvdHNwYW4+IDx0c3BhbiB4PSIyMjMuOTY4IiB5PSIxMzYiIGZvbnQtZmFtaWx5PSJOb3RvU2Fuc0NKS3NjLVJlZ3VsYXIsIE5vdG8gU2FucyBDSksgU0MiIGZvbnQtd2VpZ2h0PSJub3JtYWwiPuKEojwvdHNwYW4+PC90ZXh0PjxwYXRoIGZpbGw9IiM4ODhBOEUiIGQ9Ik01NSAxNTBoMjB2NTBINTV6Ii8+PHBhdGggZD0iTTQ1IDE5MGg0MGE1IDUgMCAwIDEgNSA1djVINDB2LTVhNSA1IDAgMCAxIDUtNXoiIGZpbGw9IiNBMEE0QTgiLz48cGF0aCBmaWxsPSIjODg4QThFIiBkPSJNMzI1IDE1MGgyMHY1MGgtMjB6Ii8+PHBhdGggZD0iTTMxNSAxOTBoNDBhNSA1IDAgMCAxIDUgNXY1aC01MHYtNWE1IDUgMCAwIDEgNS01eiIgZmlsbD0iI0EwQTRBOCIvPjwvZz48L3N2Zz4=") !important;
-    background-size: 400px 200px;
-    background: var(--pn-c);
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAADICAMAAADxy0fQAAAA8FBMVEUAAACwtLikqa3X19yjp6ugo6i7vsKfo6fQ1drCx8uho6e4u77g5OjIys6gpKhYWl6Iio7P0tacn6NaXGGkp6rEyMx4e39ZW1+xs7fGyc1fYWaPkpbc4ORpa2/e4uZeYGRwcnausbR2eH25u8BcXmKpq6+Fh4tjZmqLjZK9wMSWmZ3Z3eG0t7tmaGySlZi7vsLN0NS/w8e3ub2DhYltb3NrbXGUlppxdHjW2t6srrOZm6DR1dnDxcl0dnpiZGjKzdK/wcWNkJSBg4d/gYaytbmAg4aqrbF9f4TT19umqa17fYKeoaWJjI/BxMjIzM96fIACrW+PAAAADHRSTlMAveAg87KUPTN2enYZgcdqAAAYXUlEQVR42uyWSwrDMAxE5Q/Boa7BCy8Cweew73+xRrgpyqa0pSCB9TbObhgeGgInbjXWJ4UBb83NwZVgksKKCUBYksLOAidOz0MExsFAfQjBXPaql7bHt+T7p+T4I/U/Gew9vsrYW+lktcL43qqAHlP6QOo2LITXYGUJPab1cZDP0XLjPiT0mNlHjONGHKz4dN0r9oza0cQ6FqsI6DG5jxjL2CyLT+PvMb2P2NCEBY+P/u8KyNjRhIeEsPdQHwcJeQpRHwIyiBD1ISGDCFEfEjKIEPUhIYMIUR8SMogQ9fFgt9yWEgeCMPwCHX5DIoRwkINEEg5BgosQXEFYENDl/d9me5KAA6ybrZQXlMV3wbRj7N/prxg4hwxJyMXHOWRIQi4+ziFDEnLxcQ4ZkpCLj3PIkIRcfJxDhiTk4uMcMiQhFx/nkCEJ+cqM1xLR7+HQpz1dVy0Rbz5+7iM3Hud4mW82tbOc1ddmxAtJmlHTKzJCQqltbgspoEZ7NkCLlyJeKMDrM8U9A25UBzq85IHUWc7qazPihSTNWEEiHPs98ESHQhowC0Q5YEQBAxxwdywk/hxKfU/z2/iQhSTNME6FdIDirM9WZozOG5VUH+VUyneAdYN5ZSGz4VXIW716KiT+HDr2dL+ND1lI0oxSQdAA/KAoEfkmJBof74e5iRCVd64mgGmaNyzj5d9CVIoT8m18yEISZ8weGBMoinXJG78A7eZGA25vmHwg5G5QBqrA03rNhc871gRZz/OqkhCZXtw5dKDsum5vJ6Rg64Z41L+PeOZz9DYjI8c9xpWKmxs69bEiyNUqAt4OXpVKZd6kJv8JEb3f3zeJ+KfFyi1RwKMi2qnE7J5SjQUx3Z6+qilMi/u4mzT/024loiW6G+Hv3kU9P+4eIySx8z4kHohyGkyfDj5DBnDoFUy5RDQHHqkP693z1jA97+2vQloxPoSQjDhbJGTyACDrFDg3wlPHFpjqRFEMYDsAUBTjG90hICe2wRs3gE3XAIjIFHVzZIKpvgrBv7IQpImJnqpnUSayt2C0EXfIAHmN8zvKD0Ssubs4V433F6I+7R4jJKEP2nQYtjIVa1o08Fb8OgImR0I8zWZTFaCpshANEWYoZAUUq3tcOSNeyPMtAvIfQpYsGsgCayEkYhDkHAkxT4TcfVy3T8CxEJXDrmiXpPWEkIj6iZAMIiGn3WOEJPRh1wRLwAgKm/x8QBnwwkpcUO1MFbB7M9OnBaAqLCRvWUuYlmX9CIXogPNJRryQDLD+PcwCY9+2G8CTbbSGQHvucm4vmMfV3AJQUTygbNQlIeqJEFo1JmqabRbIF1NWlwdCphxWIypkNj2jCEyDqd+t9DZQdRcLEbBYtEIhOgIhvb92jxGSyAe1cUCbFByhsJAAu6thSTo0RQjxENEIhaQBS4+oHWTECymwCpdoEM6NO834HFPAqtfZTiqafO4WGClLMcL5Xoh3NdV2QqbTsGa6hhN0fgZuC/QiC3E0cfUy6njh9DkrvLIUpQP8DL+WZHgR3R/GbXDoQv2ke4yQBD7+V0gm7QA2jYB5GmYkxLEsfp/shEzxQVrOiBcSzOmRSCgIhWwV6R5xdndTGZgK8eZbIxISIYRINV2vEXAfnG+rl2UhjB5MdWpCUN0JqQO4PhAy6OCnuDw+6R4jJJEP8lXVAcpdVVVruqr6VGoKlmBmQVn6w72ZKCeOQ1H0ByQuXsDYbMY47EsHQsIOAQYSlvT//834CTsRSdOeMO6agVPdFSdV6KJ3SlJKvARniNg+7QqavpAhJs2HfSBkKws5yQgXMgOgMBYHKkKIqMgGKPcIPRDyQHLMJYjfCZlZMBavmijZvfX5DHGBhwwdlUC5sgEmgZBXIH+6QiZ5DJ0zo4cJucwHUdTQpBuTNIzi+8BAvgfExdL+EML0eOIvPPhC1Gw2uw2EjPNwawKHhMgZ4UJyLrCimxnoH0LSgMMFvpC5BrxyHgMs++uhLj2rQqwrSpaxgUlZFsK29J2S0Og8f5RWSAWwT4UAD6Z9ZvQwIRf7GLhwi7PEvLgDrB+MqLcA6D+mQLx+FLK5iwFVkWEj6QvJTjzKvpAYsOGCNAmRM8KFsAqQpeMiT696PFakoQHdV3VbONZm+9gEpgdetQD94wxhjH051NPAz2IFomRD4Cm3OBHyZkBr8zkAdVcOVsi0tTCAx09CjBTvnRk9TMjFPiDzlGOs/9oE8Jxj9xowVWfs/VCnjLmGvRCy6/roJOTQBGKyEIV9R0i/CcErOQ8q0oLgSfq1VxXFc/xDvXNGSAM+9+ygwRizUyFUUtvkPRCBEEEz8UlIlyv2mdHDhFzogyl4R8sDOmtr9KjSZlWgR8Q8IVbW48DU3kMeiJEQGO8AZTrSy2NJiMK+JYT14xqQ7Yg1KCpC6KQpuxNLId/1/ns+hoDbOQpREmeEsEcDbk0F7us92l8+C3mxgCFfNYFewfWFbGitVPmpEGuuMPvM6GFCLvJBLPdDvVA8zEYZ9kNDNsNKMJYzJphtAed4qBNKW2yrCRIiQyvENtb8Q4jCvk3GHH09B+epuV8bjc8b5j++W+qbmfD7K7PR5oQQ0jIb85BahY8uC4nmM/qBl/SyG7F3ZsM3xpQffX8e8WV3eODe12Sr+E46+ZdXukfuE0smC9He9ZEQ/Mn7RDrUv1ercCHXdi/6rQwSEnVGuBDKuFzILfvgHcdx/mRG2nF2UcxDFnLLPq4nQxJy1fO4mQxJyFXP42YyJCFXPY+byZCEXPU8biZDEnLV87iZDEnIVc/j4oxCx2QS51owL8qIXkj0tbrrTTr/hY/uIqBb8XhmzGwINNgNIsGO/NVtMR+5BfP3GbFNaRjRPMKEnM8Y3N2Nvl+rJ2D/X6wPFyfkxYWtTNyrfk5cVSZzo3GDM0JqwfxtRhroRjSPMCHnMyygzc6TzGd/VasKcBJ057rqn/dBQiz7wbbtJ8fDIiGqTTSBrE3UGBtpzV4P0AxxQU3ILZjbZI3/inGC8ziw2U+qEcwjXEiQ8V0hU5R/WatVkcsMgeGf90FClitYw2OGgzx90Vut1k9g7zcvsRE+0Blx2oLZ5b9CJYOCdgTzCBUSZJwXIjUNEqOUXuyzl3vAur/vU4bcNUhdfMKImVKHBW42lsB+sOLzQqERdAXO7scsU4yNvGHbeuclmvPceUrvgKe4YJLciEWMd8RqrquPXcBRde8t1hk7acEkSvxX7OCTr0bgI1RIkHFeiNw0yJjuAtBqXQgalCF3DQa3oisbHk4Dgh7Xgab48MegKmh9G0iweZamWYjCB1FBQIwJksjuBE0SIlgCdyueY2xWacktmAUuY6Z2z5tlusOJ1GIzAXqvneKqUGgUZ//CR5gQ2cd5IXLTIDMNYAqkSxDccULqGvSFFPMgameEwAa0DA1reP94ND64A6t1pBoIMfICIxCyhqDbXhrI16UWzAF/p61u8xBotY99Nx20kLYv9xEqRPZxXojcNMh0oMJGw8xbDLCqxw/r5K5BX4gDNF9TNT5eZ4H4OsXXp0IwWRfYT0CtN4B4ND64hYeUz8x/382WoOwLabuAYWsQTEypBXNbErSp+AI3awCG72kLrAMh1Yt9hAiRfIQIkZsGU4AmTs4iUA4y5K5BISSh0aPAFk9K51RIsy+GtYrtdhMP0fiY44M7X0jeFrhHIVUXqPSVCYDpIznj+MTq2Elk1zqcVzfAkhNjF26Cp2qqvh7ElH/nI1yIwsKEyE2DuSQArVUnIVPuI3cNkhDxg7YkRGGfhKhiWB8rEh9KaupjAR1fSLkkmB6F1GjXLVgAKhnGzgjhpUqHCxq01xI6kIziPA8XIjLChJw2DebuygD+koXIXYNHIQ2a24cQhX0VIobVbGIbhY/xIeBlDSR8IdZGYPlb1mqRocPMoHxCtGC+OfBIHsYeJpcoAHawY6m8Elcj8BEqRGGhQk6bBjOM5mTU54A2/to1eBRiauIkoelNgBbt3vQalpKFZKgfKrL7KxUBgyHw4g1fKpU/Vki+VKozj5GG3ggYShktwG0CS5OfMp8Ae/GgwZjzPLYR+AgTorDfCnEWHiu5afDNUs2qBi1zAFDS55yQuwaFEL4B3Oehfcf5Amim2mKV/Uy7shC2B3p6u/YchQ8mCVmITbCOT/SZRwqoZQaDBAt4iwOodSxgeeAfmIX0FLA6fjeew8dAlpT2Xy7xES4k3AcJEahS02DuCYKKwsWTGFPuGvSFVKcgsgm+9v/qyoaHNZWFBMO2I/DB+rOAkYUkrWtd10uaHdN1VUM5resZX8hUXetqa+OIt6CWAZRMPtAAK93xbThTAx7aQHzXBHbcnAJGL+sifbGPcCHCR7gQuWlwttDoUJ9xXnwgMZyQugZ9Iby9NQCrZnIlRi+os0QTsGcLWQh7oWG1ZyW6+/ZcabOk+tHjQX0C0PJvGZ1CRhgoS3+a57dgpmmz2tEjWlwgXuGWipwYAvkxVwYGBLVLfYQLUb7dNEjk3maZY0Y7VeT8bNdgYtUxRUaG8zq9bvZ1sdNguUg//4jBo9mnoSsA7AIN/zYsA/sMI36UXBDGT8rYwHAaXNCYAE/+FKrZ7fOuyo+0H+04ZfDHjW07i8YFPkKERH3XR0LwP/k8albZp/X+UXYtNmM+mddXFpB7mc2Ufk5kVFttqbXruXEmwoxgHqFCIswgIf8PH1eQIQmJPEPuGryFWv35jFMhVz2Pm8mQhFz1PG4mQxJy1fO4mQxJyFXP42/2zoUrbSSO4tj27OmenXAJAUIwCSBPeYugvCtiEbTq9/82m38ygUHt2eym1iTrPacJLZGbOz/nURn+RsZDABLqHJHxEICEOkdkPAQgoc7xbzz0x8fDZzfp9ObA4yZ7I4nqtlqz5wZXrZb24mV95xCBBKGtLJ2Nx7M38dDHy1Wnbz3oASf8n0z387zxA488ylRM0lFXkr4DlecOE+dHbs0NV5Ne1ndbiUC88ZAqlf6b9o8fwMVb8NgMQFqZOyCzjJJLjHZAzg1jw7rtdocD0eDIeAZkrCjf90CW4Gp4ByJLHoFQDi+fDn8DHh6A+PS4BYbVGjBxgZyWYWmou0BOgCmrAPV/AuJUnLj/z0BkySsQmXkD8nY8OJA34NFU0TbZVMHABXIJVK0/ExGInNoDkVqWsi+BVIA7y6PiAJlqWh34oWlTr0BkySsQmXkFQnsMp6y3bo0Ym66zG9ujn2rES5KtVrKxLRaLfUlyix6SaAvjzLxKlZrMVq9YmZlM3Ko4LY7lpQ1EOzvbMPZINszZwpj2x3xq37eeQ40DuQLqVJzIEIDMJBHID0uJl0BoB6Tl4QAhrYAnPjX55iECkZl3IGng4hhAW24AqFktv57v6g+61aBQlfZFD0lZ4PoEwKBHjUxfj7uRsFVxXAbKBRvIJTCmqBTa2cJYvvfXBw2gQZvDqrzltkDJ7o/F/pIDoR2jwLzRUGwg6utDVodisz2QHl2X5kD88hCBsH8HRAUpD9J3us1d/cEEr36EqlD0kAMhOYNe3XnqfL9V8QFcz4C4WxhvfI2JpwpItSlvuQag0ZHEgezFgeSpk3SeAZkDcIDkjCpjo0tYave8AZGlNwOCu9YttW3rCXa1q8uJW39wAfSlJyA7E4oekvoAOhr1jBmNGIY0vQW+7bYqZoBBtzt8AeQJuHhIAbf+5ijpeoH2csqYrCiZl0DIMl45BvLttsqBtGcP3dZ2ciMCuSKwKQJC6fXiEKheAOWORkB88PANRGd9OspbQKVZwq0/qJWhzKibjMWih5Z47R29DFTYBFh2uw3gxt2qaCrAmk/qIhDawritVGowfK8ZdDpMk8kuc4esOiDr9hwiW5bdgzlEBVdHBHIOS4sNAclM1nIeGDTNFXBJPcQHD/9AGNMA9KQWgLSkHdQf/LGtQT0Tix5SW/ESRXNgwlbgSgk74/DtFSBpcOX98agYpNPxBLgbl9gpcMz0tjupy9LPgKg1EUgcMCbAbZPPIalyg76ZbgqPBMQ3D/9ANA5EqD/YrYHUEYseUlsJQFKsCrQLpJYLpAdAFoCsOZBHQBmSTvz1j3uQ+Bg1Z2YBaj3jLnsnEgG5SFYFIJVKZT3O9tPCHJJOALixMMJoOHdtTje9ns68rLJk6TcCEesPFsvK6qRaPCx6KDP3q0ZloGRXcmWOOBBdBbKMVW0gGaDB9AI901OgZn/B/3G0Na0E6TcAVBOJiV0p0pLRtDNdEBCSAETqDwYJOu+BzIb2MqSbw93WXWWd862p8mKx8srj7YGI9QefYHQ1TTooeigzDqQaN4Bak31TgGV/fD7bAWF3QL7RUW0gtFLrzOlFZWoOo1GpV/3x4HWoN6MLI5eY2euugqpcb5gLJLNwdLwDcuPuom6t13zl3s0n7Z1DmU3lGRD/87l/IKU9ELH+4Aqk8rCj7YoeyswBwrXejSDI7IGcqftlbwskw26pqwVsVXzxICDz29tRFWoZC52RRs4pSTaCRCDPPTaMyzsQzuPtgcg3AhCh/mBJgaOOW/QwZbpAcnUgN2aklgFgUDQdIKQS9bCWDcSk9eck7exzvFopgHJe8sWDgNydZ1IDfL8HxKvlxs+BlA2uH4LHCyDGgEv2wMM3EC8eYv1B7RInyUZnAJzwood0mxyIwkaP5v59iBE7kNnbJxpJ5t5Da/U137+7BqR6ko4nBzl+DmSvFfd4DchePa88/APx7pF19vQmnJOQg4Dg/d7zSsfjqUq/Z541lq3mgUdqPo9Lop7mGTpdXey1fe5RWq2yjNSP7zXyncMzEO8epyrU9nwBtLu8rUQgkXwP8hd6vATi3yNVA6je/enzHL3b29sQt9Xv8BCB/DoPrb8ulrTItdXv8BCBhDpHZDwEIKHOERkPAUioc0TGQwAS6hyR8RCAhDpHZDwEIKHOERkPAUioc0TGQwAS6hyR8RCAhDpHZDwEIKHOERkPAUioc0TGQwAS6hyR8RCAhDpHZDwEIKHOERkPAUioc0TGQwAS6hyR8RCAhDpHZDwEIKHOERkPAUioc0TGQwAS6hyR8RCAhDpHZDwEIKHOERkPAUioc0TGQwAS1hxNXfjLyGQvZY60q6v0w0ySHmbBzfECSMB5nC8WVNPjrFbrMKNWYI70xlBVB0le4/V6gfxJlx7aV4wGtTZtf75q5/PtbWEuzfLLd89BHt6ABJuHlHSqxFunG5ZHjXeIAWzNiUgpD5KaZMy54hxYOx7HdUkqDFrJ4fLdc5CHNyDB5iGlVVC3uIPS3AM5BobbVBuwIOjW6Xx8oUJ5dICsgQT3sIEc1+fL5bvnkJlXIMHmIbM51BHTy7hjOyBTFbkNYz0FZZ1tgWtKBFTtK77lMWjaHhxI0XhqLN8/h2cgAefB7oE+OwNSeyBdoM4/NiqxJVCiOV7BgK5YXFJXIQ8XSDY5bizfP4dnIAHnwSSgQ1R6eyBb4J7OFzSxZOgpS20oJsuDdOV6FMeSRNXas8X3z+EZSMB5UEtfslsM2D8D0TmQgh7EHF6BBJ0HO4Y6yqPBXh2yHndDluoMWTDqwCSIObwCCToPVgImwJkAZKogN2JMdif1c8ZYik/qSnq0QP40gDm8Agk6D6bnkcPCtIHk1pZmtOwtZIvGbtlb7ycVqBJHlgS+BzCHVyBB58HYNYAEs4HYarCNAVsFWt/2y7A14X1I1obAOIA5PAIJPA82BpA9AMKayxywuNAZSTpRoA5bzAFieVSAoRa8HB6BBJ7H6zLlqVjMuBn87ysPQL7QUQ9zjqh46ETiS+wTnUYhzhEZjxGR+BQ7olM6xDki45EmEkexP+k0NsObIyoe5phI/Bn7HCelQ5sjMh5anPQ5Zo1ZpNOw5oiKhxx3RqxY7GvcVl8LZY6IeJiaQ+FrzNIfzuNK/0ELW45oeOij9Nhh8AfxoEHrQ4GQNWB9EAmQjj5zHjRqfejd9UdM0NePTvLOOvoaO9Tnv44+fYl/6B305dPRn59jPpV4RbH/rQLQGgG4hQApAK3xd/d0cAIwEAJRVARZyMH+y00L8RD24atg+DDABAhQA5gAAWoAEyBADWACBKgBTIAANYAJEKAGMAEC1AAmQIAawAQIUAOYAAFqABMgQA1gAgSoAUyAADWACRCgBjABAtQAJkCAGsAECFADmAABagATIEANYAIEqAFMgAA1gAkQoAYwAQLUACZAgBrABAhQA5gAAWoAEyBADWACBKgBTIAANYAJEKAGMAEC1AAmQIAawAQIUAOYAAFqABMgQA1gAgSoAUyAADWACZA7NU5lf5R1Yrn7NZ4eeWK1+zVOD63+CFCjeqhiMaBG9lDGYkCNHovFgBrABAhQA5gAAWoAEyBADWAC5L8aLzHTNzpjPC1lAAAAAElFTkSuQmCC") !important;
+    // background-image: url("data:image/png;base64,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") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
     border: none;
-    width: 400px;
-    height: 200px;
+    width: 200px;
+    height: 100px;
+}
+.v-img-lost::before {
+    content: "\a\a\a\a\a\a\a\a\a\a"; // 将无效图片的错误提示图移出显示区域
 }
 
 // 坏链列表
@@ -1810,7 +1990,7 @@ content>#write .md-hr+.md-hr+.md-hr+ol::before {
     font: var(--v-f-w-bd) 1em var(--v-f-fm-bd); // [style] [weight] [size/[line-height]] [family]
     border-right: @tableThBorderRightWidth solid var(--tbl-cell-bd);
     margin: 0;
-    padding: .5em;
+    padding: var(--tbl-cell-padding);//@tableCellPadding;//.5em;
     box-shadow: @tableThBoxShadow;
 }
 
@@ -1819,7 +1999,7 @@ content>#write .md-hr+.md-hr+.md-hr+ol::before {
 :is(#write, body.typora-export) table td {
     border-right: @tableTdBorderRightWidth solid var(--tbl-cell-bd);
     margin: 0;
-    padding: 5px;
+    padding: var(--tbl-cell-padding);//@tableCellPadding;//5px;
     vertical-align: top;
 }
 
@@ -1831,6 +2011,11 @@ content>#write .md-hr+.md-hr+.md-hr+ol::before {
 // thead 非首行
 :is(#write, body.typora-export) table>thead>tr:not(:first-child)>th {
     box-shadow: @tableThBoxShadow;
+}
+
+// table 行 hover，阅读模式（十字光标）未启用时
+:is(#write, body.typora-export) table:not([d-tbl-cross="true"])>tbody>tr:hover {
+    background: var(--tbl-tr-hv) !important;
 }
 
 // tbody 首行
@@ -1860,7 +2045,7 @@ content>#write .md-hr+.md-hr+.md-hr+ol::before {
 // #write table>thead>tr:first-child>th:first-child,
 // body.typora-export table>thead>tr:first-child>th:first-child {
 :is(#write, body.typora-export) table>thead>tr:first-child>th:first-child {
-    border-top-left-radius: @tableBorderRadius;//var(--v-r-t); // 非16px的原因是存在2px的border，避免因圆角半径不同出现空白
+    border-top-left-radius: calc(@tableBorderRadius - 1px);//var(--v-r-t); // 非16px的原因是存在2px的border，避免因圆角半径不同出现空白
     // white-space: pre;
 }
 
@@ -1868,21 +2053,21 @@ content>#write .md-hr+.md-hr+.md-hr+ol::before {
 // #write table>thead>tr:first-child>th:last-child,
 // body.typora-export table>thead>tr:first-child>th:last-child {
 :is(#write, body.typora-export) table>thead>tr:first-child>th:last-child {
-    border-top-right-radius: @tableBorderRadius;//var(--v-r-t); // 非16px的原因是存在2px的border，避免因圆角半径不同出现空白
+    border-top-right-radius:calc(@tableBorderRadius - 1px);//var(--v-r-t); // 非16px的原因是存在2px的border，避免因圆角半径不同出现空白
 }
 
 // 表格末行的首列
 // #write table>tbody>tr:last-child>td:first-child,
 // body.typora-export table>tbody>tr:last-child>td:first-child {
 :is(#write, body.typora-export) table>tbody>tr:last-child>td:first-child {
-    border-bottom-left-radius: @tableBorderRadius;//var(--v-r-t); // 非16px的原因是存在2px的border，避免因圆角半径不同出现空白
+    border-bottom-left-radius: calc(@tableBorderRadius - 1px);//var(--v-r-t); // 非16px的原因是存在2px的border，避免因圆角半径不同出现空白
 }
 
 // 表格末行的尾列
 // #write table>tbody>tr:last-child>td:last-child,
 // body.typora-export table>tbody>tr:last-child>td:last-child {
 :is(#write, body.typora-export) table>tbody>tr:last-child>td:last-child {
-    border-bottom-right-radius: @tableBorderRadius;//var(--v-r-t); // 非16px的原因是存在2px的border，避免因圆角半径不同出现空白
+    border-bottom-right-radius: calc(@tableBorderRadius - 1px);//var(--v-r-t); // 非16px的原因是存在2px的border，避免因圆角半径不同出现空白
 }
 
 // 表格首列
@@ -2056,7 +2241,8 @@ td.v-tbl-row-g-not-folder {
     height: 32px;
     display: inline-block;
     padding: 0;
-    margin: -10px 58px -10px 4px;
+    margin: -10px 32px -10px 4px;
+    // margin: -10px 58px -10px 4px;
 }
 // 带表格行号的样式微调
 // #write h6+figure table .v-tbl-row-g-identer,
@@ -2064,6 +2250,7 @@ td.v-tbl-row-g-not-folder {
 // body.typora-export h6+figure table .v-tbl-row-g-identer,
 // body.typora-export li>figure table .v-tbl-row-g-identer {
 :is(#write, body.typora-export) :is(h6+figure, li>figure) table .v-tbl-row-g-identer {
+    // margin-right: 32px;
     margin-right: 58px;
 }
 
@@ -2089,7 +2276,10 @@ td.v-tbl-row-g-not-folder {
 // #write li>figure table .v-tbl-row-g-identer-folder,
 // body.typora-export figure table .v-tbl-row-g-identer-folder,
 // body.typora-export li>figure table .v-tbl-row-g-identer-folder {
-:is(#write, body.typora-export) :is(figure, li>figure) table .v-tbl-row-g-identer-folder {
+:is(#write, body.typora-export) figure table .v-tbl-row-g-identer-folder {
+    margin-right: 12px !important;
+}
+:is(#write, body.typora-export) li>figure table .v-tbl-row-g-identer-folder {
     margin-right: 38px !important;
 }
 // 连续缩进的占位元素修正
@@ -2248,7 +2438,8 @@ td.v-tbl-row-g-not-folder {
 }
 
 // 高亮
-#write mark {
+// #write mark {
+mark {
     box-shadow: 0 -.9em 0 0 var(--mark-bg) inset;
     // text-shadow: 0 1px 0 var(--d-bc);
     font-weight: var(--v-f-w-bd);
@@ -2265,8 +2456,9 @@ td.v-tbl-row-g-not-folder {
 }
 
 #write del code {
-    font-style: italic;
-    text-decoration: line-throug solid !important;
+    // font-style: italic;
+    // text-decoration: line-throug solid !important;
+    text-decoration: line-through !important;
 }
 
 // 脚注区域
@@ -2317,6 +2509,7 @@ code {
     box-shadow: 0 0 0 1px var(--std-code-shadow) inset;
     display: inline-block;
     text-align: inherit;
+    // vertical-align: middle;
 }
 .v-std-code {
     cursor: var(--cur-copy);
@@ -2393,6 +2586,9 @@ strong :is(tt, code) {
 #write :is(h1,h2,h3,h4,h5,h6)::after {
     color: @contentHeaderNumColor;
     letter-spacing: 0;
+    -webkit-text-stroke: initial;
+    text-stroke: initial;
+    text-shadow: none;
 }
 
 #write h1::before {
@@ -3080,6 +3276,9 @@ body.typora-export .v-copyright a:active {
 .v-float-card {
     box-shadow: var(--v-float-shadow), @contrastBorder;
 }
+.v-float-card2 {
+    box-shadow: var(--v-float-shadow), var(--v-float-inn-shadow);//0 0 0 1px rgba(0, 0, 0, .3);
+}
 
 .v-foot-note-panel {
     position: fixed;
@@ -3101,7 +3300,7 @@ body.typora-export .v-foot-note-panel>a {
 }
 
 .v-foot-note-panel-header {
-    height: 30px;
+    height: 25px;
     top: 2px;
     left: 2px;
     right: 2px;
@@ -3137,11 +3336,12 @@ body.typora-export .v-foot-note-panel>a {
 .v-more-doc-content-before {
     width: 100%;
     height: 110px;
-    background: linear-gradient(180deg, var(--d-bc) 45%, var(--d-bc-tsp));
+    background: linear-gradient(180deg, var(--d-bc) 50px, var(--d-bc-tsp));
     position: fixed;
     top: 0;
     pointer-events: none;
     display: none;
+    opacity: .9;
     z-index: 99;
 }
 .v-more-doc-content-before.cover{
@@ -3157,6 +3357,7 @@ body.typora-export .v-foot-note-panel>a {
     bottom: 0;
     pointer-events: none;
     display: block;
+    opacity: .9;
     z-index: 99;
 }
 
@@ -3723,7 +3924,7 @@ body.typora-export .v-foot-note-panel>a {
 // 须保持内、外阴影样式设置的顺序要一致，否则动画变换会失效
 .v-textfield-focus,
 .v-textfield.hover-action {
-    box-shadow: 0 0 0 1px @buttonBgColor inset, 0 0 0 2px fade(@buttonBgColor, 50%);
+    box-shadow: var(--v-input-focus-inn-shadow), var(--v-input-focus-shadow);
 }
 
 // body.typora-export input::placeholder,
@@ -4083,7 +4284,7 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
     bottom: 58px;
     height: 4px;
     position: absolute;
-    background-color: @buttonBgColor;//var(--d-f-c);
+    background-color: @docLibButtonBgColor;//var(--d-f-c);
     opacity: .15;
     border-radius: calc(var(--v-r-s) - 4px) calc(var(--v-r-s) - 4px) 0 0;
     z-index: 21;
@@ -4093,7 +4294,7 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
     right: 40px;
     bottom: 51px;
     height: 6px;
-    background-color: @buttonBgColor;//var(--d-f-c);
+    background-color: @docLibButtonBgColor;//var(--d-f-c);
     opacity: .3;
     border-radius: calc(var(--v-r-s) - 2px) calc(var(--v-r-s) - 2px) 0 0;
     z-index: 22;
@@ -4233,11 +4434,12 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
 .v-caption {
     display: inline-block;
     border-radius: var(--v-r-b);
-    background: var(--tbl-td-bg);
+    background: @captionBackground;
 }
 
 .v-cap-1,
 .v-cap-2 {
+    color: @captionTextColor;
     font: normal .875em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
     font-weight: normal;
     margin: 5px 10px !important;
@@ -4344,6 +4546,24 @@ use.v-blockquote-folder-ico:active {
     -webkit-backdrop-filter: saturate(180%) blur(15px);
 }
 
+// #write blockquote>p:first-of-type:has(:is(span[md-inline="image"], img))+blockquote {
+//     color:  var(--d-f-c-dk);
+//     border-radius: 0 0 var(--v-r-b) var(--v-r-b);
+//     border: none;
+//     background: var(--ac-t1);//fade(@accColorGray, 20%);
+// }
+// #write blockquote>p:first-of-type:has(:is(span[md-inline="image"], img))+blockquote::before {
+//     content: "Pic Card";
+//     color: var(--d-f-c);
+//     font-weight: bold;
+//     font-style: italic;
+//     font-size: .5em;
+//     opacity: .5;
+//     background: var(--pn-c-alt);
+//     border-radius: var(--v-r-b);
+//     padding: 0 5px;
+// }
+
 // 引用内的分栏引用
 // #write blockquote>hr+blockquote,
 // #write blockquote>hr+blockquote+blockquote,
@@ -4354,14 +4574,14 @@ use.v-blockquote-folder-ico:active {
 // #write blockquote>.md-hr+blockquote+blockquote,
 // #write blockquote>.md-hr+blockquote+blockquote+blockquote,
 // #write blockquote>.md-hr+blockquote+blockquote+blockquote+blockquote {
-#write blockquote>:is(hr, .md-hr)+blockquote,
-#write blockquote>:is(hr, .md-hr)+blockquote+blockquote,
-#write blockquote>:is(hr, .md-hr)+blockquote+blockquote+blockquote,
-#write blockquote>:is(hr, .md-hr)+blockquote+blockquote+blockquote+blockquote,
-#write details>:is(hr, .md-hr)+details,
-#write details>:is(hr, .md-hr)+details+details,
-#write details>:is(hr, .md-hr)+details+details+details,
-#write details>:is(hr, .md-hr)+details+details+details+details {
+// #write blockquote>:is(hr, .md-hr)+blockquote,
+// #write blockquote>:is(hr, .md-hr)+blockquote+blockquote,
+// #write blockquote>:is(hr, .md-hr)+blockquote+blockquote+blockquote,
+// #write blockquote>:is(hr, .md-hr)+blockquote+blockquote+blockquote+blockquote,
+#write :is(blockquote, details)>:is(hr, .md-hr)+details,
+#write :is(blockquote, details)>:is(hr, .md-hr)+details+details,
+#write :is(blockquote, details)>:is(hr, .md-hr)+details+details+details,
+#write :is(blockquote, details)>:is(hr, .md-hr)+details+details+details+details {
     border: none;
     background: var(--d-bc) !important;
     border-radius: var(--v-r-s);
@@ -4451,6 +4671,21 @@ use.v-blockquote-folder-ico:active {
         background: @aHoverColor;
         box-shadow: 0 3px darken(@aHoverColor, 15%); // 按钮高 3px
     }
+    // 图文卡片
+    #write .v-q.@{quoteMark} .v-post-card {
+        color: @btnFore !important;
+        // background: linear-gradient(180deg, @btnBg 50%, rgba(@btnBg, .9));
+        background: @btnBg !important;
+        // text-shadow: 0 1px darken(@btnFore, 75%) !important;
+    }
+    #write .v-q.@{quoteMark} img[src*="#card"],
+    #write .v-q.@{quoteMark} svg[data-inject-url*="#card"] {
+        border-color: @btnBg !important;
+    }
+    #write .v-q.@{quoteMark} .v-post-card a kbd,
+    #write .v-q .v-q.@{quoteMark} .v-post-card a kbd {
+        border: 1px solid fade(@buttonForeColor, 25%);
+    }
     // 链接
     #write .v-q.@{quoteMark} a,
     #write .v-q .v-q.@{quoteMark} a {
@@ -4464,13 +4699,13 @@ use.v-blockquote-folder-ico:active {
     #write .v-q.@{quoteMark} a:active,
     #write .v-q .v-q.@{quoteMark} a:active {
         background: var(--pn-c);
-        box-shadow: 0 0 0 2px rgba(@accColor, .3);
         border-bottom: 0;
         border-radius: var(--v-r-s);
+        // box-shadow: 0 0 0 2px rgba(@accColor, .3);
     }
-    #write .v-q.@{quoteMark} a:active:has(kbd) {
-        box-shadow: none;
-    }
+    // #write .v-q.@{quoteMark} a:active:has(kbd) {
+    //     box-shadow: none;
+    // }
     // 标题
     #write .v-q>.title-@{quoteMark},
     #write .v-q .v-q>.title-@{quoteMark} {
@@ -4493,26 +4728,26 @@ use.v-blockquote-folder-ico:active {
 }
 .genRainbowQuoteCSS(rd, @accColorRed, var(--ac-rd-fade), @accColorRed, #FFFFFF, var(--ac-rd-title), var(--ac-rd-title-lg));
 .genRainbowQuoteCSS(og, @accColorOrange, var(--ac-og-fade), @accColorOrange, #FFFFFF, var(--ac-og-title), var(--ac-og-title-lg));
-.genRainbowQuoteCSS(ye, @accColorYellow, var(--ac-ye-fade), @accColorYellow, var(--d-f-c-lg), var(--ac-ye-title), var(--ac-ye-title-lg));
-.genRainbowQuoteCSS(lm, @accColorLime, var(--ac-lm-fade), @accColorLime, var(--d-f-c-lg), var(--ac-lm-title), var(--ac-lm-title-lg));
+.genRainbowQuoteCSS(ye, @accColorYellow, var(--ac-ye-fade), @accColorYellow, #000000, var(--ac-ye-title), var(--ac-ye-title-lg));
+.genRainbowQuoteCSS(lm, @accColorLime, var(--ac-lm-fade), @accColorLime, #000000, var(--ac-lm-title), var(--ac-lm-title-lg));
 .genRainbowQuoteCSS(gn, @accColorGreen, var(--ac-gn-fade), @accColorGreen, #FFFFFF, var(--ac-gn-title), var(--ac-gn-title-lg));
 .genRainbowQuoteCSS(mn, @accColorMineral, var(--ac-mn-fade), @accColorMineral, #FFFFFF, var(--ac-mn-title), var(--ac-mn-title-lg));
 .genRainbowQuoteCSS(ol, @accColorOlives, var(--ac-ol-fade), @accColorOlives, #FFFFFF, var(--ac-ol-title), var(--ac-ol-title-lg));
 .genRainbowQuoteCSS(wn, @accColorWine, var(--ac-wn-fade), @accColorWine, #FFFFFF, var(--ac-wn-title), var(--ac-wn-title-lg));
-.genRainbowQuoteCSS(aq, @accColorAqua, var(--ac-aq-fade), @accColorAqua, var(--d-f-c-lg), var(--ac-aq-title), var(--ac-aq-title-lg));
+.genRainbowQuoteCSS(aq, @accColorAqua, var(--ac-aq-fade), @accColorAqua, #000000, var(--ac-aq-title), var(--ac-aq-title-lg));
 .genRainbowQuoteCSS(cy, @accColorCyan, var(--ac-cy-fade), @accColorCyan, #FFFFFF, var(--ac-cy-title), var(--ac-cy-title-lg));
 .genRainbowQuoteCSS(bu, @accColorBlue, var(--ac-bu-fade), @accColorBlue, #FFFFFF, var(--ac-bu-title), var(--ac-bu-title-lg));
 .genRainbowQuoteCSS(se, @accColorSea, var(--ac-se-fade), @accColorSea, #FFFFFF, var(--ac-se-title), var(--ac-se-title-lg));
-.genRainbowQuoteCSS(la, @accColorLavender, var(--ac-la-fade), @accColorLavender, var(--d-f-c-lg), var(--ac-la-title), var(--ac-la-title-lg));
+.genRainbowQuoteCSS(la, @accColorLavender, var(--ac-la-fade), @accColorLavender, #000000, var(--ac-la-title), var(--ac-la-title-lg));
 .genRainbowQuoteCSS(vn, @accColorVine, var(--ac-vn-fade), @accColorVine, #FFFFFF, var(--ac-vn-title), var(--ac-vn-title-lg));
 .genRainbowQuoteCSS(pu, @accColorPurple, var(--ac-pu-fade), @accColorPurple, #FFFFFF, var(--ac-pu-title), var(--ac-pu-title-lg));
 .genRainbowQuoteCSS(ro, @accColorRose, var(--ac-ro-fade), @accColorRose, #FFFFFF, var(--ac-ro-title), var(--ac-ro-title-lg));
-.genRainbowQuoteCSS(pk, @accColorPink, var(--ac-pk-fade), @accColorPink, var(--d-f-c-lg), var(--ac-pk-title), var(--ac-pk-title-lg));
-.genRainbowQuoteCSS(gd, @accColorGold, var(--ac-gd-fade), @accColorGold, var(--d-f-c-lg), var(--ac-gd-title), var(--ac-gd-title-lg));
+.genRainbowQuoteCSS(pk, @accColorPink, var(--ac-pk-fade), @accColorPink, #000000, var(--ac-pk-title), var(--ac-pk-title-lg));
+.genRainbowQuoteCSS(gd, @accColorGold, var(--ac-gd-fade), @accColorGold, #000000, var(--ac-gd-title), var(--ac-gd-title-lg));
 .genRainbowQuoteCSS(bn, @accColorBrown, var(--ac-bn-fade), @accColorBrown, #FFFFFF, var(--ac-bn-title), var(--ac-bn-title-lg));
 .genRainbowQuoteCSS(gy, @accColorGray, var(--ac-gy-fade), @accColorGray, #FFFFFF, var(--ac-gy-title), var(--ac-gy-title-lg));
-.genRainbowQuoteCSS(t1, @theme1, var(--ac-t1-fade), @buttonBgColor, #FFFFFF, var(--ac-t1-title), var(--ac-t1-title-lg));
-.genRainbowQuoteCSS(t2, @theme2, var(--ac-t2-fade), @aHoverColor, #FFFFFF, var(--ac-t2-title), var(--ac-t2-title-lg));
+.genRainbowQuoteCSS(t1, @theme1, var(--ac-t1-fade), @docLibButtonBgColor, @docLibButtonForeColor, var(--ac-t1-title), var(--ac-t1-title-lg));
+.genRainbowQuoteCSS(t2, @theme2, var(--ac-t2-fade), @aHoverColor, @buttonForeHoverColor, var(--ac-t2-title), var(--ac-t2-title-lg));
 
 // 标签式公用样式（风格2）
 // .v-tag {
@@ -4525,10 +4760,12 @@ use.v-blockquote-folder-ico:active {
     // background: transparent;
     // border-radius: 1em;
     border-radius: var(--v-r-tag);//calc(var(--v-r-tag) + 2px);
-    padding: 2px 5px;
+    // padding: 2px 5px;
     // padding: 2px 4px;
     text-shadow: none;
     white-space: pre;
+    line-height: 1;
+    vertical-align: text-top;
     cursor: var(--cur-copy);
 }
 :is(#write, body.typora-export) .v-tag.em {
@@ -4582,12 +4819,16 @@ use.v-blockquote-folder-ico:active {
 // body.typora-export .v-badge-name {
 :is(#write, body.typora-export) .v-badge-name {
     display: inline-block;
-    font: var(--v-f-w-bd) .75em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
+    // display: inline-flex;
+    align-items: center;
+    font: var(--v-f-w-bd) .875em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
     margin-right: 0;
     border-radius: var(--v-r-tag);
     color: fade(#FFFFFF, 90%);
     padding: 1px 1px 1px 5px;
     white-space: pre;
+    line-height: 1;
+    vertical-align: top;
     box-shadow: 0 0 0 1px var(--rb-code-shadow) inset;
     cursor: var(--cur-copy);
 }
@@ -4598,16 +4839,19 @@ use.v-blockquote-folder-ico:active {
 // 表格内的情况
 // #write table code,
 // body.typora-export table code,
-:is(#write, body.typora-export) table code,
+:is(#write, body.typora-export) :is(blockquote, details) code {
 // table .v-badge-name {
 // #write table .v-badge-name,
 // body.typora-export table .v-badge-name {
-:is(#write, body.typora-export) table .v-badge-name {
-    display: inline-block;
-    margin: 1px 0;
+// :is(#write, body.typora-export) table .v-badge-name {
+    // display: inline-block;
+    // padding: 1px 5px;
+    // margin: 1px 0;
+    vertical-align: initial;
 }
-:is(#write, body.typora-export) table .v-badge-name {
-    padding: 2px 2px 2px 5px;
+:is(#write, body.typora-export) table {
+    // padding: 2px 2px 2px 5px;
+    vertical-align: text-top;
 }
 
 // 徽章样式内容公共样式
@@ -4635,7 +4879,8 @@ use.v-blockquote-folder-ico:active {
 // body.typora-export table .v-badge-value {
 :is(#write, body.typora-export) table .v-badge-value {
     display: inline-block;
-    margin: 0 0 0 5px;
+    margin: 1px 1px 1px 5px;
+    // margin: 0 0 0 5px;
 }
 .v-badge-value>span.var {
     font-style: italic;
@@ -4756,11 +5001,12 @@ rt:hover {
 // 上标、下标样式
 // content>#write blockquote p>sub:only-child,
 // content>#write blockquote p>sub:first-of-type,
-#write sup {
-    color: var(--d-f-c);
-    opacity: .75;
-    // font-weight: normal;
-}
+// #write :is(sup, sub) {
+//     color: var(--d-f-c);
+//     font-size: .75em;
+//     // opacity: .75;
+//     // font-weight: normal;
+// }
 
 /**************************************
 * 封面、封底
@@ -4800,8 +5046,18 @@ rt:hover {
     background-position: @coverBackgroundPosition;
     letter-spacing: 0;
 }
+#write>pre.md-meta-block:first-child+h6>span, // 有 YAML 的情况
+#write>h6:first-child>span { // 无 YAML 的情况
+    color: @coverTextColor !important;
+    -webkit-text-stroke: @coverTextStroke;
+    text-stroke: @coverTextStroke;
+    text-shadow: @coverTextShadow;
+}
 #write>h1:last-child>span {
     color: @backCoverTextColor !important;
+    -webkit-text-stroke: @backCoverTextStroke;
+    text-stroke: @backCoverTextStroke;
+    text-shadow: @backCoverTextShadow;
 }
 
 // 封底样式微调
@@ -4820,18 +5076,25 @@ rt:hover {
     letter-spacing: 0;
 }
 
-// 封面内下标信息
+// 封面内上标格式
+#write>pre.md-meta-block:first-child+h6 sup,
+#write>h6:first-child sup {
+    color: @coverTextColor !important;
+}
+
+// 封面内下标格式（大标题上的小标题）
 // #write>pre.md-meta-block:first-child+h6 sub,
 // #write>h6:first-child sub {
 #write>pre.md-meta-block:first-child+h6 sub,
 #write>h6:first-child sub {
     color: @coverSubColor;
+    -webkit-text-stroke: @coverTextStroke;
+    text-stroke: @coverTextStroke;
+    text-shadow: @coverTextShadow;
     font: var(--v-f-w-bd) 75% var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
 }
 
-// 封面内上标信息
-// #write>pre.md-meta-block:first-child+h6 sup,
-// #write>h6:first-child sup {
+// 封面内下划线格式（大标题下的副标题）
 #write>pre.md-meta-block:first-child+h6 u,
 #write>h6:first-child u {
     color: @coverUnderlineColor;
@@ -4855,6 +5118,11 @@ rt:hover {
 #write>h6:first-child :is(code, .v-tag, .v-badge-name) {
     font-size: .5em !important;
     color: @buttonForeHoverColor;
+    caret-color: @buttonForeHoverColor;
+    -webkit-text-stroke: initial;
+    text-stroke: initial;
+    text-shadow: none;
+    vertical-align: initial;
     background: @aHoverColor;
 }
 
@@ -4871,6 +5139,9 @@ rt:hover {
 // #write>h6:first-child strong::before {
 :is(#write>pre.md-meta-block:first-child+h6, #write>h6:first-child) :is(strong, strong::before) {
     color: @coverAuthorColor;
+    -webkit-text-stroke: initial;
+    text-stroke: initial;
+    text-shadow: none;
     font: normal .625em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
 }
 
@@ -4886,6 +5157,9 @@ rt:hover {
 #write>pre.md-meta-block:first-child+h6 em,
 #write>h6:first-child em {
     color: @coverOwnerColor;
+    -webkit-text-stroke: initial;
+    text-stroke: initial;
+    text-shadow: none;
     font: normal var(--v-f-w-bd) .4em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
 }
 

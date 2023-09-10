@@ -3,8 +3,8 @@
  * VLOOK CSS 多主题间的通用样式
  * (配合 base.less、主题.less 进行使用)
  *
- * V19.0
- * 2023-07-29
+ * V20.0
+ * 2023-09-10
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -14,6 +14,9 @@
  * https://gitee.com/madmaxchow/VLOOK
  *
  *************************************/
+
+// 图片、插图边框宽度
+@imgBorderWidth: 2px;
 
  // --------------------
 // 主题的文档纹理背景
@@ -47,6 +50,10 @@
 @h4BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "  ";
 @h5BeforeContent: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "  ";
 
+// 题注文字、背景色
+@captionTextColor: var(--d-f-c);
+@captionBackground: var(--tbl-td-bg);
+
 // 表格边框
 @tblBdWidth: 2px;
 @tableBorderColor: var(--tbl-bd);
@@ -57,6 +64,9 @@
 @tableBorderBottomWidth: @tblBdWidth;
 @tableThBorderRightWidth: 1px;
 @tableTdBorderRightWidth: 1px;
+// 表格行 hover
+@tableTrHoverBg: fade(@aHoverColor, 20%);
+@tableTrHoverBgDark: fade(@aHoverColor, 40%);
 // 表格圆角
 @tableBorderRadius: var(--v-r-b);
 // 表格背景
@@ -74,12 +84,28 @@
 @tableCrossBgColor: fade(@aLineColor, 50%);
 
 // 标题的阴影样式
-@h1Shadown: none;
-@h2Shadown: none;
-@h3Shadown: none;
-@h4Shadown: none;
-@h5Shadown: none;
-@h6Shadown: none;
+@h1Shadow: none;
+@h2Shadow: none;
+@h3Shadow: none;
+@h4Shadow: none;
+@h5Shadow: none;
+@h6Shadow: none;
+
+// 标题的文字阴影样式
+@h1TextShadow: none;
+@h2TextShadow: none;
+@h3TextShadow: none;
+@h4TextShadow: none;
+@h5TextShadow: none;
+@h6TextShadow: none;
+
+// 标题的文字轮廓样式
+@h1TextStroke: initial;
+@h2TextStroke: initial;
+@h3TextStroke: initial;
+@h4TextStroke: initial;
+@h5TextStroke: initial;
+@h6TextStroke: initial;
 
 // 标题的左边框
 @h1BorderLeft: 0;
@@ -120,3 +146,11 @@
 @codeBlockBackgroundSize: auto;
 @codeBlockBackgroundRepeat: inherit;
 @codeBlockBackgroundPosition: inherit;
+
+// 封面、封底标题的文字阴影样式
+@coverTextShadow: none;
+@backCoverTextShadow: none;
+
+// 封面、封底标题的文字轮廓样式
+@coverTextStroke: initial;
+@backCoverTextStroke: initial;

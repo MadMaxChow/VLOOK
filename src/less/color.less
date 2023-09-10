@@ -3,8 +3,8 @@
  * VLOOK CSS 调色板
  * (配合 base.less 进行使用)
  *
- * V19.0
- * 2023-07-29
+ * V20.0
+ * 2023-09-10
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -97,6 +97,7 @@
 .applyTableColor(@colorLight, @colorDark) {
     :root {
         --tbl-bd-lg: @colorLight; // 表格边框
+        --tbl-tr-hv-lg: @tableTrHoverBg;
         --tbl-h-bd-lg: darken(@colorLight, 10%);
         // --tbl-th-bg-lg: lighten(@colorLight, 20%); // 表头背景
         --tbl-th-bg-lg: fade(@colorLight, 40%); // 表头背景
@@ -104,6 +105,7 @@
         --tbl-cell-bd-lg: fade(@colorLight, 30%); // 单元格边框
 
         --tbl-bd-dk: @colorDark; // 表格边框
+        --tbl-tr-hv-dk: @tableTrHoverBgDark;
         --tbl-h-bd-dk: lighten(@colorDark, 10%);
         // --tbl-th-bg-dk: darken(@colorDark, 20%); // 表头背景
         --tbl-th-bg-dk: fade(@colorDark, 40%); // 表头背景
@@ -197,7 +199,7 @@
 @accColorVineAltDark: #1B1867;
 
 @accColorGray: #888B8F;
-@accColorGrayDark: #919497;
+@accColorGrayDark: #83878B;
 @accColorGrayAlt: #E7E8E9;
 @accColorGrayAltDark: #313435;
 
@@ -223,8 +225,8 @@
 @accColorMineralAlt: #DCF9F7;
 @accColorMineralAltDark: #062320;
 
-@accColorSea: #1040D0;
-@accColorSeaDark: #2F5FEF;
+@accColorSea: #1040C0;
+@accColorSeaDark: #1248D9;
 @accColorSeaAlt: #D9E2FC;
 @accColorSeaAltDark: #061B56;
 
@@ -271,6 +273,7 @@
     // Light 模式的颜色值
     --v-invert-dark-lg: invert(0) brightness(100%); // Light Mode 下图片滤镜
     --v-brightness-dark-lg: brightness(100%); // Light 模式下封面、封底的滤镜
+    --v-selection-color-lg: fade(#888888, 30%); // 选中内容的背景色
 
     --a-color-lg: @aColor;
     --mark-bg-lg: var(--ac-t1-fade-lg);//rgba(255, 192, 32, .4);
@@ -389,6 +392,8 @@
     // Dark Mode的颜色值
     --v-invert-dark-dk: invert(1) brightness(90%); // Dark Mode 下图片滤镜
     --v-brightness-dark-dk: brightness(90%); // Dark Mode下封面、封底的滤镜
+    --v-selection-color-dk: fade(#888888, 50%); // 选中内容的背景色
+
     --a-color-dk: @aColorDark;
     --mark-bg-dk: var(--ac-t1-fade-lg);//rgba(255, 192, 32, .3);
     --tbl-row-g-alpha-dk: .25;
@@ -507,6 +512,8 @@
     --v-invert-dark: var(--v-invert-dark-lg); // 默认的图片滤镜
     --v-invert-hover: var(--v-invert-hover-lg); // 默认的图片链接的 hover 滤镜
     --v-brightness-dark: var(--v-brightness-dark-lg); // 默认的封面、封底滤镜
+    --v-selection-color: var(--v-selection-color-lg);
+
     --d-bc: var(--d-bc-lg);
     --d-bc-tsp: var(--d-bc-tsp-lg);
     --d-bi: var(--d-bi-lg);
@@ -522,6 +529,7 @@
     --a-color: var(--a-color-lg);
     --mark-bg: var(--ac-t1-fade-lg);// var(--mark-bg-lg);
     --tbl-bd: var(--tbl-bd-lg);
+    --tbl-tr-hv: var(--tbl-tr-hv-lg);
     --tbl-h-bd: var(--tbl-h-bd-lg);
     --tbl-th-bg: var(--tbl-th-bg-lg);
     --tbl-td-bg: var(--tbl-td-bg-lg);

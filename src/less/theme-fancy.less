@@ -89,6 +89,22 @@
 @h5Margin: 1.25em 0 @hGap 0;
 @h6Margin: 1em 0 0 0;
 
+// 标题的文字阴影样式
+@h1TextShadow: 1px 1px 0 var(--ac-t2);
+@h2TextShadow: @h1TextShadow;//1px 1px 0 var(--ac-t2);
+@h3TextShadow: @h1TextShadow;//1px 1px 0 var(--ac-t2);
+@h4TextShadow: @h1TextShadow;//1px 1px 0 var(--ac-t2);
+@h5TextShadow: @h1TextShadow;//1px 1px 0 var(--ac-t2);
+// @h6TextShadow: none;
+
+// 标题的文字轮廓样式
+@h1TextStroke: 1px var(--ac-t2);
+@h2TextStroke: @h1TextStroke;//1px var(--ac-t2);
+@h3TextStroke: @h1TextStroke;//1px var(--ac-t2);;
+@h4TextStroke: @h1TextStroke;//1px var(--ac-t2);
+@h5TextStroke: @h1TextStroke;//1px var(--ac-t2);
+// @h6TextStroke: none;
+
 // 按钮色
 @buttonForeColor: @themeForeColor;
 @buttonForeHoverColor: #FFFFFF;
@@ -137,8 +153,12 @@
 @coverTextAfterColor: @coverTextBeforeColor;
 @coverTextAfterFontSize: @coverTextBeforeFontSize;
 
+// 封面、封底标题的文字阴影样式
+@coverTextShadow: 3px 3px 0 var(--ac-t2);
+@backCoverTextShadow: @coverTextShadow;
+
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
-@contrastBorder: 0 0 0 0 rgba(0, 0, 0, 0);
+@contrastBorder: 0 0 0 0 transparent;
 @contrastBorderForCover: @contrastBorder;
 
 // 封面背景设置

@@ -1,5 +1,5 @@
 <!--
-VLOOK V19.0 (2023-07-29) - Typora Plugin (head meta)
+VLOOK V20.0 (2023-09-10) - Typora Plugin (head meta)
 Paste to "Export Setting ▸ VLOOK / VLOOK (live) ▸ Append in <head />"
 粘贴至「导出设置... ▸ VLOOK / VLOOK (live) ▸ 在 <head /> 中添加」
 -->
@@ -11,3 +11,4 @@ Paste to "Export Setting ▸ VLOOK / VLOOK (live) ▸ Append in <head />"
 <meta name="vlook-query" content="${vlook-query}">
 <meta name="vlook-welcome" content="${vlook-welcome}">
 <meta name="vlook-image-host" content="${vlook-image-host}">
+<meta name="vlook-var" content="${vlook-var}">

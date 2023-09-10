@@ -82,6 +82,10 @@
 @h5Margin: 1.25em 0 0 0;
 @h6Margin: 1em 0 0 0;
 
+// 表格行 hover
+@tableTrHoverBg: fade(@aHoverColor, 15%);
+@tableTrHoverBgDark: fade(@aHoverColor, 25%);
+
 // 按钮色
 @buttonForeColor: @themeForeColor;
 @buttonForeHoverColor: #FFFFFF;
@@ -90,7 +94,6 @@
 @docLibButtonForeColor: @themeBgColor;
 @docLibButtonForeHoverColor: #FFFFFF;
 @docLibButtonBgColor: @themeForeColor;
-
 
 // 链接颜色
 @aBorderWidth: 2px;
@@ -132,7 +135,7 @@
 @coverTextAfterFontSize: @coverTextBeforeFontSize;
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
-@contrastBorder: 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+@contrastBorder: 0 0 0 1px rgba(255, 255, 255, .2) inset;
 @contrastBorderForCover: 0 0 0 2px rgba(255, 255, 255, 0.1) inset;
 
 // 封面背景设置

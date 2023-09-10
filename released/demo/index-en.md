@@ -11,7 +11,7 @@ vlook-query: effects=2&ws=auto&lmc=1
 vlook-doc-lib: vlook-lib-en.html
 ---
 
-###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective^[Interaction]^<br>──<br><u>Introduction</u><br>`#Latest|V19.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
+###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective^[Interaction]^<br>──<br><u>Introduction</u><br>`#Latest|V20.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
 
 [TOC]
 
@@ -202,8 +202,6 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 
 ![Typora ▸ Preferences ▸ Markdown](https://madmaxchow.gitee.io/vlookres/pic/typora-opt1-light.png?srcset=@2x&darksrc=typora-opt1-dark.png&darksrcset=@2x)
 
----
-
 ## Install the Theme Package
 
 ---
@@ -237,8 +235,6 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >    2. No cover template: *VLOOK-Document-Template-nocover.md*
 >    3. Document library template: *VLOOK-Document-Template-doc_lib.md*
 > 2. You can also download the document templates directly from the [project homepage](https://github.com/MadMaxChow/VLOOK/tree/master/released/demo) ( [alternative link](https://gitee.com/madmaxchow/VLOOK/tree/master/released/demo) )
-
----
 
 ## Configure Export Options
 

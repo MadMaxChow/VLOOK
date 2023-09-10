@@ -34,7 +34,11 @@ VLOOK™ is open source software and complies with the **[MIT license](#许可�
 
 **If you like VLOOK™, you can contribute a cup of coffee :-)**
 
-[![打赏 VLOOK™](https://madmaxchow.github.io/VLOOK/pic/donate-paypal-light.png?mode=frame&darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x)](https://paypal.me/madmaxchow?lnkcss=none)
+[![打赏 VLOOK™](https://madmaxchow.github.io/VLOOK/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#frame)](https://paypal.me/madmaxchow?lnkcss=none)
+
+**Thanks for donate VLOOK™ (partial donors):** 
+
+＊＊军、＊＊鹏、李＊6、＊＊无、H＊t、＊＊二、F＊y、＊＊宇、＊＊琛、＊＊辉、＊＊秋、＊＊笑、＊＊豫、l＊a、＊＊心、整＊9、＊＊国、＊＊拉、＊＊龙、＊＊应、＊＊销、＊＊哦、……
 
 ---
 
@@ -116,9 +120,9 @@ VLOOK™ provides two sets of font styles, which can be selected according to pe
 
 
 
-![蓝奏云](https://madmaxchow.gitee.io/vlookres/pic/lanzou.png?mode=logo&srcset=@2x) •• [Download fonts ▾](https://wwe.lanzoui.com/ieVDhj1aokj)
+![蓝奏云](https://madmaxchow.gitee.io/vlookres/pic/lanzou.png?srcset=@2x#logo) •• [Download fonts ▾](https://wwe.lanzoui.com/ieVDhj1aokj)
 
-![百度网盘](https://madmaxchow.gitee.io/vlookres/pic/baidupan.png?mode=logo&srcset=@2x) •• [Download fonts ▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)（extract code `11ta`)
+![百度网盘](https://madmaxchow.gitee.io/vlookres/pic/baidupan.png?srcset=@2x#logo) •• [Download fonts ▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)（extract code `11ta`)
 
 ---
 

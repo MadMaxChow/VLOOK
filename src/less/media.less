@@ -3,8 +3,8 @@
  * VLOOK CSS - @media 相关的样式
  * (配合 base.less 进行使用)
  *
- * V19.0
- * 2023-07-29
+ * V20.0
+ * 2023-09-10
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -498,6 +498,7 @@
         --v-color-scheme: dark;
         --v-invert-dark: var(--v-invert-dark-dk); // Dark Mode下图片滤镜
         --v-brightness-dk: var(--v-brightness-dark-dk); // Dark Mode下封面、封底滤镜
+        --v-selection-color: var(--v-selection-color-dk);
 
         // --------------------
         // 颜色变量
@@ -516,6 +517,7 @@
         --mark-bg: var(--mark-bg-dk);
         --tbl-h-bd: var(--tbl-h-bd-dk);
         --tbl-bd: var(--tbl-bd-dk);
+        --tbl-tr-hv: var(--tbl-tr-hv-dk);
         --tbl-th-bg: var(--tbl-th-bg-dk);
         --tbl-td-bg: var(--tbl-td-bg-dk);
         --tbl-cell-bd: var(--tbl-cell-bd-dk);
@@ -678,14 +680,25 @@
     }
 
     #write img[src*="grid=line"],
-    #write svg[data-inject-url*="grid=line"] {
+    #write svg[data-inject-url*="grid=line"],
+    #write .md-image[data-src*="#line"]>img, // 编辑时
+    #write img[src*="#line"],
+    #write svg[data-inject-url*="#line"] {
         background: var(--v-fig-grid-l-dk);
         // background: url(@figureGridLineDark);
     }
     #write img[src*="grid=block"],
-    #write svg[data-inject-url*="grid=block"] {
+    #write svg[data-inject-url*="grid=block"],
+    #write .md-image[data-src*="#block"]>img, // 编辑时
+    #write img[src*="#block"],
+    #write svg[data-inject-url*="#block"] {
         background: var(--v-fig-grid-b-dk);
         // background: url(@figureGridBlockDark);
+    }
+
+    // 错误图片背景反色
+    #write .md-img-error>.md-meta {
+        filter: var(--v-invert-dark);
     }
 
     // 图片 URL 参数指定在 Dark Mode 时反色
@@ -697,11 +710,17 @@
         background-color: @figureSolidBgLight;
     }
     #write img[src*="darksrc=invert"][src*="grid=line"],
-    #write svg[data-inject-url*="darksrc=invert"][data-inject-url*="grid=line"] {
+    #write svg[data-inject-url*="darksrc=invert"][data-inject-url*="grid=line"],
+    #write .md-image[data-inject-url*="darksrc=invert"].md-image[data-src*="#line"]>img, // 编辑时
+    #write img[src*="darksrc=invert"][src*="#line"],
+    #write svg[data-inject-url*="darksrc=invert"][data-inject-url*="#line"] {
         background: var(--v-fig-grid-l-invert);
     }
     #write img[src*="darksrc=invert"][src*="grid=block"],
-    #write svg[data-inject-url*="darksrc=invert"],[data-inject-url*="grid=block"] {
+    #write svg[data-inject-url*="darksrc=invert"],[data-inject-url*="grid=block"],
+    #write .md-image[data-inject-url*="darksrc=invert"].md-image[data-src*="#block"]>img, // 编辑时
+    #write img[src*="darksrc=invert"][src*="#block"],
+    #write svg[data-inject-url*="darksrc=invert"],[data-inject-url*="#block"] {
         background: var(--v-fig-grid-b-invert);
     }
 

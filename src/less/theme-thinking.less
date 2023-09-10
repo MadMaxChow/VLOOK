@@ -116,6 +116,9 @@
 @tableBorderBottomWidth: 2px;
 @tableThBorderRightWidth: 0;
 @tableTdBorderRightWidth: 0;
+// 表格行 hover
+@tableTrHoverBg: fade(@aHoverColor, 20%);
+@tableTrHoverBgDark: fade(@aHoverColor, 25%);
 // 表格圆角
 @tableBorderRadius: 0;
 // 表格背景
@@ -128,7 +131,7 @@
 @tableThBoxShadow: 0 1px 0 var(--tbl-h-bd) inset;
 @tableThRepeaterBoxShadow: @tableThBoxShadow;
 @tableFirstTdBoxShadow: none;
-@tableTdBoxShadow: 0 -1px 0 0 var(--tbl-bd-c);
+@tableTdBoxShadow: 0 -1px 0 0 var(--tbl-cell-bd);
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: left;
@@ -162,7 +165,7 @@
 @coverTextAfterFontSize: @coverTextBeforeFontSize;
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
-@contrastBorder: 0 0 0 0 rgba(0, 0, 0, 0);
+@contrastBorder: 0 0 0 0 transparent;
 @contrastBorderForCover: 0 0 0 2px rgba(0, 0, 0, 0.1) inset;
 
 // 封面背景设置

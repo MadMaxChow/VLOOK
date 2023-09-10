@@ -11,7 +11,7 @@ vlook-query: el=2&ws=auto&lmc=2&toc=1
 vlook-doc-lib: vlook-lib.html
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>快速参考手册 (Part.I)</u><br>`#最新版本|V19.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>快速参考手册 (Part.I)</u><br>`#最新版本|V20.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
 
 [TOC]
 
@@ -22,6 +22,10 @@ vlook-doc-lib: vlook-lib.html
 `#微信支付|MaxChow#`~(Gn!)~
 
 ![打赏 VLOOK™](https://madmaxchow.gitee.io/vlookres/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#frame)
+
+**感谢打赏支持 VLOOK™ 的客官（部分名单）：**
+
+＊＊军、＊＊鹏、李＊6、＊＊无、H＊t、＊＊二、F＊y、＊＊宇、＊＊琛、＊＊辉、＊＊秋、＊＊笑、＊＊豫、l＊a、＊＊心、整＊9、＊＊国、＊＊拉、＊＊龙、＊＊应、＊＊销、＊＊哦、……
 
 # 快速入坑
 
@@ -88,11 +92,11 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > > ###### 版式
 >
-> - 调整**对齐方式** [❯❯](#插图对齐方式)
+> - 调整**对齐方式** [❯❯](#图片对齐方式)
 > - 设置以**小图标**方式显示 [❯❯](#图片显示版式)
 > - 设置为普通图片，不以插图的形式显示 [❯❯](#图片显示版式)
 > - 图片边缘能**留白** [❯❯](#图片边缘留白)
-> - **一行多图**自动换行后样式适配 [❯❯](#一行多图适配)
+> - **一行多图**自动换行后样式适配 [❯❯](#适配一行多图)
 >
 > ~(Vn)~
 
@@ -100,7 +104,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > - 在高分屏下自动适配显示**高清**的版本（2x、3x） [❯❯](#图片适配高分屏)
 > - 自动适配 **Dark Mode**  [❯❯](#图片适配 Dark Mode)
-> - 让图标的颜色与周围的元素更搭更和谐 [❯❯](#图片颜色替换)
+> - 让图标的颜色与周围的元素更搭更和谐 [❯❯](#图片彩虹剪影)
 > - 为图片添加工程风的网格背景 [❯❯](#图片网格背景)
 >
 > ~(Vn)~
@@ -406,21 +410,21 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > ~(Lm)~
 
-# 预置颜色标识
+# 预置色卡
 
 ---
 
 ---
 
-> 以下是 VLOOK™  的预置颜色色板，其中**大号加粗**的英文为对应的颜色标识，实际应用如：`~(Ye)~` `~(Aq)~`
+> 以下是 VLOOK™  的预置色卡，其中**大号加粗**的英文为对应的色号，实际应用如：`~(Ye)~` `~(Aq)~`
 
 > 将在后续的[彩虹文本](guide2.md#彩虹文本)、[渐变色文本](guide2.md#渐变色文本)、[彩虹单元格](guide2.md#彩虹单元格)、[彩虹标签](guide2.md#彩虹标签)、[彩虹徽章](guide2.md#彩虹徽章)、[彩虹引用](guide2.md#彩虹引用)等文档排版特性中进行使用
 
-> 支持「**常规**」和「**强调**」两种风格，颜色标识后添加英文的感叹号「**!**~(T2)~」即为强调风格，实际写法如：`~(Ye!)~` `~(Aq!)~`
+> 支持「**常规**」和「**强调**」两种风格，色号后添加英文的感叹号「**!**~(T2)~」即为强调风格，实际写法如：`~(Ye!)~` `~(Aq!)~`
 
-![VLOOK™ - Color Code 预置颜色标识](https://madmaxchow.gitee.io/vlookres/pic/vlook-color-code-light.png?srcset=@2x&darksrc=vlook-color-code-dark.png&darksrcset=@2x#logo#center)
+![VLOOK™ - Color Card 预置色卡](https://madmaxchow.gitee.io/vlookres/pic/vlook-color-card-light.png?srcset=@2x&darksrc=vlook-color-card-dark.png&darksrcset=@2x#logo#center)
 
-**（以上 `~内容~` 为 Typora 的下标格式，被 VLOOK™ 主题识别的预置颜色标识都会以特殊样式显示，以区别于普通下标样式）**
+**（以上 `~内容~` 为 Typora 的下标格式，被 VLOOK™ 主题识别的预置色卡都会以特殊样式显示，以区别于普通下标样式）**
 
 # °文本
 
@@ -436,44 +440,44 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > ---
 >
-> 在「**加粗**、*斜体*、==高亮==、<u>下划线</u>」格式的文本后，添加预置颜色标识，语法如下：
+> 在「**加粗**、*斜体*、==高亮==、<u>下划线</u>、^上标^、~下标~ 等」格式的文本后，添加预置色卡，语法如下：
 >
 > 语法：`~(颜色)~`
 >
 > 其中，
 >
-> `颜色`：指定该标签使用的[预置颜色标识](#预置颜色标识)
+> `颜色`：指定该标签使用的[预置色卡](#预置色卡)
 
 > ###### 针对「整个段落」的文本着色
 >
 > ---
 >
-> 语法与左边的「针对指定格式的文本」是保持一致的，区别是在段落的最开始位置添加[预置颜色标识](#预置颜色标识)即可，在被正常识别后会在颜色标识前出现段落标识「**¶**~(T2)~」
+> 语法与左边的「针对指定格式的文本」是保持一致的，区别是在段落的最开始位置添加[预置色卡](#预置色卡)即可，在被正常识别后会在色号前出现段落标识「**¶**~(T2)~」
 >
 
 ###### 示例_普通的段落彩虹文本
 
-~(Gd)~这是一个段落，可以使用**<u>预置</u>**的 `颜色标识` ，对整个段落进行==颜色标识==。
+~(Gd)~这是一个段落，可以使用**<u>预置</u>**的 `色号` ，对整个段落进行==色号==。
 
-- 对段落中 **指定的加粗文本内容**~(Rd)~ 进行颜色标识，也支持特殊符号：**●**~(Rd)~ **●**~(Ye)~ **●**~(Gn)~；
-- 或是 *指定的斜体文本内容*~(Gn)~ 进行颜色标识；
-- 或是 ==指定的高亮文本内容==~(Ro)~ 进行颜色标识；
-- 或是 <u>指定的下划线文本内容</u>~(Pu)~ 进行颜色标识。
+- 对段落中 **指定的加粗文本内容**~(Rd)~ 进行色号，也支持特殊符号：**●**~(Rd)~ **●**~(Ye)~ **●**~(Gn)~；
+- 或是 *指定的斜体文本内容*~(Gn)~ 进行色号；
+- 或是 ==指定的高亮文本内容==~(Ro)~ 进行色号；
+- 或是 <u>指定的下划线文本内容</u>~(Pu)~ 进行色号。
 
 ###### 示例_在引用内的段落彩虹文本
 
 ---
 
-> - 对段落中**指定的加粗文本内容**~(Rd)~进行颜色标识，也支持特殊符号：**●**~(Rd)~ **●**~(Ye)~ **●**~(Gn)~；
-> - 或是*指定的斜体文本内容*~(Gn)~进行颜色标识；
-> - 或是==指定的高亮文本内容==~(Ro)~进行颜色标识；
-> - 或是<u>指定的下划线文本内容</u>~(Pu)~进行颜色标识。
+> - 对段落中**指定的加粗文本内容**~(Rd)~进行色号，也支持特殊符号：**●**~(Rd)~ **●**~(Ye)~ **●**~(Gn)~；
+> - 或是*指定的斜体文本内容*~(Gn)~进行色号；
+> - 或是==指定的高亮文本内容==~(Ro)~进行色号；
+> - 或是<u>指定的下划线文本内容</u>~(Pu)~进行色号。
 
-> ~(T1)~这是一个段落，可以使用**<u>预置</u>**的 `颜色标识` ，对整个段落进行==颜色标识==。
+> ~(T1)~这是一个段落，可以使用**<u>预置</u>**的 `色号` ，对整个段落进行==色号==。
 
-*==彩虹文本预置颜色标识及示例==*
+*==彩虹文本预置色卡及示例==*
 
-|    颜色    | **颜色标识** | 单色渲染效果示例                   |
+|    颜色    | **色号** | 单色渲染效果示例                   |
 | :--------: | :----------: | ---------------------------------- |
 | 酒红 Wine | Wn~(Wn)~ | 警告、危险、关键事项、删除~(Wn)~ |
 |     红 Red     |      Rd~(Rd)~      | 警告、危险、关键事项、删除~(Rd)~  |
@@ -509,19 +513,19 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 `#Markdown 粉|🤟#`「**现在越来越流行渐变的文本颜色，这要是也能有就完美 💯 了！**」
 
-`#VLOOK|👀#`~(T2)~ 全新的[预置颜色标识](#预置颜色标识)支持渐变色的，写法自然直观，绝对能惊艳到你～
+`#VLOOK|👀#`~(T2)~ 全新的[预置色卡](#预置色卡)支持渐变色的，写法自然直观，绝对能惊艳到你～
 
-> 所有规则与「[彩虹文本](#彩虹文本)」是一样的，颜色标识由 1 个变为多个连续输入就可以了～
+> 所有规则与「[彩虹文本](#彩虹文本)」是一样的，色号由 1 个变为多个连续输入就可以了～
 >
 > 语法：`~(渐变色序列)~`
 >
 > 其中，
 >
-> `渐变色序列`：两个或以上[预置颜色标识](#预置颜色标识)，例如「**红-绿**~(RdGn)~」则渐变输入 `RdGn` ，「**红-黄-绿**~(RdYeGn)~」渐变则输入 `RdYeGn`
+> `渐变色序列`：两个或以上[预置色卡](#预置色卡)，例如「**红-绿**~(RdGn)~」则渐变输入 `RdGn` ，「**红-黄-绿**~(RdYeGn)~」渐变则输入 `RdYeGn`
 
 ###### 示例_普通的段落渐变色文本
 
-~(GdRd)~这是一个段落，可以使用**<u>预置</u>**的 `颜色标识` ，对整个段落进行==颜色标识==。
+~(GdRd)~这是一个段落，可以使用**<u>预置</u>**的 `色号` ，对整个段落进行==色号==。
 
 1. 对段落中 **指定的加粗文本内容**~(LmOgGnRd)~ 进行渐变色标识~(BkRd)~；
 2. 或是 *指定的斜体文本内容*~(GnSe)~ 进行**渐变色**~(BkRd)~标识；
@@ -534,10 +538,10 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > 1. 对段落中 **指定的加粗文本内容**~(LmOgGnRd)~ 进行渐变色标识；
 > 2. 或是 *指定的斜体文本内容*~(GnSe)~ 进行**渐变色**~(BkRd)~标识；
-> 3. 或是 ==指定的高亮文本内容==~(RoGn)~ 进行**渐变色**~(BkRd)~标识；
+> 3. 或是 ==指定的高亮文本内容==~(RoOgGn)~ 进行**渐变色**~(BkRd)~标识；
 > 4. 或是 <u>指定的下划线文本内容</u>~(PuBu)~ 进行**渐变色**~(BkRd)~标识。
 
-> ~(GdRd)~这是一个段落，可以使用**<u>预置</u>**的 `颜色标识` ，对整个段落进行==颜色标识==。
+> ~(GdRd)~这是一个段落，可以使用**<u>预置</u>**的 `色号` ，对整个段落进行==色号==。
 
 ---
 
@@ -738,7 +742,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 |      留空      |      |                           | 默认为 `未选择 ` 的状态    |
 |     已选择     | Y |            Y            | 指定为 `已选择` 的状态     |
 | : | Y | Y | : |
-|   不确定选择   | [-]<br>`#当指定值|≥ 0#` | [-]<br/>`#当指定值|≥ 0#` | 指定为 `不确定选择` 的状态 |
+|   不确定选择   | ?<br>`#当指定值|≥ 0#` | ?<br>`#当指定值|≥ 0#` | 指定为 `不确定选择` 的状态 |
 | : | ?<br>`#当指定值|≥ 0#` | ?<br>`#当指定值|≥ 0#` | : |
 | : | ？<br>`#当指定值|≥ 0#` | ？<br>`#当指定值|≥ 0#` | : |
 
@@ -752,7 +756,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 `#Markdown 粉|🤟#`「**表格列格式够丰富了，但能不能用不同背景色对单个单元格进行标识呢？**」
 
-`#VLOOK|👀#`~(T2)~ VLOOK™ 的[预置颜色标识](#预置颜色标识)又可以派上用途了，同样的配方，同样的超好用！
+`#VLOOK|👀#`~(T2)~ VLOOK™ 的[预置色卡](#预置色卡)又可以派上用途了，同样的配方，同样的超好用！
 
 ---
 
@@ -760,13 +764,13 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > ---
 >
-> 与[彩虹文本](#彩虹文本)中对整个段落进行着色方式一致，就是在单元格的**最开始位置**~(T2)~添加[预置颜色标识](#预置颜色标识)即可，在被正常识别后会在颜色标识前出现段落标识「**¶**~(T2)~」
+> 与[彩虹文本](#彩虹文本)中对整个段落进行着色方式一致，就是在单元格的**最开始位置**~(T2)~添加[预置色卡](#预置色卡)即可，在被正常识别后会在色号前出现段落标识「**¶**~(T2)~」
 
 > ###### 对单元格「背景」进行着色
 >
 > ---
 >
-> 使用「强调风格」的[预置颜色标识](#预置颜色标识)，原则上建议添加到单元格的==最后位置==~(T2)~
+> 使用「强调风格」的[预置色卡](#预置色卡)，原则上建议添加到单元格的==最后位置==~(T2)~
 >
 
 *==示例_彩虹单元格（单色）==*
@@ -933,7 +937,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 | 三级缩进     | >>> 这是三级缩进 |
 | （以此类推） | <<               |
 
-###### 示例_表格行分组折叠
+*==示例_表格行分组折叠==*
 
 | 列 A                                      | [] 勾选列 | 列 B             | 列 C                                                 |
 | ----------------------------------------- | :--------: | ---------------- | ---------------------------------------------------- |
@@ -1134,59 +1138,6 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > **示例：**Mermaid 题注，[去看一看 ❯](guide2.md#更美观的 Mermaid)
 
----
-
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
-
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
-
-## 插图对齐方式
-
-`#Markdown 粉|🤟#`「**希望可以自由设置插图的对齐式，同时保持 Markdown 的简洁性？**」
-
-`#VLOOK|👀#`~(T2)~ 在 Markdown 对图片千篇一律的排版的反馈中，尝试打开了一道小小的裂缝～
-
-> ###### 图片对齐
->
-> 可在「图片 URL」中添加 VLOOK™ 规范的参数来启用这一特性（只针对插图）：
->
-> - （方式一）URL 参数：`align=对齐方式标识`
-> - （方式二）URL 锚点：`#对齐方式标识`
-
-###### 图片不同对齐方式的标识与说明
-
-| 对齐方式标识 | 说明                               | 完整语法参考                                                 |
-| :----------: | ---------------------------------- | ------------------------------------------------------------ |
-|     left     | 左对齐（默认的对齐方式，不用指定） | `![图片](xxx.png?align=left)`<br>或 `![图片](xxx.png#left)` |
-|    center    | 居中对齐                           | `![图片](xxx.png?align=center)`<br>或 `![图片](xxx.png#center)` |
-|    right     | 右对齐                             | `![图片](xxx.png?align=right)`<br>或 `![图片](xxx.png#right)` |
-
-> `#📒|参考#`~(Gn!)~ *如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～*
-
-###### 插图示例
-
-![左对齐](https://madmaxchow.gitee.io/vlookres/pic/markdown-mark.svg?darksrc=invert)
-
-![居中对齐](https://madmaxchow.gitee.io/vlookres/pic/markdown-mark.svg?darksrc=invert#center)
-
-![右对齐](https://madmaxchow.gitee.io/vlookres/pic/markdown-mark.svg?darksrc=invert#right)
-
-###### 非插图版式示例（如 logo / icon / frame 的图片版式等）
-
-![左对齐](https://madmaxchow.gitee.io/vlookres/pic/markdown-mark.svg?darksrc=invert#logo)
-
-![左对齐](https://madmaxchow.gitee.io/vlookres/pic/markdown-mark.svg?darksrc=invert#logo#center)
-
-![左对齐](https://madmaxchow.gitee.io/vlookres/pic/markdown-mark.svg?darksrc=invert#logo#right)
-
-ℹ️ **关于「图片版式」的更多信息，点击这里了解 [❯❯](#图片显示版式)**
-
----
-
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
-
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
-
 ## 图片适配高分屏
 
 `#Markdown 粉|🤟#`「**高分屏看到的图片会变得模糊，Markdown 的图片语法又不支持不同分辨率图片集，怎么办？**」
@@ -1213,18 +1164,12 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ###### 示例
 
-![普通分辨率图片](https://madmaxchow.gitee.io/vlookres/pic/iphone-home-light.png?darksrc=iphone-home-dark.png#figure#padding)　　![支持 2x 分辨率图片](https://madmaxchow.gitee.io/vlookres/pic/iphone-home-light.png?darksrc=iphone-home-dark.png&srcset=@2x&darksrcset=@2x#figure#padding)　　![支持 2x, 3x 分辨率的图片](https://madmaxchow.gitee.io/vlookres/pic/iphone-home-light.png?darksrc=iphone-home-dark.png&srcset=@2x,@3x&darksrcset=@2x,@3x#figure#padding)
+![普通分辨率图片](https://madmaxchow.gitee.io/vlookres/pic/iphone-home-light.png?darksrc=iphone-home-dark.png)![支持 2x 分辨率图片](https://madmaxchow.gitee.io/vlookres/pic/iphone-home-light.png?darksrc=iphone-home-dark.png&srcset=@2x&darksrcset=@2x)![支持 2x, 3x 分辨率的图片](https://madmaxchow.gitee.io/vlookres/pic/iphone-home-light.png?darksrc=iphone-home-dark.png&srcset=@2x,@3x&darksrcset=@2x,@3x)
 
 > 💡 **没有准备高清图片，也希望不模糊？**
 >
 > - 如果临时没有图片的高清分辨率，VLOOK™ 也可以将其转换 2x 资源，这样在高分屏上也能提高图片显示清晰度（但图片大小会相应缩为原始大小的 50%）
 > - 可通过「[插件调校参数](guide2.md#插件调校参数)」`srcset` 来启用这一特性。
-
----
-
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
-
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ## 图片适配 Dark Mode
 
@@ -1236,7 +1181,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > **特别适合「黑/白/灰」类型的图片**
 >
-> 在「图片 URL」中添加 VLOOK™ 规范的参数的方式来启用这一特性：
+> 在「图片 URL」中添加 VLOOK™ 规范的图片「#魔法」实现：
 >
 > - URL 参数：`darksrc=invert`
 >
@@ -1246,11 +1191,11 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ###### 示例
 
-![默认不适配 Dark Mode](https://madmaxchow.gitee.io/vlookres/pic/iphone.jpg?srcset=@2x#figure#padding)　　![Dark Mode 时：图片反色](https://madmaxchow.gitee.io/vlookres/pic/iphone.jpg?srcset=@2x&darksrc=invert#figure#padding)
+![默认不适配 Dark Mode](https://madmaxchow.gitee.io/vlookres/pic/iphone.jpg?srcset=@2x#padding)![Dark Mode 时：图片反色](https://madmaxchow.gitee.io/vlookres/pic/iphone.jpg?srcset=@2x&darksrc=invert#padding)
 
 ### 适配方式：替换
 
-> 在「图片 URL」中添加 VLOOK™ 规范的参数的方式来启用这一特性：
+> 在「图片 URL」中添加 VLOOK™ 规范的图片「#魔法」实现：
 >
 > URL 参数：
 >
@@ -1267,7 +1212,120 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ###### 示例
 
-![默认不适配 Dark Mode](https://z3.ax1x.com/2021/01/15/swDZlQ.png?srcset=swDeyj.png@2x,swDmOs.png@3x#figure#padding)　　![Dark Mode 时：替换成指定图片](https://z3.ax1x.com/2021/01/15/swDZlQ.png?darksrc=swBrss.png&srcset=swDeyj.png@2x,swDmOs.png@3x&darksrcset=swBgoV.png@2x,swB6Zq.png@3x#figure#padding)
+![默认不适配 Dark Mode](https://z3.ax1x.com/2021/01/15/swDZlQ.png?srcset=swDeyj.png@2x,swDmOs.png@3x#padding)![Dark Mode 时：替换成指定图片](https://z3.ax1x.com/2021/01/15/swDZlQ.png?darksrc=swBrss.png&srcset=swDeyj.png@2x,swDmOs.png@3x&darksrcset=swBgoV.png@2x,swB6Zq.png@3x#padding)
+
+## 图片彩虹剪影
+
+`#Markdown 粉|🤟#`「**希望文档中的图片能自动跟随文档主题本色，或文字颜色，而不用重新制作多个版本的图片资源**」
+
+`#VLOOK|👀#`~(T2)~ 可以针对[显示版式](#图片显示版式)为 icon、logo 的图片（建议为透明背景的 png 或 svg 图片），按指定规则自动替换为指定的颜色。
+
+> 在「图片 URL」中添加 VLOOK™ 规范的图片「#魔法」实现：
+>
+> - URL 参数：`fill=颜色替换标识`
+
+*==图片彩虹剪影的 URL 参数（fill）的标识及说明==*
+
+| 颜色替换标识 | 说明                                                         | 完整语法参考                 |
+| :----------: | ------------------------------------------------------------ | ---------------------------- |
+|     text     | 替换为所在段落文字的颜色（会自动适配 Dark Mode 和链接的样式） | `![图片](xxx.png?fill=text)` |
+|     色号     | 替换为[预置色卡](#预置色卡)中的指定颜色，如：`Rd` `Ye`       | `![图片](xxx.png?fill=rd)`   |
+
+
+
+> ###### ⚠️ 注意
+>
+> 受浏览器跨域访问的安全策略影响，使用该特性的文档建议发布到 HTTP 服务器上，同时图片路径与 HTML 路径的域名保持一致（即不允许跨域），如：
+>
+> - 举例：HTML 文档是发布的地址为 `http://<域名A>/index.html`
+>   - 正确的图片链接的地址示例 `http://<域名A>/img/xxx.svg`
+>   - 错误的图片链接的地址示例 `http://<域名B>/img/xxx.svg`
+>
+> *==满足颜色替换的图片路径说明要求==*
+>
+> |    浏览器     |   支持的图片路径引用方式    |      ==      |                            ==                             |      ==      |
+> | :-----------: | :-------------------------: | :----------: | :-------------------------------------------------------: | :----------: |
+> |       :       |      直接打开本地 HTML      |      ==      |                    通过 HTTP 方式访问                     |      ==      |
+> |       :       |      [] 相对路径引用       | [] URL 路径 |                     [] 相对路径引用                      | [] URL 路径 |
+> | Chrome / Edge |                             |              |                             Y                             |      Y       |
+> |    Firefox    |              Y              |              |                             Y                             |      Y       |
+> |    Safari     | Y<br>（须指定默认图床地址） |      Y       |                             Y                             |      Y       |
+> | / |             ==             |      ==      | `#⚠️|注意#`~(Rd!)~ **图片路径与 HTML 路径的域名须保持一致** |      ==      |
+>
+> > 对于使用 Safari 直接打开本地 HTML 的场景，要实现颜色替换的图片路径如果是相对路径的（实际是部署在指定服务器或图床上），须通过指定[预置选项](guide2.md#插件预置选项) `vlook-image-host` 指定默认图床地址。
+>
+> ~(Rd!)~
+
+###### 示例_链接内图片
+
+- 什么是 [![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) Markdown](https://en.wikipedia.org/wiki/Markdown)？
+
+###### 示例_正文图文混排
+
+- 替换为==文本==的颜色：![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) Markdown 是一种专门针对网络写作的文本标记语言。
+- 替换为==主题主色==：![Markdown](pic/markdown-mark-solid.svg?fill=t1#icon) Markdown 是一种专门针对网络写作的文本标记语言。
+- 替换为==主题辅助色==：![Markdown](pic/markdown-mark-solid.svg?fill=t2#icon) Markdown 是一种专门针对网络写作的文本标记语言。
+
+| 颜色              | **色号** | 图片彩虹剪影效果示例                                         |
+| ----------------- | -------- | ------------------------------------------------------------ |
+| 酒红 Wine         | Wn~(Wn)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Wn#icon) Markdown 图标替换为指定颜色 |
+| 红 Red            | Rd~(Rd)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Rd#icon) Markdown 图标替换为指定颜色 |
+| 橙 Orange         | Og~(Og)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Og#icon) Markdown 图标替换为指定颜色 |
+| 黄 Yellow         | Ye~(Ye)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Ye#icon) Markdown 图标替换为指定颜色 |
+| 柠绿 Lime         | Lm~(Lm)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Lm#icon) Markdown 图标替换为指定颜色 |
+| 绿 Green          | Gn~(Gn)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Gn#icon) Markdown 图标替换为指定颜色 |
+| 矿绿 Mineral      | Mn~(Mn)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Mn#icon) Markdown 图标替换为指定颜色 |
+| 橄榄绿 Olives     | Ol~(Ol)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Ol#icon) Markdown 图标替换为指定颜色 |
+| 水绿 Aqua         | Aq~(Aq)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Aq#icon) Markdown 图标替换为指定颜色 |
+| 青 Cyan           | Cy~(Cy)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Cy#icon) Markdown 图标替换为指定颜色 |
+| 蓝 Blue           | Bu~(Bu)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Bu#icon) Markdown 图标替换为指定颜色 |
+| 海蓝 Sea          | Se~(Se)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Se#icon) Markdown 图标替换为指定颜色 |
+| 薰衣紫 Lavender   | La~(La)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=La#icon) Markdown 图标替换为指定颜色 |
+| 藤紫 Vine         | Vn~(Vn)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Vn#icon) Markdown 图标替换为指定颜色 |
+| 紫 Purple         | Pu~(Pu)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Pu#icon) Markdown 图标替换为指定颜色 |
+| 玫红 Rose         | Ro~(Ro)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Ro#icon) Markdown 图标替换为指定颜色 |
+| 粉红 Pink         | Pk~(Pk)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Pk#icon) Markdown 图标替换为指定颜色 |
+| 金 Gold           | Gd~(Gd)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Gd#icon) Markdown 图标替换为指定颜色 |
+| 棕 Brown          | Bn~(Bn)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Bn#icon) Markdown 图标替换为指定颜色 |
+| 灰 Gray           | Gy~(Gy)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Gy#icon) Markdown 图标替换为指定颜色 |
+| 黑 Black          | Bk~(Bk)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=Bk#icon) Markdown 图标替换为指定颜色 |
+| 主题主色 Theme1   | T1~(T1)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=T1#icon) Markdown 图标替换为指定颜色 |
+| 主题辅助色 Theme2 | T2~(T2)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=T2#icon) Markdown 图标替换为指定颜色 |
+
+
+###### 示例_彩虹引用及标题
+
+> ###### 这是 ![Markdown](pic/markdown-mark.svg?fill=text#icon) Markdown 的 6 级标题
+>
+> 这里是正文内容。
+>
+> ~(Pk)~
+
+###### 示例_插图（实验性）
+
+![原始颜色](https://madmaxchow.gitee.io/vlookres/pic/markdown-mark.svg)　　![颜色替换](pic/markdown-mark.svg?fill=t2)
+
+## 图片对比（未开放）
+
+> ![VLOOK™ - Color Card 预置色卡](https://madmaxchow.gitee.io/vlookres/pic/vlook-color-card-light.png#logo)
+>
+> ---
+>
+> ![VLOOK™ - Color Card 预置色卡](https://madmaxchow.gitee.io/vlookres/pic/vlook-color-card-dark.png#logo)
+>
+> ~(Gy!)~
+
+## 图片画廊（未开放）
+
+> ![](https://madmaxchow.gitee.io/vlookres/pic/vlook-screenshot-A00.png#logo)
+>
+> ![](https://madmaxchow.gitee.io/vlookres/pic/vlook-screenshot-A01.png#logo)
+>
+> ![](https://madmaxchow.gitee.io/vlookres/pic/vlook-screenshot-A02.png#logo)
+>
+> ~(Gy!)~
+
+
 
 ---
 
@@ -1275,40 +1333,76 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
+# °图片^#魔法^~(RoLmBu)~
+
+VLOOK™ 经过多次迭代后，终于形成比较实用的图片快速排版方法，使用方式是通过在图片路径末尾添加 URL 锚点「**#**」，所以称为「**#魔法**~(RoLmBu)~」。
+
+**举例说明：**
+
+- 在 Markdown 中图片一般是这样的格式 `![Alt text](xxx.png "Title text")`
+- 以上图为例，「**#魔法**~(RoLmBu)~」是添加到 `xxx.png` 后的带「**#**」的内容，可以有多个，如：`#logo#right`
+
+具体的应用包括缩放、特殊版式、明信片、对齐、网格背景、边缘留白等，具体内容请见后续介绍。
+
+## 图片缩放
+
+`#Markdown 粉|🤟#`「**希望可以自由设置图片的缩放大小，以适应不同尺寸图片在文档上的呈现效果**」
+
+`#VLOOK|👀#`~(T2)~ Markdown 不支持对图片进行缩放，用 VLOOK™ 的#魔法就能轻松实现～
+
+> 在「图片 URL」中添加 VLOOK™ 规范的图片「#魔法」实现：
+>
+> - 图片 URL + `#缩放值`
+
+###### 图片缩放值的说明
+
+|  **缩放类型**  | 说明                                                         | 完整语法参考             |
+| :------------: | ------------------------------------------------------------ | ------------------------ |
+| 按绝对的像素值 | 指定宽度（px），高度会等比例变化<br>支持 `200px` `400px` `600px` `800px` 共 4 档<br>（若指定宽度超出浏览器内显示宽度时，会控制最大宽度为100%） | `![图片](xxx.png#600px)` |
+
+> `#📒|参考#`~(Gn!)~ *如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～*
+
+###### 示例_按绝对的像素值缩放图片
+
+![等比缩放至宽度为 200px](https://madmaxchow.gitee.io/vlookres/pic/vlook-zoom-pic.png#200px)
+
+![等比缩放至宽度为 400px](https://madmaxchow.gitee.io/vlookres/pic/vlook-zoom-pic.png#400px)
+
+![等比缩放至宽度为 600px](https://madmaxchow.gitee.io/vlookres/pic/vlook-zoom-pic.png#600px)
+
+![等比缩放至宽度为 500px](https://madmaxchow.gitee.io/vlookres/pic/vlook-zoom-pic.png#800px)
+
 ## 图片显示版式
 
 `#Markdown 粉|🤟#`「**希望统一图文混排的图标大小，以及指定图片不以「插图」形式被处理，该怎么操作呢？**」
 
 `#VLOOK|👀#`~(T2)~ 在 VLOOK™ 中图片是默认以「插图」或「混排」形式进行呈现，同时可在不影响 Markdown 的简洁和优雅的前提下，实现支持多种不同的显示版式。
 
-> 在「图片 URL」中添加 VLOOK™ 规范的参数的方式来启用这一特性：
+> 在「图片 URL」中添加 VLOOK™ 规范的图片「#魔法」实现：
 >
-> - （方式一）URL 参数：`mode=版式标识`
-> - （方式二）URL 锚点：`#版式标识`
+> - 图片 URL + `#版式标识`
 
 ###### 图片不同显示版式的标识与说明
 
-| 版式类型  |    版式标识    | 应用说明                                                     | 完整语法参考                                                 |
-| --------- | :------------: | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 图标版式  |      icon      | 缩小为与单行正文高度适配的小图标<br>主要用于与正文内容进行混排 | `![图片](xxx.png?mode=icon)`<br>或 `![图片](xxx.png#icon)` |
-| :         | icon**==2x==** | 比 `icon` 尺寸增大 60%                                       | `![图片](xxx.png?mode=icon2x)`<br>或 `![图片](xxx.png#icon2x)` |
-|           |       ==       | ==                                                           | ==                                                           |
-| logo 版式 |      logo      | 不调整图片大小，且不为作「插图」<br>主要用于展示图片的原始大小和样式 | `![图片](xxx.png?mode=logo)`<br>或 `![图片](xxx.png#logo)` |
-| :         | logo**==l==**  | 在 `logo` 基础上，支持文字环绕排版（图片**左**对齐）         | `![图片](xxx.png?mode=logol)`<br>或 `![图片](xxx.png#logol)` |
-| :         | logo**==r==**  | 在 `logo` 基础上，支持文字环绕排版（图片**右**对齐）         | `![图片](xxx.png?mode=logor)`<br>或 `![图片](xxx.png#logor)` |
-|           |       ==       | ==                                                           | ==                                                           |
-| 画框版式  |     frame      | 与 `logo` 模式类似，但增加了边框                             | `![图片](xxx.png?mode=frame)`<br>或 `![图片](xxx.png#frame)` |
-| :         | frame**==l==** | 在 `frame` 基础上，支持文字环绕排版（图片**左**对齐）        | `![图片](xxx.png?mode=framel)`<br>或 `![图片](xxx.png#frame)` |
-| :         | frame**==r==** | 在 `frame` 基础上，支持文字环绕排版（图片**右**对齐）        | `![图片](xxx.png?mode=framer)`<br>或 `![图片](xxx.png#framer)` |
-|           |       ==       | ==                                                           | ==                                                           |
-| 插图版式  |     figure     | 强制指定为插图，主要用于一行多图的情况，<br>对于独占一行的图片默认为插图，无须指定 | `![图片](xxx.png?mode=figure)`<br>或 `![图片](xxx.png#figure)` |
+| 版式类型  |    版式标识    | 应用说明                                                     | 完整语法参考              |
+| --------- | :------------: | ------------------------------------------------------------ | ------------------------- |
+| 图标版式  |      icon      | 缩小为与单行正文高度适配的小图标<br>主要用于与正文内容进行混排 | `![图片](xxx.png#icon)`   |
+| :         | icon**==2x==** | 比 `icon` 尺寸增大 60%                                       | `![图片](xxx.png#icon2x)` |
+|           |       ==       | ==                                                           | ==                        |
+| logo 版式 |      logo      | 不调整图片大小，且不为作「插图」<br>主要用于展示图片的原始大小和样式 | `![图片](xxx.png#logo)`   |
+| :         | logo**==l==**  | 在 `logo` 基础上，支持文字环绕排版（图片**左**对齐）         | `![图片](xxx.png#logol)`  |
+| :         | logo**==r==**  | 在 `logo` 基础上，支持文字环绕排版（图片**右**对齐）         | `![图片](xxx.png#logor)`  |
+|           |       ==       | ==                                                           | ==                        |
+| 画框版式  |     frame      | 在 `logo` 模式上增加了边框样式                               | `![图片](xxx.png#frame)`  |
+| :         | frame**==l==** | 在 `logol` 模式上增加了边框样式                              | `![图片](xxx.png#framel)` |
+| :         | frame**==r==** | 在 `logor` 模式上增加了边框样式                              | `![图片](xxx.png#framer)` |
 
 > `#📒|参考#`~(Gn!)~ *如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～*
 
 ### 图片版式示例：icon
 
-- ![VLOOK](https://madmaxchow.gitee.io/vlookres/pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** 是 ![OSChina](https://madmaxchow.gitee.io/vlookres/pic/oschina.png#icon) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
-- ![VLOOK](https://madmaxchow.gitee.io/vlookres/pic/vlook-light.svg?darksrc=vlook-dark.svg#icon2x) **VLOOK™** 是 ![OSChina](https://madmaxchow.gitee.io/vlookres/pic/oschina.png#icon2x) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
+- **icon：**![VLOOK](https://madmaxchow.gitee.io/vlookres/pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** 是 ![OSChina](https://madmaxchow.gitee.io/vlookres/pic/oschina.png#icon) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
+- **icon2x：**![VLOOK](https://madmaxchow.gitee.io/vlookres/pic/vlook-light.svg?darksrc=vlook-dark.svg#icon2x) **VLOOK™** 是 ![OSChina](https://madmaxchow.gitee.io/vlookres/pic/oschina.png#icon2x) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 增强插件之一
 
 ### 图片版式示例：logo
 
@@ -1330,105 +1424,137 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ![Logo 模式：图片右对齐＋文字环绕](https://madmaxchow.gitee.io/vlookres/pic/vlook-mark-light.svg?darksrc=invert#logor)　　**设置为 logor 模式后，实现图片右对齐＋文字环绕的排版效果**。我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK。
 
+## 明信片
+
+`#Markdown 粉|🤟#`「**Markdown 生成的 HTML 大多是静态的，在交互性方面能带来一些更现代的设计吗？**」
+
+`#VLOOK|👀#`~(T2)~ 对于图片的自动化排版，VLOOK™ 现在是更上一层楼了，加上一个小魔法，单调的图片就灵动起来了～
+
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
-
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
-
-## 一行多图适配
-
-`#Markdown 粉|🤟#`「**在指定图片版式为 logo / frame 等情况，在一行内编排多个图片后，自动换行后两行图片间没有间隔，怎么办？**」
-
-`#VLOOK|👀#`~(T2)~ 这个可以有，相关图片可以添加针对多组内容自动换行后的适配样式～
-
-> 在「图片 URL」中添加 VLOOK™ 规范的参数的方式来启用这一特性：
+> 在「图片 URL」中添加 VLOOK™ 规范的图片「#魔法」实现：
 >
-> - URL 参数：`inline=true` ，示例：`![图片题注](xxx.png?inline=true)`
-> - URL 锚点：`#inline` ，示例：`![图片题注](xxx.png#inline)`
+> - **Card 模式**[^Card模式]：图片 URL + `#card`
+> - **Card Dual 模式**[^CardDual模式]：图片 URL + `#cardd`
 >
-> （暂不支持「插图」的应用场景）
+> 当图片底部会出现一条主题色的边框，即意味正确启用了。在导出 HTML 后支持在插图索引中进行浏览和检索。
 
-###### 示例_一行多图适配
+> Markdown 标准图片语法为：
+>
+> `![Alt text](xxx.png#card "Title text")`
+>
+> 需要注意的是，卡片标题内容来自于图片中的「**Title text**」，而卡片正文内容来自于图片中的「**Alt text**」。
+>
+> 若需要对正文内容内容进行更多格式排版，可在图片下方添加一个「引用」，该引用的内容将代替「**Alt text**」
 
-该示例效果可通过这里查看 [❯❯](guide2.md#模板主题)
+[^Card模式]: 鼠标在图片上==悬停后显示==文字
+[^CardDual模式]: 图片与文字==同时显示==
+
+> `#⚠️|注意#`~(Rd!)~ 「明信片」不能与[图片显示版式](#图片显示版式)中的排版特性同时使用
+>
+> `#📒|参考#`~(Gn!)~ *如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～*
+
+###### 进阶玩法
+
+如果希望能指定明信片的**背景颜色**~(T1T2)~，或是以**分栏**~(T1T2)~的方式对明信片进行更整洁的排版，只要将「明信片」放置到[彩虹引用](#彩虹引用)内即可，还是熟悉的配方～
+
+###### 示例_任意普通的图片添加 Card 魔法
+
+![熔岩和森林彼此相邻。 Lava and forest next to each other.](https://madmaxchow.gitee.io/vlookres/pic/pic-card-00.jpeg#card#500px "西西里岛")
+
+###### 示例_结合引用分栏的 Card 模式
+
+---
+
+---
+
+> ![被替换的正文内容](https://madmaxchow.gitee.io/vlookres/pic/pic-card-01.jpeg#card "广东科学中心")
+>
+> > 以**「自然、人类、科学、文明」**~(RdGnSe)~为主题的一个不以营利为目的的社会公益性事业机构。是为公众提供科普教育的社会科技活动场所。科普旅游休闲的示范景点。
+> >
+> > [<kbd>去 百度百科 看看</kbd>](https://baike.baidu.com/item/%E5%B9%BF%E4%B8%9C%E7%A7%91%E5%AD%A6%E4%B8%AD%E5%BF%83)
+> >
+> > ---
+> >
+> > *<sub>广东科学中心建设耗资 19 亿元人民币、历时近 5 年建成，于 2008 年 9 月 26 日建成开放。</sub>*
+>
+> ~(T1)~
+
+> ![桑布鲁勇士站在秋天的山脊上，周围是肯尼亚北部 975,000 英亩的 Namunyak 野生动物保护区。—— 摄影：AMI VITALE, NAT GEO IMAGE COLLECTION](https://madmaxchow.gitee.io/vlookres/pic/pic-card-02.jpeg#card)
+>
+> ~(T2)~
+
+> ![鹈鹕（别称塘鹅或河鸟，是鹈形目鹈鹕科鹈鹕属大型游禽，翅膀宽大，翼展较宽，扇翅有力），在蒙大拿州的药湖国家野生动物保护区上空飞行。前景中的鸟在它的喙上有一个角质的片，它在交配季节生长，当季节结束时就会脱落。—— 摄影：KLAUS NIGGE, NAT GEO IMAGE COLLECTION](https://madmaxchow.gitee.io/vlookres/pic/pic-card-03.jpeg#card "鹈鹕")
+>
+> ~(Ol)~
+
+###### 示例_结合引用分栏的 Card Dual 模式
+
+---
+
+---
+
+> ![](https://madmaxchow.gitee.io/vlookres/pic/pic-card-01.jpeg#cardd "广东科学中心")
+>
+> > 以**「自然、人类、科学、文明」**~(LmOgYe)~为主题的一个不以营利为目的的社会公益性事业机构。是为公众提供科普教育的社会科技活动场所。科普旅游休闲的示范景点。
+> >
+> > [<kbd>去 百度百科 看看</kbd>](https://baike.baidu.com/item/%E5%B9%BF%E4%B8%9C%E7%A7%91%E5%AD%A6%E4%B8%AD%E5%BF%83)
+> >
+> > ---
+> >
+> > *<sub>广东科学中心建设耗资 19 亿元人民币、历时近 5 年建成，于 2008 年 9 月 26 日建成开放。</sub>*
+>
+> ~(Se)~
+
+> ![站在秋天的山脊上，周围是肯尼亚北部 975,000 英亩的 Namunyak 野生动物保护区。—— 摄影：AMI VITALE, NAT GEO IMAGE COLLECTION](https://madmaxchow.gitee.io/vlookres/pic/pic-card-02.jpeg#cardd "桑布鲁勇士")
+>
+> ~(Ye)~
+
+> ![](https://madmaxchow.gitee.io/vlookres/pic/pic-card-03.jpeg#cardd "鹈鹕")
+>
+> > **鹈^[tí]^鹕^[hú]^（别称塘鹅或河鸟，是鹈形目 *鹈鹕* 科 *鹈鹕* 属大型游禽，翅膀宽大，翼展较宽，扇翅有力）**，在蒙大拿州的药湖国家野生动物保护区上空飞行。前景中的鸟在它的喙上有一个角质的片，它在交配季节生长，当季节结束时就会脱落。
+> >
+> > *<sub>—— 摄影：KLAUS NIGGE, NAT GEO IMAGE COLLECTION</sub>*
+>
+> ~(Ol)~
+
+## 图片对齐方式
+
+`#Markdown 粉|🤟#`「**希望可以自由设置插图的对齐式，同时保持 Markdown 的简洁性？**」
+
+`#VLOOK|👀#`~(T2)~ 在 Markdown 对图片千篇一律的排版的反馈中，尝试打开了一道小小的裂缝～
+
+> ###### 图片对齐
+>
+> 可在「图片 URL」中添加 VLOOK™ 规范的参数来启用这一特性（只针对插图）：
+>
+> - 图片 URL + `#对齐方式标识`
+
+###### 图片不同对齐方式的标识与说明
+
+| 对齐方式标识 | 说明                               | 完整语法参考              |
+| :----------: | ---------------------------------- | ------------------------- |
+|     left     | 左对齐（默认的对齐方式，不用指定） | `![图片](xxx.png#left)`   |
+|    center    | 居中对齐                           | `![图片](xxx.png#center)` |
+|    right     | 右对齐                             | `![图片](xxx.png#right)`  |
 
 > `#📒|参考#`~(Gn!)~ *如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～*
 
----
+###### 插图示例
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+![左对齐](https://madmaxchow.gitee.io/vlookres/pic/markdown-mark.svg?darksrc=invert)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+![居中对齐](https://madmaxchow.gitee.io/vlookres/pic/markdown-mark.svg?darksrc=invert#center)
 
-## 图片颜色替换
+![右对齐](https://madmaxchow.gitee.io/vlookres/pic/markdown-mark.svg?darksrc=invert#right)
 
-`#Markdown 粉|🤟#`「**希望文档中的图片能自动跟随文档主题本色，或文字颜色，而不用重新制作多个版本的图片资源**」
+###### 非插图版式示例（如 logo / icon / frame 的图片版式等）
 
-`#VLOOK|👀#`~(T2)~ 可以针对[显示版式](#图片显示版式)为 icon、logo 的图片（建议为透明背景的 png 或 svg 图片），按指定规则自动替换为指定的颜色。
+![左对齐](https://madmaxchow.gitee.io/vlookres/pic/markdown-mark.svg?darksrc=invert#logo)
 
-> 在「图片 URL」中添加 VLOOK™ 规范的参数的方式来启用这一特性：
->
-> - URL 参数：`fill=颜色替换标识`
+![左对齐](https://madmaxchow.gitee.io/vlookres/pic/markdown-mark.svg?darksrc=invert#logo#center)
 
-> ###### ⚠️ 注意
->
-> 使用该特性的文档建议发布到 HTTP 服务器上，同时图片路径与 HTML 路径的域名保持一致（即不允许跨域），如：
->
-> - 举例：HTML 文档是发布的地址为 `http://<域名A>/index.html`
->   - 正确的图片链接的地址示例 `http://<域名A>/img/xxx.svg`
->   - 错误的图片链接的地址示例 `http://<域名XXX>/img/xxx.svg`
->
-> *==满足颜色替换的图片路径说明要求==*
->
-> |    浏览器     |   支持的图片路径引用方式    |      ==      |                            ==                             |      ==      |
-> | :-----------: | :-------------------------: | :----------: | :-------------------------------------------------------: | :----------: |
-> |       :       |      直接打开本地 HTML      |      ==      |                    通过 HTTP 方式访问                     |      ==      |
-> |       :       |      [] 相对路径引用       | [] URL 路径 |                     [] 相对路径引用                      | [] URL 路径 |
-> | Chrome / Edge |                             |              |                             Y                             |      Y       |
-> |    Firefox    |              Y              |              |                             Y                             |      Y       |
-> |    Safari     | Y<br>（须指定默认图床地址） |      Y       |                             Y                             |      Y       |
-> |               |             ==              |      ==      | `#⚠️|注意#`~(Rd!)~ **图片路径与 HTML 路径的域名须保持一致** |      ==      |
->
-> > 对于使用 Safari 直接打开本地 HTML 的场景，要实现颜色替换的图片路径如果是相对路径的（实际是部署在指定服务器或图床上），须通过指定[预置选项](guide2.md#插件预置选项) `vlook-image-host` 指定默认图床地址。
->
-> ~(Rd!)~
-
-*==图片颜色替换的 URL 参数（fill）的标识及说明==*
-
-| 颜色替换标识 | 说明                                                         | 完整语法参考                 |
-| :----------: | ------------------------------------------------------------ | ---------------------------- |
-|     text     | 替换为所在段落文字的颜色（会自动适配 Dark Mode 和链接的样式） | `![图片](xxx.png?fill=text)` |
-|      T1      | 替换为主题的主色                                             | `![图片](xxx.png?fill=t1)`   |
-|      T2      | 替换为主题的辅助色                                           | `![图片](xxx.png?fill=t2)`   |
-
-###### 示例_链接内图片
-
-- 什么是 [![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) Markdown](https://en.wikipedia.org/wiki/Markdown)？
-
-###### 示例_正文图文混排
-
-- 替换为==文本==的颜色：![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) Markdown 是一种专门针对网络写作的文本标记语言。
-- 替换为==主题主色==：![Markdown](https://madmaxchow.gitee.io/vlookres/pic/markdown-mark-solid.svg?fill=t1#icon) Markdown 是一种专门针对网络写作的文本标记语言。
-- 替换为==主题辅助色==：![Markdown](https://madmaxchow.gitee.io/vlookres/pic/markdown-mark-solid.svg?fill=t2#icon) Markdown 是一种专门针对网络写作的文本标记语言。
-
-###### 示例_彩虹引用及标题
-
-> ###### 这是 ![Markdown](pic/markdown-mark.svg?fill=text#icon) Markdown 的 6 级标题
->
-> 这里是正文内容。
->
-> ~(Pk)~
-
-###### 示例_插图（实验性）
-
-![原始颜色](https://madmaxchow.gitee.io/vlookres/pic/markdown-mark.svg#figure)　　![颜色替换](https://madmaxchow.gitee.io/vlookres/pic/markdown-mark.svg?fill=t2#figure)
-
----
-
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
-
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+![左对齐](https://madmaxchow.gitee.io/vlookres/pic/markdown-mark.svg?darksrc=invert#logo#right)
 
 ## 图片网格背景
 
@@ -1436,36 +1562,30 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 `#VLOOK|👀#`~(T2)~ 支持针对透明背景的图片（如 PNG、SVG 格式图片），添加指定的网格背景。
 
-> 在「图片 URL」中添加 VLOOK™ 规范的参数的方式来启用这一特性：
+> 在「图片 URL」中添加 VLOOK™ 规范的图片「#魔法」实现：
 >
-> - 参数：`grid=网格背景标识`
+> - 图片 URL + `#网格背景标识`
 >
-> 该特性自动适配 [Dark Mode](guide2.md#Dark Mode) 的应用场景。
+> 该特性会自动适配图片同时应用 [Dark Mode](guide2.md#Dark Mode) 的情况。
 
 ###### 图片网格背景的标识与说明
 
-| 网格背景标识 | 说明                   | 完整语法参考                  |
-| :----------: | ---------------------- | ----------------------------- |
-|     line     | 添加线条风格的网格背景 | `![图片](xxx.png?grid=line)`  |
-|    block     | 添加方块风格的网格背景 | `![图片](xxx.png?grid=block)` |
+| 网格背景标识 | 说明                   | 完整语法参考             |
+| :----------: | ---------------------- | ------------------------ |
+|     line     | 添加线条风格的网格背景 | `![图片](xxx.png#line)`  |
+|    block     | 添加方块风格的网格背景 | `![图片](xxx.png#block)` |
 
 ###### 示例_线条网格
 
-![图片指定为线条网格背景](https://madmaxchow.gitee.io/vlookres/pic/icon-set.svg?grid=line&darksrc=invert "指定在 Dark Mode 时反色")
+![图片指定为线条网格背景](https://madmaxchow.gitee.io/vlookres/pic/icon-set.svg?darksrc=invert#line "指定在 Dark Mode 时反色")
 
-![图片指定为线条网络背景](https://madmaxchow.gitee.io/vlookres/pic/vlook-mark-light.svg?grid=line&darksrc=vlook-mark-dark.svg#padding "指定在 Dark Mode 时替换为指定图片")
+![图片指定为线条网络背景](https://madmaxchow.gitee.io/vlookres/pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#padding#line "指定在 Dark Mode 时替换为指定图片")
 
 ###### 示例 2_方块网格
 
-![图片指定为方块网格背景](https://madmaxchow.gitee.io/vlookres/pic/icon-set.svg?grid=block&darksrc=invert "指定在 Dark Mode 时反色")
+![图片指定为方块网格背景](https://madmaxchow.gitee.io/vlookres/pic/icon-set.svg?darksrc=invert#block "指定在 Dark Mode 时反色")
 
-![图片指定为方块网络背景](https://madmaxchow.gitee.io/vlookres/pic/vlook-mark-dark.svg?grid=block#figure#padding "指定在 Dark Mode 时不处理")　
-
----
-
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
-
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+![图片指定为方块网络背景](https://madmaxchow.gitee.io/vlookres/pic/vlook-mark-dark.svg?#padding#block "指定在 Dark Mode 时不处理")
 
 ## 图片边缘留白
 
@@ -1477,20 +1597,46 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > 可在「图片 URL」中添加 VLOOK™ 规范的参数来启用这一特性（默认给插图的四边添加 `20px` 的留白）：
 >
-> - URL 参数：`padding=true` ，示例：`![图片题注](xxx.png?padding=true)`
-> - URL 锚点：`#padding` ，示例：`![图片题注](xxx.png#padding)`
+> - 图片 URL + `#padding` ，示例：`![图片题注](xxx.png#padding)`
 
 > `#📒|参考#`~(Gn!)~ *如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～*
 
 ###### 示例
 
-![图片边缘不留白（默认）](https://madmaxchow.gitee.io/vlookres/pic/remote-control.svg?grid=block#figure)　　![图片边缘添加留白](https://madmaxchow.gitee.io/vlookres/pic/remote-control.svg?grid=block#figure#padding)
+![图片边缘不留白（默认）](https://madmaxchow.gitee.io/vlookres/pic/remote-control.svg#block)![图片边缘添加留白](https://madmaxchow.gitee.io/vlookres/pic/remote-control.svg#block#padding)
+
+## 适配一行多图
+
+`#Markdown 粉|🤟#`「**在同一段中有多张图片时，能对图片进行自动分隔？**」
+
+`#VLOOK|👀#`~(T2)~ 这个可以有，这种情况下的图片与图片，包括自动换行后都能互相「保持距离」～
+
+---
+
+> ###### 自动适配
+>
+> ---
+>
+> 在同一个段落中直接连续添加多个图片，图片间不留任何字符，也不进行回车换行的情况
+>
+> 如：`![图片1](001.png)![图片2](002.png)![图片3](003.png)`
+
+> ###### 强制适配
+>
+> ---
+>
+> 对于连续多个图片，如果这些图片之间有其他的元素，如被链接嵌套、空格分隔等，须使用指定为强制适配
+>
+> 在「图片 URL」中添加 VLOOK™ 规范的图片「#魔法」实现：
+>
+> - 图片 URL + `#inline`
 
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg?
+ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 # °列表
 
@@ -1592,19 +1738,21 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 `#VLOOK|👀#`~(T2)~ 通过对 Markdown 下标语法 `~ ~` 进行了扩展，满足实用的多色彩「引用」的排版需求！
 
-`#💡|小提示#`~(Og!)~ 所有未指定为彩虹引用的普通引用（普通段落，不包括列表内、引用内的引用），会自动转换为颜色标识为 `t1!` 的彩虹引用。若须修改默认颜色标识，可通过「[插件调校参数](guide2.md#插件调校参数)」`quote` 指定。
+`#💡|小提示#`~(Og!)~ 所有未指定为彩虹引用的普通引用（普通段落，不包括列表内、引用内的引用），会自动转换为色号为 `t1!` 的彩虹引用。若须修改默认色号，可通过「[插件调校参数](guide2.md#插件调校参数)」`quote` 指定。
 
 > **语法：** `~(颜色)~` ，==必须在引用内中独占一行（首行、末尾均可）==
 >
 > 其中：
 >
-> `颜色`：指定该引用使用的[预置颜色标识](#预置颜色标识)（除 `Bk` ），在被正常识别后会在颜色标识前出现彩虹引用标识「**>**~(T2)~」
+> `颜色`：指定该引用使用的[预置色卡](#预置色卡)（除 `Bk` ），在被正常识别后会在色号前出现彩虹引用标识「**>**~(T2)~」
+
+---
 
 > > ###### 彩虹引用指定颜色的旧语法
 > >
-> > **语法：** `` >(颜色) `` ，与新语法的主要区别是由行内代码改为下标，并采用与标签、徽章、刮刮卡统一的[预置颜色标识](#预置颜色标识)。
+> > **语法：** `` >(颜色) `` ，与新语法的主要区别是由行内代码改为下标，并采用与标签、徽章、刮刮卡统一的[预置色卡](#预置色卡)。
 
-> > ###### 如何将彩虹引用的颜色标识由「旧语法」批量更新为「新语法」
+> > ###### 如何将彩虹引用的色号由「旧语法」批量更新为「新语法」
 >
 > 使用 Typora 的查找替换功能，或任意支持正则表达式进行查找替换的工具（如：VS Code / UltraEdit 等）进行操作。
 >
@@ -1618,7 +1766,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![red](pic/qico-red.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Wn`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Wn`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1632,7 +1780,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![red](pic/qico-red.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Wn!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Wn!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1648,7 +1796,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![red](pic/qico-red.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Rd`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Rd`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1662,7 +1810,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![red](pic/qico-red.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Rd!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Rd!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1678,7 +1826,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![orange](pic/qico-orange.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Og`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Og`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1692,7 +1840,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![orange](pic/qico-orange.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Og!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Og!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1708,7 +1856,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![yellow](pic/qico-yellow.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Ye`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Ye`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1722,7 +1870,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![yellow](pic/qico-yellow.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Ye!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Ye!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1738,7 +1886,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![lime](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Lm`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Lm`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1752,7 +1900,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![lime](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Lm!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Lm!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1768,7 +1916,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![green](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Gn`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Gn`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1782,7 +1930,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![green](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Gn!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Gn!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1798,7 +1946,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![green](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Mn`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Mn`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1812,7 +1960,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![green](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Mn!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Mn!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1828,7 +1976,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![green](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Ol`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Ol`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1842,7 +1990,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![green](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Ol!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Ol!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1858,7 +2006,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![aqua](pic/qico-cyan.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Aq`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Aq`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1872,7 +2020,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![aqua](pic/qico-cyan.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Aq!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Aq!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1888,7 +2036,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![cyan](pic/qico-cyan.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Cy`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Cy`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1902,7 +2050,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![cyan](pic/qico-cyan.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Cy!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Cy!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1918,7 +2066,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![blue](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Bu`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Bu`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1932,7 +2080,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![blue](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Bu!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Bu!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1948,7 +2096,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![sea](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Se`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Se`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1962,7 +2110,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![sea](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Se!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Se!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1978,7 +2126,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![sea](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`La`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`La`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -1992,7 +2140,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![sea](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`La!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`La!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2008,7 +2156,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![sea](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Vn`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Vn`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2022,7 +2170,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![sea](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Vn!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Vn!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2038,7 +2186,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![purple](pic/qico-purple.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Pu`　　　ℹ️了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Pu`　　　ℹ️了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2052,7 +2200,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![purple](pic/qico-purple.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Pu!`　　　ℹ️了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Pu!`　　　ℹ️了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2068,7 +2216,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![rose](pic/qico-pink.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Ro`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Ro`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2082,7 +2230,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![rose](pic/qico-pink.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Ro!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Ro!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2098,7 +2246,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![pink](pic/qico-pink.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Pk`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Pk`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2112,7 +2260,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![pink](pic/qico-pink.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Pk!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Pk!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2128,7 +2276,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![gold](pic/qico-brown.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Gd`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Gd`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2142,7 +2290,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![gold](pic/qico-brown.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Gd!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Gd!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2158,7 +2306,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![brown](pic/qico-brown.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Bn`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Bn`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2172,7 +2320,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![brown](pic/qico-brown.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Bn!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Bn!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2188,7 +2336,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![gray](pic/qico-gray.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Gy`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Gy`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2202,7 +2350,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![gray](pic/qico-gray.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`Gy!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`Gy!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2218,7 +2366,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![Theme1](pic/qico-theme1.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`T1`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`T1`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2232,7 +2380,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![Theme2](pic/qico-theme2.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`T1!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`T1!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2248,7 +2396,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![Theme2](pic/qico-theme2.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`T2`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`T2`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2262,7 +2410,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > ###### ![Theme2](pic/qico-theme2.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
 >
-> 颜色==标识==为：`T2!`　ℹ️ 了解[颜色标识](#预置颜色标识) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置颜色标识)
+> 颜色==标识==为：`T2!`　ℹ️ 了解[色号](#预置色卡) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](#预置色卡)
 >
 > > > ###### 更多信息
 > >
@@ -2274,13 +2422,13 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > ~(T2!)~
 
-> > ###### 如何将彩虹引用的颜色标识由「旧语法」批量更新为「新语法」
+> > ###### 如何将彩虹引用的色号由「旧语法」批量更新为「新语法」
 >
 > 使用 Typora 的查找替换功能，或任意支持正则表达式进行查找替换的工具（如：VS Code / UltraEdit 等）进行操作。
 >
 > 1. 在查找内容中输入 `` `>(\([a-z!12]+\))` `` ，并指定查找选项为 `正则表达式`
-> 2. 查找匹配到内容后，替换内容为 `~COLOR-CODE~` ；
-> 3. 注意其中 `COLOR-CODE` 为实际新颜色标识，如 `Rd` 、`Gn` 等。
+> 2. 查找匹配到内容后，替换内容为 `~color-card~` ；
+> 3. 注意其中 `color-card` 为实际新色号，如 `Rd` 、`Gn` 等。
 
 ---
 
@@ -2444,7 +2592,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
   > ###### ![Theme2](pic/qico-theme2.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
   >
-  > 这是一个 `#彩虹引用|主题辅助色#`~(T2)~ ，颜色==标识==为：`T2`　ℹ️ 了解[颜色标识](#预置颜色标识)
+  > 这是一个 `#彩虹引用|主题辅助色#`~(T2)~ ，颜色==标识==为：`T2`　ℹ️ 了解[色号](#预置色卡)
   >
   > ~(T2)~
 
@@ -2708,7 +2856,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > ---
 >
-> > ###### 嵌套的分栏 1：
+> > **嵌套的分栏 1（非H6）**
 > >
 > > 第 1 行第 1 栏
 > >
@@ -2716,7 +2864,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 > >
 > > ~(Rd!)~
 >
-> > ###### 嵌套的分栏 2：
+> > **嵌套的分栏 2（非H6）**
 > >
 > > 第 1 行第 2 栏
 > >
@@ -2724,7 +2872,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 > >
 > > ~(Gn!)~
 >
-> > ###### 嵌套的分栏 3：
+> > **嵌套的分栏 3（非H6）**
 > >
 > > 第 1 行第 3 栏
 > >
@@ -2732,7 +2880,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 > >
 > > ~(Bu!)~
 >
-> > ###### 嵌套的分栏 4：
+> > **嵌套的分栏 4（非H6）**
 > >
 > > 第 1 行第 4 栏
 > >
@@ -2953,4 +3101,4 @@ void quickSort(int arr[], int left, int right) {
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
-# The End
+# The EndR

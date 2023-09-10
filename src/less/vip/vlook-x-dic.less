@@ -11,7 +11,7 @@
  *
  *************************************/
 
-@import "../theme-thinking";
+@import "../theme-owl";
 
 // 主题信息
 @themeName: "vlook-x-dic";
@@ -24,6 +24,8 @@
 // .applyFontStyle(serif);
 // 文档背景使用图片
 .applyDocBgImg(@docBgImgLight_Twill_R, @docBgImgDark_Twill_R);
+// 指定主题配套的圆角
+.applyThemeRadius(small);
 
 :root {
     --thm-fav-logo-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAMAAAC8EZcfAAABm1BMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////XFRcAn+n+9PQRpuvvpaXtlZaL0/TiU1Qire2d2vfwqqvumpqfOU763t/g9P2j3fiR1fYIourysLHfQkPbKCr4/f+t4fnvnp/s+P7//f3Z8vzL7PtGuvD96+z3z8/jW137/v9zy/NhxPJTv/Ebquz1vr/ma2zYGh295vqU1/ZtyPM+t+83tO4oru3zt7jsi4zodnfncXLlZmfkYGHhUFLePD7cMTTaISPYHiDYGBrl9Pu25Pn++PiF0fV+z/QtsO352dn2ycrwoqPskJHqhYbqgYLoenvgR0ndNjfx+f7u+P3E6fqg2/f41NWzk6VyVnq6Y3HiVlfPKS/R7vzZ6fTO3+375OTAy926vtC3s8Ylh8X1xMS0pLe3dITAUV3hTE7HO0TI2OjG1eUJmeBFc6a0iZtTapi0hJbriImSQlu8RVC3KTZBQjxaAAAAHHRSTlMAqv2++PPdpXFMKgXqtJiLfj80IRgP09HHdmFWkZlOiAAABWlJREFUeNrt2WdXE0EUgOExoSZKUbDe3UA0gKAbBEMgiBSRJtIEpCmIYEOw99792YZ4kp3NbJy7yRy5H+b9A/McDjP3LjCdTqfT6XQ6nU6n0+VTMFB+rLKidN8ex9w7WOUvAhK56Q5VlQCZRF6g1AeEyubV0OIJwLJiIJaDV3sAyOW4HIeBXpyvej8QzPYdJ/Lw5QKWE7u92cAAuevrBNYSmh1uwKAfqMZSVQLZ/u4uRC9IBngU6LbrOwGE2wUeAcLtPtFAuSSQ4ArjANYQvsIpYBmQjjG6QyQVCxaB2kIF1gGOWDUoLBTemDMK7Ao4UvorGL1mFF4zOGIVoKywoaDZDnCk8I5cmVcB3ABnrAQUlZg1VDQBzpiyT7lxQ0lN4IwVg6Ja1QBfgzMGigoZakqAnVJgtxrfObBTC1xVA9wBOzmwZalrJZK74RauLSPZhWauiXyA6x6AbcuW+c/OAte2kWwcuC7kA2zEA2NjpqTLwPVImKN5zb0HaGDPiCkrBnbX7TlayLWeX0QDL0p9dcD10Ug2B1w38wHOABYYs6TALuB6KczR8/kAJ9HABlPaReD6KszRq/kA19DAXjnwPnC9S70yTeeTra7WJ2ucyWtbRQNX5MBO/krNGUp6hgX2WHJgG9g9UeObBSzwsdw3BlzP1QDfo4FnMo6hhhwNAdcbI1lrPVdqjszUY1rLrOJX0cCL3GPnXvsScL0V5uikfaCkkL1JnkcDu9LAEXDvstUOXB+MZFHgmkkfKGtx2sh0Ew3sTwOHwbVOy4yD3R1hji7Opw+U1DFl2IWwwLtmugZwK15nWsD1VJijD4QDhcT3/BpggfdcHzs4my5imqPA9UKYo43CgTea3HIsjRfQwCHXxy5ucvUC15YwR9ftA/FffbdkQHHQRRwXlwc6XpltYY7uCAdOyYFRNHA0zegDrmUeeO/f2+o54cBNOfAGGpgZdMvA1ccD7/LbqjBHE8KBIblvsAMLbMkwHI9dhPP1A9cnYY6+tg/Ef5a2ggQo/rI5H7vc26owR5uEA+vlwEto4FKaYQlvj+u2+l0YaxPCgbflwLAMKP6yjeZcss84tlVhrG0IB07LgQNo4JjrYzfMAx+DXdtg9ljrmBMOPCcHJrDANsv105z/DrUc26ow1pqFAxOYP8tggZ3un+Z1HHDFsa0KYy0qHDggB06jgffdP81Nrj5hWxXH2rTHv1/flgBl2+oCD3Ruq+JYEw68JAeuooFdro/dSR64IGyr4lir9/j31240sN/1ses8w3WHXx7FsSYeGG3MkS0PYYEx7tMc09McYy0EiJoyvk3AAi9z2yqmF+5jbRMQRY1MU2jgWW5bxbTlPtamQN7AoA38gQb22p/mqLbdx9o4SOue47dVNHA0AzyJ6lHqJxjmSo21ybA0x/hrRgMt01OvVP3/AQuMm976ogY4iQa2ewQ+VAMcQAOXPQJ/KvG1AhrY5xH4W4VvsBsPjHjzfTZUFAY0sM3cg0u8Bnhgp0fgNwUvTBQ8ABv+9yWeXU+AF+CwV+Bp136dwrRz6dZACMATcMRUUjuoSQTWqQHGwE4p8LoaXxfYqQUuKNBx36vqgSeV+PpAVcXZwF4Vvv4YqGp/NnBFhS8OyirJAvZYhftGWkBd/ixgvPAf31APKKwiC9heV0iR0eGFHlBaGQPaVRMHFgWJA/2MOLCMONBXQxx4gBEHlhMHHmHEgSeIA48y2kDfQeLASkYb6A/SBpbUMtLA4gAjDfSVM9LAouOMNHB/NSMNPHyIkQYeqGWUgcVljBEG+kprGGGgrzTAGF1gSdUhxqgCi/xVB5l7+/a40orKY+WBINPpdDqdTqfT6XQ6XR79AaHVNQCh3aypAAAAAElFTkSuQmCC");
@@ -69,6 +71,13 @@
 @h4BorderLeft: 0;
 @h5BorderLeft: 0;
 @h6BorderLeft: 0;
+// 标题的右边框
+@h1BorderRight: 0;
+@h2BorderRight: 0;
+@h3BorderRight: 0;
+@h4BorderRight: 0;
+@h5BorderRight: 0;
+@h6BorderRight: 0;
 // 标题的上边框
 @h1BorderTop: none;//9px solid var(--h-box-shadow);
 @h2BorderTop: none;//7px solid var(--h-box-shadow);
@@ -82,11 +91,16 @@
 @h4Margin: 1.5em 0 0 0;
 @h5Margin: 1.25em 0 0 0;
 
+// 题注文字、背景色
+@captionTextColor: var(--d-f-c-alt);
+@captionBackground: none;
+
 // 行内代码
 @codeTextColor: @theme2;
 
 // 按钮色
 @buttonForeColor: @themeBgColor;
+@buttonForeHoverColor: @theme3;
 @buttonBgColor: @themeForeColor;
 
 // 链接颜色
@@ -102,14 +116,16 @@
 @tableBorderBottomWidth: 0;
 @tableThBorderRightWidth: 0;
 @tableTdBorderRightWidth: 0;
+// 表格行 hover
+@tableTrHoverBg: fade(@aHoverColor, 15%);
+@tableTrHoverBgDark: fade(@aHoverColor, 25%);
 // 表格圆角
 @tableBorderRadius: 0;
 // 表格背景
 @tableThColor: var(--d-f-c-alt);
 @tableThBakcground: inherit;
-// @tableTdBakcground: @tableThColor;
 // 表格单元格阴影
-@tableFirstThBoxShadow: none;//0 1px 0 var(--tbl-cell-bd);
+@tableFirstThBoxShadow: none;
 @tableThBoxShadow: 0 -1px 0 var(--tbl-cell-bd);
 @tableThRepeaterBoxShadow: 0 -@tblBdWidth 0 var(--tbl-h-bd);
 @tableFirstTdBoxShadow: 0 -@tblBdWidth 0 0 var(--tbl-h-bd);
@@ -127,6 +143,24 @@
 @backCoverTextAlign: center;
 @backCoverTextPadding: 220px 60px 50px 60px;
 @backCoverTextColor: @themeForeColor;
+
+// 封面装饰性文本样式 before
+@coverTextBeforeContent: "";
+@coverTextBeforePosition: initial;
+@coverTextBeforeLeft: initial;
+@coverTextBeforeTop: initial;
+@coverTextBeforeColor: initial;
+@coverTextBeforeFontSize: initial;
+@coverTextBeforeFontWeight: initial;
+@coverTextBeforeOpacity: initial;
+// 封面装饰性文本样式 after
+@coverTextAfterContent: "";
+@coverTextAfterTextAlign: initial;
+@coverTextAfterLeft: initial;
+@coverTextAfterTop: @coverTextBeforeTop;
+@coverTextAfterRight: initial;
+@coverTextAfterColor: @coverTextBeforeColor;
+@coverTextAfterFontSize: @coverTextBeforeFontSize;
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
 @contrastBorderForCover: 0 0 0 2px fade(@themeForeColor, 20%) inset;

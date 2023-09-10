@@ -10,9 +10,10 @@ vlook-chp-autonum: h1{{#ZH# ° }},h2{{步骤 ##-min#：}}
 vlook-query: effects=2&ws=auto&lmc=1
 vlook-doc-lib: vlook-lib.html
 vlook-image-host: https://madmaxchow.gitee.io/vlook/
+vlook-var: `[var1]:abc`,`[var2]:efg`
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>简介</u><br>`#最新版本|V19.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>简介</u><br>`#最新版本|V20.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
 
 [TOC]
 
@@ -107,11 +108,13 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > ---
 >
+> ^测试^
+>
 > **有了 VLOOK™ 主题及插件的支持，让你对 Markdown 编辑器（暂只支持 Typora）的自动化排版能力有了全新的理解和应用。**
 >
 > 除丰富的排版增强特性外，基于 HTML 格式让静态的文档也能与你一起「动」起来～
 >
->　　　　
+> 
 >
 > [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°文档排版)
 >
@@ -202,8 +205,6 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ![](https://madmaxchow.gitee.io/vlookres/pic/typora-opt1-light.png?srcset=@2x&darksrc=typora-opt1-dark.png&darksrcset=@2x)
 
----
-
 ## 安装主题包
 
 ---
@@ -237,8 +238,6 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >    2. 无封面模板：*VLOOK-Document-Template-nocover.md*
 >    3. 文库模板：*VLOOK-Document-Template-doc_lib.md*
 > 2. 也可直接在项目主页中[下载文档模板](https://github.com/MadMaxChow/VLOOK/tree/master/released/demo)（[备用链接](https://gitee.com/madmaxchow/VLOOK/tree/master/released/demo)）
-
----
 
 ## 配置导出选项
 

@@ -3,8 +3,8 @@
  * VLOOK CSS - Mermaid 自定义样式
  * (配合 base.less 进行使用)
  *
- * V19.0
- * 2023-07-29
+ * V20.0
+ * 2023-09-10
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -22,6 +22,9 @@
 
     --mm-font-family: var(--v-f-fm-tag);
     --mm-alt-font-family: var(--v-f-fm-tag);
+
+    // #ZenUML_Var
+
 
     --mm-c-rd: var(--ac-rd);
     --mm-c-rd-alt: var(--ac-rd-alt);
@@ -442,7 +445,8 @@ svg[aria-roledescription="sequence"] g>.labelText {
 }
 
 //片断的标题标签文本
-svg[aria-roledescription="sequence"] .loopText>tspan {
+svg[aria-roledescription="sequence"] .loopText {
+// svg[aria-roledescription="sequence"] .loopText>tspan {
     fill: var(--ac-pu-lg) !important;
     // fill: var(--d-f-c) !important;
     font-size: .875em !important;
@@ -939,6 +943,85 @@ svg[aria-roledescription="gitGraph"] .commit-labels .commit-label {
     fill: var(--d-f-c) !important;
 }
 
+/* ----- C4 diagrams C4 图 ----- */
+
+svg[aria-roledescription="c4"] g[class] :is(tspan, text) {
+    fill: var(--d-f-c-dk) !important;
+}
+
+// svg[aria-roledescription="c4"] rect[stroke-dasharray] {
+//     stroke: var(--d-f-c-alt) !important;
+// }
+
+svg[aria-roledescription="c4"] #arrowhead path {
+    fill: var(--d-f-c) !important;
+    stroke: none !important;
+}
+
+svg[aria-roledescription="c4"] :is(line[stroke="blue"], path[stroke="blue"]) {
+    stroke: var(--ac-bu) !important;
+}
+svg[aria-roledescription="c4"] :is(line[stroke="red"], path[stroke="red"]) {
+    stroke: var(--ac-rd) !important;
+}
+svg[aria-roledescription="c4"] [stroke="#444444"] {
+    stroke: var(--ac-gy) !important;
+}
+
+/* ----- ZenUML 图 ----- */
+
+.md-diagram-panel>div>svg[aria-roledescription="zenuml"] {
+    border: 0 !important;
+    background: none !important;
+}
+svg[aria-roledescription="zenuml"] .bg-skin-frame {
+    border-radius: var(--v-r-b);
+    border: @imgBorderWidth solid var(--pn-c);
+    margin: 0;
+}
+
+// 导出后的样式微调
+body.typora-export svg[aria-roledescription="zenuml"] div[alt^="icon"]>svg {
+    width: 75% !important;
+    // height: 75% !important;
+}
+body.typora-export svg[aria-roledescription="zenuml"] div[alt^="icon"] {
+    margin-left: 4px; // = 32px * (100% - 75%) / 2
+}
+
+svg[aria-roledescription="zenuml"] div[alt^="icon"]>svg path[stroke] {
+    stroke: var(--d-f-c) !important;
+}
+svg[aria-roledescription="zenuml"] div[alt^="icon"]>svg>path[fill],
+svg[aria-roledescription="zenuml"] div[alt^="icon"]>svg g:not([id^="Icon-Architecture"])>path[fill] {
+    fill: var(--d-f-c) !important;
+}
+
+svg[aria-roledescription="zenuml"] .bg-skin-title {
+    background: none;
+}
+
+svg[aria-roledescription="zenuml"] .zenuml :is(label, p) {
+    color: var(--d-f-c) !important;
+    margin: 0;
+}
+
+svg[aria-roledescription="zenuml"] .zenuml .collapse-button :is(line, polyline) {
+    stroke: var(--d-f-c);
+    fill: var(--d-f-c);
+}
+
+svg[aria-roledescription="zenuml"] .zenuml :is(.fill-current, .collapse-button) {
+    border-color: var(--d-f-c-alt);
+}
+
+.theme-mermaid {
+    --color-bg-base: var(--d-bc);
+    --color-text-base: var(--d-f-c);
+    --color-border-base: var(--d-f-c-alt);
+    --color-bg-occurrence: var(--d-f-c-alt);
+}
+
 /* ----- Entity Relationship (ER) 实体关系图 ----- */
 
 // 实体背景
@@ -1057,31 +1140,36 @@ svg[aria-roledescription="mindmap"] g .mindmap-node line {
     stroke: var(--d-f-c) !important;
     stroke-width: 3px !important;
 }
-svg[aria-roledescription="mindmap"] g .mindmap-node text>tspan {
+svg[aria-roledescription="mindmap"] g .mindmap-node text tspan {
     fill: var(--d-f-c-lg) !important;
 }
 
-//
+// 节点：根节点
+svg[aria-roledescription="mindmap"] g .mindmap-node.section-root :is(rect, circle, path, polygon) {
+    fill: var(--d-f-c) !important;
+    stroke-width: 5px !important;
+    stroke: var(--d-f-c-alt) !important;
+}
+svg[aria-roledescription="mindmap"] g .mindmap-node.section-root text tspan {
+    fill: var(--d-bc) !important;
+    font-weight: bold !important;
+}
+
+// 节点 hover 样式
 svg[aria-roledescription="mindmap"] g .mindmap-node {
     cursor: crosshair;
 }
 svg[aria-roledescription="mindmap"] g .mindmap-node:hover :is(rect, circle, path, polygon) {
     fill: var(--d-f-c) !important;
 }
-svg[aria-roledescription="mindmap"] g .mindmap-node:hover text>tspan {
+svg[aria-roledescription="mindmap"] g .mindmap-node:hover text tspan {
     fill: var(--d-bc) !important;
-    text-decoration: underline;
 }
-
-// 节点：根节点
-svg[aria-roledescription="mindmap"] g .mindmap-node:first-child :is(rect, circle, path, polygon) {
+svg[aria-roledescription="mindmap"] g .mindmap-node.section-root:hover :is(rect, circle, path, polygon) {
+    fill: var(--d-bc) !important;
+}
+svg[aria-roledescription="mindmap"] g .mindmap-node.section-root:hover text tspan {
     fill: var(--d-f-c) !important;
-    stroke-width: 5px !important;
-    stroke: var(--d-f-c-alt) !important;
-}
-svg[aria-roledescription="mindmap"] g .mindmap-node:first-child text>tspan {
-    fill: var(--d-bc) !important;
-    font-weight: bold !important;
 }
 
 // 节点：第 1 类节点
@@ -1136,12 +1224,22 @@ svg[aria-roledescription="mindmap"] .mindmap-edges .edge-depth-4 {
 }
 // 节点：第 6 类节点
 svg[aria-roledescription="mindmap"] g .section-5 :is(rect, circle, path, polygon) {
-    fill: var(--ac-gy-lg) !important;
+    fill: var(--ac-la-lg) !important;
 }
 svg[aria-roledescription="mindmap"] .mindmap-edges .section-edge-5 {
-    stroke: var(--ac-gy-lg) !important;
+    stroke: var(--ac-la-lg) !important;
 }
 svg[aria-roledescription="mindmap"] .mindmap-edges .edge-depth-5 {
+    opacity: 1 !important;
+}
+// 节点：第 7 类节点
+svg[aria-roledescription="mindmap"] g .section-6 :is(rect, circle, path, polygon) {
+    fill: var(--ac-gy-lg) !important;
+}
+svg[aria-roledescription="mindmap"] .mindmap-edges .section-edge-6 {
+    stroke: var(--ac-gy-lg) !important;
+}
+svg[aria-roledescription="mindmap"] .mindmap-edges .edge-depth-6 {
     opacity: 1 !important;
 }
 

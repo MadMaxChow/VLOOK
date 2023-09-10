@@ -11,14 +11,12 @@
  *
  *************************************/
 
-@import "../theme-hope";
+@import "../theme-thinking";
 
 // 主题信息
 @themeName: "vlook-x-vueb";
 @themeDesc: "× VueB";
 
-// 指定主题配套的圆角
-.applyThemeRadius(small);
 // 文档背景使用图片
 .applyDocBgImg(@docBgImgLight_Twill_R, @docBgImgDark_Twill_R);
 
@@ -33,14 +31,14 @@
 
 // 主题主色
 @theme1: #42b883;
-@theme2: #647ef0;//#e86800;
+@theme2: #647ef0;
 @theme3: #FFFFFF;
 @theme1Dark: darken(@theme1, 20%);
 @theme1Alt: lighten(@theme1, 50%);
 @theme1AltDark: darken(@theme1, 35%);//@codeBgColorDark;
 @theme2Dark: darken(@theme2, 20%);
-@theme2Alt: lighten(@theme2, 25%);//lighten(@theme2, 50%);
-@theme2AltDark: darken(@theme2, 65%);//darken(@theme2Alt, 75%);
+@theme2Alt: lighten(@theme2, 25%);
+@theme2AltDark: darken(@theme2, 65%);
 @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
 @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
 
@@ -52,15 +50,15 @@
 @themeBgColorAlt: lighten(@themeForeColor, 42%);
 
 // 标题色
-@headerColor: @theme1;//@vueTextLight;
-@headerColorDark: @theme1;//@vueTextDark;
+@headerColor: @theme1;
+@headerColorDark: @theme1;
 // 渐变标题色 h1-h5
-@lgHeaderBg: linear-gradient(135deg, @theme1 25%, @theme2); // rgb(100, 126, 255)
+@lgHeaderBg: linear-gradient(135deg, @theme1 25%, @theme2);
 @lgHeaderBgClip: text;
 @lgHeaderColor: transparent;
 // 6 级标题前缀内容
 @h6BeforeContent: "❖ ";
-@headerBackground: none;//linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
+@headerBackground: none;
 @multiHeaderBG: none;
 @headerTextAlign: left;
 @headerPadding: 10px 0 0 0;
@@ -84,8 +82,13 @@
 @h4Margin: 1em 0 0 0;
 @h5Margin: 1em 0 0 0;
 
+// 题注文字、背景色
+@captionTextColor: var(--d-f-c-alt);
+@captionBackground: none;
+
 // 按钮色
 @buttonForeHoverColor: @theme3;
+@buttonBgColor: @theme1;
 
 // 链接颜色
 @aBorderWidth: 1px;
@@ -93,6 +96,7 @@
 @aColorDark: @theme1;
 
 // 封面、封底文字位置及对齐方式
+@coverTextAlign: center;
 @coverTextPadding: 240px 60px 50px;
 @coverTextColor: @themeForeColor;
 @coverSubColor: @aLineColor;
@@ -100,6 +104,7 @@
 @coverAuthorColor: @coverUnderlineColor;
 @coverOwnerColor: @coverAuthorColor;
 
+@backCoverTextAlign: center;
 @backCoverTextPadding: 220px 60px 50px 60px;
 @backCoverTextColor: @themeForeColor;
 

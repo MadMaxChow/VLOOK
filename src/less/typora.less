@@ -3,8 +3,8 @@
  * VLOOK CSS - Typora 编辑时内置样式
  * (配合 base.less 进行使用)
  *
- * V19.0
- * 2023-07-29
+ * V20.0
+ * 2023-09-10
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -92,9 +92,9 @@
     // 选择的文本前景
     // --select-text-font-color: var(--d-f-c);
     // 选择的文本背景
-    --select-text-bg-color: @selectionColor;
+    --select-text-bg-color: var(--v-selection-color);
 
-    --search-select-bg-color: @selectionColor;
+    --search-select-bg-color: var(--v-selection-color);
 
     --control-text-color: var(--d-f-c-lg);
     --control-text-hover-color: var(--d-f-c-lg);
@@ -115,7 +115,7 @@
 // 选中内容的样式
 ::selection {
     // color: var(--d-f-c) !important;
-    background: @selectionColor !important;
+    background: var(--v-selection-color) !important;
     fill: var(--d-f-c) !important; // for SVG text
 }
 
@@ -210,8 +210,9 @@
     background: var(--ac-t1) !important;
     box-shadow: none !important;
 }
-.md-grid-board tr::before,
-.md-grid-board tr:hover::before {
+// .md-grid-board tr::before,
+// .md-grid-board tr:hover::before {
+.md-grid-board :is(tr, tr:hover)::before {
     content: "" !important;
 }
 .md-grid-board tr>:is(th, td),
@@ -458,7 +459,7 @@ body.os-windows :is(.md-image-input-src-btn, .md-image-pick-file-btn) {
     font-size: 1em;
 }
 .md-image>.md-meta {
-    color: var(--h-f);
+    color: @aHoverColor;
 }
 kbd .md-image>.md-meta {
     color: @buttonForeColor;
@@ -471,9 +472,9 @@ kbd .md-image>.md-meta {
 }
 
 // 当前焦点、焦点行
-.md-focus .md-expand {
-    border-bottom: @focusStyle !important;
-}
+// .md-focus .md-expand:not(:has(.md-meta)) {
+//     border-bottom: @focusStyle !important;
+// }
 .md-focus-container::before {
     content: @focusCursor !important;
     position: absolute;
@@ -910,7 +911,7 @@ body.os-windows #file-library-tree {
     --active-file-bg: var(--pn-c);
     --active-file-text-color: var(--d-f-c);
     --text-color: var(--d-f-c);
-    --active-toggle-btn-color: @buttonBgColor;
+    --active-toggle-btn-color: @aHoverColor;
     --monospace: var(--v-f-fm-code);
 }
 
@@ -1048,6 +1049,11 @@ body.os-windows .file-node-title { // for Win
     font-family: var(--v-f-fm-num);
 }
 
+// 错误信息
+.error-message {
+    color: @aHoverColor !important;
+}
+
 // #write sup.md-footnote {
 //     color: var(--d-f-c-alt);
 //     background: none;
@@ -1057,10 +1063,10 @@ body.os-windows .file-node-title { // for Win
 // }
 
 .md-meta {
-    color: var(--a-color);
+    color: @aHoverColor;//var(--a-color);
 }
 
-// 针对在编辑模式时无效图片链接的样式
+// 针对在编辑模式时无效图片的样式
 .md-img-error>.md-meta {
     // background: var(--ac-rd-alt);
     color: var(--ac-rd-lg) !important;
@@ -1069,19 +1075,46 @@ body.os-windows .file-node-title { // for Win
     border-radius: var(--v-r-b);
     line-height: @paragraphInnerLineHeight;
     padding: 1px;
+    background-image: url("data:image/png;base64,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") !important;
+    background-size: cover;
+    width: 200px;
+    height: 100px;
+    display: inline-block !important;
 }
+.md-img-error:is([data-src*=".png"],
+[data-src*=".jpg"],
+[data-src*=".jpeg"],
+[data-src*=".gif"],
+[data-src*=".webp"])>span>span {
+    visibility: hidden;
+}
+// 获得焦点编辑
+.md-img-error[contenteditable="true"]>.md-meta {
+    background-image: none !important;
+    width: initial;
+    height: initial;
+    display: inline !important;
+}
+.md-img-error[contenteditable="true"]>span>span {
+    visibility: visible !important;
+}
+
 // 排除多媒体类的
-:is(.md-img-error[data-src$=".mp3"],
-.md-img-error[data-src$=".m4a"],
-.md-img-error[data-src$=".ogg"],
-.md-img-error[data-src$=".wav"],
-.md-img-error[data-src*=".mp3?"],
-.md-img-error[data-src*=".m4a?"],
-.md-img-error[data-src*=".ogg?"],
-.md-img-error[data-src*=".wav?"],
-.md-img-error[data-src$=".ogv"],
-.md-img-error[data-src$=".mp4"],
-.md-img-error[data-src$=".webm"],
+// :is(.md-img-error[data-src$=".mp3"],
+// .md-img-error[data-src$=".m4a"],
+// .md-img-error[data-src$=".ogg"],
+// .md-img-error[data-src$=".wav"],
+// .md-img-error[data-src*=".mp3?"],
+// .md-img-error[data-src*=".m4a?"],
+// .md-img-error[data-src*=".ogg?"],
+// .md-img-error[data-src*=".wav?"],
+// .md-img-error[data-src$=".ogv"],
+// .md-img-error[data-src$=".mp4"],
+// .md-img-error[data-src$=".webm"],
+:is(.md-img-error[data-src*=".mp3"],
+.md-img-error[data-src*=".m4a"],
+.md-img-error[data-src*=".ogg"],
+.md-img-error[data-src*=".wav"],
 .md-img-error[data-src*=".ogv"],
 .md-img-error[data-src*=".mp4"],
 .md-img-error[data-src*=".webm"])>.md-meta {
@@ -1092,21 +1125,30 @@ body.os-windows .file-node-title { // for Win
     border: inherit;
     padding: inherit;
     border-radius: inherit;
+    background-image: none !important;
+    width: initial;
+    height: initial;
+    display: inline !important;
+    visibility: visible !important;
 }
-:is(.md-img-error[data-src$=".mp3"],
-.md-img-error[data-src$=".m4a"],
-.md-img-error[data-src$=".ogg"],
-.md-img-error[data-src$=".wav"],
-.md-img-error[data-src*=".mp3?"],
-.md-img-error[data-src*=".m4a?"],
-.md-img-error[data-src*=".ogg?"],
-.md-img-error[data-src*=".wav?"])>.md-meta:first-of-type:before {
-    content: "🔊";
+// :is(.md-img-error[data-src$=".mp3"],
+// .md-img-error[data-src$=".m4a"],
+// .md-img-error[data-src$=".ogg"],
+// .md-img-error[data-src$=".wav"],
+// .md-img-error[data-src*=".mp3?"],
+// .md-img-error[data-src*=".m4a?"],
+// .md-img-error[data-src*=".ogg?"],
+// .md-img-error[data-src*=".wav?"])>.md-meta:first-of-type:before {
+:is(.md-img-error[data-src*=".mp3"],
+.md-img-error[data-src*=".m4a"],
+.md-img-error[data-src*=".ogg"],
+.md-img-error[data-src*=".wav"])>.md-meta:first-of-type:before {
+        content: "🔊";
 }
-:is(.md-img-error[data-src$=".ogv"],
-.md-img-error[data-src$=".mp4"],
-.md-img-error[data-src$=".webm"],
-.md-img-error[data-src*=".ogv"],
+// :is(.md-img-error[data-src$=".ogv"],
+// .md-img-error[data-src$=".mp4"],
+// .md-img-error[data-src$=".webm"],
+:is(.md-img-error[data-src*=".ogv"],
 .md-img-error[data-src*=".mp4"],
 .md-img-error[data-src*=".webm"])>.md-meta:first-of-type:before {
     content: "🎦";
@@ -1138,17 +1180,20 @@ body.os-windows .file-node-title { // for Win
 }
 
 // YAML 的样式
-#write>pre.md-meta-block {
+@yamlMarginTopBottom: 20px;
+@yamlMarginLeftRight: 0px;
+@yamlBorderWidth: 2px;
+#write>pre.md-meta-block:first-child {
     font-family: var(--monospace);
     font-weight: var(--v-f-w-text);
     font-size: .875em;
     line-height: @paragraphInnerLineHeight;
     border-radius: var(--v-r-b);
     padding: 30px 10px 5px 10px;
-    color: @aColor;//var(--code-t);
+    color: @aColor;
     background: var(--code-bg);
-    border: 2px dashed var(--std-code-shadow);
-    // box-shadow: 0 0 0 2px var(--std-code-shadow) inset;
+    border: @yamlBorderWidth dashed var(--std-code-shadow);
+    margin: @yamlMarginTopBottom @yamlMarginLeftRight;
 }
 #write pre.md-meta-block:empty:before,
 #write>pre.md-meta-block::before {
@@ -1171,17 +1216,31 @@ body.os-windows .file-node-title { // for Win
     font-weight: normal;
     position: static;
     opacity: .2;
-    // margin-top: 0;
 }
 // YAML / code 获得焦点
 #write>pre.md-meta-block.md-focus, // YAML 等获得焦点
-#write .md-expand code { // code 获得焦点
-    // color: var(--d-f-c) !important;
-    // background: var(--ac-t2-alt) !important;
-    caret-color: @aHoverColor;//var(--d-bc);
+#write .md-expand code, // code 获得焦点
+// 预置颜色色号获得焦点
+#write span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],[md-inline="highlight"],[md-inline="underline"])+sub.md-expand .md-plain,
+#write :is(sup, sub)+sub.md-expand .md-plain,
+// 单元格预置颜色色号获得焦点
+content>#write table :is(th,td)>span>sub:first-child.md-expand .md-plain,
+content>#write table :is(th,td)>span>sub:last-child.md-expand .md-plain,
+// 引用内预置颜色色号获得焦点
+content>#write blockquote p>sub:only-child.md-expand .md-plain {
+    caret-color: @aHoverColor;
+    box-shadow: var(--v-input-focus-inn-shadow), var(--v-input-focus-shadow);
+    border: none;
 }
-#write>pre.md-meta-block:first-child {
-    margin-top: 20px;
+#write>pre.md-meta-block.md-focus { // YAML 等获得焦点后
+    border: none;
+    // 在原来 margin 基础上，补偿因 border 取消后的空间变化
+    margin: @yamlMarginTopBottom+2px @yamlMarginLeftRight+2px;
+}
+// #write .md-expand code,
+#write .md-expand span[md-inline="plain"] { // code 获得焦点
+    padding-left: .25em;
+    padding-right: .25em;
 }
 // 源码模式下的 YAML
 #typora-source pre.cm-yaml {
@@ -1425,47 +1484,55 @@ body.typora-export :is(.md-toc-h1, .md-toc-h2, .md-toc-h3, .md-toc-h4, .md-toc-h
     display: inherit;
 }
 
+// 图文卡片编辑时样式
+content>#write blockquote:has(.md-image[data-src*="#card"]>img) {
+    padding: 0;
+    // background: @buttonBgColor;
+}
+content>#write blockquote p:has(.md-image[data-src*="#card"])+blockquote {
+    color: @buttonForeColor;
+    background-color: @buttonBgColor;
+    border: none;
+    margin: 0;
+    padding: 10px;
+}
+
 // ====================
-// 编辑时预置颜色标识的公共样式
+// 编辑时预置颜色色号的公共样式
 content>#write blockquote p>sub:only-child, // 彩虹引用
 content>#write p>sub:first-child, // 彩虹文本（段落）
 content>#write table :is(th,td)>span>sub:first-child, // 单元格（段落）
 content>#write table :is(th,td)>span>sub:last-child,
-content>#write span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],[md-inline="highlight"],[md-inline="underline"])+sub { // 彩虹文本（指定格式）
-    color: var(--ac-t1-lg);//var(--d-f-c-alt);
+content>#write span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],[md-inline="highlight"],[md-inline="underline"])+sub,
+content>#write :is(sup, sub)+sub { // 彩虹文本（指定格式）
+    color: var(--d-f-c-alt);
     font-family: var(--v-f-fm-code);
     font-weight: bold;
-    font-size: .5em;
+    font-size: .625em;
     border-radius: var(--v-r-tag);
     padding-right: 2px;
-    opacity: .5;
+    bottom: 0;
+    // opacity: .5;
 }
-// 针对 彩虹标签/彩虹徽章 的微调
-// content>#write span[md-inline="code"]+sub {
-//     border-top: 1px solid var(--ac-t1);
-//     border-radius: 0;
-// }
+
 // 针对 彩虹引用 的微调
 content>#write blockquote p>sub:only-child {
     border: 1px solid var(--ac-t2);
+    bottom: 0;
 }
-
-// 前缀提示公共样式
-content>#write blockquote p>sub:only-child::before,
-content>#write p>sub:first-child::before,
-content>#write table :is(th,td)>span>sub:first-child::before,
-content>#write table :is(th,td)>span>sub:last-child::before,
-content>#write span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],[md-inline="highlight"],[md-inline="underline"])+sub::before {
-    font-size: .875em;
-    color: var(--ac-t1-lg);//var(--d-f-c-alt);
-}
-
 // 针对 彩虹引用 的前缀提示样式
 content>#write blockquote p>sub:only-child::before {
     content: ">";
     color: var(--ac-t2);
     font-weight: bold;
     padding-left: 4px;
+}
+// 在引用内的引用时取消样式
+content>#write blockquote > blockquote p>sub:only-child {
+    border: 0;
+}
+content>#write blockquote > blockquote p>sub:only-child::before {
+    content: "";
 }
 // 针对 彩虹文本/单元格（段落） 的前缀提示样式
 content>#write p>sub:first-child::before,
@@ -1474,7 +1541,8 @@ content>#write table :is(th,td)>span>sub:first-child::before {
     color: var(--ac-t2);
 }
 // 针对 彩虹文本（指定格式） 的前缀提示样式
-content>#write span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],[md-inline="highlight"],[md-inline="underline"])+sub::before {
+content>#write span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],[md-inline="highlight"],[md-inline="underline"])+sub::before,
+content>#write :is(sup, sub)+sub::before {
     content: "";
 }
 
@@ -1488,21 +1556,6 @@ content>#write table th[style*=":right"] span::before {
     font-weight: normal;
     opacity: .5;
 }
-// content>#write table th strong::before {
-//     content: "** **";
-// }
-// content>#write table th em::before {
-//     content: "* *";
-// }
-// content>#write table th u::before {
-//     content: "<u> </u>";
-// }
-// content>#write table th mark::before {
-//     content: "== ==";
-// }
-// content>#write table th del::before {
-//     content: "~~ ~~";
-// }
 
 // 有序、无序列表下的图片、非图片段落
 #write li .md-p>span:not([class*=md-image]) {
@@ -1587,14 +1640,17 @@ content>#write table th[style*=":right"] span::before {
 }
 
 .md-diagram-panel svg {
+    // width: max-content;
     width: auto;
+    margin: 0 !important;
+    display: block;
 }
 
 // ====================
 // 模拟 details + summary
 // 引用内的第一个引用，且有 h6 子元素，则作为 details 的 summary
-#write blockquote>blockquote:has(>h6) {//:first-child {
-    margin-top: 0;
+content>#write blockquote>blockquote:has(>h6) {//:first-child {
+    // margin-top: 0;
     padding-left: 0;
     border-width: 0;
 }
@@ -1604,10 +1660,11 @@ content>#write table th[style*=":right"] span::before {
 // 高亮内的斜体，或斜体内的高亮
 // 针对题注简化语法的样式
 // #write p>em>mark,
-#write p>[md-inline="em"]>em>[md-inline="highlight"]>mark {
+content>#write p>[md-inline="em"]>em>[md-inline="highlight"]>mark {
     font: normal .875em var(--v-f-fm-bd);
-    color: var(--d-f-c);
-    background-color: var(--tbl-td-bg);
+    color: @captionTextColor;//var(--d-f-c);
+    background: @captionBackground;
+    // background-color: var(--tbl-td-bg);
     box-shadow: none;
     text-shadow: none;
     padding: 2px 10px;
@@ -1615,11 +1672,11 @@ content>#write table th[style*=":right"] span::before {
     display: inline-block;
 }
 // #write li>p>em>mark,
-#write li>p>[md-inline="em"]>em>[md-inline="highlight"]>mark {
+content>#write li>p>[md-inline="em"]>em>[md-inline="highlight"]>mark {
     margin: 0; // 列表下的微调
 }
 // #write p>em>mark::before,
-#write p>[md-inline="em"]>em>[md-inline="highlight"]>mark::before {
+content>#write p>[md-inline="em"]>em>[md-inline="highlight"]>mark::before {
     content: "Caption/题注. ";
     color: var(--ac-t1-lg);//var(--d-f-c-alt);
     opacity: .5;
@@ -1628,19 +1685,19 @@ content>#write table th[style*=":right"] span::before {
 // --------------------
 // 第 2 题注（编辑时样式）
 // #write p>em>mark>em,
-#write p>[md-inline="em"]>em>[md-inline="highlight"]>mark>[md-inline="em"]>em {
+content>#write p>[md-inline="em"]>em>[md-inline="highlight"]>mark>[md-inline="em"]>em {
     font-style: normal;
     // border-bottom: 0;
 }
 // #write p>em>mark>em::before,
-#write p>[md-inline="em"]>em>[md-inline="highlight"]>mark>[md-inline="em"]>em::before {
+content>#write p>[md-inline="em"]>em>[md-inline="highlight"]>mark>[md-inline="em"]>em::before {
     content: " │ B.Caption/底部题注. ";
     color: var(--ac-t1-lg);//var(--d-f-c-alt);
     opacity: .5;
     font-size: .85em;
 }
-.md-expand mark .md-meta {
-    color: var(--a-color);
+content>#write .md-expand mark .md-meta {
+    color: @aHoverColor;//var(--a-color);
     opacity: 1 !important;
 }
 
@@ -1655,26 +1712,33 @@ content>#write {
 
 content>#write img {
     padding: 0;
-    border: unset;
+    border: none;
 }
 // 图片带 srcset 参数的微调
-content>#write span[md-inline="image"][data-src*="srcset="]::before,
-content>#write span[md-inline="image"][data-src*="darksrc="]::before {
+// content>#write span[md-inline="image"][data-src*="darksrc="]::before,
+// content>#write span[md-inline="image"][data-src*="srcset="]::before {
+content>#write :is(span[md-inline="image"][data-src*="darksrc="],
+span[md-inline="image"][data-src*="srcset="])::before {
     content: "◩";
-    // content: "◧ SrcSet / 设备适配 ";
     color: var(--d-bc);
     font-size: .75em;
     font-style: italic;
     font-weight: bold;
-    // border-radius: var(--v-r-b);
+    border-radius: var(--v-r-b);
     word-break: initial;
     padding: 0 4px;
     margin: 5px 0 0 5px;
     position: absolute;
-    opacity: .5;
     background: var(--d-f-c);
+    opacity: .5;
 }
-content>#write span[md-inline="image"][data-src*="mode=icon"]::before,
+content>#write span[md-inline="image"][data-src*="srcset="]::before {
+    content: "@";
+}
+content>#write span[md-inline="image"][data-src*="srcset="][data-src*="darksrc"]::before {
+    content: "@ ◩";
+}
+// content>#write span[md-inline="image"][data-src*="mode=icon"]::before,
 content>#write span[md-inline="image"][data-src*="#icon"]::before {
     content: "" !important;
 }
@@ -1722,7 +1786,25 @@ content>#write blockquote>blockquote:first-child>h6::before {
     font-family: var(--v-f-fm-code);
     border-radius: var(--v-r-b);
     border: 2px solid var(--tbl-bd);
+    // box-shadow: 0 0 0 1px var(--tbl-bd);
     margin: 0;
+}
+.md-fences.md-focus {
+    box-shadow: var(--v-input-focus-shadow) !important;
+    border-color: @buttonBgColor;
+    // border-width: 1px;
+    // border: 1px solid @buttonBgColor;
+    // margin: 1px;
+}
+.md-fences.md-focus .md-diagram-panel {
+    margin-top: 4px !important;
+}
+// .md-fences:not(.modeLoaded) {
+.md-fences.md-diagram {
+    box-shadow: none;
+}
+pre.md-fences-advanced.md-focus .md-fences-adv-panel {
+    border: none;
 }
 
 // 代码块相关样式
@@ -1732,8 +1814,17 @@ content>#write blockquote>blockquote:first-child>h6::before {
     width: 100%;
 }
 // 编辑时
-content>#write pre.ty-contain-cm {
-    margin-bottom: @scrollFix;
+// content>#write pre.ty-contain-cm {
+//     margin-bottom: @scrollFix;
+// }
+
+// Typora 输入框
+#file-library-search-input {
+    border-color: var(--v-input-focus-border) !important;
+}
+.form-control:focus {
+    border-color: var(--v-input-focus-border) !important;
+    box-shadow: var(--v-input-focus-shadow) !important;
 }
 
 .CodeMirror-scroll {
@@ -1753,8 +1844,12 @@ content>#write pre.ty-contain-cm {
 }
 
 .CodeMirror.cm-s-inner {
-    border-radius: var(--v-r-t);
+    // border-radius: var(--v-r-t);
+    border-radius: calc(var(--v-r-t) + 2px);
 }
+// .md-fences.md-focus .CodeMirror.cm-s-inner {
+//     border-radius: calc(var(--v-r-t) + 2px);
+// }
 
 .CodeMirror div.CodeMirror-cursor {
     border-left: 2px solid var(--cm-CodeMirror-cursor);
@@ -1894,8 +1989,8 @@ content>#write pre.ty-contain-cm {
 }
 
 // 行间（独占一行）数学公式
-.md-math-container {
-    font-size: 1.5em !important;
+content .md-math-container { // 编辑时
+    font-size: 1em !important;
 }
 
 // 行间公式预览
@@ -1924,8 +2019,11 @@ content>#write pre.ty-contain-cm {
 }
 
 // 行内数学公式
-mjx-container {
-    font-size: .875em;
+content .md-inline-math mjx-container { // 编辑时
+    font-size: .75em !important;
+}
+.md-inline-math-container mjx-container { // 编辑时
+    zoom: 1 !important;
 }
 
 // 公式链接

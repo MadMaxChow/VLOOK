@@ -3,8 +3,8 @@
  * VLOOK CSS 字体主题、圆角样式
  * (配合 base.less 进行使用)
  *
- * V19.0
- * 2023-07-29
+ * V20.0
+ * 2023-09-10
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -220,7 +220,7 @@ U+007B-007E; // {|}~
 @cross_book_title: @base_sans_en, @base_sans_cn, sans-serif;
 @cross_book_header: @base_sans_en, @base_sans_cn, sans-serif;
 @cross_book_mono: @base_mono, @base_sans_en, @base_sans_cn, monospace;
-@cross_book_fw_bold: normal;
+@cross_book_fw_bold: bold;
 @cross_book_fw_title: bold;
 @cross_book_fw_text: normal;
 // ---
@@ -450,7 +450,7 @@ U+007B-007E; // {|}~
     --v-r-b-small: 8px; // 标准圆角
     --v-r-s-small: 4px; // 标准圆角内的小圆角
     --v-r-t-small: 6px; // 表格圆角
-    --v-r-si-small: calc(var(--v-r-t-small) - 2px); // 标准圆角内的小圆角
+    --v-r-si-small: calc(var(--v-r-t-small) + 1px); // 标准圆角内的小圆角
     --v-r-tag-small: .3em; // 标签圆角
     // --v-tag-small-radius-small: .25em; // 标签小圆角
     --v-r-c-small: 50%; // 半距圆角
@@ -460,7 +460,7 @@ U+007B-007E; // {|}~
     --v-r-b-big: 12px; // 标准圆角
     --v-r-s-big: 6px; // 标准圆角内的小圆角
     --v-r-t-big: 10px; // 表格圆角
-    --v-r-si-big: calc(var(--v-r-t-big) - 2px); // 标准圆角内的小圆角
+    --v-r-si-big: calc(var(--v-r-t-big) + 1px); // 标准圆角内的小圆角
     --v-r-tag-big: .5em; // 标签圆角
     // --v-tag-small-radius-big: .25em; // 标签小圆角
     --v-r-c-big: 50%; // 半距圆角
@@ -472,7 +472,7 @@ U+007B-007E; // {|}~
         --v-r-b: var(--v-r-b-big); // 标准圆角
         --v-r-s: var(--v-r-s-big); // 标准圆角内的小圆角
         --v-r-t: var(--v-r-t-big); // 表格圆角
-        --v-r-si:calc(var(--v-r-t) - 2px); // 标准圆角内的小圆角
+        --v-r-si:calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
         --v-r-tag: var(--v-r-tag-big); // 标签圆角
         // --v-tag-small-radius: var(--v-tag-small-radius-big); // 标签小圆角
         --v-r-c: var(--v-r-c-big); // 半距圆角
@@ -485,7 +485,7 @@ U+007B-007E; // {|}~
         --v-r-b: var(--v-r-b-small); // 标准圆角
         --v-r-s: var(--v-r-s-small); // 标准圆角内的小圆角
         --v-r-t: var(--v-r-t-small); // 表格圆角
-        --v-r-si:calc(var(--v-r-t) - 2px); // 标准圆角内的小圆角
+        --v-r-si:calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
         --v-r-tag: var(--v-r-tag-small); // 标签圆角
         // --v-tag-small-radius: var(--v-tag-small-radius-small); // 标签小圆角
         --v-r-c: var(--v-r-c-small); // 半距圆角
@@ -498,7 +498,7 @@ U+007B-007E; // {|}~
         --v-r-b: 0; // 标准圆角
         --v-r-s: 0; // 标准圆角内的小圆角
         --v-r-t: 0; // 表格圆角
-        --v-r-si: calc(var(--v-r-t) - 2px); // 标准圆角内的小圆角
+        --v-r-si: calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
         --v-r-tag: 0; // 标签圆角
         // --v-tag-small-radius: var(--v-tag-small-radius-small); // 标签小圆角
         --v-r-c: 0; // 半距圆角
