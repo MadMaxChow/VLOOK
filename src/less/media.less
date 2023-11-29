@@ -3,8 +3,8 @@
  * VLOOK CSS - @media 相关的样式
  * (配合 base.less 进行使用)
  *
- * V20.0
- * 2023-09-10
+ * V21.0
+ * 2023-11-29
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -15,15 +15,15 @@
  *
  *************************************/
 
- @gSmallScreenWidth:1279px;
+ @gSmallScreenWidth:1279px; // 修改时须同步修改 vlook.js 的同名参数
 
 // ---------------
 // 针对大于等于该分辨设备的 UI 调整
 @media screen and (min-width: 1441px) {
     :root {
-        --v-nav-center-width:400px;
-        --v-nav-center-hidden-left:-410px;
-        --v-toolbar-btn-width:40px;
+        --v-nav-center-w:400px;
+        --v-nav-center-hidden-l:-410px;
+        --v-tb-btn-w:40px;
     }
 }
 
@@ -92,73 +92,60 @@
     // 纵向显示的整体调整
     // ----------------------------------------
     // 以四栏列表方式显示列表
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li+li,
+    #write @{n3Hr_MdHr}+ul>li,
+    #write @{n3Hr_MdHr}+ul>@{n2Li},
+    #write @{n3Hr_MdHr}+ul>@{n3Li},
+    #write @{n3Hr_MdHr}+ul>@{n4Li},
+    #write @{n3Hr_MdHr}+ol>li,
+    #write @{n3Hr_MdHr}+ol>@{n2Li},
+    #write @{n3Hr_MdHr}+ol>@{n3Li},
+    #write @{n3Hr_MdHr}+ol>@{n4Li},
     // 以五栏列表方式显示列表
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li+li {
-        // display: block !important;
+    #write @{n4Hr_MdHr}+ul>li,
+    #write @{n4Hr_MdHr}+ul>@{n2Li},
+    #write @{n4Hr_MdHr}+ul>@{n3Li},
+    #write @{n4Hr_MdHr}+ul>@{n4Li},
+    #write @{n4Hr_MdHr}+ul>@{n5Li},
+    #write @{n4Hr_MdHr}+ol>li,
+    #write @{n4Hr_MdHr}+ol>@{n2Li},
+    #write @{n4Hr_MdHr}+ol>@{n3Li},
+    #write @{n4Hr_MdHr}+ol>@{n4Li},
+    #write @{n4Hr_MdHr}+ol>@{n5Li} {
         min-width: 100% !important;
-        // margin-top: 0 !important;
     }
     // 四栏列表内容之间的样式
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li+li,
+    #write @{n3Hr_MdHr}+ul>@{n2Li},
+    #write @{n3Hr_MdHr}+ul>@{n3Li},
+    #write @{n3Hr_MdHr}+ul>@{n4Li},
+    #write @{n3Hr_MdHr}+ol>@{n2Li},
+    #write @{n3Hr_MdHr}+ol>@{n3Li},
+    #write @{n3Hr_MdHr}+ol>@{n4Li},
     // 五栏列表内容之间的样式
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li+li {
+    #write @{n4Hr_MdHr}+ul>@{n2Li},
+    #write @{n4Hr_MdHr}+ul>@{n3Li},
+    #write @{n4Hr_MdHr}+ul>@{n4Li},
+    #write @{n4Hr_MdHr}+ul>@{n5Li},
+    #write @{n4Hr_MdHr}+ol>@{n2Li},
+    #write @{n4Hr_MdHr}+ol>@{n3Li},
+    #write @{n4Hr_MdHr}+ol>@{n4Li},
+    #write @{n4Hr_MdHr}+ol>@{n5Li} {
         margin-left: 0 !important;
     }
 
     // ----------------------------------------
     // 四栏引用
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details+details {
-    // display: block !important;
-        // max-width: none !important;
-        // min-width: none !important;
+    #write @{n3Hr_MdHr}+@{quote_Details},
+    #write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details},
+    #write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details},
+    #write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details}+@{quote_Details} {
         min-width: 100% !important;
-        // margin-top: 0 !important;
     }
     // ----------------------------------------
     // 纵向显示的微调
     // 四栏引用内容之间
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details+details {
+    #write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details},
+    #write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details},
+    #write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details}+@{quote_Details} {
         margin-left: 0 !important;
     }
 }
@@ -171,95 +158,79 @@
     // ----------------------------------------
     // 列表分栏
     // 以三栏方式显示列表
-    #write :is(hr+hr, .md-hr+.md-hr)+ul>li,
-    #write :is(hr+hr, .md-hr+.md-hr)+ul>li+li,
-    #write :is(hr+hr, .md-hr+.md-hr)+ul>li+li+li,
-    #write :is(hr+hr, .md-hr+.md-hr)+ol>li,
-    #write :is(hr+hr, .md-hr+.md-hr)+ol>li+li,
-    #write :is(hr+hr, .md-hr+.md-hr)+ol>li+li+li,
+    #write @{n2Hr_MdHr}+ul>li,
+    #write @{n2Hr_MdHr}+ul>@{n2Li},
+    #write @{n2Hr_MdHr}+ul>@{n3Li},
+    #write @{n2Hr_MdHr}+ol>li,
+    #write @{n2Hr_MdHr}+ol>@{n2Li},
+    #write @{n2Hr_MdHr}+ol>@{n3Li},
     // 以四栏方式显示列表
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li+li,
+    #write @{n3Hr_MdHr}+ul>li,
+    #write @{n3Hr_MdHr}+ul>@{n2Li},
+    #write @{n3Hr_MdHr}+ul>@{n3Li},
+    #write @{n3Hr_MdHr}+ul>@{n4Li},
+    #write @{n3Hr_MdHr}+ol>li,
+    #write @{n3Hr_MdHr}+ol>@{n2Li},
+    #write @{n3Hr_MdHr}+ol>@{n3Li},
+    #write @{n3Hr_MdHr}+ol>@{n4Li},
     // 以五栏方式显示列表
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li+li {
-        // display: block !important;
+    #write @{n4Hr_MdHr}+ul>li,
+    #write @{n4Hr_MdHr}+ul>@{n2Li},
+    #write @{n4Hr_MdHr}+ul>@{n3Li},
+    #write @{n4Hr_MdHr}+ul>@{n4Li},
+    #write @{n4Hr_MdHr}+ul>@{n5Li},
+    #write @{n4Hr_MdHr}+ol>li,
+    #write @{n4Hr_MdHr}+ol>@{n2Li},
+    #write @{n4Hr_MdHr}+ol>@{n3Li},
+    #write @{n4Hr_MdHr}+ol>@{n4Li},
+    #write @{n4Hr_MdHr}+ol>@{n5Li} {
         min-width: 100% !important;
-        // margin-top: 0 !important;
     }
     // 三栏列表内容之间的样式
-    #write :is(hr+hr, .md-hr+.md-hr)+ul>li+li,
-    #write :is(hr+hr, .md-hr+.md-hr)+ul>li+li+li,
-    #write :is(hr+hr, .md-hr+.md-hr)+ol>li+li,
-    #write :is(hr+hr, .md-hr+.md-hr)+ol>li+li+li,
+    #write @{n2Hr_MdHr}+ul>@{n2Li},
+    #write @{n2Hr_MdHr}+ul>@{n3Li},
+    #write @{n2Hr_MdHr}+ol>@{n2Li},
+    #write @{n2Hr_MdHr}+ol>@{n3Li},
     // 四栏列表内容之间的样式
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li+li,
+    #write @{n3Hr_MdHr}+ul>@{n2Li},
+    #write @{n3Hr_MdHr}+ul>@{n3Li},
+    #write @{n3Hr_MdHr}+ul>@{n4Li},
+    #write @{n3Hr_MdHr}+ol>@{n2Li},
+    #write @{n3Hr_MdHr}+ol>@{n3Li},
+    #write @{n3Hr_MdHr}+ol>@{n4Li},
     // 五栏列表内容之间的样式
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li+li {
+    #write @{n4Hr_MdHr}+ul>@{n2Li},
+    #write @{n4Hr_MdHr}+ul>@{n3Li},
+    #write @{n4Hr_MdHr}+ul>@{n4Li},
+    #write @{n4Hr_MdHr}+ul>@{n5Li},
+    #write @{n4Hr_MdHr}+ol>@{n2Li},
+    #write @{n4Hr_MdHr}+ol>@{n3Li},
+    #write @{n4Hr_MdHr}+ol>@{n4Li},
+    #write @{n4Hr_MdHr}+ol>@{n5Li} {
         margin-left: 0 !important;
     }
 
     // ----------------------------------------
     // 三栏引用
-    #write :is(hr+hr, .md-hr+.md-hr)+blockquote,
-    #write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote,
-    #write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote+blockquote,
-    #write :is(hr+hr, .md-hr+.md-hr)+details,
-    #write :is(hr+hr, .md-hr+.md-hr)+details+details,
-    #write :is(hr+hr, .md-hr+.md-hr)+details+details+details,
+    #write @{n2Hr_MdHr}+@{quote_Details},
+    #write @{n2Hr_MdHr}+@{quote_Details}+@{quote_Details},
+    #write @{n2Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details},
     // 四栏引用
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details+details {
-    // display: block !important;
+    #write @{n3Hr_MdHr}+@{quote_Details},
+    #write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details},
+    #write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details},
+    #write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details}+@{quote_Details} {
         min-width: 100% !important;
-        // margin-top: 0 !important;
     }
     // ----------------------------------------
     // 纵向显示的微调
     // 三栏引用内容之间
-    #write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote,
-    #write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote+blockquote,
-    #write :is(hr+hr, .md-hr+.md-hr)+details+details,
-    #write :is(hr+hr, .md-hr+.md-hr)+details+details+details,
+    #write @{n2Hr_MdHr}+@{quote_Details}+@{quote_Details},
+    #write @{n2Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details},
     // 四栏引用内容之间
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details+details {
+    #write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details},
+    #write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details},
+    #write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details}+@{quote_Details} {
             margin-left: 0 !important;
     }
 }
@@ -272,111 +243,92 @@
     // ----------------------------------------
     // 列表分栏
     // 以双栏方式显示列表
-    #write :is(hr, .md-hr)+ul>li,
-    #write :is(hr, .md-hr)+ul>li+li,
-    #write :is(hr, .md-hr)+ol>li,
-    #write :is(hr, .md-hr)+ol>li+li,
+    #write @{hr_MdHr}+ul>li,
+    #write @{hr_MdHr}+ul>@{n2Li},
+    #write @{hr_MdHr}+ol>li,
+    #write @{hr_MdHr}+ol>@{n2Li},
     // 以三栏方式显示列表
-    #write :is(hr+hr, .md-hr+.md-hr)+ul>li,
-    #write :is(hr+hr, .md-hr+.md-hr)+ul>li+li,
-    #write :is(hr+hr, .md-hr+.md-hr)+ul>li+li+li,
-    #write :is(hr+hr, .md-hr+.md-hr)+ol>li,
-    #write :is(hr+hr, .md-hr+.md-hr)+ol>li+li,
-    #write :is(hr+hr, .md-hr+.md-hr)+ol>li+li+li,
+    #write @{n2Hr_MdHr}+ul>li,
+    #write @{n2Hr_MdHr}+ul>@{n2Li},
+    #write @{n2Hr_MdHr}+ul>@{n3Li},
+    #write @{n2Hr_MdHr}+ol>li,
+    #write @{n2Hr_MdHr}+ol>@{n2Li},
+    #write @{n2Hr_MdHr}+ol>@{n3Li},
     // 以四栏方式显示列表
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li+li,
+    #write @{n3Hr_MdHr}+ul>li,
+    #write @{n3Hr_MdHr}+ul>@{n2Li},
+    #write @{n3Hr_MdHr}+ul>@{n3Li},
+    #write @{n3Hr_MdHr}+ul>@{n4Li},
+    #write @{n3Hr_MdHr}+ol>li,
+    #write @{n3Hr_MdHr}+ol>@{n2Li},
+    #write @{n3Hr_MdHr}+ol>@{n3Li},
+    #write @{n3Hr_MdHr}+ol>@{n4Li},
     // 以五栏方式显示列表
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li+li {
-        // display: block !important;
+    #write @{n4Hr_MdHr}+ul>li,
+    #write @{n4Hr_MdHr}+ul>@{n2Li},
+    #write @{n4Hr_MdHr}+ul>@{n3Li},
+    #write @{n4Hr_MdHr}+ul>@{n4Li},
+    #write @{n4Hr_MdHr}+ul>@{n5Li},
+    #write @{n4Hr_MdHr}+ol>li,
+    #write @{n4Hr_MdHr}+ol>@{n2Li},
+    #write @{n4Hr_MdHr}+ol>@{n3Li},
+    #write @{n4Hr_MdHr}+ol>@{n4Li},
+    #write @{n4Hr_MdHr}+ol>@{n5Li} {
         min-width: 100% !important;
-        // margin-top: 0 !important;
     }
     // 双栏列表内容之间的样式
-    #write :is(hr, .md-hr)+ul>li+li,
-    #write :is(hr, .md-hr)+ol>li+li,
+    #write @{hr_MdHr}+ul>@{n2Li},
+    #write @{hr_MdHr}+ol>@{n2Li},
     // 三栏列表内容之间的样式
-    #write :is(hr+hr, .md-hr+.md-hr)+ul>li+li,
-    #write :is(hr+hr, .md-hr+.md-hr)+ul>li+li+li,
-    #write :is(hr+hr, .md-hr+.md-hr)+ol>li+li,
-    #write :is(hr+hr, .md-hr+.md-hr)+ol>li+li+li,
+    #write @{n2Hr_MdHr}+ul>@{n2Li},
+    #write @{n2Hr_MdHr}+ul>@{n3Li},
+    #write @{n2Hr_MdHr}+ol>@{n2Li},
+    #write @{n2Hr_MdHr}+ol>@{n3Li},
     // 四栏列表内容之间的样式
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li+li,
+    #write @{n3Hr_MdHr}+ul>@{n2Li},
+    #write @{n3Hr_MdHr}+ul>@{n3Li},
+    #write @{n3Hr_MdHr}+ul>@{n4Li},
+    #write @{n3Hr_MdHr}+ol>@{n2Li},
+    #write @{n3Hr_MdHr}+ol>@{n3Li},
+    #write @{n3Hr_MdHr}+ol>@{n4Li},
     // 五栏列表内容之间的样式
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li,
-    #write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li+li {
+    #write @{n4Hr_MdHr}+ul>@{n2Li},
+    #write @{n4Hr_MdHr}+ul>@{n3Li},
+    #write @{n4Hr_MdHr}+ul>@{n4Li},
+    #write @{n4Hr_MdHr}+ul>@{n5Li},
+    #write @{n4Hr_MdHr}+ol>@{n2Li},
+    #write @{n4Hr_MdHr}+ol>@{n3Li},
+    #write @{n4Hr_MdHr}+ol>@{n4Li},
+    #write @{n4Hr_MdHr}+ol>@{n5Li} {
         margin-left: 0 !important;
     }
 
     // ----------------------------------------
     // 双栏引用
-    #write :is(hr, .md-hr)+blockquote,
-    #write :is(hr, .md-hr)+blockquote+blockquote,
-    #write :is(hr, .md-hr)+details,
-    #write :is(hr, .md-hr)+details+details,
+    #write @{hr_MdHr}+@{quote_Details},
+    #write @{hr_MdHr}+@{quote_Details}+@{quote_Details},
     // 三栏引用
-    #write :is(hr+hr, .md-hr+.md-hr)+blockquote,
-    #write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote,
-    #write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote+blockquote,
-    #write :is(hr+hr, .md-hr+.md-hr)+details,
-    #write :is(hr+hr, .md-hr+.md-hr)+details+details,
-    #write :is(hr+hr, .md-hr+.md-hr)+details+details+details,
+    #write @{n2Hr_MdHr}+@{quote_Details},
+    #write @{n2Hr_MdHr}+@{quote_Details}+@{quote_Details},
+    #write @{n2Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details},
     // 四栏引用
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details+details {
-            // display: block !important;
+    #write @{n3Hr_MdHr}+@{quote_Details},
+    #write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details},
+    #write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details},
+    #write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details}+@{quote_Details} {
         min-width: 100% !important;
-        // margin-top: 0 !important;
     }
     // ----------------------------------------
     // 纵向显示的微调
     // 双栏引用内容之间
-    #write :is(hr, .md-hr)+blockquote+blockquote,
-    #write :is(hr, .md-hr)+details+details,
+    #write @{hr_MdHr}+@{quote_Details}+@{quote_Details},
     // 三栏引用内容之间
-    #write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote,
-    #write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote+blockquote,
-    #write :is(hr+hr, .md-hr+.md-hr)+details+details,
-    #write :is(hr+hr, .md-hr+.md-hr)+details+details+details,
+    #write @{n2Hr_MdHr}+@{quote_Details}+@{quote_Details},
+    #write @{n2Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details},
     // 四栏引用内容之间
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details,
-    #write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details+details {
+    #write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details},
+    #write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details},
+    #write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details}+@{quote_Details} {
         margin-left: 0 !important;
     }
 }
@@ -385,10 +337,11 @@
 // 针对小于该分辨设备的 UI 调整
 @media screen and (max-width: 550px) {
     // 封面：#write 下 H6 作为第一个元素时
-    #write>pre.md-meta-block:first-child+h6, // 有 YAML 的情况
-    #write>h6:first-child, // 无 YAML 的情况
+    @{coverAfterYAML}, // 有 YAML 的情况
+    @{coverWithoutYAML}, // 无 YAML 的情况
     // 封底：#write 下 H6 作为最后一个元素时
-    #write>h1:last-child {
+    @{backcover} {
+    // #write>:is(.md-hr, hr)+h1:last-child {
         font-size: 2em;
     }
 }
@@ -411,11 +364,18 @@
 @media print {
     html {
         font-size: 1em !important;
-        // zoom: 1 !important;
     }
 
     #write {
         margin: 20px !important;
+    }
+
+    // #write :is(h1, h2, h3, h4, h5, h6) {
+    //     color: var(--d-f-c) !important;
+    // }
+    #write :is(h1, h2, h3, h4, h5)>span {
+        color: inherit !important;
+        background: none !important;
     }
 
     .v-doc-title {
@@ -427,26 +387,28 @@
         background: none !important;
     }
 
-    #write table:hover,
-    body.typora-export table:hover {
-        border-color: var(--tbl-bd) !important;
-    }
+    // #write table:hover,
+    // body.typora-export table:hover {
+    //     border-color: var(--tbl-bd) !important;
+    // }
 
     // 打印时先关闭 VLOOK 未加载完成前样式
     body.typora-export #write::before {
         display: none !important;
     }
 
-    .v-caption:hover {
-        background: var(--pn-c);
-    }
+    // .v-caption:hover {
+    //     background: var(--pn-c);
+    // }
 
     .v-img-invert-dark {
         filter: none;
     }
 
-    blockquote {
+    blockquote,
+    details {
         display: block !important;
+        // background: var(--ac-t1-fade) !important;
     }
 
     .v-welcome-page,
@@ -477,6 +439,10 @@
     #write .md-toc {
         display: block !important;
     }
+    .v-toc {
+        display: block !important;
+        visibility: visible !important;
+    }
 
     // 清空当前章节的样式
     .v-toc-item-current {
@@ -486,9 +452,12 @@
         color: var(--d-f-c) !important;
     }
 
-    .v-toc {
-        display: block !important;
-        visibility: visible !important;
+    // 封面装饰文本样式
+    body.typora-export @{coverAfterYAML}::before,
+    body.typora-export @{coverWithoutYAML}::before,
+    body.typora-export @{coverAfterYAML}::after,
+    body.typora-export @{coverWithoutYAML}::after {
+        content: "" !important;
     }
 }
 
@@ -533,6 +502,17 @@
         --rb-code-shadow: var(--rb-code-shadow-dk);
 
         --c-blk-bg: var(--c-blk-bg-dk);
+
+        --fig-solid-bg: var(--fig-solid-bg-dk);
+
+        --v-fig-grid-l: var(--v-fig-grid-l-dk);
+        --v-fig-grid-b: var(--v-fig-grid-b-dk);
+
+        --v-fig-grid-l-invert: var(--v-fig-grid-l-invert-dk);
+        --v-fig-grid-b-invert: var(--v-fig-grid-b-invert-dk);
+
+        --v-fig-grid-l: var(--v-fig-grid-l-dk);
+        --v-fig-grid-b: var(--v-fig-grid-b-dk);
 
         --key-bg: var(--key-bg-dk);
         --key-reflect: var(--key-reflect-dk);
@@ -679,22 +659,22 @@
         --serch-select-bg-color: @themeBgColorFade;
     }
 
-    #write img[src*="grid=line"],
-    #write svg[data-inject-url*="grid=line"],
-    #write .md-image[data-src*="#line"]>img, // 编辑时
-    #write img[src*="#line"],
-    #write svg[data-inject-url*="#line"] {
-        background: var(--v-fig-grid-l-dk);
-        // background: url(@figureGridLineDark);
-    }
-    #write img[src*="grid=block"],
-    #write svg[data-inject-url*="grid=block"],
-    #write .md-image[data-src*="#block"]>img, // 编辑时
-    #write img[src*="#block"],
-    #write svg[data-inject-url*="#block"] {
-        background: var(--v-fig-grid-b-dk);
-        // background: url(@figureGridBlockDark);
-    }
+    // // #write img[src*="grid=line"],
+    // // #write svg[data-inject-url*="grid=line"],
+    // #write .md-image[data-src*="#line"]>img, // 编辑时
+    // #write img[src*="#line"],
+    // #write svg[data-inject-url*="#line"] {
+    //     background: var(--v-fig-grid-l-dk);
+    //     // background: url(@figureGridLineDark);
+    // }
+    // // #write img[src*="grid=block"],
+    // // #write svg[data-inject-url*="grid=block"],
+    // #write .md-image[data-src*="#block"]>img, // 编辑时
+    // #write img[src*="#block"],
+    // #write svg[data-inject-url*="#block"] {
+    //     background: var(--v-fig-grid-b-dk);
+    //     // background: url(@figureGridBlockDark);
+    // }
 
     // 错误图片背景反色
     #write .md-img-error>.md-meta {
@@ -702,27 +682,29 @@
     }
 
     // 图片 URL 参数指定在 Dark Mode 时反色
-    #write img[src*="darksrc=invert"],
-    #write svg[data-inject-url*="darksrc=invert"] {
-        filter: var(--v-invert-dark);
-        border-color: var(--img-bd-invert) !important;
-        // 使用反色后的背景，以适应在反色中显示为正常效果
-        background-color: @figureSolidBgLight;
-    }
-    #write img[src*="darksrc=invert"][src*="grid=line"],
-    #write svg[data-inject-url*="darksrc=invert"][data-inject-url*="grid=line"],
-    #write .md-image[data-inject-url*="darksrc=invert"].md-image[data-src*="#line"]>img, // 编辑时
-    #write img[src*="darksrc=invert"][src*="#line"],
-    #write svg[data-inject-url*="darksrc=invert"][data-inject-url*="#line"] {
-        background: var(--v-fig-grid-l-invert);
-    }
-    #write img[src*="darksrc=invert"][src*="grid=block"],
-    #write svg[data-inject-url*="darksrc=invert"],[data-inject-url*="grid=block"],
-    #write .md-image[data-inject-url*="darksrc=invert"].md-image[data-src*="#block"]>img, // 编辑时
-    #write img[src*="darksrc=invert"][src*="#block"],
-    #write svg[data-inject-url*="darksrc=invert"],[data-inject-url*="#block"] {
-        background: var(--v-fig-grid-b-invert);
-    }
+    // #write img[src*="darksrc=invert"],
+    // #write svg[data-inject-url*="darksrc=invert"] {
+    //     filter: var(--v-invert-dark);
+    //     border-color: var(--img-bd-invert) !important;
+    //     // 使用反色后的背景，以适应在反色中显示为正常效果
+    //     background-color: @figureSolidBgLight;
+    // }
+
+    // // #write img[src*="darksrc=invert"][src*="grid=line"],
+    // // #write svg[data-inject-url*="darksrc=invert"][data-inject-url*="grid=line"],
+    // #write .md-image[data-inject-url*="darksrc=invert"].md-image[data-src*="#line"]>img, // 编辑时
+    // #write img[src*="darksrc=invert"][src*="#line"],
+    // #write svg[data-inject-url*="darksrc=invert"][data-inject-url*="#line"] {
+    //     background: var(--v-fig-grid-l-invert);
+    // }
+
+    // // #write img[src*="darksrc=invert"][src*="grid=block"],
+    // // #write svg[data-inject-url*="darksrc=invert"],[data-inject-url*="grid=block"],
+    // #write .md-image[data-inject-url*="darksrc=invert"].md-image[data-src*="#block"]>img, // 编辑时
+    // #write img[src*="darksrc=invert"][src*="#block"],
+    // #write svg[data-inject-url*="darksrc=invert"],[data-inject-url*="#block"] {
+    //     background: var(--v-fig-grid-b-invert);
+    // }
 
     #write a:hover img[src*="darksrc=invert"],
     #write a:hover svg[data-inject-url*="darksrc=invert"] {

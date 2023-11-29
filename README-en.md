@@ -27,18 +27,18 @@ VLOOK™ is open source software and complies with the **[MIT license](#许可�
 > **Join the discussion:**
 >
 > - QQ-group ([**805502564**](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&))
->- Issues ([**Issues**](https://github.com/MadMaxChow/VLOOK/issues))
+>  Issues ([**Issues**](https://github.com/MadMaxChow/VLOOK/issues))
 > - Email (**maxchow@qq.com**)
 
 # Donate
 
 **If you like VLOOK™, you can contribute a cup of coffee :-)**
 
-[![打赏 VLOOK™](https://madmaxchow.github.io/VLOOK/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#frame)](https://paypal.me/madmaxchow?lnkcss=none)
+[![打赏 VLOOK™](https://madmaxchow.github.io/VLOOK/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#frame)](https://paypal.me/madmaxchow)
 
 **Thanks for donate VLOOK™ (partial donors):** 
 
-＊＊军、＊＊鹏、李＊6、＊＊无、H＊t、＊＊二、f＊y、＊＊宇、＊＊琛、＊＊辉、＊＊秋、＊＊笑、＊＊豫、l＊a、＊＊心、整＊9、＊＊国、＊＊拉、＊＊龙、＊＊应、＊＊销、＊＊哦、……
+一＊秋、＊＊军、＊＊鹏、李＊6、＊＊无、H＊t、＊＊二、f＊y、＊＊宇、＊＊琛、＊＊辉、＊＊秋、＊＊笑、＊＊豫、l＊a、＊＊心、整＊9、＊＊国、＊＊拉、＊＊龙、＊＊应、＊＊销、＊＊哦、E＊y、……
 
 ---
 

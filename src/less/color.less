@@ -3,8 +3,8 @@
  * VLOOK CSS 调色板
  * (配合 base.less 进行使用)
  *
- * V20.0
- * 2023-09-10
+ * V21.0
+ * 2023-11-29
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -290,6 +290,15 @@
     // 代码块背景图（Light）
     --c-blk-bg-lg: @codeBlockBackground;
 
+    // 图片的非网格背景
+    --fig-solid-bg-lg: #FFFFFF;
+    // 图片的线状网格背景（线状、块状)
+    --v-fig-grid-l-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEX////a7P6ayvy62/1dqvqPhbtmAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
+    --v-fig-grid-b-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUmdsdGis99rd1hm9axzuoZZ5CxAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
+    // Dark Mode 时反色的图片网格背景（线状、块状)
+    --v-fig-grid-l-invert-lg: var(--v-fig-grid-l-lg);
+    --v-fig-grid-b-invert-lg: var(--v-fig-grid-b-lg);
+
     --key-bg-lg: @keycapColor;
     --key-reflect-lg: lighten(@keycapColor, 20%);
     --key-shadow-lg: darken(@keycapColor, 30%);
@@ -349,15 +358,15 @@
     --ac-vn-lg: @accColorVine;
     --ac-vn-alt-lg: @accColorVineAlt;
     --ac-vn-fade-lg: fade(@accColorVine, @accOpacity);
-    --ac-vn-title-lg: var(--ac-vn);//@accColorVine;
+    --ac-vn-title-lg: var(--ac-vn);
     --ac-pu-lg: @accColorPurple;
     --ac-pu-alt-lg: @accColorPurpleAlt;
     --ac-pu-fade-lg: fade(@accColorPurple, @accOpacity);
-    --ac-pu-title-lg: var(--ac-pu);//@accColorPurple;
+    --ac-pu-title-lg: var(--ac-pu);
     --ac-ro-lg: @accColorRose;
     --ac-ro-alt-lg: @accColorRoseAlt;
     --ac-ro-fade-lg: fade(@accColorRose, @accOpacity);
-    --ac-ro-title-lg: var(--ac-ro);//@accColorRose;
+    --ac-ro-title-lg: var(--ac-ro);
     --ac-pk-lg: @accColorPink;
     --ac-pk-alt-lg: @accColorPinkAlt;
     --ac-pk-fade-lg: fade(@accColorPink, @accOpacity);
@@ -369,23 +378,23 @@
     --ac-bn-lg: @accColorBrown;
     --ac-bn-alt-lg: @accColorBrownAlt;
     --ac-bn-fade-lg: fade(@accColorBrown, @accOpacity);
-    --ac-bn-title-lg: var(--ac-bn);//@accColorBrown;
+    --ac-bn-title-lg: var(--ac-bn);
     --ac-gy-lg: @accColorGray;
     --ac-gy-alt-lg: @accColorGrayAlt;
     --ac-gy-fade-lg: fade(@accColorGray, @accOpacity);
     --ac-gy-title-lg: darken(@accColorGray, @accTitleDarken);
-    --ac-bk-lg: @accColorBlack;//var(--d-f-c-lg);
-    --ac-bk-alt-lg: @accColorBlackAlt;//var(--d-f-c-alt-lg);
-    --ac-bk-fade-lg:fade(@accColorBlack, @accOpacity);//var(--toc-h-num-color-lg);
-    --ac-bk-title-lg: var(--ac-bk);//var(--d-f-c-lg);
-    --ac-t1-lg: @themeForeColor;//@theme1;
+    --ac-bk-lg: @accColorBlack;
+    --ac-bk-alt-lg: @accColorBlackAlt;
+    --ac-bk-fade-lg:fade(@accColorBlack, @accOpacity);
+    --ac-bk-title-lg: var(--ac-bk);
+    --ac-t1-lg: @themeForeColor;
     --ac-t1-alt-lg: @theme1Alt;
-    --ac-t1-fade-lg: @theme1Fade;//fade(@theme1, @accOpacity);
-    --ac-t1-title-lg: var(--ac-t1);//@themeForeColor;//@theme1;
+    --ac-t1-fade-lg: @theme1Fade;
+    --ac-t1-title-lg: var(--ac-t1);
     --ac-t2-lg: @theme2;
     --ac-t2-alt-lg: @theme2Alt;
     --ac-t2-fade-lg: @theme2Fade;
-    --ac-t2-title-lg: var(--ac-t2);//@theme2;
+    --ac-t2-title-lg: var(--ac-t2);
 
     // --------------------
     // #Color_Scheme
@@ -395,7 +404,7 @@
     --v-selection-color-dk: fade(#888888, 50%); // 选中内容的背景色
 
     --a-color-dk: @aColorDark;
-    --mark-bg-dk: var(--ac-t1-fade-lg);//rgba(255, 192, 32, .3);
+    --mark-bg-dk: var(--ac-t1-fade-lg);
     --tbl-row-g-alpha-dk: .25;
     --h-f-dk: @headerColorDark;
     --h-box-shadow-dk: fade(@headerColorDark, 20%);
@@ -403,11 +412,20 @@
     --h-bg-end-dk: fade(@headerColorDark, 15%);
     --code-bg-dk: @codeBgColorDark;
     --code-t-dk: @codeTextColorDark;
-    --std-code-shadow-dk: var(--pn-c-alt-dk);//rgba(0, 0, 0, .5);
+    --std-code-shadow-dk: var(--pn-c-alt-dk);
     --rb-code-shadow-dk: rgba(255, 255, 255, .3);
 
     // 代码块背景图（Dark）
     --c-blk-bg-dk: @codeBlockBackgroundDark;
+
+    // 图片的非网格背景
+    --fig-solid-bg-dk: #000000;
+    // 图片的线状网格背景（线状、块状)
+    --v-fig-grid-l-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUEDBQEOnAEY8IEVacEeOwONNxmAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
+    --v-fig-grid-b-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUPUZQyaqNvlr5QgLCpwNfC0feCAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
+    // Dark Mode 时反色的图片网格背景（线状、块状)
+    --v-fig-grid-l-invert-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEX78+v7xY/7nD37qlj7hxPQTWj+AAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
+    --v-fig-grid-b-invert-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEXwrmvNlVyQaUGvf09WPygcqEMaAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
 
     --key-bg-dk: @keycapColorDark;
     --key-reflect-dk: lighten(@keycapColorDark, 20%);
@@ -416,7 +434,7 @@
     --ac-rd-dk: @accColorRedDark;
     --ac-rd-alt-dk: @accColorRedAltDark;
     --ac-rd-fade-dk: fade(@accColorRedDark, @accOpacity);
-    --ac-rd-title-dk: var(--d-f-c-dk); //@docTextColorDark;
+    --ac-rd-title-dk: var(--d-f-c-dk);
     --ac-ye-dk: @accColorYellowDark;
     --ac-ye-alt-dk: @accColorYellowAltDark;
     --ac-ye-fade-dk: fade(@accColorYellowDark, @accOpacity);
@@ -493,9 +511,9 @@
     --ac-gy-alt-dk: @accColorGrayAltDark;
     --ac-gy-fade-dk: fade(@accColorGrayDark, @accOpacity);
     --ac-gy-title-dk: var(--d-f-c-dk);
-    --ac-bk-dk: @accColorBlackDark;//var(--d-f-c-dk);
-    --ac-bk-alt-dk: @accColorBlackAltDark;//var(--d-f-c-alt-dk);
-    --ac-bk-fade-dk: fade(@accColorBlackDark, @accOpacity);//var(--toc-h-num-color-dk);
+    --ac-bk-dk: @accColorBlackDark;
+    --ac-bk-alt-dk: @accColorBlackAltDark;
+    --ac-bk-fade-dk: fade(@accColorBlackDark, @accOpacity);
     --ac-bk-title-dk: var(--d-f-c-dk);
     --ac-t1-dk: @theme1Dark;
     --ac-t1-alt-dk: @theme1AltDark;
@@ -523,11 +541,10 @@
     --pn-c: var(--pn-c-lg);
     --pn-c-alt: var(--pn-c-alt-lg);
     --pn-c-tsp: var(--pn-c-tsp-lg);
-    // --pn-c-tsp: var(--d-bc-alt-transparent-lg);
     --blockquote-bg: var(--blockquote-bg-lg);
 
     --a-color: var(--a-color-lg);
-    --mark-bg: var(--ac-t1-fade-lg);// var(--mark-bg-lg);
+    --mark-bg: var(--ac-t1-fade-lg);
     --tbl-bd: var(--tbl-bd-lg);
     --tbl-tr-hv: var(--tbl-tr-hv-lg);
     --tbl-h-bd: var(--tbl-h-bd-lg);
@@ -547,6 +564,15 @@
 
     // 代码块背景图
     --c-blk-bg: var(--c-blk-bg-lg);
+
+    // 图片的非网格背景
+    --fig-solid-bg: var(--fig-solid-bg-lg);
+    // 图片的线状网格背景（线状、块状)
+    --v-fig-grid-l: var(--v-fig-grid-l-lg);
+    --v-fig-grid-b: var(--v-fig-grid-b-lg);
+    // Dark Mode 时反色的图片网格背景
+    --v-fig-grid-l-invert: var(--v-fig-grid-l-invert-lg);
+    --v-fig-grid-b-invert: var(--v-fig-grid-b-invert-lg);
 
     --key-bg: var(--key-bg-lg);
     --key-reflect: var(--key-reflect-lg);

@@ -2,8 +2,8 @@
  *
  * VLOOK CSS 基础库
  *
- * V20.0
- * 2023-09-10
+ * V21.0
+ * 2023-11-29
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -34,7 +34,7 @@
 ---------- 二级 UI 区 ----------
 
 插图导航 / .v-fig-nav / z-index: 2200;
-脚注面板 / .v-foot-note-panel / z-index: 2100;
+脚注面板 / .v-footnote-pn / z-index: 2100;
 导航中心收起/展开引导把手 / .v-toc-handle / z-index: 2000;
 导航中心面板 / .v-nav-center / z-index: 2000;
     导航中心头部 / .v-nav-center-header / z-index: 10;
@@ -70,10 +70,14 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 //-----
 // #Color_Scheme
 // Light Mode 时图片的非网格背景
-@figureSolidBgLight: #FFFFFF;
+// @figureSolidBgLight: #FFFFFF;
 // Dark Mode 时图片的非网格背景
-@figureSolidBgDark: #000000;
-
+// @figureSolidBgDark: #000000;
+:root {
+    --fig-solid-bg-lg: #FFFFFF; // Light Mode 时图片的非网格背景
+    --fig-solid-bg-dk: #000000; // Dark Mode 时图片的非网格背景
+    --fig-solid-bg: var(--fig-solid-bg-lg);
+}
 // -----
 // #Common_LESS_Var
 @tableRowNumTop: 2px; // 表格行自动编号的高度
@@ -88,6 +92,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 @figurePadding: 20px; // 插图内、间、行空白
 @hoverBrightness: 1.2;
 @scrollFix: 8px; // 针对 Mermaid 图表，不添加会导致出现滚动条
+@syntaxTipsFont: italic normal 10px/1 var(--v-f-fm-bd); // 语法提示字体设置
 
 // 目录、文件 的当前节点、点击节点样式
 @tocItemActive_boxShadow: 0 0 0 2px fade(@headerColor, 50%);
@@ -98,18 +103,20 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 :root {
     // 欢迎页加载模式 ws=auto 时的倒计时秒数
     --v-ws-delay: @welcomeAutoCloseDelay;
+    --v-summary-w: 24px;
 
     // #VLOOK_Var
     --v-theme-name: @themeName; // 主题名称
-    --v-theme-version: "V20.0"; // 主题版本，对应适配 VLOOK.JS 的版本
+    --v-theme-version: "V21.0"; // 主题版本，对应适配 VLOOK.JS 的版本
     --v-color-scheme: light; // 默认颜色模式为：Light 明亮
 
     // 导航中心、工具栏相关 UI 尺寸
-    --v-nav-center-width:340px;
-    --v-nav-center-hidden-left:-350px;
-    --v-toolbar-btn-width:36px;
-    --v-toolbar-btn-space:5px;
+    --v-nav-center-w:340px;
+    --v-nav-center-hidden-l:-350px;
+    --v-tb-btn-w:44px;
+    --v-tb-btn-s:5px;
     --v-top-margin:8px;
+    --v-seg-h:26px;
 
     // 过渡效果设置
     --v-trans-dur: 200ms;
@@ -125,22 +132,28 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     // 主题配套的是否启用章节分级自动编号
     --v-chp-auto-num: @ChpAutoNum;
 
-    // 图片的线状网格背景（Light / Dark）
-    --v-fig-grid-l-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEX////a7P6ayvy62/1dqvqPhbtmAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
-    --v-fig-grid-l-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUEDBQEOnAEY8IEVacEeOwONNxmAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
-    // 图片的块状网格背景（Light / Dark）
-    --v-fig-grid-b-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUmdsdGis99rd1hm9axzuoZZ5CxAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
-    --v-fig-grid-b-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUPUZQyaqNvlr5QgLCpwNfC0feCAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
-    // Dark Mode 时反色的图片网格背景
-    --v-fig-grid-l-invert: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEX78+v7xY/7nD37qlj7hxPQTWj+AAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
-    --v-fig-grid-b-invert: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEXwrmvNlVyQaUGvf09WPygcqEMaAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
+    // // 图片的线状网格背景（Light / Dark）
+    // --v-fig-grid-l-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEX////a7P6ayvy62/1dqvqPhbtmAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
+    // --v-fig-grid-l-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUEDBQEOnAEY8IEVacEeOwONNxmAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
+    // --v-fig-grid-l: var(--v-fig-grid-l-lg);
+    // // 图片的块状网格背景（Light / Dark）
+    // --v-fig-grid-b-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUmdsdGis99rd1hm9axzuoZZ5CxAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
+    // --v-fig-grid-b-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUPUZQyaqNvlr5QgLCpwNfC0feCAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
+    // --v-fig-grid-b: var(--v-fig-grid-b-lg);
+    // // Dark Mode 时反色的图片网格背景
+    // --v-fig-grid-l-invert-lg: var(--v-fig-grid-l-lg);
+    // --v-fig-grid-l-invert-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEX78+v7xY/7nD37qlj7hxPQTWj+AAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
+    // --v-fig-grid-b-invert-lg: var(--v-fig-grid-b-lg);
+    // --v-fig-grid-b-invert-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEXwrmvNlVyQaUGvf09WPygcqEMaAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
+    // --v-fig-grid-l-invert: var(--v-fig-grid-l-invert-dk);
+    // --v-fig-grid-b-invert: var(--v-fig-grid-b-invert-dk);
 
     // 光标：复制
     --cur-copy: var(--cur-copy-normal);
     --cur-copy-normal: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAzNiAyMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48ZmlsdGVyIHg9Ii0xMi42JSIgeT0iLTE2LjYlIiB3aWR0aD0iMTE5LjElIiBoZWlnaHQ9IjEyMy4yJSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiBpZD0iYSI+PGZlT2Zmc2V0IGR5PSIxIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIi8+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMSIgaW49InNoYWRvd09mZnNldE91dGVyMSIgcmVzdWx0PSJzaGFkb3dCbHVyT3V0ZXIxIi8+PGZlQ29sb3JNYXRyaXggdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwLjMgMCIgaW49InNoYWRvd0JsdXJPdXRlcjEiIHJlc3VsdD0ic2hhZG93TWF0cml4T3V0ZXIxIi8+PGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJzaGFkb3dNYXRyaXhPdXRlcjEiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+PC9kZWZzPjxnIGZpbHRlcj0idXJsKCNhKSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIuMTQ5IC0uODM0KSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMjAuOTI1IDE4LjgzNGg5LjQ0OGMuNDI4IDAgLjc3NS0uMzUuNzc2LS43ODNWNS42MTdhLjc4Ljc4IDAgMCAwLS43NzYtLjc4M2gtOS40NDhhLjc4Ljc4IDAgMCAwLS43NzYuNzgzdjEyLjQzNGEuNzguNzggMCAwIDAgLjc3Ni43ODN6IiBmaWxsPSIjMDAwIi8+PHBhdGggZD0iTTI1LjkyNSAxNi44MzRoOS40NDhjLjQyOCAwIC43NzUtLjM1Ljc3Ni0uNzgzVjMuNjE3YS43OC43OCAwIDAgMC0uNzc2LS43ODNoLTkuNDQ4YS43OC43OCAwIDAgMC0uNzc2Ljc4M3YxMi40MzRhLjc4Ljc4IDAgMCAwIC43NzYuNzgzeiIgZmlsbD0iIzAwMCIvPjxwYXRoIGQ9Ik0zNS4yNjkgMS44MzRjMS4xNDguMDAxIDEuODc4LjczMiAxLjg4IDEuODh2MTEuOTljLS4wMDIgMS4xNDgtLjczMiAxLjg3OS0xLjg4IDEuODhoLTMuMDd2LjM3Yy0uMDAxIDEuMTQ4LS43MzIgMS44NzktMS44OCAxLjg4aC05LjI5Yy0xLjE0OC0uMDAxLTEuODc5LS43MzItMS44OC0xLjg4VjUuOTY0Yy4wMDEtMS4xNDguNzEyLTEuODc5IDEuODYtMS44OGgzLjA5di0uMzdjLjAwMS0xLjE0OC43MzItMS44NzkgMS44OC0xLjg4aDkuMjl6bS0xNC4yNCAxNi44NWg5LjI5Yy40MDIgMCAuNzI5LS4zMjcuNzMtLjczVjUuOTY0YS43My43MyAwIDAgMC0uNzMtLjczaC05LjI5YS43MzEuNzMxIDAgMCAwLS43My43M3YxMS45OWMwIC40MDMuMzI4LjczLjczLjczek0zNiAzLjcxNGEuNzMxLjczMSAwIDAgMC0uNzMtLjczaC05LjI5YS43MzEuNzMxIDAgMCAwLS43My43M3YuMzdoNC44N2EyLjA4MiAyLjA4MiAwIDAgMSAyLjA4IDIuMDh2MTAuMjdoMy4wN2MuNDAyIDAgLjczLS4zMjcuNzMtLjczVjMuNzE0em0tNy42MjUgNC40MmEuNjc1LjY3NSAwIDAgMSAwIDEuMzVoLTUuNGEuNjc1LjY3NSAwIDAgMSAwLTEuMzVoNS40em0wIDMuMTVhLjY3NS42NzUgMCAwIDEgMCAxLjM1aC01LjRhLjY3NS42NzUgMCAwIDEgMC0xLjM1aDUuNHptLTEuOCAzLjE1YS42NzUuNjc1IDAgMCAxIDAgMS4zNWgtMy42YS42NzUuNjc1IDAgMCAxIDAtMS4zNWgzLjZ6IiBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNC44MjcgMi4zOGExLjg2NSAxLjg2NSAwIDAgMSAxLjQ0NC4wMmMuNDQzLjE5MS44MTUuNTUyIDEuMDExIDEuMDM4bDEuNDA2IDMuNDggNC40MDEtMS4yMjZhMS44NyAxLjg3IDAgMCAxIDEuMzQxLjEzYy40MDIuMjAxLjczNS41NDYuOTE2Ljk5NGwxLjg5MSA0LjY4YTEuOTEgMS45MSAwIDAgMS0uMDA2IDEuNDQ4IDEuODcgMS44NyAwIDAgMS0xLjAyNiAxLjAxN2wtNi45NjkgMi44MTYtNS4zMjQtMS41NjhjLS43NjYtMS43MzUtLjUyLTIuMjI5LS4yMTEtMi41ODFsLjA3OC0uMDg2Yy4zNTMtLjM4Mi44NS0uNTk4IDEuMzctLjU5N2wxLjUxNS4wMDItMi44NjktNy4xYTEuOTA0IDEuOTA0IDAgMCAxIC4wMDYtMS40NUExLjg2NSAxLjg2NSAwIDAgMSA0LjgyNyAyLjM4eiIgc3Ryb2tlPSIjRkZGIiBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L2c+PC9zdmc+"), auto !important;
     --cur-copy-as-md: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCA2MCAyMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48ZmlsdGVyIHg9Ii03LjclIiB5PSItMTYuNiUiIHdpZHRoPSIxMTMuNyUiIGhlaWdodD0iMTIzLjIlIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIGlkPSJhIj48ZmVPZmZzZXQgZHk9IjEiIGluPSJTb3VyY2VBbHBoYSIgcmVzdWx0PSJzaGFkb3dPZmZzZXRPdXRlcjEiLz48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxIiBpbj0ic2hhZG93T2Zmc2V0T3V0ZXIxIiByZXN1bHQ9InNoYWRvd0JsdXJPdXRlcjEiLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAuMyAwIiBpbj0ic2hhZG93Qmx1ck91dGVyMSIgcmVzdWx0PSJzaGFkb3dNYXRyaXhPdXRlcjEiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49InNoYWRvd01hdHJpeE91dGVyMSIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT48L2ZpbHRlcj48L2RlZnM+PGcgZmlsdGVyPSJ1cmwoI2EpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMi4xNDkgLS44MzQpIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik00Mi45NzQgMi4zMzRMNDUuMzEgNS4zM2wyLjMzNy0yLjk5NmgzLjMyNXYxMEg0Ny4zOVY4LjEyNmwtMi4wOCAyLjY2OC0yLjA4MS0yLjY2OHY0LjIwOGgtMy41ODF2LTEwaDMuMzI1em0xNS4wOTQgMHY0LjYzMmgzLjE5MmwtNC45ODIgNS42MjItNC45ODItNS42MjJoMy4xOTJWMi4zMzRoMy41OHoiIHN0cm9rZT0iI0ZGRiIgZmlsbD0iIzAwMCIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTIwLjkyNSAxOC44MzRoOS40NDhjLjQyOCAwIC43NzUtLjM1Ljc3Ni0uNzgzVjUuNjE3YS43OC43OCAwIDAgMC0uNzc2LS43ODNoLTkuNDQ4YS43OC43OCAwIDAgMC0uNzc2Ljc4M3YxMi40MzRhLjc4Ljc4IDAgMCAwIC43NzYuNzgzeiIgZmlsbD0iIzAwMCIvPjxwYXRoIGQ9Ik0yNS45MjUgMTYuODM0aDkuNDQ4Yy40MjggMCAuNzc1LS4zNS43NzYtLjc4M1YzLjYxN2EuNzguNzggMCAwIDAtLjc3Ni0uNzgzaC05LjQ0OGEuNzguNzggMCAwIDAtLjc3Ni43ODN2MTIuNDM0YS43OC43OCAwIDAgMCAuNzc2Ljc4M3oiIGZpbGw9IiMwMDAiLz48cGF0aCBkPSJNMzUuMjY5IDEuODM0YzEuMTQ4LjAwMSAxLjg3OC43MzIgMS44OCAxLjg4djExLjk5Yy0uMDAyIDEuMTQ4LS43MzIgMS44NzktMS44OCAxLjg4aC0zLjA3di4zN2MtLjAwMSAxLjE0OC0uNzMyIDEuODc5LTEuODggMS44OGgtOS4yOWMtMS4xNDgtLjAwMS0xLjg3OS0uNzMyLTEuODgtMS44OFY1Ljk2NGMuMDAxLTEuMTQ4LjcxMi0xLjg3OSAxLjg2LTEuODhoMy4wOXYtLjM3Yy4wMDEtMS4xNDguNzMyLTEuODc5IDEuODgtMS44OGg5LjI5em0tMTQuMjQgMTYuODVoOS4yOWMuNDAyIDAgLjcyOS0uMzI3LjczLS43M1Y1Ljk2NGEuNzMuNzMgMCAwIDAtLjczLS43M2gtOS4yOWEuNzMxLjczMSAwIDAgMC0uNzMuNzN2MTEuOTljMCAuNDAzLjMyOC43My43My43M3pNMzYgMy43MTRhLjczMS43MzEgMCAwIDAtLjczLS43M2gtOS4yOWEuNzMxLjczMSAwIDAgMC0uNzMuNzN2LjM3aDQuODdhMi4wODIgMi4wODIgMCAwIDEgMi4wOCAyLjA4djEwLjI3aDMuMDdjLjQwMiAwIC43My0uMzI3LjczLS43M1YzLjcxNHptLTcuNjI1IDQuNDJhLjY3NS42NzUgMCAwIDEgMCAxLjM1aC01LjRhLjY3NS42NzUgMCAwIDEgMC0xLjM1aDUuNHptMCAzLjE1YS42NzUuNjc1IDAgMCAxIDAgMS4zNWgtNS40YS42NzUuNjc1IDAgMCAxIDAtMS4zNWg1LjR6bS0xLjggMy4xNWEuNjc1LjY3NSAwIDAgMSAwIDEuMzVoLTMuNmEuNjc1LjY3NSAwIDAgMSAwLTEuMzVoMy42eiIgZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTQuODI3IDIuMzhhMS44NjUgMS44NjUgMCAwIDEgMS40NDQuMDJjLjQ0My4xOTEuODE1LjU1MiAxLjAxMSAxLjAzOGwxLjQwNiAzLjQ4IDQuNDAxLTEuMjI2YTEuODcgMS44NyAwIDAgMSAxLjM0MS4xM2MuNDAyLjIwMS43MzUuNTQ2LjkxNi45OTRsMS44OTEgNC42OGExLjkxIDEuOTEgMCAwIDEtLjAwNiAxLjQ0OCAxLjg3IDEuODcgMCAwIDEtMS4wMjYgMS4wMTdsLTYuOTY5IDIuODE2LTUuMzI0LTEuNTY4Yy0uNzY2LTEuNzM1LS41Mi0yLjIyOS0uMjExLTIuNTgxbC4wNzgtLjA4NmMuMzUzLS4zODIuODUtLjU5OCAxLjM3LS41OTdsMS41MTUuMDAyLTIuODY5LTcuMWExLjkwNCAxLjkwNCAwIDAgMSAuMDA2LTEuNDVBMS44NjUgMS44NjUgMCAwIDEgNC44MjcgMi4zOHoiIHN0cm9rZT0iI0ZGRiIgZmlsbD0iIzAwMCIgZmlsbC1ydWxlPSJub256ZXJvIi8+PC9nPjwvc3ZnPg=="), auto !important;
 
-    --v-float-shadow: 0 4px 16px rgba(0, 0, 0, .2); // 按钮类外阴影
+    --v-float-shadow: 0 4px 16px rgba(0, 0, 0, .3); // 按钮类外阴影
     --v-float-inn-shadow: 0 0 0 1px rgba(0, 0, 0, .2) inset; // 按钮类内阴影（边框）
 
     --v-input-focus-shadow: 0 0 0 3px fade(@aColor, 35%); // 输入/编辑时阴影样式
@@ -233,40 +246,31 @@ body.unfreeze {
     overflow: auto;
 }
 
-// img,
+// 插图
 #write p>img:only-child,
-// #write p>.md-image:only-child:not(.md-img-error) img:not([src*="grid="]), // 是指 p 内只有 img 的才被视为插图
 #write p>.md-image:only-child:not(.md-img-error) img:not([src*="#line"]), // 是指 p 内只有 img 的才被视为插图
 #write p>.md-image:only-child:not(.md-img-error) img:not([src*="#block"]), // 是指 p 内只有 img 的才被视为插图
-// #write img[src*="mode=figure"],
-// #write svg[data-inject-url*="mode=figure"],
-// #write .md-image[data-src*="#figure"]>img, // 编辑时
-// #write img[src*="#figure"],
-// #write svg[data-inject-url*="#figure"],
 .v-fig:not([aria-roledescription="zenuml"]),
 .md-diagram-panel>.md-diagram-panel-preview>svg, // 编辑时
 .md-diagram-panel>svg {
     border-radius: var(--v-r-b);
     padding: 0;
     border: @imgBorderWidth solid var(--pn-c);
+    // background-color: @figureSolidBgLight;
+    background-color: var(--fig-solid-bg);
 }
 
-#write p>.md-image:only-child {
-    font-size: 16px;
+// #write p>.md-image:only-child,
+#write .md-image {
+    font-size: @fontSizePx;
 }
 
 // 图片 URL 参数指定是否填充边缘
-// #write img[src*="padding=true"],
-// #write svg[data-inject-url*="padding=true"],
 #write .md-image[data-src*="#padding"]>img, // 编辑时
 #write img[src*="#padding"],
 #write svg[data-inject-url*="#padding"] {
     padding: @figurePadding !important;
 }
-// 图片 URL 参数指定是否使用行内样式（一行多图）
-// #write img[src*="inline=true"],
-// #write svg[data-inject-url*="inline=true"],
-// #write p :is(.md-image+.md-image, img+img, svg+svg, .v-caption+.v-caption),
 // 显式指定，一般图片被其他格式嵌套时，如链接内图片等
 #write .md-image[data-src*="#inline"]>img, // 编辑时
 #write img[src*="#inline"],
@@ -281,19 +285,17 @@ body.unfreeze {
 }
 
 // 图片 URL 参数指定是否使用网格背景
-// #write img[src*="grid=line"],
-// #write svg[data-inject-url*="grid=line"],
 #write .md-image[data-src*="#line"]>img, // 编辑时
 #write img[src*="#line"],
 #write svg[data-inject-url*="#line"] {
-    background: var(--v-fig-grid-l-lg);
+    background: var(--v-fig-grid-l);
+    // background: var(--v-fig-grid-l-lg);
 }
-// #write img[src*="grid=block"],
-// #write svg[data-inject-url*="grid=block"],
 #write .md-image[data-src*="#block"]>img, // 编辑时
 #write img[src*="#block"],
 #write svg[data-inject-url*="#block"] {
-    background: var(--v-fig-grid-b-lg);
+    background: var(--v-fig-grid-b);
+    // background: var(--v-fig-grid-b-lg);
 }
 
 // 图片 URL 参数指定进行颜色替换
@@ -306,27 +308,29 @@ body.unfreeze {
 }
 
 // 图片 URL 参数指定图片的显示版式为：icon
-// #write img[src*="mode=icon"],
-// #write svg[data-inject-url*="mode=icon"],
 #write .md-image[data-src*="#icon"]>img, // 编辑时
 #write img[src*="#icon"],
 #write svg[data-inject-url*="#icon"] {
     display: inline !important;
-    height: 1em;
+    height: 1.25em;
     width: auto;
-    margin-top: -4px !important;
+    margin-top: -.25em !important;
     vertical-align: middle;
     border: none !important;
     border-radius: 0 !important;
     background: none !important;
 }
-// #write svg[data-inject-url*="mode=icon"],
 #write svg[data-inject-url*="#icon"] {
     height: 1em;
 }
+// 图片 URL 参数指定图片的显示版式为：icon0
+#write .md-image[data-src*="#icon0"]>img, // 编辑时
+#write img[src*="#icon0"],
+#write svg[data-inject-url*="#icon0"] {
+    height: auto; // 原始图标大小
+    margin-top: -.1em !important;
+}
 // 图片 URL 参数指定图片的显示版式为：icon2x
-// #write img[src*="mode=icon2x"],
-// #write svg[data-inject-url*="mode=icon2x"],
 #write .md-image[data-src*="#icon2x"]>img, // 编辑时
 #write img[src*="#icon2x"],
 #write svg[data-inject-url*="#icon2x"] {
@@ -334,8 +338,6 @@ body.unfreeze {
 }
 
 // 图片 URL 参数指定图片的显示版式为：logo
-// #write img[src*="mode=logo"],
-// #write svg[data-inject-url*="mode=logo"],
 #write .md-image[data-src*="#logo"]>img, // 编辑时
 #write img[src*="#logo"],
 #write svg[data-inject-url*="#logo"] {
@@ -347,8 +349,6 @@ body.unfreeze {
     border-radius: 0 !important;
 }
 // 左对齐
-// #write img[src*="mode=logol"],
-// #write svg[data-inject-url*="mode=logol"],
 #write .md-image[data-src*="#logol"],//>img, // 编辑时
 #write img[src*="#logol"],
 #write svg[data-inject-url*="#logol"] {
@@ -356,8 +356,6 @@ body.unfreeze {
     padding: 0 @figurePadding 0 0;
 }
 // 右对齐
-// #write img[src*="mode=logor"],
-// #write svg[data-inject-url*="mode=logor"],
 #write .md-image[data-src*="#logor"],//>img, // 编辑时
 #write img[src*="#logor"],
 #write svg[data-inject-url*="#logor"] {
@@ -366,8 +364,6 @@ body.unfreeze {
 }
 
 // 图片 URL 参数指定图片的显示版式为：card
-// #write img[src*="mode=card"],
-// #write svg[data-inject-url*="mode=card"],
 #write .md-image[data-src*="#card"]>img, // 编辑时
 #write img[src*="#card"],
 #write svg[data-inject-url*="#card"] {
@@ -375,14 +371,12 @@ body.unfreeze {
     vertical-align: middle;
     border: none !important;
     border-bottom: 3px solid @buttonBgColor !important;
-    // border: @imgBorderWidth solid var(--pn-c) !important;
     border-radius: var(--v-r-b) var(--v-r-b) 0 0 !important;
     background: none !important;
 }
 #write blockquote img[src*="#card"],
 #write blockquote svg[data-inject-url*="#card"] {
     width: 100%;
-    // border: none !important;
 }
 // cardd Card Dual 模式
 #write blockquote img[src*="#cardd"]+.v-post-card,
@@ -394,8 +388,6 @@ body.unfreeze {
 }
 
 // 图片 URL 参数指定图片的显示版式为：frame
-// #write img[src*="mode=frame"],
-// #write svg[data-inject-url*="mode=frame"],
 #write .md-image[data-src*="#frame"]>img, // 编辑时
 #write img[src*="#frame"],
 #write svg[data-inject-url*="#frame"] {
@@ -407,8 +399,6 @@ body.unfreeze {
     border-radius: var(--v-r-b) !important;
 }
 // 左对齐
-// #write img[src*="mode=framel"],
-// #write svg[data-inject-url*="mode=framel"],
 #write .md-image[data-src*="#framel"]>img, // 编辑时
 #write img[src*="#framel"],
 #write svg[data-inject-url*="#framel"] {
@@ -416,8 +406,6 @@ body.unfreeze {
     padding: 0 @figurePadding 0 0;
 }
 // 右对齐
-// #write img[src*="mode=framer"],
-// #write svg[data-inject-url*="mode=framer"],
 #write .md-image[data-src*="#framer"]>img, // 编辑时
 #write img[src*="#framer"],
 #write svg[data-inject-url*="#framer"] {
@@ -441,17 +429,8 @@ body.unfreeze {
 // 图片默认对齐方式，或 URL 参数指定左对齐
 // 须放在各种版式的样式之后，避免 display 属性冲突
 // 导出为 HTML 后的插图（不包括版式为 logo / frame 等），由 vlook.js 进行二次调整，详见 __initAlign
-// img,
-// #write img[src*="mode=figure"],
-// #write svg[data-inject-url*="mode=figure"],
-// #write img[src*="#figure"],
-// #write svg[data-inject-url*="#figure"],
 #write p>img:only-child,
 #write p>.md-image:only-child:not(.md-img-error)>img, // 是指 p 内只有 img 的才被视为插图
-// #write p>img:only-child[src*="align=left"],
-// #write p>svg[data-inject-url*="align=left"],
-// #write p>.md-image:only-child:not(.md-img-error)>img[src*="align=left"],
-// #write p>.md-image:only-child:not(.md-img-error)>svg[data-inject-url*="align=left"],
 #write p>.md-image:only-child[data-src*="#left"]:not(.md-img-error)>img, // 编辑时
 #write p>img:only-child[src*="#left"],
 #write p>svg[data-inject-url*="#left"],
@@ -461,10 +440,6 @@ body.unfreeze {
     margin: 0 !important;
 }
 // 图片 URL 参数指定居中对齐
-// #write p>img[src*="align=center"],
-// #write p>svg[data-inject-url*="align=center"],
-// #write p>.md-image:only-child:not(.md-img-error)>img[src*="align=center"],
-// #write p>.md-image:only-child:not(.md-img-error)>svg[data-inject-url*="align=center"],
 #write p>.md-image:only-child[data-src*="#center"]:not(.md-img-error)>img, // 编辑时
 #write p>img[src*="#center"],
 #write p>svg[data-inject-url*="#center"],
@@ -474,10 +449,6 @@ body.unfreeze {
     margin: auto !important;
 }
 // 图片 URL 参数指定右对齐
-// #write p>img[src*="align=right"],
-// #write p>svg[data-inject-url*="align=right"],
-// #write p>.md-image:only-child:not(.md-img-error)>img[src*="align=right"],
-// #write p>.md-image:only-child:not(.md-img-error)>svg[data-inject-url*="align=right"],
 #write p>.md-image:only-child[data-src*="#right"]:not(.md-img-error)>img, // 编辑时
 #write p>img[src*="#right"],
 #write p>svg[data-inject-url*="#right"],
@@ -494,31 +465,42 @@ body.unfreeze {
 }
 
 #write sup.md-footnote {
-    color: var(--d-f-c-alt);
+    // color: var(--d-f-c);
+    // opacity: .5;
     background: none;
     padding: 0;
     margin-left: .2em;
     margin-right: .2em;
 }
 
-// #write sup.md-footnote>a,
-// #write .v-q sup.md-footnote>a {
+// #write sup.md-footnote span[md-inline="plain"] {
+//     color: var(--d-bc);
+//     background: var(--d-f-c);
+//     border-radius: var(--v-r-b);
+//     font: var(--v-f-w-bd) 10px var(--v-f-fm-bd);
+//     padding: 0 5px;
+// }
+
+#write sup.md-footnote span[md-inline="plain"], // 编辑时
 #write :is(sup.md-footnote, .v-q sup.md-footnote)>a {
     color: var(--d-bc) !important;
-    background: var(--d-f-c-alt);
+    background: var(--d-f-c) !important;
+    border-radius: var(--v-r-b);
+    font: var(--v-f-w-bd) 10px var(--v-f-fm-bd); // [style] [weight] [size/[line-height]] [family]
+    padding: 0 5px;
     margin: 0;
     text-decoration: none;
     box-shadow: none;
     text-shadow: none;
     border-bottom: none;
-    padding: 0 5px;
-    border-radius: var(--v-r-b);
-    font: var(--v-f-w-bd) .8em var(--v-f-fm-bd); // [style] [weight] [size/[line-height]] [family]
 }
 
 #write sup.md-footnote>a:hover {
-    background: @aLineColor;
-    color: @buttonForeColor !important;
+    background: var(--d-f-c-alt)!important;
+    box-shadow: none !important;
+    // box-shadow: 0 0 0 1px var(--d-f-c) !important;
+    // background: @aLineColor;
+    // color: @buttonForeColor !important;
 }
 
 .footnote-line>a:not(.reversefootnote) {
@@ -526,58 +508,45 @@ body.unfreeze {
     text-decoration: none;
 }
 
-#write a,
-body.typora-export a {
-// :is(#write, body.typora-export) a {
-    color: var(--a-color) !important;
-    // text-shadow: 0 1px 0 var(--d-bc);
-    font-weight: var(--v-f-w-text);
-    text-decoration: none;
-}
+// 指定不使用链接样式
+// #write a[href*="lnkcss=none"] {
+//     border-bottom: none;
+// }
+// kbd 中的链接样式
+// #write kbd a {
+//     color: var(--d-bc) !important;
+//     border-bottom: none;
+// }
 
 // 指定不使用链接样式
-#write a[href*="lnkcss=none"] {
-    border-bottom: none;
-}
-// kbd 中的链接样式
-#write kbd a {
-    color: var(--d-bc) !important;
-    border-bottom: none;
-}
+// #write a[href*="lnkcss=none"]:active,
+// // kbd 中的链接样式
+// #write kbd a:active {
+//     border: none;
+// }
 
 // 指定不使用链接样式
-#write a[href*="lnkcss=none"]:active,
+// #write a[href*="lnkcss=none"]:hover,
 // kbd 中的链接样式
-#write kbd a:active {
-    border: none;
-}
-
-// 指定不使用链接样式
-#write a[href*="lnkcss=none"]:hover,
-// kbd 中的链接样式
-#write kbd a:hover {
-    box-shadow: none;
-    border-bottom: none;
-}
+// #write kbd a:hover {
+//     box-shadow: none;
+//     border-bottom: none;
+// }
 
 // 链接中的 kbd 样式
 #write a kbd {
     color: @docLibButtonForeColor;
     caret-color: @buttonForeColor;
-    font:  var(--v-f-w-bd) .875em/@paragraphInnerLineHeight var(--v-f-fm-key) !important; // [style] [weight] [size/[line-height]] [family]
+    font: var(--v-f-w-bd) .875em/@paragraphInnerLineHeight var(--v-f-fm-key) !important; // [style] [weight] [size/[line-height]] [family]
     background: @docLibButtonBgColor;
     margin: 5px 0;
     border: none;
     border-radius: var(--v-r-b);
     display: inline-block;
-    // box-shadow: var(--v-float-shadow), @contrastBorder;
     box-shadow: 0 3px darken(@docLibButtonBgColor, 15%); // 按钮高 3px
     text-shadow: none;
     padding: 5px 10px;
 }
-// #write a kbd:hover,
-// #write .v-q a kbd:hover, // 针对彩虹引用内的情况
-// #write .v-q .v-q a kbd:hover { // 针对彩虹引用内的情况
 #write :is(a, .v-q a, .v-q .v-q a) kbd:hover { // 针对彩虹引用内的情况
     color: @buttonForeHoverColor;
     background: @aHoverColor;
@@ -590,44 +559,73 @@ body.typora-export a {
 // 链接中的 kbd 样式
 #write a kbd:active {
     background: @aActiveColor !important;
-    // box-shadow: 0 0 0 2px fade(@aActiveColor, 50%);
     margin-top: 8px; // 5px + 按钮高 3px
     margin-bottom: 2px; // 5px - 按钮高 3px
     box-shadow: none !important;
     transition: none !important;
 }
 
-#write blockquote a kbd,
-#write details a kbd {
+// #write blockquote a kbd,
+// #write details a kbd {
+#write @{quote_Details} a kbd {
     border-radius: var(--v-r-s);
     padding: 2px 8px;
 }
 
+// 引用小标题
+#write blockquote>p:first-child>:is(strong, span[md-inline="strong"]):only-child {
+    display: block;
+    font-size: 1.25em;
+    text-align: @headerTextAlign;
+    border-bottom: @quoteTitleBorderWidth solid var(--ac-bk-fade);//var(--ac-t1-fade);
+    padding: 0 0 .3125em 0;
+    margin-bottom: .3125em;
+}
+
 // 标题内链接样式
-// #write h1 a,
-// #write h2 a,
-// #write h3 a,
-// #write h4 a,
-// #write h5 a,
-// #write h6 a {
-#write :is(h1,h2,h3,h4,h5,h6) a {
+#write :is(h1, h2, h3, h4, h5, h6) a {
     font-weight: inherit;
 }
 
-// #write a:hover,
-// body.typora-export a:hover {
-:is(#write, body.typora-export) a:hover {
+// 文本链接
+// #write a,
+// body.typora-export a,
+// .code-tooltip a { // 预览
+:is(#write, body.typora-export, .code-tooltip) a {
+    color: var(--a-color) !important;
+    text-decoration: none;
+}
+:is(#write, body.typora-export, .code-tooltip) a:hover {
     color: @aHoverColor !important;
     box-shadow: 0 -.3em 0 0 fade(@aLineColor, 30%) inset;
 }
+
+// 图片 URL 参数指定在 Dark Mode 时反色
+#write img[src*="darksrc=invert"],
+#write svg[data-inject-url*="darksrc=invert"] {
+    filter: var(--v-invert-dark);
+    border-color: var(--img-bd-invert) !important;
+    // 使用反色后的背景，以适应在反色中显示为正常效果
+    // background-color: @figureSolidBgLight;
+    background-color: var(--fig-solid-bg);
+}
+
+#write .md-image[data-inject-url*="darksrc=invert"].md-image[data-src*="#line"]>img, // 编辑时
+#write img[src*="darksrc=invert"][src*="#line"],
+#write svg[data-inject-url*="darksrc=invert"][data-inject-url*="#line"] {
+    background: var(--v-fig-grid-l-invert);
+}
+
+#write .md-image[data-inject-url*="darksrc=invert"].md-image[data-src*="#block"]>img, // 编辑时
+#write img[src*="darksrc=invert"][src*="#block"],
+#write svg[data-inject-url*="darksrc=invert"],[data-inject-url*="#block"] {
+    background: var(--v-fig-grid-b-invert);
+}
+
 // 链接 hover 时，链接内图片样式
-// #write a:hover img,
-// #write a:hover svg {
 #write a:hover :is(img, svg) {
     filter: brightness(@hoverBrightness);
 }
-// #write a:hover img[src*="darksrc=invert"],
-// #write a:hover svg[data-inject-url*="darksrc=invert"] {
 #write a:hover :is(
 img[src*="darksrc=invert"],
 svg[data-inject-url*="darksrc=invert"]) {
@@ -635,9 +633,6 @@ svg[data-inject-url*="darksrc=invert"]) {
 }
 
 // 链接 hover 时含图片颜色替换的样式
-// #write a:hover img[d-img-fill="text"],
-// #write a:hover img[d-img-fill="t1"],
-// #write a:hover img[d-img-fill="t2"] {
 #write a:hover :is(
 img[d-img-fill="text"],
 img[d-img-fill="t1"],
@@ -647,9 +642,6 @@ img[d-img-fill="t2"]) {
     position: relative;
 }
 // 链接 hover 时其内嵌按钮的内嵌 img 图片
-// #write a:hover kbd img[d-img-fill="text"],
-// #write a:hover kbd img[d-img-fill="t1"],
-// #write a:hover kbd img[d-img-fill="t2"] {
 #write a:hover kbd :is(
 img[d-img-fill="text"],
 kbd img[d-img-fill="t1"],
@@ -657,18 +649,10 @@ kbd img[d-img-fill="t2"]) {
     filter: drop-shadow(12345px 0px @buttonForeHoverColor) !important;
 }
 // 链接 hover 时其内嵌按钮的内嵌 svg 图片颜色替换的样式
-// #write a:hover kbd svg[d-img-fill] path,
-// #write a:hover kbd svg[d-img-fill] rect,
-// #write a:hover kbd svg[d-img-fill] ellipse,
-// #write a:hover kbd svg[d-img-fill] polygon {
 #write a:hover kbd svg[d-img-fill] :is(path, rect, ellipse, polygon) {
     fill: @buttonForeHoverColor !important;
 }
 // 针对彩虹引用内的情况
-// #write .v-q a:hover kbd svg[d-img-fill] path,
-// #write .v-q a:hover kbd svg[d-img-fill] rect,
-// #write .v-q a:hover kbd svg[d-img-fill] ellipse,
-// #write .v-q a:hover kbd svg[d-img-fill] polygon {
 #write .v-q a:hover kbd svg[d-img-fill] :is(path, rect, ellipse, polygon) {
     fill: --d-bc-lg !important;
 }
@@ -677,28 +661,18 @@ kbd img[d-img-fill="t2"]) {
     filter: brightness(.8);
 }
 
-// #write a:active,
-// body.typora-export a:active {
 :is(#write, body.typora-export) a:active {
     color: var(--d-f-c) !important;
     background: var(--pn-c);
     border-bottom: 0;
     border-radius: var(--v-r-s);
-    // box-shadow: 0 0 0 2px fade(@aHoverColor, 50%);
     transition: none;
 }
-// :is(#write, body.typora-export) a:active:has(kbd) {
-//     box-shadow: none;
-// }
 
 // 默认的超链接样式
-// #write a:not([name^="ref-footnote"]):hover {
-//     color: @accColorBrown !important;
-//     box-shadow: 0 -.3em 0 0 fade(@accColorBrown, 30%) inset !important;
-// }
 #write a:not([name^="ref-footnote"]):hover::before {
-    // content: "Link - " attr(href); // 非页内链接的符号
     content: "…"; // 非页内链接的符号
+    text-transform: uppercase;
     white-space: pre;
     margin-top: -1em;
     color: #FFFFFF;
@@ -712,6 +686,10 @@ kbd img[d-img-fill="t2"]) {
     z-index: 99999;
     letter-spacing: 0;
 }
+// 含有 img 的情况微调
+#write a:not([name^="ref-footnote"]):has(img):hover::before {
+    margin-top: -1.5em;
+}
 
 // 页内链接
 #write :is(a[class*="md-toc-inner"], a[href^="#"]):hover::before {
@@ -719,18 +697,16 @@ kbd img[d-img-fill="t2"]) {
     background: @accColorGray;
 }
 #write a[href="#"]:hover::before { // 针对 table.md-grid-board 中的 td>a 标签
-    // content: "";
     display: none;
 }
 // md 文档
 #write a[href*=".md"]:hover::before {
     content: "🅼 Markdown file";
-    // content: "M⬇ Markdown file";
     color: var(--d-bc);
     background: var(--d-f-c);
 }
 // VLOOK 文库专用链接
-#write :is(a[href^="vlook-doc-lib://"], a[target^="vlook-doc-lib://"]):hover::before {
+#write a[href*="target=vdl"]:hover::before {
     content: "❏ VLOOK™ Document Library";
     color: @buttonForeColor;
     background: @buttonBgColor;
@@ -750,24 +726,6 @@ kbd img[d-img-fill="t2"]) {
     background: @accColorBlue;
 }
 // 文档资源
-// #write a[href$=".pdf"]:hover::before,
-// #write a[href$=".PDF"]:hover::before,
-// #write a[href$=".doc"]:hover::before,
-// #write a[href$=".DOC"]:hover::before,
-// #write a[href$=".docx"]:hover::before,
-// #write a[href$=".DOCX"]:hover::before,
-// #write a[href$=".xls"]:hover::before,
-// #write a[href$=".XLS"]:hover::before,
-// #write a[href$=".xlsx"]:hover::before,
-// #write a[href$=".XLSX"]:hover::before,
-// #write a[href$=".ppt"]:hover::before,
-// #write a[href$=".PPT"]:hover::before,
-// #write a[href$=".pptx"]:hover::before,
-// #write a[href$=".PPTX"]:hover::before,
-// #write a[href$=".txt"]:hover::before,
-// #write a[href$=".TXT"]:hover::before,
-// #write a[href$=".csv"]:hover::before,
-// #write a[href$=".CSV"]:hover::before {
 #write :is(a[href$=".pdf"], a[href$=".PDF"],
 a[href$=".doc"], a[href$=".DOC"],
 a[href$=".docx"], a[href$=".DOCX"],
@@ -778,17 +736,10 @@ a[href$=".pptx"], a[href$=".PPTX"],
 a[href$=".txt"], a[href$=".TXT"],
 a[href$=".csv"],
 a[href$=".CSV"]):hover::before {
-    content: "Document";
+    content: "Document File";
     background: @accColorCyan;
 }
 // 归档资源
-// #write a[href$=".zip"]:hover::before,
-// #write a[href$=".rar"]:hover::before,
-// #write a[href$=".7z"]:hover::before,
-// #write a[href$=".gz"]:hover::before,
-// #write a[href$=".tar"]:hover::before,
-// #write a[href$=".dmg"]:hover::before,
-// #write a[href$=".cab"]:hover::before {
 #write :is(a[href$=".zip"],
 a[href$=".rar"],
 a[href$=".7z"],
@@ -811,12 +762,6 @@ a[href$=".cab"]):hover::before {
     border-bottom: 1px solid var(--d-f-c);
 }
 
-// #write h1,
-// #write h2,
-// #write h3,
-// #write h4,
-// #write h5,
-// #write h6 {
 #write :is(h1, h2, h3, h4, h5, h6) {
     color: var(--h-f);
     text-align: @headerTextAlign;
@@ -830,11 +775,6 @@ a[href$=".cab"]):hover::before {
     letter-spacing: @headerLetterSpacing;
 }
 // 标题渐变色
-// #write h1>span,
-// #write h2>span,
-// #write h3>span,
-// #write h4>span,
-// #write h5>span {
 #write :is(h1, h2, h3, h4, h5)>span {
     background: @lgHeaderBg;
     background-clip: @lgHeaderBgClip;
@@ -848,37 +788,9 @@ a[href$=".cab"]):hover::before {
     color: transparent;
 }
 
-// #write h1+ul,
-// #write h1+ol,
-// #write h2+ul,
-// #write h2+ol,
-// #write h3+ul,
-// #write h3+ol,
-// #write h4+ul,
-// #write h4+ol,
-// #write h5+ul,
-// #write h5+ol,
-// #write h6+ul,
-// #write h6+ol {
-// #write :is(
-// h1+ul,
-// h1+ol,
-// h2+ul,
-// h2+ol,
-// h3+ul,
-// h3+ol,
-// h4+ul,
-// h4+ol,
-// h5+ul,
-// h5+ol,
-// h6+ul,
-// h6+ol) {
-//     margin-top: 0;
-// }
-
 #write h1 {
     margin: @h1Margin;
-    font-size: 2em;
+    font-size: 1.75em;
     box-shadow: @h1Shadow;
     -webkit-text-stroke: @h1TextStroke;
     text-stroke: @h1TextStroke;
@@ -890,7 +802,7 @@ a[href$=".cab"]):hover::before {
 
 #write h2 {
     margin: @h2Margin;
-    font-size: 1.8em;
+    font-size: 1.625em;
     box-shadow: @h2Shadow;
     -webkit-text-stroke: @h2TextStroke;
     text-stroke: @h2TextStroke;
@@ -901,18 +813,16 @@ a[href$=".cab"]):hover::before {
 }
 
 // h1 后紧跟 h2，或是只有普通正文段落的情况
-// h1+p+h2,
 #write h1+h2 {
     box-shadow: none;
     background: @multiHeaderBG;
     margin-top: @hContinuous;
-    // padding-top: @hContinuous;
     border-top: 0;
 }
 
 #write h3 {
     margin: @h3Margin;
-    font-size: 1.6em;
+    font-size: 1.5em;
     box-shadow: @h3Shadow;
     -webkit-text-stroke: @h3TextStroke;
     text-stroke: @h3TextStroke;
@@ -933,7 +843,7 @@ a[href$=".cab"]):hover::before {
 
 #write h4 {
     margin: @h4Margin;
-    font-size: 1.4em;
+    font-size: 1.375em;
     box-shadow: @h4Shadow;
     -webkit-text-stroke: @h4TextStroke;
     text-stroke: @h4TextStroke;
@@ -953,7 +863,8 @@ a[href$=".cab"]):hover::before {
 }
 
 #write h5 {
-    font-size: @h5Margin;
+    margin: @h5Margin;
+    font-size: 1.25em;
     box-shadow: @h5Shadow;
     -webkit-text-stroke: @h5TextStroke;
     text-stroke: @h5TextStroke;
@@ -986,23 +897,15 @@ a[href$=".cab"]):hover::before {
     border-top: @h6BorderTop;
     background: none;
 }
-#write>pre.md-meta-block:first-child+h6::after, // 封面，有 YAML 的情况
-#write>h6:first-child::after, // 封面，无 YAML 的情况
-#write>h1:last-child::after, // 封底
-// #write blockquote h6::after,
-// #write details h6::after {
-#write :is(blockquote, details) h6::after {
+@{coverAfterYAML}::after,
+@{coverWithoutYAML}::after
+@{backcover}::after,
+#write @{quote_Details} h6::after {
     margin-left: 0;
     padding-bottom: 0;
     border: none;
 }
 
-// #write h1+h6,
-// #write h2+h6,
-// #write h3+h6,
-// #write h4+h6,
-// #write h5+h6,
-// #write h6+h6 {
 #write :is(
 h1+h6,
 h2+h6,
@@ -1021,14 +924,10 @@ h6+h6) {
     padding-left: 0;
 }
 
-// body.typora-export strong,
-// #write strong {
 :is(body.typora-export, #write) strong {
     font: var(--v-f-w-bd) 1em var(--v-f-fm-bd); // [style] [weight] [size/[line-height]] [family]
 }
 
-// body.typora-export strong a,
-// #write strong a {
 :is(body.typora-export, #write) strong a {
     font-weight: var(--v-f-w-bd);
 }
@@ -1036,10 +935,14 @@ h6+h6) {
 #write hr {
     margin-top: 1em;
     margin-bottom: 1em;
-    border: 2px solid var(--pn-c);
+    border: @quoteTitleBorderWidth solid var(--ac-bk-fade);//var(--pn-c);
     overflow: hidden;
     box-sizing: content-box;
     border-top: 0;
+}
+// 引用内嵌引用内的 hr
+#write :is(blockquote, details)>:is(blockquote, details) hr {
+    border-width: 1px;
 }
 
 body>div>h1:first-of-type {
@@ -1061,10 +964,6 @@ body>h1:first-child+h2 {
     padding-top: 0;
 }
 
-// body>h3:first-child,
-// body>h4:first-child,
-// body>h5:first-child,
-// body>h6:first-child {
 body>:is(
 h3:first-child,
 h4:first-child,
@@ -1074,12 +973,6 @@ h6:first-child) {
     padding-top: 0;
 }
 
-// #write a:first-child>h1,
-// #write a:first-child>h2,
-// #write a:first-child>h3,
-// #write a:first-child>h4,
-// #write a:first-child>h5,
-// #write a:first-child>h6 {
 #write a:first-child>:is(h1,h2,h3,h4,h5,h6) {
     margin-top: 0;
     padding-top: 0;
@@ -1090,16 +983,12 @@ h6:first-child) {
     left: 0;
     color: @buttonForeColor;
     background: @buttonBgColor;
-    // background: linear-gradient(180deg, @buttonBgColor 50%, rgba(@buttonBgColor, .9));
-    // font-size: .875em;
     position: absolute;
     display: none;
     overflow: hidden;
     padding: 10px 20px;
     border-radius: var(--v-r-b) var(--v-r-b) 0 0;
-    // text-shadow: 0 1px darken(@buttonForeColor, 75%);
     box-shadow: 0 -5px 10px rgba(0, 0, 0, .3);
-    // pointer-events: none;
 }
 #write .v-post-card>.v-card-title {
     font-weight: var(--v-f-w-title);
@@ -1111,11 +1000,6 @@ h6:first-child) {
 }
 
 // 配合段落导航使用
-// #write ul>li,
-// #write ol>li,
-// #write p,
-// #write figure,
-// #write .md-diagram-panel {
 #write :is(figure, .md-diagram-panel) {
     text-align: left;
     margin-top: 0;
@@ -1123,7 +1007,7 @@ h6:first-child) {
 
 #write figure {
     padding-bottom: 1px;
-    margin-top: @paragraphPadding;// margin-bottom: @paragraphPadding;
+    margin-top: @paragraphPadding;
     margin-bottom: @scrollFix; // 针对以下的 .md-diagram-panel 修正
     border-radius: @tableBorderRadius;
 }
@@ -1134,21 +1018,19 @@ h6:first-child) {
 // 有序、无序列表符号样式
 #write ::marker,
 #write li::before {
-// #write :is(::marker, li::before) {
     font-family: var(--v-f-fm-num);
     color: var(--h-f);
     margin-left: 5px;
 }
 
-// #write ul,
-// #write ol {
 #write :is(ul,ol) {
     padding-left: 1.25em;
     padding-bottom: 0;
+    margin-top: .625em;
 }
 // 除图片插图外的段落样式
-#write>p {//:not([class*=v-cap-cntr]) {
-    margin-top: @paragraphPadding;// margin-bottom: @paragraphPadding;
+#write>p {
+    margin-top: @paragraphPadding;
 }
 
 
@@ -1156,7 +1038,7 @@ h6:first-child) {
 // 段落间距样式
 #write p,
 #write li {
-    margin-top: @paragraphPadding;// margin-bottom: @paragraphPadding;//.25em;
+    margin-top: @paragraphPadding;
     margin-bottom: 0;
     word-break: normal;
     word-wrap: break-word;
@@ -1165,25 +1047,14 @@ content>#write p:has(.md-image) { // Typora 编辑时的图片段落
     margin-top: 0;
 }
 
-// #write blockquote>p:first-of-type,
-// #write ol>li:first-of-type,
-// #write ul>li:first-of-type {
-// #write blockquote>p:first-of-type,
-// #write blockquote>ol:first-of-type>li:first-of-type,
-// #write blockquote>ul:first-of-type>li:first-of-type,
-// #write blockquote>ol:first-of-type>li:first-of-type>p,
-// #write blockquote>ul:first-of-type>li:first-of-type>p,
-// #write details>p:first-of-type,
-// #write details>ol:first-of-type>li:first-of-type,
-// #write details>ul:first-of-type>li:first-of-type,
-// #write details>ol:first-of-type>li:first-of-type>p,
-// #write details>ul:first-of-type>li:first-of-type>p {
-#write :is(blockquote, details)>p:first-of-type,
-#write :is(blockquote, details)>ol:first-of-type>li:first-of-type,
-#write :is(blockquote, details)>ul:first-of-type>li:first-of-type,
-#write :is(blockquote, details)>ol:first-of-type>li:first-of-type>p,
-#write :is(blockquote, details)>ul:first-of-type>li:first-of-type>p {
-    margin-top: 0;
+#write @{quote_Details}>p:first-child,
+#write @{quote_Details}>ol:first-child,
+#write @{quote_Details}>ul:first-child,
+#write @{quote_Details}>ol:first-child>li:first-child,
+#write @{quote_Details}>ul:first-child>li:first-child,
+#write @{quote_Details}>ol:first-child>li:first-child>p,
+#write @{quote_Details}>ul:first-child>li:first-child>p {
+    margin-top: 0 !important;
 }
 
 // 有序列表
@@ -1226,61 +1097,47 @@ content>#write p:has(.md-image) { // Typora 编辑时的图片段落
     list-style-type: circle;
 }
 
-// #write ol>li>ol>li::before,
-// #write ul>li>ul>li::before {
 #write :is(ol>li>ol>li, ul>li>ul>li)::before {
     color: var(--ac-t2-lg) !important;
 }
 
-// #write blockquote[d-quote-group]+figcaption,
-// #write details[d-quote-group]+figcaption {
-#write :is(blockquote, details)[d-quote-group]+figcaption {
+#write @{quote_Details}[d-quote-group]+figcaption {
     margin-top: 1em;
 }
 
-// #write blockquote,
-// #write details,
-#write :is(blockquote, details),
+#write @{quote_Details},
 body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     color: var(--d-f-c);
     background: var(--ac-t1-fade);
     border-radius: var(--v-r-b);
     padding: .75em 1em;
-    margin-top: @paragraphPadding;// margin-bottom: @paragraphPadding;
+    margin-top: @paragraphPadding;
+    margin-bottom: @paragraphPadding;
 }
-// #write>blockquote,
-// #write>details {
-#write>:is(blockquote, details) {
+#write>@{quote_Details} {
     margin-top: @paragraphPadding;
 }
 
 // 详情展开后的标题
 details[open]>summary {
-    border-bottom: 1px solid var(--d-bc);
+    border-bottom: @quoteTitleBorderWidth solid var(--ac-bk-fade);//var(--ac-t1-fade);//var(--d-bc);
     padding-bottom: .3125em;
     margin-bottom: .3125em;
 }
-// 连续 details 时对 summary 的处理
-// :is(blockquote, details)>details[open]+details[open]>summary {
-//     border-top: 3px solid var(--d-bc);
-//     padding-top: .3125em;
-// }
 
 summary {
-    // padding-top: .3125em;
-    // padding-bottom: .3125em;
-    // font-size: 1.125em;
-    // font-weight: var(--v-f-w-title);
     font: var(--v-f-w-title) 1.125em var(--v-f-fm-title);
     cursor: pointer;
 }
+details[open]>summary:hover,
 summary:hover {
     color: var(--d-f-c) !important;
 }
-summary:hover::before {
-    color: var(--d-bc) !important;
-    background-color: var(--d-f-c) !important;
-}
+// details[open]>summary:hover::before,
+// summary:hover::before {
+//     color: var(--d-bc) !important;
+//     background-color: var(--d-f-c) !important;
+// }
 
 // 隐藏 details 默认的三角符号
 summary::marker {
@@ -1293,59 +1150,79 @@ summary::-webkit-details-marker {
 summary::-moz-list-bullet {
     font-size: 0;
 }
-// 导出 HTML 后的 summary 折叠样式
-summary::before,
-// 编辑时的 summary 折叠样式
-#write blockquote>blockquote:first-child>h6::before {
-    content: "+";
+// // 编辑时的 summary 折叠样式
+// content>#write blockquote>h6:first-child::before,
+// // 导出 HTML 后的 summary 折叠样式
+// summary::before {
+//     content: "+" !important;
+//     color: @docLibButtonForeColor;
+//     background-color: @docLibButtonBgColor;
+//     position: relative;
+//     display: inline-block;
+//     text-align: center;
+//     border-radius: 50%;
+//     width: 1em;
+//     height: 1em;
+//     line-height: @summaryFoldHolderHeight;
+//     font-size: 1.2em;
+//     margin-right: 5px;
+// }
+content>#write blockquote>h6:first-child::before {
+    content: "×" !important;
+    color: var(--d-f-c);
+    background-color: var(--d-f-c-alt);
     position: relative;
     display: inline-block;
-    color: var(--d-bc-lg);
-    background-color: var(--ac-t1-lg);
     text-align: center;
     border-radius: 50%;
     width: 1em;
     height: 1em;
-    line-height: 1;
+    line-height: @summaryFoldHolderHeight;
+    font-size: 1.2em;
     margin-right: 5px;
 }
-details[open]>summary::before {
-    content: "×";
+content>#write blockquote>h6:first-child::after {
+    content: "Folded Below / 以下会被折叠";
+    text-transform: uppercase;
+    font: @syntaxTipsFont;
+    position: absolute;
+    display: block;
+    margin: 9px 0 0 0;
+    color: var(--d-f-c);
     opacity: .5;
-    background: none !important;
-    color: var(--d-f-c) !important;
-    // box-shadow: 0 0 0 1px inset var(--pn-c);
 }
+summary::before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    width: var(--v-summary-w);
+}
+// // 编辑时折叠样式
+// content>#write blockquote>h6:first-child::before,
+// // 生成 HTML 并转换为 detail 后样式
+// details[open]>summary::before {
+//     content: "×" !important;
+//     color: var(--d-f-c);
+//     background-color: var(--d-f-c-alt);
+// }
 
-// // 紧跟图片、表格后的引用样式微调
-// #write .md-table-fig+blockquote,
-// #write .md-fences+blockquote,
-// // 紧跟带自动题注的内容（插图、代码块、表格、音频、视频）后的引用样式微调
-// #write .v-cap-cntr+blockquote,
-// #write .v-cap-cntr+.v-content-expander+blockquote {
 // 紧跟图片、表格后的引用样式微调
-#write :is(.md-table-fig, .md-fences)+:is(blockquote, details),
+#write :is(figure, .md-fences)+@{quote_Details},
 // 紧跟带自动题注的内容（插图、代码块、表格、音频、视频）后的引用样式微调
-#write :is(.v-cap-cntr, .v-cap-cntr+.v-content-expander)+:is(blockquote, details) {
+#write :is(.v-cap-cntr, .v-cap-cntr+.v-content-expander)+@{quote_Details} {
     width: fit-content;
     max-width: 100%;
     background: var(--pn-c) !important;
-    border-top-left-radius: 0;
+    border-left: 6px solid var(--pn-c-alt);//fade(@accColorGray, 20%);
+    // border-top-left-radius: 0;
+    border-radius: 0 var(--v-r-b) var(--v-r-b);
+    padding: .75em 1em;
     margin-top: 0;
 }
-
-// --------------------
-// 引用后的紧跟独立的上标内容
-// #write .md-hr+p:has(sup) {
-//     margin-top: -1em;
-//     text-align: center;
-// }
-// #write .md-hr+p sup:only-child {
-//     font-size: 1em;
-//     color: var(--d-f-c-alt);
-//     border: 2px solid var(--d-f-c);
-//     background-color: var(--d-bc);
-// }
+#write :is(blockquote, details)>:is(figure, .md-fences)+@{quote_Details},
+#write :is(blockquote, details)>:is(.v-cap-cntr, .v-cap-cntr+.v-content-expander)+@{quote_Details} {
+    background: var(--d-bc) !important;
+}
 
 // --------------------
 // 引用分栏
@@ -1354,9 +1231,8 @@ details[open]>summary::before {
 content>#write .md-hr+blockquote::before {
     background-color: var(--pn-c-alt);
     color: var(--d-f-c);
-    font-weight: bold;
-    font-style: italic;
-    font-size: .75em;
+    font: @syntaxTipsFont;
+    text-transform: uppercase;
     text-align: center;
     white-space: pre;
     padding: 0 .75em;
@@ -1370,27 +1246,30 @@ content>#write .md-hr+blockquote::before {
 }
 content>#write .md-hr+blockquote::before {
     content: "⬛︎ ⬛︎  2 Columns of Quote / 双栏引用  ⬛︎ ⬛︎";
-    margin-top: -3.3em;
+    margin-top: -3.8em;
 }
 content>#write .md-hr+.md-hr+blockquote::before {
     content: "⬛︎ ⬛︎ ⬛︎  3 Columns of Quote / 三栏引用  ⬛︎ ⬛︎ ⬛︎";
-    margin-top: -4.8em;
-    padding-top: .75em;
-    padding-bottom: .75em;
+    margin-top: -5.8em;
+    padding-top: .5em;
+    padding-bottom: .5em;
 }
 content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
     content: "⬛︎ ⬛︎ ⬛︎ ⬛︎  4 Columns of Quote / 四栏引用  ⬛︎ ⬛︎ ⬛︎ ⬛︎";
-    margin-top: -6.3em;
+    margin-top: -7.6em;
     padding-top: 1.4em;
     padding-bottom: 1.4em;
 }
 
 // -----
+@quote_Details: ~":is(blockquote, details)";
+@hr_MdHr: ~":is(hr, .md-hr)";
+@n2Hr_MdHr: ~":is(hr+hr, .md-hr+.md-hr)";
+@n3Hr_MdHr: ~":is(hr+hr+hr, .md-hr+.md-hr+.md-hr)";
+@n4Hr_MdHr: ~":is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)";
 // 以双栏方式显示，49*2+2*1=100
-#write :is(hr, .md-hr)+blockquote,
-#write :is(hr, .md-hr)+blockquote+blockquote,
-#write :is(hr, .md-hr)+details,
-#write :is(hr, .md-hr)+details+details {
+#write @{hr_MdHr}+@{quote_Details},
+#write @{hr_MdHr}+@{quote_Details}+@{quote_Details} {
     color: var(--d-f-c);
     display: inline-block !important;
     max-width: 49% !important;
@@ -1398,19 +1277,15 @@ content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
     vertical-align: top;
 }
 // 双栏内容之间的样式
-#write :is(hr, .md-hr)+blockquote+blockquote,
-#write :is(hr, .md-hr)+details+details {
+#write @{hr_MdHr}+@{quote_Details}+@{quote_Details} {
     margin-left: 2% !important;
 }
 
 // -----
 // 以三栏方式显示，32*3+2*2=100
-#write :is(hr+hr, .md-hr+.md-hr)+blockquote,
-#write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote,
-#write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote+blockquote,
-#write :is(hr+hr, .md-hr+.md-hr)+details,
-#write :is(hr+hr, .md-hr+.md-hr)+details+details,
-#write :is(hr+hr, .md-hr+.md-hr)+details+details+details {
+#write @{n2Hr_MdHr}+@{quote_Details},
+#write @{n2Hr_MdHr}+@{quote_Details}+@{quote_Details},
+#write @{n2Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details} {
     color: var(--d-f-c);
     display: inline-block !important;
     max-width: 32% !important;
@@ -1418,23 +1293,17 @@ content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
     vertical-align: top;
 }
 // 三栏内容之间的样式
-#write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote,
-#write :is(hr+hr, .md-hr+.md-hr)+blockquote+blockquote+blockquote,
-#write :is(hr+hr, .md-hr+.md-hr)+details+details,
-#write :is(hr+hr, .md-hr+.md-hr)+details+details+details {
+#write @{n2Hr_MdHr}+@{quote_Details}+@{quote_Details},
+#write @{n2Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details} {
     margin-left: 2% !important;
 }
 
 // -----
 // 以四栏方式显示，23.5*4+2*3=100
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details+details {
+#write @{n3Hr_MdHr}+@{quote_Details},
+#write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details},
+#write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details},
+#write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details}+@{quote_Details} {
     color: var(--d-f-c);
     display: inline-block !important;
     max-width: 23.5% !important;
@@ -1442,35 +1311,34 @@ content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
     vertical-align: top;
 }
 // 四栏内容之间的样式
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+blockquote+blockquote+blockquote+blockquote,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+details+details+details+details {
+#write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details},
+#write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details},
+#write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details}+@{quote_Details} {
     margin-left: 2% !important;
 }
 
 // 引用内的双栏、三栏、四栏
-#write blockquote>:is(hr, .md-hr)+blockquote,
-#write blockquote>:is(hr, .md-hr)+blockquote+blockquote,
-#write blockquote>:is(hr, .md-hr)+blockquote+blockquote+blockquote,
-#write blockquote>:is(hr, .md-hr)+blockquote+blockquote+blockquote+blockquote {
-    background: var(--d-bc);
+#write @{quote_Details}>@{hr_MdHr}+@{quote_Details},
+#write @{quote_Details}>@{hr_MdHr}+@{quote_Details}+@{quote_Details},
+#write @{quote_Details}>@{hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details},
+#write @{quote_Details}>@{hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details}+@{quote_Details} {
+    border: none;
+    background: var(--d-bc) !important;
+    border-radius: var(--v-r-s);
     padding: .75em 1em;
-    border-width: 0;
+    margin-top: .625em;
+    margin-bottom: .625em;
 }
 
 
-#write blockquote hr,
-#write details hr {
-    border-color: var(--d-f-c);
-    opacity: .2;
-}
+// #write blockquote hr,
+// #write details hr {
+//     // border-color: var(--ac-t1-fade);
+//     border-width: @aBorderWidth;
+// }
 
 #write blockquote h6 {
     padding: 0;
-    // padding: 5px 0;
     margin-top: 0;
     color: var(--d-f-c);
     font-size: 1.125em;
@@ -1485,17 +1353,7 @@ content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
     margin-left: 0 !important;
 }
 
-// #write blockquote>ul,
-// #write blockquote>ol {
-// #write blockquote>:is(ul,ol),
-// #write details>:is(ul,ol) {
-//     margin-top: 0;
-//     margin-bottom: 0;
-// }
-
-// #write blockquote .CodeMirror-linenumber,
-// #write details .CodeMirror-linenumber {
-#write :is(blockquote, details) .CodeMirror-linenumber {
+#write @{quote_Details} .CodeMirror-linenumber {
     color: var(--h-f);
 }
 
@@ -1510,13 +1368,12 @@ content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
 // --------------------
 // 列表分栏
 // 列表分栏内容微调
-#write :is(hr, .md-hr)+ul,
-#write :is(hr, .md-hr)+ol {
+#write @{hr_MdHr}+ul,
+#write @{hr_MdHr}+ol {
     padding-left: 0 !important;
 }
-#write :is(hr, .md-hr)+ul>li,
-#write :is(hr, .md-hr)+ol>li {
-    // border: 2px solid var(--pn-c);
+#write @{hr_MdHr}+ul>li,
+#write @{hr_MdHr}+ol>li {
     box-shadow: 0 0 0 2px var(--std-code-shadow) inset;
     border-radius: var(--v-r-b);
     margin-top: 0 !important;
@@ -1524,17 +1381,23 @@ content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
+    list-style: none;
 }
-#write :is(hr, .md-hr)+ul>li:hover,
-#write :is(hr, .md-hr)+ol>li:hover {
-    // border-color: @buttonBgColor;
-    box-shadow: 0 0 0 2px @buttonBgColor inset;
+// hover
+@listColumnHoverFill: var(--d-f-c-alt);
+#write @{hr_MdHr}+ul>li:hover>p:first-of-type,
+#write @{hr_MdHr}+ol>li:hover>p:first-of-type {
+    background: @listColumnHoverFill !important;
 }
-#write :is(hr, .md-hr)+ul>li>p:first-of-type,
-#write :is(hr, .md-hr)+ol>li>p:first-of-type {
+#write @{hr_MdHr}+ul>li:hover,
+#write @{hr_MdHr}+ol>li:hover {
+    box-shadow: 0 0 0 2px @listColumnHoverFill inset;
+}
+#write @{hr_MdHr}+ul>li>p:first-of-type,
+#write @{hr_MdHr}+ol>li>p:first-of-type {
     font: var(--v-f-w-bd) 1em var(--v-f-fm-bd);
-    color: @buttonForeColor;
-    background: @buttonBgColor;
+    color: var(--d-f-c);
+    background: var(--std-code-shadow);
     padding: 5px;
     border-radius: var(--v-r-t) var(--v-r-t) 0 0;
     text-align: center;
@@ -1542,19 +1405,13 @@ content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
     margin-left: -10px;
     margin-right: -10px;
 }
-// #write :is(hr, .md-hr)+ul>li>p:first-of-type::before,
-// #write :is(hr, .md-hr)+ol>li>p:first-of-type::before {
-//     content: "☰ ";
-//     opacity: .5;
-// }
 // 列表分栏提示样式
 content>#write .md-hr+ul::before,
 content>#write .md-hr+ol::before {
     background-color: var(--pn-c-alt);
     color: var(--d-f-c);
-    font-weight: bold;
-    font-style: italic;
-    font-size: .75em;
+    font: @syntaxTipsFont;
+    text-transform: uppercase;
     text-align: center;
     white-space: pre;
     padding: 0 10px;
@@ -1566,45 +1423,40 @@ content>#write .md-hr+ol::before {
     opacity: .5;
     pointer-events: none;
 }
-// content>#write .md-hr+ul::before,
-// content>#write .md-hr+ol::before {
 content>#write .md-hr+:is(ul, ol)::before {
     content: "⬛︎ ⬛︎  2 Columns of List / 双栏列表  ⬛︎ ⬛︎";
-    margin-top: -2.9em;
+    margin-top: -1.6em;
 }
-// content>#write .md-hr+.md-hr+ul::before,
-// content>#write .md-hr+.md-hr+ol::before {
 content>#write .md-hr+.md-hr+:is(ul, ol)::before {
     content: "⬛︎ ⬛︎ ⬛︎  3 Columns of List / 三栏列表  ⬛︎ ⬛︎ ⬛︎";
-    margin-top: -3em;
-    padding-top: 0;
-    padding-bottom: .2em;
+    margin-top: -3.6em;
+    padding-top: .5em;
+    padding-bottom: .5em;
 }
-// content>#write .md-hr+.md-hr+.md-hr+ul::before,
-// content>#write .md-hr+.md-hr+.md-hr+ol::before {
 content>#write .md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     content: "⬛︎ ⬛︎ ⬛︎ ⬛︎  4 Columns of List / 四栏列表  ⬛︎ ⬛︎ ⬛︎ ⬛︎ ";
-    margin-top: -4.5em;
-    padding-top: .9em;
-    padding-bottom: .7em;
+    margin-top: -5.4em;
+    padding-top: 1.4em;
+    padding-bottom: 1.4em;
 }
-// content>#write .md-hr+.md-hr+.md-hr+.md-hr+ul::before,
-// content>#write .md-hr+.md-hr+.md-hr+ol::before {
 content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     content: "⬛︎ ⬛︎ ⬛︎ ⬛︎ ⬛︎  5 Columns of List / 五栏列表  ⬛︎ ⬛︎ ⬛︎ ⬛︎ ⬛︎";
-    margin-top: -5.9em;
-    padding-top: 1.6em;
-    padding-bottom: 1.4em;
+    margin-top: -7.1em;
+    padding-top: 2.2em;
+    padding-bottom: 2.2em;
 }
 
 // -----
+@n2Li: ~"li+li";
+@n3Li: ~"li+li+li";
+@n4Li: ~"li+li+li+li";
+@n5Li: ~"li+li+li+li+li";
 // 以双栏方式显示列表，49*2+0.5*2*2=100
-#write :is(hr, .md-hr)+ul>li,
-#write :is(hr, .md-hr)+ul>li+li,
-#write :is(hr, .md-hr)+ol>li,
-#write :is(hr, .md-hr)+ol>li+li {
-    display: inline-block;
-    // list-style-type: none;
+#write @{hr_MdHr}+ul>li,
+#write @{hr_MdHr}+ul>@{n2Li},
+#write @{hr_MdHr}+ol>li,
+#write @{hr_MdHr}+ol>@{n2Li} {
+    display: inline-block !important;
     vertical-align: top;
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -1612,31 +1464,30 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     min-width: 49% !important;
 }
 // 双栏列表内容之间的样式
-#write :is(hr, .md-hr)+ul>li+li,
-#write :is(hr, .md-hr)+ol>li+li {
+#write @{hr_MdHr}+ul>@{n2Li},
+#write @{hr_MdHr}+ol>@{n2Li} {
     margin-left: 2% !important;
 }
 // 每两个分栏首个列表微调
-#write :is(hr, .md-hr)+ul>li:nth-of-type(2n+1),
-#write :is(hr, .md-hr)+ol>li:nth-of-type(2n+1) {
+#write @{hr_MdHr}+ul>li:nth-of-type(2n+1),
+#write @{hr_MdHr}+ol>li:nth-of-type(2n+1) {
     margin-left: 0 !important;
 }
 // 双栏的有序列表微调
-#write :is(hr, .md-hr)+ul ol>li,
-#write :is(hr, .md-hr)+ol ol>li {
+#write @{hr_MdHr}+ul ol>li,
+#write @{hr_MdHr}+ol ol>li {
     margin-left: .5em !important;
 }
 
 // -----
 // 以三栏方式显示列表，32*3+2*2=100
-#write :is(hr+hr, .md-hr+.md-hr)+ul>li,
-#write :is(hr+hr, .md-hr+.md-hr)+ul>li+li,
-#write :is(hr+hr, .md-hr+.md-hr)+ul>li+li+li,
-#write :is(hr+hr, .md-hr+.md-hr)+ol>li,
-#write :is(hr+hr, .md-hr+.md-hr)+ol>li+li,
-#write :is(hr+hr, .md-hr+.md-hr)+ol>li+li+li {
-    display: inline-block;
-    // list-style-type: none;
+#write @{n2Hr_MdHr}+ul>li,
+#write @{n2Hr_MdHr}+ul>@{n2Li},
+#write @{n2Hr_MdHr}+ul>@{n3Li},
+#write @{n2Hr_MdHr}+ol>li,
+#write @{n2Hr_MdHr}+ol>@{n2Li},
+#write @{n2Hr_MdHr}+ol>@{n3Li} {
+    display: inline-block !important;
     vertical-align: top;
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -1644,36 +1495,36 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     min-width: 32% !important;
 }
 // 三栏列表内容之间的样式
-#write :is(hr+hr, .md-hr+.md-hr)+ul>li+li,
-#write :is(hr+hr, .md-hr+.md-hr)+ul>li+li+li,
-#write :is(hr+hr, .md-hr+.md-hr)+ol>li+li,
-#write :is(hr+hr, .md-hr+.md-hr)+ol>li+li+li {
+#write @{n2Hr_MdHr}+ul>@{n2Li},
+#write @{n2Hr_MdHr}+ul>@{n3Li},
+#write @{n2Hr_MdHr}+ol>@{n2Li},
+#write @{n2Hr_MdHr}+ol>@{n3Li} {
     margin-left: 2% !important;
 }
 // 每三个分栏首个列表微调
-#write :is(hr+hr, .md-hr+.md-hr)+ul>li+li:nth-of-type(3n+1),
-#write :is(hr+hr, .md-hr+.md-hr)+ul>li+li+li:nth-of-type(3n+1),
-#write :is(hr+hr, .md-hr+.md-hr)+ol>li+li:nth-of-type(3n+1),
-#write :is(hr+hr, .md-hr+.md-hr)+ol>li+li+li:nth-of-type(3n+1) {
+#write @{n2Hr_MdHr}+ul>@{n2Li}:nth-of-type(3n+1),
+#write @{n2Hr_MdHr}+ul>@{n3Li}:nth-of-type(3n+1),
+#write @{n2Hr_MdHr}+ol>@{n2Li}:nth-of-type(3n+1),
+#write @{n2Hr_MdHr}+ol>@{n3Li}:nth-of-type(3n+1) {
     margin-left: 0 !important;
 }
 // 三栏的有序列表微调
-#write :is(hr+hr, .md-hr+.md-hr)+ul ol>li,
-#write :is(hr+hr, .md-hr+.md-hr)+ol ol>li {
+#write @{n2Hr_MdHr}+ul ol>li,
+#write @{n2Hr_MdHr}+ol ol>li {
     margin-left: .5em !important;
 }
 
 // -----
 // 以四栏方式显示列表，23.5*4+2*3=100
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li+li,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li+li {
-    display: inline-block;
+#write @{n3Hr_MdHr}+ul>li,
+#write @{n3Hr_MdHr}+ul>@{n2Li},
+#write @{n3Hr_MdHr}+ul>@{n3Li},
+#write @{n3Hr_MdHr}+ul>@{n4Li},
+#write @{n3Hr_MdHr}+ol>li,
+#write @{n3Hr_MdHr}+ol>@{n2Li},
+#write @{n3Hr_MdHr}+ol>@{n3Li},
+#write @{n3Hr_MdHr}+ol>@{n4Li} {
+    display: inline-block !important;
     // list-style-type: none;
     vertical-align: top;
     margin-left: 0 !important;
@@ -1682,90 +1533,84 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     min-width: 23.5% !important;
 }
 // 四栏列表内容之间的样式
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li+li,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li+li {
+#write @{n3Hr_MdHr}+ul>@{n2Li},
+#write @{n3Hr_MdHr}+ul>@{n3Li},
+#write @{n3Hr_MdHr}+ul>@{n4Li},
+#write @{n3Hr_MdHr}+ol>@{n2Li},
+#write @{n3Hr_MdHr}+ol>@{n3Li},
+#write @{n3Hr_MdHr}+ol>@{n4Li} {
     margin-left: 2% !important;
 }
 // 每四个分栏首个列表微调
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li:nth-of-type(4n+1),
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li:nth-of-type(4n+1),
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul>li+li+li+li:nth-of-type(4n+1),
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li:nth-of-type(4n+1),
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li:nth-of-type(4n+1),
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol>li+li+li+li:nth-of-type(4n+1) {
+#write @{n3Hr_MdHr}+ul>@{n2Li}:nth-of-type(4n+1),
+#write @{n3Hr_MdHr}+ul>@{n3Li}:nth-of-type(4n+1),
+#write @{n3Hr_MdHr}+ul>@{n4Li}:nth-of-type(4n+1),
+#write @{n3Hr_MdHr}+ol>@{n2Li}:nth-of-type(4n+1),
+#write @{n3Hr_MdHr}+ol>@{n3Li}:nth-of-type(4n+1),
+#write @{n3Hr_MdHr}+ol>@{n4Li}:nth-of-type(4n+1) {
     margin-left: 0 !important;
 }
 // 四栏的有序列表微调
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ul ol>li,
-#write :is(hr+hr+hr, .md-hr+.md-hr+.md-hr)+ol ol>li {
+#write @{n3Hr_MdHr}+ul ol>li,
+#write @{n3Hr_MdHr}+ol ol>li {
     margin-left: .5em !important;
 }
 
 // -----
 // 以五栏方式显示列表，19.2*5+1*4=100
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li,
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li,
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li,
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li+li,
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li+li+li,
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li,
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li,
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li,
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li,
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li+li {
-    display: inline-block;
-    // list-style-type: none;
+#write @{n4Hr_MdHr}+ul>li,
+#write @{n4Hr_MdHr}+ul>@{n2Li},
+#write @{n4Hr_MdHr}+ul>@{n3Li},
+#write @{n4Hr_MdHr}+ul>@{n4Li},
+#write @{n4Hr_MdHr}+ul>@{n5Li},
+#write @{n4Hr_MdHr}+ol>li,
+#write @{n4Hr_MdHr}+ol>@{n2Li},
+#write @{n4Hr_MdHr}+ol>@{n3Li},
+#write @{n4Hr_MdHr}+ol>@{n4Li},
+#write @{n4Hr_MdHr}+ol>@{n5Li} {
+    display: inline-block !important;
     vertical-align: top;
     max-width: 19.2% !important;
     min-width: 19.2% !important;
 }
 // 五栏列表内容之间的样式
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li,
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li,
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li+li,
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li,
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li,
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li {
+#write @{n4Hr_MdHr}+ul>@{n2Li},
+#write @{n4Hr_MdHr}+ul>@{n3Li},
+#write @{n4Hr_MdHr}+ul>@{n4Li},
+#write @{n4Hr_MdHr}+ol>@{n2Li},
+#write @{n4Hr_MdHr}+ol>@{n3Li},
+#write @{n4Hr_MdHr}+ol>@{n4Li} {
     margin-left: 1% !important;
 }
 // 每五个分栏首个列表微调
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li:nth-of-type(5n+1),
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li:nth-of-type(5n+1),
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li+li:nth-of-type(5n+1),
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul>li+li+li+li+li:nth-of-type(5n+1),
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li:nth-of-type(5n+1),
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li:nth-of-type(5n+1),
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li:nth-of-type(5n+1),
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol>li+li+li+li+li:nth-of-type(5n+1) {
+#write @{n4Hr_MdHr}+ul>@{n2Li}:nth-of-type(5n+1),
+#write @{n4Hr_MdHr}+ul>@{n3Li}:nth-of-type(5n+1),
+#write @{n4Hr_MdHr}+ul>@{n4Li}:nth-of-type(5n+1),
+#write @{n4Hr_MdHr}+ul>@{n5Li}:nth-of-type(5n+1),
+#write @{n4Hr_MdHr}+ol>@{n2Li}:nth-of-type(5n+1),
+#write @{n4Hr_MdHr}+ol>@{n3Li}:nth-of-type(5n+1),
+#write @{n4Hr_MdHr}+ol>@{n4Li}:nth-of-type(5n+1),
+#write @{n4Hr_MdHr}+ol>@{n5Li}:nth-of-type(5n+1) {
     margin-left: 0 !important;
 }
 // 五栏的有序列表微调
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ul ol>li,
-#write :is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)+ol ol>li {
+#write @{n4Hr_MdHr}+ul ol>li,
+#write @{n4Hr_MdHr}+ol ol>li {
     margin-left: .5em !important;
 }
 
 // 引用内的引用（非分栏）
-// #write blockquote>blockquote,
-// #write li>blockquote {
 #write :is(blockquote, li)>blockquote,
 // 详情内的引用（非分栏）
-#write :is(blockquote, details)>details {
+#write @{quote_Details}>details {
     border-left: 6px solid fade(@accColorGray, 20%);
     background: none;
     border-radius: 0;
     padding: 0 .5em;
 }
 // 引用内的最后一个引用
-// #write blockquote>blockquote:last-child,
-#write :is(blockquote, details)>:is(blockquote, details):last-child,
-// #write blockquote>:is(ol,ul):last-child,
-// #write details>:is(ol,ul):last-child {
-#write :is(blockquote, details)>:is(ol,ul):last-child {
+#write @{quote_Details}>@{quote_Details}:last-child,
+#write @{quote_Details}>:is(ol,ul):last-child {
     margin-bottom: 0;
 }
 
@@ -1780,16 +1625,13 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     padding: .75em 1em;
 }
 
-// #write blockquote>strong,
-// #write details>strong {
-#write :is(blockquote, details)>strong {
+#write @{quote_Details}>strong {
     color: inherit !important;
 }
 
 // 无效图片样式
 .v-img-lost {
     background-image: url("data:image/png;base64,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") !important;
-    // background-image: url("data:image/png;base64,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") !important;
     background-repeat: no-repeat;
     background-size: cover;
     border: none;
@@ -1809,7 +1651,7 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     top: 20px;
     right: 20px;
     bottom: 50px;
-    width: var(--v-nav-center-width);
+    width: var(--v-nav-center-w);
     line-height: @paragraphInnerLineHeight;
     border-radius: var(--v-r-b);
     background: var(--pn-c);
@@ -1856,7 +1698,7 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     justify-content: center;
     align-items: center;
     border-radius: var(--v-r-s);
-    right: 30px;
+    right: 20px;
     bottom: 20px;
     height: 30px;
     z-index: 100;
@@ -1871,85 +1713,71 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
 .v-status-bar>div:last-child {
     border-top-right-radius: var(--v-r-s);
     border-bottom-right-radius: var(--v-r-s);
-    border: none;
+    // border: none;
+}
+
+.v-status-bar>.v-doc-info,
+.v-status-bar>.v-sts-font-theme,
+.v-status-bar>.v-color-scheme,
+.v-status-bar>.v-link-chk-result {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    color: var(--d-f-c);
+    background: var(--pn-c);
+    padding: 0 10px;
+    min-width: var(--v-tb-btn-w);
+    height: 30px;
+    opacity: .6;
+    cursor: pointer;
 }
 
 // 文档信息
 .v-doc-info {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    vertical-align: top;
-    color: var(--d-f-c);
     font: normal .75em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
-    background: var(--pn-c);
-    padding: 0 10px;
-    min-width: 80px;
-    height: 30px;
-    opacity: .6;
     cursor: default;
 }
 
-// 缩放
-.v-zoom-view {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    vertical-align: top;
-    color: var(--a-color);
-    font: var(--v-f-w-title) .875em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
-    background: var(--pn-c);
-    padding: 0 10px;
-    min-width: 80px;
-    height: 30px;
-    border-left: 1px solid var(--pn-c-alt);
-    opacity: .6;
-    cursor: pointer;
-}
-.v-zoom-view.hover {
+// 鼠标悬停在状态栏图标效果
+.v-sts-font-theme.hover,
+.v-color-scheme.hover {
     background: @aHoverColor !important;
     color: @buttonForeHoverColor !important;
+}
+.v-sts-font-theme.hover use,
+.v-color-scheme.hover use {
+    fill: @buttonForeHoverColor !important;
 }
 
 // 链接检查结果
 .v-link-chk-result {
-    justify-content: center;
-    align-items: center;
-    vertical-align: top;
-    color: var(--d-f-c);
-    cursor: pointer;
-    padding: 0;
-    width: 30px;
-    height: 30px;
-    border-radius: 0 var(--v-r-s) var(--v-r-s) 0;
-    display: inline-flex;
     cursor: pointer;
     background: var(--ac-bu-lg);
+    opacity: 1;
+    border-radius: 0 var(--v-r-s) var(--v-r-s) 0;
 }
 .v-link-chk-result.error {
     background: var(--ac-rd-lg);
 }
-.v-link-result-error:hover {
-    background: var(--d-f-c);
-}
-.v-link-result-error:hover>svg>use {
-    fill: var(--d-bc);
-}
-.v-link-result-error:active {
-    background: var(--ac-rd-lg);
-    box-shadow: 0 0 0 2px fade(@accColorRed, 50%);
-}
-.v-link-result-error:active>svg>use {
-    fill: #FFFFFF;
-}
+// .v-link-result-error:hover {
+//     background: var(--d-f-c);
+// }
+// .v-link-result-error:hover>svg>use {
+//     fill: var(--d-bc);
+// }
+// .v-link-result-error:active {
+//     background: var(--ac-rd-lg);
+//     box-shadow: 0 0 0 2px fade(@accColorRed, 50%);
+// }
+// .v-link-result-error:active>svg>use {
+//     fill: #FFFFFF;
+// }
 
 .v-link-error-source:focus {
     outline: 2px dashed var(--ac-rd-lg);
 }
 
-// table {
-// #write table,
-// body.typora-export table {
 // table.md-grid-board 是编辑时表格行列调整面板的样式
 :is(#write, body.typora-export) table {
     border-collapse: inherit;
@@ -1966,11 +1794,6 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     border-radius: @tableBorderRadius;
     background: @tableBackground;
 }
-// :is(#write, body.typora-export) table.md-grid-board {
-//     border-collapse: inherit;
-//     border-spacing: 0;
-//     border: 2px solid var(--tbl-bd);
-// }
 :is(#write, body.typora-export) table[d-row-group],
 :is(#write, body.typora-export) table[d-col-too-more] {
     white-space: pre;
@@ -1982,24 +1805,20 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
 }
 
 // 表格表头
-// #write table>thead>tr>th,
-// body.typora-export table>thead>tr>th {
 :is(#write, body.typora-export) table>thead>tr>th {
     color: @tableThColor;
     background: @tableThBakcground;
     font: var(--v-f-w-bd) 1em var(--v-f-fm-bd); // [style] [weight] [size/[line-height]] [family]
     border-right: @tableThBorderRightWidth solid var(--tbl-cell-bd);
     margin: 0;
-    padding: var(--tbl-cell-padding);//@tableCellPadding;//.5em;
+    padding: var(--tbl-cell-padding);
     box-shadow: @tableThBoxShadow;
 }
 
-// #write table tr>td,
-// body.typora-export table tr>td {
 :is(#write, body.typora-export) table td {
     border-right: @tableTdBorderRightWidth solid var(--tbl-cell-bd);
     margin: 0;
-    padding: var(--tbl-cell-padding);//@tableCellPadding;//5px;
+    padding: var(--tbl-cell-padding);
     vertical-align: top;
 }
 
@@ -2019,8 +1838,6 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
 }
 
 // tbody 首行
-// #write table>tbody>tr:first-child>td,
-// body.typora-export table>tbody>tr:first-child>td {
 :is(#write, body.typora-export) table>tbody>tr:first-child>td {
     box-shadow: @tableFirstTdBoxShadow;
 }
@@ -2028,86 +1845,54 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     box-shadow: @tableFirstTdBoxShadow !important;
 }
 // 非首行
-// #write table>tbody>tr:not(:first-child)>td,
-// body.typora-export table>tbody>tr:not(:first-child)>td {
 :is(#write, body.typora-export) table>tbody>tr:not(:first-child)>td {
     box-shadow: @tableTdBoxShadow;
 }
 
 // 偶数行
-// #write table>tbody>tr:nth-child(2n),
-// body.typora-export table>tbody>tr:nth-child(2n) {
 :is(#write, body.typora-export) table>tbody>tr:nth-child(2n) {
     background: @tableTdBakcground;
 }
 
 // 表头首行的首列
-// #write table>thead>tr:first-child>th:first-child,
-// body.typora-export table>thead>tr:first-child>th:first-child {
 :is(#write, body.typora-export) table>thead>tr:first-child>th:first-child {
     border-top-left-radius: calc(@tableBorderRadius - 1px);//var(--v-r-t); // 非16px的原因是存在2px的border，避免因圆角半径不同出现空白
-    // white-space: pre;
 }
 
 // 表头首行的尾列
-// #write table>thead>tr:first-child>th:last-child,
-// body.typora-export table>thead>tr:first-child>th:last-child {
 :is(#write, body.typora-export) table>thead>tr:first-child>th:last-child {
     border-top-right-radius:calc(@tableBorderRadius - 1px);//var(--v-r-t); // 非16px的原因是存在2px的border，避免因圆角半径不同出现空白
 }
 
 // 表格末行的首列
-// #write table>tbody>tr:last-child>td:first-child,
-// body.typora-export table>tbody>tr:last-child>td:first-child {
 :is(#write, body.typora-export) table>tbody>tr:last-child>td:first-child {
     border-bottom-left-radius: calc(@tableBorderRadius - 1px);//var(--v-r-t); // 非16px的原因是存在2px的border，避免因圆角半径不同出现空白
 }
 
 // 表格末行的尾列
-// #write table>tbody>tr:last-child>td:last-child,
-// body.typora-export table>tbody>tr:last-child>td:last-child {
 :is(#write, body.typora-export) table>tbody>tr:last-child>td:last-child {
     border-bottom-right-radius: calc(@tableBorderRadius - 1px);//var(--v-r-t); // 非16px的原因是存在2px的border，避免因圆角半径不同出现空白
 }
 
 // 表格首列
-// #wirte table tr>th:first-child,
-// #write table tr>td:first-child,
-// body.typora-export table tr>th:first-child,
-// body.typora-export table tr>td:first-child {
 :is(#wirte, body.typora-export) table tr>:is(th, td):first-child {
     // white-space: pre !important; // 表格首列默认不换行
 }
 // 表格末列
-// #write table tr>th:last-child,
-// #write table tr>td:last-child,
-// body.typora-export table tr>th:last-child,
-// body.typora-export table tr>td:last-child {
 :is(#write, body.typora-export) table tr>:is(th, td):last-child {
     border-right: 0;
 }
 
 // 空白单元格
-// #write .v-empty-cell,
-// body.typora-export .v-empty-cell {
 :is(#write, body.typora-export) .v-empty-cell {
     padding: 1px !important;
     background: var(--tbl-h-bd) !important;
 }
 // 非首行内的空白单元格
-// #write table>tbody>tr:not(:first-child)>td.v-empty-cell,
-// body.typora-export table>tbody>tr:not(:first-child)>td.v-empty-cell {
 :is(#write, body.typora-export) table>tbody>tr:not(:first-child)>td.v-empty-cell {
     box-shadow: none !important;
 }
 
-// #write .v-tr-repeater {
-//     border: @tableBorderWidth solid var(--tbl-bd);
-//     border-left-width: @tableBorderLeftWidth;
-//     border-right-width: @tableBorderRightWidth;
-//     border-top-width: @tableBorderTopWidth;
-//     border-bottom-width: @tableBorderBottomWidth;
-// }
 // 重复表头所在行，强制取消行号显示
 #write .v-tr-repeater::before {
     content: "" !important;
@@ -2118,16 +1903,14 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     font: var(--v-f-w-bd) 1em var(--v-f-fm-bd); // [style] [weight] [size/[line-height]] [family]
     color: @tableThColor;
     background: @tableThBakcground;
-    // background: var(--tbl-th-bg);
+    // background: (--tbl-th-bg);
     vertical-align: middle !important;
 }
 #write .v-th-repeater.first {
     box-shadow: @tableThRepeaterBoxShadow;
-    // box-shadow: 0 -2px 0 0 var(--tbl-h-bd), 0 1px 0 0 var(--tbl-h-bd) !important;
 }
 #write .v-th-repeater.not-first {
     box-shadow: @tableThBoxShadow !important;
-    // box-shadow: 0 1px 0 0 var(--tbl-h-bd) !important;
 }
 
 // 合并了所有列样式
@@ -2201,10 +1984,6 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
 // }
 
 // 带表格带行折叠时，不是目录行的样式（有行自动编号）
-// #write li>figure table tbody>tr>td.v-tbl-row-g-not-folder,
-// #write h6+figure table tbody>tr>td.v-tbl-row-g-not-folder,
-// body.typora-export li>figure table tbody>tr>td.v-tbl-row-g-not-folder,
-// body.typora-export h6+figure table tbody>tr>td.v-tbl-row-g-not-folder {
 :is(#write, body.typora-export) :is(li>figure, h6+figure) table tbody>tr>td.v-tbl-row-g-not-folder {
   text-align: left !important;
   padding-left: 50px !important;
@@ -2217,7 +1996,7 @@ td.v-tbl-row-g-not-folder {
 
 // 折叠按钮样式
 .v-tbl-row-g-btn {
-    line-height: @miniLineHeight;//1;
+    line-height: @miniLineHeight;
     vertical-align: middle;
     cursor: pointer;
 }
@@ -2242,15 +2021,9 @@ td.v-tbl-row-g-not-folder {
     display: inline-block;
     padding: 0;
     margin: -10px 32px -10px 4px;
-    // margin: -10px 58px -10px 4px;
 }
 // 带表格行号的样式微调
-// #write h6+figure table .v-tbl-row-g-identer,
-// #write li>figure table .v-tbl-row-g-identer,
-// body.typora-export h6+figure table .v-tbl-row-g-identer,
-// body.typora-export li>figure table .v-tbl-row-g-identer {
-:is(#write, body.typora-export) :is(h6+figure, li>figure) table .v-tbl-row-g-identer {
-    // margin-right: 32px;
+#write :is(h6+figure, li>figure) table .v-tbl-row-g-identer {
     margin-right: 58px;
 }
 
@@ -2259,60 +2032,35 @@ td.v-tbl-row-g-not-folder {
     margin-left: -12px !important;
 }
 // 带表格行号的样式微调
-// #write h6+figure table .v-tbl-row-g-identer+.v-tbl-row-g-identer,
-// #write li>figure table .v-tbl-row-g-identer+.v-tbl-row-g-identer,
-// body.typora-export h6+figure table .v-tbl-row-g-identer+.v-tbl-row-g-identer,
-// body.typora-export li>figure table .v-tbl-row-g-identer+.v-tbl-row-g-identer {
-:is(#write, body.typora-export) :is(h6+figure, li>figure) table .v-tbl-row-g-identer+.v-tbl-row-g-identer {
+#write :is(h6+figure, li>figure) table .v-tbl-row-g-identer+.v-tbl-row-g-identer {
     margin-right: 30px !important;
 }
 
 // 缩进的单元格为目录节点
 .v-tbl-row-g-identer-folder {
-    margin-right: 38px;
+    margin-right: 12px;
 }
 // 带表格行号的样式微调
-// #write h6+figure table .v-tbl-row-g-identer-folder,
-// #write li>figure table .v-tbl-row-g-identer-folder,
-// body.typora-export figure table .v-tbl-row-g-identer-folder,
-// body.typora-export li>figure table .v-tbl-row-g-identer-folder {
-:is(#write, body.typora-export) figure table .v-tbl-row-g-identer-folder {
-    margin-right: 12px !important;
-}
-:is(#write, body.typora-export) li>figure table .v-tbl-row-g-identer-folder {
+#write :is(h6+figure, li>figure) table .v-tbl-row-g-identer-folder {
     margin-right: 38px !important;
 }
 // 连续缩进的占位元素修正
-// #write h6+figure table .v-tbl-row-g-identer+.v-tbl-row-g-identer-folder,
-// #write li>figure table .v-tbl-row-g-identer+.v-tbl-row-g-identer-folder,
-// body.typora-export h6+figure table .v-tbl-row-g-identer+.v-tbl-row-g-identer-folder,
-// body.typora-export li>figure table .v-tbl-row-g-identer+.v-tbl-row-g-identer-folder {
-:is(#write, body.typora-export) :is(h6+figure, li>figure) table .v-tbl-row-g-identer+.v-tbl-row-g-identer-folder {
+#write :is(h6+figure, li>figure) table .v-tbl-row-g-identer+.v-tbl-row-g-identer-folder {
     margin-right: 10px !important;
 }
 
-// li/header下的表格增加表格行号
-// #write li>figure table,
-// #write h6+figure table,
-// body.typora-export li>figure table,
-// body.typora-export h6+figure table {
-:is(#write, body.typora-export) :is(li>figure, h6+figure) table {
+// li/header 下的表格增加表格行号
+#write :is(li>figure, h6+figure) table {
     counter-reset: tableRowNumber - 1;
 }
 
-// #write li>figure table tbody tr,
-// #write h6+figure table tbody tr,
-// body.typora-export li>figure table tbody tr,
-// body.typora-export h6+figure table tbody tr {
-:is(#write, body.typora-export) :is(li>figure, h6+figure) table tbody tr {
+#write :is(li>figure, h6+figure) table tbody tr {
     counter-increment: tableRowNumber;
 }
 
 // 表格表头行号
 // 该过滤器更新后，须同步更新长表格折叠 tableFolding() 中对应的过滤器
-// #write figure table tr::before,
-// body.typora-export figure table tr::before {
-:is(#write, body.typora-export) figure table tr::before {
+#write figure table tr::before {
     content: "";
     color: var(--h-f);
     font: normal normal .8em var(--v-f-fm-num) !important; // [style] [weight] [size/[line-height]] [family]
@@ -2326,9 +2074,7 @@ td.v-tbl-row-g-not-folder {
 
 // 列表下的表格表头行号
 // 该过滤器更新后，须同步更新长表格折叠 tableFolding() 中对应的过滤器
-// #write li>figure table tbody tr::before,
-// body.typora-export li>figure table tbody tr::before {
-:is(#write, body.typora-export) li>figure table tbody tr::before {
+#write li>figure table tbody tr::before {
     content: counter(tableRowNumber);
     text-align: right;
     margin-top: @tableRowNumTop;
@@ -2338,9 +2084,7 @@ td.v-tbl-row-g-not-folder {
     position: absolute;
 }
 // hover 时行号内容样式
-// #write li>figure table tbody tr:hover::before,
-// body.typora-export li>figure table tbody tr:hover::before {
-:is(#write, body.typora-export) li>figure table tbody tr:hover::before {
+#write li>figure table tbody tr:hover::before {
     content: @tableRowCursor;
     color: @aLineColor;
 }
@@ -2351,9 +2095,7 @@ td.v-tbl-row-g-not-folder {
 }
 
 // h1-6 下的表格行号
-// #write h6+figure table tbody tr::before,
-// body.typora-export h6+figure table tbody tr::before {
-:is(#write, body.typora-export) h6+figure table tbody tr::before {
+#write h6+figure table tbody tr::before {
     content: counter(tableRowNumber);
     text-align: right;
     margin-top: @tableRowNumTop;
@@ -2362,23 +2104,14 @@ td.v-tbl-row-g-not-folder {
     position: absolute;
 }
 // hover 时行号内容样式
-// #write h6+figure table tbody tr:hover::before,
-// body.typora-export h6+figure table tbody tr:hover::before {
-:is(#write, body.typora-export) h6+figure table tbody tr:hover::before {
+#write h6+figure table tbody tr:hover::before {
+// :is(#write, body.typora-export) h6+figure table tbody tr:hover::before {
     content: @tableRowCursor;
     color: @aLineColor;
 }
 
 // 应显示表格行的表格的首列
-// #write li>figure table tr>th:first-child,
-// #write li>figure table tr>td:first-child,
-// #write h6+figure table tr>th:first-child,
-// #write h6+figure table tr>td:first-child,
-// body.typora-export li>figure table tr>th:first-child,
-// body.typora-export li>figure table tr>td:first-child,
-// body.typora-export h6+figure table tr>th:first-child,
-// body.typora-export h6+figure table tr>td:first-child {
-:is(#write, body.typora-export) :is(li>figure, h6+figure) table tr>:is(th, td):first-child {
+#write :is(li>figure, h6+figure) table tr>:is(th, td):first-child {
     padding-left: 30px;
 }
 
@@ -2388,12 +2121,6 @@ td.v-tbl-row-g-not-folder {
 }
 
 // h1-6 后的表格，格式微调
-// #write h1+figure,
-// #write h2+figure,
-// #write h3+figure,
-// #write h4+figure,
-// #write h5+figure,
-// #write h6+figure {
 #write :is(h1,h2,h3,h4,h5,h6)+figure {
     margin-top: 0;
 }
@@ -2410,23 +2137,23 @@ td.v-tbl-row-g-not-folder {
 }
 .v-table-cross-cell {
     box-shadow: 0 0 0 4px var(--d-f-c-alt) !important;
-    border-radius: @tableBorderRadius;//6px;
+    border-radius: @tableBorderRadius;
 }
 .v-table-cross.left-up {
     background: linear-gradient(315deg, transparent, @tableCrossBgColor 20px, fade(@aLineColor, 1%));
-    border-bottom-right-radius: @tableBorderRadius;//var(--v-r-b);//12px;
+    border-bottom-right-radius: @tableBorderRadius;
 }
 .v-table-cross.right-up {
     background: linear-gradient(45deg, transparent, @tableCrossBgColor 20px, fade(@aLineColor, 1%));
-    border-bottom-left-radius: @tableBorderRadius;//var(--v-r-b);//12px;
+    border-bottom-left-radius: @tableBorderRadius;
 }
 .v-table-cross.left-down {
     background: linear-gradient(210deg, transparent, @tableCrossBgColor 20px, fade(@aLineColor, 1%));
-    border-top-right-radius: @tableBorderRadius;//var(--v-r-b);//12px;
+    border-top-right-radius: @tableBorderRadius;
 }
 .v-table-cross.right-down {
     background: linear-gradient(135deg, transparent, @tableCrossBgColor 20px, fade(@aLineColor, 1%));
-    border-top-left-radius: @tableBorderRadius;//var(--v-r-b);//12px;
+    border-top-left-radius: @tableBorderRadius;
 }
 
 .v-table-wrap {
@@ -2438,26 +2165,20 @@ td.v-tbl-row-g-not-folder {
 }
 
 // 高亮
-// #write mark {
 mark {
     box-shadow: 0 -.9em 0 0 var(--mark-bg) inset;
-    // text-shadow: 0 1px 0 var(--d-bc);
     font-weight: var(--v-f-w-bd);
     color: inherit;
     background: none;
 }
 
 // 删除
-// #write del,
-// #write del strong {
 #write :is(del, del strong) {
     color: var(--d-f-c-alt) !important;
     text-decoration: line-through solid !important;
 }
 
 #write del code {
-    // font-style: italic;
-    // text-decoration: line-throug solid !important;
     text-decoration: line-through !important;
 }
 
@@ -2474,7 +2195,7 @@ mark {
 }
 
 // 弹层中的脚注行
-.v-foot-note-panel-content>.footnote-line {
+.v-footnote-pn-content>.footnote-line {
     padding-bottom: 50px;
 }
 
@@ -2497,6 +2218,8 @@ mark {
     color: @aActiveColor;
 }
 
+// .md-expand .md-inline-math-container>script,
+@{inline_script}, // 行内公式
 tt,
 code {
     font: var(--v-f-w-text) .875em/@defaultLineHeight var(--v-f-fm-code); // [style] [weight] [size/[line-height]] [family]
@@ -2529,8 +2252,6 @@ code {
     background: var(--code-bg);
 }
 
-// strong tt,
-// strong code {
 strong :is(tt, code) {
     font-weight: var(--v-f-w-bd);
 }
@@ -2540,13 +2261,95 @@ strong :is(tt, code) {
     margin: 0;
 }
 
-.mathjax-block>.code-tooltip {
-    bottom: .375em;
-}
+// // 预览：数学公式
+// .mathjax-block>.code-tooltip {
+//     bottom: .375em;
+// }
 
 .md-tag {
     color: inherit;
 }
+
+
+/**************************************
+* 数学公式
+**************************************/
+
+@codeTooltipBg: var(--d-f-c);
+@codeTooltipText: var(--d-bc);
+mjx-container>svg svg[data-labels] g,
+.code-tooltip mjx-container>svg svg[data-labels] g {
+    fill: var(--d-f-c-alt) !important;
+}
+
+// 编辑时，行内数学公式
+// for macOS
+body.html-for-mac content>#write .md-inline-math mjx-container {
+    font-size: .66em !important;
+}
+
+// 预览：公式、脚注
+.code-tooltip,
+.md-hover-tip .code-tooltip-content {
+    background: @codeTooltipBg !important;
+    color: @codeTooltipText !important;
+    border-radius: var(--v-r-b) !important;
+}
+
+.code-tooltip mjx-container>svg g {
+    fill: @codeTooltipText !important;
+}
+
+// 浮层箭头
+.md-hover-tip .md-arrow:after {
+    background: @codeTooltipBg;
+}
+
+// 行间公式右上角标签
+.md-rawblock .md-rawblock-tooltip {
+    border-radius: var(--v-r-t) var(--v-r-t) 0 0;
+}
+// 行间公式容器
+.md-math-container {
+    border-radius: var(--v-r-b) 0 var(--v-r-b) var(--v-r-b);
+}
+
+// 行间公式区
+.md-math-block {
+    border-radius: var(--v-r-b);
+}
+// 编辑时
+.md-rawblock-before {
+// .md-rawblock-control:not(.md-rawblock-tooltip) {
+    border-radius: var(--v-r-b) 0 0 0;
+}
+.md-rawblock-input,
+.md-rawblock-input :is(.CodeMirror-scroll, .CodeMirror.cm-s-inner) {
+    border-radius: 0 !important;
+}
+.md-rawblock-after {
+    border-radius: 0 0 var(--v-r-b) var(--v-r-b) !important;
+}
+.md-math-block.md-focus .CodeMirror-sizer {
+    box-shadow: var(--v-input-focus-inn-shadow);//, var(--v-input-focus-shadow);
+}
+
+// 行内公式（编辑时）
+@inline_script: ~".md-expand .md-inline-math-container>script";
+@{inline_script} {
+    box-shadow: var(--v-input-focus-inn-shadow), var(--v-input-focus-shadow);
+}
+
+// 公式链接
+// mjx-container>svg a g[data-mml-node="mtext"] {
+//     fill: var(--a-color) !important;
+// }
+// mjx-container>svg a:hover g[data-mml-node="mtext"] {
+//     fill: @aHoverColor !important;
+// }
+// mjx-container>svg a:active g[data-mml-node="mtext"] {
+//     fill: @aHoverColor !important;
+// }
 
 /**************************************
 * Header Counters in Content 内容中的目录序号样式
@@ -2576,12 +2379,6 @@ strong :is(tt, code) {
     counter-reset: h6;
 }
 
-// #write h1::before,
-// #write h2::before,
-// #write h3::before,
-// #write h4::before,
-// #write h5::before,
-// #write h6::before {
 #write :is(h1,h2,h3,h4,h5,h6)::before,
 #write :is(h1,h2,h3,h4,h5,h6)::after {
     color: @contentHeaderNumColor;
@@ -2617,16 +2414,10 @@ strong :is(tt, code) {
 }
 
 #write h6::before {
-    content: @h6BeforeContent;//"❖ "; // ◎
+    content: @h6BeforeContent;
 }
 
 // 导出 HTML 后的文档章节目录的自动编码内容
-// body.typora-export #write h1::before,
-// body.typora-export #write h2::before,
-// body.typora-export #write h3::before,
-// body.typora-export #write h4::before,
-// body.typora-export #write h5::before,
-// body.typora-export #write h6::before {
 body.typora-export #write :is(h1,h2,h3,h4,h5,h6)::before {
     content: attr(d-header-num) !important;
 }
@@ -2646,7 +2437,6 @@ kbd {
 
 table kbd {
     display: inline-block;
-    // margin: 2px 0;
 }
 
 /**************************************
@@ -2701,8 +2491,8 @@ table kbd {
     padding: 10px;
     text-align: center;
     white-space: pre-wrap;
-    border-radius: var(--v-r-b);
     border: 1px solid var(--tbl-bd);
+    border-radius: 0 var(--v-r-b) var(--v-r-b) var(--v-r-b);
     font: normal 1em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
     background: var(--pn-c);
     cursor: default;
@@ -2725,20 +2515,36 @@ table kbd {
     visibility: hidden;
     opacity: 0;
     display: block;
-    padding: 5px 10px;
-    border-top: 0;
+    border-top-width: 0;
     box-shadow: 0 2px 0 0 @aLineColor inset, var(--v-float-shadow), @contrastBorder;
     text-align: left;
     white-space: pre;
     font-size: .875em;
+}
+// 提示对象在上半屏
+.v-tool-tips.top.center {
+    border-radius: var(--v-r-b);
+}
+.v-tool-tips.top.right {
+    border-radius: var(--v-r-b) 0 var(--v-r-b) var(--v-r-b);
+}
+// 提示对象在下半屏
+.v-tool-tips.bottom {
+    box-shadow: 0 -2px 0 0 @aLineColor inset, var(--v-float-shadow), @contrastBorder;
+    border-top-width: 1px;
+    border-bottom-width: 0;
+}
+.v-tool-tips.bottom.center {
+    border-radius: var(--v-r-b);
+}
+.v-tool-tips.bottom.right {
+    border-radius:var(--v-r-b) var(--v-r-b) 0 var(--v-r-b);
 }
 
 .v-tool-tips.accent {
     box-shadow: 0 2px 0 0 @buttonBgColor inset, var(--v-float-shadow), @contrastBorder;
 }
 
-// .v-tool-tips a,
-// .v-info-tips a {
 :is(.v-tool-tips, .v-info-tips) a {
     font-weight: var(--v-f-w-bd);
     text-decoration: none;
@@ -2755,7 +2561,6 @@ table kbd {
     bottom: 0;
     padding-top: 16px;
     background: linear-gradient(0deg, #000000, transparent);
-    // background: linear-gradient(0deg, #404448, transparent);
     position: fixed;
     display: none;
     pointer-events: none;
@@ -2779,7 +2584,6 @@ table kbd {
 
 // 字体风格选择器
 .v-font-theme {
-    // width: 647px;
     display: none;
     position: fixed;
     padding: 10px;
@@ -2790,7 +2594,7 @@ table kbd {
     background: var(--pn-c);
     z-index: 3000;
 }
-.v-font-theme > .v-font-theme-opt {
+.v-font-theme>.v-font-theme-opt {
     vertical-align: top;
     display: inline-block;
     margin: 0 0 30px 10px;
@@ -3027,35 +2831,15 @@ table kbd {
     width: 100%;
 }
 
-// 折叠引用所在行
-p[d-blockquote-folded] {
-    cursor: pointer;
-}
-// 折叠引用按钮
-.v-blockquote-folder {
-    line-height: @miniLineHeight;
-    vertical-align: middle;
-    cursor: pointer;
-}
-
-p[d-blockquote-folded]:hover .v-blockquote-folder>svg>use,
-.v-blockquote-folder.hover>svg>use {
-    fill: @aHoverColor !important;
-}
-p[d-blockquote-folded]:active .v-blockquote-folder>svg>use,
-.v-blockquote-folder.hover:active>svg>use {
-    fill: @aActiveColor !important;
-}
-
 .v-nav-center {
     background: var(--pn-c);
     border-radius: var(--v-r-b);
     cursor: default;
     display: block;
-    left: var(--v-nav-center-hidden-left);
+    left: var(--v-nav-center-hidden-l);
     top: 10px;
     bottom: 40px;
-    width: var(--v-nav-center-width);
+    width: var(--v-nav-center-w);
     padding: 0;
     position: fixed;
     z-index: 2000;
@@ -3080,7 +2864,7 @@ p[d-blockquote-folded]:active .v-blockquote-folder>svg>use,
     font: normal 1em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
     height: 100px;
     padding: 0;
-    background: linear-gradient(180deg, var(--pn-c) 90px, var(--pn-c-tsp));
+    background: linear-gradient(180deg, var(--pn-c) 82px, var(--pn-c-tsp));
     left: 1px;
     right: 1px;
     top: 1px;
@@ -3093,7 +2877,7 @@ p[d-blockquote-folded]:active .v-blockquote-folder>svg>use,
 // 导航中心标签栏
 .v-segment {
     text-align: center;
-    height: 34px;
+    height: calc(var(--v-seg-h) + 4px);
     border-radius: var(--v-r-s);
     margin: 10px;
     padding: 2px;
@@ -3118,7 +2902,8 @@ p[d-blockquote-folded]:active .v-blockquote-folder>svg>use,
     left: 12px;
     top: 52px;
     width: 40px;
-    height: 30px;
+    height: var(--v-seg-h);
+    // height: 30px;
     background: @buttonBgColor;
     border-radius: calc(var(--v-r-s) - 1px);
     z-index: 0;
@@ -3129,7 +2914,8 @@ p[d-blockquote-folded]:active .v-blockquote-folder>svg>use,
 
 .v-segment-btn {
     width: 16%;
-    height: 30px;
+    height: var(--v-seg-h);
+    // height: 30px;
     justify-content: center;
     align-items: center;
     vertical-align: middle;
@@ -3182,13 +2968,10 @@ p[d-blockquote-folded]:active .v-blockquote-folder>svg>use,
 .v-nav-center-body {
     width: 100%;
     height: 100%;
-    padding: 70px 1px 10px 1px;
+    padding: 70px 1px 5px 1px;
     border-radius: var(--v-r-b);
     overflow: auto;
     overflow-y: hidden;
-}
-.v-nav-center-body.has-doc-lib {
-    padding-bottom: 85px;
 }
 
 .v-toc-catalog-body {
@@ -3210,23 +2993,19 @@ p[d-blockquote-folded]:active .v-blockquote-folder>svg>use,
 }
 
 .v-nav-center-footer {
-    height: 30px;
+    height: 20px;
     line-height: 40px;
     left: 1px;
     right: 1px;
     bottom: 1px;
     text-align: center;
     padding: 0;
-    background: linear-gradient(0deg, var(--pn-c) 10px, var(--pn-c-tsp));
+    background: linear-gradient(0deg, var(--pn-c) 5px, var(--pn-c-tsp));
     border-bottom-right-radius: var(--v-r-b);
     border-bottom-left-radius: var(--v-r-b);
     position: absolute;
     z-index: 10;
     pointer-events: none;
-}
-.v-nav-center-footer.has-doc-lib {
-    bottom: 76px;
-    border-radius: 0;
 }
 
 .v-toc-handle {
@@ -3280,7 +3059,7 @@ body.typora-export .v-copyright a:active {
     box-shadow: var(--v-float-shadow), var(--v-float-inn-shadow);//0 0 0 1px rgba(0, 0, 0, .3);
 }
 
-.v-foot-note-panel {
+.v-footnote-pn {
     position: fixed;
     left: 15%;
     right: 15%;
@@ -3294,12 +3073,12 @@ body.typora-export .v-copyright a:active {
     z-index: 2100;
 }
 
-body.typora-export .v-foot-note-panel>a {
+body.typora-export .v-footnote-pn>a {
     color: var(--d-f-c);
     text-decoration: none;
 }
 
-.v-foot-note-panel-header {
+.v-footnote-pn-header {
     height: 25px;
     top: 2px;
     left: 2px;
@@ -3309,7 +3088,7 @@ body.typora-export .v-foot-note-panel>a {
     border-radius: var(--v-r-b);
 }
 
-.v-foot-note-panel-content {
+.v-footnote-pn-content {
     width: 100%;
     top: 2px;
     bottom: 2px;
@@ -3318,7 +3097,7 @@ body.typora-export .v-foot-note-panel>a {
     overflow-x: auto;
 }
 
-.v-foot-note-panel-all {
+.v-footnote-pn-all {
     font-weight: var(--v-f-w-bd);
     height: 60px;
     left: 2px;
@@ -3367,7 +3146,7 @@ body.typora-export .v-foot-note-panel>a {
     left: 20px;
     top: 10px;
     padding: 10px;
-    width: var(--v-nav-center-width);
+    width: var(--v-nav-center-w);
     height: 50px;
     position: fixed;
     background: @buttonBgColor;
@@ -3400,6 +3179,7 @@ body.typora-export .v-foot-note-panel>a {
     color: var(--d-f-c);
     font: normal 1em/@defaultLineHeight var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
     margin: 0 10px;
+    // padding: 8px 5px;
     padding-top: 8px;
     padding-bottom: 8px;
     padding-right: 5px;
@@ -3407,7 +3187,7 @@ body.typora-export .v-foot-note-panel>a {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    line-height: @miniLineHeight;
+    line-height: @miniLineHeight !important;
     cursor: pointer;
 }
 .v-toc-item {
@@ -3439,17 +3219,13 @@ body.typora-export .v-foot-note-panel>a {
 .v-toc-item:active>span {
     color: var(--d-bc);
 }
-// .v-toc-item:active svg>use,
-// .md-toc-item:active svg>use {
 :is(.v-toc-item:active, .md-toc-item:active) svg>use {
     fill: var(--d-bc);
 }
 
-// .v-toc-item>span, // 目录大纲搜索结果的自动编号
-// .v-cap-1>span {  // 题注前缀
 :is(.v-toc-item, .v-cap-1, .v-cap-2)>span {  // 题注前缀
     color: var(--d-f-c-alt);
-    font-size: .875em;
+    font-size: .75em;
     padding-bottom: 4px;
 }
 .v-toc-item>span {
@@ -3489,7 +3265,12 @@ body.typora-export .v-foot-note-panel>a {
 .v-toc-folder {
     float: left;
     width: 20px;
-    text-align: center;
+    // text-align: left;
+    // text-align: center;
+}
+.v-toc-folder>svg {
+    margin-top: 1px;
+    float: left;
 }
 
 .v-toc-folder.hover>svg>use {
@@ -3507,7 +3288,7 @@ body.typora-export .v-foot-note-panel>a {
     color: @buttonForeColor;
     cursor: pointer;
     padding: 0;
-    width: var(--v-toolbar-btn-width);
+    width: var(--v-tb-btn-w);
     height: 30px;
     border-radius: var(--v-r-s);
 }
@@ -3540,6 +3321,11 @@ body.typora-export .v-foot-note-panel>a {
 .v-btn.float,
 .v-btn-group.float {
     background: @buttonBgColor;
+    // box-shadow: none;
+}
+.v-btn-group>.v-btn.float {
+    box-shadow: none;
+    // background: @buttonBgColor;
 }
 
 .v-btn:active {
@@ -3593,11 +3379,8 @@ body.typora-export .v-foot-note-panel>a {
 }
 
 .v-duration-info {
-    // color: var(--d-bc);
     color: var(--d-f-c-alt);
-    // border-radius: 0 var(--v-r-tag) var(--v-r-tag) var(--v-r-tag);
     padding: 0 5px;
-    // background: var(--d-f-c-alt);
     font-weight: bold;
 }
 
@@ -3620,7 +3403,7 @@ body.typora-export .v-foot-note-panel>a {
     border-bottom-left-radius: var(--v-r-b);
     border-bottom-right-radius: var(--v-r-b);
     top: -50px;
-    left: calc(var(--v-nav-center-width) + 50px); // 注意 +/- 号前后须留空格
+    left: calc(var(--v-nav-center-w) + 50px); // 注意 +/- 号前后须留空格
     right: 20px;
     height: 50px;
     position: fixed;
@@ -3841,14 +3624,21 @@ body.typora-export .v-foot-note-panel>a {
     display: block;
 }
 
-.v-btn.color-scheme {
-    margin-left: var(--v-toolbar-btn-space);
-    float: right;
+.v-btn-group {
+    box-shadow: 0 0 0 1px fade(@buttonForeColor, 20%);
+}
+.v-btn-group.float {
+    box-shadow: var(--v-float-shadow), @contrastBorder;
 }
 
-.v-btn.font-theme {
-    margin-left: var(--v-toolbar-btn-space);
-    float: right;
+.v-btn-group>.v-btn {
+    border-radius: 0;
+}
+.v-btn-group>.v-btn:first-child {
+    border-radius: var(--v-r-s) 0 0 var(--v-r-s);
+}
+.v-btn-group>.v-btn:last-child {
+    border-radius: 0 var(--v-r-s) var(--v-r-s) 0;
 }
 
 .v-btn-group.prs {
@@ -3856,12 +3646,7 @@ body.typora-export .v-foot-note-panel>a {
     height: 30px;
     float: right;
     border-radius: var(--v-r-s);
-    margin-left: var(--v-toolbar-btn-space);
-}
-
-.v-btn-group.hover {
-    background: darken(@buttonBgColor, 6%);
-    box-shadow: @contrastBorder;
+    margin-left: var(--v-tb-btn-s);
 }
 
 // 辅助类按钮
@@ -3927,8 +3712,6 @@ body.typora-export .v-foot-note-panel>a {
     box-shadow: var(--v-input-focus-inn-shadow), var(--v-input-focus-shadow);
 }
 
-// body.typora-export input::placeholder,
-// body.typora-export input:focus::placeholder {
 body.typora-export :is(input::placeholder, input:focus::placeholder) {
     color: var(--d-f-c-alt);
     font-weight: normal;
@@ -4056,8 +3839,14 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
     float: left;
 }
 
+.v-btn.doc-lib {
+    margin-left: var(--v-tb-btn-s);
+    float: left;
+    display: none;
+}
+
 .v-btn.print {
-    margin-left: var(--v-toolbar-btn-space);
+    margin-left: var(--v-tb-btn-s);
     float: left;
 }
 
@@ -4086,7 +3875,7 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
 }
 // 插图导航中的上一插图按钮
 .v-fig-nav-btns.prev {
-    left: 10px;
+    left: 0;
     top: auto;
     width: 30px;
     height: 70px;
@@ -4097,7 +3886,7 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
 }
 // 插图导航中的下一插图按钮
 .v-fig-nav-btns.next {
-    right: 10px;
+    right: 0;
     top: auto;
     width: 30px;
     height: 70px;
@@ -4147,10 +3936,6 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
     z-index: 50;
 }
 
-// .v-content-assistor-target {
-//     border-color: @buttonBgColor !important;
-// }
-
 .v-btn.assistor {
     top: 0;
     width: 30px;
@@ -4180,13 +3965,9 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
     height: 100%;
     border-radius: calc(var(--v-r-b) - 2px);
 }
-// .v-pic-in-pic>.v-content>table,
-// .v-pic-in-pic>.v-content>.v-fig {
 .v-pic-in-pic>.v-content>:is(table, .v-fig) {
     border-radius: calc(var(--v-r-b) - 2px) !important;
 }
-// .v-pic-in-pic>.v-content>table th,
-// .v-pic-in-pic>.v-content>table td {
 .v-pic-in-pic>.v-content>table :is(th, td) {
     white-space: pre !important;
 }
@@ -4245,87 +4026,59 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
     fill: @aActiveColor;
 }
 
-// 文档抽屉面板
-.v-doc-lib-board {
-    display: none;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    height: 50px;
-    position: absolute;
-    z-index: 20;
+#doc-lib-toc {
+    padding: 0 0 calc(5px + var(--v-r-b)) 0;
 }
 
-// 文档抽屉面板下的按钮
-.v-doc-lib-board>.item {
-    border-radius: var(--v-r-s);
+.v-doc-lib-item {
+    font: var(--v-f-w-bd) 1em/@defaultLineHeight var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
+    text-transform: uppercase;
     color: @docLibButtonForeColor;
     background: @docLibButtonBgColor;
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDgwIDEwIj48cGF0aCBmaWxsPSIjRkZGIiBmaWxsLW9wYWNpdHk9Ii4yIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wIDJoODB2NGE0IDQgMCAwIDEtNCA0SDRhNCA0IDAgMCAxLTQtNFYyeiIvPjwvc3ZnPg==");
-    background-position: top center;
-    background-repeat: no-repeat;
-    font: var(--v-f-w-bd) 1.25em/@defaultLineHeight var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
-    text-align: center;
+    padding: 0 15px;
+    height: calc(38px + var(--v-r-b));
+    line-height: calc(38px + var(--v-r-b) - var(--v-r-b) / 2);
+    margin: calc(0px - var(--v-r-b)) 15px;
+    border-radius: calc(var(--v-r-s) * 2) calc(var(--v-r-s) * 2) 0 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, .3);
     text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
-    padding: 12px 10px 0px;
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 50px;
+    white-space: pre;
     cursor: pointer;
-    z-index: 23;
 }
-// 文档抽屉面板下的文档条
-.v-doc-lib-board>.flip {
-    left: 70px;
-    right: 70px;
-    bottom: 58px;
-    height: 4px;
-    position: absolute;
-    background-color: @docLibButtonBgColor;//var(--d-f-c);
-    opacity: .15;
-    border-radius: calc(var(--v-r-s) - 4px) calc(var(--v-r-s) - 4px) 0 0;
-    z-index: 21;
+:is(#doc-lib-toc, .v-toc-filter-result) .v-doc-lib-item:last-of-type {
+    padding-bottom: 0;
+    border-bottom-left-radius: var(--v-r-s);
+    border-bottom-right-radius: var(--v-r-s);
+    border-bottom: calc(2px + var(--v-r-b) / 2) solid @aHoverColor;
 }
-.v-doc-lib-board>.flip+.flip {
-    left: 40px;
-    right: 40px;
-    bottom: 51px;
-    height: 6px;
-    background-color: @docLibButtonBgColor;//var(--d-f-c);
-    opacity: .3;
-    border-radius: calc(var(--v-r-s) - 2px) calc(var(--v-r-s) - 2px) 0 0;
-    z-index: 22;
+:is(#doc-lib-toc, .v-toc-filter-result) .v-doc-lib-item:last-of-type:hover {
+    border-bottom-color: @aColor;
 }
-// hover
-.v-doc-lib-board>.item.hover {
+.v-toc-filter-result .v-doc-lib-item:first-of-type {
+    margin-top: 0;
+}
+.v-doc-lib-item:hover {
     background-color: @aHoverColor;
     color: @docLibButtonForeHoverColor;
+    line-height: calc(30px + var(--v-r-b) - var(--v-r-b) / 2);
 }
-.v-doc-lib-board>.item.hover+.flip {
-    left: 40px;
-    right: 40px;
-    bottom: 64px;
-    height: 9px;
-    background-color: @aHoverColor;
-    opacity: .2;
-    border-radius: calc(var(--v-r-s) - 2px) calc(var(--v-r-s) - 2px) 0 0;
+.v-doc-lib-item:hover>svg {
+    margin-top: calc(6px + var(--v-r-s) - var(--v-r-s) / 2);
 }
-.v-doc-lib-board>.item.hover+.flip+.flip {
-    left: 20px;
-    right: 20px;
-    bottom: 51px;
-    height: 12px;
-    background-color: @aHoverColor;
-    opacity: .4;
-    border-radius: calc(var(--v-r-s) - 1px) calc(var(--v-r-s) - 1px) 0 0;
+.v-doc-lib-item:hover>svg>use {
+    fill: @docLibButtonForeHoverColor;
 }
-// active
-.v-doc-lib-board>.item:active {
+.v-doc-lib-item:active {
     background: @aActiveColor !important;
     box-shadow: 0 0 0 2px fade(@aActiveColor, 50%) !important;
+}
+.v-doc-lib-item>svg {
+    float: left;
+    margin-top: calc(10px + var(--v-r-s) - var(--v-r-b) / 4);
+}
+.v-doc-lib-item>svg>use {
+    fill: @docLibButtonForeColor;
 }
 
 // 文档抽屉
@@ -4375,27 +4128,32 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
 
 // Light 模式的插图网格背景
 .v-fig-solid-bg-light {
-    background: @figureSolidBgLight;
+    // background: @figureSolidBgLight;
+    background: var(--fig-solid-bg);
 }
 .v-fig-grid-line-light {
-    background: var(--v-fig-grid-l-lg) !important;
+    background: var(--v-fig-grid-l) !important;
+    // background: var(--v-fig-grid-l-lg) !important;
 }
 .v-fig-grid-block-light {
-    background: var(--v-fig-grid-b-lg) !important;
+    background: var(--v-fig-grid-b) !important;
+    // background: var(--v-fig-grid-b-lg) !important;
 }
 
 // Dark Mode 的插图网格背景
 .v-fig-solid-bg-dark {
-    background-color: @figureSolidBgDark;
+    background-color: var(--fig-solid-bg);
 }
 .v-fig-grid-line-dark {
-    background: var(--v-fig-grid-l-dk) !important;
+    background: var(--v-fig-grid-l) !important;
+    // background: var(--v-fig-grid-l-dk) !important;
+}
+.v-fig-grid-block-dark {
+    background: var(--v-fig-grid-b) !important;
+    // background: var(--v-fig-grid-b-dk) !important;
 }
 .v-fig-grid-line-dark-invert {
     background: var(--v-fig-grid-l-invert) !important;
-}
-.v-fig-grid-block-dark {
-    background: var(--v-fig-grid-b-dk) !important;
 }
 .v-fig-grid-block-dark-invert {
     background: var(--v-fig-grid-b-invert) !important;
@@ -4403,7 +4161,7 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
 
 .v-fig-content {
     margin: 5px;
-    padding: 5px;
+    padding: 40px 5px 5px 5px;
     display: table-cell;
     align-content: center;
     text-align: center;
@@ -4473,7 +4231,7 @@ use.v-svg-ico-alpha {
 }
 
 use.v-svg-ico-theme {
-    fill: var(--h-f);
+    fill: @docLibButtonBgColor;
 }
 
 use.v-svg-ico-alt {
@@ -4482,13 +4240,8 @@ use.v-svg-ico-alt {
 
 // 折叠按钮样式
 use.v-toc-folder-ico,
-use.v-rowgroup-folder-ico,
-use.v-blockquote-folder-ico {
+use.v-rowgroup-folder-ico {
     fill: var(--h-f);
-}
-
-use.v-blockquote-folder-ico:active {
-    fill: @aActiveColor;
 }
 
 // 遮罩样式
@@ -4546,50 +4299,6 @@ use.v-blockquote-folder-ico:active {
     -webkit-backdrop-filter: saturate(180%) blur(15px);
 }
 
-// #write blockquote>p:first-of-type:has(:is(span[md-inline="image"], img))+blockquote {
-//     color:  var(--d-f-c-dk);
-//     border-radius: 0 0 var(--v-r-b) var(--v-r-b);
-//     border: none;
-//     background: var(--ac-t1);//fade(@accColorGray, 20%);
-// }
-// #write blockquote>p:first-of-type:has(:is(span[md-inline="image"], img))+blockquote::before {
-//     content: "Pic Card";
-//     color: var(--d-f-c);
-//     font-weight: bold;
-//     font-style: italic;
-//     font-size: .5em;
-//     opacity: .5;
-//     background: var(--pn-c-alt);
-//     border-radius: var(--v-r-b);
-//     padding: 0 5px;
-// }
-
-// 引用内的分栏引用
-// #write blockquote>hr+blockquote,
-// #write blockquote>hr+blockquote+blockquote,
-// #write blockquote>hr+blockquote+blockquote,
-// #write blockquote>hr+blockquote+blockquote+blockquote,
-// #write blockquote>hr+blockquote+blockquote+blockquote+blockquote,
-// #write blockquote>.md-hr+blockquote,
-// #write blockquote>.md-hr+blockquote+blockquote,
-// #write blockquote>.md-hr+blockquote+blockquote+blockquote,
-// #write blockquote>.md-hr+blockquote+blockquote+blockquote+blockquote {
-// #write blockquote>:is(hr, .md-hr)+blockquote,
-// #write blockquote>:is(hr, .md-hr)+blockquote+blockquote,
-// #write blockquote>:is(hr, .md-hr)+blockquote+blockquote+blockquote,
-// #write blockquote>:is(hr, .md-hr)+blockquote+blockquote+blockquote+blockquote,
-#write :is(blockquote, details)>:is(hr, .md-hr)+details,
-#write :is(blockquote, details)>:is(hr, .md-hr)+details+details,
-#write :is(blockquote, details)>:is(hr, .md-hr)+details+details+details,
-#write :is(blockquote, details)>:is(hr, .md-hr)+details+details+details+details {
-    border: none;
-    background: var(--d-bc) !important;
-    border-radius: var(--v-r-s);
-    padding: .75em 1em;
-    margin-top: .625em;
-    margin-bottom: .625em;
-}
-
 // 彩虹引用
 :is(#write, body.typora-export) .v-q {
     color: var(--d-f-c);
@@ -4611,18 +4320,6 @@ use.v-blockquote-folder-ico:active {
         box-shadow: none;
         background: @fadeColor !important;
     }
-    // 代码
-    // #write .v-q.@{quoteMark} .v-std-code,
-    // #write .v-q .v-q.@{quoteMark} .v-std-code {
-    //     background: var(~'--ac-@{quoteMark}');
-    //     // background: var(~'--');
-    //     color: var(~'--ac-@{quoteMark}-title');//var(--d-f-c);
-    // }
-    // #write .v-q.@{quoteMark}.em .v-std-code,
-    // #write .v-q .v-q.@{quoteMark}.em .v-std-code {
-    //     background: var(--d-bc);
-    //     color: var(~'--ac-@{quoteMark}-lg');//var(--d-f-c);
-    // }
     // 高亮
     #write .v-q.@{quoteMark} mark,
     #write .v-q .v-q.@{quoteMark} mark {
@@ -4633,31 +4330,13 @@ use.v-blockquote-folder-ico:active {
         box-shadow: 0 -.9em 0 0 var(--d-bc) inset;
     }
     // 折叠控件
-    .v-q.@{quoteMark} .v-blockquote-folder>svg>use,
     .v-q.@{quoteMark} .v-svg-input-checkbox>use {
         fill: @btnBg;
     }
-    .v-q.@{quoteMark} summary::before {
-        color: @btnFore;
-        background-color: @btnBg;
-    }
-    // 折叠控件展开样式
-    #write .v-q[open].@{quoteMark}.em summary,
-    #write .v-q.@{quoteMark}.em details[open] summary {
-        border-color: var(--d-bc);
-        // border-color: var(--pn-c);
-    }
-    #write .v-q[open].@{quoteMark} summary,
-    #write .v-q.@{quoteMark} details[open] summary {
-        border-color: @fadeColor;
-    }
-    #write .v-q[open].@{quoteMark}>summary::before,
-    #write .v-q.@{quoteMark} details[open]>summary::before {
-        // color: @btnBg !important;
-        background: none !important;
-        // box-shadow: 0 0 0 1px inset @btnBg;
-        opacity: .5;
-    }
+    // .v-q.@{quoteMark} summary::before {
+    //     color: @btnFore;
+    //     background-color: @btnBg;
+    // }
     // 按钮链接
     #write .v-q.@{quoteMark} a kbd,
     #write .v-q .v-q.@{quoteMark} a kbd {
@@ -4674,18 +4353,16 @@ use.v-blockquote-folder-ico:active {
     // 图文卡片
     #write .v-q.@{quoteMark} .v-post-card {
         color: @btnFore !important;
-        // background: linear-gradient(180deg, @btnBg 50%, rgba(@btnBg, .9));
         background: @btnBg !important;
-        // text-shadow: 0 1px darken(@btnFore, 75%) !important;
     }
     #write .v-q.@{quoteMark} img[src*="#card"],
     #write .v-q.@{quoteMark} svg[data-inject-url*="#card"] {
         border-color: @btnBg !important;
     }
-    #write .v-q.@{quoteMark} .v-post-card a kbd,
-    #write .v-q .v-q.@{quoteMark} .v-post-card a kbd {
-        border: 1px solid fade(@buttonForeColor, 25%);
-    }
+    // #write .v-q.@{quoteMark} .v-post-card a kbd,
+    // #write .v-q .v-q.@{quoteMark} .v-post-card a kbd {
+    //     border: 1px solid fade(@buttonForeColor, 25%);
+    // }
     // 链接
     #write .v-q.@{quoteMark} a,
     #write .v-q .v-q.@{quoteMark} a {
@@ -4701,19 +4378,15 @@ use.v-blockquote-folder-ico:active {
         background: var(--pn-c);
         border-bottom: 0;
         border-radius: var(--v-r-s);
-        // box-shadow: 0 0 0 2px rgba(@accColor, .3);
     }
-    // #write .v-q.@{quoteMark} a:active:has(kbd) {
-    //     box-shadow: none;
-    // }
     // 标题
-    #write .v-q>.title-@{quoteMark},
-    #write .v-q .v-q>.title-@{quoteMark} {
+    #write .v-q .title-@{quoteMark},
+    #write .v-q .v-q .title-@{quoteMark} {
         color: @titleLightColor;
     }
     // 强调标题
-    #write .v-q>.title-@{quoteMark}.em,
-    #write .v-q .v-q>.title-@{quoteMark}.em {
+    #write .v-q .title-@{quoteMark}.em,
+    #write .v-q .v-q .title-@{quoteMark}.em {
         color: @titleColor;
     }
     // 列表符号
@@ -4746,26 +4419,18 @@ use.v-blockquote-folder-ico:active {
 .genRainbowQuoteCSS(gd, @accColorGold, var(--ac-gd-fade), @accColorGold, #000000, var(--ac-gd-title), var(--ac-gd-title-lg));
 .genRainbowQuoteCSS(bn, @accColorBrown, var(--ac-bn-fade), @accColorBrown, #FFFFFF, var(--ac-bn-title), var(--ac-bn-title-lg));
 .genRainbowQuoteCSS(gy, @accColorGray, var(--ac-gy-fade), @accColorGray, #FFFFFF, var(--ac-gy-title), var(--ac-gy-title-lg));
-.genRainbowQuoteCSS(t1, @theme1, var(--ac-t1-fade), @docLibButtonBgColor, @docLibButtonForeColor, var(--ac-t1-title), var(--ac-t1-title-lg));
+.genRainbowQuoteCSS(t1, @docLibButtonBgColor, var(--ac-t1-fade), @docLibButtonBgColor, @docLibButtonForeColor, var(--ac-t1-title), var(--ac-t1-title-lg));
 .genRainbowQuoteCSS(t2, @theme2, var(--ac-t2-fade), @aHoverColor, @buttonForeHoverColor, var(--ac-t2-title), var(--ac-t2-title-lg));
 
-// 标签式公用样式（风格2）
-// .v-tag {
-// #write .v-tag,
-// body.typora-export .v-tag {
 // 编辑时标签样式
 #write em>span>.md-before+code,
 :is(#write, body.typora-export) .v-tag {
     font: var(--v-f-w-bd) .75em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
-    // background: transparent;
-    // border-radius: 1em;
-    border-radius: var(--v-r-tag);//calc(var(--v-r-tag) + 2px);
-    // padding: 2px 5px;
-    // padding: 2px 4px;
+    border-radius: var(--v-r-tag);
     text-shadow: none;
     white-space: pre;
     line-height: 1;
-    vertical-align: text-top;
+    vertical-align: middle;
     cursor: var(--cur-copy);
 }
 :is(#write, body.typora-export) .v-tag.em {
@@ -4809,17 +4474,12 @@ use.v-blockquote-folder-ico:active {
 .genRainbowTagCSS(bn, var(--ac-bn), var(--ac-bn-alt), var(--ac-bn), var(--d-f-c-dk));
 .genRainbowTagCSS(gy, var(--ac-gy), var(--ac-gy-alt), var(--ac-gy), var(--d-f-c-dk));
 .genRainbowTagCSS(bk, var(--ac-bk), var(--ac-bk-alt), var(--ac-bk), var(--d-bc));
-// .genRainbowTagCSS(bk, var(--d-f-c), var(--toc-h-num-color), var(--d-f-c), var(--d-bc));
 .genRainbowTagCSS(t1, var(--ac-t1), var(--ac-t1-alt), var(--ac-t1), var(--d-f-c-dk));
 .genRainbowTagCSS(t2, var(--ac-t2), var(--ac-t2-alt), var(--ac-t2), var(--d-f-c-dk));
 
 // 徽章样式名称公共样式
-// .v-badge-name {
-// #write .v-badge-name,
-// body.typora-export .v-badge-name {
 :is(#write, body.typora-export) .v-badge-name {
     display: inline-block;
-    // display: inline-flex;
     align-items: center;
     font: var(--v-f-w-bd) .875em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
     margin-right: 0;
@@ -4835,22 +4495,16 @@ use.v-blockquote-folder-ico:active {
 .v-badge-name.hover {
     filter: brightness(@hoverBrightness);
 }
+// 三段式，两个徽章值时微调
+:is(#write, body.typora-export) .v-badge-name.two {
+    padding: 1px 5px !important;
+}
 
 // 表格内的情况
-// #write table code,
-// body.typora-export table code,
-:is(#write, body.typora-export) :is(blockquote, details) code {
-// table .v-badge-name {
-// #write table .v-badge-name,
-// body.typora-export table .v-badge-name {
-// :is(#write, body.typora-export) table .v-badge-name {
-    // display: inline-block;
-    // padding: 1px 5px;
-    // margin: 1px 0;
+:is(#write, body.typora-export) @{quote_Details} code {
     vertical-align: initial;
 }
 :is(#write, body.typora-export) table {
-    // padding: 2px 2px 2px 5px;
     vertical-align: text-top;
 }
 
@@ -4866,56 +4520,25 @@ use.v-blockquote-folder-ico:active {
     margin: 1px 1px 1px 5px;
     white-space: pre;
     box-shadow: none;
-    // cursor: pointer;
     cursor: var(--cur-copy);
 }
 .v-badge-value.hover {
     filter: brightness(@hoverBrightness);
 }
+// 三段式，两个徽章值时微调
+.v-badge-value.two {
+    margin: 1px 5px !important;
+}
 
 // 表格内的情况
-// table .v-badge-value {
-// #write table .v-badge-value,
-// body.typora-export table .v-badge-value {
 :is(#write, body.typora-export) table .v-badge-value {
     display: inline-block;
     margin: 1px 1px 1px 5px;
-    // margin: 0 0 0 5px;
 }
 .v-badge-value>span.var {
     font-style: italic;
 }
 
-// 生成彩虹徽章相关样式
-// .genRainbowBadgeCSS(@badgeMark, @badgeColor, @badgeVarColor,  @bgColorStyle) when (@bgColorStyle = deep) {
-//     .v-badge-name.@{badgeMark} {
-//         background: @badgeColor;
-//     }
-//     :is(.v-badge-value, .v-badge-value>span.var).@{badgeMark} {
-//         color: @badgeVarColor !important;
-//     }
-// }
-// .genRainbowBadgeCSS(@badgeMark, @badgeColor, @badgeVarColor,  @bgColorStyle) when (@bgColorStyle = light) {
-//     .v-badge-name.@{badgeMark} {
-//         color: var(--d-f-c) !important;
-//         background: @badgeColor;
-//     }
-//     :is(.v-badge-value, .v-badge-value>span.var).@{badgeMark} {
-//         color: @badgeVarColor !important;
-//     }
-// }
-// .genRainbowBadgeCSS(@badgeMark, @badgeColor, @badgeVarColor,  @bgColorStyle) when (@bgColorStyle = black) {
-//     .v-badge-name.@{badgeMark} {
-//         color: var(--d-bc) !important;
-//         background: @badgeColor;
-//     }
-//     .v-badge-value.@{badgeMark} {
-//         color: var(--d-f-c) !important;
-//     }
-//     .v-badge-value>span.var.@{badgeMark} {
-//         color: @badgeVarColor;
-//     }
-// }
 .genRainbowBadgeCSS(@badgeMark, @badgeColor, @badgeVarColor,  @tagText) {
     .v-badge-name.@{badgeMark} {
         color: @tagText !important;
@@ -4978,13 +4601,11 @@ rt:hover {
 }
 #write .v-rb-coat:hover {
     box-shadow: 0 0 0 1px @aLineColor !important;
-    // box-shadow: 0 0 0 1px @aLineColor, 0 -2px 0 0 @aLineColor inset !important;
     display:inline-block;
     transform: scale(1.2);
 }
 #write .v-rb-coat.opened {
     box-shadow: 0 0 0 1px var(--d-f-c);
-    // box-shadow: 0 0 0 1px var(--d-f-c), 0 -2px 0 0 var(--d-f-c) inset;
     background: var(--d-bc) !important;
     text-shadow: none;
 }
@@ -4993,24 +4614,16 @@ rt:hover {
 #write :is(h1, h2, h3, h4, h5, h6) code {
     font-size: .75em;
 }
-// h6 内的 code 标签强制取消加粗
-// h6 code {
-//     font-weight: var(--v-f-w-text);
-// }
-
-// 上标、下标样式
-// content>#write blockquote p>sub:only-child,
-// content>#write blockquote p>sub:first-of-type,
-// #write :is(sup, sub) {
-//     color: var(--d-f-c);
-//     font-size: .75em;
-//     // opacity: .75;
-//     // font-weight: normal;
-// }
 
 /**************************************
 * 封面、封底
 **************************************/
+
+// 封面选择器
+@coverAfterYAML: ~"#write>pre.md-meta-block:first-child+h6";
+@coverWithoutYAML: ~"#write>h6:first-child";
+// 封底选择器
+@backcover: ~"#write>h1:last-child";
 
 // 无标准封面时的封面样式
 .v-doc-title {
@@ -5024,10 +4637,11 @@ rt:hover {
 }
 
 // 封面：#write 下 H6 作为第一个元素时
-#write>pre.md-meta-block:first-child+h6, // 有 YAML 的情况
-#write>h6:first-child, // 无 YAML 的情况
+@{coverAfterYAML}, // 有 YAML 的情况
+@{coverWithoutYAML}, // 无 YAML 的情况
 // 封底：#write 下 H6 作为最后一个元素时
-#write>h1:last-child {
+@{backcover} {
+// #write>:is(.md-hr, hr)+h1:last-child {
     display: block;
     color: @coverTextColor !important;
     font: var(--v-f-w-title) 2.5em/1.3 var(--v-f-fm-title); // [style] [weight] [size/[line-height]] [family]
@@ -5046,14 +4660,14 @@ rt:hover {
     background-position: @coverBackgroundPosition;
     letter-spacing: 0;
 }
-#write>pre.md-meta-block:first-child+h6>span, // 有 YAML 的情况
-#write>h6:first-child>span { // 无 YAML 的情况
+@{coverAfterYAML}>span, // 有 YAML 的情况
+@{coverWithoutYAML}>span { // 无 YAML 的情况
     color: @coverTextColor !important;
     -webkit-text-stroke: @coverTextStroke;
     text-stroke: @coverTextStroke;
     text-shadow: @coverTextShadow;
 }
-#write>h1:last-child>span {
+@{backcover}>span {
     color: @backCoverTextColor !important;
     -webkit-text-stroke: @backCoverTextStroke;
     text-stroke: @backCoverTextStroke;
@@ -5061,7 +4675,7 @@ rt:hover {
 }
 
 // 封底样式微调
-#write>h1:last-child {
+@{backcover} {
     height: 550px;//14cm;
     margin-top: 3em;
     margin-bottom: 0;
@@ -5077,16 +4691,14 @@ rt:hover {
 }
 
 // 封面内上标格式
-#write>pre.md-meta-block:first-child+h6 sup,
-#write>h6:first-child sup {
+@{coverAfterYAML} sup,
+@{coverWithoutYAML} sup {
     color: @coverTextColor !important;
 }
 
 // 封面内下标格式（大标题上的小标题）
-// #write>pre.md-meta-block:first-child+h6 sub,
-// #write>h6:first-child sub {
-#write>pre.md-meta-block:first-child+h6 sub,
-#write>h6:first-child sub {
+@{coverAfterYAML} sub,
+@{coverWithoutYAML} sub {
     color: @coverSubColor;
     -webkit-text-stroke: @coverTextStroke;
     text-stroke: @coverTextStroke;
@@ -5095,8 +4707,8 @@ rt:hover {
 }
 
 // 封面内下划线格式（大标题下的副标题）
-#write>pre.md-meta-block:first-child+h6 u,
-#write>h6:first-child u {
+@{coverAfterYAML} u,
+@{coverWithoutYAML} u {
     color: @coverUnderlineColor;
     font: var(--v-f-w-bd) .75em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
     text-decoration: none;
@@ -5108,14 +4720,8 @@ rt:hover {
 }
 
 // 封面内密级信息
-// #write>pre.md-meta-block:first-child+h6 code,
-// #write>pre.md-meta-block:first-child+h6 .v-tag,
-// #write>pre.md-meta-block:first-child+h6 .v-badge-name,
-// #write>h6:first-child code,
-// #write>h6:first-child .v-tag,
-// #write>h6:first-child .v-badge-name {
-#write>pre.md-meta-block:first-child+h6 :is(code, .v-tag, .v-badge-name),
-#write>h6:first-child :is(code, .v-tag, .v-badge-name) {
+@{coverAfterYAML} :is(code, .v-tag, .v-badge-name),
+@{coverWithoutYAML} :is(code, .v-tag, .v-badge-name) {
     font-size: .5em !important;
     color: @buttonForeHoverColor;
     caret-color: @buttonForeHoverColor;
@@ -5125,19 +4731,14 @@ rt:hover {
     vertical-align: initial;
     background: @aHoverColor;
 }
-
-// #write>pre.md-meta-block:first-child+h6 .v-badge-value,
-// #write>h6:first-child .v-badge-value {
-:is(#write>pre.md-meta-block:first-child+h6, #write>h6:first-child) .v-badge-value {
+@{coverAfterYAML} .v-badge-value,
+@{coverWithoutYAML} .v-badge-value {
     font-size: 1em !important;
 }
 
 // 封面内的作者信息
-// #write>pre.md-meta-block:first-child+h6 strong,
-// #write>pre.md-meta-block:first-child+h6 strong::before,
-// #write>h6:first-child strong,
-// #write>h6:first-child strong::before {
-:is(#write>pre.md-meta-block:first-child+h6, #write>h6:first-child) :is(strong, strong::before) {
+@{coverAfterYAML} :is(strong, strong::before),
+@{coverWithoutYAML} :is(strong, strong::before) {
     color: @coverAuthorColor;
     -webkit-text-stroke: initial;
     text-stroke: initial;
@@ -5146,7 +4747,8 @@ rt:hover {
 }
 
 // 作者信息前缀
-:is(#write>pre.md-meta-block:first-child+h6, #write>h6:first-child) strong::before {
+@{coverAfterYAML} strong::before,
+@{coverWithoutYAML} strong::before {
     content: "by";
     opacity: .6;
     display: block;
@@ -5154,8 +4756,8 @@ rt:hover {
 }
 
 // 封面内的版权信息
-#write>pre.md-meta-block:first-child+h6 em,
-#write>h6:first-child em {
+@{coverAfterYAML} em,
+@{coverWithoutYAML} em {
     color: @coverOwnerColor;
     -webkit-text-stroke: initial;
     text-stroke: initial;
@@ -5164,22 +4766,22 @@ rt:hover {
 }
 
 // 封面、封底的前信息
-#write>pre.md-meta-block:first-child+h6::before,
-#write>h6:first-child::before,
-#write>h1:last-child::before {
+@{coverAfterYAML}::before,
+@{coverWithoutYAML}::before,
+@{backcover}::before {
     content: "";
 }
 // 封面装饰文本样式 before
 // -- 导出后
-body.typora-export #write>pre.md-meta-block:first-child+h6::before,
-body.typora-export #write>h6:first-child::before,
-body.typora-export #write>pre.md-meta-block:first-child+h6::after,
-body.typora-export #write>h6:first-child::after,
+body.typora-export @{coverAfterYAML}::before,
+@{coverWithoutYAML}::before,
+body.typora-export @{coverAfterYAML}::after,
+@{coverWithoutYAML}::after,
 // -- 编辑时
-#write>pre.md-meta-block:first-child+h6::before,
-#write>h6:first-child::before,
-#write>pre.md-meta-block:first-child+h6::after,
-#write>h6:first-child::after {
+@{coverAfterYAML}::before,
+@{coverWithoutYAML}::before,
+@{coverAfterYAML}::after,
+@{coverWithoutYAML}::after {
     content: @coverTextBeforeContent !important;
     position: @coverTextBeforePosition;
     left: @coverTextBeforeLeft;
@@ -5190,8 +4792,8 @@ body.typora-export #write>h6:first-child::after,
     opacity: @coverTextBeforeOpacity;
 }
 // 封面装饰文本样式 after
-#write>pre.md-meta-block:first-child+h6::after,
-#write>h6:first-child::after {
+@{coverAfterYAML}::after,
+@{coverWithoutYAML}::after {
     content: @coverTextAfterContent !important;
     text-align: @coverTextAfterTextAlign;
     left: @coverTextAfterLeft;

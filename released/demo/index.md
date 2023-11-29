@@ -3,21 +3,23 @@ title: 简介 - VLOOK™ - Markdown 编辑器 Typora 的主题包和增强插件
 author: MAX°孟兆
 keywords:
 - Markdown,Typora,VLOOK,Plugin,插件,主题包,自动排版,跨平台,i18n,开源,MIT,开源中国,OSC,编辑推荐
-- 表格增强,单元格合并,行分组,表格阅读模式,表格十字光标,重复表头,刮刮卡,黑幕,标签,图片增强,演示辅助,聚光灯,激光笔,自动折叠,打印,Mermaid,音频,视频,注音,主题,字体,模板,深色模式,Dark Mode,封面,封底,私人定制
+- 表格增强,单元格合并,行分组,表格阅读模式,表格十字光标,重复表头,刮刮卡,黑幕,标签,图片增强,演示辅助,聚光灯,激光笔,自动折叠,Mermaid,音频,视频,注音,主题,字体,模板,深色模式,Dark Mode,封面,封底,私人定制
 - PRD,设计,需求,文档,博客,手册,指南,在线,运维,知识库,WIKI
 - 产品经理,程序员,运维工程师,售前,售后
 vlook-chp-autonum: h1{{#ZH# ° }},h2{{步骤 ##-min#：}}
-vlook-query: effects=2&ws=auto&lmc=1
-vlook-doc-lib: vlook-lib.html
+vlook-query: effects=2&ws=auto
+vlook-doc-lib:
+- [浏览 VLOOK™ 文库](vlook-lib.html)
+- [🇬🇧 ENGLISH GUIDE](index-en.html?target=_blank)
 vlook-image-host: https://madmaxchow.gitee.io/vlook/
 vlook-var: `[var1]:abc`,`[var2]:efg`
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>简介</u><br>`#最新版本|V20.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>简介</u><br>`#最新版本|V21.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
 
 [TOC]
 
-> **Select language ❯ **[<kbd>🇬🇧 English</kbd>](index-en.md)
+> **Select language ❯ **[<kbd>🇬🇧 ENGLISH</kbd>](index-en.md)
 
 # VLOOK™ 是什么
 
@@ -25,20 +27,19 @@ vlook-var: `[var1]:abc`,`[var2]:efg`
 
 
 
+> ![VLOOK™](https://madmaxchow.gitee.io/vlookres/pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo)
 >
->![VLOOK™](https://madmaxchow.gitee.io/vlookres/pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo)
+> ![OSChina](https://madmaxchow.gitee.io/vlookres/pic/oschina.png#icon) **[开源中国](https://www.oschina.net/p/vlook) 推荐的国产开源产品。**
 >
->![OSChina](https://madmaxchow.gitee.io/vlookres/pic/oschina.png#icon) **[开源中国](https://www.oschina.net/p/vlook) 推荐的国产开源产品。**
+> ![VLOOK](https://madmaxchow.gitee.io/vlookres/pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™**~(T1)~ 是针对 ![Typora](https://madmaxchow.gitee.io/vlookres/pic/typora.png#icon) [Typora](https://www.typora.io)[^Typora] （跨平台 Markdown 编辑器）的 **主题包**~(GnRo)~ 和 **增强插件**~(PuOg)~（针对导出的 HTML 文件)。
 >
->![VLOOK](https://madmaxchow.gitee.io/vlookres/pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™**~(T1)~ 是针对 ![Typora](https://madmaxchow.gitee.io/vlookres/pic/typora.png#icon) [Typora](https://www.typora.io)[^Typora] （跨平台 Markdown 编辑器）的 **主题包**~(GnRo)~ 和 **增强插件**~(PuOg)~（针对导出的 HTML 文件)。
+> VLOOK™ 属于开源软件（遵从 **MIT License**~(Rd)~）。
 >
->VLOOK™ 属于开源软件（遵从 **MIT License**~(Rd)~）。
->
->~(T1)~
+> ~(T1)~
 
-> 代码托管：[![Github](https://madmaxchow.gitee.io/vlookres/pic/github-light.svg?darksrc=github-dark.svg#logo)](https://github.com/MadMaxChow/VLOOK?lnkcss=none)　　[![Gitee](https://madmaxchow.gitee.io/vlookres/pic/gitee-light.svg?darksrc=gitee-dark.svg#logo)](https://gitee.com/madmaxchow/VLOOK?lnkcss=none)
+> 代码托管：[![Github](https://madmaxchow.gitee.io/vlookres/pic/github-light.svg?darksrc=github-dark.svg#logo)](https://github.com/MadMaxChow/VLOOK)　　[![Gitee](https://madmaxchow.gitee.io/vlookres/pic/gitee-light.svg?darksrc=gitee-dark.svg#logo)](https://gitee.com/madmaxchow/VLOOK)
 
-> > ###### 许可协议
+> ###### 许可协议
 >
 > VLOOK™ 属于开源软件，遵从以下开源协议：
 > 
@@ -54,7 +55,7 @@ vlook-var: `[var1]:abc`,`[var2]:efg`
 
 ---
 
-> > ###### ![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) Markdown 是什么？
+> ###### ![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) Markdown 是什么？
 >
 > - 2004 年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了 [![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) Markdown](https://zh.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的 `文本标记语言` 。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）；
 > - Markdown 文档以 `纯文本格式存储` ，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过 Markdown 编辑器导出为带排版的富文本文档、HTML 网页等等。==纯粹、简洁、易用、灵活==，都是人们喜欢 Markdown 的原因；
@@ -62,7 +63,7 @@ vlook-var: `[var1]:abc`,`[var2]:efg`
 > 
 > ![Markdown](pic/markdown-mark.svg?fill=text#logo)
 
-> > ###### 60 秒学会、10 分钟深入学习 Markdown 语法
+> ###### 60 秒学会、10 分钟深入学习 Markdown 语法
 >
 > 1. `#推荐#` **Github Flavored Markdown** (GFM) 语法参考：Typora 目前采用该标准 [详细](https://support.typora.io/Markdown-Reference/)；
 > 2. 标准化 **CommonMark** 语法参考：[60 秒学会 Markdown 语法](http://commonmark.org/help/)、[10 分钟深入学习 Markdown](http://commonmark.org/help/tutorial/)。
@@ -82,7 +83,7 @@ vlook-var: `[var1]:abc`,`[var2]:efg`
 
 ---
 
-> ###### 💡 你知道吗？
+> **💡 你知道吗？**
 >
 > 你正在浏览的这份文档，就是由 Typora 编辑并应用 VLOOK™ 插件生成的！**AMAZING!!!**
 >
@@ -96,6 +97,10 @@ vlook-var: `[var1]:abc`,`[var2]:efg`
 
 ![打赏 VLOOK™ (微信支付)](https://madmaxchow.gitee.io/vlookres/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#frame)
 
+**感谢打赏支持 VLOOK™ 的客官（部分名单）：**
+
+一＊秋、＊＊军、＊＊鹏、李＊6、＊＊无、H＊t、＊＊二、f＊y、＊＊宇、＊＊琛、＊＊辉、＊＊秋、＊＊笑、＊＊豫、l＊a、＊＊心、整＊9、＊＊国、＊＊拉、＊＊龙、＊＊应、＊＊销、＊＊哦、E＊y、……
+
 # 快速入坑
 
 VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文档的互联网化应用场景～
@@ -104,98 +109,76 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-> ###### ![°文档排版](pic/qico-types-light.svg?fill=text&darksrc=invert#icon) ° 文档排版
->
-> ---
->
-> ^测试^
+> **![°文档排版](pic/qico-types-light.svg?fill=text&darksrc=invert#icon) ° 文档排版**
 >
 > **有了 VLOOK™ 主题及插件的支持，让你对 Markdown 编辑器（暂只支持 Typora）的自动化排版能力有了全新的理解和应用。**
 >
 > 除丰富的排版增强特性外，基于 HTML 格式让静态的文档也能与你一起「动」起来～
->
-> 
->
-> [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide.md#快速入坑°文档排版)
+> [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](guide.md#快速入坑°文档排版)
 >
 > ~(Vn!)~
 
-> ###### ![°内容导航](pic/qico-nav-light.svg?fill=text&darksrc=invert#icon) ° 内容导航
->
-> ---
+> **![°内容导航](pic/qico-nav-light.svg?fill=text&darksrc=invert#icon) ° 内容导航**
 >
 > **VLOOK™ 提供了对文档章节、插图、表格、多媒体提供了多种形式的导航、快速定位和内容组织的工具，全面改善和提高发布的 HTML 文件的浏览体验和效率。**
 >
 > 无多余动作，聚焦文档撰写。一键导出之时，即完成自动集成～
->
-> 
->
-> [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°内容导航)
+> [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](guide2.md#快速入坑°内容导航)
 >
 > ~(Bu!)~
 
 ---
 
-> ###### ![°演示与出版辅助](pic/qico-pres-light.svg?fill=text&darksrc=invert#icon) ° 演示与出版辅助
->
-> ---
+> **![°演示与出版辅助](pic/qico-pres-light.svg?fill=text&darksrc=invert#icon) ° 演示与出版辅助**
 >
 > **VLOOK™ 独创性地提供了强大的演示与出版辅助工具，让 Typora + VLOOK 成为更具生产力的 Markdown 文档解决方案。**
 >
 > 非常适合现场和远程的演示辅助工具，为你的文档开启 Turbo 模式～
 >
->
->
-> [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°演示与出版辅助)
+> [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](guide2.md#快速入坑°演示与出版辅助)
 >
 > ~(Og!)~
 
-> ###### ![°主题与不杂项](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon) ° 主题与不杂项
+> **![°主题与不杂项](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon) ° 主题与不杂项**
 >
-> ---
+> 「**人类从来都是视觉动物，自己或他人在阅读时，让眼睛感受愉悦和美好，是一种美德、一种力量、一种信仰。**」
 >
->「**人类从来都是视觉动物，自己或他人在阅读时，让眼睛感受愉悦和美好，是一种美德、一种力量、一种信仰。**」
+> 　　　　—— MAX°孟兆
 >
->　　　　—— MAX°孟兆
->
->
->
-> [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon)</kbd>](guide2.md#快速入坑°主题与不杂项)
+> [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](guide2.md#快速入坑°主题与不杂项)
 >
 > ~(Lm!)~
 
 ---
 
-###### [点击这里，浏览更多 VLOOK™ 的话题 ![](pic/icon-forward.svg?fill=text#icon)](vlook-doc-lib://)
+###### [点击这里，浏览更多 VLOOK™ 的话题 ![](pic/icon-forward.svg?fill=text#icon0)](?target=vdl)
 
 # 安装与使用
 
 > 只需要三步，让你快速上车，开启不一样的 Mardown 体验之旅！
 >
 > 让你的 Markdown 有了新看^[wán]^法！
->
-
 ## 下载与设置
 
 ---
 
 ---
 
-> > ###### 下载插件
+> ###### 下载插件
 >
 > 1. 从 VLOOK™ 在 **[GitHub](https://github.com/MadMaxChow/VLOOK/releases)** 或 **[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)** 的主页下载最新发布的版本；
 > 2. 也可直接在项目主页中[下载主题文件](https://github.com/MadMaxChow/VLOOK/tree/master/released/theme)（[备用链接](https://gitee.com/madmaxchow/VLOOK/tree/master/released/theme)）。
 > 
 > ~(Gn)~
 
-> > ###### 安装 Typora
+> ###### 安装 Typora
 >
 > 1. 下载并安装 [Typora](https://www.typora.io) 的最新版本；
 > 2. 启动 Typora 并进入「**偏好设置**」，启用「**Markdown 扩展语法、代码块**」下的所有选项。详见下图：
 > 
 > ~(Gn)~
 
-> > ###### 安装字体（可选）
+> ###### 安装字体（可选）
 >
 > 下载并安装 VLOOK™ 主题配套字体包 •• 详见「[字体主题](guide.md#字体主题)」。
 >
@@ -211,27 +194,27 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-> > ###### 安装主题
+> ###### 安装主题
 >
 > 1. 将 `released\theme` 下所有 CSS 文件复制至 Typora 的主题目录；
 > 2. 主题目录在哪？可通过「**偏好设置 ▸ 外观 ▸ 打开主题目录**」定位到该目录。
 > 
 > ~(Og)~
 
-> > ###### 选用主题
+> ###### 选用主题
 >
 > 1. 重启 Typora；
 > 2. 点击「**主题**」菜单，选择以 `Vlook *` 形式命名的任意主题即可。
 > 
 > ~(Og)~
 
-> > ###### 从模板开始编写
+> ###### 从模板开始编写
 >
 > 建议基于 VLOOK™ 规范的文档模板来创建你自己的 Markdown 文档，这样能更快上手
 >
 > ~(Og)~
 
-> > ###### 模板文件在哪？
+> ###### 模板文件在哪？
 >
 > 1. 在目录 `released` 下的 `*.md` 文件
 >    1. 标准模板：*VLOOK-Document-Template.md*
@@ -247,22 +230,22 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-> > ###### 配置导出设置
+> ###### 配置导出设置
 >
 > 1. 启动 Typora 并进入「**偏好设置**」；
 > 2. 点击「**导出**」，添加配置（==选择 HTML 模板==），并将配置命名为 `VLOOK` 。
 > 
 > ~(Cy)~
 
-> > ###### 安装元标签代码
+> ###### 安装元标签
 >
 > 1. 打开元标签文件：released\plugin\\[**meta.txt**](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/meta.txt)（[备用链接](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/meta.txt)）；
->2. 全选并复制所有内容；
+> 2. 全选并复制所有内容；
 > 3. 将内容粘贴至「**偏好设置 ▸ VLOOK ▸ 在 &lt;head /&gt; 中添加**」。
 >
 > ~(Cy)~
 
-> > ###### 安装插件代码
+> ###### 安装插件
 >
 > 1. 打开插件文件：released\plugin\\[**plugin.txt**](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin.txt)（[备用链接](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt)）；
 > 2. 全选并复制所有内容；
@@ -270,7 +253,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > ~(Cy)~
 
-> > ###### 一键导出
+> ###### 一键导出
 >
 > 1. 打开符合 VLOOK™ 规范的 md 文件；
 > 2. 点击「**文件 ▸ 导出 ▸ VLOOK**」即可。
@@ -283,9 +266,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 # 补充说明
 
-> ###### 在线版插件
->
-> ---
+> **在线版插件**
 >
 > 以上配置方式为离线插件，完整的插件代码与 HTML 文件集成，适合浏览文档时须在内网或无网络的情况，但不便于实时更新插件和[在线切换模板主题](guide.md#模板主题)等。
 >
@@ -297,26 +278,22 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-> ###### 如何更新插件到最新版本？
->
-> ---
+> **如何更新插件到最新版本？**
 >
 > 旧版本的 VLOOK 若要升级到最新版本，按以上的**第 1 步**下载最新发布版本，并按**第 2、3 步**更新对应的「主题」和「导出配置」即可。
 >
 > ~(Cy!)~
 
-> ###### 推荐选择兼容的浏览器！
->
-> ---
+> **推荐选择兼容的浏览器！**
 >
 > 为保障最佳的使用体验，强烈建议使用以下浏览器访问：
 >
-> ![Chrome](https://madmaxchow.gitee.io/vlookres/pic/chrome.png#icon2x) **[Chrome](https://www.google.cn/chrome/)**　　![Edge](https://madmaxchow.gitee.io/vlookres/pic/edge.png#icon2x) **[Edge](https://www.microsoft.com/zh-cn/edge)**　　![Firefox](https://madmaxchow.gitee.io/vlookres/pic/firefox.png#icon2x) **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
+> ![Chrome](https://madmaxchow.gitee.io/vlookres/pic/chrome.png#icon) **[Chrome](https://www.google.cn/chrome/)**　　![Edge](https://madmaxchow.gitee.io/vlookres/pic/edge.png#icon) **[Edge](https://www.microsoft.com/zh-cn/edge)**　　![Firefox](https://madmaxchow.gitee.io/vlookres/pic/firefox.png#icon) **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
 >
 > ~(Bu)~
 
 ---
 
-如有建议和需求，欢迎随时反馈～ [![VLOOK™ @ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如有建议和需求，欢迎随时反馈～ [![VLOOK™ @ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
 # The End

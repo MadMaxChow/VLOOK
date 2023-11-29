@@ -3,8 +3,8 @@
  * VLOOK CSS 字体主题、圆角样式
  * (配合 base.less 进行使用)
  *
- * V20.0
- * 2023-09-10
+ * V21.0
+ * 2023-11-29
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -16,6 +16,7 @@
  *************************************/
 
 @fontSize: 1em; // 16px
+@fontSizePx: 16px;
 @fontSizeXL: 1.125em; // 18px
 @fontSizeXXL: 1.25em; // 20px
 
@@ -154,7 +155,7 @@ U+007B-007E; // {|}~
 @ms_jh: "Microsoft JhengHei", "微軟正黑體", @base_sans_cn;
 @msjh_mono: @base_mono_macos_en, @ms_jh, monospace;
 // ---
-@localFont: -apple-system, Roboto, @apple_sf, @ms_yh, @ms_jh;
+@localFont: "HarmonyOS Sans SC", "MiSans VF", "OPlus Sans SC", -apple-system, Roboto, @apple_sf, @ms_yh, @ms_jh;
 @monoLocalFont: @mono_local_en, @localFont, @base_sans_cn, monospace;//, @ms_yh_mono, @msjh_mono;
 @fontBoldWeight4Local: @ms_yh_fw_bold;
 @fontBoldWeightText4Local: @ms_yh_fw_text;
@@ -495,12 +496,12 @@ U+007B-007E; // {|}~
 // 应用无圆角
 .applyThemeRadius(@themeRadius) when (@themeRadius = none) {
     :root {
-        --v-r-b: 0; // 标准圆角
-        --v-r-s: 0; // 标准圆角内的小圆角
-        --v-r-t: 0; // 表格圆角
+        --v-r-b: 0px; // 标准圆角
+        --v-r-s: 0px; // 标准圆角内的小圆角
+        --v-r-t: 0px; // 表格圆角
         --v-r-si: calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
-        --v-r-tag: 0; // 标签圆角
+        --v-r-tag: 0px; // 标签圆角
         // --v-tag-small-radius: var(--v-tag-small-radius-small); // 标签小圆角
-        --v-r-c: 0; // 半距圆角
+        --v-r-c: 0px; // 半距圆角
     }
 }

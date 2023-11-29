@@ -3,25 +3,25 @@ title: Markdown 脚本化图表参考指南 - VLOOK™ - Markdown 编辑器 Typo
 author: MAX°孟兆
 keywords:
 - Markdown,Typora,VLOOK,Plugin,插件,主题包,自动排版,跨平台,i18n,开源,MIT,开源中国,OSC,编辑推荐
-- 表格增强,单元格合并,行分组,表格阅读模式,表格十字光标,重复表头,刮刮卡,黑幕,标签,图片增强,演示辅助,聚光灯,激光笔,自动折叠,打印,Mermaid,音频,视频,注音,主题,字体,模板,深色模式,Dark Mode,封面,封底,私人定制
+- 表格增强,单元格合并,行分组,表格阅读模式,表格十字光标,重复表头,刮刮卡,黑幕,标签,图片增强,演示辅助,聚光灯,激光笔,自动折叠,Mermaid,音频,视频,注音,主题,字体,模板,深色模式,Dark Mode,封面,封底,私人定制
 - PRD,设计,需求,文档,博客,手册,指南,在线,运维,知识库,WIKI
 - 产品经理,程序员,运维工程师,售前,售后
 vlook-chp-autonum: h1{{#ALPHA#. }},h2{{#00#-sup# - }},h3{{#ROMAN-min# - }}
-vlook-query: el=2&ws=auto&lmc=1
+vlook-query: el=2&ws=auto
 vlook-doc-lib: vlook-lib.html
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>脚本化图表参考指南</u><br>`#最新版本|V20.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>脚本化图表参考指南</u><br>`#最新版本|V21.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
 
 [TOC]
 
 # 关于 Mermaid
 
-Mermaid 是一个用于画流程图、状态机图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [Mermaid 官网](https://mermaidjs.github.io)。
+Mermaid 是一个用于画流程图、状态机图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [Mermaid 官网](https://mermaid.js.org)。
 
 **目前 Typora + VLOOK™ 的最新版本，可支持下脚本化图表的制作和生成：**
 
-[![流程图](https://madmaxchow.gitee.io/vlookres/pic/dg-flowcharts.png?srcset=@2x&darksrc=invert#frame#inline)](chart.md#流程图)[![顺序图](https://madmaxchow.gitee.io/vlookres/pic/dg-seq.png?srcset=@2x&darksrc=invert#frame#inline)](chart.md#顺序图)[![状态机图](https://madmaxchow.gitee.io/vlookres/pic/dg-state.png?srcset=@2x&darksrc=invert#frame#inline)](chart.md#状态机图)[![类图](https://madmaxchow.gitee.io/vlookres/pic/dg-class.png?srcset=@2x&darksrc=invert#frame#inline)](chart.md#类图)[![实体关系图](https://madmaxchow.gitee.io/vlookres/pic/dg-er.png?srcset=@2x&darksrc=invert#frame#inline)](chart.md#实体关系图)[![用户旅程地图](https://madmaxchow.gitee.io/vlookres/pic/dg-uj.png?srcset=@2x&darksrc=invert#frame#inline)](chart.md#用户旅程地图)[![甘特图](https://madmaxchow.gitee.io/vlookres/pic/dg-gantt.png?srcset=@2x&darksrc=invert#frame#inline)](chart.md#甘特图)[![饼图](https://madmaxchow.gitee.io/vlookres/pic/dg-pie.png?srcset=@2x&darksrc=invert#frame#inline)](chart.md#饼图)[![Gitgraph 图](https://madmaxchow.gitee.io/vlookres/pic/dg-gitgraph.png?srcset=@2x&darksrc=invert#frame#inline)](chart.md#Gitgraph 图)[![思维导图](https://madmaxchow.gitee.io/vlookres/pic/dg-mindmap.png?srcset=@2x&darksrc=invert#frame#inline)](chart.md#思维导图)[![需求图](https://madmaxchow.gitee.io/vlookres/pic/dg-req.png?srcset=@2x&darksrc=invert#frame#inline)](chart.md#需求图)[![时间线](https://madmaxchow.gitee.io/vlookres/pic/dg-timeline.png?srcset=@2x&darksrc=invert#frame#inline)](chart.md#时间线)[![C4 图](https://madmaxchow.gitee.io/vlookres/pic/dg-c4.png?srcset=@2x&darksrc=invert#frame#inline)](chart.md#C4 图)[![ZenUML 图](https://madmaxchow.gitee.io/vlookres/pic/dg-zenuml.png?srcset=@2x&darksrc=invert#frame#inline)](chart.md#ZenUML 图)
+[![流程图](https://madmaxchow.gitee.io/vlookres/pic/dg-flowcharts.png?srcset=@2x&darksrc=invert#frame)](chart.md#流程图)　[![顺序图](https://madmaxchow.gitee.io/vlookres/pic/dg-seq.png?srcset=@2x&darksrc=invert#frame)](chart.md#顺序图)　[![状态机图](https://madmaxchow.gitee.io/vlookres/pic/dg-state.png?srcset=@2x&darksrc=invert#frame)](chart.md#状态机图)　[![类图](https://madmaxchow.gitee.io/vlookres/pic/dg-class.png?srcset=@2x&darksrc=invert#frame)](chart.md#类图)　[![实体关系图](https://madmaxchow.gitee.io/vlookres/pic/dg-er.png?srcset=@2x&darksrc=invert#frame)](chart.md#实体关系图)　[![用户旅程地图](https://madmaxchow.gitee.io/vlookres/pic/dg-uj.png?srcset=@2x&darksrc=invert#frame)](chart.md#用户旅程地图)　[![甘特图](https://madmaxchow.gitee.io/vlookres/pic/dg-gantt.png?srcset=@2x&darksrc=invert#frame)](chart.md#甘特图)　[![饼图](https://madmaxchow.gitee.io/vlookres/pic/dg-pie.png?srcset=@2x&darksrc=invert#frame)](chart.md#饼图)　[![Gitgraph 图](https://madmaxchow.gitee.io/vlookres/pic/dg-gitgraph.png?srcset=@2x&darksrc=invert#frame)](chart.md#Gitgraph 图)　[![思维导图](https://madmaxchow.gitee.io/vlookres/pic/dg-mindmap.png?srcset=@2x&darksrc=invert#frame)](chart.md#思维导图)　[![需求图](https://madmaxchow.gitee.io/vlookres/pic/dg-req.png?srcset=@2x&darksrc=invert#frame)](chart.md#需求图)　[![时间线](https://madmaxchow.gitee.io/vlookres/pic/dg-timeline.png?srcset=@2x&darksrc=invert#frame)](chart.md#时间线)　[![C4 图](https://madmaxchow.gitee.io/vlookres/pic/dg-c4.png?srcset=@2x&darksrc=invert#frame)](chart.md#C4 图)　[![ZenUML 图](https://madmaxchow.gitee.io/vlookres/pic/dg-zenuml.png?srcset=@2x&darksrc=invert#frame)](chart.md#ZenUML 图)
 
 # 关于 Markdown
 
@@ -80,13 +80,13 @@ END([结束])
 
 ```mermaid
 flowchart LR
-outpage2>"B (离页)"] --> node2(节点) --> END([结束])
+outpage2>"B (离页)"] o=====o node2(节点) x-....-x END([结束])
 ```
 
-> > ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例
 >
 > *==流程图的画图脚本示例==*
-> 
+>
 > ````
 > ```mermaid
 > flowchart TB
@@ -122,6 +122,7 @@ outpage2>"B (离页)"] --> node2(节点) --> END([结束])
 > END([结束])
 > ```
 > ````
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/flowchart.html)
 
 ###### 关于所支持的 FontAwesome 版本
 
@@ -176,10 +177,10 @@ end
 END([结束])
 ```
 
-> > ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例
 >
 > *==分角色流程图的画图脚本示例==*
-> 
+>
 > ````
 > ```mermaid
 > flowchart LR
@@ -214,6 +215,7 @@ END([结束])
 > END([结束])
 > ```
 > ````
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/flowchart.html)
 
 ## 顺序图
 
@@ -233,10 +235,10 @@ participant Extend as --外部系统角色
 par 平行消息
 	User ->> Client: 平行发送消息1
 and
-	User ->> Client: 平行发送消息2
+	User -x Client: 平行发送消息2
 and
-  Client ->>+ Server: 平行发送消息3
-  Server -->>- Client: 发送消息
+  Client -)+ Server: 平行发送消息3
+  Server --)- Client: 发送消息
 end
 
 %% 设置区域高亮
@@ -260,10 +262,10 @@ loop 循环
 end
 ```
 
-> > ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例
 >
 > *==顺序图的画图脚本示例==*
-> 
+>
 > ````
 > ```mermaid
 > sequenceDiagram
@@ -279,10 +281,10 @@ end
 > par 平行消息
 > 	User ->> Client: 平行发送消息1
 > and
-> 	User ->> Client: 平行发送消息2
+> 	User -x Client: 平行发送消息2
 > and
-> Client ->>+ Server: 平行发送消息3
-> Server -->>- Client: 发送消息
+>   Client -)+ Server: 平行发送消息3
+>   Server --)- Client: 发送消息
 > end
 > 
 > %% 设置区域高亮
@@ -306,6 +308,7 @@ end
 > end
 > ```
 > ````
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/sequenceDiagram.html)
 
 ###### 说明
 
@@ -378,10 +381,10 @@ D --> FINAL
 FINAL(( ))
 ```
 
-> > ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例
 >
 > *==流程图扩展的状态机图的画图脚本示例==*
-> 
+>
 > ````
 > ```mermaid
 > flowchart LR
@@ -406,6 +409,7 @@ FINAL(( ))
 > FINAL(( ))
 > ```
 > ````
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/flowchart.html)
 
 ###### 扩展应用说明
 
@@ -436,10 +440,10 @@ stateDiagram
 状态C --> [*]
 ```
 
-> > ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例
 >
 > *==状态机图（1）的画图脚本示例==*
-> 
+>
 > ````
 > ```mermaid
 > stateDiagram
@@ -451,6 +455,7 @@ stateDiagram
 > 状态C --> [*]
 > ```
 > ````
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/stateDiagram.html)
 
 
 
@@ -499,7 +504,7 @@ join_state --> 状态4
 状态4 --> [*]
 ```
 
-> > ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例
 >
 > *==状态机图（2）的画图脚本示例==*
 > 
@@ -585,10 +590,10 @@ class classC{
 }
 ```
 
-> > ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例
 >
-> *==类图（1）的画图脚本示例==*
-> 
+> *==类图示例 1 的画图脚本示例==*
+>
 > ````
 > ```mermaid
 > classDiagram
@@ -623,6 +628,7 @@ class classC{
 > }
 > ```
 > ````
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/classDiagram.html)
 
 
 
@@ -682,9 +688,9 @@ class 班级_Class {
 支持类部门 <|-- IT部 : Inheritance
 ```
 
-> > ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例
 >
-> *==类图（2）的画图脚本示例==*
+> *==类图示例 2 的画图脚本示例==*
 > 
 > ````
 > ```mermaid
@@ -774,10 +780,10 @@ erDiagram
     }
 ```
 
-> > ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例
 >
 > *==实体关系图（ER图）的画图脚本示例==*
-> 
+>
 > ````
 > ```mermaid
 > ---
@@ -807,8 +813,57 @@ erDiagram
 >  }
 > ```
 > ````
+>
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/entityRelationshipDiagram.html)
+
+## 四象限图
+
+*==四象限图示例==*
+
+```mermaid
+quadrantChart
+    title Reach and engagement of campaigns
+    x-axis Low Reach --> High Reach
+    y-axis Low Engagement --> High Engagement
+    quadrant-1 We should expand
+    quadrant-2 Need to promote
+    quadrant-3 Re-evaluate
+    quadrant-4 May be improved
+    Campaign A: [0.3, 0.6]
+    Campaign B: [0.45, 0.23]
+    Campaign C: [0.57, 0.69]
+    Campaign D: [0.78, 0.34]
+    Campaign E: [0.40, 0.34]
+    Campaign F: [0.35, 0.78]
+```
+
+> ###### 查看完整画图脚本示例
+>
+> *==四象限画图脚本示例==*
+>
+> ````
+> ```mermaid
+> quadrantChart
+>     title Reach and engagement of campaigns
+>     x-axis Low Reach --> High Reach
+>     y-axis Low Engagement --> High Engagement
+>     quadrant-1 We should expand
+>     quadrant-2 Need to promote
+>     quadrant-3 Re-evaluate
+>     quadrant-4 May be improved
+>     Campaign A: [0.3, 0.6]
+>     Campaign B: [0.45, 0.23]
+>     Campaign C: [0.57, 0.69]
+>     Campaign D: [0.78, 0.34]
+>     Campaign E: [0.40, 0.34]
+>     Campaign F: [0.35, 0.78]
+> ```
+> ````
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/quadrantChart.html)
 
 ## 需求图
+
+*==需求图示例==*
 
 ```mermaid
 requirementDiagram
@@ -879,10 +934,10 @@ test_entity3 - verifies -> test_req5
 test_req <- copies - test_entity2
 ```
 
-> > ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例
 >
 > *==需求图的画图脚本示例==*
-> 
+>
 > ````
 > ```mermaid
 > requirementDiagram
@@ -953,10 +1008,13 @@ test_req <- copies - test_entity2
 > test_req <- copies - test_entity2
 > ```
 > ````
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/requirementDiagram.html)
 
 ## C4 图
 
 ### C4 Context
+
+###### C4 图示例_Context
 
 ```mermaid
 C4Context
@@ -1007,6 +1065,8 @@ C4Context
 
 ### C4 Container
 
+###### C4 图示例_Container
+
 ```mermaid
 C4Container
     title Container diagram for Internet Banking System
@@ -1050,6 +1110,8 @@ C4Container
 
 ### C4 Component
 
+###### C4 图示例_Component
+
 ```mermaid
 C4Component
     title Component diagram for Internet Banking System - API Application
@@ -1091,6 +1153,8 @@ C4Component
 
 ### C4 Dynamic
 
+###### C4 图示例_Dynamic
+
 ```mermaid
 C4Dynamic
     title Dynamic diagram for Internet Banking System - API Application
@@ -1111,6 +1175,8 @@ C4Dynamic
 ```
 
 ### C4 Deployment
+
+###### C4 图示例_Deployment
 
 ```mermaid
 C4Deployment
@@ -1163,9 +1229,11 @@ C4Deployment
     UpdateRelStyle(db, db2, $offsetY="-10")
 ```
 
-
+[<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/c4.html)
 
 ## ZenUML 图
+
+*==ZenUML 图示例 1==*
 
 ```mermaid
 zenuml
@@ -1180,6 +1248,8 @@ zenuml
       Bob->Alice: Hi Alice
     }
 ```
+
+*==ZenUML 图示例 2==*
 
 ```mermaid
 zenuml
@@ -1203,11 +1273,13 @@ zenuml
     }
 ```
 
-> 更多有关 Mermaid 对 ZenUML 的支持信息，可[前往了解 ❯❯](https://mermaid.js.org/syntax/zenuml.html)
+[<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/zenuml.html)
 
 # 应用类图表
 
 ## 思维导图
+
+*==思维导图示例==*
 
 ```mermaid
 mindmap
@@ -1227,14 +1299,14 @@ mindmap
             Argument mapping
     Research 2
     Tools
-      Pen and paper
+      [Pen and paper]
       [Mermaid]
     Tools 2
       Pen and paper 2
     Tools 3
 ```
 
-> > ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例
 >
 > *==思维导图的画图脚本示例==*
 >
@@ -1257,19 +1329,22 @@ mindmap
 >             Argument mapping
 >     Research 2
 >     Tools
->       Pen and paper
+>       [Pen and paper]
 >       [Mermaid]
 >     Tools 2
 >       Pen and paper 2
 >     Tools 3
 > ```
 > ````
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/mindmap.html)
 
 ###### 关于对 FontAwesome 的支持
 
 不建议使用 FontAwesome 图标库特性，除非你独立构建相关资源的环境
 
 ## Gitgraph 图
+
+*==Gitgraph 图示例 1==*
 
 ```mermaid
 ---
@@ -1298,10 +1373,10 @@ gitGraph
 
 ```
 
-> > ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例
 >
 > *==Gitgraph 图（1）的画图脚本示例==*
-> 
+>
 > ````
 > ```mermaid
 > ---
@@ -1329,8 +1404,9 @@ gitGraph
 > commit id: "Gamma" tag: "RC_1"
 > ```
 > ````
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/gitgraph.html)
 
-
+*==Gitgraph 图示例 2==*
 
 ```mermaid
 ---
@@ -1359,10 +1435,10 @@ gitGraph
   commit type:REVERSE id:"SanFrancisco"
 ```
 
-> > ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例
 >
 > *==Gitgraph 图（2）的画图脚本示例==*
-> 
+>
 > ````
 > ```mermaid
 > ---
@@ -1391,6 +1467,174 @@ gitGraph
 > commit type:REVERSE id:"SanFrancisco"
 > ```
 > ````
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/gitgraph.html)
+
+## 桑基图
+
+*==桑基图示例==*
+
+```mermaid
+---
+config:
+  sankey:
+    showValues: false
+---
+sankey-beta
+
+Agricultural 'waste',Bio-conversion,124.729
+Bio-conversion,Liquid,0.597
+Bio-conversion,Losses,26.862
+Bio-conversion,Solid,280.322
+Bio-conversion,Gas,81.144
+Biofuel imports,Liquid,35
+Biomass imports,Solid,35
+Coal imports,Coal,11.606
+Coal reserves,Coal,63.965
+Coal,Solid,75.571
+District heating,Industry,10.639
+District heating,Heating and cooling - commercial,22.505
+District heating,Heating and cooling - homes,46.184
+Electricity grid,Over generation / exports,104.453
+Electricity grid,Heating and cooling - homes,113.726
+Electricity grid,H2 conversion,27.14
+Electricity grid,Industry,342.165
+Electricity grid,Road transport,37.797
+Electricity grid,Agriculture,4.412
+Electricity grid,Heating and cooling - commercial,40.858
+Electricity grid,Losses,56.691
+Electricity grid,Rail transport,7.863
+Electricity grid,Lighting & appliances - commercial,90.008
+Electricity grid,Lighting & appliances - homes,93.494
+Gas imports,Ngas,40.719
+Gas reserves,Ngas,82.233
+Gas,Heating and cooling - commercial,0.129
+Gas,Losses,1.401
+Gas,Thermal generation,151.891
+Gas,Agriculture,2.096
+Gas,Industry,48.58
+Geothermal,Electricity grid,7.013
+H2 conversion,H2,20.897
+H2 conversion,Losses,6.242
+H2,Road transport,20.897
+Hydro,Electricity grid,6.995
+Liquid,Industry,121.066
+Liquid,International shipping,128.69
+Liquid,Road transport,135.835
+Liquid,Domestic aviation,14.458
+Liquid,International aviation,206.267
+Liquid,Agriculture,3.64
+Liquid,National navigation,33.218
+Liquid,Rail transport,4.413
+Marine algae,Bio-conversion,4.375
+Ngas,Gas,122.952
+Nuclear,Thermal generation,839.978
+Oil imports,Oil,504.287
+Oil reserves,Oil,107.703
+Oil,Liquid,611.99
+Other waste,Solid,56.587
+Other waste,Bio-conversion,77.81
+Pumped heat,Heating and cooling - homes,193.026
+Pumped heat,Heating and cooling - commercial,70.672
+Solar PV,Electricity grid,59.901
+Solar Thermal,Heating and cooling - homes,19.263
+Solar,Solar Thermal,19.263
+Solar,Solar PV,59.901
+Solid,Agriculture,0.882
+Solid,Thermal generation,400.12
+Solid,Industry,46.477
+Thermal generation,Electricity grid,525.531
+Thermal generation,Losses,787.129
+Thermal generation,District heating,79.329
+Tidal,Electricity grid,9.452
+UK land based bioenergy,Bio-conversion,182.01
+Wave,Electricity grid,19.013
+Wind,Electricity grid,289.366
+```
+
+> ###### 查看完整画图脚本示例
+>
+> *==Gitgraph 图（2）的画图脚本示例==*
+>
+> ````
+> ```mermaid
+> ---
+> config:
+>   sankey:
+>     showValues: false
+> ---
+> sankey-beta
+> 
+> Agricultural 'waste',Bio-conversion,124.729
+> Bio-conversion,Liquid,0.597
+> Bio-conversion,Losses,26.862
+> Bio-conversion,Solid,280.322
+> Bio-conversion,Gas,81.144
+> Biofuel imports,Liquid,35
+> Biomass imports,Solid,35
+> Coal imports,Coal,11.606
+> Coal reserves,Coal,63.965
+> Coal,Solid,75.571
+> District heating,Industry,10.639
+> District heating,Heating and cooling - commercial,22.505
+> District heating,Heating and cooling - homes,46.184
+> Electricity grid,Over generation / exports,104.453
+> Electricity grid,Heating and cooling - homes,113.726
+> Electricity grid,H2 conversion,27.14
+> Electricity grid,Industry,342.165
+> Electricity grid,Road transport,37.797
+> Electricity grid,Agriculture,4.412
+> Electricity grid,Heating and cooling - commercial,40.858
+> Electricity grid,Losses,56.691
+> Electricity grid,Rail transport,7.863
+> Electricity grid,Lighting & appliances - commercial,90.008
+> Electricity grid,Lighting & appliances - homes,93.494
+> Gas imports,Ngas,40.719
+> Gas reserves,Ngas,82.233
+> Gas,Heating and cooling - commercial,0.129
+> Gas,Losses,1.401
+> Gas,Thermal generation,151.891
+> Gas,Agriculture,2.096
+> Gas,Industry,48.58
+> Geothermal,Electricity grid,7.013
+> H2 conversion,H2,20.897
+> H2 conversion,Losses,6.242
+> H2,Road transport,20.897
+> Hydro,Electricity grid,6.995
+> Liquid,Industry,121.066
+> Liquid,International shipping,128.69
+> Liquid,Road transport,135.835
+> Liquid,Domestic aviation,14.458
+> Liquid,International aviation,206.267
+> Liquid,Agriculture,3.64
+> Liquid,National navigation,33.218
+> Liquid,Rail transport,4.413
+> Marine algae,Bio-conversion,4.375
+> Ngas,Gas,122.952
+> Nuclear,Thermal generation,839.978
+> Oil imports,Oil,504.287
+> Oil reserves,Oil,107.703
+> Oil,Liquid,611.99
+> Other waste,Solid,56.587
+> Other waste,Bio-conversion,77.81
+> Pumped heat,Heating and cooling - homes,193.026
+> Pumped heat,Heating and cooling - commercial,70.672
+> Solar PV,Electricity grid,59.901
+> Solar Thermal,Heating and cooling - homes,19.263
+> Solar,Solar Thermal,19.263
+> Solar,Solar PV,59.901
+> Solid,Agriculture,0.882
+> Solid,Thermal generation,400.12
+> Solid,Industry,46.477
+> Thermal generation,Electricity grid,525.531
+> Thermal generation,Losses,787.129
+> Thermal generation,District heating,79.329
+> Tidal,Electricity grid,9.452
+> UK land based bioenergy,Bio-conversion,182.01
+> Wave,Electricity grid,19.013
+> Wind,Electricity grid,289.366
+> ```
+> ````
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/sankey.html)
 
 ## 时间线
 
@@ -1408,7 +1652,7 @@ timeline
          : GPT-4
 ```
 
-> > ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例
 >
 > *==时间线（1）图的画图脚本示例==*
 >
@@ -1425,6 +1669,7 @@ timeline
 >       : GPT-4
 > ```
 > ````
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/timeline.html)
 
 *==时间线示例 2==*
 
@@ -1440,7 +1685,7 @@ timeline
         Industry 5.0 : Artificial intelligence, Big data,3D printing
 ```
 
-> > ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例
 >
 > *==时间线（2）图的画图脚本示例==*
 >
@@ -1457,6 +1702,7 @@ timeline
 >      Industry 5.0 : Artificial intelligence, Big data,3D printing
 > ```
 > ````
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/timeline.html)
 
 ## 饼图
 
@@ -1473,10 +1719,10 @@ pie title Q3 2019 中国线上智能手机市场主要品牌市场份额
 "其他" : 16
 ```
 
-> > ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例
 >
 > *==饼图的画图脚本示例==*
-> 
+>
 > ````
 > ```mermaid
 > pie title Q3 2019 中国线上智能手机市场主要品牌市场份额
@@ -1489,6 +1735,7 @@ pie title Q3 2019 中国线上智能手机市场主要品牌市场份额
 > "其他" : 16
 > ```
 > ````
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/pie.html)
 
 ## 甘特图
 
@@ -1517,10 +1764,10 @@ section 区块C
 未来的关键路径任务			:crit, 2d
 ```
 
-> > ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例
 >
 > *==甘特图的画图脚本示例==*
-> 
+>
 > ````
 > ```mermaid
 > gantt
@@ -1545,6 +1792,7 @@ section 区块C
 > 未来的关键路径任务			:crit, 2d
 > ```
 > ````
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/gantt.html)
 
 ## 用户旅程地图
 
@@ -1562,10 +1810,10 @@ journey
       Sit down: 5: Me
 ```
 
-> > ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例
 >
 > *==用户旅程地图的画图脚本示例==*
-> 
+>
 > ````
 > ```mermaid
 > journey
@@ -1579,5 +1827,6 @@ journey
 >    Sit down: 5: Me
 > ```
 > ````
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/userJourney.html)
 
 #The End 

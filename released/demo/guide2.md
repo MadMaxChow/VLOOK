@@ -3,12 +3,12 @@ title: 快速参考手册 (Part.II) - VLOOK™ - Markdown 编辑器 Typora 的�
 author: MAX°孟兆
 keywords:
 - Markdown,Typora,VLOOK,Plugin,插件,主题包,自动排版,跨平台,i18n,开源,MIT,开源中国,OSC,编辑推荐
-- 表格增强,单元格合并,行分组,表格阅读模式,表格十字光标,重复表头,刮刮卡,黑幕,标签,图片增强,演示辅助,聚光灯,激光笔,自动折叠,打印,Mermaid,音频,视频,注音,主题,字体,模板,深色模式,Dark Mode,封面,封底,私人定制
+- 表格增强,单元格合并,行分组,表格阅读模式,表格十字光标,重复表头,刮刮卡,黑幕,标签,图片增强,演示辅助,聚光灯,激光笔,自动折叠,Mermaid,音频,视频,注音,主题,字体,模板,深色模式,Dark Mode,封面,封底,私人定制
 - PRD,设计,需求,文档,博客,手册,指南,在线,运维,知识库,WIKI
 - 产品经理,程序员,运维工程师,售前,售后
 vlook-chp-autonum: h1{{第 ### 章 }},h3{{### }}
 vlook-query: el=2&ws=auto&lmc=2&toc=1
-vlook-doc-lib: vlook-lib.html#abc
+vlook-doc-lib: vlook-lib.html
 ---
 
 [TOC]
@@ -21,6 +21,10 @@ vlook-doc-lib: vlook-lib.html#abc
 
 ![打赏 VLOOK™](https://madmaxchow.gitee.io/vlookres/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#frame)
 
+**感谢打赏支持 VLOOK™ 的客官（部分名单）：**
+
+一＊秋、＊＊军、＊＊鹏、李＊6、＊＊无、H＊t、＊＊二、f＊y、＊＊宇、＊＊琛、＊＊辉、＊＊秋、＊＊笑、＊＊豫、l＊a、＊＊心、整＊9、＊＊国、＊＊拉、＊＊龙、＊＊应、＊＊销、＊＊哦、E＊y、……
+
 # 快速入坑
 
 VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应用潜力，同时结合了文档的互联网化应用场景～
@@ -29,9 +33,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ## 快速入坑°文档排版
 
-> ###### ![°文档排版](pic/qico-types-light.svg?fill=text&darksrc=invertguide.md#icon2x) ° 文档排版
->
-> ------
+> **![°文档排版](pic/qico-types-light.svg?fill=text&darksrc=invertguide.md#icon2x) ° 文档排版**
 >
 > **有了 VLOOK™ 主题及插件的支持，让你对 Markdown 编辑器（暂只支持 Typora）的自动化排版能力有了全新的理解。**
 >
@@ -45,7 +47,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-> > ###### 内容组织
+> ###### 内容组织
 >
 > - 横向 / 纵向**合并单元格** [❯❯](guide.md#表格单元格合并)
 > - 自动编号、添加题注 [❯❯](guide.md#表格自动编号与题注)
@@ -54,7 +56,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > ~(Vn)~
 
-> > ###### 行格式
+> ###### 行格式
 >
 > - 给每个表格进行**自动编号**、**添加题注** [❯❯](guide.md#表格自动编号与题注)
 > - 给表格的**每一行**都进行**自动编号** [❯❯](guide.md#表格行自动编号)
@@ -63,7 +65,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > ~(Vn)~
 
-> > ###### 列格式
+> ###### 列格式
 >
 > - 设置为加粗、高亮、下划线、斜体 [❯❯](guide.md#表格列格式：基础)
 > - 设置为**数值**、**百分比**、**货币** [❯❯](guide.md#表格列格式：数值、百分数、货币)
@@ -77,14 +79,14 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-> > ###### 图片与图表
+> ###### 图片与图表
 >
 > - 自动编号、添加题注 [❯❯](guide.md#插图自动编号与题注)
 > - 对 Mermaid 的支持 [❯❯](#更美观的 Mermaid)
 >
 > ~(Vn)~
 
-> > ###### 版式
+> ###### 版式
 >
 > - 调整**对齐方式** [❯❯](guide.md#插图对齐方式)
 > - 设置以**小图标**方式显示 [❯❯](guide.md#图片显示版式)
@@ -94,7 +96,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > ~(Vn)~
 
-> > ###### 外观
+> ###### 外观
 >
 > - 在高分屏下自动适配显示**高清**的版本（2x、3x） [❯❯](guide.md#图片适配高分屏)
 > - 自动适配 **Dark Mode**  [❯❯](guide.md#图片适配 Dark Mode)
@@ -107,14 +109,15 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-> > ###### 对内容分级、分栏/看板、分类展示
+> ###### 对内容分级、分栏/看板、分类展示
 >
+> - 为引用添加小标题 [❯❯](guide.md#引用小标题)
 > - 以**分栏/看板**方式组织内容 [❯❯](guide.md#°分栏与看板)
 > - 将内容以分级、分类**折叠**的方式进行组 [❯❯](guide.md#折叠引用)
 >
 > ~(Vn)~
 
-> > ###### 引用多样化的自动排版
+> ###### 引用多样化的自动排版
 >
 > - 引用内嵌普通引用 [❯❯](guide.md#示例_引用内嵌普通引用)
 > - 引用内嵌分栏引用 [❯❯](guide.md#示例 2_引用内嵌引用分栏)
@@ -128,21 +131,21 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-> > ###### 代码块
+> ###### 代码块
 >
 > - 给每个代码块进行自动编号、**添加题注** [❯❯](guide.md#代码块自动编号与题注)
 > - 代码块高亮当前行、一键复制代码 [❯❯](guide.md#代码块增强)
 > 
->~(Vn)~
+> ~(Vn)~
 
-> > ###### 音频、视频
+> ###### 音频、视频
 >
 > - 为文档添加**音频**内容 [❯❯](guide.md##音频)
 > - 为文档添加**视频**内容 [❯❯](guide.md#视频)
 > 
 > ~(Vn)~
 
-> > ###### 任务列表
+> ###### 任务列表
 >
 > - 任务列表的序号，给你找回来了 [❯❯](guide.md#任务列表自动编号)
 > - 对于多级任务列表，「**任务组完成状态**」能自动识别了 [❯❯](guide.md#任务组完成状态)
@@ -153,14 +156,14 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-> > ###### 标记、突出关键信息与内容
+> ###### 标记、突出关键信息与内容
 >
 > - 添加**标签**突出关键字信息 [❯❯](#彩虹标签)
 > - 将两项内容以**徽章**形式组织 [❯❯](#彩虹徽章)
 >
 > ~(Vn)~
 
-> > ###### 注音、拼音、刮刮卡
+> ###### 注音、拼音、刮刮卡
 >
 > - 给生僻^[pì]^字，或东亚小语种添加**注音** [❯❯](#注音)
 > - 制作培训、猜迷互动类文档时，希望将**答案先隐藏**  [❯❯](#刮刮卡)
@@ -169,9 +172,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ## 快速入坑°内容导航
 
-> ###### ![°内容导航](pic/qico-nav-light.svg?fill=text&darksrc=invert#icon2x) ° 内容导航
->
-> ------
+> **![°内容导航](pic/qico-nav-light.svg?fill=text&darksrc=invert#icon2x) ° 内容导航**
 >
 > **VLOOK™ 提供了对文档章节、插图、表格、多媒体提供了多种形式的导航、快速定位和内容组织的工具，全面改善和提高发布的 HTML 文件的浏览体验和效率。**
 >
@@ -183,19 +184,19 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-> ###### ° 导航中心
+> **° 导航中心**
 >
-> 适用于按目录、分类内容索引（目录/插图/表格/多媒体/代码块）进行**全文档**跨章节的快速定位 [❯ ❯❯](#导航中心)
+> 适用于按目录、分类内容索引（目录/插图/表格/多媒体/代码块）进行**全文档**跨章节的快速定位 [❯❯](#导航中心)
 >
 > ~(Bu)~
 
-> ###### ° 逐章导航
+> **° 逐章导航**
 >
 > 适用于前后章节相关度高，**按章节**顺序一章一章进行浏览 [❯❯](#逐章导航)
 >
 > ~(Bu)~
 
-> ###### ° 逐段导航
+> **° 逐段导航**
 >
 > 适用于文档评审或演示，**按段落**一段一段进行聚焦式浏览 [❯❯](#逐段导航)
 >
@@ -205,19 +206,19 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-> ###### ° 插图导航
+> **° 插图导航**
 >
 > 适用于**按图索骥**，快速浏览文档中的插图，以及快速**定位**到文档中对应的位置 [❯❯](#插图导航)
 >
 > ~(Bu)~
 
-> ###### ° 文库导航
+> **° 文库导航**
 >
 > 适用于将相关话题、内容的文档简介、链接，通过一个独立页面进行快速浏览和跳转 [❯❯](#文库导航)
 >
 > ~(Bu)~
 
-> ###### ° 脚注导航
+> **° 脚注导航**
 >
 > 直接在当面位置进行显示脚注，避免来回跳转 [❯❯](#脚注导航)
 >
@@ -225,9 +226,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ## 快速入坑°演示与出版辅助
 
-> ###### ![°演示与出版辅助](pic/qico-pres-light.svg?fill=text&darksrc=invert#icon2x) ° 演示与出版辅助
->
-> ------
+> **![°演示与出版辅助](pic/qico-pres-light.svg?fill=text&darksrc=invert#icon2x) ° 演示与出版辅助**
 >
 > **VLOOK™ 独创性地为 Markdown 导出的 HTML 提供了强大的演示与出版辅助工具，让 Typora + VLOOK 成为更具生产力的 Markdown 文档解决方案。**
 >
@@ -235,33 +234,31 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > ~(Og!)~
 
-> ###### <center>内容助手</center>
+> **内容助手**
 >
 > ---
 >
-> ---
->
-> ---
->
-> > ###### ° 复制内容
+> > **° 复制内容**
 > >
 > > 支持图片、代码、代码块内容的一键复制，并支持「复制为 Markdown 格式」  [❯❯](#复制内容)
 > >
 > > ~(Og)~
->
-> > ###### ° 插图放大显示
+> 
+> > **° 插图放大显示**
 > >
 > > 支持将插图一键放大显示，及前后浏览  [❯❯](#插图放大显示)
 > >
 > > ~(Og)~
+> 
+> ---
 >
-> > ###### ° 表格阅读模式
+> > **° 表格阅读模式**
 > >
 > > 针对表格内容，特别是行、列关联性强的**表格**，快速识别**纵横关联**的单元格序列 [❯❯](#表格阅读模式)
 > >
 > > ~(Og)~
 >
-> > ###### ° 画中画
+> > **° 画中画**
 > >
 > > 插图/表格/代码块 一键开启「画中画」浮动显示，方便在文档相关内容间对比 [❯❯](#画中画)
 > >
@@ -269,25 +266,25 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > ~(Gy!)~
 
-> ###### <center>演示辅助</center>
+> **演示辅助**
 >
 > ---
 >
 > ---
 >
-> > ###### ° 激光笔
+> > **° 激光笔**
 > >
 > > 对文档内容进行**精确指向** [❯❯](#激光笔)
 > >
 > > ~(Og)~
 >
-> > ###### ° 聚光灯
+> > **° 聚光灯**
 > >
 > > 对屏幕内容的局部进行视觉**聚焦** [❯❯](#聚光灯)
 > >
 > > ~(Og)~
 >
-> > ###### ° 图表元素高亮
+> > **° 图表元素高亮**
 > >
 > > 支持鼠标对 Mermaid 图元悬停高亮显示 [❯❯](#Mermaid 图表元素高亮)
 > >
@@ -295,59 +292,49 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > ~(Gy!)~
 
-> ###### <center>出版辅助</center>
+> **出版辅助**
 >
 > ---
->
+> 
 > ---
->
-> > ###### ° 长内容自动折叠
+> 
+> > **° 长内容自动折叠**
 > >
 > > 插图、表格、代码内容过高的情况下会自动进行折叠 [❯❯](#长内容自动折叠)
 > >
 > > ~(Og)~
->
-> > ###### ° 章节标题自动编号
+> 
+> > **° 章节标题自动编号**
 > >
 > > 对文档内的章节标题进行**自动分级编号** [❯❯](#章节自动编号)
 > >
 > > ~(Og)~
->
-> > ###### ° 自定义欢迎页内容
+> 
+> > **° 自定义欢迎页内容**
 > >
 > > 对文档在加载过程中显示欢迎语内容 [❯❯](#自定义欢迎页内容)
 > >
 > > ~(Og)~
 >
 > ---
->
+> 
 > ---
->
-> > ###### ° 内容失效检查
+> 
+> > **° 内容失效检查**
 > >
 > > 对文档的**图片、音频、视频、页内链接**等内容进行检查并提示 [❯❯](#内容失效检查)
 > >
 > > ~(Og)~
->
-> > ###### ° 链接内容识别
+> 
+> > **° 链接内容识别**
 > >
-> > **自动识别**并提示文档内的**链接**类型，并针对外链进行了**优化** [❯❯](#链接内容识别)
-> >
-> > ~(Og)~
->
-> > ###### ° 链接内容转换
-> >
-> > 自动 md 链接、外部链接获得更好友的体验  [❯❯](#适配打印输出)
+> > **自动识别**并提示文档内的**链接类型**，并针对外链进行了优化 [❯❯](#链接内容识别)
 > >
 > > ~(Og)~
->
-> ---
->
-> ---
->
-> > ###### ° 适配打印输出
+> 
+> > **° 链接内容转换**
 > >
-> > 在打印前将文档的样式调整和简化，以**适配打印**输出的应用需要 [❯❯](#适配打印输出)
+> > 自动 md 链接、外部链接获得更好友的体验  [❯❯](#链接内容转换)
 > >
 > > ~(Og)~
 >
@@ -355,9 +342,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ## 快速入坑°主题与不杂项
 
-> ###### ![°主题与不杂项](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon2x) ° 主题与不杂项
->
-> ------
+> **![°主题与不杂项](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon2x) ° 主题与不杂项**
 >
 > 「**人类从来都是视觉动物，自己或他人在阅读时，让眼睛感受愉悦和美好，是一种美德、一种力量、一种信仰。**」
 >
@@ -369,7 +354,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-> > ###### 模板主题、字体主题
+> ###### 模板主题、字体主题
 >
 > - 为不同类型的文档设置不同的「模板主题」 [❯❯](#模板主题)
 > - 为文档选择不同的「字体主题」 [❯❯](#字体主题)
@@ -379,7 +364,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > ~(Lm)~
 
-> > ###### 第三方集成的适配
+> ###### 第三方集成的适配
 >
 > 对于主流的脚本化图表 **Mermaid**~(RdRo)~：
 >
@@ -393,7 +378,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > ~(Lm)~
 
-> > ###### 不「杂」项
+> ###### 不「杂」项
 >
 > - 支持 Typora 编辑时的特性增强 [❯❯](#Typora 编辑时特性增强)
 > - 预置插件参数，自定义你的文档表现 [❯❯](#插件预置选项)
@@ -407,7 +392,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ## 标签与徽章
 
-`#Markdown 粉|🤟#`「**用 Markdown 写文档，想通过「标签」或「徽章」突出或组织相关性较强的内容，这个想法会不会不现实呢？**」
+`#Markdown 粉|⬇️#`「**用 Markdown 写文档，想通过「标签」或「徽章」突出或组织相关性较强的内容，这个想法会不会不现实呢？**」
 
 `#VLOOK|👀#`~(T2)~ 对 Markdown 行内代码（Code）语法 `` ` ` `` 和下标语法 `~ ~` 进行了扩展，满足实用的「标签」和「徽章」排的版需求！
 
@@ -417,19 +402,19 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ### 彩虹标签
 
-> **语法：**`` `#标签#`~(颜色)~ `` 
+> **语法：**`` `#标签#`~(色号)~ `` 
 >
 > 其中，
 >
 > `标签`：徽章内容，前后由 `#` 符号包裹
 >
-> `颜色`：可选。指定该标签使用的[预置色卡](guide2.md#预置色卡)（强调风格时可支持渐变），不指定则默认为 `T2`
+> `色号`：可选。指定该标签使用的[预置色号](guide.md#预置色号)（强调风格时可支持渐变），不指定则默认为 `T2`
 
-> `#💡|小提示#`~(Og!)~ 若须修改默认颜色标识，可通过「[插件调校参数](guide2.md#插件调校参数)」`tag` 指定。
+> `#💡|小提示#`~(Og!)~ 若须修改默认色号，可通过「[插件调校参数](#插件调校参数)」`tag` 指定。
 
-*==彩虹标签（强调风格）预置色卡及示例==*
+*==彩虹标签（强调风格）预置色号及示例==*
 
-| **预置色卡** | 语法示例                  | 应用场景建议               | 渲染效果                                  |
+| **预置色号** | 语法示例                  | 应用场景建议               | 渲染效果                                  |
 | :----------: | ------------------------- | -------------------------- | ----------------------------------------- |
 |     Wn!      | `` `#标签 Wn!#`~(Wn!)~ `` | 警告、危险、关键事项、删除 | `#标签 Wn!#`~(Wn!)~ `#标签 Wn!#`~(WnMn!)~ |
 |     Rd!      | `` `#标签 Rd!#`~(Rd!)~ `` | :                          | `#标签 Rd!#`~(Rd!)~ `#标签 Rd!#`~(RdGn!)~ |
@@ -455,9 +440,9 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 |     T1!      | `` `#标签 T1!#`~(T1!)~ `` | 当前 VLOOK™ 主题的主色     | `#标签 T1!#`~(T1!)~ `#标签 T1!#`~(T1T2!)~ |
 |     T2!      | `` `#标签 T2#`~(T2!)~ ``  | 当前 VLOOK™ 主题的辅助色   | `#标签 T2!#`~(T2!)~ `#标签 T2!#`~(T2T1!)~ |
 
-*==彩虹标签（常规风格）预置色卡及示例==*
+*==彩虹标签（常规风格）预置色号及示例==*
 
-| **预置色卡** | 语法示例                | 应用场景建议               | 渲染效果          |
+| **预置色号** | 语法示例                | 应用场景建议               | 渲染效果          |
 | :----------: | ----------------------- | -------------------------- | ----------------- |
 |      Wn      | `` `#标签 Wn#`~(Wn)~ `` | 警告、危险、关键事项、删除 | `#标签 Wn#`~(Wn)~ |
 |      Rd      | `` `#标签 Rd#`~(Rd)~ `` | :                          | `#标签 Rd#`~(Rd)~ |
@@ -485,37 +470,37 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ###### 旧语法适配参考
 
-> > ###### 如何将彩虹标签的颜色标识由「旧语法」批量更新为「新语法」
+> ###### 如何将彩虹标签的色号由「旧语法」批量更新为「新语法」
 >
 > 使用 Typora 的查找替换功能，或任意支持正则表达式进行查找替换的工具（如：VS Code / UltraEdit 等）进行操作。
 >
 > 1. 在查找内容中输入 ``#(\([a-z!12]+\))` `` ，并指定查找选项为 `正则表达式`
 > 2. 查找匹配到内容后，替换内容为 `` #`~COLOR-CODE~`` ；
-> 3. 注意其中 `COLOR-CODE` 为实际新颜色标识，如：`Rd` `Gn` 等。
+> 3. 注意其中 `COLOR-CODE` 为实际新色号，如：`Rd` `Gn` 等。
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### 彩虹徽章
 
-> **语法：**`` `#标题|徽章内容#`~(颜色)~ ``
+> **语法：**`` `#标题|徽章内容#`~(色号)~ ``
 >
-> 与彩虹标签名语法基本一致，徽章标题与内容由 `#` 包裹，并以英文竖线符号 `|` 作为分隔。其中，
+> 与彩虹标签名语法基本一致，徽章标题与内容由 `#` 包裹，并以英文竖线符号 `|` 进行分隔，==支持三段式（即两项徽章内容）==，两项徽章内容同样以英文竖线符号 `|` 进行分隔。其中，
 >
 > `标题`：为徽章标题
 >
-> `徽章内容`：为徽章内容。内容支持识别变量格式 ` {{变量}}` ` %变量%`  ` $变量$` ` ${变量}` ` #{变量}` `var(变量)` ，对这些内容以 突出的样式显示
+> `徽章内容`：为徽章内容。内容支持识别变量格式 ` {{变量}}` ` %变量%`  ` $变量$` ` ${变量}` ` #{变量}` `var(变量)` ，对这些内容以 突出的样式显示。
 >
-> `颜色`：可选。指定该徽章使用的[预置色卡](guide2.md#预置色卡)，不指定则默认为 `(Gy)` 。颜色标识后添加 `!` 则使用强调样式
+> `色号`：可选。指定该徽章使用的[预置色号](guide.md#预置色号)，不指定则默认为 `(Gy)` 。色号后添加 `!` 则使用强调样式
 
-> `#💡|小提示#`~(Og!)~ 若须修改默认颜色标识，可通过「[插件调校参数](guide2.md#插件调校参数)」`badge` 指定。
+> `#💡|小提示#`~(Og!)~ 若须修改默认色号，可通过「[插件调校参数](#插件调校参数)」`badge` 指定。
 
-*==彩虹徽章预置颜色（常规风格）及示例==*
+*==彩虹徽章预置色号（常规风格）示例==*
 
-| 预置色卡 | 语法示例                                  | 应用场景建议               | 渲染效果                            |
+| 预置色号 | 语法示例                                  | 应用场景建议               | 渲染效果                            |
 | :------: | ----------------------------------------- | -------------------------- | ----------------------------------- |
 |    Wn    | `` `#标题|徽章内容 {{变量 1}}#`~(Wn)~ ``  | 警告、危险、关键事项、删除 | `#标题|徽章内容 {{变量 1}}#`~(Wn)~  |
 |    Rd    | `` `#标题|徽章内容 {{变量 1}}#`~(Rd)~ ``  | :                          | `#标题|徽章内容 {{变量 1}}#`~(Rd)~  |
@@ -541,9 +526,9 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 |    T1    | `` `#标题|徽章内容 {{变量 1}}#`~(T1)~ ``  | 当前 VLOOK™ 主题的主色     | `#标题|徽章内容 {{变量 1}}#`~(T1)~  |
 |    T2    | `` `#标题|徽章内容 {{变量 1}}#`~(T2)~ ``  | 当前 VLOOK™ 主题的辅助色   | `#标题|徽章内容 {{变量 1}}#`~(T2)~  |
 
-*==彩虹徽章预置颜色（强调风格）及示例==*
+*==彩虹徽章预置色号（强调风格）示例==*
 
-| 预置色卡 | 语法示例                       | 应用场景建议               | 渲染效果                 |
+| 预置色号 | 语法示例                       | 应用场景建议               | 渲染效果                 |
 | :------: | ------------------------------ | -------------------------- | ------------------------ |
 |   Wn!    | `` `#标题|强调样式#`~(Wn!)~ `` | 警告、危险、关键事项、删除 | `#标题|强调样式#`~(Wn!)~ |
 |   Rd!    | `` `#标题|强调样式#`~(Rd!)~ `` | :                          | `#标题|强调样式#`~(Rd!)~ |
@@ -569,23 +554,32 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 |   T1!    | `` `#标题|强调样式#`~(T1!)~ `` | 当前 VLOOK™ 主题的主色     | `#标题|强调样式#`~(T1!)~ |
 |   T2!    | `` `#标题|强调样式#`~(T2!)~ `` | 当前 VLOOK™ 主题的辅助色   | `#标题|强调样式#`~(T2!)~ |
 
+*==彩虹徽章预置色号（三段式）示例==*
+
+| 预置色号 | 语法示例                          | 渲染效果                    |
+| :------: | --------------------------------- | --------------------------- |
+|    Ye    | `` `#标题|内容1|内容2#`~(Ye)~ ``  | `#标题|内容1|内容2#`~(T1)~  |
+|    Bu    | `` `#标题|内容1|内容2#`~(Bu)~ ``  | `#标题|内容1|内容2#`~(T2)~  |
+|   Ye!    | `` `#标题|内容1|内容2#`~(Ye!)~ `` | `#标题|内容1|内容2#`~(T1!)~ |
+|   Bu!    | `` `#标题|内容1|内容2#`~(Bu!)~ `` | `#标题|内容1|内容2#`~(T2!)~ |
 
 
-> > ###### 如何将彩虹徽章的颜色标识由「旧语法」批量更新为「新语法」
+
+> ###### 如何将彩虹徽章的色号由「旧语法」批量更新为「新语法」
 >
 > 请直接参考[彩虹标签](#旧语法适配参考)的相关内容。
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ## 注音
 
 ### 上标式注音 `#新语法#`
 
-`#Markdown 粉|🤟#`「**希望 Markdown 文档能方便添加注音（如：拼音、外文对照），这样我语言培训文档和电子书就可以更出彩了**」
+`#Markdown 粉|⬇️#`「**希望 Markdown 文档能方便添加注音（如：拼音、外文对照），这样我语言培训文档和电子书就可以更出彩了**」
 
 `#VLOOK|👀#`~(T2)~ 通过对 Markdown 上标语法 `^ ^` 进行了扩展，轻松满足实用的「注音」排版需求！
 
@@ -601,7 +595,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ###### 示例_注音 1
 
-「==道^[dào]^生一，一生二，二生^[shēng]^三，三生万物^[wàn_wù]^==」── 道德经•老子
+「==道^[dào]^生一，一生二，二生^[shēng]^三，三生万物^[wàn_wù]^==~(BuRoGn)~」── 道德经•老子
 
 ###### 示例_注音 2
 
@@ -617,17 +611,17 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-> > ###### 中文注音线上扩展服务
+> ###### 中文注音线上扩展服务
 >
-> 被注音的文字内容为**中文**，由 [![汉典](https://www.zdic.net/images/logo.png#icon)](https://www.zdic.net/?lnkcss=none) 提供服务
+> 被注音的文字内容为**中文**，由 [![汉典](https://www.zdic.net/images/logo.png#icon)](https://www.zdic.net/) 提供服务
 >
 > - 点击可打开「汉典」官网，显示对应的「文字内容」释义
 >
 > ~(Rd!)~
 
-> > ###### 非中文注音线上扩展服务
+> ###### 非中文注音线上扩展服务
 >
-> 被注音的文字内容**不是中文**，由 [![Bing](https://madmaxchow.gitee.io/vlookres/pic/bing-logo.svg#icon)](https://www.bing.com/translator/?lnkcss=none) 提供服务
+> 被注音的文字内容**不是中文**，由 [![Bing](https://madmaxchow.gitee.io/vlookres/pic/bing-logo.svg#icon)](https://www.bing.com/translator/) 提供服务
 >
 > - 点击可打开「Bing 翻译」官网，自动对注音为日文「假名」部分进行**翻译**
 > - 其他情况，则自动对「文字内容」进行翻译
@@ -666,26 +660,23 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ## 刮刮卡
 
-`#Markdown 粉|🤟#`「**用 Markdown 制作交互式的培训文档时，希望能将一些关键信息（如：答案）先隐藏，点击再显示**」
+`#Markdown 粉|⬇️#`「**用 Markdown 制作交互式的培训文档时，希望能将一些关键信息（如：答案）先隐藏，点击再显示**」
 
 `#VLOOK|👀#`~(T2)~ 通过对 Markdown 行内代码（Code）语法 `` ` ` `` 进行了扩展，轻松满足「培训、猜迷互动」等场景的排版需求！
 
-> **语法：**`` `/提示文本|隐藏文本/`~(颜色)~ ``
+> **语法：**`` `/提示文本|隐藏文本/`~(色号)~ ``
 >
 > - `提示文本`：可选，刮刮卡打开前显示的提示信息，默认为 `***`
 > - `隐藏文本`：被刮刮卡遮盖的原始信息
-> - `颜色`：可选。`~ ~` 为 Typora 的下标格式。通过该方式指定刮刮卡使用的[预置色卡](guide2.md#预置色卡)，不指定则默认为 `(Gy)` 。预置色卡与「[彩虹标签](#彩虹标签)」的颜色标识基本保持一致（无 `Bk` ，且不支持强调风格标识 ）
+> - `色号`：可选。`~ ~` 为 Typora 的下标格式。通过该方式指定刮刮卡使用的[预置色号](guide.md#预置色号)，不指定则默认为 `(Gy)` 。预置色号与「[彩虹标签](#彩虹标签)」的色号基本保持一致（无 `Bk` ，且不支持强调风格标识 ）
 >
-> `#💡|小提示#`~(Og!)~
->
-> 1. 若须修改默认颜色标识，可通过「[插件调校参数](guide2.md#插件调校参数)」`coat` 指定；
-> 2. 打印输出前，可根据提示选择 **显示** 或 **隐藏** 刮刮卡的内容。
+> `#💡|小提示#`~(Og!)~ 若须修改默认色号，可通过「[插件调校参数](#插件调校参数)」`coat` 指定。
 
 ###### 示例_刮刮卡
 
@@ -714,15 +705,15 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 # °主题
 
 ## 模板主题
 
-`#Markdown 粉|🤟#`「**你的 Markdown 文档能一键换肤吗？！**」
+`#Markdown 粉|⬇️#`「**你的 Markdown 文档能一键换肤吗？！**」
 
 `#VLOOK|👀#`~(T2)~ 内置了多套原创、独具气质的模板主题，能满足多种应用场景需要，完全超越你对 Markdown 主题的印象！
 
@@ -730,21 +721,19 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 以下是 VLOOK™ 内置的 6 套免费主题（可点击进行效果预览）～
 
-
-
 ---
 
 ---
 
-> [![灵感来自于电影《Titanic 泰尼克号》](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-hope.png?srcset=@2x#padding#card "Hope 海洋之心")](theme-hope.html?lnkcss=none)
+> [![灵感来自于电影《Titanic 泰尼克号》](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-hope.png?srcset=@2x#padding#card "Hope 海洋之心")](theme-hope.html)
 >
 > ~(Lm)~
 
-> [![灵感来自于中国的古建筑与现代化工业风的融合](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-joint.png?srcset=@2x#padding#card "Joint 榫卯")](theme-joint.html?lnkcss=none)
+> [![灵感来自于中国的古建筑与现代化工业风的融合](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-joint.png?srcset=@2x#padding#card "Joint 榫卯")](theme-joint.html)
 >
 > ~(Vn)~
 
-> [![极客改变世界，VLOOK 也改变了 Markdown 排版自动化的玩法](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-geek.png?srcset=@2x#padding#card "Geek 极邃")](theme-geek.html?lnkcss=none)
+> [![极客改变世界，VLOOK 也改变了 Markdown 排版自动化的玩法](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-geek.png?srcset=@2x#padding#card "Geek 极邃")](theme-geek.html)
 >
 > ~(Gd)~
 
@@ -752,15 +741,15 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-> [![灵活来自我喜欢的咖啡时光](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-fancy.png?srcset=@2x#padding#card "Fancy 慕幻")](theme-fancy.html?lnkcss=none)
+> [![灵活来自我喜欢的咖啡时光](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-fancy.png?srcset=@2x#padding#card "Fancy 慕幻")](theme-fancy.html)
 >
 > ~(Rd)~
 
-> [![灵活来自冥想与禅思](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-thinking.png?srcset=@2x#padding#card "Thinking 静思")](theme-thinking.html?lnkcss=none)
+> [![灵活来自冥想与禅思](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-thinking.png?srcset=@2x#padding#card "Thinking 静思")](theme-thinking.html)
 >
 > ~(Mn)~
 
-> [![致敬由 Sun Microsystems 研发的计算机操作系统 Solaris](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-solaris.png?srcset=@2x#padding#card "Solaris")](theme-solaris.html?lnkcss=none)
+> [![致敬由 Sun Microsystems 研发的计算机操作系统 Solaris](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-solaris.png?srcset=@2x#padding#card "Solaris")](theme-solaris.html)
 >
 > ~(Wn)~
 
@@ -774,14 +763,14 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-> > ###### 入门级定制
+> ###### 入门级定制
 >
 > - 封面、封底：不配套图片、商标 / Logo
 > - 或基于 VLOOK™ 配套的标准主题基础上进行微调
 >
 > ~(T1!)~
 
-> > ###### 进阶级定制
+> ###### 进阶级定制
 >
 > - 自定义商标 / Logo（建议提供原始文件，或高清晰度版本）
 > - 应用企业 VI 规范（或提供希望的主色、辅助色）
@@ -790,7 +779,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > ~(T2!)~
 
-> > ###### 可定制的范围选择
+> ###### 可定制的范围选择
 >
 > - 封面、封底：可选图片、logo、装饰文本
 > - 文稿字体、底纹、颜色、圆角大小/直角
@@ -809,13 +798,13 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 ## 字体主题
 
-`#Markdown 粉|🤟#`「**模板主题让文档颜值倍增，而字体则是文档气质担当！**」
+`#Markdown 粉|⬇️#`「**模板主题让文档颜值倍增，而字体则是文档气质担当！**」
 
 `#VLOOK|👀#`~(T2)~ 提供了两套自定义的字体主题，可根据个人喜好进行选用。
 
@@ -823,13 +812,13 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-> ###### 系统默认
+> **系统默认**
 >
 > 直接使用系统本地的默认字体（非衬线、等宽字体等），在不同的系统（Windows、macOS 等）上会有不同的表现效果
 >
 > ~(Gy!)~
 
-> ###### Book
+> **Book**
 >
 > 直接使用系统本地的默认字体（黑体、宋体、等宽字体等）进行地**混搭**
 >
@@ -849,22 +838,22 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > ~(Vn)~
 
->###### ℹ️ 「小清新、文艺范」配套的字体下载
+> ###### ℹ️ 「小清新、文艺范」配套的字体下载
 >
->因为 Windows / MacOS 系统默认不预装部分字体主题配套的字体包，VLOOK™ 目前可同时支持在线和本地两种使用方式。
->若你的工作环境无法访问互联网，建议直接下载字体包并安装到本地，以获得最佳的视觉体验。
+> 因为 Windows / MacOS 系统默认不预装部分字体主题配套的字体包，VLOOK™ 目前可同时支持在线和本地两种使用方式。
+> 若你的工作环境无法访问互联网，建议直接下载字体包并安装到本地，以获得最佳的视觉体验。
 >
->---
+> ---
 >
->![蓝奏云](https://madmaxchow.gitee.io/vlookres/pic/lanzou.png?srcset=@2x#logo) … [下载字体▾](https://wwe.lanzoui.com/ieVDhj1aokj)　　　　　![百度网盘](https://madmaxchow.gitee.io/vlookres/pic/baidupan.png?srcset=@2x#logo) … [下载字体▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)（提取码`11ta`)
+> ![蓝奏云](https://madmaxchow.gitee.io/vlookres/pic/lanzou.png?srcset=@2x#logo) … [下载字体▾](https://wwe.lanzoui.com/ieVDhj1aokj)　　　　　![百度网盘](https://madmaxchow.gitee.io/vlookres/pic/baidupan.png?srcset=@2x#logo) … [下载字体▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)（提取码`11ta`)
 >
->~(Gy)~
+> ~(Gy)~
 
 ---
 
 ###### 小清新_选用的字体及应用
 
-| 字体的应用                                                   |              字体名称              |    风格   |    ==    |    字重     |     ==     |    ==    |    ==     |
+| 字体的应用                                                   |              **字体名称**              |    风格   |    ==    |    字重     |     ==     |    ==    |    ==     |
 | :----------------------------------------------------------- | :--------------------------------: | :---------: | :--------: | :------: | :-------: | :-------: | :-------: |
 | :                                                            |                 :                  | [] 正常 | [] 斜体 | [] Regular | [] Medium | [] Bold | [] Black |
 | 封面、标题、正文(CJK)、<br>链接、表头、题注、彩虹标签等    | Noto Sans CJK SC<br>（思源黑体） |     Y     |          |     Y     |            |   Y    |    Y    |
@@ -873,7 +862,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ###### 文艺范_选用的字体及应用
 
-| 字体的应用                                                   |              字体名称               |    风格   |    ==    |    字重     |     ==     |    ==    |    ==     |
+| 字体的应用                                                   |              **字体名称**           |    风格   |    ==    |    字重     |     ==     |    ==    |    ==     |
 | :----------------------------------------------------------- | :---------------------------------: | :---------: | :--------: | :------: | :-------: | :-------: | :-------: |
 | :                                                            |                  :                  | [] 正常 | [] 斜体 | [] Regular | [] Medium | [] Bold | [] Black |
 | 封面大标题、章节标题、<br>正文(CJK)等                      | Noto Serif CJK SC<br>（思源宋体） | Y |             |             |    Y     |          |    Y    |
@@ -884,18 +873,18 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 ## 封面、封底
 
-`#Markdown 粉|🤟#`「**如何让 Markdown 的文档支持封面、封底**（例如像本文档的封面、封底）？」
+`#Markdown 粉|⬇️#`「**如何让 Markdown 的文档支持封面、封底**（例如像本文档的封面、封底）？」
 `#VLOOK|👀#`~(T2)~ 在应用了 VLOOK™ 的「[模板主题](#模板主题)」后，使用 Markdown 的标准语法也能让文档支持封面、封底，通过遵从 VLOOK™ 约定的使用规范即可激活。
 
 ---
 
-> ###### 激活「封面」
+> **激活「封面」**
 >
 > 在文档的**最开始位置**输入一个 `6 级` 标题
 >
@@ -907,7 +896,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > ~(T1)~
 
-> ###### 激活「封底」
+> **激活「封底」**
 >
 > 在文档的**最后 1 行**输入一个 `1 级` 标题
 >
@@ -919,16 +908,16 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 根据以上操作成功激活封面、封底后，还可以在 Typora 的大纲面板中出现对应封面、封底条目，可进行一键定位到文档对应位置。
 
-> ###### **要进一步了解「封面」中特定类型信息（如小标题、作者等）的自动排版规则？**
+> ****以下是「封面」中特定类型信息（如小标题、作者等）的自动排版规则：****
 >
-> > > ###### 标题
+> > ###### 标题
 > >
 > > - 默认格式就是标题格式，直接输入就可以了；
->> - 可结合 HTML 的上标、下标方式进行「小标题、副标题」的延伸应用：
-> >   - 小标题：`<sub>带 空格 的小标题</sub>` 或 `~不带空格的小标题~`
-> >   - 副标题：`<u>这是对应大标题的副标题</u>`
+> > - 可结合 HTML 的上标、下标方式进行「小标题、副标题」的延伸应用：
+> >  - 小标题：`<sub>带 空格 的小标题</sub>` 或 `~不带空格的小标题~`
+> >  - 副标题：`<u>这是对应大标题的副标题</u>`
 > 
-> > > ###### 文档类型、密级
+> > ###### 文档类型、密级
 > >
 > > 可使用 VLOOK™ 的[彩虹徽章](guide.md#彩虹徽章)写法来实现，举例：
 > >
@@ -936,15 +925,15 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 > > - `` `#文档密级|内部公开#`~(Og)~ ``
 > > - `` `#文档密级|机密资料#`~(Rd)~ ``
 > 
-> > > ###### 作者
+> > ###### 作者
 > >
 > > 使用 Markdown 的「粗体」格式标记出「作者信息」即可（会自动添加前缀 `By`、加粗），举例：`**我是作者**`
 >
-> > > ###### 版权信息
+> > ###### 版权信息
 > >
 > > 使用 Markdown 的「斜体」格式标记出「版权信息」即可（会自动缩小字号、加粗），举例：`*(C)2020. 版权所有*`
 >
-> > > ###### 在封面、封底中如何换行？ 
+> > ###### 在封面、封底中如何换行？ 
 > >
 > > 直接输入 HTML 的换行标签 `<br>` 即可
 
@@ -957,7 +946,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 ###### 示例_本文档的封面内容
 
 ```markdown
-###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>快速参考手册<br>(Part.II)</u><br>`#最新版本|V20.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>快速参考手册<br>(Part.II)</u><br>`#最新版本|V21.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
 ```
 
 ###### 示例_本文档的封底内容
@@ -968,7 +957,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 
 
-> > ###### 如何将封面中旧的上标格式语法替换为新的下划线格式语法？
+> ###### 如何将封面中旧的上标格式语法替换为新的下划线格式语法？
 >
 > 主要针对在封面中使用了上标语法 `<sup>...</sup>` 的情况。
 >
@@ -980,31 +969,28 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 ## Dark Mode 
 
-`#Markdown 粉|🤟#`「**希望 Markdown 的文档能适配系统的深色模式，保持良好、一致的体验～**」
+`#Markdown 粉|⬇️#`「**希望 Markdown 的文档能适配系统的深色模式，保持良好、一致的体验～**」
 
 `#VLOOK|👀#`~(T2)~ 所有 VLOOK™ 的主题都会自动根据浏览器或系统的 Dark Mode（深色模式）的设置进行自动适配。
 
 > 可通过工具栏上的 ![Light Mode](https://madmaxchow.gitee.io/vlookres/pic/icon-light-mode.svg?fill=theme1&darksrc=invert#icon2x) / ![Dark Mode](https://madmaxchow.gitee.io/vlookres/pic/icon-dark-mode.svg?fill=theme1&darksrc=invert#icon2x) 按钮进行手动切换（快捷键操作：<kbd>D</kbd> )。
 >
 > 若希望文档在显示后强制指定为 Light / Dark Mode ，可通过「[插件调校参数](#插件调校参数)」`cs` 来启用这一特性。
->
-> 
->
 > `#💡|小提示#`~(Og!)~ *如果你的图片在 Dark Mode 下显得不够和谐，可以尝试选择让[图片适配 Dark Mode](guide.md#图片适配 Dark Mode)。*
 
 ![Light / Dark 效果预览](https://madmaxchow.gitee.io/vlookres/pic/vlook-color-scheme-preview.png?srcset=@2x)
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 # °内容导航
 
@@ -1015,7 +1001,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 > - 所有 VLOOK™ 的主题都会自动对 `1 ~ 5级` 标题进行自动的分级编号；
 > - 因为 `6 级` 标题在 VLOOK™ 中应用于[封面和封底](#封面、封底)、段落小标题的排版等，所以不在自动编号范围内。
 
-`#Markdown 粉|🤟#`「**希望对文档中章节自动编号根据进行自定义，以适应具体文档的风格、标题内容的组织方式**」
+`#Markdown 粉|⬇️#`「**希望对文档中章节自动编号根据进行自定义，以适应具体文档的风格、标题内容的组织方式**」
 
 `#VLOOK|👀#`~(T2)~ VLOOK™ 开放了非常实用和丰富自定义章节编号格式，轻松实现对章节编号的自动格式化。
 
@@ -1054,13 +1040,13 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
 ## 导航中心
 
-`#Markdown 粉|🤟#`「**按大纲 / 索引进行导航是文档中最常用的导航方式，适用于内容层次明确，全文档跨章节的快速定位**」
+`#Markdown 粉|⬇️#`「**按大纲 / 索引进行导航是文档中最常用的导航方式，适用于内容层次明确，全文档跨章节的快速定位**」
 
 `#VLOOK|👀#`~(T2)~ Typora 支持 GFM 标准，其导出的 HTML 后会自动生成各类内容的索引大纲，VLOOK™ 可自动接管并提供更强大的导航特性。
 
@@ -1069,7 +1055,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 **由 VLOOK™ 自动接管后，提供以下增强特性：**
 
 - 支持丰富的分类内容索引：==目录==、==插图==、==表格==、==多媒体==、==代码块==
-- 所有类型的索引均支持按关键进行快速过滤筛选
+- 所有类型的索引（包括[文库](#文库导航)）均支持按关键进行快速过滤筛选
 - 支持自动记录访问历史，随时一键回跳
 - 支持通过快捷键 <kbd>O</kbd> 显示或隐藏导航中心
 
@@ -1077,13 +1063,13 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
 ## 逐章导航
 
-`#Markdown 粉|🤟#`「**除了大纲外，希望可以按章节顺序一章一章进行浏览。**」
+`#Markdown 粉|⬇️#`「**除了大纲外，希望可以按章节顺序一章一章进行浏览。**」
 
 `#VLOOK|👀#`~(T2)~ 由 VLOOK™ 接管后，会自动扩展提供「逐章导航栏」，正如你现在看到顶部的导航栏那样。
 
@@ -1098,13 +1084,13 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
 ## 逐段导航
 
-`#Markdown 粉|🤟#`「**希望在进行文档评审或演示时，按段落一段一段地突出，进行聚焦式浏览。**」
+`#Markdown 粉|⬇️#`「**希望在进行文档评审或演示时，按段落一段一段地突出，进行聚焦式浏览。**」
 
 `#VLOOK|👀#`~(T2)~ 直接用鼠标「三击」文档任意段落就可以进入「段落导航」模式了。
 
@@ -1116,18 +1102,16 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 | :----------: | ------------------ |
 | <kbd>J</kbd> | 跳到**下一个**段落 |
 | <kbd>K</kbd> | 跳到**上一个**段落 |
-| <kbd>H</kbd> | 往前跳**十个**段落 |
-| <kbd>L</kbd> | 往后跳**十个**段落 |
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
 ## 插图导航
 
-`#Markdown 粉|🤟#`「**希望能按图索骥，快速浏览文档中的所有插图，以及快速定位到文档中对应的位置。**」
+`#Markdown 粉|⬇️#`「**希望能按图索骥，快速浏览文档中的所有插图，以及快速定位到文档中对应的位置。**」
 
 `#VLOOK|👀#`~(T2)~ 文档中的所有图片、Mermaid[^Mermaid] 图表都支持快速浏览，一键跳转到对应位置。
 
@@ -1136,7 +1120,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 [^Mermaid]: Mermaid 是一个用于画流程图、状态图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [Mermaid 官网](https://mermaidjs.github.io)，或 VLOOK™ 的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.md)》
 
-> > ###### 支持的插图类型
+> ###### 支持的插图类型
 >
 > - 浏览器支持的所有图片（如：jpg / png / gif / bmp 等）
 > - 脚本化图表（如：Mermaid[^Mermaid]）
@@ -1152,60 +1136,88 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
 ## 文库导航
 
-`#Markdown 粉|🤟#`「**同一类话题或项目有很多 Markdown 文档，希望发布 HTML 后还能方便统一进行组织和访问。**」
+`#Markdown 粉|⬇️#`「**同一类话题或项目有很多 Markdown 文档，希望发布 HTML 后还能方便统一进行组织和访问。**」
 
 `#VLOOK|👀#`~(T2)~ 为每个文档指定作为「文库」索引页的 HTML，这样就可以随时一键直达你「文档宇宙」中的任意文档了。
 
-> - 启用了「文库导航」的文档，在导航中心下方会显示对应的「文库」按钮，显示的名称为文库索引页的标题；
-> - 点击即可打开，也支持直接通过快捷键 <kbd>L</kbd> 打开。
+> - 文档中配置了「文库」，或在文档中含有文库链接时，在工具栏、目录大纲下方都会显示「文库」入口；
+> - 指定的文库文件默认是会在当前文档的「文库视图」中显示，也可以指定在新标签中显示；
+> - 点击任意文库入口即可打开对应的文档，也支持直接通过快捷键 <kbd>L</kbd> 打开。
 
-**作为「文库」的 HTML 文档，可以是任意一篇使用「Typora＋VLOOK™」生成并导出的 HTML，能直接延用 VLOOK™ 绝大部分排版特性。**
+**作为「文库」的 HTML 文档，可以是任意一篇使用「Typora＋VLOOK™」生成并导出的 HTML（也可以是任意可访问的网页链接），能直接延用 VLOOK™ 绝大部分排版特性。**
 
-> > > ###### 如何让文档支持「文库导航」？
+> ###### 如何让文档支持「文库导航」？
+>
+> 1. 首先先确认已按《安装与使用》中的 [Step 3•配置导出选项](index.md#配置导出选项) 完成了「元标签」的安装；
+> 2. 然后在文档的 YAML Front Matter 区域内添加 `vlook-doc-lib` 配置项及对应的内容，根据需要选择以下任意一种方式进行使用：
+>
+> ---
+>
+> ---
+>
+> > **【方式一】最简化用法**
 > >
-> > 1. 在文档的 YAML Front Matter 区域添加以下内容：
+> > ```yaml
+> > vlook-doc-lib: 文库.html
+> > ```
+>
+> > **【方式二】自定义标题、搜索关键字**
 > >
-> >    ```yaml
-> >     vlook-doc-lib: 你的文库.html
-> >    ```
-> >    
-> > 2. 确定已按《安装与使用》中的 [Step 3•配置导出选项](index.md#step-3配置导出选项) 完成了「元标签代码」的安装，即「**偏好设置 ▸ VLOOK ▸ 在 &lt;head /&gt; 中添加**」已含有以下内容：
-> > 
-> >    ```html
-> >   <meta name="vlook-doc-lib" content="${vlook-doc-lib}"> 
-> >    ```
+> > ```yaml
+> > vlook-doc-lib: [你的文库标题](文库.html "可在导航中心搜索的内容")
+> > ```
+>
+> > **【方式三】在新标签中打开**
 > >
-> > 3. 更多关于通过 YAML Front Matter 设置插件预置选项的说明，详见：[插件预置选项](#插件预置选项)
-> 
-> > > ###### 如何让普通链接也能打开「文库导航」？
-> >
-> > 只须设置链接的内容为 `vlook-doc-lib://` 即可，示例如下：
->>
-> > ```markdown
-> > [点击打开文库](vlook-doc-lib://)
+> > ```yaml
+> > vlook-doc-lib: 文库.html?target=_blank
 > > ```
 > >
-> > 更多示例效果，详见：[链接内容识别](#链接内容识别)
-> 
-> > > ###### 如何关闭已发布文档中的「文库导航」？
 > >
-> > 在 HTML 文档访问路径后添加 URL 参数 `dl=none` 即关闭对当前文档的文库导航功能，示例如下：
->>
-> > ```
-> > 我的文档.html?dl=none
-> > ```
+>
+> 若文档需要配置多个文库，可以参考以下分段的配置方式：
+>
+> ```yaml
+> vlook-doc-lib: 
+> - 文库1.html
+> - [你的文库标题2](文库2.html "可在导航中心搜索的内容")
+> - [你的文库标题3](文库3.html?target=_blank)
+> ```
+>
+> 更多关于通过 YAML Front Matter 设置插件预置选项的说明，详见：[插件预置选项](#插件预置选项)
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+> ###### 如何让文档中的普通文本链接也能在「文库」中打开？
+>
+> 只须设置文本链接是添加 URL 参数 `target=vdl` 即可，示例如下：
+>
+> ```markdown
+> [点击这里打开默认文库](?target=vdl)
+> [点击这里打开指定文库2](文库2.html?target=vdl)
+> ```
+>
+> 更多示例效果，详见：[链接内容识别](#链接内容识别)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
+> ###### 如何隐藏已发布文档中指定的「文库导航」入口？
+>
+> 在 HTML 文档访问路径后添加 URL 参数 `vdl=none` 即关闭对当前文档的文库导航功能，示例如下：
+> 
+> ```
+> 我的文档.html?vdl=none
+> ```
+
+---
+
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
+
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
 ## 脚注导航
 
@@ -1219,9 +1231,9 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
 # °演示与出版辅助
 
@@ -1244,7 +1256,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
   - 点击即复制对应的标签内容，如：`#这是标签，点击复制#`~(T2!)~
 
 - 复制「徽章」
-  - 支持点击徽章标题、徽章内容，即复制对应的内容，如：`#复制徽章标题|复制徽章内容#`
+  - 支持点击徽章内容/内容2，即复制对应的内容，点击徽章标题复制整个简的内容，如：`#徽章标题|内容|内容2#`
 
 - 复制「表格」
   - 一键复制表格全部内容，[点这里找个表格试试 ❯](#表格阅读模式)
@@ -1269,7 +1281,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ### 表格阅读模式
 
-`#Markdown 粉|🤟#`「**表格行、列很多时，希望能快速显示任意单元格相关的行、列都有哪些？**」
+`#Markdown 粉|⬇️#`「**表格行、列很多时，希望能快速显示任意单元格相关的行、列都有哪些？**」
 
 `#VLOOK|👀#`~(T2)~ 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
@@ -1286,7 +1298,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ### 表格换行版式
 
-`#Markdown 粉|🤟#`「**在实际文档中会有不同宽度和内容的表格，希望在阅读时可以根据需要指定不同表格换行版式便于阅读表格内容**」
+`#Markdown 粉|⬇️#`「**在实际文档中会有不同宽度和内容的表格，希望在阅读时可以根据需要指定不同表格换行版式便于阅读表格内容**」
 
 `#VLOOK|👀#`~(T2)~ 安排！VLOOK™ 激活后开箱即用～
 
@@ -1297,7 +1309,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ### 画中画
 
-`#Markdown 粉|🤟#`「**希望插图、表格、代码块也能像视频那样，可以设置为「画中画」的浮动显示模式，方便在文档相关内容间对比**」
+`#Markdown 粉|⬇️#`「**希望插图、表格、代码块也能像视频那样，可以设置为「画中画」的浮动显示模式，方便在文档相关内容间对比**」
 
 `#VLOOK|👀#`~(T2)~ 这个可以有，VLOOK™ 激活后开箱即用～
 
@@ -1308,15 +1320,15 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 ## °演示辅助
 
 ### 聚光灯
 
-`#Markdown 粉|🤟#`「**在进行文档评审或演示时，可以通过 聚光灯 来让观众聚焦于文档的特定区域和内容。**」
+`#Markdown 粉|⬇️#`「**在进行文档评审或演示时，可以通过 聚光灯 来让观众聚焦于文档的特定区域和内容。**」
 
 `#VLOOK|👀#`~(T2)~ 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
@@ -1325,7 +1337,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ### 激光笔
 
-`#Markdown 粉|🤟#`「**在进行文档评审或演示时，可以通过 激光笔 来让观众注意力精确跟随演讲者指向的内容。**」
+`#Markdown 粉|⬇️#`「**在进行文档评审或演示时，可以通过 激光笔 来让观众注意力精确跟随演讲者指向的内容。**」
 
 `#VLOOK|👀#`~(T2)~ 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
@@ -1337,9 +1349,9 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 
 
@@ -1355,7 +1367,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ### 自定义欢迎页内容
 
-`#Markdown 粉|🤟#` 「**应用了 VLOOK™ 插件的文档在加载处理过程中会显示欢迎页，提示插件加载过程。但我希望能修改默认的欢迎信息。**」
+`#Markdown 粉|⬇️#` 「**应用了 VLOOK™ 插件的文档在加载处理过程中会显示欢迎页，提示插件加载过程。但我希望能修改默认的欢迎信息。**」
 
 `#VLOOK|👀#`~(T2)~  完成加载处理后会自动关闭并显示文档，若希望自定义欢迎页的显示行为，可通过「[插件预置选项](#插件预置选项)」`vlook-welcome` 来指定。
 
@@ -1377,7 +1389,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
-> ###### 无效的图片
+> **无效的图片**
 >
 > 在编辑时、发布后识别出无法加载的图片，并进行提示，示例如下：
 >
@@ -1385,13 +1397,13 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 >
 > ~(Ye)~
 
-> ###### 无效的页内链接
+> **无效的页内链接**
 >
 > 自动检查页面内部链接的正确性，是否存在[无效的页内链接](#这是无效页内链接)。
 >
 > ~(Og)~
 
-> ###### 无效的音频、视频
+> **无效的音频、视频**
 >
 > 自动检查音频源、视频源链接的有效性。
 >
@@ -1405,19 +1417,15 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
-> ###### VLOOK™ 文库专属链接
+> **VLOOK™ 文库专属链接**
 >
-> [**点击打开文库**](vlook-doc-lib://)
->
-> [**点击打开文库，并跳到指定锚点**](vlook-doc-lib://vlook-lib-en.html#📊-脚-本-化-图-表)
->
-> [**点击打开其他文库**](vlook-doc-lib://vlook-lib-en.html#📊-脚-本-化-图-表)
->
-> （鼠标悬停看看效果）
+> - 打开[**默认文库**](?target=vdl)（有多个文库是指第 1 个文库）
+> - 打开[**默认文库，并跳到指定锚点**](?target=vdl#📊-脚-本-化-图-表)
+> - 以文库方式打开：[**Document Library**](vlook-lib-en.md?target=vdl#📊-脚-本-化-图-表)
 >
 > ~(T1)~
 
-> ###### 识别主流超链接资源
+> **识别主流超链接资源**
 >
 > [**#页内链接**](#打赏) / [**md 文件**](index.md?mdx=off) / [**站内链接**](xxx.html) / [**站外 http**](http://xxx) / [**站外 https**](https://xxx) / [**mailto**](mailto:)
 >
@@ -1429,7 +1437,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
-> ###### 文档资源
+> **文档资源**
 >
 > [**.doc** / **.xls** / **.ppt** / **.pdf** / **.txt** / **.csv**](file.doc)
 >
@@ -1437,7 +1445,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 >
 > ~(Cy!)~
 
-> ###### 归档资源
+> **归档资源**
 >
 > [**.zip** / **.rar** / **.7z** / **.gz** / **.tar** / **.dmg** / **.cab**](file.zip)
 >
@@ -1445,7 +1453,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 >
 > ~(Og!)~
 
-> ###### 高风险资源
+> **高风险资源**
 >
 > [**.exe** / **.sh**](file.exe)
 >
@@ -1457,7 +1465,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
-> ###### 自动转换 md 链接
+> **自动转换 md 链接**
 >
 > > 在 Typora 支持在编辑时指定为任意 md 文档（或带锚点的 md 文件），方便在多文档维护时随时跳转，但导出 HTML 后不会自动转为 html，这对不适用于基于 HTML 发布的场景。
 >
@@ -1467,23 +1475,17 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 >
 > ~(Bu!)~
 
-> ###### 外部链接强制在新标签打开
+> **外部链接强制在新标签打开**
 >
 > 为提高文档阅读与交互体验，对于外链（如：http、https等），自动强制设置为在新标签页中打开。
 >
 > ~(Vn!)~
 
-### 适配打印输出
-
-**使用 VLOOK™ 提供的定制打印功能，可以在打印输出时自动调整、展开页面内容，以适应用打印输出的需要。**
-
-> 通过点击顶部工具栏的 ![打印](https://madmaxchow.gitee.io/vlookres/pic/icon-print.svg?fill=theme1&darksrc=invert#icon2x) 按钮，看看文档的打印预览效果～
-
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
 # °第三方集成的适配
 
@@ -1493,7 +1495,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ### Mermaid 图表自动编号与题注
 
-`#Markdown 粉|🤟#`「**文档中的 Mermaid 图表，也希望可以像插图那样添加编号和题注**」
+`#Markdown 粉|⬇️#`「**文档中的 Mermaid 图表，也希望可以像插图那样添加编号和题注**」
 
 `#VLOOK|👀#`~(T2)~ 无须任何设置，即可自动对文档内所有「Mermaid 图表」进行统一的自动编号，编号内容举例：`插图 1` `插图 2` ，命名和编号与[插图](guide.md#插图自动编号与题注)一致。同时，还增强了在演示时的辅助特性 … [了解详情 ❯](#Mermaid 样式优化与扩展)
 
@@ -1503,19 +1505,19 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ### Mermaid 样式优化与扩展
 
-`#Markdown 粉|🤟#`「**如果不喜欢 Mermaid 默认的样式，还希望自动适配 Dark Mode，怎么办？**」
+`#Markdown 粉|⬇️#`「**如果不喜欢 Mermaid 默认的样式，还希望自动适配 Dark Mode，怎么办？**」
 
 `#VLOOK|👀#`~(T2)~ 自动提供了深度的样式优化。
 
 > **统一和优化样式：**
 >
-> 自动针对 Mermaid 的 **饼图、流程图、状态机图、顺序图、类图、甘特图** 进行样式优化，并支持 [Dark Mode](guide2.md#Dark Mode)
+> 自动针对 Mermaid 的 **饼图、流程图、状态机图、顺序图、类图、甘特图** 进行样式优化，并支持 [Dark Mode](#Dark Mode)
 
 ###### Mermaid 的流程图
 
@@ -1680,9 +1682,9 @@ end
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
 ## 更美观的公式
 
@@ -1690,7 +1692,7 @@ end
 
 这是行内混排的「**数学公式**」$\boxed{\lim_{x \to \infty} \exp{-x} = 0}$，也可以是「**化学公式**」$\boxed{\ce{CH4 + 2 $\left( \ce{O2 + 79/21 N2} \right)$}}$
 
-> > ###### 看看以上公式的代码
+> ###### 看看以上公式的代码
 >
 > 数学公式的代码：`$\lim_{x \to \infty} \exp{-x} = 0$`
 >
@@ -1729,68 +1731,56 @@ $$
 
 目前涉及比较主要的特性具体如下：
 
-> ###### <center>📖 侧边栏</center>
+> **📖 侧边栏**
 >
-> ---
->
-> ---
->
-> > ###### 左侧、浮动大纲
+> > **左侧、浮动大纲**
 > >
 > > 不同显示模式（自动收起 / 全部展开 / 无大纲）的样式优化
 > >
 > 
->> ###### 大纲封面、封底
+> > **大纲封面、封底**
 > >
 > > 大纲面板中标识中符合 VLOOK™ 标准的「封面、封底」条目
 > >
 > 
-> > ###### 侧边栏标题
->>>
+> > **侧边栏标题**
+> >
 > > 大纲面板、文件面板标题栏支持显示当前 VLOOK™ 主题名称
 > 
 > ~(Cy!)~
 
-> ###### <center>✏️ 编辑时交互</center>
+> **✏️ 编辑时交互**
 >
-> ---
->
-> ---
->
-> > ###### 输入态提示
+> > **输入态提示**
 > >
 > > 标识出段落、表格行的当前行，以及链接 / code / kbd 内嵌图片 / YAML
 > >
 > 
->> ###### 图片资源异常
+> > **图片资源异常**
 > >
 > > 通过不同样式，明显地标识出无效、无法加载的图片资源，便于及时进行修正
 > >
 > 
 > > ###### 表格行增强
->>>
+> > >
 > > 鼠标在表格上悬停时，能标识出对应悬停的表格行
 > 
 > ~(Bu!)~
 
-> ###### <center>🖥 全局 UI 交互</center>
+> **🖥 全局 UI 交互**
 >
-> ---
->
-> ---
->
-> > ###### 全局 UI • 1
+> > **全局 UI • 1**
 > >
 > > 统一将编辑器关键的 UI、字体、图标样式与当前 VLOOK™ 主题保持一致
 > >
 > 
->> ###### 全局 UI • 2
+> > **全局 UI • 2**
 > >
 > > 在「源代码模式」下统一显示同一等宽字体，并提供了更宽阔的可视空间
 > >
 > 
 > > ###### 融合菜单、快速打开
->>>
+> > >
 > > 针对「融合菜单 ( Win 版 )」、「快速打开」适配主题，并提供好友的样式
 > 
 > ~(Se!)~
@@ -1799,9 +1789,9 @@ $$
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 ## 插件预置选项
 
@@ -1834,9 +1824,9 @@ $$
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 ## 插件调校参数
 
@@ -1847,29 +1837,30 @@ $$
 
 *==VLOOK™ 插件调校参数说明==*
 
-| **插件调校参数** | 简介                                                         | 取值及说明                                                   |
-| :--------------: | ------------------------------------------------------------ | ------------------------------------------------------------ |
-|      capnum      | 指定==不要启用==自动生成内容索引与编号的范围（多项间可用英文逗号分隔），不启用的情况下，对应内容的超长后的[自动折叠](#长内容自动折叠)也会不启用<br>默认**全部启用** | `table` - 表格<br>`figure` - 插图<br>`audio` - 音频<br>`video` - 视频<br>`codeblock` - 代码块 |
-|     capauto      | 指定在内容索引无题注内容时，是否以索引对象（如表格、图片、代码块等）的内容自动生成<br>默认为 `off` | `off` - 不开启<br>`on` - 开启                                |
-|        cs        | 指定使用固定的颜色方案<br>默认为 `auto`                      | `light` - 强制显示为 Light Mode<br>`dark` - 强制显示为 Dark Mode<br>`auto` - 自动跟随系统配置 |
-|        cf        | 控制使用长内容自动折叠的开关<br>默认为 `on`<br><br>若有多个指定范围要开启，可用英文逗号「,」进行分隔 | `off` - 全不开启<br>`on` - 全开启<br><br>指定范围开启：<br>`table` - 指定「表格」<br>`figure` - 指定「插图」<br>`codeblock` - 指定「代码块」 |
-|       tag        | 调整[彩虹标签](guide.md#彩虹标签)未指定颜色时默认使用的颜色标识<br>默认为 `T1` | 对应的预置色卡，[详见这里](guide.md#彩虹标签)                |
-|      badge       | 调整[彩虹徽章](guide.md#彩虹徽章)未指定颜色时默认使用的颜色标识<br>默认为 `Gy` | 对应的预置色卡，[详见这里](guide.md#彩虹徽章)                |
-|      quote       | 调整普通「引用」默认自动转换为指定颜色标识的[彩虹引用](guide.md#彩虹引用)<br>默认为 `T1` | 对应的预置色卡，[详见这里](guide.md#彩虹引用)                |
-|       coat       | 调整[刮刮卡](guide.md#°刮刮卡)未指定颜色时默认使用的颜色标识<br>默认为 `Gy` | 对应的预置色卡，[详见这里](guide.md#°刮刮卡)                 |
-|        dl        | 控制文库功能的开关<br>默认为 `on`                            | `off` - 不开启<br>`on` - 开启                                |
-|      effect      | 调整文档的动效级别<br>默认为 `2`                             | `0` - 关闭动效<br>`1` - 标准动效<br>`2` - 增强动效（毛玻璃等） |
-|       lmc        | 对代码块自动生成题注并编号的行数下限<br>默认为 `1`           | `{行数下限}` - 大于该行数的代码才会自动生成题注和编号<br>如：`3` |
-|       mdx        | 指定将扩展名为「*.md」的链接转换为指定的新扩展名<br>（该配置默认是全局生效，也支持在单个链接中单独添加同名参数进行微调）<br>默认为 `html` | `off` - 关闭，不转换<br>`{扩展名}` - 指定的扩展名，如 `php` `htm` 等 |
-|        nc        | 指定导航中心初始的运行模式<br>默认为 `auto`                  | `auto` - 在封面时自动关闭、在正文时自动展开<br>`closed` - 始终关闭，须鼠标悬停在左侧，或通过工具栏打开 |
-|      reset       | 强制重置浏览器存储的 VLOOK 相关数据                          | `true`                                                       |
-|      radius      | 使用指定的圆角样式，忽略 VLOOK 主题自带的样式                | `none` - 不使用圆角<br>`small` - 使用小号圆角<br>`big` - 使用大号圆角 |
-|      srcset      | 对于没有高清分辨率的图片，在高分屏上强制以高清形式显示<br>默认为「不开启」 | `auto` - 对未指定 srcset 的图片强制以高清形式显示            |
-|      stsbar      | 指定文档底部状态栏内==不要启用==的内容项（多项间可用英文逗号分隔）<br>默认**全部启用** | `doc-info` - 阅读时长、字数<br>`zoom-view` - 缩放<br>`link-checker` - 错误链接 |
-|        wf        | 强制指定使用的字体主题，指定该参数后则忽略 VLOOK 主题配套的字体主题<br>默认为文档选用的 VLOOK 主题中配套的字体主题 | `local` - 强制使用「系统默认」<br>`sans` - 强制使用「小清新」<br>`serif` - 强制使用「文艺范」 |
-|        ws        | 指定文档的「欢迎页」显示模式<br>默认为 `auto`                | `auto` - 文档和插件加载完成后，延时秒数由主题指定<br>`wait` - 文档和插件加载完成后，手动关闭欢迎页<br>`none` - 不显示欢迎页<br>`1~60` - 指定延时的秒数（优先级最高） |
-|       toc        | 指定目录大纲初始自动折叠的层级<br>默认为 `2`                 | `0` - 不折叠，全部展开<br>`1~5` - 折叠指定的层级             |
-|        tr        | 指定表格阅读模式（十字光标）默认开关<br>默认为 `off`         | `off` - 不开启<br>`on` - 开启                                |
+| **调校参数** | 说明                                                         |  默认值  | 取值及说明                                                   |
+| :----------: | ------------------------------------------------------------ | :------: | ------------------------------------------------------------ |
+|    badge     | 调整[彩虹徽章](guide.md#彩虹徽章)未指定色号时默认使用的色号 |   `Gy`   | 对应的预置色号，[详见这里](guide.md#彩虹徽章)                |
+|   capauto    | 指定在内容索引无题注内容时，是否以索引对象（如表格、图片、代码块等）的内容自动生成 |  `off`   | `off` - 不开启<br>`on` - 开启                                |
+|    capnum    | 指定==不要启用==自动生成内容索引与编号的范围（多项间可用英文逗号分隔），不启用的情况下，对应内容的超长后的[自动折叠](#长内容自动折叠)也会不启用 |   全部   | `table` - 表格<br>`figure` - 插图<br>`audio` - 音频<br>`video` - 视频<br>`codeblock` - 代码块 |
+|      cf      | 控制使用长内容自动折叠的开关<br>若有多个指定范围要开启，可用英文逗号「,」进行分隔 |   `on`   | `off` - 全不开启<br>`on` - 全开启<br><br>指定范围开启：<br>`table` - 指定「表格」<br>`figure` - 指定「插图」<br>`codeblock` - 指定「代码块」 |
+|     coat     | 调整[刮刮卡](guide.md#°刮刮卡)未指定色号时默认使用的色号 |   `Gy`   | 对应的预置色号，[详见这里](guide.md#°刮刮卡)                 |
+|      cs      | 指定使用固定的颜色方案                                       |  `auto`  | `light` - 强制显示为 Light Mode<br>`dark` - 强制显示为 Dark Mode<br>`auto` - 自动跟随系统配置 |
+|    effect    | 调整文档的动效级别                                           |   `2`    | `0` - 关闭动效<br>`1` - 标准动效<br>`2` - 增强动效（毛玻璃等） |
+|     lmc      | 对代码块自动生成题注并编号的行数下限                         |   `1`    | `{行数下限}` - 大于该行数的代码才会自动生成题注和编号<br>如：`3` |
+|     mdx      | 指定将扩展名为「*.md」的链接转换为指定的新扩展名<br>（该配置默认是全局生效，也支持在单个链接中单独添加同名参数进行微调） |  `html`  | `off` - 关闭，不转换<br>`{扩展名}` - 指定的扩展名，如 `php` `htm` 等 |
+|      nc      | 指定导航中心初始的运行模式                                   |  `auto`  | `auto` - 在封面时自动关闭、在正文时自动展开<br>`closed` - 始终关闭，须鼠标悬停在左侧，或通过工具栏打开 |
+|    quote     | 调整普通「引用」默认自动转换为指定色号的[彩虹引用](guide.md#彩虹引用) |   `T1`   | 对应的预置色号，[详见这里](guide.md#彩虹引用)                |
+|    radius    | 使用指定的圆角样式，忽略 VLOOK 主题自带的样式                |          | `none` - 不使用圆角<br>`small` - 使用小号圆角<br>`big` - 使用大号圆角 |
+|    reset     | 强制重置浏览器存储的 VLOOK 相关数据                          |          | `true`                                                       |
+|    srcset    | 对于没有高清分辨率的图片，在高分屏上强制以高清形式显示       |  不开启  | `auto` - 对未指定 srcset 的图片强制以高清形式显示            |
+|    stsbar    | 指定文档底部状态栏内==不要启用==的内容项（多项间可用英文逗号分隔） |   全部   | `doc-info` - 阅读时长、字数<br>`font-theme` - 字体主题<br>`color-scheme` - 颜色主题<br/>`link-checker` - 错误链接检查 |
+|     tag      | 调整[彩虹标签](guide.md#彩虹标签)未指定色号时默认使用的色号 |   `T2`   | 对应的预置色号，[详见这里](guide.md#彩虹标签)                |
+|    target    | 配合[文库导航](#文库导航)使用：<br>应用-1. 指定在 YAML 中[文库预置选项](#插件预置选项) `vlook-doc-lib` 中链接在新标签中打开；<br>应用-2. 文档内指定链接在「文库」中打开。 |          | 针对「应用-1」：`_blank`<br>针对「应用-2」：`vdl`            |
+|     toc      | 指定目录大纲初始自动折叠的层级                               |   `2`    | `0` - 不折叠，全部展开<br>`1~5` - 折叠指定的层级             |
+|      tr      | 指定表格阅读模式（十字光标）默认开关                         |  `off`   | `off` - 不开启<br>`on` - 开启                                |
+|     vdl      | 控制文库功能的开关                                           |   `on`   | `off` - 不开启<br>`on` - 开启                                |
+|      wf      | 强制指定使用的字体主题，指定该参数后则忽略 VLOOK 主题配套的字体主题 | 主题配套 | `local` - 强制使用「系统默认」<br>`sans` - 强制使用「小清新」<br>`serif` - 强制使用「文艺范」 |
+|      ws      | 指定文档的「欢迎页」显示模式                                 |  `auto`  | `auto` - 文档和插件加载完成后，延时秒数由主题指定<br>`wait` - 文档和插件加载完成后，手动关闭欢迎页<br>`none` - 不显示欢迎页<br>`1~60` - 指定延时的秒数（优先级最高） |
 
 ###### 方式一：通过 URL 参数指定（多个参数间用「&」进行分隔）
 
@@ -1900,9 +1891,9 @@ vlook-query: 参数1=取值&参数2=取值...&参数n=取值
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#logo)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&lnkcss=none)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
 ## 快捷键操作汇总
 
@@ -1929,8 +1920,6 @@ vlook-query: 参数1=取值&参数2=取值...&参数n=取值
 | **[段落导航](#逐段导航)** | ==                                          |
 |         <kbd>J</kbd>         | 跳到**下一个**段落                          |
 |         <kbd>K</kbd>         | 跳到**上一个**段落                          |
-|         <kbd>H</kbd>         | 往前跳**十个**段落                          |
-|         <kbd>L</kbd>         | 往后跳**十个**段落                          |
 | **[插图导航](#插图导航)** | ==                                          |
 | <kbd>◀</kbd> 或 <kbd> , </kbd> | **前一张**插图                                  |
 | <kbd>▶</kbd> 或 <kbd> . </kbd> | **后一张**插图                                  |
@@ -1972,25 +1961,25 @@ vlook-query: 参数1=取值&参数2=取值...&参数n=取值
 >
 > ---
 >
-> > ###### <center>表情
+> > **表情**
 > >
 > > 😀 😁 😂 😃 😄 😅 😆 😉 😊 😋 😎 😍 😘 😗 😙 😚 ☺ 🙂 🤗 😇 🤓 🤔 😐 😑 😶 🙄 😏 😣 😥 😮 🤐 😯 😪 😫 😴 😌 😛 😜 😝 😒 😓 😔 😕 🙃 🤑 😲 😷 🤒 🤕 🙁 😖 😞 😟 😤 😢 😭 😦 😧 😨 😩 😬 😰 😱 😳 😡 😠
 > >
 > > ~(Og)~
 >
-> > ###### <center>动物</center>
+> > **动物**
 > >
 > > 🐱 😺 😸 😹 😻 😼 😽 🙀 😿 😾 🙈 🙉 🙊 🐵 🐒 🐕 🐩 🐺 🐱 🐈 🦁 🐯 🦄 🐂 🐃 🐄 🐷 🐖 🐗 🐽 🐏 🐑 🐐 🐪 🐫 🐘 🐭 🐁 🐀 🐹 🐰 🐇 🐿 🐨 🐼 🐾 🦃 🐓 🐣 🐤 🐥 🐦 🐧 🕊 🐸 🐊 🐍 🐲 🐉 🐳 🐋 🐬 🐟 🐡 🐙 🐚 🦀 🐌 🐜 🐝 🐞 🕷 🦂 🕸
 > >
 > > ~(Cy)~
 >
-> > ###### <center>办公</center>
+> > **办公**
 > >
 > > 📱 📲 ☎ 📞 📟 📠 🔋 🔌 💻 💽 💾 💿 📀 🎥 📺 📷 📹 📼 🔍 🔎 🔬 🔭 📡 📔 📕 📖 📗 📘 📙 📚 📓 📃 📜 📄 📰 📑 🔖 💳 ✉ 📧 📨 📩 📤 📥 📦 📫 📪 📬 📭 📮 ✏ ✒ 📝 📁 📂 📅 📆 📇 📈 📉 📊 📋 📍 📎 📏 📐 ✂ 🔒 🔓 🔏 🔐 🔑
 > >
 > > ~(Gy)~
 >
-> > ###### <center>饮食</center>
+> > **饮食**
 > >
 > > 🍇 🍈 🍉 🍊 🍋 🍌 🍍 🍎 🍏 🍑 🍒 🍓 🍅 🍆 🌽 🍄 🌰 🍞 🍖 🍗 🍔 🍟 🍕 🍳 🍲 🍱 🍘 🍙 🍚 🍛 🍜 🍝 🍠 🍢 🍣 🍤 🍥 🍡 🍦 🍧 🍨 🍩 🍪 🎂 🍰 🍫 🍬 🍭 🍮 🍯 🍼 ☕ 🍵 🍶 🍷 🍸 🍹 🍴
 > >
@@ -2002,25 +1991,25 @@ vlook-query: 参数1=取值&参数2=取值...&参数n=取值
 >
 > ---
 >
-> > ###### <center>身体</center>
+> > **身体**
 > >
 > > 👂 👣 👀 👁 👁 🗨 👅 👄
 > >
 > > ~(Pk)~
 >
-> >###### <center>手机</center>
+> > **手机**
 > >
-> >📱 📲 📶 📳 📴 ☎ 📞 📟 📠
+> > 📱 📲 📶 📳 📴 ☎ 📞 📟 📠
 > >
-> >~(Bu)~
+> > ~(Bu)~
 >
-> > ###### <center>恐怖</center>
+> > **恐怖**
 > >
 > > 😈 👿 👹 👺 💀 ☠ 👻 👽 👾 💣
 > >
 > > ~(Gy)~
 >
-> > ###### <center>星座</center>
+> > **星座**
 > >
 > > ♈ ♉ ♊ ♋ ♌ ♍ ♎ ♏ ♐ ♑ ♒ ♓ ⛎
 > >
@@ -2032,25 +2021,25 @@ vlook-query: 参数1=取值&参数2=取值...&参数n=取值
 >
 > ---
 >
-> > ###### <center>公共</center>
+> > **公共**
 > >
 > > ♻ 🏧 🚮 🚰 ♿ 🚹 🚺 🚻 🚼 🚾 ⚠ 🚸 ⛔ 🚫 🚳 🚭 🚯 🚱 🚷 🔞 💈
 > >
 > > ~(Bn)~
 >
-> >###### <center>建筑</center>
+> > **建筑**
 > >
-> >🏠 🏡 🏢 🏣 🏤 🏥 🏦 🏨 🏩 🏪 🏫 🏬 🏭 🏯 🏰 💒 🗽 ⛪ 🌆 🌇 🌉
+> > 🏠 🏡 🏢 🏣 🏤 🏥 🏦 🏨 🏩 🏪 🏫 🏬 🏭 🏯 🏰 💒 🗽 ⛪ 🌆 🌇 🌉
 > >
-> >~(Gy)~
+> > ~(Gy)~
 >
-> > ###### <center>植物</center>
+> > **植物**
 > >
 > > 💐 🌸 💮 🏵 🌹 🌺 🌻 🌼 🌷 🌱 🌲 🌳 🌴 🌵 🌾 🌿 ☘ 🍀 🍁 🍂 🍃
 > >
 > > ~(Gn)~
 >
-> > ###### <center>心形</center>
+> > **心形**
 > >
 > > 💘 ❤ 💓 💔 💕 💖 💗 💙 💚 💛 💜 💝 💞 💟 ❣
 > >
@@ -2062,25 +2051,25 @@ vlook-query: 参数1=取值&参数2=取值...&参数n=取值
 >
 > ---
 >
-> > ###### <center>自然</center>
+> > **自然**
 > >
 > > 🌍 🌎 🌏 🌐 🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘 🌙 🌚 🌛 🌜 ☀ 🌝 🌞 ⭐ 🌟 🌠 ☁ ⛅ ☔ ⚡ ❄ 💧 🌊
 > >
 > > ~(Cy)~
 >
-> > ###### <center>文体</center>
+> > **文体**
 > >
 > > 🎪 🎭 🎨 🎰 🚣 🛀 🎫 🏆 ⚾ 🏈 🏉 🎾 🎱 🎳 ⛳ 🎣 🎽 🎿 🏂 🏄 🏇 🏊 🚴 🚵 🎯 🎮 🎲 🎷 🎸 🎺 🎻 🎬
 > >
 > > ~(Rd)~
 >
-> > ###### <center>时钟</center>
+> > **时钟**
 > >
 > > 🕛 🕧 🕐 🕜 🕑 🕝 🕒 🕞 🕓 🕟 🕔 🕠 🕕 🕡 🕖 🕢 🕗 🕣 🕘 🕤 🕙 🕥 🕚 🕦 ⌛ ⏳ ⌚ ⏰ ⏱ ⏲ 🕰
 > >
 > > ~(Gy)~
 >
-> > ###### <center>手势</center>
+> > **手势**
 > >
 > > 💪 👈 👉 ☝ 👆 🖕 👇 ✌ 🖖 🤘 🖐 ✋ 👌 👍 👎 ✊ 👊 👏 👐 ✍ 💅
 > >
@@ -2092,25 +2081,25 @@ vlook-query: 参数1=取值&参数2=取值...&参数n=取值
 >
 > ---
 >
-> > ###### <center>标志</center>
+> > **标志**
 > >
 > > ♠ ♥ ♦ ♣ 🀄 🎴 🔇 🔈 🔉 🔊 📢 📣 💤 💢 💬 💭 ♨ 🌀 🔔 🔕 ✡ ✝ 🔯 📛 🔰 🔱 ⭕ ✅ ☑ ✔ ✖ ❌ ❎ ➕ ➖ ➗ ➰ ➿ 〽 ✳ ✴ ❇ ‼ ⁉ ❓ ❔ ❕ ❗ © ® ™ 🎦 🔅 🔆 💯 🔠 🔡 🔢 🔣 🔤 🅰 🆎 🅱 🆑 🆒 🆓 ℹ 🆔 Ⓜ 🆕 🆖 🅾 🆗 🅿 🆘 🆙 🆚 🈁 🈂 🈷 🈶 🈯 🉐 🈹 🈚 🈲 🉑 🈸 🈴 🈳 ㊗ ㊙ 🈺 🈵 ▪ ▫ ◻ ◼ ◽ ◾ ⬛ ⬜ 🔶 🔷 🔸 🔹 🔺 🔻 💠 🔲 🔳 ⚪ ⚫ 🔴 🔵 ▶ ◀ ⬆ ↗ ➡ ↘ ⬇ ↙ ⬅ ↖ ↕ ↔ ↩ ↪ ⤴ ⤵ 🔃 🔄 🔙 🔚 🔛 🔜 🔝
 > >
 > > ~(Rd)~
 >
-> > ###### <center>物品</center>
+> > **物品**
 > >
 > > 💌 💎 🔪 💈 🚪 🚽 🚿 🛁 ⌛ ⏳ ⌚ ⏰ 🎈 🎉 🎊 🎎 🎏 🎐 🎀 🎁 📯 📻 📱 📲 ☎ 📞 📟 📠 🔋 🔌 💻 💽 💾 💿 📀 🎥 📺 📷 📹 📼 🔍 🔎 🔬 🔭 📡 💡 🔦 🏮 📔 📕 📖 📗 📘 📙 📚 📓 📃 📜 📄 📰 📑 🔖 💰 💴 💵 💶 💷 💸 💳 ✉ 📧 📨 📩 📤 📥 📦 📫 📪 📬 📭 📮 ✏ ✒ 📝 📁 📂 📅 📆 📇 📈 📉 📊 📋 📍 📎 📏 📐 ✂ 🔒 🔓 🔏 🔐 🔑 🔫 🔧 🔩 🔗 💊 🚬 🔮 🚩 🎌 💦 💨
 > >
 > > ~(Gy)~
 >
-> > ###### <center>人物</center>
+> > **人物**
 > >
 > > 👦 👧 👨 👩 👴 👵 👶 👱 👮 👲 👳 👷 ⛑ 👸 💂 🕵 🎅 👰 👼 💆 💇 🙍 🙎 🙅 🙆 💁 🙋 🙇 🙌 🙏 🗣 👤 👥 🚶 🏃 👯 💃 🕴 👫 👬 👭 💏 💑 👪 👨‍ 👩‍ 👧 👨‍ 👩‍ 👧‍ 👦 👨‍ 👩‍ 👦‍ 👦 👨‍ 👩‍ 👧‍ 👧 👩‍ 👩‍ 👦 👩‍ 👩‍ 👧 👨 👩 👦 👨 👩 👧 👨 👩 👧 👦 👨 👩 👦 👦 👨 👩 👧 👧 👨 👨 👦 👨 👨 👧 👨 👨 👧 👦 👨 👨 👦 👦 👨 👨 👧 👧 👩 👩 👦 👩 👩 👧 👩 👩 👧 👦 👩 👩 👦 👦 👩 👩 👧 👧
 > >
 > > ~(Og)~
 >
-> > ###### <center>交通</center>
+> > **交通**
 > >
 > > 🚂 🚃 🚄 🚅 🚆 🚇 🚈 🚉 🚊 🚝 🚞 🚋 🚌 🚍 🚎 🚏 🚐 🚑 🚒 🚓 🚔 🚕 🚖 🚗 🚘 🚚 🚛 🚜 🚲 ⛽ 🚨 🚥 🚦 🚧 ⚓ ⛵ 🚣 🚤 🚢 ✈ 💺 🚁 🚟 🚠 🚡 🚀
 > >
@@ -2154,19 +2143,19 @@ VLOOK™ 插件的界面语言，自动适配浏览器的语言设置。
 
 ## 图片 URL 扩展应用说明
 
-> > > ###### 图片 URL 无 Query 参数时
+> > ###### 图片 URL 无 Query 参数时
 > >
->  > 先在 URL 后添加英文问号 `?` 后，再添加需要的 URL Query 参数。
+> > 先在 URL 后添加英文问号 `?` 后，再添加需要的 URL Query 参数。
 > >
 > > 示例：`![图片题注](xxx.png?darksrc=invert)`
 > >
-> > 
+> >
 > >
 > > `#⚠️|注意#`~(Rd)~ 若图片 URL 中含有锚点内容，如 `xxx.png#icon2x` ，请在锚点前添加 URL Query 参数。
 > >
 > > 示例：`![图片题注](xxx.png?darksrc=invert#icon2x)`
 >
-> > > ###### 图片 URL 锚点
+> > ###### 图片 URL 锚点
 > >
 > > 图片 URL 支持添加锚点实现快速图片排版，目前支持通过锚点排版的特性包括：
 > >
@@ -2177,7 +2166,7 @@ VLOOK™ 插件的界面语言，自动适配浏览器的语言设置。
 > >
 > > 当需要同时应用以上多个排版，可添加多个锚点，如：`#center#padding#icon2x`
 >
-> > > ###### 图片 URL 已有 Query 参数时
+> > ###### 图片 URL 已有 Query 参数时
 > >
 > > 多个参数间用英文特殊符号 `&` 进行分隔。
 > >
