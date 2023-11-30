@@ -706,23 +706,24 @@ kbd img[d-img-fill="t2"]) {
     background: var(--d-f-c);
 }
 // VLOOK 文库专用链接
-#write a[href*="target=vdl"]:hover::before {
-    content: "❏ VLOOK™ Document Library";
+#write a[href*="target=vdl"]:hover::before,
+#write a[target="vdl"]:hover::before {
+    content: "VLOOK™ Document Library / 文库";
     color: @buttonForeColor;
     background: @buttonBgColor;
 }
 // HTTPS 协议
 #write a[href^="http://"]:hover::before {
-    content: "HTTP";
+    content: "HTTP / 链接";
     background: @aLineColor;
 }
 #write a[href^="https://"]:hover::before {
-    content: "Secure Link";
+    content: "Secure Link / 安全链接";
     background: @accColorGreen;
 }
 // MAILTO 协议
 #write a[href^="mailto:"]:hover::before {
-    content: "Email";
+    content: "Email / 邮件";
     background: @accColorBlue;
 }
 // 文档资源
@@ -736,7 +737,7 @@ a[href$=".pptx"], a[href$=".PPTX"],
 a[href$=".txt"], a[href$=".TXT"],
 a[href$=".csv"],
 a[href$=".CSV"]):hover::before {
-    content: "Document File";
+    content: "Document File / 文档";
     background: @accColorCyan;
 }
 // 归档资源
@@ -747,12 +748,12 @@ a[href$=".gz"],
 a[href$=".tar"],
 a[href$=".dmg"],
 a[href$=".cab"]):hover::before {
-    content: "Archive File";
+    content: "Archive File / 压缩文件";
     background: @accColorOrange;
 }
 // 可执行文件
 #write :is(a[href$=".exe"], a[href$=".sh"]):hover::before {
-    content: "!! High Risk !!";
+    content: "!! High Risk !! 高风险 !!";
     background: @accColorRed;
 }
 

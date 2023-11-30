@@ -11724,6 +11724,7 @@ function DocLib(mask, holder) {
                 __addDocLibItem(a.t(), page, hash, a.a(s_Title));
 
             a.removeAttr(s_Href); // 移除 href
+            a.a(s_Target, s_vdl);
             a.uC().ck(function () {
                 T.show(page, hash);
             });
