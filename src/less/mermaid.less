@@ -3,8 +3,8 @@
  * VLOOK CSS - Mermaid 自定义样式
  * (配合 base.less 进行使用)
  *
- * V21.0
- * 2023-11-29
+ * V21.1
+ * 2023-12-17
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -718,9 +718,11 @@ svg[aria-roledescription^="classDiagram"] .label .edgeLabel:hover {
 
 // 关系箭头
 svg[aria-roledescription="classDiagram"] :is(
-    #classDiagram-compositionStart>path, // Composition 组合
+    /* Composition 组合 */
+    #classDiagram-compositionStart>path,
     #classDiagram-compositionEnd>path,
-    #classDiagram-dependencyStart>path, // Dependency 依赖, Association 关联
+    /* Dependency 依赖, Association 关联 */
+    #classDiagram-dependencyStart>path,
     #classDiagram-dependencyEnd>path,
     #classDiagram-lollipopStart>circle) {
     fill: var(--d-f-c-alt) !important;
@@ -728,9 +730,11 @@ svg[aria-roledescription="classDiagram"] :is(
     stroke-width: 1 !important;
 }
 svg[aria-roledescription="classDiagram"] :is(
-    #classDiagram-aggregationStart>path, // Aggregation 聚合
+    /* Aggregation 聚合 */
+    #classDiagram-aggregationStart>path,
     #classDiagram-aggregationEnd>path,
-    #classDiagram-extensionStart>path, // Inheritance 继承, Realization 实现
+    /* Inheritance 继承, Realization 实现 */
+    #classDiagram-extensionStart>path,
     #classDiagram-extensionEnd>path) {
     fill: var(--d-bc) !important;
     stroke:  var(--d-f-c-alt) !important;

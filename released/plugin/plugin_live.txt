@@ -1,5 +1,5 @@
 <!--
-VLOOK V21.0 (2023-11-29) - Typora Plugin ( live )
+VLOOK V21.1 (2023-12-17) - Typora Plugin ( live )
 Paste to "Export Setting ▸ VLOOK (live) ▸ Append in <body />"
 粘贴至「导出设置... ▸ VLOOK (live) ▸ 在 <body /> 中添加」
 -->
@@ -8,8 +8,8 @@ Paste to "Export Setting ▸ VLOOK (live) ▸ Append in <body />"
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
 <!--                                                                        -->
-<!--                                 V21.0                                  -->
-<!--                               2023-11-29                               -->
+<!--                                 V21.1                                  -->
+<!--                               2023-12-17                               -->
 <!--                           powered by MAX°孟兆                          -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -42,9 +42,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     metaTheme.content = getComputedStyle(document.documentElement).getPropertyValue("--v-btn-bg");
     document.getElementsByTagName("head")[0].appendChild(metaTheme);
     // VLOOK
-    let lVer = "V21.0";
+    let lVer = "V21.1";
     let devMode = lVer.indexOf("dev") > 0 ? true : false, debugMode = devMode;
     let //fontHost = "https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/",
+        // jsHost = devMode ? "http://172.17.27.168/js/" : "https://madmaxchow.gitee.io/vlook/js/",
+        // cssHost = devMode ? "http://172.17.27.168/css/" : "https://madmaxchow.gitee.io/vlook/css/";
         jsHost = devMode ? "http://localhost/js/" : "https://madmaxchow.gitee.io/vlook/js/",
         cssHost = devMode ? "http://localhost/css/" : "https://madmaxchow.gitee.io/vlook/css/";
         // https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/

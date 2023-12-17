@@ -13,7 +13,7 @@ vlook-doc-lib:
 - [🇨🇳 简体中文 参考手册](index.html?target=_blank)
 ---
 
-###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective^[Interaction]^<br>──<br><u>Introduction</u><br>`#Latest|V21.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
+###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective^[Interaction]^<br>──<br><u>Introduction</u><br>`#Latest|V21.1#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
 
 [TOC]
 

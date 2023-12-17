@@ -2,8 +2,8 @@
  *
  * VLOOK CSS 基础库
  *
- * V21.0
- * 2023-11-29
+ * V21.1
+ * 2023-12-17
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -80,7 +80,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 }
 // -----
 // #Common_LESS_Var
-@tableRowNumTop: 2px; // 表格行自动编号的高度
+@tableRowNumTop: 9px; // 表格行自动编号的高度
 @tableRowCursor: "▶️"; // 表格当前行鼠标 hover 游标
 // @tableCellPadding: 8px; // 表格单元格边距
 @focusCursor: "✏️"; // 编辑焦点行游标
@@ -107,7 +107,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 
     // #VLOOK_Var
     --v-theme-name: @themeName; // 主题名称
-    --v-theme-version: "V21.0"; // 主题版本，对应适配 VLOOK.JS 的版本
+    --v-theme-version: "V21.1"; // 主题版本，对应适配 VLOOK.JS 的版本
     --v-color-scheme: light; // 默认颜色模式为：Light 明亮
 
     // 导航中心、工具栏相关 UI 尺寸
@@ -123,6 +123,8 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --v-trans-value: all var(--v-trans-dur) ease-out;
 
     --tbl-cell-padding: 8px;
+
+    --h6-prefix: @h6BeforeContent;
 
     // --------------------
     // 用于 plugin*.txt 中
@@ -344,7 +346,7 @@ body.unfreeze {
     display: inline !important;
     vertical-align: middle;
     background: none !important;
-    margin-bottom: @figurePadding !important;
+    // margin-bottom: @figurePadding !important;
     border: none !important;
     border-radius: 0 !important;
 }
@@ -588,14 +590,17 @@ body.unfreeze {
 }
 
 // 文本链接
-// #write a,
-// body.typora-export a,
-// .code-tooltip a { // 预览
-:is(#write, body.typora-export, .code-tooltip) a {
+#write a,
+body.typora-export a,
+.code-tooltip a {
+// :is(#write, body.typora-export, .code-tooltip) a {
     color: var(--a-color) !important;
     text-decoration: none;
 }
-:is(#write, body.typora-export, .code-tooltip) a:hover {
+#write a:hover,
+body.typora-export a:hover,
+.code-tooltip a:hover {
+// :is(#write, body.typora-export, .code-tooltip) a:hover {
     color: @aHoverColor !important;
     box-shadow: 0 -.3em 0 0 fade(@aLineColor, 30%) inset;
 }
@@ -1033,6 +1038,10 @@ h6:first-child) {
 #write>p {
     margin-top: @paragraphPadding;
 }
+// 针对紧跟图片、表格后的引用内的小标题样式微调
+#write p {
+    width: 100%;
+}
 
 
 // ----------------------------------------
@@ -1106,12 +1115,14 @@ content>#write p:has(.md-image) { // Typora 编辑时的图片段落
     margin-top: 1em;
 }
 
+@blockPaddingTop: 12px;
 #write @{quote_Details},
 body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     color: var(--d-f-c);
     background: var(--ac-t1-fade);
     border-radius: var(--v-r-b);
-    padding: .75em 1em;
+    padding: @blockPaddingTop 1em;
+    // padding: .75em 1em;
     margin-top: @paragraphPadding;
     margin-bottom: @paragraphPadding;
 }
@@ -1247,17 +1258,17 @@ content>#write .md-hr+blockquote::before {
 }
 content>#write .md-hr+blockquote::before {
     content: "⬛︎ ⬛︎  2 Columns of Quote / 双栏引用  ⬛︎ ⬛︎";
-    margin-top: -3.8em;
+    margin-top: calc(-3.8em + @blockPaddingTop);
 }
 content>#write .md-hr+.md-hr+blockquote::before {
     content: "⬛︎ ⬛︎ ⬛︎  3 Columns of Quote / 三栏引用  ⬛︎ ⬛︎ ⬛︎";
-    margin-top: -5.8em;
+    margin-top: calc(-5.8em + @blockPaddingTop);
     padding-top: .5em;
     padding-bottom: .5em;
 }
 content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
     content: "⬛︎ ⬛︎ ⬛︎ ⬛︎  4 Columns of Quote / 四栏引用  ⬛︎ ⬛︎ ⬛︎ ⬛︎";
-    margin-top: -7.6em;
+    margin-top: calc(-7.6em + @blockPaddingTop);
     padding-top: 1.4em;
     padding-bottom: 1.4em;
 }
@@ -1807,7 +1818,7 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
 
 // 表格表头
 :is(#write, body.typora-export) table>thead>tr>th {
-    color: @tableThColor;
+    color: @tableThColor !important;
     background: @tableThBakcground;
     font: var(--v-f-w-bd) 1em var(--v-f-fm-bd); // [style] [weight] [size/[line-height]] [family]
     border-right: @tableThBorderRightWidth solid var(--tbl-cell-bd);
@@ -2127,7 +2138,7 @@ td.v-tbl-row-g-not-folder {
 }
 
 // 表格阅读模式（十字光标）
-.v-table-cross {
+.v-tbl-x {
     top: 0;
     width: 100px;
     height: 100px;
@@ -2136,23 +2147,23 @@ td.v-tbl-row-g-not-folder {
     opacity: 0;
     pointer-events: none;
 }
-.v-table-cross-cell {
+.v-tbl-x-cell {
     box-shadow: 0 0 0 4px var(--d-f-c-alt) !important;
     border-radius: @tableBorderRadius;
 }
-.v-table-cross.left-up {
+.v-tbl-x.left-up {
     background: linear-gradient(315deg, transparent, @tableCrossBgColor 20px, fade(@aLineColor, 1%));
     border-bottom-right-radius: @tableBorderRadius;
 }
-.v-table-cross.right-up {
+.v-tbl-x.right-up {
     background: linear-gradient(45deg, transparent, @tableCrossBgColor 20px, fade(@aLineColor, 1%));
     border-bottom-left-radius: @tableBorderRadius;
 }
-.v-table-cross.left-down {
+.v-tbl-x.left-down {
     background: linear-gradient(210deg, transparent, @tableCrossBgColor 20px, fade(@aLineColor, 1%));
     border-top-right-radius: @tableBorderRadius;
 }
-.v-table-cross.right-down {
+.v-tbl-x.right-down {
     background: linear-gradient(135deg, transparent, @tableCrossBgColor 20px, fade(@aLineColor, 1%));
     border-top-left-radius: @tableBorderRadius;
 }
@@ -2415,7 +2426,7 @@ body.html-for-mac content>#write .md-inline-math mjx-container {
 }
 
 #write h6::before {
-    content: @h6BeforeContent;
+    content: var(--h6-prefix);//@h6BeforeContent;
 }
 
 // 导出 HTML 后的文档章节目录的自动编码内容
@@ -2600,6 +2611,9 @@ table kbd {
     display: inline-block;
     margin: 0 0 30px 10px;
 }
+.v-font-theme>.v-font-theme-opt:first-child {
+    margin-left: 0;
+}
 
 // 字体风格选择器字体包下载提示
 .v-font-theme-info {
@@ -2621,6 +2635,9 @@ table kbd {
     border-radius: var(--v-r-s) !important;
     filter: opacity(.6);
     cursor: pointer;
+    background-color: var(--d-f-c);
+    color: var(--d-bc);
+    min-height: 200px;
 }
 
 // 字体风格选项鼠标事件效果
@@ -2660,7 +2677,8 @@ table kbd {
 .v-fontinfo-local>#fontset-status,
 .v-fontinfo-book>#fontset-status,
 .v-fontinfo-sans>#fontset-status,
-.v-fontinfo-serif>#fontset-status {
+.v-fontinfo-serif>#fontset-status,
+.v-doc-ext-info {
     color: var(--d-f-c-alt);
 }
 
@@ -3024,6 +3042,11 @@ table kbd {
     background: var(--d-f-c);
 }
 
+.v-copyright-svg-ico {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
 body.typora-export .v-copyright {
     left: 0;
     bottom: 0;
@@ -3746,6 +3769,7 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
     padding: 7px;
     text-align: center;
     float: left;
+    display: none;
 }
 
 // 输入框内的动作按钮
@@ -3756,6 +3780,7 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
     border-radius: 0 var(--v-r-s) var(--v-r-s) 0;
     box-shadow: 1px 0 0 0 var(--pn-c-alt) inset;
     float: right;
+    display: none;
 }
 .v-textfield-action.enabled {
     background: @buttonBgColor;
@@ -3896,6 +3921,9 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
     position: absolute;
     bottom: 10px;
 }
+.v-fig-nav-btns.next>svg {
+    transform: rotate(180deg);
+}
 
 .v-btn-close-figure-nav {
     display: flex;
@@ -3994,14 +4022,14 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
     top: 3px;
 }
 
-.v-pip-btn.v-close {
+.v-pip-btn.close {
     right: 8px;
 }
 
-.v-pip-btn.v-zoom.zoom-in {
+.v-pip-btn.zoom.zoom-in {
     right: 32px;
 }
-.v-pip-btn.v-zoom.zoom-out {
+.v-pip-btn.zoom.zoom-out {
     right: 38px;
 }
 
@@ -4105,6 +4133,15 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
     overflow: auto;
 }
 
+iframe[name="vlook-stat-gitee"] {
+    display: block;
+    margin: 0;
+    border: none;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+}
+
 .v-interactive {
     cursor: pointer;
 }
@@ -4195,6 +4232,9 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
     border-radius: var(--v-r-b);
     background: @captionBackground;
 }
+.v-caption.pr {
+    width: 100%;
+}
 
 .v-cap-1,
 .v-cap-2 {
@@ -4216,6 +4256,17 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
 }
 .v-svg-small-ico[data-chk="no"] {
     opacity: .25;
+}
+
+// 旋转 45 度
+.v-rotate45 {
+    transform: rotate(45deg);
+    opacity: .5;
+}
+// 旋转 90 度
+.v-rotate90 {
+    transform: rotate(90deg);
+    opacity: .5;
 }
 
 use.v-svg-ico-light {
@@ -4240,9 +4291,27 @@ use.v-svg-ico-alt {
 }
 
 // 折叠按钮样式
-use.v-toc-folder-ico,
-use.v-rowgroup-folder-ico {
-    fill: var(--h-f);
+// use.v-toc-folder-ico,
+// use.v-rowgroup-folder-ico {
+//     fill: var(--h-f);
+// }
+
+.v-svg-chp-nav {
+    position: absolute;
+    top: 18px;
+}
+.v-svg-chp-nav.left {
+    left: 15px;
+}
+.v-svg-chp-nav.right {
+    right: 15px;
+    transform: rotate(180deg);
+}
+
+.v-svg-details {
+    position: absolute;
+    margin-left: calc(0px - var(--v-summary-w));
+    margin-top: 2px;
 }
 
 // 遮罩样式
@@ -4290,11 +4359,16 @@ use.v-rowgroup-folder-ico {
     width: 16px;
     height: 60px;
 }
+.v-mask-close.right>svg {
+    transform: rotate(180deg);
+}
 .v-mask-close.bottom {
     width: 60px;
     height: 16px;
 }
-
+.v-mask-close.bottom>svg {
+    transform: rotate(270deg);
+}
 .v-backdrop-blurs.enabled {
     backdrop-filter: saturate(180%) blur(15px);
     -webkit-backdrop-filter: saturate(180%) blur(15px);
@@ -4315,11 +4389,13 @@ use.v-rowgroup-folder-ico {
     #write .v-q.@{quoteMark} {
         box-shadow: 0 0 0 4px @fadeColor inset;
         background: none;
+        border-color: @btnBg !important;
     }
     // 强调样式
     #write .v-q.@{quoteMark}.em {
         box-shadow: none;
         background: @fadeColor !important;
+        border-color: @btnBg !important;
     }
     // 高亮
     #write .v-q.@{quoteMark} mark,
@@ -4378,7 +4454,7 @@ use.v-rowgroup-folder-ico {
     #write .v-q .v-q.@{quoteMark} a:active {
         background: var(--pn-c);
         border-bottom: 0;
-        border-radius: var(--v-r-s);
+        // border-radius: var(--v-r-s);
     }
     // 标题
     #write .v-q .title-@{quoteMark},
@@ -4489,7 +4565,7 @@ use.v-rowgroup-folder-ico {
     padding: 1px 1px 1px 5px;
     white-space: pre;
     line-height: 1;
-    vertical-align: top;
+    // vertical-align: top;
     box-shadow: 0 0 0 1px var(--rb-code-shadow) inset;
     cursor: var(--cur-copy);
 }

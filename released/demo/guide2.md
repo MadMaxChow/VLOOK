@@ -7,7 +7,7 @@ keywords:
 - PRD,设计,需求,文档,博客,手册,指南,在线,运维,知识库,WIKI
 - 产品经理,程序员,运维工程师,售前,售后
 vlook-chp-autonum: h1{{第 ### 章 }},h3{{### }}
-vlook-query: el=2&ws=auto&lmc=2&toc=1
+vlook-query: el=2&ws=auto&lmc=2
 vlook-doc-lib: vlook-lib.html
 ---
 
@@ -808,7 +808,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 `#VLOOK|👀#`~(T2)~ 提供了两套自定义的字体主题，可根据个人喜好进行选用。
 
-> 通过通过工具栏上的  ![字体主题](https://madmaxchow.gitee.io/vlookres/pic/icon-font-style.svg?fill=theme1&darksrc=invert#icon2x)  按钮进行选择（快捷键操作：<kbd>A</kbd> )。
+> 通过右下角状态栏上的  ![字体主题](https://madmaxchow.gitee.io/vlookres/pic/icon-font-style.svg?fill=theme1&darksrc=invert#icon2x)  按钮进行选择（快捷键操作：<kbd>A</kbd> )
 
 ---
 
@@ -946,7 +946,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 ###### 示例_本文档的封面内容
 
 ```markdown
-###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>快速参考手册<br>(Part.II)</u><br>`#最新版本|V21.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>快速参考手册<br>(Part.II)</u><br>`#最新版本|V21.1#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
 ```
 
 ###### 示例_本文档的封底内容
@@ -979,9 +979,9 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 `#VLOOK|👀#`~(T2)~ 所有 VLOOK™ 的主题都会自动根据浏览器或系统的 Dark Mode（深色模式）的设置进行自动适配。
 
-> 可通过工具栏上的 ![Light Mode](https://madmaxchow.gitee.io/vlookres/pic/icon-light-mode.svg?fill=theme1&darksrc=invert#icon2x) / ![Dark Mode](https://madmaxchow.gitee.io/vlookres/pic/icon-dark-mode.svg?fill=theme1&darksrc=invert#icon2x) 按钮进行手动切换（快捷键操作：<kbd>D</kbd> )。
->
-> 若希望文档在显示后强制指定为 Light / Dark Mode ，可通过「[插件调校参数](#插件调校参数)」`cs` 来启用这一特性。
+> - 可通过右下角状态栏上的 ![Light Mode](https://madmaxchow.gitee.io/vlookres/pic/icon-light-mode.svg?fill=theme1&darksrc=invert#icon2x) / ![Dark Mode](https://madmaxchow.gitee.io/vlookres/pic/icon-dark-mode.svg?fill=theme1&darksrc=invert#icon2x) 按钮进行手动切换（快捷键操作：<kbd>D</kbd> )；
+>- 若希望文档在显示后强制指定为 Light / Dark Mode ，可通过「[插件调校参数](#插件调校参数)」`cs` 来启用这一特性。
+> 
 > `#💡|小提示#`~(Og!)~ *如果你的图片在 Dark Mode 下显得不够和谐，可以尝试选择让[图片适配 Dark Mode](guide.md#图片适配 Dark Mode)。*
 
 ![Light / Dark 效果预览](https://madmaxchow.gitee.io/vlookres/pic/vlook-color-scheme-preview.png?srcset=@2x)
@@ -1645,7 +1645,7 @@ sequenceDiagram
 autonumber
 
 actor User as 人物角色
-participant Client as @前端触点
+actor Client as 前端触点
 participant MP as 普通系统
 participant Server as **重要系统角色
 participant Extend as --外部系统角色
@@ -1840,14 +1840,14 @@ $$
 | **调校参数** | 说明                                                         |  默认值  | 取值及说明                                                   |
 | :----------: | ------------------------------------------------------------ | :------: | ------------------------------------------------------------ |
 |    badge     | 调整[彩虹徽章](guide.md#彩虹徽章)未指定色号时默认使用的色号  |   `Gy`   | 对应的预置色号，[详见这里](guide.md#彩虹徽章)                |
-|   capauto    | 指定在内容索引无题注内容时，是否以索引对象（如表格、图片、代码块等）的内容自动生成 |  `off`   | `off` - 不开启<br>`on` - 开启                                |
-|    capnum    | 指定==不要启用==自动生成内容索引与编号的范围（多项间可用英文逗号分隔），不启用的情况下，对应内容的超长后的[自动折叠](#长内容自动折叠)也会不启用 | 全部启用 | `table` - 表格<br>`figure` - 插图<br>`audio` - 音频<br>`video` - 视频<br>`codeblock` - 代码块 |
+|   capauto    | 指定在内容索引无题注内容时，是否以索引对象的内容自动生成<br>（如：表格、图片、代码块等） |  `off`   | `off` - 不开启<br>`on` - 开启                                |
+|    capnum    | 指定==不要启用==自动生成内容索引与编号的范围<br>不启用的情况下，对应内容的超长后的[自动折叠](#长内容自动折叠)也会不启用<br>（如有多项间可，用英文逗号分隔） | 全部开启 | `table` - 表格<br>`figure` - 插图<br>`audio` - 音频<br>`video` - 视频<br>`codeblock` - 代码块 |
 |      cf      | 控制使用长内容自动折叠的开关<br>若有多个指定范围要开启，可用英文逗号「,」进行分隔 |   `on`   | `off` - 全不开启<br>`on` - 全开启<br><br>指定范围开启：<br>`table` - 指定「表格」<br>`figure` - 指定「插图」<br>`codeblock` - 指定「代码块」 |
 |     coat     | 调整[刮刮卡](guide.md#°刮刮卡)未指定色号时默认使用的色号     |   `Gy`   | 对应的预置色号，[详见这里](guide.md#°刮刮卡)                 |
 |      cs      | 指定使用固定的颜色方案                                       |  `auto`  | `light` - 强制显示为 Light Mode<br>`dark` - 强制显示为 Dark Mode<br>`auto` - 自动跟随系统配置 |
 |    effect    | 调整文档的动效级别                                           |   `2`    | `0` - 关闭动效<br>`1` - 标准动效<br>`2` - 增强动效（毛玻璃等） |
 |     lmc      | 对代码块自动生成题注并编号的行数下限                         |   `1`    | `{行数下限}` - 大于该行数的代码才会自动生成题注和编号<br>如：`3` |
-|     mdx      | 指定将扩展名为「*.md」的链接转换为指定的新扩展名<br>（该配置默认是全局生效，也支持在单个链接中单独添加同名参数进行微调） |  `html`  | `off` - 关闭，不转换<br>`{扩展名}` - 指定的扩展名，如 `php` `htm` 等 |
+|     mdx      | 指定将扩展名为「*.md」的链接转换为指定的新扩展名<br>（默认对全局生效，也支持在广西链接中单独指定） |  `html`  | `off` - 关闭，不转换<br>`{扩展名}` - 指定的扩展名，如 `php` `htm` 等 |
 |      nc      | 指定导航中心初始的运行模式                                   |  `auto`  | `auto` - 在封面时自动关闭、在正文时自动展开<br>`closed` - 始终关闭，须鼠标悬停在左侧，或通过工具栏打开 |
 |    quote     | 调整普通「引用」默认自动转换为指定色号的[彩虹引用](guide.md#彩虹引用) |   `T1`   | 对应的预置色号，[详见这里](guide.md#彩虹引用)                |
 |    radius    | 使用指定的圆角样式，忽略 VLOOK 主题自带的样式                |          | `none` - 不使用圆角<br>`small` - 使用小号圆角<br>`big` - 使用大号圆角 |
@@ -1855,11 +1855,11 @@ $$
 |    srcset    | 对于没有高清分辨率的图片，在高分屏上强制以高清形式显示       |  不开启  | `auto` - 对未指定 srcset 的图片强制以高清形式显示            |
 |    stsbar    | 指定文档底部状态栏内==不要启用==的内容项（多项间可用英文逗号分隔） |   全部   | `doc-info` - 阅读时长、字数<br>`font-theme` - 字体主题<br>`color-scheme` - 颜色主题<br/>`link-checker` - 错误链接检查 |
 |     tag      | 调整[彩虹标签](guide.md#彩虹标签)未指定色号时默认使用的色号  |   `T2`   | 对应的预置色号，[详见这里](guide.md#彩虹标签)                |
-|    target    | 配合[文库导航](#文库导航)使用：<br>应用-1. 指定在 YAML 中[文库预置选项](#插件预置选项) `vlook-doc-lib` 中链接在新标签中打开；<br>应用-2. 文档内指定链接在「文库」中打开。 |          | 针对「应用-1」：`_blank`<br>针对「应用-2」：`vdl`            |
-|     toc      | 指定目录大纲初始自动折叠的层级                               |   `2`    | `0` - 不折叠，全部展开<br>`1~5` - 折叠指定的层级             |
+|    target    | 配合[文库导航](#文库导航)使用：<br>应用-1. 指定在 YAML 中[文库预置选项](#插件预置选项) `vlook-doc-lib` 中链接在新标签中打开<br>应用-2. 文档内指定链接在「文库」中打开 |          | 针对「应用-1」：`_blank`<br>针对「应用-2」：`vdl`            |
+|     toc      | 指定目录大纲初始自动折叠的层级                               |   `1`    | `0` - 不折叠，全部展开<br>`1~5` - 折叠指定的层级             |
 |      tr      | 指定表格阅读模式（十字光标）默认开关                         |  `off`   | `off` - 不开启<br>`on` - 开启                                |
 |     vdl      | 控制文库功能的开关                                           |   `on`   | `off` - 不开启<br>`on` - 开启                                |
-|      wf      | 强制指定使用的字体主题，指定该参数后则忽略 VLOOK 主题配套的字体主题 | 主题配套 | `local` - 强制使用「系统默认」<br>`sans` - 强制使用「小清新」<br>`serif` - 强制使用「文艺范」 |
+|      wf      | 强制指定使用的字体主题<br>指定该参数后则忽略 VLOOK 主题配套的字体主题 | 主题配套 | `local` - 强制使用「系统默认」<br>`sans` - 强制使用「小清新」<br>`serif` - 强制使用「文艺范」 |
 |      ws      | 指定文档的「欢迎页」显示模式                                 |  `auto`  | `auto` - 文档和插件加载完成后，延时秒数由主题指定<br>`wait` - 文档和插件加载完成后，手动关闭欢迎页<br>`none` - 不显示欢迎页<br>`1~60` - 指定延时的秒数（优先级最高） |
 
 ###### 方式一：通过 URL 参数指定（多个参数间用「&」进行分隔）

@@ -45,7 +45,7 @@
 @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
 @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
 
-@themeForeColor: @theme3;
+@themeForeColor: @theme1;
 @themeForeColorFade: fade(@themeForeColor, 50%);
 @themeBgColor: @theme1;
 @themeBgColorFade: fade(@themeBgColor, 50%);
@@ -84,7 +84,7 @@
 
 // 按钮色
 @buttonForeColor:#FFFFFF;
-@buttonForeHoverColor: @themeForeColor;
+@buttonForeHoverColor: @theme3;
 @buttonBgColor: @themeBgColor;
 // 文库按钮颜色
 @docLibButtonForeColor: @buttonForeColor;
@@ -102,7 +102,7 @@
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: center;
 @coverTextPadding: 300px 80px 50px;
-@coverTextColor: @themeForeColor;
+@coverTextColor: @theme3;
 @coverSubColor: #FFFFFF;
 @coverUnderlineColor: @coverSubColor;
 @coverAuthorColor: @coverUnderlineColor;
@@ -110,7 +110,7 @@
 
 @backCoverTextAlign: center;
 @backCoverTextPadding: 300px 80px 50px;
-@backCoverTextColor: @themeForeColor;
+@backCoverTextColor: @theme3;
 
 // // 封面装饰性文本样式 before
 // @coverTextBeforeContent: "";

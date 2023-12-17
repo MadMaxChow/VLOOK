@@ -7,7 +7,7 @@ keywords:
 - PRD,设计,需求,文档,博客,手册,指南,在线,运维,知识库,WIKI
 - 产品经理,程序员,运维工程师,售前,售后
 vlook-chp-autonum: h1{{#ZH# ° }},h2{{步骤 ##-min#：}}
-vlook-query: effects=2&ws=auto
+vlook-query: effects=2&ws=auto&toc=2
 vlook-doc-lib:
 - [浏览 VLOOK™ 文库](vlook-lib.html)
 - [🇬🇧 ENGLISH GUIDE](index-en.html?target=_blank)
@@ -15,7 +15,7 @@ vlook-image-host: https://madmaxchow.gitee.io/vlook/
 vlook-var: `[var1]:abc`,`[var2]:efg`
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>简介</u><br>`#最新版本|V21.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>简介</u><br>`#最新版本|V21.1#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
 
 [TOC]
 

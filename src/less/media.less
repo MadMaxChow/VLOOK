@@ -3,8 +3,8 @@
  * VLOOK CSS - @media 相关的样式
  * (配合 base.less 进行使用)
  *
- * V21.0
- * 2023-11-29
+ * V21.1
+ * 2023-12-17
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -33,6 +33,15 @@
     // 工具栏、逐章导航栏不在封面显示时的样式
     :root {
         --v-top-margin:-3px;
+    }
+}
+// ---------------
+// 针对小于等于该分辨设备的 UI 调整
+@media screen and (max-width: 1439px) {
+    // 取消表格的自动换行
+    // body.typora-export table,
+    #write table {
+        white-space: pre;
     }
 }
 
@@ -64,11 +73,6 @@
     .v-chapter-nav-prev.effect::before,
     .v-chapter-nav-next.effect::before {
         border-radius: 0 !important;
-    }
-    // 取消表格的自动换行
-    // body.typora-export table,
-    #write table {
-        white-space: pre;
     }
 }
 
@@ -382,7 +386,7 @@
         opacity: 1;
     }
 
-    .v-table-cross {
+    .v-tbl-x {
         box-shadow: none !important;
         background: none !important;
     }
