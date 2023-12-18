@@ -1258,17 +1258,20 @@ content>#write .md-hr+blockquote::before {
 }
 content>#write .md-hr+blockquote::before {
     content: "⬛︎ ⬛︎  2 Columns of Quote / 双栏引用  ⬛︎ ⬛︎";
-    margin-top: calc(-3.8em + @blockPaddingTop);
+    margin-top: -3.8em;
+    // margin-top: calc(-3.8em + @blockPaddingTop);
 }
 content>#write .md-hr+.md-hr+blockquote::before {
     content: "⬛︎ ⬛︎ ⬛︎  3 Columns of Quote / 三栏引用  ⬛︎ ⬛︎ ⬛︎";
-    margin-top: calc(-5.8em + @blockPaddingTop);
+    margin-top: -5.8em;
+    // margin-top: calc(-5.8em + @blockPaddingTop);
     padding-top: .5em;
     padding-bottom: .5em;
 }
 content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
     content: "⬛︎ ⬛︎ ⬛︎ ⬛︎  4 Columns of Quote / 四栏引用  ⬛︎ ⬛︎ ⬛︎ ⬛︎";
-    margin-top: calc(-7.6em + @blockPaddingTop);
+    margin-top: -7.6em;
+    // margin-top: calc(-7.6em + @blockPaddingTop);
     padding-top: 1.4em;
     padding-bottom: 1.4em;
 }

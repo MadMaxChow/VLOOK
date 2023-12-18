@@ -526,7 +526,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1049,7 +1049,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1273,7 +1273,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1575,7 +1575,7 @@ VLOOK™ 经过多次迭代后，终于形成比较实用的图片快速排版�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?
 ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
@@ -1866,7 +1866,7 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
@@ -1958,7 +1958,7 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -2796,7 +2796,7 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -2887,7 +2887,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -2987,7 +2987,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
