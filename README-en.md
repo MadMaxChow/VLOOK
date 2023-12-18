@@ -26,8 +26,9 @@ VLOOK™ is open source software and complies with the **[MIT license](#许可�
 
 > **Join the discussion:**
 >
-> - QQ-group ([**805502564**](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&))
->  Issues ([**Issues**](https://github.com/MadMaxChow/VLOOK/issues))
+> - **QQ Group** ([**805502564**](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&))
+> - **Telegram Channel** ([**vlook_markdown**](https://t.me/vlook_markdown)) 
+> - Issues ([**Issues**](https://github.com/MadMaxChow/VLOOK/issues))
 > - Email (**maxchow@qq.com**)
 
 # Donate

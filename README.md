@@ -28,7 +28,8 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 > **加入讨论：**
 >
-> - QQ群 ([**805502564**](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&)) 
+> - **QQ 群** ([**805502564**](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&)) 
+> - **Telegram Channel** ([**vlook_markdown**](https://t.me/vlook_markdown)) 
 > - Issues ([**Issues**](https://github.com/MadMaxChow/VLOOK/issues))
 > - 邮件 (**maxchow@qq.com**)
 
