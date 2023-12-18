@@ -12158,7 +12158,8 @@ function DocLib(mask, holder) {
      */
     T.reload = function (scheme, page, hash) {
         // 避免初始化时，与 ColorScheme.tg 重复加载
-        if (scheme === ColorScheme.scheme && page === gUndefined)
+        if (scheme === ColorScheme.scheme && page === gUndefined
+            || T.page === gUndefined)
             return;
 
         let cs = _;
@@ -12174,6 +12175,7 @@ function DocLib(mask, holder) {
         if (hash === gUndefined)
             hash = _;
 
+        DEBUG(111, page);
         T.iframe.a(_src_,
             page + ((page.i("?") > -1) ? "&" : "?")
             + "ws=none&type=mini"
