@@ -480,7 +480,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -571,7 +571,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -660,7 +660,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -705,7 +705,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -798,7 +798,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
@@ -873,7 +873,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
@@ -969,7 +969,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
@@ -988,7 +988,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
@@ -1040,7 +1040,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
@@ -1063,7 +1063,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
@@ -1084,7 +1084,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
@@ -1105,7 +1105,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
@@ -1136,7 +1136,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
@@ -1215,7 +1215,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
@@ -1231,7 +1231,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
@@ -1320,7 +1320,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
@@ -1349,7 +1349,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
@@ -1483,7 +1483,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°演示与出版辅助</kbd>](#快速入坑°演示与出版辅助)
 
@@ -1505,7 +1505,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1682,7 +1682,7 @@ end
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1789,7 +1789,7 @@ $$
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
@@ -1824,7 +1824,7 @@ $$
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
@@ -1891,7 +1891,7 @@ vlook-query: 参数1=取值&参数2=取值...&参数n=取值
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg?darksrc=invert#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](#快速入坑°主题与不杂项)
 
