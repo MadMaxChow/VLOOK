@@ -1,4 +1,4 @@
-Select language ❯  [🇬🇧 **English**](README-en.md)
+Select language ❯  [🔠 **English**](README-en.md)
 
 
 
@@ -61,7 +61,7 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ![火力全开的演示辅助～画中画、聚光灯、激光笔、表格十字光标、刮刮卡…](https://madmaxchow.github.io/VLOOK/pic/vlook-screenshot-A06.png)
 
-![还有音频、视频、标签、引用折叠、高清插图、…30+特性等你开箱即用](https://madmaxchow.github.io/VLOOK/pic/vlook-screenshot-A08.png)
+![还有音频、视频、标签、引用块折叠、高清插图、…30+特性等你开箱即用](https://madmaxchow.github.io/VLOOK/pic/vlook-screenshot-A08.png)
 
 ---
 

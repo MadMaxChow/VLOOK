@@ -3,11 +3,12 @@
  * starter of VLOOK.js - Typora Plugin
  * (配合 vlook.js 进行使用)
  *
- * V21.1
- * 2023-12-17
+ * V22.0
+ * 2024-01-20
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
+ * Telegram Channel: t.me/vlook_markdown
  * email: maxchow@qq.com
  *
  * https://github.com/MadMaxChow/VLOOK
@@ -15,7 +16,7 @@
  *
  *************************************/
 
-let sVer = "V21.1";
+let sVer = "V22.0";
 
 /**
  * 获取 URL 中的参数数组

@@ -1,13 +1,16 @@
 ---
 title: 快速参考手册 (Part.I) - VLOOK™ - Markdown 编辑器 Typora 的主题包和增强插件
 author: MAX°孟兆
+description: 关于 VLOOK™ 的文本、表格、图片、分栏、列表、引用块、代码块、多媒体
+"og:description": 关于 VLOOK™ 的文本、表格、图片、分栏、列表、引用块、代码块、多媒体
+"og:image": https://madmaxchow.gitee.io/vlookres/pic/vlook-og.png
 keywords:
 - Markdown,Typora,VLOOK,Plugin,插件,主题包,自动排版,跨平台,i18n,开源,MIT,开源中国,OSC,编辑推荐
 - 表格增强,单元格合并,行分组,表格阅读模式,表格十字光标,重复表头,刮刮卡,黑幕,标签,图片增强,演示辅助,聚光灯,激光笔,自动折叠,Mermaid,音频,视频,注音,主题,字体,模板,深色模式,Dark Mode,封面,封底,私人定制
 - PRD,设计,需求,文档,博客,手册,指南,在线,运维,知识库,WIKI
 - 产品经理,程序员,运维工程师,售前,售后
 vlook-chp-autonum: h1{{第###章 }},h3{{### }}
-vlook-query: el=2&ws=auto&lmc=2&toc=1
+vlook-query: lmc=2
 vlook-doc-lib: [浏览 VLOOK™ 文库](vlook-lib.html "手册教程指南示例")
 vlook-doc-lib-test:
 - [VLOOK™ 文库](vlook-lib.html "关键字示例内容")
@@ -17,7 +20,7 @@ vlook-doc-lib-test:
 - [重复的文库-2](vlook-lib.html?target=_blank "关键字示例内容")
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>快速参考手册 (Part.I)</u><br>`#最新版本|V21.1#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>快速参考手册 (Part.I)</u><br>`#最新版本|V22.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
@@ -31,7 +34,7 @@ vlook-doc-lib-test:
 
 **感谢打赏支持 VLOOK™ 的客官（部分名单）：**
 
-一＊秋、＊＊军、＊＊鹏、李＊6、＊＊无、H＊t、＊＊二、f＊y、＊＊宇、＊＊琛、＊＊辉、＊＊秋、＊＊笑、＊＊豫、l＊a、＊＊心、整＊9、＊＊国、＊＊拉、＊＊龙、＊＊应、＊＊销、＊＊哦、E＊y、……
+＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 # 快速入坑
 
@@ -41,7 +44,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ## 快速入坑°文档排版
 
-> **![°文档排版](pic/qico-types-light.svg?fill=text&darksrc=invert#icon2x) ° 文档排版**
+> **![°文档排版](pic/qico-types-light.svg?fill=text&darksrc=invert#icon) ° 文档排版**
 >
 > **有了 VLOOK™ 主题及插件的支持，让你对 Markdown 编辑器（暂只支持 Typora）的自动化排版能力有了全新的理解。**
 >
@@ -113,24 +116,25 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > ~(Vn)~
 
-###### 引用 • 分栏
+###### 分栏 • 引用块
 
 ---
 
 > ###### 对内容分级、分栏/看板、分类展示
 >
-> - 为引用添加小标题 [❯❯](#引用小标题)
 > - 以**分栏/看板**方式组织内容 [❯❯](#°分栏)
-> - 将内容以分级、分类**折叠**的方式进行组 [❯❯](#折叠引用)
+> - 为引用块添加小标题 [❯❯](#引用块小标题)
+> - 将内容以分级、分类**折叠**的方式进行组 [❯❯](#折叠引用块)
+> - 适配优化 GitHub Style Alert 样式 [❯❯](#GitHub Style Alert)
 >
 > ~(Vn)~
 
-> ######  引用多样化的自动排版
+> ######  引用块多样化的自动排版
 >
-> - **重要**的引用使用**突出**的样式 [❯❯](#彩虹引用)
-> - 引用内嵌普通引用 [❯❯](#示例_引用内嵌普通引用)
-> - 引用内嵌分栏引用 [❯❯](#示例_引用内嵌引用分栏)
-> - 列表内嵌引用 [❯❯](#示例_列表内嵌引用)
+> - **重要**的引用块使用**突出**的样式 [❯❯](#彩虹引用块)
+> - 引用块内嵌普通引用块 [❯❯](#示例_引用块内嵌普通引用块)
+> - 引用块内嵌分栏引用块 [❯❯](#示例_引用块内嵌引用块分栏)
+> - 列表内嵌引用块 [❯❯](#示例_列表内嵌引用块)
 >
 > ~(Vn)~
 
@@ -168,7 +172,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 > ###### 标记、突出关键信息与内容
 >
 > - 添加**标签**突出关键字信息 [❯❯](guide2.md#彩虹标签)
-> - 将两项内容以**徽章**形式组织 [❯❯](guide2.md#彩虹徽章)
+> - 将多项内容以**徽章**形式组织 [❯❯](guide2.md#彩虹徽章)
 >
 > ~(Vn)~
 
@@ -181,7 +185,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ## 快速入坑°内容导航
 
-> **![°内容导航](pic/qico-nav-light.svg?fill=text&darksrc=invert#icon2x) ° 内容导航**
+> **![°内容导航](pic/qico-nav-light.svg?fill=text&darksrc=invert#icon) ° 内容导航**
 >
 > **VLOOK™ 提供了对文档章节、插图、表格、多媒体提供了多种形式的导航、快速定位和内容组织的工具，全面改善和提高发布的 HTML 文件的浏览体验和效率。**
 >
@@ -235,7 +239,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ## 快速入坑°演示与出版辅助
 
-> **![°演示与出版辅助](pic/qico-pres-light.svg?fill=text&darksrc=invert#icon2x) ° 演示与出版辅助**
+> **![°演示与出版辅助](pic/qico-pres-light.svg?fill=text&darksrc=invert#icon) ° 演示与出版辅助**
 >
 > **VLOOK™ 独创性地为 Markdown 导出的 HTML 提供了强大的演示与出版辅助工具，让 Typora + VLOOK 成为更具生产力的 Markdown 文档解决方案。**
 >
@@ -351,7 +355,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ## 快速入坑°主题与不杂项
 
-> **![°主题与不杂项](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon2x) ° 主题与不杂项**
+> **![°主题与不杂项](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon) ° 主题与不杂项**
 >
 > 「**人类从来都是视觉动物，自己或他人在阅读时，让眼睛感受愉悦和美好，是一种美德、一种力量、一种信仰。**~(CyPu)~」
 >
@@ -409,7 +413,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > **/ 贰 /**
 >
-> 将在后续的[彩虹文本](guide2.md#彩虹文本)、[渐变色文本](guide2.md#渐变色文本)、[彩虹单元格](guide2.md#彩虹单元格)、[彩虹标签](guide2.md#彩虹标签)、[彩虹徽章](guide2.md#彩虹徽章)、[彩虹引用](guide2.md#彩虹引用)等文档排版特性中进行使用
+> 将在后续的[彩虹文本](guide2.md#彩虹文本)、[渐变色文本](guide2.md#渐变色文本)、[彩虹单元格](guide2.md#彩虹单元格)、[彩虹标签](guide2.md#彩虹标签)、[彩虹徽章](guide2.md#彩虹徽章)、[彩虹引用块](guide2.md#彩虹引用块)等文档排版特性中进行使用
 
 > **/ 叁 /**
 >
@@ -417,7 +421,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ![VLOOK™ - Color Card 预置色号](https://madmaxchow.gitee.io/vlookres/pic/vlook-color-card-light.png?srcset=@2x&darksrc=vlook-color-card-dark.png&darksrcset=@2x#logo#center)
 
-**（以上 `~色号~` 为 Typora 的下标格式，VLOOK™ 主题会自动识别并以特殊样式显示，以区别于普通下标样式）**
+**（以上 `~(色号)~` 为 Typora 的下标格式，VLOOK™ 主题会自动识别并以特殊样式显示，以区别于普通下标样式）**
 
 # °文本
 
@@ -451,7 +455,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 3. 或是 ==指定的高亮文本内容==~(Ro)~ 通过色号组合进行标记；
 4. 或是 <u>指定的下划线文本内容</u>~(Pu)~ 通过色号组合进行标记。
 
-###### 示例_在引用内的段落彩虹文本
+###### 示例_在引用块内的段落彩虹文本
 
 ---
 
@@ -474,8 +478,8 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 |     绿 Green     |      Gn~(Gn)~      | 提示、参考、新增~(Gn)~          |
 | 矿绿 Mineral | Mn~(Mn)~ | 提示、参考、新增~(Mn)~ |
 | 橄榄绿 Olives | Ol~(Ol)~ | 提示、参考、新增~(Ol)~ |
-|    水绿 Aqua    |      Aq~(Aq)~      | 引用、公告~(Aq)~                 |
-|     青 Cyan     |      Cy~(Cy)~      | 引用、公告~(Cy)~                 |
+|    水绿 Aqua    |      Aq~(Aq)~      | 引用块、公告~(Aq)~                 |
+|     青 Cyan     |      Cy~(Cy)~      | 引用块、公告~(Cy)~                 |
 |     蓝 Blue     |      Bu~(Bu)~      | 信息、资讯~(Bu)~                 |
 |    海蓝 Sea    |      Se~(Se)~      | 信息、资讯~(Se)~                  |
 | 薰衣紫 Lavender | La~(La)~ | 信息、资讯~(La)~ |
@@ -513,7 +517,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 3. 或是 ==指定的高亮文本内容==~(AqPu)~ 通过色号组合**标记为渐变色**~(BuAq)~；
 4. 或是 <u>指定的下划线文本内容</u>~(OgBk)~ 通过色号组合**标记为渐变色**~(SeRo)~。
 
-###### 示例_在引用内的段落渐变色文本
+###### 示例_在引用块内的段落渐变色文本
 
 ---
 
@@ -526,7 +530,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -554,14 +558,14 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ###### 示例_普通单元格的横向合并、纵向合并
 
-| **列 A**        | 列 B                | 列 C                    | ==列 D==   | 列 E       | 列 F       | 列 G            |
-| --------------- | ------------------- | ----------------------- | ---------- | ---------- | ---------- | --------------- |
-| 纵向合并 `#×3#` | 普通单元格          | 普通单元格              | 普通单元格 | 普通单元格 | 普通单元格 | 纵向合并 `#×5#` |
-| :               | 纵向合并 `#×2#`     | 横向合并 `#×4#`         | ==         | ==         | ==         | :               |
-| :               | :                   | 普通**单==元==格**加粗  | 普通单元格 | 普通单元格 | 普通单元格 | :               |
-| 普通单元格      | 纵向<br>合并 `#×3#` | 普通 *单元格* 斜体      | 普通单元格 | 普通单元格 | 普通单元格 | :               |
-| 普通单元格      | :                   | 普通==单元格==高亮      | 普通单元格 | 普通单元格 | 普通单元格 | :               |
-| 普通单元格      | :                   | 普通<u>单元格</u>下划线 | 普通单元格 | 普通单元格 | 普通单元格 | :               |
+| **列 A**        | 列 B                | 列 C                    | ==列 D==            | 列 E       | 列 F       | 列 G                                                         |
+| --------------- | ------------------- | ----------------------- | ------------------- | ---------- | ---------- | ------------------------------------------------------------ |
+| 纵向合并 `#×3#` | 普通单元格          | 普通单元格              | 普通单元格          | 普通单元格 | 普通单元格 | `123` 纵向合并 `#×5#`<br>`#单元格|徽章 1#`<br>`#单元格|徽章 2#`~(Rd)~<br>`#单元格|内容 3|内容 4#`~(Gn!)~ |
+| :               | 纵向合并 `#×2#`     | 横向合并 `#×4#`         | ==                  | ==         | ==         | :                                                            |
+| :               | :                   | 普通**单==元==格**加粗  | 普通`#单元格|徽章#` | 普通单元格 | 普通单元格 | :                                                            |
+| 普通单元格      | 纵向<br>合并 `#×3#` | 普通 *单元格* 斜体      | 普通单元格          | 普通单元格 | 普通单元格 | :                                                            |
+| 普通单元格      | :                   | 普通==单元格==高亮      | 普通单元格          | 普通单元格 | 普通单元格 | :                                                            |
+| 普通单元格      | :                   | 普通<u>单元格</u>下划线 | 普通单元格          | 普通单元格 | 普通单元格 | :                                                            |
 
 ###### 示例_表头纵向、横向合并 1
 
@@ -584,36 +588,36 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ### 基础
 
-`#Markdown 粉|⬇️#`「**Markdown 表格如何快速设置整列的格式（加粗、高亮、下划线、斜体、删除线）？**」
+`#Markdown 粉|⬇️#`「**Markdown 表格如何快速设置整列的格式（加粗、高亮、斜体）？**」
 
 `#VLOOK|👀#`~(T2)~ SO EASY～ 只须在表头按以标准的 Markdown 或 GFM 的格式设置语法设置对应的格式即可实现这样的格式化。
 
 > 温故一下标准 Markdown 或 GFM 的格式语法：
 >
-> `**加粗**`、`*斜体*`、`~~删除线~~`、`==高亮==` 、`<u>下划线</u>`
+> `**加粗**`、`*斜体*`、`==高亮==`
 
 ###### 示例_基础列格式
 
-|      **加粗**      | *斜体*            | <u>下划线</u>     | ==高亮==               | ~~删除线~~               |
-| :----------------: | ----------------- | ----------------- | ---------------------- | ------------------------ |
-| 单元格（横向合并） | ==                | 单元格 afgiklo 10 | 单元格                 | 单元格 `#标题|徽章内容#` |
-|       单元格       | 单元格 afgiklo 10 | 单元格 afgiklo 10 | 单元格内有**加粗**内容 | 单元格内容               |
-|       单元格       | 单元格 afgiklo 10 | 单元格 afgiklo 10 | 单元格内容             | 单元格有 `行内代码` 内容 |
+| **加粗**           | *斜体*                   | ==高亮==               |
+| ------------------ | ------------------------ | ---------------------- |
+| 单元格（横向合并） | ==                       | 单元格                 |
+| 单元格             | 单元格 ==afgiklo 10==    | 单元格内有**加粗**内容 |
+| 单元格             | 单元格 <u>afgiklo 10</u> | 单元格内容             |
 
 ###### 示例_基础列格式（嵌套）
 
-| **加粗** | ==<u>高亮＋下划线</u>== | *<u>斜体＋下划线</u>* | ==**加粗＋高亮**==     | ~~*删除线+斜体*~~        |
-| :------: | :---------------------- | --------------------- | ---------------------- | ------------------------ |
-|    A     | 单元格 afgiklo 10       | 单元格 afgiklo 10     | 单元格                 | 单元格 `#标题|徽章内容#` |
-|    B     | 单元格 afgiklo 10       | 单元格 afgiklo 10     | 单元格内有**加粗**内容 | 单元格内有内容           |
+| **加粗** | ==**加粗＋高亮**==     |
+| -------- | ---------------------- |
+| A        | 单元格                 |
+| B        | 单元格内有**加粗**内容 |
 
 ###### 示例_基础列格式（多行表头嵌套）
 
-| **普通列** | 嵌套的常规格式          | ==                    | ==                     | ==                       |
-| :--------: | :---------------------- | --------------------- | ---------------------- | ------------------------ |
-|     :      | ==<u>高亮＋下划线</u>== | *<u>斜体＋下划线</u>* | ==**加粗＋高亮**==     | ~~*删除线+斜体*~~        |
-|     A      | 单元格 afgiklo 10       | 单元格 afgiklo 10     | 单元格                 | 单元格 `#标题|徽章内容#` |
-|     B      | 单元格 afgiklo 10       | 单元格 afgiklo 10     | 单元格内有**加粗**内容 | 单元格内有内容           |
+| **普通列** | 嵌套的常规格式           | ==                | ==                     |
+| ---------- | :----------------------- | ----------------- | ---------------------- |
+| :          | **加粗**                 | *斜体*            | ==高亮==               |
+| A          | 单元格 <u>afgiklo 10</u> | 单元格 afgiklo 10 | 单元格                 |
+| B          | 单元格 ~~afgiklo 10~~    | 单元格 afgiklo 10 | 单元格内有**加粗**内容 |
 
 ### 数值、百分数、货币
 
@@ -641,7 +645,9 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 | +5678.00    |    Y     |   Y    |          |    Y     | :    |    +5678.00 |
 | -2345678.00 |    Y     |          |   Y    |    Y     | :    | -2345678.00 |
 
-> ###### 表格列头说明
+> [!NOTE]
+>
+> 对以上「表格列头」的补充说明：
 >
 > - **原始内容**：被 VLOOK™ 自动格式化前的样式
 > - **数值列**：被 VLOOK™ 自动格式化后的样式
@@ -673,9 +679,11 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 > - 自动继承「普通数字」的格式
 > - 对货币符号（如：`¥` `$`），或货币简写（如：`CNY` `USD` `HKD`等）进行左侧对齐和视觉弱化
 >
-> `#⚠️|注意#`~(Rd!)~ 货币符号，或货币简写与金额数值之间须以空格分隔
->
 > ~(Bn!)~
+
+> [!IMPORTANT]
+>
+> 货币符号，或货币简写与金额数值之间须以空格分隔。
 
 ###### 示例_货币
 
@@ -736,6 +744,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 > **对单元格「背景」进行着色**
 >
 > 使用「强调风格」的[预置色号](#预置色号)，原则上建议添加到单元格的==最后位置==~(T2)~，如：蓝色 `~(Bu!)~`
+
 *==示例_彩虹单元格（单色）==*
 
 |      彩虹单元格（单色示例）~(T1!)~       |                 ==                  |                 ==                  |                   ==                    |                  ==                   |                 ==                 |                ==                 |                    ==                    |                     ==                     |
@@ -773,7 +782,9 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > 若希望为表格在自动编号之后，添加指定的题注，如：`表 1. 2020 年全球经济体 GDP 排名`
 >
-> > 若没有指定题注，VLOOK™ 会自动以表格文字内容（头尾片断）作为题注
+> 若没有指定题注，VLOOK™ 会自动以表格文字内容（头尾片断）作为题注。
+>
+> ~(T1!)~
 ---
 
 > **设置表格题注：方式一（推荐）**
@@ -784,29 +795,35 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > - 对应的 Markdown 格式语法为：`*==这是题注内容==*` 。
 >
+> > [!TIP]
+> >
+> > 这种方式会在 Typora 编辑时会有可视化的提示。
+>
 > > ###### 快捷键
 > >
-> > Windows：<kbd>⌃ Ctrl</kbd> ＋ <kbd>i</kbd> ，松开后 <kbd>⌃ Ctrl</kbd> ＋ <kbd>⇧ Shift</kbd> ＋ <kbd>H</kbd>
+> > **Windows**：<kbd>⌃ Ctrl</kbd> ＋ <kbd>i</kbd> ，松开后 <kbd>⌃ Ctrl</kbd> ＋ <kbd>⇧ Shift</kbd> ＋ <kbd>H</kbd>
 > >
-> > macOS： <kbd>⌘ Command</kbd> ＋ <kbd>i</kbd> ，松开后 <kbd>⌘ Command</kbd> ＋ <kbd>⇧ Shift</kbd> ＋ <kbd>H</kbd>
+> > **macOS**： <kbd>⌘ Command</kbd> ＋ <kbd>i</kbd> ，松开后 <kbd>⌘ Command</kbd> ＋ <kbd>⇧ Shift</kbd> ＋ <kbd>H</kbd>
 > > ： <kbd>⌘ Command</kbd> ＋ <kbd>i</kbd> ，松开后 <kbd>⌘ Command</kbd> ＋ <kbd>⇧ Shift</kbd> ＋ <kbd>H</kbd>
 >
-> `#💡|小提示#`~(Og!)~ 这种方式会在 Typora 编辑时会有可视化的提示。
 
 
 > **设置表格题注：方式二**
 >
-> - 在表格前添加 `1～6 级` 任间一级标题
+> - 在表格前添加一个 `6 级` 任间一级标题
 >
 > - 对应的 Markdown 格式语法为：`###### 这是题注内容`
 >
+> > [!NOTE]
+> >
+> > 这种方式会自动启用表格的[逐行自动编号](#表格行自动编号)特性。
+>
 > > ###### 快捷键
 > >
-> > Windows：<kbd>⌃ Ctrl</kbd> ＋ <kbd>1～6</kbd>
+> > **Windows**：<kbd>⌃ Ctrl</kbd> ＋ <kbd>6</kbd>
 > >
-> > macOS： <kbd>⌘ Command</kbd> ＋ <kbd>1～6</kbd>
+> > **macOS**： <kbd>⌘ Command</kbd> ＋ <kbd>6</kbd>
 >
-> `#💡|小提示#`~(Og!)~ 这种方式会自动启用表格的[逐行自动编号](#表格行自动编号)特性。
 
 *==通过「方式一」生成的题注==*
 
@@ -821,6 +838,8 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 | 单元格内容 | 单元格内容 | 单元格内容 | 单元格内容 | 单元格内容 |
 
 
+
+
 > **双题注**
 >
 > VLOOK™ 支持双题注，第二个题注显示在表格下方，同时还支持在 Typora 编辑时预览（在导出 HTML 后正式生效）。
@@ -831,7 +850,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 > - 第二步：在以上题注内容的最后添加第二个题注的内容，并用下划线包裹；
 > - 对应的 Markdown 格式语法为：`*==这是第一个题注内容_这是第二个题注_==*` 。
 >
-> ~(T2)~
+> ~(T2!)~
 
 *==示例：这是第一个题注内容_这是第二个题注内容_==*
 
@@ -877,12 +896,14 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 > 对于作为下级的行，在表格行的首列通过以下规则即可实现自动分组和折叠：
 >
-> - 使用 Markdown 的引用的语法 `>␣` ，即可表示该行缩进一级，其前一行即为上一级的分组
+> - 使用 Markdown 的引用块的语法 `>␣` ，即可表示该行缩进一级，其前一行即为上一级的分组
 > - 多个 `>` 表示缩进多级，如三级缩进 `>>>␣`
 >
 > <sup>**说明：**以上的 `␣` 符号为英文空格</sup>
+
+> [!IMPORTANT]
 >
-> `#⚠️|注意#`~(Rd!)~ 该单元格的内容不能独立设置部分内容的格式，如：部分文字加粗、高亮、换行等
+> 该单元格的内容不能独立设置部分内容的格式，如：部分文字加粗、高亮、换行等。
 
 ###### 写法如下第 2 列所示
 
@@ -1020,12 +1041,10 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 | 单元格 17 | 单元格 | 单元格 C1 | 单元格 C2 |          |
 | 单元格 18 | 单元格 | 单元格 C1 | 单元格 C2 |          |
 
-> **⚠️ 注意**
+> [!IMPORTANT]
 >
 > 1. 重复表头会根据表头行数、表体行数情况进行自动适配；
 > 2. 若每「表格页」尾行刚才好有跨行合并的单元格，或为表格的最后一行，会延伸到没有合并单元格的行时才显示，或跳过不显示。
->
-> ~(Rd)~
 
 ## 表格换行版式
 
@@ -1036,7 +1055,9 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 1. 使用小屏阅读，一般指屏幕宽度小于 `1280 px`
 2. 表格含有「[行分组折叠](#表格行分组折叠)」，或表格列数大于 `7`
 
-> `#💡|小提示#`~(Og!)~ 在导出 HTML 后阅读时，可通过[内容助手](guide2.md#表格换行版式)的表格换行版式进行手工切换
+> [!TIP]
+>
+>  在导出 HTML 后阅读时，可通过[内容助手](guide2.md#表格换行版式)的表格换行版式进行手工切换
 
 ## 表格当前行指标器
 
@@ -1049,7 +1070,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1070,9 +1091,11 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 > - **单题注：**以上 `图片标题` 即为「上题注」的内容，如：`![这是图片的上题注](图片URL)`
 > - **双题注：**以上 `可选子标题` 即为「下题注」的内容，如：`![这是图片的上题注](图片URL "这是图片的下题注")` 。
 >
-> > 若没有指定或可用的题注内容，VLOOK™ 会自动以图片文件名作为题注
+> 若没有指定或可用的题注内容，VLOOK™ 会自动以图片文件名作为题注。
 >
-> `#⚠️|注意#`~(Rd!)~ 以上语法中的「可选子标题」与「图片URL」间须以「英文空格」进行分隔
+> > [!IMPORTANT]
+> >
+> > 以上语法中的「可选子标题」与「图片URL」间须以「英文空格」进行分隔。
 >
 > ---
 >
@@ -1082,8 +1105,8 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > 添加的方式与为「表格」添加题注方式是一致的 … [了解详情 ❯](#表格自动编号与题注)
 >
-> > 若没有指定题注，VLOOK™ 会自动以 Mermaid 图表中的文字内容作为题注
->
+> 若没有指定题注，VLOOK™ 会自动以 Mermaid 图表中的文字内容作为题注。
+> 
 > ---
 >
 > **示例：**Mermaid 题注，[去看一看 ❯](guide2.md#更美观的 Mermaid)
@@ -1106,11 +1129,14 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 |  仅 3x   | srcset=`3x图片路径`@3x<br>或 srcset=@3x                    | `![图片题注](标准分辨率图.png?srcset=这是3x图.png@3x)`       |
 | 同时适配 | srcset=`2x图片路径`@2x,`3x图片路径`@3x<br>或 srcset=@2x,@3x | `![图片题注](标准分辨率图.png?srcset=这是2x图.png@2x,这是3x图.png@3x)` |
 
-> `#💡|Tips 1#`~(Og)~ 如果高清图片名称是 `图片@2x.png` `图片@3x.png` 这类格式，则无须填写对应的图片名，如：`srcset=@2x,@3x`
+> [!TIP]
 >
-> `#💡|Tips 2#`~(Og)~ 高清图片与标准分辨率图片若在同一目录或 URL 下，可只写文件名部分，否则须填写完整的图片 URL
+> 1. 如果高清图片名称是 `图片@2x.png` `图片@3x.png` 这类格式，则无须填写对应的图片名，如：`srcset=@2x,@3x` ；
+> 2. 高清图片与标准分辨率图片若在同一目录或 URL 下，可只写文件名部分，否则须填写完整的图片 URL 。
+
+> [!NOTE]
 >
-> `#📒|参考#`~(Gn!)~ *如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～*
+> 如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～
 
 ###### 示例
 
@@ -1137,7 +1163,9 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >
 > 你现在就可以试试按下键盘的 <kbd>D</kbd> 键，然后看看下面两个插图的变化～
 
-> `#📒|参考#`~(Gn!)~ *如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～*
+> [!NOTE]
+>
+> 如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～
 
 ###### 示例
 
@@ -1153,9 +1181,14 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 > - 适配高分屏分辨率的图片（可选）：`darksrcset=...` ，该参数的用法==适配高分屏==的 `srcset` 保持一致，详见「[图片适配高分屏](#图片适配高分屏)」
 >
 > 你现在就可以试试按下键盘的 <kbd>D</kbd> 键，然后看看下面两个插图的变化～
-> `#⚠️|注意#`~(Rd!)~ **若高分辨率图片资源较大，切换为 Dark Mode 后须等待指定的图片资源加载完成后才会被替换**
 
-> `#📒|参考#`~(Gn!)~ *如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～*
+> [!IMPORTANT]
+>
+> 若高分辨率图片资源较大，切换为 Dark Mode 后须等待指定的图片资源加载完成后才会被替换
+
+> [!NOTE]
+>
+> 如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～
 
 ###### 示例
 
@@ -1180,7 +1213,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 
 
-> **⚠️ 注意**
+> [!CAUTION]
 >
 > 受浏览器跨域访问的安全策略影响，使用该特性的文档建议发布到 HTTP 服务器上，同时图片路径与 HTML 路径的域名保持一致（即不允许跨域），如：
 >
@@ -1188,11 +1221,11 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 >   - 正确的图片链接的地址示例 `http://<域名A>/img/xxx.svg`
 >   - 错误的图片链接的地址示例 `http://<域名B>/img/xxx.svg`
 >
-> *==满足颜色替换的图片路径引用方式说明==*
+> *==满足颜色替换的图片路径引用块方式说明==*
 >
 > |       浏览器       |      直接打开本地 HTML      |      ==      |                    通过 HTTP 方式访问                     |      ==      |
 > | :-----------: | :-------------------------: | :----------: | :-------------------------------------------------------: | :----------: |
-> |       :       |      [] 相对路径引用       | [] URL 路径 |                     [] 相对路径引用                      | [] URL 路径 |
+> |       :       |      [] 相对路径       | [] URL 路径 |                     [] 相对路径                      | [] URL 路径 |
 > | Chrome / Edge |                             |              |                             Y                             |      Y       |
 > |    Firefox    |              Y              |              |                             Y                             |      Y       |
 > |    Safari     | Y<br>（须指定默认图床地址） |      Y       |                             Y                             |      Y       |
@@ -1200,7 +1233,6 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 > 
 > > 对于使用 Safari 直接打开本地 HTML 的场景，要实现颜色替换的图片路径如果是相对路径的（实际是部署在指定服务器或图床上），须通过指定[预置选项](guide2.md#插件预置选项) `vlook-image-host` 指定默认图床地址。
 > 
-> ~(Rd!)~
 
 ###### 示例_链接内图片
 
@@ -1239,7 +1271,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 | 主题辅助色 Theme2 | T2~(T2)~ | ![Markdown](pic/markdown-mark-solid.svg?fill=T2#icon) Markdown 图标替换为指定颜色 |
 
 
-###### 示例_彩虹引用及标题
+###### 示例_彩虹引用块及标题
 
 > **这是 ![Markdown](pic/markdown-mark.svg?fill=text#icon) Markdown 的 6 级标题**
 >
@@ -1273,7 +1305,7 @@ VLOOK™ 通过结合 Typora 持续 **挖掘和扩展** Markdown 和 CSS 的应�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -1297,24 +1329,35 @@ VLOOK™ 经过多次迭代后，终于形成比较实用的图片快速排版�
 > 在「图片 URL」中添加 VLOOK™ 规范的图片「#魔法」实现：
 >
 > - 图片 URL + `#缩放值`
+>
+> > [!TIP]
+> >
+> > 支持指定按宽度、按高度进行缩放，也可以同时指定
 
 ###### 图片缩放值的说明
 
-|  **缩放类型**  | 说明                                                         | 完整语法参考             |
-| :------------: | ------------------------------------------------------------ | ------------------------ |
-| 按绝对的像素值 | 指定宽度（px），高度会等比例变化<br>支持 `200px` `400px` `600px` `800px` 共 4 档宽度<br>（若指定宽度超出浏览器内显示宽度时，会自适应为100%） | `![图片](xxx.png#600px)` |
+|  **缩放类型**  | 说明                                                         | 完整语法参考            |
+| :------------: | ------------------------------------------------------------ | ----------------------- |
+| 按绝对==宽度== | 指定宽度（单位：px），高度会等比例变化<br>支持 `200w` `400w` `600w` `800w` 共 4 档宽度<br>（若指定宽度超出浏览器内显示宽度时，会自适应为100%） | `![图片](xxx.png#600w)` |
+| 按绝对==高度== | 指定高度（单位：px），宽度会等比例变化<br/>支持 `200h` `400h` `600h` `800h` 共 4 档宽度 | `![图片](xxx.png#600h)` |
 
-> `#📒|参考#`~(Gn!)~ *如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～*
+> [!NOTE]
+>
+> 如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～
 
-###### 示例_按绝对的像素值缩放图片
+###### 示例_按绝对宽度缩放图片
 
-![等比缩放至宽度为 200px](https://madmaxchow.gitee.io/vlookres/pic/vlook-zoom-pic.png#200px)
+![等比缩放至宽度为 200px](https://madmaxchow.gitee.io/vlookres/pic/vlook-zoom-pic.png#200w)
 
-![等比缩放至宽度为 400px](https://madmaxchow.gitee.io/vlookres/pic/vlook-zoom-pic.png#400px)
+![等比缩放至宽度为 400px](https://madmaxchow.gitee.io/vlookres/pic/vlook-zoom-pic.png#400w)
 
-![等比缩放至宽度为 600px](https://madmaxchow.gitee.io/vlookres/pic/vlook-zoom-pic.png#600px)
+![等比缩放至宽度为 600px](https://madmaxchow.gitee.io/vlookres/pic/vlook-zoom-pic.png#600w)
 
-![等比缩放至宽度为 800px](https://madmaxchow.gitee.io/vlookres/pic/vlook-zoom-pic.png#800px)
+![等比缩放至宽度为 800px](https://madmaxchow.gitee.io/vlookres/pic/vlook-zoom-pic.png#800w)
+
+###### 示例_按绝对高度缩放图片
+
+![等比缩放至高度为 200px](pic/vlook-zoom-pic-v.png#200h)　　![等比缩放至高度为 400px](pic/vlook-zoom-pic-v.png#400h)　　![等比缩放至高度为 600px](pic/vlook-zoom-pic-v.png#600h)　　![等比缩放至高度为 800px](pic/vlook-zoom-pic-v.png#800h)
 
 ## 图片显示版式
 
@@ -1341,7 +1384,9 @@ VLOOK™ 经过多次迭代后，终于形成比较实用的图片快速排版�
 | :         | frame**==l==** | 在 `logol` 模式上增加了边框样式                              | `![图片](xxx.png#framel)` |
 | :         | frame**==r==** | 在 `logor` 模式上增加了边框样式                              | `![图片](xxx.png#framer)` |
 
-> `#📒|参考#`~(Gn!)~ *如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～*
+> [!NOTE]
+>
+> 如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～
 
 ### 图片版式示例：icon
 
@@ -1382,6 +1427,10 @@ VLOOK™ 经过多次迭代后，终于形成比较实用的图片快速排版�
 > - **Card Dual 模式**[^CardDual模式]：图片 URL + `#cardd`
 >
 > 当图片底部会出现一条主题色的边框，即意味正确启用了。在导出 HTML 后支持在插图索引中进行浏览和检索。
+>
+> > [!TIP]
+> >
+> > 若图片是白底，希望能突出边缘，可以在以上基础追加 `#border` 即可
 
 > Markdown 标准图片语法为：
 >
@@ -1389,26 +1438,30 @@ VLOOK™ 经过多次迭代后，终于形成比较实用的图片快速排版�
 >
 > 需要注意的是，卡片标题内容来自于图片中的「**Title text**」，而卡片正文内容来自于图片中的「**Alt text**」。
 >
-> `#💡|Tips#`~(Og)~
->
-> 若需要对正文内容内容进行自定义的排版格式，可在图片下方添加一个「**引用**」，该引用的内容将代替「**Alt text**」
+> > [!TIP]
+> >
+> > 若需要对正文内容内容进行自定义的排版格式，可在图片下方添加一个「**引用块**」，该引用块的内容将代替「**Alt text**」
 
 [^Card模式]: 鼠标在图片上==悬停后显示==文字
 [^CardDual模式]: 图片与文字==同时显示==
 
-> `#⚠️|注意#`~(Rd!)~ 「明信片」不能与[图片显示版式](#图片显示版式)中的排版特性同时使用
+> [!CAUTION]
 >
-> `#📒|参考#`~(Gn!)~ *如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～*
+> 「明信片」不能与[图片显示版式](#图片显示版式)中的排版特性同时使用
+
+> [!NOTE]
+>
+> 如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～
 
 ###### 进阶玩法
 
-如果希望能指定明信片的**背景颜色**~(T1T2)~，或是以**分栏**~(T1T2)~的方式对明信片进行更整洁的排版，只要将「明信片」放置到[彩虹引用](#彩虹引用)内即可，还是熟悉的配方～
+如果希望能指定明信片的**背景颜色**~(T1T2)~，或是以**分栏**~(T1T2)~的方式对明信片进行更整洁的排版，只要将「明信片」放置到[彩虹引用块](#彩虹引用块)内即可，还是熟悉的配方～
 
 ###### 示例_任意普通的图片添加 Card 魔法
 
 ![熔岩和森林彼此相邻。 Lava and forest next to each other.](https://madmaxchow.gitee.io/vlookres/pic/pic-card-00.jpeg#card#500px "西西里岛")
 
-###### 示例_结合引用分栏的 Card 模式
+###### 示例_结合引用块分栏的 Card 模式
 
 ---
 
@@ -1434,7 +1487,7 @@ VLOOK™ 经过多次迭代后，终于形成比较实用的图片快速排版�
 >
 > ~(Ol)~
 
-###### 示例_结合引用分栏的 Card Dual 模式
+###### 示例_结合引用块分栏的 Card Dual 模式
 
 ---
 
@@ -1484,7 +1537,9 @@ VLOOK™ 经过多次迭代后，终于形成比较实用的图片快速排版�
 |    center    | 居中对齐                           | `![图片](xxx.png#center)` |
 |    right     | 右对齐                             | `![图片](xxx.png#right)`  |
 
-> `#📒|参考#`~(Gn!)~ *如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～*
+> [!NOTE]
+>
+> 如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～
 
 ###### 插图示例
 
@@ -1545,7 +1600,9 @@ VLOOK™ 经过多次迭代后，终于形成比较实用的图片快速排版�
 >
 > - 图片 URL + `#padding` ，示例：`![图片题注](xxx.png#padding)`
 
-> `#📒|参考#`~(Gn!)~ *如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～*
+> [!NOTE]
+>
+> 如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～
 
 ###### 示例
 
@@ -1575,7 +1632,7 @@ VLOOK™ 经过多次迭代后，终于形成比较实用的图片快速排版�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?
 ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
@@ -1584,13 +1641,13 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 
 `#Markdown 粉|⬇️#`「**Markdown 只能做简单的列式编排内容，想做个看板只能用表格？**」
 
-`#VLOOK|👀#`~(T2)~ 当然不是，VLOOK 让你的「引用、列表」都能瞬间获得分栏能力， 嗖嗖～
+`#VLOOK|👀#`~(T2)~ 当然不是，VLOOK 让你的「引用块、列表」都能瞬间获得分栏能力， 嗖嗖～
 
 ---
 
-> 只要简单的一招，就可以对引用进行分栏，什么双栏、三栏、四栏，都不在话下，[去看看引用分栏 ❯](#引用分栏)
+> 只要简单的一招，就可以对引用块进行分栏，什么双栏、三栏、四栏，都不在话下，[去看看引用块分栏 ❯](#引用块分栏)
 
-> 还是同样的配方，也可以对列表进行分栏，比引用分栏还要多一栏呢...[去看看列表分栏 ❯](#列表分栏)
+> 还是同样的配方，也可以对列表进行分栏，比引用块分栏还要多一栏呢...[去看看列表分栏 ❯](#列表分栏)
 
 ## 列表分栏
 
@@ -1606,11 +1663,12 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 > - 添加 3 条水平分割线，启用「⬛︎ ⬛︎ ⬛︎ ⬛︎ 四栏」模式
 > - 添加 4 条水平分割线，启用「⬛︎ ⬛︎ ⬛︎ ⬛︎ ⬛︎ 五栏」模式
 >
-> `#💡|Tips#`~(Og)~
->
+
+> [!TIP]
+> 
 > 在正常添加后，会自动在水平分割线处显示对应分栏数量的提示，如「⬛︎ ⬛︎  2 Columns of List  ⬛︎ ⬛︎」
 
-*==双栏引用的 Markdown 语法示例==*
+*==双栏引用块的 Markdown 语法示例==*
 
 ```markdown
 --- 
@@ -1713,24 +1771,25 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 - 列表 7
   - 这是列表项 7-1
 
-## 引用分栏
+## 引用块分栏
 
-`#Markdown 粉|⬇️#`「**希望可以对引用进行分栏方式显示，但 Markdown 标准中好像没有这样个性的排版方式～**」
+`#Markdown 粉|⬇️#`「**希望可以对引用块进行分栏方式显示，但 Markdown 标准中好像没有这样个性的排版方式～**」
 
 `#VLOOK|👀#`~(T2)~ 通过对特定组合使用的 Markdown 语法进行扩展，就可以满足你的这个灵活的排版需求！
 
 > 主要适用于对同类内容进行分块组织，且排版内容不适合通过列表方式进行组织的情况。
-> **语法：**在需要进行分栏排版的「引用」前一段落添加指定数量的「水平分割线」`---` 
+> **语法：**在需要进行分栏排版的「引用块」前一段落添加指定数量的「水平分割线」`---` 
 >
 > - 添加 1 条水平分割线，启用「⬛︎ ⬛︎ 双栏」模式
 > - 添加 2 条水平分割线，启用「⬛︎ ⬛︎ ⬛︎ 三栏」模式
 > - 添加 3 条水平分割线，启用「⬛︎ ⬛︎ ⬛︎ ⬛︎ 四栏」模式
 >
-> `#💡|Tips#`~(Og)~
->
+
+> [!TIP]
+> 
 > 在正常添加后，会自动在水平分割线处显示对应分栏数量的提示，如「⬛︎ ⬛︎  2 Columns of Quote  ⬛︎ ⬛︎」
 
-*==双栏引用的 Markdown 语法示例==*
+*==双栏引用块的 Markdown 语法示例==*
 
 ```markdown
 ---
@@ -1740,7 +1799,7 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 > 分栏 2
 ```
 
-###### 示例_单行双栏引用
+###### 示例_单行双栏引用块
 
 ---
 
@@ -1752,7 +1811,7 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 >
 > 分栏 2
 
-###### 示例_单行三栏引用
+###### 示例_单行三栏引用块
 
 ---
 
@@ -1782,7 +1841,7 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 >
 > 第 1 行第 3 栏
 
-###### 示例_单行四栏引用
+###### 示例_单行四栏引用块
 
 ---
 
@@ -1794,7 +1853,7 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 >
 > 第 1 行第 1 栏
 >
-> [<kbd>按钮</kbd>](#示例_单行四栏引用)
+> [<kbd>按钮</kbd>](#示例_单行四栏引用块)
 >
 > ~(Rd!)~
 
@@ -1802,7 +1861,7 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 >
 > 第 1 行第 2 栏
 >
-> [<kbd>按钮</kbd>](#示例_单行四栏引用)
+> [<kbd>按钮</kbd>](#示例_单行四栏引用块)
 >
 > ~(Gn!)~
 
@@ -1810,7 +1869,7 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 >
 > 第 1 行第 3 栏
 >
-> [<kbd>按钮</kbd>](#示例_单行四栏引用)
+> [<kbd>按钮</kbd>](#示例_单行四栏引用块)
 >
 > ~(Bu!)~
 
@@ -1818,13 +1877,13 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 >
 > 第 1 行第 4 栏
 >
-> [<kbd>按钮</kbd>](#示例_单行四栏引用)
+> [<kbd>按钮</kbd>](#示例_单行四栏引用块)
 >
 > ~(Pu!)~
 
-###### 示例_引用内嵌套的引用分栏
+###### 示例_引用块内嵌套的引用块分栏
 
-> **引用内嵌套引用分栏**
+> **引用块内嵌套引用块分栏**
 >
 > ---
 >
@@ -1834,7 +1893,7 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 > >
 > > 第 1 行第 1 栏
 > >
-> > [<kbd>按钮</kbd>](#示例_引用内嵌套的引用分栏)
+> > [<kbd>按钮</kbd>](#示例_引用块内嵌套的引用块分栏)
 > >
 > > ~(Rd!)~
 >
@@ -1842,7 +1901,7 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 > >
 > > 第 1 行第 2 栏
 > >
-> > [<kbd>按钮</kbd>](#示例_引用内嵌套的引用分栏)
+> > [<kbd>按钮</kbd>](#示例_引用块内嵌套的引用块分栏)
 > >
 > > ~(Gn!)~
 >
@@ -1850,7 +1909,7 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 > >
 > > 第 1 行第 3 栏
 > >
-> > [<kbd>按钮</kbd>](#示例_引用内嵌套的引用分栏)
+> > [<kbd>按钮</kbd>](#示例_引用块内嵌套的引用块分栏)
 > >
 > > ~(Bu!)~
 >
@@ -1858,7 +1917,7 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 > >
 > > 第 1 行第 4 栏
 > >
-> > [<kbd>按钮</kbd>](#示例_引用内嵌套的引用分栏)
+> > [<kbd>按钮</kbd>](#示例_引用块内嵌套的引用块分栏)
 > >
 > > ~(Pu!)~
 >
@@ -1866,7 +1925,7 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](#快速入坑°内容导航)
 
@@ -1874,11 +1933,11 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 
 ## 列表自动编号
 
-强制针对有序列表、无序列表的分级自动编号进行统一。
+**强制针对有序列表、无序列表的分级自动编号进行统一，并将选择的主题色应用到所有的列表符号样式。**
 
 ---
 
-> **引用内的有序列表的自动编号**
+> **引用块内的有序列表的自动编号**
 >
 > 1. 有序列表的自动编号样式：
 >    1. 强制设置各层级的列表符号；
@@ -1888,7 +1947,7 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 >             1. 五级有序列表
 >                1. 六级有序列表
 
-> **引用内的无序列表的自动编号**
+> **引用块内的无序列表的自动编号**
 >
 > - 无序列表的自动编号样式：
 >   - 强制设置各层级的列表符号；
@@ -1958,60 +2017,66 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
-# °引用
+# °引用块
 
-## 引用小标题
+## 引用块小标题
 
-`#Markdown 粉|⬇️#`「**希望在引用内内容添加一个小标题，但直接用分级章节标题又不太合适**」
+`#Markdown 粉|⬇️#`「**希望在引用块内内容添加一个小标题，但直接用分级章节标题又不太合适**」
 
-`#VLOOK|👀#`~(T2)~ 一般引用内的首段内容就是小标题，所以对整段内容设置为加粗，就能自动渲染为「引用小标题」的样式了！
+`#VLOOK|👀#`~(T2)~ 一般引用块内的首段内容就是小标题，所以对整段内容设置为加粗，就能自动渲染为「引用块小标题」的样式了！
 
 ---
 
-> **语法：**对引用内首段内容设置为「粗体」即可。
+> **语法：**对引用块内首段内容设置为「粗体」即可。
 >
-> 示例如下，预览效果见右边的引用：
+> 示例如下，预览效果见右边的引用块：
+>
+> *==引用块小标题示例==*
 >
 > ```markdown
-> > **这里是这个引用的小标题**
+> > **这里是这个引用块的小标题**
 > > ---
-> > 这里引用内的其他段落内容 1
-> > 这里引用内的其他段落内容 2
+> > 这里引用块内的其他段落内容 1
+> > 这里引用块内的其他段落内容 2
 > ```
 
-> **这里是这个引用的小标题**
+> **这里是这个引用块的小标题**
 >
-> 这里引用内的其他段落内容 1
+> 这里引用块内的其他段落内容 1
 >
-> 这里引用内的其他段落内容 2
+> 这里引用块内的其他段落内容 2
 >
 > ~(Bu)~
 
-## 彩虹引用
+## 彩虹引用块
 
 `#Markdown 粉|⬇️#`「**希望可以在 Markdown 文档中能拉个横幅或板子，在上面写上一些重要的事～**」
 
-`#VLOOK|👀#`~(T2)~ 通过对 Markdown 下标语法 `~ ~` 进行了扩展，满足实用的多色彩「引用」的排版需求！
+`#VLOOK|👀#`~(T2)~ 通过对 Markdown 下标语法 `~ ~` 进行了扩展，满足实用的多色彩「引用块」的排版需求！
 
-`#💡|小提示#`~(Og!)~ 所有未指定为彩虹引用的普通引用（普通段落，不包括列表内、引用内的引用），会自动转换为色号为 `t1!` 的彩虹引用。若须修改默认色号，可通过「[插件调校参数](guide2.md#插件调校参数)」`quote` 指定。
+> [!TIP]
+>
+> 所有未指定为彩虹引用块的普通引用块（普通段落，不包括列表内、引用块内的引用块），会自动转换为色号为 `T1!` 的彩虹引用块。
+>
+> 若须修改默认色号，或不进行自动转换，可通过「[插件调校参数](guide2.md#插件调校参数)」`quote` 进行指定。
 
-> **语法：** `~(色号)~` ，==必须在引用内中独占一行（首行、末尾均可）==
+> **语法：** `~(色号)~` ，==必须在引用块内中独占一行（首行、末尾均可）==
 >
 > 其中：
 >
-> `色号`：指定该引用使用的[预置色号](#预置色号)（除 `Bk` ），在被正常识别后会在色号前出现彩虹引用标识「**>**~(T2)~」
+> `色号`：指定该引用块使用的[预置色号](#预置色号)（除 `Bk` ），在被正常识别后会在色号前出现彩虹引用块标识「**>**~(T2)~」
 
 ---
 
-> ###### 彩虹引用指定色号的旧语法
+> ###### 彩虹引用块指定色号的旧语法
 >
 > **语法：** `` >(色号) `` ，与新语法的主要区别是由行内代码改为下标，并采用与标签、徽章、刮刮卡统一的[预置色号](#预置色号)。
 
-> ###### 如何将彩虹引用的色号由「旧语法」批量更新为「新语法」
+> ###### 如何将彩虹引用块的色号由「旧语法」批量更新为「新语法」
 >
 > 
 >
@@ -2025,677 +2090,673 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 
 ---
 
-> **![Wine](pic/qico-red.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Wine](pic/qico-red.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Wn`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Wn`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|酒红#`~(Wn)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Wn)~
 
-> **![Wine](pic/qico-red.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Wine](pic/qico-red.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Wn!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Wn!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|酒红强调#`~(Wn!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Wn!)~
 
 ---
 
-> **![Red](pic/qico-red.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Red](pic/qico-red.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Rd`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Rd`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|红#`~(Rd)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Rd)~
 
-> **![Red](pic/qico-red.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Red](pic/qico-red.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Rd!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Rd!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|红强调#`~(Rd!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Rd!)~
 
 ---
 
-> **![Orange](pic/qico-orange.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Orange](pic/qico-orange.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Og`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Og`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|橙#`~(Og)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Og)~
 
-> **![Orange](pic/qico-orange.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Orange](pic/qico-orange.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Og!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Og!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|橙强调#`~(Og!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Og!)~
 
 ---
 
-> **![Yellow](pic/qico-yellow.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Yellow](pic/qico-yellow.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Ye`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Ye`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|黄#`~(Ye)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Ye)~
 
-> **![Yellow](pic/qico-yellow.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Yellow](pic/qico-yellow.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Ye!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Ye!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|黄强调#`~(Ye!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Ye!)~
 
 ---
 
-> **![Lime](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Lime](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Lm`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Lm`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|柠绿#`~(Lm)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Lm)~
 
-> **![Lime](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Lime](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Lm!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Lm!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|柠绿强调#`~(Lm!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Lm!)~
 
 ---
 
-> **![Green](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Green](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Gn`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Gn`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|绿#`~(Gn)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Gn)~
 
-> **![Green](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Green](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Gn!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Gn!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|绿强调#`~(Gn!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Gn!)~
 
 ---
 
-> **![Mineral](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Mineral](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Mn`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Mn`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|矿绿#`~(Mn)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Mn)~
 
-> **![Mineral](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Mineral](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Mn!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Mn!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|矿绿强调#`~(Mn!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Mn!)~
 
 ---
 
-> **![Olives](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Olives](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Ol`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Ol`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|橄榄绿#`~(Ol)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Ol)~
 
-> **![Olives](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Olives](pic/qico-green.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Ol!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Ol!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|橄榄绿强调#`~(Ol!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Ol!)~
 
 ---
 
-> **![Aqua](pic/qico-cyan.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Aqua](pic/qico-cyan.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Aq`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Aq`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|水绿#`~(Aq)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Aq)~
 
-> **![Aqua](pic/qico-cyan.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Aqua](pic/qico-cyan.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Aq!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Aq!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|水绿强调#`~(Aq!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Aq!)~
 
 ---
 
-> **![Cyan](pic/qico-cyan.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Cyan](pic/qico-cyan.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Cy`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Cy`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|青#`~(Cy)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Cy)~
 
-> **![Cyan](pic/qico-cyan.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Cyan](pic/qico-cyan.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Cy!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Cy!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|青强调#`~(Cy!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Cy!)~
 
 ---
 
-> **![Blue](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Blue](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Bu`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Bu`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|蓝#`~(Bu)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Bu)~
 
-> **![Blue](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Blue](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Bu!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Bu!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|蓝强调#`~(Bu!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Bu!)~
 
 ---
 
-> **![Sea](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Sea](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Se`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Se`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|海蓝#`~(Se)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Se)~
 
-> **![Sea](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Sea](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Se!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Se!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|海蓝强调#`~(Se!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Se!)~
 
 ---
 
-> **![Lavender](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Lavender](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`La`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`La`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|薰衣紫#`~(La)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(La)~
 
-> **![Lavender](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Lavender](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`La!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`La!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|薰衣紫强调#`~(La!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(La!)~
 
 ---
 
-> **![Vine](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Vine](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Vn`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Vn`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
-> >
-> > - [x] 这是一个 `#彩虹引用|藤紫#`~(Vn)~
+> > - [x] 这是一个任务列表项
 >
 > ~(Vn)~
 
-> **![Vine](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Vine](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Vn!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Vn!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|藤紫强调#`~(Vn!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Vn!)~
 
 ---
 
-> **![Purple](Pic/Qico-Purple.Svg?Fill=Text&Darksrc=Invert#Icon) 彩虹引用 6 级标题**
+> **![Purple](Pic/Qico-Purple.Svg?Fill=Text&Darksrc=Invert#Icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Pu`　　　ℹ️了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Pu`　　　ℹ️了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|紫#`~(Pu)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Pu)~
 
-> **![Purple](pic/qico-purple.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Purple](pic/qico-purple.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Pu!`　　　ℹ️了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Pu!`　　　ℹ️了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|紫强调#`~(Pu!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Pu!)~
 
 ---
 
-> **![Rose](pic/qico-pink.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Rose](pic/qico-pink.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Ro`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Ro`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|玫红#`~(Ro)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Ro)~
 
-> **![Rose](pic/qico-pink.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Rose](pic/qico-pink.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Ro!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Ro!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|玫红强调#`~(Ro!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Ro!)~
 
 ---
 
-> **![Pink](pic/qico-pink.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Pink](pic/qico-pink.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Pk`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Pk`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|粉#`~(Pk)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Pk)~
 
-> **![Pink](pic/qico-pink.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Pink](pic/qico-pink.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Pk!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Pk!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|粉强调#`~(Pk!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Pk!)~
 
 ---
 
-> **![Gold](pic/qico-brown.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Gold](pic/qico-brown.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Gd`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Gd`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|金#`~(Gd)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Gd)~
 
-> **![Gold](pic/qico-brown.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Gold](pic/qico-brown.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Gd!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Gd!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|金强调#`~(Gd!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Gd!)~
 
 ---
 
-> **![Brown](pic/qico-brown.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Brown](pic/qico-brown.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Bn`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Bn`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|棕#`~(Bn)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Bn)~
 
-> **![Brown](pic/qico-brown.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Brown](pic/qico-brown.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Bn!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Bn!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|棕强调#`~(Bn!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Bn!)~
 
 ---
 
-> **![Gray](pic/qico-gray.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Gray](pic/qico-gray.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Gy`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Gy`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|灰#`~(Gy)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Gy)~
 
-> **![Gray](pic/qico-gray.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Gray](pic/qico-gray.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`Gy!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`Gy!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|灰强调#`~(Gy!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(Gy!)~
 
 ---
 
-> **![Theme1](pic/qico-theme1.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Theme1](pic/qico-theme1.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`T1`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`T1`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|主题主色#`~(T1)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(T1)~
 
-> **![Theme2](pic/qico-theme2.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Theme2](pic/qico-theme2.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`T1!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`T1!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|主题主色强调#`~(T1!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(T1!)~
 
 ---
 
-> **![Theme2](pic/qico-theme2.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Theme2](pic/qico-theme2.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`T2`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`T2`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|主题辅助色#`~(T2)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(T2)~
 
-> **![Theme2](pic/qico-theme2.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题**
+> **![Theme2](pic/qico-theme2.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题**
 >
-> 使用==色号==为：`T2!`　ℹ️ 了解[色号](#预置色号) [<kbd>了解更多 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](#预置色号)
+> 使用==色号==为：`T2!`　ℹ️ 了解[色号](#预置色号) [<kbd>按钮链接 ▸</kbd>](#预置色号)
 >
 > > ###### 更多信息
 > >
-> > ```java
-> > /* 这是代码块 */
-> > ```
+> > - [x] 这是一个任务列表项
 > >
-> > - [x] 这是一个 `#彩虹引用|主题辅助色强调#`~(T2!)~
+> > - 这是无序列表项
+> >
+> > 1. 这是有序列表项
 >
 > ~(T2!)~
 
-## 折叠引用
+## 折叠引用块
 
-`#Markdown 粉|⬇️#`「**在编写 Markdown 文档时，对于部分内容较长的引用内容，希望在默认时能以折叠的形式存在，需要阅读时再点击打开。**」
+`#Markdown 粉|⬇️#`「**在编写 Markdown 文档时，对于部分内容较长的引用块内容，希望在默认时能以折叠的形式存在，需要阅读时再点击打开。**」
 
-`#VLOOK|👀#`~(T2)~ 通过对 Markdown 「引用」`> ` 内的内容写法进行扩展，实现对引用内容的动态的折叠、展开操作！
+`#VLOOK|👀#`~(T2)~ 通过对 Markdown 「引用块」`> ` 内的内容写法进行扩展，实现对引用块内容的动态的折叠、展开操作！
 
-> 语法：`> ###### title` ，即在正常的引用语法的首行内容设置为 6 级标题，即作为折叠后显示的标题
+> 语法：`> ###### title` ，即在正常的引用块语法的首行内容设置为 6 级标题，即作为折叠后显示的标题
 >
 > 其中，
 >
 > `title`：被折叠内容对应的标题，与折叠引子以「英文空格」进行分隔，在被正常识别后会在 6 级标题前出现折叠标识
 >
-> **使用了该语法后，其所在引用内的其他内容就是被折叠的部分**
+> **使用了该语法后，其所在引用块内的其他内容就是被折叠的部分**
 
 ###### 示例_实际应用效果
 
@@ -2758,45 +2819,194 @@ ll=text#icon) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文�
 > - **结论**：由此引申出的特殊化陈述符合一般性原则的结论
 ```
 
-## 引用排版细分
+## GitHub Style Alert
 
-###### 示例_引用内嵌普通引用
+`#Markdown 粉|⬇️#`「**VLOOK™ 的主题支持 [GitHub Style Alert](https://github.com/orgs/community/discussions/16925) 吗？**（需 [`#Typora|1.8.2-dev#`](https://typoraio.cn/releases/all) 或更高版本）」
 
-> 引用内嵌普通引用的样式会自动调整为「简约」的样式，具体如下：
+`#VLOOK|👀#`~(T2)~ 在自动化排版样式、交互等方面已完美适配，并支持根据浏览器语言自动适配中英文本。
+
+> 提供了「**常规**、**扁平**、**强调**」多种样式风格，可通过主题的[私人定制](guide2.md#私人定制模板主题)方式进行任意指定风格。
 >
-> > 我是引用内嵌的普通引用
+> 以下为「扁平」样式示例，更多样式的示例请通过 VLOOK™ 预置的 **[Hope](theme-hope.html#github-style-alert)**、**[Solaris](theme-solaris.html#github-style-alert)**、**[Geek](theme-geek.html#github-style-alert)** 主题进行预览。
 
-###### 示例_引用内嵌引用分栏
-
-> 引用内嵌「引用分栏」的样式会自动调整为「突出」的样式，具体如下：
+> [!NOTE]
 >
-> ---
+> ==Highlights== information that users should take into account, even when skimming.
+
+> [!TIP]
 >
-> > 我是引用内嵌的「引用分栏」1
+> Optional information to help a user be ==more successful==.
+
+> [!IMPORTANT]
 >
-> > 我是引用内嵌的「引用分栏」2
+> Crucial information ==necessary== for users to succeed.
 
-###### 示例_列表内嵌引用
+> [!WARNING]
+>
+> Critical content demanding immediate user attention due to ==potential risks==.
 
-- 无序或有序列表内嵌的普通引用，会调整为「自适配宽度」样式，并且不会默认转换样式（详见[插件调校参数](guide2.md#插件调校参数)中的 `quote` ），具体如下：
-
- > ###### ![Theme2](pic/qico-theme2.svg?fill=text&darksrc=invert#icon) 普通引用 6 级标题
- >
- > 这是一个普通引用的内容
-
-- 无序或有序列表内嵌的「[彩虹引用](#彩虹引用)」，会调整为「自适配宽度」样式，具体如下：
-
- > ###### ![Theme2](pic/qico-theme2.svg?fill=text&darksrc=invert#icon) 彩虹引用 6 级标题
- >
- > 这是一个 `#彩虹引用|主题辅助色#`~(T2)~ ，使用==色号==为：`T2`　ℹ️ 了解[色号](#预置色号)
- >
- > ~(T2)~
-
-- 紧跟在插图、表格、代码块等内容后的引用，样式会调整为与这些内容属于「关联」关系的样式，参考[样例-1](#示例_普通数字) / [样例-2](#图片彩虹剪影) / [样例-3](#代码、代码块增强)。
+> [!CAUTION]
+>
+> ==Negative potential== consequences of an action.
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+**以下为内嵌更丰富排版内容的示例：**
+
+> [!NOTE]
+> 备忘：==突出==用户在浏览时也应考虑的信息。
+>
+> ---
+>
+> > **这是引用块小标题**
+> >
+> > - [x] 这是一个==任务==列表项
+> >
+> > - 这是==无序==列表项
+> >
+> > 1. 这是==有序==列表项
+> 
+> > ###### 这是折叠引用块分栏
+> >
+> > *==Note 代码块==*
+> >
+> > ```java
+> > /* 代码块 */ public void hello()
+> > ```
+> >
+> > 这是[文本链接](#GitHub Style Alert) ，这是 [<kbd>按钮链接 ❯</kbd>](#GitHub Style Alert)
+> >
+
+> [!TIP]
+> 提示：可选信息，帮助用户取得==更大成功==。
+>
+> ---
+>
+> > **这是引用块小标题**
+> >
+> > - [x] 这是一个==任务==列表项
+> >
+> > - 这是==无序==列表项
+> >
+> > 1. 这是==有序==列表项
+> 
+> > ###### 这是折叠引用块分栏
+> >
+> > *==Tip 代码块==*
+> >
+> > ```java
+> > /* 代码块 */ public void hello()
+> > ```
+> >
+> > 这是 [文本链接](#GitHub Style Alert) ，这是 [<kbd>按钮链接 ❯</kbd>](#GitHub Style Alert)
+> >
+
+> [!IMPORTANT]
+> 重要的：对用户成功==至关重要==的信息。
+>
+> ---
+>
+> > **这是引用块小标题**
+> >
+> > - [x] 这是一个==任务==列表项
+> >
+> > - 这是==无序==列表项
+> >
+> > 1. 这是==有序==列表项
+> 
+> > ###### 这是折叠引用块分栏
+> >
+> > *==Important 代码块==*
+> >
+> > ```java
+> > /* 代码块 */ public void hello()
+> > ```
+> >
+> > 这是 [文本链接](#GitHub Style Alert) ，这是 [<kbd>按钮链接 ❯</kbd>](#GitHub Style Alert)
+
+> [!WARNING]
+> 注意：由于==潜在风险==，需要用户立即关注的关键内容。
+>
+> ---
+>
+> > **这是引用块小标题**
+> >
+> > - [x] 这是一个==任务==列表项
+> > - 这是==无序==列表项
+> >
+> > 1. 这是==有序==列表项
+> 
+> > ###### 这是折叠引用块分栏
+> >
+> > *==Warning 代码块==*
+> >
+> > ```java
+> > /* 代码块 */ public void hello()
+> > ```
+> >
+> > 这是 [文本链接](#GitHub Style Alert) ，这是 [<kbd>按钮链接 ❯</kbd>](#GitHub Style Alert)
+> >
+
+> [!CAUTION]
+> 警告/禁止。行动的潜在==负面后果==。
+>
+> ---
+>
+> > **这是引用块小标题**
+> >
+> > - [x] 这是一个==任务==列表项
+> > - 这是==无序==列表项
+> >
+> > 1. 这是==有序==列表项
+> 
+> > ###### 这是折叠引用块分栏
+> >
+> > *==Caution 代码块==*
+> >
+> > ```java
+> > /* 代码块 */ public void hello()
+> > ```
+> >
+> > 这是 [文本链接](#GitHub Style Alert) ，这是 [<kbd>按钮链接 ❯</kbd>](#GitHub Style Alert)
+> >
+
+## 引用块排版细分
+
+###### 示例_引用块内嵌普通引用块
+
+> 引用块内嵌普通引用块的样式会自动调整为「简约」的样式，具体如下：
+>
+> > 我是引用块内嵌的普通引用块
+
+###### 示例_引用块内嵌引用块分栏
+
+> 引用块内嵌「引用块分栏」的样式会自动调整为「突出」的样式，具体如下：
+>
+> ---
+>
+> > 我是引用块内嵌的「引用块分栏」1
+>
+> > 我是引用块内嵌的「引用块分栏」2
+
+###### 示例_列表内嵌引用块
+
+- 无序或有序列表内嵌的普通引用块，会调整为「自适配宽度」样式，并且不会默认转换样式（详见[插件调校参数](guide2.md#插件调校参数)中的 `quote` ），具体如下：
+
+ > ###### ![Theme2](pic/qico-theme2.svg?fill=text&darksrc=invert#icon) 普通引用块 6 级标题
+ >
+ > 这是一个普通引用块的内容
+
+- 无序或有序列表内嵌的「[彩虹引用块](#彩虹引用块)」，会调整为「自适配宽度」样式，具体如下：
+
+ > ###### ![Theme2](pic/qico-theme2.svg?fill=text&darksrc=invert#icon) 彩虹引用块 6 级标题
+ >
+ > 这是一个 `#彩虹引用块|主题辅助色#`~(T2)~ ，使用==色号==为：`T2`　ℹ️ 了解[色号](#预置色号)
+ >
+ > ~(T2)~
+
+---
+
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -2879,6 +3089,8 @@ void quickSort(int arr[], int left, int right) {
 // ================================================== //
 ```
 
+> [!TIP]
+>
 > **建议启用 Typora 中的显示代码块行号配置，以获得更好的体验。**
 >
 > 启用方式：「Typora ▸ 偏好设置 ▸ Markdown ▸ 代码块 ▸ 显示行号」
@@ -2887,7 +3099,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 
@@ -2935,13 +3147,11 @@ void quickSort(int arr[], int left, int right) {
 |                        开启循环播放                        | `loop=true`                                                  | ![循环播放音频示例](media/whistle.mp3?loop=true)             |
 |                         开启预加载                         | `preload=true`                                               | ![预加载音频示例](media/whistle.ogg?preload=true "(OGG 格式)") |
 
----
-
-> `#小提示#`~(Og!)~
+> [!TIP]
 >
 > 因为是与图片的语法一样，所以在音频以「标准模式」显示时，也支持「**自动编号、题注**」 … [了解详情 ❯](#插图自动编号与题注)
 
-> `#📒|参考#`~(Gn!)~
+> [!NOTE]
 >
 > 如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～
 
@@ -2977,17 +3187,18 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-> `#💡|小提示#`~(Og!)~
+> [!TIP]
 >
 > 因为是与图片的语法一样，所以在视频也支持「**自动编号、题注**」 … [了解详情 ❯](#插图自动编号与题注)
 
-> `#📒|参考#`~(Gn!)~
+> [!NOTE]
 >
 > 如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片 URL 扩展应用说明](guide2.md#图片 URL 扩展应用说明)」那深入再了解了解～
 
+
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![VLOOK™ QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![VLOOK™ Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 [<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](#快速入坑°文档排版)
 

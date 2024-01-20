@@ -1,17 +1,19 @@
 ---
 title: Markdown 脚本化图表参考指南 - VLOOK™ - Markdown 编辑器 Typora 的主题包和增强插件
 author: MAX°孟兆
+description: 关于 VLOOK™ 对 Mermaid 的脚本化图表支持与增强
+"og:description": 关于 VLOOK™ 对 Mermaid 的脚本化图表支持与增强
+"og:image": https://madmaxchow.gitee.io/vlookres/pic/vlook-og.png
 keywords:
 - Markdown,Typora,VLOOK,Plugin,插件,主题包,自动排版,跨平台,i18n,开源,MIT,开源中国,OSC,编辑推荐
 - 表格增强,单元格合并,行分组,表格阅读模式,表格十字光标,重复表头,刮刮卡,黑幕,标签,图片增强,演示辅助,聚光灯,激光笔,自动折叠,Mermaid,音频,视频,注音,主题,字体,模板,深色模式,Dark Mode,封面,封底,私人定制
 - PRD,设计,需求,文档,博客,手册,指南,在线,运维,知识库,WIKI
 - 产品经理,程序员,运维工程师,售前,售后
 vlook-chp-autonum: h1{{#ALPHA#. }},h2{{#00#-sup# - }},h3{{#ROMAN-min# - }}
-vlook-query: el=2&ws=auto
 vlook-doc-lib: vlook-lib.html
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>脚本化图表参考指南</u><br>`#最新版本|V21.1#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>脚本化图表参考指南</u><br>`#最新版本|V22.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
@@ -25,16 +27,20 @@ Mermaid 是一个用于画流程图、状态机图、顺序图、甘特图的库
 
 # 关于 Markdown
 
-###### Markdown 是什么？
+---
 
-- 2004 年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了 [![Markdown](https://madmaxchow.gitee.io/vlookres/pic/markdown-mark-solid.svg?fill=text#icon) Markdown](https://zh.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的 `文本标记语言`。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）；
-- Markdown 文档以 `纯文本格式存储`，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过 Markdown 编辑器导出为带排版的富文本文档、HTML 网页等等。==纯粹、简洁、易用、灵活==，都是人们喜欢 Markdown 的原因；
-- 目前 Markdown 的标准化项目是 [CommonMark](http://commonmark.org)。
+> ###### ![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) Markdown 是什么？
+>
+> - 2004 年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了 [![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) Markdown](https://zh.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的 `文本标记语言` 。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用块等）；
+> - Markdown 文档以 `纯文本格式存储` ，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过 Markdown 编辑器导出为带排版的富文本文档、HTML 网页等等。==纯粹、简洁、易用、灵活==，都是人们喜欢 Markdown 的原因；
+> - 目前 Markdown 的标准化项目是 [CommonMark](http://commonmark.org)。
+> 
+> ![Markdown](pic/markdown-mark.svg?fill=text#logo)
 
-###### Markdown 语法参考：
-
-- `#推荐#` **Github Flavored Markdown** (GFM) 语法参考：Typora 目前采用该标准 - [详情](https://support.typora.io/Markdown-Reference/)；
-- 标准化 **CommonMark** 语法参考：[60 秒学会 Markdown 语法](http://commonmark.org/help/)、[10 分钟深入学习 Markdown](http://commonmark.org/help/tutorial/)。
+> ###### 60 秒学会、10 分钟深入学习 Markdown 语法
+>
+> 1. `#推荐#` **Github Flavored Markdown** (GFM) 语法参考：Typora 目前采用该标准 [详细](https://support.typora.io/Markdown-Reference/)；
+> 2. 标准化 **CommonMark** 语法参考：[60 秒学会 Markdown 语法](http://commonmark.org/help/)、[10 分钟深入学习 Markdown](http://commonmark.org/help/tutorial/)。
 
 # 建模类图表
 
@@ -224,7 +230,6 @@ END([结束])
 ```mermaid
 sequenceDiagram
 %% 设置显示消息的自动编号
-autonumber
 
 actor User as 人物角色
 actor Client as 前端触点
@@ -270,7 +275,6 @@ end
 > ```mermaid
 > sequenceDiagram
 > %% 设置显示消息的自动编号
-> autonumber
 > 
 > actor User as 人物角色
 > actor Client as 前端触点
@@ -283,9 +287,9 @@ end
 > and
 > 	User -x Client: 平行发送消息2
 > and
->   Client -)+ Server: 平行发送消息3
+> Client -)+ Server: 平行发送消息3
 >   Server --)- Client: 发送消息
-> end
+>   end
 > 
 > %% 设置区域高亮
 > rect rgba(128, 128, 128, 0.3)
@@ -1705,6 +1709,19 @@ timeline
 > ```
 > ````
 > [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/timeline.html)
+
+## XY 图
+
+```mermaid
+xychart-beta
+    title "Sales Revenue"
+    x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
+    y-axis "Revenue (in $)" 4000 --> 11000
+    bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+    line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+```
+
+
 
 ## 饼图
 

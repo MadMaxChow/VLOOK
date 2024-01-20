@@ -1,19 +1,24 @@
 ---
 title: Introduction - VLOOK™ - Theme Package and Enhancement Plug-In for Typora Markdown Editor
 author: MAX°孟兆
+description: Instructions for downloading, setting up, installing, and configuring VLOOK™
+"og:description": Instructions for downloading, setting up, installing, and configuring VLOOK™
+"og:image": https://madmaxchow.gitee.io/vlookres/pic/vlook-og.png
 keywords:
 - Markdown, typora, vlook, plugin, plug-in, theme pack, automatic typesetting, cross platform, I18N, open source, MIT, open source China, OSC, editorial recommendation
 - Table enhancement, cell merging, row grouping, crosshairs, repeating header, scratch card, black screen, label, picture enhancement, presentation assistance, spotlight, laser pen, auto folding, printing, mermaid, audio, video, phonetic notation, theme, font, template, dark mode, dark mode, cover, back cover, private customization
 - PRD, design, requirements, documents, blogs, manuals, guides, online, operation and maintenance, knowledge base, wiki
 - Product manager, programmer, operation and maintenance engineer, pre-sales and after-sales
 vlook-chp-autonum: h1{{#ALPHA#. }},h2{{STEP-##-min#: }}
-vlook-query: effects=2&ws=auto
+vlook-query: toc=2
 vlook-doc-lib:
-- [VLOOK™ DOCUMENT LIBRARY](vlook-lib-en.html)
-- [🇨🇳 简体中文 参考手册](index.html?target=_blank)
+- [VLOOK™ Document Library](vlook-lib-en.html)
+- [简体中文 🀄️ 参考手册](index.html?target=vlook-index-cn)
+- [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank)
+vlook-image-host: https://madmaxchow.gitee.io/vlook/
 ---
 
-###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective^[Interaction]^<br>──<br><u>Introduction</u><br>`#Latest|V21.1#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
+###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective^[Interaction]^<br>──<br><u>Introduction</u><br>`#Latest|V22.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
@@ -21,19 +26,16 @@ vlook-doc-lib:
 
 # What is VLOOK™
 
-`#Editor|Typora#`~(Gy)~ `#OS|macOS#`~(Bk)~ `#OS|Windows#`~(Bu)~ `#License|MIT#`~(Rd)~
-
-
-
 > ![VLOOK™](https://madmaxchow.gitee.io/vlookres/pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo)
 >
 > **A DOMESTICALLY DEVELOPED OPEN-SOURCE PRODUCT RECOMMENDED BY** ![OSChina](https://madmaxchow.gitee.io/vlookres/pic/oschina.png#icon) **[Open Source China](https://www.oschina.net/p/vlook)**.
 >
-> ![VLOOK](https://madmaxchow.gitee.io/vlookres/pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) [VLOOK](https://github.com/MadMaxChow/VLOOK)™ is a **THEME PACK** and **ENHANCEMENT PLUGIN** for Typora[^Typora], a cross-platform Markdown editor that targets exported HTML files.
+> ![VLOOK](https://madmaxchow.gitee.io/vlookres/pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** is a **THEME PACK** and **ENHANCEMENT PLUGIN** for Typora[^Typora], a cross-platform Markdown editor that targets exported HTML files.
 >
 > VLOOK™ is an open-source software that follows the **MIT License**.
 >
-> ~(T1)~
+
+[`#Editor|Typora|V1.8.3+#`~(Gy)~](https://typoraio.cn)　`#License|MIT#`~(Rd)~　`#Supported OS|Windows / macOS / Linux#`~(Bu)~
 
 > Code hosting: [![Github](https://madmaxchow.gitee.io/vlookres/pic/github-light.svg?darksrc=github-dark.svg#logo)](https://github.com/MadMaxChow/VLOOK)　　[![Gitee](https://madmaxchow.gitee.io/vlookres/pic/gitee-light.svg?darksrc=gitee-dark.svg#logo)](https://gitee.com/madmaxchow/VLOOK)
 
@@ -45,7 +47,7 @@ vlook-doc-lib:
 >
 > ```
 > MIT License
-> Copyright (c) 2016-2021 MAX°DESIGN | Max Chow
+> Copyright (c) 2016-2024 MAX°DESIGN | Max Chow
 > Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 > The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 > THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
@@ -97,7 +99,7 @@ vlook-doc-lib:
 
 **感谢打赏支持 VLOOK™ 的客官（部分名单）：**
 
-一＊秋、＊＊军、＊＊鹏、李＊6、＊＊无、H＊t、＊＊二、f＊y、＊＊宇、＊＊琛、＊＊辉、＊＊秋、＊＊笑、＊＊豫、l＊a、＊＊心、整＊9、＊＊国、＊＊拉、＊＊龙、＊＊应、＊＊销、＊＊哦、E＊y、……
+＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 # Quick Start
 
@@ -295,6 +297,6 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 
 ---
 
-If you have any suggestions and needs, please feel free to give feedback~ [![VLOOK™ @ Email](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20)
+If you have any suggestions and needs, please feel free to give feedback~ [![Freeback via Email](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™)  [![Freeback via QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 # The End

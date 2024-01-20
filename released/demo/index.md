@@ -1,31 +1,30 @@
 ---
 title: 简介 - VLOOK™ - Markdown 编辑器 Typora 的主题包和增强插件
 author: MAX°孟兆
+description: 关于 VLOOK™ 下载、设置、安装与配置配置说明
+"og:description": 关于 VLOOK™ 下载、设置、安装与配置配置说明
+"og:image": https://madmaxchow.gitee.io/vlookres/pic/vlook-og.png
 keywords:
 - Markdown,Typora,VLOOK,Plugin,插件,主题包,自动排版,跨平台,i18n,开源,MIT,开源中国,OSC,编辑推荐
 - 表格增强,单元格合并,行分组,表格阅读模式,表格十字光标,重复表头,刮刮卡,黑幕,标签,图片增强,演示辅助,聚光灯,激光笔,自动折叠,Mermaid,音频,视频,注音,主题,字体,模板,深色模式,Dark Mode,封面,封底,私人定制
 - PRD,设计,需求,文档,博客,手册,指南,在线,运维,知识库,WIKI
 - 产品经理,程序员,运维工程师,售前,售后
-vlook-chp-autonum: h1{{#ZH# ° }},h2{{步骤 ##-min#：}}
-vlook-query: effects=2&ws=auto&toc=2
+vlook-chp-autonum: h1{{#ZH#° }},h2{{步骤 ##-min#：}}
+vlook-query: toc=2
 vlook-doc-lib:
 - [浏览 VLOOK™ 文库](vlook-lib.html)
-- [🇬🇧 ENGLISH GUIDE](index-en.html?target=_blank)
+- [English 🔠 Guide](index-en.html?target=vlook-index-en)
+- [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank)
 vlook-image-host: https://madmaxchow.gitee.io/vlook/
-vlook-var: `[var1]:abc`,`[var2]:efg`
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>简介</u><br>`#最新版本|V21.1#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2023. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>简介</u><br>`#最新版本|V22.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
 > **Select language ❯ **[<kbd>🇬🇧 ENGLISH</kbd>](index-en.md)
 
 # VLOOK™ 是什么
-
-`#Editor|Typora#`~(Gy)~ `#License|MIT#`~(Rd)~ `#OS|macOS#`~(Bk)~ `#OS|Windows#`~(Bu)~
-
-
 
 > ![VLOOK™](https://madmaxchow.gitee.io/vlookres/pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo)
 >
@@ -35,7 +34,8 @@ vlook-var: `[var1]:abc`,`[var2]:efg`
 >
 > VLOOK™ 属于开源软件（遵从 **MIT License**~(Rd)~）。
 >
-> ~(T1)~
+
+[`#编辑工具|Typora|V1.8.3+#`~(Gy)~](https://typoraio.cn)　`#开源协议|MIT#`~(Rd)~　`#支持的操作系统|Windows / macOS / Linux#`~(Bu)~
 
 > 代码托管：[![Github](https://madmaxchow.gitee.io/vlookres/pic/github-light.svg?darksrc=github-dark.svg#logo)](https://github.com/MadMaxChow/VLOOK)　　[![Gitee](https://madmaxchow.gitee.io/vlookres/pic/gitee-light.svg?darksrc=gitee-dark.svg#logo)](https://gitee.com/madmaxchow/VLOOK)
 
@@ -47,7 +47,7 @@ vlook-var: `[var1]:abc`,`[var2]:efg`
 > 
 > ```
 > MIT License
-> Copyright (c) 2016-2023 MAX°DESIGN | Max Chow
+> Copyright (c) 2016-2024 MAX°DESIGN | Max Chow
 > Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 > The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 > THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
@@ -57,7 +57,7 @@ vlook-var: `[var1]:abc`,`[var2]:efg`
 
 > ###### ![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) Markdown 是什么？
 >
-> - 2004 年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了 [![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) Markdown](https://zh.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的 `文本标记语言` 。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用等）；
+> - 2004 年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了 [![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) Markdown](https://zh.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的 `文本标记语言` 。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用块等）；
 > - Markdown 文档以 `纯文本格式存储` ，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过 Markdown 编辑器导出为带排版的富文本文档、HTML 网页等等。==纯粹、简洁、易用、灵活==，都是人们喜欢 Markdown 的原因；
 > - 目前 Markdown 的标准化项目是 [CommonMark](http://commonmark.org)。
 > 
@@ -81,25 +81,22 @@ vlook-var: `[var1]:abc`,`[var2]:efg`
 - 需要支持==跨平台==、==跨终端==进行文档浏览和文档发布方式
 - 输出的文档能在阅读、评审、演示时，能提供交互辅助的工具（如目录/题注等内容索引、聚光灯、激光笔、脚注等）
 
----
-
-> **💡 你知道吗？**
+> [!NOTE]
 >
 > 你正在浏览的这份文档，就是由 Typora 编辑并应用 VLOOK™ 插件生成的！**AMAZING!!!**
 >
-> ~(Bn!)~
 
-# 打赏
+# 打赏 Donate
 
-**若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**
+*==打赏 Donate==*
 
-`#微信支付|MaxChow#`~(Gn!)~
+|         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**         | **If you like VLOOK™, you can contribute a cup of coffee :-)** |
+| :----------------------------------------------------------: | :----------------------------------------------------------: |
+| ![打赏 VLOOK™](https://madmaxchow.github.io/VLOOK/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#frame) | [![打赏 VLOOK™](https://madmaxchow.github.io/VLOOK/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#frame)](https://paypal.me/madmaxchow) |
 
-![打赏 VLOOK™ (微信支付)](https://madmaxchow.gitee.io/vlookres/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#frame)
-
-**感谢打赏支持 VLOOK™ 的客官（部分名单）：**
-
-一＊秋、＊＊军、＊＊鹏、李＊6、＊＊无、H＊t、＊＊二、f＊y、＊＊宇、＊＊琛、＊＊辉、＊＊秋、＊＊笑、＊＊豫、l＊a、＊＊心、整＊9、＊＊国、＊＊拉、＊＊龙、＊＊应、＊＊销、＊＊哦、E＊y、……
+> **感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**
+>
+> ＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 # 快速入坑
 
@@ -216,11 +213,12 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 > ###### 模板文件在哪？
 >
-> 1. 在目录 `released` 下的 `*.md` 文件
+> 1. 位于目录 `released\demo` 下的 VLOOK™ 参考手册的 md 源文件；
+> 2. 在目录 `released` 下的 `*.md` 文件：
 >    1. 标准模板：*VLOOK-Document-Template.md*
 >    2. 无封面模板：*VLOOK-Document-Template-nocover.md*
 >    3. 文库模板：*VLOOK-Document-Template-doc_lib.md*
-> 2. 也可直接在项目主页中[下载文档模板](https://github.com/MadMaxChow/VLOOK/tree/master/released/demo)（[备用链接](https://gitee.com/madmaxchow/VLOOK/tree/master/released/demo)）
+> 3. 也可直接在项目主页中[下载文档模板](https://github.com/MadMaxChow/VLOOK/tree/master/released/demo)（[备用链接](https://gitee.com/madmaxchow/VLOOK/tree/master/released/demo)）
 
 ## 配置导出选项
 
@@ -274,15 +272,15 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 在线版的插件文件为：released\plugin\\**plugin_live.txt**，或直接打开线上版本的 [plugin_live.txt](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin_live.txt)（[备用链接](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt)）
 >
-> ~(Og!)~
+> ~(T1!)~
 
 ---
 
 > **如何更新插件到最新版本？**
 >
-> 旧版本的 VLOOK 若要升级到最新版本，按以上的**第 1 步**下载最新发布版本，并按**第 2、3 步**更新对应的「主题」和「导出配置」即可。
+> 旧版本的 VLOOK™ 若要升级到最新版本，请先按以上的**[第 1 步](#下载与设置)**下载最新发布版本，并按**第 2、3 步**更新对应的「[主题包](#安装主题包)」和「[导出选项](#配置导出选项)」即可。
 >
-> ~(Cy!)~
+> ~(Gn)~
 
 > **推荐选择兼容的浏览器！**
 >
@@ -290,10 +288,10 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > ![Chrome](https://madmaxchow.gitee.io/vlookres/pic/chrome.png#icon) **[Chrome](https://www.google.cn/chrome/)**　　![Edge](https://madmaxchow.gitee.io/vlookres/pic/edge.png#icon) **[Edge](https://www.microsoft.com/zh-cn/edge)**　　![Firefox](https://madmaxchow.gitee.io/vlookres/pic/firefox.png#icon) **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
 >
-> ~(Bu)~
+> ~(Gy)~
 
 ---
 
-如有建议和需求，欢迎随时反馈～ [![VLOOK™ @ QQ Group](https://madmaxchow.gitee.io/vlookres/pic/feedback-light.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
+如有建议和需求，欢迎随时反馈～ [![Freeback via QQ](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](https://madmaxchow.gitee.io/vlookres/pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 # The End

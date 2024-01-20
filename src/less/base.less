@@ -2,11 +2,12 @@
  *
  * VLOOK CSS 基础库
  *
- * V21.1
- * 2023-12-17
+ * V22.0
+ * 2024-01-20
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
+ * Telegram Channel: t.me/vlook_markdown
  * email: maxchow@qq.com
  *
  * https://github.com/MadMaxChow/VLOOK
@@ -51,13 +52,13 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 工具栏 / .v-toolbar / z-index: 100;
 状态栏 / .v-status-bar / z-index: 100;
 逐章导航面板 / .v-chapter-nav / z-index: 100;
-文档更多内容遮挡栏 / .v-more-doc-content-before, .v-more-doc-content-after / z-index: 99;
+文档更多内容遮挡阴影 / .v-more-doc-content-before, .v-more-doc-content-after / z-index: 99;
 
 ---------- 文档内容交互区 ----------
 
 在新标签中打开按钮 / .v-btn-open-in-new-tab / z-index: 50;
 内容辅助操作栏 / .v-content-assist-bar / z-index: 50;
-内容展开操作区 / .v-content-expander / z-index: 10;
+内容展开操作区 / .v-content-expander / .v-cap-cntr.expander::before / z-index: 10;
 
 ---------- 导航中心 ----------
 
@@ -78,25 +79,25 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --fig-solid-bg-dk: #000000; // Dark Mode 时图片的非网格背景
     --fig-solid-bg: var(--fig-solid-bg-lg);
 }
-// -----
-// #Common_LESS_Var
-@tableRowNumTop: 9px; // 表格行自动编号的高度
-@tableRowCursor: "▶️"; // 表格当前行鼠标 hover 游标
-// @tableCellPadding: 8px; // 表格单元格边距
-@focusCursor: "✏️"; // 编辑焦点行游标
-@focusStyle: @aBorderWidth dashed @aLineColor; // 焦点、焦点行样式
-@miniLineHeight: 1;
-@defaultLineHeight: 1.5;
-@paragraphPadding: .625em; // 段落空白
-@paragraphInnerLineHeight: 1.5;
-@figurePadding: 20px; // 插图内、间、行空白
-@hoverBrightness: 1.2;
-@scrollFix: 8px; // 针对 Mermaid 图表，不添加会导致出现滚动条
-@syntaxTipsFont: italic normal 10px/1 var(--v-f-fm-bd); // 语法提示字体设置
+// // -----
+// // #Common_LESS_Var
+// @tableRowNumTop: 9px; // 表格行自动编号的高度
+// @tableRowCursor: "▶️"; // 表格当前行鼠标 hover 游标
+// // @tableCellPadding: 8px; // 表格单元格边距
+// @focusCursor: "✏️"; // 编辑焦点行游标
+// @focusStyle: @aBorderWidth dashed @aLineColor; // 焦点、焦点行样式
+// @miniLineHeight: 1;
+// @defaultLineHeight: 1.5;
+// @paragraphPadding: .625em; // 段落空白
+// @paragraphInnerLineHeight: 1.5;
+// @figurePadding: 20px; // 插图内、间、行空白
+// @hoverBrightness: 120%;
+// @scrollFix: 8px; // 针对 Mermaid 图表，不添加会导致出现滚动条
+// @syntaxTipsFont: italic normal 10px/1 var(--v-f-fm-bd); // 语法提示字体设置
 
-// 目录、文件 的当前节点、点击节点样式
-@tocItemActive_boxShadow: 0 0 0 2px fade(@headerColor, 50%);
-@tocItemCurrent_boxShadow: 0 0 0 2px fade(@headerColor, 50%) inset;
+// // 目录、文件 的当前节点、点击节点样式
+// @tocItemActive_boxShadow: 0 0 0 2px fade(@headerColor, 50%);
+// @tocItemCurrent_boxShadow: 0 0 0 2px fade(@headerColor, 50%) inset;
 
 // -----
 // #Common_CSS_Var
@@ -104,10 +105,12 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     // 欢迎页加载模式 ws=auto 时的倒计时秒数
     --v-ws-delay: @welcomeAutoCloseDelay;
     --v-summary-w: 24px;
+    // --v-ex-all: "展开全部 ▼";
+    --v-ex-limit: 300px;
 
     // #VLOOK_Var
     --v-theme-name: @themeName; // 主题名称
-    --v-theme-version: "V21.1"; // 主题版本，对应适配 VLOOK.JS 的版本
+    --v-theme-version: "V22.0"; // 主题版本，对应适配 VLOOK.JS 的版本
     --v-color-scheme: light; // 默认颜色模式为：Light 明亮
 
     // 导航中心、工具栏相关 UI 尺寸
@@ -220,7 +223,7 @@ body.typora-export #write::before {
 
 body {
     background: var(--d-bc) var(--d-bi);
-    color: var(--d-f-c);
+    color: var(--d-fc);
     font: var(--v-f-w-text) @fontSize/@paragraphInnerLineHeight var(--v-f-fm-text); // [style] [weight] [size/[line-height]] [family]
     caret-color: @aHoverColor;
     -webkit-tap-highlight-color: transparent;
@@ -249,9 +252,12 @@ body.unfreeze {
 }
 
 // 插图
-#write p>img:only-child,
-#write p>.md-image:only-child:not(.md-img-error) img:not([src*="#line"]), // 是指 p 内只有 img 的才被视为插图
-#write p>.md-image:only-child:not(.md-img-error) img:not([src*="#block"]), // 是指 p 内只有 img 的才被视为插图
+// #write p>img:only-child,
+// #write p>.md-image:only-child:not(.md-img-error) img:not([src*="#line"]), // 是指 p 内只有 img 的才被视为插图
+// #write p>.md-image:only-child:not(.md-img-error) img:not([src*="#block"]), // 是指 p 内只有 img 的才被视为插图
+#write p>img,
+#write p>.md-image:not(.md-img-error) img:not([src*="#line"]), // 是指 p 内只有 img 的才被视为插图
+#write p>.md-image:not(.md-img-error) img:not([src*="#block"]), // 是指 p 内只有 img 的才被视为插图
 .v-fig:not([aria-roledescription="zenuml"]),
 .md-diagram-panel>.md-diagram-panel-preview>svg, // 编辑时
 .md-diagram-panel>svg {
@@ -371,16 +377,29 @@ body.unfreeze {
 #write svg[data-inject-url*="#card"] {
     display: inline !important;
     vertical-align: middle;
-    border: none !important;
-    border-bottom: 3px solid @buttonBgColor !important;
+    // border-bottom-color: @buttonBgColor !important;
+    // border-bottom-width: 4px !important;
+    border: none;
+    border-bottom: .25em solid @buttonBgColor !important;
     border-radius: var(--v-r-b) var(--v-r-b) 0 0 !important;
     background: none !important;
+}
+#write .md-image[data-src*="#cardd"]>img, // 编辑时
+#write img[src*="#cardd"],
+#write svg[data-inject-url*="#cardd"] {
+    border: none !important;
+}
+// 图片 URL 参数指定是否显示边框，与 #card #cardd 配套使用
+#write .md-image[data-src*="#card"][data-src*="#border"]>img, // 编辑时
+#write img[src*="#card"][src*="#border"],
+#write svg[data-inject-url*="#card"][data-inject-url*="#border"] {
+    padding: 2px !important;
 }
 #write blockquote img[src*="#card"],
 #write blockquote svg[data-inject-url*="#card"] {
     width: 100%;
 }
-// cardd Card Dual 模式
+// 针对 cardd Card Dual 模式微调
 #write blockquote img[src*="#cardd"]+.v-post-card,
 #write blockquote svg[data-inject-url*="#cardd"]+.v-post-card {
     display: block !important;
@@ -415,18 +434,32 @@ body.unfreeze {
     padding: 0 0 0 @figurePadding;
 }
 
-// 生成通过图片 URL 参数指定图片的缩放样式
-.genImgZoom(@zoom) {
-    #write .md-image[data-src*="#@{zoom}"]>img, // 编辑时
-    #write img[src*="#@{zoom}"],
-    #write svg[data-inject-url*="#@{zoom}"] {
-        width: @zoom;
+// 生成通过图片 URL 参数指定图片的按宽度缩放样式
+.genImgZoomW(@zoom) {
+    #write .md-image[data-src*="#@{zoom}w"]>img, // 编辑时
+    #write img[src*="#@{zoom}w"],
+    #write svg[data-inject-url*="#@{zoom}w"] {
+        width: ~"@{zoom}px";
     }
 }
-.genImgZoom(200px);
-.genImgZoom(400px);
-.genImgZoom(600px);
-.genImgZoom(800px);
+.genImgZoomW(200);
+.genImgZoomW(400);
+.genImgZoomW(600);
+.genImgZoomW(800);
+
+// 生成通过图片 URL 参数指定图片的按高度缩放样式
+.genImgZoomH(@zoom) {
+    #write .md-image[data-src*="#@{zoom}h"]>img, // 编辑时
+    #write img[src*="#@{zoom}h"],
+    #write svg[data-inject-url*="#@{zoom}h"] {
+        vertical-align: top;
+        height: ~"@{zoom}px";
+    }
+}
+.genImgZoomH(200);
+.genImgZoomH(400);
+.genImgZoomH(600);
+.genImgZoomH(800);
 
 // 图片默认对齐方式，或 URL 参数指定左对齐
 // 须放在各种版式的样式之后，避免 display 属性冲突
@@ -467,7 +500,7 @@ body.unfreeze {
 }
 
 #write sup.md-footnote {
-    // color: var(--d-f-c);
+    // color: var(--d-fc);
     // opacity: .5;
     background: none;
     padding: 0;
@@ -477,7 +510,7 @@ body.unfreeze {
 
 // #write sup.md-footnote span[md-inline="plain"] {
 //     color: var(--d-bc);
-//     background: var(--d-f-c);
+//     background: var(--d-fc);
 //     border-radius: var(--v-r-b);
 //     font: var(--v-f-w-bd) 10px var(--v-f-fm-bd);
 //     padding: 0 5px;
@@ -486,7 +519,7 @@ body.unfreeze {
 #write sup.md-footnote span[md-inline="plain"], // 编辑时
 #write :is(sup.md-footnote, .v-q sup.md-footnote)>a {
     color: var(--d-bc) !important;
-    background: var(--d-f-c) !important;
+    background: var(--d-fc) !important;
     border-radius: var(--v-r-b);
     font: var(--v-f-w-bd) 10px var(--v-f-fm-bd); // [style] [weight] [size/[line-height]] [family]
     padding: 0 5px;
@@ -498,15 +531,15 @@ body.unfreeze {
 }
 
 #write sup.md-footnote>a:hover {
-    background: var(--d-f-c-alt)!important;
+    background: var(--d-fc-a)!important;
     box-shadow: none !important;
-    // box-shadow: 0 0 0 1px var(--d-f-c) !important;
+    // box-shadow: 0 0 0 1px var(--d-fc) !important;
     // background: @aLineColor;
     // color: @buttonForeColor !important;
 }
 
 .footnote-line>a:not(.reversefootnote) {
-    color: var(--d-f-c);
+    color: var(--d-fc);
     text-decoration: none;
 }
 
@@ -547,17 +580,18 @@ body.unfreeze {
     display: inline-block;
     box-shadow: 0 3px darken(@docLibButtonBgColor, 15%); // 按钮高 3px
     text-shadow: none;
-    padding: 5px 10px;
+    padding: 3px 8px;
+    // padding: 5px 10px;
 }
-#write :is(a, .v-q a, .v-q .v-q a) kbd:hover { // 针对彩虹引用内的情况
+#write :is(a, .v-q a, .v-q .v-q a) kbd:hover { // 针对彩虹引用块内的情况
     color: @buttonForeHoverColor;
     background: @aHoverColor;
     box-shadow: 0 3px darken(@aHoverColor, 15%); // 按钮高 3px
 }
-// 针对彩虹引用内的情况
-#write .v-q a kbd {
-    color: --d-bc-lg !important;
-}
+// 针对彩虹引用块内的情况
+//#write .v-q a kbd {
+//    color: --d-bc-lg !important;
+//}
 // 链接中的 kbd 样式
 #write a kbd:active {
     background: @aActiveColor !important;
@@ -569,13 +603,14 @@ body.unfreeze {
 
 // #write blockquote a kbd,
 // #write details a kbd {
-#write @{quote_Details} a kbd {
+#write @{quote_details} a kbd {
     border-radius: var(--v-r-s);
     padding: 2px 8px;
 }
 
-// 引用小标题
-#write blockquote>p:first-child>:is(strong, span[md-inline="strong"]):only-child {
+// 引用块小标题
+@quoteTitle: ~'blockquote>p:first-child>:is(strong, span[md-inline="strong"]):only-child';
+#write @{quoteTitle} {
     display: block;
     font-size: 1.25em;
     text-align: @headerTextAlign;
@@ -583,9 +618,13 @@ body.unfreeze {
     padding: 0 0 .3125em 0;
     margin-bottom: .3125em;
 }
+// 编辑时
+content>#write @{quoteTitle} {
+    color: @h6Color;//var(--ac-t1);
+}
 
 // 标题内链接样式
-#write :is(h1, h2, h3, h4, h5, h6) a {
+#write :is(h1,h2,h3,h4,h5,h6) a {
     font-weight: inherit;
 }
 
@@ -634,7 +673,7 @@ body.typora-export a:hover,
 #write a:hover :is(
 img[src*="darksrc=invert"],
 svg[data-inject-url*="darksrc=invert"]) {
-    filter: var(--v-invert-dk) brightness(@hoverBrightness);
+    filter: var(--v-invert-dark) brightness(@hoverBrightness);
 }
 
 // 链接 hover 时含图片颜色替换的样式
@@ -657,17 +696,17 @@ kbd img[d-img-fill="t2"]) {
 #write a:hover kbd svg[d-img-fill] :is(path, rect, ellipse, polygon) {
     fill: @buttonForeHoverColor !important;
 }
-// 针对彩虹引用内的情况
-#write .v-q a:hover kbd svg[d-img-fill] :is(path, rect, ellipse, polygon) {
-    fill: --d-bc-lg !important;
-}
+// 针对彩虹引用块内的情况
+//#write .v-q a:hover kbd svg[d-img-fill] :is(path, rect, ellipse, polygon) {
+//    fill: --d-bc-lg !important;
+//}
 // 链接 active 时，链接内图片样式
 #write a:active img {
     filter: brightness(.8);
 }
 
 :is(#write, body.typora-export) a:active {
-    color: var(--d-f-c) !important;
+    color: var(--d-fc) !important;
     background: var(--pn-c);
     border-bottom: 0;
     border-radius: var(--v-r-s);
@@ -708,7 +747,7 @@ kbd img[d-img-fill="t2"]) {
 #write a[href*=".md"]:hover::before {
     content: "🅼 Markdown file";
     color: var(--d-bc);
-    background: var(--d-f-c);
+    background: var(--d-fc);
 }
 // VLOOK 文库专用链接
 #write a[href*="target=vdl"]:hover::before,
@@ -762,13 +801,8 @@ a[href$=".cab"]):hover::before {
     background: @accColorRed;
 }
 
-// 下划线
-#write u {
-    text-decoration: none;
-    border-bottom: 1px solid var(--d-f-c);
-}
-
-#write :is(h1, h2, h3, h4, h5, h6) {
+// 标题
+#write :is(h1,h2,h3,h4,h5,h6) {
     color: var(--h-f);
     text-align: @headerTextAlign;
     position: relative;
@@ -776,17 +810,19 @@ a[href$=".cab"]):hover::before {
     padding: @headerPadding;
     line-height: @defaultLineHeight;
     font: var(--v-f-w-title) 1em var(--v-f-fm-h); // [style] [weight] [size/[line-height]] [family]
-    border-radius: var(--v-r-b);
+    border-radius: @headerBorderRadius;
     background: @headerBackground;
     letter-spacing: @headerLetterSpacing;
 }
-// 标题渐变色
-#write :is(h1, h2, h3, h4, h5)>span {
+
+// 标题内文本渐变色
+#write :is(h1,h2,h3,h4,h5)>span {
     background: @lgHeaderBg;
     background-clip: @lgHeaderBgClip;
     -webkit-background-clip: @lgHeaderBgClip;
     color: @lgHeaderColor;
 }
+
 // 渐变文本基础样式，另再额外补充 background 样式
 .v-grad-base {
     background-clip: text;
@@ -795,28 +831,48 @@ a[href$=".cab"]):hover::before {
 }
 
 #write h1 {
+    color: @h1Color;
+    padding: @h1Padding;
     margin: @h1Margin;
-    font-size: 1.75em;
+    font-size: @h1FontSize;
     box-shadow: @h1Shadow;
     -webkit-text-stroke: @h1TextStroke;
     text-stroke: @h1TextStroke;
     text-shadow: @h1TextShadow;
+    border-radius: @h1BorderRadius;
     border-left: @h1BorderLeft;
     border-right: @h1BorderRight;
     border-top: @h1BorderTop;
+    border-bottom: @h1BorderBottom;
 }
+// #write h1>span {
+//     color: @lgH1Color;
+//     // background: @h1SpanBackground;
+//     padding: @h1SpanPadding;
+//     border-radius: @h1SpanBorderRadius;
+// }
 
 #write h2 {
+    color: @h2Color;
+    padding: @h2Padding;
     margin: @h2Margin;
-    font-size: 1.625em;
+    font-size: @h2FontSize;
     box-shadow: @h2Shadow;
     -webkit-text-stroke: @h2TextStroke;
     text-stroke: @h2TextStroke;
     text-shadow: @h2TextShadow;
+    border-radius: @h2BorderRadius;
     border-left: @h2BorderLeft;
     border-right: @h2BorderRight;
     border-top: @h2BorderTop;
+    border-bottom: @h2BorderBottom;
 }
+// #write h2>span {
+//     color: @lgH2Color;
+//     // background: @h2SpanBackground;
+//     padding: @h2SpanPadding;
+//     border-radius: @h2SpanBorderRadius;
+// }
 
 // h1 后紧跟 h2，或是只有普通正文段落的情况
 #write h1+h2 {
@@ -827,16 +883,26 @@ a[href$=".cab"]):hover::before {
 }
 
 #write h3 {
+    color: @h3Color;
+    padding: @h3Padding;
     margin: @h3Margin;
-    font-size: 1.5em;
+    font-size: @h3FontSize;
     box-shadow: @h3Shadow;
     -webkit-text-stroke: @h3TextStroke;
     text-stroke: @h3TextStroke;
     text-shadow: @h3TextShadow;
+    border-radius: @h3BorderRadius;
     border-left: @h3BorderLeft;
     border-right: @h3BorderRight;
     border-top: @h3BorderTop;
+    border-bottom: @h3BorderBottom;
 }
+// #write h3>span {
+//     color: @lgH3Color;
+//     // background: @h3SpanBackground;
+//     padding: @h3SpanPadding;
+//     border-radius: @h3SpanBorderRadius;
+// }
 
 // h2 后紧跟 h3，或是只有普通正文段落的情况
 // h2+p+h3,
@@ -848,16 +914,26 @@ a[href$=".cab"]):hover::before {
 }
 
 #write h4 {
+    color: @h4Color;
+    padding: @h4Padding;
     margin: @h4Margin;
-    font-size: 1.375em;
+    font-size: @h4FontSize;
     box-shadow: @h4Shadow;
     -webkit-text-stroke: @h4TextStroke;
     text-stroke: @h4TextStroke;
     text-shadow: @h4TextShadow;
+    border-radius: @h4BorderRadius;
     border-left: @h4BorderLeft;
     border-right: @h4BorderRight;
     border-top: @h4BorderTop;
+    border-bottom: @h4BorderBottom;
 }
+// #write h4>span {
+//     color: @lgH4Color;
+//     // background: @h4SpanBackground;
+//     padding: @h4SpanPadding;
+//     border-radius: @h4SpanBorderRadius;
+// }
 
 // h3 后紧跟 h4，或是只有普通正文段落的情况
 // h3+p+h4,
@@ -869,16 +945,26 @@ a[href$=".cab"]):hover::before {
 }
 
 #write h5 {
+    color: @h5Color;
+    padding: @h5Padding;
     margin: @h5Margin;
-    font-size: 1.25em;
+    font-size: @h5FontSize;
     box-shadow: @h5Shadow;
     -webkit-text-stroke: @h5TextStroke;
     text-stroke: @h5TextStroke;
     text-shadow: @h5TextShadow;
+    border-radius: @h5BorderRadius;
     border-left: @h5BorderLeft;
     border-right: @h5BorderRight;
     border-top: @h5BorderTop;
+    border-bottom: @h5BorderBottom;
 }
+// #write h5>span {
+//     color: @lgH5Color;
+//     // background: @h5SpanBackground;
+//     padding: @h5SpanPadding;
+//     border-radius: @h5SpanBorderRadius;
+// }
 
 // h4 后紧跟 h5，或是只有普通正文段落的情况
 // h4+p+h5,
@@ -890,10 +976,11 @@ a[href$=".cab"]):hover::before {
 }
 
 #write h6 {
+    color: @h6Color;
     text-align: left;
     margin-bottom: 0;
     padding-left: 0;
-    font: var(--v-f-w-bd) 1.125em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
+    font: var(--v-f-w-bd) @h6FontSize var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
     box-shadow: @h6Shadow;
     -webkit-text-stroke: @h6TextStroke;
     text-stroke: @h6TextStroke;
@@ -901,12 +988,13 @@ a[href$=".cab"]):hover::before {
     border-left: @h6BorderLeft;
     border-right: @h6BorderRight;
     border-top: @h6BorderTop;
+    border-bottom: @h6BorderBottom;
     background: none;
 }
 @{coverAfterYAML}::after,
-@{coverWithoutYAML}::after
+@{coverWithoutYAML}::after,
 @{backcover}::after,
-#write @{quote_Details} h6::after {
+#write @{quote_details} h6::after {
     margin-left: 0;
     padding-bottom: 0;
     border: none;
@@ -941,15 +1029,19 @@ h6+h6) {
 #write hr {
     margin-top: 1em;
     margin-bottom: 1em;
-    border: @quoteTitleBorderWidth solid var(--ac-bk-fade);//var(--pn-c);
+    border: 2px solid var(--ac-bk-fade);//var(--pn-c);
+    // border: @quoteTitleBorderWidth solid var(--ac-bk-fade);//var(--pn-c);
+    // border: none;
+    // background: linear-gradient(90deg, transparent, var(--ac-bk-fade) 15%, var(--ac-bk-fade), var(--ac-bk-fade) 85%, transparent);
+    // height: @quoteTitleBorderWidth;
     overflow: hidden;
     box-sizing: content-box;
     border-top: 0;
 }
-// 引用内嵌引用内的 hr
-#write :is(blockquote, details)>:is(blockquote, details) hr {
-    border-width: 1px;
-}
+// 引用块内嵌引用块内的 hr
+// #write @{quote_details}>@{quote_details} hr {
+//     border-width: 1px;
+// }
 
 body>div>h1:first-of-type {
     border-top: 0;
@@ -984,7 +1076,7 @@ h6:first-child) {
     padding-top: 0;
 }
 
-// 图文卡片样式
+// 明信片样式
 #write .v-post-card {
     left: 0;
     color: @buttonForeColor;
@@ -1008,14 +1100,20 @@ h6:first-child) {
 // 配合段落导航使用
 #write :is(figure, .md-diagram-panel) {
     text-align: left;
-    margin-top: 0;
+    // margin-top: 0;
 }
 
 #write figure {
     padding-bottom: 1px;
-    margin-top: @paragraphPadding;
+    margin-top: 0;//@paragraphPadding;
     margin-bottom: @scrollFix; // 针对以下的 .md-diagram-panel 修正
     border-radius: @tableBorderRadius;
+    // position: relative;
+}
+// 针对导出后微调
+body.typora-export #write figure {
+    position: relative;
+    margin-top: @paragraphPadding !important;
 }
 .md-diagram-panel {
     padding-bottom: @scrollFix; // 针对 Mermaid 图表，不添加会导致出现滚动条
@@ -1038,10 +1136,10 @@ h6:first-child) {
 #write>p {
     margin-top: @paragraphPadding;
 }
-// 针对紧跟图片、表格后的引用内的小标题样式微调
-#write p {
-    width: 100%;
-}
+// 针对紧跟图片、表格后的引用块内的小标题样式微调
+// #write p {
+//     width: 100%;
+// }
 
 
 // ----------------------------------------
@@ -1053,17 +1151,17 @@ h6:first-child) {
     word-break: normal;
     word-wrap: break-word;
 }
-content>#write p:has(.md-image) { // Typora 编辑时的图片段落
-    margin-top: 0;
-}
+// content>#write p:has(.md-image) { // Typora 编辑时的图片段落
+//     margin-top: 0;
+// }
 
-#write @{quote_Details}>p:first-child,
-#write @{quote_Details}>ol:first-child,
-#write @{quote_Details}>ul:first-child,
-#write @{quote_Details}>ol:first-child>li:first-child,
-#write @{quote_Details}>ul:first-child>li:first-child,
-#write @{quote_Details}>ol:first-child>li:first-child>p,
-#write @{quote_Details}>ul:first-child>li:first-child>p {
+#write @{quote_details}>p:first-child,
+#write @{quote_details}>ol:first-child,
+#write @{quote_details}>ul:first-child,
+#write @{quote_details}>ol:first-child>li:first-child,
+#write @{quote_details}>ul:first-child>li:first-child,
+#write @{quote_details}>ol:first-child>li:first-child>p,
+#write @{quote_details}>ul:first-child>li:first-child>p {
     margin-top: 0 !important;
 }
 
@@ -1111,24 +1209,28 @@ content>#write p:has(.md-image) { // Typora 编辑时的图片段落
     color: var(--ac-t2-lg) !important;
 }
 
-#write @{quote_Details}[d-quote-group]+figcaption {
+#write @{quote_details}[d-quote-group]+figcaption {
     margin-top: 1em;
 }
 
 @blockPaddingTop: 12px;
-#write @{quote_Details},
+// #write @{quote_details},
+#write>@{quote_details},
+#write>@{quote_details} @{quote_details},
+#write .md-alert @{quote_details},
 body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
-    color: var(--d-f-c);
-    background: var(--ac-t1-fade);
-    border-radius: var(--v-r-b);
+    color: var(--d-fc);
+    // background: var(--ac-t1-fade);
+    background: @quoteBgDefault;//var(--blockquote-bg);
+    border-left: @quoteBorderLeft;
+    border-radius: @quoteRadius;//var(--v-r-b);
     padding: @blockPaddingTop 1em;
-    // padding: .75em 1em;
     margin-top: @paragraphPadding;
-    margin-bottom: @paragraphPadding;
+    margin-bottom: 0;
 }
-#write>@{quote_Details} {
-    margin-top: @paragraphPadding;
-}
+// #write>@{quote_details} {
+//     margin-top: @paragraphPadding;
+// }
 
 // 详情展开后的标题
 details[open]>summary {
@@ -1143,12 +1245,12 @@ summary {
 }
 details[open]>summary:hover,
 summary:hover {
-    color: var(--d-f-c) !important;
+    color: var(--d-fc) !important;
 }
 // details[open]>summary:hover::before,
 // summary:hover::before {
 //     color: var(--d-bc) !important;
-//     background-color: var(--d-f-c) !important;
+//     background-color: var(--d-fc) !important;
 // }
 
 // 隐藏 details 默认的三角符号
@@ -1162,7 +1264,8 @@ summary::-webkit-details-marker {
 summary::-moz-list-bullet {
     font-size: 0;
 }
-// // 编辑时的 summary 折叠样式
+// 编辑时的 summary 折叠样式
+// @detailTitle: ~"content>#write blockquote>h6:first-child";
 // content>#write blockquote>h6:first-child::before,
 // // 导出 HTML 后的 summary 折叠样式
 // summary::before {
@@ -1179,10 +1282,13 @@ summary::-moz-list-bullet {
 //     font-size: 1.2em;
 //     margin-right: 5px;
 // }
-content>#write blockquote>h6:first-child::before {
+content>#write @{summaryOnEditing} {
+    color: var(--ac-t1);
+}
+content>#write @{summaryOnEditing}::before {
     content: "×" !important;
-    color: var(--d-f-c);
-    background-color: var(--d-f-c-alt);
+    color: var(--d-fc);
+    background-color: var(--d-fc-a);
     position: relative;
     display: inline-block;
     text-align: center;
@@ -1193,14 +1299,14 @@ content>#write blockquote>h6:first-child::before {
     font-size: 1.2em;
     margin-right: 5px;
 }
-content>#write blockquote>h6:first-child::after {
+content>#write @{summaryOnEditing}::after {
     content: "Folded Below / 以下会被折叠";
     text-transform: uppercase;
     font: @syntaxTipsFont;
     position: absolute;
     display: block;
     margin: 9px 0 0 0;
-    color: var(--d-f-c);
+    color: var(--d-fc);
     opacity: .5;
 }
 summary::before {
@@ -1214,35 +1320,37 @@ summary::before {
 // // 生成 HTML 并转换为 detail 后样式
 // details[open]>summary::before {
 //     content: "×" !important;
-//     color: var(--d-f-c);
-//     background-color: var(--d-f-c-alt);
+//     color: var(--d-fc);
+//     background-color: var(--d-fc-a);
 // }
 
-// 紧跟图片、表格后的引用样式微调
-#write :is(figure, .md-fences)+@{quote_Details},
-// 紧跟带自动题注的内容（插图、代码块、表格、音频、视频）后的引用样式微调
-#write :is(.v-cap-cntr, .v-cap-cntr+.v-content-expander)+@{quote_Details} {
-    width: fit-content;
-    max-width: 100%;
-    background: var(--pn-c) !important;
-    border-left: 6px solid var(--pn-c-alt);//fade(@accColorGray, 20%);
-    // border-top-left-radius: 0;
-    border-radius: 0 var(--v-r-b) var(--v-r-b);
-    padding: .75em 1em;
-    margin-top: 0;
-}
-#write :is(blockquote, details)>:is(figure, .md-fences)+@{quote_Details},
-#write :is(blockquote, details)>:is(.v-cap-cntr, .v-cap-cntr+.v-content-expander)+@{quote_Details} {
-    background: var(--d-bc) !important;
-}
+// // 紧跟图片、表格后的引用块样式微调
+// #write :is(figure, .md-fences)+@{quote_details},
+// // 紧跟带自动题注的内容（插图、代码块、表格、音频、视频）后的引用块样式微调
+// #write :is(.v-cap-cntr, .v-cap-cntr+.v-content-expander)+@{quote_details} {
+//     width: fit-content;
+//     max-width: 100%;
+//     background: var(--pn-c) !important;
+//     border-left: @quoteBorderWidth solid var(--pn-c-a);//fade(@accColorGray, 20%);
+//     // border-top-left-radius: 0;
+//     border-radius: 0 var(--v-r-b) var(--v-r-b);
+//     padding: .75em 1em;
+//     margin-top: 0;
+// }
+// #write @{quote_details}>:is(figure, .md-fences)+@{quote_details},
+// #write @{quote_details}>:is(.v-cap-cntr, .v-cap-cntr+.v-content-expander)+@{quote_details} {
+//     background: var(--d-bc) !important;
+// }
 
 // --------------------
-// 引用分栏
+// 引用块分栏
 
-// 引用分栏提示样式
+// 引用块分栏提示样式
 content>#write .md-hr+blockquote::before {
-    background-color: var(--pn-c-alt);
-    color: var(--d-f-c);
+    // background-color: var(--d-bc); //var(--pn-c-a);
+    // background: linear-gradient(90deg,var(--d-bc) 5%,transparent 10%,var(--d-bc) 15%,var(--d-bc) 85%,transparent 90%,var(--d-bc) 95%, var(--d-bc));
+    background: linear-gradient(90deg, transparent, transparent 5%, var(--d-bc) 15%, var(--d-bc) 85%, transparent 95%, transparent);
+    color: var(--d-fc-a); //var(--d-fc);
     font: @syntaxTipsFont;
     text-transform: uppercase;
     text-align: center;
@@ -1251,92 +1359,99 @@ content>#write .md-hr+blockquote::before {
     margin-left: -1.3em;
     position: absolute;
     width: auto;
-    left: 3em;
+    left: 33px; //3em;
     right: 20px;
-    opacity: .5;
+    opacity: 1; //.5;
     pointer-events: none;
 }
 content>#write .md-hr+blockquote::before {
-    content: "⬛︎ ⬛︎  2 Columns of Quote / 双栏引用  ⬛︎ ⬛︎";
-    margin-top: -3.8em;
-    // margin-top: calc(-3.8em + @blockPaddingTop);
+    content: "⬛︎ ⬛︎  2 Columns of Quote / 双栏引用块  ⬛︎ ⬛︎";
+    margin-top: -5em; //-3.8em;
+    line-height: 2em;
+}
+// 针对明信片 card cardd 的微调
+content>#write .md-hr+blockquote:has(.md-image[data-src*="#card"])::before {
+    margin-top: -3.6em;
 }
 content>#write .md-hr+.md-hr+blockquote::before {
-    content: "⬛︎ ⬛︎ ⬛︎  3 Columns of Quote / 三栏引用  ⬛︎ ⬛︎ ⬛︎";
-    margin-top: -5.8em;
-    // margin-top: calc(-5.8em + @blockPaddingTop);
-    padding-top: .5em;
-    padding-bottom: .5em;
+    content: "⬛︎ ⬛︎ ⬛︎  3 Columns of Quote / 三栏引用块  ⬛︎ ⬛︎ ⬛︎";
+    margin-top: -5.2em; //-5.8em;
+    line-height: 2em;
+}
+// 针对明信片 card cardd 的微调
+content>#write .md-hr+.md-hr+blockquote:has(.md-image[data-src*="#card"])::before {
+    margin-top: -4em;
 }
 content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
-    content: "⬛︎ ⬛︎ ⬛︎ ⬛︎  4 Columns of Quote / 四栏引用  ⬛︎ ⬛︎ ⬛︎ ⬛︎";
-    margin-top: -7.6em;
-    // margin-top: calc(-7.6em + @blockPaddingTop);
-    padding-top: 1.4em;
-    padding-bottom: 1.4em;
+    content: "⬛︎ ⬛︎ ⬛︎ ⬛︎  4 Columns of Quote / 四栏引用块  ⬛︎ ⬛︎ ⬛︎ ⬛︎";
+    margin-top: -6em; //-7.6em;
+    line-height: 3em;
 }
-
+// 针对明信片 card cardd 的微调
+content>#write .md-hr+.md-hr+.md-hr+blockquote:has(.md-image[data-src*="#card"])::before {
+    margin-top: -4.8em;
+}
 // -----
-@quote_Details: ~":is(blockquote, details)";
+@quote_details: ~":is(blockquote, details)";
 @hr_MdHr: ~":is(hr, .md-hr)";
 @n2Hr_MdHr: ~":is(hr+hr, .md-hr+.md-hr)";
 @n3Hr_MdHr: ~":is(hr+hr+hr, .md-hr+.md-hr+.md-hr)";
 @n4Hr_MdHr: ~":is(hr+hr+hr+hr, .md-hr+.md-hr+.md-hr+.md-hr)";
 // 以双栏方式显示，49*2+2*1=100
-#write @{hr_MdHr}+@{quote_Details},
-#write @{hr_MdHr}+@{quote_Details}+@{quote_Details} {
-    color: var(--d-f-c);
+#write @{hr_MdHr}+@{quote_details},
+#write @{hr_MdHr}+@{quote_details}+@{quote_details} {
+    color: var(--d-fc);
     display: inline-block !important;
     max-width: 49% !important;
     min-width: 49% !important;
     vertical-align: top;
 }
 // 双栏内容之间的样式
-#write @{hr_MdHr}+@{quote_Details}+@{quote_Details} {
+#write @{hr_MdHr}+@{quote_details}+@{quote_details} {
     margin-left: 2% !important;
 }
 
 // -----
 // 以三栏方式显示，32*3+2*2=100
-#write @{n2Hr_MdHr}+@{quote_Details},
-#write @{n2Hr_MdHr}+@{quote_Details}+@{quote_Details},
-#write @{n2Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details} {
-    color: var(--d-f-c);
+#write @{n2Hr_MdHr}+@{quote_details},
+#write @{n2Hr_MdHr}+@{quote_details}+@{quote_details},
+#write @{n2Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details} {
+    color: var(--d-fc);
     display: inline-block !important;
     max-width: 32% !important;
     min-width: 32% !important;
     vertical-align: top;
 }
 // 三栏内容之间的样式
-#write @{n2Hr_MdHr}+@{quote_Details}+@{quote_Details},
-#write @{n2Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details} {
+#write @{n2Hr_MdHr}+@{quote_details}+@{quote_details},
+#write @{n2Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details} {
     margin-left: 2% !important;
 }
 
 // -----
 // 以四栏方式显示，23.5*4+2*3=100
-#write @{n3Hr_MdHr}+@{quote_Details},
-#write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details},
-#write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details},
-#write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details}+@{quote_Details} {
-    color: var(--d-f-c);
+#write @{n3Hr_MdHr}+@{quote_details},
+#write @{n3Hr_MdHr}+@{quote_details}+@{quote_details},
+#write @{n3Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details},
+#write @{n3Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details}+@{quote_details} {
+    color: var(--d-fc);
     display: inline-block !important;
     max-width: 23.5% !important;
     min-width: 23.5% !important;
     vertical-align: top;
 }
 // 四栏内容之间的样式
-#write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details},
-#write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details},
-#write @{n3Hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details}+@{quote_Details} {
+#write @{n3Hr_MdHr}+@{quote_details}+@{quote_details},
+#write @{n3Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details},
+#write @{n3Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details}+@{quote_details} {
     margin-left: 2% !important;
 }
 
-// 引用内的双栏、三栏、四栏
-#write @{quote_Details}>@{hr_MdHr}+@{quote_Details},
-#write @{quote_Details}>@{hr_MdHr}+@{quote_Details}+@{quote_Details},
-#write @{quote_Details}>@{hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details},
-#write @{quote_Details}>@{hr_MdHr}+@{quote_Details}+@{quote_Details}+@{quote_Details}+@{quote_Details} {
+// 引用块内的双栏、三栏、四栏
+#write @{quote_details}>@{hr_MdHr}+@{quote_details},
+#write @{quote_details}>@{hr_MdHr}+@{quote_details}+@{quote_details},
+#write @{quote_details}>@{hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details},
+#write @{quote_details}>@{hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details}+@{quote_details} {
     border: none;
     background: var(--d-bc) !important;
     border-radius: var(--v-r-s);
@@ -1355,7 +1470,7 @@ content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
 #write blockquote h6 {
     padding: 0;
     margin-top: 0;
-    color: var(--d-f-c);
+    color: var(--d-fc);
     font-size: 1.125em;
 }
 
@@ -1368,8 +1483,8 @@ content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
     margin-left: 0 !important;
 }
 
-#write @{quote_Details} .CodeMirror-linenumber {
-    color: var(--h-f);
+#write @{quote_details} .CodeMirror-linenumber {
+    color: var(--d-fc-a);//var(--h-f);
 }
 
 // 代码块内代码区域
@@ -1382,6 +1497,7 @@ content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
 
 // --------------------
 // 列表分栏
+
 // 列表分栏内容微调
 #write @{hr_MdHr}+ul,
 #write @{hr_MdHr}+ol {
@@ -1399,7 +1515,7 @@ content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
     list-style: none;
 }
 // hover
-@listColumnHoverFill: var(--d-f-c-alt);
+@listColumnHoverFill: var(--d-fc-a);
 #write @{hr_MdHr}+ul>li:hover>p:first-of-type,
 #write @{hr_MdHr}+ol>li:hover>p:first-of-type {
     background: @listColumnHoverFill !important;
@@ -1411,7 +1527,7 @@ content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
 #write @{hr_MdHr}+ul>li>p:first-of-type,
 #write @{hr_MdHr}+ol>li>p:first-of-type {
     font: var(--v-f-w-bd) 1em var(--v-f-fm-bd);
-    color: var(--d-f-c);
+    color: var(--d-fc);
     background: var(--std-code-shadow);
     padding: 5px;
     border-radius: var(--v-r-t) var(--v-r-t) 0 0;
@@ -1419,12 +1535,15 @@ content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
     margin-top: 0;
     margin-left: -10px;
     margin-right: -10px;
+    width: auto;
 }
 // 列表分栏提示样式
 content>#write .md-hr+ul::before,
 content>#write .md-hr+ol::before {
-    background-color: var(--pn-c-alt);
-    color: var(--d-f-c);
+    // background-color: var(--pn-c-a);
+    // background: linear-gradient(90deg,var(--d-bc) 5%,transparent 10%,var(--d-bc) 15%,var(--d-bc) 85%,transparent 90%,var(--d-bc) 95%, var(--d-bc));
+    background: linear-gradient(90deg, transparent, transparent 5%, var(--d-bc) 15%, var(--d-bc) 85%, transparent 95%, transparent);
+    color: var(--d-fc-a);
     font: @syntaxTipsFont;
     text-transform: uppercase;
     text-align: center;
@@ -1435,30 +1554,34 @@ content>#write .md-hr+ol::before {
     width: auto;
     left: 0;
     right: 0;
-    opacity: .5;
+    opacity: 1;
     pointer-events: none;
 }
 content>#write .md-hr+:is(ul, ol)::before {
     content: "⬛︎ ⬛︎  2 Columns of List / 双栏列表  ⬛︎ ⬛︎";
-    margin-top: -1.6em;
+    margin-top: -2.8em; //-1.6em;
+    line-height: 2em;
 }
 content>#write .md-hr+.md-hr+:is(ul, ol)::before {
     content: "⬛︎ ⬛︎ ⬛︎  3 Columns of List / 三栏列表  ⬛︎ ⬛︎ ⬛︎";
-    margin-top: -3.6em;
-    padding-top: .5em;
-    padding-bottom: .5em;
+    margin-top: -3em;
+    // padding-top: .5em;
+    // padding-bottom: .5em;
+    line-height: 2em;
 }
 content>#write .md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     content: "⬛︎ ⬛︎ ⬛︎ ⬛︎  4 Columns of List / 四栏列表  ⬛︎ ⬛︎ ⬛︎ ⬛︎ ";
-    margin-top: -5.4em;
-    padding-top: 1.4em;
-    padding-bottom: 1.4em;
+    margin-top: -3.4em; //-5.4em;
+    // padding-top: 1.4em;
+    // padding-bottom: 1.4em;
+    line-height: 2.2em;
 }
 content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     content: "⬛︎ ⬛︎ ⬛︎ ⬛︎ ⬛︎  5 Columns of List / 五栏列表  ⬛︎ ⬛︎ ⬛︎ ⬛︎ ⬛︎";
-    margin-top: -7.1em;
-    padding-top: 2.2em;
-    padding-bottom: 2.2em;
+    margin-top: -4.1em; //-7.1em;
+    // padding-top: 2.2em;
+    // padding-bottom: 2.2em;
+    line-height: 3em;
 }
 
 // -----
@@ -1614,33 +1737,31 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     margin-left: .5em !important;
 }
 
-// 引用内的引用（非分栏）
+// 引用块内的引用块（非分栏）
 #write :is(blockquote, li)>blockquote,
-// 详情内的引用（非分栏）
-#write @{quote_Details}>details {
-    border-left: 6px solid fade(@accColorGray, 20%);
+// 详情内的折叠引用块（非分栏）
+#write @{quote_details}>details {
+    border-left: @quoteBorderWidth solid fade(@accColorGray, 20%);
     background: none;
     border-radius: 0;
     padding: 0 .5em;
 }
-// 引用内的最后一个引用
-#write @{quote_Details}>@{quote_Details}:last-child,
-#write @{quote_Details}>:is(ol,ul):last-child {
+// 引用块内的最后一个引用块
+#write @{quote_details}>@{quote_details}:last-child,
+#write @{quote_details}>:is(ol,ul):last-child {
     margin-bottom: 0;
 }
 
-// 引用的引用（分栏）
-#write :is(li>hr, li>.md-hr)+
-:is(blockquote, blockquote+blockquote, blockquote+blockquote+blockquote, blockquote+blockquote+blockquote+blockquote),
-#write :is(li>hr, li>.md-hr)+
-:is(details, details+details, details+details+details, details+details+details+details) {
+// 引用块的引用块（分栏）
+#write :is(li>hr, li>.md-hr)+:is(blockquote, blockquote+blockquote, blockquote+blockquote+blockquote, blockquote+blockquote+blockquote+blockquote),
+#write :is(li>hr, li>.md-hr)+:is(details, details+details, details+details+details, details+details+details+details) {
     border: none;
     background: var(--blockquote-bg);
     border-radius: var(--v-r-s);
     padding: .75em 1em;
 }
 
-#write @{quote_Details}>strong {
+#write @{quote_details}>strong {
     color: inherit !important;
 }
 
@@ -1660,9 +1781,10 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
 // 坏链列表
 .v-link-error-list {
     display: none;
-    padding: 10px 0;
+    // padding: 10px 0;
+    padding: 0;
     position: fixed;
-    color: var(--d-f-c);
+    color: var(--d-fc);
     top: 20px;
     right: 20px;
     bottom: 50px;
@@ -1682,11 +1804,13 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     left: 0;
     height: 30px;
     width: 100%;
-    background: linear-gradient(180deg, var(--pn-c) 10px, var(--pn-c-tsp));
+    // background: linear-gradient(180deg, var(--pn-c) 10px, var(--pn-c-tsp));
+    background: linear-gradient(180deg, @pnLinerGradientFade2);
     pointer-events: none;
 }
 .v-link-error-list-body {
-    padding: 10px 0;
+    // padding: 10px 0;
+    padding: 5px 1px;
     height: 100%;
     z-index: 0;
 }
@@ -1704,7 +1828,8 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     bottom: 0;
     height: 30px;
     width: 100%;
-    background: linear-gradient(0deg, var(--pn-c) 10px, var(--pn-c-tsp));
+    // background: linear-gradient(0deg, var(--pn-c) 10px, var(--pn-c-tsp));
+    background: linear-gradient(0deg, @pnLinerGradientFade2);
     pointer-events: none;
 }
 
@@ -1739,7 +1864,7 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     justify-content: center;
     align-items: center;
     vertical-align: top;
-    color: var(--d-f-c);
+    color: var(--d-fc);
     background: var(--pn-c);
     padding: 0 10px;
     min-width: var(--v-tb-btn-w);
@@ -1776,7 +1901,7 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     background: var(--ac-rd-lg);
 }
 // .v-link-result-error:hover {
-//     background: var(--d-f-c);
+//     background: var(--d-fc);
 // }
 // .v-link-result-error:hover>svg>use {
 //     fill: var(--d-bc);
@@ -1822,7 +1947,7 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
 // 表格表头
 :is(#write, body.typora-export) table>thead>tr>th {
     color: @tableThColor !important;
-    background: @tableThBakcground;
+    background: @tableThBackground;
     font: var(--v-f-w-bd) 1em var(--v-f-fm-bd); // [style] [weight] [size/[line-height]] [family]
     border-right: @tableThBorderRightWidth solid var(--tbl-cell-bd);
     margin: 0;
@@ -1866,7 +1991,7 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
 
 // 偶数行
 :is(#write, body.typora-export) table>tbody>tr:nth-child(2n) {
-    background: @tableTdBakcground;
+    background: @tableTdBackground;
 }
 
 // 表头首行的首列
@@ -1917,7 +2042,7 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
 #write .v-th-repeater {
     font: var(--v-f-w-bd) 1em var(--v-f-fm-bd); // [style] [weight] [size/[line-height]] [family]
     color: @tableThColor;
-    background: @tableThBakcground;
+    background: @tableThBackground;
     // background: (--tbl-th-bg);
     vertical-align: middle !important;
 }
@@ -1948,12 +2073,22 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     font-style: italic;
 }
 
+// 下划线
+// .v-tbl-col-fmt-u span,
+#write u {
+    text-decoration: none;
+    border-bottom: 1px solid var(--d-fc);
+}
+// #write u>u {
+//     font-size: .75em;
+// }
+
 // 表格列格式：高亮
 .v-tbl-col-fmt-mark {
     background: var(--mark-bg) !important;
     // text-shadow: 0 1px 0 var(--d-bc);
     font-weight: var(--v-f-w-bd);
-    color: var(--d-f-c) !important;
+    color: var(--d-fc) !important;
 }
 
 // 表格列格式：数值
@@ -1982,7 +2117,7 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     font-size: .8em;
     padding-top: 3px;
     padding-right: 10px;
-    color: var(--d-f-c-alt);
+    color: var(--d-fc-a);
 }
 // 表格列格式：数值－百分号
 .v-tbl-col-fmt-percent {
@@ -2094,7 +2229,7 @@ td.v-tbl-row-g-not-folder {
     text-align: right;
     margin-top: @tableRowNumTop;
     margin-left: -20px;
-    color: var(--d-f-c-alt);
+    //color: var(--d-fc-a);
     color: var(--h-f);
     position: absolute;
 }
@@ -2109,15 +2244,19 @@ td.v-tbl-row-g-not-folder {
     content: "" !important;
 }
 
-// h1-6 下的表格行号
+// h6 下的表格行号
 #write h6+figure table tbody tr::before {
     content: counter(tableRowNumber);
     text-align: right;
     margin-top: @tableRowNumTop;
-    margin-left: 0px;
+    // margin-left: 0px;
     color: var(--h-f);
     position: absolute;
 }
+body.typora-export #write h6+figure table tbody tr::before {
+    left: -.5em;
+}
+
 // hover 时行号内容样式
 #write h6+figure table tbody tr:hover::before {
 // :is(#write, body.typora-export) h6+figure table tbody tr:hover::before {
@@ -2136,9 +2275,9 @@ td.v-tbl-row-g-not-folder {
 }
 
 // h1-6 后的表格，格式微调
-#write :is(h1,h2,h3,h4,h5,h6)+figure {
-    margin-top: 0;
-}
+// #write :is(h1,h2,h3,h4,h5,h6)+figure {
+//     margin-top: 0;
+// }
 
 // 表格阅读模式（十字光标）
 .v-tbl-x {
@@ -2151,7 +2290,7 @@ td.v-tbl-row-g-not-folder {
     pointer-events: none;
 }
 .v-tbl-x-cell {
-    box-shadow: 0 0 0 4px var(--d-f-c-alt) !important;
+    box-shadow: 0 0 0 4px var(--d-fc-a) !important;
     border-radius: @tableBorderRadius;
 }
 .v-tbl-x.left-up {
@@ -2187,9 +2326,9 @@ mark {
     background: none;
 }
 
-// 删除
+// 删除线
 #write :is(del, del strong) {
-    color: var(--d-f-c-alt) !important;
+    color: var(--d-fc-a) !important;
     text-decoration: line-through solid !important;
 }
 
@@ -2241,10 +2380,11 @@ code {
     color: var(--code-t);
     background: var(--code-bg);
     border-radius: var(--v-r-s);
-    padding: 4px 5px;
+    padding: 3px 5px;
     line-height: 1;
     margin: 0;
-    box-shadow: 0 0 0 1px var(--std-code-shadow) inset;
+    border: 1px solid var(--std-code-shadow);
+    // box-shadow: 0 0 0 1px var(--std-code-shadow) inset;
     display: inline-block;
     text-align: inherit;
     // vertical-align: middle;
@@ -2256,12 +2396,12 @@ code {
     filter: brightness(@hoverBrightness);
 }
 
-// 引用内的 code
+// 引用块内的 code
 #write blockquote code {
     color: var(--ac-t2-lg);
     background: var(--d-bc);
 }
-// 引用内的表格中的 code
+// 引用块内的表格中的 code
 #write blockquote table code {
     color: var(--code-t);
     background: var(--code-bg);
@@ -2290,11 +2430,11 @@ strong :is(tt, code) {
 * 数学公式
 **************************************/
 
-@codeTooltipBg: var(--d-f-c);
+@codeTooltipBg: var(--d-fc);
 @codeTooltipText: var(--d-bc);
 mjx-container>svg svg[data-labels] g,
 .code-tooltip mjx-container>svg svg[data-labels] g {
-    fill: var(--d-f-c-alt) !important;
+    fill: var(--d-fc-a) !important;
 }
 
 // 编辑时，行内数学公式
@@ -2441,7 +2581,7 @@ kbd {
     font: var(--v-f-w-bd) .75em var(--v-f-fm-key); // [style] [weight] [size/[line-height]] [family]
     border-radius: var(--v-r-s-small);
     margin: 0;
-    padding: 0px 4px;
+    padding: 0 4px;
     color: var(--d-bc);
     border: 2px solid var(--key-shadow);
     border-left-color: var(--key-reflect);
@@ -2521,8 +2661,8 @@ table kbd {
 }
 .v-info-tips.bubble {
     color: var(--d-bc);
-    border-color: var(--d-f-c-alt);
-    background: var(--d-f-c);
+    border-color: var(--d-fc-a);
+    background: var(--d-fc);
     padding: 5px 10px;
 }
 
@@ -2638,7 +2778,7 @@ table kbd {
     border-radius: var(--v-r-s) !important;
     filter: opacity(.6);
     cursor: pointer;
-    background-color: var(--d-f-c);
+    background-color: var(--d-fc);
     color: var(--d-bc);
     min-height: 200px;
 }
@@ -2682,34 +2822,53 @@ table kbd {
 .v-fontinfo-sans>#fontset-status,
 .v-fontinfo-serif>#fontset-status,
 .v-doc-ext-info {
-    color: var(--d-f-c-alt);
+    color: var(--d-fc-a);
 }
 
+// 生成柔和自然的透明渐变色
+// 这两项数据的调整，须通过 src/calc-ref.xlx 进行计算生成
+@linerGradientFade: ~"rgba(var(--fade-r), var(--fade-g), var(--fade-b), 1) 0%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.987) 8.1%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.951) 15.5%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.896) 22.5%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.825) 29%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.741) 35.3%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.648) 41.2%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.55) 47.1%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.45) 52.9%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.352) 58.8%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.259) 64.7%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.175) 71%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.104) 77.5%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.049) 84.5%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.013) 91.9%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0) 100%";
+@linerGradientFade2: ~"rgba(var(--fade-r), var(--fade-g), var(--fade-b), 1) 42%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.987) 46.698%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.951) 50.99%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.896) 55.05%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.825) 58.82%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.741) 62.474%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.648) 65.896%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.55) 69.318%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.45) 72.682%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.352) 76.104%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.259) 79.526%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.175) 83.18%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.104) 86.95%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.049) 91.01%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0.013) 95.302%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), 0) 100%";
+
+// need removed:
 // 长内容扩展面板
-.v-content-expander {
-    font: var(--v-f-w-bd) 1em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
-    height: 110px;
-    margin-top: -7.375em;//-120px;
-    background: linear-gradient(0deg, var(--d-bc) 10px, var(--d-bc-tsp));
-    border-radius: 0 0 var(--v-r-b) var(--v-r-b);
-    position: absolute;
-    text-align: center;
-    vertical-align: bottom;
-    visibility: hidden;
-    z-index: 10;
-    pointer-events: none;
-}
+// .v-content-expander {
+//     font: var(--v-f-w-bd) 1em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
+//     height: 110px;
+//     margin-top: -7.375em;//-120px;
+//     // background: linear-gradient(0deg, var(--d-bc) 10px, var(--d-bc-tsp));
+//     background: linear-gradient(0deg, @linerGradientFade);
+//     border-radius: 0 0 var(--v-r-b) var(--v-r-b);
+//     position: absolute;
+//     text-align: center;
+//     vertical-align: bottom;
+//     visibility: hidden;
+//     z-index: 10;
+//     pointer-events: none;
+// }
 
-.v-content-expander>.v-btn {
-    margin-top: 60px;
-    width: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-    font-size: .875em;
-    border-radius: var(--v-r-s);
-    background: @buttonBgColor;
-    pointer-events: all;
-}
+// need removed:
+// .v-content-expander>.v-btn {
+//     color: var(--d-fc);
+//     margin-top: 60px;
+//     width: auto;
+//     padding-left: 15px;
+//     padding-right: 15px;
+//     font-size: .875em;
+//     border-radius: var(--v-r-s);
+//     background: var(--std-code-shadow);//@buttonBgColor;
+//     pointer-events: all;
+// }
+// .v-content-expander>.v-btn>svg>use {
+//     fill: var(--d-fc);
+// }
+// .v-content-expander>.v-btn.hover {
+//     background-color: var(--d-fc) !important;
+//     color: var(--d-bc) !important;
+// }
+// .v-content-expander>.v-btn.hover>svg>use {
+//     fill: var(--d-bc);
+// }
 
 // Light Mode 的文档图标（标签栏、收藏夹图标）
 .v-doc-logo-light {
@@ -2880,13 +3039,19 @@ table kbd {
     box-shadow: var(--v-float-shadow), var(--v-float-inn-shadow);
 }
 
+// 面板渐变样式
+@pnLinerGradientFade: ~"rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 1) 73%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.987) 75.187%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.951) 77.185%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.896) 79.075%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.825) 80.83%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.741) 82.531%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.648) 84.124%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.55) 85.717%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.45) 87.283%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.352) 88.876%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.259) 90.469%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.175) 92.17%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.104) 93.925%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.049) 95.815%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.013) 97.813%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0) 100%";
+@pnLinerGradientFade2: ~"rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 1) 0%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.987) 8.1%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.951) 15.5%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.896) 22.5%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.825) 29%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.741) 35.3%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.648) 41.2%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.55) 47.1%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.45) 52.9%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.352) 58.8%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.259) 64.7%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.175) 71%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.104) 77.5%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.049) 84.5%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.013) 91.9%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0) 100%";
+@pnLinerGradientFade3: ~"rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 1) 57%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.987) 60.483%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.951) 63.665%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.896) 66.675%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.825) 69.47%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.741) 72.179%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.648) 74.716%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.55) 77.253%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.45) 79.747%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.352) 82.284%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.259) 84.821%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.175) 87.53%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.104) 90.325%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.049) 93.335%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.013) 96.517%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0) 100%";
+
 // 导航中心头部
 .v-nav-center-header {
-    color: var(--d-f-c);
+    color: var(--d-fc);
     font: normal 1em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
-    height: 100px;
+    height: 110px;
     padding: 0;
-    background: linear-gradient(180deg, var(--pn-c) 82px, var(--pn-c-tsp));
+    // background: linear-gradient(180deg, var(--pn-c) 82px, var(--pn-c-tsp));
+    background: linear-gradient(180deg, @pnLinerGradientFade);
     left: 1px;
     right: 1px;
     top: 1px;
@@ -2894,6 +3059,24 @@ table kbd {
     border-top-right-radius: var(--v-r-b);
     border-top-left-radius: var(--v-r-b);
     z-index: 10;
+    pointer-events: none;
+}
+// 导航中心尾部
+.v-nav-center-footer {
+    height: 30px;
+    line-height: 40px;
+    left: 1px;
+    right: 1px;
+    bottom: 1px;
+    text-align: center;
+    padding: 0;
+    // background: linear-gradient(0deg, var(--pn-c) 5px, var(--pn-c-tsp));
+    background: linear-gradient(0deg, @pnLinerGradientFade2);
+    border-bottom-right-radius: var(--v-r-b);
+    border-bottom-left-radius: var(--v-r-b);
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
 }
 
 // 导航中心标签栏
@@ -2903,7 +3086,8 @@ table kbd {
     border-radius: var(--v-r-s);
     margin: 10px;
     padding: 2px;
-    background: var(--pn-c-alt);
+    background: var(--pn-c-a);
+    pointer-events: all;
 }
 // 导航中心标签栏按钮
 .v-segment>input[type="radio"] {
@@ -3004,7 +3188,7 @@ table kbd {
 }
 .v-toc-catalog-body::after {
     content: attr(d-catalog-empty);
-    color: var(--d-f-c-alt);
+    color: var(--d-fc-a);
     position: absolute;
     text-align: center;
     top: 150px;
@@ -3012,22 +3196,6 @@ table kbd {
 }
 .v-toc-catalog-body:not(:empty)::after {
     content: "";
-}
-
-.v-nav-center-footer {
-    height: 20px;
-    line-height: 40px;
-    left: 1px;
-    right: 1px;
-    bottom: 1px;
-    text-align: center;
-    padding: 0;
-    background: linear-gradient(0deg, var(--pn-c) 5px, var(--pn-c-tsp));
-    border-bottom-right-radius: var(--v-r-b);
-    border-bottom-left-radius: var(--v-r-b);
-    position: absolute;
-    z-index: 10;
-    pointer-events: none;
 }
 
 .v-toc-handle {
@@ -3042,7 +3210,7 @@ table kbd {
     z-index: 2000;
 }
 .v-toc-handle.hover {
-    background: var(--d-f-c);
+    background: var(--d-fc);
 }
 
 .v-copyright-svg-ico {
@@ -3051,11 +3219,12 @@ table kbd {
     cursor: pointer;
 }
 body.typora-export .v-copyright {
+// .v-copyright {
     left: 0;
-    bottom: 0;
+    bottom: 5px;
     text-align: center;
     width: 100%;
-    height: 40px;
+    // height: 40px;
     padding: 5px 10px;
     font: normal .875em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
     position: absolute;
@@ -3063,15 +3232,18 @@ body.typora-export .v-copyright {
     border: none;
 }
 body.typora-export .v-copyright a {
+// .v-copyright a {
     color: #FFFFFF !important;
     border-bottom: @aBorderWidth solid #FFFFFF;
     text-shadow: none;
     text-decoration: none;
 }
 body.typora-export .v-copyright a:hover {
+// .v-copyright a:hover {
     box-shadow: 0 -.3em 0 0 rgba(255, 255, 255, .3) inset;
 }
 body.typora-export .v-copyright a:active {
+// .v-copyright a:active {
     background: #000000;
     border-radius: var(--v-r-s);
     border-bottom: 0;
@@ -3094,24 +3266,31 @@ body.typora-export .v-copyright a:active {
     height: 200px;
     border-radius: var(--v-r-b);
     box-shadow: var(--v-float-shadow);
-    margin: 0 auto;
+    // margin: 0 auto;
+    margin: 0;
+    padding: 5px 0;
     background: var(--pn-c);
     display: none;
     z-index: 2100;
 }
 
 body.typora-export .v-footnote-pn>a {
-    color: var(--d-f-c);
+    color: var(--d-fc);
     text-decoration: none;
 }
 
 .v-footnote-pn-header {
-    height: 25px;
-    top: 2px;
-    left: 2px;
-    right: 2px;
+    // height: 25px;
+    // top: 2px;
+    height: 30px;
+    top: 0;
+    // left: 2px;
+    // right: 2px;
+    left: 0;
+    right: 0;
     position: absolute;
-    background: linear-gradient(180deg, var(--pn-c) 5px, var(--pn-c-tsp));
+    // background: linear-gradient(180deg, var(--pn-c) 5px, var(--pn-c-tsp));
+    background: linear-gradient(180deg, @pnLinerGradientFade2);
     border-radius: var(--v-r-b);
 }
 
@@ -3124,25 +3303,36 @@ body.typora-export .v-footnote-pn>a {
     overflow-x: auto;
 }
 
-.v-footnote-pn-all {
+@footnoteFooterHeight: 70px;
+.v-footnote-pn-footer {
     font-weight: var(--v-f-w-bd);
-    height: 60px;
-    left: 2px;
-    right: 2px;
-    bottom: 2px;
-    line-height: 70px;
+    height: @footnoteFooterHeight;
+    // left: 2px;
+    // right: 2px;
+    left: 0;
+    right: 0;
+    //bottom: 2px;
+    line-height: @footnoteFooterHeight + 10px;
     bottom: 0;
-    padding: 0 20px;
-    margin: 2px;
+    padding: 5px 20px;
+    // padding: 5px 0;
+    // margin: 2px;
+    margin: 0;
     border-radius: var(--v-r-b);
-    background: linear-gradient(0deg, var(--pn-c) 35px, var(--pn-c-tsp));
+    // background: linear-gradient(0deg, var(--pn-c) 35px, var(--pn-c-tsp));
+    background: linear-gradient(0deg, @pnLinerGradientFade3);
     position: absolute;
 }
 
+// --------------------
+// 文档更多内容
+
+// 更多内容的高度，该数据的调整后，须通过 src/calc-ref.xlx 进行计算重新生成 @linerGradientFade @linerGradientFade2 的值
+@moreContentHeight: 70px;
+// 顶部的样式（不是在封面时）
 .v-more-doc-content-before {
     width: 100%;
-    height: 110px;
-    background: linear-gradient(180deg, var(--d-bc) 50px, var(--d-bc-tsp));
+    height: @moreContentHeight + @chapterNavHeight; // @chapterNavHeight 是章节导航栏的高度
     position: fixed;
     top: 0;
     pointer-events: none;
@@ -3150,15 +3340,15 @@ body.typora-export .v-footnote-pn>a {
     opacity: .9;
     z-index: 99;
 }
+// 顶部的样式（在封面时）
 .v-more-doc-content-before.cover{
     top: 0;
-    height: 60px;
-    background: linear-gradient(180deg, var(--d-bc), var(--d-bc-tsp));
+    height: @moreContentHeight;
 }
+// 底部的样式
 .v-more-doc-content-after {
     width: 100%;
-    height: 60px;
-    background: linear-gradient(0deg, var(--d-bc), var(--d-bc-tsp));
+    height: @moreContentHeight;
     position: fixed;
     bottom: 0;
     pointer-events: none;
@@ -3166,6 +3356,20 @@ body.typora-export .v-footnote-pn>a {
     opacity: .9;
     z-index: 99;
 }
+// 生成文档更多内容遮挡效果
+.genMoreDocContentShadow() {
+    .v-more-doc-content-before {
+        background: linear-gradient(180deg, @linerGradientFade2);
+    }
+    .v-more-doc-content-before.cover{
+        background: linear-gradient(180deg, @linerGradientFade);
+    }
+    .v-more-doc-content-after {
+        background: linear-gradient(0deg, @linerGradientFade);
+    }
+}
+// 生成文档更多内容遮挡效果
+.genMoreDocContentShadow();
 
 .v-toolbar {
     border-bottom-left-radius: var(--v-r-b);
@@ -3203,7 +3407,7 @@ body.typora-export .v-footnote-pn>a {
 // 用于替代默认的样式，但不设置 ::before
 .v-toc-item,
 .md-toc-item {
-    color: var(--d-f-c);
+    color: var(--d-fc);
     font: normal 1em/@defaultLineHeight var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
     margin: 0 10px;
     // padding: 8px 5px;
@@ -3230,12 +3434,12 @@ body.typora-export .v-footnote-pn>a {
 }
 .v-toc-item:hover,
 .md-toc-item:hover {
-    background: var(--pn-c-alt);
+    background: var(--pn-c-a);
 }
 .v-toc-item:active,
 .md-toc-item:active {
     color: var(--d-bc);
-    background: var(--d-f-c-alt);
+    background: var(--d-fc-a);
     box-shadow: @tocItemActive_boxShadow;//0 0 0 2px fade(@headerColor, 50%);
     transition: none;
 }
@@ -3251,12 +3455,14 @@ body.typora-export .v-footnote-pn>a {
 }
 
 :is(.v-toc-item, .v-cap-1, .v-cap-2)>span {  // 题注前缀
-    color: var(--d-f-c-alt);
-    font-size: .75em;
-    padding-bottom: 4px;
+    color: var(--h-f);//var(--d-fc-a);
+    // font-size: .75em;
+    // padding-bottom: 4px;
 }
 .v-toc-item>span {
     display: block;
+    font-size: .875em;
+    margin-bottom: 4px;
 }
 
 .md-toc,
@@ -3277,7 +3483,7 @@ body.typora-export .v-footnote-pn>a {
 }
 
 #write .md-toc-item a:hover {
-    color: var(--d-f-c) !important;
+    color: var(--d-fc) !important;
     box-shadow: none;
     text-decoration: none;
     border: none;
@@ -3406,7 +3612,7 @@ body.typora-export .v-footnote-pn>a {
 }
 
 .v-duration-info {
-    color: var(--d-f-c-alt);
+    color: var(--d-fc-a);
     padding: 0 5px;
     font-weight: bold;
 }
@@ -3424,6 +3630,7 @@ body.typora-export .v-footnote-pn>a {
     animation: breathe-circle 500ms infinite alternate;
 }
 
+@chapterNavHeight: 50px;
 .v-chapter-nav {
     color: @buttonForeColor;
     background: @buttonBgColor;
@@ -3432,7 +3639,7 @@ body.typora-export .v-footnote-pn>a {
     top: -50px;
     left: calc(var(--v-nav-center-w) + 50px); // 注意 +/- 号前后须留空格
     right: 20px;
-    height: 50px;
+    height: @chapterNavHeight;
     position: fixed;
     padding: 0;
     vertical-align: middle;
@@ -3692,12 +3899,12 @@ body.typora-export .v-footnote-pn>a {
 }
 
 .v-accent-btn.hover {
-    background: var(--pn-c-alt);
+    background: var(--pn-c-a);
 }
 
 .v-accent-btn:active {
     color: var(--d-bc);
-    background: var(--pn-c-alt);
+    background: var(--pn-c-a);
     box-shadow: 0 0 0 2px var(--tbl-bd);
 }
 .v-accent-btn:active>svg>use {
@@ -3712,12 +3919,13 @@ body.typora-export .v-footnote-pn>a {
     cursor:not-allowed;
 }
 .v-accent-btn.figure-nav.disabled>svg>use {
-    fill: var(--pn-c-alt);
+    fill: var(--pn-c-a);
 }
 
 .v-serch-by-keyword {
     display: block;
     margin: 10px;
+    pointer-events: all;
 }
 
 .v-focus-serch.actived {
@@ -3740,7 +3948,7 @@ body.typora-export .v-footnote-pn>a {
 }
 
 body.typora-export :is(input::placeholder, input:focus::placeholder) {
-    color: var(--d-f-c-alt);
+    color: var(--d-fc-a);
     font-weight: normal;
 }
 
@@ -3760,7 +3968,7 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
 .v-textfield>input::-webkit-input-placeholder,
 .v-textfield>input::-moz-placeholder,
 .v-textfield>input:-moz-placeholder {
-    color: var(--d-f-c-alt) !important;
+    color: var(--d-fc-a) !important;
 }
 .v-textfield>input.set-icon {
     margin-left: 0;
@@ -3781,7 +3989,7 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
     height: 30px;
     text-align: center;
     border-radius: 0 var(--v-r-s) var(--v-r-s) 0;
-    box-shadow: 1px 0 0 0 var(--pn-c-alt) inset;
+    box-shadow: 1px 0 0 0 var(--pn-c-a) inset;
     float: right;
     display: none;
 }
@@ -3846,7 +4054,7 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
     display: block;
     padding: 0 10px;
     text-align: center;
-    color: var(--d-f-c-alt);
+    color: var(--d-fc-a);
     font: normal 1em/3 var(--v-f-fm-text); // [style] [weight] [size/[line-height]] [family]
 }
 
@@ -3861,7 +4069,7 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
     padding-right: 10px;
     white-space: nowrap;
     font-family: var(--v-f-fm-subtitle);
-    color: var(--d-f-c-alt);
+    color: var(--d-fc-a);
 }
 
 .v-btn.nav-center {
@@ -3955,7 +4163,7 @@ body.typora-export :is(input::placeholder, input:focus::placeholder) {
 .v-btn-close-figure-nav:active {
     background: @aActiveColor;
     box-shadow: 0 0 0 2px fade(@aActiveColor, 50%) !important;
-    box-shadow: none;
+    //box-shadow: none;
     transform: none;
 }
 
@@ -4163,7 +4371,7 @@ iframe[name="vlook-stat-gitee"] {
 // 指定在 Dark Mode 时反转的图片样式
 .v-img-invert-dark {
     background-color: #FFFFFF !important;
-    filter: var(--v-invert-dk);
+    filter: var(--v-invert-dark);
     border-color: var(--img-bd-invert) !important;
 }
 
@@ -4208,7 +4416,7 @@ iframe[name="vlook-stat-gitee"] {
     text-align: center;
     vertical-align: middle;
     width: 100%;
-    color: var(--d-f-c);
+    color: var(--d-fc);
 }
 
 .v-fig-nav-title {
@@ -4224,7 +4432,7 @@ iframe[name="vlook-stat-gitee"] {
 .v-fig-page-num {
     border-radius: var(--v-r-s);
     color: #FFFFFF;
-    background: var(--d-f-c-alt);
+    background: var(--d-fc-a);
     padding-left: 4px;
     padding-right: 4px;
     font: normal .875em var(--v-f-fm-bd); // [style] [weight] [size/[line-height]] [family]
@@ -4243,15 +4451,49 @@ iframe[name="vlook-stat-gitee"] {
 .v-cap-2 {
     color: @captionTextColor;
     font: normal .875em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
-    font-weight: normal;
+    //font-weight: normal;
     margin: 5px 10px !important;
     width: auto !important;
 }
 
+// 题注容器（导出后）
+body.typora-export #write figcaption {
+    position: relative;
+    margin-top: @paragraphPadding !important;
+}
 .v-cap-cntr {
     border-radius: var(--v-r-b);
     margin-bottom: @scrollFix !important;
+    // text-align: center;
+    // width: fit-content !important;
 }
+// 题注容器：展开全部样式
+@expanderHeight: 100px;
+.v-cap-cntr.expander::before {
+    content: attr(data-ex-label);//var(--v-ex-all, "");//attr("d-ex-text");
+    white-space: pre;
+    // text-transform: uppercase;
+    color: @aColor;
+    font-size: .875em;
+    font-weight: var(--v-f-w-bd);
+    text-align: center;
+    width: 100%; // 实际以生成 HTML 后根据实际内容序号自动适配对应样式 .v-cap-cntr.expander.id-xxx
+    height: @expanderHeight;
+    top: calc(var(--v-ex-limit) - @expanderHeight);
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(0deg, @linerGradientFade);
+    z-index: 10;
+}
+.v-cap-cntr.expander:hover::before {
+    color: @aHoverColor;
+}
+// .v-cap-cntr.expander.id-1::before {
+//     // width: ？？？; // 以实际计算为准
+// }
 
 // 用于折叠类、表格列格式复选框的小图标
 .v-svg-small-ico {
@@ -4277,11 +4519,11 @@ use.v-svg-ico-light {
 }
 
 use.v-svg-ico-dark {
-    fill: var(--d-f-c);
+    fill: var(--d-fc);
 }
 
 use.v-svg-ico-alpha {
-    fill: var(--d-f-c);
+    fill: var(--d-fc);
     opacity: .2;
 }
 
@@ -4289,8 +4531,8 @@ use.v-svg-ico-theme {
     fill: @docLibButtonBgColor;
 }
 
-use.v-svg-ico-alt {
-    fill: var(--d-f-c-alt);
+use.v-svg-ico-a {
+    fill: var(--d-fc-a);
 }
 
 // 折叠按钮样式
@@ -4377,46 +4619,42 @@ use.v-svg-ico-alt {
     -webkit-backdrop-filter: saturate(180%) blur(15px);
 }
 
-// 彩虹引用
+// 彩虹引用块
 :is(#write, body.typora-export) .v-q {
-    color: var(--d-f-c);
+    color: var(--d-fc);
     width: auto;
     border: none;
     border-radius: var(--v-r-b);
     padding: .75em 1em;
-    margin-top: 10px;
-    margin-bottom: 5px;
+    // margin-top: 10px;
+    // margin-bottom: 5px;
 }
-// 生成彩虹引用相关样式
-.genRainbowQuoteCSS(@quoteMark, @accColor, @fadeColor, @btnBg, @btnFore, @titleColor, @titleLightColor) {
+// 生成彩虹引用块相关样式
+.genRainbowQuoteCSS(@quoteMark, @accColor, @btnBg, @btnFore) {
     #write .v-q.@{quoteMark} {
-        box-shadow: 0 0 0 4px @fadeColor inset;
+        box-shadow: 0 0 0 4px ~"var(--ac-@{quoteMark}-fade)" inset;
         background: none;
         border-color: @btnBg !important;
     }
     // 强调样式
     #write .v-q.@{quoteMark}.em {
         box-shadow: none;
-        background: @fadeColor !important;
+        background: ~"var(--ac-@{quoteMark}-fade)" !important;
         border-color: @btnBg !important;
     }
     // 高亮
     #write .v-q.@{quoteMark} mark,
     #write .v-q .v-q.@{quoteMark} mark {
-        box-shadow: 0 -.9em 0 0 @fadeColor inset;
+        box-shadow: 0 -.9em 0 0 ~"var(--ac-@{quoteMark}-fade)" inset;
     }
     #write .v-q.@{quoteMark}.em mark,
     #write .v-q .v-q.@{quoteMark}.em mark {
         box-shadow: 0 -.9em 0 0 var(--d-bc) inset;
     }
-    // 折叠控件
-    .v-q.@{quoteMark} .v-svg-input-checkbox>use {
+    // 复选框控件
+    #write .v-q.@{quoteMark} .v-svg-input-checkbox>use {
         fill: @btnBg;
     }
-    // .v-q.@{quoteMark} summary::before {
-    //     color: @btnFore;
-    //     background-color: @btnBg;
-    // }
     // 按钮链接
     #write .v-q.@{quoteMark} a kbd,
     #write .v-q .v-q.@{quoteMark} a kbd {
@@ -4430,7 +4668,7 @@ use.v-svg-ico-alt {
         background: @aHoverColor;
         box-shadow: 0 3px darken(@aHoverColor, 15%); // 按钮高 3px
     }
-    // 图文卡片
+    // 明信片
     #write .v-q.@{quoteMark} .v-post-card {
         color: @btnFore !important;
         background: @btnBg !important;
@@ -4439,10 +4677,10 @@ use.v-svg-ico-alt {
     #write .v-q.@{quoteMark} svg[data-inject-url*="#card"] {
         border-color: @btnBg !important;
     }
-    // #write .v-q.@{quoteMark} .v-post-card a kbd,
-    // #write .v-q .v-q.@{quoteMark} .v-post-card a kbd {
-    //     border: 1px solid fade(@buttonForeColor, 25%);
-    // }
+    #write .v-q.@{quoteMark}>p:has(img[src*="#card"][src*="#border"]) {
+        background-color: @btnBg !important;
+        border-radius: var(--v-r-b);
+    }
     // 链接
     #write .v-q.@{quoteMark} a,
     #write .v-q .v-q.@{quoteMark} a {
@@ -4450,7 +4688,7 @@ use.v-svg-ico-alt {
     }
     #write .v-q.@{quoteMark} a:hover,
     #write .v-q .v-q.@{quoteMark} a:hover {
-        color: var(--d-f-c) !important;
+        color: var(--d-fc) !important;
         box-shadow: 0 -.3em 0 0 rgba(@accColor, .3) inset;
     }
     #write .v-q.@{quoteMark} a:active,
@@ -4462,12 +4700,12 @@ use.v-svg-ico-alt {
     // 标题
     #write .v-q .title-@{quoteMark},
     #write .v-q .v-q .title-@{quoteMark} {
-        color: @titleLightColor;
+        color: ~"var(--ac-@{quoteMark}-title-lg)";
     }
     // 强调标题
     #write .v-q .title-@{quoteMark}.em,
     #write .v-q .v-q .title-@{quoteMark}.em {
-        color: @titleColor;
+        color: ~"var(--ac-@{quoteMark}-title)";
     }
     // 列表符号
     #write .v-q.@{quoteMark} ::marker,
@@ -4475,87 +4713,93 @@ use.v-svg-ico-alt {
         color: @accColor;
     }
     // 代码行号
-    #write .v-q.@{quoteMark} .CodeMirror-linenumber {
-        color: @accColor;
-    }
+    // #write .v-q.@{quoteMark} .CodeMirror-linenumber {
+    //     color: @accColor;
+    // }
 }
-.genRainbowQuoteCSS(rd, @accColorRed, var(--ac-rd-fade), @accColorRed, #FFFFFF, var(--ac-rd-title), var(--ac-rd-title-lg));
-.genRainbowQuoteCSS(og, @accColorOrange, var(--ac-og-fade), @accColorOrange, #FFFFFF, var(--ac-og-title), var(--ac-og-title-lg));
-.genRainbowQuoteCSS(ye, @accColorYellow, var(--ac-ye-fade), @accColorYellow, #000000, var(--ac-ye-title), var(--ac-ye-title-lg));
-.genRainbowQuoteCSS(lm, @accColorLime, var(--ac-lm-fade), @accColorLime, #000000, var(--ac-lm-title), var(--ac-lm-title-lg));
-.genRainbowQuoteCSS(gn, @accColorGreen, var(--ac-gn-fade), @accColorGreen, #FFFFFF, var(--ac-gn-title), var(--ac-gn-title-lg));
-.genRainbowQuoteCSS(mn, @accColorMineral, var(--ac-mn-fade), @accColorMineral, #FFFFFF, var(--ac-mn-title), var(--ac-mn-title-lg));
-.genRainbowQuoteCSS(ol, @accColorOlives, var(--ac-ol-fade), @accColorOlives, #FFFFFF, var(--ac-ol-title), var(--ac-ol-title-lg));
-.genRainbowQuoteCSS(wn, @accColorWine, var(--ac-wn-fade), @accColorWine, #FFFFFF, var(--ac-wn-title), var(--ac-wn-title-lg));
-.genRainbowQuoteCSS(aq, @accColorAqua, var(--ac-aq-fade), @accColorAqua, #000000, var(--ac-aq-title), var(--ac-aq-title-lg));
-.genRainbowQuoteCSS(cy, @accColorCyan, var(--ac-cy-fade), @accColorCyan, #FFFFFF, var(--ac-cy-title), var(--ac-cy-title-lg));
-.genRainbowQuoteCSS(bu, @accColorBlue, var(--ac-bu-fade), @accColorBlue, #FFFFFF, var(--ac-bu-title), var(--ac-bu-title-lg));
-.genRainbowQuoteCSS(se, @accColorSea, var(--ac-se-fade), @accColorSea, #FFFFFF, var(--ac-se-title), var(--ac-se-title-lg));
-.genRainbowQuoteCSS(la, @accColorLavender, var(--ac-la-fade), @accColorLavender, #000000, var(--ac-la-title), var(--ac-la-title-lg));
-.genRainbowQuoteCSS(vn, @accColorVine, var(--ac-vn-fade), @accColorVine, #FFFFFF, var(--ac-vn-title), var(--ac-vn-title-lg));
-.genRainbowQuoteCSS(pu, @accColorPurple, var(--ac-pu-fade), @accColorPurple, #FFFFFF, var(--ac-pu-title), var(--ac-pu-title-lg));
-.genRainbowQuoteCSS(ro, @accColorRose, var(--ac-ro-fade), @accColorRose, #FFFFFF, var(--ac-ro-title), var(--ac-ro-title-lg));
-.genRainbowQuoteCSS(pk, @accColorPink, var(--ac-pk-fade), @accColorPink, #000000, var(--ac-pk-title), var(--ac-pk-title-lg));
-.genRainbowQuoteCSS(gd, @accColorGold, var(--ac-gd-fade), @accColorGold, #000000, var(--ac-gd-title), var(--ac-gd-title-lg));
-.genRainbowQuoteCSS(bn, @accColorBrown, var(--ac-bn-fade), @accColorBrown, #FFFFFF, var(--ac-bn-title), var(--ac-bn-title-lg));
-.genRainbowQuoteCSS(gy, @accColorGray, var(--ac-gy-fade), @accColorGray, #FFFFFF, var(--ac-gy-title), var(--ac-gy-title-lg));
-.genRainbowQuoteCSS(t1, @docLibButtonBgColor, var(--ac-t1-fade), @docLibButtonBgColor, @docLibButtonForeColor, var(--ac-t1-title), var(--ac-t1-title-lg));
-.genRainbowQuoteCSS(t2, @theme2, var(--ac-t2-fade), @aHoverColor, @buttonForeHoverColor, var(--ac-t2-title), var(--ac-t2-title-lg));
+.genRainbowQuoteCSS(rd, @accColorRed, @accColorRed, #FFFFFF);
+.genRainbowQuoteCSS(og, @accColorOrange, @accColorOrange, #FFFFFF);
+.genRainbowQuoteCSS(ye, @accColorYellow, @accColorYellow, #000000);
+.genRainbowQuoteCSS(lm, @accColorLime, @accColorLime, #000000);
+.genRainbowQuoteCSS(gn, @accColorGreen, @accColorGreen, #FFFFFF);
+.genRainbowQuoteCSS(mn, @accColorMineral, @accColorMineral, #FFFFFF);
+.genRainbowQuoteCSS(ol, @accColorOlives, @accColorOlives, #FFFFFF);
+.genRainbowQuoteCSS(wn, @accColorWine, @accColorWine, #FFFFFF);
+.genRainbowQuoteCSS(aq, @accColorAqua, @accColorAqua, #000000);
+.genRainbowQuoteCSS(cy, @accColorCyan, @accColorCyan, #FFFFFF);
+.genRainbowQuoteCSS(bu, @accColorBlue, @accColorBlue, #FFFFFF);
+.genRainbowQuoteCSS(se, @accColorSea, @accColorSea, #FFFFFF);
+.genRainbowQuoteCSS(la, @accColorLavender, @accColorLavender, #000000);
+.genRainbowQuoteCSS(vn, @accColorVine, @accColorVine, #FFFFFF);
+.genRainbowQuoteCSS(pu, @accColorPurple, @accColorPurple, #FFFFFF);
+.genRainbowQuoteCSS(ro, @accColorRose, @accColorRose, #FFFFFF);
+.genRainbowQuoteCSS(pk, @accColorPink, @accColorPink, #000000);
+.genRainbowQuoteCSS(gd, @accColorGold, @accColorGold, #000000);
+.genRainbowQuoteCSS(bn, @accColorBrown, @accColorBrown, #FFFFFF);
+.genRainbowQuoteCSS(gy, @accColorGray, @accColorGray, #FFFFFF);
+.genRainbowQuoteCSS(t1, @docLibButtonBgColor, @docLibButtonBgColor, @docLibButtonForeColor);
+.genRainbowQuoteCSS(t2, @theme2, @aHoverColor, @buttonForeHoverColor);
 
 // 编辑时标签样式
 #write em>span>.md-before+code,
 :is(#write, body.typora-export) .v-tag {
-    font: var(--v-f-w-bd) .75em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
-    border-radius: var(--v-r-tag);
+    font: var(--v-f-w-bd) .875em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
     text-shadow: none;
+    box-shadow: none !important;
+    border-radius: var(--v-r-tag);
+    border: 1px solid var(--d-bc);
+    // border: none !important;
     white-space: pre;
-    line-height: 1;
+    // line-height: 1;
     vertical-align: middle;
     cursor: var(--cur-copy);
 }
-:is(#write, body.typora-export) .v-tag.em {
-    box-shadow: 0 0 0 1px var(--rb-code-shadow) inset;
-}
+// :is(#write, body.typora-export) .v-tag.em {
+//     // box-shadow: 0 0 0 1px var(--rb-code-shadow) inset;
+//     box-shadow: none !important;
+// }
 .v-tag.hover {
     filter: brightness(@hoverBrightness);
 }
 
 // 生成彩虹标签相关样式
-.genRainbowTagCSS(@tagMark, @tagColor, @tagBdColor, @tagColorEm, @tagText) {
+.genRainbowTagCSS(@tagMark, @tagColor, @tagText) {
     .v-tag.@{tagMark} {
-        color: @tagColor !important;
-        box-shadow: 0 0 0 1px @tagColorEm inset;
-        background: @tagBdColor !important;
+        color: ~"var(--ac-@{tagColor})" !important;
+        // box-shadow: 0 0 0 1px ~"var(--ac-@{tagMark})" inset;
+        background: ~"var(--ac-@{tagMark}-a)" !important;
     }
     .v-tag.@{tagMark}.em {
         color: @tagText !important;
-        background: @tagColorEm !important;
+        background: ~"var(--ac-@{tagMark})" !important;
     }
 }
-.genRainbowTagCSS(wn, var(--ac-wn), var(--ac-wn-alt), var(--ac-wn), var(--d-f-c-dk));
-.genRainbowTagCSS(rd, var(--ac-rd), var(--ac-rd-alt), var(--ac-rd), var(--d-f-c-dk));
-.genRainbowTagCSS(og, var(--ac-og), var(--ac-og-alt), var(--ac-og), var(--d-f-c-dk));
-.genRainbowTagCSS(ye, var(--ac-ye-title-lg), var(--ac-ye-alt), var(--ac-ye), var(--d-f-c-lg));
-.genRainbowTagCSS(lm, var(--ac-lm-title-lg), var(--ac-lm-alt), var(--ac-lm), var(--d-f-c-lg));
-.genRainbowTagCSS(gn, var(--ac-gn), var(--ac-gn-alt), var(--ac-gn), var(--d-f-c-dk));
-.genRainbowTagCSS(mn, var(--ac-mn), var(--ac-mn-alt), var(--ac-mn), var(--d-f-c-dk));
-.genRainbowTagCSS(ol, var(--ac-ol), var(--ac-ol-alt), var(--ac-ol), var(--d-f-c-dk));
-.genRainbowTagCSS(wn, var(--ac-wn), var(--ac-wn-alt), var(--ac-wn), var(--d-f-c-dk));
-.genRainbowTagCSS(aq, var(--ac-aq-title-lg), var(--ac-aq-alt), var(--ac-aq), var(--d-f-c-lg));
-.genRainbowTagCSS(cy, var(--ac-cy), var(--ac-cy-alt), var(--ac-cy), var(--d-f-c-dk));
-.genRainbowTagCSS(bu, var(--ac-bu), var(--ac-bu-alt), var(--ac-bu), var(--d-f-c-dk));
-.genRainbowTagCSS(se, var(--ac-se), var(--ac-se-alt), var(--ac-se), var(--d-f-c-dk));
-.genRainbowTagCSS(la, var(--ac-la-title-lg), var(--ac-la-alt), var(--ac-la), var(--d-f-c-lg));
-.genRainbowTagCSS(vn, var(--ac-vn), var(--ac-vn-alt), var(--ac-vn), var(--d-f-c-dk));
-.genRainbowTagCSS(pu, var(--ac-pu), var(--ac-pu-alt), var(--ac-pu), var(--d-f-c-dk));
-.genRainbowTagCSS(ro, var(--ac-ro), var(--ac-ro-alt), var(--ac-ro), var(--d-f-c-dk));
-.genRainbowTagCSS(pk, var(--ac-pk-title-lg), var(--ac-pk-alt), var(--ac-pk), var(--d-f-c-lg));
-.genRainbowTagCSS(gd, var(--ac-gd-title-lg), var(--ac-gd-alt), var(--ac-gd), var(--d-f-c-lg));
-.genRainbowTagCSS(bn, var(--ac-bn), var(--ac-bn-alt), var(--ac-bn), var(--d-f-c-dk));
-.genRainbowTagCSS(gy, var(--ac-gy), var(--ac-gy-alt), var(--ac-gy), var(--d-f-c-dk));
-.genRainbowTagCSS(bk, var(--ac-bk), var(--ac-bk-alt), var(--ac-bk), var(--d-bc));
-.genRainbowTagCSS(t1, var(--ac-t1), var(--ac-t1-alt), var(--ac-t1), var(--d-f-c-dk));
-.genRainbowTagCSS(t2, var(--ac-t2), var(--ac-t2-alt), var(--ac-t2), var(--d-f-c-dk));
+@deepTextColor: #FFFFFF;
+@shallowTextColor: #000000;
+@blackTextColor: var(--d-bc);
+.genRainbowTagCSS(wn, wn, @deepTextColor);
+.genRainbowTagCSS(rd, rd, @deepTextColor);
+.genRainbowTagCSS(og, og, @deepTextColor);
+.genRainbowTagCSS(ye, ye-title-lg, @shallowTextColor);
+.genRainbowTagCSS(lm, lm-title-lg, @deepTextColor);
+.genRainbowTagCSS(gn, gn, @deepTextColor);
+.genRainbowTagCSS(mn, mn, @deepTextColor);
+.genRainbowTagCSS(ol, ol, @deepTextColor);
+.genRainbowTagCSS(aq, aq-title-lg, @deepTextColor);
+.genRainbowTagCSS(cy, cy, @deepTextColor);
+.genRainbowTagCSS(bu, bu, @deepTextColor);
+.genRainbowTagCSS(se, se, @deepTextColor);
+.genRainbowTagCSS(la, la-title-lg, @deepTextColor);
+.genRainbowTagCSS(vn, vn, @deepTextColor);
+.genRainbowTagCSS(pu, pu, @deepTextColor);
+.genRainbowTagCSS(ro, ro, @deepTextColor);
+.genRainbowTagCSS(pk, pk-title-lg, @shallowTextColor);
+.genRainbowTagCSS(gd, gd-title-lg, @shallowTextColor);
+.genRainbowTagCSS(bn, bn, @deepTextColor);
+.genRainbowTagCSS(gy, gy, @deepTextColor);
+.genRainbowTagCSS(bk, bk, @blackTextColor);
+.genRainbowTagCSS(t1, t1, @deepTextColor);
+.genRainbowTagCSS(t2, t2, @deepTextColor);
 
 // 徽章样式名称公共样式
 :is(#write, body.typora-export) .v-badge-name {
@@ -4564,12 +4808,16 @@ use.v-svg-ico-alt {
     font: var(--v-f-w-bd) .875em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
     margin-right: 0;
     border-radius: var(--v-r-tag);
-    color: fade(#FFFFFF, 90%);
+    border: 1px solid var(--d-bc);
+    // border: none !important;
+    color: @deepTextColor;
+    // color: fade(#FFFFFF, 90%);
     padding: 1px 1px 1px 5px;
     white-space: pre;
-    line-height: 1;
+    // line-height: 1;
     // vertical-align: top;
-    box-shadow: 0 0 0 1px var(--rb-code-shadow) inset;
+    // box-shadow: 0 0 0 1px var(--rb-code-shadow) inset;
+    box-shadow: none !important;
     cursor: var(--cur-copy);
 }
 .v-badge-name.hover {
@@ -4581,7 +4829,7 @@ use.v-svg-ico-alt {
 }
 
 // 表格内的情况
-:is(#write, body.typora-export) @{quote_Details} code {
+:is(#write, body.typora-export) @{quote_details} code {
     vertical-align: initial;
 }
 :is(#write, body.typora-export) table {
@@ -4594,12 +4842,13 @@ use.v-svg-ico-alt {
     font: var(--v-f-w-bd) 1em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
     border-radius: calc(var(--v-r-tag) - 2px);
     opacity: .9;
-    color: var(--d-f-c) !important;
+    color: var(--d-fc) !important;
     background: var(--d-bc) !important;
     padding: 0 5px;
     margin: 1px 1px 1px 5px;
     white-space: pre;
-    box-shadow: none;
+    box-shadow: none !important;
+    border: none !important;
     cursor: var(--cur-copy);
 }
 .v-badge-value.hover {
@@ -4622,38 +4871,141 @@ use.v-svg-ico-alt {
 .genRainbowBadgeCSS(@badgeMark, @badgeColor, @badgeVarColor,  @tagText) {
     .v-badge-name.@{badgeMark} {
         color: @tagText !important;
-        background: @badgeColor !important;
+        background: ~"var(@{badgeColor})" !important;
     }
     .v-badge-value>span.var.@{badgeMark} {
-        color: @badgeVarColor !important;
+        color: ~"var(@{badgeVarColor})" !important;
     }
     :is(.v-badge-value, .v-badge-value>span.var).@{badgeMark} {
-        color: @badgeVarColor !important;
+        color: ~"var(@{badgeVarColor})" !important;
     }
 }
-.genRainbowBadgeCSS(rd, var(--ac-rd), var(--ac-rd-lg), var(--d-f-c-dk));
-.genRainbowBadgeCSS(og, var(--ac-og), var(--ac-og-lg), var(--d-f-c-dk));
-.genRainbowBadgeCSS(ye, var(--ac-ye), var(--ac-ye-lg), var(--d-f-c-lg));
-.genRainbowBadgeCSS(lm, var(--ac-lm), var(--ac-lm-lg), var(--d-f-c-lg));
-.genRainbowBadgeCSS(gn, var(--ac-gn), var(--ac-gn-lg), var(--d-f-c-dk));
-.genRainbowBadgeCSS(mn, var(--ac-mn), var(--ac-mn-lg), var(--d-f-c-dk));
-.genRainbowBadgeCSS(ol, var(--ac-ol), var(--ac-ol-lg), var(--d-f-c-dk));
-.genRainbowBadgeCSS(wn, var(--ac-wn), var(--ac-wn-lg), var(--d-f-c-dk));
-.genRainbowBadgeCSS(aq, var(--ac-aq), var(--ac-aq-lg), var(--d-f-c-lg));
-.genRainbowBadgeCSS(cy, var(--ac-cy), var(--ac-cy-lg), var(--d-f-c-dk));
-.genRainbowBadgeCSS(bu, var(--ac-bu), var(--ac-bu-lg), var(--d-f-c-dk));
-.genRainbowBadgeCSS(se, var(--ac-se), var(--ac-se-lg), var(--d-f-c-dk));
-.genRainbowBadgeCSS(la, var(--ac-la), var(--ac-la-lg), var(--d-f-c-lg));
-.genRainbowBadgeCSS(vn, var(--ac-vn), var(--ac-vn-lg), var(--d-f-c-dk));
-.genRainbowBadgeCSS(pu, var(--ac-pu), var(--ac-pu-lg), var(--d-f-c-dk));
-.genRainbowBadgeCSS(ro, var(--ac-ro), var(--ac-ro-lg), var(--d-f-c-dk));
-.genRainbowBadgeCSS(pk, var(--ac-pk), var(--ac-pk-lg), var(--d-f-c-lg));
-.genRainbowBadgeCSS(gd, var(--ac-gd), var(--ac-gd-lg), var(--d-f-c-lg));
-.genRainbowBadgeCSS(bn, var(--ac-bn), var(--ac-bn-lg), var(--d-f-c-dk));
-.genRainbowBadgeCSS(gy, var(--ac-gy), var(--ac-t2-lg), var(--d-f-c-dk));
-.genRainbowBadgeCSS(bk, var(--d-f-c), var(--ac-t2-lg), var(--d-bc));
-.genRainbowBadgeCSS(t1, var(--ac-t1), var(--ac-t1-lg), var(--d-f-c-dk));
-.genRainbowBadgeCSS(t2, var(--ac-t2), var(--ac-t2-lg), var(--d-f-c-dk));
+.genRainbowBadgeCSS(wn, --ac-wn, --ac-wn-lg, @deepTextColor);
+.genRainbowBadgeCSS(rd, --ac-rd, --ac-rd-lg, @deepTextColor);
+.genRainbowBadgeCSS(og, --ac-og, --ac-og-lg, @deepTextColor);
+.genRainbowBadgeCSS(ye, --ac-ye, --ac-ye-lg, @shallowTextColor);
+.genRainbowBadgeCSS(lm, --ac-lm, --ac-lm-lg, @deepTextColor);
+.genRainbowBadgeCSS(gn, --ac-gn, --ac-gn-lg, @deepTextColor);
+.genRainbowBadgeCSS(mn, --ac-mn, --ac-mn-lg, @deepTextColor);
+.genRainbowBadgeCSS(ol, --ac-ol, --ac-ol-lg, @deepTextColor);
+.genRainbowBadgeCSS(aq, --ac-aq, --ac-aq-lg, @deepTextColor);
+.genRainbowBadgeCSS(cy, --ac-cy, --ac-cy-lg, @deepTextColor);
+.genRainbowBadgeCSS(bu, --ac-bu, --ac-bu-lg, @deepTextColor);
+.genRainbowBadgeCSS(se, --ac-se, --ac-se-lg, @deepTextColor);
+.genRainbowBadgeCSS(la, --ac-la, --ac-la-lg, @deepTextColor);
+.genRainbowBadgeCSS(vn, --ac-vn, --ac-vn-lg, @deepTextColor);
+.genRainbowBadgeCSS(pu, --ac-pu, --ac-pu-lg, @deepTextColor);
+.genRainbowBadgeCSS(ro, --ac-ro, --ac-ro-lg, @deepTextColor);
+.genRainbowBadgeCSS(pk, --ac-pk, --ac-pk-lg, @shallowTextColor);
+.genRainbowBadgeCSS(gd, --ac-gd, --ac-gd-lg, @shallowTextColor);
+.genRainbowBadgeCSS(bn, --ac-bn, --ac-bn-lg, @deepTextColor);
+.genRainbowBadgeCSS(gy, --ac-gy, --ac-t2-lg, @deepTextColor);
+.genRainbowBadgeCSS(bk, --d-fc, --ac-t2-lg, @blackTextColor);
+.genRainbowBadgeCSS(t1, --ac-t1, --ac-t1-lg, @deepTextColor);
+.genRainbowBadgeCSS(t2, --ac-t2, --ac-t2-lg, @deepTextColor);
+
+// GitHub Style Alert 通用样式
+@alertTypePaddingTop: 0;
+#write .md-alert {
+    // border-radius: var(--v-r-b) !important;
+    padding: @alertTypePaddingTop 1em .5em !important;
+    // padding: .5em 1em !important;
+    margin: 1em 0 !important;
+    border-left-width: @quoteBorderWidth;
+}
+#write .md-alert @{quote_details} {
+    background: var(--d-bc) !important;
+    border-radius: var(--v-r-s);
+    margin-bottom: 0;
+}
+// 最前的
+#write .md-alert :is(ul, ol):first-child {
+    margin-block-start: 0 !important;
+}
+// 最后的
+#write .md-alert :is(ul, ol):last-child {
+    margin-block-end: 0 !important;
+}
+#write @{quote_details} .md-alert {
+    margin-bottom: 0 !important;
+}
+#write .md-alert>p {
+    margin-top: 0 !important;
+}
+#write .md-alert-text {
+    font-family: var(--v-f-fm-subtitle) !important;
+    font-size: 1em !important;
+    font-weight: var(--v-f-w-title);
+    display: inline-block;
+    margin-bottom: @paragraphPadding;
+}
+#write .md-alert-text,
+#write .md-alert-text-container::after {
+    text-transform: uppercase;
+}
+#write .md-alert-text svg {
+    margin-right: .5em;
+}
+
+// 常规风格详见 gsa.less
+
+// 强调风格详见 gsa-em.less
+
+// 生成基础部分
+.genGitHubStyleAlertCssBase(@type, @accColor, @btnBg) {
+    // 引用块小标题
+    #write .md-alert-@{type} @{quoteTitle},
+    // 编辑时的 summary
+    content>#write .md-alert-@{type} @{summaryOnEditing},
+    // 导出后的 summary
+    #write .md-alert-@{type} summary,
+    // 编辑时的题注前缀
+    content>#write .md-alert-@{type} @{cap1_OnEditing}::before,
+    content>#write .md-alert-@{type} @{cap2_OnEditing}::before,
+    // 导出后的题注前缀
+    #write .md-alert-@{type} .v-cap-1,
+    #write .md-alert-@{type} .v-cap-2,
+    // 链接
+    #write .md-alert-@{type} a {
+        color: @btnBg !important;
+    }
+    #write .md-alert-@{type} a:hover {
+        color: @aHoverColor !important;
+        box-shadow: 0 -.3em 0 0 rgba(@accColor, .3) inset;
+    }
+    #write .md-alert-@{type} a:active {
+        background: var(--pn-c);
+        border-bottom: 0;
+    }
+    // 按钮链接
+    #write .md-alert-@{type} a kbd {
+        background: @btnBg;
+        color: #FFFFFF;
+        box-shadow: 0 3px darken(@btnBg, 15%); // 按钮高 3px
+    }
+    #write .md-alert-@{type} a kbd:hover {
+        color: @buttonForeHoverColor;
+        background: @aHoverColor;
+        box-shadow: 0 3px darken(@aHoverColor, 15%); // 按钮高 3px
+    }
+    // 复选框控件
+    #write .md-alert-@{type} .v-svg-input-checkbox>use {
+        fill: @btnBg;
+    }
+    // 高亮
+    #write .md-alert-@{type} mark {
+        box-shadow: 0 -.9em 0 0 ~"var(--ac-@{accColor}-fade)" inset;
+    }
+    // 列表符号
+    #write .md-alert-@{type} ::marker,
+    #write .md-alert-@{type} li::before {
+        color: ~"var(--ac-@{accColor})";
+    }
+    // 代码行号
+    #write .md-alert-@{type} .CodeMirror-linenumber {
+        color: ~"var(--ac-@{accColor})";
+    }
+}
 
 // 注音
 rp,
@@ -4673,7 +5025,7 @@ rt:hover {
 
 // 黑幕（刮刮卡）
 #write .v-rb-coat {
-    text-shadow: 0px 1px var(--d-f-c);
+    text-shadow: 0 1px var(--d-fc);
     box-shadow: none;
     color: var(--d-bc);
     font: var(--v-f-w-bd) .875em var(--v-f-fm-code); // [style] [weight] [size/[line-height]] [family]
@@ -4685,13 +5037,13 @@ rt:hover {
     transform: scale(1.2);
 }
 #write .v-rb-coat.opened {
-    box-shadow: 0 0 0 1px var(--d-f-c);
+    box-shadow: 0 0 0 1px var(--d-fc);
     background: var(--d-bc) !important;
     text-shadow: none;
 }
 
 // 标题内 code 样式
-#write :is(h1, h2, h3, h4, h5, h6) code {
+#write :is(h1,h2,h3,h4,h5,h6) code {
     font-size: .75em;
 }
 
@@ -4795,15 +5147,12 @@ rt:hover {
     border: none;
 }
 
-#write u>u {
-    font-size: .75em;
-}
-
 // 封面内密级信息
 @{coverAfterYAML} :is(code, .v-tag, .v-badge-name),
 @{coverWithoutYAML} :is(code, .v-tag, .v-badge-name) {
     font-size: .5em !important;
     color: @buttonForeHoverColor;
+    border-color: var(--rb-code-shadow-dk);
     caret-color: @buttonForeHoverColor;
     -webkit-text-stroke: initial;
     text-stroke: initial;

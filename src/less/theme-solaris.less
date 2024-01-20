@@ -5,6 +5,7 @@
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
+ * Telegram Channel: t.me/vlook_markdown
  * email: maxchow@qq.com
  *
  *************************************/
@@ -28,12 +29,12 @@
 
 // 文档背景色
 @bgLight4Theme: #FCF9F2;
-@bgDark4Theme: #181C28;
+@bgDark4Theme: #202530;//#181C28;
 .applyDocBgColor(@bgLight4Theme, @bgDark4Theme);
-.applyDocTextColor(#181C28, #FCF9F2);
+.applyDocTextColor(@bgDark4Theme, @bgLight4Theme);
 
 // 面板颜色
-@tmpPanelColorLight: #CCD0E0;
+@tmpPanelColorLight: #D0D4E4;
 @tmpPanelColorDark: #383B4B;
 .applyPanelColor(@tmpPanelColorLight, @tmpPanelColorDark);
 // 表格
@@ -76,9 +77,6 @@
 @h6BeforeContent: "◼︎ ";
 // @tocHeaderNumColor: @docTextColorLightFade;
 @contentHeaderNumColor: @themeForeColorFade;
-@headerBackground: none;
-@multiHeaderBG: none;
-@headerTextAlign: left;
 @headerPadding: 5px 0;
 @headerLetterSpacing: 0;//0.15em;
 // 标题的上边框
@@ -130,8 +128,8 @@
 // 表格背景
 @tableBackground: var(--d-bc);
 @tableThColor: inherit;
-@tableThBakcground: none;
-@tableTdBakcground: none;
+@tableThBackground: none;
+@tableTdBackground: none;
 // 表格单元格阴影
 @tableFirstThBoxShadow: 0 1px 0 var(--tbl-h-bd);
 @tableThBoxShadow: @tableFirstThBoxShadow;

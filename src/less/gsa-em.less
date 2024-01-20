@@ -1,0 +1,51 @@
+/**************************************
+ *
+ * VLOOK CSS 基础库 (for GitHub Style Alert)
+ * (配合 base.less 进行使用)
+ *
+ * V22.0
+ * 2024-01-20
+ * powered by MAX°孟兆
+ *
+ * QQ Group: 805502564
+ * Telegram Channel: t.me/vlook_markdown
+ * email: maxchow@qq.com
+ *
+ * https://github.com/MadMaxChow/VLOOK
+ * https://gitee.com/madmaxchow/VLOOK
+ *
+ *************************************/
+
+@alertTypePaddingTop4em: .5em;
+#write .md-alert {
+    border-radius: var(--v-r-b) !important;
+    padding-top: @alertTypePaddingTop4em !important;
+}
+
+ // 生成 GitHub Style Alert 各类型相关样式（强调风格）
+.genGitHubStyleAlertCssEm(@type, @accColor, @btnBg) {
+    // 背景
+    @alertTypePaddingTop4emLg: @alertTypePaddingTop4em + 2em; // 适配调整类型显示位置的高度
+    #write .md-alert-@{type} {
+        background: linear-gradient(180deg, ~"var(--ac-@{accColor})" @alertTypePaddingTop4emLg, ~"var(--ac-@{accColor}-fade)" @alertTypePaddingTop4emLg, ~"var(--ac-@{accColor}-fade)") !important;
+        border: @imgBorderWidth solid ~"var(--ac-@{accColor}-lg)" !important;
+    }
+    // after 提示
+    #write .md-alert-text-@{type} .md-meta {
+        color: ~"var(--ac-@{accColor}-a)" !important;
+        font-weight: normal !important;
+        opacity: .5;
+    }
+    // 类型小标题
+    #write .md-alert-text-@{type} {
+        color: #FFFFFF !important;
+    }
+    .genGitHubStyleAlertCssBase(@type, @accColor, @btnBg);
+}
+
+// 生成强调风格
+.genGitHubStyleAlertCssEm(note, bu, @accColorBlue);
+.genGitHubStyleAlertCssEm(tip, gn, @accColorGreen);
+.genGitHubStyleAlertCssEm(important, pu, @accColorPurple);
+.genGitHubStyleAlertCssEm(warning, bn, @accColorBrown);
+.genGitHubStyleAlertCssEm(caution, rd, @accColorRed);

@@ -66,10 +66,8 @@ title: More Topics about VLOOK™
 >
 > ~(Gy)~
 
+###### 📊 SCRIPTED CHARTS
 
-
-> **📊 SCRIPTED CHARTS**
->
 > Mermaid is a library for drawing flowcharts, state charts, sequence charts, and Gantt charts. It uses JS for local rendering and is widely integrated in the Markdown editor.
 >
 > Using Typora + VLOOK™ can provide a better style and experience for Mermaid~
@@ -77,6 +75,6 @@ title: More Topics about VLOOK™
 > ------
 >
 > **At present, the latest version of Typora + VLOOK™ can support the creation and generation of scripted charts:**
-> [![流程图](https://madmaxchow.gitee.io/vlookres/pic/dg-flowcharts.png?srcset=@2x&darksrc=invert#frame)](chart.md#流程图)　[![顺序图](https://madmaxchow.gitee.io/vlookres/pic/dg-seq.png?srcset=@2x&darksrc=invert#frame)](chart.md#顺序图)　[![状态机图](https://madmaxchow.gitee.io/vlookres/pic/dg-state.png?srcset=@2x&darksrc=invert#frame)](chart.md#状态机图)　[![类图](https://madmaxchow.gitee.io/vlookres/pic/dg-class.png?srcset=@2x&darksrc=invert#frame)](chart.md#类图)　[![实体关系图](https://madmaxchow.gitee.io/vlookres/pic/dg-er.png?srcset=@2x&darksrc=invert#frame)](chart.md#实体关系图)　[![用户旅程地图](https://madmaxchow.gitee.io/vlookres/pic/dg-uj.png?srcset=@2x&darksrc=invert#frame)](chart.md#用户旅程地图)　[![甘特图](https://madmaxchow.gitee.io/vlookres/pic/dg-gantt.png?srcset=@2x&darksrc=invert#frame)](chart.md#甘特图)　[![饼图](https://madmaxchow.gitee.io/vlookres/pic/dg-pie.png?srcset=@2x&darksrc=invert#frame)](chart.md#饼图)　[![Gitgraph 图](https://madmaxchow.gitee.io/vlookres/pic/dg-gitgraph.png?srcset=@2x&darksrc=invert#frame)](chart.md#Gitgraph 图)　[![思维导图](https://madmaxchow.gitee.io/vlookres/pic/dg-mindmap.png?srcset=@2x&darksrc=invert#frame)](chart.md#思维导图)　[![需求图](https://madmaxchow.gitee.io/vlookres/pic/dg-req.png?srcset=@2x&darksrc=invert#frame)](chart.md#需求图)　[![时间线](https://madmaxchow.gitee.io/vlookres/pic/dg-timeline.png?srcset=@2x&darksrc=invert#frame)](chart.md#时间线)　[![C4 图](https://madmaxchow.gitee.io/vlookres/pic/dg-c4.png?srcset=@2x&darksrc=invert#frame)](chart.md#C4 图)　[![ZenUML 图](https://madmaxchow.gitee.io/vlookres/pic/dg-zenuml.png?srcset=@2x&darksrc=invert#frame)](chart.md#ZenUML 图)
->
+>[![流程图](https://madmaxchow.gitee.io/vlookres/pic/dg-flowcharts.png?srcset=@2x&darksrc=invert#frame)](chart.md#流程图)　[![顺序图](https://madmaxchow.gitee.io/vlookres/pic/dg-seq.png?srcset=@2x&darksrc=invert#frame)](chart.md#顺序图)　[![状态机图](https://madmaxchow.gitee.io/vlookres/pic/dg-state.png?srcset=@2x&darksrc=invert#frame)](chart.md#状态机图)　[![类图](https://madmaxchow.gitee.io/vlookres/pic/dg-class.png?srcset=@2x&darksrc=invert#frame)](chart.md#类图)　[![实体关系图](https://madmaxchow.gitee.io/vlookres/pic/dg-er.png?srcset=@2x&darksrc=invert#frame)](chart.md#实体关系图)　[![用户旅程地图](https://madmaxchow.gitee.io/vlookres/pic/dg-uj.png?srcset=@2x&darksrc=invert#frame)](chart.md#用户旅程地图)　[![甘特图](https://madmaxchow.gitee.io/vlookres/pic/dg-gantt.png?srcset=@2x&darksrc=invert#frame)](chart.md#甘特图)　[![饼图](https://madmaxchow.gitee.io/vlookres/pic/dg-pie.png?srcset=@2x&darksrc=invert#frame)](chart.md#饼图)　[![Gitgraph 图](https://madmaxchow.gitee.io/vlookres/pic/dg-gitgraph.png?srcset=@2x&darksrc=invert#frame)](chart.md#Gitgraph 图)　[![思维导图](https://madmaxchow.gitee.io/vlookres/pic/dg-mindmap.png?srcset=@2x&darksrc=invert#frame)](chart.md#思维导图)　[![需求图](https://madmaxchow.gitee.io/vlookres/pic/dg-req.png?srcset=@2x&darksrc=invert#frame)](chart.md#需求图)　[![时间线](https://madmaxchow.gitee.io/vlookres/pic/dg-timeline.png?srcset=@2x&darksrc=invert#frame)](chart.md#时间线)　[![C4 图](https://madmaxchow.gitee.io/vlookres/pic/dg-c4.png?srcset=@2x&darksrc=invert#frame)](chart.md#C4 图)　[![ZenUML 图](https://madmaxchow.gitee.io/vlookres/pic/dg-zenuml.png?srcset=@2x&darksrc=invert#frame)](chart.md#ZenUML 图)
+> 
 > ~(Ye)~

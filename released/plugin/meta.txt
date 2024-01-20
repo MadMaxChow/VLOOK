@@ -1,14 +1,26 @@
 <!--
-VLOOK V21.1 (2023-12-17) - Typora Plugin (head meta)
-Paste to "Export Setting ▸ VLOOK / VLOOK (live) ▸ Append in <head />"
-粘贴至「导出设置... ▸ VLOOK / VLOOK (live) ▸ 在 <head /> 中添加」
+VLOOK V22.0 (2024-01-20) - Typora Plugin (head meta)
+Paste to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
+粘贴至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
 -->
 <meta name="date" content="${date}">
 <meta name="author" content="${author}">
 <meta name="keywords" content="${keywords}">
+<meta name="description" content="${description}">
+<!-- 以下为 Open Graph Protocol 相关 meta 配置 -->
+<meta property="og:image" content="${og:image}">
+<meta property="og:image:alt" content="${og:image:alt}">
+<meta property="og:title" content="${og:title}">
+<meta property="og:description" content="${og:description}">
+<meta property="og:url" content="${og:url}">
+<meta property="og:type" content="${og:type}">
+<meta property="og:site_name" content="${og:site_name}">
+<meta property="og:locale" content="${og:locale}">
+<meta property="og:video" content="${og:video}">
+<meta property="og:audio" content="${og:audio}">
+<!-- 以下为 VLOOK™ 相关 meta 配置 -->
 <meta name="vlook-chp-autonum" content="${vlook-chp-autonum}">
 <meta name="vlook-doc-lib" content="${vlook-doc-lib}">
 <meta name="vlook-query" content="${vlook-query}">
 <meta name="vlook-welcome" content="${vlook-welcome}">
 <meta name="vlook-image-host" content="${vlook-image-host}">
-<meta name="vlook-var" content="${vlook-var}">

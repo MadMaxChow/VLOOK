@@ -5,6 +5,7 @@
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
+ * Telegram Channel: t.me/vlook_markdown
  * email: maxchow@qq.com
  *
  * For(wechat): MaxChow
@@ -60,8 +61,6 @@
 // 6 级标题前缀内容
 @h6BeforeContent: "▰▱ "; // ■ ▱▰ ⏥▰▱
 @headerBackground: none;//linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
-@multiHeaderBG: none;
-@headerTextAlign: left;
 @headerPadding: 10px 0 0 0;
 @headerLetterSpacing: 0;//0.15em;
 // 标题的左边框
@@ -79,11 +78,11 @@
 @h5BorderRight: 0;
 @h6BorderRight: 0;
 // 标题的上边框
-@h1BorderTop: none;//9px solid var(--h-box-shadow);
-@h2BorderTop: none;//7px solid var(--h-box-shadow);
-@h3BorderTop: none;//5px solid var(--h-box-shadow);
-@h4BorderTop: none;//3px solid var(--h-box-shadow);
-@h5BorderTop: none;//1px solid var(--h-box-shadow);
+@h1BorderTop: 0;//9px solid var(--h-box-shadow);
+@h2BorderTop: 0;//7px solid var(--h-box-shadow);
+@h3BorderTop: 0;//5px solid var(--h-box-shadow);
+@h4BorderTop: 0;//3px solid var(--h-box-shadow);
+@h5BorderTop: 0;//1px solid var(--h-box-shadow);
 @h6BorderTop: 0;
 @h1Margin: 2em 0 0 0;
 @h2Margin: 2em 0 0 0;
@@ -92,7 +91,7 @@
 @h5Margin: 1.25em 0 0 0;
 
 // 题注文字、背景色
-@captionTextColor: var(--d-f-c-alt);
+// @captionTextColor: var(--d-fc-a);
 @captionBackground: none;
 
 // 行内代码
@@ -108,7 +107,7 @@
 
 // 表格边框
 @tblBdWidth: 1px;
-@tableBorderColor: var(--d-f-c-alt);
+@tableBorderColor: var(--d-fc-a);
 @tableBorderWidth: 0;
 @tableBorderLeftWidth: 0;
 @tableBorderRightWidth: 0;
@@ -122,8 +121,8 @@
 // 表格圆角
 @tableBorderRadius: 0;
 // 表格背景
-@tableThColor: var(--d-f-c-alt);
-@tableThBakcground: inherit;
+@tableThColor: var(--d-fc-a);
+@tableThBackground: inherit;
 // 表格单元格阴影
 @tableFirstThBoxShadow: none;
 @tableThBoxShadow: 0 -1px 0 var(--tbl-cell-bd);
@@ -193,3 +192,5 @@
 }
 
 @import "../base";
+
+@import "../gsa";

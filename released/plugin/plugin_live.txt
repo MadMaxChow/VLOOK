@@ -1,5 +1,5 @@
 <!--
-VLOOK V21.1 (2023-12-17) - Typora Plugin ( live )
+VLOOK V22.0 (2024-01-20) - Typora Plugin ( live )
 Paste to "Export Setting ▸ VLOOK (live) ▸ Append in <body />"
 粘贴至「导出设置... ▸ VLOOK (live) ▸ 在 <body /> 中添加」
 -->
@@ -8,11 +8,12 @@ Paste to "Export Setting ▸ VLOOK (live) ▸ Append in <body />"
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
 <!--                                                                        -->
-<!--                                 V21.1                                  -->
-<!--                               2023-12-17                               -->
-<!--                           powered by MAX°孟兆                          -->
+<!--                                  V22.0                                 -->
+<!--                               2024-01-20                               -->
+<!--                           powered by MAX°孟兆                           -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
+<!--                  Telegram Channel: t.me/vlook_markdown                 -->
 <!--                         email: maxchow@qq.com                          -->
 <!--                                                                        -->
 <!--                  https://github.com/MadMaxChow/VLOOK                   -->
@@ -30,8 +31,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <div class="v-vlook-inside"></div>
 <style type='text/css'>
     @keyframes breathe-vlook { 0% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
-    #VLOOK { left: 0; top: 0; background-color: var(--v-btn-bg); width: 100%; height: 100vh; display: flex; align-items: center; position: fixed; z-index: 99999; }
-    #VLOOK > div { margin: 0 auto; background-color: var(--v-btn-f); width: 30px; height: 30px; border-radius: 10px; animation: 1s breathe-vlook infinite alternate; }
+    #VLOOK { left: 0; top: 0; background: var(--v-btn-bg); width: 100%; height: 100vh; display: flex; align-items: center; position: fixed; z-index: 99999; }
+    #VLOOK > div { margin: 0 auto; background: var(--v-btn-f); width: 30px; height: 30px; border-radius: 10px; animation: 1s breathe-vlook infinite alternate; }
 </style>
 <!-- <div id="VLOOK"><div></div></div> -->
 <!-- ==================== VLOOK JS ==================== -->
@@ -42,7 +43,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     metaTheme.content = getComputedStyle(document.documentElement).getPropertyValue("--v-btn-bg");
     document.getElementsByTagName("head")[0].appendChild(metaTheme);
     // VLOOK
-    let lVer = "V21.1";
+    let lVer = "V22.0";
     let devMode = lVer.indexOf("dev") > 0 ? true : false, debugMode = devMode;
     let //fontHost = "https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/",
         // jsHost = devMode ? "http://172.17.27.168/js/" : "https://madmaxchow.gitee.io/vlook/js/",

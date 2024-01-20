@@ -3,11 +3,12 @@
  * VLOOK CSS 调色板
  * (配合 base.less 进行使用)
  *
- * V21.1
- * 2023-12-17
+ * V22.0
+ * 2024-01-20
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
+ * Telegram Channel: t.me/vlook_markdown
  * email: maxchow@qq.com
  *
  * https://github.com/MadMaxChow/VLOOK
@@ -23,13 +24,24 @@
 .applyDocBgColor(@colorLight, @colorDark) {
     :root {
         --d-bc-lg: @colorLight;
-        --d-bc-tsp-lg: fade(@colorLight, 0%);
+        // --d-bc-tsp-lg: red(@colorLight), green(@colorLight), blue(@colorLight);
+        // --d-bc-tsp-lg: fade(@colorLight, 0%);
+        --fade-r-lg: red(@colorLight);
+        --fade-g-lg: green(@colorLight);
+        --fade-b-lg: blue(@colorLight);
 
         --d-bc-dk: @colorDark;
-        --d-bc-tsp-dk: fade(@colorDark, 0%);
+        // --d-bc-tsp-dk: red(@colorDark), green(@colorDark), blue(@colorDark);
+        // --d-bc-tsp-dk: fade(@colorDark, 0%);
+        --fade-r-dk: red(@colorDark);
+        --fade-g-dk: green(@colorDark);
+        --fade-b-dk: blue(@colorDark);
     }
 }
-.applyDocBgColor(#FFFFFF, #181A1C);
+//.applyDocBgColor(#FFFFFF, #181A1C);
+@docBgColorLight: #FFFFFF;
+@docBgColorDark: #222426;
+.applyDocBgColor(@docBgColorLight, @docBgColorDark);
 
 /**
  * 文档背景图片
@@ -52,16 +64,19 @@
  */
 .applyDocTextColor(@colorLight, @colorDark) {
     :root {
-        --d-f-c-lg: @colorLight;
-        --d-f-c-alt-lg: lighten(@colorLight, 60%);
+        --d-fc-lg: @colorLight;
+        --d-fc-a-lg: lighten(@colorLight, 60%);
         --toc-h-num-color-lg: fade(@colorLight, 50%);
 
-        --d-f-c-dk: @colorDark;
-        --d-f-c-alt-dk: darken(@colorDark, 40%);
+        --d-fc-dk: @colorDark;
+        --d-fc-a-dk: darken(@colorDark, 40%);
         --toc-h-num-color-dk: fade(@colorDark, 50%);
     }
 }
-.applyDocTextColor(#181A1C, #F0F2F4);
+//.applyDocTextColor(#181A1C, #F0F2F4);
+@docTextColorLight: #222426;
+@docTextColorDark: #DDDFF2;
+.applyDocTextColor(@docTextColorLight, @docTextColorDark);
 
 /**
  * 面板颜色
@@ -71,13 +86,19 @@
 .applyPanelColor(@colorLight, @colorDark) {
     :root {
         --pn-c-lg: @colorLight;
-        --pn-c-alt-lg: darken(@colorLight, 10%);
-        --pn-c-tsp-lg: fade(@colorLight, 0%);
+        --pn-c-a-lg: darken(@colorLight, 10%);
+        //--pn-c-tsp-lg: fade(@colorLight, 0%);
+        --pn-fade-r-lg: red(@colorLight);
+        --pn-fade-g-lg: green(@colorLight);
+        --pn-fade-b-lg: blue(@colorLight);
         --blockquote-bg-lg: @colorLight;
 
         --pn-c-dk: @colorDark;
-        --pn-c-alt-dk: lighten(@colorDark, 10%);
-        --pn-c-tsp-dk: fade(@colorDark, 0%);
+        --pn-c-a-dk: lighten(@colorDark, 10%);
+        //--pn-c-tsp-dk: fade(@colorDark, 0%);
+        --pn-fade-r-dk: red(@colorDark);
+        --pn-fade-g-dk: green(@colorDark);
+        --pn-fade-b-dk: blue(@colorDark);
         --blockquote-bg-dk: @colorDark;
 
         --btn-bc: @buttonBgColor;
@@ -87,7 +108,9 @@
         --img-bd-invert: rgb(255 - red(@tmpBorderColor), 255 - green(@tmpBorderColor), 255 - blue(@tmpBorderColor));
     }
 }
-.applyPanelColor(#E8EAED, #303234);
+@panelColorLight: #E8EAED;
+@panelColorDark: #303234;
+.applyPanelColor(@panelColorLight, @panelColorDark);
 
 /**
  * 表格文字色
@@ -121,7 +144,7 @@
 
 // --------------------
 // 通用的强调色色板
-@accOpacity: 20%;
+@accOpacity: 15%;
 @accTitleDarken: 5%;
 
 // --- 比较浅的
@@ -284,7 +307,7 @@
     --h-bg-end-lg: fade(@headerColor, 10%);
     --code-bg-lg: @codeBgColor;
     --code-t-lg: @codeTextColor;
-    --std-code-shadow-lg: var(--pn-c-alt-lg);//rgba(255, 255, 255, .5);
+    --std-code-shadow-lg: var(--pn-c-a-lg);//rgba(255, 255, 255, .5);
     --rb-code-shadow-lg: rgba(0, 0, 0, .3);
 
     // 代码块背景图（Light）
@@ -303,103 +326,105 @@
     --key-reflect-lg: lighten(@keycapColor, 20%);
     --key-shadow-lg: darken(@keycapColor, 30%);
 
+    --doc-shadow-lg: rgba(0, 0, 0, .2);
+
     --ac-rd-lg: @accColorRed;
-    --ac-rd-alt-lg: @accColorRedAlt;
+    --ac-rd-a-lg: @accColorRedAlt;
     --ac-rd-fade-lg: fade(@accColorRed, @accOpacity);
     --ac-rd-title-lg: var(--ac-rd);//@accColorRed;
     --ac-og-lg: @accColorOrange;
-    --ac-og-alt-lg: @accColorOrangeAlt;
+    --ac-og-a-lg: @accColorOrangeAlt;
     --ac-og-fade-lg: fade(@accColorOrange, @accOpacity);
     --ac-og-title-lg: var(--ac-og);//@accColorOrange;
     --ac-ye-lg: @accColorYellow;
-    --ac-ye-alt-lg: @accColorYellowAlt;
+    --ac-ye-a-lg: @accColorYellowAlt;
     --ac-ye-fade-lg: fade(@accColorYellow, @accOpacity);
     --ac-ye-title-lg: darken(@accColorYellow, @accTitleDarken);
     --ac-lm-lg: @accColorLime;
-    --ac-lm-alt-lg: @accColorLimeAlt;
+    --ac-lm-a-lg: @accColorLimeAlt;
     --ac-lm-fade-lg: fade(@accColorLime, @accOpacity);
     --ac-lm-title-lg: darken(@accColorLime, @accTitleDarken);
     --ac-gn-lg: @accColorGreen;
-    --ac-gn-alt-lg: @accColorGreenAlt;
+    --ac-gn-a-lg: @accColorGreenAlt;
     --ac-gn-fade-lg: fade(@accColorGreen, @accOpacity);
     --ac-gn-title-lg: var(--ac-gn);//@accColorGreen;
     --ac-aq-lg: @accColorAqua;
-    --ac-aq-alt-lg: @accColorAquaAlt;
+    --ac-aq-a-lg: @accColorAquaAlt;
     --ac-aq-fade-lg: fade(@accColorAqua, @accOpacity);
     --ac-aq-title-lg: darken(@accColorAqua, @accTitleDarken);
     --ac-mn-lg: @accColorMineral;
-    --ac-mn-alt-lg: @accColorMineralAlt;
+    --ac-mn-a-lg: @accColorMineralAlt;
     --ac-mn-fade-lg: fade(@accColorMineral, @accOpacity);
     --ac-mn-title-lg: darken(@accColorMineral, @accTitleDarken);
     --ac-ol-lg: @accColorOlives;
-    --ac-ol-alt-lg: @accColorOlivesAlt;
+    --ac-ol-a-lg: @accColorOlivesAlt;
     --ac-ol-fade-lg: fade(@accColorOlives, @accOpacity);
     --ac-ol-title-lg: var(--ac-ol);//@accColorOlives;
     --ac-wn-lg: @accColorWine;
-    --ac-wn-alt-lg: @accColorWineAlt;
+    --ac-wn-a-lg: @accColorWineAlt;
     --ac-wn-fade-lg: fade(@accColorWine, @accOpacity);
     --ac-wn-title-lg: var(--ac-wn);//var(--ac-wn);//@accColorWine;
     --ac-cy-lg: @accColorCyan;
-    --ac-cy-alt-lg: @accColorCyanAlt;
+    --ac-cy-a-lg: @accColorCyanAlt;
     --ac-cy-fade-lg: fade(@accColorCyan, @accOpacity);
     --ac-cy-title-lg: var(--ac-cy);//@accColorCyan;
     --ac-bu-lg: @accColorBlue;
-    --ac-bu-alt-lg: @accColorBlueAlt;
+    --ac-bu-a-lg: @accColorBlueAlt;
     --ac-bu-fade-lg: fade(@accColorBlue, @accOpacity);
     --ac-bu-title-lg: var(--ac-bu);//@accColorBlue;
     --ac-se-lg: @accColorSea;
-    --ac-se-alt-lg: @accColorSeaAlt;
+    --ac-se-a-lg: @accColorSeaAlt;
     --ac-se-fade-lg: fade(@accColorSea, @accOpacity);
     --ac-se-title-lg: var(--ac-se);//@accColorSea;
     --ac-la-lg: @accColorLavender;
-    --ac-la-alt-lg: @accColorLavenderAlt;
+    --ac-la-a-lg: @accColorLavenderAlt;
     --ac-la-fade-lg: fade(@accColorLavender, @accOpacity);
     --ac-la-title-lg: darken(@accColorLavender, @accTitleDarken);
     --ac-vn-lg: @accColorVine;
-    --ac-vn-alt-lg: @accColorVineAlt;
+    --ac-vn-a-lg: @accColorVineAlt;
     --ac-vn-fade-lg: fade(@accColorVine, @accOpacity);
     --ac-vn-title-lg: var(--ac-vn);
     --ac-pu-lg: @accColorPurple;
-    --ac-pu-alt-lg: @accColorPurpleAlt;
+    --ac-pu-a-lg: @accColorPurpleAlt;
     --ac-pu-fade-lg: fade(@accColorPurple, @accOpacity);
     --ac-pu-title-lg: var(--ac-pu);
     --ac-ro-lg: @accColorRose;
-    --ac-ro-alt-lg: @accColorRoseAlt;
+    --ac-ro-a-lg: @accColorRoseAlt;
     --ac-ro-fade-lg: fade(@accColorRose, @accOpacity);
     --ac-ro-title-lg: var(--ac-ro);
     --ac-pk-lg: @accColorPink;
-    --ac-pk-alt-lg: @accColorPinkAlt;
+    --ac-pk-a-lg: @accColorPinkAlt;
     --ac-pk-fade-lg: fade(@accColorPink, @accOpacity);
     --ac-pk-title-lg: darken(@accColorPink, @accTitleDarken);
     --ac-gd-lg: @accColorGold;
-    --ac-gd-alt-lg: @accColorGoldAlt;
+    --ac-gd-a-lg: @accColorGoldAlt;
     --ac-gd-fade-lg: fade(@accColorGold, @accOpacity);
     --ac-gd-title-lg: darken(@accColorGold, @accTitleDarken);
     --ac-bn-lg: @accColorBrown;
-    --ac-bn-alt-lg: @accColorBrownAlt;
+    --ac-bn-a-lg: @accColorBrownAlt;
     --ac-bn-fade-lg: fade(@accColorBrown, @accOpacity);
     --ac-bn-title-lg: var(--ac-bn);
     --ac-gy-lg: @accColorGray;
-    --ac-gy-alt-lg: @accColorGrayAlt;
+    --ac-gy-a-lg: @accColorGrayAlt;
     --ac-gy-fade-lg: fade(@accColorGray, @accOpacity);
     --ac-gy-title-lg: darken(@accColorGray, @accTitleDarken);
     --ac-bk-lg: @accColorBlack;
-    --ac-bk-alt-lg: @accColorBlackAlt;
+    --ac-bk-a-lg: @accColorBlackAlt;
     --ac-bk-fade-lg:fade(@accColorBlack, @accOpacity);
     --ac-bk-title-lg: var(--ac-bk);
     --ac-t1-lg: @themeForeColor;
-    --ac-t1-alt-lg: @theme1Alt;
+    --ac-t1-a-lg: @theme1Alt;
     --ac-t1-fade-lg: @theme1Fade;
     --ac-t1-title-lg: var(--ac-t1);
     --ac-t2-lg: @theme2;
-    --ac-t2-alt-lg: @theme2Alt;
+    --ac-t2-a-lg: @theme2Alt;
     --ac-t2-fade-lg: @theme2Fade;
     --ac-t2-title-lg: var(--ac-t2);
 
     // --------------------
     // #Color_Scheme
     // Dark Mode的颜色值
-    --v-invert-dark-dk: invert(1) brightness(90%); // Dark Mode 下图片滤镜
+    --v-invert-dark-dk: invert(1) brightness(@hoverBrightness); // Dark Mode 下图片滤镜
     --v-brightness-dark-dk: brightness(90%); // Dark Mode下封面、封底的滤镜
     --v-selection-color-dk: fade(#888888, 50%); // 选中内容的背景色
 
@@ -412,7 +437,7 @@
     --h-bg-end-dk: fade(@headerColorDark, 15%);
     --code-bg-dk: @codeBgColorDark;
     --code-t-dk: @codeTextColorDark;
-    --std-code-shadow-dk: var(--pn-c-alt-dk);
+    --std-code-shadow-dk: var(--pn-c-a-dk);
     --rb-code-shadow-dk: rgba(255, 255, 255, .3);
 
     // 代码块背景图（Dark）
@@ -431,98 +456,100 @@
     --key-reflect-dk: lighten(@keycapColorDark, 20%);
     --key-shadow-dk: darken(@keycapColorDark, 20%);
 
+    --doc-shadow-dk: rgba(0, 0, 0, .8);
+
     --ac-rd-dk: @accColorRedDark;
-    --ac-rd-alt-dk: @accColorRedAltDark;
+    --ac-rd-a-dk: @accColorRedAltDark;
     --ac-rd-fade-dk: fade(@accColorRedDark, @accOpacity);
-    --ac-rd-title-dk: var(--d-f-c-dk);
+    --ac-rd-title-dk: var(--d-fc-dk);
     --ac-ye-dk: @accColorYellowDark;
-    --ac-ye-alt-dk: @accColorYellowAltDark;
+    --ac-ye-a-dk: @accColorYellowAltDark;
     --ac-ye-fade-dk: fade(@accColorYellowDark, @accOpacity);
-    --ac-ye-title-dk: var(--d-f-c-dk);
+    --ac-ye-title-dk: var(--d-fc-dk);
     --ac-og-dk: @accColorOrangeDark;
-    --ac-og-alt-dk: @accColorOrangeAltDark;
+    --ac-og-a-dk: @accColorOrangeAltDark;
     --ac-og-fade-dk: fade(@accColorOrangeDark, @accOpacity);
-    --ac-og-title-dk: var(--d-f-c-dk);
+    --ac-og-title-dk: var(--d-fc-dk);
     --ac-lm-dk: @accColorLimeDark;
-    --ac-lm-alt-dk: @accColorLimeAltDark;
+    --ac-lm-a-dk: @accColorLimeAltDark;
     --ac-lm-fade-dk: fade(@accColorLimeDark, @accOpacity);
-    --ac-lm-title-dk: var(--d-f-c-dk);
+    --ac-lm-title-dk: var(--d-fc-dk);
     --ac-gn-dk: @accColorGreenDark;
-    --ac-gn-alt-dk: @accColorGreenAltDark;
+    --ac-gn-a-dk: @accColorGreenAltDark;
     --ac-gn-fade-dk: fade(@accColorGreenDark, @accOpacity);
-    --ac-gn-title-dk: var(--d-f-c-dk);
+    --ac-gn-title-dk: var(--d-fc-dk);
     --ac-mn-dk: @accColorMineralDark;
-    --ac-mn-alt-dk: @accColorMineralAltDark;
+    --ac-mn-a-dk: @accColorMineralAltDark;
     --ac-mn-fade-dk: fade(@accColorMineralDark, @accOpacity);
-    --ac-mn-title-dk: var(--d-f-c-dk);
+    --ac-mn-title-dk: var(--d-fc-dk);
     --ac-ol-dk: @accColorOlivesDark;
-    --ac-ol-alt-dk: @accColorOlivesAltDark;
+    --ac-ol-a-dk: @accColorOlivesAltDark;
     --ac-ol-fade-dk: fade(@accColorOlivesDark, @accOpacity);
-    --ac-ol-title-dk: var(--d-f-c-dk);
+    --ac-ol-title-dk: var(--d-fc-dk);
     --ac-wn-dk: @accColorWineDark;
-    --ac-wn-alt-dk: @accColorWineAltDark;
+    --ac-wn-a-dk: @accColorWineAltDark;
     --ac-wn-fade-dk: fade(@accColorWineDark, @accOpacity);
-    --ac-wn-title-dk: var(--d-f-c-dk);
+    --ac-wn-title-dk: var(--d-fc-dk);
     --ac-aq-dk: @accColorAquaDark;
-    --ac-aq-alt-dk: @accColorAquaAltDark;
+    --ac-aq-a-dk: @accColorAquaAltDark;
     --ac-aq-fade-dk: fade(@accColorAquaDark, @accOpacity);
-    --ac-aq-title-dk: var(--d-f-c-dk);
+    --ac-aq-title-dk: var(--d-fc-dk);
     --ac-cy-dk: @accColorCyanDark;
-    --ac-cy-alt-dk: @accColorCyanAltDark;
+    --ac-cy-a-dk: @accColorCyanAltDark;
     --ac-cy-fade-dk: fade(@accColorCyanDark, @accOpacity);
-    --ac-cy-title-dk: var(--d-f-c-dk);
+    --ac-cy-title-dk: var(--d-fc-dk);
     --ac-bu-dk: @accColorBlueDark;
-    --ac-bu-alt-dk: @accColorBlueAltDark;
+    --ac-bu-a-dk: @accColorBlueAltDark;
     --ac-bu-fade-dk: fade(@accColorBlueDark, @accOpacity);
-    --ac-bu-title-dk: var(--d-f-c-dk);
+    --ac-bu-title-dk: var(--d-fc-dk);
     --ac-se-dk: @accColorSeaDark;
-    --ac-se-alt-dk: @accColorSeaAltDark;
+    --ac-se-a-dk: @accColorSeaAltDark;
     --ac-se-fade-dk: fade(@accColorSeaDark, @accOpacity);
-    --ac-se-title-dk: var(--d-f-c-dk);
+    --ac-se-title-dk: var(--d-fc-dk);
     --ac-la-dk: @accColorLavenderDark;
-    --ac-la-alt-dk: @accColorLavenderAltDark;
+    --ac-la-a-dk: @accColorLavenderAltDark;
     --ac-la-fade-dk: fade(@accColorLavenderDark, @accOpacity);
-    --ac-la-title-dk: var(--d-f-c-dk);
+    --ac-la-title-dk: var(--d-fc-dk);
     --ac-vn-dk: @accColorVineDark;
-    --ac-vn-alt-dk: @accColorVineAltDark;
+    --ac-vn-a-dk: @accColorVineAltDark;
     --ac-vn-fade-dk: fade(@accColorVineDark, @accOpacity);
-    --ac-vn-title-dk: var(--d-f-c-dk);
+    --ac-vn-title-dk: var(--d-fc-dk);
     --ac-pu-dk: @accColorPurpleDark;
-    --ac-pu-alt-dk: @accColorPurpleAltDark;
+    --ac-pu-a-dk: @accColorPurpleAltDark;
     --ac-pu-fade-dk: fade(@accColorPurpleDark, @accOpacity);
-    --ac-pu-title-dk: var(--d-f-c-dk);
+    --ac-pu-title-dk: var(--d-fc-dk);
     --ac-ro-dk: @accColorRoseDark;
-    --ac-ro-alt-dk: @accColorRoseAltDark;
+    --ac-ro-a-dk: @accColorRoseAltDark;
     --ac-ro-fade-dk: fade(@accColorRoseDark, @accOpacity);
-    --ac-ro-title-dk: var(--d-f-c-dk);
+    --ac-ro-title-dk: var(--d-fc-dk);
     --ac-pk-dk: @accColorPinkDark;
-    --ac-pk-alt-dk: @accColorPinkAltDark;
+    --ac-pk-a-dk: @accColorPinkAltDark;
     --ac-pk-fade-dk: fade(@accColorPinkDark, @accOpacity);
-    --ac-pk-title-dk: var(--d-f-c-dk);
+    --ac-pk-title-dk: var(--d-fc-dk);
     --ac-gd-dk: @accColorGoldDark;
-    --ac-gd-alt-dk: @accColorGoldAltDark;
+    --ac-gd-a-dk: @accColorGoldAltDark;
     --ac-gd-fade-dk: fade(@accColorGoldDark, @accOpacity);
-    --ac-gd-title-dk: var(--d-f-c-dk);
+    --ac-gd-title-dk: var(--d-fc-dk);
     --ac-bn-dk: @accColorBrownDark;
-    --ac-bn-alt-dk: @accColorBrownAltDark;
+    --ac-bn-a-dk: @accColorBrownAltDark;
     --ac-bn-fade-dk: fade(@accColorBrownDark, @accOpacity);
-    --ac-bn-title-dk: var(--d-f-c-dk);
+    --ac-bn-title-dk: var(--d-fc-dk);
     --ac-gy-dk: @accColorGrayDark;
-    --ac-gy-alt-dk: @accColorGrayAltDark;
+    --ac-gy-a-dk: @accColorGrayAltDark;
     --ac-gy-fade-dk: fade(@accColorGrayDark, @accOpacity);
-    --ac-gy-title-dk: var(--d-f-c-dk);
+    --ac-gy-title-dk: var(--d-fc-dk);
     --ac-bk-dk: @accColorBlackDark;
-    --ac-bk-alt-dk: @accColorBlackAltDark;
+    --ac-bk-a-dk: @accColorBlackAltDark;
     --ac-bk-fade-dk: fade(@accColorBlackDark, @accOpacity);
-    --ac-bk-title-dk: var(--d-f-c-dk);
+    --ac-bk-title-dk: var(--d-fc-dk);
     --ac-t1-dk: @theme1Dark;
-    --ac-t1-alt-dk: @theme1AltDark;
+    --ac-t1-a-dk: @theme1AltDark;
     --ac-t1-fade-dk: @theme1Fade;
-    --ac-t1-title-dk: var(--d-f-c-dk);
+    --ac-t1-title-dk: var(--d-fc-dk);
     --ac-t2-dk: @theme2Dark;
-    --ac-t2-alt-dk: @theme2AltDark;
+    --ac-t2-a-dk: @theme2AltDark;
     --ac-t2-fade-dk: @theme2Fade;
-    --ac-t2-title-dk: var(--d-f-c-dk);
+    --ac-t2-title-dk: var(--d-fc-dk);
 
     // --------------------
     // #Color_Scheme
@@ -533,14 +560,20 @@
     --v-selection-color: var(--v-selection-color-lg);
 
     --d-bc: var(--d-bc-lg);
-    --d-bc-tsp: var(--d-bc-tsp-lg);
+    // --d-bc-tsp: var(--d-bc-tsp-lg);
+    --fade-r: var(--fade-r-lg);
+    --fade-g: var(--fade-g-lg);
+    --fade-b: var(--fade-b-lg);
     --d-bi: var(--d-bi-lg);
-    --d-f-c: var(--d-f-c-lg);
-    --d-f-c-alt: var(--d-f-c-alt-lg);
+    --d-fc: var(--d-fc-lg);
+    --d-fc-a: var(--d-fc-a-lg);
 
     --pn-c: var(--pn-c-lg);
-    --pn-c-alt: var(--pn-c-alt-lg);
-    --pn-c-tsp: var(--pn-c-tsp-lg);
+    --pn-c-a: var(--pn-c-a-lg);
+    //--pn-c-tsp: var(--pn-c-tsp-lg);
+    --pn-fade-r: var(--pn-fade-r-lg);
+    --pn-fade-g: var(--pn-fade-g-lg);
+    --pn-fade-b: var(--pn-fade-b-lg);
     --blockquote-bg: var(--blockquote-bg-lg);
 
     --a-color: var(--a-color-lg);
@@ -578,96 +611,98 @@
     --key-reflect: var(--key-reflect-lg);
     --key-shadow: var(--key-shadow-lg);
 
+    --doc-shadow: var(--doc-shadow-lg);
+
     --ac-rd: var(--ac-rd-lg);
-    --ac-rd-alt: var(--ac-rd-alt-lg);
+    --ac-rd-a: var(--ac-rd-a-lg);
     --ac-rd-fade: var(--ac-rd-fade-lg);
     --ac-rd-title: var(--ac-rd-title-lg);
     --ac-og: var(--ac-og-lg);
-    --ac-og-alt: var(--ac-og-alt-lg);
+    --ac-og-a: var(--ac-og-a-lg);
     --ac-og-fade: var(--ac-og-fade-lg);
     --ac-og-title: var(--ac-og-title-lg);
     --ac-ye: var(--ac-ye-lg);
-    --ac-ye-alt: var(--ac-ye-alt-lg);
+    --ac-ye-a: var(--ac-ye-a-lg);
     --ac-ye-fade: var(--ac-ye-fade-lg);
     --ac-ye-title: var(--ac-ye-title-lg);
     --ac-lm: var(--ac-lm-lg);
-    --ac-lm-alt: var(--ac-lm-alt-lg);
+    --ac-lm-a: var(--ac-lm-a-lg);
     --ac-lm-fade: var(--ac-lm-fade-lg);
     --ac-lm-title: var(--ac-lm-title-lg);
     --ac-gn: var(--ac-gn-lg);
-    --ac-gn-alt: var(--ac-gn-alt-lg);
+    --ac-gn-a: var(--ac-gn-a-lg);
     --ac-gn-fade: var(--ac-gn-fade-lg);
     --ac-gn-title: var(--ac-gn-title-lg);
     --ac-mn: var(--ac-mn-lg);
-    --ac-mn-alt: var(--ac-mn-alt-lg);
+    --ac-mn-a: var(--ac-mn-a-lg);
     --ac-mn-fade: var(--ac-mn-fade-lg);
     --ac-mn-title: var(--ac-mn-title-lg);
     --ac-ol: var(--ac-ol-lg);
-    --ac-ol-alt: var(--ac-ol-alt-lg);
+    --ac-ol-a: var(--ac-ol-a-lg);
     --ac-ol-fade: var(--ac-ol-fade-lg);
     --ac-ol-title: var(--ac-ol-title-lg);
     --ac-wn: var(--ac-wn-lg);
-    --ac-wn-alt: var(--ac-wn-alt-lg);
+    --ac-wn-a: var(--ac-wn-a-lg);
     --ac-wn-fade: var(--ac-wn-fade-lg);
     --ac-wn-title: var(--ac-wn-title-lg);
     --ac-aq: var(--ac-aq-lg);
-    --ac-aq-alt: var(--ac-aq-alt-lg);
+    --ac-aq-a: var(--ac-aq-a-lg);
     --ac-aq-fade: var(--ac-aq-fade-lg);
     --ac-aq-title: var(--ac-aq-title-lg);
     --ac-cy: var(--ac-cy-lg);
-    --ac-cy-alt: var(--ac-cy-alt-lg);
+    --ac-cy-a: var(--ac-cy-a-lg);
     --ac-cy-fade: var(--ac-cy-fade-lg);
     --ac-cy-title: var(--ac-cy-title-lg);
     --ac-bu: var(--ac-bu-lg);
-    --ac-bu-alt: var(--ac-bu-alt-lg);
+    --ac-bu-a: var(--ac-bu-a-lg);
     --ac-bu-fade: var(--ac-bu-fade-lg);
     --ac-bu-title: var(--ac-bu-title-lg);
     --ac-se: var(--ac-se-lg);
-    --ac-se-alt: var(--ac-se-alt-lg);
+    --ac-se-a: var(--ac-se-a-lg);
     --ac-se-fade: var(--ac-se-fade-lg);
     --ac-se-title: var(--ac-se-title-lg);
     --ac-la: var(--ac-la-lg);
-    --ac-la-alt: var(--ac-la-alt-lg);
+    --ac-la-a: var(--ac-la-a-lg);
     --ac-la-fade: var(--ac-la-fade-lg);
     --ac-la-title: var(--ac-la-title-lg);
     --ac-vn: var(--ac-vn-lg);
-    --ac-vn-alt: var(--ac-vn-alt-lg);
+    --ac-vn-a: var(--ac-vn-a-lg);
     --ac-vn-fade: var(--ac-vn-fade-lg);
     --ac-vn-title: var(--ac-vn-title-lg);
     --ac-pu: var(--ac-pu-lg);
-    --ac-pu-alt: var(--ac-pu-alt-lg);
+    --ac-pu-a: var(--ac-pu-a-lg);
     --ac-pu-fade: var(--ac-pu-fade-lg);
     --ac-pu-title: var(--ac-pu-title-lg);
     --ac-ro: var(--ac-ro-lg);
-    --ac-ro-alt: var(--ac-ro-alt-lg);
+    --ac-ro-a: var(--ac-ro-a-lg);
     --ac-ro-fade: var(--ac-ro-fade-lg);
     --ac-ro-title: var(--ac-ro-title-lg);
     --ac-pk: var(--ac-pk-lg);
-    --ac-pk-alt: var(--ac-pk-alt-lg);
+    --ac-pk-a: var(--ac-pk-a-lg);
     --ac-pk-fade: var(--ac-pk-fade-lg);
     --ac-pk-title: var(--ac-pk-title-lg);
     --ac-gd: var(--ac-gd-lg);
-    --ac-gd-alt: var(--ac-gd-alt-lg);
+    --ac-gd-a: var(--ac-gd-a-lg);
     --ac-gd-fade: var(--ac-gd-fade-lg);
     --ac-gd-title: var(--ac-gd-title-lg);
     --ac-bn: var(--ac-bn-lg);
-    --ac-bn-alt: var(--ac-bn-alt-lg);
+    --ac-bn-a: var(--ac-bn-a-lg);
     --ac-bn-fade: var(--ac-bn-fade-lg);
     --ac-bn-title: var(--ac-bn-title-lg);
     --ac-gy: var(--ac-gy-lg);
-    --ac-gy-alt: var(--ac-gy-alt-lg);
+    --ac-gy-a: var(--ac-gy-a-lg);
     --ac-gy-fade: var(--ac-gy-fade-lg);
     --ac-gy-title: var(--ac-gy-title-lg);
     --ac-bk: var(--ac-bk-lg);
-    --ac-bk-alt: var(--ac-bk-alt-lg);
+    --ac-bk-a: var(--ac-bk-a-lg);
     --ac-bk-fade: var(--ac-bk-fade-lg);
     --ac-bk-title: var(--ac-bk-title-lg);
     --ac-t1: var(--ac-t1-lg);
-    --ac-t1-alt: var(--ac-t1-alt-lg);
+    --ac-t1-a: var(--ac-t1-a-lg);
     --ac-t1-fade: var(--ac-t1-fade-lg);
     --ac-t1-title: var(--ac-t1-title-lg);
     --ac-t2: var(--ac-t2-lg);
-    --ac-t2-alt: var(--ac-t2-alt-lg);
+    --ac-t2-a: var(--ac-t2-a-lg);
     --ac-t2-fade: var(--ac-t2-fade-lg);
     --ac-t2-title: var(--ac-t2-title-lg);
 }
