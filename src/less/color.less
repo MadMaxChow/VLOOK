@@ -3,8 +3,8 @@
  * VLOOK CSS 调色板
  * (配合 base.less 进行使用)
  *
- * V22.0
- * 2024-01-20
+ * V23.0
+ * 2024-03-14
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -24,21 +24,16 @@
 .applyDocBgColor(@colorLight, @colorDark) {
     :root {
         --d-bc-lg: @colorLight;
-        // --d-bc-tsp-lg: red(@colorLight), green(@colorLight), blue(@colorLight);
-        // --d-bc-tsp-lg: fade(@colorLight, 0%);
         --fade-r-lg: red(@colorLight);
         --fade-g-lg: green(@colorLight);
         --fade-b-lg: blue(@colorLight);
 
         --d-bc-dk: @colorDark;
-        // --d-bc-tsp-dk: red(@colorDark), green(@colorDark), blue(@colorDark);
-        // --d-bc-tsp-dk: fade(@colorDark, 0%);
         --fade-r-dk: red(@colorDark);
         --fade-g-dk: green(@colorDark);
         --fade-b-dk: blue(@colorDark);
     }
 }
-//.applyDocBgColor(#FFFFFF, #181A1C);
 @docBgColorLight: #FFFFFF;
 @docBgColorDark: #222426;
 .applyDocBgColor(@docBgColorLight, @docBgColorDark);
@@ -56,7 +51,6 @@
 }
 .applyDocBgImg(url(""), url(""));
 // .applyDocBgImg(#FFFFFF, #181A1D);
-
 /**
  * 文档文字色
  * @param colorLight 在 Light Mode 的颜色
@@ -73,9 +67,8 @@
         --toc-h-num-color-dk: fade(@colorDark, 50%);
     }
 }
-//.applyDocTextColor(#181A1C, #F0F2F4);
-@docTextColorLight: #222426;
-@docTextColorDark: #DDDFF2;
+@docTextColorLight: @docBgColorDark;
+@docTextColorDark: #DBDDDF;
 .applyDocTextColor(@docTextColorLight, @docTextColorDark);
 
 /**
@@ -87,7 +80,6 @@
     :root {
         --pn-c-lg: @colorLight;
         --pn-c-a-lg: darken(@colorLight, 10%);
-        //--pn-c-tsp-lg: fade(@colorLight, 0%);
         --pn-fade-r-lg: red(@colorLight);
         --pn-fade-g-lg: green(@colorLight);
         --pn-fade-b-lg: blue(@colorLight);
@@ -95,7 +87,6 @@
 
         --pn-c-dk: @colorDark;
         --pn-c-a-dk: lighten(@colorDark, 10%);
-        //--pn-c-tsp-dk: fade(@colorDark, 0%);
         --pn-fade-r-dk: red(@colorDark);
         --pn-fade-g-dk: green(@colorDark);
         --pn-fade-b-dk: blue(@colorDark);
@@ -122,7 +113,6 @@
         --tbl-bd-lg: @colorLight; // 表格边框
         --tbl-tr-hv-lg: @tableTrHoverBg;
         --tbl-h-bd-lg: darken(@colorLight, 10%);
-        // --tbl-th-bg-lg: lighten(@colorLight, 20%); // 表头背景
         --tbl-th-bg-lg: fade(@colorLight, 40%); // 表头背景
         --tbl-td-bg-lg: fade(@colorLight, 20%); // 表体偶数行
         --tbl-cell-bd-lg: fade(@colorLight, 30%); // 单元格边框
@@ -130,7 +120,6 @@
         --tbl-bd-dk: @colorDark; // 表格边框
         --tbl-tr-hv-dk: @tableTrHoverBgDark;
         --tbl-h-bd-dk: lighten(@colorDark, 10%);
-        // --tbl-th-bg-dk: darken(@colorDark, 20%); // 表头背景
         --tbl-th-bg-dk: fade(@colorDark, 40%); // 表头背景
         --tbl-td-bg-dk: fade(@colorDark, 20%); // 表体偶数行
         --tbl-cell-bd-dk: fade(@colorDark, 30%); // 单元格边框
@@ -143,11 +132,18 @@
 @keycapColorDark: #D8DADC;
 
 // --------------------
-// 通用的强调色色板
-@accOpacity: 15%;
+// 通用的强调色参数
+@accOpacity: 20%;
+@accOpacityHightForLg: 50%;
+@accOpacityMiddleForLg: 30%;
+@accOpacityLowForLg: 20%;
+@accOpacityHightForDk: 20%;
+@accOpacityMiddleForDk: 50%;
+@accOpacityLowForDk: 70%;
+
 @accTitleDarken: 5%;
 
-// --- 比较浅的
+// --- 比较浅的（亮度高 h）
 
 @accColorGold: #D8B8B0;
 @accColorGoldDark: #CCA399;
@@ -168,6 +164,7 @@
 @accColorLimeDark: #99B616;
 @accColorLimeAlt: #F0F8C8;
 @accColorLimeAltDark: #364008;
+@accColorLimeFade: fade(@accColorLime, 50%);
 
 @accColorAqua: #30DBD4;
 @accColorAquaDark: #26D9D2;
@@ -179,7 +176,7 @@
 @accColorLavenderAlt: #E7E5FA;
 @accColorLavenderAltDark:#211B88;
 
-// --- 中间值
+// --- 中间值（亮度中 m）
 
 @accColorBrown: #906040;
 @accColorBrownDark: #986543;
@@ -202,7 +199,7 @@
 @accColorOrangeAltDark: #451F02;
 
 @accColorGreen: #10A030;
-@accColorGreenDark: #20A040;//darken(@accColorGreen, @darkValue);
+@accColorGreenDark: #20A040;
 @accColorGreenAlt: #D5FBDE;
 @accColorGreenAltDark: #0B3716;
 
@@ -226,7 +223,7 @@
 @accColorGrayAlt: #E7E8E9;
 @accColorGrayAltDark: #313435;
 
-// --- 比较深的
+// --- 比较深的（亮度低 l）
 
 @accColorPurple: #8820B0;
 @accColorPurpleDark: #A026CF;
@@ -253,11 +250,96 @@
 @accColorSeaAlt: #D9E2FC;
 @accColorSeaAltDark: #061B56;
 
-@accColorBlack: #202428;
-@accColorBlackDark: #F9FAFB;
+@accColorBlack: #303438;
+@accColorBlackDark: #E9EAEB;
 @accColorBlackAlt: #CCD1D6;
-@accColorBlackAltDark: #363E44;
+@accColorBlackAltDark: #464E54;
 
+:root {
+    // fade for light
+
+    --ac-gd-fade-bd-lg: fade(@accColorGold, @accOpacityHightForLg);
+    --ac-pk-fade-bd-lg: fade(@accColorPink, @accOpacityHightForLg);
+    --ac-ye-fade-bd-lg: fade(@accColorYellow, @accOpacityHightForLg);
+    --ac-lm-fade-bd-lg: fade(@accColorLime, @accOpacityHightForLg);
+    --ac-aq-fade-bd-lg: fade(@accColorAqua, @accOpacityHightForLg);
+    --ac-la-fade-bd-lg: fade(@accColorLavender, @accOpacityHightForLg);
+
+    --ac-bn-fade-bd-lg: fade(@accColorBrown, @accOpacityMiddleForLg);
+    --ac-ro-fade-bd-lg: fade(@accColorRose, @accOpacityMiddleForLg);
+    --ac-rd-fade-bd-lg: fade(@accColorRed, @accOpacityMiddleForLg);
+    --ac-og-fade-bd-lg: fade(@accColorOrange, @accOpacityHightForLg);
+    --ac-gn-fade-bd-lg: fade(@accColorGreen, @accOpacityMiddleForLg);
+    --ac-cy-fade-bd-lg: fade(@accColorCyan, @accOpacityMiddleForLg);
+    --ac-bu-fade-bd-lg: fade(@accColorBlue, @accOpacityMiddleForLg);
+    --ac-vn-fade-bd-lg: fade(@accColorVine, @accOpacityMiddleForLg);
+    --ac-gy-fade-bd-lg: fade(@accColorGray, @accOpacityMiddleForLg);
+
+    --ac-pu-fade-bd-lg: fade(@accColorPurple, @accOpacityLowForLg);
+    --ac-wn-fade-bd-lg: fade(@accColorWine, @accOpacityLowForLg);
+    --ac-ol-fade-bd-lg: fade(@accColorOlives, @accOpacityLowForLg);
+    --ac-mn-fade-bd-lg: fade(@accColorMineral, @accOpacityLowForLg);
+    --ac-se-fade-bd-lg: fade(@accColorSea, @accOpacityLowForLg);
+    --ac-bk-fade-bd-lg: fade(@accColorBlack, @accOpacityLowForLg);
+
+    --ac-t1-fade-bd-lg: @theme1Fade;
+    --ac-t2-fade-bd-lg: @theme2Fade;
+
+    // fade for dark
+
+    --ac-gd-fade-bd-dk: fade(@accColorGold, @accOpacityHightForDk);
+    --ac-pk-fade-bd-dk: fade(@accColorPink, @accOpacityHightForDk);
+    --ac-ye-fade-bd-dk: fade(@accColorYellow, @accOpacityHightForDk);
+    --ac-lm-fade-bd-dk: fade(@accColorLime, @accOpacityHightForDk);
+    --ac-aq-fade-bd-dk: fade(@accColorAqua, @accOpacityHightForDk);
+    --ac-la-fade-bd-dk: fade(@accColorLavender, @accOpacityHightForDk);
+
+    --ac-bn-fade-bd-dk: fade(@accColorBrown, @accOpacityMiddleForDk);
+    --ac-ro-fade-bd-dk: fade(@accColorRose, @accOpacityMiddleForDk);
+    --ac-rd-fade-bd-dk: fade(@accColorRed, @accOpacityMiddleForDk);
+    --ac-og-fade-bd-dk: fade(@accColorOrange, @accOpacityHightForDk);
+    --ac-gn-fade-bd-dk: fade(@accColorGreen, @accOpacityMiddleForDk);
+    --ac-cy-fade-bd-dk: fade(@accColorCyan, @accOpacityMiddleForDk);
+    --ac-bu-fade-bd-dk: fade(@accColorBlue, @accOpacityMiddleForDk);
+    --ac-vn-fade-bd-dk: fade(@accColorVine, @accOpacityMiddleForDk);
+    --ac-gy-fade-bd-dk: fade(@accColorGray, @accOpacityMiddleForDk);
+
+    --ac-pu-fade-bd-dk: fade(@accColorPurple, @accOpacityLowForDk);
+    --ac-wn-fade-bd-dk: fade(@accColorWine, @accOpacityLowForDk);
+    --ac-ol-fade-bd-dk: fade(@accColorOlives, @accOpacityLowForDk);
+    --ac-mn-fade-bd-dk: fade(@accColorMineral, @accOpacityLowForDk);
+    --ac-se-fade-bd-dk: fade(@accColorSea, @accOpacityLowForDk);
+    --ac-bk-fade-bd-dk: fade(@accColorBlack, @accOpacityLowForDk);
+
+    --ac-t1-fade-bd-dk: @theme1Fade;
+    --ac-t2-fade-bd-dk: @theme2Fade;
+
+    // ---
+
+    --ac-gd-fade-bd: var(--ac-gd-fade-bd-lg);
+    --ac-pk-fade-bd: var(--ac-pk-fade-bd-lg);
+    --ac-ye-fade-bd: var(--ac-ye-fade-bd-lg);
+    --ac-lm-fade-bd: var(--ac-lm-fade-bd-lg);
+    --ac-aq-fade-bd: var(--ac-aq-fade-bd-lg);
+    --ac-la-fade-bd: var(--ac-la-fade-bd-lg);
+
+    --ac-bn-fade-bd: var(--ac-bn-fade-bd-lg);
+    --ac-ro-fade-bd: var(--ac-ro-fade-bd-lg);
+    --ac-rd-fade-bd: var(--ac-rd-fade-bd-lg);
+    --ac-og-fade-bd: var(--ac-og-fade-bd-lg);
+    --ac-gn-fade-bd: var(--ac-gn-fade-bd-lg);
+    --ac-cy-fade-bd: var(--ac-cy-fade-bd-lg);
+    --ac-bu-fade-bd: var(--ac-bu-fade-bd-lg);
+    --ac-vn-fade-bd: var(--ac-vn-fade-bd-lg);
+    --ac-gy-fade-bd: var(--ac-gy-fade-bd-lg);
+
+    --ac-pu-fade-bd: var(--ac-pu-fade-bd-lg);
+    --ac-wn-fade-bd: var(--ac-wn-fade-bd-lg);
+    --ac-ol-fade-bd: var(--ac-ol-fade-bd-lg);
+    --ac-mn-fade-bd: var(--ac-mn-fade-bd-lg);
+    --ac-se-fade-bd: var(--ac-se-fade-bd-lg);
+    --ac-bk-fade-bd: var(--ac-bk-fade-bd-lg);
+}
 // --------------------
 // Mermaid 专用的强调色色板
 @mmColorRed: @accColorRed;
@@ -347,7 +429,7 @@
     --ac-gn-lg: @accColorGreen;
     --ac-gn-a-lg: @accColorGreenAlt;
     --ac-gn-fade-lg: fade(@accColorGreen, @accOpacity);
-    --ac-gn-title-lg: var(--ac-gn);//@accColorGreen;
+    --ac-gn-title-lg: var(--ac-gn);
     --ac-aq-lg: @accColorAqua;
     --ac-aq-a-lg: @accColorAquaAlt;
     --ac-aq-fade-lg: fade(@accColorAqua, @accOpacity);
@@ -359,23 +441,23 @@
     --ac-ol-lg: @accColorOlives;
     --ac-ol-a-lg: @accColorOlivesAlt;
     --ac-ol-fade-lg: fade(@accColorOlives, @accOpacity);
-    --ac-ol-title-lg: var(--ac-ol);//@accColorOlives;
+    --ac-ol-title-lg: var(--ac-ol);
     --ac-wn-lg: @accColorWine;
     --ac-wn-a-lg: @accColorWineAlt;
     --ac-wn-fade-lg: fade(@accColorWine, @accOpacity);
-    --ac-wn-title-lg: var(--ac-wn);//var(--ac-wn);//@accColorWine;
+    --ac-wn-title-lg: var(--ac-wn);
     --ac-cy-lg: @accColorCyan;
     --ac-cy-a-lg: @accColorCyanAlt;
     --ac-cy-fade-lg: fade(@accColorCyan, @accOpacity);
-    --ac-cy-title-lg: var(--ac-cy);//@accColorCyan;
+    --ac-cy-title-lg: var(--ac-cy);
     --ac-bu-lg: @accColorBlue;
     --ac-bu-a-lg: @accColorBlueAlt;
     --ac-bu-fade-lg: fade(@accColorBlue, @accOpacity);
-    --ac-bu-title-lg: var(--ac-bu);//@accColorBlue;
+    --ac-bu-title-lg: var(--ac-bu);
     --ac-se-lg: @accColorSea;
     --ac-se-a-lg: @accColorSeaAlt;
     --ac-se-fade-lg: fade(@accColorSea, @accOpacity);
-    --ac-se-title-lg: var(--ac-se);//@accColorSea;
+    --ac-se-title-lg: var(--ac-se);
     --ac-la-lg: @accColorLavender;
     --ac-la-a-lg: @accColorLavenderAlt;
     --ac-la-fade-lg: fade(@accColorLavender, @accOpacity);

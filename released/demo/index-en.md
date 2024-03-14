@@ -18,7 +18,7 @@ vlook-doc-lib:
 vlook-image-host: https://madmaxchow.gitee.io/vlook/
 ---
 
-###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective^[Interaction]^<br>──<br><u>Introduction</u><br>`#Latest|V22.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective_^Interaction^_<br>──<br><u>Introduction</u><br>*`V23.0` is the Latest*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
@@ -35,7 +35,7 @@ vlook-image-host: https://madmaxchow.gitee.io/vlook/
 > VLOOK™ is an open-source software that follows the **MIT License**.
 >
 
-[`#Editor|Typora|V1.8.3+#`~(Gy)~](https://typoraio.cn)　`#License|MIT#`~(Rd)~　`#Supported OS|Windows / macOS / Linux#`~(Bu)~
+[*Editor`Typora`V1.8.3+*_~Gy~_](https://typoraio.cn)　*License`MIT`*_~Rd~_　*Supported OS`Windows / macOS / Linux`*_~Bu~_
 
 > Code hosting: [![Github](https://madmaxchow.gitee.io/vlookres/pic/github-light.svg?darksrc=github-dark.svg#logo)](https://github.com/MadMaxChow/VLOOK)　　[![Gitee](https://madmaxchow.gitee.io/vlookres/pic/gitee-light.svg?darksrc=gitee-dark.svg#logo)](https://gitee.com/madmaxchow/VLOOK)
 
@@ -57,15 +57,15 @@ vlook-image-host: https://madmaxchow.gitee.io/vlook/
 
 > ###### ![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) What is Markdown?
 >
-> - In 2004, [John Gruber](https://en.wikipedia.org/wiki/John_Gruber) created [![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) Markdown](https://zh.wikipedia.org/wiki/Markdown) , a type of writing specifically for the Internet `Text markup language` . With Markdown, you only need to insert a small number of markup symbols in the writing process, and you can easily typeset (for example, set the title, bold, list, quote, etc.);
-> - Markdown documents are based on `Plain text format storage` , which means that they can be opened with almost any text editor. At the same time, it can be exported to rich text documents with typesetting, HTML web pages, etc. through the Markdown editor.Pure, concise, easy to use and flexible, Are the reasons why people like Markdown;
+> - In 2004, [John Gruber](https://en.wikipedia.org/wiki/John_Gruber) created [![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) Markdown](https://zh.wikipedia.org/wiki/Markdown) , a type of writing specifically for the Internet *`Text markup language`* . With Markdown, you only need to insert a small number of markup symbols in the writing process, and you can easily typeset (for example, set the title, bold, list, quote, etc.);
+> - Markdown documents are based on *`Plain text format storage`* , which means that they can be opened with almost any text editor. At the same time, it can be exported to rich text documents with typesetting, HTML web pages, etc. through the Markdown editor.Pure, concise, easy to use and flexible, Are the reasons why people like Markdown;
 > - The current standardization project of Markdown is [CommonMark](http://commonmark.org) .
 >
 > ![Markdown](pic/markdown-mark.svg?fill=text#logo)
 
 > ###### 60 seconds to learn, 10 minutes to learn Markdown grammar in depth
 >
-> 1. `#RECOMMANDED#`  **Flavored the Markdown GitHub** (GFM) Syntax Reference: Typora the currently used standard [in detail](https://support.typora.io/Markdown-Reference/) ;
+> 1. *`RECOMMANDED`*_~T2!~_  **Flavored the Markdown GitHub** (GFM) Syntax Reference: Typora the currently used standard [in detail](https://support.typora.io/Markdown-Reference/) ;
 > 2. Standardized **CommonMark** grammar reference: [60 seconds to learn Markdown grammar](http://commonmark.org/help/) , [10 minutes to learn Markdown in depth](http://commonmark.org/help/tutorial/) .
 
 [^Typora]: Typora is a cross-platform Markdown editor (perhaps the best editor at the moment), which supports direct preview and editing. For more detailed features, please refer to the [official websit](https://www.typora.io).
@@ -75,7 +75,7 @@ vlook-image-host: https://madmaxchow.gitee.io/vlook/
 **If you also have one or more of the following needs or pain points, you can safely try the Markdown-based document solution for document editing, publishing, and management. The recommended combination is Typora + VLOOK™:**
 
 - Use Markdown to write documents, but there are more requirements for the Markdown editor, or the typesetting and interaction of the HTML output
-- For the written document, hope  `/ ??? |Unified template and output/`~(T1)~ , and best `/ ??? |Change theme any time/`~(T2)~
+- For the written document, hope *???**Unified template and output***_~T1~_ , and best *???**Change theme any time***_~T2~_
 - I hope I only pay attention to the writing of the content of the document, and the tedious work of typesetting hopes to be ableautomationFinish
 - RduceIn terms of software tools such as documents (such as Word) and graphics (such as Visio)Purchase expenditure, Or these software typesettingOperation feels bored
 - Need supportCross-platform,Cross-terminalHow to browse and publish documents
@@ -87,13 +87,13 @@ vlook-image-host: https://madmaxchow.gitee.io/vlook/
 >
 > This document is created by Typora and using the VLOOK™ plug-in! **AMAZING!!!**
 >
-> ~(Bn!)~
+> _~Bn!~_
 
 # Donate
 
 **If you like VLOOK™, you can contribute a cup of coffee :-)**
 
-`#PayPal|@madmaxchow#`~(Cy!)~
+*PayPal`@madmaxchow`*_~Cy!~_
 
 [![打赏 VLOOK™](https://madmaxchow.gitee.io/vlookres/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#frame)](https://paypal.me/madmaxchow)
 
@@ -113,33 +113,33 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > **With the support of VLOOK™ theme and plug-ins, you have a new understanding and application of the automatic typesetting ability of the Markdown editor (only supports Typora for now).**
 >
-> In addition to rich typography enhancements, based on the HTML format, static documents can also "move" with you~
+> In addition to the ability for rich document formatting and content identification, based on the HTML format, static documents can also "come to life" with you.
 >
 > [<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](guide.md#快速入坑°文档排版)
 >
-> ~(Vn!)~
+> _~Vn!~_
 
 > **![°内容导航](pic/qico-nav-light.svg?fill=text&darksrc=invert#icon) ° NAVIGATION**
 >
-> **VLOOK ™ provides tools for document chapters, figures, tables, and multimedia to provide multiple forms of navigation, rapid positioning, and content organization to improve and improve the browsing experience and efficiency of published HTML files.**
+> **VLOOK ™ provides tools for document contents, chapters, figures, tables, and multimedia to provide multiple forms of navigation, rapid positioning, and content organization to improve and improve the browsing experience and efficiency of published HTML files.**
 >
 > No extra action, focus on document writing. Automatic integration is completed when you click export~
 > [<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](guide.md#快速入坑°内容导航)
 >
-> ~(Bu!)~
+> _~Bu!~_
 
 ---
 
 >
-> **![°演示与出版辅助](pic/qico-pres-light.svg?fill=text&darksrc=invert#icon) ° PRESENTATION & PUBLICATION**
+> **![°演示与出版](pic/qico-pres-light.svg?fill=text&darksrc=invert#icon) ° PRESENTATION & PUBLICATION**
 >
 > **VLOOK™ uniquely provides powerful presentation and publishing aids, making Typora + VLOOK a more productive Markdown document solution.**
 >
 > Very suitable for on-site and remote presentation aids, turn on Turbo mode for your documents~
 >
-> [<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](guide.md#快速入坑°演示与出版辅助)
+> [<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](guide.md#快速入坑°演示与出版)
 >
-> ~(Og!)~
+> _~Og!~_
 
 >
 > **![°主题与不杂项](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon) ° THEME & not MISC.**
@@ -150,7 +150,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > [<kbd>Learn more ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](guide.md#快速入坑°主题与不杂项)
 >
-> ~(Lm!)~
+> _~Lm!~_
 
 ---
 
@@ -158,34 +158,35 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 
 # How To Use
 
-> You can start a brand **new Markdown experience** in **just 3 steps**.
+> You can start a brand **new Markdown experience** in **just 3 steps** *==1.[Download and Configure](#Download and Configure) > 2.[Install the Theme Package](#Install the Theme Package) > 3.[Configure Export Options](#Configure Export Options)==* 
 >
-> Make your Markdown a new perspective^[Interaction]^!
+> Make your Markdown a new perspective_^Interaction^_!
 ## Download and Configure
 
 ---
 
----
-
-> ###### Download the Plug-in
+> **Step1. Download the Plug-in**
 >
-> 1. Download the latest version from the homepage of VLOOK™ on **[GitHub](https://github.com/MadMaxChow/VLOOK/releases)** or **[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)** ;
-> 2. You can also [download the theme file](https://github.com/MadMaxChow/VLOOK/tree/master/released/theme) ( [alternate link](https://gitee.com/madmaxchow/VLOOK/tree/master/released/theme) ) directly on the project homepage .
-> 
-> ~(Gn)~
+> 1. Download the latest version from the homepage of VLOOK™
+>    1. via **[GitHub](https://github.com/MadMaxChow/VLOOK/releases)**
+>    2. via **[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)**
+>
+>
+> _~Gn~_
 
-> ###### Install Typora
+> **Step2. Install Typora**
 >
 > 1. Download and install the latest version of [Typora](https://www.typora.io) ;
-> 2. Start Typora and enter "**Preferences**", enable all options under "**Markdown Extended Syntax, Code Blocks**". See the figure below for details:
-> 
-> ~(Gn)~
+> 2. Enter the configuration *==Typora ▸ Settings ▸ Markdown==*;
+> 3. Enable all options under "**Markdown Extended Syntax**", "**Code Blocks**". See the figure below for details:
+>
+> _~Gn~_
 
 > ###### Install Fonts (optional)
 >
 > Download and install the VLOOK™ theme matching font pack•• See "[Font Themes](guide.md#字体主题)" for details.
 >
-> ~(Gn)~
+> _~Gn~_
 
 *==Typora ▸ 偏好设置 ▸ Markdown==*
 
@@ -195,31 +196,29 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 
 ---
 
----
-
-> ###### Install the Theme
+> **Step1. Install the Theme**
 >
-> 1. The `released\theme`all CSS files are copied to Typora theme directory;
-> 2. Where is the theme directory? You can navigate to this directory by clicking "**Preferences ▸ Appearance ▸ Open Theme Directory**".
+> 1. The *==released\theme==* all CSS files are copied to Typora theme directory;
+> 2. Where is the theme directory? You can navigate to this directory by clicking *==Settings ▸ Appearance ▸ Open Theme Directory==*.
 > 
-> ~(Og)~
+> _~Og~_
 
-> ###### Select Theme
+> **Step2. Select Theme**
 >
 > 1. Restart Typora;
-> 2. Click the "**Theme**" menu, select to `Vlook *` any topic can be in the form of naming.
+> 2. Click the *==Theme==* menu, select to `Vlook *` any topic can be in the form of naming.
 > 
-> ~(Og)~
+> _~Og~_
 
 > ###### Start Writing from the Template
 >
 > It is recommended to create your own Markdown document based on the document template of the VLOOK™ specification, so that you can get started faster.
 >
-> ~(Og)~
+> _~Og~_
 
 > ###### Where are the template files?
 >
-> 1. `*.md` files in the directory `released`
+> 1. All `md` type files in the directory *==released/demo==*
 >    1. Standard template: *VLOOK-Document-Template.md*
 >    2. No cover template: *VLOOK-Document-Template-nocover.md*
 >    3. Document library template: *VLOOK-Document-Template-doc_lib.md*
@@ -231,37 +230,35 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 
 ---
 
----
-
-> ###### Configure export setting
+> **Configure export setting**
 >
 > 1. Start Typora and enter "**Preferences**";
 > 2. Click "**Export**", add configuration (==select HTML template==), and name the configuration `VLOOK` .
 > 
-> ~(Cy)~
+> _~Cy~_
 
-> ###### Install Meta Tag
+> **Install Meta Tag**
 >
 > 1. Open the meta tag file: released\plugin\\[**meta.txt**](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/meta.txt) ( [alternate link](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/meta.txt) );
 > 2. Select and copy all contents;
-> 3. Paste to "**Preferences ▸ Export ▸ VLOOK ▸ Append in &lt;head /&gt;**".
+> 3. Paste to "**Append in &lt;head /&gt;**".
 >
-> ~(Cy)~
+> _~Cy~_
 
-> ###### Install the Plugin
+> **Install the Plugin**
 >
 > 1. Open the plug-in file: released\plugin\\[**plugin.txt**](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin.txt) ( [alternate link](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt) );
 > 2. Select and copy all contents;
-> 3. Paste to "**Preferences ▸ Export ▸ VLOOK ▸ Append in &lt;body /&gt;**".
+> 3. Paste to "**Append in &lt;body /&gt;**".
 >
-> ~(Cy)~
+> _~Cy~_
 
-> ###### One-click export
+> ###### One-click export via VLOOK
 >
 > 1. Open the md file conforming to the VLOOK™ specification;
-> 2. Click "**File ▸ Export ▸ VLOOK** or **VLOOK (live)**".
+> 2. Click *==File ▸ Export ▸ VLOOK==* to export.
 > 
-> ~(Cy)~
+> _~Cy~_
 
 *==Typora ▸ 偏好设置 ▸ 导出==*
 
@@ -277,7 +274,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > The online version of the plugin file is: released\plugin \ **plugin_live.txt** , or directly open the online version of [plugin_live.txt](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin_live.txt) ( [alternative link](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt) )
 >
-> ~(Og!)~
+> _~Og!~_
 
 ---
 
@@ -285,7 +282,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > To upgrade the old version of vlook to the latest version, repeat **step 1** above to download the latest release version, and press **steps 2 and 3** to update the corresponding "theme" and "export configuration".
 >
-> ~(Cy!)~
+> _~Cy!~_
 
 > **Recommend compatible browser !**
 >
@@ -293,7 +290,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > ![Chrome](https://madmaxchow.gitee.io/vlookres/pic/chrome.png#icon) **[Chrome](https://www.google.cn/chrome/)**　　![Edge](https://madmaxchow.gitee.io/vlookres/pic/edge.png#icon) **[Edge](https://www.microsoft.com/zh-cn/edge)**　　![Firefox](https://madmaxchow.gitee.io/vlookres/pic/firefox.png#icon) **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
 >
-> ~(Bu)~
+> _~Bu~_
 
 ---
 

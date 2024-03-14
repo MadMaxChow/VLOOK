@@ -3,8 +3,8 @@
  * starter of VLOOK.js - Typora Plugin
  * (配合 vlook.js 进行使用)
  *
- * V22.0
- * 2024-01-20
+ * V23.0
+ * 2024-03-14
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -16,7 +16,7 @@
  *
  *************************************/
 
-let sVer = "V22.0";
+let sVer = "V23.0";
 
 /**
  * 获取 URL 中的参数数组
@@ -64,13 +64,12 @@ if (theme !== undefined || (sVer.indexOf("dev") === -1 && themmeVersion !== sVer
 
 // 动态加载 VLOOK 所须的 js 资源
 let jsSrc = [
-    jsHost + "jquery.js",
-// jsHost + "js/velocity.js",
+    // jsHost + "jquery.js",
+    jsHost + "jquery-migrate.js",
     jsHost + "clipboard.js",
-    jsHost + "vlook-min.js",
-    // jsHost + "vlook.js",
-    // jsHost + (startVersion.indexOf("dev") > 0 ? "vlook.js" : "vlook-min.js"),
-    jsHost + "svg-inject.js"];
+    jsHost + "svg-inject.js",
+    jsHost + "vlook-min.js"
+    ];
 for (let i = 0; i < jsSrc.length; i++) {
     let js = document.createElement("script");
     js.setAttribute("type", "text/javascript");

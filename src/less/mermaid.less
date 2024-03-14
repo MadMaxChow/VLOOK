@@ -3,8 +3,8 @@
  * VLOOK CSS - Mermaid 自定义样式
  * (配合 base.less 进行使用)
  *
- * V22.0
- * 2024-01-20
+ * V23.0
+ * 2024-03-14
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -24,7 +24,7 @@
     --mermaid-flowchart-curve: basis;
 
     // --mm-font-family: var(--v-f-fm-tag);
-    --mermaid-font-family: var(--v-f-fm-tag);
+    --mermaid-font-family: var(--v-f-fm-bd);//var(--v-f-fm-tag);
     // --mm-a-font-family: var(--v-f-fm-tag);
 
     // #ZenUML_Var
@@ -63,7 +63,7 @@
 // svg[aria-roledescription] .edgeLabel,
 // svg[aria-roledescription] .nodeLabel {
 svg[aria-roledescription] :is(text, span, tspan, .edgeLabel, .nodeLabel) {
-    font-family: var(--v-f-fm-tag) !important;
+    font-family: var(--v-f-fm-bd);//var(--v-f-fm-tag) !important;
     color: var(--d-fc) !important;
     fill: var(--d-fc) !important;
 }
@@ -89,7 +89,7 @@ svg[aria-roledescription] .node:hover {
 // svg[aria-roledescription] .node:hover polygon,
 // svg[aria-roledescription] .node:hover path,
 // svg[aria-roledescription] .node:hover rect {
-svg[aria-roledescription] .node:hover :is(circle, polygon, path, rect) {
+svg[aria-roledescription] .node:hover @{svgNodes} {
     fill: var(--ac-t1-a) !important;
     stroke: @aColor !important;
     cursor: crosshair;
@@ -118,8 +118,9 @@ svg {
 // svg[aria-roledescription] .clickable:hover polygon
 // svg[aria-roledescription] .clickable:hover path,
 // svg[aria-roledescription] .clickable:hover rect {
-svg[aria-roledescription] .clickable:hover :is(circle, polygon, path, rect) {
-    cursor: pointer !important;
+svg[aria-roledescription] .clickable:hover @{svgNodes} {
+    cursor: var(--cur-pointer) !important;
+    // cursor: pointer !important;
 }
 
 /* ----- pie diagram 饼图 ----- */
@@ -156,7 +157,7 @@ svg[aria-roledescription^="flowchart"] .nodeLabel {
 // svg[aria-roledescription^="flowchart"] .node polygon,
 // svg[aria-roledescription^="flowchart"] .node path,
 // svg[aria-roledescription^="flowchart"] .node rect {
-svg[aria-roledescription^="flowchart"] .node :is(circle, polygon, path, rect) {
+svg[aria-roledescription^="flowchart"] .node @{svgNodes} {
     fill: var(--pn-c) !important;
     stroke: var(--d-fc) !important;
 }
@@ -170,12 +171,12 @@ svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) .
 // svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) polygon,
 // svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) path,
 // svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) rect {
-svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) :is(circle, polygon, path, rect) {
+svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) @{svgNodes} {
     fill: var(--d-fc) !important;
     stroke-width: 0 !important;
 }
 
-svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) .node:hover :is(circle, polygon, path, rect) {
+svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) .node:hover @{svgNodes} {
     fill: var(--ac-t1) !important;
     cursor: crosshair;
 }
@@ -198,8 +199,8 @@ svg[aria-roledescription^="flowchart"] .node[id^="flowchart-outpage"] .nodeLabel
 // svg[aria-roledescription^="flowchart"] .node[id^="flowchart-join"]>rect,
 // svg[aria-roledescription^="flowchart"] .node[id^="flowchart-join"]>polygon,
 // svg[aria-roledescription^="flowchart"] .node[id^="flowchart-join"]>circle {
-svg[aria-roledescription^="flowchart"] .node[id^="flowchart-join"]>:is(rect, polygon, circle, path),
-svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) .node[id^="flowchart-join"]>:is(rect, polygon, circle, path) {
+svg[aria-roledescription^="flowchart"] .node[id^="flowchart-join"]>@{svgNodes},
+svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) .node[id^="flowchart-join"]>@{svgNodes} {
     fill: var(--d-fc-a) !important;
     stroke-width: 0 !important;
 }
@@ -220,7 +221,7 @@ svg[aria-roledescription^="flowchart"] .node[id^="flowchart-joinv"]>rect {
 
 // 在特定节点上鼠标悬停
 svg[aria-roledescription^="flowchart"] .node[id^="flowchart-START"]:hover rect,
-svg[aria-roledescription^="flowchart"] .node[id^="flowchart-join"]:hover :is(rect, circle, polygon, path),
+svg[aria-roledescription^="flowchart"] .node[id^="flowchart-join"]:hover @{svgNodes},
 svg[aria-roledescription^="flowchart"] .node[id^="flowchart-INIT"]:hover circle,
 svg[aria-roledescription^="flowchart"] .node[id^="flowchart-FINAL"]:hover circle {
     fill: @aColor !important;

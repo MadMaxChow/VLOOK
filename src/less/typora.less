@@ -3,8 +3,8 @@
  * VLOOK CSS - Typora 编辑时内置样式
  * (配合 base.less 进行使用)
  *
- * V22.0
- * 2024-01-20
+ * V23.0
+ * 2024-03-14
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -151,6 +151,10 @@
     color: var(--d-fc-lg);
 }
 
+// .outline-expander {
+//     cursor: var(--cur-pointer);
+// }
+
 #top-titlebar .ty-icon {
     color: var(--d-fc);
 }
@@ -247,6 +251,15 @@
 }
 #md-notification :is(a:hover, a.default-btn:hover) {
     color: @aHoverColor;
+}
+
+.btn,
+.searchpanel-search-option-btn,
+.outline-item,
+.file-node-content,
+.outline-label,
+.outline-expander {
+    cursor: var(--cur-pointer);
 }
 
 #md-notification .btn {
@@ -372,6 +385,7 @@ body.os-windows .active-tab-outline #info-panel-tab-outline .info-panel-tab-bord
 
 .md-image-src-span, // 图片链接
 .md-link .md-url { // 链接
+    // color: var(--a-color);
     color: var(--d-fc-a);
     font-family: var(--monospace);
     font-weight: var(--v-f-w-text);
@@ -475,7 +489,7 @@ li.md-focus-container::before {
 li p.md-focus::before { // 段落微调
     left: -30px;
 }
-li.md-task-list-item p.md-focus::before { // 任务列表微调
+li.md-task-list-item p.md-focus::before { // 任务清单微调
     left: -50px;
 }
 
@@ -573,7 +587,8 @@ body.os-windows .info-panel-tab-wrapper::before {
 
 // 大纲内容为空
 #typora-sidebar #file-library:empty,
-#typora-sidebar #outline-content:empty {
+#typora-sidebar .outline-content:empty {
+// #typora-sidebar #outline-content:empty {
     opacity: .4;
     border: 2px dashed var(--d-fc-a);
     border-radius: var(--v-r-b);
@@ -750,8 +765,12 @@ body.os-windows #file-library-tree {
     top: 8px !important;
 }
 
+// .no-collapse-outline .outline-content em>code {
+// }
+
 // 大纲面板
-#outline-content {
+.outline-content {
+// #outline-content {
     font-family: var(--v-f-fm-title);
     background: var(--pn-c);
     border-radius: var(--v-r-b);
@@ -765,11 +784,13 @@ body.os-windows #file-library-tree {
     padding-top: 5px;
     padding-right: 5px;
     padding-bottom: 5px;
+    // cursor: var(--cur-pointer);
 }
 // 当前大纲节点
 .pin-outline .outline-active,
 .pin-outline .outline-active strong,
-.pin-outline #outline-content .outline-active strong {
+.pin-outline .outline-content .outline-active strong {
+// .pin-outline #outline-content .outline-active strong {
     font-weight: var(--v-f-w-title);
 }
 .outline-item-active {
@@ -910,9 +931,10 @@ body.os-windows #file-library-tree {
     box-shadow: @tocItemCurrent_boxShadow;
 }
 // 节点
-.file-node-content {
-    cursor: pointer;
-}
+// .file-node-content {
+//     cursor: var(--cur-pointer);
+//     // ;
+// }
 // 点击节点
 .file-library-node:not(.file-node-root):focus>.file-node-content {
     outline: 0;
@@ -963,7 +985,7 @@ body.os-windows .file-node-title { // for Win
 }
 // 图片
 #typora-source .cm-tag {
-    color: @aColor;
+    color: var(--a-color);//@aColor;
     font-family: var(--monospace);
 }
 // 链接内容
@@ -1051,34 +1073,64 @@ body.os-windows .file-node-title { // for Win
 }
 
 // 排除多媒体类的
-:is(.md-img-error[data-src*=".mp3"],
-.md-img-error[data-src*=".m4a"],
-.md-img-error[data-src*=".ogg"],
-.md-img-error[data-src*=".wav"],
-.md-img-error[data-src*=".ogv"],
-.md-img-error[data-src*=".mp4"],
-.md-img-error[data-src*=".webm"])>.md-meta {
+@errorAudio: ~':is(.md-img-error[data-src*=".mp3"], .md-img-error[data-src*=".m4a"], .md-img-error[data-src*=".ogg"], .md-img-error[data-src*=".wav"])';
+@errorVideo: ~':is(.md-img-error[data-src*=".ogv"], .md-img-error[data-src*=".mp4"], .md-img-error[data-src*=".webm"])';
+// :is(.md-img-error[data-src*=".mp3"],
+// .md-img-error[data-src*=".m4a"],
+// .md-img-error[data-src*=".ogg"],
+// .md-img-error[data-src*=".wav"],
+// .md-img-error[data-src*=".ogv"],
+// .md-img-error[data-src*=".mp4"],
+// .md-img-error[data-src*=".webm"])>.md-meta {
+@{errorAudio}>.md-meta,
+@{errorVideo}>.md-meta {
     border: none;
     color: var(--h-f) !important;
     border: inherit;
-    padding: inherit;
-    border-radius: inherit;
+    // padding: inherit;
+    // border-radius: inherit;
+    padding: 5px;
+    border-radius: var(--v-r-b);
     background-image: none !important;
+    background-color: var(--pn-c) !important;
     width: initial;
     height: initial;
-    display: inline !important;
+    // display: inline !important;
+    // height: 80px;
+    display: inline-block !important;
     visibility: visible !important;
 }
-:is(.md-img-error[data-src*=".mp3"],
-.md-img-error[data-src*=".m4a"],
-.md-img-error[data-src*=".ogg"],
-.md-img-error[data-src*=".wav"])>.md-meta:first-of-type:before {
-        content: "🔊";
+// :is(.md-img-error[data-src*=".mp3"],
+//     .md-img-error[data-src*=".m4a"],
+//     .md-img-error[data-src*=".ogg"],
+//     .md-img-error[data-src*=".wav"])>.md-meta:first-of-type:before {
+@{errorAudio}>.md-meta:first-of-type:before {
+    content: "🔊";
 }
-:is(.md-img-error[data-src*=".ogv"],
-.md-img-error[data-src*=".mp4"],
-.md-img-error[data-src*=".webm"])>.md-meta:first-of-type:before {
+@{errorAudio}>.md-meta:first-of-type:after {
+    content: "( Export HTML to Hear Audio )";
+    text-transform: uppercase;
+    color: @aHoverColor;
+    font-size: .625em;
+    text-align: center;
+    display: block;
+}
+// :is(.md-img-error[data-src*=".ogv"],
+//     .md-img-error[data-src*=".mp4"],
+//     .md-img-error[data-src*=".webm"])>.md-meta:first-of-type:before {
+@{errorVideo}>.md-meta:first-of-type:before {
     content: "🎦";
+}
+// :is(.md-img-error[data-src*=".ogv"],
+//     .md-img-error[data-src*=".mp4"],
+//     .md-img-error[data-src*=".webm"])>.md-meta:first-of-type:after {
+@{errorVideo}>.md-meta:first-of-type:after {
+    content: "( Export HTML to Watch Video )";
+    text-transform: uppercase;
+    color: @aHoverColor;
+    font-size: .625em;
+    text-align: center;
+    display: block;
 }
 
 // header 锚点占位
@@ -1117,7 +1169,7 @@ body.os-windows .file-node-title { // for Win
     line-height: @paragraphInnerLineHeight;
     border-radius: var(--v-r-b);
     padding: 24px 10px 5px 10px;
-    color: @aColor;
+    color: var(--a-color);//@aColor;
     background: var(--code-bg);
     border: @yamlBorderWidth dashed var(--std-code-shadow);
     margin: @yamlMarginTopBottom @yamlMarginLeftRight;
@@ -1163,10 +1215,10 @@ content>#write blockquote p>sub:only-child.md-expand .md-plain {
     // 在原来 margin 基础上，补偿因 border 取消后的空间变化
     margin: @yamlMarginTopBottom+2px @yamlMarginLeftRight+2px;
 }
-#write .md-expand span[md-inline="plain"] { // code 获得焦点
-    padding-left: .25em;
-    padding-right: .25em;
-}
+// #write .md-expand span[md-inline="plain"] { // code 获得焦点
+//     padding-left: .25em;
+//     padding-right: .25em;
+// }
 // 源码模式下的 YAML
 #typora-source pre.cm-yaml {
     font-family: var(--monospace);
@@ -1315,6 +1367,7 @@ content .md-toc::before {
 
 .outline-label {
     word-break: break-word;
+    // cursor: var(--cur-pointer);
 }
 
 .outline-label::before {
@@ -1422,33 +1475,65 @@ content>#write blockquote p:has(.md-image[data-src*="#card"])+blockquote a kbd, 
 
 // ====================
 // 编辑时预置颜色色号的公共样式
-content>#write blockquote p>sub:only-child, // 彩虹引用块
-content>#write p>sub:first-child, // 彩虹文本（段落）
-content>#write table :is(th,td)>span>sub:first-child, // 单元格（段落）
-content>#write table :is(th,td)>span>sub:last-child,
-content>#write span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],[md-inline="highlight"],[md-inline="underline"])+sub,
-content>#write :is(sup, sub)+sub { // 彩虹文本（指定格式）
-    font-family: var(--v-f-fm-code);
-    font-weight: bold;
-    font-size: .625em;
-    border-radius: var(--v-r-tag);
-    padding-right: 2px;
+@colorCodeOnPgStart: ~'p>[md-inline="em"]:first-child>em>sub:only-child';
+@colorCodeOnCellStart: ~'table :is(th,td)>span>[md-inline="em"]:first-child>em>sub:only-child';
+@colorCodeBeforeSpanFmt: ~'span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],[md-inline="highlight"],[md-inline="underline"])+[md-inline="em"]>em>sub:only-child';
+@colorCodeBeforeSupSub: ~':is(sup, sub)+[md-inline="em"]>em>sub:only-child';
+
+content>#write blockquote p>em:only-child>sub:only-child, // 引用块着色
+content>#write @{colorCodeOnPgStart}, // 文本着色（段落）
+content>#write @{colorCodeOnCellStart}, // 单元格（段落）
+content>#write table :is(th,td)>span>[md-inline="em"]:last-child>em>sub:only-child,
+content>#write @{colorCodeBeforeSpanFmt},
+content>#write @{colorCodeBeforeSupSub} { // 文本着色（指定格式）
+    font: normal bold .5em var(--v-f-fm-code) !important; // [style] [weight] [size/[line-height]] [family]
+    // font-family: monospace !important;
+    // font-family: var(--v-f-fm-code) !important;
+    // font-weight: bold;
+    // font-size: .625em;
+    // font-style: normal;
+    border-radius: 0 4px 4px 4px;// calc(var(--v-r-tag) - 2px);
+    // font-family: var(--v-f-fm-code) !important;
+    // padding-right: 2px;
     bottom: 0;
     color: var(--d-fc);
-    opacity: .5;
+    background-color: var(--d-fc-a);
+    padding: 1px 3px;
+    margin: 0 5px 0 1px;
+    line-height: @miniLineHeight !important;
+    opacity: .6;
+}
+// 段落微调
+content>#write @{colorCodeOnPgStart}, // 文本着色（段落）
+content>#write @{colorCodeOnCellStart} { // 单元格（段落）
+    color: var(--d-bc);
+    border-radius: 4px 4px 0 4px;
+    background-color: var(--d-fc);
+    margin: 0 1px 0 0;
 }
 
-// 针对 彩虹引用块 的微调
-content>#write blockquote p>sub:only-child {
-    border: 1px solid var(--ac-t2);
+// 针对 引用块着色 的微调
+// @colorCodeInBlockquoteOld: ~'blockquote p>sub:first-child';
+@colorCodeInBlockquote: ~'blockquote p>[md-inline="em"]:only-child>em>sub:only-child';
+
+// content>#write @{colorCodeInBlockquoteOld} {
+//     border: 1px solid var(--ac-t2);
+//     border-radius: var(--v-r-si);
+//     bottom: 0;
+// }
+content>#write @{colorCodeInBlockquote} {
     bottom: 0;
 }
-// 针对 彩虹引用块 的前缀提示样式
-content>#write blockquote p>sub:only-child::before {
+// 针对 引用块着色 的前缀提示样式
+// content>#write @{colorCodeInBlockquoteOld}::before {
+//     content: ">";
+//     color: var(--ac-t2);
+// }
+content>#write @{colorCodeInBlockquote}::before {
     content: ">";
-    color: var(--ac-t2);
-    font-weight: bold;
-    padding-left: 4px;
+    color: var(--d-bc);
+    padding-right: 2px;
+    opacity: .6;
 }
 // 在引用块内的引用块时取消样式
 // content>#write blockquote>blockquote p>sub:only-child {
@@ -1457,20 +1542,22 @@ content>#write blockquote p>sub:only-child::before {
 // content>#write blockquote>blockquote p>sub:only-child::before {
 //     content: "";
 // }
-// 针对 彩虹文本/单元格（段落） 的前缀提示样式
-content>#write p>sub:first-child::before,
-content>#write table :is(th,td)>span>sub:first-child::before {
+// 针对 文本着色/单元格（段落） 的前缀提示样式
+content>#write @{colorCodeOnPgStart}::before,
+content>#write @{colorCodeOnCellStart}::before {
     content: "¶";
-    color: var(--ac-t2);
+    color: var(--d-bc);
+    padding-right: 2px;
+    opacity: .6;
 }
-// 针对 彩虹文本（指定格式） 的前缀提示样式
-content>#write span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],[md-inline="highlight"],[md-inline="underline"])+sub::before,
-content>#write :is(sup, sub)+sub::before {
+// 针对 文本着色（指定格式） 的前缀提示样式
+content>#write @{colorCodeBeforeSpanFmt}::before,
+content>#write @{colorCodeBeforeSupSub}::before {
     content: "";
 }
 
-// 表格列格式
-content>#write table th:not([style*=":right"])>span>span:not([md-inline="plain"])::before,
+// 表格列格式：右对齐
+content>#write table th:not([style*=":right"])>span>span:not([md-inline="plain"]):only-child:before,
 content>#write table th[style*=":right"]>span::before {
     content: "CF/列格式";
     text-transform: uppercase;
@@ -1491,7 +1578,7 @@ content>#write table th[style*=":right"]>span::before {
     margin-bottom: @paragraphPadding;
 }
 
-// 有序列表下的任务列表
+// 有序列表下的任务清单
 #write ol>.md-task-list-item { // 1 级
     list-style-type: none !important;
 }
@@ -1511,7 +1598,7 @@ content>#write table th[style*=":right"]>span::before {
     list-style-type: none !important;
 }
 
-// 无序列表下的任务列表
+// 无序列表下的任务清单
 #write ul>.md-task-list-item { // 1 级
     list-style-type: none !important;
 }
@@ -1531,11 +1618,11 @@ content>#write table th[style*=":right"]>span::before {
     list-style-type: none !important;
 }
 
-// 任务列表
+// 任务清单
 .md-task-list-item {
     padding-left: 32px;
 }
-// 任务列表复选框
+// 任务清单复选框
 @taskListMarginLeft: -1.25em;
 .md-task-list-item>input {
     margin-top: .5em !important;
@@ -1549,7 +1636,7 @@ content>#write table th[style*=":right"]>span::before {
     vertical-align: middle;
 }
 
-// 任务列表文本
+// 任务清单文本
 .md-task-list-item>p {
     margin-top: 0;
     margin-bottom: 0;
@@ -1572,9 +1659,11 @@ content>#write table th[style*=":right"]>span::before {
 
 // ====================
 // 第 1 题注（编辑时样式）
+// 注意：因格式与 @menuStepPath_OnEditing 接近，注意调整时进行多点验证
+//
 // 高亮内的斜体，或斜体内的高亮
 // 针对题注简化语法的样式
-@cap1_OnEditing: ~'p>[md-inline="em"]>em>[md-inline="highlight"]>mark';
+@cap1_OnEditing: ~'p>[md-inline="em"]:only-child>em>[md-inline="highlight"]>mark';
 @cap2_OnEditing: @cap1_OnEditing~'>[md-inline="em"]>em';
 // #write p>em>mark,
 content>#write @{cap1_OnEditing} {
@@ -1613,6 +1702,76 @@ content>#write @{cap2_OnEditing}::before {
 content>#write .md-expand mark .md-meta {
     color: @aHoverColor;//var(--a-color);
     opacity: 1 !important;
+}
+
+// ====================
+// 面包屑（分步分级）样式
+// 注意：因格式与 @cap1_OnEditing 接近，注意调整时进行多点验证
+@stepwisePrefix_OnEditing: ~'[md-inline="em"]';
+@stepwiseSuffix_OnEditing: ~'>em>[md-inline="highlight"]>mark';
+// @stepwise_OnEditing: ~'[md-inline="em"]:not(:only-child)>em>[md-inline="highlight"]>mark';
+// 调整该选择器时须同步调整 vlook.js 中 Stepwise 对应的选择器
+// @menuStepPath_OnExported: ~'em>mark:only-child';
+@triangleWidth: .625em;
+@stepwiseTextColor: var(--d-fc);
+content>#write p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing},
+content>#write .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing},
+.v-stepwise {
+    font: normal .875em var(--v-f-fm-code);
+    line-height: 1.25;
+    // font: normal .875em var(--v-f-fm-bd);
+    background-color: var(--std-code-shadow);//var(--d-fc);
+    color: @stepwiseTextColor;
+    box-shadow: none;
+    text-shadow: none;
+    padding: 5px 15px 5px 10px;
+    border-radius: var(--v-r-tag);
+    clip-path: polygon(0 0, calc(100% - @triangleWidth) 0, 100% 50%, calc(100% - @triangleWidth) 100%, 0 100%);
+    position: relative;
+    display: inline-block;
+}
+// 分步分级内容分隔样式
+.v-stepwise {
+    cursor: var(--cur-copy-normal);
+    // ;
+}
+@arrowWidth: 20%;
+.v-stepwise label {
+    background-color: @stepwiseTextColor;
+    width: @triangleWidth;
+    display: inline-block;
+    clip-path: polygon(0 0, @arrowWidth 0, 100% 50%, @arrowWidth 100%, 0 100%, 100% - @arrowWidth 50%);
+    margin: 0 5px;
+    opacity: .2;
+}
+content>#write p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing} a,
+content>#write .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing} a,
+body.typora-export .v-stepwise a {
+    color: @stepwiseTextColor !important;
+    font-weight: var(--v-f-w-bd);
+}
+// 内嵌的文本链接编辑时样式
+content>#write p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing} .md-link .md-url,
+content>#write .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing} .md-link .md-url {
+    color: var(--a-color);
+}
+content>#write p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing} a::after,
+content>#write .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing} a::after,
+.v-stepwise a::after {
+    content: "◥";//" ➤";//"↗️";//"↗︎";
+    color: var(--a-color);
+    // content: "";
+    // background: url("data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PHBhdGggZD0iTTQzMiAxNzguMDQ4YzIwLjggMCAzNy42OTYgMTYuNjQgMzcuNjk2IDM3LjMxMmEzNy41MDQgMzcuNTA0IDAgMCAxLTM3Ljc2IDM3LjMxMkgyMzkuMzZjLTE5Ljg0IDAtMzUuODQgMTUuODcyLTM1Ljg0IDM1LjUyVjc4NS45MmMwIDE5LjU4NCAxNiAzNS41MiAzNS44NCAzNS41Mkg3NDIuNGMxOS43NzYgMCAzNS44NC0xNS45MzYgMzUuODQtMzUuNTJWNTgzLjc0NGMwLTIwLjYwOCAxNi44MzItMzcuMjQ4IDM3LjY5Ni0zNy4yNDggMjAuOCAwIDM3LjY5NiAxNi42NCAzNy42OTYgMzcuMjQ4djIwMi4yNEExMTAuNzIgMTEwLjcyIDAgMCAxIDc0Mi4yNzIgODk2SDIzOS4zNkExMTAuNzIgMTEwLjcyIDAgMCAxIDEyOCA3ODUuOTJWMjg4LjE5MmMuMDY0LTYwLjggNDkuOTItMTEwLjA4IDExMS4zNi0xMTAuMTQ0SDQzMnpNODQwLjEyOCAxMjhjMzAuNzg0IDAgNTUuNzQ0IDI0LjcwNCA1NS44MDggNTUuMTY4VjM5MC40YTM3LjUwNCAzNy41MDQgMCAwIDEtMzcuNjk2IDM3LjM3NiAzNy44ODggMzcuODg4IDAgMCAxLTI2LjYyNC0xMC44OCAzNy4xMiAzNy4xMiAwIDAgMS0xMS4wNzItMjYuNDMydi0xNDQuOTZMNTI1Ljc2IDUzNy4zNDRjLTcuMDQgNy4wNC0xNi42NCAxMC45NDQtMjYuNjg4IDEwLjg4YTM3LjY5NiAzNy42OTYgMCAwIDEtMzQuODgtMjMuMDQgMzYuOTkyIDM2Ljk5MiAwIDAgMSA4LjI1Ni00MC42NEw3NTcuMzc2IDIwMi41Nkg2MTAuOTQ0YTM3LjUwNCAzNy41MDQgMCAwIDEtMzcuNjk2LTM3LjI0OGMwLTIwLjYwOCAxNi44OTYtMzcuMzEyIDM3Ljc2LTM3LjMxMmgyMjkuMTg0eiIgZmlsbD0iIzk5OSIvPjwvc3ZnPg==");
+    width: 20px;
+    height: 20px;
+    vertical-align: super;
+    margin-left: 2px;
+    font-size: .75em;
+}
+content>#write p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing} a:hover::after,
+content>#write .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing} a:hover::after,
+.v-stepwise a:hover::after {
+    color: @aHoverColor !important;
 }
 
 /**************************************
@@ -1688,7 +1847,8 @@ content>#write @{summaryOnEditing} {
 .md-fences.md-focus {
     box-shadow: var(--v-input-focus-shadow) !important;
     // box-shadow: var(--v-input-focus-inn-shadow), var(--v-input-focus-shadow);
-    border-color: @docLibButtonBgColor;
+    border-color: var(--a-color);
+    // border-color: @docLibButtonBgColor;
 }
 .md-fences.md-focus .md-diagram-panel {
     margin-top: 4px !important;
@@ -1744,7 +1904,8 @@ content>#write blockquote>h6+:is(.md-fences, figure) {
 }
 
 .CodeMirror-line:hover {
-    background: var(--tbl-th-bg);
+    // background: var(--tbl-th-bg);
+    background: var(--ac-t1-fade);
 }
 
 .CodeMirror.cm-s-inner {
@@ -1764,9 +1925,15 @@ content>#write blockquote>h6+:is(.md-fences, figure) {
 }
 
 .CodeMirror-linenumber {
-    color: var(--h-f);
+    // color: var(--h-f);
+    color: var(--d-fc-a);//var(--h-f);
     font-family: var(--v-f-fm-num);
     min-width: fit-content !important; // 避免某些窄字体，总行数为 11 行号时，第 10 行会错位
+}
+// 代码块获得焦点后，突出当前行号
+.CodeMirror-focused .CodeMirror-activeline-gutter>.CodeMirror-linenumber {
+    color: var(--h-f) !important;
+    font-weight: var(--v-f-w-bd);
 }
 
 .cm-s-inner :is(.cm-variable, .cm-operator, .cm-property) {

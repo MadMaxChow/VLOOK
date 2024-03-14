@@ -1,0 +1,21 @@
+/**************************************
+ *
+ * VLOOK 模板主题
+ *
+ * powered by MAX°孟兆
+ *
+ * QQ Group: 805502564
+ * email: maxchow@qq.com
+ *
+ *************************************/
+
+@import "vlook-owl";
+
+// 主题信息
+@themeName: "vlook-owl-en";
+@themeDesc: "Owl (En)";
+
+// 自定义章节自动编号
+// h1{{#ALPHA#. }},h2{{STEP-##-min#: }}
+@h1BeforeContent: counter(h1, upper-alpha) ". ";
+@h2BeforeContent: "STEP-" counter(h2) ": ";

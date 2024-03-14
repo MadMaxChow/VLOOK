@@ -3,8 +3,8 @@
  * VLOOK CSS - @media 相关的样式
  * (配合 base.less 进行使用)
  *
- * V22.0
- * 2024-01-20
+ * V23.0
+ * 2024-03-14
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -16,7 +16,10 @@
  *
  *************************************/
 
- @gSmallScreenWidth:1279px; // 修改时须同步修改 vlook.js 的同名参数
+// **********
+// 修改时须同步修改 vlook.js 的同名参数
+@gSmallScreenWidth:1270px;
+// **********
 
 // ---------------
 // 针对大于等于该分辨设备的 UI 调整
@@ -487,7 +490,6 @@
         // --------------------
         // 颜色变量
         --d-bc: var(--d-bc-dk);
-        // --d-bc-tsp: var(--d-bc-tsp-dk);
         --fade-r: var(--fade-r-dk);
         --fade-g: var(--fade-g-dk);
         --fade-b: var(--fade-b-dk);
@@ -497,7 +499,6 @@
 
         --pn-c: var(--pn-c-dk);
         --pn-c-a: var(--pn-c-a-dk);
-        // --pn-c-tsp: var(--pn-c-tsp-dk);
         --pn-fade-r: var(--pn-fade-r-dk);
         --pn-fade-g: var(--pn-fade-g-dk);
         --pn-fade-b: var(--pn-fade-b-dk);
@@ -532,14 +533,27 @@
         --v-fig-grid-l-invert: var(--v-fig-grid-l-invert-dk);
         --v-fig-grid-b-invert: var(--v-fig-grid-b-invert-dk);
 
-        //--v-fig-grid-l: var(--v-fig-grid-l-dk);
-        //--v-fig-grid-b: var(--v-fig-grid-b-dk);
-
         --key-bg: var(--key-bg-dk);
         --key-reflect: var(--key-reflect-dk);
         --key-shadow: var(--key-shadow-dk);
 
         --doc-shadow: var(--doc-shadow-dk);
+
+        --cur-pointer: var(--cur-pointer-dk);
+        --cur-copy-normal: var(--cur-copy-normal-dk);
+        --cur-copy-as-md: var(--cur-copy-as-md-dk);
+        --cur-copy: var(--cur-copy-normal);
+        --cur-text: var(--cur-text-dk);
+        --cur-laser: var(--cur-laser-dk);
+        --cur-md: var(--cur-md-dk);
+        --cur-doclib: var(--cur-doclib-dk);
+        --cur-http: var(--cur-http-dk);
+        --cur-https: var(--cur-https-dk);
+        --cur-email: var(--cur-email-dk);
+        --cur-docment: var(--cur-docment-dk);
+        --cur-archive: var(--cur-archive-dk);
+        --cur-risk: var(--cur-risk-dk);
+        --cur-inner: var(--cur-inner-dk);
 
         --ac-rd: var(--ac-rd-dk);
         --ac-rd-a: var(--ac-rd-a-dk);
@@ -634,6 +648,32 @@
         --ac-t2-fade: var(--ac-t2-fade-dk);
         --ac-t2-title: var(--ac-t2-title-dk);
 
+        // ---
+
+        --ac-gd-fade-bd: var(--ac-gd-fade-bd-dk);
+        --ac-pk-fade-bd: var(--ac-pk-fade-bd-dk);
+        --ac-ye-fade-bd: var(--ac-ye-fade-bd-dk);
+        --ac-lm-fade-bd: var(--ac-lm-fade-bd-dk);
+        --ac-aq-fade-bd: var(--ac-aq-fade-bd-dk);
+        --ac-la-fade-bd: var(--ac-la-fade-bd-dk);
+
+        --ac-bn-fade-bd: var(--ac-bn-fade-bd-dk);
+        --ac-ro-fade-bd: var(--ac-ro-fade-bd-dk);
+        --ac-rd-fade-bd: var(--ac-rd-fade-bd-dk);
+        --ac-og-fade-bd: var(--ac-og-fade-bd-dk);
+        --ac-gn-fade-bd: var(--ac-gn-fade-bd-dk);
+        --ac-cy-fade-bd: var(--ac-cy-fade-bd-dk);
+        --ac-bu-fade-bd: var(--ac-bu-fade-bd-dk);
+        --ac-vn-fade-bd: var(--ac-vn-fade-bd-dk);
+        --ac-gy-fade-bd: var(--ac-gy-fade-bd-dk);
+
+        --ac-pu-fade-bd: var(--ac-pu-fade-bd-dk);
+        --ac-wn-fade-bd: var(--ac-wn-fade-bd-dk);
+        --ac-ol-fade-bd: var(--ac-ol-fade-bd-dk);
+        --ac-mn-fade-bd: var(--ac-mn-fade-bd-dk);
+        --ac-se-fade-bd: var(--ac-se-fade-bd-dk);
+        --ac-bk-fade-bd: var(--ac-bk-fade-bd-dk);
+
         // Typora 代码块着色样式变量
         --cm-keyword: var(--cm-keyword-dk);
         --cm-variable: var(--cm-variable-dk);
@@ -662,14 +702,11 @@
         --side-bar-bg-color: var(--d-bc-dk);
         --text-color: var(--d-fc-dk);
 
-        // --select-text-bg-color: @themeBgColorFade;
-
         --control-text-color: var(--d-fc-dk);
         --control-text-hover-color: var(--d-fc-dk);
         --window-border: 1px solid var(--pn-c-dk);
 
         --active-file-bg-color:  var(--d-bc-dk);
-        // --active-file-bder: var(--select-text-bg-color);
         --active-file-text-color: var(--d-fc-dk);
 
         --item-hover-bg-color: var(--pn-c-dk);
@@ -677,65 +714,13 @@
 
         --primary-color: @themeBgColor;
 
-        // --rawblock-edit-panel-bd: var(--d-bc-dk);
-
         --serch-select-bg-color: @themeBgColorFade;
     }
-
-    // // #write img[src*="grid=line"],
-    // // #write svg[data-inject-url*="grid=line"],
-    // #write .md-image[data-src*="#line"]>img, // 编辑时
-    // #write img[src*="#line"],
-    // #write svg[data-inject-url*="#line"] {
-    //     background: var(--v-fig-grid-l-dk);
-    //     // background: url(@figureGridLineDark);
-    // }
-    // // #write img[src*="grid=block"],
-    // // #write svg[data-inject-url*="grid=block"],
-    // #write .md-image[data-src*="#block"]>img, // 编辑时
-    // #write img[src*="#block"],
-    // #write svg[data-inject-url*="#block"] {
-    //     background: var(--v-fig-grid-b-dk);
-    //     // background: url(@figureGridBlockDark);
-    // }
 
     // 错误图片背景反色
     #write .md-img-error>.md-meta {
         filter: var(--v-invert-dark);
     }
-
-    // 图片 URL 参数指定在 Dark Mode 时反色
-    // #write img[src*="darksrc=invert"],
-    // #write svg[data-inject-url*="darksrc=invert"] {
-    //     filter: var(--v-invert-dark);
-    //     border-color: var(--img-bd-invert) !important;
-    //     // 使用反色后的背景，以适应在反色中显示为正常效果
-    //     background-color: @figureSolidBgLight;
-    // }
-
-    // // #write img[src*="darksrc=invert"][src*="grid=line"],
-    // // #write svg[data-inject-url*="darksrc=invert"][data-inject-url*="grid=line"],
-    // #write .md-image[data-inject-url*="darksrc=invert"].md-image[data-src*="#line"]>img, // 编辑时
-    // #write img[src*="darksrc=invert"][src*="#line"],
-    // #write svg[data-inject-url*="darksrc=invert"][data-inject-url*="#line"] {
-    //     background: var(--v-fig-grid-l-invert);
-    // }
-
-    // // #write img[src*="darksrc=invert"][src*="grid=block"],
-    // // #write svg[data-inject-url*="darksrc=invert"],[data-inject-url*="grid=block"],
-    // #write .md-image[data-inject-url*="darksrc=invert"].md-image[data-src*="#block"]>img, // 编辑时
-    // #write img[src*="darksrc=invert"][src*="#block"],
-    // #write svg[data-inject-url*="darksrc=invert"],[data-inject-url*="#block"] {
-    //     background: var(--v-fig-grid-b-invert);
-    // }
-
-    // #write a:hover img[src*="darksrc=invert"],
-    // #write a:hover svg[data-inject-url*="darksrc=invert"] {
-    // #write a:hover :is(
-    // img[src*="darksrc=invert"],
-    // svg[data-inject-url*="darksrc=invert"]) {
-    //     filter: var(--v-invert-dark) brightness(1.3) !important;
-    // }
 
     // 备注文本
     .noteText tspan {

@@ -13,7 +13,7 @@ vlook-chp-autonum: h1{{#ALPHA#. }},h2{{#00#-sup# - }},h3{{#ROMAN-min# - }}
 vlook-doc-lib: vlook-lib.html
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看^[wán]^法<br>──<br><u>脚本化图表参考指南</u><br>`#最新版本|V22.0#`<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>脚本化图表参考指南</u><br>*最新版本`V23.0`*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
@@ -39,7 +39,7 @@ Mermaid 是一个用于画流程图、状态机图、顺序图、甘特图的库
 
 > ###### 60 秒学会、10 分钟深入学习 Markdown 语法
 >
-> 1. `#推荐#` **Github Flavored Markdown** (GFM) 语法参考：Typora 目前采用该标准 [详细](https://support.typora.io/Markdown-Reference/)；
+> 1. *`推荐`* **Github Flavored Markdown** (GFM) 语法参考：Typora 目前采用该标准 [详细](https://support.typora.io/Markdown-Reference/)；
 > 2. 标准化 **CommonMark** 语法参考：[60 秒学会 Markdown 语法](http://commonmark.org/help/)、[10 分钟深入学习 Markdown](http://commonmark.org/help/tutorial/)。
 
 # 建模类图表
@@ -321,11 +321,11 @@ end
 3. 建议使用实体别名，以提高画图脚本的复用度和可维护性；
 4. 支持三类消息线条：同步请求消息、异步请求消息、返回消息；
 5. 角色在标准的一类样式的基础上，增加三类扩展的样式，在输出HTML后应用 [VLOOK™](https://github.com/madmaxchow/VLOOK) 插件后渲染为不同的样式：
-   - **重要系统/角色**：在角色名称前添加两个星号 `**`，如 `**后端支撑系统名称`
+   - **重要系统/角色**：在角色名称前添加两个星号 `***，如 ***后端支撑系统名称`
    - **外部系统/角色**：在角色名称前添加两个减号 `--`，如 `--外部系统名称`
    - **前端触点/角色**：在角色名称前添加 at 符号 `@`，如 `@小程序名称`
    
-     > `#推荐#`~(Gn)~ 从 Typora 1.7.x 版本后建议使用 Mermaid 建议的 `actor` 代替 `participant`
+     > *`推荐`*_~Gn~_ 从 Typora 1.7.x 版本后建议使用 Mermaid 建议的 `actor` 代替 `participant`
 6. 支持对三类标签分组在输出 HTML 后应用 [VLOOK™](https://github.com/madmaxchow/VLOOK) 插件渲染为不同的样式：
    - `loop...end`：循环
    - `opt...end`：可选
@@ -760,7 +760,7 @@ class 班级_Class {
 
 ```mermaid
 ---
-title: Entity Relationship Diagrams example
+title: Entity Relationship Diagrams example中
 ---
 erDiagram
     CUSTOMER }|..|{ DELIVERY-ADDRESS : has
