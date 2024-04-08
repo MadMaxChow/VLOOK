@@ -87,11 +87,9 @@ VLOOK™ through the ongoing **excavation and expansion of** Markdown and CSS, c
 
 # Custom VIP Theme
 
-Currently VLOOK ™ project has opened the topic of **private customized** services, customized sample examples are as follows:
+The "**Private Customization Service**" for Themes is now open! Here are some reference cases for private customization.
 
 ![私人定制主题](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-vip-demo.png)
-
-(The above is only the effect and sample display, informal customized service finished product)
 
 Personal customized theme service WeChat: **MaxChow**, or Email (**[maxchow@qq.com](mailto:maxchow@qq.com)**)
 

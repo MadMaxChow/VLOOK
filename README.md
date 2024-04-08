@@ -87,17 +87,13 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 # 私人定制主题
 
-目前 VLOOK™ 项目已开放了主题的 **私人定制** 服务，定制样品示例如下：
+目前现已开放主题的「**私人定制服务**」，以下为部分私人定制案例参考。
 
 ![私人定制主题](https://madmaxchow.gitee.io/vlookres/pic/vlook-theme-vip-demo.png)
 
-（以上仅为效果仅为样品展示，非正式定制服务成品）
-
-私人定制主题服务微信：**MaxChow**
+私人定制服务请微信联系：`MaxChow` 或电子邮件 (**[maxchow@qq.com](mailto:maxchow@qq.com)**)
 
 ---
-
-
 
 # 字体主题
 
