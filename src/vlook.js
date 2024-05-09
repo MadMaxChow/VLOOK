@@ -13524,7 +13524,7 @@ function ExtFigure_init() {
                 if (card.c(_display_) !== _none_)
                     return;
 
-                _t.c(_filter_, "brightness(.75)");
+                _t.c(_filter_, "brightness(.8)");
 
                 // let padding = JS_parseInt(_t.c(_paddingLeft_)),
                 //     borderBottomWidth = JS_parseInt(_t.c(_borderBottomWidth_));
