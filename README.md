@@ -86,7 +86,7 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 # 范例参考
 
-[![样式与交互丰富的API文档](https://vlook-doc.pages.dev/pic/sample-a-api_spec.png?srcset=@2x#card#border)](sample-a-api_spec.html?ws=off)    [![分类清晰有进度的待办便签](https://vlook-doc.pages.dev/pic/sample-a-to_do.png?srcset=@2x#card#border)](sample-a-to_do.html?ws=off)    [![图片和文字也可以很和谐](https://vlook-doc.pages.dev/pic/sample-a-img_text.png?srcset=@2x#card#border)](sample-a-img_text.html?ws=off)    [![可折叠的分类参考信息](https://vlook-doc.pages.dev/pic/sample-a-routes.png?srcset=@2x#card#border)](sample-a-routes.html?ws=off)    [![对项目信息分类整理的看板](https://vlook-doc.pages.dev/pic/sample-a-board.png?srcset=@2x#card#border)](sample-a-board.html?ws=off)    [![互动问答原来可以这样简单](https://vlook-doc.pages.dev/pic/sample-a-quiz.png?srcset=@2x#card#border)](sample-a-quiz.html?ws=off)
+[![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-api_spec.png?srcset=@2x#card#border)](sample-a-api_spec.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-to_do.png?srcset=@2x#card#border)](sample-a-to_do.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-img_text.png?srcset=@2x#card#border)](sample-a-img_text.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-routes.png?srcset=@2x#card#border)](sample-a-routes.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-board.png?srcset=@2x#card#border)](sample-a-board.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-quiz.png?srcset=@2x#card#border)](sample-a-quiz.html?ws=off)
 
 ---
 
