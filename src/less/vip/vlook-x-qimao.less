@@ -9,8 +9,11 @@
  * email: maxchow@qq.com
  *
  * For(wechat): holysheng
+ * 2024-1
  *
- * 该主题的高校参数要求如下：
+ * 配套的预置选项：
+ * vlook-chp-autonum: h1{{#none#}},h2{{#none#}},h3{{### }},h4{{### }},h5{{#ALPHA-min# }}
+ * 配套的调校参数要求：
  * quote=off
  *
  *************************************/
@@ -18,8 +21,10 @@
 @import "../theme-hope";
 
 // 主题信息
+@themeVer: "V24.0";
 @themeName: "vlook-x-qimao";
 @themeDesc: "× QiMao";
+@themeEmail: "882007@qq.com";
 
 // 指定字体主题
 .applyFontStyle(local);
@@ -31,7 +36,7 @@
 @bgDark4Theme: #222420;
 .applyDocBgColor(@bgLight4Theme, @bgDark4Theme);
 .applyDocTextColor(@bgDark4Theme, @bgLight4Theme);
-.applyPanelColor(@panelColorLight, @panelColorDark);
+// .applyPanelColor(@panelColorLight, @panelColorDark);
 .applyDocBgImg(url(""), url(""));
 
 :root {
@@ -45,10 +50,10 @@
 @theme3: #FFFFFF;
 // @theme4: @bgLight4Theme;
 @theme1Dark: @theme1;
-@theme1Alt: #F0DBC5;
-@theme1AltDark: #61350A;
+@theme1Alt: #FAEDE1;
+@theme1AltDark: #6B3B0B;
 @theme2Dark: @theme2;
-@theme2Alt: #C6D1D7;
+@theme2Alt: #D8E4EB;
 @theme2AltDark: #004E75;
 
 @themeForeColor: @theme1;
@@ -65,18 +70,15 @@
 // 标题内文本背景
 @h2SpanBackground: @buttonBgColor;
 // 标题色
-@headerColor: @themeForeColor;
-@headerColorDark: lighten(@themeForeColor, 10%);
+@headerColor: @theme1;
+@headerColorDark: @theme1Dark;
 // 渐变标题色 h1-h5
-@lgHeaderBg: none;
-@lgHeaderBgClip: inherit;
-@lgHeaderColor: @headerColor;
-// 标题色
-@lgH2Color: @buttonForeColor;
+// @lgHeaderBg: none;
+// @lgHeaderBgClip: inherit;
+// @lgHeaderColor: @headerColor;
 
 // 章节自动编号格式
-// 导出的 HTML 中不生效，须添加以下 VLOOK 调校参数：
-// vlook-chp-autonum: h1{{#none#}},h2{{#none#}},h3{{### }},h4{{### }},h5{{#ALPHA-min#. }}
+// 导出的 HTML 中不生效，须添加以下 VLOOK 的调校参数「vlook-chp-autonum」
 @h1BeforeContent: "";
 @h2BeforeContent: "";
 @h3BeforeContent: counter(h3) " ";
@@ -149,6 +151,9 @@
 @backCoverTextPadding: 50px 80px;
 @backCoverTextColor: @themeForeColor;
 
+@contrastBorder: 0 0 0 0 transparent;
+@contrastBorderForCover: 0 0 0 2px rgba(0, 0, 0, 0.1) inset;
+
 // 封面背景设置
 @coverBackgroundColor: @themeBgColor;
 @coverBackgroundImage: var(--thm-c-bg1);
@@ -169,7 +174,5 @@
 }
 
 @import "../base";
-
-.genHeaderSpan(h2, @lgH2Color, @h2SpanBackground, @h2SpanPadding, @h2SpanBorderRadius);
 
 @import "../gsa";

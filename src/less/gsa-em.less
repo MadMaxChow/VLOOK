@@ -3,8 +3,8 @@
  * VLOOK CSS 基础库 (for GitHub Style Alert)
  * (配合 base.less 进行使用)
  *
- * V23.0
- * 2024-03-14
+ * V24.0
+ * 2024-05-09
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -27,8 +27,18 @@
     // 背景
     @alertTypePaddingTop4emLg: @alertTypePaddingTop4em + 2em; // 适配调整类型显示位置的高度
     #write .md-alert-@{type} {
-        background: linear-gradient(180deg, ~"var(--ac-@{accColor})" @alertTypePaddingTop4emLg, ~"var(--ac-@{accColor}-fade)" @alertTypePaddingTop4emLg, ~"var(--ac-@{accColor}-fade)") !important;
+        background: linear-gradient(180deg, ~"var(--ac-@{accColor})" @alertTypePaddingTop4emLg, ~"var(--ac-@{accColor}-a)" @alertTypePaddingTop4emLg, ~"var(--ac-@{accColor}-fade)") !important;
         border: @imgBorderWidth solid ~"var(--ac-@{accColor}-lg)" !important;
+    }
+    // GSA 内的引用微调
+    #write .md-alert-@{type} @{quote_details} {
+        background: ~"var(--d-bc)" !important;
+        // background: ~"var(--ac-@{accColor}-fade)" !important;
+        // border-radius: var(--v-r-s);
+    }
+    // 引用内的 GSA 微调
+    #write @{quote_details} .md-alert-@{type} {
+        border-radius: var(--v-r-b) !important;
     }
     // after 提示
     #write .md-alert-text-@{type} .md-meta {

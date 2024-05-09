@@ -8,16 +8,18 @@
  * Telegram Channel: t.me/vlook_markdown
  * email: maxchow@qq.com
  *
- * For: 1046218884@qq.com
- * (wechat): wed3200
+ * For(wechat): wed3200
+ * 2022-1
  *
  *************************************/
 
 @import "../theme-thinking";
 
 // 主题信息
+@themeVer: "V24.0";
 @themeName: "vlook-x-bug320";
 @themeDesc: "× bug320";
+@themeEmail: "1046218884@qq.com";
 
 // 指定主题配套的圆角
 .applyThemeRadius(big);
@@ -56,15 +58,15 @@
 
 @headerTextAlign: left;
 // 标题色
-@headerColor: @themeForeColor;
-@headerColorDark: @themeForeColor;
+@headerColor: @theme1;
+@headerColorDark: @theme1Dark;
 // 渐变标题色 h1-h5
-@lgHeaderBg: none;
-@lgHeaderBgClip: inherit;
-@lgHeaderColor: @headerColor;
+// @lgHeaderBg: none;
+// @lgHeaderBgClip: inherit;
+// @lgHeaderColor: @headerColor;
 @headerBackground: linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
 @headerPadding: 5px 10px;
-@headerLetterSpacing: 0;
+//@headerLetterSpacing: 0;
 // 标题的左边框
 @h1BorderLeft: 0;
 @h2BorderLeft: 0;
@@ -86,13 +88,14 @@
 
 // 封面、封底文字位置及对齐方式
 @coverTextPadding: 240px 80px 60px 80px;
-@coverTextColor: @aLineColor;
+@coverTextColor: @aHoverColor;
 @coverSubColor: @themeForeColor;
 @coverUnderlineColor: #606070;
 @coverAuthorColor: @coverUnderlineColor;
 
 @backCoverTextAlign: center;
 @backCoverTextPadding: 300px 0 0 0;
+@backCoverTextColor: @theme3;
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
 @contrastBorderForCover: 0 0 0 2px fade(@themeForeColor, 20%) inset;

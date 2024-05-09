@@ -17,6 +17,7 @@
 @welcomeAutoCloseDelay: 3;
 
 // 主题信息
+@themeVer: "V24.0";
 @themeName: "vlook-geek";
 @themeDesc: "Geek";
 
@@ -54,19 +55,34 @@
 @themeBgColorAlt: lighten(@themeBgColor, 40%);
 
 // 标题色
-@headerColor: @themeForeColor;
-@headerColorDark: @themeForeColor;
+@headerColor: @theme3;
+@headerColorDark: @theme3;
 // 渐变标题色 h1-h5
-@lgHeaderBg: linear-gradient(135deg, @theme3 25%, @theme2);
-@lgHeaderBgClip: text;
-@lgHeaderColor: transparent;
+// @lgHeaderBg: linear-gradient(135deg, @theme3 25%, @theme2);
+// @lgHeaderBgClip: text;
+// @lgHeaderColor: transparent;
+@lgH1Bg: linear-gradient(135deg, @theme3 25%, @theme2);
+@lgH2Bg: @lgH1Bg;
+@lgH3Bg: @lgH1Bg;
+@lgH4Bg: @lgH1Bg;
+@lgH5Bg: @lgH1Bg;
+@lgH1BgClip: text;
+@lgH2BgClip: @lgH1BgClip;
+@lgH3BgClip: @lgH1BgClip;
+@lgH4BgClip: @lgH1BgClip;
+@lgH5BgClip: @lgH1BgClip;
+@lgH1Color: transparent;
+@lgH2Color: @lgH1Color;
+@lgH3Color: @lgH1Color;
+@lgH4Color: @lgH1Color;
+@lgH5Color: @lgH1Color;
 // 6 级标题前缀内容
 @h6BeforeContent: "❖ ";
 // @tocHeaderNumColor: @docTextColorLightFade;
 @contentHeaderNumColor: @themeForeColorFade;
 @headerBackground: linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
 @headerPadding: 5px 0 5px 10px;
-@headerLetterSpacing: 0;//0.3em;
+//@headerLetterSpacing: 0;//0.3em;
 // 标题的上边框
 @h1BorderTop: 9px solid var(--h-box-shadow);
 @h2BorderTop: 7px solid var(--h-box-shadow);

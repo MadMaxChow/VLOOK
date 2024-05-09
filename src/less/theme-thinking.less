@@ -17,6 +17,7 @@
 @welcomeAutoCloseDelay: 3;
 
 // 主题信息
+@themeVer: "V24.0";
 @themeName: "vlook-thinking";
 @themeDesc: "Thinking";
 
@@ -54,12 +55,28 @@
 @themeBgColorAlt: lighten(@themeBgColor, 45%);
 
 // 标题色
-@headerColor: @themeBgColor;
-@headerColorDark: @themeBgColor;
+@headerColor: @theme1;
+@headerColorDark: @theme1Dark;
 // 渐变标题色 h1-h5
-@lgHeaderBg: linear-gradient(135deg, @theme1 25%, @theme2);
-@lgHeaderBgClip: text;
-@lgHeaderColor: transparent;
+// @lgHeaderBg: linear-gradient(135deg, @theme1 25%, @theme2);
+// @lgHeaderBgClip: text;
+// @lgHeaderColor: transparent;
+@lgH1Bg: linear-gradient(135deg, @theme1 25%, @theme2);
+@lgH2Bg: @lgH1Bg;
+@lgH3Bg: @lgH1Bg;
+@lgH4Bg: @lgH1Bg;
+@lgH5Bg: @lgH1Bg;
+@lgH1BgClip: text;
+@lgH2BgClip: @lgH1BgClip;
+@lgH3BgClip: @lgH1BgClip;
+@lgH4BgClip: @lgH1BgClip;
+@lgH5BgClip: @lgH1BgClip;
+@lgH1Color: transparent;
+@lgH2Color: @lgH1Color;
+@lgH3Color: @lgH1Color;
+@lgH4Color: @lgH1Color;
+@lgH5Color: @lgH1Color;
+
 // 6 级标题前缀内容
 @h6BeforeContent: "❖ ";
 // @tocHeaderNumColor: @docTextColorLightFade;
@@ -68,7 +85,15 @@
 @multiHeaderBG: @headerBackground;
 @headerTextAlign: right;
 @headerPadding: 5px 30px 5px 0;
-@headerLetterSpacing: 0;//0.3em;
+//@headerLetterSpacing: 0;//0.3em;
+
+// 不进行章节自动编号
+@ChpAutoNum: off;
+@h1BeforeContent: "";
+@h2BeforeContent: "";
+@h3BeforeContent: "";
+@h4BeforeContent: "";
+@h5BeforeContent: "";
 
 @h1BorderLeft: 15px solid var(--h-box-shadow);
 @h2BorderLeft: 15px solid var(--h-box-shadow);
@@ -167,7 +192,7 @@
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
 @contrastBorder: 0 0 0 0 transparent;
-@contrastBorderForCover: 0 0 0 2px rgba(0, 0, 0, 0.1) inset;
+@contrastBorderForCover: 0 0 0 2px rgba(34, 36, 38, 0.2) inset;
 
 // 封面背景设置
 @coverBackgroundColor: #EDEDED;

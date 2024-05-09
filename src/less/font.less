@@ -3,8 +3,8 @@
  * VLOOK CSS 字体主题、圆角样式
  * (配合 base.less 进行使用)
  *
- * V23.0
- * 2024-03-14
+ * V24.0
+ * 2024-05-09
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -128,6 +128,7 @@ U+007B-007E; // {|}~
 @mono_local_en: "SF Mono", Menlo, "Cascadia Mono", Consolas, @base_mono;
 @mono_macos_en: "SF Mono", Menlo, @base_mono;
 @mono_win_en: "Cascadia Mono", Consolas, @base_mono;
+// "JetBrains Mono" 用于 YiKuan 定制主题用
 @base_mono_sans_en: "VLOOK Sans Mono", "Noto Sans Mono", @mono_local_en;
 @base_mono_macos_en: "VLOOK Sans Mono", "Noto Sans Mono", @mono_macos_en;
 @base_mono_win_en: "VLOOK Sans Mono", "Noto Sans Mono", @mono_win_en;
@@ -141,6 +142,9 @@ U+007B-007E; // {|}~
 @base_noto_serif_sets: "Noto Serif CJK SC", "Noto Serif CJK HK", "Noto Serif CJK TW";
 @base_source_sans_sets: "思源黑体", "Source Han Sans SC", "Source Han Sans CN", "Source Han Sans HK", "Source Han Sans HC", "Source Han Sans TW", "Source Han Sans TC";
 @base_source_serif_sets: "思源宋体", "Source Han Serif SC", "Source Han Serif CN", "Source Han Serif HK", "Source Han Serif HC", "Source Han Serif TW", "Source Han Serif TC";
+
+// 在主题中优先使用的等宽字体
+@themeMonoFont: "";
 
 // =========================================
 // 系统本地默认字体信息
@@ -156,7 +160,10 @@ U+007B-007E; // {|}~
 @ms_jh: "Microsoft JhengHei", "微軟正黑體", @base_sans_cn;
 @msjh_mono: @base_mono_macos_en, @ms_jh, monospace;
 // ---
-@localFont: "HarmonyOS Sans SC", "MiSans VF", "OPlus Sans SC", -apple-system, Roboto, @apple_sf, @ms_yh, @ms_jh;
+// 2024/4: HarmonyOS Sans SC 在 macOS 14.x Typora 编辑时光标定位有问题
+// @localFont: "HarmonyOS Sans SC", "MiSans VF", "OPlus Sans SC", -apple-system, Roboto, @apple_sf, @ms_yh, @ms_jh;
+// @localFont: -apple-system, Roboto, @apple_sf, @ms_yh, @ms_jh;
+@localFont: -apple-system, Roboto, @apple_sf, @ms_yh, @ms_jh;
 @monoLocalFont: @mono_local_en, @localFont, @base_sans_cn, monospace;//, @ms_yh_mono, @msjh_mono;
 @fontBoldWeight4Local: @ms_yh_fw_bold;
 @fontBoldWeightText4Local: @ms_yh_fw_text;

@@ -9,26 +9,35 @@
  * email: maxchow@qq.com
  *
  * For(wechat): MaxChow
+ * 2023-3
+ *
+ * 配套的预置选项：
+ * vlook-chp-autonum: h1{{#none#}},h2{{#none#}},h3{{### }},h4{{### }},h5
  *
  *************************************/
 
-@import "../theme-owl";
+@import "../font";
+@import "../color";
+@import "../common";
+
+@welcomeAutoCloseDelay: 3;
 
 // 主题信息
+@themeVer: "V24.0";
 @themeName: "vlook-x-dic";
 @themeDesc: "× DIC";
+@themeEmail: "maxchow@qq.com";
 
 // 指定字体主题
-// .applyFontStyle(book);
-.applyFontStyle(win);
-// .applyFontStyle(sans);
-// .applyFontStyle(serif);
+// .applyFontStyle(win);
+.applyFontStyle(local);
 // 文档背景使用图片
 .applyDocBgImg(@docBgImgLight_Twill_R, @docBgImgDark_Twill_R);
 // 指定主题配套的圆角
 .applyThemeRadius(small);
 
 :root {
+    --thm-email: "maxchow@qq.com";
     --thm-fav-logo-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAMAAAC8EZcfAAABm1BMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////XFRcAn+n+9PQRpuvvpaXtlZaL0/TiU1Qire2d2vfwqqvumpqfOU763t/g9P2j3fiR1fYIourysLHfQkPbKCr4/f+t4fnvnp/s+P7//f3Z8vzL7PtGuvD96+z3z8/jW137/v9zy/NhxPJTv/Ebquz1vr/ma2zYGh295vqU1/ZtyPM+t+83tO4oru3zt7jsi4zodnfncXLlZmfkYGHhUFLePD7cMTTaISPYHiDYGBrl9Pu25Pn++PiF0fV+z/QtsO352dn2ycrwoqPskJHqhYbqgYLoenvgR0ndNjfx+f7u+P3E6fqg2/f41NWzk6VyVnq6Y3HiVlfPKS/R7vzZ6fTO3+375OTAy926vtC3s8Ylh8X1xMS0pLe3dITAUV3hTE7HO0TI2OjG1eUJmeBFc6a0iZtTapi0hJbriImSQlu8RVC3KTZBQjxaAAAAHHRSTlMAqv2++PPdpXFMKgXqtJiLfj80IRgP09HHdmFWkZlOiAAABWlJREFUeNrt2WdXE0EUgOExoSZKUbDe3UA0gKAbBEMgiBSRJtIEpCmIYEOw99792YZ4kp3NbJy7yRy5H+b9A/McDjP3LjCdTqfT6XQ6nU6n0+VTMFB+rLKidN8ex9w7WOUvAhK56Q5VlQCZRF6g1AeEyubV0OIJwLJiIJaDV3sAyOW4HIeBXpyvej8QzPYdJ/Lw5QKWE7u92cAAuevrBNYSmh1uwKAfqMZSVQLZ/u4uRC9IBngU6LbrOwGE2wUeAcLtPtFAuSSQ4ArjANYQvsIpYBmQjjG6QyQVCxaB2kIF1gGOWDUoLBTemDMK7Ao4UvorGL1mFF4zOGIVoKywoaDZDnCk8I5cmVcB3ABnrAQUlZg1VDQBzpiyT7lxQ0lN4IwVg6Ja1QBfgzMGigoZakqAnVJgtxrfObBTC1xVA9wBOzmwZalrJZK74RauLSPZhWauiXyA6x6AbcuW+c/OAte2kWwcuC7kA2zEA2NjpqTLwPVImKN5zb0HaGDPiCkrBnbX7TlayLWeX0QDL0p9dcD10Ug2B1w38wHOABYYs6TALuB6KczR8/kAJ9HABlPaReD6KszRq/kA19DAXjnwPnC9S70yTeeTra7WJ2ucyWtbRQNX5MBO/krNGUp6hgX2WHJgG9g9UeObBSzwsdw3BlzP1QDfo4FnMo6hhhwNAdcbI1lrPVdqjszUY1rLrOJX0cCL3GPnXvsScL0V5uikfaCkkL1JnkcDu9LAEXDvstUOXB+MZFHgmkkfKGtx2sh0Ew3sTwOHwbVOy4yD3R1hji7Opw+U1DFl2IWwwLtmugZwK15nWsD1VJijD4QDhcT3/BpggfdcHzs4my5imqPA9UKYo43CgTea3HIsjRfQwCHXxy5ucvUC15YwR9ftA/FffbdkQHHQRRwXlwc6XpltYY7uCAdOyYFRNHA0zegDrmUeeO/f2+o54cBNOfAGGpgZdMvA1ccD7/LbqjBHE8KBIblvsAMLbMkwHI9dhPP1A9cnYY6+tg/Ef5a2ggQo/rI5H7vc26owR5uEA+vlwEto4FKaYQlvj+u2+l0YaxPCgbflwLAMKP6yjeZcss84tlVhrG0IB07LgQNo4JjrYzfMAx+DXdtg9ljrmBMOPCcHJrDANsv105z/DrUc26ow1pqFAxOYP8tggZ3un+Z1HHDFsa0KYy0qHDggB06jgffdP81Nrj5hWxXH2rTHv1/flgBl2+oCD3Ruq+JYEw68JAeuooFdro/dSR64IGyr4lir9/j31240sN/1ses8w3WHXx7FsSYeGG3MkS0PYYEx7tMc09McYy0EiJoyvk3AAi9z2yqmF+5jbRMQRY1MU2jgWW5bxbTlPtamQN7AoA38gQb22p/mqLbdx9o4SOue47dVNHA0AzyJ6lHqJxjmSo21ybA0x/hrRgMt01OvVP3/AQuMm976ogY4iQa2ewQ+VAMcQAOXPQJ/KvG1AhrY5xH4W4VvsBsPjHjzfTZUFAY0sM3cg0u8Bnhgp0fgNwUvTBQ8ABv+9yWeXU+AF+CwV+Bp136dwrRz6dZACMATcMRUUjuoSQTWqQHGwE4p8LoaXxfYqQUuKNBx36vqgSeV+PpAVcXZwF4Vvv4YqGp/NnBFhS8OyirJAvZYhftGWkBd/ixgvPAf31APKKwiC9heV0iR0eGFHlBaGQPaVRMHFgWJA/2MOLCMONBXQxx4gBEHlhMHHmHEgSeIA48y2kDfQeLASkYb6A/SBpbUMtLA4gAjDfSVM9LAouOMNHB/NSMNPHyIkQYeqGWUgcVljBEG+kprGGGgrzTAGF1gSdUhxqgCi/xVB5l7+/a40orKY+WBINPpdDqdTqfT6XQ6XR79AaHVNQCh3aypAAAAAElFTkSuQmCC");
     --thm-fav-logo-dk: var(--thm-fav-logo-lg);
 }
@@ -41,7 +50,7 @@
 @theme1Alt: #CCEFFF;//lighten(@theme1, 15%);
 @theme1AltDark: #004666;//darken(@theme1, 35%);//@codeBgColorDark;
 @theme2Dark: #DF1618;//darken(@theme2, 20%);
-@theme2Alt: #FAD1D1;//lighten(@theme2, 20%);//lighten(@theme2, 50%);
+@theme2Alt: #FADCDD;//lighten(@theme2, 20%);//lighten(@theme2, 50%);
 @theme2AltDark: #5D090A;//darken(@theme2, 35%);//darken(@theme2Alt, 75%);
 @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
 @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
@@ -54,43 +63,46 @@
 @themeBgColorAlt: lighten(@themeForeColor, 42%);
 
 // 标题色
-@headerColor: @themeForeColor;
-@headerColorDark: @themeForeColor;
+@headerColor: @theme1;
+@headerColorDark: @theme1Dark;
 // 渐变标题色 h1-h5
-@lgHeaderBg: linear-gradient(135deg, @theme1 25%, #2060E0);
-// 6 级标题前缀内容
+// @lgHeaderBg: linear-gradient(135deg, @theme1 25%, #2060E0);
+// @lgHeaderBgClip: text;
+// @lgHeaderColor: transparent;
+@lgH1Bg: linear-gradient(135deg, @theme1 25%, #2060E0);
+@lgH2Bg: @lgH1Bg;
+@lgH3Bg: @lgH1Bg;
+@lgH4Bg: @lgH1Bg;
+@lgH5Bg: @lgH1Bg;
+@lgH1BgClip: text;
+@lgH2BgClip: @lgH1BgClip;
+@lgH3BgClip: @lgH1BgClip;
+@lgH4BgClip: @lgH1BgClip;
+@lgH5BgClip: @lgH1BgClip;
+@lgH1Color: transparent;
+@lgH2Color: @lgH1Color;
+@lgH3Color: @lgH1Color;
+@lgH4Color: @lgH1Color;
+@lgH5Color: @lgH1Color;
+
+// 自定义章节自动编号
+// 导出的 HTML 中不生效，须添加以下 VLOOK 的调校参数「vlook-chp-autonum」
+@h1BeforeContent: "第" counter(h1) "章 ";
 @h6BeforeContent: "▰▱ "; // ■ ▱▰ ⏥▰▱
+
+// @tocHeaderNumColor: @docTextColorLightFade;
+@contentHeaderNumColor: @themeForeColorFade;
 @headerBackground: none;//linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
+@multiHeaderBG: none;
+@headerTextAlign: center;
 @headerPadding: 10px 0 0 0;
-@headerLetterSpacing: 0;//0.15em;
-// 标题的左边框
-@h1BorderLeft: 0;
-@h2BorderLeft: 0;
-@h3BorderLeft: 0;
-@h4BorderLeft: 0;
-@h5BorderLeft: 0;
-@h6BorderLeft: 0;
-// 标题的右边框
-@h1BorderRight: 0;
-@h2BorderRight: 0;
-@h3BorderRight: 0;
-@h4BorderRight: 0;
-@h5BorderRight: 0;
-@h6BorderRight: 0;
-// 标题的上边框
-@h1BorderTop: 0;//9px solid var(--h-box-shadow);
-@h2BorderTop: 0;//7px solid var(--h-box-shadow);
-@h3BorderTop: 0;//5px solid var(--h-box-shadow);
-@h4BorderTop: 0;//3px solid var(--h-box-shadow);
-@h5BorderTop: 0;//1px solid var(--h-box-shadow);
-@h6BorderTop: 0;
+//@headerLetterSpacing: 0;//0.15em;
 @h1Margin: 2em 0 0 0;
 @h2Margin: 2em 0 0 0;
 @h3Margin: 1.5em 0 0 0;
 @h4Margin: 1.5em 0 0 0;
 @h5Margin: 1.25em 0 0 0;
-
-@h1BeforeContent: counter(h1) ". ";
+@h6Margin: 1em 0 0 0;
 
 @headerTextAlign: left;
 
@@ -105,9 +117,18 @@
 @buttonForeColor: @themeBgColor;
 @buttonForeHoverColor: @theme3;
 @buttonBgColor: @themeForeColor;
+// 文库按钮颜色
+@docLibButtonForeColor: @buttonForeColor;
+@docLibButtonForeHoverColor: @buttonForeHoverColor;
+@docLibButtonBgColor: @buttonBgColor;
 
 // 链接颜色
-@aBorderWidth: 1px;
+@aBorderWidth: 2px;
+@aColor: @headerColor;
+@aColorDark: @headerColorDark;
+@aLineColor: @theme2;
+@aHoverColor: @aLineColor;
+@aActiveColor: desaturate(@aLineColor, 50%);
 
 // 表格边框
 @tblBdWidth: 1px;
@@ -166,6 +187,8 @@
 @coverTextAfterFontSize: @coverTextBeforeFontSize;
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
+// @contrastBorder: 0 0 0 1px rgba(0, 0, 0, .2);
+@contrastBorder: 0 0 0 0 transparent;
 @contrastBorderForCover: 0 0 0 2px fade(@themeForeColor, 20%) inset;
 
 // 封面背景设置

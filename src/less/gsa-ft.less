@@ -3,8 +3,8 @@
  * VLOOK CSS 基础库 (for GitHub Style Alert)
  * (配合 base.less 进行使用)
  *
- * V23.0
- * 2024-03-14
+ * V24.0
+ * 2024-05-09
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -29,9 +29,19 @@
     // }
     // 背景
     #write .md-alert-@{type} {
-        background: ~"var(--ac-@{accColor}-fade)";
+        background: ~"var(--ac-@{accColor}-a)";
         border: none;
         border-top: 2px solid ~"var(--ac-@{accColor})";
+    }
+    // GSA 内的引用微调
+    #write .md-alert-@{type} @{quote_details} {
+        background: ~"var(--d-bc)" !important;
+        // background: ~"var(--ac-@{accColor}-fade)" !important;
+        border-radius:  0 0 var(--v-r-s) var(--v-r-s) !important;
+    }
+    // 引用内的 GSA 微调
+    #write @{quote_details} .md-alert-@{type} {
+        border-radius: 0 0 var(--v-r-s) var(--v-r-s) !important;
     }
     // after 提示
     #write .md-alert-text-@{type} .md-meta {

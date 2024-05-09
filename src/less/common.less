@@ -3,8 +3,8 @@
  * VLOOK CSS 多主题间的通用样式
  * (配合 base.less、主题.less 进行使用)
  *
- * V23.0
- * 2024-03-14
+ * V24.0
+ * 2024-05-09
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -16,19 +16,21 @@
  *
  *************************************/
 
- // -----
+// -----
 // #Common_LESS_Var
-@tableRowNumTop: 4px; // 表格行自动编号的高度
+@themeEmail: "maxchow@qq.com";
+
+@tableRowNumTop: 4px; // 表格逐行自动编号的高度
 @tableRowCursor: "▶️"; // 表格当前行鼠标 hover 游标
 // @tableCellPadding: 8px; // 表格单元格边距
 @focusCursor: "✏️"; // 编辑焦点行游标
 @focusStyle: @aBorderWidth dashed @aLineColor; // 焦点、焦点行样式
 @miniLineHeight: 1;
 @defaultLineHeight: 1.5;
-@paragraphPadding: .75em;//.625em; // 段落空白
+@paragraphPadding: .5em;//.75em;//.625em; // 段落空白
 @paragraphInnerLineHeight: 1.5;
 @figurePadding: 20px; // 插图内、间、行空白
-@hoverBrightness: 120%;
+@hoverBrightness: 90%;
 @scrollFix: 8px; // 针对 Mermaid 图表，不添加会导致出现滚动条
 @syntaxTipsFont: italic normal 10px/1 var(--v-f-fm-bd); // 语法提示字体设置
 
@@ -55,7 +57,7 @@
 @docBgImgDark_Twill_R: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgAgMAAACf9p+rAAAACVBMVEX///////////+OSuX+AAAAA3RSTlMBDQhAwViWAAAALElEQVRIx+3NwQAAAAgEwXvFEF4qmUewBO0ITAqkQQZkgYeHh4eHh4fHp+MApP8932G+Z1sAAAAASUVORK5CYII=");
 // 电路
 @docBgImgLight_EC: url("data:image/png;base64,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");
-@docBgImgDark_EC: url("data:image/png;base64,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");
+@docBgImgDark_EC: url("data:image/png;base64,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");
 // 波浪
 @docBgImgLight_Wave: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABaAQMAAABniyE+AAAABlBMVEUAAAAAAAClZ7nPAAAAAnRSTlMABQb5ObcAAACISURBVDjL7c+xDQIxDIXhP4p0blDuSopIrJDSHStlAjCbWWIRswElBRK0ka6+Lu793vvY3Q1WJ33gCvCDS5C/cDdIT0M7UuDlkB9OV4qQPEAIolKzZevYQscL5+SZhhVa8gXFhQ0/ocmERixsw1svMIRqhaGyKuOg9c04V2LHmcAJnMAJPBT4B1dv8/3llFzqAAAAAElFTkSuQmCC");
 @docBgImgDark_Wave: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABaAgMAAAAgK1vuAAAACVBMVEUAAAD///////9zeKVjAAAAA3RSTlMABwMsPgOjAAAAwElEQVRIx+2RwQ3EIAwEFyQeLiDXAX1QAo+AeFIKSg3J1Xv25hspV4B5sGI12ODF28qDck3bY1sm0nGfeJTWCbZBsJEMI5umeRmyHUS6EEklmG5IhuzYlvIVRLIaKqcZiFVZbVCUVf1AFRhEwiSSFhImnbzofGGX4iAsqFqFjhQ6GYRPraAaJlunReQDIvc/2DrubCmVr8pFWdN5ETnMjF3MlJGVf54GB/U8RQ74ZXlGnpFn5Bl5Rp6RZ+QZ/ZPRD8aD6RdPhRfPAAAAAElFTkSuQmCC");
@@ -104,7 +106,7 @@
 @tableFirstTdBoxShadow: 0 -1px 0 0 var(--tbl-h-bd);
 @tableTdBoxShadow: none;
 // 表格十字光标颜色
-@tableCrossBgColor: fade(@aLineColor, 50%);
+@tableCrossBgColor: fade(@aLineColor, 30%);
 
 // 标题的阴影样式
 @h1Shadow: none;
@@ -170,6 +172,8 @@
 @h5BorderBottom: 0;
 @h6BorderBottom: 0;
 
+@headerLetterSpacing: 0;
+
 // 标题边距
 @headerPadding: 5px 0;
 @h1Padding: @headerPadding;
@@ -202,27 +206,37 @@
 
 // 标题背景
 @headerBackground: none;
-@h1SpanBackground: @headerBackground;
-@h2SpanBackground: @headerBackground;
-@h3SpanBackground: @headerBackground;
-@h4SpanBackground: @headerBackground;
-@h5SpanBackground: @headerBackground;
+@h1Bg: @headerBackground;
+@h2Bg: @headerBackground;
+@h3Bg: @headerBackground;
+@h4Bg: @headerBackground;
+@h5Bg: @headerBackground;
 
 // 标题颜色
-@h1Color: @headerColor;
-@h2Color: @headerColor;
-@h3Color: @headerColor;
-@h4Color: @headerColor;
-@h5Color: @headerColor;
-@h6Color: @headerColor;
+@h1Color: var(--h-f);//@headerColor;
+@h2Color: var(--h-f);//@headerColor;
+@h3Color: var(--h-f);//@headerColor;
+@h4Color: var(--h-f);//@headerColor;
+@h5Color: var(--h-f);//@headerColor;
+@h6Color: var(--h-f);//@headerColor;
 
-// 标题颜色渐变时，内文本的颜色
-@lgHeaderColor: @headerColor;
-@lgH1Color: @lgHeaderColor;
-@lgH2Color: @lgHeaderColor;
-@lgH3Color: @lgHeaderColor;
-@lgH4Color: @lgHeaderColor;
-@lgH5Color: @lgHeaderColor;
+// 标题颜色渐变时配置
+@lgH1Bg: none;
+@lgH2Bg: none;
+@lgH3Bg: none;
+@lgH4Bg: none;
+@lgH5Bg: none;
+@lgH1BgClip: inherit;
+@lgH2BgClip: inherit;
+@lgH3BgClip: inherit;
+@lgH4BgClip: inherit;
+@lgH5BgClip: inherit;
+// @lgHeaderColor: @headerColor;
+@lgH1Color: var(--h-f);
+@lgH2Color: var(--h-f);
+@lgH3Color: var(--h-f);
+@lgH4Color: var(--h-f);
+@lgH5Color: var(--h-f);
 
 // 标题前缀 before 颜色
 // @contentH1NumColor: @contentHeaderNumColor;
@@ -235,18 +249,31 @@
 // 连续标题背景
 @multiHeaderBG: none;
 
+@h1Margin: 2em 0 0 0;
+@h2Margin: 2em 0 0 0;
+@h3Margin: 1.5em 0 0 0;
+@h4Margin: 1.5em 0 0 0;
+@h5Margin: 1.25em 0 0 0;
+@h6Margin: 1em 0 0 0;
+
 // 生成针对 h1-h6 标题内文本的扩展样式
-.genHeaderSpan(@header, @color, @background, @padding, @borderRadius) {
-    #write @{header}>span {
-        color: @color;
-        background: @background; // 该项因涉及到渐变文字颜色，不能作为所有主题的通用配置，须根据实际主题需要独立调用
-        padding: @padding;
-        border-radius: @borderRadius;
-    }
-}
+// .genHeaderSpan(@header, @color, @background, @padding, @borderRadius) {
+//     #write @{header}>span {
+//         color: @color;
+//         background: @background; // 该项因涉及到渐变文字颜色，不能作为所有主题的通用配置，须根据实际主题需要独立调用
+//         padding: @padding;
+//         border-radius: @borderRadius;
+//     }
+// }
 
 // 标题对齐方式
 @headerTextAlign: left;
+@h1TextAlign: @headerTextAlign;
+@h2TextAlign: @headerTextAlign;
+@h3TextAlign: @headerTextAlign;
+@h4TextAlign: @headerTextAlign;
+@h5TextAlign: @headerTextAlign;
+@h6TextAlign: @headerTextAlign;
 
 // 多个连续标题间的距离
 @hContinuous: 0;
@@ -272,6 +299,9 @@
 @quoteBorderLeft: 0;
 @quoteRadius: var(--v-r-b);
 
+@theme1FadeDark: @theme1Fade;
+@theme2FadeDark: @theme2Fade;
+
 // 行内代码
 @codeTextColor: @theme2;
 @codeTextColorDark: @theme2Dark;
@@ -292,3 +322,52 @@
 // 封面、封底标题的文字轮廓样式
 @coverTextStroke: initial;
 @backCoverTextStroke: initial;
+
+// 生成表格、插图的不同对齐方式的样式
+.genTableAndFigureAlign(@align) when (@align = center) {
+    // 表格居中
+    // :is(#write, body.typora-export) table {
+    #write table {
+        margin: 0 auto;
+    }
+
+    // 明信片
+    content>#write .md-image[data-src*="#card"]>img,
+    content>#write .md-image[data-src*="#cardd"]::after,
+    #write .v-post-card,
+    #write img[src*="#card"],
+    #write svg[data-inject-url*="#card"],
+    // 编辑时 Mermaid 图的预览
+    .md-diagram-panel-preview>svg {
+        margin: 0 auto;
+        display: block;
+    }
+
+    // 列表分栏
+    // #write @{hr_MdHr}+ul,
+    // #write @{hr_MdHr}+ol,
+    // 编辑时题注居中
+    @nonFigure: ~':not(:is([data-src*="#icon"],[data-src*="#logo"],[data-src*="#frame"]))';
+    content>#write p:has([md-inline="em"]:only-child>em>[md-inline="highlight"]>mark),
+    content>#write p:has(>.md-image@{nonFigure}), // 段落内的图片
+    content>#write p:has(>.md-link>a>.md-image@{nonFigure}), // 段落内带链接的图片
+    #write .md-fences-adv-panel, // Mermaid 图
+    .v-cap-cntr, // 导出后题注居中
+    .v-caption.tbl>.v-cap-1 { // 表格题注样式
+        text-align: center;
+    }
+
+    // 列表分栏下的列表项
+    // #write @{hr_MdHr}+ul>li,
+    // #write @{hr_MdHr}+ol>li {
+    //     text-align: left;
+    // }
+
+    .v-cap-cntr.expander::before, // 折叠提示的样式居中
+    #write .v-post-card, // 明信片样式
+    .ty-table-edit { // 编辑时表格工具栏
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: var(--v-r-b) var(--v-r-b) 0 0 !important;
+    }
+}

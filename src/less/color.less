@@ -3,8 +3,8 @@
  * VLOOK CSS 调色板
  * (配合 base.less 进行使用)
  *
- * V23.0
- * 2024-03-14
+ * V24.0
+ * 2024-05-09
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -49,8 +49,9 @@
         --d-bi-dk: @bgImgDark;
     }
 }
-.applyDocBgImg(url(""), url(""));
-// .applyDocBgImg(#FFFFFF, #181A1D);
+.applyDocBgImg(none, none);
+//.applyDocBgImg(url(""), url(""));
+
 /**
  * 文档文字色
  * @param colorLight 在 Light Mode 的颜色
@@ -92,7 +93,7 @@
         --pn-fade-b-dk: blue(@colorDark);
         --blockquote-bg-dk: @colorDark;
 
-        --btn-bc: @buttonBgColor;
+        // --btn-bc: @buttonBgColor;
 
         // 指定在 Dark Mode 时反转的图片边框颜色（先使用反色，这样在反转时则能保持与色一致）
         @tmpBorderColor: @colorDark;
@@ -100,7 +101,7 @@
     }
 }
 @panelColorLight: #E8EAED;
-@panelColorDark: #303234;
+@panelColorDark: #383A3C;
 .applyPanelColor(@panelColorLight, @panelColorDark);
 
 /**
@@ -311,8 +312,8 @@
     --ac-se-fade-bd-dk: fade(@accColorSea, @accOpacityLowForDk);
     --ac-bk-fade-bd-dk: fade(@accColorBlack, @accOpacityLowForDk);
 
-    --ac-t1-fade-bd-dk: @theme1Fade;
-    --ac-t2-fade-bd-dk: @theme2Fade;
+    --ac-t1-fade-bd-dk: @theme1FadeDark;
+    --ac-t2-fade-bd-dk: @theme2FadeDark;
 
     // ---
 
@@ -339,6 +340,9 @@
     --ac-mn-fade-bd: var(--ac-mn-fade-bd-lg);
     --ac-se-fade-bd: var(--ac-se-fade-bd-lg);
     --ac-bk-fade-bd: var(--ac-bk-fade-bd-lg);
+
+    --ac-t1-fade-bd: var(--ac-t1-fade-bd-lg);
+    --ac-t2-fade-bd: var(--ac-t2-fade-bd-lg);
 }
 // --------------------
 // Mermaid 专用的强调色色板
@@ -392,6 +396,11 @@
     --std-code-shadow-lg: var(--pn-c-a-lg);//rgba(255, 255, 255, .5);
     --rb-code-shadow-lg: rgba(0, 0, 0, .3);
 
+    // 按钮类外阴影
+    --v-fl-sd-lg: 0 4px 16px rgba(0, 0, 0, .3);
+    // 按钮类内阴影（边框）
+    --v-fl-i-sd-lg: 0 0 0 1px rgba(0, 0, 0, .2) inset;
+
     // 代码块背景图（Light）
     --c-blk-bg-lg: @codeBlockBackground;
 
@@ -403,6 +412,9 @@
     // Dark Mode 时反色的图片网格背景（线状、块状)
     --v-fig-grid-l-invert-lg: var(--v-fig-grid-l-lg);
     --v-fig-grid-b-invert-lg: var(--v-fig-grid-b-lg);
+
+    // 代码块的系统菜单样式
+    --v-i-sys-menu: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCA1MiAxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxjaXJjbGUgc3Ryb2tlPSIjRTY1NzUwIiBmaWxsPSIjRkU2MDU4IiBjeD0iNiIgY3k9IjYiIHI9IjUuNSIvPjxjaXJjbGUgc3Ryb2tlPSIjRTZBQjJBIiBmaWxsPSIjRkZCRTJGIiBjeD0iMjYiIGN5PSI2IiByPSI1LjUiLz48Y2lyY2xlIHN0cm9rZT0iIzIxQjAzOSIgZmlsbD0iIzI2Qzk0MSIgY3g9IjQ2IiBjeT0iNiIgcj0iNS41Ii8+PC9nPjwvc3ZnPg==");
 
     --key-bg-lg: @keycapColor;
     --key-reflect-lg: lighten(@keycapColor, 20%);
@@ -522,6 +534,11 @@
     --std-code-shadow-dk: var(--pn-c-a-dk);
     --rb-code-shadow-dk: rgba(255, 255, 255, .3);
 
+    // 按钮类外阴影
+    --v-fl-sd-dk: 0 4px 16px rgba(0, 0, 0, .6);
+    // 按钮类内阴影（边框）
+    --v-fl-i-sd-dk: 0 0 0 1px rgba(0, 0, 0, .5) inset;
+
     // 代码块背景图（Dark）
     --c-blk-bg-dk: @codeBlockBackgroundDark;
 
@@ -626,18 +643,18 @@
     --ac-bk-title-dk: var(--d-fc-dk);
     --ac-t1-dk: @theme1Dark;
     --ac-t1-a-dk: @theme1AltDark;
-    --ac-t1-fade-dk: @theme1Fade;
+    --ac-t1-fade-dk: @theme1FadeDark;
     --ac-t1-title-dk: var(--d-fc-dk);
     --ac-t2-dk: @theme2Dark;
     --ac-t2-a-dk: @theme2AltDark;
-    --ac-t2-fade-dk: @theme2Fade;
+    --ac-t2-fade-dk: @theme2FadeDark;
     --ac-t2-title-dk: var(--d-fc-dk);
 
     // --------------------
     // #Color_Scheme
     // 实际应用的颜色变量（自动适配 Color Scheme）
     --v-invert-dark: var(--v-invert-dark-lg); // 默认的图片滤镜
-    --v-invert-hover: var(--v-invert-hover-lg); // 默认的图片链接的 hover 滤镜
+    // --v-invert-hover: var(--v-invert-hover-lg); // 默认的图片链接的 hover 滤镜
     --v-brightness-dark: var(--v-brightness-dark-lg); // 默认的封面、封底滤镜
     --v-selection-color: var(--v-selection-color-lg);
 
@@ -676,6 +693,11 @@
     --code-t: var(--code-t-lg);
     --std-code-shadow: var(--std-code-shadow-lg);
     --rb-code-shadow: var(--rb-code-shadow-lg);
+
+    // 按钮类外阴影
+    --v-fl-sd: var(--v-fl-sd-lg);
+    // 按钮类内阴影（边框）
+    --v-fl-i-sd: var(--v-fl-i-sd-lg);
 
     // 代码块背景图
     --c-blk-bg: var(--c-blk-bg-lg);

@@ -9,14 +9,17 @@
  * email: maxchow@qq.com
  *
  * For(wechat): wunyunpeng
+ * 2023-5
  *
  *************************************/
 
 @import "../theme-thinking";
 
 // 主题信息
+@themeVer: "V24.0";
 @themeName: "vlook-x-vueb";
 @themeDesc: "× VueB";
+@themeEmail: "wuyp@vip.qq.com";
 
 // 文档背景使用图片
 .applyDocBgImg(@docBgImgLight_Twill_R, @docBgImgDark_Twill_R);
@@ -52,11 +55,26 @@
 
 // 标题色
 @headerColor: @theme1;
-@headerColorDark: @theme1;
+@headerColorDark: @theme1Dark;
 // 渐变标题色 h1-h5
-@lgHeaderBg: linear-gradient(135deg, @theme1 25%, @theme2);
-@lgHeaderBgClip: text;
-@lgHeaderColor: transparent;
+// @lgHeaderBg: linear-gradient(135deg, @theme1 25%, @theme2);
+// @lgHeaderBgClip: text;
+// @lgHeaderColor: transparent;
+@lgH1Bg: linear-gradient(135deg, @theme1 25%, @theme2);
+@lgH2Bg: @lgH1Bg;
+@lgH3Bg: @lgH1Bg;
+@lgH4Bg: @lgH1Bg;
+@lgH5Bg: @lgH1Bg;
+@lgH1BgClip: text;
+@lgH2BgClip: @lgH1BgClip;
+@lgH3BgClip: @lgH1BgClip;
+@lgH4BgClip: @lgH1BgClip;
+@lgH5BgClip: @lgH1BgClip;
+@lgH1Color: transparent;
+@lgH2Color: @lgH1Color;
+@lgH3Color: @lgH1Color;
+@lgH4Color: @lgH1Color;
+@lgH5Color: @lgH1Color;
 // 6 级标题前缀内容
 @h6BeforeContent: "❖ ";
 @headerPadding: 10px;

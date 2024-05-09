@@ -30,7 +30,7 @@ VLOOK™ is open source software and complies with the **[MIT license](#许可�
 > - **Telegram Channel** ([**vlook_markdown**](https://t.me/vlook_markdown)) 
 > - Email (**maxchow@qq.com**)
 
-#  Donate 打赏
+#  Donate
 
 | **If you like VLOOK™, you can contribute a cup of coffee :-)** |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**         |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |

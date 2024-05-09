@@ -3,8 +3,8 @@
  * VLOOK CSS - Mermaid 自定义样式
  * (配合 base.less 进行使用)
  *
- * V23.0
- * 2024-03-14
+ * V24.0
+ * 2024-05-09
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -1036,11 +1036,11 @@ svg[aria-roledescription="zenuml"] .bg-skin-frame {
 }
 
 // 导出后的样式微调
-body.typora-export svg[aria-roledescription="zenuml"] div[alt^="icon"]>svg {
+.typora-export-content>#write svg[aria-roledescription="zenuml"] div[alt^="icon"]>svg {
     width: 75% !important;
     // height: 75% !important;
 }
-body.typora-export svg[aria-roledescription="zenuml"] div[alt^="icon"] {
+.typora-export-content>#write svg[aria-roledescription="zenuml"] div[alt^="icon"] {
     margin-left: 4px; // = 32px * (100% - 75%) / 2
 }
 

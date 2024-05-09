@@ -1,13 +1,22 @@
 <!--
-VLOOK V23.0 (2024-03-14) - Typora Plugin (head meta)
+VLOOK V24.0 (2024-05-09) - Typora Plugin (head meta)
 Paste to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 粘贴至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
 -->
-<meta name="date" content="${date}">
+<!-- 以下为 W3C 相关的 meta 配置 -->
 <meta name="author" content="${author}">
-<meta name="keywords" content="${keywords}">
+<meta name="date" content="${date}">
 <meta name="description" content="${description}">
-<!-- 以下为 Open Graph Protocol 相关 meta 配置 -->
+<meta name="keywords" content="${keywords}">
+<!-- 以下为 VLOOK™ 相关的 meta 配置 -->
+<meta name="vlook-chp-autonum" content="${vlook-chp-autonum}">
+<meta name="vlook-chp-dup" content="${vlook-chp-dup}">
+<meta name="vlook-doc-lib" content="${vlook-doc-lib}">
+<meta name="vlook-gray-mode" content="${vlook-gray-mode}">
+<meta name="vlook-image-host" content="${vlook-image-host}">
+<meta name="vlook-query" content="${vlook-query}">
+<meta name="vlook-welcome" content="${vlook-welcome}">
+<!-- 以下为 Open Graph Protocol (OGP) 相关的 meta 配置 -->
 <meta property="og:image" content="${og:image}">
 <meta property="og:image:alt" content="${og:image:alt}">
 <meta property="og:title" content="${og:title}">
@@ -18,9 +27,3 @@ Paste to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta property="og:locale" content="${og:locale}">
 <meta property="og:video" content="${og:video}">
 <meta property="og:audio" content="${og:audio}">
-<!-- 以下为 VLOOK™ 相关 meta 配置 -->
-<meta name="vlook-chp-autonum" content="${vlook-chp-autonum}">
-<meta name="vlook-doc-lib" content="${vlook-doc-lib}">
-<meta name="vlook-query" content="${vlook-query}">
-<meta name="vlook-welcome" content="${vlook-welcome}">
-<meta name="vlook-image-host" content="${vlook-image-host}">

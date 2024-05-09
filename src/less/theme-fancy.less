@@ -17,6 +17,7 @@
 @welcomeAutoCloseDelay: 3;
 
 // 主题信息
+@themeVer: "V24.0";
 @themeName: "vlook-fancy";
 @themeDesc: "Fancy";
 
@@ -53,12 +54,12 @@
 @themeBgColorAlt: lighten(@themeBgColor, 25%);
 
 // 标题色
-@headerColor: @themeBgColor;
-@headerColorDark: lighten(@themeBgColor, 10%);
+@headerColor: @theme1;
+@headerColorDark: @theme1Dark;
 // 渐变标题色 h1-h5
-@lgHeaderBg: none;
-@lgHeaderBgClip: inherit;
-@lgHeaderColor: @headerColor;
+// @lgHeaderBg: none;
+// @lgHeaderBgClip: inherit;
+// @lgHeaderColor: @headerColor;
 // 6 级标题前缀内容
 @h6BeforeContent: "❖ ";
 // @tocHeaderNumColor: @docTextColorLightFade;
@@ -67,7 +68,15 @@
 @multiHeaderBG: @headerBackground;
 @headerTextAlign: right;
 @headerPadding: 5px 20px 0 5px;
-@headerLetterSpacing: 0;//0.15em;
+//@headerLetterSpacing: 0;//0.15em;
+
+// 不进行章节自动编号
+@ChpAutoNum: off;
+@h1BeforeContent: "";
+@h2BeforeContent: "";
+@h3BeforeContent: "";
+@h4BeforeContent: "";
+@h5BeforeContent: "";
 
 @h1BorderLeft: 15px solid var(--h-box-shadow);
 @h2BorderLeft: 15px solid var(--h-box-shadow);

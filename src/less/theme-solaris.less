@@ -17,6 +17,7 @@
 @welcomeAutoCloseDelay: 3;
 
 // 主题信息
+@themeVer: "V24.0";
 @themeName: "vlook-solaris";
 @themeDesc: "Solaris";
 
@@ -67,18 +68,18 @@
 @themeBgColorAlt: lighten(@themeBgColor, 40%);
 
 // 标题色
-@headerColor: @themeForeColor;
-@headerColorDark: @themeForeColor;
+@headerColor: @theme3;
+@headerColorDark: @theme3;
 // 渐变标题色 h1-h5
-@lgHeaderBg: none;
-@lgHeaderBgClip: inherit;
-@lgHeaderColor: @headerColor;
+// @lgHeaderBg: none;
+// @lgHeaderBgClip: inherit;
+// @lgHeaderColor: @headerColor;
 // 6 级标题前缀内容
 //@h6BeforeContent: "◼︎ ";
 // @tocHeaderNumColor: @docTextColorLightFade;
 @contentHeaderNumColor: @themeForeColorFade;
 @headerPadding: 5px 0;
-@headerLetterSpacing: 0;//0.15em;
+//@headerLetterSpacing: 0;//0.15em;
 // 标题的上边框
 @h1BorderTop: 9px solid var(--h-box-shadow);
 @h2BorderTop: 7px solid var(--h-box-shadow);
@@ -170,7 +171,7 @@
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
 @contrastBorder: 0 0 0 0 transparent;
-@contrastBorderForCover: 0 0 0 2px rgba(0, 0, 0, 0.1) inset;
+@contrastBorderForCover: 0 0 0 2px rgba(34, 36, 38, 0.2) inset;
 
 // 封面背景设置
 @coverBackgroundColor: #56569C;
