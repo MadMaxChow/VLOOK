@@ -12,8 +12,8 @@
 
 cd /Users/max/Documents/GitHub/pic-temp
 
-echo "复制 pic-temp 的内容至 VLOOK/samples/pic..."
-cp -f * ../VLOOK/samples/pic
+echo "复制 pic-temp 的内容至 VLOOK/docs/pic..."
+cp -f * ../VLOOK/docs/pic
 
 echo "复制 pic-temp 的内容至 VLOOK/released/samples/pic..."
 cp -f * ../VLOOK/released/samples/pic

@@ -11298,6 +11298,10 @@ function ExtAudio_init() {
          * @param targetToJump 坏链对象
          */
         function __addToLinkChecker(targetToJump) {
+            let title = targetToJump.a(_dataTitle_);
+            if (title === gUndefined) {
+                title = targetToJump.a(_src_);
+            }
             // 将无法加载的音频信息添加到链接检查器
             LinkTool_addToCheckResult(_error_, targetToJump,
                 V_ui_label(_, _, "🚫 🔈 " + [
@@ -11401,14 +11405,19 @@ function ExtVideo_init() {
 
         // 故障或不可用
         video.bind(_emptied_, () => {
+            let targetToJump = video.p(),
+                title = targetToJump.a(_dataTitle_);
+            if (title === gUndefined) {
+                title = targetToJump.a(_src_);
+            }
             // 将无法加载的音频信息添加到链接检查器
             // __addToLinkChecker(video.p().a(_id_), video.p().a(_dataTitle_));
             // 将无法加载的音频信息添加到链接检查器
-            LinkTool_addToCheckResult(_error_, video.p(),
+            LinkTool_addToCheckResult(_error_, targetToJump,
                 V_ui_label(_, _, "🚫 📺 " + [
                     "无效的视频源",
                     "Invalid video source"
-                ][V_lang_id]) + video.p().a(_dataTitle_));
+                ][V_lang_id]) + targetToJump.a(_dataTitle_));
             });
 
         // 加载错误
@@ -11900,7 +11909,6 @@ function TocCatalog(holder, hidden) {
         item.uC().ck((event) => {
             // 跳转至对应的页内锚点
             let hash = V_byID(item.a(_id_)).ch("a").a(_href_);
-            ERROR(111, item.t(), hash);
             V_util_gotoHash(hash);
 
             // 触发锚点点击事件
@@ -13277,6 +13285,9 @@ function ExtFigure_init() {
                     cp1 = fig.a(_alt_);
                     targetToJump = fig;//.a(_id_);
                 }
+                // alt 也为空时
+                if (cp1 === gUndefined)
+                    cp1 = fig.a(_src_);
                 // 添加无效链接项
                 LinkTool_addToCheckResult(_error_, targetToJump,
                     V_ui_label(_, _, "🚫 🖼 " + [
