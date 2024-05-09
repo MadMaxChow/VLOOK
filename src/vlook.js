@@ -170,7 +170,7 @@ let _ = "",
     _dataParentFolderId_ = "d-parent-" + _folder_ + "-id",
     _dataPid_ = "d-pid",
     _dataQuoteGroup_ = "d-" + _quote_ + "-" + _group_,
-    _dataRef_ = "d-ref",
+    _dataRef_ = "data-ref",
     _dataRbCellBg_ = "d-rb-cell-bg",
     _dataRbText_ = "d-rb" + __text_,
     _dataRbWholeText_ = "d-rb-whole" + __text_,
@@ -11900,6 +11900,7 @@ function TocCatalog(holder, hidden) {
         item.uC().ck((event) => {
             // 跳转至对应的页内锚点
             let hash = V_byID(item.a(_id_)).ch("a").a(_href_);
+            ERROR(111, item.t(), hash);
             V_util_gotoHash(hash);
 
             // 触发锚点点击事件
