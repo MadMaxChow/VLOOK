@@ -2,8 +2,8 @@
  *
  * VLOOK JS - Typora Plugin
  *
- * V24.0
- * 2024-05-09
+ * V24.1
+ * 2024-05-11
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -18,7 +18,7 @@
 
 let _ = "",
     ___ = " ",
-    gVer = "V24.0",
+    gVer = "V24.1",
     gThmVer = _,
     gThmName = _,
     iStopwatch = new Stopwatch(), // 初始化计时器
@@ -93,6 +93,7 @@ let _ = "",
     __shadow_ = "-shadow",
     _boxShadow_ = "box" + __shadow_,
     _br_ = "<br>",
+    _brightness_ = "brightness",
     _bubble_ = "bubble",
     _card_ = "card",
     _catalog_ = "catalog",
@@ -2392,7 +2393,7 @@ function V_ui_copyrightInfo() {
         V_ui_svgIcon(_icoVLOOK_, 24, 24, _dark_, _vCopyrightSvgIco_)
         + _2nbsp_
         + 'Published with ' + V_ui_a(_, _httpsPrefix_ + "github.com/MadMaxChow/VLOOK", V_ui_strong(_VLOOK_), __blank_)
-        + '™ (V24.0) &amp; ' + V_ui_a(_, _httpsPrefix_ + "www.typora.io", V_ui_strong("Typora"), __blank_) + '.' + _2nbsp_
+        + '™ (V24.1) &amp; ' + V_ui_a(_, _httpsPrefix_ + "www.typora.io", V_ui_strong("Typora"), __blank_) + '.' + _2nbsp_
         + 'Support: ' + V_ui_a(_, _httpsPrefix_ + "qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi", V_ui_strong("QQ Group"))
         + ' / ' + V_ui_a(_, 'mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + V_ver + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(gTrue)), V_ui_strong("Email")) + '.'
     );
@@ -6138,7 +6139,7 @@ ColorScheme.refresh = function () {
         _string = "string";
     V_util_changeCssVarSet([
         "--v-" + _invert_ + "-" + _dark_,
-        "--v-brightness-" + _dark_,
+        "--v-" + _brightness_ + "-" + _dark_,
         "--d-bc",
         "--d-bi",
         "-" + __fade_ + "-r",
@@ -6155,9 +6156,9 @@ ColorScheme.refresh = function () {
         __pn + __fade_ + "-r",
         __pn + __fade_ + "-g",
         __pn + __fade_ + "-b",
-        "--blockquote-bg",
+        "--" + _blockquote_ + "-bg",
         "--a-" + _color_,
-        "--mark-bg",
+        "--" + _mark_ + "-bg",
         __tbl + "bd",
         __tbl + "tr-hv",
         __tbl + "th-bg",
@@ -7305,7 +7306,7 @@ function LinkTool_checkLink() {
             let newHash = __disposeNonConformHash(hashNoMark);
             if (newHash.length < hashNoMark.length || newHash !== hashNoMark) {
                 _t.a(_href_, V_util_getUrlWithoutHash(href) + "#" + newHash);
-                WARN("Fixed link [" + _t.t() + "] hash:\n#" + hash + " --> " + "#" + newHash);
+                WARN("Fixed link [" + _t.t() + "] hash:\n#" + hashNoMark + " --> " + "#" + newHash);
             }
         }
     });
@@ -9145,7 +9146,7 @@ function ChpAutoNum_decimalToRoman(value, upperCase) {
 
 let ExtQuote_columnsGroupCount = 0,
     ExtQuote_processingUCH = gFalse,
-    ExtQuote_quoteToColoring = gTrue;
+    ExtQuote_quoteToColoring = gFalse;
 
 /**
  * 初始化引用块以实现折叠支持
@@ -9154,9 +9155,11 @@ function ExtQuote_init() {
     // 初始化引用块着色的默认颜色标识
     let dcQuote = V_util_getParamVal(_quote_);
     if (dcQuote !== gUndefined) {
-        if (dcQuote === _off_)
-            ExtQuote_quoteToColoring = gFalse;
-        else {
+        // if (dcQuote === _off_)
+        //     ExtQuote_quoteToColoring = gFalse;
+        // else {
+        if (dcQuote !== _off_) {
+            ExtQuote_quoteToColoring = gTrue;
             Quote_defalutColor = dcQuote;
             Quote_defalutColor_withoutEm = dcQuote.ss(0, 2);
         }
@@ -9190,33 +9193,33 @@ function ExtQuote_init() {
         // 跳过列表内、引用块内的嵌套引用块
         if (parentTag === "li" || parentTag === _blockquote_ || parentTag === _details_)
             return gTrue;
-        let coloringQuoteEnabled = gFalse;
+        let validColorCode = gFalse;
         // 判断引用块内是否包含了引用块着色语法
         // 针对新语法
         _t.f(">p>em" + _onlyChild_ + ">sub" + _onlyChild_).e((index, element) => {
             let _t = $(element);
             // 颜色标签独占一行的情况下才被视为是对引用块、详情的颜色标识
             if (_t.t().m(Color_syntax) != null) {
-                coloringQuoteEnabled = gTrue;
+                validColorCode = gTrue;
                 return gFalse;
             }
         });
         // 针对旧语法
         // 即将废弃 need to remove
-        if (coloringQuoteEnabled === gFalse) {
+        if (validColorCode === gFalse) {
             _t.f(">p>sub").e((index, element) => {
                 let _t = $(element);
                 // 颜色标签独占一行的情况下才被视为是对引用块、详情的颜色标识
                 if (ExtQuote_isValidColorMark(_t)
                     && _t.t().m(Color_syntaxOld) != null) {
-                        coloringQuoteEnabled = gTrue;
+                        validColorCode = gTrue;
                         return gFalse;
                 }
             });
         }
 
         // 引用块内不包含引用块着色语法的，则模拟指定默认的着色语法
-        if (ExtQuote_quoteToColoring && !coloringQuoteEnabled)
+        if (ExtQuote_quoteToColoring && !validColorCode)
             _t.ap("<p><em>" + V_ui_sub(_, _, Quote_defalutColor) + "</em></p>");
     });
 
@@ -13505,15 +13508,6 @@ function ExtFigure_init() {
         // card dual 模式的处理
         if (dual && blockquote.is(_html_)) {
             __setCardSize(img, inBlockquote);
-            // let _t = img,
-            //     card = _t.n();
-            // let padding = JS_parseInt(_t.c(_paddingLeft_)),
-            //     borderBottomWidth = JS_parseInt(_t.c(_borderBottomWidth_));
-            // let h = JS_parseInt(card.c(_height_)),
-            //     imgH = _t.h() + padding * 2,
-            //     bd = JS_parseInt(_t.c(_borderBottomWidth_));
-            // card.c(_width_, _t.w() + padding * 2)
-            //     .c(_top_, borderBottomWidth + _t.pos().top + imgH - h - bd);
         }
         // card 模式的处理
         else {
@@ -13524,21 +13518,9 @@ function ExtFigure_init() {
                 if (card.c(_display_) !== _none_)
                     return;
 
-                _t.c(_filter_, "brightness(.8)");
+                _t.c(_filter_, _brightness_ + "(.8)");
 
-                // let padding = JS_parseInt(_t.c(_paddingLeft_)),
-                //     borderBottomWidth = JS_parseInt(_t.c(_borderBottomWidth_));
-
-                // 设置卡片尺寸信息
-                // let h = JS_parseInt(card.c(_height_)),
-                //     imgH = _t.h() + padding * 2,
-                //     bd = JS_parseInt(_t.c(_borderBottomWidth_));
-                // card.c(_width_, _t.w() + padding * 2)
-                //     .c(_top_, borderBottomWidth + _t.pos().top + imgH - h - bd);
                 __setCardSize(_t);
-
-                // 计算卡片应所在的 left 值
-                // card.c(_left_, _t.pos().left);
 
                 // 显示
                 card.c(_display_, _block_);
@@ -13555,15 +13537,7 @@ function ExtFigure_init() {
                 }
             });
 
-            // 鼠标离开文字卡片后事件
-            // img.n().on(_mouseLeave_, (event) => {
-            //     if (!v_ui_mouseDropIn(img, event))
-            //         $(event.currentTarget).c(_display_, _none_);
-            // });
         }
-        // else {
-        //     // img.c(_cssText_, _borderWidth_ + ":0" + _important_);
-        // }
 
         V_doc_counter_postcard++;
 
@@ -13574,7 +13548,6 @@ function ExtFigure_init() {
         // 生成用于被检索的内容
         if (altTextForSearch === gUndefined)
             altTextForSearch = _;
-        // altTextForSearch += titleText;
 
         let anchor = "vk-id-psc" + V_doc_counter_postcard,
             caption = V_ui_span(_, _, [
@@ -13610,7 +13583,7 @@ function ExtFigure_init() {
             borderBottomWidth = JS_parseInt(img.c(_borderBottomWidth_)),
             h = JS_parseInt(card.c(_height_)),
             imgH = img.h() + padding + (inBlockquote ? padding : 0),
-            bd = JS_parseInt(img.c(_borderBottomWidth_));
+            bd = 0;//JS_parseInt(img.c(_borderBottomWidth_));
         card.c(_width_, img.w() + padding * 2)
             .c(_top_, borderBottomWidth + img.pos().top + imgH - h - bd);
     }

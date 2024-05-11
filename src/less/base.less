@@ -2,8 +2,8 @@
  *
  * VLOOK CSS 基础库
  *
- * V24.0
- * 2024-05-09
+ * V24.1
+ * 2024-05-11
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -479,7 +479,7 @@ content>#write .md-image[data-src*="#card"][data-src*="#border"]>img, // 编辑�
     display: block !important;
     position: initial !important;
     box-shadow: none !important;
-    border-radius:  0 0 var(--v-r-b) var(--v-r-b);
+    border-radius:  0 0 var(--v-r-b) var(--v-r-b) !important;
     transform: none;
 }
 
@@ -1257,7 +1257,7 @@ h6+h6) {
 
 #write hr {
     margin-top: 1em;
-    margin-bottom: 1em;
+    margin-bottom: .5em;
     border: 2px solid var(--ac-bk-fade);//var(--pn-c);
     // border: @quoteTitleBorderWidth solid var(--ac-bk-fade);//var(--pn-c);
     // border: none;
@@ -1476,13 +1476,17 @@ content>#write p:has(@{cap_prefix}) + figure {
 body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     color: var(--d-fc);
     // background: var(--ac-t1-fade);
-    background: @quoteBgDefault;//var(--blockquote-bg);
+    background: @quoteBgDefault; //var(--blockquote-bg);
     border-left: @quoteBorderLeft;
     border-radius: @quoteRadius;//var(--v-r-b);
     padding: .75em;
     // padding: @blockPaddingTop 1em;
     margin-top: @paragraphPadding;
     margin-bottom: 0;
+}
+// 导出后的微调
+.typora-export-content>#write>@{quote_details} {
+    margin-top: @paragraphPadding * 2;
 }
 // #write>@{quote_details} {
 //     margin-top: @paragraphPadding;
@@ -1640,30 +1644,30 @@ content>#write .md-hr+blockquote .md-hr+blockquote::before {
 }
 content>#write .md-hr+blockquote::before {
     content: "    ⬛︎ ⬛︎  2 Columns of Quote / 双栏引用块  ⬛︎ ⬛︎    ";
-    margin-top: -5em; //-3.8em;
+    margin-top: -3.8em; //-3.8em;
     line-height: 2em;
 }
 // 针对明信片 card cardd 的微调
 content>#write .md-hr+blockquote:has(.md-image[data-src*="#card"])::before {
-    margin-top: -3.6em;
+    margin-top: -2.5em;
 }
 content>#write .md-hr+.md-hr+blockquote::before {
     content: "    ⬛︎ ⬛︎ ⬛︎  3 Columns of Quote / 三栏引用块  ⬛︎ ⬛︎ ⬛︎    ";
-    margin-top: -5.2em; //-5.8em;
+    margin-top: -3.6em; //-5.8em;
     line-height: 2em;
 }
 // 针对明信片 card cardd 的微调
 content>#write .md-hr+.md-hr+blockquote:has(.md-image[data-src*="#card"])::before {
-    margin-top: -4em;
+    margin-top: -3em;
 }
 content>#write .md-hr+.md-hr+.md-hr+blockquote::before {
     content: "    ⬛︎ ⬛︎ ⬛︎ ⬛︎  4 Columns of Quote / 四栏引用块  ⬛︎ ⬛︎ ⬛︎ ⬛︎    ";
-    margin-top: -6em; //-7.6em;
+    margin-top: -4.2em; //-7.6em;
     line-height: 3em;
 }
 // 针对明信片 card cardd 的微调
 content>#write .md-hr+.md-hr+.md-hr+blockquote:has(.md-image[data-src*="#card"])::before {
-    margin-top: -4.8em;
+    margin-top: -3.2em;
 }
 // -----
 @quote_details: ~":is(blockquote, details)";
@@ -1939,7 +1943,13 @@ content>#write .CodeMirror-focused .CodeMirror-activeline-gutter>.CodeMirror-lin
 }
 
 #write .md-fences:not([class*="md-diagram"]) {
-    border-color: var(--d-fc);
+    // border-color: var(--d-fc);
+    border-color: var(--std-code-shadow);
+}
+.typora-export-content>#write .md-fences:not([class*="md-diagram"]) {
+    border-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 // 编辑时
 content>#write .md-fences:not([class*="md-diagram"])::before {
@@ -1952,7 +1962,8 @@ content>#write .md-fences:not([class*="md-diagram"])::before {
     background-position: 7px center;
     padding: 4px 4px 4px 70px;
     // background: var(--pn-c);
-    color: var(--d-bc);
+    color: var(--d-fc);
+    // color: var(--d-bc);
     opacity: .6;
     font-family: var(--v-f-fm-bd);
     font-weight: bold;
@@ -1971,6 +1982,7 @@ content>#write .md-fences:not([class*="md-diagram"])::before {
 #write @{hr_MdHr}+ol {
     text-align: center;
     padding-left: 0 !important;
+    margin-top: 0;
 }
 #write @{hr_MdHr}+ul>li,
 #write @{hr_MdHr}+ol>li {
@@ -2034,26 +2046,26 @@ content>#write .md-hr+ol::before {
 }
 content>#write .md-hr+:is(ul, ol)::before {
     content: "⬛︎ ⬛︎  2 Columns of List / 双栏列表  ⬛︎ ⬛︎";
-    margin-top: -2.8em; //-1.6em;
+    margin-top: -1.8em; //-1.6em;
     line-height: 2em;
 }
 content>#write .md-hr+.md-hr+:is(ul, ol)::before {
     content: "⬛︎ ⬛︎ ⬛︎  3 Columns of List / 三栏列表  ⬛︎ ⬛︎ ⬛︎";
-    margin-top: -3em;
+    margin-top: -1.8em;
     // padding-top: .5em;
     // padding-bottom: .5em;
     line-height: 2em;
 }
 content>#write .md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     content: "⬛︎ ⬛︎ ⬛︎ ⬛︎  4 Columns of List / 四栏列表  ⬛︎ ⬛︎ ⬛︎ ⬛︎ ";
-    margin-top: -3.4em; //-5.4em;
+    margin-top: -1.8em; //-5.4em;
     // padding-top: 1.4em;
     // padding-bottom: 1.4em;
     line-height: 2.2em;
 }
 content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     content: "⬛︎ ⬛︎ ⬛︎ ⬛︎ ⬛︎  5 Columns of List / 五栏列表  ⬛︎ ⬛︎ ⬛︎ ⬛︎ ⬛︎";
-    margin-top: -4.1em; //-7.1em;
+    margin-top: -1.8em; //-7.1em;
     // padding-top: 2.2em;
     // padding-bottom: 2.2em;
     line-height: 3em;
@@ -5120,18 +5132,22 @@ iframe[name^="vlook-stat-"] {
 // 代码块题注样式
 .v-caption.pr {
     width: 100%;
-    background-color: var(--d-fc);
+    background-color: var(--std-code-shadow);
+    box-shadow: 0 0 0 2px var(--std-code-shadow) inset;
+    // background-color: var(--d-fc);
     text-align: left;
 }
 .v-caption.pr > .v-cap-1 > span {
 // .v-caption.pr > :is(.v-cap-1, .v-cap-2) > span {
-    color: var(--d-bc);
+    // color: var(--d-bc);
+    color: var(--d-fc);
     opacity: .6;
 }
 .v-caption.pr > :is(.v-cap-1, .v-cap-2) {
 // .v-caption.pr > .v-cap-1 {
 // .v-caption.pr > .v-cap-1 {
-    color: var(--d-bc);
+    // color: var(--d-bc);
+    color: var(--d-fc);
     // font-weight: bold;
 }
 .v-caption.pr > .v-cap-1 {
@@ -5143,7 +5159,8 @@ iframe[name^="vlook-stat-"] {
 // .v-caption.pr > :is(.v-cap-1, .v-cap-2)::after {
 .v-caption.pr > .v-cap-1::after {
     content: attr(lang);
-    color: var(--d-bc);
+    color: var(--d-fc);
+    // color: var(--d-bc);
     opacity: .6;
     text-transform: uppercase;
 }
@@ -5740,6 +5757,9 @@ use.v-svg-ico-wh {
     // padding: .5em 1em !important;
     margin: 1em 0 0 0 !important;
     border-left-width: @quoteBorderWidth;
+}
+#write .md-alert:not(:last-child) {
+    margin-bottom: 1em !important;
 }
 #write .md-alert @{quote_details} {
     background: var(--d-bc) !important;

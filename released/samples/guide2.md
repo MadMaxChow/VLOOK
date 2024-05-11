@@ -1361,7 +1361,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 ###### 本文档的封面内容示例
 
 ```markdown
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册<br>(Part.II)</u><br>*最新版本`V24.0`*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册<br>(Part.II)</u><br>*最新版本`V24.1`*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 ```
 
 ###### 本文档的封底内容示例
@@ -1859,7 +1859,7 @@ $$
 |     fold     | 控制使用长内容自动折叠的开关<br>若有多个指定范围要开启，可用英文逗号「,」进行分隔 |   `on`   | `off` - 全不开启<br>`on` - 全开启<br><br>指定范围开启：<br>`table` - 指定「表格」<br>`figure` - 指定「插图」<br>`codeblock` - 指定「代码块」<br>`list` - 指定「列表」(未实现) |
 |     gray     | 临时关闭 [Gray Mode](#Gray Mode)                             |   `on`   | `off` - 关闭                                                 |
 |     nav      | 指定大纲与索引导航初始的运行模式                             |  `auto`  | `auto` - 在封面时自动关闭、在正文时自动展开<br>`hide` - 始终关闭，手动打开 |
-|    quote     | 调整普通的「引用块」默认自动转换为指定色号的[引用块着色](guide.md#引用块着色) |   `T1`   | `off` - 关闭，不自动转换<br>`色号` - 对应的预置色号，[详见这里](guide.md#引用块着色) |
+|    quote     | 调整普通的「引用块」默认自动转换为指定色号的[引用块着色](guide.md#引用块着色) |  `off`   | `off` - 关闭，不自动转换<br>`色号` - 对应的预置色号，[详见这里](guide.md#引用块着色) |
 |    radius    | 强制使用指定的圆角样式，忽略 VLOOK 主题自带的样式            |          | `none` - 不使用圆角<br>`small` - 使用小号圆角<br>`big` - 使用大号圆角 |
 |    reset     | 强制重置浏览器存储的 VLOOK 相关数据                          |          | `true`                                                       |
 |    srcset    | 对于没有高清分辨率的图片，在高分屏上强制以高清形式显示       |  不开启  | `auto` - 对未指定 srcset 的图片强制以高清形式显示            |

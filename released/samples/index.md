@@ -18,14 +18,14 @@ keywords:
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
 vlook-query: toc=2
 vlook-doc-lib:
-- [English 🔠 Guide](index-en.html?target=vlook-index-en "typora;vlook	")
-- [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank)
 - [浏览 VLOOK™ 文库](vlook-lib.html "手册,教程,指南,示例,范例")
+- [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank)
+- [English 🔠 Guide](index-en.html?target=vlook-index-en "typora;vlook")
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 vlook-gray-mode: 1-27;4-04;05-12
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V24.0`*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V24.1`*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
@@ -40,11 +40,12 @@ vlook-gray-mode: 1-27;4-04;05-12
 > ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™**_~T1~_ 是针对 ![Typora](pic/typora.png#icon) [Typora](https://www.typora.io)[^Typora] （跨平台 Markdown 编辑器）的 **主题包**_~GnRo~_ 和 **增强插件**_~PuOg~_（针对导出的 HTML 文件)。
 >
 > VLOOK™ 属于开源软件（遵从 **MIT License**_~Rd~_）。
->
+
+
 
 [*编辑工具`Typora`V1.8.3+*_~Gy~_](https://typoraio.cn)　*开源协议`MIT`*_~Rd~_　*支持的操作系统`Windows/macOS/Linux`*_~Bu~_
 
-> 代码托管：[![Github](pic/github-light.svg?darksrc=github-dark.svg#logo)](https://github.com/MadMaxChow/VLOOK)　　[![Gitee](pic/gitee-light.svg?darksrc=gitee-dark.svg#logo)](https://gitee.com/madmaxchow/VLOOK)
+
 
 > ###### 许可协议
 >
@@ -165,22 +166,21 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-> [![](pic/sample-a-api_spec.png?srcset=@2x#card#border "样式与交互丰富的API文档")](sample-a-api_spec.html?ws=off)
+> [![点击查看实际效果](pic/sample-a-api_spec.png?srcset=@2x#card#border)](sample-a-api_spec.html?ws=off)
 
-> [![](pic/sample-a-to_do.png?srcset=@2x#card#border "分类清晰有进度的待办便签")](sample-a-to_do.html?ws=off)
+> [![点击查看实际效果](pic/sample-a-to_do.png?srcset=@2x#card#border)](sample-a-to_do.html?ws=off)
 
->  [![](pic/sample-a-img_text.png?srcset=@2x#card#border "图片和文字也可以很和谐")](sample-a-img_text.html?ws=off)
-
----
+>  [![点击查看实际效果](pic/sample-a-img_text.png?srcset=@2x#card#border)](sample-a-img_text.html?ws=off)
 
 ---
 
-> [![](pic/sample-a-routes.png?srcset=@2x#card#border "可折叠的分类参考信息")](sample-a-routes.html?ws=off)
+---
 
-> [![](pic/sample-a-board.png?srcset=@2x#card#border "对项目信息分类整理的看板")](sample-a-board.html?ws=off)
+> [![点击查看实际效果](pic/sample-a-routes.png?srcset=@2x#card#border)](sample-a-routes.html?ws=off)
 
-> [![](pic/sample-a-quiz.png?srcset=@2x#card#border "互动问答原来可以这样简单")](sample-a-quiz.html?ws=off)
->
+> [![点击查看实际效果](pic/sample-a-board.png?srcset=@2x#card#border)](sample-a-board.html?ws=off)
+
+> [![点击查看实际效果](pic/sample-a-quiz.png?srcset=@2x#card#border)](sample-a-quiz.html?ws=off)
 
 > [!TIP]
 >
@@ -220,7 +220,9 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > _~Gn~_
 
-![Typora ▸ 偏好设置 ▸ Markdown](pic/typora-opt1-light.png?srcset=@2x&darksrc=typora-opt1-dark.png&darksrcset=@2x)
+*==Typora ▸ 偏好设置 ▸ Markdown==*
+
+![](pic/typora-opt1-light.png?srcset=@2x&darksrc=typora-opt1-dark.png&darksrcset=@2x)
 
 ## 安装主题包
 

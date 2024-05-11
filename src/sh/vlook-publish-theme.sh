@@ -28,6 +28,6 @@ rm ../../../VLOOK-misc/vip-themes/*.css
 mv vlook-x-*.css ../../../VLOOK-misc/vip-themes/
 
 echo "将默认配套主题复制到发行版本的 theme 目录..."
-cp -f vlook-*.css ../../released/theme
+cp -f vlook-*.css ../../released/themes
 
 echo "[ ALL DONE ]"

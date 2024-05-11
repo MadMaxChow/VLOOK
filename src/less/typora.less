@@ -3,8 +3,8 @@
  * VLOOK CSS - Typora 编辑时内置样式
  * (配合 base.less 进行使用)
  *
- * V24.0
- * 2024-05-09
+ * V24.1
+ * 2024-05-11
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -1485,7 +1485,7 @@ content>#write hr:hover {
     // height: @quoteTitleBorderWidth * 2;
 }
 content>#write .md-hr+.md-hr>hr {
-    margin-top: -12px !important;
+    margin-top: -14px !important;
 }
 
 // 图文卡片编辑时样式
@@ -1729,6 +1729,9 @@ content>#write @{cap1_OnEditing} {
     border-radius: var(--v-r-b) var(--v-r-b) 0 0;
     display: inline-block;
 }
+content>#write p:has(@{cap_prefix}) + p {
+    margin-top: 0;
+}
 content>#write li>@{cap1_OnEditing} {
     margin: 0; // 列表下的微调
 }
@@ -1901,7 +1904,8 @@ content>#write @{summaryOnEditing} {
     border-radius: var(--v-r-b);
     border: @imgBorderWidth solid var(--tbl-bd);
     margin: 0 0 8px 0;
-    background-color: var(--d-fc);//var(--pn-c);
+    background-color: var(--std-code-shadow);
+    // background-color: var(--d-fc);//var(--pn-c);
 }
 // 代码块获得焦点
 content>#write .md-fences.md-focus {

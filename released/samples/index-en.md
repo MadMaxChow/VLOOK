@@ -13,13 +13,13 @@ vlook-chp-autonum: h1{{#ALPHA#. }},h2{{STEP-##-min#: }}
 vlook-query: toc=2
 vlook-doc-lib:
 - [VLOOK™ Document Library](vlook-lib-en.html "manual,guide,example,sample")
-- [简体中文 🀄️ 参考手册](index.html?target=vlook-index-cn)
+- [简体中文 🀄️ 参考手册](index.html?target=vlook-index-cn "typora;vlook")
 - [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank)
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 vlook-gray-mode: 01-27;04-04;05-12
 ---
 
-###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective_^Interaction^_<br>──<br><u>Introduction</u><br>*`V24.0` is the Latest*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective_^Interaction^_<br>──<br><u>Introduction</u><br>*`V24.1` is the Latest*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
@@ -34,11 +34,12 @@ vlook-gray-mode: 01-27;04-04;05-12
 > ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** is a **THEME PACK** and **ENHANCEMENT PLUGIN** for Typora[^Typora], a cross-platform Markdown editor that targets exported HTML files.
 >
 > VLOOK™ is an open-source software that follows the **MIT License**.
->
+
+
 
 [*Editor`Typora`V1.8.3+*_~Gy~_](https://typoraio.cn)　*License`MIT`*_~Rd~_　*Supported OS`Windows / macOS / Linux`*_~Bu~_
 
-> Code hosting: [![Github](pic/github-light.svg?darksrc=github-dark.svg#logo)](https://github.com/MadMaxChow/VLOOK)　　[![Gitee](pic/gitee-light.svg?darksrc=gitee-dark.svg#logo)](https://gitee.com/madmaxchow/VLOOK)
+
 
 > ###### Agreement
 >
@@ -162,21 +163,21 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 ---
 
-> [![](pic/sample-a-api_spec.png?srcset=@2x#card#border "Richly styled and interactive API doc")](sample-a-api_spec.html?ws=off)
+> [![Click to see ...](pic/sample-a-api_spec-en.png?srcset=@2x#card#border)](sample-a-api_spec.html?ws=off)
 
-> [![](pic/sample-a-to_do.png?srcset=@2x#card#border "Clear, categorized, and progress-tracked to-do notes")](sample-a-to_do.html?ws=off)
+> [![Click to see ...](pic/sample-a-to_do-en.png?srcset=@2x#card#border)](sample-a-to_do.html?ws=off)
 
->  [![](pic/sample-a-img_text.png?srcset=@2x#card#border "Images and text can also harmonize very well")](sample-a-img_text.html?ws=off)
-
----
+>  [![Click to see ...](pic/sample-a-img_text-en.png?srcset=@2x#card#border)](sample-a-img_text.html?ws=off)
 
 ---
 
-> [![](pic/sample-a-routes.png?srcset=@2x#card#border "Collapsible categorized reference information")](sample-a-routes.html?ws=off)
+---
 
-> [![](pic/sample-a-board.png?srcset=@2x#card#border "A categorized board for organizing project information")](sample-a-board.html?ws=off)
+> [![Click to see ...](pic/sample-a-board-en.png?srcset=@2x#card#border)](sample-a-routes.html?ws=off)
 
-> [![](pic/sample-a-quiz.png?srcset=@2x#card#border "Interactive Q&A can be this simple")](sample-a-quiz.html?ws=off)
+> [![Click to see ...](pic/sample-a-quiz-en.png?srcset=@2x#card#border)](sample-a-board.html?ws=off)
+
+> [![Click to see ...](pic/sample-a-routes-en.png?srcset=@2x#card#border)](sample-a-quiz.html?ws=off)
 
 > [!TIP]
 >
@@ -216,9 +217,9 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 >
 > _~Gn~_
 
-*==Typora ▸ 偏好设置 ▸ Markdown==*
+*==Typora ▸ Preferences ▸ Markdown==*
 
-![Typora ▸ Preferences ▸ Markdown](pic/typora-opt1-light.png?srcset=@2x&darksrc=typora-opt1-dark.png&darksrcset=@2x)
+![](pic/typora-opt1-light-en.png?srcset=@2x&darksrc=typora-opt1-dark-en.png&darksrcset=@2x)
 
 ## Install the Theme Package
 
@@ -285,9 +286,7 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 > 
 > _~Cy~_
 
-*==Typora ▸ 偏好设置 ▸ 导出==*
-
-![Typora ▸ Preferences ▸ Export](pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
+![Typora ▸ Preferences ▸ Export](pic/typora-opt2-light-en.png?srcset=@2x&darksrc=typora-opt2-dark-en.png&darksrcset=@2x)
 
 # Supplement
 
