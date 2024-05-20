@@ -17,6 +17,7 @@ keywords:
 - HTML,PRD,设计,需求,文档,博客,手册,指南,知识库,WIKI,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
 vlook-chp-autonum: h1{{第 ### 章 }},h3{{### }}
+vlook-chp-dup: 语法;新语法;如何将「旧语法」批量更新为「新语法」？
 vlook-doc-lib: vlook-lib.html
 ---
 
@@ -641,11 +642,17 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ##### 这是五级章节示例
 
+###### 这是六级章节示例
+
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+## 继续上次的阅读
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
+*Markdown 粉`⬇️`*「**一般发布的静态 HTML 文档，都无法记住上次阅读的位置～**」
+
+*VLOOK`👀`*_~T2~_ VLOOK™ 对导出的每一个静态 HTML ，都可以快速定位到上次阅读的位置。
+
+> 打开之前阅读过的 HTML 文档后，会在右上角侧显示「继续上次的阅读」的按钮，点击回到上次阅读的位置。
 
 ## 大纲与索引导航
 
@@ -667,12 +674,6 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 >
 > 基于 Typora 生成的目录大纲，请在文档中「VLOOK™ 的[封面](#封面与封底)」后添加目录标记 `[TOC]`
 
----
-
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
-
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
-
 
 ## 逐章导航
 
@@ -689,12 +690,6 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 | <kbd>◀</kbd> 或 <kbd> , </kbd> | **前一个**章节                 |
 | <kbd>▶</kbd> 或 <kbd> . </kbd>  | **后一个**章节                 |
 
----
-
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
-
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
-
 ## 逐段导航
 
 *Markdown 粉`⬇️`*「**希望在进行文档评审或演示时，按段落一段一段地突出，进行聚焦式浏览。**」
@@ -709,12 +704,6 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 | :----------: | ------------------ |
 | <kbd>J</kbd> | 跳到**下一个**段落 |
 | <kbd>K</kbd> | 跳到**上一个**段落 |
-
----
-
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
-
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
 
 ## 插图导航
 
@@ -744,12 +733,6 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 ###### 长图片与双题注示例
 
 ![普通的图片示例（长图会自动折叠）](pic/normal-pic.jpg "（图片来源自互联网，版权尚不明确）")
-
----
-
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
-
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
 
 ## 文库导航
 
@@ -826,12 +809,6 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 > 我的文档.html?vdl=none
 > ```
 
----
-
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
-
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
-
 ## 脚注导航
 
 **VLOOK™ 可以直接在当前页面位置弹层的方式进行显示，避免在文档中来回跳转。**
@@ -850,7 +827,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ## °内容助手
 
-针对不同形式的内容，提供自适应的快捷辅助功能。目前支持的内容形式包括：[表格](guide.md#°表格)、[插图](guide.md#°图片)、[标签](guide.md#标签)、[徽章](guide.md#徽章)、[刮刮卡](#刮刮卡)、[代码/代码块](guide.md#°代码块)、[面包屑](#面包屑)。鼠标悬停在对应的内容即可激活，并在右上角出现。
+针对不同形式的内容，提供自适应的快捷辅助功能。目前支持的内容形式包括：[表格](guide.md#°表格)、[插图](guide.md#°图片)、[标签](#标签)、[徽章](#徽章)、[刮刮卡](#刮刮卡)、[代码/代码块](guide.md#°代码与代码块)、[面包屑](#面包屑)。鼠标悬停在对应的内容即可激活，并在右上角出现。
 
 ### 复制内容
 
@@ -969,7 +946,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ### Mermaid 图表元素高亮
 
-支持通过鼠标悬停的方式，对 Mermaid 图表中的关键元素（节点、子图、文本等）高亮显示，方便在演示场景下更聚焦说明的内容，[点这里去找个 Mermaid 的图表试试 ❯](guide.md#°Mermaid)
+支持通过鼠标悬停的方式，对 Mermaid 图表中的关键元素（节点、子图、文本等）高亮显示，方便在演示场景下更聚焦说明的内容，[点这里去找个 Mermaid 的图表试试 ❯](#更美观的 Mermaid)
 
 ---
 
@@ -981,17 +958,37 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ## °出版辅助
 
+### 链接地图
+
+*发布状态`ALPHA`*
+
+---
+
+> ==外链清单及锚点数量==
+>
+> 支持在当前文档中直接查看所有的外部链接清单，以及引用了这些链接的锚点数量（即链接中以 `#` 开头的内容）
+
+> ==外链锚点有效性检查==
+>
+> 当维护的文档越来越多后，会存在未及时更新文档中外链锚点的情况，通过链接地图可快速对外链的锚点进行有效性检查
+>
+> *`注意`* 外部链接的文档也需要由 VLOOK™ 插件生成
+
+> [!TIP]
+>
+> 点击文档的右下角的 ![](pic/icon-link-map.svg#icon) 图标查看链接地图（快捷键操作： <kbd>M</kbd> )，并在链接地图中点击带有锚点条目后的「**检查锚点**」进行有效性检查
+
 ### 长内容自动折叠
 
 **VLOOK™ 会自动对文档中的长插图、长表格、长代码进行自动折叠，节省文档的屏幕显示空间～**
 
 > - 长长的**图片** … [查看示例 ❯](#长图片与双题注示例)
 > - 长长的**表格** … [查看示例 ❯](#快捷键操作汇总)
-> - 长长的**代码** … [查看示例 ❯](guide.md#代码块增强)
+> - 长长的**代码** … [查看示例 ❯](guide.md#复制代码内容)
 
 > [!IMPORTANT]
 >
-> 在引用块、[折叠引用块](guide2.md#折叠引用块)内的图片、Mermaid 图表、表格、代码块等均不在长内容自动折叠范围内。
+> 在引用块、[折叠引用块](guide.md#折叠引用块)内的图片、Mermaid 图表、表格、代码块等均不在长内容自动折叠范围内。
 
 ### 自定义欢迎页内容
 
@@ -1037,9 +1034,11 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
->**当前页的页内链接不存在**
+>**页内链接（锚点）不存在**
 >
 >自动检查当前页的页内跳转锚点，是否存在无效的情况，[例如这条无效的页内链接](#这是无效页内链接)
+>
+>**如何对外链锚点进行检查？详见[链接地图 ❯❯](#链接地图)**
 >
 >_~Rd~_
 
@@ -1185,7 +1184,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 >
 > _~Vn~_
 
-**若你使用在[线插件方式](index.html#在线版插件)，可通过「[插件调校参数](#插件调校参数)」`theme` 来动态指定任意 VLOOK 主题。**
+**若你使用在[线插件方式](index.html#在线版插件-live)，可通过「[插件调校参数](#插件调校参数)」`theme` 来动态指定任意 VLOOK 主题。**
 
 ---
 
@@ -1208,6 +1207,10 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 *VLOOK`👀`*_~T2~_ 提供了两套自定义的字体主题，可根据个人喜好进行选用。
 
 > 通过右下角状态栏上的  ![字体主题](pic/icon-font-style.svg?fill=theme1&darksrc=invert#icon)  按钮进行选择（快捷键操作：<kbd>A</kbd> )
+>
+> > [!NOTE]
+> >
+> > 设置后同一域名下的所有文档都会应用该配置，也可通过「[插件调校参数](#插件调校参数)」`font` 来强制指定使用的字体主题（只对指定的文档生效）。
 
 ---
 
@@ -1394,8 +1397,11 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 *VLOOK`👀`*_~T2~_ 所有 VLOOK™ 的主题都会自动根据浏览器或系统的 Dark Mode（深色模式）的设置进行自动适配。
 
-> - 可通过右下角状态栏上的 ![Light Mode](pic/icon-light-mode.svg?fill=theme1&darksrc=invert#icon) / ![Dark Mode](pic/icon-dark-mode.svg?fill=theme1&darksrc=invert#icon) 按钮进行手动切换（快捷键操作：<kbd>D</kbd> )；
-> - 若希望文档在显示后强制指定为 Light / Dark Mode ，可通过「[插件调校参数](#插件调校参数)」`cs` 来启用这一特性。
+> 可通过右下角状态栏上的 ![Light Mode](pic/icon-light-mode.svg?fill=theme1&darksrc=invert#icon) / ![Dark Mode](pic/icon-dark-mode.svg?fill=theme1&darksrc=invert#icon) 按钮进行手动切换（快捷键操作：<kbd>D</kbd> )
+>
+> > [!NOTE]
+> >
+> > 设置后同一域名下的所有文档都会应用该配置，也可通过「[插件调校参数](#插件调校参数)」`cs` 来强制指定使用的字体主题（只对指定的文档生效）。
 
 > [!TIP]
 >
@@ -1850,9 +1856,9 @@ $$
 
 | **调校参数** | 说明                                                         |  默认值  | 取值及说明                                                   |
 | :----------: | ------------------------------------------------------------ | :------: | ------------------------------------------------------------ |
-|    badge     | 调整[徽章](guide.md#徽章)未指定色号时默认使用的色号          |   `T1`   | `色号` - 对应的预置色号，[详见这里](guide.md#徽章)           |
+|    badge     | 调整[徽章](#徽章)未指定色号时默认使用的色号                  |   `T1`   | `色号` - 对应的预置色号，[详见这里](#徽章)                   |
 |   capauto    | 指定在内容索引无题注内容时，是否以索引对象的内容自动生成<br>^（如：表格、图片、代码块等）^ |   `on`   | `off` - 不开启<br>`on` - 开启                                |
-|   coating    | 调整[刮刮卡](guide.md#°刮刮卡)未指定色号时默认使用的色号     |   `Gy`   | `色号` - 对应的预置色号，[详见这里](guide.md#°刮刮卡)        |
+|   coating    | 调整[刮刮卡](#刮刮卡)未指定色号时默认使用的色号              |   `Gy`   | `色号` - 对应的预置色号，[详见这里](刮刮卡)                  |
 |      cs      | 指定使用固定的颜色方案                                       |  `auto`  | `light` - 强制显示为 Light Mode<br>`dark` - 强制显示为 Dark Mode<br>`auto` - 自动跟随系统配置 |
 |    effect    | 调整文档的动效级别                                           |   `2`    | `0` - 关闭动效<br>`1` - 标准动效<br>`2` - 增强动效（毛玻璃等） |
 |     font     | 强制指定使用的字体主题<br>指定该参数后则忽略 VLOOK 主题配套的字体主题 | 主题配套 | `local` - 强制使用「系统默认」<br>`sans` - 强制使用「小清新」<br>`serif` - 强制使用「文艺范」 |
@@ -1864,7 +1870,7 @@ $$
 |    reset     | 强制重置浏览器存储的 VLOOK 相关数据                          |          | `true`                                                       |
 |    srcset    | 对于没有高清分辨率的图片，在高分屏上强制以高清形式显示       |  不开启  | `auto` - 对未指定 srcset 的图片强制以高清形式显示            |
 |    stsbar    | 指定文档底部状态栏内==不要启用==的内容项<br>^（多项内容间可用英文逗号分隔）^ |   全部   | `doc-info` - 阅读时长、字数<br>`font-theme` - 字体主题<br>`color-scheme` - 颜色主题<br/>`link-checker` - 错误链接检查 |
-|     tag      | 调整[标签](guide.md#标签)未指定色号时默认使用的色号          |   `T2`   | 对应的预置色号，[详见这里](guide.md#标签)                    |
+|     tag      | 调整[标签](#标签)未指定色号时默认使用的色号                  |   `T2`   | 对应的预置色号，[详见这里](#标签)                            |
 |    target    | 配合[文库导航](#文库导航)使用：<br>应用-1：在[插件预置选项](#插件预置选项) `vlook-doc-lib` 内指定链接在新标签中打开<br>应用-2：文档内指定链接在「文库」中打开 |          | 针对「应用-1」：`_blank`<br>针对「应用-2」：`vdl`            |
 |     toc      | 指定目录大纲初始自动折叠的层级                               |   `1`    | `0` - 不折叠，全部展开<br>`1~5` - 折叠指定的层级             |
 |      tr      | 指定表格阅读模式（十字光标）默认开关                         |  `off`   | `off` - 不开启<br>`on` - 开启                                |
@@ -2023,9 +2029,9 @@ VLOOK™ 插件的界面语言，自动适配浏览器的语言设置。
 >
 > 图片 URL 支持添加锚点实现快速图片排版，目前支持通过锚点排版的特性包括：
 >
-> - 插图对齐方式 [❯❯](guide.md#插图对齐方式)
+> - 插图对齐方式 [❯❯](guide.md#图片对齐方式)
 > - 图片显示版式 [❯❯](guide.md#图片显示版式)
-> - 一行多图适配 [❯❯](guide.md#一行多图适配)
+> - 一行多图适配 [❯❯](guide.md#适配一行多图)
 > - 图片边缘留白 [❯❯](guide.md#图片边缘留白)
 >
 > 当需要同时应用以上多个排版，可添加多个锚点，如：`#center#padding#icon2x`

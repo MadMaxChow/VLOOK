@@ -112,7 +112,7 @@ title: More Topics about VLOOK™
 
 > ###### Phonetics, Pinyin, Scratch Cards
 >
-> - Add **phonetics** to rare characters or East Asian languages [❯❯](guide2.md#°注音)
+> - Add **phonetics** to rare characters or East Asian languages [❯❯](guide2.md#注音)
 > - Hide answers when creating training or puzzle documents [❯❯](guide2.md#刮刮卡)
 >
 > _~Vn~_
@@ -153,22 +153,6 @@ title: More Topics about VLOOK™
 > Feel free to enjoy at any time according to your needs and preferences~
 >
 > _~Bu!~_
-
----
-
-> ###### Marking and Highlighting Key Information
->
-> - Add **tags** to highlight keyword information [❯❯](guide2.md#标签)
-> - Organize multiple items in the form of **badges** [❯❯](guide2.md#徽章)
->
-> _~Bu~_
-
-> ###### Phonetics, Pinyin, Scratch Cards
->
-> - Add **phonetics** to rare characters or East Asian languages [❯❯](guide2.md#°注音)
-> - Hide answers when creating training or puzzle documents [❯❯](guide2.md#刮刮卡)
->
-> _~Bu~_
 
 ---
 
@@ -296,7 +280,7 @@ title: More Topics about VLOOK™
 >
 > > **° Automatic Numbering of Chapter Titles**
 > >
-> > Automatically **number** the chapter titles in the document [❯❯](guide2.md#章节标题自动编号)
+> > Automatically **number** the chapter titles in the document [❯❯](guide2.md#章节自动编号)
 > >
 > > _~Og~_
 >
@@ -372,7 +356,7 @@ title: More Topics about VLOOK™
 > - Preset plugin parameters to customize your document performance [❯❯](guide2.md#插件预置选项)
 > - Support enhancements for Typora editing features [❯❯](guide2.md#Typora-编辑时特性增强)
 > - Support [cross-platform and animations](guide2.md#跨平台与动效支持) (e.g., frosted glass)
-> - Support [emoji](guide2.md#emoji-支持), [internationalization](guide2.md#国际化支持)
+> - Support [internationalization](guide2.md#国际化支持)
 > - Support shortcut key operations [❯❯](guide2.md#快捷键操作汇总)
 >
 > _~Lm~_
