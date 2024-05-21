@@ -3,8 +3,8 @@
  * VLOOK CSS - Mermaid 自定义样式
  * (配合 base.less 进行使用)
  *
- * V24.1
- * 2024-05-11
+ * V24.2
+ * 2024-05-21
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -125,6 +125,25 @@ svg[aria-roledescription] .clickable:hover @{svgNodes} {
 
 /* ----- pie diagram 饼图 ----- */
 
+// 外框
+svg[aria-roledescription="pie"] .pieOuterCircle {
+    stroke: var(--d-fc-a) !important;
+    stroke-width: 6px !important;
+}
+
+// 饼块
+svg[aria-roledescription="pie"] .pieCircle {
+    stroke: var(--d-fc) !important;
+    stroke-width: 1px !important;
+    opacity: .5 !important;
+}
+svg[aria-roledescription="pie"] .pieCircle:hover {
+    fill: var(--d-bc) !important;
+    stroke-width: 6px !important;
+    opacity: 1 !important;
+    cursor: crosshair;
+}
+
 // 标题、图例文本
 svg[aria-roledescription="pie"] .pieTitleText {
     fill: var(--d-fc) !important;
@@ -136,7 +155,8 @@ svg[aria-roledescription="pie"] .legend text {
     font-weight: var(--v-f-w-title) !important;
 }
 
-svg[aria-roledescription="pie"] .slice {
+svg[aria-roledescription="pie"] :is(.pieTitleText, .slice) {
+    font-family: var(--v-f-fm-bd);
     font-weight: var(--v-f-w-title) !important;
 }
 
@@ -274,7 +294,7 @@ svg[aria-roledescription^="flowchart"] .label .edgeLabel:hover {
     cursor: crosshair;
 }
 
-// 子图
+// 子图、分组
 svg[aria-roledescription^="flowchart"] .cluster rect {
     fill: var(--d-bc) !important;
     stroke: var(--d-fc-a) !important;
@@ -756,6 +776,52 @@ svg[aria-roledescription="classDiagram"] .edgePaths .relation {
     stroke: var(--d-fc-a) !important;
 }
 
+/* ----- block diagram 方块图 ----- */
+
+// 图元
+svg[aria-roledescription="block"] .node :is(circle, polygon, path),
+svg[aria-roledescription="block"] .node rect:not([class*="cluster"]) {
+    // font-family: var(--v-f-fm-bd);
+    fill: var(--pn-c) !important;
+    stroke: var(--d-fc) !important;
+    // cursor: crosshair;
+}
+// hover
+svg[aria-roledescription="block"] .node:hover :is(circle, polygon, path),
+svg[aria-roledescription="block"] .node:hover rect:not([class*="cluster"]) {
+    fill: var(--ac-t1-a) !important;
+    stroke: @aColor !important;
+    cursor: crosshair;
+}
+
+// svg[aria-roledescription="block"] .node .cluster {
+//     stroke: var(--d-fc) !important;
+//     fill: none !important;
+//     box-shadow: none !important;
+// }
+// 分组
+svg[aria-roledescription="block"] .node .cluster {
+    fill: var(--d-bc) !important;
+    stroke: var(--d-fc-a) !important;
+    // stroke-width: 1px !important;
+    stroke-dasharray: 6 6 !important;
+    box-shadow: none !important;
+}
+// hover
+svg[aria-roledescription="block"] .node:hover .cluster {
+    stroke: @aColor !important;
+    cursor: crosshair;
+}
+
+// 箭头
+svg[aria-roledescription="block"] .flowchart-link {
+    stroke: var(--d-fc-a) !important;
+}
+svg[aria-roledescription="block"] #mermaidChart11_block-pointEnd path {
+    fill: var(--d-fc-a) !important;
+    stroke: none !important;
+}
+
 /* ----- sankey diagram 桑基图 ----- */
 
 svg[aria-roledescription="sankey"] {
@@ -810,13 +876,16 @@ svg[aria-roledescription="gantt"] g.today line.today {
 
 // 普通任务-执行中
 svg[aria-roledescription="gantt"] rect[class*="active"] {
-    fill: var(--mm-c-bu) !important;
-    stroke: var(--d-bc) !important;
+    fill: var(--ac-bu-a) !important;
+    stroke: var(--ac-bu) !important;
+    // fill: var(--mm-c-bu) !important;
+    // stroke: var(--d-bc) !important;
     stroke-width: 1 !important;
 }
 // 普通任务-已完成
 svg[aria-roledescription="gantt"] rect[class*="done"] {
-    fill: var(--mm-c-gy) !important;
+    fill: var(--ac-gy-a) !important;
+    // fill: var(--mm-c-gy) !important;
     stroke: var(--mm-c-bu) !important;
     stroke-width: 1 !important;
     stroke-dasharray: none !important;
@@ -824,14 +893,18 @@ svg[aria-roledescription="gantt"] rect[class*="done"] {
 
 // 关键任务-执行中
 svg[aria-roledescription="gantt"] rect[class*="activeCrit"] {
-    fill: var(--mm-c-pu) !important;
-    stroke: var(--d-bc) !important;
+    fill: var(--ac-rd-a) !important;
+    stroke: var(--ac-rd) !important;
+    // fill: var(--mm-c-pu) !important;
+    // stroke: var(--d-bc) !important;
     stroke-width: 1 !important;
 }
 // 关键任务-已完成
 svg[aria-roledescription="gantt"] rect[class*="doneCrit"] {
-    fill: var(--mm-c-gy) !important;
-    stroke: var(--mm-c-pu) !important;
+    fill: var(--ac-gy-a) !important;
+    stroke: var(--ac-rd) !important;
+    // fill: var(--mm-c-gy) !important;
+    // stroke: var(--mm-c-pu) !important;
     stroke-width: 1 !important;
     stroke-dasharray: none !important;
 }
@@ -853,10 +926,113 @@ svg[aria-roledescription="gantt"] rect[class^="task crit"] {
 
 // 里程碑
 svg[aria-roledescription="gantt"] rect[class^="task milestone"] {
-    fill: var(--mm-c-gn) !important;
-    stroke: var(--d-bc) !important;
+    fill: var(--d-fc) !important;
+    stroke: none !important;
+    // fill: var(--mm-c-gn) !important;
+    // stroke: var(--d-bc) !important;
     stroke-width: 2 !important;
     stroke-dasharray: none !important;
+}
+
+/* ----- XY Chart XY图 ----- */
+
+// 背景
+svg[aria-roledescription="xychart"] .main > rect {
+    fill: var(--d-bc) !important;
+}
+// 坐标、刻度
+svg[aria-roledescription="xychart"] :is(.axis-line, .axisl-line, .ticks) > path {
+    stroke: var(--d-fc-a) !important;
+}
+
+// 文本
+svg[aria-roledescription="xychart"] :is(.chart-title, .title) > text {
+    font-family: var(--v-f-fm-bd);
+    fill: var(--d-fc) !important;
+    color: var(--d-fc) !important;
+}
+svg[aria-roledescription="xychart"] .title > text {
+    fill: var(--d-fc-a) !important;
+    color: var(--d-fc-a) !important;
+}
+svg[aria-roledescription="xychart"] .chart-title > text {
+    font-weight: bold;
+}
+
+// 图表
+svg[aria-roledescription="xychart"] .plot rect {
+    fill: var(--ac-t1) !important;
+    opacity: .5;
+}
+svg[aria-roledescription="xychart"] .plot rect:hover {
+    // fill: var(--ac-t1) !important;
+    opacity: 1;
+    cursor: crosshair;
+}
+svg[aria-roledescription="xychart"] .plot path {
+    stroke: var(--ac-t2) !important;
+}
+
+/* ----- Quadrant Chart 四象限图 ----- */
+
+// 文本
+svg[aria-roledescription="quadrantChart"] :is(.title, .label, .quadrant, .data-point) > text {
+    font-family: var(--v-f-fm-bd);
+    fill: var(--d-fc) !important;
+    color: var(--d-fc) !important;
+}
+svg[aria-roledescription="quadrantChart"] .quadrant > text {
+    fill: var(--d-fc-a) !important;
+    color: var(--d-fc-a) !important;
+    // font-weight: bold;
+}
+svg[aria-roledescription="quadrantChart"] .label > text {
+    font-style: italic;
+}
+svg[aria-roledescription="quadrantChart"] :is(.title, .data-point) > text {
+    font-weight: bold;
+}
+
+// 矩阵
+svg[aria-roledescription="quadrantChart"] .quadrants>.quadrant > rect {
+    fill: var(--d-fc-a) !important;
+}
+svg[aria-roledescription="quadrantChart"] .quadrants>.quadrant:first-child > rect {
+    opacity: .2;
+}
+svg[aria-roledescription="quadrantChart"] .quadrants>.quadrant+.quadrant > rect {
+    opacity: .15;
+}
+svg[aria-roledescription="quadrantChart"] .quadrants>.quadrant+.quadrant+.quadrant > rect {
+    opacity: .1;
+}
+svg[aria-roledescription="quadrantChart"] .quadrants>.quadrant+.quadrant+.quadrant+.quadrant > rect {
+    opacity: .05;
+}
+// 矩阵边框
+svg[aria-roledescription="quadrantChart"] .border line {
+    stroke: var(--d-fc-a) !important;
+}
+
+// 数据点
+svg[aria-roledescription="quadrantChart"] .data-point > circle {
+    fill: var(--ac-t1) !important;
+}
+
+// hover
+svg[aria-roledescription="quadrantChart"] .quadrants>.quadrant:hover > rect {
+    fill: var(--ac-t1-a) !important;
+    opacity: .75 !important;
+    cursor: crosshair;
+}
+svg[aria-roledescription="quadrantChart"] .quadrants>.quadrant:hover > text {
+    fill: var(--d-fc) !important;
+    color: var(--d-fc) !important;
+    cursor: crosshair;
+}
+svg[aria-roledescription="quadrantChart"] .data-point:hover > text {
+    fill: var(--ac-t1) !important;
+    font-size: .875em;
 }
 
 /* ----- Gitgraph 历史图 ----- */

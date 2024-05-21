@@ -2,8 +2,8 @@
  *
  * VLOOK CSS 基础库
  *
- * V24.1
- * 2024-05-11
+ * V24.2
+ * 2024-05-21
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -21,6 +21,8 @@
 ---------- 云顶 UI 区 ----------
 
 预加载提示 / body.typora-export #write::before / z-index: 7000;
+
+检查锚点 / .v-check-hash / z-index: 6500;
 
 欢迎页 / .v-welcome-page / z-index: 6000;
 
@@ -49,6 +51,7 @@
 
 ---------- 增强工具操作区 ----------
 
+回到最后浏览位置 / .v-last-position / z-index: 200;
 Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 工具栏 / .v-toolbar / z-index: 100;
 状态栏 / .v-status-bar / z-index: 100;
@@ -124,8 +127,8 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --v-seg-h:26px;
 
     // 过渡效果设置
-    --v-trans-dur: 200ms;
-    --v-trans-value: all var(--v-trans-dur) ease-out;
+    --v-trans-dur: 300ms;
+    // --v-trans-value: all var(--v-trans-dur) ease-out;
 
     --tbl-cell-padding: 8px;
 
@@ -212,6 +215,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 
 html {
     font-size: @fontSize;
+    background-color: var(--d-bc);
 }
 
 // VLOOK 未加载完成前的样式
@@ -378,7 +382,7 @@ content>#write .md-image[data-src*="#icon"]>img, // 编辑时
     background: none !important;
 }
 #write svg[data-inject-url*="#icon"] {
-    height: 1em;
+    // height: 1.25em;
     width: auto;
 }
 // 图片 URL 参数指定图片的显示版式为：icon0
@@ -433,7 +437,7 @@ content>#write .md-image[data-src*="#card"]>img, // 编辑时
     // border-bottom-color: @buttonBgColor !important;
     // border-bottom-width: 4px !important;
     border: none !important;
-    border-bottom: .25em solid @buttonBgColor !important;
+    border-bottom: .25em solid var(--ac-t1) !important;
     border-radius: var(--v-r-b) var(--v-r-b) 0 0 !important;
     // background: none !important;
 }
@@ -471,6 +475,10 @@ content>#write .md-image[data-src*="#card"][data-src*="#border"]>img, // 编辑�
 #write blockquote svg[data-inject-url*="#card"] {
     width: 100%;
 }
+// 明信片带 #border 时，导出后的微调（未指定色号时）
+.typora-export-content>#write blockquote:has(>p img[src*="#card"][src*="#border"]) {
+    background: linear-gradient(180deg, var(--ac-t1-fade), var(--ac-t1)) !important;
+}
 // 针对 cardd Card Dual 模式微调
 // #write blockquote img[src*="#cardd"]+.v-post-card,
 // #write blockquote svg[data-inject-url*="#cardd"]+.v-post-card {
@@ -480,6 +488,8 @@ content>#write .md-image[data-src*="#card"][data-src*="#border"]>img, // 编辑�
     position: initial !important;
     box-shadow: none !important;
     border-radius:  0 0 var(--v-r-b) var(--v-r-b) !important;
+    border: 1px solid var(--ac-t1-fade);
+    border-top: 0;
     transform: none;
 }
 
@@ -746,7 +756,7 @@ rt:hover {
 }
 
 // 引用块小标题
-@quoteTitle: ~'blockquote>p:first-child>:is(strong, span[md-inline="strong"]):only-child';
+@quoteTitle: ~'blockquote>p:first-child>:is(strong, span[md-inline="strong"], mark, span[md-inline="highlight"]):only-child';
 #write @{quoteTitle} {
     display: block;
     font-size: 1.25em;
@@ -756,9 +766,9 @@ rt:hover {
     margin-bottom: .3125em;
 }
 // 编辑时
-content>#write @{quoteTitle} {
-    color: @h6Color;//var(--ac-t1);
-}
+// content>#write @{quoteTitle} {
+//     color: @h6Color;//var(--ac-t1);
+// }
 
 // 标题内链接样式
 #write :is(h1,h2,h3,h4,h5,h6) a {
@@ -1246,12 +1256,12 @@ h6+h6) {
     padding-left: 0;
 }
 
-:is(body.typora-export, content>#write) strong {
+:is(body.typora-export, content>#write) :is(strong, mark) {
     font: var(--v-f-w-bd) 1em var(--v-f-fm-bd); // [style] [weight] [size/[line-height]] [family]
     line-height: 1;
 }
 
-:is(body.typora-export, content>#write) strong a {
+:is(body.typora-export, content>#write) :is(strong, mark) a {
     font-weight: var(--v-f-w-bd);
 }
 
@@ -1486,6 +1496,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 }
 // 导出后的微调
 .typora-export-content>#write>@{quote_details} {
+// #write>@{quote_details}+@{quote_details} {
     margin-top: @paragraphPadding * 2;
 }
 // #write>@{quote_details} {
@@ -1501,6 +1512,7 @@ details[open]>summary {
 
 summary {
     font: var(--v-f-w-title) 1.125em var(--v-f-fm-title);
+    color: var(--a-color);
     // cursor: var(--cur-pointer);
     // cursor: pointer;
 }
@@ -2339,10 +2351,11 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     position: fixed;
     justify-content: center;
     align-items: center;
-    border-radius: var(--v-r-s);
+    border-radius: calc(var(--v-r-s) + 1px);
     right: 20px;
     bottom: 20px;
-    height: 30px;
+    height: 32px;
+    padding: 1px;
     z-index: 100;
 }
 // 状态栏内第 1 个元素
@@ -2358,11 +2371,12 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     // border: none;
 }
 
-.v-status-bar>.v-doc-info,
-.v-status-bar>.v-sts-font-theme,
-.v-status-bar>.v-color-scheme,
-.v-status-bar>.v-link-map,
-.v-status-bar>.v-link-chk-result {
+// .v-status-bar>.v-doc-info,
+// .v-status-bar>.v-sts-font-theme,
+// .v-status-bar>.v-color-scheme,
+// .v-status-bar>.v-link-map,
+// .v-status-bar>.v-link-chk-result {
+.v-status-bar>div {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -2371,11 +2385,18 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     background: var(--pn-c);
     padding: 0 10px;
     min-width: var(--v-tb-btn-w);
-    height: 30px;
-    opacity: .6;
+    height: 100%;
+    // height: 30px;
+    // opacity: .5;
     // cursor: var(--cur-pointer);
     // cursor: pointer;
 }
+.v-color-scheme {
+    border-radius: 0 var(--v-r-s) var(--v-r-s) 0;
+    // border-top-right-radius: var(--r-v-s);
+    // border-bottom-right-radius: var(--r-v-s);
+}
+
 // to-do: 未完成，先屏蔽
 .v-status-bar>.v-link-map {
     display: none;
@@ -2406,7 +2427,7 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
     // cursor: pointer;
     background: var(--ac-bu-lg);
     // opacity: 1;
-    border-radius: 0 var(--v-r-s) var(--v-r-s) 0;
+    // border-radius: 0 var(--v-r-s) var(--v-r-s) 0;
     display: none;
 }
 // .v-link-chk-result.warning {
@@ -2415,12 +2436,12 @@ content>#write .md-hr+.md-hr+.md-hr+.md-hr+:is(ul, ol)::before {
 .v-link-chk-result.warning {
     background: var(--ac-ye);
     display: inline-flex;
-    opacity: .8;
+    // opacity: .8;
 }
 .v-link-chk-result.error {
     background: var(--ac-rd) !important;
     display: inline-flex;
-    opacity: .6 !important;
+    // opacity: .6 !important;
 }
 // .v-link-chk-result.warningerror {
 //     background: linear-gradient(135deg,
@@ -3306,11 +3327,12 @@ table kbd {
     color: #FFFFFF;
     text-shadow: 0 1px #000000;
     width: 100%;
-    height: 60px;
+    height: 70px;
     text-align: center;
     bottom: 0;
     padding-top: 16px;
-    background: linear-gradient(0deg, #000000, transparent);
+    // background: linear-gradient(0deg, #000000, transparent);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.987) 8.1%, rgba(0, 0, 0, 0.951) 15.5%, rgba(0, 0, 0, 0.896) 22.5%, rgba(0, 0, 0, 0.825) 29%, rgba(0, 0, 0, 0.741) 35.3%, rgba(0, 0, 0, 0.648) 41.2%, rgba(0, 0, 0, 0.55) 47.1%, rgba(0, 0, 0, 0.45) 52.9%, rgba(0, 0, 0, 0.352) 58.8%, rgba(0, 0, 0, 0.259) 64.7%, rgba(0, 0, 0, 0.175) 71%, rgba(0, 0, 0, 0.104) 77.5%, rgba(0, 0, 0, 0.049) 84.5%, rgba(0, 0, 0, 0.013) 91.9%, rgba(0, 0, 0, 0) 100%);
     position: fixed;
     display: none;
     pointer-events: none;
@@ -3467,6 +3489,7 @@ table kbd {
 // }
 
 // Light Mode 的文档图标（标签栏、收藏夹图标）
+// 欢迎页加载时的 logo
 .v-doc-logo-light {
     margin-top: 100px;
     width: 100%;
@@ -3478,15 +3501,81 @@ table kbd {
 }
 
 // Dark Mode 的文档图标（标签栏、收藏夹图标）
-.v-doc-logo-dark {
+// .v-doc-logo-dark {
+//     display: none;
+//     margin-top: 30px;
+//     width: 100%;
+//     height: 80px;
+//     background-image: var(--thm-fav-logo-dk);//url(@themeLogoDark);
+//     background-size: 80px 80px;
+//     background-repeat: no-repeat;
+//     background-position: top center;
+// }
+
+// 检查锚点
+.v-check-hash {
+    // text-transform: uppercase;;
+    position: fixed;
     display: none;
-    margin-top: 30px;
+    font: var(--v-f-w-text) @fontSize/@paragraphInnerLineHeight var(--v-f-fm-text); // [style] [weight] [size/[line-height]] [family]
+    color: var(--ac-rd);
+    background-color: var(--d-bc);
+    top: 0;
     width: 100%;
-    height: 80px;
-    background-image: var(--thm-fav-logo-dk);//url(@themeLogoDark);
-    background-size: 80px 80px;
-    background-repeat: no-repeat;
-    background-position: top center;
+    height: 100%;
+    overflow: auto;
+    z-index: 6500;
+}
+.v-check-hash.all-found {
+    border: 10px solid var(--ac-gn-fade);
+}
+.v-check-hash.not-found {
+    border: 10px solid var(--ac-rd-fade);
+}
+.v-check-hash > .item {
+    font-size: 1.5em;
+    padding: 10px;
+}
+.v-check-hash>.all-found {
+    color: var(--ac-gn);
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+    margin: 20px 10px;
+}
+.v-check-hash label {
+    color: var(--d-fc-a);
+    font-weight: bold;
+}
+.v-check-hash-close,
+.v-check-hash-recheck {
+    width: fit-content;
+    margin: 1em auto;
+    color: var(--d-fc);
+    background: var(--pn-c);
+    border-radius: var(--v-r-b);
+    cursor: var(--cur-pointer);
+    padding: 8px 20px;
+}
+.v-check-hash.all-found :is(.v-check-hash-close, .v-check-hash-recheck) {
+    color: #FFFFFF;
+    background: var(--ac-gn);
+}
+.v-check-hash.not-found :is(.v-check-hash-close, .v-check-hash-recheck) {
+    color: #FFFFFF;
+    background: var(--ac-rd);
+}
+.v-check-hash-recheck {
+    font-weight: bold;
+}
+.v-check-hash-close.hover,
+.v-check-hash-recheck.hover {
+    background: @aHoverColor;
+    color: @buttonForeHoverColor;
+}
+.v-check-hash-close:active,
+.v-check-hash-recheck:active {
+    background: @aActiveColor;
 }
 
 .v-welcome-page {
@@ -3555,7 +3644,7 @@ table kbd {
 // .v-welcome-page>.v-loading {
 .v-loading {
     cursor: not-allowed;
-    padding: .2em .5em;
+    padding: 8px 20px;
     border: 1px solid @buttonForeColor;
     font: italic normal 1.25em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
     display: inline-block;
@@ -3620,6 +3709,36 @@ table kbd {
     width: 100%;
 }
 
+.v-last-position {
+    position: fixed;
+    top: 60px; // 与 ResumeReading_updateUI() 中的取值同步
+    right: 20px; // 与 ResumeReading_updateUI() 中的取值同步
+    border-radius: var(--v-r-s);
+    font-size: .875em;
+    // display: none;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 200;
+    cursor: var(--cur-pointer);
+}
+.v-last-position>div {
+    color: var(--h-f);
+    background-color: var(--pn-c);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 6px 6px 10px;
+    border: 1px solid @buttonBgColor;
+    line-height: 1;
+    white-space: pre;
+    // opacity: .75;
+    border-radius: var(--v-r-s);
+}
+.v-last-position>div.hover {
+    background-color: var(--d-bc);
+}
+
 .v-nav-center {
     background: var(--pn-c);
     border-radius: var(--v-r-b);
@@ -3664,6 +3783,7 @@ table kbd {
     // left: 1px;
     // right: 1px;
     // top: 1px;
+    margin: 1px;
     position: absolute;
     border-top-right-radius: var(--v-r-b);
     border-top-left-radius: var(--v-r-b);
@@ -3674,9 +3794,10 @@ table kbd {
 .v-nav-center-footer {
     height: 30px;
     line-height: 40px;
-    left: 1px;
-    right: 1px;
-    bottom: 1px;
+    // left: 1px;
+    // right: 1px;
+    // bottom: 1px;
+    margin: 1px;
     text-align: center;
     padding: 0;
     // background: linear-gradient(0deg, var(--pn-c) 5px, var(--pn-c-tsp));
@@ -3870,6 +3991,9 @@ body.typora-export .v-copyright a:hover {
 .v-float-card2 {
     box-shadow: var(--v-fl-sd), var(--v-fl-i-sd);//0 0 0 1px rgba(0, 0, 0, .3);
 }
+// .v-opacity-1 {
+//     opacity: 1 !important;
+// }
 
 .v-footnote-pn {
     position: fixed;
@@ -4049,8 +4173,8 @@ body.typora-export .v-footnote-pn a {
     color: var(--toc-h-num-color);
     padding-left: 5px;
 }
-.v-toc-item:hover,
-.md-toc-item:hover {
+.v-toc-item.hover,
+.md-toc-item.hover {
     background: var(--pn-c-a);
 }
 .v-toc-item:active,
@@ -4090,7 +4214,7 @@ body.typora-export .v-footnote-pn a {
     // border-bottom: 1px solid var(--d-fc-a);
     border-radius: var(--v-r-s);
 }
-.v-map-item:hover {
+.v-map-item.hover {
     background: var(--pn-c-a);
 }
 
@@ -4101,7 +4225,7 @@ body.typora-export .v-map-item a {
 
 .v-map-item>label {
     font-size: .75em;
-    line-height: 1;
+    line-height: 1.5;
     padding: 0 0 0 6px;
     background-color: var(--d-fc);
     margin-left: 10px;
@@ -4114,10 +4238,11 @@ body.typora-export .v-map-item a {
 
 .v-map-item #check-hash {
     font-weight: bold;
+    line-height: 1.5;
     color: var(--a-color);
     background: linear-gradient(110deg, var(--d-fc) 10px, var(--d-bc) 10px, var(--d-bc));
-    text-transform: uppercase;
-    padding: 2px 6px 2px 12px;
+    // text-transform: uppercase;
+    padding: 2px 10px 2px 16px;
     border-radius: calc(var(--v-r-s) - 2px);
     display: inline-block;
 }
@@ -4150,7 +4275,7 @@ body.typora-export .v-map-item a {
     border: none;
 }
 
-.v-toc-item-current {
+.v-item-current {
     font-weight: var(--v-f-w-title);
     background: var(--blockquote-bg);
     box-shadow: @tocItemCurrent_boxShadow;//0 0 0 2px fade(@headerColor, 50%) inset;
@@ -4350,6 +4475,7 @@ body.typora-export .v-map-item a {
     border-bottom-left-radius: var(--v-r-b);
     opacity: 0;
     z-index: -1;
+    transition: all var(--v-trans-dur) ease-out;
 }
 // 有特效（effect>=1）时使用的样式
 .v-chapter-nav-prev.effect.hover::before {
@@ -4445,6 +4571,8 @@ body.typora-export .v-map-item a {
     background: linear-gradient(90deg, fade(@aHoverColor, 0%), @aHoverColor, fade(@aHoverColor, 0%));
     opacity: 0;
     z-index: -1;
+    transition: all var(--v-trans-dur) ease-out;
+    // transition: var(--v-trans-value);
 }
 .v-chapter-nav-doc-title.effect::before {
     top: 0;
@@ -4502,6 +4630,7 @@ body.typora-export .v-map-item a {
     border-bottom-right-radius: var(--v-r-b);
     opacity: 0;
     z-index: -1;
+    transition: all var(--v-trans-dur) ease-out;
 }
 // 有特效（effect>=1）时使用的样式
 .v-chapter-nav-next.effect.hover::before {
@@ -4555,24 +4684,24 @@ body.typora-export .v-map-item a {
 }
 
 // 辅助类按钮
-.v-accent-btn {
-    width: 40px;
-    height: 30px;
-    position: absolute;
-    text-align: center;
-    border-radius: var(--v-r-s);
-    box-shadow: var(--v-fl-i-sd);
-    // cursor: var(--cur-pointer);
-    // ;
-}
+// .v-accent-btn {
+//     width: 40px;
+//     height: 30px;
+//     position: absolute;
+//     // text-align: center;
+//     border-radius: var(--v-r-s);
+//     box-shadow: var(--v-fl-i-sd);
+//     // cursor: var(--cur-pointer);
+//     // ;
+// }
 
-.v-accent-btn>svg>use {
-    fill: @buttonBgColor;
-}
+// .v-accent-btn>svg>use {
+//     fill: @buttonBgColor;
+// }
 
-.v-accent-btn.hover {
-    background: var(--pn-c-a);
-}
+// .v-accent-btn.hover {
+//     background: var(--pn-c-a);
+// }
 
 .v-accent-btn:active {
     color: var(--d-bc);
@@ -5375,6 +5504,11 @@ use.v-svg-ico-wh {
     backdrop-filter: saturate(180%) blur(15px);
     -webkit-backdrop-filter: saturate(180%) blur(15px);
 }
+.v-backdrop-blurs.disabled {
+    backdrop-filter: unset;
+    -webkit-backdrop-filter: unset;
+    background-color: var(--pn-c);
+}
 
 // 引用块着色
 .typora-export-content>#write .v-q {
@@ -5421,8 +5555,8 @@ use.v-svg-ico-wh {
     // 按钮链接
     #write .v-q.@{quoteMark} a kbd,
     #write .v-q .v-q.@{quoteMark} a kbd {
-        background: @btnBg;
         color: @btnFore;
+        background: @btnBg;
         box-shadow: 0 3px darken(@btnBg, 15%); // 按钮高 3px
     }
     #write .v-q.@{quoteMark} a kbd:hover,
@@ -5449,20 +5583,29 @@ use.v-svg-ico-wh {
     //     // border-radius: var(--v-r-s);
     // }
     // 明信片
-    // #write .v-q.@{quoteMark} img[src*="#card"]+.v-post-card {
-    //     // color: @btnFore !important;
-    //     // background: @btnBg !important;
-    //     color: var(--d-fc);
-    //     background-color: var(--pn-c);
-    // }
+    #write .v-q.@{quoteMark} img[src*="#card"]+.v-post-card {
+        // color: @btnFore !important;
+        // background: @btnBg !important;
+        // color: var(--d-fc);
+        // background-color: var(--pn-c);
+        // border-width: 1px;
+        // border-color: ~"var(--ac-@{quoteMark}-fade)";
+        border: 1px solid ~"var(--ac-@{quoteMark}-fade)";
+        // border-top: 0;
+    }
     #write .v-q.@{quoteMark} img[src*="#card"],
     #write .v-q.@{quoteMark} svg[data-inject-url*="#card"] {
         border-color: @btnBg !important;
     }
-    #write .v-q.@{quoteMark}>p:has(img[src*="#card"][src*="#border"]) {
-        background-color: @btnBg !important;
-        // border-radius: var(--v-r-b) var(--v-r-b) 0 0;
-        // border-radius: var(--v-r-b) var(--v-r-b) 0 0;
+    // #write .v-q.@{quoteMark}>p:has(img[src*="#card"][src*="#border"]) {
+    //     // background-color: ~"var(--ac-@{quoteMark}-fade)" !important;
+    //     // border-radius: var(--v-r-b) var(--v-r-b) 0 0;
+    //     // border-radius: var(--v-r-b) var(--v-r-b) 0 0;
+    // }
+    // 明信片带 #border 时，导出后的微调（指定色号时）
+    #write .v-q.@{quoteMark}:has(>p img[src*="#card"][src*="#border"]),
+    #write .v-q.@{quoteMark}.em:has(>p img[src*="#card"][src*="#border"]) {
+        background: linear-gradient(180deg, ~"var(--ac-@{quoteMark}-fade)", ~"var(--ac-@{quoteMark})") !important;
     }
     // 标题
     #write .v-q .title-@{quoteMark},

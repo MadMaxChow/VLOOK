@@ -3,8 +3,8 @@
  * VLOOK CSS - Typora 编辑时内置样式
  * (配合 base.less 进行使用)
  *
- * V24.1
- * 2024-05-11
+ * V24.2
+ * 2024-05-21
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -826,7 +826,7 @@ body.os-windows #file-library-tree {
 }
 // 大纲节点 hover
 .outline-item:hover {
-    background: var(--blockquote-bg);
+    background: var(--pn-c-a);//var(--blockquote-bg);
     border-radius: var(--v-r-s);
     margin-left: 0;
     border-left-width: 0;
@@ -1491,15 +1491,17 @@ content>#write .md-hr+.md-hr>hr {
 // 图文卡片编辑时样式
 content>#write blockquote:has(.md-image[data-src*="#card"]>img) {
     padding: 0;
-    background-color: @buttonBgColor;
+    background: linear-gradient(180deg, var(--ac-t1-fade), var(--ac-t1));
     border-radius: var(--v-r-b) var(--v-r-b) 0 0;
 }
 content>#write blockquote p:has(.md-image[data-src*="#card"])+blockquote {
     color: var(--d-fc);
     background-color: var(--pn-c);
+    border: 1px solid var(--ac-t1-fade) !important;
+    border-top: 0 !important;
     // color: @buttonForeColor;
     // background-color: @buttonBgColor;
-    border: none;
+    // border: none;
     margin: 0;
     padding: 10px;
     border-radius: 0 0 var(--v-r-b) var(--v-r-b);

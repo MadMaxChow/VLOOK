@@ -20,7 +20,7 @@ vlook-chp-autonum: h1{{#ALPHA#. }},h2{{#00#-sup# - }},h3{{#ROMAN-min# - }}
 vlook-doc-lib: vlook-lib.html
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>脚本化图表参考指南</u><br>*最新版本`V24.1`*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>脚本化图表参考指南</u><br>*最新版本`V24.2`*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
@@ -810,6 +810,51 @@ erDiagram
 >  ````
 > 
 > [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/entityRelationshipDiagram.html)
+
+## 方块图
+
+*==方块图示例==*
+
+```mermaid
+block-beta
+columns 1
+  db(("DB"))
+  blockArrowId6<["&nbsp;&nbsp;&nbsp;"]>(down)
+  block:ID
+    A
+    B["A wide one in the middle"]
+    C
+  end
+  space
+  D
+  ID --> D
+  C --> D
+  style B fill:#969,stroke:#333,stroke-width:4px
+
+```
+
+> ###### 查看完整画图脚本示例
+>
+> ````方块图脚本示例
+> ```mermaid
+> block-beta
+> columns 1
+>   db(("DB"))
+>   blockArrowId6<["&nbsp;&nbsp;&nbsp;"]>(down)
+>   block:ID
+>     A
+>     B["A wide one in the middle"]
+>     C
+>   end
+>   space
+>   D
+>   ID --> D
+>   C --> D
+>   style B fill:#969,stroke:#333,stroke-width:4px
+> ```
+> ````
+>
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/block.html)
 
 ## 四象限图
 
@@ -1685,6 +1730,8 @@ timeline
 
 ## XY 图
 
+*==XY 图示例==*
+
 ```mermaid
 xychart-beta
     title "Sales Revenue"
@@ -1694,7 +1741,20 @@ xychart-beta
     line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
 ```
 
-
+> ###### 查看完整画图脚本示例
+>
+> ````XY 图脚本示例
+> ```mermaid
+> xychart-beta
+>     title "Sales Revenue"
+>     x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
+>     y-axis "Revenue (in $)" 4000 --> 11000
+>     bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+>     line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+> ```
+> ````
+>
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/xyChart.html)
 
 ## 饼图
 

@@ -3,8 +3,8 @@
  * VLOOK CSS 调色板
  * (配合 base.less 进行使用)
  *
- * V24.1
- * 2024-05-11
+ * V24.2
+ * 2024-05-21
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -100,7 +100,7 @@
         --img-bd-invert: rgb(255 - red(@tmpBorderColor), 255 - green(@tmpBorderColor), 255 - blue(@tmpBorderColor));
     }
 }
-@panelColorLight: #E8EAED;
+@panelColorLight: #EBEDEF;//#E8EAED;
 @panelColorDark: #383A3C;
 .applyPanelColor(@panelColorLight, @panelColorDark);
 
@@ -156,8 +156,8 @@
 @accColorPinkAlt: #FDE7F2;
 @accColorPinkAltDark: #4B0629;
 
-@accColorYellow: #FDC000;
-@accColorYellowDark: #E6AE00;
+@accColorYellow: #FABA08;
+@accColorYellowDark: #E6AB07;
 @accColorYellowAlt: #FFF1C7;
 @accColorYellowAltDark: #4D3A00;
 
@@ -257,8 +257,11 @@
 @accColorBlackAltDark: #464E54;
 
 :root {
-    // fade for light
+    --i-checking: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxyZWN0IGZpbGw9IiNBQUEiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgcng9IjYiLz48cGF0aCBkPSJNNyAxOGEzIDMgMCAxIDAgMC02IDMgMyAwIDAgMCAwIDZ6bTggMGEzIDMgMCAxIDAgMC02IDMgMyAwIDAgMCAwIDZ6bTggMGEzIDMgMCAxIDAgMC02IDMgMyAwIDAgMCAwIDZ6IiBmaWxsPSIjRkZGIi8+PC9nPjwvc3ZnPg==");
+    --i-check-passed: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxyZWN0IGZpbGw9IiMxMEEwMzAiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgcng9IjYiLz48cGF0aCBkPSJNMjMuNDU3IDEwLjQ2OWwtOC42MDMgMTIuMjg3Yy0uMTk0LjI3Ny0uNDQxLjQ5My0uNzE4LjY0NmwtLjA0LjAyMi0uMDQ0LjAyMmEyLjE0MiAyLjE0MiAwIDAgMS0yLjQ5MS0uMzkybC00LjU0Ni00LjU0NmEyLjE0MyAyLjE0MyAwIDEgMSAzLjAzLTMuMDNsMi43NSAyLjc0NyA3LjE1Mi0xMC4yMTRhMi4xNDMgMi4xNDMgMCAwIDEgMy41MSAyLjQ1OHoiIGZpbGw9IiNGRkYiLz48L2c+PC9zdmc+");
+    --i-check-failed: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxyZWN0IGZpbGw9IiNDMDEwMTAiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgcng9IjYiLz48cGF0aCBkPSJNMTguMzc1IDZjLjIyNCAwIC40MzguMDg5LjU5Ni4yNDdsNC43ODIgNC43ODJhLjg0Ljg0IDAgMCAxIC4yNDcuNTk2djYuNzVjMCAuMjI0LS4wOS40MzgtLjI0Ny41OTZsLTQuNzgyIDQuNzgyYS44NDIuODQyIDAgMCAxLS41OTYuMjQ3aC02Ljc1YS44NDIuODQyIDAgMCAxLS41OTYtLjI0N0w2LjI0NyAxOC45N0EuODQyLjg0MiAwIDAgMSA2IDE4LjM3NXYtNi43NWMwLS4yMjQuMDg5LS40MzguMjQ3LS41OTZsNC43ODItNC43ODJBLjg0Mi44NDIgMCAwIDEgMTEuNjI1IDZoNi43NXpNMTUgMTguMzc1YTEuMTI1IDEuMTI1IDAgMSAwIDAgMi4yNSAxLjEyNSAxLjEyNSAwIDAgMCAwLTIuMjV6bTAtNy44NzVjLS42MjEgMC0xLjEyNS40NzItMS4xMjUgMS4wNTV2NC42NGMwIC41ODMuNTA0IDEuMDU1IDEuMTI1IDEuMDU1czEuMTI1LS40NzIgMS4xMjUtMS4wNTV2LTQuNjRjMC0uNTgzLS41MDQtMS4wNTUtMS4xMjUtMS4wNTV6IiBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L2c+PC9zdmc+");
 
+    // fade for light
     --ac-gd-fade-bd-lg: fade(@accColorGold, @accOpacityHightForLg);
     --ac-pk-fade-bd-lg: fade(@accColorPink, @accOpacityHightForLg);
     --ac-ye-fade-bd-lg: fade(@accColorYellow, @accOpacityHightForLg);
