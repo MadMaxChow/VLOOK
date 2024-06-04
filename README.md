@@ -52,7 +52,7 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ![内置多套原创文档主题 & 字体主题，一键切换！支持私人定制！](https://vlook-doc.pages.dev/pic/vlook-screenshot-A02.png)
 
-![图片排版 plus：题注、高分屏、版式、Dark 模式适配反色/替换…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A03.png)
+![图片排版 plus：题注、高清屏、版式、Dark 模式适配反色/替换…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A03.png)
 
 ![表格排版 plus：单元格合并、列格式、行分组、重复表头、自动编号…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A04.png)
 
