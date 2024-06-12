@@ -10,6 +10,7 @@ window.addEventListener('message', function(event) {
     // 处理消息
     let receMessage = event.data,
         resultDiv = document.getElementById("check-result");
+    console.log(event, receMessage);
     // 校验消息合法性
     if (!receMessage.startsWith("V") || receMessage.length > 6)
         return;
