@@ -1,0 +1,36 @@
+<html>
+<head>
+</head>
+<body>
+Checking new version of VLOOK ...
+<div id="check-result"></div>
+<script type="text/javascript">
+let latestVer = "V24.2";
+window.addEventListener('message', function(event) {
+    // 处理消息
+    let receMessage = event.data,
+        resultDiv = document.getElementById("check-result");
+    // 校验消息合法性
+    if (!receMessage.startsWith("V") || receMessage.length > 6)
+        return;
+
+    console.log(`Lastest version [${latestVer}]`);
+    console.log(`Checking update for [${receMessage}] ...`);
+
+    // 来源的版本
+    srcVer = receMessage.substring(1, receMessage.length);
+    srcVer = isNaN(srcVer) ? 0 : parseFloat(srcVer);
+    // 当前最新版本
+    latestVer = latestVer.substring(1, latestVer.length);
+    latestVer = isNaN(latestVer) ? 0 : parseFloat(latestVer);
+
+    // 生成结果
+    let result = latestVer > srcVer ? "yes" : "no";
+    resultDiv.innerText = "[" + result + "]";
+
+    // 回复消息
+    event.source.postMessage("chk-update:" + result, event.origin);
+});
+</script>
+</body>
+</html>
