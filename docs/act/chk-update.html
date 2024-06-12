@@ -11,6 +11,8 @@ window.addEventListener('message', function(event) {
     let receMessage = event.data,
         resultDiv = document.getElementById("check-result");
     console.log(event, receMessage);
+    resultDiv.innerText += "\nevent: " + event;
+    resultDiv.innerText += "\ndata: " + receMessage;
     // 校验消息合法性
     if (!receMessage.startsWith("V") || receMessage.length > 6)
         return;
@@ -27,10 +29,10 @@ window.addEventListener('message', function(event) {
 
     // 生成结果
     let result = latestVer > srcVer ? "yes" : "no";
-    resultDiv.innerText = "[" + result + "]";
+    resultDiv.innerText += "\n[" + result + "]";
 
     // 回复消息
-    event.source.postMessage("chk-update:" + result, event.origin);
+    event.source.postMessage("chk-update: " + result, event.origin);
 });
 </script>
 </body>
