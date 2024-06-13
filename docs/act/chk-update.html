@@ -11,14 +11,14 @@ window.addEventListener('message', function(event) {
     let receMessage = event.data,
         resultDiv = document.getElementById("check-result");
     console.log(event, receMessage);
-    resultDiv.innerText += "\nevent: " + event;
-    resultDiv.innerText += "\ndata: " + receMessage;
+    // resultDiv.innerText += "\nevent: " + event;
+    // resultDiv.innerText += "\ndata: " + receMessage;
     // 校验消息合法性
     if (!receMessage.startsWith("V") || receMessage.length > 6)
         return;
 
-    console.log(`Lastest version [${latestVer}]`);
-    console.log(`Checking update for [${receMessage}] ...`);
+    resultDiv.innerText += `\nLastest version [${latestVer}]`;
+    resultDiv.innerText += `\nChecking update for [${receMessage}] ...`;
 
     // 来源的版本
     srcVer = receMessage.substring(1, receMessage.length);
@@ -32,7 +32,7 @@ window.addEventListener('message', function(event) {
     resultDiv.innerText += "\n[" + result + "]";
 
     // 回复消息
-    event.source.postMessage("chk-update: " + result, event.origin);
+    event.source.postMessage("chk-update:" + result, event.origin);
 });
 </script>
 </body>
