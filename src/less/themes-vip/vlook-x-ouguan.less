@@ -46,12 +46,11 @@
 @theme1Alt: #B8CDE6;
 @theme1AltDark: #0B3A73;
 @theme2Dark: @theme2;
-@theme2Alt: #E4F2F1;
+@theme2Alt: #D5F2F0;
 @theme2AltDark: #064D48;
 @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), 15%);
-@theme1FadeDark: rgba(red(@theme1Dark), green(@theme1Dark), blue(@theme1Dark), 15%);
 @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
-@theme2FadeDark: rgba(red(@theme2Dark), green(@theme2Dark), blue(@theme2Dark), @accOpacity);
+@theme2FadeDark: rgba(red(@theme2Dark), green(@theme2Dark), blue(@theme2Dark), 30%);
 
 @themeForeColor: @theme1;
 @themeForeColorFade: fade(@themeForeColor, 50%);
@@ -118,6 +117,8 @@
 @docLibButtonForeColor: @buttonForeColor;
 @docLibButtonForeHoverColor: @buttonForeHoverColor;
 @docLibButtonBgColor: @buttonBgColor;
+// 指定 kbd 按钮风格
+.applyKbdRadius(none);
 
 // 链接颜色
 @aBorderWidth: 2px;

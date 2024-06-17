@@ -35,7 +35,8 @@
 // 文档背景使用图片
 .applyDocBgImg(@docBgImgLight_Twill_R, @docBgImgDark_Twill_R);
 // 指定主题配套的圆角
-.applyThemeRadius(small);
+// .applyThemeRadius(big);
+.applyThemeRadius(leaf);
 
 :root {
     --thm-email: "maxchow@qq.com";
@@ -55,22 +56,13 @@
 @theme2AltDark: #5D090A;//darken(@theme2, 35%);//darken(@theme2Alt, 75%);
 @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
 @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
-
-@themeForeColor: @theme1;
-@themeForeColorFade: fade(@themeForeColor, 50%);
-@themeBgColor: @theme3;
-@themeBgColorFade: fade(@themeForeColor, 50%);
-@themeBgColorDark: darken(@themeForeColor, 20%);
-@themeBgColorAlt: lighten(@themeForeColor, 42%);
+@theme2FadeDark: rgba(red(@theme2), green(@theme2), blue(@theme2), 40%);
 
 // 标题色
 @headerColor: @theme1;
 @headerColorDark: @theme1Dark;
 // 渐变标题色 h1-h5
-// @lgHeaderBg: linear-gradient(135deg, @theme1 25%, #2060E0);
-// @lgHeaderBgClip: text;
-// @lgHeaderColor: transparent;
-@lgH1Bg: linear-gradient(135deg, @theme1 25%, #2060E0);
+@lgH1Bg: linear-gradient(90deg, @theme1 25%, #2060E0);
 @lgH2Bg: @lgH1Bg;
 @lgH3Bg: @lgH1Bg;
 @lgH4Bg: @lgH1Bg;
@@ -89,10 +81,11 @@
 // 自定义章节自动编号
 // 导出的 HTML 中不生效，须添加以下 VLOOK 的调校参数「vlook-chp-autonum」
 @h1BeforeContent: "第" counter(h1) "章 ";
-@h6BeforeContent: "▰▱ "; // ■ ▱▰ ⏥▰▱
+@h6BeforeContent: "▰ "; // ■ ▱▰ ⏥▰▱
 
 // @tocHeaderNumColor: @docTextColorLightFade;
-@contentHeaderNumColor: @themeForeColorFade;
+@contentHeaderNumOpacity: .5;
+@contentHeaderNumColor: @theme1;
 @headerBackground: none;//linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
 @multiHeaderBG: none;
 @headerTextAlign: center;
@@ -115,13 +108,15 @@
 @codeTextColor: @theme2;
 
 // 按钮色
-@buttonForeColor: @themeBgColor;
+@buttonForeColor: @theme3;
 @buttonForeHoverColor: @theme3;
-@buttonBgColor: @themeForeColor;
+@buttonBgColor: @theme1;
 // 文库按钮颜色
 @docLibButtonForeColor: @buttonForeColor;
 @docLibButtonForeHoverColor: @buttonForeHoverColor;
 @docLibButtonBgColor: @buttonBgColor;
+// 指定 kbd 按钮风格
+.applyKbdRadius(leaf);
 
 // 链接颜色
 @aBorderWidth: 2px;
@@ -159,7 +154,7 @@
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: center;
 @coverTextPadding: 240px 60px 50px;
-@coverTextColor: @themeForeColor;
+@coverTextColor: @theme1;
 @coverSubColor: @aLineColor;
 @coverUnderlineColor: #606070;
 @coverAuthorColor: @coverUnderlineColor;
@@ -167,7 +162,7 @@
 
 @backCoverTextAlign: center;
 @backCoverTextPadding: 220px 60px 50px 60px;
-@backCoverTextColor: @themeForeColor;
+@backCoverTextColor: @theme1;
 
 // 封面装饰性文本样式 before
 @coverTextBeforeContent: "";
@@ -190,10 +185,10 @@
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
 // @contrastBorder: 0 0 0 1px rgba(0, 0, 0, .2);
 @contrastBorder: 0 0 0 0 transparent;
-@contrastBorderForCover: 0 0 0 2px fade(@themeForeColor, 20%) inset;
+@contrastBorderForCover: 0 0 0 2px fade(@theme1, 20%) inset;
 
 // 封面背景设置
-@coverBackgroundColor: @themeBgColor;
+@coverBackgroundColor: @theme3;
 @coverBackgroundImage: var(--thm-dic-logo), var(--thm-liby-logo), var(--thm-c-w-bg), var(--thm-c-w), var(--thm-tree);
 @coverBackgroundSize: auto, auto, 100% 131px, 100% 220px, auto;
 @coverBackgroundRepeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
@@ -220,5 +215,32 @@
 }
 
 @import "../base";
+
+// 标题 after 样式
+#write :is(h1,h2,h3,h4,h5)>span::after {
+    content: "";
+    background: @theme1;
+    opacity: .3;
+    width: .625em;
+    height: .625em;
+    border-radius: .25em 0;
+    margin: 5px;
+    position: relative;
+    display: inline-flex;
+    vertical-align: top;
+}
+
+// 封底 span::after 选择器
+@backcoverSpanAfter: ~"@{coverAfterYAML}~@{backcoverId}>span::after";
+@backcoverSpanWithoutYAMLafter: ~"@{coverWithoutYAML}~@{backcoverId}>span::after";
+@{backcoverSpanAfter},
+@{backcoverSpanWithoutYAMLafter} {
+    content: "" !important;
+    background: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    position: absolute !important;
+}
 
 @import "../gsa";

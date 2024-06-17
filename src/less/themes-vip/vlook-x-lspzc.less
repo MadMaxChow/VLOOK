@@ -49,6 +49,7 @@
 @theme2AltDark: #6B2525;
 @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
 @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
+@theme2FadeDark: rgba(red(@theme2), green(@theme2), blue(@theme2), 40%);
 
 @themeForeColor: @theme1;
 @themeForeColorFade: fade(@themeForeColor, 50%);
@@ -119,6 +120,8 @@
 @docLibButtonForeColor: @buttonForeColor;
 @docLibButtonForeHoverColor: @buttonForeHoverColor;
 @docLibButtonBgColor: @buttonBgColor;
+// 指定 kbd 按钮风格
+.applyKbdRadius(none);
 
 // 链接颜色
 @aBorderWidth: 2px;

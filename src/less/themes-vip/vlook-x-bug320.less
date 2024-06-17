@@ -48,6 +48,7 @@
 @theme2AltDark: #10413C;
 @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
 @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
+@theme2FadeDark: rgba(red(@theme2), green(@theme2), blue(@theme2), 50%);
 
 @themeForeColor: @theme1;
 @themeForeColorFade: fade(@themeForeColor, 50%);
@@ -83,8 +84,10 @@
 @h6BorderTop: 0;
 
 // 按钮色
-@buttonForeColor: @themeBgColor;
+@buttonForeColor: @theme3;
 @buttonBgColor: @themeForeColor;
+// 指定 kbd 按钮风格
+.applyKbdRadius(big);
 
 // 封面、封底文字位置及对齐方式
 @coverTextPadding: 240px 80px 60px 80px;

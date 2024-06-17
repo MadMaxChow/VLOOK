@@ -49,9 +49,8 @@
 @theme2Alt: #FAEDE1;
 @theme2AltDark: #61350A;
 @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), 15%);
-@theme1FadeDark: rgba(red(@theme1Dark), green(@theme1Dark), blue(@theme1Dark), 15%);
 @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
-@theme2FadeDark: rgba(red(@theme2Dark), green(@theme2Dark), blue(@theme2Dark), @accOpacity);
+@theme2FadeDark: rgba(red(@theme2), green(@theme2), blue(@theme2), 40%);
 
 @themeForeColor: @theme1;
 @themeForeColorFade: fade(@themeForeColor, 50%);
@@ -67,7 +66,7 @@
 @contentHeaderNumColor: @themeBgColorFade;
 @multiHeaderBG: @headerBackground;
 @headerTextAlign: left;
-@h1TextAlign: center;
+// @h1TextAlign: center;
 // @headerPadding: 5px 0;
 
 @h1Margin: 1.25em 0 0 0;
@@ -78,8 +77,28 @@
 @h6Margin: 1em 0 0 0;
 @hContinuous: -5px;
 
+// 不进行章节自动编号
+@ChpAutoNum: off;
+@h1BeforeContent: "";
+@h2BeforeContent: "";
+@h3BeforeContent: "";
+@h4BeforeContent: "";
+@h5BeforeContent: "";
+
+// 表格边框
+// @tblBdWidth: 1px;
+// 表格背景
+// @tableThColor: var(--d-fc-a);
+// @tableThBackground: inherit;
+@tableBackground: var(--d-bc);
+// @tableThColor: var(--d-bc);
+@tableThBackground: none;
+@tableTdBackground: none;
 // 表格行 hover
 @tableTrHoverBgDark: fade(@aHoverColor, 25%);
+// 表格单元格阴影
+// @tableFirstThBoxShadow: none;
+@tableTdBoxShadow: 0 -1px 0 0 var(--tbl-cell-bd);
 
 // 题注文字、背景色
 @captionTextColor: var(--d-fc-a);
@@ -96,6 +115,8 @@
 @docLibButtonForeColor: @buttonForeColor;
 @docLibButtonForeHoverColor: @buttonForeHoverColor;
 @docLibButtonBgColor: @buttonBgColor;
+// 指定 kbd 按钮风格
+.applyKbdRadius(small);
 
 // 链接颜色
 @aBorderWidth: 2px;

@@ -125,21 +125,6 @@
 @backCoverTextPadding: 220px 60px 50px 60px;
 @backCoverTextColor: @themeForeColor;
 
-// 封面装饰性文本样式 before
-@coverTextBeforeContent: "⟨";
-@coverTextBeforePosition: absolute;
-@coverTextBeforeLeft: 40px;
-@coverTextBeforeTop: 200px;
-@coverTextBeforeColor: @coverTextColor;
-@coverTextBeforeFontSize: 5em;
-@coverTextBeforeFontWeight: lighter;
-@coverTextBeforeOpacity:.5;
-// 封面装饰性文本样式 after
-@coverTextAfterContent: "⟩";
-@coverTextAfterTextAlign: right;
-@coverTextAfterLeft: auto;
-@coverTextAfterRight: 40px;
-
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
 @contrastBorderForCover: 0 0 0 2px fade(@themeForeColor, 20%) inset;
 
@@ -157,5 +142,32 @@
 @backCoverBackgroundPosition: center 120px, center 450px, bottom, bottom center, center -260px;
 
 @import "../base";
+
+// 封面装饰文本样式 before
+@{coverAfterYAML}::before,
+@{coverWithoutYAML}::before,
+@{coverAfterYAML}::after,
+@{coverWithoutYAML}::after {
+    content: "⟨" !important;
+    position: absolute;
+    left: 40px;
+    top: 200px;
+    color: @coverTextColor;
+    font-size: 5em;
+    font-weight: lighter;
+    opacity: .5;
+}
+
+// 封面装饰文本样式 after
+@{coverAfterYAML}::after,
+@{coverWithoutYAML}::after {
+    content: "⟩" !important;
+    text-align: right;
+    left: auto;
+    top: 200px;
+    right: 40px;
+    color: @coverTextColor;
+    font-size: 5em;
+}
 
 @import "../gsa";

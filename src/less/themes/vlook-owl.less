@@ -10,9 +10,9 @@
  *
  *************************************/
 
-@import "font";
-@import "color";
-@import "common";
+@import "../font";
+@import "../color";
+@import "../common";
 
 @welcomeAutoCloseDelay: 3;
 
@@ -48,6 +48,7 @@
 @theme2AltDark: #212426;
 @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
 @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
+@theme2FadeDark: rgba(red(@theme2), green(@theme2), blue(@theme2), 75%);
 
 @themeForeColor: @theme1;
 @themeForeColorFade: fade(@themeForeColor, 50%);
@@ -59,10 +60,14 @@
 // 标题色
 @headerColor: @theme1;
 @headerColorDark: @theme1Dark;
+
+@owlC1: rgba(16, 168, 190, .3);
+@owlC2: rgba(119, 53, 204, .2);
+@owlLg: ~"linear-gradient(270deg, @{owlC1}, @{owlC2} 30%, @{owlC2} 50%, @{owlC2} 70%, @{owlC1})";
+@spliterWidth: 4px;
+@headerSpliterLg: linear-gradient(180deg, transparent, transparent @spliterWidth, var(--d-bc) @spliterWidth, var(--d-bc));
+
 // 渐变标题色 h1-h5
-// @lgHeaderBg: linear-gradient(135deg, @theme1 25%, hsl(241, 44%, 55%));
-// @lgHeaderBgClip: text;
-// @lgHeaderColor: transparent;
 @lgH1Bg: linear-gradient(135deg, @theme1 25%, hsl(241, 44%, 55%));
 @lgH2Bg: @lgH1Bg;
 @lgH3Bg: @lgH1Bg;
@@ -80,20 +85,14 @@
 @lgH5Color: @lgH1Color;
 // 6 级标题前缀内容
 @h6BeforeContent: "◎ ";
-// @tocHeaderNumColor: @docTextColorLightFade;
 @contentHeaderNumColor: @themeForeColorFade;
-@headerBackground: linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
+@h1Bg: linear-gradient(180deg, rgba(var(--fade-r), var(--fade-g), var(--fade-b), .1), rgba(var(--fade-r), var(--fade-g), var(--fade-b), 1)), @owlLg;
+@h2Bg: @h1Bg;
+@h3Bg: @headerSpliterLg, linear-gradient(270deg, var(--d-bc), var(--d-bc) 20%, @owlC2 20%, @owlC1 50%, @owlC2 80%, var(--d-bc) 80%, var(--d-bc));
+
 @multiHeaderBG: none;
 @headerTextAlign: center;
-@headerPadding: 5px 0;
-//@headerLetterSpacing: 0;//0.15em;
-// 标题的上边框
-@h1BorderTop: 9px solid var(--h-box-shadow);
-@h2BorderTop: 7px solid var(--h-box-shadow);
-@h3BorderTop: 5px solid var(--h-box-shadow);
-@h4BorderTop: 3px solid var(--h-box-shadow);
-@h5BorderTop: 1px solid var(--h-box-shadow);
-@h6BorderTop: 0;
+@headerPadding: 20px 5px 5px;
 @h1Margin: 3em 0 0 0;
 @h2Margin: 3em 0 0 0;
 @h3Margin: 2em 0 0 0;
@@ -105,6 +104,10 @@
 // h1{{第###章 }}
 @h1BeforeContent: "第" counter(h1) "章 ";
 
+// 引用块默认色样式（与主题配套使用）
+@quoteBgDefault: linear-gradient(0deg, var(--d-bc), var(--blockquote-bg));
+@quoteBoxShadowDefault: 0 0 0 1px var(--blockquote-bg) inset;
+
 // 按钮色
 @buttonForeColor:#FFFFFF;
 @buttonForeHoverColor: @theme3;
@@ -113,6 +116,8 @@
 @docLibButtonForeColor: @buttonForeColor;
 @docLibButtonForeHoverColor: @buttonForeHoverColor;
 @docLibButtonBgColor: @buttonBgColor;
+// 指定 kbd 按钮风格
+.applyKbdRadius(big);
 
 // 链接颜色
 @aBorderWidth: 2px;
@@ -134,37 +139,6 @@
 @backCoverTextAlign: center;
 @backCoverTextPadding: 300px 80px 50px;
 @backCoverTextColor: @theme3;
-
-// // 封面装饰性文本样式 before
-// @coverTextBeforeContent: "";
-// @coverTextBeforePosition: initial;
-// @coverTextBeforeLeft: initial;
-// @coverTextBeforeTop: initial;
-// @coverTextBeforeColor: initial;
-// @coverTextBeforeFontSize: initial;
-// @coverTextBeforeFontWeight: initial;
-// @coverTextBeforeOpacity: initial;
-// // 封面装饰性文本样式 after
-// @coverTextAfterContent: "";
-// @coverTextAfterTextAlign: initial;
-// @coverTextAfterLeft: initial;
-// @coverTextAfterRight: initial;
-@coverTextBeforeContent: "°⚬";//"{";
-@coverTextBeforePosition: absolute;
-@coverTextBeforeLeft: 70px;//40px;
-@coverTextBeforeTop: 150px;//250px;
-@coverTextBeforeColor: @coverTextColor;
-@coverTextBeforeFontSize: 5em;
-@coverTextBeforeFontWeight: 100;
-@coverTextBeforeOpacity:.5;
-// 封面装饰性文本样式 after
-@coverTextAfterContent: "⚬°";//"}";
-@coverTextAfterTextAlign: right;
-@coverTextAfterLeft: auto;
-@coverTextAfterTop: 380px;//@coverTextBeforeTop;
-@coverTextAfterRight: 90px;//40px;
-@coverTextAfterColor: @coverTextBeforeColor;
-@coverTextAfterFontSize: 3.5em;
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
 // @contrastBorder: 0 0 0 1px rgba(0, 0, 0, .2);
@@ -198,4 +172,33 @@
     --thm-bc-w-r: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwMCIgaGVpZ2h0PSIzNTAiIHZpZXdCb3g9IjAgMCAxMDAwIDM1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGRlZnM+PHBhdGggZD0iTTAgMzQ1YzIwMi45MTUtLjMwMiAzNzkuMjE5LTEzLjMwNCA1MjIuNjQyLTEwNi4wOTNDNjY2LjA2NSAxNDYuMTE3IDc1OS4wMDIgMCA5NTAgMHYzNDVIMHoiIGlkPSJiIi8+PGZpbHRlciB4PSItMi45JSIgeT0iLTEwLjklIiB3aWR0aD0iMTA1LjglIiBoZWlnaHQ9IjExNS45JSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiBpZD0iYSI+PGZlT2Zmc2V0IGR5PSItMTAiIGluPSJTb3VyY2VBbHBoYSIgcmVzdWx0PSJzaGFkb3dPZmZzZXRPdXRlcjEiLz48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI3LjUiIGluPSJzaGFkb3dPZmZzZXRPdXRlcjEiIHJlc3VsdD0ic2hhZG93Qmx1ck91dGVyMSIvPjxmZUNvbG9yTWF0cml4IHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMC4xNSAwIiBpbj0ic2hhZG93Qmx1ck91dGVyMSIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDI1MGMxMzIuOTE1LTIuMzAyIDI5OS4yMTktMzQuMzA0IDQxNS42NDItOTAuMDkzQzUzMi4wNjUgMTA0LjExNyA2MTkuMDAyIDAgNzUwIDB2MjUwSDB6IiBpZD0iZCIvPjxmaWx0ZXIgeD0iLTMuNyUiIHk9Ii0xNSUiIHdpZHRoPSIxMDcuMyUiIGhlaWdodD0iMTIyJSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiBpZD0iYyI+PGZlT2Zmc2V0IGR5PSItMTAiIGluPSJTb3VyY2VBbHBoYSIgcmVzdWx0PSJzaGFkb3dPZmZzZXRPdXRlcjEiLz48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI3LjUiIGluPSJzaGFkb3dPZmZzZXRPdXRlcjEiIHJlc3VsdD0ic2hhZG93Qmx1ck91dGVyMSIvPjxmZUNvbG9yTWF0cml4IHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMC4xNSAwIiBpbj0ic2hhZG93Qmx1ck91dGVyMSIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDE1MGMxMjIuOTE1LTguMzAyIDIyMC4yMTktMjEuMzA0IDMxNi42NDItNjAuMDkzQzQxMy4wNjUgNTEuMTE3IDQ3OS4wMDIgMCA1NzAgMHYxNTBIMHoiIGlkPSJmIi8+PGZpbHRlciB4PSItNC44JSIgeT0iLTI1JSIgd2lkdGg9IjEwOS42JSIgaGVpZ2h0PSIxMzYuNyUiIGZpbHRlclVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgaWQ9ImUiPjxmZU9mZnNldCBkeT0iLTEwIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIi8+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iNy41IiBpbj0ic2hhZG93T2Zmc2V0T3V0ZXIxIiByZXN1bHQ9InNoYWRvd0JsdXJPdXRlcjEiLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAuMTUgMCIgaW49InNoYWRvd0JsdXJPdXRlcjEiLz48L2ZpbHRlcj48L2RlZnM+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MCA1KSI+PHVzZSBmaWxsPSIjMDAwIiBmaWx0ZXI9InVybCgjYSkiIHhsaW5rOmhyZWY9IiNiIi8+PHVzZSBmaWxsPSIjMzkzQzczIiB4bGluazpocmVmPSIjYiIvPjwvZz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNTAgMTAwKSI+PHVzZSBmaWxsPSIjMDAwIiBmaWx0ZXI9InVybCgjYykiIHhsaW5rOmhyZWY9IiNkIi8+PHVzZSBmaWxsPSIjMjY1MDgwIiB4bGluazpocmVmPSIjZCIvPjwvZz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MzAgMjAwKSI+PHVzZSBmaWxsPSIjMDAwIiBmaWx0ZXI9InVybCgjZSkiIHhsaW5rOmhyZWY9IiNmIi8+PHVzZSBmaWxsPSIjMkE2QzhDIiB4bGluazpocmVmPSIjZiIvPjwvZz48L2c+PC9zdmc+");
 }
 
-// @import "base";
+@import "../base";
+
+// 封面装饰文本样式 before
+@{coverAfterYAML}::before,
+@{coverWithoutYAML}::before,
+@{coverAfterYAML}::after,
+@{coverWithoutYAML}::after {
+    content: "°⚬" !important;
+    position: absolute;
+    left: 70px;
+    top: 150px;
+    color: @coverTextColor;
+    font-size: 5em;
+    font-weight: 100;
+    opacity: .5;
+}
+
+// 封面装饰文本样式 after
+@{coverAfterYAML}::after,
+@{coverWithoutYAML}::after {
+    content: "⚬°" !important;
+    text-align: right;
+    left: auto;
+    top: 380px;
+    right: 90px;
+    color: @coverTextColor;
+    font-size: 3.5em;
+}
+
+@import "../gsa-ft";

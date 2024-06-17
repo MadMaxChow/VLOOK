@@ -10,9 +10,9 @@
  *
  *************************************/
 
-@import "font";
-@import "color";
-@import "common";
+@import "../font";
+@import "../color";
+@import "../common";
 
 @welcomeAutoCloseDelay: 3;
 
@@ -59,6 +59,7 @@
 @theme2AltDark: #27274A;
 @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
 @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
+@theme2FadeDark: rgba(red(@theme2), green(@theme2), blue(@theme2), 75%);
 
 @themeForeColor: @theme3;
 @themeForeColorFade: fade(@themeForeColor, 50%);
@@ -105,6 +106,8 @@
 @docLibButtonForeColor: @buttonForeColor;
 @docLibButtonForeHoverColor: @buttonForeHoverColor;
 @docLibButtonBgColor: @buttonBgColor;
+// 指定 kbd 按钮风格
+.applyKbdRadius(none);
 
 // 链接颜色
 @aBorderWidth: 2px;
@@ -194,4 +197,6 @@
     --thm-c-spliter: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjIyMCIgdmlld0JveD0iMCAwIDgwMCAyMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBmaWxsPSIjRkZGN0U5IiBkPSJNNDcwIDBoMTEwdjIwSDQ3MHoiLz48cGF0aCBmaWxsPSIjNjg2OEIwIiBkPSJNMCAwaDI5MHYyMEgweiIvPjxwYXRoIGZpbGw9IiNCMjREN0EiIGQ9Ik01ODAgMGgyMjB2MjBINTgweiIvPjxwYXRoIGZpbGw9IiNBREIzQ0MiIGQ9Ik0yOTAgMGgxODB2MjBIMjkweiIvPjwvZz48L3N2Zz4=");
 }
 
-// @import "base";
+@import "../base";
+
+@import "../gsa-ft";
