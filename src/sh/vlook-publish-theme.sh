@@ -23,11 +23,14 @@ cp /Users/max/Library/Application\ Support/abnerworks.Typora/themes/dev-vlook*.c
 echo "替换开发版本主题文件的标识..."
 find . -type f -name "dev-*.css" -exec bash -c 'mv "$0" "$(echo $0 | sed s/dev-//)"' {} \;
 
-echo "将私人定制主题移动到 vip 目录..."
-rm ../../../VLOOK-misc/vip-themes/*.css
-mv vlook-x-*.css ../../../VLOOK-misc/vip-themes/
+echo "将私人定制主题移动到 themes-vip 目录..."
+rm ../../../VLOOK-misc/themes-vip/*.css
+mv vlook-x-*.css ../../../VLOOK-misc/themes-vip/
 
-echo "将默认配套主题复制到发行版本的 theme 目录..."
+echo "将默认配套主题复制到发行版本的 themes 目录..."
 cp -f vlook-*.css ../../released/themes
+
+echo "将默认配套主题复制到 Typora 的 themes 目录..."
+cp -f vlook-*.css /Users/max/Library/Application\ Support/abnerworks.Typora/themes
 
 echo "[ ALL DONE ]"
