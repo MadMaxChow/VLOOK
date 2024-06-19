@@ -48,7 +48,7 @@ VLOOK™ is open source software and complies with the **[MIT license](#许可�
 
 ![让你的 Markdown 文档在自动化排版、可交互性上了 N 个台阶](https://vlook-doc.pages.dev/pic/vlook-screenshot-A01.png)
 
-![内置多套原创文档主题 & 字体主题，一键切换！支持私人定制！](https://vlook-doc.pages.dev/pic/vlook-screenshot-A02.png)
+![内置多套原创文档主题 & 字体主题，一键切换！支持定制！](https://vlook-doc.pages.dev/pic/vlook-screenshot-A02.png)
 
 ![图片排版 plus：题注、高清屏、版式、Dark 模式适配反色/替换…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A03.png)
 
@@ -102,9 +102,9 @@ VLOOK™ through the ongoing **excavation and expansion of** Markdown and CSS, c
 
 The "**Private Customization Service**" for Themes is now open! Here are some reference cases for private customization.
 
-![私人定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.png)
+[![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.png)](vip.html)
 
-Personal customized theme service WeChat: **MaxChow**, or Email (**[maxchow@qq.com](mailto:maxchow@qq.com)**)
+**More personalized theme displays •• [Click here to explore](vip.html)**
 
 ---
 

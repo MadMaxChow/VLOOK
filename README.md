@@ -50,7 +50,7 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ![让你的 Markdown 文档在自动化排版、可交互性上了 N 个台阶](https://vlook-doc.pages.dev/pic/vlook-screenshot-A01.png)
 
-![内置多套原创文档主题 & 字体主题，一键切换！支持私人定制！](https://vlook-doc.pages.dev/pic/vlook-screenshot-A02.png)
+![内置多套原创文档主题 & 字体主题，一键切换！支持定制！](https://vlook-doc.pages.dev/pic/vlook-screenshot-A02.png)
 
 ![图片排版 plus：题注、高清屏、版式、Dark 模式适配反色/替换…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A03.png)
 
@@ -98,13 +98,13 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 > - 有关脚本化图表的详细介绍、样例及使用说明详见《脚本化图表参考指南》•• [点击这里开始](https://madmaxchow.github.io/VLOOK/chart.html)（[备用链接](https://vlook-doc.pages.dev/chart.html)）
 
-# 私人定制主题
+# 定制主题
 
-目前现已开放主题的「**私人定制服务**」，以下为部分私人定制案例参考。
+> 目前现已开放主题的「**定制服务**」，以下为部分定制案例参考。
 
-![私人定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.png)
+[![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.png)](vip.html)
 
-私人定制服务请微信联系：`MaxChow` 或电子邮件 (**[maxchow@qq.com](mailto:maxchow@qq.com)**)
+**更多定制主题展示 •• [点击这里去探索](vip.html)**
 
 ---
 
