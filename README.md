@@ -102,9 +102,9 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 > 目前现已开放主题的「**定制服务**」，以下为部分定制案例参考。
 
-[![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.png)](vip.html)
+[![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.png)](https://madmaxchow.github.io/VLOOK/vip.html)
 
-**更多定制主题展示 •• [点击这里去探索](vip.html)**
+**更多定制主题展示 •• [点击这里去探索](https://madmaxchow.github.io/VLOOK/vip.html)**
 
 ---
 

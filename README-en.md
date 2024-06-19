@@ -102,9 +102,9 @@ VLOOK™ through the ongoing **excavation and expansion of** Markdown and CSS, c
 
 The "**Private Customization Service**" for Themes is now open! Here are some reference cases for private customization.
 
-[![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.png)](vip.html)
+[![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.png)](https://madmaxchow.github.io/VLOOK/vip.html)
 
-**More personalized theme displays •• [Click here to explore](vip.html)**
+**More personalized theme displays •• [Click here to explore](https://madmaxchow.github.io/VLOOK/vip.html)**
 
 ---
 
