@@ -3593,17 +3593,13 @@ let V_doc_counter_img = 0, // 图片总数
  * 初始化外部链接（如：http://、https://、ftp://、站内链接等），为其添加 target 参数
  */
 function V_doc_link_adjustExternal() {
-    ERROR(111, "a" + V_not(V_attrCSS(_href_, "#", "^")), $("a").length);
-    // $("a" + V_not(V_attrCSS(_href_, "#", "^"))).e((index, element) => {
-    $("a").e((index, element) => {
+    $("a" + V_not(V_attrCSS(_href_, "#", "^"))).e((index, element) => {
         let a = $(element),
             href = a.a(_href_);
-        ERROR(222, href);
         // 跳过指定类型链接
         if (href === gUndefined || href.x() === _ || href.sW("?")) // ? 开头的如 ?target=vdl
-            return gFalse;
+            return gTrue;
 
-        // ERROR(222, href);
         a.a(_target_, a.a(_href_));
 
         // 如果指定关闭文库，则所有外部链接都自动添加同名参数
