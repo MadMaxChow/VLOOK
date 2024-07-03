@@ -4,13 +4,23 @@ title: 浏览更多 VLOOK™ 的话题
 
 # 快速入坑°文档排版
 
-> **![°文档排版](pic/qico-types-light.svg?fill=text&darksrc=invert#icon) ° 文档排版**
+> ![°文档排版](pic/qico-types-light.svg?fill=vn&darksrc=invert#logo)
+>
+> **° 文档排版**
 >
 > **有了 VLOOK™ 主题及插件的支持，让你对 Markdown 编辑器（暂只支持 Typora）的自动化排版能力有了全新的理解。**
 >
 > 得益于成熟的 Web 浏览器、HTML / CSS、JavaScript 技术，让静态的文档也能与你一起「动」起来。
 >
 > _~Vn!~_
+
+###### ~~文本 • 链接 • 按钮~~
+
+---
+
+> a
+
+> b
 
 ###### 表格
 
@@ -69,14 +79,14 @@ title: 浏览更多 VLOOK™ 的话题
 
 > ###### 外观
 >
-> - 在高分屏下自动适配显示**高清**的版本（2x、3x） [❯❯](guide.md#图片适配高分屏)
+> - 在高清屏下自动适配显示**高清**的版本（2x、3x） [❯❯](guide.md#图片适配高清屏)
 > - 自动适配 **Dark Mode**  [❯❯](guide.md#图片适配 Dark Mode)
 > - 让图标的颜色与周围的元素更搭更和谐 [❯❯](guide.md#图片剪影)
 > - 为图片添加工程风的网格背景 [❯❯](guide.md#图片网格背景)
 >
 > _~Vn~_
 
-###### 分栏 • 引用块
+###### 分栏 • 引用块 • 备忘与警示
 
 ---
 
@@ -146,7 +156,9 @@ title: 浏览更多 VLOOK™ 的话题
 
 # 快速入坑°内容导航
 
-> **![°内容导航](pic/qico-nav-light.svg?fill=text&darksrc=invert#icon) ° 内容导航**
+> ![°内容导航](pic/qico-nav-light.svg?fill=Bu&darksrc=invert#logo)
+>
+> **° 内容导航**
 >
 > **VLOOK™ 提供了对文档内容、章节、插图、表格、多媒体提供了多种形式的导航、快速定位和内容组织的工具，全面改善和提高发布的 HTML 文件的浏览体验和效率。**
 >
@@ -214,7 +226,9 @@ title: 浏览更多 VLOOK™ 的话题
 
 # 快速入坑°演示与出版
 
-> **![°演示与出版](pic/qico-pres-light.svg?fill=text&darksrc=invert#icon) ° 演示与出版**
+> ![°演示与出版](pic/qico-pres-light.svg?fill=og&darksrc=invert#logo)
+>
+> **° 演示与出版**
 >
 > **VLOOK™ 独创性地为 Markdown 导出的 HTML 提供了强大的演示与出版工具，让 Typora + VLOOK 成为更具生产力的 Markdown 文档解决方案。**
 >
@@ -260,6 +274,8 @@ title: 浏览更多 VLOOK™ 的话题
 >
 > ---
 >
+> ---
+>
 > > **° 激光笔**
 > >
 > > 对文档内容进行**精确指向** [❯❯](guide2.md#激光笔)
@@ -275,6 +291,12 @@ title: 浏览更多 VLOOK™ 的话题
 > > **° 图表元素高亮**
 > >
 > > 支持鼠标对 Mermaid 图元悬停高亮显示 [❯❯](guide2.md#Mermaid-图表元素高亮)
+> >
+> > _~Og~_
+>
+> > **° 正文宽度适配**
+> >
+> > 选择或调整正文区域的显示宽度 [❯❯](guide2.md#正文宽度适配)
 > >
 > > _~Og~_
 >
@@ -330,7 +352,9 @@ title: 浏览更多 VLOOK™ 的话题
 
 # 快速入坑°主题与不杂项
 
-> **![°主题与不杂项](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon) ° 主题与不杂项**
+> ![°主题与不杂项](pic/qico-theme-light.svg?fill=lm&darksrc=invert#logo)
+>
+> **° 主题与不杂项**
 >
 > 「**人类从来都是视觉动物，自己或他人在阅读时，让眼睛感受愉悦和美好，是一种美德、一种力量、一种信仰。**_~CyPu~_」
 >
@@ -376,14 +400,3 @@ title: 浏览更多 VLOOK™ 的话题
 > - 支持快捷键操作 [❯❯](guide2.md#快捷键操作汇总)
 >
 > _~Lm~_
-
-# 快速入坑
-
-VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文档的互联网化应用场景～
-
-在 **文档排版、内容导航、演示辅助、交互体验**_~GnOgSe~_ 等方面提供了 **一致、简洁、友好**_~PuOgRo~_ 的体验。
-
-
-
----
-

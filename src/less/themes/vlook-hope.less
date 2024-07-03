@@ -14,10 +14,8 @@
 @import "../color";
 @import "../common";
 
-@welcomeAutoCloseDelay: 3;
-
 // 主题信息
-@themeVer: "V24.2";
+@themeVer: "V25.0";
 @themeName: "vlook-hope";
 @themeDesc: "Hope";
 
@@ -166,6 +164,7 @@
 @coverBackgroundSize: 80px 80px, auto, auto;
 @coverBackgroundRepeat: no-repeat, repeat-x, repeat-x;
 @coverBackgroundPosition: center 180px, top center, bottom center;
+
 // 封底背景设置
 @backCoverBackgroundColor: @coverBackgroundColor;
 @backCoverBackgroundImage: @coverBackgroundImage;
@@ -182,4 +181,8 @@
 
 @import "../base";
 
-@import "../gsa-em";
+// 生成指定风格的徽章样式
+.genBadgeStyle(dyn);
+
+// 生成 GSA 样式
+.genGSA_em();

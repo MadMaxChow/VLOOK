@@ -4,9 +4,9 @@ title: 样式与交互丰富的API文档
 
 
 
-- 接口 URL：*==comm-test/api/serivce/data==* *`just Test`*_~Rd~_
-- 接口 URL：*==comm/api/[serivce](// display: inline;)/data==* *`RELEASED`*_~Gn!~_
-- 请求方式：`POST`
+- 接口 URL： *==comm-test/api/serivce/data==* *`just Test`*_~Rd~_
+- 接口 URL： *==comm/api/[serivce](// display: inline;)/data==* *`RELEASED`*_~Gn!~_
+- 请求方式： `POST`
 
 ###### 字段说明
 

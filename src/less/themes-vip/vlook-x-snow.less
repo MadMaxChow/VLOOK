@@ -13,10 +13,10 @@
  *
  *************************************/
 
-@import "../theme-owl";
+@import "../themes/vlook-owl";
 
 // 主题信息
-@themeVer: "V24.2";
+@themeVer: "V25.0";
 @themeName: "vlook-x-snow";
 @themeDesc: "× Snow";
 @themeEmail: "nil541203@gmail.com";
@@ -60,4 +60,8 @@
 
 @import "../base";
 
-@import "../gsa";
+// 生成指定风格的徽章样式
+.genBadgeStyle(std);
+
+// 生成 GSA 样式
+.genGSA_simple();

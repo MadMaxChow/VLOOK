@@ -134,7 +134,7 @@ VLOOK™ provides two sets of font styles, which can be selected according to pe
 
 ![蓝奏云](https://vlook-doc.pages.dev/pic/lanzou.png?srcset=@2x#logo) •• [Download fonts ▾](https://wwe.lanzoui.com/ieVDhj1aokj)
 
-![百度网盘](https://vlook-doc.pages.dev/pic/baidupan.png?srcset=@2x#logo) •• [Download fonts ▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)（extract code `11ta`)
+![百度网盘](https://vlook-doc.pages.dev/pic/baidupan.png?srcset=@2x#logo) •• [Download fonts ▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw?pwd=11ta)（extract code `11ta` )
 
 ---
 

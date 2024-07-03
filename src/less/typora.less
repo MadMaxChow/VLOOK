@@ -3,8 +3,8 @@
  * VLOOK CSS - Typora 编辑时内置样式
  * (配合 base.less 进行使用)
  *
- * V24.2
- * 2024-05-21
+ * V25.0
+ * 2024-07-03
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -89,8 +89,6 @@
 
     --border-color: var(--tbl-bd);
 
-    // 选择的文本前景
-    // --select-text-font-color: var(--d-fc);
     // 选择的文本背景
     --select-text-bg-color: var(--v-selection-color);
 
@@ -104,12 +102,10 @@
     --active-file-bder: var(--select-text-bg-color);
     --active-file-text-color: var(--d-fc-lg);
 
-    // --item-hover-bg-color: var(--d-fc-a);
-    // --item-hover-text-color: var(--d-bc);
     --item-hover-bg-color: @aHoverColor;
     --item-hover-text-color: @buttonForeHoverColor;
 
-    --primary-color: @themeBgColor;
+    --primary-color: @theme1;
 
     --rawblock-edit-panel-bd: var(--pn-c);
 }
@@ -153,10 +149,6 @@
     color: var(--d-fc-lg);
 }
 
-// .outline-expander {
-//     cursor: var(--cur-pointer);
-// }
-
 content>.auto-suggest-container li:hover {
     color: var(--item-hover-text-color);
 }
@@ -188,18 +180,12 @@ content>.auto-suggest-container li:hover {
 
 // 表格编辑栏
 .ty-table-edit {
-    // margin-left: 0;
-    // margin-top: 0 !important;
     margin-top: -26px;
     margin-left: 0;
-    background: @buttonBgColor;//var(--d-fc);
-    // border-radius: 0 0 var(--v-r-b) var(--v-r-b);
-    // border-radius: var(--v-r-b) var(--v-r-b) @tableBorderRadius @tableBorderRadius;
+    background: @buttonBgColor;
     border-radius: var(--v-r-b) var(--v-r-b) 0 var(--v-r-b);
     padding: 0 3px 2px 3px;
     width: auto !important;
-    // left: 50%;
-    // transform: translateX(-50%);
     z-index: 3000;
 }
 
@@ -248,9 +234,6 @@ content>.auto-suggest-container li:hover {
 .md-delete-table {
     margin-left: 50px;
 }
-// .ty-icon.ty-delete {
-//     color: @aHoverColor;
-// }
 
 .md-notification-container {
     background: var(--d-bc) !important;
@@ -281,7 +264,7 @@ content>.auto-suggest-container li:hover {
 }
 
 #md-notification .btn {
-    border-radius: var(--v-r-s);
+    border-radius: var(--v-r-s) var(--v-r-s-xc);
     margin-left: 5px;
     color: @buttonForeColor !important;
     background: @buttonBgColor !important;
@@ -307,11 +290,9 @@ body.os-windows :is(.megamenu-menu, .megamenu-menu-header-title-menu) {
 }
 .megamenu-menu-header {
     border-bottom-color: @buttonForeColor;
-    // border-bottom-color: @docLibButtonBgColor;
 }
 #megamenu-back-btn {
     border-color: @docLibButtonBgColor;
-    // border-color: @buttonBgColor;
 }
 .megamenu-menu-panel {
     color: var(--d-fc-a-lg);
@@ -355,7 +336,7 @@ body:not([class]) :is(h1,h2,h3,h4,h5,h6) {
 
 .btn,
 .megamenu-content input {
-    border-radius: var(--v-r-s);
+    border-radius: var(--v-r-s) var(--v-r-s-xc);
     color: var(--d-fc);
 }
 .megamenu-section input {
@@ -368,7 +349,7 @@ body:not([class]) :is(h1,h2,h3,h4,h5,h6) {
 }
 
 .megamenu-section :is(.long-btn, .btn) {
-    border-radius: var(--v-r-s);
+    border-radius: var(--v-r-s) var(--v-r-s-xc);
     color: var(--d-fc-lg);
 }
 .megamenu-section :is(.long-btn:hover, .btn:hover) {
@@ -403,15 +384,18 @@ body.os-windows .active-tab-outline #info-panel-tab-outline .info-panel-tab-bord
 
 .md-image-src-span, // 图片链接
 .md-link .md-url { // 链接
-    // color: var(--a-color);
-    color: var(--d-fc-a);
+    // color: var(--d-fc-a);
     font-family: var(--monospace);
     font-weight: var(--v-f-w-text);
     text-decoration: none;
 }
-kbd .md-image-src-span,
-kbd .md-link .md-url {
+content>#write a kbd .md-image-src-span,
+content>#write a kbd .md-link .md-url {
     color: var(--pn-c);
+}
+content>#write a@{kbdAlt} kbd .md-image-src-span,
+content>#write a@{kbdAlt} kbd .md-link .md-url {
+    // color: var(--d-fc-a);
 }
 
 // 图片相关按钮
@@ -471,8 +455,8 @@ body.os-windows :is(.md-image-input-src-btn, .md-image-pick-file-btn) {
 .md-image>.md-meta {
     color: @aHoverColor;
 }
-kbd .md-image>.md-meta {
-    color: @buttonForeColor;
+content>#write a kbd .md-image>.md-meta {
+    color: inherit;
     font-weight: normal;
 }
 
@@ -487,12 +471,9 @@ kbd .md-image>.md-meta {
     position: absolute;
     left: -15px !important;
 }
-// #write :is(h6+figure, li>figure) table .md-focus-container::before {
 #write h6+figure table .md-focus-container::before {
-    // left: 1em !important;
     margin-right: 1.5em;
 }
-// :is(li>figure, h6+figure) .md-focus-container::before {
 h6+figure .md-focus-container::before {
     left: 10px;
 }
@@ -609,10 +590,9 @@ body.os-windows .info-panel-tab-wrapper::before {
 // 大纲内容为空
 #typora-sidebar #file-library:empty,
 #typora-sidebar .outline-content:empty {
-// #typora-sidebar #outline-content:empty {
     opacity: .4;
     border: 2px dashed var(--d-fc-a);
-    border-radius: var(--v-r-b);
+    border-radius: var(--v-r-b) var(--v-r-b-xc);
     background: none;
 }
 
@@ -624,7 +604,7 @@ body.os-windows .info-panel-tab-wrapper::before {
     padding-bottom: 8px;
 }
 #typora-sidebar #file-library-tree {
-    border-radius: var(--v-r-b);
+    border-radius: var(--v-r-b) var(--v-r-b-xc);
     padding-top: 0;
     padding-left: 0;
 }
@@ -639,7 +619,7 @@ body.os-windows .info-panel-tab-wrapper::before {
 #typora-sidebar :is(#file-library-tree, #file-library-list-children):empty {
     opacity: .4;
     border: 2px dashed var(--d-fc-a);
-    border-radius: var(--v-r-b);
+    border-radius: var(--v-r-b) var(--v-r-b-xc);
     background: none;
     height: 100%;
 }
@@ -651,7 +631,7 @@ body.os-windows #file-library-tree {
 
 // 右边浮动显示的侧边栏
 #toc-dropmenu {
-    border-radius: var(--v-r-b);
+    border-radius: var(--v-r-b) var(--v-r-b-xc);
     box-shadow: var(--v-fl-sd), var(--v-fl-i-sd);
     top: 30px !important;
     right: 20px !important;
@@ -753,7 +733,7 @@ body.os-windows #file-library-tree {
     top: 5px;
     width: 6px;
     height: 30px;
-    border-radius: calc(var(--v-r-s) - 4px);
+    border-radius: calc(var(--v-r-s) - 4px) calc(var(--v-r-s-xc) - 4px);
     opacity: .25;
 }
 @{outlineCover}>.outline-item-active .outline-label::before,
@@ -787,15 +767,11 @@ body.os-windows #file-library-tree {
     top: 8px !important;
 }
 
-// .no-collapse-outline .outline-content em>code {
-// }
-
 // 大纲面板
 .outline-content {
-// #outline-content {
     font-family: var(--v-f-fm-title);
     background: var(--pn-c);
-    border-radius: var(--v-r-b);
+    border-radius: var(--v-r-b) var(--v-r-b-xc);
     padding: 10px;
 }
 // 大纲节点
@@ -806,18 +782,16 @@ body.os-windows #file-library-tree {
     padding-top: 5px;
     padding-right: 5px;
     padding-bottom: 5px;
-    // cursor: var(--cur-pointer);
 }
 // 当前大纲节点
 .pin-outline .outline-active,
 .pin-outline .outline-active strong,
 .pin-outline .outline-content .outline-active strong {
-// .pin-outline #outline-content .outline-active strong {
     font-weight: var(--v-f-w-title);
 }
 .outline-item-active {
-    box-shadow: 0 0 0 2px fade(@headerColor, 50%) inset;
-    border-radius: var(--v-r-s);
+    box-shadow: @tocItemCurrent_boxShadow;
+    border-radius: var(--v-r-s) var(--v-r-s-xc);
     margin-left: 0;
     border-left-width: 0;
     margin-right: 0;
@@ -827,7 +801,7 @@ body.os-windows #file-library-tree {
 // 大纲节点 hover
 .outline-item:hover {
     background: var(--pn-c-a);//var(--blockquote-bg);
-    border-radius: var(--v-r-s);
+    border-radius: var(--v-r-s) var(--v-r-s-xc);
     margin-left: 0;
     border-left-width: 0;
     margin-right: 0;
@@ -865,7 +839,7 @@ body.os-windows #file-library-tree {
     color: var(--d-fc);
 }
 #md-searchpanel input {
-    border-radius: var(--v-r-s);
+    border-radius: var(--v-r-s) var(--v-r-s-xc);
     border-color: var(--tbl-bd);
 }
 // 搜索选项
@@ -884,7 +858,7 @@ body.os-windows #file-library-tree {
 #typora-quick-open {
     font-family: var(--v-f-fm-tag);
     background: var(--pn-c);
-    border-radius: var(--v-r-b);
+    border-radius: var(--v-r-b) var(--v-r-b-xc);
     box-shadow: var(--v-fl-sd), var(--v-fl-i-sd);
     border: none;
 }
@@ -894,7 +868,7 @@ body.os-windows #file-library-tree {
     font-family: var(--v-f-fm-text);
 }
 #typora-quick-open-input input {
-    border-radius: var(--v-r-s);
+    border-radius: var(--v-r-s) var(--v-r-s-xc);
     max-height: 40px;
     border-color: var(--tbl-bd);
     font-size: 1.5em;
@@ -908,7 +882,7 @@ body.os-windows #file-library-tree {
     padding-left: 20px;
 }
 .typora-quick-open-item.active {
-    border-radius: var(--v-r-s);
+    border-radius: var(--v-r-s) var(--v-r-s-xc);
     background: var(--pn-c-a);
     color: var(--d-fc);
     margin-left: 5px;
@@ -943,7 +917,7 @@ body.os-windows #file-library-tree {
 }
 // 文件节点
 .file-library-file-node {
-    border-radius: var(--v-r-s);
+    border-radius: var(--v-r-s) var(--v-r-s-xc);
 }
 .file-library-file-node:active {
     box-shadow: @tocItemActive_boxShadow;
@@ -952,11 +926,6 @@ body.os-windows #file-library-tree {
 .file-library-file-node.active {
     box-shadow: @tocItemCurrent_boxShadow;
 }
-// 节点
-// .file-node-content {
-//     cursor: var(--cur-pointer);
-//     // ;
-// }
 // 点击节点
 .file-library-node:not(.file-node-root):focus>.file-node-content {
     outline: 0;
@@ -1063,11 +1032,10 @@ body.os-windows .file-node-title { // for Win
 
 // 针对在编辑模式时无效图片的样式
 .md-img-error>.md-meta {
-    // background: var(--ac-rd-a);
     color: var(--ac-rd-lg) !important;
     font-style: italic;
     border: 2px dashed var(--ac-rd-lg);
-    border-radius: var(--v-r-b);
+    border-radius: var(--v-r-b) var(--v-r-b-xc);
     line-height: @paragraphInnerLineHeight;
     padding: 1px;
     background-image: url("data:image/png;base64,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") !important;
@@ -1097,35 +1065,20 @@ body.os-windows .file-node-title { // for Win
 // 排除多媒体类的
 @errorAudio: ~':is(.md-img-error[data-src*=".mp3"], .md-img-error[data-src*=".m4a"], .md-img-error[data-src*=".ogg"], .md-img-error[data-src*=".wav"])';
 @errorVideo: ~':is(.md-img-error[data-src*=".ogv"], .md-img-error[data-src*=".mp4"], .md-img-error[data-src*=".webm"])';
-// :is(.md-img-error[data-src*=".mp3"],
-// .md-img-error[data-src*=".m4a"],
-// .md-img-error[data-src*=".ogg"],
-// .md-img-error[data-src*=".wav"],
-// .md-img-error[data-src*=".ogv"],
-// .md-img-error[data-src*=".mp4"],
-// .md-img-error[data-src*=".webm"])>.md-meta {
 @{errorAudio}>.md-meta,
 @{errorVideo}>.md-meta {
     border: none;
     color: var(--h-f) !important;
     border: inherit;
-    // padding: inherit;
-    // border-radius: inherit;
     padding: 5px;
-    border-radius: var(--v-r-b);
+    border-radius: var(--v-r-b) var(--v-r-b-xc);
     background-image: none !important;
     background-color: var(--pn-c) !important;
     width: initial;
     height: initial;
-    // display: inline !important;
-    // height: 80px;
     display: inline-block !important;
     visibility: visible !important;
 }
-// :is(.md-img-error[data-src*=".mp3"],
-//     .md-img-error[data-src*=".m4a"],
-//     .md-img-error[data-src*=".ogg"],
-//     .md-img-error[data-src*=".wav"])>.md-meta:first-of-type:before {
 @{errorAudio}>.md-meta:first-of-type:before {
     content: "🔊";
 }
@@ -1137,15 +1090,9 @@ body.os-windows .file-node-title { // for Win
     text-align: center;
     display: block;
 }
-// :is(.md-img-error[data-src*=".ogv"],
-//     .md-img-error[data-src*=".mp4"],
-//     .md-img-error[data-src*=".webm"])>.md-meta:first-of-type:before {
 @{errorVideo}>.md-meta:first-of-type:before {
     content: "🎦";
 }
-// :is(.md-img-error[data-src*=".ogv"],
-//     .md-img-error[data-src*=".mp4"],
-//     .md-img-error[data-src*=".webm"])>.md-meta:first-of-type:after {
 @{errorVideo}>.md-meta:first-of-type:after {
     content: "( Export HTML to Watch Video )";
     text-transform: uppercase;
@@ -1189,12 +1136,12 @@ body.os-windows .file-node-title { // for Win
     font-weight: var(--v-f-w-text);
     font-size: .875em;
     line-height: @paragraphInnerLineHeight;
-    border-radius: var(--v-r-b);
+    border-radius: var(--v-r-b) var(--v-r-b-xc);
     padding: 24px 10px 5px 10px;
     color: var(--a-color);//@aColor;
     background: var(--code-bg);
     border: @yamlBorderWidth dashed var(--std-code-shadow);
-    margin: @yamlMarginTopBottom @yamlMarginLeftRight;
+    margin: 0 @yamlMarginLeftRight @yamlMarginTopBottom;
 }
 #write pre.md-meta-block:empty:before,
 #write>pre.md-meta-block::before {
@@ -1236,12 +1183,8 @@ content>#write blockquote p>sub:only-child.md-expand .md-plain {
 #write>pre.md-meta-block.md-focus { // YAML 等获得焦点后
     border: none;
     // 在原来 margin 基础上，补偿因 border 取消后的空间变化
-    margin: @yamlMarginTopBottom+2px @yamlMarginLeftRight+2px;
+    margin: 2px @yamlMarginLeftRight+2px @yamlMarginTopBottom+2px;
 }
-// #write .md-expand span[md-inline="plain"] { // code 获得焦点
-//     padding-left: .25em;
-//     padding-right: .25em;
-// }
 // 源码模式下的 YAML
 #typora-source pre.cm-yaml {
     font-family: var(--monospace);
@@ -1255,11 +1198,6 @@ content>#write blockquote p>sub:only-child.md-expand .md-plain {
 **************************************/
 
 /* No link underlines in TOC */
-
-// content>#write>h1:first-of-type::before,
-// content>#write>pre.md-meta-block+h1:first-of-type::before {
-//     content: "NO TOC";
-// }
 
 content .md-toc::before {
     content: "☰ Table of contents / 目录 ☰";
@@ -1301,7 +1239,6 @@ content .md-toc::before {
 .md-toc-content,
 .outline-content {
     counter-reset: h1;
-    // margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
@@ -1355,7 +1292,6 @@ content .md-toc::before {
     counter-reset: h6toc;
     content: "";
     font-size: 12px;
-    // color: var(--d-fc-a);
     color: var(--toc-h-num-color);
 }
 
@@ -1388,7 +1324,6 @@ content .md-toc::before {
 @escBackcoverIdForToc: ~".md-toc>.md-toc-content>.md-toc-h1:last-child";
 @{coverAfterYAMLforToc}+@{escBackcoverIdForToc}, // 有 YAML 的封面情况下排除文档内 TOC 的 h1(封底) 情况
 @{coverWithoutYAMLforToc}+@{escBackcoverIdForToc},  // 无 YAML 的封面情况下排除文档内 TOC 的 h1(封底) 情况
-// .md-toc-content>.md-toc-h6:first-child ~ .md-toc-h1.outline-item-signle:last-child, // 有封面的情况下，最后一个 h1 为封底
 .md-toc-h6 {
     display: none;
     margin-left: 0;
@@ -1397,7 +1332,6 @@ content .md-toc::before {
 
 .outline-label {
     word-break: break-word;
-    // cursor: var(--cur-pointer);
 }
 
 .outline-label::before {
@@ -1481,8 +1415,6 @@ content>#write hr {
 }
 content>#write hr:hover {
     background: @aHoverColor;
-    // margin-top: calc(-8px - @quoteTitleBorderWidth * 2);
-    // height: @quoteTitleBorderWidth * 2;
 }
 content>#write .md-hr+.md-hr>hr {
     margin-top: -14px !important;
@@ -1492,35 +1424,17 @@ content>#write .md-hr+.md-hr>hr {
 content>#write blockquote:has(.md-image[data-src*="#card"]>img) {
     padding: 0;
     background: linear-gradient(180deg, var(--ac-t1-fade), var(--ac-t1));
-    border-radius: var(--v-r-b) var(--v-r-b) 0 0;
+    border-radius: var(--v-r-b) var(--v-r-b-xc);
 }
 content>#write blockquote p:has(.md-image[data-src*="#card"])+blockquote {
     color: var(--d-fc);
     background-color: var(--pn-c);
     border: 1px solid var(--ac-t1-fade) !important;
     border-top: 0 !important;
-    // color: @buttonForeColor;
-    // background-color: @buttonBgColor;
-    // border: none;
     margin: 0;
     padding: 10px;
-    border-radius: 0 0 var(--v-r-b) var(--v-r-b);
+    border-radius: 0 0 var(--v-r-b) var(--v-r-b-xc);
 }
-// 文字链接
-// content>#write blockquote p:has(.md-image[data-src*="#card"])+blockquote a {
-// #write :is(blockquote, details) .v-post-card a {
-//     color: @buttonForeColor !important;
-//     opacity: .6;
-// }
-// kbd 按钮
-// content>#write blockquote p:has(.md-image[data-src*="#card"])+blockquote a kbd,
-// #write :is(blockquote, details) .v-post-card a kbd {
-//     border: 1px solid fade(@buttonForeColor, 25%);
-// }
-// content>#write blockquote p:has(.md-image[data-src*="#card"])+blockquote a:has(kbd),
-// #write :is(blockquote, details) .v-post-card a:has(kbd) {
-//     opacity: 1;
-// }
 
 // ====================
 // 编辑时预置颜色色号的公共样式
@@ -1536,14 +1450,7 @@ content>#write table :is(th,td)>span>[md-inline="em"]:last-child>em>sub:only-chi
 content>#write @{colorCodeBeforeSpanFmt},
 content>#write @{colorCodeBeforeSupSub} { // 文本着色（指定格式）
     font: normal bold .5em var(--v-f-fm-code) !important; // [style] [weight] [size/[line-height]] [family]
-    // font-family: monospace !important;
-    // font-family: var(--v-f-fm-code) !important;
-    // font-weight: bold;
-    // font-size: .625em;
-    // font-style: normal;
-    border-radius: 0 4px 4px 4px;// calc(var(--v-r-tag) - 2px);
-    // font-family: var(--v-f-fm-code) !important;
-    // padding-right: 2px;
+    border-radius: 0 4px 4px 4px;
     bottom: 0;
     color: var(--d-fc);
     background-color: var(--d-fc-a);
@@ -1562,35 +1469,18 @@ content>#write @{colorCodeOnCellStart} { // 单元格（段落）
 }
 
 // 针对 引用块着色 的微调
-// @colorCodeInBlockquoteOld: ~'blockquote p>sub:first-child';
 @colorCodeInBlockquote: ~'blockquote p>[md-inline="em"]:only-child>em>sub:only-child';
 
-// content>#write @{colorCodeInBlockquoteOld} {
-//     border: 1px solid var(--ac-t2);
-//     border-radius: var(--v-r-si);
-//     bottom: 0;
-// }
 content>#write @{colorCodeInBlockquote} {
     bottom: 0;
 }
 // 针对 引用块着色 的前缀提示样式
-// content>#write @{colorCodeInBlockquoteOld}::before {
-//     content: ">";
-//     color: var(--ac-t2);
-// }
 content>#write @{colorCodeInBlockquote}::before {
     content: ">";
     color: var(--d-bc);
     padding-right: 2px;
     opacity: .6;
 }
-// 在引用块内的引用块时取消样式
-// content>#write blockquote>blockquote p>sub:only-child {
-//     border: none;
-// }
-// content>#write blockquote>blockquote p>sub:only-child::before {
-//     content: "";
-// }
 // 针对 文本着色/单元格（段落） 的前缀提示样式
 content>#write @{colorCodeOnPgStart}::before,
 content>#write @{colorCodeOnCellStart}::before {
@@ -1612,7 +1502,6 @@ content>#write table th[style*=":right"]>span::before {
     text-transform: uppercase;
     font: @syntaxTipsFont;
     font-size: 0.5em;
-    // font-weight: normal;
     position: absolute;
     margin-top: -.7em;
     opacity: .6;
@@ -1694,22 +1583,11 @@ content>#write table th[style*=":right"]>span::before {
 .md-diagram-panel-preview {
     padding-top: 0;
 }
-// .md-diagram-panel-preview>svg {
-//     // display: block !important;
-//     // margin: 0 auto !important;
-//     width: auto;
-// }
 
 .md-diagram-panel {
-    border-radius: var(--v-r-b);
+    border-radius: var(--v-r-b) var(--v-r-b-xc);
     padding: 0;
 }
-
-// .md-diagram-panel svg {
-//     width: auto;
-//     margin: 0 !important;
-//     display: block;
-// }
 
 // ====================
 // 第 1 题注（编辑时样式）
@@ -1720,7 +1598,6 @@ content>#write table th[style*=":right"]>span::before {
 @cap_prefix: ~'[md-inline="em"]:only-child>em>[md-inline="highlight"]>mark';
 @cap1_OnEditing: ~'p>@{cap_prefix}';
 @cap2_OnEditing: @cap1_OnEditing~'>[md-inline="em"]>em';
-// #write p>em>mark,
 content>#write @{cap1_OnEditing} {
     font: normal .875em var(--v-f-fm-bd);
     color: @captionTextColor;
@@ -1740,16 +1617,10 @@ content>#write li>@{cap1_OnEditing} {
 content>#write @{cap1_OnEditing}::before {
     content: "Caption/题注. ";
     text-transform: uppercase;
-    // font: @syntaxTipsFont;
-    color: var(--h-f);//var(--ac-t1-lg);
-    // opacity: .5;
+    color: var(--a-color);
 }
-// content>#write p:has([md-inline="em"]:only-child>em>[md-inline="highlight"]>mark) {
-//     text-align: center;
-// }
 // --------------------
 // 第 2 题注（编辑时样式）
-// #write p>em>mark>em,
 content>#write @{cap2_OnEditing} {
     font-style: normal;
 }
@@ -1758,10 +1629,9 @@ content>#write @{cap2_OnEditing}::before {
     text-transform: uppercase;
     font: @syntaxTipsFont;
     color: var(--ac-t1-lg);
-    // opacity: .5;
 }
 content>#write .md-expand mark .md-meta {
-    color: @aHoverColor;//var(--a-color);
+    color: @aHoverColor;
     opacity: 1 !important;
 }
 
@@ -1770,40 +1640,67 @@ content>#write .md-expand mark .md-meta {
 // 注意：因格式与 @cap1_OnEditing 接近，注意调整时进行多点验证
 @stepwisePrefix_OnEditing: ~'[md-inline="em"]';
 @stepwiseSuffix_OnEditing: ~'>em>[md-inline="highlight"]>mark';
-// @stepwise_OnEditing: ~'[md-inline="em"]:not(:only-child)>em>[md-inline="highlight"]>mark';
 // 调整该选择器时须同步调整 vlook.js 中 Stepwise 对应的选择器
-// @menuStepPath_OnExported: ~'em>mark:only-child';
-@triangleWidth: .625em;
+@triangleWidth: .5em;
 @stepwiseTextColor: var(--d-fc);
 content>#write p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing},
 content>#write .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing},
 .v-stepwise {
     font: normal .875em var(--v-f-fm-code);
     line-height: 1;
-    // font: normal .875em var(--v-f-fm-bd);
-    background-color: var(--std-code-shadow);//var(--d-fc);
     color: @stepwiseTextColor;
     box-shadow: none;
     text-shadow: none;
-    padding: 5px 15px 5px 10px;
-    border-radius: var(--v-r-tag);
-    clip-path: polygon(0 0, calc(100% - @triangleWidth) 0, 100% 50%, calc(100% - @triangleWidth) 100%, 0 100%);
+    padding: 5px 10px;
+    border-radius: var(--v-r-tag) 0 0 var(--v-r-tag);
+    border: 1px solid var(--d-bc);
+    // border-right: 1px solid var(--std-code-shadow);
     position: relative;
     display: inline-block;
+    margin-right: 10px;
+    background-color: var(--std-code-shadow);
+    // clip-path: polygon(0 0, calc(100% - @triangleWidth) 0, 100% 50%, calc(100% - @triangleWidth) 100%, 0 100%);
+    // background: linear-gradient(90deg, var(--std-code-shadow), var(--std-code-shadow) calc(100% - 10px), var(--d-bc) calc(100% - 10px), var(--d-bc));
+}
+content>#write p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing}::before,
+content>#write .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing}::before,
+.v-stepwise::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    right: calc(-1em + 5px);
+    width: 0;
+    height: 0;
+    border-top: calc(1em - 1px) solid transparent;
+    border-bottom: calc(1em - 1px) solid transparent;
+    border-left: calc(1em - 6px) solid var(--d-bc);
+}
+content>#write p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing}::after,
+content>#write .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing}::after,
+.v-stepwise::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: calc(-1em + 7px);
+    width: 0;
+    height: 0;
+    border-top: calc(1em - 2px) solid transparent;
+    border-bottom: calc(1em - 2px) solid transparent;
+    border-left: calc(1em - 7px) solid var(--std-code-shadow);
 }
 // 分步分级内容分隔样式
 .v-stepwise {
     cursor: var(--cur-copy-normal);
     // ;
 }
-@arrowWidth: 20%;
+@arrowWidth: 30%;
 .v-stepwise label {
     background-color: @stepwiseTextColor;
     width: @triangleWidth;
     display: inline-block;
     clip-path: polygon(0 0, @arrowWidth 0, 100% 50%, @arrowWidth 100%, 0 100%, 100% - @arrowWidth 50%);
     margin: 0 5px;
-    opacity: .2;
+    opacity: .3;
 }
 content>#write p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing} a,
 content>#write .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing} a,
@@ -1822,11 +1719,8 @@ content>#write .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing} a
     content: "◥";//" ➤";//"↗️";//"↗︎";
     font-size: .875em;
     color: var(--a-color);
-    // content: "";
-    // background: url("data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PHBhdGggZD0iTTQzMiAxNzguMDQ4YzIwLjggMCAzNy42OTYgMTYuNjQgMzcuNjk2IDM3LjMxMmEzNy41MDQgMzcuNTA0IDAgMCAxLTM3Ljc2IDM3LjMxMkgyMzkuMzZjLTE5Ljg0IDAtMzUuODQgMTUuODcyLTM1Ljg0IDM1LjUyVjc4NS45MmMwIDE5LjU4NCAxNiAzNS41MiAzNS44NCAzNS41Mkg3NDIuNGMxOS43NzYgMCAzNS44NC0xNS45MzYgMzUuODQtMzUuNTJWNTgzLjc0NGMwLTIwLjYwOCAxNi44MzItMzcuMjQ4IDM3LjY5Ni0zNy4yNDggMjAuOCAwIDM3LjY5NiAxNi42NCAzNy42OTYgMzcuMjQ4djIwMi4yNEExMTAuNzIgMTEwLjcyIDAgMCAxIDc0Mi4yNzIgODk2SDIzOS4zNkExMTAuNzIgMTEwLjcyIDAgMCAxIDEyOCA3ODUuOTJWMjg4LjE5MmMuMDY0LTYwLjggNDkuOTItMTEwLjA4IDExMS4zNi0xMTAuMTQ0SDQzMnpNODQwLjEyOCAxMjhjMzAuNzg0IDAgNTUuNzQ0IDI0LjcwNCA1NS44MDggNTUuMTY4VjM5MC40YTM3LjUwNCAzNy41MDQgMCAwIDEtMzcuNjk2IDM3LjM3NiAzNy44ODggMzcuODg4IDAgMCAxLTI2LjYyNC0xMC44OCAzNy4xMiAzNy4xMiAwIDAgMS0xMS4wNzItMjYuNDMydi0xNDQuOTZMNTI1Ljc2IDUzNy4zNDRjLTcuMDQgNy4wNC0xNi42NCAxMC45NDQtMjYuNjg4IDEwLjg4YTM3LjY5NiAzNy42OTYgMCAwIDEtMzQuODgtMjMuMDQgMzYuOTkyIDM2Ljk5MiAwIDAgMSA4LjI1Ni00MC42NEw3NTcuMzc2IDIwMi41Nkg2MTAuOTQ0YTM3LjUwNCAzNy41MDQgMCAwIDEtMzcuNjk2LTM3LjI0OGMwLTIwLjYwOCAxNi44OTYtMzcuMzEyIDM3Ljc2LTM3LjMxMmgyMjkuMTg0eiIgZmlsbD0iIzk5OSIvPjwvc3ZnPg==");
     width: 20px;
     height: 20px;
-    // vertical-align: super;
     margin-left: -4px;
     margin-top: -8px;
     position: absolute;
@@ -1877,7 +1771,24 @@ content>#write span[md-inline="image"][data-src*="#icon"]::before {
 #write {
     max-width: 100%;
     margin: 0 auto;
-    padding: 10px 20px;
+    padding: @writePaddingRight;
+}
+
+// 适配宽度显示
+body:not([class*="pin-outline"]) content>#write, // 编辑时，如收起了左侧面板
+body[class*="on-focus-mode"] content>#write, // 编辑时，如启用了「专注模式（Focus Mode）」
+body[class*="ty-on-typewriter-mode"] content>#write, // 编辑时，如启用了「打字机模式（Typewriter Mode）」
+#write.max.fit-width {
+    width: auto;
+    box-shadow: none;
+}
+#write.max.fit-width {
+    margin-left: var(--v-write-ml-def) !important;
+}
+.v-more-doc-content-before.max.fit-width,
+.v-more-doc-content-after.max.fit-width {
+    width: 100%;
+    margin-left: var(--v-write-ml-def) !important;
 }
 
 #write>:is(ul,ol):first-child {
@@ -1903,18 +1814,15 @@ content>#write @{summaryOnEditing} {
 .md-fences {
     color: var(--d-fc);
     font-family: @themeMonoFont, var(--v-f-fm-code);
-    border-radius: var(--v-r-b);
+    border-radius: var(--v-r-b) var(--v-r-b-xc);
     border: @imgBorderWidth solid var(--tbl-bd);
     margin: 0 0 8px 0;
     background-color: var(--std-code-shadow);
-    // background-color: var(--d-fc);//var(--pn-c);
 }
 // 代码块获得焦点
 content>#write .md-fences.md-focus {
     box-shadow: var(--v-input-focus-shadow) !important;
-    // box-shadow: var(--v-input-focus-inn-shadow), var(--v-input-focus-shadow);
     border-color: var(--a-color);
-    // border-color: @docLibButtonBgColor;
 }
 content>#write .md-fences.md-focus .md-diagram-panel {
     margin-top: 4px !important;
@@ -1949,82 +1857,3 @@ content>#write blockquote>h6+:is(.md-fences, figure) {
     border-color: var(--v-input-focus-border) !important;
     box-shadow: var(--v-input-focus-shadow) !important;
 }
-
-// /* 数学公式 */
-// .MathJax_SVG_Display {
-//     border: none;
-//     overflow-x: auto;
-//     border: 2px solid var(--pn-c);
-//     border-radius: var(--v-r-b);
-//     padding: 10px;
-//     cursor: pointer;
-// }
-// // 公式编号标签
-// .MathJax_SVG g[id^=mjx-eqn-] {
-//     fill: var(--d-fc-a);
-// }
-// .MathJax_SVG_Display:hover {
-//     border-color: @aLineColor;
-// }
-// .MathJax_SVG_Display:active {
-//     transform: scale(1.5);
-//     border: none;
-// }
-// .MathJax_SVG g text {
-//     color: @codeTooltipText;//var(--d-fc);
-// }
-
-// // 行间（独占一行）数学公式
-// content .md-math-container { // 编辑时
-//     font-size: 1em !important;
-// }
-
-// // 预览：行间公式、脚注
-// @codeTooltipBg: var(--d-fc);
-// @codeTooltipText: var(--d-bc);
-// .code-tooltip {
-//     color: @codeTooltipText !important;//var(--d-fc) !important;
-//     background: @codeTooltipBg;//var(--pn-c);
-//     border-radius: var(--v-r-si);
-//     box-shadow: none;
-//     padding: 0 2px;
-// }
-// .code-tooltip .ty-input:focus {
-//     background: @codeTooltipBg;//var(--pn-c);
-//     border-radius: var(--v-r-s);
-// }
-
-// // 预览：行内公式、脚注
-// .code-tooltip.md-hover-tip,
-// .md-hover-tip .md-arrow:after {
-//     background: @codeTooltipBg;//var(--pn-c);
-// }
-
-// // 行内数学公式
-// content .md-inline-math mjx-container { // 编辑时
-//     font-size: .75em !important;
-// }
-// .md-inline-math-container mjx-container { // 编辑时
-//     zoom: 1 !important;
-// }
-
-// #math-inline-preview-content mjx-container[jax="SVG"]>svg g {
-//     fill: @codeTooltipText !important;
-// }
-
-// // 公式链接
-// mjx-container[jax="SVG"]>svg a {
-//     fill: var(--a-color) !important;
-//     stroke: var(--a-color) !important;
-//     box-shadow: 0 -.3em 0 0 fade(@aLineColor, 30%) inset;
-// }
-// mjx-container[jax="SVG"]>svg a:hover {
-//     fill: @aHoverColor !important;
-//     stroke: @aHoverColor !important;
-//     box-shadow: 0 -.3em 0 0 fade(@aLineColor, 30%) inset;
-// }
-// mjx-container[jax="SVG"]>svg a:active {
-//     fill: @aHoverColor !important;
-//     stroke: @aHoverColor !important;
-//     box-shadow: 0 0 0 2px fade(@aHoverColor, 50%);
-// }

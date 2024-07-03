@@ -11,17 +11,15 @@
  * For(wechat): holysheng
  * 2024-1
  *
- * 配套的预置选项：
- * vlook-chp-autonum: h1{{#none#}},h2{{#none#}},h3{{### }},h4{{### }},h5{{#ALPHA-min# }}
  * 配套的调校参数要求：
  * quote=off
  *
  *************************************/
 
-@import "../theme-hope";
+@import "../themes/vlook-hope";
 
 // 主题信息
-@themeVer: "V24.2";
+@themeVer: "V25.0";
 @themeName: "vlook-x-qimao";
 @themeDesc: "× QiMao";
 @themeEmail: "882007@qq.com";
@@ -79,6 +77,7 @@
 
 // 章节自动编号格式
 // 导出的 HTML 中不生效，须添加以下 VLOOK 的调校参数「vlook-chp-autonum」
+@vChpAutoNum: "h1{{#none#}},h2{{#none#}},h3{{### }},h4{{### }},h5{{#ALPHA-min# }}";
 @h1BeforeContent: "";
 @h2BeforeContent: "";
 @h3BeforeContent: counter(h3) " ";
@@ -89,8 +88,8 @@
 @contentHeaderNumColor: @themeForeColorFade;
 
 // 表格圆角
-@tableBorderRadius: 0;
-
+@tableBorderRadius: 0px;
+@tableBorderRadiusXC: 0px;
 // 标题的上边框
 @h1BorderLeft: 0;
 @h2BorderLeft: 0;
@@ -175,4 +174,8 @@
 
 @import "../base";
 
-@import "../gsa";
+// 生成指定风格的徽章样式
+.genBadgeStyle(std);
+
+// 生成 GSA 样式
+.genGSA_simple();

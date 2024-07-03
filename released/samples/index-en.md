@@ -9,21 +9,21 @@ keywords:
 - Table enhancement, cell merging, row grouping, crosshairs, repeating header, scratch card, black screen, label, picture enhancement, presentation assistance, spotlight, laser pen, auto folding, printing, mermaid, audio, video, phonetic notation, theme, font, template, dark mode, dark mode, cover, back cover, private customization
 - PRD, design, requirements, documents, blogs, manuals, guides, online, operation and maintenance, knowledge base, wiki
 - Product manager, programmer, operation and maintenance engineer, pre-sales and after-sales
-vlook-chp-autonum: h1{{#ALPHA#. }},h2{{STEP-##-min#: }}
+Vlook-chp-autonum-test: h1{{#ALPHA#. }},h2{{STEP-##-min#: }}
 vlook-query: toc=2
 vlook-doc-lib:
 - [VLOOK™ Document Library](vlook-lib-en.html "manual,guide,example,sample")
 - [简体中文 🀄️ 参考手册](index.html?target=vlook-index-cn "typora;vlook")
 - [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank)
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
-vlook-gray-mode: 01-27;04-04;05-12
+vlook-gray-mode: 05-12
 ---
 
-###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective_^Interaction^_<br>──<br><u>Introduction</u><br>*`V24.2` is the Latest*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective_^Interaction^_<br>──<br><u>Introduction</u><br>*`V25.0` is the Latest*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
-> **选择语言 ❯ **[<kbd>🇨🇳 简体中文</kbd>](index.md)
+> **选择语言 ❯ **[<kbd>🇨🇳 简体中文</kbd>](index.md?kbd=alt)
 
 # What is VLOOK™
 
@@ -83,9 +83,9 @@ vlook-gray-mode: 01-27;04-04;05-12
 
 ---
 
-> 💡 **Do you know?**
+> **💡 Do you know?**
 >
-> This document is created by Typora and using the VLOOK™ plug-in! **AMAZING!!!**
+> **AMAZING!!!** This document is created by Typora and using the VLOOK™ theme and plugin ~
 >
 > _~Bn!~_
 
@@ -109,47 +109,55 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 
 ---
 
-> **![°文档排版](pic/qico-types-light.svg?fill=text&darksrc=invert#icon) ° FORMATTING**
+> ![°FORMATTING](pic/qico-types-light.svg?fill=vn&darksrc=invert#logo)
+>
+> **° FORMATTING**
 >
 > **With the support of VLOOK™ themes and plugins, you will gain a whole new understanding of the automated formatting capabilities of Markdown editors (currently only supported by Typora).**
 >
 > Thanks to mature web browsers, HTML / CSS, and JavaScript technologies, even static documents can "move" with you.
 >
-> [<kbd>More °FORMATTING ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](?target=vdl#Quick Start ° Formatting)
+> [<kbd>Learn more ![](pic/icon-forward.svg)</kbd>](?target=vdl#Quick Start ° Formatting)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
 >
 > _~Vn!~_
 
-> **![°内容导航](pic/qico-nav-light.svg?fill=text&darksrc=invert#icon) ° NAVIGATION**
+> ![°NAVIGATION](pic/qico-nav-light.svg?fill=bu&darksrc=invert#logo)
+>
+> **° NAVIGATION**
 >
 > **VLOOK™ provides a variety of tools for navigating, quickly locating, and organizing document content, chapters, illustrations, tables, and multimedia, comprehensively improving and enhancing the browsing experience and efficiency of published HTML files.**
 >
 > Feel free to enjoy at any time according to your needs and preferences~
 >
-> [<kbd>More °NAVIGATION ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](?target=vdl#Quick Start ° Navigation)
+> [<kbd>Learn more ![](pic/icon-forward.svg)</kbd>](?target=vdl#Quick Start ° Navigation)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
 >
 > _~Bu!~_
 
 ---
 
->**![°演示与出版](pic/qico-pres-light.svg?fill=text&darksrc=invert#icon) ° PRESENTATION & PUBLICATION**
-> 
->**VLOOK™ uniquely provides powerful presentation and publishing tools for HTML exported from Markdown, making Typora + VLOOK a more productive Markdown document solution.**
-> 
->It's an excellent tool for both on-site and remote presentations, so let your Markdown enter Turbo mode~
-> 
->[<kbd>More °PRES. & PUBL. ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](?target=vdl#Quick Start ° Presentation and Publishing)
-> 
->_~Og!~_
+>![° PRESENTATION & PUBLICATION](pic/qico-pres-light.svg?fill=og&darksrc=invert#logo)
+>
+> **° PRESENTATION & PUBLICATION**
+>
+> **VLOOK™ uniquely provides powerful presentation and publishing tools for HTML exported from Markdown, making Typora + VLOOK a more productive Markdown document solution.**
+>
+> It's an excellent tool for both on-site and remote presentations, so let your Markdown enter Turbo mode~
+>
+> [<kbd>Learn more ![](pic/icon-forward.svg)</kbd>](?target=vdl#Quick Start ° Presentation and Publishing)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
+>
+> _~Og!~_
 
->**![°主题与不杂项](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon) ° THEME & ESSENTIALS**
-> 
->"**Humans have always been visual creatures. Making the eyes feel pleasant and beautiful when reading, whether for oneself or others, is a virtue, a power, a belief.**_~CyPu~_"
-> 
->--- **MAX°孟兆**_~CyPu~_
-> 
->[<kbd>More °THEME & ESSENTIALS ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](?target=vdl#Quick Start ° Themes & Essentials)
-> 
->_~Lm!~_
+>![°主题与不杂项](pic/qico-theme-light.svg?fill=lm&darksrc=invert#logo)
+>
+> **° THEME & ESSENTIALS**
+>
+> "**Humans have always been visual creatures. Making the eyes feel pleasant and beautiful when reading, whether for oneself or others, is a virtue, a power, a belief.**_~CyPu~_"
+>
+> --- **MAX°孟兆**_~CyPu~_
+>
+> [<kbd>Learn more ![](pic/icon-forward.svg)</kbd>](?target=vdl#Quick Start ° Themes & Essentials)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
+>
+> _~Lm!~_
 
 # Blog
 
@@ -185,7 +193,7 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 >
 > - For more practical samples, please refer to the directory in the download package *==released\\[samples](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)==*
 
-# How To Use
+# How to Use
 
 > You can start a brand **new Markdown experience** in **just 3 steps** *==1.[Download and Configure](#Download and Configure) > 2.[Install the Theme Package](#Install the Theme Package) > 3.[Configure Export Options](#Configure Export Options)==* 
 >
@@ -196,9 +204,9 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 > **Step1. Download the Plug-in**
 >
-> 1. Download the latest version from the homepage of VLOOK™
->    1. via **[GitHub](https://github.com/MadMaxChow/VLOOK/releases)**
->    2. via **[Gitee](https://gitee.com/madmaxchow/VLOOK/releases)**
+> Download the latest version from the homepage of VLOOK™:
+> 
+>  **[<kbd>via GitHub</kbd>](https://github.com/MadMaxChow/VLOOK/releases)**  **[<kbd>via Gitee</kbd>](https://gitee.com/madmaxchow/VLOOK/releases?kbd=alt)**
 >
 >
 > _~Gn~_
@@ -225,9 +233,9 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 ---
 
-> **Step1. Install the Theme**
+> **Step1. Install the Themes**
 >
-> 1. The *==released\theme==* all CSS files are copied to Typora theme directory;
+> 1. The *==released\themes==* all CSS files are copied to Typora theme directory;
 > 2. Where is the theme directory? You can navigate to this directory by clicking *==Settings ▸ Appearance ▸ Open Theme Directory==*.
 > 
 > _~Og~_
@@ -235,20 +243,20 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 > **Step2. Select Theme**
 >
 > 1. Restart Typora;
-> 2. Click the *==Theme==* menu, select to `Vlook *` any topic can be in the form of naming.
-> 
-> _~Og~_
-
-> ###### Start Writing from the Template
->
-> It is recommended to create your own Markdown document based on the document template of the VLOOK™ specification, so that you can get started faster.
+> 2. Click the *==Themes==* menu, select to `Vlook ***` any topic can be in the form of naming.
 >
 > _~Og~_
 
-> ###### Where are the template files?
+> **Want a more personalized theme? ** [<kbd>Learn about our Custom Services</kbd>](vip.md)
+
+> ###### Start Writing from the Samples
 >
-> 1. All `.md` type files in the directory *==released/samples==*
-> 3. You can also download the document templates directly from the [project homepage](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples) ( [alternative link](https://gitee.com/madmaxchow/VLOOK/tree/master/released/samples) )
+> It is recommended to refer to or base your own Markdown document on the sample document of VLOOK™, making it easier to create well-formatted documents.
+>
+> 1. All `.md` type files in the directory *==released/samples==* is samples;
+> 2. You can also download the document templates directly from project homepage:
+>
+> [<kbd>Download samples</kbd>](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)  [<kbd>Alternative link</kbd>](https://gitee.com/madmaxchow/VLOOK/tree/master/released/samples?kbd=alt)
 
 ## Configure Export Options
 
@@ -258,24 +266,24 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 > **Configure export setting**
 >
-> 1. Start Typora and enter "**Preferences**";
-> 2. Click "**Export**", add configuration (==select HTML template==), and name the configuration `VLOOK` .
+> 1. Start Typora and enter "**Preferences**"
+> 2. Click "**Export**", add configuration (==select HTML as a template==), and name the configuration `VLOOK`
 > 
 > _~Cy~_
 
 > **Install Meta Tag**
 >
-> 1. Open the meta tag file: released\plugin\\[**meta.txt**](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/meta.txt) ( [alternate link](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/meta.txt) );
-> 2. Select and copy all contents;
-> 3. Paste to "**Append in &lt;head /&gt;**".
+> 1. Open the meta tag file: released\plugin\\**meta.txt**
+> 2. Select and copy all contents
+> 3. Paste to "**Append in &lt;head /&gt;**
 >
 > _~Cy~_
 
 > **Install the Plugin**
 >
-> 1. Open the plug-in file: released\plugin\\[**plugin.txt**](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin.txt) ( [alternate link](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt) );
+> 1. Open the plug-in file: released\plugin\\**plugin.txt**
 > 2. Select and copy all contents;
-> 3. Paste to "**Append in &lt;body /&gt;**".
+> 3. Paste to "**Append in &lt;body /&gt;**"
 >
 > _~Cy~_
 
@@ -294,25 +302,27 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 >
 > The above configuration method is an offline plug-in. The complete plug-in code is integrated with HTML files. It is suitable for situations where an intranet or no network is required when browsing documents, but it is not convenient to update plug-ins in real time and [switch template themes online](guide2.md#模板主题) .
 >
-> At present, VLOOK supports the online version of plug-in. You can refer to the above method to add a new "export configuration" (it is recommended to name the configuration `VLOOK (live)`).
+> At present, VLOOK supports the online version of plug-in. You can refer to the above method to add a new "export configuration" (it is recommended to name the configuration `VLOOK (live)` ).
 >
-> The online version of the plugin file is: released\plugin \ **plugin_live.txt** , or directly open the online version of [plugin_live.txt](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin_live.txt) ( [alternative link](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt) )
+> The online version of the plugin file is: released\plugin \ **plugin_live.txt**
+>
+> [<kbd>Download live version</kbd>](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin_live.txt)  [<kbd>Alternative link</kbd>](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt?kbd=alt)
 >
 > _~Og!~_
 
 ---
 
-> **How to update to latest version ?**
+> **![](pic/logo-update.svg?fill=bu&darksrc=invert#icon)  How to update to latest version ?**
 >
-> To upgrade the old version of vlook to the latest version, repeat **step 1** above to download the latest release version, and press **steps 2 and 3** to update the corresponding "theme" and "export configuration".
+> If a new version is available, an upgrade notification icon ![](pic/icon-new-version.svg#icon) will appear in the bottom right corner. To update, simply repeat the steps mentioned above in [How to Use](#How to Use).
 >
 > _~Cy!~_
 
-> **Recommend compatible browser !**
+> **![](pic/logo-browser.svg?fill=gy&darksrc=invert#icon)  Recommend compatible browser !**
 >
 > In order to ensure the best user experience, it is strongly recommended to use the following browsers to access:
 >
-> ![Chrome](pic/chrome.png#icon) **[Chrome](https://www.google.cn/chrome/)**　　![Edge](pic/edge.png#icon) **[Edge](https://www.microsoft.com/zh-cn/edge)**　　![Firefox](pic/firefox.png#icon) **[Firefox](https://www.mozilla.org/zh-CN/firefox/)**
+> ![Chrome](pic/chrome.png#icon) **[Chrome](https://www.google.cn/chrome/)**　　![Edge](pic/edge.png#icon) **[Edge](https://www.microsoft.com/edge)**　　![Firefox](pic/firefox.png#icon) **[Firefox](https://www.mozilla.org/firefox/)**
 >
 > _~Bu~_
 

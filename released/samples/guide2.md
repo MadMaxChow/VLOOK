@@ -6,7 +6,7 @@ description: 关于 VLOOK™ 的主题、内容标记、内容导航、演示与
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
 keywords:
 - Gitee,GitHub,i18n,Markdown,MIT,OSC,Plugin,Typora,VLOOK,编辑推荐,插件,开源,开源中国,跨平台,主题包,自动排版
-- GitHub Style Alert,OGP,Open Graph Protocol,标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,私人定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
+- GitHub Style Alert,OGP,Open Graph Protocol,标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
 - 深色模式,Dark Mode,Gray Mode,灰度模式,灰色模式
 - 目录,文库,插图导航,大纲导航,段落导航,脚注导航,图片导航,文库导航,章节导航,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索
 - 表格十字光标,表格阅读模式,表格增强,表注,重复表头,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
@@ -16,8 +16,7 @@ keywords:
 - 链接地图,链接规范,链接检查,链接识别,链接转换
 - HTML,PRD,设计,需求,文档,博客,手册,指南,知识库,WIKI,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
-vlook-chp-autonum: h1{{第 ### 章 }},h3{{### }}
-vlook-chp-dup: 语法;新语法;如何将「旧语法」批量更新为「新语法」？
+vlook-chp-dup: 语法;新语法;旧语法;如何将「旧语法」批量更新为「新语法」？方式一;方式二
 vlook-doc-lib: vlook-lib.html
 ---
 
@@ -45,9 +44,9 @@ vlook-doc-lib: vlook-lib.html
 
 例如：可以 *`这样的标签`*_~Rd~_ 或  *`那样的标签`*_~Bu!~_ 还可以是 *`渐变的标签`*_~T1T2!~_ ，继续往下看看就知道这是怎么做到的～
 
----
 
-> **新语法**
+
+> **语法**
 >
 > - 将需要设置为标签的文本用代码符号 `` ` `` 包裹 ，并设置为「*斜体*」
 >
@@ -56,27 +55,9 @@ vlook-doc-lib: vlook-lib.html
 > （支持在标签后添加[预置色号](guide.md#预置色号)来指定颜色，不指定则默认为 `T2` ）
 >
 
-> ###### 旧语法
->
-> **语法：**`` `#标签#` `` 
->
-> `标签`：标签内容，前后由 `#` 符号包裹
->
-> 支持在标签后添加[预置色号](guide.md#预置色号)来指定标签颜色，不指定则默认为 `T2`
->
-> > ###### 如何将「旧语法」批量更新为「新语法」？
-> >
-> > 使用 Typora 的「查找与替换」，若涉及文件较多则推荐 UltraEdit 这类支持从文件中替换功能的工具：
-> >
-> > 1. 在**查找**的内容中输入 `` `#(.*?)#` `` ，并启用 `正则表达式` 选项
-> > 2. 在**替换**的内容中输入 `` *`$1`* ``
-> > 3. 执行查找并替换的操作即可。
->
-> _~Gy~_
-
 > [!TIP]
 > 
-> 若须修改默认色号，可通过「[插件调校参数](#插件调校参数)」`tag` 指定。
+> 若须修改默认色号，可通过「[插件调校参数](#插件调校参数)」 `tag` 指定。
 
 *==标签（常规风格）预置色号及示例==*
 
@@ -142,122 +123,74 @@ vlook-doc-lib: vlook-lib.html
 
 *VLOOK`👀`*_~T2~_ 在前面提到[标签](#标签)的基础上，在标签的前或后添加需要分段的内容就可以了，AMAZING！
 
-例如：可以这样 *这是徽章标题`这是徽章内容`*_~Bn!~_ *化学式`H₂O`是水💦*_~Se~_，还可以这样 *🌞`显示`*_~Rd~_ *`显示`🌒*_~Gy~_ ，继续往下看看就知道这是怎么做到的～
+例如：可以这样 *这是徽章标题`这是徽章内容`*_~Bn~_ *化学式`H₂O`是水💦*_~Se~_，还可以这样 *ON`灯光`*_~Gn~_ *`灯光`OFF*_~Gy~_ ，继续往下看看就知道这是怎么做到的～
 
 ---
 
-> **新语法**
+> **语法**
 >
 > 1. 将需要设置为「徽章内容」的文本用代码符号 `` ` `` 包裹 ，在徽章内容前面添加标题，或在后面添加第 2 项徽章内容
 > 2. 最后将以上所有内容设置为「*斜体*」
-> 
-> - 对应的 Markdown 格式语法为：`` *标题`徽章内容`徽章内容2* `` 
->- **其中，徽章内容支持对变量格式的突出显示：**
->   - 支持的变量格式：` {{变量}}` ` %变量%`  ` $变量$` ` ${变量}` ` #{变量}` `var(变量)`
 >
-> （支持在徽章后添加[预置色号](guide.md#预置色号)来指定颜色，不指定则默认为 `T1` ）
+> - 对应的 Markdown 格式语法为：`` *徽章标题`徽章内容1`徽章内容2* `` 
+>
+> （支持在徽章后添加[预置色号](guide.md#预置色号)来指定颜色，不指定则默认为 `T1` ，但不支持「**强调**」风格的预置色号）
 >
 
-> **旧语法**
+> **徽章扩展玩法**
 >
-> **语法：**`` `#标题|徽章内容#` ``
+> - 无「徽章标题」：只有内容 1、内容 2 时，则样式相当于左右样式反转，举例：
+>   *标题`内容 1`*  *`内容 1`内容 2*
 >
-> 与[标签](#标签)区别在于：将标题与内容用英文竖线符号 `|` 进行分隔，==支持三段式（即两项徽章内容）==，两项徽章内容同样以英文竖线符号 `|` 进行分隔。其中，
->
-> - **徽章内容**支持识别变量格式 ` {{变量}}` ` %变量%`  ` $变量$` ` ${变量}` ` #{变量}` `var(变量)` ，对这些内容以 突出的样式显示；
-> - 支持在徽章后添加[预置色号](guide.md#预置色号)来指定徽章颜色，不指定则默认为 `Gy` 。
->
-> > ###### 如何将「旧语法」批量更新为「新语法」？
-> >
-> > **前置动作：先按[标签](#标签)的旧语法批量更新方式完成第 1 步处理！**
-> >
-> > 然后再进行以下处理：
-> >
-> > 1. 在**查找**的内容中输入 `` \*`([^`]*?)\|([^`]*?)(\|([^`]*?))?`\* `` ，并启用 `正则表达式` 选项
-> > 2. 在**替换**的内容中输入 `` *$1`$2`$4* ``
-> > 3. 执行查找并替换的操作即可。
->
-> _~Gy~_
+> - 突出变量样式：「徽章内容 1」支持的变量标记格式：
+>   ` {{变量}}` ` %变量%`  ` $变量$` ` ${变量}` ` #{变量}` `var(变量)`
 
 > [!TIP]
 > 
-> 若须修改默认色号，可通过「[插件调校参数](#插件调校参数)」`badge` 指定。
+> 若须修改默认色号，可通过「[插件调校参数](#插件调校参数)」 `badge` 指定。
 
-*==徽章预置色号（常规风格）示例==*
+*==徽章预置色号示例==*
 
 | **预置色号** | 应用场景建议               | 渲染效果                            |
 | :------: | -------------------------- | ----------------------------------- |
-|    Wn    | 警告、危险、关键事项、删除 | *标题`徽章内容 {{变量 1}}`*_~Wn~_ |
-|    Rd    | :                          | *标题`徽章内容 {{变量 1}}`*_~Rd~_  |
-|    Og    | 提醒、注意、修复           | *标题`徽章内容 %变量 2%`*_~Og~_    |
-|    Ye    | 关注、优化、备忘、说明     | *标题`徽章内容 $变量 3$`*_~Ye~_    |
-|    Lm    | 提示、备忘、参考、新增     | *标题`徽章内容 ${变量 4}`*_~Lm~_   |
-|    Gn    | :                          | *标题`徽章内容 #{变量 5}`*_~Gn~_   |
-|    Mn    | :                          | *标题`徽章内容 #{变量 5}`*_~Mn~_   |
-|    Ol    | :                          | *标题`徽章内容 #{变量 5}`*_~Ol~_  |
-|    Aq    | 引用块、公告                 | *标题`徽章内容 var(变量 6)`*_~Aq~_ |
+|    Wn    | 警告、危险、关键、热情、删除 | *标题`徽章内容 {{变量 1}}`*_~Wn~_ |
+|    Rd    | :                          | *标题`徽章内容 %变量 2%`*_~Rd~_ |
+|    Og    | 提醒、注意、活力、修复       | *标题`徽章内容 $变量 3$`*_~Og~_ |
+|    Ye    | 关注、优化、备忘、说明     | *标题`徽章内容 ${变量 4}`*_~Ye~_ |
+|    Lm    | 提示、备忘、参考、新增     | *标题`徽章内容 #{变量 5}`*_~Lm~_ |
+|    Gn    | :                          | *标题`徽章内容 var{变量 6}`*_~Gn~_ |
+|    Mn    | :                          | *标题`徽章内容`*_~Mn~_  |
+|    Ol    | :                          | *标题`徽章内容`*_~Ol~_ |
+|    Aq    | 引用块、冰凉、公告              | *标题`徽章内容`*_~Aq~_ |
 |    Cy    | :                          | *标题`Badge Value`*_~Cy~_          |
-|    Bu    | 信息、资讯                 | *标题`Badge Value`*_~Bu~_          |
+|    Bu    | 信息、资讯、海洋              | *标题`Badge Value`*_~Bu~_          |
 |    Se    | :                          | *标题`Badge Value`*_~Se~_          |
 |    La    | :                          | *标题`Badge Value`*_~La~_          |
 |    Vn    | :                          | *标题`Badge Value`*_~Vn~_          |
-|    Pu    | 延伸、扩展、保留、备用     | *标题`徽章内容 {{变量 1}}`*_~Pu~_  |
-|    Ro    | 年轻、个性、女性           | *标题`徽章内容 {{变量 1}}`*_~Ro~_  |
-|    Pk    | :                          | *标题`徽章内容 {{变量 1}}`*_~Pk~_  |
-|    Gd    | VIP、金融、工程            | *标题`徽章内容 {{变量 1}}`*_~Gd~_  |
-|    Bn    | :                          | *标题`徽章内容 {{变量 1}}`*_~Bn~_  |
-|    Gy    | 常规、无效、暂缓、停用     | *标题`徽章内容 {{变量 1}}`*_~Gy~_  |
-|    Bk    | 黑白、高对比               | *标题`徽章内容 {{变量 1}}`*_~Bk~_  |
-|    T1    | 当前 VLOOK™ 主题的主色     | *标题`徽章内容 {{变量 1}}`*_~T1~_  |
-|    T2    | 当前 VLOOK™ 主题的辅助色   | *标题`徽章内容 {{变量 1}}`*_~T2~_  |
+|    Pu    | 延伸、扩展、重要、保留、备用  | *标题`徽章内容`*_~Pu~_  |
+|    Ro    | 年轻、个性、女性        | *标题`徽章内容`*_~Ro~_ |
+|    Pk    | :                          | *标题`徽章内容`*_~Pk~_ |
+|    Gd    | VIP、金融、工程、奖励         | *标题`徽章内容 {{变量 1}}`*_~Gd~_ |
+|    Bn    | :                          | *标题`徽章内容 %变量 2%`*_~Bn~_ |
+|    Gy    | 常规、无效、暂缓、停用     | *标题`徽章内容 $变量 3$`*_~Gy~_ |
+|    Bk    | 黑白、高对比               | *标题`徽章内容 ${变量 4}`*_~Bk~_ |
+|    T1    | 模板主题的「主色」 | *标题`徽章内容 #{变量 5}`*_~T1~_ |
+|    T2    | 模板主题的「辅助色」 | *标题`徽章内容 var{变量 6}`*_~T2~_ |
 
+*==徽章的三段式、无标题的示例==*
 
-
-*==徽章预置色号（强调风格）示例==*
-
-| **预置色号** | 应用场景建议               | 渲染效果                 |
-| :------: | -------------------------- | ------------------------ |
-|   Wn!    | 警告、危险、关键事项、删除 | *标题`Wn 强调样式`*_~Wn!~_ |
-|   Rd!    | :                          | *标题`Rd 强调样式`*_~Rd!~_ |
-|   Og!    | 提醒、注意、修复           | *标题`Og 强调样式`*_~Og!~_ |
-|   Ye!    | 关注、优化、备忘、说明     | *标题`Ye 强调样式`*_~Ye!~_ |
-|   Lm!    | 提示、备忘、参考、新增     | *标题`Lm 强调样式`*_~Lm!~_ |
-|   Gn!    | :                          | *标题`Gn 强调样式`*_~Gn!~_ |
-|   Mn!    | :                          | *标题`Mn 强调样式`*_~Mn!~_ |
-|   Ol!    | :                          | *标题`Ol 强调样式`*_~Ol!~_ |
-|   Aq!    | 引用块、公告                 | *标题`Aq 强调样式`*_~Aq!~_ |
-|   Cy!    | :                          | *标题`Cy 强调样式`*_~Cy!~_ |
-|   Bu!    | 信息、资讯                 | *标题`Bu 强调样式`*_~Bu!~_ |
-|   Se!    | :                          | *标题`Se 强调样式`*_~Se!~_ |
-|   La!    | :                          | *标题`La 强调样式`*_~La!~_ |
-|   Vn!    | :                          | *标题`Vn 强调样式`*_~Vn!~_ |
-|   Pu!    | 延伸、扩展、保留、备用     | *标题`Pu 强调样式`*_~Pu!~_ |
-|   Ro!    | 年轻、个性、女性           | *标题`Ro 强调样式`*_~Ro!~_ |
-|   Pk!    | :                          | *标题`Pk 强调样式`*_~Pk!~_ |
-|   Gd!    | VIP、金融、工程            | *标题`Gd 强调样式`*_~Gd!~_ |
-|   Bn!    | :                          | *标题`Bn 强调样式`*_~Bn!~_ |
-|   Gy!    | 常规、无效、暂缓、停用     | *标题`Gy 强调样式`*_~Gy!~_ |
-|   Bk!    | 黑白、高对比               | *标题`Bk 强调样式`*_~Bk!~_ |
-|   T1!    | 当前 VLOOK™ 主题的主色     | *标题`T1 强调样式`*_~T1!~_ |
-|   T2!    | 当前 VLOOK™ 主题的辅助色   | *标题`T2 强调样式`*_~T2!~_ |
-
-
-
-*==徽章预置色号（三段式）示例==*
-
-| 预置色号 | 渲染效果                    | 更多渲染示例            |
+| **格式** | 渲染效果                    | 更多渲染示例            |
 | :------: | --------------------------- | --------------------------- |
-|    T1    | *标题`内容1`内容2*_~T1~_ | *H₂+O`=`H₂O*_~Bu~_ *圆周率`3.14`1592653*_~T2~_ |
-|    Ye    | *标题`内容1`内容2*_~Ye~_ | *圆的`内角和`180度*_~Ye~_ |
-|   Bu!   | *标题`强调样式`内容2*_~Se!~_ | *化学式`H₂O`是水💦*_~Se!~_ |
-|   Rd!   | *标题`强调样式`内容2*_~Rd!~_ | *法定节假日`国庆`10月1日*_~Rd!~_ |
+|    三段式    | *标题`内容 1`内容 2*_~T1~_ | *H₂+O`=`H₂O*_~Bu~_ *圆周率`3.14`1592653*_~T2~_ |
+|   :   | : | *化学式`H₂O`是水💦*_~Se~_  *圆的`内角和`180度*_~Ye~_ |
+| 无标题 | *`内容 1`内容 2*_~Gy~_ | *` 灯光`OFF*_~Gy~_  *`国庆节`10月1日*_~Rd~_ |
 
 
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
 
 ## 进度条
 
@@ -344,7 +277,7 @@ vlook-doc-lib: vlook-lib.html
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
 
 ## 面包屑
 
@@ -388,7 +321,7 @@ vlook-doc-lib: vlook-lib.html
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
 
 ## 刮刮卡
 
@@ -396,9 +329,9 @@ vlook-doc-lib: vlook-lib.html
 
 *VLOOK`👀`*_~T2~_  这个对于 VLOOK™ 来说真的非常 Easy，组合 Markdown「==斜体、粗体==」这两个标准格式就可以轻松实现。
 
----
 
-> **新语法**
+
+> **语法**
 >
 > 1. 将需要设置为隐藏的内容，设置为以下格式组合：
 >
@@ -411,27 +344,9 @@ vlook-doc-lib: vlook-lib.html
 > （支持在刮刮卡后添加[预置色号](guide.md#预置色号)来指定颜色，不指定则默认为 `Gy` ）
 >
 
-> **旧语法**
->
-> **语法：**`` `/提示说明|被隐藏的信息/`~(色号)~ ``
->
-> - `提示说明`：刮刮卡打开前显示的提示信息。可以不指定，默认为 *`••••`*_~Gy~_
-> - `被隐藏的内容`：被刮刮卡遮盖的原始信息
-> - `色号`：可选。`~ ~` 为 Typora 的下标格式。通过该方式指定刮刮卡使用的[预置色号](guide.md#预置色号)，不指定则默认为 `(Gy)` 。预置色号与「[标签](#标签)」的色号基本保持一致（无 `Bk` ，且不支持强调风格标识 ）
->
-> > ###### 如何将「旧语法」批量更新为「新语法」？
-> >
-> > 使用 Typora 的「查找与替换」，若涉及文件较多则推荐 UltraEdit 这类支持从文件中替换功能的工具：
-> >
-> > 1. 在**查找**的内容中输入 `` `\/([^`]*?)\|([^`]*?)\/` `` ，并启用 `正则表达式` 选项
-> > 2. 在**替换**的内容中输入 `` *$1**$2*** ``
-> > 3. 执行查找并替换的操作即可。
->
-> _~Gy~_
-
 > [!TIP]
 >
-> 若须修改默认色号，可通过「[插件调校参数](#插件调校参数)」`coating` 指定。
+> 若须修改默认色号，可通过「[插件调校参数](#插件调校参数)」 `coating` 指定。
 
 ###### 刮刮卡示例
 
@@ -462,7 +377,7 @@ vlook-doc-lib: vlook-lib.html
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
 
 ## 注音
 
@@ -472,9 +387,9 @@ vlook-doc-lib: vlook-lib.html
 
 *VLOOK`👀`*_~T2~_ 通过对 Markdown 上标语法 `^ ^` 进行了扩展，轻松满足实用的「注音」排版需求！
 
----
 
-> **新语法**
+
+> **语法**
 >
 > - 在需要添加注音的任意一个字符后面进行添加对应的注音，并将该「**注音**」设置为以下格式组合：
 >
@@ -482,28 +397,12 @@ vlook-doc-lib: vlook-lib.html
 >
 > - 对应的 Markdown 格式语法为：`_^注音^_`
 >
-> > [!IMPORTANT]
-> > 
-> > 为区分 Typora 默认使用单星号 `*斜体*` 标记的斜体，色号中的斜体建议用 Markdown 的另一个斜体的标记语法：下划线 `_斜体_`
-> 
 
-> **旧语法**
+---
+
+> [!IMPORTANT]
 >
-> **语法：**`^[注音]^` 
->
-> - 其中 `注音` 为具体的注音、拼音符号，或注释内容
->
-> 该语法内容前的 ==1 个中文字或英文单词==会自动将该内容作为注音显示
->
-> > ###### 如何将「旧语法」批量更新为「新语法」？
-> >
-> > 使用 Typora 的「查找与替换」，若涉及文件较多则推荐 UltraEdit 这类支持从文件中替换功能的工具：
-> >
-> > 1. 在**查找**的内容中输入 `\^\[([^\[]+)\]\^` ，并启用 `正则表达式` 选项
-> > 2. 在**替换**的内容中输入 `_^$1^_`
-> > 3. 执行查找并替换的操作即可。
->
-> _~Gy~_
+> 为区分 Typora 默认使用单星号 `*斜体*` 标记的斜体，色号中的斜体建议用 Markdown 的另一个斜体的标记语法：下划线 `_斜体_`
 
 > [!NOte]
 >
@@ -548,18 +447,16 @@ vlook-doc-lib: vlook-lib.html
 
 > [!CAUTION]
 >
-> ==代码式注音为旧注音语法，新建的文档不建议使用！==
+> **代码式注音为旧注音语法，新建的文档不建议使用！**
 >
-> ==该特性只作为对旧有文档，或需要同时对多个字添加同一注音的支持。==
->
-> ==后续版本可能会移除对该语法的支持。==
+> 该特性只作为对旧有文档，或需要同时对多个字添加同一注音的支持。后续版本可能会移除对该语法的支持。
 
 ---
 
 > **语法：**`` `{text}(symbol)` ``
 >
-> - `text`：要添加「注音、拼音、注释」的文字
->- `symbol`：text 对应的注音、拼音符号，或注释内容
+> - `text` ：要添加「注音、拼音、注释」的文字
+> - `symbol` ：text 对应的注音、拼音符号，或注释内容
 
 > 导出 HTML 后的效果等价于 HTML 5 中 **[ruby](https://www.runoob.com/tags/tag-ruby.html)**、**[rp](https://www.runoob.com/tags/tag-rp.html)**、**[rt](https://www.runoob.com/tags/tag-rt.html)** 标签，并支持点击注音后进行在线释义或翻译。
 >
@@ -588,7 +485,7 @@ vlook-doc-lib: vlook-lib.html
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
 
 # °内容导航
 
@@ -603,7 +500,7 @@ vlook-doc-lib: vlook-lib.html
 
 *VLOOK`👀`*_~T2~_ VLOOK™ 提供了非常实用个性的章节编号格式选项，可以轻松满足不同文档对章节编号格式的个性要求。
 
-可通过「[插件预置选项](#插件预置选项)」`vlook-chp-autonum` 来指定，在导出 HTML 后生效，具体的格式化示例如下：
+可通过「[插件预置选项](#插件预置选项)」 `vlook-chp-autonum` 来指定，在导出 HTML 后生效，具体的格式化示例如下：
 
 *==自定义章节自动编号格式示例==*
 
@@ -613,40 +510,50 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 ---
 ```
 
+---
+
 > [!TIP]
 > 
 > 若使用的 VLOOK 主题不包括自动编号样式，也可以通过该参数强制指定在导出 HTML 后启用自动编号及对应格式。
 
+> [!NOTE]
+>
+> 更多关于通过 YAML Front Matter 设置插件预置选项的说明，详见：[插件预置选项](#插件预置选项)
+
 *==自定义章节自动编号格式的选项说明==*
 
-| **编号选项** |         取值         | 说明                                                         | 选项参考                                      | 效果预览            |
-| :----------: | :------------------: | ------------------------------------------------------------ | --------------------------------------------- | ------------------- |
-|     层级     |     `h1` ～ `h5`     | 表示 1 级 ～ 5 级目录                                        | `h3{{### }}`                                  | 1.2.3 xxxxx         |
-|     前缀     |     任意内容文本     | 如：第、Chapter                                              | `h1{{Chapter ###. }}`                         | Chapter 5. xxxxx    |
-|     格式     |        `none`        | 不进行自动编号                                               | `h2{{#none#}}`                                | xxxxx               |
-|      :       |         `#`          | 阿拉伯数字。如：1、2、3、4、5                                | `h2{{Chapter ### }}`                          | Chapter 3.2 xxxxx   |
-|      :       |         `zh`         | 中文。如：一、二、三、四、五<br>*`注意`*_~Rd~_ **对 `h1` 生效** | `h1{{第#zh#章}}`                              | 第一章 xxxxx        |
-|      :       |         `ZH`         | 中文大写。如：壹、贰、叁、肆、伍<br>*`注意`*_~Rd~_ **对 `h1` 生效** | `h1{{第 #ZH# 回 }}`                           | 第 伍 回 xxxxx      |
-|      :       |       `alpha`        | 英文小写。如：a、b、c、d、E<br>*`注意`*_~Rd~_ **对 `h1` 或 `-min` 生效** | `h2{{#alpha# }}`                              | a xxxxx             |
-|      :       |       `ALPHA`        | 英文大写。如：A、B、C、D、E<br>*`注意`*_~Rd~_ **对 `h1` 或 `-min` 生效** | `h2{{#ALPHA#}}`                               | A xxxxx             |
-|      :       |       `roman`        | 罗马数字小写。如：i、ii、iii、 iv、v<br>*`注意`*_~Rd~_ **对 `h1` 或 `-min` 生效** | `h3{{#roman# • }}`                            | i • xxxxx           |
-|      :       |       `ROMAN`        | 罗马数字大写。如：I、 II、III、IV、V<br>*`注意`*_~Rd~_ **对 `h1` 或 `-min` 生效** | `h3{{#ROMAN#}`                                | IV • xxxxx          |
-|   扩展选项   | `00`<br>`000`<br>... | 固定长度占位，不足则左侧补 0                                 | `h1{{Chapter #00## / }}`                      | Chapter 002 / xxxxx |
-|      :       |        `-min`        | 以单级方式显示编号<br>*`注意`*_~Rd~_ **与 `-sup` 互斥**      | `h3{{步骤 #0#-min# - }}`                      | 步骤 01 - xxxxx     |
-|      :       |        `-sup`        | 以双级方式显示编号<br>*`注意`*_~Rd~_ **与 `-min` 互斥**      | `h2{{附录 #ALPHA-min#. }},h3{{#00#-sup# - }}` | 附录 A.01 - xxx     |
-|     后缀     |     任意内容文本     | 如：章、.                                                    | `h2{{##-min#）}}`                             | 1）xxxxx            |
-
->  [!NOTE]
->
->  更多关于通过 YAML Front Matter 设置插件预置选项的说明，详见：[插件预置选项](#插件预置选项)
+| **编号选项** |         取值         | 说明                                                         | 选项参考                                      | 效果预览                                    |
+| :----------: | :------------------: | ------------------------------------------------------------ | --------------------------------------------- | ------------------------------------------- |
+|     层级     |     `h1` ～ `h5`     | 表示 1 级 ～ 5 级目录                                        | `h3{{### }}`                                  | 1.2.3 xxxxx                                 |
+|     前缀     |     任意内容文本     | 如：第、Chapter                                              | `h1{{Chapter ###. }}`                         | Chapter 5. xxxxx                            |
+|     格式     |        `none`        | 不进行自动编号                                               | `h2{{#none#}}`                                | xxxxx                                       |
+|      :       |         `#`          | 阿拉伯数字。如：1、2、3、4、5                                | `h2{{Chapter ### }}`                          | Chapter 3.2 xxxxx                           |
+|      :       |         `zh`         | 中文。如：一、二、三、四、五<br>*`注意`*_~Rd~_ **对 `h1` 生效** | `h1{{第#zh#章}}`                              | 第一章 xxxxx                                |
+|      :       |         `ZH`         | 中文大写。如：壹、贰、叁、肆、伍<br>*`注意`*_~Rd~_ **对 `h1` 生效** | `h1{{第 #ZH# 回 }}`                           | 第 伍 回 xxxxx                              |
+|      :       |       `alpha`        | 英文小写。如：a、b、c、d、E<br>*`注意`*_~Rd~_ **对 `h1` 或 `-min` 生效** | `h2{{#alpha# }}`                              | a xxxxx                                     |
+|      :       |       `ALPHA`        | 英文大写。如：A、B、C、D、E<br>*`注意`*_~Rd~_ **对 `h1` 或 `-min` 生效** | `h2{{#ALPHA#}}`                               | A xxxxx                                     |
+|      :       |       `roman`        | 罗马数字小写。如：i、ii、iii、 iv、v<br>*`注意`*_~Rd~_ **对 `h1` 或 `-min` 生效** | `h3{{#roman# • }}`                            | i • xxxxx                                   |
+|      :       |       `ROMAN`        | 罗马数字大写。如：I、 II、III、IV、V<br>*`注意`*_~Rd~_ **对 `h1` 或 `-min` 生效** | `h3{{#ROMAN#}`                                | IV • xxxxx                                  |
+|   扩展选项   | `00`<br>`000`<br>... | 固定长度占位，不足则左侧补 0                                 | `h1{{Chapter #00## / }}`                      | Chapter 002 / xxxxx                         |
+|      :       |        `-min`        | 以单级方式显示编号<br>*`注意`*_~Rd~_ **与 `-sup` 互斥**      | `h3{{步骤 #0#-min# - }}`                      | 步骤 01 - xxxxx                             |
+|      :       |        `-sup`        | 以双级方式显示编号<br>*`注意`*_~Rd~_ **与 `-min` 互斥**      | `h2{{附录 #ALPHA-min#. }},h3{{#00#-sup# - }}` | 二级：附录 A - xxx<br>三级：附录 A.01 - xxx |
+|     后缀     |     任意内容文本     | 如：章、.                                                    | `h2{{##-min#）}}`                             | 1）xxxxx                                    |
 
 ### 这是三级章节示例
 
+
+
 #### 这是四级章节示例
+
+
 
 ##### 这是五级章节示例
 
+
+
 ###### 这是六级章节示例
+
+
 
 ---
 
@@ -825,13 +732,17 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
 
 # °演示与出版
 
 ## °内容助手
 
-针对不同形式的内容，提供自适应的快捷辅助功能。目前支持的内容形式包括：[表格](guide.md#°表格)、[插图](guide.md#°图片)、[标签](#标签)、[徽章](#徽章)、[刮刮卡](#刮刮卡)、[代码/代码块](guide.md#°代码与代码块)、[面包屑](#面包屑)。鼠标悬停在对应的内容即可激活，并在右上角出现。
+针对不同形式的内容，提供自适应的快捷辅助功能。目前支持的内容形式包括：[表格](guide.md#°表格)、[插图](guide.md#°图片)、[标签](#标签)、[徽章](#徽章)、[刮刮卡](#刮刮卡)、[代码/代码块](guide.md#°代码与代码块)、[面包屑](#面包屑)。
+
+> [!NOTE]
+>
+> 其中，鼠标悬停在「表格、插图、代码块」上后，会激活显示匹配的内容助手选项。
 
 ### 复制内容
 
@@ -927,7 +838,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°演示与出版</kbd>](?target=vdl#快速入坑°演示与出版)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°演示与出版</kbd>](?target=vdl#快速入坑°演示与出版)
 
 ## °演示辅助
 
@@ -952,19 +863,83 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 支持通过鼠标悬停的方式，对 Mermaid 图表中的关键元素（节点、子图、文本等）高亮显示，方便在演示场景下更聚焦说明的内容，[点这里去找个 Mermaid 的图表试试 ❯](#更美观的 Mermaid)
 
+### 正文宽度适配
+
+为保障阅读体验，默认情况下正文区域会与自动适应浏览器窗口的宽度，当宽度过大时：
+
+- 自动控制正文区域宽度为固定的宽度
+- 支持点击右侧的箭头区域进行切换不同的宽度
+
+> [!NOTE]
+>
+> 对于大屏显示，在 Typora 编辑时，以下情况下也会自动适配 Typora 的窗口宽度：
+>
+> ---
+>
+> ---
+>
+> > 收起了左侧的面板（大纲/文件）
+>
+> > 启用了专注模式（Focus Mode）
+>
+> > 启用了打字机模式（Typewriter Moder）
+
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°演示与出版</kbd>](?target=vdl#快速入坑°演示与出版)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°演示与出版</kbd>](?target=vdl#快速入坑°演示与出版)
 
 
 
 ## °出版辅助
 
-### 链接地图
+### ~~标记不发布的内容~~
 
-*发布状态`ALPHA`*
+*Markdown 粉`⬇️`*「**在进行文档评审或演示时，可以通过 聚光灯 来让观众聚焦于文档的特定区域和内容。**」
+
+*VLOOK`👀`*_~T2~_ 无须高？？？？？？开箱即用～
+
+通过 Markdown 的「**~~删除线~~**」格式标记哪些内容暂不发布，支持以下内容：
+
+---
+
+---
+
+> **指定的章节**
+>
+> - 1 级 ～ 6级章节标题，包括其下的子章节
+> - 只需将章节标题内容设置为删除线格式即可
+
+> **指定的引用块**
+>
+> - 带[小标题](guide.md#引用块小标题)、[折叠](guide.md#折叠引用块)的引用块
+> - 只需将引用块的小标题、折叠标题内容设置为删除线格式即可
+
+> **指定的表格列**
+>
+> - 指定的 1 列或多列
+> - 只需将列头内容设置为删除线格式即可
+
+---
+
+---
+
+> **~~不发布的带小标题的引用块~~**
+>
+> 这是不发布的带小标题的引用块
+
+> ==~~不发布的带小标题的引用块~~==
+>
+> 这是不发布的带小标题的引用块
+
+> ###### ~~不发布的折叠引用引用块~~
+>
+> 这是不发布的折叠引用块
+
+
+
+### 链接地图
 
 ---
 
@@ -1000,7 +975,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 *VLOOK`👀`*_~T2~_  完成加载处理后会自动关闭并显示文档，若希望自定义欢迎页的显示行为也可以支持。
 
-通过「[插件预置选项](#插件预置选项)」`vlook-welcome` 来指定，在文档的 YAML Front Matter 区域添加以下内容：
+通过「[插件预置选项](#插件预置选项)」 `vlook-welcome` 来指定，在文档的 YAML Front Matter 区域添加以下内容：
 
 *==自定义欢迎页内容示例==*
 
@@ -1072,47 +1047,25 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
+---
+
 > **VLOOK™ 文库专属链接**
 >
 > - 打开[**默认文库**](?target=vdl)（有多个文库是指第 1 个文库）
 > - 打开[**默认文库，并跳到指定锚点**](?target=vdl#快速入坑)
 > - 以文库方式打开指定文件：[**Document Library (En)**](vlook-lib-en.md?target=vdl#📊-scripted-charts)
 >
-> _~T1~_
+> _~T1!~_
 
 > **识别主流超链接资源**
 >
-> [**#页内链接**](#打赏) / [**Markdown 文件**](index.md?xmd=off) / [**非安全链接**](http://xxx) / [**安全链接**](https://xxx) / [**邮件**](mailto:)
->
-> （鼠标悬停看看效果）
+> [**#页内链接**](#打赏) / [**非安全链接**](http://xxx) / [**安全链接**](https://xxx) / [**邮件**](mailto:)
 >
 > _~Gy!~_
 
----
-
----
-
-> **文档资源**
->
-> [**.doc** / **.xls** / **.ppt** / **.pdf** / **.txt** / **.csv**](file.doc)
->
-> （鼠标悬停看看效果）
->
-> _~La!~_
-
-> **归档资源**
->
-> [**.zip** / **.rar** / **.7z** / **.gz** / **.tar** / **.dmg** / **.cab**](file.zip)
->
-> （鼠标悬停看看效果）
->
-> _~Og!~_
-
 > **高风险资源**
 >
-> [**.exe** / **.sh**](file.exe)
->
-> （鼠标悬停看看效果）
+> [**.exe 文件** / **.sh 文件**](file.exe)
 >
 > _~Rd!~_
 
@@ -1126,7 +1079,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 >
 > 默认支持将文档中的 `*.md` 链接转换为 `html` ，也可以指定为任意的扩展名。
 >
-> 若希望关闭该自动转换，或指定转换的扩展名，可通过「[插件调校参数](#插件调校参数)」`xmd` 进行调整。
+> 若希望关闭该自动转换，或指定转换的扩展名，可通过「[插件调校参数](#插件调校参数)」 `xmd` 进行调整。
 >
 > _~Bu!~_
 
@@ -1140,7 +1093,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°演示与出版</kbd>](?target=vdl#快速入坑°演示与出版)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°演示与出版</kbd>](?target=vdl#快速入坑°演示与出版)
 
 # °主题
 
@@ -1152,23 +1105,23 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 **主题会应用到 Typora 的应用程序 UI，以及文档内各类可编辑的元素，尽可能达到从整体到细节的视觉一致性！**
 
-### 预置模板主题
+### 预置的模板主题
 
-以下是 VLOOK™ 内置的 6 套免费主题（可点击进行效果预览）～
-
----
+以下是 VLOOK™ 内置的 6 套免费主题（点击预览效果）～
 
 ---
 
-> [![灵感来自于电影《Titanic 泰尼克号》，字体主题默认为「文艺范」](pic/vlook-theme-hope.png?srcset=@2x#padding#card "Hope 海洋之心")](theme-hope.html)
+---
+
+> [![灵感来自于电影《Titanic 泰尼克号》，字体主题默认为「文艺范」](pic/vlook-theme-hope.png?srcset=@2x#card "Hope 海洋之心")](theme-hope.html)
 >
 > _~Bu~_
 
-> [![灵感来自于中国的古建筑与现代化工业风的融合](pic/vlook-theme-joint.png?srcset=@2x#padding#card "Joint 榫卯")](theme-joint.html)
+> [![灵感来自于中国的古建筑与现代化工业风的融合](pic/vlook-theme-joint.png?srcset=@2x#card "Joint 榫卯")](theme-joint.html)
 >
 > _~Ye~_
 
-> [![极客改变世界，VLOOK 也改变了 Markdown 排版自动化的玩法](pic/vlook-theme-geek.png?srcset=@2x#padding#card "Geek 极邃")](theme-geek.html)
+> [![极客改变世界，VLOOK 也改变了 Markdown 排版自动化的玩法](pic/vlook-theme-geek.png?srcset=@2x#card "Geek 极邃")](theme-geek.html)
 >
 > _~Gy~_
 
@@ -1176,33 +1129,33 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
-> [![灵活来自我喜欢的咖啡时光，字体主题默认为「小清新」](pic/vlook-theme-fancy.png?srcset=@2x#padding#card "Fancy 慕幻")](theme-fancy.html)
+> [![灵活来自我喜欢的咖啡时光，字体主题默认为「小清新」](pic/vlook-theme-fancy.png?srcset=@2x#card "Fancy 慕幻")](theme-fancy.html)
 >
 > _~Og~_
 
-> [![灵活来自冥想与禅思](pic/vlook-theme-thinking.png?srcset=@2x#padding#card "Thinking 静思")](theme-thinking.html)
+> [![灵活来自冥想与禅思](pic/vlook-theme-thinking.png?srcset=@2x#card "Thinking 静思")](theme-thinking.html)
 >
 > _~Cy~_
 
-> [![致敬由 Sun Microsystems 研发的计算机操作系统 Solaris，字体主题默认为「Book」](pic/vlook-theme-solaris.png?srcset=@2x#padding#card "Solaris")](theme-solaris.html)
+> [![致敬由 Sun Microsystems 研发的计算机操作系统 Solaris，字体主题默认为「Book」](pic/vlook-theme-solaris.png?srcset=@2x#card "Solaris")](theme-solaris.html)
 >
 > _~Vn~_
 
-**若你使用在[线插件方式](index.html#在线版插件-live)，可通过「[插件调校参数](#插件调校参数)」`theme` 来动态指定任意 VLOOK 主题。**
+**若你使用在[线插件方式](index.html#在线版插件-live)，可通过「[插件调校参数](#插件调校参数)」 `theme` 来动态指定任意 VLOOK 主题。**
 
 ---
 
-### 私人定制模板主题
+### 定制模板主题
 
-> ![](pic/vlook-theme-vip-demo.png?srcset=@2x#card#500px "🎁 私人定制主题")
+> [![](pic/vlook-theme-vip-demo.png?srcset=@2x#card#500px "🎁 定制主题")](vip.md)
 >
-> > 目前现已开放主题的「**私人定制服务**」，以上为部分私人定制案例参考。私人定制服务请微信联系：`MaxChow` ，或电子邮箱 (**[maxchow@qq.com](mailto:maxchow@qq.com)**)
+> > 目前现已开放主题的「**定制服务**」，以上为部分定制案例参考。定制服务请微信联系： `MaxChow` ，或电子邮箱 (**[maxchow@qq.com](mailto:maxchow@qq.com)**)
 
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
 
 ## 字体主题
 
@@ -1211,10 +1164,10 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 *VLOOK`👀`*_~T2~_ 提供了两套自定义的字体主题，可根据个人喜好进行选用。
 
 > 通过右下角状态栏上的  ![字体主题](pic/icon-font-style.svg?fill=theme1&darksrc=invert#icon)  按钮进行选择（快捷键操作：<kbd>A</kbd> )
+
+> [!NOTE]
 >
-> > [!NOTE]
-> >
-> > 设置后同一域名下的所有文档都会应用该配置，也可通过「[插件调校参数](#插件调校参数)」`font` 来强制指定使用的字体主题（只对指定的文档生效）。
+> 设置后同一域名下的所有文档都会应用该配置，也可通过「[插件调校参数](#插件调校参数)」 `font` 来强制指定使用的字体主题（只对指定的文档生效）。
 
 ---
 
@@ -1251,7 +1204,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 >
 > ---
 >
-> ![蓝奏云](pic/lanzou.png?srcset=@2x#logo) … [下载字体▾](https://wwe.lanzoui.com/ieVDhj1aokj)　　　　　![百度网盘](pic/baidupan.png?srcset=@2x#logo) … [下载字体▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)（提取码`11ta`)
+> ![蓝奏云](pic/lanzou.png?srcset=@2x#logo) … [下载字体▾](https://wwe.lanzoui.com/ieVDhj1aokj)　　　　　![百度网盘](pic/baidupan.png?srcset=@2x#logo) … [下载字体▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw?pwd=11ta)（提取码 `11ta` )
 >
 > _~Gy~_
 
@@ -1281,7 +1234,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
 
 ## 封面与封底
 
@@ -1296,7 +1249,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 >
 > （快捷键操作：<kbd>⌃ Ctrl</kbd> ＋ <kbd>6</kbd> ，或 <kbd>⌘ command</kbd> ＋ <kbd>6</kbd> ）
 >
-> 如：`###### 这是封面标题`
+> 如： `###### 这是封面标题`
 >
 > > [!TIP]
 > >
@@ -1310,15 +1263,13 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 >
 > （快捷键操作：<kbd>⌃ Ctrl</kbd> ＋ <kbd>1</kbd> ，或 <kbd>⌘ command</kbd> ＋ <kbd>1</kbd> ）
 >
-> 如：`# 这是封底结语`
+> 如： `# 这是封底结语`
 >
 > _~T2~_
 
 根据以上操作成功激活封面、封底后，还可以在 Typora 的大纲面板中出现对应封面、封底条目，可进行一键定位到文档对应位置。
 
 以下是「封面」中特定类型信息（如小标题、作者等）的自动排版规则：
-
----
 
 ---
 
@@ -1331,8 +1282,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 > 可结合下标和下划线格式延伸出「小标题、副标题」：
 >
 >  - 小标题：`<sub>带 空格 的小标题</sub>` 或 `~不带空格的小标题~`
->  - 副标题：`<u>这是对应大标题的副标题</u>`
-
+>  - 副标题： `<u>这是对应大标题的副标题</u>` 
 > ###### 文档类型、密级
 >
 > 可使用 VLOOK™ 的[徽章](#徽章)写法来实现，举例如下：
@@ -1343,7 +1293,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 > ###### 作者
 >
-> 使用 Markdown 的「粗体」格式标记出「作者信息」即可（会自动添加前缀 `By`、加粗）
+> 使用 Markdown 的「粗体」格式标记出「作者信息」即可（会自动添加前缀 `By` 、加粗）
 >
 > - 举例：`**我是作者**`
 
@@ -1368,7 +1318,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 ###### 本文档的封面内容示例
 
 ```markdown
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册<br>(Part.II)</u><br>*最新版本`V24.2`*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册<br>(Part.II)</u><br>*最新版本`V25.0`*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 ```
 
 ###### 本文档的封底内容示例
@@ -1393,7 +1343,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
 
 ## Dark Mode
 
@@ -1402,10 +1352,12 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 *VLOOK`👀`*_~T2~_ 所有 VLOOK™ 的主题都会自动根据浏览器或系统的 Dark Mode（深色模式）的设置进行自动适配。
 
 > 可通过右下角状态栏上的 ![Light Mode](pic/icon-light-mode.svg?fill=theme1&darksrc=invert#icon) / ![Dark Mode](pic/icon-dark-mode.svg?fill=theme1&darksrc=invert#icon) 按钮进行手动切换（快捷键操作：<kbd>D</kbd> )
+
+---
+
+> [!NOTE]
 >
-> > [!NOTE]
-> >
-> > 设置后同一域名下的所有文档都会应用该配置，也可通过「[插件调校参数](#插件调校参数)」`cs` 来强制指定使用的字体主题（只对指定的文档生效）。
+> 设置后同一域名下的所有文档都会应用该配置，也可通过「[插件调校参数](#插件调校参数)」 `cs` 来强制指定使用的字体主题（只对指定的文档生效）。
 
 > [!TIP]
 >
@@ -1419,7 +1371,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 *VLOOK`👀`*_~T2~_ 所有 VLOOK™ 的主题都内置了在国家公祭日（12 月 13 日）以灰色显示，也可以添加指定的日期。
 
-通过「[插件预置选项](#插件预置选项)」`vlook-gray-mode` 来指定启用 Gray Mode 的日期，在文档的 YAML Front Matter 区域添加以下内容：
+通过「[插件预置选项](#插件预置选项)」 `vlook-gray-mode` 来指定启用 Gray Mode 的日期，在文档的 YAML Front Matter 区域添加以下内容：
 
 *==增补以 Gray Mode 显示的日期==*
 
@@ -1429,13 +1381,15 @@ vlook-gray-mode: 月-日
 ---
 ```
 
-> `月` 表示月份，`日` 表示日期。如：`1-27` 或 `01-27`
+> `月` 表示月份， `日` 表示日期。如： `1-27` 或 `01-27`
 >
 > 若指定多个日期，每个日期间以英文分号 `;` 进行分隔，如： `1-27;12-14`
+
+---
+
+> [!IMPORTANT]
 >
-> > [!IMPORTANT] 
-> >
-> > 「内置了国家公祭日」主要指浏览器中的语言设置为「中文」的情况
+> 「内置了国家公祭日」主要指浏览器中的语言设置为「中文」的情况
 
 > [!NOTE]
 >
@@ -1451,7 +1405,7 @@ vlook-gray-mode: 月-日
 
 *Markdown 粉`⬇️`*「**文档中的 Mermaid 图表，也希望可以像插图那样添加编号和题注**」
 
-*VLOOK`👀`*_~T2~_ 无须任何设置，即可自动对文档内所有「Mermaid 图表」进行统一的自动编号，编号内容举例：`插图 1` `插图 2` ，命名和编号与[插图](guide.md#插图自动编号与题注)一致。同时，还增强了在演示时的辅助特性 … [了解详情 ❯](#Mermaid 样式优化与扩展)
+*VLOOK`👀`*_~T2~_ 无须任何设置，即可自动对文档内所有「Mermaid 图表」进行统一的自动编号，编号内容举例： `插图 1` `插图 2` ，命名和编号与[插图](guide.md#插图自动编号与题注)一致。同时，还增强了在演示时的辅助特性 … [了解详情 ❯](#Mermaid 样式优化与扩展)
 
 > 给「Mermaid 图表」添加题注的方式，与给「表格」添加题注的方式是一致的 … [了解详情 ❯](guide.md#表格自动编号与题注)
 >
@@ -1461,7 +1415,7 @@ vlook-gray-mode: 月-日
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版)
 
 #### Mermaid 样式优化与扩展
 
@@ -1638,7 +1592,7 @@ end
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版)
 
 ### 更美观的公式
 
@@ -1652,7 +1606,13 @@ end
 >
 > 化学公式的代码：`$\ce{CH4 + 2 $\left( \ce{O2 + 79/21 N2} \right)$}$`
 
-###### 独占一行的公式块
+###### 独占一行的公式块（```math 语法）
+
+```math
+x = {-b \pm \sqrt{b^2-4ac} \over 2a}
+```
+
+###### 独占一行的公式块（$$ 语法）
 
 $$
 \begin{align*}
@@ -1714,6 +1674,8 @@ $$
 ---
 ```
 
+---
+
 > [!NOTE]
 >
 > 更多关于通过 YAML Front Matter 设置插件预置选项的说明，详见：[插件预置选项](#插件预置选项)
@@ -1726,7 +1688,7 @@ $$
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
 
 # °不杂项
 
@@ -1810,7 +1772,7 @@ $$
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
 
 ## 插件预置选项
 
@@ -1830,24 +1792,25 @@ $$
 > ---
 > ```
 
-| **插件预置选项**  | 简介                                           | 内容取值及说明                                               |
-| :---------------: | ---------------------------------------------- | ------------------------------------------------------------ |
-|       title       | 属于 YAML Front Matter 的标准选项              | 指定导出 HTML 后的文档标题                                   |
-|      author       | :                                              | 指定导出 HTML 后的作者信息                                   |
-|     keywords      | :                                              | 指定导出 HTML 后的文档关键字，便于搜索引擎收录               |
-| vlook-chp-autonum | 自定义章节自动编号的格式、前缀、后缀等内容     | 详见：[章节自动编号](#章节自动编号)<br>^所有分级的章节都不进行自动编号，可通过定制主题关闭该特性^ |
-|   vlook-chp-dup   | 指定允许重复的章节标题内容                     | 在对文档章节标题查重时随除指定的内容<br><sup>多个内容间以英文分号 `;` 进行分隔</sup> |
-|   vlook-doc-lib   | 启用并指定当前文档的文库 URL                   | 详见：[文库导航](#文库导航)                                  |
-|  vlook-gray-mode  | 设置启用 Gray Mode 的日期                      | 详见：[Gray Mode](#Gray Mode)                                |
-| vlook-image-host  | 默认图床地址，如：`https://xxx.abc.com/images` | 目前主要针对 Safari 打开本地 HTML 的文件，且指定[图片剪影](guide.md#图片剪影)时使用 |
-|    vlook-query    | 自定义文档 URL 中的 VLOOK™ 规范的插件调校参数  | 详见以下章节：[插件调校参数](#插件调校参数)                  |
-|   vlook-welcome   | 自定义文档在加载时欢迎页信息                   | 详见：[自定义欢迎页内容](#自定义欢迎页内容)                  |
+| **插件预置选项**  | [] 预置到<br>定制主题 | 简介                                 | 内容取值及说明                                               |
+| ----------------- | :-------------------: | ------------------------------------ | ------------------------------------------------------------ |
+| YAML 标准选项     |                       | YAML Front Matter 的标准选项         |                                                              |
+| > title           |                       | 标题                                 |                                                              |
+| > author          |                       | 作者                                 |                                                              |
+| > keywords        |                       | 关键字                               |                                                              |
+| vlook-chp-autonum |           Y           | 章节自动编号的格式、前缀、后缀等内容 | 详见：[章节自动编号](#章节自动编号)<br>^所有分级的章节都不进行自动编号，可通过定制主题关闭该特性^ |
+| vlook-chp-dup     |                       | 指定允许重复的章节标题内容           | 在对文档章节标题查重时指定的内容<br><sup>多个内容间以英文分号 `;` 进行分隔</sup> |
+| vlook-doc-lib     |                       | 启用并指定当前文档的文库 URL         | 支持指定多个，详见：[文库导航](#文库导航)                    |
+| vlook-gray-mode   |                       | 设置启用 Gray Mode 的日期            | 详见：[Gray Mode](#Gray Mode)                                |
+| vlook-image-host  |                       | 默认图床地址                         | 目前主要针对 Safari 打开本地 HTML 的文件，且指定[图片剪影](guide.md#图片剪影)时使用<br>如： `https://xxx.abc.com/images` |
+| vlook-welcome     |                       | 自定义文档在加载时欢迎页信息         | 详见：[自定义欢迎页内容](#自定义欢迎页内容)                  |
+| ==vlook-query==   |           Y           | 预置 VLOOK™ 规范的插件调校参数       | 详见以下章节：[插件调校参数](#插件调校参数)                  |
 
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
 
 ## 插件调校参数
 
@@ -1872,10 +1835,9 @@ $$
 |    quote     | 调整普通的「引用块」默认自动转换为指定色号的[引用块着色](guide.md#引用块着色) |  `off`   | `off` - 关闭，不自动转换<br>`色号` - 对应的预置色号，[详见这里](guide.md#引用块着色) |
 |    radius    | 强制使用指定的圆角样式，忽略 VLOOK 主题自带的样式            |          | `none` - 不使用圆角<br>`small` - 使用小号圆角<br>`big` - 使用大号圆角 |
 |    reset     | 强制重置浏览器存储的 VLOOK 相关数据                          |          | `true`                                                       |
-|    srcset    | 对于没有高清分辨率的图片，在高分屏上强制以高清形式显示       |  不开启  | `auto` - 对未指定 srcset 的图片强制以高清形式显示            |
-|    stsbar    | 指定文档底部状态栏内==不要启用==的内容项<br>^（多项内容间可用英文逗号分隔）^ |   全部   | `doc-info` - 阅读时长、字数<br>`font-theme` - 字体主题<br>`color-scheme` - 颜色主题<br/>`link-checker` - 错误链接检查 |
+|    srcset    | 对于没有高清分辨率的图片，在高清屏上强制以高清形式显示       |  不开启  | `auto` - 对未指定 srcset 的图片强制以高清形式显示            |
 |     tag      | 调整[标签](#标签)未指定色号时默认使用的色号                  |   `T2`   | 对应的预置色号，[详见这里](#标签)                            |
-|    target    | 配合[文库导航](#文库导航)使用：<br>应用-1：在[插件预置选项](#插件预置选项) `vlook-doc-lib` 内指定链接在新标签中打开<br>应用-2：文档内指定链接在「文库」中打开 |          | 针对「应用-1」：`_blank`<br>针对「应用-2」：`vdl`            |
+|    target    | 配合[文库导航](#文库导航)使用：<br>应用-1：在[插件预置选项](#插件预置选项) `vlook-doc-lib` 内指定链接在新标签中打开<br>应用-2：文档内指定链接在「文库」中打开 |          | 针对「应用-1」：`_blank`<br>针对「应用-2」： `vdl`           |
 |     toc      | 指定目录大纲初始自动折叠的层级                               |   `1`    | `0` - 不折叠，全部展开<br>`1~5` - 折叠指定的层级             |
 |      tr      | 指定表格阅读模式（十字光标）默认开关                         |  `off`   | `off` - 不开启<br>`on` - 开启                                |
 |     vdl      | 控制文库功能的开关                                           |   `on`   | `off` - 不开启<br>`on` - 开启                                |
@@ -1886,7 +1848,7 @@ $$
 
 > **方式一**
 >
-> **通过 URL 参数指定（多个参数间用「&」进行分隔）**
+> 通过 **URL 参数**指定（多个参数间用「&」进行分隔）
 >
 > *==示例_指定插件调校参数方式一==*
 >
@@ -1899,7 +1861,7 @@ $$
 
 > **方式二**
 >
-> **通过 YAML Front Matter 指定（多个参数间用「&」进行分隔）**
+> 通过 **YAML Front Matter 指定**（多个参数间用「&」进行分隔）
 >
 > *==示例_指定插件调校参数方式二==*
 >
@@ -1914,7 +1876,7 @@ $$
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
 
 ## 快捷键操作汇总
 
@@ -1929,6 +1891,7 @@ $$
 | : | 搜索大纲与索引导航的内容 | <kbd>/</kbd> |
 | : | 打开、关闭「[表格阅读模式](#表格阅读模式)」 |         <kbd>X</kbd>         |
 | :         | 打开「[文库](#文库导航)」，或显示入口          |         <kbd>L</kbd>         |
+| : | 打开「[链接地图](#链接地图)」 | <kbd>M</kbd> |
 | [字体主题](#字体主题) | 选择字体风格 | <kbd>A</kbd> |
 | :                       | 退出「字体主题」选择                        |        <kbd>ESC</kbd>        |
 | [逐章导航](#逐章导航)                   | **前一个**章节                                    | <kbd>◀</kbd> 或 <kbd> , </kbd> |
@@ -1959,12 +1922,12 @@ $$
 
 > **动效**
 >
-> 默认会启增强动效（包括毛玻璃），可以根据实际降低动效级别，可通过「[插件调校参数](#插件调校参数)」`effect` 来进行调整
+> 默认会启增强动效（包括毛玻璃），可以根据实际降低动效级别，可通过「[插件调校参数](#插件调校参数)」 `effect` 来进行调整
 >
 > > ###### Firefox 如何启用毛玻璃效果？
 > >
-> > - 在地址栏输入：`about:config`
-> > - 搜索配置项：`layout.css.backdrop-filter.enabled` ，并设置为 `true`
+> > - 在地址栏输入： `about:config`
+> > - 搜索配置项： `layout.css.backdrop-filter.enabled` ，并设置为 `true`
 
 ## 国际化支持
 
@@ -2002,32 +1965,31 @@ VLOOK™ 插件的界面语言，自动适配浏览器的语言设置。
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-[<kbd>![](pic/icon-back.svg?fill=text#icon0) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
 
 # 延伸内容
 
 ## 章节标题内容注意事项
 
-1. 标题内容原则上不要带有标点符号（如：`，` `、` `？` `_` 等）
+1. 标题内容原则上不要带有标点符号（如： `，` `、` `？` `_` 等）
    1. 如果必须保留，在设置文字链接跳转至该标题时忽略这些标点符号
-   2. 如标题内容为「标题、标题？」，则文字链接跳转应写成：`标题标题`
-2. 标题内容原则上不要带有空格，如果有请替换为连字符 `-` ；
+   2. 如标题内容为「标题、标题？」，则文字链接跳转应写成： `标题标题`
+2. 标题内容原则上不要带有空格，如果有请替换为连字符 `-`
 
 ## 图片 URL 扩展应用说明
 
 > ###### 图片 URL 无 Query 参数时
 >
-> 先在 URL 后添加英文问号 `?` 后，再添加需要的 URL Query 参数。
+> - 先在 URL 后添加英文问号 `?` 后，再添加需要的 URL Query 参数；
+> - 当图片 URL 已有 Query 参数时，多个参数间用英文特殊符号 `&` 进行分隔。
 >
 > **示例-1：**`![图片题注](xxx.png?darksrc=invert)`
 >
-> > [!TIP] 
-> >
-> > 若图片 URL 中含有锚点内容，如 `xxx.png#icon2x` ，请在锚点前添加 URL Query 参数。
->
-> 
->
 > **示例-2：**`![图片题注](xxx.png?darksrc=invert#icon2x)`
+>
+> > [!IMPORTANT]
+> >
+> > 若图片 URL 中含有锚点内容，如 `xxx.png#icon2x` ，URL Query 参数须在锚点前添加
 
 > ###### 图片 URL 锚点
 >
@@ -2038,21 +2000,14 @@ VLOOK™ 插件的界面语言，自动适配浏览器的语言设置。
 > - 一行多图适配 [❯❯](guide.md#适配一行多图)
 > - 图片边缘留白 [❯❯](guide.md#图片边缘留白)
 >
-> 当需要同时应用以上多个排版，可添加多个锚点，如：`#center#padding#icon2x`
+> 当需要同时应用以上多个排版，可添加多个锚点，如： `#center#padding#icon2x` 
+## ~~基于色轮的配色方案~~
 
-> ###### 图片 URL 已有 Query 参数时
->
-> 多个参数间用英文特殊符号 `&` 进行分隔。
->
-> 示例：`![图片题注](xxx.png?darksrc=invert#padding)`
-
-## 基于色轮的配色方案
-
-| 配色示例                                                     | 说明                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![单色方案](pic/单色.png?srcset=@2x#logo) | ==单色方案==<br>由一个颜色的暗/中/明色调组成（如：暗绿、绿、粉绿）<br><br>单色搭配上并没有形成颜色的层次，但形成了明暗的层次。<br>这种搭配在设计中应用时，出来的效果永远不错，其重要性也可见一斑。 |
-| ![类比色方案](pic/类比色.png?srcset=@2x#logo) | ==类比色方案==<br>色轮上某个颜色的相邻的颜色（如：橙黄色、黄色、橙色）<br><br>类比色都拥有共同的三原色颜色（在上图中，是黄色及红色）。<br>这种颜色搭配产生了一种令人悦目、低对比度的和谐美感。<br>类比色非常丰富，在设计时应用这种搭配同样让你轻易产生不错的视觉效果。 |
-| ![补色方案](pic/补色.png?srcset=@2x#logo) | ==补色方案==<br>色轮上直线相对的两种颜色（如：红、绿）<br><br>补色形成强列的对比效果，传达出活力、能量、兴奋等意义。<br>补色要达到最佳的效果，最好是其中一种面积比较小，另一种比较大。<br>比如在一个蓝色的区域里搭配橙色的小圆点。 |
+| 配色示例                                          | 说明                                                         |
+| ------------------------------------------------- | ------------------------------------------------------------ |
+| ![单色方案](pic/单色.png?srcset=@2x#logo)         | ==单色方案==<br>由一个颜色的暗/中/明色调组成（如：暗绿、绿、粉绿）<br><br>单色搭配上并没有形成颜色的层次，但形成了明暗的层次。<br>这种搭配在设计中应用时，出来的效果永远不错，其重要性也可见一斑。 |
+| ![类比色方案](pic/类比色.png?srcset=@2x#logo)     | ==类比色方案==<br>色轮上某个颜色的相邻的颜色（如：橙黄色、黄色、橙色）<br><br>类比色都拥有共同的三原色颜色（在上图中，是黄色及红色）。<br>这种颜色搭配产生了一种令人悦目、低对比度的和谐美感。<br>类比色非常丰富，在设计时应用这种搭配同样让你轻易产生不错的视觉效果。 |
+| ![补色方案](pic/补色.png?srcset=@2x#logo)         | ==补色方案==<br>色轮上直线相对的两种颜色（如：红、绿）<br><br>补色形成强列的对比效果，传达出活力、能量、兴奋等意义。<br>补色要达到最佳的效果，最好是其中一种面积比较小，另一种比较大。<br>比如在一个蓝色的区域里搭配橙色的小圆点。 |
 | ![分裂补色方案](pic/分裂补色.png?srcset=@2x#logo) | ==分裂补色方案==<br>色轮上某颜色（如：红色）及其补色的类比色（如：绿、青）<br><br>这种颜色搭配既具有类比色的低对比度的美感，又具有补色的力量感。<br>形成了一种既和谐又有重点的颜色关系。<br>如在上面三种颜色中，红色就显得更加突出。 |
-| ![二次色方案](pic/二次色.png?srcset=@2x#logo) | ==二次色方案==<br>二次色容易构成协调的搭配（如：绿、橙、紫）<br><br>任意两个二次色之间都拥有一种共同的颜色，所以它们轻易能够形成协调的搭配。<br>如果三种二次色同时使用，则显得很舒适、吸引，具有丰富的色调，以及深度和广度。 |
-| ![原色方案](pic/原色.png?srcset=@2x#logo) | ==原色方案==<br>三原色同时使用是比较少<br><br>红黄搭配较受欢迎。从快餐店到加油站，我们都可以看见这两种颜色同时在一起。<br>蓝红搭配也很常见，但只有当两者的区域是分离时，才会显得吸引人。<br>注意：如果是紧邻在一起，则会产生冲突感，需进行分离。 |
+| ![二次色方案](pic/二次色.png?srcset=@2x#logo)     | ==二次色方案==<br>二次色容易构成协调的搭配（如：绿、橙、紫）<br><br>任意两个二次色之间都拥有一种共同的颜色，所以它们轻易能够形成协调的搭配。<br>如果三种二次色同时使用，则显得很舒适、吸引，具有丰富的色调，以及深度和广度。 |
+| ![原色方案](pic/原色.png?srcset=@2x#logo)         | ==原色方案==<br>三原色同时使用是比较少<br><br>红黄搭配较受欢迎。从快餐店到加油站，我们都可以看见这两种颜色同时在一起。<br>蓝红搭配也很常见，但只有当两者的区域是分离时，才会显得吸引人。<br>注意：如果是紧邻在一起，则会产生冲突感，需进行分离。 |

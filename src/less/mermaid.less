@@ -3,8 +3,8 @@
  * VLOOK CSS - Mermaid 自定义样式
  * (配合 base.less 进行使用)
  *
- * V24.2
- * 2024-05-21
+ * V25.0
+ * 2024-07-03
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -20,15 +20,13 @@
     // #Mermaid_Var
     // --mm-sequence-numbers: on;
     --mermaid-sequence-numbers: on;
+
     // --mm-flowchart-curve: basis;
     --mermaid-flowchart-curve: basis;
 
-    // --mm-font-family: var(--v-f-fm-tag);
-    --mermaid-font-family: var(--v-f-fm-bd);//var(--v-f-fm-tag);
-    // --mm-a-font-family: var(--v-f-fm-tag);
+    // --mermaid-font-family: var(--v-f-fm-bd);
 
     // #ZenUML_Var
-
 
     --mm-c-rd: var(--ac-rd);
     --mm-c-rd-a: var(--ac-rd-a);
@@ -56,15 +54,19 @@
 // 更改某些段与字体相关的样式时，须同步修改切换字体样式的 JS 代码
 // 这些样式包括 #JS 字样
 
-// 全局字体设置
-// svg[aria-roledescription] text,
-// svg[aria-roledescription] span,
-// svg[aria-roledescription] tspan,
-// svg[aria-roledescription] .edgeLabel,
-// svg[aria-roledescription] .nodeLabel {
-svg[aria-roledescription] :is(text, span, tspan, .edgeLabel, .nodeLabel) {
-    font-family: var(--v-f-fm-bd);//var(--v-f-fm-tag) !important;
+// 全局文本设置
+// svg[aria-roledescription] :is(text, span, tspan, .edgeLabel, .nodeLabel) {
+//     // font-family: var(--v-f-fm-bd);//var(--v-f-fm-tag) !important;
+//     color: var(--d-fc) !important;
+//     fill: var(--d-fc) !important;
+// }
+svg[aria-roledescription] :is(.label, .edgeLabel, .nodeLabel) {
+    // font-family: var(--v-f-fm-bd) !important;
     color: var(--d-fc) !important;
+    fill: var(--d-bc) !important;
+    background-color: transparent !important;
+}
+svg[aria-roledescription] :is(.entityLabel, .relationshipLabel) {
     fill: var(--d-fc) !important;
 }
 
@@ -73,54 +75,47 @@ svg[aria-roledescription] {
     background-color: var(--d-bc) !important;
 }
 
-// 选中后的新式
-// svg[aria-roledescription] g circle.selected,
-// svg[aria-roledescription] g polygon.selected,
-// svg[aria-roledescription] g path.selected,
-// svg[aria-roledescription] g rect.selected {
-//     fill: var(--ac-ye) !important;
-// }
-
 // 鼠标悬停
 svg[aria-roledescription] .node:hover {
     cursor: crosshair;
 }
-// svg[aria-roledescription] .node:hover circle,
-// svg[aria-roledescription] .node:hover polygon,
-// svg[aria-roledescription] .node:hover path,
-// svg[aria-roledescription] .node:hover rect {
 svg[aria-roledescription] .node:hover @{svgNodes} {
     fill: var(--ac-t1-a) !important;
-    stroke: @aColor !important;
+    stroke: var(--a-color) !important;
     cursor: crosshair;
 }
 svg[aria-roledescription] .node[id^="flowchart-inpage"]:hover circle,
 svg[aria-roledescription] .node[id^="flowchart-outpage"]:hover polygon {
-    stroke: @aColor !important;
+    stroke: var(--a-color) !important;
 }
 
 svg[aria-roledescription] .label div {
     text-align: center;
 }
 
+.md-diagram-panel svg {
+    display: block;
+}
+
 .md-diagram-panel,
 .md-diagram-panel svg {
     color: var(--d-fc) !important;
-    // line-height: 0 !important;
-    line-height: 1 !important;
+    // line-height: 1.6 !important;
 }
-svg {
-    line-height: 1 !important;
-}
+// [lang="mermaid"] svg {
+//     height: auto;
+// }
+// svg {
+//     line-height: 1.6 !important;
+// }
+// foreignObject {
+//     width: 32px;
+//     height: 25px;
+// }
 
 // 可点击对象
-// svg[aria-roledescription] .clickable:hover circle,
-// svg[aria-roledescription] .clickable:hover polygon
-// svg[aria-roledescription] .clickable:hover path,
-// svg[aria-roledescription] .clickable:hover rect {
 svg[aria-roledescription] .clickable:hover @{svgNodes} {
     cursor: var(--cur-pointer) !important;
-    // cursor: pointer !important;
 }
 
 /* ----- pie diagram 饼图 ----- */
@@ -156,27 +151,23 @@ svg[aria-roledescription="pie"] .legend text {
 }
 
 svg[aria-roledescription="pie"] :is(.pieTitleText, .slice) {
-    font-family: var(--v-f-fm-bd);
+    // font-family: var(--v-f-fm-bd);
     font-weight: var(--v-f-w-title) !important;
 }
 
 /* ----- flow diagram 流程图 ----- */
 
 svg[aria-roledescription^="flowchart"] {
-    font-size: .875em !important;
+   // font-size: .875em !important;
 }
 
 // 节点文本
 svg[aria-roledescription^="flowchart"] .nodeLabel {
     color: var(--d-fc) !important;
-    font-weight: bold !important;
+    // font-weight: bold !important;
 }
 
 // 图元节点
-// svg[aria-roledescription^="flowchart"] .node circle,
-// svg[aria-roledescription^="flowchart"] .node polygon,
-// svg[aria-roledescription^="flowchart"] .node path,
-// svg[aria-roledescription^="flowchart"] .node rect {
 svg[aria-roledescription^="flowchart"] .node @{svgNodes} {
     fill: var(--pn-c) !important;
     stroke: var(--d-fc) !important;
@@ -185,12 +176,9 @@ svg[aria-roledescription^="flowchart"] .node @{svgNodes} {
 // 自定义：节点文本
 svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) .nodeLabel {
     color: var(--d-bc) !important;
+    // font-weight: bold !important;
 }
 // 自定义：图元节点
-// svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) circle,
-// svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) polygon,
-// svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) path,
-// svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) rect {
 svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) @{svgNodes} {
     fill: var(--d-fc) !important;
     stroke-width: 0 !important;
@@ -204,21 +192,19 @@ svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) .
 // 自定义：同页、离页、
 svg[aria-roledescription^="flowchart"] .node[id^="flowchart-inpage"] circle,
 svg[aria-roledescription^="flowchart"] .node[id^="flowchart-outpage"] polygon {
-    stroke-width: 1 !important;
+    fill: none !important;
+    // stroke-width: 1 !important;
     stroke: var(--d-fc-a) !important;
-    // stroke: @aColor !important;
-    stroke-dasharray: 6 2 !important;
+    // stroke-dasharray: 6 2 !important;
 }
-svg[aria-roledescription^="flowchart"] .node[id^="flowchart-inpage"] .nodeLabel,
-svg[aria-roledescription^="flowchart"] .node[id^="flowchart-outpage"] .nodeLabel {
-    color: var(--d-fc-a) !important;
-    font-weight: normal !important;
-}
+// svg[aria-roledescription^="flowchart"] .node[id^="flowchart-inpage"] .nodeLabel,
+// svg[aria-roledescription^="flowchart"] .node[id^="flowchart-outpage"] .nodeLabel {
+//     font-size: .875em !important;
+//     // color: var(--d-fc-a) !important;
+//     // font-weight: normal !important;
+// }
 
 // 自定义：汇聚样式的多边形（菱形、梯形、平行四边形、圆形等）
-// svg[aria-roledescription^="flowchart"] .node[id^="flowchart-join"]>rect,
-// svg[aria-roledescription^="flowchart"] .node[id^="flowchart-join"]>polygon,
-// svg[aria-roledescription^="flowchart"] .node[id^="flowchart-join"]>circle {
 svg[aria-roledescription^="flowchart"] .node[id^="flowchart-join"]>@{svgNodes},
 svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) .node[id^="flowchart-join"]>@{svgNodes} {
     fill: var(--d-fc-a) !important;
@@ -244,12 +230,12 @@ svg[aria-roledescription^="flowchart"] .node[id^="flowchart-START"]:hover rect,
 svg[aria-roledescription^="flowchart"] .node[id^="flowchart-join"]:hover @{svgNodes},
 svg[aria-roledescription^="flowchart"] .node[id^="flowchart-INIT"]:hover circle,
 svg[aria-roledescription^="flowchart"] .node[id^="flowchart-FINAL"]:hover circle {
-    fill: @aColor !important;
-    stroke: @aColor !important;
+    fill: var(--a-color) !important;
+    stroke: var(--a-color) !important;
     cursor: crosshair;
 }
 svg[aria-roledescription^="flowchart"] .node[id^="flowchart-END"]:hover rect {
-    stroke: @aColor !important;
+    stroke: var(--a-color) !important;
     cursor: crosshair;
 }
 svg[aria-roledescription^="flowchart"] .node[id^="flowchart-START"]:hover rect + .label .nodeLabel,
@@ -259,7 +245,7 @@ svg[aria-roledescription^="flowchart"] .nodes:has(.node[id^="flowchart-INIT"]) .
 
 // 鼠标在图元文本上悬停
 svg[aria-roledescription^="flowchart"] .node:hover .label .nodeLabel {
-    color: @aColor !important;
+    color: var(--a-color) !important;
 }
 
 // 实条
@@ -283,14 +269,14 @@ svg[aria-roledescription^="flowchart"] .edgeLabel .label div {
 }
 
 // 线条文本
-svg[aria-roledescription^="flowchart"] .label .edgeLabel {
-    color: var(--d-fc) !important;
-    background-color: transparent !important;
-}
+// svg[aria-roledescription^="flowchart"] .label .edgeLabel {
+//     color: var(--d-fc) !important;
+//     background-color: transparent !important;
+// }
 
 // 线条文本上鼠标悬停
 svg[aria-roledescription^="flowchart"] .label .edgeLabel:hover {
-    color: @aColor !important;
+    color: var(--a-color) !important;
     cursor: crosshair;
 }
 
@@ -302,24 +288,22 @@ svg[aria-roledescription^="flowchart"] .cluster rect {
     stroke-dasharray: 6 6 !important;
 }
 
-// 子图文本
+// 子图、分组文本
 svg[aria-roledescription^="flowchart"] .cluster-label .nodeLabel { // keyword: flowchart
-    color: var(--d-fc-a) !important;
     margin-left: 0 !important;
-    // font-style: italic;
-    font-weight: var(--v-f-w-title) !important;
-    font-size: .875em !important;
-    padding-right: .5em !important;
+    // font-weight: var(--v-f-w-title) !important;
+   font-size: .875em !important;
+    // line-height: 2;
 }
 // 鼠标悬停
 svg[aria-roledescription^="flowchart"] .cluster:hover rect {
     fill: var(--ac-t1-a) !important;
-    stroke: @aColor !important;
+    stroke: var(--a-color) !important;
     cursor: crosshair;
 }
 svg[aria-roledescription^="flowchart"] .cluster:hover .cluster-label .nodeLabel {
-    font-weight: var(--v-f-w-title) !important;
-    color: @aColor !important;
+    // font-weight: var(--v-f-w-title) !important;
+    color: var(--a-color) !important;
     cursor: crosshair;
 }
 
@@ -331,7 +315,7 @@ svg[aria-roledescription^="flowchart"] .node[id^="flowchart-START"] rect {
 }
 svg[aria-roledescription^="flowchart"] .node[id^="flowchart-START"] rect + .label .nodeLabel { // keyword: flowchart
     color: var(--d-bc) !important;
-    font-weight: var(--v-f-w-title) !important;
+    // font-weight: var(--v-f-w-title) !important;
 }
 
 // 自定义：流程图「结束」节点样式
@@ -341,7 +325,7 @@ svg[aria-roledescription^="flowchart"] .node[id^="flowchart-END"] rect {
     stroke-width: 4 !important;
 }
 svg[aria-roledescription^="flowchart"] .node[id^="flowchart-END"] rect+.label div {
-    font-weight: var(--v-f-w-title) !important;
+    // font-weight: var(--v-f-w-title) !important;
     color: var(--d-fc) !important;
 }
 
@@ -370,7 +354,7 @@ svg[aria-roledescription="sequence"] .actor-man>:is(line, circle) {
     stroke-width: 1 !important;
 }
 svg[aria-roledescription="sequence"] .actor-man:hover>:is(line, circle, text)  {
-    stroke: @aColor !important;
+    stroke: var(--a-color) !important;
     stroke-width: 2 !important;
     cursor: crosshair;
 }
@@ -384,25 +368,25 @@ svg[aria-roledescription="sequence"] .actor-man:hover>circle {
 svg[aria-roledescription="sequence"] .actor {
     stroke: var(--d-fc-a) !important;
     fill: var(--pn-c) !important;
-    font-size: .875em !important;
+   // font-size: .875em !important;
     stroke-width: 1;
 }
 
 // 角色上鼠标悬停
 svg[aria-roledescription="sequence"] g:hover>:is(.actor, line[id^="actor"]) {
     fill: var(--ac-t1-a) !important;
-    stroke: @aColor !important;
+    stroke: var(--a-color) !important;
     stroke-width: 2 !important;
     cursor: crosshair;
 }
 svg[aria-roledescription="sequence"] g:hover>rect {
     fill: var(--ac-t1-a) !important;
-    stroke: @aColor !important;
+    stroke: var(--a-color) !important;
     stroke-width: 1 !important;
     cursor: crosshair;
 }
 svg[aria-roledescription="sequence"] g:hover text.actor>tspan {
-    fill: @aColor !important;
+    fill: var(--a-color) !important;
 }
 
 // 角色文本
@@ -422,9 +406,8 @@ svg[aria-roledescription="sequence"] line[id^="actor"] {
 svg[aria-roledescription="sequence"] .messageText {
     fill: var(--d-fc) !important;
     stroke: none !important;
-    font-size: .875em !important;
+   // font-size: .875em !important;
     font-weight: normal !important;
-    // line-height: 2em !important;
 }
 
 // 消息：实线
@@ -450,12 +433,12 @@ svg[aria-roledescription="sequence"] #filled-head path {
 // 消息上鼠标悬停
 svg[aria-roledescription="sequence"] .messageText:hover,
 svg[aria-roledescription="sequence"] .messageText:hover + :is(.messageLine0, .messageLine1) + .sequenceNumber {
-    fill: @aColor !important;
+    fill: var(--a-color) !important;
     font-weight: var(--v-f-w-title) !important;
     cursor: crosshair;
 }
 svg[aria-roledescription="sequence"] .messageText:hover + :is(.messageLine0, .messageLine1) {
-    stroke: @aColor !important;
+    stroke: var(--a-color) !important;
 }
 
 // 消息序号
@@ -463,7 +446,7 @@ svg[aria-roledescription="sequence"] .sequenceNumber {
     color: var(--d-bc) !important;
     fill: var(--d-bc) !important;
     font-weight: var(--v-f-w-title) !important;
-    font-size: .875em;
+   // font-size: .875em;
 }
 
 // 消息序号背景
@@ -497,24 +480,17 @@ svg[aria-roledescription="sequence"] .labelBox {
 // 片断的类型文本
 svg[aria-roledescription="sequence"] g>.labelText {
     fill: #FFFFFF !important;
-    // fill: var(--d-fc) !important;
-    font-size: .875em !important;
+   // font-size: .875em !important;
     font-weight: var(--v-f-w-title) !important;
 }
 
 //片断的标题标签文本
 svg[aria-roledescription="sequence"] .loopText {
-// svg[aria-roledescription="sequence"] .loopText>tspan {
     fill: var(--ac-pu-lg) !important;
-    // fill: var(--d-fc) !important;
-    font-size: .875em !important;
+   // font-size: .875em !important;
     font-weight: var(--v-f-w-title) !important;
 }
-// svg[aria-roledescription="sequence"] .loopText>tspan {
-//     font-size: 1em;
-// }
 svg[aria-roledescription="sequence"] :is(.loopText:hover, .loopText:hover>tspan) {
-    // fill: var(--ac-t1) !important;
     cursor: crosshair;
 }
 
@@ -527,25 +503,21 @@ svg[aria-roledescription="sequence"] .loopLine {
 
 // 片断上鼠标悬停
 svg[aria-roledescription="sequence"] g:hover>.loopLine {
-    // stroke: var(--ac-t1) !important;
     stroke-width: 4 !important;
     stroke-linecap: round !important;
     cursor: crosshair;
 }
 svg[aria-roledescription="sequence"] g:hover>polygon,
 svg[aria-roledescription="sequence"] g:hover>.loopText>tspan {
-    // fill: var(--ac-t1) !important;
     cursor: crosshair;
 }
 svg[aria-roledescription="sequence"] g:hover>.labelText {
-    // fill: var(--d-fc) !important;
     cursor: crosshair;
 }
 
 // 备注背景
 svg[aria-roledescription="sequence"] .note {
     stroke: var(--mm-c-ye) !important;
-    // stroke-dasharray: 5 !important;
     stroke-width: 0 !important;
     fill: var(--mm-c-ye-a) !important;
 }
@@ -555,8 +527,8 @@ svg[aria-roledescription="sequence"] .noteText tspan {
     fill: var(--d-fc) !important;
     stroke: none !important;
     font-size: .875em !important;
-    font-style: italic !important;
-    font-family: var(--v-f-fm-text) !important;
+    // font-style: italic !important;
+    // font-family: var(--v-f-fm-text) !important;
 }
 
 // --- 供 VLOOK.js 使用 ---
@@ -579,7 +551,7 @@ svg[aria-roledescription="sequence"] .noteText tspan {
 /* ----- state diagram 状态机图 ----- */
 
 svg[aria-roledescription="stateDiagram"] {
-    font-size: .875em !important;
+   // font-size: .875em !important;
 }
 
 // 开始
@@ -610,7 +582,7 @@ svg[aria-roledescription="stateDiagram"] .edgeLabel {
 }
 // 线条文本上鼠标悬停
 svg[aria-roledescription="stateDiagram"] .edgeLabel:hover {
-    color: @aColor !important;
+    color: var(--a-color) !important;
     cursor: crosshair;
 }
 
@@ -618,7 +590,6 @@ svg[aria-roledescription="stateDiagram"] .edgeLabel:hover {
 svg[aria-roledescription="stateDiagram"] .statediagram-state .label-container {
     fill: var(--d-fc) !important;
     stroke-width: 0 !important;
-    // stroke: var(--d-bc) !important;
 }
 // 状态文本
 svg[aria-roledescription="stateDiagram"] .statediagram-state .nodeLabel {
@@ -631,8 +602,7 @@ svg[aria-roledescription="stateDiagram"] .statediagram-state .label {
 
 // 状态节点上鼠标悬停
 svg[aria-roledescription="stateDiagram"] .statediagram-state:hover .label-container {
-    fill: @aColor !important;
-    // stroke: var(--d-bc) !important;
+    fill: var(--a-color) !important;
 }
 svg[aria-roledescription="stateDiagram"] .statediagram-state:hover .nodeLabel {
     color: @buttonForeColor !important;
@@ -652,7 +622,7 @@ svg[aria-roledescription="stateDiagram"] .nodes .divider {
 // 状态组标题
 svg[aria-roledescription="stateDiagram"] .statediagram-cluster .cluster-label .nodeLabel {
     color: var(--d-fc) !important;
-    font-size: .75em !important;
+    // font-size: .75em !important;
 }
 svg[aria-roledescription="stateDiagram"] .statediagram-cluster .cluster-label {
     text-align: center;
@@ -668,7 +638,7 @@ svg[aria-roledescription="stateDiagram"] .statediagram-note rect {
 svg[aria-roledescription="stateDiagram"] .statediagram-note .nodeLabel {
     color: var(--d-fc) !important;
     font-weight: normal !important;
-    font-size: .875em !important;
+   // font-size: .875em !important;
 }
 svg[aria-roledescription="stateDiagram"] .statediagram-note .label div {
     text-align: left;
@@ -687,7 +657,7 @@ svg[aria-roledescription="stateDiagram"] #statediagram-barbEnd {
 /* ----- class diagram 类图 ----- */
 
 svg[aria-roledescription="classDiagram"] {
-    font-size: .875em !important;
+   // font-size: .875em !important;
 }
 
 // 类背景
@@ -700,11 +670,8 @@ svg[aria-roledescription="classDiagram"] .node>rect.outer {
 // 类上鼠标悬停
 svg[aria-roledescription="classDiagram"] .node:hover .outer,
 svg[aria-roledescription="classDiagram"] .node:hover :is(.outer+.divider, .outer+.divider+.divider) {
-    stroke: @aColor !important;
+    stroke: var(--a-color) !important;
 }
-// svg[aria-roledescription="classDiagram"] .node:hover .label .classTitle .nodeLabel {
-//     color: @aColor !important;
-// }
 
 // 类属性、方法分隔线
 svg[aria-roledescription="classDiagram"] .node>line.divider {
@@ -718,7 +685,7 @@ svg[aria-roledescription="classDiagram"] .node>rect.outer + line.divider {
 
 // 类名
 svg[aria-roledescription="classDiagram"] .label .classTitle .nodeLabel {
-    color: var(--d-fc) !important;
+    // color: var(--d-fc) !important;
     font-weight: bold !important;
 }
 svg[aria-roledescription="classDiagram"] .label .classTitle {
@@ -727,7 +694,7 @@ svg[aria-roledescription="classDiagram"] .label .classTitle {
 
 // 方法、属性等文本
 svg[aria-roledescription="classDiagram"] .label .nodeLabel {
-    color: var(--d-fc-a) !important;
+    // color: var(--d-fc) !important;
     font-weight: normal !important;
 }
 
@@ -741,30 +708,30 @@ svg[aria-roledescription="classDiagram"] .edgeLabel .label span {
 
 // 线条文本上鼠标悬停
 svg[aria-roledescription^="classDiagram"] .label .edgeLabel:hover {
-    color: @aColor !important;
+    color: var(--a-color) !important;
     cursor: crosshair;
 }
 
 // 关系箭头
 svg[aria-roledescription="classDiagram"] :is(
-    /* Composition 组合 */
-    #classDiagram-compositionStart>path,
-    #classDiagram-compositionEnd>path,
-    /* Dependency 依赖, Association 关联 */
-    #classDiagram-dependencyStart>path,
-    #classDiagram-dependencyEnd>path,
-    #classDiagram-lollipopStart>circle) {
+/* Composition 组合 */
+#classDiagram-compositionStart>path,
+#classDiagram-compositionEnd>path,
+/* Dependency 依赖, Association 关联 */
+#classDiagram-dependencyStart>path,
+#classDiagram-dependencyEnd>path,
+#classDiagram-lollipopStart>circle) {
     fill: var(--d-fc-a) !important;
     stroke:  var(--d-fc-a) !important;
     stroke-width: 1 !important;
 }
 svg[aria-roledescription="classDiagram"] :is(
-    /* Aggregation 聚合 */
-    #classDiagram-aggregationStart>path,
-    #classDiagram-aggregationEnd>path,
-    /* Inheritance 继承, Realization 实现 */
-    #classDiagram-extensionStart>path,
-    #classDiagram-extensionEnd>path) {
+/* Aggregation 聚合 */
+#classDiagram-aggregationStart>path,
+#classDiagram-aggregationEnd>path,
+/* Inheritance 继承, Realization 实现 */
+#classDiagram-extensionStart>path,
+#classDiagram-extensionEnd>path) {
     fill: var(--d-bc) !important;
     stroke:  var(--d-fc-a) !important;
     stroke-width: 1 !important;
@@ -781,35 +748,27 @@ svg[aria-roledescription="classDiagram"] .edgePaths .relation {
 // 图元
 svg[aria-roledescription="block"] .node :is(circle, polygon, path),
 svg[aria-roledescription="block"] .node rect:not([class*="cluster"]) {
-    // font-family: var(--v-f-fm-bd);
     fill: var(--pn-c) !important;
     stroke: var(--d-fc) !important;
-    // cursor: crosshair;
 }
 // hover
 svg[aria-roledescription="block"] .node:hover :is(circle, polygon, path),
 svg[aria-roledescription="block"] .node:hover rect:not([class*="cluster"]) {
     fill: var(--ac-t1-a) !important;
-    stroke: @aColor !important;
+    stroke: var(--a-color) !important;
     cursor: crosshair;
 }
 
-// svg[aria-roledescription="block"] .node .cluster {
-//     stroke: var(--d-fc) !important;
-//     fill: none !important;
-//     box-shadow: none !important;
-// }
 // 分组
 svg[aria-roledescription="block"] .node .cluster {
     fill: var(--d-bc) !important;
     stroke: var(--d-fc-a) !important;
-    // stroke-width: 1px !important;
     stroke-dasharray: 6 6 !important;
     box-shadow: none !important;
 }
 // hover
 svg[aria-roledescription="block"] .node:hover .cluster {
-    stroke: @aColor !important;
+    stroke: var(--a-color) !important;
     cursor: crosshair;
 }
 
@@ -834,7 +793,6 @@ svg[aria-roledescription="sankey"] {
 svg[aria-roledescription="gantt"] .titleText {
     text-anchor: middle !important;
     font-size: 1.5em !important;
-    // line-height: 2em !important;
     font-weight: var(--v-f-w-title) !important;
     fill: var(--d-fc) !important;
 }
@@ -878,14 +836,11 @@ svg[aria-roledescription="gantt"] g.today line.today {
 svg[aria-roledescription="gantt"] rect[class*="active"] {
     fill: var(--ac-bu-a) !important;
     stroke: var(--ac-bu) !important;
-    // fill: var(--mm-c-bu) !important;
-    // stroke: var(--d-bc) !important;
     stroke-width: 1 !important;
 }
 // 普通任务-已完成
 svg[aria-roledescription="gantt"] rect[class*="done"] {
     fill: var(--ac-gy-a) !important;
-    // fill: var(--mm-c-gy) !important;
     stroke: var(--mm-c-bu) !important;
     stroke-width: 1 !important;
     stroke-dasharray: none !important;
@@ -895,16 +850,12 @@ svg[aria-roledescription="gantt"] rect[class*="done"] {
 svg[aria-roledescription="gantt"] rect[class*="activeCrit"] {
     fill: var(--ac-rd-a) !important;
     stroke: var(--ac-rd) !important;
-    // fill: var(--mm-c-pu) !important;
-    // stroke: var(--d-bc) !important;
     stroke-width: 1 !important;
 }
 // 关键任务-已完成
 svg[aria-roledescription="gantt"] rect[class*="doneCrit"] {
     fill: var(--ac-gy-a) !important;
     stroke: var(--ac-rd) !important;
-    // fill: var(--mm-c-gy) !important;
-    // stroke: var(--mm-c-pu) !important;
     stroke-width: 1 !important;
     stroke-dasharray: none !important;
 }
@@ -928,8 +879,6 @@ svg[aria-roledescription="gantt"] rect[class^="task crit"] {
 svg[aria-roledescription="gantt"] rect[class^="task milestone"] {
     fill: var(--d-fc) !important;
     stroke: none !important;
-    // fill: var(--mm-c-gn) !important;
-    // stroke: var(--d-bc) !important;
     stroke-width: 2 !important;
     stroke-dasharray: none !important;
 }
@@ -947,7 +896,7 @@ svg[aria-roledescription="xychart"] :is(.axis-line, .axisl-line, .ticks) > path 
 
 // 文本
 svg[aria-roledescription="xychart"] :is(.chart-title, .title) > text {
-    font-family: var(--v-f-fm-bd);
+    // font-family: var(--v-f-fm-bd);
     fill: var(--d-fc) !important;
     color: var(--d-fc) !important;
 }
@@ -965,7 +914,6 @@ svg[aria-roledescription="xychart"] .plot rect {
     opacity: .5;
 }
 svg[aria-roledescription="xychart"] .plot rect:hover {
-    // fill: var(--ac-t1) !important;
     opacity: 1;
     cursor: crosshair;
 }
@@ -977,14 +925,14 @@ svg[aria-roledescription="xychart"] .plot path {
 
 // 文本
 svg[aria-roledescription="quadrantChart"] :is(.title, .label, .quadrant, .data-point) > text {
-    font-family: var(--v-f-fm-bd);
+    // font-family: var(--v-f-fm-bd);
     fill: var(--d-fc) !important;
     color: var(--d-fc) !important;
 }
 svg[aria-roledescription="quadrantChart"] .quadrant > text {
     fill: var(--d-fc-a) !important;
     color: var(--d-fc-a) !important;
-    // font-weight: bold;
+    font-weight: var(--v-f-w-title);
 }
 svg[aria-roledescription="quadrantChart"] .label > text {
     font-style: italic;
@@ -1032,7 +980,7 @@ svg[aria-roledescription="quadrantChart"] .quadrants>.quadrant:hover > text {
 }
 svg[aria-roledescription="quadrantChart"] .data-point:hover > text {
     fill: var(--ac-t1) !important;
-    font-size: .875em;
+   // font-size: .875em;
 }
 
 /* ----- Gitgraph 历史图 ----- */
@@ -1180,10 +1128,6 @@ svg[aria-roledescription="c4"] g[class] :is(tspan, text) {
     fill: var(--d-fc-dk) !important;
 }
 
-// svg[aria-roledescription="c4"] rect[stroke-dasharray] {
-//     stroke: var(--d-fc-a) !important;
-// }
-
 svg[aria-roledescription="c4"] #arrowhead path {
     fill: var(--d-fc) !important;
     stroke: none !important;
@@ -1214,7 +1158,6 @@ svg[aria-roledescription="zenuml"] .bg-skin-frame {
 // 导出后的样式微调
 .typora-export-content>#write svg[aria-roledescription="zenuml"] div[alt^="icon"]>svg {
     width: 75% !important;
-    // height: 75% !important;
 }
 .typora-export-content>#write svg[aria-roledescription="zenuml"] div[alt^="icon"] {
     margin-left: 4px; // = 32px * (100% - 75%) / 2
@@ -1268,7 +1211,7 @@ svg[aria-roledescription="er"] g .entityBox {
 
 // 实体上鼠标悬停
 svg[aria-roledescription="er"] g:hover .entityBox {
-    stroke: @aColor !important;
+    stroke: var(--a-color) !important;
     cursor: crosshair;
 }
 
@@ -1489,19 +1432,11 @@ svg[aria-roledescription="mindmap"] g.mindmap-edges path {
     opacity: .5 !important;
 }
 
-// .v-mm-show {
-//     visibility: visible !important;
-// }
-
 .v-mm-hide {
     visibility: hidden !important;
 }
 
 /* ----- requirement 需求图 ----- */
-
-// svg[aria-roledescription="requirement"] {
-//     font-size: .875em !important;
-// }
 
 // 卡片背景
 svg[aria-roledescription="requirement"] g>.reqBox {
@@ -1517,7 +1452,7 @@ svg[aria-roledescription="requirement"] g>.req-title-line {
 
 // 卡片上鼠档悬停
 svg[aria-roledescription="requirement"] g:hover>:is(.reqBox, .req-title-line) {
-    stroke: @aColor !important;
+    stroke: var(--a-color) !important;
     cursor: crosshair;
 }
 svg[aria-roledescription="requirement"] g:hover>.reqLabel{
@@ -1526,7 +1461,8 @@ svg[aria-roledescription="requirement"] g:hover>.reqLabel{
 
 // 文本
 svg[aria-roledescription="requirement"] g>text.reqLabel>tspan {
-    fill: var(--d-fc-a) !important;
+    fill: var(--d-fc) !important;
+    // fill: var(--d-fc-a) !important;
 }
 
 // 标题
@@ -1538,7 +1474,7 @@ svg[aria-roledescription="requirement"] g>text.reqTitle>tspan {
 svg[aria-roledescription="requirement"] g>text.reqTitle>tspan:first-child {
     fill: var(--d-fc-a) !important;
     font-weight: normal !important;
-    font-size: .875em !important;
+   // font-size: .875em !important;
 }
 
 // 线条
@@ -1553,7 +1489,7 @@ svg[aria-roledescription="requirement"] rect.reqLabelBox {
 
 // 线条文本上鼠标悬停
 svg[aria-roledescription="requirement"] .relationshipLabel:hover {
-    fill: @aColor !important;
+    fill: var(--a-color) !important;
     cursor: crosshair;
 }
 

@@ -131,7 +131,7 @@ VLOOK™ 提供了两套字体风格，可根据个人喜好进行选用。
 
 ![蓝奏云](https://vlook-doc.pages.dev/pic/lanzou.png?srcset=@2x#logo) •• [下载字体 ▾](https://wwe.lanzoui.com/ieVDhj1aokj)
 
-![百度网盘](https://vlook-doc.pages.dev/pic/baidupan.png?srcset=@2x#logo) •• [下载字体 ▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw)（提取码 `11ta`)
+![百度网盘](https://vlook-doc.pages.dev/pic/baidupan.png?srcset=@2x#logo) •• [下载字体 ▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw?pwd=11ta)（提取码 `11ta` )
 
 ---
 

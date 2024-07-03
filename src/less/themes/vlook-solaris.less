@@ -14,10 +14,8 @@
 @import "../color";
 @import "../common";
 
-@welcomeAutoCloseDelay: 3;
-
 // 主题信息
-@themeVer: "V24.2";
+@themeVer: "V25.0";
 @themeName: "vlook-solaris";
 @themeDesc: "Solaris";
 
@@ -128,7 +126,8 @@
 @tableThBorderRightWidth: 0;
 @tableTdBorderRightWidth: 0;
 // 表格圆角
-@tableBorderRadius: 0;
+@tableBorderRadius: 0px;
+@tableBorderRadiusXC: 0px;
 // 表格背景
 @tableBackground: var(--d-bc);
 @tableThColor: inherit;
@@ -199,4 +198,8 @@
 
 @import "../base";
 
-@import "../gsa-ft";
+// 生成指定风格的徽章样式
+.genBadgeStyle(cap);
+
+// 生成 GSA 样式
+.genGSA_flat();

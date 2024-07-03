@@ -17,5 +17,6 @@
 
 // 自定义章节自动编号
 // h1{{#ALPHA#. }},h2{{STEP-##-min#: }}
+@vChpAutoNum: "h1{{#ALPHA#. }},h2{{STEP-##-min#: }}";
 @h1BeforeContent: counter(h1, upper-alpha) ". ";
 @h2BeforeContent: "STEP-" counter(h2) ": ";

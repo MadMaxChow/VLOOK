@@ -14,10 +14,8 @@
 @import "../color";
 @import "../common";
 
-@welcomeAutoCloseDelay: 3;
-
 // 主题信息
-@themeVer: "V24.2";
+@themeVer: "V25.0";
 @themeName: "vlook-geek";
 @themeDesc: "Geek";
 
@@ -162,12 +160,19 @@
 @coverBackgroundSize: 80px 80px, auto, auto;
 @coverBackgroundRepeat: no-repeat, no-repeat, repeat-x;
 @coverBackgroundPosition: 80px 180px, bottom right, top left;
+
 // 封底背景设置
 @backCoverBackgroundColor: @coverBackgroundColor;
 @backCoverBackgroundImage: @coverBackgroundImage;
 @backCoverBackgroundSize: @coverBackgroundSize;
 @backCoverBackgroundRepeat: @coverBackgroundRepeat;
 @backCoverBackgroundPosition: @coverBackgroundPosition;
+
+// 文档扩展区域背景
+@docExtBackgroundImage: var(--thm-c-code), var(--thm-c-link), var(--thm-doc-ext-bg);
+@docExtBackgroundSize: auto, auto, auto;
+@docExtBackgroundRepeat: repeat-x, no-repeat, no-repeat;
+@docExtBackgroundPosition: left top, right bottom, left top ;
 
 // 封面、封底素材资源
 :root {
@@ -178,4 +183,8 @@
 
 @import "../base";
 
-@import "../gsa";
+// 生成指定风格的徽章样式
+.genBadgeStyle(std);
+
+// 生成 GSA 样式
+.genGSA_flat();

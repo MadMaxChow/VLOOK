@@ -3,8 +3,8 @@
  * VLOOK CSS 字体主题、圆角样式
  * (配合 base.less 进行使用)
  *
- * V24.2
- * 2024-05-21
+ * V25.0
+ * 2024-07-03
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -460,19 +460,32 @@ U+007B-007E; // {|}~
     --v-r-s-small: 4px; // 标准圆角内的小圆角
     --v-r-t-small: 6px; // 表格圆角
     --v-r-si-small: calc(var(--v-r-t-small) + 1px); // 标准圆角内的小圆角
-    --v-r-tag-small: .3em; // 标签圆角
+    --v-r-tag-small: 5px;//.3em; // 标签圆角
     // --v-tag-small-radius-small: .25em; // 标签小圆角
     --v-r-c-small: 50%; // 半距圆角
 
     // ---
     // 大号圆角
-    --v-r-b-big: 12px; // 标准圆角
-    --v-r-s-big: 6px; // 标准圆角内的小圆角
-    --v-r-t-big: 10px; // 表格圆角
+    --v-r-b-big: 14px; // 标准圆角
+    --v-r-s-big: 7px; // 标准圆角内的小圆角
+    --v-r-t-big: 12px; // 表格圆角
     --v-r-si-big: calc(var(--v-r-t-big) + 1px); // 标准圆角内的小圆角
-    --v-r-tag-big: .5em; // 标签圆角
+    --v-r-tag-big: 8px;//.5em; // 标签圆角
     // --v-tag-small-radius-big: .25em; // 标签小圆角
     --v-r-c-big: 50%; // 半距圆角
+}
+// ---
+// 应用叶子圆角
+.applyThemeRadius(@themeRadius) when (@themeRadius = leaf) {
+    .applyThemeRadius(big);
+    :root {
+        --v-r-b-xc: 0px;
+        --v-r-s-xc: 0px;
+        --v-r-t-xc: 0px;
+        --v-r-si-xc: 0px;
+        --v-r-tag-xc: 0px;
+        --v-r-c-xc: 0px;
+    }
 }
 // ---
 // 应用大号圆角
@@ -483,9 +496,9 @@ U+007B-007E; // {|}~
         --v-r-t: var(--v-r-t-big); // 表格圆角
         --v-r-si:calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
         --v-r-tag: var(--v-r-tag-big); // 标签圆角
-        // --v-tag-small-radius: var(--v-tag-small-radius-big); // 标签小圆角
         --v-r-c: var(--v-r-c-big); // 半距圆角
     }
+    .setForNonLeaf();
 }
 // ---
 // 应用小号圆角
@@ -496,20 +509,32 @@ U+007B-007E; // {|}~
         --v-r-t: var(--v-r-t-small); // 表格圆角
         --v-r-si:calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
         --v-r-tag: var(--v-r-tag-small); // 标签圆角
-        // --v-tag-small-radius: var(--v-tag-small-radius-small); // 标签小圆角
         --v-r-c: var(--v-r-c-small); // 半距圆角
     }
+    .setForNonLeaf();
 }
 // ---
 // 应用无圆角
 .applyThemeRadius(@themeRadius) when (@themeRadius = none) {
     :root {
-        --v-r-b: 0px; // 标准圆角
-        --v-r-s: 0px; // 标准圆角内的小圆角
-        --v-r-t: 0px; // 表格圆角
+        --v-r-b: 0; // 标准圆角
+        --v-r-s: 0; // 标准圆角内的小圆角
+        --v-r-t: 0; // 表格圆角
         --v-r-si: calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
-        --v-r-tag: 0px; // 标签圆角
-        // --v-tag-small-radius: var(--v-tag-small-radius-small); // 标签小圆角
-        --v-r-c: 0px; // 半距圆角
+        --v-r-tag: 0; // 标签圆角
+        --v-r-c: 0; // 半距圆角
+    }
+}
+// ---
+// 为非 leaf 的圆角样式设置初始的 xc 值
+.setForNonLeaf() {
+    :root {
+        // 对角值（叶子风格）
+        --v-r-b-xc: var(--v-r-b);
+        --v-r-s-xc: var(--v-r-s);
+        --v-r-t-xc: var(--v-r-t);
+        --v-r-si-xc: var(--v-r-si);
+        --v-r-tag-xc: var(--v-r-tag);
+        --v-r-c-xc: var(--v-r-c);
     }
 }

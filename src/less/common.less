@@ -3,8 +3,8 @@
  * VLOOK CSS 多主题间的通用样式
  * (配合 base.less、主题.less 进行使用)
  *
- * V24.2
- * 2024-05-21
+ * V25.0
+ * 2024-07-03
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -20,9 +20,11 @@
 // #Common_LESS_Var
 @themeEmail: "maxchow@qq.com";
 
+// 主题配套预置选项 vlook-query
+@vQuery: "ws=3";
+
 @tableRowNumTop: 4px; // 表格逐行自动编号的高度
 @tableRowCursor: "▶️"; // 表格当前行鼠标 hover 游标
-// @tableCellPadding: 8px; // 表格单元格边距
 @focusCursor: "✏️"; // 编辑焦点行游标
 @focusStyle: @aBorderWidth dashed @aLineColor; // 焦点、焦点行样式
 @miniLineHeight: 1;
@@ -35,14 +37,45 @@
 @syntaxTipsFont: italic normal 10px/1 var(--v-f-fm-bd); // 语法提示字体设置
 
 // 目录、文件 的当前节点、点击节点样式
-@tocItemActive_boxShadow: 0 0 0 2px fade(@headerColor, 50%);
-@tocItemCurrent_boxShadow: 0 0 0 2px fade(@headerColor, 50%) inset;
+@tocItemActive_boxShadow: 0 0 0 2px @aHoverColor;//0 0 0 2px fade(@aHoverColor, 50%);
+@tocItemCurrent_boxShadow: 0 0 0 2px @aColor inset;
 
 // 图片、插图边框宽度
 @imgBorderWidth: 2px;//@aBorderWidth;//2px;
 
- // --------------------
-// 主题的文档纹理背景
+// --------------------
+// a kbd 按钮链接的圆角风格选择
+// 无圆角（方角）
+.applyKbdRadius(@kbdStyle) when (@kbdStyle = none) {
+    #write a kbd {
+        padding: 6px 8px;
+        border-radius: 0;
+    }
+}
+// 小圆角
+.applyKbdRadius(@kbdStyle) when (@kbdStyle = small) {
+    #write a kbd {
+        padding: 7px 9px;
+        border-radius: var(--v-r-s);
+    }
+}
+// 大圆角
+.applyKbdRadius(@kbdStyle) when (@kbdStyle = big) {
+    #write a kbd {
+        padding: 8px 10px;
+        border-radius: 40px;
+    }
+}
+// 叶子圆角
+.applyKbdRadius(@kbdStyle) when (@kbdStyle = leaf) {
+    #write a kbd {
+        padding: 8px 10px;
+        border-radius: var(--v-r-b) var(--v-r-b-xc);
+    }
+}
+
+// ==================== 主题的文档纹理背景 ==================== //
+
 // 格子
 @docBgImgLight_Grid: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4AQMAAAADqqSRAAAABlBMVEUAAAAAAAClZ7nPAAAAAnRSTlMACHhIRQoAAAAlSURBVDjLYwABRgQxyh/l05T/HxUMuHtG+SOLP5r+RvmDKP0BALD8LjNR4HGxAAAAAElFTkSuQmCC");
 @docBgImgDark_Grid: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4AQMAAAADqqSRAAAABlBMVEUAAAD///+l2Z/dAAAAAnRSTlMAD+Ys0KkAAAAlSURBVDjLYwABRgQxyh/l05T/HxUMuHtG+SOLP5r+RvmDKP0BALD8LjNR4HGxAAAAAElFTkSuQmCC");
@@ -65,9 +98,10 @@
 @docBgImgLight_Snow: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAgMAAADQNkYNAAAACVBMVEUAAAAAAAAAAACDY+nAAAAAA3RSTlMABwnM6+q9AAAFDklEQVRo3uzWsarjQAwF0DsQ9Q68ecV+zQTsXgZdQ9xnIfmaLZ6b7aewv3KdlLYeWM2ysLltOBEzlsTgnXf+4aQSJ/pXiJ3CxgxrmkgV2gsGSPMkkiKEV12JREi+Fj11LAFy4kWzhAgyo+QsLLmrbeCOMwkhQ8cfpifRAOn4heDpIYZ0awMmIxmk8riwDBBCluNECkj2geNzJSMZ+IxcSbqyBi6LpAp5A/rD5ErLJL8bseSY6zBxTUk+keJMMXkdZhbpP44Syy+iUswluieaC4d5IC8ucaZVQOQXoUs+J+xyMWSuuQ/0yFCLt16F5IUDHZOG6YTT9qYLZCJBegR5MljGJisZFFloTpV+Mtv91wkdxydRrwdz1f3F0Eiu5OKRxLnwofvOhCikOKTVXMHHtsoHK5K5nSFUoUOQv5AINN4wKYgfU7stTiLduBcQTraScdJ9K0PuLO6nt3TnaMXfr63XYEtNC/fLJ9dcMr9ZvZXLYnlHKIVsXcL6WBYFHGKZxV8mT5K2V0Omop8uQdc/llnT9vgUJAxUjxDjWiXbhpgA4o9kajAsy0Qt+xdMYg8/a5Xqrvh0NhecVzJz9gguPskcf1fOd4/AJ2dy/Eo/Zz1MUn5w+JU4u79+wEv3UNFEMvDsuhcxkOfjZJxUJpjheJ6k9ggkjdTPaqWJPLuorC0CEaqsKkRKW3g7IxiZNUq6OBGWKGmIcBgnOU4kThq88847/1NKWKQ/7Zm/ahtBEMZnD2shqlxEItk6Te4p1mD3EvgEuSpFAtE+hXCRegmSC1dX7Jmb7ymzIyeNdg92U7iJB1SJH5o/981wn3w10gzViH4VZPkPiK+2puoRb6qRYA5XlQibww+qC+d+TpWIAaa6s2U14IvrJm1JeYVyCwBW+2s1kbPldXvtPygQyhXThuWhjSCTLkU0C2ICK5QiCk8R0cymGCGHiBBQ0bI17D6WBFj6WtiB5oxoHEn75aHwV3xEGqaIGFtGYOKIBBFmGWLwKA+kjoh0e3EsmMtRnZEh0jLTqewB+IvYvcFQNhmOnzPiAF/YgMNakmsVEIoUBrgRMsm2B9uyB8YboIen0rTIBNII5ikoQYqlD98+cA/WXK7m0J67VaMZuBtIu9qhFBmBl7T0hgriW0SCA6Rlh0K5yJ1cIuqZTCjdShFx4CgvzVQ6l+YZGESRhQ1bMGkALPL6WAJoHzNzGMG9Lb2qExkAN4yKKVoNsJoMqDTOabmHSQuyKcsMYGueg4GnddlcNCAtG4GgwVlD47IWh3EiBaDnGbms0rN6I7LHsZkR/lWXpqVk67EsmnxPv9iL4sML4mWdZZG7CyOnZZqa4Q8Cu/aJ+WIXFx7beqPOiBFEtnNSyH2HTXL4X9ZxRFrgmLHSsU0RT2c97rUQic3S8YUpKYr0cpYionBIkfFuvDQTFb2TSU6CZAaz425cZTy7HgARN+B0xwuCBFEuOOdjt59Tzazc47jLILDOBBmQ86nJBvTYJIgnp1kQMyWbYQWAbxOECAT7qRnSrbRdAKesw8jU2ivtFVLDUJCsW2m1lQRN4qXugM1tVpleZaWvHICcl9XOntUFxoi8zyC/mPPICqf+xJnEPjfB2Rnkvu/cMf3yuglmBukEOeU2U9BZRPTSb/sxhwzKzv355rpdHpnd2Qt03Xdb9SJ2h27V1b2IyYK5tlWI2m9Vdv0f5hEpJBPaVnt/iubj1r6GkWfpLd7iLf6z+A2b7usoil+0bAAAAABJRU5ErkJggg==");
 @docBgImgDark_Snow: url("data:image/png;base64,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");
 
+// 主题配套预置选项 vlook-chp-autonum
 // 1-6 级标题前缀/自动编号内容
-// counter() 支持使用有序列表的符号格式（decimal/lower-roman/upper-roman/lower-alpha/upper-alpha），如：counter(h1, upper-alpha)
-@ChpAutoNum: on;
+// counter() 支持使用有序列表的符号格式（decimal/decimal-leading-zero/lower-roman/upper-roman/lower-alpha/upper-alpha），如：counter(h1, upper-alpha)
+@vChpAutoNum: "h1{{### }},h2{{### }},h3{{### }},h4{{### }},h5{{### }}";
 @h1BeforeContent: counter(h1) ". ";
 @h2BeforeContent: counter(h1) "." counter(h2) " ";
 @h3BeforeContent: counter(h1) "." counter(h2) "." counter(h3) " ";
@@ -87,13 +121,14 @@
 @tableBorderRightWidth: @tblBdWidth;
 @tableBorderTopWidth: @tblBdWidth;
 @tableBorderBottomWidth: @tblBdWidth;
-@tableThBorderRightWidth: 1px;
-@tableTdBorderRightWidth: 1px;
+@tableThBorderRightWidth: 1px solid var(--tbl-cell-bd);
+@tableTdBorderRightWidth: 1px solid var(--tbl-cell-bd);
 // 表格行 hover
 @tableTrHoverBg: fade(@aHoverColor, 20%);
 @tableTrHoverBgDark: fade(@aHoverColor, 40%);
 // 表格圆角
 @tableBorderRadius: var(--v-r-b);
+@tableBorderRadiusXC: var(--v-r-b-xc);
 // 表格背景
 @tableBackground: var(--d-bc);
 @tableThColor: inherit;
@@ -131,6 +166,7 @@
 @h4FontSize: 1.375em;
 @h5FontSize: 1.25em;
 @h6FontSize: 1.125em;
+@h7FontSize: 1.25em; // 引用块小标题、折叠标题
 
 // 标题的文字轮廓样式
 @h1TextStroke: initial;
@@ -190,7 +226,7 @@
 @h5SpanPadding: 0;
 
 // 标题圆角
-@headerBorderRadius:  var(--v-r-b);
+@headerBorderRadius: var(--v-r-b);
 @h1BorderRadius: @headerBorderRadius;
 @h2BorderRadius: @headerBorderRadius;
 @h3BorderRadius: @headerBorderRadius;
@@ -231,7 +267,6 @@
 @lgH3BgClip: inherit;
 @lgH4BgClip: inherit;
 @lgH5BgClip: inherit;
-// @lgHeaderColor: @headerColor;
 @lgH1Color: var(--h-f);
 @lgH2Color: var(--h-f);
 @lgH3Color: var(--h-f);
@@ -239,12 +274,9 @@
 @lgH5Color: var(--h-f);
 
 // 标题前缀 before 颜色
-// @contentH1NumColor: @contentHeaderNumColor;
-// @contentH2NumColor: @contentHeaderNumColor;
-// @contentH3NumColor: @contentHeaderNumColor;
-// @contentH4NumColor: @contentHeaderNumColor;
-// @contentH5NumColor: @contentHeaderNumColor;
-// @contentH6NumColor: @contentHeaderNumColor;
+@contentHeaderNumColor: var(--h-f);
+@contentHeaderNumOpacity: 1;
+@liBeforeColor: var(--h-f);
 
 // 连续标题背景
 @multiHeaderBG: none;
@@ -256,16 +288,6 @@
 @h5Margin: 1.25em 0 0 0;
 @h6Margin: 1em 0 0 0;
 
-// 生成针对 h1-h6 标题内文本的扩展样式
-// .genHeaderSpan(@header, @color, @background, @padding, @borderRadius) {
-//     #write @{header}>span {
-//         color: @color;
-//         background: @background; // 该项因涉及到渐变文字颜色，不能作为所有主题的通用配置，须根据实际主题需要独立调用
-//         padding: @padding;
-//         border-radius: @borderRadius;
-//     }
-// }
-
 // 标题对齐方式
 @headerTextAlign: left;
 @h1TextAlign: @headerTextAlign;
@@ -274,6 +296,7 @@
 @h4TextAlign: @headerTextAlign;
 @h5TextAlign: @headerTextAlign;
 @h6TextAlign: @headerTextAlign;
+@h7TextAlign: center; // 引用小标题
 
 // 多个连续标题间的距离
 @hContinuous: 0;
@@ -286,12 +309,12 @@
 @badgeBgDefaultColorCode: "gy";
 @badgeFgDefaultColorCode: ~"gy-a";
 
-// 引用块默认色号（与主题配套使用）
+// 引用块默认色样式（与主题配套使用）
 @quoteBgDefault: var(--blockquote-bg);
-// @quoteBgDefault: var(--ac-t1-fade);
+@quoteBoxShadowDefault: none;
 
 // 引用块边框宽度
-@quoteBorderWidth: .25em;
+@quoteBorderWidth: .375em;
 
 // 引用块小标题、折叠引用块标题的分隔线宽度
 @quoteTitleBorderWidth: 1px;
@@ -324,10 +347,29 @@
 @coverTextStroke: initial;
 @backCoverTextStroke: initial;
 
-// 生成表格、插图的不同对齐方式的样式
+// 文档扩展区域背景
+:root {
+    // --thm-doc-ext-bg: linear-gradient(180deg, var(--d-bc), var(--d-bc), rgba(var(--fade-r), var(--fade-g), var(--fade-b), .8) 40%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), .2));
+    --thm-doc-ext-bg: linear-gradient(180deg, var(--d-bc), var(--ac-t1-fade));
+}
+@docExtContent: "";
+@docExtBackgroundColor: var(--d-bc);
+@docExtBackgroundImage: var(--thm-doc-ext-bg);//linear-gradient(180deg, var(--d-bc), var(--d-bc), rgba(var(--fade-r), var(--fade-g), var(--fade-b), .9) 40%, rgba(var(--fade-r), var(--fade-g), var(--fade-b), .2)), linear-gradient(180deg, var(--d-bc), var(--ac-t1-fade));
+@docExtBackgroundSize: auto;
+@docExtBackgroundRepeat: no-repeat;
+@docExtBackgroundPosition: left top;
+@docExtBackgroundFilter: none;
+
+// 封面内徽章样式
+@badgeColorInCover: @buttonForeHoverColor;
+@badgeBakgroundInCover: @aHoverColor;
+@badgeBorderColorInCover: transparent;//var(--rb-code-shadow-dk);//transparent;
+
+// ==================== 生成表格、插图的不同对齐方式的样式 ==================== //
+
+// 居中对齐。非居中对齐时不调用
 .genTableAndFigureAlign(@align) when (@align = center) {
     // 表格居中
-    // :is(#write, body.typora-export) table {
     #write table {
         margin: 0 auto;
     }
@@ -344,9 +386,6 @@
         display: block;
     }
 
-    // 列表分栏
-    // #write @{hr_MdHr}+ul,
-    // #write @{hr_MdHr}+ol,
     // 编辑时题注居中
     @nonFigure: ~':not(:is([data-src*="#icon"],[data-src*="#logo"],[data-src*="#frame"]))';
     content>#write p:has([md-inline="em"]:only-child>em>[md-inline="highlight"]>mark),
@@ -355,20 +394,283 @@
     #write .md-fences-adv-panel, // Mermaid 图
     .v-cap-cntr, // 导出后题注居中
     .v-caption.tbl>.v-cap-1 { // 表格题注样式
-        text-align: center;
+        text-align: center !important;
     }
-
-    // 列表分栏下的列表项
-    // #write @{hr_MdHr}+ul>li,
-    // #write @{hr_MdHr}+ol>li {
-    //     text-align: left;
-    // }
 
     .v-cap-cntr.expander::before, // 折叠提示的样式居中
     #write .v-post-card, // 明信片样式
     .ty-table-edit { // 编辑时表格工具栏
         left: 50%;
         transform: translateX(-50%);
-        border-radius: var(--v-r-b) var(--v-r-b) 0 0 !important;
+        border-radius: var(--v-r-b) var(--v-r-b-xc) !important;
     }
+}
+
+// ==================== 徽章样式 ==================== //
+
+// -----
+// 标准风格
+.genBadgeStyle(@style) when (@style = std) {
+    // 徽章内容公共样式
+    // 编辑时的徽章内容
+    @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:first-child) > code, // :first-child 时为 标签 tag
+    @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:only-child):first-child > code,  // 没有标题，只有 value 和 value2
+    .v-badge-value {
+        display: inline-block;
+        font: var(--v-f-w-bd) 1em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
+        border-radius: calc(var(--v-r-tag) - 3px) calc(var(--v-r-tag-xc) - 3px);
+        color: var(--d-fc) !important;
+        background: var(--d-bc) !important;
+        padding: 3px 5px;
+        line-height: 1;
+        margin: 1px 1px 1px @codePaddingLeft;
+        white-space: pre;
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    // 三段式，两个徽章值时微调
+    @{badgeOnEditingPrefix} > @{codeOnEditing}+span:last-child,
+    .v-badge-value.hastwo {
+        margin: 1px 4px !important;
+    }
+
+    // 没有徽章标题，只有两个徽章内容 value 和 value2
+    @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:only-child):first-child > code,
+    .v-badge-name > .v-badge-value:first-child {
+        margin: 1px 4px 1px 1px !important;
+    }
+}
+
+// -----
+// 活力风格
+.genBadgeStyle(@style) when (@style = dyn) {
+    // 徽章内容公共样式
+    // 编辑时的徽章内容
+    @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:first-child) > code, // :first-child 时为 标签 tag
+    @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:only-child):first-child > code,  // 没有标题，只有 value 和 value2
+    .v-badge-value {
+        display: inline-block;
+        font: var(--v-f-w-bd) 1em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
+        border-radius: 0 calc(var(--v-r-tag-xc) - 3px) calc(var(--v-r-tag) - 3px) 0;
+        color: var(--d-fc) !important;
+        // background: var(--d-bc) !important;
+        padding: 3px 5px 3px 12px;
+        line-height: 1;
+        margin: 1px 1px 1px 0;//@codePaddingLeft;
+        white-space: pre;
+        box-shadow: none !important;
+        border: none !important;
+        background: linear-gradient(110deg, transparent 10px, var(--d-bc) 10px, var(--d-bc)) !important;
+    }
+
+    // 三段式，两个徽章值时微调
+    // 第 2 个徽章值
+    @{badgeOnEditingPrefix} > @{codeOnEditing}+span:last-child {
+        margin: 1px 5px !important;
+    }
+    // 第 1 个徽章值
+    @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:first-child):not(:last-child) > code,
+    .v-badge-value.hastwo {
+        margin-left: 0 !important;
+        margin-right: -5px !important;
+        padding-right: 12px !important;
+        border-radius: 0;
+        background: linear-gradient(110deg, transparent 10px, var(--d-bc) 10px, var(--d-bc) calc(100% - 10px), transparent calc(100% - 10px)) !important;
+    }
+
+    // 没有徽章标题，只有两个徽章内容 value 和 value2
+    @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:only-child):first-child > code,
+    .v-badge-name > .v-badge-value:first-child {
+        margin-left: 1px !important;
+        margin-right: 0 !important;
+        padding-left: 5px;
+        padding-right: 12px !important;
+        border-radius: calc(var(--v-r-tag) - 3px) 0 0 calc(var(--v-r-tag) - 3px);
+        background: linear-gradient(110deg, var(--d-bc), var(--d-bc) calc(100% - 10px), transparent calc(100% - 10px)) !important;
+    }
+}
+
+// -----
+// 胶囊风格
+.genBadgeStyle(@style) when (@style = cap) {
+    // 徽章内容公共样式
+    // 编辑时的徽章内容
+    @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:first-child) > code, // :first-child 时为 标签 tag
+    @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:only-child):first-child > code,  // 没有标题，只有 value 和 value2
+    .v-badge-value {
+        display: inline-block;
+        font: var(--v-f-w-bd) 1em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
+        border-radius: 0 var(--v-r-tag-xc) var(--v-r-tag) 0;
+        color: var(--d-bc) !important;
+        background: var(--d-fc) !important;
+        padding: 5px 5px;
+        line-height: 1;
+        margin: -.0625em -.0625em -.0625em @codePaddingLeft;
+        white-space: pre;
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    // 三段式，两个徽章值时微调
+    // 第 2 个徽章值
+    @{badgeOnEditingPrefix} > @{codeOnEditing}+span:last-child {
+        margin: 1px 5px !important;
+    }
+    // 第 1 个徽章值
+    @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:first-child):not(:last-child) > code,
+    .v-badge-value.hastwo {
+        margin: -.0625em 5px !important;
+        border-radius: 0;
+    }
+
+    // 没有徽章标题，只有两个徽章内容 value 和 value2
+    @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:only-child):first-child > code,
+    .v-badge-name > .v-badge-value:first-child {
+        margin: -.0625em 5px -.0625em -.0625em !important;
+        border-radius: var(--v-r-tag) 0 0 var(--v-r-tag-xc);
+    }
+}
+
+// ==================== 生成 GitHub Style Alert 各类型相关样式 ==================== //
+
+// ----------
+// GSA 简约风格样式
+.genGitHubStyleAlertCSS(@type, @accColor, @btnBg) {
+    #write .md-alert {
+        padding: .25em 1em .5em 1em !important;
+        border: @quoteBorderWidth solid var(--d-fc);
+        // border-left-width: @quoteBorderWidth;
+        border-top-width: 1px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+    }
+
+    #write @{quote_details} .md-alert {
+        border-radius: 0 var(--v-r-s) var(--v-r-s) 0;
+    }
+
+    // 背景
+    #write .md-alert-@{type} {
+        border-color: ~"var(--ac-@{accColor}-lg)" !important;
+    }
+    // GSA 内的引用微调
+    #write .md-alert-@{type} @{quote_details} {
+        background: ~"var(--ac-@{accColor}-fade)" !important;
+    }
+    // after 提示
+    #write .md-alert-text-@{type} .md-meta {
+        color: ~"var(--ac-@{accColor})" !important;
+        font-weight: normal !important;
+        opacity: .5;
+    }
+    // 类型小标题
+    #write .md-alert-text-@{type} {
+        color: ~"var(--ac-@{accColor})" !important;
+    }
+    .genGitHubStyleAlertCssBase(@type, @accColor, @btnBg);
+}
+
+// 生成 GSA 简约风格
+.genGSA_simple() {
+    .genGitHubStyleAlertCSS(note, bu, @accColorBlue);
+    .genGitHubStyleAlertCSS(tip, gn, @accColorGreen);
+    .genGitHubStyleAlertCSS(important, pu, @accColorPurple);
+    .genGitHubStyleAlertCSS(warning, bn, @accColorBrown);
+    .genGitHubStyleAlertCSS(caution, rd, @accColorRed);
+}
+
+// ----------
+// GSA 扁平风格样式
+.genGitHubStyleAlertCssFt(@type, @accColor, @btnBg) {
+    @alertTypePaddingTop4Ft: .5em;
+    #write .md-alert {
+        border-radius: 0 0 var(--v-r-b) var(--v-r-b) !important;
+        padding-top: @alertTypePaddingTop4Ft !important;
+        border: none;
+    }
+
+    // 背景
+    #write .md-alert-@{type} {
+        background: ~"var(--ac-@{accColor}-a)";
+        // border: none;
+        border-top: 2px solid ~"var(--ac-@{accColor})" !important;
+    }
+    // GSA 内的引用微调
+    #write .md-alert-@{type} @{quote_details} {
+        background: ~"var(--d-bc)" !important;
+        border-radius:  0 0 var(--v-r-s) var(--v-r-s) !important;
+    }
+    // 引用内的 GSA 微调
+    #write @{quote_details} .md-alert-@{type} {
+        border-radius: 0 0 var(--v-r-s) var(--v-r-s) !important;
+    }
+    // after 提示
+    #write .md-alert-text-@{type} .md-meta {
+        font-weight: normal;
+        opacity: .5;
+    }
+    // 类型小标题
+    #write .md-alert-text-@{type} {
+        color: ~"var(--ac-@{accColor}-title)";
+    }
+    .genGitHubStyleAlertCssBase(@type, @accColor, @btnBg);
+}
+
+// 生成 GSA 扁平风格
+.genGSA_flat() {
+    .genGitHubStyleAlertCssFt(note, bu, @accColorBlue);
+    .genGitHubStyleAlertCssFt(tip, gn, @accColorGreen);
+    .genGitHubStyleAlertCssFt(important, pu, @accColorPurple);
+    .genGitHubStyleAlertCssFt(warning, bn, @accColorBrown);
+    .genGitHubStyleAlertCssFt(caution, rd, @accColorRed);
+}
+
+// ----------
+// GSA 强调风格样式
+.genGitHubStyleAlertCssEm(@type, @accColor, @btnBg) {
+    @alertTypePaddingTop4em: .5em;
+    #write .md-alert {
+        border-radius: var(--v-r-b) !important;
+        padding-top: @alertTypePaddingTop4em !important;
+    }
+
+    #write .md-alert>p:first-child {
+        margin-bottom: 1em;
+    }
+
+    // 背景
+    @alertTypePaddingTop4emLg: @alertTypePaddingTop4em + 2em; // 适配调整类型显示位置的高度
+    #write .md-alert-@{type} {
+        background: linear-gradient(180deg, ~"var(--ac-@{accColor})" @alertTypePaddingTop4emLg, ~"var(--ac-@{accColor}-a)" @alertTypePaddingTop4emLg, ~"var(--ac-@{accColor}-fade)") !important;
+        border: @imgBorderWidth solid ~"var(--ac-@{accColor}-lg)" !important;
+    }
+    // GSA 内的引用微调
+    #write .md-alert-@{type} @{quote_details} {
+        background: ~"var(--d-bc)" !important;
+    }
+    // 引用内的 GSA 微调
+    #write @{quote_details} .md-alert-@{type} {
+        border-radius: var(--v-r-b) !important;
+    }
+    // after 提示
+    #write .md-alert-text-@{type} .md-meta {
+        color: ~"var(--ac-@{accColor}-a)" !important;
+        font-weight: normal !important;
+        opacity: .5;
+    }
+    // 类型小标题
+    #write .md-alert-text-@{type} {
+        color: #FFFFFF !important;
+    }
+    .genGitHubStyleAlertCssBase(@type, @accColor, @btnBg);
+}
+
+// 生成 GSA 强调风格
+.genGSA_em() {
+    .genGitHubStyleAlertCssEm(note, bu, @accColorBlue);
+    .genGitHubStyleAlertCssEm(tip, gn, @accColorGreen);
+    .genGitHubStyleAlertCssEm(important, pu, @accColorPurple);
+    .genGitHubStyleAlertCssEm(warning, bn, @accColorBrown);
+    .genGitHubStyleAlertCssEm(caution, rd, @accColorRed);
 }

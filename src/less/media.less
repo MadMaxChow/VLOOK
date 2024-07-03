@@ -3,8 +3,8 @@
  * VLOOK CSS - @media 相关的样式
  * (配合 base.less 进行使用)
  *
- * V24.2
- * 2024-05-21
+ * V25.0
+ * 2024-07-03
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -25,9 +25,61 @@
 // 针对大于等于该分辨设备的 UI 调整
 @media screen and (min-width: 1441px) {
     :root {
-        --v-nav-center-w:400px;
-        --v-nav-center-hidden-l:-410px;
-        --v-tb-btn-w:40px;
+        // --v-nav-center-w:400px;
+        // --v-nav-center-hidden-l:-410px;
+        // --v-tb-btn-w:40px;
+
+        --v-write-w:1100px;
+        // 配合 vlook.js 中的 _writeMarginLeft_、_writeMarginLeftDef_ 进行使用
+        --v-write-ml: calc(var(--v-nav-center-w) + 30px + (100% - var(--v-write-w) - @writePaddingRight * 2 - var(--v-nav-center-w)) / 2);
+    }
+
+    .v-fit-width {
+        display: flex;
+        width: calc((100% - var(--v-write-w) - @writePaddingRight * 2 - var(--v-nav-center-w)) / 2);
+    }
+
+    body {
+        background: var(--d-bc);
+        // display: flex;
+        // justify-content: center; /* 水平居中 */
+    }
+
+    // content,
+    // .typora-export-content {
+    //     position: relative;
+    // }
+    content::before,
+    .typora-export-content::before {
+        content: @docExtContent;
+        // box-sizing: border-box;
+        display: block;
+        position: fixed;
+        z-index: 0;
+        height: 100%;
+        width: 100%;
+        background-color: @docExtBackgroundColor;
+        background-image: @docExtBackgroundImage;
+        background-size: @docExtBackgroundSize;
+        background-repeat: @docExtBackgroundRepeat;
+        background-position: @docExtBackgroundPosition;
+        filter: @docExtBackgroundFilter;
+    }
+    // 编辑时
+    content::before {
+        width: calc(100% - var(--sidebar-width)); // --sidebar-width 是 Typora 的变量，记录侧边栏宽度
+    }
+
+    content>#write,
+    #write.max {
+        background: var(--d-bc) var(--d-bi);
+        width: var(--v-write-w);
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .v-more-doc-content-before,
+    .v-more-doc-content-after {
+        width: var(--v-write-w);
     }
 }
 
@@ -43,7 +95,6 @@
 // 针对小于等于该分辨设备的 UI 调整
 @media screen and (max-width: 1439px) {
     // 取消表格的自动换行
-    // body.typora-export table,
     #write table {
         white-space: pre;
     }
@@ -57,7 +108,6 @@
     }
     // 逐章导航 UI
     .v-chapter-nav {
-        // left: 20px !important;
         left: 0 !important;
         right: 0 !important;
         border-radius: 0 !important;
@@ -95,7 +145,7 @@
 
 // ---------------
 // 针对显示宽度小于该尺寸时对分栏引用块的调整
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 800px) {
     // ========================================
     // 纵向显示的整体调整
     // ----------------------------------------
@@ -143,26 +193,26 @@
 
     // ----------------------------------------
     // 四栏引用块
-    #write @{n3Hr_MdHr}+@{quote_details},
-    #write @{n3Hr_MdHr}+@{quote_details}+@{quote_details},
-    #write @{n3Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details},
-    #write @{n3Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details}+@{quote_details} {
+    #write @{n3Hr_MdHr}+@{quote_details_gsa},
+    #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
+    #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
+    #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa} {
         min-width: 100% !important;
         height: auto !important;
     }
     // ----------------------------------------
     // 纵向显示的微调
     // 四栏引用块内容之间
-    #write @{n3Hr_MdHr}+@{quote_details}+@{quote_details},
-    #write @{n3Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details},
-    #write @{n3Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details}+@{quote_details} {
+    #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
+    #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
+    #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa} {
         margin-left: 0 !important;
     }
 }
 
 // ---------------
 // 针对显示宽度小于该尺寸时对分栏引用块的调整
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
     // ========================================
     // 纵向显示的整体调整
     // ----------------------------------------
@@ -223,26 +273,26 @@
 
     // ----------------------------------------
     // 三栏引用块
-    #write @{n2Hr_MdHr}+@{quote_details},
-    #write @{n2Hr_MdHr}+@{quote_details}+@{quote_details},
-    #write @{n2Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details},
+    #write @{n2Hr_MdHr}+@{quote_details_gsa},
+    #write @{n2Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
+    #write @{n2Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
     // 四栏引用块
-    #write @{n3Hr_MdHr}+@{quote_details},
-    #write @{n3Hr_MdHr}+@{quote_details}+@{quote_details},
-    #write @{n3Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details},
-    #write @{n3Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details}+@{quote_details} {
+    #write @{n3Hr_MdHr}+@{quote_details_gsa},
+    #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
+    #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
+    #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa} {
         min-width: 100% !important;
         height: auto !important;
     }
     // ----------------------------------------
     // 纵向显示的微调
     // 三栏引用块内容之间
-    #write @{n2Hr_MdHr}+@{quote_details}+@{quote_details},
-    #write @{n2Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details},
+    #write @{n2Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
+    #write @{n2Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
     // 四栏引用块内容之间
-    #write @{n3Hr_MdHr}+@{quote_details}+@{quote_details},
-    #write @{n3Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details},
-    #write @{n3Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details}+@{quote_details} {
+    #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
+    #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
+    #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa} {
         margin-left: 0 !important;
     }
 
@@ -322,31 +372,31 @@
 
     // ----------------------------------------
     // 双栏引用块
-    #write @{hr_MdHr}+@{quote_details},
-    #write @{hr_MdHr}+@{quote_details}+@{quote_details},
+    #write @{hr_MdHr}+@{quote_details_gsa},
+    #write @{hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
     // 三栏引用块
-    #write @{n2Hr_MdHr}+@{quote_details},
-    #write @{n2Hr_MdHr}+@{quote_details}+@{quote_details},
-    #write @{n2Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details},
+    #write @{n2Hr_MdHr}+@{quote_details_gsa},
+    #write @{n2Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
+    #write @{n2Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
     // 四栏引用块
-    #write @{n3Hr_MdHr}+@{quote_details},
-    #write @{n3Hr_MdHr}+@{quote_details}+@{quote_details},
-    #write @{n3Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details},
-    #write @{n3Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details}+@{quote_details} {
+    #write @{n3Hr_MdHr}+@{quote_details_gsa},
+    #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
+    #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
+    #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa} {
         min-width: 100% !important;
         height: auto !important;
     }
     // ----------------------------------------
     // 纵向显示的微调
     // 双栏引用块内容之间
-    #write @{hr_MdHr}+@{quote_details}+@{quote_details},
+    #write @{hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
     // 三栏引用块内容之间
-    #write @{n2Hr_MdHr}+@{quote_details}+@{quote_details},
-    #write @{n2Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details},
+    #write @{n2Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
+    #write @{n2Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
     // 四栏引用块内容之间
-    #write @{n3Hr_MdHr}+@{quote_details}+@{quote_details},
-    #write @{n3Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details},
-    #write @{n3Hr_MdHr}+@{quote_details}+@{quote_details}+@{quote_details}+@{quote_details} {
+    #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
+    #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
+    #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa} {
         margin-left: 0 !important;
     }
 }
@@ -359,7 +409,6 @@
     @{coverWithoutYAML}, // 无 YAML 的情况
     // 封底：#write 下 H6 作为最后一个元素时
     @{backcover} {
-    // #write>:is(.md-hr, hr)+h1:last-child {
         font-size: 2em;
     }
 }
@@ -367,20 +416,23 @@
 // 移动端时相关样式
 .genForMobile() {
     .v-link-info-list {
-        width: auto;
+        width: auto !important;
         left: 20px;
     }
 
     #write .v-post-card {
         display: block;
-        position: initial;
-        border-radius: 0 0 var(--v-r-b) var(--v-r-b);
+        position: relative;
+        border-radius: 0 0 var(--v-r-b) var(--v-r-b-xc) !important;
+    }
+    #write img[src*="#card"][src*="#border"] {
+        border-radius: var(--v-r-b) var(--v-r-b-xc) 0 0;
     }
     #write .v-q>p:has(img[src*="#card"][src*="#border"]) {
         border-radius: var(--v-r-b);
     }
     .typora-export-content>#write blockquote:has(>p img[src*="#card"][src*="#border"]) {
-        border-bottom-left-radius: var(--v-r-b);
+        border-bottom-left-radius: var(--v-r-b-xc);
         border-bottom-right-radius: var(--v-r-b);
     }
 }
@@ -410,9 +462,6 @@
         margin: 20px !important;
     }
 
-    // #write :is(h1, h2, h3, h4, h5, h6) {
-    //     color: var(--d-fc) !important;
-    // }
     #write :is(h1, h2, h3, h4, h5)>span {
         color: inherit !important;
         background: none !important;
@@ -427,19 +476,10 @@
         background: none !important;
     }
 
-    // #write table:hover,
-    // body.typora-export table:hover {
-    //     border-color: var(--tbl-bd) !important;
-    // }
-
     // 打印时先关闭 VLOOK 未加载完成前样式
     .typora-export-content>#write::before {
         display: none !important;
     }
-
-    // .v-caption:hover {
-    //     background: var(--pn-c);
-    // }
 
     .v-img-invert-dark {
         filter: none;
@@ -448,7 +488,6 @@
     blockquote,
     details {
         display: block !important;
-        // background: var(--ac-t1-fade) !important;
     }
 
     .v-welcome-page,
@@ -468,7 +507,6 @@
     .v-nav-center-body,
     .v-status-bar {
         display: none !important;
-        // filter: none;
     }
 
     .v-pg-current-item {
@@ -570,13 +608,13 @@
         --cur-copy: var(--cur-copy-normal);
         --cur-pointer-text: var(--cur-pointer-text-dk);
         --cur-laser: var(--cur-laser-dk);
-        --cur-md: var(--cur-md-dk);
+        // --cur-md: var(--cur-md-dk);
         --cur-doclib: var(--cur-doclib-dk);
         --cur-http: var(--cur-http-dk);
         --cur-https: var(--cur-https-dk);
         --cur-email: var(--cur-email-dk);
-        --cur-docment: var(--cur-docment-dk);
-        --cur-archive: var(--cur-archive-dk);
+        // --cur-docment: var(--cur-docment-dk);
+        // --cur-archive: var(--cur-archive-dk);
         --cur-risk: var(--cur-risk-dk);
         --cur-inner: var(--cur-inner-dk);
 
@@ -740,9 +778,9 @@
         --item-hover-bg-color: var(--pn-c-dk);
         --item-hover-text-color: var(--d-fc-dk);
 
-        --primary-color: @themeBgColor;
+        --primary-color: @theme1Dark;//@themeBgColor;
 
-        --serch-select-bg-color: @themeBgColorFade;
+        --search-select-bg-color: fade(#888888, 50%);//@themeBgColorFade;
     }
 
     // 错误图片背景反色

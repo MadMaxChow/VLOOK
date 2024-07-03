@@ -14,10 +14,8 @@
 @import "../color";
 @import "../common";
 
-@welcomeAutoCloseDelay: 3;
-
 // 主题信息
-@themeVer: "V24.2";
+@themeVer: "V25.0";
 @themeName: "vlook-fancy";
 @themeDesc: "Fancy";
 
@@ -72,7 +70,7 @@
 //@headerLetterSpacing: 0;//0.15em;
 
 // 不进行章节自动编号
-@ChpAutoNum: off;
+@vChpAutoNum: "h1{{#none#}},h2{{#none#}},h3{{#none#}},h4{{#none#}},h5{{#none#}}";;
 @h1BeforeContent: "";
 @h2BeforeContent: "";
 @h3BeforeContent: "";
@@ -180,12 +178,20 @@
 @coverBackgroundSize: 80px 80px, auto, auto;
 @coverBackgroundRepeat: no-repeat, no-repeat, no-repeat;
 @coverBackgroundPosition: 80px 100px, top right, bottom left;
+
 // 封底背景设置
 @backCoverBackgroundColor: @coverBackgroundColor;
 @backCoverBackgroundSize: @coverBackgroundSize;
 @backCoverBackgroundImage: @coverBackgroundImage;
 @backCoverBackgroundRepeat: @coverBackgroundRepeat;
 @backCoverBackgroundPosition: @coverBackgroundPosition;
+
+// 文档扩展区域背景
+@docExtBackgroundImage: var(--thm-doc-ext-bg), var(--thm-c-coffee), var(--thm-c-bread);
+@docExtBackgroundSize: auto, auto, auto;
+@docExtBackgroundRepeat: no-repeat, no-repeat, no-repeat;
+@docExtBackgroundPosition: left top, right top, left bottom;
+@docExtBackgroundFilter: blur(8px);
 
 // 封面、封底素材资源
 :root {
@@ -196,4 +202,8 @@
 
 @import "../base";
 
-@import "../gsa-em";
+// 生成指定风格的徽章样式
+.genBadgeStyle(std);
+
+// 生成 GSA 样式
+.genGSA_em();

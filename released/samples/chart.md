@@ -6,7 +6,7 @@ description: 关于 VLOOK™ 对 Mermaid 的脚本化图表支持与增强
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
 keywords:
 - Gitee,GitHub,i18n,Markdown,MIT,OSC,Plugin,Typora,VLOOK,编辑推荐,插件,开源,开源中国,跨平台,主题包,自动排版
-- GitHub Style Alert,OGP,Open Graph Protocol,标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,私人定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
+- GitHub Style Alert,OGP,Open Graph Protocol,标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
 - 深色模式,Dark Mode,Gray Mode,灰度模式,灰色模式
 - 目录,文库,插图导航,大纲导航,段落导航,脚注导航,图片导航,文库导航,章节导航,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索
 - 表格十字光标,表格阅读模式,表格增强,表注,重复表头,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
@@ -20,7 +20,7 @@ vlook-chp-autonum: h1{{#ALPHA#. }},h2{{#00#-sup# - }},h3{{#ROMAN-min# - }}
 vlook-doc-lib: vlook-lib.html
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>脚本化图表参考指南</u><br>*最新版本`V24.2`*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>脚本化图表参考指南</u><br>*最新版本`V25.0`*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
@@ -133,7 +133,7 @@ outpage2>"B (离页)"] o=====o node2(节点) x-....-x END([结束])
 > END([结束])
 > ```
 > ````
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/flowchart.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/flowchart.html)
 
 ###### 关于所支持的 FontAwesome 版本
 
@@ -147,9 +147,9 @@ VLOOK™ 针对流程图中特定的节点类型进行扩展，实现重绘为�
 
 | **应用建议** |    节点形状    | 说明                                                         |
 | :----------: | :------------: | ------------------------------------------------------------ |
-|  开始、结束  | 体育场（药丸） | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br>- **开始**：命名为 `START` ，如：`START([开始])`<br>- **结束**：命名为 `END` ，如：`END([结束])` |
-|   同页符号   |      圆形      | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br>以 `inpage` 为前缀，如：`inpageA1((A))` |
-|   离页符号   |      旗形      | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br>以 `outpage` 为前缀，如：`inpageB1((B))` |
+|  开始、结束  | 体育场（药丸） | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br>- **开始**：命名为 `START` ，如：`START([开始])`<br>- **结束**：命名为 `END` ，如： `END([结束])` |
+|   同页符号   |      圆形      | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br>以 `inpage` 为前缀，如： `inpageA1((A))` |
+|   离页符号   |      旗形      | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br>以 `outpage` 为前缀，如： `inpageB1((B))` |
 
 ## 分角色流程图
 
@@ -224,7 +224,7 @@ END([结束])
 > END([结束])
 > ```
 > ````
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/flowchart.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/flowchart.html)
 
 ## 顺序图
 
@@ -313,7 +313,7 @@ end
 > end
 > ```
 > ````
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/sequenceDiagram.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/sequenceDiagram.html)
 
 ###### 说明
 
@@ -322,16 +322,16 @@ end
 3. 建议使用实体别名，以提高画图脚本的复用度和可维护性；
 4. 支持三类消息线条：同步请求消息、异步请求消息、返回消息；
 5. 角色在标准的一类样式的基础上，增加三类扩展的样式，在输出HTML后应用 [VLOOK™](https://github.com/madmaxchow/VLOOK) 插件后渲染为不同的样式：
-   - **重要系统/角色**：在角色名称前添加两个星号 `***，如 ***后端支撑系统名称`
-   - **外部系统/角色**：在角色名称前添加两个减号 `--`，如 `--外部系统名称`
-   - **前端触点/角色**：在角色名称前添加 at 符号 `@`，如 `@小程序名称`
+   - **重要系统/角色**：在角色名称前添加两个星号 `**` ，如 `**后端支撑系统名称`
+   - **外部系统/角色**：在角色名称前添加两个减号 `--` ，如 `--外部系统名称`
+   - **前端触点/角色**：在角色名称前添加 at 符号 `@` ，如 `@小程序名称`
    
      > *`推荐`*_~Gn~_ 从 Typora 1.7.x 版本后建议使用 Mermaid 建议的 `actor` 代替 `participant`
 6. 支持对三类标签分组在输出 HTML 后应用 [VLOOK™](https://github.com/madmaxchow/VLOOK) 插件渲染为不同的样式：
-   - `loop...end`：循环
-   - `opt...end`：可选
-   - `alt..else...end`：条件选择（alt = 情景1，else = 情景2）
-   - `par...end`：平行
+   - `loop...end` ：循环
+   - `opt...end` ：可选
+   - `alt..else...end` ：条件选择（alt = 情景1，else = 情景2）
+   - `par...end` ：平行
 7. 支持备注说明。
 
 ## 状态机图
@@ -414,7 +414,7 @@ FINAL(( ))
 > FINAL(( ))
 > ```
 > ````
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/flowchart.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/flowchart.html)
 
 ###### 状态机图扩展应用说明
 
@@ -424,12 +424,12 @@ VLOOK™ 针对流程图中特定的节点类型进行扩展，实现以流程�
 
 | **应用建议** | 节点形状 | 说明                                                         |
 | :----------: | :------: | ------------------------------------------------------------ |
-|  初始、终止  |   圆形   | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br>- **初始**：命名为 `INIT` ，如：`INIT([ ])`<br>- **结束**：命名为 `FINAL` ，如：`FINAL([ ])` |
-|  汇聚、转换  |   圆形   | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br>以 `join` 为前缀，如：`join1(( ))` |
-|      :       |   菱形   | 以 `join` 为前缀，如：`join1{ }`                             |
-|      :       |   矩形   | 以 `join` 或 `joinv` 为前缀，一般用于状态机图中，<br>如：`join1[ ]`（默认横向），`joinv1[ ]` （竖向） |
-|   同页符号   |    :     | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br>以 `inpage` 为前缀，如：`inpageA1((A))` |
-|   离页符号   |   旗形   | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br>以 `outpage` 为前缀，如：`inpageB1((B))` |
+|  初始、终止  |   圆形   | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br>- **初始**：命名为 `INIT` ，如：`INIT([ ])`<br>- **结束**：命名为 `FINAL` ，如： `FINAL([ ])` |
+|  汇聚、转换  |   圆形   | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br>以 `join` 为前缀，如： `join1(( ))` |
+|      :       |   菱形   | 以 `join` 为前缀，如： `join1{ }`                             |
+|      :       |   矩形   | 以 `join` 或 `joinv` 为前缀，一般用于状态机图中，<br>如： `join1[ ]` （默认横向）， `joinv1[ ]` （竖向） |
+|   同页符号   |    :     | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br>以 `inpage` 为前缀，如： `inpageA1((A))` |
+|   离页符号   |   旗形   | 节点别名使用以下 VLOOK™ 的命名规范，会呈现出特定的样式（具体呈现效果见上图）：<br>以 `outpage` 为前缀，如： `inpageB1((B))` |
 
 ### 标准状态机图
 
@@ -458,7 +458,7 @@ stateDiagram
 > 状态C --> [*]
 > ```
 > ````
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/stateDiagram.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/stateDiagram.html)
 
 
 
@@ -627,7 +627,7 @@ class classC{
 >  }
 >  ```
 > ````
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/classDiagram.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/classDiagram.html)
 
 
 
@@ -809,7 +809,7 @@ erDiagram
 >    ```
 >  ````
 > 
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/entityRelationshipDiagram.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/entityRelationshipDiagram.html)
 
 ## 方块图
 
@@ -854,7 +854,7 @@ columns 1
 > ```
 > ````
 >
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/block.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/block.html)
 
 ## 四象限图
 
@@ -897,7 +897,7 @@ quadrantChart
 >     Campaign F: [0.35, 0.78]
 >    ```
 >    ````
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/quadrantChart.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/quadrantChart.html)
 
 ## 需求图
 
@@ -1044,7 +1044,7 @@ test_req <- copies - test_entity2
 > test_req <- copies - test_entity2
 > ```
 > ````
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/requirementDiagram.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/requirementDiagram.html)
 
 ## C4 图
 
@@ -1265,7 +1265,7 @@ C4Deployment
     UpdateRelStyle(db, db2, $offsetY="-10")
 ```
 
-[<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/c4.html)
+[<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/c4.html)
 
 ## ZenUML 图
 
@@ -1309,7 +1309,7 @@ zenuml
     }
 ```
 
-[<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/zenuml.html)
+[<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/zenuml.html)
 
 # 应用类图表
 
@@ -1370,7 +1370,7 @@ mindmap
 >     Tools 3
 >    ```
 >    ````
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/mindmap.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/mindmap.html)
 
 ###### 关于对 FontAwesome 的支持
 
@@ -1436,7 +1436,7 @@ gitGraph
 > commit id: "Gamma" tag: "RC_1"
 > ```
 > ````
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/gitgraph.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/gitgraph.html)
 
 *==Gitgraph 图示例 2==*
 
@@ -1497,7 +1497,7 @@ gitGraph
 > commit type:REVERSE id:"SanFrancisco"
 > ```
 > ````
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/gitgraph.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/gitgraph.html)
 
 ## 桑基图
 
@@ -1662,7 +1662,7 @@ Wind,Electricity grid,289.366
 > Wind,Electricity grid,289.366
 > ```
 > ````
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/sankey.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/sankey.html)
 
 ## 时间线
 
@@ -1695,7 +1695,7 @@ timeline
 >     : GPT-4
 >  ```
 >    ````
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/timeline.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/timeline.html)
 
 *==时间线示例 2==*
 
@@ -1726,7 +1726,7 @@ timeline
 >    Industry 5.0 : Artificial intelligence, Big data,3D printing
 >    ```
 >    ````
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/timeline.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/timeline.html)
 
 ## XY 图
 
@@ -1754,7 +1754,7 @@ xychart-beta
 > ```
 > ````
 >
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/xyChart.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/xyChart.html)
 
 ## 饼图
 
@@ -1785,7 +1785,7 @@ pie title Q3 2019 中国线上智能手机市场主要品牌市场份额
 > "其他" : 16
 > ```
 > ````
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/pie.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/pie.html)
 
 ## 甘特图
 
@@ -1840,7 +1840,7 @@ section 区块C
 > 未来的关键路径任务			:crit, 2d
 > ```
 > ````
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/gantt.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/gantt.html)
 
 ## 用户旅程地图
 
@@ -1873,6 +1873,6 @@ journey
 >  Sit down: 5: Me
 >    ```
 >    ````
-> [<kbd>更多官方教程 ![](pic/icon-forward.svg?fill=text#icon0)</kbd>](https://mermaid.js.org/syntax/userJourney.html)
+> [<kbd>更多官方教程 ![](pic/icon-forward.svg)</kbd>](https://mermaid.js.org/syntax/userJourney.html)
 
 #The End 

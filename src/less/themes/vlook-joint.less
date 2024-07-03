@@ -14,10 +14,8 @@
 @import "../color";
 @import "../common";
 
-@welcomeAutoCloseDelay: 3;
-
 // 主题信息
-@themeVer: "V24.2";
+@themeVer: "V25.0";
 @themeName: "vlook-joint";
 @themeDesc: "Joint";
 
@@ -94,6 +92,13 @@
 @h5Margin: 1.25em 0 @hGap 0;
 @h6Margin: 1em 0 0 0;
 
+// 自定义章节自动编号
+// counter() 支持使用有序列表的符号格式（decimal/decimal-leading-zero/lower-roman/upper-roman/lower-alpha/upper-alpha），如：counter(h1, upper-alpha)
+@vChpAutoNum: "h1{{#ALPHA#. }},h2{{#00#-sup# - }},h3{{#ROMAN-min# - }}";
+@h1BeforeContent: counter(h1, upper-alpha) ". ";
+@h2BeforeContent: counter(h1, upper-alpha) "." counter(h2, decimal-leading-zero) " - ";
+@h3BeforeContent: counter(h3, upper-roman) " - ";
+
 // 按钮色
 @buttonForeColor: @theme3;
 @buttonForeHoverColor: @theme1;
@@ -153,13 +158,21 @@
 @coverBackgroundImage: var(--thm-c-logo), var(--thm-c-wmark), var(--thm-c-bg-bottom);
 @coverBackgroundSize: 80px 80px, auto, auto;
 @coverBackgroundRepeat: no-repeat, repeat, repeat-x;
-@coverBackgroundPosition: center 80px, top, bottom center;
+@coverBackgroundPosition: center 80px, top, center bottom;
+
 // 封底背景设置
 @backCoverBackgroundColor: @coverBackgroundColor;
 @backCoverBackgroundImage: @coverBackgroundImage;
 @backCoverBackgroundSize: @coverBackgroundSize;
 @backCoverBackgroundRepeat: @coverBackgroundRepeat;
 @backCoverBackgroundPosition: @coverBackgroundPosition;
+
+// 文档扩展区域背景
+@docExtBackgroundImage: var(--thm-doc-ext-bg), var(--thm-c-bg-bottom);
+@docExtBackgroundSize: auto, auto;
+@docExtBackgroundRepeat: no-repeat, repeat-x;
+@docExtBackgroundPosition: left top, center bottom 50px;
+@docExtBackgroundFilter: blur(8px);
 
 // 封面、封底素材资源
 :root {
@@ -170,4 +183,8 @@
 
 @import "../base";
 
-@import "../gsa";
+// 生成指定风格的徽章样式
+.genBadgeStyle(std);
+
+// 生成 GSA 样式
+.genGSA_simple();

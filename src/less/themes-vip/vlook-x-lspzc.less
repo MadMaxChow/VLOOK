@@ -17,10 +17,8 @@
 @import "../color";
 @import "../common";
 
-@welcomeAutoCloseDelay: 3;
-
 // 主题信息
-@themeVer: "V24.2";
+@themeVer: "V25.0";
 @themeName: "vlook-x-lspzc";
 @themeDesc: "× lspzc";
 @themeEmail: "lsp_zc@qq.com";
@@ -88,7 +86,7 @@
 //@headerLetterSpacing: 0;//0.15em;
 
 // 不进行章节自动编号
-@ChpAutoNum: off;
+@vChpAutoNum: "h1{{#none#}},h2{{#none#}},h3{{#none#}},h4{{#none#}},h5{{#none#}}";
 @h1BeforeContent: "";
 @h2BeforeContent: "";
 @h3BeforeContent: "";
@@ -138,13 +136,14 @@
 @tableBorderRightWidth: 0;
 @tableBorderTopWidth: 0;
 @tableBorderBottomWidth: 2px;
-@tableThBorderRightWidth: 0;
-@tableTdBorderRightWidth: 0;
+@tableThBorderRightWidth: 1px solid var(--d-bc);;
+// @tableTdBorderRightWidth: 0;
 // 表格行 hover
-@tableTrHoverBg: fade(@aHoverColor, 15%);
+@tableTrHoverBg: fade(@aHoverColor, 20%);
 @tableTrHoverBgDark: fade(@aHoverColor, 25%);
 // 表格圆角
-@tableBorderRadius: 0;
+// @tableBorderRadius: 0px;
+// @tableBorderRadiusXC: 0px;
 // 表格背景
 @tableBackground: var(--d-bc);
 @tableThColor: var(--d-bc);
@@ -198,12 +197,20 @@
 @coverBackgroundSize: 160px 80px, auto, auto, auto;
 @coverBackgroundRepeat: no-repeat, no-repeat, no-repeat, no-repeat;
 @coverBackgroundPosition: right 80px, center 550px, left 635px, right 730px;
+
 // 封底背景设置
 @backCoverBackgroundColor: @coverBackgroundColor;
 @backCoverBackgroundImage: var(--thm-c-logo), var(--thm-c-m2), var(--thm-c-m3);
 @backCoverBackgroundSize: auto, auto, auto;
 @backCoverBackgroundRepeat: no-repeat, no-repeat, no-repeat;
 @backCoverBackgroundPosition: right 80px, left 235px, right 330px;
+
+// 文档扩展区域背景
+@docExtBackgroundImage: var(--thm-doc-ext-bg), var(--thm-c-m2), var(--thm-c-m3);
+@docExtBackgroundSize: auto, auto, auto;
+@docExtBackgroundRepeat: no-repeat, no-repeat, no-repeat;
+@docExtBackgroundPosition: left top, left bottom 250px, right bottom 50px;
+@docExtBackgroundFilter: blur(8px);
 
 // 封面、封底素材资源
 :root {
@@ -215,4 +222,8 @@
 
 @import "../base";
 
-@import "../gsa";
+// 生成指定风格的徽章样式
+.genBadgeStyle(cap);
+
+// 生成 GSA 样式
+.genGSA_simple();

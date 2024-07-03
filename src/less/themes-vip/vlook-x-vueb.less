@@ -13,20 +13,26 @@
  *
  *************************************/
 
-@import "../theme-thinking";
+@import "../font";
+@import "../color";
+@import "../common";
 
 // 主题信息
-@themeVer: "V24.2";
+@themeVer: "V25.0";
 @themeName: "vlook-x-vueb";
 @themeDesc: "× VueB";
 @themeEmail: "wuyp@vip.qq.com";
 
-// 文档背景使用图片
-.applyDocBgImg(@docBgImgLight_Twill_R, @docBgImgDark_Twill_R);
-
+// 指定字体主题
+.applyFontStyle(local);
+// 指定主题配套的圆角
+.applyThemeRadius(big);
+// 文档文字颜色
 @vueTextLight: #213547;
 @vueTextDark: #F0F2F4;
 .applyDocTextColor(@vueTextLight, @vueTextDark);
+// 文档背景使用图片
+.applyDocBgImg(@docBgImgLight_Twill_R, @docBgImgDark_Twill_R);
 
 :root {
     --thm-fav-logo-lg: none;
@@ -76,23 +82,38 @@
 @lgH3Color: @lgH1Color;
 @lgH4Color: @lgH1Color;
 @lgH5Color: @lgH1Color;
+
 // 6 级标题前缀内容
 @h6BeforeContent: "❖ ";
+// @tocHeaderNumColor: @docTextColorLightFade;
+@contentHeaderNumColor: @themeBgColorFade;
+@headerBackground: linear-gradient(270deg, var(--h-bg-start), var(--h-bg-end));
+@multiHeaderBG: @headerBackground;
+@headerTextAlign: right;
 @headerPadding: 10px;
+// 不进行章节自动编号
+@vChpAutoNum: "h1{{#none#}},h2{{#none#}},h3{{#none#}},h4{{#none#}},h5{{#none#}}";;
+@h1BeforeContent: "";
+@h2BeforeContent: "";
+@h3BeforeContent: "";
+@h4BeforeContent: "";
+@h5BeforeContent: "";
+
+@headerBorderRadius: var(--v-r-b) var(--v-r-b-xc);
 // 标题的左边框
-@h1BorderLeft: 0;
-@h2BorderLeft: 0;
-@h3BorderLeft: 0;
-@h4BorderLeft: 0;
-@h5BorderLeft: 0;
-@h6BorderLeft: 0;
+// @h1BorderLeft: 0;
+// @h2BorderLeft: 0;
+// @h3BorderLeft: 0;
+// @h4BorderLeft: 0;
+// @h5BorderLeft: 0;
+// @h6BorderLeft: 0;
 // 标题的上边框
-@h1BorderTop: none;
-@h2BorderTop: none;
-@h3BorderTop: none;
-@h4BorderTop: none;
-@h5BorderTop: none;
-@h6BorderTop: 0;
+// @h1BorderTop: none;
+// @h2BorderTop: none;
+// @h3BorderTop: none;
+// @h4BorderTop: none;
+// @h5BorderTop: none;
+// @h6BorderTop: 0;
 @h1Margin: 2em 0 0 0;
 @h2Margin: 1.5em 0 0 0;
 @h3Margin: 1.5em 0 0 0;
@@ -104,13 +125,49 @@
 @captionBackground: none;
 
 // 按钮色
+@buttonForeColor: @theme3;
 @buttonForeHoverColor: @theme3;
 @buttonBgColor: @theme1;
+// 文库按钮颜色
+@docLibButtonForeColor: @buttonForeColor;
+@docLibButtonForeHoverColor: @buttonForeHoverColor;
+@docLibButtonBgColor: @buttonBgColor;
+// 指定 kbd 按钮风格
+.applyKbdRadius(big);
 
 // 链接颜色
 @aBorderWidth: 1px;
 @aColor: @theme1;
 @aColorDark: @theme1;
+@aLineColor: @theme2;
+@aHoverColor: @aLineColor;
+@aActiveColor: desaturate(@aLineColor, 30%);
+
+// 表格边框
+@tblBdWidth: 1px;
+@tableBorderColor: var(--d-fc-a);
+@tableBorderWidth: 0;
+@tableBorderLeftWidth: 0;
+@tableBorderRightWidth: 0;
+@tableBorderTopWidth: 0;
+@tableBorderBottomWidth: 0;
+@tableThBorderRightWidth: 0;
+@tableTdBorderRightWidth: 0;
+// 表格行 hover
+@tableTrHoverBg: fade(@aHoverColor, 15%);
+@tableTrHoverBgDark: fade(@aHoverColor, 25%);
+// 表格圆角
+// @tableBorderRadius: 0px;
+// @tableBorderRadiusXC: 0px;
+// 表格背景
+@tableThColor: var(--d-fc-a);
+@tableThBackground: inherit;
+// 表格单元格阴影
+@tableFirstThBoxShadow: none;
+@tableThBoxShadow: 0 -1px 0 var(--tbl-cell-bd);
+@tableThRepeaterBoxShadow: 0 -@tblBdWidth 0 var(--tbl-h-bd);
+@tableFirstTdBoxShadow: 0 -@tblBdWidth 0 0 var(--tbl-h-bd);
+@tableTdBoxShadow: 0 -1px 0 0 var(--tbl-cell-bd);
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: center;
@@ -125,7 +182,26 @@
 @backCoverTextPadding: 220px 60px 50px 60px;
 @backCoverTextColor: @themeForeColor;
 
+// 封面装饰性文本样式 before
+@coverTextBeforeContent: "";
+@coverTextBeforePosition: initial;
+@coverTextBeforeLeft: initial;
+@coverTextBeforeTop: initial;
+@coverTextBeforeColor: initial;
+@coverTextBeforeFontSize: initial;
+@coverTextBeforeFontWeight: initial;
+@coverTextBeforeOpacity: initial;
+// 封面装饰性文本样式 after
+@coverTextAfterContent: "";
+@coverTextAfterTextAlign: initial;
+@coverTextAfterLeft: initial;
+@coverTextAfterTop: @coverTextBeforeTop;
+@coverTextAfterRight: initial;
+@coverTextAfterColor: @coverTextBeforeColor;
+@coverTextAfterFontSize: @coverTextBeforeFontSize;
+
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
+@contrastBorder: 0 0 0 0 transparent;
 @contrastBorderForCover: 0 0 0 2px fade(@themeForeColor, 20%) inset;
 
 // 封面背景设置
@@ -170,4 +246,8 @@
     font-size: 5em;
 }
 
-@import "../gsa";
+// 生成指定风格的徽章样式
+.genBadgeStyle(cap);
+
+// 生成 GSA 样式
+.genGSA_simple();

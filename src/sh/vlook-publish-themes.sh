@@ -16,9 +16,6 @@ rm *.css
 
 echo "复制新生成的主题文件到 docs/css 目录..."
 cp /Users/max/Library/Application\ Support/abnerworks.Typora/themes/dev-vlook*.css ./
-# find /Users/max/Library/Application\ Support/abnerworks.Typora/themes -type f -name "dev-vlook*.css" -exec grep -L 'version:"EXPIRED"' {} + | while IFS= read -r file; do
-#     cp "$file" ./
-# done
 
 echo "替换开发版本主题文件的标识..."
 find . -type f -name "dev-*.css" -exec bash -c 'mv "$0" "$(echo $0 | sed s/dev-//)"' {} \;

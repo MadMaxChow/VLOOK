@@ -18,10 +18,8 @@
 @import "../color";
 @import "../common";
 
-@welcomeAutoCloseDelay: 3;
-
 // 主题信息
-@themeVer: "V24.2";
+@themeVer: "V25.0";
 @themeName: "vlook-x-ouguan";
 @themeDesc: "× OuGuan";
 @themeEmail: "sumkiat@163.com";
@@ -70,7 +68,7 @@
 @headerPadding: 5px 10px;
 
 // 不进行章节自动编号
-@ChpAutoNum: off;
+@vChpAutoNum: "h1{{#none#}},h2{{#none#}},h3{{#none#}},h4{{#none#}},h5{{#none#}}";;
 @h1BeforeContent: "";
 @h2BeforeContent: "";
 @h3BeforeContent: "";
@@ -186,4 +184,8 @@
 
 @import "../base";
 
-@import "../gsa";
+// 生成指定风格的徽章样式
+.genBadgeStyle(std);
+
+// 生成 GSA 样式
+.genGSA_simple();

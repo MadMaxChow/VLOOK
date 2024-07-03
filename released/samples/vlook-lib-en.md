@@ -4,13 +4,23 @@ title: More Topics about VLOOK™
 
 # Quick Start ° Formatting
 
-> **![Document Formatting](pic/qico-types-light.svg?fill=text&darksrc=invert#icon) Document Formatting**
+> ![° FORMATTING](pic/qico-types-light.svg?fill=vn&darksrc=invert#logo)
+>
+> **° FORMATTING**
 >
 > **With the support of VLOOK™ themes and plugins, you will gain a whole new understanding of the automated formatting capabilities of Markdown editors (currently only supported by Typora).**
 >
 > Thanks to mature web browsers, HTML / CSS, and JavaScript technologies, even static documents can "move" with you.
 >
 > _~Vn!~_
+
+###### ~~Text • Link • Button~~
+
+---
+
+> a
+
+> b
 
 ###### Tables
 
@@ -69,14 +79,14 @@ title: More Topics about VLOOK™
 
 > ###### Appearance
 >
-> - Automatically adapt to display high-definition versions (2x, 3x) on high-resolution screens [❯❯](guide.md#图片适配高分屏)
+> - Automatically adapt to display high-definition versions (2x, 3x) on high-resolution screens [❯❯](guide.md#图片适配高清屏)
 > - Automatically adapt to Dark Mode [❯❯](guide.md#图片适配 Dark Mode)
 > - Harmonize the color of icons with surrounding elements [❯❯](guide.md#图片剪影)
 > - Add an engineering-style grid background to images [❯❯](guide.md#图片网格背景)
 >
 > _~Vn~_
 
-###### Columns • Quote Blocks
+###### Columns • Quote Blocks • Note & Alert
 
 ---
 
@@ -146,7 +156,9 @@ title: More Topics about VLOOK™
 
 # Quick Start ° Navigation
 
-> **![Content Navigation](pic/qico-nav-light.svg?fill=text&darksrc=invert#icon) Content Navigation**
+> ![° NAVIGATION](pic/qico-nav-light.svg?fill=bu&darksrc=invert#logo)
+>
+> **° NAVIGATION**
 >
 > **VLOOK™ provides a variety of tools for navigating, quickly locating, and organizing document content, chapters, illustrations, tables, and multimedia, comprehensively improving and enhancing the browsing experience and efficiency of published HTML files.**
 >
@@ -200,7 +212,9 @@ title: More Topics about VLOOK™
 
 # Quick Start ° Presentation and Publishing
 
-> **![Presentation and Publishing](pic/qico-pres-light.svg?fill=text&darksrc=invert#icon) Presentation and Publishing**
+> ![° PRESENTATION & PUBLICATION](pic/qico-pres-light.svg?fill=og&darksrc=invert#logo)
+>
+> **° PRESENTATION & PUBLICATION**
 >
 > **VLOOK™ uniquely provides powerful presentation and publishing tools for HTML exported from Markdown, making Typora + VLOOK a more productive Markdown document solution.**
 >
@@ -314,7 +328,9 @@ title: More Topics about VLOOK™
 
 # Quick Start ° Themes & Essentials
 
-> **![Themes and Essentials](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon) Themes and Essentials**
+> ![° THEME & ESSENTIALS](pic/qico-theme-light.svg?fill=lm&darksrc=invert#logo)
+>
+> **° THEME & ESSENTIALS**
 >
 > "**Humans have always been visual creatures. Making the eyes feel pleasant and beautiful when reading, whether for oneself or others, is a virtue, a power, a belief.**_~CyPu~_"
 >
@@ -360,12 +376,3 @@ title: More Topics about VLOOK™
 > - Support shortcut key operations [❯❯](guide2.md#快捷键操作汇总)
 >
 > _~Lm~_
-
-# Quick Start
-
-VLOOK™ continues to **explore and expand** Markdown and CSS, and at the same time combines the Internet-based application scenarios of documents~
-
-In **the document layout** , **content navigation** , **presentation aid** , **interactive experience** provided and other aspects of the **consistent** , **concise** , **and friendly** experience.
-
----
-
