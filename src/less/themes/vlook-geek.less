@@ -1,6 +1,6 @@
 /**************************************
  *
- * VLOOK 模板主题
+ * VLOOK™ 模板主题
  *
  * powered by MAX°孟兆
  *
@@ -15,7 +15,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V25.0";
+@themeVer: "V26.0";
 @themeName: "vlook-geek";
 @themeDesc: "Geek";
 
@@ -72,7 +72,6 @@
 @h6BeforeContent: "❖ ";
 // @tocHeaderNumColor: @docTextColorLightFade;
 // @contentHeaderNumColor: @theme1Fade;//@themeForeColorFade;
-@contentHeaderNumOpacity: .5;
 @headerBackground: linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
 @headerPadding: 5px 0 5px 10px;
 //@headerLetterSpacing: 0;//0.3em;
@@ -100,6 +99,8 @@
 @tableTrHoverBg: fade(@aHoverColor, 15%);
 @tableTrHoverBgDark: fade(@aHoverColor, 25%);
 
+//@quoteBorderLeft: 0;
+
 // 按钮色
 @buttonForeColor: @theme3;//@themeForeColor;
 @buttonForeHoverColor: #FFFFFF;
@@ -115,9 +116,10 @@
 @aBorderWidth: 2px;
 @aColor: @headerColor;
 @aColorDark: @headerColorDark;
-@aLineColor: @theme2;
-@aHoverColor: @aLineColor;
-@aActiveColor: desaturate(@aLineColor, 30%);
+// @alinecolor: @theme2;
+@aHoverColor: @theme2;
+@aHoverColorDark: @theme2Dark;
+@aActiveColor: desaturate(@aHoverColor, 25%);
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: left;
@@ -182,6 +184,9 @@
 }
 
 @import "../base";
+
+// 生成强调风格的有序列表样式
+.genOrderList(block, drop);
 
 // 生成指定风格的徽章样式
 .genBadgeStyle(std);

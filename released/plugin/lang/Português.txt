@@ -1,0 +1,96 @@
+<!--
+VLOOK™ "V26.0" (2024-09-20) - Typora Plugin  (language pack)
+Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
+!!! Attention! Do not overwrite the content from "meta.txt" !!!
+追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
+!!! 注意！不要覆盖来自 "meta.txt" 的内容 !!!
+-->
+<!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
+<!-- 以下为语言标识 -->
+<meta name="vlook-lang-pt" content="pt">
+<!-- The following is the content of the language package -->
+<!-- 以下为语言包内容 -->
+<meta name="vk-pt1" content="Capa">
+<meta name="vk-pt2" content="Impressão...">
+<meta name="vk-pt3" content="Mapa de Links">
+<meta name="vk-pt4" content="Como ativar?">
+<meta name="vk-pt5" content="Clique três vezes com o mouse em qualquer parágrafo do documento">
+<meta name="vk-pt6" content="Centro de Navegação">
+<meta name="vk-pt7" content="Biblioteca de Documentos">
+<meta name="vk-pt8" content="Modo de Navegação por Parágrafo">
+<meta name="vk-pt9" content="Foco">
+<meta name="vk-pt10" content="Ponteiro Laser">
+<meta name="vk-pt11" content="CJK">
+<meta name="vk-pt12" content="Não-CJK">
+<meta name="vk-pt13" content="Voltar para a capa">
+<meta name="vk-pt14" content="Voltar ao início deste capítulo">
+<meta name="vk-pt15" content="Anterior">
+<meta name="vk-pt16" content="Próximo">
+<meta name="vk-pt17" content="Fechar">
+<meta name="vk-pt18" content="Fonte">
+<meta name="vk-pt19" content="Se você não conseguir se conectar à Internet para carregar a versão online da fonte, é recomendado baixar a fonte diretamente para o local">
+<meta name="vk-pt20" content="Primário">
+<meta name="vk-pt21" content="Reserva">
+<meta name="vk-pt22" content="Todas as notas de rodapé">
+<meta name="vk-pt23" content="Começar a Ler">
+<meta name="vk-pt24" content="Tela cheia">
+<meta name="vk-pt25" content="Modo de Leitura">
+<meta name="vk-pt26" content="Enrolar / Desenrolar">
+<meta name="vk-pt27" content="Imagem em imagem">
+<meta name="vk-pt28" content="Manter">
+<meta name="vk-pt29" content="Copiar como Markdown">
+<meta name="vk-pt30" content="Copiar código">
+<meta name="vk-pt31" content="Copiar endereço da imagem">
+<meta name="vk-pt32" content="Copiar conteúdo da tabela">
+<meta name="vk-pt33" content="Mudar o tamanho do foco">
+<meta name="vk-pt34" content="Sair">
+<meta name="vk-pt35" content="Digite [ / ] para buscar.">
+<meta name="vk-pt36" content="tem uma nova versão disponível. Atualize agora!">
+<meta name="vk-pt37" content="Desculpe, a cópia não é suportada atualmente neste navegador">
+<meta name="vk-pt38" content="Pronto">
+<meta name="vk-pt39" content="Tempo Esgotado">
+<meta name="vk-pt40" content="Carregando">
+<meta name="vk-pt41" content="Tema da Fonte">
+<meta name="vk-pt42" content="minuto(s)">
+<meta name="vk-pt43" content="hora(s)">
+<meta name="vk-pt44" content="palavras">
+<meta name="vk-pt45" content="Trocar Modo Automático/Claro/Escuro">
+<meta name="vk-pt46" content="Não encontrado">
+<meta name="vk-pt47" content="Verificação Aprovada">
+<meta name="vk-pt48" content="Fechar documento">
+<meta name="vk-pt49" content="Revisado, por favor, verifique novamente">
+<meta name="vk-pt50" content="Limite de URL excedido">
+<meta name="vk-pt51" content="Hash">
+<meta name="vk-pt52" content="Verificar Hash">
+<meta name="vk-pt53" content="Capítulo Duplicado">
+<meta name="vk-pt54" content="Link Interno Inválido">
+<meta name="vk-pt55" content="Mostrar todos">
+<meta name="vk-pt56" content="Tabela">
+<meta name="vk-pt57" content="Bloco de Código">
+<meta name="vk-pt58" content="Figura">
+<meta name="vk-pt59" content="Áudio">
+<meta name="vk-pt60" content="Vídeo">
+<meta name="vk-pt61" content="Clique novamente para Copiar como Markdown">
+<meta name="vk-pt62" content="Copiado">
+<meta name="vk-pt63" content="Endereço de áudio inválido">
+<meta name="vk-pt64" content="Endereço de vídeo inválido">
+<meta name="vk-pt65" content="Endereço de imagem inválido">
+<meta name="vk-pt66" content="O Catálogo está vazio">
+<meta name="vk-pt67" content="Sem conteúdo">
+<meta name="vk-pt68" content="Cartão postal">
+<meta name="vk-pt69" content="Alterar">
+<meta name="vk-pt70" content="Opcional">
+<meta name="vk-pt71" content="Repetir">
+<meta name="vk-pt72" content="Paralelo">
+<meta name="vk-pt73" content="Nota">
+<meta name="vk-pt74" content="Dica">
+<meta name="vk-pt75" content="Importante">
+<meta name="vk-pt76" content="Aviso">
+<meta name="vk-pt77" content="Atenção">
+<meta name="vk-pt78" content="Retomar a Leitura">
+<meta name="vk-pt79" content="Para melhor compatibilidade, é recomendado usar o navegador Chrome/Firefox/Edge">
+<meta name="vk-pt80" content="Atenção! Para garantir uma impressão adequada, é recomendado usar a função [Imprimir] dentro do documento!">
+<meta name="vk-pt81" content="Link / endereço inválido">
+<meta name="vk-pt82" content="Página">
+<meta name="vk-pt83" content="Link">
+<meta name="vk-pt84" content="Nota de rodapé">

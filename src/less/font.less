@@ -1,10 +1,10 @@
 /**************************************
  *
- * VLOOK CSS 字体主题、圆角样式
+ * VLOOK™ CSS 字体主题、圆角样式
  * (配合 base.less 进行使用)
  *
- * V25.0
- * 2024-07-03
+ * V26.0
+ * 2024-09-20
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -18,8 +18,8 @@
 
 @fontSize: 1em; // 16px
 @fontSizePx: 16px;
-@fontSizeXL: 1.125em; // 18px
-@fontSizeXXL: 1.25em; // 20px
+// @fontSizeXL: 1.125em; // 18px
+// @fontSizeXXL: 1.25em; // 20px
 
 // Rangs of font-weight:
 //   100 - Thin
@@ -456,21 +456,21 @@ U+007B-007E; // {|}~
 :root {
     // ---
     // 小号圆角
-    --v-r-b-small: 8px; // 标准圆角
-    --v-r-s-small: 4px; // 标准圆角内的小圆角
-    --v-r-t-small: 6px; // 表格圆角
+    --v-r-b-small: 10px; // 标准圆角
+    --v-r-s-small: 6px; // 标准圆角内的小圆角
+    --v-r-t-small: 8px; // 表格圆角
     --v-r-si-small: calc(var(--v-r-t-small) + 1px); // 标准圆角内的小圆角
-    --v-r-tag-small: 5px;//.3em; // 标签圆角
+    --v-r-tag-small: 7px;//.3em; // 标签圆角
     // --v-tag-small-radius-small: .25em; // 标签小圆角
     --v-r-c-small: 50%; // 半距圆角
 
     // ---
     // 大号圆角
-    --v-r-b-big: 14px; // 标准圆角
-    --v-r-s-big: 7px; // 标准圆角内的小圆角
-    --v-r-t-big: 12px; // 表格圆角
+    --v-r-b-big: 16px; // 标准圆角
+    --v-r-s-big: 8px; // 标准圆角内的小圆角
+    --v-r-t-big: 14px; // 表格圆角
     --v-r-si-big: calc(var(--v-r-t-big) + 1px); // 标准圆角内的小圆角
-    --v-r-tag-big: 8px;//.5em; // 标签圆角
+    --v-r-tag-big: 9px;//.5em; // 标签圆角
     // --v-tag-small-radius-big: .25em; // 标签小圆角
     --v-r-c-big: 50%; // 半距圆角
 }
@@ -498,7 +498,7 @@ U+007B-007E; // {|}~
         --v-r-tag: var(--v-r-tag-big); // 标签圆角
         --v-r-c: var(--v-r-c-big); // 半距圆角
     }
-    .setForNonLeaf();
+    .setForNotLeaf();
 }
 // ---
 // 应用小号圆角
@@ -511,7 +511,7 @@ U+007B-007E; // {|}~
         --v-r-tag: var(--v-r-tag-small); // 标签圆角
         --v-r-c: var(--v-r-c-small); // 半距圆角
     }
-    .setForNonLeaf();
+    .setForNotLeaf();
 }
 // ---
 // 应用无圆角
@@ -527,7 +527,7 @@ U+007B-007E; // {|}~
 }
 // ---
 // 为非 leaf 的圆角样式设置初始的 xc 值
-.setForNonLeaf() {
+.setForNotLeaf() {
     :root {
         // 对角值（叶子风格）
         --v-r-b-xc: var(--v-r-b);

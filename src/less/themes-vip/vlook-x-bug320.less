@@ -1,6 +1,6 @@
 /**************************************
  *
- * VLOOK 模板主题
+ * VLOOK™ 模板主题
  *
  * powered by MAX°孟兆
  *
@@ -20,7 +20,7 @@
 @vQuery: "ws=off&fold=table,codeblock";
 
 // 主题信息
-@themeVer: "V25.0";
+@themeVer: "V26.0";
 @themeName: "vlook-x-bug320";
 @themeDesc: "× bug320";
 @themeEmail: "1046218884@qq.com";
@@ -90,7 +90,9 @@
 // 6 级标题前缀内容
 @h6BeforeContent: "❖ ";
 // @tocHeaderNumColor: @docTextColorLightFade;
-@contentHeaderNumColor: @themeBgColorFade;
+// @contentHeaderNumColor: @themeBgColorFade;
+// @contentHeaderNumOpacity: .5;
+
 // 标题背景
 @headerBackground: linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
 @headerPadding: 5px 10px;
@@ -110,6 +112,8 @@
 @h5Margin: 1.25em 0 @hGap 0;
 @h6Margin: 1em 0 0 0;
 
+//@quoteBorderLeft: 0;
+
 // 按钮色
 @buttonForeColor: @theme3;
 @buttonForeHoverColor: @theme3;
@@ -125,16 +129,17 @@
 @aBorderWidth: 2px;
 @aColor: @headerColor;
 @aColorDark: @headerColorDark;
-@aLineColor: @theme2;
-@aHoverColor: @aLineColor;
-@aActiveColor: desaturate(@aLineColor, 30%);
+// @alinecolor: @theme2;
+@aHoverColor: @theme2;
+@aHoverColorDark: @theme2Dark;
+@aActiveColor: desaturate(@aHoverColor, 25%);
 
 // 表格边框
 @tableBorderColor: var(--d-fc-a);
-@tableBorderWidth: 0;
-@tableBorderLeftWidth: 0;
-@tableBorderRightWidth: 0;
-@tableBorderTopWidth: 0;
+@tableBorderWidth: 0px;
+@tableBorderLeftWidth: 0px;
+@tableBorderRightWidth: 0px;
+@tableBorderTopWidth: 0px;
 @tableBorderBottomWidth: 2px;
 @tableThBorderRightWidth: 1px solid var(--d-bc);
 @tableTdBorderRightWidth: 1px solid var(--tbl-cell-bd); // 后面要注释掉

@@ -1,0 +1,96 @@
+<!--
+VLOOK™ "V26.0" (2024-09-20) - Typora Plugin  (language pack)
+Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
+!!! Attention! Do not overwrite the content from "meta.txt" !!!
+追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
+!!! 注意！不要覆盖来自 "meta.txt" 的内容 !!!
+-->
+<!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
+<!-- 以下为语言标识 -->
+<meta name="vlook-lang-es" content="es">
+<!-- The following is the content of the language package -->
+<!-- 以下为语言包内容 -->
+<meta name="vk-es1" content="Portada">
+<meta name="vk-es2" content="Imprimir...">
+<meta name="vk-es3" content="Enlace al mapa">
+<meta name="vk-es4" content="¿Cómo habilitar?">
+<meta name="vk-es5" content="Haz clic tres veces con el ratón en cualquier párrafo del documento">
+<meta name="vk-es6" content="Centro de Navegación">
+<meta name="vk-es7" content="Biblioteca de Documentos">
+<meta name="vk-es8" content="Modo de Navegación por Párrafos">
+<meta name="vk-es9" content="Proyector">
+<meta name="vk-es10" content="Lápiz Láser">
+<meta name="vk-es11" content="CJK">
+<meta name="vk-es12" content="Non-CJK">
+<meta name="vk-es13" content="Volver a la portada">
+<meta name="vk-es14" content="Volver al principio de este capítulo">
+<meta name="vk-es15" content="Anterior">
+<meta name="vk-es16" content="Siguiente">
+<meta name="vk-es17" content="Cerrar">
+<meta name="vk-es18" content="Fuente">
+<meta name="vk-es19" content="Si no puedes conectarte a Internet para cargar la versión en línea de la fuente, se recomienda descargar la fuente directamente al dispositivo local">
+<meta name="vk-es20" content="Primario">
+<meta name="vk-es21" content="Reserva">
+<meta name="vk-es22" content="Todas las notas al pie">
+<meta name="vk-es23" content="Comenzar a leer">
+<meta name="vk-es24" content="Pantalla completa">
+<meta name="vk-es25" content="Modo de lectura">
+<meta name="vk-es26" content="Envolver / Desenrollar">
+<meta name="vk-es27" content="Imagen en imagen">
+<meta name="vk-es28" content="Mantener">
+<meta name="vk-es29" content="Copiar como Markdown">
+<meta name="vk-es30" content="Copiar código">
+<meta name="vk-es31" content="Copiar dirección de la imagen">
+<meta name="vk-es32" content="Copiar contenido de la tabla">
+<meta name="vk-es33" content="Cambiar el tamaño del proyector">
+<meta name="vk-es34" content="Salir">
+<meta name="vk-es35" content="Escribe [ / ] para buscar">
+<meta name="vk-es36" content="tiene una nueva versión disponible. ¡Actualiza ahora!">
+<meta name="vk-es37" content="Lo siento, copiar no es compatible con este navegador en este momento">
+<meta name="vk-es38" content="Listo">
+<meta name="vk-es39" content="Tiempo de espera">
+<meta name="vk-es40" content="Cargando">
+<meta name="vk-es41" content="Tema de Fuente">
+<meta name="vk-es42" content="minuto(s)">
+<meta name="vk-es43" content="hora(s)">
+<meta name="vk-es44" content="palabras">
+<meta name="vk-es45" content="Cambiar entre Modo Automático/Claro/Osuro">
+<meta name="vk-es46" content="No encontrado">
+<meta name="vk-es47" content="Verificación Aprobada">
+<meta name="vk-es48" content="Cerrar documento">
+<meta name="vk-es49" content="Revisado, por favor verifica de nuevo">
+<meta name="vk-es50" content="Límite de URL excedido">
+<meta name="vk-es51" content="Hash">
+<meta name="vk-es52" content="Verificar Hash">
+<meta name="vk-es53" content="Capítulo Duplicado">
+<meta name="vk-es54" content="Enlace Interno Inválido">
+<meta name="vk-es55" content="Mostrar todo">
+<meta name="vk-es56" content="Tabla">
+<meta name="vk-es57" content="Bloque de Código">
+<meta name="vk-es58" content="Figura">
+<meta name="vk-es59" content="Audio">
+<meta name="vk-es60" content="Video">
+<meta name="vk-es61" content="Haz clic de nuevo para Copiar como Markdown">
+<meta name="vk-es62" content="Copiado">
+<meta name="vk-es63" content="Dirección de audio inválida">
+<meta name="vk-es64" content="Dirección de video inválida">
+<meta name="vk-es65" content="Dirección de imagen inválida">
+<meta name="vk-es66" content="El catálogo está vacío">
+<meta name="vk-es67" content="Sin contenido">
+<meta name="vk-es68" content="Postal">
+<meta name="vk-es69" content="Alterar">
+<meta name="vk-es70" content="Opcional">
+<meta name="vk-es71" content="Repetir">
+<meta name="vk-es72" content="Paralelo">
+<meta name="vk-es73" content="Nota">
+<meta name="vk-es74" content="Consejo">
+<meta name="vk-es75" content="Importante">
+<meta name="vk-es76" content="Advertencia">
+<meta name="vk-es77" content="Precaución">
+<meta name="vk-es78" content="Continuar leyendo">
+<meta name="vk-es79" content="Para una compatibilidad óptima, se recomienda utilizar el navegador Chrome/Firefox/Edge">
+<meta name="vk-es80" content="¡Atención! Para asegurar una impresión adecuada, se recomienda utilizar la función [Imprimir] dentro del documento.">
+<meta name="vk-es81" content="Enlace o dirección inválidos">
+<meta name="vk-es82" content="Página">
+<meta name="vk-es83" content="Enlace">
+<meta name="vk-es84" content="Nota al pie">

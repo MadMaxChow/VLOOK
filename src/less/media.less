@@ -1,10 +1,10 @@
 /**************************************
  *
- * VLOOK CSS - @media 相关的样式
+ * VLOOK™ CSS - @media 相关的样式
  * (配合 base.less 进行使用)
  *
- * V25.0
- * 2024-07-03
+ * V26.0
+ * 2024-09-20
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -19,6 +19,7 @@
 // **********
 // 修改时须同步修改 vlook.js 的同名参数
 @gSmallScreenWidth:1270px;
+@gUnwrapTableScreenWidth:1439px;
 // **********
 
 // ---------------
@@ -41,18 +42,11 @@
 
     body {
         background: var(--d-bc);
-        // display: flex;
-        // justify-content: center; /* 水平居中 */
     }
 
-    // content,
-    // .typora-export-content {
-    //     position: relative;
-    // }
     content::before,
     .typora-export-content::before {
         content: @docExtContent;
-        // box-sizing: border-box;
         display: block;
         position: fixed;
         z-index: 0;
@@ -70,7 +64,7 @@
         width: calc(100% - var(--sidebar-width)); // --sidebar-width 是 Typora 的变量，记录侧边栏宽度
     }
 
-    content>#write,
+    @{writeOnEditing},
     #write.max {
         background: var(--d-bc) var(--d-bi);
         width: var(--v-write-w);
@@ -84,19 +78,11 @@
 }
 
 // ---------------
-// 针对大于等于该分辨设备的 UI 调整
-@media screen and (min-height: 800px) {
-    // 工具栏、逐章导航栏不在封面显示时的样式
-    :root {
-        --v-top-margin:-3px;
-    }
-}
-// ---------------
 // 针对小于等于该分辨设备的 UI 调整
-@media screen and (max-width: 1439px) {
-    // 取消表格的自动换行
-    #write table {
-        white-space: pre;
+@media screen and (max-width: @gUnwrapTableScreenWidth) {
+    // 导出后，取消表格的自动换行
+    @{writeOnHTML} table {
+        white-space: pre !important;
     }
 }
 
@@ -144,8 +130,9 @@
 }
 
 // ---------------
-// 针对显示宽度小于该尺寸时对分栏引用块的调整
-@media screen and (max-width: 800px) {
+// 针对显示宽度小于该尺寸时对分栏引用块的调整（模拟为高清屏时的移动端）
+// 与插件的 (jq_Window.w() <= 425) 同步修改
+@media screen and (max-width: 850px) {
     // ========================================
     // 纵向显示的整体调整
     // ----------------------------------------
@@ -207,6 +194,26 @@
     #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
     #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa} {
         margin-left: 0 !important;
+    }
+
+    .v-nav-center-float,
+    .v-link-info-list {
+        bottom: @floatTopBottomOnMobile;
+    }
+    .v-doc-lib,
+    .v-footnote-pn {
+        left: @writePaddingRight;
+        right: @writePaddingRight;
+    }
+    .v-footnote-pn,
+    .v-doc-lib {
+        bottom: @floatTopBottomOnMobile * 2;
+    }
+    .v-mask.left,
+    .v-mask.right,
+    .v-mask.bottom,
+    .v-mask.center {
+        background: @theme1;
     }
 }
 
@@ -294,10 +301,6 @@
     #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
     #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa} {
         margin-left: 0 !important;
-    }
-
-    .v-nav-center-float {
-        bottom: 60px;
     }
 }
 
@@ -417,7 +420,7 @@
 .genForMobile() {
     .v-link-info-list {
         width: auto !important;
-        left: 20px;
+        left: @writePaddingRight;
     }
 
     #write .v-post-card {
@@ -428,14 +431,33 @@
     #write img[src*="#card"][src*="#border"] {
         border-radius: var(--v-r-b) var(--v-r-b-xc) 0 0;
     }
-    #write .v-q>p:has(img[src*="#card"][src*="#border"]) {
-        border-radius: var(--v-r-b);
-    }
-    .typora-export-content>#write blockquote:has(>p img[src*="#card"][src*="#border"]) {
-        border-bottom-left-radius: var(--v-r-b-xc);
-        border-bottom-right-radius: var(--v-r-b);
+
+    // 流媒体平台
+    @{iframeVideoOnEditing} @{biliVideo},
+    @{iframeVideoOnEditing} @{douyinVideo},
+    @{iframeVideoOnEditing} @{xiguaVideo},
+    @{iframeVideoOnEditing} @{qqVideo},
+    @{iframeVideoOnEditing} @{youtubeVideo},
+    @{iframeVideo} @{biliVideo},
+    @{iframeVideo} @{douyinVideo},
+    @{iframeVideo} @{xiguaVideo},
+    @{iframeVideo} @{qqVideo},
+    @{iframeVideo} @{youtubeVideo},
+    // 竖屏标识 portrait
+    @{iframeVideoOnEditing} @{biliVideo}@{portraitMode},
+    @{iframeVideoOnEditing} @{douyinVideo}@{portraitMode},
+    @{iframeVideoOnEditing} @{xiguaVideo}@{portraitMode},
+    @{iframeVideoOnEditing} @{qqVideo}@{portraitMode},
+    @{iframeVideoOnEditing} @{youtubeVideo}@{portraitMode},
+    @{iframeVideo} @{biliVideo}@{portraitMode},
+    @{iframeVideo} @{douyinVideo}@{portraitMode},
+    @{iframeVideo} @{xiguaVideo}@{portraitMode},
+    @{iframeVideo} @{qqVideo}@{portraitMode},
+    @{iframeVideo} @{youtubeVideo}@{portraitMode} {
+        width: 100% !important;
     }
 }
+
 // 针对大屏手机的 UI 调整
 @media screen and (min-width: 361px) and (max-width: 639px) {
     .genForMobile();
@@ -477,7 +499,7 @@
     }
 
     // 打印时先关闭 VLOOK 未加载完成前样式
-    .typora-export-content>#write::before {
+    @{writeOnHTML}::before {
         display: none !important;
     }
 
@@ -505,6 +527,7 @@
     .v-nav-center,
     .v-nav-center-header,
     .v-nav-center-body,
+    .v-last-position,
     .v-status-bar {
         display: none !important;
     }
@@ -565,6 +588,7 @@
         --blockquote-bg: var(--blockquote-bg-dk);
 
         --a-color: var(--a-color-dk);
+        --a-hover-color: var(--a-hover-color-dk);
         --mark-bg: var(--mark-bg-dk);
         --tbl-h-bd: var(--tbl-h-bd-dk);
         --tbl-bd: var(--tbl-bd-dk);
@@ -601,6 +625,7 @@
         --key-shadow: var(--key-shadow-dk);
 
         --doc-shadow: var(--doc-shadow-dk);
+        --img-bd-invert: var(--img-bd-invert-dk);
 
         --cur-pointer: var(--cur-pointer-dk);
         --cur-copy-normal: var(--cur-copy-normal-dk);
@@ -740,7 +765,7 @@
         --ac-t1-fade-bd: var(--ac-t1-fade-bd-dk);
         --ac-t2-fade-bd: var(--ac-t2-fade-bd-dk);
 
-        // Typora 代码块着色样式变量
+        // 针对 Typora 代码块着色样式变量
         --cm-keyword: var(--cm-keyword-dk);
         --cm-variable: var(--cm-variable-dk);
         --cm-variable-2: var(--cm-variable-2-dk);
@@ -763,7 +788,7 @@
         --cm-number: var(--cm-atom-dk);
 
         // --------------------
-        // Typora UI 颜色变量
+        // 针对 Typora UI 颜色变量
         --bg-color: var(--d-bc-dk);//var(--d-bc-tsp-dk); // 替换为透明色，以在 Typora 编辑时正常显示背景图片
         --side-bar-bg-color: var(--d-bc-dk);
         --text-color: var(--d-fc-dk);

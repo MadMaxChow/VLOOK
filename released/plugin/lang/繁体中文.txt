@@ -1,0 +1,96 @@
+<!--
+VLOOK™ "V26.0" (2024-09-20) - Typora Plugin  (language pack)
+Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
+!!! Attention! Do not overwrite the content from "meta.txt" !!!
+追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
+!!! 注意！不要覆盖来自 "meta.txt" 的内容 !!!
+-->
+<!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
+<!-- 以下为语言标识 -->
+<meta name="vlook-lang-zh-hk" content="zh-hk">
+<!-- The following is the content of the language package -->
+<!-- 以下为语言包内容 -->
+<meta name="vk-zh-hk1" content="封面">
+<meta name="vk-zh-hk2" content="打印...">
+<meta name="vk-zh-hk3" content="連結地圖">
+<meta name="vk-zh-hk4" content="如何啟用？">
+<meta name="vk-zh-hk5" content="在文件中的任何段落上用滑鼠三擊">
+<meta name="vk-zh-hk6" content="導航中心">
+<meta name="vk-zh-hk7" content="瀏覽文庫">
+<meta name="vk-zh-hk8" content="段落導航 模式">
+<meta name="vk-zh-hk9" content="聚光燈">
+<meta name="vk-zh-hk10" content="激光筆">
+<meta name="vk-zh-hk11" content="中日韩">
+<meta name="vk-zh-hk12" content="非中日韩">
+<meta name="vk-zh-hk13" content="回到封面">
+<meta name="vk-zh-hk14" content="回到本章的開始">
+<meta name="vk-zh-hk15" content="前一張">
+<meta name="vk-zh-hk16" content="後一張">
+<meta name="vk-zh-hk17" content="關閉">
+<meta name="vk-zh-hk18" content="字型">
+<meta name="vk-zh-hk19" content="如果你無法連接到互聯網加載線上版本的字體，建議直接下載字體到本地">
+<meta name="vk-zh-hk20" content="主站">
+<meta name="vk-zh-hk21" content="備用">
+<meta name="vk-zh-hk22" content="所有註腳">
+<meta name="vk-zh-hk23" content="開始閱讀">
+<meta name="vk-zh-hk24" content="全螢幕">
+<meta name="vk-zh-hk25" content="閱讀模式">
+<meta name="vk-zh-hk26" content="換行/不換行">
+<meta name="vk-zh-hk27" content="畫中畫">
+<meta name="vk-zh-hk28" content="按住">
+<meta name="vk-zh-hk29" content="複製為 Markdown">
+<meta name="vk-zh-hk30" content="複製代碼">
+<meta name="vk-zh-hk31" content="複製圖片地址">
+<meta name="vk-zh-hk32" content="複製表格內容">
+<meta name="vk-zh-hk33" content="調整聚光燈大小">
+<meta name="vk-zh-hk34" content="退出">
+<meta name="vk-zh-hk35" content="按下 [ / ] 進行搜索">
+<meta name="vk-zh-hk36" content="已推出新版本，請及時升級！">
+<meta name="vk-zh-hk37" content="對不起，目前此瀏覽器不支援複製功能">
+<meta name="vk-zh-hk38" content="準備好">
+<meta name="vk-zh-hk39" content="超時">
+<meta name="vk-zh-hk40" content="加載中">
+<meta name="vk-zh-hk41" content="字型風格">
+<meta name="vk-zh-hk42" content="分鐘">
+<meta name="vk-zh-hk43" content="小時">
+<meta name="vk-zh-hk44" content="字">
+<meta name="vk-zh-hk45" content="切換 自動/明亮/黑暗 模式">
+<meta name="vk-zh-hk46" content="沒有找到">
+<meta name="vk-zh-hk47" content="檢查通過">
+<meta name="vk-zh-hk48" content="關閉文件">
+<meta name="vk-zh-hk49" content="已修訂，重新檢查">
+<meta name="vk-zh-hk50" content="超出 URL 最大長度">
+<meta name="vk-zh-hk51" content="錨點">
+<meta name="vk-zh-hk52" content="檢查錨點">
+<meta name="vk-zh-hk53" content="重複的標題名稱">
+<meta name="vk-zh-hk54" content="無效的頁內鏈接">
+<meta name="vk-zh-hk55" content="顯示全部">
+<meta name="vk-zh-hk56" content="表格">
+<meta name="vk-zh-hk57" content="代碼塊">
+<meta name="vk-zh-hk58" content="圖">
+<meta name="vk-zh-hk59" content="音頻">
+<meta name="vk-zh-hk60" content="視頻">
+<meta name="vk-zh-hk61" content="再次點擊可複製為 Markdown">
+<meta name="vk-zh-hk62" content="已複製">
+<meta name="vk-zh-hk63" content="無效的音頻地址">
+<meta name="vk-zh-hk64" content="無效的視頻地址">
+<meta name="vk-zh-hk65" content="無效的图片地址">
+<meta name="vk-zh-hk66" content="無目錄">
+<meta name="vk-zh-hk67" content="無內容">
+<meta name="vk-zh-hk68" content="明信片">
+<meta name="vk-zh-hk69" content="分支">
+<meta name="vk-zh-hk70" content="可選">
+<meta name="vk-zh-hk71" content="循環">
+<meta name="vk-zh-hk72" content="並行">
+<meta name="vk-zh-hk73" content="備忘">
+<meta name="vk-zh-hk74" content="提示">
+<meta name="vk-zh-hk75" content="重要">
+<meta name="vk-zh-hk76" content="注意">
+<meta name="vk-zh-hk77" content="警告">
+<meta name="vk-zh-hk78" content="繼續上次的閱讀">
+<meta name="vk-zh-hk79" content="為了最佳相容性，建議使用 Chrome／Firefox／Edge 瀏覽器">
+<meta name="vk-zh-hk80" content="注意！為確保打印正常，建議使用文件內的【打印】功能進行打印！">
+<meta name="vk-zh-hk81" content="異常的連結 / 地址">
+<meta name="vk-zh-hk82" content="頁面">
+<meta name="vk-zh-hk83" content="連結">
+<meta name="vk-zh-hk84" content="註腳">

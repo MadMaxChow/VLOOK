@@ -1,6 +1,6 @@
 /**************************************
  *
- * VLOOK 模板主题
+ * VLOOK™ 模板主题
  *
  * powered by MAX°孟兆
  *
@@ -18,7 +18,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V25.0";
+@themeVer: "V26.0";
 @themeName: "vlook-x-vueb";
 @themeDesc: "× VueB";
 @themeEmail: "wuyp@vip.qq.com";
@@ -55,7 +55,7 @@
 
 @themeForeColor: @theme1;
 @themeForeColorFade: fade(@themeForeColor, 50%);
-@themeBgColor: @theme3;
+@themeBgColor: var(--d-bc);
 @themeBgColorFade: fade(@themeForeColor, 50%);
 @themeBgColorDark: darken(@themeForeColor, 20%);
 @themeBgColorAlt: lighten(@themeForeColor, 42%);
@@ -86,9 +86,9 @@
 // 6 级标题前缀内容
 @h6BeforeContent: "❖ ";
 // @tocHeaderNumColor: @docTextColorLightFade;
-@contentHeaderNumColor: @themeBgColorFade;
+// @contentHeaderNumColor: @themeBgColorFade;
 @headerBackground: linear-gradient(270deg, var(--h-bg-start), var(--h-bg-end));
-@multiHeaderBG: @headerBackground;
+@continuousHeaderBG: @headerBackground;
 @headerTextAlign: right;
 @headerPadding: 10px;
 // 不进行章节自动编号
@@ -124,6 +124,8 @@
 @captionTextColor: var(--d-fc-a);
 @captionBackground: none;
 
+//@quoteBorderLeft: 0;
+
 // 按钮色
 @buttonForeColor: @theme3;
 @buttonForeHoverColor: @theme3;
@@ -139,20 +141,21 @@
 @aBorderWidth: 1px;
 @aColor: @theme1;
 @aColorDark: @theme1;
-@aLineColor: @theme2;
-@aHoverColor: @aLineColor;
-@aActiveColor: desaturate(@aLineColor, 30%);
+// @alinecolor: @theme2;
+@aHoverColor: @theme2;
+@aHoverColorDark: @theme2Dark;
+@aActiveColor: desaturate(@aHoverColor, 25%);
 
 // 表格边框
 @tblBdWidth: 1px;
 @tableBorderColor: var(--d-fc-a);
-@tableBorderWidth: 0;
-@tableBorderLeftWidth: 0;
-@tableBorderRightWidth: 0;
-@tableBorderTopWidth: 0;
-@tableBorderBottomWidth: 0;
-@tableThBorderRightWidth: 0;
-@tableTdBorderRightWidth: 0;
+@tableBorderWidth: 0px;
+@tableBorderLeftWidth: 0px;
+@tableBorderRightWidth: 0px;
+@tableBorderTopWidth: 0px;
+@tableBorderBottomWidth: 0px;
+@tableThBorderRightWidth: 0px;
+@tableTdBorderRightWidth: 0px;
 // 表格行 hover
 @tableTrHoverBg: fade(@aHoverColor, 15%);
 @tableTrHoverBgDark: fade(@aHoverColor, 25%);
@@ -173,7 +176,7 @@
 @coverTextAlign: center;
 @coverTextPadding: 240px 60px 50px;
 @coverTextColor: @themeForeColor;
-@coverSubColor: @aLineColor;
+@coverSubColor: @theme2;
 @coverUnderlineColor: #606070;
 @coverAuthorColor: @coverUnderlineColor;
 @coverOwnerColor: @coverAuthorColor;

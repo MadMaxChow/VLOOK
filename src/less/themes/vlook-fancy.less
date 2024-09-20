@@ -1,6 +1,6 @@
 /**************************************
  *
- * VLOOK 模板主题
+ * VLOOK™ 模板主题
  *
  * powered by MAX°孟兆
  *
@@ -15,7 +15,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V25.0";
+@themeVer: "V26.0";
 @themeName: "vlook-fancy";
 @themeDesc: "Fancy";
 
@@ -62,10 +62,11 @@
 // 6 级标题前缀内容
 @h6BeforeContent: "❖ ";
 // @tocHeaderNumColor: @docTextColorLightFade;
-@contentHeaderNumColor: @themeBgColorFade;
+//@contentHeaderNumColor: @themeBgColorFade;
 @headerBackground: linear-gradient(270deg, var(--h-bg-start), var(--h-bg-end));
-@multiHeaderBG: @headerBackground;
+@continuousHeaderBG: @headerBackground;
 @headerTextAlign: right;
+@h6TextAlign: left;
 @headerPadding: 5px 20px 0 5px;
 //@headerLetterSpacing: 0;//0.15em;
 
@@ -114,6 +115,8 @@
 @h5TextStroke: @h1TextStroke;//1px var(--ac-t2);
 // @h6TextStroke: none;
 
+//@quoteBorderLeft: 0;
+
 // 按钮色
 @buttonForeColor: @themeForeColor;
 @buttonForeHoverColor: #FFFFFF;
@@ -129,9 +132,10 @@
 @aBorderWidth: 2px;
 @aColor: @headerColor;
 @aColorDark: @headerColorDark;
-@aLineColor: @theme2;
-@aHoverColor: @aLineColor;
-@aActiveColor: desaturate(@aLineColor, 10%);
+// @alinecolor: @theme2;
+@aHoverColor: @theme2;
+@aHoverColorDark: @theme2Dark;
+@aActiveColor: desaturate(@aHoverColor, 25%);
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: right;
@@ -139,7 +143,7 @@
 @coverTextColor: #FFFFFF;
 @coverSubColor: @themeForeColor;
 @coverUnderlineColor: @coverSubColor;
-@coverAuthorColor: @aLineColor;
+@coverAuthorColor: @coverUnderlineColor;
 @coverOwnerColor: @coverAuthorColor;
 
 @backCoverTextAlign: left;

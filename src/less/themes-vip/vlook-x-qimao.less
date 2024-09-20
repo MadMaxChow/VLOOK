@@ -1,6 +1,6 @@
 /**************************************
  *
- * VLOOK 模板主题
+ * VLOOK™ 模板主题
  *
  * powered by MAX°孟兆
  *
@@ -19,7 +19,7 @@
 @import "../themes/vlook-hope";
 
 // 主题信息
-@themeVer: "V25.0";
+@themeVer: "V26.0";
 @themeName: "vlook-x-qimao";
 @themeDesc: "× QiMao";
 @themeEmail: "882007@qq.com";
@@ -85,7 +85,7 @@
 @h5BeforeContent: counter(h5, upper-alpha) ". ";
 
 // 章节自动编号颜色
-@contentHeaderNumColor: @themeForeColorFade;
+//@contentHeaderNumColor: @themeForeColorFade;
 
 // 表格圆角
 @tableBorderRadius: 0px;
@@ -123,7 +123,8 @@
 // @quoteBgDefault: var(--blockquote-bg);
 
 // 引用块
-@quoteBorderLeft: @quoteBorderWidth solid var(--d-fc-a);
+// @quoteBorderWidth: .375em;
+@quoteBorderLeft: .375em solid var(--d-fc-a);
 @quoteRadius: 0;
 
 // 按钮色
@@ -135,8 +136,9 @@
 @aBorderWidth: 2px;
 @aColor: @headerColor;
 @aColorDark: @headerColorDark;
-@aLineColor: @theme2;
-@aHoverColor: @aLineColor;
+// @alinecolor: @theme2;
+@aHoverColor: @theme2;
+@aHoverColorDark: @theme2Dark;
 @aActiveColor: #282B3B;
 
 // 封面、封底文字位置及对齐方式

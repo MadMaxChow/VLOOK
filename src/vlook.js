@@ -1,9 +1,9 @@
 /**************************************
  *
- * VLOOK JS - Typora Plugin
+ * VLOOK™ JS - Typora Plugin
  *
- * V25.0
- * 2024-07-03
+ * V26.0
+ * 2024-09-20
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -18,7 +18,7 @@
 
 let _ = "",
     ___ = " ",
-    gVer = "V25.0",
+    gVer = "V26.0",
     gThmVer = _,
     gThmName = _,
     gUndefined = undefined,
@@ -33,6 +33,7 @@ let _ = "",
     gLocation = gWindow.location,
     jq_Document = $(gDocument),
     jq_Window = $(gWindow),
+    gWritePaddingRight = 20, // 取值与 base.less 的 @writePaddingRight 保持一致
     // ----------
     iStopwatch = new Stopwatch(), // 初始化计时器
     gTimes = 0,
@@ -41,8 +42,9 @@ let _ = "",
     gIsRunning = gTrue,
     gTimer_saveLastPosition = gNull,
     // **********
-    // 修改时须同步修改 media.less 的同名参数
+    // 修改时须同步修改 media.less 中的同名变量
     gSmallScreenWidth = 1270,
+    gUnwrapTableScreenWidth = 1439,
     // **********
     gToc = gUndefined, // 文档大纲对象
     gTocContent = gUndefined, // 文档大纲内容
@@ -67,12 +69,15 @@ let _ = "",
     _animation_ = "animation",
     _auto_ = "auto",
     _autoplay_ = _auto_ + "play",
+    _Markdown_ = "Markdown",
+    _as_Markdown_ = "as" +___+ _Markdown_,
     _background_ = "background",
     _color_ = "color",
     _backgroundColor_ = _background_ + "-" + _color_,
     _image_ = "image",
     _backgroundImage_ = _background_ + "-" + _image_,
     _before_ = "before",
+    _player_ = "player",
     _print_ = "print",
     _beforePrint_ = _before_ + "-" + _print_ + "-",
     _width_ = "width",
@@ -105,18 +110,25 @@ let _ = "",
     _scroll_ = "scroll",
     __shadow_ = "-shadow",
     _boxShadow_ = "box" + __shadow_,
+    _none_ = "none",
+    _boxShadow_None_ = _boxShadow_ + ":" + _none_ + ";",
     _br_ = "<br>",
     _brightness_ = "brightness",
     _bubble_ = "bubble",
+    _btnFc_ = "btn-fc",
     _card_ = "card",
     _catalog_ = "catalog",
     _center_ = "center",
     _cssText_ = "cssText",
+    _Chapter_ = "Chapter",
     _check_ = "check",
     _checkbox_ = _check_ + "box",
     _checked_ = _check_ + "ed",
     __checked_ = "-" + _checked_,
-    _checkHash_ = _check_ + "hash",
+    _hash_ = "hash",
+    _checkHash_ = _check_ + _hash_,
+    _wrap_ = "wrap",
+    _unwrap_ = "un" + _wrap_,
     _update_ = "update",
     _chkUpdate_ = "chk-" + _update_,
     _class_ = "class",
@@ -146,6 +158,7 @@ let _ = "",
     _for_ = "for",
     _found_ = "found",
     _dataBeforePrintFolded_ = "d-" + _before_ + "-" + _print_ + "-" + _folded_,
+    _gray_ = "gray",
     _group_ = "group",
     _dataBtnGroup_ = "d-btn-" + _group_,
     _count_ = "count",
@@ -240,14 +253,12 @@ let _ = "",
     _docLib_ = "doc-lib",
     _docLibToc_ = _docLib_ + "-toc",
     _docIcon_ = "doc" + __icon_,
-    _documentLibrary_cn_ = "浏览文库",
-    _documentLibrary_en_ = "Document Library",
     _copy_ = "copy",
+    _Copy_ = "copy",
     _figure_ = "figure",
     _openInFigureNav_ = "open-in-" + _figure_ + "-nav",
     _table_ = "table",
     _tableCross_ = _table_ + "-cross",
-    _tableWrap_ = _table_ + "-wrap",
     _picInPic_ = "pic-in-pic",
     __docTitle_ = "-doc" + __title_,
     _effect_ = "effect",
@@ -266,8 +277,7 @@ let _ = "",
     _vFig_ = "v-" + _fig_,
     _fitWidth_ = "fit-width",
     _vFitWidth_ = "v-" + _fitWidth_,
-    _vHash_ = "vhash",
-    _vHashCount_ = _vHash_ + _count_,
+    _vCheckCount_ = _check_ + _count_,
     _welcome_ = "welcome",
     _vWelcomePage_ = "v-" + _welcome_ + "-" + _page_,
     _figGrid__ = _vFig_ + "-grid-",
@@ -296,7 +306,9 @@ let _ = "",
     _httpPrefix_ = _http_ + "://",
     _httpsPrefix_ = _http_ + "s://",
     _github_ = "github",
-    _githubVlook_ = "github.com/MadMaxChow/VLOOK",
+    _github_madmaxchow_ = "github.com/MadMaxChow/",
+    _VLOOK_ = "VLOOK",
+    _githubVlook_ = _github_madmaxchow_ + _VLOOK_,
     _ico_ = "ico",
     _alert_ = "Alert",
     _icoAlertNote_ = _ico_ + _alert_ + "Note",
@@ -308,9 +320,10 @@ let _ = "",
     _icoAutoMode_ = _ico_ + "Auto" + _Mode_,
     _icoChkbox__ = _ico_ + "Chkbox_",
     _icoCheck_ = _ico_ + "Check",
-    _icoClose_ = _ico_ + "Close",
-    _icoCopy_ = _ico_ + "Copy",
-    _icoCopyAsMd_ = _ico_ + "CopyAsMd",
+    _Close_ = "Close",
+    _icoClose_ = _ico_ + _Close_,
+    _icoCopy_ = _ico_ + _Copy_,
+    _icoCopyAsMd_ = _ico_ + _Copy_ + "AsMd",
     _icoDarkMode_ = _ico_ + "Dark" + _Mode_,
     _icoDetailsOpen_ = _ico_ + "DetailsOpen",
     _icoDocLib_ = _ico_ + "DocLib",
@@ -322,7 +335,8 @@ let _ = "",
     _icoLightMode_ = _ico_ + "Light" + _Mode_,
     _icoLinkError_ = _ico_ + "LinkError",
     _icoLinkMap_ =  _ico_ + "LinkMap",
-    _icoLoading_ = _ico_ + "Loading",
+    _Loading_ = "Loading",
+    _icoLoading_ = _ico_ + _Loading_,
     _icoMaskCloser_ = _ico_ + "MaskCloser",
     _icoNavCenter_ = _ico_ + "NavCenter",
     _icoNewVersion_ = _ico_ + "NewVersion",
@@ -336,7 +350,9 @@ let _ = "",
     _icoPrint_ = _ico_ + "Print",
     _icoResetInput_ = _ico_ + "ResetInput",
     _icoRetrieval_ = _ico_ + "Retrieval",
-    _icoSpotlight_ = _ico_ + "Spot" + _light_,
+    _spotlight_ = "spot" + _light_,
+    _Spotlight_ = "Spot" + _light_,
+    _icoSpotlight_ = _ico_ + _Spotlight_,
     _icoStop_ = _ico_ + "Stop",
     _icoTableX_ = _ico_ + "TableX",
     _icoTocFolded_ = _ico_ + "TocFolded",
@@ -347,14 +363,14 @@ let _ = "",
     _icoTocTabHistory_ = _icoTocTab_ + "History",
     _icoTocTabMedia_ = _icoTocTab_ + "Media",
     _icoTocTabTable_ = _icoTocTab_ + "Table",
-    _icoTableWrap_ = _ico_ + "TableWrap",
-    _loading_ = "loading",
+    _icoWrapUnwrap_ = _ico_ + "WrapUnwrap",
+    _load_ = "load",
+    _loading_ = _load_ + "ing",
     _vLoading_ = "v-" + _loading_,
     _vLong_ = "v-long",
     _vlookHost_ = "madmaxchow.github.io",
     _vlookOriginGitHub_ = _httpsPrefix_ + _vlookHost_,
     _vlookAct_ = _vlookHost_ + "/VLOOK/act/",
-    _VLOOK_ = "VLOOK",
     _VLOOK_Number_ = _VLOOK_ + " Number",
     _VLOOK_Digital_Sans_ = _VLOOK_ + " Digital Sans",
     _VLOOK_Digital_Serif_ = _VLOOK_ + " Digital Serif",
@@ -362,6 +378,8 @@ let _ = "",
     _VLOOK_Serif_Mono_ = _VLOOK_ + " Serif Mono",
     _VLOOK_Sans_ = _VLOOK_ + " Sans",
     _VLOOK_Serif_ = _VLOOK_ + " Serif",
+    _No_content_en_ = "No content",
+    _No_content_cn_ = "无内容",
     _NotoSansMono_ = "NotoSansMono",
     _LuxiMono_ = "LuxiMono",
     _icoVLOOK_ = _ico_ + _VLOOK_,
@@ -380,6 +398,7 @@ let _ = "",
     _startReading_cn_ = "开始阅览",
     _startReading_en_ = "Start Reading",
     _inStart_ = "in-" + _start_,
+    _Invalid_ = "Invalid",
     _invert_ = "invert",
     _italic_ = "italic",
     _italic_bold_ = "/" + _italic_ + "/" + _bold_,
@@ -436,10 +455,10 @@ let _ = "",
     _name_ = "name",
     _nav_ = "nav",
     _navCenter_ = _nav_ + "-" + _center_,
+    _Next_ = "Next",
     __next_ = "-next",
     _newVersion_ = "new-version",
     _no_ = "no",
-    _none_ = "none",
     _normal_ = "normal",
     _normal_normal_ = "/" + _normal_ + "/" + _normal_,
     _normal_bold_ = "/" + _normal_ + "/" + _bold_,
@@ -464,14 +483,16 @@ let _ = "",
     _paddingLeft_ = _padding_ + "-" + _left_,
     _paddingRight_ = _padding_ + "-" + _right_,
     _paddingTop_ = _padding_ + "-top",
-    _paragraphNav_ = "paragraph-nav",
+    _paragraph_ = "paragraph",
+    _paragraphNav_ = _paragraph_ + "-nav",
     _placeholder_ = "placeholder",
     _playing_ = "playing",
     _pre_ = "pre",
     _preload_ = "preload",
-    _preWrap_ = "pre-wrap",
+    _Previous_ = "Previous",
+    _preWrap_ = "pre-" + _wrap_,
     __prev = "-prev",
-    _ready_ = "Ready",
+    _Ready_ = "Ready",
     __reset_ = "-reset",
     _refFootnote_ = "ref-footnote",
     _rowspan_ = "rowspan",
@@ -482,7 +503,6 @@ let _ = "",
     _serif_ = "serif",
     _span_ = "span",
     _sub_ = "sub",
-    _spotlight_ = "spot" + _light_,
     _src_ = "src",
     _srcset_ = "srcset",
     _stroke_ = "stroke",
@@ -518,7 +538,8 @@ let _ = "",
     _unfreeze_ = "unfreeze",
     _vdl_ = "vdl",
     _docLibIdentifier_ = _target_ + "=" + _vdl_,
-    _vkFooterArea_ = "#vk-footer-area",
+    _vkFooterArea_ = "vk-footer-area",
+    _vkFooterAreaId_ = "#" + _vkFooterArea_,
     _vkHeader_ = "vk" + __header_ + "-",
     _vkIdDocTitle_ = "vk-id" + __docTitle_,
     _vkIdFig_ = "vk-id-fig",
@@ -549,8 +570,9 @@ let _ = "",
     _varMmOrange_ = V_ui_var("--mm-c-og"),
     _varMmRed_ = V_ui_var("--mm-c-rd"),
     _vNavCenter_ = "v-nav-" + _center_,
-    _varNavCenterHiddenLeft_ = "--" + _vNavCenter_ + "-" + _hidden_ + "-l",
-    _varNavCenterWidth_ = V_ui_var("--" + _vNavCenter_ + "-w"),
+    __NavCenterWidth_ = "--" + _vNavCenter_ + "-w",
+    _varNavCenterHiddenLeft_ = "calc(" + V_util_getVarVal(__NavCenterWidth_) + " * -2)",//"--" + _vNavCenter_ + "-" + _hidden_ + "-l",
+    _varNavCenterWidth_ = V_ui_var(__NavCenterWidth_),
     _V_R_ = "--v-r-",
     _V_R_B_ = _V_R_ + "b",
     _varVRB_ = V_ui_var(_V_R_B_),
@@ -592,6 +614,8 @@ let _ = "",
     _vDocLib_ = _vDoc_ + "lib",
     _vDocLibItem_ = _vDocLib_ + "-" + _item_,
     _vDocLogo_ = _vDoc_ + "logo-",
+    _Exit_en_ = "Exit",
+    _Exit_cn_ = "退出",
     _expander_ = "expander",
     _vFences_ = "md-fences",
     _vFloatCard_ = "v-" + _float_ + "-" + _card_,
@@ -607,18 +631,17 @@ let _ = "",
     _vFontThemeInfo_ = "v-" + _fontTheme_ + "-info",
     _vFontThemeOpt_ = "v-" + _fontTheme_ + "-opt",
     _infoTips_ = "info-" + _tips_,
+    _handle_ = "handle",
     _vInfoTips_ = "v-" + _infoTips_,
     _vStdCode_ = "v-std-" + _code_,
     _vBreadcrumbStyle_ = "v-stepwise",
     _vTable_ = "v-" + _table_,
-    _vTableWrap_ = _vTable_ + "-wrap",
-    _vTableUnwrap_ = _vTable_ + "-unwrap",
     _vTag_ = "v-tag",
     _vTips_ = "v-" + _tips_,
     _vToc__ = "v-toc-",
     _vTocCatalogBody_ = _vToc__ + _catalog_ + "-body",
     _vTocFilterResultNone_ = _vToc__ + _filter_ + __result_ + "-" + _none_,
-    _vTocHandle_ = _vToc__ + "handle",
+    _vTocHandle_ = _vToc__ + _handle_,
     _vTocHistory_ = _vToc__ + "history",
     _vToolTips_ = "v-tool-" + _tips_,
     _vToolbar_ = "v-" + _toolbar_,
@@ -637,6 +660,7 @@ let _ = "",
     _vNavCenterFloat_ = _vNavCenter_ + "-" + _float_,
     _vNewVersion_ = "v-" + _newVersion_,
     _vPgCurrentItem_ = "v-pg" + __current_ + "-" + _item_,
+    _vPrint_ = "v-" + _print_,
     _vPostCard_ = "v-post-" + _card_,
     _vPicInPic_ = "v-" + _picInPic_,
     _vPipBtn_ = "v-pip-btn",
@@ -658,7 +682,7 @@ let _ = "",
     _vTblRow_ = _vTbl__ + "row-",
     _vTblRowGFolder_ = _vTblRow_ + "g-" + _folder_,
     __identer_ = "-identer",
-    _vTblRowGIdenterFolder_ = _vTblRow_ + "g" + __identer_ + _folder_,
+    _vTblRowGIdenterFolder_ = _vTblRow_ + "g" + __identer_ + "-" + _folder_,
     _vTblRowGNotFolder_ = _vTblRow_ + "g-not-" + _folder_,
     _vTblRowGBtn_ = "." + _vTblRow_ + "g-btn",
     _vTblRowNumHidden_ = _vTblRow_ + "num-" + _hidden_,
@@ -691,11 +715,13 @@ let _ = "",
     _visibility_ = "visibility",
     _wait_ = "wait",
     _warning_ = "warning",
+    _wheel_ = "wheel",
     _whiteSpace_ = "white-space",
-    _write_ = "#write",
+    _write_ = "write",
+    __write_ = "#" + _write_,
     _woff2_ = "woff2",
-    _writeMarginLeft_ = "var(--v-write-ml)",//"calc(" + _varNavCenterWidth_ + " + 30px)",
-    _writeMarginLeftDef_ = "var(--v-write-ml-def)",
+    _writeMarginLeft_ = "var(--v-" + _write_ + "-ml)",//"calc(" + _varNavCenterWidth_ + " + 30px)",
+    _writeMarginLeftDef_ = "var(--v-" + _write_ + "-ml-def)",
     _xmd_ = "xmd",
     _yes_ = "yes",
     _zIndex_ = "z-index",
@@ -787,18 +813,12 @@ function JQ_remove(target) {
 
 // attr 简化版
 $.prototype.a = function (key, value) {
-    if (value === gUndefined)
-        return this.attr(key);
-    else
-        return this.attr(key, value);
+    return (value === gUndefined ? this.attr(key) : this.attr(key, value));
 }
 
 // css 简化版
 $.prototype.c = function (key, value) {
-    if (value === gUndefined)
-        return this.css(key);
-    else
-        return this.css(key, value);
+    return (value === gUndefined ? this.css(key) : this.css(key, value));
 }
 
 // click 简化版
@@ -833,10 +853,12 @@ $.prototype.f = function (value) {
 
 // html 简化版
 $.prototype.hm = function (value) {
-    if (value === gUndefined)
-        return this.html();
-    else
-        return this.html(value);
+    return (value === gUndefined ? this.html(): this.html(value));
+}
+
+// val 简化版
+$.prototype.v = function (value) {
+    return (value === gUndefined ? this.val() : this.val(value));
 }
 
 // width 简化版
@@ -879,9 +901,7 @@ $.prototype.oL = function () {
 
 // offset().top 简化版
 $.prototype.oT = function () {
-    if (this.offset() === gUndefined)
-        return 0;
-    return this.offset().top;
+    return (this.offset() === gUndefined ? 0 : this.offset().top);
 }
 
 // position 简化版
@@ -926,10 +946,7 @@ $.prototype.rW = function (value) {
 
 // text 简化版
 $.prototype.t = function (value) {
-    if (value === gUndefined)
-        return this.text();
-    else
-        return this.text(value);
+    return (value === gUndefined ? this.text() : this.text(value));
 }
 
 // toggle 简化版
@@ -1015,6 +1032,11 @@ String.prototype.sp = function (exp) {
     return this.split(exp);
 }
 
+// toString 简化版
+function JS_toString(value) {
+    return value.toString();
+}
+
 // parseInt 简化版
 function JS_parseInt(value) {
     return parseInt(value);
@@ -1043,11 +1065,14 @@ function JS_decodeURIComponent(uri) {
     return uri;
 }
 
+// encodeURI 简化版
+function JS_encodeURI(uri) {
+    return (uri === gUndefined ? _ : encodeURI(uri));
+}
+
 // decodeURI 简化版
 function JS_decodeURI(uri) {
-    if (uri === gUndefined)
-        return _;
-    return decodeURI(uri);
+    return (uri === gUndefined ? _ : decodeURI(uri));
 }
 
 // ======================================== //
@@ -1100,7 +1125,7 @@ function DOM_body() {
 let VOM_d = gUndefined;
 function VOM_doc() {
     if (VOM_d === gUndefined) {
-        VOM_d = $(_write_);
+        VOM_d = $(__write_);
         if (V_length(VOM_d) === 0) {
             VOM_d = gUndefined;
             ERROR(_failed_ + "VOM.doc ]");
@@ -1113,7 +1138,7 @@ function VOM_doc() {
 let VOM_c = gUndefined;
 function VOM_cover() {
     if (VOM_c === gUndefined) {
-        VOM_c = $(_write_ + ">pre.md-meta-block" + _firstChild_ + "+" + _h6_ + "," + _write_ + ">" + _h6_ + _firstChild_);
+        VOM_c = $(__write_ + ">pre.md-meta-block" + _firstChild_ + "+" + _h6_ + "," + __write_ + ">" + _h6_ + _firstChild_);
         if (V_length(VOM_c) === 0) {
             VOM_c = gUndefined;
             if (VOM_docTitle() === gUndefined)
@@ -1348,10 +1373,13 @@ const env = {
         if (!silent) LOG(info);
 
         info = "    ├ Language   [ "
-            + env.language.base
-            + (V_length(env.language.subset) > 0 ? "_" + env.language.subset : _)
-            + ", " + V_lang
-            + " ]\n";
+            + env.language.base + "/" + env.language.full
+            + " (" + (V_lang_custom !== gUndefined
+                ? V_lang_custom
+                : (V_lang > -1
+                    ? ["zh", "en"][V_lang]
+                    : _none_))
+            + ") ]\n";
         r += info;
         if (!silent) LOG(info);
 
@@ -1467,7 +1495,7 @@ function V_query_init() {
 
     // 添加指定来源的调校参数（不重复的）
     function __append(params) {
-        if (V_length(params.toString()) > 0) {
+        if (V_length(JS_toString(params)) > 0) {
             for (let [key, value] of params) {
                 if (!V_query_params.has(key)) {
                     V_query_params.append(key, value);
@@ -1549,13 +1577,36 @@ function V_util_removeQuotes(content) {
 }
 
 /**
+ * 获取指定对象的所有子元素（及其子元素）的文本内容
+ * @param target 指定对象
+ * @param separator 子元素间添加指定分隔符
+ */
+function V_util_joinNodesText(target, separator) {
+    let nodesText = [];
+    __getTextNodes(nodesText, target);
+    return (V_length(nodesText) > 0 ? nodesText.join(separator) : _);
+
+    function __getTextNodes(texts, node) {
+        $(node).contents().e((index, element) => {
+            // 处理文本节点
+            if (element.nodeType === 3) {
+                let txt = $(element).t().x();
+                if (V_length(txt) > 0)
+                    texts.push(txt); // 添加非空文本
+            }
+            // 处理元素节点
+            else if (element.nodeType === 1)
+                __getTextNodes(texts, element); // 递归处理嵌套元素
+        });
+    }
+}
+
+/**
  * 获得当前滚动条位置
  * @param source 指定对象，不指定是默认为 document
  */
 function V_util_getScrollTop(source) {
-    if (source === gUndefined)
-        return jq_Document.scrollTop();
-    return source.scrollTop();
+    return (source === gUndefined ? jq_Document.scrollTop() : source.scrollTop());
 }
 
 /**
@@ -1563,7 +1614,7 @@ function V_util_getScrollTop(source) {
  * @param source 源对象
  */
 function V_length(source) {
-    return source.length;
+    return (source === gUndefined ? 0 : source.length);
 }
 
 /**
@@ -1572,10 +1623,7 @@ function V_length(source) {
  * @param source 指定的对象，不指定是默认为 document
  */
 function V_util_setScrollTop(pos, source) {
-    if (source === gUndefined)
-        jq_Document.scrollTop(pos);
-    else
-        source.scrollTop(pos);
+    source === gUndefined ? jq_Document.scrollTop(pos) : source.scrollTop(pos);
 }
 
 /**
@@ -1716,11 +1764,18 @@ function V_util_getPath(u) {
 }
 
 /**
+ * 获得当前时间
+ */
+function V_util_getTime() {
+    return new Date().getTime();
+}
+
+/**
  * 获得当前页面拖选的文本
  */
 function V_util_getSelectedText() {
     if (gWindow.getSelection)
-        return gWindow.getSelection().toString();
+        return JS_toString(gWindow.getSelection());
     else if (gDocument.selection && gDocument.selection.type !== "Control")
         return gDocument.selection.createRange().text;
     return _;
@@ -1820,9 +1875,7 @@ function V_util_getVarVal(varName) {
  * @param varName CSS 变量名
  */
 function V_util_getImageData(varName) {
-    if (varName === gUndefined)
-        return _;
-    return varName.ss(5, V_length(varName) - 2);
+    return (varName === gUndefined ? _ : varName.ss(5, V_length(varName) - 2));
 }
 
 /**
@@ -1946,8 +1999,8 @@ function V_formatting_currency(str) {
 function V_checkSpec () {
     let v = gTrue,
         c = [
-            "因以下原因无法激活 VLOOK 插件：\n\n",
-            "The VLOOK plugin cannot be activated for the following reasons:\n\n"
+            "因以下原因无法激活 VLOOK™ 插件：\n\n",
+            "The VLOOK™ plugin cannot be activated for the following reasons:\n\n"
             ][V_lang];
 
     // 只支持由 Typora 导出的 HTML 文件
@@ -2061,7 +2114,7 @@ function V_init() {
         // 添加关联组件
         iNavCenter.chpNav = iChapterNav;
     }
-    sw.ed("    ├ Chapter Nav: ");
+    sw.ed("    ├ " + _Chapter_ + " Nav: ");
 
     // 工具栏
     sw.st();
@@ -2072,7 +2125,7 @@ function V_init() {
         // 导航中心按钮
         iToolbar.add(_navCenter_, () => {
             // 针对当前只显示了文库的处理
-            if (iNavCenter.keyword.input.val() === _vdl_) {
+            if (iNavCenter.keyword.input.v() === _vdl_) {
                 iNavCenter.keyword.clear();
                 // 小屏时仍正常切换显示大纲
                 if (V_ui_isSmallScreen())
@@ -2092,7 +2145,7 @@ function V_init() {
                 iNavCenter.segs.setChecked(_catalog_);
                 // 设置关键字搜索的内容
                 iNavCenter.keyword.input.focus();
-                iNavCenter.keyword.input.val(_vdl_);
+                iNavCenter.keyword.input.v(_vdl_);
                 iNavCenter.keyword.input.select();
             }
             else
@@ -2104,10 +2157,14 @@ function V_init() {
 
         // 段落导航
         iToolbar.add(_paragraphNav_, () => {
-            iInfoTips.inform([
-                "开启方式：<br />" + V_ui_strong("三击文档中的任意段落"),
-                "Open method:<br />" + V_ui_strong("Three click any paragraph in the document")
-            ][V_lang], 10000, gTrue);
+            iInfoTips.inform(V_lang_text(4, [
+                    "如何开启？",
+                    "How to enable?"
+                ])
+                + _br_ + _br_ + V_ui_strong(V_lang_text(5, [
+                    "在文档中的任何段落上用鼠标三击",
+                    "Triple-click with the mouse on any " + _paragraph_ + " in the document"
+                ])), 10000, gTrue);
         });
 
         // 聚光灯
@@ -2122,11 +2179,6 @@ function V_init() {
             iSpotlight.hide();
             iParagraphNav.hide();
             iLaserPointer.tg()
-        });
-
-        // 打印按钮
-        iToolbar.add(_print_, () => {
-            V_print_ready();
         });
 
         // 添加关联组件
@@ -2153,16 +2205,13 @@ function V_init() {
     if (iFootNote === gFalse)
         ALERT(_failed_ + "iFootNote ]");
 
-    // 状态栏相关
-    StsDocInfo_init();
-    StsNewVersion_init();
-    StsLinkMap_init();
-    StsFontTheme_init();
-    StsColorScheme_init();
-    LinkTool_init(new BgMask(_linkChecker_, _right_, gTrue));
-
     // 状态栏
     StatusBar_init();
+
+    // 状态栏相关
+    NewVersion_init();
+    StsColorScheme_init();
+    LinkTool_init(new BgMask(_linkChecker_, _right_, gTrue));
 
     sw.ed("    └ Misc: ");
 }
@@ -2209,7 +2258,7 @@ function V_initKernel() {
 
     // ========================================
     // 初始化引用块
-    // 须在 ExtFigure 处理前，避免引用块折叠处理中，对其内含有 svg 颜色替换处理导致 DOM 冲突而失效
+    // 须在 ExtFigure 处理前，避免详情折叠处理中，对其内含有 svg 颜色替换处理导致 DOM 冲突而失效
     iStopwatch.st("* Quote: ");
     ExtQuote_init();
     iStopwatch.ed(_4space_);
@@ -2244,8 +2293,8 @@ function V_initKernel() {
     iStopwatch.ed(_4space_);
 
     // ========================================
-    // Code Magic 处理
-    // （注意：须在 ExtQuote 初始化之后执行）
+    // 对 Code Magic 处理
+    // 注意：须在 ExtQuote 初始化之后执行
     // 包括了：标签、徽章、引用块着色、刮刮卡、文字注音等
     iStopwatch.st("* Code & Xscript °Magic: ");
     ColorCode_init();
@@ -2267,7 +2316,7 @@ function V_initKernel() {
     BreadcrumbStyle_init();
     iStopwatch.ed(_4space_);
 
-    // VLOOK UI 统一样式适配处理
+    // 对 VLOOK UI 统一样式适配处理
     V_ui_adjustHoverStyle2();
 
     // 主要针对小屏情况，完成表格初始化后进行适配
@@ -2353,7 +2402,8 @@ function V_initKernel() {
     });
 
     // 绑定文档的鼠标滚轮事件
-    gDocument.addEventListener("mousewheel", (event) => {
+    // gDocument.addEventListener("mousewheel", (event) => {
+    gDocument.addEventListener(_wheel_, (event) => {
         // 忽略处理，提升性能
         return false;
     }, false);
@@ -2377,7 +2427,7 @@ function V_initKernel() {
 
     // 绑定文档滚动、页面滚动事件
     jq_Document.on(_scroll_, () => {
-        let currentTime = new Date().getTime(),
+        let currentTime = V_util_getTime(),
             scrollTop = V_util_getScrollTop(),
             scrollBottom = scrollTop + jq_Window.h(),
             timeInterval = gFalse,
@@ -2416,7 +2466,7 @@ function V_initKernel() {
     // 接收消息数据
     gWindow.onmessage = function(event) {
         // 校验消息合法性
-        let receMessage = event.data.toString();
+        let receMessage = JS_toString(event.data);
         LOG("<- " + event.origin + "\n" + receMessage);
         if ((event.origin !== StsNewVersion_checkOriginCloudFlare
             && event.origin !== StsNewVersion_checkOriginGitHub)
@@ -2434,10 +2484,10 @@ function V_initKernel() {
             return;
         // 不是通过 VLOOK 打印按钮进行打印时进行提醒
         if (V_print_mode !== _VLOOK_)
-            ALERT([
-                "注意！为确保打印正常，建议使用文档内工具栏左侧的【打印】按钮进行打印！",
-                "Notice! To ensure normal printing, it is recommended to use the [Print] button on the left side of the toolbar in the document to print!"
-            ][V_lang]);
+            ALERT(V_lang_text(80, [
+                "注意！为确保打印正常，建议使用文档内的【打印】功能进行打印！",
+                "Attention! To ensure proper printing, it is recommended to use the [Print] function within the document!"
+            ]));
     };
     // 绑定打印后的触发事件
     gWindow.onafterprint = function () {
@@ -2526,10 +2576,27 @@ function V_ui_fadeHide(target) {
         .c(_opacity_, 0);
 }
 
+// --- 保留备用 ---
+// --- 目前通过调整父级元素（ body, content ）的 overflow 属性解决 ---
+/**
+ * 停止滚动事件，在指定对象滚动到顶部、底部后冒泡到其他对象
+ * @param target 滚动内容对象
+ */
+// function V_ui_stopScrollPropagation(target) {
+//     target[0].addEventListener(_wheel_, (event) => {
+//         let scrollTop = V_util_getScrollTop(target),
+//             isAtTop = (scrollTop === 0),
+//             isAtBottom = (Math.round(scrollTop + target.oH()) >= Math.round(target[0].scrollHeight));
+
+//         // 如果到达顶部或底部，阻止默认的滚动行为
+//         if ((isAtTop && event.deltaY < 0) || (isAtBottom && event.deltaY > 0))
+//             event.preventDefault();
+//     });
+// }
+
 /**
  * 用 <kdb> 标签包裹内容
  * @param content 被包裹的内容
- * @returns
  */
 function V_ui_wrap_kbd(content) {
     return "<kbd>" + content + "</kbd>"
@@ -2576,12 +2643,12 @@ function V_ui_getMetaKeyUI(unwrap, short) {
  */
 function V_ui_copyrightInfo() {
     return V_ui_div(_, _vCopyright_,
-        V_ui_svgIcon(_icoVLOOK_, 24, 24, _dark_, _vCopyrightSvgIco_)
+        V_ui_svgIcon(_icoVLOOK_, 20, 20, _btnFc_, _vCopyrightSvgIco_)
         + _2nbsp_
         + 'Published with ' + V_ui_a(_, _httpsPrefix_ + _githubVlook_, V_ui_strong(_VLOOK_), __blank_)
-        + '™ (V25.0) &amp; ' + V_ui_a(_, _httpsPrefix_ + "www.typora.io", V_ui_strong("Typora"), __blank_) + '.' + _2nbsp_
+        + '™ (V26.0) &amp; ' + V_ui_a(_, _httpsPrefix_ + "www.typora.io", V_ui_strong("Typora"), __blank_) + '.' + _2nbsp_
         + 'Support: ' + V_ui_a(_, _httpsPrefix_ + "qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi", V_ui_strong("QQ Group"))
-        + ' / ' + V_ui_a(_, 'mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + V_ver + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + encodeURI(env.print(gTrue)), V_ui_strong("Email")) + '.'
+        + ' / ' + V_ui_a(_, 'mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + V_ver + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + JS_encodeURI(env.print(gTrue)), V_ui_strong("Email")) + '.'
     );
 }
 
@@ -2615,7 +2682,7 @@ function V_ui_tuningScrollTop(anchor) {
         aObj = V_byID(JS_decodeURI(anchor) + ",a" + V_attrCSS(_name_, anchor)),
         tag = V_util_getTagName(aObj);
 
-    // h1-6
+    // 判断是否为 h1-6
     if ("h1h2h3h4h5h6".i(tag) > -1) {
         y += (tag === _h6_)
             ? (t + h + 16)
@@ -2685,9 +2752,9 @@ function V_ui_changeDocIcon(iconData) {
  * @param extAttr 扩展的自定义属性及属性值，如：data-attr1="123"
  */
 function V_ui_svgIcon(icon, w, h, color, classValue, extAttr) {
-    // class
+    // 生成 class 内容
     classValue = (classValue !== gUndefined && V_length(classValue) > 0) ? ___+ classValue : _;
-    // ext attr
+    // 生成扩展的属及值
     extAttr = (extAttr !== gUndefined && V_length(extAttr) > 0) ? ___+ extAttr : _;
     return '<svg width="' + w + 'px" height="' + h + 'px" class="v-svg-small-ico' + classValue + '"' + extAttr + '>'
         + '<use class="v-svg-ico-' + color + '" xlink:href="#' + icon + '">'
@@ -2795,10 +2862,11 @@ function V_ui_nav(idValue, classValue, content) {
  * 生成 aside 标签
  * @param idValue id 属性值
  * @param classValue class 属性值
+ * @param extAttr 扩展的自定义属性及属性值，如：data-attr1="123"
  * @param content 标签的内容
  */
-function V_ui_aside(idValue, classValue, content) {
-    return V_ui_htmlTag("aside", idValue, classValue, _, content);
+function V_ui_aside(idValue, classValue, extAttr, content) {
+    return V_ui_htmlTag("aside", idValue, classValue, extAttr, content);
 }
 
 /**
@@ -2947,13 +3015,13 @@ function V_ui_video(extAttr, content) {
  * @param content 标签的内容
  */
 function V_ui_htmlTag(tag, idValue, classValue, extAttr, content) {
-    // id
+    // 标签的 id 属性
     idValue = (idValue !== gUndefined && V_length(idValue) > 0) ? ___+ V_attr(_id_, idValue) : _;
-    // class
+    // 标签的 class 属性
     classValue = (classValue !== gUndefined && V_length(classValue) > 0) ? ___+ V_attr(_class_, classValue) : _;
-    // ext attr
+    // 标签的扩展属性与取值
     extAttr = (extAttr !== gUndefined && V_length(extAttr) > 0) ? ___+ extAttr : _;
-    // content
+    // 标签的内容
     if (content === gUndefined)
         content = _;
     return '<' + tag + idValue + classValue + extAttr + '>' + content + '</' + tag + '>';
@@ -2973,10 +3041,10 @@ function V_ui_holdKey_Alt(event) {
  * @param event 事件对象
  */
 function v_ui_mouseDropIn(target, event) {
-    let mx = event.pageX || event.clientX + gDocument.body.scrollLeft,
-        my = event.pageY || event.clientY + gDocument.body.scrollTop;
     if (target === gUndefined)
         return false;
+    let mx = event.pageX || event.clientX + gDocument.body.scrollLeft,
+        my = event.pageY || event.clientY + gDocument.body.scrollTop;
     return !(mx <= target.oL() || mx >= (target.oL() + JS_parseInt(target.oW()))
         || my <= target.oT() || my >= (target.oT() + JS_parseInt(target.oH())));
 }
@@ -3057,91 +3125,75 @@ function V_ui_genGradColorCSS(gradientColors, fade, suffix) {
  * 初始 UI 国际化
  */
 function V_ui_initI18n() {
-    iToolbar.btns[_navCenter_].a(_dataTips_, [
-        V_ui_strong("隐藏") + " / " + V_ui_strong("显示") + " 导航中心",
-        V_ui_strong("Hide") + " / " + V_ui_strong("Show") + " Navigation Center"
-    ][V_lang] + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("O")));
+    iToolbar.btns[_navCenter_].a(_dataTips_, V_lang_text6() + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("O")));
 
-    iToolbar.btns[_docLib_].a(_dataTips_, [
-        _documentLibrary_cn_,
-        _documentLibrary_en_
-    ][V_lang] + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("L")));
+    iToolbar.btns[_docLib_].a(_dataTips_, V_lang_text7() + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("L")));
 
-    iToolbar.btns[_paragraphNav_].a(_dataTips_, [
+    iToolbar.btns[_paragraphNav_].a(_dataTips_, V_lang_text(8, [
         "段落导航 模式",
         "Paragraph Navigation mode"
-    ][V_lang]);
+    ]));
 
-    iToolbar.btns[_spotlight_].a(_dataTips_, [
+    iToolbar.btns[_spotlight_].a(_dataTips_, V_lang_text(9, [
         "聚光灯",
-        "Spot" + _light_
-    ][V_lang] + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("S")));
+        _Spotlight_
+    ]) + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("S")));
 
-    iToolbar.btns[_laserPointer_].a(_dataTips_, [
+    iToolbar.btns[_laserPointer_].a(_dataTips_, V_lang_text(10, [
         "激光笔",
         "Laser Pointer"
-    ][V_lang] + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("P")));
+    ]) + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("P")));
 
-    iToolbar.btns[_print_].a(_dataTips_, [
-        "打印...",
-        "Print..."
-    ][V_lang]);
+    iChapterNav.prev.ui.a(_dataTips_, V_ui_wrap_kbd("←") +___+ V_lang_text(15, [
+        "前一个",
+        _Previous_
+    ]));
 
-    iChapterNav.prev.ui.a(_dataTips_, [
-        "前一章",
-        "Previous Chapter"
-    ][V_lang] + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("◄")));
+    iChapterNav.next.ui.a(_dataTips_, V_lang_text(16, [
+        "后一个",
+        _Next_
+    ]) +___+ V_ui_wrap_kbd("→"));
 
-    iChapterNav.next.ui.a(_dataTips_, [
-        "后一章",
-        "Next Chapter"
-    ][V_lang] + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("►")));
-
-    iChapterNav.dt.a(_dataTips_, [
+    iChapterNav.dt.a(_dataTips_, V_lang_text(13, [
         "回到封面",
-        "Back to cover"
-    ][V_lang]);
+        "Back to " + _cover_
+    ]));
 
-    iChapterNav.current.ui.a(_dataTips_, [
+    iChapterNav.current.ui.a(_dataTips_, V_lang_text(14, [
         "回到本章的开始",
         "Go back to the beginning of this chapter"
-    ][V_lang]);
+    ]));
 
-    FigureNav_btns.prev.a(_title_, "[ ← ] " + [
-        "前一张",
-        "Previous"
-    ][V_lang]);
+    FigureNav_btns.prev.a(_title_, "[ ← ] " + V_lang_text(15, [
+        "前一个",
+        _Previous_
+    ]));
 
-    FigureNav_btns.next.a(_title_, "[ → ] " + [
-        "后一张",
-        "Next"
-    ][V_lang]);
+    FigureNav_btns.next.a(_title_, V_lang_text(16, [
+        "后一个",
+        _Next_
+    ]) + " [ → ]");
 
-    FigureNav_btns.close.a(_title_, "[ ESC ] " + [
+    FigureNav_btns.close.a(_title_, "[ ESC ] " + V_lang_text(17, [
         "关闭",
-        "Close"
-    ][V_lang]);
+        _Close_
+    ]));
 
-    iFontTheme.ui.f("." + _vFontPackage_).t([
+    iFontTheme.ui.f("." + _vFontPackage_).t(V_lang_text(18, [
         "字体",
         _Font_
-    ][V_lang] +___);
+    ]) +___);
 
-    iFontTheme.ui.f("." + _vFontThemeInfo_).hm([
+    iFontTheme.ui.f("." + _vFontThemeInfo_).hm(V_lang_text(19, [
         "若无法连接互联网加载在线版本字体，建议将字体直接下载到本地",
         "If you cannot connect to the Internet to load the online version of the font, it is recommended to download the font directly to the local"
-    ][V_lang] + " (" + V_ui_a(_, _httpsPrefix_ + "github.com/MadMaxChow/openfonts", [
+    ]) + " (" + V_ui_a(_, _httpsPrefix_ + _github_madmaxchow_ + "openfonts", V_lang_text(20, [
         "主站",
         "Primary"
-    ][V_lang]) + " | " + V_ui_a(_, _httpsPrefix_ + "github.com/MadMaxChow/openfonts", [
+    ])) + " | " + V_ui_a(_, _httpsPrefix_ + _github_madmaxchow_ + "openfonts", V_lang_text(21, [
         "备用",
         "Standby"
-    ][V_lang]) + ")");
-
-    iFootNote.buttonSeeAll.ch("a").t([
-        "查看所有脚注",
-        "View all " + _footnotes_
-    ][V_lang] + " ▶");
+    ])) + ")");
 }
 
 /**
@@ -3230,7 +3282,7 @@ function V_ui_adjustHoverStyle2() {
     if (V_util_isMobile()) {
         $(_vBtn__BtnGroup_).uH();
         V_byClass(_vSegmentBtn_).uH();
-        V_byClass(_vLastPosition_ + ">div").uH();
+        V_byClass(_vLastPosition_).uH();
         StatusBar_ui.f(V_not(V_attrCSS(_class_, _vDocInfo_, "*"))).uH();
         V_byID(_docLibToc_ + ">." + _vDocLibItem_).uH();
         V_byClass(_vStdCode_ + ",." + _vTag_ + ",." + _vBadgeName_).uH();
@@ -3246,12 +3298,14 @@ function V_ui_adjustHoverStyle2() {
         V_ui_bindHover($(_vBtn__BtnGroup_));
         // 所有导航中心分段控制按钮 hover 事件处理
         V_ui_bindHover(V_byClass(_vSegmentBtn_));
-        V_ui_bindHover(V_byClass(_vLastPosition_ + ">div"));
+        V_ui_bindHover(V_byClass(_vLastPosition_));
         // 状态栏上的按钮
         V_ui_bindHover(StatusBar_ui.ch(V_not(V_attrCSS(_class_, _vDocInfo_, "*"))));
         // 文库按钮 hover 事件处理
         V_ui_bindHover(V_byID(_docLibToc_ + ">." + _vDocLibItem_));
         // 代码、标签类 hover 事件处理
+        V_ui_bindHover(V_byClass(_vStdCode_));
+        V_ui_bindHover(V_byClass(_vBadgeName_));
         V_ui_bindHover(V_byClass(_vBadgeValue_), gTrue);
         V_ui_bindHover(V_byClass(_vTocItem_));
         V_ui_bindHover(V_byClass(_vMapItem_));
@@ -3296,7 +3350,8 @@ function V_ui_initEffectLevel() {
         JQ_addClass(V_byClass(_vBackdropBlurs_), _enabled_);
 
     // 以下动效等级为 1 或更高级时才开启
-    V_ui_addAnimate($("a " + _kbd_ + ",a " + _img_));
+    // 开启后会影响图片剪影的 hover 效果（会有闪烁）
+    // V_ui_addAnimate($("a " + _kbd_ + ",a " + _img_));
 
     // 针对移动端进行微调
     if (V_util_isMobile()) {
@@ -3312,9 +3367,8 @@ function V_ui_initEffectLevel() {
  */
 function V_ui_addAnimate(t, css) {
     if (V_ui_effect >= 1) {
-        if  (css === gUndefined) {
+        if  (css === gUndefined)
             JQ_addClass(t, _vTransitionAll_);
-        }
         else {
             let attrSet = css.sp(___);
             for (let i = 0; i < V_length(attrSet); i++)
@@ -3396,7 +3450,7 @@ function V_ui_initHotkey() {
 
                 // 自动读取并粘贴剪粘板的文本内容
                 navigator.clipboard.readText().then((value) => {
-                        iNavCenter.keyword.input.val(value);
+                        iNavCenter.keyword.input.v(value);
                         iNavCenter.keyword.input.select();
                     }).catch((value) => {
                         ERROR("GET CLIPBOARD FAILED：", value);
@@ -3481,7 +3535,7 @@ function V_ui_initHotkey() {
  */
 function GrayMode_init() {
     // 先判断是否通过 query 参数临时停用
-    if (V_util_getParamVal("gray") === _off_)
+    if (V_util_getParamVal(_gray_) === _off_)
         return;
 
     // 获取当前日期
@@ -3490,7 +3544,7 @@ function GrayMode_init() {
             + "-" + __padZero(date.getDate());
 
     // 获取需要增加的日期集合
-    let grayMode = V_util_getMetaByName(_vlook__ + "gray" + __mode_),
+    let grayMode = V_util_getMetaByName(_vlook__ + _gray_ + __mode_),
         grayModeDaySet = [];
 
     // 处理指定要增加的日期集合
@@ -3529,7 +3583,8 @@ function GrayMode_init() {
 
 // ========================================
 // VLOOK 语言类
-let V_lang = 1;
+let V_lang = -1,
+    V_lang_custom = gUndefined;
 
 /**
  * 初始化语言
@@ -3537,12 +3592,76 @@ let V_lang = 1;
 function V_lang_init() {
     switch (env.language.base) {
         case "zh":
-            V_lang = 0; // 中（简）
+            V_lang = 0; // 简体中文
             break;
         default:
-            V_lang = 1; // 默认：英语
+            V_lang = 1; // 英语（默认）
     }
+
+    // 通过 meta 指定的语言包
+    // 先尝试匹配语种子集
+    let zhSet = env.language.full;
+    if (zhSet === "zh-tw" || zhSet === "zh-mo") // 台湾、澳门统一使用香港版本繁体
+        zhSet = "zh-hk";
+    let vlookLang = V_util_getMetaByName(_vlook__ + _lang_ + "-" + zhSet);
+    // 子集为空时，再尝试匹配主语种
+    if (vlookLang === gUndefined)
+        vlookLang = V_util_getMetaByName(_vlook__ + _lang_ + "-" + env.language.base);
+    if (vlookLang !== gUndefined)
+        V_lang_custom = vlookLang;
 }
+
+/**
+ * 获得适配当前语言的 UI 文本
+ * @param buildInTextSet 内置的中英文本
+ * @param textId 文本标识，主要作为指定语言包时进行匹配，如：1、97，对应语言包中的 text1、text97
+ */
+function V_lang_text(textId, buildInTextSet) {
+    if (V_lang_custom === gUndefined)
+        return buildInTextSet[V_lang];
+
+    let text = V_util_getMetaByName("vk-" + V_lang_custom + textId);
+    return text === gUndefined
+        ? buildInTextSet[V_lang]
+        : text;
+}
+
+// 获取语言 ID 3 内容
+function V_lang_text3() {
+    return V_lang_text(3, [
+        "链接地图",
+        "Link Map"
+    ]);
+}
+// 获取语言 ID 6 内容
+function V_lang_text6() {
+    return V_lang_text(6, [
+        "导航中心",
+        "Navigation Center"
+    ]);
+}
+// 获取语言 ID 7 内容
+function V_lang_text7() {
+    return V_lang_text(7, [
+        "浏览文库",
+        "Document Library"
+    ]);
+}
+// 获取语言 ID 14 内容
+function V_lang_text41() {
+    return V_lang_text(41, [
+        "字体风格",
+        "Font Theme"
+    ]);
+}
+// 获取语言 ID 22 内容
+function V_lang_text22() {
+    return V_lang_text(22, [
+        "所有脚注",
+        "All " + _footnotes_
+    ]);
+}
+
 // V.lang
 // ========================================
 
@@ -3747,7 +3866,7 @@ let V_report_count =  0;
  * 提交统计数据
  */
 function V_report_submit(loadTimeCost) {
-    // VLOOK 基本信息
+    // 基本信息：VLOOK
     let sd = "?p=vlook"
         + "&ver=" + V_ver
         + "&thm=" + V_util_getTemplateThemeName()
@@ -3757,7 +3876,7 @@ function V_report_submit(loadTimeCost) {
         sd += "&d=" + (V_util_isMobile() ? "mob" : _) // 设备类型
             + "&dpr=" + env.display.DPR; // DPR
 
-        // OS 信息
+        // 信息：OS
         sd += "&os=";
         if (env.os.macOS)
             sd += "macOS";
@@ -3790,7 +3909,7 @@ function V_report_submit(loadTimeCost) {
             + "&size=" + V_length(VOM_doc().t()) // 文档大小
             + "&time=" + loadTimeCost; // 加载文档时间
 
-        // 图片插图数据
+        // 插图数据：图片
         sd += "&" + _img_ + "=" + V_length(V_byClass(_vFig_))
             + "&" + _img_ + "-fold=" + V_length($("p" + V_attrCSS(_dataContainer_, _img_) + V_attrCSS(_dataContentFolded_, _true_)))
             + "&" + _img_ + "-fill=" + V_length($(_img_ + V_not(V_attrCSS(_dataImgFill_))))
@@ -3799,24 +3918,24 @@ function V_report_submit(loadTimeCost) {
             + "&" + _img_ + "-cap1=" + V_length($(_div_ + V_attrCSS(_id_, _vkIdFig_, "^") + V_attrCSS(_dataIdFigType_, _img_) +___+ _vCap1_))
             + "&" + _img_ + "-cap2=" + V_length($(_div_ + V_attrCSS(_id_, _vkIdFig_, "^") + V_attrCSS(_dataIdFigType_, _img_) +___+ _vCap2_));
 
-        // Mermaid 插图数据
+        // 插图数据：Mermaid
         let mermaid = V_byClass(_mdDiagramPanel_);
         sd += "&mm=" + V_length(mermaid)
             + "&mm-fold=" + V_length($(_div_ + V_attrCSS(_dataContainer_, _svg_) + V_attrCSS(_dataContentFolded_, _true_)))
             + "&mm-cap1=" + V_length($(_div_ + V_attrCSS(_id_, _vkIdFig_, "^") + V_attrCSS(_dataIdFigType_, _svg_) +___+ _vCap1_))
             + "&mm-cap2=" + V_length($(_div_ + V_attrCSS(_id_, _vkIdFig_, "^") + V_attrCSS(_dataIdFigType_, _svg_) +___+ _vCap2_));
 
-        // Mermaid 音频数据
+        // 音频数据
         sd += "&audio=" + V_length($(_audio_))
             + "&mm-cap1=" + V_length($(_div_ + V_attrCSS(_id_, _vkIdAudio_, "^") +___+ _vCap1_))
             + "&mm-cap2=" + V_length($(_div_ + V_attrCSS(_id_, _vkIdAudio_, "^") +___+ _vCap2_));
 
-        // Mermaid 视频数据
+        // 视频数据
         sd += "&video=" + V_length($(_video_))
             + "&mm-cap1=" + V_length($(_div_ + V_attrCSS(_id_, _vkIdVideo_, "^") +___+ _vCap1_))
             + "&mm-cap2=" + V_length($(_div_ + V_attrCSS(_id_, _vkIdVideo_, "^") +___+ _vCap2_));
 
-        // Mermaid 图的细类
+        // 图片细分：Mermaid 图
         let pie = 0,
             flow = 0,
             flowSTART = 0,
@@ -3909,7 +4028,7 @@ function V_report_submit(loadTimeCost) {
         sd += "&tag=" + V_length($(_code_ + V_attrCSS(_class_, _vTag_)))
             + "&badge=" + V_length($(_code_ + V_attrCSS(_class_, _vBadgeName_)));
 
-        // 折叠引用块数据
+        // 详情折叠数据
         sd += "&dt=" + V_length($(_details_));
 
         // 脚注数据
@@ -3933,62 +4052,62 @@ function V_report_submit(loadTimeCost) {
 
 // ==================== 随机颜色类 ==================== //
 
-let RandomColor_palette = []; // 不相似颜色的色板
+// let RandomColor_palette = []; // 不相似颜色的色板
 
-/**
- * 生成随机颜色
- * @returns number[] R/G/B 颜色分量是数组
- */
-function RandomColor_generate() {
-    let c = [0, 0, 0];
-    c[0] = Math.floor(Math.random() * 255);
-    c[1] = Math.floor(Math.random() * 255);
-    c[2] = Math.floor(Math.random() * 255);
-    return c;
-}
+// /**
+//  * 生成随机颜色
+//  * @returns number[] R/G/B 颜色分量是数组
+//  */
+// function RandomColor_generate() {
+//     let c = [0, 0, 0];
+//     c[0] = Math.floor(Math.random() * 255);
+//     c[1] = Math.floor(Math.random() * 255);
+//     c[2] = Math.floor(Math.random() * 255);
+//     return c;
+// }
 
-/**
- * 生成不相似的随机颜色
- * @returns number[] R/G/B 颜色分量是数组
- */
-function RandomColor_dissimilarRgb() {
-    // 色板为空时，生成随机颜色后直接返回
-    let c = [0, 0, 0];
-    if (V_length(RandomColor_palette) === 0) {
-        c = RandomColor_generate();
-        RandomColor_palette.push(c);
-        return c;
-    }
+// /**
+//  * 生成不相似的随机颜色
+//  * @returns number[] R/G/B 颜色分量是数组
+//  */
+// function RandomColor_dissimilarRgb() {
+//     // 色板为空时，生成随机颜色后直接返回
+//     let c = [0, 0, 0];
+//     if (V_length(RandomColor_palette) === 0) {
+//         c = RandomColor_generate();
+//         RandomColor_palette.push(c);
+//         return c;
+//     }
 
-    // 色板不为空时，避免相似的颜色
-    let flag = gFalse,
-        t = 0,
-        d = [0, 0, 0];
+//     // 色板不为空时，避免相似的颜色
+//     let flag = gFalse,
+//         t = 0,
+//         d = [0, 0, 0];
 
-    // 随机生成不相似的颜色（最多尝试次数上限为 20）
-    while (!flag && t < 20) {
-        c = RandomColor_generate();
-        // 判断新生成的随机颜色，色板中是否已有相似的
-        let idx = 0;
-        for (let i = 0; i < V_length(RandomColor_palette); i++) {
-            idx = i;
-            d[0] = (RandomColor_palette[i][0] - c[0]) / 256;
-            d[1] = (RandomColor_palette[i][1] - c[1]) / 256;
-            d[2] = (RandomColor_palette[i][2] - c[2]) / 256;
-            // 比例两个颜色的 RGB 色差来作为相似性的依据（0.3 为经验值，值越大差异最大）
-            if (Math.sqrt(d[0] * d[0] + d[1] * d[1] + d[2] * d[2]) < 0.3)
-                break;
-        }
+//     // 随机生成不相似的颜色（最多尝试次数上限为 20）
+//     while (!flag && t < 20) {
+//         c = RandomColor_generate();
+//         // 判断新生成的随机颜色，色板中是否已有相似的
+//         let idx = 0;
+//         for (let i = 0; i < V_length(RandomColor_palette); i++) {
+//             idx = i;
+//             d[0] = (RandomColor_palette[i][0] - c[0]) / 256;
+//             d[1] = (RandomColor_palette[i][1] - c[1]) / 256;
+//             d[2] = (RandomColor_palette[i][2] - c[2]) / 256;
+//             // 比例两个颜色的 RGB 色差来作为相似性的依据（0.3 为经验值，值越大差异最大）
+//             if (Math.sqrt(d[0] * d[0] + d[1] * d[1] + d[2] * d[2]) < 0.3)
+//                 break;
+//         }
 
-        // 色板中没有找到相似的颜色
-        if (idx === V_length(RandomColor_palette)) {
-            RandomColor_palette.push(c);
-            flag = gTrue;
-        }
-        t++;
-    }
-    return c;
-}
+//         // 色板中没有找到相似的颜色
+//         if (idx === V_length(RandomColor_palette)) {
+//             RandomColor_palette.push(c);
+//             flag = gTrue;
+//         }
+//         t++;
+//     }
+//     return c;
+// }
 
 // ==================== 处理耗时计时器类 ==================== //
 
@@ -4004,7 +4123,7 @@ function Stopwatch() {
      * 重置计时器
      */
     T.reset = function () {
-        T.sT = new Date().getTime();
+        T.sT = V_util_getTime();
     }
 
     /**
@@ -4013,7 +4132,7 @@ function Stopwatch() {
     T.st = function (target) {
         if (target !== gUndefined)
             LOG(target);
-        T.lT = new Date().getTime();
+        T.lT = V_util_getTime();
     }
 
     /**
@@ -4022,7 +4141,7 @@ function Stopwatch() {
      * @param slient 是否为静默模式，true：是
      */
     T.ed = function (pre, slient) {
-        let c = new Date().getTime() - T.lT;
+        let c = V_util_getTime() - T.lT;
         // 非静默模式时，输出计时结果
         if (!slient) {
             let msg = pre + "⏱ " + c + " ms";
@@ -4040,7 +4159,7 @@ function Stopwatch() {
      * 计时器结束
      */
     T.stop = function () {
-        return new Date().getTime() - T.sT;
+        return V_util_getTime() - T.sT;
     }
 
     // 初始化计时器
@@ -4065,6 +4184,7 @@ function WelcomePage_init(mode) {
     WelcomePage_tips = V_byClass(_vWelcomePage_ + ">." + _vTips_); // 欢迎信息
     WelcomePage_finished = gFalse; // 是否已加载
     WelcomePage_mode = mode; // 模式
+    // V_ui_stopScrollPropagation(WelcomePage_ui);
 
     // 初始执行
     if (WelcomePage_mode === _off_)
@@ -4092,13 +4212,13 @@ function WelcomePage_done() {
 
     WelcomePage_finished = gTrue;
 
-    // auto 模式时延时自动关闭
+    // 模式：auto，延时自动关闭
     let delay = JS_parseInt(WelcomePage_mode);
     if (delay > 60) // 控制秒数上限
         delay = 60;
     if (WelcomePage_mode === _auto_ || delay >= 0)
         WelcomePage_autoClose(delay);
-    // wait 模式
+    // 模式：wait
     else if (WelcomePage_mode === _wait_)
         JQ_addClass(WelcomePage_button, _wait_);
 }
@@ -4132,11 +4252,10 @@ function WelcomePage_autoClose(delay) {
  * @param sec 显示倒计时的秒数
  */
 function WelcomePage_updateCloseButton(sec) {
-    WelcomePage_button.hm([
+    WelcomePage_button.hm(V_lang_text(23, [
         _startReading_cn_,
         _startReading_en_
-    ][V_lang]
-        + (sec == gNull ? _ : ___+ V_ui_span(_, _, "(" + sec + "s)")));
+        ]) + (sec == gNull ? _ : ___+ V_ui_span(_, _, "(" + sec + "s)")));
 }
 
 /**
@@ -4183,7 +4302,7 @@ let ContentAssistor_ui = gUndefined,
     ContentAssistor_btns_openInFigureNav = gUndefined, // 插图浏览器中打开
     ContentAssistor_btns_copyContent = gUndefined, // 复制内容
     ContentAssistor_btns_tableCross = gUndefined, // 表格阅读模式（十字光标）
-    ContentAssistor_btns_tableWrap = gUndefined, // 表格自动换行
+    ContentAssistor_btns_wrap = gUndefined, // 表格、代码块换行、不换行
     ContentAssistor_btns_picInPic = gUndefined, // 「画中画」
     ContentAssistor_copyAsMarkdown = gFalse, // 复制模式
     // 最后显示新标签打开按钮的内容（插图/表格等
@@ -4196,28 +4315,28 @@ function ContentAssistor_init() {
     ContentAssistor_btns_copyContent = $(_vBtn_Assistor_ + "." + _copy_); // 复制内容
     ContentAssistor_btns_openInFigureNav = $(_vBtn_Assistor_ + "." + _openInFigureNav_); // 插图浏览器中打开
     ContentAssistor_btns_tableCross = $(_vBtn_Assistor_ + "." + _tableCross_); // 表格阅读模式（十字光标）
-    ContentAssistor_btns_tableWrap = $(_vBtn_Assistor_ + "." + _tableWrap_); // 表格自动换行
+    ContentAssistor_btns_wrap = $(_vBtn_Assistor_ + "." + _wrap_); // 表格、代码块换行、不换行
     ContentAssistor_btns_picInPic = $(_vBtn_Assistor_ + "." + _picInPic_); // 「画中画」
 
-    ContentAssistor_btns_openInFigureNav.a(_dataTips_, [
+    ContentAssistor_btns_openInFigureNav.a(_dataTips_, V_lang_text(24, [
         "全屏显示",
         "Full screen"
-    ][V_lang]);
+    ]));
 
-    ContentAssistor_btns_tableCross.a(_dataTips_, [
+    ContentAssistor_btns_tableCross.a(_dataTips_, V_lang_text(25, [
         "阅读模式",
         "Reading mode"
-    ][V_lang]);
+    ]));
 
-    ContentAssistor_btns_tableWrap.a(_dataTips_,  [
-        "自动换行 / 不换行",
+    ContentAssistor_btns_wrap.a(_dataTips_,  V_lang_text(26, [
+        "换行 / 不换行",
         "Wrap / Unwrap"
-    ][V_lang]);
+    ]));
 
-    ContentAssistor_btns_picInPic.a(_dataTips_, [
+    ContentAssistor_btns_picInPic.a(_dataTips_, V_lang_text(27, [
         "画中画",
         "Picture in picture"
-    ][V_lang]);
+    ]));
 
     ContentAssistor_ui.on(_mouseLeave_, (event) => {
         if (!v_ui_mouseDropIn(ContentAssistor_lastHover, event))
@@ -4230,42 +4349,60 @@ function ContentAssistor_init() {
     // 在插图浏览器中打开
     ContentAssistor_btns_openInFigureNav.uC().ck(() => {
         ContentAssistor_hide();
-        FigureNav_show(ContentAssistor_lastHover);
+        FigureNav_show();
     });
 
-    //  开/关表格阅读模式（十字光标）
+    // 开/关：表格阅读模式（十字光标）
     ContentAssistor_btns_tableCross.uC().ck(() => {
-        TableCross_toggle(ContentAssistor_lastHover);
+        TableCross_toggle();
     });
 
-    //  开/关表格自动换行
-    ContentAssistor_btns_tableWrap.uC().ck(() => {
-        TableWrap_toggle(ContentAssistor_lastHover);
+    // 开/关：表格、代码块的换行、不换行
+    ContentAssistor_btns_wrap.uC().ck(() => {
+        __actionWrap();
     });
 
+    // 复制
     ContentAssistor_btns_copyContent.uC().ck((event) => {
         __actionCopy($(event.currentTarget), event);
     });
 
     // 画中画
     ContentAssistor_btns_picInPic.uC().ck(() => {
-        PicInPic_show(ContentAssistor_lastHover);
+        PicInPic_show();
     });
 
     ToolTips_bind(ContentAssistor_btns_copyContent);
     ToolTips_bind(ContentAssistor_btns_openInFigureNav);
     ToolTips_bind(ContentAssistor_btns_tableCross);
-    ToolTips_bind(ContentAssistor_btns_tableWrap);
+    ToolTips_bind(ContentAssistor_btns_wrap);
     ToolTips_bind(ContentAssistor_btns_picInPic);
 
+    // 处理【换行、不换行】
+    function __actionWrap() {
+        if (ContentAssistor_lastHover === gUndefined)
+            return;
+
+        // 表格
+        if (ContentAssistor_lastContentType === _table_)
+            TableWrap_toggle();
+        // 代码块
+        else if (ContentAssistor_lastContentType === _codeblock_)
+            CodeblockWrap_toggle();
+    }
+
+    // 处理【复制】操作
     function __actionCopy(target, event) {
         if (ContentAssistor_lastHover === gUndefined)
             return;
 
+        // 代码块
         if (ContentAssistor_lastContentType === _codeblock_)
             ExtCodeBlock_copyContent(target, event);
+        // 图片插图
         else if (ContentAssistor_lastContentType === _fig_ + _suffixImg_)
             ExtFigure_copySrc(target, event);
+        // 表格
         else if (ContentAssistor_lastContentType === _table_)
             ExtTable_copyContent(target, event);
     }
@@ -4297,6 +4434,9 @@ function ContentAssistor_toggleCopyMode(mode) {
 function ContentAssistor_bind(target, contentType) {
     // 鼠标悬停时事件处理
     target.on(_mouseEnter_, (event) => {
+        if (ContentAssistor_btns_copyContent === gUndefined)
+            return;
+
         V_ui_removeAnimate(ContentAssistor_ui);
 
         // 更新复制模式
@@ -4306,31 +4446,31 @@ function ContentAssistor_bind(target, contentType) {
         ContentAssistor_lastHover = target;
         ContentAssistor_lastContentType = contentType;
 
-        let asMarkdown =  "\n" + V_ui_sub(_, _, [
+        let asMarkdown =  "\n" + V_ui_sub(_, _, V_lang_text(28, [
             "按住",
             "Hold"
-            ][V_lang]
-            + _2nbsp_+ V_ui_getAltKeyUI() + [
-                _2nbsp_ +"- 复制为 Markdown",
-                _2nbsp_ +"- Copy as Markdown"
-                ][V_lang]);
+            ])
+            + _2nbsp_+ V_ui_getAltKeyUI() + _2nbsp_ + "- " + V_lang_text(29, [
+                "复制为 " + _Markdown_,
+                _Copy_ +___+ _as_Markdown_
+                ]));
         if (contentType === _codeblock_) {
-            ContentAssistor_btns_copyContent.a(_dataTips_, [
-                "复制全部代码",
-                "Copy code"
-            ][V_lang] + asMarkdown);
+            ContentAssistor_btns_copyContent.a(_dataTips_, V_lang_text(30, [
+                "复制代码",
+                _Copy_ + " code"
+            ]) + asMarkdown);
         }
         else if (contentType === _fig_ + _suffixImg_) {
-            ContentAssistor_btns_copyContent.a(_dataTips_, [
+            ContentAssistor_btns_copyContent.a(_dataTips_, V_lang_text(31, [
                 "复制图片地址",
-                "Copy Image Link"
-            ][V_lang] + asMarkdown);
+                _Copy_ + " image link"
+            ]) + asMarkdown);
         }
         else if (contentType === _table_) {
-            ContentAssistor_btns_copyContent.a(_dataTips_, [
+            ContentAssistor_btns_copyContent.a(_dataTips_, V_lang_text(32, [
                 "复制表格内容",
-                "Copy Table Content"
-            ][V_lang] + asMarkdown);
+                _Copy_ + " table content"
+            ]) + asMarkdown);
         }
 
         ContentAssistor_show();
@@ -4351,16 +4491,16 @@ function ContentAssistor_show() {
     JQ_removeClass(ContentAssistor_btns_copyContent, _first__enable__last_);
     JQ_removeClass(ContentAssistor_btns_openInFigureNav, _first__enable__last_);
     JQ_removeClass(ContentAssistor_btns_tableCross, _first__enable__last_);
-    JQ_removeClass(ContentAssistor_btns_tableWrap, _first__enable__last_);
+    JQ_removeClass(ContentAssistor_btns_wrap, _first__enable__last_);
     JQ_removeClass(ContentAssistor_btns_picInPic, _first__enable__last_);
 
     // 插图
     if (ContentAssistor_lastContentType.sW(_fig_)) {
-        // svg 图片插图
+        // 图片插图：svg
         if (ContentAssistor_lastContentType.eW(_svg_)) {
             JQ_addClass(ContentAssistor_btns_openInFigureNav, _enabled__first_);
         }
-        // 非 svg 图片插图
+        // 图片插图：非 svg
         else {
             JQ_addClass(ContentAssistor_btns_copyContent, _enabled__first_);
             JQ_addClass(ContentAssistor_btns_openInFigureNav, _enabled_);
@@ -4378,12 +4518,12 @@ function ContentAssistor_show() {
             JQ_addClass(ContentAssistor_btns_tableCross, _selected_);
         else
             JQ_removeClass(ContentAssistor_btns_tableCross, _selected_);
-        // 自动换行
-        JQ_addClass(ContentAssistor_btns_tableWrap, _enabled_);
-        if (ContentAssistor_lastHover.c(_whiteSpace_) === _preWrap_)
-            JQ_addClass(ContentAssistor_btns_tableWrap, _selected_);
+        // 换行、不换行
+        JQ_addClass(ContentAssistor_btns_wrap, _enabled_);
+        if (TableWrap_isWrap(ContentAssistor_lastHover))
+            JQ_addClass(ContentAssistor_btns_wrap, _selected_);
         else
-            JQ_removeClass(ContentAssistor_btns_tableWrap, _selected_);
+            JQ_removeClass(ContentAssistor_btns_wrap, _selected_);
         // 画中画
         JQ_addClass(ContentAssistor_btns_picInPic, _enabled__last_);
     }
@@ -4391,6 +4531,12 @@ function ContentAssistor_show() {
     else if (ContentAssistor_lastContentType === _codeblock_) {
         // 复制
         JQ_addClass(ContentAssistor_btns_copyContent, _enabled__first_);
+        // 换行、不换行
+        JQ_addClass(ContentAssistor_btns_wrap, _enabled_);
+        if (CodeblockWrap_isWrap())
+            JQ_removeClass(ContentAssistor_btns_wrap, _selected_);
+        else
+            JQ_addClass(ContentAssistor_btns_wrap, _selected_);
         // 画中画
         JQ_addClass(ContentAssistor_btns_picInPic, _enabled__last_);
     }
@@ -4498,9 +4644,9 @@ function PicInPic_init() {
 
 /**
  * 显示画中画
- * @param source 显示内容的来源对象
  */
-function PicInPic_show(source) {
+function PicInPic_show() {
+    let source = ContentAssistor_lastHover;
     PicInPic_calcSize();
 
     // 清空原有内容（除关闭按钮）
@@ -4526,9 +4672,9 @@ function PicInPic_show(source) {
             tagName = V_util_getTagName(source);
         // 针对表格的处理
         if (tagName === _table_) {
-            // 1. 先展开所有行分组
+            // 先展开所有行分组
             openAll = RowGroup_openAll(source, _auto_);
-            // 2. 先展开长内容
+            // 再展开长内容
             let container = source.p().p();
             if (container.a(_dataContentFolded_) === _true_)
                 ContentFolder_expand(container);
@@ -4538,6 +4684,8 @@ function PicInPic_show(source) {
         let newClone = source.clone();
         newClone.c(_margin_, 0)
             .c(_border_, 0);
+        // 移除插图编号数据，避免存在重复对象
+        JQ_removeAttr(newClone, _dataFigNum_);
         PicInPic_ui_content.ap(newClone);
 
         // 针对插图的处理
@@ -4695,7 +4843,7 @@ function Spotlight(radius) {
         JQ_removeClass(T.toolbar.btns[_laserPointer_], _selected_);
         JQ_addClass(T.toolbar.btns[_spotlight_], _selected_);
 
-        // Dark Mode 时先添加微调的样式
+        // 在 Dark Mode 时先添加微调的样式
         if (ColorScheme_scheme === _dark_)
             JQ_addClass(VOM_doc(), _vSpotlightInDark_);
 
@@ -4706,10 +4854,13 @@ function Spotlight(radius) {
 
         let key1 = V_ui_wrap_kbd("⇧ Shift") + _2nbsp_,
             key2 = _2nbsp_ + _2nbsp_ +"-" + _2nbsp_ + _2nbsp_ + V_ui_wrap_kbd("ESC") + _2nbsp_;
-        BottomTips_show([
-            key1 + "调整聚光灯大小" + key2 + "退出",
-            key1 + "Adjust the size of the spot" + _light_ + key2 + "Exit"
-        ][V_lang]);
+        BottomTips_show(key1 + V_lang_text(33, [
+                "调整聚光灯大小",
+                "Change the size of the spotlight"
+            ]) + key2 + V_lang_text(34, [
+                _Exit_cn_,
+                _Exit_en_
+            ]));
     }
 
     /**
@@ -4824,10 +4975,10 @@ function Spotlight(radius) {
         T.enable = gTrue;
         JQ_addClass($(T.pointerScope), _vCursorLaser_);
 
-        BottomTips_show(V_ui_wrap_kbd("ESC") + _2nbsp_ + [
-            "退出",
-            "Exit"
-        ][V_lang]);
+        BottomTips_show(V_ui_wrap_kbd("ESC") + _2nbsp_ + V_lang_text(34, [
+            _Exit_cn_,
+            _Exit_en_
+        ]));
     }
 
     /**
@@ -4897,17 +5048,13 @@ function Spotlight(radius) {
  * @param group 分段控制器分组标识
  */
 function SegmentControl(control, group) {
-    let T = this,
-        __indicator = "-indicator";
+    let T = this;
     T.ui = control;
     T.group = group;
 
     T.last = gUndefined;
     T.segs = [];
     T.segCnt = 0;
-
-    T.ui.ap(V_ui_span(_vSegment_ + __indicator));
-    T.indicator = T.ui.ch("." + _vSegment_ + __indicator); // 当前选中分段的滑块
 
     /**
      * 添加分段
@@ -4943,11 +5090,10 @@ function SegmentControl(control, group) {
             T.last.hide();
             __updateIcon(gFalse);
             // 显示最新选择的组件
-            T.last = T.segs[$(event.currentTarget).val()];
+            T.last = T.segs[$(event.currentTarget).v()];
             __updateIcon(gTrue);
 
             T.last.show();
-            T.update();
         });
 
         return T.segs[name];
@@ -4967,8 +5113,8 @@ function SegmentControl(control, group) {
      * 获得当前选中的分段
      * @returns string 当前选中的分段
      */
-    T.checkedItem = function () {
-        return T.ui.f(_input_ + V_attrCSS(_name_, T.group) + ":" + _checked_).val();
+    T.checkedItemValue = function () {
+        return T.ui.f(_input_ + V_attrCSS(_name_, T.group) + ":" + _checked_).v();
     }
 
     /**
@@ -4986,37 +5132,13 @@ function SegmentControl(control, group) {
      */
     T.sts = function (typeName, value) {
         let id = T.group + "-" + typeName;
-        if (value === gUndefined) {
+        if (value === gUndefined)
             return T.ui.f(_input_ + V_attrCSS(_id_, id)).a(_dataResult_);
-        }
 
-        if (value) {
+        if (value)
             JQ_removeAttr(T.ui.f(_input_ + V_attrCSS(_id_, id)), _dataResult_);
-        }
-        else {
+        else
             T.ui.f(_input_ + V_attrCSS(_id_, id)).a(_dataResult_, _none_);
-        }
-    }
-
-    /**
-     * 更新分段控制器界面
-     */
-    T.update = function () {
-        // 更新各分段 UI 大小、间隔等
-        let space = 2,
-            spacePercent = (space * (T.segCnt - 1)) / T.ui.w() * 100,
-            width = (100 - spacePercent) / T.segCnt;
-        T.ui.ch("." + _vSegmentBtn_).c(_margin_, "0 0 0 " + space + "px")
-            .c(_width_, width + "%");
-        // 修正第一个
-        T.ui.ch("." + _vSegmentBtn_ + ":" + _first_).c(_margin_, 0);
-
-        // 更新当前选择分段相关 UI
-        if (T.last === gUndefined)
-            return;
-        let target = T.last.ui.entry;
-        T.indicator.c(_left_, target.pos().left + JS_parseInt(target.c(_marginLeft_)))
-            .c(_width_, target.w());
     }
 }
 
@@ -5032,7 +5154,6 @@ function FitWidth_init() {
 
     // 点击切换适应宽度
     FitWidth_ui.uC().ck(() => {
-        // let value = _;
         if (FitWidth_ui.a(_class_).i(_enabled_) === -1) {
             JQ_addClass(FitWidth_ui, _enabled_);
             JQ_addClass(VOM_doc(), _fitWidth_);
@@ -5053,7 +5174,9 @@ function FitWidth_init() {
 
 let ResumeReading_ui = gUndefined,
     ResumeReading_lastPosition = gUndefined,
-    ResumeReading_minScrollTop = 1000;
+    ResumeReading_minScrollTop = 1000,
+    ResumeReading_hideTimer1 = gNull,
+    ResumeReading_hideTimer2 = gNull;
 
 function ResumeReading_init() {
     ResumeReading_ui = V_byClass(_vLastPosition_);
@@ -5063,6 +5186,9 @@ function ResumeReading_init() {
 
     // 点击跳转
     ResumeReading_ui.uC().ck(() => {
+        clearTimeout(ResumeReading_hideTimer1);
+        clearTimeout(ResumeReading_hideTimer2);
+
         V_util_setScrollTop(ResumeReading_lastPosition);
         V_ui_fadeHide(ResumeReading_ui);
 
@@ -5083,6 +5209,13 @@ function ResumeReading_dispose(restore) {
     if (!restore && ResumeReading_lastPosition != gNull) {
         ResumeReading_updateUI(iToolbar.adjust());
         V_ui_fadeShow(ResumeReading_ui);
+        // 延时后自动消失
+        ResumeReading_hideTimer1 = setTimeout(() => {
+            ResumeReading_ui.ch(_span_).hide(); // 隐藏按钮文字
+            ResumeReading_hideTimer2 = setTimeout(() => {
+                V_ui_fadeHide(ResumeReading_ui);
+            }, 5000);
+        }, 8000);
     }
 
     __saveLastPosData();
@@ -5113,7 +5246,7 @@ function ResumeReading_dispose(restore) {
 function ResumeReading_updateUI(measure) {
     setTimeout(() => {
         let top = 70, // 与 .v-last-position 中的取值同步
-            right = 20; // 与 .v-last-position 中的取值同步
+            right = gWritePaddingRight; // 与 .v-last-position 中的取值同步
 
         if (measure != gNull) {
             top = measure.t + 10;
@@ -5121,7 +5254,7 @@ function ResumeReading_updateUI(measure) {
             if (!V_util_isMobile())
                 top += JS_parseInt(iToolbar.ui.c(_height_));
             // 对于工具栏不是展开，或是在小屏时的微调
-            if (measure.r <= 20 || V_ui_isSmallScreen()) {
+            if (measure.r <= gWritePaddingRight || V_ui_isSmallScreen()) {
                 top -= 10;
                 right = measure.r + measure.p;
             }
@@ -5185,8 +5318,6 @@ function NavCenter(mask, runMode = _auto_) {
     T.mask = mask;
     T.mask.bindPartner(this, T.ui);
 
-    T.segs.update();
-
     V_ui_addAnimate(T.handle);
 
     /**
@@ -5201,14 +5332,14 @@ function NavCenter(mask, runMode = _auto_) {
     // 关键字输入组件属性设置
     T.keyword.setIcon(V_ui_svgIcon(_icoRetrieval_, 16, 16, _alpha_));
 
-    let cmdKey = _;
-    T.keyword.placeholder([
-        "按下 [" + cmdKey + "／] 进行搜索",
-        "Type [" + cmdKey + "／] to " + _search_
-    ][V_lang]);
+    T.keyword.placeholder(V_lang_text(35, [
+        "按下 [ / ] 进行搜索",
+        "Type [ / ] to " + _search_
+    ]));
 
     // 绑定输入框事件处理
     T.keyword.onInput = function (source, value) {
+        // 先重置
         T.catalog.resultNav.reset();
         T.figure.resultNav.reset();
         T.table.resultNav.reset();
@@ -5216,36 +5347,46 @@ function NavCenter(mask, runMode = _auto_) {
         T.media.resultNav.reset();
         T.codeblock.resultNav.reset();
 
+        // 无输入内容
         if (V_length(value.x()) === 0) {
-            // 目录
+            // 对目录的处理
             T.catalog.ui.result.empty();
-            if (T.segs.checkedItem() === T.catalog.typeName())
+            if (T.segs.checkedItemValue() === T.catalog.typeName())
                T.catalog.ui.body.show();
             T.catalog.hideFilterResult();
             T.catalog.scrollToCurrent();
             T.catalog.updateStatus();
-            // 插图、表格、多媒体、代码块
+            // 对 插图、表格、多媒体、代码块 的处理
             TocIndex_noneKeyword(T.figure);
             TocIndex_noneKeyword(T.table);
             TocIndex_noneKeyword(T.media);
             TocIndex_noneKeyword(T.codeblock);
         }
+        // 有输入内容
         else {
-            let itemName = _catalog_;
-            // 目录
-            if (T.catalog.filter(value.l()))
-                itemName = _catalog_;
-            // 插图、表格、代码块、多媒体
-            else if (TocIndex_filter(T.figure, value.l()))
-                itemName = _figure_;
-            else if (TocIndex_filter(T.table, value.l()))
-                itemName = _table_;
-            else if (TocIndex_filter(T.codeblock, value.l()))
-                itemName = _codeblock_;
-            else if (TocIndex_filter(T.media, value.l()))
-                itemName = _media_;
+            // 对目录的处理
+            T.catalog.filter(value.l());
+            // 对 插图、表格、代码块、多媒体 的处理
+            TocIndex_filter(T.figure, value.l());
+            TocIndex_filter(T.table, value.l());
+            TocIndex_filter(T.codeblock, value.l());
+            TocIndex_filter(T.media, value.l());
 
-            T.segs.setChecked(itemName);
+            // let itemName = _catalog_;
+            // // 目录
+            // if (T.catalog.filter(value.l()))
+            //     itemName = _catalog_;
+            // // 插图、表格、代码块、多媒体
+            // else if (TocIndex_filter(T.figure, value.l()))
+            //     itemName = _figure_;
+            // else if (TocIndex_filter(T.table, value.l()))
+            //     itemName = _table_;
+            // else if (TocIndex_filter(T.codeblock, value.l()))
+            //     itemName = _codeblock_;
+            // else if (TocIndex_filter(T.media, value.l()))
+            //     itemName = _media_;
+            // 选中从左起有匹配记录的第 1 个分段
+            // T.segs.setChecked(itemName);
         }
     }
 
@@ -5279,7 +5420,7 @@ function NavCenter(mask, runMode = _auto_) {
      */
     T.gotoCover = function () {
         V_util_setScrollTop(0);
-        // 【有封面】模式时处理
+        // 有封面 模式时处理
         if (VOM_cover() !== gUndefined) {
             if (T.catalog.currentItem !== gUndefined) {
                 JQ_removeClass(T.catalog.currentItem, _vItemCurrent_);
@@ -5289,7 +5430,7 @@ function NavCenter(mask, runMode = _auto_) {
             T.chpNav.adjust();
             T.toolbar.adjust();
         }
-        // 【无封面】模式时处理
+        // 无封面 模式时处理
         else {
             ToolTips_hide();
         }
@@ -5342,7 +5483,8 @@ function NavCenter(mask, runMode = _auto_) {
             return gFalse;
         }
 
-        T.ui.c(_left_, 20);
+        let left = gWritePaddingRight;
+        T.ui.c(_left_, left);
         T.handle.hide();
 
         T.lastDisplayType = lastDisplayType;
@@ -5380,12 +5522,11 @@ function NavCenter(mask, runMode = _auto_) {
             // 显示联动的遮罩
             T.mask.show();
 
-            // 若文档可视空间比导航中心宽度要小，则进行微调
-            if (jq_Window.w() < T.width + 20)
-                T.ui.c(_width_, jq_Window.w() - 20);
-            // 若文档空间比导航中心宽度大，则直接显示原始大小
-            else
-                T.ui.c(_width_, T.width);
+            // 在移动端屏宽较小时，如：
+            // 手机 iPhone 12 Pro 为 390
+            // 手机 iPhone 6/7/8 Plus、iPhone 14 Pro Max 为 414
+            if (jq_Window.w() <= 425) // 与 CSS @media screen and (max-width: 850px) 同步修改
+                V_util_setVarVal(__NavCenterWidth_, jq_Window.w() - left * 2 + "px");
         }
 
         T.showed = gTrue;
@@ -5415,7 +5556,7 @@ function NavCenter(mask, runMode = _auto_) {
                 JQ_removeClass(T.toolbar.btns[_navCenter_], _selected_);
         }
 
-        T.ui.c(_left_, V_util_getVarVal(_varNavCenterHiddenLeft_));
+        T.ui.c(_left_, _varNavCenterHiddenLeft_);
 
         // 恢复不挤压文档正文区
         VOM_doc().c(_cssText_, _marginLeft_ + ":" + _auto_ + _important_);
@@ -5449,18 +5590,13 @@ function NavCenter(mask, runMode = _auto_) {
 
         T.width = T.ui.w();
 
-        T.keyword.setWidth(T.width - 2 - JS_parseInt(T.__keywordBody.c(_marginLeft_)) * 2);
-
-        // 根据最新窗口大小调整宽度
-        T.segs.update();
-
         // 在封面，或为小屏
         if (!V_ui_inHeader() || V_ui_isSmallScreen()) {
             // 自动隐藏导航中心
             result = T.hide(_auto_);
 
             // 根据最新窗口大小调整收起位置
-            T.ui.c(_left_, V_ui_var(_varNavCenterHiddenLeft_));
+            T.ui.c(_left_, _varNavCenterHiddenLeft_);
 
             // 更新工具栏导航中心按钮图标
             if (!V_util_isMobile())
@@ -5504,7 +5640,8 @@ function NavCenter(mask, runMode = _auto_) {
             return;
 
         // 鼠标离左边缘小于指定值时
-        if (event.clientY > 200 && event.clientY < (jq_Window.h() - 300) && event.clientX <= 20) {
+        let h = jq_Window.h();
+        if (event.clientY > (h * 0.3) && event.clientY < (h * 0.7) && event.clientX <= gWritePaddingRight) {
             if (T.snapTimer != gNull)
                 return;
 
@@ -5592,6 +5729,8 @@ NavCenter.init = function () {
 
     gTocContent = V_byID(_vlookToc_);
     gToc = gTocContent.p(); // 更新引用块
+    // if (V_length(gToc) > 0)
+    //     V_ui_stopScrollPropagation(gToc.p());
     // 检查目录内容情况
     if (gTocContent.isEmpty()) {
         NavCenter.hideOnError();
@@ -5659,8 +5798,8 @@ NavCenter.hideOnError = function () {
     iNavCenter.hide();
 
     ERROR([
-        "文档中没有找到目录信息，请用Typora最新版本导出，并应用最新VLOOK插件",
-        "No [TOC] information was found in the document, export it with the latest version of Typora and apply the latest VLOOK plug-in."
+        "文档中没有找到目录信息，请用 Typora 最新版本导出，并应用最新 VLOOK™ 插件",
+        "No [TOC] information was found in the document, export it with the latest version of Typora and apply the latest VLOOK™ plug-in."
     ][V_lang]);
 }
 
@@ -5768,7 +5907,7 @@ function ChapterNav() {
             T.prev.text.t(V_byID(iNavCenter.catalog.h[curIdx - 1]).t());
             T.prev.text.a(_dataAnchor_, iNavCenter.catalog.h[curIdx - 1]);
 
-            // 【无封面】模式时处理
+            // 无封面 模式时处理
             if (VOM_cover() === gUndefined) {
                 JQ_removeClass(T.dt, _inStart_);
                 JQ_removeAttr(T.dt, _disabled_);
@@ -5778,13 +5917,13 @@ function ChapterNav() {
         }
         // 当前章节为第 1 章时特殊处理，设置为「封面」
         else if (iNavCenter.catalog.inFirstHeader()) {
-            T.prev.text.t([
+            T.prev.text.t(V_lang_text(1, [
                 "封面",
                 "Cover"
-            ][V_lang]);
+            ]));
             T.prev.text.a(_dataAnchor_, _cover_);
         }
-        // 「无封面」模式时对「文档标题」章节的特殊处理
+        // 无封面 模式时对「文档标题」章节的特殊处理
         else if (iNavCenter.catalog.inDocTitle()) {
             T.prev.ui.hide();
             T.current.ui.hide();
@@ -5798,7 +5937,7 @@ function ChapterNav() {
         // ----------------------------------------
         // 更新「当前章节」导航内容
         if (iNavCenter.catalog.currentItem !== gUndefined) {
-            // 【无封面】模式
+            // 无封面 模式
             if (iNavCenter.catalog.inDocTitle())
                 T.current.ui.hide();
             else
@@ -5964,14 +6103,16 @@ function ParagraphNav() {
             let key1 = V_ui_wrap_kbd("J") + _2nbsp_ + "↑" + _2nbsp_,
                 key2 = _2nbsp_ +"-" + _2nbsp_ + V_ui_wrap_kbd("K") + _2nbsp_ + "↓" + _2nbsp_,
                 key3 = _2nbsp_ + _2nbsp_ +"/" + _2nbsp_ + _2nbsp_ + V_ui_wrap_kbd("ESC") + _2nbsp_;
-            BottomTips_show([
-                key1 + "上一个段落"
-                    + key2 + "下一个段落"
-                    + key3 + "退出",
-                key1 + "Previous paragraph"
-                    + key2 + "Next paragraphs"
-                    + key3 + "Exit"
-            ][V_lang]);
+            BottomTips_show(key1 + V_lang_text(16, [
+                    "前一个",
+                    _Previous_
+                ]) + key2 + V_lang_text(17, [
+                    "后一个",
+                    _Next_
+                ]) + key3 + V_lang_text(34, [
+                    _Exit_cn_,
+                    _Exit_en_
+                ]));
 
             T.goto(target);
             return gTrue;
@@ -6193,7 +6334,7 @@ let ThreeClicker_activeTime = 0;
  * 进入激活状态（在双击事件中触发）
  */
 function ThreeClicker_active() {
-    ThreeClicker_activeTime = new Date().getTime();
+    ThreeClicker_activeTime = V_util_getTime();
 }
 
 /**
@@ -6206,7 +6347,7 @@ function ThreeClicker_tick() {
         return gFalse;
 
         // 与进入激活状态时间隔小于指定时间，则满足触发三击条件
-    if (new Date().getTime() - ThreeClicker_activeTime < 300) {
+    if (V_util_getTime() - ThreeClicker_activeTime < 300) {
         // 取消文本选择
         gWindow.getSelection().removeAllRanges();
         return gTrue;
@@ -6249,7 +6390,7 @@ function Toolbar(chpNav) {
 
         V_ui_addAnimate(T.btns[name]);
 
-        // mouseenter 和 mouseleave 事件处理
+        // 对 mouseenter 和 mouseleave 事件处理
         T.btns[name].on(_mouseEnter_, (event) => {
             let _t = $(event.currentTarget),
                 btnGroup = _t.a(_dataBtnGroup_);
@@ -6284,7 +6425,6 @@ function Toolbar(chpNav) {
             T.btns[_paragraphNav_].hide();
             T.btns[_spotlight_].hide();
             T.btns[_laserPointer_].hide();
-            T.btns[_print_].hide();
             T.btns[_toolbarSpliter_].hide();
         }
 
@@ -6319,7 +6459,7 @@ function Toolbar(chpNav) {
                 && !V_ui_inHeader()) {
                 resultPadding = 10;
                 if (V_util_getScrollTop() <= 5) {
-                    resultTop = 20;
+                    resultTop = gWritePaddingRight;
                     T.ui.c(_paddingLeft_, resultPadding)
                         .c(_paddingRight_, resultPadding)
                         .c(_top_, resultTop);
@@ -6344,7 +6484,7 @@ function Toolbar(chpNav) {
                     resultPadding = 10;
                     // 小屏，在封面及最开始位置进行二次调整
                     if (V_util_getScrollTop() <= 5) {
-                        resultTop = 20;
+                        resultTop = gWritePaddingRight;
                         T.ui.c(_paddingLeft_, resultPadding)
                             .c(_paddingRight_, resultPadding)
                             .c(_top_, resultTop);
@@ -6441,7 +6581,7 @@ function ColorScheme_adjustScheme(dark) {
 
     ColorScheme_refresh();
 
-    // Light Mode 时的文档图标
+    // 在 Light Mode 时的文档图标
     function __setLightIcon() {
         if (LinkTool_checkHashMode)
             return;
@@ -6449,7 +6589,7 @@ function ColorScheme_adjustScheme(dark) {
         V_ui_changeDocIcon(V_util_getVarVal("--thm-fav-logo-lg"));
     }
 
-    // Dark Mode 时的文档图标
+    // 在 Dark Mode 时的文档图标
     function __setDarkIcon() {
         if (LinkTool_checkHashMode)
             return;
@@ -6541,6 +6681,7 @@ function ColorScheme_refresh(force) {
         __pn + __fade_ + "-b",
         "--" + _blockquote_ + "-bg",
         "--a-" + _color_,
+        "--a-" + _hover_ + "-" + _color_,
         "--" + _mark_ + "-bg",
         __tbl + "bd",
         __tbl + "tr-hv",
@@ -6766,11 +6907,13 @@ function FontTheme(mask, themeName) {
     let T = this;
     T.theme = themeName; // 当前字体风格，sans：非衬线（小清新），serif：衬线（文艺范）
     T.ui = V_byClass(_vFontTheme_); // 字体风格切换选择界面
-    // 系统默认字体风格选项
+    // V_ui_stopScrollPropagation(T.ui);
+
+    // 字体风格选项：系统默认
     T.localTheme = new FontThemeOption(V_byClass(_vFontThemeOpt_ + "-"  + _local_), []);
-    // Book 风格选项
+    // 字体风格选项：Book
     T.bookTheme = new FontThemeOption(V_byClass(_vFontThemeOpt_ + "-" + _book_), []);
-    // 小清新字体风格选项
+    // 字体风格选项：小清新
     T.sansTheme = new FontThemeOption(V_byClass(_vFontThemeOpt_ + "-" + _sans_),
         [
             _VLOOK_Number_ + _normal_normal_, _VLOOK_Number_ + _normal_bold_, _VLOOK_Number_ + _normal_italic_,
@@ -6778,7 +6921,7 @@ function FontTheme(mask, themeName) {
             _VLOOK_Sans_Mono_ + _normal_normal_, _VLOOK_Sans_Mono_ + _normal_500_, _VLOOK_Sans_Mono_ + _normal_bold_, _VLOOK_Sans_Mono_ + _normal_900_,
             _VLOOK_Sans_ + _normal_normal_, _VLOOK_Sans_ + _normal_bold_, _VLOOK_Sans_ + _normal_900_
             ]);
-    // 艺术范字体风格选项
+    // 字体风格选项：艺术范
     T.serifTheme = new FontThemeOption(V_byClass(_vFontThemeOpt_ + "-" + _serif_),
         [
             _VLOOK_Number_ + _normal_normal_, _VLOOK_Number_ + _normal_bold_, _VLOOK_Number_ + _normal_italic_,
@@ -6832,10 +6975,10 @@ function FontTheme(mask, themeName) {
         T.initWebFont();
 
         // 对于本地字体主题的状态，直接为就绪
-        $(":is(." + _vFontInfo_ + "-local,." + _vFontInfo_ + "book) > #" + _fontsetStatus_).t("✅ " + [
+        $(":is(." + _vFontInfo_ + "-local,." + _vFontInfo_ + "book) > #" + _fontsetStatus_).t("✅ " + V_lang_text(38, [
             "已就绪",
-            _ready_
-        ][V_lang]);
+            _Ready_
+        ]));
     }
 
     /**
@@ -6854,7 +6997,7 @@ function FontTheme(mask, themeName) {
             + "U+003A-0040," // :;<=>?@
             + "U+005B-0060," // [\]^_`
             + "U+007B-007E"; // {|}~
-        let timeOutMsg = "❌ " + ["超时", "Timeout"][V_lang];
+        let timeOutMsg = "❌ " + V_lang_text(39, ["超时", "Timeout"]);
 
         if (T.theme === _local_) {
             // 动态加载字体 VLOOK Number
@@ -6870,7 +7013,7 @@ function FontTheme(mask, themeName) {
             // 动态加载字体 VLOOK Noto Sans CJK SC
             __loadSansCjkFont();
 
-            // Sans 字体主题的加载超时检测
+            // 对 Sans 字体主题的加载超时检测
             setTimeout(() => {
                 if (V_length(T.sansTheme.fonts) > 0)
                     V_byClass(_vFontInfo_ + "sans > #" + _fontsetStatus_).t(timeOutMsg);
@@ -6891,7 +7034,7 @@ function FontTheme(mask, themeName) {
             // 动态加载字体 VLOOK Noto Sans CJK SC
             __loadSansCjkFont();
 
-            // Serif 字体主题的加载超时检测
+            // 对 Serif 字体主题的加载超时检测
             setTimeout(() => {
                 if (V_length(T.serifTheme.fonts) > 0)
                     V_byClass(_vFontInfo_ + "serif > #" + _fontsetStatus_).t(timeOutMsg);
@@ -7011,8 +7154,8 @@ function FontTheme(mask, themeName) {
                 gDocument.fonts.add(loadedFontFace);
 
                 let fontID = fontFamily + "/" + fontStyle + "/" + fontWeight,
-                    readyMsg = "✅ " + ["已就绪", _ready_][V_lang],
-                    loadingMsg = ["加载中", "Loading"][V_lang];
+                    readyMsg = "✅ " + V_lang_text(38, ["已就绪", _Ready_]),
+                    loadingMsg = V_lang_text(40, ["加载中", _Loading_]);
                 LOG("↓↓↓ FONT LOADED ↓↓↓");
                 LOG(fontID);
 
@@ -7152,7 +7295,7 @@ function FontTheme(mask, themeName) {
         T.theme = themeName;
         V_data_set(_fontTheme_, themeName, gTrue);
 
-        // CSS 变量名称列表
+        // 涉及的 CSS 变量名称列表
         let varFFm = "--v-f-fm",
             varFw = "--v-f-w";
         const varList = [
@@ -7216,12 +7359,13 @@ function FootNote(mask) {
     let T = this;
     T.ui = V_byClass(_vFontnotePn_); // 脚注主界面
     T.content = V_byClass(_vFontnotePn_ + "-" + _content_); // 脚注内容区
+    // V_ui_stopScrollPropagation(T.content);
 
     T.buttonSeeAll = V_byClass(_vFontnotePn_ + __footer_); // 查看所有脚注按钮
     T.buttonSeeAll.uC().ck(() => {
         T.hide();
         // 跳转至所有脚注区域
-        WINDOW_setHref(_vkFooterArea_);
+        WINDOW_setHref(_vkFooterAreaId_);
     });
 
     // 遮罩
@@ -7242,14 +7386,6 @@ function FootNote(mask) {
     T.show = function () {
         // 显示关联的遮罩
         T.mask.show();
-
-        if (V_ui_isSmallScreen())
-            T.ui.c(_left_, 20)
-                .c(_right_, 20);
-        else
-            T.ui.c(_left_, "15%")
-                .c(_right_, "15%");
-
         T.ui.show();
     }
 
@@ -7293,15 +7429,15 @@ function FootNote(mask) {
 FootNote.init = function () {
     // 将 Typora 的脚注调整到封底前，VLOOK 规范的文档中最后一个 <h6> 是封底
     let footnotesArea = V_byClass(_footnotesArea_);
-    // 「有封面」模式
+    // 有封面 模式
     if (VOM_backcover() !== gUndefined)
         footnotesArea.insertBefore(VOM_backcover());
-    // 「无封面」模式
+    // 无封面 模式
     else
         VOM_doc().ap(footnotesArea);
 
     // 将 VLOOK 生成的脚注区锚点调整到生成 HTML 后的实际位置
-    $(_vkFooterArea_).insertBefore(footnotesArea);
+    $(_vkFooterAreaId_).insertBefore(footnotesArea);
 
     // 移除默认的跳转属性
     let a = $("a" + V_attrCSS(_name_, _refFootnote_, "^")
@@ -7330,16 +7466,86 @@ FootNote.init = function () {
 // ==================== 状态栏类 ==================== //
 
 let StatusBar_ui = gUndefined,
+    StatusBar_handle = gUndefined,
     StatusBar_items = []; // 状态栏条目集
 
+let StsNewVersion_ui = gUndefined,
+    StsColorScheme_ui = gUndefined,
+    StsDocInfo_ui = gUndefined,
+    StsLinkMap_ui = gUndefined,
+    StsFontTheme_ui = gUndefined,
+    StsPrint_ui = gUndefined;
 /**
  * 构造函数
  */
 function StatusBar_init() {
+    StsNewVersion_ui = V_byClass(_vNewVersion_);
+    StsColorScheme_ui = V_byClass(_vColorScheme_);
+    StsDocInfo_ui = StsDocInfo_ui = V_byClass(_vDocInfo_);
+
     StatusBar_ui = V_byClass(_vStatusBar_);
     V_ui_addAnimate(StatusBar_ui.f(_div_));
 
+    // 控制隐藏、显示的按钮
+    StatusBar_handle = V_byClass("v-" + _handle_);
+    StatusBar_handle.uC().ck(() => {
+        // 进行隐藏
+        if (parseInt(StatusBar_ui.c(_right_)) > 0) {
+            StatusBar_ui.c(_right_, "-" + (StatusBar_ui.w() - StatusBar_handle.w() + 2) + "px");
+            JQ_addClass(StatusBar_handle, _hidden_);
+        }
+        // 进行显示
+        else {
+            StatusBar_ui.c(_right_, gWritePaddingRight);
+            JQ_removeClass(StatusBar_handle, _hidden_);
+        }
+    });
+
+    // ----------
+    // 功能入口：打印
+    StsPrint_ui = V_byClass(_vPrint_);
+    StsPrint_ui.a(_dataTips_, V_lang_text(2, [
+        "打印...",
+        "Print..."
+    ]));
+    ToolTips_bind(StsPrint_ui);
+    StsPrint_ui.uC().ck(() => {
+        V_print_ready();
+    });
+
+    // ----------
+    // 功能入口：链接地图
+    StsLinkMap_ui = V_byClass(_vLinkMap_);
+    StsLinkMap_ui.a(_dataTips_, V_lang_text3() + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("M")));
+
+    ToolTips_bind(StsLinkMap_ui);
+    StsLinkMap_ui.uC().ck(() => {
+        if (LinkTool_panelList.isHidden())
+            LinkTool_show(_map_);
+        else
+            LinkTool_hide();
+    });
+
+    // ----------
+    // 功能入口：字体主题
+    StsFontTheme_ui = V_byClass(_vStsFontTheme_);
+    StsFontTheme_ui.a(_dataTips_, V_lang_text41() + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("A")));
+
+    ToolTips_bind(StsFontTheme_ui);
+    StsFontTheme_ui.uC().ck(() => {
+        iFontTheme.tg();
+    });
+
+    // ----------
+    // 页面模式非 max（如文库）
+    if (V_pageMode !== _max_)
+        StsColorScheme_ui.hide();
+    // 页面模式非 max（如文库），或为移动端时的处理
     if (V_pageMode !== _max_ || V_util_isMobile()) {
+        StsDocInfo_ui.hide();
+        StsPrint_ui.hide();
+        StsFontTheme_ui.hide();
+
         // 过滤掉不可见的元素
         let visibleBtn = StatusBar_ui.ch().filter(function () {
             return $(this).c(_display_) !== _none_;
@@ -7350,14 +7556,17 @@ function StatusBar_init() {
 }
 
 /**
- * 更新继续上次的阅读的 UI
+ * 更新状态栏 UI
  * @param measure 参考的度量信息
  */
 function StatusBar_updateUI(measure) {
-    let right = 20;
+    if (StatusBar_handle !== gUndefined && StatusBar_handle.a(_class_).i(_hidden_) > -1)
+        return;
+
+    let right = gWritePaddingRight;
     if (measure != gNull) {
         // 对于工具栏不是展开，或是在小屏时的微调
-        if (measure.r <= 20 || V_ui_isSmallScreen())
+        if (measure.r <= gWritePaddingRight || V_ui_isSmallScreen())
             right = measure.r + measure.p;
     }
 
@@ -7366,25 +7575,27 @@ function StatusBar_updateUI(measure) {
 
 // ==================== 文档信息类 ==================== //
 
-let StsDocInfo_ui = gUndefined,
-    DocInfo_enabled = gTrue,
+let DocInfo_enabled = gTrue,
     gRE_cjk = /\p{Unified_Ideograph}/ug;
+
 /**
  * 构造函数
  */
-function StsDocInfo_init() {
-    StsDocInfo_ui = V_byClass(_vDocInfo_);
-}
+// function StsDocInfo_init() {
+//     StsDocInfo_ui = V_byClass(_vDocInfo_);
+// }
 
 /**
  * 统计字数
  */
-function StsDocInfo_countWord() {
+function DocInfo_countWord() {
     if (!DocInfo_enabled)
         return;
 
     let latin = VOM_doc().t().m(/[\w\-]+/g),
         cjk = VOM_doc().t().m(gRE_cjk);
+    // ERROR(111, V_length(latin), V_length(latin.toString()));
+    // ERROR(111, V_length(cjk), V_length(cjk.toString()));
     let latinCount = (latin == gNull) ? 0 : V_length(latin),
         cjkCount = (cjk == gNull) ? 0 : V_length(cjk),
         wordCount = latinCount + cjkCount,
@@ -7392,32 +7603,31 @@ function StsDocInfo_countWord() {
 
     // 计算阅读时长
     let mins = wordCount < readCountPerMin ? 1 : JS_parseInt(wordCount / readCountPerMin),
-        times = mins +___+ [
+        times = mins +___+ V_lang_text(42, [
             "分钟",
-            "min(s)"
-        ][V_lang];
+            "minute(s)"
+        ]);
     if (mins > 60)
-        times = (mins / 60).toFixed(1) +___+ [
+        times = (mins / 60).toFixed(1) +___+ V_lang_text(43, [
             "小时",
-            "hours"
-        ][V_lang];
+            "hour(s)"
+        ]);
     // 默认信息
     StsDocInfo_ui.a(_dataDefault_,
-        times + " • " + V_formatting_thousands(wordCount.toString()) +___
-        + [
+        times + " • " + V_formatting_thousands(JS_toString(wordCount)) +___+ V_lang_text(44, [
             "字",
             "words"
-        ][V_lang]);
+        ]));
     // 扩展信息
     StsDocInfo_ui.a(_dataExtend_,
-        V_formatting_thousands(cjkCount.toString()) +___+ [
+        V_formatting_thousands(JS_toString(cjkCount)) +___+ V_lang_text(11, [
             "中日韩",
             "CJK"
-        ][V_lang]
-        +  " • " + V_formatting_thousands(latinCount.toString()) +___+ [
+        ])
+        +  " • " + V_formatting_thousands(JS_toString(latinCount)) +___+ V_lang_text(12, [
             "非中日韩",
             "Non-CJK"
-        ][V_lang]);
+        ]));
 
     // 移动端时：通过点击事件切换扩展信息
     if (V_util_isMobile()) {
@@ -7441,41 +7651,39 @@ function StsDocInfo_countWord() {
 
 // ==================== 状态栏的字体主题类 ==================== //
 
-let StsFontTheme_ui = gUndefined;
+// let StsFontTheme_ui = gUndefined;
 /**
  * 构造函数
  */
-function StsFontTheme_init() {
-    StsFontTheme_ui = V_byClass(_vStsFontTheme_);
-    if (V_pageMode !== _max_ || V_util_isMobile())
-        StsFontTheme_ui.hide();
+// function StsFontTheme_init() {
+//     StsFontTheme_ui = V_byClass(_vStsFontTheme_);
+//     if (V_pageMode !== _max_ || V_util_isMobile())
+//         StsFontTheme_ui.hide();
 
-    StsFontTheme_ui.a(_dataTips_, [
-        "切换 字体风格",
-        "Switch Font Theme"
-    ][V_lang] + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("A")));
+//     StsFontTheme_ui.a(_dataTips_, [
+//         "切换 字体风格",
+//         "Switch Font Theme"
+//     ][V_lang] + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("A")));
 
-    ToolTips_bind(StsFontTheme_ui);
-    StsFontTheme_ui.uC().ck(() => {
-        iFontTheme.tg();
-    });
-}
+//     ToolTips_bind(StsFontTheme_ui);
+//     StsFontTheme_ui.uC().ck(() => {
+//         iFontTheme.tg();
+//     });
+// }
 
 // ==================== 状态栏的颜色模式类 ==================== //
 
-let StsColorScheme_ui = gUndefined;
 /**
  * 构造函数
  */
 function StsColorScheme_init() {
-    StsColorScheme_ui = V_byClass(_vColorScheme_);
     if (V_pageMode !== _max_) // || V_util_isMobile())
         StsColorScheme_ui.hide();
 
-    StsColorScheme_ui.a(_dataTips_, [
-        "切换 " + V_ui_strong("自动") + " / " + V_ui_strong("明亮") + " / " + V_ui_strong("黑暗") + " 模式",
-        "Switch " + V_ui_strong("Auto") + " / " + V_ui_strong("Light") + " / " + V_ui_strong("Dark") +___+ _Mode_
-    ][V_lang] + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("D")));
+    StsColorScheme_ui.a(_dataTips_, V_lang_text(45, [
+        "切换 自动/明亮/黑暗 模式",
+        "Switch Auto/Light/Dark " + _Mode_
+    ]) + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("D")));
 
     StsColorScheme_updateIcons();
 
@@ -7520,21 +7728,18 @@ function StsColorScheme_updateIcons() {
 
 // ==================== 状态栏的检查新版本类 ==================== //
 
-let StsNewVersion_ui = gUndefined,
-    StsNewVersion_checkOriginCloudFlare = "https://vlook-doc.pages.dev",
-    StsNewVersion_checkUrlCloudFlare = StsNewVersion_checkOriginCloudFlare + "/act/" + _chkUpdate_ + ".html?ts=" + new Date().getTime(),
+let StsNewVersion_checkOriginCloudFlare = "https://vlook-doc.pages.dev",
+    StsNewVersion_checkUrlCloudFlare = StsNewVersion_checkOriginCloudFlare + "/act/" + _chkUpdate_ + ".html?ts=" + V_util_getTime(),
     StsNewVersion_checkOriginGitHub = _vlookOriginGitHub_,
-    StsNewVersion_checkUrlGitHub = StsNewVersion_checkOriginGitHub + "/VLOOK/act/" + _chkUpdate_ + ".html?ts=" + new Date().getTime();
+    StsNewVersion_checkUrlGitHub = StsNewVersion_checkOriginGitHub + "/VLOOK/act/" + _chkUpdate_ + ".html?ts=" + V_util_getTime();
 /**
  * 构造函数
  */
-function StsNewVersion_init() {
-    StsNewVersion_ui = V_byClass(_vNewVersion_);
-
-    StsNewVersion_ui.a(_dataTips_, [
-        _VLOOK_ + "™ 有了新的版本，请及时升级！",
-        "New " + _VLOOK_ + "™ version available. Update now!"
-    ][V_lang]);
+function NewVersion_init() {
+    StsNewVersion_ui.a(_dataTips_, _VLOOK_ + "™ " + V_lang_text(36, [
+        "已推出新版本，请及时升级！",
+        "has a new version available. Update now!"
+    ]));
 
     ToolTips_bind(StsNewVersion_ui);
     StsNewVersion_ui.uC().ck(() => {
@@ -7545,7 +7750,7 @@ function StsNewVersion_init() {
 /**
  * 检查新版本
  */
-function StsNewVersion_check() {
+function NewVersion_check() {
     let frameCloudFlare = document.getElementById(_vlookChkUpdateCloudFlare_),
         frameGitHub = document.getElementById(_vlookChkUpdateGitHub_);
 
@@ -7564,32 +7769,9 @@ function StsNewVersion_check() {
     frameGitHub.src = StsNewVersion_checkUrlGitHub;
 }
 
-// ==================== 状态栏的链接地图类 ==================== //
-
-let StsLinkMap_ui = gUndefined;
-/**
- * 构造函数
- */
-function StsLinkMap_init() {
-    StsLinkMap_ui = V_byClass(_vLinkMap_);
-
-    StsLinkMap_ui.a(_dataTips_, [
-        "链接地图",
-        "Link Map"
-    ][V_lang] + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("M")));
-
-    ToolTips_bind(StsLinkMap_ui);
-    StsLinkMap_ui.uC().ck(() => {
-        if (LinkTool_panelList.isHidden())
-            LinkTool_show(_map_);
-        else
-            LinkTool_hide();
-    });
-}
-
 // ==================== 链接检查器类 ==================== //
 
-let StsLinkTool_ui = gUndefined,
+let StsLinkChkResult_ui = gUndefined,
     LinkTool_checkHashUI = gUndefined,
     LinkTool_checkHashMode = gFalse,
     LinkTool_panelList = gUndefined,
@@ -7598,27 +7780,40 @@ let StsLinkTool_ui = gUndefined,
     LinkTool_enabled = gTrue,
     LinkTool_warningCount = 0,
     LinkTool_errorCount = 0,
-    LinkTool_chpDup = [],
-    LinkTool_map = {},
+    LinkTool_chpDupSet = [], // 文本
+    LinkTool_chpDupReSet = [], // 正则表达式
+    LinkTool_pageMap = {},
+    LinkTool_textMap = {},
     LinkTool_mask = gUndefined;
 
 /**
  * 构造函数
  */
 function LinkTool_init(mask) {
-    StsLinkTool_ui = V_byClass(_vLinkChkResult_); // 检查结果
+    StsLinkChkResult_ui = V_byClass(_vLinkChkResult_); // 检查结果
     LinkTool_checkHashUI = V_byClass(_vCheckHash_);
     LinkTool_panelList = V_byClass(_vLinkInfoList_); // 坏链主界面
     LinkTool_panelHeader = V_byClass(_vLinkInfoList_ + __header_);
     LinkTool_panelItems = V_byClass(_vLinkInfoList_ + __items_); // 坏链内容列表
     LinkTool_enabled = gTrue;
 
+    // V_ui_stopScrollPropagation(LinkTool_panelItems);
+
     // 读取指定允许重复的章节标题预置选项
     let chpDup = V_util_getMetaByName(_vlook__ + "chp-dup");
-    if (chpDup !== gUndefined)
-        LinkTool_chpDup = chpDup.x().sp(";");
+    if (chpDup !== gUndefined) {
+        let cds = chpDup.x().sp(";");
+        for (let i = 0; i < cds.length; i++) {
+            // 正则表达式
+            if (cds[i].sW("/") && cds[i].eW("/"))
+                LinkTool_chpDupReSet.push(new RegExp(cds[i].substring(1, cds[i].length - 1)));
+            // 文本
+            else
+                LinkTool_chpDupSet.push(cds[i]);
+        }
+    }
 
-    StsLinkTool_ui.uC().ck((event) => {
+    StsLinkChkResult_ui.uC().ck((event) => {
         if (LinkTool_panelList.isHidden())
             LinkTool_show(_checked_);
         else
@@ -7706,7 +7901,7 @@ function LinkTool_addToCheckResult(type, targetToJump, content) {
     LinkTool_panelItems.ap(item);
 
     // 刷新状态栏对应的按钮 UI
-    JQ_addClass(StsLinkTool_ui, type);
+    JQ_addClass(StsLinkChkResult_ui, type);
 
     V_ui_adjustHoverStyle(item);
     item.uC().ck(() => {
@@ -7727,15 +7922,15 @@ function LinkTool_addToCheckResult(type, targetToJump, content) {
  */
 function LinkTool_notFoundHash(hash) {
     return (!hash.sW("#")
-        && V_length($(_write_ + " #" + hash + ","
-            + _write_ + " a" + V_attrCSS(_name_, hash))) === 0);
+        && V_length($(__write_ + " #" + hash + ","
+            + __write_ + " a" + V_attrCSS(_name_, hash))) === 0);
 }
 
 /**
  * 检查来自 query 参数中的 hash 集合
  */
 function LinkTool_checkHashSet() {
-    let count = V_util_getParamVal(_vHashCount_);
+    let count = V_util_getParamVal(_vCheckCount_);
     if (count == gNull)
         return false;
 
@@ -7747,13 +7942,13 @@ function LinkTool_checkHashSet() {
 
     // 检查当前文档中是否有指定的 hash 集
     let hash = _,
-        info = [
-            "没有找到 ",
-            "Not found "
-        ][V_lang],
+        info = V_lang_text(46, [
+            "没有找到",
+            "Not found"
+        ]) +___,
         notFoundCount = 0;
     for (let i = 1; i <= count; i++) {
-        hash = V_util_getParamVal(_vHash_ + i);
+        hash = V_util_getParamVal(_hash_ + i);
         // 没有找到
         if (hash != gNull && LinkTool_notFoundHash(hash)) {
             notFoundCount++;
@@ -7769,15 +7964,15 @@ function LinkTool_checkHashSet() {
         V_ui_changeDocIcon(V_util_getVarVal(var_iCheck + "-passed"));
 
         JQ_addClass(LinkTool_checkHashUI, "all-" + _found_)
-        LinkTool_checkHashUI.ap(V_ui_div(_, "all-" + _found_, [
+        LinkTool_checkHashUI.ap(V_ui_div(_, "all-" + _found_, V_lang_text(47, [
             "检查通过",
             "Check Passed"
-        ][V_lang]));
+            ])));
         // 关闭标签页
-        btn = $(V_ui_div(_, _vCheckHash_ + "-re" + _check_, [
+        btn = $(V_ui_div(_, _vCheckHash_ + "-re" + _check_, V_lang_text(48, [
             "关闭文档",
-            "Close document"
-            ][V_lang]));
+            _Close_ + " document"
+            ])));
     }
     // 部分 hash 不存在
     else {
@@ -7786,10 +7981,10 @@ function LinkTool_checkHashSet() {
 
         JQ_addClass(LinkTool_checkHashUI, "not-" + _found_)
         // 重新检查
-        btn = $(V_ui_div(_, _vCheckHash_ + "-re" + _check_, [
+        btn = $(V_ui_div(_, _vCheckHash_ + "-re" + _check_, V_lang_text(49, [
             "已修订，重新检查",
             "Revised, please recheck"
-            ][V_lang]));
+            ])));
     }
 
     // 添加操作按钮（根据以上不同检查结果生成）
@@ -7800,10 +7995,10 @@ function LinkTool_checkHashSet() {
     });
 
     // 关闭检查结果 UI
-    btn = $(V_ui_div(_, _vCheckHash_ + "-" + _close_, [
+    btn = $(V_ui_div(_, _vCheckHash_ + "-" + _close_, V_lang_text(23, [
         _startReading_cn_,
         _startReading_en_
-    ][V_lang]));
+        ])));
     LinkTool_checkHashUI.ap(btn);
     V_ui_adjustHoverStyle(btn);
     btn.uC().ck((event) => {
@@ -7821,12 +8016,19 @@ function LinkTool_checkLink() {
         return;
 
     // 检查所有页内链接对应的锚点是否都存在
-    $(_write_ + " a" + V_not(V_attrCSS(_class_, _mdToc__ + _inner_, "*"))).e((index, element) => {
+    $(__write_ + " a" + V_not(V_attrCSS(_class_, _mdToc__ + _inner_, "*"))).e((index, element) => {
         let _t = $(element),
+            text = _t.t().x(),
+            title = _t.a(_title_),
             href = _t.a(_href_),
             page = V_util_getUrlWithoutHash(href),
             hash = V_util_getUrlHash(href),
             hashNoMark = _;
+
+        // 获取指定对象的所有子元素（及其子元素）的文本内容
+        let joinedText = V_util_joinNodesText(_t, " • ");
+        if (V_length(joinedText) > 0)
+            text = joinedText;
 
         // 忽略无效数据
         // 对于 href="#" 的情况，在 Typora 1.6.x 开始的版本需要考虑，因为 Typora 生成的 HTML 会自动过滤无效的页内链接，直接用 # 代替
@@ -7870,7 +8072,11 @@ function LinkTool_checkLink() {
         if (V_length(page) > 0 && !page.sW("?")
             && page.i(_docLibIdentifier_) === -1
             && !page.sW("mailto:")) {
-            LinkTool_addToMap(page, hashNoMark);
+            if (title !== gUndefined)
+                title = title.x();
+            if (V_length(text) == 0 && V_length(title) > 0)
+                text = title;
+            LinkTool_addToMap(text, page, hashNoMark);
         }
     });
 
@@ -7881,9 +8087,9 @@ function LinkTool_checkLink() {
     // --------------------
     // 标题内容检查
     let headerTextSet = [];
-    $(_write_ + " :is(" + _h1_6_ + V_not(_firstChild_) + "),"
-        + _write_ +___+ _blockquote_ + ExtQuote_subTitle + ","
-        + _write_ +___+ _summary_).e((index, element) => {
+    $(__write_ + " :is(" + _h1_6_ + V_not(_firstChild_) + "),"
+        + __write_ +___+ _blockquote_ + ExtQuote_subTitle + ","
+        + __write_ +___+ _summary_).e((index, element) => {
         let _t = $(element),
             text = _t.t().x();
 
@@ -7894,71 +8100,102 @@ function LinkTool_checkLink() {
         // 是否有重复标题
         if (headerTextSet.indexOf(text) === -1)
             headerTextSet.push(text);
-        else if (LinkTool_chpDup.indexOf(text) === -1)
-            __addDuplicateChapter(_t);
+        // 重复标题的处理
+        else {
+            if (LinkTool_chpDupSet.indexOf(text) === -1 // 文本匹配
+                && !__matchForChpDupReSet(text)) // 正则表达式匹配
+                    __addDuplicateChapter(_t);
+
+        }
     });
+
+    // 以正则表达式进行重复标题检查
+    function __matchForChpDupReSet(text) {
+        for (let i = 0; i < LinkTool_chpDupReSet.length; i++) {
+            if (text.m(LinkTool_chpDupReSet[i]) != gNull)
+                return gTrue;
+        }
+        return gFalse;
+    }
 
     // 生成链接地图
     function __genLinkMap() {
         let pageIndex = 0;
-        for (let page in LinkTool_map) {
+        for (let page in LinkTool_pageMap) {
             pageIndex++;
 
             // 生成外部页面需要被检查的 hash 对应的 query 参数
             let urlParams = new URLSearchParams(),
                 hashIndex = 0;
             urlParams.append(_checkHash_, 0); // 初始检查 hash 的标记
-            for (let i = 0; i < V_length(LinkTool_map[page]); i++) {
-                let h = LinkTool_map[page][i];
+            for (let i = 0; i < V_length(LinkTool_pageMap[page]); i++) {
+                let h = LinkTool_pageMap[page][i];
                 if (V_length(h) > 0) {
                     hashIndex++;
-                    urlParams.append(_vHash_ + hashIndex, h);
+                    urlParams.append(_hash_ + hashIndex, LinkTool_disposeNonConformHash(h));
                 }
             }
 
             // 生成外部页面的目标链接，用于检查对应 hash 是否存在
             if (urlParams.size > 1) {
-                let hashSet = urlParams.toString();
-                urlParams.append(_vHashCount_, hashIndex);
+                urlParams.append(_vCheckCount_, hashIndex);
                 urlParams.set(_checkHash_, 1); // 更新检查 hash 的标记
                 urlParams.append("ws", 0);
-                hashSet = urlParams.toString();
-                __addLinkMapItem(pageIndex, page, hashSet, hashIndex);
+                __addLinkMapItem(LinkTool_textMap[page][0], pageIndex, page, urlParams, hashIndex);
             }
             else {
-                __addLinkMapItem(pageIndex, page, _, 0);
+                __addLinkMapItem(LinkTool_textMap[page][0], pageIndex, page, _, 0);
             }
         }
     }
 
     // 添加一条链接地图记录
-    function __addLinkMapItem(pageIndex, page, hashSet, hashCount) {
+    function __addLinkMapItem(text, pageIndex, page, urlParams, hashCount) {
+        // 生成直达各锚点的入口
+        let linkToHashSet = _,
+            cc = 0;
+        for (let [key, value] of urlParams) {
+            if (key.sW(_hash_)) {
+                let h = "#" + value;
+                linkToHashSet += (++cc > 1 ? _nbsp_+_nbsp_ : _) + V_ui_a(_, page + h, h, page);
+            }
+        }
+
         let // 超出长度上限时显示的内容
-            overLimit = V_ui_label(_, _, hashCount + [
+            overLimit = V_ui_label(_, _, hashCount + V_lang_text(50, [
                 "超出 URL 最大长度",
                 "Over URL limit"
-            ][V_lang]),
+            ])),
+
             // 未超出长度上限，且有锚点时，则生成检查入口
-            checkHash = (V_length(hashSet) > 0 ?
-                V_ui_label(_, _, V_ui_strong(hashCount) + [
-                    " 个锚点",
-                    " Hash" + (hashCount > 1 ? "s" : _)
-                ][V_lang]
-                    + V_ui_a(_check_ + "-hash", page
-                        + (page.i("?") > -1 ? "&" : "?") + hashSet,
-                            V_ui_svgIcon(_icoCheck_, 12, 14, _theme_) + [
-                                " 检查锚点",
-                                " Check Hash"
-                            ][V_lang], __blank_))
+            hashSet = JS_toString(urlParams),
+            hashSetLen = V_length(hashSet),
+            checkHash = (hashSetLen > 0 ?
+                V_ui_label(_, _, V_ui_strong(hashCount) +___+ V_lang_text(51, ["个锚点", "Hash"])
+                    + V_ui_a(_, page + (page.i("?") > -1 ? "&" : "?") + hashSet,
+                            V_ui_svgIcon(_icoCheck_, 12, 14, _theme_) +___+ V_lang_text(52, ["检查锚点", "Check Hash"]),
+                    __blank_))
                 : _),
+
             // 生成最终的条目内容
-            item = $(V_ui_div(_vMapItem_ + pageIndex, _vMapItem_, "🔗 "
-                + V_ui_a(_, page, JS_decodeURIComponent(page), page)
-                + (V_length(page) + V_length(hashSet) > 8000
-                        ? overLimit
-                        : checkHash
-                    )
-            ));
+            item = $(V_ui_div(_vMapItem_ + pageIndex, _vMapItem_,
+                    // 页面或链接内容
+                    V_ui_span(_, _, JS_decodeURIComponent(page))
+                    // 页面或链接的直达链接
+                    + V_ui_a(_, page,
+                        // 页面或链接入口
+                        "🔗 " + (V_length(text) > 0
+                            ? (V_length(linkToHashSet) > 0
+                                ? V_lang_text(82, ["页面", "Page"]) : text)
+                            : V_lang_text(83, ["链接", "Link"])), page)
+                    // 检查锚点的链接
+                    + (V_length(page) + hashSetLen > 8000
+                            ? overLimit
+                            : checkHash)
+                    // 直达锚点的链接
+                    + (V_length(linkToHashSet) > 0 ? _br_ : _)
+                    + linkToHashSet
+                ));
 
         V_ui_addAnimate(item);
         V_ui_adjustHoverStyle(item);
@@ -7979,19 +8216,19 @@ function LinkTool_checkLink() {
     // 添加一条警示记录：重复名称章节标题
     function __addDuplicateChapter(aObj) {
         LinkTool_addToCheckResult(_warning_, aObj,
-            V_ui_label(_, _, "⚠️ 📖 " + [
-                "重复名称的标题",
-                "Duplicate Chapter"
-            ][V_lang]) + aObj.t());
+            V_ui_label(_, _, "⚠️ " + V_lang_text(53, [
+                "重复的标题名称",
+                "Duplicate " + _Chapter_
+            ])) + aObj.t());
     }
 
     // 添加一条错误记录：无效的页内链接记录
     function __addErrorLink(aObj, hash) {
         LinkTool_addToCheckResult(_error_, aObj,
-            V_ui_label(_, _, "🚫 🔗 " + [
+            V_ui_label(_, _, "⛔️ " + V_lang_text(54, [
                     "无效页内链接",
-                    "Invalid Inner Link"
-                ][V_lang]) + aObj.t()
+                    _Invalid_ + " Inner Link"
+                ])) + aObj.t()
                 + ("#" + aObj.t() === hash ? _ : " (" + hash + ")"));
     }
 }
@@ -8015,17 +8252,21 @@ function LinkTool_disposeNonConformHash(hash) {
 
 /**
  * 添加到链接地图
+ * @param text 链接文本
  * @param page 页面地址（不含 hash）
  * @param hashNoMark 页面 hash（不含 #）
  */
-function LinkTool_addToMap(page, hashNoMark) {
+function LinkTool_addToMap(text, page, hashNoMark) {
     // 如果键不存在，创建一个空数组用于保存内容
-    if (!(page in LinkTool_map))
-        LinkTool_map[page] = [];
+    if (!(page in LinkTool_pageMap)) {
+        LinkTool_pageMap[page] = [];
+        LinkTool_textMap[page] = [];
+        LinkTool_textMap[page].push(text);
+    }
 
     // 向对应键的数组中添加内容，重复的 hash 不添加
-    if (LinkTool_map[page].indexOf(hashNoMark) === -1)
-        LinkTool_map[page].push(hashNoMark);
+    if (LinkTool_pageMap[page].indexOf(hashNoMark) === -1)
+        LinkTool_pageMap[page].push(hashNoMark);
 }
 
 /**
@@ -8052,11 +8293,16 @@ function LinkTool_show(type) {
     if (curType === gUndefined || curType !== type) {
         // 显示当前页面页内链接的检查结果
         if (type === _checked_) {
+            LinkTool_panelList.a(_dataTitle_, V_lang_text(81, [
+                "异常的链接 / 地址",
+                "Invalid link / address"
+            ]));
             mapItems.hide();
             tocItems.show();
         }
         // 显示链接地图
         else if (type === _map_) {
+            LinkTool_panelList.a(_dataTitle_, V_lang_text3());
             tocItems.hide();
             mapItems.show();
         }
@@ -8121,6 +8367,7 @@ function BgMask(id, extStyle, close) {
     V_ui_initEffectLevel();
 
     T.ui = V_byClass(_vMask_ + "." + id);
+    // V_ui_stopScrollPropagation(T.ui);
     T.closer = gUndefined;
 
     // 生成关闭提示器
@@ -8160,19 +8407,16 @@ function BgMask(id, extStyle, close) {
             let offset = 30,
                 x = JS_parseInt(T.partnerUI.c(_left_)) + T.partnerUI.w() + offset,
                 y = JS_parseInt(T.partnerUI.c(_top_)) + (T.partnerUI.h() - T.closer.h()) / 2;
-            // left / right 的处理
+            // 对齐方式 left / right 的处理
             if (T.style === _left_ || T.style === _right_) {
                 T.closer.c(_left_, T.style === _right_
                         ? JS_parseInt(T.partnerUI.c(_left_)) - T.closer.w() - offset
-                        : x)
-                    .c(_top_, y);
+                        : x);
             }
-            // bottom 的处理
+            // 对齐方式 bottom 的处理
             else if (T.style === _bottom_) {
                 y = JS_parseInt(T.partnerUI.c(_bottom_)) + T.partnerUI.h() + offset;
-                T.closer
-                    .c(_bottom_, y + 20)
-                    .c(_padding_, "0px 50%");
+                T.closer.c(_bottom_, y + 20);
             }
         }
 
@@ -8231,7 +8475,7 @@ function ContentFolder_init() {
  * 添加内容
  */
 function ContentFolder_add(content, type) {
-    // 跳过不启用折叠，或任意父级元素是折叠引用块的情况
+    // 跳过不启用折叠，或任意父级元素是详情折叠的情况
     if (!ContentFolder_enabled
         || V_length(content.ps(_blockquote_ + "," + _details_)) > 0) {
         return;
@@ -8285,7 +8529,7 @@ function ContentFolder_rebuild() {
 
     // 重建需要重建的部分
     for (let i = 0, len = V_length(ContentFolder_contents); i < len; i++) {
-        // img 类长内容
+        // 对类 img 长内容
         if (V_util_getTagName(ContentFolder_contents[i]).sW("i")) {
             // 创建一个Image对象，实现图片的预下载
             let img = new Image();
@@ -8406,10 +8650,10 @@ function ContentFolder_buildContentExpander(target, container, tagName, i) {
     if (w > tW)
         w = tW;
 
-    container.a("d-ex-label", [
-        "显示全部 ▼",
-        "Show all ▼"
-    ][V_lang]);
+    container.a("d-ex-label", V_lang_text(55, [
+        "显示全部",
+        "Show all"
+    ]) + " ▼");
     let newClass = "." + _vCaptionContainer_ + "." + _expander_
         + ".id-" + i + "::before{" + _width_ + ":" + w + "px;}";
     gStyle.insertRule(newClass, 0);
@@ -8521,14 +8765,14 @@ function ToolTips_show(follower, align, classValue) {
 
     // 指定对齐方式或提示超出屏幕
     if (align !== _auto_ || (left + tipsW) > ww) {
-        // align: right
+        // 对齐方式: right
         JQ_addClass(ToolTips_ui, _right_);
         left = follower.oL() - tipsW + width;
         // 右侧顶边，则微调
         if (left + tipsW >= ww)
             left = left - space;
 
-        // align: center
+        // 对齐方式: center
         if (align === _center_) {
             JQ_removeClass(ToolTips_ui, _right_);
             JQ_addClass(ToolTips_ui, _center_);
@@ -8778,7 +9022,7 @@ function MoreDocContent_refresh(scrollTop) {
     if (scrollTop === gUndefined)
         scrollTop = V_util_getScrollTop();
 
-    // before UI
+    // 顶部 before UI
     if (scrollTop > gScrollEdge) {
         if (MoreDocContent_ui_before.c(_display_) === _none_)
             MoreDocContent_ui_before.show();
@@ -8786,7 +9030,7 @@ function MoreDocContent_refresh(scrollTop) {
     else
         MoreDocContent_ui_before.hide();
 
-    // after UI
+    // 底部 after UI
     if ((scrollTop + jq_Window.h()) > (jq_Document.h() - gScrollEdge))
         MoreDocContent_ui_after.hide();
     else {
@@ -8824,10 +9068,10 @@ let CaptionGenerator_spliter = ". ",
  * @param tagName HTML 标签名称
  */
 function CaptionGenerator_actionForTextContent(target, tagName) {
-    let captionPrefix = [
-            "表 ",
-            "Table "
-        ][V_lang] + V_doc_counter_table,
+    let captionPrefix = V_lang_text(56, [
+            "表",
+            "Table"
+        ]) +___+ V_doc_counter_table,
         caption,
         indexObj = gUndefined,
         anchor,
@@ -8838,10 +9082,10 @@ function CaptionGenerator_actionForTextContent(target, tagName) {
     if (tagName.sW("pr")) {
         lang = target.a(_lang_).x();
         indexObj = iNavCenter.codeblock;
-        captionPrefix = [
-            "代码块 ",
-            "Code Block "
-        ][V_lang] + V_doc_counter_codeblock;
+        captionPrefix = V_lang_text(57, [
+            "代码块",
+            "Code Block"
+        ]) +___+ V_doc_counter_codeblock;
     }
     // 表格 <table>
     else if (tagName.sW("t")) {
@@ -8953,25 +9197,25 @@ function CaptionGenerator_actionForMediaContent(target, tagName) {
 
     // 插图（img、mermaid）题注前缀
     let caption,
-        captionPrefix = [
-        "图 ",
-        "Figure "
-    ][V_lang] + V_doc_counter_figure;
+        captionPrefix = V_lang_text(58, [
+        "图",
+        "Figure"
+    ]) +___+ V_doc_counter_figure;
     // 音频题注 audio
     if (tagName.sW("a")) {
         indexObj = iNavCenter.media;
-        captionPrefix = [
-            "音频 ",
-            "Audio "
-        ][V_lang] + V_doc_counter_audio;
+        captionPrefix = V_lang_text(59, [
+            "音频",
+            "Audio"
+        ]) +___+ V_doc_counter_audio;
     }
     // 视频频题注 video
     else if (tagName.sW("v")) {
         indexObj = iNavCenter.media;
-        captionPrefix = [
-            "视频 ",
-            "Video "
-        ][V_lang] + V_doc_counter_video;
+        captionPrefix = V_lang_text(60, [
+            "视频",
+            "Video"
+        ]) +___+ V_doc_counter_video;
     }
 
     // 无指定的题注文本，同时开启了自动生成题注，则取其部分内容作为自动题注内容
@@ -9009,7 +9253,9 @@ function CaptionGenerator_actionForMediaContent(target, tagName) {
     // 为视频增加题注 video
     else if (tagName.sW("v")) {
         anchor = _vkIdVideo_ + V_doc_counter_video;
-        target.wrap(V_ui_divExt(anchor, _vCaption_, V_attr(_dataFigType_, tagName)));
+        target.wrap(V_ui_divExt(anchor, _vCaption_
+            + (tagName.eW(_iframe_) ? ___+ _iframe_ : _), // 内嵌视频的情况
+            V_attr(_dataFigType_, tagName)));
     }
 
     // 生成第 1 题注
@@ -9149,17 +9395,16 @@ function CaptionGenerator_parseSyntax(target) {
 
 // ==================== 分步分级类 ==================== //
 
-// 样式优化的目标内容
 let BreadcrumbStyle_count = 0,
     // 匹配面包屑内容中的指定分隔符号，但不包括 HTML 标签内的内容
-    BreadcrumbStyle_syntax = /(\s*(\/|\\|▸|▶︎|(&gt;))\s*)(?![^<>]*>)/g;
+    BreadcrumbStyle_syntax = /(\s*(\/|\\|▸|▶︎|(&gt;)|(-&gt;)|→)\s*)(?![^<>]*>)/g;
 
 /**
  * 初始如化分步分级处理
  */
 function BreadcrumbStyle_init() {
     // 对所有分步分级元素进行样式优化
-    $(_write_ + " em>" + _mark_ + _onlyChild_ + ">" + _span_ + _firstChild_).e((index, element) => {
+    $(__write_ + " em>" + _mark_ + _onlyChild_ + ">" + _span_ + _firstChild_).e((index, element) => {
         BreadcrumbStyle_count++;
         let _t = $(element),
             mark = _t.p();
@@ -9188,7 +9433,7 @@ function BreadcrumbStyle_init() {
     });
 
     // 避免与 BreadcrumbStyle 处理中的多层触发
-    $(_write_ + " ." + _vBreadcrumbStyle_ + " a").ck((event) => {
+    $(__write_ + " ." + _vBreadcrumbStyle_ + " a").ck((event) => {
         event.stopPropagation(); // 停止事件冒泡
     });
 }
@@ -9243,7 +9488,7 @@ function ExtCodeBlock_copyContent(source, event) {
     // 逐行读取代码
     lines.e((index, element) => {
         lineNum++;
-        let encodeText = encodeURI($(element).t());
+        let encodeText = JS_encodeURI($(element).t());
         // 清除或转换特殊字符
         for (let i = 0; i < V_length(badChars); i++) {
             if (encodeText.i(badChars[i]) > -1)
@@ -9262,6 +9507,31 @@ function ExtCodeBlock_copyContent(source, event) {
     Copyer_action(source, content, gTrue);
 }
 
+// ==================== 代码块换行、不换行类 ==================== //
+
+/**
+ * 切换代码块换行、不换行开关
+ */
+function CodeblockWrap_toggle() {
+    let codeblock = ContentAssistor_lastHover;
+    // 已开启，则关闭
+    if (CodeblockWrap_isWrap(codeblock)) {
+        JQ_removeClass(ContentAssistor_btns_wrap, _selected_);
+        JQ_removeClass(codeblock, _unwrap_);
+    }
+    // 未开启，则开启
+    else {
+        JQ_addClass(ContentAssistor_btns_wrap, _selected_);
+        JQ_addClass(codeblock, _unwrap_);
+    }
+}
+
+/**
+ * 判断代码块是否启用了换行
+ */
+function CodeblockWrap_isWrap() {
+    return ContentAssistor_lastHover.a(_class_).i(_unwrap_) > -1;
+}
 // ==================== 复制类 ==================== //
 
 let Copyer_lastActionTime = 0,
@@ -9278,7 +9548,7 @@ let Copyer_lastActionTime = 0,
  */
 function Copyer_action(source, content, supportMarkdown, successCallback, errorCallback) {
     // 控制两次复制操作的时间间隔（同时也是解决嵌套情况下的复制失效问题）
-    let ts = new Date().getTime();
+    let ts = V_util_getTime();
     if (Copyer_processing || ts - Copyer_lastActionTime < 200)
         return;
     Copyer_lastActionTime = ts;
@@ -9296,15 +9566,17 @@ function Copyer_action(source, content, supportMarkdown, successCallback, errorC
     // 复制成功事件
     clipboard.on("success", (event) => {
         // 显示复制成功提示
-        let note = ContentAssistor_copyAsMarkdown ? " (" + V_ui_strong("as Markdown") + ")" : _,
-            tips = supportMarkdown ? [
-                "<br>" + V_ui_sub(_, _, "( 再次点击可复制为 Markdown )"),
-                "<br>" + V_ui_sub(_, _, "( Click again to Copy as Markdown )")
-                ][V_lang] : _;
-        iInfoTips.bubble([
+        let note = ContentAssistor_copyAsMarkdown ? " (" + V_ui_strong(_as_Markdown_) + ")" : _,
+            tips = supportMarkdown
+                ? "<br>" + V_ui_sub(_, _, "( " + V_lang_text(61, [
+                    "再次点击可复制为 " + _Markdown_,
+                    "Click again to " + _Copy_ +___+ _as_Markdown_
+                ]) + " )")
+                : _;
+        iInfoTips.bubble(V_lang_text(62, [
                 "已复制",
                 "Copied"
-            ][V_lang] + (ContentAssistor_copyAsMarkdown ? _ : tips)
+            ]) + (ContentAssistor_copyAsMarkdown ? _ : tips)
             + note, 2000, gFalse, source);
 
         event.clearSelection();
@@ -9335,10 +9607,10 @@ function Copyer_action(source, content, supportMarkdown, successCallback, errorC
     // 复制失败事件
     clipboard.on(_error_, () => {
         // 显示复制失败提示
-        iInfoTips.error(V_ui_strong([
-            "非常抱歉～暂不支持在该浏览器中复制",
+        iInfoTips.error(V_ui_strong(V_lang_text(37, [
+            "抱歉～暂不支持在该浏览器中复制",
             "I'm very sorry~ I don't support copying in this browser"
-        ][V_lang]), 3000, gFalse, source);
+        ])), 3000, gFalse, source);
 
         typeof(errorCallback) === _function_ && errorCallback();
 
@@ -9358,7 +9630,7 @@ function Unpublished_init() {
 
     // --------------------
     // 指定的引用块（小标题、折叠）
-    $(_write_ +___+ _blockquote_ + ExtQuote_subTitle + ">del," + _write_ +___+ _summary_ + ">del").e((index, element) => {
+    $(__write_ +___+ _blockquote_ + ExtQuote_subTitle + ">del," + __write_ +___+ _summary_ + ">del").e((index, element) => {
         let _t = $(element).p(),
             tagName = V_util_getTagName(_t),
             target = gUndefined;
@@ -9388,7 +9660,7 @@ function Unpublished_init() {
      * @param headerNum 指定要遍历的章节等级
      */
     function __disposUnpubHeader(headerNum) {
-        $(_write_ + " h" + headerNum + ">del").e((index, element) => {
+        $(__write_ + " h" + headerNum + ">del").e((index, element) => {
             let _t = $(element).p(),
                 id = _t.a(_id_);
             WARN(`Remove unpub. header: ${_t.t()} (#${id})`);
@@ -9488,7 +9760,7 @@ function ChpAutoNum_initToc() {
             ChpAutoNum_counter[ChpAutoNum_lastLevel - 1]++;
         }
 
-        item.a(_dataHeaderNum_, ChpAutoNum_toString());
+        item.a(_dataHeaderNum_, ChpAutoNum_toString() + ___);
     }
 }
 
@@ -9618,33 +9890,39 @@ function ChpAutoNum_toString() {
 
         // 十进制数字
         if (format === "#")
-            ns += ChpAutoNum_leftPadForDecimal(counter, i);
+            ns = (ChpAutoNum_lastLevel === 1)
+                // 针对 h1
+                ? ChpAutoNum_leftPadForDecimal(counter, i)
+                // 针对 h2~h5
+                : (i === 0 // 第1段
+                    ? JS_toString(counter) // 针对 第1段 强制变为数字（避免出现左侧补 0 的情况）
+                    : ChpAutoNum_leftPadForDecimal(counter, i))
         // 中文数字
         else if (format === "zh") {
-            ns += (ChpAutoNum_lastLevel === 1)
-                // h1
+            ns = (ChpAutoNum_lastLevel === 1)
+                // 针对 h1
                 ? ChpAutoNum_decimalToZh(counter, upperCase)
-                // h2~h5
+                // 针对 h2~h5
                 : ChpAutoNum_leftPadForDecimal(counter, i);
         }
         // 英文字母
         else if (format === _alpha_) {
-            ns += (ChpAutoNum_lastLevel === 1 || opt > CHPAUTONUM_TPL_FORMAT_OPT_NONE)
-                // h1
+            ns = (ChpAutoNum_lastLevel === 1 || opt > CHPAUTONUM_TPL_FORMAT_OPT_NONE)
+                // 针对 h1
                 ? ChpAutoNum_decimalToAlpha(counter, upperCase)
-                // h2~h5
+                // 针对 h2~h5
                 : ChpAutoNum_leftPadForDecimal(counter, i);
         }
         // 罗马数字
         else if (format === "roman") {
-            ns += (ChpAutoNum_lastLevel === 1 || opt > CHPAUTONUM_TPL_FORMAT_OPT_NONE)
-                // h1
+            ns = (ChpAutoNum_lastLevel === 1 || opt > CHPAUTONUM_TPL_FORMAT_OPT_NONE)
+                // 针对 h1
                 ? ChpAutoNum_decimalToRoman(counter, upperCase)
-                // h2~h5
+                // 针对 h2~h5
                 : ChpAutoNum_leftPadForDecimal(counter, i);
         }
         else if (format === _off_)
-            ns += _;
+            ns = _;
         return ns;
     }
 }
@@ -9667,7 +9945,7 @@ function ChpAutoNum_parseTocHeaderLevel(value) {
  */
 function ChpAutoNum_leftPadForDecimal(value, lv) {
     let pad = V_length(ChpAutoNum_tpl_leftPad[lv]),
-        gap = pad - V_length(value.toString()),
+        gap = pad - V_length(JS_toString(value)),
         padStr = _;
     if (gap > 0) {
         for (let i = 0; i < gap; i++)
@@ -9687,7 +9965,7 @@ let ChpAutoNum_zhNum = ["零", "一", "二", "三", "四", "五", "六", "七", 
 function ChpAutoNum_decimalToZh(num, upperCase) {
     let overWan = Math.floor(num / 10000),
         noWan = num % 10000;
-    if (V_length(noWan.toString()) < 4)
+    if (V_length(JS_toString(noWan)) < 4)
         noWan = "0" + noWan;
 
     let numeral = overWan ? __numToZh(overWan) + "万" + __numToZh(noWan) : __numToZh(num);
@@ -9698,7 +9976,7 @@ function ChpAutoNum_decimalToZh(num, upperCase) {
 
     // 阿拉伯数字转换为中文数字
     function __numToZh(value) {
-        let strArr = value.toString().sp(_).reverse();
+        let strArr = JS_toString(value).sp(_).reverse();
         let newNum = _;
         for (let i = 0; i < V_length(strArr); i++) {
           newNum = (
@@ -9793,7 +10071,7 @@ function ExtQuote_init() {
         let _t = $(element),
             matchedQuoteFold = gFalse;
         // ====================
-        // 处理引用块折叠（details）
+        // 处理详情折叠（details）
         _t.ch(_h6_ + _firstChild_).e((i, e) => {
             let details = __disposeDetailsFolder($(e));
             if (details)
@@ -9994,7 +10272,7 @@ function ExtQuote_autoUnfold() {
         let parent = target.p();
         // 只针对 details 标签
         if (V_util_getTagName(parent) === _details_) {
-            // 如果是嵌套的折叠引用块，则进行递归处理
+            // 如果是嵌套的详情折叠，则进行递归处理
             if (V_util_getTagName(parent.p()) === _details_)
                 __openDetails(parent.p());
             // 未打开时才进行打开
@@ -10164,7 +10442,7 @@ function ExtTable_init() {
             });
         });
 
-        // 标记该表格列太多，用于匹配是否自动换行的自动版式
+        // 标记该表格列太多，用于匹配是否换行、不换行的自动版式
         if (colIndex > 7)
             table.a("d-col-too-more", colIndex);
 
@@ -10180,23 +10458,9 @@ function ExtTable_init() {
                 let td = $(e),
                     text = td.t();
 
-                // ---------- 对于字符过多时设置为换行样式 ----------
-                let wrapLimit = 35,
-                    wrapLimit2 = wrapLimit - 5;
-                if (V_length(text) > wrapLimit) {
-                    let lines = __splitByBr(td.hm());
-                    for (let i = 1; i < V_length(lines); i++) {
-                        let len = V_length(lines[i]);
-                        if (len <= wrapLimit)
-                            continue;
-                        // 只处理字符过多的行
-                        let cjk = lines[i].m(gRE_cjk),
-                            cjkCount = (cjk == gNull ? 0 : V_length(cjk));
-                        if ((len - cjkCount) / 2 + cjkCount > wrapLimit2) {
-                            JQ_addClass(td, _vLong_);
-                        }
-                    }
-                }
+                // 对于屏幕较小时，调整单元格的最大宽度处理
+                if (jq_Window.oW() <= gUnwrapTableScreenWidth)
+                    TableWrap_disableDisposeTd(table, td);
 
                 // ---------- 表格排版增强预处理 ----------
                 // 检测是否带合并单元格语法
@@ -10233,34 +10497,16 @@ function ExtTable_init() {
                 TableCross_bind(table, td);
             }); // find(th, td)
         }); // find(tr)
-
-        function __splitByBr(text) {
-            // 创建 DOMParser 实例
-            const parser = new DOMParser();
-            // 将文本解析为 DOM 文档
-            const doc = parser.parseFromString(text, "text/html");
-            // 获取所有文本节点
-            const textNodes = doc.querySelectorAll(V_not("br") + " *");
-            // 将文本节点的内容按换行符分割
-            const lines = [];
-            for (const node of textNodes) {
-              const line = node.textContent.trim();
-              if (line) {
-                lines.push(line);
-              }
-            }
-            return lines;
-          }
     }
 }
 
-let // 单元格内（加粗）文本着色的正则表达式
+let // 单元格内（加粗）文本颜色的正则表达式
     gRE_boldRainbowText = new RegExp("(<" + _strong_ + "( " + _dataRbText_ + '="([a-z!12]+)")?>)([\\s\\S]*?)(<\\/' + _strong_ + ">)", "i"),
-    // 有指定单元格内（斜体）文本着色的正则表达式
+    // 有指定单元格内（斜体）文本颜色的正则表达式
     gRE_italicRainbowText = new RegExp("(<em( " + _dataRbText_ + '="([a-z!12]+)")?>)([\\s\\S]*?)(<\\/em>)', "i"),
-    // 有指定单元格内（高亮）文本着色的正则表达式
+    // 有指定单元格内（高亮）文本颜色的正则表达式
     gRE_highlightRainbowText = new RegExp("(<" + _mark_ + "( " + _dataRbText_ + '="([a-z!12]+)")?>)([\\s\\S]*?)(<\\/' + _mark_ + ">)", "i"),
-    // 有指定单元格内（下划线）文本着色的正则表达式
+    // 有指定单元格内（下划线）文本颜色的正则表达式
     gRE_underlineRainbowText = new RegExp("(<u( " + _dataRbText_ + '="([a-z!12]+)")?>)([\\s\\S]*?)(<\\/u>)', "i"),
     // 代码
     gRE_code = new RegExp('(<' + _code_ +___+ _class_ + '="' + _vStdCode_ + '.*?(?=id-)(id-\\d+).*?(<\\/' + _code_ + '>).*?)', "i"),
@@ -10492,9 +10738,9 @@ function ExtTable_copyContent(source, event) {
         // 转换代码
         cellHTML = __transCellContent_code(cellHTML, gRE_code);
 
-        // 转换文本着色、单元格背景色
+        // 转换文本颜色、单元格背景色
         if (ContentAssistor_copyAsMarkdown) {
-            // 有指定整段（整个单元格）的文本着色
+            // 有指定整段（整个单元格）的文本颜色
             if (cellWholeText !== gUndefined)
                 cellHTML = "_~" + cellWholeText + "~_" + cellHTML;
 
@@ -10502,16 +10748,16 @@ function ExtTable_copyContent(source, event) {
             if (cellBg !== gUndefined)
                 cellHTML += "_~" + cellBg + "!~_";
 
-            // 有指定单元格内（加粗）文本着色
+            // 有指定单元格内（加粗）文本颜色
             cellHTML = __transCellContent_rainbowText(cellHTML,
                 gRE_boldRainbowText);
-            // 有指定单元格内（斜体）文本着色
+            // 有指定单元格内（斜体）文本颜色
             cellHTML = __transCellContent_rainbowText(cellHTML,
                 gRE_italicRainbowText);
-            // 有指定单元格内（高亮）文本着色
+            // 有指定单元格内（高亮）文本颜色
             cellHTML = __transCellContent_rainbowText(cellHTML,
                 gRE_highlightRainbowText);
-            // 有指定单元格内（下划线）文本着色
+            // 有指定单元格内（下划线）文本颜色
             cellHTML = __transCellContent_rainbowText(cellHTML,
                 gRE_underlineRainbowText);
         }
@@ -10607,7 +10853,7 @@ function ExtTable_copyContent(source, event) {
         return cellHTML;
     }
 
-    // 转换单元格内的文本着色
+    // 转换单元格内的文本颜色
     function __transCellContent_rainbowText(cellHTML, exp) {
         let result = cellHTML.m(exp);
 
@@ -10618,16 +10864,16 @@ function ExtTable_copyContent(source, event) {
             if (color !== gUndefined)
                 cellHTML = cellHTML.r(exp, "$1$4$5~($3)~");
             if (format !== gUndefined) {
-                // strong
+                // 加粗 strong
                 if (format.sW("<st"))
                     cellHTML = cellHTML.r(exp, "**$4**");
-                // em
+                // 斜体 em
                 else if (format.sW("<e"))
                     cellHTML = cellHTML.r(exp, "*$4*");
-                // mark
+                // 高亮 mark
                 else if (format.sW("<m"))
                     cellHTML = cellHTML.r(exp, "==$4==");
-                // <u>
+                // 下划线 <u>
                 else if (format.sW("<u"))
                     cellHTML = cellHTML.r(exp, "___u___$4___/u___");
             }
@@ -10713,7 +10959,7 @@ function CellMerge_dispose(table) {
             }
             // 不是列标识，则进行最近列标识数据进行处理
             else {
-                if (colSpanCount > 0 && colSpanCell != gNull) {
+                if (colSpanCount > 0 && colSpanCell !== gUndefined) {
                     colSpanCell.a(_colspan_, colSpanCount + 1);
                     CellMerge_emptyBlankCell(colSpanCell);
                     colSpanCell.c(_textAlign_, _center_);
@@ -10729,7 +10975,7 @@ function CellMerge_dispose(table) {
         }
 
         // 列间合并：对于最后一列的补充处理
-        if (colSpanCount > 0 && colSpanCell != gNull) {
+        if (colSpanCount > 0 && colSpanCell !== gUndefined) {
             colSpanCell.a(_colspan_, colSpanCount + 1);
             CellMerge_emptyBlankCell(colSpanCell);
             colSpanCell.c(_textAlign_, _center_);
@@ -10805,7 +11051,7 @@ function CellMerge_dispose(table) {
                     tblCol = td.a(_dataTblCol_),
                     classValue = td.a(_class_),
                     colspan = td.a(_dataColspan_);
-                // td 转换为 th 标签
+                // 将 td 转换为 th 标签
                 td.a(_dataTd2th_, _true_);
                 td.rW(td.prop(_outerHTML_).rA("<td ", "<th "));
                 // 将暂存的 td 的属性数据，恢复到新标签中
@@ -10831,7 +11077,8 @@ function CellMerge_dispose(table) {
  * @param cell 表格单元格对象
  */
 function CellMerge_emptyBlankCell(cell) {
-    if (V_length(cell.t().x()) === 0) {
+    // 无子元素，或内容只有一个空格的情况
+    if (V_length(cell) === 0 || cell.t() === ___) {
         cell.hm(_);
         JQ_addClass(cell, "v-empty-cell");
     }
@@ -10851,7 +11098,9 @@ function TableCross_init() {
 /**
  * 切换表格阅读模式（十字光标）开关
  */
-function TableCross_toggle(table) {
+function TableCross_toggle() {
+    let table = ContentAssistor_lastHover;
+    ERROR(111, table.a(_dataTblX_));
     // 已打开，则关闭
     if (table.a(_dataTblX_) === _true_)
         TableCross_disable(table);
@@ -10884,13 +11133,14 @@ function TableCross_bind(table, cell) {
         if (table.a(_dataTblX_) !== _true_ || Copyer_processing)
             return;
 
-        // vvv 不同表格之间点击，先强制移除动画 vvv
+        // 首次点击，先强制移除动画
         if (TableCross_lastTable === gUndefined)
             V_ui_removeAnimate(TableCross_ui);
 
         // 同一单元格不重复处理
-        if (TableCross_lastCell === cell)
-            return;
+        // to-do: 开启后会导致同一单元格第 1 次点击后就失效
+        // if (TableCross_lastCell === cell)
+        //     return;
 
         let container = table.p().p(),
             contentFolded = container.a(_dataContentFolded_);
@@ -10922,7 +11172,7 @@ function TableCross_bind(table, cell) {
             cornerRightWidth = tblWidth - cornerLeftWidth - cellWidth,
             cornerDownHeight = tblHeight - cornerUpHeight - cellHeight;
 
-        // 1. 左上角
+        // 左上角
         let leftUp = $(_vTblX_ + ".left-up");
         leftUp.c(_left_, cornerLeftX)
             .c(_top_, cornerUpY)
@@ -10930,7 +11180,7 @@ function TableCross_bind(table, cell) {
             .c(_height_, cornerUpHeight)
             .c(_zIndex_, 9);
 
-        // 2. 右上角
+        // 右上角
         let rightUp = $(_vTblX_ + ".right-up");
         rightUp.c(_left_, cornerRightX)
             .c(_top_, cornerUpY)
@@ -10938,7 +11188,7 @@ function TableCross_bind(table, cell) {
             .c(_height_,  cornerUpHeight)
             .c(_zIndex_, 9);
 
-        // 3. 左下角
+        // 左下角
         let leftDown = $(_vTblX_ + ".left-down");
         leftDown.c(_left_, cornerLeftX)
             .c(_top_, cornerDownY)
@@ -10946,7 +11196,7 @@ function TableCross_bind(table, cell) {
             .c(_height_, cornerDownHeight)
             .c(_zIndex_, 9);
 
-        // 4. 右下角
+        // 右下角
         let rightDown = $(_vTblX_ + ".right-down");
         rightDown.c(_left_, cornerRightX)
             .c(_top_, cornerDownY)
@@ -10984,21 +11234,29 @@ function TableCross_hide(sameTable) {
     TableCross_lastTable = gUndefined;
 }
 
-// ==================== 表格自动换行类 ==================== //
+// ==================== 表格换行、不换行类 ==================== //
 
 /**
- * 切换表格自动换行开关
+ * 切换表格换行、不换行开关
  */
-function TableWrap_toggle(table) {
-    // 已打开，则关闭
-    if (table.c(_whiteSpace_) === _preWrap_)
+function TableWrap_toggle() {
+    let table = ContentAssistor_lastHover;
+    // 已开启，则关闭
+    if (TableWrap_isWrap())
         TableWrap_disable(table);
-    // 未打开，则打开
+    // 未开启，则开启
     else
         TableWrap_enable(table);
 }
 
-// 打开表格自动换行
+/**
+ * 判断表格是否启用了换行
+ */
+function TableWrap_isWrap() {
+    return ContentAssistor_lastHover.c(_whiteSpace_) === _preWrap_;
+}
+
+// 开启表格换行、不换行
 function TableWrap_enable(table) {
     table.f("td." + _vLong_).e((index, element) => {
         let _t = $(element);
@@ -11006,12 +11264,12 @@ function TableWrap_enable(table) {
         JQ_removeClass(_t, _vLong_);
     });
 
-    JQ_addClass(ContentAssistor_btns_tableWrap, _selected_);
-    JQ_removeClass(table, _vTableUnwrap_);
-    JQ_addClass(table, _vTableWrap_);
+    JQ_addClass(ContentAssistor_btns_wrap, _selected_);
+    JQ_removeClass(table, _unwrap_);
+    JQ_addClass(table, _wrap_);
 }
 
-// 关闭表格自动换行
+// 关闭表格换行、不换行
 function TableWrap_disable(table) {
     table.f("td" + V_attrCSS(_dataLong_, gTrue)).e((index, element) => {
         let _t = $(element);
@@ -11019,9 +11277,54 @@ function TableWrap_disable(table) {
         JQ_removeAttr(_t, _dataLong_);
     });
 
-    JQ_removeClass(ContentAssistor_btns_tableWrap, _selected_);
-    JQ_removeClass(table, _vTableWrap_);
-    JQ_addClass(table, _vTableUnwrap_);
+    JQ_removeClass(ContentAssistor_btns_wrap, _selected_);
+    JQ_removeClass(table, _wrap_);
+    JQ_addClass(table, _unwrap_);
+
+    // 关闭表格换行、不换行后的处理
+    table.f(_tbody_ + ">tr").e((index, element) => {
+        // ----------------------------------------
+        // 遍历单元格
+        $(element).f("td").e((i, e) => {
+            // 对于字符过多时调整单元格宽度
+            TableWrap_disableDisposeTd(table, $(e));
+        });
+    });
+}
+
+// 关闭表格换行、不换行后的处理
+function TableWrap_disableDisposeTd(table, td) {
+    let text = td.t(),
+        wrapLimit = 35,
+        wrapLimit2 = wrapLimit - 5;
+
+    if (table.c(_whiteSpace_) !== _preWrap_ && V_length(text) > wrapLimit) {
+        let lines = __cleanBr(td.hm());
+        for (let i = 1; i < V_length(lines); i++) {
+            let len = V_length(lines[i]);
+            if (len <= wrapLimit)
+                continue;
+            // 只处理字符过多的行
+            let cjk = lines[i].m(gRE_cjk),
+                cjkCount = (cjk == gNull ? 0 : V_length(cjk));
+            if ((len - cjkCount) / 2 + cjkCount > wrapLimit2)
+                JQ_addClass(td, _vLong_);
+        }
+    }
+
+    // 过滤掉 <br> 标签
+    function __cleanBr(text) {
+        const parser = new DOMParser(), // 创建 DOMParser 实例
+            doc = parser.parseFromString(text, "text/html"), // 将文本解析为 DOM 文档
+            textNodes = doc.querySelectorAll(V_not("br") + " *"), // 获取所有文本节点
+            lines = []; // 将文本节点的内容按换行符分割
+        for (let node of textNodes) {
+            let line = node.textContent.trim();
+            if (line)
+                lines.push(line);
+        }
+        return lines;
+    }
 }
 
 // ==================== 表格列格式化类 ==================== //
@@ -11037,7 +11340,8 @@ let ColumnFormatting_syntax_checkbox = /(^((\[[x-]])|[Yy?？])(\s.+)*)/; // 复�
  */
 function ColumnFormatting_init(table, cell, text) {
     if (table.a(_dataColumnFmting_) !== _true_
-        && (V_length(cell.f(_strong_ + ",em,u," + _mark_ + "," + _del_)) > 0 // 普通列格式
+        && (V_length(cell.f(":is(" + _strong_ + ",em,u," + _mark_ + "," + _del_ + ")" + _onlyChild_)) > 0 // 普通列格式
+        // && (V_length(cell.f(_strong_ + ",em,u," + _mark_ + "," + _del_)) > 0 // 普通列格式
         || cell.c(_textAlign_) === _right_ // 右对齐表示使用数值格式
         || ColumnFormatting_syntax_checkbox_header.test(text))) { // 复选框列格式
             // 将表格标识为带列格式语法
@@ -11083,13 +11387,13 @@ function ColumnFormatting_format(table) {
             cellsCSS = _;
 
         // 粗体
-        if (V_length(th.f(_strong_ + _firstChild_)) > 0) {
+        if (V_length(th.ch(_strong_ + _onlyChild_)) > 0) {
             cells = ColumnFormatting_getCells(table, th, cells);
             cellsCSS += _vTblColFmt_Bold_ +___;
         }
 
         // 斜体
-        if (V_length(th.f("em" + _firstChild_)) > 0) {
+        if (V_length(th.ch("em" + _onlyChild_)) > 0) {
             cells = ColumnFormatting_getCells(table, th, cells);
             cellsCSS += _vTblColFmt_Em_ +___;
         }
@@ -11159,7 +11463,7 @@ function ColumnFormatting_format(table) {
                 if (V_length(typeFlag) > 0 || V_length(ceText) === 0)
                     ce.pp(V_ui_svgIcon(_icoChkbox__ + chkStatus, 14, 14, chkStyle, _, V_attr(_dataChk_, chkStatus)));
                 else
-                    // 添加差异化的文本着色
+                    // 添加差异化的文本颜色
                     ce.pp("<em>" + V_ui_sub(_, _, "Gy") + "</em>");
             });
         }
@@ -11195,7 +11499,7 @@ function ColumnFormatting_format(table) {
                         bg2 = V_ui_formatRGBA(percentBg, 0.4),//"rgba(128, 128, 128, 0.4)",
                         bgSplit = V_ui_formatRGBA(percentBg, 0.8);//"rgba(128, 128, 128, 0.8)";
 
-                    // 对有首色的进行渐变颜色调整
+                    // 对有着色的进行渐变颜色调整
                     if (coloring) {
                         let baseBg = ce.c(_color_).r("rgb", "rgba");
                         bg1 = baseBg.r(")", ",.05)");
@@ -11313,11 +11617,12 @@ function RowGroup_init(table) {
         currentLevel = text.i(RowGroup_spliter) + 1;
         // 当前等级比上一次等级要深
         if (currentLevel > lastLevel) {
-            let beforeChanged = lastLevel;
+            // let beforeChanged = lastLevel;
             lastLevel = currentLevel;
             // 设置为新的行分组
-            RowGroup_newFolder(tr, currentLevel, beforeChanged === 0,
-                V_ui_formatRGBA(RandomColor_dissimilarRgb(), _varTblRowAlpha_));
+            // RowGroup_newFolder(tr, currentLevel, beforeChanged === 0,
+            //     V_ui_formatRGBA(RandomColor_dissimilarRgb(), _varTblRowAlpha_));
+            RowGroup_newFolder(tr);
             // 设置为行缩进行
             RowGroup_ident(tr, td, currentLevel);
         }
@@ -11357,18 +11662,19 @@ function RowGroup_lastColor() {
 /**
  * 设置为新的行分组
  * @param tr 对应的行对象
- * @param level 缩进层级
- * @param reset 是否重置回第一级
- * @param color 该分组背景色
  */
-function RowGroup_newFolder(tr, level, reset, color) {
+//  * @param level 缩进层级
+//  * @param reset 是否重置回第一级
+//  * @param color 该分组背景色
+ // function RowGroup_newFolder(tr, level, reset, color) {
+function RowGroup_newFolder(tr) {
     let folderRow = tr.pr();
     RowGroup_folderCount++;
 
     // 将当前行分组的 id 入栈
     RowGroup_parentStack.push(RowGroup_folderCount);
     // 将当前行分组的随机背景颜色入栈
-    RowGroup_colorStack.push(color);
+    // RowGroup_colorStack.push(color);
 
     // 设置折叠行分组的属性
     folderRow.a(_dataFolderId_, RowGroup_folderCount);
@@ -11397,7 +11703,7 @@ function RowGroup_newFolder(tr, level, reset, color) {
         preObjs = td.f(preClass),
         cloneTd = td.clone();
     JQ_remove(cloneTd.ch(preClass));
-    td.hm(__echoOuterHTML(preObjs) +___+ V_ui_strong(cloneTd.hm() +___));
+    td.hm(__echoOuterHTML(preObjs) +___+ cloneTd.hm());
 
     // 设置展开、收起事件
     td.ch(_vTblRowGBtn_).ck((event) => {
@@ -11685,7 +11991,7 @@ let ExtAudio_icon_loading = V_ui_svgIcon(_icoLoading_, 16, 16, _light_),
  */
 function ExtAudio_init() {
     // 支持指定类型的音频，以及支持带参数的 URL
-    let writeImg = _write_ +___+ _img_;
+    let writeImg = __write_ +___+ _img_;
     $(writeImg + V_attrCSS(_src_, _mp3_, "$") + "," + writeImg + V_attrCSS(_src_, _m4a_, "$") + "," + writeImg + V_attrCSS(_src_, _ogg_, "$") + "," + writeImg + V_attrCSS(_src_, _wav_, "$") + ","
     + writeImg + V_attrCSS(_src_, _mp3_ + "?", "*") + "," + writeImg + V_attrCSS(_src_, _m4a_ + "?", "*") + "," + writeImg + V_attrCSS(_src_, _ogg_ + "?", "*") + "," + writeImg + V_attrCSS(_src_, _wav_ + "?", "*") ).e((index, element) => {
         let audioLike = $(element),
@@ -11708,7 +12014,7 @@ function ExtAudio_init() {
                 V_attr(_dataTitle_, _mini_ +___+ _audio_ +___+ V_doc_counter_audiomini), _));
 
             // 开始加载音频
-            audio.bind("loadstart", (event) => {
+            audio.on(_load_+_start_, (event) => {
                 let controls = V_byID($(event.currentTarget).a(_id_) + __control_);
                 JQ_addClass(controls, _vAudioMiniControl_);
                 JQ_addClass(controls, _loading_);
@@ -11716,7 +12022,7 @@ function ExtAudio_init() {
             });
 
             // 音频就绪可以开始播放
-            audio.bind("canplay", (event) => {
+            audio.on("canplay", (event) => {
                 let controls = V_byID($(event.currentTarget).a(_id_) + __control_);
                 JQ_removeClass(controls, _loading_);
 
@@ -11744,7 +12050,7 @@ function ExtAudio_init() {
             });
 
             // 正在播放
-            audio.bind(_playing_, (event) => {
+            audio.on(_playing_, (event) => {
                 let controls = V_byID($(event.currentTarget).a(_id_) + __control_),
                     pause = controls.a(_dataPause_);
 
@@ -11763,14 +12069,14 @@ function ExtAudio_init() {
             });
 
             // 播放结束后恢复按钮状态
-            audio.bind("ended", (event) => {
+            audio.on("ended", (event) => {
                 let controls = V_byID($(event.currentTarget).a(_id_) + __control_);
                 controls.hm(ExtAudio_icon_play);
                 JQ_removeClass(controls, _playing_);
             });
 
             // 故障或不可用
-            audio.bind(_emptied_, (event) => {
+            audio.on(_emptied_, (event) => {
                 let id = $(event.currentTarget).a(_id_) + __control_,
                     controls = V_byID(id);
                 JQ_removeClass(controls, _loading_);
@@ -11782,7 +12088,7 @@ function ExtAudio_init() {
             });
 
             // 加载错误
-            audio.bind(_error_, () => {
+            audio.on(_error_, () => {
                 audio.tr(_emptied_);
             });
 
@@ -11821,13 +12127,13 @@ function ExtAudio_init() {
                 audio.c(_marginBottom_, "-10px");
 
             // 故障或不可用
-            audio.bind(_emptied_, () => {
+            audio.on(_emptied_, () => {
                 // 将无法加载的音频信息添加到链接检查器
                 __addToLinkChecker(audio.p());
             });
 
             // 加载错误
-            audio.bind(_error_, () => {
+            audio.on(_error_, () => {
                 audio.tr(_emptied_);
             });
         }
@@ -11844,10 +12150,10 @@ function ExtAudio_init() {
 
             // 将无法加载的音频信息添加到链接检查器
             LinkTool_addToCheckResult(_error_, targetToJump,
-                V_ui_label(_, _, "🚫 🔈 " + [
+                V_ui_label(_, _, "🚫 🔈 " + V_lang_text(63, [
                     "无效的音频源",
-                    "Invalid audio source"
-                ][V_lang]) + title);//targetToJump.a(_dataTitle_));
+                    _Invalid_ + " audio address"
+                ])) + title);//targetToJump.a(_dataTitle_));
         }
     });
 
@@ -11913,9 +12219,10 @@ function ExtAudio_init() {
  */
 function ExtVideo_init() {
     // 支持指定类型的音频，以及支持带参数的 URL
-    let writeImg = _write_ +___+ _img_;
+    let writeImg = __write_ +___+ _img_;
     $(writeImg + V_attrCSS(_src_, _ogv_, "$") + "," + writeImg + V_attrCSS(_src_, _mp4_, "$") + "," + writeImg + V_attrCSS(_src_, _webm_, "$") + ","
-    + writeImg + V_attrCSS(_src_, _ogv_ + "?", "*") + "," + writeImg + V_attrCSS(_src_, _mp4_ + "?", "*") + "," + writeImg + V_attrCSS(_src_, _webm_ + "?", "*")).e((index, element) => {
+    + writeImg + V_attrCSS(_src_, _ogv_ + "?", "*") + "," + writeImg + V_attrCSS(_src_, _mp4_ + "?", "*") + "," + writeImg + V_attrCSS(_src_, _webm_ + "?", "*") + ","
+    + _iframe_ + V_attrCSS(_src_, "bilibili.com/" + _player_, "*") + "," + _iframe_ + V_attrCSS(_src_, "douyin.com/" + _player_, "*") + "," + _iframe_ + V_attrCSS(_src_, "ixigua.com/" + _iframe_, "*") + "," + _iframe_ + V_attrCSS(_src_, "qq.com/txp/" + _iframe_, "*") + "," + _iframe_ + V_attrCSS(_src_, "youtube.com/embed", "*")).e((index, element) => {
         let videoLike = $(element),
             video = gUndefined,
             src = videoLike.a(_src_),
@@ -11932,13 +12239,17 @@ function ExtVideo_init() {
         JQ_addClass(container, _vCaptionContainer_);
 
         // 先根据题注语法生成题注
-        CaptionGenerator_actionForMediaContent(videoLike, _video_);
+        CaptionGenerator_actionForMediaContent(videoLike, _video_ + _iframe_);
+
+        // 不处理常规视频以外的标签（如内嵌的 iframe）
+        if (V_util_getTagName(video) !== _img_)
+            return;
 
         // 将 URL 为音频资源的 img 标签转换为 video
         video = __transToVideo(videoLike, src);
 
         // 故障或不可用
-        video.bind(_emptied_, () => {
+        video.on(_emptied_, () => {
             let targetToJump = video.p(),
                 title = targetToJump.a(_dataTitle_);
             if (title === gUndefined)
@@ -11946,14 +12257,14 @@ function ExtVideo_init() {
 
             // 将无法加载的音频信息添加到链接检查器
             LinkTool_addToCheckResult(_error_, targetToJump,
-                V_ui_label(_, _, "🚫 📺 " + [
+                V_ui_label(_, _, "🚫 📺 " + V_lang_text(64, [
                     "无效的视频源",
-                    "Invalid video source"
-                ][V_lang]) + title);//targetToJump.a(_dataTitle_));
+                    _Invalid_ + " video address"
+                ])) + title);
             });
 
         // 加载错误
-        video.bind(_error_, () => {
+        video.on(_error_, () => {
             video.tr(_emptied_);
         });
     });
@@ -12077,10 +12388,10 @@ function TextField(target, id, append) {
 
             // 针对输入中文的情况，若输入了新的内容则进行查询
             function __checkComValueChanged() {
-                if (T.input.prop("compositionStatus") !== _start_ && T.lastValue !== T.input.val()) {
+                if (T.input.prop("compositionStatus") !== _start_ && T.lastValue !== T.input.v()) {
                     clearTimeout(T.timerValueChanged);
                     T.timerValueChanged = gNull;
-                    T.lastValue = T.input.val();
+                    T.lastValue = T.input.v();
                     __processInput();
                 }
                 T.timerValueChanged = setTimeout(__checkComValueChanged, 500);
@@ -12107,7 +12418,7 @@ function TextField(target, id, append) {
          * 处理文本框输入的内容
          */
         function __processInput() {
-            let value = T.input.val().x();
+            let value = T.input.v().x();
 
             if (value === _) {
                 T.reset.c(_visibility_, _hidden_);
@@ -12138,9 +12449,9 @@ function TextField(target, id, append) {
         /**
          * 绑定键盘按下事件
          */
-        T.input.bind(_keydown_, (event) => {
+        T.input.on(_keydown_, (event) => {
             let key = event.key,//event.keyCode || event.which || event.charCode,
-                value = T.input.val();
+                value = T.input.v();
 
             let handled = false;
             switch (key) {
@@ -12173,7 +12484,7 @@ function TextField(target, id, append) {
          * 绑定重置输入内容按钮
          */
         T.reset.uC().ck(() => {
-            T.input.val(_);
+            T.input.v(_);
             // 清空后保持输入焦点
             T.reset.c(_visibility_, _hidden_);
 
@@ -12218,7 +12529,7 @@ function TextField(target, id, append) {
             T.actionHover(gFalse);
         });
         T.action.uC().ck((event) => {
-            let value = T.input.val();
+            let value = T.input.v();
             // 输入内容不为空
             if (V_length(value) > 0)
                 T.input.select();
@@ -12577,8 +12888,9 @@ function TocCatalog(holder, hidden) {
     T.filter = function (value) {
         if (value.x() === _)
             return gFalse;
+        // ERROR(111, T.holder.segs.checkedItemValue(), T.typeName());
 
-        if (T.holder.segs.checkedItem() === T.typeName())
+        if (T.holder.segs.checkedItemValue() === T.typeName())
             T.showFilterResult();
 
         let matched = gFalse;
@@ -12637,9 +12949,10 @@ function TocCatalog(holder, hidden) {
         // 过滤结果为空
         if (!matched) {
             T.ui.result.empty();
-            T.ui.result.ap(V_ui_div(_, _vTocFilterResultNone_,
-                ["无匹配结果!",
-                "No Results!"][V_lang]));
+            T.ui.result.ap(V_ui_div(_, _vTocFilterResultNone_, V_lang_text(67, [
+                _No_content_cn_,
+                _No_content_en_
+            ])));
             TocIndex_updateStatus(this);
         }
 
@@ -12660,7 +12973,7 @@ function TocCatalog(holder, hidden) {
      * 显示目录索引组件
      */
     T.show = function () {
-        if (V_length(T.holder.keyword.input.val()) > 0) {
+        if (V_length(T.holder.keyword.input.v()) > 0) {
             T.ui.body.hide();
             T.showFilterResult();
         }
@@ -12765,6 +13078,7 @@ let TocIndex_segments = gUndefined;
  */
 function TocIndex_initUI(indexObj) {
     let ui = indexObj.ui;
+    // V_ui_stopScrollPropagation(ui.result);
 
     V_ui_addAnimate(ui.entry);
 
@@ -12805,10 +13119,10 @@ function TocIndex_updateStatus(indexObj) {
  * 显示提示信息
  */
 function TocIndex_showTips(ui) {
-    ui.tips.t("( " + [
-        "无此类内容",
-        "No such content"
-    ][V_lang] + " )");
+    ui.tips.t("( " + V_lang_text(67, [
+        _No_content_cn_,
+        _No_content_en_
+    ]) + " )");
     ui.tips.show();
 }
 
@@ -12874,10 +13188,10 @@ function TocIndex_filter(indexObj, value) {
 
     // 过滤结果为空
     if (!matched) {
-        indexObj.ui.tips.t([
-            "无匹配结果!",
-            "No Results!"
-        ][V_lang]);
+        indexObj.ui.tips.t(V_lang_text(67, [
+            _No_content_cn_,
+            _No_content_en_
+        ]));
         indexObj.ui.tips.show();
         TocIndex_segments.sts(indexObj.typeName(), gFalse);
     }
@@ -13030,7 +13344,7 @@ function TocTable(holder, hidden) {
     /**
      * 更新所属分段状态
      */
-     T.updateStatus = function () {
+    T.updateStatus = function () {
         TocIndex_updateStatus(this);
     }
 
@@ -13204,6 +13518,7 @@ function TocHistory(holder, hidden) {
         title : V_byClass(_vTocHistory_ + __title_), // 历史记录标题
         result : V_byClass(_vTocHistory_ + __result_) // 历史记录面板
     };
+    // V_ui_stopScrollPropagation(T.ui.result);
 
     T.holder = holder;
 
@@ -13238,7 +13553,8 @@ function TocHistory(holder, hidden) {
             anchor = hash.ss(1, V_length(hash));
         if (anchor.sW("vk-id")) // 插图/表格/多媒体/代码块索引
             title = $(hash).a(_dataTitle_);
-        else if (anchor.sW("vk-err")) // 错误的内链
+        else if (anchor.sW("vk-err") // 错误的内链
+            || anchor.sW(_vkFooterArea_)) // 全部脚注
             title = $(hash).t();
         // 未匹配到以上 VLOOK 专属的索引锚点，则按目录索引进行处理
         if (title === gUndefined) {
@@ -13293,9 +13609,10 @@ function TocHistory(holder, hidden) {
         // 没有历史访问记录，也没有提示信息内容
         if (V_length(T.ui.result.ch(tocItem + "," + noneHistory)) === 0) {
             // 添加提示信息
-            T.ui.result.ap(V_ui_div(_, "v-toc-history-none",
-                ["暂无记录!",
-                "No records!"][V_lang]));
+            T.ui.result.ap(V_ui_div(_, "v-toc-history-none", V_lang_text(67, [
+                _No_content_cn_,
+                _No_content_en_
+            ])));
         }
         // 有历史访问记录
         else if (V_length(T.ui.result.ch(tocItem)) > 0) {
@@ -13385,55 +13702,32 @@ function DocLib(mask, holder) {
             for (let i = 0; i < V_length(docLibList); i++) {
                 result = docLibList[i].m(/^(\[([^\]]+)]\(([^)\s]+)(\s+"([^"]+)")?\))$/);
                 // 按 [text](url "title") 格式配置的文库
+                let text = _link_;
                 if (result != gNull) {
                     page = V_util_getUrlWithoutHash(result[3]);
                     hash = V_util_getUrlHash(result[3]);
-                    let text = result[2].x(),
-                        title = (V_length(result) > 5) ? result[5] : _;
+                    text = result[2].x();
+                    let title = (V_length(result) > 5) ? result[5] : _;
+                    if (V_length(text) === 0 && V_length(title) > 0)
+                        text = title;
                     __addDocLibItem(text, page, hash, title);
                 }
                 // 按默认只有 url 方式配置的文库
                 else {
                     page = V_util_getUrlWithoutHash(docLibList[i]);
                     hash = V_util_getUrlHash(docLibList[i]);
-                    __addDocLibItem([_documentLibrary_cn_, _documentLibrary_en_][V_lang],
+                    __addDocLibItem(V_lang_text7(),
                         page, hash, _);
                 }
                 // 添加到链接地图
-                LinkTool_addToMap(page, hash.ss(1, V_length(hash)));
+                LinkTool_addToMap(text, page, hash.ss(1, V_length(hash)).l());
             }
         }
-
-        // --------------------
-        // 重新排序
-        let docLibTocItems = docLibToc.ch("." + _vDocLibItem_);
-        docLibTocItems.sort((a, b) => {
-            let aObj = $(a),
-                bObj = $(b),
-                targetA = V_util_getUrlQueryParams(aObj.a(_dataPage_))[_target_],
-                targetB = V_util_getUrlQueryParams(bObj.a(_dataPage_))[_target_];
-
-            // 新标签打开的链接排序靠后的处理，「힣」的 Unicode 编码是 \uD7A3
-            let textA = (targetA !== gUndefined && targetA !== _vdl_ ? "힣" : _)
-                    + aObj.t().x(),
-                textB = (targetB !== gUndefined && targetB !== _vdl_ ? "힣" : _)
-                    + bObj.t().x();
-
-            // 以下以是以字符的 unicode 编码进行比较
-            // 用 localeCompare 进行比较的话，存在不同国家或地区的排序结果不同
-            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-        });
-        // 按重新排序的节点进行显示
-        docLibTocItems.e((index, element) => {
-            $(element).detach().appendTo(docLibToc);
-        });
 
         // --------------------
         // 添加动画效果
         V_ui_addAnimate(V_byID(_docLibToc_ + ">." + _vDocLibItem_
             + ",#" + _docLibToc_ + ">." + _vDocLibItem_ + ">svg"));
-
-        // LOG("    └ DocLib: done");
 
         T.reload();
 
@@ -13483,7 +13777,7 @@ function DocLib(mask, holder) {
                     urlParams.delete(_target_);
                     // 新标签中打开
                     gWindow.open(V_util_getUrlWithoutQueryAndHash(page)
-                        + urlParams.toString() + hash, target);
+                        + JS_toString(urlParams) + hash, target);
                 }
                 else
                     T.show(page, hash);
@@ -13501,8 +13795,8 @@ function DocLib(mask, holder) {
      */
     T.reload = function (scheme, page, hash) {
         // 避免初始化时，与 ColorScheme_refresh 重复加载
-        if (scheme === ColorScheme_scheme && page === gUndefined
-            || T.page === gUndefined)
+        if (scheme === ColorScheme_scheme
+            && (page === gUndefined || T.page === gUndefined))
             return;
 
         let cs = _;
@@ -13514,14 +13808,18 @@ function DocLib(mask, holder) {
         // 指定的页面为空时（不包括 ?target=vdl 这种情况）
         if (page === gUndefined)
             page = T.page;
+        if (page === gUndefined)
+            return;
+
         // 指定的锚点为空时
         if (hash === gUndefined)
             hash = _;
 
         T.iframe.a(_src_,
             page + ((page.i("?") > -1) ? "&" : "?")
-            + "ws=" + _off_ + "&" + _type_ + "=" + _mini_
-            + cs + hash);
+            + "ws=" + _off_ + "&v" + _type_ + "=" + _mini_
+            + cs + "&ts=" + V_util_getTime()
+            + hash);
     }
 
     /**
@@ -13619,27 +13917,29 @@ function ExtFigure_init() {
     // 对 img 类插图（Mermaid）进行初始化处理
     sw.st();
 
-    // ！！！注意！！！为适配浏览器安全策略！！！
-    // 由于不同浏览器的安全策略不同，所以针对不同浏览器的图片颜色替换处理进行微调
+    // 注意：为适配浏览器安全策略！！！
+    // 由于不同浏览器的安全策略不同，所以针对不同浏览器的图片剪影处理进行微调
     // 若 SVG 文件与当前 HTML 文件不在同一域名下，浏览顺会存跨域权限问题无法完成处理
     // 非 Firefox / Safari 以本地打开方式下无法进行处理
     let httpMode = WINDOW_getHref().sW(_http_),
-        canFillAlter = (httpMode || env.browser.Firefox || env.browser.Safari),
+        canImageFill = (httpMode || env.browser.Firefox || env.browser.Safari),
         hostname = gLocation.hostname,
         imgHost = V_util_getMetaByName(_vlook__ + _image_ + "-host");
     if (imgHost !== gUndefined && !imgHost.eW("/"))
         imgHost += "/";
 
-    $(_write_ + " p>" + _img_ + ","
-    + _write_ + " ." + _mdDiagramPanel_ + ">" + _svg_ + ","
-    + _write_ + " :is(" + _img_ + V_attrCSS(_src_, "#icon", "*") + ","
-    + _write_ + " a kbd " + _img_ + ","
-    + _img_ + V_attrCSS(_src_, "#logo", "*") + ","
-    + _img_ + V_attrCSS(_src_, "#" + _card_, "*") + ","
-    + _img_ + V_attrCSS(_src_, "#frame", "*") + ")").e((index, element) => {
+    $(__write_ + " :is(p,a,td,strong)>" + _img_ + ","
+    + __write_ + " ." + _mdDiagramPanel_ + ">" + _svg_ + ","
+    // + _write_ + " :is("
+    //     + _img_ + V_attrCSS(_src_, "#icon", "*") + ","
+    //     + _img_ + V_attrCSS(_src_, "#logo", "*") + ","
+    //     + _img_ + V_attrCSS(_src_, "#" + _card_, "*") + ","
+    //     + _img_ + V_attrCSS(_src_, "#logo#border", "*")
+    // + "),"
+    + __write_ + " a kbd>" + _img_).e((index, element) => {
         let fig = $(element),
             src = fig.a(_src_),
-            src2FillAlter = src,
+            src2ImageFill = src,
             container = fig.p(),
             tagName = V_util_getTagName(fig),
             params = _,
@@ -13647,18 +13947,18 @@ function ExtFigure_init() {
             isPostcard = gFalse;
 
         // ----------------------------------------
-        // img 类插图的处理
+        // 对 img 类插图的处理
         if (src !== gUndefined) {
             // 对于 img 类插图的预处理
-            params = V_util_getUrlQueryParams(encodeURI(src));
+            params = V_util_getUrlQueryParams(JS_encodeURI(src));
             hash = V_util_getUrlHash(src);
 
             fig.a(_id_, "vk-id-img" + V_doc_counter_img);
 
             // 当前 HTML 的打开方式可进行图片「颜色替换」的适配处理
-            if (canFillAlter === gTrue) {
+            if (canImageFill === gTrue) {
                 // 获得图片路径的域名
-                let matchRes = src2FillAlter.m(/^https?:\/\/([^\/?#]+)(?:[\/?#]|$)/i);
+                let matchRes = src2ImageFill.m(/^https?:\/\/([^\/?#]+)(?:[\/?#]|$)/i);
                 let srcHost = matchRes && matchRes[1];
 
                 // 对于相对路径，或与当前 HTML 域名一致
@@ -13667,12 +13967,12 @@ function ExtFigure_init() {
                     // 进行颜色替换前，先调整原始 <img> 的 src
                     let needImgHost = (env.browser.Safari && !httpMode && imgHost !== gUndefined);
                     if (needImgHost) {
-                        src2FillAlter = imgHost + src2FillAlter;
-                        fig.a(_src_, src2FillAlter);
+                        src2ImageFill = imgHost + src2ImageFill;
+                        fig.a(_src_, src2ImageFill);
                     }
 
-                    // 正式进行图片颜色替换处理
-                    __initFillAlter(fig, container, params, hash, src2FillAlter);
+                    // 进行 svg 图片剪影处理，png 图片通过 css 样式实现
+                    __initSvgImageFill(fig, container, params, hash, src2ImageFill);
 
                     // 恢复原始 <img> 的 src
                     if (needImgHost)
@@ -13711,9 +14011,6 @@ function ExtFigure_init() {
                     fig.wrap("<p></p>");
                     container = fig.p();
                 }
-
-                // 初始化对齐方式
-                __initAlign(container, hash, params);
             }
         }
 
@@ -13737,12 +14034,16 @@ function ExtFigure_init() {
             let prevFig = fig.p().p();
             if (prevFig === undefined || V_length(prevFig.ch("." + _vCaption_ + "," + _img_)) === 1)
                 ContentFolder_add(fig, _figure_);
+
+            if (V_length(hash) > 0 && hash.sW("#blur")) {
+                fig.wrap(V_ui_div(_, "v-blur", _));
+            }
         }
     }); // 结束初始化处理
     sw.ed("    ├ figure set: ");
 
     // ----------------------------------------
-    // srcset 为 auto 模式的处理
+    // 对 srcset 为 auto 模式的处理
     sw.st();
     // 在当前环境的 DPR > 1 时，对于没有指定 srcset 的 img 类插图，自动强制将 src 直接指定 2x 图片
     // 可通过 URL 参数 srcset=auto 来启用
@@ -13782,7 +14083,7 @@ function ExtFigure_init() {
     function __bindLoadChecker(fig) {
         let src = fig.a(_src_);
         // 图片无法加载时加载默认图片
-        fig.bind(_error_, (event) => {
+        fig.on(_error_, (event) => {
             if (!ignoreImgLost) {
                 // 将无法加载的图片信息添加到链接检查器
                 let cp1 = fig.p().f(_vCap1_).hm(),
@@ -13792,15 +14093,15 @@ function ExtFigure_init() {
                     cp1 = fig.a(_alt_);
                     targetToJump = fig;//.a(_id_);
                 }
-                // alt 也为空时
+                // 对 alt 也为空时
                 if (cp1 === gUndefined)
                     cp1 = fig.a(_src_);
                 // 添加无效链接项
                 LinkTool_addToCheckResult(_error_, targetToJump,
-                    V_ui_label(_, _, "🚫 🖼 " + [
+                    V_ui_label(_, _, "🚫 🖼 " + V_lang_text(65, [
                         "无效的图片源",
-                        "Invalid image source"
-                    ][V_lang]) + cp1);
+                        _Invalid_ + " image address"
+                    ])) + cp1);
             }
 
             __loadDefaultOnError($(event.currentTarget));
@@ -13818,9 +14119,10 @@ function ExtFigure_init() {
      */
     function __isNotFigure(container, hash) {
         let iconMode = hash.i("#icon") > -1,
-            logoMode = hash.i("#logo") > -1,
-            frameMode = hash.i("#frame") > -1;
-        return (iconMode || logoMode || frameMode || (container !== gUndefined && V_util_getTagName(container) === _kbd_));
+            //frameMode = hash.i("#frame") > -1,
+            logoMode = hash.i("#logo") > -1;
+        //return (iconMode || logoMode || frameMode || (container !== gUndefined && V_util_getTagName(container) === _kbd_));
+        return (iconMode || logoMode || (container !== gUndefined && V_util_getTagName(container) === _kbd_));
     }
 
     /**
@@ -13830,31 +14132,6 @@ function ExtFigure_init() {
      */
     function __isPostcard(hash) {
         return hash.i("#" + _card_) > -1;
-    }
-
-    /**
-     * 初始化图片对齐方式的处理
-     * 注意：在 Typora 编辑模式时的对齐方式，直接通过 CSS 实现
-     * @param container img 的题注容器对象
-     * @param hash img 对象 src 值的锚点内容（如：#center#logo）
-     * @param params img 对象 src 值的 URL 参数数组
-     */
-    function __initAlign(container, hash, params) {
-        let align = gUndefined;
-        // 针对通过锚点设置对齐方式
-        if (hash.i("#" + _center_) > -1)
-            align = _center_;
-        else if (align === gUndefined && hash.i("#" + _right_) > -1)
-            align = _right_;
-        else if (align === gUndefined && hash.i("#" + _left_) > -1)
-            align = _left_;
-        // 针对通过 URL 参数设置对齐方式
-        else if (align === gUndefined && params[_align_] !== gUndefined)
-            align = params[_align_];
-        else
-            return;
-        // 设置父级对象的对齐方式
-        container.c(_textAlign_, align);
     }
 
     /**
@@ -13870,16 +14147,17 @@ function ExtFigure_init() {
     }
 
     /**
-     * 初始化图片颜色替换的适配处理
+     * 初始化 svg 图片剪影的适配处理
+     *
      * @param img img 对象
      * @param container img 对象的父级元素
      * @param params img 对象 src 值的 URL 参数数组
      * @param hash img 对象 hash 值
      * @param src img 对象的 src 值
      */
-    function __initFillAlter(img, container, params, hash, src) {
+    function __initSvgImageFill(img, container, params, hash, src) {
         let fill = params[_fill_];
-        if (fill === gUndefined && V_util_getTagName(container) !== _kbd_)
+        if (fill === gUndefined)// && V_util_getTagName(container) !== _kbd_)
             return;
 
         if (fill === gUndefined)
@@ -13889,7 +14167,7 @@ function ExtFigure_init() {
         // 图片为 SVG 格式时，将源文件通过 SVGInject 注入到 HTML 文档中
         if (src.i(_suffixSvg_, 1) > -1) {
             SVGInject(img[0], {
-                // SVG 注入成功
+                // 注入成功
                 afterInject : function (img, svg) {
                     let svgObj = $(svg);
                     // 属于插图的，则绑定内容助手
@@ -13898,7 +14176,7 @@ function ExtFigure_init() {
                     // 对颜色进行替换的适配处理
                     ExtFigure_adjustFillAlterForSVG(svgObj.a(_dataImgFill_), svgObj);
                 },
-                // SVG 注入失败
+                // 注入失败
                 onFail : function (img, svg) {
                     ERROR("SVGInject ERROR:", $(img).a(_src_));
                 }
@@ -13955,7 +14233,7 @@ function ExtFigure_init() {
             srcset = params[_srcset_],
             darksrcset = params[_darksrcset_];
 
-        // Light Mode 对应的图片集
+        // 针对 Light Mode 对应的图片集
         if (srcset !== gUndefined) {
             srcset = __transUrlSrcSet(src, srcset);
             img.a(_dataSrcsetLight_, srcset);
@@ -13963,7 +14241,7 @@ function ExtFigure_init() {
             img.a(_srcset_, srcset);
         }
 
-        // Dark Mode 对应的图片集
+        // 针对 Dark Mode 对应的图片集
         if (darksrcset !== gUndefined) {
             darksrcset = __transUrlSrcSet(img.a(_dataSrcDark_), darksrcset);
             img.a(_dataSrcsetDark_, darksrcset);
@@ -13982,10 +14260,9 @@ function ExtFigure_init() {
             return;
 
         // 如果是嵌套在 blockquote 中，则对其进行样式调整
-        let blockquote = img.parentsUntil(_blockquote_).last(),
-            inBlockquote = (V_length(blockquote) > 0 && !blockquote.is(_html_));
+        let blockquote = img.closest(_blockquote_),
+            inBlockquote =(V_length(blockquote) > 0);
         if (inBlockquote) {
-            blockquote = blockquote.p();
             blockquote.c(_cssText_, _padding_ + ":0" + _important_);
             blockquote.c(_boxShadow_, _none_);
             blockquote.c(_height_, _auto_);
@@ -13996,7 +14273,8 @@ function ExtFigure_init() {
         let altText = img.a(_alt_),
             altTextForSearch = altText,
             titleText = img.a(_title_),
-            cardBody = img.p().n(),
+            cardBody = img.closest("p").n(), // 考虑明信片带 a 链接等情况
+            border = (hash.i("#border") > -1 ? gTrue : gFalse),
             dual = (hash.i("#cardd") > -1 ? gTrue : gFalse);
 
         // 若添加了通过引用块指定为正文内容的，则进行处理
@@ -14015,11 +14293,16 @@ function ExtFigure_init() {
                 + (altText === gUndefined ? _ : V_ui_section(_, _vCard_ + __text_, altText))
             ));
 
-        // card dual 模式的处理
+        // 针对 card dual 模式的处理
         if (dual) {
-            img.n().c(_width_, img.c(_width_));
+            // 完成图片加载后再进行处理
+            img.on(_load_, (event) => {
+                img.n().c(_width_, inBlockquote
+                    ? _100pc_
+                    : img.c(_width_));
+            });
         }
-        // card 模式的处理
+        // 针对 card 模式的处理
         else {
             // 图片 mouseenter 和 mouseleave 事件
             img.on(_mouseEnter_, (event) => {
@@ -14030,7 +14313,7 @@ function ExtFigure_init() {
 
                 _t.c(_filter_, _brightness_ + "(.8)");
 
-                __setCardSize(_t, card);
+                __setCardSize(_t, card, border);
 
                 // 显示
                 card.c(_display_, _block_);
@@ -14060,10 +14343,10 @@ function ExtFigure_init() {
             altTextForSearch = _;
 
         let anchor = "vk-id-psc" + V_doc_counter_postcard,
-            caption = V_ui_span(_, _, [
-                "明信片 ",
-                "Postcard "
-                ][V_lang] + V_doc_counter_postcard + ".") + titleText,
+            caption = V_ui_span(_, _, V_lang_text(68, [
+                "明信片",
+                "Postcard"
+                ]) +___+ V_doc_counter_postcard + ".") + titleText,
             dataForSearch = titleText + altTextForSearch;
         img.a(_id_, anchor);
         img.a(_dataTitle_, caption);
@@ -14085,15 +14368,16 @@ function ExtFigure_init() {
      * 设置明信片尺寸
      * @param img 明信片对象
      * @param card 明信片的文本对象
+     * @param border 明信片的是否有指定 #border
      */
-    function __setCardSize(img, card) {
+    function __setCardSize(img, card, border) {
         // 先调整宽度
         card.c(_width_, JS_parseInt(img.oW()));
 
         // 后根据实际宽度渲染结果，计算最终高度
         let h = JS_parseInt(card.oH()),
             imgH = JS_parseInt(img.oH());
-        card.c(_top_, img.pos().top + imgH - h);
+        card.c(_top_, img.pos().top + imgH - h + (border ? 1 : 0));
     }
 
     /**
@@ -14105,8 +14389,8 @@ function ExtFigure_init() {
         // 针对 html 与 图片同一目录的情况
         let path = V_util_getPath(src);
 
-        // @2x/@3x 图片资源为自动匹配名称的语法
-        // 2x/3x 的文件名为 <文件名@2x.xxx> 或 <文件名@3x.xxx> 的情况
+        // 针对 @2x/@3x 图片资源为自动匹配名称的语法
+        // 针对 2x/3x 的文件名为 <文件名@2x.xxx> 或 <文件名@3x.xxx> 的情况
         if (/^@2x(,@3x)?$/.test(srcset)) {
             let pureSrc = src.ss(0, src.i("?", 5)),
                 fileName = pureSrc.ss(0, pureSrc.lastIndexOf(".")), // 图片资源文件名（不含扩展名）
@@ -14115,7 +14399,7 @@ function ExtFigure_init() {
             srcset = srcset.r(/@2x/, fileName + "@2x" + suffix + " 2x");
             srcset = srcset.r(/@3x/, fileName + "@3x" + suffix + " 3x");
         }
-        // @2x/@3x 图片资源为指定文件名的语法
+        // 针对 @2x/@3x 图片资源为指定文件名的语法
         else {
             // 将倍数标识转换为 srcset 标准语法
             // 要从图片扩展名开始替换，避免将文件中的 @2x @3x 误替换掉
@@ -14161,7 +14445,7 @@ function ExtFigure_adjustColorScheme(disposeGrid) {
         darkMode = scheme === _dark_;
     // --------------------
     // 对图片在 Dark Mode 时的适配处理
-    // 1. 对适配方式为「反转」的处理
+    // 先对适配方式为「反转」的处理
     $(_img_ + V_attrCSS(_dataDarkSrc_, _invert_) + "," + _svg_ + V_attrCSS(_dataDarkSrc_, _invert_)).e((index, element) => {
         let img = $(element),
             src = img.a(_src_);
@@ -14181,7 +14465,7 @@ function ExtFigure_adjustColorScheme(disposeGrid) {
                 img.a(_srcset_, img.a(_dataSrcsetLight_));
         }
     });
-    // 2. 对适配方式为「替换」的处理
+    // 后对适配方式为「替换」的处理
     $(_img_ + V_attrCSS(_dataDarkSrc_, _alter_)).e((index, element) => {
         let img = $(element);
         JQ_removeClass(img, _vImgInvertDark_);
@@ -14199,7 +14483,7 @@ function ExtFigure_adjustColorScheme(disposeGrid) {
         + "," + _svg_ + V_attrCSS(_dataImgFill_, _theme_ + 2)).e((index, element) => {
         let fig = $(element),
             fill = fig.a(_dataImgFill_);
-        // SVG 对象，或 src 为 .svg 的 img 对象
+        // 针对 SVG 对象，或 src 为 .svg 的 img 对象
         if (V_util_getTagName(fig).sW("s") || fig.a(_src_).i(_suffixSvg_, 1) > -1) {
             ExtFigure_adjustFillAlterForSVG(fill, fig);
         }
@@ -14258,7 +14542,7 @@ function ExtFigure_adjustColorScheme(disposeGrid) {
 
 /**
  * 适配 *.svg 格式的 img 图片注入为 SVG 实例后，对颜色进行替换的适配处理
- * @param fill 图片颜色替换方式：text / theme1 / theme2
+ * @param fill 图片剪影方式：text / theme1 / theme2
  * @param svg SVG 实例对象
  */
 function ExtFigure_adjustFillAlterForSVG(fill, svg) {
@@ -14281,6 +14565,8 @@ let FigureNav_ui = gUndefined, // 插图导航主界面
 
 function FigureNav_init() {
     FigureNav_ui = V_byClass(_vFigNav_); // 插图导航主界面
+    // V_ui_stopScrollPropagation(FigureNav_ui);
+
     FigureNav_btns = {
         ui : $(_vFigNavBtns_), // 所有导航按钮
         prev : $(_vFigNavBtns_ + ".prev"), // 上一张插图按钮
@@ -14345,14 +14631,16 @@ function FigureNav_isShowed() {
 /**
  * 显示插图导航
  */
-function FigureNav_show(fig) {
+function FigureNav_show() {
     if (V_doc_counter_figure === 0)
         return;
+
+    let fig = ContentAssistor_lastHover;
 
     V_doc_scroll_freeze();
     V_doc_block = gTrue;
 
-    if (fig == gNull)
+    if (fig === gUndefined)
         fig = $(V_attrCSS(_dataFigNum_, FigureNav_figNum));
 
     // 在插图导航中显示对应插图
@@ -14386,11 +14674,6 @@ function FigureNav_display() {
         .c(_height_, jq_Window.h());
 
     let newFig = fig.clone();
-    newFig.c(_maxWidth_, jq_Window.w() - 80)
-        .c(_maxHeight_, jq_Window.h() - 50)
-        .c(_borderRadius_, _varVRB_)
-        .c(_background_, fig.c(_background_))
-        .c(_padding_, fig.c(_padding_));
     JQ_addClass(newFig, "v-interactive");
     V_ui_fadeHide(newFig);
 
@@ -14544,7 +14827,7 @@ function mmMindmapToggleNode(node) {
  */
 function Restyler_forTaskList() {
     // 对任务清单的 checkbox 组件转换为 SVG 图标
-    $(_write_ +___+ _input_ + V_attrCSS(_type_, _checkbox_)).e((index, element) => {
+    $(__write_ +___+ _input_ + V_attrCSS(_type_, _checkbox_)).e((index, element) => {
         let chkStatus = _no_, // 默认为未完成
             chkStyle = _dark_; // 默认样式
 
@@ -14694,25 +14977,25 @@ function Restyler_forMermaid() {
 
         // 将 alt(alternative)、opt(optional)、loop(loops) 片断文本翻译为其他语言
         if (segType === _alt_)
-            fragment.t([
+            fragment.t(V_lang_text(69, [
                 "分支",
                 "Alt."
-            ][V_lang]);
+            ]));
         else if (segType === "opt")
-            fragment.t([
+            fragment.t(V_lang_text(70, [
                 "可选",
                 "Opt."
-            ][V_lang]);
+            ]));
         else if (segType === _loop_)
-            fragment.t([
+            fragment.t(V_lang_text(71, [
                 "循环",
                 "Loop."
-            ][V_lang]);
+            ]));
         else if (segType === "par")
-            fragment.t([
-                "平行",
+            fragment.t(V_lang_text(72, [
+                "并行",
                 "Par."
-            ][V_lang]);
+            ]));
     });
 
     // 调整片断的标题文本
@@ -14745,7 +15028,7 @@ function Restyler_forMermaid() {
  * 针对使用了 Typora 的图片缩放功能的检查与提示
  */
 function Restyler_forImgZoom() {
-    if (V_length($(_write_ +___+ _img_ + V_attrCSS(_style_, "zoom", "*"))) > 0)
+    if (V_length($(__write_ +___+ _img_ + V_attrCSS(_style_, "zoom", "*"))) > 0)
         ALERT([
             "⚠️ 注意 ⚠️\n\n您的文档中使用了 Typora 的图片缩放功能，会存在兼容问题！\n\n建议替换为 VLOOK™ 的「图片缩放」，如：\npic.jpg#400w\npic.jpg#200h",
             "⚠️ WARNING ⚠️\n\nIn your document, you used Typora's image scaling feature, which may cause compatibility issues!\n\nIt is recommended to replace it with VLOOK™'s \"image scaling\" such as:\npic.jpg#400w\npic.jpg#200h"
@@ -14768,7 +15051,7 @@ function SupSubMagic_preprocess() {
     });
 
     // 遍历段落内的 sub 下标（针对段落或指定格式）
-    $(_write_ + " sub").e((index, element) => {
+    $(__write_ + " sub").e((index, element) => {
         let _t = $(element),
             text = _t.t(),
             colorSet;
@@ -14781,7 +15064,7 @@ function SupSubMagic_preprocess() {
 
     // ---------- 色号新语法的预处理：_~色号~_ ----------
     // 引用块、详情的颜色标识
-    $(_write_ + " :is(" + _blockquote_ + "," + _details_ + ")>p>em" + _onlyChild_ + ">sub" + _onlyChild_).e((index, element) => {
+    $(__write_ + " :is(" + _blockquote_ + "," + _details_ + ")>p>em" + _onlyChild_ + ">sub" + _onlyChild_).e((index, element) => {
         let _t = $(element),
             text = _t.t(),
             colorSet;
@@ -14790,8 +15073,8 @@ function SupSubMagic_preprocess() {
         }
     });
 
-    // 文本着色、段落着色
-    $(_write_ + " em>sub" + _onlyChild_).e((index, element) => {
+    // 文本颜色、段落着色
+    $(__write_ + " em>sub" + _onlyChild_).e((index, element) => {
         let _t = $(element),
             text = _t.t(),
             colorSet;
@@ -14812,19 +15095,34 @@ function SupSubMagic_preprocess() {
         // 根据浏览器语言更换类型文本
         let mdAlertText = "." + _mdAlert_ + __text_;
         _t.f(mdAlertText + "-note").e((i, e) => {
-            $(e).hm(V_ui_svgIcon2(_icoAlertNote_, 16, 16) + ["备注", "Note"][V_lang]);
+            $(e).hm(V_ui_svgIcon2(_icoAlertNote_, 16, 16) + V_lang_text(73, [
+                "备忘",
+                "Note"
+            ]));
         });
         _t.f(mdAlertText + __tip_).e((i, e) => {
-            $(e).hm(V_ui_svgIcon2(_icoAlertTip_, 16, 16) + ["提示", "Tip"][V_lang]);
+            $(e).hm(V_ui_svgIcon2(_icoAlertTip_, 16, 16) + V_lang_text(74, [
+                "提示",
+                "Tip"
+            ]));
         });
         _t.f(mdAlertText + "-important").e((i, e) => {
-            $(e).hm(V_ui_svgIcon2(_icoAlertImportant_, 16, 16) + ["重要的", "Important"][V_lang]);
+            $(e).hm(V_ui_svgIcon2(_icoAlertImportant_, 16, 16) + V_lang_text(75, [
+                "重要",
+                "Important"
+            ]));
         });
         _t.f(mdAlertText + "-warning").e((i, e) => {
-            $(e).hm(V_ui_svgIcon2(_icoAlertWarning_, 16, 16) + ["注意", "Warning"][V_lang]);
+            $(e).hm(V_ui_svgIcon2(_icoAlertWarning_, 16, 16) + V_lang_text(76, [
+                "注意",
+                "Warning"
+            ]));
         });
         _t.f(mdAlertText + "-caution").e((i, e) => {
-            $(e).hm(V_ui_svgIcon2(_icoAlertCaution_, 16, 16) + ["警告", "Caution"][V_lang]);
+            $(e).hm(V_ui_svgIcon2(_icoAlertCaution_, 16, 16) + V_lang_text(77, [
+                "警告",
+                "Caution"
+            ]));
         });
     });
 }
@@ -14879,13 +15177,13 @@ function TextPhonetic_translation(text, symbol, event) {
     // 默认翻译为中文的服务
     let translator = _httpsPrefix_ + "www.bing.com/translator/?from=&to=zh-chs&text=",
         // translator = _httpsPrefix_ + "translate.google.cn/?langpair=auto&sl=auto&op=translate&text=",
-        url = translator + encodeURI(text);
+        url = translator + JS_encodeURI(text);
     // 若 symbol 为日文假名，则跳转至翻译平台翻译 symbol
     if (/^[\u3040-\u30FF]/.test(symbol))
-        url = translator + encodeURI(symbol);
+        url = translator + JS_encodeURI(symbol);
     // 若 text 为中文，则跳转至汉典，翻译 text
     else if (/^[\u4e00-\u9fa5]/.test(text))
-        url = _httpsPrefix_ + "www.zdic.net/hans/" + encodeURI(text);
+        url = _httpsPrefix_ + "www.zdic.net/hans/" + JS_encodeURI(text);
 
     gWindow.open(url, text);
 }
@@ -14906,7 +15204,7 @@ function QuoteColoring_build(quote, colorCode, colorSet) {
         em = ColorCode_isEm(colorSet) ? " em" : _, // 判断是否指定了强调样式
         tag = V_util_getTagName(quote);
 
-    // <blockquote> 或 <details>
+    // 针对 <blockquote> 或 <details>
     if (tag.sW("bl") || tag.sW("de")) {
         // 删除预置颜色标识
         JQ_remove(colorCode.p());
@@ -14914,7 +15212,7 @@ function QuoteColoring_build(quote, colorCode, colorSet) {
         // 引用着色样式的处理
         JQ_addClass(quote, "v-q " + color + em);
 
-        // detail 的处理
+        // 针对 detail 的处理
         JQ_addClass(quote.f(_summary_), _title_ + "-" + color + em);
 
         // 引用块小标题的处理
@@ -14934,10 +15232,10 @@ function Quote_getColor(color) {
     return color.l();
 }
 
-// ==================== Sup/Sub Magic：文本着色模块 ==================== //
+// ==================== Sup/Sub Magic：文本颜色模块 ==================== //
 
 /**
- * 构建文本着色与单元格样式
+ * 构建文本颜色与单元格样式
  * @param colorCode 颜色标识对象
  * @param colorSet 正则表达式匹配后的结果数组
  */
@@ -14970,13 +15268,13 @@ function RainbowTextAndCell_build(colorCode, colorSet) {
         __disposeMark(renderTarget.f(_mark_));
     }
 
-    // 文本着色
+    // 文本颜色
     if (!tableCellBgMode) {
-        // mark 标签的处理
+        // 针对 mark 标签的处理
         if (tagName === _mark_) {
             __disposeMark(renderTarget);
         }
-        // mark 以外的标签的处理，如：p u strong span 等
+        // 针对 mark 以外的标签的处理，如：p u strong span 等
         else {
             __disposeText(renderTarget);
             if (tagName === "u")
@@ -14988,16 +15286,15 @@ function RainbowTextAndCell_build(colorCode, colorSet) {
         renderTarget = colorCode.p();
         tagName = V_util_getTagName(renderTarget);
 
-        if (tagName === "th" || tagName === "td") {
+        if (tagName === "th" || tagName === "td")
             __disposeCell(renderTarget);
-        }
     }
 
     // 删除预置颜色标识
     JQ_remove(colorCode);
 
     /**
-     * 处理文本着色
+     * 处理文本颜色
      * @param obj 文本对象
      */
     function __disposeText(obj) {
@@ -15017,8 +15314,8 @@ function RainbowTextAndCell_build(colorCode, colorSet) {
             if (V_length(span) === 0) // 无子元素 span 时恢复为 obj
                 span = obj;
             if (span !== gUndefined) {
-                span.c(_backgroundImage_, _linearGradient_ + "(90deg,"
-                    + V_ui_genGradColorCSS(gradientColors, _, "-lg") + ")");
+                span.c(_cssText_, _backgroundImage_ + ":" + _linearGradient_ + "(90deg,"
+                    + V_ui_genGradColorCSS(gradientColors, _, "-lg") + ")" + _important_ + _boxShadow_None_);
                 span.c("background-clip", _text_);
                 span.c("-webkit-background-clip", _text_);
                 span.c(_color_, "transparent");
@@ -15061,15 +15358,15 @@ function RainbowTextAndCell_build(colorCode, colorSet) {
 
         // 单色
         if (solid) {
-            obj.c(_boxShadow_, "0 -.9em 0 0 " + V_ui_var("--ac-" + color + __fade_
+            obj.c(_boxShadow_, "0 var(--mark-bg-h-inset) 0 0 " + V_ui_var("--ac-" + color + __fade_
                 + (color === "bk" ? _ : "-lg")) + " inset");
         }
         // 渐变色
         else {
             obj.c(_boxShadow_, _none_);
             obj.c(_textShadow_, _none_);
-            obj.c(_backgroundImage_, _linearGradient_ + "(90deg,"
-                + V_ui_genGradColorCSS(gradientColors, __fade_, "-lg") + ")");
+            obj.c(_cssText_, _background_ + ":" + _linearGradient_ + "(90deg,"
+                + V_ui_genGradColorCSS(gradientColors, __fade_, "-lg") + ")0 .4375em/100% var(--mark-bg-h) no-repeat" + _important_ + _boxShadow_None_);
         }
     }
 
@@ -15088,8 +15385,8 @@ function RainbowTextAndCell_build(colorCode, colorSet) {
         }
         // 渐变色
         else {
-            obj.c(_backgroundImage_, _linearGradient_ + "(135deg,"
-                + V_ui_genGradColorCSS(gradientColors, __fade_, "-lg") + ")");
+            obj.c(_cssText_, _backgroundImage_ + ":" + _linearGradient_ + "(135deg,"
+                + V_ui_genGradColorCSS(gradientColors, __fade_, "-lg") + ")" + _important_ + _boxShadow_None_);
         }
         obj.a(_dataRbCellBg_, V_ui_campColor(color));
     }
@@ -15127,7 +15424,7 @@ function ColorCode_init() {
 function ColorCode_parse(target) {
     let tagName = V_util_getTagName(target),
         newColors = gNull;
-    // <sub> 标签
+    // 针对 <sub> 标签
     if (tagName === "em"
         && V_length(target.ch("sub" + _onlyChild_)) > 0
         && (newColors = target.t().m(Color_syntax)) != gNull) {
@@ -15299,7 +15596,7 @@ function Tag_build(target, result) {
         gradientColors = V_ui_splitColors(color);
         target.a(_class_, _vTag_ +___+ gradientColors[0] + em + id);
         target.c(_cssText_, _backgroundImage_ + ":" + _linearGradient_ + "(90deg,"
-            + V_ui_genGradColorCSS(gradientColors, _, "-lg") + ")" + _important_);
+            + V_ui_genGradColorCSS(gradientColors, _, "-lg") + ")" + _important_ + _boxShadow_None_);
     }
     else {
         target.a(_class_, _vTag_ +___+ color + em + id);
@@ -15364,7 +15661,6 @@ let Badge_count = 0,
  */
 function Badge_build(target, result) {
     let color = Badge_getColor(gUndefined, target), // 颜色标识
-        // em = _, // 强调样式的标识
         badgeName = result[1],
         badgeValue = result[2],
         badgeValue2 = (V_length(result) > 4) ? result[4] : gUndefined,
@@ -15377,7 +15673,6 @@ function Badge_build(target, result) {
     let colorSet = ColorCode_parse(target.n());
     if (colorSet != gNull) {
         color = Badge_getColor(colorSet[1], target);
-        // em = ColorCode_isEm(colorSet) ? " em" : _;
     }
 
     // ----- 徽章标题
@@ -15407,9 +15702,6 @@ function Badge_build(target, result) {
     if ((varStr = badgeValue.m(Badge_syntax_variable)) != gNull)
         badgeValue = badgeValue.r(varStr[2], V_ui_span("var " + color, _, varStr[2]));
     target.hm(badgeValue);
-    // 指定的颜色标识带强调样式
-    // if (V_length(em) > 0)
-    //     JQ_addClass(target, color);
 
     // 复制徽章内容
     target.uC().ck((event) => {
@@ -15422,7 +15714,7 @@ function Badge_build(target, result) {
 
     // ----- 徽章内容2
     if (badgeValue2 !== gUndefined) {
-        target.af(V_ui_span("v-badge-value2 id-" + Badge_count, _, badgeValue2));
+        target.af(V_ui_span(_vBadgeValue_ + "2 id-" + Badge_count, _, badgeValue2));
         JQ_addClass(target.p(), _hastwo_);
         JQ_addClass(target, _hastwo_);
 
@@ -15452,7 +15744,6 @@ function Badge_build(target, result) {
         if (color !== Badge_defalutColor) {
             content += ColorCode_genAsMarkdown(color,
                 _,
-                // (V_length(em) > 0 ? "!" : _),
                 Badge_defalutColor);
         }
         return content;
@@ -15473,7 +15764,7 @@ function Badge_getColor(color, target = gUndefined) {
             let p = target.p(),
                 tagName = (p !== gUndefined ? V_util_getTagName(p) : gUndefined);
             if (tagName !== gUndefined
-                && tagName.l() === _h6_ && p.p().a(_id_) === "write" )
+                && tagName.l() === _h6_ && p.p().a(_id_) === _write_ )
                     return "t2";
         }
         return Badge_defalutColor;
@@ -15533,7 +15824,7 @@ function Progressbar_build(target, value) {
     let label = target.ch(_label_),
         width = label.width(),
         outlineWidth = JS_parseInt(label.c(_outlineWidth_)),
-        rbTextSet = ["og", "gn", "cy", "bu", "vn", "pu"],
+        rbTextSet = ["og", "gn", "bu", "vn", "pu", "bk"],
         rbText = target.a(_dataRbText_),
         autoColor = (rbText === gUndefined),
         color,
@@ -15544,10 +15835,10 @@ function Progressbar_build(target, value) {
     if (autoColor) {
         if (value < 0)
             rbText = "rd";
-        else if (value > 100)
-            rbText = "ro";
         else if (value === 0)
             rbText = "gy";
+        else if (value > 100)
+            rbText = "ro";
         else
             rbText = rbTextSet[Math.floor(value / 20)];
     }
@@ -15634,7 +15925,7 @@ function Coating_build(target, result) {
     target.c(_background_, __genCoatingBg(V_length(tip), color))
         .c(_borderColor_, color);
 
-    // 「刮刮卡」的点击事件
+    // 针对「刮刮卡」的点击事件
     target.uC().ck((event) => {
         Coating_toggle($(event.currentTarget), event);
     });
@@ -15708,7 +15999,7 @@ function Coating_show(target) {
     JQ_addClass(target, _opened_);
     // 显示原始信息
     target.t(target.a(_dataCoatingHidden_));
-    // 「刮刮卡」自定义数据
+    // 针对「刮刮卡」自定义数据
     target.a(_dataCoatingShowed_, _true_)
 }
 
@@ -15720,7 +16011,7 @@ function Coating_hide(target) {
     JQ_removeClass(target, _opened_);
     // 显示提示信息
     target.t(target.a(_dataCoatingTip_));
-    // 「刮刮卡」自定义数据
+    // 针对「刮刮卡」自定义数据
     target.a(_dataCoatingShowed_, _false_);
 }
 
@@ -15775,7 +16066,7 @@ function VLOOKui_loadWelcomePage() {
             // 欢迎信息
             + V_ui_div(_, _vTips_, metaContent.x())
             // 文档加载进度及进入按钮
-            + V_ui_div(_, _vLoading_, "Loading...")
+            + V_ui_div(_, _vLoading_, _Loading_ + "...")
         );
 }
 
@@ -15795,139 +16086,139 @@ function VLOOKui_loadIconSet() {
         tagRectTransformRotate = '<rect transform="rotate(',
         widthHeightRx = '" width="2" height="4" rx="1"/>';
 
-        // SVG 图标集：图标|VLOOK LOGO
+        // 图标集：图标|VLOOK LOGO
     ui += V_ui_symbol(_icoVLOOK_,
-            V_ui_path('M17.15 0c2.382 0 3.245.248 4.116.714a4.856 4.856 0 0 1 2.02 2.02c.466.87.714 1.734.714 4.116v10.3c0 2.382-.248 3.245-.714 4.116a4.856 4.856 0 0 1-2.02 2.02c-.87.466-1.734.714-4.116.714H6.85c-2.382 0-3.245-.248-4.116-.714a4.856 4.856 0 0 1-2.02-2.02C.248 20.396 0 19.532 0 17.15V6.85c0-2.382.248-3.245.714-4.116a4.856 4.856 0 0 1 2.02-2.02C3.604.248 4.468 0 6.85 0h10.3zm-4.935 16.976a.26.26 0 0 0-.334 0l-.956.795a.26.26 0 0 0-.05.345l.956 1.432a.26.26 0 0 0 .434 0l.956-1.432a.26.26 0 0 0-.05-.345zM7.27 9.292a4.34 4.34 0 0 0-4.343 4.336 4.34 4.34 0 0 0 4.343 4.336 4.34 4.34 0 0 0 4.343-4.336A4.34 4.34 0 0 0 7.27 9.292zm9.554 0a4.34 4.34 0 0 0-4.343 4.336 4.34 4.34 0 0 0 4.343 4.336 4.34 4.34 0 0 0 4.343-4.336 4.34 4.34 0 0 0-4.343-4.336zm-9.554 1.3a3.038 3.038 0 0 1 3.04 3.036 3.038 3.038 0 0 1-3.04 3.035 3.038 3.038 0 0 1-3.04-3.035 3.038 3.038 0 0 1 3.04-3.035zm9.554 0a3.038 3.038 0 0 1 3.04 3.036 3.038 3.038 0 0 1-3.04 3.035 3.038 3.038 0 0 1-3.04-3.035 3.038 3.038 0 0 1 3.04-3.035zm2.883-5.174a.652.652 0 0 0-.853-.32l-.013.005-6.795 2.83-6.793-2.83-.014-.006a.65.65 0 1 0-.537 1.185l7.035 2.931.014.006c.097.043.2.06.299.055a.649.649 0 0 0 .293-.055l.014-.006 7.035-2.93.084-.048a.65.65 0 0 0 .23-.817z', "#FFF"))
-        // SVG 图标集：图标|导航中心
+            V_ui_path('M14.291 0c1.985 0 2.705.207 3.43.595a4.046 4.046 0 0 1 1.684 1.683c.388.726.595 1.446.595 3.43v8.583c0 1.985-.207 2.705-.595 3.43a4.046 4.046 0 0 1-1.683 1.684c-.726.388-1.446.595-3.43.595H5.708c-1.985 0-2.705-.207-3.43-.595a4.046 4.046 0 0 1-1.684-1.683C.207 16.996 0 16.276 0 14.292V5.708c0-1.985.207-2.705.595-3.43A4.046 4.046 0 0 1 2.278.594C3.004.207 3.724 0 5.708 0h8.583zM10.18 14.146a.217.217 0 0 0-.278 0l-.797.663a.217.217 0 0 0-.041.288l.796 1.193a.217.217 0 0 0 .362 0l.796-1.193a.217.217 0 0 0-.041-.288zm-4.12-6.403a3.616 3.616 0 0 0-3.619 3.614 3.616 3.616 0 0 0 3.619 3.613 3.616 3.616 0 0 0 3.62-3.613 3.616 3.616 0 0 0-3.62-3.614zm7.962 0a3.616 3.616 0 0 0-3.62 3.614 3.616 3.616 0 0 0 3.62 3.613 3.616 3.616 0 0 0 3.619-3.613 3.616 3.616 0 0 0-3.619-3.614zM6.059 8.827c1.4 0 2.533 1.133 2.533 2.53a2.531 2.531 0 0 1-2.533 2.53 2.531 2.531 0 0 1-2.533-2.53 2.531 2.531 0 0 1 2.533-2.53zm7.962 0c1.4 0 2.533 1.133 2.533 2.53a2.531 2.531 0 0 1-2.533 2.53 2.531 2.531 0 0 1-2.533-2.53 2.531 2.531 0 0 1 2.533-2.53zm2.402-4.312a.543.543 0 0 0-.71-.267l-.011.005-5.663 2.357-5.66-2.357-.012-.005a.543.543 0 0 0-.448.987l5.863 2.443.011.005a.54.54 0 0 0 .247.045.54.54 0 0 0 .247-.045l.011-.005 5.863-2.443a.542.542 0 0 0 .262-.72z'))
+        // 图标集：图标|导航中心
         + V_ui_symbol(_icoNavCenter_,
             V_ui_path('M7.087.453a.82.82 0 0 1 1.1-.366L13 2.493V17.2a.8.8 0 0 1-1.158.716L7 15.493V.82a.82.82 0 0 1 .087-.367zm12.755.797a1.5 1.5 0 0 1 .158.67v11.72a3 3 0 0 1-1.658 2.683l-3.184 1.592A.8.8 0 0 1 14 17.199V2.493L17.83.58a1.5 1.5 0 0 1 2.012.67zM5.913.453A.82.82 0 0 1 6 .82v14.673l-3.83 1.915A1.5 1.5 0 0 1 0 16.066V4.348a3 3 0 0 1 1.658-2.684L4.813.087a.82.82 0 0 1 1.1.366zM18.99 1.7a.5.5 0 0 0-.668-.23L15.61 2.79a.5.5 0 0 0-.046.874l2.71 1.693a.5.5 0 0 0 .765-.424V1.918a.5.5 0 0 0-.05-.219z', _))
-        // SVG 图标集：图标|导航中心分段控制|目录索引
+        // 图标集：图标|导航中心分段控制|目录索引
         + V_ui_symbol(_icoTocTabCatalog_,
             V_ui_path('M0 0h16v16H0z', _none_)
             + V_ui_path('M13 1a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3h10zm0 1H3a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm0 8a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2h6zm-9 0a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2h1zm9-3a1 1 0 0 1 0 2H7a1 1 0 1 1 0-2h6zM4 7a1 1 0 1 1 0 2H3a1 1 0 1 1 0-2h1zm9-3a1 1 0 0 1 0 2H7a1 1 0 1 1 0-2h6zM4 4a1 1 0 1 1 0 2H3a1 1 0 1 1 0-2h1z', _))
         + V_ui_symbol(_icoTocTabCatalog_ + __checked_,
             V_ui_path('M0 0h16v16H0z', _none_)
             + V_ui_path('M13 1a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3h10zm0 10H7a1 1 0 0 0 0 2h6a1 1 0 0 0 0-2zm-9 0H3a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2zm9-4H7a1 1 0 1 0 0 2h6a1 1 0 0 0 0-2zM4 7H3a1 1 0 1 0 0 2h1a1 1 0 1 0 0-2zm9-4H7a1 1 0 1 0 0 2h6a1 1 0 0 0 0-2zM4 3H3a1 1 0 1 0 0 2h1a1 1 0 1 0 0-2z', _))
-        // SVG 图标集：图标|导航中心分段控制|插图索引
+        // 图标集：图标|导航中心分段控制|插图索引
         + V_ui_symbol(_icoTocTabFigure_,
             V_ui_path('M0 0h16v16H0z', _none_)
             + V_ui_path('M13 1a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3h10zm0 1H3a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM5.823 7.22a1 1 0 0 1 .288.252l1.821 2.343a1 1 0 0 0 1.34.221l1.567-1.034a1 1 0 0 1 1.331.21l1.188 1.483a.8.8 0 0 1-.624 1.3H3.288a.8.8 0 0 1-.692-1.201l1.86-3.21a1 1 0 0 1 1.367-.364zM10 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4z', _))
         + V_ui_symbol(_icoTocTabFigure_ + __checked_,
             V_ui_path('M0 0h16v16H0z', _none_)
             + V_ui_path('M13 1a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3h10zM5.823 7.22a1 1 0 0 0-1.367.364l-1.86 3.21a.8.8 0 0 0 .692 1.201h9.446a.8.8 0 0 0 .624-1.3L12.17 9.212a1 1 0 0 0-1.331-.21l-1.567 1.034a1 1 0 0 1-1.34-.221L6.111 7.472a1 1 0 0 0-.288-.252zM10 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4z', _))
-        // SVG 图标集：图标|导航中心分段控制|表格索引
+        // 图标集：图标|导航中心分段控制|表格索引
         + V_ui_symbol(_icoTocTabTable_,
             V_ui_path('M0 0h16v16H0z', _none_)
             + V_ui_path('M13 1a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3h10zM5 11H1v1a2 2 0 0 0 2 2h2v-3zm5 0H6v3h4v-3zm5 0h-4v3h2a2 2 0 0 0 2-2v-1zM5 6H1v4h4V6zm5 0H6v4h4V6zm5 0h-4v4h4V6zM5 2H3a2 2 0 0 0-2 2v1h4V2zm5 0H6v3h4V2zm3 0h-2v3h4V4a2 2 0 0 0-2-2z', _))
         + V_ui_symbol(_icoTocTabTable_ + __checked_,
             V_ui_path('M0 0h16v16H0z', _none_)
             + V_ui_path('M16 11v1a3 3 0 0 1-3 3h-1v-4h4zM4 11v4H3a3 3 0 0 1-3-3v-1h4zm7 0v4H5v-4h6zm0-5v4H5V6h6zm5 0v4h-4V6h4zm-5-5v4H5V1h6zm2 0a3 3 0 0 1 3 3v1h-4V1h1zM4 1v4H0V4a3 3 0 0 1 3-3h1zM0 6h4v4H0V6z', _))
-        // SVG 图标集：图标|导航中心分段控制|多媒体索引
+        // 图标集：图标|导航中心分段控制|多媒体索引
         + V_ui_symbol(_icoTocTabMedia_,
             V_ui_path('M0 0h16v16H0z', _none_)
             + V_ui_path('M13 1a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3h10zm-1 1.001H4v12h8v-12zM3 11H1v1a2 2 0 0 0 2 2v-3zm12 0h-2v3l.15-.005A2 2 0 0 0 15 12v-1zM3.002 6h-2v4h2V6zm11.997 0h-2v4h2V6zM3 2a2 2 0 0 0-2 2v1h2zm10 0v3h2V4a2 2 0 0 0-2-2zm-2.936 6.655L7.259 10.62A.8.8 0 0 1 6 9.963V6.037a.8.8 0 0 1 1.259-.656l2.805 1.964a.8.8 0 0 1 0 1.31z', _))
         + V_ui_symbol(_icoTocTabMedia_ + __checked_,
             V_ui_path('M0 0h16v16H0z', _none_)
             + V_ui_path('M16 11v1a3 3 0 0 1-3 3v-4h3zM3 11v4a3 3 0 0 1-3-3v-1h3zm9-10v14H4V1h8zM6.8 5.237a.8.8 0 0 0-.8.8v3.926a.8.8 0 0 0 1.259.656l2.805-1.964a.8.8 0 0 0 0-1.31L7.259 5.38a.8.8 0 0 0-.459-.144zM16 6v4h-3V6h3zM3 6v4H0V6h3zm10-5a3 3 0 0 1 3 3v1h-3V1zM3 1v4H0V4a3 3 0 0 1 3-3z', _))
-        // SVG 图标集：图标|导航中心分段控制|代码块索引
+        // 图标集：图标|导航中心分段控制|代码块索引
         + V_ui_symbol(_icoTocTabCodeblock_,
             V_ui_path('M0 0h16v16H0z', _none_)
             + V_ui_path('M13 1a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3h10zm0 1H3a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM6.555 4.168a1 1 0 0 1 .277 1.387L5.201 7.999l1.631 2.446a1 1 0 0 1-.184 1.317l-.093.07a1 1 0 0 1-1.387-.277L3.353 8.832a1.5 1.5 0 0 1 0-1.664l1.815-2.723a1 1 0 0 1 1.387-.277zm2.89 0a1 1 0 0 1 1.387.277l1.815 2.723a1.5 1.5 0 0 1 0 1.664l-1.815 2.723a1 1 0 0 1-1.387.277l-.093-.07a1 1 0 0 1-.184-1.317L10.799 8 9.168 5.555a1 1 0 0 1 .277-1.387z', _))
         + V_ui_symbol(_icoTocTabCodeblock_ + __checked_,
             V_ui_path('M0 0h16v16H0z', _none_)
             + V_ui_path('M13 1a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3h10zM5.454 4.168a1 1 0 0 0-1.387.277L2.252 7.168a1.5 1.5 0 0 0 0 1.664l1.815 2.723a1 1 0 0 0 1.387.277l.093-.07a1 1 0 0 0 .184-1.317L4.101 8l1.63-2.444a1 1 0 0 0-.277-1.387zm4.89 0a1 1 0 0 0-.277 1.387l1.631 2.444-1.631 2.446a1 1 0 0 0 .184 1.317l.093.07a1 1 0 0 0 1.387-.277l1.815-2.723a1.5 1.5 0 0 0 0-1.664l-1.815-2.723a1 1 0 0 0-1.387-.277z', _))
-        // SVG 图标集：图标|导航中心分段控制|访问史
+        // 图标集：图标|导航中心分段控制|访问史
         + V_ui_symbol(_icoTocTabHistory_,
             V_ui_path('M8 0c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8zm0 1C4.142 1 1 4.142 1 8s3.142 7 7 7 7-3.142 7-7-3.142-7-7-7zm0 1.5a1 1 0 0 1 1 1v4.45l2.164 1.25a1 1 0 0 1-1 1.732l-2.598-1.5a1 1 0 0 1-.237-.19A1 1 0 0 1 7 8.5v-5a1 1 0 0 1 1-1z', _))
         + V_ui_symbol(_icoTocTabHistory_ + __checked_,
             V_ui_path('M8 0c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8zm0 3.5a1 1 0 0 0-1 1v5c0 .294.127.56.33.742a.979.979 0 0 0 .236.19l2.598 1.5a1 1 0 0 0 1-1.732L9 8.95V4.5a1 1 0 0 0-.883-.993z', _))
-        // SVG 图标集：图标|检索
+        // 图标集：图标|检索
         + V_ui_symbol(_icoRetrieval_,
             V_ui_path('M14.999 14.596a1.375 1.375 0 0 1-1.953 0L11.46 12.94a6.372 6.372 0 0 1-3.466 1.032c-3.559 0-6.444-2.904-6.444-6.486S4.435 1 7.994 1c3.56 0 6.445 2.904 6.445 6.486a6.47 6.47 0 0 1-1.026 3.488l1.586 1.656c.54.543.54 1.423 0 1.966zM7.993 2.32c-2.834 0-5.132 2.313-5.132 5.166s2.298 5.165 5.132 5.165c2.835 0 5.133-2.312 5.133-5.165s-2.298-5.166-5.133-5.166z', _))
         + V_ui_symbol(_icoMaskCloser_,
             V_ui_path('M13.98.176l.035.013c1.506.534 2.311 2.123 1.86 3.607L6.21 30l9.61 26.04c.546 1.475-.186 3.097-1.64 3.707l-.2.077c-1.502.532-3.154-.18-3.781-1.597l-.065-.16L.315 31.916a5.987 5.987 0 0 1 0-3.832l9.818-26.151C10.702.41 12.422-.375 13.979.176z', _))
-        // SVG 图标集：图标|插图导航的上一张
+        // 图标集：图标|插图导航的上一张
         + V_ui_symbol(_icoPrevFig_,
             V_ui_path('M11.03.091c.765.284 1.159 1.147.88 1.927L3.002 27l8.91 24.982a1.516 1.516 0 0 1-.75 1.87l-.13.057a1.462 1.462 0 0 1-1.834-.765l-.055-.134L.12 27.705C.112 27.685 0 27.435 0 27c0-.435.111-.684.12-.706L9.141.99A1.465 1.465 0 0 1 11.03.09z', _))
-        // SVG 图标集：图标|逐章导航的上一章'
+        // 图标集：图标|逐章导航的上一章'
         + V_ui_symbol(_icoPrevChapter_,
             V_ui_path('M7.364.293a1 1 0 0 1 0 1.414l-4.97 4.969 4.974 4.974a1 1 0 0 1-1.415 1.414L.296 7.407a.996.996 0 0 1-.291-.658.995.995 0 0 1 .288-.8L5.95.294a1 1 0 0 1 1.414 0z', _))
-        // SVG 图标集：图标|已收起的 目录节点
+        // 图标集：图标|已收起的 目录节点
         + V_ui_symbol(_icoTocFolded_,
             V_ui_path('M11.614 8.72L7.37 12.961a1 1 0 0 1-1.414-1.414l3.542-3.543-3.542-3.543A1 1 0 1 1 7.37 3.048l4.243 4.243a.997.997 0 0 1 .293.707v.014a.997.997 0 0 1-.293.707z', _))
-        // SVG 图标集：图标|已收起的 引用块折叠 / 表格折叠行节点
+        // 图标集：图标|已收起的 表格行分组节点
         + V_ui_symbol(_icoFolded_,
             V_ui_path('M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zm-.336 3.757A1 1 0 1 0 6.25 5.172l2.835 2.835-2.835 2.836a1 1 0 1 0 1.414 1.414l3.535-3.536a.997.997 0 0 0 .293-.707V8a.997.997 0 0 0-.293-.707z', _))
-        // SVG 图标集：图标|关闭
+        // 图标集：图标|关闭
         + V_ui_symbol(_icoClose_,
             V_ui_path('M7,7 L7,-1 C7,-1.55228475 7.44771525,-2 8,-2 C8.55228475,-2 9,-1.55228475 9,-1 L9,7 L17,7 C17.5522847,7 18,7.44771525 18,8 C18,8.55228475 17.5522847,9 17,9 L9,9 L9,17 C9,17.5522847 8.55228475,18 8,18 C7.44771525,18 7,17.5522847 7,17 L7,9 L-1,9 C-1.55228475,9 -2,8.55228475 -2,8 C-2,7.44771525 -1.55228475,7 -1,7 L7,7 Z"' + ' transform="translate(8.000000, 8.000000) rotate(45.000000) translate(-8.000000, -8.000000) "', _))
-        // SVG 图标集：图标|清空输入
+        // 图标集：图标|清空输入
         + V_ui_symbol(_icoResetInput_,
             V_ui_path('M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM5.737 4.606a.8.8 0 0 0-1.131 1.131L6.869 8l-2.263 2.263a.8.8 0 1 0 1.131 1.131L8 9.131l2.263 2.263a.8.8 0 1 0 1.131-1.131L9.131 8l2.263-2.263a.8.8 0 1 0-1.131-1.131L8 6.869z', _))
-        // SVG 图标集：图标|颜色模式（Light/Dark）
+        // 图标集：图标|颜色模式（Light/Dark）
         + V_ui_symbol(_icoLightMode_,
             V_ui_path('M10 17a1 1 0 0 1 1 1v1a1 1 0 0 1-2 0v-1a1 1 0 0 1 1-1zm6.364-2.05l.707.707a1 1 0 0 1-1.414 1.414l-.707-.707a1 1 0 1 1 1.414-1.414zm-11.314 0a1 1 0 0 1 0 1.414l-.707.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0zM10 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm9 4a1 1 0 0 1 0 2h-1a1 1 0 0 1 0-2h1zM2 9a1 1 0 0 1 0 2H1a1 1 0 0 1 0-2h1zm15.071-6.071a1 1 0 0 1 0 1.414l-.707.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0zm-12.728 0l.707.707A1 1 0 1 1 3.636 5.05l-.707-.707A1 1 0 0 1 4.343 2.93zM10 0a1 1 0 0 1 1 1v1a1 1 0 0 1-2 0V1a1 1 0 0 1 1-1z', _))
-        // SVG 图标集：图标|深色模式
+        // 图标集：图标|深色模式
         + V_ui_symbol(_icoDarkMode_,
             V_ui_path('M5.646 2.646A9.003 9.003 0 0 0 9 20a9.003 9.003 0 0 0 8.354-5.646A9 9 0 0 1 5.613 2.729zM15.5 3l-1.065 2.7a1.303 1.303 0 0 1-.734.735L11 7.5l2.7 1.065c.337.133.602.398.735.734L15.5 12l1.065-2.7c.133-.337.398-.602.734-.735L20 7.5l-2.7-1.065a1.303 1.303 0 0 1-.735-.734L15.5 3zm-4.829-3l-.547 1.389a1 1 0 0 1-.564.563L8.171 2.5l1.39.548a1 1 0 0 1 .563.563L10.67 5l.548-1.389a1 1 0 0 1 .563-.563l1.39-.548-1.39-.548a1 1 0 0 1-.563-.563L10.671 0z', _))
-        // SVG 图标集：图标|自动颜色模式
+        // 图标集：图标|自动颜色模式
         + V_ui_symbol(_icoAutoMode_,
             V_ui_path('M10 0c5.523 0 10 4.477 10 10s-4.477 10-10 10S0 15.523 0 10 4.477 0 10 0zm0 2v4a4 4 0 0 0-.2 7.995L10 14v4a8 8 0 1 0 0-16zm0 4a4 4 0 0 1 .2 7.995L10 14z', _))
-        // SVG 图标集：图标|链接地图
+        // 图标集：图标|链接地图
         + V_ui_symbol(_icoLinkMap_,
             V_ui_path('M17.143 12.857c-.496 0-.956.139-1.362.362l-3.095-2.278c.103-.296.171-.61.171-.941 0-.1-.02-.194-.03-.292l2.86-1.716a2.13 2.13 0 0 0 1.456.58A2.143 2.143 0 1 0 15 6.428c0 .1.016.195.03.292l-2.71 1.625a2.852 2.852 0 0 0-1.606-1.102V5.613a2.855 2.855 0 0 0 2.143-2.756A2.86 2.86 0 0 0 10 0a2.86 2.86 0 0 0-2.857 2.857c0 1.327.914 2.437 2.143 2.756v1.631c-.697.18-1.3.617-1.689 1.223L4.951 6.88a2.143 2.143 0 1 0-2.094 1.692c.488-.001.96-.17 1.337-.48L7.156 9.87c-.002.045-.013.086-.013.131 0 .332.068.646.172.942l-3.06 2.296a2.816 2.816 0 0 0-1.398-.38A2.86 2.86 0 0 0 0 15.713a2.86 2.86 0 0 0 2.857 2.857 2.86 2.86 0 0 0 2.857-2.857c0-.54-.159-1.039-.42-1.47l2.82-2.115c.335.299.737.513 1.172.627v3.09a2.136 2.136 0 0 0-1.429 2.011 2.143 2.143 0 1 0 4.286 0 2.136 2.136 0 0 0-1.429-2.011v-3.09a2.837 2.837 0 0 0 1.174-.627l2.834 2.085c-.283.45-.435.97-.436 1.5a2.86 2.86 0 0 0 2.857 2.857A2.86 2.86 0 0 0 20 15.714a2.86 2.86 0 0 0-2.857-2.857zm-8.572-10a1.43 1.43 0 0 1 2.857 0A1.43 1.43 0 0 1 10 4.286a1.43 1.43 0 0 1-1.429-1.429zM2.857 17.143a1.43 1.43 0 0 1-1.428-1.429c0-.788.64-1.428 1.428-1.428.788 0 1.429.64 1.429 1.428a1.43 1.43 0 0 1-1.429 1.429zM10 11.429A1.43 1.43 0 0 1 8.571 10a1.43 1.43 0 0 1 2.857 0A1.43 1.43 0 0 1 10 11.429zm7.143 5.714a1.43 1.43 0 0 1-1.429-1.429 1.43 1.43 0 0 1 2.857 0 1.43 1.43 0 0 1-1.428 1.429z', _))
-        // SVG 图标集：图标|聚光灯
+        // 图标集：图标|聚光灯
         + V_ui_symbol(_icoSpotlight_,
             V_ui_path('M7 0a7 7 0 0 1 6.992 6.67A7.002 7.002 0 0 1 11 20a7 7 0 0 1-6.992-6.67A7.002 7.002 0 0 1 7 0zm4 6a7 7 0 0 0-6.992 7.33 7 7 0 0 0 9.985-6.662A6.984 6.984 0 0 0 11 6.001z', _))
-        // SVG 图标集：图标|激光笔
+        // 图标集：图标|激光笔
         + V_ui_symbol(_icoLaserPointer_,
             V_ui_path('M5.574 5.078a3.5 3.5 0 0 1 4.913.603l6.772 8.668a3.5 3.5 0 1 1-5.516 4.31L4.971 9.991a3.5 3.5 0 0 1 .603-4.913zm.576.769a2.5 2.5 0 1 0 3.078 3.94 2.5 2.5 0 0 0-3.078-3.94zm6.562-3.138a1 1 0 1 1 1.231 1.576l-.788.616a1 1 0 1 1-1.231-1.576l.788-.616zm-10.5 8a1 1 0 1 1 1.231 1.576l-.788.616a1 1 0 0 1-1.231-1.576l.788-.616zm-1.177-4.68l1 .034a1 1 0 0 1-.07 1.999l-1-.035a1 1 0 0 1 .07-1.999zM8.838.021a1 1 0 0 1 .77 1.186l-.208.978a1 1 0 0 1-1.956-.416l.208-.978a1 1 0 0 1 1.186-.77zM2.724 1.409a1 1 0 0 1 1.403.172l.616.788a1 1 0 0 1-1.576 1.232l-.616-.788a1 1 0 0 1 .173-1.404z', _))
-        // SVG 图标集：图标|段落导航
+        // 图标集：图标|段落导航
         + V_ui_symbol(_icoParagraphNav_,
             V_ui_path('M3.698 17.714v-5.036A.68.68 0 0 0 3.02 12a.68.68 0 0 0-.678.678v5.047L1.155 16.54a.689.689 0 0 0-.96 0c-.26.26-.26.69 0 .96l2.294 2.294a.67.67 0 0 0 .474.204h.068a.65.65 0 0 0 .475-.204L5.799 17.5c.26-.26.26-.689 0-.96-.237-.271-.666-.271-.926 0l-1.175 1.175zm0-15.432V7.32a.68.68 0 0 1-.678.678.68.68 0 0 1-.678-.678l.03-5.082-1.217 1.22c-.26.26-.689.26-.96 0a.689.689 0 0 1 0-.96L2.489.203A.67.67 0 0 1 2.963 0h.068c.17 0 .35.068.475.203l2.293 2.294c.26.26.26.69 0 .96-.237.272-.666.272-.926 0L3.698 2.283zM8 14h11a1 1 0 0 1 0 2H8a1 1 0 0 1 0-2zm0 3h8a1 1 0 0 1 0 2H8a1 1 0 0 1 0-2zM8 7h4a1 1 0 0 1 0 2H8a1 1 0 0 1 0-2zm0-6h11a1 1 0 0 1 0 2H8a1 1 0 0 1 0-2zm0 3h11a1 1 0 0 1 0 2H8a1 1 0 0 1 0-2z', _))
-        // SVG 图标集：图标|字体风格
+        // 图标集：图标|字体风格
         + V_ui_symbol(_icoFontTheme_,
             V_ui_path('M2.26 17.998l.59-1.85h3.015l.59 1.85h1.843a.5.5 0 0 0 .465-.683l-2.648-6.74a1 1 0 0 0-.931-.635h-1.57a1 1 0 0 0-.93.634l-2.65 6.74a.5.5 0 0 0 .466.684h1.76zm3.14-3.342H3.315l.22-.682c.26-.8.534-1.741.78-2.585h.055c.275.822.535 1.785.81 2.585l.218.682zm6.745 3.284c.893 0 1.644-.364 2.31-.892h.071l.17.716h2.055v-4.058c0-2.236-1.176-3.266-3.26-3.266-1.26 0-2.408.377-3.471.942l.879 1.47c.807-.402 1.473-.628 2.11-.628.823 0 1.163.34 1.22.917-3.146.302-4.478 1.118-4.478 2.626 0 1.193.907 2.173 2.394 2.173zm.865-1.734c-.524 0-.865-.2-.865-.615 0-.503.51-.917 2.083-1.093v1.143c-.368.352-.708.565-1.218.565zM13.802 0l3.473 7.75.724.078V8.4h-4.33v-.573l1.066-.124-.727-1.864h-3.201l-.8 1.853.712.146V8.4H8.1V8.16c-.325.256-.749.37-1.314.37-.943 0-1.472-.428-1.686-1.129-.729.727-1.272 1.13-2.414 1.13-1.23 0-2.086-.676-2.086-1.766 0-1.181.743-1.818 3.043-2.428.4-.104.9-.22 1.4-.337v-.792c0-1.35-.343-1.753-1.429-1.753-.2 0-.386.013-.6.052l-.1.922c-.043.883-.528 1.233-1.071 1.233-.515 0-.872-.233-.986-.662C.97 1.78 2.213 1 4.427 1c2.029 0 2.843.792 2.843 2.674v3.492c0 .494.172.662.443.662.214 0 .372-.103.643-.493l.243.182a2.323 2.323 0 0 1-.152.262l.49-.086L12.31 0h1.492zm-8.76 4.35a7.258 7.258 0 0 0-.786.22c-1 .376-1.529.987-1.529 1.934 0 .78.4 1.143 1.072 1.143.386 0 .714-.17 1.243-.598zm7.43-2.615l-1.507 3.533h2.87l-1.363-3.533z', _))
-        // SVG 图标集：图标|文库
+        // 图标集：图标|文库
         + V_ui_symbol(_icoDocLib_,
             V_ui_path('M17 0a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3h14zm.001 7h-14a2 2 0 0 0-2 2h6a3 3 0 0 0 6 0h6l-.005-.15A2 2 0 0 0 17 7zm0-3h-14a2 2 0 0 0-2 2h18l-.005-.15A2 2 0 0 0 17 4zm0-3h-14a2 2 0 0 0-2 2h18l-.005-.15A2 2 0 0 0 17 1z', _))
-        // SVG 图标集：图标|文库-新标签中打开
+        // 图标集：图标|文库-新标签中打开
         + V_ui_symbol(_icoDocLibExt_,
             V_ui_path('M17 0a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3h14zm.002 2H11a1 1 0 0 0 0 2h3.585l-6.292 6.293a1 1 0 1 0 1.414 1.414L16 5.414V9a1 1 0 1 0 2 0L18 3c0-.017 0-.033-.003-.059v-.012a.999.999 0 0 0-.487-.789l-.023-.013-.047-.025a.995.995 0 0 0-.023-.011l-.014-.006-.025-.011a.993.993 0 0 0-.073-.027l-.014-.004-.017-.005a.993.993 0 0 0-.079-.019l-.02-.003-.017-.004A1.007 1.007 0 0 0 17.002 2h.02-.02z', _))
-        // SVG 图标集：图标|打开详情
+        // 图标集：图标|详情折叠、details、summary 打开详情
         + V_ui_symbol(_icoDetailsOpen_,
             V_ui_path('M9 0a9 9 0 1 1 0 18A9 9 0 0 1 9 0zm1 3H8v5H3v2h5v5h2v-5h5V8h-5V3z', _))
-        // SVG 图标集：图标|打印
+        // 图标集：图标|打印
         + V_ui_symbol(_icoPrint_,
-            V_ui_path('M15 0a2 2 0 0 1 2 2v4h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h1V2a2 2 0 0 1 2-2h10zm1 13H4v4a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-4zm-2 2v1H6v-1h8zm3.5-7h-1a.5.5 0 1 0 0 1h1a.5.5 0 1 0 0-1zm-3.372 0a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1zM15 1H5a1 1 0 0 0-1 1v4h12V2a1 1 0 0 0-.883-.993L15 1z', _))
-        // SVG 图标集：图标|检查
+            V_ui_path('M14 0a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-1v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2V2a2 2 0 0 1 2-2h8zm2 11H4v5a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-5zm-2 3v1H6v-1h8zm0-2v1H6v-1h8zm3.5-6h-1a.5.5 0 1 0 0 1h1a.5.5 0 1 0 0-1zm-3.372 0a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1zM14 1H6a1 1 0 0 0-1 1v2h10V2a1 1 0 0 0-.883-.993L14 1z', _))
+        // 图标集：图标|检查
         + V_ui_symbol(_icoCheck_,
             V_ui_path('M6.323.102a19.026 19.026 0 0 0 5.27 2.566c.242.074.407.3.406.556V5.31a10.05 10.05 0 0 1-1.444 5.306L9.05 9.134A3.8 3.8 0 0 0 5.98 3.1a3.79 3.79 0 0 0-2.684 1.115 3.794 3.794 0 0 0-.18 5.137 3.802 3.802 0 0 0 5.109.607l1.65 1.625c-.963 1.183-2.212 2.055-3.668 2.374a.58.58 0 0 1-.208.042.662.662 0 0 1-.203-.036c-3.541-.78-5.858-4.828-5.794-8.66V3.225c0-.256.164-.48.405-.555A19.024 19.024 0 0 0 5.674.102a.566.566 0 0 1 .65 0zM6.02 4.447c.66 0 1.279.257 1.747.72a2.469 2.469 0 0 1-1.747 4.217A2.468 2.468 0 0 1 3.547 6.91 2.457 2.457 0 0 1 6.02 4.447z', _))
-        // SVG 图标集：图标|内容助力-插图浏览器中打开
+        // 图标集：图标|内容助手-插图浏览器中打开
         + V_ui_symbol(_icoOpenInFigureNav_,
             V_ui_path('M3 0h12a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3zm0 8.507a1 1 0 0 0-1 1V12.5A1.5 1.5 0 0 0 3.5 14H7a1 1 0 0 0 0-2H4V9.506a1 1 0 0 0-.883-.993L3 8.507zm12-.94a1 1 0 0 0 1-1V3.503a1.5 1.5 0 0 0-1.5-1.5h-3.48a1 1 0 0 0 0 2H14v2.562a1 1 0 0 0 .884.994l.116.006z'))
-        // SVG 图标集：图标|内容助力-表格阅读模式（十字光标）
+        // 图标集：图标|内容助手-表格阅读模式（十字光标）
         + V_ui_symbol(_icoTableX_,
             V_ui_path('M15.6 0A2.4 2.4 0 0 1 18 2.4v11.2a2.4 2.4 0 0 1-2.4 2.4H2.4A2.4 2.4 0 0 1 0 13.6V2.4A2.4 2.4 0 0 1 2.4 0h13.2zM12 1H6v4.5A1.5 1.5 0 0 1 4.5 7H1v5h3.5A1.5 1.5 0 0 1 6 13.5V15h6v-1.5a1.5 1.5 0 0 1 1.5-1.5H17V7h-3.5A1.5 1.5 0 0 1 12 5.5V1zm-1.5 6A1.5 1.5 0 0 1 12 8.5v2a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 6 10.5v-2A1.5 1.5 0 0 1 7.5 7h3zm-.167 1H7.667A.667.667 0 0 0 7 8.667v1.666c0 .369.298.667.667.667h2.666a.667.667 0 0 0 .667-.667V8.667A.667.667 0 0 0 10.333 8z', _))
-        // SVG 图标集：图标|内容助力-表格自动换行
-        + V_ui_symbol(_icoTableWrap_,
-            V_ui_path('M12 0a2 2 0 0 1 2 2h5.5a.5.5 0 1 1 0 1H14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h10zM2.5 3a.5.5 0 0 1 0-1H13a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1H2.5zM17 5.1c.961.52 1.628.953 2 1.3.372.347.705.847 1 1.5l-2.001-.001L18 10.5a2.9 2.9 0 0 1-2.9 2.9h-.801l.001 2.1c-.673-.383-1.173-.75-1.5-1.1-.327-.35-.76-.984-1.3-1.9.52-.961.953-1.628 1.3-2 .347-.372.847-.705 1.5-1l-.001 2.1h.801a1.1 1.1 0 0 0 1.1-1.1l-.001-2.6H14c.383-.673.75-1.173 1.1-1.5.35-.327.984-.76 1.9-1.3zM7 7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5zm-2.5 6h-2a.5.5 0 1 0 0 1h2a.5.5 0 1 0 0-1zm2-2h-4a.5.5 0 1 0 0 1h4a.5.5 0 1 0 0-1zm0-2h-4a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1z', _))
-        // SVG 图标集：图标|内容助力-画中画
+        // 图标集：图标|内容助手-表格、代码的换行、不换行
+        + V_ui_symbol(_icoWrapUnwrap_,
+            V_ui_path('M12 0a2 2 0 0 1 2 2h5.5a.5.5 0 1 1 0 1H14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h10zM2.5 3a.5.5 0 0 1 0-1H13a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1H2.5zM17 5.1c.961.52 1.628.953 2 1.3.372.347.705.847 1 1.5l-2.001-.001L18 10.5a2.9 2.9 0 0 1-2.9 2.9h-.801l.001 2.1c-.673-.383-1.173-.75-1.5-1.1-.327-.35-.76-.984-1.3-1.9.52-.961.953-1.628 1.3-2 .347-.372.847-.705 1.5-1l-.001 2.1h.801a1.1 1.1 0 0 0 1.1-1.1l-.001-2.6H14c.383-.673.75-1.173 1.1-1.5.35-.327.984-.76 1.9-1.3zM8 7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h6zm-2.5 6h-3a.5.5 0 1 0 0 1h3a.5.5 0 1 0 0-1zm2-2h-5a.5.5 0 1 0 0 1h5a.5.5 0 1 0 0-1zm0-2h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1z', _))
+        // 图标集：图标|内容助手-画中画
         + V_ui_symbol(_icoPicInPic_,
             V_ui_path('M16 9a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h7zM1 8v5a1 1 0 0 0 1 1h3v1H2a2 2 0 0 1-2-2V8h1zm14-8a2 2 0 0 1 2 2v5h-1V2a1 1 0 0 0-.883-.993L15 1H8V0h7zM.471.508a.725.725 0 0 1 1.025 0l3.48 3.48V1.642c0-.365.295-.66.66-.661h.014a.689.689 0 0 1 .675.69L6.32 5.693a.662.662 0 0 1-.2.473.657.657 0 0 1-.466.193l-4.024.004a.689.689 0 0 1-.689-.675v-.013c0-.366.296-.662.661-.662h2.35L.47 1.534a.725.725 0 0 1 0-1.026z', _))
-        // SVG 图标集：图标|画中画的放大模式
+        // 图标集：图标|画中画的放大模式
         + V_ui_symbol(_icoZoomIn_,
             V_ui_path('M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zm4 7.503l-.117.007a1 1 0 0 0-.883.993v2.492H8.4a1 1 0 0 0 0 2h3.1a1.5 1.5 0 0 0 1.5-1.5V8.504a1 1 0 0 0-1-1zM7.58 3H4.5A1.5 1.5 0 0 0 3 4.5v3.062a1 1 0 0 0 1 1l.117-.007A1 1 0 0 0 5 7.562V5h2.58a1 1 0 1 0 0-2z', _))
-        // SVG 图标集：图标|内容助力-画中画的缩小模式
+        // 图标集：图标|内容助手-画中画的缩小模式
         + V_ui_symbol(_icoZoomOut_,
             V_ui_path('M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zm4.58 8H9.5A1.5 1.5 0 0 0 8 9.5v3.062a1 1 0 0 0 1 1l.117-.007a1 1 0 0 0 .883-.993V10h2.58a1 1 0 1 0 0-2zM7 2.503l-.117.007A1 1 0 0 0 6 3.503v2.492H3.4a1 1 0 1 0 0 2h3.1a1.5 1.5 0 0 0 1.5-1.5V3.504a1 1 0 0 0-1-1z" fill-rule="evenodd', _))
-        // SVG 图标集：图标|复制
+        // 图标集：图标|复制
         + V_ui_symbol(_icoCopy_,
             V_ui_path('M16 0a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2-2h8zm-5 3H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-4.5 9a.5.5 0 1 1 0 1h-3a.5.5 0 1 1 0-1h3zm3-3a.5.5 0 1 1 0 1h-6a.5.5 0 1 1 0-1h6zm0-3a.5.5 0 1 1 0 1h-6a.5.5 0 1 1 0-1h6z', _))
-        // SVG 图标集：图标|复制 as Markdown
+        // 图标集：图标|复制 as Markdown
         + V_ui_symbol(_icoCopyAsMd_,
             V_ui_path('M16 0a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2-2h8zm-5 3H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM4.75 6L6.5 8.206 8.25 6H10v6H8.25V8.559L6.5 10.765 4.75 8.559V12H3V6h1.75zM15.3 5h-1.6v3.5H12l2.5 2.5L17 8.5h-1.7V5z', _))
-        // SVG 图标集：图标|加载中
+        // 图标集：图标|加载中
         + V_ui_symbol(_icoLoading_,
             tagRectX + '7' + widthHeightRx
             + tagRectTransformRotate + '45 12.243 3.757)" x="11.243" y="1.757' + widthHeightRx
@@ -15937,50 +16228,50 @@ function VLOOKui_loadIconSet() {
             + tagRectTransformRotate + '-135 3.757 12.243)" x="2.757" y="10.243' + widthHeightRx
             + tagRectTransformRotate + '-90 2 8)" x="1" y="6' + widthHeightRx
             + tagRectTransformRotate + '-45 3.757 3.757)" x="2.757" y="1.757' + widthHeightRx)
-        // SVG 图标集：图标|播放
+        // 图标集：图标|播放
         + V_ui_symbol(_icoPlay_,
             V_ui_path('M14.133 9.605l-7.86 6.028c-.93.633-2.223.427-2.887-.459A1.909 1.909 0 0 1 3 14.028V1.972C3 .882 3.927 0 5.07 0c.432 0 .852.128 1.203.367l7.86 6.028c.93.633 1.146 1.865.481 2.751a2.024 2.024 0 0 1-.481.459z', _)
             + V_ui_path('M0 0h16v16H0z', _none_))
-        // SVG 图标集：图标|暂停
+        // 图标集：图标|暂停
         + V_ui_symbol(_icoPause_,
             V_ui_path('M3 2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm9 0h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z', _)
             + V_ui_path('M0 0h16v16H0z', _none_))
-        // SVG 图标集：图标|停止
+        // 图标集：图标|停止
         + V_ui_symbol(_icoStop_,
             tagRectX + '2" y="2" width="12" height="12" rx="2"/>'
             + V_ui_path('M0 0h16v16H0z', _none_))
-        // SVG 图标集：图标|无法播放
+        // 图标集：图标|无法播放
         + V_ui_symbol(_icoForbidden_,
             V_ui_path('M3.11 4.523a6.001 6.001 0 0 0 8.368 8.367L3.11 4.523zM4.522 3.11l8.368 8.367A6 6 0 0 0 4.522 3.11zM8 16A8.001 8.001 0 1 1 8.002.002 8.001 8.001 0 0 1 8 16z', _)
             + V_ui_path('M0 0h16v16H0z', _none_))
-        // SVG 图标集：图标|复选框（未选择）
+        // 图标集：图标|复选框（未选择）
         + V_ui_symbol(_icoChkbox__ + _no_,
             V_ui_path('M10 0a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h6zm-.5 2h-5c-.69 0-1.315.28-1.768.732A2.492 2.492 0 0 0 2 4.5v5c0 .69.28 1.315.732 1.768A2.492 2.492 0 0 0 4.5 12h5c.69 0 1.315-.28 1.768-.732A2.492 2.492 0 0 0 12 9.5v-5c0-.69-.28-1.315-.732-1.768A2.492 2.492 0 0 0 9.5 2z" opacity=".5', _))
-        // SVG 图标集：图标|复选框（已选择）
+        // 图标集：图标|复选框（已选择）
         + V_ui_symbol(_icoChkbox__ + _yes_,
             V_ui_path('M10 0a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h6zm.435 3.36a1 1 0 0 0-1.393.245L5.703 8.372 4.421 7.09a1 1 0 1 0-1.414 1.414l2.121 2.121a1 1 0 0 0 1.225.15l.01-.007.01-.005a.997.997 0 0 0 .292-.277l4.015-5.734a1 1 0 0 0-.245-1.393z', _))
-        // SVG 图标集：图标|复选框（不确定选择）
+        // 图标集：图标|复选框（不确定选择）
         + V_ui_symbol(_icoChkbox__ + _un_,
             V_ui_path('M10 0a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h6zm0 6H4a1 1 0 1 0 0 2h6a1 1 0 0 0 0-2z" opacity=".5', _))
-        // SVG 图标集：图标|有新版本
+        // 图标集：图标|有新版本
         + V_ui_symbol(_icoNewVersion_,
             V_ui_path('M10 20C4.5 20 0 15.5 0 10S4.5 0 10 0s10 4.5 10 10-4.5 10-10 10zm.885-13.548l2.211 2.21a.856.856 0 0 0 1.239 0 .854.854 0 0 0 0-1.237L11.238 4.33c-.707-.707-1.769-.707-2.476 0L5.665 7.425a.854.854 0 0 0 0 1.237.856.856 0 0 0 1.239 0l2.211-2.21v8.664c0 .53.354.884.885.884.53 0 .885-.354.885-.884V6.452z', _))
-        // SVG 图标集：图标|链接检查结果异常
+        // 图标集：图标|链接检查结果异常
         + V_ui_symbol(_icoLinkError_,
             V_ui_path('M19.59 14.956l-7.846-13.7c-.96-1.675-2.528-1.675-3.488 0L.41 14.956C-.55 16.632.235 18 2.153 18h15.695c1.917 0 2.701-1.368 1.743-3.044zM8.923 5.143c.282-.307.64-.46 1.078-.46.438 0 .796.151 1.078.454.28.304.42.683.42 1.14 0 .392-.585 3.28-.78 5.38h-1.41c-.171-2.1-.806-4.988-.806-5.38 0-.45.14-.828.42-1.134zm2.136 9.989c-.296.29-.65.436-1.058.436-.408 0-.761-.145-1.058-.436a1.424 1.424 0 0 1-.442-1.056c0-.411.147-.767.442-1.065.297-.298.65-.447 1.058-.447.409 0 .762.149 1.058.447.296.298.443.654.443 1.065 0 .413-.147.765-.443 1.056z', _))
-        // SVG 图标集：GitHub Style Alert | Note
+        // 图标集：GitHub Style Alert | Note
         + V_ui_symbol(_icoAlertNote_,
             V_ui_path('M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zm.25 7h-1a.75.75 0 0 0 0 1.5h.25v2h-.25a.75.75 0 1 0 0 1.5h2a.75.75 0 1 0 0-1.5H9V7.75A.75.75 0 0 0 8.25 7zM8 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2z', _))
-        // SVG 图标集：GitHub Style Alert | Tip
+        // 图标集：GitHub Style Alert | Tip
         + V_ui_symbol(_icoAlertTip_,
             V_ui_path('M5.5 0C8.637 0 11 2.31 11 5.25c0 1.516-.701 2.5-1.328 3.259l-.268.319c-.207.245-.383.453-.541.681-.208.3-.33.595-.37.877a.76.76 0 0 1-.773.616L3.2 11a.748.748 0 0 1-.692-.614c-.04-.282-.163-.577-.37-.877a8.456 8.456 0 0 0-.354-.46l-.456-.54-.237-.296C.537 7.496 0 6.577 0 5.25 0 2.31 2.363 0 5.5 0zM3.25 12h4.5a.75.75 0 1 1 0 1.5h-4.5a.75.75 0 1 1 0-1.5zm.25 3.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 1 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75z', _))
-        // SVG 图标集：GitHub Style Alert | Important
+        // 图标集：GitHub Style Alert | Important
         + V_ui_symbol(_icoAlertImportant_,
             V_ui_path('M14.25 0C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25v-9.5C0 .784.784 0 1.75 0h12.5zM8 9a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm0-7c-.552 0-1 .42-1 .938v4.124C7 7.58 7.448 8 8 8s1-.42 1-.938V2.938C9 2.42 8.552 2 8 2z', _))
-        // SVG 图标集：GitHub Style Alert | Warning
+        // 图标集：GitHub Style Alert | Warning
         + V_ui_symbol(_icoAlertWarning_,
             V_ui_path('M9.576.933l6.213 11.471c.296.547.28 1.207-.043 1.739a1.792 1.792 0 0 1-1.533.857H1.787c-.628 0-1.21-.326-1.533-.857a1.744 1.744 0 0 1-.043-1.739L6.424.934c.673-1.245 2.479-1.245 3.152 0zM8 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm0-7c-.552 0-1 .42-1 .938v4.125C7 9.58 7.448 10 8 10s1-.42 1-.938V4.939C9 4.42 8.552 4 8 4z', _))
-        // SVG 图标集：GitHub Style Alert | Caution
+        // 图标集：GitHub Style Alert | Caution
         + V_ui_symbol(_icoAlertCaution_,
             V_ui_path('M11 0c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6c0 .199-.08.39-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53L4.47.22C4.61.08 4.801 0 5 0h6zM8 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm0-7c-.552 0-1 .42-1 .938v4.125C7 9.58 7.448 10 8 10s1-.42 1-.938V4.939C9 4.42 8.552 4 8 4z', _))
     + '</svg>';
@@ -15998,8 +16289,6 @@ function VLOOKui_loadTopbar() {
             V_ui_div(_, _vBtn_ +___+ _navCenter_, V_ui_svgIcon(_icoNavCenter_, 20, 18, _light_))
             // 文库
             + V_ui_div(_, _vBtn_ +___+ _docLib_, V_ui_svgIcon(_icoDocLib_, 20, 18, _light_))
-            // 打印
-            + V_ui_div(_, _vBtn_ +___+ _print_, V_ui_svgIcon(_icoPrint_, 20, 19, _light_))
             + V_ui_div(_, _vBtnGroup_ + " prs",
                 // 段落导航
                 V_ui_divExt(_, _vBtn_ +___+ _paragraphNav_, V_attr(_dataBtnGroup_, "prs"),
@@ -16045,7 +16334,7 @@ function VLOOKui_loadNavCenter() {
     // --------------------------------------------------
     // 导航中心
     let classTocFilterResult = _vTocFilterResult_ +___,
-        ui = V_ui_div(_, _vNavCenter_ +___+ _vFloatCard_,
+        ui = V_ui_divExt(_, _vNavCenter_ +___+ _vFloatCard_, V_attr(_dataTitle_, V_lang_text6()) + '"',
             // --- 导航中心头部 ---
             V_ui_div(_, _vNavCenter_ + __header_,
                 // 关键字搜索
@@ -16053,10 +16342,13 @@ function VLOOKui_loadNavCenter() {
                 // 分段控制器组件
                 + V_ui_nav(_, _vSegment_ + " toc")
                 // 访问历史标题
-                + V_ui_div(_, "v-toc-history" + __title_, "访问历史"))
+                + V_ui_div(_, "v-toc-history" + __title_, ["访问历史", "History"][V_lang]))
                 // --- 导航中心内容区 ---
                 + V_ui_div(_, _vNavCenter_ + __body_,
-                    V_ui_divExt(_, _vTocCatalogBody_, V_attr(_dataCatalogEmpty_, "( Catalog is Empty )"))
+                    V_ui_divExt(_, _vTocCatalogBody_, V_attr(_dataCatalogEmpty_, "( " + V_lang_text(66, [
+                        "无目录",
+                        "Catalog is Empty"
+                    ]) + " )"))
                     + V_ui_nav(_, classTocFilterResult + _catalog_)
                     + V_ui_nav(_, classTocFilterResult + _figure_)
                     + V_ui_nav(_, classTocFilterResult + _table_)
@@ -16079,11 +16371,10 @@ function VLOOKui_loadNavCenter() {
  */
 function VLOOKui_loadResumeReading() {
     return V_ui_div(_, _vLastPosition_ +___+ _vFloatCard_,
-        V_ui_div(_, _, [
-                "继续上次的阅读 ",
-                "Resume Reading "
-            ][V_lang]
-            + V_ui_svgIcon(_icoTocFolded_, 16, 16, _theme_)));
+        V_ui_span(_, _, V_lang_text(78, [
+                "继续上次的阅读",
+                "Resume Reading"
+            ])) + V_ui_svgIcon(_icoTocFolded_, 16, 16, _theme_));
  }
 
 /**
@@ -16098,19 +16389,19 @@ function VLOOKui_loadCommon() {
     // 字体风格选择器
     let classFontThemeOpt = _vFontThemeOpt_,
         previewPath = _httpsPrefix_ + _vlook__ + "doc.pages.dev/pic/";
-    ui += V_ui_aside(_, _vFontTheme_,
+    ui += V_ui_aside(_, _vFontTheme_, V_attr(_dataTitle_, V_lang_text41()),
             V_ui_div(_, classFontThemeOpt,
                 V_ui_img(_vFontThemeOpt_ + "-" + _local_, "默认 Default", previewPath + "fs-local.png", previewPath + "fs-local@2x.png 2x")
                 + V_ui_div(_, _vFontInfo_ + _local_,
                     V_ui_div(_, _vFontPackage_, _Font_)
-                    + V_ui_div(_fontsetStatus_, _, _ready_)
+                    + V_ui_div(_fontsetStatus_, _, _Ready_)
                 )
             )
             + V_ui_div(_, classFontThemeOpt,
                 V_ui_img(_vFontThemeOpt_ + "-" + _book_, "Book", previewPath + "fs-book.png", previewPath + "fs-book@2x.png 2x")
                 + V_ui_div(_, _vFontInfo_ + _book_,
                     V_ui_div(_, _vFontPackage_, _Font_)
-                    + V_ui_div(_fontsetStatus_, _, _ready_)
+                    + V_ui_div(_fontsetStatus_, _, _Ready_)
                 )
             )
             + V_ui_div(_, classFontThemeOpt,
@@ -16132,7 +16423,7 @@ function VLOOKui_loadCommon() {
 
     // --------------------------------------------------
     // 插图导航面板
-    ui += V_ui_aside(_, _vFigNav_ +___+ _vBackdropBlurs_,
+    ui += V_ui_aside(_, _vFigNav_ +___+ _vBackdropBlurs_, _,
             V_ui_div(_, _vFigContent_)
             + V_ui_div(_, _vFigNav_ + __title_)
             + V_ui_div(_, _vFigNav_ + "-btns prev", V_ui_svgIcon(_icoPrevFig_, 12, 54, _light_))
@@ -16142,11 +16433,11 @@ function VLOOKui_loadCommon() {
 
     // --------------------------------------------------
     // 脚注弹层
-    ui += V_ui_aside(_, _vFontnotePn_,
+    ui += V_ui_aside(_, _vFontnotePn_, V_attr(_dataTitle_, V_lang_text(84, ["脚注", "Footnote"])),
             V_ui_div(_, _vFontnotePn_ + "-" + _content_)
             + V_ui_div(_, _vFontnotePn_ + __header_)
-            + V_ui_div(_, _vFontnotePn_ + __footer_, V_ui_a(_, _, "查看所有脚注"))
-            + V_ui_a("vk-footer-area")
+            + V_ui_div(_, _vFontnotePn_ + __footer_, V_ui_a(_, _, V_lang_text22() + " ❯❯"))
+            + V_ui_a(_vkFooterArea_, _, V_lang_text22())
         );
 
     // --------------------------------------------------
@@ -16156,14 +16447,14 @@ function VLOOKui_loadCommon() {
             V_ui_div(_, classBtnAssistor + _copy_, V_ui_svgIcon(_icoCopy_, 16, 16, _light_))
             + V_ui_div(_, classBtnAssistor + _openInFigureNav_, V_ui_svgIcon(_icoOpenInFigureNav_, 18, 16, _light_))
             + V_ui_div(_, classBtnAssistor + _tableCross_, V_ui_svgIcon(_icoTableX_, 18, 16, _light_))
-            + V_ui_div(_, classBtnAssistor + _tableWrap_, V_ui_svgIcon(_icoTableWrap_, 20, 16, _light_))
+            + V_ui_div(_, classBtnAssistor + _wrap_, V_ui_svgIcon(_icoWrapUnwrap_, 20, 16, _light_))
             + V_ui_div(_, classBtnAssistor + _picInPic_, V_ui_svgIcon(_icoPicInPic_, 18, 16, _light_))
         );
 
     // --------------------------------------------------
     // 画中画容器
     let classPinBtn = _vPipBtn_ +___+ _zoomOut_ +___+ _vFloatCard_ +___;
-    ui += V_ui_aside(_, _vPicInPic_,
+    ui += V_ui_aside(_, _vPicInPic_, _,
             V_ui_div(_, classPinBtn + _zoom_, V_ui_svgIcon(_icoZoomIn_, 16, 16, _theme_))
             + V_ui_div(_, classPinBtn + _close_, V_ui_svgIcon(_icoResetInput_, 16, 16, _theme_))
             + V_ui_div(_, _vContent_)
@@ -16189,7 +16480,7 @@ function VLOOKui_loadCommon() {
 
     // --------------------------------------------------
     // 页面坏链检查结果及错误列表
-    ui += V_ui_aside(_, _vLinkInfoList_ +___+ _vFloatCard_,
+    ui += V_ui_aside(_, _vLinkInfoList_ +___+ _vFloatCard_, _,
             V_ui_div(_, _vLinkInfoList_ + __header_)
             + V_ui_div(_, _vLinkInfoList_ + __body_,
                 V_ui_nav(_, _vLinkInfoList_ + __items_))
@@ -16203,10 +16494,12 @@ function VLOOKui_loadCommon() {
     // --------------------------------------------------
     // 状态栏
     ui += V_ui_nav(_, _vStatusBar_ +___+ _vFloatCard_ + "2 " + _vFocusSearch_,
-            V_ui_div(_, _vDocInfo_, "- - / - -")
+            V_ui_div(_, "v-" + _handle_, V_ui_svgIcon(_icoTocFolded_, 16, 16, _theme_))
+            + V_ui_div(_, _vDocInfo_, "- - / - -")
             + V_ui_div(_, _vNewVersion_, V_ui_svgIcon(_icoNewVersion_, 20, 20, _theme_))
             + V_ui_div(_, _vLinkChkResult_, V_ui_svgIcon(_icoLinkError_, 20, 18, _theme_))
             + V_ui_div(_, _vLinkMap_, V_ui_svgIcon(_icoLinkMap_, 20, 20, _theme_))
+            + V_ui_div(_, _vPrint_, V_ui_svgIcon(_icoPrint_, 20, 18, _theme_))
             + V_ui_div(_, _vStsFontTheme_, V_ui_svgIcon(_icoFontTheme_, 18, 18, _theme_))
             + V_ui_div(_, _vColorScheme_, V_ui_svgIcon(_icoDarkMode_, 20, 20, _theme_))
         );
@@ -16214,7 +16507,7 @@ function VLOOKui_loadCommon() {
     // --------------------------------------------------
     //统计数据上报中转页面
     ui += V_ui_iframe(_, _vlookStatGitHub_);
-    // debug 模式时不上报到这个渠道
+    // 针对 debug 模式时不上报到这个渠道
     if (!V_devMode)
         ui += V_ui_iframe(_, _vlookStatCloudFlare_);
 
@@ -16223,7 +16516,11 @@ function VLOOKui_loadCommon() {
     ui += V_ui_iframe(_vlookChkUpdateCloudFlare_, _);
     ui += V_ui_iframe(_vlookChkUpdateGitHub_, _);
 
-    ui += V_ui_aside(_, _vDocLib_ +___+ _vFloatCard_, V_ui_iframe(_, _vlookDocLib_));
+    // --------------------------------------------------
+    // 文库显示区
+    ui += V_ui_aside(_, _vDocLib_ +___+ _vFloatCard_, V_attr(_dataTitle_, V_lang_text7()),
+        V_ui_iframe(_, _vlookDocLib_)
+    );
     return ui;
 }
 
@@ -16242,7 +16539,7 @@ $(() => { // 等价于 $(document).ready()
     V_query_init();
 
     // 判断文档类型
-    if (V_util_getParamVal(_type_) === _mini_) {
+    if (V_util_getParamVal("v" + _type_) === _mini_) {
         V_pageMode = _mini_;
     }
 
@@ -16257,10 +16554,10 @@ $(() => { // 等价于 $(document).ready()
     env.print();
 
     iStopwatch.st();
-    INFO("=== Load VLOOK ===");
+    INFO("=== Load VLOOK™ ===");
 
     // ----------------------------------------
-    // Gray Mode
+    // 灰度模式 Gray Mode
     GrayMode_init();
 
     // 先隐藏文档原始内容，减少页面重绘
@@ -16346,10 +16643,10 @@ function loadVLOOKplugin() {
     // 推荐的浏览器类型检测
     iStopwatch.st("* Browser Check");
     if (!env.browser.Chrome && !env.browser.Edge && !env.browser.Firefox && !env.browser.Safari && !env.core.webkit) {
-        ALERT([
-            "为获得最佳兼容性，建议使用 Chrome / Firefox / Edge 浏览器",
-            "For best compatibility, it is recommended to use Chrome / Firefox / Edge browser"
-        ][V_lang]);
+        ALERT(V_lang_text(79, [
+            "为获得最佳兼容性，建议使用 Chrome/Firefox/Edge 浏览器",
+            "For best compatibility, it is recommended to use Chrome/Firefox/Edge browser"
+        ]));
     }
 
     iStopwatch.ed(_4space_);
@@ -16443,7 +16740,7 @@ function loadVLOOKplugin() {
                 StsColorScheme_updateIcons();
                 ColorScheme_refresh();
             }
-            // auto 模式，自动适配
+            // 针对 auto 模式，自动适配
             else {
                 INFO("    Auto use [ " + colorScheme + " ]");
                 StsColorScheme_updateIcons();
@@ -16465,7 +16762,7 @@ function loadVLOOKplugin() {
     }, 2000);
 
     // ----------------------------------------
-    // URL 带锚点的处理
+    // 针对 URL 带锚点的处理
     __fork("Redirect to Hash", () => {
         let redirect = V_util_redirectTo();
         if (VOM_cover() === gUndefined && !redirect) {
@@ -16478,14 +16775,14 @@ function loadVLOOKplugin() {
     // ----------------------------------------
     // 字数统计
     __fork("Words " + _count_, () => {
-        StsDocInfo_countWord();
+        DocInfo_countWord();
     }, 500);
 
     // ----------------------------------------
     // 检查新版本
     if (!V_util_isMobile()) {
-        __fork("Checking " + _for_ + ___ + _update_, () => {
-            StsNewVersion_check();
+        __fork("Checking " + _for_ +___+ _update_, () => {
+            NewVersion_check();
         }, 5000);
     }
 
@@ -16497,12 +16794,12 @@ function loadVLOOKplugin() {
     iStopwatch.ed(_cost_);
 
     // ----------------------------------------
-    // VLOOK 加载完成
+    // 显示 VLOOK 加载完成后的信息
     gTotalTimes = iStopwatch.stop();// - 200;
     INFO("=== !!! MAIN PROCESS DONE !!! ===");
     INFO("TOTAL COST   ⏱ " + gTotalTimes + " ms");
     INFO("    ├ HTML   ⏱ " + gTimes + " ms");
-    INFO("    └ VLOOK  ⏱ " + (gTotalTimes - gTimes) + " ms");
+    INFO("    └ VLOOK™  ⏱ " + (gTotalTimes - gTimes) + " ms");
 
     // ----------------------------------------
     if (V_pageMode === _max_ && gThmVer !== gVer) {

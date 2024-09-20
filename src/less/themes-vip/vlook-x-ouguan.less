@@ -1,6 +1,6 @@
 /**************************************
  *
- * VLOOK 模板主题
+ * VLOOK™ 模板主题
  *
  * powered by MAX°孟兆
  *
@@ -18,8 +18,11 @@
 @import "../color";
 @import "../common";
 
+// 主题配套预置选项 vlook-query
+@vQuery: "toc=1&ws=none&cf=off";
+
 // 主题信息
-@themeVer: "V25.0";
+@themeVer: "V26.0";
 @themeName: "vlook-x-ouguan";
 @themeDesc: "× OuGuan";
 @themeEmail: "sumkiat@163.com";
@@ -61,9 +64,9 @@
 @headerColor: @theme1;
 @headerColorDark: @theme1Dark;
 
-@contentHeaderNumColor: @themeBgColorFade;
+//@contentHeaderNumColor: @themeBgColorFade;
 @headerBackground: linear-gradient(90deg, var(--h-bg-start), var(--h-bg-end));
-@multiHeaderBG: @headerBackground;
+@continuousHeaderBG: @headerBackground;
 @headerTextAlign: left;
 @headerPadding: 5px 10px;
 
@@ -107,6 +110,8 @@
 // 行内代码
 @codeTextColor: @theme2;
 
+//@quoteBorderLeft: 0;
+
 // 按钮色
 @buttonForeColor: @theme3;
 @buttonForeHoverColor: @theme3;
@@ -122,9 +127,10 @@
 @aBorderWidth: 2px;
 @aColor: @headerColor;
 @aColorDark: @headerColorDark;
-@aLineColor: @theme2;
-@aHoverColor: @aLineColor;
-@aActiveColor: desaturate(@aLineColor, 30%);
+// @alinecolor: @theme2;
+@aHoverColor: @theme2;
+@aHoverColorDark: @theme2Dark;
+@aActiveColor: desaturate(@aHoverColor, 25%);
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: center;
@@ -183,6 +189,9 @@
 }
 
 @import "../base";
+
+// 生成强调风格的有序列表样式
+.genOrderList(block, rect);
 
 // 生成指定风格的徽章样式
 .genBadgeStyle(std);

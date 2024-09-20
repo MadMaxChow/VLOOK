@@ -14,15 +14,19 @@ title: More Topics about VLOOK™
 >
 > _~Vn!~_
 
-###### ~~Text • Link • Button~~
+###### Text • Link • Button
 
 ---
 
-> a
+> - Set color for specified text [❯❯](guide.md#文本颜色)
+> - Set specified text to gradient color [❯❯](guide.md#文本渐变色)
+> - What is a 'preset color code' in text color [❯❯](guide.md#预置色号)
 
-> b
+> - Set the style of simulated keyboard buttons  [❯❯](guide.md#键盘按钮)
+> - [Text button](guide.md#文字按钮), [Icon and text button](guide.md#图标与文字按钮)
+> - Secondary button style [❯❯](guide.md#文字按钮)
 
-###### Tables
+###### Table • Cell • Column
 
 ---
 
@@ -42,9 +46,8 @@ title: More Topics about VLOOK™
 > - Automatically number and add captions to each table [❯❯](guide.md#表格自动编号与题注)
 > - Automatically number each row of the table [❯❯](guide.md#表格逐行自动编号)
 > - Group and categorize multiple rows and automatically collapse them [❯❯](guide.md#表格行分组折叠)
-> - Indicate the current row in the table [❯❯](guide.md#表格当前行指标器)
->
-> _~Vn~_
+> 
+>_~Vn~_
 
 > ###### Column Formatting
 >
@@ -64,24 +67,25 @@ title: More Topics about VLOOK™
 >
 > - Automatically number and add captions [❯❯](guide.md#插图自动编号与题注)
 > - Support for Mermaid [❯❯](guide2.md#更美观的-Mermaid)
+> - Set as regular images without the form of illustrations [❯❯](guide.md#图片显示版式)
 >
 > _~Vn~_
 
 > ###### Layout
 >
-> - Adjust alignment [❯❯](guide.md#图片对齐方式)
 > - Set to display as small icons [❯❯](guide.md#图片显示版式)
-> - Set as regular images without the form of illustrations [❯❯](guide.md#图片显示版式)
+> - [Scale](guide.md#图片缩放), [Rotate](guide.md#图片旋转), and [Flip](guide.md#图片翻转) the image
+> - Turn the image into a postcard [❯❯](guide.md#明信片)
 > - Leave space around the image edges [❯❯](guide.md#图片边缘留白)
-> - Automatically adapt styles after line wrapping multiple images [❯❯](guide.md#适配一行多图)
->
+> 
 > _~Vn~_
 
 > ###### Appearance
 >
 > - Automatically adapt to display high-definition versions (2x, 3x) on high-resolution screens [❯❯](guide.md#图片适配高清屏)
 > - Automatically adapt to Dark Mode [❯❯](guide.md#图片适配 Dark Mode)
-> - Harmonize the color of icons with surrounding elements [❯❯](guide.md#图片剪影)
+> - Make the icons better match the document elements [❯❯](guide.md#图片剪影)
+> - Add a filter to the image [❯❯](guide.md#图片滤镜)
 > - Add an engineering-style grid background to images [❯❯](guide.md#图片网格背景)
 >
 > _~Vn~_
@@ -94,7 +98,7 @@ title: More Topics about VLOOK™
 >
 > - Organize content in **columns/kanban** style [❯❯](guide.md#°分栏)
 > - Add subtitles to quote blocks [❯❯](guide.md#引用块小标题)
-> - Collapse content hierarchically and categorically [❯❯](guide.md#折叠引用块)
+> - Collapse content hierarchically and categorically [❯❯](guide.md#详情折叠)
 > - Optimize styles for GitHub Style Alert [❯❯](guide.md#GitHub Style Alert)
 >
 > _~Vn~_
@@ -142,8 +146,9 @@ title: More Topics about VLOOK™
 
 > ###### Audio, Video
 >
+> - Add **[Bilibili](guide.md#B站视频), [Xigua](guide.md#西瓜视频), [YouTube](guide.md#YouTube视频) videos** to the Document (support direct playback within the document)
+> - Add **regular video** content to documents [❯❯](guide.md#常规视频)
 > - Add **audio** content to documents [❯❯](guide.md#音频)
-> - Add **video** content to documents [❯❯](guide.md#视频)
 >
 > _~Vn~_
 
@@ -226,15 +231,23 @@ title: More Topics about VLOOK™
 >
 > ---
 >
+> ---
+>
 > > **° Copy Content**
 > >
 > > Supports one-click copying of images, code, and code block contents, and supports "Copy as Markdown format" [❯❯](guide2.md#复制内容)
 > >
 > > _~Og~_
 >
-> > **° Image Zoom**
+> > **° Wrap Layout**
 > >
-> > Supports one-click zooming of images and browsing forward and backward [❯❯](guide2.md#插图放大显示)
+> > Supports toggling wrap and unwrap formats for tables and code blocks [❯❯](guide2.md#换行版式)
+> >
+> > _~Og~_
+>
+> > **° Picture-in-Picture**
+> >
+> > One-click to enable "picture-in-picture" floating display for illustrations/tables/code blocks, convenient for comparing related content in the document [❯❯](guide2.md#画中画)
 > >
 > > _~Og~_
 >
@@ -246,9 +259,9 @@ title: More Topics about VLOOK™
 > >
 > > _~Og~_
 >
-> > **° Picture-in-Picture**
+> > **° Display illustrations in full screen mode**
 > >
-> > One-click to enable "picture-in-picture" floating display for illustrations/tables/code blocks, convenient for comparing related content in the document [❯❯](guide2.md#画中画)
+> > Supporting one-click full screen viewing of illustrations (images, Mermaid images), and allowing for forward/backward browsing [❯❯](guide2.md#插图全屏显示)
 > >
 > > _~Og~_
 >
@@ -342,7 +355,7 @@ title: More Topics about VLOOK™
 
 ---
 
-> ###### Template Themes, Font Themes
+> **Template Themes, Font Themes**
 >
 > - Set different "Template Themes" for different types of documents [❯❯](guide2.md#模板主题)
 > - Choose different "Font Themes" for documents [❯❯](guide2.md#字体主题)
@@ -353,7 +366,7 @@ title: More Topics about VLOOK™
 >
 > _~Lm~_
 
-> ###### Third-Party Integration Adaptation
+> **Third-Party Integration Adaptation**
 >
 > For the popular scripted graph **Mermaid** _~RdRo~_:
 >
@@ -367,12 +380,14 @@ title: More Topics about VLOOK™
 >
 > _~Lm~_
 
-> ###### Uncluttered Items
+> **Uncluttered Items**
 >
 > - Preset plugin parameters to customize your document performance [❯❯](guide2.md#插件预置选项)
-> - Support enhancements for Typora editing features [❯❯](guide2.md#Typora-编辑时特性增强)
 > - Support [cross-platform and animations](guide2.md#跨平台与动效支持) (e.g., frosted glass)
 > - Support [internationalization](guide2.md#国际化支持)
 > - Support shortcut key operations [❯❯](guide2.md#快捷键操作汇总)
->
-> _~Lm~_
+> 
+>_~Lm~_
+
+---
+

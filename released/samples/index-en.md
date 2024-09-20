@@ -9,17 +9,17 @@ keywords:
 - Table enhancement, cell merging, row grouping, crosshairs, repeating header, scratch card, black screen, label, picture enhancement, presentation assistance, spotlight, laser pen, auto folding, printing, mermaid, audio, video, phonetic notation, theme, font, template, dark mode, dark mode, cover, back cover, private customization
 - PRD, design, requirements, documents, blogs, manuals, guides, online, operation and maintenance, knowledge base, wiki
 - Product manager, programmer, operation and maintenance engineer, pre-sales and after-sales
-Vlook-chp-autonum-test: h1{{#ALPHA#. }},h2{{STEP-##-min#: }}
+Vlook-chp-autonum-test: h1{{#ALPHA#.}},h2{{STEP-##-min#:}}
 vlook-query: toc=2
 vlook-doc-lib:
-- [VLOOK™ Document Library](vlook-lib-en.html "manual,guide,example,sample")
-- [简体中文 🀄️ 参考手册](index.html?target=vlook-index-cn "typora;vlook")
+- [VLOOK™ Documents](vlook-lib-en.html "manual,guide,example,sample")
+- [中文 🇨🇳 参考手册](index.html?target=vlook-index-cn "typora;vlook")
 - [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank)
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 vlook-gray-mode: 05-12
 ---
 
-###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective_^Interaction^_<br>──<br><u>Introduction</u><br>*`V25.0` is the Latest*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective_^Interaction^_<br>──<br><u>Introduction</u><br>*`V26.0` is the Latest*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
@@ -31,7 +31,7 @@ vlook-gray-mode: 05-12
 >
 > **A DOMESTICALLY DEVELOPED OPEN-SOURCE PRODUCT RECOMMENDED BY** ![OSChina](pic/oschina.png#icon) **[Open Source China](https://www.oschina.net/p/vlook)**.
 >
-> ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** is a **THEME PACK** and **ENHANCEMENT PLUGIN** for Typora[^Typora], a cross-platform Markdown editor that targets exported HTML files.
+> ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** is a **THEME PACK**_~GnRo~_ and **ENHANCEMENT PLUGIN**_~PuOg~_ for Typora[^Typora] (cross-platform Markdown editor).
 >
 > VLOOK™ is an open-source software that follows the **MIT License**.
 
@@ -95,11 +95,11 @@ vlook-gray-mode: 05-12
 
 |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**         | **If you like VLOOK™, you can contribute a cup of coffee :-)** |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#frame) | [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#frame)](https://paypal.me/madmaxchow) |
+| ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo) | [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow) |
 
 > **感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**
 >
-> ＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 # Quick Start
 
@@ -117,7 +117,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > Thanks to mature web browsers, HTML / CSS, and JavaScript technologies, even static documents can "move" with you.
 >
-> [<kbd>Learn more ![](pic/icon-forward.svg)</kbd>](?target=vdl#Quick Start ° Formatting)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
+> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Formatting)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
 >
 > _~Vn!~_
 
@@ -129,7 +129,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > Feel free to enjoy at any time according to your needs and preferences~
 >
-> [<kbd>Learn more ![](pic/icon-forward.svg)</kbd>](?target=vdl#Quick Start ° Navigation)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
+> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Navigation)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
 >
 > _~Bu!~_
 
@@ -143,7 +143,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > It's an excellent tool for both on-site and remote presentations, so let your Markdown enter Turbo mode~
 >
-> [<kbd>Learn more ![](pic/icon-forward.svg)</kbd>](?target=vdl#Quick Start ° Presentation and Publishing)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
+> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Presentation and Publishing)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
 >
 > _~Og!~_
 
@@ -155,13 +155,21 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > --- **MAX°孟兆**_~CyPu~_
 >
-> [<kbd>Learn more ![](pic/icon-forward.svg)</kbd>](?target=vdl#Quick Start ° Themes & Essentials)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
+> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Themes & Essentials)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
 >
 > _~Lm!~_
 
+
+
+> [!IMPORTANT]
+>
+> Some features of VLOOK™ require the export to HTML in order to be supported.
+>
+> Please pay attention to the "Applicable Scope" description for each feature in the reference manual, for example: *`Editing`OFF*_~Gy!~_ *ON`Editing`*_~Bu!~_
+
 # Blog
 
-![Blogs selected for the "Zhihu • Sea Salt Project"](pic/3rd-haiyan.png#frame)
+![Blogs selected for the "Zhihu • Sea Salt Project"](pic/3rd-haiyan.png#logo#border)
 
 Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https://www.zhihu.com/people/maxchow/posts)
 
@@ -171,21 +179,21 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 ---
 
-> [![Click to see ...](pic/sample-a-api_spec-en.png?srcset=@2x#card#border)](sample-a-api_spec.html?ws=off)
+> [![Click to see ...](pic/sample-a-api_spec-en.png?srcset=@2x#card#border "API documentation with rich styles and interactions")](sample-a-api_spec.html?ws=off)
 
-> [![Click to see ...](pic/sample-a-to_do-en.png?srcset=@2x#card#border)](sample-a-to_do.html?ws=off)
+> [![Click to see ...](pic/sample-a-to_do-en.png?srcset=@2x#card#border "Clear categorization and progress-based to-do notes")](sample-a-to_do.html?ws=off)
 
->  [![Click to see ...](pic/sample-a-img_text-en.png?srcset=@2x#card#border)](sample-a-img_text.html?ws=off)
-
----
+>  [![Click to see ...](pic/sample-a-img_text-en.png?srcset=@2x#card#border "Images and text can also be harmonious")](sample-a-img_text.html?ws=off)
 
 ---
 
-> [![Click to see ...](pic/sample-a-board-en.png?srcset=@2x#card#border)](sample-a-routes.html?ws=off)
+---
 
-> [![Click to see ...](pic/sample-a-quiz-en.png?srcset=@2x#card#border)](sample-a-board.html?ws=off)
+> [![Click to see ...](pic/sample-a-board-en.png?srcset=@2x#card#border "Collapsible categorized reference information")](sample-a-routes.html?ws=off)
 
-> [![Click to see ...](pic/sample-a-routes-en.png?srcset=@2x#card#border)](sample-a-quiz.html?ws=off)
+> [![Click to see ...](pic/sample-a-quiz-en.png?srcset=@2x#card#border "A dashboard for categorizing and organizing project information")](sample-a-board.html?ws=off)
+
+> [![Click to see ...](pic/sample-a-routes-en.png?srcset=@2x#card#border "Interactive Q&A can be this simple")](sample-a-quiz.html?ws=off)
 
 > [!TIP]
 >
@@ -206,7 +214,7 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 >
 > Download the latest version from the homepage of VLOOK™:
 > 
->  **[<kbd>via GitHub</kbd>](https://github.com/MadMaxChow/VLOOK/releases)**  **[<kbd>via Gitee</kbd>](https://gitee.com/madmaxchow/VLOOK/releases?kbd=alt)**
+>  **[<kbd>![](pic/icon-download.svg?fill=text) via GitHub</kbd>](https://github.com/MadMaxChow/VLOOK/releases)**  **[<kbd>![](pic/icon-download.svg?fill=text) via Gitee</kbd>](https://gitee.com/madmaxchow/VLOOK/releases?kbd=alt)**
 >
 >
 > _~Gn~_
@@ -214,8 +222,8 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 > **Step2. Install Typora**
 >
 > 1. Download and install the latest version of [Typora](https://www.typora.io) ;
-> 2. Enter the configuration *==Typora ▸ Settings ▸ Markdown==*;
-> 3. Enable all options under "**Markdown Extended Syntax**", "**Code Blocks**". See the figure below for details:
+> 2. Open *==Typora ▸ Settings ▸ Markdown==*;
+> 3. Enable all options under `Markdown Extended Syntax`, `Code Blocks`. See the figure below for details:
 >
 > _~Gn~_
 
@@ -235,8 +243,8 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 > **Step1. Install the Themes**
 >
-> 1. The *==released\themes==* all CSS files are copied to Typora theme directory;
-> 2. Where is the theme directory? You can navigate to this directory by clicking *==Settings ▸ Appearance ▸ Open Theme Directory==*.
+> 1. The *==released\themes==* all **CSS files** and **folders** are copied to Typora theme directory;
+> 2. Where is the theme directory? Open *==Settings ▸ Appearance ▸ Open Theme Directory==*
 > 
 > _~Og~_
 
@@ -247,7 +255,7 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 >
 > _~Og~_
 
-> **Want a more personalized theme? ** [<kbd>Learn about our Custom Services</kbd>](vip.md)
+> **Want a more personalized theme? ** [<kbd>![](pic/icon-vip.svg?fill=text#icon) Learn about our Custom Services</kbd>](vip.md)
 
 > ###### Start Writing from the Samples
 >
@@ -256,7 +264,7 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 > 1. All `.md` type files in the directory *==released/samples==* is samples;
 > 2. You can also download the document templates directly from project homepage:
 >
-> [<kbd>Download samples</kbd>](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)  [<kbd>Alternative link</kbd>](https://gitee.com/madmaxchow/VLOOK/tree/master/released/samples?kbd=alt)
+> [<kbd>![](pic/icon-download.svg?fill=text) Download samples</kbd>](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)  [<kbd>![](pic/icon-download.svg?fill=text) Alternative link</kbd>](https://gitee.com/madmaxchow/VLOOK/tree/master/released/samples?kbd=alt)
 
 ## Configure Export Options
 
@@ -266,24 +274,24 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 > **Configure export setting**
 >
-> 1. Start Typora and enter "**Preferences**"
+> 1. Open *==Typora > Preferences==*
 > 2. Click "**Export**", add configuration (==select HTML as a template==), and name the configuration `VLOOK`
 > 
 > _~Cy~_
 
 > **Install Meta Tag**
 >
-> 1. Open the meta tag file: released\plugin\\**meta.txt**
+> 1. Open the meta tag file: *==released/plugin/**meta.txt**==*
 > 2. Select and copy all contents
-> 3. Paste to "**Append in &lt;head /&gt;**
+> 3. Paste to `Append in <head />`
 >
 > _~Cy~_
 
 > **Install the Plugin**
 >
-> 1. Open the plug-in file: released\plugin\\**plugin.txt**
+> 1. Open the plug-in file: *==released/plugin/**plugin.txt**==*
 > 2. Select and copy all contents;
-> 3. Paste to "**Append in &lt;body /&gt;**"
+> 3. Paste to `Append in <body />`
 >
 > _~Cy~_
 
@@ -298,17 +306,39 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 # Supplement
 
-> **Online version plug-in**
+## Language Package
+
+VLOOK™ UI language is pre-installed with **English** and **Simplified Chinese** by default.
+
+To support more language for the exported HTML, you can choose to append the content of the corresponding language package to the "Meta Tag" section in the export configuration. After doing so, re-export the HTML to include the additional language.
+
+Currently supported languages for expansion include: **French**(Français), **German**(Detusch), **Russian**(Русский язык), **Spanish**(Español), **Portuguese**(Português), **Japanese**(日本語), **Korean**(한국어),**Traditional Chinese**(Hong Kong / Macao / Taiwan regions), **Arabic**(العربية).
+
+---
+
+> **Select language package**
 >
-> The above configuration method is an offline plug-in. The complete plug-in code is integrated with HTML files. It is suitable for situations where an intranet or no network is required when browsing documents, but it is not convenient to update plug-ins in real time and [switch template themes online](guide2.md#模板主题) .
+> 1. The language package file is located in the *==released/plugin/lang==*
+> 2. Open language file and copy all the content. (e.g: `Français.txt` )
+
+> **Update export configuration**
 >
-> At present, VLOOK supports the online version of plug-in. You can refer to the above method to add a new "export configuration" (it is recommended to name the configuration `VLOOK (live)` ).
->
-> The online version of the plugin file is: released\plugin \ **plugin_live.txt**
->
-> [<kbd>Download live version</kbd>](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin_live.txt)  [<kbd>Alternative link</kbd>](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt?kbd=alt)
->
-> _~Og!~_
+> 1. Open *==Typora > Preferences==*, and select the added export configuration `VLOOK`
+> 2. **Append** the copied content to the end of the existing content in the `Append in <head />` (**Note: Do not overwrite the existing content!**)
+
+==TIP: If you need to extend support for multiple languages, simply repeat the steps above.==
+
+## Online Version
+
+The above configuration method is an offline plug-in. The complete plug-in code is integrated with HTML files. It is suitable for situations where an intranet or no network is required when browsing documents, but it is not convenient to update plug-ins in real time and [switch template themes online](guide2.md#模板主题) .
+
+At present, VLOOK™ supports the online version of plug-in. You can refer to the above method to add a new "export configuration" (it is recommended to name the configuration `VLOOK (live)` ).
+
+The online version of the plugin file is: *==released/plugin/**plugin_live.txt**==*
+
+[<kbd>![](pic/icon-download.svg?fill=text) Download live version</kbd>](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin_live.txt)  [<kbd>![](pic/icon-download.svg?fill=text) Alternative link</kbd>](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt?kbd=alt)
+
+## Upgrades and Compatibility
 
 ---
 
@@ -328,6 +358,6 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 ---
 
-If you have any suggestions and needs, please feel free to give feedback~ [![Freeback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™)  [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+If you have any suggestions and needs, please feel free to give feedback~ [![Freeback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™ "Freeback via Email")  [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Telegram Channel")
 
 # The End

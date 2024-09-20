@@ -1,0 +1,96 @@
+<!--
+VLOOK™ "V26.0" (2024-09-20) - Typora Plugin  (language pack)
+Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
+!!! Attention! Do not overwrite the content from "meta.txt" !!!
+追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
+!!! 注意！不要覆盖来自 "meta.txt" 的内容 !!!
+-->
+<!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
+<!-- 以下为语言标识 -->
+<meta name="vlook-lang-fr" content="fr">
+<!-- The following is the content of the language package -->
+<!-- 以下为语言包内容 -->
+<meta name="vk-fr1" content="Couverture">
+<meta name="vk-fr2" content="Impression...">
+<meta name="vk-fr3" content="Carte de liens">
+<meta name="vk-fr4" content="Comment activer?">
+<meta name="vk-fr5" content="Triple-cliquez avec la souris sur n'importe quel paragraphe du document">
+<meta name="vk-fr6" content="Centre de Navigation">
+<meta name="vk-fr7" content="Bibliothèque de documents">
+<meta name="vk-fr8" content="Mode de Navigation par Paragraphe">
+<meta name="vk-fr9" content="Projecteur">
+<meta name="vk-fr10" content="Pointeur Laser.">
+<meta name="vk-fr11" content="CJK">
+<meta name="vk-fr12" content="Non-CJK">
+<meta name="vk-fr13" content="Retour à la couverture">
+<meta name="vk-fr14" content="Retour au début de ce chapitre">
+<meta name="vk-fr15" content="Précédent">
+<meta name="vk-fr16" content="Suivant">
+<meta name="vk-fr17" content="Fermer">
+<meta name="vk-fr18" content="Police">
+<meta name="vk-fr19" content="Si vous ne pouvez pas vous connecter à Internet pour charger la version en ligne de la police, il est recommandé de télécharger la police directement sur l’ordinateur">
+<meta name="vk-fr20" content="Principal">
+<meta name="vk-fr21" content="Veille">
+<meta name="vk-fr22" content="Toutes les notes de bas de page">
+<meta name="vk-fr23" content="Commencer la lecture.">
+<meta name="vk-fr24" content="Plein écran">
+<meta name="vk-fr25" content="Mode lecture">
+<meta name="vk-fr26" content="Envelopper / Dérouler">
+<meta name="vk-fr27" content="Image dans l’image">
+<meta name="vk-fr28" content="Maintenir">
+<meta name="vk-fr29" content="Copier en Markdown">
+<meta name="vk-fr30" content="Copier le code">
+<meta name="vk-fr31" content="Copier l’adresse de l’image">
+<meta name="vk-fr32" content="Copier le contenu du tableau">
+<meta name="vk-fr33" content="Changer la taille du projecteur">
+<meta name="vk-fr34" content="Quitter">
+<meta name="vk-fr35" content="Tapez [ / ] pour rechercher">
+<meta name="vk-fr36" content="a une nouvelle version disponible. Mettez à jour maintenant!">
+<meta name="vk-fr37" content="Désolé, la fonction de copie n’est actuellement pas supportée dans ce navigateur">
+<meta name="vk-fr38" content="Prêt">
+<meta name="vk-fr39" content="Délai d’attente">
+<meta name="vk-fr40" content="Chargement">
+<meta name="vk-fr41" content="Thème de la police">
+<meta name="vk-fr42" content="minute(s)">
+<meta name="vk-fr43" content="heure(s)">
+<meta name="vk-fr44" content="mots">
+<meta name="vk-fr45" content="Passer en mode Auto/Clair/Sombre">
+<meta name="vk-fr46" content="Non trouvé">
+<meta name="vk-fr47" content="Vérification réussie">
+<meta name="vk-fr48" content="Fermer le document">
+<meta name="vk-fr49" content="Révisé, veuillez revérifier">
+<meta name="vk-fr50" content="Limite d’URL dépassée">
+<meta name="vk-fr51" content="Hachage">
+<meta name="vk-fr52" content="Vérifier le hachage">
+<meta name="vk-fr53" content="Chapitre en double">
+<meta name="vk-fr54" content="Lien interne invalide">
+<meta name="vk-fr55" content="Tout afficher">
+<meta name="vk-fr56" content="Tableau">
+<meta name="vk-fr57" content="Bloc de code">
+<meta name="vk-fr58" content="Figure">
+<meta name="vk-fr59" content="Audio">
+<meta name="vk-fr60" content="Vidéo">
+<meta name="vk-fr61" content="Cliquez à nouveau pour copier en Markdown">
+<meta name="vk-fr62" content="Copié">
+<meta name="vk-fr63" content="Adresse audio invalide">
+<meta name="vk-fr64" content="Adresse vidéo invalide">
+<meta name="vk-fr65" content="Adresse image invalide">
+<meta name="vk-fr66" content="Le catalogue est vide">
+<meta name="vk-fr67" content="Aucun contenu">
+<meta name="vk-fr68" content="Carte postale">
+<meta name="vk-fr69" content="Modifier">
+<meta name="vk-fr70" content="Optionnel">
+<meta name="vk-fr71" content="Boucle">
+<meta name="vk-fr72" content="Parallèle">
+<meta name="vk-fr73" content="Remarque">
+<meta name="vk-fr74" content="Conseil">
+<meta name="vk-fr75" content="Important">
+<meta name="vk-fr76" content="Avertissement">
+<meta name="vk-fr77" content="Prudence">
+<meta name="vk-fr78" content="Reprendre la lecture">
+<meta name="vk-fr79" content="Pour une compatibilité optimale, il est recommandé d’utiliser le navigateur Chrome/Firefox/Edge">
+<meta name="vk-fr80" content="Attention! Pour garantir une impression correcte, il est recommandé d’utiliser la fonction [Imprimer] dans le document!">
+<meta name="vk-fr81" content="Lien / adresse invalide">
+<meta name="vk-fr82" content="Page">
+<meta name="vk-fr83" content="Lien">
+<meta name="vk-fr84" content="Note de bas de page">

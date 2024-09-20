@@ -1,6 +1,6 @@
 /**************************************
  *
- * VLOOK 模板主题
+ * VLOOK™ 模板主题
  *
  * powered by MAX°孟兆
  *
@@ -15,13 +15,13 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V25.0";
+@themeVer: "V26.0";
 @themeName: "vlook-joint";
 @themeDesc: "Joint";
 
 // 指定字体主题
-.applyFontStyle(local);
-// .applyFontStyle(sans);
+// .applyFontStyle(local);
+.applyFontStyle(sans);
 // 指定主题配套的圆角
 .applyThemeRadius(big);
 // 文档背景使用图片
@@ -64,9 +64,9 @@
 // 6 级标题前缀内容
 @h6BeforeContent: "⦿ ";
 // @tocHeaderNumColor: @docTextColorLightFade;
-@contentHeaderNumColor: darken(@themeBgColorFade, 10%);
+//@contentHeaderNumColor: darken(@themeBgColorFade, 10%);
 @headerBackground: linear-gradient(90deg, var(--h-bg-end), var(--h-bg-start), var(--h-bg-end));
-@multiHeaderBG: @headerBackground;
+// @continuousHeaderBG: none;
 @headerTextAlign: center;
 @headerPadding: 5px 0;
 //@headerLetterSpacing: 0;//0.15em;
@@ -94,14 +94,31 @@
 
 // 自定义章节自动编号
 // counter() 支持使用有序列表的符号格式（decimal/decimal-leading-zero/lower-roman/upper-roman/lower-alpha/upper-alpha），如：counter(h1, upper-alpha)
-@vChpAutoNum: "h1{{#ALPHA#. }},h2{{#00#-sup# - }},h3{{#ROMAN-min# - }}";
-@h1BeforeContent: counter(h1, upper-alpha) ". ";
-@h2BeforeContent: counter(h1, upper-alpha) "." counter(h2, decimal-leading-zero) " - ";
-@h3BeforeContent: counter(h3, upper-roman) " - ";
+@vChpAutoNum: "h1{{Part #ALPHA#}},h2{{#00#-sup#}},h3{{#ROMAN-min#}}";
+@h1BeforeContent: "Part " counter(h1, upper-alpha);
+@h2BeforeContent: counter(h1, upper-alpha) "." counter(h2, decimal-leading-zero);
+@h3BeforeContent: counter(h3, upper-roman);
+
+// h1-6::before 的扩展样式
+.genH1beforeExt() {
+    display: block;
+    font-size: 2em;
+    font-weight: normal;
+}
+.genH2beforeExt() {
+    display: block;
+    font-size: 1.5em;
+    font-weight: normal;
+}
+.genH3beforeExt() {
+    display: block;
+    font-size: 1.5em;
+    font-weight: normal;
+}
 
 // 按钮色
 @buttonForeColor: @theme3;
-@buttonForeHoverColor: @theme1;
+@buttonForeHoverColor: #FFFFFF;//@theme1;
 @buttonBgColor: @themeBgColor;
 // 文库按钮颜色
 @docLibButtonForeColor: @buttonForeColor;
@@ -114,9 +131,10 @@
 @aBorderWidth: 2px;
 @aColor: @headerColor;
 @aColorDark: @headerColorDark;
-@aLineColor: @theme2;
-@aHoverColor: @aLineColor;
-@aActiveColor: desaturate(@aLineColor, 30%);
+// @alinecolor: @theme2;
+@aHoverColor: @theme2;
+@aHoverColorDark: @theme2Dark;
+@aActiveColor: desaturate(@aHoverColor, 25%);
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: center;
@@ -182,6 +200,9 @@
 }
 
 @import "../base";
+
+// 生成强调风格的有序列表样式
+.genOrderList(block, rect);
 
 // 生成指定风格的徽章样式
 .genBadgeStyle(std);

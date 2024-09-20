@@ -1,0 +1,96 @@
+<!--
+VLOOK™ "V26.0" (2024-09-20) - Typora Plugin  (language pack)
+Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
+!!! Attention! Do not overwrite the content from "meta.txt" !!!
+追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
+!!! 注意！不要覆盖来自 "meta.txt" 的内容 !!!
+-->
+<!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
+<!-- 以下为语言标识 -->
+<meta name="vlook-lang-ja" content="ja">
+<!-- The following is the content of the language package -->
+<!-- 以下为语言包内容 -->
+<meta name="vk-ja1" content="カバー">
+<meta name="vk-ja2" content="印刷...">
+<meta name="vk-ja3" content="リンクマップ">
+<meta name="vk-ja4" content="どうやって有効にしますか？">
+<meta name="vk-ja5" content="文書内の任意の段落をマウスで三回クリックします">
+<meta name="vk-ja6" content="ナビゲーションセンター">
+<meta name="vk-ja7" content="文書ライブラリ">
+<meta name="vk-ja8" content="段落ナビゲーションモード">
+<meta name="vk-ja9" content="スポットライト">
+<meta name="vk-ja10" content="レーザーポインター">
+<meta name="vk-ja11" content="中韓日">
+<meta name="vk-ja12" content="中韓日以外">
+<meta name="vk-ja13" content="カバーに戻る">
+<meta name="vk-ja14" content="この章の最初に戻る">
+<meta name="vk-ja15" content="前へ">
+<meta name="vk-ja16" content="次へ">
+<meta name="vk-ja17" content="閉じる">
+<meta name="vk-ja18" content="フォント">
+<meta name="vk-ja19" content="インターネットに接続できずフォントのオンラインバージョンを読み込むことができない場合は、フォントを直接ローカルにダウンロードすることをお勧めします">
+<meta name="vk-ja20" content="主要">
+<meta name="vk-ja21" content="スタンバイ">
+<meta name="vk-ja22" content="すべての脚注">
+<meta name="vk-ja23" content="読み始める">
+<meta name="vk-ja24" content="全画面">
+<meta name="vk-ja25" content="読書モード">
+<meta name="vk-ja26" content="折り返し / 折り返さない">
+<meta name="vk-ja27" content="ピクチャー・イン・ピクチャー">
+<meta name="vk-ja28" content="保持">
+<meta name="vk-ja29" content="Markdownとしてコピー">
+<meta name="vk-ja30" content="コードをコピー">
+<meta name="vk-ja31" content="画像アドレスをコピー">
+<meta name="vk-ja32" content="表の内容をコピー">
+<meta name="vk-ja33" content="スポットライトのサイズを変更">
+<meta name="vk-ja34" content="終了。">
+<meta name="vk-ja35" content="[ / ] を入力して検索">
+<meta name="vk-ja36" content="に新しいバージョンがリリースされました。適時にアップグレードしてください！">
+<meta name="vk-ja37" content="申し訳ありませんが、このブラウザでは現在コピー機能がサポートされていません">
+<meta name="vk-ja38" content="準備完了">
+<meta name="vk-ja39" content="タイムアウト">
+<meta name="vk-ja40" content="読み込み中">
+<meta name="vk-ja41" content="フォントテーマ">
+<meta name="vk-ja42" content="分">
+<meta name="vk-ja43" content="時間">
+<meta name="vk-ja44" content="単語">
+<meta name="vk-ja45" content="自動/ライト/ダークモードを切り替え">
+<meta name="vk-ja46" content="見つかりません">
+<meta name="vk-ja47" content="チェックに合格しました">
+<meta name="vk-ja48" content="文書を閉じる">
+<meta name="vk-ja49" content="修正済み、再確認してください">
+<meta name="vk-ja50" content="URL制限を超えました">
+<meta name="vk-ja51" content="ハッシュ">
+<meta name="vk-ja52" content="ハッシュを確認">
+<meta name="vk-ja53" content="重複章">
+<meta name="vk-ja54" content="無効な内部リンク">
+<meta name="vk-ja55" content="すべて表示">
+<meta name="vk-ja56" content="表">
+<meta name="vk-ja57" content="コードブロック">
+<meta name="vk-ja58" content="図">
+<meta name="vk-ja59" content="音声">
+<meta name="vk-ja60" content="ビデオ">
+<meta name="vk-ja61" content="もう一度クリックしてMarkdownとしてコピーします">
+<meta name="vk-ja62" content="コピーしました">
+<meta name="vk-ja63" content="無効な音声アドレス">
+<meta name="vk-ja64" content="無効なビデオアドレス">
+<meta name="vk-ja65" content="無効な画像アドレス">
+<meta name="vk-ja66" content="カタログが空です">
+<meta name="vk-ja67" content="コンテンツがありません">
+<meta name="vk-ja68" content="ポストカード">
+<meta name="vk-ja69" content="変更">
+<meta name="vk-ja70" content="オプション">
+<meta name="vk-ja71" content="ループ">
+<meta name="vk-ja72" content="並行">
+<meta name="vk-ja73" content="注釈">
+<meta name="vk-ja74" content="ヒント">
+<meta name="vk-ja75" content="重要">
+<meta name="vk-ja76" content="警告">
+<meta name="vk-ja77" content="注意">
+<meta name="vk-ja78" content="読み続ける">
+<meta name="vk-ja79" content="最適な互換性のために、Chrome/Firefox/Edgeブラウザの使用をお勧めします">
+<meta name="vk-ja80" content="ご注意ください！適切な印刷を確保するために、文書内の [印刷] 機能を使用することをお勧めします！">
+<meta name="vk-ja81" content="無効なリンク / アドレス">
+<meta name="vk-ja82" content="ページ">
+<meta name="vk-ja83" content="リンク">
+<meta name="vk-ja84" content="脚注">

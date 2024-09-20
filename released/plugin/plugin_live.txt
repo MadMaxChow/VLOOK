@@ -1,5 +1,5 @@
 <!--
-VLOOK "V25.0-dev" (2024-07-03) - Typora Plugin ( live )
+VLOOK™ "V26.0" (2024-09-20) - Typora Plugin ( live )
 Paste to "Export Setting ▸ VLOOK (live) ▸ Append in <body />"
 粘贴至「导出设置... ▸ VLOOK (live) ▸ 在 <body /> 中添加」
 -->
@@ -8,8 +8,8 @@ Paste to "Export Setting ▸ VLOOK (live) ▸ Append in <body />"
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
 <!--                                                                        -->
-<!--                                  V25.0-dev                                 -->
-<!--                               2024-07-03                               -->
+<!--                                  V26.0                                 -->
+<!--                               2024-09-20                               -->
 <!--                           powered by MAX°孟兆                           -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -34,31 +34,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     #VLOOK { left: 0; top: 0; background: var(--v-btn-bg); width: 100%; height: 100vh; display: flex; align-items: center; position: fixed; z-index: 99999; }
     #VLOOK > div { margin: 0 auto; background: var(--v-btn-f); width: 30px; height: 30px; border-radius: 10px; animation: 1s breathe-vlook infinite alternate; }
 </style>
-<!-- <div id="VLOOK"><div></div></div> -->
 <!-- ==================== VLOOK JS ==================== -->
-<script src="js/jquery.js"></script>
 <script type="text/javascript">
-    // theme-color
-    let metaTheme = document.createElement("meta");
-    metaTheme.name = "theme-color";
-    metaTheme.content = getComputedStyle(document.documentElement).getPropertyValue("--v-btn-bg");
-    document.getElementsByTagName("head")[0].appendChild(metaTheme);
     // VLOOK
-    let lVer = "V25.0-dev";
+    let lVer = "V26.0";
     let devMode = lVer.indexOf("dev") > 0 ? true : false, debugMode = devMode;
-    let //fontHost = "https://cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/",
-        // jsHost = devMode ? "http://172.17.27.168/js/" : "https://madmaxchow.gitee.io/vlook/js/",
-        // cssHost = devMode ? "http://172.17.27.168/css/" : "https://madmaxchow.gitee.io/vlook/css/";
-        jsHost = devMode ? "http://localhost/js/" : "js",//"https://madmaxchow.github.io/VLOOK/js/",
-        cssHost = devMode ? "http://localhost/css/" : "css";//"https://madmaxchow.github.io/VLOOK/css/";
-        // https://cdn.jsdelivr.net/gh/MadMaxChow/VLOOK@master/docs/
+    let jsHost = devMode ? "http://localhost/js/" : "https://madmaxchow.github.io/VLOOK/js/",
+        cssHost = devMode ? "http://localhost/css/" : "https://madmaxchow.github.io/VLOOK/css/";
 // ==================== NON-standalone ====================
 // ▽ ▽ ▽ ▽ ▽
-    let startjs = document.createElement("script"),
-        ts = devMode ? new Date().getTime() : Math.round(new Date().getTime()/1000/60); // 1000/60/60/24 按天
-    startjs.setAttribute("type", "text/javascript");
-    startjs.setAttribute("src", jsHost + "start.js?ts=" + ts);
-    document.getElementsByTagName("HEAD")[0].appendChild(startjs);
+    let ts = devMode ? new Date().getTime() : Math.round(new Date().getTime()/1000/60), // 1000/60/60/24 按天
+        jqueryJS =  document.createElement("script"),
+        startJS = document.createElement("script");
+
+    jqueryJS.setAttribute("type", "text/javascript");
+    jqueryJS.setAttribute("src", jsHost + "jquery.js?ts=" + ts);
+    document.getElementsByTagName("HEAD")[0].appendChild(jqueryJS);
+
+    startJS.setAttribute("type", "text/javascript");
+    startJS.setAttribute("src", jsHost + "start.js?ts=" + ts);
+    document.getElementsByTagName("HEAD")[0].appendChild(startJS);
 </script>
 <!--========================================================================-->
 <!--                              END OF VLOOK                              -->

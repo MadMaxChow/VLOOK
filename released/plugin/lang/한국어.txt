@@ -1,0 +1,96 @@
+<!--
+VLOOK™ "V26.0" (2024-09-20) - Typora Plugin  (language pack)
+Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
+!!! Attention! Do not overwrite the content from "meta.txt" !!!
+追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
+!!! 注意！不要覆盖来自 "meta.txt" 的内容 !!!
+-->
+<!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
+<!-- 以下为语言标识 -->
+<meta name="vlook-lang-ko" content="ko">
+<!-- The following is the content of the language package -->
+<!-- 以下为语言包内容 -->
+<meta name="vk-ko1" content="커버">
+<meta name="vk-ko2" content="인쇄...">
+<meta name="vk-ko3" content="링크 지도">
+<meta name="vk-ko4" content="어떻게 활성화하나요?">
+<meta name="vk-ko5" content="문서 내의 아무 단락에서 마우스를 세 번 클릭하세요">
+<meta name="vk-ko6" content="탐색 센터">
+<meta name="vk-ko7" content="문서 라이브러리">
+<meta name="vk-ko8" content="단락 탐색 모드">
+<meta name="vk-ko9" content="스포트라이트">
+<meta name="vk-ko10" content="레이저 포인터">
+<meta name="vk-ko11" content="중일한">
+<meta name="vk-ko12" content="비중일한">
+<meta name="vk-ko13" content="표지로 돌아가기">
+<meta name="vk-ko14" content="이 장의 시작으로 돌아가기">
+<meta name="vk-ko15" content="이전">
+<meta name="vk-ko16" content="다음">
+<meta name="vk-ko17" content="닫기">
+<meta name="vk-ko18" content="글꼴">
+<meta name="vk-ko19" content="인터넷에 연결하여 폰트의 온라인 버전을 불러올 수 없는 경우, 폰트를 직접 로컬에 다운로드하는 것이 권장됩니다">
+<meta name="vk-ko20" content="기본">
+<meta name="vk-ko21" content="대기">
+<meta name="vk-ko22" content="모든 각주">
+<meta name="vk-ko23" content="읽기 시작">
+<meta name="vk-ko24" content="전체 화면">
+<meta name="vk-ko25" content="읽기 모드">
+<meta name="vk-ko26" content="감기 / 풀기">
+<meta name="vk-ko27" content="화면 속 화면">
+<meta name="vk-ko28" content="잠시 멈추기">
+<meta name="vk-ko29" content="마크다운으로 복사">
+<meta name="vk-ko30" content="코드 복사">
+<meta name="vk-ko31" content="이미지 주소 복사">
+<meta name="vk-ko32" content="테이블 내용 복사">
+<meta name="vk-ko33" content="스포트라이트 크기 변경">
+<meta name="vk-ko34" content="종료">
+<meta name="vk-ko35" content="검색하려면 [ / ] 입력">
+<meta name="vk-ko36" content="에 새 버전이 출시되었습니다. 즉시 업그레이드하세요!">
+<meta name="vk-ko37" content="죄송합니다. 현재 이 브라우저에서는 복사가 지원되지 않습니다">
+<meta name="vk-ko38" content="준비 완료">
+<meta name="vk-ko39" content="타임아웃">
+<meta name="vk-ko40" content="로딩 중">
+<meta name="vk-ko41" content="글꼴 테마">
+<meta name="vk-ko42" content="분">
+<meta name="vk-ko43" content="시간">
+<meta name="vk-ko44" content="단어">
+<meta name="vk-ko45" content="자동/라이트/다크 모드 전환">
+<meta name="vk-ko46" content="찾을 수 없음">
+<meta name="vk-ko47" content="확인 완료">
+<meta name="vk-ko48" content="문서 닫기">
+<meta name="vk-ko49" content="수정됨, 다시 확인해 주세요">
+<meta name="vk-ko50" content="URL 한도 초과">
+<meta name="vk-ko51" content="해시">
+<meta name="vk-ko52" content="해시 확인">
+<meta name="vk-ko53" content="중복 장">
+<meta name="vk-ko54" content="유효하지 않은 내부 링크">
+<meta name="vk-ko55" content="모두 보기">
+<meta name="vk-ko56" content="표">
+<meta name="vk-ko57" content="코드 블록">
+<meta name="vk-ko58" content="그림">
+<meta name="vk-ko59" content="오디오">
+<meta name="vk-ko60" content="비디오">
+<meta name="vk-ko61" content="다시 클릭하여 마크다운으로 복사">
+<meta name="vk-ko62" content="복사됨">
+<meta name="vk-ko63" content="유효하지 않은 오디오 주소">
+<meta name="vk-ko64" content="유효하지 않은 비디오 주소">
+<meta name="vk-ko65" content="유효하지 않은 이미지 주소">
+<meta name="vk-ko66" content="목록이 비어 있습니다">
+<meta name="vk-ko67" content="콘텐츠 없음">
+<meta name="vk-ko68" content="엽서">
+<meta name="vk-ko69" content="변경">
+<meta name="vk-ko70" content="선택적">
+<meta name="vk-ko71" content="반복">
+<meta name="vk-ko72" content="병렬">
+<meta name="vk-ko73" content="주석">
+<meta name="vk-ko74" content="팁">
+<meta name="vk-ko75" content="중요">
+<meta name="vk-ko76" content="경고">
+<meta name="vk-ko77" content="주의">
+<meta name="vk-ko78" content="읽기 재개">
+<meta name="vk-ko79" content="최적의 호환성을 위해 Chrome/Firefox/Edge 브라우저를 사용하는 것이 권장됩니다">
+<meta name="vk-ko80" content="주의! 올바른 인쇄를 보장하기 위해, 문서 내의 [인쇄] 기능을 사용하는 것이 권장됩니다!">
+<meta name="vk-ko81" content="유효하지 않은 링크 / 주소">
+<meta name="vk-ko82" content="페이지">
+<meta name="vk-ko83" content="링크">
+<meta name="vk-ko84" content="각주">

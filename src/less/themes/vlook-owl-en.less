@@ -1,6 +1,6 @@
 /**************************************
  *
- * VLOOK 模板主题
+ * VLOOK™ 模板主题
  *
  * powered by MAX°孟兆
  *
@@ -17,6 +17,13 @@
 
 // 自定义章节自动编号
 // h1{{#ALPHA#. }},h2{{STEP-##-min#: }}
-@vChpAutoNum: "h1{{#ALPHA#. }},h2{{STEP-##-min#: }}";
-@h1BeforeContent: counter(h1, upper-alpha) ". ";
-@h2BeforeContent: "STEP-" counter(h2) ": ";
+@vChpAutoNum: "h1{{Part #ALPHA#}},h2{{Step-##-min#:}}";
+@h1BeforeContent: "Part " counter(h1, upper-alpha);
+@h2BeforeContent: "Step-" counter(h2) ":";
+
+// h1-6::before 的扩展样式
+.genH1beforeExt() {
+    display: block;
+    font-size: 2em;
+    font-weight: normal;
+}

@@ -1,0 +1,96 @@
+<!--
+VLOOK™ "V26.0" (2024-09-20) - Typora Plugin  (language pack)
+Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
+!!! Attention! Do not overwrite the content from "meta.txt" !!!
+追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
+!!! 注意！不要覆盖来自 "meta.txt" 的内容 !!!
+-->
+<!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
+<!-- 以下为语言标识 -->
+<meta name="vlook-lang-de" content="de">
+<!-- The following is the content of the language package -->
+<!-- 以下为语言包内容 -->
+<meta name="vk-de1" content="Cover">
+<meta name="vk-de2" content="Drucken...">
+<meta name="vk-de3" content="Link-Karte">
+<meta name="vk-de4" content="Wie aktivieren?">
+<meta name="vk-de5" content="Dreifachklick mit der Maus auf einen beliebigen Absatz im Dokument">
+<meta name="vk-de6" content="Navigationszentrum">
+<meta name="vk-de7" content="Dokumentenbibliothek">
+<meta name="vk-de8" content="Absatz-Navigationsmodus">
+<meta name="vk-de9" content="Spotlight">
+<meta name="vk-de10" content="Laserpointer">
+<meta name="vk-de11" content="CJK">
+<meta name="vk-de12" content="Nicht-CJK">
+<meta name="vk-de13" content="Zurück zum Cover">
+<meta name="vk-de14" content="Zurück zum Anfang dieses Kapitels">
+<meta name="vk-de15" content="Vorherige">
+<meta name="vk-de16" content="Nächste">
+<meta name="vk-de17" content="Schließen">
+<meta name="vk-de18" content="Schriftart">
+<meta name="vk-de19" content="Wenn Sie keine Verbindung zum Internet herstellen können, um die Online-Version der Schriftart zu laden, wird empfohlen, die Schriftart direkt lokal herunterzuladen">
+<meta name="vk-de20" content="Primär">
+<meta name="vk-de21" content="Standby">
+<meta name="vk-de22" content="Alle Fußnoten">
+<meta name="vk-de23" content="Lesen beginnen">
+<meta name="vk-de24" content="Vollbild">
+<meta name="vk-de25" content="Lesemodus">
+<meta name="vk-de26" content="Umbruch / Rückgängig">
+<meta name="vk-de27" content="Bild im Bild">
+<meta name="vk-de28" content="Halten">
+<meta name="vk-de29" content="Als Markdown kopieren">
+<meta name="vk-de30" content="Code kopieren">
+<meta name="vk-de31" content="Bildadresse kopieren">
+<meta name="vk-de32" content="Tabelleninhalt kopieren">
+<meta name="vk-de33" content="Größe des Spotlights ändern">
+<meta name="vk-de34" content="Beenden">
+<meta name="vk-de35" content="Tippen Sie [ / ], um zu suchen">
+<meta name="vk-de36" content="hat eine neue Version verfügbar. Jetzt aktualisieren!">
+<meta name="vk-de37" content="Entschuldigung, das Kopieren wird in diesem Browser derzeit nicht unterstützt">
+<meta name="vk-de38" content="Bereit">
+<meta name="vk-de39" content="Zeitüberschreitung">
+<meta name="vk-de40" content="Wird geladen">
+<meta name="vk-de41" content="Schriftart-Thema">
+<meta name="vk-de42" content="minute(n)">
+<meta name="vk-de43" content="stunde(n)">
+<meta name="vk-de44" content="Wörter">
+<meta name="vk-de45" content="Auto-/Hell-/Dunkelmodus wechseln">
+<meta name="vk-de46" content="Nicht gefunden">
+<meta name="vk-de47" content="Prüfung bestanden">
+<meta name="vk-de48" content="Dokument schließen">
+<meta name="vk-de49" content="Überarbeitet, bitte erneut überprüfen">
+<meta name="vk-de50" content="URL-Limit überschritten">
+<meta name="vk-de51" content="Hash">
+<meta name="vk-de52" content="Hash prüfen">
+<meta name="vk-de53" content="Doppelte Kapitel">
+<meta name="vk-de54" content="Ungültiger interner Link">
+<meta name="vk-de55" content="Alle anzeigen">
+<meta name="vk-de56" content="Tabelle">
+<meta name="vk-de57" content="Codeblock">
+<meta name="vk-de58" content="Abbildung">
+<meta name="vk-de59" content="Audio">
+<meta name="vk-de60" content="Video">
+<meta name="vk-de61" content="Noch einmal klicken, um als Markdown zu kopieren">
+<meta name="vk-de62" content="Kopiert">
+<meta name="vk-de63" content="Ungültige Audio-Adresse">
+<meta name="vk-de64" content="Ungültige Video-Adresse">
+<meta name="vk-de65" content="Ungültige Bild-Adresse">
+<meta name="vk-de66" content="Katalog ist leer">
+<meta name="vk-de67" content="Kein Inhalt">
+<meta name="vk-de68" content="Postkarte">
+<meta name="vk-de69" content="Ändern">
+<meta name="vk-de70" content="Optional">
+<meta name="vk-de71" content="Schleife">
+<meta name="vk-de72" content="Parallel">
+<meta name="vk-de73" content="Notiz">
+<meta name="vk-de74" content="Tipp">
+<meta name="vk-de75" content="Wichtig">
+<meta name="vk-de76" content="Warnung">
+<meta name="vk-de77" content="Vorsicht">
+<meta name="vk-de78" content="Lesen fortsetzen">
+<meta name="vk-de79" content="Für die beste Kompatibilität wird empfohlen, den Chrome-/Firefox-/Edge-Browser zu verwenden">
+<meta name="vk-de80" content="Achtung! Um ein korrektes Drucken sicherzustellen, wird empfohlen, die [Drucken]-Funktion innerhalb des Dokuments zu verwenden!">
+<meta name="vk-de81" content="Ungültiger Link / Adresse">
+<meta name="vk-de82" content="Seite">
+<meta name="vk-de83" content="Link">
+<meta name="vk-de84" content="Fußnote">

@@ -37,9 +37,9 @@ vlook-doc-lib: vlook-lib.html
 >
 > ---
 >
-> [<kbd>提交我的定制需求</kbd>](https://wj.qq.com/s2/14818521/bd33/)
+> [<kbd>![](pic/icon-vip.svg?fill=text#icon)  提交我的定制需求</kbd>](https://wj.qq.com/s2/14818521/bd33/)
 >
-> [<kbd>加入 QQ 群</kbd>](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&kbd=alt)  [<kbd>加入 Telegram 频道 </kbd>](https://t.me/vlook_markdown?kbd=alt)
+> [<kbd>💬 加入 QQ 群</kbd>](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&kbd=alt)  [<kbd>✈️ 加入 Telegram 频道 </kbd>](https://t.me/vlook_markdown?kbd=alt)
 
 #定制主题案例展示 
 
@@ -59,11 +59,21 @@ vlook-doc-lib: vlook-lib.html
 
 ---
 
+> [![立白科技集团 • 数智中心产品文档使用](pic/vip-dic.png?srcset=@2x#card "Liby DIC")](vip-dic.html)
+
+> [![巴斯夫 • 凯密特尔实验记录文档使用](pic/vip-chemetall.png?srcset=@2x#card "BASF • Chemetall")](vip-chemetall.html)
+
 > [![个人文档使用](pic/vip-bug320.png?srcset=@2x#card "Bug320")](vip-bug320.html)
 
-> [![立白科技集团• 数智中心产品文档使用](pic/vip-dic.png?srcset=@2x#card "Liby DIC")](vip-dic.html)
+---
+
+---
+
+> [![个人文档使用](pic/vip-hello.png?srcset=@2x#card "Hello")](vip-hello.html)
 
 > [![个人文档使用](pic/vip-lspzc.png?srcset=@2x#card "Lspzc")](vip-lspzc.html)
+
+> [![个人文档使用](pic/vip-qimao.png?srcset=@2x#card "QiMao")](vip-qimao.html)
 
 
 # 咨询定制服务
@@ -72,13 +82,15 @@ vlook-doc-lib: vlook-lib.html
 
 ---
 
-> ![扫码提交定制需求](pic/vip-submit-light.png?darksrc=vip-submit-dark.png&srcset=@2x&darksrcset=@2x#frame)
+> **扫码提交定制需求**
+>
+> ![扫码提交定制需求](pic/vip-submit-light.png?darksrc=vip-submit-dark.png&srcset=@2x&darksrcset=@2x#logo#border)
 
 > **加入讨论与交流**
 >
-> [<kbd>加入 QQ 群</kbd>](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)
+> [<kbd>💬 加入 QQ 群</kbd>](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")
 >
-> [<kbd>加入 Telegram 频道 </kbd>](https://t.me/vlook_markdown?kbd=alt)
+> [<kbd>✈️ 加入 Telegram 频道 </kbd>](https://t.me/vlook_markdown?kbd=alt)
 
 > **直接联系**
 >

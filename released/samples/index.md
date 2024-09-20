@@ -1,6 +1,6 @@
 ---
 title: 简介 - VLOOK™ - Markdown 编辑器 Typora 的主题包和增强插件
-author: MAX°孟兆
+author: MAX°孟兆	 
 description: 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:description": 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
@@ -16,16 +16,17 @@ keywords:
 - 链接地图,链接规范,链接检查,链接识别,链接转换
 - HTML,PRD,设计,需求,文档,博客,手册,指南,知识库,WIKI,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
+vlook-chp-autonum-test: h1{{#00##}}
 vlook-query: toc=2
 vlook-doc-lib:
 - [浏览 VLOOK™ 文库](vlook-lib.html "手册,教程,指南,示例,范例")
-- [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank)
 - [English 🔠 Guide](index-en.html?target=vlook-index-en "typora;vlook")
+- [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank)
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 vlook-gray-mode: 5-12
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V25.0`*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V26.0`*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
@@ -37,7 +38,7 @@ vlook-gray-mode: 5-12
 >
 > ![OSChina](pic/oschina.png#icon) **[开源中国](https://www.oschina.net/p/vlook) 推荐的国产开源产品。**
 >
-> ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™**_~T1~_ 是针对 ![Typora](pic/typora.png#icon) [Typora](https://www.typora.io)[^Typora] （跨平台 Markdown 编辑器）的 **主题包**_~GnRo~_ 和 **增强插件**_~PuOg~_（针对导出的 HTML 文件)。
+> ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™**_~T1~_ 是针对 ![Typora](pic/typora.png#icon) [Typora](https://www.typora.io)[^Typora] （跨平台 Markdown 编辑器)的 **主题包**_~GnRo~_ 和 **增强插件**_~PuOg~_。
 >
 > VLOOK™ 属于开源软件（遵从 **MIT License**_~Rd~_）。
 
@@ -76,7 +77,7 @@ vlook-gray-mode: 5-12
 > 1. *`推荐`*_~T2!~_ **Github Flavored Markdown** (GFM) 语法参考：Typora 目前采用该标准 [详细](https://support.typora.io/Markdown-Reference/)；
 > 2. 标准化 **CommonMark** 语法参考：[60 秒学会 Markdown 语法](http://commonmark.org/help/)、[10 分钟深入学习 Markdown](http://commonmark.org/help/tutorial/) 。
 
-[^Typora]: Typora 是跨平台的 Markdown 编辑器（也许是目前最好的编辑器），支持直接预览与编辑，更详细的特性详见[官网](https://www.typora.io)。
+[^Typora]: Typora 是跨平台的 Markdown 编辑器（也许Ω是目前最好的编辑器），支持直接预览与编辑，更详细的特性详见[官网](https://www.typora.io)。
 
 # 为谁准备
 
@@ -103,17 +104,18 @@ vlook-gray-mode: 5-12
 
 |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**         | **If you like VLOOK™, you can contribute a cup of coffee :-)** |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#frame) | [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#frame)](https://paypal.me/madmaxchow) |
+| ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo) | [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow) |
 
-> **感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**
+> **感谢打赏支持 VLOOK™ 的客官（部分名单）**
 >
-> ＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 # 快速入坑
 
 VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文档的互联网化应用场景～
 
 在 **文档排版、内容导航、演示辅助、交互体验**_~GnOgSe~_ 等方面提供了 **一致、简洁、友好**_~PuOgRo~_ 的体验。
+
 
 ---
 
@@ -125,7 +127,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 通过丰富的文档排版、内容标识的能力外，基于 HTML 格式让静态的文档也能与你一起「动」起来～
 >
-> [<kbd>了解更多 ![](pic/icon-forward.svg)</kbd>](?target=vdl#快速入坑°文档排版)  [<kbd>范例参考</kbd>](index.md?kbd=alt#范例参考)
+> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°文档排版)  [<kbd>范例参考</kbd>](index.md?kbd=alt#范例参考)
 >
 > _~Vn!~_
 
@@ -137,7 +139,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 无多余动作，聚焦文档撰写。一键导出之时，即完成自动集成～
 >
-> [<kbd>了解更多 ![](pic/icon-forward.svg)</kbd>](?target=vdl#快速入坑°内容导航)  [<kbd>范例参考</kbd>](index.md?kbd=alt#范例参考)
+> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°内容导航)  [<kbd>范例参考</kbd>](index.md?kbd=alt#范例参考)
 >
 > _~Bu!~_
 
@@ -151,7 +153,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 非常适合现场和远程的演示辅助工具，为你的文档开启 Turbo 模式～
 >
-> [<kbd>了解更多 ![](pic/icon-forward.svg)</kbd>](?target=vdl#快速入坑°演示与出版)  [<kbd>范例参考</kbd>](index.md?kbd=alt#范例参考)
+> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°演示与出版)  [<kbd>范例参考</kbd>](index.md?kbd=alt#范例参考)
 >
 > _~Og!~_
 
@@ -163,13 +165,21 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 　　　　—— MAX°孟兆
 >
-> [<kbd>了解更多 ![](pic/icon-forward.svg)</kbd>](?target=vdl#快速入坑°主题与不杂项)  [<kbd>范例参考</kbd>](index.md?kbd=alt#范例参考)
+> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°主题与不杂项)  [<kbd>范例参考</kbd>](index.md?kbd=alt#范例参考)
 >
 > _~Lm!~_
 
+
+
+> [!IMPORTANT]
+>
+> VLOOK™ 的部分特性需要通过导出 HTML 后才能支持。
+>
+> 具体请留意参考手册中各特性的「适用范围」说明，如：*`编辑时`OFF*_~Gy~_ *ON`编辑时`*_~Gn~_
+
 # 专题文章
 
-![入选「知乎 • 海盐计划」的专题文章](pic/3rd-haiyan.png#frame)
+![入选「知乎 • 海盐计划」的专题文章](pic/3rd-haiyan.png#logo#border) 
 
 入选「知乎 • 海盐计划」的专题文章 •• [点击前往看看](https://www.zhihu.com/people/maxchow/posts)
 
@@ -179,7 +189,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-> [![点击查看实际效果](pic/sample-a-api_spec.png?srcset=@2x#card\d#border "样式与交互丰富的 API 文档")](http://sample-a-api_spec.html?ws=off)
+> [![点击查看实际效果](pic/sample-a-api_spec.png?srcset=@2x#card#border "样式与交互丰富的 API 文档")](sample-a-api_spec.html?ws=off)
 >
 > _~T1!~_
 
@@ -226,7 +236,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 从 VLOOK™ 在托管的平台上下载最新发布版本：
 > 
->  **[<kbd>从 GitHub 下载</kbd>](https://github.com/MadMaxChow/VLOOK/releases)**  **[<kbd>从 Gitee 下载</kbd>](https://gitee.com/madmaxchow/VLOOK/releases?kbd=alt)**
+>  **[<kbd>![](pic/icon-download.svg?fill=text) 从 GitHub 下载</kbd>](https://github.com/MadMaxChow/VLOOK/releases)**  **[<kbd>![](pic/icon-download.svg?fill=text) 从 Gitee 下载</kbd>](https://gitee.com/madmaxchow/VLOOK/releases?kbd=alt)**
 >
 >
 > _~Gn~_
@@ -234,8 +244,8 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > **Step2. 安装 Typora**
 >
 > 1. 下载并安装 [Typora](https://www.typora.io) 的最新版本；
-> 2. 进入配置界面：*==Typora ▸ 偏好设置 ▸ Markdown==*
-> 3. 启用「**Markdown 扩展语法**」「**代码块**」下的所有选项。详见下图：
+> 2. 打开 *==Typora ▸ 偏好设置 ▸ Markdown==*
+> 3. 启用 `Markdown 扩展语法` 和 `代码块` 下的所有选项。详见下图：
 >
 > _~Gn~_
 
@@ -255,20 +265,20 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 > **Step1. 安装主题**
 >
-> 1. 将 *==released/theme==* 下所有 CSS 文件复制至 Typora 的主题目录；
-> 2. 主题目录在哪？可通过 *==偏好设置 ▸ 外观 ▸ 打开主题目录==* 定位到该目录。
+> 1. 将 *==released/theme==* 下所有 **CSS 文件**及**文件夹**，复制至 Typora 的主题目录
+> 2. 主题目录在哪？打开 *==偏好设置 ▸ 外观 ▸ 打开主题目录==* 定位到该目录
 > 
 > _~Og~_
 
 > **Step2. 选用主题**
 >
-> 1. 重启 Typora；
-> 2. 点击 *==主题==* 菜单，选择以 `Vlook ***` 形式命名的任意主题即可；
-> 3. 建议基于 VLOOK™ 规范的文档模板来创建你自己的 Markdown 文档，这样能更快上手。
+> 1. 重启 Typora
+> 2. 点击 *==主题==* 菜单，选择以 `Vlook ***` 形式命名的任意主题即可
+> 3. 建议基于 VLOOK™ 规范的文档模板来创建你自己的 Markdown 文档，这样能更快上手
 >
 > _~Og~_
 
-> **想拥有更个性的主题吗？** [<kbd>了解定制服务</kbd>](vip.md)
+> **想拥有更个性的主题吗？** [<kbd>![](pic/icon-vip.svg?fill=text#icon) 了解定制服务</kbd>](vip.md)
 
 > ###### 建议从范例文件开始你的写作
 >
@@ -277,7 +287,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > 1. 在目录 *==released\samples==*  下的 `.md` 文件都是范例文件；
 > 2. 也可直接在项目主页目录中下载：
 >
-> [<kbd>下载范例</kbd>](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)  [<kbd>备用链接</kbd>](https://gitee.com/madmaxchow/VLOOK/tree/master/released/samples?kbd=alt)
+> [<kbd>![](pic/icon-download.svg?fill=text) 下载范例</kbd>](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)  [<kbd>![](pic/icon-download.svg?fill=text) 备用链接</kbd>](https://gitee.com/madmaxchow/VLOOK/tree/master/released/samples?kbd=alt)
 
 ## 配置导出选项
 
@@ -287,24 +297,24 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 > **配置导出设置**
 >
-> 1. 启动 Typora 并进入「**偏好设置**」
+> 1. 打开 *==Typora > Preferences==*
 > 2. 点击「**导出**」，添加配置（==选择 HTML 模板==），并将配置命名为 `VLOOK` 
 > 
 > _~Cy~_
 
 > **安装元标签**
 >
-> 1. 打开元标签文件：released\plugin\\**meta.txt**
+> 1. 打开元标签文件：*==released/plugin/**meta.txt**==*
 > 2. 全选并复制所有内容
-> 3. 将内容粘贴至「**在 &lt;head /&gt; 中添加**」
+> 3. 将内容粘贴至`在 <head /> 中添加` 内
 >
 > _~Cy~_
 
 > **安装插件**
 >
-> 1. 打开插件文件：released\plugin\\**plugin.txt**
+> 1. 打开插件文件：*==released/plugin/**plugin.txt**==*
 > 2. 全选并复制所有内容
-> 3. 将内容粘贴至「**在 &lt;body /&gt; 中添加**」
+> 3. 将内容粘贴至 `在 <body /> 中添加` 内
 >
 > _~Cy~_
 
@@ -319,21 +329,41 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 # 补充说明
 
-> ==在线版插件 (live)==
->
-> 以上配置方式为离线插件，完整的插件代码与 HTML 文件集成，适合浏览文档时须在内网或无网络的情况，但不便于实时更新插件和[在线切换模板主题](guide2.md#模板主题)等。
->
-> 目前 VLOOK 支持提供在线版插件方式，可参考以上方式增加新的「导出配置」即可（建议配置命名为 `VLOOK (live)` ）。
->
-> 在线版的插件文件为：released\plugin\\**plugin_live.txt**
->
-> [<kbd>下载在线版插件</kbd>](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin_live.txt)  [<kbd>备用链接</kbd>](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin_live.txt?kbd=alt)
->
-> _~T1!~_
+## 语言包
+
+VLOOK™ 的界面语言默认内置了「**英文**、**简体中文**」，对导出后的 HTML 需要支持更多语言，可以选择将对应语言包的内容，追加到以上导出配置中「元标签」内容的后面，重新导出 HTML 即可。
+
+目前可扩展支持的语种：**法文**(Français)、**德文**(Detusch)、**俄文**(Русский язык)、**西班牙文**(Español)、**葡萄牙文**(Português)、**日文**(日本語)、**韩文**(한국어)、**繁体中文**(港澳台地区)、**阿拉伯文**(العربية)。
 
 ---
 
-> **![](pic/logo-update.svg?fill=bu&darksrc=invert#icon)  如何更新插件到最新版本？**
+> **选择语言包**
+>
+> 1. 语言包文件位于 *==released/plugin/lang==* 目录下
+> 2. 打开一个或多个语言文件，并复制所有内容（如：`Français.txt` ）
+
+> **更新导出配置**
+>
+> 1. 打开 *==Typora > Preferences==*，并选择添加的导出配置 `VLOOK` 
+> 2. 将复制的内容**追加**到 `在 <head /> 中添加` 已有内容的后面（**注意：不是覆盖原有内容！**）
+
+==提示：如果需要扩展支持多个语种，重复以上操作步骤即。==
+
+## 在线版本
+
+以上配置方式为离线插件，完整的插件代码与 HTML 文件集成，适合浏览文档时须在内网或无网络的情况，但不便于实时更新插件和[在线切换模板主题](guide2.md#模板主题)等。
+
+目前 VLOOK™ 支持提供在线版插件方式，可参考以上方式增加新的「导出配置」即可（建议配置命名为 `VLOOK (live)` ）。
+
+在线版的插件文件为：*==released/plugin/**plugin_live.txt**==*
+
+[<kbd>![](pic/icon-download.svg?fill=text) 下载在线版插件</kbd>](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin_live.txt)  [<kbd>![](pic/icon-download.svg?fill=text) 备用链接</kbd>](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin_live.txt?kbd=alt)
+
+## 升级与兼容性
+
+---
+
+> **![](pic/logo-update.svg?fill=bu&darksrc=invert#icon)  如何更新到最新版本？**
 >
 > 若有新版本，在右下角会出现新版本升级提示图标 ![](pic/icon-new-version.svg#icon) ，重复以上[安装与使用](#安装与使用)中的步骤进行操作即要完成更新。
 >
@@ -349,6 +379,6 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 ---
 
-如有建议和需求，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+如有建议和需求，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # The End

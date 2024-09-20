@@ -1,0 +1,96 @@
+<!--
+VLOOK™ "V26.0" (2024-09-20) - Typora Plugin  (language pack)
+Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
+!!! Attention! Do not overwrite the content from "meta.txt" !!!
+追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
+!!! 注意！不要覆盖来自 "meta.txt" 的内容 !!!
+-->
+<!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
+<!-- 以下为语言标识 -->
+<meta name="vlook-lang-ar" content="ar">
+<!-- The following is the content of the language package -->
+<!-- 以下为语言包内容 -->
+<meta name="vk-ar1" content="غلاف">
+<meta name="vk-ar2" content="طباعة...">
+<meta name="vk-ar3" content="خريطة الروابط">
+<meta name="vk-ar4" content="كيف تفعيل؟">
+<meta name="vk-ar5" content="انقر ثلاث مرات بالماوس على أي فقرة في المستند">
+<meta name="vk-ar6" content="مركز التنقل">
+<meta name="vk-ar7" content="مكتبة المستندات">
+<meta name="vk-ar8" content="وضع تنقل الفقرات">
+<meta name="vk-ar9" content="أضواء">
+<meta name="vk-ar10" content="مؤشر الليزر">
+<meta name="vk-ar11" content="CJK">
+<meta name="vk-ar12" content="غير CJK">
+<meta name="vk-ar13" content="العودة إلى الغلاف">
+<meta name="vk-ar14" content="العودة إلى بداية هذا الفصل">
+<meta name="vk-ar15" content="سابق">
+<meta name="vk-ar16" content="التالي">
+<meta name="vk-ar17" content="إغلاق">
+<meta name="vk-ar18" content="الخط">
+<meta name="vk-ar19" content="إذا لم تتمكن من الاتصال بالإنترنت لتحميل النسخة عبر الإنترنت من الخط، يُوصى بتنزيل الخط مباشرةً إلى الجهاز المحلي">
+<meta name="vk-ar20" content="أساسي">
+<meta name="vk-ar21" content="احتياطي">
+<meta name="vk-ar22" content="جميع الحواشي">
+<meta name="vk-ar23" content="ابدأ القراءة">
+<meta name="vk-ar24" content="ملء الشاشة">
+<meta name="vk-ar25" content="وضع القراءة">
+<meta name="vk-ar26" content="تغليف / فك التغليف">
+<meta name="vk-ar27" content="صورة في صورة">
+<meta name="vk-ar28" content="تمسك">
+<meta name="vk-ar29" content="نسخ كـ Markdown">
+<meta name="vk-ar30" content="نسخ الشيفرة">
+<meta name="vk-ar31" content="نسخ عنوان الصورة">
+<meta name="vk-ar32" content="نسخ محتوى الجدول">
+<meta name="vk-ar33" content="تغيير حجم الأضواء">
+<meta name="vk-ar34" content="خروج">
+<meta name="vk-ar35" content="اكتب [ / ] للبحث">
+<meta name="vk-ar36" content="يتوفر إصدار جديد. قم بالتحديث الآن!">
+<meta name="vk-ar37" content="عذرًا، النسخ غير مدعوم حاليًا في هذا المتصفح">
+<meta name="vk-ar38" content="جاهز">
+<meta name="vk-ar39" content="انتهاء المهلة">
+<meta name="vk-ar40" content="جاري التحميل">
+<meta name="vk-ar41" content="موضوع الخط">
+<meta name="vk-ar42" content="دقيقة(دقائق)">
+<meta name="vk-ar43" content="ساعة(ساعات)">
+<meta name="vk-ar44" content="كلمات">
+<meta name="vk-ar45" content="تبديل بين الوضع التلقائي/الواضح/الداكن">
+<meta name="vk-ar46" content="غير موجود">
+<meta name="vk-ar47" content="التحقق تم بنجاح">
+<meta name="vk-ar48" content="إغلاق المستند">
+<meta name="vk-ar49" content="تمت المراجعة، يرجى إعادة التحقق">
+<meta name="vk-ar50" content="تجاوز حد URL">
+<meta name="vk-ar51" content="هاش">
+<meta name="vk-ar52" content="تحقق من الهاش">
+<meta name="vk-ar53" content="تكرار الفصل">
+<meta name="vk-ar54" content="رابط داخلي غير صالح">
+<meta name="vk-ar55" content="عرض الكل">
+<meta name="vk-ar56" content="جدول">
+<meta name="vk-ar57" content="كتلة الشيفرة">
+<meta name="vk-ar58" content="رسم توضيحي">
+<meta name="vk-ar59" content="صوت">
+<meta name="vk-ar60" content="فيديو">
+<meta name="vk-ar61" content="انقر مرة أخرى لنسخ كـ Markdown">
+<meta name="vk-ar62" content="تم النسخ">
+<meta name="vk-ar63" content="عنوان صوت غير صالح">
+<meta name="vk-ar64" content="عنوان فيديو غير صالح">
+<meta name="vk-ar65" content="عنوان صورة غير صالح">
+<meta name="vk-ar66" content="الكتالوج فارغ">
+<meta name="vk-ar67" content="لا يوجد محتوى">
+<meta name="vk-ar68" content="بطاقة بريدية">
+<meta name="vk-ar69" content="تغيير">
+<meta name="vk-ar70" content="اختياري">
+<meta name="vk-ar71" content="حلقة">
+<meta name="vk-ar72" content="متوازي">
+<meta name="vk-ar73" content="ملاحظة">
+<meta name="vk-ar74" content="نصيحة">
+<meta name="vk-ar75" content="هام">
+<meta name="vk-ar76" content="تحذير">
+<meta name="vk-ar77" content="تحذير">
+<meta name="vk-ar78" content="استأنف القراءة">
+<meta name="vk-ar79" content="يوصى باستخدام متصفح Chrome/Firefox/Edge للحصول على أفضل توافق">
+<meta name="vk-ar80" content="انتباه! لتضمن الطباعة الصحيحة، يُنصح باستخدام وظيفة [طباعة] داخل المستند!">
+<meta name="vk-ar81" content="رابط / عنوان غير صالح">
+<meta name="vk-ar82" content="صفحة">
+<meta name="vk-ar83" content="رابط">
+<meta name="vk-ar84" content="حاشية">

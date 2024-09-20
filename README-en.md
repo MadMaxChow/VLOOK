@@ -6,7 +6,7 @@
 
 
 
-# Easy To Use Practical Typora / Markdown Theme Package and Enhancement Plug-in
+# VLOOK™ is an elegant and practical theme package × enhancement plugin for Typora/Markdown
 
 
 
@@ -16,7 +16,9 @@
 
 
 
-[VLOOK ™](https://github.com/MadMaxChow/VLOOK) is for [Typora](https://www.typora.io) (cross-platform Markdown editor) of the **THEME PACKAGE** and **ENHANCED PLUG-IN**.
+[VLOOK™](https://github.com/MadMaxChow/VLOOK) is for [Typora](https://www.typora.io) (cross-platform Markdown editor) of the **THEME PACKAGE** and **ENHANCED PLUG-IN**.
+
+**VLOOK™** is a **THEME PACK** and **ENHANCEMENT PLUGIN** for [Typora](https://www.typora.io) (cross-platform Markdown editor).
 
 
 
@@ -24,21 +26,21 @@ VLOOK™ is open source software and complies with the **[MIT license](#许可�
 
 
 
-> **Join the discussion:**
+> **Join the discussion**
 >
-> - **QQ Group** ([**805502564**](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&))
-> - **Telegram Channel** ([**vlook_markdown**](https://t.me/vlook_markdown)) 
-> - Email (**maxchow@qq.com**)
+> - 💬 QQ Group ([**805502564**](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&))
+> - ✈️ Telegram Channel ([**vlook_markdown**](https://t.me/vlook_markdown "加入 Telegram 频道")) 
+> - 📧 Email (**maxchow@qq.com**)
 
 #  Donate
 
 | **If you like VLOOK™, you can contribute a cup of coffee :-)** |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**         |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| [![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#frame)](https://paypal.me/madmaxchow) | ![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#frame) |
+| [![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow) | ![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo) |
 
-> **Thanks for donate VLOOK™ (partial donors) / 感谢打赏支持 VLOOK™ 的客官（部分名单)**
+> **Thanks for donate VLOOK™ (partial donors) **
 >
-> ＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 ---
 
@@ -58,7 +60,7 @@ VLOOK™ is open source software and complies with the **[MIT license](#许可�
 
 ![火力全开的演示辅助～画中画、聚光灯、激光笔、表格十字光标、刮刮卡…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A06.png)
 
-![还有音频、视频、标签、引用块折叠、高清插图、…30+特性等你开箱即用](https://vlook-doc.pages.dev/pic/vlook-screenshot-A08.png)
+![还有音频、视频、标签、详情折叠、高清插图、…30+特性等你开箱即用](https://vlook-doc.pages.dev/pic/vlook-screenshot-A08.png)
 
 ---
 
@@ -74,7 +76,7 @@ You can start a brand **new Markdown experience** in just **3 steps**, [click he
 
 # Blog
 
-![Blogs selected for the "Zhihu • Sea Salt Project"](https://vlook-doc.pages.dev/pic/3rd-haiyan.png#frame)
+![Blogs selected for the "Zhihu • Sea Salt Project"](https://vlook-doc.pages.dev/pic/3rd-haiyan.png#logo#border)
 
 Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https://www.zhihu.com/people/maxchow/posts)
 
@@ -103,6 +105,10 @@ VLOOK™ through the ongoing **excavation and expansion of** Markdown and CSS, c
 The "**Private Customization Service**" for Themes is now open! Here are some reference cases for private customization.
 
 [![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.png)](https://madmaxchow.github.io/VLOOK/vip.html)
+
+
+
+**[NOW 🎁 Submit my customization request ❯❯❯](https://wj.qq.com/s2/14818521/bd33/)**
 
 **More personalized theme displays •• [Click here to explore](https://madmaxchow.github.io/VLOOK/vip.html)**
 
@@ -147,12 +153,13 @@ VLOOK™ provides two sets of font styles, which can be selected according to pe
 | [ **docs** ] | VLOOK™ Quick Reference Manual, official website and online service related documents |
 | [ **released** ] | Home directory of the release version                        |
 | &nbsp;&nbsp;&nbsp;┠─ [ **demo** ] | VLOOK™ Quick Reference Manual markdown format documents |
+| &nbsp;&nbsp;&nbsp;┠─ [ **lang** ] | Language package |
 | &nbsp;&nbsp;&nbsp;┠─ [ **themes** ] | Theme files                                           |
 | &nbsp;&nbsp;&nbsp;┠─ [ **samples** ] | Recommend sample documents |
 | &nbsp;&nbsp;&nbsp;┖─ [ **plugin** ] | Plugin home directory                                        |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┠─ meta.txt | For Typora export HTML option of **"Append in &lt;head /&gt;**" |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┠─ meta.txt | For Typora export HTML option of `Append in <head />` |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┠─ plugin_live.txt | Online version of Plug-in                                    |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┖─ plugin.txt | For Typora export HTML option of **"Append in &lt;body /&gt;**" |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┖─ plugin.txt | For Typora export HTML option of `Append in <body />` |
 | [ **src** ] | Source directory                                             |
 | &nbsp;&nbsp;&nbsp;┠─ [ **dev** ] | Develop and test files                                       |
 | &nbsp;&nbsp;&nbsp;┠─ [ **less** ] | The source file of the theme CSS file                        |

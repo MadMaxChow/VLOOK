@@ -1,6 +1,6 @@
 /**************************************
  *
- * VLOOK 模板主题
+ * VLOOK™ 模板主题
  *
  * powered by MAX°孟兆
  *
@@ -10,6 +10,8 @@
  *
  * For(QQ): 956119641
  * 2024-5
+ * https://www.wondershare.cn/
+ * https://www.wondershare.com/
  *
  *************************************/
 
@@ -18,7 +20,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V25.0";
+@themeVer: "V26.0";
 @themeName: "vlook-x-wondershare";
 @themeDesc: "× Wondershare";
 @themeEmail: "sean@wondershare.com";
@@ -68,8 +70,8 @@
 @headerSpliterLg: linear-gradient(180deg, transparent, transparent @spliterWidth, var(--d-bc) @spliterWidth, var(--d-bc));
 
 // @tocHeaderNumColor: @docTextColorLightFade;
-@contentHeaderNumColor: var(--h-f);
-@contentHeaderNumOpacity: .5;
+//@contentHeaderNumColor: var(--h-f);
+//@contentHeaderNumOpacity: .5;
 @liBeforeColor: rgba(red(@theme2), green(@theme2), blue(@theme2), 50%);
 
 @h1Bg: linear-gradient(180deg, rgba(var(--fade-r), var(--fade-g), var(--fade-b), .1), rgba(var(--fade-r), var(--fade-g), var(--fade-b), 1)), @wondershareLg;
@@ -78,7 +80,7 @@
 @h4Bg: @headerSpliterLg, linear-gradient(270deg, var(--d-bc), var(--d-bc) 30%, @wondershareC1 30%, @wondershareC2 50%, @wondershareC3 70%, var(--d-bc) 70%, var(--d-bc));
 
 // @h1Bg: linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
-@multiHeaderBG: none;
+// @continuousHeaderBG: none;
 @headerTextAlign: center;
 @headerPadding: 15px 5px 5px;
 
@@ -115,6 +117,8 @@
 // @tableTrHoverBg: fade(@aHoverColor, 15%);
 // @tableTrHoverBgDark: fade(@aHoverColor, 25%);
 
+//@quoteBorderLeft: 0;
+
 // 按钮色
 @buttonForeColor: var(--d-bc);
 @buttonForeHoverColor: #FFFFFF;
@@ -130,8 +134,9 @@
 @aBorderWidth: 2px;
 @aColor: @theme2;
 @aColorDark: @theme2Dark;
-@aLineColor: @theme2;
+// @alinecolor: @theme2;
 @aHoverColor: @theme3;
+@aHoverColorDark: @theme2Dark;
 @aActiveColor: desaturate(@theme3, 30%);
 
 // 封面内徽章样式
@@ -143,8 +148,8 @@
 @coverTextAlign: center;
 @coverTextPadding: 350px 50px;
 @coverTextColor: #000000;
-@coverSubColor: #606060;
-@coverUnderlineColor: #606060;
+@coverSubColor: #606264;
+@coverUnderlineColor: #606264;
 @coverAuthorColor: @coverUnderlineColor;
 @coverOwnerColor: @coverAuthorColor;
 
@@ -214,6 +219,9 @@
 }
 
 @import "../base";
+
+// 生成强调风格的有序列表样式
+.genOrderList(block, rect);
 
 // 生成指定风格的徽章样式
 .genBadgeStyle(dyn);

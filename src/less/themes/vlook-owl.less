@@ -1,6 +1,6 @@
 /**************************************
  *
- * VLOOK 模板主题
+ * VLOOK™ 模板主题
  *
  * powered by MAX°孟兆
  *
@@ -15,7 +15,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V25.0";
+@themeVer: "V26.0";
 @themeName: "vlook-owl";
 @themeDesc: "Owl";
 
@@ -35,10 +35,10 @@
 }
 
 // 主题主色
-@theme1: #10A8BE;
+@theme1: #04AAC2;//#10A8BE;
 @theme2: #7735CC;
-@theme3: #10DAD8;
-@theme1Dark: #0F9EB3;
+@theme3: #48F0EE;//#10DAD8;
+@theme1Dark: #04B7D1;//#0F9EB3;
 @theme1Alt: #D0F6FB;
 @theme1AltDark: #005175;
 @theme2Dark: #935ED6;
@@ -82,14 +82,15 @@
 @lgH5Color: @lgH1Color;
 // 6 级标题前缀内容
 @h6BeforeContent: "◎ ";
-@contentHeaderNumColor: @themeForeColorFade;
+// @contentHeaderNumColor: @themeForeColorFade;
+//@contentHeaderNumOpacity: .5;
 
 // 标题背景色
 @h1Bg: linear-gradient(180deg, rgba(var(--fade-r), var(--fade-g), var(--fade-b), .1), rgba(var(--fade-r), var(--fade-g), var(--fade-b), 1)), @hbgLg;
 @h2Bg: @h1Bg;
 @h3Bg: linear-gradient(to right, transparent 20%, @hbgC2 20%, @hbgC1 50%, @hbgC2 80%, transparent 80%) 0 0 / 100% 5px no-repeat;
 
-@multiHeaderBG: none;
+// @continuousHeaderBG: none;
 @headerTextAlign: center;
 @headerPadding: 20px 5px 5px;
 @h1Margin: 3em 0 0 0;
@@ -100,12 +101,20 @@
 @h6Margin: 1em 0 0 0;
 
 // 自定义章节自动编号
-@vChpAutoNum: "h1{{第 ### 章 }}";
-@h1BeforeContent: "第" counter(h1) "章 ";
+@vChpAutoNum: "h1{{第###章}}";
+@h1BeforeContent: "第" counter(h1) "章";
+
+// h1-6::before 的扩展样式
+.genH1beforeExt() {
+    display: block;
+    font-size: 2em;
+    font-weight: normal;
+}
 
 // 引用块默认色样式（与主题配套使用）
 @quoteBgDefault: linear-gradient(0deg, var(--d-bc), var(--blockquote-bg));
 @quoteBoxShadowDefault: 0 0 0 1px var(--blockquote-bg) inset;
+//@quoteBorderLeft: 0;
 
 // 按钮色
 @buttonForeColor:#FFFFFF;
@@ -122,9 +131,10 @@
 @aBorderWidth: 2px;
 @aColor: @headerColor;
 @aColorDark: @headerColorDark;
-@aLineColor: @theme2;
-@aHoverColor: @aLineColor;
-@aActiveColor: desaturate(@aLineColor, 50%);
+// @alinecolor: @theme2;
+@aHoverColor: @theme2;
+@aHoverColorDark: @theme2Dark;
+@aActiveColor: desaturate(@aHoverColor, 25%);
 
 // 封面内徽章样式
 @badgeBorderColorInCover: var(--rb-code-shadow-dk);
@@ -213,6 +223,9 @@
     color: @coverTextColor;
     font-size: 3.5em;
 }
+
+// 生成强调风格的有序列表样式
+.genOrderList(block, circle);
 
 // 生成指定风格的徽章样式
 .genBadgeStyle(std);

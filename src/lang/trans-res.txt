@@ -1,0 +1,62 @@
+【AI 翻译提示词】单一语言版本
+帮我把以下内容中，「content=」后双引用内的内容翻译为阿拉伯语，其他内容保持原内容输出：
+<meta name="vk-en1" content="Cover">
+<meta name="vk-en2" content="Print...">
+<meta name="vk-en3" content="Link Map">
+
+——————————
+
+【AI 翻译提示词】多国语言版本
+多国语言的标识对应关系如下："de"对应的是德语，"es"对应的是西班牙语，"fr"对应的是法语，"pt"对应的是葡萄牙语，"ru"对应的是俄语，"ar"对应的是阿拉伯语，"ko"对应的是韩语，"ja"对应的是日语，"zh-hk"对应的是繁体中文。
+帮我把以下内容中，「content=」后双引用内的英文内容翻译为对应的语言，具体对应语言的标识以「name=」后双引用号内容中为参考，即"vk-"后的内容为对应的语言标识（忽略数字部分），其他内容保持原内容输出：
+<meta name="vk-de22" content="All footnotes">
+<meta name="vk-es22" content="All footnotes">
+<meta name="vk-fr22" content="All footnotes">
+<meta name="vk-pt22" content="All footnotes">
+<meta name="vk-ru22" content="All footnotes">
+<meta name="vk-ar22" content="All footnotes">
+<meta name="vk-ko22" content="All footnotes">
+<meta name="vk-ja22" content="All footnotes">
+<meta name="vk-zh-hk22" content="All footnotes">
+
+——————————
+
+1
+"Cover. Print. Link Map. How to enable? Triple-click with the mouse on any paragraph in the document. Navigation Center. Document Library."
+
+8
+"Paragraph Navigation mode. Spotlight. Laser Pointer. CJK. Non-CJK. Back to cover. Go back to the beginning of this chapter. Previous. Next. Close. Font."
+
+19
+"If you cannot connect to the Internet to load the online version of the font, it is recommended to download the font directly to the local."
+
+20
+"Primary. Standby. View all footnotes. Start Reading. Full screen. Reading mode. Wrap / Unwrap. Picture in picture. Hold."
+
+29
+"Copy as Markdown. Copy code. Copy image address. Copy table content. Change the size of the spotlight. Exit. Type [ / ] to search."
+
+36
+"VLOOK has a new version available. Update now! Sorry, copying is currently not supported in this browser."
+
+38
+"Ready. Timeout. Loading. Font Theme. minue(s). hour(s). words. Switch Auto/Light/Dark Mode. Not found. Check Passed. Close document."
+
+49
+"Revised, please recheck. Over URL limit. Hash. Check Hash. Duplicate Chapter. Invalid Inner Link. Show all. Table. Code Block. Figure. Audio. Video."
+
+61
+"Click again to Copy as Markdown. Copied. Invalid audio address. Invalid video address. Invalid image address."
+
+66
+"Catalog is Empty. No content. Postcard. Alter. Optional. Loop. Parallel. Note. Tip. Important. Warning. Caution. Resume Reading."
+
+79
+"For best compatibility, it is recommended to use Chrome/Firefox/Edge browser."
+
+80
+"Attention! To ensure proper printing, it is recommended to use the [Print] function within the document!"
+
+81
+"Invalid link / address. Page. Link."
+

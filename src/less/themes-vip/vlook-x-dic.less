@@ -1,6 +1,6 @@
 /**************************************
  *
- * VLOOK 模板主题
+ * VLOOK™ 模板主题
  *
  * powered by MAX°孟兆
  *
@@ -17,26 +17,25 @@
 @import "../color";
 @import "../common";
 
-@vQuery: "ws=off";
+// @vQuery: "ws=off";
 
 // 主题信息
-@themeVer: "V25.0";
+@themeVer: "V26.0";
 @themeName: "vlook-x-dic";
 @themeDesc: "× DIC";
 @themeEmail: "maxchow@qq.com";
 
 // 指定字体主题
 // .applyFontStyle(win);
-// .applyFontStyle(serif);
 .applyFontStyle(local);
 // 文档背景使用图片
 .applyDocBgImg(@docBgImgLight_Twill_R, @docBgImgDark_Twill_R);
 // 指定主题配套的圆角
-// .applyThemeRadius(big);
 .applyThemeRadius(leaf);
+// 表格、插图指定居中对齐
+.genTableAndFigureAlign(center);
 
 :root {
-    --thm-email: "maxchow@qq.com";
     --thm-fav-logo-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAMAAAC8EZcfAAABcVBMVEUAAAD////////////////////////////////////////////////////////////////////////XFRcAn+n98/MQperwpabtlZbiUlSL0/UjrOzxq6ud2vfumpufOU7g8/z64OCj3feR1vbYGhz7/v/3/f7sjI3dMzXr+P1yy/PfQ0TaJie/5/r+9/dGuu/ncnTlZ2jZICLO7fv++vo3tO786uoHour2y8v1wcLvoaLkXF7ePT7b8vyr4PiU1/Zqx/Ioru0cquwWqOv52tv30NHys7Tyr7Dvn5/jV1nw+f7J6/qx4viE0vV9zvRfw/H98PBRvfA/t+8tsO3L3Orsk5TqhYbqgILod3jmbG3kYWPgSErk9fy35Pmg2/f41NT0vb3zuLi0k6bpe3xyVnq9XWrhTk/OKi/W8PzZ6vVYwPHAzN26vtC3tMcliMW0pLi1h5m4bX2/SVXHPETbLC4ImuFEc6ZTapi3eIiRQly3Kjd8CjONAAAAEnRSTlMA+sfDoEc/CBXw7N+zpnlzcBmH44SwAAAFYElEQVR42uzWSxLCIBBF0We+qDEmb/+LFR1QUOjYO+izgltQ0K0QQgghhBB667xPw/128d/pi3SMgLKfgcvGqcu6vNEsapwP06g2X42jytNAKtbJRKUvDUYq5wftK4HM+83I76MKnI2ltxP4/zWBvPnRBi4GU0bbDxr0A7SkzWRSQu2nHekwGvyJ2FrZN2zylPvQbrYX8/XSk2YQhXGcdbt7zghpQIMVxUtFVBQFFG+1QCv1RjXa1GLSW9qmbeqiH7+viylPMuCcvsyC3xeY/2bmnBndPcsGjuqiaiUeY7QlHmG0JUb8lUECIy58YGFsOCWQ0IGFznVOhnQIEjjwcFaGNwkSNrAjAayAhA3sSgjXIEED11ckhCJI0MC8BDEBEjRwQYLYBAkZWJAwjkFCBm5IEHcgQQMrEkQTxBuYPVo6Sw+2kyW3EqlOkqLEcAF94Ey7bB40BfJLInmQpsSQ0QfO7RqPRZBPEumCxJp7N+rA6VPjM4eet84cPZYYciV14Lzx2Qc55zka/1rXoA2cKxufJZDvzhxtSAzL6sBx4zUP8tOZo7EucV4d+Np4vQP5IJHqRKPRqFRSqVQmk6lJDF114JnxWuUrlZMgJrWB02XjNYOeLxLECrSBq8ZrF+SrBPFRHfjUWPXxAeogPySykCJVidRSGnmxirpAfgWTGGD7COSPM0eXJXIJhbEFsRrqwCUbeIr+FsuvQH47c7QmkQr8Sk/knw114B49dv2sJs0WelrOHC3l7IE+V7ytagNbxhpHP1v7Jgly7szRG7k3Bq9L6puFNnDRWC/57Zmy0sasgXxz5mjGOfBgop+ikKY6sN73sftsyA7IrTNHLyRS/c9f3xt14I7NSINsG1J3Bl0HpOkceCVeL9SBazbjBKT98Lb6HuSODlTvrwfqwKTNaIOcGNJCT1burfO26hxY0Gyr2sCssbZB0tS351ziZyCbEsmBPNdsq9rAv+Ta2UtCQRTHceqx3o43u9q+qFlWaGgbLRQWoSVqi1aGZEVYBAkV9dcXgvaDmducwUMJfR976YNw55y5mm078LALe2+ryhwdbY4+ggYZ2yobeNhiLIfgr5mft9WSsq2WCaqZgSdsYL3FSHou2ZMENZSxduH7yiUoYAZW2cD2hTNH0LbXthpWx1pCeQ8UMwNTXGBYfzUveG6rylibUP5hyuyLERe4pD/s/OArEvSgjLU9zWNt7I4NvNJfzR2ormyr6lgLEOSagSU2cFZ7Na8g8JCgZ/1YqxFUNgPX2MBF7WEXRGBF2VbVsTZo+f51hQ3c1R52mUkIB13UY6ylCdof9uhbPsAFRuFqzunYY6wtEKNR2Fa5wHk47Dg96sfaDDHa97VbZwOn4LDjdK0fa+dkbhVeSETYwBxczTnd6sdahIylE/glIhuYbAODrJrbatmFmmMt7hqLKdsqBxjyO1Y9+USKERe44dj1KgOMs4GblsAbGeAqG3hkCXwX8c0RG5i3BH5I+KbTfOCQne/FJ5FLbGDY+YOHOEJ8YMYS+CZwwuyRBXDktx/ixFmKbICztsAxbY0Ap4P4aXWByApYcETaJJlU4K4MMEqQJPBSxrdIkCiwIgOcJ0gUGBTx5QmSBeYkfDtRgmSBRQnfBkGywNBy577kOEHCwPvOP76tEEHSwKy/k4aS21lR3v/8ka1sPd0O7Ot2YH+3A3u7HfjZ7nwYMQzEAAyjvjtx3X9Zr8HzCROg2YOnPdjlwZjyYEUevOXBWPLgjjw45MGKPDjkwQN3cHvkwY47eOEONtzBMt3BslAH20QdvMAc3Drq4PFgDtYB3mDsA7TBqPcCYzB+/9LOPkkppZRS+qAXh+0M5jN/vawAAAAASUVORK5CYII=");
     --thm-fav-logo-dk: var(--thm-fav-logo-lg);
 }
@@ -75,19 +74,30 @@
 @lgH4Color: @lgH1Color;
 @lgH5Color: @lgH1Color;
 
+// @tocHeaderNumColor: @docTextColorLightFade;
+// @contentHeaderNumOpacity: .5;
+//@contentHeaderNumColor: @theme1;
+@headerBackground: none;//linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
+// @continuousHeaderBG: none;
+// @headerTextAlign: center;
+@headerPadding: 10px 0 0 0;
+
 // 自定义章节自动编号
 // 导出的 HTML 中不生效，须添加以下 VLOOK 的调校参数「vlook-chp-autonum」
-@vChpAutoNum: "h1{{第 ### 章 }}";
-@h1BeforeContent: "第" counter(h1) "章 ";
+// @headerNumSeparator: "";
+// @vChpAutoNum: "h1{{第###章}}";
+// @h1BeforeContent: "第" counter(h1) "章";
+@vChpAutoNum: "h1{{#00##}}";
+@h1BeforeContent: "0" counter(h1);
 @h6BeforeContent: "▰ "; // ■ ▱▰ ⏥▰▱
 
-// @tocHeaderNumColor: @docTextColorLightFade;
-@contentHeaderNumOpacity: .5;
-@contentHeaderNumColor: @theme1;
-@headerBackground: none;//linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
-@multiHeaderBG: none;
-@headerTextAlign: center;
-@headerPadding: 10px 0 0 0;
+// h1-6::before 的扩展样式
+.genH1beforeExt() {
+    display: block;
+    font-size: 2.5em;
+    font-weight: 300;
+}
+
 //@headerLetterSpacing: 0;//0.15em;
 @h1Margin: 2em 0 0 0;
 @h2Margin: 2em 0 0 0;
@@ -97,6 +107,7 @@
 @h6Margin: 1em 0 0 0;
 
 @headerTextAlign: left;
+@h1TextAlign: center;
 
 // 题注文字、背景色
 // @captionTextColor: var(--d-fc-a);
@@ -120,16 +131,17 @@
 @aBorderWidth: 2px;
 @aColor: @headerColor;
 @aColorDark: @headerColorDark;
-@aLineColor: @theme2;
-@aHoverColor: @aLineColor;
-@aActiveColor: desaturate(@aLineColor, 50%);
+// @alinecolor: @theme2;
+@aHoverColor: @theme2;
+@aHoverColorDark: @theme2Dark;
+@aActiveColor: desaturate(@aHoverColor, 25%);
 
 // 表格边框
 @tableBorderColor: var(--d-fc-a);
-@tableBorderWidth: 0;
-@tableBorderLeftWidth: 0;
-@tableBorderRightWidth: 0;
-@tableBorderTopWidth: 0;
+@tableBorderWidth: 0px;
+@tableBorderLeftWidth: 0px;
+@tableBorderRightWidth: 0px;
+@tableBorderTopWidth: 0px;
 @tableBorderBottomWidth: 2px;
 @tableThBorderRightWidth: 1px solid var(--d-bc);
 // 表格行 hover
@@ -154,7 +166,7 @@
 @coverSubColor: @theme1Alt;
 @coverUnderlineColor: @coverSubColor;
 @coverAuthorColor: @coverUnderlineColor;
-@coverOwnerColor: @coverAuthorColor;
+@coverOwnerColor: @coverUnderlineColor;
 
 @backCoverTextAlign: right;
 @backCoverTextPadding: 80px 80px 50px 80px;
@@ -183,7 +195,6 @@
 @backCoverTextShadow: -3px 3px 4px rgba(0, 0, 0, .25);
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
-// @contrastBorder: 0 0 0 1px rgba(0, 0, 0, .2);
 @contrastBorder: 0 0 0 0 transparent;
 @contrastBorderForCover: 0 0 0 2px fade(@theme1, 20%) inset;
 
@@ -226,6 +237,7 @@
 
 @import "../base";
 
+// ====================
 // 标题 after 样式
 #write :is(h1,h2,h3,h4,h5)>span::after {
     content: "";
@@ -239,8 +251,7 @@
     display: inline-flex;
     vertical-align: top;
 }
-
-// 封底 span::after 选择器
+// 针对封底 span::after 的微调处理
 @backcoverSpanAfter: ~"@{coverAfterYAML}~@{backcoverId}>span::after";
 @backcoverSpanWithoutYAMLafter: ~"@{coverWithoutYAML}~@{backcoverId}>span::after";
 @{backcoverSpanAfter},
@@ -252,6 +263,9 @@
     margin: 0 !important;
     position: absolute !important;
 }
+
+// 生成强调风格的有序列表样式
+.genOrderList(frame, rect);
 
 // 生成指定风格的徽章样式
 .genBadgeStyle(dyn);
