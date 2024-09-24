@@ -3,8 +3,8 @@
  * VLOOK™ CSS - Typora 编辑时内置样式
  * (配合 base.less 进行使用)
  *
- * V26.0
- * 2024-09-20
+ * V26.1
+ * 2024-09-24
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -283,7 +283,8 @@ content>.auto-suggest-container li:hover {
     background: var(--a-hover-color) !important;
 }
 #md-notification .btn-default {
-    font-weight: var(--v-f-w-title);
+    font-weight: var(--v-f-w-bd);
+    // font-weight: var(--v-f-w-title);
 }
 
 // 注释
@@ -376,7 +377,8 @@ body:not([class]) :is(h1,h2,h3,h4,h5,h6) {
 .btn-primary {
     color: @buttonForeColor;
     background: @buttonBgColor;
-    font-weight: var(--v-f-w-title);
+    font-weight: var(--v-f-w-bd);
+    // font-weight: var(--v-f-w-title);
 }
 .btn-primary:hover {
     background: var(--a-hover-color);
@@ -523,7 +525,8 @@ body.os-windows .ty-footer { // 底栏
 // 侧边栏当前活动 tab
 .sidebar-tab.active {
     font-family: var(--v-f-fm-title);
-    font-weight: var(--v-f-w-title);
+    font-weight: var(--v-f-w-bd);
+    // font-weight: var(--v-f-w-title);
 }
 
 // 针对 Win 侧边栏 tab
@@ -757,7 +760,8 @@ body.os-windows #file-library-tree {
 .pin-outline .outline-active,
 .pin-outline .outline-active strong,
 .pin-outline .outline-content .outline-active strong {
-    font-weight: var(--v-f-w-title);
+    font-weight: var(--v-f-w-bd);
+    // font-weight: var(--v-f-w-title);
 }
 .outline-item-active {
     box-shadow: @tocItemCurrent_boxShadow;
@@ -766,7 +770,8 @@ body.os-windows #file-library-tree {
     border-left-width: 0;
     margin-right: 0;
     border-right-width: 0;
-    font-weight: var(--v-f-w-title);
+    font-weight: var(--v-f-w-bd);
+    // font-weight: var(--v-f-w-title);
 }
 // 大纲节点 hover
 .outline-item:hover {
@@ -880,7 +885,8 @@ body.os-windows #file-library-tree {
 }
 // 目录节点
 .file-tree-node[data-has-sub=true] {
-    font-weight: var(--v-f-w-title);
+    font-weight: var(--v-f-w-bd);
+    // font-weight: var(--v-f-w-title);
 }
 .file-tree-node[data-has-sub=false] {
     font-weight: normal;

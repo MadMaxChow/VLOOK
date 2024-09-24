@@ -1,5 +1,5 @@
 <!--
-VLOOK™ "V26.0" (2024-09-20) - Typora Plugin ( live )
+VLOOK™ "V26.1" (2024-09-24) - Typora Plugin ( live )
 Paste to "Export Setting ▸ VLOOK (live) ▸ Append in <body />"
 粘贴至「导出设置... ▸ VLOOK (live) ▸ 在 <body /> 中添加」
 -->
@@ -8,8 +8,8 @@ Paste to "Export Setting ▸ VLOOK (live) ▸ Append in <body />"
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
 <!--                                                                        -->
-<!--                                  V26.0                                 -->
-<!--                               2024-09-20                               -->
+<!--                                  V26.1                                 -->
+<!--                               2024-09-24                               -->
 <!--                           powered by MAX°孟兆                           -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -37,7 +37,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <!-- ==================== VLOOK JS ==================== -->
 <script type="text/javascript">
     // VLOOK
-    let lVer = "V26.0";
+    let lVer = "V26.1";
     let devMode = lVer.indexOf("dev") > 0 ? true : false, debugMode = devMode;
     let jsHost = devMode ? "http://localhost/js/" : "https://madmaxchow.github.io/VLOOK/js/",
         cssHost = devMode ? "http://localhost/css/" : "https://madmaxchow.github.io/VLOOK/css/";

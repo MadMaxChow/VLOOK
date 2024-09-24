@@ -3,8 +3,8 @@
  * VLOOK™ CSS 多主题间的通用样式
  * (配合 base.less、主题.less 进行使用)
  *
- * V26.0
- * 2024-09-20
+ * V26.1
+ * 2024-09-24
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -559,7 +559,7 @@
         background: var(--d-bc) !important;
         padding: 3px 5px;
         line-height: 1;
-        margin: 1px 1px 1px @codePaddingLeft;
+        margin: 1px 1px 1px 4px;//@codePaddingLeft;
         white-space: pre;
         box-shadow: none !important;
         border: none !important;
@@ -596,13 +596,13 @@
         white-space: pre;
         box-shadow: none !important;
         border: none !important;
-        background: linear-gradient(110deg, transparent 10px, var(--d-bc) 10px, var(--d-bc)) !important;
+        background: linear-gradient(105deg, transparent 10px, var(--d-bc) 10px, var(--d-bc)) !important;
     }
 
     // 三段式，两个徽章值时微调
     // 第 2 个徽章值
     @{badgeOnEditingPrefix} > @{codeOnEditing}+span:last-child {
-        margin: 1px 5px !important;
+        margin: 1px 5px 1px 2px !important;
     }
     // 第 1 个徽章值
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:first-child):not(:last-child) > code,
@@ -611,7 +611,7 @@
         margin-right: 0 !important;
         padding-right: 12px !important;
         border-radius: 0;
-        background: linear-gradient(110deg, transparent 10px, var(--d-bc) 10px, var(--d-bc) calc(100% - 10px), transparent calc(100% - 10px)) !important;
+        background: linear-gradient(105deg, transparent 10px, var(--d-bc) 10px, var(--d-bc) calc(100% - 10px), transparent calc(100% - 10px)) !important;
     }
 
     // 没有徽章标题，只有两个徽章内容 value 和 value2
@@ -650,7 +650,7 @@
     // 三段式，两个徽章值时微调
     // 第 2 个徽章值
     @{badgeOnEditingPrefix} > @{codeOnEditing}+span:last-child {
-        margin: 1px 5px !important;
+        margin: 1px 5px 1px 2px !important;
     }
     // 第 1 个徽章值
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:first-child):not(:last-child) > code,

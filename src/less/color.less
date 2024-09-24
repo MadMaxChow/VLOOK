@@ -3,8 +3,8 @@
  * VLOOK™ CSS 调色板
  * (配合 base.less 进行使用)
  *
- * V26.0
- * 2024-09-20
+ * V26.1
+ * 2024-09-24
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -97,7 +97,7 @@
 
         // 指定在 Dark Mode 时反转的图片边框颜色（先使用反色，这样在反转时则能保持与色一致）
         --img-bd-invert-lg: @colorLight;
-        --img-bd-invert-dk: rgb(255 - red(@colorLight), 255 - green(@colorLight), 255 - blue(@colorLight));
+        --img-bd-invert-dk: rgb(255 - red(@colorDark), 255 - green(@colorDark), 255 - blue(@colorDark));
     }
 }
 @panelColorLight: #EBEDEF;//#E8EAED;

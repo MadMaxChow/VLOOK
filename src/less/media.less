@@ -3,8 +3,8 @@
  * VLOOK™ CSS - @media 相关的样式
  * (配合 base.less 进行使用)
  *
- * V26.0
- * 2024-09-20
+ * V26.1
+ * 2024-09-24
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -423,14 +423,18 @@
         left: @writePaddingRight;
     }
 
+    // 明信片
+    #write img[src*="#card"] {
+        border-radius: var(--v-r-b) var(--v-r-b-xc) 0 0 !important;
+    }
     #write .v-post-card {
         display: block;
         position: relative;
         border-radius: 0 0 var(--v-r-b) var(--v-r-b-xc) !important;
     }
-    #write img[src*="#card"][src*="#border"] {
-        border-radius: var(--v-r-b) var(--v-r-b-xc) 0 0;
-    }
+    // #write img[src*="#card"][src*="#border"] {
+    //     border-radius: var(--v-r-b) var(--v-r-b-xc) 0 0;
+    // }
 
     // 流媒体平台
     @{iframeVideoOnEditing} @{biliVideo},

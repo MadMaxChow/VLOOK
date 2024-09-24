@@ -2,8 +2,8 @@
  *
  * VLOOK™ CSS 基础库
  *
- * V26.0
- * 2024-09-20
+ * V26.1
+ * 2024-09-24
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -32,7 +32,7 @@
 ---------- 高优先信息 UI 区 -----
 
 链接清单 / .v-link-info-list / z-index: 4500;
-工具栏提示、弹窗提示、字体风格切换 / .v-tool-tips, .v-info-tips, .v-font-theme / z-index: 3000;
+工具栏提示、弹窗提示、字体风格切换 / .v-tool-tips, .v-info-tips, .v-font-style / z-index: 3000;
 编辑时的表格编辑工具栏 / .ty-table-edit: 3000
 
 ---------- 二级 UI 区 ----------
@@ -675,7 +675,7 @@ a img,
 img a,
 summary,
 .v-status-bar > *,
-.v-font-theme-opt > *,
+.v-font-style-opt > *,
 .v-new-version,
 .v-link-chk-result,
 .v-tbl-row-g-btn,
@@ -1164,6 +1164,7 @@ h6+h6) {
 
 @{onHTML} :is(strong, mark),
 @{writeOnEditing} :is(strong, mark) {
+    font-family: var(--v-f-fm-bd);
     font-weight: var(--v-f-w-bd);
     line-height: 1;
 }
@@ -3045,7 +3046,7 @@ kbd {
 }
 
 // 字体风格选择器
-.v-font-theme {
+.v-font-style {
     display: none;
     position: fixed;
     padding: 10px;
@@ -3056,17 +3057,35 @@ kbd {
     background: var(--pn-c);
     z-index: 3000;
 }
-.v-font-theme>.v-font-theme-opt {
+.v-font-style>.v-font-style-opt {
     vertical-align: top;
     display: inline-block;
     margin: 0 0 30px 10px;
 }
-.v-font-theme>.v-font-theme-opt:first-child {
+.v-font-style>.v-font-style-opt:first-of-type {
     margin-left: 0;
+}
+// 恢复主题配套的字体风格
+.v-font-style-restore {
+    color: var(--a-hover-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: var(--v-r-s) var(--v-r-s-xc);
+    display: none;
+    cursor: var(--cur-pointer);
+}
+.v-font-style-restore:hover {
+    background-color: var(--pn-c-a);
+}
+.v-font-style-restore:active {
+    color: var(--d-bc) !important;
+    background: var(--d-fc-a);
 }
 
 // 字体风格选择器字体包下载提示
-.v-font-theme-info {
+.v-font-style-info {
     font-size: .75em;
     width: 600px;
     margin: auto;
@@ -3075,13 +3094,13 @@ kbd {
 }
 
 // 字体风格选项：系统默认
-.v-font-theme-opt-local,
+.v-font-style-opt-local,
 // 字体风格选项：Book
-.v-font-theme-opt-book,
+.v-font-style-opt-book,
 // 字体风格选项：小清新
-.v-font-theme-opt-sans,
+.v-font-style-opt-sans,
 // 字体风格选项：文艺范
-.v-font-theme-opt-serif {
+.v-font-style-opt-serif {
     border-radius: var(--v-r-s) var(--v-r-s-xc) !important;
     filter: opacity(.6);
     background-color: var(--d-fc);
@@ -3090,25 +3109,30 @@ kbd {
 }
 
 // 字体风格选项鼠标事件效果
-.v-font-theme-opt-local:hover,
-.v-font-theme-opt-book:hover,
-.v-font-theme-opt-sans:hover,
-.v-font-theme-opt-serif:hover {
+.v-font-style-opt-local:hover,
+.v-font-style-opt-book:hover,
+.v-font-style-opt-sans:hover,
+.v-font-style-opt-serif:hover {
     filter: opacity(1);
     box-shadow: 0 0 0 2px var(--a-color);
 }
-.v-font-theme-opt-local:active,
-.v-font-theme-opt-book:active,
-.v-font-theme-opt-sans:active,
-.v-font-theme-opt-serif:active {
+.v-font-style-opt-local:active,
+.v-font-style-opt-book:active,
+.v-font-style-opt-sans:active,
+.v-font-style-opt-serif:active {
     box-shadow: 0 0 0 2px @aActiveColor;
 }
 
+// 显示当前选择字体风格的加载进度信息
+.v-font-style-opt>.selected + div {
+    visibility: visible;
+}
+
 // 当前选择的字体风格选项
-.v-font-theme-opt-local.selected,
-.v-font-theme-opt-book.selected,
-.v-font-theme-opt-sans.selected,
-.v-font-theme-opt-serif.selected {
+.v-font-style-opt-local.selected,
+.v-font-style-opt-book.selected,
+.v-font-style-opt-sans.selected,
+.v-font-style-opt-serif.selected {
     box-shadow: 0 0 0 4px var(--h-f) !important;
     filter: opacity(1) !important;
 }
@@ -3121,12 +3145,14 @@ kbd {
     margin-top: 10px;
     text-align: left;
     font-size: .875em;
+    visibility: hidden; // 默认隐藏，选中后才显示
 }
 // 字体包加载状态
-.v-fontinfo-local>#fontset-status,
-.v-fontinfo-book>#fontset-status,
-.v-fontinfo-sans>#fontset-status,
-.v-fontinfo-serif>#fontset-status,
+// .v-fontinfo-local>#fontset-status,
+// .v-fontinfo-book>#fontset-status,
+// .v-fontinfo-sans>#fontset-status,
+// .v-fontinfo-serif>#fontset-status,
+:is(.v-fontinfo-local, .v-fontinfo-book, .v-fontinfo-sans, .v-fontinfo-serif) > span,
 .v-doc-ext-info {
     color: var(--d-fc-a);
 }
@@ -3242,28 +3268,31 @@ kbd {
     }
 }
 
+// 欢迎屏提示内容
 .v-tips {
-    font: var(--v-f-w-title) 1.75em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
+    font: var(--v-f-w-title) 1.75em var(--v-f-fm-title); // [style] [weight] [size/[line-height]] [family]
+    // font: var(--v-f-w-title) 1.75em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
     padding: 20px 20px 10px 20px;
 }
-
 .v-tips>div {
     text-align: center;
     line-height: @miniLineHeight;
     margin-bottom: 50px;
 }
-.v-tips>.v-date {
-    font-weight: normal;
-    font-size: .625em;
-    margin-bottom: 20px;
-}
-.v-tips>.v-author {
-    font-weight: normal;
+// .v-tips>.v-date {
+//     font-weight: normal;
+//     font-size: .625em;
+//     margin-bottom: 20px;
+// }
+// 欢迎屏中的「作者」
+.v-tips>strong {
+    font-weight: normal !important;
     font-size: .875em;
     margin-bottom: 20px;
 }
-.v-tips>.v-author::before {
+.v-tips>strong::before {
     content: "by";
+    // font-weight: normal;
     font-size: .625em;
     opacity: .6;
     display: block;
@@ -3381,7 +3410,7 @@ kbd {
 }
 
 // 生成浮动 UI 的标题样式（如：导航中心、链接地图等）
-.v-font-theme::before,
+.v-font-style::before,
 .v-nav-center-float::before,
 .v-doc-lib::after,
 .v-footnote-pn::before,
@@ -3390,6 +3419,7 @@ kbd {
     text-transform: uppercase;
     color: @buttonForeColor;
     position: absolute;
+    left: 0;
     top: -40px;
     width: 100%;
     font-size: 1.25em;
@@ -3401,7 +3431,7 @@ kbd {
 }
 .v-doc-lib::after,
 .v-footnote-pn::before {
-    left: 0;
+    // left: 0;
     top: -80px;
 }
 .v-doc-lib::after {
@@ -3430,6 +3460,7 @@ kbd {
     background: linear-gradient(180deg, @pnLinerGradientFade);
     position: absolute;
     left: 1px;
+    top: 1px;
     right: 1px;
     border-top-right-radius: var(--v-r-b);
     border-top-left-radius: var(--v-r-b);
@@ -3769,7 +3800,7 @@ kbd {
 }
 .v-toc-item:active,
 .md-toc-item:active {
-    color: var(--d-bc);
+    color: var(--d-bc) !important;
     background: var(--d-fc-a);
     box-shadow: @tocItemActive_boxShadow;
     transition: none;
@@ -3881,6 +3912,7 @@ kbd {
 
 .v-item-current {
     font-weight: var(--v-f-w-title);
+    // font-weight: var(--v-f-w-title);
     background: var(--blockquote-bg);
     box-shadow: @tocItemCurrent_boxShadow;
 }
@@ -4326,6 +4358,7 @@ kbd {
 .v-textfield>input {
     padding: 0;
     margin: 1px 0;
+    width: calc(var(--v-nav-center-w) - 90px);
     height: 28px;
     color: var(--a-hover-color);
     background: var(--d-bc);
@@ -4350,8 +4383,12 @@ kbd {
     height: 30px;
     padding: 7px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    // visibility: hidden;
     float: left;
-    display: none;
 }
 
 // 输入框内的动作按钮
@@ -5736,7 +5773,9 @@ content>@{coverWithoutYAML} code {
     -webkit-text-stroke: initial;
     text-stroke: initial;
     text-shadow: none;
-    font: normal .625em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
+    font-weight: normal !important;
+    font-size: .625em;
+    // font: normal .625em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
 }
 
 // 作者信息前缀

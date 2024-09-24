@@ -2,8 +2,8 @@
  *
  * VLOOK™ JS - Typora Plugin
  *
- * V26.0
- * 2024-09-20
+ * V26.1
+ * 2024-09-24
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -18,7 +18,7 @@
 
 let _ = "",
     ___ = " ",
-    gVer = "V26.0",
+    gVer = "V26.1",
     gThmVer = _,
     gThmName = _,
     gUndefined = undefined,
@@ -89,7 +89,8 @@ let _ = "",
     _block_ = "block",
     _quote_ = "quote",
     _blockquote_ = _block_ + _quote_,
-    __body_ = "-body",
+    _body_ = "body",
+    __body_ = "-" + _body_,
     _bold_ = "bold",
     _book_ = "book",
     _border_ = "border",
@@ -174,13 +175,14 @@ let _ = "",
     _dataContainer_ = "d-cntr",
     _dataContentExpanded_ = "d-" + _content_ + "-expanded",
     _dataContentFolded_ = "d-" + _content_ + "-" + _folded_,
-    _dataContentType_ = "d-" + _content_ + "-type",
+    _type_ = "type",
+    _dataContentType_ = "d-" + _content_ + "-" + _type_,
     _dataDefault_ = "d-default",
     _dataExtend_ = "d-extend",
     _fig_ = "fig",
     _dataFig__ = "d-" + _fig_ + "-",
     _dataFigNum_ = _dataFig__ + "num",
-    _dataFigType_ = _dataFig__ + "type",
+    _dataFigType_ = _dataFig__ + _type_,
     _dataFolded_ = "d-" + _folded_,
     _folder_ = "folder",
     _dataFolder_ = "d-" + _folder_,
@@ -196,10 +198,11 @@ let _ = "",
     __header_ = "-header",
     _dataHeaderNum_ = "d" + __header_ + "-num",
     _dataHash_ = "d-hash",
-    _dataHistory_ = "d-history",
+    _history_ = "history",
+    _dataHistory_ = "d-" + _history_,
     __icon_ = "-icon",
     _dataIcon_ = "d" + __icon_,
-    _dataIdFigType_ = "d-id-" + _fig_ + "-type",
+    _dataIdFigType_ = "d-id-" + _fig_ + "-" + _type_,
     _dataKeywordMatch_ = "d-" + _keyword_ + "-match",
     _dataLong_ = "d-long",
     _dataNode_ = "d-node",
@@ -212,9 +215,11 @@ let _ = "",
     _dataRbCellBg_ = "d-rb-cell-bg",
     _dataRbText_ = "d-rb" + __text_,
     _dataRbWholeText_ = "d-rb-whole" + __text_,
-    _dataRowFolded_ = "d-row-" + _folded_,
+    _dataRow__ = "d-row-",
+    _dataRowFolded_ = _dataRow__ + _folded_,
     __mode_ = "-mode",
-    _dataRowOpenMode_ = "d-row-open" + __mode_,
+    _open_ = "open",
+    _dataRowOpenMode_ = _dataRow__ + _open_ + __mode_,
     _dataSrc_ = "d-src-",
     _dataSrcDark_ = _dataSrc_ + _dark_,
     _dataSrcLight_ = _dataSrc_ + _light_,
@@ -238,7 +243,7 @@ let _ = "",
     __tip_ = "-tip",
     _dataCoatingTip_ = "d-" + _coating_ + __tip_,
     _dataCoatingShowed_ = "d-" + _coating_ + "-showed",
-    _dataRowGroup_ = "d-row-" + _group_,
+    _dataRowGroup_ = _dataRow__ + _group_,
     _dTbl__ = "d-tbl-",
     _dataTblCol_ = _dTbl__ + "col",
     _dataTblX_ = _dTbl__ + "x",
@@ -254,7 +259,7 @@ let _ = "",
     _docLibToc_ = _docLib_ + "-toc",
     _docIcon_ = "doc" + __icon_,
     _copy_ = "copy",
-    _Copy_ = "copy",
+    _Copy_ = "Copy",
     _figure_ = "figure",
     _openInFigureNav_ = "open-in-" + _figure_ + "-nav",
     _table_ = "table",
@@ -275,7 +280,7 @@ let _ = "",
     _failed_ = "Failed [ ",
     _false_ = "false",
     _vFig_ = "v-" + _fig_,
-    _fitWidth_ = "fit-width",
+    _fitWidth_ = "fit-" + _width_,
     _vFitWidth_ = "v-" + _fitWidth_,
     _vCheckCount_ = _check_ + _count_,
     _welcome_ = "welcome",
@@ -290,32 +295,39 @@ let _ = "",
     _float_ = "float",
     _font_ = "font",
     _Font_ = "Font",
-    _theme_ = "theme",
-    _fontTheme_ = _font_ + "-" + _theme_,
+    _style_ = "style",
+    _fontStyle_ = _font_ + "-" + _style_,
     __footer_ = "-footer",
-    _footnotes_ = "footnotes",
+    _footnote_ = "footnote",
+    _footnotes_ = _footnote_ + "s",
     _footnotesArea_ = _footnotes_ + "-area",
     _freeze_ = "freeze",
     _function_ = "function",
     _h6_ = "h6",
     _height_ = "height",
     _hover_ = "hover",
-    _hoverAction_ = "hover" + __action_,
+    _hoverAction_ = _hover_ + __action_,
     _href_ = "href",
     _http_ = "http",
     _httpPrefix_ = _http_ + "://",
     _httpsPrefix_ = _http_ + "s://",
     _github_ = "github",
     _github_madmaxchow_ = "github.com/MadMaxChow/",
+    _openfontsPages_CloudFlare_ = _httpsPrefix_ + "openfonts.pages.dev/",
     _VLOOK_ = "VLOOK",
     _githubVlook_ = _github_madmaxchow_ + _VLOOK_,
     _ico_ = "ico",
-    _alert_ = "Alert",
-    _icoAlertNote_ = _ico_ + _alert_ + "Note",
-    _icoAlertTip_ = _ico_ + _alert_ + "Tip",
-    _icoAlertImportant_ = _ico_ + _alert_ + "Important",
-    _icoAlertWarning_ = _ico_ + _alert_ + "Warning",
-    _icoAlertCaution_ = _ico_ + _alert_ + "Caution",
+    _Alert_ = "Alert",
+    _Note_ = "Note",
+    _icoAlertNote_ = _ico_ + _Alert_ + _Note_,
+    _Tip_ = "Tip",
+    _icoAlertTip_ = _ico_ + _Alert_ + _Tip_,
+    _Important_ = "Important",
+    _icoAlertImportant_ = _ico_ + _Alert_ + _Important_,
+    _Warning_ = "Warning",
+    _icoAlertWarning_ = _ico_ + _Alert_ + _Warning_,
+    _Caution_ = "Caution",
+    _icoAlertCaution_ = _ico_ + _Alert_ + _Caution_,
     _Mode_ = "Mode",
     _icoAutoMode_ = _ico_ + "Auto" + _Mode_,
     _icoChkbox__ = _ico_ + "Chkbox_",
@@ -329,7 +341,8 @@ let _ = "",
     _icoDocLib_ = _ico_ + "DocLib",
     _icoDocLibExt_ = _ico_ + "DocLibExt",
     _icoFolded_ = _ico_ + "Folded",
-    _icoFontTheme_ = _ico_ + _Font_ + "FontTheme",
+    _Style_ = "Style",
+    _icoFontStyle_ = _ico_ + _Font_ + _Style_,
     _icoForbidden_ = _ico_ + "Forbidden",
     _icoLaserPointer_ = _ico_ + "LaserPointer",
     _icoLightMode_ = _ico_ + "Light" + _Mode_,
@@ -360,7 +373,8 @@ let _ = "",
     _icoTocTabCatalog_ = _icoTocTab_ + "Catalog",
     _icoTocTabCodeblock_ = _icoTocTab_ + "Codeblock",
     _icoTocTabFigure_ = _icoTocTab_ + "Figure",
-    _icoTocTabHistory_ = _icoTocTab_ + "History",
+    _History_ = "History",
+    _icoTocTabHistory_ = _icoTocTab_ + _History_,
     _icoTocTabMedia_ = _icoTocTab_ + "Media",
     _icoTocTabTable_ = _icoTocTab_ + "Table",
     _icoWrapUnwrap_ = _ico_ + "WrapUnwrap",
@@ -369,7 +383,8 @@ let _ = "",
     _vLoading_ = "v-" + _loading_,
     _vLong_ = "v-long",
     _vlookHost_ = "madmaxchow.github.io",
-    _vlookOriginGitHub_ = _httpsPrefix_ + _vlookHost_,
+    _madmaxchowHost_GitHub_ = _httpsPrefix_ + _vlookHost_,
+    _vlookPagesHost_CloudFlare_ = _httpsPrefix_ + "vlook-doc.pages.dev",
     _vlookAct_ = _vlookHost_ + "/VLOOK/act/",
     _VLOOK_Number_ = _VLOOK_ + " Number",
     _VLOOK_Digital_Sans_ = _VLOOK_ + " Digital Sans",
@@ -387,7 +402,7 @@ let _ = "",
     _icoZoomOut_ = _ico_ + "ZoomOut",
     _id_ = "id",
     __status_ = "-status",
-    _fontsetStatus_ = _font_ + "set" + __status_,
+    // _fontsetStatus_ = _font_ + "set" + __status_,
     _iframe_ = "iframe",
     _imageXicon_ = _image_ + "/x" + __icon_,
     _img_ = "img",
@@ -438,7 +453,7 @@ let _ = "",
     _min_ = "min",
     _mindmap_ = "mindmap",
     _mini_ = "mini",
-    _minWidth_ = "min-width",
+    _minWidth_ = "min-" + _width_,
     _mjx__ = "#mjx-",
     _mouse_ = "mouse",
     _mouseDown_ = _mouse_ + "down",
@@ -470,11 +485,10 @@ let _ = "",
     _on_ = "on",
     _onlyChild_ = ":only" + __child_,
     _opacity_ = "opacity",
-    _open_ = "open",
-    _opened_ = "opened",
+    _opened_ = _open_ + "ed",
     _outerHTML_ = "outerHTML",
-    _outlineStyle_ = "outline-style",
-    _outlineWidth_ = "outline-width",
+    _outlineStyle_ = "outline-" + _style_,
+    _outlineWidth_ = "outline-" + _width_,
     _overflow_ = "overflow",
     _overflowX_ = _overflow_ + "-x",
     _overflowY_ = _overflow_ + "-y",
@@ -494,7 +508,8 @@ let _ = "",
     __prev = "-prev",
     _Ready_ = "Ready",
     __reset_ = "-reset",
-    _refFootnote_ = "ref-footnote",
+    _restore_ = "restore",
+    _refFootnote_ = "ref-" + _footnote_,
     _rowspan_ = "rowspan",
     _rx_ = "rx",
     _ry_ = "ry",
@@ -507,7 +522,6 @@ let _ = "",
     _srcset_ = "srcset",
     _stroke_ = "stroke",
     _strong_ = "strong",
-    _style_ = "style",
     _svg_ = "svg",
     _suffixImg_ = "." + _img_,
     _suffixSvg_ = "." + _svg_,
@@ -515,12 +529,12 @@ let _ = "",
     _tabindex_ = "tabindex",
     _tagName_ = "tagName",
     _target_ = "target",
-    _tbody_ = "tbody",
+    _tbody_ = "" + _body_,
     _textAlign_ = _text_ + "-" + _align_,
     _textLength_ = _text_ + "Length",
     _textShadow_ = _text_ + __shadow_,
     _thead_ = "thead",
-    _type_ = "type",
+    _theme_ = "theme",
     _vlook__ = "vlook-",
     _toc_ = "toc",
     _vlookToc_ = _vlook__ + _toc_,
@@ -544,7 +558,8 @@ let _ = "",
     _vkIdDocTitle_ = "vk-id" + __docTitle_,
     _vkIdFig_ = "vk-id-fig",
     _vkIdAudio_ = "vk-id-" + _audio_,
-    _vkIdVideo_ = "vk-id-video",
+    _video_ = "video",
+    _vkIdVideo_ = "vk-id-" + _video_,
     _vkIdTbl_ = "vk-id-tbl",
     _vkIdCodeblock_ = "vk-id-" + _codeblock_,
     _vkIdMiniAudio_ = "vk-id-mini-" + _audio_,
@@ -561,7 +576,7 @@ let _ = "",
     __scheme_ = "-scheme",
     _colorScheme_ = _color_ + __scheme_,
     _varColorScheme_ = "--v-" + _colorScheme_,
-    _varCurCopy_ = "--cur-copy",
+    _varCurCopy_ = "--cur-" + _copy_,
     _varDBc_ = V_ui_var("--d-bc"),
     _varDFC_ = V_ui_var("--d-fc"),
     _varFigGrid__ = "--" + _figGrid__,
@@ -594,7 +609,7 @@ let _ = "",
     _vBtnGroup_ = _vBtn_ + "-" + _group_,
     _vBtn__BtnGroup_ = "." + _vBtn_ + ",." + _vBtnGroup_,
     _vBtn_Assistor_ = "." + _vBtn_ + "." + _assistor_,
-    _vCheckHash_ = "v-check-hash",
+    _vCheckHash_ = "v-" + _check_ + "-" + _hash_,
     _vColorScheme_ = "v-" + _colorScheme_,
     _vContent_ = "v-" + _content_,
     _vContentAssistor_ = _vContent_ + "-" + _assistor_,
@@ -625,11 +640,12 @@ let _ = "",
     _search_ = "search",
     _vFocusSearch_ = "v-focus-" + _search_,
     _vFontInfo_ = "v-" + _font_ + "info-",
-    _vFontnotePn_ = "v-footnote-pn",
+    _vFontnotePn_ = "v-" + _footnote_ + "-pn",
     _vFontPackage_ = "v-" + _font_ + "-package",
-    _vFontTheme_ = "v-" + _fontTheme_,
-    _vFontThemeInfo_ = "v-" + _fontTheme_ + "-info",
-    _vFontThemeOpt_ = "v-" + _fontTheme_ + "-opt",
+    _vFontStyle_ = "v-" + _fontStyle_,
+    _vFontStyleInfo_ = "v-" + _fontStyle_ + "-info",
+    _vFontStyleOpt_ = "v-" + _fontStyle_ + "-opt",
+    _vFontStyleRestore_ = "v-" + _fontStyle_ + "-" + _restore_,
     _infoTips_ = "info-" + _tips_,
     _handle_ = "handle",
     _vInfoTips_ = "v-" + _infoTips_,
@@ -639,10 +655,10 @@ let _ = "",
     _vTag_ = "v-tag",
     _vTips_ = "v-" + _tips_,
     _vToc__ = "v-toc-",
-    _vTocCatalogBody_ = _vToc__ + _catalog_ + "-body",
+    _vTocCatalogBody_ = _vToc__ + _catalog_ + __body_,
     _vTocFilterResultNone_ = _vToc__ + _filter_ + __result_ + "-" + _none_,
     _vTocHandle_ = _vToc__ + _handle_,
-    _vTocHistory_ = _vToc__ + "history",
+    _vTocHistory_ = _vToc__ + _history_,
     _vToolTips_ = "v-tool-" + _tips_,
     _vToolbar_ = "v-" + _toolbar_,
     _vImgInvertDark_ = "v-img-" + _invert_ + "-" + _dark_,
@@ -671,7 +687,7 @@ let _ = "",
     _vSearchByKeyword_ = "v-" + _search_ +"-by-" + _keyword_,
     _vSegment_ = "v-segment",
     _vSegmentBtn_ = _vSegment_ + "-btn",
-    _vStsFontTheme_ = "v-sts-" + _fontTheme_,
+    _vStsFontStyle_ = "v-sts-" + _fontStyle_,
     _vSpotlight_ = "v-" + _spotlight_,
     _vSpotlightInDark_ = _vSpotlight_ + "-in-" + _dark_,
     _vStatusBar_ = "v" + __status_ + "-bar",
@@ -709,7 +725,6 @@ let _ = "",
     _vTransition__ = "v-transition-",
     _vTransitionAll_ = _vTransition__ + "all",
     _verticalAlign_ = "vertical-" + _align_,
-    _video_ = "video",
     _viewBox_ = "viewBox",
     _visible_ = "visible",
     _visibility_ = "visibility",
@@ -1086,10 +1101,10 @@ let iToolbar = gUndefined,
     iParagraphNav = gUndefined,
     iSpotlight = gUndefined,
     iLaserPointer = gUndefined,
-    iFontTheme = gUndefined,
+    iFontStyle = gUndefined,
     iFigNav = gUndefined,
     iInfoTips = gUndefined,
-    iFootNote = gUndefined;
+    iFootnote = gUndefined;
 
 // ==================== 文档对象模型 ==================== //
 
@@ -1110,10 +1125,10 @@ function DOM_html() {
 let DOM_b = gUndefined;
 function DOM_body() {
     if (DOM_b === gUndefined) {
-        DOM_b = $("body");
+        DOM_b = $(_body_);
         if (V_length(DOM_b) === 0) {
             DOM_b = gUndefined;
-            ERROR(_failed_ + "DOM.body ]");
+            ERROR(_failed_ + "DOM." + _body_ + " ]");
         }
     }
     return DOM_b;
@@ -1527,7 +1542,7 @@ function V_byClass(className) {
  * @param key 键名
  * @param share 是否为同域名所有页面共享的键值，默认为不共享
  */
-function V_data_get(key, share) {
+function V_data_read(key, share) {
     return localStorage.getItem((share ? _ : V_util_getUrlWithoutQueryAndHash(WINDOW_getHref()) + "-")
         + key);
 }
@@ -1538,7 +1553,7 @@ function V_data_get(key, share) {
  * @param value 键值
  * @param share 是否为同域名所有页面共享的键值，默认为不共享
  */
-function V_data_set(key, value, share) {
+function V_data_write(key, value, share) {
     localStorage.setItem((share ? _ : V_util_getUrlWithoutQueryAndHash(WINDOW_getHref()) + "-")
         + key, value);
 }
@@ -2044,20 +2059,23 @@ function V_checkSpec () {
 function V_init() {
     let sw = new Stopwatch();
     sw.st();
-    iFontTheme = new FontTheme(new BgMask(_fontTheme_, _center_), V_util_getVarVal("--v-f-theme"));
-    if (iFontTheme === gFalse)
+    iFontStyle = new FontStyle(new BgMask(_fontStyle_, _center_), V_util_getVarVal("--v-f-" + _style_));
+    if (iFontStyle === gFalse)
         ALERT(_failed_ + "iFntThm ]");
     else {
-        let fontTheme = V_util_getParamVal(_font_); // 调校参数指定
+        let fontStyle = V_util_getParamVal(_font_); // 调校参数指定
+        // 如调校参数指定为 theme ，则清空同域名配置中保存的配置数据
+        if (fontStyle != gNull && fontStyle === _theme_)
+            V_data_remove(_fontStyle_, gTrue);
         // 如调校参数无指定，再检查在同域名配置中是否有指定
-        if (fontTheme == gNull) {
-            fontTheme = V_data_get(_fontTheme_, gTrue);
-            fontTheme = (fontTheme == gNull ? gUndefined: fontTheme);
+        else if (fontStyle == gNull) {
+            fontStyle = V_data_read(_fontStyle_, gTrue);
+            fontStyle = (fontStyle == gNull ? gUndefined: fontStyle);
         }
         // 初始化
-        iFontTheme.init(fontTheme);
+        iFontStyle.init(fontStyle);
     }
-    sw.ed("    ├ Font Theme: ");
+    sw.ed("    ├ Font Style: ");
 
     // ==================== UI====================
 
@@ -2144,9 +2162,9 @@ function V_init() {
                 // 选中目录分段
                 iNavCenter.segs.setChecked(_catalog_);
                 // 设置关键字搜索的内容
-                iNavCenter.keyword.input.focus();
-                iNavCenter.keyword.input.v(_vdl_);
-                iNavCenter.keyword.input.select();
+                // iNavCenter.keyword.input.v(_vdl_);
+                iNavCenter.keyword.processInput(_vdl_);
+                // iNavCenter.keyword.onInput(_vdl_);
             }
             else
                 iNavCenter.docLib.show(_, _);
@@ -2187,7 +2205,7 @@ function V_init() {
         iLaserPointer.toolbar = iToolbar;
 
         // 绑定选择字体风格的工具栏按钮
-        iFontTheme.bindButton(iToolbar.btns[_fontTheme_]);
+        iFontStyle.bindButton(iToolbar.btns[_fontStyle_]);
     }
     sw.ed("    ├ Toolbar: ");
 
@@ -2201,9 +2219,9 @@ function V_init() {
     MoreDocContent_init();
 
     // 脚注
-    iFootNote = new FootNote(new BgMask("foot-note", _bottom_, gTrue));
-    if (iFootNote === gFalse)
-        ALERT(_failed_ + "iFootNote ]");
+    iFootnote = new Footnote(new BgMask(_footnote_, _bottom_, gTrue));
+    if (iFootnote === gFalse)
+        ALERT(_failed_ + "iFootnote ]");
 
     // 状态栏
     StatusBar_init();
@@ -2307,7 +2325,7 @@ function V_initKernel() {
     // ----------------------------------------
     // 增强脚注
     iStopwatch.st("* Foot Note: ");
-    FootNote.init();
+    Footnote.init();
     iStopwatch.ed(_4space_);
 
     // ----------------------------------------
@@ -2646,7 +2664,7 @@ function V_ui_copyrightInfo() {
         V_ui_svgIcon(_icoVLOOK_, 20, 20, _btnFc_, _vCopyrightSvgIco_)
         + _2nbsp_
         + 'Published with ' + V_ui_a(_, _httpsPrefix_ + _githubVlook_, V_ui_strong(_VLOOK_), __blank_)
-        + '™ (V26.0) &amp; ' + V_ui_a(_, _httpsPrefix_ + "www.typora.io", V_ui_strong("Typora"), __blank_) + '.' + _2nbsp_
+        + '™ (V26.1) &amp; ' + V_ui_a(_, _httpsPrefix_ + "www.typora.io", V_ui_strong("Typora"), __blank_) + '.' + _2nbsp_
         + 'Support: ' + V_ui_a(_, _httpsPrefix_ + "qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi", V_ui_strong("QQ Group"))
         + ' / ' + V_ui_a(_, 'mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + V_ver + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + JS_encodeURI(env.print(gTrue)), V_ui_strong("Email")) + '.'
     );
@@ -3179,18 +3197,18 @@ function V_ui_initI18n() {
         _Close_
     ]));
 
-    iFontTheme.ui.f("." + _vFontPackage_).t(V_lang_text(18, [
-        "字体",
-        _Font_
-    ]) +___);
+    // iFontTheme.ui.f("." + _vFontPackage_).t(V_lang_text(18, [
+    //     "字体",
+    //     _Font_
+    // ]) +___);
 
-    iFontTheme.ui.f("." + _vFontThemeInfo_).hm(V_lang_text(19, [
+    iFontStyle.ui.f("." + _vFontStyleInfo_).hm(V_lang_text(19, [
         "若无法连接互联网加载在线版本字体，建议将字体直接下载到本地",
         "If you cannot connect to the Internet to load the online version of the font, it is recommended to download the font directly to the local"
-    ]) + " (" + V_ui_a(_, _httpsPrefix_ + _github_madmaxchow_ + "openfonts", V_lang_text(20, [
+    ]) + " (" + V_ui_a(_, _vlookPagesHost_CloudFlare_ + "/guide2.html#字体风格", V_lang_text(20, [
         "主站",
         "Primary"
-    ])) + " | " + V_ui_a(_, _httpsPrefix_ + _github_madmaxchow_ + "openfonts", V_lang_text(21, [
+    ])) + " | " + V_ui_a(_, _madmaxchowHost_GitHub_ + "/VLOOK/guide2.html#字体风格", V_lang_text(21, [
         "备用",
         "Standby"
     ])) + ")");
@@ -3419,13 +3437,13 @@ function V_ui_initHotkey() {
         WelcomePage_disposeHotkey(key, combKeys, event);
         FigureNav_disposeHotkey(key, combKeys, event);
         iNavCenter.disposeHotkey(key, combKeys, event);
-        iFontTheme.disposeHotkey(key, combKeys, event);
+        iFontStyle.disposeHotkey(key, combKeys, event);
         iInfoTips.disposeHotkey(key, combKeys, event);
-        iFootNote.disposeHotkey(key, combKeys, event);
+        iFootnote.disposeHotkey(key, combKeys, event);
         LinkTool_disposeHotkey(key, combKeys, event);
 
         // 文档的热键操作处理，只在文档为当前焦点且没有弹层时才有效
-        if (V_doc_block || gDocument.activeElement.tagName.l() !== "body")
+        if (V_doc_block || gDocument.activeElement.tagName.l() !== _body_)
             return;
 
         // 逐章导航热键操作处理
@@ -3450,8 +3468,9 @@ function V_ui_initHotkey() {
 
                 // 自动读取并粘贴剪粘板的文本内容
                 navigator.clipboard.readText().then((value) => {
-                        iNavCenter.keyword.input.v(value);
-                        iNavCenter.keyword.input.select();
+                        iNavCenter.keyword.processInput(value);
+                        // iNavCenter.keyword.input.v(value);
+                        // iNavCenter.keyword.input.select();
                     }).catch((value) => {
                         ERROR("GET CLIPBOARD FAILED：", value);
                     });
@@ -3470,10 +3489,10 @@ function V_ui_initHotkey() {
                 break;
             case 'a': // A 字体风格
             case 'A':
-                if (iFontTheme.ui.isHidden())
-                    StsFontTheme_ui.tr(_click_);
+                if (iFontStyle.ui.isHidden())
+                    StsFontStyle_ui.tr(_click_);
                 else
-                    iFontTheme.hide();
+                    iFontStyle.hide();
                 handled = true;
                 break;
             case 'm': // M 链接地图
@@ -3651,7 +3670,7 @@ function V_lang_text7() {
 function V_lang_text41() {
     return V_lang_text(41, [
         "字体风格",
-        "Font Theme"
+        _Font_ + " " + _Style_
     ]);
 }
 // 获取语言 ID 22 内容
@@ -4032,7 +4051,7 @@ function V_report_submit(loadTimeCost) {
         sd += "&dt=" + V_length($(_details_));
 
         // 脚注数据
-        sd += "&fn=" + V_length(V_byClass("md-footnote"));
+        sd += "&fn=" + V_length(V_byClass("md-" + _footnote_));
     }
 
     // 提交统计数据
@@ -4043,7 +4062,8 @@ function V_report_submit(loadTimeCost) {
     DEBUG("STAT DATA (GitHub):", vlookStatViaGithub.a(_src_));
 
     if (!V_devMode) {
-        vlookStatViaCloudFlare.a(_src_, _httpsPrefix_ + _vlook__ + "doc.pages.dev/act/" + (V_devMode ? "dev-" : _) + "stat-cloudflare.html" + sd);
+        // vlookStatViaCloudFlare.a(_src_, _httpsPrefix_ + _vlook__ + "doc.pages.dev/act/" + (V_devMode ? "dev-" : _) + "stat-cloudflare.html" + sd);
+        vlookStatViaCloudFlare.a(_src_, _vlookPagesHost_CloudFlare_ + "/act/" + (V_devMode ? "dev-" : _) + "stat-cloudflare.html" + sd);
         DEBUG("STAT DATA (CloudFlare):", vlookStatViaCloudFlare.a(_src_));
     }
 }
@@ -4853,7 +4873,7 @@ function Spotlight(radius) {
         T.repaint();
 
         let key1 = V_ui_wrap_kbd("⇧ Shift") + _2nbsp_,
-            key2 = _2nbsp_ + _2nbsp_ +"-" + _2nbsp_ + _2nbsp_ + V_ui_wrap_kbd("ESC") + _2nbsp_;
+            key2 = _2nbsp_ + _2nbsp_ + "-" + _2nbsp_ + _2nbsp_ + V_ui_wrap_kbd("ESC") + _2nbsp_;
         BottomTips_show(key1 + V_lang_text(33, [
                 "调整聚光灯大小",
                 "Change the size of the spotlight"
@@ -5180,7 +5200,7 @@ let ResumeReading_ui = gUndefined,
 
 function ResumeReading_init() {
     ResumeReading_ui = V_byClass(_vLastPosition_);
-    ResumeReading_lastPosition = JS_parseInt(V_data_get(_lastPosition_));
+    ResumeReading_lastPosition = JS_parseInt(V_data_read(_lastPosition_));
 
     V_ui_addAnimate(ResumeReading_ui);
 
@@ -5227,8 +5247,8 @@ function ResumeReading_dispose(restore) {
 
         let scrollTop = V_util_getScrollTop();
         // 与最后保存的不一致则保存
-        if (scrollTop > ResumeReading_minScrollTop && V_data_get(_lastPosition_) !== scrollTop) {
-            V_data_set(_lastPosition_, scrollTop);
+        if (scrollTop > ResumeReading_minScrollTop && V_data_read(_lastPosition_) !== scrollTop) {
+            V_data_write(_lastPosition_, scrollTop);
             DEBUG("LAST POSITION:", scrollTop);
         }
 
@@ -5338,7 +5358,8 @@ function NavCenter(mask, runMode = _auto_) {
     ]));
 
     // 绑定输入框事件处理
-    T.keyword.onInput = function (source, value) {
+    // T.keyword.onInput = function (source, value) {
+    T.keyword.onInput = function (value) {
         // 先重置
         T.catalog.resultNav.reset();
         T.figure.resultNav.reset();
@@ -5390,7 +5411,8 @@ function NavCenter(mask, runMode = _auto_) {
         }
     }
 
-    T.keyword.onFocus = function (source) {
+    // T.keyword.onFocus = function (source) {
+    T.keyword.onFocus = function () {
         if (T.lastDisplayType !== _float_) {
             JQ_addClass(VOM_doc(), _actived_);
             let search = V_byClass(_vFocusSearch_);
@@ -5398,13 +5420,14 @@ function NavCenter(mask, runMode = _auto_) {
         }
     }
 
-    T.keyword.onBlur = function (source) {
+    // T.keyword.onBlur = function (source) {
+    T.keyword.onBlur = function () {
         JQ_removeClass(VOM_doc(), _actived_);
         JQ_removeClass(V_byClass(_vFocusSearch_), _actived_);
     }
 
     // 绑定输入框事件处理
-    T.keyword.pressEnter = function (source, value) {
+    T.keyword.pressEnter = function () {
         T.keyword.input.focus();
     }
 
@@ -5519,14 +5542,14 @@ function NavCenter(mask, runMode = _auto_) {
             JQ_addClass(T.ui, _vNavCenterFloat_);
             JQ_addClass(T.ui, _vFloatCard_);
 
-            // 显示联动的遮罩
-            T.mask.show();
-
             // 在移动端屏宽较小时，如：
             // 手机 iPhone 12 Pro 为 390
             // 手机 iPhone 6/7/8 Plus、iPhone 14 Pro Max 为 414
             if (jq_Window.w() <= 425) // 与 CSS @media screen and (max-width: 850px) 同步修改
                 V_util_setVarVal(__NavCenterWidth_, jq_Window.w() - left * 2 + "px");
+
+            // 显示联动的遮罩
+            T.mask.show();
         }
 
         T.showed = gTrue;
@@ -6546,7 +6569,7 @@ let ColorScheme_auto = gTrue, // 是否为 auto 模式
  * 初始化
  */
 function ColorScheme_init() {
-    let scheme = V_data_get(_colorScheme_, gTrue);
+    let scheme = V_data_read(_colorScheme_, gTrue);
     if (scheme != gNull && (scheme === _light_ || scheme === _dark_))
         ColorScheme_auto = gFalse;
 
@@ -6608,7 +6631,7 @@ function ColorScheme_refresh(force) {
         ColorScheme_scheme = ColorScheme_systemScheme;
     }
     else if (!force)
-        V_data_set(_colorScheme_, ColorScheme_scheme, gTrue);
+        V_data_write(_colorScheme_, ColorScheme_scheme, gTrue);
 
     // 批量修改颜色方案相关的 CSS 变量为指定的新值
     let ac = "--ac-",
@@ -6663,6 +6686,7 @@ function ColorScheme_refresh(force) {
     V_util_changeCssVarSet([
         "--v-" + _invert_ + "-" + _dark_,
         "--v-" + _brightness_ + "-" + _dark_,
+        "--" + _img_ + "-bd-" + _invert_,
         "--d-bc",
         "--d-bi",
         "-" + __fade_ + "-r",
@@ -6882,7 +6906,8 @@ function ColorScheme_refresh(force) {
 
 // ==================== 字体风格选项、选择器类 ==================== //
 
-let webfontHostAlt = _vlookOriginGitHub_ + "/openfonts/";
+let webfontHostAlt = _openfontsPages_CloudFlare_ + "/";
+// let webfontHostAlt = _vlookOriginGitHub_ + "/openfonts/";
 // let webfontHostAlt = _httpsPrefix_ + "madmaxchow.gitee.io/openfonts/";
 // let webfontHostAlt = _httpsPrefix_ + "cdn.jsdelivr.net/gh/MadMaxChow/openfonts@master/";
 
@@ -6891,7 +6916,7 @@ let webfontHostAlt = _vlookOriginGitHub_ + "/openfonts/";
  * @param ui 选项的 UI
  * @param fonts 字体集数组
  */
-function FontThemeOption(ui, fonts) {
+function FontStyleOption(ui, fonts) {
     let T = this;
     T.ui = ui;
     T.fonts = fonts;
@@ -6901,30 +6926,32 @@ function FontThemeOption(ui, fonts) {
 /**
  * 构造函数
  * @param mask 遮罩对象
- * @param themeName 默认的字体主题
+ * @param styleName 默认的字体风格
  */
-function FontTheme(mask, themeName) {
+function FontStyle(mask, styleName) {
     let T = this;
-    T.theme = themeName; // 当前字体风格，sans：非衬线（小清新），serif：衬线（文艺范）
-    T.ui = V_byClass(_vFontTheme_); // 字体风格切换选择界面
+    T.style = styleName; // 当前字体风格，sans：非衬线（小清新），serif：衬线（文艺范）
+    T.ui = V_byClass(_vFontStyle_); // 字体风格切换选择界面
     // V_ui_stopScrollPropagation(T.ui);
 
+    T.restore = V_byClass(_vFontStyleRestore_);
+
     // 字体风格选项：系统默认
-    T.localTheme = new FontThemeOption(V_byClass(_vFontThemeOpt_ + "-"  + _local_), []);
+    T.localStyle = new FontStyleOption(V_byClass(_vFontStyleOpt_ + "-"  + _local_), []);
     // 字体风格选项：Book
-    T.bookTheme = new FontThemeOption(V_byClass(_vFontThemeOpt_ + "-" + _book_), []);
+    T.bookStyle = new FontStyleOption(V_byClass(_vFontStyleOpt_ + "-" + _book_), []);
     // 字体风格选项：小清新
-    T.sansTheme = new FontThemeOption(V_byClass(_vFontThemeOpt_ + "-" + _sans_),
+    T.sansStyle = new FontStyleOption(V_byClass(_vFontStyleOpt_ + "-" + _sans_),
         [
-            _VLOOK_Number_ + _normal_normal_, _VLOOK_Number_ + _normal_bold_, _VLOOK_Number_ + _normal_italic_,
+            _VLOOK_Number_ + _normal_normal_, _VLOOK_Number_ + _normal_bold_, //_VLOOK_Number_ + _normal_italic_,
             _VLOOK_Digital_Sans_ + _normal_normal_, _VLOOK_Digital_Sans_ + _normal_500_, _VLOOK_Digital_Sans_ + _normal_bold_, _VLOOK_Digital_Sans_ + _normal_900_,
             _VLOOK_Sans_Mono_ + _normal_normal_, _VLOOK_Sans_Mono_ + _normal_500_, _VLOOK_Sans_Mono_ + _normal_bold_, _VLOOK_Sans_Mono_ + _normal_900_,
             _VLOOK_Sans_ + _normal_normal_, _VLOOK_Sans_ + _normal_bold_, _VLOOK_Sans_ + _normal_900_
             ]);
     // 字体风格选项：艺术范
-    T.serifTheme = new FontThemeOption(V_byClass(_vFontThemeOpt_ + "-" + _serif_),
+    T.serifStyle = new FontStyleOption(V_byClass(_vFontStyleOpt_ + "-" + _serif_),
         [
-            _VLOOK_Number_ + _normal_normal_, _VLOOK_Number_ + _normal_bold_, _VLOOK_Number_ + _normal_italic_,
+            _VLOOK_Number_ + _normal_normal_, _VLOOK_Number_ + _normal_bold_, //_VLOOK_Number_ + _normal_italic_,
             _VLOOK_Digital_Serif_ + _normal_normal_, _VLOOK_Digital_Serif_ + _normal_bold_, _VLOOK_Digital_Serif_ + _normal_italic_, _VLOOK_Digital_Serif_ + _italic_bold_,
             _VLOOK_Serif_Mono_ + _normal_normal_, _VLOOK_Serif_Mono_ + _normal_bold_, _VLOOK_Serif_Mono_ + _normal_italic_, _VLOOK_Serif_Mono_ + _italic_bold_,
             _VLOOK_Serif_ + _normal_500_, _VLOOK_Serif_ + _normal_900_,
@@ -6937,21 +6964,29 @@ function FontTheme(mask, themeName) {
 
     V_ui_addAnimate(T.ui);
 
+    // 恢复为主题配套的字体风格
+    T.restore.uC().ck(() => {
+        V_data_remove(_fontStyle_, gTrue);
+        T.style = V_util_getVarVal("--v-f-" + _style_);
+        T.apply(_local_, gTrue);
+        T.hide();
+    });
+
     // 绑定各字体风格选项事件
-    T.localTheme.ui.uC().ck(() => {
+    T.localStyle.ui.uC().ck(() => {
         T.apply(_local_);
         T.hide();
     });
-    T.bookTheme.ui.uC().ck(() => {
+    T.bookStyle.ui.uC().ck(() => {
         T.apply(_book_);
         T.hide();
     });
-    T.sansTheme.ui.uC().ck(() => {
+    T.sansStyle.ui.uC().ck(() => {
         T.apply(_sans_);
         T.initWebFont();
         T.hide();
     });
-    T.serifTheme.ui.uC().ck(() => {
+    T.serifStyle.ui.uC().ck(() => {
         T.apply(_serif_);
         T.initWebFont();
         T.hide();
@@ -6959,23 +6994,24 @@ function FontTheme(mask, themeName) {
 
     /**
      * 初始化
-     * @param theme 可选。强制指定的字体主题
+     * @param style 可选。强制指定的字体风格
      */
-    T.init = function (theme) {
-        // 有指定强制字体主题，同时指定的字体主题合法且与文档配套的不一致，则进行处理
-        if (theme !== gUndefined
-            && theme.m(/^(local|book|sans|serif)$/i) != gNull
-            && theme !== T.theme) {
-                T.theme = theme;
-                T.apply(T.theme);
+    T.init = function (style) {
+        // 有指定强制字体风格，同时指定的字体风格合法且与文档配套的不一致，则进行处理
+        if (style !== gUndefined
+            && style.m(/^(local|book|sans|serif)$/i) != gNull
+            && style !== T.style) {
+                T.style = style;
+                T.apply(T.style);
         }
 
-        LOG("_____ FONT THEME (" + T.theme + ") _____ ");
+        LOG("_____ FONT STYLE (" + T.style + ") _____ ");
 
         T.initWebFont();
 
-        // 对于本地字体主题的状态，直接为就绪
-        $(":is(." + _vFontInfo_ + "-local,." + _vFontInfo_ + "book) > #" + _fontsetStatus_).t("✅ " + V_lang_text(38, [
+        // 对于本地字体风格的状态，直接为就绪
+        // $(":is(." + _vFontInfo_ + "local,." + _vFontInfo_ + "book) > #" + _fontsetStatus_).t("✅ " + V_lang_text(38, [
+        $(":is(." + _vFontInfo_ + "local,." + _vFontInfo_ + "book) > " + _span_).t("✅ " + V_lang_text(38, [
             "已就绪",
             _Ready_
         ]));
@@ -6999,11 +7035,11 @@ function FontTheme(mask, themeName) {
             + "U+007B-007E"; // {|}~
         let timeOutMsg = "❌ " + V_lang_text(39, ["超时", "Timeout"]);
 
-        if (T.theme === _local_) {
+        if (T.style === _local_) {
             // 动态加载字体 VLOOK Number
             __loadNumberFont();
         }
-        else if (T.theme === _sans_) {
+        else if (T.style === _sans_) {
             // 动态加载字体 VLOOK Number
             __loadNumberFont();
             // 动态加载字体 VLOOK Digital Sans
@@ -7013,13 +7049,14 @@ function FontTheme(mask, themeName) {
             // 动态加载字体 VLOOK Noto Sans CJK SC
             __loadSansCjkFont();
 
-            // 对 Sans 字体主题的加载超时检测
+            // 对 Sans 字体风格的加载超时检测
             setTimeout(() => {
-                if (V_length(T.sansTheme.fonts) > 0)
-                    V_byClass(_vFontInfo_ + "sans > #" + _fontsetStatus_).t(timeOutMsg);
+                if (V_length(T.sansStyle.fonts) > 0)
+                    V_byClass(_vFontInfo_ + "sans > " + _span_).t(timeOutMsg);
+                    // V_byClass(_vFontInfo_ + "sans > #" + _fontsetStatus_).t(timeOutMsg);
             }, 600000); // 10 分钟后进行超时检测
         }
-        else if (T.theme === _serif_) {
+        else if (T.style === _serif_) {
             // 动态加载字体 VLOOK Number
             __loadNumberFont();
             // 动态加载字体 VLOOK Digital Serif
@@ -7034,10 +7071,11 @@ function FontTheme(mask, themeName) {
             // 动态加载字体 VLOOK Noto Sans CJK SC
             __loadSansCjkFont();
 
-            // 对 Serif 字体主题的加载超时检测
+            // 对 Serif 字体风格的加载超时检测
             setTimeout(() => {
-                if (V_length(T.serifTheme.fonts) > 0)
-                    V_byClass(_vFontInfo_ + "serif > #" + _fontsetStatus_).t(timeOutMsg);
+                if (V_length(T.serifStyle.fonts) > 0)
+                    V_byClass(_vFontInfo_ + "serif > " + _span_).t(timeOutMsg);
+                    // V_byClass(_vFontInfo_ + "serif > #" + _fontsetStatus_).t(timeOutMsg);
             }, 600000); // 10 分钟后进行超时检测
         }
 
@@ -7047,7 +7085,7 @@ function FontTheme(mask, themeName) {
                 srcName = "Altinn-DIN";
             T.loadFont(fontName, _normal_, _normal_, srcName, srcName);
             T.loadFont(fontName, _normal_, _bold_, srcName, srcName + _Bold);
-            T.loadFont(fontName, _italic_, _normal_, srcName, srcName + _Italic);
+            // T.loadFont(fontName, _italic_, _normal_, srcName, srcName + _Italic);
         }
 
         // 动态加载字体 VLOOK Digital Sans
@@ -7055,7 +7093,7 @@ function FontTheme(mask, themeName) {
             let fontName = _VLOOK_Digital_Sans_,
                 srcName = _NotoSansMono_;
             T.loadFont(fontName, _normal_, _normal_, srcName, srcName + _Regular, unicodeRange);
-            T.loadFont(fontName, _normal_, fontWeight500, srcName, srcName + _Medium, unicodeRange);
+            // T.loadFont(fontName, _normal_, fontWeight500, srcName, srcName + _Medium, unicodeRange);
             T.loadFont(fontName, _normal_, _bold_, srcName, srcName + _Bold, unicodeRange);
             T.loadFont(fontName, _normal_, fontWeight900, srcName, srcName + _Black, unicodeRange);
         }
@@ -7076,7 +7114,7 @@ function FontTheme(mask, themeName) {
             let fontName = _VLOOK_Sans_Mono_,
                 srcName = _NotoSansMono_;
             T.loadFont(fontName, _normal_, _normal_, srcName, srcName + _Regular);
-            T.loadFont(fontName, _normal_, fontWeight500, srcName, srcName +_Medium);
+            // T.loadFont(fontName, _normal_, fontWeight500, srcName, srcName +_Medium);
             T.loadFont(fontName, _normal_, _bold_, srcName, srcName + _Bold);
             T.loadFont(fontName, _normal_, fontWeight900, srcName, srcName + _Black);
         }
@@ -7162,34 +7200,36 @@ function FontTheme(mask, themeName) {
                 // --------------------
                 // 更新小清新风格字体包下载进度
                 // 剔除已下载的字体字形
-                for (let i = 0; i < V_length(T.sansTheme.fonts); i++) {
-                    if (T.sansTheme.fonts[i] === fontID) {
-                        T.sansTheme.fonts.splice(i, 1);
+                for (let i = 0; i < V_length(T.sansStyle.fonts); i++) {
+                    if (T.sansStyle.fonts[i] === fontID) {
+                        T.sansStyle.fonts.splice(i, 1);
                         break;
                     }
                 }
                 // 计算进度
-                let sansLoadedCount = T.sansTheme.fontCount - V_length(T.sansTheme.fonts),
-                    sansStatus = V_byClass(_vFontInfo_ + "sans > #" + _fontsetStatus_);
-                if (sansLoadedCount < T.sansTheme.fontCount)
-                    sansStatus.t(loadingMsg + "... (" + JS_mathRound(sansLoadedCount / T.sansTheme.fontCount * 100) + "%)");
+                let sansLoadedCount = T.sansStyle.fontCount - V_length(T.sansStyle.fonts),
+                    sansStatus = V_byClass(_vFontInfo_ + "sans > " + _span_);
+                    // sansStatus = V_byClass(_vFontInfo_ + "sans > #" + _fontsetStatus_);
+                if (sansLoadedCount < T.sansStyle.fontCount)
+                    sansStatus.t(loadingMsg + "... (" + JS_mathRound(sansLoadedCount / T.sansStyle.fontCount * 100) + "%)");
                 else
                     sansStatus.t(readyMsg);
 
                 // --------------------
                 // 更新艺术范风格字体包下载进度
                 // 剔除已下载的字体字形
-                for (let i = 0; i < V_length(T.serifTheme.fonts); i++) {
-                    if (T.serifTheme.fonts[i] === fontID) {
-                        T.serifTheme.fonts.splice(i, 1);
+                for (let i = 0; i < V_length(T.serifStyle.fonts); i++) {
+                    if (T.serifStyle.fonts[i] === fontID) {
+                        T.serifStyle.fonts.splice(i, 1);
                         break;
                     }
                 }
                 // 计算进度
-                let serifLoadedCount = T.serifTheme.fontCount - V_length(T.serifTheme.fonts),
-                    serifStatus = V_byClass(_vFontInfo_ + "serif > #" + _fontsetStatus_);
-                if (serifLoadedCount < T.serifTheme.fontCount)
-                    serifStatus.t(loadingMsg + "... (" + JS_mathRound(serifLoadedCount / T.serifTheme.fontCount * 100) + "%)");
+                let serifLoadedCount = T.serifStyle.fontCount - V_length(T.serifStyle.fonts),
+                    serifStatus = V_byClass(_vFontInfo_ + "serif > " + _span_);
+                    // serifStatus = V_byClass(_vFontInfo_ + "serif > #" + _fontsetStatus_);
+                if (serifLoadedCount < T.serifStyle.fontCount)
+                    serifStatus.t(loadingMsg + "... (" + JS_mathRound(serifLoadedCount / T.serifStyle.fontCount * 100) + "%)");
                 else
                     serifStatus.t(readyMsg);
             });
@@ -7225,34 +7265,37 @@ function FontTheme(mask, themeName) {
      * 显示字体风格选择器
      */
     T.show = function () {
+        // 如果有保存的配置，则显示 恢复 按钮
+        T.restore.c(_display_, V_data_read(_fontStyle_, gTrue) != gNull ? _block_ : _none_);
+
         T.mask.show();
         V_ui_moveToCenter(T.ui);
         T.ui.show();
 
-        LOG("'" + T.theme + "'");
-        if (T.theme === _local_) {
-            JQ_addClass(T.localTheme.ui, _selected_);
-            JQ_removeClass(T.bookTheme.ui, _selected_);
-            JQ_removeClass(T.sansTheme.ui, _selected_);
-            JQ_removeClass(T.serifTheme.ui, _selected_);
+        LOG("'" + T.style + "'");
+        if (T.style === _local_) {
+            JQ_addClass(T.localStyle.ui, _selected_);
+            JQ_removeClass(T.bookStyle.ui, _selected_);
+            JQ_removeClass(T.sansStyle.ui, _selected_);
+            JQ_removeClass(T.serifStyle.ui, _selected_);
         }
-        else if (T.theme === _book_) {
-            JQ_removeClass(T.localTheme.ui, _selected_);
-            JQ_addClass(T.bookTheme.ui, _selected_);
-            JQ_removeClass(T.sansTheme.ui, _selected_);
-            JQ_removeClass(T.serifTheme.ui, _selected_);
+        else if (T.style === _book_) {
+            JQ_removeClass(T.localStyle.ui, _selected_);
+            JQ_addClass(T.bookStyle.ui, _selected_);
+            JQ_removeClass(T.sansStyle.ui, _selected_);
+            JQ_removeClass(T.serifStyle.ui, _selected_);
         }
-        else if (T.theme === _sans_) {
-            JQ_removeClass(T.localTheme.ui, _selected_);
-            JQ_removeClass(T.bookTheme.ui, _selected_);
-            JQ_addClass(T.sansTheme.ui, _selected_);
-            JQ_removeClass(T.serifTheme.ui, _selected_);
+        else if (T.style === _sans_) {
+            JQ_removeClass(T.localStyle.ui, _selected_);
+            JQ_removeClass(T.bookStyle.ui, _selected_);
+            JQ_addClass(T.sansStyle.ui, _selected_);
+            JQ_removeClass(T.serifStyle.ui, _selected_);
         }
         else {
-            JQ_removeClass(T.localTheme.ui, _selected_);
-            JQ_removeClass(T.bookTheme.ui, _selected_);
-            JQ_addClass(T.serifTheme.ui, _selected_);
-            JQ_removeClass(T.sansTheme.ui, _selected_);
+            JQ_removeClass(T.localStyle.ui, _selected_);
+            JQ_removeClass(T.bookStyle.ui, _selected_);
+            JQ_addClass(T.serifStyle.ui, _selected_);
+            JQ_removeClass(T.sansStyle.ui, _selected_);
         }
     }
 
@@ -7285,15 +7328,17 @@ function FontTheme(mask, themeName) {
 
     /**
      * 应用指定字体风格
-     * @param themeName 指定应用的字体风格（local/book/sans/serif），不指定则以为当前字体风格
+     * @param styleName 指定应用的字体风格（local/book/sans/serif），不指定则以为当前字体风格
+     * @param restore 是否为恢复模式
      */
-    T.apply = function (themeName) {
+    T.apply = function (styleName, restore) {
         // 修正无指定样式的情况
-        if (themeName === gUndefined)
-            themeName = T.theme;
+        if (styleName === gUndefined)
+            styleName = T.style;
 
-        T.theme = themeName;
-        V_data_set(_fontTheme_, themeName, gTrue);
+        T.style = styleName;
+        if (restore !== gTrue)
+            V_data_write(_fontStyle_, styleName, gTrue);
 
         // 涉及的 CSS 变量名称列表
         let varFFm = "--v-f-fm",
@@ -7312,12 +7357,12 @@ function FontTheme(mask, themeName) {
             varFw + __title_,
             varFw + __text_
         ];
-        // 生成目标字体主题变量值列表
+        // 生成目标字体风格变量值列表
         let fontVarList = [];
         for (let i = 0, len = V_length(varList); i < len; i++) {
-            fontVarList.push(V_util_getVarVal(varList[i] + "-" + T.theme));
+            fontVarList.push(V_util_getVarVal(varList[i] + "-" + T.style));
         }
-        // 遍历所有变量实现字体主题的切换
+        // 遍历所有变量实现字体风格的切换
         for (let i = 0, len = V_length(varList); i < len; i++) {
             V_util_setVarVal(varList[i], fontVarList[i]);
         }
@@ -7355,7 +7400,7 @@ function FontTheme(mask, themeName) {
  * 构造函数
  * @param mask 遮罩对象
  */
-function FootNote(mask) {
+function Footnote(mask) {
     let T = this;
     T.ui = V_byClass(_vFontnotePn_); // 脚注主界面
     T.content = V_byClass(_vFontnotePn_ + "-" + _content_); // 脚注内容区
@@ -7426,7 +7471,7 @@ function FootNote(mask) {
 /**
  * 初始化脚注
  */
-FootNote.init = function () {
+Footnote.init = function () {
     // 将 Typora 的脚注调整到封底前，VLOOK 规范的文档中最后一个 <h6> 是封底
     let footnotesArea = V_byClass(_footnotesArea_);
     // 有封面 模式
@@ -7453,13 +7498,13 @@ FootNote.init = function () {
                 + ",a" + V_attrCSS(_id_, "df" + nameValue)).p().clone();
 
         // 更新脚注弹层内容区
-        iFootNote.content.hm(target);
+        iFootnote.content.hm(target);
         // 移除默认的返回链接
         JQ_remove(target.f("a" + V_attrCSS(_name_, nameValue2, "^")
             + ",a" + V_attrCSS(_id_, nameValue2, "^")));
 
         // 显示脚注弹层
-        iFootNote.show();
+        iFootnote.show();
     });
 }
 
@@ -7473,7 +7518,7 @@ let StsNewVersion_ui = gUndefined,
     StsColorScheme_ui = gUndefined,
     StsDocInfo_ui = gUndefined,
     StsLinkMap_ui = gUndefined,
-    StsFontTheme_ui = gUndefined,
+    StsFontStyle_ui = gUndefined,
     StsPrint_ui = gUndefined;
 /**
  * 构造函数
@@ -7527,13 +7572,13 @@ function StatusBar_init() {
     });
 
     // ----------
-    // 功能入口：字体主题
-    StsFontTheme_ui = V_byClass(_vStsFontTheme_);
-    StsFontTheme_ui.a(_dataTips_, V_lang_text41() + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("A")));
+    // 功能入口：字体风格
+    StsFontStyle_ui = V_byClass(_vStsFontStyle_);
+    StsFontStyle_ui.a(_dataTips_, V_lang_text41() + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("A")));
 
-    ToolTips_bind(StsFontTheme_ui);
-    StsFontTheme_ui.uC().ck(() => {
-        iFontTheme.tg();
+    ToolTips_bind(StsFontStyle_ui);
+    StsFontStyle_ui.uC().ck(() => {
+        iFontStyle.tg();
     });
 
     // ----------
@@ -7544,7 +7589,7 @@ function StatusBar_init() {
     if (V_pageMode !== _max_ || V_util_isMobile()) {
         StsDocInfo_ui.hide();
         StsPrint_ui.hide();
-        StsFontTheme_ui.hide();
+        StsFontStyle_ui.hide();
 
         // 过滤掉不可见的元素
         let visibleBtn = StatusBar_ui.ch().filter(function () {
@@ -7649,7 +7694,7 @@ function DocInfo_countWord() {
     StsDocInfo_ui.hm(StsDocInfo_ui.a(_dataDefault_));
 }
 
-// ==================== 状态栏的字体主题类 ==================== //
+// ==================== 状态栏的字体风格类 ==================== //
 
 // let StsFontTheme_ui = gUndefined;
 /**
@@ -7728,9 +7773,9 @@ function StsColorScheme_updateIcons() {
 
 // ==================== 状态栏的检查新版本类 ==================== //
 
-let StsNewVersion_checkOriginCloudFlare = "https://vlook-doc.pages.dev",
+let StsNewVersion_checkOriginCloudFlare = _vlookPagesHost_CloudFlare_, //"https://vlook-doc.pages.dev",
     StsNewVersion_checkUrlCloudFlare = StsNewVersion_checkOriginCloudFlare + "/act/" + _chkUpdate_ + ".html?ts=" + V_util_getTime(),
-    StsNewVersion_checkOriginGitHub = _vlookOriginGitHub_,
+    StsNewVersion_checkOriginGitHub = _madmaxchowHost_GitHub_,
     StsNewVersion_checkUrlGitHub = StsNewVersion_checkOriginGitHub + "/VLOOK/act/" + _chkUpdate_ + ".html?ts=" + V_util_getTime();
 /**
  * 构造函数
@@ -8074,7 +8119,7 @@ function LinkTool_checkLink() {
             && !page.sW("mailto:")) {
             if (title !== gUndefined)
                 title = title.x();
-            if (V_length(text) == 0 && V_length(title) > 0)
+            if (V_length(text) === 0 && V_length(title) > 0)
                 text = title;
             LinkTool_addToMap(text, page, hashNoMark);
         }
@@ -12392,13 +12437,16 @@ function TextField(target, id, append) {
                     clearTimeout(T.timerValueChanged);
                     T.timerValueChanged = gNull;
                     T.lastValue = T.input.v();
-                    __processInput();
+                    T.processInput();
+                    // __processInput();
                 }
                 T.timerValueChanged = setTimeout(__checkComValueChanged, 500);
             }
             // 触发外部重定义事件
-            typeof(T.onFocus) === _function_ && T.onFocus(T.input);
+            typeof(T.onFocus) === _function_ && T.onFocus();
+            // typeof(T.onFocus) === _function_ && T.onFocus(T.input);
         });
+
         /**
          * 绑定文本失去焦点事件
          */
@@ -12411,40 +12459,42 @@ function TextField(target, id, append) {
             T.timerValueChanged = gNull;
 
             // 触发外部重定义事件
-            typeof(T.onBlur) === _function_ && T.onBlur(T.input);
+            typeof(T.onBlur) === _function_ && T.onBlur();
+            // typeof(T.onBlur) === _function_ && T.onBlur(T.input);
         });
 
         /**
          * 处理文本框输入的内容
          */
-        function __processInput() {
-            let value = T.input.v().x();
+        // function __processInput() {
+        //     let value = T.input.v().x();
 
-            if (value === _) {
-                T.reset.c(_visibility_, _hidden_);
+        //     if (value === _) {
+        //         T.reset.c(_visibility_, _hidden_);
 
-                // 无内容时移除样式
-                if (T.action !== gUndefined && T.action.a(_class_).i(_enabled_) !== -1) {
-                    JQ_removeClass(T.action, _enabled_);
-                    V_ui_unbindHover(T.action);
-                }
-            }
-            else {
-                T.reset.c(_visibility_, _visible_);
+        //         // 无内容时移除样式
+        //         if (T.action !== gUndefined && T.action.a(_class_).i(_enabled_) !== -1) {
+        //             JQ_removeClass(T.action, _enabled_);
+        //             V_ui_unbindHover(T.action);
+        //         }
+        //     }
+        //     else {
+        //         T.reset.c(_visibility_, _visible_);
 
-                // 有内容时移除样式
-                if (T.action !== gUndefined && T.action.a(_class_).i(_enabled_) === -1) {
-                    JQ_addClass(T.action, _enabled_);
-                    T.action.on(_mouseEnter_, (event) => {
-                        T.actionHover(gTrue);
-                    }).on(_mouseLeave_, (event) => {
-                        T.actionHover(gFalse);
-                    });
-                }
-            }
-            // 触发外部重定义事件
-            typeof(T.onInput) === _function_ && T.onInput(T.input, value);
-        }
+        //         // 有内容时移除样式
+        //         if (T.action !== gUndefined && T.action.a(_class_).i(_enabled_) === -1) {
+        //             JQ_addClass(T.action, _enabled_);
+        //             T.action.on(_mouseEnter_, (event) => {
+        //                 T.actionHover(gTrue);
+        //             }).on(_mouseLeave_, (event) => {
+        //                 T.actionHover(gFalse);
+        //             });
+        //         }
+        //     }
+        //     // 触发外部重定义事件
+        //     // typeof(T.onInput) === _function_ && T.onInput(T.input, value);
+        //     typeof(T.onInput) === _function_ && T.onInput(value);
+        // }
 
         /**
          * 绑定键盘按下事件
@@ -12459,7 +12509,8 @@ function TextField(target, id, append) {
                     if (T.action !== gUndefined)
                         T.action.tr(_click_);
                     handled = true;
-                    typeof(T.pressEnter) === _function_ && T.pressEnter(T.input, value);
+                    typeof(T.pressEnter) === _function_ && T.pressEnter(value);
+                    // typeof(T.pressEnter) === _function_ && T.pressEnter(T.input, value);
                     break;
                 case _escape_:
                     // 无内容时则取消取点，退出编辑，键盘事件则由导航中心的键盘事件进行响应
@@ -12469,7 +12520,8 @@ function TextField(target, id, append) {
                     else
                         T.reset.tr(_click_);
                     handled = true;
-                    typeof(T.pressESC) === _function_ && T.pressESC(T.input);
+                    // typeof(T.pressESC) === _function_ && T.pressESC(T.input);
+                    typeof(T.pressESC) === _function_ && T.pressESC();
                     break;
             }
             // 如果事件已处理，则禁止双重操作
@@ -12477,14 +12529,16 @@ function TextField(target, id, append) {
                 event.preventDefault();
 
             // 触发外部重定义事件
-            typeof(T.onKeyDown) === _function_ && T.onKeyDown(T.input, value, key);
+            typeof(T.onKeyDown) === _function_ && T.onKeyDown(value, key);
+            // typeof(T.onKeyDown) === _function_ && T.onKeyDown(T.input, value, key);
         });
 
         /**
          * 绑定重置输入内容按钮
          */
         T.reset.uC().ck(() => {
-            T.input.v(_);
+            // T.input.v(_);
+            T.processInput(_);
             // 清空后保持输入焦点
             T.reset.c(_visibility_, _hidden_);
 
@@ -12493,8 +12547,49 @@ function TextField(target, id, append) {
                 V_ui_unbindHover(T.action);
             }
             // 触发外部重定义事件
-            typeof(T.onInput) === _function_ && T.onInput(T.input, _);
+            // typeof(T.onInput) === _function_ && T.onInput(_);
+            // typeof(T.onInput) === _function_ && T.onInput(T.input, _);
         });
+    }
+
+    /**
+     * 处理文本框输入的内容
+     * @param value 如不指定则使用文本框的值，如指定值则用指定值作为输入并作为文本框中的值
+     */
+    T.processInput = function (value) {
+        // let value = T.input.v().x();
+        if (value === gUndefined)
+            value = T.input.v().x();
+        else {
+            value = value.x();
+            T.input.v(value);
+        }
+
+        if (value === _) {
+            T.reset.c(_visibility_, _hidden_);
+
+            // 无内容时移除样式
+            if (T.action !== gUndefined && T.action.a(_class_).i(_enabled_) !== -1) {
+                JQ_removeClass(T.action, _enabled_);
+                V_ui_unbindHover(T.action);
+            }
+        }
+        else {
+            T.reset.c(_visibility_, _visible_);
+
+            // 有内容时移除样式
+            if (T.action !== gUndefined && T.action.a(_class_).i(_enabled_) === -1) {
+                JQ_addClass(T.action, _enabled_);
+                T.action.on(_mouseEnter_, (event) => {
+                    T.actionHover(gTrue);
+                }).on(_mouseLeave_, (event) => {
+                    T.actionHover(gFalse);
+                });
+            }
+        }
+        // 触发外部重定义事件
+        // typeof(T.onInput) === _function_ && T.onInput(T.input, value);
+        typeof(T.onInput) === _function_ && T.onInput(value);
     }
 
     /**
@@ -12511,7 +12606,8 @@ function TextField(target, id, append) {
     T.setIcon = function (icon) {
         T.icon = T.ui.ch("." + _vTextField_ + __icon_);
         T.icon.hm(icon);
-        T.icon.show();
+        T.icon.c(_visibility_, _visible_);
+        // T.icon.show();
     }
 
     /**
@@ -12535,7 +12631,8 @@ function TextField(target, id, append) {
                 T.input.select();
 
             // 触发外部重定义事件
-            typeof(T.onAction) === _function_ && T.onAction(T.input, value);
+            typeof(T.onAction) === _function_ && T.onAction(value);
+            // typeof(T.onAction) === _function_ && T.onAction(T.input, value);
         });
     }
 
@@ -12581,18 +12678,18 @@ function TextField(target, id, append) {
      * 设置文本框宽度
      * @param width 宽度
      */
-    T.setWidth = function (width) {
-        T.ui.c(_width_, width);
-        T.input.c(_width_, width
-            - JS_parseInt(T.reset.oW())
-            - (T.icon === gUndefined ? 0 : JS_parseInt(T.icon.oW()))
-            - (T.action === gUndefined ? 0 : JS_parseInt(T.action.oW())));
-            // - (T.reset.w() + JS_parseInt(T.reset.c(_paddingLeft_)) * 2)
-            // - (T.icon === gUndefined ? 0 : T.icon.w() + JS_parseInt(T.icon.c(_paddingLeft_)) * 2)
-            // - (T.action === gUndefined ? 0 : T.action.w() + JS_parseInt(T.action.c(_paddingLeft_)) * 2));
-        if (T.icon !== gUndefined)
-            JQ_addClass(T.input, "set" + __icon_);
-    }
+    // T.setWidth = function (width) {
+    //     T.ui.c(_width_, width);
+    //     T.input.c(_width_, width
+    //         - JS_parseInt(T.reset.oW())
+    //         - (T.icon === gUndefined ? 0 : JS_parseInt(T.icon.oW()))
+    //         - (T.action === gUndefined ? 0 : JS_parseInt(T.action.oW())));
+    //         // - (T.reset.w() + JS_parseInt(T.reset.c(_paddingLeft_)) * 2)
+    //         // - (T.icon === gUndefined ? 0 : T.icon.w() + JS_parseInt(T.icon.c(_paddingLeft_)) * 2)
+    //         // - (T.action === gUndefined ? 0 : T.action.w() + JS_parseInt(T.action.c(_paddingLeft_)) * 2));
+    //     if (T.icon !== gUndefined)
+    //         JQ_addClass(T.input, "set" + __icon_);
+    // }
 
     // 生成控件
     T.__appendTo(target, id, append);
@@ -12888,7 +12985,6 @@ function TocCatalog(holder, hidden) {
     T.filter = function (value) {
         if (value.x() === _)
             return gFalse;
-        // ERROR(111, T.holder.segs.checkedItemValue(), T.typeName());
 
         if (T.holder.segs.checkedItemValue() === T.typeName())
             T.showFilterResult();
@@ -13514,7 +13610,7 @@ function TocCodeblock(holder, hidden) {
 function TocHistory(holder, hidden) {
     let T = this;
     T.ui = {
-        entry : V_byClass(_vSegmentBtn_ + ".history"), // 入口
+        entry : V_byClass(_vSegmentBtn_ + "." + _history_), // 入口
         title : V_byClass(_vTocHistory_ + __title_), // 历史记录标题
         result : V_byClass(_vTocHistory_ + __result_) // 历史记录面板
     };
@@ -13527,7 +13623,7 @@ function TocHistory(holder, hidden) {
      * @returns string Toc 组件类型名称
      */
     T.typeName = function () {
-        return "history";
+        return _history_;
     }
 
     /**
@@ -15097,31 +15193,31 @@ function SupSubMagic_preprocess() {
         _t.f(mdAlertText + "-note").e((i, e) => {
             $(e).hm(V_ui_svgIcon2(_icoAlertNote_, 16, 16) + V_lang_text(73, [
                 "备忘",
-                "Note"
+                _Note_
             ]));
         });
         _t.f(mdAlertText + __tip_).e((i, e) => {
             $(e).hm(V_ui_svgIcon2(_icoAlertTip_, 16, 16) + V_lang_text(74, [
                 "提示",
-                "Tip"
+                _Tip_
             ]));
         });
         _t.f(mdAlertText + "-important").e((i, e) => {
             $(e).hm(V_ui_svgIcon2(_icoAlertImportant_, 16, 16) + V_lang_text(75, [
                 "重要",
-                "Important"
+                _Important_
             ]));
         });
         _t.f(mdAlertText + "-warning").e((i, e) => {
             $(e).hm(V_ui_svgIcon2(_icoAlertWarning_, 16, 16) + V_lang_text(76, [
                 "注意",
-                "Warning"
+                _Warning_
             ]));
         });
         _t.f(mdAlertText + "-caution").e((i, e) => {
             $(e).hm(V_ui_svgIcon2(_icoAlertCaution_, 16, 16) + V_lang_text(77, [
                 "警告",
-                "Caution"
+                _Caution_
             ]));
         });
     });
@@ -16051,7 +16147,7 @@ function VLOOKui_loadWelcomePage() {
         author = V_util_getMetaByName("author"),
         defalutContent = (title !== gUndefined ? V_ui_div(_, _, title) : _)
             + (date !== gUndefined ? V_ui_div(_, "v-date", "( " + date + " )") : _)
-            + (author !== gUndefined ? V_ui_div(_, "v-author", author) : _),
+            + (author !== gUndefined ? V_ui_strong(author) : _),
         metaContent = V_util_getMetaByName(_vlook__ + _welcome_);
 
     // 无指定欢迎页内容，则使用默认内容
@@ -16177,7 +16273,7 @@ function VLOOKui_loadIconSet() {
         + V_ui_symbol(_icoParagraphNav_,
             V_ui_path('M3.698 17.714v-5.036A.68.68 0 0 0 3.02 12a.68.68 0 0 0-.678.678v5.047L1.155 16.54a.689.689 0 0 0-.96 0c-.26.26-.26.69 0 .96l2.294 2.294a.67.67 0 0 0 .474.204h.068a.65.65 0 0 0 .475-.204L5.799 17.5c.26-.26.26-.689 0-.96-.237-.271-.666-.271-.926 0l-1.175 1.175zm0-15.432V7.32a.68.68 0 0 1-.678.678.68.68 0 0 1-.678-.678l.03-5.082-1.217 1.22c-.26.26-.689.26-.96 0a.689.689 0 0 1 0-.96L2.489.203A.67.67 0 0 1 2.963 0h.068c.17 0 .35.068.475.203l2.293 2.294c.26.26.26.69 0 .96-.237.272-.666.272-.926 0L3.698 2.283zM8 14h11a1 1 0 0 1 0 2H8a1 1 0 0 1 0-2zm0 3h8a1 1 0 0 1 0 2H8a1 1 0 0 1 0-2zM8 7h4a1 1 0 0 1 0 2H8a1 1 0 0 1 0-2zm0-6h11a1 1 0 0 1 0 2H8a1 1 0 0 1 0-2zm0 3h11a1 1 0 0 1 0 2H8a1 1 0 0 1 0-2z', _))
         // 图标集：图标|字体风格
-        + V_ui_symbol(_icoFontTheme_,
+        + V_ui_symbol(_icoFontStyle_,
             V_ui_path('M2.26 17.998l.59-1.85h3.015l.59 1.85h1.843a.5.5 0 0 0 .465-.683l-2.648-6.74a1 1 0 0 0-.931-.635h-1.57a1 1 0 0 0-.93.634l-2.65 6.74a.5.5 0 0 0 .466.684h1.76zm3.14-3.342H3.315l.22-.682c.26-.8.534-1.741.78-2.585h.055c.275.822.535 1.785.81 2.585l.218.682zm6.745 3.284c.893 0 1.644-.364 2.31-.892h.071l.17.716h2.055v-4.058c0-2.236-1.176-3.266-3.26-3.266-1.26 0-2.408.377-3.471.942l.879 1.47c.807-.402 1.473-.628 2.11-.628.823 0 1.163.34 1.22.917-3.146.302-4.478 1.118-4.478 2.626 0 1.193.907 2.173 2.394 2.173zm.865-1.734c-.524 0-.865-.2-.865-.615 0-.503.51-.917 2.083-1.093v1.143c-.368.352-.708.565-1.218.565zM13.802 0l3.473 7.75.724.078V8.4h-4.33v-.573l1.066-.124-.727-1.864h-3.201l-.8 1.853.712.146V8.4H8.1V8.16c-.325.256-.749.37-1.314.37-.943 0-1.472-.428-1.686-1.129-.729.727-1.272 1.13-2.414 1.13-1.23 0-2.086-.676-2.086-1.766 0-1.181.743-1.818 3.043-2.428.4-.104.9-.22 1.4-.337v-.792c0-1.35-.343-1.753-1.429-1.753-.2 0-.386.013-.6.052l-.1.922c-.043.883-.528 1.233-1.071 1.233-.515 0-.872-.233-.986-.662C.97 1.78 2.213 1 4.427 1c2.029 0 2.843.792 2.843 2.674v3.492c0 .494.172.662.443.662.214 0 .372-.103.643-.493l.243.182a2.323 2.323 0 0 1-.152.262l.49-.086L12.31 0h1.492zm-8.76 4.35a7.258 7.258 0 0 0-.786.22c-1 .376-1.529.987-1.529 1.934 0 .78.4 1.143 1.072 1.143.386 0 .714-.17 1.243-.598zm7.43-2.615l-1.507 3.533h2.87l-1.363-3.533z', _))
         // 图标集：图标|文库
         + V_ui_symbol(_icoDocLib_,
@@ -16342,7 +16438,10 @@ function VLOOKui_loadNavCenter() {
                 // 分段控制器组件
                 + V_ui_nav(_, _vSegment_ + " toc")
                 // 访问历史标题
-                + V_ui_div(_, "v-toc-history" + __title_, ["访问历史", "History"][V_lang]))
+                + V_ui_div(_, _vToc__ + _history_ + __title_, V_lang_text(18, [
+                    "访问历史",
+                    _History_
+                ])))
                 // --- 导航中心内容区 ---
                 + V_ui_div(_, _vNavCenter_ + __body_,
                     V_ui_divExt(_, _vTocCatalogBody_, V_attr(_dataCatalogEmpty_, "( " + V_lang_text(66, [
@@ -16354,7 +16453,7 @@ function VLOOKui_loadNavCenter() {
                     + V_ui_nav(_, classTocFilterResult + _table_)
                     + V_ui_nav(_, classTocFilterResult + _codeblock_)
                     + V_ui_nav(_, classTocFilterResult + _media_)
-                    + V_ui_nav(_, "v-toc-history" + __result_)
+                    + V_ui_nav(_, _vToc__ + _history_ + __result_)
                 )
             + V_ui_div(_, _vNavCenter_ + __footer_)
         );
@@ -16387,38 +16486,44 @@ function VLOOKui_loadCommon() {
 
     // --------------------------------------------------
     // 字体风格选择器
-    let classFontThemeOpt = _vFontThemeOpt_,
-        previewPath = _httpsPrefix_ + _vlook__ + "doc.pages.dev/pic/";
-    ui += V_ui_aside(_, _vFontTheme_, V_attr(_dataTitle_, V_lang_text41()),
-            V_ui_div(_, classFontThemeOpt,
-                V_ui_img(_vFontThemeOpt_ + "-" + _local_, "默认 Default", previewPath + "fs-local.png", previewPath + "fs-local@2x.png 2x")
+    let //classFontThemeOpt = _vFontThemeOpt_,
+        previewPath = _vlookPagesHost_CloudFlare_ + "/pic/";
+        // previewPath = _httpsPrefix_ + _vlook__ + "doc.pages.dev/pic/";
+    ui += V_ui_aside(_, _vFontStyle_, V_attr(_dataTitle_, V_lang_text41()),
+            V_ui_div(_, _vFontStyleRestore_, "↺ " + V_lang_text(85, ["恢复字体样式", "Restore " + _font_ + " " + _style_]))
+            + V_ui_span(_vFontStyleOpt_, _,
+                V_ui_img(_vFontStyleOpt_ + "-" + _local_, "默认 Default", previewPath + "fs-local.png", previewPath + "fs-local@2x.png 2x")
                 + V_ui_div(_, _vFontInfo_ + _local_,
-                    V_ui_div(_, _vFontPackage_, _Font_)
-                    + V_ui_div(_fontsetStatus_, _, _Ready_)
+                    // V_ui_div(_, _vFontPackage_, _Font_)
+                    // V_ui_div(_fontsetStatus_, _, _Ready_)
+                    V_ui_span(_, _, _Ready_)
                 )
             )
-            + V_ui_div(_, classFontThemeOpt,
-                V_ui_img(_vFontThemeOpt_ + "-" + _book_, "Book", previewPath + "fs-book.png", previewPath + "fs-book@2x.png 2x")
+            + V_ui_span(_vFontStyleOpt_, _,
+                V_ui_img(_vFontStyleOpt_ + "-" + _book_, "Book", previewPath + "fs-book.png", previewPath + "fs-book@2x.png 2x")
                 + V_ui_div(_, _vFontInfo_ + _book_,
-                    V_ui_div(_, _vFontPackage_, _Font_)
-                    + V_ui_div(_fontsetStatus_, _, _Ready_)
+                    // V_ui_div(_, _vFontPackage_, _Font_)
+                    // V_ui_div(_fontsetStatus_, _, _Ready_)
+                    V_ui_span(_, _, _Ready_)
                 )
             )
-            + V_ui_div(_, classFontThemeOpt,
-                V_ui_img(_vFontThemeOpt_ + "-" + _sans_, "小清新 Sans", previewPath + "fs-sans.png", previewPath + "fs-sans@2x.png 2x")
+            + V_ui_span(_vFontStyleOpt_, _,
+                V_ui_img(_vFontStyleOpt_ + "-" + _sans_, "小清新 Sans", previewPath + "fs-sans.png", previewPath + "fs-sans@2x.png 2x")
                 + V_ui_div(_, _vFontInfo_ + _sans_,
-                    V_ui_div(_, _vFontPackage_, _Font_)
-                    + V_ui_div(_fontsetStatus_, _, _notLoaded_)
+                    // V_ui_div(_, _vFontPackage_, _Font_)
+                    // V_ui_div(_fontsetStatus_, _, _notLoaded_)
+                    V_ui_span(_, _, _notLoaded_)
                 )
             )
-            + V_ui_div(_, classFontThemeOpt,
-                V_ui_img(_vFontThemeOpt_ + "-" + _serif_, "文艺范 Serif", previewPath + "fs-serif.png", previewPath + "fs-serif@2x.png 2x")
+            + V_ui_span(_vFontStyleOpt_, _,
+                V_ui_img(_vFontStyleOpt_ + "-" + _serif_, "文艺范 Serif", previewPath + "fs-serif.png", previewPath + "fs-serif@2x.png 2x")
                 + V_ui_div(_, _vFontInfo_ + _serif_,
-                    V_ui_div(_, _vFontPackage_, _Font_)
-                    + V_ui_div(_fontsetStatus_, _, _notLoaded_)
+                    // V_ui_div(_, _vFontPackage_, _Font_)
+                    // V_ui_div(_fontsetStatus_, _, _notLoaded_)
+                    V_ui_span(_, _, _notLoaded_)
                 )
             )
-            + V_ui_div(_, _vFontThemeInfo_, "Download Font Package")
+            + V_ui_div(_, _vFontStyleInfo_, "Download Font Package")
         );
 
     // --------------------------------------------------
@@ -16500,7 +16605,7 @@ function VLOOKui_loadCommon() {
             + V_ui_div(_, _vLinkChkResult_, V_ui_svgIcon(_icoLinkError_, 20, 18, _theme_))
             + V_ui_div(_, _vLinkMap_, V_ui_svgIcon(_icoLinkMap_, 20, 20, _theme_))
             + V_ui_div(_, _vPrint_, V_ui_svgIcon(_icoPrint_, 20, 18, _theme_))
-            + V_ui_div(_, _vStsFontTheme_, V_ui_svgIcon(_icoFontTheme_, 18, 18, _theme_))
+            + V_ui_div(_, _vStsFontStyle_, V_ui_svgIcon(_icoFontStyle_, 18, 18, _theme_))
             + V_ui_div(_, _vColorScheme_, V_ui_svgIcon(_icoDarkMode_, 20, 20, _theme_))
         );
 
@@ -16732,7 +16837,7 @@ function loadVLOOKplugin() {
         // 若没有通过调校参数指定
         else {
             if (colorScheme == gNull)
-                colorScheme = V_data_get(_colorScheme_, gTrue);
+                colorScheme = V_data_read(_colorScheme_, gTrue);
             // 通过同域配置指定
             if (colorScheme != gNull && (colorScheme === _light_ || colorScheme === _dark_)) {
                 INFO("    From config [ " + colorScheme + " ]");
@@ -16804,14 +16909,14 @@ function loadVLOOKplugin() {
     // ----------------------------------------
     if (V_pageMode === _max_ && gThmVer !== gVer) {
         ALERT([
-            "⚠️ 注意 ⚠️\n\n本文档使用的 VLOOK™ 主题，与插件版本不匹配，会影响实际使用，请将主题更新至与插件一致版本！！！"
+            "⚠️ 注意 ⚠️\n\n本文档使用的 VLOOK™ 主题与插件版本不匹配，会影响实际使用，请将更新至匹配的版本！！！"
                 + `\n\n当前主题 [ ${gThmName} ]\n`
-                + `主题版本 [ ${gThmVer} ]\n`
-                + `\n插件版本 [ ${gVer} ]`,
-            "⚠️ WARNING ⚠️\n\nThe VLOOK™ theme and plugin versions in this document are incompatible, which will affect the actual use. Please update theme to same versions of plugin !!!"
+                + `主题版本 [ ${gThmVer} ]\n\n`
+                + `插件版本 [ ${gVer} ]`,
+            "⚠️ WARNING ⚠️\n\nThe VLOOK™ theme and plugin version used in this document do not match, which may affect actual use. Please update to the matching version !!!"
                 + `\n\nCurrent Theme [ ${gThmName} ]\n`
-                + `Theme Version [ ${gThmVer} ]\n`
-                + `\nPlugin Version [ ${gVer} ]`
+                + `Theme Version [ ${gThmVer} ]\n\n`
+                + `Plugin Version [ ${gVer} ]`
         ][V_lang]);
     }
 

@@ -3,8 +3,8 @@
  * VLOOK™ CSS 字体主题、圆角样式
  * (配合 base.less 进行使用)
  *
- * V26.0
- * 2024-09-20
+ * V26.1
+ * 2024-09-24
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -53,32 +53,32 @@ U+0030-0039, // 0123456789
 U+003A-0040, // :;<=>?@
 U+005B-0060, // [\]^_`
 U+007B-007E; // {|}~
-// ----------------------------------------
-// VLOOK Digital Sans CSS
-@font-face { // - Regular
-    font-family: "VLOOK Digital Sans CSS";
-    font-weight: normal;
-    src: local("Noto Sans Mono Regular");
-    unicode-range: @unicodeRangeForDigital;
-}
-@font-face { // - Medium
-    font-family: "VLOOK Digital Sans CSS";
-    font-weight: 500;
-    src: local("Noto Sans Mono Medium");
-    unicode-range: @unicodeRangeForDigital;
-}
-@font-face { // - Bold
-    font-family: "VLOOK Digital Sans CSS";
-    font-weight: bold;
-    src: local("Noto Sans Mono Bold");
-    unicode-range: @unicodeRangeForDigital;
-}
-@font-face { // - Black
-    font-family: "VLOOK Digital Sans CSS";
-    font-weight: 900;
-    src: local("Noto Sans Mono Black");
-    unicode-range: @unicodeRangeForDigital;
-}
+// // ----------------------------------------
+// // VLOOK Digital Sans CSS
+// @font-face { // - Regular
+//     font-family: "VLOOK Digital Sans CSS";
+//     font-weight: normal;
+//     src: local("Noto Sans Mono Regular");
+//     unicode-range: @unicodeRangeForDigital;
+// }
+// @font-face { // - Medium
+//     font-family: "VLOOK Digital Sans CSS";
+//     font-weight: 500;
+//     src: local("Noto Sans Mono Medium");
+//     unicode-range: @unicodeRangeForDigital;
+// }
+// @font-face { // - Bold
+//     font-family: "VLOOK Digital Sans CSS";
+//     font-weight: bold;
+//     src: local("Noto Sans Mono Bold");
+//     unicode-range: @unicodeRangeForDigital;
+// }
+// @font-face { // - Black
+//     font-family: "VLOOK Digital Sans CSS";
+//     font-weight: 900;
+//     src: local("Noto Sans Mono Black");
+//     unicode-range: @unicodeRangeForDigital;
+// }
 // ----------------------------------------
 // VDS-CSS local
 @font-face { // - Regular
@@ -94,24 +94,26 @@ U+007B-007E; // {|}~
     // 适用的编码范围
     unicode-range: @unicodeRangeForDigital;
 }
-// ----------------------------------------
-// VLOOK Digital Serif CSS
-@font-face { // - Regular
-    font-family: "VLOOK Digital Serif CSS";
-    font-weight: normal;
-    src: local("Luxi Mono Regular");
-    unicode-range: @unicodeRangeForDigital;
-}
-@font-face { // - Bold
-    font-family: "VLOOK Digital Serif CSS";
-    font-weight: bold;
-    src: local("Luxi Mono Bold");
-    unicode-range: @unicodeRangeForDigital;
-}
+// // ----------------------------------------
+// // VLOOK Digital Serif CSS
+// @font-face { // - Regular
+//     font-family: "VLOOK Digital Serif CSS";
+//     font-weight: normal;
+//     src: local("Luxi Mono Regular");
+//     unicode-range: @unicodeRangeForDigital;
+// }
+// @font-face { // - Bold
+//     font-family: "VLOOK Digital Serif CSS";
+//     font-weight: bold;
+//     src: local("Luxi Mono Bold");
+//     unicode-range: @unicodeRangeForDigital;
+// }
 // ----------------------------------------
 @vlookDigitalLocal: "VLOOK Digital local";
-@vlookDigitalSans: "VLOOK Digital Sans", "VLOOK Digital Sans CSS", @vlookDigitalLocal;
-@vlookDigitalSerif: "VLOOK Digital Serif", "VLOOK Digital Serif CSS", @vlookDigitalLocal;
+@vlookDigitalSans: "VLOOK Digital Sans", @vlookDigitalLocal;
+@vlookDigitalSerif: "VLOOK Digital Serif", @vlookDigitalLocal;
+// @vlookDigitalSans: "VLOOK Digital Sans", "VLOOK Digital Sans CSS", @vlookDigitalLocal;
+// @vlookDigitalSerif: "VLOOK Digital Serif", "VLOOK Digital Serif CSS", @vlookDigitalLocal;
 
 // =========================================
 // 基础字体信息
@@ -136,7 +138,7 @@ U+007B-007E; // {|}~
 @base_serif_en: "Times New Roman", Times;
 @base_serif_cn: "Songti SC", "宋体-简", SimSun, "宋体";
 // @base_serif_cn: "Songti SC", STZhongsong, "华文中宋", SimSun, "宋体";
-@base_mono_serif_en: "VLOOK Serif Mono", "Luxi Mono", "Iosevka Slab", "PT Mono", @base_mono, @base_mono_sans_en;
+@base_mono_serif_en: "VLOOK Serif Mono", "Luxi Mono", "PT Mono", @base_mono, @base_mono_sans_en;
 // 字体主题集
 @base_noto_sans_sets: "Noto Sans CJK SC", "Noto Sans CJK HK", "Noto Sans CJK TW";
 @base_noto_serif_sets: "Noto Serif CJK SC", "Noto Serif CJK HK", "Noto Serif CJK TW";
@@ -340,7 +342,7 @@ U+007B-007E; // {|}~
 // 应用 Local 风格
 .applyFontStyle(@fontStyle) when (@fontStyle = local) {
     :root {
-        --v-f-theme: local; // 设置为默认的字体风格
+        --v-f-style: local; // 设置为默认的字体风格
         --v-f-fm-title: var(--v-f-fm-title-local);
         --v-f-fm-subtitle: var(--v-f-fm-subtitle-local);
         --v-f-fm-h: var(--v-f-fm-h-local);
@@ -354,12 +356,14 @@ U+007B-007E; // {|}~
         --v-f-w-title: var(--v-f-w-title-local);
         --v-f-w-text: var(--v-f-w-text-local);
     }
+
+    .genVlookNumber();
 }
 // ---
 // 应用 macOS 风格
 .applyFontStyle(@fontStyle) when (@fontStyle = macos) {
     :root {
-        --v-f-theme: local; // 设置为默认的字体风格
+        --v-f-style: local; // 设置为默认的字体风格
         --v-f-fm-title: var(--v-f-fm-title-macos);
         --v-f-fm-subtitle: var(--v-f-fm-subtitle-macos);
         --v-f-fm-h: var(--v-f-fm-h-macos);
@@ -373,12 +377,14 @@ U+007B-007E; // {|}~
         --v-f-w-title: var(--v-f-w-title-macos);
         --v-f-w-text: var(--v-f-w-text-macos);
     }
+
+    .genVlookNumber();
 }
 // ---
 // 应用 Windows 风格
 .applyFontStyle(@fontStyle) when (@fontStyle = win) {
     :root {
-        --v-f-theme: local; // 设置为默认的字体风格
+        --v-f-style: local; // 设置为默认的字体风格
         --v-f-fm-title: var(--v-f-fm-title-win);
         --v-f-fm-subtitle: var(--v-f-fm-subtitle-win);
         --v-f-fm-h: var(--v-f-fm-h-win);
@@ -392,12 +398,14 @@ U+007B-007E; // {|}~
         --v-f-w-title: var(--v-f-w-title-win);
         --v-f-w-text: var(--v-f-w-text-win);
     }
+
+    .genVlookNumber();
 }
 // ---
 // 应用 Sans 风格
 .applyFontStyle(@fontStyle) when (@fontStyle = sans) {
     :root {
-        --v-f-theme: sans; // 设置为默认的字体风格
+        --v-f-style: sans; // 设置为默认的字体风格
         --v-f-fm-title: var(--v-f-fm-title-sans);
         --v-f-fm-subtitle: var(--v-f-fm-subtitle-sans);
         --v-f-fm-h: var(--v-f-fm-h-sans);
@@ -411,12 +419,18 @@ U+007B-007E; // {|}~
         --v-f-w-title: var(--v-f-w-title-sans);
         --v-f-w-text: var(--v-f-w-text-sans);
     }
+
+    .genVlookNumber();
+
+    .genVlookDigitalSans();
+    .genVlookSans();
+    .genVlookSansMono();
 }
 // ---
 // 应用 Serif 风格
 .applyFontStyle(@fontStyle) when (@fontStyle = serif) {
     :root {
-        --v-f-theme: serif; // 设置为默认的字体风格
+        --v-f-style: serif; // 设置为默认的字体风格
         --v-f-fm-title: var(--v-f-fm-title-serif);
         --v-f-fm-subtitle: var(--v-f-fm-subtitle-serif);
         --v-f-fm-h: var(--v-f-fm-h-serif);
@@ -430,12 +444,22 @@ U+007B-007E; // {|}~
         --v-f-w-title: var(--v-f-w-title-serif);
         --v-f-w-text: var(--v-f-w-text-serif);
     }
+
+    .genVlookNumber();
+
+    .genVlookDigitalSans();
+    .genVlookSans();
+    .genVlookSansMono();
+
+    .genVlookDigitalSerif();
+    .genVlookSerif();
+    .genVlookSerifMono();
 }
 // ---
 // 应用 Book 风格
 .applyFontStyle(@fontStyle) when (@fontStyle = book) {
     :root {
-        --v-f-theme: book; // 设置为默认的字体风格
+        --v-f-style: book; // 设置为默认的字体风格
         --v-f-fm-title: var(--v-f-fm-title-book);
         --v-f-fm-subtitle: var(--v-f-fm-subtitle-book);
         --v-f-fm-h: var(--v-f-fm-h-book);
@@ -448,6 +472,177 @@ U+007B-007E; // {|}~
         --v-f-w-bd: var(--v-f-w-bd-book);
         --v-f-w-title: var(--v-f-w-title-book);
         --v-f-w-text: var(--v-f-w-text-book);
+    }
+}
+
+// ----------------------------------------
+// VLOOK Number
+.genVlookNumber() {
+    @font-face { // - Regular
+        font-family: "VLOOK Number";
+        font-weight: normal;
+        src: local("Altinn-DIN Regular"),
+            url("https://openfonts.pages.dev/Altinn-DIN-woff2/Altinn-DIN-Regular.woff2");
+        unicode-range: @unicodeRangeForDigital;
+    }
+    @font-face { // - Bold
+        font-family: "VLOOK Number";
+        font-weight: bold;
+        src: local("Altinn-DIN Bold"),
+            url("https://openfonts.pages.dev/Altinn-DIN-woff2/Altinn-DIN-Bold.woff2");
+        unicode-range: @unicodeRangeForDigital;
+    }
+}
+
+// ----------------------------------------
+// VLOOK Digital Sans
+.genVlookDigitalSans() {
+    @font-face { // - Regular
+        font-family: "VLOOK Digital Sans";
+        font-weight: normal;
+        src: local("Noto Sans Mono Regular"),
+            url("https://openfonts.pages.dev/NotoSansMono-woff2/NotoSansMono-Regular.woff2");
+        unicode-range: @unicodeRangeForDigital;
+    }
+    @font-face { // - Medium
+        font-family: "VLOOK Digital Sans";
+        font-weight: 500;
+        src: local("Noto Sans Mono Medium"),
+            url("https://openfonts.pages.dev/NotoSansMono-woff2/NotoSansMono-Medium.woff2");
+        unicode-range: @unicodeRangeForDigital;
+    }
+    @font-face { // - Bold
+        font-family: "VLOOK Digital Sans";
+        font-weight: bold;
+        src: local("Noto Sans Mono Bold"),
+            url("https://openfonts.pages.dev/NotoSansMono-woff2/NotoSansMono-Bold.woff2");
+        unicode-range: @unicodeRangeForDigital;
+    }
+    @font-face { // - Black
+        font-family: "VLOOK Digital Sans";
+        font-weight: 900;
+        src: local("Noto Sans Mono Black"),
+            url("https://openfonts.pages.dev/NotoSansMono-woff2/NotoSansMono-Black.woff2");
+        unicode-range: @unicodeRangeForDigital;
+    }
+}
+
+// ----------------------------------------
+// VLOOK Sans
+.genVlookSans() {
+    @font-face { // - Regular
+        font-family: "VLOOK Sans";
+        font-weight: normal;
+        src: local("Noto Sans CJK SC Regular"),
+            url("https://openfonts.pages.dev/NotoSansCJKsc-woff2/NotoSansCJKsc-Regular.woff2");
+    }
+    @font-face { // - Bold
+        font-family: "VLOOK Sans";
+        font-weight: bold;
+        src: local("Noto Sans CJK SC Bold"),
+            url("https://openfonts.pages.dev/NotoSansCJKsc-woff2/NotoSansCJKsc-Bold.woff2");
+    }
+    @font-face { // - Black
+        font-family: "VLOOK Sans";
+        font-weight: 900;
+        src: local("Noto Sans CJK SC Black"),
+            url("https://openfonts.pages.dev/NotoSansCJKsc-woff2/NotoSansCJKsc-Black.woff2");
+    }
+}
+
+// ----------------------------------------
+// VLOOK Sans Mono
+.genVlookSansMono() {
+    @font-face { // - Regular
+        font-family: "VLOOK Sans Mono";
+        font-weight: normal;
+        src: local("Noto Sans Mono Regular"),
+            url("https://openfonts.pages.dev/NotoSansMono-woff2/NotoSansMono-Regular.woff2");
+    }
+    @font-face { // - Medium
+        font-family: "VLOOK Sans Mono";
+        font-weight: 500;
+        src: local("Noto Sans Mono Medium"),
+            url("https://openfonts.pages.dev/NotoSansMono-woff2/NotoSansMono-Medium.woff2");
+    }
+    @font-face { // - Bold
+        font-family: "VLOOK Sans Mono";
+        font-weight: bold;
+        src: local("Noto Sans Mono Bold"),
+            url("https://openfonts.pages.dev/NotoSansMono-woff2/NotoSansMono-Bold.woff2");
+    }
+    @font-face { // - Black
+        font-family: "VLOOK Sans Mono";
+        font-weight: 900;
+        src: local("Noto Sans Mono Black"),
+            url("https://openfonts.pages.dev/NotoSansMono-woff2/NotoSansMono-Black.woff2");
+    }
+}
+
+// ----------------------------------------
+// VLOOK Digital Serif
+.genVlookDigitalSerif() {
+    @font-face { // - Regular
+        font-family: "VLOOK Digital Serif";
+        font-weight: normal;
+        src: local("Luxi Mono Regular"),
+            url("https://openfonts.pages.dev/LuxiMono-woff2/LuxiMono-Regular.woff2");
+        unicode-range: @unicodeRangeForDigital;
+    }
+    @font-face { // - Bold
+        font-family: "VLOOK Digital Serif";
+        font-weight: bold;
+        src: local("Luxi Mono Bold"),
+            url("https://openfonts.pages.dev/LuxiMono-woff2/LuxiMono-Bold.woff2");
+        unicode-range: @unicodeRangeForDigital;
+    }
+}
+
+// ----------------------------------------
+// VLOOK Serif
+.genVlookSerif() {
+    @font-face { // - Medium
+        font-family: "VLOOK Serif";
+        font-weight: 500;
+        src: local("Noto Serif CJK SC Medium"),
+            url("https://openfonts.pages.dev/NotoSerifCJKsc-woff2/NotoSerifCJKsc-Medium.woff2");
+    }
+    @font-face { // - Black
+        font-family: "VLOOK Serif";
+        font-weight: 900;
+        src: local("Noto Serif CJK SC Black"),
+            url("https://openfonts.pages.dev/NotoSerifCJKsc-woff2/NotoSerifCJKsc-Black.woff2");
+    }
+}
+
+// ----------------------------------------
+// VLOOK Serif Mono
+.genVlookSerifMono() {
+    @font-face { // - Regular
+        font-family: "VLOOK Serif Mono";
+        font-weight: normal;
+        src: local("Luxi Mono Regular"),
+            url("https://openfonts.pages.dev/LuxiMono-woff2/LuxiMono-Regular.woff2");
+    }
+    @font-face { // - Medium
+        font-family: "VLOOK Serif Mono";
+        font-style: italic;
+        font-weight: normal;
+        src: local("Luxi Mono Oblique"),
+            url("https://openfonts.pages.dev/LuxiMono-woff2/LuxiMono-Italic-Regular.woff2");
+    }
+    @font-face { // - Bold
+        font-family: "VLOOK Serif Mono";
+        font-weight: bold;
+        src: local("Luxi Mono Bold"),
+            url("https://openfonts.pages.dev/LuxiMono-woff2/LuxiMono-Bold.woff2");
+    }
+    @font-face { // - Black
+        font-family: "VLOOK Serif Mono";
+        font-style: italic;
+        font-weight: bold;
+        src: local("Luxi Mono Bold Oblique"),
+            url("https://openfonts.pages.dev/LuxiMono-woff2/LuxiMono-Italic-Bold.woff2");
     }
 }
 
