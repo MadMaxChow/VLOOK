@@ -529,7 +529,7 @@ let _ = "",
     _tabindex_ = "tabindex",
     _tagName_ = "tagName",
     _target_ = "target",
-    _tbody_ = "" + _body_,
+    _tbody_ = "t" + _body_,
     _textAlign_ = _text_ + "-" + _align_,
     _textLength_ = _text_ + "Length",
     _textShadow_ = _text_ + __shadow_,
@@ -10493,15 +10493,18 @@ function ExtTable_init() {
 
         // ----------------------------------------
         // 遍历表格「非列头」行
+        // ERROR(333, table.hm());
         table.f(_tbody_ + ">tr").e((index, element) => {
             let colIndex = 0,
                 needCheckCellMerge = gTrue,
                 needCheckRowGroup = gTrue;
+
             // ----------------------------------------
             // 遍历单元格
             $(element).f("td").e((i, e) => {
                 let td = $(e),
                     text = td.t();
+                // ERROR(444, td.t());
 
                 // 对于屏幕较小时，调整单元格的最大宽度处理
                 if (jq_Window.oW() <= gUnwrapTableScreenWidth)
@@ -10509,6 +10512,7 @@ function ExtTable_init() {
 
                 // ---------- 表格排版增强预处理 ----------
                 // 检测是否带合并单元格语法
+                // ERROR(111, text, needCheckCellMerge, table.a(_dataCellMerge_) !== _true_, (CellMerge_syntax_row.test(text)) || CellMerge_syntax_col.test(text));
                 if (needCheckCellMerge
                     && table.a(_dataCellMerge_) !== _true_
                     && (CellMerge_syntax_row.test(text)
@@ -11145,7 +11149,7 @@ function TableCross_init() {
  */
 function TableCross_toggle() {
     let table = ContentAssistor_lastHover;
-    ERROR(111, table.a(_dataTblX_));
+    // ERROR(111, table.a(_dataTblX_));
     // 已打开，则关闭
     if (table.a(_dataTblX_) === _true_)
         TableCross_disable(table);
@@ -11384,6 +11388,8 @@ let ColumnFormatting_syntax_checkbox = /(^((\[[x-]])|[Yy?？])(\s.+)*)/; // 复�
  * @param text 单元格文本内容
  */
 function ColumnFormatting_init(table, cell, text) {
+    // ERROR(111, cell.t());
+    // ERROR(222, cell.f(":is(" + _strong_ + ",em,u," + _mark_ + "," + _del_ + ")" + _onlyChild_).t());
     if (table.a(_dataColumnFmting_) !== _true_
         && (V_length(cell.f(":is(" + _strong_ + ",em,u," + _mark_ + "," + _del_ + ")" + _onlyChild_)) > 0 // 普通列格式
         // && (V_length(cell.f(_strong_ + ",em,u," + _mark_ + "," + _del_)) > 0 // 普通列格式
@@ -11391,6 +11397,7 @@ function ColumnFormatting_init(table, cell, text) {
         || ColumnFormatting_syntax_checkbox_header.test(text))) { // 复选框列格式
             // 将表格标识为带列格式语法
             table.a(_dataColumnFmting_, _true_);
+            // ERROR(333, "match");
             return gTrue; // 匹配到列格式
     }
     return gFalse; // 未匹配到列格式
@@ -11438,7 +11445,8 @@ function ColumnFormatting_format(table) {
         }
 
         // 斜体
-        if (V_length(th.ch("em" + _onlyChild_)) > 0) {
+        // ERROR(111, th.t(), th.f("em" + _onlyChild_).t());
+        if (V_length(th.f("em" + _onlyChild_)) > 0) {
             cells = ColumnFormatting_getCells(table, th, cells);
             cellsCSS += _vTblColFmt_Em_ +___;
         }
@@ -11459,6 +11467,7 @@ function ColumnFormatting_format(table) {
 
         // 删除线
         if (V_length(th.ch(_del_ + _firstChild_)) > 0) {
+            // ERROR(111, ColumnFormatting_getTbodyCells(table, th, tbodyCells).t());
             // 删除对应的列
             JQ_remove(th);
             JQ_remove(ColumnFormatting_getTbodyCells(table, th, tbodyCells));

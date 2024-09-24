@@ -1524,10 +1524,14 @@ content .md-toc::before {
     text-transform: uppercase;
     font: @syntaxTipsFont;
     font-size: 0.5em;
-    position: absolute;
+    display: block;
+    // position: absolute;
     margin-top: -.7em;
     opacity: .6;
 }
+// @{writeOnEditing} table th {
+//     overflow: hidden;
+// }
 
 // 有序、无序列表下的图片、非图片段落
 #write li .md-p>span:not([class*=md-image]) {

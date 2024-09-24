@@ -1295,6 +1295,13 @@ h6:first-child) {
     margin: .5em 0 0 0;
 }
 
+// 没有子元素的 p 元素，即空白行
+#write p:not(:has(*)) {
+    font-size: .625em;
+    margin: 0;
+    padding: 0;
+}
+
 #write @{quote_details}>p:first-child,
 #write @{quote_details}>ol:first-child,
 #write @{quote_details}>ul:first-child,
@@ -2519,7 +2526,7 @@ td.v-tbl-row-g-not-folder {
     text-align: right;
     margin-top: @tableRowNumTop;
     color: var(--h-f);
-    position: absolute;
+    // position: absolute;
 }
 @{writeOnHTML} @{tableRowNumForH6} {
     margin-top: @tableRowNumTop * 2;
