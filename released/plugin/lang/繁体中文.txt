@@ -1,5 +1,5 @@
 <!--
-VLOOK™ "V26.0" (2024-09-20) - Typora Plugin  (language pack)
+VLOOK™ "V26.1" (2024-09-24) - Typora Plugin  (language pack)
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
@@ -27,7 +27,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk15" content="前一張">
 <meta name="vk-zh-hk16" content="後一張">
 <meta name="vk-zh-hk17" content="關閉">
-<meta name="vk-zh-hk18" content="字型">
+<meta name="vk-zh-hk18" content="歷史">
 <meta name="vk-zh-hk19" content="如果你無法連接到互聯網加載線上版本的字體，建議直接下載字體到本地">
 <meta name="vk-zh-hk20" content="主站">
 <meta name="vk-zh-hk21" content="備用">
@@ -94,3 +94,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk82" content="頁面">
 <meta name="vk-zh-hk83" content="連結">
 <meta name="vk-zh-hk84" content="註腳">
+<meta name="vk-zh-hk85" content="還原字體樣式">

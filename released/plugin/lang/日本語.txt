@@ -1,5 +1,5 @@
 <!--
-VLOOK™ "V26.0" (2024-09-20) - Typora Plugin  (language pack)
+VLOOK™ "V26.1" (2024-09-24) - Typora Plugin  (language pack)
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
@@ -27,7 +27,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja15" content="前へ">
 <meta name="vk-ja16" content="次へ">
 <meta name="vk-ja17" content="閉じる">
-<meta name="vk-ja18" content="フォント">
+<meta name="vk-ja18" content="歴史">
 <meta name="vk-ja19" content="インターネットに接続できずフォントのオンラインバージョンを読み込むことができない場合は、フォントを直接ローカルにダウンロードすることをお勧めします">
 <meta name="vk-ja20" content="主要">
 <meta name="vk-ja21" content="スタンバイ">
@@ -94,3 +94,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja82" content="ページ">
 <meta name="vk-ja83" content="リンク">
 <meta name="vk-ja84" content="脚注">
+<meta name="vk-ja85" content="フォントスタイルを復元する">

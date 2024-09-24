@@ -1,5 +1,5 @@
 <!--
-VLOOK™ "V26.0" (2024-09-20) - Typora Plugin  (language pack)
+VLOOK™ "V26.1" (2024-09-24) - Typora Plugin  (language pack)
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
@@ -27,7 +27,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru15" content="Предыдущий">
 <meta name="vk-ru16" content="Следующий">
 <meta name="vk-ru17" content="Закрыть">
-<meta name="vk-ru18" content="Шрифт">
+<meta name="vk-ru18" content="История">
 <meta name="vk-ru19" content="Если вы не можете подключиться к Интернету для загрузки онлайн-версии шрифта, рекомендуется скачать шрифт напрямую на локальный диск">
 <meta name="vk-ru20" content="Основной">
 <meta name="vk-ru21" content="Резервный">
@@ -94,3 +94,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru82" content="Страница">
 <meta name="vk-ru83" content="Ссылка">
 <meta name="vk-ru84" content="Сноска">
+<meta name="vk-ru85" content="Восстановить стиль шрифта">

@@ -26,7 +26,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 vlook-gray-mode: 5-12
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V26.0`*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V26.1`*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
@@ -38,7 +38,7 @@ vlook-gray-mode: 5-12
 >
 > ![OSChina](pic/oschina.png#icon) **[开源中国](https://www.oschina.net/p/vlook) 推荐的国产开源产品。**
 >
-> ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™**_~T1~_ 是针对 ![Typora](pic/typora.png#icon) [Typora](https://www.typora.io)[^Typora] （跨平台 Markdown 编辑器)的 **主题包**_~GnRo~_ 和 **增强插件**_~PuOg~_。
+> ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™**_~T1~_ 是针对 ![Typora](pic/typora.png#icon) [Typora](https://www.typora.io)[^Typora] **主题包**_~GnRo~_ 和 **增强插件**_~PuOg~_。
 >
 > VLOOK™ 属于开源软件（遵从 **MIT License**_~Rd~_）。
 
@@ -251,7 +251,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 > ###### 安装字体（可选）
 >
-> 下载并安装 VLOOK™ 主题配套字体包 •• 详见「[字体主题](guide2.md#字体主题)」。
+> 下载并安装 VLOOK™ 主题配套字体包 •• 详见「[字体风格](guide2.md#字体风格)」。
 >
 > _~Gn~_
 

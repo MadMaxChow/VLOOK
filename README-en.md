@@ -50,7 +50,7 @@ VLOOK™ is open source software and complies with the **[MIT license](#许可�
 
 ![让你的 Markdown 文档在自动化排版、可交互性上了 N 个台阶](https://vlook-doc.pages.dev/pic/vlook-screenshot-A01.png)
 
-![内置多套原创文档主题 & 字体主题，一键切换！支持定制！](https://vlook-doc.pages.dev/pic/vlook-screenshot-A02.png)
+![内置多套原创文档主题 & 字体风格，一键切换！支持定制！](https://vlook-doc.pages.dev/pic/vlook-screenshot-A02.png)
 
 ![图片排版 plus：题注、高清屏、版式、Dark 模式适配反色/替换…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A03.png)
 

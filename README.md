@@ -50,7 +50,7 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ![让你的 Markdown 文档在自动化排版、可交互性上了 N 个台阶](https://vlook-doc.pages.dev/pic/vlook-screenshot-A01.png)
 
-![内置多套原创文档主题 & 字体主题，一键切换！支持定制！](https://vlook-doc.pages.dev/pic/vlook-screenshot-A02.png)
+![内置多套原创文档主题 & 字体风格，一键切换！支持定制！](https://vlook-doc.pages.dev/pic/vlook-screenshot-A02.png)
 
 ![图片排版 plus：题注、高清屏、版式、Dark 模式适配反色/替换…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A03.png)
 
@@ -112,7 +112,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 ---
 
-# 字体主题
+# 字体风格
 
 「**模板主题让文档颜值倍增，而字体则是文档气质担当！**」
 
@@ -130,7 +130,7 @@ VLOOK™ 提供了两套字体风格，可根据个人喜好进行选用。
 >
 > ![字体风格_文艺范](https://vlook-doc.pages.dev/pic/文艺范@2x.png)
 
-**因为 Windows / MacOS 系统默认不预装字体主题配套的字体包，VLOOK™ 目前可同时支持在线和本地两种使用方式。**
+**因为 Windows / MacOS 系统默认不预装字体风格配套的字体包，VLOOK™ 目前可同时支持在线和本地两种使用方式。**
 **若你的工作环境无法访问互联网，建议直接下载字体包并安装到本地，以获得最佳的视觉体验。**
 
 ![蓝奏云](https://vlook-doc.pages.dev/pic/lanzou.png?srcset=@2x#logo) •• [下载字体 ▾](https://wwe.lanzoui.com/ieVDhj1aokj)

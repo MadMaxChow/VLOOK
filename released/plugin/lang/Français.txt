@@ -1,5 +1,5 @@
 <!--
-VLOOK™ "V26.0" (2024-09-20) - Typora Plugin  (language pack)
+VLOOK™ "V26.1" (2024-09-24) - Typora Plugin  (language pack)
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
@@ -27,7 +27,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-fr15" content="Précédent">
 <meta name="vk-fr16" content="Suivant">
 <meta name="vk-fr17" content="Fermer">
-<meta name="vk-fr18" content="Police">
+<meta name="vk-fr18" content="Histoire">
 <meta name="vk-fr19" content="Si vous ne pouvez pas vous connecter à Internet pour charger la version en ligne de la police, il est recommandé de télécharger la police directement sur l’ordinateur">
 <meta name="vk-fr20" content="Principal">
 <meta name="vk-fr21" content="Veille">
@@ -94,3 +94,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-fr82" content="Page">
 <meta name="vk-fr83" content="Lien">
 <meta name="vk-fr84" content="Note de bas de page">
+<meta name="vk-fr85" content="Restaurer le style de police">

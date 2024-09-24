@@ -1,5 +1,5 @@
 <!--
-VLOOK™ "V26.0" (2024-09-20) - Typora Plugin  (language pack)
+VLOOK™ "V26.1" (2024-09-24) - Typora Plugin  (language pack)
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
@@ -27,7 +27,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko15" content="이전">
 <meta name="vk-ko16" content="다음">
 <meta name="vk-ko17" content="닫기">
-<meta name="vk-ko18" content="글꼴">
+<meta name="vk-ko18" content="역사">
 <meta name="vk-ko19" content="인터넷에 연결하여 폰트의 온라인 버전을 불러올 수 없는 경우, 폰트를 직접 로컬에 다운로드하는 것이 권장됩니다">
 <meta name="vk-ko20" content="기본">
 <meta name="vk-ko21" content="대기">
@@ -94,3 +94,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko82" content="페이지">
 <meta name="vk-ko83" content="링크">
 <meta name="vk-ko84" content="각주">
+<meta name="vk-ko85" content="글꼴 스타일 복원">

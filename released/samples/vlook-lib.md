@@ -4,7 +4,7 @@ title: 浏览更多 VLOOK™ 的话题
 
 # 快速入坑°文档排版
 
-> ![°文档排版](pic/qico-types-light.svg?fill=vn&darksrc=invert#logo)
+> ![°文档排版](pic/qico-types-light.svg?fill=vn#logo)
 >
 > **° 文档排版**
 >
@@ -161,7 +161,7 @@ title: 浏览更多 VLOOK™ 的话题
 
 # 快速入坑°内容导航
 
-> ![°内容导航](pic/qico-nav-light.svg?fill=Bu&darksrc=invert#logo)
+> ![°内容导航](pic/qico-nav-light.svg?fill=Bu#logo)
 >
 > **° 内容导航**
 >
@@ -231,7 +231,7 @@ title: 浏览更多 VLOOK™ 的话题
 
 # 快速入坑°演示与出版
 
-> ![°演示与出版](pic/qico-pres-light.svg?fill=og&darksrc=invert#logo)
+> ![°演示与出版](pic/qico-pres-light.svg?fill=og#logo)
 >
 > **° 演示与出版**
 >
@@ -367,7 +367,7 @@ title: 浏览更多 VLOOK™ 的话题
 
 # 快速入坑°主题与不杂项
 
-> ![°主题与不杂项](pic/qico-theme-light.svg?fill=lm&darksrc=invert#logo)
+> ![°主题与不杂项](pic/qico-theme-light.svg?fill=lm#logo)
 >
 > **° 主题与不杂项**
 >
@@ -381,10 +381,10 @@ title: 浏览更多 VLOOK™ 的话题
 
 ---
 
-> **模板主题、字体主题**
+> **模板主题、字体风格**
 >
 > - 为不同类型的文档设置不同的「模板主题」 [❯❯](guide2.md#模板主题)
-> - 为文档选择不同的「字体主题」 [❯❯](guide2.md#字体主题)
+> - 为文档选择不同的「字体风格」 [❯❯](guide2.md#字体风格)
 > - **Dark Mode** is **NOW** [❯❯](guide2.md#Dark-Mode)
 > - **Gray Mode** is **NOW** [❯❯](guide2.md#Gray-Mode)
 > - 为文档添加「封面与封底」 [❯❯](guide2.md#封面与封底)

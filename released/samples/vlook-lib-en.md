@@ -4,7 +4,7 @@ title: More Topics about VLOOK™
 
 # Quick Start ° Formatting
 
-> ![° FORMATTING](pic/qico-types-light.svg?fill=vn&darksrc=invert#logo)
+> ![° FORMATTING](pic/qico-types-light.svg?fill=vn#logo)
 >
 > **° FORMATTING**
 >
@@ -161,7 +161,7 @@ title: More Topics about VLOOK™
 
 # Quick Start ° Navigation
 
-> ![° NAVIGATION](pic/qico-nav-light.svg?fill=bu&darksrc=invert#logo)
+> ![° NAVIGATION](pic/qico-nav-light.svg?fill=bu#logo)
 >
 > **° NAVIGATION**
 >
@@ -217,7 +217,7 @@ title: More Topics about VLOOK™
 
 # Quick Start ° Presentation and Publishing
 
-> ![° PRESENTATION & PUBLICATION](pic/qico-pres-light.svg?fill=og&darksrc=invert#logo)
+> ![° PRESENTATION & PUBLICATION](pic/qico-pres-light.svg?fill=og#logo)
 >
 > **° PRESENTATION & PUBLICATION**
 >
@@ -341,7 +341,7 @@ title: More Topics about VLOOK™
 
 # Quick Start ° Themes & Essentials
 
-> ![° THEME & ESSENTIALS](pic/qico-theme-light.svg?fill=lm&darksrc=invert#logo)
+> ![° THEME & ESSENTIALS](pic/qico-theme-light.svg?fill=lm#logo)
 >
 > **° THEME & ESSENTIALS**
 >
@@ -358,7 +358,7 @@ title: More Topics about VLOOK™
 > **Template Themes, Font Themes**
 >
 > - Set different "Template Themes" for different types of documents [❯❯](guide2.md#模板主题)
-> - Choose different "Font Themes" for documents [❯❯](guide2.md#字体主题)
+> - Choose different "Font Themes" for documents [❯❯](guide2.md#字体风格)
 > - **Dark Mode** is **NOW** [❯❯](guide2.md#Dark-Mode)
 > - **Gray Mode** is **NOW** [❯❯](guide2.md#Gray-Mode)
 > - Add "Cover and Back Cover" to documents [❯❯](guide2.md#封面与封底)

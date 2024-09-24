@@ -1,5 +1,5 @@
 <!--
-VLOOK™ "V26.0" (2024-09-20) - Typora Plugin  (language pack)
+VLOOK™ "V26.1" (2024-09-24) - Typora Plugin  (language pack)
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
@@ -27,7 +27,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ar15" content="سابق">
 <meta name="vk-ar16" content="التالي">
 <meta name="vk-ar17" content="إغلاق">
-<meta name="vk-ar18" content="الخط">
+<meta name="vk-ar18" content="التاريخ">
 <meta name="vk-ar19" content="إذا لم تتمكن من الاتصال بالإنترنت لتحميل النسخة عبر الإنترنت من الخط، يُوصى بتنزيل الخط مباشرةً إلى الجهاز المحلي">
 <meta name="vk-ar20" content="أساسي">
 <meta name="vk-ar21" content="احتياطي">
@@ -94,3 +94,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ar82" content="صفحة">
 <meta name="vk-ar83" content="رابط">
 <meta name="vk-ar84" content="حاشية">
+<meta name="vk-ar85" content="استعادة نمط الخط">

@@ -19,7 +19,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 vlook-gray-mode: 05-12
 ---
 
-###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective_^Interaction^_<br>──<br><u>Introduction</u><br>*`V26.0` is the Latest*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective_^Interaction^_<br>──<br><u>Introduction</u><br>*`V26.1` is the Latest*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
@@ -31,7 +31,7 @@ vlook-gray-mode: 05-12
 >
 > **A DOMESTICALLY DEVELOPED OPEN-SOURCE PRODUCT RECOMMENDED BY** ![OSChina](pic/oschina.png#icon) **[Open Source China](https://www.oschina.net/p/vlook)**.
 >
-> ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** is a **THEME PACK**_~GnRo~_ and **ENHANCEMENT PLUGIN**_~PuOg~_ for Typora[^Typora] (cross-platform Markdown editor).
+> ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** is a **THEME PACK**_~GnRo~_ and **ENHANCEMENT PLUGIN**_~PuOg~_ for Typora[^Typora] .
 >
 > VLOOK™ is an open-source software that follows the **MIT License**.
 
@@ -179,21 +179,21 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 ---
 
-> [![Click to see ...](pic/sample-a-api_spec-en.png?srcset=@2x#card#border "API documentation with rich styles and interactions")](sample-a-api_spec.html?ws=off)
+> [![Click to see ...](pic/sample-a-api_spec-en.png?srcset=@2x#card#border "Richly styled and interactive API doc")](sample-a-api_spec.html?ws=off)
 
-> [![Click to see ...](pic/sample-a-to_do-en.png?srcset=@2x#card#border "Clear categorization and progress-based to-do notes")](sample-a-to_do.html?ws=off)
+> [![Click to see ...](pic/sample-a-to_do-en.png?srcset=@2x#card#border "Clear, categorized, and progress-tracked to-do notes")](sample-a-to_do.html?ws=off)
 
->  [![Click to see ...](pic/sample-a-img_text-en.png?srcset=@2x#card#border "Images and text can also be harmonious")](sample-a-img_text.html?ws=off)
-
----
+>  [![Click to see ...](pic/sample-a-img_text-en.png?srcset=@2x#card#border "Images and text can also harmonize very well")](sample-a-img_text.html?ws=off)
 
 ---
 
-> [![Click to see ...](pic/sample-a-board-en.png?srcset=@2x#card#border "Collapsible categorized reference information")](sample-a-routes.html?ws=off)
+---
 
-> [![Click to see ...](pic/sample-a-quiz-en.png?srcset=@2x#card#border "A dashboard for categorizing and organizing project information")](sample-a-board.html?ws=off)
+> [![Click to see ...](pic/sample-a-board-en.png?srcset=@2x#card#border "A categorized board for organizing projec")](sample-a-routes.html?ws=off)
 
-> [![Click to see ...](pic/sample-a-routes-en.png?srcset=@2x#card#border "Interactive Q&A can be this simple")](sample-a-quiz.html?ws=off)
+> [![Click to see ...](pic/sample-a-quiz-en.png?srcset=@2x#card#border "Interactive Q&A can be this simple")](sample-a-board.html?ws=off)
+
+> [![Click to see ...](pic/sample-a-routes-en.png?srcset=@2x#card#border "Collapsible categorized reference information")](sample-a-quiz.html?ws=off)
 
 > [!TIP]
 >
@@ -229,7 +229,7 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 > ###### Install Fonts (optional)
 >
-> Download and install the VLOOK™ theme matching font pack•• See "[Font Themes](guide2.md#字体主题)" for details.
+> Download and install the VLOOK™ theme matching font pack•• See "[Font Themes](guide2.md#字体风格)" for details.
 >
 > _~Gn~_
 

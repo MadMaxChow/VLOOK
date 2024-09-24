@@ -1,5 +1,5 @@
 <!--
-VLOOK™ "V26.0" (2024-09-20) - Typora Plugin  (language pack)
+VLOOK™ "V26.1" (2024-09-24) - Typora Plugin  (language pack)
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
@@ -27,7 +27,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de15" content="Vorherige">
 <meta name="vk-de16" content="Nächste">
 <meta name="vk-de17" content="Schließen">
-<meta name="vk-de18" content="Schriftart">
+<meta name="vk-de18" content="Geschichte">
 <meta name="vk-de19" content="Wenn Sie keine Verbindung zum Internet herstellen können, um die Online-Version der Schriftart zu laden, wird empfohlen, die Schriftart direkt lokal herunterzuladen">
 <meta name="vk-de20" content="Primär">
 <meta name="vk-de21" content="Standby">
@@ -94,3 +94,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de82" content="Seite">
 <meta name="vk-de83" content="Link">
 <meta name="vk-de84" content="Fußnote">
+<meta name="vk-de85" content="Schriftstil wiederherstellen">

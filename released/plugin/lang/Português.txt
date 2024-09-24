@@ -1,5 +1,5 @@
 <!--
-VLOOK™ "V26.0" (2024-09-20) - Typora Plugin  (language pack)
+VLOOK™ "V26.1" (2024-09-24) - Typora Plugin  (language pack)
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
@@ -27,7 +27,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt15" content="Anterior">
 <meta name="vk-pt16" content="Próximo">
 <meta name="vk-pt17" content="Fechar">
-<meta name="vk-pt18" content="Fonte">
+<meta name="vk-pt18" content="História">
 <meta name="vk-pt19" content="Se você não conseguir se conectar à Internet para carregar a versão online da fonte, é recomendado baixar a fonte diretamente para o local">
 <meta name="vk-pt20" content="Primário">
 <meta name="vk-pt21" content="Reserva">
@@ -94,3 +94,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt82" content="Página">
 <meta name="vk-pt83" content="Link">
 <meta name="vk-pt84" content="Nota de rodapé">
+<meta name="vk-pt85" content="Restaurar estilo de fonte">

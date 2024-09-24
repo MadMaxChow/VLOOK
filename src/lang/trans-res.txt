@@ -9,15 +9,15 @@
 【AI 翻译提示词】多国语言版本
 多国语言的标识对应关系如下："de"对应的是德语，"es"对应的是西班牙语，"fr"对应的是法语，"pt"对应的是葡萄牙语，"ru"对应的是俄语，"ar"对应的是阿拉伯语，"ko"对应的是韩语，"ja"对应的是日语，"zh-hk"对应的是繁体中文。
 帮我把以下内容中，「content=」后双引用内的英文内容翻译为对应的语言，具体对应语言的标识以「name=」后双引用号内容中为参考，即"vk-"后的内容为对应的语言标识（忽略数字部分），其他内容保持原内容输出：
-<meta name="vk-de22" content="All footnotes">
-<meta name="vk-es22" content="All footnotes">
-<meta name="vk-fr22" content="All footnotes">
-<meta name="vk-pt22" content="All footnotes">
-<meta name="vk-ru22" content="All footnotes">
-<meta name="vk-ar22" content="All footnotes">
-<meta name="vk-ko22" content="All footnotes">
-<meta name="vk-ja22" content="All footnotes">
-<meta name="vk-zh-hk22" content="All footnotes">
+<meta name="vk-de85" content="Restore font style">
+<meta name="vk-es85" content="Restore font style">
+<meta name="vk-fr85" content="Restore font style">
+<meta name="vk-pt85" content="Restore font style">
+<meta name="vk-ru85" content="Restore font style">
+<meta name="vk-ar85" content="Restore font style">
+<meta name="vk-ko85" content="Restore font style">
+<meta name="vk-ja85" content="Restore font style">
+<meta name="vk-zh-hk85" content="Restore font style">
 
 ——————————
 
