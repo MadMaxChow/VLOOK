@@ -10,7 +10,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vlook-lang-en" content="en">
 <!-- The following is the content of the language package -->
 <!-- 以下为语言包内容 -->
-<meta name="vk-en1" content="Cover">
+<meta name="vk-en1" content="Document header/back-cover">
 <meta name="vk-en2" content="Print...">
 <meta name="vk-en3" content="Link Map">
 <meta name="vk-en4" content="How to enable?">
@@ -22,7 +22,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en10" content="Laser Pointer">
 <meta name="vk-en11" content="CJK">
 <meta name="vk-en12" content="Non-CJK">
-<meta name="vk-en13" content="Back to cover">
+<meta name="vk-en13" content="Go back to the document header/back-cover">
 <meta name="vk-en14" content="Go back to the beginning of this chapter">
 <meta name="vk-en15" content="Previous">
 <meta name="vk-en16" content="Next">
@@ -30,39 +30,39 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en18" content="History">
 <meta name="vk-en19" content="If you cannot connect to the Internet to load the online version of the font, it is recommended to download the font directly to the local">
 <meta name="vk-en20" content="Primary">
-<meta name="vk-en21" content="Standby">
+<meta name="vk-en21" content="Secondary">
 <meta name="vk-en22" content="All footnotes">
 <meta name="vk-en23" content="Start Reading">
 <meta name="vk-en24" content="Full screen">
 <meta name="vk-en25" content="Reading mode">
-<meta name="vk-en26" content="Wrap / Unwrap">
+<meta name="vk-en26" content="Line break / No line break">
 <meta name="vk-en27" content="Picture in picture">
-<meta name="vk-en28" content="Hold">
+<meta name="vk-en28" content="Press and hold">
 <meta name="vk-en29" content="Copy as Markdown">
 <meta name="vk-en30" content="Copy code">
 <meta name="vk-en31" content="Copy image address">
 <meta name="vk-en32" content="Copy table content">
 <meta name="vk-en33" content="Change the size of the spotlight">
 <meta name="vk-en34" content="Exit">
-<meta name="vk-en35" content="Type [ / ] to search">
-<meta name="vk-en36" content="has a new version available. Update now!">
+<meta name="vk-en35" content="chapter/pic./table/...">
+<meta name="vk-en36" content=" - A new version has been released, please update plugin">
 <meta name="vk-en37" content="Sorry, copying is currently not supported in this browser">
 <meta name="vk-en38" content="Ready">
 <meta name="vk-en39" content="Timeout">
 <meta name="vk-en40" content="Loading">
 <meta name="vk-en41" content="Font Theme">
-<meta name="vk-en42" content="minue(s)">
+<meta name="vk-en42" content="minute(s)">
 <meta name="vk-en43" content="hour(s)">
 <meta name="vk-en44" content="words">
 <meta name="vk-en45" content="Switch Auto/Light/Dark Mode">
 <meta name="vk-en46" content="Not found">
-<meta name="vk-en47" content="Check Passed">
+<meta name="vk-en47" content="Hash check passed">
 <meta name="vk-en48" content="Close document">
-<meta name="vk-en49" content="Revised, please recheck">
-<meta name="vk-en50" content="Over URL limit">
+<meta name="vk-en49" content="Hash check failed">
+<meta name="vk-en50" content="Maximum URL length exceeded">
 <meta name="vk-en51" content="Hash">
 <meta name="vk-en52" content="Check Hash">
-<meta name="vk-en53" content="Duplicate Chapter">
+<meta name="vk-en53" content="Duplicate Chapter Name">
 <meta name="vk-en54" content="Invalid Inner Link">
 <meta name="vk-en55" content="Show all">
 <meta name="vk-en56" content="Table">
@@ -75,7 +75,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en63" content="Invalid audio address">
 <meta name="vk-en64" content="Invalid video address">
 <meta name="vk-en65" content="Invalid image address">
-<meta name="vk-en66" content="Catalog is Empty">
+<meta name="vk-en66" content="Table of contents is empty">
 <meta name="vk-en67" content="No content">
 <meta name="vk-en68" content="Postcard">
 <meta name="vk-en69" content="Alter">
