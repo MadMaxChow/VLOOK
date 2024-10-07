@@ -44,7 +44,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de32" content="Tabelleninhalt kopieren">
 <meta name="vk-de33" content="Größe des Spotlights ändern">
 <meta name="vk-de34" content="Beenden">
-<meta name="vk-de35" content="Tippen Sie [ / ], um zu suchen">
+<meta name="vk-de35" content="Suche">
 <meta name="vk-de36" content="hat eine neue Version verfügbar. Jetzt aktualisieren!">
 <meta name="vk-de37" content="Entschuldigung, das Kopieren wird in diesem Browser derzeit nicht unterstützt">
 <meta name="vk-de38" content="Bereit">
@@ -95,3 +95,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de83" content="Link">
 <meta name="vk-de84" content="Fußnote">
 <meta name="vk-de85" content="Schriftstil wiederherstellen">
+<meta name="vk-de86" content="Formel">

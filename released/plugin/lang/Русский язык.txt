@@ -44,7 +44,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru32" content="Копировать содержимое таблицы">
 <meta name="vk-ru33" content="Измените размер прожектора">
 <meta name="vk-ru34" content="Выйти">
-<meta name="vk-ru35" content="Наберите [ / ] для поиска">
+<meta name="vk-ru35" content="Поиск">
 <meta name="vk-ru36" content="доступна новая версия. Обновите сейчас!">
 <meta name="vk-ru37" content="Извините, в этом браузере функция копирования в данный момент не поддерживается">
 <meta name="vk-ru38" content="Готово">
@@ -95,3 +95,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru83" content="Ссылка">
 <meta name="vk-ru84" content="Сноска">
 <meta name="vk-ru85" content="Восстановить стиль шрифта">
+<meta name="vk-ru86" content="Формула">

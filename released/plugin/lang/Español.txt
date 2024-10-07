@@ -44,7 +44,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-es32" content="Copiar contenido de la tabla">
 <meta name="vk-es33" content="Cambiar el tamaño del proyector">
 <meta name="vk-es34" content="Salir">
-<meta name="vk-es35" content="Escribe [ / ] para buscar">
+<meta name="vk-es35" content="Buscar">
 <meta name="vk-es36" content="tiene una nueva versión disponible. ¡Actualiza ahora!">
 <meta name="vk-es37" content="Lo siento, copiar no es compatible con este navegador en este momento">
 <meta name="vk-es38" content="Listo">
@@ -95,3 +95,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-es83" content="Enlace">
 <meta name="vk-es84" content="Nota al pie">
 <meta name="vk-es85" content="Restaurar estilo de fuente">
+<meta name="vk-es86" content="Fórmula">

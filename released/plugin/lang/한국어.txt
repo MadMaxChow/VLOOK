@@ -44,7 +44,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko32" content="테이블 내용 복사">
 <meta name="vk-ko33" content="스포트라이트 크기 변경">
 <meta name="vk-ko34" content="종료">
-<meta name="vk-ko35" content="검색하려면 [ / ] 입력">
+<meta name="vk-ko35" content="검색">
 <meta name="vk-ko36" content="에 새 버전이 출시되었습니다. 즉시 업그레이드하세요!">
 <meta name="vk-ko37" content="죄송합니다. 현재 이 브라우저에서는 복사가 지원되지 않습니다">
 <meta name="vk-ko38" content="준비 완료">
@@ -95,3 +95,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko83" content="링크">
 <meta name="vk-ko84" content="각주">
 <meta name="vk-ko85" content="글꼴 스타일 복원">
+<meta name="vk-ko86" content="수식">

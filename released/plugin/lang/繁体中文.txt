@@ -44,7 +44,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk32" content="複製表格內容">
 <meta name="vk-zh-hk33" content="調整聚光燈大小">
 <meta name="vk-zh-hk34" content="退出">
-<meta name="vk-zh-hk35" content="按下 [ / ] 進行搜索">
+<meta name="vk-zh-hk35" content="搜尋">
 <meta name="vk-zh-hk36" content="已推出新版本，請及時升級！">
 <meta name="vk-zh-hk37" content="對不起，目前此瀏覽器不支援複製功能">
 <meta name="vk-zh-hk38" content="準備好">
@@ -95,3 +95,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk83" content="連結">
 <meta name="vk-zh-hk84" content="註腳">
 <meta name="vk-zh-hk85" content="還原字體樣式">
+<meta name="vk-zh-hk86" content="公式">

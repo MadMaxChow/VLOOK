@@ -44,7 +44,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-fr32" content="Copier le contenu du tableau">
 <meta name="vk-fr33" content="Changer la taille du projecteur">
 <meta name="vk-fr34" content="Quitter">
-<meta name="vk-fr35" content="Tapez [ / ] pour rechercher">
+<meta name="vk-fr35" content="Recherche">
 <meta name="vk-fr36" content="a une nouvelle version disponible. Mettez à jour maintenant!">
 <meta name="vk-fr37" content="Désolé, la fonction de copie n’est actuellement pas supportée dans ce navigateur">
 <meta name="vk-fr38" content="Prêt">
@@ -95,3 +95,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-fr83" content="Lien">
 <meta name="vk-fr84" content="Note de bas de page">
 <meta name="vk-fr85" content="Restaurer le style de police">
+<meta name="vk-fr86" content="Formule">

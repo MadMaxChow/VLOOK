@@ -44,7 +44,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja32" content="表の内容をコピー">
 <meta name="vk-ja33" content="スポットライトのサイズを変更">
 <meta name="vk-ja34" content="終了。">
-<meta name="vk-ja35" content="[ / ] を入力して検索">
+<meta name="vk-ja35" content="検索">
 <meta name="vk-ja36" content="に新しいバージョンがリリースされました。適時にアップグレードしてください！">
 <meta name="vk-ja37" content="申し訳ありませんが、このブラウザでは現在コピー機能がサポートされていません">
 <meta name="vk-ja38" content="準備完了">
@@ -95,3 +95,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja83" content="リンク">
 <meta name="vk-ja84" content="脚注">
 <meta name="vk-ja85" content="フォントスタイルを復元する">
+<meta name="vk-ja86" content="式">

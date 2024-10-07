@@ -44,7 +44,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ar32" content="نسخ محتوى الجدول">
 <meta name="vk-ar33" content="تغيير حجم الأضواء">
 <meta name="vk-ar34" content="خروج">
-<meta name="vk-ar35" content="اكتب [ / ] للبحث">
+<meta name="vk-ar35" content="بحث">
 <meta name="vk-ar36" content="يتوفر إصدار جديد. قم بالتحديث الآن!">
 <meta name="vk-ar37" content="عذرًا، النسخ غير مدعوم حاليًا في هذا المتصفح">
 <meta name="vk-ar38" content="جاهز">
@@ -95,3 +95,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ar83" content="رابط">
 <meta name="vk-ar84" content="حاشية">
 <meta name="vk-ar85" content="استعادة نمط الخط">
+<meta name="vk-ar86" content="صيغة">

@@ -44,7 +44,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt32" content="Copiar conteúdo da tabela">
 <meta name="vk-pt33" content="Mudar o tamanho do foco">
 <meta name="vk-pt34" content="Sair">
-<meta name="vk-pt35" content="Digite [ / ] para buscar.">
+<meta name="vk-pt35" content="Pesquisar">
 <meta name="vk-pt36" content="tem uma nova versão disponível. Atualize agora!">
 <meta name="vk-pt37" content="Desculpe, a cópia não é suportada atualmente neste navegador">
 <meta name="vk-pt38" content="Pronto">
@@ -95,3 +95,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt83" content="Link">
 <meta name="vk-pt84" content="Nota de rodapé">
 <meta name="vk-pt85" content="Restaurar estilo de fonte">
+<meta name="vk-pt86" content="Fórmula">
