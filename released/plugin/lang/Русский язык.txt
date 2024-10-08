@@ -10,27 +10,27 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vlook-lang-ru" content="ru">
 <!-- The following is the content of the language package -->
 <!-- 以下为语言包内容 -->
-<meta name="vk-ru1" content="Шапка/обложка документа">
+<meta name="vk-ru1" content="Обложка документа">
 <meta name="vk-ru2" content="Печать...">
-<meta name="vk-ru3" content="Карта ссылок">
-<meta name="vk-ru4" content="Как активировать?">
-<meta name="vk-ru5" content="Выполните тройной клик мышью по любому абзацу в документе">
-<meta name="vk-ru6" content="Панель навигации">
-<meta name="vk-ru7" content="Просмотр библиотеки">
+<meta name="vk-ru3" content="Ссылочная карта">
+<meta name="vk-ru4" content="Как включить?">
+<meta name="vk-ru5" content="Тройной щелчок мышью по любому абзацу в документе">
+<meta name="vk-ru6" content="Навигационный центр">
+<meta name="vk-ru7" content="Библиотека документов">
 <meta name="vk-ru8" content="Режим навигации по абзацам">
-<meta name="vk-ru9" content="Подсветка лучом фонарика">
-<meta name="vk-ru10" content="Лазерная указка">
-<meta name="vk-ru11" content="- слова из иероглифов">
-<meta name="vk-ru12" content="- слова из букв">
-<meta name="vk-ru13" content="Вернуться к шапке/обложке документа">
-<meta name="vk-ru14" content="Вернуться к началу параграфа">
-<meta name="vk-ru15" content="Назад">
-<meta name="vk-ru16" content="Вперёд">
+<meta name="vk-ru9" content="Спотлайт">
+<meta name="vk-ru10" content="Лазерный указатель">
+<meta name="vk-ru11" content="CJK">
+<meta name="vk-ru12" content="Non-CJK">
+<meta name="vk-ru13" content="Вернуться к обложке документа">
+<meta name="vk-ru14" content="Вернуться к началу этой главы">
+<meta name="vk-ru15" content="Предыдущий">
+<meta name="vk-ru16" content="Следующий">
 <meta name="vk-ru17" content="Закрыть">
-<meta name="vk-ru18" content="История посещений">
+<meta name="vk-ru18" content="Формула">
 <meta name="vk-ru19" content="Если у вас не получается подключиться к сети Интернет для использования онлайн-версии шрифта, рекомендуется скачать шрифт непосредственно на локальный диск">
-<meta name="vk-ru20" content="Основной источник">
-<meta name="vk-ru21" content="Запасной источник">
+<meta name="vk-ru20" content="Основная ссылка">
+<meta name="vk-ru21" content="Вторичная ссылка">
 <meta name="vk-ru22" content="Все сноски">
 <meta name="vk-ru23" content="Начать чтение">
 <meta name="vk-ru24" content="Полноэкранный режим">
@@ -44,8 +44,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru32" content="Скопировать содержимое таблицы">
 <meta name="vk-ru33" content="Регулировка размера луча фонарика">
 <meta name="vk-ru34" content="Выход">
-<meta name="vk-ru35" content="Поиск">
-<meta name="vk-ru36" content=" - Доступна новая версия, пожалуйста обновите плагин">
+<meta name="vk-ru35" content="Оглавление">
+<meta name="vk-ru36" content="- Выпущена новая версия, пожалуйста, обновите!">
 <meta name="vk-ru37" content="Извините, функция копирования в этом браузере на данный момент не поддерживается">
 <meta name="vk-ru38" content="Готово">
 <meta name="vk-ru39" content="Тайм-аут">
@@ -62,21 +62,21 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru50" content="Превышена максимальная длина URL-адреса">
 <meta name="vk-ru51" content="Хеш">
 <meta name="vk-ru52" content="Проверить хеш">
-<meta name="vk-ru53" content="Одинаковое название глав/параграфов">
-<meta name="vk-ru54" content="Неверная внутренняя ссылка">
-<meta name="vk-ru55" content="Показать всё">
+<meta name="vk-ru53" content="Одинаковое название глав">
+<meta name="vk-ru54" content="Недопустимая внутренняя ссылка">
+<meta name="vk-ru55" content="Показать все">
 <meta name="vk-ru56" content="Таблица">
 <meta name="vk-ru57" content="Блок кода">
 <meta name="vk-ru58" content="Рисунок">
 <meta name="vk-ru59" content="Аудио">
 <meta name="vk-ru60" content="Видео">
-<meta name="vk-ru61" content="Повторно кликните мышью, чтобы скопировать как Markdown">
+<meta name="vk-ru61" content="Нажмите еще раз, чтобы скопировать как Markdown">
 <meta name="vk-ru62" content="Скопировано">
 <meta name="vk-ru63" content="Неверная ссылка на аудио">
 <meta name="vk-ru64" content="Неверная ссылка на видео">
 <meta name="vk-ru65" content="Неверная ссылка на изображение">
-<meta name="vk-ru66" content="Оглавление отсутствует">
-<meta name="vk-ru67" content="Содержимое отсутствует">
+<meta name="vk-ru66" content=" пусто">
+<meta name="vk-ru67" content="Не найдено">
 <meta name="vk-ru68" content="Карточка">
 <meta name="vk-ru69" content="Альтернатива">
 <meta name="vk-ru70" content="Опциональное">
@@ -90,9 +90,9 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru78" content="Продолжить чтение документа">
 <meta name="vk-ru79" content="Для наилучшей совместимости рекомендуется использовать браузер Chrome/Firefox/Edge">
 <meta name="vk-ru80" content="Внимание! Для обеспечения правильной печати рекомендуется использовать функцию [Печать...] в документе!">
-<meta name="vk-ru81" content="Неверные ссылки">
+<meta name="vk-ru81" content="Недействительная ссылка / адрес">
 <meta name="vk-ru82" content="Страница">
 <meta name="vk-ru83" content="Ссылка">
 <meta name="vk-ru84" content="Сноска">
 <meta name="vk-ru85" content="Восстановить стиль шрифта">
-<meta name="vk-ru86" content="Формула">
+<meta name="vk-ru86" content="Добавьте [TOC] перед заголовком первого уровня-1, чтобы его сгенерировать">
