@@ -10,7 +10,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vlook-lang-pt" content="pt">
 <!-- The following is the content of the language package -->
 <!-- 以下为语言包内容 -->
-<meta name="vk-pt1" content="Capa">
+<meta name="vk-pt1" content="Capa do documento">
 <meta name="vk-pt2" content="Impressão...">
 <meta name="vk-pt3" content="Mapa de Links">
 <meta name="vk-pt4" content="Como ativar?">
@@ -22,22 +22,22 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt10" content="Ponteiro Laser">
 <meta name="vk-pt11" content="CJK">
 <meta name="vk-pt12" content="Não-CJK">
-<meta name="vk-pt13" content="Voltar para a capa">
+<meta name="vk-pt13" content="Voltar à capa do documento">
 <meta name="vk-pt14" content="Voltar ao início deste capítulo">
 <meta name="vk-pt15" content="Anterior">
 <meta name="vk-pt16" content="Próximo">
 <meta name="vk-pt17" content="Fechar">
 <meta name="vk-pt18" content="Fórmula">
 <meta name="vk-pt19" content="Se você não conseguir se conectar à Internet para carregar a versão online da fonte, é recomendado baixar a fonte diretamente para o local">
-<meta name="vk-pt20" content="Primário">
-<meta name="vk-pt21" content="Reserva">
+<meta name="vk-pt20" content="Link primário">
+<meta name="vk-pt21" content="Link secundário">
 <meta name="vk-pt22" content="Todas as notas de rodapé">
 <meta name="vk-pt23" content="Começar a Ler">
 <meta name="vk-pt24" content="Tela cheia">
 <meta name="vk-pt25" content="Modo de Leitura">
 <meta name="vk-pt26" content="Enrolar / Desenrolar">
 <meta name="vk-pt27" content="Imagem em imagem">
-<meta name="vk-pt28" content="Manter">
+<meta name="vk-pt28" content="Pressione e segure">
 <meta name="vk-pt29" content="Copiar como Markdown">
 <meta name="vk-pt30" content="Copiar código">
 <meta name="vk-pt31" content="Copiar endereço da imagem">
@@ -45,7 +45,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt33" content="Mudar o tamanho do foco">
 <meta name="vk-pt34" content="Sair">
 <meta name="vk-pt35" content="Índice">
-<meta name="vk-pt36" content="tem uma nova versão disponível. Atualize agora!">
+<meta name="vk-pt36" content="- Uma nova versão foi lançada, por favor atualize!">
 <meta name="vk-pt37" content="Desculpe, a cópia não é suportada atualmente neste navegador">
 <meta name="vk-pt38" content="Pronto">
 <meta name="vk-pt39" content="Tempo Esgotado">
@@ -56,13 +56,13 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt44" content="palavras">
 <meta name="vk-pt45" content="Trocar Modo Automático/Claro/Escuro">
 <meta name="vk-pt46" content="Não encontrado">
-<meta name="vk-pt47" content="Verificação Aprovada">
+<meta name="vk-pt47" content="Verificação de hash aprovada">
 <meta name="vk-pt48" content="Fechar documento">
-<meta name="vk-pt49" content="Revisado, por favor, verifique novamente">
-<meta name="vk-pt50" content="Limite de URL excedido">
+<meta name="vk-pt49" content="A verificação de hash falhou">
+<meta name="vk-pt50" content="Comprimento máximo da URL excedido">
 <meta name="vk-pt51" content="Hash">
 <meta name="vk-pt52" content="Verificar Hash">
-<meta name="vk-pt53" content="Capítulo Duplicado">
+<meta name="vk-pt53" content="Nome de capítulo duplicado">
 <meta name="vk-pt54" content="Link Interno Inválido">
 <meta name="vk-pt55" content="Mostrar todos">
 <meta name="vk-pt56" content="Tabela">

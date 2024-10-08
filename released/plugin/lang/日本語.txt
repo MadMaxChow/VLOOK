@@ -10,7 +10,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vlook-lang-ja" content="ja">
 <!-- The following is the content of the language package -->
 <!-- 以下为语言包内容 -->
-<meta name="vk-ja1" content="カバー">
+<meta name="vk-ja1" content="ドキュメントカバー">
 <meta name="vk-ja2" content="印刷...">
 <meta name="vk-ja3" content="リンクマップ">
 <meta name="vk-ja4" content="どうやって有効にしますか？">
@@ -22,22 +22,22 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja10" content="レーザーポインター">
 <meta name="vk-ja11" content="中韓日">
 <meta name="vk-ja12" content="中韓日以外">
-<meta name="vk-ja13" content="カバーに戻る">
+<meta name="vk-ja13" content="ドキュメントカバーに戻る">
 <meta name="vk-ja14" content="この章の最初に戻る">
 <meta name="vk-ja15" content="前へ">
 <meta name="vk-ja16" content="次へ">
 <meta name="vk-ja17" content="閉じる">
 <meta name="vk-ja18" content="式">
 <meta name="vk-ja19" content="インターネットに接続できずフォントのオンラインバージョンを読み込むことができない場合は、フォントを直接ローカルにダウンロードすることをお勧めします">
-<meta name="vk-ja20" content="主要">
-<meta name="vk-ja21" content="スタンバイ">
+<meta name="vk-ja20" content="プライマリリンク">
+<meta name="vk-ja21" content="セカンダリリンク">
 <meta name="vk-ja22" content="すべての脚注">
 <meta name="vk-ja23" content="読み始める">
 <meta name="vk-ja24" content="全画面">
 <meta name="vk-ja25" content="読書モード">
 <meta name="vk-ja26" content="折り返し / 折り返さない">
 <meta name="vk-ja27" content="ピクチャー・イン・ピクチャー">
-<meta name="vk-ja28" content="保持">
+<meta name="vk-ja28" content="押して保持">
 <meta name="vk-ja29" content="Markdownとしてコピー">
 <meta name="vk-ja30" content="コードをコピー">
 <meta name="vk-ja31" content="画像アドレスをコピー">
@@ -45,7 +45,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja33" content="スポットライトのサイズを変更">
 <meta name="vk-ja34" content="終了。">
 <meta name="vk-ja35" content="目次">
-<meta name="vk-ja36" content="に新しいバージョンがリリースされました。適時にアップグレードしてください！">
+<meta name="vk-ja36" content="- 新しいバージョンがリリースされました。更新してください！">
 <meta name="vk-ja37" content="申し訳ありませんが、このブラウザでは現在コピー機能がサポートされていません">
 <meta name="vk-ja38" content="準備完了">
 <meta name="vk-ja39" content="タイムアウト">
@@ -56,13 +56,13 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja44" content="単語">
 <meta name="vk-ja45" content="自動/ライト/ダークモードを切り替え">
 <meta name="vk-ja46" content="見つかりません">
-<meta name="vk-ja47" content="チェックに合格しました">
+<meta name="vk-ja47" content="ハッシュチェックに合格しました">
 <meta name="vk-ja48" content="文書を閉じる">
-<meta name="vk-ja49" content="修正済み、再確認してください">
-<meta name="vk-ja50" content="URL制限を超えました">
+<meta name="vk-ja49" content="ハッシュチェックに失敗しました">
+<meta name="vk-ja50" content="URLの最大長を超えました">
 <meta name="vk-ja51" content="ハッシュ">
 <meta name="vk-ja52" content="ハッシュを確認">
-<meta name="vk-ja53" content="重複章">
+<meta name="vk-ja53" content="重複した章の名前">
 <meta name="vk-ja54" content="無効な内部リンク">
 <meta name="vk-ja55" content="すべて表示">
 <meta name="vk-ja56" content="表">

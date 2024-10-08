@@ -10,7 +10,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vlook-lang-es" content="es">
 <!-- The following is the content of the language package -->
 <!-- 以下为语言包内容 -->
-<meta name="vk-es1" content="Portada">
+<meta name="vk-es1" content="Portada del documento">
 <meta name="vk-es2" content="Imprimir...">
 <meta name="vk-es3" content="Enlace al mapa">
 <meta name="vk-es4" content="¿Cómo habilitar?">
@@ -22,22 +22,22 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-es10" content="Lápiz Láser">
 <meta name="vk-es11" content="CJK">
 <meta name="vk-es12" content="Non-CJK">
-<meta name="vk-es13" content="Volver a la portada">
+<meta name="vk-es13" content="Volver a la portada del documento">
 <meta name="vk-es14" content="Volver al principio de este capítulo">
 <meta name="vk-es15" content="Anterior">
 <meta name="vk-es16" content="Siguiente">
 <meta name="vk-es17" content="Cerrar">
 <meta name="vk-es18" content="Fórmula">
 <meta name="vk-es19" content="Si no puedes conectarte a Internet para cargar la versión en línea de la fuente, se recomienda descargar la fuente directamente al dispositivo local">
-<meta name="vk-es20" content="Primario">
-<meta name="vk-es21" content="Reserva">
+<meta name="vk-es20" content="Enlace primario">
+<meta name="vk-es21" content="Enlace secundario">
 <meta name="vk-es22" content="Todas las notas al pie">
 <meta name="vk-es23" content="Comenzar a leer">
 <meta name="vk-es24" content="Pantalla completa">
 <meta name="vk-es25" content="Modo de lectura">
 <meta name="vk-es26" content="Envolver / Desenrollar">
 <meta name="vk-es27" content="Imagen en imagen">
-<meta name="vk-es28" content="Mantener">
+<meta name="vk-es28" content="Presionar y mantener">
 <meta name="vk-es29" content="Copiar como Markdown">
 <meta name="vk-es30" content="Copiar código">
 <meta name="vk-es31" content="Copiar dirección de la imagen">
@@ -45,7 +45,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-es33" content="Cambiar el tamaño del proyector">
 <meta name="vk-es34" content="Salir">
 <meta name="vk-es35" content="Índice">
-<meta name="vk-es36" content="tiene una nueva versión disponible. ¡Actualiza ahora!">
+<meta name="vk-es36" content="- Se ha lanzado una nueva versión, ¡por favor actualiza!">
 <meta name="vk-es37" content="Lo siento, copiar no es compatible con este navegador en este momento">
 <meta name="vk-es38" content="Listo">
 <meta name="vk-es39" content="Tiempo de espera">
@@ -56,13 +56,13 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-es44" content="palabras">
 <meta name="vk-es45" content="Cambiar entre Modo Automático/Claro/Osuro">
 <meta name="vk-es46" content="No encontrado">
-<meta name="vk-es47" content="Verificación Aprobada">
+<meta name="vk-es47" content="La verificación de hash ha sido aprobada">
 <meta name="vk-es48" content="Cerrar documento">
-<meta name="vk-es49" content="Revisado, por favor verifica de nuevo">
-<meta name="vk-es50" content="Límite de URL excedido">
+<meta name="vk-es49" content="La verificación de hash ha fallado">
+<meta name="vk-es50" content="Se ha excedido la longitud máxima de la URL">
 <meta name="vk-es51" content="Hash">
 <meta name="vk-es52" content="Verificar Hash">
-<meta name="vk-es53" content="Capítulo Duplicado">
+<meta name="vk-es53" content="Nombre de capítulo duplicado">
 <meta name="vk-es54" content="Enlace Interno Inválido">
 <meta name="vk-es55" content="Mostrar todo">
 <meta name="vk-es56" content="Tabla">

@@ -8316,8 +8316,8 @@ let StsNewVersion_checkOriginCloudFlare = _vlookPagesHost_CloudFlare_, //"https:
  */
 function NewVersion_init() {
     StsNewVersion_ui.a(_dataTips_, _VLOOK_ + "™ " + V_lang_text(36, [
-        "已推出新版本，请及时升级！",
-        "has a new version available. Update now!"
+        "- 已推出新版本，请更新！",
+        "- A new version has been released, please update!"
     ]));
 
     ToolTips_bind(StsNewVersion_ui);

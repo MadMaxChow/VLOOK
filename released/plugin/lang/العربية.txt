@@ -10,7 +10,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vlook-lang-ar" content="ar">
 <!-- The following is the content of the language package -->
 <!-- 以下为语言包内容 -->
-<meta name="vk-ar1" content="غلاف">
+<meta name="vk-ar1" content="غلاف المستند">
 <meta name="vk-ar2" content="طباعة...">
 <meta name="vk-ar3" content="خريطة الروابط">
 <meta name="vk-ar4" content="كيف تفعيل؟">
@@ -22,22 +22,22 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ar10" content="مؤشر الليزر">
 <meta name="vk-ar11" content="CJK">
 <meta name="vk-ar12" content="غير CJK">
-<meta name="vk-ar13" content="العودة إلى الغلاف">
+<meta name="vk-ar13" content="الرجوع إلى غلاف المستند">
 <meta name="vk-ar14" content="العودة إلى بداية هذا الفصل">
 <meta name="vk-ar15" content="سابق">
 <meta name="vk-ar16" content="التالي">
 <meta name="vk-ar17" content="إغلاق">
 <meta name="vk-ar18" content="صيغة">
 <meta name="vk-ar19" content="إذا لم تتمكن من الاتصال بالإنترنت لتحميل النسخة عبر الإنترنت من الخط، يُوصى بتنزيل الخط مباشرةً إلى الجهاز المحلي">
-<meta name="vk-ar20" content="أساسي">
-<meta name="vk-ar21" content="احتياطي">
+<meta name="vk-ar20" content="رابط أساسي">
+<meta name="vk-ar21" content="رابط ثانوي">
 <meta name="vk-ar22" content="جميع الحواشي">
 <meta name="vk-ar23" content="ابدأ القراءة">
 <meta name="vk-ar24" content="ملء الشاشة">
 <meta name="vk-ar25" content="وضع القراءة">
 <meta name="vk-ar26" content="تغليف / فك التغليف">
 <meta name="vk-ar27" content="صورة في صورة">
-<meta name="vk-ar28" content="تمسك">
+<meta name="vk-ar28" content="اضغط مع الاستمرار">
 <meta name="vk-ar29" content="نسخ كـ Markdown">
 <meta name="vk-ar30" content="نسخ الشيفرة">
 <meta name="vk-ar31" content="نسخ عنوان الصورة">
@@ -45,7 +45,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ar33" content="تغيير حجم الأضواء">
 <meta name="vk-ar34" content="خروج">
 <meta name="vk-ar35" content="جدول المحتويات">
-<meta name="vk-ar36" content="يتوفر إصدار جديد. قم بالتحديث الآن!">
+<meta name="vk-ar36" content="- تم إصدار نسخة جديدة، يرجى التحديث!">
 <meta name="vk-ar37" content="عذرًا، النسخ غير مدعوم حاليًا في هذا المتصفح">
 <meta name="vk-ar38" content="جاهز">
 <meta name="vk-ar39" content="انتهاء المهلة">
@@ -56,13 +56,13 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ar44" content="كلمات">
 <meta name="vk-ar45" content="تبديل بين الوضع التلقائي/الواضح/الداكن">
 <meta name="vk-ar46" content="غير موجود">
-<meta name="vk-ar47" content="التحقق تم بنجاح">
+<meta name="vk-ar47" content="تم اجتياز فحص التجزئة">
 <meta name="vk-ar48" content="إغلاق المستند">
-<meta name="vk-ar49" content="تمت المراجعة، يرجى إعادة التحقق">
-<meta name="vk-ar50" content="تجاوز حد URL">
+<meta name="vk-ar49" content="فشل فحص التجزئة">
+<meta name="vk-ar50" content="تم تجاوز الحد الأقصى لطول عنوان URL">
 <meta name="vk-ar51" content="هاش">
 <meta name="vk-ar52" content="تحقق من الهاش">
-<meta name="vk-ar53" content="تكرار الفصل">
+<meta name="vk-ar53" content="اسم الفصل مكرر">
 <meta name="vk-ar54" content="رابط داخلي غير صالح">
 <meta name="vk-ar55" content="عرض الكل">
 <meta name="vk-ar56" content="جدول">

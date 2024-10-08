@@ -10,7 +10,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vlook-lang-zh-hk" content="zh-hk">
 <!-- The following is the content of the language package -->
 <!-- 以下为语言包内容 -->
-<meta name="vk-zh-hk1" content="封面">
+<meta name="vk-zh-hk1" content="文件封面">
 <meta name="vk-zh-hk2" content="打印...">
 <meta name="vk-zh-hk3" content="連結地圖">
 <meta name="vk-zh-hk4" content="如何啟用？">
@@ -22,22 +22,22 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk10" content="激光筆">
 <meta name="vk-zh-hk11" content="中日韩">
 <meta name="vk-zh-hk12" content="非中日韩">
-<meta name="vk-zh-hk13" content="回到封面">
+<meta name="vk-zh-hk13" content="回到文件封面">
 <meta name="vk-zh-hk14" content="回到本章的開始">
 <meta name="vk-zh-hk15" content="前一張">
 <meta name="vk-zh-hk16" content="後一張">
 <meta name="vk-zh-hk17" content="關閉">
 <meta name="vk-zh-hk18" content="公式">
 <meta name="vk-zh-hk19" content="如果你無法連接到互聯網加載線上版本的字體，建議直接下載字體到本地">
-<meta name="vk-zh-hk20" content="主站">
-<meta name="vk-zh-hk21" content="備用">
+<meta name="vk-zh-hk20" content="主要連結">
+<meta name="vk-zh-hk21" content="次要連結">
 <meta name="vk-zh-hk22" content="所有註腳">
 <meta name="vk-zh-hk23" content="開始閱讀">
 <meta name="vk-zh-hk24" content="全螢幕">
 <meta name="vk-zh-hk25" content="閱讀模式">
 <meta name="vk-zh-hk26" content="換行/不換行">
 <meta name="vk-zh-hk27" content="畫中畫">
-<meta name="vk-zh-hk28" content="按住">
+<meta name="vk-zh-hk28" content="按住不放">
 <meta name="vk-zh-hk29" content="複製為 Markdown">
 <meta name="vk-zh-hk30" content="複製代碼">
 <meta name="vk-zh-hk31" content="複製圖片地址">
@@ -45,7 +45,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk33" content="調整聚光燈大小">
 <meta name="vk-zh-hk34" content="退出">
 <meta name="vk-zh-hk35" content="目錄">
-<meta name="vk-zh-hk36" content="已推出新版本，請及時升級！">
+<meta name="vk-zh-hk36" content="- 已推出新版本，請更新！">
 <meta name="vk-zh-hk37" content="對不起，目前此瀏覽器不支援複製功能">
 <meta name="vk-zh-hk38" content="準備好">
 <meta name="vk-zh-hk39" content="超時">
@@ -56,13 +56,13 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk44" content="字">
 <meta name="vk-zh-hk45" content="切換 自動/明亮/黑暗 模式">
 <meta name="vk-zh-hk46" content="沒有找到">
-<meta name="vk-zh-hk47" content="檢查通過">
+<meta name="vk-zh-hk47" content="Hash 檢查通過">
 <meta name="vk-zh-hk48" content="關閉文件">
-<meta name="vk-zh-hk49" content="已修訂，重新檢查">
-<meta name="vk-zh-hk50" content="超出 URL 最大長度">
+<meta name="vk-zh-hk49" content="Hash 檢查失敗">
+<meta name="vk-zh-hk50" content="超過URL的最大長度">
 <meta name="vk-zh-hk51" content="錨點">
 <meta name="vk-zh-hk52" content="檢查錨點">
-<meta name="vk-zh-hk53" content="重複的標題名稱">
+<meta name="vk-zh-hk53" content="重複章節名稱">
 <meta name="vk-zh-hk54" content="無效的頁內鏈接">
 <meta name="vk-zh-hk55" content="顯示全部">
 <meta name="vk-zh-hk56" content="表格">

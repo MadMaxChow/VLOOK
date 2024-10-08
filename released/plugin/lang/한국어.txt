@@ -10,7 +10,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vlook-lang-ko" content="ko">
 <!-- The following is the content of the language package -->
 <!-- 以下为语言包内容 -->
-<meta name="vk-ko1" content="커버">
+<meta name="vk-ko1" content="문서 표지">
 <meta name="vk-ko2" content="인쇄...">
 <meta name="vk-ko3" content="링크 지도">
 <meta name="vk-ko4" content="어떻게 활성화하나요?">
@@ -22,22 +22,22 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko10" content="레이저 포인터">
 <meta name="vk-ko11" content="중일한">
 <meta name="vk-ko12" content="비중일한">
-<meta name="vk-ko13" content="표지로 돌아가기">
+<meta name="vk-ko13" content="문서 표지로 돌아가기">
 <meta name="vk-ko14" content="이 장의 시작으로 돌아가기">
 <meta name="vk-ko15" content="이전">
 <meta name="vk-ko16" content="다음">
 <meta name="vk-ko17" content="닫기">
 <meta name="vk-ko18" content="수식">
 <meta name="vk-ko19" content="인터넷에 연결하여 폰트의 온라인 버전을 불러올 수 없는 경우, 폰트를 직접 로컬에 다운로드하는 것이 권장됩니다">
-<meta name="vk-ko20" content="기본">
-<meta name="vk-ko21" content="대기">
+<meta name="vk-ko20" content="주 링크">
+<meta name="vk-ko21" content="보조 링크">
 <meta name="vk-ko22" content="모든 각주">
 <meta name="vk-ko23" content="읽기 시작">
 <meta name="vk-ko24" content="전체 화면">
 <meta name="vk-ko25" content="읽기 모드">
 <meta name="vk-ko26" content="감기 / 풀기">
 <meta name="vk-ko27" content="화면 속 화면">
-<meta name="vk-ko28" content="잠시 멈추기">
+<meta name="vk-ko28" content="길게 누르기">
 <meta name="vk-ko29" content="마크다운으로 복사">
 <meta name="vk-ko30" content="코드 복사">
 <meta name="vk-ko31" content="이미지 주소 복사">
@@ -45,7 +45,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko33" content="스포트라이트 크기 변경">
 <meta name="vk-ko34" content="종료">
 <meta name="vk-ko35" content="목차">
-<meta name="vk-ko36" content="에 새 버전이 출시되었습니다. 즉시 업그레이드하세요!">
+<meta name="vk-ko36" content="- 새 버전이 출시되었습니다. 업데이트 해주세요!">
 <meta name="vk-ko37" content="죄송합니다. 현재 이 브라우저에서는 복사가 지원되지 않습니다">
 <meta name="vk-ko38" content="준비 완료">
 <meta name="vk-ko39" content="타임아웃">
@@ -56,13 +56,13 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko44" content="단어">
 <meta name="vk-ko45" content="자동/라이트/다크 모드 전환">
 <meta name="vk-ko46" content="찾을 수 없음">
-<meta name="vk-ko47" content="확인 완료">
+<meta name="vk-ko47" content="해시 검사가 통과되었습니다">
 <meta name="vk-ko48" content="문서 닫기">
-<meta name="vk-ko49" content="수정됨, 다시 확인해 주세요">
-<meta name="vk-ko50" content="URL 한도 초과">
+<meta name="vk-ko49" content="해시 검사가 실패했습니다">
+<meta name="vk-ko50" content="URL 길이 초과">
 <meta name="vk-ko51" content="해시">
 <meta name="vk-ko52" content="해시 확인">
-<meta name="vk-ko53" content="중복 장">
+<meta name="vk-ko53" content="중복된 장 이름">
 <meta name="vk-ko54" content="유효하지 않은 내부 링크">
 <meta name="vk-ko55" content="모두 보기">
 <meta name="vk-ko56" content="표">

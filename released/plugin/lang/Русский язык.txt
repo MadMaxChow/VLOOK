@@ -10,7 +10,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vlook-lang-ru" content="ru">
 <!-- The following is the content of the language package -->
 <!-- 以下为语言包内容 -->
-<meta name="vk-ru1" content="Крышка">
+<meta name="vk-ru1" content="Обложка документа">
 <meta name="vk-ru2" content="Печать...">
 <meta name="vk-ru3" content="Ссылочная карта">
 <meta name="vk-ru4" content="Как включить?">
@@ -22,47 +22,47 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru10" content="Лазерный указатель">
 <meta name="vk-ru11" content="CJK">
 <meta name="vk-ru12" content="Non-CJK">
-<meta name="vk-ru13" content="Вернуться на обложку">
+<meta name="vk-ru13" content="Вернуться к обложке документа">
 <meta name="vk-ru14" content="Вернуться к началу этой главы">
 <meta name="vk-ru15" content="Предыдущий">
 <meta name="vk-ru16" content="Следующий">
 <meta name="vk-ru17" content="Закрыть">
 <meta name="vk-ru18" content="Формула">
-<meta name="vk-ru19" content="Если вы не можете подключиться к Интернету для загрузки онлайн-версии шрифта, рекомендуется скачать шрифт напрямую на локальный диск">
-<meta name="vk-ru20" content="Основной">
-<meta name="vk-ru21" content="Резервный">
+<meta name="vk-ru19" content="Если у вас не получается подключиться к сети Интернет для использования онлайн-версии шрифта, рекомендуется скачать шрифт непосредственно на локальный диск">
+<meta name="vk-ru20" content="Основная ссылка">
+<meta name="vk-ru21" content="Вторичная ссылка">
 <meta name="vk-ru22" content="Все сноски">
 <meta name="vk-ru23" content="Начать чтение">
 <meta name="vk-ru24" content="Полноэкранный режим">
 <meta name="vk-ru25" content="Режим чтения">
-<meta name="vk-ru26" content="Завернуть / Развернуть">
+<meta name="vk-ru26" content="Вкл./выкл. автоматический перенос строк">
 <meta name="vk-ru27" content="Картинка в картинке">
-<meta name="vk-ru28" content="Удерживать">
-<meta name="vk-ru29" content="Копировать как Markdown">
-<meta name="vk-ru30" content="Копировать код">
-<meta name="vk-ru31" content="Копировать адрес изображения">
-<meta name="vk-ru32" content="Копировать содержимое таблицы">
-<meta name="vk-ru33" content="Измените размер прожектора">
-<meta name="vk-ru34" content="Выйти">
+<meta name="vk-ru28" content="Нажмите и удерживайте">
+<meta name="vk-ru29" content="Скопировать как Markdown">
+<meta name="vk-ru30" content="Скопировать код">
+<meta name="vk-ru31" content="Скопировать ссылку на изображение">
+<meta name="vk-ru32" content="Скопировать содержимое таблицы">
+<meta name="vk-ru33" content="Регулировка размера луча фонарика">
+<meta name="vk-ru34" content="Выход">
 <meta name="vk-ru35" content="Оглавление">
-<meta name="vk-ru36" content="доступна новая версия. Обновите сейчас!">
-<meta name="vk-ru37" content="Извините, в этом браузере функция копирования в данный момент не поддерживается">
+<meta name="vk-ru36" content="- Выпущена новая версия, пожалуйста, обновите!">
+<meta name="vk-ru37" content="Извините, функция копирования в этом браузере на данный момент не поддерживается">
 <meta name="vk-ru38" content="Готово">
 <meta name="vk-ru39" content="Тайм-аут">
 <meta name="vk-ru40" content="Загрузка">
-<meta name="vk-ru41" content="Тема шрифта">
-<meta name="vk-ru42" content="минута(ы)">
-<meta name="vk-ru43" content="часы">
-<meta name="vk-ru44" content="слова">
-<meta name="vk-ru45" content="Переключить авто/светлый/темный режим">
+<meta name="vk-ru41" content="Сменить стиль шрифта">
+<meta name="vk-ru42" content="- минуты">
+<meta name="vk-ru43" content="- часы">
+<meta name="vk-ru44" content="- слова">
+<meta name="vk-ru45" content="Включить автоматическую/светлую/тёмную тему">
 <meta name="vk-ru46" content="Не найдено">
-<meta name="vk-ru47" content="Проверка пройдена">
+<meta name="vk-ru47" content="Проверка хеша пройдена">
 <meta name="vk-ru48" content="Закрыть документ">
-<meta name="vk-ru49" content="Исправлено, пожалуйста, перепроверьте">
-<meta name="vk-ru50" content="Превышен лимит URL">
+<meta name="vk-ru49" content="Проверка хеша не пройдена">
+<meta name="vk-ru50" content="Превышена максимальная длина URL-адреса">
 <meta name="vk-ru51" content="Хеш">
 <meta name="vk-ru52" content="Проверить хеш">
-<meta name="vk-ru53" content="Дублирующаяся глава">
+<meta name="vk-ru53" content="Одинаковое название глав">
 <meta name="vk-ru54" content="Недопустимая внутренняя ссылка">
 <meta name="vk-ru55" content="Показать все">
 <meta name="vk-ru56" content="Таблица">
@@ -72,24 +72,24 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru60" content="Видео">
 <meta name="vk-ru61" content="Нажмите еще раз, чтобы скопировать как Markdown">
 <meta name="vk-ru62" content="Скопировано">
-<meta name="vk-ru63" content="Недопустимый адрес аудио">
-<meta name="vk-ru64" content="Недопустимый адрес видео">
-<meta name="vk-ru65" content="Недопустимый адрес изображения">
+<meta name="vk-ru63" content="Неверная ссылка на аудио">
+<meta name="vk-ru64" content="Неверная ссылка на видео">
+<meta name="vk-ru65" content="Неверная ссылка на изображение">
 <meta name="vk-ru66" content=" пусто">
 <meta name="vk-ru67" content="Не найдено">
-<meta name="vk-ru68" content="Почтовая открытка">
-<meta name="vk-ru69" content="Изменить">
-<meta name="vk-ru70" content="Опционально">
+<meta name="vk-ru68" content="Карточка">
+<meta name="vk-ru69" content="Альтернатива">
+<meta name="vk-ru70" content="Опциональное">
 <meta name="vk-ru71" content="Цикл">
-<meta name="vk-ru72" content="Параллельно">
-<meta name="vk-ru73" content="Заметка">
-<meta name="vk-ru74" content="Совет">
-<meta name="vk-ru75" content="Важно">
+<meta name="vk-ru72" content="В параллель">
+<meta name="vk-ru73" content="Примечание">
+<meta name="vk-ru74" content="Совет/подсказка">
+<meta name="vk-ru75" content="Важное замечание">
 <meta name="vk-ru76" content="Предупреждение">
-<meta name="vk-ru77" content="Осторожно">
-<meta name="vk-ru78" content="Продолжить чтение">
+<meta name="vk-ru77" content="Предостережение">
+<meta name="vk-ru78" content="Продолжить чтение документа">
 <meta name="vk-ru79" content="Для наилучшей совместимости рекомендуется использовать браузер Chrome/Firefox/Edge">
-<meta name="vk-ru80" content="нимание! Для обеспечения правильной печати рекомендуется использовать функцию [Печать] в документе!">
+<meta name="vk-ru80" content="Внимание! Для обеспечения правильной печати рекомендуется использовать функцию [Печать...] в документе!">
 <meta name="vk-ru81" content="Недействительная ссылка / адрес">
 <meta name="vk-ru82" content="Страница">
 <meta name="vk-ru83" content="Ссылка">
