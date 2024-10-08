@@ -29,7 +29,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en17" content="Close">
 <meta name="vk-en18" content="Formula">
 <meta name="vk-en19" content="If you cannot connect to the Internet to load the online version of the font, it is recommended to download the font directly to the local">
-<meta name="vk-en20" content="Primary Link">
+<meta name="vk-en20" content="Primary link">
 <meta name="vk-en21" content="Secondary link">
 <meta name="vk-en22" content="All footnotes">
 <meta name="vk-en23" content="Start Reading">
