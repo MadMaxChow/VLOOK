@@ -27,7 +27,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru15" content="Предыдущий">
 <meta name="vk-ru16" content="Следующий">
 <meta name="vk-ru17" content="Закрыть">
-<meta name="vk-ru18" content="История">
+<meta name="vk-ru18" content="Формула">
 <meta name="vk-ru19" content="Если вы не можете подключиться к Интернету для загрузки онлайн-версии шрифта, рекомендуется скачать шрифт напрямую на локальный диск">
 <meta name="vk-ru20" content="Основной">
 <meta name="vk-ru21" content="Резервный">
@@ -44,14 +44,14 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru32" content="Копировать содержимое таблицы">
 <meta name="vk-ru33" content="Измените размер прожектора">
 <meta name="vk-ru34" content="Выйти">
-<meta name="vk-ru35" content="Поиск">
+<meta name="vk-ru35" content="Оглавление">
 <meta name="vk-ru36" content="доступна новая версия. Обновите сейчас!">
 <meta name="vk-ru37" content="Извините, в этом браузере функция копирования в данный момент не поддерживается">
 <meta name="vk-ru38" content="Готово">
 <meta name="vk-ru39" content="Тайм-аут">
 <meta name="vk-ru40" content="Загрузка">
 <meta name="vk-ru41" content="Тема шрифта">
-<meta name="vk-ru42" content="минус">
+<meta name="vk-ru42" content="минута(ы)">
 <meta name="vk-ru43" content="часы">
 <meta name="vk-ru44" content="слова">
 <meta name="vk-ru45" content="Переключить авто/светлый/темный режим">
@@ -75,8 +75,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru63" content="Недопустимый адрес аудио">
 <meta name="vk-ru64" content="Недопустимый адрес видео">
 <meta name="vk-ru65" content="Недопустимый адрес изображения">
-<meta name="vk-ru66" content="Каталог пуст">
-<meta name="vk-ru67" content="Нет содержимого">
+<meta name="vk-ru66" content=" пусто">
+<meta name="vk-ru67" content="Не найдено">
 <meta name="vk-ru68" content="Почтовая открытка">
 <meta name="vk-ru69" content="Изменить">
 <meta name="vk-ru70" content="Опционально">
@@ -95,4 +95,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru83" content="Ссылка">
 <meta name="vk-ru84" content="Сноска">
 <meta name="vk-ru85" content="Восстановить стиль шрифта">
-<meta name="vk-ru86" content="Формула">
+<meta name="vk-ru86" content="Добавьте [TOC] перед заголовком первого уровня-1, чтобы его сгенерировать">

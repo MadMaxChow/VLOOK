@@ -36,7 +36,8 @@
 @syntaxTipsFont: italic normal 10px/1 var(--v-f-fm-bd); // 语法提示字体设置
 
 // 目录、文件 的当前节点、点击节点样式
-@tocItemActive_boxShadow: 0 0 0 2px var(--a-hover-color);//0 0 0 2px fade(@aHoverColor, 50%);
+@tocItemActive_boxShadow: 0 0 0 2px var(--ac-t2-fade), 0 0 0 2px var(--ac-t2) inset;//0 0 0 2px fade(@aHoverColor, 50%);
+// @tocItemActive_boxShadow: 0 0 0 2px var(--a-hover-color);//0 0 0 2px fade(@aHoverColor, 50%);
 @tocItemCurrent_boxShadow: 0 0 0 2px @aColor inset;
 
 // 图片、插图边框宽度
@@ -696,7 +697,7 @@
     @{writeOnEditing} .md-alert-@{type} @{cap1_OnEditing}::before,
     @{writeOnEditing} .md-alert-@{type} @{cap2_OnEditing}::before,
     // 导出后的题注前缀
-    #write .md-alert-@{type} .v-caption:not(.pr) .v-cap-1>span,
+    #write .md-alert-@{type} .v-caption:not(.codeblock) .v-cap-1>span,
     // 链接
     #write .md-alert-@{type} a {
         color: ~"var(--ac-@{accColor})";

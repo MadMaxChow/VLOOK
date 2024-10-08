@@ -94,6 +94,7 @@
 
 // 自定义章节自动编号
 // counter() 支持使用有序列表的符号格式（decimal/decimal-leading-zero/lower-roman/upper-roman/lower-alpha/upper-alpha），如：counter(h1, upper-alpha)
+@headerNumSeparator: "";
 @vChpAutoNum: "h1{{Part #ALPHA#}},h2{{#00#-sup#}},h3{{#ROMAN-min#}}";
 @h1BeforeContent: "Part " counter(h1, upper-alpha);
 @h2BeforeContent: counter(h1, upper-alpha) "." counter(h2, decimal-leading-zero);

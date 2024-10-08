@@ -24,3 +24,4 @@ docs/.DS_Store
 .idea/workspace.xml
 .DS_Store
 .config.codekit3
+.idea/vcs.xml

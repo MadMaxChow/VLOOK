@@ -27,7 +27,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de15" content="Vorherige">
 <meta name="vk-de16" content="Nächste">
 <meta name="vk-de17" content="Schließen">
-<meta name="vk-de18" content="Geschichte">
+<meta name="vk-de18" content="Formel">
 <meta name="vk-de19" content="Wenn Sie keine Verbindung zum Internet herstellen können, um die Online-Version der Schriftart zu laden, wird empfohlen, die Schriftart direkt lokal herunterzuladen">
 <meta name="vk-de20" content="Primär">
 <meta name="vk-de21" content="Standby">
@@ -44,14 +44,14 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de32" content="Tabelleninhalt kopieren">
 <meta name="vk-de33" content="Größe des Spotlights ändern">
 <meta name="vk-de34" content="Beenden">
-<meta name="vk-de35" content="Suche">
+<meta name="vk-de35" content="Inhaltsverzeichnis">
 <meta name="vk-de36" content="hat eine neue Version verfügbar. Jetzt aktualisieren!">
 <meta name="vk-de37" content="Entschuldigung, das Kopieren wird in diesem Browser derzeit nicht unterstützt">
 <meta name="vk-de38" content="Bereit">
 <meta name="vk-de39" content="Zeitüberschreitung">
 <meta name="vk-de40" content="Wird geladen">
 <meta name="vk-de41" content="Schriftart-Thema">
-<meta name="vk-de42" content="minute(n)">
+<meta name="vk-de42" content="Minute(n)">
 <meta name="vk-de43" content="stunde(n)">
 <meta name="vk-de44" content="Wörter">
 <meta name="vk-de45" content="Auto-/Hell-/Dunkelmodus wechseln">
@@ -75,8 +75,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de63" content="Ungültige Audio-Adresse">
 <meta name="vk-de64" content="Ungültige Video-Adresse">
 <meta name="vk-de65" content="Ungültige Bild-Adresse">
-<meta name="vk-de66" content="Katalog ist leer">
-<meta name="vk-de67" content="Kein Inhalt">
+<meta name="vk-de66" content=" ist leer">
+<meta name="vk-de67" content="Nicht gefunden">
 <meta name="vk-de68" content="Postkarte">
 <meta name="vk-de69" content="Ändern">
 <meta name="vk-de70" content="Optional">
@@ -95,4 +95,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de83" content="Link">
 <meta name="vk-de84" content="Fußnote">
 <meta name="vk-de85" content="Schriftstil wiederherstellen">
-<meta name="vk-de86" content="Formel">
+<meta name="vk-de86" content="Fügen Sie [TOC] vor der Überschrift der ersten Ebene-1 hinzu, um sie zu generieren">

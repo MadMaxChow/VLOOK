@@ -27,7 +27,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja15" content="前へ">
 <meta name="vk-ja16" content="次へ">
 <meta name="vk-ja17" content="閉じる">
-<meta name="vk-ja18" content="歴史">
+<meta name="vk-ja18" content="式">
 <meta name="vk-ja19" content="インターネットに接続できずフォントのオンラインバージョンを読み込むことができない場合は、フォントを直接ローカルにダウンロードすることをお勧めします">
 <meta name="vk-ja20" content="主要">
 <meta name="vk-ja21" content="スタンバイ">
@@ -44,7 +44,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja32" content="表の内容をコピー">
 <meta name="vk-ja33" content="スポットライトのサイズを変更">
 <meta name="vk-ja34" content="終了。">
-<meta name="vk-ja35" content="検索">
+<meta name="vk-ja35" content="目次">
 <meta name="vk-ja36" content="に新しいバージョンがリリースされました。適時にアップグレードしてください！">
 <meta name="vk-ja37" content="申し訳ありませんが、このブラウザでは現在コピー機能がサポートされていません">
 <meta name="vk-ja38" content="準備完了">
@@ -75,8 +75,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja63" content="無効な音声アドレス">
 <meta name="vk-ja64" content="無効なビデオアドレス">
 <meta name="vk-ja65" content="無効な画像アドレス">
-<meta name="vk-ja66" content="カタログが空です">
-<meta name="vk-ja67" content="コンテンツがありません">
+<meta name="vk-ja66" content="は空です">
+<meta name="vk-ja67" content="見つかりません">
 <meta name="vk-ja68" content="ポストカード">
 <meta name="vk-ja69" content="変更">
 <meta name="vk-ja70" content="オプション">
@@ -95,4 +95,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja83" content="リンク">
 <meta name="vk-ja84" content="脚注">
 <meta name="vk-ja85" content="フォントスタイルを復元する">
-<meta name="vk-ja86" content="式">
+<meta name="vk-ja86" content="[TOC] を最初のレベル-1 の見出しの前に追加して生成します">

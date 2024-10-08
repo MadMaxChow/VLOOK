@@ -24,6 +24,7 @@
 
 检查锚点 / .v-check-hash / z-index: 6500;
 
+当前字体风格加载信息 / .v-font-style-current / z-index: 6100;
 欢迎页 / .v-welcome-page / z-index: 6000;
 
 底部信息栏 / .v-bottom-tips / z-index: 5001;
@@ -51,7 +52,7 @@
 
 ---------- 增强工具操作区 ----------
 
-回到最后浏览位置 / .v-last-position / z-index: 200;
+回到最后浏览位置 / .v-resume-reading / z-index: 200;
 Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 工具栏 / .v-toolbar / z-index: 100;
 状态栏 / .v-status-bar / z-index: 100;
@@ -99,7 +100,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --v-tb-btn-w:40px;
     --v-tb-btn-s:5px;
     --v-top-margin:8px;
-    --v-seg-h:26px;
+    --v-seg-h:28px;
 
     // 过渡效果设置
     --v-trans-dur: 300ms;
@@ -261,6 +262,9 @@ body.unfreeze {
 // 适应宽度
 .v-fit-width {
     display: none;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
     position: fixed;
     top: 40%;
     bottom: 40%;
@@ -320,7 +324,7 @@ body.unfreeze {
     font-size: @fontSizePx;
 }
 
-// 图片 URL 参数指定是否填充边缘
+// 图片地址参数指定是否填充边缘
 @{writeOnEditing} .md-image[data-src*="#padding"]>img, // 编辑时
 @{sharpMagicImgContanier} img[src*="#padding"],
 @{sharpMagicImgContanier} svg[data-inject-url*="#padding"] {
@@ -334,7 +338,7 @@ body.unfreeze {
     margin-bottom: @figurePadding !important;
 }
 
-// 图片 URL 参数指定是否使用网格背景
+// 图片地址参数指定是否使用网格背景
 @sharpMagicImgContanier: ~":is(@{writeOnHTML}, .v-pic-in-pic, .v-fig-content)";
 @{writeOnEditing} .md-image[data-src*="#line"]>img, // 编辑时
 @{writeOnHTML} img[src*="#line"],
@@ -347,7 +351,7 @@ body.unfreeze {
     background: var(--v-fig-grid-b);
 }
 
-// 图片 URL 参数指定图片的显示版式为：icon
+// 图片地址参数指定图片的显示版式为：icon
 @{writeOnEditing} .md-image[data-src*="#icon"]>img, // 编辑时
 @{writeOnHTML} img[src*="#icon"],
 @{writeOnHTML} svg[data-inject-url*="#icon"],
@@ -363,21 +367,21 @@ body.unfreeze {
 @{writeOnHTML} svg[data-inject-url*="#icon"] {
     width: auto;
 }
-// 图片 URL 参数指定图片的显示版式为：icon0
+// 图片地址参数指定图片的显示版式为：icon0
 @{writeOnEditing} .md-image[data-src*="#icon0"]>img, // 编辑时
 @{writeOnHTML} img[src*="#icon0"],
 @{writeOnHTML} svg[data-inject-url*="#icon0"] {
     height: auto; // 原始图标大小
     margin-top: -.1em !important;
 }
-// 图片 URL 参数指定图片的显示版式为：icon2x
+// 图片地址参数指定图片的显示版式为：icon2x
 @{writeOnEditing} .md-image[data-src*="#icon2x"]>img, // 编辑时
 @{writeOnHTML} img[src*="#icon2x"],
 @{writeOnHTML} svg[data-inject-url*="#icon2x"] {
     height: 2em;
 }
 
-// 图片 URL 参数指定图片的显示版式为：logo
+// 图片地址参数指定图片的显示版式为：logo
 @{writeOnEditing} .md-image[data-src*="#logo"]>img, // 编辑时
 @{writeOnHTML} img[src*="#logo"],
 @{writeOnHTML} svg[data-inject-url*="#logo"] {
@@ -401,7 +405,7 @@ body.unfreeze {
     padding: 0 0 0 @figurePadding;
 }
 
-// 图片 URL 参数指定图片的显示版式为：card
+// 图片地址参数指定图片的显示版式为：card
 @{writeOnEditing} .md-image[data-src*="#card"]>img, // 编辑时
 @{writeOnHTML} img[src*="#card"],
 @{writeOnHTML} svg[data-inject-url*="#card"] {
@@ -449,7 +453,7 @@ body.unfreeze {
     transform: none;
 }
 
-// 图片 URL 参数指定图片的显示版式为：frame
+// 图片地址参数指定图片的显示版式为：frame
 @{writeOnEditing} .md-image[data-src*="#logo"][data-src*="#border"]>img, // 编辑时
 @{writeOnHTML} img[src*="#logo"][src*="#border"],
 @{writeOnHTML} svg[data-inject-url*="#logo"][data-inject-url*="#border"] {
@@ -459,7 +463,7 @@ body.unfreeze {
     border-radius: var(--v-r-b) var(--v-r-b-xc) !important;
 }
 
-// 生成通过图片 URL 参数指定图片的按宽度缩放样式
+// 生成通过图片地址参数指定图片的按宽度缩放样式
 .genImgZoomW(@zoom) {
     @{writeOnEditing} .md-image[data-src*="#@{zoom}w"]>img, // 编辑时
     @{writeOnHTML} img[src*="#@{zoom}w"],
@@ -472,7 +476,7 @@ body.unfreeze {
 .genImgZoomW(600);
 .genImgZoomW(800);
 
-// 生成通过图片 URL 参数指定图片的按高度缩放样式
+// 生成通过图片地址参数指定图片的按高度缩放样式
 .genImgZoomH(@zoom) {
     @{writeOnEditing} .md-image[data-src*="#@{zoom}h"]>img, // 编辑时
     @{writeOnHTML} img[src*="#@{zoom}h"],
@@ -486,7 +490,7 @@ body.unfreeze {
 .genImgZoomH(600);
 .genImgZoomH(800);
 
-// 生成通过图片 URL 参数指定图片的旋转样式
+// 生成通过图片地址参数指定图片的旋转样式
 .genImgRotate(@deg) {
     @{writeOnEditing} .md-image[data-src*="#@{deg}deg"]>img, // 编辑时
     @{sharpMagicImgContanier} img[src*="#@{deg}deg"],
@@ -496,7 +500,7 @@ body.unfreeze {
 }
 .genImgRotate(180);
 
-// 生成通过图片 URL 参数指定图片进行水平翻转、垂直翻转的样式
+// 生成通过图片地址参数指定图片进行水平翻转、垂直翻转的样式
 .genImgFlip(@direction) when (@direction = fliph) {
     @{writeOnEditing} .md-image[data-src*="#@{direction}"]>img, // 编辑时
     @{sharpMagicImgContanier} img[src*="#@{direction}"],
@@ -514,7 +518,7 @@ body.unfreeze {
 .genImgFlip(fliph);
 .genImgFlip(flipv);
 
-// 生成通过图片 URL 参数指定图片特效样式：模糊
+// 生成通过图片地址参数指定图片特效样式：模糊
 @{writeOnEditing} .md-image[data-src*="#blur"]>img, // 编辑时
 @{sharpMagicImgContanier} img[src*="#blur"],
 @{sharpMagicImgContanier} svg[data-inject-url*="#blur"] {
@@ -527,28 +531,28 @@ body.unfreeze {
     display: inline-table;
 }
 
-// 生成通过图片 URL 参数指定图片特效样式：灰度
+// 生成通过图片地址参数指定图片特效样式：灰度
 @{writeOnEditing} .md-image[data-src*="#gray"]>img, // 编辑时
 @{sharpMagicImgContanier} img[src*="#gray"],
 @{sharpMagicImgContanier} svg[data-inject-url*="#gray"] {
     filter: grayscale(100%);
 }
 
-// 生成通过图片 URL 参数指定图片特效样式：复古色调
+// 生成通过图片地址参数指定图片特效样式：复古色调
 @{writeOnEditing} .md-image[data-src*="#aged"]>img, // 编辑时
 @{sharpMagicImgContanier} img[src*="#aged"],
 @{sharpMagicImgContanier} svg[data-inject-url*="#aged"] {
     filter: sepia(100%);
 }
 
-// 生成通过图片 URL 参数指定图片特效样式：复古色调
+// 生成通过图片地址参数指定图片特效样式：复古色调
 @{writeOnEditing} .md-image[data-src*="#invert"]>img, // 编辑时
 @{sharpMagicImgContanier} img[src*="#invert"],
 @{sharpMagicImgContanier} svg[data-inject-url*="#invert"] {
     filter: invert(100%);
 }
 
-// 生成通过图片 URL 参数指定各类图片滤镜 hover 时恢复原图（取消滤镜）显示
+// 生成通过图片地址参数指定各类图片滤镜 hover 时恢复原图（取消滤镜）显示
 .genImgFilterHover(@filter) {
     @{writeOnEditing} .md-image[data-src*="#@{filter}!"]>img:hover, // 编辑时
     @{sharpMagicImgContanier} img[src*="#@{filter}!"]:hover,
@@ -691,7 +695,7 @@ summary,
 .v-chapter-nav-next,
 .v-accent-btn,
 .v-textfield-action.hover,
-.v-textfield-reset,
+// .v-textfield-reset,
 .v-fig-nav-btns,
 .v-btn-close-figure-nav,
 .v-pip-btn,
@@ -726,8 +730,10 @@ rt:hover {
 // 编辑时，让引用块小标题中的图片等内容能垂直居中
 content>#write @{quoteTitle}>:is(strong, mark) {
     display: flex;
+    justify-content: center;
     align-items: center;
     vertical-align: middle;
+    width: 100%;
 }
 // 引用块小标题前的图片
 #write blockquote>p:first-child:has(:is(img, svg, span[md-inline="image"]):only-child) {
@@ -768,7 +774,7 @@ content>#write @{quoteTitle}>:is(strong, mark) {
     fill: @aActiveColor !important;
 }
 
-// 图片 URL 参数指定在 Dark Mode 时反色
+// 图片地址参数指定在 Dark Mode 时反色
 @{writeOnHTML} img[src*="darksrc=invert"],
 @{writeOnHTML} svg[data-inject-url*="darksrc=invert"] {
     border-color: var(--img-bd-invert) !important;
@@ -1297,9 +1303,10 @@ h6:first-child) {
 
 // 没有子元素的 p 元素，即空白行
 #write p:not(:has(*)) {
-    font-size: .625em;
+    // font-size: .625em;
     margin: 0;
     padding: 0;
+    height: 15px !important;
 }
 
 #write @{quote_details}>p:first-child,
@@ -1396,7 +1403,8 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 }
 
 summary {
-    font: var(--v-f-w-title) @h7FontSize var(--v-f-fm-title);
+    font: var(--v-f-w-bd) @h7FontSize var(--v-f-fm-subtitle);
+    // font: var(--v-f-w-title) @h7FontSize var(--v-f-fm-title);
     color: var(--a-color);
     text-align: left;
     display: flex;
@@ -1603,7 +1611,7 @@ summary::-moz-list-bullet {
 .md-fences .CodeMirror.cm-s-inner:not([lang="math"]) {
     border-radius: 0 0 var(--v-r-t) var(--v-r-t-xc) !important;
 }
-.v-caption.pr[d-cap-count="2"] .md-fences .CodeMirror.cm-s-inner:not([lang="math"]) {
+.v-caption.codeblock[d-cap-count="2"] .md-fences .CodeMirror.cm-s-inner:not([lang="math"]) {
     border-radius: 0 !important;
 }
 // 编辑时
@@ -2075,20 +2083,21 @@ summary::-moz-list-bullet {
     border-radius: var(--v-r-b) var(--v-r-b-xc) 0 0;
     top: 0;
     left: 0;
-    height: 30px;
+    height: 20px;
     width: 100%;
     background: linear-gradient(180deg, @pnLinerGradientFade4);
     pointer-events: none;
 }
 .v-link-info-list-body {
-    padding: 10px 0;
+    padding: 8px 0;
     height: 100%;
     z-index: 0;
 }
 .v-link-info-list-items {
     overflow-y: scroll;
     height: 100%;
-    padding-bottom: 10px;
+    padding-top: 2px;
+    // padding-bottom: 10px;
 }
 .v-link-info-list-items > .warning > label {
     color: var(--ac-og);
@@ -2103,7 +2112,7 @@ summary::-moz-list-bullet {
     top: auto;
     left: 0;
     bottom: 0;
-    height: 30px;
+    height: 20px;
     width: 100%;
     background: linear-gradient(0deg, @pnLinerGradientFade4);
     pointer-events: none;
@@ -2112,7 +2121,7 @@ summary::-moz-list-bullet {
 .v-status-bar {
     position: fixed;
     border-radius: calc(var(--v-r-s) + 1px) var(--v-r-s-xc);
-    right: @writePaddingRight;
+    right: @writePaddingRight + 10px;
     bottom: 10px;
     height: 32px;
     padding: 1px;
@@ -2887,7 +2896,7 @@ mjx-container[jax="SVG"] > svg a:hover {
 
 // 导出 HTML 后的文档章节目录的自动编码内容
 @{writeOnHTML} :is(h1,h2,h3,h4,h5)::before {
-    content: attr(d-header-num) !important;
+    content: attr(d-header-num) @headerNumSeparator !important;
     opacity: @contentHeaderNumOpacity !important;
 }
 
@@ -3078,8 +3087,10 @@ kbd {
     font-weight: bold;
     text-transform: uppercase;
     padding: 10px;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
     border-radius: var(--v-r-s) var(--v-r-s-xc);
+    width: fit-content;
+    margin: 0 auto 10px;
     display: none;
     cursor: var(--cur-pointer);
 }
@@ -3092,22 +3103,60 @@ kbd {
 }
 
 // 字体风格选择器字体包下载提示
-.v-font-style-info {
+.v-font-style-download {
     font-size: .75em;
-    width: 600px;
+    width: 800px;
     margin: auto;
     overflow: auto;
     border-radius: var(--v-r-s) var(--v-r-s-xc);
 }
+// 当前字体风格下载提示
+.v-font-style-current {
+    font: normal .75em sans-serif; // [style] [weight] [size/[line-height]] [family]
+    background: var(--pn-c);
+    border-radius: calc(var(--v-r-s) + 1px) var(--v-r-s-xc);
+    // font-size: .875em;
+    // left: calc(var(--v-nav-center-w) + 50px);
+    right: 30px;
+    bottom: 50px;
+    // bottom: 10px;
+    padding: 0 10px;
+    height: 26px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    // display: flex;
+    position: fixed;
+    opacity: 1;
+    // visibility: hidden;
+    cursor: default;
+    z-index: 6100;
+}
+.v-font-style-current.done {
+    animation: hide-by-css var(--v-trans-dur) forwards;
+    animation-delay: 3s; // 指定时间后再启用
+}
+@keyframes hide-by-css {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+        // visibility: hidden;
+    }
+}
 
-// 字体风格选项：系统默认
-.v-font-style-opt-local,
-// 字体风格选项：Book
-.v-font-style-opt-book,
-// 字体风格选项：小清新
-.v-font-style-opt-sans,
-// 字体风格选项：文艺范
-.v-font-style-opt-serif {
+// // 字体风格选项：系统默认
+// .v-font-style-opt-local,
+// // 字体风格选项：Book
+// .v-font-style-opt-book,
+// // 字体风格选项：小清新
+// .v-font-style-opt-sans,
+// // 字体风格选项：文艺范
+// .v-font-style-opt-serif {
+// img[class*="v-font-style-opt-"] {
+.v-font-style-opt>img {
     border-radius: var(--v-r-s) var(--v-r-s-xc) !important;
     filter: opacity(.6);
     background-color: var(--d-fc);
@@ -3116,17 +3165,21 @@ kbd {
 }
 
 // 字体风格选项鼠标事件效果
-.v-font-style-opt-local:hover,
-.v-font-style-opt-book:hover,
-.v-font-style-opt-sans:hover,
-.v-font-style-opt-serif:hover {
+// .v-font-style-opt-local:hover,
+// .v-font-style-opt-book:hover,
+// .v-font-style-opt-sans:hover,
+// .v-font-style-opt-serif:hover {
+// img[class*="v-font-style-opt-"]:hover {
+.v-font-style-opt>img:hover {
     filter: opacity(1);
     box-shadow: 0 0 0 2px var(--a-color);
 }
-.v-font-style-opt-local:active,
-.v-font-style-opt-book:active,
-.v-font-style-opt-sans:active,
-.v-font-style-opt-serif:active {
+// .v-font-style-opt-local:active,
+// .v-font-style-opt-book:active,
+// .v-font-style-opt-sans:active,
+// .v-font-style-opt-serif:active {
+// img[class*="v-font-style-opt-"]:active {
+.v-font-style-opt>img:active {
     box-shadow: 0 0 0 2px @aActiveColor;
 }
 
@@ -3136,19 +3189,23 @@ kbd {
 }
 
 // 当前选择的字体风格选项
-.v-font-style-opt-local.selected,
-.v-font-style-opt-book.selected,
-.v-font-style-opt-sans.selected,
-.v-font-style-opt-serif.selected {
+// .v-font-style-opt-local.selected,
+// .v-font-style-opt-book.selected,
+// .v-font-style-opt-sans.selected,
+// .v-font-style-opt-serif.selected {
+// img[class*="v-font-style-opt-"].selected {
+.v-font-style-opt>img.selected {
     box-shadow: 0 0 0 4px var(--h-f) !important;
     filter: opacity(1) !important;
 }
 
 // 字体包信息
-.v-fontinfo-local,
-.v-fontinfo-book,
-.v-fontinfo-sans,
-.v-fontinfo-serif {
+// .v-fontinfo-local,
+// .v-fontinfo-book,
+// .v-fontinfo-sans,
+// .v-fontinfo-serif,
+// .v-fontinfo-albb {
+div[class*="v-fontinfo-"] {
     margin-top: 10px;
     text-align: left;
     font-size: .875em;
@@ -3159,7 +3216,8 @@ kbd {
 // .v-fontinfo-book>#fontset-status,
 // .v-fontinfo-sans>#fontset-status,
 // .v-fontinfo-serif>#fontset-status,
-:is(.v-fontinfo-local, .v-fontinfo-book, .v-fontinfo-sans, .v-fontinfo-serif) > span,
+// :is(.v-fontinfo-local, .v-fontinfo-book, .v-fontinfo-sans, .v-fontinfo-serif) > span,
+div[class*="v-fontinfo-"] > span,
 .v-doc-ext-info {
     color: var(--d-fc-a);
 }
@@ -3365,25 +3423,31 @@ kbd {
 }
 
 // 继续上次的阅读
-.v-last-position {
+.v-resume-reading {
     position: fixed;
     top: 70px; // 与 ResumeReading_updateUI() 中的取值同步
-    right: @writePaddingRight; // 与 ResumeReading_updateUI() 中的取值同步
+    right: @writePaddingRight + 10px; // 与 ResumeReading_updateUI() 中的取值同步
     padding: 5px;
     border: 1px solid var(--a-color);
     border-radius: var(--v-r-s) var(--v-r-s-xc);
     background-color: var(--pn-c);
     font-size: .875em;
-    visibility: hidden;
-    opacity: 0;
-    display: flex;
+    // visibility: hidden;
+    // opacity: 0;
+    // display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     vertical-align: middle;
     z-index: 200;
     cursor: var(--cur-pointer);
 }
-.v-last-position>span {
+.v-resume-reading.done {
+    animation: hide-by-css var(--v-trans-dur) forwards;
+    animation-delay: 12s; // 指定时间后再启用
+}
+// 文本提示
+.v-resume-reading>span {
     color: var(--a-color);
     font-weight: bold;
     padding-left: 5px;
@@ -3391,7 +3455,11 @@ kbd {
     white-space: pre;
     border-radius: var(--v-r-s) var(--v-r-s-xc);
 }
-.v-last-position.hover {
+.v-resume-reading>span.done {
+    animation: hide-by-css var(--v-trans-dur) forwards;
+    animation-delay: 8s; // 指定时间后再启用
+}
+.v-resume-reading.hover {
     background-color: var(--d-bc);
 }
 
@@ -3453,16 +3521,16 @@ kbd {
 }
 
 // 面板渐变样式
-@pnLinerGradientFade: ~"rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 1) 73%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.987) 75.187%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.951) 77.185%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.896) 79.075%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.825) 80.83%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.741) 82.531%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.648) 84.124%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.55) 85.717%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.45) 87.283%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.352) 88.876%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.259) 90.469%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.175) 92.17%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.104) 93.925%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.049) 95.815%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.013) 97.813%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0) 100%";
+@pnLinerGradientFade: ~"rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 1) 82%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.987) 83.458%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.951) 84.79%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.896) 86.05%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.825) 87.22%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.741) 88.354%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.648) 89.416%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.55) 90.478%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.45) 91.522%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.352) 92.584%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.259) 93.646%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.175) 94.78%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.104) 95.95%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.049) 97.21%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.013) 98.542%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0) 100%";
 @pnLinerGradientFade2: ~"rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 1) 0%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.987) 8.1%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.951) 15.5%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.896) 22.5%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.825) 29%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.741) 35.3%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.648) 41.2%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.55) 47.1%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.45) 52.9%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.352) 58.8%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.259) 64.7%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.175) 71%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.104) 77.5%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.049) 84.5%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.013) 91.9%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0) 100%";
-@pnLinerGradientFade3: ~"rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 1) 57%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.987) 60.483%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.951) 63.665%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.896) 66.675%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.825) 69.47%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.741) 72.179%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.648) 74.716%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.55) 77.253%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.45) 79.747%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.352) 82.284%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.259) 84.821%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.175) 87.53%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.104) 90.325%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.049) 93.335%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.013) 96.517%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0) 100%";
-@pnLinerGradientFade4: ~"rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 1) 25%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.987) 31.075%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.951) 36.625%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.896) 41.875%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.825) 46.75%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.741) 51.475%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.648) 55.9%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.55) 60.325%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.45) 64.675%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.352) 69.1%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.259) 73.525%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.175) 78.25%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.104) 83.125%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.049) 88.375%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.013) 93.925%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0) 100%";
+@pnLinerGradientFade3: ~"rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 1) 71%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.987) 73.349%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.951) 75.495%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.896) 77.525%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.825) 79.41%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.741) 81.237%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.648) 82.948%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.55) 84.659%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.45) 86.341%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.352) 88.052%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.259) 89.763%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.175) 91.59%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.104) 93.475%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.049) 95.505%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.013) 97.651%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0) 100%";
+@pnLinerGradientFade4: ~"rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 1) 33%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.987) 38.427%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.951) 43.385%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.896) 48.075%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.825) 52.43%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.741) 56.651%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.648) 60.604%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.55) 64.557%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.45) 68.443%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.352) 72.396%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.259) 76.349%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.175) 80.57%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.104) 84.925%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.049) 89.615%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0.013) 94.573%, rgba(var(--pn-fade-r), var(--pn-fade-g), var(--pn-fade-b), 0) 100%";
 
 // 导航中心头部
 .v-nav-center-header {
     color: var(--d-fc);
     font: normal 1em var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
-    height: 110px;
+    height: 106px;
     padding: 0;
     background: linear-gradient(180deg, @pnLinerGradientFade);
     position: absolute;
@@ -3488,7 +3556,7 @@ kbd {
 // 导航中心尾部
 .v-nav-center-footer {
     width: calc(100% - 2px);
-    height: 30px;
+    height: 20px;
     line-height: 40px;
     text-align: center;
     bottom: 0;
@@ -3557,7 +3625,8 @@ kbd {
     fill: @buttonForeHoverColor;
 }
 // 大纲索引 tab
-.v-segment-btn.catalog {
+// .v-segment-btn.catalog {
+.v-segment-btn.toc {
     margin: 0 .8% 0 0;
 }
 // 插图索引 tab
@@ -3568,36 +3637,41 @@ kbd {
 .v-segment-btn.table {
     margin: 0 .8% 0 0;
 }
-// 多媒体索引 tab
-.v-segment-btn.media {
-    margin: 0 .8% 0 0;
-}
 // 代码块索引 tab
 .v-segment-btn.codeblock {
     margin: 0 .8% 0 0;
 }
-// 访问历史 tab
-.v-segment-btn.history {
+// 公式索引 tab
+.v-segment-btn.formula {
+    margin: 0 .8% 0 0;
+}
+// 多媒体索引 tab
+.v-segment-btn.media {
+// .v-segment-btn.math {
     margin: 0;
 }
+// 访问历史 tab
+// .v-segment-btn.history {
+//     margin: 0;
+// }
 
-.v-toc-catalog-body {
+.v-toc-body {
     width: 100%;
     height: 100%;
     padding: 10px 0 0 0;
     overflow-y: scroll;
 }
-.v-toc-catalog-body::after {
-    content: attr(d-catalog-empty);
+.v-toc-body::after {
+    content: attr(d-toc-empty);
     white-space: pre-wrap;
-    padding: 0 10px;
+    padding: 0 20px;
     color: var(--d-fc-a);
     position: absolute;
     text-align: center;
     top: 150px;
     width: 100%;
 }
-.v-toc-catalog-body:not(:empty)::after {
+.v-toc-body:not(:empty)::after {
     content: "";
 }
 
@@ -3630,6 +3704,7 @@ kbd {
     position: absolute;
     color: @buttonForeColor !important;//@buttonForeColor !important;
     border: none;
+    opacity: .75;
 }
 @{onHTML} .v-copyright a {
     color: @buttonForeColor !important;
@@ -3664,12 +3739,12 @@ kbd {
 }
 
 .v-footnote-pn-header {
-    height: 30px;
+    height: 20px;
     top: 0;
     left: 0;
     right: 0;
     position: absolute;
-    background: linear-gradient(180deg, @pnLinerGradientFade2);
+    background: linear-gradient(180deg, @pnLinerGradientFade4);
     border-radius: var(--v-r-b) var(--v-r-b-xc);
 }
 
@@ -3918,7 +3993,7 @@ kbd {
 }
 
 .v-item-current {
-    font-weight: var(--v-f-w-title);
+    font-weight: var(--v-f-w-bd);
     // font-weight: var(--v-f-w-title);
     background: var(--blockquote-bg);
     box-shadow: @tocItemCurrent_boxShadow;
@@ -4041,7 +4116,7 @@ kbd {
     background: @aActiveColor;
 }
 
-.v-duration-info {
+.v-duration {
     color: var(--d-fc-a);
     padding: 0 5px;
     font-weight: bold;
@@ -4152,7 +4227,8 @@ kbd {
 }
 .v-chapter-nav-doc-title.in-start {
     margin-left: 15px;
-    font-weight: var(--v-f-w-title);
+    font-weight: var(--v-f-w-bd);
+    // font-weight: var(--v-f-w-title);
     font-size: 1.25em;
     line-height: 50px;
     text-align: left;
@@ -4161,7 +4237,8 @@ kbd {
 }
 
 .v-chapter-nav-current {
-    font: var(--v-f-w-title) 1em/22px var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
+    font: var(--v-f-w-bd) 1em/22px var(--v-f-fm-bd); // [style] [weight] [size/[line-height]] [family]
+    // font: var(--v-f-w-title) 1em/22px var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
     text-align: center;
     margin-left: 200px;
     margin-right: 200px;
@@ -4344,9 +4421,9 @@ kbd {
 .v-textfield {
     background: var(--d-bc);
     border-radius: var(--v-r-s) var(--v-r-s-xc);
-    box-shadow: var(--v-fl-i-sd);
+    // box-shadow: var(--v-fl-i-sd);
     margin: 0;
-    height: 30px;
+    height: 36px;
 }
 // 注意 box-shadow 如有多段，且使用动画变换样式
 // 须保持内、外阴影样式设置的顺序要一致，否则动画变换会失效
@@ -4364,9 +4441,9 @@ kbd {
 // 输入框内的输入控件
 .v-textfield>input {
     padding: 0;
-    margin: 1px 0;
-    width: calc(var(--v-nav-center-w) - 90px);
-    height: 28px;
+    margin: 2px 0;
+    width: calc(var(--v-nav-center-w) - 85px);
+    height: 32px;
     color: var(--a-hover-color);
     background: var(--d-bc);
     border: none;
@@ -4387,7 +4464,7 @@ kbd {
 
 .v-textfield-icon {
     width: 30px;
-    height: 30px;
+    height: 36px;
     padding: 7px;
     text-align: center;
     display: flex;
@@ -4428,14 +4505,24 @@ kbd {
 
 .v-textfield-reset {
     width: 30px;
-    height: 30px;
+    height: 32px;
+    margin: 2px;
+    right: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     vertical-align: middle;
     text-align: center;
-    float: right;
+    // float: right;
     visibility: hidden;
+    position: absolute;
+    background-color: var(--d-bc);
+    border-radius: var(--v-r-s) var(--v-r-s-xc);
+    // cursor: default;
+}
+.v-textfield-reset.enabled {
+    visibility: visible;
+    cursor: var(--cur-pointer);
 }
 .v-textfield-reset:hover>svg>use {
     opacity: .4;
@@ -4450,19 +4537,19 @@ kbd {
     margin: 0 10px 10px 10px;
 }
 
-.v-toc-filter-result,
-.v-toc-history-result {
+// .v-toc-history-result,
+.v-toc-filter-result {
     display: none;
     width: 100%;
     height: 100%;
     padding: 30px 0 10px 0;
     overflow-y: scroll;
 }
-.v-toc-history-result {
-    padding-top: 60px;
-}
+// .v-toc-history-result {
+//     padding-top: 60px;
+// }
 
-.v-toc-history-none,
+// .v-toc-history-none,
 .v-toc-filter-result-none {
     display: block;
     padding: 0 10px;
@@ -4471,19 +4558,19 @@ kbd {
     font: normal 1em/3 var(--v-f-fm-text); // [style] [weight] [size/[line-height]] [family]
 }
 
-.v-toc-history-title {
-    text-align: center;
-    position: absolute;
-    border-radius: var(--v-r-s) var(--v-r-s-xc);
-    left: 10px;
-    right: 10px;
-    display: inline-block;
-    padding-left: 10px;
-    padding-right: 10px;
-    white-space: nowrap;
-    font-family: var(--v-f-fm-subtitle);
-    color: var(--d-fc-a);
-}
+// .v-toc-history-title {
+//     text-align: center;
+//     position: absolute;
+//     border-radius: var(--v-r-s) var(--v-r-s-xc);
+//     left: 10px;
+//     right: 10px;
+//     display: inline-block;
+//     padding-left: 10px;
+//     padding-right: 10px;
+//     white-space: nowrap;
+//     font-family: var(--v-f-fm-subtitle);
+//     color: var(--d-fc-a);
+// }
 
 .v-btn.nav-center {
     float: left;
@@ -4670,9 +4757,9 @@ kbd {
     fill: @aActiveColor;
 }
 
-#doc-lib-toc {
-    padding: 0 0 10px 0;
-}
+// #doc-lib-toc {
+//     padding: 0 0 10px 0;
+// }
 
 @docLibButtonHeight: 36px;
 @docLibButtonAniOffset: 5px;
@@ -4904,25 +4991,25 @@ iframe[id^="vlook-chk-update-"] {
 }
 
 // 代码块题注样式
-.v-caption.pr {
+.v-caption.codeblock {
     width: 100%;
     background-color: var(--std-code-shadow);
     box-shadow: 0 0 0 2px var(--std-code-shadow) inset;
 }
-.v-caption.pr > .v-cap-1 > span {
+.v-caption.codeblock > .v-cap-1 > span {
     color: var(--d-fc);
     opacity: .6;
 }
-.v-caption.pr > :is(.v-cap-1, .v-cap-2) {
+.v-caption.codeblock > :is(.v-cap-1, .v-cap-2) {
     color: var(--d-fc);
 }
-.v-caption.pr > .v-cap-1 {
+.v-caption.codeblock > .v-cap-1 {
     background-image: var(--v-i-sys-menu);
     background-repeat: no-repeat;
     background-position: 0 center;
     padding-left: 65px;
 }
-.v-caption.pr > .v-cap-1::after {
+.v-caption.codeblock > .v-cap-1::after {
     content: attr(lang);
     text-transform: uppercase;
     color: var(--d-fc);
@@ -5436,7 +5523,8 @@ use.v-svg-ico-wh {
 #write .md-alert-text {
     font-family: var(--v-f-fm-subtitle) !important;
     font-size: 1em !important;
-    font-weight: var(--v-f-w-title);
+    font-weight: var(--v-f-w-bd);
+    // font-weight: var(--v-f-w-title);
     display: inline-block;
     margin-bottom: 0;
 }

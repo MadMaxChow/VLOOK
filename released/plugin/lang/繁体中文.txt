@@ -27,7 +27,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk15" content="前一張">
 <meta name="vk-zh-hk16" content="後一張">
 <meta name="vk-zh-hk17" content="關閉">
-<meta name="vk-zh-hk18" content="歷史">
+<meta name="vk-zh-hk18" content="公式">
 <meta name="vk-zh-hk19" content="如果你無法連接到互聯網加載線上版本的字體，建議直接下載字體到本地">
 <meta name="vk-zh-hk20" content="主站">
 <meta name="vk-zh-hk21" content="備用">
@@ -44,7 +44,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk32" content="複製表格內容">
 <meta name="vk-zh-hk33" content="調整聚光燈大小">
 <meta name="vk-zh-hk34" content="退出">
-<meta name="vk-zh-hk35" content="搜尋">
+<meta name="vk-zh-hk35" content="目錄">
 <meta name="vk-zh-hk36" content="已推出新版本，請及時升級！">
 <meta name="vk-zh-hk37" content="對不起，目前此瀏覽器不支援複製功能">
 <meta name="vk-zh-hk38" content="準備好">
@@ -75,8 +75,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk63" content="無效的音頻地址">
 <meta name="vk-zh-hk64" content="無效的視頻地址">
 <meta name="vk-zh-hk65" content="無效的图片地址">
-<meta name="vk-zh-hk66" content="無目錄">
-<meta name="vk-zh-hk67" content="無內容">
+<meta name="vk-zh-hk66" content="是空的">
+<meta name="vk-zh-hk67" content="未找到">
 <meta name="vk-zh-hk68" content="明信片">
 <meta name="vk-zh-hk69" content="分支">
 <meta name="vk-zh-hk70" content="可選">
@@ -95,4 +95,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk83" content="連結">
 <meta name="vk-zh-hk84" content="註腳">
 <meta name="vk-zh-hk85" content="還原字體樣式">
-<meta name="vk-zh-hk86" content="公式">
+<meta name="vk-zh-hk86" content="在一級標題-1 前添加 [TOC] 以生成目錄">

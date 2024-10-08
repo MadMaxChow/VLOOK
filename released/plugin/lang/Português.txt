@@ -27,7 +27,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt15" content="Anterior">
 <meta name="vk-pt16" content="Próximo">
 <meta name="vk-pt17" content="Fechar">
-<meta name="vk-pt18" content="História">
+<meta name="vk-pt18" content="Fórmula">
 <meta name="vk-pt19" content="Se você não conseguir se conectar à Internet para carregar a versão online da fonte, é recomendado baixar a fonte diretamente para o local">
 <meta name="vk-pt20" content="Primário">
 <meta name="vk-pt21" content="Reserva">
@@ -44,7 +44,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt32" content="Copiar conteúdo da tabela">
 <meta name="vk-pt33" content="Mudar o tamanho do foco">
 <meta name="vk-pt34" content="Sair">
-<meta name="vk-pt35" content="Pesquisar">
+<meta name="vk-pt35" content="Índice">
 <meta name="vk-pt36" content="tem uma nova versão disponível. Atualize agora!">
 <meta name="vk-pt37" content="Desculpe, a cópia não é suportada atualmente neste navegador">
 <meta name="vk-pt38" content="Pronto">
@@ -75,8 +75,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt63" content="Endereço de áudio inválido">
 <meta name="vk-pt64" content="Endereço de vídeo inválido">
 <meta name="vk-pt65" content="Endereço de imagem inválido">
-<meta name="vk-pt66" content="O Catálogo está vazio">
-<meta name="vk-pt67" content="Sem conteúdo">
+<meta name="vk-pt66" content=" está vazio">
+<meta name="vk-pt67" content="Não encontrado">
 <meta name="vk-pt68" content="Cartão postal">
 <meta name="vk-pt69" content="Alterar">
 <meta name="vk-pt70" content="Opcional">
@@ -95,4 +95,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt83" content="Link">
 <meta name="vk-pt84" content="Nota de rodapé">
 <meta name="vk-pt85" content="Restaurar estilo de fonte">
-<meta name="vk-pt86" content="Fórmula">
+<meta name="vk-pt86" content="Adicione [TOC] antes do título de primeiro nível-1 para gerá-lo">

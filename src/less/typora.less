@@ -845,7 +845,10 @@ body.os-windows #file-library-tree {
 #typora-quick-open-input input {
     border-radius: var(--v-r-s) var(--v-r-s-xc);
     max-height: 40px;
-    border-color: var(--tbl-bd);
+    // border-color: var(--tbl-bd);
+    border-color: transparent;
+    // border: 1pxnone;
+    box-shadow: none;
     font-size: 1.5em;
     padding: 5px 10px;
 }
@@ -1314,8 +1317,12 @@ content .md-toc::before {
 .outline-h6 {
     counter-reset: h6toc;
     content: "";
-    font-size: 12px;
-    color: var(--toc-h-num-color);
+    // overflow-wrap: anywhere;
+    // overflow: hidden;
+    // display: block;
+    // text-overflow: ellipsis;
+    // white-space: nowrap;
+    // word-break: break-word;
 }
 
 // 微调大纲节点的缩进
@@ -1335,7 +1342,10 @@ content .md-toc::before {
 	padding-left: 4.35em;
 }
 .outline-h6>.outline-item {
-	padding-left: 6em;
+	padding-left: 4.85em;
+    // opacity: .6;
+    color: var(--toc-h-num-color);
+    font-size: .875em;
 }
 .outline-h6>.outline-item>.outline-label::before {
     content: @h6BeforeContent;
@@ -1421,7 +1431,7 @@ content .md-toc::before {
 // 导出 HTML 后的目录大纲内的自动编码内容
 // 包括导航中心、#write 内的正文
 @{onHTML} :is(.md-toc-h1, .md-toc-h2, .md-toc-h3, .md-toc-h4, .md-toc-h5)::before {
-    content: attr(d-header-num) !important;
+    content: attr(d-header-num) " " !important;
 }
 
 .typora-export-show-outline .typora-export-content {
@@ -1804,11 +1814,11 @@ body[class*="ty-on-typewriter-mode"] @{writeOnEditing}, // 编辑时，如启用
 #write.max.fit-width {
     margin-left: var(--v-write-ml-def) !important;
 }
-.v-more-doc-content-before.max.fit-width,
-.v-more-doc-content-after.max.fit-width {
-    width: 100%;
-    margin-left: var(--v-write-ml-def) !important;
-}
+// .v-more-doc-content-before.max.fit-width,
+// .v-more-doc-content-after.max.fit-width {
+//     width: 100%;
+//     margin-left: var(--v-write-ml-def) !important;
+// }
 
 #write>:is(ul,ol):first-child {
     margin-top: 30px;
@@ -1855,7 +1865,7 @@ body[class*="ty-on-typewriter-mode"] @{writeOnEditing}, // 编辑时，如启用
     display: none;
 }
 // 引用内的折叠
-@{writeOnEditing} blockquote @{hasSummaryOnEditing} {
+@{writeOnEditing} :is(li, blockquote) @{hasSummaryOnEditing} {
     height: 1.25em;
 }
 // 编辑时任意子元素获得焦点后，自动展开
@@ -1921,6 +1931,7 @@ pre.md-fences-advanced.md-focus .md-fences-adv-panel {
 #typora-quick-open-input input:focus,
 // 输入控件
 .form-control:focus {
+    // border: 1px solid var(--v-input-focus-border) !important;
     border-color: var(--v-input-focus-border) !important;
     box-shadow: var(--v-input-focus-shadow) !important;
 }
