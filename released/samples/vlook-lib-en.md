@@ -35,7 +35,7 @@ title: More Topics about VLOOK™
 > ###### Content Organization
 >
 > - **Merge cells** horizontally/vertically [❯❯](guide.md#单元格合并)
-> - Automatically number and add captions [❯❯](guide.md#表格自动编号与题注)
+> - Automatically number and add captions [❯❯](guide.md#表格题注与自动编号)
 > - Set **repeat headers** [❯❯](guide.md#重复显示表头)
 > - Automatically adapt to line wrapping formats [❯❯](guide.md#表格换行版式)
 >
@@ -43,7 +43,7 @@ title: More Topics about VLOOK™
 
 > ###### Row Formatting
 >
-> - Automatically number and add captions to each table [❯❯](guide.md#表格自动编号与题注)
+> - Automatically number and add captions to each table [❯❯](guide.md#表格题注与自动编号)
 > - Automatically number each row of the table [❯❯](guide.md#表格逐行自动编号)
 > - Group and categorize multiple rows and automatically collapse them [❯❯](guide.md#表格行分组折叠)
 > 
@@ -65,7 +65,7 @@ title: More Topics about VLOOK™
 
 > ###### Images and Charts
 >
-> - Automatically number and add captions [❯❯](guide.md#插图自动编号与题注)
+> - Automatically number and add captions [❯❯](guide.md#插图题注与自动编号)
 > - Support for Mermaid [❯❯](guide2.md#更美观的-Mermaid)
 > - Set as regular images without the form of illustrations [❯❯](guide.md#图片显示版式)
 >
@@ -139,7 +139,7 @@ title: More Topics about VLOOK™
 
 > ###### Code Blocks
 >
-> - Automatically number and add captions to each code block [❯❯](guide.md#代码块自动编号与题注)
+> - Automatically number and add captions to each code block [❯❯](guide.md#代码块题注与自动编号)
 > - Highlight current line in code blocks, copy content with one click [❯❯](guide.md#复制代码内容)
 >
 > _~Vn~_
@@ -297,6 +297,20 @@ title: More Topics about VLOOK™
 >
 > ---
 >
+> > **Mark Content as Unpublished**
+> >
+> > Quickly mark content that will not be published yet (in HTML format) [❯❯](guide2.md#标记不发布的内容)
+> >
+> > _~Og~_
+>
+> > **Social Sharing**
+> >
+> > Automatically generate cover images, descriptions, and other content when sharing the page on social platforms [❯❯](guide2.md#社交分享)
+> >
+> > _~Og~_
+>
+> ---
+>
 > ---
 >
 > > **° Automatic Folding of Long Content**
@@ -339,11 +353,11 @@ title: More Topics about VLOOK™
 >
 > _~Gy!~_
 
-# Quick Start ° Themes & Essentials
+# Quick Start ° Appearance & Essentials
 
-> ![° THEME & ESSENTIALS](pic/qico-theme-light.svg?fill=lm#logo)
+> ![° APPEARANCE & ESSENTIALS](pic/qico-theme-light.svg?fill=lm#logo)
 >
-> **° THEME & ESSENTIALS**
+> **° APPEARANCE & ESSENTIALS**
 >
 > "**Humans have always been visual creatures. Making the eyes feel pleasant and beautiful when reading, whether for oneself or others, is a virtue, a power, a belief.**_~CyPu~_"
 >
@@ -370,7 +384,7 @@ title: More Topics about VLOOK™
 >
 > For the popular scripted graph **Mermaid** _~RdRo~_:
 >
-> - Support for illustrated captions and automatic numbering features [❯❯](guide2.md#Mermaid-图表自动编号与题注)
+> - Support for illustrated captions and automatic numbering features [❯❯](guide2.md#Mermaid-图表题注与自动编号)
 >
 > - Combine with VLOOK to provide more suitable and beautiful styles [❯❯](guide2.md#更美观的-Mermaid)
 >

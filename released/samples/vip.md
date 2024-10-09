@@ -59,7 +59,7 @@ vlook-doc-lib: vlook-lib.html
 
 ---
 
-> [![立白科技集团 • 数智中心产品文档使用](pic/vip-dic.png?srcset=@2x#card "Liby DIC")](vip-dic.html)
+> [![立白科技集团 ▰ 数智中心产品文档使用](pic/vip-dic.png?srcset=@2x#card "Liby DIC")](vip-dic.html)
 
 > [![巴斯夫 • 凯密特尔实验记录文档使用](pic/vip-chemetall.png?srcset=@2x#card "BASF • Chemetall")](vip-chemetall.html)
 

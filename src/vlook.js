@@ -115,6 +115,7 @@ let _ = "",
     _none_ = "none",
     _boxShadow_None_ = _boxShadow_ + ":" + _none_ + ";",
     _br_ = "<br>",
+    _break_ = "break",
     _brightness_ = "brightness",
     _bubble_ = "bubble",
     _btnFc_ = "btn-fc",
@@ -155,6 +156,8 @@ let _ = "",
     __anchor_ = "-anchor",
     _dataAnchor_ = "d" + __anchor_,
     _dataAsMarkdown_ = "d-as-markdown",
+    _document_ = "document",
+    _Document_ = "Document",
     _fold_ = "fold",
     _folded_ = _fold_ + "ed",
     _for_ = "for",
@@ -1115,7 +1118,7 @@ function JS_decodeURI(uri) {
 
 // ======================================== //
 
-INFO("=== Load Document ===");
+INFO("=== Load " + _Document_ + " ===");
 
 // UI 元素
 let iToolbar = gUndefined,
@@ -2133,7 +2136,7 @@ function V_checkSpec () {
     if (!v) {
         c += [
             "\n建议参考推荐的文档模板或示例：",
-            "\nIt is recommended to refer to the suggested document templates or samples:"
+            "\nIt is recommended to refer to the suggested " + _document_ + " templates or samples:"
         ][V_lang] + "\nreleased/samples/*.md";
 
         ALERT(c);
@@ -2278,7 +2281,7 @@ function V_init() {
                 ])
                 + _br_ + _br_ + V_ui_strong(V_lang_text(5, [
                     "在文档中的任何段落上用鼠标三击",
-                    "Triple-click with the mouse on any " + _paragraph_ + " in the document"
+                    "Triple-click with the mouse on any " + _paragraph_ + " in the " + _document_
                 ])), 10000, gTrue);
         });
 
@@ -2337,7 +2340,7 @@ function V_init() {
 function V_initKernel() {
     // ----------------------------------------
     // 加载本文档主题配套的 Logo 图标
-    iStopwatch.st("* Document Logo");
+    iStopwatch.st("* " + _Document_ + " Logo");
     V_ui_changeDocIcon(V_util_getVarVal("--thm-fav-logo-lg"));
     iStopwatch.ed(_4space_);
 
@@ -2619,7 +2622,7 @@ function V_initKernel() {
         if (V_print_mode !== _VLOOK_)
             ALERT(V_lang_text(80, [
                 "注意！为确保打印正常，建议使用文档内的【打印】功能进行打印！",
-                "Attention! To ensure proper printing, it is recommended to use the [Print] function within the document!"
+                "Attention! To ensure proper printing, it is recommended to use the [Print] function within the " + _document_ + "!"
             ]));
     };
     // 绑定打印后的触发事件
@@ -3289,7 +3292,7 @@ function V_ui_initI18n() {
 
     iChapterNav.dt.a(_dataTips_, V_lang_text(13, [
         "回到封面",
-        "Back to " + _cover_
+        "Go back to the " + _document_ +___+ _cover_
     ]));
 
     iChapterNav.current.ui.a(_dataTips_, V_lang_text(14, [
@@ -3779,7 +3782,7 @@ function V_lang_text6() {
 function V_lang_text7() {
     return V_lang_text(7, [
         "浏览文库",
-        "Document Library"
+        _Document_ + " Library"
     ]);
 }
 // 获取语言 ID 14 内容
@@ -4564,7 +4567,7 @@ function ContentAssistor_init() {
 
     ContentAssistor_btns_wrap.a(_dataTips_,  V_lang_text(26, [
         "换行 / 不换行",
-        "Wrap / Unwrap"
+        "Line " + _break_ + " / No " + _line_ +___+ _break_
     ]));
 
     ContentAssistor_btns_picInPic.a(_dataTips_, V_lang_text(27, [
@@ -4682,7 +4685,7 @@ function ContentAssistor_bind(target, contentType) {
 
         let asMarkdown =  "\n" + V_ui_sub(_, _, V_lang_text(28, [
             "按住",
-            "Hold"
+            "Press and hold"
             ])
             + _2nbsp_+ V_ui_getAltKeyUI() + _2nbsp_ + "- " + V_lang_text(29, [
                 "复制为 " + _Markdown_,
@@ -6073,10 +6076,9 @@ NavCenter.init = function () {
  */
 NavCenter.hideOnError = function () {
     iNavCenter.hide();
-
     ERROR([
         "文档中没有找到目录信息，请用 Typora 最新版本导出，并应用最新 VLOOK™ 插件",
-        "No [TOC] information was found in the document, export it with the latest version of Typora and apply the latest VLOOK™ plug-in."
+        "No [TOC] information was found in the " + _document_ + ", export it with the latest version of Typora and apply the latest VLOOK™ plug-in."
     ][V_lang]);
 }
 
@@ -6195,8 +6197,8 @@ function ChapterNav() {
         // 当前章节为第 1 章时特殊处理，设置为「封面」
         else if (iNavCenter.toc.inFirstHeader()) {
             T.prev.text.t(V_lang_text(1, [
-                "封面",
-                "Cover"
+                "文档封面",
+                _Document_ +___+ _cover_
             ]));
             T.prev.text.a(_dataAnchor_, _cover_);
         }
@@ -8520,10 +8522,11 @@ function LinkTool_checkHashSet() {
 
     // 检查当前文档中是否有指定的 hash 集
     let hash = _,
-        info = V_lang_text(46, [
-            "没有找到",
-            "Not found"
-        ]) +___,
+        info = V_lang_text67() +___,
+        // info = V_lang_text(46, [
+        //     "没有找到",
+        //     "Not found"
+        // ]) +___,
         notFoundCount = 0;
     for (let i = 1; i <= count; i++) {
         hash = V_util_getParamVal(_hash_ + i);
@@ -8544,12 +8547,12 @@ function LinkTool_checkHashSet() {
         JQ_addClass(LinkTool_checkHashUI, "all-" + _found_)
         LinkTool_checkHashUI.ap(V_ui_div(_, "all-" + _found_, V_lang_text(47, [
             "检查通过",
-            "Check Passed"
+            "Hash check Passed"
             ])));
         // 关闭标签页
         btn = $(V_ui_div(_, _vCheckHash_ + "-re" + _check_, V_lang_text(48, [
             "关闭文档",
-            _Close_ + " document"
+            _Close_ +___+ _document_
             ])));
     }
     // 部分 hash 不存在
@@ -8561,7 +8564,7 @@ function LinkTool_checkHashSet() {
         // 重新检查
         btn = $(V_ui_div(_, _vCheckHash_ + "-re" + _check_, V_lang_text(49, [
             "已修订，重新检查",
-            "Revised, please recheck"
+            "Hash check failed"
             ])));
     }
 
@@ -8742,7 +8745,7 @@ function LinkTool_checkLink() {
         let // 超出长度上限时显示的内容
             overLimit = V_ui_label(_, _, hashCount + V_lang_text(50, [
                 "超出 URL 最大长度",
-                "Over URL limit"
+                "Maximum URL length exceeded"
             ])),
 
             // 未超出长度上限，且有锚点时，则生成检查入口
@@ -8796,7 +8799,7 @@ function LinkTool_checkLink() {
         LinkTool_addToCheckResult(_warning_, aObj,
             V_ui_label(_, _, "⚠️ " + V_lang_text(53, [
                 "重复的标题名称",
-                "Duplicate " + _Chapter_
+                "Duplicate " + _Chapter_ + " Name"
             ])) + aObj.t());
     }
 
@@ -13410,9 +13413,9 @@ function TocIndex(holder, hidden) {
 
     // 更新无目录情况下的提示信息
     T.ui.body.a(_dataTocEmpty_, "( " + V_lang_text35() + V_lang_text66() + " )\n\n"
-        + V_lang_text(86, [
-            "在首个一级章节前添加 [TOC] 即可生成",
-            "Add [TOC] before the first level-1 heading to generate it"
+        + V_lang_text(46, [
+            "在第一个一级标题前添加 [TOC] 以生成目录",
+            "Add [TOC] before the first first-level heading to generate it"
         ]));
 
     /**
@@ -15898,7 +15901,7 @@ function Restyler_forImgZoom() {
     if (V_length($(__write_ +___+ _img_ + V_attrCSS(_style_, "zoom", "*"))) > 0)
         ALERT([
             "⚠️ 注意 ⚠️\n\n您的文档中使用了 Typora 的图片缩放功能，会存在兼容问题！\n\n建议替换为 VLOOK™ 的「图片缩放」，如：\npic.jpg#400w\npic.jpg#200h",
-            "⚠️ WARNING ⚠️\n\nIn your document, you used Typora's image scaling feature, which may cause compatibility issues!\n\nIt is recommended to replace it with VLOOK™'s \"image scaling\" such as:\npic.jpg#400w\npic.jpg#200h"
+            "⚠️ WARNING ⚠️\n\nIn your " + _document_ + ", you used Typora's image scaling feature, which may cause compatibility issues!\n\nIt is recommended to replace it with VLOOK™'s \"image scaling\" such as:\npic.jpg#400w\npic.jpg#200h"
         ][V_lang]);
 }
 
@@ -17707,7 +17710,7 @@ function loadVLOOKplugin() {
                 + `\n\n当前主题 [ ${gThmName} ]\n`
                 + `主题版本 [ ${gThmVer} ]\n\n`
                 + `插件版本 [ ${gVer} ]`,
-            "⚠️ WARNING ⚠️\n\nThe VLOOK™ theme and plugin version used in this document do not match, which may affect actual use. Please update to the matching version !!!"
+            "⚠️ WARNING ⚠️\n\nThe VLOOK™ theme and plugin version used in this " + _document_ + " do not match, which may affect actual use. Please update to the matching version !!!"
                 + `\n\nCurrent Theme [ ${gThmName} ]\n`
                 + `Theme Version [ ${gThmVer} ]\n\n`
                 + `Plugin Version [ ${gVer} ]`

@@ -147,15 +147,15 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > _~Og!~_
 
->![°主题与不杂项](pic/qico-theme-light.svg?fill=lm&darksrc=invert#logo)
+>![° APPEARANCE & ESSENTIALS](pic/qico-theme-light.svg?fill=lm&darksrc=invert#logo)
 >
-> **° THEME & ESSENTIALS**
+> **° APPEARANCE & ESSENTIALS**
 >
 > "**Humans have always been visual creatures. Making the eyes feel pleasant and beautiful when reading, whether for oneself or others, is a virtue, a power, a belief.**_~CyPu~_"
 >
 > --- **MAX°孟兆**_~CyPu~_
 >
-> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Themes & Essentials)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
+> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Appearance & Essentials)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
 >
 > _~Lm!~_
 
@@ -212,7 +212,7 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 > **Step1. Download the Plug-in**
 >
-> Download the latest version from the homepage of VLOOK™:
+> Download the latest version from the homepage of VLOOK™ (Or directly select and download the required files from the repository in the subsequent steps):
 > 
 >  **[<kbd>![](pic/icon-download.svg?fill=text) via GitHub</kbd>](https://github.com/MadMaxChow/VLOOK/releases)**  **[<kbd>![](pic/icon-download.svg?fill=text) via Gitee</kbd>](https://gitee.com/madmaxchow/VLOOK/releases?kbd=alt)**
 >
@@ -243,9 +243,12 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 > **Step1. Install the Themes**
 >
-> 1. The *==released\themes==* all **CSS files** and **folders** are copied to Typora theme directory;
-> 2. Where is the theme directory? Open *==Settings ▸ Appearance ▸ Open Theme Directory==*
-> 
+> 1. The *==released\themes==* all **CSS files** are copied to Typora theme directory;
+>
+>    > Where is the theme directory? Open *==Settings ▸ Appearance ▸ Open Theme Directory==*
+>
+> 2. Or directly visit the **[themes](https://github.com/MadMaxChow/VLOOK/tree/master/released/themes)** folder on GitHub, download and copy it to Typora’s theme directory.
+>
 > _~Og~_
 
 > **Step2. Select Theme**
@@ -281,7 +284,7 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 > **Install Meta Tag**
 >
-> 1. Open the meta tag file: *==released/plugin/**meta.txt**==*
+> 1. Open the meta tag file: *==released/plugin/**meta.txt**==* (Or directly open the **[meta.txt](https://github.com/MadMaxChow/VLOOK/tree/master/released/plugin/meta.txt)** file on GitHub)
 > 2. Select and copy all contents
 > 3. Paste to `Append in <head />`
 >
@@ -289,7 +292,7 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 > **Install the Plugin**
 >
-> 1. Open the plug-in file: *==released/plugin/**plugin.txt**==*
+> 1. Open the plug-in file: *==released/plugin/**plugin.txt**==* (Or directly open the **[plugin.txt](https://github.com/MadMaxChow/VLOOK/tree/master/released/plugin/plugin.txt)** file on GitHub)
 > 2. Select and copy all contents;
 > 3. Paste to `Append in <body />`
 >
@@ -312,13 +315,17 @@ VLOOK™ UI language is pre-installed with **English** and **Simplified Chinese*
 
 To support more language for the exported HTML, you can choose to append the content of the corresponding language package to the "Meta Tag" section in the export configuration. After doing so, re-export the HTML to include the additional language.
 
-Currently supported languages for expansion include: **French**(Français), **German**(Detusch), **Russian**(Русский язык), **Spanish**(Español), **Portuguese**(Português), **Japanese**(日本語), **Korean**(한국어),**Traditional Chinese**(Hong Kong / Macao / Taiwan regions), **Arabic**(العربية).
+Currently supported languages for expansion include:
+
+*French`Français`*_~Se~_  *German`Detusch`*_~Bk~_  *Russian`Русский язык`*_~Bu~_  *Spanish`Español`*_~Og~_  *Portuguese`Português`*_~Mn~_  *Arabic`العربية`*_~Gn~_
+
+*Traditional Chinese`Hong Kong / Macao / Taiwan regions`*_~Wn~_  *Korean`한국어`*_~Se~_  *Japanese`日本語`*_~Rd~_
 
 ---
 
 > **Select language package**
 >
-> 1. The language package file is located in the *==released/plugin/lang==*
+> 1. The language package file is located in the *==released/plugin/lang==* (Or directly visit the [**lang**](https://github.com/MadMaxChow/VLOOK/tree/master/released/plugin/lang) folder on GitHub)
 > 2. Open language file and copy all the content. (e.g: `Français.txt` )
 
 > **Update export configuration**

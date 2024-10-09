@@ -55,7 +55,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru43" content="- часы">
 <meta name="vk-ru44" content="- слова">
 <meta name="vk-ru45" content="Включить автоматическую/светлую/тёмную тему">
-<meta name="vk-ru46" content="Не найдено">
+<meta name="vk-ru46" content="Добавьте [TOC] перед первым заголовком первого уровня, чтобы сгенерировать его">
 <meta name="vk-ru47" content="Проверка хеша пройдена">
 <meta name="vk-ru48" content="Закрыть документ">
 <meta name="vk-ru49" content="Проверка хеша не пройдена">
@@ -95,4 +95,3 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru83" content="Ссылка">
 <meta name="vk-ru84" content="Сноска">
 <meta name="vk-ru85" content="Восстановить стиль шрифта">
-<meta name="vk-ru86" content="Добавьте [TOC] перед заголовком первого уровня-1, чтобы его сгенерировать">

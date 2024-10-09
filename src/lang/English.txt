@@ -55,7 +55,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en43" content="hour(s)">
 <meta name="vk-en44" content="words">
 <meta name="vk-en45" content="Switch Auto/Light/Dark Mode">
-<meta name="vk-en46" content="Not found">
+<meta name="vk-en46" content="Add [TOC] before the first-level heading to generate it">
 <meta name="vk-en47" content="Hash check passed">
 <meta name="vk-en48" content="Close document">
 <meta name="vk-en49" content="Hash check failed">
@@ -95,4 +95,3 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en83" content="Link">
 <meta name="vk-en84" content="Footnote">
 <meta name="vk-en85" content="Restore font style">
-<meta name="vk-en86" content="Add [TOC] before the first-level heading to generate it">

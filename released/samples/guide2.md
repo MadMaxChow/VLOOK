@@ -324,7 +324,7 @@ vlook-doc-lib: vlook-lib.html
 
 > [!CAUTION]
 >
-> - 整个段落内容只有面包屑的内容，则会优先被识别为「表格/插图/代码块/多媒体」等内容的[题注格式](guide.md#表格自动编号与题注)；
+> - 整个段落内容只有面包屑的内容，则会优先被识别为「表格/插图/代码块/多媒体」等内容的[题注格式](guide.md#表格题注与自动编号)；
 > - 面包屑的起始内容不能包含格式（如粗体、斜体）、文字链接。
 
 
@@ -1004,6 +1004,61 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 
 
+### 社交分享
+
+###### Open Graph Protocol
+
+> [Open Graph Protocol](https://ogp.me/)（OGP）是一个网络协议，用于在网页元数据中丰富内容的表示，尤其是在社交媒体上分享时。使用 OGP，你可以控制网页分享到社交平台时的外观和描述。
+
+> **适用范围 ••• *`编辑时`OFF*_~Gy~_  *ON` 导出 HTML`*_~Gn~_**
+
+
+
+> [!IMPORTANT]
+>
+> 1. OGP 的标签与 VLOOK™ 的[插件调校参数](#插件调校参数)一样，都是通过文档中的 YAML Front Matter 来指定；
+> 2. 由于 OGP 的标签都含有冒号 `:` ，所以在 YAML Front Matter 中指定时须用英文的双引号进行包裹，如： `"og:image": https://xxxxx.png` 。
+
+
+
+目前 VLOOK™ 导出配置已内置常见的 OGP 标签（详见下表），未在预置范围的标签可以自行在导出配置中添加。
+
+*==支持以下常见的 Open Graph 标签==*
+
+| OGP 标签           | ==YAML 中的名称==  | 说明                                         |
+| ------------------ | ------------------ | -------------------------------------------- |
+| `og:title`         | `"og:title"`       | 网页的标题，这是分享时显示的主要标题         |
+| `og:type`          | `"og:type"`        | 网页类型，如网站、视频、文章等               |
+| `og:image`         | `"og:image"`       | 与网页相关联的图像，这是分享时显示的主要图片 |
+| `og:url`           | `"og:url"`         | 网页的规范链接                               |
+| 其他常用标签       | ==                 | ==                                           |
+| > `og:description` | `"og:description"` | 网页的简短描述，这通常在分享时显示           |
+| > `og:site_name`   | `"og:site_name"`   | 网站的名称                                   |
+| > `og:locale`      | `"og:locale"`      | 网页内容的区域设置或语言                     |
+| > `og:video`       | `"og:video"`       | 如果网页包含视频，这是视频的链接             |
+| > `og:audio`       | `"og:audio"`       | 如果网页包含音频内容，这是音频的链接         |
+
+*==在 YAML Front Matter 的应用举例==*
+
+```yaml
+---
+"og:title": 这里是分享的标题
+"og:image": 这里是分享的相关联的图像 URL
+"og:url": 这里是点击分享引导进入的目标 URL
+"og:description": 这里是分享的简短描述
+---
+```
+
+---
+
+> [!NOTE]
+>
+> 更多关于通过 YAML Front Matter 设置插件预置选项的说明，详见：[插件预置选项](#插件预置选项)
+
+> [!TIP]
+>
+> 若需要验证发布到网络的 HTML 的 OGP 配置内容，除直接分享到社交工具外，也可通过 Meta for Developers 的 [Sharing Debugger](https://developers.facebook.com/tools/debug/) 工具进行预览
+
 ### 链接地图
 
 ---
@@ -1160,7 +1215,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 [<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°演示与出版</kbd>](?target=vdl#快速入坑°演示与出版)
 
-# °主题
+# °外观
 
 ## 模板主题
 
@@ -1228,13 +1283,13 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°外观与不杂项</kbd>](?target=vdl#快速入坑°外观与不杂项)
 
 ## 字体风格
 
 *Markdown 粉`Q`*「**模板主题让文档颜值倍增，而字体则是文档气质担当！**」
 
-*VLOOK`A`*_~T2~_ 提供了三套独特个性的字体风格，可根据个人喜好进行选用。
+*VLOOK`A`*_~T2~_ 提供了五套独特个性的字体风格，可根据个人喜好进行选用。
 
 > **适用范围 ••• *ON`编辑时`*_~Gn~_  *ON` 导出 HTML`*_~Gn~_**
 
@@ -1250,75 +1305,50 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
-> **系统默认**
->
-> 直接使用系统本地的默认字体（非衬线、等宽字体等），在不同的系统（Windows、macOS 等）上会有不同的表现效果
->
-> _~Gy!~_
+---
 
-> **Book**
+> ![使用系统的 UI 字体，在不同的系统或终端上会效果会稍有不同](pic/fs-local.png?srcset=@2x#padding#card#fitmax)
 >
-> 直接使用系统本地的默认字体（黑体、宋体、等宽字体等）进行地**混搭**
+> _~Gy~_
+
+> ![用系统内置的宋体、黑体进行「混搭」，在不同的系统或终端上会效果会稍有不同](pic/fs-book.png?srcset=@2x#padding#card#fitmax)
 >
-> _~Bn!~_
+> _~Gy~_
+
+> ![用系统内置的楷体、仿宋、黑体进行「混搭」，在不同的系统或终端上会效果会稍有不同](pic/fs-gov.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
 
 ---
 
-> ![](pic/小清新.png?darksrc=invert&srcset=@2x,@3x#border#cardd "小•清•新")
->
-> > 整体表现为「**清新、简约、明快**_~CyAqYe~_」，主要采用无衬线的东亚和拉丁字体
->
-> _~Cy~_
+---
 
-> ![](pic/文艺范.png?darksrc=invert&srcset=@2x,@3x#border#cardd "文•艺•范")
+> ![整体表现为「活力、开放」（需要浏览器加载网络字体或下载安装）](pic/fs-albb.png?srcset=@2x#padding#card#fitmax)
 >
-> > 整体表现为「**优雅、韵动、个性**_~GdPuOg~_」，主要采用衬线＋无衬线的东亚和拉丁字体组合进行**混搭**
+> _~Gy~_
+
+> ![整体表现为「优雅、韵动」（需要浏览器加载网络字体或下载安装）](pic/fs-serif.png?srcset=@2x#padding#card#fitmax)
 >
-> _~Vn~_
+> _~Gy~_
+
+> ![整体表现为「清新、简约」（需要浏览器加载网络字体或下载安装）](pic/fs-sans.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
 
 
 
 > [!WARNING]
 >
-> 对于使用「小清新、文艺范」字体风格时，如通过网络加载字体较慢，或无法访问互联网的情况，建议直接下载字体包并安装到本地，以获得最佳的视觉体验。
+> 若加载网络字体字体较慢，或无法访问互联网的情况，建议直接下载字体包并安装到本地，以获得更好的体验。
 >
-> > ==「小清新、文艺范」配套的字体下载==
-> >
-> > 
-> > 
-> >![蓝奏云](pic/lanzou.png?srcset=@2x#logo) … [下载字体▾](https://wwe.lanzoui.com/ieVDhj1aokj)　　　　　![百度网盘](pic/baidupan.png?srcset=@2x#logo) … [下载字体▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw?pwd=11ta)（提取码 `11ta` )
-> > 
-> >_~Gy~_
-
-
-
----
-
-###### 小清新_选用的字体及应用
-
-| 字体的应用                                          |           **字体名称**           |  风格  |   ==   |   字重    |    ==    |   ==   |   ==    |
-| :-------------------------------------------------- | :------------------------------: | :----: | :----: | :-------: | :------: | :----: | :-----: |
-| :                                                   |                :                 | []正常 | []斜体 | []Regular | []Medium | []Bold | []Black |
-| 封面、标题、正文(CJK)、<br>链接、表头、题注、标签等 | Noto Sans CJK SC<br>（思源黑体） |   Y    |        |     Y     |          |   Y    |    Y    |
-| 正文(非CJK)、链接、代码等                           |          Noto Sans Mono          |   Y    |        |     Y     |          |   Y    |    Y    |
-| 表格列格式(数字/百分数/货币) [❯❯](guide.md#数值)    |            Altinn DIN            |   Y    |        |     Y     |          |   Y    |         |
-
-###### 文艺范_选用的字体及应用
-
-| 字体的应用                                       |           **字体名称**            |  风格  |   ==   |   字重    |    ==    |   ==   |   ==    |
-| :----------------------------------------------- | :-------------------------------: | :----: | :----: | :-------: | :------: | :----: | :-----: |
-| :                                                |                 :                 | []正常 | []斜体 | []Regular | []Medium | []Bold | []Black |
-| 封面大标题、章节标题、<br>正文(CJK)等            | Noto Serif CJK SC<br>（思源宋体） |   Y    |        |           |    Y     |        |    Y    |
-| 封面小标题、表头、题注、<br>标签、加粗文本等     | Noto Sans CJK SC<br>（思源黑体）  |   Y    |        |     Y     |          |   Y    |    Y    |
-| 正文（非CJK）                                    |             Luxi Mono             |   Y    |   Y    |     Y     |          |   Y    |         |
-| 链接、代码等                                     |          Noto Sans Mono           |   Y    |        |     Y     |          |   Y    |    Y    |
-| 表格列格式(数字/百分数/货币) [❯❯](guide.md#数值) |            Altinn DIN             |   Y    |   Y    |     Y     |          |   Y    |         |
+>  [<kbd>![](pic/icon-download.svg?fill=text) 从百度网盘下载</kbd>](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw?pwd=11ta)  提取码 `11ta`
 
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°外观与不杂项</kbd>](?target=vdl#快速入坑°外观与不杂项)
 
 ## 封面与封底
 
@@ -1435,7 +1465,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°外观与不杂项</kbd>](?target=vdl#快速入坑°外观与不杂项)
 
 ## Dark Mode
 
@@ -1495,27 +1525,25 @@ vlook-gray-mode: 月-日
 >
 > 更多关于通过 YAML Front Matter 设置插件预置选项的说明，详见：[插件预置选项](#插件预置选项)
 
-## °第三方集成的适配
-
-### 更美观的 Mermaid
+## 更美观的 Mermaid
 
 > [!NOTE]
 >
 > 更多脚本化图表样式，以及结合 VLOOK™ 相关的脚本编写规范内容详见《[脚本化图表 for Markdown](chart.md)》
 
-#### Mermaid 图表自动编号与题注
+### Mermaid 图表题注与自动编号
 
 *Markdown 粉`Q`*「**文档中的 Mermaid 图表，也希望可以像插图那样添加编号和题注**」
 
-*VLOOK`A`*_~T2~_ 无须任何设置，即可自动对文档内所有「Mermaid 图表」进行统一的自动编号，编号内容举例： `插图 1` `插图 2` ，命名和编号与[插图](guide.md#插图自动编号与题注)一致。同时，还增强了在演示时的辅助特性 … [了解详情 ❯](#Mermaid 样式优化与扩展)
+*VLOOK`A`*_~T2~_ 无须任何设置，即可自动对文档内所有「Mermaid 图表」进行统一的自动编号，编号内容举例： `插图 1` `插图 2` ，命名和编号与[插图](guide.md#插图题注与自动编号)一致。同时，还增强了在演示时的辅助特性 … [了解详情 ❯](#Mermaid 样式优化与扩展)
 
 > **适用范围 ••• *`编辑时`OFF*_~Gy~_  *ON` 导出 HTML`*_~Gn~_**
 
-> 给「Mermaid 图表」添加题注的方式，与给「表格」添加题注的方式是一致的 … [了解详情 ❯](guide.md#表格自动编号与题注)
+> 给「Mermaid 图表」添加题注的方式，与给「表格」添加题注的方式是一致的 … [了解详情 ❯](guide.md#表格题注与自动编号)
 >
 > 若没有指定题注，VLOOK™ 会自动创建带有以 Mermaid 图表内文字内容为关键信息的自动题
 
-#### Mermaid 样式优化与扩展
+### Mermaid 样式优化与扩展
 
 > **适用范围 ••• *ON`编辑时`*_~Gn~_  *ON` 导出 HTML`*_~Gn~_**
 
@@ -1696,28 +1724,39 @@ end
 
 [<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版)
 
-### 更美观的公式
+## 更美观的公式
 
 > **适用范围 ••• *ON`编辑时`*_~Gn~_  *ON` 导出 HTML`*_~Gn~_**
 
-###### 段落内混排的公式
+###### 行内混排的公式
 
 这是行内混排的「**数学公式**」$\boxed{\lim_{x \to \infty} \exp{-x} = 0}$，也可以是「**化学公式**」$\boxed{\ce{CH4 + 2 $\left( \ce{O2 + 79/21 N2} \right)$}}$
 
-> ###### 看看以上公式的代码
+> ###### 看看以上行内公式的 LaTeX 代码
 >
 > 数学公式的代码：`$\lim_{x \to \infty} \exp{-x} = 0$`
 >
 > 化学公式的代码：`$\ce{CH4 + 2 $\left( \ce{O2 + 79/21 N2} \right)$}$`
 
-###### 独占一行的公式块（```math 语法）
+###### 独占一行的公式块（```math 语法格式）
 
 ```math
 x = {-b \pm \sqrt{b^2-4ac} \over 2a}
 ```
 
-###### 独占一行的公式块（$$ 语法）
+> ###### 看看以上公式的 Gitlab / GitHub 风格代码
+>
+> ````Gitlab / GitHub style
+> ```math
+> x = {-b \pm \sqrt{b^2-4ac} \over 2a}
+> ```
+> ````
+>
+> 
 
+###### 独占一行公式块（$$ 语法格式）
+
+*==独占一行的公式块（$$ 语法格式）==*
 $$
 \begin{align*}
 y = y(x,t) &= A e^{i\theta} \\
@@ -1729,7 +1768,26 @@ y = y(x,t) &= A e^{i\theta} \\
 \end{align*}
 $$
 
-还可以引用块公式序号，例如参考公式：$\ref{mymath-1}$
+还可以**引用块公式序号实现跳转**，例如参考公式：$\ref{mymath-1}$
+
+
+
+> ###### 看看以上独占一行公式块的 LaTeX 代码
+>
+> ```latex
+> $$
+> \begin{align*}
+> y = y(x,t) &= A e^{i\theta} \\
+> &= A (\cos \theta + i \sin \theta) \label{mymath-1}\tag{My Math - 1} \\
+> &= A (\cos(kx - \omega t) + i \sin(kx - \omega t)) \\
+> &= A\cos(kx - \omega t) + i A\sin(kx - \omega t)  \\
+> &= A\cos \Big(\frac{2\pi}{\lambda}x - \frac{2\pi v}{\lambda} t \Big) + i A\sin \Big(\frac{2\pi}{\lambda}x - \frac{2\pi v}{\lambda} t \Big) \label{mymath-2}\tag{My Math - 2} \\
+> &= A\cos \frac{2\pi}{\lambda} (x - v t) + i A\sin \frac{2\pi}{\lambda} (x - v t) \label{mymath-3}\tag{My Math - 3}
+> \end{align*}
+> $$
+> ```
+>
+> 
 
 ###### 表格内的公式
 
@@ -1741,62 +1799,11 @@ $$
 |         爱因斯坦场方程         | $R_{\mu\nu}-\cfrac{1}{2}g_{\mu\nu}R=8\pi GT_{\mu\nu}-\Lambda g_{\mu\nu}$ | 吸引你的，不是引力，而是扭曲的时空                           |
 |         麦克斯韦方程组         | $\nabla \cdot \mathbf{E} = \cfrac{\rho}{\varepsilon_0}$<br>$\nabla \cdot \mathbf{B} = 0$<br>$\nabla \times \mathbf{E} = -\cfrac{\partial \mathbf{B}}{\partial t}$<br>$\nabla \cdot \mathbf{B} = \mu _0 \mathbf{J} + \mu _0 \varepsilon_0 \cfrac{\partial \mathbf{E}}{\partial t}$ | [麦克斯韦方程组](https://baike.baidu.com/item/%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E6%96%B9%E7%A8%8B%E7%BB%84)（Maxwell's equations） |
 
-### Open Graph Protocol
-
-> **适用范围 ••• *`编辑时`OFF*_~Gy~_  *ON` 导出 HTML`*_~Gn~_**
-
-
-
-> [Open Graph Protocol](https://ogp.me/)（OGP）是一个网络协议，用于在网页元数据中丰富内容的表示，尤其是在社交媒体上分享时。使用 OGP，你可以控制网页分享到社交平台时的外观和描述。
->
-> **目前 VLOOK™ 导出配置已内置常见的 OGP 标签（详见下表），未在预置范围的标签可以自行在导出配置中添加。**
-
-> [!IMPORTANT]
->
-> 1. OGP 的标签与 VLOOK™ 的[插件调校参数](#插件调校参数)一样，都是通过文档中的 YAML Front Matter 来指定；
-> 2. 由于 OGP 的标签都含有冒号 `:` ，所以在 YAML Front Matter 中指定时须用英文的双引号进行包裹，如： `"og:image": https://xxxxx.png` 。
-
-*==支持以下常见的 Open Graph 标签==*
-
-| OGP 标签           | ==YAML 中的名称==  | 说明                                         |
-| ------------------ | ------------------ | -------------------------------------------- |
-| `og:title`         | `"og:title"`       | 网页的标题，这是分享时显示的主要标题         |
-| `og:type`          | `"og:type"`        | 网页类型，如网站、视频、文章等               |
-| `og:image`         | `"og:image"`       | 与网页相关联的图像，这是分享时显示的主要图片 |
-| `og:url`           | `"og:url"`         | 网页的规范链接                               |
-| 其他常用标签       | ==                 | ==                                           |
-| > `og:description` | `"og:description"` | 网页的简短描述，这通常在分享时显示           |
-| > `og:site_name`   | `"og:site_name"`   | 网站的名称                                   |
-| > `og:locale`      | `"og:locale"`      | 网页内容的区域设置或语言                     |
-| > `og:video`       | `"og:video"`       | 如果网页包含视频，这是视频的链接             |
-| > `og:audio`       | `"og:audio"`       | 如果网页包含音频内容，这是音频的链接         |
-
-*==在 YAML Front Matter 的应用举例==*
-
-```yaml
----
-"og:title": 这里是分享的标题
-"og:image": 这里是分享的相关联的图像 URL
-"og:url": 这里是点击分享引导进入的目标 URL
-"og:description": 这里是分享的简短描述
----
-```
-
----
-
-> [!NOTE]
->
-> 更多关于通过 YAML Front Matter 设置插件预置选项的说明，详见：[插件预置选项](#插件预置选项)
-
-> [!TIP]
->
-> 若需要验证发布到网络的 HTML 的 OGP 配置内容，除直接分享到社交工具外，也可通过 Meta for Developers 的 [Sharing Debugger](https://developers.facebook.com/tools/debug/) 工具进行预览
-
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°外观与不杂项</kbd>](?target=vdl#快速入坑°外观与不杂项)
 
 # °不杂项
 
@@ -1818,25 +1825,25 @@ $$
 > ---
 > ```
 
-| 插件预置选项        | [] 预置到<br>定制主题 | 简介                                 | 内容取值及说明                                               |
-| ------------------- | :-------------------: | ------------------------------------ | ------------------------------------------------------------ |
-| YAML 标准选项       |                       | YAML Front Matter 的标准选项         |                                                              |
-| > `title`           |                       | 标题                                 |                                                              |
-| > `author`          |                       | 作者                                 |                                                              |
-| > `keywords`        |                       | 关键字                               |                                                              |
-| `vlook-chp-autonum` |           Y           | 章节自动编号的格式、前缀、后缀等内容 | 详见：[章节自动编号](#章节自动编号)<br>^所有分级的章节都不进行自动编号，可通过定制主题关闭该特性^ |
-| `vlook-chp-dup`     |                       | 指定允许重复的章节标题内容           | • 在对文档章节标题查重时指定的内容<br>• 支持正则表达式，需以 `/` 符号进行包裹<br><sup>多个内容间以英文分号 `;` 进行分隔</sup> |
-| `vlook-doc-lib`     |                       | 启用并指定当前文档的文库 URL         | 支持指定多个，详见：[文库导航](#文库导航)                    |
-| `vlook-gray-mode`   |                       | 设置启用 Gray Mode 的日期            | 详见：[Gray Mode](#Gray Mode)                                |
-| `vlook-image-host`  |                       | 默认图床地址                         | 目前主要针对 Safari 打开本地 HTML 的文件，且指定[图片剪影](guide.md#图片剪影)时使用<br>如： `https://xxx.abc.com/images` |
-| `vlook-welcome`     |                       | 自定义文档在加载时欢迎页信息         | 详见：[自定义欢迎页内容](#自定义欢迎页内容)                  |
-| `vlook-query`       |           Y           | 预置 VLOOK™ 规范的插件调校参数       | 详见以下章节：[插件调校参数](#插件调校参数)                  |
+| 插件预置选项        | []预置到<br>定制主题 | 简介                                 | 内容取值及说明                                               |
+| ------------------- | :------------------: | ------------------------------------ | ------------------------------------------------------------ |
+| YAML 标准选项       |                      | YAML Front Matter 的标准选项         |                                                              |
+| > `title`           |                      | 标题                                 |                                                              |
+| > `author`          |                      | 作者                                 |                                                              |
+| > `keywords`        |                      | 关键字                               |                                                              |
+| `vlook-chp-autonum` |          Y           | 章节自动编号的格式、前缀、后缀等内容 | 详见：[章节自动编号](#章节自动编号)<br>^所有分级的章节都不进行自动编号，可通过定制主题关闭该特性^ |
+| `vlook-chp-dup`     |                      | 指定允许重复的章节标题内容           | • 在对文档章节标题查重时指定的内容<br>• 支持正则表达式，需以 `/` 符号进行包裹<br><sup>多个内容间以英文分号 `;` 进行分隔</sup> |
+| `vlook-doc-lib`     |                      | 启用并指定当前文档的文库 URL         | 支持指定多个，详见：[文库导航](#文库导航)                    |
+| `vlook-gray-mode`   |                      | 设置启用 Gray Mode 的日期            | 详见：[Gray Mode](#Gray Mode)                                |
+| `vlook-image-host`  |                      | 默认图床地址                         | 目前主要针对 Safari 打开本地 HTML 的文件，且指定[图片剪影](guide.md#图片剪影)时使用<br>如： `https://xxx.abc.com/images` |
+| `vlook-welcome`     |                      | 自定义文档在加载时欢迎页信息         | 详见：[自定义欢迎页内容](#自定义欢迎页内容)                  |
+| `vlook-query`       |          Y           | 预置 VLOOK™ 规范的插件调校参数       | 详见以下章节：[插件调校参数](#插件调校参数)                  |
 
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°外观与不杂项</kbd>](?target=vdl#快速入坑°外观与不杂项)
 
 ## 插件调校参数
 
@@ -1850,7 +1857,8 @@ $$
 | **调校参数** | 说明                                                         | 默认值  | 取值及说明                                                   |
 | :----------: | ------------------------------------------------------------ | :-----: | ------------------------------------------------------------ |
 |    badge     | 调整[徽章](#徽章)未指定色号时默认使用的色号                  |  `T1`   | `色号` - 对应的预置色号，[详见这里](#徽章)                   |
-|   capauto    | 指定在内容索引无题注内容时，是否以索引对象的内容自动生成<br>^（如：表格、图片、代码块等）^ |  `on`   | `off` - 不开启<br>`on` - 开启                                |
+|   capauto    | 指定在内容索引无题注内容时，是否以索引对象的内容自动生成     |  `on`   | `off` - 不开启<br>`on` - 开启                                |
+|   capgroup   | 题注的自动编号是否按一级章节进行分组编号                     |  `on`   | `off` - 不开启<br>`on` - 开启                                |
 |   coating    | 调整[刮刮卡](#刮刮卡)未指定色号时默认使用的色号              |  `Gy`   | `色号` - 对应的预置色号，[详见这里](刮刮卡)                  |
 |      cs      | 指定使用固定的颜色方案                                       | `auto`  | `light` - 强制显示为 Light Mode<br>`dark` - 强制显示为 Dark Mode<br>`auto` - 自动跟随系统配置 |
 |    effect    | 调整文档的动效级别                                           |   `2`   | `0` - 关闭动效<br>`1` - 标准动效<br>`2` - 增强动效（毛玻璃等） |
@@ -1902,7 +1910,7 @@ $$
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°外观与不杂项</kbd>](?target=vdl#快速入坑°外观与不杂项)
 
 ## 快捷键操作汇总
 
@@ -1954,43 +1962,13 @@ $$
 > > - 在地址栏输入： `about:config`
 > > - 搜索配置项： `layout.css.backdrop-filter.enabled` ，并设置为 `true`
 
-## 国际化支持
 
-VLOOK™ 插件的界面语言，自动适配浏览器的语言设置。
-
----
-
-> **CJK（中日韩）**
->
-> 🇨🇳 **简体中文 (Simplified Chinese)**
->
-> > *以下语言可根据需求个性进行定制：*
-> >
-> > ￮ 🇭🇰 繁体中文 (Traditional Chinese)
-> >
-> > ￮ 🇯🇵 日文 (Japanese)
-> >
-> > ￮ 🇰🇷 韩文 (Korean)
-
-> **非 CJK（拉丁语系）**
->
-> 🇬🇧 **英文 (English)**
->
-> > *以下语言可根据需求个性进行定制：*
-> >
-> > ￮ 🇫🇷 法文 (French
-> >
-> > ￮ 🇩🇪 德文 (German)
-> >
-> > ￮ 🇪🇸 西班牙文 (Spanish)
-> >
-> > ￮ 🇷🇺 俄文 (Russian)
 
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°主题与不杂项</kbd>](?target=vdl#快速入坑°主题与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°外观与不杂项</kbd>](?target=vdl#快速入坑°外观与不杂项)
 
 # 延伸内容
 
@@ -2001,40 +1979,25 @@ VLOOK™ 插件的界面语言，自动适配浏览器的语言设置。
    2. 如标题内容为「标题、标题？」，则文字链接跳转应写成： `标题标题`
 2. 标题内容原则上不要带有空格，如果有请替换为连字符 `-`
 
-## 图片 URL 扩展应用说明
+## 图片地址扩展应用说明
 
-> ###### 图片 URL 无 Query 参数时
+> ###### 图片地址无 Query 参数时
 >
 > - 先在 URL 后添加英文问号 `?` 后，再添加需要的 URL Query 参数；
-> - 当图片 URL 已有 Query 参数时，多个参数间用英文特殊符号 `&` 进行分隔。
+> - 当图片地址已有 Query 参数时，多个参数间用英文特殊符号 `&` 进行分隔。
 >
 > **示例-1：**`![图片题注](xxx.png?darksrc=invert)`
 >
-> **示例-2：**`![图片题注](xxx.png?darksrc=invert#icon2x)`
+> **示例-2：**`![图片题注](xxx.png?darksrc=invert#icon)`
 >
 > > [!IMPORTANT]
 > >
-> > 若图片 URL 中含有锚点内容，如 `xxx.png#icon2x` ，URL Query 参数须在锚点前添加
+> > 若图片地址中含有锚点内容，如 `xxx.png#icon` ，URL Query 参数须在锚点前添加
 
-> ###### 图片 URL 锚点
+> ###### 图片地址锚点
 >
-> 图片 URL 支持添加锚点实现快速图片排版，目前支持通过锚点排版的特性包括：
->
-> - 图片显示版式 [❯❯](guide.md#图片显示版式)
-> - 图片边缘留白 [❯❯](guide.md#图片边缘留白)
->
-> 当需要同时应用以上多个排版，可添加多个锚点，如： `#center#padding#icon2x` 
-
-
-
-
----
-
-
-
-**The End**
-
-
+> - 图片地址支持添加锚点「#魔法」实现快速图片排版，目前支持通过锚点排版的特性详见：[°图片](guide.md#°图片)
+> - 当需要同时应用以上多个排版，可添加多个锚点，如： `#card#fixmax` 
 
 ## ~~基于色轮的配色方案~~
 

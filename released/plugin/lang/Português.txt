@@ -55,7 +55,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt43" content="hora(s)">
 <meta name="vk-pt44" content="palavras">
 <meta name="vk-pt45" content="Trocar Modo Automático/Claro/Escuro">
-<meta name="vk-pt46" content="Não encontrado">
+<meta name="vk-pt46" content="Adicione [TOC] antes do primeiro cabeçalho de nível um para gerá-lo">
 <meta name="vk-pt47" content="Verificação de hash aprovada">
 <meta name="vk-pt48" content="Fechar documento">
 <meta name="vk-pt49" content="A verificação de hash falhou">
@@ -95,4 +95,3 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt83" content="Link">
 <meta name="vk-pt84" content="Nota de rodapé">
 <meta name="vk-pt85" content="Restaurar estilo de fonte">
-<meta name="vk-pt86" content="Adicione [TOC] antes do título de primeiro nível-1 para gerá-lo">

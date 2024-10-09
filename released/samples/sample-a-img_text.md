@@ -6,7 +6,7 @@ title: 图片和文字也可以很和谐
 
 ---
 
-> 1. 将指定图片设置为 1 倍的文字大小，这样 ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) ，就可以实现任意图片直接混排了，图片 URL 后加上 `#icon` 这个小尾巴就可以
+> 1. 将指定图片设置为 1 倍的文字大小，这样 ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) ，就可以实现任意图片直接混排了，图片地址后加上 `#icon` 这个小尾巴就可以
 > 2. 还可以指定为 2 倍文字大小，例如这样 ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon2x) ，就可以更突出显示指定的图标（图片)，这个小尾巴是 `#icon2x`
 >
 > _~Gy!~_

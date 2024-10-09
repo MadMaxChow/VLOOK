@@ -55,7 +55,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de43" content="stunde(n)">
 <meta name="vk-de44" content="Wörter">
 <meta name="vk-de45" content="Auto-/Hell-/Dunkelmodus wechseln">
-<meta name="vk-de46" content="Nicht gefunden">
+<meta name="vk-de46" content="Fügen Sie [TOC] vor der ersten Überschrift der ersten Ebene ein, um es zu generieren">
 <meta name="vk-de47" content="Hash-Prüfung bestanden">
 <meta name="vk-de48" content="Dokument schließen">
 <meta name="vk-de49" content="Hash-Prüfung fehlgeschlagen">
@@ -95,4 +95,3 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de83" content="Link">
 <meta name="vk-de84" content="Fußnote">
 <meta name="vk-de85" content="Schriftstil wiederherstellen">
-<meta name="vk-de86" content="Fügen Sie [TOC] vor der Überschrift der ersten Ebene-1 hinzu, um sie zu generieren">

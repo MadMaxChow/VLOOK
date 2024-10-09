@@ -55,7 +55,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko43" content="시간">
 <meta name="vk-ko44" content="단어">
 <meta name="vk-ko45" content="자동/라이트/다크 모드 전환">
-<meta name="vk-ko46" content="찾을 수 없음">
+<meta name="vk-ko46" content="[TOC]을 첫 번째 1단계 제목 앞에 추가하여 생성하십시오">
 <meta name="vk-ko47" content="해시 검사가 통과되었습니다">
 <meta name="vk-ko48" content="문서 닫기">
 <meta name="vk-ko49" content="해시 검사가 실패했습니다">
@@ -95,4 +95,3 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko83" content="링크">
 <meta name="vk-ko84" content="각주">
 <meta name="vk-ko85" content="글꼴 스타일 복원">
-<meta name="vk-ko86" content="[TOC]을 1단계-1 제목 앞에 추가하여 생성하세요">
