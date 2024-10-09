@@ -7,15 +7,16 @@
 ——————————
 
 【AI 翻译提示词】多国语言版本
-多国语言的标识对应关系如下："de"对应的是德语，"es"对应的是西班牙语，"fr"对应的是法语，"pt"对应的是葡萄牙语，"ru"对应的是俄语，"ar"对应的是阿拉伯语，"ko"对应的是韩语，"ja"对应的是日语，"zh-hk"对应的是繁体中文。
-帮我把以下内容中，「content=」后双引用内的英文内容翻译为对应的语言，具体对应语言的标识以「name=」后双引用号内容中为参考，即"vk-"后的内容为对应的语言标识（忽略数字部分），其他内容保持原内容输出：
 
-<meta name="vk-de46" content="Add [TOC] before the first first-level heading to generate it">
-<meta name="vk-es46" content="Add [TOC] before the first first-level heading to generate it">
-<meta name="vk-fr46" content="Add [TOC] before the first first-level heading to generate it">
-<meta name="vk-pt46" content="Add [TOC] before the first first-level heading to generate it">
-<meta name="vk-ru46" content="Add [TOC] before the first first-level heading to generate it">
-<meta name="vk-ar46" content="Add [TOC] before the first first-level heading to generate it">
-<meta name="vk-ko46" content="Add [TOC] before the first first-level heading to generate it">
-<meta name="vk-ja46" content="Add [TOC] before the first first-level heading to generate it">
-<meta name="vk-zh-hk46" content="Add [TOC] before the first first-level heading to generate it">
+多国语言的标识对应关系如下："de"对应的是德语，"es"对应的是西班牙语，"fr"对应的是法语，"pt"对应的是葡萄牙语，"ru"对应的是俄语，"ar"对应的是阿拉伯语，"ko"对应的是韩语，"ja"对应的是日语，"zh-hk"对应的是繁体中文。
+帮我把以下内容中，「content=」后双引用内的英文内容翻译为对应的语言（同时需要请对一些特定的字符进行HTML编码，包括：引号、换行、小于号、大于号和反斜杠等，注意换行应该进行HTML编码，而不是HTML标签），对于标点符号需要按中日韩的文字规范进行转写（包括：英文引号转写为全角引号或「」、英文单词或数值内容的前后需要添加1个英文空格）。语言具体对应语言的标识以「name=」后双引用号内容中为参考，即"vk-"后的内容为对应的语言标识（忽略数字部分），其他内容保持原内容输出
+
+<meta name="vk-de86" content="⚠️ WARNING ⚠️\n\nIn your document, you used Typora's image scaling feature, which may cause compatibility issues!\n\nIt is recommended to replace it with VLOOK™'s \"image scaling\" such as:\npic.jpg#400w\npic.jpg#200h">
+<meta name="vk-es86" content="⚠️ WARNING ⚠️\n\nIn your document, you used Typora's image scaling feature, which may cause compatibility issues!\n\nIt is recommended to replace it with VLOOK™'s \"image scaling\" such as:\npic.jpg#400w\npic.jpg#200h">
+<meta name="vk-fr86" content="⚠️ WARNING ⚠️\n\nIn your document, you used Typora's image scaling feature, which may cause compatibility issues!\n\nIt is recommended to replace it with VLOOK™'s \"image scaling\" such as:\npic.jpg#400w\npic.jpg#200h">
+<meta name="vk-pt86" content="⚠️ WARNING ⚠️\n\nIn your document, you used Typora's image scaling feature, which may cause compatibility issues!\n\nIt is recommended to replace it with VLOOK™'s \"image scaling\" such as:\npic.jpg#400w\npic.jpg#200h">
+<meta name="vk-ru86" content="⚠️ WARNING ⚠️\n\nIn your document, you used Typora's image scaling feature, which may cause compatibility issues!\n\nIt is recommended to replace it with VLOOK™'s \"image scaling\" such as:\npic.jpg#400w\npic.jpg#200h">
+<meta name="vk-ar86" content="⚠️ WARNING ⚠️\n\nIn your document, you used Typora's image scaling feature, which may cause compatibility issues!\n\nIt is recommended to replace it with VLOOK™'s \"image scaling\" such as:\npic.jpg#400w\npic.jpg#200h">
+<meta name="vk-ko86" content="⚠️ WARNING ⚠️\n\nIn your document, you used Typora's image scaling feature, which may cause compatibility issues!\n\nIt is recommended to replace it with VLOOK™'s \"image scaling\" such as:\npic.jpg#400w\npic.jpg#200h">
+<meta name="vk-ja86" content="⚠️ WARNING ⚠️\n\nIn your document, you used Typora's image scaling feature, which may cause compatibility issues!\n\nIt is recommended to replace it with VLOOK™'s \"image scaling\" such as:\npic.jpg#400w\npic.jpg#200h">
+<meta name="vk-zh-hk86" content="⚠️ WARNING ⚠️\n\nIn your document, you used Typora's image scaling feature, which may cause compatibility issues!\n\nIt is recommended to replace it with VLOOK™'s \"image scaling\" such as:\npic.jpg#400w\npic.jpg#200h">

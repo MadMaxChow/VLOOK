@@ -95,3 +95,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-es83" content="Enlace">
 <meta name="vk-es84" content="Nota al pie">
 <meta name="vk-es85" content="Restaurar estilo de fuente">
+<meta name="vk-es86" content="⚠️ ADVERTENCIA ⚠️&#10;&#10;¡En su documento, utilizó la función de escalado de imágenes de Typora, que puede causar problemas de compatibilidad!&#10;&#10;Se recomienda reemplazarlo con la「escalado de imágenes」de VLOOK™ como:&#10;pic.jpg#400w&#10;pic.jpg#200h">

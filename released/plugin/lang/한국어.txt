@@ -95,3 +95,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko83" content="링크">
 <meta name="vk-ko84" content="각주">
 <meta name="vk-ko85" content="글꼴 스타일 복원">
+<meta name="vk-ko86" content="⚠️ 경고 ⚠️&#10;&#10;문서에서 Typora의 이미지 크기 조정 기능을 사용했으며, 이로 인해 호환성 문제가 발생할 수 있습니다！&#10;&#10;VLOOK™의 「이미지 크기 조정」으로 교체하는 것이 좋습니다. 예：&#10;pic.jpg#400w&#10;pic.jpg#200h">

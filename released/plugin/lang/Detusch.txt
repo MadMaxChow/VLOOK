@@ -95,3 +95,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de83" content="Link">
 <meta name="vk-de84" content="Fußnote">
 <meta name="vk-de85" content="Schriftstil wiederherstellen">
+<meta name="vk-de86" content="⚠️ WARNUNG ⚠️&#10;&#10;In Ihrem Dokument haben Sie die Bildskalierungsfunktion von Typora verwendet, die möglicherweise Kompatibilitätsprobleme verursacht!&#10;&#10;Es wird empfohlen, diese durch VLOOK™「Bildskalierung」wie folgt zu ersetzen:&#10;pic.jpg#400w&#10;pic.jpg#200h">

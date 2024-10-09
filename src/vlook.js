@@ -15898,11 +15898,16 @@ function Restyler_forMermaid() {
  * 针对使用了 Typora 的图片缩放功能的检查与提示
  */
 function Restyler_forImgZoom() {
+    ERROR(111, $(__write_ +___+ _img_ + V_attrCSS(_style_, "zoom", "*")).length, V_length($(__write_ +___+ _img_ + V_attrCSS(_style_, "zoom", "*"))));
     if (V_length($(__write_ +___+ _img_ + V_attrCSS(_style_, "zoom", "*"))) > 0)
-        ALERT([
-            "⚠️ 注意 ⚠️\n\n您的文档中使用了 Typora 的图片缩放功能，会存在兼容问题！\n\n建议替换为 VLOOK™ 的「图片缩放」，如：\npic.jpg#400w\npic.jpg#200h",
+        ALERT(V_lang_text(86, [
+            "⚠️ 警告 ⚠️\n\n您的文档中使用了 Typora 的图片缩放功能，会存在兼容问题！\n\n建议替换为 VLOOK™ 的「图片缩放」，如：\npic.jpg#400w\npic.jpg#200h",
             "⚠️ WARNING ⚠️\n\nIn your " + _document_ + ", you used Typora's image scaling feature, which may cause compatibility issues!\n\nIt is recommended to replace it with VLOOK™'s \"image scaling\" such as:\npic.jpg#400w\npic.jpg#200h"
-        ][V_lang]);
+        ]));
+        // ALERT([
+        //     "⚠️ 警告 ⚠️\n\n您的文档中使用了 Typora 的图片缩放功能，会存在兼容问题！\n\n建议替换为 VLOOK™ 的「图片缩放」，如：\npic.jpg#400w\npic.jpg#200h",
+        //     "⚠️ WARNING ⚠️\n\nIn your " + _document_ + ", you used Typora's image scaling feature, which may cause compatibility issues!\n\nIt is recommended to replace it with VLOOK™'s \"image scaling\" such as:\npic.jpg#400w\npic.jpg#200h"
+        // ][V_lang]);
 }
 
 // ==================== Sup/Sub Magic 模块 ==================== //
