@@ -1301,8 +1301,10 @@ h6:first-child) {
     margin: .5em 0 0 0;
 }
 
-// 没有子元素的 p 元素，即空白行
-#write p:not(:has(*)) {
+// 没有子元素的 p 元素，即空白行、无内容、空段落
+// #write :is(>p, blockquote>p):not(:has(*)) {
+#write>p:not(:has(*)),
+#write @{quote_details_gsa}>p:not(:has(*)) {
     // font-size: .625em;
     margin: 0;
     padding: 0;
@@ -2731,7 +2733,13 @@ body.html-for-mac @{writeOnEditing} .md-inline-math mjx-container {
 @{writeOnEditing} .md-fences-math[lang="math"].md-focus .md-fences-adv-panel mjx-container>svg g {
     fill: @codeTooltipText !important;
 }
-
+.typora-export mjx-container[jax="SVG"] {
+    margin: 0 !important;
+}
+// mjx-container[jax="SVG"] > svg {
+//     padding: .5em;
+// }
+// 公式内的链接
 mjx-container[jax="SVG"] > svg a {
     fill: var(--a-color) !important;
     stroke: var(--a-color) !important;
@@ -2766,6 +2774,16 @@ mjx-container[jax="SVG"] > svg a:hover {
 // 行间公式区
 .md-math-block {
     border-radius: var(--v-r-b) var(--v-r-b-xc);
+}
+// 针对导出后（write 与 vlook 的范围）
+.typora-export :is(.md-math-block, .md-fences-math) {
+    background-color: var(--d-bc) !important;
+    margin: 2px !important;
+    padding: 1rem !important;
+    width: auto !important;
+}
+.typora-export :is(.md-math-block, .md-fences-math) mjx-assistive-mml {
+    display: none !important;
 }
 
 // 针对 HTML 代码块
@@ -4039,13 +4057,17 @@ div[class*="v-fontinfo-"] > span,
 }
 
 .v-btn.first {
-    border-radius: var(--v-r-s) 0 0 var(--v-r-s-xc) !important;
+    // border-radius: var(--v-r-s) 0 0 var(--v-r-s-xc) !important;
+    border-top-left-radius: var(--v-r-s) !important;
+    border-bottom-left-radius: var(--v-r-s-xc) !important;
 }
 .v-btn.middle {
     border-radius: 0 !important;
 }
 .v-btn.last {
-    border-radius: 0 var(--v-r-s-xc) var(--v-r-s) 0 !important;
+    // border-radius: 0 var(--v-r-s-xc) var(--v-r-s) 0 !important;
+    border-top-right-radius: var(--v-r-s-xc) !important;
+    border-bottom-right-radius: var(--v-r-s) !important;
 }
 
 .v-btn.hover {
@@ -4526,10 +4548,10 @@ div[class*="v-fontinfo-"] > span,
     cursor: var(--cur-pointer);
 }
 .v-textfield-reset:hover>svg>use {
-    opacity: .4;
+    opacity: .5;
 }
 .v-textfield-reset:active>svg>use {
-    opacity: .6;
+    opacity: .75;
 }
 
 // 针对导航中心 tab 栏内按钮
@@ -4696,6 +4718,7 @@ div[class*="v-fontinfo-"] > span,
 .v-pic-in-pic>.v-content {
     overflow: auto;
     height: 100%;
+    background-color: var(--d-bc);
 }
 .v-pic-in-pic>.v-content,
 .v-pic-in-pic>.v-content>:is(table, .v-fig) {
@@ -5037,6 +5060,9 @@ iframe[id^="vlook-chk-update-"] {
 .v-cap-cntr {
     border-radius: var(--v-r-b);
 }
+// .v-cap-cntr[d-cntr="formula"] {
+//     overflow-x: auto;
+// }
 .v-cap-cntr:last-child {
     margin-bottom: 0;
 }
@@ -5096,7 +5122,7 @@ use.v-svg-ico-dark {
 
 use.v-svg-ico-alpha {
     fill: var(--d-fc);
-    opacity: .2;
+    opacity: .25;
 }
 
 use.v-svg-ico-theme {

@@ -1,5 +1,5 @@
 ---
-title: 快速参考手册 (Part.I) - VLOOK™ - Markdown 编辑器 Typora 的主题包和增强插件
+title: 快速参考手册 (Part.I) - VLOOK™ - 优雅好用的 Typora 主题与增强插件 VLOOK™
 author: MAX°孟兆
 description: 关于 VLOOK™ 的文本、表格、图片、分栏、列表、引用块、代码块、多媒体
 "og:description": 关于 VLOOK™ 的文本、表格、图片、分栏、列表、引用块、代码块、多媒体
@@ -3341,7 +3341,7 @@ void quickSort(int arr[], int left, int right) {
 
 > 方式与为「表格」进行题注与自动编号一致 … [了解详情 ❯](#表格题注与自动编号)
 >
-> 数学公式添加题注、自动编号后的效果 … [详见这里 ❯](guide2.md#更美观的公式)
+> 数学公式添加题注、自动编号后的效果 … [详见这里 ❯](guide2.md#更实用美观的公式)
 
 
 
@@ -3350,9 +3350,9 @@ void quickSort(int arr[], int left, int right) {
 > - 可通过「[插件调校参数](guide2.md#插件调校参数)」 `capauto` 来调整自动编号的适用范围
 > - 可通过「[插件调校参数](guide2.md#插件调校参数)」 `capgroup` 调整题注的自动编号是否按一级章节进行分组编号
 
-## 更美观的公式
+## 更实用美观的公式
 
-… [详见这里 ❯](guide2.md#更美观的公式)
+… [详见这里 ❯](guide2.md#更实用美观的公式)
 
 # °多媒体
 

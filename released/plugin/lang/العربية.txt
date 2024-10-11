@@ -1,5 +1,7 @@
 <!--
-VLOOK™ "V26.1" (2024-09-24) - Typora Plugin  (language pack)
+========== Language Pack ==========
+VLOOK™ "V26.1" (2024-09-24) - (Language Pack) - Typora Plugin
+
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
@@ -50,7 +52,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ar38" content="جاهز">
 <meta name="vk-ar39" content="انتهاء المهلة">
 <meta name="vk-ar40" content="جاري التحميل">
-<meta name="vk-ar41" content="موضوع الخط">
+<meta name="vk-ar41" content="نمط الخط">
 <meta name="vk-ar42" content="دقيقة/دقائق">
 <meta name="vk-ar43" content="ساعة(ساعات)">
 <meta name="vk-ar44" content="كلمات">

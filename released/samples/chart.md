@@ -1,5 +1,5 @@
 ---
-title: Markdown 脚本化图表参考指南 - VLOOK™ - Markdown 编辑器 Typora 的主题包和增强插件
+title: Markdown 脚本化图表参考指南 - VLOOK™ - 优雅好用的 Typora 主题与增强插件 VLOOK™
 author: MAX°孟兆
 description: 关于 VLOOK™ 对 Mermaid 的脚本化图表支持与增强
 "og:description": 关于 VLOOK™ 对 Mermaid 的脚本化图表支持与增强
@@ -1510,6 +1510,60 @@ gitGraph
 > ```
 > ````
 > [<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/gitgraph.html)
+
+
+
+*==Gitgraph 图示例 3==*
+
+```mermaid
+  gitGraph
+    commit
+    branch hotfix
+    checkout hotfix
+    commit
+    branch develop
+    checkout develop
+    commit id:"ash" tag:"abc"
+    branch featureB
+    checkout featureB
+    commit type:HIGHLIGHT
+    checkout main
+    checkout hotfix
+    commit type:NORMAL
+    checkout develop
+    commit type:REVERSE
+    checkout featureB
+    commit
+    checkout main
+    merge hotfix
+    checkout featureB
+    commit
+    checkout develop
+    branch featureA
+    commit
+    checkout develop
+    merge hotfix
+    checkout featureA
+    commit
+    checkout featureB
+    commit
+    checkout develop
+    merge featureA
+    branch release
+    checkout release
+    commit
+    checkout main
+    commit
+    checkout release
+    merge main
+    checkout develop
+    merge release
+    branch featureC
+    commit
+    branch featureD
+    commit
+
+```
 
 ## 桑基图
 

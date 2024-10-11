@@ -1,5 +1,7 @@
 <!--
-VLOOK™ "V26.1" (2024-09-24) - Typora Plugin  (language pack)
+========== Language Pack ==========
+VLOOK™ "V26.1" (2024-09-24) - (Language Pack) - Typora Plugin
+
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
@@ -50,7 +52,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru38" content="Готово">
 <meta name="vk-ru39" content="Тайм-аут">
 <meta name="vk-ru40" content="Загрузка">
-<meta name="vk-ru41" content="Сменить стиль шрифта">
+<meta name="vk-ru41" content="Стиль шрифта">
 <meta name="vk-ru42" content="- минуты">
 <meta name="vk-ru43" content="- часы">
 <meta name="vk-ru44" content="- слова">

@@ -402,7 +402,7 @@ title: 浏览更多 VLOOK™ 的话题
 > - **Dark Mode** is **NOW** [❯❯](guide2.md#Dark-Mode)
 > - **Gray Mode** is **NOW** [❯❯](guide2.md#Gray-Mode)
 > - 为文档添加「封面与封底」 [❯❯](guide2.md#封面与封底)
-> - 更美观的公式 [❯❯](guide2.md#更美观的公式)
+> - 更实用美观的公式 [❯❯](guide2.md#更实用美观的公式)
 >
 > _~Lm~_
 
@@ -414,9 +414,9 @@ title: 浏览更多 VLOOK™ 的话题
 >
 > - 结合 VLOOK 针对提供更适配、更美观的样式 [❯❯](guide2.md#更美观的-Mermaid)
 >
-> 数字公式：
+> **公式**：
 >
-> - 结合 VLOOK 针对提供更适配、更美观的样式 [❯❯](guide2.md#更美观的公式)
+> - 结合 VLOOK 针对了提供更实用的特性、更美观的样式 [❯❯](guide2.md#更实用美观的公式)
 >
 > _~Lm~_
 

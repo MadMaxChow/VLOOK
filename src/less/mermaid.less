@@ -28,26 +28,26 @@
 
     // 针对 #ZenUML_Var
 
-    --mm-c-rd: var(--ac-rd);
-    --mm-c-rd-a: var(--ac-rd-a);
-    --mm-c-og: var(--ac-og);
-    --mm-c-og-a: var(--ac-og-a);
-    --mm-c-ye: var(--ac-ye);
-    --mm-c-ye-a: var(--ac-ye-a);
-    --mm-c-gn: var(--ac-gn);
-    --mm-c-gn-a: var(--ac-gn-a);
-    --mm-c-cy: var(--ac-cy);
-    --mm-c-cy-a: var(--ac-cy-a);
-    --mm-c-bu: var(--ac-bu);
-    --mm-c-bu-a: var(--ac-bu-a);
-    --mm-c-pu: var(--ac-pu);
-    --mm-c-pu-a: var(--ac-pu-a);
-    --mm-c-pk: var(--ac-pk);
-    --mm-c-pk-a: var(--ac-pk-a);
-    --mm-c-bn: var(--ac-bn);
-    --mm-c-bn-a: var(--ac-bn-a);
-    --mm-c-gy: var(--ac-gy);
-    --mm-c-gy-a: var(--ac-gy-a);
+    // --mm-c-rd: var(--ac-rd);
+    // --mm-c-rd-a: var(--ac-rd-a);
+    // --mm-c-og: var(--ac-og);
+    // --mm-c-og-a: var(--ac-og-a);
+    // --mm-c-ye: var(--ac-ye);
+    // --mm-c-ye-a: var(--ac-ye-a);
+    // --mm-c-gn: var(--ac-gn);
+    // --mm-c-gn-a: var(--ac-gn-a);
+    // --mm-c-bu: var(--ac-bu);
+    // --mm-c-bu-a: var(--ac-bu-a);
+    // --mm-c-pu: var(--ac-pu);
+    // --mm-c-pu-a: var(--ac-pu-a);
+    // --mm-c-cy: var(--ac-cy);
+    // --mm-c-cy-a: var(--ac-cy-a);
+    // --mm-c-ro: var(--ac-ro);
+    // --mm-c-ro-a: var(--ac-ro-a);
+    // --mm-c-bn: var(--ac-bn);
+    // --mm-c-bn-a: var(--ac-bn-a);
+    // --mm-c-gy: var(--ac-gy);
+    // --mm-c-gy-a: var(--ac-gy-a);
 }
 
 // ** 注意 **
@@ -438,7 +438,7 @@ svg[aria-roledescription="sequence"] rect[class^="activation"] {
 // 片断的类型标签背景
 svg[aria-roledescription="sequence"] .labelBox {
     stroke: none !important;
-    fill: var(--mm-c-pu) !important;
+    fill: var(--ac-pu) !important;
 }
 
 // 角标
@@ -463,7 +463,7 @@ svg[aria-roledescription="sequence"] :is(.loopText:hover, .loopText:hover>tspan)
 svg[aria-roledescription="sequence"] .loopLine {
     stroke-width: 1 !important;
     stroke-dasharray: none !important;
-    stroke: var(--mm-c-pu) !important;
+    stroke: var(--ac-pu) !important;
 }
 
 // 片断上鼠标悬停
@@ -482,9 +482,9 @@ svg[aria-roledescription="sequence"] g:hover>.labelText {
 
 // 备注背景
 svg[aria-roledescription="sequence"] .note {
-    stroke: var(--mm-c-ye) !important;
+    stroke: var(--ac-ye) !important;
     stroke-width: 0 !important;
-    fill: var(--mm-c-ye-a) !important;
+    fill: var(--ac-ye-a) !important;
 }
 
 // 备注文本
@@ -589,9 +589,9 @@ svg[aria-roledescription="stateDiagram"] .statediagram-cluster .cluster-label {
 
 // 注释
 svg[aria-roledescription="stateDiagram"] .statediagram-note rect {
-    stroke: var(--mm-c-ye) !important;
+    stroke: var(--ac-ye) !important;
     stroke-dasharray: 5 !important;
-    fill: var(--mm-c-ye) !important;
+    fill: var(--ac-ye) !important;
 }
 // 注释文本
 svg[aria-roledescription="stateDiagram"] .statediagram-note .nodeLabel {
@@ -774,13 +774,13 @@ svg[aria-roledescription="gantt"] .grid>.tick>text {
 
 // 排除的日期
 svg[aria-roledescription="gantt"] .exclude-range {
-    fill: var(--mm-c-ye) !important;
+    fill: var(--ac-ye) !important;
     opacity: .15 !important;
 }
 
 // 当前时间标识线
 svg[aria-roledescription="gantt"] g.today line.today {
-    stroke: var(--mm-c-rd) !important;
+    stroke: var(--ac-rd) !important;
     stroke-width: 3 !important;
 }
 
@@ -793,7 +793,7 @@ svg[aria-roledescription="gantt"] rect[class*="active"] {
 // 普通任务-已完成
 svg[aria-roledescription="gantt"] rect[class*="done"] {
     fill: var(--ac-gy-a) !important;
-    stroke: var(--mm-c-bu) !important;
+    stroke: var(--ac-bu) !important;
     stroke-width: 1 !important;
     stroke-dasharray: none !important;
 }
@@ -815,14 +815,14 @@ svg[aria-roledescription="gantt"] rect[class*="doneCrit"] {
 // 普通未来任务
 svg[aria-roledescription="gantt"] rect[class^="task task"] {
     fill: var(--d-bc) !important;
-    stroke: var(--mm-c-bu) !important;
+    stroke: var(--ac-bu) !important;
     stroke-width: 1 !important;
     stroke-dasharray: 4 !important;
 }
 // 关键未来任务
 svg[aria-roledescription="gantt"] rect[class^="task crit"] {
     fill: var(--d-bc) !important;
-    stroke: var(--mm-c-pu) !important;
+    stroke: var(--ac-pu) !important;
     stroke-width: 1 !important;
     stroke-dasharray: 4 !important;
 }
@@ -946,6 +946,7 @@ svg[aria-roledescription="gitGraph"] .branchLabel .row {
     font-weight: var(--v-f-w-bd) !important;
     // font-weight: var(--v-f-w-title) !important;
     fill: fade(#FFFFFF, 90%);
+    font-size: .875em;
 }
 
 // 提交节点
@@ -963,73 +964,73 @@ svg[aria-roledescription="gitGraph"] .branch {
 // 分支 0 - 主分支
 svg[aria-roledescription="gitGraph"] .branchLabelBkg.label0,
 svg[aria-roledescription="gitGraph"] .commit-bullets .commit0 {
-    fill: var(--mm-c-bu) !important;
+    fill: var(--ac-bu) !important;
 }
 svg[aria-roledescription="gitGraph"] .commit-arrows .arrow0 {
-    stroke: var(--mm-c-bu) !important;
+    stroke: var(--ac-bu) !important;
 }
 
 // 分支 1
 svg[aria-roledescription="gitGraph"] .branchLabelBkg.label1,
 svg[aria-roledescription="gitGraph"] .commit-bullets .commit1 {
-    fill: var(--mm-c-ye) !important;
+    fill: var(--ac-og) !important;
 }
 svg[aria-roledescription="gitGraph"] .commit-arrows .arrow1 {
-    stroke: var(--mm-c-ye) !important;
+    stroke: var(--ac-og) !important;
 }
 
 // 分支 2
 svg[aria-roledescription="gitGraph"] .branchLabelBkg.label2,
 svg[aria-roledescription="gitGraph"] .commit-bullets .commit2 {
-    fill: var(--mm-c-gn) !important;
+    fill: var(--ac-ro) !important;
 }
 svg[aria-roledescription="gitGraph"] .commit-arrows .arrow2 {
-    stroke: var(--mm-c-gn) !important;
+    stroke: var(--ac-ro) !important;
 }
 
 // 分支 3
 svg[aria-roledescription="gitGraph"] .branchLabelBkg.label3,
 svg[aria-roledescription="gitGraph"] .commit-bullets .commit3 {
-    fill: var(--mm-c-og) !important;
+    fill: var(--ac-bn) !important;
 }
 svg[aria-roledescription="gitGraph"] .commit-arrows .arrow3 {
-    stroke: var(--mm-c-og) !important;
+    stroke: var(--ac-bn) !important;
 }
 
 // 分支 4
 svg[aria-roledescription="gitGraph"] .branchLabelBkg.label4,
 svg[aria-roledescription="gitGraph"] .commit-bullets .commit4 {
-    fill: var(--mm-c-pk) !important;
+    fill: var(--ac-pu) !important;
 }
 svg[aria-roledescription="gitGraph"] .commit-arrows .arrow4 {
-    stroke: var(--mm-c-pk) !important;
+    stroke: var(--ac-pu) !important;
 }
 
 // 分支 5
 svg[aria-roledescription="gitGraph"] .branchLabelBkg.label5,
 svg[aria-roledescription="gitGraph"] .commit-bullets .commit5 {
-    fill: var(--mm-c-cy) !important;
+    fill: var(--ac-rd) !important;
 }
 svg[aria-roledescription="gitGraph"] .commit-arrows .arrow5 {
-    stroke: var(--mm-c-cy) !important;
+    stroke: var(--ac-rd) !important;
 }
 
 // 分支 6
 svg[aria-roledescription="gitGraph"] .branchLabelBkg.label6,
 svg[aria-roledescription="gitGraph"] .commit-bullets .commit6 {
-    fill: var(--mm-c-pu) !important;
+    fill: var(--ac-vn) !important;
 }
 svg[aria-roledescription="gitGraph"] .commit-arrows .arrow6 {
-    stroke: var(--mm-c-pu) !important;
+    stroke: var(--ac-vn) !important;
 }
 
 // 分支 7
 svg[aria-roledescription="gitGraph"] .branchLabelBkg.label7,
 svg[aria-roledescription="gitGraph"] .commit-bullets .commit7 {
-    fill: var(--mm-c-rd) !important;
+    fill: var(--ac-ye) !important;
 }
 svg[aria-roledescription="gitGraph"] .commit-arrows .arrow7 {
-    stroke: var(--mm-c-rd) !important;
+    stroke: var(--ac-ye) !important;
 }
 
 // 合并节点
@@ -1051,26 +1052,32 @@ svg[aria-roledescription="gitGraph"] .commit-bullets .commit-highlight-inner {
 
 // 针对 tag 标签
 svg[aria-roledescription="gitGraph"] .tag-label-bkg {
-    fill: var(--d-bc) !important;
-    stroke: var(--d-fc-a) !important;
+    fill: var(--ac-ye-fade) !important;
+    stroke: var(--ac-ye-fade) !important;
 }
 svg[aria-roledescription="gitGraph"] .tag-hole {
     fill: var(--d-bc) !important;
-    stroke: var(--d-fc-a) !important;
+    stroke: var(--ac-ye-fade) !important;
     stroke-width: 1 !important;
 }
 svg[aria-roledescription="gitGraph"] .tag-label {
     fill: var(--d-fc) !important;
+    font-weight: normal;
 }
 
 // 提交标记背景
 svg[aria-roledescription="gitGraph"] .commit-labels .commit-label-bkg {
-    fill: var(--d-fc-a) !important;
+    // fill: var(--d-fc) !important;
+    // stroke: var(--d-bc) !important;
+    fill: var(--d-bc) !important;
+    opacity: .25;
 }
 
 // 提交标记文本
 svg[aria-roledescription="gitGraph"] .commit-labels .commit-label {
+    // fill: var(--d-bc) !important;
     fill: var(--d-fc) !important;
+    font-weight: var(--v-f-w-bd);
 }
 
 /* ----- C4 diagrams C4 图 ----- */

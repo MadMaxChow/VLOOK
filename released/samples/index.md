@@ -1,5 +1,5 @@
 ---
-title: 简介 - VLOOK™ - Markdown 编辑器 Typora 的主题包和增强插件
+title: 简介 - VLOOK™ - 优雅好用的 Typora 主题与增强插件 VLOOK™
 author: MAX°孟兆	 
 description: 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:description": 关于 VLOOK™ 下载、设置、安装与配置配置说明

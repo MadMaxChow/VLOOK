@@ -1,4 +1,4 @@
-选择语言 ❯ [🀄️ **简体中文**](README.md) 
+Select language ❯ [**English**](README-en.md) • [**中文**](README.md)  • [**Русский**](README-ru.md) • [**Français**](README-fr.md) • [**Detusch**](README-de.md) • [**日本語**](README-ja.md)
 
 ---
 
@@ -112,35 +112,7 @@ The "**Private Customization Service**" for Themes is now open! Here are some re
 
 **More personalized theme displays •• [Click here to explore](https://madmaxchow.github.io/VLOOK/vip.html)**
 
----
 
-
-
-# Font Theme
-
-"The **theme of** the **template doubles the appearance of the document, and the font is responsible for the temperament of the document!** "
-
-VLOOK™ provides two sets of font styles, which can be selected according to personal preference.
-
-> **小•清•新**
->
-> 整体视觉为「**清新、简约、明快**」，主要采用无衬线的免费或开源的东亚和拉丁字体。
->
-> ![字体风格_小清新](https://vlook-doc.pages.dev/pic/小清新@2x.png)
-
-> **文•艺•范**
->
-> 整体视觉为「**优雅、韵动、个性**」，主要采用衬线、无衬线的免费或开源的东亚和拉丁字体，多种字重进行**混搭组合**。
->
-> ![字体风格_文艺范](https://vlook-doc.pages.dev/pic/文艺范@2x.png)
-
-**Because Windows / MacOS systems do not pre-install font packages with font themes by default, VLOOK™ currently supports both online and local usage.**  **If your working environment cannot access the Internet, it is recommended to download the font package directly and install it locally to get the best visual experience.**
-
-
-
-![蓝奏云](https://vlook-doc.pages.dev/pic/lanzou.png?srcset=@2x#logo) •• [Download fonts ▾](https://wwe.lanzoui.com/ieVDhj1aokj)
-
-![百度网盘](https://vlook-doc.pages.dev/pic/baidupan.png?srcset=@2x#logo) •• [Download fonts ▾](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw?pwd=11ta)（extract code `11ta` )
 
 ---
 
@@ -153,13 +125,13 @@ VLOOK™ provides two sets of font styles, which can be selected according to pe
 | [ **docs** ] | VLOOK™ Quick Reference Manual, official website and online service related documents |
 | [ **released** ] | Home directory of the release version                        |
 | &nbsp;&nbsp;&nbsp;┠─ [ **demo** ] | VLOOK™ Quick Reference Manual markdown format documents |
-| &nbsp;&nbsp;&nbsp;┠─ [ **lang** ] | Language package |
 | &nbsp;&nbsp;&nbsp;┠─ [ **themes** ] | Theme files                                           |
 | &nbsp;&nbsp;&nbsp;┠─ [ **samples** ] | Recommend sample documents |
 | &nbsp;&nbsp;&nbsp;┖─ [ **plugin** ] | Plugin home directory                                        |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┠─ meta.txt | For Typora export HTML option of `Append in <head />` |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┠─ [ **lang** ] | Language package for Typora export HTML option |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┠─ meta.txt | For Typora export HTML option of `... <head />` |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┠─ plugin_live.txt | Online version of Plug-in                                    |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┖─ plugin.txt | For Typora export HTML option of `Append in <body />` |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┖─ plugin.txt | For Typora export HTML option of `... <body />` |
 | [ **src** ] | Source directory                                             |
 | &nbsp;&nbsp;&nbsp;┠─ [ **dev** ] | Develop and test files                                       |
 | &nbsp;&nbsp;&nbsp;┠─ [ **less** ] | The source file of the theme CSS file                        |

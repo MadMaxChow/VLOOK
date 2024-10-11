@@ -1,5 +1,7 @@
 <!--
-VLOOK™ "V26.1" (2024-09-24) - Typora Plugin  (language pack)
+========== Language Pack ==========
+VLOOK™ "V26.1" (2024-09-24) - (Language Pack) - Typora Plugin
+
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
@@ -32,7 +34,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt20" content="Link primário">
 <meta name="vk-pt21" content="Link secundário">
 <meta name="vk-pt22" content="Todas as notas de rodapé">
-<meta name="vk-pt23" content="Começar a Ler">
+<meta name="vk-pt23" content="Começar a ler">
 <meta name="vk-pt24" content="Tela cheia">
 <meta name="vk-pt25" content="Modo de Leitura">
 <meta name="vk-pt26" content="Enrolar / Desenrolar">
@@ -50,7 +52,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt38" content="Pronto">
 <meta name="vk-pt39" content="Tempo Esgotado">
 <meta name="vk-pt40" content="Carregando">
-<meta name="vk-pt41" content="Tema da Fonte">
+<meta name="vk-pt41" content="Estilo de fonte">
 <meta name="vk-pt42" content="minuto(s)">
 <meta name="vk-pt43" content="hora(s)">
 <meta name="vk-pt44" content="palavras">

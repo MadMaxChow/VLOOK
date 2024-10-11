@@ -229,7 +229,7 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 > ###### Install Fonts (optional)
 >
-> Download and install the VLOOK™ theme matching font pack•• See "[Font Themes](guide2.md#字体风格)" for details.
+> Download and install the VLOOK™ theme matching font pack•• See "[Font Styles](guide2.md#字体风格)" for details.
 >
 > _~Gn~_
 

@@ -1,5 +1,7 @@
 <!--
-VLOOK™ "V26.1" (2024-09-24) - Typora Plugin ( live )
+▽▽▽▽▽ plugin_live for <body /> ▽▽▽▽▽
+VLOOK™ "V26.1" (2024-09-24) - Typora Plugin (live)
+
 Paste to "Export Setting ▸ VLOOK (live) ▸ Append in <body />"
 粘贴至「导出设置... ▸ VLOOK (live) ▸ 在 <body /> 中添加」
 -->

@@ -369,14 +369,14 @@ title: More Topics about VLOOK™
 
 ---
 
-> **Template Themes, Font Themes**
+> **Template Themes, Font Styles**
 >
 > - Set different "Template Themes" for different types of documents [❯❯](guide2.md#模板主题)
-> - Choose different "Font Themes" for documents [❯❯](guide2.md#字体风格)
+> - Choose different "Font Styles" for documents [❯❯](guide2.md#字体风格)
 > - **Dark Mode** is **NOW** [❯❯](guide2.md#Dark-Mode)
 > - **Gray Mode** is **NOW** [❯❯](guide2.md#Gray-Mode)
 > - Add "Cover and Back Cover" to documents [❯❯](guide2.md#封面与封底)
-> - More beautiful formulas [❯❯](guide2.md#更美观的公式)
+> - More beautiful formulas [❯❯](guide2.md#更实用美观的公式)
 >
 > _~Lm~_
 
@@ -388,9 +388,9 @@ title: More Topics about VLOOK™
 >
 > - Combine with VLOOK to provide more suitable and beautiful styles [❯❯](guide2.md#更美观的-Mermaid)
 >
-> Numeric formulas:
+> **Formulas**:
 >
-> - Combine with VLOOK to provide more suitable and beautiful styles [❯❯](guide2.md#更美观的公式)
+> - VLOOK offers more practical features and more aesthetically pleasing styles for formulas [❯❯](guide2.md#更实用美观的公式)
 >
 > _~Lm~_
 

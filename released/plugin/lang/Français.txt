@@ -1,5 +1,7 @@
 <!--
-VLOOK™ "V26.1" (2024-09-24) - Typora Plugin  (language pack)
+========== Language Pack ==========
+VLOOK™ "V26.1" (2024-09-24) - (Language Pack) - Typora Plugin
+
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
@@ -50,7 +52,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-fr38" content="Prêt">
 <meta name="vk-fr39" content="Délai d’attente">
 <meta name="vk-fr40" content="Chargement">
-<meta name="vk-fr41" content="Thème de la police">
+<meta name="vk-fr41" content="Style de police">
 <meta name="vk-fr42" content="minute(s)">
 <meta name="vk-fr43" content="heure(s)">
 <meta name="vk-fr44" content="mots">

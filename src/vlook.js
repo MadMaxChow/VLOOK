@@ -179,6 +179,7 @@ let _ = "",
     _dataClipboardText_ = "data-clipboard" + __text_,
     _dataColspan_ = "d-colspan",
     _dataColumnFmting_ = "d" + __column_ + "-fmting",
+    _dataColTooMore_ = "d-col-too-more",
     _dataContainer_ = "d-cntr",
     _dataContentExpanded_ = "d-" + _content_ + "-expanded",
     _dataContentFolded_ = "d-" + _content_ + "-" + _folded_,
@@ -465,6 +466,7 @@ let _ = "",
     _mdAlert_ = "md-alert",
     _mdDiagramPanel_ = "md-diagram-panel",
     _mdFences_ = "md-fences",
+    _mdMathContainerParents_ = ".md-" + _math_ +"-" + _block_ + ", ." + _mdFences_ + "-" + _math_,
     _media_ = "media",
     _message_ = "message",
     _item_ = "item",
@@ -591,9 +593,12 @@ let _ = "",
     _vlookStatGitee_ = _vlookStat__ + "gitee",
     _vlookStatGitHub_ = _vlookStat__ + _github_,
     _vlookStatCloudFlare_ = _vlookStat__ + _cloudFlare_,
+    _varAcRed_ = V_ui_var("--ac-rd"),
     _varAcRedLg_ = V_ui_var("--ac-rd-lg"),
-    _varAcOrangeLg_ = V_ui_var("--ac-og-lg"),
+    _varAcCyan_ = V_ui_var("--ac-cy"),
     _varAcCyanLg_ = V_ui_var("--ac-cy-lg"),
+    _varAcOrange_ = V_ui_var("--ac-og"),
+    _varAcOrangeLg_ = V_ui_var("--ac-og-lg"),
     __scheme_ = "-scheme",
     _colorScheme_ = _color_ + __scheme_,
     _varColorScheme_ = "--v-" + _colorScheme_,
@@ -602,9 +607,6 @@ let _ = "",
     _varDFC_ = V_ui_var("--d-fc"),
     _varFigGrid__ = "--" + _figGrid__,
     _varMarkBg_ = V_ui_var("--mark-bg"),
-    _varMmCyan_ = V_ui_var("--mm-c-cy"),
-    _varMmOrange_ = V_ui_var("--mm-c-og"),
-    _varMmRed_ = V_ui_var("--mm-c-rd"),
     _vNavCenter_ = "v-nav-" + _center_,
     __NavCenterWidth_ = "--" + _vNavCenter_ + "-w",
     _varNavCenterHiddenLeft_ = "calc(" + V_util_getVarVal(__NavCenterWidth_) + " * -2)",//"--" + _vNavCenter_ + "-" + _hidden_ + "-l",
@@ -1320,7 +1322,7 @@ const env = {
         - (Edge) Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.35
         - (Firefox) Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:69.0) Gecko/20100101 Firefox/69.0
 
-    iPhone 平台样例：
+    iPhone 样例：
         - (Safari) Mozilla/5.0 (iPhone; CPU iPhone OS 15_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.2 Mobile/15E148 Safari/604.1
         - (Chrome) Mozilla/5.0 (iPhone; CPU iPhone OS 15_02 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/97.0.04692.72 Mobile/15E148 Safari/604.1
         - (Edge) Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/113.0.0.0
@@ -1329,6 +1331,19 @@ const env = {
         - (QQ) Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 QQ/8.9.75.613 V1_IPH_SQ_8.9.75_1_APP_A Pixel/1125 MiniAppEnable SimpleUISwitch/0 StudyMode/0 CurrentMode/0 CurrentFontScale/1.000000 QQTheme/1000 AppId/537172547 Core/WKWebView Device/Apple(iPhone XS) NetType/WIFI QBWebViewType/1 WKType/1
         - (微信) Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.40(0x18002830) NetType/WIFI Language/zh_CN
         - (钉钉) Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/20G75 AliApp(DingTalk/7.0.50) com.laiwang.DingTalk/31322509 Channel/201200 language/zh-Hans-CN UT4Aplus/0.0.6 WK
+
+    iPad 平板样例：
+        - (iPad mini) Mozilla/5.0 (iPad; CPU OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1
+        - (iPad Air) Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Safari/605.1.15
+        - (iPad Pro) Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Safari/605.1.15
+
+    Android 平板样例：
+        - (Galaxy Z Fold) Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36
+
+    Windows 平板样例：
+        - (Surface Pro 7) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36
+        - (Surface Duo) Mozilla/5.0 (Linux; Android 11.0; Surface Duo) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Mobile Safari/537.36
+        - (Asus Zenbook Fold) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
     */
 
     // 浏览器内核信息
@@ -1347,7 +1362,7 @@ const env = {
         const u = navigator.userAgent;
         return {
             mobile: u.i("Mobile") > -1, // 是否为移动终端
-            iOS: u.i("iPhone") > -1, // iOS 类终端
+            // iOS: u.i("iPhone") > -1, // iOS 类终端
             android: u.i("Android") > -1 || u.i("Linux") > -1, // android 终端或者 UC 浏览器
             iPhone: u.i("iPhone") > -1, // 是否为 iPhone 或者 QQHD 浏览器
             iPad: u.i("iPad") > -1 // 是否 iPad
@@ -1414,20 +1429,20 @@ const env = {
             r = info;
         if (!silent) LOG(info);
 
-        info = "    ├ Language   [ "
+        info = "    ├ Lang    ["
             + env.language.base + "/" + env.language.full
-            + " (" + (V_lang_custom !== gUndefined
+            + ", " + (V_lang_custom !== gUndefined
                 ? V_lang_custom
                 : (V_lang > -1
                     ? ["zh", "en"][V_lang]
                     : _none_))
-            + ") ]\n";
+            + "]\n";
         r += info;
         if (!silent) LOG(info);
 
-        info = "    ├ Device     [ "
+        info = "    ├ Device  ["
             + (env.device.mobile ? "Mobile" : _)
-            + (env.device.iOS ? "/iOS" : _)
+            // + (env.device.iOS ? "/iOS" : _)
             + (env.device.android ? "/Android" : _)
             + (env.device.iPhone ? "/iPhone" : _)
             + (env.device.iPad ? "/iPad" : _)
@@ -1435,56 +1450,56 @@ const env = {
         r += info;
         if (!silent) LOG(info);
 
-        info = "    ├ OS         " +
-            (env.os.macOS ? "[ macOS ]"
-                : (env.os.Windows ? "[ Windows ]"
-                    : (env.os.iOS ? "[ iOS ]"
+        info = "    ├ OS      " +
+            (env.os.macOS ? "[macOS]"
+                : (env.os.Windows ? "[Windows]"
+                    : (env.os.iOS ? "[iOS]"
                         : (env.os.Linux ? "[Linux]" : "[Others]"))))
             + "\n";
         r += info;
         if (!silent) LOG(info);
 
-        info = "    ├ Browser    [ "
+        info = "    ├ Browser ["
             + (env.browser.Chrome ? "Chrome / " + env.browserVer.Chrome : _)
             + (env.browser.Firefox ? "Firefox / " + env.browserVer.Firefox : _)
             + (env.browser.Safari ? "Safari / " + env.browserVer.Safari : _)
             + (env.browser.Edge ? "Edge / " + env.browserVer.Edge : _)
-            + " ]\n";
+            + "]\n";
         r += info;
         if (!silent) LOG(info);
 
-        info = "    ├ Core       [ "
+        info = "    ├ Core    ["
             + (env.core.gecko ? "Gecko" : _)
             + (env.core.presto ? "Presto" : _)
             + (env.core.trident ? "Trident" : _)
             + (env.core.webkit ? "WebKit" : _)
-            + " ]\n";
+            + "]\n";
         r += info;
         if (!silent) LOG(info);
 
-        info = "    ├ DPR        [ "
+        info = "    ├ DPR     ["
             + env.display.DPR
-            + " ]\n"; // Device Pixel Ratio
+            + "]\n"; // Device Pixel Ratio
         r += info;
         if (!silent) LOG(info);
 
-        info = "    ├ VLOOK™ Plugin [ "
+        info = "    ├ Plugin  ["
             + gVer
-            + (V_devMode ? " < DEV >" : " RELEASED" )
-            + " ]\n"; // 插件版本
+            + (V_devMode ? "<DEV>" : "-RELEASED" )
+            + "]\n"; // 插件版本
         r += info;
         if (!silent) LOG(info);
 
-        info = "    ├ VLOOK™ Theme  [ "
+        info = "    ├ Theme   ["
             + (gThmName = V_util_getTemplateThemeName())
             + " / " + (gThmVer = V_util_getTemplateThemeVersion())
-            + " ]\n"; // 文档主题
+            + "]\n"; // 文档主题
         r += info;
         if (!silent) LOG(info);
 
-        info = "    └ VLOOK™ Type   [ "
+        info = "    └ Type    ["
             + V_pageMode
-            + " ]\n"; // VLOOK 插件运行类型
+            + "]\n"; // VLOOK 插件运行类型
         r += info;
         if (!silent) LOG(info);
 
@@ -2358,6 +2373,11 @@ function V_initKernel() {
     iStopwatch.ed(_4space_);
 
     // ----------------------------------------
+    // 处理标记不发布的内容
+    if (V_util_getParamVal("unpub") !== _off_)
+        Unpublished_init();
+
+    // ----------------------------------------
     // 初始化题注生成器配置
     if (V_util_getParamVal("capauto") === _off_)
         CaptionGenerator_autoContent = gFalse;
@@ -2771,6 +2791,17 @@ function V_ui_getMetaKeyUI(unwrap, short) {
     let str = env.os.macOS
         ? (short ? "⌘" : "⌘ command") : "Win";
     return unwrap ? str : V_ui_wrap_kbd(str);
+}
+
+/**
+ * 获取组合键组合的描述
+ * @param event 事件对象
+ */
+function V_ui_getCombKeys(event) {
+    return (event.ctrlKey ? V_ui_getCtrlKeyUI(true) : _)
+        + (event.shiftKey ? V_ui_getShiftKeyUI(true) : _)
+        + (event.altKey ? V_ui_getAltKeyUI(true) : _)
+        + (event.metaKey ? V_ui_getMetaKeyUI(true) : _);
 }
 
 /**
@@ -3537,10 +3568,7 @@ function V_ui_initHotkey() {
     jq_Document.on(_keydown_, (event) => {
         const // code = event.code,//event.keyCode || event.which || event.charCode,
             key = event.key,
-            combKeys = (event.ctrlKey ? V_ui_getCtrlKeyUI(true) : _)
-                + (event.shiftKey ? V_ui_getShiftKeyUI(true) : _)
-                + (event.altKey ? V_ui_getAltKeyUI(true) : _)
-                + (event.metaKey ? V_ui_getMetaKeyUI(true) : _);
+            combKeys = V_ui_getCombKeys(event);
 
         DEBUG(`CombKeys[${combKeys}] key[${key}] code[${event.code}]`);
 
@@ -3569,85 +3597,87 @@ function V_ui_initHotkey() {
         iChapterNav.disposeHotkey(key, combKeys, event);
 
         let handled = false;
-        switch (key) {
-            case 'o': // O 显示/隐藏导航中心
-            case 'O':
-                __showHideNavCenter();
-                handled = true;
-                break;
-            case '/': // / 导航中心搜索
-                // 与 Firefox 的 / 快捷键会存在冲突
-                // 所以针对 Firefox，快捷键为 Ctrl + / 或 Cmd + /
-                // 阻止默认的浏览器行为
-                event.preventDefault();
-                if (!iNavCenter.showed) {
+        if (V_length(combKeys) === 0) {
+            switch (key) {
+                case 'o': // O 显示/隐藏导航中心
+                case 'O':
                     __showHideNavCenter();
-                }
-                iNavCenter.keyword.input.focus();
-
-                // 自动读取并粘贴剪粘板的文本内容
-                navigator.clipboard.readText().then((value) => {
-                        iNavCenter.keyword.processInput(value);
-                        // iNavCenter.keyword.input.v(value);
-                        // iNavCenter.keyword.input.select();
-                    }).catch((value) => {
-                        ERROR("GET CLIPBOARD FAILED：", value);
-                    });
-                handled = true;
-                break;
-            case 'l': // L 文库
-            case 'L':
-                if (iNavCenter.docLib !== gUndefined && iNavCenter.docLib.enabled)
-                    iToolbar.btns[_docLib_].tr(_click_);
-                handled = true;
-                break;
-            case 'd': // D Light / Dark Mode
-            case 'D': // D Light / Dark Mode
-                StsColorScheme_ui.tr(_click_);
-                handled = true;
-                break;
-            case 'a': // A 字体风格
-            case 'A':
-                if (iFontStyle.ui.isHidden())
-                    StsFontStyle_ui.tr(_click_);
-                else
-                    iFontStyle.hide();
-                handled = true;
-                break;
-            case 'm': // M 链接地图
-            case 'M':
-                if (!StsLinkMap_ui.isHidden() && !LinkTool_isShowed())
-                    StsLinkMap_ui.tr(_click_);
-                else
-                    LinkTool_hide.hide();
-                handled = true;
-                break;
-            case 'p': // P 激活笔
-            case 'P':
-                iParagraphNav.hide();
-                iSpotlight.hide();
-                iLaserPointer.tg();
-                handled = true;
-                break;
-            case 's': // S 聚光灯
-            case 'S':
-                iParagraphNav.hide();
-                iLaserPointer.hide();
-                iSpotlight.tg();
-                handled = true;
-                break;
-            case _escape_: // ESC 退出处理
-                // 表格为阅读模式时，则退出
-                if (!TableCross_ui.isHidden()) {
-                    TableCross_disable();
                     handled = true;
-                }
-                break;
+                    break;
+                case '/': // / 导航中心搜索
+                    // 与 Firefox 的 / 快捷键会存在冲突
+                    // 所以针对 Firefox，快捷键为 Ctrl + / 或 Cmd + /
+                    // 阻止默认的浏览器行为
+                    // event.preventDefault();
+                    if (!iNavCenter.showed) {
+                        __showHideNavCenter();
+                    }
+                    iNavCenter.keyword.input.focus();
+
+                    // 自动读取并粘贴剪粘板的文本内容
+                    navigator.clipboard.readText().then((value) => {
+                            iNavCenter.keyword.processInput(value);
+                            // iNavCenter.keyword.input.v(value);
+                            // iNavCenter.keyword.input.select();
+                        }).catch((value) => {
+                            ERROR("GET CLIPBOARD FAILED：", value);
+                        });
+                    handled = true;
+                    break;
+                case 'l': // L 文库
+                case 'L':
+                    if (iNavCenter.docLib !== gUndefined && iNavCenter.docLib.enabled)
+                        iToolbar.btns[_docLib_].tr(_click_);
+                    handled = true;
+                    break;
+                case 'd': // D Light / Dark Mode
+                case 'D': // D Light / Dark Mode
+                    StsColorScheme_ui.tr(_click_);
+                    handled = true;
+                    break;
+                case 'a': // A 字体风格
+                case 'A':
+                    if (iFontStyle.ui.isHidden())
+                        StsFontStyle_ui.tr(_click_);
+                    else
+                        iFontStyle.hide();
+                    handled = true;
+                    break;
+                case 'm': // M 链接地图
+                case 'M':
+                    if (!StsLinkMap_ui.isHidden() && !LinkTool_isShowed())
+                        StsLinkMap_ui.tr(_click_);
+                    else
+                        LinkTool_hide.hide();
+                    handled = true;
+                    break;
+                case 'p': // P 激活笔
+                case 'P':
+                    iParagraphNav.hide();
+                    iSpotlight.hide();
+                    iLaserPointer.tg();
+                    handled = true;
+                    break;
+                case 's': // S 聚光灯
+                case 'S':
+                    iParagraphNav.hide();
+                    iLaserPointer.hide();
+                    iSpotlight.tg();
+                    handled = true;
+                    break;
+                case _escape_: // ESC 退出处理
+                    // 表格为阅读模式时，则退出
+                    if (!TableCross_ui.isHidden()) {
+                        TableCross_disable();
+                        handled = true;
+                    }
+                    break;
+            }
         }
 
         // 如果事件已处理，则禁止事件冒泡
-        if (handled)
-            event.preventDefault();
+        // if (handled)
+        //     event.preventDefault();
 
         function __showHideNavCenter() {
             if (FigureNav_ui.isShowed())
@@ -4521,11 +4551,13 @@ function WelcomePage_disposeHotkey(key, combKeys, event) {
         return;
 
     let handled = false;
-    switch (key) {
-        case _enter_: // 关闭欢迎页
-            WelcomePage_close();
-            handled = true;
-            break;
+    if (V_length(combKeys) === 0) {
+        switch (key) {
+            case _enter_: // 关闭欢迎页
+                WelcomePage_close();
+                handled = true;
+                break;
+        }
     }
 
     // 如果事件已处理，则禁止双重操作
@@ -4735,11 +4767,14 @@ function ContentAssistor_show() {
     if (ContentAssistor_lastContentType.sW(_fig_)) {
         // 图片插图：svg
         if (ContentAssistor_lastContentType.eW(_svg_)) {
+            // 在插图浏览器中打开
             JQ_addClass(ContentAssistor_btns_openInFigureNav, _enabled__first_);
         }
         // 图片插图：非 svg
         else {
+            // 复制
             JQ_addClass(ContentAssistor_btns_copyContent, _enabled__first_);
+            // 在插图浏览器中打开
             JQ_addClass(ContentAssistor_btns_openInFigureNav, _enabled_);
         }
         // 画中画
@@ -4776,6 +4811,11 @@ function ContentAssistor_show() {
             JQ_addClass(ContentAssistor_btns_wrap, _selected_);
         // 画中画
         JQ_addClass(ContentAssistor_btns_picInPic, _enabled__last_);
+    }
+    // 公式
+    else if (ContentAssistor_lastContentType === _formula_) {
+        // 画中画
+        JQ_addClass(ContentAssistor_btns_picInPic, _enabled__last_ +___+ _first_);
     }
 
     // ----------------------------------------
@@ -5175,7 +5215,7 @@ function Spotlight(radius) {
                 handled = true;
                 break;
             case _escape_:
-                if (T.isEnabled()) {
+                if (V_length(combKeys) === 0 && T.isEnabled()) {
                     T.hide();
                     handled = true;
                 }
@@ -5263,13 +5303,15 @@ function Spotlight(radius) {
             return;
 
         let handled = false;
-        switch (key) {
-            case _escape_:
-                if (T.isEnabled()) {
-                    T.hide();
-                    handled = true;
-                }
-                break;
+        if (V_length(combKeys) === 0) {
+            switch (key) {
+                case _escape_:
+                    if (T.isEnabled()) {
+                        T.hide();
+                        handled = true;
+                    }
+                    break;
+            }
         }
 
         // 如果事件已处理，则禁止双重操作
@@ -5965,13 +6007,15 @@ function NavCenter(mask, runMode = _auto_) {
             return;
 
         let handled = false;
-        switch (key) {
-            case _escape_:
-                if (!T.keyword.inputing && T.showed && T.lastDisplayType === _float_) {
-                    T.hide();
-                    handled = true;
-                }
-                break;
+        if (V_length(combKeys) === 0) {
+            switch (key) {
+                case _escape_:
+                    if (!T.keyword.inputing && T.showed && T.lastDisplayType === _float_) {
+                        T.hide();
+                        handled = true;
+                    }
+                    break;
+            }
         }
 
         // 如果事件已处理，则禁止双重操作
@@ -6017,11 +6061,11 @@ NavCenter.init = function () {
         return gFalse;
     }
 
-    // ----------------------------------------
-    // 标记不发布的内容
-    // 须在 gTocContent 赋值后，以及在 catalog.add() 前执行
-    if (V_util_getParamVal("unpub") !== _off_)
-        Unpublished_init();
+    // // ----------------------------------------
+    // // 标记不发布的内容
+    // // 须在 gTocContent 赋值后，以及在 catalog.add() 前执行
+    // if (V_util_getParamVal("unpub") !== _off_)
+    //     Unpublished_init();
 
     // 文库
     iNavCenter.docLib = new DocLib(new BgMask(_docLib_, _center_), this);
@@ -6321,23 +6365,25 @@ function ChapterNav() {
             return;
 
         let handled = false;
-        switch (key) {
-            case _arrowLeft_:
-            case ',':
-                T.prev.ui.tr(_click_);
-                // 自适应页面内容显示
-                iNavCenter.toc.focusHeader();
-                handled = true;
-                break;
-            case _arrowRight_:
-            case '.':
-                T.next.ui.tr(_click_);
-                // 强制设置滚动间隔已超时，以强制触发 focusHeader 中的处理
-                V_doc_scroll_update(0, 0);
-                // 自适应页面内容显示
-                iNavCenter.toc.focusHeader();
-                handled = true;
-                break;
+        if (V_length(combKeys) === 0) {
+            switch (key) {
+                case _arrowLeft_:
+                case ',':
+                    T.prev.ui.tr(_click_);
+                    // 自适应页面内容显示
+                    iNavCenter.toc.focusHeader();
+                    handled = true;
+                    break;
+                case _arrowRight_:
+                case '.':
+                    T.next.ui.tr(_click_);
+                    // 强制设置滚动间隔已超时，以强制触发 focusHeader 中的处理
+                    V_doc_scroll_update(0, 0);
+                    // 自适应页面内容显示
+                    iNavCenter.toc.focusHeader();
+                    handled = true;
+                    break;
+            }
         }
 
         // 如果事件已处理，则禁止双重操作
@@ -6547,27 +6593,29 @@ function ParagraphNav() {
             return;
 
         let handled = false;
-        switch (key) {
-            case 'j':
-            case 'J':
-                TableCross_hide();
-                if (T.nextPg(1)) // 步长1
-                    ExtQuote_autoUnfold(); // 自动展开引用块
-                handled = true;
-                break;
-            case 'k':
-            case 'K':
-                TableCross_hide();
-                if (T.prevPg(1)) // 步长1
-                    ExtQuote_autoUnfold(); // 自动展开引用块
-                handled = true;
-                break;
-            case _escape_:
-                if (T.enabled) {
-                    T.hide();
+        if (V_length(combKeys) === 0) {
+            switch (key) {
+                case 'j':
+                case 'J':
+                    TableCross_hide();
+                    if (T.nextPg(1)) // 步长1
+                        ExtQuote_autoUnfold(); // 自动展开引用块
                     handled = true;
-                }
-                break;
+                    break;
+                case 'k':
+                case 'K':
+                    TableCross_hide();
+                    if (T.prevPg(1)) // 步长1
+                        ExtQuote_autoUnfold(); // 自动展开引用块
+                    handled = true;
+                    break;
+                case _escape_:
+                    if (T.enabled) {
+                        T.hide();
+                        handled = true;
+                    }
+                    break;
+            }
         }
 
         // 如果事件已处理，则禁止双重操作
@@ -6924,18 +6972,18 @@ function ColorScheme_refresh(force) {
         acTheme1 = ac + "t1",
         acTheme2 = ac + "t2",
         // ---
-        mm = "--mm-c-",
-        // ---
-        mmRed = mm + "rd",
-        mmOrange = mm + "og",
-        mmYellow = mm + "ye",
-        mmGreen = mm + "gn",
-        mmCyan = mm + "cy",
-        mmBlue = mm + "bu",
-        mmPurple = mm + "pu",
-        mmPink = mm + "pk",
-        mmBrown = mm + "bn",
-        mmGray = mm + "gy",
+        // mm = "--mm-c-",
+        // // ---
+        // mmRed = mm + "rd",
+        // mmOrange = mm + "og",
+        // mmYellow = mm + "ye",
+        // mmGreen = mm + "gn",
+        // mmCyan = mm + "cy",
+        // mmBlue = mm + "bu",
+        // mmPurple = mm + "pu",
+        // mmPink = mm + "pk",
+        // mmBrown = mm + "bn",
+        // mmGray = mm + "gy",
         // ---
         cm = "--cm-";
 
@@ -7117,26 +7165,26 @@ function ColorScheme_refresh(force) {
         acTheme2 + __fade_,
         acTheme2 + __fade_bd,
         acTheme2 + _title,
-        mmRed,
-        mmRed + __alt,
-        mmOrange,
-        mmOrange + __alt,
-        mmYellow,
-        mmYellow + __alt,
-        mmGreen,
-        mmGreen + __alt,
-        mmCyan,
-        mmCyan + __alt,
-        mmBlue,
-        mmBlue + __alt,
-        mmPurple,
-        mmPurple + __alt,
-        mmPink,
-        mmPink + __alt,
-        mmBrown,
-        mmBrown + __alt,
-        mmGray,
-        mmGray + __alt,
+        // mmRed,
+        // mmRed + __alt,
+        // mmOrange,
+        // mmOrange + __alt,
+        // mmYellow,
+        // mmYellow + __alt,
+        // mmGreen,
+        // mmGreen + __alt,
+        // mmCyan,
+        // mmCyan + __alt,
+        // mmBlue,
+        // mmBlue + __alt,
+        // mmPurple,
+        // mmPurple + __alt,
+        // mmPink,
+        // mmPink + __alt,
+        // mmBrown,
+        // mmBrown + __alt,
+        // mmGray,
+        // mmGray + __alt,
         cm + _keyword_,
         cm + _variable,
         cm + _variable + "-2",
@@ -7835,13 +7883,15 @@ function FontStyle(mask, styleName) {
             return;
 
         let handled = false;
-        switch (key) {
-            case _escape_:
-                if (T.isShowed()) {
-                    T.hide();
-                    handled = true;
-                }
-                break;
+        if (V_length(combKeys) === 0) {
+            switch (key) {
+                case _escape_:
+                    if (T.isShowed()) {
+                        T.hide();
+                        handled = true;
+                    }
+                    break;
+            }
         }
 
         // 如果事件已处理，则禁止双重操作
@@ -7909,13 +7959,15 @@ function Footnote(mask) {
             return;
 
         let handled = false;
-        switch (key) {
-            case _escape_:
-                if (T.isShowed()) {
-                    T.hide();
-                    handled = true;
-                }
-                break;
+        if (V_length(combKeys) === 0) {
+            switch (key) {
+                case _escape_:
+                    if (T.isShowed()) {
+                        T.hide();
+                        handled = true;
+                    }
+                    break;
+            }
         }
 
         // 如果事件已处理，则禁止双重操作
@@ -8243,7 +8295,7 @@ function DocInfo_countWord() {
 
 //     StsFontTheme_ui.a(_dataTips_, [
 //         "切换 字体风格",
-//         "Switch Font Theme"
+//         "Switch Font Style"
 //     ][V_lang] + "\n" + V_ui_sub(_, _, V_ui_wrap_kbd("A")));
 
 //     ToolTips_bind(StsFontTheme_ui);
@@ -8547,7 +8599,7 @@ function LinkTool_checkHashSet() {
         JQ_addClass(LinkTool_checkHashUI, "all-" + _found_)
         LinkTool_checkHashUI.ap(V_ui_div(_, "all-" + _found_, V_lang_text(47, [
             "检查通过",
-            "Hash check Passed"
+            "Hash check passed"
             ])));
         // 关闭标签页
         btn = $(V_ui_div(_, _vCheckHash_ + "-re" + _check_, V_lang_text(48, [
@@ -8915,13 +8967,15 @@ function LinkTool_disposeHotkey(key, combKeys, event) {
         return;
 
     let handled = false;
-    switch (key) {
-        case _escape_:
-            if (LinkTool_isShowed()) {
-                LinkTool_hide();
-                handled = true;
-            }
-            break;
+    if (V_length(combKeys) === 0) {
+        switch (key) {
+            case _escape_:
+                if (LinkTool_isShowed()) {
+                    LinkTool_hide();
+                    handled = true;
+                }
+                break;
+        }
     }
 
     // 如果事件已处理，则禁止双重操作
@@ -9534,13 +9588,15 @@ function InfoTips(mask) {
             return;
 
         let handled = false;
-        switch (key) {
-            case _escape_:
-                if (T.isShowed()) {
-                    T.hide();
-                    handled = true;
-                }
-                break;
+        if (V_length(combKeys) === 0) {
+            switch (key) {
+                case _escape_:
+                    if (T.isShowed()) {
+                        T.hide();
+                        handled = true;
+                    }
+                    break;
+            }
         }
 
         // 如果事件已处理，则禁止双重操作
@@ -9652,8 +9708,8 @@ let CaptionGenerator_spliter = ". ",
  */
 function CaptionGenerator_preprocess() {
     let h1Counter = 1,
-        selector = _img_ + ",." + _mdDiagramPanel_ + "," + _table_ + ",." + gSelector_CodeBlock + "," + gSelector_iframeVideo,
-        selectorSub = _img_ + "," + _svg_ + "[id^='" + _mermaid_ + "']," + _table_ + ",." + gSelector_CodeBlock + "," + gSelector_iframeVideo;
+        selector = _img_ + ",." + _mdDiagramPanel_ + "," + _table_ + ",." + gSelector_CodeBlock + "," + _mdMathContainerParents_ + "," + gSelector_iframeVideo,
+        selectorSub = _img_ + "," + _svg_ + "[id^='" + _mermaid_ + "']," + _table_ + ",." + gSelector_CodeBlock + "," + _mdMathContainerParents_ + ","+ gSelector_iframeVideo;
     $(__write_ + " h1").e((index, element) => {
         let betweenSet = $(element).nextUntil("h1");
         betweenSet.filter(selector).add(
@@ -9743,6 +9799,7 @@ function CaptionGenerator_actionForTextContent(target, typeName) {
     else if (typeName.sW("f")) {
         indexObj = iNavCenter.formulas;
         captionPrefix = CaptionGenerator_prefix(target, V_lang_text18(), V_doc_counter_math);
+        // ERROR(111, target.p().pr().hm());
     }
 
     // 尝试获得带题注语法的内容
@@ -9788,19 +9845,19 @@ function CaptionGenerator_actionForTextContent(target, typeName) {
     // 代码块 codeblock
     if (typeName.sW("c")) {
         anchor = _vkIdCodeblock_ + V_doc_counter_codeblock;
-        target.wrap(V_ui_div(anchor, _vCaption_ + " codeblock"));
+        target.wrap(V_ui_div(anchor, _vCaption_ +___+ _codeblock_));
         dataForSearch = target.f("." + _vCodeMirrorLine_).t();
     }
     // 表格 table
     else if (typeName.sW("t")) {
         anchor = _vkIdTbl_ + V_doc_counter_table;
-        target.wrap(V_ui_div(anchor, _vCaption_ + " tbl"));
+        target.wrap(V_ui_div(anchor, _vCaption_ +___+ _table_));
         dataForSearch = target.t();
     }
     // 公式 math
     else if (typeName.sW("f")) {
         anchor = _vkIdMath_ + V_doc_counter_math;
-        target.wrap(V_ui_div(anchor, _vCaption_ + " div"));
+        target.wrap(V_ui_div(anchor, _vCaption_ +___+ _formula_));
         dataForSearch = target.t();
     }
 
@@ -10194,23 +10251,23 @@ function CodeblockWrap_isWrap() {
 // ==================== 公式增强类 ==================== //
 
 /**
- * 初始化代码块
+ * 初始化公式
  */
 function ExtMath_init() {
     // 遍历所有代码块
-    V_byClass("mathjax-block").e((index, element) => {
+    $(_mdMathContainerParents_).e((index, element) => {
         let _t = $(element);
 
         // 绑定内容助手
-        // ContentAssistor_bind(_t, _codeblock_);
+        ContentAssistor_bind(_t, _formula_);
 
-        // 折叠长代码块
-        // ContentFolder_add(_t, _codeblock_);
+        // 折叠长公式
+        // ContentFolder_add(_t, _formula_);
 
         // 生成代码块插图题注（行数 > 1 的才进行处理）
         V_doc_counter_math++;
         // 外套一个 <figure> 标签，用于内容折叠时与插图、表格的 DOM 结构一致
-        _t.wrap(V_ui_figure(_vCaptionContainer_, V_attr(_dataContainer_, _div_)));
+        _t.wrap(V_ui_figure(_vCaptionContainer_, V_attr(_dataContainer_, _formula_)));
 
         // 先根据题注语法生成题注
         CaptionGenerator_actionForTextContent(_t, _formula_);
@@ -10359,7 +10416,7 @@ function Unpublished_init() {
             JQ_remove(_t);
 
             // 移除目录大纲中对应的条目
-            JQ_remove(gTocContent.f(".md-toc-inner" + V_attrCSS(_href_, "#" + id)).p());
+            // JQ_remove(gTocContent.f(".md-toc-inner" + V_attrCSS(_href_, "#" + id)).p());
         });
     }
 }
@@ -11130,7 +11187,7 @@ function ExtTable_init() {
 
         // 标记该表格列太多，用于匹配是否换行、不换行的自动版式
         if (colIndex > 7)
-            table.a("d-col-too-more", colIndex);
+            table.a(_dataColTooMore_, colIndex);
 
         // ----------------------------------------
         // 遍历表格「非列头」行
@@ -11149,7 +11206,7 @@ function ExtTable_init() {
 
                 // 对于屏幕较小时，调整单元格的最大宽度处理
                 if (jq_Window.oW() <= gUnwrapTableScreenWidth)
-                    TableWrap_disableDisposeTd(table, td);
+                    TableWrap_minWidthTd(table, td);
 
                 // ---------- 表格排版增强预处理 ----------
                 // 检测是否带合并单元格语法
@@ -11946,7 +12003,7 @@ function TableWrap_isWrap() {
     return ContentAssistor_lastHover.c(_whiteSpace_) === _preWrap_;
 }
 
-// 开启表格换行、不换行
+// 开启表格换行
 function TableWrap_enable(table) {
     table.f("td." + _vLong_).e((index, element) => {
         let _t = $(element);
@@ -11959,7 +12016,7 @@ function TableWrap_enable(table) {
     JQ_addClass(table, _wrap_);
 }
 
-// 关闭表格换行、不换行
+// 关闭表格换行（即不换行）
 function TableWrap_disable(table) {
     table.f("td" + V_attrCSS(_dataLong_, gTrue)).e((index, element) => {
         let _t = $(element);
@@ -11977,13 +12034,18 @@ function TableWrap_disable(table) {
         // 遍历单元格
         $(element).f("td").e((i, e) => {
             // 对于字符过多时调整单元格宽度
-            TableWrap_disableDisposeTd(table, $(e));
+            // if (table.a(_dataColTooMore_) !== gUndefined)
+            TableWrap_minWidthTd(table, $(e));
         });
     });
 }
 
 // 关闭表格换行、不换行后的处理
-function TableWrap_disableDisposeTd(table, td) {
+function TableWrap_minWidthTd(table, td) {
+    // ERROR(111, table.a(_dataColTooMore_));
+    if (table.a(_dataColTooMore_) === gUndefined)
+        return;
+
     let text = td.t(),
         wrapLimit = 40; // CJK 字数
 
@@ -13152,29 +13214,33 @@ function TextField(target, id, append) {
          */
         T.input.on(_keydown_, (event) => {
             let key = event.key,//event.keyCode || event.which || event.charCode,
-                value = T.input.v();
+                value = T.input.v(),
+                combKeys = V_ui_getCombKeys(event);
 
             let handled = false;
-            switch (key) {
-                case _enter_:
-                    if (T.action !== gUndefined)
-                        T.action.tr(_click_);
-                    handled = true;
-                    typeof(T.pressEnter) === _function_ && T.pressEnter(value);
-                    // typeof(T.pressEnter) === _function_ && T.pressEnter(T.input, value);
-                    break;
-                case _escape_:
-                    // 无内容时则取消取点，退出编辑，键盘事件则由导航中心的键盘事件进行响应
-                    if (V_length(value) === 0)
-                        T.input.blur();
-                    // 有内容则清空内容等待重新输入
-                    else
-                        T.reset.tr(_click_);
-                    handled = true;
-                    // typeof(T.pressESC) === _function_ && T.pressESC(T.input);
-                    typeof(T.pressESC) === _function_ && T.pressESC();
-                    break;
+            if (V_length(combKeys) === 0) {
+                switch (key) {
+                    case _enter_:
+                        if (T.action !== gUndefined)
+                            T.action.tr(_click_);
+                        handled = true;
+                        typeof(T.pressEnter) === _function_ && T.pressEnter(value);
+                        // typeof(T.pressEnter) === _function_ && T.pressEnter(T.input, value);
+                        break;
+                    case _escape_:
+                        // 无内容时则取消取点，退出编辑，键盘事件则由导航中心的键盘事件进行响应
+                        if (V_length(value) === 0)
+                            T.input.blur();
+                        // 有内容则清空内容等待重新输入
+                        else
+                            T.reset.tr(_click_);
+                        handled = true;
+                        // typeof(T.pressESC) === _function_ && T.pressESC(T.input);
+                        typeof(T.pressESC) === _function_ && T.pressESC();
+                        break;
+                }
             }
+
             // 如果事件已处理，则禁止双重操作
             if (handled)
                 event.preventDefault();
@@ -14732,13 +14798,15 @@ function DocLib(mask, holder) {
             return;
 
         let handled = false;
-        switch (key) {
-            case _escape_:
-                if (T.isShowed()) {
-                    T.hide();
-                    handled = true;
-                }
-                break;
+        if (V_length(combKeys) === 0) {
+            switch (key) {
+                case _escape_:
+                    if (T.isShowed()) {
+                        T.hide();
+                        handled = true;
+                    }
+                    break;
+            }
         }
 
         // 如果事件已处理，则禁止双重操作
@@ -15618,23 +15686,25 @@ function FigureNav_disposeHotkey(key, combKeys, event) {
         return;
 
     let handled = false;
-    switch (key) {
-        case _arrowLeft_:
-        case ',':
-            FigureNav_prevFig();
-            handled = true;
-            break;
-        case _arrowRight_:
-        case '.':
-            FigureNav_nextFig();
-            handled = true;
-            break;
-        case _escape_:
-            if (FigureNav_isShowed()) {
-                FigureNav_hide();
+    if (V_length(combKeys) === 0) {
+        switch (key) {
+            case _arrowLeft_:
+            case ',':
+                FigureNav_prevFig();
                 handled = true;
-            }
-            break;
+                break;
+            case _arrowRight_:
+            case '.':
+                FigureNav_nextFig();
+                handled = true;
+                break;
+            case _escape_:
+                if (FigureNav_isShowed()) {
+                    FigureNav_hide();
+                    handled = true;
+                }
+                break;
+        }
     }
 
     // 如果事件已处理，则禁止双重操作
@@ -15820,19 +15890,19 @@ function Restyler_forMermaid() {
             segType = fragment.t();
 
         // 默认的样式（par 片断）
-        let bgColor = _varMmOrange_,
-            borderColor = _varMmOrange_,
+        let bgColor = _varAcOrange_,
+            borderColor = _varAcOrange_,
             titleColor = _varAcOrangeLg_;
         // 为 alt 片断设置样式
         if (segType === _alt_) {
-            bgColor = _varMmRed_;
-            borderColor = _varMmRed_;
+            bgColor = _varAcRed_;
+            borderColor = _varAcRed_;
             titleColor = _varAcRedLg_;
         }
         // 为 loop 片断设置样式
         else if (segType === _loop_) {
-            bgColor = _varMmCyan_;
-            borderColor = _varMmCyan_;
+            bgColor = _varAcCyan_;
+            borderColor = _varAcCyan_;
             titleColor = _varAcCyanLg_;
         }
         // 为 alt、loop、par 片断应用样式设置
@@ -15898,7 +15968,7 @@ function Restyler_forMermaid() {
  * 针对使用了 Typora 的图片缩放功能的检查与提示
  */
 function Restyler_forImgZoom() {
-    ERROR(111, $(__write_ +___+ _img_ + V_attrCSS(_style_, "zoom", "*")).length, V_length($(__write_ +___+ _img_ + V_attrCSS(_style_, "zoom", "*"))));
+    // ERROR(111, $(__write_ +___+ _img_ + V_attrCSS(_style_, "zoom", "*")).length, V_length($(__write_ +___+ _img_ + V_attrCSS(_style_, "zoom", "*"))));
     if (V_length($(__write_ +___+ _img_ + V_attrCSS(_style_, "zoom", "*"))) > 0)
         ALERT(V_lang_text(86, [
             "⚠️ 警告 ⚠️\n\n您的文档中使用了 Typora 的图片缩放功能，会存在兼容问题！\n\n建议替换为 VLOOK™ 的「图片缩放」，如：\npic.jpg#400w\npic.jpg#200h",
