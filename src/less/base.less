@@ -40,7 +40,7 @@
 
 插图导航 / .v-fig-nav / z-index: 2200;
 脚注面板 / .v-footnote-pn / z-index: 2100;
-导航中心收起/展开引导把手 / .v-toc-handle / z-index: 2000;
+导航中心收起/展开引导把手 / .v-nav-center-handle / z-index: 2000;
 导航中心面板 / .v-nav-center / z-index: 2000;
     导航中心头部 / .v-nav-center-header / z-index: 10;
     导航中心脚部 / .v-nav-center-footer / z-index: 10;
@@ -91,6 +91,8 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --v-theme-version: @themeVer; // 主题版本，对应适配 VLOOK.JS 的版本
     --v-theme-email: @themeEmail; // 接收定制主题更新的电子邮箱
     --v-color-scheme: light; // 默认颜色模式为：Light 明亮
+    --v-c-t-pd: @coverTextPadding;
+    --v-bc-t-pd: @backcoverTextPadding;
 
     // 导航中心、工具栏相关 UI 尺寸
     --v-nav-center-w:300px;
@@ -2153,11 +2155,12 @@ summary::-moz-list-bullet {
     min-width: var(--v-tb-btn-w);
     height: 100%;
 }
-.v-status-bar>.v-handle {
-    padding: 0;
-    min-width: 24px;
+// 收起状态栏的把手
+.v-status-bar-handle {
+    padding: 0 !important;
+    min-width: 24px !important;
 }
-.v-status-bar>.v-handle.hidden>svg {
+.v-status-bar-handle.hidden>svg {
     transform: rotate(180deg);
 }
 
@@ -2591,10 +2594,11 @@ td.v-tbl-row-g-not-folder {
     white-space: pre !important;
 }
 
+// 单元格内容超长后强制控制宽度
 td.v-long {
-    min-width: 380px;
-    max-width: 380px;
-    white-space: pre-wrap;
+    min-width: 330px !important;
+    max-width: 330px !important;
+    white-space: pre-wrap !important;
 }
 
 // 高亮
@@ -3693,26 +3697,33 @@ div[class*="v-fontinfo-"] > span,
     content: "";
 }
 
-.v-toc-handle {
+// 鼠标 hover 后展开导航中心的引导把手
+.v-nav-center-handle {
     position: fixed;
     display: none;
     top: 390px;
     left: 8px;
     width: 4px;
     height: 80px;
-    background: var(--tbl-bd);
+    // background: var(--tbl-bd);
     border-radius: 2px;
     z-index: 2000;
-}
-.v-toc-handle.hover {
+    // 以下两行样式及 hover 样式，与 v-fit-width 内的 svg>use 保持一致
     background: var(--d-fc);
+    opacity: .25;
+}
+.v-nav-center-handle.hover {
+    // background: var(--d-fc);
+    background: var(--a-hover-color);
+    opacity: 1;
 }
 
 .v-copyright-svg-ico {
     display: inline-block;
     vertical-align: middle;
 }
-@{onHTML} .v-copyright {
+// @{onHTML} .v-copyright {
+.v-copyright {
     left: 0;
     bottom: 5px;
     text-align: center;
@@ -3724,13 +3735,18 @@ div[class*="v-fontinfo-"] > span,
     border: none;
     opacity: .75;
 }
-@{onHTML} .v-copyright a {
+.v-copyright:hover {
+    opacity: 1;
+}
+// @{onHTML} .v-copyright a {
+.v-copyright a {
     color: @buttonForeColor !important;
     border-bottom: @aBorderWidth solid @buttonForeColor;
     text-shadow: none;
     text-decoration: none;
 }
-@{onHTML} .v-copyright a:hover {
+// @{onHTML} .v-copyright a:hover {
+.v-copyright a:hover {
     box-shadow: 0 -.3em 0 0 rgba(255, 255, 255, .3) inset;
 }
 
@@ -4785,16 +4801,17 @@ div[class*="v-fontinfo-"] > span,
 //     padding: 0 0 10px 0;
 // }
 
-@docLibButtonHeight: 36px;
-@docLibButtonAniOffset: 5px;
+@vdlBtnH: 36px;
+@vdlBtnAniPadding: 10px;
+@vdlBtnAniPaddingOffset: 5px;
 .v-doc-lib-item {
     font: var(--v-f-w-bd) 1em/@defaultLineHeight var(--v-f-fm-subtitle); // [style] [weight] [size/[line-height]] [family]
     text-transform: uppercase;
     color: @docLibButtonForeColor;
     background: @docLibButtonBgColor;
-    height: @docLibButtonHeight;
-    padding: 10px 15px;
-    margin: 0 10px;
+    height: @vdlBtnH;
+    padding: @vdlBtnAniPadding (@vdlBtnAniPadding + @vdlBtnAniPaddingOffset) (@vdlBtnAniPadding - @vdlBtnAniPaddingOffset);
+    margin: 0 @vdlBtnAniPadding;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, .3);
     text-overflow: ellipsis;
     overflow: hidden;
@@ -4813,8 +4830,8 @@ div[class*="v-fontinfo-"] > span,
     border-radius: var(--v-r-s) var(--v-r-s-xc);
 }
 .v-doc-lib-item:last-of-type {
-    height: @docLibButtonHeight + @docLibButtonAniOffset;
-    border-bottom: @docLibButtonAniOffset solid var(--a-hover-color);
+    height: @vdlBtnH + @vdlBtnAniPaddingOffset;
+    border-bottom: @vdlBtnAniPaddingOffset solid var(--a-hover-color);
 }
 .v-doc-lib-item:last-of-type:hover {
     border-bottom-color: var(--a-color);
@@ -4825,7 +4842,8 @@ div[class*="v-fontinfo-"] > span,
 .v-doc-lib-item:hover {
     background-color: var(--a-hover-color);
     color: @docLibButtonForeHoverColor;
-    padding-top: @docLibButtonAniOffset;
+    padding-top: @vdlBtnAniPaddingOffset;
+    padding-bottom: @vdlBtnAniPadding;
 }
 .v-btn.assistor:hover>svg>use,
 .v-doc-lib-item:hover>svg>use {
@@ -5773,7 +5791,7 @@ rt:hover {
     font: var(--v-f-w-title) 2.5em/1.25 var(--v-f-fm-title); // [style] [weight] [size/[line-height]] [family]
     text-align: @coverTextAlign;
     height: 950px; //25cm;
-    padding: @coverTextPadding;
+    padding: var(--v-c-t-pd);//@coverTextPadding;
     margin: 0 0 3em;
     border: none;
     border-radius: var(--v-r-b) var(--v-r-b-xc);
@@ -5794,13 +5812,13 @@ rt:hover {
     text-shadow: @coverTextShadow;
 }
 @{backcover}>span {
-    -webkit-text-stroke: @backCoverTextStroke;
-    text-stroke: @backCoverTextStroke;
-    text-shadow: @backCoverTextShadow;
+    -webkit-text-stroke: @backcoverTextStroke;
+    text-stroke: @backcoverTextStroke;
+    text-shadow: @backcoverTextShadow;
     background: none;
     background-clip: inherit;
     -webkit-background-clip: inherit;
-    color: @backCoverTextColor !important;
+    color: @backcoverTextColor !important;
 }
 
 // 封底样式微调
@@ -5808,14 +5826,14 @@ rt:hover {
     height: 550px;//14cm;
     margin-top: 3em;
     margin-bottom: 0;
-    padding: @backCoverTextPadding;
-    color: @backCoverTextColor !important;
-    text-align: @backCoverTextAlign;
-    background-color: @backCoverBackgroundColor;
-    background-image: @backCoverBackgroundImage;
-    background-size: @backCoverBackgroundSize;
-    background-repeat: @backCoverBackgroundRepeat;
-    background-position: @backCoverBackgroundPosition;
+    padding: var(--v-bc-t-pd);//@backcoverTextPadding;
+    color: @backcoverTextColor !important;
+    text-align: @backcoverTextAlign !important;
+    background-color: @backcoverBackgroundColor !important;
+    background-image: @backcoverBackgroundImage !important;
+    background-size: @backcoverBackgroundSize !important;
+    background-repeat: @backcoverBackgroundRepeat !important;
+    background-position: @backcoverBackgroundPosition !important;
     letter-spacing: 0;
 }
 

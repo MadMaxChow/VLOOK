@@ -1,5 +1,5 @@
 ---
-title: 简介 - VLOOK™ - 优雅好用的 Typora 主题与增强插件 VLOOK™
+title: 简介 - VLOOK™ - 优雅好用的 Typora 主题与增强插件
 author: MAX°孟兆	 
 description: 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:description": 关于 VLOOK™ 下载、设置、安装与配置配置说明
@@ -30,7 +30,7 @@ vlook-gray-mode: 5-12
 
 [TOC]
 
-> **Select language ❯ **[<kbd>🔠 ENGLISH</kbd>](index-en.md?kbd=alt)
+> Select language ❯ [<kbd>🔠 ENGLISH</kbd>](index-en.md?kbd=alt)
 
 # VLOOK™ 是什么
 
@@ -236,7 +236,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 从 VLOOK™ 在托管的平台上下载最新发布版本（或在后续步骤中直接从仓库中选择下载需要的文件）：
 > 
->  **[<kbd>![](pic/icon-download.svg?fill=text) 从 GitHub 下载</kbd>](https://github.com/MadMaxChow/VLOOK/releases)**  **[<kbd>![](pic/icon-download.svg?fill=text) 从 Gitee 下载</kbd>](https://gitee.com/madmaxchow/VLOOK/releases?kbd=alt)**
+>  [<kbd>![](pic/icon-download.svg?fill=text) 从 GitHub 下载</kbd>](https://github.com/MadMaxChow/VLOOK/releases)  [<kbd>![](pic/icon-download.svg?fill=text) 从 Gitee 下载</kbd>](https://gitee.com/madmaxchow/VLOOK/releases?kbd=alt)
 >
 >
 > _~Gn!~_
@@ -340,9 +340,9 @@ VLOOK™ 的界面语言默认内置了「**英文**、**简体中文**」，对
 
 目前可扩展支持的语种：
 
-*法文`Français`*_~Se~_  *德文`Detusch`*_~Bk~_  *俄文`Русский язык`*_~Bu~_  *西班牙文`Español`*_~Og~_  *葡萄牙文`Português`*_~Mn~_  *阿拉伯文`العربية`*_~Gn~_
+*法语`Français`*_~Vn~_  *德语`Detusch`*_~Bk~_  *俄语`Русский`*_~Bu~_  *西班牙语`Español`*_~Og~_  *葡萄牙语`Português`*_~Mn~_
 
-*繁体中文`港澳台地区`*_~Wn~_  *韩文`한국어`*_~Se~_  *日文`日本語`*_~Rd~_
+*繁体中文`港澳台地区`*_~Wn~_  *日语`日本語`*_~Rd~_  *韩语`한국어`*_~Se~_  *阿拉伯语`العربية`*_~Gn~_
 
 ---
 

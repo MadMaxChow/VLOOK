@@ -139,16 +139,16 @@
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: center;
-@coverTextPadding: 200px 60px 50px;
+@coverTextPadding: 200px 60px 0;
 @coverTextColor: @aHoverColor;
 @coverSubColor: @theme3;
 @coverUnderlineColor: @theme3;
 @coverAuthorColor: @coverSubColor;
 @coverOwnerColor: @coverSubColor;
 
-@backCoverTextAlign: center;
-@backCoverTextPadding: 200px 60px 50px;
-@backCoverTextColor: @aHoverColor;
+@backcoverTextAlign: @coverTextAlign;
+@backcoverTextPadding: @coverTextPadding;
+@backcoverTextColor: @coverTextColor;
 
 // 封面装饰性文本样式 before
 @coverTextBeforeContent: "";
@@ -180,11 +180,11 @@
 @coverBackgroundPosition: center 80px, top, center bottom;
 
 // 封底背景设置
-@backCoverBackgroundColor: @coverBackgroundColor;
-@backCoverBackgroundImage: @coverBackgroundImage;
-@backCoverBackgroundSize: @coverBackgroundSize;
-@backCoverBackgroundRepeat: @coverBackgroundRepeat;
-@backCoverBackgroundPosition: @coverBackgroundPosition;
+@backcoverBackgroundColor: @coverBackgroundColor;
+@backcoverBackgroundImage: @coverBackgroundImage;
+@backcoverBackgroundSize: @coverBackgroundSize;
+@backcoverBackgroundRepeat: @coverBackgroundRepeat;
+@backcoverBackgroundPosition: @coverBackgroundPosition;
 
 // 文档扩展区域背景
 @docExtBackgroundImage: var(--thm-doc-ext-bg), var(--thm-c-bg-bottom);

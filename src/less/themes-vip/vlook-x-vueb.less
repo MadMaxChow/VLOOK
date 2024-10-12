@@ -181,9 +181,9 @@
 @coverAuthorColor: @coverUnderlineColor;
 @coverOwnerColor: @coverAuthorColor;
 
-@backCoverTextAlign: center;
-@backCoverTextPadding: 220px 60px 50px 60px;
-@backCoverTextColor: @themeForeColor;
+@backcoverTextAlign: center;
+@backcoverTextPadding: 220px 60px 50px 60px;
+@backcoverTextColor: @themeForeColor;
 
 // 封面装饰性文本样式 before
 @coverTextBeforeContent: "";
@@ -214,11 +214,11 @@
 @coverBackgroundRepeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
 @coverBackgroundPosition: center 120px, center 850px, bottom, bottom, center 60px;
 // 封底背景设置
-@backCoverBackgroundColor: @coverBackgroundColor;
-@backCoverBackgroundImage: @coverBackgroundImage;
-@backCoverBackgroundSize: auto, auto, 100% 131px, 100% 220px, auto;
-@backCoverBackgroundRepeat: @coverBackgroundRepeat;
-@backCoverBackgroundPosition: center 120px, center 450px, bottom, bottom center, center -260px;
+@backcoverBackgroundColor: @coverBackgroundColor;
+@backcoverBackgroundImage: @coverBackgroundImage;
+@backcoverBackgroundSize: auto, auto, 100% 131px, 100% 220px, auto;
+@backcoverBackgroundRepeat: @coverBackgroundRepeat;
+@backcoverBackgroundPosition: center 120px, center 450px, bottom, bottom center, center -260px;
 
 @import "../base";
 
@@ -250,7 +250,7 @@
 }
 
 // 生成指定风格的徽章样式
-.genBadgeStyle(cap);
+.genBadgeStyle(cap, dyn);
 
 // 生成 GSA 样式
 .genGSA_simple();

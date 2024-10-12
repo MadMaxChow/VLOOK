@@ -632,10 +632,10 @@ body.os-windows #file-library-tree {
 // 封面
 @outlineCover: ~".outline-content>li:first-child.outline-h6";
 // 封底
-@outlineBackcover: ~".outline-content>.outline-h6:first-child ~ .outline-h1.outline-item-signle:last-child";
+@outlinebackcover: ~".outline-content>.outline-h6:first-child ~ .outline-h1.outline-item-signle:last-child";
 // 大纲面板的封面、封底条目
 @{outlineCover}>.outline-item, // 封面
-@{outlineBackcover}>.outline-item { // 封底
+@{outlinebackcover}>.outline-item { // 封底
     color: var(--h-f);
     font-size: 14px;
     height: 40px;
@@ -649,7 +649,7 @@ body.os-windows #file-library-tree {
     display: contents !important;
 }
 @{outlineCover}>.outline-item code, // 封面
-@{outlineBackcover}>.outline-item code { // 封底
+@{outlinebackcover}>.outline-item code { // 封底
     color: inherit;
     background: none;
     font-family: var(--v-f-fm-tag);
@@ -661,12 +661,12 @@ body.os-windows #file-library-tree {
     white-space: inherit;
 }
 @{outlineCover}>.outline-item u, // 封面
-@{outlineBackcover}>.outline-item u { // 封底
+@{outlinebackcover}>.outline-item u { // 封底
     text-decoration: none;
 }
 // 大纲面板的封面、封底条目标识
 @{outlineCover}>.outline-item::before, // 封面
-@{outlineBackcover}>.outline-item::before { // 封底
+@{outlinebackcover}>.outline-item::before { // 封底
     content: "Cover";
     text-transform: uppercase;
     position: absolute;
@@ -680,20 +680,20 @@ body.os-windows #file-library-tree {
     height: 10px !important;
     display: block;
 }
-@{outlineBackcover}>.outline-item .outline-expander {
+@{outlinebackcover}>.outline-item .outline-expander {
     height: 15px !important;
     display: block;
 }
 // 大纲面板的封面项目下的内容节点
 @{outlineCover}>.outline-item .outline-label,
-@{outlineBackcover}>.outline-item .outline-label {
+@{outlinebackcover}>.outline-item .outline-label {
     display: block; // 调整为该样式后，才能触发封面节点的省略显示
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 @{outlineCover}>.outline-item .outline-label::before,
-@{outlineBackcover}>.outline-item .outline-label::before {
+@{outlinebackcover}>.outline-item .outline-label::before {
     counter-increment: h6toc;
     content: "";
     position: absolute;
@@ -707,17 +707,17 @@ body.os-windows #file-library-tree {
     opacity: .25;
 }
 @{outlineCover}>.outline-item-active .outline-label::before,
-@{outlineBackcover}>.outline-item-active .outline-label::before {
+@{outlinebackcover}>.outline-item-active .outline-label::before {
     background-color: var(--a-color);
     width: 10px;
 }
 
 // 封底
-@{outlineBackcover}>.outline-item::before {
-    content: "Backcover";
+@{outlinebackcover}>.outline-item::before {
+    content: "backcover";
     text-transform: uppercase;
 }
-@{outlineBackcover} .outline-label::before {
+@{outlinebackcover} .outline-label::before {
     content: "";
 }
 // ----- 非自动收起模式 -----
@@ -730,10 +730,10 @@ body.os-windows #file-library-tree {
     padding-bottom: 3px !important;
 }
 .no-collapse-outline .outline-content .outline-h6:first-child>.outline-item::before,
-.no-collapse-outline @{outlineBackcover}>.outline-item::before {
+.no-collapse-outline @{outlinebackcover}>.outline-item::before {
     top: 6px !important;
 }
-.no-collapse-outline @{outlineBackcover}>.outline-item::before {
+.no-collapse-outline @{outlinebackcover}>.outline-item::before {
     left: 6px !important;
     top: 8px !important;
 }
@@ -1357,9 +1357,9 @@ content .md-toc::before {
 
 @coverAfterYAMLforToc: ~"@{writeOnEditing}>pre.md-meta-block:first-child+h6";
 @coverWithoutYAMLforToc: ~"@{writeOnEditing}>h6:first-child";
-@escBackcoverIdForToc: ~".md-toc>.md-toc-content>.md-toc-h1:last-child";
-@{coverAfterYAMLforToc}+@{escBackcoverIdForToc}, // 有 YAML 的封面情况下排除文档内 TOC 的 h1(封底) 情况
-@{coverWithoutYAMLforToc}+@{escBackcoverIdForToc},  // 无 YAML 的封面情况下排除文档内 TOC 的 h1(封底) 情况
+@escbackcoverIdForToc: ~".md-toc>.md-toc-content>.md-toc-h1:last-child";
+@{coverAfterYAMLforToc}+@{escbackcoverIdForToc}, // 有 YAML 的封面情况下排除文档内 TOC 的 h1(封底) 情况
+@{coverWithoutYAMLforToc}+@{escbackcoverIdForToc},  // 无 YAML 的封面情况下排除文档内 TOC 的 h1(封底) 情况
 .md-toc-h6 {
     display: none;
     margin-left: 0;

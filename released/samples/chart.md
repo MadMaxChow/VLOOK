@@ -1,5 +1,5 @@
 ---
-title: Markdown 脚本化图表参考指南 - VLOOK™ - 优雅好用的 Typora 主题与增强插件 VLOOK™
+title: Markdown 脚本化图表参考指南 - VLOOK™ - 优雅好用的 Typora 主题与增强插件
 author: MAX°孟兆
 description: 关于 VLOOK™ 对 Mermaid 的脚本化图表支持与增强
 "og:description": 关于 VLOOK™ 对 Mermaid 的脚本化图表支持与增强

@@ -142,16 +142,16 @@
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: center;
-@coverTextPadding: 300px 80px 50px;
+@coverTextPadding: 300px 80px 0;
 @coverTextColor: @theme3;
 @coverSubColor: #FFFFFF;
 @coverUnderlineColor: @coverSubColor;
 @coverAuthorColor: @coverUnderlineColor;
 @coverOwnerColor: @coverAuthorColor;
 
-@backCoverTextAlign: center;
-@backCoverTextPadding: 300px 80px 50px;
-@backCoverTextColor: @theme3;
+@backcoverTextAlign: @coverTextAlign;
+@backcoverTextPadding: @coverTextPadding;
+@backcoverTextColor: @coverTextColor;
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
 // @contrastBorder: 0 0 0 1px rgba(0, 0, 0, .2);
@@ -166,11 +166,11 @@
 @coverBackgroundPosition: center 150px, top left, bottom right, top left;
 
 // 封底背景设置
-@backCoverBackgroundColor: @coverBackgroundColor;
-@backCoverBackgroundImage: var(--thm-c-logo), var(--thm-c-w), var(--thm-bc-w-r), var(--thm-c-bg);
-@backCoverBackgroundSize: @coverBackgroundSize;
-@backCoverBackgroundRepeat: @coverBackgroundRepeat;
-@backCoverBackgroundPosition: @coverBackgroundPosition;
+@backcoverBackgroundColor: @coverBackgroundColor;
+@backcoverBackgroundImage: var(--thm-c-logo), var(--thm-c-w), var(--thm-bc-w-r), var(--thm-c-bg);
+@backcoverBackgroundSize: @coverBackgroundSize;
+@backcoverBackgroundRepeat: @coverBackgroundRepeat;
+@backcoverBackgroundPosition: @coverBackgroundPosition;
 
 // 文档扩展区域背景
 // @docExtBackgroundColor: var(--d-bc);

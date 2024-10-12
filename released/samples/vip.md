@@ -1,5 +1,5 @@
 ---
-title: 定制主题 - VLOOK™ - 优雅好用的 Typora 主题与增强插件 VLOOK™
+title: 定制主题 - VLOOK™ - 优雅好用的 Typora 主题与增强插件
 author: MAX°孟兆
 description: 关于 VLOOK™ 的定制主题
 "og:description": 关于 VLOOK™ 的定制主题

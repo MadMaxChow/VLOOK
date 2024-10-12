@@ -170,9 +170,9 @@
 @coverAuthorColor: @coverUnderlineColor;
 @coverOwnerColor: @coverUnderlineColor;
 
-@backCoverTextAlign: right;
-@backCoverTextPadding: 80px 80px 50px 80px;
-@backCoverTextColor: @theme3;
+@backcoverTextAlign: right;
+@backcoverTextPadding: 80px 80px 50px 80px;
+@backcoverTextColor: @theme3;
 
 // 封面装饰性文本样式 before
 @coverTextBeforeContent: "";
@@ -194,7 +194,7 @@
 
 // 封面、封底标题的文字阴影样式
 @coverTextShadow: 3px 3px 4px rgba(0, 0, 0, .25);
-@backCoverTextShadow: -3px 3px 4px rgba(0, 0, 0, .25);
+@backcoverTextShadow: -3px 3px 4px rgba(0, 0, 0, .25);
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
 @contrastBorder: 0 0 0 0 transparent;
@@ -208,11 +208,11 @@
 @coverBackgroundPosition: 80px 820px, right bottom, right bottom 200px, right top, left top;
 
 // 封底背景设置
-@backCoverBackgroundColor: @coverBackgroundColor;
-@backCoverBackgroundImage: var(--thm-logo), var(--thm-bc-bg-e), var(--thm-bc-left-bg), var(--thm-bc-tree), var(--thm-bc-bg-lg);
-@backCoverBackgroundSize: auto, auto, 230px 190px, auto, auto;;
-@backCoverBackgroundRepeat: @coverBackgroundRepeat;
-@backCoverBackgroundPosition: right 80px top 450px, left bottom, left bottom 140px, left top, right top;
+@backcoverBackgroundColor: @coverBackgroundColor;
+@backcoverBackgroundImage: var(--thm-logo), var(--thm-bc-bg-e), var(--thm-bc-left-bg), var(--thm-bc-tree), var(--thm-bc-bg-lg);
+@backcoverBackgroundSize: auto, auto, 230px 190px, auto, auto;;
+@backcoverBackgroundRepeat: @coverBackgroundRepeat;
+@backcoverBackgroundPosition: right 80px top 450px, left bottom, left bottom 140px, left top, right top;
 
 // 文档扩展区域背景
 // @docExtBackgroundColor: var(--d-bc);
@@ -270,7 +270,7 @@
 .genOrderList(frame, rect);
 
 // 生成指定风格的徽章样式
-.genBadgeStyle(dyn);
+.genBadgeStyle(cap, dyn);
 
 // 生成 GSA 样式
 .genGSA_simple();

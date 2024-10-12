@@ -44,7 +44,7 @@ let _ = "",
     // **********
     // 修改时须同步修改 media.less 中的同名变量
     gSmallScreenWidth = 1270,
-    gUnwrapTableScreenWidth = 1439,
+    gUnwrapTableScreenWidth = 1279, // 1439,
     // **********
     gToc = gUndefined, // 文档大纲对象
     gTocContent = gUndefined, // 文档大纲内容
@@ -671,7 +671,7 @@ let _ = "",
     _vFontStyleOpt_ = "v-" + _fontStyle_ + "-opt",
     _vFontStyleRestore_ = "v-" + _fontStyle_ + "-" + _restore_,
     _infoTips_ = _info_ + "-" + _tips_,
-    _handle_ = "handle",
+    __handle_ = "-handle",
     _vInfoTips_ = "v-" + _infoTips_,
     _vStdCode_ = "v-std-" + _code_,
     _vBreadcrumbStyle_ = "v-stepwise",
@@ -682,7 +682,7 @@ let _ = "",
     _vTocBody_ = _vToc__ + _body_,
     // _vTocCatalogBody_ = _vToc__ + _catalog_ + __body_,
     _vTocFilterResultNone_ = _vToc__ + _filter_ + __result_ + "-" + _none_,
-    _vTocHandle_ = _vToc__ + _handle_,
+    _vNavCenterHandle_ = "v-" + _navCenter_ + __handle_,
     // _vTocHistory_ = _vToc__ + _history_,
     _vToolTips_ = "v-tool-" + _tips_,
     _vToolbar_ = "v-" + _toolbar_,
@@ -1664,7 +1664,7 @@ function V_util_joinNodesText(target, separator) {
  * @return result.total - 总字数；result.latin - 非中日韩字数；result.CJK - 中日韩字数
  */
 function V_util_countWord(content) {
-    // 匹配中文字符
+        // 匹配中文字符
     let reChinese = /[\u4e00-\u9fa5]/g,
         // 匹配日文字符
         reJapanese = /[\u3040-\u30ff\u31f0-\u31ff\uFF66-\uFF9F]/g,
@@ -2809,7 +2809,7 @@ function V_ui_getCombKeys(event) {
  * @returns string VLOOK 与技术支持信息内容
  */
 function V_ui_copyrightInfo() {
-    return V_ui_div(_, _vCopyright_,
+    return V_ui_div(_, _vCopyright_ +___+ _vTransitionAll_,
         V_ui_svgIcon(_icoVLOOK_, 20, 20, _btnFc_, _vCopyrightSvgIco_)
         + _2nbsp_
         + 'Published with ' + V_ui_a(_, _httpsPrefix_ + _githubVlook_, V_ui_strong(_VLOOK_), __blank_)
@@ -5568,7 +5568,7 @@ function ResumeReading_updateUI(measure) {
 function NavCenter(mask, runMode = _auto_) {
     let T = this;
     T.ui = V_byClass(_vNavCenter_); // 导航中心主界面
-    T.handle = V_byClass(_vTocHandle_); // 导航中心引导把手
+    T.handle = V_byClass(_vNavCenterHandle_); // 导航中心引导把手
 
     // 关键字搜索
     T.__keywordBody = V_byClass(_vSearchByKeyword_);
@@ -8042,7 +8042,7 @@ function StatusBar_init() {
     V_ui_addAnimate(StatusBar_ui.f(_div_));
 
     // 控制隐藏、显示的按钮
-    StatusBar_handle = V_byClass("v-" + _handle_);
+    StatusBar_handle = V_byClass(_vStatusBar_ + __handle_);
     StatusBar_handle.uC().ck(() => {
         // 进行隐藏
         if (parseInt(StatusBar_ui.c(_right_)) > 0) {
@@ -11186,7 +11186,7 @@ function ExtTable_init() {
         });
 
         // 标记该表格列太多，用于匹配是否换行、不换行的自动版式
-        if (colIndex > 7)
+        if (colIndex >= 7)
             table.a(_dataColTooMore_, colIndex);
 
         // ----------------------------------------
@@ -12042,21 +12042,22 @@ function TableWrap_disable(table) {
 
 // 关闭表格换行、不换行后的处理
 function TableWrap_minWidthTd(table, td) {
-    // ERROR(111, table.a(_dataColTooMore_));
+    // 表格列数不超指定上限时，不处理
     if (table.a(_dataColTooMore_) === gUndefined)
         return;
 
     let text = td.t(),
-        wrapLimit = 40; // CJK 字数
+        wrapLimit = 20; // 单元格内单行字数上限（不含标点符号）
 
+    // ERROR(111, table.c(_whiteSpace_) !== _preWrap_ && V_length(text) > wrapLimit, text);
     if (table.c(_whiteSpace_) !== _preWrap_ && V_length(text) > wrapLimit) {
         let lines = __cleanBr(td.hm());
         // 按行处理
         for (let i = 1; i < V_length(lines); i++) {
             let counterResult = V_util_countWord(lines[i]);
             // 只处理字符过多的行
-            if (counterResult.latin > wrapLimit * 0.5 // 非 CJK 折算
-                || counterResult.total > wrapLimit) {
+            // ERROR(111, lines[i], counterResult.latin*2, counterResult.CJK, (counterResult.latin * 2 + counterResult.CJK))
+            if (counterResult.latin * 2 + counterResult.CJK > wrapLimit) {
                 JQ_addClass(td, _vLong_);
                 break;
             }
@@ -17312,7 +17313,7 @@ function VLOOKui_loadNavCenter() {
 
     // --------------------------------------------------
     // 导航中心收起/展开引导把手
-    ui += V_ui_div(_, _vTocHandle_);
+    ui += V_ui_div(_, _vNavCenterHandle_);
 
     return ui;
  }
@@ -17466,12 +17467,13 @@ function VLOOKui_loadCommon() {
 
     // --------------------------------------------------
     // 适配宽度
+    // 对应的样式要与 v-nav-center-handle 及 hover 保持一致
     ui += V_ui_div(_, _vFitWidth_, V_ui_svgIcon(_icoMaskCloser_, 16, 60, _alpha_));
 
     // --------------------------------------------------
     // 状态栏
     ui += V_ui_nav(_, _vStatusBar_ +___+ _vFloatCard_ + "2 " + _vFocusSearch_,
-            V_ui_div(_, "v-" + _handle_, V_ui_svgIcon(_icoTocFolded_, 16, 16, _theme_))
+            V_ui_div(_, _vStatusBar_ + __handle_, V_ui_svgIcon(_icoTocFolded_, 16, 16, _theme_))
             + V_ui_div(_, _vDocInfo_, "- - / - -")
             + V_ui_div(_, _vNewVersion_, V_ui_svgIcon(_icoNewVersion_, 20, 20, _theme_))
             + V_ui_div(_, _vLinkChkResult_, V_ui_svgIcon(_icoLinkError_, 20, 18, _theme_))

@@ -23,7 +23,7 @@ vlook-gray-mode: 05-12
 
 [TOC]
 
-> **选择语言 ❯ **[<kbd>🇨🇳 简体中文</kbd>](index.md?kbd=alt)
+> 选择语言 ❯ [<kbd>🇨🇳 简体中文</kbd>](index.md?kbd=alt)
 
 # What is VLOOK™
 
@@ -214,7 +214,7 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 >
 > Download the latest version from the homepage of VLOOK™ (Or directly select and download the required files from the repository in the subsequent steps):
 > 
->  **[<kbd>![](pic/icon-download.svg?fill=text) via GitHub</kbd>](https://github.com/MadMaxChow/VLOOK/releases)**  **[<kbd>![](pic/icon-download.svg?fill=text) via Gitee</kbd>](https://gitee.com/madmaxchow/VLOOK/releases?kbd=alt)**
+>  [<kbd>![](pic/icon-download.svg?fill=text) via GitHub</kbd>](https://github.com/MadMaxChow/VLOOK/releases)  [<kbd>![](pic/icon-download.svg?fill=text) via Gitee</kbd>](https://gitee.com/madmaxchow/VLOOK/releases?kbd=alt)
 >
 >
 > _~Gn~_
@@ -317,9 +317,9 @@ To support more language for the exported HTML, you can choose to append the con
 
 Currently supported languages for expansion include:
 
-*French`Français`*_~Se~_  *German`Detusch`*_~Bk~_  *Russian`Русский язык`*_~Bu~_  *Spanish`Español`*_~Og~_  *Portuguese`Português`*_~Mn~_  *Arabic`العربية`*_~Gn~_
+*French`Français`*_~Vn~_  *German`Detusch`*_~Bk~_  *Russian`Русский`*_~Bu~_  *Spanish`Español`*_~Og~_  *Portuguese`Português`*_~Mn~_
 
-*Traditional Chinese`Hong Kong / Macao / Taiwan regions`*_~Wn~_  *Korean`한국어`*_~Se~_  *Japanese`日本語`*_~Rd~_
+*Traditional Chinese`Hong Kong / Macao / Taiwan regions`*_~Wn~_   *Japanese`日本語`*_~Rd~_  *Korean`한국어`*_~Se~_  *Arabic`العربية`*_~Gn~_
 
 ---
 

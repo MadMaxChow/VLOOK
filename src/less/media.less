@@ -19,7 +19,7 @@
 // **********
 // 修改时须同步修改 vlook.js 的同名参数
 @gSmallScreenWidth:1270px;
-@gUnwrapTableScreenWidth:1439px;
+@gUnwrapTableScreenWidth:1279px; // 1439px;
 // **********
 
 // ---------------
@@ -81,9 +81,9 @@
 // 针对小于等于该分辨设备的 UI 调整
 @media screen and (max-width: @gUnwrapTableScreenWidth) {
     // 导出后，取消表格的自动换行
-    // @{writeOnHTML} table {
-    //     white-space: pre !important;
-    // }
+    @{writeOnHTML} table {
+        white-space: pre !important;
+    }
 }
 
 // ---------------
@@ -138,6 +138,10 @@
 // 针对显示宽度小于该尺寸时对分栏引用块的调整（模拟为高清屏时的移动端）
 // 与插件的 (jq_Window.w() <= 425) 同步修改
 @media screen and (max-width: 850px) {
+    :root {
+        --v-c-t-pd: 10px;
+        --v-bc-t-pd: 10px;
+    }
     // ========================================
     // 纵向显示的整体调整
     // ----------------------------------------
