@@ -1,4 +1,4 @@
-Select language ❯  [**English**](README-en.md) • [**中文**](README.md)  • [**Русский**](README-ru.md) • [**Français**](README-fr.md) • [**Detusch**](README-de.md) • [**日本語**](README-ja.md)
+Select language ❯  [**English**](README-en.md) • 中文  • [**Русский**](README-ru.md) • [**Français**](README-fr.md) • [**Detusch**](README-de.md) • [**日本語**](README-ja.md)
 
 
 
