@@ -91,7 +91,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --v-theme-version: @themeVer; // 主题版本，对应适配 VLOOK.JS 的版本
     --v-theme-email: @themeEmail; // 接收定制主题更新的电子邮箱
     --v-color-scheme: light; // 默认颜色模式为：Light 明亮
-    --v-c-t-pd: @coverTextPadding;
+    --thm-c-t-pd: @coverTextPadding;
     --v-bc-t-pd: @backcoverTextPadding;
 
     // 导航中心、工具栏相关 UI 尺寸
@@ -680,6 +680,7 @@ a,
 a img,
 img a,
 summary,
+.v-doc-nav-history > *,
 .v-status-bar > *,
 .v-font-style-opt > *,
 .v-new-version,
@@ -2074,7 +2075,10 @@ summary::-moz-list-bullet {
     background: var(--pn-c);
     z-index: 4500;
 }
-.v-link-info-list[d-content-type="checked"]{
+.v-link-info-list[d-content-type="history"] {
+    width: var(--v-nav-center-w);
+}
+.v-link-info-list[d-content-type="checked"] {
     width: calc(var(--v-nav-center-w) * 1.25);
 }
 .v-link-info-list[d-content-type="map"]{
@@ -2093,16 +2097,44 @@ summary::-moz-list-bullet {
     pointer-events: none;
 }
 .v-link-info-list-body {
-    padding: 8px 0;
+    padding-top: 0;
+    // padding: 8px 0;
     height: 100%;
     z-index: 0;
 }
+
 .v-link-info-list-items {
     overflow-y: scroll;
     height: 100%;
-    padding-top: 2px;
-    // padding-bottom: 10px;
+    // padding: 10px 0;
+    // padding-top: 2px;
+    // padding-bottom: .5em;
 }
+
+:is(
+.v-toc-body .md-toc,
+.v-link-info-list-items,
+.v-index-filter-result.toc,
+.v-index-filter-result.figure,
+.v-index-filter-result.table,
+.v-index-filter-result.codeblock,
+.v-index-filter-result.formula,
+.v-index-filter-result.media)[d-no-more]::after {
+    content: attr(d-no-more);
+    // text-transform: uppercase;
+    font-size: .75em;
+    line-height: 3;
+    text-align: center;
+    opacity: .5;
+    padding: 10px;
+    // width: 100%;
+    // padding: 0 5px;
+    // white-space: pre;
+    position: relative;
+    display: block;
+    pointer-events: none;
+}
+
 .v-link-info-list-items > .warning > label {
     color: var(--ac-og);
 }
@@ -2122,39 +2154,63 @@ summary::-moz-list-bullet {
     pointer-events: none;
 }
 
-.v-status-bar {
+.v-status-bar,
+.v-doc-nav-history {
     position: fixed;
     border-radius: calc(var(--v-r-s) + 1px) var(--v-r-s-xc);
-    right: @writePaddingRight + 10px;
+    right: @writePaddingRight;
+    // right: @writePaddingRight + 10px;
     bottom: 10px;
     height: 32px;
     padding: 1px;
     z-index: 100;
 }
+.v-doc-nav-history {
+    right: @writePaddingRight + 10px;
+    border-radius: calc(var(--v-r-s) + 1px);
+}
 // 状态栏内第 1 个元素
+// .v-doc-nav-history>div:first-child,
 .v-status-bar>div:first-child {
     border-top-left-radius: var(--v-r-s);
     border-bottom-left-radius: var(--v-r-s-xc);
     border: none;
 }
 // 状态栏内最后 1 个元素
-.v-status-bar>div.last, // 由 js 添加
+// .v-status-bar>div.last, // 由 js 添加
+// .v-doc-nav-history>div:last-child,
 .v-status-bar>div:last-child {
     border-top-right-radius: var(--v-r-s-xc);
     border-bottom-right-radius: var(--v-r-s);
 }
 
-.v-status-bar>div {
+.v-status-bar>div,
+.v-doc-nav-history>div {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     vertical-align: top;
-    color: var(--d-fc);
+    // color: var(--d-fc);
     background: var(--pn-c);
     padding: 0 5px;
     min-width: var(--v-tb-btn-w);
     height: 100%;
 }
+.v-doc-nav-history>div {
+    display: none;
+}
+.v-doc-nav-history>.v-view-history {
+    border-radius: var(--v-r-s);
+    min-width: 30px;
+    // border-radius: var(--v-r-s) var(--v-r-s-xc);
+    // display: none;
+}
+.v-doc-nav-history>.v-view-history.enabled {
+    display: inline-flex;
+    // animation: show-by-css var(--v-trans-dur) forwards;
+    // animation-delay: 0s; // 指定时间后再启用
+}
+
 // 收起状态栏的把手
 .v-status-bar-handle {
     padding: 0 !important;
@@ -2171,12 +2227,22 @@ summary::-moz-list-bullet {
 }
 
 // 鼠标悬停在状态栏图标效果
-.v-status-bar>:not([class*="v-doc-info"]).hover {
+.v-status-bar>:not([class*="v-doc-info"]).hover,
+.v-doc-nav-history>div.hover {
     background: var(--a-hover-color) !important;
     color: @buttonForeHoverColor !important;
 }
-.v-status-bar>div.hover use {
+.v-status-bar>div.hover use,
+.v-doc-nav-history>div.hover use {
     fill: @buttonForeHoverColor !important;
+}
+
+.v-doc-nav-history-result {
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding: 60px 0 10px 0;
+    overflow-y: scroll;
 }
 
 // 新版检查结果
@@ -2189,6 +2255,12 @@ summary::-moz-list-bullet {
 .v-new-version.enabled::before {
     background: var(--ac-rd);
     display: block;
+}
+
+// 文档导航/文档浏览历史
+.v-doc-nav-history {
+    top: 70px; // 与 ResumeReading_updateUI() 中的取值同步
+    bottom: unset;
 }
 
 // 链接检查结果
@@ -3139,7 +3211,8 @@ kbd {
     border-radius: calc(var(--v-r-s) + 1px) var(--v-r-s-xc);
     // font-size: .875em;
     // left: calc(var(--v-nav-center-w) + 50px);
-    right: 30px;
+    // right: 30px;
+    right: @writePaddingRight;
     bottom: 50px;
     // bottom: 10px;
     padding: 0 10px;
@@ -3158,6 +3231,15 @@ kbd {
     animation: hide-by-css var(--v-trans-dur) forwards;
     animation-delay: 3s; // 指定时间后再启用
 }
+@keyframes show-by-css {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        display: inline-flex;
+    }
+}
 @keyframes hide-by-css {
     0% {
         opacity: 1;
@@ -3165,7 +3247,6 @@ kbd {
     100% {
         opacity: 0;
         display: none;
-        // visibility: hidden;
     }
 }
 
@@ -3378,11 +3459,11 @@ div[class*="v-fontinfo-"] > span,
     margin-bottom: 20px;
 }
 .v-tips>strong::before {
-    content: "by";
+    content: "by ";
     // font-weight: normal;
     font-size: .625em;
     opacity: .6;
-    display: block;
+    // display: block;
     margin-bottom: .375em;
 }
 
@@ -3446,14 +3527,17 @@ div[class*="v-fontinfo-"] > span,
 
 // 继续上次的阅读
 .v-resume-reading {
-    position: fixed;
+    // position: fixed;
     top: 70px; // 与 ResumeReading_updateUI() 中的取值同步
     right: @writePaddingRight + 10px; // 与 ResumeReading_updateUI() 中的取值同步
-    padding: 5px;
-    border: 1px solid var(--a-color);
-    border-radius: var(--v-r-s) var(--v-r-s-xc);
+    padding: 5px 5px 5px 10px !important;
+    // border: 1px solid var(--a-color);
+    border-radius: var(--v-r-s);
+    // border-radius: var(--v-r-s) var(--v-r-s-xc);
     background-color: var(--pn-c);
+    color: var(--a-color);
     font-size: .875em;
+    font-weight: bold;
     // visibility: hidden;
     // opacity: 0;
     // display: flex;
@@ -3464,26 +3548,27 @@ div[class*="v-fontinfo-"] > span,
     z-index: 200;
     cursor: var(--cur-pointer);
 }
-.v-resume-reading.done {
-    animation: hide-by-css var(--v-trans-dur) forwards;
-    animation-delay: 12s; // 指定时间后再启用
-}
+// .v-resume-reading.done {
+//     animation: hide-by-css 0ms forwards;
+//     // 指定时间后再启用，与 ResumeReading_dispose 中的 JQ_addClass(ViewHistory_ui, _enabled_) 同步调整
+//     animation-delay: 8s;
+// }
 // 文本提示
-.v-resume-reading>span {
-    color: var(--a-color);
-    font-weight: bold;
-    padding-left: 5px;
-    line-height: 1;
-    white-space: pre;
-    border-radius: var(--v-r-s) var(--v-r-s-xc);
-}
-.v-resume-reading>span.done {
-    animation: hide-by-css var(--v-trans-dur) forwards;
-    animation-delay: 8s; // 指定时间后再启用
-}
-.v-resume-reading.hover {
-    background-color: var(--d-bc);
-}
+// .v-resume-reading>span {
+//     color: var(--a-color);
+//     font-weight: bold;
+//     padding-left: 5px;
+//     line-height: 1;
+//     white-space: pre;
+//     border-radius: var(--v-r-s) var(--v-r-s-xc);
+// }
+// .v-resume-reading>span.done {
+//     animation: hide-by-css var(--v-trans-dur) forwards;
+//     animation-delay: 8s; // 指定时间后再启用
+// }
+// .v-resume-reading.hover {
+    // background-color: var(--d-bc);
+// }
 
 .v-nav-center {
     background: var(--pn-c);
@@ -3614,8 +3699,8 @@ div[class*="v-fontinfo-"] > span,
     fill: @buttonForeColor;
 }
 
-.v-segment>input[name="toc-segment"][d-result="none"]+label,
-.v-result-none {
+.v-segment>input[name="toc-segment"][d-result="none"]+label {
+// .v-result-none {
     opacity: .25;
     cursor: not-allowed;
 }
@@ -3885,6 +3970,7 @@ div[class*="v-fontinfo-"] > span,
 }
 
 // 用于替代默认的样式，但不设置 ::before
+.v-map-item,
 .v-toc-item,
 .md-toc-item {
     color: var(--d-fc) !important;
@@ -3899,11 +3985,14 @@ div[class*="v-fontinfo-"] > span,
     white-space: nowrap;
     line-height: @miniLineHeight !important;
 }
+.v-map-item,
 .v-toc-item {
     white-space: normal;
     line-height: @miniLineHeight;
+    // padding: 10px;
+    // margin-bottom: 5px;
     padding: 10px;
-    margin-bottom: 5px;
+    margin: 10px 10px 0;
     display: block;
 }
 .md-toc-item::before {
@@ -3944,22 +4033,38 @@ div[class*="v-fontinfo-"] > span,
     word-wrap: break-word;
 }
 
-.v-map-item {
-    padding: 10px;
-    margin: 0 10px 2px;
-    border-radius: var(--v-r-s) var(--v-r-s-xc);
+// 文档导航历史中针对「继续上次阅读」的条目样式
+.v-toc-item[d-history="last-position"] {
+    color: var(--a-color) !important;
+    font-weight: bold;
 }
+
+// .v-map-item {
+//     padding: 10px;
+//     margin: 10px 10px 0;
+//     // margin: 0 10px 5px;
+//     // margin: 0 10px 2px;
+//     border-radius: var(--v-r-s) var(--v-r-s-xc);
+// }
 .v-map-item.hover {
     box-shadow: 0 0 0 2px var(--d-fc-a) inset;
 }
 
 // 链接地图中的链接
-@{onHTML} .v-map-item>a:first-of-type {
+// @{onHTML} .v-map-item>a:first-of-type {
+.v-map-item>a:first-of-type {
     word-break: break-all;
     color: var(--d-fc);
 }
-@{onHTML} .v-map-item>a:not(:first-of-type) {
+// @{onHTML} .v-map-item>a:not(:first-of-type) {
+.v-map-item>a:not(:first-of-type) {
     font-size: .875em;
+}
+
+// 直达各页面锚点的链接样式微调
+.v-map-item>a[id^="hash"] {
+    padding-top: 10px;
+    display: inline-block;
 }
 
 .v-map-item>label {
@@ -4004,8 +4109,8 @@ div[class*="v-fontinfo-"] > span,
 
 .md-toc,
 .v-toc {
-    margin-top: 20px;
-    margin-bottom: .5em;
+    margin-top: 30px;
+    // margin-bottom: .5em;
     border-radius: 0;
     font-size: 1em;
     line-height: 2;
@@ -4104,7 +4209,8 @@ div[class*="v-fontinfo-"] > span,
 }
 
 .v-btn:active,
-.v-status-bar>div:active {
+.v-status-bar>div:active,
+.v-doc-nav-history>div:active {
     background: @aActiveColor !important;
     box-shadow: 0 0 0 2px fade(@aActiveColor, 50%) !important;
     color: @buttonForeHoverColor;
@@ -4577,11 +4683,12 @@ div[class*="v-fontinfo-"] > span,
 }
 
 // .v-toc-history-result,
-.v-toc-filter-result {
+.v-index-filter-result {
     display: none;
     width: 100%;
     height: 100%;
-    padding: 30px 0 10px 0;
+    padding: 30px 0 0 0;
+    // padding: 30px 0 10px 0;
     overflow-y: scroll;
 }
 // .v-toc-history-result {
@@ -4589,7 +4696,7 @@ div[class*="v-fontinfo-"] > span,
 // }
 
 // .v-toc-history-none,
-.v-toc-filter-result-none {
+.v-index-filter-result-none {
     display: block;
     padding: 0 10px;
     text-align: center;
@@ -4836,7 +4943,7 @@ div[class*="v-fontinfo-"] > span,
 .v-doc-lib-item:last-of-type:hover {
     border-bottom-color: var(--a-color);
 }
-.v-toc-filter-result .v-doc-lib-item:first-of-type {
+.v-index-filter-result .v-doc-lib-item:first-of-type {
     margin-top: 0;
 }
 .v-doc-lib-item:hover {
@@ -5790,8 +5897,8 @@ rt:hover {
     color: @coverTextColor !important;
     font: var(--v-f-w-title) 2.5em/1.25 var(--v-f-fm-title); // [style] [weight] [size/[line-height]] [family]
     text-align: @coverTextAlign;
-    height: 950px; //25cm;
-    padding: var(--v-c-t-pd);//@coverTextPadding;
+    height: 600px;//950px; //25cm;
+    padding: var(--thm-c-t-pd);//@coverTextPadding;
     margin: 0 0 3em;
     border: none;
     border-radius: var(--v-r-b) var(--v-r-b-xc);
@@ -5823,7 +5930,8 @@ rt:hover {
 
 // 封底样式微调
 @{backcover} {
-    height: 550px;//14cm;
+    // height: 550px;//14cm;
+    height: 370px; // 高度为封面高度的黄金分割点：即封面高度 * 0.618
     margin-top: 3em;
     margin-bottom: 0;
     padding: var(--v-bc-t-pd);//@backcoverTextPadding;
@@ -5921,9 +6029,9 @@ content>@{coverWithoutYAML} code {
 // 作者信息前缀
 @{coverAfterYAML} strong::before,
 @{coverWithoutYAML} strong::before {
-    content: "by";
+    content: "by ";
     opacity: .6;
-    display: block;
+    // display: block;
     margin-bottom: -.5em;
 }
 

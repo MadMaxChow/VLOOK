@@ -97,4 +97,5 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-fr83" content="Lien">
 <meta name="vk-fr84" content="Note de bas de page">
 <meta name="vk-fr85" content="Restaurer le style de police">
-<meta name="vk-fr86" content="⚠️ AVERTISSEMENT ⚠️&#10;&#10;Dans votre document, vous avez utilisé la fonction de mise à l'échelle des images de Typora, ce qui peut entraîner des problèmes de compatibilité !&#10;&#10;Il est recommandé de le remplacer par la「mise à l'échelle des images」de VLOOK™ comme suit :&#10;pic.jpg#400w&#10;pic.jpg#200h">
+<meta name="vk-fr86" content="⚠️ AVERTISSEMENT ⚠️&#10;&#10;Dans votre document, vous avez utilisé la fonction de mise à l'échelle des images de Typora, ce qui peut entraîner des problèmes de compatibilité !&#10;&#10;Il est recommandé de le remplacer par la &quot;mise à l'échelle des images&quot; de VLOOK™ comme suit :&#10;pic.jpg#400w&#10;pic.jpg#200h">
+<meta name="vk-fr87" content="Histoire">

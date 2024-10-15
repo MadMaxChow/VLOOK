@@ -97,4 +97,5 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt83" content="Link">
 <meta name="vk-pt84" content="Nota de rodapé">
 <meta name="vk-pt85" content="Restaurar estilo de fonte">
-<meta name="vk-pt86" content="⚠️ AVISO ⚠️&#10;&#10;No su documento, usted usó la función de redimensionamiento de imagen de Typora, que puede causar problemas de compatibilidad!&#10;&#10;Se recomienda sustituirlo por la「redimensionamiento de imagen」de VLOOK™ como:&#10;pic.jpg#400w&#10;pic.jpg#200h">
+<meta name="vk-pt86" content="⚠️ AVISO ⚠️&#10;&#10;No su documento, usted usó la función de redimensionamiento de imagen de Typora, que puede causar problemas de compatibilidad!&#10;&#10;Se recomienda sustituirlo por la &quot;redimensionamiento de imagen&quot; de VLOOK™ como:&#10;pic.jpg#400w&#10;pic.jpg#200h">
+<meta name="vk-pt87" content="História">

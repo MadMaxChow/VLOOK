@@ -139,7 +139,7 @@
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: center;
-@coverTextPadding: 200px 60px 0;
+@coverTextPadding: 160px 60px 0;
 @coverTextColor: @aHoverColor;
 @coverSubColor: @theme3;
 @coverUnderlineColor: @theme3;
@@ -206,7 +206,8 @@
 .genOrderList(block, rect);
 
 // 生成指定风格的徽章样式
-.genBadgeStyle(std);
+.genBadgeStyle(cap, dyn);
+// .genBadgeStyle(std);
 
 // 生成 GSA 样式
 .genGSA_simple();

@@ -26,7 +26,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 vlook-gray-mode: 5-12
 ---
 
-###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V26.1`*<br><br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V26.1`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
@@ -44,7 +44,7 @@ vlook-gray-mode: 5-12
 
 
 
-[*编辑工具`Typora`V1.8.3+*_~Gy~_](https://typoraio.cn)　*开源协议`MIT`*_~Rd~_　*支持的操作系统`Windows / macOS / Linux`*_~Bu~_
+[*编辑工具`Typora`V1.8.3+*_~Gy~_](https://typoraio.cn)　*开源协议`MIT`*_~Rd~_　*关键字`主题、插件`*_~Bu~_　*`支持的操作系统`Windows / macOS / Linux*_~Bu~_
 
 
 

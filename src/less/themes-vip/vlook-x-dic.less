@@ -163,7 +163,8 @@
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: left;
-@coverTextPadding: 110px 80px 50px;
+@coverTextPadding: 60px 60px 0;
+@coverTextPaddingForMobile: 60px 20px 0;
 @coverTextColor: @theme3;
 @coverSubColor: @theme1Alt;
 @coverUnderlineColor: @coverSubColor;
@@ -171,7 +172,8 @@
 @coverOwnerColor: @coverUnderlineColor;
 
 @backcoverTextAlign: right;
-@backcoverTextPadding: 80px 80px 50px 80px;
+@backcoverTextPadding: @coverTextPadding;
+@backcoverTextPaddingForMobile: @coverTextPaddingForMobile;
 @backcoverTextColor: @theme3;
 
 // 封面装饰性文本样式 before
