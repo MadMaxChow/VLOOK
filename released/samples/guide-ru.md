@@ -1,6 +1,6 @@
 ---
 title: Краткое справочное руководство (Часть 1) - VLOOK™ - Пакеты тем и плагины улучшения для markdown-редактора Typora
-author: MAX°孟兆 (русскоязычная версия: Dmitry Ermolaev)
+author: MAX°孟兆 (поддержка русскоязычной версии: Dmitry Ermolaev)
 description: Для VLOOK™ рассмотрена работа с текстом, таблицами, изображениями, столбцами, списками, блоками цитат, блоками кода, мультимедиа
 "og:description": Для VLOOK™ рассмотрена работа с текстом, таблицами, изображениями, столбцами, списками, блоками цитат, блоками кода, мультимедиа
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png/
@@ -27,64 +27,64 @@ vlook-doc-lib-test:
 - [Дублирующая библиотека-2](vlook-lib.html?target=_blank "关键字示例内容")
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册 (Part.I)</u><br>*最新版本`V26.1`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>Придайте языку разметки Markdown новый вид<br>──<br><u>Краткое справочное руководство (Часть I)</u><br>*Последняя версия `V26.1`*<br><br>**Автор: MAX°孟兆 (поддержка русскоязычной версии: Dmitry Ermolaev)**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
-# 打赏
+# Вознаграждение и благодарности
 
-*==打赏 VLOOK™==*
+*==Вознаграждение VLOOK™==*
 
-|         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**         | **If you like VLOOK™, you can contribute a cup of coffee :-)** |
+|         **Если вам понравился VLOOK™, то вы можете задонатить на чашечку кофе :-)**         | **If you like VLOOK™, you can contribute a cup of coffee :-)** |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo) | [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow) |
 
-> **感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**
+> **Спасибо за донаты неравнодушным пользователям  VLOOK™（представлен неполный список）/ Thanks for donate VLOOK™ (partial donors)**
 >
-> ＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ＊山, ＊星, ＊丽, 一＊秋, ＊军, ＊鹏, 李＊6, ＊无, H＊t, ＊二, f＊y, ＊宇, ＊琛, ＊辉, ＊秋, ＊笑, ＊豫, l＊a, ＊心, 整＊9, ＊国, ＊拉, ＊龙, ＊应, ＊销, ＊哦, E＊y、……
 
-# 预置色号
+# Предустановленные обозначения цветов
 
 ---
 
 ---
 
-> **< 壹 >**
+> **1**
 >
-> 以下是 VLOOK™  的预置色号，其中**大号加粗**的英文为对应的色号，如： `Ye` `Aq` ，**（支持编辑时提示或预览部分效果）**
+> Ниже на рисунке приведены предустановленные буквенные обозначения цветов VLOOK™: **большими жирными английскими буквами** обозначены сокращения для соответствующих названий цветов，например  `Ye (сокращение от Yellow)` `Aq (сокращение от Aqua)` ，**（поддерживаются подсказки, либо предварительный просмотр некоторых эффектов во время редактирования）**
 
-> **< 贰 >**
+> **2**
 >
-> 将在后续的[文本颜色](#文本颜色)、[文本渐变色](#文本渐变色)、[单元格着色](#单元格着色)、[标签](guide2.md#标签)、[徽章](guide2.md#徽章)、[刮刮卡](guide2.md#刮刮卡)、[引用块着色](#引用块着色)等文档排版特性中进行使用
+> Обозначения цветов в дальнейшем будут использоваться для таких функций макета документа, как: [цвет текста](#文本颜色), [цвет градиента текста](#文本渐变色), [цвет ячеек](#单元格着色), [метки](guide2.md#标签), [значки](guide2.md#徽章), [скретч-карты](guide2.md#刮刮卡), [цвет блока цитат](#引用块着色)
 
-> **< 叁 >**
+> **3**
 >
-> 支持「**常规**」和「**强调**」两种风格，色号后添加英文的感叹号「**!**」即为强调风格，实际写法如： `Ye!` `Aq!`
+> Способ указания цветов поддерживает два стиля:「**стандартный**」и「**акцентирование**」Добавление символа восклицательного знака「**!**」после указания цвета означает стиль выделения： `Ye!` `Aq!`
 
-![VLOOK™ - Color Card 预置色号](pic/vlook-color-card-light.png?srcset=@2x&darksrc=vlook-color-card-dark.png&darksrcset=@2x#logo#center)
+![VLOOK™ - Карта с предустановленными обозначениями цветов](pic/vlook-color-card-light.png?srcset=@2x&darksrc=vlook-color-card-dark.png&darksrcset=@2x#logo#center)
 
 
 
-> **语法**
+> **Грамматика работы с цветовыми обозначениями**
 >
-> 将「**色号**」设置为以下格式组合：先「_斜体_」（**注意要用划下线的语法，不能用 `*` 号语法**），后「~下标~」
+> Для указания требуемого 「**цвета**」 используйте следующую комбинацию форматов: сначала задайте курсивный формат 「_курсив_」（**обратите внимание, что при задании курсивного формата вы должны использовать синтаксис подчёркивания `_курсив_`，а не синтаксис звёздочек `*курсив*`**），затем внутри курсивного формата укажите требуемый цвет в форме подстроки 「~цвет~」
 >
-> - 对应的 Markdown 格式语法为：`_~色号~_`
+> - Итоговый Markdown-синтаксис для задания цвета выглядит следующим образом：`_~цвет~_`
 >
-> - 正确设置后会以特殊的样式突出色号标识
+> - Если формат указания цвета задан верно, то созданная таким образом идентификация цвета в редакторе Typora будет выделена особым стилем.
 >
 
 > [!IMPORTANT]
 >
-> 为区分 Typora 默认使用单星号 `*斜体*` 标记的斜体，色号中的斜体建议用 Markdown 的另一个斜体的标记语法：下划线 `_斜体_`
+> По-умолчанию в Typora для задания курсива используется синтаксис звёздочек `*курсив*`. При указании цвета вместо указанного синтаксиса курсивной разметки  Typora необходимо использовать синтаксис курсивной разметки Markdown `_курсив_`
 
-# #魔法
+# #Магия (шарп-магия/sharp-magic)
 
- *`#魔法`*_~CyOgPu!~_ ，发音为 **/sharp 魔法/**
+ *`#Магия (шарп-магия/sharp-magic)`*_~CyOgPu!~_ ，发音为 **/sharp 魔法/**
 
 
 
-> ###### 什么是 「#魔法」？
+> ###### 什么是 「#Магия (шарп-магия/sharp-magic)」？
 >
 > VLOOK™ 在经过多次迭代和用户反馈后，探索出了**实用**、**优雅**的图片、视频快速排版方法。
 >
@@ -125,12 +125,12 @@ vlook-doc-lib-test:
 
 > **针对「指定格式」的文本颜色**
 >
-> - 在「**加粗**、*斜体*、==高亮==、<u>下划线</u>、^上标^、~下标~ 等」格式的文本后，添加预置色号，例如：红色 `_~Rd~_`
->- 具体色号语法参考[预置色号](#预置色号)
+> - 在「**加粗**、*斜体*、==高亮==、<u>下划线</u>、^上标^、~下标~ 等」格式的文本后，添加Вознаграждение и благодарности，例如：红色 `_~Rd~_`
+>- 具体色号语法参考[Вознаграждение и благодарности](#Вознаграждение и благодарности)
 
 > **针对「整个段落」的文本颜色**
 >
-> 语法与左边的「针对指定格式的文本」是保持一致的，区别是在段落的最开始位置添加[预置色号](#预置色号)即可，在被正常识别后会在色号前出现段落标识「**¶**_~T2~_」
+> 语法与左边的「针对指定格式的文本」是保持一致的，区别是在段落的最开始位置添加[Вознаграждение и благодарности](#Вознаграждение и благодарности)即可，在被正常识别后会在色号前出现段落标识「**¶**_~T2~_」
 ###### 普通的段落着色示例
 
 _~Gd~_这是一个段落，可以使用**<u>预置</u>**的 `色号` ，对整个段落进行==色号==。
@@ -151,7 +151,7 @@ _~Gd~_这是一个段落，可以使用**<u>预置</u>**的 `色号` ，对整�
 
 > _~T1~_这是一个段落，可以使用**<u>预置</u>**的 `色号` ，对整个段落进行==色号==。
 
-*==文本颜色预置色号及示例==*
+*==文本颜色Вознаграждение и благодарности及示例==*
 
 |    颜色    | **色号** | 单色渲染效果示例                   |
 | :--------: | :----------: | ---------------------------------- |
@@ -183,7 +183,7 @@ _~Gd~_这是一个段落，可以使用**<u>预置</u>**的 `色号` ，对整�
 
 *Markdown 粉`Q`*「**现在越来越流行渐变的文本颜色，这要是也能有就完美 💯 了！**」
 
-*VLOOK`A`*_~T2~_ 全新的[预置色号](#预置色号)支持渐变色的，写法自然直观，绝对能惊艳到你～
+*VLOOK`A`*_~T2~_ 全新的[Вознаграждение и благодарности](#Вознаграждение и благодарности)支持渐变色的，写法自然直观，绝对能惊艳到你～
 
 > **适用范围 ••• *`编辑时`OFF*_~Gy~_  *ON` 导出 HTML`*_~Gn~_**
 
@@ -191,7 +191,7 @@ _~Gd~_这是一个段落，可以使用**<u>预置</u>**的 `色号` ，对整�
 
 > - 所有规则与「[文本颜色](#文本颜色)」是一样的，色号由 1 个变为多个连续输入就可以了～
 >- 例如：「**红-绿**_~RdGn~_」则渐变输入 `_~RdGn~_` ，「**红-黄-绿**_~RdYeGn~_」渐变则输入 `_~RdYeGn~_`
-> - 具体色号语法参考[预置色号](#预置色号)
+> - 具体色号语法参考[Вознаграждение и благодарности](#Вознаграждение и благодарности)
 
 ###### 普通的段落着色示例
 
@@ -581,7 +581,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 *Markdown 粉`Q`*「**表格列格式够丰富了，但能不能用不同背景色对单个单元格进行标识呢？**」
 
-*VLOOK`A`*_~T2~_ VLOOK™ 的[预置色号](#预置色号)又可以派上用途了，同样的配方，同样的超好用！
+*VLOOK`A`*_~T2~_ VLOOK™ 的[Вознаграждение и благодарности](#Вознаграждение и благодарности)又可以派上用途了，同样的配方，同样的超好用！
 
 > **适用范围 ••• *`编辑时`OFF*_~Gy~_  *ON` 导出 HTML`*_~Gn~_**
 
@@ -591,11 +591,11 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **对单元格的文本进行着色**
 >
-> 与[文本颜色](#文本颜色)中对整个段落进行着色方式一致，就是在单元格的**最开始位置**_~T2~_添加[预置色号](#预置色号)即可，在被正常识别后会在色号前出现段落标识「**¶**_~T2~_」，如：红色 `_~Rd~_`
+> 与[文本颜色](#文本颜色)中对整个段落进行着色方式一致，就是在单元格的**最开始位置**_~T2~_添加[Вознаграждение и благодарности](#Вознаграждение и благодарности)即可，在被正常识别后会在色号前出现段落标识「**¶**_~T2~_」，如：红色 `_~Rd~_`
 
 > **对单元格「背景」进行着色**
 >
-> 按单元格文本颜色方式一样，区别是使用「强调风格」的[预置色号](#预置色号)即可（如：蓝色 `_~Bu!~_`）。
+> 按单元格文本颜色方式一样，区别是使用「强调风格」的[Вознаграждение и благодарности](#Вознаграждение и благодарности)即可（如：蓝色 `_~Bu!~_`）。
 >
 > 如已指定了「单元格文本」着色，可以将在单元格的==最后位置==_~T2~_
 
@@ -997,13 +997,13 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 *Markdown 粉`Q`*「**希望统一图文混排的图标大小，以及指定图片不以「插图」形式被处理，该怎么操作呢？**」
 
-*VLOOK`A`*_~T2~_ VLOOK™ 对图片默认以「插图」版式展示，通过「[#魔法](##魔法)」可以轻松切换更多灵活的显示版式。
+*VLOOK`A`*_~T2~_ VLOOK™ 对图片默认以「插图」版式展示，通过「[#Магия (шарп-магия/sharp-magic)](##Магия (шарп-магия/sharp-magic))」可以轻松切换更多灵活的显示版式。
 
 > **适用范围 ••• *`编辑时`OFF*_~Gy~_  *ON` 导出 HTML`*_~Gn~_**
 
 
 
-> 在「图片 URL」中添加 VLOOK™ 规范的图片「[#魔法](##魔法)」实现多种非插图的版式：
+> 在「图片 URL」中添加 VLOOK™ 规范的图片「[#Магия (шарп-магия/sharp-magic)](##Магия (шарп-магия/sharp-magic))」实现多种非插图的版式：
 >
 > - 图片 URL + `#版式标识`
 
@@ -1057,13 +1057,13 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 *Markdown 粉`Q`*「**希望可以自由设置图片的缩放大小，以适应不同尺寸图片在文档上的呈现效果**」
 
-*VLOOK`A`*_~T2~_ Markdown 不支持对图片进行缩放，现在用 VLOOK™ 的「[#魔法](##魔法)」就能轻松实现～
+*VLOOK`A`*_~T2~_ Markdown 不支持对图片进行缩放，现在用 VLOOK™ 的「[#Магия (шарп-магия/sharp-magic)](##Магия (шарп-магия/sharp-magic))」就能轻松实现～
 
 > **适用范围 ••• *ON`编辑时`*_~Gn~_  *ON` 导出 HTML`*_~Gn~_**
 
 
 
-> 在「图片 URL」中添加 VLOOK™ 规范的图片「[#魔法](##魔法)」实现：
+> 在「图片 URL」中添加 VLOOK™ 规范的图片「[#Магия (шарп-магия/sharp-magic)](##Магия (шарп-магия/sharp-magic))」实现：
 >
 > - 图片 URL + `#缩放值`
 >
@@ -1103,13 +1103,13 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 *Markdown 粉`Q`*「**希望可以快速直接将图片进行旋转**」
 
-*VLOOK`A`*_~T2~_ Markdown 不支持对图片进行旋转，现在用 VLOOK™ 的「[#魔法](##魔法)」就能轻松实现～
+*VLOOK`A`*_~T2~_ Markdown 不支持对图片进行旋转，现在用 VLOOK™ 的「[#Магия (шарп-магия/sharp-magic)](##Магия (шарп-магия/sharp-magic))」就能轻松实现～
 
 > **适用范围 ••• *ON`编辑时`*_~Gn~_  *ON` 导出 HTML`*_~Gn~_**
 
 
 
-> 在「图片 URL」中添加 VLOOK™ 规范的图片「[#魔法](##魔法)」实现（目前暂时只支持旋转 180 度）：
+> 在「图片 URL」中添加 VLOOK™ 规范的图片「[#Магия (шарп-магия/sharp-magic)](##Магия (шарп-магия/sharp-magic))」实现（目前暂时只支持旋转 180 度）：
 >
 > - 图片 URL + `#180deg`
 
@@ -1121,13 +1121,13 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 *Markdown 粉`Q`*「**希望可以快速直接将图片进行水平方面、垂直方向的翻转**」
 
-*VLOOK`A`*_~T2~_ Markdown 不支持对图片进行翻转，现在用 VLOOK™ 的「[#魔法](##魔法)」就能轻松实现～
+*VLOOK`A`*_~T2~_ Markdown 不支持对图片进行翻转，现在用 VLOOK™ 的「[#Магия (шарп-магия/sharp-magic)](##Магия (шарп-магия/sharp-magic))」就能轻松实现～
 
 > **适用范围 ••• *ON`编辑时`*_~Gn~_  *ON` 导出 HTML`*_~Gn~_**
 
 
 
-> 在「图片 URL」中添加 VLOOK™ 规范的图片「[#魔法](##魔法)」实现：
+> 在「图片 URL」中添加 VLOOK™ 规范的图片「[#Магия (шарп-магия/sharp-magic)](##Магия (шарп-магия/sharp-magic))」实现：
 >
 > - **水平方向翻转**：图片 URL + `#fliph`
 > - **垂直方向翻转**：图片 URL + `#flipv`
@@ -1140,7 +1140,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 *Markdown 粉`Q`*「**希望可以对图片添加一些简单、实用的滤镜（举个栗子：反色、模糊、灰度、复古）**」
 
-*VLOOK`A`*_~T2~_ Markdown 不支持对图片添加滤镜，现在用 VLOOK™ 的「[#魔法](##魔法)」就能轻松实现～
+*VLOOK`A`*_~T2~_ Markdown 不支持对图片添加滤镜，现在用 VLOOK™ 的「[#Магия (шарп-магия/sharp-magic)](##Магия (шарп-магия/sharp-magic))」就能轻松实现～
 
 > **适用范围 ••• *ON`编辑时`*_~Gn~_  *ON` 导出 HTML`*_~Gn~_**
 
@@ -1148,7 +1148,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 ---
 
-> 在「图片 URL」中添加 VLOOK™ 规范的图片「[#魔法](##魔法)」实现：
+> 在「图片 URL」中添加 VLOOK™ 规范的图片「[#Магия (шарп-магия/sharp-magic)](##Магия (шарп-магия/sharp-magic))」实现：
 >
 > - **反色**：图片 URL + `#invert`
 > - **模糊**：图片 URL + `#blur`
@@ -1159,11 +1159,11 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 >
 > 如果希望这些添加滤镜后的图片，能在鼠标悬停时恢复原图显示，也非常的 Easy～
 >
-> 只需要在左侧提及的「**#魔法**」后添加英文感叹号 `!` 即可～
+> 只需要在左侧提及的「**#Магия (шарп-магия/sharp-magic)**」后添加英文感叹号 `!` 即可～
 
 > [!NOTE]
 >
-> 对于同一图片，这些「**#魔法**」不可同时使用
+> 对于同一图片，这些「**#Магия (шарп-магия/sharp-magic)**」不可同时使用
 
 ###### 图片滤镜示例
 
@@ -1177,13 +1177,13 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 *Markdown 粉`Q`*「**在使用工程或设计类的图片时，希望能自动添加统一的网格作为背景**」
 
-*VLOOK`A`*_~T2~_ 通过「[#魔法](##魔法)」，就可以为透明背景的图片（如 PNG、SVG ）添加指定的网格背景了。
+*VLOOK`A`*_~T2~_ 通过「[#Магия (шарп-магия/sharp-magic)](##Магия (шарп-магия/sharp-magic))」，就可以为透明背景的图片（如 PNG、SVG ）添加指定的网格背景了。
 
 > **适用范围 ••• *ON`编辑时`*_~Gn~_  *ON` 导出 HTML`*_~Gn~_**
 
 
 
-> 在「图片 URL」中添加 VLOOK™ 规范的图片「[#魔法](##魔法)」实现：
+> 在「图片 URL」中添加 VLOOK™ 规范的图片「[#Магия (шарп-магия/sharp-magic)](##Магия (шарп-магия/sharp-magic))」实现：
 >
 > - 图片 URL + `#网格背景标识`
 >
@@ -1212,7 +1212,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 *Markdown 粉`Q`*「**我的插图边缘没有留白，视觉上看得比较挤，可以怎么调整？**」
 
-*VLOOK`A`*_~T2~_ 通过「[#魔法](##魔法)」这种小众个性的排版挑战也能轻松拿捏～
+*VLOOK`A`*_~T2~_ 通过「[#Магия (шарп-магия/sharp-magic)](##Магия (шарп-магия/sharp-magic))」这种小众个性的排版挑战也能轻松拿捏～
 
 > **适用范围 ••• *ON`编辑时`*_~Gn~_  *ON` 导出 HTML`*_~Gn~_**
 
@@ -1234,7 +1234,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 *Markdown 粉`Q`*「**Markdown 生成的 HTML 大多是静态的，在交互性方面能带来一些更现代的设计吗？**」
 
-*VLOOK`A`*_~T2~_ 有了「[#魔法](##魔法)」加持，图文自动排版就更上一层楼，单调的图片瞬间灵动了起来～
+*VLOOK`A`*_~T2~_ 有了「[#Магия (шарп-магия/sharp-magic)](##Магия (шарп-магия/sharp-magic))」加持，图文自动排版就更上一层楼，单调的图片瞬间灵动了起来～
 
 > **适用范围 ••• *`编辑时`OFF*_~Gy~_  *ON` 导出 HTML`*_~Gn~_**
 
@@ -1242,7 +1242,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 ---
 
-> 在「图片 URL」中添加 VLOOK™ 规范的图片「[#魔法](##魔法)」实现：
+> 在「图片 URL」中添加 VLOOK™ 规范的图片「[#Магия (шарп-магия/sharp-magic)](##Магия (шарп-магия/sharp-magic))」实现：
 >
 > - **单卡模式**[^单卡模式]：图片 URL + `#card`
 > - **双卡模式**[^双卡模式]：图片 URL + `#cardd`
@@ -1489,7 +1489,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 | 颜色标识 | 说明                                                         | 完整语法参考                 |
 | :----------: | ------------------------------------------------------------ | ---------------------------- |
 |     text     | 替换为所在段落文字的颜色（会自动适配 Dark Mode 和链接的样式） | `![图片](xxx.svg?fill=text)` |
-|     色号     | 替换为[预置色号](#预置色号)中的指定颜色，如： `Rd` `Ye`       | `![图片](xxx.png?fill=rd)`   |
+|     色号     | 替换为[Вознаграждение и благодарности](#Вознаграждение и благодарности)中的指定颜色，如： `Rd` `Ye`       | `![图片](xxx.png?fill=rd)`   |
 
 > [!NOTE]
 >
@@ -1505,9 +1505,9 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
    - 适配为 ==按钮链接== 的颜色：[<kbd>![](pic/markdown-mark-solid.svg?fill=text) Markdown ![](pic/markdown-mark-solid.png?fill=text)</kbd>](https://en.wikipedia.org/wiki/Markdown) [<kbd>![](pic/markdown-mark-solid.svg?fill=text) Markdown ![](pic/markdown-mark-solid.png?fill=text)</kbd>](https://en.wikipedia.org/wiki/Markdown?kbd=alt)
    
    - 适配为 [引用块（着色后）](#引用块着色)、[GitHub Style Alert](#GitHub Style Alert) 的颜色
-2. 使用指定的[预置色号](#预置色号)：
+2. 使用指定的[Вознаграждение и благодарности](#Вознаграждение и благодарности)：
 
-*==图片剪影指定为预置色号示例==*
+*==图片剪影指定为Вознаграждение и благодарности示例==*
 
 |     **颜色**      | **色号** | 图片剪影效果示例                                             |
 | :---------------: | :------: | ------------------------------------------------------------ |
@@ -1570,11 +1570,11 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > ###### COMMING SOON...
 >
-> ![VLOOK™ - Color Card 预置色号](pic/vlook-color-card-light.png#logo)
+> ![VLOOK™ - Color Card Вознаграждение и благодарности](pic/vlook-color-card-light.png#logo)
 >
 > ---
 >
-> ![VLOOK™ - Color Card 预置色号](pic/vlook-color-card-dark.png#logo)
+> ![VLOOK™ - Color Card Вознаграждение и благодарности](pic/vlook-color-card-dark.png#logo)
 >
 > _~Gy!~_
 
@@ -2364,7 +2364,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 *Markdown 粉`Q`*「**希望可以在 Markdown 文档中能拉个横幅或板子，在上面写上一些重要的事～**」
 
-*VLOOK`A`*_~T2~_ VLOOK™ 的[预置色号](#预置色号)又可以派上用途了，同样的配方，同样的超好用！满足实用的多色彩「引用块」的排版需求！
+*VLOOK`A`*_~T2~_ VLOOK™ 的[Вознаграждение и благодарности](#Вознаграждение и благодарности)又可以派上用途了，同样的配方，同样的超好用！满足实用的多色彩「引用块」的排版需求！
 
 > **适用范围 ••• *`编辑时`OFF*_~Gy~_  *ON` 导出 HTML`*_~Gn~_**
 
@@ -2376,10 +2376,10 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 >
 > 在引用块内中**独占一行**（建议在最后一行），在该行内只添加对应的色号 `_~色号~_` ，如：`_~Rd~_`
 >
-> > 其中：`色号`  指定该引用块使用的[预置色号](#预置色号)（除 `Bk` ），在被正常识别后会在色号前出现引用块着色的标识
+> > 其中：`色号`  指定该引用块使用的[Вознаграждение и благодарности](#Вознаграждение и благодарности)（除 `Bk` ），在被正常识别后会在色号前出现引用块着色的标识
 >
 > - 默认为「**线框**」样式
-> - 若要指定为「**色块**」样式，使用「**强调**」风格的预置色号即可（即在 `色号` 后添加英文的感叹号「**!**」，如：`_~Rd!~_` ）
+> - 若要指定为「**色块**」样式，使用「**强调**」风格的Вознаграждение и благодарности即可（即在 `色号` 后添加英文的感叹号「**!**」，如：`_~Rd!~_` ）
 
 > [!TIP]
 >
@@ -2393,7 +2393,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Wine](pic/qico-red.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Wn`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Wn`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2407,7 +2407,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Wine](pic/qico-red.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Wn!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Wn!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2423,7 +2423,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > ==![Red](pic/qico-red.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题==
 >
-> ==色号==  `Rd`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Rd`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2437,7 +2437,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > ==![Red](pic/qico-red.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题==
 >
-> ==色号==  `Rd!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Rd!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2453,7 +2453,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Orange](pic/qico-orange.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Og`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Og`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2467,7 +2467,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Orange](pic/qico-orange.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Og!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Og!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2483,7 +2483,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Yellow](pic/qico-yellow.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Ye`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Ye`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2497,7 +2497,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Yellow](pic/qico-yellow.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Ye!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Ye!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2513,7 +2513,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Lime](pic/qico-green.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Lm`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Lm`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2527,7 +2527,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Lime](pic/qico-green.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Lm!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Lm!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2543,7 +2543,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Green](pic/qico-green.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Gn`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Gn`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2557,7 +2557,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Green](pic/qico-green.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Gn!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Gn!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2573,7 +2573,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Mineral](pic/qico-green.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Mn`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Mn`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2587,7 +2587,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Mineral](pic/qico-green.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Mn!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Mn!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2603,7 +2603,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Olives](pic/qico-green.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Ol`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Ol`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2617,7 +2617,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Olives](pic/qico-green.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Ol!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Ol!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2633,7 +2633,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Aqua](pic/qico-cyan.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Aq`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Aq`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2647,7 +2647,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Aqua](pic/qico-cyan.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Aq!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Aq!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2663,7 +2663,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Cyan](pic/qico-cyan.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Cy`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Cy`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2677,7 +2677,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Cyan](pic/qico-cyan.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Cy!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Cy!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2693,7 +2693,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Blue](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Bu`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Bu`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2707,7 +2707,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Blue](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Bu!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Bu!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2723,7 +2723,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Sea](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Se`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Se`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2737,7 +2737,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Sea](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Se!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Se!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2753,7 +2753,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Lavender](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `La`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `La`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2767,7 +2767,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Lavender](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `La!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `La!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2783,7 +2783,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Vine](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Vn`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Vn`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2793,7 +2793,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Vine](pic/qico-blue.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Vn!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Vn!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2809,7 +2809,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Purple](pic/Qico-Purple.Svg?Fill=Text&Darksrc=Invert#Icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Pu`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Pu`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2823,7 +2823,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Purple](pic/qico-purple.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Pu!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Pu!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2839,7 +2839,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Rose](pic/qico-pink.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Ro`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Ro`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2853,7 +2853,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Rose](pic/qico-pink.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Ro!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Ro!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2869,7 +2869,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Pink](pic/qico-pink.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Pk`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Pk`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2883,7 +2883,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Pink](pic/qico-pink.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Pk!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Pk!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2899,7 +2899,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Gold](pic/qico-brown.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Gd`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Gd`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2913,7 +2913,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Gold](pic/qico-brown.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Gd!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Gd!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2929,7 +2929,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Brown](pic/qico-brown.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Bn`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Bn`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2943,7 +2943,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Brown](pic/qico-brown.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Bn!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Bn!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2959,7 +2959,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Gray](pic/qico-gray.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Gy`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Gy`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2973,7 +2973,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Gray](pic/qico-gray.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `Gy!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `Gy!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -2989,7 +2989,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Theme1](pic/qico-theme1.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `T1`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `T1`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -3003,7 +3003,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Theme2](pic/qico-theme2.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `T1!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `T1!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -3019,7 +3019,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Theme2](pic/qico-theme2.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `T2`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `T2`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -3033,7 +3033,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > **![Theme2](pic/qico-theme2.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题**
 >
-> ==色号==  `T2!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
+> ==色号==  `T2!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#Вознаграждение и благодарности)　[<kbd>主按钮 ![](pic/icon-more.png?fill=text)</kbd>](#按钮链接) [<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide.md?kbd=alt#按钮链接)
 >
 > > ###### 更多信息
 > >
@@ -3184,7 +3184,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
   > ###### ![Theme2](pic/qico-theme2.svg?fill=text&darksrc=invert#icon) 引用块着色 6 级标题
   >
-  > 这是一个 *引用块着色`主题辅助色`*_~T2~_ ，==色号==  `T2`　了解[色号ℹ️](#预置色号) 
+  > 这是一个 *引用块着色`主题辅助色`*_~T2~_ ，==色号==  `T2`　了解[色号ℹ️](#Вознаграждение и благодарности) 
   >
   > _~T2~_
 
