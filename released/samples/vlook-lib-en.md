@@ -177,7 +177,7 @@ title: More Topics about VLOOK™
 
 > **° Outline and Index Navigation**
 >
-> Suitable for quickly locating across chapters of the entire document based on directory, categorized content index (directory/illustration/table/multimedia/code block) [❯❯](guide2.md#大纲与索引导航)
+> Suitable for quickly locating across chapters of the entire document based on directory, categorized content index (directory/illustration/table/multimedia/code block) [❯❯](guide2.md#导航中心)
 >
 > _~Bu~_
 

@@ -166,7 +166,8 @@
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: left;
-@coverTextPadding: 240px 80px 60px 80px;
+@coverTextPadding: 180px 60px 0;
+@coverTextPaddingForMobile: 180px 20px 0;
 @coverTextColor: @aHoverColor;
 @coverSubColor: @themeForeColor;
 @coverUnderlineColor: #606070;
@@ -174,7 +175,8 @@
 @coverOwnerColor: @coverAuthorColor;
 
 @backcoverTextAlign: center;
-@backcoverTextPadding: 300px 0 0 0;
+@backcoverTextPadding: 280px 0 0 0;
+@backcoverTextPaddingForMobile: @backcoverTextPadding;
 @backcoverTextColor: @theme3;
 
 // 封面装饰性文本样式 before
@@ -202,16 +204,20 @@
 // 封面背景设置
 @coverBackgroundColor: @themeBgColor;
 @coverBackgroundImage: var(--thm-c-logo), var(--thm-c-mask), var(--thm-comon-bg);
-@coverBackgroundSize: 80px 80px, auto, auto;
+@coverBackgroundSize: 80px 80px, 100%, auto;
 @coverBackgroundRepeat: no-repeat, repeat-y, no-repeat;
-@coverBackgroundPosition: 80px 80px, right top, right top;
+@coverBgLogoPos: 60px 60px;
+@coverBgLogoPosForMobile: 20px 60px;
+@coverBackgroundPosition: var(--thm-c-bg-logo-pos), right top, right center;
 
 // 封底背景设置
 @backcoverBackgroundColor: @coverBackgroundColor;
 @backcoverBackgroundImage: var(--thm-bc-logo), var(--thm-bc-mask), var(--thm-comon-bg);
 @backcoverBackgroundSize: 80px 80px, 100%, auto;
 @backcoverBackgroundRepeat: no-repeat, repeat-y, no-repeat;
-@backcoverBackgroundPosition: center 170px, top center, center left;
+@backcoverBgLogoPos: center 160px;
+@backcoverBgLogoPosForMobile: @backcoverBgLogoPos;
+@backcoverBackgroundPosition: var(--thm-bc-bg-logo-pos), top center, left center;
 
 // 文档扩展区域背景
 @docExtBackgroundImage: var(--thm-doc-ext-bg), var(--thm-comon-bg);

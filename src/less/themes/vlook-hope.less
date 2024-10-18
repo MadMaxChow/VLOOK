@@ -126,7 +126,8 @@
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: center;
-@coverTextPadding: 140px 60px 0;
+@coverTextPadding: 170px 60px 0;
+@coverTextPaddingForMobile: 170px 20px 0;
 @coverTextColor: @theme3;
 @coverSubColor: @theme2;
 @coverUnderlineColor: @theme2;
@@ -134,7 +135,8 @@
 @coverOwnerColor: @coverTextColor;
 
 @backcoverTextAlign: @coverTextAlign;
-@backcoverTextPadding: @coverTextPadding;
+@backcoverTextPadding: 300px 60px 0;
+@backcoverTextPaddingForMobile: 300px 20px 0;
 @backcoverTextColor: @coverTextColor;
 
 // 封面装饰性文本样式 before
@@ -164,14 +166,18 @@
 @coverBackgroundImage: var(--thm-c-logo), var(--thm-c-header), var(--thm-c-bottom);
 @coverBackgroundSize: 80px 80px, auto, auto;
 @coverBackgroundRepeat: no-repeat, repeat-x, repeat-x;
-@coverBackgroundPosition: center 180px, top center, bottom center;
+// @coverBgLogoPos: ;
+// @coverBgLogoPosForMobile: ;
+@coverBackgroundPosition: center 60px, top center, top 320px center;
 
 // 封底背景设置
-@backcoverBackgroundColor: @coverBackgroundColor;
-@backcoverBackgroundImage: @coverBackgroundImage;
-@backcoverBackgroundSize: @coverBackgroundSize;
-@backcoverBackgroundRepeat: @coverBackgroundRepeat;
-@backcoverBackgroundPosition: @coverBackgroundPosition;
+@backcoverBackgroundColor: @themeBgColor;
+@backcoverBackgroundImage: var(--thm-c-logo), var(--thm-c-bottom);
+@backcoverBackgroundSize: 80px 80px, auto;
+@backcoverBackgroundRepeat: no-repeat, repeat-x;
+// @backcoverBgLogoPos: ;
+// @backcoverBgLogoPosForMobile: ;
+@backcoverBackgroundPosition: center 140px, top 80px center;
 
 // 封面、封底素材资源
 :root {

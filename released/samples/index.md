@@ -77,7 +77,7 @@ vlook-gray-mode: 5-12
 > 1. *`推荐`*_~T2!~_ **Github Flavored Markdown** (GFM) 语法参考：Typora 目前采用该标准 [详细](https://support.typora.io/Markdown-Reference/)；
 > 2. 标准化 **CommonMark** 语法参考：[60 秒学会 Markdown 语法](http://commonmark.org/help/)、[10 分钟深入学习 Markdown](http://commonmark.org/help/tutorial/) 。
 
-[^Typora]: Typora 是跨平台的 Markdown 编辑器（也许Ω是目前最好的编辑器），支持直接预览与编辑，更详细的特性详见[官网](https://www.typora.io)。
+[^Typora]: Typora 是跨平台的 Markdown 编辑器（也许Ω是目前最好的编辑器），支持直接预览与编辑，更详细的特性详见[官网](https://www.typora.io)
 
 # 为谁准备
 
@@ -178,6 +178,26 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > 具体请留意参考手册中各特性的「适用范围」说明，如：*`编辑时`OFF*_~Gy~_ *ON`编辑时`*_~Gn~_
 
 # 专题文章
+
+> ###### 应用域与应用（示例）
+>
+> ![应用域与应用（示例）](assets/togaf-a1-aa.png#padding)
+>
+> _~Gn~_
+
+> ###### 应用域与应用（表格示例）*`备选`*
+>
+> *==应用域与应用表格（示例）==*
+>
+> | **应用｜应用域** | []终端管理域 | []财务域 | []决策支持 |
+> | :------: | :-----------: | :-------: | :---------: |
+> |  立KA盈  |       Y       |           |             |
+> |  立客通  |       Y       |           |             |
+> |    NC    |               |     Y     |             |
+> |  数略云  |               |           |      Y      |
+>
+> _~Gn~_
+
 
 ![入选「知乎 • 海盐计划」的专题文章](pic/3rd-haiyan.png#logo#border) 
 
@@ -340,7 +360,7 @@ VLOOK™ 的界面语言默认内置了「**英文**、**简体中文**」，对
 
 目前可扩展支持的语种：
 
-*法语`Français`*_~Vn~_  *德语`Detusch`*_~Bk~_  *俄语`Русский`*_~Bu~_  *西班牙语`Español`*_~Og~_  *葡萄牙语`Português`*_~Mn~_
+*法语`Français`*_~La~_  *德语`Detusch`*_~OG~_  *俄语`Русский`*_~Bu~_  *西班牙语`Español`*_~Ye~_  *葡萄牙语`Português`*_~Mn~_
 
 *繁体中文`港澳台地区`*_~Wn~_  *日语`日本語`*_~Rd~_  *韩语`한국어`*_~Se~_  *阿拉伯语`العربية`*_~Gn~_
 

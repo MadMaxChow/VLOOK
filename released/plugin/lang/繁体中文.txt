@@ -98,4 +98,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk84" content="註腳">
 <meta name="vk-zh-hk85" content="還原字體樣式">
 <meta name="vk-zh-hk86" content="⚠️ 警告 ⚠️&#10;&#10;在您的文件中，您使用了 Typora 的圖片縮放功能，這可能會導致兼容性問題！&#10;&#10;建議將其替換為 VLOOK™ 的「圖片縮放」，例如：&#10;pic.jpg#400w&#10;pic.jpg#200h">
-<meta name="vk-zh-hk87" content="歷史">
+<meta name="vk-zh-hk87" content="導航歷史">

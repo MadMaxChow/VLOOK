@@ -317,7 +317,7 @@ To support more language for the exported HTML, you can choose to append the con
 
 Currently supported languages for expansion include:
 
-*French`Français`*_~Vn~_  *German`Detusch`*_~Bk~_  *Russian`Русский`*_~Bu~_  *Spanish`Español`*_~Og~_  *Portuguese`Português`*_~Mn~_
+*French`Français`*_~La~_  *German`Detusch`*_~Og~_  *Russian`Русский`*_~Bu~_  *Spanish`Español`*_~Ye~_  *Portuguese`Português`*_~Mn~_
 
 *Traditional Chinese`Hong Kong / Macao / Taiwan regions`*_~Wn~_   *Japanese`日本語`*_~Rd~_  *Korean`한국어`*_~Se~_  *Arabic`العربية`*_~Gn~_
 

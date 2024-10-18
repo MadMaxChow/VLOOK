@@ -174,7 +174,8 @@
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: center;
-@coverTextPadding: 240px 60px 50px;
+@coverTextPadding: 120px 60px 50px;
+@coverTextPaddingForMobile: 120px 20px 0;
 @coverTextColor: @themeForeColor;
 @coverSubColor: @theme2;
 @coverUnderlineColor: #606070;
@@ -182,7 +183,8 @@
 @coverOwnerColor: @coverAuthorColor;
 
 @backcoverTextAlign: center;
-@backcoverTextPadding: 220px 60px 50px 60px;
+@backcoverTextPadding: 220px 60px 0;
+@backcoverTextPaddingForMobile: 220px 20px 0;
 @backcoverTextColor: @themeForeColor;
 
 // 封面装饰性文本样式 before
@@ -212,12 +214,17 @@
 @coverBackgroundImage: none;
 @coverBackgroundSize: auto, auto, 100% 131px, 100% 220px, auto;
 @coverBackgroundRepeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+// @coverBgLogoPos: ;
+// @coverBgLogoPosForMobile: ;
 @coverBackgroundPosition: center 120px, center 850px, bottom, bottom, center 60px;
+
 // 封底背景设置
 @backcoverBackgroundColor: @coverBackgroundColor;
 @backcoverBackgroundImage: @coverBackgroundImage;
 @backcoverBackgroundSize: auto, auto, 100% 131px, 100% 220px, auto;
 @backcoverBackgroundRepeat: @coverBackgroundRepeat;
+// @backcoverBgLogoPos: ;
+// @backcoverBgLogoPosForMobile: ;
 @backcoverBackgroundPosition: center 120px, center 450px, bottom, bottom center, center -260px;
 
 @import "../base";
@@ -229,7 +236,7 @@
 @{coverWithoutYAML}::after {
     content: "⟨" !important;
     position: absolute;
-    left: 40px;
+    left: 6%;
     top: 200px;
     color: @coverTextColor;
     font-size: 5em;
@@ -244,7 +251,7 @@
     text-align: right;
     left: auto;
     top: 200px;
-    right: 40px;
+    right: 6%;
     color: @coverTextColor;
     font-size: 5em;
 }

@@ -98,4 +98,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ar84" content="حاشية">
 <meta name="vk-ar85" content="استعادة نمط الخط">
 <meta name="vk-ar86" content="⚠️ تحذير ⚠️&#10;&#10;في مستندك، استخدمت ميزة تغيير حجم الصورة في Typora، والتي قد تسبب مشاكل في التوافق!&#10;&#10;يوصى باستبدالها بـ &quot;تغيير حجم الصورة&quot;من VLOOK™ كما يلي:&#10;pic.jpg#400w&#10;pic.jpg#200h">
-<meta name="vk-ar87" content="التاريخ">
+<meta name="vk-ar87" content="سجل التصفح">

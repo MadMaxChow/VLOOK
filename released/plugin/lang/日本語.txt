@@ -98,4 +98,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja84" content="脚注">
 <meta name="vk-ja85" content="フォントスタイルを復元する">
 <meta name="vk-ja86" content="⚠️ 警告 ⚠️&#10;&#10;あなたの文書で Typora の画像スケーリング機能を使用しましたが、互換性の問題が発生する可能性があります！&#10;&#10;これを VLOOK™ の「画像スケーリング」に置き換えることをお勧めします：&#10;pic.jpg#400w&#10;pic.jpg#200h">
-<meta name="vk-ja87" content="履歴">
+<meta name="vk-ja87" content="ナビゲーション履歴">

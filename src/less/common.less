@@ -365,9 +365,15 @@
 @coverTextStroke: initial;
 @backcoverTextStroke: initial;
 
-// to-do: reemoved
+// to-do: removed
 @coverTextPaddingForMobile: @coverTextPadding;
 @backcoverTextPaddingForMobile: @backcoverTextPadding;
+
+@coverBgLogoPos: 0 0;
+@coverBgLogoPosForMobile: 0 0;
+
+@backcoverBgLogoPos: 0 0;
+@backcoverBgLogoPosForMobile: 0 0;
 
 // 要与 CSS 变量 --mark-bg-h --mark-bg-h-inset 一并修改
 @markBgHeight: .75em;
@@ -379,6 +385,9 @@
 
     // 文档扩展区域背景
     --thm-doc-ext-bg: linear-gradient(180deg, var(--d-bc), var(--ac-t1-fade));
+
+    --thm-c-bg-logo-pos: @coverBgLogoPos;
+    --thm-bc-bg-logo-pos: @backcoverBgLogoPos;
 }
 @docExtContent: "";
 @docExtBackgroundColor: var(--d-bc);
@@ -594,8 +603,9 @@
 
 // -----
 // 活力风格
-@dynDeg: 106deg;
-@dynPaddingForHasPreContent: 15px;
+@dynDeg: 105deg;
+@dynOffset: 8px;
+@dynPaddingForHasPreContent: 12px;
 .genBadgeStyle(@style) when (@style = dyn) {
     // 徽章内容公共样式
     // 编辑时的徽章内容
@@ -612,13 +622,13 @@
         white-space: pre;
         box-shadow: none !important;
         border: none !important;
-        background: linear-gradient(@dynDeg, transparent 10px, var(--d-bc) 10px, var(--d-bc)) !important;
+        background: linear-gradient(@dynDeg, transparent @dynOffset, var(--d-bc) @dynOffset, var(--d-bc)) !important;
     }
 
     // 三段式，两个徽章值时微调
     // 第 2 个徽章值
     @{badgeOnEditingPrefix} > @{codeOnEditing}+span:last-child {
-        margin: 1px 5px 1px 2px !important;
+        margin: 1px @codePaddingLeft 1px 2px !important;
     }
     // 第 1 个徽章值
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:first-child):not(:last-child) > code,
@@ -627,7 +637,7 @@
         margin-right: 0 !important;
         padding-right: @dynPaddingForHasPreContent !important;
         border-radius: 0;
-        background: linear-gradient(@dynDeg, transparent 10px, var(--d-bc) 10px, var(--d-bc) calc(100% - 10px), transparent calc(100% - 10px)) !important;
+        background: linear-gradient(@dynDeg, transparent @dynOffset, var(--d-bc) @dynOffset, var(--d-bc) calc(100% - @dynOffset), transparent calc(100% - @dynOffset)) !important;
     }
 
     // 没有徽章标题，只有两个徽章内容 value 和 value2
@@ -637,7 +647,7 @@
         margin-right: 0 !important;
         // padding-left: 5px !important;
         // padding-right: 12px !important;
-        padding-left: 5px !important;
+        padding-left: @codePaddingLeft !important;
         padding-right: @dynPaddingForHasPreContent !important;
         border-radius: @codeValueRadius 0 0 @codeValueRadiusXC;
         background: linear-gradient(110deg, var(--d-bc), var(--d-bc) calc(100% - 10px), transparent calc(100% - 10px)) !important;
@@ -674,7 +684,7 @@
     // 三段式，两个徽章值时微调
     // 第 2 个徽章值
     @{badgeOnEditingPrefix} > @{codeOnEditing}+span:last-child {
-        margin: 1px 5px 1px 2px !important;
+        margin: 1px @codePaddingLeft 1px 2px !important;
     }
     // 第 1 个徽章值
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:first-child):not(:last-child) > code,
@@ -718,7 +728,7 @@
     // 生成 cap 风格默认的背景
     .genBadgeCapBg(@style2) when (@style2 = cap) {
         margin: @codeMarginForCap @codeMarginForCap @codeMarginForCap @codePaddingLeft;
-        padding: 5px;
+        padding: 5px @codePaddingLeft;
         background: var(--d-fc) !important;
     }
 
@@ -741,7 +751,7 @@
         margin-bottom: -1px;
         padding: 5px @codePaddingLeft 5px @dynPaddingForHasPreContent !important;
         // background-color: transparent !important;
-        background: linear-gradient(@dynDeg, transparent 10px, var(--d-fc) 10px, var(--d-fc)) !important;
+        background: linear-gradient(@dynDeg, transparent @dynOffset, var(--d-fc) @dynOffset, var(--d-fc)) !important;
     }
     // 生成 cap + dyn 风格的背景（有两个 value 时）
     .genBadgeDynBgValue2(@style2) when (@style2 = dyn) {
@@ -751,18 +761,18 @@
         padding-right: @dynPaddingForHasPreContent !important;
         // border-radius: 0;
         // background-color: transparent !important;
-        background: linear-gradient(@dynDeg, transparent 10px, var(--d-fc) 10px, var(--d-fc) calc(100% - 10px), transparent calc(100% - 10px)) !important;
+        background: linear-gradient(@dynDeg, transparent @dynOffset, var(--d-fc) @dynOffset, var(--d-fc) calc(100% - @dynOffset), transparent calc(100% - @dynOffset)) !important;
     }
     // 生成 cap + dyn 风格的背景（无标题时）
     .genBadgeDynBgNoName(@style2) when (@style2 = dyn) {
         margin-left: -1px !important;
         margin-right: 0 !important;
         // padding-left: 0 !important;
-        padding-left: 5px !important;
+        padding-left: @codePaddingLeft !important;
         padding-right: @dynPaddingForHasPreContent !important;
         // border-radius: var(--v-r-tag) 0 0 var(--v-r-tag-xc);
         // background-color: transparent !important;
-        background: linear-gradient(@dynDeg, var(--d-fc), var(--d-fc) calc(100% - 10px), transparent calc(100% - 10px)) !important;
+        background: linear-gradient(@dynDeg, var(--d-fc), var(--d-fc) calc(100% - @dynOffset), transparent calc(100% - @dynOffset)) !important;
     }
 }
 

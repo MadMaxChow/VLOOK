@@ -17,6 +17,7 @@ keywords:
 - HTML,PRD,设计,需求,文档,博客,手册,指南,知识库,WIKI,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
 vlook-chp-autonum: h1{{#ALPHA#. }},h2{{#00#-sup# - }},h3{{#ROMAN-min# - }}
+vlook-chp-dup: 查看完整画图脚本示例
 vlook-doc-lib: vlook-lib.html
 ---
 
@@ -28,7 +29,7 @@ vlook-doc-lib: vlook-lib.html
 
 ## 关于 Mermaid
 
-Mermaid 是一个用于画流程图、状态机图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [Mermaid 官网](https://mermaid.js.org)。
+Mermaid 是一个用于画流程图、状态机图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [Mermaid 官网](https://mermaid.js.org)
 
 **目前 Typora + VLOOK™ 的最新版本，可支持下脚本化图表的制作和生成：**
 
@@ -42,14 +43,14 @@ Mermaid 是一个用于画流程图、状态机图、顺序图、甘特图的库
 >
 > - 2004 年，[John Gruber](https://en.wikipedia.org/wiki/John_Gruber) 创造了 [![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) Markdown](https://zh.wikipedia.org/wiki/Markdown)，一种专门针对网络写作的 `文本标记语言` 。使用 Markdown，你只需在写作过程中插入少量的标记符号，就能很轻松地进行排版（例如设置标题、加粗、列表、引用块等）；
 > - Markdown 文档以 `纯文本格式存储` ，这意味着，它们可以用几乎任一种文本编辑器打开。同时，又能通过 Markdown 编辑器导出为带排版的富文本文档、HTML 网页等等。==纯粹、简洁、易用、灵活==，都是人们喜欢 Markdown 的原因；
-> - 目前 Markdown 的标准化项目是 [CommonMark](http://commonmark.org)。
+> - 目前 Markdown 的标准化项目是 [CommonMark](http://commonmark.org) 。
 > 
 > ![Markdown](pic/markdown-mark.svg?fill=text#logo)
 
 > **60 秒学会、10 分钟深入学习 Markdown 语法**
 >
 > 1. *`推荐`* **Github Flavored Markdown** (GFM) 语法参考：Typora 目前采用该标准 [详细](https://support.typora.io/Markdown-Reference/)；
-> 2. 标准化 **CommonMark** 语法参考：[60 秒学会 Markdown 语法](http://commonmark.org/help/)、[10 分钟深入学习 Markdown](http://commonmark.org/help/tutorial/)。
+> 2. 标准化 **CommonMark** 语法参考：[60 秒学会 Markdown 语法](http://commonmark.org/help/)、[10 分钟深入学习 Markdown](http://commonmark.org/help/tutorial/) 。
 
 # 建模类图表
 
