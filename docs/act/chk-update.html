@@ -29,7 +29,7 @@ window.addEventListener('message', function(event) {
     resultDiv.innerText += "\n[" + result + "]";
 
     // 回复消息
-    event.source.postMessage("chk-update:" + result, event.origin);
+    event.source.postMessage("chk-update:" + result + ",latest:" + latestVer, event.origin);
 });
 </script>
 </body>
