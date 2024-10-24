@@ -2,20 +2,20 @@
 <head>
 </head>
 <body>
-Checking new version of VLOOK ...
+Checking new version of VLOOK™ ...
 <div id="check-result"></div>
 <script type="text/javascript">
 let latestVer = "V26.1";
 window.addEventListener('message', function(event) {
     // 处理消息
-    let receMessage = event.data,
-        resultDiv = document.getElementById("check-result");
+    let receMessage = event.data;
+        // resultDiv = document.getElementById("check-result");
     // 校验消息合法性
     if (!receMessage.startsWith("V") || receMessage.length > 6)
         return;
 
-    resultDiv.innerText += `\nLastest version [${latestVer}]`;
-    resultDiv.innerText += `\nChecking update for [${receMessage}] ...`;
+    // resultDiv.innerText += `\nLastest version [${latestVer}]`;
+    // resultDiv.innerText += `\nChecking update for [${receMessage}] ...`;
 
     // 来源的版本
     srcVer = receMessage.substring(1, receMessage.length);
@@ -26,11 +26,11 @@ window.addEventListener('message', function(event) {
 
     // 生成结果
     let result = latestVer > srcVer ? "yes" : "no";
-    resultDiv.innerText += "\n[" + result + "]";
+    // resultDiv.innerText += "\n[" + result + "]";
 
     // 回复消息
     event.source.postMessage("chk-update:" + result
-        + ((srcVer < 27) ? "" : ",latest:" + latestVer), // V27.0 及后续版本新格式
+        + ((srcVer < 27) ? "" : ",latest:" + latestVer), // V27.0+ 的新格式内容
         event.origin);
 });
 </script>
