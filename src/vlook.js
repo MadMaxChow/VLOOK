@@ -3,7 +3,7 @@
  * VLOOK™ JS - Typora Plugin
  *
  * V26.1
- * 2024-09-24
+ * 2024-10-24
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -7488,7 +7488,7 @@ function FontStyle(mask, styleName) {
             setTimeout(() => {
                 if (V_length(T.sansStyle.fonts) > 0)
                     V_byClass(_v_font_info__ + "sans > " + _span_).t(timeOutMsg);
-            }, 600000); // 10 分钟后进行超时检测
+            }, 1000 * 60 * 20); // 20 分钟后进行超时检测
         }
         else if (T.style === _serif_) {
             // 动态加载字体 VLOOK Number
@@ -8235,8 +8235,8 @@ function NewVersion_init() {
 function NewVersion_check() {
     let lastCheckTime = V_data_read(_new_version_check_time_, gTrue),
         latestVer = V_data_read(_new_version_, gTrue);
-    // 模拟测试用
-    // gVer = "V26.0";
+    // 用于模拟测试使用
+    // gVer = "V25.0";
     // 在检查周期内时，直接读取本地数据
     if (lastCheckTime != gNull
         && (V_util_getTime() - JS_parseInt(lastCheckTime)) < (1000 * 3600 * 24 * 7)) { // 检查周期为 7 天 (1000 * 3600 * 24 * 7)

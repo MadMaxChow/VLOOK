@@ -5,16 +5,28 @@ description: 关于 VLOOK™ 的文本、表格、图片、分栏、列表、引
 "og:description": 关于 VLOOK™ 的文本、表格、图片、分栏、列表、引用块、代码块、多媒体
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png/
 keywords:
-- Gitee,GitHub,i18n,Markdown,MIT,OSC,Plugin,Typora,VLOOK,编辑推荐,插件,开源,开源中国,跨平台,主题包,自动排版
-- GitHub Style Alert,OGP,Open Graph Protocol,标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
-- 深色模式,Dark Mode,Gray Mode,灰度模式,灰色模式
-- 目录,文库,插图导航,大纲导航,段落导航,脚注导航,图片导航,文库导航,章节导航,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索
+- Gitee,GitHub,i18n,Markdown,MIT,OSC,Plugin,Typora,VLOOK,GitHub Style Alert,OGP,Open Graph Protocol,Mermaid,WIKI,HTML,PRD,YAML,YouTube
+- Editor's recommendation,plugin,open source,OSChina (Open Source China),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
+- Dark mode,grayscale mode,gray mode
+- Catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
+- Table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
+- Picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
+- Online video,streaming media,Bilibili video,Watermelon video,Douyin video,Tencent video
+- Content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture
+- Columns,two columns,three columns,four columns,five columns,quote block,title,subtitle,official account article,official account editor
+- Link map,link specification,link check,link recognition,link conversion
+- Design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
+- Product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
+- 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
+- 深色模式,灰度模式,灰色模式
+- 目录,文库,插图导航,大纲导航,段落导航,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,重复表头,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
-- 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,Mermaid,反转,反色,明信片
+- 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
+- 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画
-- 分栏,双栏,三栏,四栏,五栏
+- 分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
-- HTML,PRD,设计,需求,文档,博客,手册,指南,知识库,WIKI,教程,方案,教育,笔记,日记
+- 设计,需求,文档,博客,手册,指南,知识库,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
 vlook-chp-autonum: h1{{第###章 }}
 vlook-chp-dup: /.*语法$/;/^适用范围 ••• .+/;快捷键操作;进阶玩法;更多信息;引用块着色 6 级标题;COMMING SOON...;举例;这是引用块小标题;💡 想知道以上表格的原始内容吗？
@@ -27,7 +39,7 @@ vlook-doc-lib-test:
 - [重复的文库-2](vlook-lib.html?target=_blank "关键字示例内容")
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册 (Part.I)</u><br>*最新版本`V26.1`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册 (Part.I)</u><br>*最新版本`V26.1`2024-10-24*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 

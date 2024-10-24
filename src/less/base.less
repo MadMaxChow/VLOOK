@@ -3,7 +3,7 @@
  * VLOOK™ CSS 基础库
  *
  * V26.1
- * 2024-09-24
+ * 2024-10-24
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -5446,16 +5446,23 @@ use.v-svg-ico-wh {
 @{badgeOnEditing2} {
     background-color: var(--ac-t1);
 }
-@{badgeOnEditing2},
-.v-badge-name:has(code:first-child+span:last-child) {
-    padding-left: 1px !important;
-}
 .v-badge-name.hover {
     filter: brightness(@hoverBrightness);
 }
+// 三段式，但没有标题时微调
+@{badgeOnEditing2},
+// .v-badge-name.hastwo {
+.v-badge-name:has(code:first-child+span:last-child) {
+    // padding-left: @codePaddingLeft !important;
+    // padding-left: @codePaddingForCover !important;
+    // padding-left: 1px !important;
+    padding-left: 0 !important;
+    padding-right: @codePaddingLeft !important;
+}
 // 三段式，多级标签有两个内容时微调
 .v-badge-name.hastwo {
-    padding: 1px 5px !important;
+//     // padding: 1px 5px !important;
+    padding-right: @codePaddingLeft !important;
 }
 
 // 引用块、详情内的微调
@@ -5540,8 +5547,15 @@ use.v-svg-ico-wh {
     font-family: var(--v-f-fm-subtitle) !important;
     font-size: 1em !important;
     font-weight: var(--v-f-w-bd);
-    display: inline-block;
+    // display: inline-block;
+    // display: inline-flex;
+    // align-items: center;
     margin-bottom: 0;
+}
+.md-alert-text-container,
+#write .md-alert-text {
+    display: inline-flex;
+    align-items: center;
 }
 #write .md-alert-text,
 #write .md-alert-text-container::after {
@@ -5549,6 +5563,7 @@ use.v-svg-ico-wh {
 }
 #write .md-alert-text svg {
     margin-right: .5em;
+    top: unset;
 }
 
 // 注音
@@ -5845,13 +5860,17 @@ rt:hover {
     color: @badgeColorInCover !important;
     background: @badgeBakgroundInCover !important;
     border-color: @badgeBorderColorInCover !important;
+    text-shadow: none;
     // 输入光标颜色
     caret-color: @buttonForeHoverColor;
     -webkit-text-stroke: initial;
     text-stroke: initial;
-    text-shadow: none;
     vertical-align: initial;
     .genBadgeNameForCoverExt();
+}
+@{coverAfterYAML} em:has(@{codeOnEditing}:first-child+span:last-child), // 多级标签不带标题（第1段）
+@{coverWithoutYAML} em:has(@{codeOnEditing}:first-child+span:last-child) {
+    .genBadgeNoNameForCoverExt();
 }
 @{coverAfterYAML} .v-badge-name,
 @{coverWithoutYAML} .v-badge-name {

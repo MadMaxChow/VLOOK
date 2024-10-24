@@ -23,7 +23,7 @@ vlook-gray-mode: 05-12
 
 [TOC]
 
-> 选择语言 ❯ [<kbd>🇨🇳 简体中文</kbd>](index.md?kbd=alt)
+> Select language ❯ [<kbd>🇨🇳 简体中文</kbd>](index.md?kbd=alt)
 
 # What is VLOOK™
 
@@ -37,7 +37,7 @@ vlook-gray-mode: 05-12
 
 
 
-[*Editor`Typora`V1.8.3+*_~Gy~_](https://typoraio.cn)　*License`MIT`*_~Rd~_　*Supported OS`Windows / macOS / Linux`*_~Bu~_
+[*Editor`Typora`V1.8.3+*_~Gy~_](https://typoraio.cn)　*License`MIT`*_~Rd~_　*`Keywords`Theme, Plugin*_~Pu~_　*Supported OS`Windows / macOS / Linux`*_~Bu~_
 
 
 
@@ -109,7 +109,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 
 ---
 
-> ![°FORMATTING](pic/qico-types-light.svg?fill=vn&darksrc=invert#logo)
+> ![°FORMATTING](pic/qico-types-light.svg?fill=vn&darksrc=invert#icon2x)
 >
 > **° FORMATTING**
 >
@@ -121,7 +121,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > _~Vn!~_
 
-> ![°NAVIGATION](pic/qico-nav-light.svg?fill=bu&darksrc=invert#logo)
+> ![°NAVIGATION](pic/qico-nav-light.svg?fill=bu&darksrc=invert#icon2x)
 >
 > **° NAVIGATION**
 >
@@ -135,7 +135,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 
 ---
 
->![° PRESENTATION & PUBLICATION](pic/qico-pres-light.svg?fill=og&darksrc=invert#logo)
+>![° PRESENTATION & PUBLICATION](pic/qico-pres-light.svg?fill=og&darksrc=invert#icon2x)
 >
 > **° PRESENTATION & PUBLICATION**
 >
@@ -147,7 +147,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > _~Og!~_
 
->![° APPEARANCE & ESSENTIALS](pic/qico-theme-light.svg?fill=lm&darksrc=invert#logo)
+>![° APPEARANCE & ESSENTIALS](pic/qico-theme-light.svg?fill=lm&darksrc=invert#icon2x)
 >
 > **° APPEARANCE & ESSENTIALS**
 >

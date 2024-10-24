@@ -4,7 +4,7 @@
  * (配合 base.less、主题.less 进行使用)
  *
  * V26.1
- * 2024-09-24
+ * 2024-10-24
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -554,7 +554,10 @@
 // ==================== 多级标签样式 ==================== //
 
 @codePaddingLeft: .375em;
+@codeMarginForCover: -.05em;
+@codePaddingForCover: .0375em;
 @codeMarginForCap: -.0625em;
+@codePaddingOffsetForCover: .025em;
 
 @codeValueRadius: calc(var(--v-r-tag) - 3px);
 @codeValueRadiusXC: calc(var(--v-r-tag-xc) - 3px);
@@ -562,6 +565,7 @@
 // 封面内多级标签名称：扩展补充样式
 // 需要进行重写后使用
 .genBadgeNameForCoverExt() {}
+.genBadgeNoNameForCoverExt() {}
 .genBadgeValueForCoverExt() {}
 
 // -----
@@ -687,26 +691,39 @@
     // 多级标签没有标题（第1段），只有两个内容 value 和 value2
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:only-child):first-child > code,
     .v-badge-name > .v-badge-value:first-child {
-        margin: @codeMarginForCap @codePaddingLeft @codeMarginForCap @codeMarginForCap !important;
+        margin: @codeMarginForCap @codePaddingLeft (@codeMarginForCap - 0.0125em) @codeMarginForCap !important;
         border-radius: var(--v-r-tag) 0 0 var(--v-r-tag-xc);
         .genBadgeDynBgNoName(@style2);
     }
 
     // ----------
 
-    // 封面内多级标签标签（第1段）：扩展补充样式
+    // 封面内多级标签（第1段）：扩展补充样式
     .genBadgeNameForCoverExt() {
-        padding: .05em .05em .05em @codePaddingLeft !important;
+        // padding: .05em .05em .05em @codePaddingLeft !important;
+        // padding: .05em .05em .05em @codePaddingLeft;
+        // padding: @codePaddingForCover 0 0 @codePaddingForCover;
+        padding-top: 0;
+        padding-bottom: @codePaddingOffsetForCover;
+        // padding-left: @codePaddingForCover !important;
+    }
+    // 封面内多级标签不带标题：扩展补充样式
+    .genBadgeNoNameForCoverExt() {
+        // padding-left: @codePaddingForCover !important;
+        padding-left: 0 !important;
     }
 
     // 封面内多级标签内容（第2段）：扩展补充样式
     .genBadgeValueForCoverExt() {
-        margin: -.1em -.1em -.1em @codePaddingLeft !important;
+        // margin: -.1em -.1em -.1em @codePaddingLeft !important;
+        margin: @codeMarginForCover -.1em (-.1em + @codePaddingOffsetForCover) @codePaddingLeft !important;
     }
     // 如果为 cap + dyn ，则替换为以下内容
     .genForCapDyn(@style2) when (@style2 = dyn) {
         .genBadgeValueForCoverExt() {
-            margin: -.1em -.1em -.1em 0 !important;
+            margin: @codeMarginForCover @codeMarginForCover (@codeMarginForCover - @codePaddingOffsetForCover) @codeMarginForCover !important;
+            // margin: -.1em !important;
+            // margin: -.1em -.1em -.1em 0 !important;
         }
     }
     .genForCapDyn(@style2);
@@ -744,7 +761,8 @@
     }
     // 生成 cap + dyn 风格的背景（无标题时）
     .genBadgeDynBgNoName(@style2) when (@style2 = dyn) {
-        margin-left: -1px !important;
+        margin-left: @codeMarginForCap !important;
+        // margin-left: -1px !important;
         margin-right: 0 !important;
         padding-left: @codePaddingLeft !important;
         padding-right: @dynPaddingForHasPreContent !important;
