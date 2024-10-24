@@ -30,7 +30,7 @@ window.addEventListener('message', function(event) {
 
     // 回复消息
     event.source.postMessage("chk-update:" + result
-        + ((srcVer < 27) ? _ : ",latest:" + latestVer), // V27.0 及后续版本新格式
+        + ((srcVer < 27) ? "" : ",latest:" + latestVer), // V27.0 及后续版本新格式
         event.origin);
 });
 </script>
