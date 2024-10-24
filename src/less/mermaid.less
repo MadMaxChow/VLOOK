@@ -131,12 +131,10 @@ svg[aria-roledescription="pie"] .pieTitleText {
 svg[aria-roledescription="pie"] .legend text {
     fill: var(--d-fc) !important;
     font-weight: var(--v-f-w-bd) !important;
-    // font-weight: var(--v-f-w-title) !important;
 }
 
 svg[aria-roledescription="pie"] :is(.pieTitleText, .slice) {
     font-weight: var(--v-f-w-bd) !important;
-    // font-weight: var(--v-f-w-title) !important;
 }
 
 /* ----- flow diagram 流程图 ----- */
@@ -358,7 +356,6 @@ svg[aria-roledescription="sequence"] text.actor>tspan {
     fill: var(--d-fc) !important;
     stroke: none !important;
     font-weight: var(--v-f-w-bd);
-    // font-weight: var(--v-f-w-title);
 }
 
 // 角色生命线
@@ -399,7 +396,6 @@ svg[aria-roledescription="sequence"] .messageText:hover,
 svg[aria-roledescription="sequence"] .messageText:hover + :is(.messageLine0, .messageLine1) + .sequenceNumber {
     fill: var(--a-color) !important;
     font-weight: var(--v-f-w-bd) !important;
-    // font-weight: var(--v-f-w-title) !important;
     cursor: crosshair;
 }
 svg[aria-roledescription="sequence"] .messageText:hover + :is(.messageLine0, .messageLine1) {
@@ -411,7 +407,6 @@ svg[aria-roledescription="sequence"] .sequenceNumber {
     color: var(--d-bc) !important;
     fill: var(--d-bc) !important;
     font-weight: var(--v-f-w-bd) !important;
-    // font-weight: var(--v-f-w-title) !important;
 }
 
 // 消息序号背景
@@ -446,14 +441,12 @@ svg[aria-roledescription="sequence"] .labelBox {
 svg[aria-roledescription="sequence"] g>.labelText {
     fill: #FFFFFF !important;
     font-weight: var(--v-f-w-gd) !important;
-    // font-weight: var(--v-f-w-title) !important;
 }
 
 //片断的标题标签文本
 svg[aria-roledescription="sequence"] .loopText {
     fill: var(--ac-pu-lg) !important;
     font-weight: var(--v-f-w-bd) !important;
-    // font-weight: var(--v-f-w-title) !important;
 }
 svg[aria-roledescription="sequence"] :is(.loopText:hover, .loopText:hover>tspan) {
     cursor: crosshair;
@@ -504,7 +497,6 @@ svg[aria-roledescription="sequence"] .noteText tspan {
 .v-actor-key-sys {
     stroke-width: 2 !important;
     font-weight: var(--v-f-w-bd) !important;
-    // font-weight: var(--v-f-w-title) !important;
 }
 // 扩展：外部系统角色
 .v-actor-ext-sys {
@@ -883,7 +875,6 @@ svg[aria-roledescription="quadrantChart"] .quadrant > text {
     fill: var(--d-fc-a) !important;
     color: var(--d-fc-a) !important;
     font-weight: var(--v-f-w-bd);
-    // font-weight: var(--v-f-w-title);
 }
 svg[aria-roledescription="quadrantChart"] .label > text {
     font-style: italic;
@@ -944,7 +935,6 @@ svg[aria-roledescription="gitGraph"] .gitTitleText {
 // 分支文字
 svg[aria-roledescription="gitGraph"] .branchLabel .row {
     font-weight: var(--v-f-w-bd) !important;
-    // font-weight: var(--v-f-w-title) !important;
     fill: fade(#FFFFFF, 90%);
     font-size: .875em;
 }
@@ -1067,15 +1057,12 @@ svg[aria-roledescription="gitGraph"] .tag-label {
 
 // 提交标记背景
 svg[aria-roledescription="gitGraph"] .commit-labels .commit-label-bkg {
-    // fill: var(--d-fc) !important;
-    // stroke: var(--d-bc) !important;
     fill: var(--d-bc) !important;
     opacity: .25;
 }
 
 // 提交标记文本
 svg[aria-roledescription="gitGraph"] .commit-labels .commit-label {
-    // fill: var(--d-bc) !important;
     fill: var(--d-fc) !important;
     font-weight: var(--v-f-w-bd);
 }
