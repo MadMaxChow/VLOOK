@@ -11,12 +11,12 @@
 多国语言的标识对应关系如下："de"对应的是德语，"es"对应的是西班牙语，"fr"对应的是法语，"pt"对应的是葡萄牙语，"ru"对应的是俄语，"ar"对应的是阿拉伯语，"ko"对应的是韩语，"ja"对应的是日语，"zh-hk"对应的是繁体中文。
 帮我把以下内容中，「content=」后双引用内的英文内容翻译为对应的语言（同时需要请对一些特定的字符进行HTML编码，包括：引号、换行、小于号、大于号和反斜杠等，注意换行应该进行HTML编码，而不是HTML标签），对于标点符号需要按中日韩的文字规范进行转写（包括：英文引号转写为全角引号或「」、英文单词或数值内容的前后需要添加1个英文空格）。语言具体对应语言的标识以「name=」后双引用号内容中为参考，即"vk-"后的内容为对应的语言标识（忽略数字部分），其他内容保持原内容输出
 
-<meta name="vk-de87" content="Navigation history">
-<meta name="vk-es87" content="Navigation history">
-<meta name="vk-fr87" content="Navigation history">
-<meta name="vk-pt87" content="Navigation history">
-<meta name="vk-ru87" content="Navigation history">
-<meta name="vk-ar87" content="Navigation history">
-<meta name="vk-ko87" content="Navigation history">
-<meta name="vk-ja87" content="Navigation history">
-<meta name="vk-zh-hk87" content="Navigation history">
+<meta name="vk-de63" content="Invalid resource address">
+<meta name="vk-es63" content="Invalid resource address">
+<meta name="vk-fr63" content="Invalid resource address">
+<meta name="vk-pt63" content="Invalid resource address">
+<meta name="vk-ru63" content="Invalid resource address">
+<meta name="vk-ar63" content="Invalid resource address">
+<meta name="vk-ko63" content="Invalid resource address">
+<meta name="vk-ja63" content="Invalid resource address">
+<meta name="vk-zh-hk63" content="Invalid resource address">

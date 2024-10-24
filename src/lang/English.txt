@@ -74,7 +74,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en60" content="Video">
 <meta name="vk-en61" content="Click again to Copy as Markdown">
 <meta name="vk-en62" content="Copied">
-<meta name="vk-en63" content="Invalid audio address">
+<meta name="vk-en63" content="Invalid resource address">
 <meta name="vk-en64" content="Invalid video address">
 <meta name="vk-en65" content="Invalid image address">
 <meta name="vk-en66" content=" is empty">
@@ -97,5 +97,6 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en83" content="Link">
 <meta name="vk-en84" content="Footnote">
 <meta name="vk-en85" content="Restore font style">
+
 <meta name="vk-en86" content="⚠️ WARNING ⚠️&#10;&#10;In your document, you used Typora's image scaling feature, which may cause compatibility issues!&#10;&#10;It is recommended to replace it with VLOOK™'s &quot;image scaling&quot; such as:&#10;pic.jpg#400w&#10;pic.jpg#200h">
 <meta name="vk-en87" content="Navigation history">

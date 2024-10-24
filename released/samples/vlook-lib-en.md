@@ -112,14 +112,14 @@ title: More Topics about VLOOK™
 >
 > _~Vn~_
 
-###### Tags • Badges • Phonetics • Breadcrumbs • Scratch Cards
+###### Tags • Phonetics • Breadcrumbs • Scratch Cards
 
 ---
 
 > ###### Marking and Highlighting Key Information
 >
-> - Add **tags** to highlight keywords [❯❯](guide2.md#标签)
-> - Organize multiple items in the form of **badges** [❯❯](guide2.md#徽章)
+> - Add **Flat Tags** to highlight keywords [❯❯](guide2.md#标签)
+> - The multi-level information is organized in the form of Tags [❯❯](guide2.md#多级标签)
 > - Provide friendly rendering styles for **breadcrumbs** content [❯❯](guide2.md#面包屑)
 >
 > _~Vn~_

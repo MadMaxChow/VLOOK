@@ -74,9 +74,9 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk60" content="視頻">
 <meta name="vk-zh-hk61" content="再次點擊可複製為 Markdown">
 <meta name="vk-zh-hk62" content="已複製">
-<meta name="vk-zh-hk63" content="無效的音頻地址">
-<meta name="vk-zh-hk64" content="無效的視頻地址">
-<meta name="vk-zh-hk65" content="無效的图片地址">
+<meta name="vk-zh-hk63" content="無效的資源位址">
+<meta name="vk-zh-hk64" content="⚠️ 警告 ⚠️&#10;&#10;在您的文件中，您使用了 Typora 的圖片縮放功能，這可能會導致兼容性問題！&#10;&#10;建議將其替換為 VLOOK™ 的「圖片縮放」，例如：&#10;pic.jpg#400w&#10;pic.jpg#200h">
+<meta name="vk-zh-hk65" content="導航歷史">
 <meta name="vk-zh-hk66" content="是空的">
 <meta name="vk-zh-hk67" content="未找到">
 <meta name="vk-zh-hk68" content="明信片">
@@ -97,5 +97,3 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk83" content="連結">
 <meta name="vk-zh-hk84" content="註腳">
 <meta name="vk-zh-hk85" content="還原字體樣式">
-<meta name="vk-zh-hk86" content="⚠️ 警告 ⚠️&#10;&#10;在您的文件中，您使用了 Typora 的圖片縮放功能，這可能會導致兼容性問題！&#10;&#10;建議將其替換為 VLOOK™ 的「圖片縮放」，例如：&#10;pic.jpg#400w&#10;pic.jpg#200h">
-<meta name="vk-zh-hk87" content="導航歷史">

@@ -74,9 +74,9 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru60" content="Видео">
 <meta name="vk-ru61" content="Нажмите еще раз, чтобы скопировать как Markdown">
 <meta name="vk-ru62" content="Скопировано">
-<meta name="vk-ru63" content="Неверная ссылка на аудио">
-<meta name="vk-ru64" content="Неверная ссылка на видео">
-<meta name="vk-ru65" content="Неверная ссылка на изображение">
+<meta name="vk-ru63" content="Недопустимый адрес ресурса">
+<meta name="vk-ru64" content="⚠️ ПРЕДУПРЕЖДЕНИЕ ⚠️&#10;&#10;В вашем документе вы использовали функцию масштабирования изображений Typora, что может вызвать проблемы совместимости!&#10;&#10;Рекомендуется заменить это на &quot;масштабирование изображений&quot; от VLOOK™ следующим образом:&#10;pic.jpg#400w&#10;pic.jpg#200h">
+<meta name="vk-ru65" content="История навигации">
 <meta name="vk-ru66" content=" пусто">
 <meta name="vk-ru67" content="Не найдено">
 <meta name="vk-ru68" content="Карточка">
@@ -97,5 +97,3 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru83" content="Ссылка">
 <meta name="vk-ru84" content="Сноска">
 <meta name="vk-ru85" content="Восстановить стиль шрифта">
-<meta name="vk-ru86" content="⚠️ ПРЕДУПРЕЖДЕНИЕ ⚠️&#10;&#10;В вашем документе вы использовали функцию масштабирования изображений Typora, что может вызвать проблемы совместимости!&#10;&#10;Рекомендуется заменить это на &quot;масштабирование изображений&quot; от VLOOK™ следующим образом:&#10;pic.jpg#400w&#10;pic.jpg#200h">
-<meta name="vk-ru87" content="История навигации">

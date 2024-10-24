@@ -284,7 +284,6 @@ content>.auto-suggest-container li:hover {
 }
 #md-notification .btn-default {
     font-weight: var(--v-f-w-bd);
-    // font-weight: var(--v-f-w-title);
 }
 
 // 注释
@@ -378,7 +377,6 @@ body:not([class]) :is(h1,h2,h3,h4,h5,h6) {
     color: @buttonForeColor;
     background: @buttonBgColor;
     font-weight: var(--v-f-w-bd);
-    // font-weight: var(--v-f-w-title);
 }
 .btn-primary:hover {
     background: var(--a-hover-color);
@@ -462,11 +460,6 @@ body.os-windows :is(.md-image-input-src-btn, .md-image-pick-file-btn) {
     font-weight: normal;
 }
 
-// 编辑状态时，a 内的 kbd 获得焦点
-// #write .md-focus a kbd:hover {
-//     background: var(--ac-t1) !important;
-// }
-
 :is(h3,h4,h5,h6).md-focus::before {
     border: none;
     position: inherit;
@@ -502,7 +495,6 @@ body.os-windows .ty-footer { // 底栏
 
 #typora-sidebar { // 侧边栏
     border-right: none;
-    // font-size: 1em;
 }
 
 .sidebar-tabs {
@@ -526,7 +518,6 @@ body.os-windows .ty-footer { // 底栏
 .sidebar-tab.active {
     font-family: var(--v-f-fm-title);
     font-weight: var(--v-f-w-bd);
-    // font-weight: var(--v-f-w-title);
 }
 
 // 针对 Win 侧边栏 tab
@@ -761,7 +752,6 @@ body.os-windows #file-library-tree {
 .pin-outline .outline-active strong,
 .pin-outline .outline-content .outline-active strong {
     font-weight: var(--v-f-w-bd);
-    // font-weight: var(--v-f-w-title);
 }
 .outline-item-active {
     box-shadow: @tocItemCurrent_boxShadow;
@@ -771,7 +761,6 @@ body.os-windows #file-library-tree {
     margin-right: 0;
     border-right-width: 0;
     font-weight: var(--v-f-w-bd);
-    // font-weight: var(--v-f-w-title);
 }
 // 大纲节点 hover
 .outline-item:hover {
@@ -845,9 +834,7 @@ body.os-windows #file-library-tree {
 #typora-quick-open-input input {
     border-radius: var(--v-r-s) var(--v-r-s-xc);
     max-height: 40px;
-    // border-color: var(--tbl-bd);
     border-color: transparent;
-    // border: 1pxnone;
     box-shadow: none;
     font-size: 1.5em;
     padding: 5px 10px;
@@ -867,16 +854,10 @@ body.os-windows #file-library-tree {
 .typora-quick-open-item:hover {
     background: var(--pn-c-a) !important;
     color: var(--d-fc);
-    // border-radius: var(--v-r-s) var(--v-r-s-xc);
-    // margin-left: 5px;
-    // margin-right: 5px;
-    // padding-left: 15px;
 }
 .typora-quick-open-item.active {
     box-shadow: @tocItemCurrent_boxShadow;
     background: inherit;
-    // color: var(--d-fc);
-    // background: var(--pn-c-a);
 }
 .typora-quick-open-item-path {
     font-size: .625em;
@@ -889,7 +870,6 @@ body.os-windows #file-library-tree {
 // 目录节点
 .file-tree-node[data-has-sub=true] {
     font-weight: var(--v-f-w-bd);
-    // font-weight: var(--v-f-w-title);
 }
 .file-tree-node[data-has-sub=false] {
     font-weight: normal;
@@ -1020,27 +1000,15 @@ body.os-windows .file-node-title { // for Win
     border-radius: var(--v-r-b) var(--v-r-b-xc);
     line-height: @paragraphInnerLineHeight;
     padding: 1px;
-    // background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAAAyAgMAAACsf1ThAAAACVBMVEXg5ObIyszP0tQUeY2tAAAALUlEQVQ4y2NABqqhMBCGIj4VLh6BLMwUCgcJyOKcCPGGUeNHjR81ftR4ahkPABbVuq8/Po1/AAAAAElFTkSuQmCC") !important;
     background-size: auto;
     background-repeat: repeat;
 }
-// .md-img-error:is([data-src*=".png"],
-// [data-src*=".jpg"],
-// [data-src*=".jpeg"],
-// [data-src*=".gif"],
-// [data-src*=".webp"])>span>span {
-//     visibility: hidden;
-// }
 // 获得焦点编辑
 .md-img-error[contenteditable="true"]>.md-meta {
-    // background-image: none !important;
     width: initial;
     height: initial;
     display: inline !important;
 }
-// .md-img-error[contenteditable="true"]>span>span {
-//     visibility: visible !important;
-// }
 
 // 排除多媒体类的
 @errorAudio: ~':is(.md-img-error[data-src*=".mp3"], .md-img-error[data-src*=".m4a"], .md-img-error[data-src*=".ogg"], .md-img-error[data-src*=".wav"])';
@@ -1241,7 +1209,7 @@ content .md-toc::before {
     color: var(--d-bc);
     border: none;
     margin-left: 30px;
-    padding-left: 5px;
+    padding-left: 10px;
     width: 250px;
     border-radius: var(--v-r-b) var(--v-r-b) @tableBorderRadius @tableBorderRadius;
 }
@@ -1266,10 +1234,6 @@ content .md-toc::before {
 .outline-content {
     counter-reset: h1;
 }
-// .md-toc-content {
-//     margin-bottom: 1rem;
-// }
-
 
 .md-toc-h1 {
     margin-left: 0;
@@ -1320,12 +1284,6 @@ content .md-toc::before {
 .outline-h6 {
     counter-reset: h6toc;
     content: "";
-    // overflow-wrap: anywhere;
-    // overflow: hidden;
-    // display: block;
-    // text-overflow: ellipsis;
-    // white-space: nowrap;
-    // word-break: break-word;
 }
 
 // 微调大纲节点的缩进
@@ -1346,7 +1304,6 @@ content .md-toc::before {
 }
 .outline-h6>.outline-item {
 	padding-left: 4.85em;
-    // opacity: .6;
     color: var(--toc-h-num-color);
     font-size: .875em;
 }
@@ -1538,13 +1495,9 @@ content .md-toc::before {
     font: @syntaxTipsFont;
     font-size: 0.5em;
     display: block;
-    // position: absolute;
     margin-top: -.7em;
     opacity: .6;
 }
-// @{writeOnEditing} table th {
-//     overflow: hidden;
-// }
 
 // 有序、无序列表下的图片、非图片段落
 #write li .md-p>span:not([class*=md-image]) {
@@ -1817,11 +1770,6 @@ body[class*="ty-on-typewriter-mode"] @{writeOnEditing}, // 编辑时，如启用
 #write.max.fit-width {
     margin-left: var(--v-write-ml-def) !important;
 }
-// .v-more-doc-content-before.max.fit-width,
-// .v-more-doc-content-after.max.fit-width {
-//     width: 100%;
-//     margin-left: var(--v-write-ml-def) !important;
-// }
 
 #write>:is(ul,ol):first-child {
     margin-top: 30px;
@@ -1914,6 +1862,7 @@ pre.md-fences-advanced.md-focus .md-fences-adv-panel {
 #write .md-fences-adv-panel {
     margin-top: 0;
     position: relative;
+    background-color: var(--d-bc) !important;
     text-align: left;
 }
 // 导出后对 mermaid 图表的微调
@@ -1934,7 +1883,6 @@ pre.md-fences-advanced.md-focus .md-fences-adv-panel {
 #typora-quick-open-input input:focus,
 // 输入控件
 .form-control:focus {
-    // border: 1px solid var(--v-input-focus-border) !important;
     border-color: var(--v-input-focus-border) !important;
     box-shadow: var(--v-input-focus-shadow) !important;
 }

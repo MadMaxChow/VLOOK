@@ -74,9 +74,9 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja60" content="ビデオ">
 <meta name="vk-ja61" content="もう一度クリックしてMarkdownとしてコピーします">
 <meta name="vk-ja62" content="コピーしました">
-<meta name="vk-ja63" content="無効な音声アドレス">
-<meta name="vk-ja64" content="無効なビデオアドレス">
-<meta name="vk-ja65" content="無効な画像アドレス">
+<meta name="vk-ja63" content="無効なリソースアドレス">
+<meta name="vk-ja64" content="⚠️ 警告 ⚠️&#10;&#10;あなたの文書で Typora の画像スケーリング機能を使用しましたが、互換性の問題が発生する可能性があります！&#10;&#10;これを VLOOK™ の「画像スケーリング」に置き換えることをお勧めします：&#10;pic.jpg#400w&#10;pic.jpg#200h">
+<meta name="vk-ja65" content="ナビゲーション履歴">
 <meta name="vk-ja66" content="は空です">
 <meta name="vk-ja67" content="見つかりません">
 <meta name="vk-ja68" content="ポストカード">
@@ -97,5 +97,3 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja83" content="リンク">
 <meta name="vk-ja84" content="脚注">
 <meta name="vk-ja85" content="フォントスタイルを復元する">
-<meta name="vk-ja86" content="⚠️ 警告 ⚠️&#10;&#10;あなたの文書で Typora の画像スケーリング機能を使用しましたが、互換性の問題が発生する可能性があります！&#10;&#10;これを VLOOK™ の「画像スケーリング」に置き換えることをお勧めします：&#10;pic.jpg#400w&#10;pic.jpg#200h">
-<meta name="vk-ja87" content="ナビゲーション履歴">

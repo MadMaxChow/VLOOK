@@ -74,9 +74,9 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt60" content="Vídeo">
 <meta name="vk-pt61" content="Clique novamente para Copiar como Markdown">
 <meta name="vk-pt62" content="Copiado">
-<meta name="vk-pt63" content="Endereço de áudio inválido">
-<meta name="vk-pt64" content="Endereço de vídeo inválido">
-<meta name="vk-pt65" content="Endereço de imagem inválido">
+<meta name="vk-pt63" content="Endereço de recurso inválido">
+<meta name="vk-pt64" content="⚠️ AVISO ⚠️&#10;&#10;No su documento, usted usó la función de redimensionamiento de imagen de Typora, que puede causar problemas de compatibilidad!&#10;&#10;Se recomienda sustituirlo por la &quot;redimensionamiento de imagen&quot; de VLOOK™ como:&#10;pic.jpg#400w&#10;pic.jpg#200h">
+<meta name="vk-pt65" content="Histórico de navegação">
 <meta name="vk-pt66" content=" está vazio">
 <meta name="vk-pt67" content="Não encontrado">
 <meta name="vk-pt68" content="Cartão postal">
@@ -97,5 +97,3 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt83" content="Link">
 <meta name="vk-pt84" content="Nota de rodapé">
 <meta name="vk-pt85" content="Restaurar estilo de fonte">
-<meta name="vk-pt86" content="⚠️ AVISO ⚠️&#10;&#10;No su documento, usted usó la función de redimensionamiento de imagen de Typora, que puede causar problemas de compatibilidad!&#10;&#10;Se recomienda sustituirlo por la &quot;redimensionamiento de imagen&quot; de VLOOK™ como:&#10;pic.jpg#400w&#10;pic.jpg#200h">
-<meta name="vk-pt87" content="Histórico de navegação">
