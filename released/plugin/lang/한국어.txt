@@ -97,3 +97,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko83" content="링크">
 <meta name="vk-ko84" content="각주">
 <meta name="vk-ko85" content="글꼴 스타일 복원">
+<meta name="vk-ko86" content="권장 사항: 오른쪽 클릭으로 열기">

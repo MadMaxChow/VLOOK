@@ -97,3 +97,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk83" content="連結">
 <meta name="vk-zh-hk84" content="註腳">
 <meta name="vk-zh-hk85" content="還原字體樣式">
+<meta name="vk-zh-hk86" content="建議：右鍵點擊以開啟">

@@ -97,3 +97,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja83" content="リンク">
 <meta name="vk-ja84" content="脚注">
 <meta name="vk-ja85" content="フォントスタイルを復元する">
+<meta name="vk-ja86" content="提案：右クリックで開く">

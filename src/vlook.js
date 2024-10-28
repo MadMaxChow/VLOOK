@@ -631,10 +631,10 @@ let _ = "",
     _v_actor_ext_sys_ = _v_actor_ + "-ext-sys",
     _v_audio_mini_control_ = "v-" + _audio_ + "-mini-control",
     _v_backdrop_blurs_ = "v-backdrop-blurs",
-    _v_badge_ = "v-badge-",
-    _v_badge_name_ = _v_badge_ + "name",
+    _v_badge__ = "v-badge-",
+    _v_badge_name_ = _v_badge__ + _name_,
     _value_ = "value",
-    _v_badge_value_ = _v_badge_ + _value_,
+    _v_badge_value_ = _v_badge__ + _value_,
     _v_btn_ = "v-btn",
     _v_btn_group_ = _v_btn_ + "-" + _group_,
     _v_btn__o__btn_group_ = "." + _v_btn_ + ",." + _v_btn_group_,
@@ -4100,6 +4100,15 @@ function V_doc_link_adjustExternal() {
             a.a(_href_, page + "?" + queryStr + hash);
         }
     });
+
+    $("a>." + _v_badge_name_).e((index, element) => {
+        // let a = ;
+        $(element).p().a(_data_title_, V_lang_text(86, [
+            "建议：通过右键打开",
+            "Suggested: open it by right-clicking"
+        ]));
+    });
+
 }
 // ========================================
 

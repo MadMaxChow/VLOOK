@@ -819,6 +819,32 @@ svg[data-inject-url*="darksrc=invert"]) {
     box-shadow: none;
 }
 
+// #write a:hover>@{badgeOnEditing},
+// #write a:hover>@{badgeOnEditing2},
+#write a:hover:has(>.v-badge-name) {
+    outline: 3px fade(@aHoverColor, 30%) solid;
+    border-radius: var(--v-r-tag) var(--v-r-tag-xc);
+}
+// #write a:hover>@{badgeOnEditing}::before,
+// #write a:hover>@{badgeOnEditing2}::before,
+#write a:hover:has(>.v-badge-name)::before {
+    content: "🔗 " attr(d-title);//Suggested: open it by right-clicking";//attr(href);
+    font-size: .625em;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-color: @aHoverColor;
+    font-weight: normal;
+    top: -1.625em;
+    position: absolute;
+    z-index: 50;
+}
+// #write a:active>@{badgeOnEditing},
+// #write a:active>@{badgeOnEditing2},
+#write a:active:has(>.v-badge-name) {
+    outline-color: fade(@aActiveColor, 30%);
+}
+
 // 图片的垂直对齐方式
 @{writeOnEditing} .md-image,
 @{onHTML} :is(p, a, li) svg {

@@ -97,3 +97,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru83" content="Ссылка">
 <meta name="vk-ru84" content="Сноска">
 <meta name="vk-ru85" content="Восстановить стиль шрифта">
+<meta name="vk-ru86" content="Рекомендуется: откройте, щелкнув правой кнопкой мыши">
