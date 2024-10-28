@@ -3,7 +3,7 @@
  * VLOOK™ JS - Typora Plugin
  *
  * V26.1
- * 2024-10-24
+ * 2024-10-28
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -2661,7 +2661,7 @@ function V_initKernel() {
             NewVersion_yes();
             let verStr = "latest:",
                 verStart = receMessage.i(verStr);
-            // V28.0 启用的新格式数据
+            // 从 V27.0 开始启用的新格式数据
             if (verStart > -1) {
                 V_data_write(_new_version_,
                     receMessage.ss(verStart + V_length(verStr), receMessage.length),
@@ -12295,18 +12295,12 @@ function RowGroup_lastColor() {
  * 设置为新的行分组
  * @param tr 对应的行对象
  */
-//  * @param level 缩进层级
-//  * @param reset 是否重置回第一级
-//  * @param color 该分组背景色
- // function RowGroup_newFolder(tr, level, reset, color) {
 function RowGroup_newFolder(tr) {
     let folderRow = tr.pr();
     RowGroup_folderCount++;
 
     // 将当前行分组的 id 入栈
     RowGroup_parentStack.push(RowGroup_folderCount);
-    // 将当前行分组的随机背景颜色入栈
-    // RowGroup_colorStack.push(color);
 
     // 设置折叠行分组的属性
     folderRow.a(_data_folder_id_, RowGroup_folderCount);

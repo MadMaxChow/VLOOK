@@ -4,7 +4,7 @@
  * (配合 base.less、主题.less 进行使用)
  *
  * V26.1
- * 2024-10-24
+ * 2024-10-28
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -23,6 +23,7 @@
 // 主题配套预置选项 vlook-query
 @vQuery: "ws=3";
 
+@codeFontSize: 14px;
 @tableRowNumTop: 4px; // 表格逐行自动编号的高度
 @focusCursor: "✏️"; // 编辑焦点行游标
 @focusStyle: @aBorderWidth dashed var(--a-color); // 焦点、焦点行样式
@@ -358,10 +359,6 @@
 @coverTextStroke: initial;
 @backcoverTextStroke: initial;
 
-// to-do: removed
-// @coverTextPaddingForMobile: @coverTextPadding;
-// @backcoverTextPaddingForMobile: @backcoverTextPadding;
-
 @coverBgLogoPos: 0 0;
 @coverBgLogoPosForMobile: 0 0;
 
@@ -393,7 +390,8 @@
 // 封面内多级标签样式
 @badgeColorInCover: @buttonForeHoverColor;
 @badgeBakgroundInCover: var(--a-hover-color);
-@badgeBorderColorInCover: transparent;//var(--rb-code-shadow-dk);//transparent;
+@badgeBorderColorInCover: var(--d-bc);//rgba(--fade-r, --fade-g, --fade-b, 0.5);//transparent;//var(--rb-code-shadow-dk);//transparent;
+@badgeBorderWidthInCover: 0;
 
 // ==========
 
@@ -553,20 +551,13 @@
 
 // ==================== 多级标签样式 ==================== //
 
-@codePaddingLeft: .375em;
-@codeMarginForCover: -.05em;
-@codePaddingForCover: .0375em;
-@codeMarginForCap: -.0625em;
-@codePaddingOffsetForCover: .025em;
+@codePaddingTop: 3px;
+@codePaddingLeft: 6px;
+@codePaddingRight: 8px;
+@codeMarginForCap: -1px;
 
-@codeValueRadius: calc(var(--v-r-tag) - 3px);
-@codeValueRadiusXC: calc(var(--v-r-tag-xc) - 3px);
-
-// 封面内多级标签名称：扩展补充样式
-// 需要进行重写后使用
-.genBadgeNameForCoverExt() {}
-.genBadgeNoNameForCoverExt() {}
-.genBadgeValueForCoverExt() {}
+@codeValueRadius: calc(var(--v-r-tag) - @codePaddingTop);
+@codeValueRadiusXC: calc(var(--v-r-tag-xc) - @codePaddingTop);
 
 // -----
 // 标准风格
@@ -576,17 +567,10 @@
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:first-child) > code, // :first-child 时为 标签 tag
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:only-child):first-child > code,  // 没有标题，只有 value 和 value2
     .v-badge-value {
-        display: inline-block;
-        font: var(--v-f-w-bd) 1em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
         border-radius: @codeValueRadius @codeValueRadiusXC;
-        color: var(--d-fc) !important;
         background: var(--d-bc) !important;
-        padding: 3px 5px;
-        line-height: 1;
-        margin: 1px 1px 1px 4px;//@codePaddingLeft;
-        white-space: pre;
-        box-shadow: none !important;
-        border: none !important;
+        padding: @codePaddingTop @codePaddingLeft;
+        margin: 1px 1px 1px 4px;
     }
 
     // 三段式，多级标签有两个内容时微调
@@ -604,39 +588,32 @@
 
 // -----
 // 活力风格
-@dynDeg: 105deg;
-@dynOffset: .5em;//8px;
-@dynPaddingForHasPreContent: 12px;
+@dynDeg: 104deg;
+@dynOffset: 6px;
+@dynPadding: 8px;
 .genBadgeStyle(@style) when (@style = dyn) {
     // 多级标签内容（第2段）公共样式
     // 编辑时的多级标签内容（第2段）
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:first-child) > code, // :first-child 时为 标签 tag
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:only-child):first-child > code,  // 没有标题，只有 value 和 value2
     .v-badge-value {
-        display: inline-block;
-        font: var(--v-f-w-bd) 1em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
         border-radius: 0 @codeValueRadiusXC @codeValueRadius 0;
-        color: var(--d-fc) !important;
-        padding: 3px 8px 3px @dynPaddingForHasPreContent;
-        line-height: 1;
-        margin: 1px 1px 1px 0;//@codePaddingLeft;
-        white-space: pre;
-        box-shadow: none !important;
-        border: none !important;
         background: linear-gradient(@dynDeg, transparent @dynOffset, var(--d-bc) @dynOffset, var(--d-bc)) !important;
+        padding: @codePaddingTop @codePaddingRight @codePaddingTop @dynPadding;
+        margin: 1px 1px 1px 0;
     }
 
     // 三段式，多级标签有两个内容时微调
     // 第 2 个内容
     @{badgeOnEditingPrefix} > @{codeOnEditing}+span:last-child {
-        margin: 1px @codePaddingLeft 1px 2px !important;
+        margin: 1px @codePaddingLeft 1px 0 !important;
     }
     // 第 1 个内容
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:first-child):not(:last-child) > code,
     .v-badge-value.hastwo {
         margin-left: 0 !important;
         margin-right: 0 !important;
-        padding-right: @dynPaddingForHasPreContent !important;
+        padding-right: 10px !important;
         border-radius: 0;
         background: linear-gradient(@dynDeg, transparent @dynOffset, var(--d-bc) @dynOffset, var(--d-bc) calc(100% - @dynOffset), transparent calc(100% - @dynOffset)) !important;
     }
@@ -647,43 +624,43 @@
         margin-left: 1px !important;
         margin-right: 0 !important;
         padding-left: @codePaddingLeft !important;
-        padding-right: @dynPaddingForHasPreContent !important;
+        padding-right: @dynPadding !important;
         border-radius: @codeValueRadius 0 0 @codeValueRadiusXC;
-        background: linear-gradient(110deg, var(--d-bc), var(--d-bc) calc(100% - 10px), transparent calc(100% - 10px)) !important;
+        background: linear-gradient(@dynDeg, var(--d-bc) 0%, var(--d-bc) calc(100% - @dynOffset), transparent calc(100% - @dynOffset)) !important;
     }
 }
 
 // -----
 // 胶囊风格
 .genBadgeStyle(@style, @style2: cap) when (@style = cap) {
-    .genBadgeName(@style2);
+    // 多级标签样式名称公共样式
+    @{badgeOnEditing},
+    @{badgeOnEditing2},
+    .v-badge-name {
+        padding-right: 0 !important;
+    }
 
     // 多级标签内容（第2段）公共样式
     // 编辑时的多级标签内容（第2段）
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:first-child) > code, // :first-child 时为 标签 tag
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:only-child):first-child > code,  // 没有标题，只有 value 和 value2
     .v-badge-value {
-        display: inline-block;
-        font: var(--v-f-w-bd) 1em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
-        border-radius: 0 var(--v-r-tag-xc) var(--v-r-tag) 0;
+        border-radius: 0 calc(var(--v-r-tag-xc) - 1px) calc(var(--v-r-tag) - 1px) 0;
         color: var(--d-bc) !important;
         .genBadgeCapBg(@style2);
         .genBadgeDynBgValue1(@style2);
-        line-height: 1;
-        white-space: pre;
-        box-shadow: none !important;
-        border: none !important;
     }
 
     // 三段式，多级标签有两个内容时微调
     // 第 2 个内容
     @{badgeOnEditingPrefix} > @{codeOnEditing}+span:last-child {
-        margin: 1px @codePaddingLeft 1px 2px !important;
+        margin: 1px @codePaddingLeft 1px 0;
     }
     // 第 1 个内容
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:first-child):not(:last-child) > code,
     .v-badge-value.hastwo {
-        margin: @codeMarginForCap @codePaddingLeft !important;
+        margin: @codeMarginForCap @codePaddingLeft;
+        padding-left: @dynPadding !important;
         border-radius: 0;
         .genBadgeDynBgValue2(@style2);
     }
@@ -691,42 +668,11 @@
     // 多级标签没有标题（第1段），只有两个内容 value 和 value2
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:only-child):first-child > code,
     .v-badge-name > .v-badge-value:first-child {
-        margin: @codeMarginForCap @codePaddingLeft (@codeMarginForCap - 0.0125em) @codeMarginForCap !important;
+        margin: @codeMarginForCap 2px @codeMarginForCap @codeMarginForCap !important;
         border-radius: var(--v-r-tag) 0 0 var(--v-r-tag-xc);
+        margin-right: @codePaddingLeft !important;
         .genBadgeDynBgNoName(@style2);
     }
-
-    // ----------
-
-    // 封面内多级标签（第1段）：扩展补充样式
-    .genBadgeNameForCoverExt() {
-        // padding: .05em .05em .05em @codePaddingLeft !important;
-        // padding: .05em .05em .05em @codePaddingLeft;
-        // padding: @codePaddingForCover 0 0 @codePaddingForCover;
-        padding-top: 0;
-        padding-bottom: @codePaddingOffsetForCover;
-        // padding-left: @codePaddingForCover !important;
-    }
-    // 封面内多级标签不带标题：扩展补充样式
-    .genBadgeNoNameForCoverExt() {
-        // padding-left: @codePaddingForCover !important;
-        padding-left: 0 !important;
-    }
-
-    // 封面内多级标签内容（第2段）：扩展补充样式
-    .genBadgeValueForCoverExt() {
-        // margin: -.1em -.1em -.1em @codePaddingLeft !important;
-        margin: @codeMarginForCover -.1em (-.1em + @codePaddingOffsetForCover) @codePaddingLeft !important;
-    }
-    // 如果为 cap + dyn ，则替换为以下内容
-    .genForCapDyn(@style2) when (@style2 = dyn) {
-        .genBadgeValueForCoverExt() {
-            margin: @codeMarginForCover @codeMarginForCover (@codeMarginForCover - @codePaddingOffsetForCover) @codeMarginForCover !important;
-            // margin: -.1em !important;
-            // margin: -.1em -.1em -.1em 0 !important;
-        }
-    }
-    .genForCapDyn(@style2);
 
     // ----------
 
@@ -737,35 +683,25 @@
         background: var(--d-fc) !important;
     }
 
-    // 生成 cap + dyn 风格的标题
-    .genBadgeName(@style2) when (@style2 = dyn) {
-        @{badgeOnEditing},
-        @{badgeOnEditing2},
-        .v-badge-name {
-            padding-right: 0 !important;
-        }
-    }
     // 生成 cap + dyn 风格的背景
     .genBadgeDynBgValue1(@style2) when (@style2 = dyn) {
+        margin-left: 2px !important;
         margin-top: -1px;
         margin-bottom: -1px;
-        padding: 5px @codePaddingLeft 5px @dynPaddingForHasPreContent !important;
+        padding: 5px 6px 5px @dynPadding !important;
         background: linear-gradient(@dynDeg, transparent @dynOffset, var(--d-fc) @dynOffset, var(--d-fc)) !important;
     }
     // 生成 cap + dyn 风格的背景（有两个 value 时）
     .genBadgeDynBgValue2(@style2) when (@style2 = dyn) {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        padding-right: @dynPaddingForHasPreContent !important;
+        margin-left: 2px !important;
+        margin-right: 2px !important;
+        padding-right: @codePaddingRight !important;
         background: linear-gradient(@dynDeg, transparent @dynOffset, var(--d-fc) @dynOffset, var(--d-fc) calc(100% - @dynOffset), transparent calc(100% - @dynOffset)) !important;
     }
     // 生成 cap + dyn 风格的背景（无标题时）
     .genBadgeDynBgNoName(@style2) when (@style2 = dyn) {
-        margin-left: @codeMarginForCap !important;
-        // margin-left: -1px !important;
-        margin-right: 0 !important;
-        padding-left: @codePaddingLeft !important;
-        padding-right: @dynPaddingForHasPreContent !important;
+        margin-right: 2px !important;
+        padding-right: @dynPadding !important;
         background: linear-gradient(@dynDeg, var(--d-fc), var(--d-fc) calc(100% - @dynOffset), transparent calc(100% - @dynOffset)) !important;
     }
 }

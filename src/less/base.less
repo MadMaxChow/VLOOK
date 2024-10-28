@@ -3,7 +3,7 @@
  * VLOOK™ CSS 基础库
  *
  * V26.1
- * 2024-10-24
+ * 2024-10-28
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -1006,7 +1006,8 @@ svg[data-inject-url*="darksrc=invert"]) {
 
 // 标题内 code 样式
 #write :is(h1,h2,h3,h4,h5,h6) code {
-    font-size: .75em;
+    font-size: @codeFontSize;
+    // font-size: .75em;
 }
 
 // 渐变文本基础样式，另再额外补充 background 样式
@@ -2157,7 +2158,7 @@ summary::-moz-list-bullet {
 .v-status-bar,
 .v-nav-history {
     position: fixed;
-    border-radius: calc(var(--v-r-s) + 1px) var(--v-r-s-xc);
+    border-radius: calc(var(--v-r-s) + 1px) calc(var(--v-r-s-xc) + 1px);
     right: @writePaddingRight;
     bottom: 10px;
     height: 32px;
@@ -2166,7 +2167,6 @@ summary::-moz-list-bullet {
 }
 .v-nav-history {
     right: @writePaddingRight + 10px;
-    border-radius: calc(var(--v-r-s) + 1px);
 }
 // 状态栏内第 1 个元素
 .v-status-bar>div:first-child {
@@ -2195,7 +2195,7 @@ summary::-moz-list-bullet {
     display: none;
 }
 .v-nav-history>.v-view-history {
-    border-radius: var(--v-r-s);
+    border-radius: var(--v-r-s) var(--v-r-s-xc);
     min-width: 30px;
 }
 .v-nav-history>.v-view-history.enabled {
@@ -2728,7 +2728,7 @@ mark {
 @{tagOnEditing},
 tt,
 code {
-    font: var(--v-f-w-text) .875em/@defaultLineHeight var(--v-f-fm-code); // [style] [weight] [size/[line-height]] [family]
+    font: var(--v-f-w-text) @codeFontSize/@defaultLineHeight var(--v-f-fm-code); // [style] [weight] [size/[line-height]] [family]
     color: var(--code-t);
     background: var(--code-bg);
     border-radius: @codeBorderRadius;
@@ -2828,12 +2828,12 @@ mjx-container[jax="SVG"] > svg a:hover {
     padding-top: 0;
 }
 
-// 行间公式区
-#write .md-fences:not([class*="md-diagram"]), // ``` 语法
+// 行间公式区（```math 语法）
+#write .md-fences:not([class*="md-diagram"]), // 排除 ```mermaid
 .md-math-block { // $$ 语法
     border-radius: var(--v-r-b) var(--v-r-b-xc);
     border: 2px solid var(--pn-c);
-    background-color: var(--d-bc) !important;
+    background-color: var(--d-bc);
 }
 // 针对导出后（write 与 vlook 的范围）
 .typora-export :is(.md-math-block, .md-fences-math) {
@@ -3473,7 +3473,7 @@ div[class*="v-fontinfo-"].done > span,
     top: 70px; // 与 ResumeReading_updateUI() 中的取值同步
     right: @writePaddingRight + 10px; // 与 ResumeReading_updateUI() 中的取值同步
     padding: 5px 5px 5px 10px !important;
-    border-radius: var(--v-r-s);
+    border-radius: var(--v-r-s) var(--v-r-s-xc);
     background-color: var(--pn-c);
     color: var(--a-color);
     font-size: .875em;
@@ -5432,7 +5432,7 @@ use.v-svg-ico-wh {
 @{badgeOnEditing2},
 .v-badge-name {
     display: inline-block;
-    font: var(--v-f-w-bd) .875em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
+    font: var(--v-f-w-bd) @codeFontSize var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
     margin-right: 0;
     border-radius: var(--v-r-tag) var(--v-r-tag-xc);
     border: 1px solid var(--d-bc);
@@ -5451,18 +5451,26 @@ use.v-svg-ico-wh {
 }
 // 三段式，但没有标题时微调
 @{badgeOnEditing2},
-// .v-badge-name.hastwo {
 .v-badge-name:has(code:first-child+span:last-child) {
-    // padding-left: @codePaddingLeft !important;
-    // padding-left: @codePaddingForCover !important;
-    // padding-left: 1px !important;
-    padding-left: 0 !important;
-    padding-right: @codePaddingLeft !important;
+    padding-left: 1px !important;
 }
 // 三段式，多级标签有两个内容时微调
 .v-badge-name.hastwo {
-//     // padding: 1px 5px !important;
     padding-right: @codePaddingLeft !important;
+}
+
+// 多级标签内容（第2段）公共样式
+// 编辑时的多级标签内容（第2段）
+@{badgeOnEditingPrefix} > @{codeOnEditing}:not(:first-child) > code, // :first-child 时为 标签 tag
+@{badgeOnEditingPrefix} > @{codeOnEditing}:not(:only-child):first-child > code,  // 没有标题，只有 value 和 value2
+.v-badge-value {
+    display: inline-block;
+    font: var(--v-f-w-bd) 1em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
+    color: var(--d-fc) !important;
+    line-height: 1;
+    white-space: pre;
+    box-shadow: none !important;
+    border: none !important;
 }
 
 // 引用块、详情内的微调
@@ -5547,9 +5555,6 @@ use.v-svg-ico-wh {
     font-family: var(--v-f-fm-subtitle) !important;
     font-size: 1em !important;
     font-weight: var(--v-f-w-bd);
-    // display: inline-block;
-    // display: inline-flex;
-    // align-items: center;
     margin-bottom: 0;
 }
 .md-alert-text-container,
@@ -5853,46 +5858,24 @@ rt:hover {
 // 封面内密级信息（多级标签，编辑时）
 @{coverAfterYAML} em:has(span:first-child+@{codeOnEditing}), // 多级标签带标题（第1段）
 @{coverWithoutYAML} em:has(span:first-child+@{codeOnEditing}),
-@{coverAfterYAML} em:has(@{codeOnEditing}:first-child+span:last-child), // 多级标签不带标题（第1段）
+@{coverAfterYAML} em:has(@{codeOnEditing}:first-child+span:last-child), // 多级标签不带标题（第2段）
 @{coverWithoutYAML} em:has(@{codeOnEditing}:first-child+span:last-child) {
-    font-size: .5em;
     line-height: 1;
     color: @badgeColorInCover !important;
     background: @badgeBakgroundInCover !important;
     border-color: @badgeBorderColorInCover !important;
+    border-width: @badgeBorderWidthInCover;
     text-shadow: none;
     // 输入光标颜色
     caret-color: @buttonForeHoverColor;
     -webkit-text-stroke: initial;
     text-stroke: initial;
     vertical-align: initial;
-    .genBadgeNameForCoverExt();
-}
-@{coverAfterYAML} em:has(@{codeOnEditing}:first-child+span:last-child), // 多级标签不带标题（第1段）
-@{coverWithoutYAML} em:has(@{codeOnEditing}:first-child+span:last-child) {
-    .genBadgeNoNameForCoverExt();
 }
 @{coverAfterYAML} .v-badge-name,
 @{coverWithoutYAML} .v-badge-name {
     border-color: @badgeBorderColorInCover !important;
     text-shadow: none;
-    .genBadgeNameForCoverExt();
-}
-// 导出后封面中的单级标签、多级标签
-.typora-export-content>@{coverAfterYAML} :is(.v-tag, .v-badge-name),
-.typora-export-content>@{coverWithoutYAML} :is(.v-tag, .v-badge-name) {
-    font-size: .5em !important;
-}
-// 编辑时
-content>@{coverAfterYAML} code,
-content>@{coverWithoutYAML} code {
-    font-size: 1em !important;
-    .genBadgeValueForCoverExt();
-}
-@{coverAfterYAML} .v-badge-value,
-@{coverWithoutYAML} .v-badge-value {
-    font-size: 1em !important;
-    .genBadgeValueForCoverExt();
 }
 
 // 封面内的作者信息

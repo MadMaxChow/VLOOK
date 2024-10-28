@@ -4,7 +4,7 @@
  * (配合 base.less 进行使用)
  *
  * V26.1
- * 2024-10-24
+ * 2024-10-28
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -1835,12 +1835,12 @@ body[class*="ty-on-typewriter-mode"] @{writeOnEditing}, // 编辑时，如启用
     opacity: .6;
 }
 
-// 多行代码样式
-.md-fences {
+// 多行代码样式（排除 ```math、```mermaid 语法）
+#write .md-fences:not([class*="md-fences-math"]):not([class*="md-diagram"]) {
     color: var(--d-fc);
     font-family: @themeMonoFont, var(--v-f-fm-code);
     border-radius: var(--v-r-b) var(--v-r-b-xc);
-    border: @imgBorderWidth solid var(--tbl-bd);
+    border: @imgBorderWidth solid var(--std-code-shadow);
     margin: 0;
     background-color: var(--std-code-shadow);
 }
@@ -1858,12 +1858,17 @@ body[class*="ty-on-typewriter-mode"] @{writeOnEditing}, // 编辑时，如启用
 pre.md-fences-advanced.md-focus .md-fences-adv-panel {
     border: none;
 }
+.md-fences-advanced:not(.md-focus) {
+    background: none;
+}
 
 #write .md-fences-adv-panel {
     margin-top: 0;
     position: relative;
-    background-color: var(--d-bc) !important;
     text-align: left;
+}
+@{writeOnEditing} .md-fences-math[lang="math"]>.md-fences-adv-panel {
+    background-color: var(--d-bc) !important;
 }
 // 导出后对 mermaid 图表的微调
 @{writeOnHTML} .md-fences-adv-panel {

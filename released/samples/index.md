@@ -56,7 +56,7 @@ vlook-gray-mode: 5-12
 
 
 
-[*编辑工具`Typora`V1.8.3+*_~Gy~_](https://typoraio.cn)　*开源协议`MIT`*_~Rd~_　*`关键字`主题、插件*_~Pu~_　*`支持的操作系统`Windows / macOS / Linux*_~Bu~_
+[*编辑工具`Typora`V1.9+*_~Gy~_](https://typoraio.cn)　*开源协议主`MIT`*_~Rd~_　*`关键字`主题、插件*_~Pu~_　*`支持的操作系统`Windows, macOS, Linux*_~Bu~_
 
 
 

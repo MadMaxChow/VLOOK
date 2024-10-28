@@ -45,7 +45,7 @@
 @theme2Alt: #E4D6F5;
 @theme2AltDark: #462D66;
 @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
-@theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
+@theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacityHightForDk);
 @theme2FadeDark: rgba(red(@theme2), green(@theme2), blue(@theme2), 75%);
 
 @themeForeColor: @theme1;
@@ -139,7 +139,8 @@
 
 // 封面内多级标签样式
 // @badgeBorderColorInCover: var(--rb-code-shadow-dk);
-@badgeBorderColorInCover: fade(@coverSubColor, 25%);
+@badgeBorderColorInCover: fade(@coverSubColor, 50%);
+@badgeBorderWidthInCover: 1px;
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: center;

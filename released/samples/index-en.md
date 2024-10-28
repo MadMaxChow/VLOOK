@@ -19,7 +19,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 vlook-gray-mode: 05-12
 ---
 
-###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective_^Interaction^_<br>──<br><u>Introduction</u><br>*`V26.1` is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective_^Interaction^_<br>──<br><u>Introduction</u><br>*`V26.1`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
@@ -37,7 +37,7 @@ vlook-gray-mode: 05-12
 
 
 
-[*Editor`Typora`V1.8.3+*_~Gy~_](https://typoraio.cn)　*License`MIT`*_~Rd~_　*`Keywords`Theme, Plugin*_~Pu~_　*Supported OS`Windows / macOS / Linux`*_~Bu~_
+[*Editor`Typora`V1.9+*_~Gy~_](https://typoraio.cn)　*License`MIT`*_~Rd~_　*`Keywords`Theme, Plugin*_~Pu~_　*`Supported OS`Windows, macOS, Linux*_~Bu~_
 
 
 
