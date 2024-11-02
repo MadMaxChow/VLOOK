@@ -2,8 +2,8 @@
  *
  * VLOOK™ CSS 基础库
  *
- * V26.1
- * 2024-10-28
+ * V27.0
+ * 2024-11-02
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -668,6 +668,7 @@ body.unfreeze {
     color: var(--a-hover-color) !important;
     border-color: var(--a-hover-color) !important;
 }
+#write .hover>@{svgGs},
 #write a:hover>@{svgGs},
 #write a@{kbdAlt} kbd:hover>@{svgGs} {
     fill: var(--a-hover-color) !important;
@@ -753,13 +754,14 @@ content>#write @{quoteTitle}>:is(strong, mark) {
     text-align: @h7TextAlign;
 }
 
-
+// ----------------------------------------
 // 标题内链接样式
 #write :is(h1,h2,h3,h4,h5,h6) a {
     font-weight: inherit;
 }
 
 // 文本链接
+#write .v-tag-link,
 @{writeOnEditing} a,
 @{onHTML} a,
 .code-tooltip a {
@@ -767,26 +769,31 @@ content>#write @{quoteTitle}>:is(strong, mark) {
     text-decoration: none;
 }
 
-@{writeOnEditing} a:not(:has(kbd)):hover,
-@{onHTML} a:not(:has(kbd)):hover {
+// 文本链接 hover （排除按钮、标签链接）
+@{writeOnEditing} a:not(:has(kbd)):not(:has(.v-tag-link)):hover,
+@{onHTML} a:not(:has(kbd)):not(:has(.v-tag-link)):hover {
     color: var(--a-hover-color) !important;
     box-shadow: 0 -.3em 0 0 fade(@aHoverColor, 30%) inset;
 }
-@{writeOnEditing} a:not(:has(kbd)):hover svg>use,
-@{onHTML} a:not(:has(kbd)):hover svg>use {
-    fill: var(--a-hover-color) !important;
-}
+// 针对链接内的 svg 图标
+// @{writeOnEditing} a:not(:has(kbd)):not(:has(.v-tag-link)):hover svg>use,
+// @{onHTML} a:not(:has(kbd)):not(:has(.v-tag-link)):hover svg>use {
+//     fill: var(--a-hover-color) !important;
+// }
 
-@{writeOnEditing} a:not(:has(kbd)):active,
-@{onHTML} a:not(:has(kbd)):active {
+// 文本链接 active （排除按钮、标签链接）
+@{writeOnEditing} a:not(:has(kbd)):not(:has(.v-tag-link)):active,
+@{onHTML} a:not(:has(kbd)):not(:has(.v-tag-link)):active {
     color: @aActiveColor !important;
     box-shadow: 0 -.3em 0 0 fade(@aActiveColor, 30%) inset;
 }
-@{writeOnEditing} a:not(:has(kbd)):active svg>use,
-@{onHTML} a:not(:has(kbd)):active svg>use {
-    fill: @aActiveColor !important;
-}
+// 针对链接内的 svg 图标
+// @{writeOnEditing} a:not(:has(kbd)):not(:has(.v-tag-link)):active svg>use,
+// @{onHTML} a:not(:has(kbd)):not(:has(.v-tag-link)):active svg>use {
+//     fill: @aActiveColor !important;
+// }
 
+// ----------------------------------------
 // 图片地址参数指定在 Dark Mode 时反色
 @{writeOnHTML} img[src*="darksrc=invert"],
 @{writeOnHTML} svg[data-inject-url*="darksrc=invert"] {
@@ -819,30 +826,37 @@ svg[data-inject-url*="darksrc=invert"]) {
     box-shadow: none;
 }
 
-// #write a:hover>@{badgeOnEditing},
-// #write a:hover>@{badgeOnEditing2},
-#write a:hover:has(>.v-badge-name) {
-    outline: 3px fade(@aHoverColor, 30%) solid;
-    border-radius: var(--v-r-tag) var(--v-r-tag-xc);
-}
-// #write a:hover>@{badgeOnEditing}::before,
-// #write a:hover>@{badgeOnEditing2}::before,
-#write a:hover:has(>.v-badge-name)::before {
-    content: "🔗 " attr(d-title);//Suggested: open it by right-clicking";//attr(href);
-    font-size: .625em;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    background-color: @aHoverColor;
-    font-weight: normal;
-    top: -1.625em;
+// ----------------------------------------
+// 文本链接内容的标签链接独立入口
+#write a>.v-tag-link {
     position: absolute;
-    z-index: 50;
+    display: none;
+    left: 0;
+    top: -1.75em;
+    font-size: .75em;
+    font-weight: bold;
+    white-space: nowrap;
+    background-color: var(--d-bc);
+    border-radius: var(--v-r-s) var(--v-r-s-xc);
+    padding: 1px 6px;
+    box-shadow: var(--v-fl-sd);
 }
-// #write a:active>@{badgeOnEditing},
-// #write a:active>@{badgeOnEditing2},
-#write a:active:has(>.v-badge-name) {
-    outline-color: fade(@aActiveColor, 30%);
+
+#write .v-tag-link:hover {
+    color: @buttonForeHoverColor;
+    background-color:  var(--a-hover-color);
+}
+#write .v-tag-link:active {
+    background-color: @aActiveColor;
+}
+
+// 含标签链接的文本链接
+#write a:has(.v-tag-link) {
+    position: relative; // 用于实现独立入口的跟随显示
+}
+// hover 时显示
+#write a:hover>.v-tag-link {
+    display: block;
 }
 
 // 图片的垂直对齐方式
@@ -2201,6 +2215,7 @@ summary::-moz-list-bullet {
     border: none;
 }
 // 状态栏内最后 1 个元素
+.v-status-bar>div.last,
 .v-status-bar>div:last-child {
     border-top-right-radius: var(--v-r-s-xc);
     border-bottom-right-radius: var(--v-r-s);
@@ -2222,7 +2237,6 @@ summary::-moz-list-bullet {
 }
 .v-nav-history>.v-view-history {
     border-radius: var(--v-r-s) var(--v-r-s-xc);
-    min-width: 30px;
 }
 .v-nav-history>.v-view-history.enabled {
     display: inline-flex;
@@ -5069,7 +5083,8 @@ iframe[id^="vlook-chk-update-"] {
 .v-cap-2 {
     color: @captionTextColor;
     font: normal .875em var(--v-f-fm-bd); // [style] [weight] [size/[line-height]] [family]
-    margin: 6px 10px 5px !important;
+    // margin: 6px 10px 5px !important;
+    padding: 6px 10px 5px !important;
     width: auto !important;
 }
 .v-cap-2 {
@@ -5186,17 +5201,21 @@ use.v-svg-ico-wh {
     z-index: 1000;
 }
 // 遮罩扩展样式
+@lgOpacity: 15%;
 .v-mask.left {
-    background: linear-gradient(90deg, @theme1 20%, fade(@theme1, 60%));
+    background: linear-gradient(90deg, @theme1 30%, fade(@theme1, @lgOpacity));
 }
 .v-mask.right {
-    background: linear-gradient(270deg, @theme1 20%, fade(@theme1, 60%));
+    background: linear-gradient(270deg, @theme1 30%, fade(@theme1, @lgOpacity));
+}
+.v-mask.top {
+    background: linear-gradient(180deg, @theme1 40%, fade(@theme1, 50%));
 }
 .v-mask.bottom {
-    background: linear-gradient(0deg, @theme1 20%, fade(@theme1, 60%));
+    background: linear-gradient(0deg, @theme1 40%, fade(@theme1, @lgOpacity));
 }
 .v-mask.center {
-    background: radial-gradient(ellipse, @theme1 10%, fade(@theme1, 60%));
+    background: radial-gradient(ellipse, @theme1 40%, fade(@theme1, @lgOpacity));
 }
 
 // 遮罩关闭提示器样式
@@ -5397,7 +5416,7 @@ use.v-svg-ico-wh {
 .v-tag {
     font: var(--v-f-w-bd) .875em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
     text-shadow: none;
-    box-shadow: none !important;
+    padding: 4px 6px;
     color: var(--ac-t2);
     background: var(--ac-t2-a);
     border-radius: var(--v-r-tag) var(--v-r-tag-xc);
@@ -5415,11 +5434,13 @@ use.v-svg-ico-wh {
     .v-tag.@{tagMark} {
         color: ~"var(--ac-@{tagColor})" !important;
         background: ~"var(--ac-@{tagMark}-a)" !important;
-        border: 1px solid ~"var(--ac-@{tagMark}-fade-bd)" !important;
+        border: 1px solid var(--d-bc) !important;
+        box-shadow: 0 0 0 1px ~"var(--ac-@{tagMark}-fade-bd)" inset !important;
     }
     .v-tag.@{tagMark}.em {
         color: @tagText !important;
         background: ~"var(--ac-@{tagMark})" !important;
+        box-shadow: none !important;
     }
 }
 @deepTextColor: #FFFFFF;
@@ -5498,6 +5519,12 @@ use.v-svg-ico-wh {
     box-shadow: none !important;
     border: none !important;
 }
+// 变量
+.v-badge-value>span.var {
+    font-style: italic;
+    font-weight: var(--v-f-w-text);
+    opacity: .75;
+}
 
 // 引用块、详情内的微调
 #write @{quote_details} code {
@@ -5519,12 +5546,12 @@ use.v-svg-ico-wh {
         color: @tagText;
         background: @badgeColor !important;
     }
-    // 变量
-    .v-badge-value>span.var.@{badgeMark} {
-        font-style: italic;
-        font-weight: var(--v-f-w-text);
-        opacity: .75;
-    }
+    // // 变量
+    // .v-badge-value>span.var.@{badgeMark} {
+    //     font-style: italic;
+    //     font-weight: var(--v-f-w-text);
+    //     opacity: .75;
+    // }
 }
 .genRainbowBadgeCSS(wn, var(--ac-wn), @deepTextColor);
 .genRainbowBadgeCSS(rd, var(--ac-rd), @deepTextColor);
@@ -5885,23 +5912,20 @@ rt:hover {
 @{coverAfterYAML} em:has(span:first-child+@{codeOnEditing}), // 多级标签带标题（第1段）
 @{coverWithoutYAML} em:has(span:first-child+@{codeOnEditing}),
 @{coverAfterYAML} em:has(@{codeOnEditing}:first-child+span:last-child), // 多级标签不带标题（第2段）
-@{coverWithoutYAML} em:has(@{codeOnEditing}:first-child+span:last-child) {
+@{coverWithoutYAML} em:has(@{codeOnEditing}:first-child+span:last-child),
+@{coverAfterYAML} .v-badge-name,
+@{coverWithoutYAML} .v-badge-name {
     line-height: 1;
     color: @badgeColorInCover !important;
     background: @badgeBakgroundInCover !important;
     border-color: @badgeBorderColorInCover !important;
-    border-width: @badgeBorderWidthInCover;
+    border-width: @badgeBorderWidthInCover !important;
     text-shadow: none;
     // 输入光标颜色
     caret-color: @buttonForeHoverColor;
     -webkit-text-stroke: initial;
     text-stroke: initial;
     vertical-align: initial;
-}
-@{coverAfterYAML} .v-badge-name,
-@{coverWithoutYAML} .v-badge-name {
-    border-color: @badgeBorderColorInCover !important;
-    text-shadow: none;
 }
 
 // 封面内的作者信息
