@@ -38,7 +38,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 vlook-gray-mode: 5-12
 ---
 
-###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V26.1`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V27.0`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
@@ -133,11 +133,11 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 > ![°文档排版](pic/qico-types-light.svg?fill=vn&darksrc=invert#icon2x)
 >
-> **° 文档排版**
+> **° 文档排版与内容标记**
 >
 > **VLOOK™ 主题及插件，让你对 Markdown 编辑器（暂只支持 Typora）的自动化排版能力有了全新的理解和应用。**
 >
-> 通过丰富的文档排版、内容标识的能力外，基于 HTML 格式让静态的文档也能与你一起「动」起来～
+> 提供了丰富的文档排版、内容标识的能力外，还基于 HTML 格式让静态的文档也能与你一起「动」起来～
 >
 > [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°文档排版)  [<kbd>范例参考</kbd>](index.md?kbd=alt#范例参考)
 >
@@ -147,7 +147,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > **° 内容导航**
 >
-> **VLOOK™ 提供了对文档内容、章节、插图、表格、多媒体提供了多种形式的导航、快速定位和内容组织的工具，全面改善和提高发布的 HTML 文件的浏览体验和效率。**
+> **VLOOK™ 提供了对文档内容、章节、插图、表格、多媒体多种形式的导航、快速定位和内容组织的工具，全面改善和提高发布的 HTML 文件的浏览体验和效率。**
 >
 > 无多余动作，聚焦文档撰写。一键导出之时，即完成自动集成～
 >

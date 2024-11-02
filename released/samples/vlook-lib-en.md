@@ -8,9 +8,9 @@ title: More Topics about VLOOK™
 >
 > **° FORMATTING**
 >
-> **With the support of VLOOK™ themes and plugins, you will gain a whole new understanding of the automated formatting capabilities of Markdown editors (currently only supported by Typora).**
+> **VLOOK™ themes and plugins give you a new understanding and application of the automated typesetting capabilities of Markdown editors (currently only supporting Typora).**
 >
-> Thanks to mature web browsers, HTML / CSS, and JavaScript technologies, even static documents can "move" with you.
+> In addition to providing rich capabilities for document layout and content identification, it also enables static documents to "move" with you based on HTML format.
 >
 > _~Vn!~_
 
@@ -99,7 +99,7 @@ title: More Topics about VLOOK™
 > - Organize content in **columns/kanban** style [❯❯](guide.md#°分栏)
 > - Add subtitles to quote blocks [❯❯](guide.md#引用块小标题)
 > - Collapse content hierarchically and categorically [❯❯](guide.md#详情折叠)
-> - Optimize styles for GitHub Style Alert [❯❯](guide.md#GitHub Style Alert)
+> - Optimize styles for GitHub Style Alert [❯❯](guide2.md#GitHub Style Alert)
 >
 > _~Vn~_
 
@@ -109,25 +109,6 @@ title: More Topics about VLOOK™
 > - Embed normal quote blocks within quote blocks [❯❯](guide.md#引用块内嵌普通引用块示例)
 > - Embed column quote blocks within quote blocks [❯❯](guide.md#引用块内嵌引用块分栏示例)
 > - Embed quote blocks within lists [❯❯](guide.md#列表内嵌引用块示例)
->
-> _~Vn~_
-
-###### Tags • Phonetics • Breadcrumbs • Scratch Cards
-
----
-
-> ###### Marking and Highlighting Key Information
->
-> - Add **Flat Tags** to highlight keywords [❯❯](guide2.md#标签)
-> - The multi-level information is organized in the form of Tags [❯❯](guide2.md#多级标签)
-> - Provide friendly rendering styles for **breadcrumbs** content [❯❯](guide2.md#面包屑)
->
-> _~Vn~_
-
-> ###### Phonetics, Pinyin, Scratch Cards
->
-> - Add **phonetics** to rare characters or East Asian languages [❯❯](guide2.md#注音)
-> - Hide answers when creating training or puzzle documents [❯❯](guide2.md#刮刮卡)
 >
 > _~Vn~_
 
@@ -159,15 +140,39 @@ title: More Topics about VLOOK™
 >
 > _~Vn~_
 
+# Quick Start ° Tagging
+
+
+
+---
+
+> **Marking and Highlighting Key Information**
+>
+> - Add **Flat Tags** to highlight keywords [❯❯](guide2.md#标签)
+> - The **multi-level** information is organized in the form of **Tags** [❯❯](guide2.md#多级标签)
+> - Add a **link** to the tag [❯❯](guide2.md#标签链接)
+> - Provide friendly rendering styles for **breadcrumbs** content [❯❯](guide2.md#面包屑)
+>
+> _~Vn~_
+
+> **Progress Bar, Scratch Card, Phonetic Notation**
+>
+> - Present "**progress**" information more intuitively [❯❯](guide2.md#进度条)
+> - **Automatically calculate** and complete the "progress" of the **task list** [❯❯](guide2.md#进度条)
+> - Hide answers when creating training or puzzle documents [❯❯](guide2.md#刮刮卡)
+> - Add **phonetics** to rare characters or East Asian languages [❯❯](guide2.md#注音)
+>
+> _~Vn~_
+
 # Quick Start ° Navigation
 
 > ![° NAVIGATION](pic/qico-nav-light.svg?fill=bu#logo)
 >
 > **° NAVIGATION**
 >
-> **VLOOK™ provides a variety of tools for navigating, quickly locating, and organizing document content, chapters, illustrations, tables, and multimedia, comprehensively improving and enhancing the browsing experience and efficiency of published HTML files.**
+> **VLOOK™ uniquely provides powerful presentation and publishing tools, making Typora + VLOOK a more productive Markdown document solution.**
 >
-> Feel free to enjoy at any time according to your needs and preferences~
+> It is a very suitable presentation assistance tool for on-site and remote use, enabling Turbo mode for your documents~
 >
 > _~Bu!~_
 
@@ -221,9 +226,9 @@ title: More Topics about VLOOK™
 >
 > **° PRESENTATION & PUBLICATION**
 >
-> **VLOOK™ uniquely provides powerful presentation and publishing tools for HTML exported from Markdown, making Typora + VLOOK a more productive Markdown document solution.**
+> **VLOOK™ uniquely provides powerful presentation and publishing tools, making Typora + VLOOK a more productive Markdown document solution.**
 >
-> It's an excellent tool for both on-site and remote presentations, so let your Markdown enter Turbo mode~
+> It is a very suitable presentation assistance tool for on-site and remote use, enabling Turbo mode for your documents~
 >
 > _~Og!~_
 
@@ -359,9 +364,9 @@ title: More Topics about VLOOK™
 >
 > **° APPEARANCE & ESSENTIALS**
 >
-> "**Humans have always been visual creatures. Making the eyes feel pleasant and beautiful when reading, whether for oneself or others, is a virtue, a power, a belief.**_~CyPu~_"
+> "**Humans have always been visual creatures. Making the eyes feel pleasant and beautiful when reading, whether for oneself or others, is a virtue, a power, a belief.**"
 >
-> --- **MAX°孟兆**_~CyPu~_
+> 　　　　--- MAX°孟兆
 >
 > _~Lm~_
 

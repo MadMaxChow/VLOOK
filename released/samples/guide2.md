@@ -48,6 +48,226 @@ vlook-doc-lib: vlook-lib.html
 
 # °内容标记
 
+## °备忘与警示
+
+### GitHub Style Alert
+
+*Markdown 粉`Q`*「**VLOOK™ 的主题支持 [GitHub Style Alert](https://github.com/orgs/community/discussions/16925) 吗？**（需要 [*Typora`1.8.3+`*](https://typoraio.cn/releases/all) 或更高版本支持）」
+
+*VLOOK`A`*_~T2~_ 在排版样式等方面进行适配和优化，同时支持「信息分类名称」自动匹配多语言环境。
+
+> **适用范围 ••• *ON`编辑时`*_~Gn~_  *ON` 导出 HTML`*_~Gn~_**
+
+「**GitHub Style Alert**」**在文档中主要用于提示、备忘或强调关键信息时使用的排版样式，由对应信息分类的图标、名称、内容等组成。**
+
+
+
+---
+
+> **VLOOK™ 对 GSA 的优化**
+>
+> - 提供了「**常规**、**扁平**、**强调**」多种样式风格，可通过[定制主题](guide2.md#定制模板主题)方式进行任意指定风格；
+> - 对其内的「文本链接、按钮、高亮」的样式都适配为对应的信息分类的配色（蓝/红/紫/棕/红）。
+>
+> ---
+>
+> 以下为「扁平」样式示例，更多样式的示例请通过 VLOOK™ 预置的 **[Hope](theme-hope.html#github-style-alert)**、**[Joint](theme-joint.html#github-style-alert)** 主题进行预览。
+
+> **语法**
+>
+> 在「引用块」内的首行输入以下任一 GitHub Style Alert 的分类信息标识即可自动识别并渲染：
+>
+> `[!NOTE]` `[!TIP]` `[!IMPORTANT]` `[!WARNING]` `[!CAUTION]`
+>
+> > ###### 参考示例
+> >
+> > ```markdown
+> > > [!NOTE]  
+> > > Highlights information that users should take into account, even when skimming.
+> > ```
+>
+> ---
+>
+> 更多 GitHub Style Alert 信详见[ Typora 更新说明](https://support.typora.io/What's-New-1.8/)
+
+
+
+> [!NOTE]
+>
+> - ==Highlights== information that users should take into account, even when skimming.  [![](pic/icon-more.svg?fill=text#icon) Learn more ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
+>
+> （**备忘**。==突出==用户在浏览时也应考虑的信息）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925?kbd=alt)
+
+
+
+> [!TIP]
+>
+> 1. Optional information to help a user be ==more successful==.  [![](pic/icon-more.svg?fill=text#icon) Learn more ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
+>
+> （**提示**。可选信息，帮助用户取得==更大成功==）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925?kbd=alt)
+
+
+
+> [!IMPORTANT]
+>
+> Crucial information ==necessary== for users to succeed.  [![](pic/icon-more.svg?fill=text#icon) Learn more ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
+>
+> （**重要的**。对用户成功==至关重要==的信息）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925?kbd=alt)
+
+
+
+> [!WARNING]
+>
+> Critical content demanding immediate user attention due to ==potential risks==.  [![](pic/icon-more.svg?fill=text#icon) Learn more ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
+>
+> （**注意**。由于==潜在风险==，需要用户立即关注的关键内容）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925?kbd=alt)
+
+
+
+> [!CAUTION]
+>
+> ==Negative potential== consequences of an action.  [![](pic/icon-more.svg?fill=text#icon) Learn more ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
+>
+> （**警告/禁止**。行动的潜在==负面后果==）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925?kbd=alt)
+
+
+
+---
+
+###### 以下为内嵌更丰富排版内容的示例
+
+
+
+> [!NOTE]
+>
+> **备忘**。==突出==用户在浏览时也应考虑的信息。
+>
+> ---
+>
+> > **这是引用块小标题 1**
+> >
+> > - [x] 这是一个==任务==列表项
+> >
+> > - 这是==无序==列表项
+> >
+> > 1. 这是==有序==列表项
+>
+> > ###### 这是详情折叠分栏 1
+> >
+> > *==Note 代码块==*
+> >
+> > ```java
+> > /* 代码块 */ public void hello()
+> > ```
+> >
+> > 这是[文本链接](#GitHub Style Alert) ，这是 [<kbd>按钮链接 ❯</kbd>](#GitHub Style Alert)
+
+> [!TIP]
+>
+> **提示**。可选信息，帮助用户取得==更大成功==。
+>
+> ---
+>
+> > **这是引用块小标题 2**
+> >
+> > - [x] 这是一个==任务==列表项
+> >
+> > - 这是==无序==列表项
+> >
+> > 1. 这是==有序==列表项
+>
+> > ###### 这是详情折叠分栏 2
+> >
+> > *==Tip 代码块==*
+> >
+> > ```java
+> > /* 代码块 */ public void hello()
+> > ```
+> >
+> > 这是 [文本链接](#GitHub Style Alert) ，这是 [<kbd>按钮链接 ❯</kbd>](#GitHub Style Alert)
+
+> [!IMPORTANT]
+>
+> **重要的**。对用户成功==至关重要==的信息。
+>
+> ---
+>
+> > **这是引用块小标题 3**
+> >
+> > - [x] 这是一个==任务==列表项
+> >
+> > - 这是==无序==列表项
+> >
+> > 1. 这是==有序==列表项
+>
+> > ###### 这是详情折叠分栏 3
+> >
+> > *==Important 代码块==*
+> >
+> > ```java
+> > /* 代码块 */ public void hello()
+> > ```
+> >
+> > 这是 [文本链接](#GitHub Style Alert) ，这是 [<kbd>按钮链接 ❯</kbd>](#GitHub Style Alert)
+
+> [!WARNING]
+>
+> **注意**。由于==潜在风险==，需要用户立即关注的关键内容。
+>
+> ---
+>
+> > **这是引用块小标题 4**
+> >
+> > - [x] 这是一个==任务==列表项
+> > - 这是==无序==列表项
+> >
+> > 1. 这是==有序==列表项
+>
+> > ###### 这是详情折叠分栏 4
+> >
+> > *==Warning 代码块==*
+> >
+> > ```java
+> > /* 代码块 */ public void hello()
+> > ```
+> >
+> > 这是 [文本链接](#GitHub Style Alert) ，这是 [<kbd>按钮链接 ❯</kbd>](#GitHub Style Alert)
+
+> [!CAUTION]
+>
+> **警告/禁止**。行动的潜在==负面后果==。
+>
+> ---
+>
+> > **这是引用块小标题 5**
+> >
+> > - [x] 这是一个==任务==列表项
+> > - 这是==无序==列表项
+> >
+> > 1. 这是==有序==列表项
+>
+> > ###### 这是详情折叠分栏 5
+> >
+> > *==Caution 代码块==*
+> >
+> > ```java
+> > /* 代码块 */ public void hello()
+> > ```
+> >
+> > 这是 [文本链接](#GitHub Style Alert) ，这是 [<kbd>按钮链接 ❯</kbd>](#GitHub Style Alert)
+
+
+
+> VLOOK™ 还支持对 GitHub Style Alert 进行分栏排版，详见「**[GitHub Style Alert 分栏](guide.md#GitHub Style Alert 分栏)**」
+
+
+
+---
+
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°内容标记</kbd>](?target=vdl#快速入坑°内容标记)
+
 ## 标签
 
 *Markdown 粉`Q`*「**用 Markdown 写文档，怎样才能通过「标签」这种比较现代的视觉元素来突出关键内容？**」
@@ -60,7 +280,7 @@ vlook-doc-lib: vlook-lib.html
 
 
 
-例如这样的「**单级标签**」：*`这样的标签`*_~Rd~_ 或  *`那样的标签`*_~Bu!~_ 还可以是 *`渐变的标签`*_~T1T2!~_ 
+例如这样的「**单级标签**」：*`这样的标签`*_~Rd~_ 或  *`那样的标签`*_~Bu!~_ 还可以是 *`渐变的标签`*_~T1T2~_ 
 
 
 
@@ -76,7 +296,7 @@ vlook-doc-lib: vlook-lib.html
 
 
 
-例如 *`VIP`*_~Ro~_ *`待处理`*_~Rd~_ *`需要跟进`*_~Bu~_
+例如 *`VIP`*_~BnGd~_    *`待处理`*_~Rd~_    *`需要跟进`*_~Bu~_    *`重要`*_~Pu!~_
 
 
 
@@ -90,12 +310,11 @@ vlook-doc-lib: vlook-lib.html
 >
 > - 对应的 Markdown 格式语法为：`` *`这是标签`* `` 
 >
-> （支持在标签后添加[预置色号](guide.md#预置色号)来指定颜色，不指定则默认为 `T2` ）
->
 
 > [!TIP]
-> 
-> 若须修改默认色号，可通过「[插件调校参数](#插件调校参数)」 `tag` 指定。
+>
+> - 支持在标签后添加[预置色号](guide.md#预置色号)来指定**颜色**（支持常规/强调风格），或**渐变色**，不指定则默认为 `T2` ；
+> - 若须修改默认色号，可通过「[插件调校参数](#插件调校参数)」 `tag` 指定。
 
 *==标签（常规风格）预置色号及示例==*
 
@@ -131,29 +350,29 @@ vlook-doc-lib: vlook-lib.html
 
 | **预置色号** | 应用场景建议               | 渲染效果                                  |
 | :----------: | -------------------------- | ----------------------------------------- |
-|     Wn!      | 警告、危险、关键事项、删除 | *`Wn 强调风格`*_~Wn!~_ *`WnMn 强调渐变`*_~WnMn!~_ |
-|     Rd!      | :                          | *`Rd 强调风格`*_~Rd!~_ *`RdGn 强调渐变`*_~RdGn!~_ |
-|     Og!      | 提醒、注意、修复           | *`Og 强调风格`*_~Og!~_ *`OgCy 强调渐变`*_~OgCy!~_ |
-|     Ye!      | 关注、优化、备忘、说明     | *`Ye 强调风格`*_~Ye!~_ *`YeGd 强调渐变`*_~YeGd!~_ |
-|     Lm!      | 提示、参考、新增           | *`Lm 强调风格`*_~Lm!~_ *`LmAq 强调渐变`*_~LmAq!~_ |
-|     Gn!      | :                          | *`Gn 强调风格`*_~Gn!~_ *`GnRd 强调渐变`*_~GnRd!~_ |
-|     Mn!      | :                          | *`Mn 强调风格`*_~Mn!~_ *`MnWn 强调渐变`*_~MnWn!~_ |
-|     Ol!      | :                          | *`Ol 强调风格`*_~Ol!~_ *`OlCy 强调渐变`*_~OlCy!~_ |
-|     Aq!      | 引用块、公告                 | *`Aq 强调风格`*_~Aq!~_ *`AqLm 强调渐变`*_~AqLm!~_ |
-|     Cy!      | :                          | *`Cy 强调风格`*_~Cy!~_ *`CyYe 强调渐变`*_~CyYe!~_ |
-|     Bu!      | 信息、资讯                 | *`Bu 强调风格`*_~Bu!~_ *`BuOl 强调渐变`*_~BuOl!~_ |
-|     Se!      | :                          | *`Se 强调风格`*_~Se!~_ *`SeBn 强调渐变`*_~SeBn!~_ |
-|     La!      | :                          | *`La 强调风格`*_~La!~_ *`LaYe 强调渐变`*_~LaYe!~_ |
-|     Vn!      | :                          | *`Vn 强调风格`*_~Vn!~_ *`VnPu 强调渐变`*_~VnPu!~_ |
-|     Pu!      | 延伸、扩展、保留、备用     | *`Pu 强调风格`*_~Pu!~_ *`PuVn 强调渐变`*_~PuVn!~_ |
-|     Ro!      | 年轻、个性、女性           | *`Ro 强调风格`*_~Ro!~_ *`RoRd 强调渐变`*_~RoRd!~_ |
-|     Pk!      | :                          | *`Pk 强调风格`*_~Pk!~_ *`PkGd 强调渐变`*_~PkGd!~_ |
-|     Gd!      | VIP、金融、工程            | *`Gd 强调风格`*_~Gd!~_ *`GdYe 强调渐变`*_~GdYe!~_ |
-|     Bn!      | :                          | *`Bn 强调风格`*_~Bn!~_ *`BnSe 强调渐变`*_~BnSe!~_ |
-|     Gy!      | 无效、暂缓、停用、结束     | *`Gy 强调风格`*_~Gy!~_ *`GyCy 强调渐变`*_~GyCy!~_ |
-|     Bk!      | 黑白、高对比               | *`Bk 强调风格`*_~Bk!~_ *`BkOg 强调渐变`*_~BkOg!~_ |
-|     T1!      | 当前 VLOOK™ 主题的主色     | *`T1 强调风格`*_~T1!~_ *`T1T2 强调渐变`*_~T1T2!~_ |
-|     T2!      | 当前 VLOOK™ 主题的辅助色   | *`T2 强调风格`*_~T2!~_ *`T2T1 强调渐变`*_~T2T1!~_ |
+|     Wn!      | 警告、危险、关键事项、删除 | *`Wn 强调风格`*_~Wn!~_  *`WnMn 渐变风格`*_~WnMn~_ |
+|     Rd!      | :                          | *`Rd 强调风格`*_~Rd!~_  *`RdGn 渐变风格`*_~RdGn~_ |
+|     Og!      | 提醒、注意、修复           | *`Og 强调风格`*_~Og!~_  *`OgCy 渐变风格`*_~OgBu~_ |
+|     Ye!      | 关注、优化、备忘、说明     | *`Ye 强调风格`*_~Ye!~_  *`YeGd 渐变风格`*_~YeAq~_ |
+|     Lm!      | 提示、参考、新增           | *`Lm 强调风格`*_~Lm!~_  *`LmAq 渐变风格`*_~LmYe~_ |
+|     Gn!      | :                          | *`Gn 强调风格`*_~Gn!~_  *`GnRd 渐变风格`*_~GnRd~_ |
+|     Mn!      | :                          | *`Mn 强调风格`*_~Mn!~_  *`MnWn 渐变风格`*_~MnAq~_ |
+|     Ol!      | :                          | *`Ol 强调风格`*_~Ol!~_  *`OlCy 渐变风格`*_~OlOg~_ |
+|     Aq!      | 引用块、公告                 | *`Aq 强调风格`*_~Aq!~_  *`AqLm 渐变风格`*_~AqLm~_ |
+|     Cy!      | :                          | *`Cy 强调风格`*_~Cy!~_  *`CyYe 渐变风格`*_~CyYe~_ |
+|     Bu!      | 信息、资讯                 | *`Bu 强调风格`*_~Bu!~_ *`BuOl 渐变风格`*_~BuOl~_ |
+|     Se!      | :                          | *`Se 强调风格`*_~Se!~_  *`SeBn 渐变风格`*_~SeOg~_ |
+|     La!      | :                          | *`La 强调风格`*_~La!~_  *`LaYe 渐变风格`*_~LaYe~_ |
+|     Vn!      | :                          | *`Vn 强调风格`*_~Vn!~_  *`VnPu 渐变风格`*_~VnRo~_ |
+|     Pu!      | 延伸、扩展、保留、备用     | *`Pu 强调风格`*_~Pu!~_  *`PuVn 渐变风格`*_~PuYe~_ |
+|     Ro!      | 年轻、个性、女性           | *`Ro 强调风格`*_~Ro!~_  *`RoRd 渐变风格`*_~RoRd~_ |
+|     Pk!      | :                          | *`Pk 强调风格`*_~Pk!~_  *`PkGd 渐变风格`*_~PkLm~_ |
+|     Gd!      | VIP、金融、工程            | *`Gd 强调风格`*_~Gd!~_  *`GdYe 渐变风格`*_~GdYe~_ |
+|     Bn!      | :                          | *`Bn 强调风格`*_~Bn!~_  *`BnSe 渐变风格`*_~BnGd~_ |
+|     Gy!      | 无效、暂缓、停用、结束     | *`Gy 强调风格`*_~Gy!~_  *`GyCy 渐变风格`*_~GyCy~_ |
+|     Bk!      | 黑白、高对比               | *`Bk 强调风格`*_~Bk!~_  *`BkOg 渐变风格`*_~BkOg~_ |
+|     T1!      | 当前 VLOOK™ 主题的主色     | *`T1 强调风格`*_~T1!~_  *`T1T2 渐变风格`*_~T1T2~_ |
+|     T2!      | 当前 VLOOK™ 主题的辅助色   | *`T2 强调风格`*_~T2!~_  *`T2T1 渐变风格`*_~T2T1~_ |
 
 ### 多级标签
 
@@ -161,9 +380,9 @@ vlook-doc-lib: vlook-lib.html
 
 
 
-二级结构举例 *客户等级`VIP`*_~Ro~_ *客户等级`普通客户`*_~Gy~_ *`文档密级`公开*_~Bu~_ *`文档密级`机密*_~Rd~_ *`互动类型`邮件*
+二级结构举例 *客户等级`VIP`*_~BnGd~_    *客户等级`普通客户`*_~Gy~_    *`文档密级`公开*_~Bu~_    *`文档密级`机密*_~RoRd~_    *`互动类型`邮件*
 
-三级结构举例 *项目阶段`需求分析`可行性报告* *最新版本`V2.3`beta*
+三级结构举例 *项目阶段`需求分析`可行性报告*    *最新版本`V2.3`beta*_~BuOg~_
 
 
 
@@ -176,8 +395,6 @@ vlook-doc-lib: vlook-lib.html
 >
 > - 对应的 Markdown 格式语法为：`` *第1段内容`第2段内容`第3段内容* `` 
 >
-> （同样支持在多级标签后添加[预置色号](guide.md#预置色号)来指定颜色，不指定则默认为 `T1` ，但不支持「**强调**」风格的预置色号）
->
 
 > **扩展玩法**
 >
@@ -188,51 +405,78 @@ vlook-doc-lib: vlook-lib.html
 >   ` {{变量}}` ` %变量%`  ` $变量$` ` ${变量}` ` #{变量}` `var(变量)`
 
 > [!TIP]
-> 
-> 若须修改默认色号，可通过「[插件调校参数](#插件调校参数)」 `badge` 指定。
+>
+> - 支持在多级标签后添加[预置色号](guide.md#预置色号)来指定**颜色**（默认为强调风格），或**渐变色**，不指定则默认色号为 `T1`
+> - 若须修改默认色号，可通过「[插件调校参数](#插件调校参数)」 `badge` 指定。
 
 *==多级标签预置色号示例==*
 
 | **预置色号** | 应用场景建议               | 渲染效果                            |
 | :------: | -------------------------- | ----------------------------------- |
-|    Wn    | 警告、危险、关键、热情、删除 | *标题`标签内容 {{变量 1}}`*_~Wn~_ |
-|    Rd    | :                          | *标题`标签内容 %变量 2%`*_~Rd~_ |
-|    Og    | 提醒、注意、活力、修复       | *标题`标签内容 $变量 3$`*_~Og~_ |
-|    Ye    | 关注、优化、备忘、说明     | *标题`标签内容 ${变量 4}`*_~Ye~_ |
-|    Lm    | 提示、备忘、参考、新增     | *标题`标签内容 #{变量 5}`*_~Lm~_ |
-|    Gn    | :                          | *标题`标签内容 var{变量 6}`*_~Gn~_ |
-|    Mn    | :                          | *标题`标签内容`*_~Mn~_  |
-|    Ol    | :                          | *标题`标签内容`*_~Ol~_ |
-|    Aq    | 引用块、冰凉、公告              | *标题`标签内容`*_~Aq~_ |
-|    Cy    | :                          | *标题`Value 1`*_~Cy~_          |
-|    Bu    | 信息、资讯、海洋              | *标题`Value 1`*_~Bu~_          |
-|    Se    | :                          | *标题`Value 1`*_~Se~_          |
-|    La    | :                          | *标题`Value 1`*_~La~_          |
-|    Vn    | :                          | *标题`Value 1`*_~Vn~_          |
-|    Pu    | 延伸、扩展、重要、保留、备用  | *标题`标签内容`*_~Pu~_  |
-|    Ro    | 年轻、个性、女性        | *标题`标签内容`*_~Ro~_ |
-|    Pk    | :                          | *标题`标签内容`*_~Pk~_ |
-|    Gd    | VIP、金融、工程、奖励         | *标题`标签内容 {{变量 1}}`*_~Gd~_ |
-|    Bn    | :                          | *标题`标签内容 %变量 2%`*_~Bn~_ |
-|    Gy    | 常规、无效、暂缓、停用     | *标题`标签内容 $变量 3$`*_~Gy~_ |
-|    Bk    | 黑白、高对比               | *标题`标签内容 ${变量 4}`*_~Bk~_ |
-|    T1    | 模板主题的「主色」 | *标题`标签内容 #{变量 5}`*_~T1~_ |
-|    T2    | 模板主题的「辅助色」 | *标题`标签内容 var{变量 6}`*_~T2~_ |
+|    Wn    | 警告、危险、关键、删除 | *标题`内容 {{变量 1}}`*_~Wn~_  *标题`内容 {{变量 1}}`渐变色*_~WnMn~_ |
+|    Rd    | :                          | *标题`内容 %变量 2%`*_~Rd~_  *标题`内容 %变量 2%`渐变色*_~RdGn~_ |
+|    Og    | 提醒、注意、活力、修复       | *标题`内容 $变量 3$`*_~Og~_  *标题`内容 $变量 3$`渐变色*_~OgBu~_ |
+|    Ye    | 关注、优化、备忘、说明     | *标题`内容 ${变量 4}`*_~Ye~_  *标题`内容 ${变量 4}`渐变色*_~YeAq~_ |
+|    Lm    | 提示、备忘、参考、新增     | *标题`内容 #{变量 5}`*_~Lm~_  *标题`内容 #{变量 5}`渐变色*_~LmYe~_ |
+|    Gn    | :                          | *标题`内容 var(变量 6)`*_~Gn~_  *标题`内容 var(变量 6)`渐变色*_~GnRd~_ |
+|    Mn    | :                          | *标题`标签内容`*_~Mn~_  *标题`标签内容`渐变色*_~MnAq~_  |
+|    Ol    | :                          | *标题`标签内容`*_~Ol~_  *标题`标签内容`渐变色*_~OlOg~_ |
+|    Aq    | 引用块、冰凉、公告              | *标题`标签内容`*_~Aq~_  *标题`标签内容`渐变色*_~AqLm~_ |
+|    Cy    | :                          | *标题`Value 1`*_~Cy~_  *标题`Value 1`渐变色*_~CyYe~_ |
+|    Bu    | 信息、资讯、海洋              | *标题`Value 2`*_~Bu~_  *标题`Value 2`渐变色*_~BuOl~_ |
+|    Se    | :                          | *标题`Value 3`*_~Se~_  *标题`Value 3`渐变色*_~SeOg~_ |
+|    La    | :                          | *标题`Value 4`*_~La~_  *标题`Value 4`渐变色*_~LaYe~_ |
+|    Vn    | :                          | *标题`Value 5`*_~Vn~_  *标题`Value 5`渐变色*_~VnRo~_ |
+|    Pu    | 延伸、扩展、重要、保留  | *标题`标签内容`*_~Pu~_  *标题`标签内容`渐变色*_~PuYe~_ |
+|    Ro    | 年轻、个性、女性        | *标题`标签内容`*_~Ro~_  *标题`标签内容`渐变色*_~RoRd~_ |
+|    Pk    | :                          | *标题`标签内容`*_~Pk~_  *标题`标签内容`渐变色*_~PkLm~_ |
+|    Gd    | VIP、金融、工程、奖励         | *标题`内容 {{变量 1}}`*_~Gd~_  *标题`内容 {{变量 1}}`渐变色*_~GdYe~_ |
+|    Bn    | :                          | *标题`内容 %变量 2%`*_~Bn~_  *标题`内容 %变量 2%`渐变色*_~BnGd~_ |
+|    Gy    | 常规、无效、暂缓、停用     | *标题`内容 $变量 3$`*_~Gy~_  *标题`内容 $变量 3$`渐变色*_~GyCy~_ |
+|    Bk    | 黑白、高对比               | *标题`内容 ${变量 4}`*_~Bk~_  *标题`内容 ${变量 4}`渐变色*_~BkOg~_ |
+|    T1    | 所选用[主题](#模板主题)的「主色」 | *标题`内容 #{变量 5}`*_~T1~_  *标题`内容 #{变量 5}`渐变色*_~T1T2~_ |
+|    T2    | 所选用[主题](#模板主题)的「辅助色」 | *标题`内容 var(变量 6)`*_~T2~_  *标题`内容 var(变量 6)`渐变色*_~T2T1~_ |
 
 *==多级标签更多示例==*
 
 | **格式** | 渲染效果                    | 更多渲染示例            |
 | :------: | --------------------------- | --------------------------- |
-|    三段式    | *标题`内容 1`内容 2*_~T1~_ | *H₂+O`=`H₂O*_~Bu~_ *圆周率`3.14`1592653*_~T2~_ |
+|    三段式    | *标题`内容 1`内容 2*_~T1~_ | *H₂+O`=`H₂O*_~Bu~_  *圆周率`3.14`1592653*_~T2~_ |
 |   :   | : | *化学式`H₂O`是水💦*_~Se~_  *圆的`内角和`180度*_~Ye~_ |
-| 无标题 | *`内容 1`内容 2*_~Gy~_ | *` 灯光`OFF*_~Gy~_  *`国庆节`10月1日*_~Rd~_ |
+| 无标题（第1段） | *`内容 1`内容 2*_~Gy~_ | *` 灯光`OFF*_~Gy~_  *`国庆节`10月1日*_~Rd~_ |
+
+
+
+### 标签链接
+
+*Markdown 粉`Q`*「**希望能给标签添加超链接，方便关联与标签相关的其他文档或外部信息**」
+
+*VLOOK`A`*_~T2~_  支持为标签添加超链接，只要选中标签后，直接按 Markdown 超链接语法进行设置即可。
+
+
+
+> **适用范围 ••• *`编辑时`OFF*_~Gy~_  *ON` 导出 HTML`*_~Gn~_**
+
+
+
+以下是添加了超链接的标签，来试试看吧～
+
+[*`VIP 定制主题`*_~BnGd~_](https://madmaxchow.github.io/VLOOK/vip.html)    [*VLOOK`@GitHub`*](https://github.com/MadMaxChow/VLOOK)    [*VLOOK`GitHub`@MadMaxChow*_~T1T2~_](https://github.com/MadMaxChow/VLOOK)    [*`🎁 VIP`提交我的定制需求*_~BnGdBnGdBn~_](https://wj.qq.com/s2/14818521/bd33/)
+
+
+
+> [!TIP]
+>
+> 因点击「标签」是[复制标签内容](#复制内容)，所以在导出 HTML 文件后，鼠标悬停在标签后会显示独立的打开链接的入口。
+
+
 
 
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°内容标记</kbd>](?target=vdl#快速入坑°内容标记)
 
 ## 进度条
 
@@ -325,7 +569,7 @@ vlook-doc-lib: vlook-lib.html
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°内容标记</kbd>](?target=vdl#快速入坑°内容标记)
 
 ## 面包屑
 
@@ -375,7 +619,7 @@ vlook-doc-lib: vlook-lib.html
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°内容标记</kbd>](?target=vdl#快速入坑°内容标记)
 
 ## 刮刮卡
 
@@ -435,7 +679,7 @@ vlook-doc-lib: vlook-lib.html
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°内容标记</kbd>](?target=vdl#快速入坑°内容标记)
 
 ## 注音
 
@@ -548,7 +792,7 @@ vlook-doc-lib: vlook-lib.html
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°内容标记</kbd>](?target=vdl#快速入坑°内容标记)
 
 # °内容导航
 
@@ -852,7 +1096,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
   
   点击不同分段的内容，即复制其自身及右侧的内容，如：*分类`内容1`内容2*
   
-- 复制「[标签](#标签)、代码」
+- 复制「[单级标签](#标签)、代码」
 
   点击即复制其内容，如：*`这是标签`* `这是代码`
 
@@ -895,7 +1139,8 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 *VLOOK`A`*_~T2~_ 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
 > - 鼠标悬停在表格后，通过右上角内容助手上的 ![表格阅读模式](pic/icon-table-cross.svg?fill=theme1&darksrc=invert#icon) 按钮打开、关闭；
-> - 鼠标点击表格上的任意单元格后，会自动高亮其同一行、同一列的相关信息（类似于十字光标）；
+> - 鼠标点击表格上的任意单元格后，会自动聚焦当前单元格及所在的行和列（类似于十字光标）；
+> - 支持通过**方向键**（ <kbd>▲</kbd>  <kbd>▼</kbd>  <kbd>◀</kbd>  <kbd>▶</kbd> ）进行移动，对于[表格行分组折叠](guide.md#表格行分组折叠)的单元格，还可通过 <kbd>Enter ⏎</kbd> 进行展开和收起；
 > - 点击文档空白位置，或按下 <kbd>ESC</kbd> 临时取消显示。
 
 ###### 试试点击表格的任意单元格，或让鼠标光标在以下表格行间进行移动
@@ -1485,7 +1730,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 ###### 本文档的封面内容示例
 
 ```markdown
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册<br>(Part.II)</u><br>*最新版本`V26.1`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册<br>(Part.II)</u><br>*最新版本`V27.0`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 ```
 
 ###### 本文档的封底内容示例
@@ -1972,6 +2217,8 @@ $$
 | :         | 打开「[文库](#文库导航)」，或显示入口          |         <kbd>L</kbd>         |
 | : | 打开「[链接地图](#链接地图)」 | <kbd>M</kbd> |
 | : | 打开「导航历史」 | <kbd>H</kbd> |
+| [表格阅读模式](#表格阅读模式) | 移动当前**聚焦**单元格 | <kbd>▲</kbd>  <kbd>▼</kbd>  <kbd>◀</kbd>  <kbd>▶</kbd> |
+| : | 展开/收起[行分组](guide.md#表格行分组折叠) | <kbd>Enter ⏎</kbd> |
 | [字体风格](#字体风格) | 选择字体风格 | <kbd>A</kbd> |
 | :                       | 退出「字体风格」选择                        |        <kbd>ESC</kbd>        |
 | [逐章导航](#逐章导航)                   | **前一个**章节                                    | <kbd>◀</kbd> 或 <kbd> , </kbd> |

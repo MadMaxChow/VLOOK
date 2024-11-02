@@ -39,7 +39,7 @@ vlook-doc-lib-test:
 - [重复的文库-2](vlook-lib.html?target=_blank "关键字示例内容")
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册 (Part.I)</u><br>*最新版本`V26.1`2024-10-28*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册 (Part.I)</u><br>*最新版本`V27.0`2024-11-02*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
@@ -63,7 +63,7 @@ vlook-doc-lib-test:
 
 > **< 壹 >**
 >
-> 以下是 VLOOK™  的预置色号，其中**大号加粗**的英文为对应的色号，如： `Ye` `Aq` ，**（支持编辑时提示或预览部分效果）**
+> 以下是 VLOOK™  的预置色号，其中的两个字符的英文简写为色号标记，如： `Ye` `Aq` `T1` 等
 
 > **< 贰 >**
 >
@@ -71,7 +71,7 @@ vlook-doc-lib-test:
 
 > **< 叁 >**
 >
-> 支持「**常规**」和「**强调**」两种风格，色号后添加英文的感叹号「**!**」即为强调风格，实际写法如： `Ye!` `Aq!`
+> 支持「**常规**」和「**强调**」两种风格，色号后添加英文的感叹号「**!**」即为指定为强调风格，如： `Ye!`
 
 ![VLOOK™ - Color Card 预置色号](pic/vlook-color-card-light.png?srcset=@2x&darksrc=vlook-color-card-dark.png&darksrcset=@2x#logo#center)
 
@@ -79,20 +79,23 @@ vlook-doc-lib-test:
 
 > **语法**
 >
-> 将「**色号**」设置为以下格式组合：先「_斜体_」（**注意要用划下线的语法，不能用 `*` 号语法**），后「~下标~」
+> 将「**色号**」设置为以下格式组合：先「==斜体==」，后「==下标==」
 >
-> - 对应的 Markdown 格式语法为：`_~色号~_`
+> - 对应的 Markdown 格式语法为：
+>   - 单色 `_~色号~_` ，如： `_~Ye~_` `_~Aq~_` `_~T1~_`
 >
-> - 正确设置后会以特殊的样式突出色号标识
+>   - 渐变色 `_~色号1色号2...色号n~_` ，如： `_~YeOg~_` `_~RdGnBuRo~_`
+>
+> - 在正确设置格式组合后，在编辑时会以特殊的样式作为提示，需要导出 HTML 文件才能最终生效
 >
 
 > [!IMPORTANT]
 >
-> 为区分 Typora 默认使用单星号 `*斜体*` 标记的斜体，色号中的斜体建议用 Markdown 的另一个斜体的标记语法：下划线 `_斜体_` 。
+> 为区分 Typora 默认使用单星号 `*斜体*` 标记的斜体，以及解决与粗体的冲突问题，**色号**中的**斜体**必须使用 Markdown 的另一个斜体的标记语法（下划线 `_` ）。
 
 # #魔法
 
- *`#魔法`*_~CyOgPu!~_ ，发音为 **/sharp 魔法/**
+ *`#魔法`*_~CyOgPu~_ ，发音为 **/sharp 魔法/**
 
 
 
@@ -229,7 +232,7 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 色号�
 
 **VLOOK™ 对高亮格式的样式、排版进行了多种优化和延伸**，主要包括以下：
 
-- 高亮的**颜色**，可以与[主题色](vip.md)、[文本颜色](#文本颜色)、[文本渐变色](#文本渐变色)、[引用块着色](#引用块着色)、[GitHub Style Alert](#GitHub Style Alert) 进行适配
+- 高亮的**颜色**，可以与[主题色](vip.md)、[文本颜色](#文本颜色)、[文本渐变色](#文本渐变色)、[引用块着色](#引用块着色)、[GitHub Style Alert](guide2.md#GitHub Style Alert) 进行适配
 - 特定位置实现：
   - 「[引用块小标题](#引用块小标题)」
 - 格式组合实现：
@@ -758,9 +761,9 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 ## 表格行分组折叠
 
-*Markdown 粉`Q`*「**表格行都是一维的数据，但如果表格的数据有层次关系怎么办？**」
+*Markdown 粉`Q`*「**表格行都是同一分级的数据，但如果表格的数据有层次关系怎么办？**」
 
-*VLOOK`A`*_~T2~_ 可以对文档（如 PRD、API 类文档）在同一个表格内，会对属于同一类或同一级的多行进行分组和折叠。
+*VLOOK`A`*_~T2~_ 支持通过非常简洁的标记对表格内的行进行，指定不同的缩进等级进行分组、分级。
 
 > **适用范围 ••• *`编辑时`OFF*_~Gy~_  *ON` 导出 HTML`*_~Gn~_**
 
@@ -1531,7 +1534,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
    - 适配为 ==按钮链接== 的颜色：[<kbd>![](pic/markdown-mark-solid.svg?fill=text) Markdown ![](pic/markdown-mark-solid.png?fill=text)</kbd>](https://en.wikipedia.org/wiki/Markdown) [<kbd>![](pic/markdown-mark-solid.svg?fill=text) Markdown ![](pic/markdown-mark-solid.png?fill=text)</kbd>](https://en.wikipedia.org/wiki/Markdown?kbd=alt)
    
-   - 适配为 [引用块（着色后）](#引用块着色)、[GitHub Style Alert](#GitHub Style Alert) 的颜色
+   - 适配为 [引用块（着色后）](#引用块着色)、[GitHub Style Alert](guide2.md#GitHub Style Alert) 的颜色
 2. 使用指定的[预置色号](#预置色号)：
 
 *==图片剪影指定为预置色号示例==*
@@ -1623,234 +1626,11 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 [<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版)
 
-# °备忘与警示
-
-## GitHub Style Alert
-
-*Markdown 粉`Q`*「**VLOOK™ 的主题支持 [GitHub Style Alert](https://github.com/orgs/community/discussions/16925) 吗？**（需要 [*Typora`1.8.3+`*](https://typoraio.cn/releases/all) 或更高版本支持）」
-
-*VLOOK`A`*_~T2~_ 在排版样式等方面进行适配和优化，同时支持「信息分类名称」自动匹配多语言环境。
-
-> **适用范围 ••• *ON`编辑时`*_~Gn~_  *ON` 导出 HTML`*_~Gn~_**
-
-「**GitHub Style Alert**」**在文档中主要用于提示、备忘或强调关键信息时使用的排版样式，由对应信息分类的图标、名称、内容等组成。**
-
-
-
----
-
-> **VLOOK™ 对 GSA 的优化**
->
-> - 提供了「**常规**、**扁平**、**强调**」多种样式风格，可通过[定制主题](guide2.md#定制模板主题)方式进行任意指定风格；
-> - 对其内的「文本链接、按钮、高亮」的样式都适配为对应的信息分类的配色（蓝/红/紫/棕/红）。
->
-> ---
->
-> 以下为「扁平」样式示例，更多样式的示例请通过 VLOOK™ 预置的 **[Hope](theme-hope.html#github-style-alert)**、**[Joint](theme-joint.html#github-style-alert)** 主题进行预览。
-
-> **语法**
->
-> 在「引用块」内的首行输入以下任一 GitHub Style Alert 的分类信息标识即可自动识别并渲染：
->
-> `[!NOTE]` `[!TIP]` `[!IMPORTANT]` `[!WARNING]` `[!CAUTION]`
->
-> > ###### 参考示例
-> >
-> > ```markdown
-> > > [!NOTE]  
-> > > Highlights information that users should take into account, even when skimming.
-> > ```
->
-> ---
->
-> 更多 GitHub Style Alert 信详见[ Typora 更新说明](https://support.typora.io/What's-New-1.8/)
-
-
-
-> [!NOTE]
->
-> - ==Highlights== information that users should take into account, even when skimming.  [![](pic/icon-more.svg?fill=text#icon) Learn more ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
->
-> （**备忘**。==突出==用户在浏览时也应考虑的信息）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925?kbd=alt)
-
-
-
-> [!TIP]
->
-> 1. Optional information to help a user be ==more successful==.  [![](pic/icon-more.svg?fill=text#icon) Learn more ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
->
-> （**提示**。可选信息，帮助用户取得==更大成功==）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925?kbd=alt)
-
-
-
-> [!IMPORTANT]
->
-> Crucial information ==necessary== for users to succeed.  [![](pic/icon-more.svg?fill=text#icon) Learn more ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
->
-> （**重要的**。对用户成功==至关重要==的信息）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925?kbd=alt)
-
-
-
-> [!WARNING]
->
-> Critical content demanding immediate user attention due to ==potential risks==.  [![](pic/icon-more.svg?fill=text#icon) Learn more ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
->
-> （**注意**。由于==潜在风险==，需要用户立即关注的关键内容）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925?kbd=alt)
-
-
-
-> [!CAUTION]
->
-> ==Negative potential== consequences of an action.  [![](pic/icon-more.svg?fill=text#icon) Learn more ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
->
-> （**警告/禁止**。行动的潜在==负面后果==）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925?kbd=alt)
-
-
-
----
-
-###### 以下为内嵌更丰富排版内容的示例
-
-
-
-> [!NOTE]
->
-> **备忘**。==突出==用户在浏览时也应考虑的信息。
->
-> ---
->
-> > **这是引用块小标题 1**
-> >
-> > - [x] 这是一个==任务==列表项
-> >
-> > - 这是==无序==列表项
-> >
-> > 1. 这是==有序==列表项
->
-> > ###### 这是详情折叠分栏 1
-> >
-> > *==Note 代码块==*
-> >
-> > ```java
-> > /* 代码块 */ public void hello()
-> > ```
-> >
-> > 这是[文本链接](#GitHub Style Alert) ，这是 [<kbd>按钮链接 ❯</kbd>](#GitHub Style Alert)
-> >
-
-> [!TIP]
->
-> **提示**。可选信息，帮助用户取得==更大成功==。
->
-> ---
->
-> > **这是引用块小标题 2**
-> >
-> > - [x] 这是一个==任务==列表项
-> >
-> > - 这是==无序==列表项
-> >
-> > 1. 这是==有序==列表项
->
-> > ###### 这是详情折叠分栏 2
-> >
-> > *==Tip 代码块==*
-> >
-> > ```java
-> > /* 代码块 */ public void hello()
-> > ```
-> >
-> > 这是 [文本链接](#GitHub Style Alert) ，这是 [<kbd>按钮链接 ❯</kbd>](#GitHub Style Alert)
-> >
-
-> [!IMPORTANT]
->
-> **重要的**。对用户成功==至关重要==的信息。
->
-> ---
->
-> > **这是引用块小标题 3**
-> >
-> > - [x] 这是一个==任务==列表项
-> >
-> > - 这是==无序==列表项
-> >
-> > 1. 这是==有序==列表项
->
-> > ###### 这是详情折叠分栏 3
-> >
-> > *==Important 代码块==*
-> >
-> > ```java
-> > /* 代码块 */ public void hello()
-> > ```
-> >
-> > 这是 [文本链接](#GitHub Style Alert) ，这是 [<kbd>按钮链接 ❯</kbd>](#GitHub Style Alert)
-
-> [!WARNING]
-> 
-> **注意**。由于==潜在风险==，需要用户立即关注的关键内容。
->
-> ---
->
-> > **这是引用块小标题 4**
-> >
-> > - [x] 这是一个==任务==列表项
-> > - 这是==无序==列表项
-> >
-> > 1. 这是==有序==列表项
-> 
-> > ###### 这是详情折叠分栏 4
-> >
-> > *==Warning 代码块==*
-> >
-> > ```java
-> > /* 代码块 */ public void hello()
-> > ```
-> >
-> > 这是 [文本链接](#GitHub Style Alert) ，这是 [<kbd>按钮链接 ❯</kbd>](#GitHub Style Alert)
-> >
-
-> [!CAUTION]
-> 
-> **警告/禁止**。行动的潜在==负面后果==。
->
-> ---
->
-> > **这是引用块小标题 5**
-> >
-> > - [x] 这是一个==任务==列表项
-> > - 这是==无序==列表项
-> >
-> > 1. 这是==有序==列表项
-> 
-> > ###### 这是详情折叠分栏 5
-> >
-> > *==Caution 代码块==*
-> >
-> > ```java
-> > /* 代码块 */ public void hello()
-> > ```
-> >
-> > 这是 [文本链接](#GitHub Style Alert) ，这是 [<kbd>按钮链接 ❯</kbd>](#GitHub Style Alert)
-
-
-
-> VLOOK™ 还支持对 GitHub Style Alert 进行分栏排版，详见「**[GitHub Style Alert 分栏](#GitHub Style Alert 分栏)**」
-
-
-
----
-
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
-
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版)
-
 # °分栏
 
 *Markdown 粉`Q`*「**Markdown 原生是不支持分栏排版的，有些用户将就着用表格来顶班，仍然也很难受～**」
 
-*VLOOK`A`*_~T2~_ 有了 VLOOK 后，只需要 1 个动作就可以让你的「引用块、列表、[GitHub Style Alert](#GitHub Style Alert)」瞬间分栏排列， 嗖嗖～
+*VLOOK`A`*_~T2~_ 有了 VLOOK 后，只需要 1 个动作就可以让你的「引用块、列表、[GitHub Style Alert](guide2.md#GitHub Style Alert)」瞬间分栏排列， 嗖嗖～
 
 ## 列表分栏
 
@@ -2180,7 +1960,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 
 
-**对 GSA 进行分栏的方式，还是熟悉的配方，与上面的「引用块分栏」方式保持一致～**
+**支持对 [GitHub Style Alert](guide2.md#GitHub Style Alert) 进行分栏的方式，还是熟悉的配方，与上面的「引用块分栏」方式保持一致～**
 
 
 
@@ -2220,11 +2000,11 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 ## 列表自动编号与着色
 
-**提供以下增强特性：**
+**除了羰提到的[列表分栏](#列表分栏)外，还提供以下增强特性：**
 
 1. 针对有序列表、无序列表的分级符号进行统一处理，并应用主题的配色；
 2. 编辑时输入焦点，及导出 HTML 后鼠标悬停，均支持高亮当前行的列表符号；
-3. 对第一级有序列表，可通过[定制模板主题](guide2.md#定制模板主题)的方式选择不同的符号样式（暂时不适用于 [GitHub Style Alert](#GitHub Style Alert) 内的有序列表）。
+3. 对第一级有序列表，可通过[定制模板主题](guide2.md#定制模板主题)的方式选择不同的符号样式（暂时不适用于 [GitHub Style Alert](guide2.md#GitHub Style Alert) 内的有序列表）。
 
 > **适用范围 ••• *ON`编辑时`*_~Gn~_  *ON` 导出 HTML`*_~Gn~_**
 

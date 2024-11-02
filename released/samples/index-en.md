@@ -19,7 +19,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 vlook-gray-mode: 05-12
 ---
 
-###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective_^Interaction^_<br>──<br><u>Introduction</u><br>*`V26.1`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective_^Interaction^_<br>──<br><u>Introduction</u><br>*`V27.0`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
 
 [TOC]
 
@@ -111,11 +111,11 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 
 > ![°FORMATTING](pic/qico-types-light.svg?fill=vn&darksrc=invert#icon2x)
 >
-> **° FORMATTING**
+> **° FORMATTING & TAGGING**
 >
-> **With the support of VLOOK™ themes and plugins, you will gain a whole new understanding of the automated formatting capabilities of Markdown editors (currently only supported by Typora).**
+> **VLOOK™ themes and plugins give you a new understanding and application of the automated typesetting capabilities of Markdown editors (currently only supporting Typora).**
 >
-> Thanks to mature web browsers, HTML / CSS, and JavaScript technologies, even static documents can "move" with you.
+> In addition to providing rich capabilities for document layout and content identification, it also enables static documents to "move" with you based on HTML format.
 >
 > [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Formatting)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
 >
@@ -125,7 +125,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > **° NAVIGATION**
 >
-> **VLOOK™ provides a variety of tools for navigating, quickly locating, and organizing document content, chapters, illustrations, tables, and multimedia, comprehensively improving and enhancing the browsing experience and efficiency of published HTML files.**
+> **VLOOK™ provides tools for navigation, quick positioning, and content organization in various forms such as document content, chapters, illustrations, tables, and multimedia, comprehensively improving and enhancing the browsing experience and efficiency of published HTML files.**
 >
 > Feel free to enjoy at any time according to your needs and preferences~
 >
@@ -139,9 +139,9 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > **° PRESENTATION & PUBLICATION**
 >
-> **VLOOK™ uniquely provides powerful presentation and publishing tools for HTML exported from Markdown, making Typora + VLOOK a more productive Markdown document solution.**
+> **VLOOK™ uniquely provides powerful presentation and publishing tools, making Typora + VLOOK a more productive Markdown document solution.**
 >
-> It's an excellent tool for both on-site and remote presentations, so let your Markdown enter Turbo mode~
+> It is a very suitable presentation assistance tool for on-site and remote use, enabling Turbo mode for your documents~
 >
 > [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Presentation and Publishing)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
 >
@@ -151,9 +151,9 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > **° APPEARANCE & ESSENTIALS**
 >
-> "**Humans have always been visual creatures. Making the eyes feel pleasant and beautiful when reading, whether for oneself or others, is a virtue, a power, a belief.**_~CyPu~_"
+> "**Humans have always been visual creatures. Making the eyes feel pleasant and beautiful when reading, whether for oneself or others, is a virtue, a power, a belief.**"
 >
-> --- **MAX°孟兆**_~CyPu~_
+> 　　　　--- MAX°孟兆
 >
 > [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Appearance & Essentials)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
 >

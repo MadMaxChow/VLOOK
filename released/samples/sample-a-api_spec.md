@@ -26,5 +26,5 @@ title: 样式与交互丰富的API文档
 
 > [!NOTE]
 >
-> 本范例应用了 VLOOK™ 的这些特性：[面包屑](guide2.md#面包屑)、[标签](guide2.md#标签)、[表格列格式](guide.md#表格列格式)、[表格行分组折叠](guide.md#表格行分组折叠)、[单元格合并](guide.md#单元格合并)、[预置色号](guide.md#预置色号)、[GitHub Style Alert](guide.md#GitHub Style Alert)
+> 本范例应用了 VLOOK™ 的这些特性：[面包屑](guide2.md#面包屑)、[标签](guide2.md#标签)、[表格列格式](guide.md#表格列格式)、[表格行分组折叠](guide.md#表格行分组折叠)、[单元格合并](guide.md#单元格合并)、[预置色号](guide.md#预置色号)、[GitHub Style Alert](guide2.md#GitHub Style Alert)
 
