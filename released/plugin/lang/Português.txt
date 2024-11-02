@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V26.1" (2024-10-28) - (Language Pack) - Typora Plugin
+VLOOK™ "V27.0" (2024-11-02) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
@@ -97,4 +97,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt83" content="Link">
 <meta name="vk-pt84" content="Nota de rodapé">
 <meta name="vk-pt85" content="Restaurar estilo de fonte">
-<meta name="vk-pt86" content="Sugestão: abra com o botão direito do mouse">
+<meta name="vk-pt86" content="Clique aqui para abrir o link">

@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V26.1" (2024-10-28) - (Language Pack) - Typora Plugin
+VLOOK™ "V27.0" (2024-11-02) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
@@ -97,4 +97,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk83" content="連結">
 <meta name="vk-zh-hk84" content="註腳">
 <meta name="vk-zh-hk85" content="還原字體樣式">
-<meta name="vk-zh-hk86" content="建議：右鍵點擊以開啟">
+<meta name="vk-zh-hk86" content="點擊此處以開啟連結">

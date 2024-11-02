@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V26.1" (2024-10-28) - (Language Pack) - Typora Plugin
+VLOOK™ "V27.0" (2024-11-02) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
@@ -97,4 +97,4 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ar83" content="رابط">
 <meta name="vk-ar84" content="حاشية">
 <meta name="vk-ar85" content="استعادة نمط الخط">
-<meta name="vk-ar86" content="اقتراح: افتحه بالنقر بزر الماوس الأيمن">
+<meta name="vk-ar86" content="انقر هنا لفتح الرابط">
