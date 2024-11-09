@@ -44,7 +44,9 @@ VLOOK™ ist Open-Source-Software und entspricht der **[MIT-Lizenz](#许可协�
 
 ---
 
+[📺 Click here to watch the introduction video](https://www.bilibili.com/video/BV1miDpY5ERh/?vd_source=ecc3f6f8f7d9fbfaa5745863cf7d6250)
 
+---
 
 ![VLOOK™ ── Geben Sie Ihrem Markdown eine neue Sichtweise](https://vlook-doc.pages.dev/pic/vlook-screenshot-A00.png)
 
