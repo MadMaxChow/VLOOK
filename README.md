@@ -44,6 +44,9 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ---
 
+[📺 点击这里观看官宣视频](https://www.bilibili.com/video/BV1miDpY5ERh/?vd_source=ecc3f6f8f7d9fbfaa5745863cf7d6250)
+
+---
 
 
 ![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-A00.png)
