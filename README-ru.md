@@ -44,7 +44,9 @@ VLOOK™ — это программное обеспечение с откры�
 
 ---
 
+[📺 Click here to watch the introduction video](https://www.bilibili.com/video/BV1miDpY5ERh/?vd_source=ecc3f6f8f7d9fbfaa5745863cf7d6250)
 
+---
 
 ![VLOOK™ ── Дайте вашему Markdown новый взгляд](https://vlook-doc.pages.dev/pic/vlook-screenshot-A00.png)
 
