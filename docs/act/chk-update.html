@@ -11,7 +11,7 @@ window.addEventListener('message', function(event) {
     let receMessage = event.data;
         // resultDiv = document.getElementById("check-result");
     // 校验消息合法性
-    if (!receMessage.startsWith("V") || receMessage.length > 6)
+    if (typeof receMessage === "string" && !receMessage.startsWith("V") || receMessage.length > 6)
         return;
 
     // resultDiv.innerText += `\nLastest version [${latestVer}]`;
