@@ -42,7 +42,7 @@ vlook-gray-mode: 5-12
 
 [TOC]
 
-> Select language ❯ [<kbd>English</kbd>](index-en.md?kbd=alt)
+> Select language ❯ *[<kbd>English</kbd>](index-en.md)*
 
 # VLOOK™ 是什么
 
@@ -120,13 +120,21 @@ vlook-gray-mode: 5-12
 
 > **感谢打赏支持 VLOOK™ 的客官（部分名单）**
 >
-> ＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 # 快速入坑
 
 VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文档的互联网化应用场景～
 
 在 **文档排版、内容导航、演示辅助、交互体验**_~GnOgSe~_ 等方面提供了 **一致、简洁、友好**_~PuOgRo~_ 的体验。
+
+
+
+*==简介视频==*
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113423643837219&bvid=BV1miDpY5ERh&cid=26611613913&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+
 
 
 ---
@@ -139,7 +147,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 提供了丰富的文档排版、内容标识的能力外，还基于 HTML 格式让静态的文档也能与你一起「动」起来～
 >
-> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°文档排版)  [<kbd>范例参考</kbd>](index.md?kbd=alt#范例参考)
+> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°文档排版)  *[<kbd>范例参考</kbd>](index.md#范例参考)*
 >
 > _~Vn!~_
 
@@ -151,7 +159,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 无多余动作，聚焦文档撰写。一键导出之时，即完成自动集成～
 >
-> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°内容导航)  [<kbd>范例参考</kbd>](index.md?kbd=alt#范例参考)
+> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°内容导航)  *[<kbd>范例参考</kbd>](index.md#范例参考)*
 >
 > _~Bu!~_
 
@@ -165,7 +173,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 非常适合现场和远程的演示辅助工具，为你的文档开启 Turbo 模式～
 >
-> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°演示与出版)  [<kbd>范例参考</kbd>](index.md?kbd=alt#范例参考)
+> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°演示与出版)  *[<kbd>范例参考</kbd>](index.md#范例参考)*
 >
 > _~Og!~_
 
@@ -177,7 +185,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 　　　　—— MAX°孟兆
 >
-> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°外观与不杂项)  [<kbd>范例参考</kbd>](index.md?kbd=alt#范例参考)
+> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°外观与不杂项)  *[<kbd>范例参考</kbd>](index.md#范例参考)*
 >
 > _~Lm!~_
 
@@ -249,7 +257,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > 从 VLOOK™ 在托管的平台上下载最新发布版本（或在后续步骤中直接从仓库中选择下载需要的文件）：
 > 
->  [<kbd>![](pic/icon-download.svg?fill=text) 从 GitHub 下载</kbd>](https://github.com/MadMaxChow/VLOOK/releases)  [<kbd>![](pic/icon-download.svg?fill=text) 从 Gitee 下载</kbd>](https://gitee.com/madmaxchow/VLOOK/releases?kbd=alt)
+>  [<kbd>![](pic/icon-download.svg?fill=text) 从 GitHub 下载</kbd>](https://github.com/MadMaxChow/VLOOK/releases)  *[<kbd>![](pic/icon-download.svg?fill=text) 从 Gitee 下载</kbd>](https://gitee.com/madmaxchow/VLOOK/releases)*
 >
 >
 > _~Gn!~_
@@ -296,7 +304,15 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 >
 > _~Og~_
 
-> **想拥有更个性的主题吗？** [<kbd>![](pic/icon-vip.svg?fill=text#icon) 了解定制服务</kbd>](vip.md)
+
+
+
+
+**[<kbd>![](pic/icon-vip.svg?fill=text#icon) 了解 VLOOK™ 定制主题服务</kbd>](vip.md)**
+
+
+
+
 
 > ###### 建议从范例文件开始你的写作
 >
@@ -305,7 +321,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 > 1. 在目录 *==released\samples==*  下的 `.md` 文件都是范例文件；
 > 2. 也可直接在项目主页目录中下载：
 >
-> [<kbd>![](pic/icon-download.svg?fill=text) 下载范例</kbd>](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)  [<kbd>![](pic/icon-download.svg?fill=text) 备用链接</kbd>](https://gitee.com/madmaxchow/VLOOK/tree/master/released/samples?kbd=alt)
+> [<kbd>![](pic/icon-download.svg?fill=text) 下载范例</kbd>](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)  *[<kbd>![](pic/icon-download.svg?fill=text) 备用链接</kbd>](https://gitee.com/madmaxchow/VLOOK/tree/master/released/samples)*
 
 ## 配置导出选项
 
@@ -379,7 +395,7 @@ VLOOK™ 的界面语言默认内置了「**英文**、**简体中文**」，对
 
 在线版的插件文件为：*==released/plugin/**plugin_live.txt**==*
 
-[<kbd>![](pic/icon-download.svg?fill=text) 下载在线版插件</kbd>](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin_live.txt)  [<kbd>![](pic/icon-download.svg?fill=text) 备用链接</kbd>](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin_live.txt?kbd=alt)
+[<kbd>![](pic/icon-download.svg?fill=text) 下载在线版插件</kbd>](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin_live.txt)  *[<kbd>![](pic/icon-download.svg?fill=text) 备用链接</kbd>](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin_live.txt)*
 
 ## 升级与兼容性
 

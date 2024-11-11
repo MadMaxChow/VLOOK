@@ -23,7 +23,7 @@ vlook-gray-mode: 05-12
 
 [TOC]
 
-> Select language ❯ [<kbd>🇨🇳 简体中文</kbd>](index.md?kbd=alt)
+> Select language ❯ *[<kbd>🇨🇳 简体中文</kbd>](index.md)*
 
 # What is VLOOK™
 
@@ -99,13 +99,21 @@ vlook-gray-mode: 05-12
 
 > **感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**
 >
-> ＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 # Quick Start
 
 VLOOK™ continues to **explore and expand** Markdown and CSS, and at the same time combines the Internet-based application scenarios of documents~
 
 In **the document layout** , **content navigation** , **presentation aid** , **interactive experience** provided and other aspects of the **consistent** , **concise** , **and friendly** experience.
+
+
+
+*==Introduction video==*
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113423643837219&bvid=BV1miDpY5ERh&cid=26611613913&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+
 
 ---
 
@@ -117,7 +125,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > In addition to providing rich capabilities for document layout and content identification, it also enables static documents to "move" with you based on HTML format.
 >
-> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Formatting)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
+> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Formatting)  *[<kbd>Samples</kbd>](index-en.md#Samples)*
 >
 > _~Vn!~_
 
@@ -129,7 +137,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > Feel free to enjoy at any time according to your needs and preferences~
 >
-> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Navigation)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
+> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Navigation)  *[<kbd>Samples</kbd>](index-en.md#Samples)*
 >
 > _~Bu!~_
 
@@ -143,7 +151,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > It is a very suitable presentation assistance tool for on-site and remote use, enabling Turbo mode for your documents~
 >
-> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Presentation and Publishing)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
+> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Presentation and Publishing)  *[<kbd>Samples</kbd>](index-en.md#Samples)*
 >
 > _~Og!~_
 
@@ -155,7 +163,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > 　　　　--- MAX°孟兆
 >
-> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Appearance & Essentials)  [<kbd>Samples</kbd>](index-en.md?kbd=alt#Samples)
+> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Appearance & Essentials)  *[<kbd>Samples</kbd>](index-en.md#Samples)*
 >
 > _~Lm!~_
 
@@ -214,7 +222,7 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 >
 > Download the latest version from the homepage of VLOOK™ (Or directly select and download the required files from the repository in the subsequent steps):
 > 
->  [<kbd>![](pic/icon-download.svg?fill=text) via GitHub</kbd>](https://github.com/MadMaxChow/VLOOK/releases)  [<kbd>![](pic/icon-download.svg?fill=text) via Gitee</kbd>](https://gitee.com/madmaxchow/VLOOK/releases?kbd=alt)
+>  [<kbd>![](pic/icon-download.svg?fill=text) via GitHub</kbd>](https://github.com/MadMaxChow/VLOOK/releases)  *[<kbd>![](pic/icon-download.svg?fill=text) via Gitee</kbd>](https://gitee.com/madmaxchow/VLOOK/releases)*
 >
 >
 > _~Gn~_
@@ -258,7 +266,15 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 >
 > _~Og~_
 
-> **Want a more personalized theme? ** [<kbd>![](pic/icon-vip.svg?fill=text#icon) Learn about our Custom Services</kbd>](vip.md)
+
+
+
+
+**[<kbd>![](pic/icon-vip.svg?fill=text#icon) Learn about VLOOK™ Theme Custom Services</kbd>](vip.md)**
+
+
+
+
 
 > ###### Start Writing from the Samples
 >
@@ -267,7 +283,7 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 > 1. All `.md` type files in the directory *==released/samples==* is samples;
 > 2. You can also download the document templates directly from project homepage:
 >
-> [<kbd>![](pic/icon-download.svg?fill=text) Download samples</kbd>](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)  [<kbd>![](pic/icon-download.svg?fill=text) Alternative link</kbd>](https://gitee.com/madmaxchow/VLOOK/tree/master/released/samples?kbd=alt)
+> [<kbd>![](pic/icon-download.svg?fill=text) Download samples</kbd>](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)  *[<kbd>![](pic/icon-download.svg?fill=text) Alternative link</kbd>](https://gitee.com/madmaxchow/VLOOK/tree/master/released/samples)*
 
 ## Configure Export Options
 
@@ -343,7 +359,7 @@ At present, VLOOK™ supports the online version of plug-in. You can refer to th
 
 The online version of the plugin file is: *==released/plugin/**plugin_live.txt**==*
 
-[<kbd>![](pic/icon-download.svg?fill=text) Download live version</kbd>](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin_live.txt)  [<kbd>![](pic/icon-download.svg?fill=text) Alternative link</kbd>](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt?kbd=alt)
+[<kbd>![](pic/icon-download.svg?fill=text) Download live version</kbd>](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin_live.txt)  *[<kbd>![](pic/icon-download.svg?fill=text) Alternative link</kbd>](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt)*
 
 ## Upgrades and Compatibility
 

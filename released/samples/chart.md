@@ -41,11 +41,17 @@ vlook-doc-lib: vlook-lib.html
 
 ## 关于 Mermaid
 
-Mermaid 是一个用于画流程图、状态机图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [Mermaid 官网](https://mermaid.js.org)
+Mermaid 是一个用于画流程图、状态机图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。
 
 **目前 Typora + VLOOK™ 的最新版本，可支持下脚本化图表的制作和生成：**
 
 [![流程图](pic/dg-flowcharts.png?srcset=@2x&darksrc=invert#logo#border)](#流程图)　[![顺序图](pic/dg-seq.png?srcset=@2x&darksrc=invert#logo#border)](#顺序图)　[![状态机图](pic/dg-state.png?srcset=@2x&darksrc=invert#logo#border)](#状态机图)　[![类图](pic/dg-class.png?srcset=@2x&darksrc=invert#logo#border)](#类图)　[![实体关系图](pic/dg-er.png?srcset=@2x&darksrc=invert#logo#border)](#实体关系图)　[![用户旅程地图](pic/dg-uj.png?srcset=@2x&darksrc=invert#logo#border)](#用户旅程地图)　[![甘特图](pic/dg-gantt.png?srcset=@2x&darksrc=invert#logo#border)](#甘特图)　[![饼图](pic/dg-pie.png?srcset=@2x&darksrc=invert#logo#border)](#饼图)　[![Gitgraph 图](pic/dg-gitgraph.png?srcset=@2x&darksrc=invert#logo#border)](#Gitgraph-图)　[![思维导图](pic/dg-mindmap.png?srcset=@2x&darksrc=invert#logo#border)](#思维导图)　[![需求图](pic/dg-req.png?srcset=@2x&darksrc=invert#logo#border)](#需求图)　[![时间线](pic/dg-timeline.png?srcset=@2x&darksrc=invert#logo#border)](#时间线)　[![C4 图](pic/dg-c4.png?srcset=@2x&darksrc=invert#logo#border)](#C4-图)　[![ZenUML 图](pic/dg-zenuml.png?srcset=@2x&darksrc=invert#logo#border)](#ZenUML-图)
+
+
+
+**[<kbd>前往 Mermaid 官网了解更多内容 ❯</kbd>](https://mermaid.js.org)**
+
+
 
 ## 关于 Markdown
 

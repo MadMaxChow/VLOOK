@@ -41,17 +41,19 @@ vlook-doc-lib: vlook-lib.html
 >
 > ---
 >
-> 考虑到 Markdown 文档适用的范围广，以及众多的个性展示的需求，如**专项、专题性强的文档，或是面向客户带品牌展示**_~T1T2~_等需求，我们提供了**定制主题的服务，满足个性化的需要**_~T1T2~_～
+> 考虑众多的个性展示的需求，如**专项、专题性强的文档，或是面向客户带品牌展示**_~T1T2~_等需求，我们提供了**定制主题的服务，满足个性化的需要**_~T1T2~_～
 >
 > 如：产品宣传手册、专题培训、行业报告等等
 
-> VLOOK™ 会持续开放主题的定制选项，以及功能特性的默认行为～
+> VLOOK™ 会持续开放主题的定制选项，以及功能特性的默认配置～
 >
 > ---
 >
-> [<kbd>![](pic/icon-vip.svg?fill=text#icon)  提交我的定制需求</kbd>](https://wj.qq.com/s2/14818521/bd33/)
+> 
 >
-> [<kbd>💬 加入 QQ 群</kbd>](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&kbd=alt)  [<kbd>✈️ 加入 Telegram 频道 </kbd>](https://t.me/vlook_markdown?kbd=alt)
+> **[<kbd>![](pic/icon-vip.svg?fill=text#icon)  提交我的定制主题需求</kbd>](https://wj.qq.com/s2/14818521/bd33/)**
+>
+> 
 
 #定制主题案例展示 
 
@@ -102,7 +104,7 @@ vlook-doc-lib: vlook-lib.html
 >
 > [<kbd>💬 加入 QQ 群</kbd>](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")
 >
-> [<kbd>✈️ 加入 Telegram 频道 </kbd>](https://t.me/vlook_markdown?kbd=alt)
+> *[<kbd>✈️ 加入 Telegram 频道 </kbd>](https://t.me/vlook_markdown)*
 
 > **直接联系**
 >

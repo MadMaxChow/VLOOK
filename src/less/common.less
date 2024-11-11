@@ -48,28 +48,28 @@
 // 无圆角（方角）
 .applyKbdRadius(@kbdStyle) when (@kbdStyle = none) {
     #write a kbd {
-        padding: 6px 8px;
+        padding: 6px 9px;
         border-radius: 0;
     }
 }
 // 小圆角
 .applyKbdRadius(@kbdStyle) when (@kbdStyle = small) {
     #write a kbd {
-        padding: 7px 9px;
+        padding: 7px 10px;
         border-radius: var(--v-r-s);
     }
 }
 // 大圆角
 .applyKbdRadius(@kbdStyle) when (@kbdStyle = big) {
     #write a kbd {
-        padding: 8px 10px;
+        padding: 8px 12px;
         border-radius: 40px;
     }
 }
 // 叶子圆角
 .applyKbdRadius(@kbdStyle) when (@kbdStyle = leaf) {
     #write a kbd {
-        padding: 8px 10px;
+        padding: 8px 12px;
         border-radius: calc(var(--v-r-b) - 2px) calc(var(--v-r-b-xc) - 2px);
     }
 }
@@ -758,18 +758,22 @@
         border-color: var(--a-hover-color);
     }
     // 次要按钮
-    #write .md-alert-@{type} a@{kbdAlt} kbd {
+    // #write .md-alert-@{type} a@{kbdAlt} kbd,
+    #write .md-alert-@{type} @{kbdSec} {
         color: @btnBg;
         background: var(--d-bc);
         border-color: @btnBg;
     }
-    #write .md-alert-@{type} a@{kbdAlt} kbd>img[src*="fill=text"] {
+    // #write .md-alert-@{type} a@{kbdAlt} kbd>img[src*="fill=text"],
+    #write .md-alert-@{type} @{kbdSec}>img[src*="fill=text"] {
         filter: drop-shadow(@fillOffset 0 0 @btnBg) !important;
     }
-    #write .md-alert-@{type} a@{kbdAlt} kbd>@{svgGs} {
+    // #write .md-alert-@{type} a@{kbdAlt} kbd>@{svgGs},
+    #write .md-alert-@{type} @{kbdSec}>@{svgGs} {
         fill: @btnBg !important;
     }
-    #write .md-alert-@{type} a@{kbdAlt} kbd:hover @{svgGs} {
+    // #write .md-alert-@{type} a@{kbdAlt} kbd:hover @{svgGs},
+    #write .md-alert-@{type} @{kbdSec}:hover @{svgGs} {
         fill: var(--a-hover-color) !important;
     }
     // 复选框控件
