@@ -132,3 +132,7 @@ Der **Private Customization Service** für Themes ist jetzt verfügbar! Hier ein
 | &nbsp;&nbsp;&nbsp;┠─ [ **dev** ] | Entwicklungs- und Testdateien                                       |
 | &nbsp;&nbsp;&nbsp;┠─ [ **less** ] | Die Quelldatei der Theme-CSS-Dateien                        |
 | &nbsp;&nbsp;&nbsp;┖─ [ **logo** ] | VLOOK™ Logo-Ressource |
+
+# Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=MadMaxChow/VLOOK&type=Date)](https://star-history.com/#MadMaxChow/VLOOK&Date)
