@@ -11,7 +11,9 @@ window.addEventListener('message', function(event) {
     let receMessage = event.data;
         // resultDiv = document.getElementById("check-result");
     // 校验消息合法性
-    if (typeof receMessage === "string" && !receMessage.startsWith("V") || receMessage.length > 6)
+    if (typeof receMessage !== "string")
+        return;
+    if (!receMessage.startsWith("V") || receMessage.length > 6)
         return;
 
     // resultDiv.innerText += `\nLastest version [${latestVer}]`;
@@ -31,7 +33,7 @@ window.addEventListener('message', function(event) {
     // 回复消息
     event.source.postMessage("chk-update:" + result
         + ((srcVer < 27) ? "" : ",latest:" + latestVer), // 27.0+ 的新格式内容
-        event.origin || "*");
+        event.origin || "");
 });
 </script>
 </body>
