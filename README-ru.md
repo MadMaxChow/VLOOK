@@ -132,3 +132,7 @@ VLOOK™ предлагает **последовательный**, **прост
 | &nbsp;&nbsp;&nbsp;┠─ [ **dev** ] | Файлы для разработки и тестирования                                       |
 | &nbsp;&nbsp;&nbsp;┠─ [ **less** ] | Исходный файл для темы CSS                        |
 | &nbsp;&nbsp;&nbsp;┖─ [ **logo** ] | Ресурсы логотипа VLOOK™ |
+
+# Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=MadMaxChow/VLOOK&type=Date)](https://star-history.com/#MadMaxChow/VLOOK&Date)
