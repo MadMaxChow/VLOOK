@@ -138,3 +138,7 @@ VLOOK™ は、Markdown と CSS の**拡張と拡掘**を通じて、インタ�
 | &nbsp;&nbsp;&nbsp;┠─ [ **dev** ] | 開発およびテストファイル                                       |
 | &nbsp;&nbsp;&nbsp;┠─ [ **less** ] | テーマ CSS ファイルのソースファイル                        |
 | &nbsp;&nbsp;&nbsp;┖─ [ **logo** ] | VLOOK™ ロゴリソース |
+
+# Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=MadMaxChow/VLOOK&type=Date)](https://star-history.com/#MadMaxChow/VLOOK&Date)
