@@ -15,11 +15,11 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ar1" content="غلاف المستند">
 <meta name="vk-ar2" content="طباعة...">
 <meta name="vk-ar3" content="خريطة الروابط">
-<meta name="vk-ar4" content="كيف تفعيل؟">
-<meta name="vk-ar5" content="انقر ثلاث مرات بالماوس على أي فقرة في المستند">
+<meta name="vk-ar4" content="مُفعل">
+<meta name="vk-ar5" content="أو مع">
 <meta name="vk-ar6" content="مركز التنقل">
 <meta name="vk-ar7" content="مكتبة المستندات">
-<meta name="vk-ar8" content="وضع تنقل الفقرات">
+<meta name="vk-ar8" content="التنقل عبر الفقرات">
 <meta name="vk-ar9" content="أضواء">
 <meta name="vk-ar10" content="مؤشر الليزر">
 <meta name="vk-ar11" content="CJK">

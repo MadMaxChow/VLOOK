@@ -15,11 +15,11 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de1" content="Dokumentdeckblatt">
 <meta name="vk-de2" content="Drucken...">
 <meta name="vk-de3" content="Link-Karte">
-<meta name="vk-de4" content="Wie aktivieren?">
-<meta name="vk-de5" content="Dreifachklick mit der Maus auf einen beliebigen Absatz im Dokument">
+<meta name="vk-de4" content="Aktiviert">
+<meta name="vk-de5" content="oder mit">
 <meta name="vk-de6" content="Navigationszentrum">
 <meta name="vk-de7" content="Dokumentenbibliothek">
-<meta name="vk-de8" content="Absatz-Navigationsmodus">
+<meta name="vk-de8" content="Absatznavigation">
 <meta name="vk-de9" content="Spotlight">
 <meta name="vk-de10" content="Laserpointer">
 <meta name="vk-de11" content="CJK">

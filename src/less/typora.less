@@ -1394,7 +1394,7 @@ content .md-toc::before {
 // 导出 HTML 后的目录大纲内的自动编码内容
 // 包括导航中心、#write 内的正文
 @{onHTML} :is(.md-toc-h1, .md-toc-h2, .md-toc-h3, .md-toc-h4, .md-toc-h5)::before {
-    content: attr(d-header-num) " " !important;
+    content: attr(data-header-num) " " !important;
 }
 
 .typora-export-show-outline .typora-export-content {
@@ -1785,7 +1785,9 @@ body[class*="ty-on-typewriter-mode"] @{writeOnEditing}, // 编辑时，如启用
     font-size: @h7FontSize;
     padding: 0 0 .3125em 0;
     margin-bottom: .3125em;
-    text-align: left;
+    // text-align: left;
+    text-align: @h7TextAlign;
+    justify-content: @h7TextAlign;
     display: flex;
     align-items: center;
     vertical-align: middle;

@@ -15,11 +15,11 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko1" content="문서 표지">
 <meta name="vk-ko2" content="인쇄...">
 <meta name="vk-ko3" content="링크 지도">
-<meta name="vk-ko4" content="어떻게 활성화하나요?">
-<meta name="vk-ko5" content="문서 내의 아무 단락에서 마우스를 세 번 클릭하세요">
+<meta name="vk-ko4" content="사용 가능">
+<meta name="vk-ko5" content="또는">
 <meta name="vk-ko6" content="탐색 센터">
 <meta name="vk-ko7" content="문서 라이브러리">
-<meta name="vk-ko8" content="단락 탐색 모드">
+<meta name="vk-ko8" content="단락 탐색">
 <meta name="vk-ko9" content="스포트라이트">
 <meta name="vk-ko10" content="레이저 포인터">
 <meta name="vk-ko11" content="중일한">

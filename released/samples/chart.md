@@ -910,7 +910,7 @@ quadrantChart
 
 > ###### 查看完整画图脚本示例
 >
-> ````四象限画图脚本示例
+> ````四象限图脚本示例
 >```mermaid
 > quadrantChart
 >  title Reach and engagement of campaigns
@@ -929,6 +929,63 @@ quadrantChart
 >    ```
 >    ````
 > [<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/quadrantChart.html)
+
+## 数据包图
+
+*==数据包图示例==*
+
+```mermaid
+---
+title: "TCP Packet"
+---
+packet-beta
+0-15: "Source Port"
+16-31: "Destination Port"
+32-63: "Sequence Number"
+64-95: "Acknowledgment Number"
+96-99: "Data Offset"
+100-105: "Reserved"
+106: "URG"
+107: "ACK"
+108: "PSH"
+109: "RST"
+110: "SYN"
+111: "FIN"
+112-127: "Window"
+128-143: "Checksum"
+144-159: "Urgent Pointer"
+160-191: "(Options and Padding)"
+192-255: "Data (variable length)"
+
+```
+
+> ###### 查看完整画图脚本示例
+>
+> ```数据包图脚本示例
+> ---
+> title: "TCP Packet"
+> ---
+> packet-beta
+> 0-15: "Source Port"
+> 16-31: "Destination Port"
+> 32-63: "Sequence Number"
+> 64-95: "Acknowledgment Number"
+> 96-99: "Data Offset"
+> 100-105: "Reserved"
+> 106: "URG"
+> 107: "ACK"
+> 108: "PSH"
+> 109: "RST"
+> 110: "SYN"
+> 111: "FIN"
+> 112-127: "Window"
+> 128-143: "Checksum"
+> 144-159: "Urgent Pointer"
+> 160-191: "(Options and Padding)"
+> 192-255: "Data (variable length)"
+> ```
+>
+> [<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/packet.html)
 
 ## 需求图
 
@@ -1076,6 +1133,50 @@ test_req <- copies - test_entity2
 > ```
 > ````
 > [<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/requirementDiagram.html)
+
+## 架构图
+
+```mermaid
+architecture-beta
+    service left_disk(disk)[Disk]
+    service top_disk(disk)[Disk]
+    service bottom_disk(disk)[Disk]
+    service top_gateway(internet)[Gateway]
+    service bottom_gateway(internet)[Gateway]
+    junction junctionCenter
+    junction junctionRight
+
+    left_disk:R -- L:junctionCenter
+    top_disk:B -- T:junctionCenter
+    bottom_disk:T -- B:junctionCenter
+    junctionCenter:R -- L:junctionRight
+    top_gateway:B -- T:junctionRight
+    bottom_gateway:T -- B:junctionRight
+
+```
+
+> ###### 查看完整画图脚本示例
+>
+> ```架构图示例脚本
+> architecture-beta
+>     service left_disk(disk)[Disk]
+>     service top_disk(disk)[Disk]
+>     service bottom_disk(disk)[Disk]
+>     service top_gateway(internet)[Gateway]
+>     service bottom_gateway(internet)[Gateway]
+>     junction junctionCenter
+>     junction junctionRight
+> 
+>     left_disk:R -- L:junctionCenter
+>     top_disk:B -- T:junctionCenter
+>     bottom_disk:T -- B:junctionCenter
+>     junctionCenter:R -- L:junctionRight
+>     top_gateway:B -- T:junctionRight
+>     bottom_gateway:T -- B:junctionRight
+> 
+> ```
+>
+> [<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/architecture.html)
 
 ## C4 图
 
@@ -1889,6 +1990,68 @@ pie title Q3 2019 中国线上智能手机市场主要品牌市场份额
 > ```
 > ````
 > [<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/pie.html)
+
+## 看板图
+
+*==看板图示例==*
+
+```mermaid
+---
+config:
+  kanban:
+    ticketBaseUrl: 'https://mermaidchart.atlassian.net/browse/#TICKET#'
+---
+kanban
+  Todo
+    [Create Documentation]
+    docs[Create Blog about the new diagram]
+  [In progress]
+    id6[Create renderer so that it works in all cases. We also add som extra text here for testing purposes. And some more just for the extra flare.]
+  id9[Ready for deploy]
+    id8[Design grammar]@{ assigned: 'knsv' }
+  id10[Ready for test]
+    id4[Create parsing tests]@{ ticket: MC-2038, assigned: 'K.Sveidqvist', priority: 'High' }
+    id66[last item]@{ priority: 'Very Low', assigned: 'knsv' }
+  id11[Done]
+    id5[define getData]
+    id2[Title of diagram is more than 100 chars when user duplicates diagram with 100 char]@{ ticket: MC-2036, priority: 'Very High'}
+    id3[Update DB function]@{ ticket: MC-2037, assigned: knsv, priority: 'High' }
+
+  id12[Can't reproduce]
+    id3[Weird flickering in Firefox]
+
+```
+
+> ###### 查看完整画图脚本示例
+>
+> ```看板图示例
+> ---
+> config:
+>   kanban:
+>     ticketBaseUrl: 'https://mermaidchart.atlassian.net/browse/#TICKET#'
+> ---
+> kanban
+>   Todo
+>     [Create Documentation]
+>     docs[Create Blog about the new diagram]
+>   [In progress]
+>     id6[Create renderer so that it works in all cases. We also add som extra text here for testing purposes. And some more just for the extra flare.]
+>   id9[Ready for deploy]
+>     id8[Design grammar]@{ assigned: 'knsv' }
+>   id10[Ready for test]
+>     id4[Create parsing tests]@{ ticket: MC-2038, assigned: 'K.Sveidqvist', priority: 'High' }
+>     id66[last item]@{ priority: 'Very Low', assigned: 'knsv' }
+>   id11[Done]
+>     id5[define getData]
+>     id2[Title of diagram is more than 100 chars when user duplicates diagram with 100 char]@{ ticket: MC-2036, priority: 'Very High'}
+>     id3[Update DB function]@{ ticket: MC-2037, assigned: knsv, priority: 'High' }
+> 
+>   id12[Can't reproduce]
+>     id3[Weird flickering in Firefox]
+> 
+> ```
+>
+> [<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/kanban.html)
 
 ## 甘特图
 

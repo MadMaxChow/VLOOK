@@ -15,11 +15,11 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-fr1" content="Couverture du document">
 <meta name="vk-fr2" content="Impression...">
 <meta name="vk-fr3" content="Carte de liens">
-<meta name="vk-fr4" content="Comment activer?">
-<meta name="vk-fr5" content="Triple-cliquez avec la souris sur n'importe quel paragraphe du document">
+<meta name="vk-fr4" content="Activé">
+<meta name="vk-fr5" content="ou avec">
 <meta name="vk-fr6" content="Centre de Navigation">
 <meta name="vk-fr7" content="Bibliothèque de documents">
-<meta name="vk-fr8" content="Mode de Navigation par Paragraphe">
+<meta name="vk-fr8" content="Navigation par paragraphe">
 <meta name="vk-fr9" content="Projecteur">
 <meta name="vk-fr10" content="Pointeur Laser.">
 <meta name="vk-fr11" content="CJK">

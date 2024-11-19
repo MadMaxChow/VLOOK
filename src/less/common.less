@@ -459,8 +459,9 @@
     @{writeOnHTML} @{quote_details}>:not(@{hr_MdHr})+ol>li:hover::before,
     @{writeOnEditing}>:not(@{hr_MdHr})+ol>li.md-focus-container::before,
     @{writeOnEditing} @{quote_details}>:not(@{hr_MdHr})+ol>li.md-focus-container::before {
-        color: var(--d-bc);
-        background-color: var(--a-hover-color);
+        // color: var(--d-bc);
+        color: @buttonForeHoverColor !important;
+        background-color: var(--a-hover-color) !important;
         box-shadow: none;
     }
 
@@ -521,6 +522,7 @@
     @{iframeVideo} @{qqVideo},
     @{iframeVideo} @{youtubeVideo},
     // 编辑时 Mermaid 图的预览
+    .mermaid-svg, // Typora 1.10.2-dev 开始启用
     .md-diagram-panel-preview>svg {
         margin-left: auto !important;
         margin-right: auto !important;
@@ -532,9 +534,11 @@
     @nonFigure: ~':not(:is([data-src*="#icon"],[data-src*="#logo"]))';
     @{writeOnEditing} p:has([md-inline="em"]:only-child>em>[md-inline="highlight"]>mark),
     #write .md-fences-adv-panel, // Mermaid 图
+    // summary,
     .v-cap-cntr, // 导出后题注居中
     .v-caption.tbl>.v-cap-1 { // 表格题注样式
         text-align: center !important;
+        // justify-content: center !important;
     }
 
     #write .v-post-card, // 明信片样式

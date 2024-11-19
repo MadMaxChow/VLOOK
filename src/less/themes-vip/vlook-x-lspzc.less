@@ -78,14 +78,16 @@
 
 // @tocHeaderNumColor: @docTextColorLightFade;
 // @contentHeaderNumColor: @themeForeColorFade;
-@h1Bg: linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
+// @h1Bg: linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
+@h1Bg: linear-gradient(353deg, transparent, transparent 40%, var(--d-fc) 50%, var(--d-fc) 55%, transparent 60%, transparent 100%) 0 100% / 100% 5px no-repeat;
 // @continuousHeaderBG: none;
-// @headerTextAlign: center;
-@h1TextAlign: center;
-@headerPadding: 10px 0 0 0;
+@headerTextAlign: center;
+// @h1TextAlign: center;
+@headerPadding: 10px 0;
 //@headerLetterSpacing: 0;//0.15em;
 
 // 不进行章节自动编号
+@headerNumSeparator: "";
 @vChpAutoNum: "h1{{#none#}},h2{{#none#}},h3{{#none#}},h4{{#none#}},h5{{#none#}}";
 @h1BeforeContent: "";
 @h2BeforeContent: "";
@@ -94,8 +96,8 @@
 @h5BeforeContent: "";
 
 // 标题边框
-@h1BorderTop: 5px solid var(--h-box-shadow);
-@h2BorderBottom: 2px solid var(--h-box-shadow);
+// @h1BorderTop: 5px solid var(--h-box-shadow);
+// @h2BorderBottom: 2px solid var(--h-box-shadow);
 @h1Margin: 2em 0 0 0;
 @h2Margin: 2em 0 0 0;
 @h3Margin: 1.5em 0 0 0;

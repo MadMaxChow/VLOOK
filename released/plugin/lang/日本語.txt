@@ -15,11 +15,11 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja1" content="ドキュメントカバー">
 <meta name="vk-ja2" content="印刷...">
 <meta name="vk-ja3" content="リンクマップ">
-<meta name="vk-ja4" content="どうやって有効にしますか？">
-<meta name="vk-ja5" content="文書内の任意の段落をマウスで三回クリックします">
+<meta name="vk-ja4" content="有効化">
+<meta name="vk-ja5" content="または">
 <meta name="vk-ja6" content="ナビゲーションセンター">
 <meta name="vk-ja7" content="文書ライブラリ">
-<meta name="vk-ja8" content="段落ナビゲーションモード">
+<meta name="vk-ja8" content="段落ナビゲーション">
 <meta name="vk-ja9" content="スポットライト">
 <meta name="vk-ja10" content="レーザーポインター">
 <meta name="vk-ja11" content="中韓日">

@@ -419,9 +419,13 @@
     // 代码块的系统菜单样式
     --v-i-sys-menu: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCA1MiAxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxjaXJjbGUgc3Ryb2tlPSIjRTY1NzUwIiBmaWxsPSIjRkU2MDU4IiBjeD0iNiIgY3k9IjYiIHI9IjUuNSIvPjxjaXJjbGUgc3Ryb2tlPSIjRTZBQjJBIiBmaWxsPSIjRkZCRTJGIiBjeD0iMjYiIGN5PSI2IiByPSI1LjUiLz48Y2lyY2xlIHN0cm9rZT0iIzIxQjAzOSIgZmlsbD0iIzI2Qzk0MSIgY3g9IjQ2IiBjeT0iNiIgcj0iNS41Ii8+PC9nPjwvc3ZnPg==");
 
-    --key-bg-lg: @keycapColor;
-    --key-reflect-lg: lighten(@keycapColor, 20%);
-    --key-shadow-lg: darken(@keycapColor, 30%);
+    --kbd-bg-lg: @keycapColor;
+    --kbd-reflect-lg: lighten(@keycapColor, 20%);
+    --kbd-shadow-lg: darken(@keycapColor, 30%);
+    // 反转色
+    --kbd-bg-i-lg: var(--kbd-bg-dk);
+    --kbd-reflect-i-lg: var(--kbd-reflect-dk);
+    --kbd-shadow-i-lg: var(--kbd-shadow-dk);
 
     --doc-shadow-lg: rgba(0, 0, 0, .2);
 
@@ -555,9 +559,13 @@
     --v-fig-grid-l-invert-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEX78+v7xY/7nD37qlj7hxPQTWj+AAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
     --v-fig-grid-b-invert-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEXwrmvNlVyQaUGvf09WPygcqEMaAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
 
-    --key-bg-dk: @keycapColorDark;
-    --key-reflect-dk: lighten(@keycapColorDark, 20%);
-    --key-shadow-dk: darken(@keycapColorDark, 20%);
+    --kbd-bg-dk: @keycapColorDark;
+    --kbd-reflect-dk: lighten(@keycapColorDark, 20%);
+    --kbd-shadow-dk: darken(@keycapColorDark, 20%);
+    // 反转色
+    --kbd-bg-i-dk: var(--kbd-bg-lg);
+    --kbd-reflect-i-dk: var(--kbd-reflect-lg);
+    --kbd-shadow-i-dk: var(--kbd-shadow-lg);
 
     --doc-shadow-dk: rgba(0, 0, 0, .8);
 
@@ -716,9 +724,13 @@
     --v-fig-grid-l-invert: var(--v-fig-grid-l-invert-lg);
     --v-fig-grid-b-invert: var(--v-fig-grid-b-invert-lg);
 
-    --key-bg: var(--key-bg-lg);
-    --key-reflect: var(--key-reflect-lg);
-    --key-shadow: var(--key-shadow-lg);
+    --kbd-bg: var(--kbd-bg-lg);
+    --kbd-reflect: var(--kbd-reflect-lg);
+    --kbd-shadow: var(--kbd-shadow-lg);
+    // 反转色
+    --kbd-bg-i: var(--kbd-bg-dk);
+    --kbd-reflect-i: var(--kbd-reflect-dk);
+    --kbd-shadow-i: var(--kbd-shadow-dk);
 
     --doc-shadow: var(--doc-shadow-lg);
     --img-bd-invert: var(--img-bd-invert-lg);

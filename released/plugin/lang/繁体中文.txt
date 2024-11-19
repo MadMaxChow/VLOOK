@@ -15,11 +15,11 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk1" content="文件封面">
 <meta name="vk-zh-hk2" content="打印...">
 <meta name="vk-zh-hk3" content="連結地圖">
-<meta name="vk-zh-hk4" content="如何啟用？">
-<meta name="vk-zh-hk5" content="在文件中的任何段落上用滑鼠三擊">
+<meta name="vk-zh-hk4" content="已啟用">
+<meta name="vk-zh-hk5" content="或使用">
 <meta name="vk-zh-hk6" content="導航中心">
 <meta name="vk-zh-hk7" content="瀏覽文庫">
-<meta name="vk-zh-hk8" content="段落導航 模式">
+<meta name="vk-zh-hk8" content="段落導航">
 <meta name="vk-zh-hk9" content="聚光燈">
 <meta name="vk-zh-hk10" content="激光筆">
 <meta name="vk-zh-hk11" content="中日韩">
