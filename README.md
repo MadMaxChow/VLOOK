@@ -44,7 +44,7 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 ---
 
-[📺 点击这里观看官宣视频](https://www.bilibili.com/video/BV1miDpY5ERh/?vd_source=ecc3f6f8f7d9fbfaa5745863cf7d6250)
+[![优雅好用的Typora-Markdown主题×插件VLOOK™，让你的文档有了新看法让你的文档有了新看法～-封面](https://github.com/user-attachments/assets/08b0386e-bdaf-4aa4-a4dc-a04dd800ed11)<br>📺 点击这里观看官宣视频](https://www.bilibili.com/video/BV1miDpY5ERh/?vd_source=ecc3f6f8f7d9fbfaa5745863cf7d6250)
 
 ---
 
