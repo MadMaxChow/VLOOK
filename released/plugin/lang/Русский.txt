@@ -16,10 +16,10 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru2" content="Печать...">
 <meta name="vk-ru3" content="Ссылочная карта">
 <meta name="vk-ru4" content="Включено">
-<meta name="vk-ru5" content="или с">
+<meta name="vk-ru5" content=" для изменения размера шага">
 <meta name="vk-ru6" content="Навигационный центр">
 <meta name="vk-ru7" content="Библиотека документов">
-<meta name="vk-ru8" content="Навигация по абзацам">
+<meta name="vk-ru8" content="Переход по абзацам">
 <meta name="vk-ru9" content="Спотлайт">
 <meta name="vk-ru10" content="Лазерный указатель">
 <meta name="vk-ru11" content="CJK">
@@ -44,8 +44,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru30" content="Скопировать код">
 <meta name="vk-ru31" content="Скопировать ссылку на изображение">
 <meta name="vk-ru32" content="Скопировать содержимое таблицы">
-<meta name="vk-ru33" content="Регулировка размера луча фонарика">
-<meta name="vk-ru34" content="Выход">
+<meta name="vk-ru33" content="Переключение размера прожектора">
+<meta name="vk-ru34" content="Пауза">
 <meta name="vk-ru35" content="Оглавление">
 <meta name="vk-ru36" content="- Выпущена новая версия, пожалуйста, обновите!">
 <meta name="vk-ru37" content="Извините, функция копирования в этом браузере на данный момент не поддерживается">

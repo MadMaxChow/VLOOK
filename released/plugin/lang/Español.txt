@@ -16,10 +16,10 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-es2" content="Imprimir...">
 <meta name="vk-es3" content="Enlace al mapa">
 <meta name="vk-es4" content="Habilitado">
-<meta name="vk-es5" content="o con">
+<meta name="vk-es5" content=" para cambiar el tamaño del paso">
 <meta name="vk-es6" content="Centro de Navegación">
 <meta name="vk-es7" content="Biblioteca de Documentos">
-<meta name="vk-es8" content="Navegación por párrafos">
+<meta name="vk-es8" content="Desplazamiento por párrafos">
 <meta name="vk-es9" content="Proyector">
 <meta name="vk-es10" content="Lápiz Láser">
 <meta name="vk-es11" content="CJK">
@@ -44,8 +44,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-es30" content="Copiar código">
 <meta name="vk-es31" content="Copiar dirección de la imagen">
 <meta name="vk-es32" content="Copiar contenido de la tabla">
-<meta name="vk-es33" content="Cambiar el tamaño del proyector">
-<meta name="vk-es34" content="Salir">
+<meta name="vk-es33" content="Cambiar el tamaño del foco">
+<meta name="vk-es34" content="Pausa">
 <meta name="vk-es35" content="Índice">
 <meta name="vk-es36" content="- Se ha lanzado una nueva versión, ¡por favor actualiza!">
 <meta name="vk-es37" content="Lo siento, copiar no es compatible con este navegador en este momento">

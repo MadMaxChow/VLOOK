@@ -16,10 +16,10 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk2" content="打印...">
 <meta name="vk-zh-hk3" content="連結地圖">
 <meta name="vk-zh-hk4" content="已啟用">
-<meta name="vk-zh-hk5" content="或使用">
+<meta name="vk-zh-hk5" content="切換步長大小">
 <meta name="vk-zh-hk6" content="導航中心">
 <meta name="vk-zh-hk7" content="瀏覽文庫">
-<meta name="vk-zh-hk8" content="段落導航">
+<meta name="vk-zh-hk8" content="段落漫遊">
 <meta name="vk-zh-hk9" content="聚光燈">
 <meta name="vk-zh-hk10" content="激光筆">
 <meta name="vk-zh-hk11" content="中日韩">
@@ -44,8 +44,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk30" content="複製代碼">
 <meta name="vk-zh-hk31" content="複製圖片地址">
 <meta name="vk-zh-hk32" content="複製表格內容">
-<meta name="vk-zh-hk33" content="調整聚光燈大小">
-<meta name="vk-zh-hk34" content="退出">
+<meta name="vk-zh-hk33" content="切換聚光燈的大小">
+<meta name="vk-zh-hk34" content="暫停">
 <meta name="vk-zh-hk35" content="目錄">
 <meta name="vk-zh-hk36" content="- 已推出新版本，請更新！">
 <meta name="vk-zh-hk37" content="對不起，目前此瀏覽器不支援複製功能">

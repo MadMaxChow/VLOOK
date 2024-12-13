@@ -16,7 +16,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-fr2" content="Impression...">
 <meta name="vk-fr3" content="Carte de liens">
 <meta name="vk-fr4" content="Activé">
-<meta name="vk-fr5" content="ou avec">
+<meta name="vk-fr5" content=" pour changer la taille de l'étape">
 <meta name="vk-fr6" content="Centre de Navigation">
 <meta name="vk-fr7" content="Bibliothèque de documents">
 <meta name="vk-fr8" content="Navigation par paragraphe">
@@ -45,7 +45,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-fr31" content="Copier l’adresse de l’image">
 <meta name="vk-fr32" content="Copier le contenu du tableau">
 <meta name="vk-fr33" content="Changer la taille du projecteur">
-<meta name="vk-fr34" content="Quitter">
+<meta name="vk-fr34" content="Pause">
 <meta name="vk-fr35" content="Table des matières">
 <meta name="vk-fr36" content="- Une nouvelle version a été publiée, veuillez mettre à jour!">
 <meta name="vk-fr37" content="Désolé, la fonction de copie n’est actuellement pas supportée dans ce navigateur">

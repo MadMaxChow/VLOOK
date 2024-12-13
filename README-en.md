@@ -40,7 +40,7 @@ VLOOK™ is open source software and complies with the **[MIT license](#许可�
 
 > **Thanks for donate VLOOK™ (partial donors) **
 >
-> W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 ---
 
@@ -57,7 +57,7 @@ VLOOK™ is open source software and complies with the **[MIT license](#许可�
 
 ![图片排版 plus：题注、高清屏、版式、Dark 模式适配反色/替换…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A03.png)
 
-![表格排版 plus：单元格合并、列格式、行分组、重复表头、自动编号…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A04.png)
+![表格排版 plus：单元格合并、列格式、行分组、自动编号…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A04.png)
 
 ![索引、逐章、逐段三种导航模式，插图/表格/媒体/代码分类索引与搜索](https://vlook-doc.pages.dev/pic/vlook-screenshot-A05.png)
 

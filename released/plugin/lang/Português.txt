@@ -16,10 +16,10 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt2" content="Impressão...">
 <meta name="vk-pt3" content="Mapa de Links">
 <meta name="vk-pt4" content="Ativado">
-<meta name="vk-pt5" content="ou com">
+<meta name="vk-pt5" content=" para alternar o tamanho do passo">
 <meta name="vk-pt6" content="Centro de Navegação">
 <meta name="vk-pt7" content="Biblioteca de Documentos">
-<meta name="vk-pt8" content="Navegação por parágrafos">
+<meta name="vk-pt8" content="Navegação por parágrafo">
 <meta name="vk-pt9" content="Foco">
 <meta name="vk-pt10" content="Ponteiro Laser">
 <meta name="vk-pt11" content="CJK">
@@ -44,8 +44,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt30" content="Copiar código">
 <meta name="vk-pt31" content="Copiar endereço da imagem">
 <meta name="vk-pt32" content="Copiar conteúdo da tabela">
-<meta name="vk-pt33" content="Mudar o tamanho do foco">
-<meta name="vk-pt34" content="Sair">
+<meta name="vk-pt33" content="Alternar o tamanho do holofote">
+<meta name="vk-pt34" content="Pausa">
 <meta name="vk-pt35" content="Índice">
 <meta name="vk-pt36" content="- Uma nova versão foi lançada, por favor atualize!">
 <meta name="vk-pt37" content="Desculpe, a cópia não é suportada atualmente neste navegador">

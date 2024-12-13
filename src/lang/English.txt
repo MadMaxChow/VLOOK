@@ -16,10 +16,10 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en2" content="Print...">
 <meta name="vk-en3" content="Link Map">
 <meta name="vk-en4" content="Enabled">
-<meta name="vk-en5" content="can with ">
+<meta name="vk-en5" content="to switch the step size">
 <meta name="vk-en6" content="Navigation Center">
 <meta name="vk-en7" content="Document Library">
-<meta name="vk-en8" content="Paragraph Navigation">
+<meta name="vk-en8" content="Paragraph Roaming">
 <meta name="vk-en9" content="Spotlight">
 <meta name="vk-en10" content="Laser Pointer">
 <meta name="vk-en11" content="CJK">
@@ -44,8 +44,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en30" content="Copy code">
 <meta name="vk-en31" content="Copy image address">
 <meta name="vk-en32" content="Copy table content">
-<meta name="vk-en33" content="Change the size of the spotlight"> -->
-<!-- <meta name="vk-en34" content="Exit"> -->
+<meta name="vk-en33" content="Toggle the size of the spotlight"> -->
+<meta name="vk-en34" content="Pause">
 <meta name="vk-en35" content="Table of Contents">
 <meta name="vk-en36" content="- A new version has been released, please update!">
 <meta name="vk-en37" content="Sorry, copying is currently not supported in this browser">

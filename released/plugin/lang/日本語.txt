@@ -16,10 +16,10 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja2" content="印刷...">
 <meta name="vk-ja3" content="リンクマップ">
 <meta name="vk-ja4" content="有効化">
-<meta name="vk-ja5" content="または">
+<meta name="vk-ja5" content="ステップサイズを切り替えるために">
 <meta name="vk-ja6" content="ナビゲーションセンター">
 <meta name="vk-ja7" content="文書ライブラリ">
-<meta name="vk-ja8" content="段落ナビゲーション">
+<meta name="vk-ja8" content="段落漫遊">
 <meta name="vk-ja9" content="スポットライト">
 <meta name="vk-ja10" content="レーザーポインター">
 <meta name="vk-ja11" content="中韓日">
@@ -44,8 +44,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja30" content="コードをコピー">
 <meta name="vk-ja31" content="画像アドレスをコピー">
 <meta name="vk-ja32" content="表の内容をコピー">
-<meta name="vk-ja33" content="スポットライトのサイズを変更">
-<meta name="vk-ja34" content="終了。">
+<meta name="vk-ja33" content="スポットライトのサイズを切り替える">
+<meta name="vk-ja34" content="一時停止">
 <meta name="vk-ja35" content="目次">
 <meta name="vk-ja36" content="- 新しいバージョンがリリースされました。更新してください！">
 <meta name="vk-ja37" content="申し訳ありませんが、このブラウザでは現在コピー機能がサポートされていません">

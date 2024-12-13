@@ -16,10 +16,10 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de2" content="Drucken...">
 <meta name="vk-de3" content="Link-Karte">
 <meta name="vk-de4" content="Aktiviert">
-<meta name="vk-de5" content="oder mit">
+<meta name="vk-de5" content=" um die Schrittgröße zu wechseln">
 <meta name="vk-de6" content="Navigationszentrum">
 <meta name="vk-de7" content="Dokumentenbibliothek">
-<meta name="vk-de8" content="Absatznavigation">
+<meta name="vk-de8" content="Absatzwandern">
 <meta name="vk-de9" content="Spotlight">
 <meta name="vk-de10" content="Laserpointer">
 <meta name="vk-de11" content="CJK">
@@ -44,8 +44,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de30" content="Code kopieren">
 <meta name="vk-de31" content="Bildadresse kopieren">
 <meta name="vk-de32" content="Tabelleninhalt kopieren">
-<meta name="vk-de33" content="Größe des Spotlights ändern">
-<meta name="vk-de34" content="Beenden">
+<meta name="vk-de33" content="Umschalten der Größe des Scheinwerfers">
+<meta name="vk-de34" content="Pause">
 <meta name="vk-de35" content="Inhaltsverzeichnis">
 <meta name="vk-de36" content="- Eine neue Version wurde veröffentlicht, bitte aktualisieren!">
 <meta name="vk-de37" content="Entschuldigung, das Kopieren wird in diesem Browser derzeit nicht unterstützt">

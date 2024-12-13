@@ -10,33 +10,36 @@
 
 多国语言的标识对应关系如下："de"对应的是德语，"es"对应的是西班牙语，"fr"对应的是法语，"pt"对应的是葡萄牙语，"ru"对应的是俄语，"ar"对应的是阿拉伯语，"ko"对应的是韩语，"ja"对应的是日语，"zh-hk"对应的是繁体中文。
 帮我把以下内容中，「content=」后双引用内的英文内容翻译为对应的语言（同时需要请对一些特定的字符进行HTML编码，包括：引号、换行、小于号、大于号和反斜杠等，注意换行应该进行HTML编码，而不是HTML标签），对于标点符号需要按中日韩的文字规范进行转写（包括：英文引号转写为全角引号或「」、英文单词或数值内容的前后需要添加1个英文空格）。语言具体对应语言的标识以「name=」后双引用号内容中为参考，即"vk-"后的内容为对应的语言标识（忽略数字部分），其他内容保持原内容输出
+——————
+多国语言的标识对应关系如下："de"对应的是德语，"es"对应的是西班牙语，"fr"对应的是法语，"pt"对应的是葡萄牙语，"ru"对应的是俄语，"ar"对应的是阿拉伯语，"ko"对应的是韩语，"ja"对应的是日语，"zh-hk"对应的是繁体中文。
+我后面发给你的内容中，「content=」后双引用内的英文内容翻译为对应的语言。语言具体对应语言的标识以「name=」后双引用号内容中为参考，即"vk-"后的内容为对应的语言标识（忽略数字部分），其他内容保持原内容输出
 
-<meta name="vk-de4" content="Enabled">
-<meta name="vk-es4" content="Enabled">
-<meta name="vk-fr4" content="Enabled">
-<meta name="vk-pt4" content="Enabled">
-<meta name="vk-ru4" content="Enabled">
-<meta name="vk-ar4" content="Enabled">
-<meta name="vk-ko4" content="Enabled">
-<meta name="vk-ja4" content="Enabled">
-<meta name="vk-zh-hk4" content="Enabled">
+<meta name="vk-de8" content="Paragraph Roaming">
+<meta name="vk-es8" content="Paragraph Roaming">
+<meta name="vk-fr8" content="Paragraph Roaming">
+<meta name="vk-pt8" content="Paragraph Roaming">
+<meta name="vk-ru8" content="Paragraph Roaming">
+<meta name="vk-ar8" content="Paragraph Roaming">
+<meta name="vk-ko8" content="Paragraph Roaming">
+<meta name="vk-ja8" content="Paragraph Roaming">
+<meta name="vk-zh-hk8" content="Paragraph Roaming">
 
-<meta name="vk-de5" content="or with">
-<meta name="vk-es5" content="or with">
-<meta name="vk-fr5" content="or with">
-<meta name="vk-pt5" content="or with">
-<meta name="vk-ru5" content="or with">
-<meta name="vk-ar5" content="or with">
-<meta name="vk-ko5" content="or with">
-<meta name="vk-ja5" content="or with">
-<meta name="vk-zh-hk5" content="or with">
+<meta name="vk-de5" content="to switch the step size">
+<meta name="vk-es5" content="to switch the step size">
+<meta name="vk-fr5" content="to switch the step size">
+<meta name="vk-pt5" content="to switch the step size">
+<meta name="vk-ru5" content="to switch the step size">
+<meta name="vk-ar5" content="to switch the step size">
+<meta name="vk-ko5" content="to switch the step size">
+<meta name="vk-ja5" content="to switch the step size">
+<meta name="vk-zh-hk5" content="to switch the step size">
 
-<meta name="vk-de8" content="Paragraph Navigation">
-<meta name="vk-es8" content="Paragraph Navigation">
-<meta name="vk-fr8" content="Paragraph Navigation">
-<meta name="vk-pt8" content="Paragraph Navigation">
-<meta name="vk-ru8" content="Paragraph Navigation">
-<meta name="vk-ar8" content="Paragraph Navigation">
-<meta name="vk-ko8" content="Paragraph Navigation">
-<meta name="vk-ja8" content="Paragraph Navigation">
-<meta name="vk-zh-hk8" content="Paragraph Navigation">
+<meta name="vk-de34" content="Pause">
+<meta name="vk-es34" content="Pause">
+<meta name="vk-fr34" content="Pause">
+<meta name="vk-pt34" content="Pause">
+<meta name="vk-ru34" content="Pause">
+<meta name="vk-ar34" content="Pause">
+<meta name="vk-ko34" content="Pause">
+<meta name="vk-ja34" content="Pause">
+<meta name="vk-zh-hk34" content="Pause">

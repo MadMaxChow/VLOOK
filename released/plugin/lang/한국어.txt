@@ -16,10 +16,10 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko2" content="인쇄...">
 <meta name="vk-ko3" content="링크 지도">
 <meta name="vk-ko4" content="사용 가능">
-<meta name="vk-ko5" content="또는">
+<meta name="vk-ko5" content=" 단계 크기를 전환하려면">
 <meta name="vk-ko6" content="탐색 센터">
 <meta name="vk-ko7" content="문서 라이브러리">
-<meta name="vk-ko8" content="단락 탐색">
+<meta name="vk-ko8" content="단락 탐험">
 <meta name="vk-ko9" content="스포트라이트">
 <meta name="vk-ko10" content="레이저 포인터">
 <meta name="vk-ko11" content="중일한">
@@ -44,8 +44,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko30" content="코드 복사">
 <meta name="vk-ko31" content="이미지 주소 복사">
 <meta name="vk-ko32" content="테이블 내용 복사">
-<meta name="vk-ko33" content="스포트라이트 크기 변경">
-<meta name="vk-ko34" content="종료">
+<meta name="vk-ko33" content="스포트라이트 크기 전환">
+<meta name="vk-ko34" content="일시 정지">
 <meta name="vk-ko35" content="목차">
 <meta name="vk-ko36" content="- 새 버전이 출시되었습니다. 업데이트 해주세요!">
 <meta name="vk-ko37" content="죄송합니다. 현재 이 브라우저에서는 복사가 지원되지 않습니다">
