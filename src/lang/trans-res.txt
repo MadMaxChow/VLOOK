@@ -24,15 +24,15 @@
 <meta name="vk-ja8" content="Paragraph Roaming">
 <meta name="vk-zh-hk8" content="Paragraph Roaming">
 
-<meta name="vk-de5" content="to switch the step size">
-<meta name="vk-es5" content="to switch the step size">
-<meta name="vk-fr5" content="to switch the step size">
-<meta name="vk-pt5" content="to switch the step size">
-<meta name="vk-ru5" content="to switch the step size">
-<meta name="vk-ar5" content="to switch the step size">
-<meta name="vk-ko5" content="to switch the step size">
-<meta name="vk-ja5" content="to switch the step size">
-<meta name="vk-zh-hk5" content="to switch the step size">
+<meta name="vk-de48" content="Gray Mode">
+<meta name="vk-es48" content="Gray Mode">
+<meta name="vk-fr48" content="Gray Mode">
+<meta name="vk-pt48" content="Gray Mode">
+<meta name="vk-ru48" content="Gray Mode">
+<meta name="vk-ar48" content="Gray Mode">
+<meta name="vk-ko48" content="Gray Mode">
+<meta name="vk-ja48" content="Gray Mode">
+<meta name="vk-zh-hk48" content="Gray Mode">
 
 <meta name="vk-de34" content="Pause">
 <meta name="vk-es34" content="Pause">

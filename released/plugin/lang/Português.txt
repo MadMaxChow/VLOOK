@@ -59,7 +59,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt45" content="Trocar Modo Automático/Claro/Escuro">
 <meta name="vk-pt46" content="Adicione [TOC] antes do primeiro cabeçalho de nível um para gerá-lo">
 <meta name="vk-pt47" content="Verificação de hash aprovada">
-<meta name="vk-pt48" content="Fechar documento">
+<meta name="vk-pt48" content="Modo cinza">
 <meta name="vk-pt49" content="A verificação de hash falhou">
 <meta name="vk-pt50" content="Comprimento máximo da URL excedido">
 <meta name="vk-pt51" content="Hash">

@@ -59,7 +59,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de45" content="Auto-/Hell-/Dunkelmodus wechseln">
 <meta name="vk-de46" content="Fügen Sie [TOC] vor der ersten Überschrift der ersten Ebene ein, um es zu generieren">
 <meta name="vk-de47" content="Hash-Prüfung bestanden">
-<meta name="vk-de48" content="Dokument schließen">
+<meta name="vk-de48" content="Graustufenmodus">
 <meta name="vk-de49" content="Hash-Prüfung fehlgeschlagen">
 <meta name="vk-de50" content="Maximale URL-Länge überschritten">
 <meta name="vk-de51" content="Hash">

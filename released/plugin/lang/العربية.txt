@@ -59,7 +59,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ar45" content="تبديل بين الوضع التلقائي/الواضح/الداكن">
 <meta name="vk-ar46" content="أضف [TOC] قبل العنوان الأول من المستوى الأول لتوليده">
 <meta name="vk-ar47" content="تم اجتياز فحص التجزئة">
-<meta name="vk-ar48" content="إغلاق المستند">
+<meta name="vk-ar48" content="وضع الرمادي">
 <meta name="vk-ar49" content="فشل فحص التجزئة">
 <meta name="vk-ar50" content="تم تجاوز الحد الأقصى لطول عنوان URL">
 <meta name="vk-ar51" content="هاش">

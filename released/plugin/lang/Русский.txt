@@ -59,7 +59,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru45" content="Включить автоматическую/светлую/тёмную тему">
 <meta name="vk-ru46" content="Добавьте [TOC] перед первым заголовком первого уровня, чтобы сгенерировать его">
 <meta name="vk-ru47" content="Проверка хеша пройдена">
-<meta name="vk-ru48" content="Закрыть документ">
+<meta name="vk-ru48" content="Серый режим">
 <meta name="vk-ru49" content="Проверка хеша не пройдена">
 <meta name="vk-ru50" content="Превышена максимальная длина URL-адреса">
 <meta name="vk-ru51" content="Хеш">

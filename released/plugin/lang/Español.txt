@@ -59,7 +59,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-es45" content="Cambiar entre Modo Automático/Claro/Osuro">
 <meta name="vk-es46" content="Agregue [TOC] antes del primer encabezado de primer nivel para generarlo">
 <meta name="vk-es47" content="La verificación de hash ha sido aprobada">
-<meta name="vk-es48" content="Cerrar documento">
+<meta name="vk-es48" content="Modo gris">
 <meta name="vk-es49" content="La verificación de hash ha fallado">
 <meta name="vk-es50" content="Se ha excedido la longitud máxima de la URL">
 <meta name="vk-es51" content="Hash">

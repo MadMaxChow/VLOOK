@@ -59,7 +59,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk45" content="切換 自動/明亮/黑暗 模式">
 <meta name="vk-zh-hk46" content="在第一個一級標題前添加 [TOC] 以生成">
 <meta name="vk-zh-hk47" content="Hash 檢查通過">
-<meta name="vk-zh-hk48" content="關閉文件">
+<meta name="vk-zh-hk48" content="灰色模式">
 <meta name="vk-zh-hk49" content="Hash 檢查失敗">
 <meta name="vk-zh-hk50" content="超過URL的最大長度">
 <meta name="vk-zh-hk51" content="錨點">

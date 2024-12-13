@@ -59,7 +59,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja45" content="自動/ライト/ダークモードを切り替え">
 <meta name="vk-ja46" content="[TOC] を最初の1級見出しの前に追加して生成します">
 <meta name="vk-ja47" content="ハッシュチェックに合格しました">
-<meta name="vk-ja48" content="文書を閉じる">
+<meta name="vk-ja48" content="グレーモード">
 <meta name="vk-ja49" content="ハッシュチェックに失敗しました">
 <meta name="vk-ja50" content="URLの最大長を超えました">
 <meta name="vk-ja51" content="ハッシュ">

@@ -59,7 +59,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko45" content="자동/라이트/다크 모드 전환">
 <meta name="vk-ko46" content="[TOC]을 첫 번째 1단계 제목 앞에 추가하여 생성하십시오">
 <meta name="vk-ko47" content="해시 검사가 통과되었습니다">
-<meta name="vk-ko48" content="문서 닫기">
+<meta name="vk-ko48" content="회색 모드">
 <meta name="vk-ko49" content="해시 검사가 실패했습니다">
 <meta name="vk-ko50" content="URL 길이 초과">
 <meta name="vk-ko51" content="해시">

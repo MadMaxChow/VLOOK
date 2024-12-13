@@ -59,7 +59,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-fr45" content="Passer en mode Auto/Clair/Sombre">
 <meta name="vk-fr46" content="Ajoutez [TOC] avant le premier titre de premier niveau pour le générer">
 <meta name="vk-fr47" content="Vérification du hash réussie">
-<meta name="vk-fr48" content="Fermer le document">
+<meta name="vk-fr48" content="Mode gris">
 <meta name="vk-fr49" content="Échec de la vérification du hash">
 <meta name="vk-fr50" content="Longueur maximale de l'URL dépassée">
 <meta name="vk-fr51" content="Hachage">
