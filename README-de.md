@@ -100,7 +100,9 @@ VLOOK™ bietet durch die fortlaufende **Erweiterung und Ausgrabung** von Markdo
 
 ---
 
-# Benutzerdefiniertes VIP-Thema
+# Mehrwertdienste
+
+## Benutzerdefiniertes VIP-Thema
 
 Der **Private Customization Service** für Themes ist jetzt verfügbar! Hier einige Referenzbeispiele für private Anpassungen.
 
@@ -111,6 +113,14 @@ Der **Private Customization Service** für Themes ist jetzt verfügbar! Hier ein
 **[JETZT 🎁 Anfragen zur Anpassung einreichen ❯❯❯](https://wj.qq.com/s2/14818521/bd33/)**
 
 **Mehr personalisierte Theme-Displays •• [Klicken Sie hier, um zu erkunden](https://madmaxchow.github.io/VLOOK/vip.html)**
+
+## Layout- und Bearbeitungsdienste
+
+Basierend auf dem Inhalt und der Zielgruppe Ihres Dokuments nutzen wir die zahlreichen Funktionen von Typora + VLOOK voll aus, wie z. B. ==Layoutdesign==, ==Inhaltsmarkierung==, ==Organisation mehrerer Dokumente==, ==Präsentations- und Veröffentlichungshilfe== usw., um die geeignetsten und ==benutzerfreundlichsten interaktiven== Dienste wie **Dokumentenbearbeitung und Veröffentlichung als HTML** bereitzustellen.
+
+
+
+**Erfahren Sie mehr über Mehrwertdienste •• [Hier klicken, um mehr zu erfahren](https://madmaxchow.github.io/VLOOK/vip.html)**
 
 ---
 

@@ -36,7 +36,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en22" content="All footnotes">
 <meta name="vk-en23" content="Start reading">
 <meta name="vk-en24" content="Full screen">
-<meta name="vk-en25" content="Reading mode">
+<meta name="vk-en25" content="Reading Mode">
 <meta name="vk-en26" content="Line break / No line break">
 <meta name="vk-en27" content="Picture in picture">
 <meta name="vk-en28" content="Press and hold">
@@ -98,3 +98,6 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en84" content="Footnote">
 <meta name="vk-en85" content="Restore font style">
 <meta name="vk-en86" content="Click here to open the link">
+<meta name="vk-en87" content="Today is">
+<meta name="vk-en88" content="This page will be displayed in {{display-mode}} today">
+<meta name="vk-en89" content="Click the button below to temporarily turn it off">

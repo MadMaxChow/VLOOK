@@ -101,17 +101,27 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的�
 
 > - 有关脚本化图表的详细介绍、样例及使用说明详见《脚本化图表参考指南》•• [点击这里开始](https://madmaxchow.github.io/VLOOK/chart.html)（[备用链接](https://vlook-doc.pages.dev/chart.html)）
 
-# 定制主题
+# 增值服务
 
-> 目前现已开放主题的「**定制服务**」，以下为部分定制案例参考。
+## 定制主题服务
 
-[![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.png)](https://madmaxchow.github.io/VLOOK/vip.html)
+目前现已开放主题的「**定制服务**」，以下为部分定制案例参考：
+
+[![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.gif)](https://madmaxchow.github.io/VLOOK/vip.html)
 
 
 
 **[NOW 🎁 提交我的定制需求 ❯❯❯](https://wj.qq.com/s2/14818521/bd33/)**
 
-**更多定制主题展示 •• [点击这里去探索](https://madmaxchow.github.io/VLOOK/vip.html)**
+【 **更多定制主题展示 •• [点击这里去探索](https://madmaxchow.github.io/VLOOK/vip.html)** 】
+
+## 排版编辑服务
+
+针对你文档的内容、受众，充分应用 Typora + VLOOK 在 ==版式设计==、==内容标记==、==多文档组织==、==演示与出版辅助== 等众多特性，提供最为匹配且具有==友好交互性==的**文档编辑、发布为 HTML** 等服务。
+
+
+
+【 **更多增值服务内容介绍 •• [点击这里去探索](https://madmaxchow.github.io/VLOOK/vip.html)** 】
 
 
 

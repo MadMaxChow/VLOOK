@@ -98,3 +98,6 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru84" content="Сноска">
 <meta name="vk-ru85" content="Восстановить стиль шрифта">
 <meta name="vk-ru86" content="Щелкните здесь, чтобы открыть ссылку">
+<meta name="vk-ru87" content="Сегодня">
+<meta name="vk-ru88" content="Эта страница сегодня будет отображаться в режиме {{display-mode}}">
+<meta name="vk-ru89" content="Нажмите кнопку ниже, чтобы временно отключить это">

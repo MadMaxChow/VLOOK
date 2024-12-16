@@ -16,7 +16,6 @@ vlook-doc-lib:
 - [中文 🇨🇳 参考手册](index.html?target=vlook-index-cn "typora;vlook")
 - [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank)
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
-vlook-gray-mode: 05-12
 ---
 
 ###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective_^Interaction^_<br>──<br><u>Introduction</u><br>*`V27.0`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
@@ -99,7 +98,7 @@ vlook-gray-mode: 05-12
 
 > **感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**
 >
-> W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 # Quick Start
 
@@ -181,34 +180,6 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 
 Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https://www.zhihu.com/people/maxchow/posts)
 
-# Samples
-
----
-
----
-
-> [![Click to see ...](pic/sample-a-api_spec-en.png?srcset=@2x#card#border "Richly styled and interactive API doc")](sample-a-api_spec.html?ws=off)
-
-> [![Click to see ...](pic/sample-a-to_do-en.png?srcset=@2x#card#border "Clear, categorized, and progress-tracked to-do notes")](sample-a-to_do.html?ws=off)
-
->  [![Click to see ...](pic/sample-a-img_text-en.png?srcset=@2x#card#border "Images and text can also harmonize very well")](sample-a-img_text.html?ws=off)
-
----
-
----
-
-> [![Click to see ...](pic/sample-a-board-en.png?srcset=@2x#card#border "A categorized board for organizing projec")](sample-a-routes.html?ws=off)
-
-> [![Click to see ...](pic/sample-a-quiz-en.png?srcset=@2x#card#border "Interactive Q&A can be this simple")](sample-a-board.html?ws=off)
-
-> [![Click to see ...](pic/sample-a-routes-en.png?srcset=@2x#card#border "Collapsible categorized reference information")](sample-a-quiz.html?ws=off)
-
-> [!TIP]
->
-> - **Welcome to submit your own examples of using Typora + VLOOK™ ~ Share your best practice experiences with everyone ~**_~GnOg~_
->
-> - For more practical samples, please refer to the directory in the download package *==released\\[samples](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)==*
-
 # How to Use
 
 > You can start a brand **new Markdown experience** in **just 3 steps** *==1.[Download and Configure](#Download and Configure) > 2.[Install the Theme Package](#Install the Theme Package) > 3.[Configure Export Options](#Configure Export Options)==* 
@@ -237,7 +208,7 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 > ###### Install Fonts (optional)
 >
-> Download and install the VLOOK™ theme matching font pack•• See "[Font Styles](guide2.md#字体风格)" for details.
+> Download and install the VLOOK™ theme matching font pack•• See "[Font Styles](guide3.md#字体风格)" for details.
 >
 > _~Gn~_
 
@@ -349,11 +320,13 @@ Currently supported languages for expansion include:
 > 1. Open *==Typora > Preferences==*, and select the added export configuration `VLOOK`
 > 2. **Append** the copied content to the end of the existing content in the `Append in <head />` (**Note: Do not overwrite the existing content!**)
 
-==TIP: If you need to extend support for multiple languages, simply repeat the steps above.==
+> [!TIP]
+>
+> If you need to extend support for multiple languages, simply repeat the steps above.
 
 ## Online Version
 
-The above configuration method is an offline plug-in. The complete plug-in code is integrated with HTML files. It is suitable for situations where an intranet or no network is required when browsing documents, but it is not convenient to update plug-ins in real time and [switch template themes online](guide2.md#模板主题) .
+The above configuration method is an offline plug-in. The complete plug-in code is integrated with HTML files. It is suitable for situations where an intranet or no network is required when browsing documents, but it is not convenient to update plug-ins in real time and [switch template themes online](guide3.md#模板主题) .
 
 At present, VLOOK™ supports the online version of plug-in. You can refer to the above method to add a new "export configuration" (it is recommended to name the configuration `VLOOK (live)` ).
 
@@ -382,5 +355,57 @@ The online version of the plugin file is: *==released/plugin/**plugin_live.txt**
 ---
 
 If you have any suggestions and needs, please feel free to give feedback~ [![Freeback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™&body=Hi, "Freeback via Email")  [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Telegram Channel")
+
+# Value-added Services
+
+## Custom VIP Theme
+
+The "**Private Customization Service**" for Themes is now open! Here are some reference cases for private customization.
+
+[![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.gif)](https://madmaxchow.github.io/VLOOK/vip.html)
+
+
+
+**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  Submit My Customization Request</kbd>](https://wj.qq.com/s2/14818521/bd33/)**
+
+*[<kbd>Explore more about Customized Themes</kbd>](https://madmaxchow.github.io/VLOOK/vip.html)*
+
+## Typesetting and Editing Services
+
+Based on the content and audience of your document, fully utilize the numerous features of Typora + VLOOK in aspects such as ==layout design==, ==content marking==, ==multi-document organization==, ==presentation and publishing assistance==, etc., to provide the most suitable and ==user-friendly interactive== services like **document editing and publishing as HTML**.
+
+Here are some sample references:
+
+---
+
+---
+
+> [![Click to see ...](pic/sample-a-api_spec-en.png?srcset=@2x#card#border "Richly styled and interactive API doc")](sample-a-api_spec.html?ws=off)
+
+> [![Click to see ...](pic/sample-a-to_do-en.png?srcset=@2x#card#border "Clear, categorized, and progress-tracked to-do notes")](sample-a-to_do.html?ws=off)
+
+>  [![Click to see ...](pic/sample-a-img_text-en.png?srcset=@2x#card#border "Images and text can also harmonize very well")](sample-a-img_text.html?ws=off)
+
+---
+
+---
+
+> [![Click to see ...](pic/sample-a-board-en.png?srcset=@2x#card#border "A categorized board for organizing projec")](sample-a-routes.html?ws=off)
+
+> [![Click to see ...](pic/sample-a-quiz-en.png?srcset=@2x#card#border "Interactive Q&A can be this simple")](sample-a-board.html?ws=off)
+
+> [![Click to see ...](pic/sample-a-routes-en.png?srcset=@2x#card#border "Collapsible categorized reference information")](sample-a-quiz.html?ws=off)
+
+
+
+**[<kbd>![](pic/icon-more.svg?fill=text) Explore more about Value-added Services</kbd>](https://madmaxchow.github.io/VLOOK/vip.html)**
+
+
+
+> [!TIP]
+>
+> - **Welcome to submit your own examples of using Typora + VLOOK™ ~ Share your best practice experiences with everyone ~**_~GnOg~_
+>
+> - For more practical samples, please refer to the directory in the download package *==released\\[samples](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)==*
 
 # The End

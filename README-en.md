@@ -103,17 +103,29 @@ VLOOK™ through the ongoing **excavation and expansion of** Markdown and CSS, c
 
 
 
-# Custom VIP Theme
+# Value-added Services
+
+## Custom VIP Theme
 
 The "**Private Customization Service**" for Themes is now open! Here are some reference cases for private customization.
 
-[![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.png)](https://madmaxchow.github.io/VLOOK/vip.html)
+[![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.gif)](https://madmaxchow.github.io/VLOOK/vip.html)
 
 
 
-**[NOW 🎁 Submit my customization request ❯❯❯](https://wj.qq.com/s2/14818521/bd33/)**
+**[NOW 🎁 Submit My Customization Request ❯❯❯](https://wj.qq.com/s2/14818521/bd33/)**
 
-**More personalized theme displays •• [Click here to explore](https://madmaxchow.github.io/VLOOK/vip.html)**
+**Explore more about Customized Themes •• [Click here to explore](https://madmaxchow.github.io/VLOOK/vip.html)**
+
+## Typesetting and Editing Services
+
+Based on the content and audience of your document, fully utilize the numerous features of Typora + VLOOK in aspects such as ==layout design==, ==content marking==, ==multi-document organization==, ==presentation and publishing assistance==, etc., to provide the most suitable and ==user-friendly interactive== services like **document editing and publishing as HTML**.
+
+
+
+**Explore more about Value-added Services •• [Click here to explore](https://madmaxchow.github.io/VLOOK/vip.html)**
+
+
 
 
 

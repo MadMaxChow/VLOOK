@@ -98,3 +98,6 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko84" content="각주">
 <meta name="vk-ko85" content="글꼴 스타일 복원">
 <meta name="vk-ko86" content="여기를 클릭하여 링크를 여세요">
+<meta name="vk-ko87" content="오늘은">
+<meta name="vk-ko88" content="이 페이지는 오늘 {{display-mode}} 로 표시됩니다">
+<meta name="vk-ko89" content="아래 버튼을 클릭하여 임시로 끌 수 있습니다">

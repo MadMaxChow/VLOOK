@@ -19,8 +19,8 @@ keywords:
 - Product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
 - 深色模式,灰度模式,灰色模式
-- 目录,文库,插图导航,大纲导航,段落导航,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
-- 表格十字光标,表格阅读模式,表格增强,表注,重复表头,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
+- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
+- 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画
@@ -30,7 +30,7 @@ keywords:
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
 vlook-chp-autonum: h1{{#ALPHA#. }},h2{{#00#-sup# - }},h3{{#ROMAN-min# - }}
 vlook-chp-dup: 查看完整画图脚本示例
-vlook-doc-lib: vlook-lib.html
+vlook-doc-lib: [浏览 VLOOK™ 文库](vlook-lib.html "手册教程指南示例")
 ---
 
 ###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>脚本化图表参考指南</u><br>*最新版本`V27.0`2024-11-02*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
@@ -45,7 +45,7 @@ Mermaid 是一个用于画流程图、状态机图、顺序图、甘特图的库
 
 **目前 Typora + VLOOK™ 的最新版本，可支持下脚本化图表的制作和生成：**
 
-[![流程图](pic/dg-flowcharts.png?srcset=@2x&darksrc=invert#logo#border)](#流程图)　[![顺序图](pic/dg-seq.png?srcset=@2x&darksrc=invert#logo#border)](#顺序图)　[![状态机图](pic/dg-state.png?srcset=@2x&darksrc=invert#logo#border)](#状态机图)　[![类图](pic/dg-class.png?srcset=@2x&darksrc=invert#logo#border)](#类图)　[![实体关系图](pic/dg-er.png?srcset=@2x&darksrc=invert#logo#border)](#实体关系图)　[![用户旅程地图](pic/dg-uj.png?srcset=@2x&darksrc=invert#logo#border)](#用户旅程地图)　[![甘特图](pic/dg-gantt.png?srcset=@2x&darksrc=invert#logo#border)](#甘特图)　[![饼图](pic/dg-pie.png?srcset=@2x&darksrc=invert#logo#border)](#饼图)　[![Gitgraph 图](pic/dg-gitgraph.png?srcset=@2x&darksrc=invert#logo#border)](#Gitgraph-图)　[![思维导图](pic/dg-mindmap.png?srcset=@2x&darksrc=invert#logo#border)](#思维导图)　[![需求图](pic/dg-req.png?srcset=@2x&darksrc=invert#logo#border)](#需求图)　[![时间线](pic/dg-timeline.png?srcset=@2x&darksrc=invert#logo#border)](#时间线)　[![C4 图](pic/dg-c4.png?srcset=@2x&darksrc=invert#logo#border)](#C4-图)　[![ZenUML 图](pic/dg-zenuml.png?srcset=@2x&darksrc=invert#logo#border)](#ZenUML-图)
+[![流程图](pic/dg-flowcharts.png?srcset=@2x&darksrc=invert#logo#border)](#流程图)&nbsp;&nbsp;[![顺序图](pic/dg-seq.png?srcset=@2x&darksrc=invert#logo#border)](#顺序图)&nbsp;&nbsp;[![状态机图](pic/dg-state.png?srcset=@2x&darksrc=invert#logo#border)](#状态机图)&nbsp;&nbsp;[![类图](pic/dg-class.png?srcset=@2x&darksrc=invert#logo#border)](#类图)&nbsp;&nbsp;[![实体关系图](pic/dg-er.png?srcset=@2x&darksrc=invert#logo#border)](#实体关系图)&nbsp;&nbsp;[![用户旅程地图](pic/dg-uj.png?srcset=@2x&darksrc=invert#logo#border)](#用户旅程地图)&nbsp;&nbsp;[![甘特图](pic/dg-gantt.png?srcset=@2x&darksrc=invert#logo#border)](#甘特图)&nbsp;&nbsp;[![饼图](pic/dg-pie.png?srcset=@2x&darksrc=invert#logo#border)](#饼图)&nbsp;&nbsp;[![Gitgraph 图](pic/dg-gitgraph.png?srcset=@2x&darksrc=invert#logo#border)](#Gitgraph-图)&nbsp;&nbsp;[![思维导图](pic/dg-mindmap.png?srcset=@2x&darksrc=invert#logo#border)](#思维导图)&nbsp;&nbsp;[![需求图](pic/dg-req.png?srcset=@2x&darksrc=invert#logo#border)](#需求图)&nbsp;&nbsp;[![时间线](pic/dg-timeline.png?srcset=@2x&darksrc=invert#logo#border)](#时间线)&nbsp;&nbsp;[![C4 图](pic/dg-c4.png?srcset=@2x&darksrc=invert#logo#border)](#C4-图)&nbsp;&nbsp;[![ZenUML 图](pic/dg-zenuml.png?srcset=@2x&darksrc=invert#logo#border)](#ZenUML-图)
 
 
 

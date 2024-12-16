@@ -28,5 +28,5 @@ title: 图片和文字也可以很和谐
 
 > [!NOTE]
 >
-> 本范例应用了 VLOOK™ 的这些特性：[图片显示版式](guide.md#图片显示版式)、[图片剪影](guide.md#图片剪影)、[图片适配 Dark Mode](guide.md#图片适配 Dark Mode)、[引用块分栏](guide.md#引用块分栏)、[引用块着色](guide.md#引用块着色)、[预置色号](guide.md#预置色号)、[GitHub Style Alert](guide2.md#GitHub Style Alert)
+> 本范例应用了 VLOOK™ 的这些特性：[图片显示版式](guide.md#图片显示版式)、[图片剪影](guide.md#图片剪影)、[图片适配 Dark Mode](guide.md#图片适配 Dark Mode)、[引用块分栏](guide.md#引用块分栏)、[引用块着色](guide.md#引用块着色)、[预置色号](guide.md#预置色号)、[GitHub Style Alert](guide3.md#GitHub Style Alert)
 

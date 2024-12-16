@@ -98,3 +98,6 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja84" content="脚注">
 <meta name="vk-ja85" content="フォントスタイルを復元する">
 <meta name="vk-ja86" content="リンクを開くにはこちらをクリック">
+<meta name="vk-ja87" content="今日は">
+<meta name="vk-ja88" content="このページは今日 {{display-mode}} で表示されます">
+<meta name="vk-ja89" content="下のボタンをクリックして一時的にオフにしてください">

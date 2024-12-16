@@ -55,4 +55,4 @@ title: 分类清晰有进度的待办便签
 
 > [!NOTE]
 >
-> 本范例应用了 VLOOK™ 的这些特性：[引用块分栏](guide.md#引用块分栏)、[引用块小标题](guide.md#引用块小标题)、[引用块着色](guide.md#引用块着色)、[进度条](guide2.md#进度条)、[预置色号](guide.md#预置色号)、[GitHub Style Alert](guide2.md#GitHub Style Alert)
+> 本范例应用了 VLOOK™ 的这些特性：[引用块分栏](guide.md#引用块分栏)、[引用块小标题](guide.md#引用块小标题)、[引用块着色](guide.md#引用块着色)、[进度条](guide3.md#进度条)、[预置色号](guide.md#预置色号)、[GitHub Style Alert](guide3.md#GitHub Style Alert)

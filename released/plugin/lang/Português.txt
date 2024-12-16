@@ -98,3 +98,6 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-pt84" content="Nota de rodapé">
 <meta name="vk-pt85" content="Restaurar estilo de fonte">
 <meta name="vk-pt86" content="Clique aqui para abrir o link">
+<meta name="vk-pt87" content="Hoje é">
+<meta name="vk-pt88" content="Esta página será exibida hoje em {{display-mode}}">
+<meta name="vk-pt89" content="Clique no botão abaixo para desativá-lo temporariamente">

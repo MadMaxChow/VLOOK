@@ -1,5 +1,5 @@
 ---
-title: 定制主题 - VLOOK™ - 优雅好用的 Typora 主题与增强插件
+title: 增值服务 - VLOOK™ - 优雅好用的 Typora 主题与增强插件
 author: MAX°孟兆
 description: 关于 VLOOK™ 的定制主题
 "og:description": 关于 VLOOK™ 的定制主题
@@ -19,8 +19,8 @@ keywords:
 - Product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
 - 深色模式,灰度模式,灰色模式
-- 目录,文库,插图导航,大纲导航,段落导航,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
-- 表格十字光标,表格阅读模式,表格增强,表注,重复表头,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
+- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
+- 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画
@@ -33,7 +33,9 @@ vlook-doc-lib: vlook-lib.html
 
 [TOC]
 
-#主题定制服务
+# 定制主题服务
+
+##主题定制服务
 
 ---
 
@@ -55,7 +57,7 @@ vlook-doc-lib: vlook-lib.html
 >
 > 
 
-#定制主题案例展示 
+##定制主题案例展示 
 
 以下是定制主题的部分案例展示（点击预览效果）～
 
@@ -90,7 +92,7 @@ vlook-doc-lib: vlook-lib.html
 > [![个人文档使用](pic/vip-qimao.png?srcset=@2x#card "QiMao")](vip-qimao.html)
 
 
-# 咨询定制服务
+## 咨询定制服务
 
 ---
 
@@ -111,6 +113,43 @@ vlook-doc-lib: vlook-lib.html
 > 微信： `MaxChow`
 >
 > 电子邮件： `maxchow@qq.com`
+
+# 排版编辑服务
+
+## 部分范例参考
+
+---
+
+---
+
+> [![点击查看实际效果](pic/sample-a-api_spec.png?srcset=@2x#card#border "样式与交互丰富的 API 文档")](sample-a-api_spec.html?ws=off)
+>
+> _~T1!~_
+
+> [![点击查看实际效果](pic/sample-a-to_do.png?srcset=@2x#card#border "分类清晰有进度的待办便签")](sample-a-to_do.html?ws=off)
+>
+> _~T1!~_
+
+>  [![点击查看实际效果](pic/sample-a-img_text.png?srcset=@2x#card#border "图片和文字也可以很和谐")](sample-a-img_text.html?ws=off)
+>
+>  _~T1!~_
+
+---
+
+---
+
+> [![点击查看实际效果](pic/sample-a-routes.png?srcset=@2x#card#border "可折叠分类参考信息")](sample-a-routes.html?ws=off)
+>
+> _~T1!~_
+
+> [![点击查看实际效果](pic/sample-a-board.png?srcset=@2x#card#border "对项目信息分类整理的看板")](sample-a-board.html?ws=off)
+>
+> _~T1!~_
+
+> [![点击查看实际效果](pic/sample-a-quiz.png?srcset=@2x#card#border "互动问答原来可以这样简单")](sample-a-quiz.html?ws=off)
+>
+> _~T1!~_
+
 
 
 

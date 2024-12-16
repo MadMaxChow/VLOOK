@@ -19,8 +19,8 @@ keywords:
 - Product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
 - 深色模式,灰度模式,灰色模式
-- 目录,文库,插图导航,大纲导航,段落导航,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
-- 表格十字光标,表格阅读模式,表格增强,表注,重复表头,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
+- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
+- 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画
@@ -35,7 +35,6 @@ vlook-doc-lib:
 - [English 🔠 Guide](index-en.html?target=vlook-index-en "typora;vlook")
 - [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank)
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
-vlook-gray-mode: 5-12
 ---
 
 ###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V27.0`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
@@ -120,15 +119,13 @@ vlook-gray-mode: 5-12
 
 > **感谢打赏支持 VLOOK™ 的客官（部分名单）**
 >
-> W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 # 快速入坑
 
 VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文档的互联网化应用场景～
 
 在 **文档排版、内容导航、演示辅助、交互体验**_~GnOgSe~_ 等方面提供了 **一致、简洁、友好**_~PuOgRo~_ 的体验。
-
-
 
 *==简介视频==*
 
@@ -204,52 +201,12 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 入选「知乎 • 海盐计划」的专题文章 •• [点击前往看看](https://www.zhihu.com/people/maxchow/posts)
 
-# 范例参考
-
----
-
----
-
-> [![点击查看实际效果](pic/sample-a-api_spec.png?srcset=@2x#card#border "样式与交互丰富的 API 文档")](sample-a-api_spec.html?ws=off)
->
-> _~T1!~_
-
-> [![点击查看实际效果](pic/sample-a-to_do.png?srcset=@2x#card#border "分类清晰有进度的待办便签")](sample-a-to_do.html?ws=off)
->
-> _~T1!~_
-
->  [![点击查看实际效果](pic/sample-a-img_text.png?srcset=@2x#card#border "图片和文字也可以很和谐")](sample-a-img_text.html?ws=off)
->
->  _~T1!~_
-
----
-
----
-
-> [![点击查看实际效果](pic/sample-a-routes.png?srcset=@2x#card#border "可折叠分类参考信息")](sample-a-routes.html?ws=off)
->
-> _~T1!~_
-
-> [![点击查看实际效果](pic/sample-a-board.png?srcset=@2x#card#border "对项目信息分类整理的看板")](sample-a-board.html?ws=off)
->
-> _~T1!~_
-
-> [![点击查看实际效果](pic/sample-a-quiz.png?srcset=@2x#card#border "互动问答原来可以这样简单")](sample-a-quiz.html?ws=off)
->
-> _~T1!~_
-
-> [!TIP]
->
-> - **欢迎您向 VLOOK™ 投送自己的使用 Typora + VLOOK™ 的范例～与大家分享你的最佳实践经验～**_~RdOg~_
->
-> - 更多的实践范例详见下载包中的目录 *==released\\[samples](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)==*
-
 # 安装与使用
 
-> 只需要三步 *==1.[下载与设置](#下载与设置) > 2.[安装主题包](#安装主题包) > 3.[配置导出选项](#配置导出选项)==* ，让你快速上车，**开启不一样的 Markdown 体验之旅！**_~OgPuBu~_
+> 只需要三步 *==1.[下载与设置](#下载+设置) > 2.[安装主题包](#安装主题包) > 3.[配置导出选项](#配置导出选项)==* ，让你快速上车，**开启不一样的 Markdown 体验之旅！**_~OgPuBu~_
 >
 > 让你的 Markdown 有了新看_^wán^_法！
-## 下载与设置
+## 下载+设置
 
 ---
 
@@ -272,7 +229,7 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 > ###### 安装字体（可选）
 >
-> 下载并安装 VLOOK™ 主题配套字体包 •• 详见「[字体风格](guide2.md#字体风格)」。
+> 下载并安装 VLOOK™ 主题配套字体包 •• 详见「[字体风格](guide3.md#字体风格)」。
 >
 > _~Gn~_
 
@@ -369,7 +326,7 @@ VLOOK™ 的界面语言默认内置了「**英文**、**简体中文**」，对
 
 目前可扩展支持的语种：
 
-*法语`Français`*_~La~_  *德语`Detusch`*_~OG~_  *俄语`Русский`*_~Bu~_  *西班牙语`Español`*_~Ye~_  *葡萄牙语`Português`*_~Mn~_
+*法语`Français`*_~La~_  *德语`Detusch`*_~Og~_  *俄语`Русский`*_~Bu~_  *西班牙语`Español`*_~Ye~_  *葡萄牙语`Português`*_~Mn~_
 
 *繁体中文`港澳台地区`*_~Wn~_  *日语`日本語`*_~Rd~_  *韩语`한국어`*_~Se~_  *阿拉伯语`العربية`*_~Gn~_
 
@@ -385,11 +342,13 @@ VLOOK™ 的界面语言默认内置了「**英文**、**简体中文**」，对
 > 1. 打开 *==Typora > Preferences==*，并选择添加的导出配置 `VLOOK` 
 > 2. 将复制的内容**追加**到 `在 <head /> 中添加` 已有内容的后面（**注意：不是覆盖原有内容！**）
 
-==提示：如果需要扩展支持多个语种，重复以上操作步骤即。==
+> [!TIP]
+>
+> 如果需要扩展支持多个语种，重复以上操作步骤即。
 
 ## 在线版本
 
-以上配置方式为离线插件，完整的插件代码与 HTML 文件集成，适合浏览文档时须在内网或无网络的情况，但不便于实时更新插件和[在线切换模板主题](guide2.md#模板主题)等。
+以上配置方式为离线插件，完整的插件代码与 HTML 文件集成，适合浏览文档时须在内网或无网络的情况，但不便于实时更新插件和[在线切换模板主题](guide3.md#模板主题)等。
 
 目前 VLOOK™ 支持提供在线版插件方式，可参考以上方式增加新的「导出配置」即可（建议配置命名为 `VLOOK (live)` ）。
 
@@ -417,6 +376,91 @@ VLOOK™ 的界面语言默认内置了「**英文**、**简体中文**」，对
 
 ---
 
-如有建议和需求，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+> **跨平台**
+>
+> 使用 VLOOK™ 发布的 HTML 文档能自适应在台式机、平板、手机等多种设备不同屏幕和分辨率，提供最为合适的阅读和使用体验
+
+> **动效**
+>
+> 默认会启增强动效（包括毛玻璃），可以根据实际降低动效级别，可通过「[插件调校参数](#插件调校参数)」 `effect` 来进行调整
+>
+> > ###### Firefox 如何启用毛玻璃效果？
+> >
+> > 如发现在 Firefox 浏览器中无法显示毛玻璃效果，可进行以下处理：
+> >
+> > - 在地址栏输入： `about:config`
+> > - 搜索配置项： `layout.css.backdrop-filter.enabled` ，并设置为 `true`
+
+---
+
+如果你有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+
+# 增值服务
+
+## 定制主题服务
+
+目前现已开放主题的「**定制服务**」，以下为部分定制案例参考：
+
+[![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.gif)](https://madmaxchow.github.io/VLOOK/vip.html)
+
+
+
+**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  提交我的定制主题需求</kbd>](https://wj.qq.com/s2/14818521/bd33/)**
+
+*[<kbd>去探索更多定制主题的介绍</kbd>](https://madmaxchow.github.io/VLOOK/vip.html)*
+
+## 排版编辑服务
+
+针对你文档的内容、受众，充分应用 Typora + VLOOK 在 ==版式设计==、==内容标记==、==多文档组织==、==演示与出版辅助== 等众多特性，提供最为匹配且具有==友好交互性==的**文档编辑、发布为 HTML** 等服务。
+
+以下是部分范例参考：
+
+---
+
+---
+
+> [![点击查看实际效果](pic/sample-a-api_spec.png?srcset=@2x#card#border "样式与交互丰富的 API 文档")](sample-a-api_spec.html?ws=off)
+>
+> _~T1!~_
+
+> [![点击查看实际效果](pic/sample-a-to_do.png?srcset=@2x#card#border "分类清晰有进度的待办便签")](sample-a-to_do.html?ws=off)
+>
+> _~T1!~_
+
+>  [![点击查看实际效果](pic/sample-a-img_text.png?srcset=@2x#card#border "图片和文字也可以很和谐")](sample-a-img_text.html?ws=off)
+>
+>  _~T1!~_
+
+---
+
+---
+
+> [![点击查看实际效果](pic/sample-a-routes.png?srcset=@2x#card#border "可折叠分类参考信息")](sample-a-routes.html?ws=off)
+>
+> _~T1!~_
+
+> [![点击查看实际效果](pic/sample-a-board.png?srcset=@2x#card#border "对项目信息分类整理的看板")](sample-a-board.html?ws=off)
+>
+> _~T1!~_
+
+> [![点击查看实际效果](pic/sample-a-quiz.png?srcset=@2x#card#border "互动问答原来可以这样简单")](sample-a-quiz.html?ws=off)
+>
+> _~T1!~_
+
+
+
+**[<kbd>![](pic/icon-more.svg?fill=text) 去探索更多增值服务的介绍</kbd>](https://madmaxchow.github.io/VLOOK/vip.html)**
+
+
+
+> [!TIP]
+>
+> - **欢迎您向 VLOOK™ 投送自己的使用 Typora + VLOOK™ 的范例～与大家分享你的最佳实践经验～**_~RdOg~_
+>
+> - 更多的实践范例详见下载包中的目录 *==released\\[samples](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)==*
+
+## ~~用于测试最后一章不发布内容~~
+
+这些内容是不发布的！
 
 # The End

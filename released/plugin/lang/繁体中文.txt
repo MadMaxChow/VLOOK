@@ -98,3 +98,6 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk84" content="註腳">
 <meta name="vk-zh-hk85" content="還原字體樣式">
 <meta name="vk-zh-hk86" content="點擊此處以開啟連結">
+<meta name="vk-zh-hk87" content="今天是">
+<meta name="vk-zh-hk88" content="此頁面今天將以 {{display-mode}} 顯示">
+<meta name="vk-zh-hk89" content="點擊下方按鈕暫時將其關閉">

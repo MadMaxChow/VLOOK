@@ -32,5 +32,5 @@ title: 对项目信息分类整理的看板
 
 > [!NOTE]
 >
-> 本范例应用了 VLOOK™ 的这些特性：[列表分栏](guide.md#列表分栏)、[引用块小标题](guide.md#引用块小标题)、[进度条](guide2.md#进度条)、[预置色号](guide.md#预置色号)、[GitHub Style Alert](guide2.md#GitHub Style Alert)
+> 本范例应用了 VLOOK™ 的这些特性：[列表分栏](guide.md#列表分栏)、[引用块小标题](guide.md#引用块小标题)、[进度条](guide3.md#进度条)、[预置色号](guide.md#预置色号)、[GitHub Style Alert](guide3.md#GitHub Style Alert)
 

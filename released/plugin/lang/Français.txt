@@ -98,3 +98,6 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-fr84" content="Note de bas de page">
 <meta name="vk-fr85" content="Restaurer le style de police">
 <meta name="vk-fr86" content="Cliquez ici pour ouvrir le lien">
+<meta name="vk-fr87" content="Aujourd'hui, c'est">
+<meta name="vk-fr88" content="Cette page sera affichée aujourd'hui en {{display-mode}}">
+<meta name="vk-fr89" content="Cliquez sur le bouton ci-dessous pour le désactiver temporairement">

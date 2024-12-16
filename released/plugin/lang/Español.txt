@@ -98,3 +98,6 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-es84" content="Nota al pie">
 <meta name="vk-es85" content="Restaurar estilo de fuente">
 <meta name="vk-es86" content="Haga clic aquí para abrir el enlace">
+<meta name="vk-es87" content="Hoy es">
+<meta name="vk-es88" content="Esta página se mostrará hoy en {{display-mode}}">
+<meta name="vk-es89" content="Haga clic en el botón de abajo para desactivarlo temporalmente">

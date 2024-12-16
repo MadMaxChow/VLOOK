@@ -44,4 +44,4 @@ title: 互动问答原来可以这样简单
 
 > [!NOTE]
 >
-> 本范例应用了 VLOOK™ 的这些特性：[列表分栏](guide.md#列表分栏)、[刮刮卡](guide2.md#刮刮卡)、[预置色号](guide.md#预置色号)、[GitHub Style Alert](guide2.md#GitHub Style Alert)
+> 本范例应用了 VLOOK™ 的这些特性：[列表分栏](guide.md#列表分栏)、[刮刮卡](guide3.md#刮刮卡)、[预置色号](guide.md#预置色号)、[GitHub Style Alert](guide3.md#GitHub Style Alert)
