@@ -119,7 +119,7 @@ The "**Private Customization Service**" for Themes is now open! Here are some re
 
 ## Typesetting and Editing Services
 
-Based on the content and audience of your document, fully utilize the numerous features of Typora + VLOOK in aspects such as ==layout design==, ==content marking==, ==multi-document organization==, ==presentation and publishing assistance==, etc., to provide the most suitable and ==user-friendly interactive== services like **document editing and publishing as HTML**.
+Based on the content and audience of your document, fully utilize the numerous features of Typora + VLOOK in aspects such as <mark>layout design</mark>, <mark>content marking</mark>,<mark>multi-document organization</mark>, <mark>presentation and publishing assistance</mark>, etc., to provide the most suitable and <mark>user-friendly interactive</mark> services like **document editing and publishing as HTML**.
 
 
 

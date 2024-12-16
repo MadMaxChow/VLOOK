@@ -116,7 +116,7 @@ Der **Private Customization Service** für Themes ist jetzt verfügbar! Hier ein
 
 ## Layout- und Bearbeitungsdienste
 
-Basierend auf dem Inhalt und der Zielgruppe Ihres Dokuments nutzen wir die zahlreichen Funktionen von Typora + VLOOK voll aus, wie z. B. ==Layoutdesign==, ==Inhaltsmarkierung==, ==Organisation mehrerer Dokumente==, ==Präsentations- und Veröffentlichungshilfe== usw., um die geeignetsten und ==benutzerfreundlichsten interaktiven== Dienste wie **Dokumentenbearbeitung und Veröffentlichung als HTML** bereitzustellen.
+Basierend auf dem Inhalt und der Zielgruppe Ihres Dokuments nutzen wir die zahlreichen Funktionen von Typora + VLOOK voll aus, wie z. B. <mark>Layoutdesign</mark>, <mark>Inhaltsmarkierung</mark>, <mark>Organisation mehrerer Dokumente</mark>, <mark>Präsentations- und Veröffentlichungshilfe</mark> usw., um die geeignetsten und <mark>benutzerfreundlichsten interaktiven</mark> Dienste wie **Dokumentenbearbeitung und Veröffentlichung als HTML** bereitzustellen.
 
 
 

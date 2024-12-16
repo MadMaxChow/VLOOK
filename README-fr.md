@@ -116,7 +116,7 @@ Le **Service de Personnalisation Privée** pour les Thèmes est désormais ouver
 
 ## Services de Mise en Page et d'Édition
 
-En fonction du contenu et du public cible de votre document, utilisez pleinement les nombreuses fonctionnalités de Typora + VLOOK dans des domaines tels que ==la conception de mise en page==, ==le marquage du contenu==, ==l'organisation de plusieurs documents==, ==l'assistance à la présentation et à la publication==, etc., pour fournir les services interactifs les plus adaptés et ==conviviaux==, comme **l'édition et la publication de documents en HTML**.
+En fonction du contenu et du public cible de votre document, utilisez pleinement les nombreuses fonctionnalités de Typora + VLOOK dans des domaines tels que <mark>la conception de mise en page</mark>, <mark>le marquage du contenu<mark>, <mark>l'organisation de plusieurs documents</mark>, <mark>l'assistance à la présentation et à la publication</mark>, etc., pour fournir les services interactifs les plus adaptés et <mark>conviviaux</mark>, comme **l'édition et la publication de documents en HTML**.
 
 
 
