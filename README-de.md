@@ -48,21 +48,12 @@ VLOOK™ ist Open-Source-Software und entspricht der **[MIT-Lizenz](#许可协�
 
 ---
 
-![VLOOK™ ── Geben Sie Ihrem Markdown eine neue Sichtweise](https://vlook-doc.pages.dev/pic/vlook-screenshot-A00.png)
+![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-b01.png)
 
-![Erheben Sie Ihr Markdown-Dokument auf die nächste Stufe mit automatisiertem Layout und Interaktivität](https://vlook-doc.pages.dev/pic/vlook-screenshot-A01.png)
+![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-b02.png)
 
-![Mehrere originale Dokumententhemen & Schriftstile integriert, mit einem Klick wechseln! Anpassbar!](https://vlook-doc.pages.dev/pic/vlook-screenshot-A02.png)
+![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-b03.png)
 
-![Bilderlayout Plus: Bildunterschriften, HD-Bildschirme, Layout, Dunkelmodus mit umgekehrten Farben/Ersetzung...](https://vlook-doc.pages.dev/pic/vlook-screenshot-A03.png)
-
-![Tabellenlayout Plus: Zellzusammenführung, Spaltenformatierung, Zeilengruppierung, wiederholte Tabellenköpfe, automatische Nummerierung...](https://vlook-doc.pages.dev/pic/vlook-screenshot-A04.png)
-
-![Drei Navigationsmodi: nach Kapitel, Abschnitt; Index und Suche für Bilder, Tabellen, Medien und Code](https://vlook-doc.pages.dev/pic/vlook-screenshot-A05.png)
-
-![Präsentationshilfen: Bild-in-Bild, Spotlight, Laserpointer, Kreuzmarkierung in Tabellen, Scratch-Karte...](https://vlook-doc.pages.dev/pic/vlook-screenshot-A06.png)
-
-![Und noch mehr: Audio, Video, Labels, Details zum Einklappen, HD-Bilder... Über 30 Funktionen sofort einsatzbereit](https://vlook-doc.pages.dev/pic/vlook-screenshot-A08.png)
 
 ---
 

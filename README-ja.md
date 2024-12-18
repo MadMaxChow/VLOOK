@@ -48,21 +48,12 @@ VLOOK™ はオープンソースソフトウェアであり、**[MIT ライセ�
 
 ---
 
-![VLOOK™ ── あなたの Markdown に新しい見方(wán)を与える](https://vlook-doc.pages.dev/pic/vlook-screenshot-A00.png)
+![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-b01.png)
 
-![Markdown 文書の自動レイアウトとインタラクティブ性を向上](https://vlook-doc.pages.dev/pic/vlook-screenshot-A01.png)
+![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-b02.png)
 
-![複数のオリジナルテーマ & フォントスタイルを内蔵。ワンクリックで切り替え可能！カスタマイズに対応！](https://vlook-doc.pages.dev/pic/vlook-screenshot-A02.png)
+![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-b03.png)
 
-![画像レイアウトプラス：キャプション、ハイディフィニションディスプレイ、レイアウト、ダークモード反転/置き換え対応…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A03.png)
-
-![表のレイアウトプラス：セルの結合、列の書式、行のグループ化、表頭の繰り返し、連番…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A04.png)
-
-![索引、章別、段落別の 3 つのナビゲーションモード。挿絵/表/メディア/コード分類索引と検索機能付き](https://vlook-doc.pages.dev/pic/vlook-screenshot-A05.png)
-
-![プレゼンテーション支援機能：ピクチャーインピクチャー、スポットライト、レーザーポインター、テーブルの十字カーソル、スクラッチカード…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A06.png)
-
-![さらに、音声、動画、ラベル、詳細折りたたみ、HD イメージなど、30 以上の機能が開封を待っています](https://vlook-doc.pages.dev/pic/vlook-screenshot-A08.png)
 
 ---
 

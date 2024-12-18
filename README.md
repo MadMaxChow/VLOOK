@@ -49,21 +49,12 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 ---
 
 
-![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-A00.png)
+![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-b01.png)
 
-![让你的 Markdown 文档在自动化排版、可交互性上了 N 个台阶](https://vlook-doc.pages.dev/pic/vlook-screenshot-A01.png)
+![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-b02.png)
 
-![内置多套原创文档主题 & 字体风格，一键切换！支持定制！](https://vlook-doc.pages.dev/pic/vlook-screenshot-A02.png)
+![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-b03.png)
 
-![图片排版 plus：题注、高清屏、版式、Dark 模式适配反色/替换…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A03.png)
-
-![表格排版 plus：单元格合并、列格式、行分组、自动编号…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A04.png)
-
-![索引、逐章、逐段三种导航模式，插图/表格/媒体/代码分类索引与搜索](https://vlook-doc.pages.dev/pic/vlook-screenshot-A05.png)
-
-![火力全开的演示辅助～画中画、聚光灯、激光笔、表格十字光标、刮刮卡…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A06.png)
-
-![还有音频、视频、标签、详情折叠、高清插图、…30+特性等你开箱即用](https://vlook-doc.pages.dev/pic/vlook-screenshot-A08.png)
 
 ---
 

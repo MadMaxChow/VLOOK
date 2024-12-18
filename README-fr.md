@@ -48,21 +48,12 @@ VLOOK™ est un logiciel open source et respecte la **[licence MIT](#许可协�
 
 ---
 
-![VLOOK™ ── Donnez une nouvelle perspective à votre Markdown](https://vlook-doc.pages.dev/pic/vlook-screenshot-A00.png)
+![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-b01.png)
 
-![Donnez à vos documents Markdown une nouvelle dimension avec la mise en page automatique et l'interactivité](https://vlook-doc.pages.dev/pic/vlook-screenshot-A01.png)
+![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-b02.png)
 
-![Plusieurs thèmes et styles de polices originaux intégrés, changez en un clic ! Personnalisable !](https://vlook-doc.pages.dev/pic/vlook-screenshot-A02.png)
+![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-b03.png)
 
-![Mise en page des images Plus : Légendes, écrans haute définition, disposition, mode sombre avec inversion/remplacement des couleurs…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A03.png)
-
-![Mise en page des tableaux Plus : Fusion des cellules, format des colonnes, regroupement des lignes, en-têtes répétés, numérotation automatique…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A04.png)
-
-![Trois modes de navigation : par chapitre, par section ; index et recherche pour les illustrations, tableaux, médias et codes](https://vlook-doc.pages.dev/pic/vlook-screenshot-A05.png)
-
-![Outils de présentation : Image dans l'image, projecteur, pointeur laser, curseur croisé pour les tableaux, carte à gratter…](https://vlook-doc.pages.dev/pic/vlook-screenshot-A06.png)
-
-![Et encore plus : audio, vidéo, étiquettes, détails pliants, images HD… Plus de 30 fonctionnalités prêtes à l'emploi](https://vlook-doc.pages.dev/pic/vlook-screenshot-A08.png)
 
 ---
 
