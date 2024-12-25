@@ -34,7 +34,7 @@ VLOOK™ est un logiciel open source et respecte la **[licence MIT](#许可协�
 
 # Faire un don
 
-| **Si vous aimez VLOOK™, vous pouvez contribuer une tasse de café :-)** |         **Si vous aimez VLOOK™, vous pouvez contribuer une tasse de café :-)**         |
+| **J'aime VLOOK™, je donne un verre de café** |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**         |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | [![Faire un don à VLOOK™](https://vlook-doc.pages.dev/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow) | ![Faire un don à VLOOK™](https://vlook-doc.pages.dev/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo) |
 

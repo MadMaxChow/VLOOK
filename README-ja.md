@@ -34,7 +34,7 @@ VLOOK™ はオープンソースソフトウェアであり、**[MIT ライセ�
 
 # 寄付
 
-| **VLOOK™ が気に入ったら、コーヒーを一杯寄付してください :-)** |         **VLOOK™ が気に入ったら、コーヒーを一杯寄付してください :-)**         |
+| **私は VLOOK™が好きで、コーヒーを 1 杯寄付します** |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**         |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | [![VLOOK™ に寄付する](https://vlook-doc.pages.dev/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow) | ![VLOOK™ に寄付する](https://vlook-doc.pages.dev/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo) |
 
