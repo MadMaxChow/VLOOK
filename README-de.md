@@ -40,7 +40,7 @@ VLOOK™ ist Open-Source-Software und entspricht der **[MIT-Lizenz](#许可协�
 
 > **Vielen Dank für die Spenden an VLOOK™ (teilweise Spender)**
 >
-> ＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 ---
 
@@ -107,7 +107,9 @@ Der **Private Customization Service** für Themes ist jetzt verfügbar! Hier ein
 
 ## Layout- und Bearbeitungsdienste
 
-Basierend auf dem Inhalt und der Zielgruppe Ihres Dokuments nutzen wir die zahlreichen Funktionen von Typora + VLOOK voll aus, wie z. B. <mark>Layoutdesign</mark>, <mark>Inhaltsmarkierung</mark>, <mark>Organisation mehrerer Dokumente</mark>, <mark>Präsentations- und Veröffentlichungshilfe</mark> usw., um die geeignetsten und <mark>benutzerfreundlichsten interaktiven</mark> Dienste wie **Dokumentenbearbeitung und Veröffentlichung als HTML** bereitzustellen.
+![Dokumenten Satz, Inhaltsrevision, Konstruktion einer Wissensbasis, Veröffentlichungsberatung, Webseitenhosting](https://vlook-doc.pages.dev/pic/vlook-te-en@2x.png)
+
+Passen Sie den Inhalt Ihres Dokuments und Ihr Publikum an und nutzen Sie die zahlreichen Funktionen von Typora + VLOOK™ voll aus, um Dienstleistungen wie Dokumentensatz, Inhaltsüberarbeitung, Wissensdatenbankaufbau, Veröffentlichungsberatung, Webhosting anzubieten.
 
 
 

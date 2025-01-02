@@ -40,7 +40,7 @@ VLOOK™ is open source software and complies with the **[MIT license](#许可�
 
 > **Thanks for donate VLOOK™ (partial donors) **
 >
-> ＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 ---
 
@@ -110,7 +110,9 @@ The "**Private Customization Service**" for Themes is now open! Here are some re
 
 ## Typesetting and Editing Services
 
-Based on the content and audience of your document, fully utilize the numerous features of Typora + VLOOK in aspects such as <mark>layout design</mark>, <mark>content marking</mark>,<mark>multi-document organization</mark>, <mark>presentation and publishing assistance</mark>, etc., to provide the most suitable and <mark>user-friendly interactive</mark> services like **document editing and publishing as HTML**.
+![Docment Typesetting, Content Revision, Knowledge Base Construction, Publishing Guidance, Website Hosting](https://vlook-doc.pages.dev/pic/vlook-te-en@2x.png)
+
+Based on the content and audience of your document, fully utilize the numerous features of Typora + VLOOK™, to provide services like **Docment Typesetting**, **Content Revision**, **Knowledge Base Construction**, **Publishing Guidance**, **Website Hosting**.
 
 
 

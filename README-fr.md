@@ -40,7 +40,7 @@ VLOOK™ est un logiciel open source et respecte la **[licence MIT](#许可协�
 
 > **Merci d'avoir fait un don à VLOOK™ (donateurs partiels)**
 >
-> ＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 ---
 
@@ -107,7 +107,9 @@ Le **Service de Personnalisation Privée** pour les Thèmes est désormais ouver
 
 ## Services de Mise en Page et d'Édition
 
-En fonction du contenu et du public cible de votre document, utilisez pleinement les nombreuses fonctionnalités de Typora + VLOOK dans des domaines tels que <mark>la conception de mise en page</mark>, <mark>le marquage du contenu<mark>, <mark>l'organisation de plusieurs documents</mark>, <mark>l'assistance à la présentation et à la publication</mark>, etc., pour fournir les services interactifs les plus adaptés et <mark>conviviaux</mark>, comme **l'édition et la publication de documents en HTML**.
+![Mise en page de documents, Révision du contenu, Construction d'une base de connaissances, Conseils en édition, Hébergement de sites web](https://vlook-doc.pages.dev/pic/vlook-te-en@2x.png)
+
+Adaptez le contenu de votre document et votre audience en exploitant pleinement les nombreuses fonctionnalités de Typora + VLOOK™, fournir des services tels que **Mise en page de documents**, **Révision de contenu**, **Construction de base de connaissances**, **Conseils de publication**, **Hébergement de site web**.
 
 
 
