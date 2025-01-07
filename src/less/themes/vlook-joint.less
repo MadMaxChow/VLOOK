@@ -15,7 +15,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V27.0";
+@themeVer: "V28.0";
 @themeName: "vlook-joint";
 @themeDesc: "Joint";
 
@@ -29,6 +29,8 @@
 .applyDocBgImg(@docBgImgLight_Grid2, @docBgImgDark_Grid2);
 // 表格、插图指定居中对齐
 .genTableAndFigureAlign(center);
+// 生成指定的表格样式
+.genTableStyle(modern);
 
 :root {
     --thm-fav-logo-lg: url("data:image/png;base64,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");
@@ -56,14 +58,15 @@
 @themeBgColorAlt: lighten(@themeBgColor, 30%);
 
 // 标题色
-@headerColor: darken(@themeBgColor, 5%);
-@headerColorDark: darken(@theme1Dark, 10%);
+@headerColor: darken(@theme1, 5%);
+@headerColorDark: @theme1Dark;//lighten(@theme1Dark, 5%);
 // 渐变标题色 h1-h5
 // @lgHeaderBg: none;
 // @lgHeaderBgClip: inherit;
 // @lgHeaderColor: @headerColor;
+
 // 6 级标题前缀内容
-@h6BeforeContent: "⦿ ";
+@h6BeforeContent: "⦿" @h6NumSeparator;
 // @tocHeaderNumColor: @docTextColorLightFade;
 //@contentHeaderNumColor: darken(@themeBgColorFade, 10%);
 @headerBackground: linear-gradient(90deg, var(--h-bg-end), var(--h-bg-start), var(--h-bg-end));
@@ -93,9 +96,11 @@
 @h5Margin: 1.25em 0 @hGap 0;
 @h6Margin: 1em 0 0 0;
 
-// 自定义章节自动编号
+// 自定义标题自动编号
 // counter() 支持使用有序列表的符号格式（decimal/decimal-leading-zero/lower-roman/upper-roman/lower-alpha/upper-alpha），如：counter(h1, upper-alpha)
-@headerNumSeparator: "";
+@h1NumSeparator: "";
+@h2NumSeparator: "";
+@h3NumSeparator: "";
 @vChpAutoNum: "h1{{Part #ALPHA#}},h2{{#00#-sup#}},h3{{#ROMAN-min#}}";
 @h1BeforeContent: "Part " counter(h1, upper-alpha);
 @h2BeforeContent: counter(h1, upper-alpha) "." counter(h2, decimal-leading-zero);
@@ -153,24 +158,6 @@
 @backcoverTextPaddingForMobile: 240px 20px 0;
 @backcoverTextColor: @coverTextColor;
 
-// 封面装饰性文本样式 before
-@coverTextBeforeContent: "";
-@coverTextBeforePosition: initial;
-@coverTextBeforeLeft: initial;
-@coverTextBeforeTop: initial;
-@coverTextBeforeColor: initial;
-@coverTextBeforeFontSize: initial;
-@coverTextBeforeFontWeight: initial;
-@coverTextBeforeOpacity: initial;
-// 封面装饰性文本样式 after
-@coverTextAfterContent: "";
-@coverTextAfterTextAlign: initial;
-@coverTextAfterLeft: initial;
-@coverTextAfterTop: @coverTextBeforeTop;
-@coverTextAfterRight: initial;
-@coverTextAfterColor: @coverTextBeforeColor;
-@coverTextAfterFontSize: @coverTextBeforeFontSize;
-
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
 @contrastBorder: 0 0 0 0 transparent;
 @contrastBorderForCover: @contrastBorder;//0 0 0 2px rgba(34, 36, 38, .2) inset;
@@ -178,20 +165,24 @@
 // 封面背景设置
 @coverBackgroundColor: @themeBgColor;
 @coverBackgroundImage: var(--thm-c-logo), var(--thm-c-wmark), var(--thm-c-bg-bottom);
-@coverBackgroundSize: 80px 80px, auto, 325px 70px;
+@coverBgSize: 80px 80px, auto, 325px 70px;
+@coverBgSizeForMobile: @coverBgSize;
+@coverBackgroundSize: var(--thm-c-bg-size);
 @coverBackgroundRepeat: no-repeat, repeat, repeat-x;
-// @coverBgLogoPos: ;
-// @coverBgLogoPosForMobile: ;
-@coverBackgroundPosition: center 40px, top, center bottom;
+@coverBgPosition: center 40px, top, center bottom;
+@coverBgPositionForMobile: @coverBgPosition;
+@coverBackgroundPosition: var(--thm-c-bg-pos);
 
 // 封底背景设置
 @backcoverBackgroundColor: @coverBackgroundColor;
 @backcoverBackgroundImage: @coverBackgroundImage;
-@backcoverBackgroundSize: @coverBackgroundSize;
+@backcoverBgSize: @coverBgSize;
+@backcoverBgSizeForMobile: @backcoverBgSize;
+@backcoverBackgroundSize: var(--thm-bc-bg-size);
 @backcoverBackgroundRepeat: @coverBackgroundRepeat;
-// @backcoverBgLogoPos: ;
-// @backcoverBgLogoPosForMobile: ;
-@backcoverBackgroundPosition: center 120px, top, center bottom;
+@backcoverBgPosition: center 120px, top, center bottom;
+@backcoverBgPositionForMobile: @backcoverBgPosition;
+@backcoverBackgroundPosition: var(--thm-bc-bg-pos);
 
 // 文档扩展区域背景
 @docExtBackgroundImage: var(--thm-doc-ext-bg), var(--thm-c-bg-bottom);

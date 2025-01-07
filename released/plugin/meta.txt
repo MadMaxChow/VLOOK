@@ -1,6 +1,6 @@
 <!--
 ~~~~~~~~~ meta for <head /> ~~~~~~~~~~
-VLOOK "V27.0" (2024-11-02) - (head meta) - Typora Plugin
+VLOOK "V28.0" (2024-12-21) - (head meta) - Typora Plugin
 
 Paste to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 粘贴至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
@@ -18,6 +18,10 @@ Paste to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vlook-image-host" content="${vlook-image-host}">
 <meta name="vlook-query" content="${vlook-query}">
 <meta name="vlook-welcome" content="${vlook-welcome}">
+<meta name="vlook-cc-top-left" content="${vlook-cc-top-left}">
+<meta name="vlook-cc-top-right" content="${vlook-cc-top-right}">
+<meta name="vlook-cc-bottom-left" content="${vlook-cc-bottom-left}">
+<meta name="vlook-cc-bottom-right" content="${vlook-cc-bottom-right}">
 <!-- 以下为 Open Graph Protocol (OGP) 相关的 meta 配置 -->
 <meta property="og:image" content="${og:image}">
 <meta property="og:image:alt" content="${og:image:alt}">

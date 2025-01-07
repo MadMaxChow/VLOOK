@@ -15,7 +15,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V27.0";
+@themeVer: "V28.0";
 @themeName: "vlook-solaris";
 @themeDesc: "Solaris";
 
@@ -25,19 +25,21 @@
 // .applyFontStyle(serif);
 // 指定主题配套的圆角
 .applyThemeRadius(none);
+// 生成指定的表格样式
+.genTableStyle(report);
 
 // 文档背景色
-@thmBgLight: #FCF9F2;
-@thmBgDark: #202530;//#181C28;
+@thmBgLight: #FEFCF4;
+@thmBgDark: #101520;//#202530;//#181C28;
 .applyDocBgColor(@thmBgLight, @thmBgDark);
 .applyDocTextColor(@thmBgDark, @thmBgLight);
 
 // 面板颜色
-@thmPanelColorLight: #D0D4E4;
-@thmPanelColorDark: #383B4B;
-.applyPanelColor(@thmPanelColorLight, @thmPanelColorDark);
-// 表格
-.applyTableColor(@thmPanelColorLight, @thmPanelColorDark);
+// @thmPanelColorLight: #D0D4E4;
+// @thmPanelColorDark: #383B4B;
+// .applyPanelColor(@thmPanelColorLight, @thmPanelColorDark);
+// // 表格
+// .applyTableColor(@thmPanelColorLight, @thmPanelColorDark);
 
 :root {
     --thm-fav-logo-lg: url("data:image/png;base64,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");
@@ -118,30 +120,30 @@
 @aHoverColorDark: @theme2Dark;
 @aActiveColor: #282B3B;
 
-// 表格边框
-@tblBdWidth: 3px;
-@tableBorderColor: var(--tbl-bd-c);
-@tableBorderWidth: @tblBdWidth;
-@tableBorderLeftWidth: 0px;
-@tableBorderRightWidth: 0px;
-@tableBorderTopWidth: @tblBdWidth;
-@tableBorderBottomWidth: @tblBdWidth;
-@tableThBorderRightWidth: 0px;
-@tableTdBorderRightWidth: 0px;
-// 表格圆角
-@tableBorderRadius: 0px;
-@tableBorderRadiusXC: 0px;
-// 表格背景
-@tableBackground: var(--d-bc);
-@tableThColor: inherit;
-@tableThBackground: none;
-@tableTdBackground: none;
-// 表格单元格阴影
-@tableFirstThBoxShadow: 0 1px 0 var(--tbl-h-bd);
-@tableThBoxShadow: @tableFirstThBoxShadow;
-@tableThRepeaterBoxShadow: 0 -@tblBdWidth 0 var(--tbl-h-bd), @tableThBoxShadow;
-@tableFirstTdBoxShadow: none;
-@tableTdBoxShadow: none;
+// // 表格边框
+// @tblBdWidth: 3px;
+// @tableBorderColor: var(--tbl-bd-c);
+// @tableBorderWidth: @tblBdWidth;
+// @tableBorderLeftWidth: 0px;
+// @tableBorderRightWidth: 0px;
+// @tableBorderTopWidth: @tblBdWidth;
+// @tableBorderBottomWidth: @tblBdWidth;
+// @tableThBorderRightWidth: 0px;
+// @tableTdBorderRightWidth: 0px;
+// // 表格圆角
+// @tableBorderRadius: 0px;
+// @tableBorderRadiusXC: 0px;
+// // 表格背景
+// @tableBackground: var(--d-bc);
+// @tableThColor: inherit;
+// @tableThBackground: none;
+// @tableTdBackground: none;
+// // 表格单元格阴影
+// @tableFirstThBoxShadow: 0 1px 0 var(--tbl-h-bd);
+// @tableThBoxShadow: @tableFirstThBoxShadow;
+// @tableThRepeaterBoxShadow: 0 -@tblBdWidth 0 var(--tbl-h-bd), @tableThBoxShadow;
+// @tableFirstTdBoxShadow: none;
+// @tableTdBoxShadow: none;
 
 @badgeBorderColorInCover: fade(@coverTextColor, 25%);;//var(--rb-code-shadow-dk);
 @badgeBorderWidthInCover: 1px;
@@ -161,24 +163,6 @@
 @backcoverTextPaddingForMobile: 360px 20px 0;
 @backcoverTextColor: @coverTextColor;
 
-// 封面装饰性文本样式 before
-@coverTextBeforeContent: "";
-@coverTextBeforePosition: initial;
-@coverTextBeforeLeft: initial;
-@coverTextBeforeTop: initial;
-@coverTextBeforeColor: initial;
-@coverTextBeforeFontSize: initial;
-@coverTextBeforeFontWeight: initial;
-@coverTextBeforeOpacity: initial;
-// 封面装饰性文本样式 after
-@coverTextAfterContent: "";
-@coverTextAfterTextAlign: initial;
-@coverTextAfterLeft: initial;
-@coverTextAfterTop: @coverTextBeforeTop;
-@coverTextAfterRight: initial;
-@coverTextAfterColor: @coverTextBeforeColor;
-@coverTextAfterFontSize: @coverTextBeforeFontSize;
-
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
 @contrastBorder: 0 0 0 0 transparent;
 @contrastBorderForCover: 0 0 0 2px rgba(34, 36, 38, 0.2) inset;
@@ -186,19 +170,23 @@
 // 封面背景设置
 @coverBackgroundColor: #56569C;
 @coverBackgroundImage: var(--thm-c-spliter), var(--thm-c-band), var(--thm-c-b-solaris), var(--thm-c-s-solaris);
-@coverBackgroundSize: auto, auto, auto, auto;
+@coverBgSize: auto, auto, auto, auto;
+@coverBgSizeForMobile: calc(100% - 40px) 20px, auto, 328px 380px, 130px 120px;
+@coverBackgroundSize: var(--thm-c-bg-size);
 @coverBackgroundRepeat: no-repeat, repeat-x, no-repeat, no-repeat;
-// @coverBgLogoPos: ;
-// @coverBgLogoPosForMobile: ;
-@coverBackgroundPosition: bottom 130px right, bottom, top left, top right;
+@coverBgPosition: bottom 130px right, bottom, top left, top right;
+@coverBgPositionForMobile: @coverBgPosition;
+@coverBackgroundPosition: var(--thm-c-bg-pos);
 // 封底背景设置
 @backcoverBackgroundColor: @coverBackgroundColor;
 @backcoverBackgroundImage: var(--thm-c-b-solaris), var(--thm-c-s-solaris);
-@backcoverBackgroundSize: auto, auto;
+@backcoverBgSize: auto, auto;
+@backcoverBgSizeForMobile: 328px 380px, 130px 120px;
+@backcoverBackgroundSize: var(--thm-bc-bg-size);
 @backcoverBackgroundRepeat: no-repeat, no-repeat;
-// @backcoverBgLogoPos: ;
-// @backcoverBgLogoPosForMobile: ;
-@backcoverBackgroundPosition: top left, top right;
+@backcoverBgPosition: top left, top right;
+@backcoverBgPositionForMobile: @backcoverBgPosition;
+@backcoverBackgroundPosition: var(--thm-bc-bg-pos);
 
 // 封面、封底素材资源
 :root {

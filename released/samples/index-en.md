@@ -12,13 +12,13 @@ keywords:
 Vlook-chp-autonum-test: h1{{#ALPHA#.}},h2{{STEP-##-min#:}}
 vlook-query: toc=2
 vlook-doc-lib:
-- [VLOOK™ Documents](vlook-lib-en.html "manual,guide,example,sample")
-- [中文 🇨🇳 参考手册](index.html?target=vlook-index-cn "typora;vlook")
-- [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank)
+- [VLOOK™ Documents](vlook-lib-en.html "Guide, Manual, Sample, Example")
+- [中文 🇨🇳 参考手册](index.html?target=vlook-index-cn "手册、教程、指南、示例、范例")
+- [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank "Project Home")
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 ---
 
-###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective_^Interaction^_<br>──<br><u>Introduction</u><br>*`V27.0`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective_^Interaction^_<br>──<br><u>Introduction</u><br>*`V28.0`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 
 [TOC]
 
@@ -30,7 +30,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 >
 > **A DOMESTICALLY DEVELOPED OPEN-SOURCE PRODUCT RECOMMENDED BY** ![OSChina](pic/oschina.png#icon) **[Open Source China](https://www.oschina.net/p/vlook)**.
 >
-> ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** is a **THEME PACK**_~GnRo~_ and **ENHANCEMENT PLUGIN**_~PuOg~_ for Typora[^Typora] .
+> ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** is a **THEME PACK**_~GnRo~_ and **ENHANCEMENT PLUGIN**_~PuOg~_ for [Typora](https://typora.io)[^Typora] .
 >
 > VLOOK™ is an open-source software that follows the **MIT License**.
 
@@ -90,15 +90,23 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 # Donate
 
-*==Donate VLOOK™==*
+---
 
-|         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**         | **If you like VLOOK™, you can contribute a cup of coffee :-)** |
-| :----------------------------------------------------------: | :----------------------------------------------------------: |
-| ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo) | [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow) |
+> **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**
+>
+> ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo)
+>
+> _~Gn~_
+
+> **I like VLOOK™, I donate a cup of coffee**
+>
+> [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow)
+>
+> _~Se~_
 
 > **感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**
 >
-> ＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 # Quick Start
 
@@ -124,7 +132,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > In addition to providing rich capabilities for document layout and content identification, it also enables static documents to "move" with you based on HTML format.
 >
-> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Formatting)  *[<kbd>Samples</kbd>](index-en.md#Samples)*
+> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Formatting)  *[<kbd>Samples</kbd>](#Typesetting and Editing Services)*
 >
 > _~Vn!~_
 
@@ -136,7 +144,7 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > Feel free to enjoy at any time according to your needs and preferences~
 >
-> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Navigation)  *[<kbd>Samples</kbd>](index-en.md#Samples)*
+> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Navigation)  *[<kbd>Samples</kbd>](#Typesetting and Editing Services)*
 >
 > _~Bu!~_
 
@@ -150,21 +158,23 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 >
 > It is a very suitable presentation assistance tool for on-site and remote use, enabling Turbo mode for your documents~
 >
-> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Presentation and Publishing)  *[<kbd>Samples</kbd>](index-en.md#Samples)*
+> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Presentation and Publishing)  *[<kbd>Samples</kbd>](#Typesetting and Editing Services)*
 >
 > _~Og!~_
 
 >![° APPEARANCE & ESSENTIALS](pic/qico-theme-light.svg?fill=lm&darksrc=invert#icon2x)
 >
-> **° APPEARANCE & ESSENTIALS**
+>**° APPEARANCE & ESSENTIALS**
 >
-> "**Humans have always been visual creatures. Making the eyes feel pleasant and beautiful when reading, whether for oneself or others, is a virtue, a power, a belief.**"
+>"**Humans have always been visual creatures. Making the eyes feel pleasant and beautiful when reading, whether for oneself or others, is a virtue, a power, a belief.**"
 >
-> 　　　　--- MAX°孟兆
+>　　　　--- MAX°孟兆
 >
-> [<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Appearance & Essentials)  *[<kbd>Samples</kbd>](index-en.md#Samples)*
 >
-> _~Lm!~_
+>
+>[<kbd>Learn more ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#Quick Start ° Appearance & Essentials)  *[<kbd>Samples</kbd>](#Typesetting and Editing Services)*
+>
+>_~Lm!~_
 
 
 
@@ -193,7 +203,7 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 >
 > Download the latest version from the homepage of VLOOK™ (Or directly select and download the required files from the repository in the subsequent steps):
 > 
->  [<kbd>![](pic/icon-download.svg?fill=text) via GitHub</kbd>](https://github.com/MadMaxChow/VLOOK/releases)  *[<kbd>![](pic/icon-download.svg?fill=text) via Gitee</kbd>](https://gitee.com/madmaxchow/VLOOK/releases)*
+>  [<kbd>![](pic/icon-download.svg?fill=text) via GitHub</kbd>](https://github.com/MadMaxChow/VLOOK/releases/tag/V28.0)  *[<kbd>![](pic/icon-download.svg?fill=text) via Gitee</kbd>](https://gitee.com/madmaxchow/VLOOK/repository/archive/V28.0)*
 >
 >
 > _~Gn~_
@@ -206,15 +216,15 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 >
 > _~Gn~_
 
+*==Typora ▸ Preferences ▸ Markdown==*
+
+![](pic/typora-opt1-light-en.png?srcset=@2x&darksrc=typora-opt1-dark-en.png&darksrcset=@2x)
+
 > ###### Install Fonts (optional)
 >
 > Download and install the VLOOK™ theme matching font pack•• See "[Font Styles](guide3.md#字体风格)" for details.
 >
 > _~Gn~_
-
-*==Typora ▸ Preferences ▸ Markdown==*
-
-![](pic/typora-opt1-light-en.png?srcset=@2x&darksrc=typora-opt1-dark-en.png&darksrcset=@2x)
 
 ## Install the Theme Package
 
@@ -226,7 +236,7 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 >
 >    > Where is the theme directory? Open *==Settings ▸ Appearance ▸ Open Theme Directory==*
 >
-> 2. Or directly visit the **[themes](https://github.com/MadMaxChow/VLOOK/tree/master/released/themes)** folder on GitHub, download and copy it to Typora’s theme directory.
+> 2. Or directly visit the **[themes](https://github.com/MadMaxChow/VLOOK/tree/master/released/themes)** of VLOOK, download and copy it to Typora’s theme directory.
 >
 > _~Og~_
 
@@ -262,14 +272,15 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 ---
 
-> **Configure export setting**
+> **Add "Export Setting"**
 >
-> 1. Open *==Typora > Preferences==*
-> 2. Click "**Export**", add configuration (==select HTML as a template==), and name the configuration `VLOOK`
-> 
+> 1. Open Typora
+> 2. Menu *==File > Export > Export Setting==*
+> 3. Add configuration (==select HTML as a template==), and name the configuration `VLOOK`
+>
 > _~Cy~_
 
-> **Install Meta Tag**
+> **Install "Meta Tag"**
 >
 > 1. Open the meta tag file: *==released/plugin/**meta.txt**==* (Or directly open the **[meta.txt](https://github.com/MadMaxChow/VLOOK/tree/master/released/plugin/meta.txt)** file on GitHub)
 > 2. Select and copy all contents
@@ -277,7 +288,7 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 >
 > _~Cy~_
 
-> **Install the Plugin**
+> **Install "Plugin"**
 >
 > 1. Open the plug-in file: *==released/plugin/**plugin.txt**==* (Or directly open the **[plugin.txt](https://github.com/MadMaxChow/VLOOK/tree/master/released/plugin/plugin.txt)** file on GitHub)
 > 2. Select and copy all contents;
@@ -354,7 +365,20 @@ The online version of the plugin file is: *==released/plugin/**plugin_live.txt**
 
 ---
 
-If you have any suggestions and needs, please feel free to give feedback~ [![Freeback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™&body=Hi, "Freeback via Email")  [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Telegram Channel")
+> **Cross-Platform**
+>
+> HTML documents published using VLOOK™ can automatically adapt to different screens and resolutions of various devices such as desktops, tablets, and mobile phones, providing the most suitable reading and usage experience.
+
+> **Animation Effect**
+>
+> The enhanced motion effects (including frosted glass) will be enabled by default. You can reduce the level of motion effects according to the actual situation. The adjustment can be made through the `effect` of the '[Plugin Parameters](guide3.md#插件调校参数)'.
+>
+> > ###### How to enable Glass-Effect in Firefox?
+> >
+> > If you find that the frosted glass effect cannot be displayed in the Firefox browser, you can take the following steps:
+> >
+> > - Enter `about:config` in the address bar
+> > - Search for the configuration item `layout.css.backdrop-filter.enabled` and set it to `true`
 
 # Value-added Services
 
@@ -366,35 +390,13 @@ The "**Private Customization Service**" for Themes is now open! Here are some re
 
 
 
-**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  Submit My Customization Request</kbd>](https://wj.qq.com/s2/14818521/bd33/)**
-
-*[<kbd>Explore more about Customized Themes</kbd>](https://madmaxchow.github.io/VLOOK/vip.html)*
+**[<kbd>Explore more about Customized Themes</kbd>](https://madmaxchow.github.io/VLOOK/vip.html)**
 
 ## Typesetting and Editing Services
 
-Based on the content and audience of your document, fully utilize the numerous features of Typora + VLOOK in aspects such as ==layout design==, ==content marking==, ==multi-document organization==, ==presentation and publishing assistance==, etc., to provide the most suitable and ==user-friendly interactive== services like **document editing and publishing as HTML**.
+![Docment Typesetting, Content Revision, Knowledge Base Construction, Publishing Guidance, Website Hosting](https://vlook-doc.pages.dev/pic/vlook-te.png?srcset=@2x)
 
-Here are some sample references:
-
----
-
----
-
-> [![Click to see ...](pic/sample-a-api_spec-en.png?srcset=@2x#card#border "Richly styled and interactive API doc")](sample-a-api_spec.html?ws=off)
-
-> [![Click to see ...](pic/sample-a-to_do-en.png?srcset=@2x#card#border "Clear, categorized, and progress-tracked to-do notes")](sample-a-to_do.html?ws=off)
-
->  [![Click to see ...](pic/sample-a-img_text-en.png?srcset=@2x#card#border "Images and text can also harmonize very well")](sample-a-img_text.html?ws=off)
-
----
-
----
-
-> [![Click to see ...](pic/sample-a-board-en.png?srcset=@2x#card#border "A categorized board for organizing projec")](sample-a-routes.html?ws=off)
-
-> [![Click to see ...](pic/sample-a-quiz-en.png?srcset=@2x#card#border "Interactive Q&A can be this simple")](sample-a-board.html?ws=off)
-
-> [![Click to see ...](pic/sample-a-routes-en.png?srcset=@2x#card#border "Collapsible categorized reference information")](sample-a-quiz.html?ws=off)
+Based on the content and audience of your document, fully utilize the numerous features of Typora + VLOOK™, to provide services like **Docment Typesetting**, **Content Revision**, **Knowledge Base Construction**, **Publishing Guidance**, **Website Hosting**.
 
 
 
@@ -407,5 +409,9 @@ Here are some sample references:
 > - **Welcome to submit your own examples of using Typora + VLOOK™ ~ Share your best practice experiences with everyone ~**_~GnOg~_
 >
 > - For more practical samples, please refer to the directory in the download package *==released\\[samples](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)==*
+
+---
+
+If you have any suggestions and needs, please feel free to give feedback~ [![Freeback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™&body=Hi, "Freeback via Email")  [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Telegram Channel")
 
 # The End

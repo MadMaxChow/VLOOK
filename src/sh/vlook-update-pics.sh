@@ -21,6 +21,6 @@ cp -f * ../VLOOK/released/samples/pic
 # echo "复制 pic-temp 的内容至 VLOOKres/pic..."
 # cp -f * ../VLOOKres/pic
 
-rm *.jpg *.png *.jpeg *.ico *.svg
+rm *.jpg *.png *.jpeg *.ico *.svg *.gif *.webp *.mp3 *.mp4
 
 echo "[ ALL DONE ]"

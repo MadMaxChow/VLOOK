@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V27.0" (2024-11-02) - (Language Pack) - Typora Plugin
+VLOOK™ "V28.0" (2024-12-21) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
@@ -56,7 +56,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de42" content="Minute(n)">
 <meta name="vk-de43" content="stunde(n)">
 <meta name="vk-de44" content="Wörter">
-<meta name="vk-de45" content="Auto-/Hell-/Dunkelmodus wechseln">
+<meta name="vk-de45" content="Erscheinungsbild">
 <meta name="vk-de46" content="Fügen Sie [TOC] vor der ersten Überschrift der ersten Ebene ein, um es zu generieren">
 <meta name="vk-de47" content="Hash-Prüfung bestanden">
 <meta name="vk-de48" content="Graustufenmodus">
@@ -101,3 +101,6 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de87" content="Heute ist">
 <meta name="vk-de88" content="Diese Seite wird heute im {{display-mode}} angezeigt">
 <meta name="vk-de89" content="Klicken Sie unten auf die Schaltfläche, um es vorübergehend auszuschalten">
+<meta name="vk-de90" content="Automatisch">
+<meta name="vk-de91" content="Hell">
+<meta name="vk-de92" content="Dunkel">

@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V27.0" (2024-11-02) - (Language Pack) - Typora Plugin
+VLOOK™ "V28.0" (2024-12-21) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
@@ -56,7 +56,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru42" content="- минуты">
 <meta name="vk-ru43" content="- часы">
 <meta name="vk-ru44" content="- слова">
-<meta name="vk-ru45" content="Включить автоматическую/светлую/тёмную тему">
+<meta name="vk-ru45" content="Внешний вид">
 <meta name="vk-ru46" content="Добавьте [TOC] перед первым заголовком первого уровня, чтобы сгенерировать его">
 <meta name="vk-ru47" content="Проверка хеша пройдена">
 <meta name="vk-ru48" content="Серый режим">
@@ -101,3 +101,6 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ru87" content="Сегодня">
 <meta name="vk-ru88" content="Эта страница сегодня будет отображаться в режиме {{display-mode}}">
 <meta name="vk-ru89" content="Нажмите кнопку ниже, чтобы временно отключить это">
+<meta name="vk-ru90" content="Автоматически">
+<meta name="vk-ru91" content="Светлый">
+<meta name="vk-ru92" content="Тёмный">

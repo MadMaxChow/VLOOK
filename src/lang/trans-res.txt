@@ -14,43 +14,43 @@
 多国语言的标识对应关系如下："de"对应的是德语，"es"对应的是西班牙语，"fr"对应的是法语，"pt"对应的是葡萄牙语，"ru"对应的是俄语，"ar"对应的是阿拉伯语，"ko"对应的是韩语，"ja"对应的是日语，"zh-hk"对应的是繁体中文。
 我后面发给你的内容中，「content=」后双引用内的英文内容翻译为对应的语言。语言具体对应语言的标识以「name=」后双引用号内容中为参考，即"vk-"后的内容为对应的语言标识（忽略数字部分），其他内容保持原内容输出
 
-<meta name="vk-de25" content="Reading Mode">
-<meta name="vk-es25" content="Reading Mode">
-<meta name="vk-fr25" content="Reading Mode">
-<meta name="vk-pt25" content="Reading Mode">
-<meta name="vk-ru25" content="Reading Mode">
-<meta name="vk-ar25" content="Reading Mode">
-<meta name="vk-ko25" content="Reading Mode">
-<meta name="vk-ja25" content="Reading Mode">
-<meta name="vk-zh-hk25" content="Reading Mode">
+<meta name="vk-de45" content="Appearance">
+<meta name="vk-es45" content="Appearance">
+<meta name="vk-fr45" content="Appearance">
+<meta name="vk-pt45" content="Appearance">
+<meta name="vk-ru45" content="Appearance">
+<meta name="vk-ar45" content="Appearance">
+<meta name="vk-ko45" content="Appearance">
+<meta name="vk-ja45" content="Appearance">
+<meta name="vk-zh-hk45" content="Appearance">
 
-<meta name="vk-de87" content="Today is">
-<meta name="vk-es87" content="Today is">
-<meta name="vk-fr87" content="Today is">
-<meta name="vk-pt87" content="Today is">
-<meta name="vk-ru87" content="Today is">
-<meta name="vk-ar87" content="Today is">
-<meta name="vk-ko87" content="Today is">
-<meta name="vk-ja87" content="Today is">
-<meta name="vk-zh-hk87" content="Today is">
+<meta name="vk-de90" content="Automatically">
+<meta name="vk-es90" content="Automatically">
+<meta name="vk-fr90" content="Automatically">
+<meta name="vk-pt90" content="Automatically">
+<meta name="vk-ru90" content="Automatically">
+<meta name="vk-ar90" content="Automatically">
+<meta name="vk-ko90" content="Automatically">
+<meta name="vk-ja90" content="Automatically">
+<meta name="vk-zh-hk90" content="Automatically">
 
-<meta name="vk-de88" content="This page will be displayed in {{display-mode}} today">
-<meta name="vk-es88" content="This page will be displayed in {{display-mode}} today">
-<meta name="vk-fr88" content="This page will be displayed in {{display-mode}} today">
-<meta name="vk-pt88" content="This page will be displayed in {{display-mode}} today">
-<meta name="vk-ru88" content="This page will be displayed in {{display-mode}} today">
-<meta name="vk-ar88" content="This page will be displayed in {{display-mode}} today">
-<meta name="vk-ko88" content="This page will be displayed in {{display-mode}} today">
-<meta name="vk-ja88" content="This page will be displayed in {{display-mode}} today">
-<meta name="vk-zh-hk88" content="This page will be displayed in {{display-mode}} today">
+<meta name="vk-de91" content="Light">
+<meta name="vk-es91" content="Light">
+<meta name="vk-fr91" content="Light">
+<meta name="vk-pt91" content="Light">
+<meta name="vk-ru91" content="Light">
+<meta name="vk-ar91" content="Light">
+<meta name="vk-ko91" content="Light">
+<meta name="vk-ja91" content="Light">
+<meta name="vk-zh-hk91" content="Light">
 
-<meta name="vk-de89" content="Click the button below to temporarily turn it off">
-<meta name="vk-es89" content="Click the button below to temporarily turn it off">
-<meta name="vk-fr89" content="Click the button below to temporarily turn it off">
-<meta name="vk-pt89" content="Click the button below to temporarily turn it off">
-<meta name="vk-ru89" content="Click the button below to temporarily turn it off">
-<meta name="vk-ar89" content="Click the button below to temporarily turn it off">
-<meta name="vk-ko89" content="Click the button below to temporarily turn it off">
-<meta name="vk-ja89" content="Click the button below to temporarily turn it off">
-<meta name="vk-zh-hk89" content="Click the button below to temporarily turn it off">
+<meta name="vk-de92" content="Dark">
+<meta name="vk-es92" content="Dark">
+<meta name="vk-fr92" content="Dark">
+<meta name="vk-pt92" content="Dark">
+<meta name="vk-ru92" content="Dark">
+<meta name="vk-ar92" content="Dark">
+<meta name="vk-ko92" content="Dark">
+<meta name="vk-ja92" content="Dark">
+<meta name="vk-zh-hk92" content="Dark">
 

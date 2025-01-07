@@ -27,7 +27,7 @@ vlook-doc-lib-test:
 - [Дублирующая библиотека-2](vlook-lib.html?target=_blank "关键字示例内容")
 ---
 
-###### ~VLOOK™~<br>Придайте языку разметки Markdown новый вид<br>──<br><u>Краткое справочное руководство (Часть I)</u><br>*Последняя версия `V26.1`*<br><br>**Автор: MAX°孟兆 (поддержка русскоязычной версии: Dmitry Ermolaev)**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
+###### ~VLOOK™~<br>Придайте языку разметки Markdown новый вид<br>──<br><u>Краткое справочное руководство (Часть I)</u><br>*Последняя версия `V26.1`*<br><br>**Автор: MAX°孟兆 (поддержка русскоязычной версии: Dmitry Ermolaev)**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 
 [TOC]
 
@@ -231,7 +231,7 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 色号�
 
 - 特定位置实现：
   - 「[引用块小标题](#引用块小标题)」
-  - 「[封面与封底](guide3.md#封面与封底)」
+  - 「[封面与封底](guide2.md#°封面与封底)」
 
 - 格式组合实现：
   - 「[表格题注](#表格自动编号与题注)、[插图题注](#插图自动编号与题注)、[代码块题注](#代码块自动编号与题注)、[多媒体内容题注](#流媒体平台)」
@@ -248,7 +248,7 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 色号�
 
 - 特定位置实现：
   - 「[详情折叠](#详情折叠)」
-  - 「[封面与封底](guide3.md#封面与封底)」
+  - 「[封面与封底](guide2.md#°封面与封底)」
 
 - 格式组合实现：
   - 「[表格题注](#表格自动编号与题注)、[插图题注](#插图自动编号与题注)、[代码块题注](#代码块自动编号与题注)、[多媒体内容题注](#流媒体平台)」
@@ -259,7 +259,7 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 色号�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版) 
 
 # °按钮
 
@@ -357,7 +357,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版) 
 
 # °表格
 
@@ -940,7 +940,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版) 
 
 # °图片
 
@@ -1594,7 +1594,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版) 
 
 # °备忘与警示
 
@@ -1817,7 +1817,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版) 
 
 # °分栏
 
@@ -2187,7 +2187,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版) 
 
 # °列表
 
@@ -2303,7 +2303,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版) 
 
 # °引用块
 
@@ -3192,7 +3192,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版) 
 
 # °代码与代码块
 
@@ -3325,7 +3325,7 @@ void quickSort(int arr[], int left, int right) {
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版) 
 
 # °多媒体
 
@@ -3528,6 +3528,6 @@ void quickSort(int arr[], int left, int right) {
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版) 
 
 # The End

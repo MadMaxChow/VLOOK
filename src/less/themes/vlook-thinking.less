@@ -15,7 +15,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V27.0";
+@themeVer: "V28.0";
 @themeName: "vlook-thinking";
 @themeDesc: "Thinking";
 
@@ -29,6 +29,8 @@
 .applyThemeRadius(leaf);
 // 文档背景使用图片
 .applyDocBgImg(@docBgImgLight_Grid, @docBgImgDark_Grid);
+// 生成指定的表格样式
+.genTableStyle(report);
 
 :root {
     --thm-fav-logo-lg: url("data:image/png;base64,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");
@@ -58,28 +60,36 @@
 // 标题色
 @headerColor: @theme1;
 @headerColorDark: @theme1Dark;
+
 // 渐变标题色 h1-h5
+// 渐变标题色 h1-h5
+@lg: linear-gradient(135deg, var(--ac-t1) 30%, var(--ac-t2));
+.genLinearGradientHeader(h1, @lg);
+.genLinearGradientHeader(h2, @lg);
+.genLinearGradientHeader(h3, @lg);
+.genLinearGradientHeader(h4, @lg);
+.genLinearGradientHeader(h5, @lg);
 // @lgHeaderBg: linear-gradient(135deg, @theme1 25%, @theme2);
 // @lgHeaderBgClip: text;
 // @lgHeaderColor: transparent;
-@lgH1Bg: linear-gradient(135deg, @theme1 25%, @theme2);
-@lgH2Bg: @lgH1Bg;
-@lgH3Bg: @lgH1Bg;
-@lgH4Bg: @lgH1Bg;
-@lgH5Bg: @lgH1Bg;
-@lgH1BgClip: text;
-@lgH2BgClip: @lgH1BgClip;
-@lgH3BgClip: @lgH1BgClip;
-@lgH4BgClip: @lgH1BgClip;
-@lgH5BgClip: @lgH1BgClip;
-@lgH1Color: transparent;
-@lgH2Color: @lgH1Color;
-@lgH3Color: @lgH1Color;
-@lgH4Color: @lgH1Color;
-@lgH5Color: @lgH1Color;
+// @lgH1Bg: linear-gradient(135deg, var(--ac-t1) 30%, var(--ac-t2));
+// @lgH2Bg: @lgH1Bg;
+// @lgH3Bg: @lgH1Bg;
+// @lgH4Bg: @lgH1Bg;
+// @lgH5Bg: @lgH1Bg;
+// @lgH1BgClip: text;
+// @lgH2BgClip: @lgH1BgClip;
+// @lgH3BgClip: @lgH1BgClip;
+// @lgH4BgClip: @lgH1BgClip;
+// @lgH5BgClip: @lgH1BgClip;
+// @lgH1Color: transparent;
+// @lgH2Color: @lgH1Color;
+// @lgH3Color: @lgH1Color;
+// @lgH4Color: @lgH1Color;
+// @lgH5Color: @lgH1Color;
 
 // 6 级标题前缀内容
-@h6BeforeContent: "❖ ";
+@h6BeforeContent: "❖" @h6NumSeparator;
 // @tocHeaderNumColor: @docTextColorLightFade;
 //@contentHeaderNumColor: @themeBgColorFade;
 @headerBackground: linear-gradient(270deg, var(--h-bg-start), var(--h-bg-end));
@@ -89,7 +99,7 @@
 @headerPadding: 5px 30px 5px 0;
 //@headerLetterSpacing: 0;//0.3em;
 
-// 不进行章节自动编号
+// 不进行标题自动编号
 @vChpAutoNum: "h1{{#none#}},h2{{#none#}},h3{{#none#}},h4{{#none#}},h5{{#none#}}";;
 @h1BeforeContent: "";
 @h2BeforeContent: "";
@@ -141,30 +151,30 @@
 @aActiveColor: desaturate(@aHoverColor, 25%);
 
 // 表格边框
-@tblBdWidth: 1px;
-@tableBorderColor: var(--d-fc-a);
-@tableBorderWidth: 0px;
-@tableBorderLeftWidth: 0px;
-@tableBorderRightWidth: 0px;
-@tableBorderTopWidth: 0px;
-@tableBorderBottomWidth: 0px;
-@tableThBorderRightWidth: 0px;
-@tableTdBorderRightWidth: 0;
-// 表格行 hover
-@tableTrHoverBg: fade(@aHoverColor, 15%);
-@tableTrHoverBgDark: fade(@aHoverColor, 25%);
-// 表格圆角
-// @tableBorderRadius: 0px;
-// @tableBorderRadiusXC: 0px;
-// 表格背景
-@tableThColor: var(--d-fc-a);
-@tableThBackground: inherit;
-// 表格单元格阴影
-@tableFirstThBoxShadow: none;
-@tableThBoxShadow: 0 -1px 0 var(--tbl-cell-bd);
-@tableThRepeaterBoxShadow: 0 -@tblBdWidth 0 var(--tbl-h-bd);
-@tableFirstTdBoxShadow: 0 -@tblBdWidth 0 0 var(--tbl-h-bd);
-@tableTdBoxShadow: 0 -1px 0 0 var(--tbl-cell-bd);
+// @tblBdWidth: 1px;
+// @tableBorderColor: var(--d-fc-a);
+// @tableBorderWidth: 0px;
+// @tableBorderLeftWidth: 0px;
+// @tableBorderRightWidth: 0px;
+// @tableBorderTopWidth: 0px;
+// @tableBorderBottomWidth: 0px;
+// @tableThBorderRightWidth: 0px;
+// @tableTdBorderRightWidth: 0;
+// // 表格行 hover
+// @tableTrHoverBg: fade(@aHoverColor, 15%);
+// @tableTrHoverBgDark: fade(@aHoverColor, 25%);
+// // 表格圆角
+// // @tableBorderRadius: 0px;
+// // @tableBorderRadiusXC: 0px;
+// // 表格背景
+// @tableThColor: var(--d-fc-a);
+// @tableThBackground: inherit;
+// // 表格单元格阴影
+// @tableFirstThBoxShadow: none;
+// @tableThBoxShadow: 0 -1px 0 var(--tbl-cell-bd);
+// @tableThRepeaterBoxShadow: 0 -@tblBdWidth 0 var(--tbl-h-bd);
+// @tableFirstTdBoxShadow: 0 -@tblBdWidth 0 0 var(--tbl-h-bd);
+// @tableTdBoxShadow: 0 -1px 0 0 var(--tbl-cell-bd);
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: right;
@@ -178,30 +188,12 @@
 
 @backcoverTextAlign: left;
 @backcoverTextPadding: 230px 60px 0;
-@backcoverTextPaddingForMobile: @backcoverTextPadding;
+@backcoverTextPaddingForMobile: 230px 20px 0;
 @backcoverTextColor: @coverTextColor;
 
 // 封面内多级标签样式
 @badgeBorderColorInCover: fade(@coverTextColor, 75%);
 @badgeBorderWidthInCover: 1px;
-
-// 封面装饰性文本样式 before
-@coverTextBeforeContent: "";
-@coverTextBeforePosition: initial;
-@coverTextBeforeLeft: initial;
-@coverTextBeforeTop: initial;
-@coverTextBeforeColor: initial;
-@coverTextBeforeFontSize: initial;
-@coverTextBeforeFontWeight: initial;
-@coverTextBeforeOpacity: initial;
-// 封面装饰性文本样式 after
-@coverTextAfterContent: "";
-@coverTextAfterTextAlign: initial;
-@coverTextAfterLeft: initial;
-@coverTextAfterTop: @coverTextBeforeTop;
-@coverTextAfterRight: initial;
-@coverTextAfterColor: @coverTextBeforeColor;
-@coverTextAfterFontSize: @coverTextBeforeFontSize;
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
 @contrastBorder: 0 0 0 0 transparent;
@@ -213,20 +205,24 @@
 // 封面背景设置
 @coverBackgroundColor: #EDEDED;
 @coverBackgroundImage: var(--thm-c-logo), var(--thm-c-bn), var(--thm-c-top-left1), var(--thm-c-top-left2);
-@coverBackgroundSize: auto, auto 300px, auto, auto;
+@coverBgSize: auto, auto 300px, auto, auto;
+@coverBgSizeForMobile: @coverBgSize;
+@coverBackgroundSize: var(--thm-c-bg-size);
 @coverBackgroundRepeat: no-repeat, no-repeat, no-repeat, no-repeat;
-@coverBgLogoPos: right 60px top 80px;
-@coverBgLogoPosForMobile: right 20px top 80px;
-@coverBackgroundPosition: var(--thm-c-bg-logo-pos), bottom 160px left, top left, top 180px left;
+@coverBgPosition: right 60px top 80px, bottom 160px left, top left, top 180px left;
+@coverBgPositionForMobile: right 20px top 80px, bottom 160px left, top left, top 180px left;
+@coverBackgroundPosition: var(--thm-c-bg-pos);
 
 // 封底背景设置
 @backcoverBackgroundColor: @coverBackgroundColor;
 @backcoverBackgroundImage: var(--thm-c-logo), var(--thm-bc-bn), var(--thm-bottom-right1), var(--thm-bottom-right2);
-@backcoverBackgroundSize: auto, auto 180px, auto, auto;
+@backcoverBgSize: auto, auto 180px, auto, auto;
+@backcoverBgSizeForMobile: @backcoverBgSize;
+@backcoverBackgroundSize: var(--thm-bc-bg-size);
 @backcoverBackgroundRepeat: no-repeat, no-repeat, no-repeat, no-repeat;
-@backcoverBgLogoPos: 60px 60px;
-@backcoverBgLogoPosForMobile: 60px 60px;
-@backcoverBackgroundPosition: var(--thm-bc-bg-logo-pos), top 165px left, bottom 135px right, bottom right;
+@backcoverBgPosition: 60px 60px, top 165px left, bottom 135px right, bottom right;
+@backcoverBgPositionForMobile: 20px 60px, top 165px left, bottom 135px right, bottom right;
+@backcoverBackgroundPosition: var(--thm-bc-bg-pos);
 
 // 文档扩展区域背景
 @docExtBackgroundImage: var(--thm-doc-ext-bg), var(--thm-ext-bottom-right);
@@ -249,7 +245,7 @@
 
 @import "../base";
 
-// 生成强调风格的有序列表样式
+// 生成线框风格的有序列表样式
 .genOrderList(frame, circle);
 
 // 生成指定风格的多级标签样式

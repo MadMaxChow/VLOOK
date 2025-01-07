@@ -17,10 +17,8 @@
 @import "../color";
 @import "../common";
 
-// @vQuery: "ws=off";
-
 // 主题信息
-@themeVer: "V27.0";
+@themeVer: "V28.0";
 @themeName: "vlook-x-dic";
 @themeDesc: "× DIC";
 @themeEmail: "maxchow@qq.com";
@@ -38,6 +36,8 @@
 .applyThemeRadius(leaf);
 // 表格、插图指定居中对齐
 .genTableAndFigureAlign(center);
+// 生成指定的表格样式
+.genTableStyle(vivid);
 
 :root {
     --thm-fav-logo-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAMAAAC8EZcfAAABcVBMVEUAAAD////////////////////////////////////////////////////////////////////////XFRcAn+n98/MQperwpabtlZbiUlSL0/UjrOzxq6ud2vfumpufOU7g8/z64OCj3feR1vbYGhz7/v/3/f7sjI3dMzXr+P1yy/PfQ0TaJie/5/r+9/dGuu/ncnTlZ2jZICLO7fv++vo3tO786uoHour2y8v1wcLvoaLkXF7ePT7b8vyr4PiU1/Zqx/Ioru0cquwWqOv52tv30NHys7Tyr7Dvn5/jV1nw+f7J6/qx4viE0vV9zvRfw/H98PBRvfA/t+8tsO3L3Orsk5TqhYbqgILod3jmbG3kYWPgSErk9fy35Pmg2/f41NT0vb3zuLi0k6bpe3xyVnq9XWrhTk/OKi/W8PzZ6vVYwPHAzN26vtC3tMcliMW0pLi1h5m4bX2/SVXHPETbLC4ImuFEc6ZTapi3eIiRQly3Kjd8CjONAAAAEnRSTlMA+sfDoEc/CBXw7N+zpnlzcBmH44SwAAAFYElEQVR42uzWSxLCIBBF0We+qDEmb/+LFR1QUOjYO+izgltQ0K0QQgghhBB667xPw/128d/pi3SMgLKfgcvGqcu6vNEsapwP06g2X42jytNAKtbJRKUvDUYq5wftK4HM+83I76MKnI2ltxP4/zWBvPnRBi4GU0bbDxr0A7SkzWRSQu2nHekwGvyJ2FrZN2zylPvQbrYX8/XSk2YQhXGcdbt7zghpQIMVxUtFVBQFFG+1QCv1RjXa1GLSW9qmbeqiH7+viylPMuCcvsyC3xeY/2bmnBndPcsGjuqiaiUeY7QlHmG0JUb8lUECIy58YGFsOCWQ0IGFznVOhnQIEjjwcFaGNwkSNrAjAayAhA3sSgjXIEED11ckhCJI0MC8BDEBEjRwQYLYBAkZWJAwjkFCBm5IEHcgQQMrEkQTxBuYPVo6Sw+2kyW3EqlOkqLEcAF94Ey7bB40BfJLInmQpsSQ0QfO7RqPRZBPEumCxJp7N+rA6VPjM4eet84cPZYYciV14Lzx2Qc55zka/1rXoA2cKxufJZDvzhxtSAzL6sBx4zUP8tOZo7EucV4d+Np4vQP5IJHqRKPRqFRSqVQmk6lJDF114JnxWuUrlZMgJrWB02XjNYOeLxLECrSBq8ZrF+SrBPFRHfjUWPXxAeogPySykCJVidRSGnmxirpAfgWTGGD7COSPM0eXJXIJhbEFsRrqwCUbeIr+FsuvQH47c7QmkQr8Sk/knw114B49dv2sJs0WelrOHC3l7IE+V7ytagNbxhpHP1v7Jgly7szRG7k3Bq9L6puFNnDRWC/57Zmy0sasgXxz5mjGOfBgop+ikKY6sN73sftsyA7IrTNHLyRS/c9f3xt14I7NSINsG1J3Bl0HpOkceCVeL9SBazbjBKT98Lb6HuSODlTvrwfqwKTNaIOcGNJCT1burfO26hxY0Gyr2sCssbZB0tS351ziZyCbEsmBPNdsq9rAv+Ta2UtCQRTHceqx3o43u9q+qFlWaGgbLRQWoSVqi1aGZEVYBAkV9dcXgvaDmducwUMJfR976YNw55y5mm078LALe2+ryhwdbY4+ggYZ2yobeNhiLIfgr5mft9WSsq2WCaqZgSdsYL3FSHou2ZMENZSxduH7yiUoYAZW2cD2hTNH0LbXthpWx1pCeQ8UMwNTXGBYfzUveG6rylibUP5hyuyLERe4pD/s/OArEvSgjLU9zWNt7I4NvNJfzR2ormyr6lgLEOSagSU2cFZ7Na8g8JCgZ/1YqxFUNgPX2MBF7WEXRGBF2VbVsTZo+f51hQ3c1R52mUkIB13UY6ylCdof9uhbPsAFRuFqzunYY6wtEKNR2Fa5wHk47Dg96sfaDDHa97VbZwOn4LDjdK0fa+dkbhVeSETYwBxczTnd6sdahIylE/glIhuYbAODrJrbatmFmmMt7hqLKdsqBxjyO1Y9+USKERe44dj1KgOMs4GblsAbGeAqG3hkCXwX8c0RG5i3BH5I+KbTfOCQne/FJ5FLbGDY+YOHOEJ8YMYS+CZwwuyRBXDktx/ixFmKbICztsAxbY0Ap4P4aXWByApYcETaJJlU4K4MMEqQJPBSxrdIkCiwIgOcJ0gUGBTx5QmSBeYkfDtRgmSBRQnfBkGywNBy577kOEHCwPvOP76tEEHSwKy/k4aS21lR3v/8ka1sPd0O7Ot2YH+3A3u7HfjZ7nwYMQzEAAyjvjtx3X9Zr8HzCROg2YOnPdjlwZjyYEUevOXBWPLgjjw45MGKPDjkwQN3cHvkwY47eOEONtzBMt3BslAH20QdvMAc3Drq4PFgDtYB3mDsA7TBqPcCYzB+/9LOPkkppZRS+qAXh+0M5jN/vawAAAAASUVORK5CYII=");
@@ -56,45 +56,26 @@
 @theme2AltDark: #5D090A;//darken(@theme2, 35%);//darken(@theme2Alt, 75%);
 @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
 @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacityLowForLg);
-@theme2FadeDark: rgba(red(@theme2), green(@theme2), blue(@theme2), 40%);
+@theme2FadeDark: rgba(red(@theme2Dark), green(@theme2Dark), blue(@theme2Dark), @accOpacity);
 
 // 标题色
 @headerColor: @theme1;
 @headerColorDark: @theme1Dark;
 // 渐变标题色 h1-h5
-@lgH1Bg: linear-gradient(90deg, @theme1 25%, #2060E0);
-@lgH2Bg: @lgH1Bg;
-@lgH3Bg: @lgH1Bg;
-@lgH4Bg: @lgH1Bg;
-@lgH5Bg: @lgH1Bg;
-@lgH1BgClip: text;
-@lgH2BgClip: @lgH1BgClip;
-@lgH3BgClip: @lgH1BgClip;
-@lgH4BgClip: @lgH1BgClip;
-@lgH5BgClip: @lgH1BgClip;
-@lgH1Color: transparent;
-@lgH2Color: @lgH1Color;
-@lgH3Color: @lgH1Color;
-@lgH4Color: @lgH1Color;
-@lgH5Color: @lgH1Color;
+@lg: linear-gradient(90deg, @theme1 25%, #2060E0);
+.genLinearGradientHeader(h1, @lg);
+.genLinearGradientHeader(h2, @lg);
+.genLinearGradientHeader(h3, @lg);
+.genLinearGradientHeader(h4, @lg);
+.genLinearGradientHeader(h5, @lg);
 
-// @tocHeaderNumColor: @docTextColorLightFade;
-// @contentHeaderNumOpacity: .5;
-//@contentHeaderNumColor: @theme1;
-@headerBackground: none;//linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
-// @continuousHeaderBG: none;
-// @headerTextAlign: center;
+@headerBackground: none;
 @headerPadding: 10px 0 0 0;
 
-// 自定义章节自动编号
-// 导出的 HTML 中不生效，须添加以下 VLOOK 的调校参数「vlook-chp-autonum」
-// @headerNumSeparator: "";
-// @vChpAutoNum: "h1{{第###章}}";
-// @h1BeforeContent: "第" counter(h1) "章";
-@headerNumSeparator: "";
+@h1NumSeparator: "";
 @vChpAutoNum: "h1{{#00##}}";
 @h1BeforeContent: "0" counter(h1);
-@h6BeforeContent: "▰ "; // ■ ▱▰ ⏥▰▱
+@h6BeforeContent: "▰" @h6NumSeparator;
 
 // h1-6::before 的扩展样式
 .genH1beforeExt() {
@@ -102,14 +83,6 @@
     font-size: 2.5em;
     font-weight: 300;
 }
-
-//@headerLetterSpacing: 0;//0.15em;
-// @h1Margin: 2.5em 0 0 0;
-// @h2Margin: 2.5em 0 0 0;
-// @h3Margin: 2em 0 0 0;
-// @h4Margin: 2em 0 0 0;
-// @h5Margin: 1.5em 0 0 0;
-// @h6Margin: 1em 0 0 0;
 
 @headerTextAlign: left;
 @h1TextAlign: center;
@@ -141,29 +114,6 @@
 @aHoverColorDark: @theme2Dark;
 @aActiveColor: desaturate(@aHoverColor, 25%);
 
-// 表格边框
-@tableBorderColor: var(--d-fc-a);
-@tableBorderWidth: 0px;
-@tableBorderLeftWidth: 0px;
-@tableBorderRightWidth: 0px;
-@tableBorderTopWidth: 0px;
-@tableBorderBottomWidth: 2px;
-@tableThBorderRightWidth: 1px solid var(--d-bc);
-// 表格行 hover
-@tableTrHoverBg: fade(@aHoverColor, 20%);
-@tableTrHoverBgDark: fade(@aHoverColor, 25%);
-// 表格背景
-@tableBackground: var(--d-bc);
-@tableThColor: var(--d-bc);
-@tableThBackground: @tableBorderColor;
-@tableTdBackground: none;
-// 表格单元格阴影
-@tableFirstThBoxShadow: none;
-@tableThBoxShadow: 0 1px 0 var(--tbl-h-bd) inset;
-@tableThRepeaterBoxShadow: @tableThBoxShadow;
-@tableFirstTdBoxShadow: none;
-@tableTdBoxShadow: 0 -1px 0 0 var(--tbl-cell-bd);
-
 @badgeBorderWidthInCover: 0;
 
 // 封面、封底文字位置及对齐方式
@@ -181,24 +131,6 @@
 @backcoverTextPaddingForMobile: @coverTextPaddingForMobile;
 @backcoverTextColor: @theme3;
 
-// 封面装饰性文本样式 before
-@coverTextBeforeContent: "";
-@coverTextBeforePosition: initial;
-@coverTextBeforeLeft: initial;
-@coverTextBeforeTop: initial;
-@coverTextBeforeColor: initial;
-@coverTextBeforeFontSize: initial;
-@coverTextBeforeFontWeight: initial;
-@coverTextBeforeOpacity: initial;
-// 封面装饰性文本样式 after
-@coverTextAfterContent: "";
-@coverTextAfterTextAlign: initial;
-@coverTextAfterLeft: initial;
-@coverTextAfterTop: @coverTextBeforeTop;
-@coverTextAfterRight: initial;
-@coverTextAfterColor: @coverTextBeforeColor;
-@coverTextAfterFontSize: @coverTextBeforeFontSize;
-
 // 封面、封底标题的文字阴影样式
 @coverTextShadow: 3px 3px 4px rgba(0, 0, 0, .25);
 @backcoverTextShadow: -3px 3px 4px rgba(0, 0, 0, .25);
@@ -210,20 +142,24 @@
 // 封面背景设置
 @coverBackgroundColor: @theme1;
 @coverBackgroundImage: var(--thm-logo), var(--thm-c-bg-e), var(--thm-c-right-bg), var(--thm-c-tree), var(--thm-c-bg-lg);
-@coverBackgroundSize: auto, auto, 230px 250px, auto, auto;
+@coverBgSize: auto, auto, 230px 250px, auto, auto;
+@coverBgSizeForMobile: auto, auto, 230px 250px, 300px 270px, auto;
+@coverBackgroundSize: var(--thm-c-bg-size);
 @coverBackgroundRepeat: no-repeat, repeat-x, no-repeat, no-repeat, no-repeat;
-// @coverBgLogoPos: ;
-// @coverBgLogoPosForMobile: ;
-@coverBackgroundPosition: 60px 560px, right bottom, right bottom 120px, right top, left top;
+@coverBgPosition: 60px 560px, right bottom, right bottom 120px, right bottom 120px, left top;
+@coverBgPositionForMobile: 20px 560px, right bottom, right bottom 120px, right bottom 120px, left top;
+@coverBackgroundPosition: var(--thm-c-bg-pos);
 
 // 封底背景设置
 @backcoverBackgroundColor: @coverBackgroundColor;
 @backcoverBackgroundImage: var(--thm-logo), var(--thm-bc-bg-e), var(--thm-bc-left-bg), var(--thm-bc-tree), var(--thm-bc-bg-lg);
-@backcoverBackgroundSize: auto, auto, 230px 190px, auto, auto;;
+@backcoverBgSize: auto, auto, 230px 190px, auto, auto;
+@backcoverBgSizeForMobile: auto, auto, 230px 190px, 300px 270px, auto;
+@backcoverBackgroundSize: var(--thm-bc-bg-size);
 @backcoverBackgroundRepeat: @coverBackgroundRepeat;
-// @backcoverBgLogoPos: ;
-// @backcoverBgLogoPosForMobile: ;
-@backcoverBackgroundPosition: right 60px top 400px, left bottom, left top 170px, left top, right top;
+@backcoverBgPosition: right 60px top 400px, left bottom, left top 170px, left bottom 50px, right top;
+@backcoverBgPositionForMobile: right 20px top 400px, left bottom, left top 170px, left bottom 120px, right top;
+@backcoverBackgroundPosition: var(--thm-bc-bg-pos);
 
 // 文档扩展区域背景
 // @docExtBackgroundColor: var(--d-bc);
@@ -252,7 +188,7 @@
 
 // ====================
 // 标题 after 样式
-#write :is(h1,h2,h3,h4,h5)>span::after {
+@{headerAfter} {
     content: "";
     background: @theme1;
     opacity: .3;
@@ -265,8 +201,6 @@
     vertical-align: top;
 }
 // 针对封底 span::after 的微调处理
-@backcoverSpanAfter: ~"@{coverAfterYAML}~@{backcoverId}>span::after";
-@backcoverSpanWithoutYAMLafter: ~"@{coverWithoutYAML}~@{backcoverId}>span::after";
 @{backcoverSpanAfter},
 @{backcoverSpanWithoutYAMLafter} {
     content: "" !important;
@@ -277,7 +211,7 @@
     position: absolute !important;
 }
 
-// 生成强调风格的有序列表样式
+// 生成线框风格的有序列表样式
 .genOrderList(frame, rect);
 
 // 生成指定风格的多级标签样式

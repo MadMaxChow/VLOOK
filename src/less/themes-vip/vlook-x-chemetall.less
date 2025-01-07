@@ -20,7 +20,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V27.0";
+@themeVer: "V28.0";
 @themeName: "vlook-x-chemetall";
 @themeDesc: "× Chemetall";
 @themeEmail: "506086577@qq.com";
@@ -31,6 +31,8 @@
 .applyThemeRadius(small);
 // 表格、插图指定居中对齐
 .genTableAndFigureAlign(center);
+// 生成指定的表格样式
+.genTableStyle(modern);
 
 :root {
     --thm-fav-logo-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAMAAAC8EZcfAAAAllBMVEUAAAD///////////////////////////////////////////////////8ASpakvtotaqp1ncYSVp44cq7E1ee2y+EHT5nQ3uydudfj6/Owx99Uhrn7/P3z9vrt8vjp8PZtmMNij75airsfYKMZW6EMU5uXtdVMgbZFe7M9drAlZaX4+vzY5O+/0uWpwtySstKIq85+pMomYuY9AAAADXRSTlMA8+ni2b+MhXZTPAiolQI6QwAABDlJREFUeNrU19dy4kAQhWE5sYDdRxOUyTmn93+5DTdGiDLTzVBov3tUf4npLk3wrd34eH+hp3t5/2i0g4rP5ivVyGvzMyhpvVHNvLWCM7+ohn59931RLX3V+v2dvcMW1Vbr3/zWbj6+vf2d5SbVWPNPYK3236XXIGhTrbWDBtVaI/igWvsI3qnW3oMafL/85CUgH/pRpjtLqyYmScxE2WVHZ1GffLg7sF8MrcFVxg4LVqX3wF6sFW5QOu4Rg8fAeJzASTKOSUgemOopGKY6JT55YGHBZgvikQeGCiIqJAZpYDdbQ2yddYlBEhgp3EVFxMAOHIxwt9GAGHiBcwMPzJwYGIH5Cp6s8kcExgbemNh7YFfDK931G5hbeGZzn4HpFN5NU3+BkcEDmMhXYJHgIZLCT2CGh8lkgfI+eaE8sMBDFfcGRgkczcIzMzhKovsCUwNXis4ouDLpPYH5FM46dKYDZ9NcHti1cKfpjIY72xUHajBk4tHX0sAYHDs6swNHLAvMDTjy0m/BYXJR4AocCZUk4FhJAudgUVSiwDLnBw4MWBZUsgCLGbADR+AZUskQPCNuYASmA5UcwBTxArsKTHFlRfGoLiswA9eWSrbgyliBa3BtqGQDrjUnMATXhC5MwBUyAhW4lnRhCS7lHliAbVRdU2yFc6AF25EuHMFmXQNT8O3pwh58qWOg9vHsFHzaMXAKvh5d6IFv6hYYg89QhQFf7BQ4Bp/1MmkYuwT2Ej9PHoMv6TkExhA4UcUJArFDoIZASBUhBLRDoIJARBURBNTtwD4kBlQxgET/ZmABgRldMYNAcTNwKP1n/JyV4c1AC4EOXdGBgL0ZaKTD52cdmFuBfXDN1EKndEWqF2p295QE8uVg7PgURgP60SAKT2Nr5AsrEFznJqvRcZ/2iKGX7o+j1URwuQsYBydZL4aHeLshsc02PgwX64RxnAOX0Zupjp7vcvIm3811R81cFkLgchkL6SFCh+thJdA+O9BSSSVQPTtQUUklcPLswAmVVALNswMNlVQCk2cHJnTuPwz8Xd0d4zAIA0EULVNZIh0SPZDc/4DpoyCFZYXecATA9uzuzDf/iflFwm8z/EbNH3WHYmHuFQvzf2LhpNyaeuTWdEJu1QTrXhOs+3nBGij5K0XTclQ0LZeLpsCys1a4b+PHszUU7omtD755xLff+Aam3wLmm+j8GIIf5PijMH6Y6I9j+YE2bwnwTRVfx13JAfhqkUSxxh7eGuWby3h7Hm9w9C2ivsl2rJcW4bvHphxt9Pat8nzYYIxn+Tdam+Ia6YEXPjLkh6782Jof/POjk3741I/v+gFoP0Luh/B9jIEPgghAafgwkgCciw/ECUAK+VCmBKxVABgsAK2WAKcLwPvdAUj0EZM8pJPHnPKgWB61y8OKfdwzD8zmkeM+tN3H3qPv8JF09YJ/eYV7/ccHXC5X4Hecf0IAAAAASUVORK5CYII=");
@@ -68,7 +70,7 @@
 @headerTextAlign: left;
 @headerPadding: 15px 0 5px;
 
-// 不进行章节自动编号
+// 不进行标题自动编号
 @vChpAutoNum: "h1{{#none#}},h2{{#none#}},h3{{#none#}},h4{{#none#}},h5{{#none#}}";;
 @h1BeforeContent: "";
 @h2BeforeContent: "";
@@ -131,24 +133,6 @@
 @backcoverTextPaddingForMobile: 380px 20px 0;
 @backcoverTextColor: @coverTextColor;
 
-// 封面装饰性文本样式 before
-@coverTextBeforeContent: "";
-@coverTextBeforePosition: initial;
-@coverTextBeforeLeft: initial;
-@coverTextBeforeTop: initial;
-@coverTextBeforeColor: initial;
-@coverTextBeforeFontSize: initial;
-@coverTextBeforeFontWeight: initial;
-@coverTextBeforeOpacity: initial;
-// 封面装饰性文本样式 after
-@coverTextAfterContent: "";
-@coverTextAfterTextAlign: initial;
-@coverTextAfterLeft: initial;
-@coverTextAfterTop: @coverTextBeforeTop;
-@coverTextAfterRight: initial;
-@coverTextAfterColor: @coverTextBeforeColor;
-@coverTextAfterFontSize: @coverTextBeforeFontSize;
-
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
 @contrastBorder: 0 0 0 0 transparent;
 @contrastBorderForCover: none;
@@ -157,23 +141,27 @@
 @__coverBackgroundImage: var(--thm-c-logo), var(--thm-bd-c1), var(--thm-bd-c2), var(--thm-bd-c3), var(--thm-bd-c4), var(--thm-bd-c-h), var(--thm-bd-c-v), var(--thm-bd-c-h), var(--thm-bd-c-v);
 @__coverBackgroundSize: 280px 42px, 150px 150px, 10px 10px, 10px, 10px, calc(100% - 160px) 10px, 10px calc(100% - 20px), calc(100% - 20px) 10px, 10px calc(100% - 160px);
 @__coverBackgroundRepeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-@__coverBackgroundPosition: var(--thm-c-bg-logo-pos), top left, top right, bottom right, bottom left, top 0 left 150px, top 10px right 0, bottom 0 left 10px, left 0 top 150px;
+@__coverBackgroundPosition: top left, top right, bottom right, bottom left, top 0 left 150px, top 10px right 0, bottom 0 left 10px, left 0 top 150px;
 @coverBackgroundColor: #FFFFFF;
 @coverBackgroundImage: @__coverBackgroundImage, var(--thm-c-plus);
-@coverBackgroundSize: @__coverBackgroundSize, auto;
+@coverBgSize: @__coverBackgroundSize, auto;
+@coverBgSizeForMobile: @__coverBackgroundSize, 246px, 195px;
+@coverBackgroundSize: var(--thm-c-bg-size);
 @coverBackgroundRepeat: @__coverBackgroundRepeat, no-repeat;
-@coverBgLogoPos: 60px 60px;
-@coverBgLogoPosForMobile: 20px 60px;
-@coverBackgroundPosition: @__coverBackgroundPosition, right 60px bottom 50px;
+@coverBgPosition: 60px 60px, @__coverBackgroundPosition, right 60px bottom 50px;
+@coverBgPositionForMobile: 20px 60px, @__coverBackgroundPosition, right 20px bottom 50px;
+@coverBackgroundPosition: var(--thm-c-bg-pos);
 
 // 封底背景设置
 @backcoverBackgroundColor: @coverBackgroundColor;
 @backcoverBackgroundImage: @__coverBackgroundImage, var(--thm-bc-map);
-@backcoverBackgroundSize: @__coverBackgroundSize, auto;
+@backcoverBgSize: @__coverBackgroundSize, auto;
+@backcoverBgSizeForMobile: @__coverBackgroundSize, 300px 168px;
+@backcoverBackgroundSize: var(--thm-bc-bg-size);
 @backcoverBackgroundRepeat: @__coverBackgroundRepeat, no-repeat;
-// @backcoverBgLogoPos: ;
-// @backcoverBgLogoPosForMobile: ;
-@backcoverBackgroundPosition: @__coverBackgroundPosition, right 60px top 70px;
+@backcoverBgPosition: 60px 60px, @__coverBackgroundPosition, right 60px center;
+@backcoverBgPositionForMobile: 20px 60px, @__coverBackgroundPosition, right 20px center;
+@backcoverBackgroundPosition: var(--thm-bc-bg-pos);
 
 // 封面、封底素材资源
 :root {
@@ -192,7 +180,7 @@
 
 // ====================
 // 标题 after 样式
-#write :is(h1,h2,h3,h4,h5)>span::after {
+@{headerAfter} {
     content: "";
     background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMwIiBoZWlnaHQ9IjEzMCIgdmlld0JveD0iMCAwIDEzMCAxMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgNjVjMCAzNS44OTkgMjkuMTAxIDY1IDY1IDY1czY1LTI5LjEwMSA2NS02NVMxMDAuODk5IDAgNjUgMCAwIDI5LjEwMSAwIDY1em0xMDguNjQzIDYuMDM2bC0zMy4wNTcgNC41NS00LjU1IDMzLjA1N0g1OC45NjRsLTQuNTUtMzMuMDU3LTMzLjA1Ny00LjU1VjU4Ljk2NGwzMy4wNTctNC41NSA0LjU1LTMzLjA1N2gxMi4wNzJsNC41NSAzMy4wNTcgMzMuMDU3IDQuNTV2MTIuMDcyeiIgZmlsbD0iIzAwNEE5NiIgZmlsbC1ydWxlPSJub256ZXJvIi8+PC9zdmc+");
     background-size: .625em .625em;
@@ -201,14 +189,12 @@
     opacity: .4;
     width: 1em;
     height: 1em;
-    margin: 4px 2px;
+    margin: 6px 4px;
     position: relative;
     display: inline-flex;
     vertical-align: top;
 }
 // 针对封底 span::after 的微调处理
-@backcoverSpanAfter: ~"@{coverAfterYAML}~@{backcoverId}>span::after";
-@backcoverSpanWithoutYAMLafter: ~"@{coverWithoutYAML}~@{backcoverId}>span::after";
 @{backcoverSpanAfter},
 @{backcoverSpanWithoutYAMLafter} {
     content: "" !important;

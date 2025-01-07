@@ -82,4 +82,4 @@ vlook-welcome: 自定义文档加载过程中显示的欢迎屏信息（须在�
 > - VLOOK™ 参考手册的 md 源文件，位于目录 `released\demo` 下
 > - [标准模板（VLOOK-Document-Template.md）](VLOOK-Document-Template.md?xmd=off)
 > - [无封面模板（VLOOK-Document-Template-nocover.md）](VLOOK-Document-Template-nocover.md?xmd=off)
-> - [文库（VLOOK-Document-Template-doc_lib.md）](VLOOK-Document-Template-doc_lib.md?xmd=off)
+>   - [文库（VLOOK-Document-Template-doc_lib.md）](VLOOK-Document-Template-doc_lib.md?xmd=off)

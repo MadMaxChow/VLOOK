@@ -7,7 +7,7 @@ description: 关于 VLOOK™ 的定制主题
 keywords:
 - Gitee,GitHub,i18n,Markdown,MIT,OSC,Plugin,Typora,VLOOK,GitHub Style Alert,OGP,Open Graph Protocol,Mermaid,WIKI,HTML,PRD,YAML,YouTube
 - Editor's recommendation,plugin,open source,OSChina (Open Source China),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
-- Dark mode,grayscale mode,gray mode
+- Light mode, Dark mode,Grayscale mode,Gray mode
 - Catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - Table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - Picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
@@ -18,7 +18,7 @@ keywords:
 - Design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - Product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
-- 深色模式,灰度模式,灰色模式
+- 浅色外观,深色外观,灰度外观,灰色外观
 - 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
@@ -39,7 +39,7 @@ vlook-doc-lib: vlook-lib.html
 
 ---
 
-> 目前 VLOOK™ 已内置提供了 6 种风格鲜明的主题，适配于进行体验。
+> VLOOK™ 内置了 6 种风格鲜明的主题～
 >
 > ---
 >
@@ -47,7 +47,7 @@ vlook-doc-lib: vlook-lib.html
 >
 > 如：产品宣传手册、专题培训、行业报告等等
 
-> VLOOK™ 会持续开放主题的定制选项，以及功能特性的默认配置～
+> VLOOK™ 会持续开放更多的主题定制选项，以及功能特性的默认配置～
 >
 > ---
 >
@@ -67,7 +67,7 @@ vlook-doc-lib: vlook-lib.html
 
 > [![AIGC软件A股上市公司万兴科技（300624.SZ） • 技术支持类文档使用](pic/vip-wondershare.png?srcset=@2x#card#r "Wondershare Support")](vip-wondershare.html)
 
-> [![河北谊宽测控技术 • 产品与服务文档使用](pic/vip-yikuan.png?srcset=@2x#card "YiKuan")](vip-yikuan.html)
+> [![立白科技集团 ▰ 数智中心产品文档使用](pic/vip-dic.png?srcset=@2x#card "Liby DIC")](vip-dic.html)
 
 > [![广东欧冠智能风机 • 产品手册使用](pic/vip-ouguan.png?srcset=@2x#card "OuGuan")](vip-ouguan.html)
 
@@ -75,9 +75,19 @@ vlook-doc-lib: vlook-lib.html
 
 ---
 
-> [![立白科技集团 ▰ 数智中心产品文档使用](pic/vip-dic.png?srcset=@2x#card "Liby DIC")](vip-dic.html)
+> [![佩格科技 PIG CLOUD 白皮书](pic/vip-pig.png?srcset=@2x#card "PIG CLOUD")](vip-pig.html)
+
+> [![中山大学 • HXlab 科研文档使用](pic/vip-hxlab.png?srcset=@2x#card "中山大学 • HXlab")](vip-hxlab.html)
 
 > [![巴斯夫 • 凯密特尔实验记录文档使用](pic/vip-chemetall.png?srcset=@2x#card "BASF • Chemetall")](vip-chemetall.html)
+
+---
+
+---
+
+> [![标准文件 • 国标/行业标准文档使用](pic/vip-gb-t.png?srcset=@2x#card "GB/T")](vip-gb-t.html)
+
+> [![河北谊宽测控技术 • 产品与服务文档使用](pic/vip-yikuan.png?srcset=@2x#card "YiKuan")](vip-yikuan.html)
 
 > [![个人文档使用](pic/vip-bug320.png?srcset=@2x#card "Bug320")](vip-bug320.html)
 
@@ -91,14 +101,19 @@ vlook-doc-lib: vlook-lib.html
 
 > [![个人文档使用](pic/vip-qimao.png?srcset=@2x#card "QiMao")](vip-qimao.html)
 
+# 排版编辑服务
 
-## 咨询定制服务
+![文档排版、内容修订、知识库搭建、出版指导、站点托管](https://vlook-doc.pages.dev/pic/vlook-te.png?srcset=@2x)
+
+针对你文档的内容、受众，充分应用 Typora + VLOOK™ 的众多特性，提供 **文档排版**、**内容修订**、**知识库搭建**、**出版指导**、**站点托管**、**发布 HTML** 等服务。
+
+###### 咨询增值服务
 
 ---
 
 ---
 
-> **扫码提交定制需求**
+> **扫码提交定制主题需求**
 >
 > ![扫码提交定制需求](pic/vip-submit-light.png?darksrc=vip-submit-dark.png&srcset=@2x&darksrcset=@2x#logo#border)
 
@@ -114,9 +129,7 @@ vlook-doc-lib: vlook-lib.html
 >
 > 电子邮件： `maxchow@qq.com`
 
-# 排版编辑服务
-
-## 部分范例参考
+###### 部分范例参考
 
 ---
 
@@ -149,7 +162,6 @@ vlook-doc-lib: vlook-lib.html
 > [![点击查看实际效果](pic/sample-a-quiz.png?srcset=@2x#card#border "互动问答原来可以这样简单")](sample-a-quiz.html?ws=off)
 >
 > _~T1!~_
-
 
 
 

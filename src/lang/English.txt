@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V27.0" (2024-11-02) - (Language Pack) - Typora Plugin
+VLOOK™ "V28.0" (2024-12-21) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
@@ -56,7 +56,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en42" content="minute(s)">
 <meta name="vk-en43" content="hour(s)">
 <meta name="vk-en44" content="words">
-<meta name="vk-en45" content="Switch Auto/Light/Dark Mode">
+<meta name="vk-en45" content="Appearance">
 <meta name="vk-en46" content="Add [TOC] before the first-level heading to generate it">
 <meta name="vk-en47" content="Hash check passed">
 <meta name="vk-en48" content="Gray Mode">
@@ -101,3 +101,6 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en87" content="Today is">
 <meta name="vk-en88" content="This page will be displayed in {{display-mode}} today">
 <meta name="vk-en89" content="Click the button below to temporarily turn it off">
+<meta name="vk-en90" content="Automatically">
+<meta name="vk-en91" content="Light">
+<meta name="vk-en92" content="Dark">

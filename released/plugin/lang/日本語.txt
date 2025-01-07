@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V27.0" (2024-11-02) - (Language Pack) - Typora Plugin
+VLOOK™ "V28.0" (2024-12-21) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
@@ -56,7 +56,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja42" content="分">
 <meta name="vk-ja43" content="時間">
 <meta name="vk-ja44" content="単語">
-<meta name="vk-ja45" content="自動/ライト/ダークモードを切り替え">
+<meta name="vk-ja45" content="外観">
 <meta name="vk-ja46" content="[TOC] を最初の1級見出しの前に追加して生成します">
 <meta name="vk-ja47" content="ハッシュチェックに合格しました">
 <meta name="vk-ja48" content="グレーモード">
@@ -101,3 +101,6 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja87" content="今日は">
 <meta name="vk-ja88" content="このページは今日 {{display-mode}} で表示されます">
 <meta name="vk-ja89" content="下のボタンをクリックして一時的にオフにしてください">
+<meta name="vk-ja90" content="自動で">
+<meta name="vk-ja91" content="明るい">
+<meta name="vk-ja92" content="暗い">

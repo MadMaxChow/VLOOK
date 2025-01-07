@@ -18,7 +18,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V27.0";
+@themeVer: "V28.0";
 @themeName: "vlook-x-vueb";
 @themeDesc: "× VueB";
 @themeEmail: "wuyp@vip.qq.com";
@@ -33,6 +33,8 @@
 .applyDocTextColor(@vueTextLight, @vueTextDark);
 // 文档背景使用图片
 .applyDocBgImg(@docBgImgLight_Twill_R, @docBgImgDark_Twill_R);
+// 生成指定的表格样式
+.genTableStyle(flat);
 
 :root {
     --thm-fav-logo-lg: none;
@@ -50,7 +52,7 @@
 @theme2Alt: lighten(@theme2, 25%);
 @theme2AltDark: darken(@theme2, 65%);
 @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
-@theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
+// @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
 @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), 50%);
 
 @themeForeColor: @theme1;
@@ -63,35 +65,42 @@
 // 标题色
 @headerColor: @theme1;
 @headerColorDark: @theme1Dark;
+
 // 渐变标题色 h1-h5
+@lg: linear-gradient(135deg, @theme1 25%, @theme2);
+.genLinearGradientHeader(h1, @lg);
+.genLinearGradientHeader(h2, @lg);
+.genLinearGradientHeader(h3, @lg);
+.genLinearGradientHeader(h4, @lg);
+.genLinearGradientHeader(h5, @lg);
 // @lgHeaderBg: linear-gradient(135deg, @theme1 25%, @theme2);
 // @lgHeaderBgClip: text;
 // @lgHeaderColor: transparent;
-@lgH1Bg: linear-gradient(135deg, @theme1 25%, @theme2);
-@lgH2Bg: @lgH1Bg;
-@lgH3Bg: @lgH1Bg;
-@lgH4Bg: @lgH1Bg;
-@lgH5Bg: @lgH1Bg;
-@lgH1BgClip: text;
-@lgH2BgClip: @lgH1BgClip;
-@lgH3BgClip: @lgH1BgClip;
-@lgH4BgClip: @lgH1BgClip;
-@lgH5BgClip: @lgH1BgClip;
-@lgH1Color: transparent;
-@lgH2Color: @lgH1Color;
-@lgH3Color: @lgH1Color;
-@lgH4Color: @lgH1Color;
-@lgH5Color: @lgH1Color;
+// @lgH1Bg: linear-gradient(135deg, @theme1 25%, @theme2);
+// @lgH2Bg: @lgH1Bg;
+// @lgH3Bg: @lgH1Bg;
+// @lgH4Bg: @lgH1Bg;
+// @lgH5Bg: @lgH1Bg;
+// @lgH1BgClip: text;
+// @lgH2BgClip: @lgH1BgClip;
+// @lgH3BgClip: @lgH1BgClip;
+// @lgH4BgClip: @lgH1BgClip;
+// @lgH5BgClip: @lgH1BgClip;
+// @lgH1Color: transparent;
+// @lgH2Color: @lgH1Color;
+// @lgH3Color: @lgH1Color;
+// @lgH4Color: @lgH1Color;
+// @lgH5Color: @lgH1Color;
 
 // 6 级标题前缀内容
-@h6BeforeContent: "❖ ";
+@h6BeforeContent: "❖" @h6NumSeparator;
 // @tocHeaderNumColor: @docTextColorLightFade;
 // @contentHeaderNumColor: @themeBgColorFade;
 @headerBackground: linear-gradient(270deg, var(--h-bg-start), var(--h-bg-end));
 @continuousHeaderBG: @headerBackground;
 @headerTextAlign: right;
 @headerPadding: 10px;
-// 不进行章节自动编号
+// 不进行标题自动编号
 @vChpAutoNum: "h1{{#none#}},h2{{#none#}},h3{{#none#}},h4{{#none#}},h5{{#none#}}";;
 @h1BeforeContent: "";
 @h2BeforeContent: "";
@@ -146,35 +155,9 @@
 @aHoverColorDark: @theme2Dark;
 @aActiveColor: desaturate(@aHoverColor, 25%);
 
-// 表格边框
-@tblBdWidth: 1px;
-@tableBorderColor: var(--d-fc-a);
-@tableBorderWidth: 0px;
-@tableBorderLeftWidth: 0px;
-@tableBorderRightWidth: 0px;
-@tableBorderTopWidth: 0px;
-@tableBorderBottomWidth: 0px;
-@tableThBorderRightWidth: 0px;
-@tableTdBorderRightWidth: 0px;
-// 表格行 hover
-@tableTrHoverBg: fade(@aHoverColor, 15%);
-@tableTrHoverBgDark: fade(@aHoverColor, 25%);
-// 表格圆角
-// @tableBorderRadius: 0px;
-// @tableBorderRadiusXC: 0px;
-// 表格背景
-@tableThColor: var(--d-fc-a);
-@tableThBackground: inherit;
-// 表格单元格阴影
-@tableFirstThBoxShadow: none;
-@tableThBoxShadow: 0 -1px 0 var(--tbl-cell-bd);
-@tableThRepeaterBoxShadow: 0 -@tblBdWidth 0 var(--tbl-h-bd);
-@tableFirstTdBoxShadow: 0 -@tblBdWidth 0 0 var(--tbl-h-bd);
-@tableTdBoxShadow: 0 -1px 0 0 var(--tbl-cell-bd);
-
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: center;
-@coverTextPadding: 120px 60px 50px;
+@coverTextPadding: 120px 60px 0;
 @coverTextPaddingForMobile: 120px 20px 0;
 @coverTextColor: @themeForeColor;
 @coverSubColor: @theme2;
@@ -187,24 +170,6 @@
 @backcoverTextPaddingForMobile: 220px 20px 0;
 @backcoverTextColor: @themeForeColor;
 
-// 封面装饰性文本样式 before
-@coverTextBeforeContent: "";
-@coverTextBeforePosition: initial;
-@coverTextBeforeLeft: initial;
-@coverTextBeforeTop: initial;
-@coverTextBeforeColor: initial;
-@coverTextBeforeFontSize: initial;
-@coverTextBeforeFontWeight: initial;
-@coverTextBeforeOpacity: initial;
-// 封面装饰性文本样式 after
-@coverTextAfterContent: "";
-@coverTextAfterTextAlign: initial;
-@coverTextAfterLeft: initial;
-@coverTextAfterTop: @coverTextBeforeTop;
-@coverTextAfterRight: initial;
-@coverTextAfterColor: @coverTextBeforeColor;
-@coverTextAfterFontSize: @coverTextBeforeFontSize;
-
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
 @contrastBorder: 0 0 0 0 transparent;
 @contrastBorderForCover: 0 0 0 2px fade(@themeForeColor, 20%) inset;
@@ -212,20 +177,24 @@
 // 封面背景设置
 @coverBackgroundColor: @themeBgColor;
 @coverBackgroundImage: none;
-@coverBackgroundSize: auto, auto, 100% 131px, 100% 220px, auto;
-@coverBackgroundRepeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-// @coverBgLogoPos: ;
-// @coverBgLogoPosForMobile: ;
-@coverBackgroundPosition: center 120px, center 850px, bottom, bottom, center 60px;
+@coverBgSize: unset;
+@coverBgSizeForMobile: @coverBgSize;
+@coverBackgroundSize: var(--thm-c-bg-size);
+@coverBackgroundRepeat: unset;
+@coverBgPosition: unset;
+@coverBgPositionForMobile: @coverBgPosition;
+@coverBackgroundPosition: var(--thm-c-bg-pos);
 
 // 封底背景设置
 @backcoverBackgroundColor: @coverBackgroundColor;
 @backcoverBackgroundImage: @coverBackgroundImage;
-@backcoverBackgroundSize: auto, auto, 100% 131px, 100% 220px, auto;
+@backcoverBgSize: unset;
+@backcoverBgSizeForMobile: @backcoverBgSize;
+@backcoverBackgroundSize: var(--thm-bc-bg-size);
 @backcoverBackgroundRepeat: @coverBackgroundRepeat;
-// @backcoverBgLogoPos: ;
-// @backcoverBgLogoPosForMobile: ;
-@backcoverBackgroundPosition: center 120px, center 450px, bottom, bottom center, center -260px;
+@backcoverBgPosition: unset;
+@backcoverBgPositionForMobile: @backcoverBgPosition;
+@backcoverBackgroundPosition: var(--thm-bc-bg-pos);
 
 @import "../base";
 

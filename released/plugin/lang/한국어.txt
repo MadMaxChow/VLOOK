@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V27.0" (2024-11-02) - (Language Pack) - Typora Plugin
+VLOOK™ "V28.0" (2024-12-21) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
@@ -56,7 +56,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko42" content="분">
 <meta name="vk-ko43" content="시간">
 <meta name="vk-ko44" content="단어">
-<meta name="vk-ko45" content="자동/라이트/다크 모드 전환">
+<meta name="vk-ko45" content="모양">
 <meta name="vk-ko46" content="[TOC]을 첫 번째 1단계 제목 앞에 추가하여 생성하십시오">
 <meta name="vk-ko47" content="해시 검사가 통과되었습니다">
 <meta name="vk-ko48" content="회색 모드">
@@ -101,3 +101,6 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko87" content="오늘은">
 <meta name="vk-ko88" content="이 페이지는 오늘 {{display-mode}} 로 표시됩니다">
 <meta name="vk-ko89" content="아래 버튼을 클릭하여 임시로 끌 수 있습니다">
+<meta name="vk-ko90" content="자동으로">
+<meta name="vk-ko91" content="밝은">
+<meta name="vk-ko92" content="어두운">

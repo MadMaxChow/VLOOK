@@ -15,7 +15,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V27.0";
+@themeVer: "V28.0";
 @themeName: "vlook-owl";
 @themeDesc: "Owl";
 
@@ -28,6 +28,8 @@
 .applyDocBgImg(@docBgImgLight_Wave, @docBgImgDark_Wave);
 // 表格、插图指定居中对齐
 .genTableAndFigureAlign(center);
+// 生成指定的表格样式
+.genTableStyle(modern);
 
 :root {
     --thm-fav-logo-lg: url("data:image/png;base64,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");
@@ -45,8 +47,8 @@
 @theme2Alt: #E4D6F5;
 @theme2AltDark: #462D66;
 @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
-@theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacityHightForDk);
-@theme2FadeDark: rgba(red(@theme2), green(@theme2), blue(@theme2), 75%);
+@theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacityHighForDk);
+@theme2FadeDark: rgba(red(@theme2Dark), green(@theme2Dark), blue(@theme2Dark), 75%);
 
 @themeForeColor: @theme1;
 @themeForeColorFade: fade(@themeForeColor, 50%);
@@ -65,32 +67,21 @@
 @spliterWidth: 4px;
 
 // 渐变标题色 h1-h5
-@lgH1Bg: linear-gradient(135deg, @theme1 25%, hsl(241, 44%, 55%));
-@lgH2Bg: @lgH1Bg;
-@lgH3Bg: @lgH1Bg;
-@lgH4Bg: @lgH1Bg;
-@lgH5Bg: @lgH1Bg;
-@lgH1BgClip: text;
-@lgH2BgClip: @lgH1BgClip;
-@lgH3BgClip: @lgH1BgClip;
-@lgH4BgClip: @lgH1BgClip;
-@lgH5BgClip: @lgH1BgClip;
-@lgH1Color: transparent;
-@lgH2Color: @lgH1Color;
-@lgH3Color: @lgH1Color;
-@lgH4Color: @lgH1Color;
-@lgH5Color: @lgH1Color;
+@lg: linear-gradient(135deg, var(--ac-t1) 35%, var(--ac-t2));
+.genLinearGradientHeader(h1, @lg);
+.genLinearGradientHeader(h2, @lg);
+.genLinearGradientHeader(h3, @lg);
+.genLinearGradientHeader(h4, @lg);
+.genLinearGradientHeader(h5, @lg);
+
 // 6 级标题前缀内容
-@h6BeforeContent: "◎ ";
-// @contentHeaderNumColor: @themeForeColorFade;
-//@contentHeaderNumOpacity: .5;
+@h6BeforeContent: "◎" @h6NumSeparator;
 
 // 标题背景色
 @h1Bg: linear-gradient(180deg, rgba(var(--fade-r), var(--fade-g), var(--fade-b), .1), rgba(var(--fade-r), var(--fade-g), var(--fade-b), 1)), @hbgLg;
 @h2Bg: @h1Bg;
 @h3Bg: linear-gradient(to right, transparent 20%, @hbgC2 20%, @hbgC1 50%, @hbgC2 80%, transparent 80%) 0 0 / 100% 5px no-repeat;
 
-// @continuousHeaderBG: none;
 @headerTextAlign: center;
 @headerPadding: 20px 5px 5px;
 @h1Margin: 3em 0 0 0;
@@ -100,8 +91,8 @@
 @h5Margin: 1.5em 0 0 0;
 @h6Margin: 1em 0 0 0;
 
-// 自定义章节自动编号
-@headerNumSeparator: "";
+// 自定义标题自动编号
+@h1NumSeparator: "";
 @vChpAutoNum: "h1{{第###章}}";
 @h1BeforeContent: "第" counter(h1) "章";
 
@@ -114,9 +105,7 @@
 
 // 引用块默认色样式（与主题配套使用）
 @quoteBgDefault: linear-gradient(0deg, var(--d-bc), var(--blockquote-bg));
-// @quoteBgDefault: var(--d-bc);//var(--blockquote-bg);
 @quoteBoxShadowDefault: 0 0 0 1px var(--blockquote-bg) inset;
-//@quoteBorderLeft: 0;
 
 // 按钮色
 @buttonForeColor:#FFFFFF;
@@ -139,7 +128,6 @@
 @aActiveColor: desaturate(@aHoverColor, 25%);
 
 // 封面内多级标签样式
-// @badgeBorderColorInCover: var(--rb-code-shadow-dk);
 @badgeBorderColorInCover: fade(@coverSubColor, 50%);
 @badgeBorderWidthInCover: 1px;
 
@@ -159,30 +147,32 @@
 @backcoverTextColor: @coverTextColor;
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
-// @contrastBorder: 0 0 0 1px rgba(0, 0, 0, .2);
 @contrastBorder: 0 0 0 0 transparent;
 @contrastBorderForCover: 0 0 0 2px rgba(0, 218, 216, .2) inset;
 
 // 封面背景设置
 @coverBackgroundColor: #2E1F47;
 @coverBackgroundImage: var(--thm-c-logo), var(--thm-c-w), var(--thm-c-w2), var(--thm-c-bg);
-@coverBackgroundSize: auto;
+@coverBgSize: auto, auto, auto, auto;
+@coverBgSizeForMobile: auto, 380px 150px, 450px 260px, auto;
+@coverBackgroundSize: var(--thm-c-bg-size);
 @coverBackgroundRepeat: no-repeat, no-repeat, no-repeat, repeat;
-// @coverBgLogoPos: ;
-// @coverBgLogoPosForMobile: ;
-@coverBackgroundPosition: center 80px, top left, bottom right, top left;
+@coverBgPosition: center 80px, top left, bottom right, top left;
+@coverBgPositionForMobile: @coverBgPosition;
+@coverBackgroundPosition: var(--thm-c-bg-pos);
 
 // 封底背景设置
 @backcoverBackgroundColor: @coverBackgroundColor;
 @backcoverBackgroundImage: var(--thm-c-logo), var(--thm-c-w), var(--thm-bc-w-r), var(--thm-c-bg);
-@backcoverBackgroundSize: @coverBackgroundSize;
+@backcoverBgSize: auto, auto, auto, auto;
+@backcoverBgSizeForMobile: auto, 380px 150px, 450px 170px, auto;
+@backcoverBackgroundSize: var(--thm-bc-bg-size);
 @backcoverBackgroundRepeat: @coverBackgroundRepeat;
-// @backcoverBgLogoPos: ;
-// @backcoverBgLogoPosForMobile: ;
-@backcoverBackgroundPosition: center 120px, top left, bottom right, top left;;
+@backcoverBgPosition: center 120px, top left, bottom right, top left;
+@backcoverBgPositionForMobile: @backcoverBgPosition;
+@backcoverBackgroundPosition: var(--thm-bc-bg-pos);
 
 // 文档扩展区域背景
-// @docExtBackgroundColor: var(--d-bc);
 @docExtBackgroundImage: var(--thm-doc-ext-bg1), var(--thm-doc-ext-bg2),  var(--thm-doc-ext-bg);
 @docExtBackgroundSize: auto, auto, auto;
 @docExtBackgroundRepeat: no-repeat, no-repeat, no-repeat;
@@ -207,32 +197,32 @@
 
 @import "../base";
 
-// 封面装饰文本样式 before
-@{coverAfterYAML}::before,
-@{coverWithoutYAML}::before,
-@{coverAfterYAML}::after,
-@{coverWithoutYAML}::after {
-    content: "°⚬" !important;
-    position: absolute;
-    left: 70px;
-    top: 150px;
-    color: @coverTextColor;
-    font-size: 5em;
-    font-weight: 100;
-    opacity: .5;
-}
+// // 封面装饰文本样式 before
+// @{coverAfterYAML}::before,
+// @{coverWithoutYAML}::before,
+// @{coverAfterYAML}::after,
+// @{coverWithoutYAML}::after {
+//     content: "°⚬" !important;
+//     position: absolute;
+//     left: 70px;
+//     top: 150px;
+//     color: @coverTextColor;
+//     font-size: 5em;
+//     font-weight: 100;
+//     opacity: .5;
+// }
 
-// 封面装饰文本样式 after
-@{coverAfterYAML}::after,
-@{coverWithoutYAML}::after {
-    content: "⚬°" !important;
-    text-align: right;
-    left: auto;
-    top: 380px;
-    right: 90px;
-    color: @coverTextColor;
-    font-size: 3.5em;
-}
+// // 封面装饰文本样式 after
+// @{coverAfterYAML}::after,
+// @{coverWithoutYAML}::after {
+//     content: "⚬°" !important;
+//     text-align: right;
+//     left: auto;
+//     top: 380px;
+//     right: 90px;
+//     color: @coverTextColor;
+//     font-size: 3.5em;
+// }
 
 // 生成强调风格的有序列表样式
 .genOrderList(block, circle);

@@ -3,8 +3,8 @@
  * VLOOK™ CSS - Typora 编辑时内置样式
  * (配合 base.less 进行使用)
  *
- * V27.0
- * 2024-11-02
+ * V28.0
+ * 2024-12-21
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -18,8 +18,6 @@
 
 :root {
     // 针对 Typora 编辑时 UI 相关变量
-    --active-file-bder: var(--h-f);
-    --primary-color: var(--h-f);
     --active-file-bg: var(--pn-c);
     --active-file-text-color: var(--d-fc);
     --text-color: var(--d-fc);
@@ -92,16 +90,15 @@
 
     // --------------------
     // 针对 Typora UI 颜色变量
-    --bg-color: var(--d-bc-lg); // 替换为透明色，以在 Typora 编辑时正常显示背景图片
-    --side-bar-bg-color: var(--d-bc-lg);
-    --text-color: var(--d-fc-lg);
+    --bg-color: var(--d-bc); // 替换为透明色，以在 Typora 编辑时正常显示背景图片
+    --side-bar-bg-color: var(--d-bc);
 
-    --border-color: var(--tbl-bd);
+    --border-color: var(--d-fc-a);
 
     // 选择的文本背景
-    --select-text-bg-color: var(--v-selection-color);
+    --select-text-bg-color: var(--v-selected-color);
 
-    --search-select-bg-color: var(--v-selection-color);
+    --search-select-bg-color: var(--v-selected-color);
 
     --control-text-color: var(--d-fc-lg);
     --control-text-hover-color: var(--d-fc-lg);
@@ -109,7 +106,7 @@
 
     --active-file-bg-color:  var(--d-bc-lg);
     --active-file-bder: var(--select-text-bg-color);
-    --active-file-text-color: var(--d-fc-lg);
+    //--active-file-text-color: var(--d-fc-lg);
 
     --item-hover-bg-color: var(--a-hover-color);
     --item-hover-text-color: @buttonForeHoverColor;
@@ -121,7 +118,7 @@
 
 // 选中内容的样式
 ::selection {
-    background: var(--v-selection-color) !important;
+    background: var(--v-selected-color) !important;
     fill: var(--d-fc) !important; // for SVG text
 }
 
@@ -329,13 +326,13 @@ body:not([class]) :is(h1,h2,h3,h4,h5,h6) {
     margin-left: 0;
 }
 .btn.active {
-    border-color: var(--d-bc);//var(--d-fc);//@buttonBgColor;
+    border-color: var(--d-bc);
     box-shadow: none;
-    background-color: var(--d-bc);//@buttonBgColor;
+    background-color: var(--d-bc);
 }
 // 当前选中状态
 .btn.active>.ty-icon::before {
-    color: var(--d-fc);//@buttonForeColor;
+    color: var(--d-fc);
 }
 
 .btn,
@@ -346,7 +343,7 @@ body:not([class]) :is(h1,h2,h3,h4,h5,h6) {
 
 .btn,
 .megamenu-content input {
-    border-radius: calc(var(--v-r-s) - 2px);// var(--v-r-s-xc);
+    border-radius: calc(var(--v-r-s) - 2px);
     color: var(--d-fc);
 }
 .megamenu-section input {
@@ -396,6 +393,7 @@ body.os-windows .active-tab-outline #info-panel-tab-outline .info-panel-tab-bord
 .md-link .md-url { // 链接
     font-family: var(--monospace);
     font-weight: var(--v-f-w-text);
+    font-size: .75em;
     text-decoration: none;
 }
 
@@ -524,10 +522,6 @@ body.os-windows .ty-footer { // 底栏
 body.os-windows .info-panel-tab-title {
     white-space: pre;
     padding: 2px 0;
-    background: @lgH1Bg;
-    background-clip: @lgH1BgClip;
-    -webkit-background-clip: @lgH1BgClip;
-    color: @lgH1Color;
 }
 .sidebar-tabs>.sidebar-tab.active,
 body.os-windows .info-panel-tab-wrapper {
@@ -764,7 +758,7 @@ body.os-windows #file-library-tree {
 }
 // 大纲节点 hover
 .outline-item:hover {
-    background: var(--pn-c-a);//var(--blockquote-bg);
+    background: var(--pn-c-a);
     border-radius: var(--v-r-s) var(--v-r-s-xc);
     margin-left: 0;
     border-left-width: 0;
@@ -780,10 +774,6 @@ body.os-windows #file-library-tree {
 .file-library-file-node:active span {
     color: var(--d-bc);
     background: var(--d-fc-a);
-}
-.outline-item:active,
-.file-library-file-node:active {
-    box-shadow: @tocItemActive_boxShadow;
 }
 // 针对 before content, COVER, BACK COVER etc.
 .outline-item:active>.outline-expander::before,
@@ -804,7 +794,6 @@ body.os-windows #file-library-tree {
 }
 #md-searchpanel input {
     border-radius: var(--v-r-s) var(--v-r-s-xc);
-    border-color: var(--tbl-bd);
 }
 // 搜索选项
 .searchpanel-search-option-btn {
@@ -848,7 +837,6 @@ body.os-windows #file-library-tree {
 // 快速打开搜索结果条目
 .typora-quick-open-item {
     height: 40px;
-    padding-left: @writePaddingRight;
     border-radius: var(--v-r-s) var(--v-r-s-xc);
     margin-left: 5px;
     margin-right: 5px;
@@ -880,9 +868,6 @@ body.os-windows #file-library-tree {
 // 文件节点
 .file-library-file-node {
     border-radius: var(--v-r-s) var(--v-r-s-xc);
-}
-.file-library-file-node:active {
-    box-shadow: @tocItemActive_boxShadow;
 }
 // 当前节点
 .file-library-file-node.active {
@@ -938,7 +923,7 @@ body.os-windows .file-node-title { // for Win
 }
 // 图片
 #typora-source .cm-tag {
-    color: var(--a-color);//@aColor;
+    color: var(--a-color);
     font-family: var(--monospace);
 }
 // 链接内容
@@ -1090,7 +1075,7 @@ body.os-windows .file-node-title { // for Win
     line-height: @paragraphInnerLineHeight;
     border-radius: var(--v-r-b) var(--v-r-b-xc);
     padding: 24px 10px 5px 10px;
-    color: var(--a-color);//@aColor;
+    color: var(--a-color);
     background: var(--code-bg);
     border: @yamlBorderWidth dashed var(--std-code-shadow);
     margin: 0 @yamlMarginLeftRight @yamlMarginTopBottom;
@@ -1214,7 +1199,7 @@ content .md-toc::before {
     margin-left: 30px;
     padding-left: 10px;
     width: 250px;
-    border-radius: var(--v-r-b) var(--v-r-b) @tableBorderRadius @tableBorderRadius;
+    border-radius: var(--v-r-b);
 }
 #write div.md-toc-tooltip>span {
     font-size: .875em;
@@ -1289,6 +1274,26 @@ content .md-toc::before {
     content: "";
 }
 
+// 根据主题配置，是否控制编辑时显示的大纲层级
+.genOutlineOnEditing() when (isdefined(@hideOutlineOver)) {
+    .forOutlineH2() when (@hideOutlineOver = 2) {
+        .outline-h2 .outline-expander,
+        .md-toc-h2 .v-toc-folder {
+            visibility: hidden !important;
+        }
+        .outline-h3,
+        .outline-h4,
+        .outline-h5,
+        .md-toc-h3,
+        .md-toc-h4,
+        .md-toc-h5 {
+            display: none !important;
+        }
+    }
+    .forOutlineH2();
+}
+.genOutlineOnEditing();
+
 // 微调大纲节点的缩进
 .outline-h1>.outline-item {
 	padding-left: .35em;
@@ -1330,9 +1335,13 @@ content .md-toc::before {
     word-break: break-word;
 }
 
-.outline-label::before {
-    color: var(--toc-h-num-color);//var(--d-fc-a);
+// 如果标题自动编号颜色有设置透明度，则编辑时的大纲生成合适的透明度
+.getOutlineLabel() when not (@contentHeaderNumOpacity = 1) {
+    .outline-label::before {
+        color: var(--toc-h-num-color);
+    }
 }
+.getOutlineLabel();
 
 .md-toc-h1::before,
 .outline-h1 .outline-label::before {
@@ -1406,7 +1415,7 @@ content .md-toc::before {
 @{writeOnEditing} hr {
     border: none;
     background: var(--ac-bk-fade);
-    height: 2px;//@quoteTitleBorderWidth;
+    height: 2px;
     cursor: crosshair;
 }
 @{writeOnEditing} hr:hover {
@@ -1433,29 +1442,50 @@ content .md-toc::before {
 
 // ====================
 // 编辑时预置颜色色号的公共样式
-@colorCodeOnPgStart: ~'p>[md-inline="em"]:first-child>em>sub:only-child';
-@colorCodeOnCellStart: ~'table :is(th,td)>span>[md-inline="em"]:first-child>em>sub:only-child';
-@colorCodeBeforeSpanFmt: ~'span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],[md-inline="highlight"],[md-inline="underline"])+[md-inline="em"]>em>sub:only-child';
-@colorCodeBeforeSupSub: ~':is(sup, sub)+[md-inline="em"]>em>sub:only-child';
+@colorCode: ~'em>sub:only-child';
+@colorCodeMd: ~'[md-inline="em"]>@{colorCode}';
+@colorCodeOnStart: ~'[md-inline="em"]:first-child>em>sub:only-child';
+// ---
+@colorCodeInBlockquote: ~'blockquote @{colorCodeOnStart}';
+@colorCodeOnPgStart: ~'p>@{colorCodeOnStart}';
+@colorCodeOnCellStart: ~'table :is(th,td)>span>@{colorCodeOnStart}';
+@colorCodeBeforeSpanFmt: ~'span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],[md-inline="highlight"],[md-inline="underline"])+@{colorCodeMd}';
+@colorCodeBeforeSupSub: ~':is(sup, sub)+@{colorCodeMd}';
 
-@{writeOnEditing} blockquote p>em:only-child>sub:only-child, // 引用块着色
-@{writeOnEditing} @{colorCodeOnPgStart}, // 文本颜色（段落）
+@{writeOnEditing} @{colorCodeInBlockquote}, // 引用块着色
+@{writeOnEditing} @{colorCodeOnPgStart}, // 文本着色（段落）
 @{writeOnEditing} @{colorCodeOnCellStart}, // 单元格（段落）
 @{writeOnEditing} table :is(th,td)>span>[md-inline="em"]:last-child>em>sub:only-child,
-@{writeOnEditing} @{colorCodeBeforeSpanFmt},
-@{writeOnEditing} @{colorCodeBeforeSupSub} { // 文本颜色（指定格式）
-    font: normal bold .5em var(--v-f-fm-code) !important; // [style] [weight] [size/[line-height]] [family]
+@{writeOnEditing} @{colorCodeBeforeSpanFmt}, // 文本着色
+@{writeOnEditing} @{colorCodeBeforeSupSub} { // 文本着色（指定格式）
+    font: @syntaxTipsFont;
+    font-size: 10px;
+    font-weight: bold;
     border-radius: 0 4px 4px 4px;
     bottom: 0;
     color: var(--d-fc);
-    background-color: var(--d-fc-a);
+    background-color: var(--pn-c-a);
     padding: 1px 3px;
     margin: 0 5px 0 1px;
     line-height: @miniLineHeight !important;
     opacity: .6;
 }
+// 对于以下指定的色号标记，默认不显示
+@{writeOnEditing} @{colorCodeOnPgStart}, // 文本着色（段落）
+@{writeOnEditing} @{colorCodeOnCellStart}, // 单元格（段落）
+@{writeOnEditing} @{colorCodeBeforeSpanFmt}, // 文本着色
+@{writeOnEditing} @{colorCodeBeforeSupSub} { // 文本着色（指定格式）
+    display: none;
+}
+// 进入对应内容的编辑时才显示
+@{writeOnEditing} .md-focus>@{colorCodeOnStart}, // 文本着色（段落）、单元格（段落）
+@{writeOnEditing} .md-expand+@{colorCodeMd},
+@{writeOnEditing} .md-expand>@{colorCode},
+@{writeOnEditing} .md-expand>a>@{colorCodeMd} {
+    display: initial !important;
+}
 // 段落微调
-@{writeOnEditing} @{colorCodeOnPgStart}, // 文本颜色（段落）
+@{writeOnEditing} @{colorCodeOnPgStart}, // 文本着色（段落）
 @{writeOnEditing} @{colorCodeOnCellStart} { // 单元格（段落）
     color: var(--d-bc);
     border-radius: 4px 4px 0 4px;
@@ -1464,9 +1494,8 @@ content .md-toc::before {
 }
 
 // 针对 引用块着色 的微调
-@colorCodeInBlockquote: ~'blockquote p>[md-inline="em"]:only-child>em>sub:only-child';
-
 @{writeOnEditing} @{colorCodeInBlockquote} {
+    display: initial !important;
     bottom: 0;
 }
 // 针对 引用块着色 的前缀提示样式
@@ -1476,7 +1505,7 @@ content .md-toc::before {
     padding-right: 2px;
     opacity: .6;
 }
-// 针对 文本颜色/单元格（段落） 的前缀提示样式
+// 针对 文本着色/单元格（段落） 的前缀提示样式
 @{writeOnEditing} @{colorCodeOnPgStart}::before,
 @{writeOnEditing} @{colorCodeOnCellStart}::before {
     content: "¶";
@@ -1484,7 +1513,7 @@ content .md-toc::before {
     padding-right: 2px;
     opacity: .6;
 }
-// 针对 文本颜色（指定格式） 的前缀提示样式
+// 针对 文本着色（指定格式） 的前缀提示样式
 @{writeOnEditing} @{colorCodeBeforeSpanFmt}::before,
 @{writeOnEditing} @{colorCodeBeforeSupSub}::before {
     content: "";
@@ -1496,7 +1525,7 @@ content .md-toc::before {
     content: "CF/列格式";
     text-transform: uppercase;
     font: @syntaxTipsFont;
-    font-size: 0.5em;
+    font-size: 10px;
     display: block;
     margin-top: -.7em;
     opacity: .6;
@@ -1606,15 +1635,25 @@ content .md-toc::before {
     margin: 0; // 列表下的微调
 }
 @{writeOnEditing} @{cap1_OnEditing}::before {
-    content: "Caption/题注. ";
+    content: "Caption/题注 ▸ ";
     text-transform: uppercase;
+    font: @syntaxTipsFont;
     color: var(--a-color);
 }
+// 编辑时 h6 格式设置的题注样式
+@{writeOnEditing} h6:has(+p>.md-image)::after, // 插图
+@{writeOnEditing} h6:has(+.md-table-fig)::after, // 表格
+@{writeOnEditing} h6:has(+.md-fences)::after, // 代码块、```math 语法公式
+@{writeOnEditing} h6:has(+.md-math-block)::after { // $$ 语法公式
+    content: " ◂ Caption/题注";
+    text-transform: uppercase;
+    font: @syntaxTipsFont;
+    color: var(--a-color);
+    opacity: 1;
+}
+
 // --------------------
 // 第 2 题注（编辑时样式）
-@{writeOnEditing} @{cap2_OnEditing} {
-    font-style: normal;
-}
 @{writeOnEditing} @{cap2_OnEditing}::before {
     content: " │ B.Caption/底部题注. ";
     text-transform: uppercase;
@@ -1704,7 +1743,7 @@ content .md-toc::before {
 @{writeOnEditing} p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing} a::after,
 @{writeOnEditing} .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing} a::after,
 .v-stepwise a::after {
-    content: "◥";//" ➤";//"↗️";//"↗︎";
+    content: "◥";
     font-size: .875em;
     color: var(--a-color);
     width: 20px;
@@ -1781,11 +1820,10 @@ body[class*="ty-on-typewriter-mode"] @{writeOnEditing}, // 编辑时，如启用
 // 编辑时的详情折叠（details、summary）
 @summaryOnEditing: ~"blockquote>h6:first-child";
 @{writeOnEditing} @{summaryOnEditing} {
-    color: @h6Color;//var(--ac-t1);
+    color: @h6Color;
     font-size: @h7FontSize;
     padding: 0 0 .3125em 0;
     margin-bottom: .3125em;
-    // text-align: left;
     text-align: @h7TextAlign;
     justify-content: @h7TextAlign;
     display: flex;
@@ -1833,7 +1871,7 @@ body[class*="ty-on-typewriter-mode"] @{writeOnEditing}, // 编辑时，如启用
     display: block;
 }
 @{writeOnEditing} @{summaryFocusOnEditing}>h6:first-child {
-    border-bottom: @quoteTitleBorderWidth solid var(--ac-bk-fade);//var(--ac-t1-fade);
+    border-bottom: @quoteTitleBorderWidth solid var(--ac-bk-fade);
 }
 @{writeOnEditing} @{summaryFocusOnEditing}>h6:first-child::before {
     transform: rotate(45deg);

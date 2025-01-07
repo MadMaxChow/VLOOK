@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V27.0" (2024-11-02) - (Language Pack) - Typora Plugin
+VLOOK™ "V28.0" (2024-12-21) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
@@ -56,7 +56,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-es42" content="minuto(s)">
 <meta name="vk-es43" content="hora(s)">
 <meta name="vk-es44" content="palabras">
-<meta name="vk-es45" content="Cambiar entre Modo Automático/Claro/Osuro">
+<meta name="vk-es45" content="Apariencia">
 <meta name="vk-es46" content="Agregue [TOC] antes del primer encabezado de primer nivel para generarlo">
 <meta name="vk-es47" content="La verificación de hash ha sido aprobada">
 <meta name="vk-es48" content="Modo gris">
@@ -101,3 +101,6 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-es87" content="Hoy es">
 <meta name="vk-es88" content="Esta página se mostrará hoy en {{display-mode}}">
 <meta name="vk-es89" content="Haga clic en el botón de abajo para desactivarlo temporalmente">
+<meta name="vk-es90" content="Automáticamente">
+<meta name="vk-es91" content="Claro">
+<meta name="vk-es92" content="Oscuro">

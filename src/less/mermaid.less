@@ -3,8 +3,8 @@
  * VLOOK™ CSS - Mermaid 自定义样式
  * (配合 base.less 进行使用)
  *
- * V27.0
- * 2024-11-02
+ * V28.0
+ * 2024-12-21
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -607,57 +607,58 @@ svg[aria-roledescription="stateDiagram"] #statediagram-barbEnd {
 /* ----- class diagram 类图 ----- */
 
 // 类背景
-svg[aria-roledescription="classDiagram"] .node>rect.outer {
+svg[aria-roledescription^="class"] .node>rect.outer,
+svg[aria-roledescription^="class"] .node path { // Typora 1.10.3-dev 集成 Mermaid 11.4 后的改变
     fill: var(--pn-c) !important;
     stroke: var(--d-fc-a) !important;
     stroke-width: 2 !important;
 }
 
 // 类上鼠标悬停
-svg[aria-roledescription="classDiagram"] .node:hover .outer,
-svg[aria-roledescription="classDiagram"] .node:hover :is(.outer+.divider, .outer+.divider+.divider) {
+svg[aria-roledescription^="class"] .node:hover .outer,
+svg[aria-roledescription^="class"] .node:hover :is(.outer+.divider, .outer+.divider+.divider) {
     stroke: var(--a-color) !important;
 }
 
 // 类属性、方法分隔线
-svg[aria-roledescription="classDiagram"] .node>line.divider {
+svg[aria-roledescription^="class"] .node>line.divider {
     stroke: var(--d-fc-a) !important;
     stroke-width: 1 !important;
 }
-svg[aria-roledescription="classDiagram"] .node>rect.outer + line.divider {
+svg[aria-roledescription^="class"] .node>rect.outer + line.divider {
     stroke: var(--d-fc-a) !important;
     stroke-width: 2 !important;
 }
 
 // 类名
-svg[aria-roledescription="classDiagram"] .label .classTitle .nodeLabel {
+svg[aria-roledescription^="class"] .label .classTitle .nodeLabel {
     font-weight: bold !important;
 }
-svg[aria-roledescription="classDiagram"] .label .classTitle {
+svg[aria-roledescription^="class"] .label .classTitle {
     text-align: center;
 }
 
 // 方法、属性等文本
-svg[aria-roledescription="classDiagram"] .label .nodeLabel {
+svg[aria-roledescription^="class"] .label .nodeLabel {
     font-weight: normal !important;
 }
 
 // 线条文本背景
-svg[aria-roledescription="classDiagram"] .edgeLabel .label div {
+svg[aria-roledescription^="class"] .edgeLabel .label div {
     background-color: var(--d-bc) !important;
 }
-svg[aria-roledescription="classDiagram"] .edgeLabel .label span {
+svg[aria-roledescription^="class"] .edgeLabel .label span {
     background-color: transparent !important;
 }
 
 // 线条文本上鼠标悬停
-svg[aria-roledescription^="classDiagram"] .label .edgeLabel:hover {
+svg[aria-roledescription^="class"] .label .edgeLabel:hover {
     color: var(--a-color) !important;
     cursor: crosshair;
 }
 
 // 关系箭头
-svg[aria-roledescription="classDiagram"] :is(
+svg[aria-roledescription^="class"] :is(
 /* Composition 组合 */
 #classDiagram-compositionStart>path,
 #classDiagram-compositionEnd>path,
@@ -669,7 +670,7 @@ svg[aria-roledescription="classDiagram"] :is(
     stroke:  var(--d-fc-a) !important;
     stroke-width: 1 !important;
 }
-svg[aria-roledescription="classDiagram"] :is(
+svg[aria-roledescription^="class"] :is(
 /* Aggregation 聚合 */
 #classDiagram-aggregationStart>path,
 #classDiagram-aggregationEnd>path,
@@ -683,7 +684,7 @@ svg[aria-roledescription="classDiagram"] :is(
 }
 
 // 关系线
-svg[aria-roledescription="classDiagram"] .edgePaths .relation {
+svg[aria-roledescription^="class"] .edgePaths .relation {
     stroke: var(--d-fc-a) !important;
 }
 

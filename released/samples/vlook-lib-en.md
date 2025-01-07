@@ -14,7 +14,7 @@ title: More Topics about VLOOK™
 >
 > _~Vn!~_
 
-###### Text • Link • Button
+###### Text • Button
 
 ---
 
@@ -89,7 +89,9 @@ title: More Topics about VLOOK™
 >
 > _~Vn~_
 
-###### Columns • Quote Blocks • Note & Alert
+###### Columns • Quote Blocks • Header
+
+---
 
 ---
 
@@ -108,6 +110,13 @@ title: More Topics about VLOOK™
 > - Embed quote blocks within quote blocks [❯❯](guide.md#引用块内嵌引用块示例)
 > - Embed column quote blocks within quote blocks [❯❯](guide.md#引用块内嵌引用块分栏示例)
 > - Embed quote blocks within lists [❯❯](guide.md#列表内嵌引用块示例)
+>
+> _~Vn~_
+
+> ###### Typesetting of chapter titles
+>
+> - The style of chapter titles [❯❯](guide.md#标题样式)
+> - Automatically **number** the chapter titles in the document [❯❯](guide.md#标题自动编号)
 >
 > _~Vn~_
 
@@ -154,8 +163,9 @@ title: More Topics about VLOOK™
 >
 > _~Vn~_
 
-> **Progress Bar, Scratch Card, Phonetic Notation**
+> **Cover & Back Cover, Progress Bar, Scratch Card, Phonetic Notation**
 >
+> - Add "Cover and Back Cover" to documents [❯❯](guide2.md#°封面与封底)
 > - Present "**progress**" information more intuitively [❯❯](guide2.md#进度条)
 > - **Automatically calculate** and complete the "progress" of the **task list** [❯❯](guide2.md#进度条)
 > - Hide answers when creating training or puzzle documents [❯❯](guide2.md#刮刮卡)
@@ -177,13 +187,35 @@ title: More Topics about VLOOK™
 
 ---
 
----
-
-> **° Outline and Index Navigation**
+> **° Navigation History**
 >
-> Suitable for quickly locating across chapters of the entire document based on directory, categorized content index (directory/illustration/table/multimedia/code block) [❯❯](guide3.md#导航中心)
+> Record the history of index entries for chapters, illustrations/tables and other content in the current document, making it convenient to quickly jump back at any time [❯❯](guide3.md#导航历史)
 >
 > _~Bu~_
+
+> **° Resume Reading**
+>
+> It supports quickly locating the position where the document was closed last time, so that you can **continue reading from where you left off last time** [❯❯](guide3.md#继续上次的阅读)
+>
+> _~Bu~_
+
+---
+
+> **° Navigation Center**
+>
+> It is applicable to perform quick location according to the table of contents and classified content indexes (table of contents / illustrations / tables / multimedia / code blocks) [❯❯](guide3.md#导航中心)
+>
+> _~Bu~_
+
+> **° Library Navigation**
+>
+> Suitable for browsing and jumping through related topics and document introductions and links via a separate page [❯❯](guide3.md#文库导航)
+>
+> _~Bu~_
+
+---
+
+---
 
 > **° Chapter-by-Chapter Navigation**
 >
@@ -197,25 +229,9 @@ title: More Topics about VLOOK™
 >
 > _~Bu~_
 
----
-
----
-
-> **° Library Navigation**
->
-> Suitable for browsing and jumping through related topics and document introductions and links via a separate page [❯❯](guide3.md#文库导航)
->
-> _~Bu~_
-
 > **° Footnote Navigation**
 >
 > Display footnotes directly in place to avoid jumping back and forth [❯❯](guide3.md#脚注导航)
->
-> _~Bu~_
-
-> **° Navigation History**
->
-> Record the history of index entries for chapters, illustrations/tables and other content in the current document, making it convenient to quickly jump back at any time [❯❯](guide3.md#导航历史)
 >
 > _~Bu~_
 
@@ -330,15 +346,15 @@ title: More Topics about VLOOK™
 >
 > ---
 >
-> > **° Automatic Folding of Long Content**
+> > **° Link Map**
 > >
-> > Automatically collapses illustrations, tables, and code contents if they are too long [❯❯](guide3.md#长内容自动折叠)
+> > Aggregate all external links and anchor point information of the current document, and at the same time support checking the validity of the anchor points of external links [❯❯](guide3.md#链接地图)
 > >
 > > _~Og~_
 >
-> > **° Automatic Numbering of Chapter Titles**
+> > **° Automatic Folding of Long Content**
 > >
-> > Automatically **number** the chapter titles in the document [❯❯](guide3.md#章节自动编号)
+> > Automatically collapses illustrations, tables, and code contents if they are too long [❯❯](guide3.md#长内容自动折叠)
 > >
 > > _~Og~_
 >
@@ -394,10 +410,9 @@ title: More Topics about VLOOK™
 > - Choose different "Font Style" for documents [❯❯](guide3.md#字体风格)
 > - **Dark Mode** is **NOW** [❯❯](guide3.md#Dark-Mode)
 > - **Gray Mode** is **NOW** [❯❯](guide3.md#Gray-Mode)
-> - Add "Cover and Back Cover" to documents [❯❯](guide3.md#封面与封底)
 > - More beautiful formulas [❯❯](guide2.md#更实用美观的公式)
->
-> _~Lm~_
+> 
+>_~Lm~_
 
 > **Third-Party Integration Adaptation**
 >

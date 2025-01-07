@@ -19,7 +19,7 @@
 @import "../themes/vlook-hope";
 
 // 主题信息
-@themeVer: "V27.0";
+@themeVer: "(EXPIRED)";
 @themeName: "vlook-x-qimao";
 @themeDesc: "× QiMao";
 @themeEmail: "882007@qq.com";
@@ -36,6 +36,8 @@
 // .applyDocTextColor(@bgDark4Theme, @bgLight4Theme);
 // .applyPanelColor(@panelColorLight, @panelColorDark);
 .applyDocBgImg(url(""), url(""));
+// 生成指定的表格样式
+.genTableStyle(modern);
 
 :root {
     --thm-fav-logo-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAMAAAC8EZcfAAABR1BMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////8Aj9fwhRn//frwhx32tHEQltq/4/XykTD+9/D+9OrylTfxjCY8qeH969n85c7xiiJeueb61a70plb0ok3++fT4xZD1rmX97t/73Lz50aj3/P664fSQzu5OsuQ4qODxjyoGktj4yZfzm0LymT3738L2uHn98eT74sf5y574wYv3voT3u371qV3znUfY7vn1sWvq9vz62LX86NP7/f7m9PvF5vaMzO1ZtuXy+f223/Sh1vCGyuwgndz5zqIdjsDnhR+hiVfYhi0NjswyjbB+inPChz4Gj9JbjI48jKdQjJhui4CTiWO2h0eFqazjkjxqyEYVAAAAHXRSTlMAN8QF+0ba9l0UC+qF496dIs2qdWk6fWyWTHoptHy48NsAAAg6SURBVHja7NdNT9tAEAbgymAnJJAg8sXlXdM6KdRtXIm2wnZcH6pWRSK1BCFA8v9/SC17hdPsDnWWxL74Oefw7k5mZv2mUqlUKnINvdPWjGYNW1ZrGlq7ozdel+64r+1jp/a1/rFqur26hkJo9T2VeN0WCtPqbhxRN1AoQ98o3sEJVrjewgmWVsi2JrSWgbPwXKw4Ocifr3eEZ5Fvh2xHQtuP8OyolzffIOvc4YTt2GSYdfQgX77DLJ7NCmBnEQ/z5DsFdzdnBZnfgTvd4P4eLVYY6zH3HQ7A3bNC3YMb/Kd/eX+4DiuY4/JO6b04//h8iQJWuCDi0+alecjnsxuwEgQun9h0Ph0ph5XCQUon3wdGkf1Bd4pBvRy6fL6w0vBp0yUusJXOZ4uVxkondkt+hXUk5qxEcyTq0oBaun+pwzlPw+kDtuBhOnyaU2VK97Im/f5AwibeHLdQcnn9GTK3xDvJRkL2ndKnL9CeQdHVyBydQW5m01fYJyssO5cPRZ9uzNhvUHxZragaN5ItHDGB5UHN+R8zMf4JimcxQZRs5AaxRXwx3xRKzr6MTe4rSFMxoU9skw7RIh6U/LgwM79A8og26QgB24i54Xb+f+/fmatuQBJrFrqIteU94onHUfHxwvzX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");
@@ -75,7 +77,7 @@
 // @lgHeaderBgClip: inherit;
 // @lgHeaderColor: @headerColor;
 
-// 章节自动编号格式
+// 标题自动编号格式
 // 导出的 HTML 中不生效，须添加以下 VLOOK 的调校参数「vlook-chp-autonum」
 @vChpAutoNum: "h1{{#none#}},h2{{#none#}},h3{{### }},h4{{### }},h5{{#ALPHA-min# }}";
 @h1BeforeContent: "";
@@ -84,12 +86,12 @@
 @h4BeforeContent: counter(h3) "." counter(h4) " ";
 @h5BeforeContent: counter(h5, upper-alpha) ". ";
 
-// 章节自动编号颜色
+// 标题自动编号颜色
 //@contentHeaderNumColor: @themeForeColorFade;
 
 // 表格圆角
-@tableBorderRadius: 0px;
-@tableBorderRadiusXC: 0px;
+// @tableBorderRadius: 0px;
+// @tableBorderRadiusXC: 0px;
 // 标题的上边框
 @h1BorderLeft: 0;
 @h2BorderLeft: 0;
@@ -160,19 +162,23 @@
 // 封面背景设置
 @coverBackgroundColor: @themeBgColor;
 @coverBackgroundImage: var(--thm-c-bg1);
-@coverBackgroundSize: auto;
+@coverBgSize: auto;
+@coverBgSizeForMobile: @coverBgSize;
+@coverBackgroundSize: var(--thm-c-bg-size);
 @coverBackgroundRepeat: no-repeat;
-// @coverBgLogoPos: ;
-// @coverBgLogoPosForMobile: ;
-@coverBackgroundPosition: bottom left;
+@coverBgPosition: bottom left;
+@coverBgPositionForMobile: @coverBgPosition;
+@coverBackgroundPosition: var(--thm-c-bg-pos);
 // 封底背景设置
 @backcoverBackgroundColor: @coverBackgroundColor;
 @backcoverBackgroundImage: var(--thm-c-bg2);
-@backcoverBackgroundSize: @coverBackgroundSize;
+@backcoverBgSize: auto;
+@backcoverBgSizeForMobile: @backcoverBgSize;
+@backcoverBackgroundSize: var(--thm-bc-bg-size);;
 @backcoverBackgroundRepeat: @coverBackgroundRepeat;
-// @backcoverBgLogoPos: ;
-// @backcoverBgLogoPosForMobile: ;
-@backcoverBackgroundPosition: bottom right;
+@backcoverBgPosition: bottom right;
+@backcoverBgPositionForMobile: @backcoverBgPosition;
+@backcoverBackgroundPosition: var(--thm-bc-bg-pos);
 
 // 封面、封底素材资源
 :root {

@@ -3,8 +3,8 @@
  * VLOOK™ CSS 字体主题、圆角样式
  * (配合 base.less 进行使用)
  *
- * V27.0
- * 2024-11-02
+ * V28.0
+ * 2024-12-21
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -16,10 +16,8 @@
  *
  *************************************/
 
-@fontSize: 1em; // 16px
+@fontSize: 1em;
 @fontSizePx: 16px;
-// @fontSizeXL: 1.125em; // 18px
-// @fontSizeXXL: 1.25em; // 20px
 
 // Rangs of font-weight:
 //   100 - Thin
@@ -47,41 +45,16 @@
     // https://unicode-table.com/cn/blocks/miscellaneous-technical/
 }
 
-// Digital 字体适用的编码范围
+// 定义 Digital 字体适用的编码范围
 @unicodeRangeForDigital:
 U+0021-002F, // !"#$%&'()*+,-./（不含空格）
 U+003A-0040, // :;<=>?@
 U+005B-0060, // [\]^_`
 U+007B-007E, // {|}~
 U+0030-0039; // 0123456789
-// // ----------------------------------------
-// // VLOOK Digital Sans CSS
-// @font-face { // - Regular
-//     font-family: "VLOOK Digital Sans CSS";
-//     font-weight: normal;
-//     src: local("Noto Sans Mono Regular");
-//     unicode-range: @unicodeRangeForDigital;
-// }
-// @font-face { // - Medium
-//     font-family: "VLOOK Digital Sans CSS";
-//     font-weight: 500;
-//     src: local("Noto Sans Mono Medium");
-//     unicode-range: @unicodeRangeForDigital;
-// }
-// @font-face { // - Bold
-//     font-family: "VLOOK Digital Sans CSS";
-//     font-weight: bold;
-//     src: local("Noto Sans Mono Bold");
-//     unicode-range: @unicodeRangeForDigital;
-// }
-// @font-face { // - Black
-//     font-family: "VLOOK Digital Sans CSS";
-//     font-weight: 900;
-//     src: local("Noto Sans Mono Black");
-//     unicode-range: @unicodeRangeForDigital;
-// }
+
 // ----------------------------------------
-// VDS-CSS local
+// 定义 VDS-CSS local
 @font-face { // - Regular
     font-family: "VLOOK Digital local";
     font-weight: normal;
@@ -95,31 +68,16 @@ U+0030-0039; // 0123456789
     // 适用的编码范围
     unicode-range: @unicodeRangeForDigital;
 }
-// // ----------------------------------------
-// // VLOOK Digital Serif CSS
-// @font-face { // - Regular
-//     font-family: "VLOOK Digital Serif CSS";
-//     font-weight: normal;
-//     src: local("Luxi Mono Regular");
-//     unicode-range: @unicodeRangeForDigital;
-// }
-// @font-face { // - Bold
-//     font-family: "VLOOK Digital Serif CSS";
-//     font-weight: bold;
-//     src: local("Luxi Mono Bold");
-//     unicode-range: @unicodeRangeForDigital;
-// }
+
 // ----------------------------------------
 @vlookDigitalLocal: "VLOOK Digital local";
 @vlookDigitalSans: "VLOOK Digital Sans", @vlookDigitalLocal;
 @vlookDigitalSerif: "VLOOK Digital Serif", @vlookDigitalLocal;
-// @vlookDigitalSans: "VLOOK Digital Sans", "VLOOK Digital Sans CSS", @vlookDigitalLocal;
-// @vlookDigitalSerif: "VLOOK Digital Serif", "VLOOK Digital Serif CSS", @vlookDigitalLocal;
 
 // =========================================
 // 基础字体信息
 // -----------------------------------------
-// Emoji / symbol 等符号字体
+// 定义 Emoji / symbol 等符号字体
 @emoji: "color-emoji";
 // 基础等宽字体
 @base_mono: Courier, "Courier New";
@@ -139,7 +97,6 @@ U+0030-0039; // 0123456789
 @base_serif_en: "Times New Roman", Times, Georgia;
 @base_serif_en2: Georgia, "Times New Roman", Times;
 @base_serif_cn: "Songti SC", "宋体-简", SimSun, "宋体";
-// @base_serif_cn: "Songti SC", STZhongsong, "华文中宋", SimSun, "宋体";
 @base_mono_serif_en: "VLOOK Serif Mono", "Luxi Mono", "PT Mono", @base_mono, @base_mono_sans_en;
 // 自定义字体主题集
 @base_gov_kaiti_sets: "Kaiti SC", "Kaiti TC", KaiTi, "楷体", Kai, "KaiTi_GB2312", "楷体_GB2312", STKaiti, "华文楷体";
@@ -157,14 +114,14 @@ U+0030-0039; // 0123456789
 // =========================================
 // 系统本地默认字体信息
 // ----------------------------------------
-// Apple SF PingFang 苹方
+// 定义 Apple SF PingFang 苹方
 @apple_sf: "SF Pro Text", "SF Pro Display", "PingFang SC", "PingFang TC", "PingFang HK";
-// Microsoft YaHei 微软雅黑
+// 定义 Microsoft YaHei 微软雅黑
 @ms_yh: "Segoe UI", SegoeUI, "Microsoft YaHei", "微软雅黑", @base_sans_cn;
 @ms_yh_mono: @base_mono_macos_en, @ms_yh, monospace;
 @ms_yh_fw_bold: bold;
 @ms_yh_fw_text: normal;
-// Microsoft JhengHei 微軟正黑體
+// 定义 Microsoft JhengHei 微軟正黑體
 @ms_jh: "Microsoft JhengHei", "微軟正黑體", @base_sans_cn;
 @msjh_mono: @base_mono_macos_en, @ms_jh, monospace;
 // ---
@@ -172,12 +129,12 @@ U+0030-0039; // 0123456789
 // @localFont: "HarmonyOS Sans SC", "MiSans VF", "OPlus Sans SC", -apple-system, Roboto, @apple_sf, @ms_yh, @ms_jh;
 // @localFont: -apple-system, Roboto, @apple_sf, @ms_yh, @ms_jh;
 @localFont: -apple-system, Roboto, @apple_sf, @ms_yh, @ms_jh;
-@monoLocalFont: @mono_local_en, @localFont, @base_sans_cn, monospace;//, @ms_yh_mono, @msjh_mono;
+@monoLocalFont: @mono_local_en, @localFont, @base_sans_cn, monospace;
 @fontBoldWeight4Local: @ms_yh_fw_bold;
 @fontBoldWeight4LocalText: @ms_yh_fw_text;
 
 //=========================================
-// macOS 风格字体信息
+// 定义 macOS 风格字体信息
 // ----------------------------------------
 @macosFont: -apple-system, Roboto, @apple_sf;
 @macosMono: @mono_macos_en, @macosFont, @base_sans_cn, monospace;
@@ -185,7 +142,7 @@ U+0030-0039; // 0123456789
 @fontBoldWeight4MacosText: @ms_yh_fw_text;
 
 //=========================================
-// Windwos 风格字体信息
+// 定义 Windwos 风格字体信息
 // ----------------------------------------
 @winFont: @ms_yh, @ms_jh;
 @winMono: @mono_win_en, @winFont, @base_sans_cn, monospace;
@@ -193,7 +150,7 @@ U+0030-0039; // 0123456789
 @fontBoldWeight4WinText: @ms_yh_fw_text;
 
 //=========================================
-// Book 书香里 风格字体信息
+// 定义 Book 书香里 风格字体信息
 // ----------------------------------------
 // 宋体 + 黑体
 @cross_book_serif: @base_serif_en, @base_serif_cn, serif;
@@ -215,7 +172,7 @@ U+0030-0039; // 0123456789
 @fontBoldWeight4BookText: @cross_book_fw_text;
 
 //=========================================
-// Gov 公文风 风格字体信息
+// 定义 Gov 公文风 风格字体信息
 // ----------------------------------------
 // 楷体 + 仿体 + 黑体
 @cross_gov_serif: @base_serif_en2, @base_gov_fangsong_sets, @base_serif_cn, serif;
@@ -237,12 +194,12 @@ U+0030-0039; // 0123456789
 @fontBoldWeight4GovText: @cross_gov_fw_text;
 
 //=========================================
-// Sans 小清新 风格字体信息
+// 定义 Sans 小清新 风格字体信息
 // ----------------------------------------
 // 思源黑体
 @noto: "VLOOK Sans", @base_noto_sans_sets, @base_source_sans_sets, @apple_sf, @ms_yh, @ms_jh, @base_sans_cn, sans-serif;
 @noto_mono: @base_mono_sans_en, "VLOOK Sans", @base_noto_sans_sets, @base_source_sans_sets, @apple_sf, @ms_yh_mono, @msjh_mono, @base_sans_cn, monospace;
-@noto_fw_bold: bold;//900;
+@noto_fw_bold: bold;
 @noto_fw_text: normal;
 // ---
 @sansFont: @noto;
@@ -251,7 +208,7 @@ U+0030-0039; // 0123456789
 @fontBoldWeight4SansText: @noto_fw_text;
 
 //=========================================
-// Serif 文艺范 风格字体信息
+// 定义 Serif 文艺范 风格字体信息
 // ----------------------------------------
 // 思源宋体 + 思源黑体
 @cross_noto_serif: "VLOOK Serif", @base_noto_serif_sets, @base_source_serif_sets, @base_serif_en, @base_serif_cn, serif;
@@ -273,7 +230,7 @@ U+0030-0039; // 0123456789
 @fontBoldWeight4SerifText: @cross_noto_fw_text;
 
 //=========================================
-// Albb 活力派 风格字体信息
+// 定义 Albb 活力派 风格字体信息
 // ----------------------------------------
 // 钉钉进步体 + 阿里普惠体
 @albb: "VLOOK Albb", @base_albb_puhui_sets, @apple_sf, @ms_yh, @ms_jh, @base_sans_cn, sans-serif;
@@ -285,7 +242,6 @@ U+0030-0039; // 0123456789
 @albb_fw_text: normal;
 // ---
 @albbFont: @albb;
-// @albbBoldFont: @albb;
 @albbTitle: @albb_title;
 @albbHeader: @albb_header;
 @albbMono: @sansMono;
@@ -297,7 +253,7 @@ U+0030-0039; // 0123456789
 // 不同字体风格配置集
 :root {
     // ---
-    // local 系统默认 风格：系统本地默认字体 OS default
+    // 定义 local 系统默认 风格：系统本地默认字体 OS default
     --v-f-fm-title-local: @emoji, @localFont;
     --v-f-fm-subtitle-local: @emoji, @localFont;
     --v-f-fm-h-local: @emoji, @localFont;
@@ -305,14 +261,14 @@ U+0030-0039; // 0123456789
     --v-f-fm-bd-local: @emoji, @vlookDigitalLocal, @localFont;
     --v-f-fm-key-local: @localFont;
     --v-f-fm-num-local: @emoji, @number_font, @base_mono_sans_en, @localFont;
-    --v-f-fm-tag-local: @emoji, @localFont;//@monoLocalFont;//@localFont;
+    --v-f-fm-tag-local: @emoji, @localFont;
     --v-f-fm-code-local: @monoLocalFont;
     --v-f-w-bd-local: @fontBoldWeight4Local;
     --v-f-w-title-local: @fontBoldWeight4Local;
     --v-f-w-text-local: @fontBoldWeight4LocalText;
 
     // ---
-    // local 系统默认 风格：for macOS
+    // 定义 local 系统默认 风格：for macOS
     --v-f-fm-title-macos: @emoji, @macosFont;
     --v-f-fm-subtitle-macos: @emoji, @macosFont;
     --v-f-fm-h-macos: @emoji, @macosFont;
@@ -320,14 +276,14 @@ U+0030-0039; // 0123456789
     --v-f-fm-bd-macos: @emoji, @vlookDigitalSans, @macosFont;
     --v-f-fm-key-macos: @macosFont;
     --v-f-fm-num-macos: @emoji, @number_font, @base_mono_sans_en, @macosFont;
-    --v-f-fm-tag-macos: @emoji, @localFont;//@monoMacosFont;//@macosFont;
+    --v-f-fm-tag-macos: @emoji, @localFont;
     --v-f-fm-code-macos: @macosMono;
     --v-f-w-bd-macos: @fontBoldWeight4Macos;
     --v-f-w-title-macos: @fontBoldWeight4Macos;
     --v-f-w-text-macos: @fontBoldWeight4MacosText;
 
     // ---
-    // local 系统默认 风格：for Windows
+    // 定义 local 系统默认 风格：for Windows
     --v-f-fm-title-win: @emoji, @winFont;
     --v-f-fm-subtitle-win: @emoji, @winFont;
     --v-f-fm-h-win: @emoji, @winFont;
@@ -335,14 +291,14 @@ U+0030-0039; // 0123456789
     --v-f-fm-bd-win: @emoji, @vlookDigitalSans, @winFont;
     --v-f-fm-key-win: @winFont;
     --v-f-fm-num-win: @emoji, @number_font, @base_mono_sans_en, @winFont;
-    --v-f-fm-tag-win: @emoji, @localFont;//@monoWinFont;//@winFont;
+    --v-f-fm-tag-win: @emoji, @localFont;
     --v-f-fm-code-win: @winMono;
     --v-f-w-bd-win: @fontBoldWeight4Win;
     --v-f-w-title-win: @fontBoldWeight4Win;
     --v-f-w-text-win: @fontBoldWeight4WinText;
 
     // ---
-    // Book 书香里 风格：宋体 + 黑体
+    // 定义 Book 书香里 风格：宋体 + 黑体
     --v-f-fm-title-book: @emoji, @bookTitle;
     --v-f-fm-subtitle-book: @emoji, @bookBoldFont;
     --v-f-fm-h-book: @emoji, @bookHeader;
@@ -350,14 +306,14 @@ U+0030-0039; // 0123456789
     --v-f-fm-bd-book: @emoji, @bookBoldFont;
     --v-f-fm-key-book: @bookBoldFont;
     --v-f-fm-num-book: @emoji, @number_font, @base_mono_sans_en, @sansFont;
-    --v-f-fm-tag-book: @emoji, @bookBoldFont;//@localFont;//@monoBookFont;//@bookBoldFont;
+    --v-f-fm-tag-book: @emoji, @bookBoldFont;
     --v-f-fm-code-book: @bookMono;
     --v-f-w-bd-book: @fontBoldWeight4Book;
     --v-f-w-title-book: @fontBoldWeight4BookTitle;
     --v-f-w-text-book: @fontBoldWeight4BookText;
 
     // ---
-    // Gov 公文风 风格：楷体 + 仿宋 + 黑体
+    // 定义 Gov 公文风 风格：楷体 + 仿宋 + 黑体
     --v-f-fm-title-gov: @emoji, @govTitle;
     --v-f-fm-subtitle-gov: @emoji, @govBoldFont;
     --v-f-fm-h-gov: @emoji, @govHeader;
@@ -365,14 +321,14 @@ U+0030-0039; // 0123456789
     --v-f-fm-bd-gov: @emoji, @govBoldFont;
     --v-f-fm-key-gov: @govBoldFont;
     --v-f-fm-num-gov: @emoji, @number_font, @base_mono_sans_en, @sansFont;
-    --v-f-fm-tag-gov: @emoji, @govBoldFont;//@localFont;//@monoBookFont;//@bookBoldFont;
+    --v-f-fm-tag-gov: @emoji, @govBoldFont;
     --v-f-fm-code-gov: @govMono;
     --v-f-w-bd-gov: @fontBoldWeight4Gov;
     --v-f-w-title-gov: @fontBoldWeight4GovTitle;
     --v-f-w-text-gov: @fontBoldWeight4GovText;
 
     // ---
-    // Sans 小清新 风格：非衬线风格 Noto Sans
+    // 定义 Sans 小清新 风格：非衬线风格 Noto Sans
     --v-f-fm-title-sans: @emoji, @sansFont;
     --v-f-fm-subtitle-sans: @emoji, @sansFont;
     --v-f-fm-h-sans: @emoji, @sansFont;
@@ -380,14 +336,14 @@ U+0030-0039; // 0123456789
     --v-f-fm-bd-sans: @emoji, @vlookDigitalSans, @sansFont;
     --v-f-fm-key-sans: @sansFont;
     --v-f-fm-num-sans: @emoji, @number_font, @base_mono_sans_en, @sansFont;
-    --v-f-fm-tag-sans: @emoji, @sansFont;//@localFont;//@monoSansFont;//@sansFont;
+    --v-f-fm-tag-sans: @emoji, @sansFont;
     --v-f-fm-code-sans: @sansMono;
     --v-f-w-bd-sans: @fontBoldWeight4Sans;
     --v-f-w-title-sans: @fontBoldWeight4Sans;
     --v-f-w-text-sans: @fontBoldWeight4SansText;
 
     // ---
-    // Serif 文艺范 风格：衬线+非衬线混排 Serif + Sans
+    // 定义 Serif 文艺范 风格：衬线+非衬线混排 Serif + Sans
     --v-f-fm-title-serif: @emoji, @serifTitle;
     --v-f-fm-subtitle-serif: @emoji, @serifBoldFont;
     --v-f-fm-h-serif: @emoji, @serifHeader;
@@ -395,14 +351,14 @@ U+0030-0039; // 0123456789
     --v-f-fm-bd-serif: @emoji, @vlookDigitalSans, @serifBoldFont;
     --v-f-fm-key-serif: @serifBoldFont;
     --v-f-fm-num-serif: @emoji, @number_font, @base_mono_sans_en, @sansFont;
-    --v-f-fm-tag-serif: @emoji, @serifBoldFont;//@localFont;//@monoSerifFont;//@serifBoldFont;
+    --v-f-fm-tag-serif: @emoji, @serifBoldFont;
     --v-f-fm-code-serif: @serifMono;
     --v-f-w-bd-serif: @fontBoldWeight4Serif;
     --v-f-w-title-serif: @fontBoldWeight4SerifTitle;
     --v-f-w-text-serif: @fontBoldWeight4SerifText;
 
     // ---
-    // Albb 活力派 风格：钉钉进步体 + 阿里普惠体
+    // 定义 Albb 活力派 风格：钉钉进步体 + 阿里普惠体
     --v-f-fm-title-albb: @emoji, @albbTitle;
     --v-f-fm-subtitle-albb: @emoji, @albbFont;
     --v-f-fm-h-albb: @emoji, @albbHeader;
@@ -410,7 +366,7 @@ U+0030-0039; // 0123456789
     --v-f-fm-bd-albb: @emoji, @albbFont;
     --v-f-fm-key-albb: @albbFont;
     --v-f-fm-num-albb: @emoji, @number_font, @base_mono_sans_en, @sansFont;
-    --v-f-fm-tag-albb: @emoji, @albbFont;//@localFont;//@monoSerifFont;//@serifBoldFont;
+    --v-f-fm-tag-albb: @emoji, @albbFont;
     --v-f-fm-code-albb: @albbMono;
     --v-f-w-bd-albb: @fontBoldWeight4Albb;
     --v-f-w-title-albb: @fontBoldWeight4AlbbTitle;
@@ -628,13 +584,6 @@ U+0030-0039; // 0123456789
             url("https://openfonts.pages.dev/NotoSansMono-woff2/NotoSansMono-Regular.woff2");
         unicode-range: @unicodeRangeForDigital;
     }
-    // @font-face { // - Medium
-    //     font-family: "VLOOK Digital Sans";
-    //     font-weight: 500;
-    //     src: local("Noto Sans Mono Medium"),
-    //         url("https://openfonts.pages.dev/NotoSansMono-woff2/NotoSansMono-Medium.woff2");
-    //     unicode-range: @unicodeRangeForDigital;
-    // }
     @font-face { // - Bold
         font-family: "VLOOK Digital Sans";
         font-weight: bold;
@@ -642,13 +591,6 @@ U+0030-0039; // 0123456789
             url("https://openfonts.pages.dev/NotoSansMono-woff2/NotoSansMono-Bold.woff2");
         unicode-range: @unicodeRangeForDigital;
     }
-    // @font-face { // - Black
-    //     font-family: "VLOOK Digital Sans";
-    //     font-weight: 900;
-    //     src: local("Noto Sans Mono Black"),
-    //         url("https://openfonts.pages.dev/NotoSansMono-woff2/NotoSansMono-Black.woff2");
-    //     unicode-range: @unicodeRangeForDigital;
-    // }
 }
 
 // ----------------------------------------
@@ -666,12 +608,6 @@ U+0030-0039; // 0123456789
         src: local("Noto Sans CJK SC Bold"),
             url("https://openfonts.pages.dev/NotoSansCJKsc-woff2/NotoSansCJKsc-Bold.woff2");
     }
-    // @font-face { // - Black
-    //     font-family: "VLOOK Sans";
-    //     font-weight: 900;
-    //     src: local("Noto Sans CJK SC Black"),
-    //         url("https://openfonts.pages.dev/NotoSansCJKsc-woff2/NotoSansCJKsc-Black.woff2");
-    // }
 }
 
 // ----------------------------------------
@@ -683,24 +619,12 @@ U+0030-0039; // 0123456789
         src: local("Noto Sans Mono Regular"),
             url("https://openfonts.pages.dev/NotoSansMono-woff2/NotoSansMono-Regular.woff2");
     }
-    // @font-face { // - Medium
-    //     font-family: "VLOOK Sans Mono";
-    //     font-weight: 500;
-    //     src: local("Noto Sans Mono Medium"),
-    //         url("https://openfonts.pages.dev/NotoSansMono-woff2/NotoSansMono-Medium.woff2");
-    // }
     @font-face { // - Bold
         font-family: "VLOOK Sans Mono";
         font-weight: bold;
         src: local("Noto Sans Mono Bold"),
             url("https://openfonts.pages.dev/NotoSansMono-woff2/NotoSansMono-Bold.woff2");
     }
-    // @font-face { // - Black
-    //     font-family: "VLOOK Sans Mono";
-    //     font-weight: 900;
-    //     src: local("Noto Sans Mono Black"),
-    //         url("https://openfonts.pages.dev/NotoSansMono-woff2/NotoSansMono-Black.woff2");
-    // }
 }
 
 // ----------------------------------------
@@ -822,7 +746,7 @@ U+0030-0039; // 0123456789
     --v-r-s-small: 6px; // 标准圆角内的小圆角
     --v-r-t-small: 8px; // 表格圆角
     --v-r-si-small: calc(var(--v-r-t-small) + 1px); // 标准圆角内的小圆角
-    --v-r-tag-small: 7px;//.3em; // 标签圆角
+    --v-r-tag-small: 7px; // 标签圆角
     // --v-tag-small-radius-small: .25em; // 标签小圆角
     --v-r-c-small: 50%; // 半距圆角
 
@@ -832,7 +756,7 @@ U+0030-0039; // 0123456789
     --v-r-s-big: 8px; // 标准圆角内的小圆角
     --v-r-t-big: 14px; // 表格圆角
     --v-r-si-big: calc(var(--v-r-t-big) + 1px); // 标准圆角内的小圆角
-    --v-r-tag-big: 9px;//.5em; // 标签圆角
+    --v-r-tag-big: 9px; // 标签圆角
     // --v-tag-small-radius-big: .25em; // 标签小圆角
     --v-r-c-big: 50%; // 半距圆角
 }
@@ -886,6 +810,7 @@ U+0030-0039; // 0123456789
         --v-r-tag: 0; // 标签圆角
         --v-r-c: 0; // 半距圆角
     }
+    .setForNotLeaf();
 }
 // ---
 // 为非 leaf 的圆角样式设置初始的 xc 值

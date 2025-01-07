@@ -7,7 +7,7 @@ description: 关于 VLOOK™ 的主题、内容标记、内容导航、演示与
 keywords:
 - Gitee,GitHub,i18n,Markdown,MIT,OSC,Plugin,Typora,VLOOK,GitHub Style Alert,OGP,Open Graph Protocol,Mermaid,WIKI,HTML,PRD,YAML,YouTube
 - Editor's recommendation,plugin,open source,OSChina (Open Source China),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
-- Dark mode,grayscale mode,gray mode
+- Light mode, Dark mode,Grayscale mode,Gray mode
 - Catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - Table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - Picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
@@ -18,7 +18,7 @@ keywords:
 - Design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - Product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
-- 深色模式,灰度模式,灰色模式
+- 浅色外观,深色外观,灰度外观,灰色外观
 - 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
@@ -36,6 +36,7 @@ vlook-doc-lib:
 - [°图片](guide.html?target=guide#°图片 "题注与编号、显示版式、缩放、旋转、翻转、滤镜、明信片、适配高清屏/Dark Mode、剪影")
 - [°列表](guide.html?target=guide#°列表 "样式增强、任务清单、完成进度")
 - [°引用块](guide.html?target=guide#°引用块 "小标题、着色、详情折叠")
+- [°章节标题](guide.html?target=guide#°章节标题 "标题样式、标题自动编号")
 - [°分栏](guide2.html?target=guide2#°分栏 "列表分栏、引用块分栏、GitHub Style Alert 分栏")
 - [°按钮](guide2.html?target=guide2#°按钮 "键盘按键、按钮链接")
 - [°代码](guide2.html?target=guide2#°代码 "题注与编号、复制、换行版式")
@@ -43,7 +44,7 @@ vlook-doc-lib:
 - [°Mermaid](guide2.html?target=guide2#°Mermaid "脚本化图表、流程图、顺序图、状态机图、类图、……")
 - [°数学公式](guide2.html?target=guide2#°数学公式 "题注与编号、样式优化")
 - [°多媒体](guide2.html?target=guide2#°多媒体 "流媒体平台、常规视频、音频")
-- [°内容导航](guide3.html?target=guide3#°内容导航 "章节编号、继续上次的阅读、导航中心、逐章导航、段落漫游、插图导航、文库导航、脚注导航、浏览历史")
+- [°内容导航](guide3.html?target=guide3#°内容导航 "继续上次的阅读、导航中心、逐章导航、段落漫游、插图导航、文库导航、脚注导航、浏览历史")
 - [°内容助手](guide3.html?target=guide3#°内容助手 "复制、插图全屏显示、表格阅读模式、换行版式、画中画")
 - [°演示辅助](guide3.html?target=guide3#°演示辅助 "聚光灯、激光笔、图表交互高亮、正文宽度适配")
 - [°出版辅助](guide3.html?target=guide3#°出版辅助 "标记不发布、社交分享、链接地图、长内容折叠、自定义欢迎页、链接检查、链接识别、链接转换")
@@ -64,81 +65,9 @@ vlook-doc-lib:
 
 > **感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**
 >
-> ＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 # °内容导航
-
-## 章节自动编号
-
-*Markdown 粉`Q`*「**希望对文档中章节自动编号根据进行自定义，以适应具体文档的风格、标题内容的组织方式**」
-
-*VLOOK`A`*_~T2~_ VLOOK™ 提供了非常实用个性的章节编号格式选项，可以轻松满足不同文档对章节编号格式的个性要求。
-
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
-
-
-
-> 使用 VLOOK™ 插件后，默认支持对文档内的章节标题进行自动编号，默认的自动编号格式均为阿拉伯数字，如 `1. 章节标题 `3.2.5 章节标题` 。
->
-> - 所有 VLOOK™ 的主题都会自动对 `1 ~ 5级` 标题进行自动的分级编号；
-> - 因为 `6 级` 标题在 VLOOK™ 中应用于[封面与封底](#封面与封底)、段落小标题的排版等，所以不在自动编号范围内。
->
-> 可通过「[插件预置选项](#插件预置选项)」 `vlook-chp-autonum` 来指定，在导出 HTML 后生效，具体的格式化示例如下：
-
-*==自定义章节自动编号格式示例==*
-
-```yaml
----
-vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀}},...,层级5{{前缀#格式#后缀}}
----
-```
-
----
-
-> [!TIP]
-> 
-> 若使用的 VLOOK 主题不包括自动编号样式，也可以通过该参数强制指定在导出 HTML 后启用自动编号及对应格式。
-
-> [!NOTE]
->
-> 更多关于通过 YAML Front Matter 设置插件预置选项的说明，详见：[插件预置选项](#插件预置选项)
-
-*==自定义章节自动编号格式的选项说明==*
-
-| **编号选项** |         取值         | 说明                                                         | 选项参考                                    | 效果预览                                    |
-| :----------: | :------------------: | ------------------------------------------------------------ | ------------------------------------------- | ------------------------------------------- |
-|     层级     |     `h1` ～ `h5`     | 表示 1 级 ～ 5 级目录                                        | `h3{{###}}`                                 | 1.2.3 xxxxx                                 |
-|     前缀     |     任意内容文本     | 如：第、Chapter                                              | `h1{{Chapter ###.}}`                        | Chapter 5. xxxxx                            |
-|     格式     |        `none`        | 不进行自动编号                                               | `h2{{#none#}}`                              | xxxxx                                       |
-|      :       |         `#`          | 阿拉伯数字。如：1、2、3、4、5                                | `h2{{Chapter ###}}`                         | Chapter 3.2 xxxxx                           |
-|      :       |         `zh`         | 中文。如：一、二、三、四、五<br>*`注意`*_~Rd~_ **对 `h1` 生效** | `h1{{第#zh#章}}`                            | 第一章 xxxxx                                |
-|      :       |         `ZH`         | 中文大写。如：壹、贰、叁、肆、伍<br>*`注意`*_~Rd~_ **对 `h1` 生效** | `h1{{第 #ZH# 回}}`                          | 第 伍 回 xxxxx                              |
-|      :       |       `alpha`        | 英文小写。如：a、b、c、d、E<br>*`注意`*_~Rd~_ **对 `h1` 或 `-min` 生效** | `h2{{#alpha#}}`                             | a xxxxx                                     |
-|      :       |       `ALPHA`        | 英文大写。如：A、B、C、D、E<br>*`注意`*_~Rd~_ **对 `h1` 或 `-min` 生效** | `h2{{#ALPHA#}}`                             | A xxxxx                                     |
-|      :       |       `roman`        | 罗马数字小写。如：i、ii、iii、 iv、v<br>*`注意`*_~Rd~_ **对 `h1` 或 `-min` 生效** | `h3{{#roman# •}}`                           | i • xxxxx                                   |
-|      :       |       `ROMAN`        | 罗马数字大写。如：I、 II、III、IV、V<br>*`注意`*_~Rd~_ **对 `h1` 或 `-min` 生效** | `h3{{#ROMAN#}`                              | IV • xxxxx                                  |
-|   扩展选项   | `00`<br>`000`<br>... | 固定长度占位，不足则左侧补 0                                 | `h1{{Chapter #00## /}}`                     | Chapter 002 / xxxxx                         |
-|      :       |        `-min`        | 以单级方式显示编号<br>*`注意`*_~Rd~_ **与 `-sup` 互斥**      | `h3{{步骤 #0#-min# -}}`                     | 步骤 01 - xxxxx                             |
-|      :       |        `-sup`        | 以双级方式显示编号<br>*`注意`*_~Rd~_ **与 `-min` 互斥**      | `h2{{附录 #ALPHA-min#.}},h3{{#00#-sup# -}}` | 二级：附录 A - xxx<br>三级：附录 A.01 - xxx |
-|     后缀     |     任意内容文本     | 如：章、.                                                    | `h2{{##-min#}}`                             | 1）xxxxx                                    |
-
-### 这是三级章节示例
-
-
-
-#### 这是四级章节示例
-
-
-
-##### 这是五级章节示例
-
-
-
-###### 这是六级章节示例
-
-
-
----
 
 ## 继续上次的阅读
 
@@ -146,38 +75,33 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 *VLOOK`A`*_~T2~_ VLOOK™ 对导出的每一个静态 HTML ，都可以快速定位到上次阅读的位置。
 
-> 打开之前阅读过的 HTML 文档后，会在右上角侧显示「继续上次的阅读」的按钮，点击回到上次阅读的位置。
->
-> 稍后该入口会自动隐藏，可通过右上角的 ![导航历史](pic/icon-history.svg?darksrc=invert#icon) 导航历史按钮继续上次的阅读（快捷键 <kbd>H</kbd>）。
+> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+
+
+
+- 打开之前阅读过的 HTML 文档后，会在右上角侧显示「继续上次的阅读」的按钮，点击回到上次阅读的位置；
+- 稍后该入口会自动隐藏，可通过右上角的 ![导航历史](pic/icon-history.svg?darksrc=invert#icon) 导航历史按钮继续上次的阅读（快捷键 <kbd>H</kbd>)。
 
 ## 导航中心
 
-*Markdown 粉`Q`*「**按目录大纲进行导航是文档中很常用的导航方式，适用于内容层次明确，全文档跨章节的快速定位**」
+*Markdown 粉`Q`*「**文档涉及的内容多了之后，只有目录大纲的话无法快速定位和展示文档的关键资源、内容**」
 
-*VLOOK`A`*_~T2~_ VLOOK™ 对导出的 HTML 除自动生成目录大纲外，还支持自动按内容生成分类索引。
+*VLOOK`A`*_~T2~_ VLOOK™ 对导出的 HTML 除对目录大纲增强外，还支持丰富多样的文档资源的索引和管理。
 
 > **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
 
 
 
-**VLOOK™ 通过「导航中心」提供目录大纲与内容索引：**
-
 通过工具栏左侧的的 ![导航中心](pic/icon-outline-nav.svg?darksrc=invert#icon) 导航中心按钮收起/打开导航中心（快捷键 <kbd>N</kbd> )
 
-
-
-> **导航中心主要特性**
->
-> - 除分级目录大纲外，还支持多种「[**文库**](#文库导航)」入口
-> - 自动对文档的内容进行分类索引，分类包括：==插图==、==表格==、==代码块==、==公式==、==多媒体==
-> - 目录大纲、文库、分类索引条目均支持**按关键字**进行**分词搜索**（不同关键字之间以空格分隔）
-> - 自动记录**导航历史**，可以随时通过可通过右上角的 ![导航历史](pic/icon-history.svg?darksrc=invert#icon) 导航历史按钮快速回跳（快捷键 <kbd>H</kbd> )
->
+- 分级展示目录大纲、多种类型的「[**文库**](#文库导航)」入口
+- 文档内容的分类索引，支持：==插图==、==表格==、==代码块==、==公式==、==多媒体==
+- 以上内容均支持**关键字**搜索，并支持**分词条件搜索**（不同关键字之间以空格分隔）
 
 > [!IMPORTANT]
 >
-> - 基于 Typora 生成的目录大纲，请在文档中「VLOOK™ 的[封面](#封面与封底)」后添加目录标记 `[TOC]` ；
-> - 若文档无目录大纲和内容索引时，导航中心会默认收起。
+> - 基于 Typora 生成的目录大纲，请在文档中「VLOOK™ 的[封面](guide2.md#°封面与封底)」后添加目录标记 `[TOC]` ；
+> - 若文档无目录大纲和分类索引时，导航中心会默认收起。
 
 
 ## 逐章导航
@@ -186,9 +110,11 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 *VLOOK`A`*_~T2~_ 由 VLOOK™ 接管后，会自动扩展提供「逐章导航栏」，正如你现在看到顶部的导航栏那样。
 
-当滚动至文档正文区后，会自动在顶部显示逐章导航条，在封面时会自动收起隐藏，支持对 1~5 级章节进行逐章浏览。
-
 > **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+
+
+
+当滚动至文档正文区后，会自动在顶部显示逐章导航条，在封面时会自动收起隐藏，支持对 1~5 级章节进行逐章浏览。
 
 *==逐章导航快捷键==*
 
@@ -202,6 +128,8 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 *Markdown 粉`Q`*「**希望能按图索骥，快速浏览文档中的所有插图，以及快速定位到文档中对应的位置。**」
 
 *VLOOK`A`*_~T2~_ 文档中的所有图片、Mermaid[^Mermaid] 图表都支持快速浏览，一键跳转到对应位置。
+
+[^Mermaid]:[Mermaid](https://mermaid.js.org) is JavaScript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.
 
 > **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
 
@@ -234,15 +162,15 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 *Markdown 粉`Q`*「**同一类话题或项目有很多 Markdown 文档，希望发布 HTML 后还能方便统一进行组织和访问。**」
 
-*VLOOK`A`*_~T2~_ 为每个文档指定作为「文库」索引页的 HTML，这样就可以随时一键直达你「文档宇宙」中的任意文档了。
+*VLOOK`A`*_~T2~_ 为每个文档配置专属的「文库」内容，这样就可以随时一键直达你的「文档宇宙」中任意文档了。
 
 > **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
 
 
 
-> - 文档中配置了「文库」，或在文档中含有文库链接时，在工具栏、目录大纲下方都会显示「文库」入口 ![字体风格](pic/icon-doc-lib.svg?darksrc=invert#icon) ；
-> - 指定的文库文件默认是会在当前文档的「文库视图」中显示，也可以指定在新标签中显示；
-> - 点击任意文库入口即可打开对应的文档，也支持直接通过快捷键 <kbd>L</kbd> 打开。
+> - 文档中配置了「文库」，或在文档中含有文库链接时，在工具栏、目录大纲下方都会显示「文库」入口 ![字体风格](pic/icon-doc-lib.svg?darksrc=invert#icon) ，也支持直接通过快捷键 <kbd>L</kbd> 打开；
+> - 指定的文库文件默认是会在当前文档的「文库视图」中显示，也可以通过文库地址添加 `target` 指定在新标签中打开；
+> - 文档中有脚注内容，在文库中也会有直达查所有脚注的入口。
 
 **作为「文库」的 HTML 文档，可以是任意一篇使用「Typora＋VLOOK™」生成并导出的 HTML（也可以是任意可访问的网页链接），能直接延用 VLOOK™ 绝大部分排版特性。**
 
@@ -257,22 +185,29 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 >
 > ---
 >
-> > **方式一：最简化用法**
+> > **方式一**
+> >
+> > **最简化用法**
 > >
 > > ```yaml
 > > vlook-doc-lib: 文库.html
 > > ```
 >
-> > **方式二：自定义标题、搜索关键字**
+> > **方式二**
+> >
+> > **添加标题、搜索关键字**
 > >
 > > ```yaml
-> > vlook-doc-lib: [你的文库标题](文库.html "支持搜索的关键字")
+> > vlook-doc-lib: [你的文库标题](文库.html "支持在导航中心搜索的关键字")
 > > ```
 >
-> > **方式三：在新标签中打开**
+> > **方式三**
+> >
+> > **指定在新标签中打开**
 > >
 > > ```yaml
-> > vlook-doc-lib: 文库.html?target=_blank
+> > # 在文库地址后添加 target 参数及标识
+> > # 如：文库.html?target=mydoc
 > > ```
 > >
 >
@@ -281,13 +216,13 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 > ```yaml
 > vlook-doc-lib: 
 > - 文库1.html
-> - [以文库方式打开](文库2.html "支持搜索的关键字")
+> - [以文库方式打开](文库2.html "支持在导航中心搜索的关键字")
 > - [在新标签中打开](文库3.html?target=_blank)
 > ```
 >
 > > [!NOTE]
 > >
-> > 1. 以上「支持搜索的关键字」，不建议添加英文逗号 `,` ，若要添加，其后不能添加空格；
+> > 1. 以上 `target` 的取值与 HTML 标准一致，可以是 `_blank` `_self` `_parent` `_top` 或自定义的标识；
 > > 2. 更多关于通过 YAML Front Matter 设置插件预置选项的说明，详见：[插件预置选项](#插件预置选项)
 
 
@@ -321,23 +256,32 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ## 脚注导航
 
-**VLOOK™ 可以直接在当前页面位置弹层的方式进行显示，避免在文档中来回跳转。**
+在技术、学术或论文类文档中，脚注的使用非常多。主要用于在页面底部对正文中的相关内容加以补充解释、注明参考文献出处、给出额外说明等。
+
+**VLOOK™ 可以直接在当前页面位置弹层的方式进行显示，避免在文档中来回跳转。**也支持在[导航中心](#导航中心)的[文库列表](#文库导航)中直接跳转查看所有脚注。
 
 > **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
 
 
 
-点击文末右上角的链接查看效果[^脚注1]
+点击本段后的角标可以查看对应的脚注内容[^脚注1]
 
 [^脚注1]: 这是 VLOOK™ 优化后的脚的信息
 
 ## 导航历史
 
+> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+
+
+
+- 自动记录当前文档内所有的跳转的历史，包括「导航中心」「逐章导航」「插图导航」「链接失效记录」等跳转的位置；
+- 可随时通过右上角的 ![导航历史](pic/icon-history.svg?darksrc=invert#icon) 导航历史按钮快速回跳（快捷键 <kbd>H</kbd> )
+
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°内容导航</kbd>](?target=vdl#快速入坑°内容导航) 
 
 # °内容助手
 
@@ -353,8 +297,6 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ---
 
----
-
 - 复制「[多级标签](guide2.md#多级标签)」
   
   点击不同分段的内容，即复制其自身及右侧的内容，如：*分类`内容1`内容2*
@@ -363,10 +305,6 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
   点击即复制其内容，如：*`这是标签`* `这是代码`
 
-- 复制「[刮刮卡](guide2.md#刮刮卡)」
-  
-  首次点击会显示隐藏的内容，然后点击其内容即可复制 ***这是刮刮卡内容***
-  
 - 复制「代码块」
   
   一键复制全部代码块的所有内容
@@ -425,7 +363,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°演示与出版</kbd>](?target=vdl#快速入坑°演示与出版)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°演示与出版</kbd>](?target=vdl#快速入坑°演示与出版) 
 
 # °演示辅助
 
@@ -500,7 +438,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°演示与出版</kbd>](?target=vdl#快速入坑°演示与出版)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°演示与出版</kbd>](?target=vdl#快速入坑°演示与出版) 
 
 
 
@@ -560,7 +498,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 ###### Open Graph Protocol
 
-> [Open Graph Protocol](https://ogp.me/)（OGP）是一个网络协议，用于在网页元数据中丰富内容的表示，尤其是在社交媒体上分享时。使用 OGP，你可以控制网页分享到社交平台时的外观和描述。
+> VLOOK™ 支持 [Open Graph Protocol](https://ogp.me/)（是一个网络协议，用于在网页元数据中丰富内容的表示，尤其是在社交媒体上分享时），在分享时 VLOOK™ 会自动根据文档中预设的 OGP 标签内容生成网页分享到社交平台时的外观和描述。
 
 > **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
 
@@ -707,9 +645,10 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 >
 > _~Gy~_
 
-> [!TIP]
+> [!WARNING]
 >
-> 存在需要关注或处理建议的异常结果时，会在文档的右下角显示 ![](pic/icon-link-error.svg#icon) 图标提示，点击可查看具体的异常信息。
+> - 存在需要关注或处理建议的异常结果时，会在文档的右下角显示 ![](pic/icon-link-error.svg#icon) 图标提示，点击可查看具体的异常信息；
+> - VLOOK™ 对图片、多媒体资源采用「懒加载」模式，具体资源地址异常情况需要页面滚动到对应位置后才会触发检查。
 
 ## 链接内容识别
 
@@ -761,11 +700,21 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 >
 > _~Vn!~_
 
+## 图片懒加载模式
+
+*Markdown 粉`Q`*「**对于文档中图片数量较多时，导出 HTML 后默认都为立即加载，影响文档打开速度和导致不必要的网络资源占用。**」
+
+*VLOOK`A`*_~T2~_ 支持对文档中的图片资源启用延时加载，只有在页面滚动到图片所在位置才会显示。
+
+> ###### 如何开启延时加载？
+>
+> **零操作！**只需要使用 VLOOK™ 内置的主题 或 [定制主题](#模板主题)，正常配置并导出为 HTML 后即可具备该特性！
+
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°演示与出版</kbd>](?target=vdl#快速入坑°演示与出版)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°演示与出版</kbd>](?target=vdl#快速入坑°演示与出版) 
 
 # °外观
 
@@ -835,7 +784,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°外观与不杂项</kbd>](?target=vdl#快速入坑°外观与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°外观与不杂项</kbd>](?target=vdl#快速入坑°外观与不杂项) 
 
 ## 字体风格
 
@@ -847,13 +796,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 
 
-> 通过右下角状态栏上的  ![字体风格](pic/icon-font-style.svg?darksrc=invert#icon)  按钮进行选择（快捷键操作：<kbd>A</kbd> )
-
-> [!NOTE]
->
-> - 设置后同一域名下的所有文档都会应用该配置，也可通过「[插件调校参数](#插件调校参数)」 `font` 来强制指定使用的字体风格（只对指定的文档生效）；
-> - 除「书香里、公文风、活力派」，都会强制对「数字、标点符号」使用等宽字体，以使得内容更易于识别。
-
+通过右下角状态栏上的  ![字体风格](pic/icon-font-style.svg?darksrc=invert#icon)  按钮进行选择（快捷键操作：<kbd>A</kbd> )
 
 
 ---
@@ -888,137 +831,25 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 >
 > _~Gy~_
 
-
+---
 
 
 > [!WARNING]
 >
 > 若加载网络字体字体较慢，或无法访问互联网的情况，建议直接下载字体包并安装到本地，以获得更好的体验。
 >
->  [<kbd>![](pic/icon-download.svg?fill=text) 从百度网盘下载</kbd>](https://pan.baidu.com/s/1gH5Hj-X3-LCaOLtN0AxLLw?pwd=11ta)  提取码 `11ta`
+>  [<kbd>![](pic/icon-download.svg?fill=text) 从 百度网盘 下载</kbd>](https://pan.baidu.com/s/1TSHwjuOOpR8UM08Fs8vOxg?pwd=9981)   *[<kbd>![](pic/icon-download.svg?fill=text) 从 Google Drive 下载</kbd>](https://pan.baidu.com/s/1TSHwjuOOpR8UM08Fs8vOxg?pwd=9981)*
+
+> [!NOTE]
+>
+> - 设置后同域名下所有文档都会应用，可通过「[插件调校参数](#插件调校参数)」 `font` 来强制指定当前文档使用的字体风格；
+> - 除「书香里、公文风、活力派」，都会强制对「数字、标点符号」使用等宽字体，以使得内容更易于识别。
 
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°外观与不杂项</kbd>](?target=vdl#快速入坑°外观与不杂项)
-
-## 封面与封底
-
-*Markdown 粉`Q`*「**如何让 Markdown 的文档支持封面、封底**（例如像本文档的封面、封底）？」
-*VLOOK`A`*_~T2~_ 在应用了 VLOOK™ 的「[模板主题](#模板主题)」后，使用 Markdown 的标准语法也能让文档支持封面、封底，通过遵从 VLOOK™ 约定的使用规范即可激活。
-
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
-
-
-
----
-
-> **激活「封面」**
->
-> 在文档的**最开始位置**输入一个 `6 级` 标题
->
-> > ######  快捷键操作
-> >
-> > 选中作为封面内容的文字，然后按下 <kbd>Cmd / Control</kbd> + <kbd>6</kbd>
->
-> 如： `###### 这是封面标题`
->
-> > [!TIP]
-> >
-> > 若有 YAML 、[TOC] 等内容，则在其后添加。
->
-> _~T1~_
-
-> **激活「封底」**
->
-> 在文档的**最后 1 行**输入一个 `1 级` 标题
->
-> > ###### 快捷键操作
-> >
-> > 选中作为封底内容的文字，然后按下 <kbd>Cmd / Control</kbd> + <kbd>1</kbd>
->
-> 如： `# 这是封底结语`
->
-> _~T2~_
-
-根据以上操作成功激活封面、封底后，还可以在 Typora 的大纲面板中出现对应封面、封底条目，可进行一键定位到文档对应位置。
-
-以下是「封面」中特定类型信息（如小标题、作者等）的自动排版规则：
-
----
-
----
-
-> ###### 标题
->
-> 默认格式就是标题格式，直接输入就可以了；
->
-> 可结合下标和下划线格式延伸出「小标题、副标题」：
->
->  - 小标题：`<sub>带 空格 的小标题</sub>` 或 `~不带空格的小标题~`
->  - 副标题： `<u>这是对应大标题的副标题</u>` 
-> ###### 文档类型、密级
->
-> 可使用 VLOOK™ 的[多级标签](guide2.md#多级标签)写法来实现，举例如下：
->
-> - `` *文档密级`对外公开`*_~Gn~_ ``
-> - `` *文档密级`内部公开`*_~Og~_ ``
-> - `` *文档密级`机密资料`*_~Rd~_ ``
-
-> ###### 作者
->
-> 使用 Markdown 的「粗体」格式标记出「作者信息」即可（会自动添加前缀 `By` 、加粗）
->
-> - 举例：`**我是作者**`
-
-> ###### 版权信息
->
-> 使用 Markdown 的「斜体」格式标记出「版权信息」即可（会自动缩小字号、加粗）
->
-> - 举例：`*(C)2020. 版权所有*`
-
-> [!TIP]
->
-> **在封面、封底中如何换行？** 
->
-> 直接输入 HTML 的换行标签 `<br>` 即可。
-
-###### 最小化的文档封面内容示例
-
-```markdown
-###### 在这填写文档标题<br>**在些填写作者**<br>*在这填版权归属方的信息*
-```
-
-###### 本文档的封面内容示例
-
-```markdown
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册<br>(Part.II)</u><br>*最新版本`V27.0`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2024. MAX°DESIGN.*
-```
-
-###### 本文档的封底内容示例
-
-```markdown
-# The End
-```
-
-
-
-> ###### 如何将封面中旧的上标格式语法替换为新的下划线格式语法？
->
-> 主要针对在封面中使用了上标语法 `<sup>...</sup>` 的情况。
->
-> 使用 Typora 的查找替换功能，或任意支持正则表达式进行查找替换的工具（如：VS Code / UltraEdit 等）进行操作。
->
-> 1. 在查找内容中输入 `(###### .+)<sup>(.+)<sup>(.+)<\/sup><\/sup>(.+)` ，并指定查找选项为 `正则表达式`
-> 2. 在替换内容中输入 `$1<u>$2$3</u>$4`
-> 3. 进行全部替换，或查找到要替换的进行部分替换即可。
-
----
-
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
-
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°外观与不杂项</kbd>](?target=vdl#快速入坑°外观与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°外观与不杂项</kbd>](?target=vdl#快速入坑°外观与不杂项) 
 
 ## Dark Mode
 
@@ -1116,7 +947,7 @@ vlook-gray-mode: 月-日:标题@语言代码
 | > `title`           |                      | 标题                                 |                                                              |
 | > `author`          |                      | 作者                                 |                                                              |
 | > `keywords`        |                      | 关键字                               |                                                              |
-| `vlook-chp-autonum` |          Y           | 章节自动编号的格式、前缀、后缀等内容 | 详见：[章节自动编号](#章节自动编号)<br>^所有分级的章节都不进行自动编号，可通过定制主题关闭该特性^ |
+| `vlook-chp-autonum` |          Y           | 标题自动编号的格式、前缀、后缀等内容 | 详见：[标题自动编号](guide.md#标题自动编号)<br>^所有分级的章节都不进行自动编号，可通过定制主题关闭该特性^ |
 | `vlook-chp-dup`     |                      | 指定允许重复的章节标题内容           | • 在对文档章节标题查重时指定的内容<br>• 支持正则表达式<br><sup>（以字面量方式进行定义，如 `/pattern/flags` ）</sup><br><sup>多个内容间以英文分号 `;` 进行分隔</sup> |
 | `vlook-doc-lib`     |                      | 启用并指定当前文档的文库 URL         | 支持指定多个，详见：[文库导航](#文库导航)                    |
 | `vlook-gray-mode`   |                      | 设置启用 Gray Mode 的日期            | 详见：[Gray Mode](#Gray Mode)                                |
@@ -1128,7 +959,7 @@ vlook-gray-mode: 月-日:标题@语言代码
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°外观与不杂项</kbd>](?target=vdl#快速入坑°外观与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°外观与不杂项</kbd>](?target=vdl#快速入坑°外观与不杂项) 
 
 ## 插件调校参数
 
@@ -1136,38 +967,11 @@ vlook-gray-mode: 月-日:标题@语言代码
 
 - **方式一：**通过文档的 URL 参数（即 Query）指定
 - **方式二：**通过 Markdown 文档的 YAML Front Matter 来指定
-
-*==VLOOK™ 插件调校参数说明==*
-
-| **调校参数** | 说明                                                         | 默认值  | 取值及说明                                                   |
-| :----------: | ------------------------------------------------------------ | :-----: | ------------------------------------------------------------ |
-|    badge     | 调整[多级标签](guide2.md#多级标签)未指定色号时默认使用的色号          |  `T1`   | `色号` - 对应的预置色号，[详见这里](guide2.md#多级标签)               |
-|   capauto    | 指定在内容索引无题注内容时，是否以索引对象的内容自动生成     |  `on`   | `off` - 不开启<br>`on` - 开启                                |
-|   capgroup   | 题注的自动编号是否按所属章节（一级标题）进行分组编号         |  `on`   | `off` - 不开启<br>`on` - 开启                                |
-|   caphide    | 隐藏指定的内容类型的题注<br>^若有多个类型时，可用英文逗号「,」进行分隔^ |  `off`  | `off` - 都不隐藏<br><br>指定类型隐藏：<br>`figure` - 隐藏插图题注<br>`table` - 隐藏插图题注<br>`codeblock` - 隐藏代码块题注<br>`formula` - 隐藏公式题注<br>`audio` - 隐藏音频题注<br>`video` - 隐藏视频题注 |
-|   coating    | 调整[刮刮卡](guide2.md#刮刮卡)未指定色号时默认使用的色号              |  `Gy`   | `色号` - 对应的预置色号，[详见这里](刮刮卡)                  |
-|      cs      | 指定使用固定的颜色方案                                       | `auto`  | `light` - 强制显示为 Light Mode<br>`dark` - 强制显示为 Dark Mode<br>`auto` - 自动跟随系统配置 |
-|    effect    | 调整文档的动效级别                                           |   `2`   | `0` - 关闭动效<br>`1` - 标准动效<br>`2` - 增强动效（毛玻璃等） |
-|     font     | 强制指定使用的字体风格<br>指定该参数后则忽略 VLOOK 主题配套的字体风格 | `theme` | `theme` 指定使用主题配套<br>`local` - 指定使用「系统默认」<br>`sans` - 指定使用「小清新」<br>`serif` - 指定使用「文艺范」 |
-|     fold     | 控制使用长内容自动折叠的内容范围<br>^若有多个范围时，可用英文逗号「,」进行分隔^ |  `on`   | `off` - 全不开启<br>`on` - 全开启<br><br>指定范围开启：<br>`table` - 指定「表格」<br>`figure` - 指定「插图」<br>`codeblock` - 指定「代码块」<br>`list` - 指定「列表」(未实现) |
-|     gray     | 临时关闭 [Gray Mode](#Gray Mode)                             |  `on`   | `off` - 关闭                                                 |
-|     nav      | 指定导航中心初始的运行模式                                   | `auto`  | `auto` - 在封面时自动关闭、在正文时自动展开<br>`hide` - 始终关闭，手动打开 |
-|    quote     | 调整普通的「引用块」默认自动转换为指定色号的[引用块着色](guide.md#引用块着色) |  `off`  | `off` - 关闭，不自动转换<br>`色号` - 对应的预置色号，[详见这里](guide.md#引用块着色) |
-|    radius    | 强制使用指定的圆角样式，忽略 VLOOK 主题自带的样式            |         | `none` - 不使用圆角<br>`small` - 使用小号圆角<br>`big` - 使用大号圆角 |
-|    reset     | 强制重置浏览器存储的 VLOOK 相关数据                          |         | `true`                                                       |
-|    srcset    | 对于没有高清分辨率的图片，在高清屏上强制以高清形式显示       |  `off`  | `auto` - 对未指定 srcset 的图片强制以高清形式显示<br>`off` - 关闭 |
-|     tag      | 调整[标签](guide2.md#标签)未指定色号时默认使用的色号                  |  `T2`   | 对应的预置色号，[详见这里](guide2.md#标签)                            |
-|    target    | 配合[文库导航](#文库导航)使用：<br>应用-1：在[插件预置选项](#插件预置选项) `vlook-doc-lib` 内指定链接在新标签中打开<br>应用-2：文档内指定链接在「文库」中打开 |         | 针对「应用-1」：`_blank`<br>针对「应用-2」： `vdl`           |
-|     toc      | 指定目录大纲初始自动折叠的层级                               |   `1`   | `0` - 不折叠，全部展开<br>`1~5` - 折叠指定的层级             |
-|      tr      | 指定表格阅读模式（十字光标）默认开关                         |  `off`  | `off` - 不开启<br>`on` - 开启                                |
-|    unpub     | 对[标记为不发布内容](#标记不发布的内容)进行处理的开关        |  `on`   | `off` - 不开启<br/>`on` - 开启                               |
-|     vdl      | 控制文库功能的开关                                           |  `on`   | `off` - 不开启<br>`on` - 开启                                |
-|      ws      | 指定文档的「欢迎页」显示模式                                 | `auto`  | `auto` - 页面加载完成后延时关闭，时长由主题指定<br>`wait` - 文档和插件加载完成后，手动关闭欢迎页<br>`off` - 不显示欢迎页<br>`1~60` - 指定延时的秒数（优先级最高） |
-|     xmd      | 指定将扩展名为「*.md」的链接转换为指定的新扩展名<br>^（默认对全局生效，也支持在文本链接中单独指定）^ | `html`  | `off` - 关闭，不转换<br>`{扩展名}` - 指定的扩展名，如 `php` `htm` 等 |
+- **方式三：**通过「[定制主题](vip.md)」进行预置
 
 ---
 
-> **方式一**
+> ###### 方式一（URL 参数）
 >
 > 通过 **URL 参数**指定（多个参数间用「&」进行分隔）
 >
@@ -1180,7 +984,7 @@ vlook-gray-mode: 月-日:标题@语言代码
 > ```
 >
 
-> **方式二**
+> ###### 方式二（YAML）
 >
 > 通过 **YAML Front Matter 指定**（多个参数间用「&」进行分隔）
 >
@@ -1193,11 +997,47 @@ vlook-gray-mode: 月-日:标题@语言代码
 > ```
 >
 
+> **方式三（定制主题）**
+>
+> <center>支持通过「定制主题」进行预置所需要的默认设置</center>
+>
+> **[<kbd>![](pic/icon-vip.svg?fill=text#icon) 了解 VLOOK™ 定制主题服务</kbd>](vip.md)**
+
+
+
+*==VLOOK™ 插件调校参数说明==*
+
+| **调校参数** | 说明                                                         | 默认值  | 取值及说明                                                   |
+| :----------: | ------------------------------------------------------------ | :-----: | ------------------------------------------------------------ |
+|    badge     | 调整[多级标签](guide2.md#多级标签)未指定色号时默认使用的色号 |  `T1`   | `色号` - 对应的预置色号，[详见这里](guide2.md#多级标签)      |
+|   capauto    | 是否启用为索引对象（插图/表格/代码块/公式/多媒体等）自动生成题注及编号 |  `on`   | `off` - 不开启<br>`on` - 开启                                |
+|   capgroup   | 题注的自动编号是否按所属章节进行分组编号                     |  `on`   | `off` - 不开启<br>`on` - 开启                                |
+|   caphide    | 隐藏指定的内容类型的题注<br>^若有多个类型时，可用英文逗号「,」进行分隔^ |  `off`  | `off` - 都不隐藏<br><br>指定类型隐藏：<br>`figure` - 隐藏插图题注<br>`table` - 隐藏插图题注<br>`codeblock` - 隐藏代码块题注<br>`formula` - 隐藏公式题注<br>`audio` - 隐藏音频题注<br>`video` - 隐藏视频题注 |
+|   coating    | 调整[刮刮卡](guide2.md#刮刮卡)未指定色号时默认使用的色号     |  `Gy`   | `色号` - 对应的预置色号，[详见这里](刮刮卡)                  |
+|      cs      | 指定使用固定的颜色方案                                       | `auto`  | `light` - 强制显示为 Light Mode<br>`dark` - 强制显示为 Dark Mode<br>`auto` - 自动跟随系统配置 |
+|    effect    | 调整文档的动效级别                                           |   `2`   | `0` - 关闭动效<br>`1` - 标准动效<br>`2` - 增强动效（毛玻璃等） |
+|     font     | 强制指定使用的字体风格<br>指定该参数后则忽略 VLOOK 主题配套的字体风格 | `theme` | `theme` 指定使用主题配套<br>`local` - 指定使用「系统默认」<br>`sans` - 指定使用「小清新」<br>`serif` - 指定使用「文艺范」 |
+|     fold     | 控制使用长内容自动折叠的内容范围<br>^若有多个范围时，可用英文逗号「,」进行分隔^ |  `on`   | `off` - 全不开启<br>`on` - 全开启<br><br>指定范围开启：<br>`table` - 指定「表格」<br>`figure` - 指定「插图」<br>`codeblock` - 指定「代码块」<br>`list` - 指定「列表」(未实现) |
+|     gray     | 临时关闭 [Gray Mode](#Gray Mode)                             |  `on`   | `off` - 关闭                                                 |
+|     nav      | 指定导航中心初始的运行模式                                   | `auto`  | `auto` - 在封面时自动关闭、在正文时自动展开<br>`hide` - 始终关闭，手动打开 |
+|    quote     | 调整普通的「引用块」默认自动转换为指定色号的[引用块着色](guide.md#引用块着色) |  `off`  | `off` - 关闭，不自动转换<br>`色号` - 对应的预置色号，[详见这里](guide.md#引用块着色) |
+|    radius    | 强制使用指定的圆角样式，忽略 VLOOK 主题自带的样式            |         | `none` - 不使用圆角<br>`small` - 使用小号圆角<br>`big` - 使用大号圆角 |
+|    reset     | 强制重置浏览器存储的 VLOOK 相关数据                          |         | `true`                                                       |
+|    srcset    | 对于没有高清分辨率的图片，在高清屏上强制以高清形式显示       |  `off`  | `auto` - 对未指定 srcset 的图片强制以高清形式显示<br>`off` - 关闭 |
+|     tag      | 调整[标签](guide2.md#标签)未指定色号时默认使用的色号         |  `T2`   | 对应的预置色号，[详见这里](guide2.md#标签)                   |
+|    target    | 配合[文库导航](#文库导航)使用：<br>应用-1：在[插件预置选项](#插件预置选项) `vlook-doc-lib` 内指定链接在新标签中打开<br>应用-2：文档内指定链接在「文库」中打开 |         | 针对「应用-1」：`_blank`<br>针对「应用-2」： `vdl`           |
+|     toc      | 指定目录大纲初始自动折叠的层级                               |   `1`   | `0` - 不折叠，全部展开<br>`1~5` - 折叠指定的层级             |
+|      tr      | 指定表格阅读模式（十字光标）默认开关                         |  `off`  | `off` - 不开启<br>`on` - 开启                                |
+|    unpub     | 对[标记为不发布内容](#标记不发布的内容)进行处理的开关        |  `on`   | `off` - 不开启<br/>`on` - 开启                               |
+|     vdl      | 控制文库功能的开关                                           |  `on`   | `off` - 不开启<br>`on` - 开启                                |
+|      ws      | 指定文档的「欢迎页」显示模式                                 | `auto`  | `auto` - 页面加载完成后自动关闭欢迎页<br>`wait` - 文档和插件加载完成后，手动关闭欢迎页<br>`off` - 不显示欢迎页<br>`1~60` - 指定延时等待的秒数 |
+|     xmd      | 指定将扩展名为「*.md」的链接转换为指定的新扩展名<br>^（默认对全局生效，也支持在文本链接中单独指定）^ | `html`  | `off` - 关闭，不转换<br>`{扩展名}` - 指定的扩展名，如 `php` `htm` 等 |
+
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°外观与不杂项</kbd>](?target=vdl#快速入坑°外观与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°外观与不杂项</kbd>](?target=vdl#快速入坑°外观与不杂项) 
 
 ## 快捷键操作汇总
 
@@ -1239,7 +1079,7 @@ vlook-gray-mode: 月-日:标题@语言代码
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°外观与不杂项</kbd>](?target=vdl#快速入坑°外观与不杂项)
+[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°外观与不杂项</kbd>](?target=vdl#快速入坑°外观与不杂项) 
 
 # 延伸内容
 
