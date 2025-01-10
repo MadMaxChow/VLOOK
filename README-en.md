@@ -2,11 +2,11 @@ Select language ❯ English • [**中文**](README.md)  • [**Русский**
 
 ---
 
-# VLOOK™ ── Make Your Markdown A New Perspective
+# VLOOK™ ── Give Your Markdown a New Perspective
 
 
 
-# VLOOK™ is an elegant and practical theme package × enhancement plugin for Typora/Markdown
+# VLOOK™ is an elegant and practical THEME PACKAGE × ENHANCEMENT PLUGIN for Typora/Markdown
 
 
 

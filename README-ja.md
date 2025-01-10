@@ -2,7 +2,7 @@ Select language ❯ [**English**](README-en.md) • [**中文**](README.md)  •
 
 ---
 
-# VLOOK™ ── Markdown に新しい視点を与える
+# VLOOK™ ── Markdown に新しい見方を与えましょう
 
 
 

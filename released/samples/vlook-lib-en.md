@@ -99,7 +99,7 @@ title: More Topics about VLOOK™
 >
 > - Organize content in **columns/kanban** style [❯❯](guide2.md#°分栏)
 > - Add subtitles to quote blocks [❯❯](guide.md#引用块小标题)
-> - Collapse content hierarchically and categorically [❯❯](guide.md#详情折叠)
+> - Collapse content hierarchically and categorically [❯❯](guide.md#引用块折叠)
 > - Optimize styles for GitHub Style Alert [❯❯](guide2.md#Github Style Alert)
 >
 > _~Vn~_
