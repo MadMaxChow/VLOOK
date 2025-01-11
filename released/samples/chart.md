@@ -13,7 +13,7 @@ keywords:
 - Picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
 - Online video,streaming media,Bilibili video,Watermelon video,Douyin video,Tencent video
 - Content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture
-- Columns,two columns,three columns,four columns,five columns,quote block,title,subtitle,official account article,official account editor
+- Columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - Link map,link specification,link check,link recognition,link conversion
 - Design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - Product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
@@ -24,16 +24,16 @@ keywords:
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画
-- 分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,公众号文章,公众号编辑器
+- 分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
 - 设计,需求,文档,博客,手册,指南,知识库,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
-vlook-chp-autonum: h1{{#ALPHA#. }},h2{{#00#-sup# - }},h3{{#ROMAN-min# - }}
-vlook-chp-dup: 查看完整画图脚本示例
+vlook-header-autonum: h1{{#ALPHA#. }},h2{{#00#-sup# - }},h3{{#ROMAN-min# - }}
+vlook-header-dup: 查看完整画图脚本示例
 vlook-doc-lib: [浏览 VLOOK™ 文库](vlook-lib.html "手册教程指南示例")
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>脚本化图表参考指南</u><br>*最新版本`V28.0`2024-12-21*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>脚本化图表参考指南</u><br>*最新版本`V28.0`2025-01-11*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 
 [TOC]
 
@@ -42,10 +42,6 @@ vlook-doc-lib: [浏览 VLOOK™ 文库](vlook-lib.html "手册教程指南示例
 ## 关于 Mermaid
 
 Mermaid 是一个用于画流程图、状态机图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。
-
-**目前 Typora + VLOOK™ 的最新版本，可支持下脚本化图表的制作和生成：**
-
-[![流程图](pic/dg-flowcharts.png?srcset=@2x&darksrc=invert#logo#border)](#流程图)&nbsp;&nbsp;[![顺序图](pic/dg-seq.png?srcset=@2x&darksrc=invert#logo#border)](#顺序图)&nbsp;&nbsp;[![状态机图](pic/dg-state.png?srcset=@2x&darksrc=invert#logo#border)](#状态机图)&nbsp;&nbsp;[![类图](pic/dg-class.png?srcset=@2x&darksrc=invert#logo#border)](#类图)&nbsp;&nbsp;[![实体关系图](pic/dg-er.png?srcset=@2x&darksrc=invert#logo#border)](#实体关系图)&nbsp;&nbsp;[![用户旅程地图](pic/dg-uj.png?srcset=@2x&darksrc=invert#logo#border)](#用户旅程地图)&nbsp;&nbsp;[![甘特图](pic/dg-gantt.png?srcset=@2x&darksrc=invert#logo#border)](#甘特图)&nbsp;&nbsp;[![饼图](pic/dg-pie.png?srcset=@2x&darksrc=invert#logo#border)](#饼图)&nbsp;&nbsp;[![Gitgraph 图](pic/dg-gitgraph.png?srcset=@2x&darksrc=invert#logo#border)](#Gitgraph-图)&nbsp;&nbsp;[![思维导图](pic/dg-mindmap.png?srcset=@2x&darksrc=invert#logo#border)](#思维导图)&nbsp;&nbsp;[![需求图](pic/dg-req.png?srcset=@2x&darksrc=invert#logo#border)](#需求图)&nbsp;&nbsp;[![时间线](pic/dg-timeline.png?srcset=@2x&darksrc=invert#logo#border)](#时间线)&nbsp;&nbsp;[![C4 图](pic/dg-c4.png?srcset=@2x&darksrc=invert#logo#border)](#C4-图)&nbsp;&nbsp;[![ZenUML 图](pic/dg-zenuml.png?srcset=@2x&darksrc=invert#logo#border)](#ZenUML-图)
 
 
 

@@ -3,7 +3,7 @@
  * VLOOK™ CSS 基础库
  *
  * V28.0
- * 2024-12-21
+ * 2025-01-11
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -75,8 +75,8 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 // -----
 // 通用变量 #Common_CSS_Var
 :root {
-    // 主题配套预置选项 vlook-chp-autonum
-    --vlook-chp-autonum: @vChpAutoNum;
+    // 主题配套预置选项 vlook-header-autonum
+    --vlook-header-autonum: @vHeaderAutoNum;
     // 主题配套预置选项 vlook-query
     --vlook-query: @vlookQuery;
     // 主题配套预置选项 vlook-gray-mode
@@ -509,28 +509,40 @@ body.gray .v-status-bar>.v-sts-gray {
     transform: none;
 }
 
-// 图片地址参数指定图片的显示版式为：frame
+// 图片地址参数指定图片的显示版式为：logo + border
 @{writeOnEditing} .md-image[data-src*="#logo"][data-src*="#border"]>img, // 编辑时
 @{writeOnHTML} img[src*="#logo"][src*="#border"],
 @{writeOnHTML} svg[data-inject-url*="#logo"][data-inject-url*="#border"] {
     background: none !important;
-    margin-bottom: @figurePadding !important;
+    // margin-bottom: @figurePadding !important;
     border: @imgBorderWidth solid var(--d-fc-a) !important;
     border-radius: var(--v-r-b) var(--v-r-b-xc) !important;
 }
 
 // 生成通过图片地址参数指定图片的按宽度缩放样式
-.genImgZoomW(@zoom) {
+.genImgZoomW(@zoom, @unit) when (@unit = px) { // 像素单位
     @{writeOnEditing} .md-image[data-src*="#@{zoom}w"]>img, // 编辑时
     @{writeOnHTML} img[src*="#@{zoom}w"],
     @{writeOnHTML} svg[data-inject-url*="#@{zoom}w"] {
         width: ~"@{zoom}px";
     }
 }
-.genImgZoomW(200);
-.genImgZoomW(400);
-.genImgZoomW(600);
-.genImgZoomW(800);
+.genImgZoomW(@zoom, @unit) when (@unit = pc) { // 百分比单位
+    @{writeOnEditing} .md-image[data-src*="#@{zoom}%"]>img, // 编辑时
+    @{writeOnHTML} img[src*="#@{zoom}"],
+    @{writeOnHTML} svg[data-inject-url*="#@{zoom}%"] {
+        width: ~"@{zoom}%";
+    }
+}
+.genImgZoomW(200, px);
+.genImgZoomW(400, px);
+.genImgZoomW(600, px);
+.genImgZoomW(800, px);
+// ---
+.genImgZoomW(20, pc);
+.genImgZoomW(40, pc);
+.genImgZoomW(60, pc);
+.genImgZoomW(80, pc);
 
 // 生成通过图片地址参数指定图片的按高度缩放样式
 .genImgZoomH(@zoom) {
@@ -704,9 +716,9 @@ body.gray .v-status-bar>.v-sts-gray {
 }
 // 超级按钮
 #write @{kbdSuper} {
-    color: var(--d-bc);
-    background: var(--d-fc);
-    border-color: var(--d-fc);
+    color: var(--d-bc) !important;
+    background: var(--d-fc) !important;
+    border-color: var(--d-fc) !important;
     outline: 4px solid var(--ac-rd);
     animation: kbd-super 5s ease infinite alternate;
     transition: all var(--v-trans-dur) ease-out;
@@ -715,9 +727,9 @@ body.gray .v-status-bar>.v-sts-gray {
     fill: var(--d-bc) !important;
 }
 #write @{kbdSuper}:hover {
-    color: var(--d-fc);
-    background: var(--d-bc);
-    border-color: var(--d-bc);
+    color: var(--d-fc) !important;
+    background: var(--d-bc) !important;
+    border-color: var(--d-bc) !important;
     outline-width: 6px;
 }
 #write @{kbdSuper}:hover>@{svgGs} {
@@ -1381,6 +1393,7 @@ h6:first-child) {
 // 有序、无序列表符号样式
 #write ::marker {
     color: @liBeforeColor;
+    font-family: var(--v-f-fm-tag);
 }
 @{writeOnEditing} li.md-focus-container::marker {
     color: var(--a-hover-color);
@@ -2128,7 +2141,7 @@ summary::-moz-list-bullet {
 
 // 引用块内的引用块（非分栏）
 #write li>@{quote_details},
-// 详情内的详情折叠（非分栏）
+// 详情内的引用块折叠（非分栏）
 #write>@{quote_details}>@{quote_details} {
     border-left: @defQuoteBorderWidth solid fade(@accColorGray, 20%);
     box-shadow: none;
@@ -3194,10 +3207,14 @@ mjx-container[jax="SVG"] > svg a:hover {
     background: var(--pn-c);
     z-index: 4000;
 }
+@fontStyleOptWidth: 140px;
+@fontStyleOptHeight: 208px;
 .v-font-style>.v-font-style-opt {
     vertical-align: top;
     display: inline-block;
     margin: 0 0 30px 10px;
+    width: @fontStyleOptWidth;
+    height: @fontStyleOptHeight;
 }
 .v-font-style>.v-font-style-opt:first-of-type {
     margin-left: 0;
@@ -3276,7 +3293,9 @@ mjx-container[jax="SVG"] > svg a:hover {
     filter: opacity(.6);
     background-color: var(--d-fc);
     color: var(--d-bc);
-    min-height: 200px;
+    min-width: @fontStyleOptWidth;
+    min-height: @fontStyleOptHeight;
+    // min-height: 200px;
 }
 
 // 字体风格选项鼠标事件效果
@@ -4058,7 +4077,8 @@ div[class*="v-fontinfo-"].done > span,
 :is(.v-toc-item, .v-cap-1)>span {  // 题注前缀
     color: var(--h-f);
 }
-.v-toc-item>label,
+
+.v-toc-item>div>label,
 .v-map-item>span,
 .v-toc-item>span {
     display: block;
@@ -4088,11 +4108,18 @@ div[class*="v-fontinfo-"].done > span,
 }
 
 // 链接地图中的链接
-.v-map-item>a:first-of-type {
+.v-map-item>div {
+    display: inline-flex;
+    align-items: center;
+}
+
+// .v-map-item>a:first-of-type {
+.v-map-item>div>a {
     word-break: break-all;
     color: var(--d-fc);
 }
-.v-map-item>a:not(:first-of-type) {
+// .v-map-item>a:not(:first-of-type) {
+.v-map-item>a {
     font-size: .875em;
 }
 
@@ -4102,7 +4129,7 @@ div[class*="v-fontinfo-"].done > span,
     display: inline-block;
 }
 
-.v-map-item>label {
+.v-map-item>div>label {
     font-size: .75em;
     line-height: 1.5;
     padding: 0 0 0 6px;
@@ -4127,7 +4154,8 @@ div[class*="v-fontinfo-"].done > span,
 .v-map-item > span {
     color: var(--d-fc-a);
 }
-.v-map-item>a:not([id])::before {
+// .v-map-item>a:not([id])::before {
+.v-map-item>div>a::before {
     content: counter(mapItemCounter) " • ";
 }
 

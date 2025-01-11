@@ -93,7 +93,7 @@
 
 // 自定义标题自动编号
 @h1NumSeparator: "";
-@vChpAutoNum: "h1{{第###章}}";
+@vHeaderAutoNum: "h1{{第###章}}";
 @h1BeforeContent: "第" counter(h1) "章";
 
 // h1-6::before 的扩展样式
@@ -223,6 +223,12 @@
 //     color: @coverTextColor;
 //     font-size: 3.5em;
 // }
+
+// 生成文本居中样式
+.genCenterText();
+
+// 生成文本引用样式
+.genQuoteText();
 
 // 生成强调风格的有序列表样式
 .genOrderList(block, circle);

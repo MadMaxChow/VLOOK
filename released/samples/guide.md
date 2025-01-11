@@ -13,7 +13,7 @@ keywords:
 - Picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
 - Online video,streaming media,Bilibili video,Watermelon video,Douyin video,Tencent video
 - Content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture
-- Columns,two columns,three columns,four columns,five columns,quote block,title,subtitle,official account article,official account editor
+- Columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - Link map,link specification,link check,link recognition,link conversion
 - Design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - Product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
@@ -24,37 +24,39 @@ keywords:
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画
-- 分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,公众号文章,公众号编辑器
+- 分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
 - 设计,需求,文档,博客,手册,指南,知识库,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
-#vlook-chp-autonum: h1{{第###章 }}
+#vlook-header-autonum: h1{{第###章 }}
 #vlook-query: capauto=off
-vlook-chp-dup: /.*语法$/;/^适用范围 ••• .+/;快捷键操作;进阶玩法;更多信息;引用块着色 6 级标题;COMMING SOON...;举例;这是引用块小标题;💡 想知道以上表格的原始内容吗？
+vlook-header-dup: /.*语法$/;/^适用范围 ••• .+/;快捷键操作;进阶玩法;更多信息;引用块着色 6 级标题;COMMING SOON...;举例;这是引用块小标题;💡 想知道以上表格的原始内容吗？
 vlook-doc-lib:
-- [°文本](guide.html?target=guide#°文本 "文本颜色、渐变色")
-- [°表格](guide.html?target=guide#°表格 "单元格合并、着色、列格式、题注与编号、行分组折叠、换行版式")
-- [°图片](guide.html?target=guide#°图片 "题注与编号、显示版式、缩放、旋转、翻转、滤镜、明信片、适配高清屏/Dark Mode、剪影")
-- [°列表](guide.html?target=guide#°列表 "样式增强、任务清单、完成进度")
-- [°引用块](guide.html?target=guide#°引用块 "小标题、着色、详情折叠")
-- [°章节标题](guide.html?target=guide#°章节标题 "标题样式、标题自动编号")
-- [°分栏](guide2.html?target=guide2#°分栏 "列表分栏、引用块分栏、GitHub Style Alert 分栏")
-- [°按钮](guide2.html?target=guide2#°按钮 "键盘按键、按钮链接")
-- [°代码](guide2.html?target=guide2#°代码 "题注与编号、复制、换行版式")
-- [°内容标记](guide2.html?target=guide2#°内容标记 "GitHub Style Alert、标签、进度条、面包屑、刮刮卡、注音")
-- [°Mermaid](guide2.html?target=guide2#°Mermaid "脚本化图表、流程图、顺序图、状态机图、类图、……")
-- [°数学公式](guide2.html?target=guide2#°数学公式 "题注与编号、样式优化")
-- [°多媒体](guide2.html?target=guide2#°多媒体 "流媒体平台、常规视频、音频")
-- [°内容导航](guide3.html?target=guide3#°内容导航 "继续上次的阅读、导航中心、逐章导航、段落漫游、插图导航、文库导航、脚注导航、浏览历史")
-- [°内容助手](guide3.html?target=guide3#°内容助手 "复制、插图全屏显示、表格阅读模式、换行版式、画中画")
-- [°演示辅助](guide3.html?target=guide3#°演示辅助 "聚光灯、激光笔、图表交互高亮、正文宽度适配")
-- [°出版辅助](guide3.html?target=guide3#°出版辅助 "标记不发布、社交分享、链接地图、长内容折叠、自定义欢迎页、链接检查、链接识别、链接转换")
-- [°外观](guide3.html?target=guide3#°外观 "模板主题、字体风格、封面、封底、Dark Mode、Gray Mode")
-- [°不杂项](guide3.html?target=guide3#°不杂项 "预置选项、调校参数、快捷键")
+- [°文本](guide.html?target=_self#°文本 "文本颜色、渐变色")
+- [°表格](guide.html?target=_self#°表格 "单元格合并、着色、列格式、题注与编号、行分组折叠、换行版式")
+- [°图片](guide.html?target=_self#°图片 "题注与编号、显示版式、缩放、旋转、翻转、滤镜、明信片、适配高清屏/Dark Mode、剪影")
+- [°列表](guide.html?target=_self#°列表 "样式增强、任务清单、完成进度")
+- [°引用块](guide.html?target=_self#°引用块 "小标题、着色、折叠")
+- [°章节标题](guide.html?target=_self#°章节标题 "标题样式、标题自动编号")
+- [°分栏](guide2.html?target=_self#°分栏 "列表分栏、引用块分栏、GitHub Style Alert 分栏")
+- [°按钮](guide2.html?target=_self#°按钮 "键盘按键、按钮链接")
+- [°代码](guide2.html?target=_self#°代码 "题注与编号、复制、换行版式")
+- [°内容标记](guide2.html?target=_self#°内容标记 "GitHub Style Alert、标签、进度条、面包屑、刮刮卡、注音")
+- [°Mermaid](guide2.html?target=_self#°Mermaid "脚本化图表、流程图、顺序图、状态机图、类图、……")
+- [°数学公式](guide2.html?target=_self#°数学公式 "题注与编号、样式优化")
+- [°多媒体](guide2.html?target=_self#°多媒体 "流媒体平台、常规视频、音频")
+- [°内容导航](guide3.html?target=_self#°内容导航 "继续上次的阅读、导航中心、逐章导航、段落漫游、插图导航、文库导航、脚注导航、浏览历史")
+- [°内容助手](guide3.html?target=_self#°内容助手 "复制、插图全屏显示、表格阅读模式、换行版式、画中画")
+- [°演示辅助](guide3.html?target=_self#°演示辅助 "聚光灯、激光笔、图表交互高亮、正文宽度适配")
+- [°出版辅助](guide3.html?target=_self#°出版辅助 "标记不发布、社交分享、链接地图、长内容折叠、自定义欢迎页、链接检查、链接识别、链接转换")
+- [°外观](guide3.html?target=_self#°外观 "模板主题、字体风格、封面、封底、Dark Mode、Gray Mode")
+- [°不杂项](guide3.html?target=_self#°不杂项 "预置选项、调校参数、快捷键")
 - [更多内容](vlook-lib.html "VLOOK™ 全部特性索引表")
+- [如何开始？](index.html?target=index "简介、安装与配置、语言包")
+- [反馈问题](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册 (Part.I)</u><br>*最新版本`V28.0`2024-12-21*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册 (Part.I)</u><br>*最新版本`V28.0`2025-01-11*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 
 [TOC]
 
@@ -137,30 +139,21 @@ vlook-doc-lib:
 
 > **对视频的快速排版应用**
 >
-> 流媒体平台的内嵌视频，指定为「[竖屏显示](guide2.md#流媒体平台)」等～
+> 流媒体平台的内嵌视频，指定为「[竖屏显示](guide2.md#流媒体平台)」等
 
-## 高亮
+## 常规格式
 
-**VLOOK™ 对高亮格式的样式、排版进行了多种优化和延伸**，主要包括以下：
+**VLOOK™ 对「高亮、加粗、斜体、上标、下标」等常规格式进行扩展和组合后，提供多种个性实用的排版能力**，主要包括以下：
 
-- 高亮的**颜色**，可以与 [主题色](vip.md)、[文本颜色](#文本颜色)、[文本渐变色](#文本渐变色)、[引用块着色](#引用块着色)、[GitHub Style Alert](guide2.md#github Style Alert) 进行适配
+- 高亮的**颜色**，会根据 [主题色](vip.md)、[文本颜色](#文本颜色)、[文本渐变色](#文本渐变色)、[引用块着色](#引用块着色)、[GitHub Style Alert](guide2.md#github Style Alert) 进行适配
+  
 - 特定位置实现：
-  - 「[引用块小标题](#引用块小标题)」
-- 格式组合实现：
-  - 「[表格题注](#表格题注与自动编号)」「[插图题注](#插图题注与自动编号)」「[代码块题注](guide2.md#代码块题注与自动编号)」「[多媒体内容题注](guide2.md#流媒体平台)」
-  - 「[进度条](guide2.md#进度条)」
-  - 「[面包屑](guide2.md#面包屑)」
-
-## 加粗、斜体
-
-**VLOOK™ 对「粗体、斜体」格进行了多种延伸，与「高亮、代码、上标」等格式进行组合提供多种个性实用的排版能力**，主要包括以下：
-
-- 特定位置实现：
-  - 「[引用块小标题](#引用块小标题)」
   - 「[封面与封底](guide2.md#°封面与封底)」
-
+  
 - 格式组合实现：
+  - 「[引用块小标题](#引用块小标题)」
   - 「[表格题注](#表格题注与自动编号)」「[插图题注](#插图题注与自动编号)」「[代码块题注](guide2.md#代码块题注与自动编号)」「[多媒体内容题注](guide2.md#流媒体平台)」
+  - 「[按钮链接](guide2.md#按钮链接)」
   - 「[标签](guide2.md#标签)」
   - 「[进度条](guide2.md#进度条)」
   - 「[面包屑](guide2.md#面包屑)」
@@ -173,13 +166,25 @@ vlook-doc-lib:
 **VLOOK™ 对 Markdown 的一级、六级标题进行了延伸，用于提供了一些实用且独特的排版能力**，主要包括如下：
 
 - 特定位置实现：
-  - 「[详情折叠](#详情折叠)」
+  - 「[引用块折叠](#引用块折叠)」
   - 「[封面与封底](guide2.md#°封面与封底)」
 
 - 格式组合实现：
   - 「[表格题注](#表格题注与自动编号)」「[插图题注](#插图题注与自动编号)」「[代码块题注](guide2.md#代码块题注与自动编号)」「[多媒体内容题注](guide2.md#流媒体平台)」
 
 # °文本
+
+## ~~文本居中对齐~~
+
+**将段落内容居中显示**
+
+**段落居中显示，段落居中显示，段落居中显示，段落居中显示，段落居中显示，段落居中显示，段落居中显示，段落居中显示，段落居中显示，段落居中显示，段落居中显示**
+
+## ~~文本引用样式~~
+
+<u>文本引用样式，文本引用样式，文本引用样式，文本引用样式</u>
+
+==文本引用样式，文本引用样式，文本引用样式，文本引用样式，文本引用样式，文本引用样式，文本引用样式，文本引用样式，文本引用样式，文本引用样式，文本引用样式==
 
 ## 文本颜色
 
@@ -292,8 +297,6 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
-
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版) 
 
 
 
@@ -812,8 +815,6 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版) 
-
 # °图片
 
 ## 插图题注与自动编号
@@ -944,22 +945,33 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 
 ###### 图片缩放值的说明
 
-|  **缩放类型**  | 说明                                                         | 完整语法参考            |
-| :------------: | ------------------------------------------------------------ | ----------------------- |
-| 按绝对==宽度== | 指定宽度（单位：px），高度会等比例变化<br>支持 `200w` `400w` `600w` `800w` 共 4 档宽度<br>（若指定宽度超出浏览器内显示宽度时，会自适应为100%） | `![图片](xxx.png#600w)` |
-| 按绝对==高度== | 指定高度（单位：px），宽度会等比例变化<br/>支持 `200h` `400h` `600h` `800h` 共 4 档宽度 | `![图片](xxx.png#600h)` |
+|       **缩放类型**        | 说明                                                         | 完整语法参考            |
+| :-----------------------: | ------------------------------------------------------------ | ----------------------- |
+| ==宽度==按指定**比例 %**  | 高度会等比例变化<br/>支持 `20%` `40%` `60%` `80%` 共 4 档宽度 | `![图片](xxx.png#80%)`  |
+| ==宽度==按指定**像素 px** | 高度会等比例变化<br>支持 `200w` `400w` `600w` `800w` 共 4 档宽度<br>~若指定宽度超出浏览器内显示宽度时，会自适应为\ 100%~ | `![图片](xxx.png#600w)` |
+| ==高度==按指定**像素 px** | 宽度会等比例变化<br/>支持 `200h` `400h` `600h` `800h` 共 4 档宽度 | `![图片](xxx.png#400h)` |
 
 ---
 
 > [!TIP]
 >
-> 支持指定按宽度、按高度进行缩放，也可以同时指定。
+> 如不考虑等比例要求，支持同时指定宽度、高度。
 
 > [!NOTE]
 >
 > 如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片地址扩展应用说明](guide3.md#图片地址扩展应用说明)」那深入再了解了解～
 
-###### 按绝对宽度缩放图片示例
+###### 宽度度按指定像素缩放图片示例
+
+![等比缩放至文档宽度的 25%](pic/vlook-zoom-pic.png#20%#padding)
+
+![等比缩放至文档宽度的 40%](pic/vlook-zoom-pic.png#40%#padding)
+
+![等比缩放至文档宽度的 60%](pic/vlook-zoom-pic.png#60%#padding)
+
+![等比缩放至文档宽度的 80%](pic/vlook-zoom-pic.png#80%#padding)
+
+###### 宽度按指定像素缩放图片示例
 
 ![等比缩放至宽度为 200px](pic/vlook-zoom-pic.png#200w#padding)
 
@@ -969,7 +981,7 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 
 ![等比缩放至宽度为 800px](pic/vlook-zoom-pic.png#800w#padding)
 
-###### 按绝对高度缩放图片示例
+###### 高度按指定像素缩放图片示例
 
 ![缩放至高度 200px](pic/vlook-zoom-pic-v.png#200h#padding)　　![缩放至高度 400px](pic/vlook-zoom-pic-v.png#400h#padding)　　![缩放至高度 600px](pic/vlook-zoom-pic-v.png#600h#padding)　　![缩放至高度 800px](pic/vlook-zoom-pic-v.png#800h#padding)
 
@@ -1287,13 +1299,6 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 
 ![普通分辨率图片](pic/iphone-home-light.png?darksrc=iphone-home-dark.png)![支持 2x 分辨率图片](pic/iphone-home-light.png?darksrc=iphone-home-dark.png&srcset=@2x&darksrcset=@2x)![支持 2x, 3x 分辨率的图片](pic/iphone-home-light.png?darksrc=iphone-home-dark.png&srcset=@2x,@3x&darksrcset=@2x,@3x)
 
-> [!TIP] 
->
-> **没有准备高清图片，也希望不模糊？**
->
-> - 如果临时没有图片的高清分辨率，VLOOK™ 也可以将其转换 2x 资源，这样在高清屏上也能提高图片显示清晰度（但图片大小会相应缩为原始大小的 50%）；
-> - 可通过「[插件调校参数](guide3.md#插件调校参数)」 `srcset` 来启用这一特性。
-
 ## 图片适配 Dark Mode
 
 *Markdown 粉`Q`*「**系统开启 Dark Mode 后，图片显示得有点不太和谐，怎么办？**」
@@ -1476,8 +1481,6 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版) 
-
 # °列表
 
 ## 列表自动编号与着色
@@ -1486,7 +1489,10 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 
 1. 针对有序列表、无序列表的分级符号进行统一处理，并应用主题的配色；
 2. 编辑时输入焦点，及导出 HTML 后鼠标悬停，均支持高亮当前行的列表符号；
-3. 对第一级有序列表，可通过 [定制模板主题](guide3.md#定制模板主题) 的方式选择不同的符号样式（暂时不适用于 [GitHub Style Alert](guide2.md#github Style Alert) 内的有序列表）。
+3. 对第一级有序列表，可通过 [定制模板主题](guide3.md#定制模板主题) 的方式选择不同的符号样式
+   1. 暂时不适用于 [GitHub Style Alert](guide2.md#github Style Alert) 内的有序列表；
+   2. 引用内的有序列表前需要有其他段落内容（如空行、小标题等）。
+
 
 > **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
 
@@ -1591,8 +1597,6 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
-
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版) 
 
 # °引用块
 
@@ -2394,7 +2398,7 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 >
 > _~T2!~_
 
-## 详情折叠
+## 引用块折叠
 
 *Markdown 粉`Q`*「**在编写 Markdown 文档时，对于部分内容较长的引用块内容，希望在默认时能以折叠的形式存在，需要阅读时再点击打开。**」
 
@@ -2549,8 +2553,6 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-[<kbd>![](pic/icon-back.svg?fill=text) 我要回到 快速入坑°文档排版</kbd>](?target=vdl#快速入坑°文档排版) 
-
 # °章节标题
 
 ## 标题样式
@@ -2561,7 +2563,9 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 >
 > 
 >
-> **[<kbd>去探索更多定制主题的介绍</kbd>](https://madmaxchow.github.io/VLOOK/vip.html)**
+> **[<kbd>去探索更多定制主题的介绍</kbd>](vip.md)**
+>
+> 
 >
 > _~T1~_
 
@@ -2580,13 +2584,13 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 - 所有 VLOOK™ 的主题都会自动对 `1 ~ 5级` 标题进行自动的分级编号；
 - 因为 `6 级` 标题在 VLOOK™ 中应用于 [封面与封底](guide2.md#°封面与封底)、段落小标题的排版等，所以不在自动编号范围内。
 
-可通过「[插件预置选项](#插件预置选项)」 `vlook-chp-autonum` 来指定，在导出 HTML 后生效，具体的格式化示例如下：
+可通过「[插件预置选项](guide3.md#插件预置选项)」 `vlook-header-autonum` 来指定，在导出 HTML 后生效，具体的格式化示例如下：
 
 *==自定义标题自动编号格式示例==*
 
 ```yaml
 ---
-vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀}},...,层级5{{前缀#格式#后缀}}
+vlook-header-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀}},...,层级5{{前缀#格式#后缀}}
 ---
 ```
 
@@ -2598,7 +2602,7 @@ vlook-chp-autonum: 层级1{{前缀#格式#后缀}},层级2{{前缀#格式#后缀
 
 > [!NOTE]
 >
-> 更多关于通过 YAML Front Matter 设置插件预置选项的说明，详见 [插件预置选项](#插件预置选项)
+> 更多关于通过 YAML Front Matter 设置插件预置选项的说明，详见 [插件预置选项](guide3.md#插件预置选项)
 
 *==自定义标题自动编号格式的选项说明==*
 

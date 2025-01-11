@@ -9,16 +9,16 @@ keywords:
 - Table enhancement, cell merging, row grouping, crosshairs, repeating header, scratch card, black screen, label, picture enhancement, presentation assistance, spotlight, laser pen, auto folding, printing, mermaid, audio, video, phonetic notation, theme, font, template, dark mode, dark mode, cover, back cover, private customization
 - PRD, design, requirements, documents, blogs, manuals, guides, online, operation and maintenance, knowledge base, wiki
 - Product manager, programmer, operation and maintenance engineer, pre-sales and after-sales
-Vlook-chp-autonum-test: h1{{#ALPHA#.}},h2{{STEP-##-min#:}}
-vlook-query: toc=2
+Vlook-header-autonum-test: h1{{#ALPHA#.}},h2{{STEP-##-min#:}}
 vlook-doc-lib:
+- [Quick Guide](guide.html?target=guide "文本、表格、图片、列表、引用块、章节标题、分栏、按钮、代码、内容标记、Mermaid、数学公式、多媒体、内容导航、内容助手、演示辅助、出版辅助、外观")
 - [VLOOK™ Documents](vlook-lib-en.html "Guide, Manual, Sample, Example")
 - [中文 🇨🇳 参考手册](index.html?target=vlook-index-cn "手册、教程、指南、示例、范例")
 - [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank "Project Home")
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 ---
 
-###### ~VLOOK™~<br>Let Your Markdown Have A New Perspective_^Interaction^_<br>──<br><u>Introduction</u><br>*`V28.0`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br>──<br><u>Introduction</u><br>*`V28.0`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 
 [TOC]
 
@@ -110,9 +110,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 # Quick Start
 
-VLOOK™ continues to **explore and expand** Markdown and CSS, and at the same time combines the Internet-based application scenarios of documents~
-
-In **the document layout** , **content navigation** , **presentation aid** , **interactive experience** provided and other aspects of the **consistent** , **concise** , **and friendly** experience.
+<u>VLOOK™ continues to **explore and expand** Markdown and CSS, and at the same time combines the Internet-based application scenarios of documents~<br>In **the document layout** , **content navigation** , **presentation aid** , **interactive experience** provided and other aspects of the **consistent** , **concise** , **and friendly** experience.</u>
 
 
 
@@ -188,13 +186,12 @@ In **the document layout** , **content navigation** , **presentation aid** , **i
 
 ![Blogs selected for the "Zhihu • Sea Salt Project"](pic/3rd-haiyan.png#logo#border)
 
-Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https://www.zhihu.com/people/maxchow/posts)
+<u>Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https://www.zhihu.com/people/maxchow/posts)</u>
 
 # How to Use
 
-> You can start a brand **new Markdown experience** in **just 3 steps** *==1.[Download and Configure](#Download and Configure) > 2.[Install the Theme Package](#Install the Theme Package) > 3.[Configure Export Options](#Configure Export Options)==* 
->
-> Make your Markdown a new perspective_^Interaction^_!
+==You can start a brand **new Markdown experience** in **just 3 steps**, give your Markdown a new perspective!==
+
 ## Download and Configure
 
 ---
@@ -313,11 +310,9 @@ VLOOK™ UI language is pre-installed with **English** and **Simplified Chinese*
 
 To support more language for the exported HTML, you can choose to append the content of the corresponding language package to the "Meta Tag" section in the export configuration. After doing so, re-export the HTML to include the additional language.
 
-Currently supported languages for expansion include:
+<u>Currently supported languages for expansion include:</u>
 
-*French`Français`*_~La~_  *German`Detusch`*_~Og~_  *Russian`Русский`*_~Bu~_  *Spanish`Español`*_~Ye~_  *Portuguese`Português`*_~Mn~_
-
-*Traditional Chinese`Hong Kong / Macao / Taiwan regions`*_~Wn~_   *Japanese`日本語`*_~Rd~_  *Korean`한국어`*_~Se~_  *Arabic`العربية`*_~Gn~_
+<u>*French`Français`*_~La~_  *German`Detusch`*_~Og~_  *Russian`Русский`*_~Bu~_  *Spanish`Español`*_~Ye~_  *Portuguese`Português`*_~Mn~_<br>*Traditional Chinese`Hong Kong / Macao / Taiwan regions`*_~Wn~_   *Japanese`日本語`*_~Rd~_  *Korean`한국어`*_~Se~_  *Arabic`العربية`*_~Gn~_</u>
 
 ---
 
@@ -384,21 +379,19 @@ The online version of the plugin file is: *==released/plugin/**plugin_live.txt**
 
 ## Custom VIP Theme
 
-The "**Private Customization Service**" for Themes is now open! Here are some reference cases for private customization.
+<u>The "**Customization Service**" for Themes is now open! Here are some reference cases for private customization.</u>
 
 [![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.gif)](https://madmaxchow.github.io/VLOOK/vip.html)
 
 
 
-**[<kbd>Explore more about Customized Themes</kbd>](https://madmaxchow.github.io/VLOOK/vip.html)**
+**[<kbd>Explore more about Customized Themes</kbd>](vip.md)**
 
 ## Typesetting and Editing Services
 
 ![Docment Typesetting, Content Revision, Knowledge Base Construction, Publishing Guidance, Website Hosting](https://vlook-doc.pages.dev/pic/vlook-te.png?srcset=@2x)
 
-Based on the content and audience of your document, fully utilize the numerous features of Typora + VLOOK™, to provide services like **Docment Typesetting**, **Content Revision**, **Knowledge Base Construction**, **Publishing Guidance**, **Website Hosting**.
-
-
+<u>Based on the content and audience of your document, fully utilize the numerous features of Typora + VLOOK™, to provide services like **Docment Typesetting**, **Content Revision**, **Knowledge Base Construction**, **Publishing Guidance**, **Website Hosting**.</u>
 
 **[<kbd>![](pic/icon-more.svg?fill=text) Explore more about Value-added Services</kbd>](https://madmaxchow.github.io/VLOOK/vip.html)**
 

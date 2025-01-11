@@ -1,6 +1,6 @@
 <!--
 ~~~~~~~~~ meta for <head /> ~~~~~~~~~~
-VLOOK "V28.0" (2024-12-21) - (head meta) - Typora Plugin
+VLOOK "V28.0" (2025-01-11) - (head meta) - Typora Plugin
 
 Paste to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 粘贴至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
@@ -11,8 +11,8 @@ Paste to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="description" content="${description}">
 <meta name="keywords" content="${keywords}">
 <!-- 以下为 VLOOK™ 相关的 meta 配置 -->
-<meta name="vlook-chp-autonum" content="${vlook-chp-autonum}">
-<meta name="vlook-chp-dup" content="${vlook-chp-dup}">
+<meta name="vlook-header-autonum" content="${vlook-header-autonum}">
+<meta name="vlook-header-dup" content="${vlook-header-dup}">
 <meta name="vlook-doc-lib" content="${vlook-doc-lib}">
 <meta name="vlook-gray-mode" content="${vlook-gray-mode}">
 <meta name="vlook-image-host" content="${vlook-image-host}">

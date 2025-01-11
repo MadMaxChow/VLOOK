@@ -13,7 +13,7 @@ keywords:
 - Picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
 - Online video,streaming media,Bilibili video,Watermelon video,Douyin video,Tencent video
 - Content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture
-- Columns,two columns,three columns,four columns,five columns,quote block,title,subtitle,official account article,official account editor
+- Columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - Link map,link specification,link check,link recognition,link conversion
 - Design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - Product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
@@ -24,13 +24,13 @@ keywords:
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画
-- 分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,公众号文章,公众号编辑器
+- 分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
 - 设计,需求,文档,博客,手册,指南,知识库,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
-vlook-chp-autonum-test: h1{{#00##}}
-# vlook-query: toc=2
+vlook-header-autonum-test: h1{{#00##}}
 vlook-doc-lib:
+- [快速参考手册](guide.html?target=guide "文本、表格、图片、列表、引用块、章节标题、分栏、按钮、代码、内容标记、Mermaid、数学公式、多媒体、内容导航、内容助手、演示辅助、出版辅助、外观")
 - [浏览 VLOOK™ 文库](vlook-lib.html "手册、教程、指南、示例、范例")
 - [English 🔠 Guide](index-en.html?target=vlook-index-en "Guide, Manual, Sample, Example")
 - [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank "Project Home")
@@ -38,6 +38,8 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 ---
 
 ###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V28.0`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+
+[TOC]
 
 > Select language ❯ *[<kbd>English</kbd>](index-en.md)*
 
@@ -129,9 +131,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 # 快速入坑
 
-VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文档的互联网化应用场景～
-
-在 **文档排版、内容导航、演示辅助、交互体验**_~GnOgSe~_ 等方面提供了 **一致、简洁、友好**_~PuOgRo~_ 的体验。
+<u>VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文档的互联网化应用场景～<br>在 **文档排版、内容导航、演示辅助、交互体验**_~GnOgSe~_ 等方面提供了 **一致、简洁、友好**_~PuOgRo~_ 的体验。</u>
 
 *==简介视频==*
 
@@ -205,13 +205,13 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 # 专题文章
 
 
-![入选「知乎 • 海盐计划」的专题文章](pic/3rd-haiyan.png#logo#border) 
+![入选「知乎 • 海盐计划」的专题文章](pic/3rd-haiyan.png#logo#border)
 
-入选「知乎 • 海盐计划」的专题文章 •• [点击前往看看](https://www.zhihu.com/people/maxchow/posts)
+<u>入选「知乎 • 海盐计划」的专题文章 •• [点击前往看看](https://www.zhihu.com/people/maxchow/posts)</u>
 
 # 安装与使用
 
-只需要三步 *==1.[下载与设置](#下载+设置) > 2.[安装主题包](#安装主题包) > 3.[配置导出选项](#配置导出选项)==* ，让你快速上车，**开启不一样的 Markdown 体验之旅！**_~OgPuBu~_
+==只需要三步，让你快速上车，**开启不一样的 Markdown 体验之旅！**_~OgPuBu~_==
 
 ## 下载+设置
 
@@ -332,11 +332,9 @@ VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文�
 
 VLOOK™ 的界面语言默认内置了「**英文**、**简体中文**」，对导出后的 HTML 需要支持更多语言，可以选择将对应语言包的内容，追加到以上导出配置中「元标签」内容的后面，重新导出 HTML 即可。
 
-目前可扩展支持的语种：
+<u>目前可扩展支持的语种：</u>
 
-*法语`Français`*_~La~_  *德语`Detusch`*_~Og~_  *俄语`Русский`*_~Bu~_  *西班牙语`Español`*_~Ye~_  *葡萄牙语`Português`*_~Mn~_
-
-*繁体中文`港澳台地区`*_~Wn~_  *日语`日本語`*_~Rd~_  *韩语`한국어`*_~Se~_  *阿拉伯语`العربية`*_~Gn~_
+<u>*法语`Français`*_~La~_  *德语`Detusch`*_~Og~_  *俄语`Русский`*_~Bu~_  *西班牙语`Español`*_~Ye~_  *葡萄牙语`Português`*_~Mn~_<br>*繁体中文`港澳台地区`*_~Wn~_  *日语`日本語`*_~Rd~_  *韩语`한국어`*_~Se~_  *阿拉伯语`العربية`*_~Gn~_</u>
 
 ---
 
@@ -407,21 +405,19 @@ VLOOK™ 的界面语言默认内置了「**英文**、**简体中文**」，对
 
 ## 定制主题服务
 
-目前现已开放主题的「**定制服务**」，以下为部分定制案例参考：
+<u>目前现已开放主题的「**定制服务**」，以下为部分定制案例参考：</u>
 
 [![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.gif)](https://madmaxchow.github.io/VLOOK/vip.html)
 
 
 
-**[<kbd>去探索更多定制主题的介绍</kbd>](https://madmaxchow.github.io/VLOOK/vip.html)**
+**[<kbd>去探索更多定制主题的介绍</kbd>](vip.md)**
 
 ## 排版编辑服务
 
 ![文档排版、内容修订、知识库搭建、出版指导、站点托管](https://vlook-doc.pages.dev/pic/vlook-te.png?srcset=@2x)
 
-针对你文档的内容、受众，充分应用 Typora + VLOOK™ 的众多特性，提供 **文档排版**、**内容修订**、**知识库搭建**、**出版指导**、**站点托管**、**发布 HTML** 等服务。
-
-
+<u>针对你文档的内容、受众，充分应用 Typora + VLOOK™ 的众多特性，提供 **文档排版**、**内容修订**、**知识库搭建**、**出版指导**、**站点托管**、**发布 HTML** 等服务。</u>
 
 **[<kbd>![](pic/icon-more.svg?fill=text) 去探索更多增值服务的介绍</kbd>](https://madmaxchow.github.io/VLOOK/vip.html)**
 

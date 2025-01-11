@@ -4,7 +4,7 @@
  * (配合 base.less 进行使用)
  *
  * V28.0
- * 2024-12-21
+ * 2025-01-11
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -1817,7 +1817,7 @@ body[class*="ty-on-typewriter-mode"] @{writeOnEditing}, // 编辑时，如启用
     margin-top: 30px;
 }
 
-// 编辑时的详情折叠（details、summary）
+// 编辑时的引用块折叠（details、summary）
 @summaryOnEditing: ~"blockquote>h6:first-child";
 @{writeOnEditing} @{summaryOnEditing} {
     color: @h6Color;
@@ -1918,7 +1918,7 @@ pre.md-fences-advanced.md-focus .md-fences-adv-panel {
     margin-top: @paragraphPadding !important;
 }
 
-// 编辑时详情折叠标题下紧跟的内容
+// 编辑时引用块折叠标题下紧跟的内容
 @{writeOnEditing} blockquote>h6+:is(.md-fences, figure) {
     margin-top: 1em;
 }

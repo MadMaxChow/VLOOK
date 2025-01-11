@@ -69,7 +69,7 @@
 
 // 不进行标题自动编号
 @headerNumSeparator: "";
-@vChpAutoNum: "h1{{#none#}},h2{{#none#}},h3{{#none#}},h4{{#none#}},h5{{#none#}}";;
+@vHeaderAutoNum: "h1{{#none#}},h2{{#none#}},h3{{#none#}},h4{{#none#}},h5{{#none#}}";;
 @h1BeforeContent: "";
 @h2BeforeContent: "";
 @h3BeforeContent: "";
@@ -92,18 +92,6 @@
 @h4Margin: 2em 0 0 0;
 @h5Margin: 1.25em 0 0 0;
 @h6Margin: 1em 0 0 0;
-
-// 自定义标题自动编号
-// 导出的 HTML 中不生效，须添加以下 VLOOK 的调校参数「vlook-chp-autonum」
-// @vChpAutoNum: "h1{{第###章}}";
-// @h1BeforeContent: "第" counter(h1) "章";
-// @headerTextAlign: center;
-// @h1Margin: 2em 0 0 0;
-// @h2Margin: 2em 0 0 0;
-// @h3Margin: 1.5em 0 0 0;
-// @h4Margin: 1.5em 0 0 0;
-// @h5Margin: 1.25em 0 0 0;
-// @h6Margin: 1em 0 0 0;
 
 @headerTextAlign: left;
 @h1TextAlign: center;

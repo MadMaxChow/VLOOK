@@ -3,7 +3,7 @@ title: 在 YAML 中定义的标题：GB/T 1.1-2020｜在此填写为标准名称
 author: 在 YAML 中定义的发布方
 description: 参考 GB/T 1.1-2020 实现的 VLOOK™ 定制主题
 # 重复标题白名单，以英文分号「;」分隔
-vlook-chp-dup: 标题;/\s*/
+vlook-header-dup: 标题;/\s*/
 # 封面四角的内容（上左/上右/下左/下右），可使用 HTML 的 <br> 换行，<sub>...</sub> 或 <sup>...</sup> 指定为小号字
 vlook-cc-top-left: ICS 01.120<br>CCS A 00
 vlook-cc-top-right: GB/T 1.1–2020<sub>代替 GB/T 1.1–2009</sub>

@@ -3,7 +3,7 @@
  * VLOOK™ JS - Typora Plugin
  *
  * V28.0
- * 2024-12-21
+ * 2025-01-11
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -185,6 +185,7 @@ let _ = "",
     _doc_ = "doc",
     _document_ = "document",
     _Document_ = "Document",
+    _focus_ = "focus",
     _fold_ = "fold",
     _folded_ = _fold_ + "ed",
     _for_ = "for",
@@ -391,6 +392,7 @@ let _ = "",
     _nav_ = "nav",
     _icoNavHistory_ = _ico_ + _nav_ + "-" + _history_,
     _icoDocLib_ = _ico_ + "DocLib",
+    _icoDocLibSelf_ = _icoDocLib_ + "Self",
     _icoDocLibBm_ = _icoDocLib_ + "Bm",
     _icoDocLibExt_ = _icoDocLib_ + "Ext",
     _icoDocLibRef_ = _icoDocLib_ + "Ref",
@@ -572,7 +574,7 @@ let _ = "",
     __prev = "-prev",
     _prs_ = "prs",
     _Ready_ = "Ready",
-    __reset_ = "-re" + _set_,
+    _reset_ = "re" + _set_,
     _restore_ = "restore",
     _ref_footnote_ = "ref-" + _footnote_,
     _rowspan_ = "rowspan",
@@ -603,7 +605,7 @@ let _ = "",
     ___v_theme__ = "--v-" + _theme_ + "-",
     ___v_f__ = "--v-f-",
     _vlook__ = "vlook-",
-    _vlook_chp_autonum_ = _vlook__ + "chp-autonum",
+    _vlook_header_autonum_ = _vlook__ + "header-autonum",
     _vlook_gray_mode_ = _vlook__ + _gray_ + __mode_,
     _vlook_toc_ = _vlook__ + _toc_,
     _vlook_query_ = _vlook__ + "query",
@@ -717,7 +719,7 @@ let _ = "",
     _v_fig_nav_ = _v_fig_ + "-nav",
     _v_fig_nav_btns_ = "." + _v_fig_nav_ + "-btns",
     _search_ = "search",
-    _v_focus_search_ = "v-focus-" + _search_,
+    _v_focus_search_ = "v-" + _focus_ + "-" + _search_,
     _v_font_info__ = "v-" + _font_ + _info_ + "-",
     _v_fontnote_pn_ = "v-" + _footnote_ + "-pn",
     _v_fontnote_pn_content_ = _v_fontnote_pn_ + "-" + _content_,
@@ -809,7 +811,8 @@ let _ = "",
     _v_tbl_row_g_sub_ = _v_tbl_row__ + "g-sub",
     _v_tbl_row_g_identer_ = _v_tbl_row__ + "g" + __identer_,
     _v_text_field_ = "v-textfield",
-    _v_text_field_focus_ = _v_text_field_ + "-focus",
+    _v_text_field_focus_ = _v_text_field_ + "-" + _focus_,
+    _v_text_field_reset_ = _v_text_field_ + "-" + _reset_,
     _v_toc_folder_ = "." + _v_toc__ + _folder_,
     _v_toc_item_ = _v_toc__ + _item_,
     _v_item_current_ = "v" + __item_ + __current_,
@@ -1890,7 +1893,7 @@ function V_ui_initI18n() {
  * @param source 源对象
  */
 function V_ui_moveToCenter(source) {
-    let l = (jq_Window.w() - source.w()) / 2,
+    let l = (jq_Window.w() - source.oW()) / 2,
         r = _auto_;
     if (V_util_isMobile()) { // 移动端
         l = 10;
@@ -2685,8 +2688,11 @@ function V_data_write(key, value, share) {
  * @param share 是否为同域名所有页面共享的键值，默认为不共享
  */
 function V_data_remove(key, share) {
-    return localStorage.removeItem((share ? _ : V_util_getUrlWithoutQueryAndHash(WINDOW_getHref()) + "-")
-    + key);
+    return localStorage.removeItem(
+        (share
+            ? _
+            : V_util_getUrlWithoutQueryAndHash(WINDOW_getHref()) + "-")
+        + key);
 }
 
 // ========================================
@@ -2809,24 +2815,33 @@ function V_util_setScrollTop(pos, source) {
     V_util_restoreScrollByJS();
 }
 
-// /**
-//  * 对内容进行排序
-//  * @param container 内容的容器对象
-//  * @param itemSet 需要进行排序的对象集合
-//  */
-// function V_util_sort(container, itemSet) {
-//     itemSet.sort((a, b) => {
-//         let textA = $(a).t().ss(0, 1),
-//             textB = $(b).t().ss(0, 1);
-//         // 以下以是以字符的 unicode 编码进行比较
-//         // 用 localeCompare 进行比较的话，存在不同国家或地区的排序结果不同
-//         return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-//     });
-//     // 按重新排序的节点进行显示
-//     itemSet.e((index, element) => {
-//         $(element).detach().appendTo(container);
-//     });
-// }
+/**
+ * 对内容按指定属性值进行排序
+ * @param container 内容的容器对象
+ * @param itemSet 需要进行排序的对象集合
+ * @param attr 需要进行排序控制的属性名
+ * @param withText 是否联合文本内容参与排序
+ */
+function V_util_sortByAttr(container, itemSet, attr, withText) {
+    itemSet.sort((a, b) => {
+        let objA = $(a),
+            objB = $(b),
+            valueA = objA.a(attr),
+            valueB = objB.a(attr);
+        // 联合文本内容参与排序
+        if (withText) {
+            valueA += objA.t();
+            valueB += objB.t();
+        }
+        // 以下以是以字符的 unicode 编码进行比较
+        // 用 localeCompare 进行比较的话，存在不同国家或地区的排序结果不同
+        return (valueA < valueB) ? -1 : (valueA > valueB) ? 1 : 0;
+    });
+    // 按重新排序的节点进行显示
+    itemSet.e((index, element) => {
+        $(element).detach().appendTo(container);
+    });
+}
 
 /**
  * 对 URI 进行解码
@@ -3565,7 +3580,7 @@ function V_initKernel() {
 
     // ----------------------------------------
     // 自动生成可通过 DOM 引用块的目录自动编号
-    ChpAutoNum_initToc();
+    HeaderAutoNum_initToc();
 
     // ----------------------------------------
     // 初始化题注生成器
@@ -3591,7 +3606,7 @@ function V_initKernel() {
 
     // ========================================
     // 初始化引用块
-    // 须在 ExtFigure 处理前，避免详情折叠处理中，对其内含有 svg 颜色替换处理导致 DOM 冲突而失效
+    // 须在 ExtFigure 处理前，避免引用块折叠处理中，对其内含有 svg 颜色替换处理导致 DOM 冲突而失效
     iStopwatch.st("* Quote: ");
     ExtQuote_init();
     iStopwatch.ed(_4space_);
@@ -4003,7 +4018,7 @@ function GrayMode_close() {
                 "This page will be displayed in " + _display_mode_ + " today"
             ]).r(_display_mode_, V_ui_strong(V_lang_text48())) + "<hr>"
             + V_ui_sub(_, _,
-                V_ui_svgIcon(_icoGray_, 20, 18, _theme_)
+                V_ui_svgIcon(_icoGray_, 20, 20, _theme_)
                 +___+ V_lang_text(89, [
                     "点击下面该按钮可临时关闭",
                     "Click the button below to temporarily turn it off"
@@ -4545,7 +4560,7 @@ function V_report_submit(loadTimeCost) {
         sd += "&" + _tag_ + "=" + V_length($(_code_ + V_attrCSS(_class_, _v_tag_)))
             + "&" + _badge_ + "=" + V_length($(_code_ + V_attrCSS(_class_, _v_badge_name_)));
 
-        // 详情折叠数据
+        // 引用块折叠数据
         sd += "&dt=" + V_length($(_details_));
 
         // 脚注数据
@@ -8470,8 +8485,8 @@ let LinkTool_checkHashUI = gUndefined,
     LinkTool_warningCount = 0,
     LinkTool_errorAnchorCount = 0,
     LinkTool_errorAddressCount = 0,
-    LinkTool_chpDupSet = [], // 文本
-    LinkTool_chpDupReSet = [], // 正则表达式
+    LinkTool_headerDupSet = [], // 文本
+    LinkTool_headerDupReSet = [], // 正则表达式
     LinkTool_pageMap = {},
     LinkTool_textMap = {},
     LinkTool_mask = gUndefined;
@@ -8487,16 +8502,18 @@ function LinkTool_init(mask) {
     LinkTool_enabled = gTrue;
 
     // 读取指定允许重复的章节标题预置选项
-    let chpDup = V_util_getMetaByName(_vlook__ + "chp-dup");
-    if (chpDup !== gUndefined) {
-        let cds = chpDup.x().sp(/;(?=(?:[^/]*\/[^/]*\/)*[^/]*$)/);
-        for (let i = 0; i < cds.length; i++) {
+    let headerDup = V_util_getMetaByName(_vlook__ + "header-dup");
+    if (headerDup !== gUndefined) {
+        // 直接使用分号进行分割，是由于导出的标题会自动过滤掉标点符号
+        // 所以一般导出后的 HTML 不会存在标题内容中还含有标点符号的冲突
+        let dups = headerDup.x().sp(";");
+        for (let i = 0; i < dups.length; i++) {
             // 正则表达式
-            if (cds[i].sW("/") && cds[i].eW("/"))
-                LinkTool_chpDupReSet.push(new RegExp(cds[i].substring(1, cds[i].length - 1)));
+            if (dups[i].sW("/") && dups[i].eW("/"))
+                LinkTool_headerDupReSet.push(new RegExp(dups[i].substring(1, dups[i].length - 1)));
             // 文本
             else
-                LinkTool_chpDupSet.push(cds[i]);
+                LinkTool_headerDupSet.push(dups[i]);
         }
     }
 
@@ -8715,8 +8732,8 @@ function LinkTool_checkLink() {
             headerTextSet.push(text);
         // 重复标题的处理
         else {
-            if (LinkTool_chpDupSet.indexOf(text) === -1 // 文本匹配
-                && !__matchForChpDupReSet(text)) // 正则表达式匹配
+            if (LinkTool_headerDupSet.indexOf(text) === -1 // 文本匹配
+                && !__matchForHeaderDupReSet(text)) // 正则表达式匹配
                     __addDuplicateChapter(_t);
         }
 
@@ -8802,10 +8819,14 @@ function LinkTool_checkLink() {
     // 生成链接地图
     __genLinkMap();
 
+    // 对无锚点的站内链接、外部链接进行分类排序
+    V_util_sortByAttr(LinkTool_panelItems,
+        LinkTool_panelItems.f("." + _v_map_item_ + ":is(.a,.b)"), _class_, gTrue);
+
     // 以正则表达式进行重复标题检查
-    function __matchForChpDupReSet(text) {
-        for (let i = 0; i < LinkTool_chpDupReSet.length; i++) {
-            if (text.m(LinkTool_chpDupReSet[i]) !== gNull)
+    function __matchForHeaderDupReSet(text) {
+        for (let i = 0; i < LinkTool_headerDupReSet.length; i++) {
+            if (text.m(LinkTool_headerDupReSet[i]) !== gNull)
                 return gTrue;
         }
         return gFalse;
@@ -8859,10 +8880,10 @@ function LinkTool_checkLink() {
                 "超出 URL 最大长度",
                 "Maximum URL length exceeded"
             ])),
-
             // 未超出长度上限，且有锚点时，则生成检查入口
             hashSet = JS_toString(urlParams),
             hashSetLen = V_length(hashSet),
+            extLink = (page.i("://") > -1),
             checkHash = (hashSetLen > 0 ?
                 V_ui_label(_, _, V_ui_strong(hashCount) +___+ V_lang_text(51, ["个锚点", "Hash"])
                     + V_ui_a(_, page + (page.i("?") > -1 ? "&" : "?") + hashSet,
@@ -8871,18 +8892,26 @@ function LinkTool_checkLink() {
                 : _),
 
             // 生成最终的条目内容
-            item = $(V_ui_div(_v_map_item_ + pageIndex, _v_map_item_,
-                    // 页面或链接的直达链接
-                    V_ui_a(_, page,
-                        // 页面或链接入口
-                        (V_length(text) > 0
-                            ? (V_length(linkToHashSet) > 0
-                                ? V_lang_text(82, ["页面", "Page"]) : text)
-                            : V_lang_text(83, ["链接", "Link"])), page)
-                    // 检查锚点的链接
-                    + (V_length(page) + hashSetLen > 8000
-                            ? overLimit
-                            : checkHash)
+            item = $(V_ui_div(_v_map_item_ + pageIndex,
+                    // 以下 a, b 是用于对无锚点的站内链接、外部链接进行分类排序
+                    _v_map_item_ +___+ (!extLink && hashCount === 0 ? "a" : extLink ? "b" : _),
+                    V_ui_div(_, _,
+                        (!extLink
+                            ? V_ui_svgIcon(_icoDocLibBm_, 20, 18, _alpha_) // 站内链接图标
+                            : V_ui_svgIcon(_icoDocLibExt_, 20, 20, _alpha_) // 站外链接图标
+                        ) + _nbsp_
+                        // 页面或链接的直达链接
+                        + V_ui_a(_, page,
+                            // 页面或链接入口
+                            (V_length(text) > 0
+                                ? (V_length(linkToHashSet) > 0
+                                    ? V_lang_text(82, ["页面", "Page"]) : text)
+                                : V_lang_text(83, ["链接", "Link"])), page)
+                        // 检查锚点的链接
+                        + (V_length(page) + hashSetLen > 8000
+                                ? overLimit
+                                : checkHash)
+                    )
                     // 页面或链接内容
                     + (V_length(linkToHashSet) > 0 ? _br_ : _)
                     + V_ui_span(_, _, JS_decodeURIComponent(page))
@@ -9184,7 +9213,7 @@ function ContentFolder_init() {
  * 添加内容
  */
 function ContentFolder_add(content, type) {
-    // 跳过不启用折叠，或任意父级元素是详情折叠的情况
+    // 跳过不启用折叠，或任意父级元素是引用块折叠的情况
     if (!ContentFolder_enabled
         || V_length(content.ps(_blockquote_ + "," + _details_)) > 0) {
         return;
@@ -10635,62 +10664,65 @@ function Unpublished_init() {
     }
 }
 
-// ==================== 章节目录自动编号增强类 ==================== //
+// ==================== 章节标题自动编号增强类 ==================== //
 
-let ChpAutoNum_counter = [],
-    ChpAutoNum_lastLevel = 1,
+let HeaderAutoNum_counter = [],
+    HeaderAutoNum_lastLevel = 1,
     // 自定义的自动编号格式模板（可只指定任意 h1~h6）
-    ChpAutoNum_tpl = "h1{{###. }},h2{{### }},h3{{### }},h4{{### }},h5{{### }},h6{{#none# }}",
+    HeaderAutoNum_tpl = "h1{{###. }},h2{{### }},h3{{### }},h4{{### }},h5{{### }},h6{{#none# }}",
     // 默认的自动编号格式模板
-    ChpAutoNum_tplSet = ChpAutoNum_tpl.sp(","),
-    ChpAutoNum_tpl_syntax = /h([1-6]){{(.*)(#(0*)(#|zh|ZH|alpha|ALPHA|roman|ROMAN|none)(-min|-sup)?#)(.*)}}/,
-    ChpAutoNum_tpl_leftPad = [_, _, _, _, _, _],
-    ChpAutoNum_tpl_format = ["#", "#", "#", "#", "#", "#"], // 编号格式
-    ChpAutoNum_tpl_formatOpt = [0, 0, 0, 0, 0, 0], // 特殊格式选项
-    ChpAutoNum_tpl_prefix = [_, _, _, _, _, _], // 前缀
-    ChpAutoNum_tpl_suffix = [_, _, _, _, _, _]; // 后缀
+    HeaderAutoNum_tplSet = HeaderAutoNum_tpl.sp(","),
+    HeaderAutoNum_tpl_syntax = /h([1-6]){{(.*)(#(0*)(#|zh|ZH|alpha|ALPHA|roman|ROMAN|none)(-min|-sup)?#)(.*)}}/,
+    HeaderAutoNum_tpl_leftPad = [_, _, _, _, _, _],
+    HeaderAutoNum_tpl_format = ["#", "#", "#", "#", "#", "#"], // 编号格式
+    HeaderAutoNum_tpl_formatOpt = [0, 0, 0, 0, 0, 0], // 特殊格式选项
+    HeaderAutoNum_tpl_prefix = [_, _, _, _, _, _], // 前缀
+    HeaderAutoNum_tpl_suffix = [_, _, _, _, _, _]; // 后缀
 
 // 特殊格式选项
-const CHPAUTONUM_TPL_FORMAT_OPT_NONE = 0, // 无
-    CHPAUTONUM_TPL_FORMAT_OPT_MIN = 1, // -min
-    CHPAUTONUM_TPL_FORMAT_OPT_SUP = 2; // -sup
+const HEADER_AUTONUM_TPL_FORMAT_OPT_NONE = 0, // 无
+    HEADER_AUTONUM_TPL_FORMAT_OPT_MIN = 1, // -min
+    HEADER_AUTONUM_TPL_FORMAT_OPT_SUP = 2; // -sup
 
 /**
  * 初始化章节目录自动编号
  */
-function ChpAutoNum_initToc() {
-    let metaTpl = V_util_getMetaByName(_vlook_chp_autonum_);
+function HeaderAutoNum_initToc() {
+    let metaTpl = V_util_getMetaByName(_vlook_header_autonum_);
     // 文档无指定自动编号格式模板时，尝试取主题配套的自动编号格式模板
     if (metaTpl === gUndefined)
-        metaTpl = V_util_removeQuotes(V_util_getVarVal("--" + _vlook_chp_autonum_).x());
+        metaTpl = V_util_removeQuotes(V_util_getVarVal("--" + _vlook_header_autonum_).x());
     // 没有目录大纲，同时没有通过预置选项、主题配置指定自动编号格式模板，则跳过
-    if (V_length(gTocContent) === 0 || metaTpl === gUndefined)
+    // if (V_length(gTocContent) === 0 || metaTpl === gUndefined)
+    if (metaTpl === gUndefined)
         return;
 
     // 重置自动编号格式模板
-    ChpAutoNum_resetTpl(metaTpl);
+    HeaderAutoNum_resetTpl(metaTpl);
 
     // 对目录大纲内的章节条目进行处理
-    ChpAutoNum_resetCounter();
-    gTocContent.ch("." + _md_toc_item_).e((index, element) => {
-        let item = $(element);
-        V_ui_addAnimate(item);
-        __genNumContent(item,
-            ChpAutoNum_parseTocHeaderLevel(item.a(_class_)));
-    });
+    if (V_length(gTocContent) > 0) {
+        HeaderAutoNum_resetCounter();
+        gTocContent.ch("." + _md_toc_item_).e((index, element) => {
+            let item = $(element);
+            V_ui_addAnimate(item);
+            __genNumContent(item,
+                HeaderAutoNum_parseTocHeaderLevel(item.a(_class_)));
+        });
+    }
 
     // 对文档中的章节条目进行处理（不包括封底）
-    ChpAutoNum_resetCounter();
+    HeaderAutoNum_resetCounter();
     VOM_doc().ch("h1" + V_not(__last_child_) + ",h2,h3,h4,h5").e((index, element) => {
         let item = $(element);
         __genNumContent(item,
-            ChpAutoNum_parseTocHeaderLevel(V_util_getTagName(item)));
+            HeaderAutoNum_parseTocHeaderLevel(V_util_getTagName(item)));
     });
 
     // 对文档中的 h6 章节条目进行处理（不包括封面）
-    ChpAutoNum_resetCounter();
+    HeaderAutoNum_resetCounter();
     VOM_doc().ch(_h6_ + V_not(__first_child_)).e((index, element) => {
-        let prefix = (ChpAutoNum_tpl_prefix[5]),
+        let prefix = (HeaderAutoNum_tpl_prefix[5]),
             result;
         if ((result = prefix.m(/var\((--.+)\)/)) !== gNull)
             prefix = V_util_getVarVal(result[1]).rA('"', _);
@@ -10699,80 +10731,80 @@ function ChpAutoNum_initToc() {
 
     // 生成标题编号
     function __genNumContent(item, lv) {
-        let diff = lv - ChpAutoNum_lastLevel,
+        let diff = lv - HeaderAutoNum_lastLevel,
             absDiff = Math.abs(diff);
         // 当前层级比上一层级低
         if (diff > 0) {
             for (let i = 0; i < absDiff; i++)
-                ChpAutoNum_push();
+                HeaderAutoNum_push();
         }
         // 当前层级比上一层级高
         else if (diff < 0) {
             for (let i = 0; i < absDiff; i++)
-                ChpAutoNum_pop();
+                HeaderAutoNum_pop();
         }
         // 当前层级与上一层级一样
         else {
-            ChpAutoNum_counter[ChpAutoNum_lastLevel - 1]++;
+            HeaderAutoNum_counter[HeaderAutoNum_lastLevel - 1]++;
         }
 
-        item.a(_data_header_num_, ChpAutoNum_toString());
+        item.a(_data_header_num_, HeaderAutoNum_toString());
     }
 }
 
 /**
  * 进入下一级的处理
  */
-function ChpAutoNum_push() {
-    ChpAutoNum_lastLevel++;
-    ChpAutoNum_counter[ChpAutoNum_lastLevel - 1] = 1;
+function HeaderAutoNum_push() {
+    HeaderAutoNum_lastLevel++;
+    HeaderAutoNum_counter[HeaderAutoNum_lastLevel - 1] = 1;
 }
 
 /**
  * 返回上一级的处理
  */
-function ChpAutoNum_pop() {
-    ChpAutoNum_counter[ChpAutoNum_lastLevel - 1] = 0;
-    ChpAutoNum_lastLevel--;
-    ChpAutoNum_counter[ChpAutoNum_lastLevel - 1]++;
+function HeaderAutoNum_pop() {
+    HeaderAutoNum_counter[HeaderAutoNum_lastLevel - 1] = 0;
+    HeaderAutoNum_lastLevel--;
+    HeaderAutoNum_counter[HeaderAutoNum_lastLevel - 1]++;
 }
 
 /**
  * 重置自动编号计数器
  */
-function ChpAutoNum_resetCounter() {
-    ChpAutoNum_counter = [0, 0, 0, 0, 0, 0];
-    ChpAutoNum_lastLevel = 1;
+function HeaderAutoNum_resetCounter() {
+    HeaderAutoNum_counter = [0, 0, 0, 0, 0, 0];
+    HeaderAutoNum_lastLevel = 1;
 }
 
 /**
  * 根据自动编号格式模板重新重置 h1~h6 自动编号格式
  * @param metaTpl 格式模板内容
  */
-function ChpAutoNum_resetTpl(metaTpl) {
+function HeaderAutoNum_resetTpl(metaTpl) {
     // 判断是否有指定自定义自动编号模板
     if (metaTpl === gUndefined)
         return;
-    ChpAutoNum_tpl = metaTpl;
+    HeaderAutoNum_tpl = metaTpl;
     // ！！！不要删除！！！用于测试效果
-    // ChpAutoNum_tpl = "h1{{###. }},h2{{### }},h3{{### }},h4{{### }},h5{{### }}";
-    // ChpAutoNum_tpl = "h1{{第#zh#章 }}";
-    // ChpAutoNum_tpl = "h1{{第#zh#章 }},h2{{Chapter #alpha# }},h5{{### }},h4{{### - }},h3{{§ ###}}";
-    // ChpAutoNum_tpl = "h1{{第#zh#章 }},h2{{步骤 #000## }}";
-    // ChpAutoNum_tpl = "h6{{X ### }}";
-    // ChpAutoNum_tpl = "h1{{###. }},h2{{### }}";
-    // ChpAutoNum_tpl = "h1{{#none#}},h2{{#none#}},h3{{### }},h4{{### }},h5{{#ALPHA-min# }}";
+    // HeaderAutoNum_tpl = "h1{{###. }},h2{{### }},h3{{### }},h4{{### }},h5{{### }}";
+    // HeaderAutoNum_tpl = "h1{{第#zh#章 }}";
+    // HeaderAutoNum_tpl = "h1{{第#zh#章 }},h2{{Chapter #alpha# }},h5{{### }},h4{{### - }},h3{{§ ###}}";
+    // HeaderAutoNum_tpl = "h1{{第#zh#章 }},h2{{步骤 #000## }}";
+    // HeaderAutoNum_tpl = "h6{{X ### }}";
+    // HeaderAutoNum_tpl = "h1{{###. }},h2{{### }}";
+    // HeaderAutoNum_tpl = "h1{{#none#}},h2{{#none#}},h3{{### }},h4{{### }},h5{{#ALPHA-min# }}";
 
-    if (V_length(ChpAutoNum_tpl) === 0)
+    if (V_length(HeaderAutoNum_tpl) === 0)
         return;
 
     // 对自动编号格式模板内容进行处理
-    let tplSet = ChpAutoNum_tpl.sp(","),
+    let tplSet = HeaderAutoNum_tpl.sp(","),
         lv;
     for (let i = 0; i < V_length(tplSet); i++) {
         lv = tplSet[i].ss(1, 2);
         if (!isNaN(lv))
-            ChpAutoNum_tplSet[lv - 1] = tplSet[i].x();
+            HeaderAutoNum_tplSet[lv - 1] = tplSet[i].x();
     }
 
     // 解析自定义编码格式模板内容
@@ -10786,16 +10818,16 @@ function ChpAutoNum_resetTpl(metaTpl) {
     // 解析模板条目
     function __parseTplItem(lv) {
         let result;
-        if ((result = ChpAutoNum_tplSet[lv].m(ChpAutoNum_tpl_syntax)) !== gNull
+        if ((result = HeaderAutoNum_tplSet[lv].m(HeaderAutoNum_tpl_syntax)) !== gNull
             && V_length(result) === 8) {
-                ChpAutoNum_tpl_prefix[lv] = result[2];
-                ChpAutoNum_tpl_leftPad[lv] = result[4];
-                ChpAutoNum_tpl_format[lv] = result[5];
-                ChpAutoNum_tpl_formatOpt[lv] =
-                    (result[6] === "-min") ? CHPAUTONUM_TPL_FORMAT_OPT_MIN
-                    : (result[6] === "-sup") ? CHPAUTONUM_TPL_FORMAT_OPT_SUP
-                    : CHPAUTONUM_TPL_FORMAT_OPT_NONE;
-                ChpAutoNum_tpl_suffix[lv] = result[7];
+                HeaderAutoNum_tpl_prefix[lv] = result[2];
+                HeaderAutoNum_tpl_leftPad[lv] = result[4];
+                HeaderAutoNum_tpl_format[lv] = result[5];
+                HeaderAutoNum_tpl_formatOpt[lv] =
+                    (result[6] === "-min") ? HEADER_AUTONUM_TPL_FORMAT_OPT_MIN
+                    : (result[6] === "-sup") ? HEADER_AUTONUM_TPL_FORMAT_OPT_SUP
+                    : HEADER_AUTONUM_TPL_FORMAT_OPT_NONE;
+                HeaderAutoNum_tpl_suffix[lv] = result[7];
         }
     }
 }
@@ -10803,35 +10835,35 @@ function ChpAutoNum_resetTpl(metaTpl) {
 /**
  * 将当前层级信息转换为字符串
  */
-function ChpAutoNum_toString() {
-    let lv = ChpAutoNum_lastLevel - 1,
+function HeaderAutoNum_toString() {
+    let lv = HeaderAutoNum_lastLevel - 1,
         superLv = (lv > 0) ? lv - 1 : -1,
-        opt = ChpAutoNum_tpl_formatOpt[lv],
+        opt = HeaderAutoNum_tpl_formatOpt[lv],
         numStr = _;
 
     // 若指定了特殊的格式选项
-    if (opt > CHPAUTONUM_TPL_FORMAT_OPT_NONE) {
-        if (opt === CHPAUTONUM_TPL_FORMAT_OPT_SUP && superLv >= 0)
+    if (opt > HEADER_AUTONUM_TPL_FORMAT_OPT_NONE) {
+        if (opt === HEADER_AUTONUM_TPL_FORMAT_OPT_SUP && superLv >= 0)
             numStr =  __formatNum(superLv, opt) + ".";
         numStr += __formatNum(lv, opt);
         // 结束并返回
-        return ChpAutoNum_tpl_prefix[lv]
+        return HeaderAutoNum_tpl_prefix[lv]
             + numStr
-            + ChpAutoNum_tpl_suffix[lv];
+            + HeaderAutoNum_tpl_suffix[lv];
     }
 
     // 没有指定特殊的格式选项
     let str = 0;
-    for (let i = 0; i < ChpAutoNum_lastLevel; i++) {
+    for (let i = 0; i < HeaderAutoNum_lastLevel; i++) {
         str = __formatNum(i, false);
         numStr += str;
         if (i < lv && V_length(str) > 0)
             numStr += ".";
     }
 
-    return ChpAutoNum_tpl_prefix[lv]
+    return HeaderAutoNum_tpl_prefix[lv]
         + numStr
-        + ChpAutoNum_tpl_suffix[lv];
+        + HeaderAutoNum_tpl_suffix[lv];
 
     /**
      * 指定层级的编号进行格式化
@@ -10840,49 +10872,47 @@ function ChpAutoNum_toString() {
      */
     function __formatNum(i, opt) {
         let ns = _,
-            counter = ChpAutoNum_counter[i],
-            upperCase = (ChpAutoNum_tpl_format[i].ss(0, 1).m(/[A-Z]/) !== gNull),
-            format = ChpAutoNum_tpl_format[i].l();
+            counter = HeaderAutoNum_counter[i],
+            upperCase = (HeaderAutoNum_tpl_format[i].ss(0, 1).m(/[A-Z]/) !== gNull),
+            format = HeaderAutoNum_tpl_format[i].l();
 
         // 十进制数字
         if (format === "#")
-            ns = (ChpAutoNum_lastLevel === 1)
+            ns = (HeaderAutoNum_lastLevel === 1)
                 // 针对 h1
-                ? ChpAutoNum_leftPadForDecimal(counter, i)
+                ? HeaderAutoNum_leftPadForDecimal(counter, i)
                 // 针对 h2~h5
                 : (i === 0 // 第1段
                     ? JS_toString(counter) // 针对 第1段 强制变为数字（避免出现左侧补 0 的情况）
-                    : ChpAutoNum_leftPadForDecimal(counter, i))
+                    : HeaderAutoNum_leftPadForDecimal(counter, i))
         // 中文数字
         else if (format === "zh") {
-            ns = (ChpAutoNum_lastLevel === 1)
+            ns = (HeaderAutoNum_lastLevel === 1)
                 // 针对 h1
-                ? ChpAutoNum_decimalToZh(counter, upperCase)
+                ? HeaderAutoNum_decimalToZh(counter, upperCase)
                 // 针对 h2~h5
-                : ChpAutoNum_leftPadForDecimal(counter, i);
+                : HeaderAutoNum_leftPadForDecimal(counter, i);
         }
         // 英文字母
         else if (format === _alpha_) {
-            ns = (ChpAutoNum_lastLevel === 1 || opt > CHPAUTONUM_TPL_FORMAT_OPT_NONE)
+            ns = (HeaderAutoNum_lastLevel === 1 || opt > HEADER_AUTONUM_TPL_FORMAT_OPT_NONE)
                 // 针对 h1
-                ? ChpAutoNum_decimalToAlpha(counter, upperCase)
+                ? HeaderAutoNum_decimalToAlpha(counter, upperCase)
                 // 针对 h2~h5
-                : ChpAutoNum_leftPadForDecimal(counter, i);
+                : HeaderAutoNum_leftPadForDecimal(counter, i);
         }
         // 罗马数字
         else if (format === "roman") {
-            ns = (ChpAutoNum_lastLevel === 1 || opt > CHPAUTONUM_TPL_FORMAT_OPT_NONE)
+            ns = (HeaderAutoNum_lastLevel === 1 || opt > HEADER_AUTONUM_TPL_FORMAT_OPT_NONE)
                 // 针对 h1
-                ? ChpAutoNum_decimalToRoman(counter, upperCase)
+                ? HeaderAutoNum_decimalToRoman(counter, upperCase)
                 // 针对 h2~h5
-                : ChpAutoNum_leftPadForDecimal(counter, i);
+                : HeaderAutoNum_leftPadForDecimal(counter, i);
         }
         else if (format === _off_)
             ns = _;
         return ns;
     }
-
-
 }
 
 /**
@@ -10890,7 +10920,7 @@ function ChpAutoNum_toString() {
  * @param value 包含 h1~h6 的标识内容，如：md-toc-h1、h1 等
  * @returns number 目录层级：1~6
  */
-function ChpAutoNum_parseTocHeaderLevel(value) {
+function HeaderAutoNum_parseTocHeaderLevel(value) {
     let lv = value.m(/(h([1-5]))/)[2];
     return isNaN(lv) ? 0 : JS_parseInt(lv);
 }
@@ -10901,8 +10931,8 @@ function ChpAutoNum_parseTocHeaderLevel(value) {
  * @param lv 级别
  * @returns
  */
-function ChpAutoNum_leftPadForDecimal(value, lv) {
-    let pad = V_length(ChpAutoNum_tpl_leftPad[lv]),
+function HeaderAutoNum_leftPadForDecimal(value, lv) {
+    let pad = V_length(HeaderAutoNum_tpl_leftPad[lv]),
         gap = pad - V_length(JS_toString(value)),
         padStr = _;
     if (gap > 0) {
@@ -10913,14 +10943,14 @@ function ChpAutoNum_leftPadForDecimal(value, lv) {
 }
 
 // 算法参考：https://blog.csdn.net/lavendersue/article/details/81066091
-let ChpAutoNum_zhNum = ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九"], // 数字
-    ChpAutoNum_zhUnit = [_, "十", "百", "千", "万"]; // 单位，最大支持 99,999,999
+let HeaderAutoNum_zhNum = ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九"], // 数字
+    HeaderAutoNum_zhUnit = [_, "十", "百", "千", "万"]; // 单位，最大支持 99,999,999
 /**
  * 数字格式转换：十进制 to 中文
  * @param num 十进制数字
  * @param upperCase 是否使用大写
  */
-function ChpAutoNum_decimalToZh(num, upperCase) {
+function HeaderAutoNum_decimalToZh(num, upperCase) {
     let overWan = Math.floor(num / 10000),
         noWan = num % 10000;
     if (V_length(JS_toString(noWan)) < 4)
@@ -10940,7 +10970,7 @@ function ChpAutoNum_decimalToZh(num, upperCase) {
           newNum = (
             (i === 0 && strArr[i] === 0) ? _
             : (i > 0 && strArr[i] === 0 && strArr[i - 1] === 0 ? _
-            : ChpAutoNum_zhNum[strArr[i]] + (strArr[i] === 0 ? ChpAutoNum_zhUnit[0] : ChpAutoNum_zhUnit[i])
+            : HeaderAutoNum_zhNum[strArr[i]] + (strArr[i] === 0 ? HeaderAutoNum_zhUnit[0] : HeaderAutoNum_zhUnit[i])
             ))
             + newNum;
         }
@@ -10969,7 +10999,7 @@ function ChpAutoNum_decimalToZh(num, upperCase) {
  * @param value 十进制数字
  * @param upperCase 是否使用大写
  */
-function ChpAutoNum_decimalToAlpha(value, upperCase) {
+function HeaderAutoNum_decimalToAlpha(value, upperCase) {
     let numeral = _;
     while (value > 0) {
         let m = value % 26
@@ -10983,21 +11013,21 @@ function ChpAutoNum_decimalToAlpha(value, upperCase) {
 
 // 罗马数字参考：https://baike.baidu.com/item/%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97/772296
 // 算法参考：https://www.mianshigee.com/note/detail/180314zvm/
-let ChpAutoNum_romanNum = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"], // 罗马数字
-    ChpAutoNum_romanNumArea = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]; // 进位区间
+let HeaderAutoNum_romanNum = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"], // 罗马数字
+    HeaderAutoNum_romanNumArea = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]; // 进位区间
 /**
  * 数字格式转换：十进制 to 罗马
  * @param value 十进制数字
  * @param upperCase 是否使用大写
  */
-function ChpAutoNum_decimalToRoman(value, upperCase) {
+function HeaderAutoNum_decimalToRoman(value, upperCase) {
     if (value <= 0 || value >= 4000)
        return value;
     let numeral = _;
-    for (let i = 0; i < V_length(ChpAutoNum_romanNum); i++) {
-       while (value >= ChpAutoNum_romanNumArea[i]) {
-          value -= ChpAutoNum_romanNumArea[i];
-          numeral += ChpAutoNum_romanNum[i];
+    for (let i = 0; i < V_length(HeaderAutoNum_romanNum); i++) {
+       while (value >= HeaderAutoNum_romanNumArea[i]) {
+          value -= HeaderAutoNum_romanNumArea[i];
+          numeral += HeaderAutoNum_romanNum[i];
        }
     }
     return upperCase ? numeral : numeral.l();
@@ -11029,7 +11059,7 @@ function ExtQuote_init() {
         let _t = $(element),
             matchedQuoteFold = gFalse;
         // ====================
-        // 处理详情折叠（details）
+        // 处理引用块折叠（details）
         _t.ch(_h6_ + __first_child_).e((i, e) => {
             let details = __disposeDetailsFolder($(e));
             if (details)
@@ -11085,8 +11115,8 @@ function ExtQuote_init() {
     ExtList_initColumns();
 
     /**
-     * 对 details 详情折叠进行处理
-     * @param target 带约定 details 详情折叠的对象
+     * 对 details 折叠进行处理
+     * @param target 带约定 details 折叠的对象
      * @returns object 成功匹配并处理
      */
     function __disposeDetailsFolder(target) {
@@ -12853,7 +12883,7 @@ function TextField(target, id, append) {
                     V_ui_div(_, _v_text_field_ + __icon_)
                     + V_ui_input(_, _, _text_)
                     + V_ui_div(_, _v_text_field_ + __action_)
-                    + V_ui_div(_, _v_text_field_ + __reset_, V_ui_svgIcon(_icoResetInput_, 16, 16, _alpha_))
+                    + V_ui_div(_, _v_text_field_reset_, V_ui_svgIcon(_icoResetInput_, 16, 16, _alpha_))
                 );
         if (append) {
             target.ap(ui);
@@ -12866,7 +12896,7 @@ function TextField(target, id, append) {
 
         // 获得实例的各关键对象
         T.input = T.ui.ch(_input_);
-        T.reset = T.ui.ch("." + _v_text_field_ + __reset_);
+        T.reset = T.ui.ch("." + _v_text_field_reset_);
 
         /**
          * 绑定开始中文输入事件
@@ -13210,7 +13240,7 @@ function TocIndex(holder, hidden) {
             href = a.a(_href_);
 
         // 只处理主题指定不被隐藏的标题 / 大纲范围
-        if (ChpAutoNum_parseTocHeaderLevel(item.a(_class_)) <= gHideOutlineOver)
+        if (HeaderAutoNum_parseTocHeaderLevel(item.a(_class_)) <= gHideOutlineOver)
             T.h.push(LinkTool_disposeNonStandardHash(href.ss(1, V_length(href))));
 
         // 自定义目录节点元数据
@@ -13240,7 +13270,7 @@ function TocIndex(holder, hidden) {
         $(V_ui_div("fd-" + _vk_header_ + item.a(_data_ref_), _v_toc_folder_.xD(), _nbsp_)).insertBefore(item.f("a"));
 
         // 记录所有非叶子节点的folder控件
-        let lv = ChpAutoNum_parseTocHeaderLevel(item.a(_class_));
+        let lv = HeaderAutoNum_parseTocHeaderLevel(item.a(_class_));
         if (T.lastHeaderFolder !== gUndefined) {
             // 当前节点比上一个节点层级低，则上一节点为可折叠的节点
             if (lv > T.lastHeaderLevel) {
@@ -13560,8 +13590,8 @@ function TocIndex(holder, hidden) {
             let item = $(itemSet[i]);
             // 对前后节点层级不一致的处理
             if (lastItem !== gNull) {
-                const hd1 = ChpAutoNum_parseTocHeaderLevel(item.a(_class_));
-                const hd2 = ChpAutoNum_parseTocHeaderLevel(lastItem.a(_class_));
+                const hd1 = HeaderAutoNum_parseTocHeaderLevel(item.a(_class_));
+                const hd2 = HeaderAutoNum_parseTocHeaderLevel(lastItem.a(_class_));
                 if (hd1 > hd2) // 当前节点层级大于上一个节点的层级，继续
                     continue;
                 else if (hd1 < hd2) // 当前节点层级小于上一个节点的层级，终止
@@ -14335,12 +14365,14 @@ function DocLib(mask, holder) {
             // 添加文库项
             let target = V_util_getUrlQueryParams(page)[_target_],
                 hasTarget = (target !== gUndefined && V_length(target) > 0),
-                extLink = page.sW(_http_);
+                extLink = (page.i("://") > -1);
             T.toc.ap(V_ui_div(_, _v_doc_lib_item_ + " id-" + T.counter,
                 V_ui_span(_, _, (hasTarget
-                    ? ( extLink
-                        ? V_ui_svgIcon(_icoDocLibExt_, 20, 18, _alpha_) // 图标：在新标签中打开外部链接
-                        : V_ui_svgIcon(_icoDocLibBm_, 20, 20, _alpha_)) // 图标：在新标签中打开站内链接
+                    ? (!extLink
+                        ? ( target === "_self"
+                            ? V_ui_svgIcon(_icoDocLibSelf_, 20, 20, _alpha_)
+                            : V_ui_svgIcon(_icoDocLibBm_, 20, 18, _alpha_)) // 图标：在新标签中打开站内链接
+                        : V_ui_svgIcon(_icoDocLibExt_, 20, 20, _alpha_)) // 图标：在新标签中打开外部链接
                     : V_ui_svgIcon(_icoDocLib_, 20, 18, _alpha_)) // 图标：在文库窗口中打开
                 )
                 + V_ui_div(_,_, text)
@@ -14603,19 +14635,19 @@ function ExtFigure_init() {
 
     // ----------------------------------------
     // 对 srcset 为 auto 模式的处理
-    sw.st();
-    // 在当前环境的 DPR > 1 时，对于没有指定 srcset 的 img 类插图，自动强制将 src 直接指定 2x 图片
-    // 可通过 URL 参数 srcset=auto 来启用
-    if (env.display.DPR > 1
-        && V_util_getParamVal(_srcset_) === _auto_) {
-            $("p" + V_attr(_data_container_, _img_) +___+ _img_).e((index, element) => {
-                let fig = $(element);
-                if (V_getSrcValue(fig).i(_suffixSvg_, 1) === -1 // 跳过 svg 文件
-                    && fig.a(_srcset_) === gUndefined) {
-                        fig.a(_srcset_, V_getSrcValue(fig) + " 2x");
-                }
-            });
-    }
+    // sw.st();
+    // // 在当前环境的 DPR > 1 时，对于没有指定 srcset 的 img 类插图，自动强制将 src 直接指定 2x 图片
+    // // 可通过 URL 参数 srcset=auto 来启用
+    // if (env.display.DPR > 1
+    //     && V_util_getParamVal(_srcset_) === _auto_) {
+    //         $("p" + V_attr(_data_container_, _img_) +___+ _img_).e((index, element) => {
+    //             let fig = $(element);
+    //             if (V_getSrcValue(fig).i(_suffixSvg_, 1) === -1 // 跳过 svg 文件
+    //                 && fig.a(_srcset_) === gUndefined) {
+    //                     fig.a(_srcset_, V_getSrcValue(fig) + " 2x");
+    //             }
+    //         });
+    // }
 
     // 进行图片对颜色方案的适配处理
     ExtFigure_adjustColorScheme(gFalse);
@@ -16617,20 +16649,23 @@ function VLOOKui_iconSet() {
             V_ui_path('M2.26 17.998l.59-1.85h3.015l.59 1.85h1.843a.5.5 0 0 0 .465-.683l-2.648-6.74a1 1 0 0 0-.931-.635h-1.57a1 1 0 0 0-.93.634l-2.65 6.74a.5.5 0 0 0 .466.684h1.76zm3.14-3.342H3.315l.22-.682c.26-.8.534-1.741.78-2.585h.055c.275.822.535 1.785.81 2.585l.218.682zm6.745 3.544c.893 0 1.644-.364 2.31-.892h.071l.17.716h2.055v-4.058c0-2.236-1.176-3.266-3.26-3.266-1.26 0-2.408.377-3.471.942l.879 1.47c.807-.402 1.473-.628 2.11-.628.823 0 1.163.34 1.22.917-3.146.302-4.478 1.118-4.478 2.626 0 1.193.907 2.173 2.394 2.173zm.865-1.734c-.524 0-.865-.2-.865-.615 0-.503.51-.917 2.083-1.093V15.9c-.368.352-.708.565-1.218.565zM13.802 0l3.473 7.75.724.078V8.4h-4.33v-.573l1.066-.124-.727-1.864h-3.201l-.8 1.853.712.146V8.4H8.1V8.16c-.325.256-.749.37-1.314.37-.943 0-1.472-.428-1.686-1.129-.729.727-1.272 1.13-2.414 1.13-1.23 0-2.086-.676-2.086-1.766 0-1.181.743-1.818 3.043-2.428.4-.104.9-.22 1.4-.337v-.792c0-1.35-.343-1.753-1.429-1.753-.2 0-.386.013-.6.052l-.1.922c-.043.883-.528 1.233-1.071 1.233-.515 0-.872-.233-.986-.662C.97 1.78 2.213 1 4.427 1c2.029 0 2.843.792 2.843 2.674v3.492c0 .494.172.662.443.662.214 0 .372-.103.643-.493l.243.182a2.323 2.323 0 0 1-.152.262l.49-.086L12.31 0h1.492zm-8.76 4.35a7.258 7.258 0 0 0-.786.22c-1 .376-1.529.987-1.529 1.934 0 .78.4 1.143 1.072 1.143.386 0 .714-.17 1.243-.598zm7.43-2.615l-1.507 3.533h2.87l-1.363-3.533z', _))
         // 图标集：图标|灰色模式（Gray Mode）
         + V_ui_symbol(_icoGray_,
-            V_ui_path('M2 3.8a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm5.33 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm5.34 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm5.33 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM2 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm5.33 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm5.34 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM18 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM2 9.8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5.33 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5.34 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5.33 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM4.66 13.6a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4zm5.33 0a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4zm5.34 0a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4zm-10.67-7a1.3 1.3 0 1 0 0-2.6 1.3 1.3 0 0 0 0 2.6zm5.33 0a1.3 1.3 0 1 0 0-2.6 1.3 1.3 0 0 0 0 2.6zm5.34 0a1.3 1.3 0 1 0 0-2.6 1.3 1.3 0 0 0 0 2.6zm-10.67-5a.8.8 0 1 0 0-1.6.8.8 0 0 0 0 1.6zm5.33 0a.8.8 0 1 0 0-1.6.8.8 0 0 0 0 1.6zm5.34 0a.8.8 0 1 0 0-1.6.8.8 0 0 0 0 1.6z', _))
+            V_ui_path('M7.826 9.565a1.74 1.74 0 1 0 0-3.478 1.74 1.74 0 0 0 0 3.478zm4.348 0a1.74 1.74 0 1 0 0-3.478 1.74 1.74 0 0 0 0 3.478zm-4.348 4.348a1.74 1.74 0 1 0 0-3.478 1.74 1.74 0 0 0 0 3.478zm4.348 0a1.74 1.74 0 1 0 0-3.478 1.74 1.74 0 0 0 0 3.478zm3.84-4.783a1.304 1.304 0 1 0 0-2.608 1.304 1.304 0 0 0 0 2.608zm0 4.348a1.304 1.304 0 1 0 0-2.608 1.304 1.304 0 0 0 0 2.608zm.001 3.742a1.205 1.205 0 1 0 0-2.41 1.205 1.205 0 0 0 0 2.41zM3.985 9.13a1.304 1.304 0 1 0 0-2.608 1.304 1.304 0 0 0 0 2.608zm0-3.94a1.205 1.205 0 1 0 0-2.41 1.205 1.205 0 0 0 0 2.41zm0 8.288a1.304 1.304 0 1 0 0-2.608 1.304 1.304 0 0 0 0 2.608zm0 3.742a1.205 1.205 0 1 0 0-2.41 1.205 1.205 0 0 0 0 2.41zm8.189.099a1.304 1.304 0 1 0 0-2.609 1.304 1.304 0 0 0 0 2.609zm-4.348 0a1.304 1.304 0 1 0 0-2.609 1.304 1.304 0 0 0 0 2.609zm4.348-12.03a1.304 1.304 0 1 0 0-2.609 1.304 1.304 0 0 0 0 2.609zm3.841-.099a1.205 1.205 0 1 0 0-2.41 1.205 1.205 0 0 0 0 2.41zm-8.189.099a1.304 1.304 0 1 0 0-2.609 1.304 1.304 0 0 0 0 2.609zM19.13 8.696a.87.87 0 1 0 0-1.74.87.87 0 0 0 0 1.74zm0 4.347a.87.87 0 1 0 0-1.739.87.87 0 0 0 0 1.74zM.87 8.696a.87.87 0 1 0 0-1.74.87.87 0 0 0 0 1.74zm6.956-6.957a.87.87 0 1 0 0-1.739.87.87 0 0 0 0 1.74zm4.348 0a.87.87 0 1 0 0-1.739.87.87 0 0 0 0 1.74zM7.826 20a.87.87 0 1 0 0-1.74.87.87 0 0 0 0 1.74zm4.348 0a.87.87 0 1 0 0-1.74.87.87 0 0 0 0 1.74zM.87 13.043a.87.87 0 1 0 0-1.739.87.87 0 0 0 0 1.74z', _))
         // 图标集：图标|文库
         + V_ui_symbol(_icoDocLib_,
             V_ui_path('M17 0a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3h14zm.001 7h-14a2 2 0 0 0-2 2h6a3 3 0 0 0 6 0h6l-.005-.15A2 2 0 0 0 17 7zm0-3h-14a2 2 0 0 0-2 2h18l-.005-.15A2 2 0 0 0 17 4zm0-3h-14a2 2 0 0 0-2 2h18l-.005-.15A2 2 0 0 0 17 1z', _))
+        // 图标集：图标|文库-当前页面中打开链接
+        + V_ui_symbol(_icoDocLibSelf_,
+            V_ui_path('M12.5 19a.5.5 0 1 1 0 1h-5a.5.5 0 1 1 0-1h5zm3.014-19l.35.01A1.2 1.2 0 0 1 17 1.21v12.123a1.5 1.5 0 0 1-1.504 1.497h-.01a6.119 6.119 0 0 0-2.794.621 9.371 9.371 0 0 0-2.192 1.475v.047H18a1 1 0 0 0 1-1v-11a1 1 0 0 0-1-1v-1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-7.5V18H2a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.5c.813 0 1.55.324 2.091.849L9.5 4c.582-1.023 1.61-2.127 3-3.05.967-.641 1.972-.955 3.014-.951zM7.5 4H2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h7.5V6a2 2 0 0 0-2-2zm7.978-3c-.887 0-1.74.29-2.565.862-1.028.712-1.808 1.598-2.301 2.262l-.112.16v11.344l.098-.074c.407-.3.841-.575 1.302-.821l.351-.18a7.118 7.118 0 0 1 3.244-.723.5.5 0 0 0 .505-.497V1.21a.2.2 0 0 0-.19-.2L15.479 1zM8 13v1H3v-1h5zm0-3v1H3v-1h5zm0-3v1H3V7h5z', _))
         // 图标集：图标|文库-新标签中打开同站链接
         + V_ui_symbol(_icoDocLibBm_,
-            V_ui_path('M15.514 0l.35.01A1.2 1.2 0 0 1 17 1.21v1.763h1a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H9.522L9.5 20v-.028H2a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2h7.517l.105-.172c.595-.914 1.554-1.55 2.878-2.15a7.146 7.146 0 0 1 3.014-.65zM9.5 3.973H2a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h7.5v-15zm7.5 11.36a1.5 1.5 0 0 1-1.504 1.497h-.01a6.119 6.119 0 0 0-2.794.621 9.35 9.35 0 0 0-2.243 1.521l7.551.001a1 1 0 0 0 1-1v-13a1 1 0 0 0-1-1h-1v11.36zM15.478 1c-.887 0-1.74.187-2.565.562-1.048.475-1.808.898-2.301 1.562l-.112.16v14.344l.098-.074c.407-.3.841-.575 1.302-.821l.351-.18a7.118 7.118 0 0 1 3.244-.723.5.5 0 0 0 .505-.497V1.21a.2.2 0 0 0-.19-.2L15.479 1zM8 15.473v1H3v-1h5zm0-3v1H3v-1h5zm0-3v1H3v-1h5zm0-3v1H3v-1h5z', _))
+            V_ui_path('M17 0a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3h14zm-7 14H2v1h8v-1zm6-2H2v1h14v-1zm-6-4H2v2h8V8zm7.4-6h-3.6a.6.6 0 0 0 0 1.2h2.15l-2.774 2.776a.6.6 0 0 0 .848.848L16.8 4.048V6.2a.6.6 0 1 0 1.199 0V2.572l-.002-.023V2.53a.598.598 0 0 0-.014-.075l-.004-.015a.6.6 0 0 0-.322-.383l-.013-.006-.014-.006-.012-.005a.595.595 0 0 0-.054-.018l-.013-.003a.6.6 0 0 0-.02-.006l-.017-.003-.05-.008h-.003l-.006-.001.006.001L17.4 2zM5 2H3a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z', _))
         // 图标集：图标|文库-参考注释（脚注）汇总
         + V_ui_symbol(_icoDocLibRef_,
-            V_ui_path('M18 0a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h16zM9.5 1H2a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7.5V1zM18 1h-7.5v16H18a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm-2.25 6.356l-.001 4.728H17V13h-5v-.915l1.249-.001V7.965l-.624.001v-.61h3.125zM14.5 4c.69 0 1.25.546 1.25 1.22 0 .436-.238.84-.625 1.057a1.276 1.276 0 0 1-1.25 0 1.215 1.215 0 0 1-.625-1.057c0-.674.56-1.22 1.25-1.22z', _))
+            V_ui_path('M7.5 17h5a.5.5 0 1 1 0 1h-5a.5.5 0 1 1 0-1zm0-17c1.044 0 1.964.534 2.501 1.343A2.989 2.989 0 0 1 12.5 0H18a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm0 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h7.5V3a2 2 0 0 0-2-2zM18 1h-5.5a2 2 0 0 0-2 2v12H18a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm-2.25 5.356l-.001 4.728H17V12h-5v-.915l1.249-.001V6.965l-.624.001v-.61h3.125zM14.5 3c.69 0 1.25.546 1.25 1.22 0 .436-.238.84-.625 1.057a1.276 1.276 0 0 1-1.25 0 1.215 1.215 0 0 1-.625-1.057c0-.674.56-1.22 1.25-1.22z', _))
         // 图标集：图标|文库-新标签中打开外部链接
         + V_ui_symbol(_icoDocLibExt_,
-            V_ui_path('M8 2v1H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4h1v4a3 3 0 0 1-3 3H4a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h4zm10.001-2c.054 0 .106.004.158.012l.017.004.02.003a.993.993 0 0 1 .08.019l.016.005.014.004a.993.993 0 0 1 .073.027l.025.01.014.007a.995.995 0 0 1 .023.01l.047.026.023.013A.999.999 0 0 1 19 .93V.94a.523.523 0 0 1 .002.06L19 7A1 1 0 0 1 17 7V3.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L15.585 2H12a1 1 0 0 1 0-2h6.001z', _))
-        // 图标集：图标|详情折叠、details、summary 打开详情
+            V_ui_path('M20 10a9.95 9.95 0 0 0-.773-3.856v-.037h-.013A10.006 10.006 0 0 0 10.116.006L10.104 0l-.008.004C10.063.004 10.03 0 10 0 4.477 0 0 4.479 0 10c0 5.523 4.476 10 10 10 .031 0 .063-.004.094-.004a.07.07 0 0 1 .01.004l.012-.006C15.584 19.931 20 15.484 20 10zm-9.894 8.621c-.696-.577-1.945-2-2.517-5.037h5.028c-.573 3.045-1.821 4.466-2.511 5.037zM7.43 12.434a19.427 19.427 0 0 1 .061-5.176h5.223a19.214 19.214 0 0 1 .065 5.176H7.43zM1.15 10c0-.957.157-1.877.44-2.741h4.723a21.412 21.412 0 0 0-.177 2.81c0 .862.053 1.64.133 2.365h-4.77A8.778 8.778 0 0 1 1.15 10zm8.95-8.593c.661.589 1.803 1.982 2.41 4.7H7.69c.601-2.727 1.737-4.11 2.41-4.7zm3.796 5.852h4.514c.281.864.439 1.784.439 2.741 0 .846-.126 1.66-.349 2.434h-4.56c.08-.725.133-1.503.133-2.365 0-1.035-.066-1.968-.177-2.81zm4.04-1.152h-4.232c-.484-2.374-1.358-3.88-2.127-4.807a8.872 8.872 0 0 1 6.359 4.807zM8.66 1.263c-.774.923-1.667 2.438-2.157 4.844h-4.44a8.855 8.855 0 0 1 6.597-4.844zM1.914 13.584h4.517c.458 2.583 1.373 4.19 2.18 5.146a8.87 8.87 0 0 1-6.697-5.146zm9.716 5.109c.8-.96 1.696-2.562 2.147-5.109h4.307a8.874 8.874 0 0 1-6.454 5.109z', _))
+        // 图标集：图标|引用块折叠、details、summary 打开详情
         + V_ui_symbol(_icoDetailsOpen_,
             V_ui_path('M9 0a9 9 0 1 1 0 18A9 9 0 0 1 9 0zm1 3H8v5H3v2h5v5h2v-5h5V8h-5V3z', _))
         // 图标集：图标|检查
@@ -16950,7 +16985,7 @@ function VLOOKui_common() {
             + V_ui_div(_, _v_link_chk_result_, V_ui_svgIcon(_icoLinkError_, 20, 18, _dark_))
             + V_ui_div(_, _v_link_map_, V_ui_svgIcon(_icoLinkMap_, 20, 20, _dark_))
             + V_ui_div(_, _v_sts_font_style_, V_ui_svgIcon(_icoFontStyle_, 18, 18, _dark_))
-            + V_ui_div(_, _v_sts_gray_, V_ui_svgIcon(_icoGray_, 20, 18, _dark_) + _nbsp_ + V_lang_text48())
+            + V_ui_div(_, _v_sts_gray_, V_ui_svgIcon(_icoGray_, 20, 20, _dark_) + _nbsp_ + V_lang_text48())
             + V_ui_div(_, _v_color_scheme_, V_ui_svgIcon(_icoDarkMode_, 20, 20, _dark_))
         );
 
@@ -17132,6 +17167,15 @@ $(() => { // 等价于 $(document).ready()
     // ----------------------------------------
     // 初始化启动参数
     V_query_init();
+
+    // 重置所有保存在缓存的 vlook 相关数据
+    if (V_util_getParamVal(_reset_) === _true_) {
+        WARN("!!! RESET VLOOK DATA !!!");
+        V_data_remove(_new_version_check_time_, gTrue);
+        V_data_remove(_last_position_);
+        V_data_remove(_color_scheme_, gTrue);
+        V_data_remove(_font_style_, gTrue);
+    }
 
     // 判断文档类型
     if (V_util_getParamVal("v" + _type_) === _mini_) {
