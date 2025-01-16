@@ -31,7 +31,7 @@ vlook-welcome: 自定义文档加载过程中显示的欢迎屏信息（须在�
 >
 > 这是右分栏的内容
 >
-> [<kbd>这是超链接的按钮 ❯</kbd>](https://gitee.com/madmaxchow/VLOOK)
+> **[<kbd>这是超链接的按钮 ❯</kbd>](https://gitee.com/madmaxchow/VLOOK)**
 
 
 
@@ -45,7 +45,7 @@ vlook-welcome: 自定义文档加载过程中显示的欢迎屏信息（须在�
 >
 > 这是第 1 行的分栏 1 的内容（也支持标签）
 >
-> [<kbd>这是超链接的按钮 ❯</kbd>](https://gitee.com/madmaxchow/VLOOK)
+> **[<kbd>这是超链接的按钮 ❯</kbd>](https://gitee.com/madmaxchow/VLOOK)**
 >
 > _~Bn!~_
 

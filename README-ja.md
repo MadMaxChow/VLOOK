@@ -34,13 +34,13 @@ VLOOK™ はオープンソースソフトウェアであり、**[MIT ライセ�
 
 # 寄付
 
-| **私は VLOOK™が好きで、コーヒーを 1 杯寄付します** |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**         |
-| :----------------------------------------------------------: | :----------------------------------------------------------: |
-| [![VLOOK™ に寄付する](https://vlook-doc.pages.dev/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow) | ![VLOOK™ に寄付する](https://vlook-doc.pages.dev/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo) |
-
 > **VLOOK™ に寄付していただいた方々（部分的なドナー）に感謝します。**
 >
 > ＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊麗、一＊秋、＊軍、＊鵬、李＊6、＊無、H＊t、＊二、f＊y、＊宇、＊琛、＊輝、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龍、＊應、＊銷、＊哦、E＊y、……
+
+| **私は VLOOK™が好きで、コーヒーを 1 杯寄付します** |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**         |
+| :----------------------------------------------------------: | :----------------------------------------------------------: |
+| [![VLOOK™ に寄付する](https://vlook-doc.pages.dev/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow) | ![VLOOK™ に寄付する](https://vlook-doc.pages.dev/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo) |
 
 ---
 

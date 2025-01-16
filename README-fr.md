@@ -34,13 +34,13 @@ VLOOK™ est un logiciel open source et respecte la **[licence MIT](#许可协�
 
 # Faire un don
 
-| **J'aime VLOOK™, je donne un verre de café** |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**         |
-| :----------------------------------------------------------: | :----------------------------------------------------------: |
-| [![Faire un don à VLOOK™](https://vlook-doc.pages.dev/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow) | ![Faire un don à VLOOK™](https://vlook-doc.pages.dev/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo) |
-
 > **Merci d'avoir fait un don à VLOOK™ (donateurs partiels)**
 >
 > ＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+
+| **J'aime VLOOK™, je donne un verre de café** |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**         |
+| :----------------------------------------------------------: | :----------------------------------------------------------: |
+| [![Faire un don à VLOOK™](https://vlook-doc.pages.dev/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow) | ![Faire un don à VLOOK™](https://vlook-doc.pages.dev/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo) |
 
 ---
 
