@@ -88,9 +88,15 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的互联网化应用场景，在 **文档排版**、**内容导航**、**演示辅助**、**交互体验** 等方面提供了 **一致**、**简洁**、**友好** 的体验。
 
-> - 有关 VLOOK™ 特性的详细介绍、样例及使用说明详见《VLOOK™ 快速参考手册》•• [点击这里开始](https://madmaxchow.github.io/VLOOK/guide.html)（[备用链接](https://vlook-doc.pages.dev/guide.html)）
+> 有关 VLOOK™ 特性的详细介绍、样例及使用说明详见《VLOOK™ 快速参考手册》：
+>
+> • **基础** • [点击这里开始](https://madmaxchow.github.io/VLOOK/guide.html)（[备用链接](https://vlook-doc.pages.dev/guide.html)）
+>
+> ▲ **进阶** ▲ [点击这里开始](https://madmaxchow.github.io/VLOOK/guide2.html)（[备用链接](https://vlook-doc.pages.dev/guide2.html)）
+>
+> ★ **探索** ★ [点击这里开始](https://madmaxchow.github.io/VLOOK/guide3.html)（[备用链接](https://vlook-doc.pages.dev/guide3.html)）
 
-> - 有关脚本化图表的详细介绍、样例及使用说明详见《脚本化图表参考指南》•• [点击这里开始](https://madmaxchow.github.io/VLOOK/chart.html)（[备用链接](https://vlook-doc.pages.dev/chart.html)）
+> - 有关脚本化图表的详细介绍、样例及使用说明详见《脚本化图表参考指南》••• [点击这里开始](https://madmaxchow.github.io/VLOOK/chart.html)（[备用链接](https://vlook-doc.pages.dev/chart.html)）
 
 # 增值服务
 

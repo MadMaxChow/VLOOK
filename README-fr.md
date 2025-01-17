@@ -85,9 +85,15 @@ Blogs sélectionnés pour le "**Projet Zhihu • Sel de Mer**" •• [Allez-y](
 
 VLOOK™ fournit une expérience **cohérente**, **simple** et **conviviale** en matière de **mise en page des documents**, **navigation dans le contenu**, **aide à la présentation**, et **expériences interactives** grâce à l'**exploration et l'expansion** continues de Markdown et CSS, combinées à des scénarios d'applications Internet.
 
-> - Pour une présentation détaillée, des exemples et des instructions sur les fonctionnalités de VLOOK™, consultez le "Manuel de Référence Rapide VLOOK™"••• [Voir](https://madmaxchow.github.io/VLOOK/guide.html) •• [lien alternatif](https://vlook-doc.pages.dev/guide.html)
+> Pour une présentation détaillée, des exemples et des instructions sur les fonctionnalités de VLOOK™, consultez le "Manuel de Référence Rapide VLOOK™":
+>
+> • **De base** • [Voir](https://madmaxchow.github.io/VLOOK/guide.html) ([lien alternatif](https://vlook-doc.pages.dev/guide.html))
+>
+> ▲ **Avancé** ▲ [Voir](https://madmaxchow.github.io/VLOOK/guide2.html) ([lien alternatif](https://vlook-doc.pages.dev/guide2.html))
+>
+> ★ **Exploration** ★ [Voir](https://madmaxchow.github.io/VLOOK/guide3.html) ([lien alternatif](https://vlook-doc.pages.dev/guide3.html))
 
-> - Pour une présentation détaillée, des exemples et des instructions sur l'utilisation des graphiques scriptés, consultez le "Guide de Référence des Graphiques Scriptés"••• [Voir](https://madmaxchow.github.io/VLOOK/chart.html) •• [lien alternatif](https://vlook-doc.pages.dev/chart.html)
+> Pour une présentation détaillée, des exemples et des instructions sur l'utilisation des graphiques scriptés, consultez le "Guide de Référence des Graphiques Scriptés"••• [Voir](https://madmaxchow.github.io/VLOOK/chart.html) ([lien alternatif](https://vlook-doc.pages.dev/chart.html))
 
 ---
 

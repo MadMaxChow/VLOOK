@@ -85,9 +85,15 @@ Blogs, ausgewählt für das "**Zhihu • Sea Salt Project**" •• [Los geht's]
 
 VLOOK™ bietet durch die fortlaufende **Erweiterung und Ausgrabung** von Markdown und CSS sowie die Kombination mit Internetanwendungsszenarien eine **dokumentenlayout**-Erfahrung, die in den Bereichen **Inhaltsnavigation**, **Präsentationshilfen**, **interaktive Erlebnisse** **konsistent**, **einfach** und **freundlich** ist.
 
-> - Für eine detaillierte Einführung, Beispiele und Anweisungen zu den Funktionen von VLOOK™, siehe "VLOOK™ Schnellreferenzhandbuch"••• [Ansehen](https://madmaxchow.github.io/VLOOK/guide.html) •• [alternative link](https://vlook-doc.pages.dev/guide.html)
+> Für eine detaillierte Einführung, Beispiele und Anweisungen zu den Funktionen von VLOOK™, siehe "VLOOK™ Schnellreferenzhandbuch":
+>
+> • **Grundlagen** • [Ansehen](https://madmaxchow.github.io/VLOOK/guide.html) ([alternative link](https://vlook-doc.pages.dev/guide.html))
+>
+> ▲ **Fortgeschritten** ▲ [Ansehen](https://madmaxchow.github.io/VLOOK/guide2.html) ([alternative link](https://vlook-doc.pages.dev/guide2.html))
+>
+> ★ **Erkundung** ★ [Ansehen](https://madmaxchow.github.io/VLOOK/guide3.html) ([alternative link](https://vlook-doc.pages.dev/guide3.html))
 
-> - Für eine detaillierte Einführung, Beispiele und Anweisungen zur Verwendung von Scripted Charts, siehe "Scripted Charts Referenzhandbuch"••• [Ansehen](https://madmaxchow.github.io/VLOOK/chart.html) •• [alternative link](https://vlook-doc.pages.dev/chart.html)
+> Für eine detaillierte Einführung, Beispiele und Anweisungen zur Verwendung von Scripted Charts, siehe "Scripted Charts Referenzhandbuch"••• [Ansehen](https://madmaxchow.github.io/VLOOK/chart.html) ([alternative link](https://vlook-doc.pages.dev/chart.html))
 
 ---
 

@@ -85,9 +85,15 @@ VLOOK™ についてさらに知りたい方は、[ここをクリックして�
 
 VLOOK™ は、Markdown と CSS の**拡張と拡掘**を通じて、インターネットアプリケーションシナリオに適した**ドキュメントレイアウト**、**コンテンツナビゲーション**、**プレゼンテーション支援**、**インタラクティブ体験**を提供し、**一貫性**、**シンプル**、**フレンドリー**な使用感を実現します。
 
-> - VLOOK™ 機能の詳細な紹介、サンプル、および使用方法については、"VLOOK™ クイックリファレンスマニュアル" を参照してください••• [表示](https://madmaxchow.github.io/VLOOK/guide.html) •• [代替リンク](https://vlook-doc.pages.dev/guide.html)
+> VLOOK™ 機能の詳細な紹介、サンプル、および使用方法については、"VLOOK™ クイックリファレンスマニュアル" を参照してください：
+>
+> • **基礎** • [表示](https://madmaxchow.github.io/VLOOK/guide.html) ([代替リンク](https://vlook-doc.pages.dev/guide.html))
+>
+> ▲ **進階** ▲ [表示](https://madmaxchow.github.io/VLOOK/guide2.html) ([代替リンク](https://vlook-doc.pages.dev/guide2.html))
+>
+> ★ **探索** ★ [表示](https://madmaxchow.github.io/VLOOK/guide3.html) ([代替リンク](https://vlook-doc.pages.dev/guide3.html))
 
-> - スクリプト化されたチャートの詳細な説明、サンプル、および使用方法については、"スクリプト化チャートリファレンスマニュアル" を参照してください••• [表示](https://madmaxchow.github.io/VLOOK/chart.html) •• [代替リンク](https://vlook-doc.pages.dev/chart.html)
+> スクリプト化されたチャートの詳細な説明、サンプル、および使用方法については、"スクリプト化チャートリファレンスマニュアル" を参照してください••• [表示](https://madmaxchow.github.io/VLOOK/chart.html) ([代替リンク](https://vlook-doc.pages.dev/chart.html))
 
 ---
 

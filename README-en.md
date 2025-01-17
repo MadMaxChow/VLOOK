@@ -86,9 +86,15 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 VLOOK™ through the ongoing **excavation and expansion of** Markdown and CSS, combined with Internet application scenarios document, the **document layout**, **content navigation**, **presentation aid**, **interactive experience** provides aspects such as **consistent**, **simple**, **and friendly** experience.
 
-> - For detailed introduction, samples and instructions of VLOOK™ features, please refer to "VLOOK™ Quick Reference Manual"••• [View](https://madmaxchow.github.io/VLOOK/guide.html) •• [alternative link](https://vlook-doc.pages.dev/guide.html)
+> For detailed introduction, samples and instructions of VLOOK™ features, please refer to "VLOOK™ Quick Reference Manual":
+>
+> • **Basic** • [View](https://madmaxchow.github.io/VLOOK/guide.html) ([alternative link](https://vlook-doc.pages.dev/guide.html))
+>
+> ▲ **Advanced** ▲ [View](https://madmaxchow.github.io/VLOOK/guide2.html) ([alternative link](https://vlook-doc.pages.dev/guide2.html))
+>
+> ★ **Exploration** ★ [View](https://madmaxchow.github.io/VLOOK/guide3.html) ([alternative link](https://vlook-doc.pages.dev/guide3.html))
 
-> - For detailed introduction, samples and usage instructions of scripted charts, please refer to "Scripted Charts Reference Guide"••• [View](https://madmaxchow.github.io/VLOOK/chart.html) •• [alternative link](https://vlook-doc.pages.dev/chart.html)
+> For detailed introduction, samples and usage instructions of scripted charts, please refer to "Scripted Charts Reference Guide"••• [View](https://madmaxchow.github.io/VLOOK/chart.html) ([alternative link](https://vlook-doc.pages.dev/chart.html))
 
 ---
 
