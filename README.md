@@ -26,11 +26,11 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 
 
-> **加入讨论**
+> **加入讨论与交流**
 >
 > - 💬 QQ 群 ([**805502564**](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&)) 
 > - ✈️ Telegram Channel ([**vlook_markdown**](https://t.me/vlook_markdown "加入 Telegram 频道")) 
-> - 📧 邮件 (**maxchow@qq.com**)
+> - 📨 邮件 (**maxchow@qq.com**)
 
 # 打赏
 

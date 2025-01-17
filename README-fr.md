@@ -26,11 +26,11 @@ VLOOK™ est un logiciel open source et respecte la **[licence MIT](#许可协�
 
 
 
-> **Rejoignez la discussion**
+> **Discussion et Communication**
 >
 > - 💬 Groupe QQ ([**805502564**](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&))
 > - ✈️ Canal Telegram ([**vlook_markdown**](https://t.me/vlook_markdown "Rejoindre le canal Telegram")) 
-> - 📧 Email (**maxchow@qq.com**)
+> - 📨 Email (**maxchow@qq.com**)
 
 # Faire un don
 
