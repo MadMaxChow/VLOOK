@@ -1,5 +1,6 @@
 ---
 title: 浏览更多 VLOOK™ 的话题
+vlook-query: sb=hide
 ---
 
 # 快速入坑°文档排版

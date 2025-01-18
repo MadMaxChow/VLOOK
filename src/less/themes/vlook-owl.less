@@ -15,7 +15,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V28.0";
+@themeVer: "V28.1";
 @themeName: "vlook-owl";
 @themeDesc: "Owl";
 
@@ -224,11 +224,12 @@
 //     font-size: 3.5em;
 // }
 
-// 生成文本居中样式
-.genCenterText();
-
-// 生成文本引用样式
-.genQuoteText();
+// 生成加粗文本扩展样式
+.genExtBoldText();
+// 生成下划线文本扩展样式
+.genExtUnderText();
+// 生成高亮文本扩展样式
+.genExtHighlightText(@quoteBeforeImage_c01, @quoteAfterImage_c01, .8);
 
 // 生成强调风格的有序列表样式
 .genOrderList(block, circle);

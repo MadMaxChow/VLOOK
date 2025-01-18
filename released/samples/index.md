@@ -30,14 +30,16 @@ keywords:
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
 vlook-header-autonum-test: h1{{#00##}}
 vlook-doc-lib:
-- [快速参考手册](guide.html?target=guide "文本、表格、图片、列表、引用块、章节标题、分栏、按钮、代码、内容标记、Mermaid、数学公式、多媒体、内容导航、内容助手、演示辅助、出版辅助、外观")
-- [浏览 VLOOK™ 文库](vlook-lib.html "手册、教程、指南、示例、范例")
-- [English 🔠 Guide](index-en.html?target=vlook-index-en "Guide, Manual, Sample, Example")
+- [VLOOK™ 特性](vlook-lib.html "手册、教程、指南、示例、范例")
+- [手册 • 基础](guide.html?target=guide "文本、表格、图片、列表、引用块、章节标题")
+- [手册 ▲ 进阶](guide2.html?target=guide "分栏、按钮、代码、内容标记、Mermaid、数学公式、多媒体")
+- [手册 ★ 探索](guide3.html?target=guide "内容导航、内容助手、演示辅助、出版辅助、外观")
+- [English 🔠](index-en.html?target=vlook-index-en "Introduction, Quick Start, How to Use")
 - [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank "Project Home")
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 ---
 
-###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V28.0`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V28.1`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 
 [TOC]
 
@@ -45,17 +47,13 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 # VLOOK™ 是什么
 
-> ![VLOOK™](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo)
->
-> ![OSChina](pic/oschina.png#icon) **[开源中国](https://www.oschina.net/p/vlook) 推荐的国产开源产品。**
->
-> ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™**_~T1~_ 是针对 ![Typora](pic/typora.png#icon) [Typora](https://typoraio.cn)[^Typora] **主题包**_~GnRo~_ 和 **增强插件**_~PuOg~_。
->
-> VLOOK™ 属于开源软件（遵从 **MIT License**_~Rd~_）。
+![VLOOK™](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo)
 
+<u>![OSChina](pic/oschina.png#icon) **[开源中国](https://www.oschina.net/p/vlook) 推荐的国产开源产品。**</u>
 
+==![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™**_~T1~_ 是针对 ![Typora](pic/typora.png#icon) [Typora](https://typoraio.cn)[^Typora] **主题包**_~GnRo~_ 和 **增强插件**_~PuOg~_，<br>属于开源软件（遵从 **MIT License**_~Rd~_)。==
 
-[*编辑工具`Typora`V1.9+*_~Gy~_](https://typoraio.cn)　*开源协议主`MIT`*_~Rd~_　*`关键字`主题、插件*_~Pu~_　*`支持的操作系统`Windows, macOS, Linux*_~Bu~_
+**[*编辑工具`Typora`V1.9+*_~Gy~_](https://typoraio.cn)　*开源协议主`MIT`*_~Rd~_　*`关键字`主题、插件*_~Pu~_　*`支持的操作系统`Windows, macOS, Linux*_~Bu~_**
 
 
 
@@ -92,7 +90,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 # 为谁准备
 
-**如果你也有以下一个或多个需求或痛点，就可以放心地尝试基于 Markdown 的文档解决方案进行文档的编辑、发布、管理，建议组合是 ==Typora + VLOOK™==：**
+==如果你也有以下一个或多个需求或痛点，就可以放心地尝试基于 Markdown 的文档解决方案进行文档的编辑、发布、管理，建议组合是 **Typora + VLOOK™**_~BkGyT1T1T2~_==
 
 - 使用 Markdown 写文档，但对 Markdown 编辑器，或其输出的 HTML 的排版、交互有更多的需求
 - 对于编写的文档，希望 *??? **统一模板与输出***_~T1~_ ，并且最好 *??? **随时切换不同模板***_~T2~_
@@ -111,6 +109,10 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 # 打赏
 
+<u>**感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**</u>
+
+＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+
 ---
 
 > **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**
@@ -124,10 +126,6 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 > [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow)
 >
 > _~Se~_
-
-> **感谢打赏支持 VLOOK™ 的客官（部分名单）**
->
-> ＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 # 快速入坑
 
@@ -200,7 +198,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 >
 > VLOOK™ 的部分特性需要通过导出 HTML 后才能支持。
 >
-> 具体请留意参考手册中各特性的「适用范围」说明，如：*`编辑时`不适用*_~Gy~_ *适用于`编辑时`*_~Gn~_
+> 具体请留意参考手册中各特性的「适用范围」说明，如：*`编辑时`× 不适用*_~Gy~_ *`编辑时`✓ 适用*_~Gn~_
 
 # 专题文章
 
@@ -219,9 +217,9 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 > **Step1. 下载插件**
 >
-> 从 VLOOK™ 在托管的平台上下载最新发布版本（或在后续步骤中直接从仓库中选择下载需要的文件）：
+> 从 VLOOK™ 在托管的平台上下载最新发布版本（**VLOOK-released.zip**）
 > 
->  [<kbd>![](pic/icon-download.svg?fill=text) 从 GitHub 下载</kbd>](https://github.com/MadMaxChow/VLOOK/releases/tag/V28.0)  *[<kbd>![](pic/icon-download.svg?fill=text) 从 Gitee 下载</kbd>](https://gitee.com/madmaxchow/VLOOK/repository/archive/V28.0)*
+>  [<kbd>![](pic/icon-download.svg?fill=text) 从 GitHub 下载</kbd>](https://github.com/MadMaxChow/VLOOK/releases)  *[<kbd>![](pic/icon-download.svg?fill=text) 从 Gitee 下载</kbd>](https://gitee.com/madmaxchow/VLOOK/tags)*
 >
 >
 > _~Gn!~_
@@ -252,11 +250,10 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 >
 > 1. 将 *==released/themes==* 下所有 **CSS 文件**，复制至 Typora 的主题目录
 >
->    > 主题目录在哪？
->    >
->    > 打开 *==偏好设置 ▸ 外观 ▸ 打开主题目录==* 定位到该目录
 >
-> 2. 或直接访问 VLOOK 的 **[themes](https://github.com/MadMaxChow/VLOOK/tree/master/released/themes)** 文件夹，下载并复制至 Typora 的主题目录下
+> > **主题目录在哪？** 
+> >
+> > 打开 *==偏好设置 ▸ 外观==* ，点击 <kbd>打开主题目录</kbd> 定位到该目录
 >
 > _~Og~_
 
@@ -291,8 +288,6 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 ---
 
----
-
 > **添加「导出设置」**
 >
 > 1. 打开 Typora 导出配置
@@ -309,15 +304,17 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 >
 > _~Cy~_
 
+---
+
 > **安装「插件」**
 >
-> 1. 打开插件文件：*==released/plugin/**plugin.txt**==*（或直打开 GitHub 上的 **[plugin.txt](https://github.com/MadMaxChow/VLOOK/tree/master/released/plugin/plugin.txt)** 文件）
+> 1. 打开插件文件：*==released/plugin/**plugin.txt**==*
 > 2. 全选，并复制所有内容
 > 3. 将内容粘贴至 `在 <body /> 中添加` 配置内
 >
 > _~Cy~_
 
-> ###### 一键导出为 HTML
+> **一键导出为 HTML**
 >
 > 1. 打开符合 VLOOK™ 规范的 md 文件；
 > 2. 点击 *==文件 ▸ 导出 ▸ VLOOK==* 完成导出。
@@ -325,6 +322,12 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 > _~Cy~_
 
 ![Typora ▸ 偏好设置 ▸ 导出](pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
+
+
+
+> **加入讨论与交流**
+>
+> [<kbd>💬 加入 QQ 群</kbd>](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)    *[<kbd>✈️ 加入 Telegram 频道</kbd>](https://t.me/vlook_markdown)*
 
 # 补充说明
 
@@ -334,13 +337,13 @@ VLOOK™ 的界面语言默认内置了「**英文**、**简体中文**」，对
 
 <u>目前可扩展支持的语种：</u>
 
-<u>*法语`Français`*_~La~_  *德语`Detusch`*_~Og~_  *俄语`Русский`*_~Bu~_  *西班牙语`Español`*_~Ye~_  *葡萄牙语`Português`*_~Mn~_<br>*繁体中文`港澳台地区`*_~Wn~_  *日语`日本語`*_~Rd~_  *韩语`한국어`*_~Se~_  *阿拉伯语`العربية`*_~Gn~_</u>
+***法语`Français`*_~La~_  *德语`Detusch`*_~Og~_  *俄语`Русский`*_~Bu~_  *西班牙语`Español`*_~Ye~_  *葡萄牙语`Português`*_~Mn~_<br>*繁体中文`港澳台地区`*_~Wn~_  *日语`日本語`*_~Rd~_  *韩语`한국어`*_~Se~_  *阿拉伯语`العربية`*_~Gn~_**
 
 ---
 
 > **选择语言包**
 >
-> 1. 语言包文件位于 *==released/plugin/lang==* 目录下（或直接访问 GitHub 上的 **[lang](https://github.com/MadMaxChow/VLOOK/tree/master/released/plugin/lang)** 文件夹）
+> 1. 语言包文件位于 *==released/plugin/lang==* 目录下
 > 2. 打开一个或多个语言文件，并复制所有内容（如：`Français.txt` ）
 
 > **更新导出配置**
@@ -372,19 +375,21 @@ VLOOK™ 的界面语言默认内置了「**英文**、**简体中文**」，对
 >
 > _~Bu~_
 
-> **![](pic/logo-browser.svg?fill=gy&darksrc=invert#icon)  推荐选择兼容的浏览器！**
+> **![](pic/logo-browser.svg?fill=bu&darksrc=invert#icon)  推荐选择兼容的浏览器！**
 >
 > 为保障最佳的使用体验，强烈建议使用以下浏览器访问：
 >
 > ![Chrome](pic/chrome.png#icon) **[Chrome](https://www.google.cn/chrome/)**　　![Edge](pic/edge.png#icon) **[Edge](https://www.microsoft.com/edge)**　　![Firefox](pic/firefox.png#icon) **[Firefox](https://www.mozilla.org/firefox/)**
 >
-> _~Gy~_
+> _~Bu~_
 
 ---
 
 > **跨平台**
 >
 > 使用 VLOOK™ 发布的 HTML 文档能自适应在台式机、平板、手机等多种设备不同屏幕和分辨率，提供最为合适的阅读和使用体验。
+>
+> _~La~_
 
 > **动效**
 >
@@ -396,6 +401,8 @@ VLOOK™ 的界面语言默认内置了「**英文**、**简体中文**」，对
 > >
 > > - 在地址栏输入： `about:config`
 > > - 搜索配置项： `layout.css.backdrop-filter.enabled` ，并设置为 `true`
+>
+> _~La~_
 
 ---
 
@@ -407,7 +414,7 @@ VLOOK™ 的界面语言默认内置了「**英文**、**简体中文**」，对
 
 <u>目前现已开放主题的「**定制服务**」，以下为部分定制案例参考：</u>
 
-[![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.gif)](https://madmaxchow.github.io/VLOOK/vip.html)
+[![定制主题案例](pic/vlook-theme-vip-demo.gif)](https://madmaxchow.github.io/VLOOK/vip.html)
 
 
 
@@ -415,7 +422,7 @@ VLOOK™ 的界面语言默认内置了「**英文**、**简体中文**」，对
 
 ## 排版编辑服务
 
-![文档排版、内容修订、知识库搭建、出版指导、站点托管](https://vlook-doc.pages.dev/pic/vlook-te.png?srcset=@2x)
+![排版编辑服务](pic/vlook-te.png?srcset=@2x)
 
 <u>针对你文档的内容、受众，充分应用 Typora + VLOOK™ 的众多特性，提供 **文档排版**、**内容修订**、**知识库搭建**、**出版指导**、**站点托管**、**发布 HTML** 等服务。</u>
 

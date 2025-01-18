@@ -1,5 +1,6 @@
 ---
 title: More Topics about VLOOK™
+vlook-query: sb=hide
 ---
 
 # Quick Start ° Formatting

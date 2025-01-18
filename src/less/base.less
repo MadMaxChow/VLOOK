@@ -2,8 +2,8 @@
  *
  * VLOOK™ CSS 基础库
  *
- * V28.0
- * 2025-01-11
+ * V28.1
+ * 2025-01-18
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -57,7 +57,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 逐章导航面板 / .v-chapter-nav / z-index: 100;
 状态栏 / .v-status-bar / z-index: 80;
 文档更多内容遮挡阴影（下）/ .v-more-doc-content-after / z-index: 69;
-适应宽度 / .v-fit-width / z-index: 65;
+适应宽度 / .v-fill-width / z-index: 65;
 文档更多内容遮挡阴影（上） / .v-more-doc-content-before / z-index: 60
 
 ---------- 文档内容交互区 ----------
@@ -266,7 +266,7 @@ body.unfreeze {
 // --------------------------------------------------
 // 针对 Gray Mode 相关样式
 @grayModeFilter: ~'grayscale(1)';
-@graySelector: ~':is(#write, .v-welcome-page, .v-mask, .v-toolbar, .v-link-info-list, .v-font-style, .v-font-style-current, .v-content-assistor, .v-tbl-x, .v-footnote-pn, .v-tool-tips, .v-info-tips, .v-pg-nav-mask-border, .v-fit-width, .v-pic-in-pic, .v-chapter-nav, .v-fig-nav, .v-nav-center, .v-nav-history)';
+@graySelector: ~':is(#write, .v-welcome-page, .v-mask, .v-toolbar, .v-link-info-list, .v-font-style, .v-font-style-current, .v-content-assistor, .v-tbl-x, .v-footnote-pn, .v-tool-tips, .v-info-tips, .v-pg-nav-mask-border, .v-fill-width, .v-pic-in-pic, .v-chapter-nav, .v-fig-nav, .v-nav-center, .v-nav-history)';
 // 正常样式
 body @{graySelector},
 body .typora-export-content::before {
@@ -297,7 +297,7 @@ body.gray .v-status-bar>.v-sts-gray {
 }
 
 // 适应宽度
-.v-fit-width {
+.v-fill-width {
     display: none;
     justify-content: center;
     align-items: center;
@@ -311,29 +311,29 @@ body.gray .v-status-bar>.v-sts-gray {
     border-radius: var(--v-r-b);
     z-index: 65;
 }
-.v-fit-width>svg{
+.v-fill-width>svg{
     transform: rotate(180deg);
 }
-.v-fit-width:hover {
+.v-fill-width:hover {
     background: linear-gradient(270deg, var(--ac-t2-fade), transparent);
     padding-left: 40px;
     cursor: var(--cur-pointer);
 }
-.v-fit-width:hover>svg>use {
+.v-fill-width:hover>svg>use {
     fill: var(--a-hover-color);
     opacity: 1;
 }
 // ---
-.v-fit-width.enabled {
+.v-fill-width.enabled {
     width: @writePaddingRight * 3 !important;
     right: 0;
     padding-left: 42px;
 }
-.v-fit-width.enabled:hover {
+.v-fill-width.enabled:hover {
     padding-left: 0;
     background: linear-gradient(90deg, var(--ac-t2-fade), var(--d-bc));
 }
-.v-fit-width.enabled>svg {
+.v-fill-width.enabled>svg {
     transform: rotate(0deg);
 }
 
@@ -341,13 +341,16 @@ body.gray .v-status-bar>.v-sts-gray {
 // 段落中只有图片时的样式（结合主题的 genTableAndFigureAlign 处理，默认左对齐或居中）
 @onlyImageInPg: ~"@{writeOnEditing} p > .md-image:only-child:not(.md-img-error) img, @{writeOnHTML} p > img:only-child";
 @{onlyImageInPg} {
+    // display: block;
+    // margin: 0;
+    margin: 0 auto;
     display: block;
-    margin: 0;
 }
 // 段落中只有图片链接时的样式（结合主题的 genTableAndFigureAlign 处理，默认左对齐或居中）
 @onlyImageLinkInPg: ~"@{writeOnEditing} p:has(> .md-link:only-child .md-image:only-child:not(.md-img-error) img), @{writeOnHTML} p:has(> a:only-child > img:only-child)";
 @{onlyImageLinkInPg} {
-    text-align: left;
+    // text-align: left;
+    text-align: center;
 }
 
 // 插图
@@ -369,6 +372,12 @@ body.gray .v-status-bar>.v-sts-gray {
 
 @{writeOnEditing} .md-image {
     font-size: @fontSizePx;
+}
+
+// 带 loading 属性的图片
+img[loading]::after {
+    min-width: 80px;
+    min-height: 20px;
 }
 
 // 图片地址参数指定是否填充边缘
@@ -456,6 +465,7 @@ body.gray .v-status-bar>.v-sts-gray {
 @{writeOnHTML} img[src*="#card"],
 @{writeOnHTML} svg[data-inject-url*="#card"] {
     border: none !important;
+    // border: @captionContentBorder;//2px solid var(--pn-c);
     border-radius: var(--v-r-b) var(--v-r-b-xc);
 }
 @{writeOnEditing} .md-image[data-src*="#cardd"]>img, // 编辑时
@@ -463,6 +473,7 @@ body.gray .v-status-bar>.v-sts-gray {
 @{writeOnHTML} svg[data-inject-url*="#cardd"] {
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
+    // border: none !important;
 }
 // 编辑时明信片双卡的提示样式
 @{writeOnEditing} .md-image[data-src*="#cardd"]::after {
@@ -480,18 +491,31 @@ body.gray .v-status-bar>.v-sts-gray {
     width: 100%;
 }
 // 明信片带 #border 时，导出后的微调（未指定色号时）
-#write :is(p, blockquote):has(img[src*="#card"]) {
+// #write > p:has(img[src*="#card"]) { // 仅针对正文下段落
+//     width: fit-content;
+// }
+// #write :is(p, blockquote):has(img[src*="#card"]) {
+#write p:has(img[src*="#card"]:not([src*="#fill"])) {
     width: fit-content;
 }
+// #write :is(p, blockquote):has(img[src*="#card"][src*="#border"]) {
+//     width: fit-content;
+// }
 // 针对引用块分栏内的图片（考虑图片宽度较小的情况，居中）
-#write @{hr_MdHr}+blockquote>p:has(img[src*="#card"]),
-#write @{n2Hr_MdHr}+blockquote>p:has(img[src*="#card"]),
-#write @{n3Hr_MdHr}+blockquote>p:has(img[src*="#card"]),
-#write @{n4Hr_MdHr}+blockquote>p:has(img[src*="#card"]) {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    display: block;
-}
+// #write @{hr_MdHr}+blockquote>p:has(img[src*="#card"]),
+// #write @{n2Hr_MdHr}+blockquote>p:has(img[src*="#card"]),
+// #write @{n3Hr_MdHr}+blockquote>p:has(img[src*="#card"]),
+// #write @{n4Hr_MdHr}+blockquote>p:has(img[src*="#card"]) {
+//     margin-left: auto !important;
+//     margin-right: auto !important;
+//     display: block;
+// }
+// #write @{hr_MdHr}+@{quote_details_gsa}>p,
+// #write @{hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
+// #write @{hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
+// #write @{hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa} {
+// }
+
 // 明信片边框
 #write p:has(img[src*="#card"][src*="#border"]) {
     border-radius: var(--v-r-b) var(--v-r-b-xc);
@@ -520,18 +544,30 @@ body.gray .v-status-bar>.v-sts-gray {
 }
 
 // 生成通过图片地址参数指定图片的按宽度缩放样式
-.genImgZoomW(@zoom, @unit) when (@unit = px) { // 像素单位
+// 方式：像素单位
+.genImgZoomW(@zoom, @unit) when (@unit = px) {
     @{writeOnEditing} .md-image[data-src*="#@{zoom}w"]>img, // 编辑时
     @{writeOnHTML} img[src*="#@{zoom}w"],
     @{writeOnHTML} svg[data-inject-url*="#@{zoom}w"] {
-        width: ~"@{zoom}px";
+        width: ~"@{zoom}px" !important;
     }
 }
-.genImgZoomW(@zoom, @unit) when (@unit = pc) { // 百分比单位
+// 方式：百分比单位
+.genImgZoomW(@zoom, @unit) when (@unit = pc) {
     @{writeOnEditing} .md-image[data-src*="#@{zoom}%"]>img, // 编辑时
-    @{writeOnHTML} img[src*="#@{zoom}"],
+    @{writeOnHTML} img[src*="#@{zoom}%"],
     @{writeOnHTML} svg[data-inject-url*="#@{zoom}%"] {
-        width: ~"@{zoom}%";
+        width: ~"@{zoom}%" !important;
+    }
+
+    // 针对导出后作为「插图」时的微调
+    @{writeOnHTML} .v-caption:has(>img[src*="#@{zoom}%"]),
+    @{writeOnHTML} .v-caption:has(>svg[data-inject-url*="#@{zoom}%"]) {
+        width: ~"@{zoom}%" !important;
+    }
+    @{writeOnHTML} .v-caption > img[src*="#@{zoom}%"],
+    @{writeOnHTML} .v-caption > svg[data-inject-url*="#@{zoom}%"] {
+        width: 100% !important;
     }
 }
 .genImgZoomW(200, px);
@@ -1292,15 +1328,19 @@ h6+h6) {
     padding-left: 0;
 }
 
-@{onHTML} :is(strong, mark),
-@{writeOnEditing} :is(strong, mark) {
+// @{onHTML} :is(strong, mark),
+// @{writeOnEditing} :is(strong, mark) {
+@{onHTML} strong,
+@{writeOnEditing} strong {
     font-family: var(--v-f-fm-bd);
     font-weight: var(--v-f-w-bd);
     line-height: 1;
 }
 
-@{onHTML} :is(strong, mark) a,
-@{writeOnEditing} :is(strong, mark) a {
+// @{onHTML} :is(strong, mark) a,
+// @{writeOnEditing} :is(strong, mark) a {
+@{onHTML} strong a,
+@{writeOnEditing} strong a {
     font-weight: var(--v-f-w-bd);
 }
 
@@ -2139,10 +2179,11 @@ summary::-moz-list-bullet {
     margin-left: .5em !important;
 }
 
-// 引用块内的引用块（非分栏）
+// 列表内的引用块（非分栏）
 #write li>@{quote_details},
-// 详情内的引用块折叠（非分栏）
-#write>@{quote_details}>@{quote_details} {
+// 引用内的引用块、折叠（非分栏）
+// #write>@{quote_details}>@{quote_details} {
+#write @{quote_details}>@{quote_details} {
     border-left: @defQuoteBorderWidth solid fade(@accColorGray, 20%);
     box-shadow: none;
     background: none;
@@ -2173,7 +2214,7 @@ summary::-moz-list-bullet {
     background: var(--ac-rd) !important;
     border: none;
     width: 200px;
-    height: 100px;
+    height: 50px;
     left: 0 !important; // 修正剪影样式的 left: -12345px
 }
 
@@ -2279,13 +2320,28 @@ summary::-moz-list-bullet {
     right: @writePaddingRight;
     bottom: 10px;
     height: 32px;
+    opacity: .6;
     z-index: 100;
 }
 .v-status-bar {
     font-size: .875em;
 }
+.v-nav-history.hover,
+.v-status-bar.hover {
+    opacity: 1;
+}
+
+// 移动端时微调
+.v-nav-history.mobile,
+.v-status-bar.mobile {
+    opacity: 1;
+}
+
+// 文档导航历史
 .v-nav-history {
-    right: @writePaddingRight + 10px;
+    right: @writePaddingRight;
+    bottom: 100px;
+    // right: @writePaddingRight + 10px;
 }
 
 .v-status-bar>div,
@@ -2416,11 +2472,11 @@ summary::-moz-list-bullet {
     display: block;
 }
 
-// 文档导航/文档浏览历史
-.v-nav-history {
-    top: 70px; // 与 ResumeReading_updateUI() 中的取值同步
-    bottom: unset;
-}
+// // 文档导航/文档浏览历史
+// .v-nav-history {
+//     // top: 70px; // 与 ResumeReading_updateUI() 中的取值同步
+//     bottom: 100px;
+// }
 
 // 链接检查结果
 .v-status-bar>.v-link-chk-result {
@@ -2693,9 +2749,11 @@ td.v-long {
 // 高亮
 mark {
     box-shadow: 0 -@markBgHeight 0 0 var(--mark-bg) inset;
-    font-weight: var(--v-f-w-bd);
+    // font-weight: var(--v-f-w-bd);
+    // font-weight: normal;
     color: inherit;
-    background: rgba(0, 0, 0, .01) !important; // 不用 trasparent 避免进行内联样式转换时被过滤
+    // background: rgba(0, 0, 0, .01) !important; // 不用 trasparent 避免进行内联样式转换时被过滤
+    background: transparent; // 不用 trasparent 避免进行内联样式转换时被过滤
 }
 
 #write del {
@@ -3252,8 +3310,10 @@ mjx-container[jax="SVG"] > svg a:hover {
     font: normal .75em sans-serif; // [style] [weight] [size/[line-height]] [family]
     background: var(--pn-c);
     border-radius: calc(var(--v-r-s) + 1px) var(--v-r-s-xc);
-    right: @writePaddingRight;
-    bottom: 50px;
+    left: @writePaddingRight;
+    bottom: 10px;
+    // right: @writePaddingRight;
+    // bottom: 50px;
     padding: 0 10px;
     height: 26px;
     justify-content: center;
@@ -3577,7 +3637,8 @@ div[class*="v-fontinfo-"].done > span,
 // 继续上次的阅读
 .v-resume-reading {
     top: 70px; // 与 ResumeReading_updateUI() 中的取值同步
-    right: @writePaddingRight + 10px; // 与 ResumeReading_updateUI() 中的取值同步
+    // right: @writePaddingRight + 10px; // 与 ResumeReading_updateUI() 中的取值同步
+    right: @writePaddingRight; // 与 ResumeReading_updateUI() 中的取值同步
     padding: 5px 5px 5px 10px !important;
     background-color: var(--pn-c);
     color: var(--d-fc);
@@ -3611,21 +3672,22 @@ div[class*="v-fontinfo-"].done > span,
     box-shadow: var(--v-fl-sd);
 }
 
-// 生成浮动 UI 的标题样式（如：导航中心、链接地图等）
-.v-font-style::before,
-.v-nav-center-float::before,
-.v-doc-lib::after,
-.v-footnote-pn::before,
-.v-link-info-list::before {
+// 生成浮动 UI 的标题样式（如：、等）
+.v-font-style::before, // 字体风格
+.v-nav-center-float::before, // 导航中心
+.v-doc-lib::after, // 文库视图
+.v-footnote-pn::before, // 脚注
+.v-link-info-list::before { // 链接地图、异常链接
     content: attr(data-title);
     text-transform: uppercase;
     color: @buttonForeColor;
+    // font-size: 1.25em;
+    // font-weight: bold;
+    font: bold 1.25em var(--v-f-fm-h);
     position: absolute;
     left: 0;
     top: -40px;
     width: 100%;
-    font-size: 1.25em;
-    font-weight: bold;
     text-align: center;
     padding: 0 5px;
     white-space: pre;
@@ -3818,7 +3880,7 @@ div[class*="v-fontinfo-"].done > span,
     height: 80px;
     border-radius: 2px;
     z-index: 2000;
-    // 以下两行样式及 hover 样式，与 v-fit-width 内的 svg>use 保持一致
+    // 以下两行样式及 hover 样式，与 v-fill-width 内的 svg>use 保持一致
     background: var(--d-fc);
     opacity: .25;
 }
@@ -5161,6 +5223,26 @@ iframe[id^="vlook-chk-update-"] {
 // 一行多个插图时的微调
 .v-cap-cntr>.v-caption:not(:only-child) {
     margin-bottom: @scrollFix !important;
+}
+
+// 针对插图加载过程的提示样式
+.v-caption.loading::before {
+    content: "loading...";
+    text-transform: uppercase;
+    color: var(--d-bc);
+    background: var(--d-fc);
+    opacity: .6;
+    font-size: .75em;
+    font-style: oblique;
+    border: 1px solid var(--d-bc);
+    border-radius: var(--v-r-s) var(--v-r-s-xc);
+    position: absolute;
+    padding: 0 10px;
+    left: 50%;
+    top: 10px;
+    // top: 50%;
+    // transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%);
 }
 
 // 代码块题注样式

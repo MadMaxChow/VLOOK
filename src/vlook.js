@@ -2,8 +2,8 @@
  *
  * VLOOK™ JS - Typora Plugin
  *
- * V28.0
- * 2025-01-11
+ * V28.1
+ * 2025-01-18
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -18,7 +18,7 @@
 
 let _ = "",
     ___ = " ",
-    gVer = "V28.0",
+    gVer = "V28.1",
     gThmVer = _,
     gThmName = _,
     gUndefined = undefined,
@@ -331,8 +331,8 @@ let _ = "",
     _failed_ = "Failed [ ",
     _false_ = "false",
     _v_fig_ = "v-" + _fig_,
-    _fit_width_ = "fit-" + _width_,
-    _v_fit_width_ = "v-" + _fit_width_,
+    _fill_width_ = "fill-" + _width_,
+    _v_fill_width_ = "v-" + _fill_width_,
     _checkCount_ = _check_ + _count_,
     _welcome_ = "welcome",
     _v_welcome_page_ = "v-" + _welcome_ + "-" + _page_,
@@ -381,6 +381,7 @@ let _ = "",
     _icoAlertCaution_ = _ico_ + _Alert_ + _Caution_,
     _Mode_ = "Mode",
     _math_ = "math",
+    _mobile_ = "mobile",
     _icoAutoMode_ = _ico_ + "Auto" + _Mode_,
     _icoChkbox__ = _ico_ + "Chkbox_",
     _icoCheck_ = _ico_ + "Check",
@@ -1301,7 +1302,7 @@ function V_ui_copyrightInfo() {
         V_ui_svgIcon(_icoVLOOK_, 20, 20, _btnFc_, _v_copyright_svg_ico_)
         + _2nbsp_
         + 'Published with ' + V_ui_strong(V_ui_a(_, _httpsPrefix_ + _githubVlook_, _VLOOK_, __blank_))
-        + '™ (V28.0) &amp; ' + V_ui_strong(V_ui_a(_, _httpsPrefix_ + "www.typora.io", "Typora", __blank_)) + '.' + _2nbsp_
+        + '™ (V28.1) &amp; ' + V_ui_strong(V_ui_a(_, _httpsPrefix_ + "www.typora.io", "Typora", __blank_)) + '.' + _2nbsp_
         + 'Support: ' + V_ui_strong(V_ui_a(_, _httpsPrefix_ + "qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi", "QQ Group"))
         + ' / ' + V_ui_strong(V_ui_a(_, 'mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK%20' + V_ver + '&body=Hi,%0D%0A%0D%0A====================%0D%0A%0D%0A' + JS_encodeURI(env.info(gTrue)), "Email")) + '.'
     );
@@ -1945,9 +1946,8 @@ function V_ui_adjustAll() {
         ContentFolder_adjust();
     iChapterNav.adjust();
 
-    let measure = iToolbar.adjust();
     // 适配相关的 UI
-    NavHistory_updateUI(measure);
+    // NavHistory_updateUI(iToolbar.adjust());
     MoreDocContent_updateUI();
 
     V_ui_processingAdjust = gFalse;
@@ -1986,6 +1986,9 @@ function V_ui_adjustHoverStyle2() {
         $(_v_btn__o__btn_group_).uH();
         V_byClass(_v_segment_btn_).uH();
         V_byClass(_v_resume_reading_).uH();
+        NavHistory_ui.uH();
+        NavHistory_ui.ch(_div_).uH();
+        StatusBar_ui.uH();
         StatusBar_ui.ch(V_not(V_attrCSS(_class_, "-" + _info_, "*"))).uH();
         V_byID(_doc_lib_toc_ + ">." + _v_doc_lib_item_).uH();
         V_byClass(_v_std_code_).uH();
@@ -2004,8 +2007,10 @@ function V_ui_adjustHoverStyle2() {
         // 所有导航中心分段控制按钮 hover 事件处理
         V_ui_bindHover(V_byClass(_v_segment_btn_));
         V_ui_bindHover(V_byClass(_v_resume_reading_));
-        // 状态栏上的按钮
+        V_ui_bindHover(NavHistory_ui);
         V_ui_bindHover(NavHistory_ui.ch(_div_));
+        // 状态栏上的按钮
+        V_ui_bindHover(StatusBar_ui);
         V_ui_bindHover(StatusBar_ui.ch(V_not(V_attrCSS(_class_, "-" + _info_, "*"))));
         // 文库按钮 hover 事件处理
         V_ui_bindHover(V_byID(_doc_lib_toc_ + ">." + _v_doc_lib_item_));
@@ -2245,17 +2250,17 @@ let iToolbar = gUndefined,
 // ==================== 文档对象模型 ==================== //
 
 // 文档的 html 对象
-let DOM_h = gUndefined;
-function DOM_html() {
-    if (DOM_h === gUndefined) {
-        DOM_h = $(_html_);
-        if (V_length(DOM_h) === 0) {
-            DOM_h = gUndefined;
-            ERROR(_failed_ + "DOM.html ]");
-        }
-    }
-    return DOM_h;
-}
+// let DOM_h = gUndefined;
+// function DOM_html() {
+//     if (DOM_h === gUndefined) {
+//         DOM_h = $(_html_);
+//         if (V_length(DOM_h) === 0) {
+//             DOM_h = gUndefined;
+//             ERROR(_failed_ + "DOM.html ]");
+//         }
+//     }
+//     return DOM_h;
+// }
 
 // 文档的 body 对象
 let DOM_b = gUndefined;
@@ -2789,9 +2794,13 @@ function V_util_getScrollTop(source) {
 /**
  * 获取对象的 length 值
  * @param source 源对象
+ * @param value 新取值
  */
-function V_length(source) {
-    return (source === gUndefined || source === gNull) ? 0 : source.length;
+function V_length(source, value) {
+    if (value === gUndefined)
+        return (source === gUndefined || source == gNull) ? 0 : source.length;
+    else
+        source.length = value;
 }
 
 // 恢复 gScrollByJS 初始值
@@ -3027,6 +3036,9 @@ function V_util_clearHtmlQuot(text) {
 function V_util_bindLoadChecker(fig) {
     let src = fig.a(_src_);
     fig.on(_load_, () => {
+        // 移除针对插图的加载提示样式
+        JQ_removeClass(fig.p(), _loading_);
+
         // 对引用块分栏内的图片重新进行统一高度处理
         let blockquote = fig.closest(_blockquote_);
         if (V_length(blockquote) > 0)
@@ -3375,7 +3387,7 @@ function V_init() {
     let sw = new Stopwatch();
     sw.st();
     iFontStyle = new FontStyle(new BgMask(_font_style_, _center_), V_util_getVarVal(___v_f__ + _style_));
-    if (iFontStyle === gFalse)
+    if (V_length(iFontStyle) === 0)
         ALERT(_failed_ + "iFntThm ]");
     else {
         let fontStyle = V_util_getParamVal(_font_); // 调校参数指定
@@ -3397,13 +3409,13 @@ function V_init() {
     // 聚光灯
     sw.st();
     iSpotlight = new Spotlight(180);
-    if (iSpotlight === gFalse)
+    if (V_length(iSpotlight) === 0)
         ALERT(_failed_ + "iSpotlight ]");
     sw.ed("    ├ Spotlight: ");
 
     // 激光笔
     iLaserPointer = new LaserPointer();
-    if (iLaserPointer === gFalse)
+    if (V_length(iLaserPointer) === 0)
         ALERT(_failed_ + "iPter ]");
     sw.ed("    ├ LaserPointer: ");
 
@@ -3431,14 +3443,14 @@ function V_init() {
     // 导航中心
     sw.st();
     iNavCenter = new NavCenter(new BgMask(_nav_center_, _left_, gTrue), V_util_getParamVal(_nav_));
-    if (iNavCenter === gFalse)
+    if (V_length(iNavCenter) === 0)
         ALERT(_failed_ + "iNavCenter ]");
     sw.ed("    ├ Nav Center: ");
 
     // 逐章导航
     sw.st();
     iChapterNav = new ChapterNav(iNavCenter);
-    if (iChapterNav === gFalse)
+    if (V_length(iChapterNav) === 0)
         ALERT(_failed_ + "iChapNav ]");
     else {
         // 添加关联组件
@@ -3449,7 +3461,7 @@ function V_init() {
     // 工具栏
     sw.st();
     iToolbar = new Toolbar();
-    if (iToolbar === gFalse)
+    if (V_length(iToolbar) === 0)
         ALERT(_failed_ + "iTb ]");
     else {
         // 导航中心按钮
@@ -3525,7 +3537,7 @@ function V_init() {
 
     // 脚注
     iFootnote = new Footnote(new BgMask(_footnote_, _bottom_, gTrue));
-    if (iFootnote === gFalse)
+    if (V_length(iFootnote) === 0)
         ALERT(_failed_ + "iFootnote ]");
 
     // 导航历史
@@ -4589,6 +4601,7 @@ function V_report_submit(loadTimeCost) {
  */
 function Stopwatch() {
     let T = this;
+    V_length(T, 1);
     T.sT = gNull; // 重置后的初始时间
     T.lT = gNull; // 每次中间计时的初始时间
 
@@ -5252,6 +5265,7 @@ function PicInPic_zoom() {
  */
 function Spotlight(radius) {
     let T = this;
+    V_length(T, 1);
     T.ui = V_byClass(_v_spotlight_);
     T.r = radius; // 聚光灯半径
     T.zoom = {
@@ -5393,6 +5407,7 @@ function Spotlight(radius) {
  */
  function LaserPointer() {
     let T = this;
+    V_length(T, 1);
     T.toolbar = gUndefined; // 联动的工具栏
 
     T.enable = gFalse;
@@ -5513,6 +5528,7 @@ function CC_init() {
  */
 function SegmentControl(control, group) {
     let T = this;
+    V_length(T, 1);
     T.ui = control;
     T.group = group;
 
@@ -5609,31 +5625,40 @@ function SegmentControl(control, group) {
     }
 }
 
-// ==================== write 适应宽度 ==================== //
+// ==================== 文档正文宽度适配可显示的宽度 ==================== //
 
-let FitWidth_ui = gUndefined;
+let FillWidth_ui = gUndefined;
 
-function FitWidth_init() {
-    FitWidth_ui = V_byClass(_v_fit_width_);
+// 初始化可显示宽度适配
+function FillWidth_init() {
+    FillWidth_ui = V_byClass(_v_fill_width_);
 
-    V_ui_addAnimate(FitWidth_ui);
+    V_ui_addAnimate(FillWidth_ui);
     iNavCenter.adjust();
 
     // 点击切换适应宽度
-    FitWidth_ui.uC().ck(() => {
-        if (FitWidth_ui.a(_class_).i(_enabled_) === -1) {
-            JQ_addClass(FitWidth_ui, _enabled_);
-            JQ_addClass(VOM_doc(), _fit_width_);
-            JQ_addClass(MoreDocContent_ui_before, _fit_width_);
-            JQ_addClass(MoreDocContent_ui_after, _fit_width_);
-        }
-        else {
-            JQ_removeClass(FitWidth_ui, _enabled_);
-            JQ_removeClass(VOM_doc(), _fit_width_);
-            JQ_removeClass(MoreDocContent_ui_before, _fit_width_);
-            JQ_removeClass(MoreDocContent_ui_after, _fit_width_);
-        }
+    FillWidth_ui.uC().ck(() => {
+        if (FillWidth_ui.a(_class_).i(_enabled_) === -1)
+            FillWidth_enable();
+        else
+            FillWidth_disable();
     });
+}
+
+// 启用适配可显示宽度
+function FillWidth_enable() {
+    JQ_addClass(FillWidth_ui, _enabled_);
+    JQ_addClass(VOM_doc(), _fill_width_);
+    JQ_addClass(MoreDocContent_ui_before, _fill_width_);
+    JQ_addClass(MoreDocContent_ui_after, _fill_width_);
+}
+
+// 停用适配可显示宽度
+function FillWidth_disable() {
+    JQ_removeClass(FillWidth_ui, _enabled_);
+    JQ_removeClass(VOM_doc(), _fill_width_);
+    JQ_removeClass(MoreDocContent_ui_before, _fill_width_);
+    JQ_removeClass(MoreDocContent_ui_after, _fill_width_);
 }
 
 // ==================== 文档导航/文档浏览历史类 ==================== //
@@ -5644,8 +5669,13 @@ let NavHistory_ui = gUndefined,
 
 function NavHistory_init() {
     NavHistory_ui = V_byClass(_v_nav_history_);
-    Nh_ViewHistory_ui = V_byClass(_v_view_history_);
+    V_ui_addAnimate(NavHistory_ui);
+    V_ui_addAnimate(NavHistory_ui.ch(_div_));
 
+    if (V_util_isMobile())
+        JQ_addClass(NavHistory_ui, _mobile_);
+
+    Nh_ViewHistory_ui = V_byClass(_v_view_history_);
     ToolTips_bind(Nh_ViewHistory_ui, V_lang_text65() + _br_ + V_ui_sub(_, _, V_ui_wrap_kbd("H")));
 
     NavHistoryList = new HistoryList(this, gTrue);
@@ -5674,32 +5704,32 @@ function NavHistory_enable() {
  * 更新导航历史 UI
  * @param measure 参考的度量信息
  */
-function NavHistory_updateUI(measure) {
-    setTimeout(() => {
-        let top = 70, // 与 .v-resume-reading 中的取值同步
-            right = gWritePaddingRight; // 与 .v-resume-reading 中的取值同步
+// function NavHistory_updateUI(measure) {
+//     // setTimeout(() => {
+//     //     let top = 70, // 与 .v-resume-reading 中的取值同步
+//     //         right = gWritePaddingRight; // 与 .v-resume-reading 中的取值同步
 
-        if (measure !== gNull) {
-            top = measure.t + 10;
-            // 非移动端要显示聚光灯、激活笔等内容，要进行高度修正
-            if (!V_util_isMobile())
-                top += JS_parseInt(iToolbar.ui.c(_height_));
-            // 对于工具栏不是展开，或是在小屏时的微调
-            if (measure.r <= gWritePaddingRight || V_ui_isSmallScreen()) {
-                top -= 10;
-                right = measure.r + measure.p;
-            }
-            // 针对移动端
-            if (V_util_isMobile())
-                top = measure.t + 10;
-        }
+//     //     if (measure !== gNull) {
+//     //         top = measure.t + 10;
+//     //         // 非移动端要显示聚光灯、激活笔等内容，要进行高度修正
+//     //         if (!V_util_isMobile())
+//     //             top += JS_parseInt(iToolbar.ui.c(_height_));
+//     //         // 对于工具栏不是展开，或是在小屏时的微调
+//     //         if (measure.r <= gWritePaddingRight || V_ui_isSmallScreen()) {
+//     //             top -= 10;
+//     //             right = measure.r + measure.p;
+//     //         }
+//     //         // 针对移动端
+//     //         if (V_util_isMobile())
+//     //             top = measure.t + 10;
+//     //     }
 
-        NavHistory_ui.c(_top_, top);
-        NavHistory_ui.c(_right_, right);
+//     //     // NavHistory_ui.c(_top_, top);
+//     //     NavHistory_ui.c(_right_, right);
 
-        // 根据动画开启情况进行适配
-    }, V_ui_effect >= 2 ? gTransDuration / 2 : 0);
-}
+//     //     // 根据动画开启情况进行适配
+//     // }, V_ui_effect >= 2 ? gTransDuration / 2 : 0);
+// }
 
 // ==================== 继续上次的阅读类 ==================== //
 
@@ -5739,7 +5769,7 @@ function ResumeReading_dispose(restore) {
 
     // 不是恢复显示时才处理
     if (!restore && ResumeReading_lastPosition !== gNull) {
-        NavHistory_updateUI(iToolbar.adjust());
+        // NavHistory_updateUI(iToolbar.adjust());
         setTimeout(() => {
             ResumeReading_ui.hide();
             NavHistory_enable();
@@ -5776,6 +5806,7 @@ function ResumeReading_dispose(restore) {
  */
 function NavCenter(mask, runMode = _auto_) {
     let T = this;
+    V_length(T, 1);
     T.ui = V_byClass(_v_nav_center_); // 导航中心主界面
     T.handle = V_byClass(_v_nav_center_handle_); // 导航中心引导把手
 
@@ -6251,7 +6282,7 @@ function NavCenter_init() {
     // 当前文档不是 mini 类型（文库类文档一般为 mini 类型）
     if (V_pageMode !== _mini_) {
         // 文库
-        if (iNavCenter.docLib === gUndefined)
+        if (V_length(iNavCenter.docLib) === 0)
             ALERT(_failed_ + "iDocLib ]");
         else
             iNavCenter.docLib.init();
@@ -6316,6 +6347,7 @@ function ChapterNav() {
         tCurrentName = _v_chapter_nav_ + __current_,
         tNextName = _v_chapter_nav_ + __next_,
         tDocTitleName = _v_chapter_nav_ + __doc_title_;
+    V_length(T, 1);
 
     // 逐章导航面板主界面
     T.ui = V_byClass(_v_chapter_nav_ + _);
@@ -6585,6 +6617,7 @@ function ChapterNav() {
  */
 function ParagraphNav() {
     let T = this;
+    V_length(T, 1);
     T.count = 0; // 段的总数量
     T.curIdx = -1; // 当前段索引号
     T.enabled = gFalse; // 是否段落漫游激活
@@ -6875,6 +6908,7 @@ function ParagraphNav_getScreenMiddleElement() {
  */
 function Toolbar() {
     let T = this;
+    V_length(T, 1);
     T.ui = V_byClass(_v_toolbar_); // 工具栏主界面
     T.btns = []; // 工具栏按钮集
 
@@ -7369,6 +7403,7 @@ let webfontHostAlt = _openfontsPages_CloudFlare_ + "/";
  */
 function FontStyleOption(ui, fonts) {
     let T = this;
+    V_length(T, 1);
     T.ui = ui;
     T.fonts = fonts;
     T.fontCount = V_length(T.fonts);
@@ -7381,6 +7416,7 @@ function FontStyleOption(ui, fonts) {
  */
 function FontStyle(mask, styleName) {
     let T = this;
+    V_length(T, 1);
     T.styleByTheme = styleName; // 主题配套字体风格
     T.style = styleName; // 当前字体风格
     T.ui = V_byClass(_v_font_style_); // 字体风格切换选择界面
@@ -7504,6 +7540,16 @@ function FontStyle(mask, styleName) {
         if (V_pageMode === _max_) {
             // 读取高度信息，强制浏览器重新计算元素的样式，后面重新添加 done 样式时能确保动画重新触发
             T.statusUI.h();
+
+            // 根据导航中心显示情况进行微调
+            if (V_length(iNavCenter) > 0) {
+                let left = iNavCenter.ui.oL();
+                if (left > 0) // 正常以占位显示
+                    left += iNavCenter.ui.oW() + 10;
+                else // 隐藏时
+                    left = 20;
+                T.statusUI.c(_left_, left);
+            }
             T.statusUI.c(_display_, _flex_);
 
             __syncLoadingInfo();
@@ -7924,6 +7970,7 @@ function FontStyle(mask, styleName) {
  */
 function Footnote(mask) {
     let T = this;
+    V_length(T, 1);
     T.ui = V_byClass(_v_fontnote_pn_); // 脚注主界面
     T.content = V_byClass(_v_fontnote_pn_content_); // 脚注内容区
 
@@ -8183,9 +8230,8 @@ let StsLinkChkResult_ui = gUndefined,
     StsPrsInfo_ui = gUndefined,
     StsLinkMap_ui = gUndefined,
     StsFontStyle_ui = gUndefined;
-/**
- * 构造函数
- */
+
+// 状态栏初始化
 function StatusBar_init() {
     StsLinkChkResult_ui = V_byClass(_v_link_chk_result_); // 检查结果
     StsNewVersion_ui = V_byClass(_v_new_version_);
@@ -8201,21 +8247,20 @@ function StatusBar_init() {
     });
 
     StatusBar_ui = V_byClass(_v_status_bar_);
-    V_ui_addAnimate(StatusBar_ui.f(_div_));
+    V_ui_addAnimate(StatusBar_ui);
+    V_ui_addAnimate(StatusBar_ui.ch(_div_));
+    if (V_util_isMobile())
+        JQ_addClass(StatusBar_ui, _mobile_);
 
     // 控制隐藏、显示的按钮
     StatusBar_handle = V_byClass(_v_status_bar_ + __handle_);
     StatusBar_handle.uC().ck(() => {
         // 进行隐藏
-        if (parseInt(StatusBar_ui.c(_right_)) > 0) {
-            StatusBar_ui.c(_right_, "-" + (StatusBar_ui.w() - StatusBar_handle.w() + 2) + "px");
-            JQ_addClass(StatusBar_handle, _hidden_);
-        }
+        if (parseInt(StatusBar_ui.c(_right_)) > 0)
+            StatusBar_hide();
         // 进行显示
-        else {
-            StatusBar_ui.c(_right_, gWritePaddingRight);
-            JQ_removeClass(StatusBar_handle, _hidden_);
-        }
+        else
+            StatusBar_show();
     });
 
     // ----------
@@ -8262,6 +8307,18 @@ function StatusBar_init() {
     NewVersion_init();
     StsColorScheme_init();
     LinkTool_init(new BgMask(_link_checker_, _right_, gTrue));
+}
+
+// 显示状态栏
+function StatusBar_show() {
+    StatusBar_ui.c(_right_, gWritePaddingRight);
+    JQ_removeClass(StatusBar_handle, _hidden_);
+}
+
+// 隐藏状态栏
+function StatusBar_hide() {
+    StatusBar_ui.c(_right_, "-" + (StatusBar_ui.w() - StatusBar_handle.w() + 2) + "px");
+    JQ_addClass(StatusBar_handle, _hidden_);
 }
 
 // ==================== 文档信息类 ==================== //
@@ -9094,6 +9151,7 @@ function LinkTool_disposeHotkey(key, combKeys, event) {
  */
 function BgMask(id, align, close) {
     let T = this;
+    V_length(T, 1);
     T.style = align;
 
     VOM_doc().af(V_ui_div(_, _v_mask_ +___+ (align !== gUndefined ? align +___ : _) + id +___+ _v_backdrop_blurs_,
@@ -9579,6 +9637,7 @@ function ToolTips_hide() {
  */
 function InfoTips(mask) {
     let T = this;
+    V_length(T, 1);
     T.ui = V_byClass(_v_info_tips_);
     T.aniTimer = gNull;
 
@@ -9760,7 +9819,7 @@ function MoreDocContent_updateUI() {
     // 值为 auto 时进行实际像素计算
     let mlValue = VOM_doc()[0].getBoundingClientRect().left;
 
-    if (MoreDocContent_ui_before.a(_class_).i(_fit_width_) === -1) {
+    if (MoreDocContent_ui_before.a(_class_).i(_fill_width_) === -1) {
         MoreDocContent_ui_before.c(_margin_left_, mlValue);
         MoreDocContent_ui_after.c(_margin_left_, mlValue);
     }
@@ -9880,7 +9939,7 @@ function Caption_actionForTextContent(target, typeName) {
         captionPrefix = Caption_prefix(target, V_lang_text18(), V_doc_counter_formula);
     }
 
-    // // 尝试获得带题注语法的内容
+    // 尝试获得带题注语法的内容
     let fcSet = Caption_getCaptions(target.p().pr(), typeName);
     let fc = fcSet[0], // 第 1 题注
         fc2 = fcSet[1]; // 第 2 题注
@@ -9999,7 +10058,7 @@ function Caption_actionForMediaContent(target, tagName) {
         indexObj = iNavCenter.figures,
         anchor,
         dataForSearch = _,
-        needHideResult = Caption_checkNeedHide(tagName);
+        needHideResult = ___+ Caption_checkNeedHide(tagName);
 
     let fcSet = gNull;
     // 若图片 alt 无内容，则尝试获取前面段落（如<p>、<h6>）作为第 1、2 题注的内容
@@ -10045,32 +10104,34 @@ function Caption_actionForMediaContent(target, tagName) {
         // 省略中间内容处理
         fc = V_util_truncateText(fc.x(), 10);
     }
-    captionPrefix = V_ui_span(_, _, captionPrefix + Caption_spliter);
+    captionPrefix = V_ui_span(_, _, captionPrefix + (V_length(fc) > 0 ? Caption_spliter : _));
     caption = captionPrefix + fc;
 
     // 为插图（mermaid）增加题注 <svg>
     if (tagName.sW("s")) {
         anchor = _vk_id_fig_ + V_doc_counter_figure;
         // 针对 Mermaid 插图，添加额外的类，用于打印前后处理时直接定位 Mermaid 插图的题注
-        target.wrap(V_ui_divExt(anchor, _v_caption_ +___+ needHideResult +___+ _mermaid_, V_attr(_data_fig_type_, tagName)));
+        target.wrap(V_ui_divExt(anchor, _v_caption_ + needHideResult +___+ _mermaid_, V_attr(_data_fig_type_, tagName)));
         dataForSearch += target.f(_div_ + "," + _span_ + ",tspan," + _text_).t();
     }
     // 为插图（img）增加题注 <img>
     else if (tagName.sW("i")) {
         anchor = _vk_id_fig_ + V_doc_counter_figure;
-        target.wrap(V_ui_divExt(anchor, _v_caption_ +___+ needHideResult, V_attr(_data_fig_type_ , tagName)));
+        target.wrap(V_ui_divExt(anchor, _v_caption_
+            + (target.a(_loading_) === gUndefined ? _ : ___+ _loading_) // 懒加载时添加 loading 样式
+            + needHideResult, V_attr(_data_fig_type_ , tagName)));
         dataForSearch += target.a(_src_);
     }
     // 为音频增加题注 <audio>
     else if (tagName.sW("a")) {
         anchor = _vk_id_audio_ + V_doc_counter_audio;
-        target.wrap(V_ui_divExt(anchor, _v_caption_ +___+ needHideResult, V_attr(_data_fig_type_, tagName)));
+        target.wrap(V_ui_divExt(anchor, _v_caption_ + needHideResult, V_attr(_data_fig_type_, tagName)));
         dataForSearch += target.a(_src_);
     }
     // 为视频增加题注 <video>
     else if (tagName.sW("v")) {
         anchor = _vk_id_video_ + V_doc_counter_video;
-        target.wrap(V_ui_divExt(anchor, _v_caption_ +___+ needHideResult
+        target.wrap(V_ui_divExt(anchor, _v_caption_ + needHideResult
             + (tagName.eW(_iframe_) ? ___+ _iframe_ : _), // 内嵌视频的情况
             V_attr(_data_fig_type_, tagName)));
     }
@@ -12849,6 +12910,7 @@ function ExtVideo_init() {
  */
 function TextField(target, id, append) {
     let T = this;
+    V_length(T, 1);
     // 文本输入框属性
     T.ui = gUndefined;
     T.icon = gUndefined;
@@ -13134,6 +13196,7 @@ function TextField(target, id, append) {
 
 function FilterResultNavigator(result) {
     let T = this;
+    V_length(T, 1);
     T.index = 0;
     T.result = result;
 
@@ -13163,6 +13226,7 @@ function FilterResultNavigator(result) {
  */
 function TocIndex(holder, hidden) {
     let T = this;
+    V_length(T, 1);
     T.ui = {
         entry : V_byClass(_v_segment_btn_ + "." + _toc_), // 入口
         body : V_byClass(_v_toc_body_), // 目录索引内容
@@ -13771,6 +13835,7 @@ function Index_hide(indexObj) {
  */
 function FiguresIndex(holder, hidden) {
     let T = this;
+    V_length(T, 1);
     T.ui = {
         entry : V_byClass(_v_segment_btn_ + "." + _figure_), // 入口
         result : V_byClass(_v_index_filter_result_ + "." + _figure_) // 过滤结果面板
@@ -13846,6 +13911,7 @@ function FiguresIndex(holder, hidden) {
  */
 function TablesIndex(holder, hidden) {
     let T = this;
+    V_length(T, 1);
     T.ui = {
         entry : V_byClass(_v_segment_btn_ + "." + _table_), // 入口
         result : V_byClass(_v_index_filter_result_ + "." + _table_) // 过滤结果面板
@@ -13921,6 +13987,7 @@ function TablesIndex(holder, hidden) {
  */
 function MediaIndex(holder, hidden) {
     let T = this;
+    V_length(T, 1);
     T.ui = {
         entry : V_byClass(_v_segment_btn_ + "." + _media_), // 入口
         result : V_byClass(_v_index_filter_result_ + "." + _media_) // 过滤结果面板
@@ -13996,6 +14063,7 @@ function MediaIndex(holder, hidden) {
  */
 function CodeblocksIndex(holder, hidden) {
     let T = this;
+    V_length(T, 1);
     T.ui = {
         entry : V_byClass(_v_segment_btn_ + "." + _codeblock_), // 入口
         result : V_byClass(_v_index_filter_result_ + "." + _codeblock_) // 过滤结果面板
@@ -14071,6 +14139,7 @@ function CodeblocksIndex(holder, hidden) {
  */
 function FormulasIndex(holder, hidden) {
     let T = this;
+    V_length(T, 1);
     T.ui = {
         entry : V_byClass(_v_segment_btn_ + "." + _formula_), // 入口
         result : V_byClass(_v_index_filter_result_ + "." + _formula_) // 过滤结果面板
@@ -14144,6 +14213,7 @@ function FormulasIndex(holder, hidden) {
  */
 function HistoryList() {
     let T = this;
+    V_length(T, 1);
     T.ui = V_byClass(_v_link_info_list_ + __items_);
 
     /**
@@ -14238,6 +14308,7 @@ function HistoryList() {
  */
 function DocLib(mask, holder) {
     let T = this;
+    V_length(T, 1);
     T.ui = V_byClass(_v_doc_lib_);
     T.toc = gUndefined;
     T.iframe = gUndefined;
@@ -14292,7 +14363,8 @@ function DocLib(mask, holder) {
 
         // ------------------------------
         // 处理 YAML 中的文库配置，支持以逗号分隔的多段内容
-        if (docLibValue !== gUndefined && (result = docLibValue.m(/^([^,]+(,\s*)?)+$/)) !== gNull) {
+        // if (docLibValue !== gUndefined && (result = docLibValue.m(/^([^,]+(,\s*)?)+$/)) !== gNull) {
+        if (docLibValue !== gUndefined) {
             let docLibList = docLibValue.sp(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/),
                 item = _,
                 page = _,
@@ -16655,10 +16727,10 @@ function VLOOKui_iconSet() {
             V_ui_path('M17 0a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3h14zm.001 7h-14a2 2 0 0 0-2 2h6a3 3 0 0 0 6 0h6l-.005-.15A2 2 0 0 0 17 7zm0-3h-14a2 2 0 0 0-2 2h18l-.005-.15A2 2 0 0 0 17 4zm0-3h-14a2 2 0 0 0-2 2h18l-.005-.15A2 2 0 0 0 17 1z', _))
         // 图标集：图标|文库-当前页面中打开链接
         + V_ui_symbol(_icoDocLibSelf_,
-            V_ui_path('M12.5 19a.5.5 0 1 1 0 1h-5a.5.5 0 1 1 0-1h5zm3.014-19l.35.01A1.2 1.2 0 0 1 17 1.21v12.123a1.5 1.5 0 0 1-1.504 1.497h-.01a6.119 6.119 0 0 0-2.794.621 9.371 9.371 0 0 0-2.192 1.475v.047H18a1 1 0 0 0 1-1v-11a1 1 0 0 0-1-1v-1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-7.5V18H2a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.5c.813 0 1.55.324 2.091.849L9.5 4c.582-1.023 1.61-2.127 3-3.05.967-.641 1.972-.955 3.014-.951zM7.5 4H2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h7.5V6a2 2 0 0 0-2-2zm7.978-3c-.887 0-1.74.29-2.565.862-1.028.712-1.808 1.598-2.301 2.262l-.112.16v11.344l.098-.074c.407-.3.841-.575 1.302-.821l.351-.18a7.118 7.118 0 0 1 3.244-.723.5.5 0 0 0 .505-.497V1.21a.2.2 0 0 0-.19-.2L15.479 1zM8 13v1H3v-1h5zm0-3v1H3v-1h5zm0-3v1H3V7h5z', _))
+            V_ui_path('M12.5 19a.5.5 0 1 1 0 1h-5a.5.5 0 1 1 0-1h5zm3.014-19l.35.01A1.2 1.2 0 0 1 17 1.21v12.123a1.5 1.5 0 0 1-1.504 1.497h-.01a6.119 6.119 0 0 0-2.794.621 9.371 9.371 0 0 0-2.192 1.475v.046H18a1 1 0 0 0 1-1v-11a1 1 0 0 0-1-1v-1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-7.5V18h-.998l-.002-.001H2a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.5c.813 0 1.55.324 2.09.849L9.5 4c.582-1.023 1.31-1.927 2.7-2.85C13.167.51 14.472-.004 15.514 0zM7.5 4H2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h7.5V6a2 2 0 0 0-2-2zm7.978-3c-.887 0-2.04.49-2.865 1.062-1.028.712-1.508 1.397-2.001 2.062l-.112.16v11.344l.098-.074c.407-.301.841-.575 1.302-.821l.351-.18a7.118 7.118 0 0 1 3.244-.723.5.5 0 0 0 .505-.497V1.208a.2.2 0 0 0-.19-.2L15.479 1zM8 14v1H3v-1h5zm0-2v1H3v-1h5zM6 6v3H3V6h3z', _))
         // 图标集：图标|文库-新标签中打开同站链接
         + V_ui_symbol(_icoDocLibBm_,
-            V_ui_path('M17 0a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3h14zm-7 14H2v1h8v-1zm6-2H2v1h14v-1zm-6-4H2v2h8V8zm7.4-6h-3.6a.6.6 0 0 0 0 1.2h2.15l-2.774 2.776a.6.6 0 0 0 .848.848L16.8 4.048V6.2a.6.6 0 1 0 1.199 0V2.572l-.002-.023V2.53a.598.598 0 0 0-.014-.075l-.004-.015a.6.6 0 0 0-.322-.383l-.013-.006-.014-.006-.012-.005a.595.595 0 0 0-.054-.018l-.013-.003a.6.6 0 0 0-.02-.006l-.017-.003-.05-.008h-.003l-.006-.001.006.001L17.4 2zM5 2H3a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z', _))
+            V_ui_path('M17 0a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3h14zm1 15H2v1h16v-1zm0-2H2v1h16v-1zm-8-4H2v2h8V9zm7.4-7h-3.6a.6.6 0 0 0 0 1.2h2.15l-3.774 3.776a.6.6 0 0 0 .848.848L16.8 4.048V6.2a.6.6 0 1 0 1.199 0V2.572l-.002-.023V2.53a.598.598 0 0 0-.014-.075l-.004-.015a.6.6 0 0 0-.322-.383l-.013-.006-.014-.006-.012-.005a.595.595 0 0 0-.054-.018l-.013-.003a.6.6 0 0 0-.02-.006l-.017-.003-.05-.008h-.003l-.006-.001.006.001L17.4 2zM5 2H3a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z', _))
         // 图标集：图标|文库-参考注释（脚注）汇总
         + V_ui_symbol(_icoDocLibRef_,
             V_ui_path('M7.5 17h5a.5.5 0 1 1 0 1h-5a.5.5 0 1 1 0-1zm0-17c1.044 0 1.964.534 2.501 1.343A2.989 2.989 0 0 1 12.5 0H18a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm0 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h7.5V3a2 2 0 0 0-2-2zM18 1h-5.5a2 2 0 0 0-2 2v12H18a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm-2.25 5.356l-.001 4.728H17V12h-5v-.915l1.249-.001V6.965l-.624.001v-.61h3.125zM14.5 3c.69 0 1.25.546 1.25 1.22 0 .436-.238.84-.625 1.057a1.276 1.276 0 0 1-1.25 0 1.215 1.215 0 0 1-.625-1.057c0-.674.56-1.22 1.25-1.22z', _))
@@ -16973,7 +17045,7 @@ function VLOOKui_common() {
     // --------------------------------------------------
     // 适配宽度
     // 对应的样式要与 v-nav-center-handle 及 hover 保持一致
-    ui += V_ui_div(_, _v_fit_width_, V_ui_svgIcon(_icoMaskCloser_, 16, 60, _alpha_));
+    ui += V_ui_div(_, _v_fill_width_, V_ui_svgIcon(_icoMaskCloser_, 16, 60, _alpha_));
 
     // --------------------------------------------------
     // 状态栏
@@ -17039,26 +17111,29 @@ function V_lazyLoading() {
 // 处理观察目标元素与视口（viewport）交集的变化情况，如果浏览到该对象时才进行加载
 let gResObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
+        // return;
         if (entry.isIntersecting) {
-            let _t = $(entry.target);
-            // 对 src 属性的处理
-            _t.a(_src_, _t.a(_data_src_)); // 替换为真实的 URL
-            JQ_removeAttr(_t, _data_src_); // 移除自定义属性
-            // 对 srcset 属性的处理
-            if (_t.a(_srcset_)) {
-                _t.a(_srcset_, _t.a(_data_srcset_)); // 替换为真实的 URL
-                JQ_removeAttr(_t, _data_srcset_); // 移除自定义属性
-            }
-            // 停止观察
-            observer.unobserve(_t[0]);
+            // setTimeout(() => {
+                let _t = $(entry.target);
+                // 对 src 属性的处理
+                _t.a(_src_, _t.a(_data_src_)); // 替换为真实的 URL
+                JQ_removeAttr(_t, _data_src_); // 移除自定义属性
+                // 对 srcset 属性的处理
+                if (_t.a(_srcset_)) {
+                    _t.a(_srcset_, _t.a(_data_srcset_)); // 替换为真实的 URL
+                    JQ_removeAttr(_t, _data_srcset_); // 移除自定义属性
+                }
+                // 停止观察
+                observer.unobserve(_t[0]);
 
-            // 针对图片标签的处理
-            if (V_util_getTagName(_t) === _img_) {
-                // 图片加载结果的处理
-                V_util_bindLoadChecker(_t);
-                // 对图片剪影的处理
-                V_lazyLoading_imageFilling(_t, _t.a(_src_), V_util_getUrlQueryParams(JS_encodeURI(_t.a(_src_))));
-            }
+                // 针对图片标签的处理
+                if (V_util_getTagName(_t) === _img_) {
+                    // 图片加载结果的处理
+                    V_util_bindLoadChecker(_t);
+                    // 对图片剪影的处理
+                    V_lazyLoading_imageFilling(_t, _t.a(_src_), V_util_getUrlQueryParams(JS_encodeURI(_t.a(_src_))));
+                }
+            // }, 2000);
         }
     });
 });
@@ -17360,12 +17435,12 @@ function loadVLOOKplugin() {
     // 如没有指定仅支持 Light Mode 时才进行自动适配 Dark Mode 的处理
     if (!gOnlyLightMode) {
         ColorScheme_init();
-        INFO("    System [ " + ColorScheme_systemScheme + " ]");
+        INFO("* Appearance [ " + ColorScheme_systemScheme + " ]");
         ColorScheme_scheme = V_util_getVarVal(___v_color_scheme_).x();
         // 通过调校参数指定了颜色方案
         let colorScheme = V_util_getParamVal("cs");
         if (colorScheme === _light_ || colorScheme === _dark_) {
-            INFO("    Force use [ " + colorScheme + " ]");
+            INFO("    Force [ " + colorScheme + " ]");
             ColorScheme_scheme = colorScheme;
             StsColorScheme_updateIcons();
             ColorScheme_refresh(gTrue);
@@ -17374,6 +17449,8 @@ function loadVLOOKplugin() {
         else {
             if (colorScheme === gNull)
                 colorScheme = V_data_read(_color_scheme_, gTrue);
+            // if (colorScheme === gNull)
+            //     colorScheme = _auto_;
             // 通过同域配置指定
             if (colorScheme !== gNull && (colorScheme === _light_ || colorScheme === _dark_)) {
                 INFO("    From config [ " + colorScheme + " ]");
@@ -17383,7 +17460,7 @@ function loadVLOOKplugin() {
             }
             // 针对 auto 模式，自动适配
             else {
-                INFO("    Auto use [ " + colorScheme + " ]");
+                INFO("    Auto [ " + ColorScheme_scheme + " ]");
                 StsColorScheme_updateIcons();
                 ColorScheme_refresh();
             }
@@ -17416,7 +17493,12 @@ function loadVLOOKplugin() {
     // ----------------------------------------
     // 字数统计
     __fork("Words " + _count_, () => {
-        DocInfo_countWord();
+        if (!V_ui_isHidden(StsDocInfo_ui))
+            DocInfo_countWord();
+
+        // 指定默认隐藏状态栏
+        if (V_util_getParamVal("sb") === _hide_)
+            StatusBar_hide();
     }, 500);
 
     // ----------------------------------------
@@ -17464,8 +17546,11 @@ function loadVLOOKplugin() {
     // }, 350);
 
     // ----------------------------------------
-    // 适应宽度
-    FitWidth_init();
+    // 正文宽度适配可显示宽度
+    FillWidth_init();
+    // 指定默认启用正文宽度适配可显示宽度
+    if (V_util_getParamVal(_fill_ + "w") === _on_)
+        FillWidth_enable();
 
     // 更新文档更多内容遮罩栏 UI
     MoreDocContent_updateUI(VOM_doc());
@@ -17484,7 +17569,7 @@ function loadVLOOKplugin() {
     function __fork(msg, func, delay) {
         setTimeout(() => {
             let sw = new Stopwatch();
-            sw.st("* thread * [" + msg + "]");
+            sw.st("-->> thread [" + msg + "]");
             typeof(func) === _function_ && func();
             sw.ed(_4space_);
         }, delay);

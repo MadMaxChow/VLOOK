@@ -1,6 +1,6 @@
 <!--
 ~~~~~~~~~ meta for <head /> ~~~~~~~~~~
-VLOOK "V28.0" (2025-01-11) - (head meta) - Typora Plugin
+VLOOK "V28.1" (2025-01-18) - (head meta) - Typora Plugin
 
 Paste to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 粘贴至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」

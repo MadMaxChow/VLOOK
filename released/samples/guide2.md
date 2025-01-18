@@ -1,5 +1,5 @@
 ---
-title: 快速参考手册 (Part.II) - VLOOK™ - 优雅好用的 Typora 主题与增强插件
+title: 快速参考手册 ▲ 进阶 - VLOOK™ - 优雅好用的 Typora 主题与增强插件
 author: MAX°孟兆
 description: 关于 VLOOK™ 的文本、表格、图片、分栏、列表、引用块、代码块、多媒体
 "og:description": 关于 VLOOK™ 的文本、表格、图片、分栏、列表、引用块、代码块、多媒体
@@ -56,28 +56,36 @@ vlook-doc-lib:
 - [反馈问题](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册 (Part.II)</u><br>*最新版本`V28.0`2025-01-11*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册 ▲ 进阶</u><br>*最新版本`V28.1`2025-01-18*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 
 [TOC]
 
 # 打赏
 
-*==打赏 VLOOK™==*
+<u>**感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**</u>
 
-|         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**         | **If you like VLOOK™, you can contribute a cup of coffee :-)** |
-| :----------------------------------------------------------: | :----------------------------------------------------------: |
-| ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo) | [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow) |
+＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
-> **感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**
+---
+
+> **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**
 >
-> ＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo)
+>
+> _~Gn~_
+
+> **I like VLOOK™, I donate a cup of coffee**
+>
+> [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow)
+>
+> _~Se~_
 
 # °封面与封底
 
 *Markdown 粉`Q`*「**如何让 Markdown 的文档支持封面、封底**（例如像本文档的封面、封底）？」
 *VLOOK`A`*_~T2~_ 在应用了 VLOOK™ 的「[模板主题](guide3.md#模板主题)」后，使用 Markdown 的标准语法也能让文档支持封面、封底，通过遵从 VLOOK™ 约定的使用规范即可激活。
 
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
@@ -111,9 +119,7 @@ vlook-doc-lib:
 >
 > _~T2~_
 
-根据以上操作成功激活封面、封底后，还可以在 Typora 的大纲面板中出现对应封面、封底条目，可进行一键定位到文档对应位置。
-
-以下是「封面」中特定类型信息（如小标题、作者等）的自动排版规则：
+<u>根据以上操作成功激活封面、封底后，还可以在 Typora 的大纲面板中出现对应封面、封底条目，可进行一键定位到文档对应位置。<br>以下是「封面」中特定类型信息（如小标题、作者等）的自动排版规则：</u>
 
 ---
 
@@ -162,7 +168,7 @@ vlook-doc-lib:
 ###### 本文档的封面内容示例
 
 ```markdown
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册<br>(Part.II)</u><br>*最新版本`V28.0`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册<br>(Part.II)</u><br>*最新版本`V28.1`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 ```
 
 ###### 本文档的封底内容示例
@@ -199,7 +205,7 @@ vlook-doc-lib:
 
 *VLOOK`A`*_~T2~_ 通过对特定组合使用的 Markdown 语法进行扩展，就可以满足你的这个灵活的排版需求！
 
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
@@ -345,7 +351,7 @@ vlook-doc-lib:
 
 *VLOOK`A`*_~T2~_ 通过对特定组合使用的 Markdown 语法进行扩展，就可以满足你的这个灵活的排版需求！
 
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
@@ -519,11 +525,11 @@ vlook-doc-lib:
 
 ## GitHub Style Alert 分栏
 
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
-**支持对 [GitHub Style Alert](#github Style Alert) 进行分栏的方式，还是熟悉的配方，与上面的「引用块分栏」方式保持一致～**
+==支持对 [GitHub Style Alert](#github Style Alert) 进行分栏的方式，还是熟悉的配方，与上面的「引用块分栏」方式保持一致～==
 
 
 
@@ -561,9 +567,9 @@ vlook-doc-lib:
 
 ## 键盘按键
 
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
-VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理键盘的按钮样式，示例如下：
+<u>VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理键盘的按钮样式，示例如下：</u>
 
 
 
@@ -591,11 +597,11 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 *VLOOK`A`*_~T2~_ 通过增强 Typora 已有的 `<kbd>` 特性，可以让你实现多种风格的按钮链接，一起上车吧～
 
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 ### 文字按钮
 
-**VLOOK™ 除实现「文本链接」转换为「按钮链接」外，还提供了三种按钮样式～**
+==VLOOK™ 除实现「文本链接」转换为「按钮链接」外，还提供了三种按钮样式～==
 
 如目前有这样的文字链接：
 
@@ -650,7 +656,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 ### 图标与文字按钮
 
-**除了纯文本的按钮外，还支持在按钮中添加图片作为按钮图标（任意尺寸），添加后图标会自动适配为 [icon 版式](guide.md#图片显示版式) 显示。**
+==除了纯文本的按钮外，还支持在按钮中添加图片作为按钮图标（任意尺寸），添加后图标会自动适配为 [icon 版式](guide.md#图片显示版式) 显示。==
 
 ---
 
@@ -687,11 +693,11 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 *VLOOK`A`*_~T2~_ 无须任何设置，即可自动对文档内所有「代码块」进行统一的自动编号、高亮当前行，编号举例： `代码块 1` `代码块 2.3-2` 。
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
-> 支持以下三种给「代码块」添加题注的方式：
+<u>支持以下三种给「代码块」添加题注的方式：</u>
 
 ---
 
@@ -747,7 +753,7 @@ end
 
 *VLOOK`A`*_~T2~_ 针对 Markdown 的代码块进行自动增强，支持高亮当前行、复制全部代码、适配 [Dark Mode](guide3.md#Dark-Mode)！
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 ###### 复制代码示例
 
@@ -800,7 +806,7 @@ void quickSort(int arr[], int left, int right) {
 
 ## 代码块换行版式
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 代码块默认是自动换行，可以根据需要切换为不换行方式。
 
@@ -820,9 +826,9 @@ void quickSort(int arr[], int left, int right) {
 
 *VLOOK`A`*_~T2~_ 在排版样式等方面进行适配和优化，同时支持「信息分类名称」自动匹配多语言环境。
 
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
-「**GitHub Style Alert**」**在文档中主要用于提示、备忘或强调关键信息时使用的排版样式，由对应信息分类的图标、名称、内容等组成。**
+<u>GitHub Style Alert 在文档中主要用于提示、备忘或强调关键信息时使用的排版样式，由对应信息分类的图标、名称、内容等组成。</u>
 
 
 
@@ -1040,7 +1046,7 @@ void quickSort(int arr[], int left, int right) {
 
 
 
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
@@ -1222,11 +1228,11 @@ void quickSort(int arr[], int left, int right) {
 
 
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
-以下是添加了超链接的标签，来试试看吧～
+<u>以下是添加了超链接的标签，来试试看吧～</u>
 
 [*`VIP 定制主题`*_~BnGd~_](https://madmaxchow.github.io/VLOOK/vip.html)    [*VLOOK`@GitHub`*](https://github.com/MadMaxChow/VLOOK)    [*VLOOK`GitHub`@MadMaxChow*_~T1T2~_](https://github.com/MadMaxChow/VLOOK)    [*`🎁 VIP`提交我的定制需求*_~BnGdBnGdBn~_](https://wj.qq.com/s2/14818521/bd33/)
 
@@ -1251,7 +1257,7 @@ void quickSort(int arr[], int left, int right) {
 
 *VLOOK`A`*_~T2~_  这个对于 VLOOK™ 来说真的非常 Easy，组合 Markdown「==粗体、高亮==」这两个标准格式就可以轻松实现
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
@@ -1344,7 +1350,7 @@ void quickSort(int arr[], int left, int right) {
 
 *VLOOK`A`*_~T2~_ 这个对于 VLOOK™ 来说真的非常 Easy，组合 Markdown「==斜体、高亮==」这两个标准格式就可以轻松实现。
 
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
@@ -1394,7 +1400,7 @@ void quickSort(int arr[], int left, int right) {
 
 *VLOOK`A`*_~T2~_  这个对于 VLOOK™ 来说真的非常 Easy，组合 Markdown「==斜体、粗体==」这两个标准格式就可以轻松实现。
 
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
@@ -1456,7 +1462,7 @@ void quickSort(int arr[], int left, int right) {
 
 *VLOOK`A`*_~T2~_ 通过对 Markdown 上标语法 `^ ^` 进行了扩展，轻松满足实用的「注音」排版需求！
 
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
@@ -1515,7 +1521,7 @@ void quickSort(int arr[], int left, int right) {
 
 ### 代码式注音
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 > [!CAUTION]
 >
@@ -1571,20 +1577,18 @@ void quickSort(int arr[], int left, int right) {
 
 *VLOOK`A`*_~T2~_ 无须任何设置，即可自动对文档内所有「Mermaid 图表」进行统一的自动编号，编号内容举例： `插图 1` `插图 2` ，命名和编号与[插图](guide.md#插图题注与自动编号)一致。同时，还增强了在演示时的辅助特性 … [了解详情 ❯](#Mermaid 样式优化与扩展)
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 > - 给「Mermaid 图表」添加题注的方式，与给「表格」添加题注的方式是一致的 … [了解详情 ❯](guide.md#表格题注与自动编号)
 >- 若没有指定题注，VLOOK™ 会自动创建带有以 Mermaid 图表内文字内容为关键信息的自动题
 
 ## Mermaid 样式优化与扩展
 
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
-
 *Markdown 粉`Q`*「**如果不喜欢 Mermaid 默认的样式，还希望自动适配 Dark Mode，怎么办？**」
 
 *VLOOK`A`*_~T2~_ 自动提供了深度的样式优化。
 
-••• *编辑时支持`部分支持`*_~Og!~_ •••
+> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 > **统一和优化样式**
 >
@@ -1781,7 +1785,7 @@ end
 
 ## 更实用美观的公式
 
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 ###### 行内混排的公式
 
@@ -1865,7 +1869,7 @@ $$
 
 *VLOOK`A`*_~T2~_ 为更好发挥主流流媒体平台（如：[Bilibili](www.bilibili.com)、[西瓜](www.ixigua.com)、[YouTube](www.youtube.com)）上丰富的视频资源，提供了主题样式适配和优化支持～
 
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 > [!TIP]
 >
@@ -1960,7 +1964,7 @@ $$
 
 *VLOOK`A`*_~T2~_ 目前 Markdown 工具都还没有针对视频的支持，现在可以几乎「零」成本实现了！
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
@@ -2002,7 +2006,7 @@ $$
 
 *VLOOK`A`*_~T2~_ 目前 Markdown 工具都还没有针对音频的支持，但现在可以几乎「零」成本实现了！
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 

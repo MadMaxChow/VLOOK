@@ -18,7 +18,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V28.0";
+@themeVer: "V28.1";
 @themeName: "vlook-x-dic";
 @themeDesc: "× DIC";
 @themeEmail: "maxchow@qq.com";
@@ -210,6 +210,13 @@
     margin: 0 !important;
     position: absolute !important;
 }
+
+// 生成加粗文本扩展样式
+.genExtBoldText();
+// 生成下划线文本扩展样式
+.genExtUnderText();
+// 生成高亮文本扩展样式
+.genExtHighlightText(@quoteBeforeImage_l01, @quoteAfterImage_l01, .8);
 
 // 生成线框风格的有序列表样式
 .genOrderList(frame, rect);

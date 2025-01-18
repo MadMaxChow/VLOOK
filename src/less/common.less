@@ -3,8 +3,8 @@
  * VLOOK™ CSS 多主题间的通用样式
  * (配合 base.less、主题.less 进行使用)
  *
- * V28.0
- * 2025-01-11
+ * V28.1
+ * 2025-01-18
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -390,7 +390,7 @@
 @backcoverBgPositionForMobile: 0 0;
 
 // 要与 CSS 变量 --mark-bg-h --mark-bg-h-inset 一并修改
-@markBgHeight: .75em;
+@markBgHeight: .5em;
 
 :root {
     // 要与 LESS 变量 @markBgHeight 一并修改
@@ -857,7 +857,7 @@
     #write svg[data-inject-url*="#card"],
     #write :is(p, blockquote):has(img[src*="#card"]),
     // 段落中只有图片时的样式
-    @{onlyImageInPg},
+    // @{onlyImageInPg},
     // 视频嵌入代码
     @{iframeVideoOnEditing} @{biliVideo},
     @{iframeVideoOnEditing} @{douyinVideo},
@@ -881,7 +881,7 @@
     @nonFigure: ~':not(:is([data-src*="#icon"],[data-src*="#logo"]))';
     @{writeOnEditing} p:has([md-inline="em"]:only-child>em>[md-inline="highlight"]>mark),
     // 段落中只有图片链接时的样式
-    @{onlyImageLinkInPg},
+    // @{onlyImageLinkInPg},
     #write .md-fences-adv-panel, // 针对 Mermaid 图
     .v-cap-cntr, // 导出后题注居中
     .v-caption.tbl>.v-cap-1 { // 表格题注样式
@@ -1066,13 +1066,13 @@
     }
 }
 
-// ==================== 生成文本居中样式 ==================== //
+// ==================== 生成加粗文本扩展样式 ==================== //
 
-.genCenterText() {
+.genExtBoldText() {
     @centerTextOnEditing: ~'@{writeOnEditing}>p>[md-inline="strong"]:only-child:has(>strong)';
     @centerTextOnHTML: ~'@{writeOnHTML}>p>strong:only-child';
     @{centerTextOnEditing},
-    @{centerTextOnEditing} {
+    @{centerTextOnHTML} {
         display: block;
         text-align: center;
         font-size: 1.125em;
@@ -1081,9 +1081,9 @@
     }
 }
 
-// ==================== 生成文本引用样式 ==================== //
+// ==================== 生成下划线文本扩展样式 ==================== //
 
-.genQuoteText() {
+.genExtUnderText() {
     // 下划线
     @underlineOnlyChild: ~'@{writeOnEditing}>p>[md-inline="underline"]:only-child';
     @onlyUnderlineTextOnEditing: ~'@{underlineOnlyChild}:has(>u)';
@@ -1094,13 +1094,12 @@
         text-align: center;
         font-size: 1.125em;
         line-height: @defaultLineHeight;
-        padding: 10px 40px 20px;
+        padding: 10px 40px 15px;
         border: none;
     }
     @{underlineOnlyChild}>u {
         border: none;
     }
-    // 下划线 before
 
     // 下划线 after
     @{onlyUnderlineTextOnEditing}:after,
@@ -1110,10 +1109,42 @@
         position: absolute;
         margin-top: 2em;
         height: 2px;
-        background-color: var(--pn-c-a);
+        // background-color: var(--pn-c-a);
+        opacity: .4;
+        background-image: linear-gradient(90deg, var(--ac-t1), var(--ac-t2));
         width: calc(100px + 10%);
         left: calc(50% - 50px - 5%);
     }
+}
+
+// ==================== 生成高亮文本扩展样式 ==================== //
+
+// 双引号（圆）
+@quoteBeforeImage_q01: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzgiIGhlaWdodD0iMjguNjMxIiB2aWV3Qm94PSIwIDAgMzggMjguNjMxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PHBhdGggZD0iTTE2LjE1NSAwbDEuMTYgMS4xNmEyMC4wNzUgMjAuMDc1IDAgMCAwLTEwLjI4OCA5LjY4OEE5IDkgMCAxIDEgMCAxOS42MzFDMCA5LjkgNi45NSAxLjc5MyAxNi4xNTUgMHpNMzYuMTU1IDBsMS4xNiAxLjE2YTIwLjA3NSAyMC4wNzUgMCAwIDAtMTAuMjg4IDkuNjg4QTkgOSAwIDEgMSAyMCAxOS42MzFDMjAgOS45IDI2Ljk1IDEuNzkzIDM2LjE1NSAweiIvPjwvZz48L3N2Zz4=");
+@quoteAfterImage_q01: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzgiIGhlaWdodD0iMjguNjMxIiB2aWV3Qm94PSIwIDAgMzggMjguNjMxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PHBhdGggZD0iTTEuODQ1IDI4LjYzbC0xLjE2LTEuMTZhMjAuMDc1IDIwLjA3NSAwIDAgMCAxMC4yODgtOS42ODdBOSA5IDAgMSAxIDE4IDljMCA5LjczLTYuOTUgMTcuODM4LTE2LjE1NSAxOS42M3pNMjEuODQ1IDI4LjYzbC0xLjE2LTEuMTZhMjAuMDc1IDIwLjA3NSAwIDAgMCAxMC4yODgtOS42ODdBOSA5IDAgMSAxIDM4IDljMCA5LjczLTYuOTUgMTcuODM4LTE2LjE1NSAxOS42M3oiLz48L2c+PC9zdmc+");
+// 双引号（方）
+@quoteBeforeImage_q02: url("");
+@quoteAfterImage_q02: url("");
+// 双引号（尖）
+@quoteBeforeImage_q03: url("");
+@quoteAfterImage_q03: url("");
+// 双圆环
+@quoteBeforeImage_c01: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCA0MCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9Im5vbnplcm8iPjxwYXRoIGQ9Ik0xMCAxMGM1LjUyMyAwIDEwIDQuNDc3IDEwIDEwcy00LjQ3NyAxMC0xMCAxMFMwIDI1LjUyMyAwIDIwczQuNDc3LTEwIDEwLTEwem0wIDVhNSA1IDAgMSAwIDAgMTAgNSA1IDAgMCAwIDAtMTB6IiBvcGFjaXR5PSIuMyIvPjxwYXRoIGQ9Ik0yNyAwYzcuMTggMCAxMyA1LjgyIDEzIDEzcy01LjgyIDEzLTEzIDEzLTEzLTUuODItMTMtMTNTMTkuODIgMCAyNyAwem0wIDVhOCA4IDAgMSAwIDAgMTYgOCA4IDAgMCAwIDAtMTZ6IiBvcGFjaXR5PSIuNSIvPjwvZz48L3N2Zz4=");
+@quoteAfterImage_c01: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCA0MCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9Im5vbnplcm8iPjxwYXRoIGQ9Ik0zMCAyMGMtNS41MjMgMC0xMC00LjQ3Ny0xMC0xMFMyNC40NzcgMCAzMCAwczEwIDQuNDc3IDEwIDEwLTQuNDc3IDEwLTEwIDEwem0wLTVhNSA1IDAgMSAwIDAtMTAgNSA1IDAgMCAwIDAgMTB6IiBvcGFjaXR5PSIuMyIvPjxwYXRoIGQ9Ik0xMyAzMEM1LjgyIDMwIDAgMjQuMTggMCAxN1M1LjgyIDQgMTMgNHMxMyA1LjgyIDEzIDEzLTUuODIgMTMtMTMgMTN6bTAtNWE4IDggMCAxIDAgMC0xNiA4IDggMCAwIDAgMCAxNnoiIG9wYWNpdHk9Ii41Ii8+PC9nPjwvc3ZnPg==");
+// 叶子
+@quoteBeforeImage_l01: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjgiIHZpZXdCb3g9IjAgMCAzMCAyOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0xMCAwaDEydjEyYzAgNS41MjMtNC40NzcgMTAtMTAgMTBIMFYxMEMwIDQuNDc3IDQuNDc3IDAgMTAgMHoiIG9wYWNpdHk9Ii41Ii8+PHBhdGggZD0iTTE4IDZoMTJ2MTJjMCA1LjUyMy00LjQ3NyAxMC0xMCAxMEg4VjE2YzAtNS41MjMgNC40NzctMTAgMTAtMTB6IiBvcGFjaXR5PSIuMyIvPjwvZz48L3N2Zz4=");
+@quoteAfterImage_l01: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjgiIHZpZXdCb3g9IjAgMCAzMCAyOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yMCAyOEg4VjE2YzAtNS41MjMgNC40NzctMTAgMTAtMTBoMTJ2MTJjMCA1LjUyMy00LjQ3NyAxMC0xMCAxMHoiIG9wYWNpdHk9Ii41Ii8+PHBhdGggZD0iTTEyIDIySDBWMTBDMCA0LjQ3NyA0LjQ3NyAwIDEwIDBoMTJ2MTJjMCA1LjUyMy00LjQ3NyAxMC0xMCAxMHoiIG9wYWNpdHk9Ii4zIi8+PC9nPjwvc3ZnPg==");
+// 半框（圆角）
+@quoteBeforeImage_f01: url("");
+@quoteAfterImage_f01: url("");
+// 半框（方角）
+@quoteBeforeImage_f02: url("");
+@quoteAfterImage_f02: url("");
+
+.genExtHighlightText(@beforeImage, @afterImage, @opacity : .3) {
+    @marginWidth: 10px;
+    @imageWidth: 40px;
+    @imageHeight: 30px;
 
     // 高亮
     @highlightOnlyChild: ~'@{writeOnEditing}>p>[md-inline="highlight"]:only-child';
@@ -1123,10 +1154,10 @@
     @{onlyHighlightTextOnHTML} {
         display: block;
         text-align: center;
-        font-style: oblique;
+        // font-style: @fontStyle;
         font-size: 1.25em;
         line-height: @defaultLineHeight;
-        padding: 10px 40px;
+        padding: 20px (@imageWidth + @marginWidth);
         box-shadow: none;
     }
     @{highlightOnlyChild}>mark {
@@ -1136,22 +1167,31 @@
     // 高亮 before
     @{onlyHighlightTextOnEditing}:before,
     @{onlyHighlightTextOnHTML}:before {
-        content: "“";
-        font-family: @base_serif_en, serif;
-        font-size: 3em;
-        opacity: .3;
-        margin: -30px 0 0 -40px;
+        content: "";
+        opacity: @opacity;
+        margin: -@marginWidth 0 0 -(@imageWidth + @marginWidth);
         position: absolute;
+        width: @imageWidth;
+        height: @imageHeight;
+        background: linear-gradient(135deg, var(--ac-t1) 10px, var(--ac-t2));
+        mask-image: @beforeImage;
+        mask-repeat: no-repeat;
+        mask-position: center center;
     }
+
     // 高亮 after
     @{onlyHighlightTextOnEditing}:after,
     @{onlyHighlightTextOnHTML}:after {
-        content: "”";
-        font-family: @base_serif_en, serif;
-        font-size: 3em;
-        opacity: .3;
-        margin: -10px 0 0 10px;
+        content: "";
+        opacity: @opacity;
+        margin: @marginWidth 0 0 @marginWidth;
         position: absolute;
+        width: @imageWidth;
+        height: @imageHeight;
+        background: linear-gradient(135deg, var(--ac-t2), var(--ac-t1) calc(100% - @marginWidth));
+        mask-image: @afterImage;
+        mask-repeat: no-repeat;
+        mask-position: center center;
     }
 }
 

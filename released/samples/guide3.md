@@ -1,5 +1,5 @@
 ---
-title: 快速参考手册 (Part.III) - VLOOK™ - 优雅好用的 Typora 主题与增强插件
+title: 快速参考手册 ★ 探索 - VLOOK™ - 优雅好用的 Typora 主题与增强插件
 author: MAX°孟兆
 description: 关于 VLOOK™ 的主题、内容标记、内容导航、演示与出版、第三方集成的适配、不杂项
 "og:description": 关于 VLOOK™ 的主题、内容标记、内容导航、演示与出版、第三方集成的适配、不杂项
@@ -55,19 +55,29 @@ vlook-doc-lib:
 - [反馈问题](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
 ---
 
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册 ★ 探索</u><br>*最新版本`V28.1`2025-01-18*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+
 [TOC]
 
 # 打赏
 
-*==打赏 VLOOK™==*
+<u>**感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**</u>
 
-|         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡 :-)**         | **If you like VLOOK™, you can contribute a cup of coffee :-)** |
-| :----------------------------------------------------------: | :----------------------------------------------------------: |
-| ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo) | [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow) |
+＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
-> **感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**
+---
+
+> **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**
 >
-> ＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo)
+>
+> _~Gn~_
+
+> **I like VLOOK™, I donate a cup of coffee**
+>
+> [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow)
+>
+> _~Se~_
 
 # °内容导航
 
@@ -77,7 +87,7 @@ vlook-doc-lib:
 
 *VLOOK`A`*_~T2~_ VLOOK™ 对导出的每一个静态 HTML ，都可以快速定位到上次阅读的位置。
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
@@ -90,7 +100,7 @@ vlook-doc-lib:
 
 *VLOOK`A`*_~T2~_ VLOOK™ 对导出的 HTML 除对目录大纲增强外，还支持丰富多样的文档资源的索引和管理。
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
@@ -112,7 +122,7 @@ vlook-doc-lib:
 
 *VLOOK`A`*_~T2~_ 由 VLOOK™ 接管后，会自动扩展提供「逐章导航栏」，正如你现在看到顶部的导航栏那样。
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
@@ -133,7 +143,7 @@ vlook-doc-lib:
 
 [^Mermaid]:[Mermaid](https://mermaid.js.org) is JavaScript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
@@ -166,7 +176,7 @@ vlook-doc-lib:
 
 *VLOOK`A`*_~T2~_ 为每个文档配置专属的「文库」内容，这样就可以随时一键直达你的「文档宇宙」中任意文档了。
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
@@ -243,7 +253,7 @@ vlook-doc-lib:
 
 **VLOOK™ 可以直接在当前页面位置弹层的方式进行显示，避免在文档中来回跳转**，也支持在 [导航中心](#导航中心) 的 [文库列表](#文库导航) 中直接跳转查看所有脚注。
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
@@ -251,14 +261,61 @@ vlook-doc-lib:
 
 [^脚注1]: 这是 VLOOK™ 优化后的脚的信息
 
+## ~~快捷操作导航~~
+
+默认的操作项是[导航历史](#导航历史)
+
+可通过在 YAML 中添加 `vlook-quick-action` 预置选项添加自定义的快捷操作项。
+
+快捷操作导航配置分为「操作项图标」和「操作项链接」，并以英文分号 `;` 进行分隔
+
+操作项图标格式与 Markdown 图片语法一致，如：`![图标标题](my-icon.svg)` ，其中：
+
+- 图标大小建议为 `20 × 20` 像素
+- 图标标题可选。作为鼠标在操作项上悬停时显示的提示
+
+操作项链接格式与 Markdown 超链接语法一致，如：`[备注说明](URL)` ，其中：
+
+- 备注说明可选。作为鼠标在操作项上悬停时显示提示的补充说明
+- URL 如果是图片地址并希望鼠标悬停时直接显示，可以在 URL 后添加参数 `?target=qv`
+
+配置举例如下：
+
+
+
+```yaml
+---
+# 在 YAML 中配置快捷操作项
+vlook-quick-action: ![图标标题](my-icon.svg);[备注说明](xxx.png?target=qv)
+---
+```
+
+
+
+需要配置多个快捷操作项时，可参考以下的分段配置方式：
+
+
+
+```yaml
+---
+# 在 YAML 中配置多个快捷操作项
+vlook-quick-action:
+- ![标题1](my-icon1.svg);[备注1](url-1.html?target=view)
+- ![标题2](my-icon2.png);[备注2](url-2.html)
+- ![标题3](my-icon3.png);[备注3](url-3.html)
+---
+```
+
 ## 导航历史
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
 - 自动记录当前文档内所有的跳转的历史，包括「导航中心」「逐章导航」「插图导航」「链接失效记录」等跳转的位置；
 - 可随时通过右上角的 ![导航历史](pic/icon-history.svg?darksrc=invert#icon) 导航历史按钮快速回跳（快捷键 <kbd>H</kbd> )
+
+
 
 ---
 
@@ -266,7 +323,7 @@ vlook-doc-lib:
 
 # °内容助手
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 针对不同形式的内容，提供自适应的快捷辅助功能。目前支持的内容形式包括：[表格](guide.md#°表格)、[插图](guide.md#°图片)、[标签](guide2.md#标签)、[刮刮卡](guide2.md#刮刮卡)、[代码与代码块](guide2.md#°代码)、[公式](guide2.md#更实用美观的公式)、[面包屑](guide2.md#面包屑)
 
@@ -346,7 +403,7 @@ vlook-doc-lib:
 
 # °演示辅助
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 ## 激光笔
 
@@ -354,7 +411,7 @@ vlook-doc-lib:
 
 *VLOOK`A`*_~T2~_ 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
-> 通过工具栏上的 ![激光笔](pic/icon-laser-pointer.svg?darksrc=invert#icon) 按钮打开「聚光灯」（快捷键操作：<kbd>P</kbd>）。
+> 通过工具栏上的 ![激光笔](pic/icon-laser-pointer.svg?darksrc=invert#icon) 按钮打开「聚光灯」（快捷键 <kbd>P</kbd>）。
 
 ## 聚光灯
 
@@ -362,7 +419,7 @@ vlook-doc-lib:
 
 *VLOOK`A`*_~T2~_ 无须高大上的设备或方式，VLOOK™ 激活后开箱即用～
 
-> - 通过工具栏上的 ![聚光灯](pic/icon-spotlight.svg?darksrc=invert#icon) 按钮打开、关闭（快捷键操作：<kbd>S</kbd> )；
+> - 通过工具栏上的 ![聚光灯](pic/icon-spotlight.svg?darksrc=invert#icon) 按钮打开、关闭（快捷键 <kbd>S</kbd> )；
 > - 打开聚光灯后，可支持按通过 <kbd>⇧ Shift</kbd> 键调节聚光灯的大小。
 
 ## 段落漫游
@@ -371,7 +428,7 @@ vlook-doc-lib:
 
 *VLOOK`A`*_~T2~_ 点击工具栏上的段落漫游按钮 ![段落漫游](pic/icon-paragraph-nav.svg?darksrc=invert#icon) （或快捷键）就可以进入「段落漫游」模式了（致敬 vim)。
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 *==段落漫游快捷键_致敬 vim_==*
 
@@ -388,7 +445,7 @@ vlook-doc-lib:
 
 ## 正文宽度适配
 
-为保障阅读体验，默认情况下正文区域会与自动适应浏览器窗口的宽度，当宽度过大时：
+为保障阅读体验，默认情况下正文区域会与自动适应浏览器窗口的宽度，当宽度过大时进行提供：
 
 - 自动控制正文区域宽度为固定的宽度
 - 支持点击右侧的箭头区域进行切换不同的宽度
@@ -421,7 +478,7 @@ vlook-doc-lib:
 
 # °出版辅助
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 ## 标记不发布的内容
 
@@ -429,7 +486,7 @@ vlook-doc-lib:
 
 *VLOOK`A`*_~T2~_ Markdown 的「删除线」和「标题」一拍即合，优雅地轻松驾驭文档发布的内容范围～
 
-通过 Markdown 的「**~~删除线~~**」格式标记哪些内容暂不发布，支持以下内容：
+<u>通过 Markdown 的「**~~删除线~~**」格式标记哪些内容暂不发布，支持以下内容：</u>
 
 ---
 
@@ -473,11 +530,9 @@ vlook-doc-lib:
 
 ## 社交分享
 
-###### Open Graph Protocol
+==VLOOK™ 支持 [Open Graph Protocol](https://ogp.me/)（是一个网络协议，用于在网页元数据中丰富内容的表示，尤其是在社交媒体上分享时），在分享时 VLOOK™ 会自动根据文档中预设的 OGP 标签内容生成网页分享到社交平台时的外观和描述。==
 
-> VLOOK™ 支持 [Open Graph Protocol](https://ogp.me/)（是一个网络协议，用于在网页元数据中丰富内容的表示，尤其是在社交媒体上分享时），在分享时 VLOOK™ 会自动根据文档中预设的 OGP 标签内容生成网页分享到社交平台时的外观和描述。
-
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
@@ -542,11 +597,11 @@ vlook-doc-lib:
 
 > [!TIP]
 >
-> 点击文档的右下角的 ![](pic/icon-link-map.svg#icon) 图标查看链接地图（快捷键操作： <kbd>M</kbd> )，并在链接地图中点击带有锚点条目后的「**检查锚点**」进行有效性检查
+> 点击文档的右下角的 ![](pic/icon-link-map.svg#icon) 图标查看链接地图（快捷键  <kbd>M</kbd> )，并在链接地图中点击带有锚点条目后的「**检查锚点**」进行有效性检查
 
 ## 长内容自动折叠
 
-**VLOOK™ 会自动对文档中的长插图、长表格、长代码进行自动折叠，节省文档的屏幕显示空间～**
+==VLOOK™ 会自动对文档中的长插图、长表格、长代码进行自动折叠，节省文档的屏幕显示空间～==
 
 > - 长长的**图片** … [查看示例 ❯](#长图片与双题注示例)
 > - 长长的**表格** … [查看示例 ❯](#快捷键操作汇总)
@@ -629,7 +684,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ## 链接内容识别
 
-**VLOOK™ 主题会自动识别文档中的超链接内容类型，显示不同的鼠标光标（鼠标光标样式同样适配 Light / Dark Mode）**
+==VLOOK™ 主题会自动识别文档中的超链接内容类型，显示不同的鼠标光标（鼠标光标样式同样适配 Light / Dark Mode）==
 
 ![VLOOK™ 主题专属鼠标光标](pic/cur-set.png?srcset=@2x)
 
@@ -687,6 +742,12 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 >
 > **零操作！**只需要使用 VLOOK™ 内置的主题 或 [定制主题](#模板主题)，正常配置并导出为 HTML 后即可具备该特性！
 
+## 字数与阅读时长
+
+在文档右下角显示当前文档的字数统计（区分拉丁、中日韩字数），以及阅读时长的参考。
+
+
+
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
@@ -699,13 +760,13 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 *VLOOK`A`*_~T2~_ 内置了多套原创、独具气质的模板主题，能满足多种应用场景需要，完全超越你对 Markdown 主题的印象！
 
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
-**主题会应用到 Typora 的应用程序 UI，以及文档内各类可编辑的元素，尽可能达到从整体到细节的视觉一致性！**
+==主题会应用到 Typora 的应用程序 UI，以及文档内各类可编辑的元素，尽可能达到从整体到细节的视觉一致性！==
 
 ### 预置的模板主题
 
-以下是 VLOOK™ 内置的 6 套免费主题（点击预览效果）～
+<u>VLOOK™ 内置的 6 套免费主题（点击预览效果）～</u>
 
 ---
 
@@ -745,7 +806,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ### 定制模板主题
 
-目前现已开放主题的「**定制服务**」，以下为部分定制案例参考：
+<u>目前现已开放主题的「**定制服务**」，以下为部分定制案例参考</u>
 
 [![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.gif)](https://madmaxchow.github.io/VLOOK/vip.html)
 
@@ -759,11 +820,11 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 *VLOOK`A`*_~T2~_ 提供了五套独特个性的字体风格，可根据个人喜好进行选用。
 
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
-通过右下角状态栏上的  ![字体风格](pic/icon-font-style.svg?darksrc=invert#icon)  按钮进行选择（快捷键操作：<kbd>A</kbd> )
+<u>通过右下角状态栏上的  ![字体风格](pic/icon-font-style.svg?darksrc=invert#icon)  按钮进行选择（快捷键 <kbd>A</kbd> )<br>也支持通过「[定制主题](#定制模板主题)」进行预置指定</u>
 
 
 ---
@@ -818,11 +879,11 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 *VLOOK`A`*_~T2~_ 所有 VLOOK™ 的主题都会自动根据浏览器或系统的 Dark Mode（深色模式）的设置进行自动适配。
 
-> **适用范围 ••• *适用于`编辑时`*_~Gn~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
-> 可通过右下角状态栏上的 ![Auto Mode](pic/icon-auto-mode.svg?darksrc=invert#icon) / ![Light Mode](pic/icon-light-mode.svg?darksrc=invert#icon) / ![Dark Mode](pic/icon-dark-mode.svg?darksrc=invert#icon) 按钮进行手动切换（快捷键操作：<kbd>D</kbd> )
+<u>可通过右下角状态栏上的 ![Auto Mode](pic/icon-auto-mode.svg?darksrc=invert#icon) / ![Light Mode](pic/icon-light-mode.svg?darksrc=invert#icon) / ![Dark Mode](pic/icon-dark-mode.svg?darksrc=invert#icon) 按钮进行手动切换（快捷键 <kbd>D</kbd> )</u>
 
 > [!NOTE]
 >
@@ -841,11 +902,11 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 *VLOOK`A`*_~T2~_ 在 VLOOK™ 中可以轻松支持任意一个或多个在指定日期时以灰色显示。
 
-> **适用范围 ••• *`编辑时`不适用*_~Gy~_  *适用于`导出 HTML`*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
 
 
 
-通过「[插件预置选项](#插件预置选项)」 `vlook-gray-mode` 来指定启用 Gray Mode 的日期，在文档的 YAML Front Matter 区域添加以下内容：
+<u>通过「[插件预置选项](#插件预置选项)」 `vlook-gray-mode` 来指定启用 Gray Mode 的日期，该内容在文档的 YAML Front Matter 区域进行添加</u>
 
 *==增补以 Gray Mode 显示的日期==*
 
@@ -863,7 +924,7 @@ vlook-gray-mode: 月-日:标题@语言代码
 >
 > `语言代码` 可选，该日期适用的语言，如适用多种语言可写在一起，以英文逗号分隔
 >
-> <sup>如：中文`zh` 、中日韩文 `zh,ko` 、英语 `en`</sup>
+> <sup>如：中文`zh` 、中文和韩文 `zh,ko` 、英语 `en`</sup>
 >
 > ---
 >
@@ -876,7 +937,7 @@ vlook-gray-mode: 月-日:标题@语言代码
 
 > [!IMPORTANT]
 >
-> VLOOK™ 面向中文用户内置了「中国国家公祭日、清明节」启用 Gray Mode 的设定
+> VLOOK™ 面向中文语言用户内置了在「中国国家公祭日、清明节」时启用 Gray Mode 的设定
 
 > [!NOTE]
 >
@@ -974,9 +1035,11 @@ vlook-gray-mode: 月-日:标题@语言代码
 | 外观         |                                                              |         |                                                              |
 | > `cs`       | 指定使用固定的颜色方案                                       | `auto`  | `light` - 强制显示为 Light Mode<br>`dark` - 强制显示为 Dark Mode<br>`auto` - 自动跟随系统配置 |
 | > `effect`   | 调整文档的动效级别                                           |   `2`   | `0` - 关闭动效<br>`1` - 标准动效<br>`2` - 增强动效（毛玻璃等） |
+| > `fillw`    | 指定[正文宽度适配](#正文宽度适配)可显示宽度的默认状态        |  `off`  | `off` - 关闭<br>`on` - 开启                                  |
 | > `font`     | 强制指定使用的字体风格<br>指定该参数后则忽略 VLOOK 主题配套的字体风格 | `theme` | `theme` 指定使用主题配套<br>`local` - 指定使用「系统默认」<br>`sans` - 指定使用「小清新」<br>`serif` - 指定使用「文艺范」 |
 | > `gray`     | 临时关闭 [Gray Mode](#Gray Mode)                             |  `on`   | `off` - 关闭                                                 |
 | > `radius`   | 强制使用指定的圆角样式，忽略 VLOOK 主题自带的样式            |         | `none` - 不使用圆角<br>`small` - 使用小号圆角<br>`big` - 使用大号圆角 |
+| > `sb`       | 指定状态栏的默认显示方式                                     | `show`  | `hide` - 隐藏<br>`show` - 显示                               |
 | 交互         |                                                              |         |                                                              |
 | > `fold`     | 控制使用长内容自动折叠的内容范围<br>^若有多个范围时，可用英文逗号「,」进行分隔^ |  `on`   | `off` - 全不开启<br>`on` - 全开启<br><br>指定范围开启：<br>`table` - 指定「表格」<br>`figure` - 指定「插图」<br>`codeblock` - 指定「代码块」<br>`list` - 指定「列表」(未实现) |
 | > `tr`       | 指定表格阅读模式（十字光标）默认开关                         |  `off`  | `off` - 不开启<br>`on` - 开启                                |
@@ -993,7 +1056,7 @@ vlook-gray-mode: 月-日:标题@语言代码
 
 ## 快捷键操作汇总
 
-**VLOOK™ 的功能和特性支持快捷键操作，效率再上一个台阶。**
+<u>VLOOK™ 的功能和特性支持快捷键操作，效率再上一个台阶。</u>
 
 *==快捷键操作汇总==*
 

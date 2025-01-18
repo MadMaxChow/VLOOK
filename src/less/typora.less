@@ -3,8 +3,8 @@
  * VLOOK™ CSS - Typora 编辑时内置样式
  * (配合 base.less 进行使用)
  *
- * V28.0
- * 2025-01-11
+ * V28.1
+ * 2025-01-18
  * powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -1478,10 +1478,10 @@ content .md-toc::before {
     display: none;
 }
 // 进入对应内容的编辑时才显示
-@{writeOnEditing} .md-focus>@{colorCodeOnStart}, // 文本着色（段落）、单元格（段落）
+@{writeOnEditing} .md-focus @{colorCodeOnStart}, // 文本着色（段落）、单元格（段落）
 @{writeOnEditing} .md-expand+@{colorCodeMd},
-@{writeOnEditing} .md-expand>@{colorCode},
-@{writeOnEditing} .md-expand>a>@{colorCodeMd} {
+@{writeOnEditing} .md-expand @{colorCode},
+@{writeOnEditing} .md-expand a>@{colorCodeMd} {
     display: initial !important;
 }
 // 段落微调
@@ -1805,11 +1805,11 @@ span[md-inline="image"][data-src*="srcset="])::before {
 body:not([class*="pin-outline"]) @{writeOnEditing}, // 编辑时，如收起了左侧面板
 body[class*="on-focus-mode"] @{writeOnEditing}, // 编辑时，如启用了「专注模式（Focus Mode）」
 body[class*="ty-on-typewriter-mode"] @{writeOnEditing}, // 编辑时，如启用了「打字机模式（Typewriter Mode）」
-#write.max.fit-width {
+#write.max.fill-width {
     width: auto;
     box-shadow: none;
 }
-#write.max.fit-width {
+#write.max.fill-width {
     margin-left: var(--v-write-ml-def) !important;
 }
 

@@ -9,16 +9,18 @@ keywords:
 - Table enhancement, cell merging, row grouping, crosshairs, repeating header, scratch card, black screen, label, picture enhancement, presentation assistance, spotlight, laser pen, auto folding, printing, mermaid, audio, video, phonetic notation, theme, font, template, dark mode, dark mode, cover, back cover, private customization
 - PRD, design, requirements, documents, blogs, manuals, guides, online, operation and maintenance, knowledge base, wiki
 - Product manager, programmer, operation and maintenance engineer, pre-sales and after-sales
-Vlook-header-autonum-test: h1{{#ALPHA#.}},h2{{STEP-##-min#:}}
+Vlook-header-autonum-test: h1{{#ALPHA#.}},h2{{STEP-##-min#}}
 vlook-doc-lib:
-- [Quick Guide](guide.html?target=guide "文本、表格、图片、列表、引用块、章节标题、分栏、按钮、代码、内容标记、Mermaid、数学公式、多媒体、内容导航、内容助手、演示辅助、出版辅助、外观")
-- [VLOOK™ Documents](vlook-lib-en.html "Guide, Manual, Sample, Example")
-- [中文 🇨🇳 参考手册](index.html?target=vlook-index-cn "手册、教程、指南、示例、范例")
+- [VLOOK™ Features](vlook-lib-en.html "Guide, Manual, Sample, Example")
+- [Guide • Basic](guide.html?target=guide "文本、表格、图片、列表、引用块、章节标题")
+- [Guide ▲ Advanced](guide2.html?target=guide "分栏、按钮、代码、内容标记、Mermaid、数学公式、多媒体")
+- [Guide ★ Exploration](guide3.html?target=guide "内容导航、内容助手、演示辅助、出版辅助、外观")
+- [中文 🇨🇳](index.html?target=vlook-index-cn "简介、快速入坑、安装与使用")
 - [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank "Project Home")
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 ---
 
-###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br>──<br><u>Introduction</u><br>*`V28.0`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br>──<br><u>Introduction</u><br>*`V28.1`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 
 [TOC]
 
@@ -26,17 +28,15 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 # What is VLOOK™
 
-> ![VLOOK™](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo)
->
-> **A DOMESTICALLY DEVELOPED OPEN-SOURCE PRODUCT RECOMMENDED BY** ![OSChina](pic/oschina.png#icon) **[Open Source China](https://www.oschina.net/p/vlook)**.
->
-> ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** is a **THEME PACK**_~GnRo~_ and **ENHANCEMENT PLUGIN**_~PuOg~_ for [Typora](https://typora.io)[^Typora] .
->
-> VLOOK™ is an open-source software that follows the **MIT License**.
+![VLOOK™](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo)
+
+<u>**A DOMESTICALLY DEVELOPED OPEN-SOURCE PRODUCT RECOMMENDED BY** ![OSChina](pic/oschina.png#icon) **[Open Source China](https://www.oschina.net/p/vlook)**.</u>
+
+==![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** is a **THEME PACK**_~GnRo~_ and **ENHANCEMENT PLUGIN**_~PuOg~_ for [Typora](https://typora.io)[^Typora] ,<br>is an open-source software that follows the **MIT License**.==
 
 
 
-[*Editor`Typora`V1.9+*_~Gy~_](https://typoraio.cn)　*License`MIT`*_~Rd~_　*`Keywords`Theme, Plugin*_~Pu~_　*`Supported OS`Windows, macOS, Linux*_~Bu~_
+**[*Editor`Typora`V1.9+*_~Gy~_](https://typoraio.cn)　*License`MIT`*_~Rd~_　*`Keywords`Theme, Plugin*_~Pu~_　*`Supported OS`Windows, macOS, Linux*_~Bu~_**
 
 
 
@@ -71,7 +71,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 # Prepared For
 
-**If you also have one or more of the following needs or pain points, you can safely try the Markdown-based document solution for document editing, publishing, and management. The recommended combination is Typora + VLOOK™:**
+==If you also have one or more of the following needs or pain points, you can safely try the Markdown-based document solution for document editing, publishing, and management. The recommended combination is **Typora + VLOOK™**==
 
 - Use Markdown to write documents, but there are more requirements for the Markdown editor, or the typesetting and interaction of the HTML output
 - For the written document, hope *???**Unified template and output***_~T1~_ , and best *???**Change theme any time***_~T2~_
@@ -198,9 +198,9 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 > **Step1. Download the Plug-in**
 >
-> Download the latest version from the homepage of VLOOK™ (Or directly select and download the required files from the repository in the subsequent steps):
+> Download the latest version from the homepage of VLOOK™ (**VLOOK-released.zip**)
 > 
->  [<kbd>![](pic/icon-download.svg?fill=text) via GitHub</kbd>](https://github.com/MadMaxChow/VLOOK/releases/tag/V28.0)  *[<kbd>![](pic/icon-download.svg?fill=text) via Gitee</kbd>](https://gitee.com/madmaxchow/VLOOK/repository/archive/V28.0)*
+>  [<kbd>![](pic/icon-download.svg?fill=text) via GitHub</kbd>](https://github.com/MadMaxChow/VLOOK/releases)  *[<kbd>![](pic/icon-download.svg?fill=text) via Gitee</kbd>](https://gitee.com/madmaxchow/VLOOK/tags)*
 >
 >
 > _~Gn~_
@@ -231,9 +231,10 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 >
 > 1. The *==released\themes==* all **CSS files** are copied to Typora theme directory;
 >
->    > Where is the theme directory? Open *==Settings ▸ Appearance ▸ Open Theme Directory==*
 >
-> 2. Or directly visit the **[themes](https://github.com/MadMaxChow/VLOOK/tree/master/released/themes)** of VLOOK, download and copy it to Typora’s theme directory.
+> > **Where is the theme directory?** 
+> >
+> > Open *==Settings ▸ Appearance==*, click <kbd>Open Theme Directory</kbd>
 >
 > _~Og~_
 
@@ -267,8 +268,6 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 ---
 
----
-
 > **Add "Export Setting"**
 >
 > 1. Open Typora
@@ -285,15 +284,17 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 >
 > _~Cy~_
 
+---
+
 > **Install "Plugin"**
 >
-> 1. Open the plug-in file: *==released/plugin/**plugin.txt**==* (Or directly open the **[plugin.txt](https://github.com/MadMaxChow/VLOOK/tree/master/released/plugin/plugin.txt)** file on GitHub)
+> 1. Open the plug-in file: *==released/plugin/**plugin.txt**==*
 > 2. Select and copy all contents;
 > 3. Paste to `Append in <body />`
 >
 > _~Cy~_
 
-> ###### One-click export via VLOOK
+> **One-click export via VLOOK**
 >
 > 1. Open the md file conforming to the VLOOK™ specification;
 > 2. Click *==File ▸ Export ▸ VLOOK==* to export.
@@ -301,6 +302,12 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 > _~Cy~_
 
 ![Typora ▸ Preferences ▸ Export](pic/typora-opt2-light-en.png?srcset=@2x&darksrc=typora-opt2-dark-en.png&darksrcset=@2x)
+
+
+
+> **Discussion and Communication**
+>
+> [<kbd>✈️ Telegram Channel</kbd>](https://t.me/vlook_markdown)    *[<kbd>💬 QQ Group</kbd>](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)*
 
 # Supplement
 
@@ -312,13 +319,13 @@ To support more language for the exported HTML, you can choose to append the con
 
 <u>Currently supported languages for expansion include:</u>
 
-<u>*French`Français`*_~La~_  *German`Detusch`*_~Og~_  *Russian`Русский`*_~Bu~_  *Spanish`Español`*_~Ye~_  *Portuguese`Português`*_~Mn~_<br>*Traditional Chinese`Hong Kong / Macao / Taiwan regions`*_~Wn~_   *Japanese`日本語`*_~Rd~_  *Korean`한국어`*_~Se~_  *Arabic`العربية`*_~Gn~_</u>
+***French`Français`*_~La~_  *German`Detusch`*_~Og~_  *Russian`Русский`*_~Bu~_  *Spanish`Español`*_~Ye~_  *Portuguese`Português`*_~Mn~_<br>*Traditional Chinese`Hong Kong / Macao / Taiwan regions`*_~Wn~_   *Japanese`日本語`*_~Rd~_  *Korean`한국어`*_~Se~_*Arabic`العربية`*_~Gn~_**
 
 ---
 
 > **Select language package**
 >
-> 1. The language package file is located in the *==released/plugin/lang==* (Or directly visit the [**lang**](https://github.com/MadMaxChow/VLOOK/tree/master/released/plugin/lang) folder on GitHub)
+> 1. The language package file is located in the *==released/plugin/lang==*
 > 2. Open language file and copy all the content. (e.g: `Français.txt` )
 
 > **Update export configuration**
@@ -348,9 +355,9 @@ The online version of the plugin file is: *==released/plugin/**plugin_live.txt**
 >
 > If a new version is available, an upgrade notification icon ![](pic/icon-new-version.svg#icon) will appear in the bottom right corner. To update, simply repeat the steps mentioned above in [How to Use](#How to Use).
 >
-> _~Cy!~_
+> _~Bu~_
 
-> **![](pic/logo-browser.svg?fill=gy&darksrc=invert#icon)  Recommend compatible browser !**
+> **![](pic/logo-browser.svg?fill=bu&darksrc=invert#icon)  Recommend compatible browser !**
 >
 > In order to ensure the best user experience, it is strongly recommended to use the following browsers to access:
 >
@@ -363,6 +370,8 @@ The online version of the plugin file is: *==released/plugin/**plugin_live.txt**
 > **Cross-Platform**
 >
 > HTML documents published using VLOOK™ can automatically adapt to different screens and resolutions of various devices such as desktops, tablets, and mobile phones, providing the most suitable reading and usage experience.
+>
+> _~La~_
 
 > **Animation Effect**
 >
@@ -374,6 +383,8 @@ The online version of the plugin file is: *==released/plugin/**plugin_live.txt**
 > >
 > > - Enter `about:config` in the address bar
 > > - Search for the configuration item `layout.css.backdrop-filter.enabled` and set it to `true`
+>
+> _~La~_
 
 # Value-added Services
 
@@ -381,7 +392,7 @@ The online version of the plugin file is: *==released/plugin/**plugin_live.txt**
 
 <u>The "**Customization Service**" for Themes is now open! Here are some reference cases for private customization.</u>
 
-[![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.gif)](https://madmaxchow.github.io/VLOOK/vip.html)
+[![定制主题](pic/vlook-theme-vip-demo.gif)](https://madmaxchow.github.io/VLOOK/vip.html)
 
 
 
@@ -389,7 +400,7 @@ The online version of the plugin file is: *==released/plugin/**plugin_live.txt**
 
 ## Typesetting and Editing Services
 
-![Docment Typesetting, Content Revision, Knowledge Base Construction, Publishing Guidance, Website Hosting](https://vlook-doc.pages.dev/pic/vlook-te.png?srcset=@2x)
+![Typesetting and Editing Services](pic/vlook-te.png?srcset=@2x)
 
 <u>Based on the content and audience of your document, fully utilize the numerous features of Typora + VLOOK™, to provide services like **Docment Typesetting**, **Content Revision**, **Knowledge Base Construction**, **Publishing Guidance**, **Website Hosting**.</u>
 

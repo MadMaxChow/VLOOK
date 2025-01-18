@@ -37,9 +37,7 @@ vlook-doc-lib: vlook-lib.html
 
 ##主题定制服务
 
-<u>VLOOK™ 内置了 6 种风格鲜明的主题～</u>
-
-==考虑众多的个性展示的需求，如**专项、专题性强的文档，或是面向客户带品牌展示**_~T1T2~_等需求，我们提供了**定制主题的服务，满足个性化的需要**_~T1T2~_～==
+==考虑众多的个性展示的需求，如**专项、专题性强的文档，或是面向客户带品牌展示**_~RdOgRd~_等需求，我们提供了**定制主题的服务，满足个性化的需要**_~BnGdBn~_～==
 
 ---
 
@@ -111,21 +109,21 @@ vlook-doc-lib: vlook-lib.html
 
 ![文档排版、内容修订、知识库搭建、出版指导、站点托管](https://vlook-doc.pages.dev/pic/vlook-te.png?srcset=@2x)
 
-###### 部分范例参考
+<u>部分范例参考</u>
 
 ---
 
 ---
 
-> [![点击查看实际效果](pic/sample-a-api_spec.png?srcset=@2x#card#border "样式与交互丰富的 API 文档")](sample-a-api_spec.html?ws=off)
+> [![点击查看实际效果](pic/sample-a-api_spec.png?srcset=@2x#card#border#fill "样式与交互丰富的 API 文档")](sample-a-api_spec.html?ws=off)
 >
 > _~T1!~_
 
-> [![点击查看实际效果](pic/sample-a-to_do.png?srcset=@2x#card#border "分类清晰有进度的待办便签")](sample-a-to_do.html?ws=off)
+> [![点击查看实际效果](pic/sample-a-to_do.png?srcset=@2x#card#border#fill "分类清晰有进度的待办便签")](sample-a-to_do.html?ws=off)
 >
 > _~T1!~_
 
->  [![点击查看实际效果](pic/sample-a-img_text.png?srcset=@2x#card#border "图片和文字也可以很和谐")](sample-a-img_text.html?ws=off)
+>  [![点击查看实际效果](pic/sample-a-img_text.png?srcset=@2x#card#border#fill "图片和文字也可以很和谐")](sample-a-img_text.html?ws=off)
 >
 >  _~T1!~_
 
@@ -133,15 +131,15 @@ vlook-doc-lib: vlook-lib.html
 
 ---
 
-> [![点击查看实际效果](pic/sample-a-routes.png?srcset=@2x#card#border "可折叠分类参考信息")](sample-a-routes.html?ws=off)
+> [![点击查看实际效果](pic/sample-a-routes.png?srcset=@2x#card#border#fill "可折叠分类参考信息")](sample-a-routes.html?ws=off)
 >
 > _~T1!~_
 
-> [![点击查看实际效果](pic/sample-a-board.png?srcset=@2x#card#border "对项目信息分类整理的看板")](sample-a-board.html?ws=off)
+> [![点击查看实际效果](pic/sample-a-board.png?srcset=@2x#card#border#fill "对项目信息分类整理的看板")](sample-a-board.html?ws=off)
 >
 > _~T1!~_
 
-> [![点击查看实际效果](pic/sample-a-quiz.png?srcset=@2x#card#border "互动问答原来可以这样简单")](sample-a-quiz.html?ws=off)
+> [![点击查看实际效果](pic/sample-a-quiz.png?srcset=@2x#card#border#fill "互动问答原来可以这样简单")](sample-a-quiz.html?ws=off)
 >
 > _~T1!~_
 
@@ -157,9 +155,9 @@ vlook-doc-lib: vlook-lib.html
 
 > **直接联系**
 >
-> 微信： *点击查看**MaxChow***_~Gn~_
+> ✳️ 微信： *点击查看**MaxChow***_~Gn~_
 >
-> 电子邮件： *点击查看**maxchow@qq.com***_~Bu~_
+> 📨 电子邮件： *点击查看**maxchow@qq.com***_~Bu~_
 
 
 
