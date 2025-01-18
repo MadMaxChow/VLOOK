@@ -1946,8 +1946,10 @@ function V_ui_adjustAll() {
         ContentFolder_adjust();
     iChapterNav.adjust();
 
+    iToolbar.adjust();
     // 适配相关的 UI
-    // NavHistory_updateUI(iToolbar.adjust());
+    // let measure = iToolbar.adjust();
+    // NavHistory_updateUI(measure);
     MoreDocContent_updateUI();
 
     V_ui_processingAdjust = gFalse;
