@@ -14,15 +14,16 @@ Select language ❯  [**English**](README-en.md) • 中文  • [**Русски
 
 ![VLOOK™](https://vlook-doc.pages.dev/pic/vlook-mark-light.svg#logo)
 
-**[OSCHINA (开源中国)](https://www.oschina.net/p/vlook)、[Gitee (码云)](https://gitee.com/madmaxchow/VLOOK) 推荐的国产开源项目。**
-
 
 
 [VLOOK™](https://github.com/MadMaxChow/VLOOK) 是针对 [Typora](https://www.typora.io)（跨平台 Markdown 编辑器）的 **主题包** 和 **增强插件**。
 
+VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 
-VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
+
+- Typora 官方认可支持的主题包和增强插件，详见 [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook) 
+- [OSCHINA (开源中国)](https://www.oschina.net/p/vlook) 推荐的国产开源项目
 
 
 
@@ -36,7 +37,7 @@ VLOOK™ 属于开源软件，遵从 **[MIT 许可证](#许可协议)**。
 
 > **感谢打赏支持 VLOOK™ 的客官（部分名单）**
 >
-> ＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**         | **I like VLOOK™, I donate a cup of coffee** |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |

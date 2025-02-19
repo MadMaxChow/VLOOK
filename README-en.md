@@ -12,17 +12,16 @@ Select language ❯ English • [**中文**](README.md)  • [**Русский**
 
 ![VLOOK™](https://vlook-doc.pages.dev/pic/vlook-mark-light.svg)
 
-**[OSChina.net](https://www.oschina.net/p/vlook) RECOMMENDED DOMESTIC OPEN SOURCE PRODUCTS.**
-
 
 
 [VLOOK™](https://github.com/MadMaxChow/VLOOK) is for [Typora](https://www.typora.io) (cross-platform Markdown editor) of the **THEME PACKAGE** and **ENHANCED PLUG-IN**.
 
-**VLOOK™** is a **THEME PACK** and **ENHANCEMENT PLUGIN** for [Typora](https://www.typora.io) (cross-platform Markdown editor).
+VLOOK™ is open source software and complies with the **[MIT license](#许可协议)**.
 
 
 
-VLOOK™ is open source software and complies with the **[MIT license](#许可协议)** .
+- Typora recognized and supported theme pack and enhanced plugin, for details: [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook)
+- [OSChina](https://www.oschina.net/p/vlook) recommended domestic open source products
 
 
 
@@ -36,7 +35,7 @@ VLOOK™ is open source software and complies with the **[MIT license](#许可�
 
 > **Thanks for donate VLOOK™ (partial donors) **
 >
-> ＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 | **I like VLOOK™, I donate a cup of coffee** |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**         |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
