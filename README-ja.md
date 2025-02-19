@@ -20,8 +20,9 @@ VLOOK™ はオープンソースソフトウェアであり、**[MIT ライセ�
 
 
 
-- これも Typora によって認識され、サポートされるテーマパックと拡張プラグインです。詳細は：[Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook)
-- [OSChina](https://www.oschina.net/p/vlook) が推奨する国内のオープンソース製品
+> - これも Typora によって認識され、サポートされるテーマパックと拡張プラグインです。詳細は：[Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook)
+> - [OSChina](https://www.oschina.net/p/vlook) が推奨する国内のオープンソース製品
+>
 
 
 

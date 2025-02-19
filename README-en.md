@@ -20,8 +20,9 @@ VLOOK™ is open source software and complies with the **[MIT license](#许可�
 
 
 
-- It is also Typora - recognized and supported theme pack and enhanced plugin, for details: [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook)
-- [OSChina](https://www.oschina.net/p/vlook) recommended domestic open source products
+> - It is also Typora - recognized and supported theme pack and enhanced plugin, for details: [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook)
+> - [OSChina](https://www.oschina.net/p/vlook) recommended domestic open source products
+>
 
 
 

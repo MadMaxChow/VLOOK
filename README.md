@@ -22,8 +22,9 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 
 
-- Typora 官方认可支持的主题包和增强插件，详见 [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook) 
-- [OSCHINA (开源中国)](https://www.oschina.net/p/vlook) 推荐的国产开源项目
+> - Typora 官方认可支持的主题包和增强插件，详见 [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook) 
+> - [OSCHINA (开源中国)](https://www.oschina.net/p/vlook) 推荐的国产开源项目
+>
 
 
 
