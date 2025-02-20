@@ -1,5 +1,9 @@
 Select language ❯ [**English**](README-en.md) • [**中文**](README.md)  • [**Русский**](README-ru.md) • [**Français**](README-fr.md) • Detusch • [**日本語**](README-ja.md)
 
+
+
+![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK) ![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total) ![License](https://img.shields.io/github/license/MadMaxChow/VLOOK) ![Language](https://img.shields.io/github/languages/top/MadMaxChow/VLOOK) ![Code Size](https://img.shields.io/github/languages/code-size/MadMaxChow/VLOOK) ![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK)
+
 ---
 
 # VLOOK™ ── Geben Sie Ihrem Markdown eine neue Perspektive
@@ -24,7 +28,7 @@ VLOOK™ ist Open-Source-Software und entspricht der **[MIT-Lizenz](#许可协�
 > - [OSChina](https://www.oschina.net/p/vlook) empfohlene inländische Open - Source - Produkte
 >
 
-
+---
 
 > **Diskussion und Kommunikation**
 >

@@ -2,6 +2,8 @@ Select language ❯  [**English**](README-en.md) • 中文  • [**Русски
 
 
 
+![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK) ![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total) ![License](https://img.shields.io/github/license/MadMaxChow/VLOOK) ![Language](https://img.shields.io/github/languages/top/MadMaxChow/VLOOK) ![Code Size](https://img.shields.io/github/languages/code-size/MadMaxChow/VLOOK) ![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK)
+
 ---
 
 # VLOOK™ ── 让你的 Markdown 有了新看(wán)法
@@ -26,7 +28,7 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 > - [OSCHINA (开源中国)](https://www.oschina.net/p/vlook) 推荐的国产开源项目
 >
 
-
+---
 
 > **加入讨论与交流**
 >

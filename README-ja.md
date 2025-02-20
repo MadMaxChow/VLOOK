@@ -1,5 +1,9 @@
 Select language ❯ [**English**](README-en.md) • [**中文**](README.md)  • [**Русский**](README-ru.md) • [**Français**](README-fr.md) • [**Detusch**](README-de.md) • 日本語
 
+
+
+![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK) ![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total) ![License](https://img.shields.io/github/license/MadMaxChow/VLOOK) ![Language](https://img.shields.io/github/languages/top/MadMaxChow/VLOOK) ![Code Size](https://img.shields.io/github/languages/code-size/MadMaxChow/VLOOK) ![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK)
+
 ---
 
 # VLOOK™ ── Markdown に新しい見方を与えましょう
@@ -24,7 +28,7 @@ VLOOK™ はオープンソースソフトウェアであり、**[MIT ライセ�
 > - [OSChina](https://www.oschina.net/p/vlook) が推奨する国内のオープンソース製品
 >
 
-
+---
 
 > **議論とコミュニケーション**
 >
