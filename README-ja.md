@@ -2,7 +2,7 @@ Select language ❯ [**English**](README-en.md) • [**中文**](README.md)  •
 
 
 
-![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK) ![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total) ![License](https://img.shields.io/github/license/MadMaxChow/VLOOK) ![Language](https://img.shields.io/github/languages/top/MadMaxChow/VLOOK) ![Code Size](https://img.shields.io/github/languages/code-size/MadMaxChow/VLOOK) ![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK)
+[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total)](https://github.com/MadMaxChow/VLOOK/releases)  [![License](https://img.shields.io/github/license/MadMaxChow/VLOOK)](https://github.com/MadMaxChow/VLOOK/blob/master/LICENSE)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK)](https://github.com/MadMaxChow/VLOOK/stargazers)
 
 ---
 
