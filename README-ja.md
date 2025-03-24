@@ -2,7 +2,7 @@ Select language ❯ [**English**](README-en.md) • [**中文**](README.md)  •
 
 
 
-[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total)](https://github.com/MadMaxChow/VLOOK/releases)  [![License](https://img.shields.io/github/license/MadMaxChow/VLOOK)](https://github.com/MadMaxChow/VLOOK/blob/master/LICENSE)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK)](https://github.com/MadMaxChow/VLOOK/stargazers)
+[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total)](https://github.com/MadMaxChow/VLOOK/releases)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK)](https://github.com/MadMaxChow/VLOOK/stargazers)
 
 ---
 
@@ -40,7 +40,7 @@ VLOOK™ はオープンソースソフトウェアであり、**[MIT ライセ�
 
 > **VLOOK™ に寄付していただいた方々（部分的なドナー）に感謝します。**
 >
-> ＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊麗、一＊秋、＊軍、＊鵬、李＊6、＊無、H＊t、＊二、f＊y、＊宇、＊琛、＊輝、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龍、＊應、＊銷、＊哦、E＊y、……
+> ＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊麗、一＊秋、＊軍、＊鵬、李＊6、＊無、H＊t、＊二、f＊y、＊宇、＊琛、＊輝、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龍、＊應、＊銷、＊哦、E＊y、……
 
 | **私は VLOOK™が好きで、コーヒーを 1 杯寄付します** |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**         |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
