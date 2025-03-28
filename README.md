@@ -8,8 +8,6 @@ Select language ❯  [**English**](README-en.md) • 中文  • [**Русски
 
 # VLOOK™ ── 让你的 Markdown 有了新看(wán)法
 
-
-
 # 优雅好用的 Typora/Markdown 主题包×增强插件
 
 
@@ -21,6 +19,14 @@ Select language ❯  [**English**](README-en.md) • 中文  • [**Русски
 [VLOOK™](https://github.com/MadMaxChow/VLOOK) 是针对 [Typora](https://www.typora.io)（跨平台 Markdown 编辑器）的 **主题包** 和 **增强插件**。
 
 VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
+
+
+
+你是否也厌倦了 Markdown 文档千篇一律的排版和体验？VLOOK™ 在保持 Markdown 优雅的同时，还能让你编写的文档焕然一新。
+
+在 **文档排版**、**内容标记**、**内容导航**、**演示辅助**、交互体验 等方面提供了 **一致**、**简洁**、**友好** 的体验。
+
+只需简单几步的安装配置，你也可以拥有主题炫酷、排版丰富、交互友好的文档～
 
 
 
@@ -90,17 +96,15 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 # 快速参考手册
 
-VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，并结合文档的互联网化应用场景，在 **文档排版**、**内容导航**、**演示辅助**、**交互体验** 等方面提供了 **一致**、**简洁**、**友好** 的体验。
+有关 VLOOK™ 特性的详细介绍、样例及使用说明详见《VLOOK™ 快速参考手册》：
 
-> 有关 VLOOK™ 特性的详细介绍、样例及使用说明详见《VLOOK™ 快速参考手册》：
->
-> • **基础** • [点击这里开始](https://madmaxchow.github.io/VLOOK/guide.html)（[备用链接](https://vlook-doc.pages.dev/guide.html)）
->
-> ▲ **进阶** ▲ [点击这里开始](https://madmaxchow.github.io/VLOOK/guide2.html)（[备用链接](https://vlook-doc.pages.dev/guide2.html)）
->
-> ★ **探索** ★ [点击这里开始](https://madmaxchow.github.io/VLOOK/guide3.html)（[备用链接](https://vlook-doc.pages.dev/guide3.html)）
+• **基础** • [点击这里开始](https://madmaxchow.github.io/VLOOK/guide.html)（[备用链接](https://vlook-doc.pages.dev/guide.html)）
 
-> - 有关脚本化图表的详细介绍、样例及使用说明详见《脚本化图表参考指南》••• [点击这里开始](https://madmaxchow.github.io/VLOOK/chart.html)（[备用链接](https://vlook-doc.pages.dev/chart.html)）
+▲ **进阶** ▲ [点击这里开始](https://madmaxchow.github.io/VLOOK/guide2.html)（[备用链接](https://vlook-doc.pages.dev/guide2.html)）
+
+★ **探索** ★ [点击这里开始](https://madmaxchow.github.io/VLOOK/guide3.html)（[备用链接](https://vlook-doc.pages.dev/guide3.html)）
+
+> 有关脚本化图表的详细介绍、样例及使用说明详见《脚本化图表参考指南》••• [点击这里开始](https://madmaxchow.github.io/VLOOK/chart.html)（[备用链接](https://vlook-doc.pages.dev/chart.html)）
 
 # 增值服务
 

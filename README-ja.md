@@ -24,6 +24,14 @@ VLOOK™ はオープンソースソフトウェアであり、**[MIT ライセ�
 
 
 
+あなたも、千篇一律のレイアウトと体験のある Markdown 文書に飽きてしまいましたか？VLOOK™は、Markdown のエレガンスを維持しながら、あなたが作成する文書に新しい風貌を与えることができます。
+
+**文書レイアウト**、**コンテンツのマーキング**、**コンテンツのナビゲーション**、**プレゼンテーション支援**、インタラクティブな体験などの面で、**一貫性のある**、**シンプルな**、**使いやすい** 体験を提供しています。
+
+簡単なインストールと設定の手順で、テーマがカッコいい、レイアウトが豊富で、インタラクティブな使いやすい文書を手に入れることもできます。
+
+
+
 > - これも Typora によって認識され、サポートされるテーマパックと拡張プラグインです。詳細は：[Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook)
 > - [OSChina](https://www.oschina.net/p/vlook) が推奨する国内のオープンソース製品
 >
@@ -87,15 +95,13 @@ VLOOK™ についてさらに知りたい方は、[ここをクリックして�
 
 # クイックリファレンスマニュアル
 
-VLOOK™ は、Markdown と CSS の**拡張と拡掘**を通じて、インターネットアプリケーションシナリオに適した**ドキュメントレイアウト**、**コンテンツナビゲーション**、**プレゼンテーション支援**、**インタラクティブ体験**を提供し、**一貫性**、**シンプル**、**フレンドリー**な使用感を実現します。
+VLOOK™ 機能の詳細な紹介、サンプル、および使用方法については、"VLOOK™ クイックリファレンスマニュアル" を参照してください：
 
-> VLOOK™ 機能の詳細な紹介、サンプル、および使用方法については、"VLOOK™ クイックリファレンスマニュアル" を参照してください：
->
-> • **基礎** • [表示](https://madmaxchow.github.io/VLOOK/guide.html) ([代替リンク](https://vlook-doc.pages.dev/guide.html))
->
-> ▲ **進階** ▲ [表示](https://madmaxchow.github.io/VLOOK/guide2.html) ([代替リンク](https://vlook-doc.pages.dev/guide2.html))
->
-> ★ **探索** ★ [表示](https://madmaxchow.github.io/VLOOK/guide3.html) ([代替リンク](https://vlook-doc.pages.dev/guide3.html))
+• **基礎** • [表示](https://madmaxchow.github.io/VLOOK/guide.html) ([代替リンク](https://vlook-doc.pages.dev/guide.html))
+
+▲ **進階** ▲ [表示](https://madmaxchow.github.io/VLOOK/guide2.html) ([代替リンク](https://vlook-doc.pages.dev/guide2.html))
+
+★ **探索** ★ [表示](https://madmaxchow.github.io/VLOOK/guide3.html) ([代替リンク](https://vlook-doc.pages.dev/guide3.html))
 
 > スクリプト化されたチャートの詳細な説明、サンプル、および使用方法については、"スクリプト化チャートリファレンスマニュアル" を参照してください••• [表示](https://madmaxchow.github.io/VLOOK/chart.html) ([代替リンク](https://vlook-doc.pages.dev/chart.html))
 

@@ -24,6 +24,14 @@ VLOOK™ ist Open-Source-Software und entspricht der **[MIT-Lizenz](#许可协�
 
 
 
+Bist du auch müde von der einheitlichen Layout- und Benutzererfahrung von Markdown-Dokumenten? Während VLOOK™ die Eleganz von Markdown beibehält, kann es auch dazu beitragen, dass die von dir erstellten Dokumente eine völlig neue Erscheinung bekommen.
+
+Es bietet ein **einheitliches**, **einfaches** und **freundliches** Erlebnis in Bereichen wie **Dokumentlayout**, **Inhaltsmarkierung**, **Inhaltsnavigation**, **Präsentationsunterstützung** und interaktiver Benutzererfahrung.
+
+Mit nur wenigen einfachen Schritten der Installation und Konfiguration kannst du auch Dokumente mit cooler Thema, reichem Layout und freundlicher Interaktion haben!
+
+
+
 > - Es ist auch ein von Typora anerkanntes und unterstütztes Themenpaket und ein erweitertes Plugin. Für Details siehe: [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook)
 > - [OSChina](https://www.oschina.net/p/vlook) empfohlene inländische Open - Source - Produkte
 >
@@ -87,15 +95,13 @@ Blogs, ausgewählt für das "**Zhihu • Sea Salt Project**" •• [Los geht's]
 
 # Schnellreferenzhandbuch
 
-VLOOK™ bietet durch die fortlaufende **Erweiterung und Ausgrabung** von Markdown und CSS sowie die Kombination mit Internetanwendungsszenarien eine **dokumentenlayout**-Erfahrung, die in den Bereichen **Inhaltsnavigation**, **Präsentationshilfen**, **interaktive Erlebnisse** **konsistent**, **einfach** und **freundlich** ist.
+Für eine detaillierte Einführung, Beispiele und Anweisungen zu den Funktionen von VLOOK™, siehe "VLOOK™ Schnellreferenzhandbuch":
 
-> Für eine detaillierte Einführung, Beispiele und Anweisungen zu den Funktionen von VLOOK™, siehe "VLOOK™ Schnellreferenzhandbuch":
->
-> • **Grundlagen** • [Ansehen](https://madmaxchow.github.io/VLOOK/guide.html) ([alternative link](https://vlook-doc.pages.dev/guide.html))
->
-> ▲ **Fortgeschritten** ▲ [Ansehen](https://madmaxchow.github.io/VLOOK/guide2.html) ([alternative link](https://vlook-doc.pages.dev/guide2.html))
->
-> ★ **Erkundung** ★ [Ansehen](https://madmaxchow.github.io/VLOOK/guide3.html) ([alternative link](https://vlook-doc.pages.dev/guide3.html))
+• **Grundlagen** • [Ansehen](https://madmaxchow.github.io/VLOOK/guide.html) ([alternative link](https://vlook-doc.pages.dev/guide.html))
+
+▲ **Fortgeschritten** ▲ [Ansehen](https://madmaxchow.github.io/VLOOK/guide2.html) ([alternative link](https://vlook-doc.pages.dev/guide2.html))
+
+★ **Erkundung** ★ [Ansehen](https://madmaxchow.github.io/VLOOK/guide3.html) ([alternative link](https://vlook-doc.pages.dev/guide3.html))
 
 > Für eine detaillierte Einführung, Beispiele und Anweisungen zur Verwendung von Scripted Charts, siehe "Scripted Charts Referenzhandbuch"••• [Ansehen](https://madmaxchow.github.io/VLOOK/chart.html) ([alternative link](https://vlook-doc.pages.dev/chart.html))
 
