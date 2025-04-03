@@ -34,6 +34,7 @@ VLOOK™ はオープンソースソフトウェアであり、**[MIT ライセ�
 
 > - これも Typora によって認識され、サポートされるテーマパックと拡張プラグインです。詳細は：[Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook)
 > - [OSChina](https://www.oschina.net/p/vlook) が推奨する国内のオープンソース製品
+> - <a href="https://hellogithub.com/repository/aa6c612ca3de42a082b15053be4ce3c3" target="_blank"><img src="https://abroad.hellogithub.com/v1/widgets/recommend.svg?rid=aa6c612ca3de42a082b15053be4ce3c3&claim_uid=xCde1wfnch6ASLj&theme=neutral" alt="Featured｜HelloGitHub" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 >
 
 ---
@@ -48,7 +49,7 @@ VLOOK™ はオープンソースソフトウェアであり、**[MIT ライセ�
 
 > **VLOOK™ に寄付していただいた方々（部分的なドナー）に感謝します。**
 >
-> ＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊麗、一＊秋、＊軍、＊鵬、李＊6、＊無、H＊t、＊二、f＊y、＊宇、＊琛、＊輝、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龍、＊應、＊銷、＊哦、E＊y、……
+> ＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊麗、一＊秋、＊軍、＊鵬、李＊6、＊無、H＊t、＊二、f＊y、＊宇、＊琛、＊輝、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龍、＊應、＊銷、＊哦、E＊y、……
 
 | **私は VLOOK™が好きで、コーヒーを 1 杯寄付します** |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**         |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |

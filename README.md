@@ -32,6 +32,7 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 > - Typora 官方认可支持的主题包和增强插件，详见 [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook) 
 > - [OSCHINA (开源中国)](https://www.oschina.net/p/vlook) 推荐的国产开源项目
+> - <a href="https://hellogithub.com/repository/aa6c612ca3de42a082b15053be4ce3c3" target="_blank"><img src="https://abroad.hellogithub.com/v1/widgets/recommend.svg?rid=aa6c612ca3de42a082b15053be4ce3c3&claim_uid=xCde1wfnch6ASLj&theme=neutral" alt="Featured｜HelloGitHub" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 >
 
 ---
@@ -46,7 +47,7 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 > **感谢打赏支持 VLOOK™ 的客官（部分名单）**
 >
-> ＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
 
 |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**         | **I like VLOOK™, I donate a cup of coffee** |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
