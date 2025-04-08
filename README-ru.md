@@ -34,8 +34,8 @@ VLOOK™ — это программное обеспечение с откры�
 
 > - Это также тематический пакет и расширённый плагин, признанные и поддерживаемые Typora. Для подробностей: [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook)
 > - [OSChina](https://www.oschina.net/p/vlook) рекомендуемые отечественные продукты открытого кода
-> - <a href="https://www.producthunt.com/posts/vlook?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-vlook" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=948962&theme=neutral&t=1744083742474" alt="VLOOK - THEME&#0032;PACKAGE&#0032;&#0215;&#0032;ENHANCEMENT&#0032;PLUGIN&#0032;for&#0032;Typora&#0047;Markdown | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>  <a href="https://hellogithub.com/repository/aa6c612ca3de42a082b15053be4ce3c3" target="_blank"><img src="https://abroad.hellogithub.com/v1/widgets/recommend.svg?rid=aa6c612ca3de42a082b15053be4ce3c3&claim_uid=xCde1wfnch6ASLj&theme=neutral" alt="Featured｜HelloGitHub" style="width: 250px; height: 54px;" width="250" height="54" /></a>
->
+> 
+><a href="https://www.producthunt.com/posts/vlook?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-vlook" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=948962&theme=neutral&t=1744083742474" alt="VLOOK - THEME&#0032;PACKAGE&#0032;&#0215;&#0032;ENHANCEMENT&#0032;PLUGIN&#0032;for&#0032;Typora&#0047;Markdown | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>  <a href="https://hellogithub.com/repository/aa6c612ca3de42a082b15053be4ce3c3" target="_blank"><img src="https://abroad.hellogithub.com/v1/widgets/recommend.svg?rid=aa6c612ca3de42a082b15053be4ce3c3&claim_uid=xCde1wfnch6ASLj&theme=neutral" alt="Featured｜HelloGitHub" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
 ---
 
