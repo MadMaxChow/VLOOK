@@ -62,11 +62,11 @@ With just a few simple steps of installation and configuration, you can also hav
 ---
 
 
-![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-b01.png)
+![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-b01-en.png)
 
-![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-b02.png)
+![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-b02-en.png)
 
-![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-b03.png)
+![VLOOK™ ── 让你的 Markdown 有了新看(wán)法](https://vlook-doc.pages.dev/pic/vlook-screenshot-b03-en.png)
 
 
 ---
