@@ -49,7 +49,7 @@ En effectuant simplement quelques étapes faciles d'installation et de configura
 
 > **Merci d'avoir fait un don à VLOOK™ (donateurs partiels)**
 >
-> ＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、…
 
 | **J'aime VLOOK™, je donne un verre de café** |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**         |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
@@ -98,11 +98,11 @@ Blogs sélectionnés pour le "**Projet Zhihu • Sel de Mer**" •• [Allez-y](
 
 Pour une présentation détaillée, des exemples et des instructions sur les fonctionnalités de VLOOK™, consultez le "Manuel de Référence Rapide VLOOK™":
 
-• **De base** • [Voir](https://madmaxchow.github.io/VLOOK/guide.html) ([lien alternatif](https://vlook-doc.pages.dev/guide.html))
+• **De base** • [Voir](https://madmaxchow.github.io/VLOOK/guide-en.html) ([lien alternatif](https://vlook-doc.pages.dev/guide-en.html))
 
-▲ **Avancé** ▲ [Voir](https://madmaxchow.github.io/VLOOK/guide2.html) ([lien alternatif](https://vlook-doc.pages.dev/guide2.html))
+▲ **Avancé** ▲ [Voir](https://madmaxchow.github.io/VLOOK/guide2-en.html) ([lien alternatif](https://vlook-doc.pages.dev/guide2-en.html))
 
-★ **Exploration** ★ [Voir](https://madmaxchow.github.io/VLOOK/guide3.html) ([lien alternatif](https://vlook-doc.pages.dev/guide3.html))
+★ **Exploration** ★ [Voir](https://madmaxchow.github.io/VLOOK/guide3-en.html) ([lien alternatif](https://vlook-doc.pages.dev/guide3-en.html))
 
 > Pour une présentation détaillée, des exemples et des instructions sur l'utilisation des graphiques scriptés, consultez le "Guide de Référence des Graphiques Scriptés"••• [Voir](https://madmaxchow.github.io/VLOOK/chart.html) ([lien alternatif](https://vlook-doc.pages.dev/chart.html))
 
@@ -114,13 +114,13 @@ Pour une présentation détaillée, des exemples et des instructions sur les fon
 
 Le **Service de Personnalisation Privée** pour les Thèmes est désormais ouvert ! Voici quelques exemples de personnalisations privées.
 
-[![Thème personnalisé](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.png)](https://madmaxchow.github.io/VLOOK/vip.html)
+[![Thème personnalisé](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.png)](https://madmaxchow.github.io/VLOOK/vip-en.html)
 
 
 
 **[SOUMETTRE MA DEMANDE DE PERSONNALISATION 🎁 MAINTENANT ❯❯❯](https://wj.qq.com/s2/14818521/bd33/)**
 
-**Plus d'affichages de thèmes personnalisés •• [Cliquez ici pour explorer](https://madmaxchow.github.io/VLOOK/vip.html)**
+**Plus d'affichages de thèmes personnalisés •• [Cliquez ici pour explorer](https://madmaxchow.github.io/VLOOK/vip-en.html)**
 
 ## Services de Mise en Page et d'Édition
 
@@ -130,7 +130,7 @@ Adaptez le contenu de votre document et votre audience en exploitant pleinement 
 
 
 
-**En savoir plus sur les Services à Valeur Ajoutée •• [Cliquez ici pour explorer](https://madmaxchow.github.io/VLOOK/vip.html)**
+**En savoir plus sur les Services à Valeur Ajoutée •• [Cliquez ici pour explorer](https://madmaxchow.github.io/VLOOK/vip-en.html)**
 
 ---
 

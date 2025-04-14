@@ -49,7 +49,7 @@ With just a few simple steps of installation and configuration, you can also hav
 
 > **Thanks for donate VLOOK™ (partial donors) **
 >
-> ＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、……
+> ＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊丽、一＊秋、＊军、＊鹏、李＊6、＊无、H＊t、＊二、f＊y、＊宇、＊琛、＊辉、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龙、＊应、＊销、＊哦、E＊y、…
 
 | **I like VLOOK™, I donate a cup of coffee** |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**         |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
@@ -99,11 +99,11 @@ Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https:
 
 For detailed introduction, samples and instructions of VLOOK™ features, please refer to "VLOOK™ Quick Reference Manual":
 
-• **Basic** • [View](https://madmaxchow.github.io/VLOOK/guide.html) ([alternative link](https://vlook-doc.pages.dev/guide.html))
+• **Basic** • [View](https://madmaxchow.github.io/VLOOK/guide-en.html) ([alternative link](https://vlook-doc.pages.dev/guide-en.html))
 
-▲ **Advanced** ▲ [View](https://madmaxchow.github.io/VLOOK/guide2.html) ([alternative link](https://vlook-doc.pages.dev/guide2.html))
+▲ **Advanced** ▲ [View](https://madmaxchow.github.io/VLOOK/guide2-en.html) ([alternative link](https://vlook-doc.pages.dev/guide2-en.html))
 
-★ **Exploration** ★ [View](https://madmaxchow.github.io/VLOOK/guide3.html) ([alternative link](https://vlook-doc.pages.dev/guide3.html))
+★ **Exploration** ★ [View](https://madmaxchow.github.io/VLOOK/guide3-en.html) ([alternative link](https://vlook-doc.pages.dev/guide3-en.html))
 
 > For detailed introduction, samples and usage instructions of scripted charts, please refer to "Scripted Charts Reference Guide"••• [View](https://madmaxchow.github.io/VLOOK/chart.html) ([alternative link](https://vlook-doc.pages.dev/chart.html))
 
@@ -117,13 +117,13 @@ For detailed introduction, samples and instructions of VLOOK™ features, please
 
 The "**Private Customization Service**" for Themes is now open! Here are some reference cases for private customization.
 
-[![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.gif)](https://madmaxchow.github.io/VLOOK/vip.html)
+[![定制主题](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.gif)](https://madmaxchow.github.io/VLOOK/vip-en.html)
 
 
 
 **[NOW 🎁 Submit My Customization Request ❯❯❯](https://wj.qq.com/s2/14818521/bd33/)**
 
-**Explore more about Customized Themes •• [Click here to explore](https://madmaxchow.github.io/VLOOK/vip.html)**
+**Explore more about Customized Themes •• [Click here to explore](https://madmaxchow.github.io/VLOOK/vip-en.html)**
 
 ## Typesetting and Editing Services
 
@@ -133,7 +133,7 @@ Based on the content and audience of your document, fully utilize the numerous f
 
 
 
-**Explore more about Value-added Services •• [Click here to explore](https://madmaxchow.github.io/VLOOK/vip.html)**
+**Explore more about Value-added Services •• [Click here to explore](https://madmaxchow.github.io/VLOOK/vip-en.html)**
 
 
 

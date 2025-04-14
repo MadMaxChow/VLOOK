@@ -49,7 +49,7 @@ VLOOK™ はオープンソースソフトウェアであり、**[MIT ライセ�
 
 > **VLOOK™ に寄付していただいた方々（部分的なドナー）に感謝します。**
 >
-> ＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊麗、一＊秋、＊軍、＊鵬、李＊6、＊無、H＊t、＊二、f＊y、＊宇、＊琛、＊輝、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龍、＊應、＊銷、＊哦、E＊y、……
+> ＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、＊星、＊麗、一＊秋、＊軍、＊鵬、李＊6、＊無、H＊t、＊二、f＊y、＊宇、＊琛、＊輝、＊秋、＊笑、＊豫、l＊a、＊心、整＊9、＊国、＊拉、＊龍、＊應、＊銷、＊哦、E＊y、…
 
 | **私は VLOOK™が好きで、コーヒーを 1 杯寄付します** |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**         |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
@@ -98,11 +98,11 @@ VLOOK™ についてさらに知りたい方は、[ここをクリックして�
 
 VLOOK™ 機能の詳細な紹介、サンプル、および使用方法については、"VLOOK™ クイックリファレンスマニュアル" を参照してください：
 
-• **基礎** • [表示](https://madmaxchow.github.io/VLOOK/guide.html) ([代替リンク](https://vlook-doc.pages.dev/guide.html))
+• **基礎** • [表示](https://madmaxchow.github.io/VLOOK/guide-en.html) ([代替リンク](https://vlook-doc.pages.dev/guide-en.html))
 
-▲ **進階** ▲ [表示](https://madmaxchow.github.io/VLOOK/guide2.html) ([代替リンク](https://vlook-doc.pages.dev/guide2.html))
+▲ **進階** ▲ [表示](https://madmaxchow.github.io/VLOOK/guide2-en.html) ([代替リンク](https://vlook-doc.pages.dev/guide2-en.html))
 
-★ **探索** ★ [表示](https://madmaxchow.github.io/VLOOK/guide3.html) ([代替リンク](https://vlook-doc.pages.dev/guide3.html))
+★ **探索** ★ [表示](https://madmaxchow.github.io/VLOOK/guide3-en.html) ([代替リンク](https://vlook-doc.pages.dev/guide3-en.html))
 
 > スクリプト化されたチャートの詳細な説明、サンプル、および使用方法については、"スクリプト化チャートリファレンスマニュアル" を参照してください••• [表示](https://madmaxchow.github.io/VLOOK/chart.html) ([代替リンク](https://vlook-doc.pages.dev/chart.html))
 
@@ -116,13 +116,13 @@ VLOOK™ 機能の詳細な紹介、サンプル、および使用方法につ�
 
 テーマ用の**プライベートカスタマイズサービス**がオープンしました！こちらは、プライベートカスタマイズの参考事例です。
 
-[![カスタムテーマ](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.png)](https://madmaxchow.github.io/VLOOK/vip.html)
+[![カスタムテーマ](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.png)](https://madmaxchow.github.io/VLOOK/vip-en.html)
 
 
 
 **[今すぐカスタマイズリクエストを提出 ❯❯❯](https://wj.qq.com/s2/14818521/bd33/)**
 
-**さらにパーソナライズされたテーマを表示 •• [こちらをクリックして探索](https://madmaxchow.github.io/VLOOK/vip.html)**
+**さらにパーソナライズされたテーマを表示 •• [こちらをクリックして探索](https://madmaxchow.github.io/VLOOK/vip-en.html)**
 
 ## レイアウトと編集サービス
 
@@ -132,7 +132,7 @@ VLOOK™ 機能の詳細な紹介、サンプル、および使用方法につ�
 
 
 
-**付加価値サービスの詳細はこちら •• [クリックして探索](https://madmaxchow.github.io/VLOOK/vip.html)**
+**付加価値サービスの詳細はこちら •• [クリックして探索](https://madmaxchow.github.io/VLOOK/vip-en.html)**
 
 ---
 
