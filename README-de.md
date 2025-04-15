@@ -41,9 +41,10 @@ Mit nur wenigen einfachen Schritten der Installation und Konfiguration kannst du
 
 > **Diskussion und Kommunikation**
 >
-> - 💬 QQ Gruppe ([**805502564**](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&))
-> - ✈️ Telegram Kanal ([**vlook_markdown**](https://t.me/vlook_markdown "Treten Sie dem Telegram-Kanal bei")) 
+> - [![X/Twitter](https://vlook-doc.pages.dev/pic/x.png)](https://x.com/MadMaxChow)  [![YouTube](https://vlook-doc.pages.dev/pic/youtube.png)](https://www.youtube.com/@MadMaxChow)  [![Medium](https://vlook-doc.pages.dev/pic/medium.png)](https://medium.com/@zmzusa)
+> - ✈️ Telegram Kanal ([**vlook_markdown**](https://t.me/vlook_markdown "Treten Sie dem Telegram-Kanal bei"))
 > - 📨 Email (**maxchow@qq.com**)
+> - 💬 QQ Gruppe ([**805502564**](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&))
 
 # Spenden
 

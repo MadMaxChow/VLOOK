@@ -41,9 +41,10 @@ VLOOK™ — это программное обеспечение с откры�
 
 > **Обсуждение и Коммуникация**
 >
-> - 💬 Группа QQ ([**805502564**](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&))
-> - ✈️ Канал Telegram ([**vlook_markdown**](https://t.me/vlook_markdown "Присоединяйтесь к каналу Telegram")) 
+> - [![X/Twitter](https://vlook-doc.pages.dev/pic/x.png)](https://x.com/MadMaxChow)  [![YouTube](https://vlook-doc.pages.dev/pic/youtube.png)](https://www.youtube.com/@MadMaxChow)  [![Medium](https://vlook-doc.pages.dev/pic/medium.png)](https://medium.com/@zmzusa)
+> - ✈️ Канал Telegram ([**vlook_markdown**](https://t.me/vlook_markdown "Присоединяйтесь к каналу Telegram"))
 > - 📨 Email (**maxchow@qq.com**)
+> - 💬 Группа QQ ([**805502564**](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&))
 
 # Пожертвовать
 

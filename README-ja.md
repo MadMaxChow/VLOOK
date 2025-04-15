@@ -41,9 +41,10 @@ VLOOK™ はオープンソースソフトウェアであり、**[MIT ライセ�
 
 > **議論とコミュニケーション**
 >
-> - 💬 QQ グループ ([**805502564**](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&))
-> - ✈️ テレグラムチャンネル ([**vlook_markdown**](https://t.me/vlook_markdown "テレグラムチャンネルに参加")) 
+> - [![X/Twitter](https://vlook-doc.pages.dev/pic/x.png)](https://x.com/MadMaxChow)  [![YouTube](https://vlook-doc.pages.dev/pic/youtube.png)](https://www.youtube.com/@MadMaxChow)  [![Medium](https://vlook-doc.pages.dev/pic/medium.png)](https://medium.com/@zmzusa)
+> - ✈️ テレグラムチャンネル ([**vlook_markdown**](https://t.me/vlook_markdown "テレグラムチャンネルに参加"))
 > - 📨 メール (**maxchow@qq.com**)
+> - 💬 QQ グループ ([**805502564**](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&))
 
 # 寄付
 
