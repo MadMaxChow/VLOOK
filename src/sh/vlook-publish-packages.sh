@@ -41,7 +41,7 @@ for package in "${packages[@]}"; do
     contents="${package#*:}"    # 获取内容
     
     echo -e "\n--------------------"
-    echo -e "创建下载包 ${OUTPUT_DIR}/-${latestVer}${name}.zip\n内容包括：${contents}"
+    echo -e "创建下载包 ${OUTPUT_DIR}/${name}-${latestVer}.zip\n内容包括：${contents}"
     
     zip -r -q -9 "${OUTPUT_DIR}/${name}-${latestVer}.zip" $contents --exclude "*.DS_Store" "*/._*" "config.codekit*" ".git" ".gitignore" ".idea" "thumbs.db" ".Trashes"
     
