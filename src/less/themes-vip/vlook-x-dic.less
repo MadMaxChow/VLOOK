@@ -2,7 +2,7 @@
  *
  * VLOOK™ 模板主题
  *
- * powered by MAX°孟兆
+ * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
  * Telegram Channel: t.me/vlook_markdown
@@ -18,17 +18,17 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V28.1";
+@themeVer: "V29.0";
 @themeName: "vlook-x-dic";
 @themeDesc: "× DIC";
 @themeEmail: "maxchow@qq.com";
 
 // 指定字体主题
 // .applyFontStyle(win);
-.applyFontStyle(local);
+// .applyFontStyle(local);
 // .applyFontStyle(sans);
 // .applyFontStyle(serif);
-// .applyFontStyle(albb);
+.applyFontStyle(albb);
 // .applyFontStyle(book);
 // 文档背景使用图片
 .applyDocBgImg(@docBgImgLight_Twill_R, @docBgImgDark_Twill_R);
@@ -37,17 +37,21 @@
 // 表格、插图指定居中对齐
 .genTableAndFigureAlign(center);
 // 生成指定的表格样式
+// .genTableStyle(simple);
+// .genTableStyle(modern);
+// .genTableStyle(flat);
 .genTableStyle(vivid);
+// .genTableStyle(report);
 
 :root {
-    --thm-fav-logo-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAMAAAC8EZcfAAABcVBMVEUAAAD////////////////////////////////////////////////////////////////////////XFRcAn+n98/MQperwpabtlZbiUlSL0/UjrOzxq6ud2vfumpufOU7g8/z64OCj3feR1vbYGhz7/v/3/f7sjI3dMzXr+P1yy/PfQ0TaJie/5/r+9/dGuu/ncnTlZ2jZICLO7fv++vo3tO786uoHour2y8v1wcLvoaLkXF7ePT7b8vyr4PiU1/Zqx/Ioru0cquwWqOv52tv30NHys7Tyr7Dvn5/jV1nw+f7J6/qx4viE0vV9zvRfw/H98PBRvfA/t+8tsO3L3Orsk5TqhYbqgILod3jmbG3kYWPgSErk9fy35Pmg2/f41NT0vb3zuLi0k6bpe3xyVnq9XWrhTk/OKi/W8PzZ6vVYwPHAzN26vtC3tMcliMW0pLi1h5m4bX2/SVXHPETbLC4ImuFEc6ZTapi3eIiRQly3Kjd8CjONAAAAEnRSTlMA+sfDoEc/CBXw7N+zpnlzcBmH44SwAAAFYElEQVR42uzWSxLCIBBF0We+qDEmb/+LFR1QUOjYO+izgltQ0K0QQgghhBB667xPw/128d/pi3SMgLKfgcvGqcu6vNEsapwP06g2X42jytNAKtbJRKUvDUYq5wftK4HM+83I76MKnI2ltxP4/zWBvPnRBi4GU0bbDxr0A7SkzWRSQu2nHekwGvyJ2FrZN2zylPvQbrYX8/XSk2YQhXGcdbt7zghpQIMVxUtFVBQFFG+1QCv1RjXa1GLSW9qmbeqiH7+viylPMuCcvsyC3xeY/2bmnBndPcsGjuqiaiUeY7QlHmG0JUb8lUECIy58YGFsOCWQ0IGFznVOhnQIEjjwcFaGNwkSNrAjAayAhA3sSgjXIEED11ckhCJI0MC8BDEBEjRwQYLYBAkZWJAwjkFCBm5IEHcgQQMrEkQTxBuYPVo6Sw+2kyW3EqlOkqLEcAF94Ey7bB40BfJLInmQpsSQ0QfO7RqPRZBPEumCxJp7N+rA6VPjM4eet84cPZYYciV14Lzx2Qc55zka/1rXoA2cKxufJZDvzhxtSAzL6sBx4zUP8tOZo7EucV4d+Np4vQP5IJHqRKPRqFRSqVQmk6lJDF114JnxWuUrlZMgJrWB02XjNYOeLxLECrSBq8ZrF+SrBPFRHfjUWPXxAeogPySykCJVidRSGnmxirpAfgWTGGD7COSPM0eXJXIJhbEFsRrqwCUbeIr+FsuvQH47c7QmkQr8Sk/knw114B49dv2sJs0WelrOHC3l7IE+V7ytagNbxhpHP1v7Jgly7szRG7k3Bq9L6puFNnDRWC/57Zmy0sasgXxz5mjGOfBgop+ikKY6sN73sftsyA7IrTNHLyRS/c9f3xt14I7NSINsG1J3Bl0HpOkceCVeL9SBazbjBKT98Lb6HuSODlTvrwfqwKTNaIOcGNJCT1burfO26hxY0Gyr2sCssbZB0tS351ziZyCbEsmBPNdsq9rAv+Ta2UtCQRTHceqx3o43u9q+qFlWaGgbLRQWoSVqi1aGZEVYBAkV9dcXgvaDmducwUMJfR976YNw55y5mm078LALe2+ryhwdbY4+ggYZ2yobeNhiLIfgr5mft9WSsq2WCaqZgSdsYL3FSHou2ZMENZSxduH7yiUoYAZW2cD2hTNH0LbXthpWx1pCeQ8UMwNTXGBYfzUveG6rylibUP5hyuyLERe4pD/s/OArEvSgjLU9zWNt7I4NvNJfzR2ormyr6lgLEOSagSU2cFZ7Na8g8JCgZ/1YqxFUNgPX2MBF7WEXRGBF2VbVsTZo+f51hQ3c1R52mUkIB13UY6ylCdof9uhbPsAFRuFqzunYY6wtEKNR2Fa5wHk47Dg96sfaDDHa97VbZwOn4LDjdK0fa+dkbhVeSETYwBxczTnd6sdahIylE/glIhuYbAODrJrbatmFmmMt7hqLKdsqBxjyO1Y9+USKERe44dj1KgOMs4GblsAbGeAqG3hkCXwX8c0RG5i3BH5I+KbTfOCQne/FJ5FLbGDY+YOHOEJ8YMYS+CZwwuyRBXDktx/ixFmKbICztsAxbY0Ap4P4aXWByApYcETaJJlU4K4MMEqQJPBSxrdIkCiwIgOcJ0gUGBTx5QmSBeYkfDtRgmSBRQnfBkGywNBy577kOEHCwPvOP76tEEHSwKy/k4aS21lR3v/8ka1sPd0O7Ot2YH+3A3u7HfjZ7nwYMQzEAAyjvjtx3X9Zr8HzCROg2YOnPdjlwZjyYEUevOXBWPLgjjw45MGKPDjkwQN3cHvkwY47eOEONtzBMt3BslAH20QdvMAc3Drq4PFgDtYB3mDsA7TBqPcCYzB+/9LOPkkppZRS+qAXh+0M5jN/vawAAAAASUVORK5CYII=");
+    --thm-fav-logo-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAMAAAC8EZcfAAABXFBMVEUAAAD////////////////////////////////////////////////////////////////////XFRcAn+nskJGq3/j75ub2/P799vblaGk2s+7//f3k9f3ZICKLRmH3zc39/v8MpOrU7/tFuu8DoOr0vr7YGxze8/z409T2xsftlJXjXF3fQELN7fv++vpyyvNXwPHrhofs+P7ysrPcMjSw4viD0fXvoqPoeXrmamzbLC7B6PqP1fX98/NmxfL87u4nru363t752drwqKnhTU7aJie15Pmh3Ped2veU1/ZixPL1w8Pri4zqf4DncXPiU1TY8Py85vl+z/QjrOwaqesXqOvxra3umpu3eIjlY2Ta6/VRvvDBzN61prnAUl/gR0jHPkfdOTrTHSDQ4u8wse3H1+cUktW8wdO3tMe0l6q1iJlgYYu6ZXStMEDNLDM0fbZBdaqATWyuVGTLHSOHBlB0AAAAEXRSTlMAFvv57sOgcUc/CN/HxrOmeZRrwEAAAAVkSURBVHja7NdBEoMgEAXRIVFBkhj//S9r4UKh0LW9mHeCLoQRzDnnnHPOuV5O6/T9DG89zi6EOALKbgPn5SWQLm8UizXCXzRWS4NwrBJRm68LzJOIzu33E9KxftC+I5D5fc/AKCrbJeL5rQIDcP41gbz/Rxs4C6wE0u4HDfoClsBFZGaBO2IK8ozewY+IZJnzPrpkSWy2im1jxk560wiCMAwfckwuVU1AXhAQ9s0MNmazwYYAjoMd24mDnX1TlEVR/v8xaqFMTUkuaM3Uwc8veDVq0V9zf3fW/8BHoKq0qMSU7C0DH4KeQaWPerrLQMWllWqhps4y8AFoyRdQVWoZCFpGSdQ1UA6coK4W6AbOUVlVObCHyprKgX1UttANjKO2sW5gHpUVdnQDK6isBqsCi6dednO14RPmFq1YKqiMEfRWBG57ObNWA5iPaJX4cMAIKnLgLGMcnEBQ+qt/bsgCI8iLgbOccVGHoLd0bsg5RhCXAosZ4yKXgKD3aG0AU8XwpiAFesbJMTAf0Irp/XZPpMBizjjxgLn1zw05wgi6UuChcdMG5rN/bkgZI+hIgVnjZh+CEmgV5vOylbJKpSZGkJICr42bIgR9Q20DIXDXuMkA8wOVtUAIPDBuNoH5hcqqUuCpcTME5g8qa0qBQ2qYbcsuZ8D8RWsUD+qgVY27q6FvTwrcZFeFJJE94OuCzg05Q+sMXG1tIBlLgXTPvQJR2jO7EPSdzg15Q5/CSZetVSGwaHzvQNQw18D8pHNDvqA1AkcxvlaFwH0KfAmStjFZYH77rxyyg1ZyC9w85WtVCmxT4GMQPJPW6viOtfop3N8mFSnQo8BLCKpnfA5rlT7JC2CqSQFyeSnwmK6KNP9sIdfqDTBTdBMXAhM56aporF+rPWAu0JqHejxPQQisU8NzYeTIa7Vy11o9CvV4nkiBJ9RwCMzrcGu1H+7x3JUCG9RwJYwc17U6R+si3B9MHSkwSw38qrhav1anwNygdQ5MDd2kpEBaq/+YsZeWBMIojOMDtavNSSprIh2mvKXmXcFLpFYqJV6QkBYRSJuIbt8fAmdRh+ZxDi8H8lm6+jEy8/55Z8TWCK7VLrENlz92+Gkbk9YqA/r+kS6xDYJrtUZsjz43DW1xrQJgHV5sLIJrtcoflvfp5d/uorRWGdC/Vnv8qHCCazXCb9SXvz0RW15aqwjYQkfFKMTW96vVps/DmpvdNBQBENfqLgea1mpJCGwjoIOOignzmdZqU+iL2QCIa/WB+UxrNSK+WwVAXKtTBvSt1WJwrVald6sIWIFHBfMZ12pNCEwhYA4dFRRlI79atYNr1V6xizSrVQZEtYonr1Xpsl1WqwwIaxVPWqtJEs4+Y7XKgbBW8eS1Ktzwh/cn0SxUq3iGtYqXB7XKgKxWr/fl82r1Mvx7p96jCMt2D2uVA92QyZ53tJdAwJkR8E3bd2UDYCFktBdt4JwAcGwG/NAGJhGwYQZ8VfZ1CQEHZsAvXV8sAYGHa/ESpwgCHSPgu67vjiAwvg4vcZ4wsGwGPFbklZK0Alj575c43cnSKmDO8AnCfR7IN7zt7BGYxWpVcT3SmUWsVvUW1wVmtH0L0gX2tIE3ysBzZd80qgx0dX0ndVIGznSBFVIGFnR9E9IGjjV5Tl/Rt+EBG4o+d0SK27RArRpu2sqQ6rY8YH1XY+XMEWlv26L13ne782HEQAwDMIxyt5Mv+0+bNXg5YQIMe/C1B5c8WI882JEHpzxYQh68kQe3PNiRB7c8+OAOtnAHy8IdnLiDA3fwOu7gFaiD42AOlgnmYFuog09gDvYN3mC5N2iDtc8AY7C2z3e865BSSiml9Id+pMbLSDrNQ94AAAAASUVORK5CYII=");
     --thm-fav-logo-dk: var(--thm-fav-logo-lg);
 }
 
 // 主题主色
 @theme1: #009FE9;//#00A0E6;
 @theme2: #D71517;//#E60012;
-@theme3: #FFFFFF;
+@theme3: #FFF;
 @theme1Dark: #00A7F5;//darken(@theme1, 20%);
 @theme1Alt: #CCEFFF;//lighten(@theme1, 15%);
 @theme1AltDark: #004666;//darken(@theme1, 35%);//@codeBgColorDark;
@@ -88,7 +92,6 @@
 @h1TextAlign: center;
 
 // 题注文字、背景色
-// @captionTextColor: var(--d-fc-a);
 @captionBackground: none;
 
 // 行内代码
@@ -114,7 +117,7 @@
 @aHoverColorDark: @theme2Dark;
 @aActiveColor: desaturate(@aHoverColor, 25%);
 
-@badgeBorderWidthInCover: 0;
+// @badgeBorderWidthInCover: 0;
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: left;
@@ -211,17 +214,26 @@
     position: absolute !important;
 }
 
-// 生成加粗文本扩展样式
-.genExtBoldText();
-// 生成下划线文本扩展样式
-.genExtUnderText();
-// 生成高亮文本扩展样式
-.genExtHighlightText(@quoteBeforeImage_l01, @quoteAfterImage_l01, .8);
+// 生成编辑时引用块折叠持续展开
+.genSummaryOnEditing(expanded);
+
+// 生成段落加粗扩展样式
+.genParaFormatBold();
+// 生成段落下划线扩展样式
+.genParaFormatUnderline();
+// 生成段落高亮扩展样式
+.genParaFormatMark(@quoteBeforeImage_l01, @quoteAfterImage_l01, .8);
+
+// 生成页签组样式
+// .genTabGroup(std);
+.genTabGroup(simple);
+// .genTabGroup(modern);
 
 // 生成线框风格的有序列表样式
 .genOrderList(frame, rect);
 
-// 生成指定风格的多级标签样式
+// 生成指定风格的标签样式
+.genTagStyle(std);
 .genBadgeStyle(cap, dyn);
 
 // 生成 GSA 样式

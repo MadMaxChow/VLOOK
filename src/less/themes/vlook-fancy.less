@@ -2,7 +2,7 @@
  *
  * VLOOK™ 模板主题
  *
- * powered by MAX°孟兆
+ * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
  * Telegram Channel: t.me/vlook_markdown
@@ -15,7 +15,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V28.1";
+@themeVer: "V29.0";
 @themeName: "vlook-fancy";
 @themeDesc: "Fancy";
 
@@ -80,17 +80,17 @@
 @h4BeforeContent: "";
 @h5BeforeContent: "";
 
-@h1BorderLeft: 15px solid var(--h-box-shadow);
-@h2BorderLeft: 15px solid var(--h-box-shadow);
-@h3BorderLeft: 15px solid var(--h-box-shadow);
-@h4BorderLeft: 15px solid var(--h-box-shadow);
-@h5BorderLeft: 15px solid var(--h-box-shadow);
+@h1BorderLeft: 15px solid var(--h-box-sd);
+@h2BorderLeft: 15px solid var(--h-box-sd);
+@h3BorderLeft: 15px solid var(--h-box-sd);
+@h4BorderLeft: 15px solid var(--h-box-sd);
+@h5BorderLeft: 15px solid var(--h-box-sd);
 @h6BorderLeft: 0;
-@h1BorderRight: 5px solid var(--h-box-shadow);
-@h2BorderRight: 5px solid var(--h-box-shadow);
-@h3BorderRight: 5px solid var(--h-box-shadow);
-@h4BorderRight: 5px solid var(--h-box-shadow);
-@h5BorderRight: 5px solid var(--h-box-shadow);
+@h1BorderRight: 5px solid var(--h-box-sd);
+@h2BorderRight: 5px solid var(--h-box-sd);
+@h3BorderRight: 5px solid var(--h-box-sd);
+@h4BorderRight: 5px solid var(--h-box-sd);
+@h5BorderRight: 5px solid var(--h-box-sd);
 @h6BorderRight: 0;
 
 @hGap: 5px;
@@ -121,7 +121,7 @@
 
 // 按钮色
 @buttonForeColor: @themeForeColor;
-@buttonForeHoverColor: #FFFFFF;
+@buttonForeHoverColor: #FFF;
 @buttonBgColor: @themeBgColor;
 // 文库按钮颜色
 @docLibButtonForeColor: @buttonForeColor;
@@ -140,13 +140,13 @@
 @aActiveColor: desaturate(@aHoverColor, 25%);
 
 // 封面内多级标签样式
-@badgeBorderColorInCover: var(--rb-code-shadow-lg);
+@badgeBorderColorInCover: var(--rb-code-sd-lg);
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: right;
 @coverTextPadding: 180px 60px 0;
 @coverTextPaddingForMobile: 180px 20px 0;
-@coverTextColor: #FFFFFF;
+@coverTextColor: #FFF;
 @coverSubColor: @themeForeColor;
 @coverUnderlineColor: @coverSubColor;
 @coverAuthorColor: @coverUnderlineColor;
@@ -203,8 +203,24 @@
 
 @import "../base";
 
-// 生成指定风格的多级标签样式
-// .genBadgeStyle(std);
+// 生成编辑时引用块折叠自动展开/收起
+.genSummaryOnEditing(auto);
+
+// 生成段落加粗扩展样式
+.genParaFormatBold();
+// 生成段落下划线扩展样式
+.genParaFormatUnderline();
+// 生成段落高亮扩展样式
+.genParaFormatMark(@quoteBeforeImage_q01, @quoteAfterImage_q01);
+
+// 生成页签组样式
+// .genTabGroup(std);
+.genTabGroup(modern);
+// .genTabGroup(simple);
+// .genTabGroup(simple_up);
+
+// 生成指定风格的标签样式
+.genTagStyle(std);
 .genBadgeStyle(cap);
 
 // 生成 GSA 样式

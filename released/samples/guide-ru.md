@@ -41,7 +41,7 @@ vlook-doc-lib-test:
 
 > **Спасибо за донаты неравнодушным пользователям  VLOOK™（представлен неполный список）/ Thanks for donate VLOOK™ (partial donors)**
 >
-> ＊山, ＊星, ＊丽, 一＊秋, ＊军, ＊鹏, 李＊6, ＊无, H＊t, ＊二, f＊y, ＊宇, ＊琛, ＊辉, ＊秋, ＊笑, ＊豫, l＊a, ＊心, 整＊9, ＊国, ＊拉, ＊龙, ＊应, ＊销, ＊哦, E＊y、……
+> ＊山, ＊星, ＊丽, 一＊秋, ＊军, ＊鹏, 李＊6, ＊无, H＊t, ＊二, f＊y, ＊宇, ＊琛, ＊辉, ＊秋, ＊笑, ＊豫, l＊a, ＊心, 整＊9, ＊国, ＊拉, ＊龙, ＊应, ＊销, ＊哦, E＊y、…
 
 # Предустановленные обозначения цветов
 
@@ -320,7 +320,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 >
 > 默认为「**主要按钮**」，在链接中添加 URL 参数 `kbd=alt` 则选用「**次要样式**」，具体示例如下：
 >
-> - 对应的 Markdown 内容为： `[<kbd>访问</kbd>](github.com?kbd=alt)` - 转换后的效果为：[<kbd>访问 GitHub</kbd>](https://github.com/MadMaxChow/VLOOK?kbd=alt)
+> - 对应的 Markdown 内容为： `[<kbd>访问</kbd>](github.com` - 转换后的效果为：[<kbd>访问 GitHub</kbd>](https://github.com/MadMaxChow/VLOOK
 
 > [!NOTE]
 >
@@ -339,7 +339,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 > - 对应 Markdown 内容为（ xxx.svg 是图片）： `[<kbd>访问 ![](xxx.svg)</kbd>]`
 > - 效果如下：
 >
-> [<kbd>访问 GitHub ![](pic/vlook-hollow-dark.svg)</kbd>](https://github.com/MadMaxChow/VLOOK)    [<kbd>访问 GitHub ![](pic/vlook-hollow-dark.svg)</kbd>](https://github.com/MadMaxChow/VLOOK?kbd=alt)
+> [<kbd>访问 GitHub ![](pic/vlook-hollow-dark.svg)</kbd>](https://github.com/MadMaxChow/VLOOK)    [<kbd>访问 GitHub ![](pic/vlook-hollow-dark.svg)</kbd>](https://github.com/MadMaxChow/VLOOK
 
 > **仅图片/图标**
 >
@@ -347,7 +347,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 >
 > - 对应 Markdown 内容为（ xxx.svg 是图片）： `[<kbd>![](xxx.svg)</kbd>]` > - 效果如下：
 >
-> [<kbd>![](pic/vlook-hollow-dark.svg)</kbd>](https://github.com/MadMaxChow/VLOOK)    [<kbd>![](pic/vlook-hollow-dark.svg)</kbd>](https://github.com/MadMaxChow/VLOOK?kbd=alt)
+> [<kbd>![](pic/vlook-hollow-dark.svg)</kbd>](https://github.com/MadMaxChow/VLOOK)    [<kbd>![](pic/vlook-hollow-dark.svg)</kbd>](https://github.com/MadMaxChow/VLOOK
 
 > [!IMPORTANT]
 >
@@ -1502,7 +1502,7 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
    - 适配为 ==链接文本== 的颜色：什么是 [![Markdown](pic/markdown-mark-solid.svg?fill=text#icon) Markdown ![Markdown](pic/markdown-mark-solid.png?fill=text#icon)](https://en.wikipedia.org/wiki/Markdown) ？
 
-   - 适配为 ==按钮链接== 的颜色：[<kbd>![](pic/markdown-mark-solid.svg?fill=text) Markdown ![](pic/markdown-mark-solid.png?fill=text)</kbd>](https://en.wikipedia.org/wiki/Markdown) [<kbd>![](pic/markdown-mark-solid.svg?fill=text) Markdown ![](pic/markdown-mark-solid.png?fill=text)</kbd>](https://en.wikipedia.org/wiki/Markdown?kbd=alt)
+   - 适配为 ==按钮链接== 的颜色：[<kbd>![](pic/markdown-mark-solid.svg?fill=text) Markdown ![](pic/markdown-mark-solid.png?fill=text)</kbd>](https://en.wikipedia.org/wiki/Markdown) [<kbd>![](pic/markdown-mark-solid.svg?fill=text) Markdown ![](pic/markdown-mark-solid.png?fill=text)</kbd>](https://en.wikipedia.org/wiki/Markdown
    
    - 适配为 [引用块（着色后）](#引用块着色)、[GitHub Style Alert](#GitHub Style Alert) 的颜色
 2. 使用指定的[Вознаграждение и благодарности](#Вознаграждение и благодарности)：
@@ -1642,41 +1642,41 @@ VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理�
 
 > [!NOTE]
 >
-> - ==Highlights== information that users should take into account, even when skimming.  [![](pic/icon-more.svg?fill=text#icon) Learn more ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
+> - ==Highlights== information that users should take into account, even when skimming.  [![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
 >
-> （**备忘**。==突出==用户在浏览时也应考虑的信息）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925?kbd=alt)
+> （**备忘**。==突出==用户在浏览时也应考虑的信息）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925
 
 
 
 > [!TIP]
 >
-> 1. Optional information to help a user be ==more successful==.  [![](pic/icon-more.svg?fill=text#icon) Learn more ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
+> 1. Optional information to help a user be ==more successful==.  [![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
 >
-> （**提示**。可选信息，帮助用户取得==更大成功==）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925?kbd=alt)
+> （**提示**。可选信息，帮助用户取得==更大成功==）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925
 
 
 
 > [!IMPORTANT]
 >
-> Crucial information ==necessary== for users to succeed.  [![](pic/icon-more.svg?fill=text#icon) Learn more ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
+> Crucial information ==necessary== for users to succeed.  [![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
 >
-> （**重要的**。对用户成功==至关重要==的信息）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925?kbd=alt)
+> （**重要的**。对用户成功==至关重要==的信息）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925
 
 
 
 > [!WARNING]
 >
-> Critical content demanding immediate user attention due to ==potential risks==.  [![](pic/icon-more.svg?fill=text#icon) Learn more ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
+> Critical content demanding immediate user attention due to ==potential risks==.  [![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
 >
-> （**注意**。由于==潜在风险==，需要用户立即关注的关键内容）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925?kbd=alt)
+> （**注意**。由于==潜在风险==，需要用户立即关注的关键内容）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925
 
 
 
 > [!CAUTION]
 >
-> ==Negative potential== consequences of an action.  [![](pic/icon-more.svg?fill=text#icon) Learn more ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
+> ==Negative potential== consequences of an action.  [![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
 >
-> （**警告/禁止**。行动的潜在==负面后果==）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925?kbd=alt)
+> （**警告/禁止**。行动的潜在==负面后果==）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) [<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925
 
 
 

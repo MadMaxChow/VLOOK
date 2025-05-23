@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V28.1" (2025-01-18) - (Language Pack) - Typora Plugin
+VLOOK™ "V29.0" (2025-05-24) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
@@ -13,7 +13,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <!-- The following is the content of the language package -->
 <!-- 以下为语言包内容 -->
 <meta name="vk-zh-hk1" content="文件封面">
-<meta name="vk-zh-hk2" content="打印...">
+<meta name="vk-zh-hk2" content="切換頁簽">
 <meta name="vk-zh-hk3" content="連結地圖">
 <meta name="vk-zh-hk4" content="已啟用">
 <meta name="vk-zh-hk5" content="切換步長大小">
@@ -40,7 +40,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk26" content="換行/不換行">
 <meta name="vk-zh-hk27" content="畫中畫">
 <meta name="vk-zh-hk28" content="按住不放">
-<meta name="vk-zh-hk29" content="複製為 Markdown">
+<meta name="vk-zh-hk29" content="當前文件">
 <meta name="vk-zh-hk30" content="複製代碼">
 <meta name="vk-zh-hk31" content="複製圖片地址">
 <meta name="vk-zh-hk32" content="複製表格內容">
@@ -55,7 +55,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk41" content="字體樣式">
 <meta name="vk-zh-hk42" content="分鐘">
 <meta name="vk-zh-hk43" content="小時">
-<meta name="vk-zh-hk44" content="字">
+<meta name="vk-zh-hk44" content="字數">
 <meta name="vk-zh-hk45" content="外觀">
 <meta name="vk-zh-hk46" content="在第一個一級標題前添加 [TOC] 以生成">
 <meta name="vk-zh-hk47" content="Hash 檢查通過">
@@ -64,7 +64,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk50" content="超過URL的最大長度">
 <meta name="vk-zh-hk51" content="錨點">
 <meta name="vk-zh-hk52" content="檢查錨點">
-<meta name="vk-zh-hk53" content="重複章節名稱">
+<meta name="vk-zh-hk53" content="重複標題/標題說明">
 <meta name="vk-zh-hk54" content="無效的頁內鏈接">
 <meta name="vk-zh-hk55" content="顯示全部">
 <meta name="vk-zh-hk56" content="表格">
@@ -96,10 +96,10 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-zh-hk82" content="頁面">
 <meta name="vk-zh-hk83" content="連結">
 <meta name="vk-zh-hk84" content="註腳">
-<meta name="vk-zh-hk85" content="還原字體樣式">
+<meta name="vk-zh-hk85" content="重置回主題配套字體風格">
 <meta name="vk-zh-hk86" content="點擊此處以開啟連結">
 <meta name="vk-zh-hk87" content="今天是">
-<meta name="vk-zh-hk88" content="此頁面今天將以 {{display-mode}} 顯示">
+<meta name="vk-zh-hk88" content="此頁面將以 {{display-mode}} 模式顯示">
 <meta name="vk-zh-hk89" content="點擊下方按鈕暫時將其關閉">
 <meta name="vk-zh-hk90" content="自動">
 <meta name="vk-zh-hk91" content="明亮">

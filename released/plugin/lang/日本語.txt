@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V28.1" (2025-01-18) - (Language Pack) - Typora Plugin
+VLOOK™ "V29.0" (2025-05-24) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
@@ -13,7 +13,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <!-- The following is the content of the language package -->
 <!-- 以下为语言包内容 -->
 <meta name="vk-ja1" content="ドキュメントカバー">
-<meta name="vk-ja2" content="印刷...">
+<meta name="vk-ja2" content="タブを切り替える">
 <meta name="vk-ja3" content="リンクマップ">
 <meta name="vk-ja4" content="有効化">
 <meta name="vk-ja5" content="ステップサイズを切り替えるために">
@@ -40,7 +40,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja26" content="折り返し / 折り返さない">
 <meta name="vk-ja27" content="ピクチャー・イン・ピクチャー">
 <meta name="vk-ja28" content="押して保持">
-<meta name="vk-ja29" content="Markdownとしてコピー">
+<meta name="vk-ja29" content="現在のドキュメント">
 <meta name="vk-ja30" content="コードをコピー">
 <meta name="vk-ja31" content="画像アドレスをコピー">
 <meta name="vk-ja32" content="表の内容をコピー">
@@ -55,7 +55,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja41" content="フォントスタイル">
 <meta name="vk-ja42" content="分">
 <meta name="vk-ja43" content="時間">
-<meta name="vk-ja44" content="単語">
+<meta name="vk-ja44" content="文字数">
 <meta name="vk-ja45" content="外観">
 <meta name="vk-ja46" content="[TOC] を最初の1級見出しの前に追加して生成します">
 <meta name="vk-ja47" content="ハッシュチェックに合格しました">
@@ -64,7 +64,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja50" content="URLの最大長を超えました">
 <meta name="vk-ja51" content="ハッシュ">
 <meta name="vk-ja52" content="ハッシュを確認">
-<meta name="vk-ja53" content="重複した章の名前">
+<meta name="vk-ja53" content="重複したタイトル/キャプション">
 <meta name="vk-ja54" content="無効な内部リンク">
 <meta name="vk-ja55" content="すべて表示">
 <meta name="vk-ja56" content="表">
@@ -96,10 +96,10 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ja82" content="ページ">
 <meta name="vk-ja83" content="リンク">
 <meta name="vk-ja84" content="脚注">
-<meta name="vk-ja85" content="フォントスタイルを復元する">
+<meta name="vk-ja85" content="テーマに合わせたフォントスタイルにリセットする">
 <meta name="vk-ja86" content="リンクを開くにはこちらをクリック">
 <meta name="vk-ja87" content="今日は">
-<meta name="vk-ja88" content="このページは今日 {{display-mode}} で表示されます">
+<meta name="vk-ja88" content="このページは {{display-mode}} で表示されます">
 <meta name="vk-ja89" content="下のボタンをクリックして一時的にオフにしてください">
 <meta name="vk-ja90" content="自動で">
 <meta name="vk-ja91" content="明るい">

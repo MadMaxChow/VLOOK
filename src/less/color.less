@@ -3,9 +3,9 @@
  * VLOOK™ CSS 调色板
  * (配合 base.less 进行使用)
  *
- * V28.1
- * 2025-01-18
- * powered by MAX°孟兆
+ * V29.0
+ * 2025-05-24
+ * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
  * Telegram Channel: t.me/vlook_markdown
@@ -24,17 +24,17 @@
 .applyDocBgColor(@colorLight, @colorDark) {
     :root {
         --d-bc-lg: @colorLight;
-        --fade-r-lg: red(@colorLight);
-        --fade-g-lg: green(@colorLight);
-        --fade-b-lg: blue(@colorLight);
+        --fd-r-lg: red(@colorLight);
+        --fd-g-lg: green(@colorLight);
+        --fd-b-lg: blue(@colorLight);
 
         --d-bc-dk: @colorDark;
-        --fade-r-dk: red(@colorDark);
-        --fade-g-dk: green(@colorDark);
-        --fade-b-dk: blue(@colorDark);
+        --fd-r-dk: red(@colorDark);
+        --fd-g-dk: green(@colorDark);
+        --fd-b-dk: blue(@colorDark);
     }
 }
-@docBgColorLight: #FFFFFF;
+@docBgColorLight: @colorWhite;
 @docBgColorDark: #1C1E1F;
 .applyDocBgColor(@docBgColorLight, @docBgColorDark);
 
@@ -60,11 +60,11 @@
     :root {
         --d-fc-lg: @colorLight;
         --d-fc-a-lg: lighten(@colorLight, 55%);
-        --toc-h-num-color-lg: fade(@colorLight, 50%);
+        --toc-h-num-c-lg: fade(@colorLight, 50%);
 
         --d-fc-dk: @colorDark;
         --d-fc-a-dk: darken(@colorDark, 45%);
-        --toc-h-num-color-dk: fade(@colorDark, 40%);
+        --toc-h-num-c-dk: fade(@colorDark, 40%);
     }
 }
 @docTextColorLight: @docBgColorDark;
@@ -80,17 +80,17 @@
     :root {
         --pn-c-lg: @colorLight;
         --pn-c-a-lg: darken(@colorLight, 10%);
-        --pn-fade-r-lg: red(@colorLight);
-        --pn-fade-g-lg: green(@colorLight);
-        --pn-fade-b-lg: blue(@colorLight);
-        --blockquote-bg-lg: @colorLight;
+        --pn-fd-r-lg: red(@colorLight);
+        --pn-fd-g-lg: green(@colorLight);
+        --pn-fd-b-lg: blue(@colorLight);
+        --bq-bg-lg: fade(@colorLight, 75%);
 
         --pn-c-dk: @colorDark;
         --pn-c-a-dk: lighten(@colorDark, 10%);
-        --pn-fade-r-dk: red(@colorDark);
-        --pn-fade-g-dk: green(@colorDark);
-        --pn-fade-b-dk: blue(@colorDark);
-        --blockquote-bg-dk: @colorDark;
+        --pn-fd-r-dk: red(@colorDark);
+        --pn-fd-g-dk: green(@colorDark);
+        --pn-fd-b-dk: blue(@colorDark);
+        --bq-bg-dk: fade(@colorDark, 50%);
 
         // 指定在 Dark Mode 时反转的图片边框颜色（先使用反色，这样在反转时则能保持与色一致）
         --img-bd-invert-lg: @colorLight;
@@ -108,109 +108,111 @@
 // --------------------
 // 通用的强调色参数
 @accOpacity: 25%;
+
 @accOpacityHighForLg: 45%;
 @accOpacityMiddleForLg: 25%;
 @accOpacityLowForLg: 15%;
+
 @accOpacityHighForDk: 20%;
 @accOpacityMiddleForDk: 50%;
 @accOpacityLowForDk: 80%;
 
 @accTitleDarken: 5%;
 
-// --- 比较浅的（亮度高 h）
+// --- 比较浅的（亮度高 high）
 
 @accColorGold: #D8B8B0;
 @accColorGoldDark: #D6B0A7;
-@accColorGoldAlt: #F5E5E1;
+@accColorGoldAlt: #FAEAE6;
 @accColorGoldAltDark: #80574D;
 
 @accColorPink: #F8A8D0;
 @accColorPinkDark: #F694C4;
 @accColorPinkAlt: #FCE3F0;
-@accColorPinkAltDark: #943565;
+@accColorPinkAltDark: #C24E88;
 
 @accColorYellow: #FABA08;
 @accColorYellowDark: #E6B01C;
-@accColorYellowAlt: #FFF0C2;
-@accColorYellowAltDark: #8F700E;
+@accColorYellowAlt: #FAEEC8;
+@accColorYellowAltDark: #A68211;
 
 @accColorLime: #A8C818;
 @accColorLimeDark: #ADC24E;
-@accColorLimeAlt: #ECF5C4;
-@accColorLimeAltDark: #6B7A25;
+@accColorLimeAlt: #EDF5C9;
+@accColorLimeAltDark: #748528;
 
 @accColorAqua: #30DBD4;
 @accColorAquaDark: #56D6D1;
-@accColorAquaAlt: #CEF5F3;
-@accColorAquaAltDark: #228F8B;
+@accColorAquaAlt: #D3F0EE;
+@accColorAquaAltDark: #259994;
 
 @accColorLavender: #A4A0EC;
 @accColorLavenderDark: #9F9BEB;
-@accColorLavenderAlt: #E2E1FA;
-@accColorLavenderAltDark:#5B55C2;
+@accColorLavenderAlt: #E5E3FA;
+@accColorLavenderAltDark:#6C67C7;
 
-// --- 中间值（亮度中 m）
+// --- 中间值（亮度中 medium）
 
-@accColorBrown: #906040;
-@accColorBrownDark: #A3785B;
-@accColorBrownAlt: #EBCFBC;
-@accColorBrownAltDark: #663B1F;
+@accColorBrown: #9E6946;
+@accColorBrownDark: #A36E4B;
+@accColorBrownAlt: #EBC9B2;
+@accColorBrownAltDark: #754423;
 
 @accColorRose: #E440D0;
 @accColorRoseDark: #E557D4;
 @accColorRoseAlt: #F0C0EA;
-@accColorRoseAltDark: #800073;
+@accColorRoseAltDark: #99008A;
 
 @accColorRed: #D01010;
 @accColorRedDark: #E04C4C;
 @accColorRedAlt: #F5C9C9;
-@accColorRedAltDark: #802727;
+@accColorRedAltDark: #8F2B2B;
 
 @accColorOrange: #F87210;
 @accColorOrangeDark: #F8791B;
 @accColorOrangeAlt: #FAD7BE;
-@accColorOrangeAltDark: #803D0D;
+@accColorOrangeAltDark: #99490F;
 
 @accColorGreen: #10A030;
 @accColorGreenDark: #36A852;
 @accColorGreenAlt: #C0F0CA;
-@accColorGreenAltDark: #0A6121;
+@accColorGreenAltDark: #0B6B24;
 
 @accColorCyan: #10A0A8;
 @accColorCyanDark: #15AAB3;
 @accColorCyanAlt: #B1EBF0;
-@accColorCyanAltDark: #146366;
+@accColorCyanAltDark: #177275;
 
 @accColorBlue: #1090F0;
 @accColorBlueDark: #40A0F2;
 @accColorBlueAlt: #B9DCFA;
-@accColorBlueAltDark: #1D5A8F;
+@accColorBlueAltDark: #2167A3;
 
 @accColorVine: #5C58D8;
 @accColorVineDark: #7875E0;
 @accColorVineAlt: #C1C0F0;
-@accColorVineAltDark: #3D3A99;
+@accColorVineAltDark: #4441A3;
 
 @accColorGray: #888B8F;
 @accColorGrayDark: #878A8F;
 @accColorGrayAlt: #D3D9E0;
 @accColorGrayAltDark: #4C5052;
 
-// --- 比较深的（亮度低 l）
+// --- 比较深的（亮度低 low）
 
 @accColorPurple: #8820B0;
 @accColorPurpleDark: #B945E6;
-@accColorPurpleAlt: #E6BFF5;
+@accColorPurpleAlt: #DEB1F0;
 @accColorPurpleAltDark: #631A80;
 
 @accColorWine: #901050;
 @accColorWineDark: #BF3078;
-@accColorWineAlt: #F5B0D3;
+@accColorWineAlt: #F5ABD0;
 @accColorWineAltDark: #610B36;
 
 @accColorOlives: #607010;
 @accColorOlivesDark: #83942F;
-@accColorOlivesAlt: #C6D678;
+@accColorOlivesAlt: #C9D685;
 @accColorOlivesAltDark: #444F0B;
 
 @accColorMineral: #106C5C;
@@ -230,8 +232,8 @@
 
 @accColorBlack: #303438;
 @accColorBlackDark: #E9EAEB;
-@accColorBlackAlt: #B5BEC7;
-@accColorBlackAltDark: #626F7A;
+@accColorBlackAlt: #B7BFC7;
+@accColorBlackAltDark: #AAB4BD;
 
 :root {
     --i-checking: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxyZWN0IGZpbGw9IiNBQUEiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgcng9IjYiLz48cGF0aCBkPSJNNyAxOGEzIDMgMCAxIDAgMC02IDMgMyAwIDAgMCAwIDZ6bTggMGEzIDMgMCAxIDAgMC02IDMgMyAwIDAgMCAwIDZ6bTggMGEzIDMgMCAxIDAgMC02IDMgMyAwIDAgMCAwIDZ6IiBmaWxsPSIjRkZGIi8+PC9nPjwvc3ZnPg==");
@@ -239,93 +241,93 @@
     --i-check-failed: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxyZWN0IGZpbGw9IiNDMDEwMTAiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgcng9IjYiLz48cGF0aCBkPSJNMTguMzc1IDZjLjIyNCAwIC40MzguMDg5LjU5Ni4yNDdsNC43ODIgNC43ODJhLjg0Ljg0IDAgMCAxIC4yNDcuNTk2djYuNzVjMCAuMjI0LS4wOS40MzgtLjI0Ny41OTZsLTQuNzgyIDQuNzgyYS44NDIuODQyIDAgMCAxLS41OTYuMjQ3aC02Ljc1YS44NDIuODQyIDAgMCAxLS41OTYtLjI0N0w2LjI0NyAxOC45N0EuODQyLjg0MiAwIDAgMSA2IDE4LjM3NXYtNi43NWMwLS4yMjQuMDg5LS40MzguMjQ3LS41OTZsNC43ODItNC43ODJBLjg0Mi44NDIgMCAwIDEgMTEuNjI1IDZoNi43NXpNMTUgMTguMzc1YTEuMTI1IDEuMTI1IDAgMSAwIDAgMi4yNSAxLjEyNSAxLjEyNSAwIDAgMCAwLTIuMjV6bTAtNy44NzVjLS42MjEgMC0xLjEyNS40NzItMS4xMjUgMS4wNTV2NC42NGMwIC41ODMuNTA0IDEuMDU1IDEuMTI1IDEuMDU1czEuMTI1LS40NzIgMS4xMjUtMS4wNTV2LTQuNjRjMC0uNTgzLS41MDQtMS4wNTUtMS4xMjUtMS4wNTV6IiBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L2c+PC9zdmc+");
 
     // 针对 fade for light
-    --ac-gd-fade-bd-lg: fade(@accColorGold, @accOpacityHighForLg);
-    --ac-pk-fade-bd-lg: fade(@accColorPink, @accOpacityHighForLg);
-    --ac-ye-fade-bd-lg: fade(@accColorYellow, @accOpacityHighForLg);
-    --ac-lm-fade-bd-lg: fade(@accColorLime, @accOpacityHighForLg);
-    --ac-aq-fade-bd-lg: fade(@accColorAqua, @accOpacityHighForLg);
-    --ac-la-fade-bd-lg: fade(@accColorLavender, @accOpacityHighForLg);
+    --ac-gd-fd-bd-lg: fade(@accColorGold, @accOpacityHighForLg);
+    --ac-pk-fd-bd-lg: fade(@accColorPink, @accOpacityHighForLg);
+    --ac-ye-fd-bd-lg: fade(@accColorYellow, @accOpacityHighForLg);
+    --ac-lm-fd-bd-lg: fade(@accColorLime, @accOpacityHighForLg);
+    --ac-aq-fd-bd-lg: fade(@accColorAqua, @accOpacityHighForLg);
+    --ac-la-fd-bd-lg: fade(@accColorLavender, @accOpacityHighForLg);
 
-    --ac-bn-fade-bd-lg: fade(@accColorBrown, @accOpacityMiddleForLg);
-    --ac-ro-fade-bd-lg: fade(@accColorRose, @accOpacityMiddleForLg);
-    --ac-rd-fade-bd-lg: fade(@accColorRed, @accOpacityMiddleForLg);
-    --ac-og-fade-bd-lg: fade(@accColorOrange, @accOpacityHighForLg);
-    --ac-gn-fade-bd-lg: fade(@accColorGreen, @accOpacityMiddleForLg);
-    --ac-cy-fade-bd-lg: fade(@accColorCyan, @accOpacityMiddleForLg);
-    --ac-bu-fade-bd-lg: fade(@accColorBlue, @accOpacityMiddleForLg);
-    --ac-vn-fade-bd-lg: fade(@accColorVine, @accOpacityMiddleForLg);
-    --ac-gy-fade-bd-lg: fade(@accColorGray, @accOpacityMiddleForLg);
+    --ac-bn-fd-bd-lg: fade(@accColorBrown, @accOpacityMiddleForLg);
+    --ac-ro-fd-bd-lg: fade(@accColorRose, @accOpacityMiddleForLg);
+    --ac-rd-fd-bd-lg: fade(@accColorRed, @accOpacityMiddleForLg);
+    --ac-og-fd-bd-lg: fade(@accColorOrange, @accOpacityHighForLg);
+    --ac-gn-fd-bd-lg: fade(@accColorGreen, @accOpacityMiddleForLg);
+    --ac-cy-fd-bd-lg: fade(@accColorCyan, @accOpacityMiddleForLg);
+    --ac-bu-fd-bd-lg: fade(@accColorBlue, @accOpacityMiddleForLg);
+    --ac-vn-fd-bd-lg: fade(@accColorVine, @accOpacityMiddleForLg);
+    --ac-gy-fd-bd-lg: fade(@accColorGray, @accOpacityMiddleForLg);
 
-    --ac-pu-fade-bd-lg: fade(@accColorPurple, @accOpacityLowForLg);
-    --ac-wn-fade-bd-lg: fade(@accColorWine, @accOpacityLowForLg);
-    --ac-ol-fade-bd-lg: fade(@accColorOlives, @accOpacityLowForLg);
-    --ac-mn-fade-bd-lg: fade(@accColorMineral, @accOpacityLowForLg);
-    --ac-se-fade-bd-lg: fade(@accColorSea, @accOpacityLowForLg);
-    --ac-wt-fade-bd-lg: fade(@accColorWhite, @accOpacityHighForLg);
-    --ac-bk-fade-bd-lg: fade(@accColorBlack, @accOpacityLowForLg);
+    --ac-pu-fd-bd-lg: fade(@accColorPurple, @accOpacityLowForLg);
+    --ac-wn-fd-bd-lg: fade(@accColorWine, @accOpacityLowForLg);
+    --ac-ol-fd-bd-lg: fade(@accColorOlives, @accOpacityLowForLg);
+    --ac-mn-fd-bd-lg: fade(@accColorMineral, @accOpacityLowForLg);
+    --ac-se-fd-bd-lg: fade(@accColorSea, @accOpacityLowForLg);
+    --ac-wt-fd-bd-lg: fade(@accColorWhite, @accOpacityHighForLg);
+    --ac-bk-fd-bd-lg: fade(@accColorBlack, @accOpacityLowForLg);
 
-    --ac-t1-fade-bd-lg: @theme1Fade;
-    --ac-t2-fade-bd-lg: @theme2Fade;
+    --ac-t1-fd-bd-lg: @theme1Fade;
+    --ac-t2-fd-bd-lg: @theme2Fade;
 
     // 针对 fade for dark
 
-    --ac-gd-fade-bd-dk: fade(@accColorGold, @accOpacityHighForDk);
-    --ac-pk-fade-bd-dk: fade(@accColorPink, @accOpacityHighForDk);
-    --ac-ye-fade-bd-dk: fade(@accColorYellow, @accOpacityHighForDk);
-    --ac-lm-fade-bd-dk: fade(@accColorLime, @accOpacityHighForDk);
-    --ac-aq-fade-bd-dk: fade(@accColorAqua, @accOpacityHighForDk);
-    --ac-la-fade-bd-dk: fade(@accColorLavender, @accOpacityHighForDk);
+    --ac-gd-fd-bd-dk: fade(@accColorGold, @accOpacityHighForDk);
+    --ac-pk-fd-bd-dk: fade(@accColorPink, @accOpacityHighForDk);
+    --ac-ye-fd-bd-dk: fade(@accColorYellow, @accOpacityHighForDk);
+    --ac-lm-fd-bd-dk: fade(@accColorLime, @accOpacityHighForDk);
+    --ac-aq-fd-bd-dk: fade(@accColorAqua, @accOpacityHighForDk);
+    --ac-la-fd-bd-dk: fade(@accColorLavender, @accOpacityHighForDk);
 
-    --ac-bn-fade-bd-dk: fade(@accColorBrown, @accOpacityMiddleForDk);
-    --ac-ro-fade-bd-dk: fade(@accColorRose, @accOpacityMiddleForDk);
-    --ac-rd-fade-bd-dk: fade(@accColorRed, @accOpacityMiddleForDk);
-    --ac-og-fade-bd-dk: fade(@accColorOrange, @accOpacityHighForDk);
-    --ac-gn-fade-bd-dk: fade(@accColorGreen, @accOpacityMiddleForDk);
-    --ac-cy-fade-bd-dk: fade(@accColorCyan, @accOpacityMiddleForDk);
-    --ac-bu-fade-bd-dk: fade(@accColorBlue, @accOpacityMiddleForDk);
-    --ac-vn-fade-bd-dk: fade(@accColorVine, @accOpacityMiddleForDk);
-    --ac-gy-fade-bd-dk: fade(@accColorGray, @accOpacityMiddleForDk);
+    --ac-bn-fd-bd-dk: fade(@accColorBrown, @accOpacityMiddleForDk);
+    --ac-ro-fd-bd-dk: fade(@accColorRose, @accOpacityMiddleForDk);
+    --ac-rd-fd-bd-dk: fade(@accColorRed, @accOpacityMiddleForDk);
+    --ac-og-fd-bd-dk: fade(@accColorOrange, @accOpacityHighForDk);
+    --ac-gn-fd-bd-dk: fade(@accColorGreen, @accOpacityMiddleForDk);
+    --ac-cy-fd-bd-dk: fade(@accColorCyan, @accOpacityMiddleForDk);
+    --ac-bu-fd-bd-dk: fade(@accColorBlue, @accOpacityMiddleForDk);
+    --ac-vn-fd-bd-dk: fade(@accColorVine, @accOpacityMiddleForDk);
+    --ac-gy-fd-bd-dk: fade(@accColorGray, @accOpacityMiddleForDk);
 
-    --ac-pu-fade-bd-dk: fade(@accColorPurple, @accOpacityLowForDk);
-    --ac-wn-fade-bd-dk: fade(@accColorWine, @accOpacityLowForDk);
-    --ac-ol-fade-bd-dk: fade(@accColorOlives, @accOpacityLowForDk);
-    --ac-mn-fade-bd-dk: fade(@accColorMineral, @accOpacityLowForDk);
-    --ac-se-fade-bd-dk: fade(@accColorSea, @accOpacityLowForDk);
-    --ac-wt-fade-bd-dk: fade(@accColorWhite, @accOpacityHighForDk);
-    --ac-bk-fade-bd-dk: fade(@accColorBlack, @accOpacityLowForDk);
+    --ac-pu-fd-bd-dk: fade(@accColorPurple, @accOpacityLowForDk);
+    --ac-wn-fd-bd-dk: fade(@accColorWine, @accOpacityLowForDk);
+    --ac-ol-fd-bd-dk: fade(@accColorOlives, @accOpacityLowForDk);
+    --ac-mn-fd-bd-dk: fade(@accColorMineral, @accOpacityLowForDk);
+    --ac-se-fd-bd-dk: fade(@accColorSea, @accOpacityLowForDk);
+    --ac-wt-fd-bd-dk: fade(@accColorWhite, @accOpacityHighForDk);
+    --ac-bk-fd-bd-dk: fade(@accColorBlack, @accOpacityLowForDk);
 
-    --ac-t1-fade-bd-dk: @theme1FadeDark;
-    --ac-t2-fade-bd-dk: @theme2FadeDark;
+    --ac-t1-fd-bd-dk: @theme1FadeDark;
+    --ac-t2-fd-bd-dk: @theme2FadeDark;
 
     // ---
 
-    --ac-gd-fade-bd: var(--ac-gd-fade-bd-lg);
-    --ac-pk-fade-bd: var(--ac-pk-fade-bd-lg);
-    --ac-ye-fade-bd: var(--ac-ye-fade-bd-lg);
-    --ac-lm-fade-bd: var(--ac-lm-fade-bd-lg);
-    --ac-aq-fade-bd: var(--ac-aq-fade-bd-lg);
-    --ac-la-fade-bd: var(--ac-la-fade-bd-lg);
+    --ac-gd-fd-bd: var(--ac-gd-fd-bd-lg);
+    --ac-pk-fd-bd: var(--ac-pk-fd-bd-lg);
+    --ac-ye-fd-bd: var(--ac-ye-fd-bd-lg);
+    --ac-lm-fd-bd: var(--ac-lm-fd-bd-lg);
+    --ac-aq-fd-bd: var(--ac-aq-fd-bd-lg);
+    --ac-la-fd-bd: var(--ac-la-fd-bd-lg);
 
-    --ac-bn-fade-bd: var(--ac-bn-fade-bd-lg);
-    --ac-ro-fade-bd: var(--ac-ro-fade-bd-lg);
-    --ac-rd-fade-bd: var(--ac-rd-fade-bd-lg);
-    --ac-og-fade-bd: var(--ac-og-fade-bd-lg);
-    --ac-gn-fade-bd: var(--ac-gn-fade-bd-lg);
-    --ac-cy-fade-bd: var(--ac-cy-fade-bd-lg);
-    --ac-bu-fade-bd: var(--ac-bu-fade-bd-lg);
-    --ac-vn-fade-bd: var(--ac-vn-fade-bd-lg);
-    --ac-gy-fade-bd: var(--ac-gy-fade-bd-lg);
+    --ac-bn-fd-bd: var(--ac-bn-fd-bd-lg);
+    --ac-ro-fd-bd: var(--ac-ro-fd-bd-lg);
+    --ac-rd-fd-bd: var(--ac-rd-fd-bd-lg);
+    --ac-og-fd-bd: var(--ac-og-fd-bd-lg);
+    --ac-gn-fd-bd: var(--ac-gn-fd-bd-lg);
+    --ac-cy-fd-bd: var(--ac-cy-fd-bd-lg);
+    --ac-bu-fd-bd: var(--ac-bu-fd-bd-lg);
+    --ac-vn-fd-bd: var(--ac-vn-fd-bd-lg);
+    --ac-gy-fd-bd: var(--ac-gy-fd-bd-lg);
 
-    --ac-pu-fade-bd: var(--ac-pu-fade-bd-lg);
-    --ac-wn-fade-bd: var(--ac-wn-fade-bd-lg);
-    --ac-ol-fade-bd: var(--ac-ol-fade-bd-lg);
-    --ac-mn-fade-bd: var(--ac-mn-fade-bd-lg);
-    --ac-se-fade-bd: var(--ac-se-fade-bd-lg);
-    --ac-wt-fade-bd: var(--ac-wt-fade-bd-lg);
-    --ac-bk-fade-bd: var(--ac-bk-fade-bd-lg);
+    --ac-pu-fd-bd: var(--ac-pu-fd-bd-lg);
+    --ac-wn-fd-bd: var(--ac-wn-fd-bd-lg);
+    --ac-ol-fd-bd: var(--ac-ol-fd-bd-lg);
+    --ac-mn-fd-bd: var(--ac-mn-fd-bd-lg);
+    --ac-se-fd-bd: var(--ac-se-fd-bd-lg);
+    --ac-wt-fd-bd: var(--ac-wt-fd-bd-lg);
+    --ac-bk-fd-bd: var(--ac-bk-fd-bd-lg);
 
-    --ac-t1-fade-bd: var(--ac-t1-fade-bd-lg);
-    --ac-t2-fade-bd: var(--ac-t2-fade-bd-lg);
+    --ac-t1-fd-bd: var(--ac-t1-fd-bd-lg);
+    --ac-t2-fd-bd: var(--ac-t2-fd-bd-lg);
 }
 // --------------------
 // 针对 Mermaid 专用的强调色色板
@@ -364,32 +366,34 @@
     // 针对 #Color_Scheme
     // 针对 Light 模式的颜色值
     --v-invert-dark-lg: invert(0) brightness(100%); // Light Mode 下图片滤镜
-    --v-brightness-dark-lg: brightness(100%); // Light 模式下封面、封底的滤镜
-    --v-selected-color-lg: fade(@docBgColorDark, 20%); // 选中内容的背景色
+    --v-cover-dark-lg: brightness(100%); // Light 模式下封面、封底的滤镜
+    --v-selected-c-lg: fade(@docBgColorDark, 20%); // 选中内容的背景色
 
-    --a-color-lg: @aColor;
-    --a-hover-color-lg: @aHoverColor;
-    --mark-bg-lg: var(--ac-t2-fade-lg);
+    --a-c-lg: @aColor;
+    --a-o-c-lg: @aHoverColor;
+    --mark-bg-lg: var(--ac-t2-fd-lg);
     --tbl-row-g-alpha-lg: .15;
     --h-f-lg: @headerColor;
-    --h-box-shadow-lg: fade(@headerColor, 20%);
+    --h-box-sd-lg: fade(@headerColor, 20%);
     --h-bg-start-lg: fade(@headerColor, 0%);
     --h-bg-end-lg: fade(@headerColor, 10%);
     --code-bg-lg: @codeBgColor;
     --code-t-lg: @codeTextColor;
-    --std-code-shadow-lg: var(--pn-c-a-lg);
-    --rb-code-shadow-lg: rgba(0, 0, 0, .3);
+    --std-code-sd-lg: var(--pn-c-a-lg);
+    --rb-code-sd-lg: #0000004D;//rgba(0, 0, 0, .3);
 
     // 按钮类外阴影
-    --v-fl-sd-lg: 0 4px 16px rgba(0, 0, 0, .3);
-    // 按钮类内阴影（边框）
-    --v-fl-i-sd-lg: 0 0 0 1px rgba(0, 0, 0, .15) inset;
+    --v-fl-sd-lg: 0 4px 16px #0000004D;//rgba(0, 0, 0, .3);
+    // 按钮类内阴影（模拟内边框）
+    --v-fl-i-sd-lg: 0 0 0 1px #00000026 inset;//rgba(0, 0, 0, .15) inset;
+    // 按钮类外边框
+    --v-fl-bd-lg: 1px solid #0000001A;//rgba(0, 0, 0, .1);
 
     // 代码块背景图（Light）
     --c-blk-bg-lg: @codeBlockBackground;
 
     // 图片的非网格背景
-    --fig-solid-bg-lg: #FFFFFF;
+    --fig-solid-bg-lg: @colorWhite;
     // 图片的线状网格背景（线状、块状)
     --v-fig-grid-l-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEX////a7P6ayvy62/1dqvqPhbtmAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
     --v-fig-grid-b-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUmdsdGis99rd1hm9axzuoZZ5CxAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
@@ -402,141 +406,143 @@
 
     --kbd-bg-lg: @keycapColor;
     --kbd-reflect-lg: lighten(@keycapColor, 20%);
-    --kbd-shadow-lg: darken(@keycapColor, 30%);
+    --kbd-sd-lg: darken(@keycapColor, 30%);
     // 反转色
     --kbd-bg-i-lg: var(--kbd-bg-dk);
     --kbd-reflect-i-lg: var(--kbd-reflect-dk);
-    --kbd-shadow-i-lg: var(--kbd-shadow-dk);
+    --kbd-sd-i-lg: var(--kbd-sd-dk);
 
-    --doc-shadow-lg: rgba(0, 0, 0, .2);
+    --doc-sd-lg: #00000033;//rgba(0, 0, 0, .2);
 
     --ac-rd-lg: @accColorRed;
     --ac-rd-a-lg: @accColorRedAlt;
-    --ac-rd-fade-lg: fade(@accColorRed, @accOpacity);
-    --ac-rd-title-lg: var(--ac-rd-lg);
+    --ac-rd-fd-lg: fade(@accColorRed, @accOpacity);
+    --ac-rd-tt-lg: var(--ac-rd-lg);
     --ac-og-lg: @accColorOrange;
     --ac-og-a-lg: @accColorOrangeAlt;
-    --ac-og-fade-lg: fade(@accColorOrange, @accOpacity);
-    --ac-og-title-lg: var(--ac-og-lg);
+    --ac-og-fd-lg: fade(@accColorOrange, @accOpacity);
+    --ac-og-tt-lg: var(--ac-og-lg);
     --ac-ye-lg: @accColorYellow;
     --ac-ye-a-lg: @accColorYellowAlt;
-    --ac-ye-fade-lg: fade(@accColorYellow, @accOpacity);
-    --ac-ye-title-lg: darken(@accColorYellow, @accTitleDarken);
+    --ac-ye-fd-lg: fade(@accColorYellow, @accOpacity);
+    --ac-ye-tt-lg: darken(@accColorYellow, @accTitleDarken);
     --ac-lm-lg: @accColorLime;
     --ac-lm-a-lg: @accColorLimeAlt;
-    --ac-lm-fade-lg: fade(@accColorLime, @accOpacity);
-    --ac-lm-title-lg: darken(@accColorLime, @accTitleDarken);
+    --ac-lm-fd-lg: fade(@accColorLime, @accOpacity);
+    --ac-lm-tt-lg: darken(@accColorLime, @accTitleDarken);
     --ac-gn-lg: @accColorGreen;
     --ac-gn-a-lg: @accColorGreenAlt;
-    --ac-gn-fade-lg: fade(@accColorGreen, @accOpacity);
-    --ac-gn-title-lg: var(--ac-gn-lg);
+    --ac-gn-fd-lg: fade(@accColorGreen, @accOpacity);
+    --ac-gn-tt-lg: var(--ac-gn-lg);
     --ac-aq-lg: @accColorAqua;
     --ac-aq-a-lg: @accColorAquaAlt;
-    --ac-aq-fade-lg: fade(@accColorAqua, @accOpacity);
-    --ac-aq-title-lg: darken(@accColorAqua, @accTitleDarken);
+    --ac-aq-fd-lg: fade(@accColorAqua, @accOpacity);
+    --ac-aq-tt-lg: darken(@accColorAqua, @accTitleDarken);
     --ac-mn-lg: @accColorMineral;
     --ac-mn-a-lg: @accColorMineralAlt;
-    --ac-mn-fade-lg: fade(@accColorMineral, @accOpacity);
-    --ac-mn-title-lg: darken(@accColorMineral, @accTitleDarken);
+    --ac-mn-fd-lg: fade(@accColorMineral, @accOpacity);
+    --ac-mn-tt-lg: darken(@accColorMineral, @accTitleDarken);
     --ac-ol-lg: @accColorOlives;
     --ac-ol-a-lg: @accColorOlivesAlt;
-    --ac-ol-fade-lg: fade(@accColorOlives, @accOpacity);
-    --ac-ol-title-lg: var(--ac-ol-lg);
+    --ac-ol-fd-lg: fade(@accColorOlives, @accOpacity);
+    --ac-ol-tt-lg: var(--ac-ol-lg);
     --ac-wn-lg: @accColorWine;
     --ac-wn-a-lg: @accColorWineAlt;
-    --ac-wn-fade-lg: fade(@accColorWine, @accOpacity);
-    --ac-wn-title-lg: var(--ac-wn-lg);
+    --ac-wn-fd-lg: fade(@accColorWine, @accOpacity);
+    --ac-wn-tt-lg: var(--ac-wn-lg);
     --ac-cy-lg: @accColorCyan;
     --ac-cy-a-lg: @accColorCyanAlt;
-    --ac-cy-fade-lg: fade(@accColorCyan, @accOpacity);
-    --ac-cy-title-lg: var(--ac-cy-lg);
+    --ac-cy-fd-lg: fade(@accColorCyan, @accOpacity);
+    --ac-cy-tt-lg: var(--ac-cy-lg);
     --ac-bu-lg: @accColorBlue;
     --ac-bu-a-lg: @accColorBlueAlt;
-    --ac-bu-fade-lg: fade(@accColorBlue, @accOpacity);
-    --ac-bu-title-lg: var(--ac-bu-lg);
+    --ac-bu-fd-lg: fade(@accColorBlue, @accOpacity);
+    --ac-bu-tt-lg: var(--ac-bu-lg);
     --ac-se-lg: @accColorSea;
     --ac-se-a-lg: @accColorSeaAlt;
-    --ac-se-fade-lg: fade(@accColorSea, @accOpacity);
-    --ac-se-title-lg: var(--ac-se-lg);
+    --ac-se-fd-lg: fade(@accColorSea, @accOpacity);
+    --ac-se-tt-lg: var(--ac-se-lg);
     --ac-la-lg: @accColorLavender;
     --ac-la-a-lg: @accColorLavenderAlt;
-    --ac-la-fade-lg: fade(@accColorLavender, @accOpacity);
-    --ac-la-title-lg: darken(@accColorLavender, @accTitleDarken);
+    --ac-la-fd-lg: fade(@accColorLavender, @accOpacity);
+    --ac-la-tt-lg: darken(@accColorLavender, @accTitleDarken);
     --ac-vn-lg: @accColorVine;
     --ac-vn-a-lg: @accColorVineAlt;
-    --ac-vn-fade-lg: fade(@accColorVine, @accOpacity);
-    --ac-vn-title-lg: var(--ac-vn-lg);
+    --ac-vn-fd-lg: fade(@accColorVine, @accOpacity);
+    --ac-vn-tt-lg: var(--ac-vn-lg);
     --ac-pu-lg: @accColorPurple;
     --ac-pu-a-lg: @accColorPurpleAlt;
-    --ac-pu-fade-lg: fade(@accColorPurple, @accOpacity);
-    --ac-pu-title-lg: var(--ac-pu-lg);
+    --ac-pu-fd-lg: fade(@accColorPurple, @accOpacity);
+    --ac-pu-tt-lg: var(--ac-pu-lg);
     --ac-ro-lg: @accColorRose;
     --ac-ro-a-lg: @accColorRoseAlt;
-    --ac-ro-fade-lg: fade(@accColorRose, @accOpacity);
-    --ac-ro-title-lg: var(--ac-ro-lg);
+    --ac-ro-fd-lg: fade(@accColorRose, @accOpacity);
+    --ac-ro-tt-lg: var(--ac-ro-lg);
     --ac-pk-lg: @accColorPink;
     --ac-pk-a-lg: @accColorPinkAlt;
-    --ac-pk-fade-lg: fade(@accColorPink, @accOpacity);
-    --ac-pk-title-lg: darken(@accColorPink, @accTitleDarken);
+    --ac-pk-fd-lg: fade(@accColorPink, @accOpacity);
+    --ac-pk-tt-lg: darken(@accColorPink, @accTitleDarken);
     --ac-gd-lg: @accColorGold;
     --ac-gd-a-lg: @accColorGoldAlt;
-    --ac-gd-fade-lg: fade(@accColorGold, @accOpacity);
-    --ac-gd-title-lg: darken(@accColorGold, @accTitleDarken);
+    --ac-gd-fd-lg: fade(@accColorGold, @accOpacity);
+    --ac-gd-tt-lg: darken(@accColorGold, @accTitleDarken);
     --ac-bn-lg: @accColorBrown;
     --ac-bn-a-lg: @accColorBrownAlt;
-    --ac-bn-fade-lg: fade(@accColorBrown, @accOpacity);
-    --ac-bn-title-lg: var(--ac-bn-lg);
+    --ac-bn-fd-lg: fade(@accColorBrown, @accOpacity);
+    --ac-bn-tt-lg: var(--ac-bn-lg);
     --ac-gy-lg: @accColorGray;
     --ac-gy-a-lg: @accColorGrayAlt;
-    --ac-gy-fade-lg: fade(@accColorGray, @accOpacity);
-    --ac-gy-title-lg: darken(@accColorGray, @accTitleDarken);
+    --ac-gy-fd-lg: fade(@accColorGray, @accOpacity);
+    --ac-gy-tt-lg: darken(@accColorGray, @accTitleDarken);
     --ac-wt-lg: @accColorWhite;
     --ac-wt-a-lg: @accColorWhiteAlt;
-    --ac-wt-fade-lg: fade(@accColorWhite, @accOpacity);
-    --ac-wt-title-lg: var(--d-fc-lg);//var(--ac-wt-lg);
+    --ac-wt-fd-lg: fade(@accColorWhite, @accOpacity);
+    --ac-wt-tt-lg: var(--d-fc-lg);//var(--ac-wt-lg);
     --ac-bk-lg: @accColorBlack;
     --ac-bk-a-lg: @accColorBlackAlt;
-    --ac-bk-fade-lg: fade(@accColorBlack, @accOpacity);
-    --ac-bk-title-lg: var(--d-fc);//var(--ac-bk-lg);
+    --ac-bk-fd-lg: fade(@accColorBlack, @accOpacity);
+    --ac-bk-tt-lg: var(--d-fc);//var(--ac-bk-lg);
     --ac-t1-lg: @theme1;
     --ac-t1-a-lg: @theme1Alt;
-    --ac-t1-fade-lg: @theme1Fade;
-    --ac-t1-title-lg: var(--ac-t1-lg);
+    --ac-t1-fd-lg: @theme1Fade;
+    --ac-t1-tt-lg: var(--ac-t1-lg);
     --ac-t2-lg: @theme2;
     --ac-t2-a-lg: @theme2Alt;
-    --ac-t2-fade-lg: @theme2Fade;
-    --ac-t2-title-lg: var(--ac-t2-lg);
+    --ac-t2-fd-lg: @theme2Fade;
+    --ac-t2-tt-lg: var(--ac-t2-lg);
 
     // --------------------
     // 针对 #Color_Scheme
     // 针对 Dark Mode的颜色值
     --v-invert-dark-dk: invert(1) brightness(@hoverBrightness); // Dark Mode 下图片滤镜
-    --v-brightness-dark-dk: brightness(90%); // Dark Mode下封面、封底的滤镜
-    --v-selected-color-dk: fade(@docBgColorLight, 25%); // 选中内容的背景色
+    --v-cover-dark-dk: brightness(90%); // Dark Mode下封面、封底的滤镜
+    --v-selected-c-dk: fade(@docBgColorLight, 25%); // 选中内容的背景色
 
-    --a-color-dk: @aColorDark;
-    --a-hover-color-dk: @aHoverColorDark;
-    --mark-bg-dk: var(--ac-t2-fade-dk);
+    --a-c-dk: @aColorDark;
+    --a-o-c-dk: @aHoverColorDark;
+    --mark-bg-dk: var(--ac-t2-fd-dk);
     --tbl-row-g-alpha-dk: .25;
     --h-f-dk: @headerColorDark;
-    --h-box-shadow-dk: fade(@headerColorDark, 20%);
+    --h-box-sd-dk: fade(@headerColorDark, 20%);
     --h-bg-start-dk: fade(@headerColorDark, 0%);
     --h-bg-end-dk: fade(@headerColorDark, 15%);
     --code-bg-dk: @codeBgColorDark;
     --code-t-dk: @codeTextColorDark;
-    --std-code-shadow-dk: var(--pn-c-a-dk);
-    --rb-code-shadow-dk: rgba(255, 255, 255, .3);
+    --std-code-sd-dk: var(--pn-c-a-dk);
+    --rb-code-sd-dk: #FFFFFF4D;//rgba(255, 255, 255, .3);
 
     // 按钮类外阴影
-    --v-fl-sd-dk: 0 4px 16px rgba(0, 0, 0, .4);
+    --v-fl-sd-dk: 0 4px 16px #00000066;//rgba(0, 0, 0, .4);
     // 按钮类内阴影（边框）
-    --v-fl-i-sd-dk: 0 0 0 1px rgba(0, 0, 0, .3) inset;
+    --v-fl-i-sd-dk: 0 0 0 1px #0000004D inset;//rgba(0, 0, 0, .3) inset;
+    // 按钮类外边框
+    --v-fl-bd-dk: 1px solid #ECEEEF40;
 
     // 代码块背景图（Dark）
     --c-blk-bg-dk: @codeBlockBackgroundDark;
 
     // 图片的非网格背景
-    --fig-solid-bg-dk: #000000;
+    --fig-solid-bg-dk: @colorBlack;
     // 图片的线状网格背景（线状、块状)
     --v-fig-grid-l-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUEDBQEOnAEY8IEVacEeOwONNxmAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
     --v-fig-grid-b-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUPUZQyaqNvlr5QgLCpwNfC0feCAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
@@ -546,124 +552,124 @@
 
     --kbd-bg-dk: @keycapColorDark;
     --kbd-reflect-dk: lighten(@keycapColorDark, 20%);
-    --kbd-shadow-dk: darken(@keycapColorDark, 20%);
+    --kbd-sd-dk: darken(@keycapColorDark, 20%);
     // 反转色
     --kbd-bg-i-dk: var(--kbd-bg-lg);
     --kbd-reflect-i-dk: var(--kbd-reflect-lg);
-    --kbd-shadow-i-dk: var(--kbd-shadow-lg);
+    --kbd-sd-i-dk: var(--kbd-sd-lg);
 
-    --doc-shadow-dk: rgba(0, 0, 0, .8);
+    --doc-sd-dk: #000000CC;//rgba(0, 0, 0, .8);
 
     --ac-rd-dk: @accColorRedDark;
     --ac-rd-a-dk: @accColorRedAltDark;
-    --ac-rd-fade-dk: fade(@accColorRedDark, @accOpacity);
-    --ac-rd-title-dk: var(--d-fc-dk);
+    --ac-rd-fd-dk: fade(@accColorRedDark, @accOpacity);
+    --ac-rd-tt-dk: var(--d-fc-dk);
     --ac-ye-dk: @accColorYellowDark;
     --ac-ye-a-dk: @accColorYellowAltDark;
-    --ac-ye-fade-dk: fade(@accColorYellowDark, @accOpacity);
-    --ac-ye-title-dk: var(--d-fc-dk);
+    --ac-ye-fd-dk: fade(@accColorYellowDark, @accOpacity);
+    --ac-ye-tt-dk: var(--d-fc-dk);
     --ac-og-dk: @accColorOrangeDark;
     --ac-og-a-dk: @accColorOrangeAltDark;
-    --ac-og-fade-dk: fade(@accColorOrangeDark, @accOpacity);
-    --ac-og-title-dk: var(--d-fc-dk);
+    --ac-og-fd-dk: fade(@accColorOrangeDark, @accOpacity);
+    --ac-og-tt-dk: var(--d-fc-dk);
     --ac-lm-dk: @accColorLimeDark;
     --ac-lm-a-dk: @accColorLimeAltDark;
-    --ac-lm-fade-dk: fade(@accColorLimeDark, @accOpacity);
-    --ac-lm-title-dk: var(--d-fc-dk);
+    --ac-lm-fd-dk: fade(@accColorLimeDark, @accOpacity);
+    --ac-lm-tt-dk: var(--d-fc-dk);
     --ac-gn-dk: @accColorGreenDark;
     --ac-gn-a-dk: @accColorGreenAltDark;
-    --ac-gn-fade-dk: fade(@accColorGreenDark, @accOpacity);
-    --ac-gn-title-dk: var(--d-fc-dk);
+    --ac-gn-fd-dk: fade(@accColorGreenDark, @accOpacity);
+    --ac-gn-tt-dk: var(--d-fc-dk);
     --ac-mn-dk: @accColorMineralDark;
     --ac-mn-a-dk: @accColorMineralAltDark;
-    --ac-mn-fade-dk: fade(@accColorMineralDark, @accOpacity);
-    --ac-mn-title-dk: var(--d-fc-dk);
+    --ac-mn-fd-dk: fade(@accColorMineralDark, @accOpacity);
+    --ac-mn-tt-dk: var(--d-fc-dk);
     --ac-ol-dk: @accColorOlivesDark;
     --ac-ol-a-dk: @accColorOlivesAltDark;
-    --ac-ol-fade-dk: fade(@accColorOlivesDark, @accOpacity);
-    --ac-ol-title-dk: var(--d-fc-dk);
+    --ac-ol-fd-dk: fade(@accColorOlivesDark, @accOpacity);
+    --ac-ol-tt-dk: var(--d-fc-dk);
     --ac-wn-dk: @accColorWineDark;
     --ac-wn-a-dk: @accColorWineAltDark;
-    --ac-wn-fade-dk: fade(@accColorWineDark, @accOpacity);
-    --ac-wn-title-dk: var(--d-fc-dk);
+    --ac-wn-fd-dk: fade(@accColorWineDark, @accOpacity);
+    --ac-wn-tt-dk: var(--d-fc-dk);
     --ac-aq-dk: @accColorAquaDark;
     --ac-aq-a-dk: @accColorAquaAltDark;
-    --ac-aq-fade-dk: fade(@accColorAquaDark, @accOpacity);
-    --ac-aq-title-dk: var(--d-fc-dk);
+    --ac-aq-fd-dk: fade(@accColorAquaDark, @accOpacity);
+    --ac-aq-tt-dk: var(--d-fc-dk);
     --ac-cy-dk: @accColorCyanDark;
     --ac-cy-a-dk: @accColorCyanAltDark;
-    --ac-cy-fade-dk: fade(@accColorCyanDark, @accOpacity);
-    --ac-cy-title-dk: var(--d-fc-dk);
+    --ac-cy-fd-dk: fade(@accColorCyanDark, @accOpacity);
+    --ac-cy-tt-dk: var(--d-fc-dk);
     --ac-bu-dk: @accColorBlueDark;
     --ac-bu-a-dk: @accColorBlueAltDark;
-    --ac-bu-fade-dk: fade(@accColorBlueDark, @accOpacity);
-    --ac-bu-title-dk: var(--d-fc-dk);
+    --ac-bu-fd-dk: fade(@accColorBlueDark, @accOpacity);
+    --ac-bu-tt-dk: var(--d-fc-dk);
     --ac-se-dk: @accColorSeaDark;
     --ac-se-a-dk: @accColorSeaAltDark;
-    --ac-se-fade-dk: fade(@accColorSeaDark, @accOpacity);
-    --ac-se-title-dk: var(--d-fc-dk);
+    --ac-se-fd-dk: fade(@accColorSeaDark, @accOpacity);
+    --ac-se-tt-dk: var(--d-fc-dk);
     --ac-la-dk: @accColorLavenderDark;
     --ac-la-a-dk: @accColorLavenderAltDark;
-    --ac-la-fade-dk: fade(@accColorLavenderDark, @accOpacity);
-    --ac-la-title-dk: var(--d-fc-dk);
+    --ac-la-fd-dk: fade(@accColorLavenderDark, @accOpacity);
+    --ac-la-tt-dk: var(--d-fc-dk);
     --ac-vn-dk: @accColorVineDark;
     --ac-vn-a-dk: @accColorVineAltDark;
-    --ac-vn-fade-dk: fade(@accColorVineDark, @accOpacity);
-    --ac-vn-title-dk: var(--d-fc-dk);
+    --ac-vn-fd-dk: fade(@accColorVineDark, @accOpacity);
+    --ac-vn-tt-dk: var(--d-fc-dk);
     --ac-pu-dk: @accColorPurpleDark;
     --ac-pu-a-dk: @accColorPurpleAltDark;
-    --ac-pu-fade-dk: fade(@accColorPurpleDark, @accOpacity);
-    --ac-pu-title-dk: var(--d-fc-dk);
+    --ac-pu-fd-dk: fade(@accColorPurpleDark, @accOpacity);
+    --ac-pu-tt-dk: var(--d-fc-dk);
     --ac-ro-dk: @accColorRoseDark;
     --ac-ro-a-dk: @accColorRoseAltDark;
-    --ac-ro-fade-dk: fade(@accColorRoseDark, @accOpacity);
-    --ac-ro-title-dk: var(--d-fc-dk);
+    --ac-ro-fd-dk: fade(@accColorRoseDark, @accOpacity);
+    --ac-ro-tt-dk: var(--d-fc-dk);
     --ac-pk-dk: @accColorPinkDark;
     --ac-pk-a-dk: @accColorPinkAltDark;
-    --ac-pk-fade-dk: fade(@accColorPinkDark, @accOpacity);
-    --ac-pk-title-dk: var(--d-fc-dk);
+    --ac-pk-fd-dk: fade(@accColorPinkDark, @accOpacity);
+    --ac-pk-tt-dk: var(--d-fc-dk);
     --ac-gd-dk: @accColorGoldDark;
     --ac-gd-a-dk: @accColorGoldAltDark;
-    --ac-gd-fade-dk: fade(@accColorGoldDark, @accOpacity);
-    --ac-gd-title-dk: var(--d-fc-dk);
+    --ac-gd-fd-dk: fade(@accColorGoldDark, @accOpacity);
+    --ac-gd-tt-dk: var(--d-fc-dk);
     --ac-bn-dk: @accColorBrownDark;
     --ac-bn-a-dk: @accColorBrownAltDark;
-    --ac-bn-fade-dk: fade(@accColorBrownDark, @accOpacity);
-    --ac-bn-title-dk: var(--d-fc-dk);
+    --ac-bn-fd-dk: fade(@accColorBrownDark, @accOpacity);
+    --ac-bn-tt-dk: var(--d-fc-dk);
     --ac-gy-dk: @accColorGrayDark;
     --ac-gy-a-dk: @accColorGrayAltDark;
-    --ac-gy-fade-dk: fade(@accColorGrayDark, @accOpacity);
-    --ac-gy-title-dk: var(--d-fc-dk);
+    --ac-gy-fd-dk: fade(@accColorGrayDark, @accOpacity);
+    --ac-gy-tt-dk: var(--d-fc-dk);
     --ac-wt-dk: @accColorWhiteDark;
     --ac-wt-a-dk: @accColorWhiteAltDark;
-    --ac-wt-fade-dk: fade(@accColorWhiteDark, @accOpacity);
-    --ac-wt-title-dk: var(--d-fc-dk);//var(--d-bc-dk);
+    --ac-wt-fd-dk: fade(@accColorWhiteDark, @accOpacity);
+    --ac-wt-tt-dk: var(--d-fc-dk);//var(--d-bc-dk);
     --ac-bk-dk: @accColorBlackDark;
     --ac-bk-a-dk: @accColorBlackAltDark;
-    --ac-bk-fade-dk: fade(@accColorBlackDark, @accOpacity);
-    --ac-bk-title-dk: var(--d-fc);//var(--d-fc-dk);
+    --ac-bk-fd-dk: fade(@accColorBlackDark, @accOpacity);
+    --ac-bk-tt-dk: var(--d-fc);//var(--d-fc-dk);
     --ac-t1-dk: @theme1Dark;
     --ac-t1-a-dk: @theme1AltDark;
-    --ac-t1-fade-dk: @theme1FadeDark;
-    --ac-t1-title-dk: var(--d-fc-dk);
+    --ac-t1-fd-dk: @theme1FadeDark;
+    --ac-t1-tt-dk: var(--d-fc-dk);
     --ac-t2-dk: @theme2Dark;
     --ac-t2-a-dk: @theme2AltDark;
-    --ac-t2-fade-dk: @theme2FadeDark;
-    --ac-t2-title-dk: var(--d-fc-dk);
+    --ac-t2-fd-dk: @theme2FadeDark;
+    --ac-t2-tt-dk: var(--d-fc-dk);
 
     // --------------------
     // 针对 #Color_Scheme
     // 实际应用的颜色变量（自动适配 Color Scheme）
     --v-invert-dark: var(--v-invert-dark-lg); // 默认的图片滤镜
-    // --v-invert-hover: var(--v-invert-hover-lg); // 默认的图片地址的 hover 滤镜
-    --v-brightness-dark: var(--v-brightness-dark-lg); // 默认的封面、封底滤镜
-    --v-selected-color: var(--v-selected-color-lg);
+    // --v-invert-hover: var(--v-invert-o-lg); // 默认的图片地址的 hover 滤镜
+    --v-cover-dark: var(--v-cover-dark-lg); // 默认的封面、封底滤镜
+    --v-selected-c: var(--v-selected-c-lg);
 
     --d-bc: var(--d-bc-lg);
     // --d-bc-tsp: var(--d-bc-tsp-lg);
-    --fade-r: var(--fade-r-lg);
-    --fade-g: var(--fade-g-lg);
-    --fade-b: var(--fade-b-lg);
+    --fd-r: var(--fd-r-lg);
+    --fd-g: var(--fd-g-lg);
+    --fd-b: var(--fd-b-lg);
     --d-bi: var(--d-bi-lg);
     --d-fc: var(--d-fc-lg);
     --d-fc-a: var(--d-fc-a-lg);
@@ -671,14 +677,14 @@
     --pn-c: var(--pn-c-lg);
     --pn-c-a: var(--pn-c-a-lg);
     //--pn-c-tsp: var(--pn-c-tsp-lg);
-    --pn-fade-r: var(--pn-fade-r-lg);
-    --pn-fade-g: var(--pn-fade-g-lg);
-    --pn-fade-b: var(--pn-fade-b-lg);
-    --blockquote-bg: var(--blockquote-bg-lg);
+    --pn-fd-r: var(--pn-fd-r-lg);
+    --pn-fd-g: var(--pn-fd-g-lg);
+    --pn-fd-b: var(--pn-fd-b-lg);
+    --bq-bg: var(--bq-bg-lg);
 
-    --a-color: var(--a-color-lg);
-    --a-hover-color: var(--a-hover-color-lg);
-    --mark-bg: var(--ac-t2-fade-lg);
+    --a-c: var(--a-c-lg);
+    --a-o-c: var(--a-o-c-lg);
+    --mark-bg: var(--ac-t2-fd-lg);
     // --tbl-bd: var(--tbl-bd-lg);
     // --tbl-tr-hv: var(--tbl-tr-hv-lg);
     // --tbl-h-bd: var(--tbl-h-bd-lg);
@@ -686,20 +692,22 @@
     // --tbl-td-bg: var(--tbl-td-bg-lg);
     // --tbl-cell-bd: var(--tbl-cell-bd-lg);
     --tbl-row-g-alpha: var(--tbl-row-g-alpha-lg);
-    --toc-h-num-color: var(--toc-h-num-color-lg);
+    --toc-h-num-c: var(--toc-h-num-c-lg);
     --h-f: var(--h-f-lg);
-    --h-box-shadow: var(--h-box-shadow-lg);
+    --h-box-sd: var(--h-box-sd-lg);
     --h-bg-start: var(--h-bg-start-lg);
     --h-bg-end: var(--h-bg-end-lg);
     --code-bg: var(--code-bg-lg);
     --code-t: var(--code-t-lg);
-    --std-code-shadow: var(--std-code-shadow-lg);
-    --rb-code-shadow: var(--rb-code-shadow-lg);
+    --std-code-sd: var(--std-code-sd-lg);
+    --rb-code-sd: var(--rb-code-sd-lg);
 
     // 按钮类外阴影
     --v-fl-sd: var(--v-fl-sd-lg);
-    // 按钮类内阴影（边框）
+    // 按钮类内阴影（模拟边框）
     --v-fl-i-sd: var(--v-fl-i-sd-lg);
+    // 按钮类边框
+    --v-fl-bd: var(--v-fl-bd-lg);
 
     // 代码块背景图
     --c-blk-bg: var(--c-blk-bg-lg);
@@ -715,109 +723,109 @@
 
     --kbd-bg: var(--kbd-bg-lg);
     --kbd-reflect: var(--kbd-reflect-lg);
-    --kbd-shadow: var(--kbd-shadow-lg);
+    --kbd-sd: var(--kbd-sd-lg);
     // 反转色
     --kbd-bg-i: var(--kbd-bg-dk);
     --kbd-reflect-i: var(--kbd-reflect-dk);
-    --kbd-shadow-i: var(--kbd-shadow-dk);
+    --kbd-sd-i: var(--kbd-sd-dk);
 
-    --doc-shadow: var(--doc-shadow-lg);
+    --doc-sd: var(--doc-sd-lg);
     --img-bd-invert: var(--img-bd-invert-lg);
 
     --ac-rd: var(--ac-rd-lg);
     --ac-rd-a: var(--ac-rd-a-lg);
-    --ac-rd-fade: var(--ac-rd-fade-lg);
-    --ac-rd-title: var(--ac-rd-title-lg);
+    --ac-rd-fd: var(--ac-rd-fd-lg);
+    --ac-rd-tt: var(--ac-rd-tt-lg);
     --ac-og: var(--ac-og-lg);
     --ac-og-a: var(--ac-og-a-lg);
-    --ac-og-fade: var(--ac-og-fade-lg);
-    --ac-og-title: var(--ac-og-title-lg);
+    --ac-og-fd: var(--ac-og-fd-lg);
+    --ac-og-tt: var(--ac-og-tt-lg);
     --ac-ye: var(--ac-ye-lg);
     --ac-ye-a: var(--ac-ye-a-lg);
-    --ac-ye-fade: var(--ac-ye-fade-lg);
-    --ac-ye-title: var(--ac-ye-title-lg);
+    --ac-ye-fd: var(--ac-ye-fd-lg);
+    --ac-ye-tt: var(--ac-ye-tt-lg);
     --ac-lm: var(--ac-lm-lg);
     --ac-lm-a: var(--ac-lm-a-lg);
-    --ac-lm-fade: var(--ac-lm-fade-lg);
-    --ac-lm-title: var(--ac-lm-title-lg);
+    --ac-lm-fd: var(--ac-lm-fd-lg);
+    --ac-lm-tt: var(--ac-lm-tt-lg);
     --ac-gn: var(--ac-gn-lg);
     --ac-gn-a: var(--ac-gn-a-lg);
-    --ac-gn-fade: var(--ac-gn-fade-lg);
-    --ac-gn-title: var(--ac-gn-title-lg);
+    --ac-gn-fd: var(--ac-gn-fd-lg);
+    --ac-gn-tt: var(--ac-gn-tt-lg);
     --ac-mn: var(--ac-mn-lg);
     --ac-mn-a: var(--ac-mn-a-lg);
-    --ac-mn-fade: var(--ac-mn-fade-lg);
-    --ac-mn-title: var(--ac-mn-title-lg);
+    --ac-mn-fd: var(--ac-mn-fd-lg);
+    --ac-mn-tt: var(--ac-mn-tt-lg);
     --ac-ol: var(--ac-ol-lg);
     --ac-ol-a: var(--ac-ol-a-lg);
-    --ac-ol-fade: var(--ac-ol-fade-lg);
-    --ac-ol-title: var(--ac-ol-title-lg);
+    --ac-ol-fd: var(--ac-ol-fd-lg);
+    --ac-ol-tt: var(--ac-ol-tt-lg);
     --ac-wn: var(--ac-wn-lg);
     --ac-wn-a: var(--ac-wn-a-lg);
-    --ac-wn-fade: var(--ac-wn-fade-lg);
-    --ac-wn-title: var(--ac-wn-title-lg);
+    --ac-wn-fd: var(--ac-wn-fd-lg);
+    --ac-wn-tt: var(--ac-wn-tt-lg);
     --ac-aq: var(--ac-aq-lg);
     --ac-aq-a: var(--ac-aq-a-lg);
-    --ac-aq-fade: var(--ac-aq-fade-lg);
-    --ac-aq-title: var(--ac-aq-title-lg);
+    --ac-aq-fd: var(--ac-aq-fd-lg);
+    --ac-aq-tt: var(--ac-aq-tt-lg);
     --ac-cy: var(--ac-cy-lg);
     --ac-cy-a: var(--ac-cy-a-lg);
-    --ac-cy-fade: var(--ac-cy-fade-lg);
-    --ac-cy-title: var(--ac-cy-title-lg);
+    --ac-cy-fd: var(--ac-cy-fd-lg);
+    --ac-cy-tt: var(--ac-cy-tt-lg);
     --ac-bu: var(--ac-bu-lg);
     --ac-bu-a: var(--ac-bu-a-lg);
-    --ac-bu-fade: var(--ac-bu-fade-lg);
-    --ac-bu-title: var(--ac-bu-title-lg);
+    --ac-bu-fd: var(--ac-bu-fd-lg);
+    --ac-bu-tt: var(--ac-bu-tt-lg);
     --ac-se: var(--ac-se-lg);
     --ac-se-a: var(--ac-se-a-lg);
-    --ac-se-fade: var(--ac-se-fade-lg);
-    --ac-se-title: var(--ac-se-title-lg);
+    --ac-se-fd: var(--ac-se-fd-lg);
+    --ac-se-tt: var(--ac-se-tt-lg);
     --ac-la: var(--ac-la-lg);
     --ac-la-a: var(--ac-la-a-lg);
-    --ac-la-fade: var(--ac-la-fade-lg);
-    --ac-la-title: var(--ac-la-title-lg);
+    --ac-la-fd: var(--ac-la-fd-lg);
+    --ac-la-tt: var(--ac-la-tt-lg);
     --ac-vn: var(--ac-vn-lg);
     --ac-vn-a: var(--ac-vn-a-lg);
-    --ac-vn-fade: var(--ac-vn-fade-lg);
-    --ac-vn-title: var(--ac-vn-title-lg);
+    --ac-vn-fd: var(--ac-vn-fd-lg);
+    --ac-vn-tt: var(--ac-vn-tt-lg);
     --ac-pu: var(--ac-pu-lg);
     --ac-pu-a: var(--ac-pu-a-lg);
-    --ac-pu-fade: var(--ac-pu-fade-lg);
-    --ac-pu-title: var(--ac-pu-title-lg);
+    --ac-pu-fd: var(--ac-pu-fd-lg);
+    --ac-pu-tt: var(--ac-pu-tt-lg);
     --ac-ro: var(--ac-ro-lg);
     --ac-ro-a: var(--ac-ro-a-lg);
-    --ac-ro-fade: var(--ac-ro-fade-lg);
-    --ac-ro-title: var(--ac-ro-title-lg);
+    --ac-ro-fd: var(--ac-ro-fd-lg);
+    --ac-ro-tt: var(--ac-ro-tt-lg);
     --ac-pk: var(--ac-pk-lg);
     --ac-pk-a: var(--ac-pk-a-lg);
-    --ac-pk-fade: var(--ac-pk-fade-lg);
-    --ac-pk-title: var(--ac-pk-title-lg);
+    --ac-pk-fd: var(--ac-pk-fd-lg);
+    --ac-pk-tt: var(--ac-pk-tt-lg);
     --ac-gd: var(--ac-gd-lg);
     --ac-gd-a: var(--ac-gd-a-lg);
-    --ac-gd-fade: var(--ac-gd-fade-lg);
-    --ac-gd-title: var(--ac-gd-title-lg);
+    --ac-gd-fd: var(--ac-gd-fd-lg);
+    --ac-gd-tt: var(--ac-gd-tt-lg);
     --ac-bn: var(--ac-bn-lg);
     --ac-bn-a: var(--ac-bn-a-lg);
-    --ac-bn-fade: var(--ac-bn-fade-lg);
-    --ac-bn-title: var(--ac-bn-title-lg);
+    --ac-bn-fd: var(--ac-bn-fd-lg);
+    --ac-bn-tt: var(--ac-bn-tt-lg);
     --ac-gy: var(--ac-gy-lg);
     --ac-gy-a: var(--ac-gy-a-lg);
-    --ac-gy-fade: var(--ac-gy-fade-lg);
-    --ac-gy-title: var(--ac-gy-title-lg);
+    --ac-gy-fd: var(--ac-gy-fd-lg);
+    --ac-gy-tt: var(--ac-gy-tt-lg);
     --ac-wt: var(--ac-wt-lg);
     --ac-wt-a: var(--ac-wt-a-lg);
-    --ac-wt-fade: var(--ac-wt-fade-lg);
-    --ac-wt-title: var(--ac-wt-title-lg);
+    --ac-wt-fd: var(--ac-wt-fd-lg);
+    --ac-wt-tt: var(--ac-wt-tt-lg);
     --ac-bk: var(--ac-bk-lg);
     --ac-bk-a: var(--ac-bk-a-lg);
-    --ac-bk-fade: var(--ac-bk-fade-lg);
-    --ac-bk-title: var(--ac-bk-title-lg);
+    --ac-bk-fd: var(--ac-bk-fd-lg);
+    --ac-bk-tt: var(--ac-bk-tt-lg);
     --ac-t1: var(--ac-t1-lg);
     --ac-t1-a: var(--ac-t1-a-lg);
-    --ac-t1-fade: var(--ac-t1-fade-lg);
-    --ac-t1-title: var(--ac-t1-title-lg);
+    --ac-t1-fd: var(--ac-t1-fd-lg);
+    --ac-t1-tt: var(--ac-t1-tt-lg);
     --ac-t2: var(--ac-t2-lg);
     --ac-t2-a: var(--ac-t2-a-lg);
-    --ac-t2-fade: var(--ac-t2-fade-lg);
-    --ac-t2-title: var(--ac-t2-title-lg);
+    --ac-t2-fd: var(--ac-t2-fd-lg);
+    --ac-t2-tt: var(--ac-t2-tt-lg);
 }

@@ -5,7 +5,7 @@
  *
  * V28.1
  * 2025-01-18
- * powered by MAX°孟兆
+ * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
  * Telegram Channel: t.me/vlook_markdown
@@ -21,7 +21,7 @@
     --active-file-bg: var(--pn-c);
     --active-file-text-color: var(--d-fc);
     --text-color: var(--d-fc);
-    --active-toggle-btn-color: var(--a-hover-color);
+    --active-toggle-btn-color: var(--a-o-c);
     --monospace: var(--v-f-fm-code);
 
     --cm-keyword-lg: #770088;
@@ -72,7 +72,7 @@
     --cm-variable-3: var(--cm-variable-3-lg);
     --cm-tag: var(--cm-tag-lg);
     --cm-attribute: var(--cm-attribute-lg);
-    --cm-CodeMirror-cursor: var(--a-hover-color);
+    --cm-CodeMirror-cursor: var(--a-o-c);
     --cm-string: var(--cm-string-lg);
     --cm-string-2: var(--cm-string-2-lg);
     --cm-comment: var(--cm-comment-lg);
@@ -96,9 +96,9 @@
     --border-color: var(--d-fc-a);
 
     // 选择的文本背景
-    --select-text-bg-color: var(--v-selected-color);
+    --select-text-bg-color: var(--v-selected-c);
 
-    --search-select-bg-color: var(--v-selected-color);
+    --search-select-bg-color: var(--v-selected-c);
 
     --control-text-color: var(--d-fc-lg);
     --control-text-hover-color: var(--d-fc-lg);
@@ -108,7 +108,7 @@
     --active-file-bder: var(--select-text-bg-color);
     //--active-file-text-color: var(--d-fc-lg);
 
-    --item-hover-bg-color: var(--a-hover-color);
+    --item-hover-bg-color: var(--a-o-c);
     --item-hover-text-color: @buttonForeHoverColor;
 
     --primary-color: @theme1;
@@ -116,20 +116,23 @@
     --rawblock-edit-panel-bd: var(--pn-c);
 }
 
+@windows: ~'os-windows';
+@macos: ~'html-for-mac';
+
 // 选中内容的样式
 ::selection {
-    background: var(--v-selected-color) !important;
-    fill: var(--d-fc) !important; // for SVG text
+    background: var(--v-selected-c);
+    fill: var(--d-fc); // for SVG text
 }
 
 // 针对 Typora 导出时自带的侧边栏
 .typora-export-sidebar {
-    display: none !important;
+    display: none;
 }
 
 // 保留原始 fa 图标强制使用指定的字体
 .fa {
-    font-family: FontAwesome, sans-serif !important;
+    font-family: FontAwesome, sans-serif;
 }
 
 .md-toc-inner {
@@ -143,15 +146,15 @@
 .outline-expander::before,
 .ion-ios7-search-strong::before,
 #md-notification::before,
-.ion-chevron-left:before,
+.ion-chevron-left::before,
 .ion-checkmark::before,
-.fa-code:before,
+.fa-code::before,
 #top-titlebar :is(.ty-menu-btn-area-sub1, .ty-menu-btn-area-sub2, .ty-menu-btn-area-sub3),
-.fa-sort-desc:before,
-.fa-sort-asc:before {
+.fa-sort-desc::before,
+.fa-sort-asc::before {
     color: var(--h-f);
 }
-.ion-folder:before {
+.ion-folder::before {
     color: var(--d-fc-lg);
 }
 
@@ -178,9 +181,9 @@ content>.auto-suggest-container li:hover {
 }
 .md-resize-table .ty-icon,
 .md-align-gp .ty-icon {
-    color: var(--a-color);
+    color: var(--a-c);
 }
-.ion-android-arrow-back:before {
+.ion-android-arrow-back::before {
     color: @buttonForeColor;
 }
 
@@ -203,7 +206,7 @@ content>.auto-suggest-container li:hover {
 // 表格行列数调整面板样式
 .md-resize-table-th .popover {
     width: max-content;
-    padding-bottom: 10px !important;
+    padding-bottom: 10px;
 }
 .md-grid-board-wrap .popover-title {
     padding-top: 10px;
@@ -213,22 +216,21 @@ content>.auto-suggest-container li:hover {
     padding: 0 5px;
 }
 .md-grid-board {
-    border-radius: 0 !important;
+    border-radius: 0;
 }
 .md-grid-board a:hover,
 .md-grid-board a.md-active {
-    border-color: var(--ac-t1) !important;
-    background: var(--ac-t1) !important;
-    box-shadow: none !important;
+    border-color: var(--ac-t2);
+    background: var(--ac-t2);
 }
 .md-grid-board :is(tr, tr:hover)::before {
-    content: "" !important;
+    content: "";
 }
 .md-grid-board tr>:is(th, td),
 .md-grid-board tr>:is(th, td):first-child {
-    padding: 5px !important;
-    background: var(--ac-t1) !important;
-    box-shadow: none !important;
+    padding: 5px;
+    background: var(--ac-t2) !important;
+    box-shadow: none;
 }
 
 // 调整表格大小
@@ -242,7 +244,7 @@ content>.auto-suggest-container li:hover {
 }
 
 .md-notification-container {
-    background: var(--d-bc) !important;
+    background: var(--d-bc);
 }
 
 // 导出成功后通知栏图标
@@ -252,12 +254,12 @@ content>.auto-suggest-container li:hover {
 
 // 导出成功后通知栏链接图标
 #md-notification a {
-    color: var(--a-color);
+    color: var(--a-c);
     text-decoration: none;
     font-weight: var(--v-f-w-bd);
 }
 #md-notification :is(a:hover, a.default-btn:hover) {
-    color: var(--a-hover-color);
+    color: var(--a-o-c);
 }
 
 .btn,
@@ -266,18 +268,19 @@ content>.auto-suggest-container li:hover {
 .file-node-content,
 .outline-label,
 .outline-expander {
-    cursor: var(--cur-pointer);
+    // font-family: var(--v-f-fm-tag);
+    cursor: var(--cur-ptr);
 }
 
 #md-notification .btn {
     border-radius: var(--v-r-s) var(--v-r-s-xc);
     margin-left: 5px;
-    color: @buttonForeColor !important;
-    background: @buttonBgColor !important;
+    color: @buttonForeColor;
+    background: @buttonBgColor;
 }
 #md-notification .btn:hover {
-    color: @buttonForeHoverColor !important;
-    background: var(--a-hover-color) !important;
+    color: @buttonForeHoverColor;
+    background: var(--a-o-c);
 }
 #md-notification .btn-default {
     font-weight: var(--v-f-w-bd);
@@ -289,8 +292,13 @@ content>.auto-suggest-container li:hover {
     font-family: inherit;
 }
 
+// 针对 Win 右键菜单图标 hover
+a.menu-style-btn:hover .ty-icon {
+    color: @buttonForeColor;
+}
+
 // 针对 Win 一体化菜单
-body.os-windows :is(.megamenu-menu, .megamenu-menu-header-title-menu) {
+body.@{windows} :is(.megamenu-menu, .megamenu-menu-header-title-menu) {
     background: @buttonBgColor;
     color: @buttonForeColor;
 }
@@ -308,11 +316,11 @@ body.os-windows :is(.megamenu-menu, .megamenu-menu-header-title-menu) {
     color: @buttonForeColor;
 }
 .megamenu-menu-list li a.active {
-    background: @aActiveColor !important;
+    background: @aActiveColor;
     color: @buttonForeHoverColor;
 }
 .megamenu-menu-list:not(.saved) li a:hover {
-    background: var(--a-hover-color) !important;
+    background: var(--a-o-c);
     color: @buttonForeHoverColor;
 }
 
@@ -357,11 +365,11 @@ body:not([class]) :is(h1,h2,h3,h4,h5,h6) {
 
 .megamenu-section :is(.long-btn, .btn) {
     border-radius: var(--v-r-s) var(--v-r-s-xc);
-    color: var(--d-fc-lg);
+    color: var(--d-fc-lg) !important;
 }
 .megamenu-section :is(.long-btn:hover, .btn:hover) {
     color: var(--d-fc-lg) !important;
-    background: var(--blockquote-bg-lg);
+    background: var(--bq-bg-lg);
 }
 
 .megamenu-menu-header:focus,
@@ -376,24 +384,21 @@ body:not([class]) :is(h1,h2,h3,h4,h5,h6) {
     font-weight: var(--v-f-w-bd);
 }
 .btn-primary:hover {
-    background: var(--a-hover-color);
+    background: var(--a-o-c);
 }
 .btn-primary:active {
     background: @aActiveColor;
 }
 
 // 针对 Win 左侧面板标签底部当前选中的边框
-body.os-windows .active-tab-files #info-panel-tab-file .info-panel-tab-border,
-body.os-windows .active-tab-outline #info-panel-tab-outline .info-panel-tab-border {
+body.@{windows} :is(.active-tab-files, .active-tab-outline) .info-panel-tab-border {
     background: @buttonBgColor;
     height: 2px;
 }
 
 .md-image-src-span, // 图片地址
 .md-link .md-url { // 链接
-    font-family: var(--monospace);
-    font-weight: var(--v-f-w-text);
-    font-size: .75em;
+    font: var(--v-f-w-text) .75em var(--monospace); // [style] [weight] [size/[line-height]] [family]
     text-decoration: none;
 }
 
@@ -402,7 +407,7 @@ body.os-windows .active-tab-outline #info-panel-tab-outline .info-panel-tab-bord
     background: @buttonBgColor;
 }
 .md-image-btn:hover {
-    background: var(--a-hover-color);
+    background: var(--a-o-c);
 }
 .md-image-input-src-btn {
     line-height: @defaultLineHeight;
@@ -425,7 +430,7 @@ body.os-windows .active-tab-outline #info-panel-tab-outline .info-panel-tab-bord
     border-radius: 0 var(--v-r-si) var(--v-r-si) 0;
 }
 // 针对 Win
-body.os-windows :is(.md-image-input-src-btn, .md-image-pick-file-btn) {
+body.@{windows} :is(.md-image-input-src-btn, .md-image-pick-file-btn) {
     line-height: @paragraphInnerLineHeight;
 }
 
@@ -439,11 +444,11 @@ body.os-windows :is(.md-image-input-src-btn, .md-image-pick-file-btn) {
 .md-html-inline .md-meta {
     font-size: .75em;
     font-weight: normal;
-    opacity: .6 !important;
+    opacity: .6;
 }
 .md-html-inline kbd .md-meta {
     font-size: 1em;
-    opacity: 1 !important;
+    opacity: 1;
 }
 
 // 图片地址
@@ -451,7 +456,7 @@ body.os-windows :is(.md-image-input-src-btn, .md-image-pick-file-btn) {
     font-size: 1em;
 }
 .md-image>.md-meta {
-    color: var(--a-hover-color);
+    color: var(--a-o-c);
 }
 @{writeOnEditing} a kbd .md-image>.md-meta {
     color: inherit;
@@ -477,17 +482,14 @@ body.os-windows :is(.md-image-input-src-btn, .md-image-pick-file-btn) {
 }
 
 // 针对 Win
-body.os-windows :is(header, .ty-footer) {
-    background: var(--d-bc) var(--d-bi);
-}
-body.os-windows :is(#top-titlebar,
+body.@{windows} :is(#top-titlebar,
 .ty-footer,
 #typora-sidebar,
 #w-titlebar-left,
 #w-traffic-lgs) {
     background: transparent;
 }
-body.os-windows .ty-footer { // 底栏
+body.@{windows} .ty-footer { // 底栏
     border-top-color: var(--d-bc);
 }
 
@@ -509,36 +511,64 @@ body.os-windows .ty-footer { // 底栏
     background: none;
 }
 .sidebar-tab {
-    line-height: 2rem !important;
-    margin-top: auto !important;
+    line-height: 2rem;
+    margin-top: auto;
 }
 // 侧边栏当前活动 tab
 .sidebar-tab.active {
-    font-family: var(--v-f-fm-title);
-    font-weight: var(--v-f-w-bd);
+    font-family: var(--v-f-fm-tt);
+    font-weight: var(--v-f-w-tt);
 }
 
 // 针对 Win 侧边栏 tab
-body.os-windows .info-panel-tab-title {
+body.@{windows} .info-panel-tab:hover {
+    color: var(--a-o-c);
+}
+body.@{windows} .info-panel-tab-title {
     white-space: pre;
     padding: 2px 0;
 }
 .sidebar-tabs>.sidebar-tab.active,
-body.os-windows .info-panel-tab-wrapper {
+body.@{windows} .info-panel-tab-wrapper {
     color: var(--h-f);
 }
 .sidebar-osx-tab::before,
-body.os-windows .info-panel-tab-wrapper::before {
-    content: "VLOOK™ " @themeDesc " • " @themeVer;
+body.@{windows} .info-panel-tab-wrapper::before {
+    content: "VLOOK™ " @themeDesc " - " @themeVer;
     text-transform: uppercase;
     white-space: pre;
-    font-family: var(--v-f-fm-bd);
-    font-size: .75em;
-    font-weight: var(--v-f-w-bd);
+    font: var(--v-f-w-bd) .75em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
     color: var(--h-f);
     position: absolute;
     width: 100%;
     text-align: center;
+}
+// 当前面板标题显示文档标签栏、收藏夹图标
+@thmFavLogoBg: no-repeat center center/20px 20px var(--thm-fav-logo);
+// 以下 for Windows
+body.@{windows} :is(.active-tab-files, .active-tab-outline) .info-panel-tab-title::before {
+    content: "";
+    position: absolute;
+    height: 22px;
+    width: var(--sidebar-width);
+    margin-top: 0;
+    left: 0;
+    background: @thmFavLogoBg;
+    pointer-events: none;
+}
+// 以下 for macOS
+.sidebar-tab.active::before {
+    content: "";
+    position: absolute;
+    height: 22px;
+    width: 200px;
+    margin-left: -70px;
+    margin-top: 7px;
+    background: @thmFavLogoBg var(--d-bc);
+    pointer-events: none;
+}
+.sidebar-tab.active:hover::before {
+    display: none;
 }
 
 // 大纲内容为空
@@ -579,7 +609,7 @@ body.os-windows .info-panel-tab-wrapper::before {
 }
 
 // 针对 Win 版样式的差异调整
-body.os-windows #file-library-tree {
+body.@{windows} #file-library-tree {
     height: 100%;
 }
 
@@ -587,8 +617,8 @@ body.os-windows #file-library-tree {
 #toc-dropmenu {
     border-radius: var(--v-r-b) var(--v-r-b-xc);
     box-shadow: var(--v-fl-sd), var(--v-fl-i-sd);
-    top: 30px !important;
-    right: 20px !important;
+    right: 20px;
+    bottom: 20px;
 }
 #toc-dropmenu>.outline-content {
     background: none;
@@ -602,12 +632,8 @@ body.os-windows #file-library-tree {
     padding-bottom: 10px;
 }
 .outline-title {
-    font-weight: var(--v-f-w-title);
+    font-weight: var(--v-f-w-tt);
     font-size: 1.25em;
-}
-.outline-title::after {
-    content: " ･ VLOOK " @themeDesc;
-    text-transform: uppercase;
 }
 #toc-dropmenu .divider {
     display: none;
@@ -624,22 +650,20 @@ body.os-windows #file-library-tree {
     color: var(--h-f);
     font-size: 14px;
     height: 40px;
-    padding-left: 20px !important;
+    padding-left: 20px;
 }
 
 @{outlineCover}>.outline-item .outline-label :is(sup, sub) {
     opacity: 1;
-    color: inherit !important;
-    font-size: 1em !important;
-    display: contents !important;
+    color: inherit;
+    font-size: 1em;
+    display: contents;
 }
 @{outlineCover}>.outline-item code, // 封面
 @{outlinebackcover}>.outline-item code { // 封底
     color: inherit;
     background: none;
-    font-family: var(--v-f-fm-tag);
-    font-size: 1em;
-    font-weight: inherit;
+    // font: inherit 1em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
     padding: 0;
     box-shadow: none;
     display: inline;
@@ -656,17 +680,17 @@ body.os-windows #file-library-tree {
     text-transform: uppercase;
     position: absolute;
     left: 20px;
-    color: var(--a-hover-color);
+    color: var(--a-o-c);
     font-size: .75em;
-    font-style: normal !important;
+    font-style: normal;
 }
 // 大纲面板的封面项目下的 outline-expander 节点
 @{outlineCover}>.outline-item .outline-expander {
-    height: 10px !important;
+    height: 10px;
     display: block;
 }
 @{outlinebackcover}>.outline-item .outline-expander {
-    height: 15px !important;
+    height: 15px;
     display: block;
 }
 // 大纲面板的封面项目下的内容节点
@@ -683,7 +707,7 @@ body.os-windows #file-library-tree {
     content: "";
     position: absolute;
     display: block;
-    background-color: var(--d-fc-a);
+    background-color: var(--ac-t1);
     left: 5px;
     top: 5px;
     width: 6px;
@@ -693,13 +717,13 @@ body.os-windows #file-library-tree {
 }
 @{outlineCover}>.outline-item-active .outline-label::before,
 @{outlinebackcover}>.outline-item-active .outline-label::before {
-    background-color: var(--a-color);
+    background-color: var(--a-c);
     width: 10px;
 }
 
 // 封底
 @{outlinebackcover}>.outline-item::before {
-    content: "backcover";
+    content: "Back Cover";
     text-transform: uppercase;
 }
 @{outlinebackcover} .outline-label::before {
@@ -707,35 +731,31 @@ body.os-windows #file-library-tree {
 }
 // ----- 非自动收起模式 -----
 .no-collapse-outline .outline-label {
-    padding: 3px 6px !important;
+    padding: 3px 6px;
 }
 // 大纲面板的封面条目
 .no-collapse-outline .outline-content .outline-h6:first-child>.outline-item {
-    padding-top: 3px !important;
-    padding-bottom: 3px !important;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 .no-collapse-outline .outline-content .outline-h6:first-child>.outline-item::before,
 .no-collapse-outline @{outlinebackcover}>.outline-item::before {
-    top: 6px !important;
+    top: 6px;
 }
 .no-collapse-outline @{outlinebackcover}>.outline-item::before {
-    left: 6px !important;
-    top: 8px !important;
+    left: 6px;
+    top: 8px;
 }
 
-// 大纲面板
-.outline-content {
-    font-family: var(--v-f-fm-title);
+.outline-content { // 大纲面板
     background: var(--pn-c);
     border-radius: var(--v-r-b) var(--v-r-b-xc);
     padding: 10px;
 }
 // 大纲节点
 .outline-item {
-    line-height: 1;
-    font-family: var(--v-f-fm-subtitle);
-    font-weight: normal;
-    font-size: @fontSizePx;
+    // font: normal  @fontSizePx/1 var(--v-f-fm-stt); // [style] [weight] [size/[line-height]] [family]
+    font: normal  @fontSizePx/1 var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
     padding-top: 5px;
     padding-right: 5px;
     padding-bottom: 5px;
@@ -800,7 +820,7 @@ body.os-windows #file-library-tree {
     color: @docLibButtonForeColor;
 }
 .searchpanel-search-option-btn.active {
-    background-color: var(--a-hover-color) !important;
+    background-color: var(--a-o-c);
 }
 // 选中的搜索选项
 .searchpanel-search-option-btn.active svg.icon {
@@ -843,7 +863,7 @@ body.os-windows #file-library-tree {
     padding-left: 15px;
 }
 .typora-quick-open-item:hover {
-    background: var(--pn-c-a) !important;
+    background: var(--pn-c-a);
     color: var(--d-fc);
 }
 .typora-quick-open-item.active {
@@ -855,8 +875,11 @@ body.os-windows #file-library-tree {
 }
 
 // 目录/文件节点
-.file-tree-node {
-    font-family: var(--v-f-fm-bd);
+.file-tree-node,
+.file-list-item-file-name,
+.file-list-item-summary {
+    // font-family: var(--v-f-fm-bd);
+    font-family: var(--v-f-fm-tag);
 }
 // 目录节点
 .file-tree-node[data-has-sub=true] {
@@ -878,7 +901,7 @@ body.os-windows #file-library-tree {
     outline: 0;
 }
 // 文件名（含扩展名）
-body.os-windows .file-node-title { // for Win
+body.@{windows} .file-node-title { // for Win
     margin-top: 0;
 }
 // 扩展名
@@ -888,6 +911,11 @@ body.os-windows .file-node-title { // for Win
 
 // ----------------------------------------
 // 源码模式
+
+.typora-sourceview-on #toggle-sourceview-btn {
+    background: revert;
+}
+
 #typora-source .CodeMirror {
     font-family: var(--monospace);
 }
@@ -900,17 +928,18 @@ body.os-windows .file-node-title { // for Win
 }
 // 闪动光标
 #typora-source .CodeMirror-cursor {
-    border-color: var(--a-hover-color);
+    border-color: var(--a-o-c);
 }
 // 标题
 #typora-source .cm-header {
     color: var(--h-f);
-    font-family: var(--v-f-fm-title);
-    font-weight: var(--v-f-w-title);
+    font-family: var(--v-f-fm-tt);
+    font-weight: var(--v-f-w-tt);
 }
 // 链接
 #typora-source .cm-link {
-    color: var(--a-hover-color);
+    color: var(--a-o-c);
+
     font-family: var(--monospace);
     font-weight: normal;
     text-decoration: none;
@@ -923,7 +952,7 @@ body.os-windows .file-node-title { // for Win
 }
 // 图片
 #typora-source .cm-tag {
-    color: var(--a-color);
+    color: var(--a-c);
     font-family: var(--monospace);
 }
 // 链接内容
@@ -933,7 +962,7 @@ body.os-windows .file-node-title { // for Win
 }
 // 引用块
 #typora-source pre.cm-atom {
-    background: var(--blockquote-bg);
+    background: var(--bq-bg);
 }
 #typora-source .cm-atom,
 #typora-source .cm-atom .cm-number {
@@ -970,32 +999,30 @@ body.os-windows .file-node-title { // for Win
 
 // 错误信息
 .error-message {
-    color: var(--a-hover-color) !important;
+    color: var(--a-o-c) !important;
 }
 
 // 编辑时的 Markdown 语法符号
 .md-meta {
-    color: var(--a-hover-color);
+    color: var(--a-o-c);
     line-height: 1;
 }
 
 // 针对在编辑模式时无效图片的样式
 // 导出后对应的样式为 .v-img-lost
 .md-img-error>.md-meta {
-    color: var(--ac-rd-lg) !important;
+    color: var(--ac-rd-lg);
     font-style: italic;
     border: 2px dashed var(--ac-rd-lg);
     border-radius: var(--v-r-b) var(--v-r-b-xc);
     line-height: @paragraphInnerLineHeight;
     padding: 1px;
-    background-size: auto;
-    background-repeat: repeat;
 }
 // 获得焦点编辑
-.md-img-error[contenteditable="true"]>.md-meta {
+.md-img-error[contenteditable=true]>.md-meta {
     width: initial;
     height: initial;
-    display: inline !important;
+    display: inline;
 }
 
 // 排除多媒体类的
@@ -1004,63 +1031,43 @@ body.os-windows .file-node-title { // for Win
 @{errorAudio}>.md-meta,
 @{errorVideo}>.md-meta {
     border: none;
-    color: var(--h-f) !important;
+    color: var(--h-f);
     border: inherit;
     padding: 5px;
     border-radius: var(--v-r-b) var(--v-r-b-xc);
-    background-image: none !important;
-    background-color: var(--pn-c) !important;
+    background-image: none;
+    background-color: var(--pn-c);
     width: initial;
     height: initial;
-    display: inline-block !important;
-    visibility: visible !important;
+    display: inline-block;
+    visibility: visible;
 }
-@{errorAudio}>.md-meta:first-of-type:before {
+@{errorAudio}>.md-meta:first-of-type::before {
     content: "🔊";
 }
-@{errorAudio}>.md-meta:first-of-type:after {
+@{errorAudio}>.md-meta:first-of-type::after {
     content: "( Export HTML to Hear Audio )";
     text-transform: uppercase;
-    color: var(--a-hover-color);
+    color: var(--a-o-c);
     font-size: .625em;
     text-align: center;
     display: block;
 }
-@{errorVideo}>.md-meta:first-of-type:before {
+@{errorVideo}>.md-meta:first-of-type::before {
     content: "🎦";
 }
-@{errorVideo}>.md-meta:first-of-type:after {
+@{errorVideo}>.md-meta:first-of-type::after {
     content: "( Export HTML to Watch Video )";
     text-transform: uppercase;
-    color: var(--a-hover-color);
+    color: var(--a-o-c);
     font-size: .625em;
     text-align: center;
     display: block;
-}
-
-// 针对 header 锚点占位
-.md-header-anchor {
-    margin: 0 !important;
-    vertical-align: top !important;
 }
 
 // 重新定义 emoji 符号在编辑时的排版
 .md-emoji-span::before {
     vertical-align: baseline;
-}
-
-// 脚注行序号
-.md-fn-count {
-    font-family: var(--v-f-fm-bd);
-    font-weight: normal;
-}
-
-.md-fn-count::before {
-    content: "[";
-}
-
-.md-fn-count::after {
-    content: "] ";
 }
 
 // 针对 YAML 的样式
@@ -1069,20 +1076,17 @@ body.os-windows .file-node-title { // for Win
 @yamlBorderWidth: 2px;
 @yamlOnEditing: ~"@{writeOnEditing}>pre.md-meta-block:first-child";
 @{yamlOnEditing} {
-    font-family: var(--monospace);
-    font-weight: var(--v-f-w-text);
-    font-size: .875em;
-    line-height: @paragraphInnerLineHeight;
+    font: var(--v-f-w-text) .875em/@paragraphInnerLineHeight var(--monospace); // [style] [weight] [size/[line-height]] [family]
     border-radius: var(--v-r-b) var(--v-r-b-xc);
     padding: 24px 10px 5px 10px;
-    color: var(--a-color);
+    color: var(--a-c);
     background: var(--code-bg);
-    border: @yamlBorderWidth dashed var(--std-code-shadow);
+    border: @yamlBorderWidth dashed var(--std-code-sd);
     margin: 0 @yamlMarginLeftRight @yamlMarginTopBottom;
     height: @defaultLineHeight * 14px * 1 + 24px + 5px; // 14px 为 YAML 字号，10px 为 YAML 语法提示字号
 }
 // 针对 YAML 提示内容
-@{yamlOnEditing}:empty:before,
+@{yamlOnEditing}:empty::before,
 @{yamlOnEditing}::before {
     content: "--- YAML Front Matter ---";
     text-transform: uppercase;
@@ -1096,9 +1100,7 @@ body.os-windows .file-node-title { // for Win
 @{yamlOnEditing}::after {
     content: "More content has hidden / 更多内容已被隐藏 ▲";
     text-transform: uppercase;
-    font-family: var(--v-f-fm-bd);
-    font-weight: var(--v-f-w-bd);
-    font-size: .75em;
+    font: var(--v-f-w-bd) .75em var(--v-f-fm-bd); // [style] [weight] [size/[line-height]] [family]
     position: absolute;
     top: 20px;
     left: @writePaddingRight;
@@ -1113,7 +1115,7 @@ body.os-windows .file-node-title { // for Win
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background: radial-gradient(ellipse 800px 30px at bottom, var(--a-hover-color), transparent 20%),
+    background: radial-gradient(ellipse 800px 30px at bottom, var(--a-o-c), transparent 20%),
         radial-gradient(ellipse 600px 50px at bottom, @docLibButtonBgColor, transparent 40%),
         radial-gradient(ellipse 800px 50px at bottom, @docLibButtonBgColor, transparent 50%);
 }
@@ -1122,8 +1124,8 @@ body.os-windows .file-node-title { // for Win
     text-transform: uppercase;
     font-size: .875em;
     color: @docLibButtonForeHoverColor;
-    background: radial-gradient(ellipse 600px 50px at bottom, var(--a-hover-color), transparent 50%),
-        radial-gradient(ellipse 800px 50px at bottom, var(--a-hover-color), transparent 60%);
+    background: radial-gradient(ellipse 600px 50px at bottom, var(--a-o-c), transparent 50%),
+        radial-gradient(ellipse 800px 50px at bottom, var(--a-o-c), transparent 60%);
 }
 // 针对 YAML 无内容时
 @{yamlOnEditing}:empty {
@@ -1131,7 +1133,7 @@ body.os-windows .file-node-title { // for Win
     height: auto;
 }
 // 提示输入 YAML 内容
-@{yamlOnEditing}:empty:before {
+@{yamlOnEditing}:empty::before {
     content: "Input your YAML Front Matter ...";
     font-style: normal;
     font-weight: normal;
@@ -1139,8 +1141,8 @@ body.os-windows .file-node-title { // for Win
     opacity: .2;
 }
 // 针对 YAML 无内容，或获得焦点后隐藏展开全部按钮
-@{yamlOnEditing}:empty:after,
-@{yamlOnEditing}.md-focus:after {
+@{yamlOnEditing}:empty::after,
+@{yamlOnEditing}.md-focus::after {
     display: none;
 }
 
@@ -1148,7 +1150,7 @@ body.os-windows .file-node-title { // for Win
 @{yamlOnEditing}.md-focus, // YAML 等获得焦点
 @{writeOnEditing} .md-expand code, // code 获得焦点
 // 预置颜色色号获得焦点
-@{writeOnEditing} span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],[md-inline="highlight"],[md-inline="underline"])+sub.md-expand .md-plain,
+@{writeOnEditing} span:is([md-inline=code],[md-inline=strong],[md-inline=em],[md-inline=highlight],[md-inline=underline])+sub.md-expand .md-plain,
 @{writeOnEditing} :is(sup, sub)+sub.md-expand .md-plain,
 // 单元格预置颜色色号获得焦点
 @{writeOnEditing} table :is(th,td)>span>sub:first-child.md-expand .md-plain,
@@ -1157,8 +1159,8 @@ body.os-windows .file-node-title { // for Win
 @{writeOnEditing} blockquote p>sub:only-child.md-expand .md-plain {
     opacity: 1;
     // 输入光标颜色
-    caret-color: var(--a-hover-color);
-    box-shadow: var(--v-input-focus-inn-shadow), var(--v-input-focus-shadow);
+    caret-color: var(--a-o-c);
+    box-shadow: var(--v-input-focus-inn-sd), var(--v-input-focus-sd);
     border: none;
     height: auto;
 }
@@ -1169,9 +1171,7 @@ body.os-windows .file-node-title { // for Win
 }
 // 源码模式下的 YAML
 #typora-source pre.cm-yaml {
-    font-family: var(--monospace);
-    font-weight: var(--v-f-w-text);
-    font-size: .875em;
+    font: var(--v-f-w-text) .875em var(--monospace); // [style] [weight] [size/[line-height]] [family]
     background: var(--code-bg);
 }
 
@@ -1191,7 +1191,7 @@ content .md-toc::before {
 }
 
 // 目录操作栏
-#write div.md-toc-tooltip {
+#write .md-toc-tooltip {
     background-color: var(--d-fc);
     line-height: 1.5;
     color: var(--d-bc);
@@ -1201,14 +1201,14 @@ content .md-toc::before {
     width: 250px;
     border-radius: var(--v-r-b);
 }
-#write div.md-toc-tooltip>span {
+#write .md-toc-tooltip>span {
     font-size: .875em;
 }
-#write div.md-toc-tooltip .btn {
+#write .md-toc-tooltip .btn {
     padding: 1px 6px;
     margin: 3px;
 }
-#write div.md-toc-tooltip .btn:hover {
+#write .md-toc-tooltip .btn:hover {
     background-color: var(--item-hover-bg-color);
     color: var(--item-hover-text-color);
 }
@@ -1279,7 +1279,7 @@ content .md-toc::before {
     .forOutlineH2() when (@hideOutlineOver = 2) {
         .outline-h2 .outline-expander,
         .md-toc-h2 .v-toc-folder {
-            visibility: hidden !important;
+            visibility: hidden;
         }
         .outline-h3,
         .outline-h4,
@@ -1287,7 +1287,7 @@ content .md-toc::before {
         .md-toc-h3,
         .md-toc-h4,
         .md-toc-h5 {
-            display: none !important;
+            display: none;
         }
     }
     .forOutlineH2();
@@ -1312,7 +1312,7 @@ content .md-toc::before {
 }
 .outline-h6>.outline-item {
 	padding-left: 4.85em;
-    color: var(--toc-h-num-color);
+    color: var(--toc-h-num-c);
     font-size: .875em;
 }
 .outline-h6>.outline-item>.outline-label::before {
@@ -1338,7 +1338,7 @@ content .md-toc::before {
 // 如果标题自动编号颜色有设置透明度，则编辑时的大纲生成合适的透明度
 .getOutlineLabel() when not (@contentHeaderNumOpacity = 1) {
     .outline-label::before {
-        color: var(--toc-h-num-color);
+        color: var(--toc-h-num-c);
     }
 }
 .getOutlineLabel();
@@ -1351,7 +1351,7 @@ content .md-toc::before {
 
 .md-toc-h1>.md-toc-inner {
     margin-left: 0;
-    font-weight: var(--v-f-w-title);
+    font-weight: var(--v-f-w-tt);
 }
 
 .md-toc-h2::before,
@@ -1400,12 +1400,6 @@ content .md-toc::before {
     content: "";
 }
 
-// 导出 HTML 后的目录大纲内的自动编码内容
-// 包括导航中心、#write 内的正文
-@{onHTML} :is(.md-toc-h1, .md-toc-h2, .md-toc-h3, .md-toc-h4, .md-toc-h5)::before {
-    content: attr(data-header-num) " " !important;
-}
-
 .typora-export-show-outline .typora-export-content {
     max-width: none;
     display: inherit;
@@ -1414,15 +1408,15 @@ content .md-toc::before {
 // 编辑时，配合分栏样式使用
 @{writeOnEditing} hr {
     border: none;
-    background: var(--ac-bk-fade);
+    background: var(--ac-bk-fd);
     height: 2px;
     cursor: crosshair;
 }
 @{writeOnEditing} hr:hover {
-    background: var(--a-hover-color);
+    background: var(--a-o-c);
 }
 @{writeOnEditing} .md-hr+.md-hr>hr {
-    margin-top: -14px !important;
+    margin-top: -14px;
 }
 
 // 明信片编辑时样式
@@ -1443,19 +1437,19 @@ content .md-toc::before {
 // ====================
 // 编辑时预置颜色色号的公共样式
 @colorCode: ~'em>sub:only-child';
-@colorCodeMd: ~'[md-inline="em"]>@{colorCode}';
-@colorCodeOnStart: ~'[md-inline="em"]:first-child>em>sub:only-child';
+@colorCodeMd: ~'span[md-inline=em]>@{colorCode}';
+@colorCodeOnStart: ~'span[md-inline=em]:first-child>em>sub:only-child';
 // ---
 @colorCodeInBlockquote: ~'blockquote @{colorCodeOnStart}';
 @colorCodeOnPgStart: ~'p>@{colorCodeOnStart}';
 @colorCodeOnCellStart: ~'table :is(th,td)>span>@{colorCodeOnStart}';
-@colorCodeBeforeSpanFmt: ~'span:is([md-inline="code"],[md-inline="strong"],[md-inline="em"],[md-inline="highlight"],[md-inline="underline"])+@{colorCodeMd}';
+@colorCodeBeforeSpanFmt: ~'span:is([md-inline=code],[md-inline=strong],[md-inline=em],[md-inline=highlight],[md-inline=underline])+@{colorCodeMd}';
 @colorCodeBeforeSupSub: ~':is(sup, sub)+@{colorCodeMd}';
 
 @{writeOnEditing} @{colorCodeInBlockquote}, // 引用块着色
 @{writeOnEditing} @{colorCodeOnPgStart}, // 文本着色（段落）
 @{writeOnEditing} @{colorCodeOnCellStart}, // 单元格（段落）
-@{writeOnEditing} table :is(th,td)>span>[md-inline="em"]:last-child>em>sub:only-child,
+@{writeOnEditing} table :is(th,td)>span>span[md-inline=em]:last-child>em>sub:only-child,
 @{writeOnEditing} @{colorCodeBeforeSpanFmt}, // 文本着色
 @{writeOnEditing} @{colorCodeBeforeSupSub} { // 文本着色（指定格式）
     font: @syntaxTipsFont;
@@ -1465,9 +1459,9 @@ content .md-toc::before {
     bottom: 0;
     color: var(--d-fc);
     background-color: var(--pn-c-a);
-    padding: 1px 3px;
+    padding: 0 3px;
     margin: 0 5px 0 1px;
-    line-height: @miniLineHeight !important;
+    line-height: @miniLineHeight;
     opacity: .6;
 }
 // 对于以下指定的色号标记，默认不显示
@@ -1520,7 +1514,7 @@ content .md-toc::before {
 }
 
 // 表格列格式：右对齐
-@{writeOnEditing} table th:not([style*=":right"])>span>span:not([md-inline="plain"]):only-child:before,
+@{writeOnEditing} table th:not([style*=":right"])>span>span:not([md-inline=plain]):only-child::before,
 @{writeOnEditing} table th[style*=":right"]>span::before {
     content: "CF/列格式";
     text-transform: uppercase;
@@ -1540,44 +1534,24 @@ content .md-toc::before {
     margin-bottom: @paragraphPadding;
 }
 
-// 有序列表下的任务清单
-#write ol>.md-task-list-item { // 1 级
-    list-style-type: none !important;
-}
-#write ol>li>ol>.md-task-list-item { // 2 级
-    list-style-type: none !important;
-}
-#write ol>li>ol>li>ol>.md-task-list-item { // 3 级
-    list-style-type: none !important;
-}
-#write ol>li>ol>li>ol>li>ol>.md-task-list-item { // 4 级
-    list-style-type: none !important;
-}
-#write ol>li>ol>li>ol>li>ol>li>ol>.md-task-list-item { // 5 级
-    list-style-type: none !important;
-}
-#write ol>li>ol>li>ol>li>ol>li>ol>li>ol>.md-task-list-item { // 6 级
-    list-style-type: none !important;
-}
-
 // 无序列表下的任务清单
 #write ul>.md-task-list-item { // 1 级
-    list-style-type: none !important;
+    list-style-type: none;
 }
 #write ul>li>ul>.md-task-list-item { // 2 级
-    list-style-type: none !important;
+    list-style-type: none;
 }
 #write ul>li>ul>li>ul>.md-task-list-item { // 3 级
-    list-style-type: none !important;
+    list-style-type: none;
 }
 #write ul>li>ul>li>ul>li>ul>.md-task-list-item { // 4 级
-    list-style-type: none !important;
+    list-style-type: none;
 }
 #write ul>li>ul>li>ul>li>ul>li>ul>.md-task-list-item { // 5 级
-    list-style-type: none !important;
+    list-style-type: none;
 }
 #write ul>li>ul>li>ul>li>ul>li>ul>li>ul>.md-task-list-item { // 6 级
-    list-style-type: none !important;
+    list-style-type: none;
 }
 
 // 任务清单
@@ -1587,13 +1561,13 @@ content .md-toc::before {
 // 任务清单复选框
 @taskListMarginLeft: -1.25em;
 .md-task-list-item>input {
-    margin-top: .5em !important;
-    margin-left: @taskListMarginLeft !important;
+    margin-top: .5em;
+    margin-left: @taskListMarginLeft;
 }
 .v-svg-input-checkbox {
     position: absolute;
     margin-top: .3125em !important;
-    margin-left: @taskListMarginLeft !important;
+    margin-left: @taskListMarginLeft;
     display: inline-block;
     vertical-align: middle;
 }
@@ -1610,46 +1584,142 @@ content .md-toc::before {
 }
 
 // ====================
+// 页签组（编辑时提示样式）
+@tabGroup_prefix: ~'span[md-inline=em]:only-child>em>sup';
+@tabGroup_OnEditing: ~'p>@{tabGroup_prefix}';
+.genTabGroupOnEditing(@style) {
+    @{writeOnEditing} @{tabGroup_OnEditing} {
+        display: inline-block;
+        opacity: 1;
+        margin-top: @paragraphPadding;
+        color: var(--d-fc-a);
+        // font-weight: var(--v-f-w-bd);
+
+        // 标准风格样式
+        .genTabItem(@style) when (@style = std) {
+            // font: normal 1em var(--v-f-fm-bd);
+            font: @syntaxTipsFont;
+            // color: var(--a-c);
+            width: calc(100% - 2em);
+            padding: @tabGroupPadding @tabGroupPadding 0 @tabGroupPadding;
+            box-shadow: 0 -@tabGroupStdBdWidth 0 0 @tabGroupBgColor inset;
+            // 始终居中
+            text-align: center;
+        }
+        // 简约风格样式
+        .genTabItem(@style) when (@style = simple) {
+            // font: normal var(--v-f-w-bd) 1em var(--v-f-fm-bd);
+            font: @syntaxTipsFont;
+            // color: var(--d-fc-a);
+            width: calc(100% - 2em);
+            padding: @tabGroupPadding @tabGroupPadding 0 @tabGroupPadding;
+            box-shadow: 0 -@tabGroupStdBdWidth 0 0 @tabGroupBgColor inset;
+            // 始终居中
+            text-align: center;
+        }
+        // 简约风格样式 UP 变种
+        .genTabItem(@style) when (@style = simple_up) {
+            // font: normal var(--v-f-w-bd) 1em var(--v-f-fm-bd);
+            font: @syntaxTipsFont;
+            // color: var(--d-fc-a);
+            width: calc(100% - 2em);
+            // padding: 0;
+            background: linear-gradient(0deg, var(--pn-c), var(--d-bc));
+            // 始终居中
+            text-align: center;
+        }
+        // 现代风格样式
+        .genTabItem(@style) when (@style = modern) {
+            // font: normal 1em var(--v-f-fm-bd);
+            font: @syntaxTipsFont;
+            // color: var(--a-c);
+            background: @tabGroupBgColor;
+            padding: 0 @tabGroupPadding * 2 0 0;
+            border-radius: var(--v-r-si) var(--v-r-si-xc);
+            width: max-content;
+            max-width: 100%;
+            // 始终居中
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .genTabItem(@style);
+    }
+    @{writeOnEditing} @{tabGroup_OnEditing}::before {
+        content: "🗂️ Tab Group / 页签组";
+        text-transform: uppercase;
+        font: @syntaxTipsFont;
+        // font-weight: var(--v-f-w-bd);
+        color: var(--a-c);
+        // color: var(--d-fc);
+        display: inline-block;
+
+        // 标准风格样式
+        .genTabItem(@style) when (@style = std) {
+            padding: @tabItemPadding * 2 @tabGroupPadding * 2;
+            margin: 0 10px;
+            background: var(--d-bc);
+            border: @tabGroupStdBdWidth solid @tabGroupBgColor;
+            border-bottom: none;
+            border-radius: var(--v-r-s) var(--v-r-s-xc) 0 0;
+        }
+        // 简约风格样式
+        .genTabItem(@style) when (@style = simple) {
+            padding: @tabItemPadding * 2 @tabGroupPadding * 2;
+            margin: 0 10px;
+            border-bottom: 2px solid var(--a-c);
+            border-radius: var(--v-r-s) var(--v-r-s-xc) 0 0;
+        }
+        // 简约风格样式 UP 变种
+        .genTabItem(@style) when (@style = simple_up) {
+            padding: @tabItemPadding * 2;
+            margin: 0 10px;
+            border-top: 2px solid var(--a-c);
+            background: var(--d-bc);
+            // border-radius: var(--v-r-s) var(--v-r-s-xc) 0 0;
+        }
+        // 现代风格样式
+        .genTabItem(@style) when (@style = modern) {
+            background: var(--d-bc);
+            padding: @tabItemPadding * 2 @tabGroupPadding * 2;
+            margin: @tabGroupPadding @tabGroupPadding * 2 @tabGroupPadding @tabGroupPadding;
+            border-radius: calc(var(--v-r-si) - @tabGroupPadding) calc(var(--v-r-si-xc) - @tabGroupPadding);
+            box-shadow: 0 0 @tabGroupPadding 0 var(--pn-c-a);
+        }
+        .genTabItem(@style);
+    }
+}
+
+// ====================
 // 第 1 题注（编辑时样式）
 // 注意：因格式与 @menuStepPath_OnEditing 接近，注意调整时进行多点验证
 //
 // 高亮内的斜体，或斜体内的高亮
 // 针对题注简化语法的样式
-@cap_prefix: ~'[md-inline="em"]:only-child>em>[md-inline="highlight"]>mark';
+@cap_prefix: ~'span[md-inline=em]:only-child>em>span[md-inline=highlight]:only-child>mark';
 @cap1_OnEditing: ~'p>@{cap_prefix}';
-@cap2_OnEditing: @cap1_OnEditing~'>[md-inline="em"]>em';
+@cap2_OnEditing: @cap1_OnEditing~'>span[md-inline=em]>em';
 @{writeOnEditing} @{cap1_OnEditing} {
     font: normal .875em var(--v-f-fm-bd);
     color: @captionTextColor;
     background: @captionBackground !important;
     box-shadow: none;
-    text-shadow: none;
     padding: 2px 10px;
     border-radius: var(--v-r-b) var(--v-r-b) 0 0;
     display: inline-block;
 }
-@{writeOnEditing} p:has(@{cap_prefix}) + p {
+// 编辑时添加了题注语法后的内容微调
+@{writeOnEditing} p:has(@{cap_prefix}) + :is(figure, .md-fences, .mathjax-block) { //}:not([class*="md-fences-math"]):not([class*="md-diagram"]) {
     margin-top: 0;
 }
+// 列表下的微调
 @{writeOnEditing} li>@{cap1_OnEditing} {
-    margin: 0; // 列表下的微调
+    margin: 0;
 }
 @{writeOnEditing} @{cap1_OnEditing}::before {
     content: "Caption/题注 ▸ ";
     text-transform: uppercase;
     font: @syntaxTipsFont;
-    color: var(--a-color);
-}
-// 编辑时 h6 格式设置的题注样式
-@{writeOnEditing} h6:has(+p>.md-image)::after, // 插图
-@{writeOnEditing} h6:has(+.md-table-fig)::after, // 表格
-@{writeOnEditing} h6:has(+.md-fences)::after, // 代码块、```math 语法公式
-@{writeOnEditing} h6:has(+.md-math-block)::after { // $$ 语法公式
-    content: " ◂ Caption/题注";
-    text-transform: uppercase;
-    font: @syntaxTipsFont;
-    color: var(--a-color);
-    opacity: 1;
+    color: var(--a-c);
 }
 
 // --------------------
@@ -1661,34 +1731,38 @@ content .md-toc::before {
     color: var(--ac-t1-lg);
 }
 @{writeOnEditing} .md-expand mark .md-meta {
-    color: var(--a-hover-color);
+    color: var(--a-o-c);
     opacity: 1 !important;
 }
 
 // ====================
 // 面包屑（分步分级）样式
 // 注意：因格式与 @cap1_OnEditing 接近，注意调整时进行多点验证
-@stepwisePrefix_OnEditing: ~'[md-inline="em"]';
-@stepwiseSuffix_OnEditing: ~'>em>[md-inline="highlight"]>mark';
+@stepwisePrefix_OnEditing: ~'span[md-inline=em]';
+@stepwiseSuffix_OnEditing: ~'>em>span[md-inline=highlight]>mark';
 // 调整该选择器时须同步调整 vlook.js 中 Stepwise 对应的选择器
 @triangleWidth: .5em;
 @stepwiseTextColor: var(--d-fc);
 @{writeOnEditing} p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing},
 @{writeOnEditing} .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing},
 .v-stepwise {
-    font: normal .875em var(--v-f-fm-code);
+    font: normal .875em var(--v-f-fm-tag);
     line-height: 1;
     color: @stepwiseTextColor;
     box-shadow: none;
-    text-shadow: none;
     padding: 5px 5px 5px 8px;
     border-radius: var(--v-r-tag) 0 0 var(--v-r-tag);
     border: 1px solid var(--d-bc);
     position: relative;
     display: inline-block;
     margin-right: 10px;
-    background-color: var(--std-code-shadow) !important;
-    background: var(--std-code-shadow) !important;
+    background-color: var(--std-code-sd);
+    background: var(--std-code-sd) !important;
+}
+@{writeOnEditing} p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing} strong,
+@{writeOnEditing} .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing} strong,
+.v-stepwise strong {
+    font-family: var(--v-f-fm-tag) !important;
 }
 @{writeOnEditing} p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing}::before,
 @{writeOnEditing} .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing}::before,
@@ -1714,11 +1788,11 @@ content .md-toc::before {
     height: 0;
     border-top: calc(1em - 2px) solid transparent;
     border-bottom: calc(1em - 2px) solid transparent;
-    border-left: calc(1em - 7px) solid var(--std-code-shadow);
+    border-left: calc(1em - 7px) solid var(--std-code-sd);
 }
 // 分步分级内容分隔样式
 .v-stepwise {
-    cursor: var(--cur-copy-normal);
+    cursor: var(--cur-copy);
 }
 @arrowWidth: 30%;
 .v-stepwise label {
@@ -1732,30 +1806,32 @@ content .md-toc::before {
 @{writeOnEditing} p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing} a,
 @{writeOnEditing} .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing} a,
 @{writeOnHTML} .v-stepwise a {
-    color: @stepwiseTextColor !important;
+    color: var(--d-fc);
     font-weight: var(--v-f-w-bd);
 }
 // 内嵌的文本链接编辑时样式
 @{writeOnEditing} p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing} .md-link .md-url,
 @{writeOnEditing} .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing} .md-link .md-url {
-    color: var(--a-color);
+    color: var(--a-c);
 }
 @{writeOnEditing} p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing} a::after,
 @{writeOnEditing} .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing} a::after,
 .v-stepwise a::after {
     content: "◥";
     font-size: .875em;
-    color: var(--a-color);
+    color: var(--a-c);
     width: 20px;
     height: 20px;
     margin-left: -4px;
     margin-top: -8px;
     position: absolute;
 }
-@{writeOnEditing} p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing} a:hover::after,
-@{writeOnEditing} .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing} a:hover::after,
-.v-stepwise a:hover::after {
-    color: var(--a-hover-color) !important;
+.genHoverStyle(@for) when (@for = stepwise) {
+    @{writeOnEditing} p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing} a:hover::after,
+    @{writeOnEditing} .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing} a:hover::after,
+    .v-stepwise a:hover::after {
+        color: var(--a-o-c);
+    }
 }
 
 /**************************************
@@ -1772,8 +1848,8 @@ content .md-toc::before {
     border: none;
 }
 // 图片带 srcset 参数的微调
-@{writeOnEditing} :is(span[md-inline="image"][data-src*="darksrc="],
-span[md-inline="image"][data-src*="srcset="])::before {
+@{writeOnEditing} :is(span[md-inline=image][data-src*="darksrc="],
+span[md-inline=image][data-src*="srcset="])::before {
     content: "◩";
     font: @syntaxTipsFont;
     color: var(--d-bc);
@@ -1785,13 +1861,13 @@ span[md-inline="image"][data-src*="srcset="])::before {
     background: var(--d-fc);
     opacity: .6;
 }
-@{writeOnEditing} span[md-inline="image"][data-src*="srcset="]::before {
+@{writeOnEditing} span[md-inline=image][data-src*="srcset="]::before {
     content: "@";
 }
-@{writeOnEditing} span[md-inline="image"][data-src*="srcset="][data-src*="darksrc"]::before {
+@{writeOnEditing} span[md-inline=image][data-src*="srcset="][data-src*="darksrc"]::before {
     content: "@ ◩";
 }
-@{writeOnEditing} span[md-inline="image"][data-src*="#icon"]::before {
+@{writeOnEditing} span[md-inline=image][data-src*="#icon"]::before {
     content: "" !important;
 }
 
@@ -1802,9 +1878,9 @@ span[md-inline="image"][data-src*="srcset="])::before {
 }
 
 // 适配宽度显示
-body:not([class*="pin-outline"]) @{writeOnEditing}, // 编辑时，如收起了左侧面板
-body[class*="on-focus-mode"] @{writeOnEditing}, // 编辑时，如启用了「专注模式（Focus Mode）」
-body[class*="ty-on-typewriter-mode"] @{writeOnEditing}, // 编辑时，如启用了「打字机模式（Typewriter Mode）」
+body:not([class*=pin-outline]) @{writeOnEditing}, // 编辑时，如收起了左侧面板
+body[class*=on-focus-mode] @{writeOnEditing}, // 编辑时，如启用了「专注模式（Focus Mode）」
+body[class*=ty-on-typewriter-mode] @{writeOnEditing}, // 编辑时，如启用了「打字机模式（Typewriter Mode）」
 #write.max.fill-width {
     width: auto;
     box-shadow: none;
@@ -1817,6 +1893,7 @@ body[class*="ty-on-typewriter-mode"] @{writeOnEditing}, // 编辑时，如启用
     margin-top: 30px;
 }
 
+// ------------------------------
 // 编辑时的引用块折叠（details、summary）
 @summaryOnEditing: ~"blockquote>h6:first-child";
 @{writeOnEditing} @{summaryOnEditing} {
@@ -1824,8 +1901,8 @@ body[class*="ty-on-typewriter-mode"] @{writeOnEditing}, // 编辑时，如启用
     font-size: @h7FontSize;
     padding: 0 0 .3125em 0;
     margin-bottom: .3125em;
-    text-align: @h7TextAlign;
-    justify-content: @h7TextAlign;
+    text-align: left;
+    justify-content: left;
     display: flex;
     align-items: center;
     vertical-align: middle;
@@ -1833,6 +1910,12 @@ body[class*="ty-on-typewriter-mode"] @{writeOnEditing}, // 编辑时，如启用
     line-height: 1;
     border-radius: 0;
     width: 100%;
+}
+// 在列表、引用块内时微调
+@{writeOnEditing} :is(li, blockquote) @{summaryOnEditing},
+:is(li, blockquote, details) summary {
+    text-align: left;
+    justify-content: left;
 }
 @{writeOnEditing} @{summaryOnEditing}::before {
     content: "" !important;
@@ -1847,53 +1930,75 @@ body[class*="ty-on-typewriter-mode"] @{writeOnEditing}, // 编辑时，如启用
     font-size: 1.2em;
     margin-right: 5px;
     transition: all var(--v-trans-dur) ease-out;
-    opacity: 1;
-}
-// 编辑时自动折叠收起
-@hasSummaryOnEditing: ~"blockquote:has(>h6:first-child)";
-@{writeOnEditing} @{hasSummaryOnEditing} {
-    overflow: hidden;
-    height: 2.625em;
-}
-@{writeOnEditing} @{hasSummaryOnEditing} :is(blockquote,.md-alert)::before { // hr 分栏内容提示
-    display: none;
-}
-// 引用内的折叠
-@{writeOnEditing} :is(li, blockquote) @{hasSummaryOnEditing} {
-    height: 1.25em;
-}
-// 编辑时任意子元素获得焦点后，自动展开
-@summaryFocusOnEditing: ~"@{hasSummaryOnEditing}:has(.md-focus)";
-@{writeOnEditing} @{summaryFocusOnEditing} {
-    height: auto;
-}
-@{writeOnEditing} @{summaryFocusOnEditing} :is(blockquote,.md-alert)::before { // hr 分栏内容提示
-    display: block;
-}
-@{writeOnEditing} @{summaryFocusOnEditing}>h6:first-child {
-    border-bottom: @quoteTitleBorderWidth solid var(--ac-bk-fade);
-}
-@{writeOnEditing} @{summaryFocusOnEditing}>h6:first-child::before {
     transform: rotate(45deg);
     opacity: .6;
 }
 
+// 生成编辑时引用块折叠样式
+// 始终显示
+.genSummaryOnEditing(@mode) when (@mode = expanded) {
+    @{writeOnEditing} @{summaryOnEditing} {
+        border-bottom: @quoteTitleBorderWidth solid var(--ac-bk-fd);
+    }
+}
+// 输入编辑时自动展示，完成后自动收起
+.genSummaryOnEditing(@mode) when (@mode = auto) {
+    @{writeOnEditing} @{summaryOnEditing}::before {
+        transform: unset;
+        opacity: 1;
+    }
+
+    // 编辑时自动折叠收起
+    @hasSummaryOnEditing: ~"blockquote:has(>h6:first-child)";
+    @{writeOnEditing} @{hasSummaryOnEditing} {
+        overflow: hidden;
+        height: 2.625em;
+    }
+    @{writeOnEditing} @{hasSummaryOnEditing} :is(blockquote,.md-alert)::before { // hr 分栏内容提示
+        display: none;
+    }
+    // 引用内的折叠
+    @{writeOnEditing} :is(li, blockquote) @{hasSummaryOnEditing} {
+        height: 1.25em;
+    }
+    // 编辑时任意子元素获得焦点后，自动展开
+    @summaryFocusOnEditing: ~"@{hasSummaryOnEditing}:has(.md-focus)";
+    @{writeOnEditing} @{summaryFocusOnEditing} {
+        height: auto;
+    }
+    @{writeOnEditing} @{summaryFocusOnEditing} :is(blockquote,.md-alert)::before { // hr 分栏内容提示
+        display: block;
+    }
+    @{writeOnEditing} @{summaryFocusOnEditing}>h6:first-child {
+        border-bottom: @quoteTitleBorderWidth solid var(--ac-bk-fd);
+    }
+    @{writeOnEditing} @{summaryFocusOnEditing}>h6:first-child::before {
+        transform: rotate(45deg);
+        opacity: .6;
+    }
+}
+
 // 多行代码样式（排除 ```math、```mermaid 语法）
-#write .md-fences:not([class*="md-fences-math"]):not([class*="md-diagram"]) {
+#write .md-fences:not([class*=md-fences-math]):not([class*=md-diagram]) {
     color: var(--d-fc);
     font-family: @themeMonoFont, var(--v-f-fm-code);
     border-radius: var(--v-r-b) var(--v-r-b-xc);
-    border: @imgBorderWidth solid var(--std-code-shadow);
-    margin: 0;
-    background-color: var(--std-code-shadow);
+    border: @imgBorderWidth solid var(--std-code-sd);
+    margin: @paragraphPadding 0 0;
+    background-color: var(--std-code-sd);
 }
+// 针对生成题注后的微调
+.v-caption > .md-fences {
+    margin: 0 !important;
+}
+
 // 代码块获得焦点
 @{writeOnEditing} .md-fences.md-focus {
-    box-shadow: var(--v-input-focus-shadow) !important;
-    border-color: var(--a-color);
+    box-shadow: var(--v-input-focus-sd);
+    border-color: var(--a-c);
 }
 @{writeOnEditing} .md-fences.md-focus .md-diagram-panel {
-    margin-top: 4px !important;
+    margin-top: 4px;
 }
 .md-fences.md-diagram {
     box-shadow: none;
@@ -1905,17 +2010,18 @@ pre.md-fences-advanced.md-focus .md-fences-adv-panel {
     background: none;
 }
 
-#write .md-fences-adv-panel {
-    margin-top: 0;
-    position: relative;
-    text-align: left;
+// 编辑时 ```math 语法面板颜色
+@{writeOnEditing} .md-fences-math[lang=math]>.md-fences-adv-panel {
+    background-color: var(--d-bc);
 }
-@{writeOnEditing} .md-fences-math[lang="math"]>.md-fences-adv-panel {
-    background-color: var(--d-bc) !important;
+
+// 行间公式、HTML 代码的右上角标签
+@{writeOnEditing} .md-rawblock .md-rawblock-tooltip {
+    border-radius: var(--v-r-s) var(--v-r-s) 0 0;
 }
-// 导出后对 mermaid 图表的微调
-@{writeOnHTML} .md-fences-adv-panel {
-    margin-top: @paragraphPadding !important;
+// 行间公式容器
+@{writeOnEditing} .md-fences-math[lang=math] .md-diagram-panel-preview { // ```math 公式语法
+    font-size: 1.25em;
 }
 
 // 编辑时引用块折叠标题下紧跟的内容
@@ -1925,12 +2031,12 @@ pre.md-fences-advanced.md-focus .md-fences-adv-panel {
 
 // 针对 Typora 输入框
 #file-library-search-input {
-    border-color: var(--v-input-focus-border) !important;
+    border-color: var(--v-input-focus-border);
 }
 // 针对 Quick Open
 #typora-quick-open-input input:focus,
 // 输入控件
 .form-control:focus {
-    border-color: var(--v-input-focus-border) !important;
-    box-shadow: var(--v-input-focus-shadow) !important;
+    border-color: var(--v-input-focus-border);
+    box-shadow: var(--v-input-focus-sd);
 }

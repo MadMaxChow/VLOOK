@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V28.1" (2025-01-18) - (Language Pack) - Typora Plugin
+VLOOK™ "V29.0" (2025-05-24) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
@@ -13,7 +13,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <!-- The following is the content of the language package -->
 <!-- 以下为语言包内容 -->
 <meta name="vk-fr1" content="Couverture du document">
-<meta name="vk-fr2" content="Impression...">
+<meta name="vk-fr2" content="Changer d'onglet">
 <meta name="vk-fr3" content="Carte de liens">
 <meta name="vk-fr4" content="Activé">
 <meta name="vk-fr5" content=" pour changer la taille de l'étape">
@@ -40,7 +40,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-fr26" content="Envelopper / Dérouler">
 <meta name="vk-fr27" content="Image dans l’image">
 <meta name="vk-fr28" content="Appuyer et maintenir">
-<meta name="vk-fr29" content="Copier en Markdown">
+<meta name="vk-fr29" content="Document actuel">
 <meta name="vk-fr30" content="Copier le code">
 <meta name="vk-fr31" content="Copier l’adresse de l’image">
 <meta name="vk-fr32" content="Copier le contenu du tableau">
@@ -53,9 +53,9 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-fr39" content="Délai d’attente">
 <meta name="vk-fr40" content="Chargement">
 <meta name="vk-fr41" content="Style de police">
-<meta name="vk-fr42" content="minute(s)">
-<meta name="vk-fr43" content="heure(s)">
-<meta name="vk-fr44" content="mots">
+<meta name="vk-fr42" content="Minute(s)">
+<meta name="vk-fr43" content="Heure(s)">
+<meta name="vk-fr44" content="Mots">
 <meta name="vk-fr45" content="Apparence">
 <meta name="vk-fr46" content="Ajoutez [TOC] avant le premier titre de premier niveau pour le générer">
 <meta name="vk-fr47" content="Vérification du hash réussie">
@@ -64,7 +64,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-fr50" content="Longueur maximale de l'URL dépassée">
 <meta name="vk-fr51" content="Hachage">
 <meta name="vk-fr52" content="Vérifier le hachage">
-<meta name="vk-fr53" content="Nom de chapitre dupliqué">
+<meta name="vk-fr53" content="Titre/légende en double">
 <meta name="vk-fr54" content="Lien interne invalide">
 <meta name="vk-fr55" content="Tout afficher">
 <meta name="vk-fr56" content="Tableau">
@@ -96,10 +96,10 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-fr82" content="Page">
 <meta name="vk-fr83" content="Lien">
 <meta name="vk-fr84" content="Note de bas de page">
-<meta name="vk-fr85" content="Restaurer le style de police">
+<meta name="vk-fr85" content="Réinitialiser au style de police du thème">
 <meta name="vk-fr86" content="Cliquez ici pour ouvrir le lien">
 <meta name="vk-fr87" content="Aujourd'hui, c'est">
-<meta name="vk-fr88" content="Cette page sera affichée aujourd'hui en {{display-mode}}">
+<meta name="vk-fr88" content="Cette page sera affichée en {{display-mode}}">
 <meta name="vk-fr89" content="Cliquez sur le bouton ci-dessous pour le désactiver temporairement">
 <meta name="vk-fr90" content="Automatiquement">
 <meta name="vk-fr91" content="Clair">

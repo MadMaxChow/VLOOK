@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V28.1" (2025-01-18) - (Language Pack) - Typora Plugin
+VLOOK™ "V29.0" (2025-05-24) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
@@ -13,7 +13,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <!-- The following is the content of the language package -->
 <!-- 以下为语言包内容 -->
 <meta name="vk-de1" content="Dokumentdeckblatt">
-<meta name="vk-de2" content="Drucken...">
+<meta name="vk-de2" content="Tabs wechseln">
 <meta name="vk-de3" content="Link-Karte">
 <meta name="vk-de4" content="Aktiviert">
 <meta name="vk-de5" content=" um die Schrittgröße zu wechseln">
@@ -40,7 +40,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de26" content="Umbruch / Rückgängig">
 <meta name="vk-de27" content="Bild im Bild">
 <meta name="vk-de28" content="Drücken und halten">
-<meta name="vk-de29" content="Als Markdown kopieren">
+<meta name="vk-de29" content="Aktuelles Dokument">
 <meta name="vk-de30" content="Code kopieren">
 <meta name="vk-de31" content="Bildadresse kopieren">
 <meta name="vk-de32" content="Tabelleninhalt kopieren">
@@ -54,7 +54,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de40" content="Wird geladen">
 <meta name="vk-de41" content="Schriftstil">
 <meta name="vk-de42" content="Minute(n)">
-<meta name="vk-de43" content="stunde(n)">
+<meta name="vk-de43" content="Stunde(n)">
 <meta name="vk-de44" content="Wörter">
 <meta name="vk-de45" content="Erscheinungsbild">
 <meta name="vk-de46" content="Fügen Sie [TOC] vor der ersten Überschrift der ersten Ebene ein, um es zu generieren">
@@ -64,7 +64,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de50" content="Maximale URL-Länge überschritten">
 <meta name="vk-de51" content="Hash">
 <meta name="vk-de52" content="Hash prüfen">
-<meta name="vk-de53" content="Doppelte Kapitelbezeichnung">
+<meta name="vk-de53" content="Doppelter Titel/Beschriftung">
 <meta name="vk-de54" content="Ungültiger interner Link">
 <meta name="vk-de55" content="Alle anzeigen">
 <meta name="vk-de56" content="Tabelle">
@@ -96,10 +96,10 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-de82" content="Seite">
 <meta name="vk-de83" content="Link">
 <meta name="vk-de84" content="Fußnote">
-<meta name="vk-de85" content="Schriftstil wiederherstellen">
+<meta name="vk-de85" content="Auf Themen-Schriftartstil zurücksetzen">
 <meta name="vk-de86" content="Klicken Sie hier, um den Link zu öffnen">
 <meta name="vk-de87" content="Heute ist">
-<meta name="vk-de88" content="Diese Seite wird heute im {{display-mode}} angezeigt">
+<meta name="vk-de88" content="Diese Seite wird im {{display-mode}} angezeigt">
 <meta name="vk-de89" content="Klicken Sie unten auf die Schaltfläche, um es vorübergehend auszuschalten">
 <meta name="vk-de90" content="Automatisch">
 <meta name="vk-de91" content="Hell">

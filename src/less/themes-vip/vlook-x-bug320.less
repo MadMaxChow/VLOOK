@@ -2,7 +2,7 @@
  *
  * VLOOK™ 模板主题
  *
- * powered by MAX°孟兆
+ * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
  * Telegram Channel: t.me/vlook_markdown
@@ -17,10 +17,10 @@
 @import "../color";
 @import "../common";
 
-@vlookQuery: @vlookQueryDef + "ws=off&fold=table,codeblock";
+@vlookQuery: "@{vlookQueryDef}&ws=off&fold=table+codeblock";
 
 // 主题信息
-@themeVer: "V28.1";
+@themeVer: "V29.0";
 @themeName: "vlook-x-bug320";
 @themeDesc: "× bug320";
 @themeEmail: "1046218884@qq.com";
@@ -49,7 +49,7 @@
 // 主题主色
 @theme1: #8064A9;
 @theme2: #2AA899;
-@theme3: #FFFFFF;
+@theme3: #FFF;
 @theme4: @bgLight4Theme;
 @theme1Dark: #866BAD;
 @theme1Alt: #E7E1EF;
@@ -69,6 +69,10 @@
 @themeBgColorAlt: lighten(@themeForeColor, 42%);
 
 @headerTextAlign: left;
+
+// 标题圆角
+@headerBorderRadius: var(--v-r-b) var(--v-r-b) 0 0;
+
 // 标题色
 @headerColor: @theme1;
 @headerColorDark: @theme1Dark;
@@ -103,11 +107,11 @@
 @headerBackground: linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
 @headerPadding: 5px 10px;
 // 标题的上边框
-@h1BorderTop: 9px solid var(--h-box-shadow);
-@h2BorderTop: 7px solid var(--h-box-shadow);
-@h3BorderTop: 5px solid var(--h-box-shadow);
-@h4BorderTop: 3px solid var(--h-box-shadow);
-@h5BorderTop: 1px solid var(--h-box-shadow);
+@h1BorderTop: 9px solid var(--h-box-sd);
+@h2BorderTop: 7px solid var(--h-box-sd);
+@h3BorderTop: 5px solid var(--h-box-sd);
+@h4BorderTop: 3px solid var(--h-box-sd);
+@h5BorderTop: 1px solid var(--h-box-sd);
 @h6BorderTop: 0;
 
 @hGap: 5px;
@@ -139,30 +143,6 @@
 @aHoverColor: @theme2;
 @aHoverColorDark: @theme2Dark;
 @aActiveColor: desaturate(@aHoverColor, 25%);
-
-// 表格边框
-// @tableBorderColor: var(--d-fc-a);
-// @tableBorderWidth: 0px;
-// @tableBorderLeftWidth: 0px;
-// @tableBorderRightWidth: 0px;
-// @tableBorderTopWidth: 0px;
-// @tableBorderBottomWidth: 2px;
-// @tableThBorderRightWidth: 1px solid var(--d-bc);
-// @tableTdBorderRightWidth: 1px solid var(--tbl-cell-bd); // 后面要注释掉
-// // 表格行 hover
-// @tableTrHoverBg: fade(@aHoverColor, 20%);
-// @tableTrHoverBgDark: fade(@aHoverColor, 25%);
-// // 表格背景
-// @tableBackground: var(--d-bc);
-// @tableThColor: var(--d-bc);
-// @tableThBackground: @tableBorderColor;
-// @tableTdBackground: none;
-// // 表格单元格阴影
-// @tableFirstThBoxShadow: none;
-// @tableThBoxShadow: 0 1px 0 var(--tbl-h-bd) inset;
-// @tableThRepeaterBoxShadow: @tableThBoxShadow;
-// @tableFirstTdBoxShadow: none;
-// @tableTdBoxShadow: 0 -1px 0 0 var(--tbl-cell-bd);
 
 // 按钮色
 @buttonForeColor: @theme3;
@@ -234,7 +214,21 @@
 
 @import "../base";
 
-// 生成指定风格的多级标签样式
+// 生成编辑时引用块折叠持续展开
+.genSummaryOnEditing(expanded);
+
+// 生成段落加粗扩展样式
+.genParaFormatBold();
+// 生成段落下划线扩展样式
+.genParaFormatUnderline();
+// 生成段落高亮扩展样式
+.genParaFormatMark(@quoteBeforeImage_l01, @quoteAfterImage_l01, .8);
+
+// 生成页签组样式
+.genTabGroup(modern);
+
+// 生成指定风格的标签样式
+.genTagStyle(std);
 .genBadgeStyle(cap);
 
 // 生成 GSA 样式

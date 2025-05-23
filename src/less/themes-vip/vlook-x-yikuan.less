@@ -2,7 +2,7 @@
  *
  * VLOOK™ 模板主题
  *
- * powered by MAX°孟兆
+ * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
  * Telegram Channel: t.me/vlook_markdown
@@ -18,10 +18,10 @@
 @import "../common";
 
 // 主题配套预置选项 vlook-query
-@vlookQuery: @vlookQueryDef + "ws=1";
+@vlookQuery: "@{vlookQueryDef}&ws=1";
 
 // 主题信息
-@themeVer: "V28.1";
+@themeVer: "V29.0";
 @themeName: "vlook-x-yikuan";
 @themeDesc: "× YiKuan";
 @themeEmail: "147107657@qq.com";
@@ -35,7 +35,7 @@
 // 表格、插图指定居中对齐
 .genTableAndFigureAlign(center);
 // 生成指定的表格样式
-.genTableStyle(flat);
+.genTableStyle(modern);
 
 :root {
     --thm-fav-logo-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAMAAAC8EZcfAAACbVBMVEUAAAD////////////////////////////////////////////////////1cSzyazX2rA/xZjz2dCgAurv3sg34eh/5vQoAssb1pREAzaIAx6oAv7T6wgnL8xQA05tnWvFgX/H2dyTR8xJYZPAA2ZP7yAfzbjHuXUnvYkN6TPMAqNP4tg0A44b4uQxxU/L6fxj0nxIA6nxIb+/F8xeZN/UAotoArM380AaOP/SU9yoAw69TaPCK9y77hBGiMfYA3Y30mxOIQ/TzlxRPa+9tVvJr+Tkyf+2j9SSr9SH++/WASfN2UPKy9R659BuERvNAde4AneDzkxXd8g7j8gvX8w87ee57+DOqK/aC+DGc9iYAmeV0+DaTPPTyjhe/9BkA8HRT+kNb+kBi+T1C+0mxJ/c3/E4ohuxL+0b91QXp8gkAkPIAluoA9W26Jfcr/VL1/Pz+8+nY/cYg/ln9/en92gTc7Pzp+PgfjOz6/Nn848/p/MLv8QcClO70+KLp+YDF/tD6qWT859/01M393L37yoz39P9wwu+Mzu/96KD05/7p0v2s3fK16O7+7Nj6xbX6tIH193LZ9Cr93SrcuPzJjfrJ6/Zez9REw9P98rb90KT3sJ377IryjYX62U34qkfo9UL50jv5xiayvPjQ/9j8+cux+7X64Gz2j2Xi913zfFP5kEe5ZPibvvYzme+X95z4w2T6lDKKm/WZXPVYnfNUeOtQ75vva1n0djyp89mkmMgx5aG9+5n2nH+z+nj8jx6ej/dzkfInyMBy8o4r8n9/+3ta+Hjxemiv90pphfJvaed4h9aUe9XXy8nLscG8s71V8dHZAAAADXRSTlMAxaIX7nE/CN+zeUlGiByYOwAADDFJREFUeNrM1b2O2lAQhuFzbIP5+1JwA4C2oqGioEKKRBOQaN1sSWspTYqUKVzYRSjsJim3XFfhBri1jGU73uXYAe3MLn4k96/GM7aq544Glu45+BBOT1uDkatuZnc07kB3bHWLbh930+9ez9O4K/3/RNvC3Vm2ajR00ALOUDXooCU6qo7bgtdbslxlsDVaRNvG/FrVB+jLGbbo/easlt5Hw6UM0ULDqs92ICgMQ0hw7HdZwMjPRGAw1rALOYmfiyGgq3IaUkL/cPAPfiYA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");
@@ -45,7 +45,7 @@
 // 主题主色
 @theme1: #04AAC2;//#10A8BE;
 @theme2: #F08519;
-@theme3: #FFFFFF;
+@theme3: #FFF;
 @theme1Dark: #04B7D1;//#0F9EB3;
 @theme1Alt: #D0F6FB;
 @theme1AltDark: #06434B;
@@ -73,7 +73,7 @@
 @hbgLg: ~"linear-gradient(270deg, @{hbgC1}, @{hbgC2} 30%, @{hbgC2} 50%, @{hbgC2} 70%, @{hbgC1})";
 @spliterWidth: 4px;
 
-@h1Bg: linear-gradient(180deg, rgba(var(--fade-r), var(--fade-g), var(--fade-b), .1), rgba(var(--fade-r), var(--fade-g), var(--fade-b), 1)), @hbgLg;
+@h1Bg: linear-gradient(180deg, rgba(var(--fd-r), var(--fd-g), var(--fd-b), .1), rgba(var(--fd-r), var(--fd-g), var(--fd-b), 1)), @hbgLg;
 @h2Bg: @h1Bg;
 @h3Bg: linear-gradient(to right, transparent 20%, @hbgC2 20%, @hbgC1 50%, @hbgC2 80%, transparent 80%) 0 0 / 100% 5px no-repeat;
 
@@ -84,6 +84,9 @@
 // @h2TextAlign: center;
 // @h3TextAlign: center;
 @headerPadding: 15px 0;
+
+// 标题圆角
+@headerBorderRadius: var(--v-r-b) var(--v-r-b) 0 0;
 
 @h1Margin: 1.25em 0 0 0;
 @h2Margin: 1.25em 0 0 0;
@@ -100,21 +103,6 @@
 @h3BeforeContent: "";
 @h4BeforeContent: "";
 @h5BeforeContent: "";
-
-// 表格边框
-// // @tblBdWidth: 1px;
-// // 表格背景
-// // @tableThColor: var(--d-fc-a);
-// // @tableThBackground: inherit;
-// @tableBackground: var(--d-bc);
-// // @tableThColor: var(--d-bc);
-// @tableThBackground: none;
-// @tableTdBackground: none;
-// // 表格行 hover
-// @tableTrHoverBgDark: fade(@aHoverColor, 25%);
-// // 表格单元格阴影
-// // @tableFirstThBoxShadow: none;
-// @tableTdBoxShadow: 0 -1px 0 0 var(--tbl-cell-bd);
 
 // 题注文字、背景色
 @captionTextColor: var(--d-fc-a);
@@ -150,7 +138,7 @@
 @coverTextPadding: 180px 60px 0;
 @coverTextPaddingForMobile: 180px 20px 0;
 @coverTextColor: @theme3;
-@coverSubColor: #000000;
+@coverSubColor: #000;
 @coverUnderlineColor: @theme3;
 @coverAuthorColor: @coverTextColor;
 @coverOwnerColor: @coverTextColor;
@@ -205,7 +193,21 @@
 
 @import "../base";
 
-// 生成指定风格的多级标签样式
+// 生成编辑时引用块折叠持续展开
+.genSummaryOnEditing(expanded);
+
+// 生成段落加粗扩展样式
+.genParaFormatBold();
+// 生成段落下划线扩展样式
+.genParaFormatUnderline();
+// 生成段落高亮扩展样式
+.genParaFormatMark(@quoteBeforeImage_c01, @quoteAfterImage_c01, .8);
+
+// 生成页签组样式
+.genTabGroup(modern);
+
+// 生成指定风格的标签样式
+.genTagStyle(std);
 .genBadgeStyle(std);
 
 // 生成 GSA 样式

@@ -2,7 +2,7 @@
  *
  * VLOOK™ 模板主题
  *
- * powered by MAX°孟兆
+ * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
  * Telegram Channel: t.me/vlook_markdown
@@ -18,7 +18,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V28.1";
+@themeVer: "(EXPIRED)";
 @themeName: "vlook-x-lspzc";
 @themeDesc: "× lspzc";
 @themeEmail: "lsp_zc@qq.com";
@@ -40,7 +40,7 @@
 // 主题主色
 @theme1: #488FE0;
 @theme2: #E04C4C;
-@theme3: #FFFFFF;
+@theme3: #FFF;
 @theme1Dark: #4992E6;
 @theme1Alt: #C5D4E6;
 @theme1AltDark: #22446B;
@@ -101,8 +101,8 @@
 @h5BeforeContent: "";
 
 // 标题边框
-// @h1BorderTop: 5px solid var(--h-box-shadow);
-// @h2BorderBottom: 2px solid var(--h-box-shadow);
+// @h1BorderTop: 5px solid var(--h-box-sd);
+// @h2BorderBottom: 2px solid var(--h-box-sd);
 @h1Margin: 2em 0 0 0;
 @h2Margin: 2em 0 0 0;
 @h3Margin: 1.5em 0 0 0;
@@ -138,33 +138,6 @@
 @aHoverColor: @theme2;
 @aHoverColorDark: @theme2Dark;
 @aActiveColor: desaturate(@aHoverColor, 25%);
-
-// 表格边框
-// @tableBorderColor: var(--d-fc-a);
-// @tableBorderWidth: 0px;
-// @tableBorderLeftWidth: 0px;
-// @tableBorderRightWidth: 0px;
-// @tableBorderTopWidth: 0px;
-// @tableBorderBottomWidth: 2px;
-// @tableThBorderRightWidth: 1px solid var(--d-bc);;
-// // @tableTdBorderRightWidth: 0;
-// // 表格行 hover
-// @tableTrHoverBg: fade(@aHoverColor, 20%);
-// @tableTrHoverBgDark: fade(@aHoverColor, 25%);
-// // 表格圆角
-// // @tableBorderRadius: 0px;
-// // @tableBorderRadiusXC: 0px;
-// // 表格背景
-// @tableBackground: var(--d-bc);
-// @tableThColor: var(--d-bc);
-// @tableThBackground: @tableBorderColor;
-// @tableTdBackground: none;
-// // 表格单元格阴影
-// @tableFirstThBoxShadow: none;
-// @tableThBoxShadow: 0 1px 0 var(--tbl-h-bd) inset;
-// @tableThRepeaterBoxShadow: @tableThBoxShadow;
-// @tableFirstTdBoxShadow: none;
-// @tableTdBoxShadow: 0 -1px 0 0 var(--tbl-cell-bd);
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: left;
@@ -209,6 +182,7 @@
 @backcoverBackgroundPosition: var(--thm-bc-bg-pos);
 
 // 文档扩展区域背景
+@docExtBackgroundColor: var(--d-bc-lg);
 @docExtBackgroundImage: var(--thm-doc-ext-bg), var(--thm-c-m2), var(--thm-c-m3);
 @docExtBackgroundSize: auto, auto, auto;
 @docExtBackgroundRepeat: no-repeat, no-repeat, no-repeat;
@@ -225,7 +199,14 @@
 
 @import "../base";
 
-// 生成指定风格的多级标签样式
+// 生成编辑时引用块折叠持续展开
+.genSummaryOnEditing(expanded);
+
+// 生成页签组样式
+.genTabGroup(std);
+
+// 生成指定风格的标签样式
+.genTagStyle(std);
 .genBadgeStyle(cap);
 
 // 生成 GSA 样式

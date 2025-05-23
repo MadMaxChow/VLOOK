@@ -2,7 +2,7 @@
  *
  * VLOOK™ 模板主题
  *
- * powered by MAX°孟兆
+ * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
  * Telegram Channel: t.me/vlook_markdown
@@ -20,7 +20,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V28.1";
+@themeVer: "(EXPIRED)";
 @themeName: "vlook-x-chemetall";
 @themeDesc: "× Chemetall";
 @themeEmail: "506086577@qq.com";
@@ -42,7 +42,7 @@
 // 主题主色
 @theme1: #004A96;
 @theme2: #65AC1E;
-@theme3: #FFFFFF;
+@theme3: #FFF;
 @theme1Alt: #CAE2FC;
 @theme1Dark: #2878C9;
 @theme1AltDark: #003E7D;
@@ -79,8 +79,8 @@
 @h5BeforeContent: "";
 
 // 标题边框
-// @h1BorderTop: 5px solid var(--h-box-shadow);
-// @h2BorderBottom: 2px solid var(--h-box-shadow);
+// @h1BorderTop: 5px solid var(--h-box-sd);
+// @h2BorderBottom: 2px solid var(--h-box-sd);
 @h1Margin: 2em 0 0 0;
 @h2Margin: 2em 0 0 0;
 @h3Margin: 1.5em 0 0 0;
@@ -142,7 +142,7 @@
 @__coverBackgroundSize: 280px 42px, 150px 150px, 10px 10px, 10px, 10px, calc(100% - 160px) 10px, 10px calc(100% - 20px), calc(100% - 20px) 10px, 10px calc(100% - 160px);
 @__coverBackgroundRepeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
 @__coverBackgroundPosition: top left, top right, bottom right, bottom left, top 0 left 150px, top 10px right 0, bottom 0 left 10px, left 0 top 150px;
-@coverBackgroundColor: #FFFFFF;
+@coverBackgroundColor: #FFF;
 @coverBackgroundImage: @__coverBackgroundImage, var(--thm-c-plus);
 @coverBgSize: @__coverBackgroundSize, auto;
 @coverBgSizeForMobile: @__coverBackgroundSize, 246px, 195px;
@@ -205,10 +205,17 @@
     position: absolute !important;
 }
 
+// 生成编辑时引用块折叠持续展开
+.genSummaryOnEditing(expanded);
+
+// 生成页签组样式
+.genTabGroup(std);
+
 // 生成强调风格的有序列表样式
 .genOrderList(block, circle);
 
-// 生成指定风格的多级标签样式
+// 生成指定风格的标签样式
+.genTagStyle(std);
 .genBadgeStyle(dyn);
 
 // 生成 GSA 样式

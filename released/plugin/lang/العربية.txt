@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V28.1" (2025-01-18) - (Language Pack) - Typora Plugin
+VLOOK™ "V29.0" (2025-05-24) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
@@ -13,7 +13,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <!-- The following is the content of the language package -->
 <!-- 以下为语言包内容 -->
 <meta name="vk-ar1" content="غلاف المستند">
-<meta name="vk-ar2" content="طباعة...">
+<meta name="vk-ar2" content="تبديل علامات التبويب">
 <meta name="vk-ar3" content="خريطة الروابط">
 <meta name="vk-ar4" content="مُفعل">
 <meta name="vk-ar5" content=" لتغيير حجم الخطوة">
@@ -40,7 +40,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ar26" content="تغليف / فك التغليف">
 <meta name="vk-ar27" content="صورة في صورة">
 <meta name="vk-ar28" content="اضغط مع الاستمرار">
-<meta name="vk-ar29" content="نسخ كـ Markdown">
+<meta name="vk-ar29" content="المستند الحالي">
 <meta name="vk-ar30" content="نسخ الشيفرة">
 <meta name="vk-ar31" content="نسخ عنوان الصورة">
 <meta name="vk-ar32" content="نسخ محتوى الجدول">
@@ -64,7 +64,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ar50" content="تم تجاوز الحد الأقصى لطول عنوان URL">
 <meta name="vk-ar51" content="هاش">
 <meta name="vk-ar52" content="تحقق من الهاش">
-<meta name="vk-ar53" content="اسم الفصل مكرر">
+<meta name="vk-ar53" content="عنوان/تعليق مكرر">
 <meta name="vk-ar54" content="رابط داخلي غير صالح">
 <meta name="vk-ar55" content="عرض الكل">
 <meta name="vk-ar56" content="جدول">
@@ -96,10 +96,10 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ar82" content="صفحة">
 <meta name="vk-ar83" content="رابط">
 <meta name="vk-ar84" content="حاشية">
-<meta name="vk-ar85" content="استعادة نمط الخط">
+<meta name="vk-ar85" content="إعادة التعيين إلى نمط خط السمة">
 <meta name="vk-ar86" content="انقر هنا لفتح الرابط">
 <meta name="vk-ar87" content="اليوم هو">
-<meta name="vk-ar88" content="سيتم عرض هذه الصفحة اليوم في {{display-mode}}">
+<meta name="vk-ar88" content="سيتم عرض هذه الصفحة في وضع {{display-mode}}">
 <meta name="vk-ar89" content="انقر على الزر أدناه لإيقافه مؤقتًا">
 <meta name="vk-ar90" content="تلقائيًا">
 <meta name="vk-ar91" content="فاتح">

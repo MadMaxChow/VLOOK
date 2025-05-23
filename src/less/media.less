@@ -3,9 +3,9 @@
  * VLOOK™ CSS - @media 相关的样式
  * (配合 base.less 进行使用)
  *
- * V28.1
- * 2025-01-18
- * powered by MAX°孟兆
+ * V29.0
+ * 2025-05-24
+ * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
  * Telegram Channel: t.me/vlook_markdown
@@ -20,10 +20,149 @@
 // 修改时须同步修改 vlook.js 的同名变量
 @gSmallScreenWidth:1270px;
 @gUnwrapTableScreenWidth:1279px;
-
 // 与插件的 (jq_Window.w() <= 425) 、同名变量同步修改
 @gMobileScreenWidth:850px;
 // **********
+
+// ---------------
+// 仅 PC 等设备才生效的 hover 效果
+@media (hover: hover) and (pointer: fine) {
+    // --- common ---
+
+    .genTableCommonStyle_hover();
+
+    .genHoverStyle(md-alert_kbdSec);
+
+    // 生成 GSA 基础样式的 hover 效果
+    .genGitHubStyleAlertCssBase_hover(note);
+    .genGitHubStyleAlertCssBase_hover(tip);
+    .genGitHubStyleAlertCssBase_hover(important);
+    .genGitHubStyleAlertCssBase_hover(warning);
+    .genGitHubStyleAlertCssBase_hover(caution);
+
+    // --- typora ---
+
+    .genHoverStyle(stepwise);
+
+    // --- base ---
+
+    .genHoverStyle(v-fill-width);
+
+    .genImgFilterHoverStyle(invert);
+    .genImgFilterHoverStyle(blur);
+    .genImgFilterHoverStyle(gray);
+    .genImgFilterHoverStyle(aged);
+
+    .genHoverStyle(md-footnote_a);
+
+    .genHoverStyle(a_kbd);
+    .genHoverStyle(a_kbd-img-fill-text);
+    .genHoverStyle(q_a_kbd);
+
+    .genHoverStyle(kbdSec);
+    .genHoverStyle(kbdSec-img-fill-text);
+    .genHoverStyle(q_kbdSec);
+
+    .genHoverStyle(kbdSuper);
+
+    .genHoverStyle(text-link);
+    .genHoverStyle(text-link-img);
+    .genHoverStyle(text-link-img-fill-text);
+
+    .genHoverStyle(tag-link);
+
+    .genHoverStyle(summary);
+    .genHoverStyle(details);
+
+    .genHoverStyle(std-code);
+    .genTag_hover();
+    .genHoverStyle(badge-name);
+    .genHoverStyle(badge-value);
+
+    .genHoverStyle(CodeMirror-line);
+
+    .genHoverStyle(reversefootnote);
+
+    .genHoverStyle(font-style-restore);
+    .genHoverStyle(font-style-opt);
+
+    .genHoverStyle(btn-done);
+    .genHoverStyle(copyright);
+
+    .genHoverStyle(textfield-action);
+    .genHoverStyle(textfield-reset);
+
+    .genHoverStyle(btn);
+    .genHoverStyle(btn-group);
+    .genHoverStyle(btn-close-figure-nav);
+    .genHoverStyle(btn_assistor);
+    .genHoverStyle(segment-btn);
+    .genHoverStyle(pip-btn);
+    .genHoverStyle(tbl-row-g-btn);
+    .genHoverStyle(status-bar_btn);
+    .genHoverStyle(check-hash-btn);
+    .genHoverStyle(fig-action);
+
+    .genHoverStyle(doc-lib-item);
+    .genHoverStyle(toc-item);
+    .genHoverStyle(map-item);
+    .genHoverStyle(toc-folder);
+    .genHoverStyle(nav-center-handle);
+
+    .genHoverStyle(chapter-nav-prev);
+    .genHoverStyle(chapter-nav-doc-title);
+    .genHoverStyle(chapter-nav-next);
+
+    .genHoverStyle(audio-mini-control);
+
+    .genHoverStyle(a_data-x-ref);
+    .genHoverStyle(cap-cntr_expander);
+
+    .genHoverStyle(rt);
+
+    .genHoverStyle(coating);
+
+    // --- Mermaid ---
+
+    .genHoverStyle(node);
+    .genHoverStyle(clickable);
+
+    .genHoverStyle(pieCircle);
+
+    .genHoverStyle(flowchart_statenodes);
+    .genHoverStyle(flowchart_keynode);
+
+    .genHoverStyle(sequence_actor-man);
+    .genHoverStyle(sequence_rect);
+    .genHoverStyle(sequence_messageText);
+    .genHoverStyle(sequence_loopText);
+    .genHoverStyle(sequence_g);
+
+    .genHoverStyle(stateDiagram_edgeLabel);
+    .genHoverStyle(stateDiagram_state);
+
+    .genHoverStyle(class_node);
+    .genHoverStyle(class_label);
+
+    .genHoverStyle(block_node);
+    .genHoverStyle(block_cluster);
+
+    .genHoverStyle(xychart_rect);
+
+    .genHoverStyle(quadrantChart);
+
+    .genHoverStyle(er_entityBox);
+
+    .genHoverStyle(mindmap_node);
+
+    .genHoverStyle(requirement_g);
+    .genHoverStyle(requirement_label);
+}
+
+// ---------------
+// 适配触摸设备，如手机和平板
+@media (pointer: coarse) {
+}
 
 // ---------------
 // 针对大于等于该分辨设备的 UI 调整
@@ -53,10 +192,22 @@
         width: 100%;
         background-color: @docExtBackgroundColor;
         background-image: @docExtBackgroundImage;
-        background-size: @docExtBackgroundSize;
         background-repeat: @docExtBackgroundRepeat;
         background-position: @docExtBackgroundPosition;
-        filter: @docExtBackgroundFilter;
+        background-size: @docExtBackgroundSize;
+        filter: @docExtBackgroundFilter !important;
+        pointer-events: none;
+    }
+    // 针对 Gray Mode 相关样式
+    // 正文外背景
+    body.gray .typora-export-content::before {
+        .genContentBeforeFilter(@filter) when (@filter = none) {
+            filter: @grayModeFilter !important;
+        }
+        .genContentBeforeFilter(@filter) when not (@filter = none) {
+            filter: @grayModeFilter @docExtBackgroundFilter !important;
+        }
+        .genContentBeforeFilter(@docExtBackgroundFilter);
     }
     // 编辑时
     content::before {
@@ -67,7 +218,7 @@
     #write.max {
         background: var(--d-bc) var(--d-bi);
         width: var(--v-write-w);
-        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 5px 0 #0000001A;//rgba(0, 0, 0, 0.1);
     }
 
     .v-more-doc-content-before,
@@ -81,42 +232,72 @@
 @media screen and (max-width: @gUnwrapTableScreenWidth) {
     // 导出后，取消表格的自动换行
     @{writeOnHTML} table {
-        white-space: pre !important;
+        white-space: pre;
+    }
+}
+
+
+// 针对小于等于该分辨设备的 UI 调整（仅 PC 等设备才生效的 hover 效果）
+@media screen and (max-width: @gSmallScreenWidth) and (hover: hover) and (pointer: fine) {
+    // .v-btn-group.hover {
+    .v-btn-group:hover {
+        box-shadow: var(--v-fl-sd), @contrastBorder;
+    }
+
+    // .v-chapter-nav-prev.noeffect.hover,
+    // .v-chapter-nav-next.noeffect.hover {
+    .v-chapter-nav-prev.noeffect:hover,
+    .v-chapter-nav-next.noeffect:hover {
+        border-radius: 0;
     }
 }
 
 // ---------------
 // 针对小于等于该分辨设备的 UI 调整
 @media screen and (max-width: @gSmallScreenWidth) {
-    .v-chapter-nav-prev-text,
-    .v-chapter-nav-next-text {
-        display: none !important;
+    :root {
+        --v-sticky-top: 50px;
     }
 
-    .v-btn-group.hover {
-        box-shadow: var(--v-fl-sd), @contrastBorder;
+    .v-chapter-nav-prev-text,
+    .v-chapter-nav-next-text {
+        display: none;
     }
+
+    // 小屏下隐藏演示类工具
+    .v-btn-group.prs {
+        display: none;
+    }
+
+    // .v-btn-group.hover {
+    //     box-shadow: var(--v-fl-sd), @contrastBorder;
+    // }
+
     // 逐章导航 UI
     .v-chapter-nav {
-        left: 0 !important;
-        right: 0 !important;
-        border-radius: 0 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        border-radius: 0;
     }
-    .v-chapter-nav-doc-title,
+    .v-chapter-nav-doc-title:not(.in-start),
     .v-chapter-nav-current {
-        margin-left: 40px !important;
-        margin-right: 40px !important;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    .v-chapter-nav-doc-title.in-start {
+        margin-right: 40px;
     }
     .v-chapter-nav-prev,
     .v-chapter-nav-next {
-        width: 20% !important;
-        border-radius: 0 !important;
+        width: 20%;
+        border-radius: 0;
     }
-    .v-chapter-nav-prev.noeffect.hover,
-    .v-chapter-nav-next.noeffect.hover,
+    // .v-chapter-nav-prev.noeffect.hover,
+    // .v-chapter-nav-next.noeffect.hover,
     .v-chapter-nav-prev.effect::before,
     .v-chapter-nav-next.effect::before {
-        border-radius: 0 !important;
+        border-radius: 0;
     }
 
     // 当前字体风格下载提示
@@ -162,8 +343,8 @@
     #write @{n4Hr_MdHr}+ol>@{n3Li},
     #write @{n4Hr_MdHr}+ol>@{n4Li},
     #write @{n4Hr_MdHr}+ol>@{n5Li} {
-        min-width: 100% !important;
-        height: auto !important;
+        min-width: 100%;
+        height: auto;
     }
     // 四栏列表内容之间的样式
     #write @{n3Hr_MdHr}+ul>@{n2Li},
@@ -181,7 +362,7 @@
     #write @{n4Hr_MdHr}+ol>@{n3Li},
     #write @{n4Hr_MdHr}+ol>@{n4Li},
     #write @{n4Hr_MdHr}+ol>@{n5Li} {
-        margin-left: 0 !important;
+        margin-left: 0;
     }
 
     // ----------------------------------------
@@ -190,8 +371,8 @@
     #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
     #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
     #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa} {
-        min-width: 100% !important;
-        height: auto !important;
+        min-width: 100%;
+        height: auto;
     }
     // ----------------------------------------
     // 纵向显示的微调
@@ -199,10 +380,10 @@
     #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
     #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
     #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa} {
-        margin-left: 0 !important;
+        margin-left: 0;
     }
 
-    .v-nav-center-float,
+    .v-nav-center.mobile,
     .v-link-info-list {
         bottom: @floatTopBottomOnMobile;
     }
@@ -257,8 +438,8 @@
     #write @{n4Hr_MdHr}+ol>@{n3Li},
     #write @{n4Hr_MdHr}+ol>@{n4Li},
     #write @{n4Hr_MdHr}+ol>@{n5Li} {
-        min-width: 100% !important;
-        height: auto !important;
+        min-width: 100%;
+        height: auto;
     }
     // 三栏列表内容之间的样式
     #write @{n2Hr_MdHr}+ul>@{n2Li},
@@ -281,7 +462,7 @@
     #write @{n4Hr_MdHr}+ol>@{n3Li},
     #write @{n4Hr_MdHr}+ol>@{n4Li},
     #write @{n4Hr_MdHr}+ol>@{n5Li} {
-        margin-left: 0 !important;
+        margin-left: 0;
     }
 
     // ----------------------------------------
@@ -294,8 +475,8 @@
     #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
     #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
     #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa} {
-        min-width: 100% !important;
-        height: auto !important;
+        min-width: 100%;
+        height: auto;
     }
     // ----------------------------------------
     // 纵向显示的微调
@@ -306,7 +487,7 @@
     #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
     #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
     #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa} {
-        margin-left: 0 !important;
+        margin-left: 0;
     }
 }
 
@@ -423,11 +604,15 @@
 
         --thm-c-bg-size: @coverBgSizeForMobile;
         --thm-c-bg-pos: @coverBgPositionForMobile;
+        --thm-c-bg-bf-size: @coverBgBeforeSizeForMobile;
+        --thm-c-bg-bf-pos: @coverBgBeforePositionForMobile;
 
         --thm-cc-left-right-pd: @ccLeftRightPaddingForMobile;
 
         --thm-bc-bg-size: @backcoverBgSizeForMobile;
         --thm-bc-bg-pos: @backcoverBgPositionForMobile;
+        --thm-bc-bg-bf-size: @backcoverBgBeforeSizeForMobile;
+        --thm-bc-bg-bf-pos: @backcoverBgBeforePositionForMobile;
     }
 
     // 封面：#write 下 H6 作为第一个元素时
@@ -445,12 +630,12 @@
 
     // 明信片
     #write img[src*="#card"] {
-        border-radius: var(--v-r-b) var(--v-r-b-xc) 0 0 !important;
+        border-radius: var(--v-r-b) var(--v-r-b-xc) 0 0;
     }
     #write .v-post-card {
         display: block;
         position: relative;
-        border-radius: 0 0 var(--v-r-b) var(--v-r-b-xc) !important;
+        border-radius: 0 0 var(--v-r-b) var(--v-r-b-xc);
     }
 
     // 流媒体平台
@@ -475,7 +660,24 @@
     @{iframeVideo} @{xiguaVideo}@{portraitMode},
     @{iframeVideo} @{qqVideo}@{portraitMode},
     @{iframeVideo} @{youtubeVideo}@{portraitMode} {
-        width: 100% !important;
+        width: 100%;
+    }
+}
+
+// 页签组在移动端的样式微调
+.genTabGroupForMobile(@style) {
+    @media screen and (max-width: @gMobileScreenWidth) {
+        .v-tab-group {
+            // 针对样式：std, simple
+            .genTabGroupBaseForMobile(@style) when not (@style = modern) {
+                background: var(--d-bc) var(--d-bi);
+            }
+            // 针对样式：modern
+            .genTabGroupBaseForMobile(@style) when (@style = modern) {
+                background: var(--pn-c);
+            }
+            .genTabGroupBaseForMobile(@style);
+        }
     }
 }
 
@@ -504,28 +706,30 @@
         :root {
             --v-color-scheme: dark;
             --v-invert-dark: var(--v-invert-dark-dk); // Dark Mode下图片滤镜
-            --v-brightness-dk: var(--v-brightness-dark-dk); // Dark Mode下封面、封底滤镜
-            --v-selected-color: var(--v-selected-color-dk);
+            --v-cover-dark: var(--v-cover-dark-dk); // Dark Mode下封面、封底滤镜
+            --v-selected-c: var(--v-selected-c-dk);
+
+            --thm-fav-logo: var(--thm-fav-logo-dk);
 
             // --------------------
             // 颜色变量
             --d-bc: var(--d-bc-dk);
-            --fade-r: var(--fade-r-dk);
-            --fade-g: var(--fade-g-dk);
-            --fade-b: var(--fade-b-dk);
+            --fd-r: var(--fd-r-dk);
+            --fd-g: var(--fd-g-dk);
+            --fd-b: var(--fd-b-dk);
             --d-bi: var(--d-bi-dk);
             --d-fc: var(--d-fc-dk);
             --d-fc-a: var(--d-fc-a-dk);
 
             --pn-c: var(--pn-c-dk);
             --pn-c-a: var(--pn-c-a-dk);
-            --pn-fade-r: var(--pn-fade-r-dk);
-            --pn-fade-g: var(--pn-fade-g-dk);
-            --pn-fade-b: var(--pn-fade-b-dk);
-            --blockquote-bg: var(--blockquote-bg-dk);
+            --pn-fd-r: var(--pn-fd-r-dk);
+            --pn-fd-g: var(--pn-fd-g-dk);
+            --pn-fd-b: var(--pn-fd-b-dk);
+            --bq-bg: var(--bq-bg-dk);
 
-            --a-color: var(--a-color-dk);
-            --a-hover-color: var(--a-hover-color-dk);
+            --a-c: var(--a-c-dk);
+            --a-o-c: var(--a-o-c-dk);
             --mark-bg: var(--mark-bg-dk);
             // --tbl-h-bd: var(--tbl-h-bd-dk);
             // --tbl-bd: var(--tbl-bd-dk);
@@ -534,18 +738,19 @@
             // --tbl-td-bg: var(--tbl-td-bg-dk);
             // --tbl-cell-bd: var(--tbl-cell-bd-dk);
             --tbl-row-g-alpha: var(--tbl-row-g-alpha-dk);
-            --toc-h-num-color: var(--toc-h-num-color-dk);
+            --toc-h-num-c: var(--toc-h-num-c-dk);
             --h-f: var(--h-f-dk);
-            --h-box-shadow: var(--h-box-shadow-dk);
+            --h-box-sd: var(--h-box-sd-dk);
             --h-bg-start: var(--h-bg-start-dk);
             --h-bg-end: var(--h-bg-end-dk);
             --code-bg: var(--code-bg-dk);
             --code-t: var(--code-t-dk);
-            --std-code-shadow: var(--std-code-shadow-dk);
-            --rb-code-shadow: var(--rb-code-shadow-dk);
+            --std-code-sd: var(--std-code-sd-dk);
+            --rb-code-sd: var(--rb-code-sd-dk);
 
             --v-fl-sd: var(--v-fl-sd-dk);
             --v-fl-i-sd: var(--v-fl-i-sd-dk);
+            --v-fl-bd: var(--v-fl-bd-dk);
 
             --c-blk-bg: var(--c-blk-bg-dk);
 
@@ -559,20 +764,21 @@
 
             --kbd-bg: var(--kbd-bg-dk);
             --kbd-reflect: var(--kbd-reflect-dk);
-            --kbd-shadow: var(--kbd-shadow-dk);
+            --kbd-sd: var(--kbd-sd-dk);
             // 反转色
             --kbd-bg-i: var(--kbd-bg-lg);
             --kbd-reflect-i: var(--kbd-reflect-lg);
-            --kbd-shadow-i: var(--kbd-shadow-lg);
+            --kbd-sd-i: var(--kbd-sd-lg);
 
-            --doc-shadow: var(--doc-shadow-dk);
+            --doc-sd: var(--doc-sd-dk);
             --img-bd-invert: var(--img-bd-invert-dk);
 
-            --cur-pointer: var(--cur-pointer-dk);
-            --cur-copy-normal: var(--cur-copy-normal-dk);
-            --cur-copy-as-md: var(--cur-copy-as-md-dk);
-            --cur-copy: var(--cur-copy-normal);
-            --cur-pointer-text: var(--cur-pointer-text-dk);
+            --cur-ptr: var(--cur-ptr-dk);
+            --cur-copy: var(--cur-copy-dk);
+            // --cur-copy-normal: var(--cur-copy-normal-dk);
+            // --cur-copy-as-md: var(--cur-copy-as-md-dk);
+            // --cur-copy: var(--cur-copy-normal);
+            --cur-ptr-text: var(--cur-ptr-text-dk);
             --cur-laser: var(--cur-laser-dk);
             // --cur-md: var(--cur-md-dk);
             --cur-doclib: var(--cur-doclib-dk);
@@ -583,133 +789,134 @@
             // --cur-archive: var(--cur-archive-dk);
             --cur-risk: var(--cur-risk-dk);
             --cur-inner: var(--cur-inner-dk);
+            --cur-full-screen: var(--cur-full-screen-dk);
 
             --ac-rd: var(--ac-rd-dk);
             --ac-rd-a: var(--ac-rd-a-dk);
-            --ac-rd-fade: var(--ac-rd-fade-dk);
-            --ac-rd-title: var(--ac-rd-title-dk);
+            --ac-rd-fd: var(--ac-rd-fd-dk);
+            --ac-rd-tt: var(--ac-rd-tt-dk);
             --ac-og: var(--ac-og-dk);
             --ac-og-a: var(--ac-og-a-dk);
-            --ac-og-fade: var(--ac-og-fade-dk);
-            --ac-og-title: var(--ac-og-title-dk);
+            --ac-og-fd: var(--ac-og-fd-dk);
+            --ac-og-tt: var(--ac-og-tt-dk);
             --ac-ye: var(--ac-ye-dk);
             --ac-ye-a: var(--ac-ye-a-dk);
-            --ac-ye-fade: var(--ac-ye-fade-dk);
-            --ac-ye-title: var(--ac-ye-title-dk);
+            --ac-ye-fd: var(--ac-ye-fd-dk);
+            --ac-ye-tt: var(--ac-ye-tt-dk);
             --ac-lm: var(--ac-lm-dk);
             --ac-lm-a: var(--ac-lm-a-dk);
-            --ac-lm-fade: var(--ac-lm-fade-dk);
-            --ac-lm-title: var(--ac-lm-title-dk);
+            --ac-lm-fd: var(--ac-lm-fd-dk);
+            --ac-lm-tt: var(--ac-lm-tt-dk);
             --ac-gn: var(--ac-gn-dk);
             --ac-gn-a: var(--ac-gn-a-dk);
-            --ac-gn-fade: var(--ac-gn-fade-dk);
-            --ac-gn-title: var(--ac-gn-title-dk);
+            --ac-gn-fd: var(--ac-gn-fd-dk);
+            --ac-gn-tt: var(--ac-gn-tt-dk);
             --ac-mn: var(--ac-mn-dk);
             --ac-mn-a: var(--ac-mn-a-dk);
-            --ac-mn-fade: var(--ac-mn-fade-dk);
-            --ac-mn-title: var(--ac-mn-title-dk);
+            --ac-mn-fd: var(--ac-mn-fd-dk);
+            --ac-mn-tt: var(--ac-mn-tt-dk);
             --ac-ol: var(--ac-ol-dk);
             --ac-ol-a: var(--ac-ol-a-dk);
-            --ac-ol-fade: var(--ac-ol-fade-dk);
-            --ac-ol-title: var(--ac-ol-title-dk);
+            --ac-ol-fd: var(--ac-ol-fd-dk);
+            --ac-ol-tt: var(--ac-ol-tt-dk);
             --ac-wn: var(--ac-wn-dk);
             --ac-wn-a: var(--ac-wn-a-dk);
-            --ac-wn-fade: var(--ac-wn-fade-dk);
-            --ac-wn-title: var(--ac-wn-title-dk);
+            --ac-wn-fd: var(--ac-wn-fd-dk);
+            --ac-wn-tt: var(--ac-wn-tt-dk);
             --ac-aq: var(--ac-aq-dk);
             --ac-aq-a: var(--ac-aq-a-dk);
-            --ac-aq-fade: var(--ac-aq-fade-dk);
-            --ac-aq-title: var(--ac-aq-title-dk);
+            --ac-aq-fd: var(--ac-aq-fd-dk);
+            --ac-aq-tt: var(--ac-aq-tt-dk);
             --ac-cy: var(--ac-cy-dk);
             --ac-cy-a: var(--ac-cy-a-dk);
-            --ac-cy-fade: var(--ac-cy-fade-dk);
-            --ac-cy-title: var(--ac-cy-title-dk);
+            --ac-cy-fd: var(--ac-cy-fd-dk);
+            --ac-cy-tt: var(--ac-cy-tt-dk);
             --ac-bu: var(--ac-bu-dk);
             --ac-bu-a: var(--ac-bu-a-dk);
-            --ac-bu-fade: var(--ac-bu-fade-dk);
-            --ac-bu-title: var(--ac-bu-title-dk);
+            --ac-bu-fd: var(--ac-bu-fd-dk);
+            --ac-bu-tt: var(--ac-bu-tt-dk);
             --ac-se: var(--ac-se-dk);
             --ac-se-a: var(--ac-se-a-dk);
-            --ac-se-fade: var(--ac-se-fade-dk);
-            --ac-se-title: var(--ac-se-title-dk);
+            --ac-se-fd: var(--ac-se-fd-dk);
+            --ac-se-tt: var(--ac-se-tt-dk);
             --ac-la: var(--ac-la-dk);
             --ac-la-a: var(--ac-la-a-dk);
-            --ac-la-fade: var(--ac-la-fade-dk);
-            --ac-la-title: var(--ac-la-title-dk);
+            --ac-la-fd: var(--ac-la-fd-dk);
+            --ac-la-tt: var(--ac-la-tt-dk);
             --ac-vn: var(--ac-vn-dk);
             --ac-vn-a: var(--ac-vn-a-dk);
-            --ac-vn-fade: var(--ac-vn-fade-dk);
-            --ac-vn-title: var(--ac-vn-title-dk);
+            --ac-vn-fd: var(--ac-vn-fd-dk);
+            --ac-vn-tt: var(--ac-vn-tt-dk);
             --ac-pu: var(--ac-pu-dk);
             --ac-pu-a: var(--ac-pu-a-dk);
-            --ac-pu-fade: var(--ac-pu-fade-dk);
-            --ac-pu-title: var(--ac-pu-title-dk);
+            --ac-pu-fd: var(--ac-pu-fd-dk);
+            --ac-pu-tt: var(--ac-pu-tt-dk);
             --ac-ro: var(--ac-ro-dk);
             --ac-ro-a: var(--ac-ro-a-dk);
-            --ac-ro-fade: var(--ac-ro-fade-dk);
-            --ac-ro-title: var(--ac-ro-title-dk);
+            --ac-ro-fd: var(--ac-ro-fd-dk);
+            --ac-ro-tt: var(--ac-ro-tt-dk);
             --ac-pk: var(--ac-pk-dk);
             --ac-pk-a: var(--ac-pk-a-dk);
-            --ac-pk-fade: var(--ac-pk-fade-dk);
-            --ac-pk-title: var(--ac-pk-title-dk);
+            --ac-pk-fd: var(--ac-pk-fd-dk);
+            --ac-pk-tt: var(--ac-pk-tt-dk);
             --ac-gd: var(--ac-gd-dk);
             --ac-gd-a: var(--ac-gd-a-dk);
-            --ac-gd-fade: var(--ac-gd-fade-dk);
-            --ac-gd-title: var(--ac-gd-title-dk);
+            --ac-gd-fd: var(--ac-gd-fd-dk);
+            --ac-gd-tt: var(--ac-gd-tt-dk);
             --ac-bn: var(--ac-bn-dk);
             --ac-bn-a: var(--ac-bn-a-dk);
-            --ac-bn-fade: var(--ac-bn-fade-dk);
-            --ac-bn-title: var(--ac-bn-title-dk);
+            --ac-bn-fd: var(--ac-bn-fd-dk);
+            --ac-bn-tt: var(--ac-bn-tt-dk);
             --ac-gy: var(--ac-gy-dk);
             --ac-gy-a: var(--ac-gy-a-dk);
-            --ac-gy-fade: var(--ac-gy-fade-dk);
-            --ac-gy-title: var(--ac-gy-title-dk);
+            --ac-gy-fd: var(--ac-gy-fd-dk);
+            --ac-gy-tt: var(--ac-gy-tt-dk);
             --ac-wt: var(--ac-wt-dk);
             --ac-wt-a: var(--ac-wt-a-dk);
-            --ac-wt-fade: var(--ac-wt-fade-dk);
-            --ac-wt-title: var(--ac-wt-title-dk);
+            --ac-wt-fd: var(--ac-wt-fd-dk);
+            --ac-wt-tt: var(--ac-wt-tt-dk);
             --ac-bk: var(--ac-bk-dk);
             --ac-bk-a: var(--ac-bk-a-dk);
-            --ac-bk-fade: var(--ac-bk-fade-dk);
-            --ac-bk-title: var(--ac-bk-title-dk);
+            --ac-bk-fd: var(--ac-bk-fd-dk);
+            --ac-bk-tt: var(--ac-bk-tt-dk);
             --ac-t1: var(--ac-t1-dk);
             --ac-t1-a: var(--ac-t1-a-dk);
-            --ac-t1-fade: var(--ac-t1-fade-dk);
-            --ac-t1-title: var(--ac-t1-title-dk);
+            --ac-t1-fd: var(--ac-t1-fd-dk);
+            --ac-t1-tt: var(--ac-t1-tt-dk);
             --ac-t2: var(--ac-t2-dk);
             --ac-t2-a: var(--ac-t2-a-dk);
-            --ac-t2-fade: var(--ac-t2-fade-dk);
-            --ac-t2-title: var(--ac-t2-title-dk);
+            --ac-t2-fd: var(--ac-t2-fd-dk);
+            --ac-t2-tt: var(--ac-t2-tt-dk);
 
             // ---
 
-            --ac-gd-fade-bd: var(--ac-gd-fade-bd-dk);
-            --ac-pk-fade-bd: var(--ac-pk-fade-bd-dk);
-            --ac-ye-fade-bd: var(--ac-ye-fade-bd-dk);
-            --ac-lm-fade-bd: var(--ac-lm-fade-bd-dk);
-            --ac-aq-fade-bd: var(--ac-aq-fade-bd-dk);
-            --ac-la-fade-bd: var(--ac-la-fade-bd-dk);
+            --ac-gd-fd-bd: var(--ac-gd-fd-bd-dk);
+            --ac-pk-fd-bd: var(--ac-pk-fd-bd-dk);
+            --ac-ye-fd-bd: var(--ac-ye-fd-bd-dk);
+            --ac-lm-fd-bd: var(--ac-lm-fd-bd-dk);
+            --ac-aq-fd-bd: var(--ac-aq-fd-bd-dk);
+            --ac-la-fd-bd: var(--ac-la-fd-bd-dk);
 
-            --ac-bn-fade-bd: var(--ac-bn-fade-bd-dk);
-            --ac-ro-fade-bd: var(--ac-ro-fade-bd-dk);
-            --ac-rd-fade-bd: var(--ac-rd-fade-bd-dk);
-            --ac-og-fade-bd: var(--ac-og-fade-bd-dk);
-            --ac-gn-fade-bd: var(--ac-gn-fade-bd-dk);
-            --ac-cy-fade-bd: var(--ac-cy-fade-bd-dk);
-            --ac-bu-fade-bd: var(--ac-bu-fade-bd-dk);
-            --ac-vn-fade-bd: var(--ac-vn-fade-bd-dk);
-            --ac-gy-fade-bd: var(--ac-gy-fade-bd-dk);
+            --ac-bn-fd-bd: var(--ac-bn-fd-bd-dk);
+            --ac-ro-fd-bd: var(--ac-ro-fd-bd-dk);
+            --ac-rd-fd-bd: var(--ac-rd-fd-bd-dk);
+            --ac-og-fd-bd: var(--ac-og-fd-bd-dk);
+            --ac-gn-fd-bd: var(--ac-gn-fd-bd-dk);
+            --ac-cy-fd-bd: var(--ac-cy-fd-bd-dk);
+            --ac-bu-fd-bd: var(--ac-bu-fd-bd-dk);
+            --ac-vn-fd-bd: var(--ac-vn-fd-bd-dk);
+            --ac-gy-fd-bd: var(--ac-gy-fd-bd-dk);
 
-            --ac-pu-fade-bd: var(--ac-pu-fade-bd-dk);
-            --ac-wn-fade-bd: var(--ac-wn-fade-bd-dk);
-            --ac-ol-fade-bd: var(--ac-ol-fade-bd-dk);
-            --ac-mn-fade-bd: var(--ac-mn-fade-bd-dk);
-            --ac-se-fade-bd: var(--ac-se-fade-bd-dk);
-            --ac-wt-fade-bd: var(--ac-wt-fade-bd-dk);
-            --ac-bk-fade-bd: var(--ac-bk-fade-bd-dk);
+            --ac-pu-fd-bd: var(--ac-pu-fd-bd-dk);
+            --ac-wn-fd-bd: var(--ac-wn-fd-bd-dk);
+            --ac-ol-fd-bd: var(--ac-ol-fd-bd-dk);
+            --ac-mn-fd-bd: var(--ac-mn-fd-bd-dk);
+            --ac-se-fd-bd: var(--ac-se-fd-bd-dk);
+            --ac-wt-fd-bd: var(--ac-wt-fd-bd-dk);
+            --ac-bk-fd-bd: var(--ac-bk-fd-bd-dk);
 
-            --ac-t1-fade-bd: var(--ac-t1-fade-bd-dk);
-            --ac-t2-fade-bd: var(--ac-t2-fade-bd-dk);
+            --ac-t1-fd-bd: var(--ac-t1-fd-bd-dk);
+            --ac-t2-fd-bd: var(--ac-t2-fd-bd-dk);
 
             // 针对 Typora 代码块着色样式变量
             --cm-keyword: var(--cm-keyword-dk);
@@ -761,15 +968,15 @@
 
         // 备注文本
         .noteText tspan {
-            fill: var(--d-fc-lg) !important;
+            fill: var(--d-fc-lg);
         }
 
         // 代码块内代码区域
         #write pre.ty-contain-cm .CodeMirror-lines {
-            background: var(--c-blk-bg);
-            background-size: @codeBlockBackgroundSize;
+            background-image: var(--c-blk-bg);
             background-repeat: @codeBlockBackgroundRepeat;
             background-position: @codeBlockBackgroundPosition;
+            background-size: @codeBlockBackgroundSize;
         }
     }
 }

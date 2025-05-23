@@ -26,6 +26,7 @@ mv vlook-x-*.css ../../../VLOOK-misc/themes-vip/
 
 echo "将默认配套主题复制到发行版本的 themes 目录..."
 cp -f vlook-*.css ../../released/themes
+rm ../../released/themes/vlook-owl*.css
 
 echo "将默认配套主题复制到 Typora 的 themes 目录..."
 cp -f vlook-*.css /Users/max/Library/Application\ Support/abnerworks.Typora/themes

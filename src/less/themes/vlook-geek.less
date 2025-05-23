@@ -2,7 +2,7 @@
  *
  * VLOOK™ 模板主题
  *
- * powered by MAX°孟兆
+ * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
  * Telegram Channel: t.me/vlook_markdown
@@ -15,7 +15,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V28.1";
+@themeVer: "V29.0";
 @themeName: "vlook-geek";
 @themeDesc: "Geek";
 
@@ -52,10 +52,6 @@
 // 标题色
 @headerColor: @theme3;
 @headerColorDark: @theme3;
-// 渐变标题色 h1-h5
-// @lgHeaderBg: linear-gradient(135deg, @theme3 25%, @theme2);
-// @lgHeaderBgClip: text;
-// @lgHeaderColor: transparent;
 
 // 渐变标题色 h1-h5
 @lg: linear-gradient(135deg, @theme3 25%, var(--ac-t2));
@@ -64,34 +60,21 @@
 .genLinearGradientHeader(h3, @lg);
 .genLinearGradientHeader(h4, @lg);
 .genLinearGradientHeader(h5, @lg);
-// @lgH1Bg: linear-gradient(135deg, @theme3 25%, var(--ac-t2));
-// @lgH2Bg: @lgH1Bg;
-// @lgH3Bg: @lgH1Bg;
-// @lgH4Bg: @lgH1Bg;
-// @lgH5Bg: @lgH1Bg;
-// @lgH1BgClip: text;
-// @lgH2BgClip: @lgH1BgClip;
-// @lgH3BgClip: @lgH1BgClip;
-// @lgH4BgClip: @lgH1BgClip;
-// @lgH5BgClip: @lgH1BgClip;
-// @lgH1Color: transparent;
-// @lgH2Color: @lgH1Color;
-// @lgH3Color: @lgH1Color;
-// @lgH4Color: @lgH1Color;
-// @lgH5Color: @lgH1Color;
+
 // 6 级标题前缀内容
 @h6BeforeContent: "❖ ";
-// @tocHeaderNumColor: @docTextColorLightFade;
-// @contentHeaderNumColor: @theme1Fade;//@themeForeColorFade;
 @headerBackground: linear-gradient(0deg, var(--h-bg-start), var(--h-bg-end));
 @headerPadding: 5px 0 5px 10px;
-//@headerLetterSpacing: 0;//0.3em;
+
+// 标题圆角
+@headerBorderRadius: var(--v-r-b) var(--v-r-b) 0 0;
+
 // 标题的上边框
-@h1BorderTop: 9px solid var(--h-box-shadow);
-@h2BorderTop: 7px solid var(--h-box-shadow);
-@h3BorderTop: 5px solid var(--h-box-shadow);
-@h4BorderTop: 3px solid var(--h-box-shadow);
-@h5BorderTop: 1px solid var(--h-box-shadow);
+@h1BorderTop: 9px solid var(--h-box-sd);
+@h2BorderTop: 7px solid var(--h-box-sd);
+@h3BorderTop: 5px solid var(--h-box-sd);
+@h4BorderTop: 3px solid var(--h-box-sd);
+@h5BorderTop: 1px solid var(--h-box-sd);
 @h6BorderTop: 0;
 @h1Margin: 3em 0 0 0;
 @h2Margin: 3em 0 0 0;
@@ -101,20 +84,14 @@
 @h6Margin: 1em 0 0 0;
 
 // 引用块默认色样式（与主题配套使用）
-@quoteBgDefault: linear-gradient(0deg, var(--d-bc), var(--blockquote-bg));
-@quoteBoxShadowDefault: 0 0 0 1px var(--blockquote-bg) inset;
+@quoteBgDefault: linear-gradient(0deg, var(--d-bc), var(--bq-bg));
+@quoteBoxShadowDefault: 0 0 0 1px var(--bq-bg) inset;
 
 @codeTextColor: @theme3;
 
-// 表格行 hover
-// @tableTrHoverBg: fade(@aHoverColor, 15%);
-// @tableTrHoverBgDark: fade(@aHoverColor, 25%);
-
-//@quoteBorderLeft: 0;
-
 // 按钮色
 @buttonForeColor: @theme3;//@themeForeColor;
-@buttonForeHoverColor: #FFFFFF;
+@buttonForeHoverColor: #FFF;
 @buttonBgColor: @theme1;//var(--ac-t1);//@themeBgColor;
 // 文库按钮颜色
 @docLibButtonForeColor: @buttonForeColor;
@@ -127,10 +104,12 @@
 @aBorderWidth: 2px;
 @aColor: @headerColor;
 @aColorDark: @headerColorDark;
-// @alinecolor: @theme2;
 @aHoverColor: @theme2;
 @aHoverColorDark: @theme2Dark;
 @aActiveColor: desaturate(@aHoverColor, 25%);
+
+@welcomePageForeColor: #FFF;
+@welcomePageBgColor: linear-gradient(0deg, @theme3, @theme1 90%);
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: left;
@@ -188,10 +167,24 @@
 
 @import "../base";
 
+// 生成编辑时引用块折叠自动展开/收起
+.genSummaryOnEditing(auto);
+
+// 生成段落加粗扩展样式
+.genParaFormatBold();
+// 生成段落下划线扩展样式
+.genParaFormatUnderline();
+// 生成段落高亮扩展样式
+.genParaFormatMark(@quoteBeforeImage_q02, @quoteAfterImage_q02);
+
+// 生成页签组样式
+.genTabGroup(std);
+
 // 生成强调风格的有序列表样式
 .genOrderList(block, drop);
 
-// 生成指定风格的多级标签样式
+// 生成指定风格的标签样式
+.genTagStyle(std);
 .genBadgeStyle(std);
 
 // 生成 GSA 样式

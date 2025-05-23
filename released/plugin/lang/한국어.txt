@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V28.1" (2025-01-18) - (Language Pack) - Typora Plugin
+VLOOK™ "V29.0" (2025-05-24) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
@@ -13,8 +13,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <!-- The following is the content of the language package -->
 <!-- 以下为语言包内容 -->
 <meta name="vk-ko1" content="문서 표지">
-<meta name="vk-ko2" content="인쇄...">
-<meta name="vk-ko3" content="링크 지도">
+<meta name="vk-ko2" content="탭 전환">
+<meta name="vk-ko3" content="탭을 전환하다">
 <meta name="vk-ko4" content="사용 가능">
 <meta name="vk-ko5" content=" 단계 크기를 전환하려면">
 <meta name="vk-ko6" content="탐색 센터">
@@ -40,7 +40,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko26" content="감기 / 풀기">
 <meta name="vk-ko27" content="화면 속 화면">
 <meta name="vk-ko28" content="길게 누르기">
-<meta name="vk-ko29" content="마크다운으로 복사">
+<meta name="vk-ko29" content="현재 문서">
 <meta name="vk-ko30" content="코드 복사">
 <meta name="vk-ko31" content="이미지 주소 복사">
 <meta name="vk-ko32" content="테이블 내용 복사">
@@ -55,7 +55,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko41" content="글꼴 스타일">
 <meta name="vk-ko42" content="분">
 <meta name="vk-ko43" content="시간">
-<meta name="vk-ko44" content="단어">
+<meta name="vk-ko44" content="단어 수">
 <meta name="vk-ko45" content="모양">
 <meta name="vk-ko46" content="[TOC]을 첫 번째 1단계 제목 앞에 추가하여 생성하십시오">
 <meta name="vk-ko47" content="해시 검사가 통과되었습니다">
@@ -64,7 +64,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko50" content="URL 길이 초과">
 <meta name="vk-ko51" content="해시">
 <meta name="vk-ko52" content="해시 확인">
-<meta name="vk-ko53" content="중복된 장 이름">
+<meta name="vk-ko53" content="중복된 제목/캡션">
 <meta name="vk-ko54" content="유효하지 않은 내부 링크">
 <meta name="vk-ko55" content="모두 보기">
 <meta name="vk-ko56" content="표">
@@ -96,10 +96,10 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-ko82" content="페이지">
 <meta name="vk-ko83" content="링크">
 <meta name="vk-ko84" content="각주">
-<meta name="vk-ko85" content="글꼴 스타일 복원">
+<meta name="vk-ko85" content="테마와配套되는 글꼴 스타일로 재설정하다">
 <meta name="vk-ko86" content="여기를 클릭하여 링크를 여세요">
 <meta name="vk-ko87" content="오늘은">
-<meta name="vk-ko88" content="이 페이지는 오늘 {{display-mode}} 로 표시됩니다">
+<meta name="vk-ko88" content="이 페이지는 {{display-mode}} 모드로 표시됩니다">
 <meta name="vk-ko89" content="아래 버튼을 클릭하여 임시로 끌 수 있습니다">
 <meta name="vk-ko90" content="자동으로">
 <meta name="vk-ko91" content="밝은">

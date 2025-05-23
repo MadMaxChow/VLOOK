@@ -2,7 +2,7 @@
  *
  * VLOOK™ 模板主题
  *
- * powered by MAX°孟兆
+ * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
  * Telegram Channel: t.me/vlook_markdown
@@ -19,7 +19,7 @@
 @import "../themes/vlook-hope";
 
 // 主题信息
-@themeVer: "(EXPIRED)";
+@themeVer: "(REFUSE)";
 @themeName: "vlook-x-qimao";
 @themeDesc: "× QiMao";
 @themeEmail: "882007@qq.com";
@@ -47,7 +47,7 @@
 // 主题主色
 @theme1: #F08519;
 @theme2: #008FD7;
-@theme3: #FFFFFF;
+@theme3: #FFF;
 // @theme4: @bgLight4Theme;
 @theme1Dark: @theme1;
 @theme1Alt: #FAEDE1;
@@ -122,16 +122,13 @@
 
 @headerTextAlign: left;
 
-// @quoteBgDefault: var(--blockquote-bg);
-
 // 引用块
-// @quoteBorderWidth: .375em;
-@quoteBorderLeft: .375em solid var(--d-fc-a);
+// @quoteBorderLeft: .375em solid var(--d-fc-a);
 @quoteRadius: 0;
 
 // 按钮色
-@buttonForeColor: #FFFFFF;
-@buttonForeHoverColor: #FFFFFF;
+@buttonForeColor: #FFF;
+@buttonForeHoverColor: #FFF;
 @buttonBgColor: @theme1;
 
 // 链接颜色
@@ -188,7 +185,14 @@
 
 @import "../base";
 
-// 生成指定风格的多级标签样式
+// 生成编辑时引用块折叠持续展开
+.genSummaryOnEditing(expanded);
+
+// 生成页签组样式
+.genTabGroup(modern);
+
+// 生成指定风格的标签样式
+.genTagStyle(std);
 .genBadgeStyle(std);
 
 // 生成 GSA 样式

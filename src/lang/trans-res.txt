@@ -4,7 +4,7 @@
 <meta name="vk-en2" content="Print...">
 <meta name="vk-en3" content="Link Map">
 
-——————————
+==========
 
 【AI 翻译提示词】多国语言版本
 
@@ -14,43 +14,34 @@
 多国语言的标识对应关系如下："de"对应的是德语，"es"对应的是西班牙语，"fr"对应的是法语，"pt"对应的是葡萄牙语，"ru"对应的是俄语，"ar"对应的是阿拉伯语，"ko"对应的是韩语，"ja"对应的是日语，"zh-hk"对应的是繁体中文。
 我后面发给你的内容中，「content=」后双引用内的英文内容翻译为对应的语言。语言具体对应语言的标识以「name=」后双引用号内容中为参考，即"vk-"后的内容为对应的语言标识（忽略数字部分），其他内容保持原内容输出
 
-<meta name="vk-de45" content="Appearance">
-<meta name="vk-es45" content="Appearance">
-<meta name="vk-fr45" content="Appearance">
-<meta name="vk-pt45" content="Appearance">
-<meta name="vk-ru45" content="Appearance">
-<meta name="vk-ar45" content="Appearance">
-<meta name="vk-ko45" content="Appearance">
-<meta name="vk-ja45" content="Appearance">
-<meta name="vk-zh-hk45" content="Appearance">
+<meta name="vk-de29" content="Current Document">
+<meta name="vk-es29" content="Current Document">
+<meta name="vk-fr29" content="Current Document">
+<meta name="vk-pt29" content="Current Document">
+<meta name="vk-ru29" content="Current Document">
+<meta name="vk-ar29" content="Current Document">
+<meta name="vk-ko29" content="Current Document">
+<meta name="vk-ja29" content="Current Document">
+<meta name="vk-zh-hk29" content="Current Document">
 
-<meta name="vk-de90" content="Automatically">
-<meta name="vk-es90" content="Automatically">
-<meta name="vk-fr90" content="Automatically">
-<meta name="vk-pt90" content="Automatically">
-<meta name="vk-ru90" content="Automatically">
-<meta name="vk-ar90" content="Automatically">
-<meta name="vk-ko90" content="Automatically">
-<meta name="vk-ja90" content="Automatically">
-<meta name="vk-zh-hk90" content="Automatically">
+==========
 
-<meta name="vk-de91" content="Light">
-<meta name="vk-es91" content="Light">
-<meta name="vk-fr91" content="Light">
-<meta name="vk-pt91" content="Light">
-<meta name="vk-ru91" content="Light">
-<meta name="vk-ar91" content="Light">
-<meta name="vk-ko91" content="Light">
-<meta name="vk-ja91" content="Light">
-<meta name="vk-zh-hk91" content="Light">
+我后面会发送 Markdown 格式的内容，帮我全部转换为英文版本，并以原始 Markdown 语法格式进行在代码块内输出，对于代码块，也保持按原内容输出
 
-<meta name="vk-de92" content="Dark">
-<meta name="vk-es92" content="Dark">
-<meta name="vk-fr92" content="Dark">
-<meta name="vk-pt92" content="Dark">
-<meta name="vk-ru92" content="Dark">
-<meta name="vk-ar92" content="Dark">
-<meta name="vk-ko92" content="Dark">
-<meta name="vk-ja92" content="Dark">
-<meta name="vk-zh-hk92" content="Dark">
+-----
 
+把我将这个 Markdown 格式的文档内容全部转换为英文版本，并以原始 Markdown 语法格式进行在代码块内输出，没有翻译的内容要全部保持原文内容不变。对于文档内的代码块，也保持按原内容输出
+
+对于中途中断后使用以下提示词：
+
+请从“xxxx”这行开始，继续进行后面全部内容的处理。将 Markdown 格式的内容转换为英文版本，并以原始 Markdown 语法格式进行在代码块内输出，没有翻译的内容要全部保持原文内容不变。对于文档内的代码块，也保持按原内容输出
+
+==========
+
+<u>～～此为==新特性预览==，将随 *`V29.0`* 正式发布，敬请期待～～</u>
+
+**若希望提前体验，可 [联系我们](mailto:67870144@qq.com?subject=Get%20Insider%20Preview%20of%20VLOOK™&body=Hi,) 获取内部预览版本**
+
+<u>This is a ==preview of a new feature,== which will be officially released with *`V29.0`*. Stay tuned!</u>
+
+**If you’d like to try it out in advance, feel free to [contact us](mailto:67870144@qq.com?subject=Get%20Insider%20Preview%20of%20VLOOK™&body=Hi,) to get an insider preview version .**

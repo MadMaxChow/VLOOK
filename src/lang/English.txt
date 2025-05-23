@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V28.1" (2025-01-18) - (Language Pack) - Typora Plugin
+VLOOK™ "V29.0" (2025-05-24) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 !!! Attention! Do not overwrite the content from "meta.txt" !!!
@@ -13,7 +13,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <!-- The following is the content of the language package -->
 <!-- 以下为语言包内容 -->
 <meta name="vk-en1" content="Document cover">
-<meta name="vk-en2" content="Print...">
+<meta name="vk-en2" content="Switch tabs">
 <meta name="vk-en3" content="Link Map">
 <meta name="vk-en4" content="Enabled">
 <meta name="vk-en5" content="to switch the step size">
@@ -40,10 +40,10 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en26" content="Line break / No line break">
 <meta name="vk-en27" content="Picture in picture">
 <meta name="vk-en28" content="Press and hold">
-<meta name="vk-en29" content="Copy as Markdown">
+<meta name="vk-en29" content="Current Document">
 <meta name="vk-en30" content="Copy code">
 <meta name="vk-en31" content="Copy image address">
-<meta name="vk-en32" content="Copy table content">
+<!-- 不再使用 <meta name="vk-en32" content="Copy table content"> -->
 <meta name="vk-en33" content="Toggle the size of the spotlight"> -->
 <meta name="vk-en34" content="Pause">
 <meta name="vk-en35" content="Table of Contents">
@@ -53,9 +53,9 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en39" content="Timeout">
 <meta name="vk-en40" content="Loading">
 <meta name="vk-en41" content="Font Style">
-<meta name="vk-en42" content="minute(s)">
-<meta name="vk-en43" content="hour(s)">
-<meta name="vk-en44" content="words">
+<meta name="vk-en42" content="Minute(s)">
+<meta name="vk-en43" content="Hour(s)">
+<meta name="vk-en44" content="Words">
 <meta name="vk-en45" content="Appearance">
 <meta name="vk-en46" content="Add [TOC] before the first-level heading to generate it">
 <meta name="vk-en47" content="Hash check passed">
@@ -64,7 +64,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en50" content="Maximum URL length exceeded">
 <meta name="vk-en51" content="Hash">
 <meta name="vk-en52" content="Check Hash">
-<meta name="vk-en53" content="Duplicate Chapter Name">
+<meta name="vk-en53" content="Duplicate Title/Caption">
 <meta name="vk-en54" content="Invalid Inner Link">
 <meta name="vk-en55" content="Show all">
 <meta name="vk-en56" content="Table">
@@ -72,7 +72,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en58" content="Figure">
 <meta name="vk-en59" content="Audio">
 <meta name="vk-en60" content="Video">
-<meta name="vk-en61" content="Click again to Copy as Markdown">
+<!-- 不再使用 <meta name="vk-en61" content="Click again to Copy as Markdown"> -->
 <meta name="vk-en62" content="Copied">
 <meta name="vk-en63" content="Invalid resource address">
 <meta name="vk-en64" content="Invalid video address">
@@ -91,15 +91,15 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vk-en77" content="Caution">
 <meta name="vk-en78" content="Resume Reading">
 <meta name="vk-en79" content="For best compatibility, it is recommended to use Chrome/Firefox/Edge browser">
-<meta name="vk-en80" content="Attention! To ensure proper printing, it is recommended to use the [Print] function within the document!">
+<!-- 不再使用 <meta name="vk-en80" content="Attention! To ensure proper printing, it is recommended to use the [Print] function within the document!"> -->
 <meta name="vk-en81" content="Invalid link / address">
 <meta name="vk-en82" content="Page">
 <meta name="vk-en83" content="Link">
 <meta name="vk-en84" content="Footnote">
-<meta name="vk-en85" content="Restore font style">
+<meta name="vk-en85" content="Reset to theme font style">
 <meta name="vk-en86" content="Click here to open the link">
 <meta name="vk-en87" content="Today is">
-<meta name="vk-en88" content="This page will be displayed in {{display-mode}} today">
+<meta name="vk-en88" content="This page will be displayed in {{display-mode}">
 <meta name="vk-en89" content="Click the button below to temporarily turn it off">
 <meta name="vk-en90" content="Automatically">
 <meta name="vk-en91" content="Light">

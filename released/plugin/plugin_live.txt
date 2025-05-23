@@ -1,6 +1,6 @@
 <!--
 ▽▽▽▽▽ plugin_live for <body /> ▽▽▽▽▽
-VLOOK™ "V28.1" (2025-01-18) - Typora Plugin (live)
+VLOOK™ "V29.0" (2025-05-24) - Typora Plugin (live)
 
 Paste to "Export Setting ▸ VLOOK (live) ▸ Append in <body />"
 粘贴至「导出设置... ▸ VLOOK (live) ▸ 在 <body /> 中添加」
@@ -10,9 +10,9 @@ Paste to "Export Setting ▸ VLOOK (live) ▸ Append in <body />"
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
 <!--                                                                        -->
-<!--                                  V28.1                                 -->
-<!--                               2025-01-18                               -->
-<!--                           powered by MAX°孟兆                           -->
+<!--                                  V29.0                                 -->
+<!--                               2025-05-24                               -->
+<!--                           Powered by MAX°孟兆                           -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
 <!--                  Telegram Channel: t.me/vlook_markdown                 -->
@@ -39,7 +39,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <!-- ==================== VLOOK JS ==================== -->
 <script type="text/javascript">
     // VLOOK
-    let lVer = "V28.1";
+    let lVer = "V29.0";
     let devMode = lVer.indexOf("dev") > 0 ? true : false, debugMode = devMode;
     let jsHost = devMode ? "http://localhost/js/" : "https://madmaxchow.github.io/VLOOK/js/",
         cssHost = devMode ? "http://localhost/css/" : "https://madmaxchow.github.io/VLOOK/css/";
@@ -58,5 +58,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     document.getElementsByTagName("HEAD")[0].appendChild(startJS);
 </script>
 <!--========================================================================-->
-<!--                              END OF VLOOK                              -->
+<!--                END OF VLOOK ( plugin_live for <body /> )               -->
 <!--========================================================================-->

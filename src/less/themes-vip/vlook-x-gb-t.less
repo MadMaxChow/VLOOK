@@ -2,7 +2,7 @@
  *
  * VLOOK™ 模板主题
  *
- * powered by MAX°孟兆
+ * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
  * Telegram Channel: t.me/vlook_markdown
@@ -17,10 +17,10 @@
 @import "../color";
 @import "../common";
 
-@vlookQuery: @vlookQueryDef + "caphide=formula";
+@vlookQuery: "@{vlookQueryDef}&tab=off";
 
 // 主题信息
-@themeVer: "V28.1";
+@themeVer: "(REFUSE)";
 @themeName: "vlook-x-gb-t";
 @themeDesc: "× GB/T";
 @themeEmail: "archi-bc@outlook.com"; // 相关网站 https://std.samr.gov.cn/
@@ -42,7 +42,7 @@
 // 主题主色
 @theme1: #337AB7;//#005DA8;//#003182;
 @theme2: #23527C;//#0F89EB;//#0B52BC;
-@theme3: #FFFFFF;
+@theme3: #FFF;
 @theme4: #101416;
 @theme1Dark: #3E85C2;
 @theme1Alt: #A8CEF0;
@@ -207,6 +207,9 @@
 // 引用块默认色样式（与主题配套使用）
 @quoteBgDefault: none;
 @quoteBoxShadowDefault: 0 0 0 1px var(--d-fc) inset;
+// 引用块的双栏、三栏、四栏
+@columnQuoteBgInQuote: @quoteBgDefault;
+@columnQuoteBoxShadowInQuote: @quoteBoxShadowDefault;
 
 // 题注文字、背景色
 @captionTextColor: @theme4;
@@ -294,7 +297,14 @@
 
 @import "../base";
 
-// 生成指定风格的多级标签样式
+// 生成编辑时引用块折叠持续展开
+.genSummaryOnEditing(expanded);
+
+// 生成页签组样式
+.genTabGroup(modern);
+
+// 生成指定风格的标签样式
+.genTagStyle(std);
 .genBadgeStyle(std);
 
 // 生成 GSA 样式
