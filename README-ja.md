@@ -117,13 +117,13 @@ VLOOK™ 機能の詳細な紹介、サンプル、および使用方法につ�
 
 ![マウスパッド](https://vlook-doc.pages.dev/pic/pad_mouse-25x30-preview.png)
 
-【 **[私はそれが欲しい](https://wj.qq.com/s2/22475372/u7q0/)** 】
+【 **[私はそれが欲しい - マウスパッド](https://wj.qq.com/s2/22475372/u7q0/)** 】
 
 
 
 ![デスクパッド（キーボード＆マウスパッド）](https://vlook-doc.pages.dev/pic/pad_desk-30x70-preview.png)
 
-【 **[私はそれが欲しい](https://wj.qq.com/s2/22475372/u7q0/)** 】
+【 **[私はそれが欲しい - デスクパッド（キーボード＆マウスパッド）](https://wj.qq.com/s2/22475372/u7q0/)** 】
 
 ## VIP テーマカスタマイズ
 

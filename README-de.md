@@ -115,13 +115,13 @@ Für eine detaillierte Einführung, Beispiele und Anweisungen zu den Funktionen 
 
 ![Mausauflage](https://vlook-doc.pages.dev/pic/pad_mouse-25x30-preview.png)
 
-【 **[Ich will es](https://wj.qq.com/s2/22475372/u7q0/)** 】
+【 **[Ich will - Mausauflage](https://wj.qq.com/s2/22475372/u7q0/)** 】
 
 
 
 ![Tischauflage (Tastatur- und Mausauflage)](https://vlook-doc.pages.dev/pic/pad_desk-30x70-preview.png)
 
-【 **[Ich will es](https://wj.qq.com/s2/22475372/u7q0/)** 】
+【 **[Ich will - Tischauflage (Tastatur- und Mausauflage)](https://wj.qq.com/s2/22475372/u7q0/)** 】
 
 
 ## Benutzerdefiniertes VIP-Thema

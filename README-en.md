@@ -118,13 +118,13 @@ For detailed introduction, samples and instructions of VLOOK™ features, please
 
 ![Mouse Pad](https://vlook-doc.pages.dev/pic/pad_mouse-25x30-preview.png)
 
-【 **[I Want It](https://wj.qq.com/s2/22475372/u7q0/)** 】
+【 **[I Want - Mouse Pad](https://wj.qq.com/s2/22475372/u7q0/)** 】
 
 
 
 ![Desk Pad (Keyboard & Mouse Pad)](https://vlook-doc.pages.dev/pic/pad_desk-30x70-preview.png)
 
-【 **[I Want It](https://wj.qq.com/s2/22475372/u7q0/)** 】
+【 **[I Want - Desk Pad (Keyboard & Mouse Pad)](https://wj.qq.com/s2/22475372/u7q0/)** 】
 
 ## Custom VIP Theme
 
