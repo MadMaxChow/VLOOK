@@ -109,6 +109,18 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 # 增值服务
 
+## 周边商品
+
+![](https://vlook-doc.pages.dev/pic/pad_mouse-25x30-preview.png)
+
+【 **[我要选购](https://wj.qq.com/s2/22475372/u7q0/)** 】
+
+
+
+![](https://vlook-doc.pages.dev/pic/pad_desk-30x70-preview@2x.png)
+
+【 **[我要选购](https://wj.qq.com/s2/22475372/u7q0/)** 】
+
 ## 定制主题服务
 
 目前现已开放主题的「**定制服务**」，以下为部分定制案例参考：

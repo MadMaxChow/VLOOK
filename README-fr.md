@@ -111,6 +111,18 @@ Pour une présentation détaillée, des exemples et des instructions sur les fon
 
 # Services à Valeur Ajoutée
 
+## Marchandises
+
+![Tapis de souris](https://vlook-doc.pages.dev/pic/pad_mouse-25x30-preview.png)
+
+【 **[Je veux ça](https://wj.qq.com/s2/22475372/u7q0/)** 】
+
+
+
+![Tapis de bureau (Clavier & Tapis de souris)](https://vlook-doc.pages.dev/pic/pad_desk-30x70-preview.png)
+
+【 **[Je veux ça](https://wj.qq.com/s2/22475372/u7q0/)** 】
+
 ## Thème VIP Personnalisé
 
 Le **Service de Personnalisation Privée** pour les Thèmes est désormais ouvert ! Voici quelques exemples de personnalisations privées.
