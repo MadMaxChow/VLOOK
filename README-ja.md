@@ -125,7 +125,7 @@ VLOOK™ 機能の詳細な紹介、サンプル、および使用方法につ�
 - [1440 × 900](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)
 - [1920 × 1080](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)
 - [2560 × 1440](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)
-- [2560 × 1660](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1660.png)
+- [2560 × 1600](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1600.png)
 
 ## 実物商品
 
