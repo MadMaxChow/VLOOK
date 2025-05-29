@@ -109,9 +109,25 @@ Pour une présentation détaillée, des exemples et des instructions sur les fon
 
 ---
 
-# Services à Valeur Ajoutée
+# Marchandises de marque
 
-## Marchandises
+## Fond d'écran
+
+( Le même style que le thème officiel, avec des références à la **Grammaire commune** et aux **Codes de couleur** )
+
+![VLOOK™ Wallpaper](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-preview.png)
+
+Choisissez la version de résolution requise :
+
+- [1336 × 768](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1336x768.png)
+- [1440 × 900](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)
+- [1920 × 1080](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)
+- [2560 × 1440](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)
+- [2560 × 1660](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1660.png)
+
+## Produits Physiques
+
+( Le même style que le thème officiel, avec des références à la **Grammaire commune** et aux **Codes de couleur** )
 
 ![Tapis de souris](https://vlook-doc.pages.dev/pic/pad_mouse-25x30-preview.png)
 
@@ -122,6 +138,10 @@ Pour une présentation détaillée, des exemples et des instructions sur les fon
 ![Tapis de bureau (Clavier & Tapis de souris)](https://vlook-doc.pages.dev/pic/pad_desk-30x70-preview.png)
 
 【 **[Je veux ça - Tapis de bureau (Clavier & Tapis de souris)](https://wj.qq.com/s2/22475372/u7q0/)** 】
+
+---
+
+# Services à Valeur Ajoutée
 
 ## Thème VIP Personnalisé
 

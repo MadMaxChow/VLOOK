@@ -111,9 +111,11 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 ## 电脑壁纸
 
-![VLOOK™ Wallpaper](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-preview.png?srcset=@2x)
+（与官方主题同款，附有 **常用语法**、**色号**  的参考）
 
-与官方主题同款，附有 **常用语法**、**色号** 的参考。选择需要的分辨率版本：
+![VLOOK™ Wallpaper](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-preview.png)
+
+选择需要的分辨率版本：
 
 - [1336 × 768](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1336x768.png)
 - [1440 × 900](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)
@@ -125,7 +127,7 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 ## 实物周边
 
-==与官方主题同款，附有 **常用语法**、**色号** 的参考==
+（与官方主题同款，附有 **常用语法**、**色号** 的参考）
 
 ![鼠标垫](https://vlook-doc.pages.dev/pic/pad_mouse-25x30-preview.png)
 
@@ -136,6 +138,8 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 ![桌面垫（键盘 & 鼠标垫）](https://vlook-doc.pages.dev/pic/pad_desk-30x70-preview@2x.png)
 
 【 **[我要选购 - 桌面垫（键盘 & 鼠标垫）](https://wj.qq.com/s2/22475372/u7q0/)** 】
+
+---
 
 # 增值服务
 

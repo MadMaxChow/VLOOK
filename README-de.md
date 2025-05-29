@@ -109,9 +109,25 @@ Für eine detaillierte Einführung, Beispiele und Anweisungen zu den Funktionen 
 
 ---
 
-# Mehrwertdienste
+# Markenartikel
 
-## Markenartikel
+## Desktop - Hintergrund
+
+(Die gleiche Optik wie das offizielle Thema, mit Verweisen auf **Gemeine Grammatik** und **Farbkodes**.)
+
+![VLOOK™ Wallpaper](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-preview.png)
+
+Wählen Sie die erforderliche Auflösungsversion:
+
+- [1336 × 768](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1336x768.png)
+- [1440 × 900](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)
+- [1920 × 1080](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)
+- [2560 × 1440](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)
+- [2560 × 1660](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1660.png)
+
+## Physikalische Produkte
+
+(Die gleiche Optik wie das offizielle Thema, mit Verweisen auf **Gemeine Grammatik** und **Farbkodes**.)
 
 ![Mausauflage](https://vlook-doc.pages.dev/pic/pad_mouse-25x30-preview.png)
 
@@ -123,6 +139,9 @@ Für eine detaillierte Einführung, Beispiele und Anweisungen zu den Funktionen 
 
 【 **[Ich will - Tischauflage (Tastatur- und Mausauflage)](https://wj.qq.com/s2/22475372/u7q0/)** 】
 
+---
+
+# Mehrwertdienste
 
 ## Benutzerdefiniertes VIP-Thema
 

@@ -112,9 +112,25 @@ For detailed introduction, samples and instructions of VLOOK™ features, please
 
 
 
-# Premium Services
+# Brand Merchandise
 
-## Merchandise
+( The same style as the official theme, with references to **Common Grammar** and **Color Codes** )
+
+![VLOOK™ Wallpaper](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-preview.png)
+
+Choose the required resolution version:
+
+- [1336 × 768](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1336x768.png)
+- [1440 × 900](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)
+- [1920 × 1080](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)
+- [2560 × 1440](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)
+- [2560 × 1660](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1660.png)
+
+
+
+## Physical Products
+
+( The same style as the official theme, with references to **Common Grammar** and **Color Codes** )
 
 ![Mouse Pad](https://vlook-doc.pages.dev/pic/pad_mouse-25x30-preview.png)
 
@@ -125,6 +141,10 @@ For detailed introduction, samples and instructions of VLOOK™ features, please
 ![Desk Pad (Keyboard & Mouse Pad)](https://vlook-doc.pages.dev/pic/pad_desk-30x70-preview.png)
 
 【 **[I Want - Desk Pad (Keyboard & Mouse Pad)](https://wj.qq.com/s2/22475372/u7q0/)** 】
+
+---
+
+# Premium Services
 
 ## Custom VIP Theme
 

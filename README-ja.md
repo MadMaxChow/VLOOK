@@ -111,9 +111,25 @@ VLOOK™ 機能の詳細な紹介、サンプル、および使用方法につ�
 
 
 
-# 付加価値サービス
+# ブランド マーチャンダイズ
 
-## マーチャンダイズ
+## 壁紙
+
+( 公式テーマと同じスタイルで、**共通文法**と**カラーコード**の参考が付いています )
+
+![VLOOK™ Wallpaper](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-preview.png)
+
+必要な解像度のバージョンを選択してください：
+
+- [1336 × 768](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1336x768.png)
+- [1440 × 900](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)
+- [1920 × 1080](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)
+- [2560 × 1440](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)
+- [2560 × 1660](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1660.png)
+
+## 実物商品
+
+( 公式テーマと同じスタイルで、**共通文法**と**カラーコード**の参考が付いています )
 
 ![マウスパッド](https://vlook-doc.pages.dev/pic/pad_mouse-25x30-preview.png)
 
@@ -124,6 +140,10 @@ VLOOK™ 機能の詳細な紹介、サンプル、および使用方法につ�
 ![デスクパッド（キーボード＆マウスパッド）](https://vlook-doc.pages.dev/pic/pad_desk-30x70-preview.png)
 
 【 **[私はそれが欲しい - デスクパッド（キーボード＆マウスパッド）](https://wj.qq.com/s2/22475372/u7q0/)** 】
+
+---
+
+# 付加価値サービス
 
 ## VIP テーマカスタマイズ
 
