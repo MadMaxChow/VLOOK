@@ -107,9 +107,25 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 > 有关脚本化图表的详细介绍、样例及使用说明详见《脚本化图表参考指南》••• [点击这里开始](https://madmaxchow.github.io/VLOOK/chart.html)（[备用链接](https://vlook-doc.pages.dev/chart.html)）
 
-# 增值服务
+# 品牌周边
 
-## 周边商品
+## 电脑壁纸
+
+![VLOOK™ Wallpaper](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-preview.png?srcset=@2x)
+
+与官方主题同款，附有 **常用语法**、**色号** 的参考。选择需要的分辨率版本：
+
+- [1336 × 768](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1336x768.png)
+- [1440 × 900](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)
+- [1920 × 1080](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)
+- [2560 × 1440](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)
+- [2560 × 1660](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1660.png)
+
+---
+
+## 实物周边
+
+==与官方主题同款，附有 **常用语法**、**色号** 的参考==
 
 ![鼠标垫](https://vlook-doc.pages.dev/pic/pad_mouse-25x30-preview.png)
 
@@ -120,6 +136,8 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 ![桌面垫（键盘 & 鼠标垫）](https://vlook-doc.pages.dev/pic/pad_desk-30x70-preview@2x.png)
 
 【 **[我要选购 - 桌面垫（键盘 & 鼠标垫）](https://wj.qq.com/s2/22475372/u7q0/)** 】
+
+# 增值服务
 
 ## 定制主题服务
 
