@@ -91,7 +91,7 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 # 范例参考
 
-[![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-api_spec.png?srcset=@2x#card#border)](sample-a-api_spec.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-to_do.png?srcset=@2x#card#border)](sample-a-to_do.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-img_text.png?srcset=@2x#card#border)](sample-a-img_text.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-routes.png?srcset=@2x#card#border)](sample-a-routes.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-board.png?srcset=@2x#card#border)](sample-a-board.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-quiz.png?srcset=@2x#card#border)](sample-a-quiz.html?ws=off)
+[![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-api_spec.png)](sample-a-api_spec.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-to_do.png)](sample-a-to_do.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-img_text.png)](sample-a-img_text.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-routes.png)](sample-a-routes.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-board.png)](sample-a-board.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-quiz.png)](sample-a-quiz.html?ws=off)
 
 ---
 
@@ -109,7 +109,7 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 # 品牌周边
 
-## 壁纸
+## 墙纸
 
 （与官方主题同款，附有 **常用语法**、**色号**  的参考）
 

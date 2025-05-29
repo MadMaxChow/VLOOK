@@ -91,7 +91,7 @@ VLOOK™ についてさらに知りたい方は、[ここをクリックして�
 
 # サンプル
 
-[![クリックして参照...](https://vlook-doc.pages.dev/pic/sample-a-api_spec-en.png?srcset=@2x#card#border)](sample-a-api_spec.html?ws=off)    [![クリックして参照...](https://vlook-doc.pages.dev/pic/sample-a-to_do-en.png?srcset=@2x#card#border)](sample-a-to_do.html?ws=off)    [![クリックして参照...](https://vlook-doc.pages.dev/pic/sample-a-img_text-en.png?srcset=@2x#card#border)](sample-a-img_text.html?ws=off)    [![クリックして参照...](https://vlook-doc.pages.dev/pic/sample-a-board-en.png?srcset=@2x#card#border)](sample-a-routes.html?ws=off)    [![クリックして参照...](https://vlook-doc.pages.dev/pic/sample-a-quiz-en.png?srcset=@2x#card#border)](sample-a-board.html?ws=off)    [![クリックして参照...](https://vlook-doc.pages.dev/pic/sample-a-routes-en.png?srcset=@2x#card#border)](sample-a-quiz.html?ws=off)
+[![クリックして参照...](https://vlook-doc.pages.dev/pic/sample-a-api_spec-en.png)](sample-a-api_spec.html?ws=off)    [![クリックして参照...](https://vlook-doc.pages.dev/pic/sample-a-to_do-en.png)](sample-a-to_do.html?ws=off)    [![クリックして参照...](https://vlook-doc.pages.dev/pic/sample-a-img_text-en.png)](sample-a-img_text.html?ws=off)    [![クリックして参照...](https://vlook-doc.pages.dev/pic/sample-a-board-en.png)](sample-a-routes.html?ws=off)    [![クリックして参照...](https://vlook-doc.pages.dev/pic/sample-a-quiz-en.png)](sample-a-board.html?ws=off)    [![クリックして参照...](https://vlook-doc.pages.dev/pic/sample-a-routes-en.png)](sample-a-quiz.html?ws=off)
 
 ---
 
