@@ -1,8 +1,8 @@
-Select language ❯  [**English**](README-en.md) • 中文  • [**Русский**](README-ru.md) • [**Français**](README-fr.md) • [**Detusch**](README-de.md) • [**日本語**](README-ja.md)
+Select language ❯  [**English**](README-en.md) • 中文
 
 
 
-[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total)](https://github.com/MadMaxChow/VLOOK/releases)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK)](https://github.com/MadMaxChow/VLOOK/stargazers)
+[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total)](https://github.com/MadMaxChow/VLOOK/releases) *(Since V28.1)*
 
 ---
 
