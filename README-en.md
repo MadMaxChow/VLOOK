@@ -136,13 +136,13 @@ Choose the required resolution version:
 
 ![Mouse Pad](https://vlook-doc.pages.dev/pic/pad_mouse-25x30-preview.png)
 
-【 **[I Want - Mouse Pad](https://wj.qq.com/s2/22475372/u7q0/)** 】
+【 **[I Want - Mouse Pad](https://m.tb.cn/h.hZwaIJg?tk=oWmXVJzoIOu)** 】
 
 
 
 ![Desk Pad (Keyboard & Mouse Pad)](https://vlook-doc.pages.dev/pic/pad_desk-30x70-preview.png)
 
-【 **[I Want - Desk Pad (Keyboard & Mouse Pad)](https://wj.qq.com/s2/22475372/u7q0/)** 】
+【 **[I Want - Desk Pad (Keyboard & Mouse Pad)](https://m.tb.cn/h.hZDPjYN?tk=XPeYVJztN6T)** 】
 
 ---
 

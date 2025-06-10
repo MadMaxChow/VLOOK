@@ -131,13 +131,13 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 ![鼠标垫](https://vlook-doc.pages.dev/pic/pad_mouse-25x30-preview.png)
 
-【 **[我要选购 - 鼠标垫](https://wj.qq.com/s2/22475372/u7q0/)** 】
+【 **[我要选购 - 鼠标垫](https://m.tb.cn/h.hZwaIJg?tk=oWmXVJzoIOu)** 】
 
 
 
 ![桌面垫（键盘 & 鼠标垫）](https://vlook-doc.pages.dev/pic/pad_desk-30x70-preview@2x.png)
 
-【 **[我要选购 - 桌面垫（键盘 & 鼠标垫）](https://wj.qq.com/s2/22475372/u7q0/)** 】
+【 **[我要选购 - 桌面垫（键盘 & 鼠标垫）](https://m.tb.cn/h.hZDPjYN?tk=XPeYVJztN6T)** 】
 
 ---
 
