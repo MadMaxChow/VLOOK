@@ -151,13 +151,11 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 
 
-**[NOW 🎁 提交我的定制需求 ❯❯❯](https://wj.qq.com/s2/14818521/bd33/)**
-
-**（针对高校的学生/教师，提供定制主题的教育优惠政策，具体请在定制需求中注明就读学校和角色）**
+**（针对高校的学生/教师，提供定制主题的教育优惠政策，具体请在定制需求中注明就读学校和身份）**
 
 
 
-【 **更多定制主题展示 •• [点击这里去探索](https://madmaxchow.github.io/VLOOK/vip.html)** 】
+【 **更多定制主题展示 •• [了解更多](https://madmaxchow.github.io/VLOOK/vip.html)** 】
 
 ## 排版编辑服务
 
@@ -167,7 +165,7 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 
 
-【 **更多增值服务内容介绍 •• [点击这里去探索](https://madmaxchow.github.io/VLOOK/vip.html)** 】
+【 **更多增值服务内容介绍 •• [了解更多](https://madmaxchow.github.io/VLOOK/vip.html)** 】
 
 
 

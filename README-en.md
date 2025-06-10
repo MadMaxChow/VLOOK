@@ -114,6 +114,8 @@ For detailed introduction, samples and instructions of VLOOK™ features, please
 
 # Brand Merchandise
 
+## Wallpaper
+
 ( The same style as the official theme, with references to **Common Grammar** and **Color Codes** )
 
 ![VLOOK™ Wallpaper](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-preview.png)
@@ -154,9 +156,7 @@ The "**Private Customization Service**" for Themes is now open! Here are some re
 
 
 
-**[NOW 🎁 Submit My Customization Request ❯❯❯](https://wj.qq.com/s2/14818521/bd33/)**
-
-**Explore more about Customized Themes •• [Click here to explore](https://madmaxchow.github.io/VLOOK/vip-en.html)**
+**More Custom Theme Showcase** •• [**Learn More**](https://madmaxchow.github.io/VLOOK/vip-en.html)
 
 ## Typesetting and Editing Services
 
@@ -166,7 +166,7 @@ Based on the content and audience of your document, fully utilize the numerous f
 
 
 
-**Explore more about Value-added Services •• [Click here to explore](https://madmaxchow.github.io/VLOOK/vip-en.html)**
+**Introduction to More Value-Added Services** •• [**Learn More**](https://madmaxchow.github.io/VLOOK/vip-en.html)
 
 
 
