@@ -2,7 +2,7 @@ Select language ❯  [**English**](README-en.md) • 中文
 
 
 
-[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK?label=Release)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total?label=Downloads%20(since%20V28.1))](https://github.com/MadMaxChow/VLOOK/releases)
+[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK?label=Release&labelColor=04ADBF&color=9A4EE6)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total?label=Downloads%20(since%20V28.1)&labelColor=04ADBF&color=9A4EE6)](https://github.com/MadMaxChow/VLOOK/releases)
 
 ---
 
