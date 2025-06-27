@@ -3,8 +3,8 @@
  * starter of VLOOK.js - Typora Plugin
  * (配合 vlook.js 进行使用)
  *
- * V29.0
- * 2025-05-24
+ * V30.0
+ * 2025-06-27
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -16,7 +16,7 @@
  *
  *************************************/
 
-let sVer = "V29.0";
+let sVer = "V30.0";
 
 /**
  * 获取 URL 中的参数数组
@@ -73,6 +73,7 @@ let jsSrc = [
 for (let i = 0; i < jsSrc.length; i++) {
     let js = document.createElement("script");
     js.setAttribute("type", "text/javascript");
+    // js.setAttribute("defer", "");
     // js.setAttribute("async", "async"); // 异步
     js.setAttribute("src", jsSrc[i] + "?ts=" + (devMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60))); // 1000/60/60/24 按天
     document.getElementsByTagName("HEAD")[0].appendChild(js);

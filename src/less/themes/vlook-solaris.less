@@ -1,6 +1,6 @@
 /**************************************
  *
- * VLOOK™ 模板主题
+ * VLOOK™ 内置主题
  *
  * Powered by MAX°孟兆
  *
@@ -15,7 +15,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V29.0";
+@themeVer: "V30.0";
 @themeName: "vlook-solaris";
 @themeDesc: "Solaris";
 
@@ -23,12 +23,14 @@
 .applyFontStyle(book);
 // 指定主题配套的圆角
 .applyThemeRadius(none);
+// 指定 kbd 按钮风格
+.applyKbdRadius(none);
 // 生成指定的表格样式
 .genTableStyle(report);
 
 // 文档背景色
 @thmBgLight: #FEFCF4;
-@thmBgDark: #101520;//#202530;//#181C28;
+@thmBgDark: #101520;
 .applyDocBgColor(@thmBgLight, @thmBgDark);
 .applyDocTextColor(@thmBgDark, @thmBgLight);
 
@@ -40,7 +42,6 @@
 // 主题主色
 @theme1: #B24D7A;
 @theme2: #6868B0;
-@theme3: #B24D7A;
 @theme4: @thmBgLight;
 @theme1Dark: #B85B85;
 @theme1Alt: #F3E3EA ;
@@ -52,16 +53,9 @@
 @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
 @theme2FadeDark: rgba(red(@theme2), green(@theme2), blue(@theme2), 75%);
 
-@themeForeColor: @theme3;
-@themeForeColorFade: fade(@themeForeColor, 50%);
-@themeBgColor: @theme1;
-@themeBgColorFade: fade(@themeBgColor, 50%);
-@themeBgColorDark: darken(@themeBgColor, 20%);
-@themeBgColorAlt: lighten(@themeBgColor, 40%);
-
 // 标题色
-@headerColor: @theme3;
-@headerColorDark: @theme3;
+// @headerColor: @theme1;
+// @headerColorDark: @theme1Dark;
 
 @headerPadding: 5px 0;
 
@@ -72,6 +66,8 @@
 @h4BorderTop: 3px solid var(--h-box-sd);
 @h5BorderTop: 1px solid var(--h-box-sd);
 @h6BorderTop: 0;
+
+// 标题外边距
 @h1Margin: 3em 0 0 0;
 @h2Margin: 3em 0 0 0;
 @h3Margin: 2em 0 0 0;
@@ -79,32 +75,27 @@
 @h5Margin: 1.25em 0 0 0;
 @h6Margin: 1em 0 0 0;
 
+// 标题内边距
+@headerPadding: 15px 0 0;
+
 // 题注背景
 @captionBackground: none;
 
-//@quoteBorderLeft: 0;
-
 // 按钮色
-@buttonForeColor: #FFF;
-@buttonForeHoverColor: #FFF;
-@buttonBgColor: @themeBgColor;
-// 文库按钮颜色
-@docLibButtonForeColor: @buttonForeColor;
-@docLibButtonForeHoverColor: @buttonForeHoverColor;
-@docLibButtonBgColor: @buttonBgColor;
-// 指定 kbd 按钮风格
-.applyKbdRadius(none);
+// @buttonForeColor: #FFF;
+// // @buttonForeHoverColor: #FFF;
+// @buttonBgColor: @theme1;
+// @buttonBgColorDark: @theme1Dark;
 
 // 链接颜色
 @aBorderWidth: 2px;
 @aColor: @headerColor;
 @aColorDark: @headerColorDark;
-// @alinecolor: @theme2;
 @aHoverColor: @theme2;
 @aHoverColorDark: @theme2Dark;
 @aActiveColor: #282B3B;
 
-@badgeBorderColorInCover: fade(@coverTextColor, 25%);;//var(--rb-code-sd-dk);
+@badgeBorderColorInCover: fade(@coverTextColor, 25%);
 @badgeBorderWidthInCover: 1px;
 
 // 欢迎页
@@ -115,8 +106,8 @@
 @coverTextPadding: 210px 60px 0;
 @coverTextPaddingForMobile: 210px 20px 0;
 @coverTextColor: @theme4;
-@coverSubColor: @themeForeColor;
-@coverUnderlineColor: @themeForeColor;
+@coverSubColor: @theme1;
+@coverUnderlineColor: @theme1;
 @coverAuthorColor: @theme2;
 @coverOwnerColor: @theme2;
 
@@ -126,7 +117,7 @@
 @backcoverTextColor: @coverTextColor;
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
-@contrastBorder: 0 0 0 0 transparent;
+// @contrastBorder: 0 0 0 0 transparent;
 @contrastBorderForCover: 0 0 0 2px rgba(34, 36, 38, 0.2) inset;
 
 // 封面背景设置
@@ -161,7 +152,7 @@
 @import "../base";
 
 // 生成编辑时引用块折叠持续展开
-.genSummaryOnEditing(expanded);
+.genSummaryOnEditing(open);
 
 // 生成段落加粗扩展样式
 .genParaFormatBold();
@@ -178,4 +169,10 @@
 .genBadgeStyle(std);
 
 // 生成 GSA 样式
-.genGSA_flat();
+.genGSA(flat);
+
+// 生成大纲分类索引样式
+.genSegmentBtn(std);
+
+// 生成遮罩背景风格
+.genMaskBackground(std);

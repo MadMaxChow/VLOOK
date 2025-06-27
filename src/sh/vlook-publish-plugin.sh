@@ -30,4 +30,4 @@ cat "$TARGET_FILE" | LANG=zh_CN.UTF-8 pbcopy
 
 echo "[ ALL DONE ]"
 echo "----------"
-echo "请到 Typora 对应的导出配置中直接粘贴插件内容到「在 <body /> 中添加」配置内"
+echo "请到 Typora 对应的导出配置中直接粘贴插件内容到「在 <head /> 中添加」配置内"

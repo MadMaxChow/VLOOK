@@ -1,106 +1,107 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V29.0" (2025-05-24) - (Language Pack) - Typora Plugin
+VLOOK™ "V30.0" (2025-06-27) - (Language Pack) - Typora Plugin
 
-Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
-!!! Attention! Do not overwrite the content from "meta.txt" !!!
-追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
-!!! 注意！不要覆盖来自 "meta.txt" 的内容 !!!
+Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
+追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
 -->
 <!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
-<!-- 以下为语言标识 -->
-<meta name="vlook-lang-en" content="en">
-<!-- The following is the content of the language package -->
-<!-- 以下为语言包内容 -->
-<meta name="vk-en1" content="Document cover">
-<meta name="vk-en2" content="Switch tabs">
-<meta name="vk-en3" content="Link Map">
-<meta name="vk-en4" content="Enabled">
-<meta name="vk-en5" content="to switch the step size">
-<meta name="vk-en6" content="Navigation Center">
-<meta name="vk-en7" content="Document Library">
-<meta name="vk-en8" content="Paragraph Roaming">
-<meta name="vk-en9" content="Spotlight">
-<meta name="vk-en10" content="Laser Pointer">
-<meta name="vk-en11" content="CJK">
-<meta name="vk-en12" content="Non-CJK">
-<meta name="vk-en13" content="Go back to the document cover">
-<meta name="vk-en14" content="Go back to the beginning of this chapter">
-<meta name="vk-en15" content="Previous">
-<meta name="vk-en16" content="Next">
-<meta name="vk-en17" content="Close">
-<meta name="vk-en18" content="Formula">
-<meta name="vk-en19" content="If you cannot connect to the Internet to load the online version of the font, it is recommended to download the font directly to the local">
-<meta name="vk-en20" content="Primary link">
-<meta name="vk-en21" content="Secondary link">
-<meta name="vk-en22" content="All footnotes">
-<meta name="vk-en23" content="Start reading">
-<meta name="vk-en24" content="Full screen">
-<meta name="vk-en25" content="Reading Mode">
-<meta name="vk-en26" content="Line break / No line break">
-<meta name="vk-en27" content="Picture in picture">
-<meta name="vk-en28" content="Press and hold">
-<meta name="vk-en29" content="Current Document">
-<meta name="vk-en30" content="Copy code">
-<meta name="vk-en31" content="Copy image address">
-<!-- 不再使用 <meta name="vk-en32" content="Copy table content"> -->
-<meta name="vk-en33" content="Toggle the size of the spotlight"> -->
-<meta name="vk-en34" content="Pause">
-<meta name="vk-en35" content="Table of Contents">
-<meta name="vk-en36" content="- A new version has been released, please update!">
-<meta name="vk-en37" content="Sorry, copying is currently not supported in this browser">
-<meta name="vk-en38" content="Ready">
-<meta name="vk-en39" content="Timeout">
-<meta name="vk-en40" content="Loading">
-<meta name="vk-en41" content="Font Style">
-<meta name="vk-en42" content="Minute(s)">
-<meta name="vk-en43" content="Hour(s)">
-<meta name="vk-en44" content="Words">
-<meta name="vk-en45" content="Appearance">
-<meta name="vk-en46" content="Add [TOC] before the first-level heading to generate it">
-<meta name="vk-en47" content="Hash check passed">
-<meta name="vk-en48" content="Gray Mode">
-<meta name="vk-en49" content="Hash check failed">
-<meta name="vk-en50" content="Maximum URL length exceeded">
-<meta name="vk-en51" content="Hash">
-<meta name="vk-en52" content="Check Hash">
-<meta name="vk-en53" content="Duplicate Title/Caption">
-<meta name="vk-en54" content="Invalid Inner Link">
-<meta name="vk-en55" content="Show all">
-<meta name="vk-en56" content="Table">
-<meta name="vk-en57" content="Code Block">
-<meta name="vk-en58" content="Figure">
-<meta name="vk-en59" content="Audio">
-<meta name="vk-en60" content="Video">
-<!-- 不再使用 <meta name="vk-en61" content="Click again to Copy as Markdown"> -->
-<meta name="vk-en62" content="Copied">
-<meta name="vk-en63" content="Invalid resource address">
-<meta name="vk-en64" content="Invalid video address">
-<meta name="vk-en65" content="Invalid image address">
-<meta name="vk-en66" content=" is empty">
-<meta name="vk-en67" content="Not found">
-<meta name="vk-en68" content="Postcard">
-<meta name="vk-en69" content="Alter">
-<meta name="vk-en70" content="Optional">
-<meta name="vk-en71" content="Loop">
-<meta name="vk-en72" content="Parallel">
-<meta name="vk-en73" content="Note">
-<meta name="vk-en74" content="Tip">
-<meta name="vk-en75" content="Important">
-<meta name="vk-en76" content="Warning">
-<meta name="vk-en77" content="Caution">
-<meta name="vk-en78" content="Resume Reading">
-<meta name="vk-en79" content="For best compatibility, it is recommended to use Chrome/Firefox/Edge browser">
-<!-- 不再使用 <meta name="vk-en80" content="Attention! To ensure proper printing, it is recommended to use the [Print] function within the document!"> -->
-<meta name="vk-en81" content="Invalid link / address">
-<meta name="vk-en82" content="Page">
-<meta name="vk-en83" content="Link">
-<meta name="vk-en84" content="Footnote">
-<meta name="vk-en85" content="Reset to theme font style">
-<meta name="vk-en86" content="Click here to open the link">
-<meta name="vk-en87" content="Today is">
-<meta name="vk-en88" content="This page will be displayed in {{display-mode}">
-<meta name="vk-en89" content="Click the button below to temporarily turn it off">
-<meta name="vk-en90" content="Automatically">
-<meta name="vk-en91" content="Light">
-<meta name="vk-en92" content="Dark">
+<!-- 以下为 en 语言包内容 -->
+<script type="application/json" id="vlook-lang-en" data-lang="en">{
+"en1":"Document cover",
+"en2":"Switch tabs",
+"en3":"Link Map",
+"en4":"Enabled",
+"en5":"to switch the step size",
+"en6":"Navigation Center",
+"en7":"Document Library",
+"en8":"Paragraph Roaming",
+"en9":"Spotlight",
+"en10":"Laser Pointer",
+"en11":"CJK",
+"en12":"Non-CJK",
+"en13":"Go back to the document cover",
+"en14":"Go back to the beginning of this chapter",
+"en15":"Previous",
+"en16":"Next",
+"en17":"Close",
+"en18":"Formula",
+"en19":"If you cannot connect to the Internet to load the online version of the font, it is recommended to download the font directly to the local",
+"en20":"Primary link",
+"en21":"Secondary link",
+"en22":"All footnotes",
+"en23":"Start reading",
+"en24":"Full screen",
+"en25":"Reading Mode",
+"en26":"Line break / No line break",
+"en27":"Picture in picture",
+"en28":"Press and hold",
+"en29":"Current Document",
+"en30":"Copy code",
+"en31":"Copy image address",
+"en32":"Publish as PDF",
+"en33":"Toggle the size of the spotlight",
+"en34":"Pause",
+"en35":"Table of Contents",
+"en36":"- A new version has been released, please update!",
+"en37":"Sorry, copying is currently not supported in this browser",
+"en38":"Ready",
+"en39":"Timeout",
+"en40":"Loading",
+"en41":"Font Style",
+"en42":"Minute(s)",
+"en43":"Hour(s)",
+"en44":"Words",
+"en45":"Appearance",
+"en46":"Add [TOC] before the first-level heading to generate it",
+"en47":"Hash check passed",
+"en48":"Gray Mode",
+"en49":"Hash check failed",
+"en50":"Maximum URL length exceeded",
+"en51":"Hash",
+"en52":"Check Hash",
+"en53":"Duplicate Title/Caption",
+"en54":"Invalid Inner Link",
+"en55":"Show all",
+"en56":"Table",
+"en57":"Code Block",
+"en58":"Figure",
+"en59":"Audio",
+"en60":"Video",
+"en61":"Experimental Mode",
+"en62":"Copied",
+"en63":"Invalid resource address",
+"en64":"Invalid video address",
+"en65":"Invalid image address",
+"en66":" is empty",
+"en67":"Not found",
+"en68":"Postcard",
+"en69":"Alter",
+"en70":"Optional",
+"en71":"Loop",
+"en72":"Parallel",
+"en73":"Note",
+"en74":"Tip",
+"en75":"Important",
+"en76":"Warning",
+"en77":"Caution",
+"en78":"Resume Reading",
+"en79":"For best compatibility, it is recommended to use Chrome/Firefox/Edge browser",
+"en80":"Downloading images in the document...",
+"en81":"Invalid link / address",
+"en82":"Page",
+"en83":"Link",
+"en84":"Footnote",
+"en85":"Reset to theme font style",
+"en86":"Click here to open the link",
+"en87":"Today is",
+"en88":"This page will be displayed in {{display-mode}",
+"en89":"Click the button below to temporarily turn it off",
+"en90":"Automatically",
+"en91":"Light",
+"en92":"Dark",
+"en93":"Completed",
+"en94":"Failed",
+"en95":"Continue Anyway",
+"en96":"Cancel"
+}</script>

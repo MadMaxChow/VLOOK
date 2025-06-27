@@ -191,7 +191,7 @@ content>.auto-suggest-container li:hover {
 .ty-table-edit {
     margin-top: -26px;
     margin-left: var(--v-r-b);
-    background: @buttonBgColor;
+    background: var(--v-ui-bg);
     border-radius: var(--v-r-s) var(--v-r-s) 0 0;
     padding: 0 3px 2px 3px;
     width: auto !important;
@@ -268,7 +268,6 @@ content>.auto-suggest-container li:hover {
 .file-node-content,
 .outline-label,
 .outline-expander {
-    // font-family: var(--v-f-fm-tag);
     cursor: var(--cur-ptr);
 }
 
@@ -276,7 +275,7 @@ content>.auto-suggest-container li:hover {
     border-radius: var(--v-r-s) var(--v-r-s-xc);
     margin-left: 5px;
     color: @buttonForeColor;
-    background: @buttonBgColor;
+    background: var(--v-ui-bg);
 }
 #md-notification .btn:hover {
     color: @buttonForeHoverColor;
@@ -299,14 +298,14 @@ a.menu-style-btn:hover .ty-icon {
 
 // 针对 Win 一体化菜单
 body.@{windows} :is(.megamenu-menu, .megamenu-menu-header-title-menu) {
-    background: @buttonBgColor;
+    background: var(--v-ui-bg);
     color: @buttonForeColor;
 }
 .megamenu-menu-header {
     border-bottom-color: @buttonForeColor;
 }
 #megamenu-back-btn {
-    border-color: @docLibButtonBgColor;
+    border-color: var(--v-ui-bg);
 }
 .megamenu-menu-panel {
     color: var(--d-fc-a-lg);
@@ -380,7 +379,7 @@ body:not([class]) :is(h1,h2,h3,h4,h5,h6) {
 
 .btn-primary {
     color: @buttonForeColor;
-    background: @buttonBgColor;
+    background: var(--v-ui-bg);
     font-weight: var(--v-f-w-bd);
 }
 .btn-primary:hover {
@@ -392,7 +391,7 @@ body:not([class]) :is(h1,h2,h3,h4,h5,h6) {
 
 // 针对 Win 左侧面板标签底部当前选中的边框
 body.@{windows} :is(.active-tab-files, .active-tab-outline) .info-panel-tab-border {
-    background: @buttonBgColor;
+    background: var(--v-ui-bg);
     height: 2px;
 }
 
@@ -404,7 +403,7 @@ body.@{windows} :is(.active-tab-files, .active-tab-outline) .info-panel-tab-bord
 
 // 图片相关按钮
 .md-image-btn {
-    background: @buttonBgColor;
+    background: var(--v-ui-bg);
 }
 .md-image-btn:hover {
     background: var(--a-o-c);
@@ -413,7 +412,7 @@ body.@{windows} :is(.active-tab-files, .active-tab-outline) .info-panel-tab-bord
     line-height: @defaultLineHeight;
     height: 30px;
     background: var(--pn-c);
-    box-shadow: 0 0 0 1px @buttonBgColor inset;
+    box-shadow: 0 0 0 1px var(--v-ui-bg) inset;
     border-radius: var(--v-r-si) 0 0 var(--v-r-si);
 }
 .md-image-input-src-btn::before {
@@ -647,7 +646,7 @@ body.@{windows} #file-library-tree {
 // 大纲面板的封面、封底条目
 @{outlineCover}>.outline-item, // 封面
 @{outlinebackcover}>.outline-item { // 封底
-    color: var(--h-f);
+    color: var(--a-c);
     font-size: 14px;
     height: 40px;
     padding-left: 20px;
@@ -663,7 +662,6 @@ body.@{windows} #file-library-tree {
 @{outlinebackcover}>.outline-item code { // 封底
     color: inherit;
     background: none;
-    // font: inherit 1em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
     padding: 0;
     box-shadow: none;
     display: inline;
@@ -686,7 +684,7 @@ body.@{windows} #file-library-tree {
 }
 // 大纲面板的封面项目下的 outline-expander 节点
 @{outlineCover}>.outline-item .outline-expander {
-    height: 10px;
+    height: 15px;
     display: block;
 }
 @{outlinebackcover}>.outline-item .outline-expander {
@@ -754,7 +752,6 @@ body.@{windows} #file-library-tree {
 }
 // 大纲节点
 .outline-item {
-    // font: normal  @fontSizePx/1 var(--v-f-fm-stt); // [style] [weight] [size/[line-height]] [family]
     font: normal  @fontSizePx/1 var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
     padding-top: 5px;
     padding-right: 5px;
@@ -817,14 +814,14 @@ body.@{windows} #file-library-tree {
 }
 // 搜索选项
 .searchpanel-search-option-btn {
-    color: @docLibButtonForeColor;
+    color: @buttonForeColor;
 }
 .searchpanel-search-option-btn.active {
     background-color: var(--a-o-c);
 }
 // 选中的搜索选项
 .searchpanel-search-option-btn.active svg.icon {
-    fill: @docLibButtonForeHoverColor !important;
+    fill: @buttonForeHoverColor !important;
 }
 
 // 快速打开
@@ -878,7 +875,6 @@ body.@{windows} #file-library-tree {
 .file-tree-node,
 .file-list-item-file-name,
 .file-list-item-summary {
-    // font-family: var(--v-f-fm-bd);
     font-family: var(--v-f-fm-tag);
 }
 // 目录节点
@@ -1106,7 +1102,7 @@ body.@{windows} .file-node-title { // for Win
     left: @writePaddingRight;
     right: @writePaddingRight;
     padding: 5px 10px;
-    color: @docLibButtonForeColor;
+    color: @buttonForeColor;
     border-radius: var(--v-r-b) var(--v-r-b-xc);
     line-height: 1;
     white-space: pre;
@@ -1116,14 +1112,14 @@ body.@{windows} .file-node-title { // for Win
     flex-direction: column;
     justify-content: flex-end;
     background: radial-gradient(ellipse 800px 30px at bottom, var(--a-o-c), transparent 20%),
-        radial-gradient(ellipse 600px 50px at bottom, @docLibButtonBgColor, transparent 40%),
-        radial-gradient(ellipse 800px 50px at bottom, @docLibButtonBgColor, transparent 50%);
+        radial-gradient(ellipse 600px 50px at bottom, var(--v-ui-bg), transparent 40%),
+        radial-gradient(ellipse 800px 50px at bottom, var(--v-ui-bg), transparent 50%);
 }
 @{yamlOnEditing}:hover::after {
     content: "Click to show all content / 点击显示全部内容 ▼";
     text-transform: uppercase;
     font-size: .875em;
-    color: @docLibButtonForeHoverColor;
+    color: @buttonForeHoverColor;
     background: radial-gradient(ellipse 600px 50px at bottom, var(--a-o-c), transparent 50%),
         radial-gradient(ellipse 800px 50px at bottom, var(--a-o-c), transparent 60%);
 }
@@ -1459,7 +1455,7 @@ content .md-toc::before {
     bottom: 0;
     color: var(--d-fc);
     background-color: var(--pn-c-a);
-    padding: 0 3px;
+    padding: 2px 4px 2px;
     margin: 0 5px 0 1px;
     line-height: @miniLineHeight;
     opacity: .6;
@@ -1492,13 +1488,6 @@ content .md-toc::before {
     display: initial !important;
     bottom: 0;
 }
-// 针对 引用块着色 的前缀提示样式
-@{writeOnEditing} @{colorCodeInBlockquote}::before {
-    content: ">";
-    color: var(--d-bc);
-    padding-right: 2px;
-    opacity: .6;
-}
 // 针对 文本着色/单元格（段落） 的前缀提示样式
 @{writeOnEditing} @{colorCodeOnPgStart}::before,
 @{writeOnEditing} @{colorCodeOnCellStart}::before {
@@ -1511,6 +1500,13 @@ content .md-toc::before {
 @{writeOnEditing} @{colorCodeBeforeSpanFmt}::before,
 @{writeOnEditing} @{colorCodeBeforeSupSub}::before {
     content: "";
+}
+// 针对 引用块着色 的前缀提示样式
+@{writeOnEditing} @{colorCodeInBlockquote}::before {
+    content: ">";
+    color: var(--d-bc);
+    padding-right: 2px;
+    opacity: .6;
 }
 
 // 表格列格式：右对齐
@@ -1593,13 +1589,10 @@ content .md-toc::before {
         opacity: 1;
         margin-top: @paragraphPadding;
         color: var(--d-fc-a);
-        // font-weight: var(--v-f-w-bd);
 
         // 标准风格样式
         .genTabItem(@style) when (@style = std) {
-            // font: normal 1em var(--v-f-fm-bd);
             font: @syntaxTipsFont;
-            // color: var(--a-c);
             width: calc(100% - 2em);
             padding: @tabGroupPadding @tabGroupPadding 0 @tabGroupPadding;
             box-shadow: 0 -@tabGroupStdBdWidth 0 0 @tabGroupBgColor inset;
@@ -1608,9 +1601,7 @@ content .md-toc::before {
         }
         // 简约风格样式
         .genTabItem(@style) when (@style = simple) {
-            // font: normal var(--v-f-w-bd) 1em var(--v-f-fm-bd);
             font: @syntaxTipsFont;
-            // color: var(--d-fc-a);
             width: calc(100% - 2em);
             padding: @tabGroupPadding @tabGroupPadding 0 @tabGroupPadding;
             box-shadow: 0 -@tabGroupStdBdWidth 0 0 @tabGroupBgColor inset;
@@ -1619,20 +1610,15 @@ content .md-toc::before {
         }
         // 简约风格样式 UP 变种
         .genTabItem(@style) when (@style = simple_up) {
-            // font: normal var(--v-f-w-bd) 1em var(--v-f-fm-bd);
             font: @syntaxTipsFont;
-            // color: var(--d-fc-a);
             width: calc(100% - 2em);
-            // padding: 0;
             background: linear-gradient(0deg, var(--pn-c), var(--d-bc));
             // 始终居中
             text-align: center;
         }
         // 现代风格样式
         .genTabItem(@style) when (@style = modern) {
-            // font: normal 1em var(--v-f-fm-bd);
             font: @syntaxTipsFont;
-            // color: var(--a-c);
             background: @tabGroupBgColor;
             padding: 0 @tabGroupPadding * 2 0 0;
             border-radius: var(--v-r-si) var(--v-r-si-xc);
@@ -1648,9 +1634,7 @@ content .md-toc::before {
         content: "🗂️ Tab Group / 页签组";
         text-transform: uppercase;
         font: @syntaxTipsFont;
-        // font-weight: var(--v-f-w-bd);
         color: var(--a-c);
-        // color: var(--d-fc);
         display: inline-block;
 
         // 标准风格样式
@@ -1675,7 +1659,6 @@ content .md-toc::before {
             margin: 0 10px;
             border-top: 2px solid var(--a-c);
             background: var(--d-bc);
-            // border-radius: var(--v-r-s) var(--v-r-s-xc) 0 0;
         }
         // 现代风格样式
         .genTabItem(@style) when (@style = modern) {
@@ -1767,7 +1750,7 @@ content .md-toc::before {
 @{writeOnEditing} p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing}::before,
 @{writeOnEditing} .td-span>@{stepwisePrefix_OnEditing}@{stepwiseSuffix_OnEditing}::before,
 .v-stepwise::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -1px;
     right: calc(-1em + 5px);
@@ -1825,6 +1808,7 @@ content .md-toc::before {
     margin-left: -4px;
     margin-top: -8px;
     position: absolute;
+    z-index: 1;
 }
 .genHoverStyle(@for) when (@for = stepwise) {
     @{writeOnEditing} p>@{stepwisePrefix_OnEditing}:not(:only-child)@{stepwiseSuffix_OnEditing} a:hover::after,
@@ -1847,29 +1831,6 @@ content .md-toc::before {
     padding: 0;
     border: none;
 }
-// 图片带 srcset 参数的微调
-@{writeOnEditing} :is(span[md-inline=image][data-src*="darksrc="],
-span[md-inline=image][data-src*="srcset="])::before {
-    content: "◩";
-    font: @syntaxTipsFont;
-    color: var(--d-bc);
-    border-radius: var(--v-r-b);
-    word-break: initial;
-    padding: 1px 4px;
-    margin: 5px 0 0 5px;
-    position: absolute;
-    background: var(--d-fc);
-    opacity: .6;
-}
-@{writeOnEditing} span[md-inline=image][data-src*="srcset="]::before {
-    content: "@";
-}
-@{writeOnEditing} span[md-inline=image][data-src*="srcset="][data-src*="darksrc"]::before {
-    content: "@ ◩";
-}
-@{writeOnEditing} span[md-inline=image][data-src*="#icon"]::before {
-    content: "" !important;
-}
 
 #write {
     max-width: 100%;
@@ -1888,6 +1849,10 @@ body[class*=ty-on-typewriter-mode] @{writeOnEditing}, // 编辑时，如启用�
 #write.max.fill-width {
     margin-left: var(--v-write-ml-def) !important;
 }
+// 导航中心隐藏后的微调
+#write.max.fill-width.navhidden {
+    margin-left: 0 !important;
+}
 
 #write>:is(ul,ol):first-child {
     margin-top: 30px;
@@ -1897,7 +1862,7 @@ body[class*=ty-on-typewriter-mode] @{writeOnEditing}, // 编辑时，如启用�
 // 编辑时的引用块折叠（details、summary）
 @summaryOnEditing: ~"blockquote>h6:first-child";
 @{writeOnEditing} @{summaryOnEditing} {
-    color: @h6Color;
+    color: @h7Color;
     font-size: @h7FontSize;
     padding: 0 0 .3125em 0;
     margin-bottom: .3125em;
@@ -1936,7 +1901,7 @@ body[class*=ty-on-typewriter-mode] @{writeOnEditing}, // 编辑时，如启用�
 
 // 生成编辑时引用块折叠样式
 // 始终显示
-.genSummaryOnEditing(@mode) when (@mode = expanded) {
+.genSummaryOnEditing(@mode) when (@mode = open) {
     @{writeOnEditing} @{summaryOnEditing} {
         border-bottom: @quoteTitleBorderWidth solid var(--ac-bk-fd);
     }

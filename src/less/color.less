@@ -3,8 +3,8 @@
  * VLOOK™ CSS 调色板
  * (配合 base.less 进行使用)
  *
- * V29.0
- * 2025-05-24
+ * V30.0
+ * 2025-06-27
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -47,6 +47,12 @@
     :root {
         --d-bi-lg: @bgImgLight;
         --d-bi-dk: @bgImgDark;
+    }
+}
+.applyDocBgImg(@bgImgLight) {
+    :root {
+        --d-bi-lg: @bgImgLight;
+        --d-bi-dk: var(--d-bi-lg);
     }
 }
 .applyDocBgImg(none, none);
@@ -381,6 +387,8 @@
     --code-t-lg: @codeTextColor;
     --std-code-sd-lg: var(--pn-c-a-lg);
     --rb-code-sd-lg: #0000004D;//rgba(0, 0, 0, .3);
+    --v-ui-bg-lg: @uiBgColor;
+    --v-btn-bg-lg: @buttonBgColor;
 
     // 按钮类外阴影
     --v-fl-sd-lg: 0 4px 16px #0000004D;//rgba(0, 0, 0, .3);
@@ -530,6 +538,8 @@
     --code-t-dk: @codeTextColorDark;
     --std-code-sd-dk: var(--pn-c-a-dk);
     --rb-code-sd-dk: #FFFFFF4D;//rgba(255, 255, 255, .3);
+    --v-ui-bg-dk: @uiBgColorDark;
+    --v-btn-bg-dk: @buttonBgColorDark;
 
     // 按钮类外阴影
     --v-fl-sd-dk: 0 4px 16px #00000066;//rgba(0, 0, 0, .4);
@@ -701,6 +711,9 @@
     --code-t: var(--code-t-lg);
     --std-code-sd: var(--std-code-sd-lg);
     --rb-code-sd: var(--rb-code-sd-lg);
+    --v-ui-bg: var(--v-ui-bg-lg);
+    --v-btn-bg: var(--v-btn-bg-lg);
+    // --v-btn-bg-o: var(--v-btn-bg-o-lg);
 
     // 按钮类外阴影
     --v-fl-sd: var(--v-fl-sd-lg);

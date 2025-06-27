@@ -1,6 +1,6 @@
 /**************************************
  *
- * VLOOK™ 模板主题
+ * VLOOK™ 内置主题
  *
  * Powered by MAX°孟兆
  *
@@ -15,16 +15,16 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V29.0";
+@themeVer: "V30.0";
 @themeName: "vlook-geek";
 @themeDesc: "Geek";
 
 // 指定字体主题
-// .applyFontStyle(albb);
-// .applyFontStyle(sans);
 .applyFontStyle(local);
 // 指定主题配套的圆角
 .applyThemeRadius(big);
+// 指定 kbd 按钮风格
+.applyKbdRadius(big);
 // 文档背景使用图片
 .applyDocBgImg(@docBgImgLight_EC, @docBgImgDark_EC);
 // 生成指定的表格样式
@@ -36,12 +36,12 @@
 }
 
 // 主题主色
-@theme1: #191C23;//#292C33;
+@theme1: #191C23;
 @theme2: #E62E4D;
 @theme3: #D98982;
-@theme1Dark: #F8FAFD;//#E8EAED;//#4F5663;
-@theme1Alt: #E8EAED;//#E8EAED;
-@theme1AltDark: #191C23;//#202228;
+@theme1Dark: #F8FAFD;
+@theme1Alt: #E8EAED;
+@theme1AltDark: #191C23;
 @theme2Dark: #E73754;
 @theme2Alt: #FCE4E8;
 @theme2AltDark: #520A16;
@@ -84,21 +84,14 @@
 @h6Margin: 1em 0 0 0;
 
 // 引用块默认色样式（与主题配套使用）
-@quoteBgDefault: linear-gradient(0deg, var(--d-bc), var(--bq-bg));
+@quoteBgDefault: linear-gradient(var(--d-bc), var(--bq-bg));
 @quoteBoxShadowDefault: 0 0 0 1px var(--bq-bg) inset;
 
 @codeTextColor: @theme3;
 
 // 按钮色
-@buttonForeColor: @theme3;//@themeForeColor;
-@buttonForeHoverColor: #FFF;
-@buttonBgColor: @theme1;//var(--ac-t1);//@themeBgColor;
-// 文库按钮颜色
-@docLibButtonForeColor: @buttonForeColor;
-@docLibButtonForeHoverColor: @buttonForeHoverColor;
-@docLibButtonBgColor: @buttonBgColor;
-// 指定 kbd 按钮风格
-.applyKbdRadius(big);
+@buttonForeColor: var(--d-bc);
+@buttonBgColor: var(--ac-t1);
 
 // 链接颜色
 @aBorderWidth: 2px;
@@ -109,7 +102,7 @@
 @aActiveColor: desaturate(@aHoverColor, 25%);
 
 @welcomePageForeColor: #FFF;
-@welcomePageBgColor: linear-gradient(0deg, @theme3, @theme1 90%);
+@welcomePageBgColor: linear-gradient(0deg, @theme3, @buttonBgColor 90%);
 
 // 封面、封底文字位置及对齐方式
 @coverTextAlign: left;
@@ -127,8 +120,10 @@
 @backcoverTextColor: @theme3;
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
-@contrastBorder: 0 0 0 1px rgba(255, 255, 255, .2) inset;
-@contrastBorderForCover: 0 0 0 2px rgba(255, 255, 255, 0.1) inset;
+// @contrastBorder: 0 0 0 1px rgba(255, 255, 255, .2) inset;
+// @contrastBorderForCover: 0 0 0 2px rgba(255, 255, 255, 0.1) inset;
+// @contrastBorder: 0 0 0 0 transparent;
+// @contrastBorderForCover: none;
 
 // 封面背景设置
 @coverBackgroundColor: @theme1;//@themeBgColor;
@@ -189,4 +184,10 @@
 .genBadgeStyle(std);
 
 // 生成 GSA 样式
-.genGSA_flat();
+.genGSA(flat);
+
+// 生成大纲分类索引样式
+.genSegmentBtn(color);
+
+// 生成遮罩背景风格
+.genMaskBackground(dots);

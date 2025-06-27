@@ -3,8 +3,8 @@
  * VLOOK™ CSS 多主题间的通用样式
  * (配合 base.less、主题.less 进行使用)
  *
- * V29.0
- * 2025-05-24
+ * V30.0
+ * 2025-06-27
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -21,7 +21,7 @@
 @themeEmail: "maxchow@qq.com";
 
 // 对应插件中配套预置选项 vlook-query，插件中的同名变量为 --vlook-query
-@vlookQueryDef: "ws=auto";
+@vlookQueryDef: "ws=auto&uico=solid&tabico=line";
 @vlookQuery: @vlookQueryDef;
 // 对应插件中配套预置选项 vlook-gray-mode，插件中的同名变量为 --vlook-gray-mode
 @vlookGrayMode: "12-13:国家公祭日@zh";//;04-04:清明节@zh,ko";
@@ -36,7 +36,6 @@
 @figurePadding: 20px; // 插图内、间、行空白
 @hoverBrightness: 90%;
 @scrollFix: 8px; // 针对 Mermaid 图表，不添加会导致出现滚动条
-// @syntaxTipsFont: italic normal 12px/1 var(--v-f-fm-bd); // 语法提示字体设置
 @syntaxTipsFont: italic 12px/1 var(--v-f-fm-tag); // 语法提示字体设置
 
 // 目录、文件 的当前节点、点击节点样式
@@ -78,10 +77,10 @@
 
 // ==================== 主题的文档纹理背景 ==================== //
 
-// 格子
+// 大方格
 @docBgImgLight_Grid: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4AQMAAAADqqSRAAAABlBMVEUAAAAAAAClZ7nPAAAAAnRSTlMACHhIRQoAAAAlSURBVDjLYwABRgQxyh/l05T/HxUMuHtG+SOLP5r+RvmDKP0BALD8LjNR4HGxAAAAAElFTkSuQmCC");
 @docBgImgDark_Grid: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4AQMAAAADqqSRAAAABlBMVEUAAAD///+l2Z/dAAAAAnRSTlMAD+Ys0KkAAAAlSURBVDjLYwABRgQxyh/l05T/HxUMuHtG+SOLP5r+RvmDKP0BALD8LjNR4HGxAAAAAElFTkSuQmCC");
-// 双重格子
+// 小方格
 @docBgImgLight_Grid2: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4AgMAAABECt5BAAAACVBMVEUAAAAAAAAAABp+ARC6AAAAA3RSTlMABQpn1NmFAAAASklEQVRIx2NgYBBgYAQRTNhYI1Y6FAbCsLEGs8tHQ22oSY+GGjnSq/CCwezy0bQ21KRHQ2001EbLtcEsPZrWRkNtNNQGszT+cg0Aff3B0vb/kO4AAAAASUVORK5CYII=");
 @docBgImgDark_Grid2: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4AgMAAABECt5BAAAACVBMVEUAAAD///////9zeKVjAAAAA3RSTlMACg+QJjHFAAAASklEQVRIx2NgYBBgYAQRTNhYI1Y6FAbCsLEGs8tHQ22oSY+GGjnSq/CCwezy0bQ21KRHQ2001EbLtcEsPZrWRkNtNNQGszT+cg0Aff3B0vb/kO4AAAAASUVORK5CYII=");
 // 斜纹
@@ -140,6 +139,10 @@
 .genCcBottomRightExt() {};
 // 自定义扩展样式（指定选择器）
 .genCcExt() {};
+
+// 主题色半透明
+@theme1FadeDark: @theme1Fade;
+@theme2FadeDark: @theme2Fade;
 
 // 题注文字、背景色
 @captionTextColor: var(--d-fc);
@@ -220,20 +223,13 @@
 
 @headerLetterSpacing: 0;
 
-// 标题边距
+// 标题内边距
 @headerPadding: 5px 0;
 @h1Padding: @headerPadding;
 @h2Padding: @headerPadding;
 @h3Padding: @headerPadding;
 @h4Padding: @headerPadding;
 @h5Padding: @headerPadding;
-
-// 标题内文本边距
-@h1SpanPadding: 0;
-@h2SpanPadding: 0;
-@h3SpanPadding: 0;
-@h4SpanPadding: 0;
-@h5SpanPadding: 0;
 
 // 标题圆角
 @headerBorderRadius: var(--v-r-b);
@@ -263,6 +259,10 @@
 // 对应 CSS 中的同名变量 --v-hide-outline-over
 @hideOutlineOver: 99;
 
+// 标题色
+@headerColor: @theme1;
+@headerColorDark: @theme1Dark;
+
 // 标题颜色
 @h1Color: var(--h-f);
 @h2Color: var(--h-f);
@@ -270,6 +270,7 @@
 @h4Color: var(--h-f);
 @h5Color: var(--h-f);
 @h6Color: var(--h-f);
+@h7Color: var(--h-f);
 
 // 标题前缀 before 颜色
 @contentHeaderNumColor: var(--h-f);
@@ -279,7 +280,9 @@
 // 生成标题文字渐变色（h1）
 // 若存在 emoji 符号，可以将对应符号独立设置为粗体等额外的格式
 .genLinearGradientHeader(@header, @lg) when (@header = h1) {
-    #write @{escBackcoverId}>span,
+    // #write @{escBackcoverId}>span,
+    @{writeOnEditing} @{escBackcoverId}>span[md-inline=plain],
+    @{writeOnHTML} @{escBackcoverId}>span,
     @{coverAfterYAML}~@{escBackcoverId}>span,
     @{coverWithoutYAML}~@{escBackcoverId}>span {
         background: @lg;
@@ -291,7 +294,9 @@
 // 生成标题文字渐变色（除 h1）
 // 若存在 emoji 符号，可以将对应符号独立设置为粗体等额外的格式
 .genLinearGradientHeader(@header, @lg) when not (@header = h1) {
-    #write @{header}>span {
+    // #write @{header}>span {
+    @{writeOnEditing} @{header}>span[md-inline=plain],
+    @{coverAfterYAML} @{header}>span {
         background: @lg;
         background-clip: text;
         // -webkit-background-clip: text;
@@ -317,6 +322,7 @@
 // 连续标题背景
 @continuousHeaderBG: none;
 
+// 标题外边距
 @h1Margin: 2.5em 0 0 0;
 @h2Margin: 2.5em 0 0 0;
 @h3Margin: 2.5em 0 0 0;
@@ -358,8 +364,20 @@
 // 引用块左边框
 @quoteRadius: var(--v-r-b) var(--v-r-b-xc);
 
-@theme1FadeDark: @theme1Fade;
-@theme2FadeDark: @theme2Fade;
+// UI 外观颜色
+@uiForeColor: #FFF;
+@uiBgColor: @theme1;
+@uiBgColorDark: @theme1Dark;
+
+// 按钮文字颜色
+@buttonForeColor: #FFF;
+@buttonForeHoverColor: #FFF;
+
+// 按钮背景颜色
+@buttonBgColor: @theme1;
+@buttonBgHoverColor: @theme2;
+@buttonBgColorDark: @theme1Dark;
+@buttonBgHoverColorDark: @theme2Dark;
 
 // 行内代码
 @codeTextColor: @theme2;
@@ -381,6 +399,10 @@
 // 封面、封底标题的文字轮廓样式
 @coverTextStroke: initial;
 @backcoverTextStroke: initial;
+
+@contrastBorder: 0 0 0 0 transparent;
+@contrastBorderForCover: none;
+@contrastBorderForBackcover: @contrastBorderForCover;
 
 // 封面背景相关变量
 @coverBgSize: auto;
@@ -456,7 +478,7 @@
 @docExtBackgroundImage: var(--thm-doc-ext-bg);
 @docExtBackgroundSize: auto;
 @docExtBackgroundRepeat: no-repeat;
-@docExtBackgroundPosition: left top;
+@docExtBackgroundPosition: 0 0;
 @docExtBackgroundFilter: none;
 
 // 封面内多级标签样式
@@ -466,8 +488,8 @@
 @badgeBorderWidthInCover: 0;
 
 // 欢迎页
-@welcomePageForeColor: @buttonForeColor;
-@welcomePageBgColor: linear-gradient(0deg, var(--d-bc), @theme1);
+@welcomePageForeColor: @uiForeColor;
+@welcomePageBgColor: linear-gradient(0deg, var(--d-bc), var(--ac-t1));
 
 // ==========
 
@@ -843,31 +865,12 @@
         font-size: .75em;
     }
 
-    // // 编辑时，当前输入行样式
-    // @{writeOnHTML}>:not(@{hr_MdHr})+ol>li:hover::before,
-    // @{writeOnHTML} @{quote_details}>:not(@{hr_MdHr})+ol>li:hover::before,
-    // // 针对列表行的 hover 样式
-    // @{writeOnEditing}>:not(@{hr_MdHr})+ol>li.md-focus-container::before,
-    // @{writeOnEditing} @{quote_details}>:not(@{hr_MdHr})+ol>li.md-focus-container::before {
-    //     .genOrderListBg(@style) when (@style = block) {
-    //         color: @buttonForeHoverColor !important;
-    //         background-color: var(--a-o-c);
-    //         box-shadow: none;
-    //     }
-    //     .genOrderListBg(@style) when (@style = frame) {
-    //         color: var(--a-o-c) !important;
-    //         background-color: var(--ac-t2-a);
-    //         box-shadow: 0 0 0 1px var(--a-o-c) inset; // 不用 border 的原因是渲染会上移 1px
-    //     }
-    //     .genOrderListBg(@style);
-    // }
-
     // 生成不同风格的背景
     .genOrderListBg(@style) when (@style = block) {
         color: var(--d-bc) !important;
         background-color: var(--d-fc);
     }
-    .genOrderListBg(@style) when (@style = frame) {
+    .genOrderListBg(@style) when (@style = line) {
         color: var(--d-fc) !important;
         background-color: var(--d-bc);
         box-shadow: 0 0 0 1px var(--d-fc-a) inset; // 不用 border 的原因是渲染会上移 1px
@@ -899,7 +902,7 @@
                 background-color: var(--a-o-c);
                 box-shadow: none;
             }
-            .genOrderListBg(@style) when (@style = frame) {
+            .genOrderListBg(@style) when (@style = line) {
                 color: var(--a-o-c) !important;
                 background-color: var(--ac-t2-a);
                 box-shadow: 0 0 0 1px var(--a-o-c) inset; // 不用 border 的原因是渲染会上移 1px
@@ -948,51 +951,32 @@
         .genTabGroupBase(@style) when (@style = std) {
             align-items: flex-end;
             padding: @tabStdPaddingTop (@tabItemPadding * 2) 0;
-            // margin-top: 10px;
             box-shadow: 0 5px 5px 0 var(--d-bc), 0 -@tabGroupStdBdWidth 0 0 @tabGroupBgColor inset;
             background: var(--d-bc);
-            // background: var(--pn-c);
-            // background: var(--fd07);
-            // backdrop-filter: saturate(180%) blur(7px);
-            // top: var(--v-sticky-top);
         }
         // 简约风格样式
         .genTabGroupBase(@style) when (@style = simple) {
             align-items: flex-end;
             padding: @tabStdPaddingTop (@tabItemPadding * 2) 0;
             box-shadow: 0 5px 5px 0 var(--d-bc), 0 -1px 0 0 @tabGroupBgColor inset;
-            // margin-top: 10px;
             background: var(--d-bc);
-            // background: var(--fd07);
-            // backdrop-filter: saturate(180%) blur(7px);
-            // top: calc(var(--v-sticky-top) + 5px);
         }
         // 简约风格样式 UP 变种
         .genTabGroupBase(@style) when (@style = simple_up) {
             align-items: flex-end;
             padding: @tabStdPaddingTop (@tabItemPadding * 2) 0;
-            // margin-top: 10px;
             box-shadow: 0 5px 5px 0 var(--d-bc), 0 -1px 0 0 @tabGroupBgColor inset;
             background: linear-gradient(0deg, var(--pn-c), var(--d-bc));
-            // background: @pnMoreContentLG;
-            // background: var(--d-bc);
-            // background: var(--fd07);
-            // backdrop-filter: saturate(180%) blur(7px);
-            // top: calc(var(--v-sticky-top) + 5px);
         }
         // 现代风格样式
         .genTabGroupBase(@style) when (@style = modern) {
             align-items: center;
             background: var(--pn-c);
-            // background: var(--pn-fd07);
-            // backdrop-filter: saturate(180%) blur(7px);
             border-radius: var(--v-r-si) var(--v-r-si-xc);
             box-shadow: 0 0 5px 5px var(--d-bc);
             width: max-content;
             max-width: 100%;
             height: @tabGroupModernHeight;
-            // margin-top: 1em;
-            // top: calc(var(--v-sticky-top) + 10px);
         }
         .genTabGroupBase(@style);
     }
@@ -1005,7 +989,6 @@
             background: var(--fd07);
         }
         .genTabGroupBackdropBlurs(@style) when (@style = simple_up) {
-            // background: linear-gradient(0deg, var(--pn-c), var(--fd00));
             background: radial-gradient(ellipse 55% 100% at bottom, var(--pn-c), transparent 100%);
         }
         .genTabGroupBackdropBlurs(@style) when (@style = modern) {
@@ -1038,13 +1021,6 @@
         // 简约风格样式，简约风格样式 UP 变种
         .genTabGroupMore(@style) when (@style = simple), (@style = simple_up) {
             .genTabGroupMore(std);
-            // left: -10px;
-            // height: 36px;
-            // background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDYgMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTUuMzY4LjA1OWwuMDEyLjAwNGMuNDcuMTc4LjcyMi43MDguNTgxIDEuMjAyTDEuOTQxIDEwbDQuMDAzIDguNjhjLjE3LjQ5Mi0uMDU5IDEuMDMyLS41MTMgMS4yMzZsLS4wNjMuMDI1Yy0uNDY5LjE3OC0uOTg1LS4wNi0xLjE4MS0uNTMybC0uMDItLjA1My00LjA2OS04LjcxN2EyLjEyMiAyLjEyMiAwIDAgMSAwLTEuMjc4TDQuMTY2LjY0NGMuMTc4LS41MDcuNzE2LS43NyAxLjIwMi0uNTg1eiIgZmlsbD0iIzg2ODg4QSIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"),
-            //     linear-gradient(90deg, @tabGroupMoreContentSimpleLG);
-            // background-repeat: no-repeat, no-repeat;
-            // background-position: left 6px center, left center;
-            // background-size: auto, auto;
         }
         // 现代风格样式
         .genTabGroupMore(@style) when (@style = modern) {
@@ -1087,7 +1063,6 @@
     .tab-content-target {
         // 标准风格样式
         .genTabContentTarget(@style) when (@style = std) {
-            // var(--v-tab-group-h)
             scroll-margin-top: calc(var(--v-sticky-top) + @paragraphPadding + var(--v-tab-group-h)); // + 56px);
         }
         // 简约风格样式，简约风格样式 UP 变种
@@ -1114,39 +1089,27 @@
         cursor: var(--cur-ptr);
         color: var(--d-fc-a);
         font: var(--v-f-w-bd) 1em var(--v-f-fm-tag);
-        // font-weight: var(--v-f-w-bd);
 
         // 标准风格样式
         .genTabItem(@style) when (@style = std) {
-            // color: var(--a-c);
-            // color: var(--d-fc-a);
-            // font-weight: bold;
             border-radius: var(--v-r-s) var(--v-r-s-xc) 0 0;
             background: @tabGroupBgColor;
             padding: @tabItemPadding (@tabItemPadding * 2);
-            // padding: (@tabItemPadding * 2);
             border: 2px solid var(--pn-c);
             border-bottom: none;
         }
         // 简约风格样式
         .genTabItem(@style) when (@style = simple) {
-            // color: var(--d-fc-a);
             border-radius: var(--v-r-s) var(--v-r-s-xc) 0 0;
-            // font-weight: var(--v-f-w-bd);
-            // padding: @tabItemPadding (@tabItemPadding * 2);
             padding: (@tabItemPadding * 2);
         }
         // 简约风格样式、以及 UP 变种共用部分
         .genTabItem(@style) when (@style = simple_up) {
-            // color: var(--d-fc-a);
             border-radius: var(--v-r-s) var(--v-r-s-xc) 0 0;
-            // font-weight: var(--v-f-w-bd);
-            // padding: (@tabItemPadding + @tabItemSimpleBorderWidth) (@tabItemPadding * 2) @tabItemPadding;
             padding: (@tabItemPadding * 2);
         }
         // 现代风格样式
         .genTabItem(@style) when (@style = modern) {
-            // color: var(--a-c);
             height: @tabItemModernHeight;
             border-radius: calc(var(--v-r-si) - @tabGroupPadding) calc(var(--v-r-si-xc) - @tabGroupPadding);
             padding: (@tabItemPadding * 2);
@@ -1169,9 +1132,6 @@
     .tab-group-wrap > span > svg {
         margin-right: 5px;
     }
-    // .tab-group-wrap > span:not([class*=alert-]) > svg {
-    //     opacity: .5;
-    // }
 
     // 标准风格样式、现代风格样式
     @media (hover: hover) and (pointer: fine) {
@@ -1199,7 +1159,6 @@
 
     // 现代风格样式
     .genTabItem(@style) when (@style = modern) {
-        // .tab-group-wrap > span:not([class*=alert-])::before {
         .tab-group-wrap > span::before {
             content: "";
             width: 1px;
@@ -1213,8 +1172,6 @@
         .tab-group-wrap > span:first-child::before,
         .tab-group-wrap > .current::before,
         .tab-group-wrap > :is(.current, [class*=alert-]) + span::before,
-        // .tab-group-wrap > .hover::before,
-        // .tab-group-wrap > .hover + span::before {
         .tab-group-wrap > :hover::before,
         .tab-group-wrap > :hover + span::before {
             opacity: 0 !important;
@@ -1257,113 +1214,50 @@
     }
 
     // 对于标准风格中当前页签项样式
-    // .tab-group-wrap > .current,
     .tab-group-wrap > .current[class*=alert-] {
         .genTabItemCurrentFor_GSA(@style) when (@style = std) {
             border: @tabGroupStdBdWidth solid @tabGroupBgColor;
-            // border-top: none !important;
             border-bottom: none !important;
         }
         .genTabItemCurrentFor_GSA(@style) when (@style = simple_up) {
             border-top: @tabItemSimpleBorderWidth solid currentColor;
         }
-        // .genTabItemCurrentFor_GSA(@style) when (@style = simple), (@style = modern) {
-        //     border-bottom: @tabItemSimpleBorderWidth solid currentColor;
-        // }
         .genTabItemCurrentFor_GSA(@style);
     }
 
     // 页签为 GSA 通用样式
     .tab-group-wrap > span[class*=alert-] {
-        // font-weight: bold;
-        // padding-left: 30px;
-        // padding-right: 30px;
-        // .genTabItemFor_GSA(@style) when (@style = std) {
-        //     border: none;
-        // }
         .genTabItemFor_GSA(@style) when (@style = simple), (@style = simple_up) {
             border-color: currentColor;
         }
-        // .genTabItemFor_GSA(@style) when (@style = modern) {
-        //     border: none;
-        // }
         .genTabItemFor_GSA(@style);
     }
     // 页签为 GSA 的 note 内容
     .tab-group-wrap > .alert-note {
         color: var(--ac-bu);
-        // background: var(--ac-bu-fd);
-        // border: none;
     }
-    // .tab-group-wrap > span[class*=alert-].current {
-    //     border-bottom: @tabItemSimpleBorderWidth solid currentColor;
-    // }
-    // .tab-group-wrap > .alert-note >svg>use {
-    //     fill: currentColor;
-    // }
-    // .tab-group-wrap > .alert-note.current {
-    //     border-bottom: @tabItemSimpleBorderWidth solid var(--ac-bu);
-    // }
-    // .tab-group-wrap > .alert-note >svg>use {
-    //     fill: var(--ac-bu);
-    // }
     // 页签为 GSA 的 tip 内容
     .tab-group-wrap > .alert-tip {
         color: var(--ac-gn);
-        // background: var(--ac-gn-fd);
-        // border: none;
     }
-    // .tab-group-wrap > .alert-tip.current {
-    //     border-bottom: @tabItemSimpleBorderWidth solid var(--ac-gn);
-    // }
-    // .tab-group-wrap > .alert-tip >svg>use {
-    //     fill: var(--ac-gn);
-    // }
     // 页签为 GSA 的 important 内容
     .tab-group-wrap > .alert-important {
         color: var(--ac-pu);
-        // background: var(--ac-pu-fd);
-        // border: none;
     }
-    // .tab-group-wrap > .alert-important.current {
-    //     border-bottom: @tabItemSimpleBorderWidth solid var(--ac-pu);
-    // }
-    // .tab-group-wrap > .alert-important >svg>use {
-    //     fill: var(--ac-pu);
-    // }
     // 页签为 GSA 的 warning 内容
     .tab-group-wrap > .alert-warning {
         color: var(--ac-bn);
-        // background: var(--ac-bn-fd);
-        // border: none;
     }
-    // .tab-group-wrap > .alert-warning.current {
-    //     border-bottom: @tabItemSimpleBorderWidth solid var(--ac-bn);
-    // }
-    // .tab-group-wrap > .alert-warning >svg>use {
-    //     fill: var(--ac-bn);
-    // }
     // 页签为 GSA 的 caution 内容
     .tab-group-wrap > .alert-caution {
         color: var(--ac-rd);
-        // background: var(--ac-rd-fd);
-        // border: none;
     }
-    // .tab-group-wrap > .alert-caution.current {
-    //     border-bottom: @tabItemSimpleBorderWidth solid var(--ac-rd);
-    // }
-    // .tab-group-wrap > .alert-caution >svg>use {
-    //     fill: var(--ac-rd);
-    // }
 }
 
 // ==================== 生成表格、插图的不同对齐方式的样式 ==================== //
 
 // 居中对齐。非居中对齐时不调用
 .genTableAndFigureAlign(@align) when (@align = center) {
-    // 页签组（for 现代样式）
-    // .v-tab-group,
-    // .v-tab-group > .tab-group-wrap,
     // 编辑时 h6 格式设置的题注样式
     @{writeOnEditing} h6:has(+p>.md-image), // 插图
     @{writeOnEditing} h6:has(+.md-table-fig), // 表格
@@ -1407,7 +1301,6 @@
     // 编辑时题注居中
     @{writeOnEditing} p:has([md-inline=em]:only-child>em>[md-inline=highlight]>mark),
     #write .md-fences-adv-panel, // 针对 Mermaid 图
-    @{writeOnEditing} p:has(@{tabGroup_prefix}), // 页签组（编辑时样式）（for 现代样式）
     .tab-group-wrap > span, // 页签组条目
     .v-cap-cntr, // 导出后题注居中
     .v-caption.tbl>.v-cap-1 { // 表格题注样式
@@ -1437,14 +1330,13 @@
 
 // ==================== 多级标签样式 ==================== //
 
-// @codePaddingTop: 3px;
 @codePaddingTop: 4px;
 @codePaddingLeft: 6px;
 @codePaddingRight: 8px;
 @codeMarginForCap: -1px;
 
 // 为什么是 3px？
-// margin, border, padding 各 1px
+// 因为 margin, border, padding 各 1px
 @codeValueRadius: calc(var(--v-r-tag) - 3px);
 @codeValueRadiusXC: calc(var(--v-r-tag-xc) - 3px);
 
@@ -1616,25 +1508,33 @@
 .genParaFormatUnderline(@opacity : .4, @color1: var(--ac-t1), @color2 : var(--ac-t2)) {
     // 下划线
     @underlineOnlyChild: ~'@{writeOnEditing}>p>[md-inline=underline]:only-child';
+    @underlineOnlyChild_blockquote: ~'@{writeOnEditing}>blockquote>p>[md-inline=underline]:only-child';
     @onlyUnderlineTextOnEditing: ~'@{underlineOnlyChild}:has(>u)';
+    @onlyUnderlineTextOnEditing_blockquote: ~'@{underlineOnlyChild_blockquote}:has(>u)';
     @onlyUnderlineTextOnHTML: ~'@{writeOnHTML}>p>u:only-child';
+    @onlyUnderlineTextOnHTML_blockquote: ~'@{writeOnHTML}>blockquote>p>u:only-child';
     @{onlyUnderlineTextOnEditing},
-    @{onlyUnderlineTextOnHTML} {
+    @{onlyUnderlineTextOnEditing_blockquote},
+    @{onlyUnderlineTextOnHTML},
+    @{onlyUnderlineTextOnHTML_blockquote} {
         display: block;
         font-size: 1.125em;
         text-align: center;
         line-height: @defaultLineHeight;
         padding: .75em 0 1.5em;
-        margin-top: 1em;
+        margin-top: .5em;
         border: none;
     }
-    @{underlineOnlyChild}>u {
+    @{underlineOnlyChild}>u,
+    @{underlineOnlyChild_blockquote}>u {
         border: none;
     }
 
     // 下划线 after
     @{onlyUnderlineTextOnEditing}:after,
-    @{onlyUnderlineTextOnHTML}:after {
+    @{onlyUnderlineTextOnEditing_blockquote}:after,
+    @{onlyUnderlineTextOnHTML}:after,
+    @{onlyUnderlineTextOnHTML_blockquote}:after {
         content: "";
         position: absolute;
         margin-top: 2.5em;
@@ -1722,6 +1622,34 @@
         mask-repeat: no-repeat;
         mask-position: center center;
     }
+
+    // 移动端微调
+    @media screen and (max-width: @gMobileScreenWidth) {
+        @{onlyHighlightTextOnHTML} {
+            padding: 1em 0 2em;
+        }
+
+        @{onlyHighlightTextOnHTML}::before {
+            margin: -1.75em 0 0 -.5em;
+        }
+
+        @{onlyHighlightTextOnHTML}::after {
+            margin: 1.5em 0 0 -1.5em;
+        }
+    }
+}
+
+// ==================== 引用块居中显示 ==================== //
+
+// 针对普通的引用块，注意内容如果过长仍会顶边
+.genBlockquote(@style) when (@style = center) {
+    blockquote,
+    details,
+    .md-alert {
+        width: fit-content;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
 }
 
 // ==================== 生成 GitHub Style Alert 各类型相关样式 ==================== //
@@ -1729,7 +1657,6 @@
 // 生成基础样式
 .genHoverStyle(@for) when (@for = md-alert_kbdSec) {
     #write [class*=md-alert-] @{kbdSec}:hover @{svgGs} {
-        // fill: var(--a-o-c);
         fill: currentColor;
     }
 }
@@ -1745,11 +1672,6 @@
     #write [class*=md-alert-] .v-svg-input-checkbox>use { // 复选框控件
     fill: currentColor;
 }
-// 列表符号
-// #write [class*=md-alert-] ::marker,
-// #write [class*=md-alert-] li::before {
-//     color: currentColor;
-// }
 // 生成 GSA 不同类型的基础样式
 .genGitHubStyleAlertCssBase(@type, @accColor) {
     // 引用块小标题
@@ -1767,12 +1689,6 @@
     #write .md-alert-@{type} a {
         color: ~"var(--ac-@{accColor})";
     }
-    // #write .md-alert-@{type} a>@{svgGs} {
-    //     fill: ~"var(--ac-@{accColor})";
-    // }
-    // #write .md-alert-@{type} a>img[src*="fill=text"] {
-    //     filter: drop-shadow(@fillOffset 0 0 ~"var(--ac-@{accColor})");
-    // }
 
     // 主要按钮
     #write .md-alert-@{type} a kbd {
@@ -1783,11 +1699,6 @@
     #write .md-alert-@{type} a kbd>@{svgGs} {
         fill: @colorWhite;
     }
-    // #write .md-alert-@{type} a kbd:hover {
-    //     color: @buttonForeHoverColor;
-    //     background: var(--a-o-c);
-    //     border-color: var(--a-o-c);
-    // }
     // 次要按钮
     #write .md-alert-@{type} @{kbdSec} {
         color: ~"var(--ac-@{accColor})";
@@ -1797,13 +1708,6 @@
     #write .md-alert-@{type} @{kbdSec}>img[src*="fill=text"] {
         filter: drop-shadow(@fillOffset 0 0 ~"var(--ac-@{accColor})") !important;
     }
-    // #write .md-alert-@{type} @{kbdSec}>@{svgGs} {
-    //     fill: ~"var(--ac-@{accColor})";
-    // }
-    // 复选框控件
-    // #write .md-alert-@{type} .v-svg-input-checkbox>use {
-    //     fill: ~"var(--ac-@{accColor})";
-    // }
     // 高亮
     #write .md-alert-@{type} mark {
         box-shadow: 0 -@markBgHeight 0 0 ~"var(--ac-@{accColor}-fd)" inset;
@@ -1824,7 +1728,7 @@
 
 // ----------
 // 生成 GSA 简约风格样式
-.genGitHubStyleAlertCSS(@type, @accColor) {
+.genGitHubStyleAlertCSS(@type, @accColor, @bgColor) {
     #write .md-alert {
         padding: .25em 1em .5em 1em !important;
         border: @defQuoteBorderWidth solid var(--d-fc);
@@ -1840,6 +1744,11 @@
     // 背景
     #write .md-alert-@{type} {
         border-color: ~"var(--ac-@{accColor}-lg)" !important;
+        .genBackground(@bgColor) when not (@bgColor = none) {
+            @c: ~"var(--ac-@{bgColor}-fd)";
+            background: linear-gradient(@c, @c), linear-gradient(var(--d-bc), var(--d-bc));
+        }
+        .genBackground(@bgColor);
     }
     // 针对 GSA 内的引用微调
     #write .md-alert-@{type} @{quote_details} {
@@ -1859,12 +1768,22 @@
 }
 
 // 生成 GSA 简约风格
-.genGSA_simple() {
-    .genGitHubStyleAlertCSS(note, bu);
-    .genGitHubStyleAlertCSS(tip, gn);
-    .genGitHubStyleAlertCSS(important, pu);
-    .genGitHubStyleAlertCSS(warning, bn);
-    .genGitHubStyleAlertCSS(caution, rd);
+.genGSA(@style) when (@style = simple) {
+    .genGitHubStyleAlertCSS(note, bu, none);
+    .genGitHubStyleAlertCSS(tip, gn, none);
+    .genGitHubStyleAlertCSS(important, pu, none);
+    .genGitHubStyleAlertCSS(warning, bn, none);
+    .genGitHubStyleAlertCSS(caution, rd, none);
+}
+
+// 生成 GSA 简约风格2
+.genGSA(@style) when (@style = simpleEm) {
+    // @bg: ~"linear-gradient(var(--ac-pu-fd),var(--ac-pu-fd)), linear-gradient(var(--d-bc),var(--d-bc))";
+    .genGitHubStyleAlertCSS(note, bu, bu);
+    .genGitHubStyleAlertCSS(tip, gn, gn);
+    .genGitHubStyleAlertCSS(important, pu, pu);
+    .genGitHubStyleAlertCSS(warning, bn, bn);
+    .genGitHubStyleAlertCSS(caution, rd, rd);
 }
 
 // ----------
@@ -1904,7 +1823,7 @@
 }
 
 // 生成 GSA 扁平风格
-.genGSA_flat() {
+.genGSA(@style) when (@style = flat) {
     .genGitHubStyleAlertCssFt(note, bu);
     .genGitHubStyleAlertCssFt(tip, gn);
     .genGitHubStyleAlertCssFt(important, pu);
@@ -1953,7 +1872,7 @@
 }
 
 // 生成 GSA 强调风格
-.genGSA_em() {
+.genGSA(@style) when (@style = em) {
     .genGitHubStyleAlertCssEm(note, bu);
     .genGitHubStyleAlertCssEm(tip, gn);
     .genGitHubStyleAlertCssEm(important, pu);

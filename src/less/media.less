@@ -3,8 +3,8 @@
  * VLOOK™ CSS - @media 相关的样式
  * (配合 base.less 进行使用)
  *
- * V29.0
- * 2025-05-24
+ * V30.0
+ * 2025-06-27
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -58,6 +58,7 @@
     .genHoverStyle(a_kbd);
     .genHoverStyle(a_kbd-img-fill-text);
     .genHoverStyle(q_a_kbd);
+    // .genHoverStyle(q_kbdSec);
 
     .genHoverStyle(kbdSec);
     .genHoverStyle(kbdSec-img-fill-text);
@@ -239,13 +240,10 @@
 
 // 针对小于等于该分辨设备的 UI 调整（仅 PC 等设备才生效的 hover 效果）
 @media screen and (max-width: @gSmallScreenWidth) and (hover: hover) and (pointer: fine) {
-    // .v-btn-group.hover {
     .v-btn-group:hover {
         box-shadow: var(--v-fl-sd), @contrastBorder;
     }
 
-    // .v-chapter-nav-prev.noeffect.hover,
-    // .v-chapter-nav-next.noeffect.hover {
     .v-chapter-nav-prev.noeffect:hover,
     .v-chapter-nav-next.noeffect:hover {
         border-radius: 0;
@@ -269,10 +267,6 @@
         display: none;
     }
 
-    // .v-btn-group.hover {
-    //     box-shadow: var(--v-fl-sd), @contrastBorder;
-    // }
-
     // 逐章导航 UI
     .v-chapter-nav {
         left: 0;
@@ -293,8 +287,6 @@
         width: 20%;
         border-radius: 0;
     }
-    // .v-chapter-nav-prev.noeffect.hover,
-    // .v-chapter-nav-next.noeffect.hover,
     .v-chapter-nav-prev.effect::before,
     .v-chapter-nav-next.effect::before {
         border-radius: 0;
@@ -383,8 +375,7 @@
         margin-left: 0;
     }
 
-    .v-nav-center.mobile,
-    .v-link-info-list {
+    .v-nav-center.mobile {
         bottom: @floatTopBottomOnMobile;
     }
     .v-doc-lib,
@@ -400,7 +391,15 @@
     .v-mask.right,
     .v-mask.bottom,
     .v-mask.center {
-        background: @theme1;
+        background: var(--ac-t1);
+    }
+
+    .v-print-tip {
+        min-width: unset;
+        top: 10px;
+        transform: unset;
+        left: 10px;
+        right: 10px;
     }
 }
 
@@ -747,6 +746,9 @@
             --code-t: var(--code-t-dk);
             --std-code-sd: var(--std-code-sd-dk);
             --rb-code-sd: var(--rb-code-sd-dk);
+            --v-ui-bg: var(--v-ui-bg-dk);
+            --v-btn-bg: var(--v-btn-bg-dk);
+            // --v-btn-bg-o: var(--v-btn-bg-o-dk);
 
             --v-fl-sd: var(--v-fl-sd-dk);
             --v-fl-i-sd: var(--v-fl-i-sd-dk);
@@ -981,3 +983,203 @@
     }
 }
 .genDarkMode();
+
+// ---------------
+// 针对打印时的样式
+@printMargin: 20px;
+@media print {
+    @{writeOnHTML}::before {
+    // typora-export-content:not(.print)::before,
+    // typora-export-content.pdfoff::before {
+        content: "⚠️ 注意 ⚠️\a请使用 VLOOK™ 插件的「另存为 PDF」功能导出，以获得更合适的页面版式！\a\a⚠️ Warning ⚠️\aPlease use the [ Save as PDF ] feature provided by the VLOOK™ plugin to get a more optimized page layout!";
+        text-align: left;
+        white-space: pre-wrap;
+        // padding-top: 4em;
+        padding: 50px 20px;
+        // color: @welcomePageForeColor;
+        color: #FFF;
+        // background: @welcomePageBgColor;
+        background: var(--ac-rd);
+        // font: italic var(--v-f-w-bd) 1.5em/10 var(--v-f-fm-stt); // [style] [weight] [size/[line-height]] [family]
+        // line-height: 2;
+        // text-align: center;
+        // overflow: auto;
+        // top: 0;
+        // left: 0;
+        // width: 100%;
+        // height: auto;
+        // height: 100vh;
+        // position: fixed;
+        // z-index: 7000;
+    }
+    body.pdfoff::before {
+    // typora-export-content.pdfoff::before {
+    // body.pdfoff @{writeOnHTML}::before {
+        content: "抱歉！本页面不支持生成 PDF！\a\aSorry! PDF generation is not supported on this page!" !important;
+        text-align: left;
+        white-space: pre-wrap;
+        // display: block !important;
+        padding: 50px 20px;
+        color: var(--d-bc);
+        // background: var(--ac-rd);
+        font: italic var(--v-f-w-bd) 1.5em/10 var(--v-f-fm-stt); // [style] [weight] [size/[line-height]] [family]
+        line-height: 2;
+        text-align: center;
+        overflow: auto;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        height: 100vh;
+        position: fixed;
+        z-index: 7000;
+    }
+
+    // 不是使用 VLOOK 打印模式进行打印为 PDF 时样式
+    body:not(.print) .v-print-tip {
+        // display: block;
+        visibility: visible;
+        font-size: 1.25em;
+        padding: 50px 20px;
+        text-align: left;
+        color: #FFF;
+        background: var(--ac-rd);
+        // position: absolute;
+        // width: 100%;
+        // height: 100%;
+    }
+    body.pdfoff .v-print-tip {
+        visibility: hidden !important;
+    }
+    body:not(.print) #write > * {
+        // display: none !important;
+        opacity: 0 !important;
+    }
+
+    // ---------------
+    // 打印时隐藏的元素
+    #write p>em:only-child>sup:only-child, // 页签组语法
+    .v-chapter-nav,
+    .v-toolbar,
+    .v-status-bar,
+    .v-content-assistor,
+    .v-mask,
+    .v-link-info-list,
+    .v-font-style,
+    .v-font-style-info,
+    .v-nav-center,
+    .v-nav-center-handle,
+    .v-nav-history,
+    .v-more-doc-content-before,
+    .v-more-doc-content-after,
+    body.print .v-print-tip,
+    .v-info-tips {
+        display: none !important;
+    }
+
+    // ---------------
+    // 分页控制
+    h1,
+    .md-toc,
+    .footnotes-area {
+       break-before: page; // 强制在新页开始
+       margin-top: @printMargin !important;
+    }
+    .v-doc-title + .md-toc, // 无封面时，目录强制分页
+    @{backcover} { // 封底不强制分页
+        break-before: unset;
+    }
+
+    // ---------------
+    // 打印时调整样式的元素
+    #write {
+        margin: @printMargin !important;
+        margin-left: @printMargin !important;
+    }
+
+    figure,
+    pre,
+    blockquote {
+        white-space: pre-wrap; // 允许自动换行
+        overflow-wrap: break-word; // 单词断行
+        page-break-inside: auto; // 允许分页中断
+        break-inside: auto;       // 新规范写法
+    }
+
+    summary,
+    blockquote {
+        break-inside: avoid;
+        page-break-inside: avoid; /* 兼容老浏览器 */
+    }
+}
+
+body.print .v-doc-title {
+    opacity: 1;
+    font: var(--v-f-w-tt) 1.5em var(--v-f-fm-h);
+    color: @h1Color;
+    background: @h1Bg;
+    padding: @h1Padding;
+    margin: 5em 0 8em;
+    font-size: @h1FontSize;
+    box-shadow: @h1Shadow;
+    text-stroke: @h1TextStroke;
+    text-shadow: @h1TextShadow;
+    text-align: @h1TextAlign;
+    border-radius: @h1BorderRadius;
+    border-left: @h1BorderLeft;
+    border-right: @h1BorderRight;
+    border-top: @h1BorderTop;
+    border-bottom: @h1BorderBottom;
+}
+
+body.print .v-print-tip {
+    visibility: visible;
+}
+
+body.print :is(
+#write p>em:only-child>sup:only-child, // 页签组语法
+.v-chapter-nav,
+.v-toolbar,
+.v-status-bar,
+.v-content-assistor,
+.v-mask,
+.v-link-info-list,
+.v-font-style,
+.v-font-style-info,
+.v-nav-center,
+.v-nav-center-handle,
+.v-nav-history,
+.v-fill-width,
+.v-more-doc-content-before,
+.v-more-doc-content-after) {
+    display: none !important;
+}
+
+body.print table {
+    white-space: pre-wrap !important;
+}
+
+body.print #write .v-post-card {
+    display: block;
+    position: relative;
+    border-radius: 0 0 var(--v-r-b) var(--v-r-b-xc);
+}
+
+// 取消所有交互，避免触发 hover、active 等样式
+body.print #write {
+    // margin-left: 0 !important;
+    // to-do：正式发布前需要启用以下内容
+    pointer-events: none;
+}
+
+body.print #write.max.fill-width {
+    // margin-left: unset !important;
+    // margin-left: @printMargin;
+    padding: 0 !important;
+    margin: @printMargin !important;
+}
+
+body.print content::before,
+body.print .typora-export-content::before {
+    display: none;
+}

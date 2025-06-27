@@ -1,6 +1,6 @@
 /**************************************
  *
- * VLOOK™ 模板主题
+ * VLOOK™ 内置主题
  *
  * Powered by MAX°孟兆
  *
@@ -15,19 +15,19 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V29.0";
+@themeVer: "V30.0";
 @themeName: "vlook-joint";
 @themeDesc: "Joint";
 
 // 指定字体主题
-// .applyFontStyle(local);
-// .applyFontStyle(sans);
 .applyFontStyle(albb);
 // 指定主题配套的圆角
 .applyThemeRadius(big);
+// 指定 kbd 按钮风格
+.applyKbdRadius(big);
 // 文档背景使用图片
 .applyDocBgImg(@docBgImgLight_Grid2, @docBgImgDark_Grid2);
-// 表格、插图指定居中对齐
+// 表格、插图指定对齐方式
 .genTableAndFigureAlign(center);
 // 生成指定的表格样式
 .genTableStyle(modern);
@@ -50,30 +50,15 @@
 @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
 @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
 
-@themeForeColor: @theme1;
-@themeForeColorFade: fade(@themeForeColor, 50%);;
-@themeBgColor: @theme1;
-@themeBgColorFade: fade(@themeBgColor, 50%);
-@themeBgColorDark: darken(@themeBgColor, 35%);
-@themeBgColorAlt: lighten(@themeBgColor, 30%);
-
 // 标题色
 @headerColor: darken(@theme1, 5%);
-@headerColorDark: @theme1Dark;//lighten(@theme1Dark, 5%);
-// 渐变标题色 h1-h5
-// @lgHeaderBg: none;
-// @lgHeaderBgClip: inherit;
-// @lgHeaderColor: @headerColor;
+// @headerColorDark: @theme1Dark;
 
 // 6 级标题前缀内容
 @h6BeforeContent: "⦿" @h6NumSeparator;
-// @tocHeaderNumColor: @docTextColorLightFade;
-//@contentHeaderNumColor: darken(@themeBgColorFade, 10%);
 @headerBackground: linear-gradient(90deg, var(--h-bg-end), var(--h-bg-start), var(--h-bg-end));
-// @continuousHeaderBG: none;
 @headerTextAlign: center;
 @headerPadding: 5px 0;
-//@headerLetterSpacing: 0;//0.15em;
 
 @h1BorderLeft: 10px solid var(--h-box-sd);
 @h2BorderLeft: 10px solid var(--h-box-sd);
@@ -125,20 +110,11 @@
 
 // 按钮色
 @buttonForeColor: @theme3;
-@buttonForeHoverColor: #FFF;//@theme1;
-@buttonBgColor: @themeBgColor;
-// 文库按钮颜色
-@docLibButtonForeColor: @buttonForeColor;
-@docLibButtonForeHoverColor: @buttonForeHoverColor;
-@docLibButtonBgColor: @buttonBgColor;
-// 指定 kbd 按钮风格
-.applyKbdRadius(big);
 
 // 链接颜色
 @aBorderWidth: 2px;
 @aColor: @headerColor;
 @aColorDark: @headerColorDark;
-// @alinecolor: @theme2;
 @aHoverColor: @theme2;
 @aHoverColorDark: @theme2Dark;
 @aActiveColor: desaturate(@aHoverColor, 25%);
@@ -162,11 +138,11 @@
 @backcoverTextColor: @coverTextColor;
 
 // 对比度边框色，用于主题色与背景色对比度比较低时的边缘视觉识别
-@contrastBorder: 0 0 0 0 transparent;
-@contrastBorderForCover: @contrastBorder;//0 0 0 2px rgba(34, 36, 38, .2) inset;
+// @contrastBorder: 0 0 0 0 transparent;
+// @contrastBorderForCover: @contrastBorder;//0 0 0 2px rgba(34, 36, 38, .2) inset;
 
 // 封面背景设置
-@coverBackgroundColor: @themeBgColor;
+@coverBackgroundColor: @theme1;
 @coverBackgroundImage: var(--thm-c-logo), var(--thm-c-wmark), var(--thm-c-bg-bottom);
 @coverBgSize: 80px 80px, auto, 325px 70px;
 @coverBgSizeForMobile: @coverBgSize;
@@ -202,9 +178,10 @@
 }
 
 @import "../base";
+@import "../mermaid";
 
 // 生成编辑时引用块折叠持续展开
-.genSummaryOnEditing(expanded);
+.genSummaryOnEditing(open);
 
 // 生成段落加粗扩展样式
 .genParaFormatBold();
@@ -224,4 +201,10 @@
 .genBadgeStyle(cap, dyn);
 
 // 生成 GSA 样式
-.genGSA_simple();
+.genGSA(simple);
+
+// 生成大纲分类索引样式
+.genSegmentBtn(std);
+
+// 生成遮罩背景风格
+.genMaskBackground(std);
