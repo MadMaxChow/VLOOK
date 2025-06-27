@@ -428,34 +428,6 @@ _^tab^_
 
 如果你有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-# 品牌周边
-
-## 墙纸
-
-==与官方主题同款，附有 **常用语法**、**色号** 的参考==
-
-![VLOOK™ Wallpaper](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-preview.png?srcset=@2x)
-
-<u>选择需要的分辨率版本</u>
-
-
-
-[<kbd>1336 × 768</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1336x768.png)  [<kbd>1440 × 900</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)  [<kbd>1920 × 1080</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)  [<kbd>2560 × 1440</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)  [<kbd>2560 × 1600</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1600.png)
-
-## 实物周边
-
-==与官方主题同款，附有 **常用语法**、**色号** 的参考==
-
-![鼠标垫](pic/pad_mouse-25x30-preview.png?srcset=@2x)
-
-**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  我要选购 - 鼠标垫</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
-
-
-
-![桌面垫（键盘 & 鼠标垫）](pic/pad_desk-30x70-preview.png?srcset=@2x)
-
-**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  我要选购 - 桌面垫（键盘 & 鼠标垫)</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
-
 # 增值服务
 
 ## 主题定制服务
@@ -491,6 +463,34 @@ _^tab^_
 > - **欢迎您向 VLOOK™ 投送自己的使用 Typora + VLOOK™ 的范例～与大家分享你的最佳实践经验～**_~RdOg~_
 >
 > - 更多的实践范例详见下载包中的目录 *==released\\[samples](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)==*
+
+# 品牌周边
+
+## 墙纸
+
+==与官方主题同款，附有 **常用语法**、**色号** 的参考==
+
+![VLOOK™ Wallpaper](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-preview.png?srcset=@2x)
+
+<u>选择需要的分辨率版本</u>
+
+
+
+[<kbd>1336 × 768</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1336x768.png)  [<kbd>1440 × 900</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)  [<kbd>1920 × 1080</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)  [<kbd>2560 × 1440</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)  [<kbd>2560 × 1600</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1600.png)
+
+## 实物周边
+
+==与官方主题同款，附有 **常用语法**、**色号** 的参考==
+
+![鼠标垫](pic/pad_mouse-25x30-preview.png?srcset=@2x)
+
+**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  我要选购 - 鼠标垫</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
+
+
+
+![桌面垫（键盘 & 鼠标垫）](pic/pad_desk-30x70-preview.png?srcset=@2x)
+
+**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  我要选购 - 桌面垫（键盘 & 鼠标垫)</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
 
 # 即将推出...
 

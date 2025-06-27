@@ -44,32 +44,6 @@ vlook-doc-lib:
 
 > Select language ❯ *[<kbd>🇨🇳 简体中文</kbd>](vip.md)*
 
-# Brand Merchandise
-
-## Wallpaper
-
-==The same style as the official theme, with references to **common grammar** and **color codes**==
-
-![VLOOK™ Wallpaper](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-preview.png?srcset=@2x)
-
-<u>Choose the required resolution version</u>
-
-
-
-[<kbd>1336 × 768</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1336x768.png)  [<kbd>1440 × 900</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)  [<kbd>1920 × 1080</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)  [<kbd>2560 × 1440</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)  [<kbd>2560 × 1600</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1600.png)
-
-## Physical Products
-
-![Mouse Pad](pic/pad_mouse-25x30-preview.png?srcset=@2x)
-
-**[<kbd>![](pic/icon-vip.svg?fill=text#icon) I Want - Mouse Pad</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
-
-
-
-![Desk Pad (Keyboard & Mouse Pad)](pic/pad_desk-30x70-preview.png?srcset=@2x)
-
-**[<kbd>![](pic/icon-vip.svg?fill=text#icon) I Want - Desk Pad</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
-
 # Theme Customization Service
 
 ==Considering various personalized display requirements, such as **specialized documents with strong thematic focus, or brand presentation for clients**_~RdOgRd~_, we provide **custom theme services to meet individual needs**_~BnGdBn~_～==
@@ -249,6 +223,32 @@ vlook-doc-lib:
 > [![Click to view actual effect](pic/sample-a-quiz.png?srcset=@2x#card#border#fill "Interactive Q&A can be this simple")](sample-a-quiz.html?ws=off)
 >
 > _~T1!~_
+
+# Brand Merchandise
+
+## Wallpaper
+
+==The same style as the official theme, with references to **common grammar** and **color codes**==
+
+![VLOOK™ Wallpaper](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-preview.png?srcset=@2x)
+
+<u>Choose the required resolution version</u>
+
+
+
+[<kbd>1336 × 768</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1336x768.png)  [<kbd>1440 × 900</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)  [<kbd>1920 × 1080</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)  [<kbd>2560 × 1440</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)  [<kbd>2560 × 1600</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1600.png)
+
+## Physical Products
+
+![Mouse Pad](pic/pad_mouse-25x30-preview.png?srcset=@2x)
+
+**[<kbd>![](pic/icon-vip.svg?fill=text#icon) I Want - Mouse Pad</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
+
+
+
+![Desk Pad (Keyboard & Mouse Pad)](pic/pad_desk-30x70-preview.png?srcset=@2x)
+
+**[<kbd>![](pic/icon-vip.svg?fill=text#icon) I Want - Desk Pad</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
 
 # Contact Us
 

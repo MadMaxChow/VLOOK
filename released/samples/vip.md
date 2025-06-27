@@ -45,32 +45,6 @@ vlook-doc-lib:
 
 > Select language ❯ *[<kbd>English</kbd>](vip-en.md)*
 
-# 品牌周边
-
-## 墙纸
-
-==与官方主题同款，附有 **常用语法**、**色号** 的参考==
-
-![VLOOK™ Wallpaper](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-preview.png?srcset=@2x)
-
-<u>选择需要的分辨率版本</u>
-
-
-
-[<kbd>1336 × 768</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1336x768.png)  [<kbd>1440 × 900</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)  [<kbd>1920 × 1080</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)  [<kbd>2560 × 1440</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)  [<kbd>2560 × 1600</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1600.png)
-
-## 实物周边
-
-![鼠标垫](pic/pad_mouse-25x30-preview.png?srcset=@2x)
-
-**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  我要选购 - 鼠标垫</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
-
-
-
-![桌面垫（键盘 & 鼠标垫）](pic/pad_desk-30x70-preview.png?srcset=@2x)
-
-**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  我要选购 - 桌面垫</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
-
 # 主题定制服务
 
 ==考虑众多的个性展示的需求，如**专项、专题性强的文档，或是面向客户带品牌展示**_~RdOgRd~_等需求，我们提供了**定制主题的服务，满足个性化的需要**_~BnGdBn~_～==
@@ -257,11 +231,31 @@ vlook-doc-lib:
 >
 > _~T1!~_
 
----
+# 品牌周边
 
----
+## 墙纸
+
+==与官方主题同款，附有 **常用语法**、**色号** 的参考==
+
+![VLOOK™ Wallpaper](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-preview.png?srcset=@2x)
+
+<u>选择需要的分辨率版本</u>
 
 
+
+[<kbd>1336 × 768</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1336x768.png)  [<kbd>1440 × 900</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)  [<kbd>1920 × 1080</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)  [<kbd>2560 × 1440</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)  [<kbd>2560 × 1600</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1600.png)
+
+## 实物周边
+
+![鼠标垫](pic/pad_mouse-25x30-preview.png?srcset=@2x)
+
+**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  我要选购 - 鼠标垫</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
+
+
+
+![桌面垫（键盘 & 鼠标垫）](pic/pad_desk-30x70-preview.png?srcset=@2x)
+
+**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  我要选购 - 桌面垫</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
 
 # 咨询我们
 

@@ -385,6 +385,40 @@ The online version of the plugin file is: *==released/plugin/**plugin_live.txt**
 
 If you have any suggestions and needs, please feel free to give feedback~ [![Freeback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™&body=Hi, "Freeback via Email")  [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Telegram Channel")
 
+# Premium Services
+
+## Theme Customization Service
+
+<u>The "**Customization Service**" for Themes is now open! Here are some reference cases for private customization.</u>
+
+[![定制主题](pic/vlook-theme-vip-demo.gif)](https://madmaxchow.github.io/VLOOK/vip.html)
+
+
+
+**[<kbd>![](pic/icon-more.svg?fill=text) Learn more</kbd>](vip-en.md)**
+
+## Plugin Feature Customization Services
+
+==For more personalized needs in document layout, interaction, and publishing, we offer custom plugin feature development~==
+
+**[<kbd>💬 Contact Us</kbd>](vip-en.md#Contact Us)**
+
+## Typesetting and Editing Services
+
+![VLOOK™ Typesetting and Editing Services](pic/vlook-te.png?srcset=@2x)
+
+<u>Based on the content and audience of your document, fully utilize the numerous features of Typora + VLOOK™, to provide services like **Docment Typesetting**, **Content Revision**, **Knowledge Base Construction**, **Publishing Guidance**, **Website Hosting**.</u>
+
+**[<kbd>![](pic/icon-more.svg?fill=text) Learn more</kbd>](https://madmaxchow.github.io/VLOOK/vip.html)**
+
+
+
+> [!TIP]
+>
+> - **Welcome to submit your own examples of using Typora + VLOOK™ ~ Share your best practice experiences with everyone ~**_~GnOg~_
+>
+> - For more practical samples, please refer to the directory in the download package *==released\\[samples](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)==*
+
 # Brand Merchandise
 
 ## Wallpaper
@@ -412,40 +446,6 @@ If you have any suggestions and needs, please feel free to give feedback~ [![Fre
 ![Desk Pad (Keyboard & Mouse Pad)](pic/pad_desk-30x70-preview.png?srcset=@2x)
 
 **[<kbd>![](pic/icon-vip.svg?fill=text#icon) I Want - Desk Pad</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
-
-# Premium Services
-
-## Theme Customization Service
-
-<u>The "**Customization Service**" for Themes is now open! Here are some reference cases for private customization.</u>
-
-[![定制主题](pic/vlook-theme-vip-demo.gif)](https://madmaxchow.github.io/VLOOK/vip.html)
-
-
-
-**[<kbd>Learn more about Customized Themes</kbd>](vip-en.md)**
-
-## Plugin Feature Customization Services
-
-==For more personalized needs in document layout, interaction, and publishing, we offer custom plugin feature development~==
-
-**[<kbd>💬 Contact Us</kbd>](vip-en.md#Contact Us)**
-
-## Typesetting and Editing Services
-
-![VLOOK™ Typesetting and Editing Services](pic/vlook-te.png?srcset=@2x)
-
-<u>Based on the content and audience of your document, fully utilize the numerous features of Typora + VLOOK™, to provide services like **Docment Typesetting**, **Content Revision**, **Knowledge Base Construction**, **Publishing Guidance**, **Website Hosting**.</u>
-
-**[<kbd>![](pic/icon-more.svg?fill=text) Learn more about Value-added Services</kbd>](https://madmaxchow.github.io/VLOOK/vip.html)**
-
-
-
-> [!TIP]
->
-> - **Welcome to submit your own examples of using Typora + VLOOK™ ~ Share your best practice experiences with everyone ~**_~GnOg~_
->
-> - For more practical samples, please refer to the directory in the download package *==released\\[samples](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)==*
 
 # Coming Soon ...
 
