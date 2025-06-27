@@ -12,7 +12,8 @@ keywords:
 - Table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - Picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
 - Online video,streaming media,Bilibili video,Watermelon video,Douyin video,Tencent video
-- Content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture
+- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
+
 - Text Color,Paragraph Layout,Button,Button Link,Primary Button,Secondary Button,Super Button, Tab Group,Columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - Link map,link specification,link check,link recognition,link conversion
 - Design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
@@ -23,7 +24,7 @@ keywords:
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
-- 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画
+- 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
 - 设计,需求,文档,博客,手册,指南,知识库,教程,方案,教育,笔记,日记
@@ -32,7 +33,7 @@ vlook-doc-lib:
 - [How to Start?](index-en.html?target=index "Introduction, Installation and Configuration, Language Packs")
 - [Guide • Basic](guide-en.html?target=guide "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scale / Rotation / Flip / Filter / Postcard / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
 - [Guide ▲ Advanced](guide2-en.html?target=guide "Columns, Captions, Buttons, Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
-- [Guide ★ Exploration](guide3-en.html?target=guide "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
+- [Guide ★ Exploration](guide3-en.html?target=guide "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Save as PDF / Print to PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
 - [More Content](vlook-lib-en.html "VLOOK™ Full Feature Index Table")
 
 ---
@@ -43,25 +44,65 @@ vlook-doc-lib:
 
 > Select language ❯ *[<kbd>🇨🇳 简体中文</kbd>](vip.md)*
 
-# Custom Theme Services
+# Brand Merchandise
 
-## Theme Customization Service
+## Wallpaper
+
+==The same style as the official theme, with references to **common grammar** and **color codes**==
+
+![VLOOK™ Wallpaper](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-preview.png?srcset=@2x)
+
+<u>Choose the required resolution version</u>
+
+
+
+[<kbd>1336 × 768</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1336x768.png)  [<kbd>1440 × 900</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)  [<kbd>1920 × 1080</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)  [<kbd>2560 × 1440</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)  [<kbd>2560 × 1600</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1600.png)
+
+## Physical Products
+
+![Mouse Pad](pic/pad_mouse-25x30-preview.png?srcset=@2x)
+
+**[<kbd>![](pic/icon-vip.svg?fill=text#icon) I Want - Mouse Pad</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
+
+
+
+![Desk Pad (Keyboard & Mouse Pad)](pic/pad_desk-30x70-preview.png?srcset=@2x)
+
+**[<kbd>![](pic/icon-vip.svg?fill=text#icon) I Want - Desk Pad</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
+
+# Theme Customization Service
 
 ==Considering various personalized display requirements, such as **specialized documents with strong thematic focus, or brand presentation for clients**_~RdOgRd~_, we provide **custom theme services to meet individual needs**_~BnGdBn~_～==
 
-**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  Submit My Custom Theme Request</kbd>](https://forms.gle/Gs5fqRUpXexeMBNy9)**
+---
 
-## Custom Theme Case Showcase 
+> <u>" I know exactly the effect I want, and can directly submit customization options. "</u>
+>
+> [<kbd>![](pic/icon-vip.svg?fill=text#icon)  Submit My Custom Theme Request</kbd>](https://forms.gle/Gs5fqRUpXexeMBNy9)
+>
+> 
+>
+> _~T1~_
 
-<u>Below are some case showcases of custom themes (click to preview effects)～</u>
+> <u>" I only have a rough idea, please help me brainstorm and choose. "</u>
+>
+> [<kbd>![](pic/qico-theme-light.svg?fill=text#icon)  Submit My Ideas</kbd>](https://forms.gle/tTZ6Eohn8YZ9WfWJ6)
+>
+> 
+>
+> _~T2~_
+
+
+
+<u>**Below are some case showcases of custom themes (click to preview effects)～**</u>
 
 ---
 
 ---
 
-> [![AIGC software A-share listed company Wondershare (300624.SZ) • Technical support documents](pic/vip-wondershare.png?srcset=@2x#card#r "Wondershare Support")](vip-wondershare.html)
+> [![AIGC software A-share listed company Wondershare (300624.SZ) • Technical support documents](pic/vip-wondershare.png?srcset=@2x#card#r "Wondershare Support")](theme-vip-wondershare.html)
 
-> [![Liby Technology Group ▰ Digital Intelligence Center product documents](pic/vip-dic.png?srcset=@2x#card "Liby DIC")](vip-dic.html)
+> [![Liby Technology Group ▰ Digital Intelligence Center product documents](pic/vip-dic.png?srcset=@2x#card "Liby DIC")](theme-vip-dic.html)
 
 > ![TIFAMY (Imitation and replication, informal customization)](pic/vip-tifamy.png?srcset=@2x#card "TIFAMY")
 
@@ -69,19 +110,19 @@ vlook-doc-lib:
 
 ---
 
-> [![PEG Technology PIG CLOUD whitepaper](pic/vip-pig.png?srcset=@2x#card "PIG CLOUD")](vip-pig.html)
+> [![PEG Technology PIG CLOUD whitepaper](pic/vip-pig.png?srcset=@2x#card "PIG CLOUD")](theme-vip-pig.html)
 
 > ![TALAS (Imitation and replication, informal customization)](pic/vip-talas.png?srcset=@2x#card "TALAS")
 
-> [![BASF • Chemetall experimental records](pic/vip-chemetall.png?srcset=@2x#card "BASF • Chemetall")](vip-chemetall.html)
+> [![BASF • Chemetall experimental records](pic/vip-chemetall.png?srcset=@2x#card "BASF • Chemetall")](theme-vip-chemetall.html)
 
 ---
 
 ---
 
-> [![Personal documents](pic/vip-rainynight.png?srcset=@2x#card "RainyNight")](vip-rainynight.html)
+> [![Personal documents](pic/vip-morandi-l.png?srcset=@2x#card "Morandi-L")](theme-vip-morandi-l.html)
 
-> [![Personal documents](pic/vip-bug320.png?srcset=@2x#card "Bug320")](vip-bug320.html)
+> [![Personal documents](pic/vip-bug320.png?srcset=@2x#card "Bug320")](theme-vip-bug320.html)
 
 > ![STARTBUGS (Imitation and replication, informal customization)](pic/vip-startbugs.png?srcset=@2x#card "STARTBUGS")
 
@@ -89,41 +130,41 @@ vlook-doc-lib:
 
 ---
 
-> [![Guangdong OuGuan Smart Fan • Product manual](pic/vip-ouguan.png?srcset=@2x#card "OuGuan")](vip-ouguan.html)
+> [![Guangdong OuGuan Smart Fan • Product manual](pic/vip-ouguan.png?srcset=@2x#card "OuGuan")](theme-vip-ouguan.html)
 
-> [![Sun Yat-sen University • HXlab research documents](pic/vip-hxlab.png?srcset=@2x#card "Sun Yat-sen University • HXlab")](vip-hxlab.html)
+> [![Sun Yat-sen University • HXlab research documents](pic/vip-hxlab.png?srcset=@2x#card "Sun Yat-sen University • HXlab")](theme-vip-hxlab.html)
 
-> [![Personal documents](pic/vip-blw-note.png?srcset=@2x#card "BLW note")](vip-blw-note.html) 
-
----
-
----
-
-> [![Personal documents](pic/vip-huangcp.png?srcset=@2x#card "Huangcp")](vip-huangcp.html)
-
-> [![Hebei YiKuan Measurement & Control Technology • Products and services documents](pic/vip-yikuan.png?srcset=@2x#card "YiKuan")](vip-yikuan.html)
-
-> [![Standard documents • National/industry standard documents](pic/vip-gb-t.png?srcset=@2x#card "GB/T")](vip-gb-t.html)
+> [![Personal documents](pic/vip-blw-note.png?srcset=@2x#card "BLW note")](theme-vip-blw-note.html) 
 
 ---
 
 ---
 
-> [![Personal documents](pic/vip-rainynight2.png?srcset=@2x#card "RainyNight 2")](vip-rainynight2.html)
+> [![Personal documents](pic/vip-huangcp.png?srcset=@2x#card "Huangcp")](theme-vip-huangcp.html)
 
-> [![Personal documents](pic/vip-lspzc.png?srcset=@2x#card "Lspzc")](vip-lspzc.html)
+> [![Hebei YiKuan Measurement & Control Technology • Products and services documents](pic/vip-yikuan.png?srcset=@2x#card "YiKuan")](theme-vip-yikuan.html)
 
-> [![Usage of Teaching Materials from Wangdao Training Institute](pic/vip-cskaoyan.png?srcset=@2x#card "Wangdao Training")](vip-cskaoyan.html)
+> [![Personal documents](pic/vip-wy515.png?srcset=@2x#card "WY515")](theme-vip-wy515.html)
+
+---
+
+---
+
+> [![Personal documents](pic/vip-rainynight2.png?srcset=@2x#card "RainyNight 2")](theme-vip-rainynight2.html)
+
+> [![Personal documents](pic/vip-lspzc.png?srcset=@2x#card "Lspzc")](theme-vip-lspzc.html)
+
+> [![Usage of Teaching Materials from Wangdao Training Institute](pic/vip-cskaoyan.png?srcset=@2x#card "Wangdao Training")](theme-vip-cskaoyan.html)
 
 ---
 
 ---
 
-> [![Personal documents](pic/vip-lipper.png?srcset=@2x#card "Lipper")](vip-lipper.html)
+> [![Personal documents](pic/vip-lipper.png?srcset=@2x#card "Lipper")](theme-vip-lipper.html)
 
-> [![Personal documents](pic/vip-vsjc.png?srcset=@2x#card "VSJC")](vip-vsjc.html)
+> [![Personal documents](pic/vip-vsjc.png?srcset=@2x#card "VSJC")](theme-vip-vsjc.html)
 
-> [![Personal documents](pic/vip-hello.png?srcset=@2x#card "Hello")](vip-hello.html)
+> [![Personal documents](pic/vip-hello.png?srcset=@2x#card "Hello")](theme-vip-hello.html)
 
 ---
 
@@ -131,14 +172,49 @@ vlook-doc-lib:
 
 > ![Usage of Teaching Materials from OldBoy Training Institute](pic/vip-oldboy.png?srcset=@2x#card "OldBoy Training Institute")
 
+> [![Personal documents](pic/vip-siyuan-frost.png?srcset=@2x#card "SiYuan Frost")](theme-vip-siyuan-frost.html)
 
-**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  Submit My Custom Theme Request</kbd>](https://forms.gle/Gs5fqRUpXexeMBNy9)**
+> [![Personal documents](pic/vip-siyuan-aurora.png?srcset=@2x#card "SiYuan Aurora")](theme-vip-siyuan-aurora.html)
+
+---
+
+---
+
+> [![Sun Yat-sen University • AI Lab research documents](pic/vip-sysu-ai-lab.png?srcset=@2x#card "SYSU AI Lab")](theme-vip-sysu-ai-lab.html)
+
+> [![Personal documents](pic/vip-rainynight.png?srcset=@2x#card "RainyNight")](theme-vip-rainynight.html)
+
+> [![Standard documents • National/industry standard documents](pic/vip-gb-t.png?srcset=@2x#card "GB/T")](theme-vip-gb-t.html)
+
+
+
+---
+
+> <u>" I know exactly the effect I want, and can directly submit customization options. "</u>
+>
+> [<kbd>![](pic/icon-vip.svg?fill=text#icon)  Submit My Custom Theme Request</kbd>](https://forms.gle/Gs5fqRUpXexeMBNy9)
+>
+> _~T1~_
+
+> <u>" I only have a rough idea, please help me brainstorm and choose. "</u>
+>
+> [<kbd>![](pic/qico-theme-light.svg?fill=text#icon)  Submit My Ideas</kbd>](https://forms.gle/tTZ6Eohn8YZ9WfWJ6)
+>
+> _~T2~_
+
+# Plugin Feature Customization Services
+
+==For more personalized needs in document layout, interaction, and publishing, we offer custom plugin feature development~==
+
+**[<kbd>💬 Contact Us</kbd>](#Contact Us)**
+
+
 
 # Typesetting and Editing Services
 
 ==For your document content and target audience, fully utilize the numerous features of Typora + VLOOK™ to provide document typesetting, content revision, knowledge base setup, publishing guidance, site hosting, HTML publishing and other services.==
 
-![Document typesetting, content revision, knowledge base setup, publishing guidance, site hosting](https://vlook-doc.pages.dev/pic/vlook-te.png?srcset=@2x)
+![Document typesetting, content revision, knowledge base setup, publishing guidance, site hosting](pic/vlook-te.png?srcset=@2x)
 
 <u>Partial examples for reference</u>
 
@@ -180,14 +256,11 @@ vlook-doc-lib:
 
 > **Join discussions and exchanges**
 >
-> [<kbd>💬 Join QQ Group</kbd>](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)    *[<kbd>✈️ Join Telegram Channel</kbd>](https://t.me/vlook_markdown)*
+> [<kbd>💬 QQ Group (805502564)</kbd>](https://qm.qq.com/q/O0tNC6WBWe)    *[<kbd>✈️ Join Telegram Channel</kbd>](https://t.me/vlook_markdown)*
 
 > **Direct contact**
 >
 > [![X/Twitter](https://vlook-doc.pages.dev/pic/x.png#icon)@MadMaxChow](https://x.com/MadMaxChow)   📨 Email: *Click to view**maxchow@qq.com***_~Bu~_
-
-
----
 
 
 

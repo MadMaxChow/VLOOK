@@ -12,7 +12,8 @@ keywords:
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
-- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture
+- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
+
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - link map,link specification,link check,link recognition,link conversion
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
@@ -23,7 +24,7 @@ keywords:
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
-- 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画
+- 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
 - 设计,需求,文档,博客,手册,指南,知识库,教程,方案,教育,笔记,日记
@@ -33,7 +34,7 @@ vlook-doc-lib:
 - [How to Start?](index-en.html?target=_self "Introduction, Installation and Configuration, Language Packs")
 - [Guide • Basic](guide-en.html?target=_self "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Rotation / Flipping / Filters / Postcards / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
 - [Guide ▲ Advanced](guide2-en.html?target=_self "Columns, Captions, Buttons, Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
-- [Guide ★ Exploration](guide3-en.html?target=_self "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
+- [Guide ★ Exploration](guide3-en.html?target=_self "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Save as PDF / Print to PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
 - [Value-added Services](vip-en.html?target=_self "Custom Themes, Document Typesetting and Editing,...")
 - [More Content](vlook-lib-en.html "VLOOK™ Full Feature Index Table")
 - [Report Issues](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
@@ -47,7 +48,7 @@ vlook-doc-lib:
 
 <u>**Thanks for donating to VLOOK™ (partial donor list)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、行川、＊山、＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊山、＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊应、＊销、E＊y、…==
 
 ---
 
@@ -65,93 +66,13 @@ vlook-doc-lib:
 
 # Content Navigation
 
-## Continue Last Reading
-
-*Markdown Fans`Q`*「**Static HTML documents generally can't remember the last reading position～**」
-
-*VLOOK`A`*_~T2~_ VLOOK™ enables every exported static HTML to quickly return to the last reading position.
-
-> **Applicable Scope ••• *`Editing`× Not Applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
-
-- After opening a previously read HTML document, a "Continue Last Reading" button appears in the top-right corner, clicking it returns to the last reading position;
-- This entry will automatically hide shortly after, but can be accessed again via the ![Navigation History](pic/icon-history.svg?darksrc=invert#icon) button (shortcut <kbd>H</kbd>).
-
-## Navigation Center
-
-*Markdown Fans`Q`*「**When documents contain extensive content, just having an outline isn't enough for quick positioning and displaying key resources**」
-
-*VLOOK`A`*_~T2~_ VLOOK™ enhances the table of contents and supports rich indexing of document resources.
-
-> **Applicable Scope ••• *`Editing`× Not Applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
-
-Toggle the ![Navigation Center](pic/icon-outline-nav.svg?darksrc=invert#icon) button on the left toolbar to open/close the navigation center (shortcut <kbd>N</kbd>)
-
-- Displays hierarchical table of contents and various types of "[**Library**](#Document Library Navigation)" entries
-- Categorized indexing of document content, supporting: ==Images==, ==Tables==, ==Code Blocks==, ==Formula==, ==Multimedia==
-- All content supports Plugin Tuning Parameters**keyword** search and Plugin Tuning Parameters**tokenized search** (separate keywords with spaces)
-
-> [!IMPORTANT]
->
-> - For Typora-generated table of contents, add the `[TOC]` marker after the VLOOK™ [cover](guide2-en.md#°Cover & Back Cover);
-> - If the document has no table of contents or categorized indexing, the navigation center will be collapsed by default.
-
-## Chapter Navigation
-
-*Markdown Fans`Q`*「**Besides the outline, I want to browse chapter by chapter in order.**」
-
-*VLOOK`A`*_~T2~_ VLOOK™ automatically provides a "Chapter Navigation Bar" at the top of the document.
-
-> **Applicable Scope ••• *`Editing`× Not Applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
-
-When scrolling into the main content area, a chapter navigation bar automatically appears at the top (hidden when viewing the cover), supporting chapter-by-chapter browsing for levels 1-5.
-
-*==Chapter Navigation Shortcuts==*
-
-|        Chapter Navigation Shortcuts        | Function (when active)        |
-| :----------------------------------------: | ----------------------------- |
-| <kbd>◀</kbd> or <kbd> , </kbd> | Plugin Tuning Parameters**Previous** chapter          |
-| <kbd>▶</kbd> or <kbd> . </kbd> | Plugin Tuning Parameters**Next** chapter              |
-
-## Figure Navigation
-
-*Markdown Fans`Q`*「**I want to quickly browse all images in the document and jump to their locations.**」
-
-*VLOOK`A`*_~T2~_ All images and Mermaid[^Mermaid] charts support quick browsing and one-click jumping.
-
-[^Mermaid]:[Mermaid](https://mermaid.js.org) is JavaScript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.
-
-> **Applicable Scope ••• *`Editing`× Not Applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
-
----
-
-> - Click any image to view it fullscreen, with navigation between images;
-> - In fullscreen mode, click the image to jump to its location in the document.
-
-> Supported image types:
->
-> - All browser-supported images (jpg/png/gif/bmp etc.)
-> - Scripted charts (Mermaid[^Mermaid])
-
-[^Mermaid]: Mermaid is a library for drawing flowcharts, state diagrams, sequence diagrams, Gantt charts, etc., using JS for local rendering, widely integrated in many Markdown editors. See [Mermaid Official Site](https://mermaidjs.github.io) or VLOOK™ example document "[Scripted Charts for Markdown](https://madmaxchow.github.io/VLOOK/chart.md)"
-
-*==Image Navigation Shortcuts==*
-
-|         Image Navigation Shortcuts         | Function (when active)        |
-| :----------------------------------------: | ----------------------------- |
-| <kbd>◀</kbd> or <kbd> , </kbd> | Plugin Tuning Parameters**Previous** image            |
-| <kbd>▶</kbd> or <kbd> . </kbd> | Plugin Tuning Parameters**Next** image                |
-
-###### Long Image & Dual Caption Example
-
-![Normal image example (long images auto-collapse)](pic/normal-pic.jpg "(Image source from internet, copyright unclear)")
-
 ## Document Library Navigation
 
 *Markdown Fans`Q`*「**I have many Markdown documents on similar topics/projects, hoping to organize and access them conveniently after publishing as HTML.**」
 
 *VLOOK`A`*_~T2~_ Configure a dedicated "Library" for each document to quickly access your "document universe".
 
-> **Applicable Scope ••• *`Editing`× Not Applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > - When a "Library" is configured or links exist, a ![Library](pic/icon-doc-lib.svg?darksrc=invert#icon) entry appears in the toolbar and below the table of contents (shortcut <kbd>L</kbd>);
 > - The specified library file opens in the current document's "Library Popup" by default;
@@ -179,7 +100,7 @@ For multiple libraries:
 ```yaml
 vlook-doc-lib: 
 - library1.html
-- [Open as Library](library2.html "Keywords")
+- [Open as Library](library2.html "Supports keyword search in the Navigation Center.")
 - [Open in New Tab](library3.html)
 ```
 
@@ -216,13 +137,83 @@ vlook-doc-lib:
 > - If library links match current document, they won't be added (facilitates template management);
 > - For more about YAML Front Matter settings, see [Plugin Preset Options](#Plugin Preset Options).
 
+## Navigation Center
+
+*Markdown Fans`Q`*「**When documents contain extensive content, just having an outline isn't enough for quick positioning and displaying key resources**」
+
+*VLOOK`A`*_~T2~_ VLOOK™ enhances the table of contents and supports rich indexing of document resources.
+
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+
+Toggle the ![Navigation Center](pic/icon-outline-nav.svg?darksrc=invert#icon) button on the left toolbar to "open / close" the navigation center (shortcut <kbd>N</kbd>)
+
+- Displays hierarchical table of contents and various types of "[**Library**](#Document Library Navigation)" entries
+- Categorized indexing of document content, supporting: ==Images==, ==Tables==, ==Code Blocks==, ==Formula==, ==Multimedia==
+- All content supports Plugin Tuning Parameters**keyword** search and Plugin Tuning Parameters**tokenized search** (separate keywords with spaces)
+
+> [!IMPORTANT]
+>
+> - For Typora-generated table of contents, add the `[TOC]` marker after the VLOOK™ [cover](guide2-en.md#°Cover & Back Cover);
+> - If the document has no table of contents or categorized indexing, the navigation center will be collapsed by default;
+> - On desktop, you can hover your mouse over the left side of the screen to open the "navigation indicator", while on mobile or tablet devices, simply tap to open it.
+
+## Chapter Navigation
+
+*Markdown Fans`Q`*「**Besides the outline, I want to browse chapter by chapter in order.**」
+
+*VLOOK`A`*_~T2~_ VLOOK™ automatically provides a "Chapter Navigation Bar" at the top of the document.
+
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+
+When scrolling into the main content area, a chapter navigation bar automatically appears at the top (hidden when viewing the cover), supporting chapter-by-chapter browsing for levels 1-5.
+
+*==Chapter Navigation Shortcuts==*
+
+|        Chapter Navigation Shortcuts        | Function (when active)        |
+| :----------------------------------------: | ----------------------------- |
+| <kbd>◀</kbd> or <kbd> , </kbd> | Plugin Tuning Parameters**Previous** chapter          |
+| <kbd>▶</kbd> or <kbd> . </kbd> | Plugin Tuning Parameters**Next** chapter              |
+
+## Figure Navigation
+
+*Markdown Fans`Q`*「**I want to quickly browse all images in the document and jump to their locations.**」
+
+*VLOOK`A`*_~T2~_ All images and Mermaid[^Mermaid] charts support quick browsing and one-click jumping.
+
+[^Mermaid]:[Mermaid](https://mermaid.js.org) is JavaScript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.
+
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+
+---
+
+> - Click any image to view it fullscreen, with navigation between images;
+> - In fullscreen mode, click the image to jump to its location in the document.
+
+> Supported image types:
+>
+> - All browser-supported images (jpg/png/gif/bmp etc.)
+> - Scripted charts (Mermaid[^Mermaid])
+
+[^Mermaid]: Mermaid is a library for drawing flowcharts, state diagrams, sequence diagrams, Gantt charts, etc., using JS for local rendering, widely integrated in many Markdown editors. See [Mermaid Official Site](https://mermaidjs.github.io) or VLOOK™ example document "[Scripted Charts for Markdown](https://madmaxchow.github.io/VLOOK/chart.md)"
+
+*==Image Navigation Shortcuts==*
+
+|         Image Navigation Shortcuts         | Function (when active)        |
+| :----------------------------------------: | ----------------------------- |
+| <kbd>◀</kbd> or <kbd> , </kbd> | Plugin Tuning Parameters**Previous** image            |
+| <kbd>▶</kbd> or <kbd> . </kbd> | Plugin Tuning Parameters**Next** image                |
+
+###### Long Image & Dual Caption Example
+
+![Normal image example (long images auto-collapse)](pic/normal-pic.jpg "(Image source from internet, copyright unclear)")
+
 ## Footnote Navigation
 
 In technical/academic papers, footnotes are frequently used for supplementary explanations, citations, or notes.
 
 **VLOOK™ displays footnotes as popups at current position**, avoiding jumps, also accessible via [Navigation Center](#Navigation-Center) [Library List](#Document Library Navigation).
 
-> **Applicable Scope ••• *`Editing`× Not Applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 Click the superscript after this paragraph to view the footnote[^footnote1]
 
@@ -265,20 +256,31 @@ vlook-quick-action:
 ---
 ```
 
+## Continue Last Reading
+
+*Markdown Fans`Q`*「**Static HTML documents generally can't remember the last reading position～**」
+
+*VLOOK`A`*_~T2~_ VLOOK™ enables every exported static HTML to quickly return to the last reading position.
+
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+
+- After opening a previously read HTML document, a "Continue Last Reading" button appears in the top-right corner, clicking it returns to the last reading position;
+- This entry will automatically hide shortly after, but can be accessed again via the ![Navigation History](pic/icon-history.svg?darksrc=invert#icon) button (shortcut <kbd>H</kbd>).
+
 ## Navigation History
 
-> **Applicable Scope ••• *`Editing`× Not Applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 - Automatically records all navigation history within current document;
 - Access via ![Navigation History](pic/icon-history.svg?darksrc=invert#icon) button (shortcut <kbd>H</kbd>).
 
 ---
 
-For feedback: [![QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+For feedback: [![QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe)  [![Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 # Content Assistant
 
-> **Applicable Scope ••• *`Editing`× Not Applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 Context-aware quick functions for different content types: [Tables](guide-en.md#°Table), [Images](guide-en.md#°Image), [Tags](guide2-en.md#Tag), [Scratch Cards](guide2-en.md#Scratch-Cards), [Code & Code Blocks](guide2-en.md#°Code), [Formula](guide2-en.md#°Formula), [Breadcrumbs](guide2-en.md#Breadcrumbs)
 
@@ -353,11 +355,11 @@ Try it on any image/table/code/formula in the document～
 
 ---
 
-For feedback: [![QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+For feedback: [![QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe)  [![Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 # Presentation Tools
 
-> **Applicable Scope ••• *`Editing`× Not Applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ## Laser Pointer
 
@@ -382,7 +384,7 @@ For feedback: [![QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq
 
 *VLOOK`A`*_~T2~_ Click ![Paragraph Roaming](pic/icon-paragraph-nav.svg?darksrc=invert#icon) (or shortcut) to enter mode (vim-inspired).
 
-> **Applicable Scope ••• *`Editing`× Not Applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 *==Paragraph Roaming Shortcuts_vim-inspired_==*
 
@@ -434,11 +436,11 @@ A friendly reading progress indicator has been added at the bottom of the docume
 
 ---
 
-For feedback: [![QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+For feedback: [![QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe)  [![Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 # Publishing Tools
 
-> **Applicable Scope ••• *`Editing`× Not Applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ## Mark Content not to Publish
 
@@ -492,11 +494,22 @@ For feedback: [![QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq
 >
 > This feature can be disabled via [custom themes](vip-en.md), or temporarily deactivated by adding spaces outside the strikethrough `~~` .
 
+## Publish as PDF
+
+<u>After exporting to HTML with VLOOK™, you can enjoy rich document layout capabilities.<br>However, using Typora's built-in "Export to PDF" may result in loss of formatting.<br>To publish in PDF format with full layout support, use the **"Publish as PDF"** feature provided in the VLOOK™ exported HTML.</u>
+
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+
+
+
+1. Open the exported HTML file and click the ![PiP](pic/icon-print.svg?darksrc=invert#icon) button in the bottom-right corner to launch the feature.
+2. Before printing, the page will adapt its styles for print output. Then use your browser’s "**Print to PDF**" / "**Save as PDF** option to generate the final PDF.
+
 ## Social Sharing
 
 ==VLOOK™ supports [Open Graph Protocol](https://ogp.me/) (enhances how content appears when shared on social media), automatically generating share appearances based on preset OGP tags.==
 
-> **Applicable Scope ••• *`Editing`× Not Applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > [!IMPORTANT]
 >
@@ -710,7 +723,7 @@ Displays word count (separating Latin/CJK characters) and estimated reading time
 
 ---
 
-For feedback: [![QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+For feedback: [![QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe)  [![Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 # °Appearance
 
@@ -720,7 +733,7 @@ For feedback: [![QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq
 
 *VLOOK`A`*_~T2~_ Built-in original themes for various scenarios, surpassing expectations for Markdown themes!
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ==Themes apply to Typora UI and all editable elements for visual consistency!==
 
@@ -778,7 +791,7 @@ For feedback: [![QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq
 
 *VLOOK`A`*_~T2~_ Five distinctive font styles for different preferences.
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 <u>Select via ![Font Style](pic/icon-font-style.svg?darksrc=invert#icon) in status bar (shortcut <kbd>A</kbd>)<br>Also configurable via [custom themes](#Template Themes)</u>
 
@@ -839,7 +852,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ All VLOOK™ themes auto-adapt to browser/system dark mode.
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 <u>Toggle via ![Auto Mode](pic/icon-auto-mode.svg?darksrc=invert#icon)/![Light Mode](pic/icon-light-mode.svg?darksrc=invert#icon)/![Dark Mode](pic/icon-dark-mode.svg?darksrc=invert#icon) (shortcut <kbd>D</kbd>)</u>
 
@@ -862,7 +875,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Easily enable grayscale display on specified dates.
 
-> **Applicable Scope ••• *`Editing`× Not Applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 <u>Specify Gray Mode dates via [Plugin Preset Options](#Plugin Preset Options) `vlook-gray-mode` in YAML Front Matter</u>
 
@@ -901,9 +914,21 @@ _^tab^_
 >
 > For more about YAML Front Matter settings, see [Plugin Preset Options](#Plugin Preset Options).
 
+## Browser Theme Color
+
+Supports the browser top bar theme color (brand color) feature on mobile devices, providing a friendlier and more consistent browsing experience.
+
+Browser support for `theme-color` varies across platforms and versions. Currently, major browsers that support this standard include:
+
+- **Safari** <sup>for iOS</sup>
+- **Chrome** <sup>for Android</sup>
+- For more details, see: [Can I use?](https://caniuse.com/?search=theme-color)
+
+
+
 ---
 
-For feedback: [![QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+For feedback: [![QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe)  [![Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 # °Miscellaneous
 
@@ -981,7 +1006,7 @@ vlook-query: Param1=Value&Param2=Value...&ParamN=Value
 | > `capgroup` | Group caption numbering by chapter                           |  `on`   | `off` - Disable<br>`on` - Enable                             |
 | Tab Group |  |  |  |
 | > `tabcap` | Display the caption number (e.g., Table 1-2) in Tabs of [TabGroup](guide2-en.md#°Tab Group) |  `off`  | `off` - Hide<br>`on` - Show                                 |
-| > `tabcap` | Display content type icon in Tabs of [TabGroup](guide2-en.md#°Tab Group) | `on` | `off` - Hide<br>`on` - Show |
+| > `tabico` | Display content type icon in Tabs of [TabGroup](guide2-en.md#°Tab Group) | `line` | `off` - Hide<br>`line` - Line Style<br>`solid` - Solid Style<br>`flat` - Flat Style |
 | Appearance |                                                              |         |                                                              |
 | > `cs`     | Force color scheme                                           | `auto`  | `light` - Force Light Mode<br>`dark` - Force Dark Mode<br>`auto` - Follow system |
 | > `effect` | Animation level                                              |   `2`   | `0` - Off<br>`1` - Standard<br>`2` - Enhanced (e.g. frosted glass) |
@@ -990,6 +1015,7 @@ vlook-query: Param1=Value&Param2=Value...&ParamN=Value
 | > `gray`   | Specify whether to enable [Gray Mode](#Gray Mode) |  `on`   | `off` - Disable<br/>`on` - Enable<br/>`force` - Force enable for preview |
 | > `radius` | Force corner radius (overrides theme)                        |         | `none` - No rounding<br>`small` - Small radius<br>`big` - Large radius |
 | > `sts`    | Status bar display                                           | `show`  | `hide` - Hide<br>`show` - Show                               |
+| > `vico` | Specify the icon style of the plugin UI | `solid` | `solid` - Solid Style<br>`flat` - Flat Style |
 | Interaction |                                                              |         |                                                              |
 | > `fold`   | Auto-collapse long content<br><sup>Separate types with `+`</sup> |  `on`   | `off` - Disable all<br>`on` - Enable all<br><br>Specific types:<br>`table` - Tables<br>`figure` - Images<br>`codeblock` - Code<br>`list` - Lists (unimplemented) |
 | > `tr`     | Default [table reading mode](#Table Reading Mode) state           |  `off`  | `off` - Disable<br>`on` - Enable                             |
@@ -1046,7 +1072,7 @@ vlook-query: Param1=Value&Param2=Value...&ParamN=Value
 
 ---
 
-For feedback: [![QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)  [![Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+For feedback: [![QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe)  [![Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
 # Extended Content
 

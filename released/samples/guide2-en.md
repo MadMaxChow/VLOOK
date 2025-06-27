@@ -12,7 +12,8 @@ keywords:
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
-- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture
+- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
+
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - link map,link specification,link check,link recognition,link conversion
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
@@ -23,7 +24,7 @@ keywords:
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
-- 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画
+- 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
 - 设计,需求,文档,博客,手册,指南,知识库,教程,方案,教育,笔记,日记
@@ -34,7 +35,7 @@ vlook-doc-lib:
 - [How to Start?](index-en.html?target=_self "Introduction, Installation and Configuration, Language Packs")
 - [Guide • Basic](guide-en.html?target=_self "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Rotation / Flipping / Filters / Postcards / Silhouette / High-Definition, Lists / Task List, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
 - [Guide ▲ Advanced](guide2-en.html?target=_self "Columns, Caption, Buttons, Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
-- [Guide ★ Exploration](guide3-en.html?target=_self "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
+- [Guide ★ Exploration](guide3-en.html?target=_self "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Save as PDF / Print to PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
 - [Value-added Services](vip-en.html?target=_self "Custom Themes, Document Typesetting and Editing,...")
 - [More Content](vlook-lib-en.html "VLOOK™ Full Feature Index Table")
 - [Report Issues](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
@@ -48,7 +49,7 @@ vlook-doc-lib:
 
 <u>**Thanks to donors who supported VLOOK™ (partial list) / Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、行川、＊山、＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊山、＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊应、＊销、E＊y、…==
 
 ---
 
@@ -72,7 +73,7 @@ vlook-doc-lib:
 
 *VLOOK`A`*_~T2~_ VLOOK™ automatically enhances Markdown code blocks, supporting current line highlighting, copying all code, and adapting to [Dark Mode](guide3-en.md#Dark-Mode)!
 
-> **Applicable Scope ••• *`Editing`× Not applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ###### Copy Code Example
 
@@ -127,7 +128,7 @@ void quickSort(int arr[], int left, int right) {
 
 ## Code Block Wrapping Layout
 
-> **Applicable Scope ••• *`Editing`× Not applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 Code blocks wrap automatically by default, and can be switched to non-wrapping mode as needed.
 
@@ -145,13 +146,13 @@ Code blocks wrap automatically by default, and can be switched to non-wrapping m
 
 ---
 
-If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "Join QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
+If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 # °Buttons
 
 ## Keyboard Keys
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 <u>VLOOK™ theme supports `<kbd>` tag, and VLOOK™ provides button styles closer to physical keyboards, examples:</u>
 
@@ -181,7 +182,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 *VLOOK`A`*_~T2~_ By enhancing Typora's existing `<kbd>` feature, you can implement various styles of button links - let's get started!
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ### Text Buttons
 
@@ -250,7 +251,7 @@ _^tab^_
 > - Markdown: `[<kbd>VLOOK ![](xxx.svg)</kbd>]`
 > - Effect:
 >
-> [<kbd>VLOOK ![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)    *[<kbd>VLOOK ![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)*    index-en.md**[<kbd>VLOOK ![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)]**
+> [<kbd>VLOOK ![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)    *[<kbd>VLOOK ![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)*    **[<kbd>VLOOK ![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)**
 
 > **Icon Only**
 >
@@ -259,7 +260,7 @@ _^tab^_
 > - Markdown: `[<kbd>![](xxx.svg)</kbd>]`
 > - Effect:
 >
-> [<kbd>![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)    *[<kbd>![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)*    index-en.md**[<kbd>![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)]**
+> [<kbd>![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)    *[<kbd>![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)*    **[<kbd>![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)**
 
 
 
@@ -267,16 +268,54 @@ _^tab^_
 >
 > For images in buttons to automatically adapt colors to button styles (effective after HTML export), recommend using `svg` format and set as "[Image Silhouette](guide-en.md#Image Silhouette)".
 
+## ~~Card-Style Links~~
+
+> **Availability ••• *`While Editing` ✓ Supported*_~Gn~_  *`Exported HTML` ✓ Supported*_~Gn~_**
+
+*Markdown Fan `Q`* 「**Wants to present multiple different links, brief descriptions, and icons in a clean and elegant card layout within Markdown documents**」
+
+*VLOOK `A`*_~T2~_ Just flexibly combine the previously mentioned [Blockquote Subtitles](guide-en.md#Blockquote Subtitle) / [Columns](#Blockquote Columns), [Paragraph Underline](guide.md#Paragraph Underline), [Image Icon Styles](guide.md#Image Display Layout), and [Button Links](#Button Links) as needed～
+
+
+
+Here’s an example of a three-column link card layout:
+
 ---
 
-If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "Join QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
+---
+
+> ![°Document Layout](pic/ico-ex.svg?fill=text&darksrc=invert#icon2x)
+>
+> **This is a simple description of the link**  
+>
+> [This is a text link ![](pic/icon-more.svg?fill=text#icon)](#donate)
+
+> ![°Document Layout](pic/ico-ex.svg?fill=text&darksrc=invert#icon2x)
+>
+> **Card Subtitle 1**
+>
+> This is a summary description of the link target. This is a summary description of the link target.  
+>
+> *[<kbd>A Secondary Button link ![](pic/icon-more.svg?fill=text#icon)</kbd>](#donate)*
+
+> ![°Document Layout](pic/ico-ex.svg?fill=text&darksrc=invert#icon2x)
+>
+> **Card Subtitle 2**
+>
+> <u>This is a summary description of the link target with emphasis style</u>
+>
+> [<kbd>A Standard Button link ![](pic/icon-more.svg?fill=text#icon)</kbd>](#donate)
+
+---
+
+If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 # °Cover & Back Cover
 
 *Markdown Fans`Q`*「**How to make Markdown documents support covers and back covers (like this document's cover and back cover)?**」
 *VLOOK`A`*_~T2~_ After applying VLOOK™'s "[Template Theme](guide3-en.md#Template Themes)", using standard Markdown syntax can make documents support covers and back covers by following VLOOK™ conventions.
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -362,7 +401,7 @@ _^tab^_
 ###### Example of this document's cover content
 
 ```markdown
-###### ~VLOOK™~<br>Give your Markdown a new way to _^play^_<br>──<br><u>Quick Reference Manual<br>(Part.II)</u><br>*Latest version`V29.0`*<br><br>**MAX°Mengzhao**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>Give your Markdown a new way to _^play^_<br>──<br><u>Quick Reference Manual<br>(Part.II)</u><br>*Latest version`V30.0`*<br><br>**MAX°Mengzhao**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 ```
 
 ###### Example of this document's back cover content
@@ -379,7 +418,7 @@ _^tab^_
 
 ---
 
-If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "Join QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
+If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 # °Columns
 
@@ -395,7 +434,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 *VLOOK`A`*_~T2~_ By extending specific combinations of Markdown syntax, we can meet your flexible typesetting needs!
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -548,7 +587,7 @@ Mainly suitable for column needs with subtitles, where content is organized via 
 
 *VLOOK`A`*_~T2~_ By extending specific combinations of Markdown syntax, we can meet your flexible typesetting needs!
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -724,7 +763,7 @@ Mainly suitable for organizing similar content in blocks, where content isn't su
 
 ## GitHub Style Alert Columns
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -760,7 +799,7 @@ Mainly suitable for organizing similar content in blocks, where content isn't su
 
 ---
 
-If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "Join QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
+If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 # °Caption
 
@@ -770,7 +809,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 
 
-> **Applicable Scope ••• *`Editing`× Partially applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ## How to Set Caption?
 
@@ -884,7 +923,7 @@ end
 
 ---
 
-If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "Join QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
+If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 # °Tab Group
 
@@ -894,7 +933,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 *VLOOK`A`*_~T2~_ With VLOOK, freely specify continuous content (tables/illustrations/blockquotes/code blocks/[GitHub Style Alert](#GitHub-Style-Alert)) to display as tab groups!
 
-> **Applicable Scope ••• *`Editing`× Not applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -1150,7 +1189,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Has adapted and optimized in terms of typesetting styles, while supporting automatic matching of "information category names" in multilingual environments.
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 <u>GitHub Style Alert is primarily used in documents for reminders, notes, or emphasizing key information through specific typesetting styles, consisting of corresponding information category icons, names, content, etc.</u>
 
@@ -1377,7 +1416,7 @@ _^tab^_
 
 ---
 
-If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "Join QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
+If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 ## Tag
 
@@ -1385,7 +1424,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 *VLOOK`A`*_~T2~_ Set the "inline code" content in Markdown (like `` `tag` ``) to "italic" to achieve beautiful and practical "tag" formatting!
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 For example, these "**single-level tag**": *`this tag`*_~Rd~_ or  *`that tag`*_~Bu!~_ can also be *`gradient tag`*_~T1T2~_ 
 
@@ -1554,7 +1593,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_  Supports adding hyperlinks to tag. Just select the tag and directly set it according to Markdown hyperlink syntax.
 
-> **Applicable Scope ••• *`Editing`× Not Applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -1573,7 +1612,7 @@ _^tab^_
 
 ---
 
-If you have more needs or suggestions about the above content, feel free to provide feedback at any time～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "Join QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
+If you have more needs or suggestions about the above content, feel free to provide feedback at any time～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 ## Progress Bar
 
@@ -1581,7 +1620,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 *VLOOK`A`*_~T2~_  This is really very Easy for VLOOK™, just combine Markdown's "==bold, highlight==" these two standard formats to achieve it easily
 
-> **Applicable Scope ••• *`Editing`× Not Applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 _^tab^_
 
@@ -1664,7 +1703,7 @@ _^tab^_
 
 ---
 
-If you have more needs or suggestions about the above content, feel free to provide feedback at any time～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "Join QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
+If you have more needs or suggestions about the above content, feel free to provide feedback at any time～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 ## Breadcrumbs
 
@@ -1672,7 +1711,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 *VLOOK`A`*_~T2~_ This is really very Easy for VLOOK™, just combine Markdown's "==italic, highlight==" these two standard formats to achieve easily.
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -1712,7 +1751,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 ---
 
-If you have more needs or suggestions about the above content, feel free to provide feedback at any time～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "Join QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
+If you have more needs or suggestions about the above content, feel free to provide feedback at any time～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 ## Scratch Cards
 
@@ -1720,7 +1759,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 *VLOOK`A`*_~T2~_ This is really very Easy for VLOOK™, just combine Markdown "==italic, bold==" these two standard formats to achieve easily.
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -1770,7 +1809,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 ---
 
-If you have more needs or suggestions about the above content, feel free to provide feedback at any time～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "Join QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
+If you have more needs or suggestions about the above content, feel free to provide feedback at any time～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 ## Phonetic Notation
 
@@ -1780,7 +1819,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 *VLOOK`A`*_~T2~_ By extending Markdown superscript syntax `^ ^`, easily meets practical "phonetic notation" typesetting needs!
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -1839,7 +1878,7 @@ _^tab^_
 
 ### Code-style Phonetic Notation
 
-> **Applicable Scope ••• *`Editing`× Not Applicable*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > [!CAUTION]
 >
@@ -1881,7 +1920,7 @@ _^tab^_
 
 ---
 
-If you have more needs or suggestions about the above content, feel free to provide feedback at any time～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "Join QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
+If you have more needs or suggestions about the above content, feel free to provide feedback at any time～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 # °Mermaid
 
@@ -1895,7 +1934,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 *VLOOK`A`*_~T2~_ Automatically provides deep style optimization.
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -2073,7 +2112,7 @@ end
 
 ---
 
-If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "Join QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
+If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 # °Formula
 
@@ -2164,7 +2203,7 @@ $$
 
 ---
 
-If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "Join QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
+If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 # °Multimedia
 

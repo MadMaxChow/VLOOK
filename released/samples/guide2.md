@@ -12,7 +12,8 @@ keywords:
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
-- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture
+- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
+
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - link map,link specification,link check,link recognition,link conversion
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
@@ -23,7 +24,7 @@ keywords:
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
-- 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画
+- 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
 - 设计,需求,文档,博客,手册,指南,知识库,教程,方案,教育,笔记,日记
@@ -34,7 +35,7 @@ vlook-doc-lib:
 - [如何开始？](index.html?target=_self "简介、安装与配置、语言包")
 - [手册 • 基础](guide.html?target=_self "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/旋转/翻转/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
 - [手册 ▲ 进阶](guide2.html?target=_self "分栏、题注、按钮、代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
-- [手册 ★ 探索](guide3.html?target=_self "内容导航/历史/上次阅读、内容助手/复制/全屏/换行/十字光标/阅读/画中画、演示辅助/激光笔/聚光灯/段落漫游/宽度适配、出版辅助/标记不发布/社交分享/链接地图/长内容折叠/链接检查/链接识别、外观/主题/字体/Light/Dark、自定义/预置选项/调校参数、快捷键、……")
+- [手册 ★ 探索](guide3.html?target=_self "内容导航/历史/上次阅读、内容助手/复制/全屏/换行/十字光标/阅读/画中画、演示辅助/激光笔/聚光灯/段落漫游/宽度适配、出版辅助/标记不发布/发布为PDF/另存为PDF/导出为PDF/打印为PDF/社交分享/链接地图/长内容折叠/链接检查/链接识别、外观/主题/字体/Light/Dark、自定义/预置选项/调校参数、快捷键、……")
 - [增值服务](vip.html?target=_self "定制主题、文档排版编辑、……")
 - [更多内容](vlook-lib.html "VLOOK™ 全部特性索引表")
 - [反馈问题](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
@@ -48,7 +49,7 @@ vlook-doc-lib:
 
 <u>**感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、行川、＊山、＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊山、＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊应、＊销、E＊y、…==
 
 ---
 
@@ -72,7 +73,7 @@ vlook-doc-lib:
 
 *VLOOK`A`*_~T2~_ 针对 Markdown 的代码块进行自动增强，支持高亮当前行、复制全部代码、适配 [Dark Mode](guide3.md#Dark-Mode)！
 
-> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不支持*_~Gy~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 ###### 复制代码示例
 
@@ -127,7 +128,7 @@ void quickSort(int arr[], int left, int right) {
 
 ## 代码块换行版式
 
-> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不支持*_~Gy~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 代码块默认是自动换行，可以根据需要切换为不换行方式。
 
@@ -145,13 +146,13 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °按钮
 
 ## 键盘按键
 
-> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 <u>VLOOK™ 的主题支持将 `<kbd>` 标签，VLOOK™ 提供了更接近物理键盘的按钮样式，示例如下：</u>
 
@@ -181,7 +182,7 @@ void quickSort(int arr[], int left, int right) {
 
 *VLOOK`A`*_~T2~_ 通过增强 Typora 已有的 `<kbd>` 特性，可以让你实现多种风格的按钮链接，一起上车吧～
 
-> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 ### 文字按钮
 
@@ -251,7 +252,7 @@ _^tab^_
 > - 对应 Markdown 内容为（ xxx.svg 是图片）： `[<kbd>访问 ![](xxx.svg)</kbd>]`
 > - 效果如下：
 >
-> [<kbd>![](pic/vlook-hollow-dark.svg?fill=text) VLOOK ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)    *[<kbd>![](pic/vlook-hollow-dark.svg?fill=text) VLOOK ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)*    **[<kbd>![](pic/vlook-hollow-dark.svg?fill=text) VLOOK ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)**
+> [<kbd>![](pic/vlook-hollow-dark.svg?fill=text) 主要按钮 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)    *[<kbd>![](pic/vlook-hollow-dark.svg?fill=text) 次要按钮 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)*    **[<kbd>![](pic/vlook-hollow-dark.svg?fill=text) 超级按钮 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)**
 
 > **仅图片/图标**
 >
@@ -267,16 +268,58 @@ _^tab^_
 >
 > 为能实现按钮中的图片颜色能自动适配按钮样式（导出 HTML 后生效），建议图片使用 `svg` 格式并设置为「[图片剪影](guide.md#图片剪影)」。
 
+## ~~卡片式链接~~
+
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
+
+*Markdown 粉`Q`*「**希望可以在 Markdown 文档中以卡片形式对多个不同的链接、简短说明和图标进行美观、简洁的排版**」
+
+*VLOOK`A`*_~T2~_ 只需要 VLOOK™ 支持的 [引用块小标题](guide.md#引用块小标题) / [分栏](#引用块分栏)、[段落下划线](guide.md#段落下划线)、[图片图标版式](guide.md#icon 版式示例)、[按钮链接](#按钮链接)，根据需要进行灵活组合就可以了～
+
+
+
+例如可以实现下面三种不风风格的卡片式链接（你自己还可以尝试更多排版方式）：
+
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+---
+
+> ![°文档排版](pic/ico-ex.svg?fill=text&darksrc=invert#icon2x) 
+>
+> **简约风格的卡片式链接** 
+>
+> [这是文字链接 ![](pic/icon-more.svg?fill=text#icon)](#打赏)
+
+> ![°文档排版](pic/ico-ex.svg?fill=text&darksrc=invert#icon2x)
+>
+> **带摘要的卡片式链接**
+>
+> 这是对链接目标的摘要说明内容，这是对链接目标的摘要说明内容。
+>
+> 
+>
+> *[<kbd>这是次按钮链接 ![](pic/icon-more.svg?fill=text)</kbd>](#打赏)*
+
+> ![°文档排版](pic/ico-ex.svg?fill=text&darksrc=invert#icon2x)
+>
+> **突出重要的卡片式链接**
+>
+> <u>这是以强调样式对链接目标的摘要说明内容</u>
+>
+> 
+>
+> [<kbd>这是标准按钮链接 ![](pic/icon-more.svg?fill=text)</kbd>](#打赏)
+
+---
+
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °封面与封底
 
 *Markdown 粉`Q`*「**如何让 Markdown 的文档支持封面、封底**（例如像本文档的封面、封底）？」
 *VLOOK`A`*_~T2~_ 在应用了 VLOOK™ 的「[模板主题](guide3.md#模板主题)」后，使用 Markdown 的标准语法也能让文档支持封面、封底，通过遵从 VLOOK™ 约定的使用规范即可激活。
 
-> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 
 
@@ -362,7 +405,7 @@ _^tab^_
 ###### 本文档的封面内容示例
 
 ```markdown
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册<br>(Part.II)</u><br>*最新版本`V29.0`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册<br>(Part.II)</u><br>*最新版本`V30.0`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 ```
 
 ###### 本文档的封底内容示例
@@ -379,7 +422,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °分栏
 
@@ -395,7 +438,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ 通过对特定组合使用的 Markdown 语法进行扩展，就可以满足你的这个灵活的排版需求！
 
-> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 
 
@@ -548,7 +591,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ 通过对特定组合使用的 Markdown 语法进行扩展，就可以满足你的这个灵活的排版需求！
 
-> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 
 
@@ -724,7 +767,7 @@ _^tab^_
 
 ## GitHub Style Alert 分栏
 
-> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 
 
@@ -760,7 +803,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °题注
 
@@ -770,7 +813,7 @@ _^tab^_
 
 
 
-> **适用范围 ••• *`编辑时`× 部分适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 部分适用*_~Gy~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 ## 如何设置题注？
 
@@ -883,7 +926,7 @@ end
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °页签组
 
@@ -893,7 +936,7 @@ end
 
 *VLOOK`A`*_~T2~_ 有了 VLOOK 后，随心指定将连续的内容（表格/插图/引用块/代码块/[GitHub Style Alert](#github Style Alert) ）以页签组形式展示！
 
-> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不支持*_~Gy~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 
 
@@ -1150,7 +1193,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ 在排版样式等方面进行适配和优化，同时支持「信息分类名称」自动匹配多语言环境。
 
-> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 <u>GitHub Style Alert 在文档中主要用于提示、备忘或强调关键信息时使用的排版样式，由对应信息分类的图标、名称、内容等组成。</u>
 
@@ -1384,7 +1427,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 ## 标签
 
@@ -1394,7 +1437,7 @@ _^tab^_
 
 
 
-> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 
 
@@ -1575,7 +1618,7 @@ _^tab^_
 
 
 
-> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不支持*_~Gy~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 
 
@@ -1594,7 +1637,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 ## 进度条
 
@@ -1602,7 +1645,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_  这个对于 VLOOK™ 来说真的非常 Easy，组合 Markdown「==粗体、高亮==」这两个标准格式就可以轻松实现
 
-> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不支持*_~Gy~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 _^tab^_
 
@@ -1685,7 +1728,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 ## 面包屑
 
@@ -1693,7 +1736,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ 这个对于 VLOOK™ 来说真的非常 Easy，组合 Markdown「==斜体、高亮==」这两个标准格式就可以轻松实现。
 
-> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 
 
@@ -1733,7 +1776,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 ## 刮刮卡
 
@@ -1741,7 +1784,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_  这个对于 VLOOK™ 来说真的非常 Easy，组合 Markdown「==斜体、粗体==」这两个标准格式就可以轻松实现。
 
-> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 
 
@@ -1791,7 +1834,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 ## 注音
 
@@ -1801,7 +1844,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ 通过对 Markdown 上标语法 `^ ^` 进行了扩展，轻松满足实用的「注音」排版需求！
 
-> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 
 
@@ -1837,6 +1880,7 @@ _^tab^_
 |  粤语  | `道_^dou^_ 德_^däk^_ 经_^gïng^_`         | 道_^dou^_德_^däk^_经_^gïng^_          |
 |  日文  | `鳥_^とり^_山_^やま^_ 明_^あきら^_`          | 鳥_^とり^_山_^やま^_明_^あきら^_     |
 |  韩文  | `대_^Dae^_ 한_^Han^_ 민_^Min^_ 국_^Gug^_` | 대_^Dae^_한_^Han^_민_^Min^_국_^Gug^_ |
+| 英文 | ` The Scripture_^经^_  of  Ethics_^道德^_ ` | The Scripture_^经^_  of  Ethics_^道德^_ |
 
 ---
 
@@ -1859,7 +1903,7 @@ _^tab^_
 
 ### 代码式注音
 
-> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不支持*_~Gy~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 > [!CAUTION]
 >
@@ -1901,7 +1945,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °Mermaid
 
@@ -1915,7 +1959,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ 自动提供了深度的样式优化。
 
-> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 
 
@@ -2093,13 +2137,13 @@ end
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °公式
 
 ## 更实用美观的公式
 
-> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 ###### 行内混排的公式
 
@@ -2182,7 +2226,7 @@ $$
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °多媒体
 
@@ -2192,7 +2236,7 @@ $$
 
 *VLOOK`A`*_~T2~_ 为更好发挥主流流媒体平台（如：[Bilibili](www.bilibili.com)、[西瓜](www.ixigua.com)、[YouTube](www.youtube.com)）上丰富的视频资源，提供了主题样式适配和优化支持～
 
-> **适用范围 ••• *`编辑时`✓ 适用*_~Gn~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 
 
@@ -2291,7 +2335,7 @@ $$
 
 *VLOOK`A`*_~T2~_ 目前 Markdown 工具都还没有针对视频的支持，现在可以几乎「零」成本实现了！
 
-> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不支持*_~Gy~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 
 
@@ -2331,7 +2375,7 @@ $$
 
 *VLOOK`A`*_~T2~_ 目前 Markdown 工具都还没有针对音频的支持，但现在可以几乎「零」成本实现了！
 
-> **适用范围 ••• *`编辑时`× 不适用*_~Gy~_  *`导出 HTML`✓ 适用*_~Gn~_**
+> **适用范围 ••• *`编辑时`× 不支持*_~Gy~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 
 

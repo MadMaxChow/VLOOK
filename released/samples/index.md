@@ -4,6 +4,10 @@ author: MAX°孟兆
 description: 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:description": 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
+date: 2025-5-27
+changelog:
+- changelog content a, and content b
+- changelog content 2 [...detail](#打赏)
 keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
 - editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
@@ -34,13 +38,13 @@ vlook-doc-lib:
 - [VLOOK™ 特性](vlook-lib.html "手册、教程、指南、示例、范例")
 - [手册 • 基础](guide.html?target=guide "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/旋转/翻转/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
 - [手册 ▲ 进阶](guide2.html?target=guide "分栏、题注、按钮、代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
-- [手册 ★ 探索](guide3.html?target=guide "内容导航/历史/上次阅读、内容助手/复制/全屏/换行/十字光标/阅读/画中画、演示辅助/激光笔/聚光灯/段落漫游/宽度适配、出版辅助/标记不发布/社交分享/链接地图/长内容折叠/链接检查/链接识别、外观/主题/字体/Light/Dark、自定义/预置选项/调校参数、快捷键、……")
+- [手册 ★ 探索](guide3.html?target=guide "内容导航/历史/上次阅读、内容助手/复制/全屏/换行/十字光标/阅读/画中画、演示辅助/激光笔/聚光灯/段落漫游/宽度适配、出版辅助/标记不发布/发布为PDF/另存为PDF/导出为PDF/打印为PDF/社交分享/链接地图/长内容折叠/链接检查/链接识别、外观/主题/字体/Light/Dark、自定义/预置选项/调校参数、快捷键、……")
 - [English 🔠](index-en.html?target=vlook-index-en "Introduction, Quick Start, How to Use")
 - [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank "Project Home")
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 ---
 
-###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V29.0`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V30.0`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 
 [TOC]
 
@@ -56,14 +60,27 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 **[*编辑工具`Typora`V1.9+*_~Gy~_](https://typoraio.cn)　*开源协议主`MIT`*_~Rd~_　*`关键字`主题、插件*_~Pu~_　*`支持的操作系统`Windows, macOS, Linux*_~Bu~_**
 
-**[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK#logo)](https://github.com/MadMaxChow/VLOOK/stargazers)**
+**[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total#logo)](https://github.com/MadMaxChow/VLOOK/releases) （Since V28.1)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK#logo)](https://github.com/MadMaxChow/VLOOK/stargazers)**
 
 
 
 > - Typora 官方认可支持的主题包和增强插件，详见 [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook) 
 > - [OSCHINA (开源中国)](https://www.oschina.net/p/vlook) 推荐的国产开源项目
 >
-> <a href="https://www.producthunt.com/posts/vlook?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-vlook" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=948962&theme=neutral&t=1744096129321#logo" alt="VLOOK - THEME&#0032;PACKAGE&#0032;&#0215;&#0032;ENHANCEMENT&#0032;PLUGIN&#0032;for&#0032;Typora&#0047;Markdown | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>  <a href="https://hellogithub.com/repository/aa6c612ca3de42a082b15053be4ce3c3" target="_blank"><img src="https://abroad.hellogithub.com/v1/widgets/recommend.svg?rid=aa6c612ca3de42a082b15053be4ce3c3&claim_uid=xCde1wfnch6ASLj&theme=neutral#logo" alt="Featured｜HelloGitHub" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
+
+
+**合作推荐资源：**
+
+---
+
+---
+
+> [![VLOOK - THEME&#0032;PACKAGE&#0032;&#0215;&#0032;ENHANCEMENT&#0032;PLUGIN&#0032;for&#0032;Typora&#0047;Markdown | Product Hunt](https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=948962&theme=neutral&t=1744096129321#logo")](https://www.producthunt.com/posts/vlook?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-vlook")
+
+> [![Featured｜HelloGitHub](https://abroad.hellogithub.com/v1/widgets/recommend.svg?rid=aa6c612ca3de42a082b15053be4ce3c3&claim_uid=xCde1wfnch6ASLj&theme=neutral#logo)](https://hellogithub.com/repository/aa6c612ca3de42a082b15053be4ce3c3)
+
+> [![是玄月夜不是玄月](https://sakuraxy.dpdns.org/wp-content/uploads/2025/05/xyres2.png#200w#logo)](https://sakuraxy.top/)
 
 
 
@@ -109,13 +126,13 @@ _^tab^_
 
 
 - 使用 Markdown 写文档，但对 Markdown 编辑器，或其输出的 HTML 的排版、交互有更多的需求
-- 对于编写的文档，希望 *??? **统一模板与输出***_~T1~_ ，并且最好 *??? **随时切换不同模板***_~T2~_
+- 对于编写的文档，希望 *??? **统一模板与输出***_~T2~_ ，并且最好 *??? **随时切换不同模板***_~T2~_
 - 希望只关注文档内容的撰写，内容编排、格式设置这种繁琐的排版工作希望能==自动化==完成
 - ==减少==在文档（如：Word）、制图（如：Visio）等软件工具方面的==购买支出==，或是这些软件排版==操作感觉厌烦==
 - 需要支持==跨平台==、==跨终端==进行文档浏览和文档发布方式
 - 输出的文档能在阅读、评审、演示时，能提供交互辅助的工具（如目录/题注等内容索引、聚光灯、激光笔、脚注等）
 
----
+
 
 > **💡 您知道吗？**
 >
@@ -127,7 +144,7 @@ _^tab^_
 
 <u>**感谢打赏支持 VLOOK™ 的客官（部分名单）**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、行川、＊山、＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊山、＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊应、＊销、E＊y、…==
 
 ---
 
@@ -156,7 +173,7 @@ _^tab^_
 
 ---
 
-> ![°文档排版](pic/qico-types-light.svg?fill=vn&darksrc=invert#icon2x)
+> ![°文档排版](pic/qico-types-light.svg?fill=text&darksrc=invert#icon2x)
 >
 > **° 文档排版与内容标记**
 >
@@ -168,7 +185,7 @@ _^tab^_
 >
 > _~Vn!~_
 
-> ![°内容导航](pic/qico-nav-light.svg?fill=bu&darksrc=invert#icon2x)
+> ![°内容导航](pic/qico-nav-light.svg?fill=text&darksrc=invert#icon2x)
 >
 > **° 内容导航**
 >
@@ -182,7 +199,7 @@ _^tab^_
 
 ---
 
-> ![°演示与出版](pic/qico-pres-light.svg?fill=og&darksrc=invert#icon2x)
+> ![°演示与出版](pic/qico-pres-light.svg?fill=text&darksrc=invert#icon2x)
 >
 > **° 演示与出版**
 >
@@ -194,7 +211,7 @@ _^tab^_
 >
 > _~Og!~_
 
-> ![°外观与不杂项](pic/qico-theme-light.svg?fill=lm&darksrc=invert#icon2x)
+> ![°外观与不杂项](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon2x)
 >
 > **° 外观与不杂项**
 >
@@ -216,7 +233,7 @@ _^tab^_
 >
 > 具体请留意参考手册中各特性的「适用范围」说明，如：
 >
-> > ***`编辑时`× 不适用*_~Gy~_ *`编辑时`✓ 适用*_~Gn~_ **
+> > ***`编辑时`× 不支持*_~Gy~_ *`编辑时`✓ 支持*_~Gn~_ **
 
 # 专题文章
 
@@ -225,7 +242,7 @@ _^tab^_
 
 <u>入选「知乎 • 海盐计划[^海盐计划]」的专题文章 •• [点击前往看看](https://www.zhihu.com/people/maxchow/posts)</u>
 
-[^海盐计划]:浪花中的「海盐」，随着一次次击打海岸，逐渐侵蚀珊瑚礁，海的边界得以拓展。而在知乎中分享知识、经验和见解的知友们，也在一次次思想的碰撞与交互中，用专业、真诚的分享，不断拓展知识的边界。<br>海盐给予浪花磅礴的力量，正如数以万计的优质创作者赋能知乎。为了让「海盐」颗粒能够凝聚更大的能量，知乎推出面向创作者的系列政策「海盐计划」已经来到第四期，2022 年，我们将围绕垂直领域的深耕创作这个方向，用流量和收益全面激励深耕创作者。<br>更多官方内容详见「[知乎海盐计划 4.0](https://zhuanlan.zhihu.com/p/516136721)」「[话题 #知乎海盐计划](https://www.zhihu.com/parker/campaign/1501987192373587968)」
+[^海盐计划]:浪花中的「海盐」，随着一次次击打海岸，逐渐侵蚀珊瑚礁，海的边界得以拓展。而在知乎中分享知识、经验和见解的知友们，也在一次次思想的碰撞与交互中，用专业、真诚的分享，不断拓展知识的边界。海盐给予浪花磅礴的力量，正如数以万计的优质创作者赋能知乎。为了让「海盐」颗粒能够凝聚更大的能量，知乎推出面向创作者的系列政策「海盐计划」已经来到第四期，2022 年，我们将围绕垂直领域的深耕创作这个方向，用流量和收益全面激励深耕创作者。更多官方内容详见「[知乎海盐计划 4.0](https://zhuanlan.zhihu.com/p/516136721)」「[话题 #知乎海盐计划](https://www.zhihu.com/parker/campaign/1501987192373587968)」
 
 # 安装与使用
 
@@ -305,20 +322,13 @@ _^tab^_
 > 2. 打开菜单 *==Typora > 文件 > 导出 > 导出配置==*
 > 3. 添加（==选择 HTML 模板==），并将配置命名为 `VLOOK`
 >
-> ![Typora ▸ 偏好设置 ▸ 导出](pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
 
-> **安装「元标签」 ❯**
+> **安装插件 ❯**
 >
-> 1. 打开元标签文件：*==released/plugin/**meta.txt**==*（或直打开 GitHub 上的 **[meta.txt](https://github.com/MadMaxChow/VLOOK/tree/master/released/plugin/meta.txt)** 文件）
-> 2. 全选，并复制所有内容
-> 3. 将内容粘贴至 `在 <head /> 中添加` 配置内
->
-
-> **安装「插件」 ❯**
->
-> 1. 打开插件文件：*==released/plugin/**plugin.txt**==*
-> 2. 全选，并复制所有内容
-> 3. 将内容粘贴至 `在 <body /> 中添加` 配置内
+> 1. 首先，清空 `在 <head /> 中添加` 配置的内容
+> 2. 打开插件文件：*==released/plugin/**plugin.txt**==*
+> 3. 全选，并复制所有内容
+> 4. 将复制的内容粘贴至 `在 <head /> 中添加` 配置内
 >
 
 > **一键导出为 HTML**
@@ -329,13 +339,9 @@ _^tab^_
 
 
 
-> **加入讨论与交流**
->
-> [<kbd>💬 加入 QQ 群</kbd>](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)    *[<kbd>✈️ 加入 Telegram 频道</kbd>](https://t.me/vlook_markdown)*
+![Typora ▸ 偏好设置 ▸ 导出 ▸ &lt;head /&gt;](pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
 
-# 补充说明
-
-## 语言包
+## 语言包（可选）
 
 VLOOK™ 的界面语言默认内置了 *英文`English`*_~Se~_、*中文`简体`*_~Rd~_ ，对导出后的 HTML 需要支持更多语言，可以选择将对应语言包的内容，追加到以上导出配置中「元标签」内容的后面，重新导出 HTML 即可。
 
@@ -350,16 +356,24 @@ _^tab^_
 > 1. 语言包文件位于 *==released/plugin/lang==* 目录下
 > 2. 打开一个或多个语言文件，并复制所有内容（如：`Français.txt` ）
 
-> **2. 更新导出配置**
+> **2. 配置语言包**
 >
-> 1. 打开 *==Typora > Preferences==*，并选择添加的导出配置 `VLOOK` 
-> 2. 将复制的内容**追加**到 `在 <head /> 中添加` 已有内容的后面（**注意：不是覆盖原有内容！**）
-
-
-
-> [!TIP]
+> 1. 首先，清空 `在 <body /> 中添加` 配置的内容
+> 2. 打开 *==Typora > Preferences==*，并选择添加的导出配置 `VLOOK` 
+> 3. 将复制的内容粘贴到 `在 <body /> 中添加` 配置内
+> 4. 若需要添加多个语言包，注意后续的语言包需要以「**追加**」的方式添加到配置项中
 >
-> 如果需要扩展支持多个语种，重复以上操作步骤即。
+> ![Typora ▸ 偏好设置 ▸ 导出 ▸ &lt;body /&gt;](pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
+
+
+
+
+
+> **加入讨论与交流**
+>
+> [<kbd>💬 加入 QQ 群 (805502564)</kbd>](https://qm.qq.com/q/O0tNC6WBWe)    *[<kbd>✈️ 加入 Telegram 频道</kbd>](https://t.me/vlook_markdown)*
+
+# 补充说明
 
 ## 在线版本
 
@@ -371,7 +385,7 @@ _^tab^_
 
 [<kbd>![](pic/icon-download.svg?fill=text) 下载在线版插件</kbd>](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin_live.txt)  *[<kbd>![](pic/icon-download.svg?fill=text) 备用链接</kbd>](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin_live.txt)*
 
-## 升级与兼容性
+## **🧰** 升级与兼容性
 
 ---
 
@@ -412,11 +426,39 @@ _^tab^_
 
 ---
 
-如果你有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "加入 QQ 群")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+
+# 品牌周边
+
+## 墙纸
+
+==与官方主题同款，附有 **常用语法**、**色号** 的参考==
+
+![VLOOK™ Wallpaper](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-preview.png?srcset=@2x)
+
+<u>选择需要的分辨率版本</u>
+
+
+
+[<kbd>1336 × 768</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1336x768.png)  [<kbd>1440 × 900</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)  [<kbd>1920 × 1080</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)  [<kbd>2560 × 1440</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)  [<kbd>2560 × 1600</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1600.png)
+
+## 实物周边
+
+==与官方主题同款，附有 **常用语法**、**色号** 的参考==
+
+![鼠标垫](pic/pad_mouse-25x30-preview.png?srcset=@2x)
+
+**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  我要选购 - 鼠标垫</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
+
+
+
+![桌面垫（键盘 & 鼠标垫）](pic/pad_desk-30x70-preview.png?srcset=@2x)
+
+**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  我要选购 - 桌面垫（键盘 & 鼠标垫)</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
 
 # 增值服务
 
-## 定制主题服务
+## 主题定制服务
 
 <u>目前现已开放主题的「**定制服务**」，以下为部分定制案例参考：</u>
 
@@ -424,9 +466,13 @@ _^tab^_
 
 
 
-**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  提交我的定制主题需求</kbd>](https://wj.qq.com/s2/14818521/bd33/)**
+**[<kbd>![](pic/icon-more.svg?fill=text) 了解更多定制主题的介绍</kbd>](vip.md)**
 
-[<kbd>去探索更多定制主题的介绍</kbd>](vip.md)
+## 插件功能定制服务
+
+==针对你更个性的文档排版、交互、发布等方面需要，提供插件功能的定制服务～==
+
+**[<kbd>💬 咨询沟通</kbd>](vip.md#咨询我们)**
 
 ## 排版编辑服务
 
@@ -434,7 +480,7 @@ _^tab^_
 
 ![VLOOK™ 排版编辑服务](pic/vlook-te.png?srcset=@2x)
 
-**[<kbd>![](pic/icon-more.svg?fill=text) 去探索更多增值服务的介绍</kbd>](https://madmaxchow.github.io/VLOOK/vip.html)**
+**[<kbd>![](pic/icon-more.svg?fill=text) 了解更多增值服务的介绍</kbd>](https://madmaxchow.github.io/VLOOK/vip.html)**
 
 
 
@@ -445,6 +491,30 @@ _^tab^_
 > - **欢迎您向 VLOOK™ 投送自己的使用 Typora + VLOOK™ 的范例～与大家分享你的最佳实践经验～**_~RdOg~_
 >
 > - 更多的实践范例详见下载包中的目录 *==released\\[samples](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)==*
+
+# 即将推出...
+
+---
+
+> ![°文档排版](pic/qico-print.svg?fill=text&darksrc=invert#icon2x)
+>
+> **「发布为 PDF」**
+>
+> <u>为导出后的 HTML 文件，提供 PDF 样式适配支持～目前**已发布实验性版本**，欢迎去 GitHub 上的这个讨论话题中留言、反馈～</u>
+>
+> [<kbd>![](pic/qico-disc-light.svg?fill=text) 参与讨论</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/158)
+>
+> _~T1!~_
+
+> ![°文档排版](pic/qico-disc-light.svg?fill=text&darksrc=invert#icon2x)
+>
+> **你有更多的特性建议？**
+>
+> <u>欢迎前往我们在 GitHub 上的讨论组提出你的建议或期望能解决的痛点～</u>
+>
+> *[<kbd>![](pic/qico-theme-light.svg?fill=text) 分享个点子</kbd>](https://github.com/MadMaxChow/VLOOK/discussions)*
+>
+> _~T1~_
 
 ## ~~用于测试最后一章不发布~~
 

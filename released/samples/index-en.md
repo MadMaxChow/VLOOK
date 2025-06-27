@@ -12,7 +12,8 @@ keywords:
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
-- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture
+- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
+
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - link map,link specification,link check,link recognition,link conversion
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
@@ -23,7 +24,7 @@ keywords:
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
-- 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画
+- 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
 - 设计,需求,文档,博客,手册,指南,知识库,教程,方案,教育,笔记,日记
@@ -34,13 +35,13 @@ vlook-doc-lib:
 - [VLOOK™ Features](vlook-lib-en.html "Guide, Manual, Sample, Example")
 - [Guide • Basic](guide-en.html?target=guide "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Rotation / Flipping / Filters / Postcards / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
 - [Guide ▲ Advanced](guide2-en.html?target=guide "Columns, Captions, Buttons, Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
-- [Guide ★ Exploration](guide3-en.html?target=guide "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
+- [Guide ★ Exploration](guide3-en.html?target=guide "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Save as PDF / Print to PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
 - [中文 🇨🇳](index.html?target=vlook-index-cn "简介、快速入坑、安装与使用")
 - [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank "Project Home")
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 ---
 
-###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br>──<br><u>Introduction</u><br>*`V29.0`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br>──<br><u>Introduction</u><br>*`V30.0`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 
 [TOC]
 
@@ -56,7 +57,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 **[*Editor`Typora`V1.9+*_~Gy~_](https://typoraio.cn)　*License`MIT`*_~Rd~_　*`Keywords`Theme, Plugin*_~Pu~_　*`Supported OS`Windows, macOS, Linux*_~Bu~_**
 
-**[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK#logo)](https://github.com/MadMaxChow/VLOOK/stargazers)**
+**[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total#logo)](https://github.com/MadMaxChow/VLOOK/releases) （Since V28.1)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK#logo)](https://github.com/MadMaxChow/VLOOK/stargazers)**
 
 > - It is also Typora - recognized and supported theme pack and enhanced plugin, for details: [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook)
 > - [OSChina](https://www.oschina.net/p/vlook) recommended domestic open source products
@@ -103,7 +104,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 <u>**Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、行川、＊山、＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊山、＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊应、＊销、E＊y、…==
 
 ---
 
@@ -133,7 +134,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 ---
 
-> ![°FORMATTING](pic/qico-types-light.svg?fill=vn&darksrc=invert#icon2x)
+> ![°FORMATTING](pic/qico-types-light.svg?fill=text&darksrc=invert#icon2x)
 >
 > **° FORMATTING & TAGGING**
 >
@@ -145,7 +146,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 >
 > _~Vn!~_
 
-> ![°NAVIGATION](pic/qico-nav-light.svg?fill=bu&darksrc=invert#icon2x)
+> ![°NAVIGATION](pic/qico-nav-light.svg?fill=text&darksrc=invert#icon2x)
 >
 > **° NAVIGATION**
 >
@@ -159,7 +160,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 ---
 
->![° PRESENTATION & PUBLICATION](pic/qico-pres-light.svg?fill=og&darksrc=invert#icon2x)
+>![° PRESENTATION & PUBLICATION](pic/qico-pres-light.svg?fill=text&darksrc=invert#icon2x)
 >
 > **° PRESENTATION & PUBLICATION**
 >
@@ -171,7 +172,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 >
 > _~Og!~_
 
->![° APPEARANCE & ESSENTIALS](pic/qico-theme-light.svg?fill=lm&darksrc=invert#icon2x)
+>![° APPEARANCE & ESSENTIALS](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon2x)
 >
 >**° APPEARANCE & ESSENTIALS**
 >
@@ -276,20 +277,13 @@ _^tab^_
 > 2. Open menu *==Typora > File > Export > Export Setting==*
 > 3. Add configuration (==select HTML as a template==), and name the configuration `VLOOK`
 >
-> ![Typora ▸ Preferences ▸ Export](pic/typora-opt2-light-en.png?srcset=@2x&darksrc=typora-opt2-dark-en.png&darksrcset=@2x)
 
-> **Install "Meta Tag"**
+> **Install Plugin**
 >
-> 1. Open the meta tag file: *==released/plugin/**meta.txt**==* (Or directly open the **[meta.txt](https://github.com/MadMaxChow/VLOOK/tree/master/released/plugin/meta.txt)** file on GitHub)
-> 2. Select and copy all contents
-> 3. Paste to `Append in <head />`
->
-
-> **Install "Plugin"**
->
-> 1. Open the plug-in file: *==released/plugin/**plugin.txt**==*
-> 2. Select and copy all contents;
-> 3. Paste to `Append in <body />`
+> 1. First, clear the content configured under `Append in <head />` content
+> 2. Open the plug-in file: *==released/plugin/**plugin.txt**==*
+> 3. Select and copy all contents
+> 4. Copied content paste to `Append in <head />`
 >
 
 > **One-click export via VLOOK**
@@ -300,13 +294,9 @@ _^tab^_
 
 
 
-> **Discussion and Communication**
->
-> [<kbd>✈️ Telegram Channel</kbd>](https://t.me/vlook_markdown)    *[<kbd>💬 QQ Group</kbd>](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi)*
+![Typora ▸ Preferences ▸ Export ▸ &lt;head /&gt;](pic/typora-opt2-light-en.png?srcset=@2x&darksrc=typora-opt2-dark-en.png&darksrcset=@2x)
 
-# Supplement
-
-## Language Package
+## Language Package (Optional)
 
 VLOOK™ UI language is pre-installed with *English`English`*_~Se~_、*Chinese`简体`*_~Rd~_ by default.
 
@@ -318,21 +308,29 @@ To support more language for the exported HTML, you can choose to append the con
 
 _^tab^_
 
-> **1. Select language package  ❯**
+> **1. Select Language Package  ❯**
 >
 > 1. The language package file is located in the *==released/plugin/lang==*
 > 2. Open language file and copy all the content. (e.g: `Français.txt` )
 
-> **2. Update export configuration**
+> **2. Config Language Package**
 >
-> 1. Open *==Typora > Preferences==*, and select the added export configuration `VLOOK`
-> 2. **Append** the copied content to the end of the existing content in the `Append in <head />` (**Note: Do not overwrite the existing content!**)
-
-
-
-> [!TIP]
+> 1. First, clear the content configured under `Append in <body />` content
+> 2. Open *==Typora > Preferences==*, and select the added export configuration `VLOOK`
+> 3. Copied content paste to `Append in <body />`
+> 4. When adding multiple language packs, ensure that each additional pack is **Appended** to the configuration
 >
-> If you need to extend support for multiple languages, simply repeat the steps above.
+> ![Typora ▸ Preferences ▸ Export ▸ &lt;body /&gt;](pic/typora-opt2-light-en.png?srcset=@2x&darksrc=typora-opt2-dark-en.png&darksrcset=@2x)
+
+
+
+
+
+> **Discussion and Communication**
+>
+> [<kbd>✈️ Telegram Channel</kbd>](https://t.me/vlook_markdown)    *[<kbd>💬 QQ Group (805502564)</kbd>](https://qm.qq.com/q/O0tNC6WBWe)*
+
+# Supplement
 
 ## Online Version
 
@@ -344,7 +342,7 @@ The online version of the plugin file is: *==released/plugin/**plugin_live.txt**
 
 [<kbd>![](pic/icon-download.svg?fill=text) Download live version</kbd>](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin_live.txt)  *[<kbd>![](pic/icon-download.svg?fill=text) Alternative link</kbd>](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt)*
 
-## Upgrade and Compatibility
+## **🧰** Upgrade and Compatibility
 
 ---
 
@@ -383,9 +381,41 @@ The online version of the plugin file is: *==released/plugin/**plugin_live.txt**
 >
 > _~La~_
 
+---
+
+If you have any suggestions and needs, please feel free to give feedback~ [![Freeback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™&body=Hi, "Freeback via Email")  [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Telegram Channel")
+
+# Brand Merchandise
+
+## Wallpaper
+
+==The same style as the official theme, with references to **common grammar** and **color codes**==
+
+![VLOOK™ Wallpaper](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-preview.png?srcset=@2x)
+
+<u>Choose the required resolution version</u>
+
+
+
+[<kbd>1336 × 768</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1336x768.png)  [<kbd>1440 × 900</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)  [<kbd>1920 × 1080</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)  [<kbd>2560 × 1440</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)  [<kbd>2560 × 1600</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1600.png)
+
+## Physical Products
+
+
+
+![Mouse Pad](pic/pad_mouse-25x30-preview.png?srcset=@2x)
+
+**[<kbd>![](pic/icon-vip.svg?fill=text#icon) I Want - Mouse Pad</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
+
+
+
+![Desk Pad (Keyboard & Mouse Pad)](pic/pad_desk-30x70-preview.png?srcset=@2x)
+
+**[<kbd>![](pic/icon-vip.svg?fill=text#icon) I Want - Desk Pad</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
+
 # Premium Services
 
-## Custom VIP Theme
+## Theme Customization Service
 
 <u>The "**Customization Service**" for Themes is now open! Here are some reference cases for private customization.</u>
 
@@ -393,9 +423,13 @@ The online version of the plugin file is: *==released/plugin/**plugin_live.txt**
 
 
 
-**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  Submit My Custom Theme Request</kbd>](https://forms.gle/Gs5fqRUpXexeMBNy9)**
+**[<kbd>Learn more about Customized Themes</kbd>](vip-en.md)**
 
-[<kbd>Explore more about Customized Themes</kbd>](vip-en.md)
+## Plugin Feature Customization Services
+
+==For more personalized needs in document layout, interaction, and publishing, we offer custom plugin feature development~==
+
+**[<kbd>💬 Contact Us</kbd>](vip-en.md#Contact Us)**
 
 ## Typesetting and Editing Services
 
@@ -403,7 +437,7 @@ The online version of the plugin file is: *==released/plugin/**plugin_live.txt**
 
 <u>Based on the content and audience of your document, fully utilize the numerous features of Typora + VLOOK™, to provide services like **Docment Typesetting**, **Content Revision**, **Knowledge Base Construction**, **Publishing Guidance**, **Website Hosting**.</u>
 
-**[<kbd>![](pic/icon-more.svg?fill=text) Explore more about Value-added Services</kbd>](https://madmaxchow.github.io/VLOOK/vip.html)**
+**[<kbd>![](pic/icon-more.svg?fill=text) Learn more about Value-added Services</kbd>](https://madmaxchow.github.io/VLOOK/vip.html)**
 
 
 
@@ -413,8 +447,28 @@ The online version of the plugin file is: *==released/plugin/**plugin_live.txt**
 >
 > - For more practical samples, please refer to the directory in the download package *==released\\[samples](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)==*
 
+# Coming Soon ...
+
 ---
 
-If you have any suggestions and needs, please feel free to give feedback~ [![Freeback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™&body=Hi, "Freeback via Email")  [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi "QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Telegram Channel")
+> ![°文档排版](pic/qico-print.svg?fill=text&darksrc=invert#icon2x)
+>
+> **Support for Publish to PDF**
+>
+> <u>Provides PDF-oriented style adaptation for exported HTML files. **An experimental version** is now available — feel free to leave feedback or comments in the related discussion on GitHub!</u>
+>
+> [<kbd>![](pic/qico-disc-light.svg?fill=text) Join the Discussion</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/158)
+>
+> _~T2!~_
+
+> ![°文档排版](pic/qico-disc-light.svg?fill=text&darksrc=invert#icon2x)
+>
+> **Got more feature suggestions?**
+>
+> <u>Welcome to our discussion group on GitHub! Feel free to share your suggestions or pain points you hope to see resolved.</u>
+>
+> *[<kbd>![](pic/qico-theme-light.svg?fill=text) Share My Idea</kbd>](https://github.com/MadMaxChow/VLOOK/discussions)*
+>
+> _~T2~_
 
 # The End
