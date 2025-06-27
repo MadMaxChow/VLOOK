@@ -1,6 +1,6 @@
 <!--
 ########## plugin for <head /> ##########
-VLOOK™ "V30.0" (2025-06-27) - Typora Plugin (!!! standalone !!!)
+VLOOK "V30.0" (2025-06-27) - Typora Plugin (!!! standalone !!!)
 
 Paste to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 粘贴至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」

@@ -60,7 +60,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 **[*编辑工具`Typora`V1.9+*_~Gy~_](https://typoraio.cn)　*开源协议主`MIT`*_~Rd~_　*`关键字`主题、插件*_~Pu~_　*`支持的操作系统`Windows, macOS, Linux*_~Bu~_**
 
-**[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total#logo)](https://github.com/MadMaxChow/VLOOK/releases) （Since V28.1)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK#logo)](https://github.com/MadMaxChow/VLOOK/stargazers)**
+**[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK?label=Release#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total?label=Downloads%20(since%20V28.1)#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK#logo)](https://github.com/MadMaxChow/VLOOK/stargazers)**
 
 
 
