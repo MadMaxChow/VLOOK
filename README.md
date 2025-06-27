@@ -39,7 +39,7 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 > **加入讨论与交流**
 >
-> - 💬 QQ 群 ([**805502564**](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&)) 
+> - 💬 QQ 群 ([**805502564**](https://qm.qq.com/q/O0tNC6WBWe&)) 
 > - ✈️ Telegram Channel ([**vlook_markdown**](https://t.me/vlook_markdown "加入 Telegram 频道")) 
 > - 📨 邮件 (**maxchow@qq.com**)
 
@@ -143,7 +143,7 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 # 增值服务
 
-## 定制主题服务
+## 主题定制服务
 
 目前现已开放主题的「**定制服务**」，以下为部分定制案例参考：
 
@@ -151,11 +151,17 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 
 
-**（针对高校的学生/教师，提供定制主题的教育优惠政策，具体请在定制需求中注明就读学校和身份）**
+（针对高校的学生/教师，提供定制主题的教育优惠政策，具体请在定制需求中注明就读学校和身份）
 
 
 
 【 **更多定制主题展示 •• [了解更多](https://madmaxchow.github.io/VLOOK/vip.html)** 】
+
+## 插件功能定制服务
+
+针对你更个性的文档排版、交互、发布等方面需要，提供插件功能的定制服务～
+
+【 **[咨询沟通](https://madmaxchow.github.io/VLOOK/vip.html#咨询我们)** 】
 
 ## 排版编辑服务
 

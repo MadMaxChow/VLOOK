@@ -44,7 +44,7 @@ With just a few simple steps of installation and configuration, you can also hav
 > - [![X/Twitter](https://vlook-doc.pages.dev/pic/x.png)](https://x.com/MadMaxChow)  [![YouTube](https://vlook-doc.pages.dev/pic/youtube.png)](https://www.youtube.com/@MadMaxChow)  [![Medium](https://vlook-doc.pages.dev/pic/medium.png)](https://medium.com/@zmzusa)
 > - ✈️ Telegram Channel ([**vlook_markdown**](https://t.me/vlook_markdown "加入 Telegram 频道"))
 > - 📨 Email (**maxchow@qq.com**)
-> - 💬 QQ Group ([**805502564**](https://qm.qq.com/cgi-bin/qm/qr?k=oB8wpFG_4SEMf1CL9qVy-jMw0CMfSwff&jump_from=webapi&))
+> - 💬 QQ Group ([**805502564**](https://qm.qq.com/q/O0tNC6WBWe&))
 
 #  Donate
 
@@ -148,7 +148,7 @@ Choose the required resolution version:
 
 # Premium Services
 
-## Custom VIP Theme
+## Theme Customization Service
 
 The "**Private Customization Service**" for Themes is now open! Here are some reference cases for private customization.
 
@@ -156,7 +156,15 @@ The "**Private Customization Service**" for Themes is now open! Here are some re
 
 
 
-**More Custom Theme Showcase** •• [**Learn More**](https://madmaxchow.github.io/VLOOK/vip-en.html)
+【 **More Custom Theme Showcase** •• [**Learn More**](https://madmaxchow.github.io/VLOOK/vip-en.html) 】
+
+## Plugin Feature Customization Services
+
+For more personalized needs in document layout, interaction, and publishing, we offer custom plugin feature development~
+
+【 [**Learn More**](https://madmaxchow.github.io/VLOOK/vip-en.html#contact-us) 】
+
+
 
 ## Typesetting and Editing Services
 

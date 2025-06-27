@@ -1,106 +1,104 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V29.0" (2025-05-24) - (Language Pack) - Typora Plugin
+VLOOK™ "V30.0" (2025-06-27) - (Language Pack) - Typora Plugin
 
-Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
-!!! Attention! Do not overwrite the content from "meta.txt" !!!
-追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
-!!! 注意！不要覆盖来自 "meta.txt" 的内容 !!!
+Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
+追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
 -->
 <!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
-<!-- 以下为语言标识 -->
-<meta name="vlook-lang-de" content="de">
-<!-- The following is the content of the language package -->
-<!-- 以下为语言包内容 -->
-<meta name="vk-de1" content="Dokumentdeckblatt">
-<meta name="vk-de2" content="Tabs wechseln">
-<meta name="vk-de3" content="Link-Karte">
-<meta name="vk-de4" content="Aktiviert">
-<meta name="vk-de5" content=" um die Schrittgröße zu wechseln">
-<meta name="vk-de6" content="Navigationszentrum">
-<meta name="vk-de7" content="Dokumentenbibliothek">
-<meta name="vk-de8" content="Absatzwandern">
-<meta name="vk-de9" content="Spotlight">
-<meta name="vk-de10" content="Laserpointer">
-<meta name="vk-de11" content="CJK">
-<meta name="vk-de12" content="Nicht-CJK">
-<meta name="vk-de13" content="Zurück zum Dokumentdeckblatt">
-<meta name="vk-de14" content="Zurück zum Anfang dieses Kapitels">
-<meta name="vk-de15" content="Vorherige">
-<meta name="vk-de16" content="Nächste">
-<meta name="vk-de17" content="Schließen">
-<meta name="vk-de18" content="Formel">
-<meta name="vk-de19" content="Wenn Sie keine Verbindung zum Internet herstellen können, um die Online-Version der Schriftart zu laden, wird empfohlen, die Schriftart direkt lokal herunterzuladen">
-<meta name="vk-de20" content="Primärer Link">
-<meta name="vk-de21" content="Sekundärer Link">
-<meta name="vk-de22" content="Alle Fußnoten">
-<meta name="vk-de23" content="Lesen beginnen">
-<meta name="vk-de24" content="Vollbild">
-<meta name="vk-de25" content="Lesemodus">
-<meta name="vk-de26" content="Umbruch / Rückgängig">
-<meta name="vk-de27" content="Bild im Bild">
-<meta name="vk-de28" content="Drücken und halten">
-<meta name="vk-de29" content="Aktuelles Dokument">
-<meta name="vk-de30" content="Code kopieren">
-<meta name="vk-de31" content="Bildadresse kopieren">
-<meta name="vk-de32" content="Tabelleninhalt kopieren">
-<meta name="vk-de33" content="Umschalten der Größe des Scheinwerfers">
-<meta name="vk-de34" content="Pause">
-<meta name="vk-de35" content="Inhaltsverzeichnis">
-<meta name="vk-de36" content="- Eine neue Version wurde veröffentlicht, bitte aktualisieren!">
-<meta name="vk-de37" content="Entschuldigung, das Kopieren wird in diesem Browser derzeit nicht unterstützt">
-<meta name="vk-de38" content="Bereit">
-<meta name="vk-de39" content="Zeitüberschreitung">
-<meta name="vk-de40" content="Wird geladen">
-<meta name="vk-de41" content="Schriftstil">
-<meta name="vk-de42" content="Minute(n)">
-<meta name="vk-de43" content="Stunde(n)">
-<meta name="vk-de44" content="Wörter">
-<meta name="vk-de45" content="Erscheinungsbild">
-<meta name="vk-de46" content="Fügen Sie [TOC] vor der ersten Überschrift der ersten Ebene ein, um es zu generieren">
-<meta name="vk-de47" content="Hash-Prüfung bestanden">
-<meta name="vk-de48" content="Graustufenmodus">
-<meta name="vk-de49" content="Hash-Prüfung fehlgeschlagen">
-<meta name="vk-de50" content="Maximale URL-Länge überschritten">
-<meta name="vk-de51" content="Hash">
-<meta name="vk-de52" content="Hash prüfen">
-<meta name="vk-de53" content="Doppelter Titel/Beschriftung">
-<meta name="vk-de54" content="Ungültiger interner Link">
-<meta name="vk-de55" content="Alle anzeigen">
-<meta name="vk-de56" content="Tabelle">
-<meta name="vk-de57" content="Codeblock">
-<meta name="vk-de58" content="Abbildung">
-<meta name="vk-de59" content="Audio">
-<meta name="vk-de60" content="Video">
-<meta name="vk-de61" content="Noch einmal klicken, um als Markdown zu kopieren">
-<meta name="vk-de62" content="Kopiert">
-<meta name="vk-de63" content="Ungültige Ressourcenadresse">
-<meta name="vk-de64" content="⚠️ WARNUNG ⚠️&#10;&#10;In Ihrem Dokument haben Sie die Bildskalierungsfunktion von Typora verwendet, die möglicherweise Kompatibilitätsprobleme verursacht!&#10;&#10;Es wird empfohlen, diese durch VLOOK™ &quot;Bildskalierung&quot; wie folgt zu ersetzen:&#10;pic.jpg#400w&#10;pic.jpg#200h">
-<meta name="vk-de65" content="Navigationsverlauf">
-<meta name="vk-de66" content=" ist leer">
-<meta name="vk-de67" content="Nicht gefunden">
-<meta name="vk-de68" content="Postkarte">
-<meta name="vk-de69" content="Ändern">
-<meta name="vk-de70" content="Optional">
-<meta name="vk-de71" content="Schleife">
-<meta name="vk-de72" content="Parallel">
-<meta name="vk-de73" content="Notiz">
-<meta name="vk-de74" content="Tipp">
-<meta name="vk-de75" content="Wichtig">
-<meta name="vk-de76" content="Warnung">
-<meta name="vk-de77" content="Vorsicht">
-<meta name="vk-de78" content="Lesen fortsetzen">
-<meta name="vk-de79" content="Für die beste Kompatibilität wird empfohlen, den Chrome-/Firefox-/Edge-Browser zu verwenden">
-<meta name="vk-de80" content="Achtung! Um ein korrektes Drucken sicherzustellen, wird empfohlen, die [Drucken]-Funktion innerhalb des Dokuments zu verwenden!">
-<meta name="vk-de81" content="Ungültiger Link / Adresse">
-<meta name="vk-de82" content="Seite">
-<meta name="vk-de83" content="Link">
-<meta name="vk-de84" content="Fußnote">
-<meta name="vk-de85" content="Auf Themen-Schriftartstil zurücksetzen">
-<meta name="vk-de86" content="Klicken Sie hier, um den Link zu öffnen">
-<meta name="vk-de87" content="Heute ist">
-<meta name="vk-de88" content="Diese Seite wird im {{display-mode}} angezeigt">
-<meta name="vk-de89" content="Klicken Sie unten auf die Schaltfläche, um es vorübergehend auszuschalten">
-<meta name="vk-de90" content="Automatisch">
-<meta name="vk-de91" content="Hell">
-<meta name="vk-de92" content="Dunkel">
+<!-- 以下为 de 语言包内容 -->
+<script type="application/json" id="vlook-lang-de" data-lang="de">{
+"de1":"Dokumentdeckblatt",
+"de2":"Tabs wechseln",
+"de3":"Link-Karte",
+"de4":"Aktiviert",
+"de5":" um die Schrittgröße zu wechseln",
+"de6":"Navigationszentrum",
+"de7":"Dokumentenbibliothek",
+"de8":"Absatzwandern",
+"de9":"Spotlight",
+"de10":"Laserpointer",
+"de11":"CJK",
+"de12":"Nicht-CJK",
+"de13":"Zurück zum Dokumentdeckblatt",
+"de14":"Zurück zum Anfang dieses Kapitels",
+"de15":"Vorherige",
+"de16":"Nächste",
+"de17":"Schließen",
+"de18":"Formel",
+"de19":"Wenn Sie keine Verbindung zum Internet herstellen können, um die Online-Version der Schriftart zu laden, wird empfohlen, die Schriftart direkt lokal herunterzuladen",
+"de20":"Primärer Link",
+"de21":"Sekundärer Link",
+"de22":"Alle Fußnoten",
+"de23":"Lesen beginnen",
+"de24":"Vollbild",
+"de25":"Lesemodus",
+"de26":"Umbruch / Rückgängig",
+"de27":"Bild im Bild",
+"de28":"Drücken und halten",
+"de29":"Aktuelles Dokument",
+"de30":"Code kopieren",
+"de31":"Bildadresse kopieren",
+"de32":"Als PDF&nbsp;veröffentlichen",
+"de33":"Umschalten der Größe des Scheinwerfers",
+"de34":"Pause",
+"de35":"Inhaltsverzeichnis",
+"de36":"- Eine neue Version wurde veröffentlicht, bitte aktualisieren!",
+"de37":"Entschuldigung, das Kopieren wird in diesem Browser derzeit nicht unterstützt",
+"de38":"Bereit",
+"de39":"Zeitüberschreitung",
+"de40":"Wird geladen",
+"de41":"Schriftstil",
+"de42":"Minute(n)",
+"de43":"Stunde(n)",
+"de44":"Wörter",
+"de45":"Erscheinungsbild",
+"de46":"Fügen Sie [TOC] vor der ersten Überschrift der ersten Ebene ein, um es zu generieren",
+"de47":"Hash-Prüfung bestanden",
+"de48":"Graustufenmodus",
+"de49":"Hash-Prüfung fehlgeschlagen",
+"de50":"Maximale URL-Länge überschritten",
+"de51":"Hash",
+"de52":"Hash prüfen",
+"de53":"Doppelter Titel/Beschriftung",
+"de54":"Ungültiger interner Link",
+"de55":"Alle anzeigen",
+"de56":"Tabelle",
+"de57":"Codeblock",
+"de58":"Abbildung",
+"de59":"Audio",
+"de60":"Video",
+"de61":"Experimentelle Funktion",
+"de62":"Kopiert",
+"de63":"Ungültige Ressourcenadresse",
+"de64":"⚠️ WARNUNG ⚠️&#10;&#10;In Ihrem Dokument haben Sie die Bildskalierungsfunktion von Typora verwendet, die möglicherweise Kompatibilitätsprobleme verursacht!&#10;&#10;Es wird empfohlen, diese durch VLOOK™ &quot;Bildskalierung&quot; wie folgt zu ersetzen:&#10;pic.jpg#400w&#10;pic.jpg#200h",
+"de65":"Navigationsverlauf",
+"de66":" ist leer",
+"de67":"Nicht gefunden",
+"de68":"Postkarte",
+"de69":"Ändern",
+"de70":"Optional",
+"de71":"Schleife",
+"de72":"Parallel",
+"de73":"Notiz",
+"de74":"Tipp",
+"de75":"Wichtig",
+"de76":"Warnung",
+"de77":"Vorsicht",
+"de78":"Lesen fortsetzen",
+"de79":"Für die beste Kompatibilität wird empfohlen, den Chrome-/Firefox-/Edge-Browser zu verwenden",
+"de80":"Bilder im Dokument werden heruntergeladen...",
+"de81":"Ungültiger Link / Adresse",
+"de82":"Seite",
+"de83":"Link",
+"de84":"Fußnote",
+"de85":"Auf Themen-Schriftartstil zurücksetzen",
+"de86":"Klicken Sie hier, um den Link zu öffnen",
+"de87":"Heute ist",
+"de88":"Diese Seite wird im {{display-mode}} angezeigt",
+"de89":"Klicken Sie unten auf die Schaltfläche, um es vorübergehend auszuschalten",
+"de90":"Automatisch",
+"de91":"Hell",
+"de92":"Dunkel"
+}</script>
+

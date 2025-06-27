@@ -1,106 +1,107 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V29.0" (2025-05-24) - (Language Pack) - Typora Plugin
+VLOOK™ "V30.0" (2025-06-27) - (Language Pack) - Typora Plugin
 
-Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
-!!! Attention! Do not overwrite the content from "meta.txt" !!!
-追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
-!!! 注意！不要覆盖来自 "meta.txt" 的内容 !!!
+Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
+追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
 -->
 <!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
-<!-- 以下为语言标识 -->
-<meta name="vlook-lang-pt" content="pt">
-<!-- The following is the content of the language package -->
-<!-- 以下为语言包内容 -->
-<meta name="vk-pt1" content="Capa do documento">
-<meta name="vk-pt2" content="Alternar abas">
-<meta name="vk-pt3" content="Mapa de Links">
-<meta name="vk-pt4" content="Ativado">
-<meta name="vk-pt5" content=" para alternar o tamanho do passo">
-<meta name="vk-pt6" content="Centro de Navegação">
-<meta name="vk-pt7" content="Biblioteca de Documentos">
-<meta name="vk-pt8" content="Navegação por parágrafo">
-<meta name="vk-pt9" content="Foco">
-<meta name="vk-pt10" content="Ponteiro Laser">
-<meta name="vk-pt11" content="CJK">
-<meta name="vk-pt12" content="Não-CJK">
-<meta name="vk-pt13" content="Voltar à capa do documento">
-<meta name="vk-pt14" content="Voltar ao início deste capítulo">
-<meta name="vk-pt15" content="Anterior">
-<meta name="vk-pt16" content="Próximo">
-<meta name="vk-pt17" content="Fechar">
-<meta name="vk-pt18" content="Fórmula">
-<meta name="vk-pt19" content="Se você não conseguir se conectar à Internet para carregar a versão online da fonte, é recomendado baixar a fonte diretamente para o local">
-<meta name="vk-pt20" content="Link primário">
-<meta name="vk-pt21" content="Link secundário">
-<meta name="vk-pt22" content="Todas as notas de rodapé">
-<meta name="vk-pt23" content="Começar a ler">
-<meta name="vk-pt24" content="Tela cheia">
-<meta name="vk-pt25" content="Modo de Leitura">
-<meta name="vk-pt26" content="Enrolar / Desenrolar">
-<meta name="vk-pt27" content="Imagem em imagem">
-<meta name="vk-pt28" content="Pressione e segure">
-<meta name="vk-pt29" content="Documento atual">
-<meta name="vk-pt30" content="Copiar código">
-<meta name="vk-pt31" content="Copiar endereço da imagem">
-<meta name="vk-pt32" content="Copiar conteúdo da tabela">
-<meta name="vk-pt33" content="Alternar o tamanho do holofote">
-<meta name="vk-pt34" content="Pausa">
-<meta name="vk-pt35" content="Índice">
-<meta name="vk-pt36" content="- Uma nova versão foi lançada, por favor atualize!">
-<meta name="vk-pt37" content="Desculpe, a cópia não é suportada atualmente neste navegador">
-<meta name="vk-pt38" content="Pronto">
-<meta name="vk-pt39" content="Tempo Esgotado">
-<meta name="vk-pt40" content="Carregando">
-<meta name="vk-pt41" content="Estilo de fonte">
-<meta name="vk-pt42" content="Minuto(s)">
-<meta name="vk-pt43" content="Hora(s)">
-<meta name="vk-pt44" content="Palavras">
-<meta name="vk-pt45" content="Aparência">
-<meta name="vk-pt46" content="Adicione [TOC] antes do primeiro cabeçalho de nível um para gerá-lo">
-<meta name="vk-pt47" content="Verificação de hash aprovada">
-<meta name="vk-pt48" content="Modo cinza">
-<meta name="vk-pt49" content="A verificação de hash falhou">
-<meta name="vk-pt50" content="Comprimento máximo da URL excedido">
-<meta name="vk-pt51" content="Hash">
-<meta name="vk-pt52" content="Verificar Hash">
-<meta name="vk-pt53" content="Título/legenda duplicado">
-<meta name="vk-pt54" content="Link Interno Inválido">
-<meta name="vk-pt55" content="Mostrar todos">
-<meta name="vk-pt56" content="Tabela">
-<meta name="vk-pt57" content="Bloco de Código">
-<meta name="vk-pt58" content="Figura">
-<meta name="vk-pt59" content="Áudio">
-<meta name="vk-pt60" content="Vídeo">
-<meta name="vk-pt61" content="Clique novamente para Copiar como Markdown">
-<meta name="vk-pt62" content="Copiado">
-<meta name="vk-pt63" content="Endereço de recurso inválido">
-<meta name="vk-pt64" content="⚠️ AVISO ⚠️&#10;&#10;No su documento, usted usó la función de redimensionamiento de imagen de Typora, que puede causar problemas de compatibilidad!&#10;&#10;Se recomienda sustituirlo por la &quot;redimensionamiento de imagen&quot; de VLOOK™ como:&#10;pic.jpg#400w&#10;pic.jpg#200h">
-<meta name="vk-pt65" content="Histórico de navegação">
-<meta name="vk-pt66" content=" está vazio">
-<meta name="vk-pt67" content="Não encontrado">
-<meta name="vk-pt68" content="Cartão postal">
-<meta name="vk-pt69" content="Alterar">
-<meta name="vk-pt70" content="Opcional">
-<meta name="vk-pt71" content="Repetir">
-<meta name="vk-pt72" content="Paralelo">
-<meta name="vk-pt73" content="Nota">
-<meta name="vk-pt74" content="Dica">
-<meta name="vk-pt75" content="Importante">
-<meta name="vk-pt76" content="Aviso">
-<meta name="vk-pt77" content="Atenção">
-<meta name="vk-pt78" content="Retomar a Leitura">
-<meta name="vk-pt79" content="Para melhor compatibilidade, é recomendado usar o navegador Chrome/Firefox/Edge">
-<meta name="vk-pt80" content="Atenção! Para garantir uma impressão adequada, é recomendado usar a função [Imprimir] dentro do documento!">
-<meta name="vk-pt81" content="Link / endereço inválido">
-<meta name="vk-pt82" content="Página">
-<meta name="vk-pt83" content="Link">
-<meta name="vk-pt84" content="Nota de rodapé">
-<meta name="vk-pt85" content="Redefinir para o estilo de fonte do tema">
-<meta name="vk-pt86" content="Clique aqui para abrir o link">
-<meta name="vk-pt87" content="Hoje é">
-<meta name="vk-pt88" content="Esta página será exibida no {{display-mode}}">
-<meta name="vk-pt89" content="Clique no botão abaixo para desativá-lo temporariamente">
-<meta name="vk-pt90" content="Automaticamente">
-<meta name="vk-pt91" content="Claro">
-<meta name="vk-pt92" content="Escuro">
+<!-- 以下为 pt 语言包内容 -->
+<script type="application/json" id="vlook-lang-pt" data-lang="pt">{
+"pt1":"Capa do documento",
+"pt2":"Alternar abas",
+"pt3":"Mapa de Links",
+"pt4":"Ativado",
+"pt5":" para alternar o tamanho do passo",
+"pt6":"Centro de Navegação",
+"pt7":"Biblioteca de Documentos",
+"pt8":"Navegação por parágrafo",
+"pt9":"Foco",
+"pt10":"Ponteiro Laser",
+"pt11":"CJK",
+"pt12":"Não-CJK",
+"pt13":"Voltar à capa do documento",
+"pt14":"Voltar ao início deste capítulo",
+"pt15":"Anterior",
+"pt16":"Próximo",
+"pt17":"Fechar",
+"pt18":"Fórmula",
+"pt19":"Se você não conseguir se conectar à Internet para carregar a versão online da fonte, é recomendado baixar a fonte diretamente para o local",
+"pt20":"Link primário",
+"pt21":"Link secundário",
+"pt22":"Todas as notas de rodapé",
+"pt23":"Começar a ler",
+"pt24":"Tela cheia",
+"pt25":"Modo de Leitura",
+"pt26":"Enrolar / Desenrolar",
+"pt27":"Imagem em imagem",
+"pt28":"Pressione e segure",
+"pt29":"Documento atual",
+"pt30":"Copiar código",
+"pt31":"Copiar endereço da imagem",
+"pt32":"Publicar como PDF",
+"pt33":"Alternar o tamanho do holofote",
+"pt34":"Pausa",
+"pt35":"Índice",
+"pt36":"- Uma nova versão foi lançada, por favor atualize!",
+"pt37":"Desculpe, a cópia não é suportada atualmente neste navegador",
+"pt38":"Pronto",
+"pt39":"Tempo Esgotado",
+"pt40":"Carregando",
+"pt41":"Estilo de fonte",
+"pt42":"Minuto(s)",
+"pt43":"Hora(s)",
+"pt44":"Palavras",
+"pt45":"Aparência",
+"pt46":"Adicione [TOC] antes do primeiro cabeçalho de nível um para gerá-lo",
+"pt47":"Verificação de hash aprovada",
+"pt48":"Modo cinza",
+"pt49":"A verificação de hash falhou",
+"pt50":"Comprimento máximo da URL excedido",
+"pt51":"Hash",
+"pt52":"Verificar Hash",
+"pt53":"Título/legenda duplicado",
+"pt54":"Link Interno Inválido",
+"pt55":"Mostrar todos",
+"pt56":"Tabela",
+"pt57":"Bloco de Código",
+"pt58":"Figura",
+"pt59":"Áudio",
+"pt60":"Vídeo",
+"pt61":"Recurso experimental",
+"pt62":"Copiado",
+"pt63":"Endereço de recurso inválido",
+"pt64":"⚠️ AVISO ⚠️&#10;&#10;No su documento, usted usó la función de redimensionamiento de imagen de Typora, que puede causar problemas de compatibilidad!&#10;&#10;Se recomienda sustituirlo por la &quot;redimensionamiento de imagen&quot; de VLOOK™ como:&#10;pic.jpg#400w&#10;pic.jpg#200h",
+"pt65":"Histórico de navegação",
+"pt66":" está vazio",
+"pt67":"Não encontrado",
+"pt68":"Cartão postal",
+"pt69":"Alterar",
+"pt70":"Opcional",
+"pt71":"Repetir",
+"pt72":"Paralelo",
+"pt73":"Nota",
+"pt74":"Dica",
+"pt75":"Importante",
+"pt76":"Aviso",
+"pt77":"Atenção",
+"pt78":"Retomar a Leitura",
+"pt79":"Para melhor compatibilidade, é recomendado usar o navegador Chrome/Firefox/Edge",
+"pt80":"Baixando imagens no documento...",
+"pt81":"Link / endereço inválido",
+"pt82":"Página",
+"pt83":"Link",
+"pt84":"Nota de rodapé",
+"pt85":"Redefinir para o estilo de fonte do tema",
+"pt86":"Clique aqui para abrir o link",
+"pt87":"Hoje é",
+"pt88":"Esta página será exibida no {{display-mode}}",
+"pt89":"Clique no botão abaixo para desativá-lo temporariamente",
+"pt90":"Automaticamente",
+"pt91":"Claro",
+"pt92":"Escuro",
+"pt93":"Concluído",
+"pt94":"Falhou",
+"pt95":"Continuar mesmo assim",
+"pt96":"Cancelar"
+}</script>

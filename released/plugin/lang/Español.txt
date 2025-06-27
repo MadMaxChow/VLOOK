@@ -1,106 +1,107 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V29.0" (2025-05-24) - (Language Pack) - Typora Plugin
+VLOOK™ "V30.0" (2025-06-27) - (Language Pack) - Typora Plugin
 
-Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
-!!! Attention! Do not overwrite the content from "meta.txt" !!!
-追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
-!!! 注意！不要覆盖来自 "meta.txt" 的内容 !!!
+Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
+追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
 -->
 <!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
-<!-- 以下为语言标识 -->
-<meta name="vlook-lang-es" content="es">
-<!-- The following is the content of the language package -->
-<!-- 以下为语言包内容 -->
-<meta name="vk-es1" content="Portada del documento">
-<meta name="vk-es2" content="Cambiar pestañas">
-<meta name="vk-es3" content="Enlace al mapa">
-<meta name="vk-es4" content="Habilitado">
-<meta name="vk-es5" content=" para cambiar el tamaño del paso">
-<meta name="vk-es6" content="Centro de Navegación">
-<meta name="vk-es7" content="Biblioteca de Documentos">
-<meta name="vk-es8" content="Desplazamiento por párrafos">
-<meta name="vk-es9" content="Proyector">
-<meta name="vk-es10" content="Lápiz Láser">
-<meta name="vk-es11" content="CJK">
-<meta name="vk-es12" content="Non-CJK">
-<meta name="vk-es13" content="Volver a la portada del documento">
-<meta name="vk-es14" content="Volver al principio de este capítulo">
-<meta name="vk-es15" content="Anterior">
-<meta name="vk-es16" content="Siguiente">
-<meta name="vk-es17" content="Cerrar">
-<meta name="vk-es18" content="Fórmula">
-<meta name="vk-es19" content="Si no puedes conectarte a Internet para cargar la versión en línea de la fuente, se recomienda descargar la fuente directamente al dispositivo local">
-<meta name="vk-es20" content="Enlace primario">
-<meta name="vk-es21" content="Enlace secundario">
-<meta name="vk-es22" content="Todas las notas al pie">
-<meta name="vk-es23" content="Comenzar a leer">
-<meta name="vk-es24" content="Pantalla completa">
-<meta name="vk-es25" content="Modo de lectura">
-<meta name="vk-es26" content="Envolver / Desenrollar">
-<meta name="vk-es27" content="Imagen en imagen">
-<meta name="vk-es28" content="Presionar y mantener">
-<meta name="vk-es29" content="Documento actual">
-<meta name="vk-es30" content="Copiar código">
-<meta name="vk-es31" content="Copiar dirección de la imagen">
-<meta name="vk-es32" content="Copiar contenido de la tabla">
-<meta name="vk-es33" content="Cambiar el tamaño del foco">
-<meta name="vk-es34" content="Pausa">
-<meta name="vk-es35" content="Índice">
-<meta name="vk-es36" content="- Se ha lanzado una nueva versión, ¡por favor actualiza!">
-<meta name="vk-es37" content="Lo siento, copiar no es compatible con este navegador en este momento">
-<meta name="vk-es38" content="Listo">
-<meta name="vk-es39" content="Tiempo de espera">
-<meta name="vk-es40" content="Cargando">
-<meta name="vk-es41" content="Estilo de fuente">
-<meta name="vk-es42" content="Minuto(s)">
-<meta name="vk-es43" content="Hora(s)">
-<meta name="vk-es44" content="Palabras">
-<meta name="vk-es45" content="Apariencia">
-<meta name="vk-es46" content="Agregue [TOC] antes del primer encabezado de primer nivel para generarlo">
-<meta name="vk-es47" content="La verificación de hash ha sido aprobada">
-<meta name="vk-es48" content="Modo gris">
-<meta name="vk-es49" content="La verificación de hash ha fallado">
-<meta name="vk-es50" content="Se ha excedido la longitud máxima de la URL">
-<meta name="vk-es51" content="Hash">
-<meta name="vk-es52" content="Verificar Hash">
-<meta name="vk-es53" content="Título/leyenda duplicado">
-<meta name="vk-es54" content="Enlace Interno Inválido">
-<meta name="vk-es55" content="Mostrar todo">
-<meta name="vk-es56" content="Tabla">
-<meta name="vk-es57" content="Bloque de Código">
-<meta name="vk-es58" content="Figura">
-<meta name="vk-es59" content="Audio">
-<meta name="vk-es60" content="Video">
-<meta name="vk-es61" content="Haz clic de nuevo para Copiar como Markdown">
-<meta name="vk-es62" content="Copiado">
-<meta name="vk-es63" content="Dirección de recurso no válida">
-<meta name="vk-es64" content="⚠️ ADVERTENCIA ⚠️&#10;&#10;¡En su documento, utilizó la función de escalado de imágenes de Typora, que puede causar problemas de compatibilidad!&#10;&#10;Se recomienda reemplazarlo con la &quot;escalado de imágenes&quot; de VLOOK™ como:&#10;pic.jpg#400w&#10;pic.jpg#200h">
-<meta name="vk-es65" content="Historial de navegación">
-<meta name="vk-es66" content=" está vacío">
-<meta name="vk-es67" content="No encontrado">
-<meta name="vk-es68" content="Postal">
-<meta name="vk-es69" content="Alterar">
-<meta name="vk-es70" content="Opcional">
-<meta name="vk-es71" content="Repetir">
-<meta name="vk-es72" content="Paralelo">
-<meta name="vk-es73" content="Nota">
-<meta name="vk-es74" content="Consejo">
-<meta name="vk-es75" content="Importante">
-<meta name="vk-es76" content="Advertencia">
-<meta name="vk-es77" content="Precaución">
-<meta name="vk-es78" content="Continuar leyendo">
-<meta name="vk-es79" content="Para una compatibilidad óptima, se recomienda utilizar el navegador Chrome/Firefox/Edge">
-<meta name="vk-es80" content="¡Atención! Para asegurar una impresión adecuada, se recomienda utilizar la función [Imprimir] dentro del documento.">
-<meta name="vk-es81" content="Enlace o dirección inválidos">
-<meta name="vk-es82" content="Página">
-<meta name="vk-es83" content="Enlace">
-<meta name="vk-es84" content="Nota al pie">
-<meta name="vk-es85" content="Restablecer al estilo de fuente del tema">
-<meta name="vk-es86" content="Haga clic aquí para abrir el enlace">
-<meta name="vk-es87" content="Hoy es">
-<meta name="vk-es88" content="Esta página se mostrará en {{display-mode}}">
-<meta name="vk-es89" content="Haga clic en el botón de abajo para desactivarlo temporalmente">
-<meta name="vk-es90" content="Automáticamente">
-<meta name="vk-es91" content="Claro">
-<meta name="vk-es92" content="Oscuro">
+<!-- 以下为 es 语言包内容 -->
+<script type="application/json" id="vlook-lang-es" data-lang="es">{
+"es1":"Portada del documento",
+"es2":"Cambiar pestañas",
+"es3":"Enlace al mapa",
+"es4":"Habilitado",
+"es5":" para cambiar el tamaño del paso",
+"es6":"Centro de Navegación",
+"es7":"Biblioteca de Documentos",
+"es8":"Desplazamiento por párrafos",
+"es9":"Proyector",
+"es10":"Lápiz Láser",
+"es11":"CJK",
+"es12":"Non-CJK",
+"es13":"Volver a la portada del documento",
+"es14":"Volver al principio de este capítulo",
+"es15":"Anterior",
+"es16":"Siguiente",
+"es17":"Cerrar",
+"es18":"Fórmula",
+"es19":"Si no puedes conectarte a Internet para cargar la versión en línea de la fuente, se recomienda descargar la fuente directamente al dispositivo local",
+"es20":"Enlace primario",
+"es21":"Enlace secundario",
+"es22":"Todas las notas al pie",
+"es23":"Comenzar a leer",
+"es24":"Pantalla completa",
+"es25":"Modo de lectura",
+"es26":"Envolver / Desenrollar",
+"es27":"Imagen en imagen",
+"es28":"Presionar y mantener",
+"es29":"Documento actual",
+"es30":"Copiar código",
+"es31":"Copiar dirección de la imagen",
+"es32":"Publicar como PDF",
+"es33":"Cambiar el tamaño del foco",
+"es34":"Pausa",
+"es35":"Índice",
+"es36":"- Se ha lanzado una nueva versión, ¡por favor actualiza!",
+"es37":"Lo siento, copiar no es compatible con este navegador en este momento",
+"es38":"Listo",
+"es39":"Tiempo de espera",
+"es40":"Cargando",
+"es41":"Estilo de fuente",
+"es42":"Minuto(s)",
+"es43":"Hora(s)",
+"es44":"Palabras",
+"es45":"Apariencia",
+"es46":"Agregue [TOC] antes del primer encabezado de primer nivel para generarlo",
+"es47":"La verificación de hash ha sido aprobada",
+"es48":"Modo gris",
+"es49":"La verificación de hash ha fallado",
+"es50":"Se ha excedido la longitud máxima de la URL",
+"es51":"Hash",
+"es52":"Verificar Hash",
+"es53":"Título/leyenda duplicado",
+"es54":"Enlace Interno Inválido",
+"es55":"Mostrar todo",
+"es56":"Tabla",
+"es57":"Bloque de Código",
+"es58":"Figura",
+"es59":"Audio",
+"es60":"Video",
+"es61":"Función experimental",
+"es62":"Copiado",
+"es63":"Dirección de recurso no válida",
+"es64":"⚠️ ADVERTENCIA ⚠️&#10;&#10;¡En su documento, utilizó la función de escalado de imágenes de Typora, que puede causar problemas de compatibilidad!&#10;&#10;Se recomienda reemplazarlo con la &quot;escalado de imágenes&quot; de VLOOK™ como:&#10;pic.jpg#400w&#10;pic.jpg#200h",
+"es65":"Historial de navegación",
+"es66":" está vacío",
+"es67":"No encontrado",
+"es68":"Postal",
+"es69":"Alterar",
+"es70":"Opcional",
+"es71":"Repetir",
+"es72":"Paralelo",
+"es73":"Nota",
+"es74":"Consejo",
+"es75":"Importante",
+"es76":"Advertencia",
+"es77":"Precaución",
+"es78":"Continuar leyendo",
+"es79":"Para una compatibilidad óptima, se recomienda utilizar el navegador Chrome/Firefox/Edge",
+"es80":"Descargando imágenes en el documento...",
+"es81":"Enlace o dirección inválidos",
+"es82":"Página",
+"es83":"Enlace",
+"es84":"Nota al pie",
+"es85":"Restablecer al estilo de fuente del tema",
+"es86":"Haga clic aquí para abrir el enlace",
+"es87":"Hoy es",
+"es88":"Esta página se mostrará en {{display-mode}}",
+"es89":"Haga clic en el botón de abajo para desactivarlo temporalmente",
+"es90":"Automáticamente",
+"es91":"Claro",
+"es92":"Oscuro",
+"es93":"Completado",
+"es94":"Fallido",
+"es95":"Continuar de todos modos",
+"es96":"Cancelar"
+}</script>

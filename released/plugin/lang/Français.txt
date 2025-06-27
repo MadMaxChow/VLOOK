@@ -1,106 +1,107 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V29.0" (2025-05-24) - (Language Pack) - Typora Plugin
+VLOOK™ "V30.0" (2025-06-27) - (Language Pack) - Typora Plugin
 
-Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
-!!! Attention! Do not overwrite the content from "meta.txt" !!!
-追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
-!!! 注意！不要覆盖来自 "meta.txt" 的内容 !!!
+Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
+追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
 -->
 <!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
-<!-- 以下为语言标识 -->
-<meta name="vlook-lang-fr" content="fr">
-<!-- The following is the content of the language package -->
-<!-- 以下为语言包内容 -->
-<meta name="vk-fr1" content="Couverture du document">
-<meta name="vk-fr2" content="Changer d'onglet">
-<meta name="vk-fr3" content="Carte de liens">
-<meta name="vk-fr4" content="Activé">
-<meta name="vk-fr5" content=" pour changer la taille de l'étape">
-<meta name="vk-fr6" content="Centre de Navigation">
-<meta name="vk-fr7" content="Bibliothèque de documents">
-<meta name="vk-fr8" content="Navigation par paragraphe">
-<meta name="vk-fr9" content="Projecteur">
-<meta name="vk-fr10" content="Pointeur Laser.">
-<meta name="vk-fr11" content="CJK">
-<meta name="vk-fr12" content="Non-CJK">
-<meta name="vk-fr13" content="Revenir à la couverture du document">
-<meta name="vk-fr14" content="Retour au début de ce chapitre">
-<meta name="vk-fr15" content="Précédent">
-<meta name="vk-fr16" content="Suivant">
-<meta name="vk-fr17" content="Fermer">
-<meta name="vk-fr18" content="Formule">
-<meta name="vk-fr19" content="Si vous ne pouvez pas vous connecter à Internet pour charger la version en ligne de la police, il est recommandé de télécharger la police directement sur l’ordinateur">
-<meta name="vk-fr20" content="Lien principal">
-<meta name="vk-fr21" content="Lien secondaire">
-<meta name="vk-fr22" content="Toutes les notes de bas de page">
-<meta name="vk-fr23" content="Commencer la lecture.">
-<meta name="vk-fr24" content="Plein écran">
-<meta name="vk-fr25" content="Mode lecture">
-<meta name="vk-fr26" content="Envelopper / Dérouler">
-<meta name="vk-fr27" content="Image dans l’image">
-<meta name="vk-fr28" content="Appuyer et maintenir">
-<meta name="vk-fr29" content="Document actuel">
-<meta name="vk-fr30" content="Copier le code">
-<meta name="vk-fr31" content="Copier l’adresse de l’image">
-<meta name="vk-fr32" content="Copier le contenu du tableau">
-<meta name="vk-fr33" content="Changer la taille du projecteur">
-<meta name="vk-fr34" content="Pause">
-<meta name="vk-fr35" content="Table des matières">
-<meta name="vk-fr36" content="- Une nouvelle version a été publiée, veuillez mettre à jour!">
-<meta name="vk-fr37" content="Désolé, la fonction de copie n’est actuellement pas supportée dans ce navigateur">
-<meta name="vk-fr38" content="Prêt">
-<meta name="vk-fr39" content="Délai d’attente">
-<meta name="vk-fr40" content="Chargement">
-<meta name="vk-fr41" content="Style de police">
-<meta name="vk-fr42" content="Minute(s)">
-<meta name="vk-fr43" content="Heure(s)">
-<meta name="vk-fr44" content="Mots">
-<meta name="vk-fr45" content="Apparence">
-<meta name="vk-fr46" content="Ajoutez [TOC] avant le premier titre de premier niveau pour le générer">
-<meta name="vk-fr47" content="Vérification du hash réussie">
-<meta name="vk-fr48" content="Mode gris">
-<meta name="vk-fr49" content="Échec de la vérification du hash">
-<meta name="vk-fr50" content="Longueur maximale de l'URL dépassée">
-<meta name="vk-fr51" content="Hachage">
-<meta name="vk-fr52" content="Vérifier le hachage">
-<meta name="vk-fr53" content="Titre/légende en double">
-<meta name="vk-fr54" content="Lien interne invalide">
-<meta name="vk-fr55" content="Tout afficher">
-<meta name="vk-fr56" content="Tableau">
-<meta name="vk-fr57" content="Bloc de code">
-<meta name="vk-fr58" content="Figure">
-<meta name="vk-fr59" content="Audio">
-<meta name="vk-fr60" content="Vidéo">
-<meta name="vk-fr61" content="Cliquez à nouveau pour copier en Markdown">
-<meta name="vk-fr62" content="Copié">
-<meta name="vk-fr63" content="Adresse de ressource invalide">
-<meta name="vk-fr64" content="⚠️ AVERTISSEMENT ⚠️&#10;&#10;Dans votre document, vous avez utilisé la fonction de mise à l'échelle des images de Typora, ce qui peut entraîner des problèmes de compatibilité !&#10;&#10;Il est recommandé de le remplacer par la &quot;mise à l'échelle des images&quot; de VLOOK™ comme suit :&#10;pic.jpg#400w&#10;pic.jpg#200h">
-<meta name="vk-fr65" content="Historique de navigation">
-<meta name="vk-fr66" content=" est vide">
-<meta name="vk-fr67" content="Non trouvé">
-<meta name="vk-fr68" content="Carte postale">
-<meta name="vk-fr69" content="Modifier">
-<meta name="vk-fr70" content="Optionnel">
-<meta name="vk-fr71" content="Boucle">
-<meta name="vk-fr72" content="Parallèle">
-<meta name="vk-fr73" content="Remarque">
-<meta name="vk-fr74" content="Conseil">
-<meta name="vk-fr75" content="Important">
-<meta name="vk-fr76" content="Avertissement">
-<meta name="vk-fr77" content="Prudence">
-<meta name="vk-fr78" content="Reprendre la lecture">
-<meta name="vk-fr79" content="Pour une compatibilité optimale, il est recommandé d’utiliser le navigateur Chrome/Firefox/Edge">
-<meta name="vk-fr80" content="Attention! Pour garantir une impression correcte, il est recommandé d’utiliser la fonction [Imprimer] dans le document!">
-<meta name="vk-fr81" content="Lien / adresse invalide">
-<meta name="vk-fr82" content="Page">
-<meta name="vk-fr83" content="Lien">
-<meta name="vk-fr84" content="Note de bas de page">
-<meta name="vk-fr85" content="Réinitialiser au style de police du thème">
-<meta name="vk-fr86" content="Cliquez ici pour ouvrir le lien">
-<meta name="vk-fr87" content="Aujourd'hui, c'est">
-<meta name="vk-fr88" content="Cette page sera affichée en {{display-mode}}">
-<meta name="vk-fr89" content="Cliquez sur le bouton ci-dessous pour le désactiver temporairement">
-<meta name="vk-fr90" content="Automatiquement">
-<meta name="vk-fr91" content="Clair">
-<meta name="vk-fr92" content="Sombre">
+<!-- 以下为 fr 语言包内容 -->
+<script type="application/json" id="vlook-lang-fr" data-lang="fr">{
+"fr1":"Couverture du document",
+"fr2":"Changer d'onglet",
+"fr3":"Carte de liens",
+"fr4":"Activé",
+"fr5":" pour changer la taille de l'étape",
+"fr6":"Centre de Navigation",
+"fr7":"Bibliothèque de documents",
+"fr8":"Navigation par paragraphe",
+"fr9":"Projecteur",
+"fr10":"Pointeur Laser.",
+"fr11":"CJK",
+"fr12":"Non-CJK",
+"fr13":"Revenir à la couverture du document",
+"fr14":"Retour au début de ce chapitre",
+"fr15":"Précédent",
+"fr16":"Suivant",
+"fr17":"Fermer",
+"fr18":"Formule",
+"fr19":"Si vous ne pouvez pas vous connecter à Internet pour charger la version en ligne de la police, il est recommandé de télécharger la police directement sur l’ordinateur",
+"fr20":"Lien principal",
+"fr21":"Lien secondaire",
+"fr22":"Toutes les notes de bas de page",
+"fr23":"Commencer la lecture.",
+"fr24":"Plein écran",
+"fr25":"Mode lecture",
+"fr26":"Envelopper / Dérouler",
+"fr27":"Image dans l’image",
+"fr28":"Appuyer et maintenir",
+"fr29":"Document actuel",
+"fr30":"Copier le code",
+"fr31":"Copier l’adresse de l’image",
+"fr32":"Publier au format PDF",
+"fr33":"Changer la taille du projecteur",
+"fr34":"Pause",
+"fr35":"Table des matières",
+"fr36":"- Une nouvelle version a été publiée, veuillez mettre à jour!",
+"fr37":"Désolé, la fonction de copie n’est actuellement pas supportée dans ce navigateur",
+"fr38":"Prêt",
+"fr39":"Délai d’attente",
+"fr40":"Chargement",
+"fr41":"Style de police",
+"fr42":"Minute(s)",
+"fr43":"Heure(s)",
+"fr44":"Mots",
+"fr45":"Apparence",
+"fr46":"Ajoutez [TOC] avant le premier titre de premier niveau pour le générer",
+"fr47":"Vérification du hash réussie",
+"fr48":"Mode gris",
+"fr49":"Échec de la vérification du hash",
+"fr50":"Longueur maximale de l'URL dépassée",
+"fr51":"Hachage",
+"fr52":"Vérifier le hachage",
+"fr53":"Titre/légende en double",
+"fr54":"Lien interne invalide",
+"fr55":"Tout afficher",
+"fr56":"Tableau",
+"fr57":"Bloc de code",
+"fr58":"Figure",
+"fr59":"Audio",
+"fr60":"Vidéo",
+"fr61":"Fonction expérimentale",
+"fr62":"Copié",
+"fr63":"Adresse de ressource invalide",
+"fr64":"⚠️ AVERTISSEMENT ⚠️&#10;&#10;Dans votre document, vous avez utilisé la fonction de mise à l'échelle des images de Typora, ce qui peut entraîner des problèmes de compatibilité !&#10;&#10;Il est recommandé de le remplacer par la &quot;mise à l'échelle des images&quot; de VLOOK™ comme suit :&#10;pic.jpg#400w&#10;pic.jpg#200h",
+"fr65":"Historique de navigation",
+"fr66":" est vide",
+"fr67":"Non trouvé",
+"fr68":"Carte postale",
+"fr69":"Modifier",
+"fr70":"Optionnel",
+"fr71":"Boucle",
+"fr72":"Parallèle",
+"fr73":"Remarque",
+"fr74":"Conseil",
+"fr75":"Important",
+"fr76":"Avertissement",
+"fr77":"Prudence",
+"fr78":"Reprendre la lecture",
+"fr79":"Pour une compatibilité optimale, il est recommandé d’utiliser le navigateur Chrome/Firefox/Edge",
+"fr80":"Téléchargement des images dans le document...",
+"fr81":"Lien / adresse invalide",
+"fr82":"Page",
+"fr83":"Lien",
+"fr84":"Note de bas de page",
+"fr85":"Réinitialiser au style de police du thème",
+"fr86":"Cliquez ici pour ouvrir le lien",
+"fr87":"Aujourd'hui, c'est",
+"fr88":"Cette page sera affichée en {{display-mode}}",
+"fr89":"Cliquez sur le bouton ci-dessous pour le désactiver temporairement",
+"fr90":"Automatiquement",
+"fr91":"Clair",
+"fr92":"Sombre",
+"fr93":"Terminé",
+"fr94":"Échec",
+"fr95":"Continuer quand même",
+"fr96":"Annuler"
+}</script>
