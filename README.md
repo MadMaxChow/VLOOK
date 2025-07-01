@@ -2,7 +2,7 @@ Select language ❯  [**English**](README-en.md) • 中文
 
 
 
-[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK?label=Release&labelColor=04ADBF&color=9A4EE6)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total?label=Downloads%20(since%20V28.1)&labelColor=04ADBF&color=9A4EE6)](https://github.com/MadMaxChow/VLOOK/releases)
+[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK?style=for-the-badge&label=Release&labelColor=04B1CC&color=9A4EE6)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total?style=for-the-badge&label=Downloads%20(since%20V28.1)&labelColor=04B1CC&color=9A4EE6)](https://github.com/MadMaxChow/VLOOK/releases)
 
 ---
 
@@ -91,7 +91,7 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 # 范例参考
 
-[![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-api_spec.png)](sample-a-api_spec.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-to_do.png)](sample-a-to_do.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-img_text.png)](sample-a-img_text.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-routes.png)](sample-a-routes.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-board.png)](sample-a-board.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-quiz.png)](sample-a-quiz.html?ws=off)
+[![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-api_spec.png)](https://madmaxchow.github.io/VLOOK/sample-a-api_spec.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-to_do.png)](https://madmaxchow.github.io/VLOOK/sample-a-to_do.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-img_text.png)](https://madmaxchow.github.io/VLOOK/sample-a-img_text.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-routes.png)](https://madmaxchow.github.io/VLOOK/sample-a-routes.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-board.png)](https://madmaxchow.github.io/VLOOK/sample-a-board.html?ws=off)    [![点击查看实际效果](https://vlook-doc.pages.dev/pic/sample-a-quiz.png)](https://madmaxchow.github.io/VLOOK/sample-a-quiz.html?ws=off)
 
 ---
 
