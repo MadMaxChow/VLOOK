@@ -405,7 +405,7 @@ _^tab^_
 ###### 本文档的封面内容示例
 
 ```markdown
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册<br>(Part.II)</u><br>*最新版本`V30.0`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册<br>(Part.II)</u><br>*最新版本`V30.1`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 ```
 
 ###### 本文档的封底内容示例
@@ -2248,7 +2248,7 @@ $$
 
 *==内嵌 B 站视频（横屏）==*
 
-<iframe loading="lazy" src="https://player.bilibili.com/player.html?isOutside=true&aid=113423643837219&bvid=BV1miDpY5ERh&cid=26611613913&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe loading="lazy" src="//player.bilibili.com/player.html?isOutside=true&aid=113423643837219&bvid=BV1miDpY5ERh&cid=26611613913&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 > ###### 如何获取 B 站视频的「嵌入代码」？
 >
@@ -2266,6 +2266,10 @@ $$
 > <iframe src="https://player.bilibili.com/player.html?bvid=BV1zhaiegE73&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 > ```
 >
+
+> ###### 本地打开导出后的 HTML 里面的 B 站视频无法播放？
+>
+> 因为 B 站官网提供的「嵌入代码」中的视频链接 `src` 里没有 `https:` 前缀，这种情况下手工方式添加即可
 
 ### 抖音视频
 

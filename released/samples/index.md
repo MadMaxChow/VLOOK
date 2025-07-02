@@ -4,7 +4,7 @@ author: MAX°孟兆
 description: 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:description": 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
-date: 2025-5-27
+date: 2025-07-02
 changelog:
 - changelog content a, and content b
 - changelog content 2 [...detail](#打赏)
@@ -44,7 +44,7 @@ vlook-doc-lib:
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 ---
 
-###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V30.0`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V30.1`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 
 [TOC]
 
@@ -60,7 +60,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 **[*编辑工具`Typora`V1.9+*_~Gy~_](https://typoraio.cn)　*开源协议主`MIT`*_~Rd~_　*`关键字`主题、插件*_~Pu~_　*`支持的操作系统`Windows, macOS, Linux*_~Bu~_**
 
-**[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK?label=Release&labelColor=04ADBF&color=9A4EE6#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total?label=Downloads%20(since%20V28.1)&labelColor=04ADBF&color=9A4EE6#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK#logo)](https://github.com/MadMaxChow/VLOOK/stargazers)**
+**[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK?style=for-the-badge&label=Release&labelColor=04B1CC&color=9A4EE6#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total?style=for-the-badge&label=Downloads%20(since%20V28.1)&labelColor=04B1CC&color=9A4EE6#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK?style=for-the-badge&labelColor=04B1CC&color=9A4EE6#logo)](https://github.com/MadMaxChow/VLOOK/stargazers)**
 
 
 
@@ -166,7 +166,7 @@ _^tab^_
 
 *==简介视频==*
 
-<iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=113423643837219&bvid=BV1miDpY5ERh&cid=26611613913&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113423643837219&bvid=BV1miDpY5ERh&cid=26611613913&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 
 

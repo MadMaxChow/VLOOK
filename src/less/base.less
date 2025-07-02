@@ -2,8 +2,8 @@
  *
  * VLOOK™ CSS 基础库
  *
- * V30.0
- * 2025-06-27
+ * V30.1
+ * 2025-07-02
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -94,6 +94,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 
     // 主题相关
     --v-theme-name: @themeName; // 主题名称
+    --v-theme-desc: @themeDesc; // 主题描述
     --v-theme-version: @themeVer; // 主题版本，对应适配 VLOOK.JS 的版本
     --v-theme-email: @themeEmail; // 接收定制主题更新的电子邮箱
     --v-color-scheme: light; // 默认颜色模式为：Light 明亮
@@ -173,9 +174,6 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 
 @import "typora";
 // @import "mermaid";
-
-@colorWhite: #FFF;
-@colorBlack: #000;
 
 @writePaddingRight: 20px; // 与插件 gWritePaddingRight 同步修改
 @floatTopBottom: 50px;
@@ -1014,8 +1012,8 @@ rt:hover {
 
 // ----------------------------------------
 // 图片剪影（png）公共样式，结合插件在完成图片加载后添加 enabled 样式进行启用
-// SVG 图片须在 HTTP 及不跨域情况下才能实现
-// @fillOffset: 50px; // 用于测试
+// 注意：SVG 图片须在 HTTP 及不跨域情况下才能实现
+// 用于测试：@fillOffset: 50px; // 用于测试
 @fillOffset: 12345px;
 @{writeOnHTML} img[src*="fill="].enabled,
 @{writeOnHTML} :is(a, a kbd)>img[src*="fill="].enabled,
@@ -1061,16 +1059,13 @@ rt:hover {
 }
 .genHoverStyle(@for) when (@for = a_kbd-img-fill-text) {
     @{writeOnEditing} a kbd:hover>.md-image[data-src*="fill=text"]>img {
-        // box-shadow: 0 0 0 2px @buttonForeHoverColor !important;
         box-shadow: 0 0 0 2px currentColor !important;
     }
     @{writeOnHTML} a kbd:hover>img[src*="fill=text"].enabled {
-        // filter: drop-shadow(@fillOffset 0 0 @buttonForeHoverColor) !important;
         filter: drop-shadow(@fillOffset 0 0 currentColor) !important;
     }
     @{writeOnHTML} @{kbdSec}:hover>img[src*="fill=text"].enabled,
     @{writeOnHTML} @{kbdSuper}:hover>img[src*="fill=text"].enabled {
-        // filter: drop-shadow(@fillOffset 0 0 var(--a-o-c)) !important;
         filter: drop-shadow(@fillOffset 0 0 currentColor) !important;
     }
 }
@@ -1205,7 +1200,8 @@ rt:hover {
     box-shadow: none;
     background: @continuousHeaderBG;
     margin-top: @hContinuous;
-    border: none;
+    // border: none;
+    border-bottom: none;
 }
 
 #write h3 {
@@ -1231,7 +1227,8 @@ rt:hover {
     box-shadow: none;
     background: @continuousHeaderBG;
     margin-top: @hContinuous;
-    border: none;
+    // border: none;
+    border-bottom: none;
 }
 
 #write h4 {
@@ -1258,7 +1255,8 @@ rt:hover {
     box-shadow: none;
     background: @continuousHeaderBG;
     margin-top: @hContinuous;
-    border: none;
+    // border: none;
+    border-bottom: none;
 }
 
 #write h5 {
@@ -1285,7 +1283,8 @@ rt:hover {
     box-shadow: none;
     background: @continuousHeaderBG;
     margin-top: @hContinuous;
-    border: none;
+    // border: none;
+    border-bottom: none;
 }
 
 #write h6 {
@@ -1309,7 +1308,8 @@ rt:hover {
 #write @{quote_details} h6::after {
     margin-left: 0;
     padding-bottom: 0;
-    border: none;
+    // border: none;
+    border-bottom: none;
 }
 
 #write :is(
@@ -1757,9 +1757,10 @@ summary::-moz-list-bullet {
     border-radius: 0 0 calc(var(--v-r-t) - 2px) calc(var(--v-r-t-xc) - 2px);
 }
 
-.CodeMirror-sizer {
-    background: var(--d-bc);
-}
+// 代码块正文区
+// .CodeMirror-sizer {
+//     background: var(--d-bc);
+// }
 
 .CodeMirror pre {
     padding: 0 10px;
@@ -1783,8 +1784,10 @@ summary::-moz-list-bullet {
     }
 }
 
+// 代码块区域
 .CodeMirror.cm-s-inner {
-    background: var(--d-bc);
+    background: var(--d-cb);
+    // background: var(--d-bc);
     padding: 2px;
 }
 
@@ -3739,7 +3742,6 @@ div[class*=v-fontinfo-].done > span,
     top: -40px;
     width: 100%;
     text-align: center;
-    // padding: 0 5px;
     padding: 2px;
     white-space: pre;
     pointer-events: none;
@@ -3813,11 +3815,9 @@ div[class*=v-fontinfo-].done > span,
 .genSegmentBtn(@style) when (@style = std) {
     // 当前
     .v-segment>input[name=toc-segment]:checked+.v-segment-btn {
-        // background: var(--v-ui-bg);
         background: var(--d-fc);
     }
     .v-segment>input[name=toc-segment]:checked+.v-segment-btn>svg>use {
-        // fill: @buttonForeColor;
         fill: var(--d-bc);
     }
 }
@@ -3882,7 +3882,6 @@ div[class*=v-fontinfo-].done > span,
 }
 .genHoverStyle(@for) when (@for = segment-btn) {
     .v-segment-btn:hover {
-        // background: var(--a-o-c);
         background: var(--pn-c);
     }
 }
@@ -3976,8 +3975,6 @@ div[class*=v-fontinfo-].done > span,
     display: flex;
     align-items: center;
     vertical-align: middle;
-    // width: 100%;
-    // padding: 20px 0;
     padding: 10px;
     margin: 10px 20px;
     font: normal .875em var(--v-f-fm-stt); // [style] [weight] [size/[line-height]] [family]
@@ -5553,9 +5550,7 @@ use.v-svg-ico-wh {
         // 加载提示、欢迎页样式
         @{writeOnHTML}::before,
         .v-welcome-page {
-            // background: radial-gradient(var(--ac-t1) 2px, var(--ac-t2) 2px);
-            // background-size: 6px 6px;
-            background: radial-gradient(var(--ac-t1) 1px, var(--ac-t2) 2px);
+            background: radial-gradient(#00000099 1px, var(--ac-t1) 2px);
             background-size: 4px 4px;
         }
 
@@ -5565,9 +5560,6 @@ use.v-svg-ico-wh {
         .v-mask.top,
         .v-mask.bottom,
         .v-mask.center {
-            // background: #00000026;//rgba(0,0,0,.15)
-            // background: radial-gradient(transparent 2px, var(--d-bc) 2px);
-            // background-size: 6px 6px;
             background: radial-gradient(transparent 1px, var(--d-bc) 2px);
             background-size: 4px 4px;
         }
@@ -5575,18 +5567,16 @@ use.v-svg-ico-wh {
         // 遮罩关闭、版权信息样式
         .v-mask-close,
         .v-copyright {
-            // background: radial-gradient(var(--ac-t1), transparent 75%);
             background: var(--ac-t1) !important;
             border-radius: var(--v-r-b) var(--v-r-b-xc);
-            // opacity: .6;
         }
 
-        .v-font-style:before,
-        .v-nav-center.mobile:before,
-        .v-doc-lib:after,
-        .v-footnote-pn:before,
-        .v-link-info-list:before {
-            // background: var(--ac-t2);
+        .v-font-style::before,
+        .v-nav-center.mobile::before,
+        .v-doc-lib::after,
+        .v-footnote-pn::before,
+        .v-link-info-list::before {
+            color: var(--d-bc);
             background: var(--d-fc);
             border-radius: var(--v-r-b) var(--v-r-b-xc);
         }
@@ -5622,7 +5612,6 @@ use.v-svg-ico-wh {
 // 遮罩关闭提示器样式
 .v-mask-close {
     position: fixed;
-    // width: 60px;
     width: 40px;
     height: 90px;
     display: flex;
@@ -5634,8 +5623,6 @@ use.v-svg-ico-wh {
 // 遮罩关闭提示器扩展样式
 .v-mask-close.left,
 .v-mask-close.right {
-    // width: 16px;
-    // height: 60px;
     // 垂直居中
     top: 50%;
     transform: translateY(-50%);
@@ -5675,11 +5662,6 @@ use.v-svg-ico-wh {
 
 // 引用块着色
 @{writeOnHTML} .v-q {
-    // color: var(--d-fc);
-    // width: auto;
-    // width: fit-content;
-    // margin-left: auto;
-    // margin-right: auto;
     border: none;
     border-radius: var(--v-r-b) var(--v-r-b-xc);
     padding: .75em
@@ -5721,7 +5703,7 @@ use.v-svg-ico-wh {
 #write .v-q a kbd>@{svgGs} {
     fill: currentColor;
 }
-// for bk
+// 注意 for bk
 #write .v-q.bk.em @{kbdSec}>img[src*="fill=text"].enabled {
     filter: drop-shadow(@fillOffset 0 0 var(--d-bc)) !important;
 }
@@ -5739,7 +5721,6 @@ use.v-svg-ico-wh {
             box-shadow: 0 0 0 4px var(--d-fc) inset;
         }
         .genQuote(@quoteMark);
-        // background: none;
         background: var(--d-bc);
         border-color: @btnBg;
     }

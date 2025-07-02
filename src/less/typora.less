@@ -122,7 +122,7 @@
 // 选中内容的样式
 ::selection {
     background: var(--v-selected-c);
-    fill: var(--d-fc); // for SVG text
+    fill: var(--d-fc); // 针对 SVG text
 }
 
 // 针对 Typora 导出时自带的侧边栏
@@ -533,7 +533,7 @@ body.@{windows} .info-panel-tab-wrapper {
 }
 .sidebar-osx-tab::before,
 body.@{windows} .info-panel-tab-wrapper::before {
-    content: "VLOOK™ " @themeDesc " - " @themeVer;
+    content: "VLOOK™" @themeSpliter @themeDesc " ∞ " @themeVer;
     text-transform: uppercase;
     white-space: pre;
     font: var(--v-f-w-bd) .75em var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
@@ -605,6 +605,17 @@ body.@{windows} :is(.active-tab-files, .active-tab-outline) .info-panel-tab-titl
     border-radius: var(--v-r-b) var(--v-r-b-xc);
     background: none;
     height: 100%;
+}
+
+// 文件夹菜单
+#sidebar-files-menu {
+    background: var(--d-bc);
+}
+
+// 文件夹菜单项
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>a:hover {
+    color: @buttonForeHoverColor;
 }
 
 // 针对 Win 版样式的差异调整
@@ -1079,7 +1090,7 @@ body.@{windows} .file-node-title { // for Win
     background: var(--code-bg);
     border: @yamlBorderWidth dashed var(--std-code-sd);
     margin: 0 @yamlMarginLeftRight @yamlMarginTopBottom;
-    height: @defaultLineHeight * 14px * 1 + 24px + 5px; // 14px 为 YAML 字号，10px 为 YAML 语法提示字号
+    height: @defaultLineHeight * 14px * 1 + 24px + 5px; // 这里的 14px 为 YAML 字号，10px 为 YAML 语法提示字号
 }
 // 针对 YAML 提示内容
 @{yamlOnEditing}:empty::before,

@@ -176,7 +176,7 @@ _^tab^_
 
 *==如何能让你的 Markdown 文档文本颜色更出彩（B 站）==*
 
-<iframe src="//player.bilibili.com/player.html?bvid=BV1zhaiegE73&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe src="https://player.bilibili.com/player.html?bvid=BV1zhaiegE73&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 _^tab^_
 

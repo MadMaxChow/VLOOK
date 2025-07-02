@@ -3,8 +3,8 @@
  * starter of VLOOK.js - Typora Plugin
  * (配合 vlook.js 进行使用)
  *
- * V30.0
- * 2025-06-27
+ * V30.1
+ * 2025-07-02
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -16,7 +16,7 @@
  *
  *************************************/
 
-let sVer = "V30.0";
+let sVer = "V30.1";
 
 /**
  * 获取 URL 中的参数数组

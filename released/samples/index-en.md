@@ -41,7 +41,7 @@ vlook-doc-lib:
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 ---
 
-###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br>──<br><u>Introduction</u><br>*`V30.0`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br>──<br><u>Introduction</u><br>*`V30.1`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 
 [TOC]
 
@@ -57,7 +57,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 **[*Editor`Typora`V1.9+*_~Gy~_](https://typoraio.cn)　*License`MIT`*_~Rd~_　*`Keywords`Theme, Plugin*_~Pu~_　*`Supported OS`Windows, macOS, Linux*_~Bu~_**
 
-**[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK?label=Release&labelColor=04ADBF&color=9A4EE6#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total?label=Downloads%20(since%20V28.1)&labelColor=04ADBF&color=9A4EE6#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK#logo)](https://github.com/MadMaxChow/VLOOK/stargazers)**
+**[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK?style=for-the-badge&label=Release&labelColor=04B1CC&color=9A4EE6#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total?style=for-the-badge&label=Downloads%20(since%20V28.1)&labelColor=04B1CC&color=9A4EE6#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK?style=for-the-badge&labelColor=04B1CC&color=9A4EE6#logo)](https://github.com/MadMaxChow/VLOOK/stargazers)**
 
 > - It is also Typora - recognized and supported theme pack and enhanced plugin, for details: [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook)
 > - [OSChina](https://www.oschina.net/p/vlook) recommended domestic open source products

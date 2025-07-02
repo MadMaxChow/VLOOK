@@ -3,8 +3,8 @@
  * VLOOK™ CSS 调色板
  * (配合 base.less 进行使用)
  *
- * V30.0
- * 2025-06-27
+ * V30.1
+ * 2025-07-02
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -16,6 +16,10 @@
  *
  *************************************/
 
+@colorWhite: #FFF;
+@colorBlack: #000;
+@colorDark: #1C1E1F;
+
 /**
  * 文档背景色
  * @param colorLight 在 Light Mode 的颜色
@@ -24,19 +28,33 @@
 .applyDocBgColor(@colorLight, @colorDark) {
     :root {
         --d-bc-lg: @colorLight;
+        --d-cb-lg: @colorLight;
         --fd-r-lg: red(@colorLight);
         --fd-g-lg: green(@colorLight);
         --fd-b-lg: blue(@colorLight);
 
         --d-bc-dk: @colorDark;
+        --d-cb-dk: @colorDark;
         --fd-r-dk: red(@colorDark);
         --fd-g-dk: green(@colorDark);
         --fd-b-dk: blue(@colorDark);
     }
 }
 @docBgColorLight: @colorWhite;
-@docBgColorDark: #1C1E1F;
+@docBgColorDark: @colorDark;
 .applyDocBgColor(@docBgColorLight, @docBgColorDark);
+
+/**
+ * 代码块背景色
+ * @param colorLight 在 Light Mode 的颜色
+ * @param colorDark 在 Dark Mode 的颜色
+ */
+.applyCodeBlockBgColor(@colorLight, @colorDark) {
+    :root {
+        --d-cb-lg: @colorLight;
+        --d-cb-dk: @colorDark;
+    }
+}
 
 /**
  * 文档背景图片
@@ -371,8 +389,8 @@
     // --------------------
     // 针对 #Color_Scheme
     // 针对 Light 模式的颜色值
-    --v-invert-dark-lg: invert(0) brightness(100%); // Light Mode 下图片滤镜
-    --v-cover-dark-lg: brightness(100%); // Light 模式下封面、封底的滤镜
+    --v-invert-dark-lg: invert(0) brightness(100%); // 用于 Light Mode 下图片滤镜
+    --v-cover-dark-lg: brightness(100%); // 用于 Light 模式下封面、封底的滤镜
     --v-selected-c-lg: fade(@docBgColorDark, 20%); // 选中内容的背景色
 
     --a-c-lg: @aColor;
@@ -522,8 +540,8 @@
     // --------------------
     // 针对 #Color_Scheme
     // 针对 Dark Mode的颜色值
-    --v-invert-dark-dk: invert(1) brightness(@hoverBrightness); // Dark Mode 下图片滤镜
-    --v-cover-dark-dk: brightness(90%); // Dark Mode下封面、封底的滤镜
+    --v-invert-dark-dk: invert(1) brightness(@hoverBrightness); // 用于 Dark Mode 下图片滤镜
+    --v-cover-dark-dk: brightness(90%); // 用于 Dark Mode下封面、封底的滤镜
     --v-selected-c-dk: fade(@docBgColorLight, 25%); // 选中内容的背景色
 
     --a-c-dk: @aColorDark;
@@ -676,6 +694,7 @@
     --v-selected-c: var(--v-selected-c-lg);
 
     --d-bc: var(--d-bc-lg);
+    --d-cb: var(--d-cb-lg);
     // --d-bc-tsp: var(--d-bc-tsp-lg);
     --fd-r: var(--fd-r-lg);
     --fd-g: var(--fd-g-lg);

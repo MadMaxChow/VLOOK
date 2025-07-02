@@ -1,6 +1,6 @@
 <!--
 ▽▽▽▽▽ plugin_live for <head /> ▽▽▽▽▽
-VLOOK "V30.0" (2025-06-27) - Typora Plugin
+VLOOK "V30.1" (2025-07-02) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
@@ -44,8 +44,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
 <!--                                                                        -->
-<!--                                  V30.0                                 -->
-<!--                               2025-06-27                               -->
+<!--                                  V30.1                                 -->
+<!--                               2025-07-02                               -->
 <!--                           Powered by MAX°孟兆                           -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -73,7 +73,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <!-- ==================== VLOOK JS ==================== -->
 <script type="text/javascript" defer>
     // VLOOK
-    let lVer = "V30.0";
+    let lVer = "V30.1";
     let devMode = lVer.indexOf("dev") > 0 ? true : false, debugMode = devMode;
     let jsHost = devMode ? "http://localhost/js/" : "https://madmaxchow.github.io/VLOOK/js/",
         cssHost = devMode ? "http://localhost/css/" : "https://madmaxchow.github.io/VLOOK/css/";

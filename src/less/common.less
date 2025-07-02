@@ -3,8 +3,8 @@
  * VLOOK™ CSS 多主题间的通用样式
  * (配合 base.less、主题.less 进行使用)
  *
- * V30.0
- * 2025-06-27
+ * V30.1
+ * 2025-07-02
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -232,7 +232,8 @@
 @h5Padding: @headerPadding;
 
 // 标题圆角
-@headerBorderRadius: var(--v-r-b);
+// @headerBorderRadius: var(--v-r-b);
+@headerBorderRadius: 0;
 @h1BorderRadius: @headerBorderRadius;
 @h2BorderRadius: @headerBorderRadius;
 @h3BorderRadius: @headerBorderRadius;
@@ -364,7 +365,7 @@
 // 引用块左边框
 @quoteRadius: var(--v-r-b) var(--v-r-b-xc);
 
-// UI 外观颜色
+// 用于 VLOOK UI 外观颜色
 @uiForeColor: #FFF;
 @uiBgColor: @theme1;
 @uiBgColorDark: @theme1Dark;
@@ -1639,10 +1640,10 @@
     }
 }
 
-// ==================== 引用块居中显示 ==================== //
+// ==================== 引用块宽度内容内容，并居中显示 ==================== //
 
 // 针对普通的引用块，注意内容如果过长仍会顶边
-.genBlockquote(@style) when (@style = center) {
+.genBlockquote(@style) when (@style = fit) {
     blockquote,
     details,
     .md-alert {
@@ -1778,7 +1779,6 @@
 
 // 生成 GSA 简约风格2
 .genGSA(@style) when (@style = simpleEm) {
-    // @bg: ~"linear-gradient(var(--ac-pu-fd),var(--ac-pu-fd)), linear-gradient(var(--d-bc),var(--d-bc))";
     .genGitHubStyleAlertCSS(note, bu, bu);
     .genGitHubStyleAlertCSS(tip, gn, gn);
     .genGitHubStyleAlertCSS(important, pu, pu);

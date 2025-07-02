@@ -401,7 +401,7 @@ _^tab^_
 ###### Example of this document's cover content
 
 ```markdown
-###### ~VLOOK™~<br>Give your Markdown a new way to _^play^_<br>──<br><u>Quick Reference Manual<br>(Part.II)</u><br>*Latest version`V30.0`*<br><br>**MAX°Mengzhao**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>Give your Markdown a new way to _^play^_<br>──<br><u>Quick Reference Manual<br>(Part.II)</u><br>*Latest version`V30.1`*<br><br>**MAX°Mengzhao**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 ```
 
 ###### Example of this document's back cover content
@@ -2243,6 +2243,11 @@ If you have more needs or suggestions about the above content, feel free to prov
 > <iframe src="https://player.bilibili.com/player.html?bvid=BV1zhaiegE73&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 > ```
 >
+
+> ###### Can't play Bilibili videos in the exported HTML when opened locally?
+>
+> This is because the video embed code provided by Bilibili does not include the `https:` prefix in the `src` URL.  
+> You can fix this manually by adding `https:` to the beginning of the link.
 
 ### Douyin Videos
 
