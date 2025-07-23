@@ -49,9 +49,9 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 >
 > **Peter**、**绿邃清幽**、**李导996**、**fanky**、**＊丽**、**杨琛**、**＊哦**、**＊豫**、**l＊a**、**＊o**、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊应、＊销、E＊y、…
 
-|         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**         | **I like VLOOK™, I donate a cup of coffee** |
+|             **你的咖啡，能让 VLOOK™ 保持活力 ☕️**             |          **Your coffee<br>keeps VLOOK™ running ☕️**           |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| ![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo) | [![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow) |
+| ![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-wechat-light.png?darksrc=donate-qq-dark.png&srcset=@2x&darksrcset=@2x#logo)![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-qq-light.png?darksrc=donate-qq-dark.png&srcset=@2x&darksrcset=@2x#logo) | [![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow) |
 
 ---
 
@@ -185,14 +185,13 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 | ---------- | ---------------------------- |
 | [ **docs** ] | VLOOK™ 快速参考手册、官网及在线服务相关文件 |
 | [ **released** ] | 发布版本的主目录          |
-| &nbsp;&nbsp;&nbsp;┠─ [ **docs** ] | VLOOK™ 快速参考手册 markdown 源文件 |
+| &nbsp;&nbsp;&nbsp;┠─ [ **docs** ] | VLOOK™ 官网 |
 | &nbsp;&nbsp;&nbsp;┠─ [ **themes** ] | 默认配套的主题文件                |
-| &nbsp;&nbsp;&nbsp;┠─ [ **samples** ] | 推荐的各种 Markdown 范例文档 |
+| &nbsp;&nbsp;&nbsp;┠─ [ **samples** ] | 推荐的 Markdown 范例文档 |
 | &nbsp;&nbsp;&nbsp;┖─ [ **plugin** ] | 插件主目录                |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┠─ [ **lang** ] | 在导出配置中使用的语言包 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┠─ meta.txt | Typora 导出 HTML 配置 `... <head />` 的内容 |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┠─ plugin_live.txt | 在线版本的插件 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┖─ plugin.txt | Typora 导出 HTML 配置 `...  <body />` 的内容 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┖─ plugin.txt | 本地版本的插件 |
 | [ **src** ] | 源码目录                     |
 | &nbsp;&nbsp;&nbsp;┠─ [ **dev** ] | 开发测试用文件 |
 | &nbsp;&nbsp;&nbsp;┠─ [ **less** ] | 主题 CSS 文件的源文件 |

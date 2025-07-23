@@ -52,9 +52,9 @@ With just a few simple steps of installation and configuration, you can also hav
 >
 > **Peter**、**绿邃清幽**、**李导996**、**fanky**、**＊丽**、**杨琛**、**＊哦**、**＊豫**、**l＊a**、**＊o**、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊应、＊销、E＊y、…
 
-| **I like VLOOK™, I donate a cup of coffee** |         **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**         |
+|          **Your coffee<br/>keeps VLOOK™ running ☕️**          |             **你的咖啡，能让 VLOOK™ 保持活力 ☕️**             |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| [![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow) | ![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo) |
+| [![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow) | ![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo)![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-qq-light.png?darksrc=donate-qq-dark.png&srcset=@2x&darksrcset=@2x#logo) |
 
 ---
 
@@ -190,14 +190,13 @@ Based on the content and audience of your document, fully utilize the numerous f
 | ---------- | ---------------------------- |
 | [ **docs** ] | VLOOK™ Quick Reference Manual, official website and online service related documents |
 | [ **released** ] | Home directory of the release version                        |
-| &nbsp;&nbsp;&nbsp;┠─ [ **demo** ] | VLOOK™ Quick Reference Manual markdown format documents |
+| &nbsp;&nbsp;&nbsp;┠─ [ **demo** ] | VLOOK™ Home page |
 | &nbsp;&nbsp;&nbsp;┠─ [ **themes** ] | Theme files                                           |
 | &nbsp;&nbsp;&nbsp;┠─ [ **samples** ] | Recommend sample documents |
 | &nbsp;&nbsp;&nbsp;┖─ [ **plugin** ] | Plugin home directory                                        |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┠─ [ **lang** ] | Language package for Typora export HTML option |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┠─ meta.txt | For Typora export HTML option of `... <head />` |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┠─ plugin_live.txt | Online version of Plug-in                                    |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┖─ plugin.txt | For Typora export HTML option of `... <body />` |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┖─ plugin.txt | Local version Plug-in |
 | [ **src** ] | Source directory                                             |
 | &nbsp;&nbsp;&nbsp;┠─ [ **dev** ] | Develop and test files                                       |
 | &nbsp;&nbsp;&nbsp;┠─ [ **less** ] | The source file of the theme CSS file                        |
