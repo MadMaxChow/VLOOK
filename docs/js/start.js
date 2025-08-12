@@ -4,7 +4,7 @@
  * (配合 vlook.js 进行使用)
  *
  * V30.1
- * 2025-07-02
+ * 2025-08-08
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -72,9 +72,12 @@ let jsSrc = [
     ];
 for (let i = 0; i < jsSrc.length; i++) {
     let js = document.createElement("script");
-    js.setAttribute("type", "text/javascript");
-    // js.setAttribute("defer", "");
+    js.type = "text/javascript";
+    js.defer = true;
     // js.setAttribute("async", "async"); // 异步
-    js.setAttribute("src", jsSrc[i] + "?ts=" + (devMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60))); // 1000/60/60/24 按天
+    js.src = jsSrc[i] + "?ts=" + (devMode === true
+        ? new Date().getTime()
+        : Math.round(new Date().getTime()/1000/60) // 1000/60/60/24 按天
+    );
     document.getElementsByTagName("HEAD")[0].appendChild(js);
 }
