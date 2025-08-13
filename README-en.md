@@ -127,6 +127,7 @@ Choose the required resolution version:
 - [1920 × 1080](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)
 - [2560 × 1440](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)
 - [2560 × 1600](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1600.png)
+- [3840 × 2160](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-3840x2160.png)
 
 
 
