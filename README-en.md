@@ -54,7 +54,7 @@ With just a few simple steps of installation and configuration, you can also hav
 
 |          **Your coffee<br/>keeps VLOOK™ running ☕️**          |             **你的咖啡，能让 VLOOK™ 保持活力 ☕️**             |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| [![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow) | ![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo)![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-alipay-light.png?darksrc=donate-alipay-dark.png&srcset=@2x&darksrcset=@2x#logo) |
+| [![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-paypal-light.png)](https://paypal.me/madmaxchow) | ![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-wechat-light.png)![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-alipay-light.png) |
 
 ---
 
