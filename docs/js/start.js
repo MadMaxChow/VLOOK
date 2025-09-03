@@ -1,10 +1,10 @@
 /**************************************
  *
  * starter of VLOOK.js - Typora Plugin
- * (配合 vlook.js 进行使用)
+ * (配合 vlook-min.js 进行使用)
  *
  * V30.1
- * 2025-08-08
+ * 2025-08-27
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -44,40 +44,36 @@ function parseQueryString(url) {
     return args;
 }
 
-// 动态加载指定的 VLOOK 主题
-let theme = parseQueryString(window.location.href)["theme"],
-    themmeVersion = getComputedStyle(document.documentElement).getPropertyValue("--v-theme-version").trim().replace(/"/g, "");
-if (theme !== undefined || (sVer.indexOf("dev") === -1 && themmeVersion !== sVer)) {
-    if (theme === undefined && themmeVersion !== sVer)
-        theme = getComputedStyle(document.documentElement).getPropertyValue("--v-theme-name").trim().replace(/"/g, "");
+// 在线模式下的语言包加载
+let V_live_lang_data = undefined, // 在线模式下的语言包数据
+    liveLang = navigator.language.toLowerCase();
+// // 针对香港、台湾和澳门的中文语言包进行统一处理
+// if (liveLang.indexOf(`zh-`) > -1)
+//     liveLang = `zh-td`; // 繁体中文
+// // 其他语言的统一处理
+// else
+liveLang = liveLang.indexOf(`zh-`) > -1 // 针对香港、台湾和澳门的中文语言包进行统一处理
+    ? `zh-td` // 繁体中文
+    : navigator.language.substring(0, 2).toLowerCase(); // 其他语言的统一处理
 
-    theme = (theme === "") ? "vlook-owl" : theme;
-    console.log("Reload Theme :: " + theme);
-    console.log("Theme Version :: " + themmeVersion);
-    let style = document.createElement("link");
-    style.rel = "stylesheet";
-    style.type = "text/css";
-    style.href = cssHost + theme + ".css?ts=" + (devMode === true ? new Date().getTime() : Math.round(new Date().getTime()/1000/60)); // 1000/60/60/24 按天
-    console.log(style);
-    document.getElementsByTagName("HEAD").item(0).appendChild(style);
-}
-
+// console.error(liveLang, "de,es,fr,pt,ru,ar,ko,ja,zh-td".indexOf(liveLang));
 // 动态加载 VLOOK 所须的 js 资源
 let jsSrc = [
-    // jsHost + "jquery.js",
-    // jsHost + "jquery-migrate.js",
-    jsHost + "clipboard.js",
-    jsHost + "svg-inject.js",
-    jsHost + "vlook-min.js"
+        "de,es,fr,pt,ru,ar,ko,ja,zh-td,".indexOf(liveLang + `,`) < 0 ? "" : jsHost + "lang/" + liveLang + ".js", // 只加载支持的语言包
+        jsHost + "clipboard.js",
+        jsHost + "clipboard.js",
+        jsHost + "svg-inject.js",
+        jsHost + "vlook-min.js"
     ];
+
 for (let i = 0; i < jsSrc.length; i++) {
+    if (jsSrc[i].length === 0) continue;
     let js = document.createElement("script");
     js.type = "text/javascript";
     js.defer = true;
-    // js.setAttribute("async", "async"); // 异步
     js.src = jsSrc[i] + "?ts=" + (devMode === true
-        ? new Date().getTime()
-        : Math.round(new Date().getTime()/1000/60) // 1000/60/60/24 按天
+        ? Date.now()
+        : ts
     );
     document.getElementsByTagName("HEAD")[0].appendChild(js);
 }

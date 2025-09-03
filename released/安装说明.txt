@@ -1,0 +1,7 @@
+# 安装说明
+
+- https://vlook-doc.pages.dev/index
+
+或
+
+- https://madmaxchow.github.io/VLOOK/index.html
