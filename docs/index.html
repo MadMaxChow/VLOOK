@@ -309,15 +309,16 @@ span.cm-strikethrough { text-decoration: line-through; }
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link rel="preconnect" href="https://openfonts.pages.dev" crossorigin="anonymous">
 <link rel="preconnect" href="https://madmaxchow.github.io" crossorigin="anonymous">
+<link rel="preconnect" href="https://<your-host>" crossorigin="anonymous">
 <!-- 补充 DNS 加速，防止 preconnect 被忽略 -->
 <link rel="dns-prefetch" href="https://fonts.googleapis.com" "="">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="dns-prefetch" href="https://openfonts.pages.dev">
 <link rel="dns-prefetch" href="https://madmaxchow.github.io">
+<link rel="dns-prefetch" href="https://<your-host>">
 <!-- live 模式部署时相关资源 URL 配置 -->
-<meta name="vlook-js" content="https://madmaxchow.github.io/VLOOK/js/">
-<meta name="vlook-fs" content="https://openfonts.pages.dev/css/pages-dev/">
-<meta name="vlook-fs" content="https://madmaxchow.github.io/openfonts/css/github-io/">
+<meta name="vlook-js" content="https://<your-host>/">
+<meta name="vlook-fs" content="https://<your-host>/">
 <!-- 以下为 W3C 相关的 meta 配置 -->
 <meta name="author" content="MAX°孟兆">
 <meta name="date" content="2025-09-22">
@@ -354,8 +355,8 @@ span.cm-strikethrough { text-decoration: line-through; }
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
 <!--                                                                        -->
-<!--                                  V30.1                                 -->
-<!--                               2025-08-08                               -->
+<!--                                  V30.2                                 -->
+<!--                               2025-09-11                               -->
 <!--                           Powered by MAX°孟兆                           -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -382,11 +383,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 </style>
 <!-- ==================== VLOOK JS ==================== -->
 <script type="text/javascript" defer="">
-    // VLOOK
-    let lVer = "V30.1",
-    devMode = lVer.indexOf("dev") > 0 ? true : false, debugMode = devMode,
-    jsHost = devMode ? "http://localhost/js/" : "https://madmaxchow.github.io/VLOOK/js/",
-        cssHost = devMode ? "http://localhost/css/" : "https://madmaxchow.github.io/VLOOK/css/";
+	function getMetaContent(key, attr = "name") {
+		const meta = document.querySelector(`meta[${attr}="${key}"]`);
+		return meta ? meta.getAttribute("content") : null;
+	}
+    let lVer = "V30.2-dev",
+        devMode = lVer.indexOf("dev") > 0 ? true : false, debugMode = devMode,
+        // cssHost = devMode ? "http://localhost/dev/" : getMetaContent("vlook-res-css"),
+        jsHost = devMode ? "http://localhost/dev/" : getMetaContent("vlook-res-js") + lVer + "/";
 // ==================== NON-standalone ====================
 // ▽ ▽ ▽ ▽ ▽
     let ts = Math.floor(Date.now()/(1000*60*60*24)); // (1000*60*60*24) 按天
@@ -397,7 +401,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     jqueryJS.src = jsHost + "jquery.js?ts=" + ts;
     jqueryJS.defer = true;
     document.getElementsByTagName("HEAD")[0].appendChild(jqueryJS);
-    
+
     if (devMode) {
 	    let jqueryMigrateJS =  document.createElement("script");
     	jqueryMigrateJS.type = "text/javascript";
