@@ -26,8 +26,8 @@ var V_lang_data_fr = {
 "fr17":"Fermer",
 "fr18":"Formule",
 "fr19":"Si vous ne pouvez pas vous connecter à Internet pour charger la version en ligne de la police, il est recommandé de télécharger directement la police en local.<br>Si vous ne pouvez pas vous connecter à Internet ou si votre réseau est lent, il est recommandé de télécharger les polices pour une installation locale.",
-"fr20":"Lien principal",
-"fr21":"Lien secondaire",
+"fr20":"Développer le pliage des blocs de citation",
+"fr21":"Développer le groupe de lignes du tableau",
 "fr22":"Toutes les notes de bas de page",
 "fr23":"Commencer la lecture.",
 "fr24":"Plein écran",
@@ -61,7 +61,7 @@ var V_lang_data_fr = {
 "fr52":"Vérifier le hachage",
 "fr53":"Titre/légende en double",
 "fr54":"Lien interne invalide",
-"fr55":"Tout afficher",
+"fr55":"Annuler le filtre d'image (flou)",
 "fr56":"Tableau",
 "fr57":"Bloc de code",
 "fr58":"Figure",
@@ -102,5 +102,6 @@ var V_lang_data_fr = {
 "fr93":"Terminé",
 "fr94":"Échec",
 "fr95":"Démarrer l'impression (sélectionner : Enregistrer au format PDF)",
-"fr96":"Annuler"
+"fr96":"Annuler",
+"fr97":"Révéler la carte à gratter"
 }

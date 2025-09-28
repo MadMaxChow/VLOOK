@@ -53,13 +53,12 @@ let V_live_lang_data = undefined, // 在线模式下的语言包数据
 // // 其他语言的统一处理
 // else
 liveLang = liveLang.indexOf(`zh-`) > -1 // 针对香港、台湾和澳门的中文语言包进行统一处理
-    ? `zh-td` // 繁体中文
+    ? `zhtd` // 繁体中文
     : navigator.language.substring(0, 2).toLowerCase(); // 其他语言的统一处理
 
-// console.error(liveLang, "de,es,fr,pt,ru,ar,ko,ja,zh-td".indexOf(liveLang));
 // 动态加载 VLOOK 所须的 js 资源
 let jsSrc = [
-        "de,es,fr,pt,ru,ar,ko,ja,zh-td,".indexOf(liveLang + `,`) < 0 ? "" : jsHost + "lang/" + liveLang + ".js", // 只加载支持的语言包
+        "de,es,fr,pt,ru,ar,ko,ja,zhtd,".indexOf(liveLang + `,`) < 0 ? "" : jsHost + "lang/" + liveLang + ".js", // 只加载支持的语言包
         jsHost + "clipboard.js",
         jsHost + "clipboard.js",
         jsHost + "svg-inject.js",

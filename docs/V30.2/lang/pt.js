@@ -26,8 +26,8 @@ var V_lang_data_pt = {
 "pt17":"Fechar",
 "pt18":"Fórmula",
 "pt19":"Se você não conseguir se conectar à Internet para carregar a versão online da fonte, é recomendável baixar a fonte diretamente para o computador local.<br>Se você não conseguir se conectar à Internet ou se sua rede estiver lenta, é recomendável baixar as fontes para instalação local.",
-"pt20":"Link primário",
-"pt21":"Link secundário",
+"pt20":"Expandir dobra de bloco de citação",
+"pt21":"Expandir grupo de linhas da tabela",
 "pt22":"Todas as notas de rodapé",
 "pt23":"Começar a ler",
 "pt24":"Tela cheia",
@@ -61,7 +61,7 @@ var V_lang_data_pt = {
 "pt52":"Verificar Hash",
 "pt53":"Título/legenda duplicado",
 "pt54":"Link Interno Inválido",
-"pt55":"Mostrar todos",
+"pt55":"Cancelar filtro de imagem (desfoque)",
 "pt56":"Tabela",
 "pt57":"Bloco de Código",
 "pt58":"Figura",
@@ -102,5 +102,6 @@ var V_lang_data_pt = {
 "pt93":"Concluído",
 "pt94":"Falhou",
 "pt95":"Iniciar impressão (selecionar: Salvar como PDF)",
-"pt96":"Cancelar"
+"pt96":"Cancelar",
+"pt97":"Revelar cartão raspadinha"
 }
