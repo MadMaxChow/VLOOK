@@ -1,6 +1,6 @@
 /**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V30.2" (2025-09-22) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V30.2" (2025-09-30) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -26,8 +26,8 @@ var V_lang_data_de = {
 "de17":"Schließen",
 "de18":"Formel",
 "de19":"Wenn Sie keine Verbindung zum Internet herstellen können, um die Online-Version der Schriftart zu laden, wird empfohlen, die Schriftart direkt lokal herunterzuladen.<br>Wenn Sie keine Verbindung zum Internet herstellen können oder Ihr Netzwerk langsam ist, wird empfohlen, die Schriftarten für die lokale Installation herunterzuladen.",
-"de20":"Primärer Link",
-"de21":"Sekundärer Link",
+"de20":"Blockzitatfaltung erweitern",
+"de21":"Tabellenzeilengruppe erweitern",
 "de22":"Alle Fußnoten",
 "de23":"Lesen beginnen",
 "de24":"Vollbild",
@@ -61,7 +61,7 @@ var V_lang_data_de = {
 "de52":"Hash prüfen",
 "de53":"Doppelter Titel/Beschriftung",
 "de54":"Ungültiger interner Link",
-"de55":"Alle anzeigen",
+"de55":"Bildfilter (Unschärfe) aufheben",
 "de56":"Tabelle",
 "de57":"Codeblock",
 "de58":"Abbildung",
@@ -102,5 +102,6 @@ var V_lang_data_de = {
 "de93":"Completed",
 "de94":"Failed",
 "de95":"Druck starten (wählen: Als PDF speichern)",
-"de96":"Cancel"
+"de96":"Cancel",
+"de97":"Rubbelkarte anzeigen",
 }

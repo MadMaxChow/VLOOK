@@ -1,6 +1,6 @@
 /**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V30.2" (2025-09-22) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V30.2" (2025-09-30) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -26,8 +26,8 @@ var V_lang_data_es = {
 "es17":"Cerrar",
 "es18":"Fórmula",
 "es19":"Si no puede conectarse a Internet para cargar la versión en línea de la fuente, se recomienda descargar la fuente directamente en el equipo local.<br>Si no puede conectarse a Internet o su red es lenta, se recomienda descargar las fuentes para instalarlas localmente.",
-"es20":"Enlace primario",
-"es21":"Enlace secundario",
+"es20":"Expandir el plegado de citas",
+"es21":"Expandir grupo de filas de tabla",
 "es22":"Todas las notas al pie",
 "es23":"Comenzar a leer",
 "es24":"Pantalla completa",
@@ -61,7 +61,7 @@ var V_lang_data_es = {
 "es52":"Verificar Hash",
 "es53":"Título/leyenda duplicado",
 "es54":"Enlace Interno Inválido",
-"es55":"Mostrar todo",
+"es55":"Cancelar filtro de imagen (desenfoque)",
 "es56":"Tabla",
 "es57":"Bloque de Código",
 "es58":"Figura",
@@ -102,5 +102,6 @@ var V_lang_data_es = {
 "es93":"Completado",
 "es94":"Fallido",
 "es95":"Iniciar impresión (seleccionar: Guardar como PDF)",
-"es96":"Cancelar"
+"es96":"Cancelar",
+"es97":"Revelar tarjeta rasca"
 }

@@ -1,6 +1,6 @@
 /**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V30.2" (2025-09-22) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V30.2" (2025-09-30) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -25,8 +25,9 @@ var V_lang_data_zhtd = {
 "zhtd16":"後一張",
 "zhtd17":"關閉",
 "zhtd18":"公式",
-"zh-hk19":"若無法連接網絡載入字體的線上版本，建議直接下載字體到本機。<br>若無法連接網絡或網絡速度緩慢，建議下載字體以便在本機安裝。""zhtd20":"主要連結",
-"zhtd21":"次要連結",
+"zhtd19":"若無法連接網絡載入字體的線上版本，建議直接下載字體到本機。<br>若無法連接網絡或網絡速度緩慢，建議下載字體以便在本機安裝。",
+"zhtd20":"展開引用摺疊",
+"zhtd21":"展開表格列群組",
 "zhtd22":"所有註腳",
 "zhtd23":"開始閱讀",
 "zhtd24":"全螢幕",
@@ -60,7 +61,7 @@ var V_lang_data_zhtd = {
 "zhtd52":"檢查錨點",
 "zhtd53":"重複標題/標題說明",
 "zhtd54":"無效的頁內鏈接",
-"zhtd55":"顯示全部",
+"zhtd55":"取消圖片濾鏡 (模糊)",
 "zhtd56":"表格",
 "zhtd57":"代碼塊",
 "zhtd58":"圖",
@@ -101,5 +102,6 @@ var V_lang_data_zhtd = {
 "zhtd93":"已完成",
 "zhtd94":"失敗",
 "zhtd95":"開始列印 (選擇：另存為 PDF)",
-"zhtd96":"取消"
+"zhtd96":"取消",
+"zhtd97":"顯示刮刮卡"
 }
