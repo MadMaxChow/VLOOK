@@ -1,5 +1,5 @@
 ---
-title: 手册 ▲ 进阶 - VLOOK™ - 优雅好用的 Typora 主题与增强插件
+title: 攻略 ▲ 进阶 - VLOOK™ - 优雅好用的 Typora 主题与增强插件
 author: MAX°孟兆
 description: 关于 VLOOK™ 的代码、按钮、封面与封底、分栏、题注、页签组、内容标记（GitHub Style Alert/标签/进度条/面包屑/刮刮卡/注音）、Mermaid、公式、多媒体
 "og:description": 关于 VLOOK™ 的代码、按钮、封面与封底、分栏、题注、页签组、内容标记（GitHub Style Alert/标签/进度条/面包屑/刮刮卡/注音）、Mermaid、公式、多媒体
@@ -7,19 +7,18 @@ description: 关于 VLOOK™ 的代码、按钮、封面与封底、分栏、题
 keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
 - editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
-- light mode,dark mode,grayscale mode,gray mode
+- light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
 - catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
 - content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
-
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - link map,link specification,link check,link recognition,link conversion
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
-- 浅色外观,深色外观,灰度外观,灰色外观
+- 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
 - 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
@@ -27,15 +26,15 @@ keywords:
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
-- 设计,需求,文档,博客,手册,指南,知识库,教程,方案,教育,笔记,日记
+- 设计,需求,文档,博客,手册,指南,攻略,知识库,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
 # vlook-header-autonum: h1{{第###章 }}
-vlook-header-dup: /.*语法$/;/^适用范围 ••• .+/;题注与自动编号;快捷键操作;进阶玩法;更多信息;引用块着色 6 级标题;COMMING SOON...;举例;这是引用块小标题;💡 想知道以上表格的原始内容吗？
+vlook-header-dup: /^你的咖啡.+/;/.*语法$/;/^适用范围 ••• .+/;题注与自动编号;快捷键操作;进阶玩法;更多信息;引用块着色 6 级标题;COMMING SOON...;举例;这是引用块小标题;💡 想知道以上表格的原始内容吗？
 vlook-doc-lib:
 - [如何开始？](index.html?target=_self "简介、安装与配置、语言包")
-- [手册 • 基础](guide.html?target=_self "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/旋转/翻转/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
-- [手册 ▲ 进阶](guide2.html?target=_self "分栏、题注、按钮、代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
-- [手册 ★ 探索](guide3.html?target=_self "内容导航/历史/上次阅读、内容助手/复制/全屏/换行/十字光标/阅读/画中画、演示辅助/激光笔/聚光灯/段落漫游/宽度适配、出版辅助/标记不发布/发布为PDF/另存为PDF/导出为PDF/打印为PDF/社交分享/链接地图/长内容折叠/链接检查/链接识别、外观/主题/字体/Light/Dark、自定义/预置选项/调校参数、快捷键、……")
+- [攻略 • 基础](guide.html?target=_self "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/旋转/翻转/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
+- [攻略 ▲ 进阶](guide2.html?target=_self "分栏、题注、按钮、代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
+- [攻略 ★ 探索](guide3.html?target=_self "内容导航/历史/上次阅读、内容助手/复制/全屏/换行/十字光标/阅读/画中画、演示辅助/激光笔/聚光灯/段落漫游/宽度适配、出版辅助/标记不发布/发布为PDF/另存为PDF/导出为PDF/打印为PDF/社交分享/链接地图/长内容折叠/链接检查/链接识别、外观/主题/字体/Light/Dark、自定义/预置选项/调校参数、快捷键、……")
 - [增值服务](vip.html?target=_self "定制主题、文档排版编辑、……")
 - [更多内容](vlook-lib.html "VLOOK™ 全部特性索引表")
 - [反馈问题](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
@@ -45,25 +44,25 @@ vlook-doc-lib:
 
 > Select language ❯ *[<kbd>English</kbd>](guide2-en.md)*
 
-# 打赏
+# ==打赏==
 
 <u>**感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊山、＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
 
 ---
 
-> **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**
+> **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
 >
 > ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo)
 >
 > _~Gn~_
 
-> **I like VLOOK™, I donate a cup of coffee**
+> **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
 >
-> [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow)
+> ![打赏 VLOOK™](pic/donate-alipay-light.png?darksrc=donate-alipay-dark.png&srcset=@2x&darksrcset=@2x#logo)
 >
-> _~Se~_
+> _~Bu~_
 
 # °代码
 
@@ -146,7 +145,7 @@ void quickSort(int arr[], int left, int right) {
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °按钮
 
@@ -241,7 +240,7 @@ void quickSort(int arr[], int left, int right) {
 
 ### 图标与文字按钮
 
-==除了纯文本的按钮外，还支持在按钮中添加图片作为按钮图标（任意尺寸），添加后图标会自动适配为 [icon 版式](guide.md#图片显示版式) 显示。==
+==除了纯文本的按钮外，还支持在按钮中添加图片作为按钮图标（任意尺寸），添加后可根据需要设置需要 [图标版式](guide.md#图片显示版式) 显示。==
 
 _^tab^_
 
@@ -268,7 +267,7 @@ _^tab^_
 >
 > 为能实现按钮中的图片颜色能自动适配按钮样式（导出 HTML 后生效），建议图片使用 `svg` 格式并设置为「[图片剪影](guide.md#图片剪影)」。
 
-## ~~卡片式链接~~
+## 卡片式链接
 
 > **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
@@ -290,6 +289,32 @@ _^tab^_
 >
 > [这是文字链接 ![](pic/icon-more.svg?fill=text#icon)](#打赏)
 
+> ![°文档排版](pic/ico-ex.svg?fill=text&darksrc=invert#icon2x) 
+>
+> **简约风格的卡片式链接** 
+>
+> [这是文字链接 ![](pic/icon-more.svg?fill=text#icon)](#打赏)
+
+> ![°文档排版](pic/ico-ex.svg?fill=text&darksrc=invert#icon2x) 
+>
+> **简约风格的卡片式链接** 
+>
+> [这是文字链接 ![](pic/icon-more.svg?fill=text#icon)](#打赏)
+
+
+
+---
+
+> ![°文档排版](pic/ico-ex.svg?fill=text&darksrc=invert#icon2x)
+>
+> **带摘要的卡片式链接**
+>
+> 这是对链接目标的摘要说明内容，这是对链接目标的摘要说明内容。
+>
+> 
+>
+> [<kbd>这是次按钮链接 ![](pic/icon-more.svg?fill=text)</kbd>](#打赏)
+
 > ![°文档排版](pic/ico-ex.svg?fill=text&darksrc=invert#icon2x)
 >
 > **带摘要的卡片式链接**
@@ -300,6 +325,10 @@ _^tab^_
 >
 > *[<kbd>这是次按钮链接 ![](pic/icon-more.svg?fill=text)</kbd>](#打赏)*
 
+
+
+---
+
 > ![°文档排版](pic/ico-ex.svg?fill=text&darksrc=invert#icon2x)
 >
 > **突出重要的卡片式链接**
@@ -308,11 +337,11 @@ _^tab^_
 >
 > 
 >
-> [<kbd>这是标准按钮链接 ![](pic/icon-more.svg?fill=text)</kbd>](#打赏)
+> **[<kbd>这是标准按钮链接 ![](pic/icon-more.svg?fill=text)</kbd>](#打赏)**
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °封面与封底
 
@@ -405,7 +434,7 @@ _^tab^_
 ###### 本文档的封面内容示例
 
 ```markdown
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>快速参考手册<br>(Part.II)</u><br>*最新版本`V30.1`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>使用攻略<br>(Part.II)</u><br>*最新版本`V2025.10`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 ```
 
 ###### 本文档的封底内容示例
@@ -422,7 +451,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °分栏
 
@@ -601,9 +630,10 @@ _^tab^_
 >
 > 在需要进行分栏排版的「引用块」前一段落添加指定数量的「水平分割线」 `---` 
 >
-> - 添加 1 条水平分割线，启用「⬛︎ ⬛︎ 双栏」模式
-> - 添加 2 条水平分割线，启用「⬛︎ ⬛︎ ⬛︎ 三栏」模式
-> - 添加 3 条水平分割线，启用「⬛︎ ⬛︎ ⬛︎ ⬛︎ 四栏」模式
+> - 添加 1 条水平分割线，启用「 ⬛︎ ⬛︎ 双栏 」模式
+> - 添加 2 条水平分割线，启用「 ⬛︎ ⬛︎ ⬛︎ 三栏 」模式
+> - 添加 3 条水平分割线，启用「 ⬛︎ ⬛︎ ⬛︎ ⬛︎ 四栏 」模式
+> - 添加 4 条水平分割线，启用「 ⬛︎ ⬛︎ ⬛︎ ⬛︎ ⬛︎ 五栏 」模式
 
 > **分栏引用块语法示例**
 >
@@ -655,7 +685,7 @@ _^tab^_
 
 > **三栏小标题 1**
 >
-> 第 1 行第 1 栏
+> 第 1 行第 1 栏。更多内容用于测试长内容换行后不等高的自动适配处理。更多内容用于测试长内容换行后不等高的自动适配处理。更多内容用于测试长内容换行后不等高的自动适配处理。更多内容用于测试长内容换行后不等高的自动适配处理。
 
 > **三栏小标题 2**
 >
@@ -675,7 +705,7 @@ _^tab^_
 
 > **三栏小标题 5**
 >
-> 第 1 行第 2 栏
+> 第 1 行第 2 栏。更多内容用于测试长内容换行后不等高的自动适配处理。更多内容用于测试长内容换行后不等高的自动适配处理。更多内容用于测试长内容换行后不等高的自动适配处理。更多内容用于测试长内容换行后不等高的自动适配处理。
 
 > **三栏小标题 6**
 >
@@ -721,6 +751,56 @@ _^tab^_
 >
 > _~Pu!~_
 
+###### 单行五栏引用块示例
+
+---
+
+---
+
+---
+
+---
+
+> **五栏小标题 1**
+>
+> 第 1 行第 1 栏
+>
+> [<kbd>按钮</kbd>](#单行四栏引用块示例)
+>
+> _~Rd!~_
+
+> **五栏小标题 2**
+>
+> 第 1 行第 2 栏
+>
+> [<kbd>按钮</kbd>](#单行四栏引用块示例)
+>
+> _~Gn!~_
+
+> **五栏小标题 3**
+>
+> 第 1 行第 3 栏
+>
+> [<kbd>按钮</kbd>](#单行四栏引用块示例)
+>
+> _~Bu!~_
+
+> **五栏小标题 4**
+>
+> 第 1 行第 4 栏
+>
+> [<kbd>按钮</kbd>](#单行四栏引用块示例)
+>
+> _~Pu!~_
+
+> **五栏小标题 5**
+>
+> 第 1 行第 5 栏
+>
+> [<kbd>按钮</kbd>](#单行四栏引用块示例)
+>
+> _~Bn!~_
+
 ###### 引用块内嵌套的引用块分栏示例
 
 ---
@@ -765,6 +845,56 @@ _^tab^_
 >
 > _~Gy~_
 
+## 引用块分栏（列表内）
+
+*Markdown 粉`Q`*「**希望可以在列表内进行引用块以分栏方式显示，可以更灵活满足分栏排版的要求～**」
+
+*VLOOK`A`*_~T2~_ 在列表内按「[引用块分栏](#引用块分栏)」的方式进行使用就可以！
+
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
+
+
+
+（进行引用块分栏前，先删除列表项前的序号）
+
+
+
+1. 列表 1
+
+   ---
+
+   > 引用块分栏（列表内）1-1
+
+   > 引用块分栏（列表内）1-1
+
+2. 列表 2
+
+   ---
+
+   ---
+
+   >  引用块分栏（列表内）2-1
+
+   >  引用块分栏（列表内）2-2
+
+   > 引用块分栏（列表内）2-3
+
+3. 列表 3
+
+   ---
+
+   ---
+
+   ---
+
+   >  引用块分栏（列表内）3-1
+
+   > 引用块分栏（列表内）3-2
+
+   >  引用块分栏（列表内）3-3
+
+   > 引用块分栏（列表内）3-4
+
 ## GitHub Style Alert 分栏
 
 > **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
@@ -801,9 +931,21 @@ _^tab^_
 >
 > **警告/禁止**。行动的潜在==负面后果==
 
+
+
+###### 引用块内嵌 GSA 示例
+
+> 以下是 [GitHub Style Alert](guide2.md#github Style Alert)：
+>
+> > [!NOTE]
+> >
+> > ==Highlights== information that users should take into account, even when skimming. [GitHub Style Alert](https://github.com/orgs/community/discussions/16925)
+
+
+
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °题注
 
@@ -872,7 +1014,7 @@ _^tab^_
 > - **单题注：**以上 `图片标题` 部分即为「第 1 题注」的内容
 > - **双题注：**以上 `可选子标题` 即为「第 2 题注」的内容（可选）
 >
-> （ 插件对于图片会优先使用以上方式的内容作为题注，如均无对应内容，也支持通过以上设置题注的「方式二」添加题注 ）
+> （ 插件对于图片会优先使用以上方式的内容作为题注，也支持通过以上设置题注的「方式二」添加题注 ）
 
 
 
@@ -926,7 +1068,7 @@ end
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °页签组
 
@@ -981,7 +1123,7 @@ _^tab^_
 
 ## 多类型内容页签组
 
-<u>以下是对不同类型（表格、插图、引用块、代码块、视频、音频、公式、GitHub Style Alert）的连续内容，<br>指定以「页签组」的形式进行呈现的效果：</u>
+<u>以下是对连续的 表格、插图、引用块、代码块、视频、音频、公式、GitHub Style Alert 等内容，<br>以「页签组」的形式进行呈现的效果：</u>
 
 _^tab^_
 
@@ -1427,7 +1569,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 ## 标签
 
@@ -1637,7 +1779,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 ## 进度条
 
@@ -1728,7 +1870,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 ## 面包屑
 
@@ -1776,7 +1918,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 ## 刮刮卡
 
@@ -1834,7 +1976,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 ## 注音
 
@@ -1945,7 +2087,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °Mermaid
 
@@ -2137,7 +2279,7 @@ end
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °公式
 
@@ -2226,7 +2368,7 @@ $$
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °多媒体
 
@@ -2343,7 +2485,7 @@ $$
 
 
 
-> 语法与 Mardown 的插入图片完全一致！
+> 语法与 markdown 的插入图片完全一致！
 >
 > - **语法：**`![视频的上题注](视频 URL "视频的下题注")`
 > - **语法示例：**`![这是视频](video.m4a)`
@@ -2383,7 +2525,7 @@ $$
 
 
 
-> 语法与 Mardown 的插入图片完全一致！
+> 语法与 markdown 的插入图片完全一致！
 >
 > - **语法：**`![音频的上题注](音频URL "音频的下题注")`
 > - **语法示例：**`![这是音频](audio.mp3)`

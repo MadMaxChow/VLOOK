@@ -1,5 +1,5 @@
 ---
-title: 手册 • 基础 - VLOOK™ - 优雅好用的 Typora 主题与增强插件
+title: 攻略 • 基础 - VLOOK™ - 优雅好用的 Typora 主题与增强插件
 author: MAX°孟兆
 description: 关于 VLOOK™ 的文本、段落、表格、图片、列表、章节标题
 "og:description": 关于 VLOOK™ 的文本、段落、表格、图片、列表、章节标题
@@ -7,19 +7,18 @@ description: 关于 VLOOK™ 的文本、段落、表格、图片、列表、章
 keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
 - editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
-- light mode,dark mode,grayscale mode,gray mode
+- light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
 - catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
 - content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
-
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - link map,link specification,link check,link recognition,link conversion
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
-- 浅色外观,深色外观,灰度外观,灰色外观
+- 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
 - 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
@@ -27,15 +26,15 @@ keywords:
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
-- 设计,需求,文档,博客,手册,指南,知识库,教程,方案,教育,笔记,日记
+- 设计,需求,文档,博客,手册,指南,攻略,知识库,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
 #vlook-header-autonum: h1{{第###章 }}
-vlook-header-dup: /.*语法$/;/^适用范围 ••• .+/;快捷键操作;进阶玩法;更多信息;引用块着色;COMMING SOON...;举例;这是引用块小标题;💡 想知道以上表格的原始内容吗？
+vlook-header-dup: /^你的咖啡.+/;/.*语法$/;/^适用范围 ••• .+/;快捷键操作;进阶玩法;更多信息;引用块着色;COMMING SOON...;举例;这是引用块小标题;💡 想知道以上表格的原始内容吗？
 vlook-doc-lib:
 - [如何开始？](index.html?target=_self "简介、安装与配置、语言包")
-- [手册 • 基础](guide.html?target=_self "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/旋转/翻转/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
-- [手册 ▲ 进阶](guide2.html?target=_self "分栏、题注、按钮、代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
-- [手册 ★ 探索](guide3.html?target=_self "内容导航、内容助手、演示辅助激光笔/聚光灯、出版辅助标记不发布/链接地图/长内容折叠/链接检查、自定义选项、……")
+- [攻略 • 基础](guide.html?target=aaa "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/旋转/翻转/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
+- [攻略 ▲ 进阶](guide2.html?target=_self "分栏、题注、按钮、代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
+- [攻略 ★ 探索](guide3.html?target=_self "内容导航、内容助手、演示辅助激光笔/聚光灯、出版辅助标记不发布/链接地图/长内容折叠/链接检查、自定义选项、……")
 - [增值服务](vip.html?target=_self "定制主题、文档排版编辑、……")
 - [更多内容](vlook-lib.html "VLOOK™ 全部特性索引表")
 - [反馈问题](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
@@ -45,7 +44,7 @@ vlook-doc-lib:
 
 > Select language ❯ *[<kbd>English</kbd>](guide-en.md)*
 
-# 一些约定
+# ==一些约定==
 
 ## #魔法
 
@@ -144,25 +143,25 @@ _^tab^_
 >
 > 为区分 Typora 默认使用单星号 `*斜体*` 标记的斜体，以及解决与粗体的冲突问题，**色号**中的**斜体**必须使用 Markdown 的另一个斜体的标记语法（下划线 `_` ）。
 
-# 打赏
+# ==打赏==
 
 <u>**感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊山、＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
 
 ---
 
-> **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**
+> **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
 >
 > ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo)
 >
 > _~Gn~_
 
-> **I like VLOOK™, I donate a cup of coffee**
+> **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
 >
-> [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow)
+> ![打赏 VLOOK™](pic/donate-alipay-light.png?darksrc=donate-alipay-dark.png&srcset=@2x&darksrcset=@2x#logo)
 >
-> _~Se~_
+> _~Bu~_
 
 # °文本
 
@@ -276,21 +275,47 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 
 
 # °段落
 
-## 段落加粗
-
 > **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
-满足对**整个段落内容**居中、强化突显的需求。示例如下：
+用于满足对**整个段落内容**进行个性的排版需求，实现与普通段落正文的差异化样式。
+
+只需先中段落的所有内容后，设置为 Markdown 所设置的基础格式（加粗、下划线、斜体、高亮），如：`**整个段落内容**` `==整个段落内容==` 等。
+
+## 段落斜体
+
+满足对**整个段落内容**设置与比正文样式有对比差异、弱化，或作为参考引用的排版需求。示例如下：
+
+*～这是一段需要与正文样式有对比差异、弱化，或作为==参考引用==的内容。其他不变～*
+
+> **在引用块内的「段落斜体」样式**
+>
+> （暂不支持）
+
+*以上是在段落「**整段设置为斜体**」后的效果。（当不想启用该段落样式，直接在最后面添加一个空格即可）* 
+
+
+
+> [!TIP]
+>
+> 以上段落的样式可通过 [定制主题](vip.md) 进行调整或取消。
+
+## 段落加粗
+
+满足对**整个段落内容**居中、强化突显的排版需求。示例如下：
 
 **～这是一段需要==强化突显==的内容，并以==居中对齐==方式出现。==加粗==、==字号加大==、==居中==，其他不变～**
 
-*以上是在段落「**整段加粗**」后的效果。（当不想启用该段落加粗样式，直接在最后面添加一个空格即可）*
+> **在引用块内的「段落加粗」样式**
+>
+> （暂不支持）
+
+*以上是在段落「**整段加粗**」后的效果。（当不想启用该段落样式，直接在最后面添加一个空格即可）* 
 
 
 
@@ -300,13 +325,15 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 
 ## 段落下划线
 
-> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
-
-满足对**整个段落内容**居中、稍微突显，与后续内容<u>有视觉区隔</u>，但又有所关联的需求。示例如下：
+满足对**整个段落内容**居中、稍微突显，与后续内容<u>有视觉区隔</u>，但又有所关联的排版需求。示例如下：
 
 <u>～这是一段**稍微突显**，与后续内容有**视觉区隔**，但又有所**关联**的内容。**字号加大**、**居中**，其他不变</u>
 
-*以上是在段落整段设置为「<u>下划线</u>」后的效果。（当不想启用该段落下划线样式，直接在最后面添加一个空格即可）*
+> **在引用块内的「段落下划线」样式**
+>
+> <u>～这是一段**稍微突显**，与后续内容有**视觉区隔**，但又有所**关联**的内容。**字号加大**、**居中**，其他不变</u>
+
+*以上是在段落整段设置为「<u>下划线</u>」后的效果。（当不想启用该段落样式，直接在最后面添加一个空格即可）* 
 
 
 
@@ -316,13 +343,15 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 
 ## 段落高亮
 
-> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
-
-满足对**整个段落内容**以==更个性、更突显==的引用样式，并与前/后内容有视觉区隔的需求。示例如下：
+满足对**整个段落内容**以==更个性、更突显==的引用样式，并与前/后内容有视觉区隔的排版需求。示例如下：
 
 ==～这是一段 **更个性、更突显**_~RdPuRo~_ ，与前/后内容有<u>视觉区隔</u>的内容。<u>更大字号</u>、<u>居中</u>，其他不变～==
 
-*以上是在段落整段设置为「==高亮后==」的效果。（当不想启用该段落高亮样式，直接在最后面添加一个空格即可）*
+> **在引用块内的「段落高亮」样式**
+>
+> （暂不支持）
+
+*以上是在段落整段设置为「==高亮后==」的效果。（当不想启用该段落高亮样式，直接在最后面添加一个空格即可）* 
 
 
 
@@ -476,7 +505,7 @@ _^tab^_
 
 *==百分数列表格式示例==*
 
-| 原始内容 |  数值情况  |    ==    |    ==    |     ==     |      | 百分数列 |
+| 原始内容 |  数值情况  |    ==    |    ==    |     ==     |      | **百分数列** |
 | -------- | :--------: | :------: | :------: | :--------: | ---- | ------: |
 | :        | []含小数 | []正数 | []负数 | []超三位 | :    |       : |
 | 79%      |            |          |          |            |      |     79% |
@@ -545,7 +574,7 @@ _^tab^_
 | :------------: | :------------------------: | :-----------------------: | ------------------------- |
 |      无内容      |  |  | 默认为 `未选择`    |
 | 未选择 | N | n | 指定为 `未选择` |
-| : | N 文本 | Y 文本 | 指定为 `未选择` ，并添加说明文本 |
+| : | N 文本 | N 文本 | 指定为 `未选择` ，并添加说明文本 |
 |     已选择     | Y |            y            | 指定为 `已选择`     |
 | : | Y 文本 | Y 文本 | 指定为 `已选择` ，并添加说明文本 |
 | 未添加标记 | （不适用） | （不适用） | 默认为无复选框，且文字会用不同颜色进行区分 |
@@ -749,7 +778,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °图片
 
@@ -759,7 +788,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ VLOOK™ 对图片默认以「插图」版式展示，通过「[#魔法](##魔法)」可以轻松切换更多灵活的显示版式。
 
-> **适用范围 ••• *`编辑时`× 不支持*_~Gy~_  *`导出 HTML`✓ 支持*_~Gn~_**
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 
 
@@ -769,17 +798,19 @@ _^tab^_
 
 *==图片不同显示版式的标识与说明==*
 
-|     **分类**      |     版式标识     | 说明                                                         |
-| :---------------: | :--------------: | ------------------------------------------------------------ |
-|     图标版式      |        ==        | ==                                                           |
-|     标准大小      |      #icon       | 缩小为与正文高度适配的小图标<br>主要用于与正文内容进行混排   |
-|     2 倍大小      |   #icon**2x**    | 缩小为与正文高度 2 倍的小图标                                |
-|     Logo 版式     |        ==        | ==                                                           |
-|     默认对齐      |      #logo       | 不调整图片大小，且不为作「插图」<br>主要用于展示图片的原始大小和样式 |
-| Logo 版式扩展标识 |        ==        | ==                                                           |
-|      左对齐       |  #logo**#left**  | 在 `#logo` 基础上，支持文字环绕排版（图片**左对齐**）        |
-|      右对齐       | #logo**#right**  | 在 `#logo` 基础上，支持文字环绕排版（图片**右对齐**）        |
-|     添加边框      | #logo**#border** | 在 `#logo` 基础上，添加边框样式                              |
+|   **分类**    |     版式标识      | 说明                                                         |
+| :-----------: | :---------------: | ------------------------------------------------------------ |
+|   图标版式    |        ==         | ==                                                           |
+|   标准大小    |       #icon       | 缩小为与正文高度适配的小图标<br>主要用于与正文内容进行混排   |
+|   2 倍大小    |    #icon**2x**    | 缩小为与正文高度 2 倍的小图标                                |
+|   Logo 版式   |        ==         | ==                                                           |
+|   默认对齐    |       #logo       | 不调整图片大小，且不为作「插图」<br>主要用于展示图片的原始大小和样式 |
+| Logo 版式扩展 |        ==         | ==                                                           |
+|     对齐      |  #logo**#left**   | 在 `#logo` 基础上，支持文字环绕排版（图片**左对齐**）        |
+|       :       |  #logo**#right**  | 在 `#logo` 基础上，支持文字环绕排版（图片**右对齐**）        |
+|     边框      | #logo**#border**  | 在 `#logo` 基础上，添加边框样式                              |
+|     圆角      |  #logo**#round**  | 在 `#logo` 基础上，添加大号圆角样式                          |
+|       :       | #logo**#round2s** | 在 `#logo` 基础上，添加小号圆角样式                          |
 
 > [!NOTE]
 >
@@ -846,7 +877,7 @@ _^tab^_
 >
 > 如果对「URL 参数、URL 锚点」的使用有疑问，可以去「[图片地址扩展应用说明](guide3.md#图片地址扩展应用说明)」那深入再了解了解～
 
-###### 宽度度按指定像素缩放图片示例
+###### 宽度按指定像素缩放图片示例
 
 _^tab^_
 
@@ -874,13 +905,13 @@ _^tab^_
 
 _^tab^_
 
-![缩放至高度 200px](pic/vlook-zoom-pic-v.png#200h#padding)
+![缩放至高度 200px](pic/vlook-zoom-pic.png#200h#padding)
 
-![缩放至高度 400px](pic/vlook-zoom-pic-v.png#400h#padding)
+![缩放至高度 400px](pic/vlook-zoom-pic.png#400h#padding)
 
-![缩放至高度 600px](pic/vlook-zoom-pic-v.png#600h#padding)
+![缩放至高度 600px](pic/vlook-zoom-pic.png#600h#padding)
 
-![缩放至高度 800px](pic/vlook-zoom-pic-v.png#800h#padding)
+![缩放至高度 800px](pic/vlook-zoom-pic.png#800h#padding)
 
 ## 图片旋转
 
@@ -1423,7 +1454,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °列表
 
@@ -1554,7 +1585,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °引用块
 
@@ -2497,14 +2528,6 @@ _^tab^_
 >
 > > 我是引用块内嵌的「引用块分栏」2
 
-###### 引用块内嵌 GSA 示例
-
-> 以下是 [GitHub Style Alert](guide2.md#github Style Alert)：
->
-> > [!NOTE]
-> >
-> > ==Highlights== information that users should take into account, even when skimming. [GitHub Style Alert](https://github.com/orgs/community/discussions/16925)
-
 ###### 列表内嵌引用块示例
 
 - 无序或有序列表内嵌的普通引用块，会调整为「自适配宽度」样式，并且不会默认转换样式（详见 [插件调校参数](guide3.md#插件调校参数) 中的 `quote` ），具体如下：
@@ -2523,13 +2546,29 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °章节标题
 
-## 标题样式
+## ~~高亮章节标题~~
 
-==VLOOK™ 的 [内置主题](guide3.md#模板主题) 为文档标题提供了丰富选择，以及多种不同自动编号格式。==
+对于某些重要的章节，希望进行突出的标记，可以设置为高亮。设置后在导航中心的目录索引、搜索结果中均会保持高亮，也可以通过搜索栏快速过滤显示被标记的章节。
+
+*Markdown 粉`Q`*「**希望对文档中一些重要的章节标题进行标记，便于在阅读时能快速识别和快速筛选**」
+
+*VLOOK`A`*_~T2~_ VLOOK™ 支持对标题设置为高亮后的样式适配，并提供配套的增强功能。
+
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
+
+
+
+选中章节标题内容，设置为高亮格式即可，如：`# ==这是高亮的标题==`
+
+这些章节在导出 HTML 后，支持在「[导航中心](#导航中心)」中快速筛选，可直观了解文档中所有被标记的章节，并一键直达。
+
+## 标题自定义样式
+
+==VLOOK™ 的 [内置主题](guide3.md#模板主题) 为文档标题提供个性化的设定示例==
 
 <u>若希望获得更具个性的标题样式（如：颜色、渐变色、边框、留白等）、自定义自动编号格式，可以订阅 ==定制主题服务== 。</u>
 

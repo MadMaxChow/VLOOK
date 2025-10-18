@@ -1,6 +1,6 @@
 ---
 title: 自定义导出 HTML 后的文档标题
-vlook-welcome: 自定义文档加载过程中显示的欢迎屏信息（须在导出设置中添加对应的 head 信息，详见 VLOOK™ 快速参考手册）
+vlook-welcome: 自定义文档加载过程中显示的欢迎屏信息（须在导出设置中添加对应的 head 信息，详见 VLOOK™ 使用攻略）
 vlook-doc-lib: sample-docment_library.html
 ---
 
@@ -32,14 +32,14 @@ vlook-doc-lib: sample-docment_library.html
 
 ## 其他参考模板
 
-- VLOOK™ 参考手册的 md 源文件，位于目录 `released\demo` 下
+- VLOOK™ 使用攻略的 md 源文件，位于目录 `released\demo` 下
 - [标准模板（VLOOK-Document-Template.md）](VLOOK-Document-Template.md?xmd=off)
 - [无封面模板（VLOOK-Document-Template-nocover.md）](VLOOK-Document-Template-nocover.md?xmd=off)
 - [文库（VLOOK-Document-Template-doc_lib.md）](VLOOK-Document-Template-doc_lib.md?xmd=off)
 
 # 关于的封面、封底
 
->  - 有关「封面、封底」，以及 VLOOK™ 的更多信息，详见《[VLOOK 快速参考手册](https://madmaxchow.github.io/VLOOK/guide.html#封面、封底)》
+>  - 有关「封面、封底」，以及 VLOOK™ 的更多信息，详见《[VLOOK 使用攻略](https://madmaxchow.github.io/VLOOK/guide.html#封面、封底)》
 >  - 若你的文档不需要封面、封底，可以将本文档中开始位置的 6 级标题，以及结束位置的 1 级标题内容删除即可。
 
 

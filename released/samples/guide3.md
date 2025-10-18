@@ -1,5 +1,5 @@
 ---
-title: 手册 ★ 探索 - VLOOK™ - 优雅好用的 Typora 主题与增强插件
+title: 攻略 ★ 探索 - VLOOK™ - 优雅好用的 Typora 主题与增强插件
 author: MAX°孟兆
 description: 关于 VLOOK™ 的主题、内容标记、内容导航、演示与出版、第三方集成的适配、不杂项
 "og:description": 关于 VLOOK™ 的主题、内容标记、内容导航、演示与出版、第三方集成的适配、不杂项
@@ -7,19 +7,18 @@ description: 关于 VLOOK™ 的主题、内容标记、内容导航、演示与
 keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
 - editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
-- light mode,dark mode,grayscale mode,gray mode
+- light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
 - catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
 - content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
-
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - link map,link specification,link check,link recognition,link conversion
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
-- 浅色外观,深色外观,灰度外观,灰色外观
+- 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
 - 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
@@ -27,14 +26,14 @@ keywords:
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
-- 设计,需求,文档,博客,手册,指南,知识库,教程,方案,教育,笔记,日记
+- 设计,需求,文档,博客,手册,指南,攻略,知识库,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
-vlook-header-dup: /.*语法$/;/^适用范围 ••• .+/;/^方式.$/
+vlook-header-dup: /^你的咖啡.+/;/.*语法$/;/^适用范围 ••• .+/;/^方式.$/
 vlook-doc-lib:
 - [如何开始？](index.html?target=_self "简介、安装与配置、语言包")
-- [手册 • 基础](guide.html?target=_self "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/旋转/翻转/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
-- [手册 ▲ 进阶](guide2.html?target=_self "分栏、题注、按钮、代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
-- [手册 ★ 探索](guide3.html?target=_self "内容导航/历史/上次阅读、内容助手/复制/全屏/换行/十字光标/阅读/画中画、演示辅助/激光笔/聚光灯/段落漫游/宽度适配、出版辅助/标记不发布/发布为PDF/另存为PDF/导出为PDF/打印为PDF/社交分享/链接地图/长内容折叠/链接检查/链接识别、外观/主题/字体/Light/Dark、自定义/预置选项/调校参数、快捷键、……")
+- [攻略 • 基础](guide.html?target=_self "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/旋转/翻转/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
+- [攻略 ▲ 进阶](guide2.html?target=_self "分栏、题注、按钮、代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
+- [攻略 ★ 探索](guide3.html?target=_self "内容导航/历史/上次阅读、内容助手/复制/全屏/换行/十字光标/阅读/画中画、演示辅助/激光笔/聚光灯/段落漫游/宽度适配、出版辅助/标记不发布/发布为PDF/另存为PDF/导出为PDF/打印为PDF/社交分享/链接地图/长内容折叠/链接检查/链接识别、外观/主题/字体/Light/Dark、自定义/预置选项/调校参数、快捷键、……")
 - [增值服务](vip.html?target=_self "定制主题、文档排版编辑、……")
 - [更多内容](vlook-lib.html "VLOOK™ 全部特性索引表")
 - [反馈问题](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
@@ -44,25 +43,33 @@ vlook-doc-lib:
 
 > Select language ❯ *[<kbd>English</kbd>](guide3-en.md)*
 
-# 打赏
+# ==打赏==
 
 <u>**感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊山、＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊应、＊销、E＊y、、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、、…==
 
 ---
 
-> **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**
+> **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
 >
 > ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo)
 >
 > _~Gn~_
 
-> **I like VLOOK™, I donate a cup of coffee**
+> **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
 >
-> [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow)
+> ![打赏 VLOOK™](pic/donate-alipay-light.png?darksrc=donate-alipay-dark.png&srcset=@2x&darksrcset=@2x#logo)
 >
-> _~Se~_
+> _~Bu~_
+
+# ~~°自动计算~~
+
+| 列 A | 列 B |   列 C   | 列 D | 列 E |                    列 F                    |
+| :--: | :--: | :------: | :--: | :--: | :----------------------------------------: |
+| 100  |  2   | 2025-5-1 |      |      |          列 A 加总：`=SUM(A1:A3)`          |
+| 200  |      |          |      |      |               A1*B1:`=A1*B1`               |
+| 300  |      |          |      |      | 今天与 C1 的年数差：`=DIFF(C1,YEAR(NOW())` |
 
 # °内容导航
 
@@ -78,7 +85,7 @@ vlook-doc-lib:
 
 > - 在文档中配置了「文库」后（或文档中含有文库类型的链接时），在工具栏、目录大纲下方都会显示「文库」入口 ![字体风格](pic/icon-doc-lib.svg?darksrc=invert#icon) ，也支持直接通过快捷键 <kbd>L</kbd> 打开；
 > - 支持为文库配置了多条链接；
-> - 文库链接指向的页面默认是会在当前文档以「**文库弹窗**」方式内嵌显示。
+> - 文库链接指向的页面默认是会在当前文档内以「**文库弹窗**」方式内嵌显示。
 
 
 
@@ -114,26 +121,41 @@ vlook-doc-lib:
 - [在新标签中打开](文库3.html)
 ```
 
----
 
-> ###### 如何在浏览器新标签、或当前标签打开文库链接？
+
+> ###### 如何在浏览器「新标签页」中打开文库链接？
 >
-> 以上 `target` 的取值与 HTML 标准一致，可以是 `_blank` `_self` `_parent` `_top` ，或自定义的标识，示例如下：
+> `target` 的取值与 HTML 标准一致，只需要设置为 `_blank` 或自定义，同时扩展支持 `auto` 。
+>
+> 示例如下：
 >
 > ```yaml
+> # （推荐）只在浏览器针对该链接的新标签中打开
+> - 文库.html?target=auto
+> 
 > # 在浏览器新标签中打开
 > - 文库.html?target=_blank
-> # 在浏览器当前标签打开
-> - 文库.html?target=_self
-> # 始终在浏览器固定的标签中打开
+> 
+> # 只在浏览器新标签（mydoc）中打开
 > - 文库.html?target=mydoc
 > ```
->
-> 
 
-> ###### 如何让文本链接能以「文库弹窗」方式打开？
+> ###### 如何在浏览器「当前标签页」中打开文库中的链接？
 >
-> 只须设置文本链接是添加 URL 参数 `target=vdl` 即可，示例如下：
+> `target` 的取值与 HTML 标准一致，只需要设置为 `_self` 即可。
+>
+> 示例如下：
+>
+> ```yaml
+> # 在浏览器当前标签打开
+> - 文库.html?target=_self
+> ```
+
+> ###### 如何让文档中的任意链接也能在「文库弹窗」中显示？
+>
+> 只须设置文本链接是添加 URL 参数 `target=vdl` 即可。
+>
+> 示例如下：
 >
 > ```markdown
 > [点击这里打开默认文库](?target=vdl)
@@ -147,6 +169,7 @@ vlook-doc-lib:
 > [!TIP]
 >
 > - 文库链接与当前文档相同的不会重复出现在导航中心添加，有利于更灵活地对知识库多个文档的文库配置进行统一的模板化管理；
+> - 当多个同类的文档都指定 `target=_selft` 时，可以实现文库链接与目录大纲融合显示的效果；
 > - 更多关于通过 YAML Front Matter 设置插件预置选项的说明，详见 [插件预置选项](#插件预置选项)
 
 ## 导航中心
@@ -311,7 +334,7 @@ vlook-quick-action:
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °内容助手
 
@@ -391,7 +414,7 @@ vlook-quick-action:
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °演示辅助
 
@@ -448,19 +471,14 @@ vlook-quick-action:
 >
 > ---
 >
-> ---
->
 > > 不显示左边的侧边栏（大纲/文件）
-> >
+> > >
 > > - <kbd>⇧ Shift</kbd> + <kbd>Cmd / Control</kbd> + <kbd>L</kbd>
->
+> 
 > > 启用专注模式（Focus Mode）
-> >
+> > >
 > > - <kbd>F8</kbd>
->
-> > 启用打字机模式（Typewriter Mode）
-> >
-> > - <kbd>F9</kbd>
+> 
 
 ## 阅读进度
 
@@ -472,7 +490,7 @@ vlook-quick-action:
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 
 
@@ -530,7 +548,8 @@ vlook-quick-action:
 
 > [!TIP]
 >
-> 该特性可通过 [定制主题](vip.md) 调整为不启用，也可以直接在删除线 `~~` 外添加空格来临时取消。
+> - 对于==不适合添加删除线==的情况，也可以通过「[插件预置选项](guide3.md#插件预置选项)」来指定；
+> - 该特性可通过 [定制主题](vip.md) 调整为不启用，也可以直接在删除线 `~~` 外添加空格来临时取消。
 
 ## 发布为 PDF
 
@@ -540,8 +559,9 @@ vlook-quick-action:
 
 
 
-1. 打开导出的 HTML 文件后，通过右下角的 ![画中画](pic/icon-print.svg?darksrc=invert#icon) 按钮启动该功能；
-2. 打印前页面会针对打印输出进行样式的适配，并结合浏览器提供的「打印为 PDF / 另存为 PDF」功能最终实现发布为 PDF 文件。
+1. 打开导出的 HTML 文件后，通过右下角的 ![画中画](pic/icon-print.svg?darksrc=invert#icon) 按钮（ 快捷键 <kbd>⌃ Ctrl</kbd> / <kbd>⌘ command</kbd> + <kbd>P</kbd> )启动该功能；
+2. 打印前页面会针对打印输出进行样式的适配，并结合浏览器提供的「打印为 PDF / 另存为 PDF」功能最终实现发布为 PDF 文件；
+3. 默认情况下 PDF 会以一级标题进行分页，若有个性的分页规则，可以通过 [定制主题](vip.md) 进行调整。
 
 > [!TIP]
 >
@@ -620,7 +640,7 @@ _^tab^_
 >
 > 点击文档的右下角的 ![](pic/icon-link-map.svg#icon) 图标查看链接地图（快捷键  <kbd>M</kbd> )，并在链接地图中点击带有锚点条目后的「**检查锚点**」进行有效性检查
 
-## 长内容自动折叠
+##  ~~长内容自动折叠~~
 
 ==VLOOK™ 会自动对文档中的长插图、长表格、长代码进行自动折叠，节省文档的屏幕显示空间～==
 
@@ -773,7 +793,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °外观
 
@@ -823,10 +843,6 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 >
 > _~Vn~_
 
-**若你使用[在线版本](index.html#在线版本)插件，可通过「[插件调校参数](#插件调校参数)」 `theme` 来动态指定任意 VLOOK 主题。**
-
----
-
 ### 定制模板主题
 
 <u>目前现已开放主题的「**定制服务**」，以下为部分定制案例参考</u>
@@ -841,7 +857,7 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 *Markdown 粉`Q`*「**模板主题让文档颜值倍增，而字体则是文档气质担当！**」
 
-*VLOOK`A`*_~T2~_ 提供了五套独特个性的字体风格，可根据个人喜好进行选用。
+*VLOOK`A`*_~T2~_ 提供了 8 套独特个性的字体风格，可根据个人喜好进行选用。
 
 > **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
@@ -854,15 +870,21 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
-> ![使用系统的 UI 字体，在不同的系统或终端上会效果会稍有不同](pic/fs-local.png?srcset=@2x#padding#card#fitmax)
+---
+
+> ![使用系统的 UI 字体，在不同的系统或终端上会效果会稍有不同](pic/fs-local2.png?srcset=@2x#padding#card#fitmax)
 >
 > _~Gy~_
 
-> ![用系统内置的宋体、黑体进行「混搭」，在不同的系统或终端上会效果会稍有不同](pic/fs-book.png?srcset=@2x#padding#card#fitmax)
+> ![用系统内置的宋体、黑体进行「混搭」，在不同的系统或终端上会效果会稍有不同](pic/fs-book2.png?srcset=@2x#padding#card#fitmax)
 >
 > _~Gy~_
 
-> ![用系统内置的楷体、仿宋、黑体进行「混搭」，在不同的系统或终端上会效果会稍有不同](pic/fs-gov.png?srcset=@2x#padding#card#fitmax)
+> ![整体表现为「禅院、正楷书法、宁静空间」（需要浏览器加载网络字体或下载安装）](pic/fs-zen2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![整体表现为「亲和力、温润、健康」（需要浏览器加载网络字体或下载安装）](pic/fs-yuan2.png?srcset=@2x#padding#card#fitmax)
 >
 > _~Gy~_
 
@@ -870,37 +892,40 @@ vlook-welcome: 在这里添加欢迎页的自定义内容，可包括 HTML 标�
 
 ---
 
-> ![整体表现为「活力、开放」（需要浏览器加载网络字体或下载安装）](pic/fs-albb.png?srcset=@2x#padding#card#fitmax)
+---
+
+> ![整体表现为「活力、开放」（需要浏览器加载网络字体或下载安装）](pic/fs-dyn2.png?srcset=@2x#padding#card#fitmax)
 >
 > _~Gy~_
 
-> ![整体表现为「优雅、韵动」（需要浏览器加载网络字体或下载安装）](pic/fs-serif.png?srcset=@2x#padding#card#fitmax)
+> ![整体表现为「优雅、韵动、个性」（需要浏览器加载网络字体或下载安装）](pic/fs-serif2.png?srcset=@2x#padding#card#fitmax)
 >
 > _~Gy~_
 
-> ![整体表现为「清新、简约」（需要浏览器加载网络字体或下载安装）](pic/fs-sans.png?srcset=@2x#padding#card#fitmax)
+> ![整体表现为「清新、简约、潮流」（需要浏览器加载网络字体或下载安装）](pic/fs-sans2.png?srcset=@2x#padding#card#fitmax)
 >
 > _~Gy~_
 
-_^tab^_
+> ![整体表现为「童趣、手写、随心、惬意」（需要浏览器加载网络字体或下载安装）](pic/fs-ink2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
 
 
-> [!WARNING]
->
-> 若加载网络字体字体较慢，或无法访问互联网的情况，建议直接下载字体包并安装到本地，以获得更好的体验。
->
->  [<kbd>![](pic/icon-download.svg?fill=text) 从 百度网盘 下载</kbd>](https://pan.baidu.com/s/1nyNEZz-Qsc7yZDI9BU8aeg?pwd=scr7)   *[<kbd>![](pic/icon-download.svg?fill=text) 从 Google Drive 下载</kbd>](https://drive.google.com/file/d/1o-vE86_wwbGNPg9bJQ-2aWvxK9cJUJBR/view?usp=drive_link)*
+
+其中部分带有 (WebFont) 标记的字体风格须连接互联网才能正常加载和生效。若无法连接网络或网络速度较慢，建议下载字体在本地进行安装。
+
+**[<kbd>下载字体包</kbd>](https://github.com/MadMaxChow/openfonts/releases/download/V2.0/install-font-V2.0.tar.gz)**
 
 > [!NOTE]
 >
-> - 设置后同域名下所有文档都会应用，可通过「[插件调校参数](#插件调校参数)」 `font` 来强制指定当前文档使用的字体风格；
-> - 除「书香里、公文风、活力派」，都会强制对「数字、标点符号」使用等宽字体，以使得内容更易于识别。 
+> - 可以选择所需要使用的字体风格的字体包进行安装，也可以全部安装；
+> - 部分字体在不同字体风格中会有重复，安装时若提示已存在，可以跳过对应字体的安装。
+
+> [!IMPORTANT]
+>
+> 设置后同一域名下所有文档都会进行应用，也可通过「[插件调校参数](#插件调校参数)」 `font` 来强制指定文档使用的字体风格。
 
 
-
-<u>若希望默认使用**指定的字体风格**，可以订阅 VLOOK™ 的 ==定制主题服务== 。</u>
-
-**[<kbd>去探索更多定制主题的介绍</kbd>](vip.md)**
 
 ## Dark Mode
 
@@ -988,7 +1013,7 @@ _^tab^_
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # °不杂项
 
@@ -1016,13 +1041,14 @@ _^tab^_
 | > `title`           |                      | 标题                                 |                                                              |
 | > `author`          |                      | 作者                                 |                                                              |
 | > `keywords`        |                      | 关键字                               |                                                              |
-| `vlook-header-autonum` |          Y           | 标题自动编号的格式、前缀、后缀等内容 | 详见：[标题自动编号](guide.md#标题自动编号)<br>^所有分级的章节都不进行自动编号，可通过定制主题关闭该特性^ |
-| `vlook-header-dup`     |                      | 指定允许重复的章节标题内容           | • 在对文档章节标题查重时指定的内容<br>• 支持正则表达式<br><sup>（以字面量方式进行定义，如 `/pattern/flags` ）</sup><br><sup>多个内容间以英文分号 `;` 进行分隔</sup> |
 | `vlook-doc-lib`     |                      | 启用并指定当前文档的文库 URL         | 支持指定多个，详见：[文库导航](#文库导航)                    |
 | `vlook-gray-mode`   |                      | 设置启用 Gray Mode 的日期            | 详见：[Gray Mode](#Gray Mode)                                |
+| `vlook-header-autonum` |          Y           | 标题自动编号的格式、前缀、后缀等内容 | 详见：[标题自动编号](guide.md#标题自动编号)<br>^所有分级的章节都不进行自动编号，可通过定制主题关闭该特性^ |
+| `vlook-header-dup`     |                      | 指定允许重复的章节标题内容           | • 在对文档章节标题查重时指定的内容<br>• 支持正则表达式<br><sup>（以字面量方式进行定义，如 `/pattern/flags` ）</sup><br><sup>多个内容间以英文分号 `;` 进行分隔</sup> |
 | `vlook-image-host`  |                      | 默认图床地址                         | 目前主要针对 Safari 打开本地 HTML 的文件，且指定[图片剪影](guide.md#图片剪影)时使用<br>如： `https://xxx.abc.com/images` |
 | `vlook-welcome`     |                      | 自定义文档在加载时欢迎页信息         | 详见：[自定义欢迎页内容](#自定义欢迎页内容)                  |
 | `vlook-query`       |          Y           | 预置 VLOOK™ 规范的插件调校参数       | 详见以下章节：[插件调校参数](#插件调校参数)                  |
+| `vlook-unpub` |  | 指定[不发布的内容](#标记不发布的内容) | 支持正则表达式<br><sup>（以字面量方式进行定义，如 `/pattern/flags` ）</sup><br/><sup>多个内容间以英文分号 `;` 进行分隔</sup> |
 
 ## 插件调校参数
 
@@ -1066,25 +1092,25 @@ vlook-query: 参数1=取值&参数2=取值...&参数n=取值
 | > `tag`      | 调整 [标签](guide2.md#标签) 未指定色号时默认使用的色号       |  `T2`   | 对应的预置色号，[详见这里](guide2.md#标签)                   |
 | 题注         |                                                              |         |                                                              |
 | > `capgroup` | 题注的自动编号是否按所属章节进行分组编号                     |  `on`   | `off` - 不开启<br>`on` - 开启                                |
+| > `capblank` | 未指定题注内容时是否添加空白题注<br>^须配合定制主题才能生效^ |  `off`  | 指定范围开启：<br>`codeblock` - 代码块                       |
 | 页签组       |                                                              |         |                                                              |
 | > `tabcap`   | [页签组](guide2.md#°页签组)的页签上是否显示题注编号（如：表 1-2） |  `off`  | `off` - 不显示<br>`on` - 显示                                |
 | > `tabico`   | 指定[页签](guide2.md#°页签组)上显示的内容分类图标样式        | `line`  | `off` - 不显示<br>`line` - 线性样式<br>`solid` - 单色样式<br>`flat` - 分层样式 |
 | 外观         |                                                              |         |                                                              |
 | > `cs`       | 指定使用固定的颜色方案                                       | `auto`  | `light` - 强制显示为 Light Mode<br>`dark` - 强制显示为 Dark Mode<br>`auto` - 自动跟随系统配置 |
-| > `effect`   | 调整文档的动效级别                                           |   `2`   | `0` - 关闭<br>`1` - 标准<br>`2` - 增强（毛玻璃等）           |
 | > `fillw`    | 指定[正文宽度适配](#正文宽度适配)可显示宽度的默认状态        |  `off`  | `off` - 关闭<br>`on` - 开启                                  |
-| > `font`     | 强制指定使用的字体风格<br>指定该参数后则忽略 VLOOK 主题配套的字体风格 | `theme` | `theme` 使用主题配套<br>`local` - 系统默认<br>`book` - 书香里<br>`albb` - 活力派<br>`gov` - 公文风<br>`sans` - 小清新<br>`serif` - 文艺范 |
+| > `font`     | 强制指定使用的字体风格<br>指定该参数后则忽略 VLOOK 主题配套的字体风格 | `theme` | `theme` 使用主题配套<br>`local` - 系统默认<br>`book` - 书香里<br>`dyn` - 活力派<br>`zen` - 禅意斋<br>`sans` - 小清新<br>`serif` - 文艺范 |
 | > `gray`     | 指定是否启用 [Gray Mode](#Gray Mode)                         |  `on`   | `off` - 关闭<br>`on` - 开启<br>`force` - 强调开启，用于预览效果 |
 | > `radius`   | 强制使用指定的圆角样式，忽略 VLOOK 主题自带的样式            |         | `none` - 不使用圆角<br>`small` - 使用小号圆角<br>`big` - 使用大号圆角 |
 | > `sts`      | 指定状态栏的默认显示方式                                     | `show`  | `hide` - 隐藏<br>`show` - 显示                               |
 | > `uico`     | 指定插件界面的图标样式                                       | `solid` | `solid` - 单色样式<br>`flat` - 分层样式                      |
 | 交互         |                                                              |         |                                                              |
-| > `fold`     | 控制使用长内容自动折叠的内容范围<br>^若有多个内容时，可用英文加号「+」进行分隔^ |  `on`   | `off` - 全不开启<br>`on` - 全开启<br><br>指定范围开启：<br>`table` - 表格<br>`figure` - 插图<br>`codeblock` - 代码块<br>`list` - 列表 (未实现) |
 | > `tr`       | 指定表格阅读模式（十字光标）默认开关                         |  `off`  | `off` - 不开启<br>`on` - 开启                                |
 | > `ws`       | 指定文档的「欢迎页」显示模式                                 | `auto`  | `auto` - 页面加载完成后自动关闭欢迎页<br>`wait` - 文档和插件加载完成后，手动关闭欢迎页<br>`off` - 不显示欢迎页<br>`1~60` - 指定延时等待的秒数 |
 | 发布         |                                                              |         |                                                              |
 | > `unpub`    | 对 [标记为不发布内容](#标记不发布的内容) 进行处理的开关      |  `on`   | `off` - 不开启<br/>`on` - 开启                               |
 | > `xmd`      | 指定将扩展名为「*.md」的链接转换为指定的新扩展名<br>^（默认对全局生效，也支持在文本链接中单独指定）^ | `html`  | `off` - 关闭，不转换<br>`{扩展名}` - 指定的扩展名，如 `php` `htm` 等 |
+| > `pdf`      | 对导出后的 HTML 开启「发布为 PDF」的功能                     |  `on`   | `off` - 不开启<br/>`on` - 开启                               |
 | 导航中心     |                                                              |         |                                                              |
 | > `nav`      | 指定导航中心初始的运行模式                                   | `auto`  | `auto` - 在封面时自动收起、在正文时自动展开<br>`hide` - 默认收起 |
 | > `toc`      | 指定目录大纲初始自动折叠的层级                               |   `1`   | `0` - 不折叠，全部展开<br>`1~5` - 折叠指定的层级             |
@@ -1108,6 +1134,7 @@ vlook-query: 参数1=取值&参数2=取值...&参数n=取值
 | : | 打开「[链接地图](#链接地图)」 | <kbd>M</kbd> |
 | : | 打开「[异常链接 / 地址](#链接失效与规范检查)」 | <kbd>E</kbd> |
 | : | 打开「导航历史」 | <kbd>H</kbd> |
+| : | 发布为 PDF | <kbd>⌘ command</kbd> / <kbd>⌃ Ctrl</kbd> + <kbd>P</kbd> |
 | [页签组](guide2.md#°页签组) | 切换显示下一个页签内容 | <kbd>tab</kbd> |
 | : | 切换显示上一个页签内容 | <kbd>⇧ Shift</kbd> + <kbd>tab</kbd> |
 | [表格阅读模式](#表格阅读模式) | 移动当前**聚焦**单元格 | <kbd>▲</kbd>  <kbd>▼</kbd>  <kbd>◀</kbd>  <kbd>▶</kbd> |
@@ -1134,7 +1161,7 @@ vlook-query: 参数1=取值&参数2=取值...&参数n=取值
 
 ---
 
-如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
+如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
 # 延伸内容
 

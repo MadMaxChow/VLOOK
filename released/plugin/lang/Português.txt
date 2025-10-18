@@ -1,13 +1,12 @@
-<!--
-========== Language Pack ==========
-VLOOK™ "V30.1" (2025-07-02) - (Language Pack) - Typora Plugin
-
-Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
-追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
--->
-<!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
-<!-- 以下为 pt 语言包内容 -->
-<script type="application/json" id="vlook-lang-pt" data-lang="pt">{
+<script>/**************************************
+ * ========== Language Pack ==========
+ * VLOOK™ "V2025.10" (2025-10-18) - (Language Pack) - Typora Plugin
+ *
+ * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
+ * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
+ *************************************/
+var V_lang_data_pt = {
+"lang": "pt",
 "pt1":"Capa do documento",
 "pt2":"Alternar abas",
 "pt3":"Mapa de Links",
@@ -26,9 +25,9 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "pt16":"Próximo",
 "pt17":"Fechar",
 "pt18":"Fórmula",
-"pt19":"Se você não conseguir se conectar à Internet para carregar a versão online da fonte, é recomendado baixar a fonte diretamente para o local",
-"pt20":"Link primário",
-"pt21":"Link secundário",
+"pt19":"Se você não conseguir se conectar à Internet para carregar a versão online da fonte, é recomendável baixar a fonte diretamente para o computador local.<br>Se você não conseguir se conectar à Internet ou se sua rede estiver lenta, é recomendável baixar as fontes para instalação local.",
+"pt20":"Expandir dobra de bloco de citação",
+"pt21":"Expandir grupo de linhas da tabela",
 "pt22":"Todas as notas de rodapé",
 "pt23":"Começar a ler",
 "pt24":"Tela cheia",
@@ -45,7 +44,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "pt35":"Índice",
 "pt36":"- Uma nova versão foi lançada, por favor atualize!",
 "pt37":"Desculpe, a cópia não é suportada atualmente neste navegador",
-"pt38":"Pronto",
+"pt38":"Incluir contorno",
 "pt39":"Tempo Esgotado",
 "pt40":"Carregando",
 "pt41":"Estilo de fonte",
@@ -62,7 +61,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "pt52":"Verificar Hash",
 "pt53":"Título/legenda duplicado",
 "pt54":"Link Interno Inválido",
-"pt55":"Mostrar todos",
+"pt55":"Cancelar filtro de imagem (desfoque)",
 "pt56":"Tabela",
 "pt57":"Bloco de Código",
 "pt58":"Figura",
@@ -102,6 +101,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "pt92":"Escuro",
 "pt93":"Concluído",
 "pt94":"Falhou",
-"pt95":"Continuar mesmo assim",
-"pt96":"Cancelar"
+"pt95":"Iniciar impressão (selecionar: Salvar como PDF)",
+"pt96":"Cancelar",
+"pt97":"Revelar cartão raspadinha"
 }</script>

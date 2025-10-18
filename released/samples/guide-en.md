@@ -7,19 +7,18 @@ description: Regarding VLOOK™: Text, Paragraphs, Tables, Images, Lists, and Se
 keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
 - editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
-- light mode,dark mode,grayscale mode,gray mode
+- light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
 - catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
 - content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
-
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - link map,link specification,link check,link recognition,link conversion
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
-- 浅色外观,深色外观,灰度外观,灰色外观
+- 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
 - 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
@@ -27,9 +26,9 @@ keywords:
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
-- 设计,需求,文档,博客,手册,指南,知识库,教程,方案,教育,笔记,日记
+- 设计,需求,文档,博客,手册,指南,攻略,知识库,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
-vlook-header-dup: /.*Syntax$/;/^Applicable Scope ••• .+/;Shortcuts;Advanced Usage;More Information;Blockquote Coloring;COMMING SOON...;Image with Line Grid Background;Image with Block Grid Background;Examples;This is a Blockquote Subtitle;💡 Want to know the original content of the above table?
+vlook-header-dup: /^Your coffee.+/;/.*Syntax$/;/^Applicable Scope ••• .+/;Shortcuts;Advanced Usage;More Information;Blockquote Coloring;COMMING SOON...;Image with Line Grid Background;Image with Block Grid Background;Examples;This is a Blockquote Subtitle;💡 Want to know the original content of the above table?
 vlook-doc-lib:
 - [How to Start?](index-en.html?target=_self "Introduction, Installation and Configuration, Language Packs")
 - [Guide • Basic](guide-en.html?target=_self "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scale / Rotation / Flip / Filter / Postcard / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
@@ -44,7 +43,7 @@ vlook-doc-lib:
 
 > Select language ❯ *[<kbd>🇨🇳 简体中文</kbd>](guide.md)*
 
-# Some Conventions
+# ==Some Conventions==
 
 ## #Magic
 
@@ -99,8 +98,8 @@ _^tab^_
 | `*==Breadcrumbs==*` when not occupying a single line | "[Breadcrumbs](guide2-en.md#Breadcrumbs)" |
 | `[<kbd>Button Link</kbd>](url)` | "[Button Links](guide2-en.md#Button-Links)" |
 | `**==Progress Bar==**` | "[Progress Bars](guide2-en.md#Progress Bar)" |
-| `*Hint**Scratch Card***` | "[Scratch Cards](guide2-en.md#Scratch-Cards)" |
-| `_~Color Code~_` [ⓘ](#Preset Color Code) | "[Text Color](#Text-Color)" "[Text Gradient](#Text-Gradient)" "[Colorful Tags](guide2-en.md#Tag)" "[Cell Coloring](#Cell-Coloring)" "[Scratch Cards](guide2-en.md#Scratch-Cards)" "[Blockquote Coloring](#Blockquote-Coloring)" |
+| `*Hint**Scratch Card***` | "[Scratch Card](guide2-en.md#Scratch-Cards)" |
+| `_~Color Code~_` [ⓘ](#Preset Color Code) | "[Text Color](#Text-Color)" "[Text Gradient](#Text-Gradient)" "[Colorful Tags](guide2-en.md#Tag)" "[Cell Coloring](#Cell-Coloring)" "[Scratch Card](guide2-en.md#Scratch-Cards)" "[Blockquote Coloring](#Blockquote-Coloring)" |
 | `_^Tab Group^_` or `*^Tab Group^*` <br>when **occupying a single line** | "[Tab Group](guide2-en.md#°Tab Group)" |
 | `_^Phonetic Notation^_` or `*^Phonetic Notation^*`<br>when not occupying a single line | "[Phonetic Notation](guide2-en.md#Phonetic-Notation)" |
 
@@ -116,7 +115,7 @@ _^tab^_
 
 > **< Two >**
 > 
-> Will be used in subsequent [Text Color](#Text-Color), [Text Gradient](#Text-Gradient), [Cell Coloring](#Cell-Coloring), [Tags](guide2-en.md#Tag), [Scratch Cards](guide2-en.md#Scratch-Cards), [Blockquote Coloring](#Blockquote-Coloring), etc.
+> Will be used in subsequent [Text Color](#Text-Color), [Text Gradient](#Text-Gradient), [Cell Coloring](#Cell-Coloring), [Tags](guide2-en.md#Tag), [Scratch Card](guide2-en.md#Scratch-Cards), [Blockquote Coloring](#Blockquote-Coloring), etc.
 
 > **< Three >**
 > 
@@ -138,25 +137,25 @@ _^tab^_
 > 
 > To distinguish from Typora's default italic marked with single asterisks `*italic*`, and to resolve conflicts with bold, the **italic** in **color codes** must use Markdown's other italic mark syntax (underscore `_`).
 
-# Donate
+# ==Donate==
 
 <u>**Thanks to the patrons who donated to support VLOOK™ (partial list) / Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊山、＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
 
 ---
 
-> **If you like VLOOK™, you can contribute a cup of coffee**
-> 
-> ![Donate VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo)
-> 
-> _~Gn~_
-
-> **I like VLOOK™, I donate a cup of coffee**
+> **Your coffee keeps VLOOK™ running ☕️**
 > 
 > [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow)
 > 
 > _~Se~_
+
+> **Your coffee keeps VLOOK™ running ☕️**
+> 
+> ![Donate VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo)
+> 
+> _~Gn~_
 
 # °Text
 
@@ -166,7 +165,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ achieves this easily through a concise method, let's take a look～
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 *==How to Make Your Markdown Document Text Colors More Vibrant (Bilibili)==*
 
@@ -238,7 +237,7 @@ _~Gd~_This is a paragraph where you can use **<u>predefined</u>** `color codes` 
 
 *VLOOK`A`*_~T2~_ The new [Preset Color Code](#Preset Color Code) support gradient colors, with a natural and intuitive writing style that will definitely impress you～
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > - All rules are the same as "[Text Color](#Text-Color)", just change the color code from 1 to multiple consecutive inputs～
 > - For example: "**Red-Green**_~RdGn~_" gradient is input as `_~RdGn~_`, "**Red-Yellow-Green**_~RdYeGn~_" gradient is input as `_~RdYeGn~_`
@@ -267,35 +266,63 @@ _~LmOgGnRd~_This is a paragraph using predefined `color codes` at the very begin
 
 ---
 
-If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
+For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™&body=Hi, "Feedback via Email")  [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 # °Paragraph
 
-## Paragraph Bold
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+Used to meet the need for personalized formatting of **an entire paragraph**, creating a differentiated style compared to regular body text.
+
+Simply select all the content of the paragraph first, then apply the basic Markdown formatting (bold, underline, italic, highlight), such as: `**entire paragraph content**` `==entire paragraph content==` , etc.
+
+## Paragraph Italic
+
+Provides support for styling an **entire paragraph** with a distinct appearance from the main body text — typically used to de-emphasize content or format it as a reference note.  Example:
+
+*~This is a paragraph that needs to be visually distinct from the main content, de-emphasized, or used as a ==reference note==. Everything else remains unchanged.~*
+
+> **Italic paragraph style within blockquotes **
+>
+> (Currently not available)
+
+*The above is the effect after applying "**paragraph Italic**" to the entire paragraph. (To disable this style, simply add a space at the end)* 
+
+
+
+> [!TIP]
+>
+> The style of the above paragraph can be modified or disabled via the [Custom Theme](vip-en.md) .
+
+## Paragraph Bold
 
 Meets the need to center and emphasize the entire paragraph content. Example:
 
 **～This is a paragraph that needs ==strong emphasis==, appearing in ==center alignment==. ==Bold==, ==larger font size==, ==centered==, others unchanged～**
 
-*The above is the effect after applying "**paragraph bold**" to the entire paragraph. (To disable this style, simply add a space at the end)*
+> **Bold paragraph style within blockquotes **
+>
+> (Currently not available)
+
+*The above is the effect after applying "**paragraph bold**" to the entire paragraph. (To disable this style, simply add a space at the end)* 
 
 
 
 > [!TIP]
 >
-> The style of the above paragraph can be modified or disabled via the [custom theme](vip-en.md) .
+> The style of the above paragraph can be modified or disabled via the [Custom Theme](vip-en.md) .
 
 ## Paragraph Underline
-
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
 
 Meets the need to slightly emphasize the entire paragraph content, with <u>visual separation</u> from subsequent content but still related. Example:
 
 <u>～This is a paragraph with **slight emphasis**, **visual separation** from subsequent content, but still **related**. **Larger font size**, **centered**, others unchanged</u>
 
-*The above is the effect after applying "<u>underline</u>" to the entire paragraph. (To disable this style, simply add a space at the end)*
+> **Underline paragraph style within blockquotes **
+>
+> <u>～This is a paragraph with **slight emphasis**, **visual separation** from subsequent content, but still **related**. **Larger font size**, **centered**, others unchanged</u>
+
+*The above is the effect after applying "<u>underline</u>" to the entire paragraph. (To disable this style, simply add a space at the end)* 
 
 
 
@@ -303,17 +330,19 @@ Meets the need to slightly emphasize the entire paragraph content, with <u>visua
 
 > [!TIP]
 >
-> The style of the above paragraph can be modified or disabled via the [custom theme](vip-en.md) .
+> The style of the above paragraph can be modified or disabled via the [Custom Theme](vip-en.md) .
 
 ## Paragraph Highlight
-
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
 
 Meets the need for the entire paragraph content to be displayed in a ==more personalized, more emphasized== quote style, with visual separation from preceding/following content. Example:
 
 ==～This is a paragraph with **more personality, more emphasis**_~RdPuRo~_, <u>visual separation</u> from preceding/following content. <u>Larger font size</u>, <u>centered</u>, others unchanged～==
 
-*The above is the effect after applying "==highlight==" to the entire paragraph. (To disable this style, simply add a space at the end)*
+> **Hightlight paragraph style within blockquotes **
+>
+> (Currently not available)
+
+*The above is the effect after applying "==highlight==" to the entire paragraph. (To disable this style, simply add a space at the end)* 
 
 
 
@@ -321,7 +350,13 @@ Meets the need for the entire paragraph content to be displayed in a ==more pers
 
 > [!TIP]
 >
-> The style of the above paragraph can be modified or disabled via the [custom theme](vip-en.md) .
+> The style of the above paragraph can be modified or disabled via the [Custom Theme](vip-en.md) .
+
+
+
+---
+
+For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™&body=Hi, "Feedback via Email")  [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 # °Table
 
@@ -331,7 +366,7 @@ Meets the need for the entire paragraph content to be displayed in a ==more pers
 
 *VLOOK`A`*_~T2~_ Now you can easily achieve this — Wow! Wow!～Cheers from Markdown fans!!!
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ---
 
@@ -387,7 +422,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ SO EASY～ Just set the corresponding format in the header using standard Markdown or GFM format syntax.
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > Review standard Markdown or GFM format syntax:
 > 
@@ -430,7 +465,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Supports automatic formatting for the above numeric content across entire columns! The approach remains elegant and very VLOOK!
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ==Set the table column alignment to "**right-align**" to automatically recognize different numeric content and automatically format it!==
 
@@ -505,7 +540,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Although the requirements are higher, it can also be achieved by automatically setting the entire column to "checkbox" format!
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > Add `[]` before the corresponding table column header content (e.g., `[]Required Field`) to automatically set the column to `unselected` state.
 >
@@ -539,7 +574,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ VLOOK™'s [Preset Color Code](#Preset Color Code) can be put to use again, same formula, same super easy to use!
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ---
 
@@ -578,7 +613,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Supports grouping and hierarchical specification for rows within tables through very concise markers.
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > For subordinate rows, automatic grouping and folding can be achieved by following these rules in the first column of the table row:
 >
@@ -664,7 +699,7 @@ _^tab^_
 
 ## Table Wrapping Layout
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 _^tab^_
 
@@ -708,7 +743,7 @@ _^tab^_
 
 ## Table Alignment
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 The table alignment (left-aligned, centered) is specified by the selected VLOOK™ theme, and can be customized through [Custom Theme Service](vip-en.md).
 
@@ -720,7 +755,7 @@ The table alignment (left-aligned, centered) is specified by the selected VLOOK�
 
 ---
 
-If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
+For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™&body=Hi, "Feedback via Email")  [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 # °Image
 
@@ -730,7 +765,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 *VLOOK`A`*_~T2~_ VLOOK™ displays images as "Figure" by default, but can easily switch to more flexible display layouts using "[#Magic](##Magic)".
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > Add VLOOK™ standard image "[#Magic](##Magic)" in the "image address" to implement various non-illustration layouts:
 >
@@ -788,7 +823,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 *VLOOK`A`*_~T2~_ Markdown doesn't support image scaling, but now with VLOOK™'s "[#Magic](##Magic)" it's easily achievable～
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > Add VLOOK™ standard image "[#Magic](##Magic)" in the "image address" to implement:
 >
@@ -854,7 +889,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Markdown doesn't support image rotation, but now with VLOOK™'s "[#Magic](##Magic)" it's easily achievable～
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > Add VLOOK™ standard image "[#Magic](##Magic)" in the "image address" to implement (currently only supports 180 degree rotation):
 >
@@ -874,7 +909,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Markdown doesn't support image flipping, but now with VLOOK™'s "[#Magic](##Magic)" it's easily achievable～
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > Add VLOOK™ standard image "[#Magic](##Magic)" in the "image address" to implement:
 >
@@ -891,7 +926,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Markdown doesn't support image filters, but now with VLOOK™'s "[#Magic](##Magic)" it's easily achievable～
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 _^tab^_
 
@@ -928,7 +963,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Through "[#Magic](##Magic)", you can add specified grid backgrounds for transparent background images (like PNG, SVG).
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > Add VLOOK™ standard image "[#Magic](##Magic)" in the "image address" to implement:
 >
@@ -965,7 +1000,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Through "[#Magic](##Magic)" this niche personalized typesetting challenge can be easily handled～
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > **Syntax**
 >
@@ -985,7 +1020,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ With "[#Magic](##Magic)"加持, automatic image-text typesetting reaches new heights, monotonous images instantly become lively～
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 _^tab^_
 
@@ -1056,7 +1091,7 @@ _^tab^_
 > - If you want to typeset Postcard more neatly in **columns**_~T1T2~_, just place "Postcard" inside [colored blockquotes](#Blockquote-Coloring)
 > - If blockquotes specify **background colors**_~T1T2~_, will adapt for display, same familiar recipe～
 > - After adding `#border` to images, when image width is too small to fill column space, you can additionally add `#fill` parameter,
-> - If image width is small, you can try adding `#fitmax` to image address to make hover-displayed cards wider, see example [❯❯](guide3-en.md#Font Styles)
+> - If image width is small, you can try adding `#fitmax` to image address to make hover-displayed cards wider, see example [❯❯](guide3-en.md#Font Style)
 >
 > _~Bk!~_
 
@@ -1120,7 +1155,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ While keeping Markdown image syntax unchanged, easily display HD resolution images on high-resolution screens!
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 <u>Add VLOOK™ standard parameters in "image address" to enable this feature.</u>
 
@@ -1171,7 +1206,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Supports specifying adaptation methods for images in Dark Mode, currently supporting "**invert colors**" and "**replace**" to meet different needs!
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ### Invert Color Adaptation
 
@@ -1232,7 +1267,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Can target transparent background png or svg images, displaying their outlines with specified colors.
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > In the "image address", add VLOOK™ standardized URL parameters to achieve:
 >
@@ -1355,7 +1390,7 @@ Then add `#gif` after the image address, clicking will play the `.gif` file with
 
 ## Image Alignment
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 - Image alignment (left, center) is specified by the selected VLOOK™ theme, support custom alignment through [Custom Theme Service](vip-en.md);
 - Includes cases where there's only one image in a paragraph, images with links, etc., but excludes [icon layout](#Image-Display-Layout) images.
@@ -1368,7 +1403,7 @@ Then add `#gif` after the image address, clicking will play the `.gif` file with
 
 ---
 
-If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
+For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™&body=Hi, "Feedback via Email")  [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 # °List
 
@@ -1388,7 +1423,7 @@ In addition to the previously mentioned [List Columns](guide2-en.md#List-Columns
 
 
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ---
 
@@ -1466,7 +1501,7 @@ In addition to the previously mentioned [List Columns](guide2-en.md#List-Columns
 
 *VLOOK`A`*_~T2~_ VLOOK™ has made multiple style and detail adaptations for this situation, making the overall to detailed visuals more harmonious and consistent.
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 **Overall task progress:** **==?==**
 
@@ -1491,7 +1526,7 @@ In addition to the previously mentioned [List Columns](guide2-en.md#List-Columns
 
 ---
 
-If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
+For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™&body=Hi, "Feedback via Email")  [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 # °Blockquotes
 
@@ -1501,7 +1536,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 *VLOOK`A`*_~T2~_ Generally the first paragraph in a blockquote serves as the subtitle, so setting the entire paragraph content as bold or highlighted automatically renders as a "blockquote subtitle" style!
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 _^tab^_
 
@@ -1558,7 +1593,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ VLOOK™'s [Preset Color Code](#Preset Color Code) come into play again, same formula, same super usability! Meets practical multi-color "blockquote" typesetting needs!
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 _^tab^_
 
@@ -1615,7 +1650,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ By extending the writing method of Markdown blockquotes `> `, achieves dynamic folding/unfolding of blockquote content!
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > Syntax: `> ###### title`, i.e., set the first line content of normal blockquote syntax as level 6 heading, which serves as the title displayed when folded
 >
@@ -1686,7 +1721,7 @@ _^tab^_
 
 ## Blockquote Typesetting Subdivision
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ###### Example of Nested Blockquotes in Blockquotes
 
@@ -1712,14 +1747,6 @@ _^tab^_
 >
 > > This is "blockquote column" 2 nested within a blockquote
 
-###### Example of GSA Nested in Blockquotes
-
-> Below is [GitHub Style Alert](guide2-en.md#GitHub-Style-Alert):
->
-> > [!NOTE]
-> >
-> > ==Highlights== information that users should take into account, even when skimming. [GitHub Style Alert](https://github.com/orgs/community/discussions/16925)
-
 ###### Example of Blockquotes Nested in Lists
 
 - Normal blockquotes nested within unordered or ordered lists will adjust to a "self-adapting width" style and won't be converted by default (see `quote` in [Plugin Tuning Parameters](guide3-en.md#Plugin Tuning Parameters)), as follows:
@@ -1738,13 +1765,15 @@ _^tab^_
 
 ---
 
-If you have more needs or suggestions about the above content, feel free to provide feedback～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
+For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™&body=Hi, "Feedback via Email")  [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
 # °Chapter Headings
 
-## Heading Style
 
-==VLOOK™'s [Built-in Themes](guide3-en.md#Template-Themes) provide rich choices for document headings, along with various automatic numbering formats .==
+
+## Heading Style？？
+
+==VLOOK™'s [Built-in Themes](guide3-en.md#Template-Themes) provide rich choices for document headings, along with various automatic numbering formats？？ .==
 
 <u>For more personalized heading styles (e.g., colors, gradients, borders, padding, etc.) or custom automatic numbering formats, you can subscribe to ==Custom Theme Services== .</u>
 
@@ -1762,7 +1791,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 *VLOOK`A`*_~T2~_ VLOOK™ provides very practical and personalized heading numbering format options that can easily meet the personalized requirements of different documents for heading numbering formats.
 
-> **Applicable Scope ••• *`Editing`✓ Applicable*_~Gn~_  *`Export HTML`✓ Applicable*_~Gn~_**
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 After using the VLOOK™ plugin, it supports automatic numbering of chapter headings in documents by default. The default automatic numbering format is Arabic numerals, such as `1. Chapter Heading` `3.2.5 Chapter Heading`.
 

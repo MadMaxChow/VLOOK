@@ -7,19 +7,18 @@ description: Instructions for downloading, setting up, installing, and configuri
 keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
 - editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
-- light mode,dark mode,grayscale mode,gray mode
+- light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
 - catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
 - content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
-
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - link map,link specification,link check,link recognition,link conversion
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
-- 浅色外观,深色外观,灰度外观,灰色外观
+- 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
 - 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
@@ -27,12 +26,14 @@ keywords:
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
-- 设计,需求,文档,博客,手册,指南,知识库,教程,方案,教育,笔记,日记
+- 设计,需求,文档,博客,手册,指南,攻略,知识库,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
 Vlook-header-autonum-test: h1{{#ALPHA#.}},h2{{STEP-##-min#}}
+vlook-header-dup: /^Your coffee.+/;
+vlook-unpub: Coming Soon ...;/ via YAML/
 vlook-doc-lib:
-- [VLOOK™ Introduction](index-en.html?target=_self "Introduction, Download, Install, Language Package, Premium Services, Value-added Services")
 - [VLOOK™ Features](vlook-lib-en.html "Guide, Manual, Sample, Example")
+- [VLOOK™ Introduction](index-en.html?target=_self "Introduction, Download, Install, Language Package, Premium Services, Value-added Services")
 - [Guide • Basic](guide-en.html?target=guide "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Rotation / Flipping / Filters / Postcards / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
 - [Guide ▲ Advanced](guide2-en.html?target=guide "Columns, Captions, Buttons, Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
 - [Guide ★ Exploration](guide3-en.html?target=guide "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Save as PDF / Print to PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
@@ -41,7 +42,7 @@ vlook-doc-lib:
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 ---
 
-###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br>──<br><u>Introduction</u><br>*`V30.1`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br><u>──</u><br>Introduction<br>*`V2025.10`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 
 [TOC]
 
@@ -49,7 +50,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 # What is VLOOK™
 
-![VLOOK™](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo)
+![VLOOK™](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo#blur!)
 
 <u>**A DOMESTICALLY DEVELOPED OPEN-SOURCE PRODUCT RECOMMENDED BY** ![OSChina](pic/oschina.png#icon) **[Open Source China](https://www.oschina.net/p/vlook)**.</u>
 
@@ -57,11 +58,16 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 **[*Editor`Typora`V1.9+*_~Gy~_](https://typoraio.cn)　*License`MIT`*_~Rd~_　*`Keywords`Theme, Plugin*_~Pu~_　*`Supported OS`Windows, macOS, Linux*_~Bu~_**
 
-**[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK?style=for-the-badge&label=Release&labelColor=04B1CC&color=9A4EE6#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total?style=for-the-badge&label=Downloads%20(since%20V28.1)&labelColor=04B1CC&color=9A4EE6#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK?style=for-the-badge&labelColor=04B1CC&color=9A4EE6#logo)](https://github.com/MadMaxChow/VLOOK/stargazers)**
+**[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK?style=for-the-badge&label=Release&labelColor=04B1CC&color=9A4EE6#logo#round2s)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total?style=for-the-badge&label=Downloads%20(since%20V28.1)&labelColor=04B1CC&color=9A4EE6#logo#round2s)](https://github.com/MadMaxChow/VLOOK/releases)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK?style=for-the-badge&labelColor=04B1CC&color=9A4EE6#logo#round2s)](https://github.com/MadMaxChow/VLOOK/stargazers)**
 
 > - It is also Typora - recognized and supported theme pack and enhanced plugin, for details: [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook)
 > - [OSChina](https://www.oschina.net/p/vlook) recommended domestic open source products
 >
+
+
+
+**Partner Resources:**
+
 > <a href="https://www.producthunt.com/posts/vlook?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-vlook" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=948962&theme=neutral&t=1744083742474#logo" alt="VLOOK - THEME&#0032;PACKAGE&#0032;&#0215;&#0032;ENHANCEMENT&#0032;PLUGIN&#0032;for&#0032;Typora&#0047;Markdown | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>  <a href="https://hellogithub.com/repository/aa6c612ca3de42a082b15053be4ce3c3" target="_blank"><img src="https://abroad.hellogithub.com/v1/widgets/recommend.svg?rid=aa6c612ca3de42a082b15053be4ce3c3&claim_uid=xCde1wfnch6ASLj&theme=neutral#logo" alt="Featured｜HelloGitHub" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
 
@@ -100,21 +106,21 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 >
 > _~Bn!~_
 
-# Donate
+# ==Donate==
 
 <u>**Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊山、＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
 
 ---
 
-> **I like VLOOK™, I donate a cup of coffee**
+> **Your coffee keeps VLOOK™ running ☕️**
 >
 > [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow)
 >
 > _~Se~_
 
-> **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**
+> **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
 >
 > ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo)
 >
@@ -198,7 +204,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 # Blog
 
-![Blogs selected for the "Zhihu • Sea Salt Project"](pic/3rd-haiyan.png#logo#border)
+![Blogs selected for the "Zhihu • Sea Salt Project"](pic/3rd-haiyan.png)
 
 <u>Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https://www.zhihu.com/people/maxchow/posts)</u>
 
@@ -206,7 +212,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 ==You can start a brand **new Markdown experience** in **just 3 steps**, give your Markdown a new perspective!==
 
-## Download and Configure
+## Prepare
 
 _^tab^_
 
@@ -218,27 +224,46 @@ _^tab^_
 >
 > 1. Download and install the latest version of [Typora](https://www.typora.io) ;
 > 2. Open menu *==Typora ▸ Settings ▸ Markdown==*;
-> 3. Enable all options under `Markdown Extended Syntax`, `Code Blocks`. See the figure below for details:
+> 3. Enable all options under `Markdown Extended Syntax` , `Code Blocks` . See the figure below for details:
 >
 > *==Typora ▸ Preferences ▸ Markdown==*
 >
 > ![](pic/typora-opt1-light-en.png?srcset=@2x&darksrc=typora-opt1-dark-en.png&darksrcset=@2x)
 >
 
-> **Install Fonts (optional)**
->
-> Download and install the VLOOK™ theme matching font pack•• See "[Font Styles](guide3-en.md#Font Styles)" for details.
->
-> _~Gy~_
 
-## Install the Theme Package
+
+<u>VLOOK™ supports ==Offline== and ==**Live**== installation modes,<br>both of which can be configured for flexible selection during use~</u>
+
+---
+
+> **📦 Offline Mode**
+>
+> Packages the theme and plugin into the generated `HTML` ,
+> ideal for use without a website or internet connection.
+>
+> > However, the single HTML file will be relatively large, and when managing a large number of files, the update and maintenance efficiency will be lower compared to Online Mode.
+>
+> _~Bn~_
+
+> **🌐 Live Mode**
+>
+> Publishes the theme and plugin to your own `website` , ideal for broader content distribution and timely updates.
+>
+> > Requires a prepared website (you can also use free overseas Pages services such as those provided by Cloudflare or GitHub).
+>
+> _~Bu~_
+
+## Offline Mode Installation
+
+### Install Theme Package
 
 _^tab^_
 
 > **Add the Themes  ❯**
 >
-> 1. Open folder *==released\themes==*
-> 1. Copy all **CSS files** in this directory to Typora's theme directory;
+> 1. Open folder *==released/**themes**==*
+> 1. Copy all **CSS files** & `vlook` **subfolder** in this directory to Typora's theme directory
 >
 >
 > > **Where is the theme directory of Typora?** 
@@ -248,8 +273,8 @@ _^tab^_
 
 > **Select Theme**
 >
-> 1. Restart Typora;
-> 2. Click menu *==Typora ▸ Themes==* , select to `Vlook ***` any topic can be in the form of naming.
+> 1. Restart Typora
+> 2. Click menu *==Typora ▸ Themes==* , select to `Vlook ***` any topic can be in the form of naming ([Click here to preview the built-in themes](guide3.md#Built-in Template Themes))
 >
 
 
@@ -267,7 +292,7 @@ _^tab^_
 >
 > [<kbd>![](pic/icon-download.svg?fill=text) Download samples</kbd>](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)  *[<kbd>![](pic/icon-download.svg?fill=text) Alternative link</kbd>](https://gitee.com/madmaxchow/VLOOK/tree/master/released/samples)*
 
-## Configure Export Options
+### Configure Export Options
 
 _^tab^_
 
@@ -278,7 +303,7 @@ _^tab^_
 > 3. Add configuration (==select HTML as a template==), and name the configuration `VLOOK`
 >
 
-> **Install Plugin**
+> **Install "Plugin"**
 >
 > 1. First, clear the content configured under `Append in <head />` content
 > 2. Open the plug-in file: *==released/plugin/**plugin.txt**==*
@@ -288,15 +313,21 @@ _^tab^_
 
 > **One-click export via VLOOK**
 >
-> 1. Open the md file conforming to the VLOOK™ specification ( Refer to the files in *==released/samples==* );
-> 2. Click menu *==Typora ▸ File ▸ Export ▸ VLOOK==* to export.
+> 1. Open the md file conforming to the VLOOK™ specification ( Refer to the files in *==released/**samples**==* );
+> 2. Click menu *==Typora ▸ File ▸ Export ▸ **VLOOK**==* to export.
 > 
 
 
 
 ![Typora ▸ Preferences ▸ Export ▸ &lt;head /&gt;](pic/typora-opt2-light-en.png?srcset=@2x&darksrc=typora-opt2-dark-en.png&darksrcset=@2x)
 
-## Language Package (Optional)
+
+
+> [!TIP]
+>
+> The current document, along with all Markdown documents of the VLOOK™ [Guide](guide-en.md) and more sample documents, can be found under *==released/**samples**==*.
+
+### Language Package (Optional)
 
 VLOOK™ UI language is pre-installed with *English`English`*_~Se~_、*Chinese`简体`*_~Rd~_ by default.
 
@@ -305,6 +336,10 @@ To support more language for the exported HTML, you can choose to append the con
 <u>Currently supported languages for expansion include:</u>
 
 ***French`Français`*_~La~_  *German`Detusch`*_~Bk~_  *Russian`Русский`*_~Bu~_  *Spanish`Español`*_~Ye~_  *Portuguese`Português`*_~Wn~_<br>*Chinese`繁文`*_~Rd~_   *Japanese`日本語`*_~Gy~_  *Korean`한국어`*_~Se~_*Arabic`العربية`*_~Mn~_**
+
+
+
+<u>"Online Mode" adapts language automatically, whereas ==Offline Mode== requires ==manual handling== as needed:</u>
 
 _^tab^_
 
@@ -323,24 +358,138 @@ _^tab^_
 > ![Typora ▸ Preferences ▸ Export ▸ &lt;body /&gt;](pic/typora-opt2-light-en.png?srcset=@2x&darksrc=typora-opt2-dark-en.png&darksrcset=@2x)
 
 
+## Live Mode Installation
 
+**First, complete the setup of your own web site, and then proceed with the following resource deployment, site domain adjustments, and related operations.**
 
+### Live Plugin & Font
 
-> **Discussion and Communication**
+_^tab^_
+
+> **Reference Web Fonts**
 >
-> [<kbd>✈️ Telegram Channel</kbd>](https://t.me/vlook_markdown)    *[<kbd>💬 QQ Group (805502564)</kbd>](https://qm.qq.com/q/O0tNC6WBWe)*
+> 1. Open all **CSS files** starting with `fs-` under *==released/**theme-live**/**Vxx.x**==* with a text editor.
+> 2. Search for all `<your-host>` entries, replace them with the domain of the web site, and save.
+> 3. Upload the updated files to the corresponding directory of the web site after completing the update.
 
-# Supplement
+> **Deploy Online Plugins and Web Fonts**
+>
+> 1. Upload *==released/**plugin-live**/**Vxx.x**==* to the root directory of the web site.
+> 2. Download the latest version of [openfonts](https://github.com/MadMaxChow/openfonts/releases) from GitHub (e.g., `web-font-V2.0.tar.gz`).
+> 3. After extraction, upload all the subdirectories inside (e.g., `s`, `v`) to the resource directory of the corresponding VLOOK online version on the web site (e.g., `V2025.10`).
 
-## Online Version
 
-The above configuration method is an offline plug-in. The complete plug-in code is integrated with HTML files. It is suitable for situations where an intranet or no network is required when browsing documents, but it is not convenient to update plug-ins in real time and [switch template themes online](guide3-en.md#Template Themes) .
 
-At present, VLOOK™ supports the online version of plug-in. You can refer to the above method to add a new "export configuration" (it is recommended to name the configuration `VLOOK (live)` ).
+> [!IMPORTANT]
+>
+> - The above `Vxx.x` refers to the corresponding version identifier, such as `V2025.10`, which serves as the resource directory for the VLOOK online version.
+> - If the HTML files published with older versions of themes or plugins are not republished, you need to keep the original version directories and not delete them.
 
-The online version of the plugin file is: *==released/plugin/**plugin_live.txt**==*
+### Live Themes
 
-[<kbd>![](pic/icon-download.svg?fill=text) Download live version</kbd>](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin_live.txt)  *[<kbd>![](pic/icon-download.svg?fill=text) Alternative link</kbd>](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin.txt)*
+_^tab^_
+
+> **Install Online Theme**
+>
+> 1. Open the required "online version" theme file in the *==released/**themes-live**==* directory (e.g., `vlook-live-hope.css`) with a text editor.
+> 2. Search for all `<your-host>` entries in the file, replace them with the domain of the web site, and save.
+> 3. Refer to the above "[Install Theme Package](#install-theme-package)" method, and copy the modified "online version" theme file into Typora's theme directory.
+
+> **Deploy Theme Files to the Web Site**
+>
+> 1. Open the required theme file in the *==released/**themes-live**/**Vxx.x**==* directory (e.g., `vlook-hope.css`) with a text editor.
+> 2. Search for all `<your-host>` entries, replace them with the domain of the web site, and save.
+> 3. Upload the updated files to the corresponding directory of the web site after completing the update.
+
+### Live Export Options
+
+_^tab^_
+
+> **Configure Resource References**
+>
+> 1. Open *==released/plugin/**plugin-live.txt**==* with a text editor.
+> 2. Search for all `<your-host>` entries, replace them with the domain of the web site, and save.
+> 3. The related configuration items and descriptions are as follows:
+>    - `<link rel="preconnect" ...>` - the server domain name for preconnection
+>    - `<link rel="dns-prefetch" ...>` - (same as above)
+>    - `<meta name="vlook-js" ...>` - the URL of the subdirectory containing js files
+>    - `<meta name="vlook-fs" ...>` - the URL of the subdirectory containing web font files
+
+> **Configure Export Options**
+>
+> Refer to the above "[Configure Export Options](#configure-export-options)" steps, and create a new export configuration for the online mode. The main differentiated handling is as follows:  
+>
+> - It is recommended to add `(live)` to the export configuration name for distinction, e.g., `VLOOK (live)`
+> - What needs to be pasted is the "online plugin" *==released/plugin/**plugin_live.txt**==*
+
+
+
+> [!TIP]
+>
+> The current document, along with all Markdown documents of the VLOOK™ [Guide](guide-en.md) and more sample documents, can be found under *==released/**samples**==*.
+
+## Install Local Fonts (Optional)
+
+VLOOK™ provides 8 distinctive [Font Style](guide3-en.md#Font Style) options. Some Font Style marked with (WebFont) require an Internet connection to load and take effect properly.
+
+If you cannot connect to the Internet or your network is slow, it is recommended to download the fonts for local installation.
+
+---
+
+---
+
+---
+
+> ![Uses system UI fonts, varies slightly across systems](pic/fs-local2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![Overall presents as "Books, Print" (Mixes system Song/Hei fonts, varies across systems)](pic/fs-book2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![Overall presents as "Zen Courtyard, Regular Script Calligraphy, Tranquil Space" (requires the browser to load web fonts or install them locally)](pic/fs-zen2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![Overall presents as "Affinity, Warmth, Health" (requires the browser to load web fonts or install them locally)](pic/fs-yuan2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+---
+
+---
+
+---
+
+> ![Vibrant, open style (requires the browser to load web fonts or install them locally)](pic/fs-dyn2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![Overall presents as "Elegance, Rhythm, Personality" (requires the browser to load web fonts or install them locally)](pic/fs-serif2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![Overall presents as "Freshness, Simplicity, Trendiness" (requires the browser to load web fonts or install them locally)](pic/fs-sans2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![Overall presents as "Childlike Fun, Handwriting, Free-Spirited, Comfortable" (requires the browser to load web fonts or install them locally)](pic/fs-ink2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+**[<kbd>Download the Font Package</kbd>](https://github.com/MadMaxChow/openfonts/releases/download/V2.0/install-font-V2.0.tar.gz)**
+
+> [!NOTE]
+>
+> - You can choose to install only the font packages for the styles you want to use, or install all of them;  
+> - Some fonts are duplicated across different Font Style. If you are prompted that a font already exists during installation, you can skip installing that font.
+
+
+
+<u>If you wish to use a **Specific Font Style** by default, you can subscribe to VLOOK™’s ==Custom Theme Service== .</u>
+
+**[<kbd>Explore More About Custom Themes</kbd>](vip-en.md)**
 
 ## **🧰** Upgrade and Compatibility
 
@@ -381,11 +530,7 @@ The online version of the plugin file is: *==released/plugin/**plugin_live.txt**
 >
 > _~La~_
 
----
-
-If you have any suggestions and needs, please feel free to give feedback~ [![Freeback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™&body=Hi, "Freeback via Email")  [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Telegram Channel")
-
-# Premium Services
+# ==Premium Services==
 
 ## Theme Customization Service
 
@@ -419,7 +564,7 @@ If you have any suggestions and needs, please feel free to give feedback~ [![Fre
 >
 > - For more practical samples, please refer to the directory in the download package *==released\\[samples](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)==*
 
-# Brand Merchandise
+# ==Brand Merchandise==
 
 ## Wallpaper
 
@@ -447,19 +592,55 @@ If you have any suggestions and needs, please feel free to give feedback~ [![Fre
 
 **[<kbd>![](pic/icon-vip.svg?fill=text#icon) I Want - Desk Pad</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
 
-# Coming Soon ...
+# Discussion & Communication
+
+> **Discussion and Communication**
+>
+> [<kbd>✈️ Telegram Channel</kbd>](https://t.me/vlook_markdown)    *[<kbd>💬 QQ Group (805502564)</kbd>](https://qm.qq.com/q/O0tNC6WBWe)*
+
+
 
 ---
 
+> **Unpublished via YAML**
+>
+> Content
+
+> ###### ~~Unpublished via Strike~~
+>
+> Content
+
+## Unpublished via YAML
+
+The content of this section is marked as not published by specifying it in YAML.
+
+# Coming Soon ...
+
+## ~~V2025.10~~
+
+---
+
+---
+
+> ![°文档排版](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon2x)
+>
+> ==Live Mode==
+>
+> <u>Provides a complete online deployment mode for users with self-built web sites, which can reduce network traffic and improve page loading response speed~</u>
+>
+> [<kbd>![](pic/qico-disc-light.svg?fill=text) Consultation</kbd>](#Discussion & Communication)
+>
+> _~Bu!~_
+
 > ![°文档排版](pic/qico-print.svg?fill=text&darksrc=invert#icon2x)
 >
-> **Support for Publish to PDF**
+> ==Publish to PDF==
 >
-> <u>Provides PDF-oriented style adaptation for exported HTML files. **An experimental version** is now available — feel free to leave feedback or comments in the related discussion on GitHub!</u>
+> <u>Provides export-to-PDF support for exported HTML files (experimental version released). Participation in testing and feedback are welcome~</u>
 >
 > [<kbd>![](pic/qico-disc-light.svg?fill=text) Join the Discussion</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/158)
 >
-> _~T2!~_
+> _~Rd!~_
 
 > ![°文档排版](pic/qico-disc-light.svg?fill=text&darksrc=invert#icon2x)
 >
@@ -467,8 +648,8 @@ If you have any suggestions and needs, please feel free to give feedback~ [![Fre
 >
 > <u>Welcome to our discussion group on GitHub! Feel free to share your suggestions or pain points you hope to see resolved.</u>
 >
-> *[<kbd>![](pic/qico-theme-light.svg?fill=text) Share My Idea</kbd>](https://github.com/MadMaxChow/VLOOK/discussions)*
+> *[<kbd>![](pic/qico-disc-light.svg?fill=text) Share My Idea</kbd>](https://github.com/MadMaxChow/VLOOK/discussions)*
 >
-> _~T2~_
+> _~Bn~_
 
 # The End

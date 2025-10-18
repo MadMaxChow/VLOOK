@@ -1,0 +1,12 @@
+# 在线主题的相关文件链说明
+
+1. font-<风格>.less 为对应字体风格的引用文件
+
+2. 该文件通过以下方式引用实际的 font-face 的定义样式文件
+@import (css) url('https://<字体托管域名>/css/fs-<风格>-min.css');
+
+> 对于 `sans` 和 `serif` 标识的字体风格，还会同时引入 Google Fonts 的 font-face 定义样式文件
+
+3. 在以上 `<字体托管域名>` 服务上部署署对应的 fs-<风格>-min.css 的文件
+
+> 该文件由对应的 fs-<风格>-min.less 生成的 font-face 定义，根据实际情况调整里面的字体文件 woff2 的链接

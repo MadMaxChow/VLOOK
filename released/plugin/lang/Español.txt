@@ -1,13 +1,12 @@
-<!--
-========== Language Pack ==========
-VLOOK™ "V30.1" (2025-07-02) - (Language Pack) - Typora Plugin
-
-Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
-追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
--->
-<!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
-<!-- 以下为 es 语言包内容 -->
-<script type="application/json" id="vlook-lang-es" data-lang="es">{
+<script>/**************************************
+ * ========== Language Pack ==========
+ * VLOOK™ "V2025.10" (2025-10-18) - (Language Pack) - Typora Plugin
+ *
+ * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
+ * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
+ *************************************/
+var V_lang_data_es = {
+"lang": "es",
 "es1":"Portada del documento",
 "es2":"Cambiar pestañas",
 "es3":"Enlace al mapa",
@@ -26,9 +25,9 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "es16":"Siguiente",
 "es17":"Cerrar",
 "es18":"Fórmula",
-"es19":"Si no puedes conectarte a Internet para cargar la versión en línea de la fuente, se recomienda descargar la fuente directamente al dispositivo local",
-"es20":"Enlace primario",
-"es21":"Enlace secundario",
+"es19":"Si no puede conectarse a Internet para cargar la versión en línea de la fuente, se recomienda descargar la fuente directamente en el equipo local.<br>Si no puede conectarse a Internet o su red es lenta, se recomienda descargar las fuentes para instalarlas localmente.",
+"es20":"Expandir el plegado de citas",
+"es21":"Expandir grupo de filas de tabla",
 "es22":"Todas las notas al pie",
 "es23":"Comenzar a leer",
 "es24":"Pantalla completa",
@@ -45,7 +44,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "es35":"Índice",
 "es36":"- Se ha lanzado una nueva versión, ¡por favor actualiza!",
 "es37":"Lo siento, copiar no es compatible con este navegador en este momento",
-"es38":"Listo",
+"es38":"Incluir esquema",
 "es39":"Tiempo de espera",
 "es40":"Cargando",
 "es41":"Estilo de fuente",
@@ -62,7 +61,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "es52":"Verificar Hash",
 "es53":"Título/leyenda duplicado",
 "es54":"Enlace Interno Inválido",
-"es55":"Mostrar todo",
+"es55":"Cancelar filtro de imagen (desenfoque)",
 "es56":"Tabla",
 "es57":"Bloque de Código",
 "es58":"Figura",
@@ -102,6 +101,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "es92":"Oscuro",
 "es93":"Completado",
 "es94":"Fallido",
-"es95":"Continuar de todos modos",
-"es96":"Cancelar"
+"es95":"Iniciar impresión (seleccionar: Guardar como PDF)",
+"es96":"Cancelar",
+"es97":"Revelar tarjeta rasca"
 }</script>

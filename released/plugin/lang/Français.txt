@@ -1,13 +1,12 @@
-<!--
-========== Language Pack ==========
-VLOOK™ "V30.1" (2025-07-02) - (Language Pack) - Typora Plugin
-
-Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
-追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
--->
-<!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
-<!-- 以下为 fr 语言包内容 -->
-<script type="application/json" id="vlook-lang-fr" data-lang="fr">{
+<script>/**************************************
+ * ========== Language Pack ==========
+ * VLOOK™ "V2025.10" (2025-10-18) - (Language Pack) - Typora Plugin
+ *
+ * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
+ * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
+ *************************************/
+var V_lang_data_fr = {
+"lang": "fr",
 "fr1":"Couverture du document",
 "fr2":"Changer d'onglet",
 "fr3":"Carte de liens",
@@ -26,9 +25,9 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "fr16":"Suivant",
 "fr17":"Fermer",
 "fr18":"Formule",
-"fr19":"Si vous ne pouvez pas vous connecter à Internet pour charger la version en ligne de la police, il est recommandé de télécharger la police directement sur l’ordinateur",
-"fr20":"Lien principal",
-"fr21":"Lien secondaire",
+"fr19":"Si vous ne pouvez pas vous connecter à Internet pour charger la version en ligne de la police, il est recommandé de télécharger directement la police en local.<br>Si vous ne pouvez pas vous connecter à Internet ou si votre réseau est lent, il est recommandé de télécharger les polices pour une installation locale.",
+"fr20":"Développer le pliage des blocs de citation",
+"fr21":"Développer le groupe de lignes du tableau",
 "fr22":"Toutes les notes de bas de page",
 "fr23":"Commencer la lecture.",
 "fr24":"Plein écran",
@@ -45,7 +44,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "fr35":"Table des matières",
 "fr36":"- Une nouvelle version a été publiée, veuillez mettre à jour!",
 "fr37":"Désolé, la fonction de copie n’est actuellement pas supportée dans ce navigateur",
-"fr38":"Prêt",
+"fr38":"Inclure le plan",
 "fr39":"Délai d’attente",
 "fr40":"Chargement",
 "fr41":"Style de police",
@@ -62,7 +61,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "fr52":"Vérifier le hachage",
 "fr53":"Titre/légende en double",
 "fr54":"Lien interne invalide",
-"fr55":"Tout afficher",
+"fr55":"Annuler le filtre d'image (flou)",
 "fr56":"Tableau",
 "fr57":"Bloc de code",
 "fr58":"Figure",
@@ -102,6 +101,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "fr92":"Sombre",
 "fr93":"Terminé",
 "fr94":"Échec",
-"fr95":"Continuer quand même",
-"fr96":"Annuler"
+"fr95":"Démarrer l'impression (sélectionner : Enregistrer au format PDF)",
+"fr96":"Annuler",
+"fr97":"Révéler la carte à gratter"
 }</script>

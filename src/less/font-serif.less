@@ -1,11 +1,11 @@
 /**************************************
  *
  * VLOOK™ CSS 字体风格 serif 文艺范
- * 主要面向 Typora 编辑场景，导出 HTML 后的场景通过插件中额外增加 <link ...>
+ * 主要面向 Typora 编辑场景，导出 HTML 后的场景通过插件中动态创建 <link ...>
  * (配合 font.less 进行使用)
  *
- * V30.1
- * 2025-07-24
+ * V2025.10
+ * 2025-10-18
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -17,16 +17,22 @@
  *
  *************************************/
 
-// 以下 URL 资源需要与 VLOOK 插件中的 webfont 相关的 <link ...> 内容保持
+// 以下 URL 资源需要与 VLOOK 插件中的动态创建 webfont 的 <link ...> 内容保持一致
 
 // 从 Google Fonts 加载字体的动态 css 配置
 // serif 中文部分
-@import (css) url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Noto+Serif+SC:wght@500;900&display=swap');
+@import (css) url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
 // serif 英文部分
-@import (css) url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Noto+Sans:wght@400;700&display=swap');
+@import (css) url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+// sans 中文部分
+// @import (css) url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap');
+// sans 英文部分
+// @import (css) url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;700&family=Noto+Sans:wght@400;700&display=swap');
 
 // 从 openfonts 的 pages.dev 站加载静态 css 镜像配置
-@import (css) url('https://openfonts.pages.dev/css/pages-dev/serif-min.css');
+// @import (css) url('https://openfonts.pages.dev/css/pages-dev/fs-serif-min.css');
+@import (css) 'vlook/pages-dev/fs-serif-min.css';
 
 // 从 openfonts 的 github.io 站加载静态 css 镜像配置
-@import (css) url('https://madmaxchow.github.io/openfonts/css/github-io/serif-min.css');
+// @import (css) url('https://madmaxchow.github.io/openfonts/css/github-io/fs-serif-min.css');
+@import (css) 'vlook/github-io/fs-serif-min.css';

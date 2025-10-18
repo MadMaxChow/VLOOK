@@ -3,8 +3,8 @@
  * VLOOK™ CSS 多主题间的通用样式
  * (配合 base.less、主题.less 进行使用)
  *
- * V30.1
- * 2025-07-02
+ * V2025.10
+ * 2025-10-18
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -20,29 +20,51 @@
 // 通用变量 #Common_LESS_Var
 @themeEmail: "maxchow@qq.com";
 
+// @devMode: true; // 开发模式
+@devMode: false; // 发布模式
+
+@navCenterWidth: 300px; // 导航中心宽度
+@navCenterWidthExtend: 60px; // 导航中心扩展宽度增量
+@navCenterStyle: std; // 导航中心、脚注面板、状态栏风格选择
+
+// 主题侧边栏、标签栏的图标
+@thmTabLogo: var(--thm-fav);
+
 // 对应插件中配套预置选项 vlook-query，插件中的同名变量为 --vlook-query
 @vlookQueryDef: "ws=auto&uico=solid&tabico=line";
 @vlookQuery: @vlookQueryDef;
 // 对应插件中配套预置选项 vlook-gray-mode，插件中的同名变量为 --vlook-gray-mode
 @vlookGrayMode: "12-13:国家公祭日@zh";//;04-04:清明节@zh,ko";
 
+// 文档尾注信息
+@docFooter: "";
+
 @codeFontSize: 14px;
+@tagFontSize: 14px;
 @tableRowNumTop: 4px; // 表格逐行自动编号的高度
 @focusStyle: @aBorderWidth dashed var(--a-c); // 焦点、焦点行样式
 @miniLineHeight: 1;
 @defaultLineHeight: 1.5;
 @paragraphPadding: .5em; // 段落空白
 @paragraphInnerLineHeight: 1.5;
+@tocItemLineHeight: 1.25;
 @figurePadding: 20px; // 插图内、间、行空白
 @hoverBrightness: 90%;
 @scrollFix: 8px; // 针对 Mermaid 图表，不添加会导致出现滚动条
-@syntaxTipsFont: italic 12px/1 var(--v-f-fm-tag); // 语法提示字体设置
+@smallFixedFontSize: 12px;
+@syntaxTipsFont: condensed italic @smallFixedFontSize/1 var(--v-fm-tag); // 语法提示字体设置 [stretch] [style] [weight] [size/[line-height]] [family]
 
 // 目录、文件 的当前节点、点击节点样式
 @tocItemCurrent_boxShadow: 0 0 0 2px @aColor inset;
 
 // 图片、插图边框宽度
 @imgBorderWidth: 2px;
+
+// Restricted
+@restricted: false;
+@restrictedHost: "";
+@restrictedKeywordTitle: "";
+@restrictedKeywordAuthor: "";
 
 // --------------------
 // 针对 a kbd 按钮链接的圆角风格选择
@@ -92,12 +114,15 @@
 // 电路
 @docBgImgLight_EC: url("data:image/png;base64,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");
 @docBgImgDark_EC: url("data:image/png;base64,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");
-// 波浪
+// 水波、波浪
 @docBgImgLight_Wave: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABaAQMAAABniyE+AAAABlBMVEUAAAAAAAClZ7nPAAAAAnRSTlMABQb5ObcAAACISURBVDjL7c+xDQIxDIXhP4p0blDuSopIrJDSHStlAjCbWWIRswElBRK0ka6+Lu793vvY3Q1WJ33gCvCDS5C/cDdIT0M7UuDlkB9OV4qQPEAIolKzZevYQscL5+SZhhVa8gXFhQ0/ocmERixsw1svMIRqhaGyKuOg9c04V2LHmcAJnMAJPBT4B1dv8/3llFzqAAAAAElFTkSuQmCC");
 @docBgImgDark_Wave: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABaAgMAAAAgK1vuAAAACVBMVEUAAAD///////9zeKVjAAAAA3RSTlMABwMsPgOjAAAAwElEQVRIx+2RwQ3EIAwEFyQeLiDXAX1QAo+AeFIKSg3J1Xv25hspV4B5sGI12ODF28qDck3bY1sm0nGfeJTWCbZBsJEMI5umeRmyHUS6EEklmG5IhuzYlvIVRLIaKqcZiFVZbVCUVf1AFRhEwiSSFhImnbzofGGX4iAsqFqFjhQ6GYRPraAaJlunReQDIvc/2DrubCmVr8pFWdN5ETnMjF3MlJGVf54GB/U8RQ74ZXlGnpFn5Bl5Rp6RZ+QZ/ZPRD8aD6RdPhRfPAAAAAElFTkSuQmCC");
 // 雪花
 @docBgImgLight_Snow: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAgMAAADQNkYNAAAACVBMVEUAAAAAAAAAAACDY+nAAAAAA3RSTlMABwnM6+q9AAAFDklEQVRo3uzWsarjQAwF0DsQ9Q68ecV+zQTsXgZdQ9xnIfmaLZ6b7aewv3KdlLYeWM2ysLltOBEzlsTgnXf+4aQSJ/pXiJ3CxgxrmkgV2gsGSPMkkiKEV12JREi+Fj11LAFy4kWzhAgyo+QsLLmrbeCOMwkhQ8cfpifRAOn4heDpIYZ0awMmIxmk8riwDBBCluNECkj2geNzJSMZ+IxcSbqyBi6LpAp5A/rD5ErLJL8bseSY6zBxTUk+keJMMXkdZhbpP44Syy+iUswluieaC4d5IC8ucaZVQOQXoUs+J+xyMWSuuQ/0yFCLt16F5IUDHZOG6YTT9qYLZCJBegR5MljGJisZFFloTpV+Mtv91wkdxydRrwdz1f3F0Eiu5OKRxLnwofvOhCikOKTVXMHHtsoHK5K5nSFUoUOQv5AINN4wKYgfU7stTiLduBcQTraScdJ9K0PuLO6nt3TnaMXfr63XYEtNC/fLJ9dcMr9ZvZXLYnlHKIVsXcL6WBYFHGKZxV8mT5K2V0Omop8uQdc/llnT9vgUJAxUjxDjWiXbhpgA4o9kajAsy0Qt+xdMYg8/a5Xqrvh0NhecVzJz9gguPskcf1fOd4/AJ2dy/Eo/Zz1MUn5w+JU4u79+wEv3UNFEMvDsuhcxkOfjZJxUJpjheJ6k9ggkjdTPaqWJPLuorC0CEaqsKkRKW3g7IxiZNUq6OBGWKGmIcBgnOU4kThq88847/1NKWKQ/7Zm/ahtBEMZnD2shqlxEItk6Te4p1mD3EvgEuSpFAtE+hXCRegmSC1dX7Jmb7ymzIyeNdg92U7iJB1SJH5o/981wn3w10gzViH4VZPkPiK+2puoRb6qRYA5XlQibww+qC+d+TpWIAaa6s2U14IvrJm1JeYVyCwBW+2s1kbPldXvtPygQyhXThuWhjSCTLkU0C2ICK5QiCk8R0cymGCGHiBBQ0bI17D6WBFj6WtiB5oxoHEn75aHwV3xEGqaIGFtGYOKIBBFmGWLwKA+kjoh0e3EsmMtRnZEh0jLTqewB+IvYvcFQNhmOnzPiAF/YgMNakmsVEIoUBrgRMsm2B9uyB8YboIen0rTIBNII5ikoQYqlD98+cA/WXK7m0J67VaMZuBtIu9qhFBmBl7T0hgriW0SCA6Rlh0K5yJ1cIuqZTCjdShFx4CgvzVQ6l+YZGESRhQ1bMGkALPL6WAJoHzNzGMG9Lb2qExkAN4yKKVoNsJoMqDTOabmHSQuyKcsMYGueg4GnddlcNCAtG4GgwVlD47IWh3EiBaDnGbms0rN6I7LHsZkR/lWXpqVk67EsmnxPv9iL4sML4mWdZZG7CyOnZZqa4Q8Cu/aJ+WIXFx7beqPOiBFEtnNSyH2HTXL4X9ZxRFrgmLHSsU0RT2c97rUQic3S8YUpKYr0cpYionBIkfFuvDQTFb2TSU6CZAaz425cZTy7HgARN+B0xwuCBFEuOOdjt59Tzazc47jLILDOBBmQ86nJBvTYJIgnp1kQMyWbYQWAbxOECAT7qRnSrbRdAKesw8jU2ivtFVLDUJCsW2m1lQRN4qXugM1tVpleZaWvHICcl9XOntUFxoi8zyC/mPPICqf+xJnEPjfB2Rnkvu/cMf3yuglmBukEOeU2U9BZRPTSb/sxhwzKzv355rpdHpnd2Qt03Xdb9SJ2h27V1b2IyYK5tlWI2m9Vdv0f5hEpJBPaVnt/iubj1r6GkWfpLd7iLf6z+A2b7usoil+0bAAAAABJRU5ErkJggg==");
 @docBgImgDark_Snow: url("data:image/png;base64,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");
+// 波点
+@docBgImgLight_Point: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='M2 2h40v40H2z'/%3E%3C/defs%3E%3Cg transform='translate(-2 -2)' fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Ccircle fill-opacity='.06' fill='%23080A0D' mask='url(%23b)' cx='2' cy='2' r='2'/%3E%3Ccircle fill-opacity='.06' fill='%23080A0D' mask='url(%23b)' cx='42' cy='2' r='2'/%3E%3Ccircle fill-opacity='.06' fill='%23080A0D' mask='url(%23b)' cx='2' cy='42' r='2'/%3E%3Ccircle fill-opacity='.06' fill='%23080A0D' mask='url(%23b)' cx='42' cy='42' r='2'/%3E%3C/g%3E%3C/svg%3E");
+@docBgImgDark_Point: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='M0 0h40v40H0z'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Ccircle fill-opacity='.08' fill='%23FFF' mask='url(%23b)' r='2'/%3E%3Ccircle fill-opacity='.08' fill='%23FFF' mask='url(%23b)' cx='40' r='2'/%3E%3Ccircle fill-opacity='.08' fill='%23FFF' mask='url(%23b)' cy='40' r='2'/%3E%3Ccircle fill-opacity='.08' fill='%23FFF' mask='url(%23b)' cx='40' cy='40' r='2'/%3E%3C/g%3E%3C/svg%3E");
 
 // 主题配套预置选项 vlook-header-autonum
 // 针对 1-6 级标题前缀/自动编号内容
@@ -109,7 +134,8 @@
 @h4NumSeparator: @headerNumSeparator;
 @h5NumSeparator: @headerNumSeparator;
 @h6NumSeparator: @headerNumSeparator;
-@vHeaderAutoNum: "~`h1{{###@{headerNumSeparator}}},h2{{###@{headerNumSeparator}}},h3{{###@{headerNumSeparator}}},h4{{###@{headerNumSeparator}}},h5{{###@{headerNumSeparator}}}`";
+@vHeaderAutoNum: "h1{{###@{headerNumSeparator}}},h2{{###@{headerNumSeparator}}},h3{{###@{headerNumSeparator}}},h4{{###@{headerNumSeparator}}},h5{{###@{headerNumSeparator}}}";
+// @vHeaderAutoNum: "";
 @h1BeforeContent: counter(h1) "." @h1NumSeparator;
 @h2BeforeContent: counter(h1) "." counter(h2) @h2NumSeparator;
 @h3BeforeContent: counter(h1) "." counter(h2) "." counter(h3) @h3NumSeparator;
@@ -141,15 +167,18 @@
 .genCcExt() {};
 
 // 主题色半透明
-@theme1FadeDark: @theme1Fade;
-@theme2FadeDark: @theme2Fade;
+@theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacity);
+@theme1FadeDark: rgba(red(@theme1Dark), green(@theme1Dark), blue(@theme1Dark), @accOpacity);
+@theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacity);
+@theme2FadeDark: rgba(red(@theme2Dark), green(@theme2Dark), blue(@theme2Dark), @accOpacity);
 
 // 题注文字、背景色
 @captionTextColor: var(--d-fc);
 @captionBackground: var(--pn-fd03);//rgba(var(--pn-fd-r), var(--pn-fd-g), var(--pn-fd-b), .3);
 
 // 题注内容主体的边框
-@captionContentBorder: ~'@{imgBorderWidth} solid var(--pn-c)';
+// @captionContentBorder: ~'@{imgBorderWidth} solid var(--pn-c)';
+@captionContentBorder: none;
 
 // 标题的阴影样式
 @h1Shadow: none;
@@ -232,7 +261,6 @@
 @h5Padding: @headerPadding;
 
 // 标题圆角
-// @headerBorderRadius: var(--v-r-b);
 @headerBorderRadius: 0;
 @h1BorderRadius: @headerBorderRadius;
 @h2BorderRadius: @headerBorderRadius;
@@ -274,21 +302,20 @@
 @h7Color: var(--h-f);
 
 // 标题前缀 before 颜色
-@contentHeaderNumColor: var(--h-f);
+// @contentHeaderNumColor: var(--h-f);
+@contentHeaderNumColor: currentColor;
 @contentHeaderNumOpacity: .5;
 @liBeforeColor: var(--h-f);
 
 // 生成标题文字渐变色（h1）
 // 若存在 emoji 符号，可以将对应符号独立设置为粗体等额外的格式
 .genLinearGradientHeader(@header, @lg) when (@header = h1) {
-    // #write @{escBackcoverId}>span,
-    @{writeOnEditing} @{escBackcoverId}>span[md-inline=plain],
-    @{writeOnHTML} @{escBackcoverId}>span,
-    @{coverAfterYAML}~@{escBackcoverId}>span,
-    @{coverWithoutYAML}~@{escBackcoverId}>span {
+    @{writeOnEditing} @{escBackcoverId} span[md-inline=plain],
+    @{writeOnHTML} @{escBackcoverId} span,
+    @{coverAfterYAML}~@{escBackcoverId} span,
+    @{coverWithoutYAML}~@{escBackcoverId} span {
         background: @lg;
         background-clip: text;
-        // -webkit-background-clip: text;
         color: transparent;
     }
 }
@@ -300,7 +327,6 @@
     @{coverAfterYAML} @{header}>span {
         background: @lg;
         background-clip: text;
-        // -webkit-background-clip: text;
         color: transparent;
     }
 }
@@ -352,7 +378,7 @@
 // 引用块默认色样式（与主题配套使用）
 @quoteBgDefault: var(--bq-bg);
 @quoteBoxShadowDefault: none;
-// 引用块的双栏、三栏、四栏
+// 引用块的双栏、三栏、四栏、五栏
 @columnQuoteBgInQuote: var(--d-bc);
 @columnQuoteBoxShadowInQuote: none;
 
@@ -363,7 +389,8 @@
 @quoteTitleBorderWidth: 1px;
 
 // 引用块左边框
-@quoteRadius: var(--v-r-b) var(--v-r-b-xc);
+// @quoteRadius: var(--v-r-b) var(--v-r-b-xc);
+@quoteRadius: var(--c-br-b);
 
 // 用于 VLOOK UI 外观颜色
 @uiForeColor: #FFF;
@@ -402,10 +429,14 @@
 @backcoverTextStroke: initial;
 
 @contrastBorder: 0 0 0 0 transparent;
+@contrastBorderForChapterInSmallScreen: 0 0 0 0 transparent;
 @contrastBorderForCover: none;
 @contrastBorderForBackcover: @contrastBorderForCover;
 
 // 封面背景相关变量
+@coverLeftRightPadding: 60px;
+@coverLeftRightPaddingForMobile: 20px;
+// ---
 @coverBgSize: auto;
 @coverBgSizeForMobile: auto;
 @coverBgPosition: 0 0;
@@ -416,9 +447,14 @@
 @coverBgBeforePosition: 0 0;
 @coverBgBeforePositionForMobile: 0 0;
 
+// 封面的圆角样式
+@coverBorderRadius: var(--c-br-b);
+
 // 封面四角补充样式
 @ccLeftRightPadding: 60px;
 @ccLeftRightPaddingForMobile: 20px;
+@ccTop: 600px;
+@ccTopForMobile: 600px;
 
 // 封底背景相关变量
 @backcoverBgSize: auto;
@@ -432,7 +468,7 @@
 @backcoverBgBeforePositionForMobile: 0 0;
 
 // 要与 CSS 变量 --mark-bg-h --mark-bg-h-inset 一并修改
-@markBgHeight: .5em;
+@markBgHeight: .375em;
 
 :root {
     // 要与 LESS 变量 @markBgHeight 一并修改
@@ -457,10 +493,13 @@
     --fd01: rgba(var(--fd-r), var(--fd-g), var(--fd-b), .1);
     --fd04: rgba(var(--fd-r), var(--fd-g), var(--fd-b), .4);
     --fd05: rgba(var(--fd-r), var(--fd-g), var(--fd-b), .5);
+    --fd06: rgba(var(--fd-r), var(--fd-g), var(--fd-b), .6);
     --fd07: rgba(var(--fd-r), var(--fd-g), var(--fd-b), .7);
     --fd08: rgba(var(--fd-r), var(--fd-g), var(--fd-b), .8);
     --fd09: rgba(var(--fd-r), var(--fd-g), var(--fd-b), .9);
     --fd10: rgba(var(--fd-r), var(--fd-g), var(--fd-b), 1);
+
+    --thm-lr-pd: @coverLeftRightPadding;
 
     --thm-c-bg-size: @coverBgSize;
     --thm-c-bg-pos: @coverBgPosition;
@@ -468,12 +507,15 @@
     --thm-c-bg-bf-pos: @coverBgBeforePosition;
 
     --thm-cc-left-right-pd: @ccLeftRightPadding;
+    --thm-cc-top: @ccTop;
 
     --thm-bc-bg-size: @backcoverBgSize;
     --thm-bc-bg-pos: @backcoverBgPosition;
     --thm-bc-bg-bf-size: @backcoverBgBeforeSize;
     --thm-bc-bg-bf-pos: @backcoverBgBeforePosition;
 }
+
+// 文档扩展区域背景
 @docExtContent: "";
 @docExtBackgroundColor: var(--d-bc);
 @docExtBackgroundImage: var(--thm-doc-ext-bg);
@@ -489,8 +531,9 @@
 @badgeBorderWidthInCover: 0;
 
 // 欢迎页
+@welcomeIconSize: 80px;
 @welcomePageForeColor: @uiForeColor;
-@welcomePageBgColor: linear-gradient(0deg, var(--d-bc), var(--ac-t1));
+@welcomePageBgColor: linear-gradient(0deg, var(--ac-t2), var(--ac-t1));
 
 // ==========
 
@@ -504,11 +547,18 @@
 
 // 下划线（副标题）样式
 .genCoverU() {
-    font: var(--v-f-w-bd) .75em var(--v-f-fm-stt); // [style] [weight] [size/[line-height]] [family]
+    font: var(--v-fw-bd) .75em var(--v-fm-stt); // [style] [weight] [size/[line-height]] [family]
 }
 
+// 封面内分块内容间距
+@coverContentGap: 30px;
+
 // 加粗（发布人）样式
-.genCoverStrong() {}
+.genCoverStrong() {
+    position: absolute;
+    bottom: 60px + @coverContentGap;
+}
+.genCoverStrongExt() {}
 // 加粗（发布人）内分块内容的样式
 .genCoverStrongSpan() {}
 // 加粗（发布人）前缀样式
@@ -521,13 +571,31 @@
 
 // 斜体（版权信息）样式
 .genCoverEm() {
-    font: normal var(--v-f-w-bd) .4em var(--v-f-fm-stt); // [style] [weight] [size/[line-height]] [family]
+    font: normal var(--v-fw-bd) .4em var(--v-fm-stt); // [style] [weight] [size/[line-height]] [family]
+    position: absolute;
+    // bottom: 60px;
+    top: 560px;
+}
+.genCoverEmExt() {}
+
+// 生成封面内容的对齐方式：左对齐
+.genCoverContentAlign(@align) when (@align = left) {
+    left: var(--thm-lr-pd);
+}
+// 生成封面内容的对齐方式：居中
+.genCoverContentAlign(@align) when (@align = center) {
+    left: 50%;
+    transform: translateX(-50%);
+}
+// 生成封面内容的对齐方式：右对齐
+.genCoverContentAlign(@align) when (@align = right) {
+    right: var(--thm-lr-pd);
 }
 
 // ==================== 生成不同风格的表格 ==================== //
 
 // 生成表格通用部分
-.genTableCommonStyle() {
+.genTableCommonStyle(@tableWidth, @firstColumnMinWidth) {
     // 表格、代码块的容器
     #write figure {
         margin: @paragraphPadding 0 0;
@@ -541,12 +609,13 @@
         word-break: break-all;
         white-space: pre-wrap;
         vertical-align: text-top;
-        width: auto;
+        width: @tableWidth;
     }
 
     // 表头
-    :is(#write, .v-pic-in-pic) table th {
-        font: var(--v-f-w-bd) 1em var(--v-f-fm-bd); // [style] [weight] [size/[line-height]] [family]
+    @{thead} {
+    // :is(#write, .v-pic-in-pic) table th {
+        font: var(--v-fw-bd) 1em var(--v-fm-bd); // [style] [weight] [size/[line-height]] [family]
         margin: 0;
         padding: var(--tbl-cell-padding);
     }
@@ -555,6 +624,10 @@
     :is(#write, .v-pic-in-pic) table td {
         margin: 0;
         padding: var(--tbl-cell-padding);
+    }
+    :is(#write, .v-pic-in-pic) table td label.checkbox {
+        vertical-align: middle;
+        line-height: 1;
     }
 
     // 所有单元格
@@ -566,6 +639,10 @@
     :is(#write, .v-pic-in-pic) table tr>:is(th, td) {
         word-break: break-word;
         min-width: 120px;
+    }
+    // 单元格最小宽度控制
+    :is(#write, .v-pic-in-pic) table tr>:is(th, td):first-child {
+        min-width: @firstColumnMinWidth;
     }
 
     // 合并了所有列（即空白行）的样式
@@ -628,9 +705,9 @@
 @tbody_2nRow: ~':is(#write, .v-pic-in-pic) table>tbody>tr:nth-child(2n) td';
 
 // 标准风格（如正式文档、国标文档等用的常规表格）
-.genTableStyle(@style) when (@style = simple) {
+.genTableStyle(@style, @tableWidth: auto, @firstColumnMinWidth: 120px) when (@style = simple) {
     // 公共部分
-    .genTableCommonStyle();
+    .genTableCommonStyle(@tableWidth, @firstColumnMinWidth);
 
     // 表格
     :is(#write, .v-pic-in-pic) table {
@@ -649,9 +726,9 @@
 }
 
 // 现代风格（内置主题默认）
-.genTableStyle(@style) when (@style = modern) {
+.genTableStyle(@style, @tableWidth: auto, @firstColumnMinWidth: 120px) when (@style = modern) {
     // 公共部分
-    .genTableCommonStyle();
+    .genTableCommonStyle(@tableWidth, @firstColumnMinWidth);
 
     // 表格
     :is(#write, .v-pic-in-pic) table {
@@ -661,7 +738,7 @@
     // 表头单元格
     @{thead} {
         border-color: var(--d-fc-a);
-        background: var(--pn-c);
+        background: var(--bq-bg);
     }
 
     // 表头、表体的首列
@@ -677,13 +754,14 @@
 
     // 表体（tbody）单元格
     @{tbody} {
-        border-color: var(--pn-c);
+        border-color: var(--bq-bg);
+        border-left-color: var(--d-fc-a);
         border-right-color: var(--d-fc-a);
     }
 
     // 表体（tbody）偶数行，斑马线样式
     @{tbody_2nRow} {
-        background: var(--pn-fd03);//rgba(var(--pn-fd-r), var(--pn-fd-g), var(--pn-fd-b), .3);
+        background: var(--bq-bg-fd);//rgba(var(--pn-fd-r), var(--pn-fd-g), var(--pn-fd-b), .3);
     }
 
     // 行分组
@@ -693,9 +771,9 @@
 }
 
 // 扁平风格
-.genTableStyle(@style) when (@style = flat) {
+.genTableStyle(@style, @tableWidth: auto, @thColor: false, @thBg: false, @2nRowBg: false, @firstColumnMinWidth: 120px) when (@style = flat) {
     // 公共部分
-    .genTableCommonStyle();
+    .genTableCommonStyle(@tableWidth, @firstColumnMinWidth);
 
     // 表格
     :is(#write, .v-pic-in-pic) table {
@@ -704,17 +782,29 @@
 
     // 表头
     @{thead} {
-        border-color: var(--pn-c);
+        border-color: var(--bq-bg);
     }
 
     // 表头单元格
     @{thead} {
-        background: var(--pn-c);
+        // 表头文字样式
+        .genThColor(@thColor) when not (@thColor = false) {
+            color: @thColor;
+        }
+        .genThColor(@thColor);
+        // 表头背景样式
+        .genThBg(@thBg) when (@thBg = false) {
+            background: var(--bq-bg);
+        }
+        .genThBg(@thBg) when not (@thBg = false) {
+            background: @thBg;
+        }
+        .genThBg(@thBg);
     }
 
     // 表体（tbody）单元格
     @{tbody} {
-        border-color: var(--pn-c);
+        border-color: var(--bq-bg);
     }
 
     // 表头、表体的首列
@@ -730,7 +820,13 @@
 
     // 表体（tbody）偶数行，斑马线样式
     @{tbody_2nRow} {
-        background: var(--pn-fd03);//rgba(var(--pn-fd-r), var(--pn-fd-g), var(--pn-fd-b), .3) !important;
+        .genThBg(@2nRowBg) when (@2nRowBg = false) {
+            background: var(--bq-bg-fd);
+        }
+        .genThBg(@2nRowBg) when not (@2nRowBg = false) {
+            background: @2nRowBg;
+        }
+        .genThBg(@2nRowBg);
     }
 
     // 行分组
@@ -740,9 +836,9 @@
 }
 
 // 高对比风格
-.genTableStyle(@style) when (@style = vivid) {
+.genTableStyle(@style, @tableWidth: auto, @firstColumnMinWidth: 120px) when (@style = vivid) {
     // 公共部分
-    .genTableCommonStyle();
+    .genTableCommonStyle(@tableWidth, @firstColumnMinWidth);
 
     // 表格
     :is(#write, .v-pic-in-pic) table {
@@ -780,9 +876,9 @@
 }
 
 // 报告风格（如论文、报告用的三线表）
-.genTableStyle(@style) when (@style = report) {
+.genTableStyle(@style, @tableWidth: auto, @firstColumnMinWidth: 120px) when (@style = report) {
     // 公共部分
-    .genTableCommonStyle();
+    .genTableCommonStyle(@tableWidth, @firstColumnMinWidth);
 
     // 表格
     :is(#write, .v-pic-in-pic) table {
@@ -836,11 +932,32 @@
     #write>:not(@{hr_MdHr})+ol>li::before,
     #write @{quote_details}>:not(@{hr_MdHr})+ol>li::before {
         content: counter(v-list-counter);
-        // 生成背景
-        .genOrderListBg(@style);
-        // 生成形状
-        .genOrderListShape(@shape);
-        font: bold .875em/20px var(--v-f-fm-tag); // [style] [weight] [size/[line-height]] [family]
+
+        // 生成不同风格的背景
+        .genOrderListBgForStyle(@style) when (@style = solid) {
+            color: var(--d-bc) !important;
+            background-color: var(--d-fc);
+        }
+        .genOrderListBgForStyle(@style) when (@style = line) {
+            color: var(--d-fc) !important;
+            background-color: var(--d-bc);
+            box-shadow: 0 0 0 1px var(--d-fc-a) inset; // 不用 border 的原因是渲染会上移 1px
+        }
+        .genOrderListBgForStyle(@style);
+
+        // 生成不同形状
+        .genOrderListOutlineForStyle(@style) when (@shape = rect) {
+            border-radius: calc(var(--v-r-s) - 2px) calc(var(--v-r-s-xc) - 2px);
+        }
+        .genOrderListOutlineForStyle(@style) when (@shape = circle) {
+            border-radius: 50%;
+        }
+        .genOrderListOutlineForStyle(@style) when (@shape = drop) {
+            border-radius: 50% 0 50% 50%;
+        }
+        .genOrderListOutlineForStyle(@style);
+
+        font: condensed var(--v-fw-tag) .875em/20px var(--v-fm-tag); // [stretch] [style] [weight] [size/[line-height]] [family]
         text-align: center;
         margin-left: -26px;
         margin-top: .25em;
@@ -866,28 +983,6 @@
         font-size: .75em;
     }
 
-    // 生成不同风格的背景
-    .genOrderListBg(@style) when (@style = block) {
-        color: var(--d-bc) !important;
-        background-color: var(--d-fc);
-    }
-    .genOrderListBg(@style) when (@style = line) {
-        color: var(--d-fc) !important;
-        background-color: var(--d-bc);
-        box-shadow: 0 0 0 1px var(--d-fc-a) inset; // 不用 border 的原因是渲染会上移 1px
-    }
-
-    // 生成不同形状
-    .genOrderListShape(@shape) when (@shape = rect) {
-        border-radius: calc(var(--v-r-s) - 2px) calc(var(--v-r-s-xc) - 2px);
-    }
-    .genOrderListShape(@shape) when (@shape = circle) {
-        border-radius: 50%;
-    }
-    .genOrderListShape(@shape) when (@shape = drop) {
-        border-radius: 50% 0 50% 50%;
-    }
-
     .genOrderList_hover(@style);
 }
 .genOrderList_hover(@style) {
@@ -898,17 +993,17 @@
         // 针对列表行的 hover 样式
         @{writeOnEditing}>:not(@{hr_MdHr})+ol>li.md-focus-container::before,
         @{writeOnEditing} @{quote_details}>:not(@{hr_MdHr})+ol>li.md-focus-container::before {
-            .genOrderListBg(@style) when (@style = block) {
+            .genOrderList_hoverBeforeForStyle(@style) when (@style = solid) {
                 color: @buttonForeHoverColor !important;
                 background-color: var(--a-o-c);
                 box-shadow: none;
             }
-            .genOrderListBg(@style) when (@style = line) {
+            .genOrderList_hoverBeforeForStyle(@style) when (@style = line) {
                 color: var(--a-o-c) !important;
                 background-color: var(--ac-t2-a);
                 box-shadow: 0 0 0 1px var(--a-o-c) inset; // 不用 border 的原因是渲染会上移 1px
             }
-            .genOrderListBg(@style);
+            .genOrderList_hoverBeforeForStyle(@style);
         }
     }
 }
@@ -932,16 +1027,22 @@
     margin: 0 auto;
 }
 
+// 生成 simple_up 页签组背景样式
+.genTabGroupBackground_simpleUp() {
+    background-color: var(--fd07);
+    background-image: radial-gradient(ellipse 55% 100% at bottom, var(--pn-c), transparent 100%);
+}
+
+// 生成指定风格的页签组样式
 .genTabGroup(@style) {
     // 页签组（编辑时）
     .genTabGroupOnEditing(@style);
 
     // 页签组
     .v-tab-group {
-        font-family: var(--v-f-fm-bd);
+        font-family: var(--v-fm-bd);
         display: flex;
         overflow-x: auto;
-        scrollbar-width: thin;
         white-space: nowrap;
         // 实现页签组浮动显示
         position: sticky;
@@ -949,28 +1050,28 @@
         top: var(--v-sticky-top);
 
         // 标准风格样式
-        .genTabGroupBase(@style) when (@style = std) {
+        .genTabGroupForStyle(@style) when (@style = std) {
             align-items: flex-end;
             padding: @tabStdPaddingTop (@tabItemPadding * 2) 0;
             box-shadow: 0 5px 5px 0 var(--d-bc), 0 -@tabGroupStdBdWidth 0 0 @tabGroupBgColor inset;
             background: var(--d-bc);
         }
         // 简约风格样式
-        .genTabGroupBase(@style) when (@style = simple) {
+        .genTabGroupForStyle(@style) when (@style = simple) {
             align-items: flex-end;
             padding: @tabStdPaddingTop (@tabItemPadding * 2) 0;
             box-shadow: 0 5px 5px 0 var(--d-bc), 0 -1px 0 0 @tabGroupBgColor inset;
             background: var(--d-bc);
         }
         // 简约风格样式 UP 变种
-        .genTabGroupBase(@style) when (@style = simple_up) {
+        .genTabGroupForStyle(@style) when (@style = simple_up) {
             align-items: flex-end;
             padding: @tabStdPaddingTop (@tabItemPadding * 2) 0;
             box-shadow: 0 5px 5px 0 var(--d-bc), 0 -1px 0 0 @tabGroupBgColor inset;
             background: linear-gradient(0deg, var(--pn-c), var(--d-bc));
         }
         // 现代风格样式
-        .genTabGroupBase(@style) when (@style = modern) {
+        .genTabGroupForStyle(@style) when (@style = modern) {
             align-items: center;
             background: var(--pn-c);
             border-radius: var(--v-r-si) var(--v-r-si-xc);
@@ -979,7 +1080,7 @@
             max-width: 100%;
             height: @tabGroupModernHeight;
         }
-        .genTabGroupBase(@style);
+        .genTabGroupForStyle(@style);
     }
     // 生成移动端的样式微调
     .genTabGroupForMobile(@style);
@@ -987,15 +1088,15 @@
     // 毛玻璃效果
     .v-tab-group.v-backdrop-blurs.enabled {
         .genTabGroupBackdropBlurs(@style) when (@style = std), (@style = simple) {
-            background: var(--fd07);
+            background-color: var(--fd07);
+            background-image: var(--d-bi);
         }
         .genTabGroupBackdropBlurs(@style) when (@style = simple_up) {
-            background: radial-gradient(ellipse 55% 100% at bottom, var(--pn-c), transparent 100%);
+            .genTabGroupBackground_simpleUp();
         }
         .genTabGroupBackdropBlurs(@style) when (@style = modern) {
-            background: var(--pn-fd07);
+            background-color: var(--pn-fd07);
         }
-        // 生成移动端的样式微调
         .genTabGroupBackdropBlurs(@style);
     }
 
@@ -1009,33 +1110,30 @@
         top: 0;
         bottom: 0;
 
-        // 标准风格样式
-        .genTabGroupMore(@style) when (@style = std) {
+        // 标准风格样式，简约风格样式，简约风格样式 UP 变种
+        .genTabGroupScrollMask(@style) when (@style = std), (@style = simple), (@style = simple_up) {
             left: -10px;
             height: 36px;
-            background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDYgMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTUuMzY4LjA1OWwuMDEyLjAwNGMuNDcuMTc4LjcyMi43MDguNTgxIDEuMjAyTDEuOTQxIDEwbDQuMDAzIDguNjhjLjE3LjQ5Mi0uMDU5IDEuMDMyLS41MTMgMS4yMzZsLS4wNjMuMDI1Yy0uNDY5LjE3OC0uOTg1LS4wNi0xLjE4MS0uNTMybC0uMDItLjA1My00LjA2OS04LjcxN2EyLjEyMiAyLjEyMiAwIDAgMSAwLTEuMjc4TDQuMTY2LjY0NGMuMTc4LS41MDcuNzE2LS43NyAxLjIwMi0uNTg1eiIgZmlsbD0iIzg2ODg4QSIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"),
+            background-image: var(--ar-left),
                 linear-gradient(90deg, @tabGroupMoreContentStdLG);
             background-repeat: no-repeat, no-repeat;
             background-position: left 6px center, left center;
             background-size: auto, auto;
         }
-        // 简约风格样式，简约风格样式 UP 变种
-        .genTabGroupMore(@style) when (@style = simple), (@style = simple_up) {
-            .genTabGroupMore(std);
-        }
+
         // 现代风格样式
-        .genTabGroupMore(@style) when (@style = modern) {
+        .genTabGroupScrollMask(@style) when (@style = modern) {
             left: 0;
             height: @tabGroupModernHeight;
             border-top-left-radius: var(--v-r-si);
             border-bottom-left-radius: var(--v-r-si-xc);
-            background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDYgMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTUuMzY4LjA1OWwuMDEyLjAwNGMuNDcuMTc4LjcyMi43MDguNTgxIDEuMjAyTDEuOTQxIDEwbDQuMDAzIDguNjhjLjE3LjQ5Mi0uMDU5IDEuMDMyLS41MTMgMS4yMzZsLS4wNjMuMDI1Yy0uNDY5LjE3OC0uOTg1LS4wNi0xLjE4MS0uNTMybC0uMDItLjA1My00LjA2OS04LjcxN2EyLjEyMiAyLjEyMiAwIDAgMSAwLTEuMjc4TDQuMTY2LjY0NGMuMTc4LS41MDcuNzE2LS43NyAxLjIwMi0uNTg1eiIgZmlsbD0iIzg2ODg4QSIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"),
+            background-image: var(--ar-left),
                 linear-gradient(90deg, @pnMoreContentLG);
             background-repeat: no-repeat, no-repeat;
             background-position: left 8px center, left center;
             background-size: auto, auto;
         }
-        .genTabGroupMore(@style);
+        .genTabGroupScrollMask(@style);
     }
     // 右侧更多内容滚动渐变样式
     .v-tab-group.right-more::after {
@@ -1043,21 +1141,18 @@
         left: unset;
         transform: rotate(180deg);
 
-        // 标准风格样式
-        .genTabGroupRightMore(@style) when (@style = std) {
+        // 标准风格样式，简约风格样式，简约风格样式 UP 变种
+        .genTabGroupScrollRightMask(@style) when (@style = std), (@style = simple), (@style = simple_up) {
             right: -10px;
         }
-        // 简约风格样式，简约风格样式 UP 变种
-        .genTabGroupRightMore(@style) when (@style = simple), (@style = simple_up) {
-            .genTabGroupRightMore(std);
-        }
+
         // 现代风格样式
-        .genTabGroupRightMore(@style) when (@style = modern) {
+        .genTabGroupScrollRightMask(@style) when (@style = modern) {
             right: 0;
             border-top-right-radius: var(--v-r-si-xc);
             border-bottom-right-radius: var(--v-r-si);
         }
-        .genTabGroupRightMore(@style);
+        .genTabGroupScrollRightMask(@style);
     }
 
     // 以页签组显示的内容滚动定位样式（scroll-margin-top）
@@ -1089,10 +1184,11 @@
         margin: 0 (@tabGroupPadding / 2);
         cursor: var(--cur-ptr);
         color: var(--d-fc-a);
-        font: var(--v-f-w-bd) 1em var(--v-f-fm-tag);
+        font: condensed var(--v-fw-toc) 1em var(--v-fm-toc); // [stretch] [style] [weight] [size/[line-height]] [family]
+        // font: condensed normal 1em var(--v-fm-toc); // [stretch] [style] [weight] [size/[line-height]] [family]
 
         // 标准风格样式
-        .genTabItem(@style) when (@style = std) {
+        .genTabGroupItem(@style) when (@style = std) {
             border-radius: var(--v-r-s) var(--v-r-s-xc) 0 0;
             background: @tabGroupBgColor;
             padding: @tabItemPadding (@tabItemPadding * 2);
@@ -1100,26 +1196,26 @@
             border-bottom: none;
         }
         // 简约风格样式
-        .genTabItem(@style) when (@style = simple) {
+        .genTabGroupItem(@style) when (@style = simple) {
             border-radius: var(--v-r-s) var(--v-r-s-xc) 0 0;
             padding: (@tabItemPadding * 2);
         }
         // 简约风格样式、以及 UP 变种共用部分
-        .genTabItem(@style) when (@style = simple_up) {
+        .genTabGroupItem(@style) when (@style = simple_up) {
             border-radius: var(--v-r-s) var(--v-r-s-xc) 0 0;
             padding: (@tabItemPadding * 2);
         }
         // 现代风格样式
-        .genTabItem(@style) when (@style = modern) {
+        .genTabGroupItem(@style) when (@style = modern) {
             height: @tabItemModernHeight;
             border-radius: calc(var(--v-r-si) - @tabGroupPadding) calc(var(--v-r-si-xc) - @tabGroupPadding);
             padding: (@tabItemPadding * 2);
         }
-        .genTabItem(@style);
+        .genTabGroupItem(@style);
     }
 
     // 现代风格样式
-    .genFirstTabItem(@style) when (@style = modern) {
+    .genTabGroupItemExt(@style) when (@style = modern) {
         .tab-group-wrap>span:first-child {
             margin-left: @tabGroupPadding;
         }
@@ -1127,7 +1223,7 @@
             margin-right: @tabGroupPadding;
         }
     }
-    .genFirstTabItem(@style);
+    .genTabGroupItemExt(@style);
 
     // 页签项内图标
     .tab-group-wrap > span > svg {
@@ -1138,28 +1234,28 @@
     @media (hover: hover) and (pointer: fine) {
         // 非当前页签背景的 hover 样式
         .tab-group-wrap > span:not([class*=current]):hover {
-            .genTabItemBgHover(@style) when (@style = std), (@style = modern)  {
+            .genTabGroupItemBg(@style) when (@style = std), (@style = modern)  {
                 background: @tabGroupHoverBgColor;
             }
-            .genTabItemBgHover(@style) when (@style = simple) {
+            .genTabGroupItemBg(@style) when (@style = simple) {
                 background: var(--pn-c);
             }
-            .genTabItemBgHover(@style);
+            .genTabGroupItemBg(@style);
         }
-        // 非当前页签（不包括 GSA）文字的 hover 样式
+        // 非当前页签文字的 hover 样式（除 GSA）
         .tab-group-wrap > span:not([class*=current]):not([class*=alert-]):hover {
-            .genTabItemFgHover(@style) when (@style = std), (@style = modern) {
+            .genTabGroupItemColor(@style) when (@style = std), (@style = modern) {
                 color: var(--a-o-c);
             }
-            .genTabItemFgHover(@style) when (@style = simple), (@style = simple_up) {
+            .genTabGroupItemColor(@style) when (@style = simple), (@style = simple_up) {
                 color: var(--d-fc);
             }
-            .genTabItemFgHover(@style);
+            .genTabGroupItemColor(@style);
         }
     }
 
     // 现代风格样式
-    .genTabItem(@style) when (@style = modern) {
+    .genTabGroupForModern() { // when (@style = modern) {
         .tab-group-wrap > span::before {
             content: "";
             width: 1px;
@@ -1178,27 +1274,28 @@
             opacity: 0 !important;
         }
     }
-    .genTabItem(@style);
+    .genTabGroupForModern();
 
     // 当前选中页签项
     .tab-group-wrap > .current {
-        font-weight: var(--v-f-w-bd);
+        // font-weight: var(--v-fw-bd);
+        // font-weight: var(--v-fw-toc);
         color: var(--d-fc);
 
         // 标准风格样式
-        .genTabItemCurrent(@style) when (@style = std) {
+        .genTabGroupCurrentItem(@style) when (@style = std) {
             border: @tabGroupStdBdWidth solid @tabGroupBgColor;
             color: var(--a-c);
             background: var(--d-bc) !important;
             border-bottom: none !important;
         }
         // 简约风格样式
-        .genTabItemCurrent(@style) when (@style = simple) {
+        .genTabGroupCurrentItem(@style) when (@style = simple) {
             border-bottom: @tabItemSimpleBorderWidth solid var(--a-c);
             padding-bottom: (@tabItemPadding * 2) - @tabItemSimpleBorderWidth;
         }
         // 简约风格样式 UP 变种
-        .genTabItemCurrent(@style) when (@style = simple_up) {
+        .genTabGroupCurrentItem(@style) when (@style = simple_up) {
             border-top: @tabItemSimpleBorderWidth solid var(--a-c);
             border-radius: 0;
             padding-top: (@tabItemPadding * 2) - @tabItemSimpleBorderWidth;
@@ -1206,32 +1303,32 @@
             box-shadow: 1px 0 0 0 var(--pn-c) inset, -1px 0 0 0 var(--pn-c) inset;
         }
         // 现代风格样式
-        .genTabItemCurrent(@style) when (@style = modern) {
+        .genTabGroupCurrentItem(@style) when (@style = modern) {
             color: var(--a-c);
             background: var(--d-bc) !important;
             box-shadow: 0 0 @tabGroupPadding 0 var(--pn-c-a);
         }
-        .genTabItemCurrent(@style);
+        .genTabGroupCurrentItem(@style);
     }
 
-    // 对于标准风格中当前页签项样式
+    // 对于当前页签项为 GSA 时的样式
     .tab-group-wrap > .current[class*=alert-] {
-        .genTabItemCurrentFor_GSA(@style) when (@style = std) {
+        .genTabGroupCurrentItemForGSA(@style) when (@style = std) {
             border: @tabGroupStdBdWidth solid @tabGroupBgColor;
             border-bottom: none !important;
         }
-        .genTabItemCurrentFor_GSA(@style) when (@style = simple_up) {
+        .genTabGroupCurrentItemForGSA(@style) when (@style = simple_up) {
             border-top: @tabItemSimpleBorderWidth solid currentColor;
         }
-        .genTabItemCurrentFor_GSA(@style);
+        .genTabGroupCurrentItemForGSA(@style);
     }
 
     // 页签为 GSA 通用样式
     .tab-group-wrap > span[class*=alert-] {
-        .genTabItemFor_GSA(@style) when (@style = simple), (@style = simple_up) {
+        .genTabGroupItemForGSA(@style) when (@style = simple), (@style = simple_up) {
             border-color: currentColor;
         }
-        .genTabItemFor_GSA(@style);
+        .genTabGroupItemForGSA(@style);
     }
     // 页签为 GSA 的 note 内容
     .tab-group-wrap > .alert-note {
@@ -1260,13 +1357,16 @@
 // 居中对齐。非居中对齐时不调用
 .genTableAndFigureAlign(@align) when (@align = center) {
     // 编辑时 h6 格式设置的题注样式
-    @{writeOnEditing} h6:has(+p>.md-image), // 插图
-    @{writeOnEditing} h6:has(+.md-table-fig), // 表格
-    @{writeOnEditing} h6:has(+.md-fences), // 代码块、```math 语法公式
-    @{writeOnEditing} h6:has(+.md-math-block), // $$ 语法公式
+    @{writeOnEditing} @{cap1_OnEditing},
+    @{writeOnEditing} span[md-inline=image]:has(img[alt])::before,
+    // 段落中只有图片时的样式（结合主题的 genTableAndFigureAlign 处理，默认左对齐或居中）
+    @{onlyImageInPg},
+    // @{writeOnEditing} p > .md-image:only-child:not(.md-img-error) img,
+    // @{writeOnHTML} p > img:only-child,
     // 表格居中
     :is(#write, .v-pic-in-pic) table {
-        margin: 0 auto;
+        // text-align: center;
+        margin: 0 auto !important;
     }
 
     .md-diagram-panel>.md-diagram-panel-preview>svg { // 编辑时
@@ -1300,7 +1400,6 @@
     }
 
     // 编辑时题注居中
-    @{writeOnEditing} p:has([md-inline=em]:only-child>em>[md-inline=highlight]>mark),
     #write .md-fences-adv-panel, // 针对 Mermaid 图
     .tab-group-wrap > span, // 页签组条目
     .v-cap-cntr, // 导出后题注居中
@@ -1308,9 +1407,16 @@
         text-align: center;
     }
 
-    #write .v-post-card, // 明信片样式
-    .v-cap-cntr.expander::before, // 折叠提示的样式居中
-    @{writeOnEditing} .ty-table-edit { // 编辑时表格工具栏
+    // 题注居中
+    .v-cap-1,
+    .v-cap-2,
+    // 编辑时题注居中
+    @{writeOnEditing} @{cap1_OnEditing},
+    @{writeOnEditing} .md-image:has(img[alt]):not([data-src*="#logo"]):not([data-src*="#icon"])::before,
+    // 明信片样式
+    #write .v-post-card,
+    // 编辑时表格工具栏
+    @{writeOnEditing} .ty-table-edit {
         left: 50%;
         transform: translateX(-50%);
     }
@@ -1324,10 +1430,41 @@
 
 // 标题 after 样式
 @headerAfter: ~"#write :is(h1,h2,h3,h4,h5)>span::after";
+@h1After: ~"#write h1>span::after";
+@h2After: ~"#write h2>span::after";
+@h3After: ~"#write h3>span::after";
+@h4After: ~"#write h4>span::after";
+@h5After: ~"#write h5>span::after";
 
 // 针对封底 span::after 的微调处理
 @backcoverSpanAfter: ~"@{coverAfterYAML}~@{backcoverId}>span::after";
 @backcoverSpanWithoutYAMLafter: ~"@{coverWithoutYAML}~@{backcoverId}>span::after";
+
+// ==================== 生成面板元素的背景图样式 ==================== //
+
+.genBlockBackgroundImage(@forNavCenterSize: auto, @forNavCenterRepeat: no-repeat, @forNavCenterPosition: right 10px bottom 10px) {
+    // 代码块内代码区域
+    #write .md-fences .CodeMirror-lines {
+        background-image: var(--c-blk-bg);
+        background-size: @codeBlockBackgroundSize;
+        background-repeat: @codeBlockBackgroundRepeat;
+        background-position: @codeBlockBackgroundPosition;
+    }
+
+    // 导航中心
+    .v-nav-center,
+    // 坏链列表
+    .v-link-info-list,
+    // 右边浮动显示的侧边栏
+    #toc-dropmenu,
+    // 大纲面板
+    .outline-content {
+        background-image: var(--c-blk-bg);
+        background-size: @forNavCenterSize;
+        background-repeat: @forNavCenterRepeat;
+        background-position: @forNavCenterPosition;
+    }
+}
 
 // ==================== 多级标签样式 ==================== //
 
@@ -1373,6 +1510,7 @@
 @dynDeg: 104deg;
 @dynOffset: 6px;
 @dynPadding: 8px;
+@dynMargin: 4px;
 .genBadgeStyle(@style) when (@style = dyn) {
     // 多级标签内容（第2段）公共样式
     // 编辑时的多级标签内容（第2段）
@@ -1381,8 +1519,8 @@
     .v-badge-value {
         border-radius: 0 @codeValueRadiusXC @codeValueRadius 0;
         background: linear-gradient(@dynDeg, transparent @dynOffset, var(--d-bc) @dynOffset, var(--d-bc));
-        padding: @codePaddingTop @codePaddingRight @codePaddingTop @dynPadding;
-        margin: 1px 1px 1px 0;
+        padding: @codePaddingTop @codePaddingTop @codePaddingTop @dynPadding;
+        margin: 1px 1px 1px @dynMargin;
     }
 
     // 三段式，多级标签有两个内容时微调
@@ -1393,8 +1531,8 @@
     // 第 1 个内容
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:first-child):not(:last-child) > code,
     .v-badge-value.hastwo {
-        margin-left: 0;
-        margin-right: 0;
+        margin-left: @dynMargin;
+        margin-right: @dynMargin;
         padding-right: 10px;
         border-radius: 0;
         background: linear-gradient(@dynDeg, transparent @dynOffset, var(--d-bc) @dynOffset, var(--d-bc) calc(100% - @dynOffset), transparent calc(100% - @dynOffset));
@@ -1404,7 +1542,7 @@
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:only-child):first-child > code,
     .v-badge-name > .v-badge-value:first-child {
         margin-left: 1px;
-        margin-right: 0;
+        margin-right: @dynMargin;
         padding-left: @codePaddingLeft;
         padding-right: @dynPadding;
         border-radius: @codeValueRadius 0 0 @codeValueRadiusXC;
@@ -1429,8 +1567,21 @@
     .v-badge-value {
         border-radius: 0 calc(var(--v-r-tag-xc) - 1px) calc(var(--v-r-tag) - 1px) 0;
         color: var(--d-bc) !important;
-        .genBadgeCapBg(@style2);
-        .genBadgeDynBgValue1(@style2);
+        // 生成 cap 风格默认的背景
+        .genBadgeStyleForValue(@style2) when (@style2 = cap) {
+            margin: @codeMarginForCap 0 @codeMarginForCap @codePaddingLeft;
+            padding: 5px @codePaddingLeft;
+            background: var(--d-fc);
+        }
+        // 生成 cap + dyn 风格的背景
+        .genBadgeStyleForValue(@style2) when (@style2 = dyn) {
+            margin-left: 2px;
+            margin-top: -1px;
+            margin-bottom: -1px;
+            padding: 5px 6px 5px @dynPadding;
+            background: linear-gradient(@dynDeg, transparent @dynOffset, var(--d-fc) @dynOffset, var(--d-fc));
+        }
+        .genBadgeStyleForValue(@style2);
     }
 
     // 三段式，多级标签有两个内容时微调
@@ -1444,7 +1595,14 @@
         margin: @codeMarginForCap @codePaddingLeft;
         padding-left: @dynPadding !important;
         border-radius: 0;
-        .genBadgeDynBgValue2(@style2);
+        // 生成 cap + dyn 风格的背景（有两个 value 时）
+        .genBadgeStyleForValue_hasTow(@style2) when (@style2 = dyn) {
+            margin-left: 2px;
+            margin-right: 2px;
+            padding-right: @codePaddingRight;
+            background: linear-gradient(@dynDeg, transparent @dynOffset, var(--d-fc) @dynOffset, var(--d-fc) calc(100% - @dynOffset), transparent calc(100% - @dynOffset));
+        }
+        .genBadgeStyleForValue_hasTow(@style2);
     }
 
     // 多级标签没有标题（第1段），只有两个内容 value 和 value2
@@ -1453,54 +1611,84 @@
         margin: @codeMarginForCap 2px @codeMarginForCap @codeMarginForCap;
         border-radius: var(--v-r-tag) 0 0 var(--v-r-tag-xc);
         margin-right: @codePaddingLeft;
-        .genBadgeDynBgNoName(@style2);
+        // 生成 cap + dyn 风格的背景（无标题时）
+        .genBadgeStyleForValue_firstChild(@style2) when (@style2 = dyn) {
+            margin-right: 2px;
+            padding-right: @dynPadding;
+            background: linear-gradient(@dynDeg, var(--d-fc), var(--d-fc) calc(100% - @dynOffset), transparent calc(100% - @dynOffset));
+        }
+        .genBadgeStyleForValue_firstChild(@style2);
+    }
+}
+
+// ==================== 生成编辑时显示代码块标题（题注）样式 ==================== //
+
+.genCodeblockTitle(@needCaption) {
+    .codeblockTitle() {
+        content: attr(lang) " ";
+        white-space: pre-wrap;
+        background: var(--std-code-sd) var(--v-i-sys-menu) no-repeat 7px center;
+        padding: 4px 4px 4px 70px;
+        color: var(--d-fc);
+        font: var(--v-fw-bd) .875em var(--v-fm-bd); // [style] [weight] [size/[line-height]] [family]
+        width: 100%;
+        display: block;
+        border-radius: var(--v-r-t) var(--v-r-t-xc) 0 0;
     }
 
-    // ----------
-
-    // 生成 cap 风格默认的背景
-    .genBadgeCapBg(@style2) when (@style2 = cap) {
-        margin: @codeMarginForCap @codeMarginForCap @codeMarginForCap @codePaddingLeft;
-        padding: 5px @codePaddingLeft;
-        background: var(--d-fc);
+    // 需要添加题注才显示
+    .genCodeblockTitleSelector(@needCaption) when(@needCaption = true) {
+        // 排除 mermaid 图表、```math 语法的公式
+        @{writeOnEditing} p:has(@{cap_prefix}) + .md-fences:not([class*=md-diagram]):not([lang=math])::before {
+            .codeblockTitle();
+        }
     }
 
-    // 生成 cap + dyn 风格的背景
-    .genBadgeDynBgValue1(@style2) when (@style2 = dyn) {
-        margin-left: 2px;
-        margin-top: -1px;
-        margin-bottom: -1px;
-        padding: 5px 6px 5px @dynPadding;
-        background: linear-gradient(@dynDeg, transparent @dynOffset, var(--d-fc) @dynOffset, var(--d-fc));
+    // 不需要添加题注就可以显示
+    .genCodeblockTitleSelector(@needCaption) when(@needCaption = false) {
+        // 排除 mermaid 图表、```math 语法的公式
+        @{writeOnEditing} .md-fences:not([class*=md-diagram]):not([lang=math])::before {
+            .codeblockTitle();
+        }
     }
-    // 生成 cap + dyn 风格的背景（有两个 value 时）
-    .genBadgeDynBgValue2(@style2) when (@style2 = dyn) {
-        margin-left: 2px;
-        margin-right: 2px;
-        padding-right: @codePaddingRight;
-        background: linear-gradient(@dynDeg, transparent @dynOffset, var(--d-fc) @dynOffset, var(--d-fc) calc(100% - @dynOffset), transparent calc(100% - @dynOffset));
-    }
-    // 生成 cap + dyn 风格的背景（无标题时）
-    .genBadgeDynBgNoName(@style2) when (@style2 = dyn) {
-        margin-right: 2px;
-        padding-right: @dynPadding;
-        background: linear-gradient(@dynDeg, var(--d-fc), var(--d-fc) calc(100% - @dynOffset), transparent calc(100% - @dynOffset));
+
+    .genCodeblockTitleSelector(@needCaption);
+}
+
+// ==================== 生成段落斜体扩展样式 ==================== //
+
+.genParaFormatItalic(@color: var(--d-fc-a)) {
+    @italicTextOnEditing: ~'@{writeOnEditing}>p>[md-inline=em]:only-child:has(>em>[md-inline=plain])';
+    @italicTextOnHTML: ~'@{writeOnHTML}>p>em:only-child:has(span:only-child)';
+    @{italicTextOnEditing},
+    @{italicTextOnHTML} {
+        display: block;
+        font-size: 1.125em;
+        color: @color;
+        line-height: @defaultLineHeight;
+        padding: .5em 0 .5em;
+        margin: 1em 0 1em;
+        border-top: 1px solid var(--pn-c);
+        border-bottom: 1px solid var(--pn-c);
     }
 }
 
 // ==================== 生成段落加粗扩展样式 ==================== //
 
+.genParaFormatBold_Ext() {}
+
 .genParaFormatBold() {
-    @centerTextOnEditing: ~'@{writeOnEditing}>p>[md-inline=strong]:only-child:has(>strong)';
-    @centerTextOnHTML: ~'@{writeOnHTML}>p>strong:only-child';
-    @{centerTextOnEditing},
-    @{centerTextOnHTML} {
+    @boldTextOnEditing: ~'@{writeOnEditing}>p>[md-inline=strong]:only-child:has(>strong)';
+    @boldTextOnHTML: ~'@{writeOnHTML}>p>strong:only-child';
+    @{boldTextOnEditing},
+    @{boldTextOnHTML} {
         display: block;
         font-size: 1.125em;
         text-align: center;
         line-height: @defaultLineHeight;
         padding: .5em 0 .75em;
         margin-top: 1em;
+        .genParaFormatBold_Ext();
     }
 }
 
@@ -1513,7 +1701,7 @@
     @onlyUnderlineTextOnEditing: ~'@{underlineOnlyChild}:has(>u)';
     @onlyUnderlineTextOnEditing_blockquote: ~'@{underlineOnlyChild_blockquote}:has(>u)';
     @onlyUnderlineTextOnHTML: ~'@{writeOnHTML}>p>u:only-child';
-    @onlyUnderlineTextOnHTML_blockquote: ~'@{writeOnHTML}>blockquote>p>u:only-child';
+    @onlyUnderlineTextOnHTML_blockquote: ~'@{writeOnHTML} blockquote>p>u:only-child';
     @{onlyUnderlineTextOnEditing},
     @{onlyUnderlineTextOnEditing_blockquote},
     @{onlyUnderlineTextOnHTML},
@@ -1550,26 +1738,29 @@
 // ==================== 生成段落高亮扩展样式 ==================== //
 
 // 双引号（圆）
-@quoteBeforeImage_q01: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzgiIGhlaWdodD0iMjguNjMxIiB2aWV3Qm94PSIwIDAgMzggMjguNjMxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PHBhdGggZD0iTTE2LjE1NSAwbDEuMTYgMS4xNmEyMC4wNzUgMjAuMDc1IDAgMCAwLTEwLjI4OCA5LjY4OEE5IDkgMCAxIDEgMCAxOS42MzFDMCA5LjkgNi45NSAxLjc5MyAxNi4xNTUgMHpNMzYuMTU1IDBsMS4xNiAxLjE2YTIwLjA3NSAyMC4wNzUgMCAwIDAtMTAuMjg4IDkuNjg4QTkgOSAwIDEgMSAyMCAxOS42MzFDMjAgOS45IDI2Ljk1IDEuNzkzIDM2LjE1NSAweiIvPjwvZz48L3N2Zz4=");
-@quoteAfterImage_q01: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzgiIGhlaWdodD0iMjguNjMxIiB2aWV3Qm94PSIwIDAgMzggMjguNjMxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PHBhdGggZD0iTTEuODQ1IDI4LjYzbC0xLjE2LTEuMTZhMjAuMDc1IDIwLjA3NSAwIDAgMCAxMC4yODgtOS42ODdBOSA5IDAgMSAxIDE4IDljMCA5LjczLTYuOTUgMTcuODM4LTE2LjE1NSAxOS42M3pNMjEuODQ1IDI4LjYzbC0xLjE2LTEuMTZhMjAuMDc1IDIwLjA3NSAwIDAgMCAxMC4yODgtOS42ODdBOSA5IDAgMSAxIDM4IDljMCA5LjczLTYuOTUgMTcuODM4LTE2LjE1NSAxOS42M3oiLz48L2c+PC9zdmc+");
+@quoteBeforeImage_q01: url("data:image/svg+xml,%3Csvg width='40' height='30' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-rule='evenodd'%3E%3Cpath d='M17.155 1l1.16 1.16a20.075 20.075 0 0 0-10.288 9.688A9 9 0 1 1 1 20.631c0-9.73 6.95-17.838 16.155-19.63zM37.155 1l1.16 1.16a20.075 20.075 0 0 0-10.288 9.688A9 9 0 1 1 21 20.631c0-9.73 6.95-17.838 16.155-19.63z'/%3E%3C/g%3E%3C/svg%3E");
+@quoteAfterImage_q01: url("data:image/svg+xml,%3Csvg width='40' height='30' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-rule='evenodd'%3E%3Cpath d='M2.845 29l-1.16-1.16a20.075 20.075 0 0 0 10.288-9.688A9 9 0 1 1 19 9.369c0 9.73-6.95 17.838-16.155 19.63zM22.845 29l-1.16-1.16a20.075 20.075 0 0 0 10.288-9.688A9 9 0 1 1 39 9.369c0 9.73-6.95 17.838-16.155 19.63z'/%3E%3C/g%3E%3C/svg%3E");
 // 双引号（方）
-@quoteBeforeImage_q02: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCA0MCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yIDEzaDE2djE2SDJ6TTEwIDFoN0w5IDEzSDJ6Ii8+PGc+PHBhdGggZD0iTTIxIDEzaDE2djE2SDIxek0yOSAxaDdsLTggMTJoLTd6Ii8+PC9nPjwvZz48L3N2Zz4=");
-@quoteAfterImage_q02: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCA0MCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0xOSAxN0gzVjFoMTZ6TTExIDI5SDRsOC0xMmg3eiIvPjxnPjxwYXRoIGQ9Ik0zOCAxN0gyMlYxaDE2ek0zMCAyOWgtN2w4LTEyaDd6Ii8+PC9nPjwvZz48L3N2Zz4=");
+@quoteBeforeImage_q02: url("data:image/svg+xml,%3Csvg width='40' height='30' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-rule='evenodd'%3E%3Cpath d='M2 13h16v16H2zM10 1h7L9 13H2z'/%3E%3Cg%3E%3Cpath d='M21 13h16v16H21zM29 1h7l-8 12h-7z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+@quoteAfterImage_q02: url("data:image/svg+xml,%3Csvg width='40' height='30' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-rule='evenodd'%3E%3Cpath d='M19 17H3V1h16zM11 29H4l8-12h7z'/%3E%3Cg%3E%3Cpath d='M38 17H22V1h16zM30 29h-7l8-12h7z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 // 双引号（尖）
-@quoteBeforeImage_q03: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCA0MCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0xMSAxaDhsLTMgMjhIMnpNMzEgMWg4bC0zIDI4SDIyeiIvPjwvZz48L3N2Zz4=");
-@quoteAfterImage_q03: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCA0MCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik05IDI5SDFMNCAxaDE0ek0yOSAyOWgtOGwzLTI4aDE0eiIvPjwvZz48L3N2Zz4=");
+@quoteBeforeImage_q03: url("data:image/svg+xml,%3Csvg width='40' height='30' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-rule='evenodd'%3E%3Cpath d='M11 1h8l-3 28H2zM31 1h8l-3 28H22z'/%3E%3C/g%3E%3C/svg%3E");
+@quoteAfterImage_q03: url("data:image/svg+xml,%3Csvg width='40' height='30' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-rule='evenodd'%3E%3Cpath d='M9 29H1L4 1h14zM29 29h-8l3-28h14z'/%3E%3C/g%3E%3C/svg%3E");
 // 双圆环
-@quoteBeforeImage_c01: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCA0MCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9Im5vbnplcm8iPjxwYXRoIGQ9Ik0xMCAxMGM1LjUyMyAwIDEwIDQuNDc3IDEwIDEwcy00LjQ3NyAxMC0xMCAxMFMwIDI1LjUyMyAwIDIwczQuNDc3LTEwIDEwLTEwem0wIDVhNSA1IDAgMSAwIDAgMTAgNSA1IDAgMCAwIDAtMTB6IiBvcGFjaXR5PSIuMyIvPjxwYXRoIGQ9Ik0yNyAwYzcuMTggMCAxMyA1LjgyIDEzIDEzcy01LjgyIDEzLTEzIDEzLTEzLTUuODItMTMtMTNTMTkuODIgMCAyNyAwem0wIDVhOCA4IDAgMSAwIDAgMTYgOCA4IDAgMCAwIDAtMTZ6IiBvcGFjaXR5PSIuNSIvPjwvZz48L3N2Zz4=");
-@quoteAfterImage_c01: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCA0MCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9Im5vbnplcm8iPjxwYXRoIGQ9Ik0zMCAyMGMtNS41MjMgMC0xMC00LjQ3Ny0xMC0xMFMyNC40NzcgMCAzMCAwczEwIDQuNDc3IDEwIDEwLTQuNDc3IDEwLTEwIDEwem0wLTVhNSA1IDAgMSAwIDAtMTAgNSA1IDAgMCAwIDAgMTB6IiBvcGFjaXR5PSIuMyIvPjxwYXRoIGQ9Ik0xMyAzMEM1LjgyIDMwIDAgMjQuMTggMCAxN1M1LjgyIDQgMTMgNHMxMyA1LjgyIDEzIDEzLTUuODIgMTMtMTMgMTN6bTAtNWE4IDggMCAxIDAgMC0xNiA4IDggMCAwIDAgMCAxNnoiIG9wYWNpdHk9Ii41Ii8+PC9nPjwvc3ZnPg==");
+@quoteBeforeImage_c01: url("data:image/svg+xml,%3Csvg width='40' height='30' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-rule='nonzero'%3E%3Cpath d='M10 10c5.523 0 10 4.477 10 10s-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10z' opacity='.3'/%3E%3Cpath d='M27 0c7.18 0 13 5.82 13 13s-5.82 13-13 13-13-5.82-13-13S19.82 0 27 0zm0 5a8 8 0 1 0 0 16 8 8 0 0 0 0-16z' opacity='.5'/%3E%3C/g%3E%3C/svg%3E");
+@quoteAfterImage_c01: url("data:image/svg+xml,%3Csvg width='40' height='30' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-rule='nonzero'%3E%3Cpath d='M30 20c-5.523 0-10-4.477-10-10S24.477 0 30 0s10 4.477 10 10-4.477 10-10 10zm0-5a5 5 0 1 0 0-10 5 5 0 0 0 0 10z' opacity='.3'/%3E%3Cpath d='M13 30C5.82 30 0 24.18 0 17S5.82 4 13 4s13 5.82 13 13-5.82 13-13 13zm0-5a8 8 0 1 0 0-16 8 8 0 0 0 0 16z' opacity='.5'/%3E%3C/g%3E%3C/svg%3E");
 // 叶子
-@quoteBeforeImage_l01: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjgiIHZpZXdCb3g9IjAgMCAzMCAyOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0xMCAwaDEydjEyYzAgNS41MjMtNC40NzcgMTAtMTAgMTBIMFYxMEMwIDQuNDc3IDQuNDc3IDAgMTAgMHoiIG9wYWNpdHk9Ii41Ii8+PHBhdGggZD0iTTE4IDZoMTJ2MTJjMCA1LjUyMy00LjQ3NyAxMC0xMCAxMEg4VjE2YzAtNS41MjMgNC40NzctMTAgMTAtMTB6IiBvcGFjaXR5PSIuMyIvPjwvZz48L3N2Zz4=");
-@quoteAfterImage_l01: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjgiIHZpZXdCb3g9IjAgMCAzMCAyOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yMCAyOEg4VjE2YzAtNS41MjMgNC40NzctMTAgMTAtMTBoMTJ2MTJjMCA1LjUyMy00LjQ3NyAxMC0xMCAxMHoiIG9wYWNpdHk9Ii41Ii8+PHBhdGggZD0iTTEyIDIySDBWMTBDMCA0LjQ3NyA0LjQ3NyAwIDEwIDBoMTJ2MTJjMCA1LjUyMy00LjQ3NyAxMC0xMCAxMHoiIG9wYWNpdHk9Ii4zIi8+PC9nPjwvc3ZnPg==");
+@quoteBeforeImage_l01: url("data:image/svg+xml,%3Csvg width='40' height='30' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-rule='evenodd'%3E%3Cpath d='M15 1h12v12c0 5.523-4.477 10-10 10H5V11C5 5.477 9.477 1 15 1z' opacity='.5'/%3E%3Cpath d='M23 7h12v12c0 5.523-4.477 10-10 10H13V17c0-5.523 4.477-10 10-10z' opacity='.3'/%3E%3C/g%3E%3C/svg%3E");
+@quoteAfterImage_l01: url("data:image/svg+xml,%3Csvg width='40' height='30' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-rule='evenodd'%3E%3Cpath d='M25 29H13V17c0-5.523 4.477-10 10-10h12v12c0 5.523-4.477 10-10 10z' opacity='.5'/%3E%3Cpath d='M17 23H5V11C5 5.477 9.477 1 15 1h12v12c0 5.523-4.477 10-10 10z' opacity='.3'/%3E%3C/g%3E%3C/svg%3E");
 // 半框（圆角）
-@quoteBeforeImage_f01: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzEiIHZpZXdCb3g9IjAgMCA0MCAzMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMzAgMS4wMTFhNCA0IDAgMSAxIDAgOEgxN2EzIDMgMCAwIDAtMyAzdjEzYTQgNCAwIDEgMS04IDB2LTE0YzAtNS41MjIgNC40NzctMTAgMTAtMTB6IiBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=");
-@quoteAfterImage_f01: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCA0MCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAgMjlhNCA0IDAgMSAxIDAtOGgxM2EzIDMgMCAwIDAgMy0zVjVhNCA0IDAgMSAxIDggMHYxNGMwIDUuNTIzLTQuNDc3IDEwLTEwIDEweiIgZmlsbD0iIzAwMCIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+");
+@quoteBeforeImage_f01: url("data:image/svg+xml,%3Csvg width='40' height='31' viewBox='0 0 40 31' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 1.011a4 4 0 1 1 0 8H17a3 3 0 0 0-3 3v13a4 4 0 1 1-8 0v-14c0-5.522 4.477-10 10-10z' fill='%23000' fill-rule='evenodd'/%3E%3C/svg%3E");
+@quoteAfterImage_f01: url("data:image/svg+xml,%3Csvg width='40' height='30' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 29a4 4 0 1 1 0-8h13a3 3 0 0 0 3-3V5a4 4 0 1 1 8 0v14c0 5.523-4.477 10-10 10z' fill='%23000' fill-rule='evenodd'/%3E%3C/svg%3E");
 // 半框（方角）
-@quoteBeforeImage_f02: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzEiIHZpZXdCb3g9IjAgMCA0MCAzMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik02IDEuMDExaDI4djhINnoiLz48cGF0aCBkPSJNNiAxLjAxMWg4djI4SDZ6Ii8+PC9nPjwvc3ZnPg==");
-@quoteAfterImage_f02: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCA0MCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNCAyOUg2di04aDI4eiIvPjxwYXRoIGQ9Ik0zNCAyOWgtOFYxaDh6Ii8+PC9nPjwvc3ZnPg==");
+@quoteBeforeImage_f02: url("data:image/svg+xml,%3Csvg width='40' height='31' viewBox='0 0 40 31' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-rule='evenodd'%3E%3Cpath d='M6 1.011h28v8H6z'/%3E%3Cpath d='M6 1.011h8v28H6z'/%3E%3C/g%3E%3C/svg%3E");
+@quoteAfterImage_f02: url("data:image/svg+xml,%3Csvg width='40' height='30' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-rule='evenodd'%3E%3Cpath d='M34 29H6v-8h28z'/%3E%3Cpath d='M34 29h-8V1h8z'/%3E%3C/g%3E%3C/svg%3E");
+// 三角形
+@quoteBeforeImage_t01: url("data:image/svg+xml,%3Csvg width='20' height='16' viewBox='0 0 20 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 16L20 0H0z' fill='%23000' fill-rule='evenodd'/%3E%3C/svg%3E");
+@quoteAfterImage_t01: url("data:image/svg+xml,%3Csvg width='20' height='16' viewBox='0 0 20 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0l10 16H0z' fill='%23000' fill-rule='evenodd'/%3E%3C/svg%3E");
 
 .genParaFormatMark(@beforeImage, @afterImage, @opacity : .3, @color1: var(--ac-t1), @color2 : var(--ac-t2)) {
     @marginWidth: 10px;
@@ -1640,8 +1831,9 @@
     }
 }
 
-// ==================== 引用块宽度内容内容，并居中显示 ==================== //
+// ==================== 引用块宽度样式，并居中显示 ==================== //
 
+// 适配内容宽度，并居中显示
 // 针对普通的引用块，注意内容如果过长仍会顶边
 .genBlockquote(@style) when (@style = fit) {
     blockquote,
@@ -1731,11 +1923,12 @@
 // 生成 GSA 简约风格样式
 .genGitHubStyleAlertCSS(@type, @accColor, @bgColor) {
     #write .md-alert {
-        padding: .25em 1em .5em 1em !important;
+        padding: .5em 1em !important;
         border: @defQuoteBorderWidth solid var(--d-fc);
         border-top-width: 1px;
         border-right-width: 1px;
         border-bottom-width: 1px;
+        border-radius: var(--c-br-b);
     }
 
     #write @{quote_details} .md-alert {
@@ -1745,11 +1938,11 @@
     // 背景
     #write .md-alert-@{type} {
         border-color: ~"var(--ac-@{accColor}-lg)" !important;
-        .genBackground(@bgColor) when not (@bgColor = none) {
+        .genGsaBg(@bgColor) when not (@bgColor = none) {
             @c: ~"var(--ac-@{bgColor}-fd)";
             background: linear-gradient(@c, @c), linear-gradient(var(--d-bc), var(--d-bc));
         }
-        .genBackground(@bgColor);
+        .genGsaBg(@bgColor);
     }
     // 针对 GSA 内的引用微调
     #write .md-alert-@{type} @{quote_details} {
@@ -1787,12 +1980,11 @@
 }
 
 // ----------
-// 生成 GSA 扁平风格样式
-.genGitHubStyleAlertCssFt(@type, @accColor) {
-    @alertTypePaddingTop4Ft: .5em;
+// 生成 GSA 扁平up 风格样式
+.genGitHubStyleAlertCssFlatUp(@type, @accColor) {
     #write .md-alert {
-        border-radius: 0 0 var(--v-r-b) var(--v-r-b) !important;
-        padding-top: @alertTypePaddingTop4Ft !important;
+        border-radius: 0 0 var(--v-r-b) var(--v-r-b);
+        padding-top: .5em !important;
         border: none;
     }
 
@@ -1822,13 +2014,13 @@
     .genGitHubStyleAlertCssBase(@type, @accColor);
 }
 
-// 生成 GSA 扁平风格
-.genGSA(@style) when (@style = flat) {
-    .genGitHubStyleAlertCssFt(note, bu);
-    .genGitHubStyleAlertCssFt(tip, gn);
-    .genGitHubStyleAlertCssFt(important, pu);
-    .genGitHubStyleAlertCssFt(warning, bn);
-    .genGitHubStyleAlertCssFt(caution, rd);
+// 生成 GSA 扁平up 风格
+.genGSA(@style) when (@style = flat_up) {
+    .genGitHubStyleAlertCssFlatUp(note, bu);
+    .genGitHubStyleAlertCssFlatUp(tip, gn);
+    .genGitHubStyleAlertCssFlatUp(important, pu);
+    .genGitHubStyleAlertCssFlatUp(warning, bn);
+    .genGitHubStyleAlertCssFlatUp(caution, rd);
 }
 
 // ----------
@@ -1836,7 +2028,7 @@
 .genGitHubStyleAlertCssEm(@type, @accColor) {
     @alertTypePaddingTop4em: .625em;
     #write .md-alert {
-        border-radius: var(--v-r-b);
+        border-radius: var(--c-br-b);
         padding-top: @alertTypePaddingTop4em !important;
     }
 
@@ -1878,4 +2070,48 @@
     .genGitHubStyleAlertCssEm(important, pu);
     .genGitHubStyleAlertCssEm(warning, bn);
     .genGitHubStyleAlertCssEm(caution, rd);
+}
+
+// ----------
+// 生成 GSA 扁平 Flat 风格样式
+// https://element-plus.org/zh-CN/component/alert.html
+.genGitHubStyleAlertCssFlat(@type, @accColor) {
+    #write .md-alert {
+        border-radius: var(--v-r-s);
+        padding: 1em !important;
+        border: none;
+    }
+
+    // 背景
+    #write .md-alert-@{type} {
+        background: ~"var(--ac-@{accColor}-a)";
+    }
+    // 针对 GSA 内的引用微调
+    #write .md-alert-@{type} @{quote_details} {
+        background: ~"var(--d-bc)" !important;
+        border-radius:  0 0 var(--v-r-s) var(--v-r-s) !important;
+    }
+    // 引用内的 GSA 微调
+    #write @{quote_details} .md-alert-@{type} {
+        border-radius: 0 0 var(--v-r-s) var(--v-r-s) !important;
+    }
+    // 针对 after 提示
+    #write .md-alert-text-@{type} .md-meta {
+        font-weight: normal;
+        opacity: .5;
+    }
+    // 类型小标题
+    #write .md-alert-text-@{type} {
+        color: ~"var(--ac-@{accColor}-tt)";
+    }
+    .genGitHubStyleAlertCssBase(@type, @accColor);
+}
+
+// 生成 GSA 扁平风格
+.genGSA(@style) when (@style = flat) {
+    .genGitHubStyleAlertCssFlat(note, gy);
+    .genGitHubStyleAlertCssFlat(tip, gn);
+    .genGitHubStyleAlertCssFlat(important, bu);
+    .genGitHubStyleAlertCssFlat(warning, bn);
+    .genGitHubStyleAlertCssFlat(caution, rd);
 }

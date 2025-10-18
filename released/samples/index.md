@@ -1,17 +1,17 @@
 ---
 title: 简介 - VLOOK™ - 优雅好用的 Typora 主题与增强插件
-author: MAX°孟兆	 
+author: MAX°孟兆
 description: 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:description": 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
-date: 2025-07-02
+date: 2025-10-18
 changelog:
 - changelog content a, and content b
 - changelog content 2 [...detail](#打赏)
 keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
 - editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
-- light mode,dark mode,grayscale mode,gray mode
+- light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
 - catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
@@ -22,7 +22,7 @@ keywords:
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
-- 浅色外观,深色外观,灰度外观,灰色外观
+- 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
 - 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
@@ -30,21 +30,25 @@ keywords:
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
-- 设计,需求,文档,博客,手册,指南,知识库,教程,方案,教育,笔记,日记
+- 设计,需求,文档,博客,手册,指南,攻略,知识库,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
 vlook-header-autonum-test: h1{{#00##}}
+vlook-header-dup: /^你的咖啡.+/
+vlook-unpub: 即将推出...;/由 YAML.+/
 vlook-doc-lib:
+- [VLOOK™ 特性](vlook-lib.html "手册、教程、指南、攻略、示例、范例")
 - [VLOOK™ 简介](index.html?target=_self "介绍、下载、安装、语言包、增值服务")
-- [VLOOK™ 特性](vlook-lib.html "手册、教程、指南、示例、范例")
-- [手册 • 基础](guide.html?target=guide "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/旋转/翻转/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
-- [手册 ▲ 进阶](guide2.html?target=guide "分栏、题注、按钮、代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
-- [手册 ★ 探索](guide3.html?target=guide "内容导航/历史/上次阅读、内容助手/复制/全屏/换行/十字光标/阅读/画中画、演示辅助/激光笔/聚光灯/段落漫游/宽度适配、出版辅助/标记不发布/发布为PDF/另存为PDF/导出为PDF/打印为PDF/社交分享/链接地图/长内容折叠/链接检查/链接识别、外观/主题/字体/Light/Dark、自定义/预置选项/调校参数、快捷键、……")
+- [攻略 • 基础](guide.html?target=guide "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/旋转/翻转/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
+- [攻略 ▲ 进阶](guide2.html?target=guide "分栏、题注、按钮、代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
+- [攻略 ★ 探索](guide3.html?target=guide "内容导航/历史/上次阅读、内容助手/复制/全屏/换行/十字光标/阅读/画中画、演示辅助/激光笔/聚光灯/段落漫游/宽度适配、出版辅助/标记不发布/发布为PDF/另存为PDF/导出为PDF/打印为PDF/社交分享/链接地图/长内容折叠/链接检查/链接识别、外观/主题/字体/Light/Dark、自定义/预置选项/调校参数、快捷键、……")
 - [English 🔠](index-en.html?target=vlook-index-en "Introduction, Quick Start, How to Use")
 - [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank "Project Home")
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
+vlook-cc-bottom-left: Left Information<br>Here
+vlook-cc-bottom-right: Right Information<br>Here
 ---
 
-###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>简介</u><br>*最新版本`V30.1`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br><u>──</u><br>简介<br>*最新版本`V2025.10`*<br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 
 [TOC]
 
@@ -52,7 +56,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 # VLOOK™ 是什么
 
-![VLOOK™](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo)
+![VLOOK™](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo#blur!)
 
 <u>![OSChina](pic/oschina.png#icon) **[开源中国](https://www.oschina.net/p/vlook) 推荐的国产开源产品。**</u>
 
@@ -60,7 +64,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 **[*编辑工具`Typora`V1.9+*_~Gy~_](https://typoraio.cn)　*开源协议主`MIT`*_~Rd~_　*`关键字`主题、插件*_~Pu~_　*`支持的操作系统`Windows, macOS, Linux*_~Bu~_**
 
-**[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK?style=for-the-badge&label=Release&labelColor=04B1CC&color=9A4EE6#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total?style=for-the-badge&label=Downloads%20(since%20V28.1)&labelColor=04B1CC&color=9A4EE6#logo)](https://github.com/MadMaxChow/VLOOK/releases)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK?style=for-the-badge&labelColor=04B1CC&color=9A4EE6#logo)](https://github.com/MadMaxChow/VLOOK/stargazers)**
+**[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK?style=for-the-badge&label=Release&labelColor=04B1CC&color=9A4EE6#logo#round2s)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total?style=for-the-badge&label=Downloads%20(since%20V28.1)&labelColor=04B1CC&color=9A4EE6#logo#round2s)](https://github.com/MadMaxChow/VLOOK/releases)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK?style=for-the-badge&labelColor=04B1CC&color=9A4EE6#logo#round2s)](https://github.com/MadMaxChow/VLOOK/stargazers)**
 
 
 
@@ -70,7 +74,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 
 
-**合作推荐资源：**
+**合作资源：**
 
 ---
 
@@ -80,7 +84,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 > [![Featured｜HelloGitHub](https://abroad.hellogithub.com/v1/widgets/recommend.svg?rid=aa6c612ca3de42a082b15053be4ce3c3&claim_uid=xCde1wfnch6ASLj&theme=neutral#logo)](https://hellogithub.com/repository/aa6c612ca3de42a082b15053be4ce3c3)
 
-> [![是玄月夜不是玄月](https://sakuraxy.dpdns.org/wp-content/uploads/2025/05/xyres2.png#200w#logo)](https://sakuraxy.top/)
+> [![是玄月夜不是玄月](https://www.sakuraxy.top/wp-content/uploads/2025/05/xyres2.png#200w#logo)](https://sakuraxy.top/)
 
 
 
@@ -140,29 +144,29 @@ _^tab^_
 >
 > _~Bn!~_
 
-# 打赏
+# ==打赏==
 
 <u>**感谢打赏支持 VLOOK™ 的客官（部分名单）**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊山、＊魂、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
 
 ---
 
-> **若喜欢 VLOOK™ 的话，可以贡献一杯咖啡**
+> **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
 >
 > ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo)
 >
 > _~Gn~_
 
-> **I like VLOOK™, I donate a cup of coffee**
+> **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
 >
-> [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow)
+> ![打赏 VLOOK™](pic/donate-alipay-light.png?darksrc=donate-alipay-dark.png&srcset=@2x&darksrcset=@2x#logo)
 >
-> _~Se~_
+> _~Bu~_
 
 # 快速入坑
 
-<u>VLOOK™ 通过持续**挖掘和扩展** Markdown 和 CSS，同时结合了文档的互联网化应用场景～<br>在 **文档排版、内容标记、内容导航、演示辅助、交互体验**_~GnOgSe~_ 等方面提供了 **一致、简洁、友好**_~PuOgRo~_ 的体验。</u>
+<u>VLOOK™ 通过持续 **挖掘和扩展** Markdown 和 CSS，同时结合了文档的互联网化应用场景～<br>在 **文档排版、内容标记、内容导航、演示辅助、交互体验**_~GnOgSe~_ 等方面提供了 **一致、简洁、友好**_~PuOgRo~_ 的体验。</u>
 
 *==简介视频==*
 
@@ -231,14 +235,14 @@ _^tab^_
 >
 > VLOOK™ 的部分特性需要通过导出 HTML 后才能支持。
 >
-> 具体请留意参考手册中各特性的「适用范围」说明，如：
+> 具体请留意使用攻略中各特性的「适用范围」说明，如：
 >
 > > ***`编辑时`× 不支持*_~Gy~_ *`编辑时`✓ 支持*_~Gn~_ **
 
 # 专题文章
 
 
-![入选「知乎 • 海盐计划」的专题文章](pic/3rd-haiyan.png#logo#border)
+![入选「知乎 • 海盐计划」的专题文章](pic/3rd-haiyan.png)
 
 <u>入选「知乎 • 海盐计划[^海盐计划]」的专题文章 •• [点击前往看看](https://www.zhihu.com/people/maxchow/posts)</u>
 
@@ -248,7 +252,7 @@ _^tab^_
 
 ==只需要三步，让你快速上车，**开启不一样的 Markdown 体验之旅！**_~OgPuBu~_==
 
-## 下载+设置
+## 准备工作
 
 _^tab^_
 
@@ -258,29 +262,44 @@ _^tab^_
 
 > **配置 Typora  ❯**
 >
-> 1. 下载并安装 [Typora](https://typoraio.cn) 的最新版本；
+> 1. 下载并安装 [Typora](https://typoraio.cn) 的最新版本
 > 2. 打开菜单 *==Typora ▸ 偏好设置 ▸ Markdown==*
 > 3. 启用 `Markdown 扩展语法` 和 `代码块` 下的所有选项。详见下图：
 >
-> *==Typora ▸ 偏好设置 ▸ Markdown==*
->
-> ![](pic/typora-opt1-light.png?srcset=@2x&darksrc=typora-opt1-dark.png&darksrcset=@2x)
->
+> ![Typora ▸ 偏好设置 ▸ Markdown](pic/typora-opt1-light.png?srcset=@2x&darksrc=typora-opt1-dark.png&darksrcset=@2x)
 
-> **选装字体（可选）**
->
-> 下载并安装 VLOOK™ 主题配套字体包 •• 详见「[字体风格](guide3.md#字体风格)」
->
-> _~Gy~_
 
-## 安装主题包
+
+<u>VLOOK™ 支持「==离线==」和「==**在线**==」两种安装模式，可同时安装配置，实际使用时再灵活选择～</u>
+
+---
+
+> **📦 离线模式**
+>
+> 将主题和插件一并打包到生成的 `HTML` 中，适合没有自己的 Web 站点，或不依赖网络直接打开阅读的情况。
+>
+> > 但单个 HTML 文件大小会相对较大，维护的文件数量较多时，更新管理的效率相对在线模式会低一些。
+>
+> _~Bn~_
+
+> **🌐 在线模式**
+>
+> 将主题和插件先发布到自己的 `Web 站点` 上，适用于更大范围的内容发布，以及随时发布更新内容。
+>
+> > 需要先准备 Web 站点（也可直接使用国外免费的 Pages 服务，如 CloudFlare、GitHub 所提供的 Pages 服务。
+>
+> _~Bu~_
+
+## 离线模式安装
+
+### 安装主题包
 
 _^tab^_
 
 > **添加主题  ❯**
 >
-> 1. 打开目录 *==released/themes==*
-> 1. 将该目录下所有 **CSS 文件** 复制至 Typora 的主题目录
+> 1. 打开目录 *==released/**themes**==*
+> 1. 将该目录下所有 **CSS 文件** 及**子目录** `vlook`，复制至 Typora 的主题目录下
 >
 >
 > > **Typora 的主题目录在哪？** 
@@ -291,9 +310,8 @@ _^tab^_
 > **选用主题**
 >
 > 1. 重启 Typora
-> 2. 点击菜单 *==Typora ▸ 主题==* ，选择以 `Vlook ***` 形式命名的任意主题即可
-> 3. 建议基于 VLOOK™ 规范的文档模板来创建你自己的 Markdown 文档，这样能更快上手
->
+> 2. 点击菜单 *==Typora ▸ 主题==* ，选择以 `Vlook ***` 形式命名的任意主题即可（[点这预览内置主题](guide3.md#预置的模板主题)）
+> 
 
 
 
@@ -312,7 +330,7 @@ _^tab^_
 >
 > [<kbd>![](pic/icon-download.svg?fill=text) 下载范例</kbd>](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)  *[<kbd>![](pic/icon-download.svg?fill=text) 备用链接</kbd>](https://gitee.com/madmaxchow/VLOOK/tree/master/released/samples)*
 
-## 配置导出选项
+### 配置导出选项
 
 _^tab^_
 
@@ -323,7 +341,7 @@ _^tab^_
 > 3. 添加（==选择 HTML 模板==），并将配置命名为 `VLOOK`
 >
 
-> **安装插件 ❯**
+> **安装「插件」 ❯**
 >
 > 1. 首先，清空 `在 <head /> 中添加` 配置的内容
 > 2. 打开插件文件：*==released/plugin/**plugin.txt**==*
@@ -333,21 +351,31 @@ _^tab^_
 
 > **一键导出为 HTML**
 >
-> 1. 打开符合 VLOOK™ 规范的 md 文件（参考 *==released/samples==* 下的文件 ）；
-> 2. 点击菜单 *==Typora ▸ 文件 ▸ 导出 ▸ VLOOK==* 完成导出。
+> 1. 打开符合 VLOOK™ 规范的 md 文件（参考 *==released/**samples**==* 下的文件 ）
+> 2. 点击菜单 *==Typora ▸ 文件 ▸ 导出 ▸ **VLOOK**==* 完成导出
 > 
 
 
 
 ![Typora ▸ 偏好设置 ▸ 导出 ▸ &lt;head /&gt;](pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
 
-## 语言包（可选）
+
+
+> [!TIP]
+>
+> 当前文档，以及 VLOOK™ [使用说明攻略](guide.md)的所有 Markdown 文档及更多示例文档，详见 *==released/**samples**==* 下的文件。
+
+### 语言包（可选）
 
 VLOOK™ 的界面语言默认内置了 *英文`English`*_~Se~_、*中文`简体`*_~Rd~_ ，对导出后的 HTML 需要支持更多语言，可以选择将对应语言包的内容，追加到以上导出配置中「元标签」内容的后面，重新导出 HTML 即可。
 
 <u>目前可扩展支持的语种：</u>
 
 ***法语`Français`*_~La~_  *德语`Detusch`*_~Bk~_  *俄语`Русский`*_~Bu~_  *西班牙语`Español`*_~Ye~_  *葡萄牙语`Português`*_~Wn~_<br>*中文`繁体`*_~Rd~_  *日语`日本語`*_~Gy~_  *韩语`한국어`*_~Se~_  *阿拉伯语`العربية`*_~Mn~_**
+
+
+
+<u>「在线模式」会自动进行语言适配，而对于对于「==离线模式==」根据实际需要进行==手工处理==，具体如下：</u>
 
 _^tab^_
 
@@ -365,25 +393,138 @@ _^tab^_
 >
 > ![Typora ▸ 偏好设置 ▸ 导出 ▸ &lt;body /&gt;](pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
 
+## 在线模式安装
 
+**先完成你自己的 Web 站点搭建，然后再进行以下资源的部署、站点域名调整等处理**
 
+### 在线插件与字体
 
+_^tab^_
 
-> **加入讨论与交流**
+> **引用网络字体**
 >
-> [<kbd>💬 加入 QQ 群 (805502564)</kbd>](https://qm.qq.com/q/O0tNC6WBWe)    *[<kbd>✈️ 加入 Telegram 频道</kbd>](https://t.me/vlook_markdown)*
+> 1. 用文本编辑器打开 *==released/**theme-live**/**Vxx.x**==* 下的所有以 `fs-` 开头的 **CSS 文件**
+> 2. 搜索所有 `<your-host>` 的内容，替换为 Web 站点的域名，并保存
+> 3. 完成更新后的文件上传更新至 Web 站点对应的目录下
 
-# 补充说明
+> **部署在线插件与网络字体**
+>
+> 1. 将 *==released/**plugin-live**/**Vxx.x**==* 上传至 Web 站点根目录下
+> 2. 在 GitHub 上下载 [openfonts](https://github.com/MadMaxChow/openfonts/releases) 的最新版本（如：`web-font-V2.0.tar.gz` ）
+> 3. 解压后将里面的所有子目录（如：`s` `v` ）上传至 Web 站点中对应 VLOOK 在线版本的资源目录下（如：`V2025.10` ）
 
-## 在线版本
 
-以上配置方式为离线插件，完整的插件代码与 HTML 文件集成，适合浏览文档时须在内网或无网络的情况，但不便于实时更新插件和 [在线切换模板主题](guide3.md#模板主题) 等。
 
-目前 VLOOK™ 支持提供在线版插件方式，可参考以上方式增加新的「导出配置」即可（建议配置命名为 `VLOOK (live)` ）。
+> [!IMPORTANT]
+>
+> - 以上 `Vxx.x` 是指对应的版本标识，如 `V2025.10` ，作为 VLOOK 在线版本的资源目录
+> - 若使用旧版本的主题、插件所发布的 HTML 不重新发布，则需要保留原来版本的目录，不要删除
 
-在线版的插件文件为：*==released/plugin/**plugin_live.txt**==*
+### 在线主题
 
-[<kbd>![](pic/icon-download.svg?fill=text) 下载在线版插件</kbd>](https://raw.githubusercontent.com/MadMaxChow/VLOOK/master/released/plugin/plugin_live.txt)  *[<kbd>![](pic/icon-download.svg?fill=text) 备用链接</kbd>](https://gitee.com/madmaxchow/VLOOK/raw/master/released/plugin/plugin_live.txt)*
+_^tab^_
+
+> **安装在线主题**
+>
+> 1. 用文本编辑器打开 *==released/**themes-live**==* 目录下需要使用的「在线版本」的主题文件（如 `vlook-live-hope.css` ）
+> 2. 搜索文件中所有 `<your-host>` 的内容，并替换为 Web 站点的域名，并保存
+> 3. 参考以上「[安装主题包](#安装主题包)」的方式，将修改后的「在线版本」的主题文件复制到 Typora 的主题目录中
+
+> **部署主题文件到 Web 站点**
+>
+> 1. 用文本编辑器打开 *==released/**themes-live**/**Vxx.x**==* 目录下需要使用的主题文件（如 `vlook-hope.css` ）
+> 2. 搜索所有 `<your-host>` 的内容，并替换为 Web 站点的域名，并保存
+> 3. 完成更新后的文件上传更新至 Web 站点对应的目录下
+
+### 导出选项
+
+_^tab^_
+
+> **配置引用资源**
+>
+> 1. 用文本编辑器打开 *==released/plugin/**plugin-live.txt**==*
+> 2. 搜索所有 `<your-host>` 的内容，替换为 Web 站点的域名，并保存
+> 3. 涉及的配置项及说明如下：
+>    - `<link rel="preconnect" ...>` — 预连接的服务器域名
+>    - `<link rel="dns-prefetch" ...>` — （同上）
+>    - `<meta name="vlook-js" ...>` — js 文件所在子目录的 URL
+>    - `<meta name="vlook-fs" ...>` — 网络字体文件所在子目录的 URL
+
+> **配置导出选项**
+>
+> 参考以上「[配置导出选项](#配置导出选项)」操作，新建针对在线模式的导出配置，主要区别化处理内容如下：
+>
+> - 导出配置的命名建议增加 `(live)` 进行区分，如：`VLOOK (live)`
+> - 需要粘贴的是「在线版插件」*==released/plugin/**plugin_live.txt**==*
+
+
+
+> [!TIP]
+>
+> 当前文档，以及 VLOOK™ [使用说明攻略](guide.md)的所有 Markdown 文档及更多示例文档，详见 *==released/**samples**==* 下的文件。
+
+## 安装本地字体（可选）
+
+VLOOK™ 提供了 8 套个性突出的[字体风格](guide3.md#字体风格)选择，其中部分带有 (WebFont) 标记的字体风格须连接互联网才能正常加载和生效。
+
+若无法连接网络或网络速度较慢，建议下载字体在本地进行安装。
+
+---
+
+---
+
+---
+
+> ![使用系统的 UI 字体，在不同的系统或终端上会效果会稍有不同](pic/fs-local2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![整体表现为「书籍、印刷、」（用系统内置的宋体、黑体进行「混搭」，在不同的系统或终端上会效果会稍有不同）](pic/fs-book2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![整体表现为「禅院、正楷书法、宁静空间」（需要浏览器加载网络字体或下载安装）](pic/fs-zen2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![整体表现为「亲和力、温润、健康」（需要浏览器加载网络字体或下载安装）](pic/fs-yuan2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+---
+
+---
+
+---
+
+> ![整体表现为「活力、开放」（需要浏览器加载网络字体或下载安装）](pic/fs-dyn2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![整体表现为「优雅、韵动、个性」（需要浏览器加载网络字体或下载安装）](pic/fs-serif2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![整体表现为「清新、简约、潮流」（需要浏览器加载网络字体或下载安装）](pic/fs-sans2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![整体表现为「童趣、手写、随心、惬意」（需要浏览器加载网络字体或下载安装）](pic/fs-ink2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+**[<kbd>下载字体包</kbd>](https://github.com/MadMaxChow/openfonts/releases/download/V2.0/install-font-V2.0.tar.gz)**
+
+> [!NOTE]
+>
+> - 可以选择所需要使用的字体风格的字体包进行安装，也可以全部安装；
+> - 部分字体在不同字体风格中会有重复，安装时若提示已存在，可以跳过对应字体的安装。
+
+
+
+<u>若希望默认使用**指定的字体风格**，可以订阅 VLOOK™ 的 ==定制主题服务== 。</u>
+
+**[<kbd>去探索更多定制主题的介绍</kbd>](vip.md)**
 
 ## **🧰** 升级与兼容性
 
@@ -424,11 +565,7 @@ _^tab^_
 >
 > _~La~_
 
----
-
-如果你有更多需求或建议，欢迎随时反馈～ [![Freeback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Freeback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
-
-# 增值服务
+# ==增值服务==
 
 ## 主题定制服务
 
@@ -448,7 +585,7 @@ _^tab^_
 
 ## 排版编辑服务
 
-<u>针对你文档的内容、受众，充分应用 Typora + VLOOK™ 的众多特性，提供 **文档排版**、**内容修订**、**知识库搭建**、**出版指导**、**站点托管**、**发布 HTML** 等服务。</u>
+<u>针对你文档的内容、受众，充分应用 Typora + VLOOK™ 的众多特性，提供 **文档排版**、**内容修订**、**知识库搭建**、**出版指导**、**Web 站点托管**、**发布 HTML** 等服务。</u>
 
 ![VLOOK™ 排版编辑服务](pic/vlook-te.png?srcset=@2x)
 
@@ -464,7 +601,13 @@ _^tab^_
 >
 > - 更多的实践范例详见下载包中的目录 *==released\\[samples](https://github.com/MadMaxChow/VLOOK/tree/master/released/samples)==*
 
-# 品牌周边
+# ~~用于测试一级章节不发布~~
+
+![测试一级章节内多个插图的题注自动编号（第1个）](pic/3rd-haiyan.png)
+
+![测试一级章节内多个插图的题注自动编号（第2个）](pic/3rd-haiyan.png)
+
+# ==品牌周边==
 
 ## 墙纸
 
@@ -477,6 +620,8 @@ _^tab^_
 
 
 [<kbd>1336 × 768</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1336x768.png)  [<kbd>1440 × 900</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)  [<kbd>1920 × 1080</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)  [<kbd>2560 × 1440</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)  [<kbd>2560 × 1600</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1600.png)
+
+## ~~用于测试二级章节不发布及后跟同级章节~~
 
 ## 实物周边
 
@@ -492,19 +637,59 @@ _^tab^_
 
 **[<kbd>![](pic/icon-vip.svg?fill=text#icon)  我要选购 - 桌面垫（键盘 & 鼠标垫)</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
 
-# 即将推出...
+### ~~用于测试三级章节不发布及后跟一级章节~~
+
+这是三级章节，但不发布，后跟一级章节
+
+# 讨论与交流
+
+> **加入讨论与交流**
+>
+> [<kbd>💬 加入 QQ 群 (805502564)</kbd>](https://qm.qq.com/q/O0tNC6WBWe)    *[<kbd>✈️ 加入 Telegram 频道</kbd>](https://t.me/vlook_markdown)*
+
+
 
 ---
 
+> **由 YAML 标记不发布**
+>
+> 内容
+
+> ###### ~~通过删除标记不发布~~
+>
+> 内容
+
+## 由 YAML 标记不发布
+
+这个章节的内容，通过在 YAML 中指定为不发布。
+
+# 即将推出...
+
+## ~~V2025.10~~
+
+---
+
+---
+
+> ![°文档排版](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon2x)
+>
+> ==「在线模式」==
+>
+> <u>为自建 Web 站点的用户提供完整的在线部署模式，可减少网络流量和提高页面加载响应速度～</u>
+>
+> [<kbd>![](pic/qico-disc-light.svg?fill=text) 咨询</kbd>](#讨论与交流)
+>
+> _~Bu!~_
+
 > ![°文档排版](pic/qico-print.svg?fill=text&darksrc=invert#icon2x)
 >
-> **「发布为 PDF」**
+> ==「发布为 PDF」==
 >
-> <u>为导出后的 HTML 文件，提供 PDF 样式适配支持～目前**已发布实验性版本**，欢迎去 GitHub 上的这个讨论话题中留言、反馈～</u>
+> <u>为导出后的 HTML 文件提供导出 PDF 支持（已发布实验性版本），欢迎参与试用与反馈～</u>
 >
 > [<kbd>![](pic/qico-disc-light.svg?fill=text) 参与讨论</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/158)
 >
-> _~T1!~_
+> _~Rd!~_
 
 > ![°文档排版](pic/qico-disc-light.svg?fill=text&darksrc=invert#icon2x)
 >
@@ -512,16 +697,28 @@ _^tab^_
 >
 > <u>欢迎前往我们在 GitHub 上的讨论组提出你的建议或期望能解决的痛点～</u>
 >
-> *[<kbd>![](pic/qico-theme-light.svg?fill=text) 分享个点子</kbd>](https://github.com/MadMaxChow/VLOOK/discussions)*
+> *[<kbd>![](pic/qico-disc-light.svg?fill=text) 分享个点子</kbd>](https://github.com/MadMaxChow/VLOOK/discussions)*
 >
-> _~T1~_
+> _~Bn~_
 
-## ~~用于测试最后一章不发布~~
+## ~~用于测试最后一章不发布的内容~~
 
 这些内容是不发布的！以及不会对 [不存在的页内锚点](#未发布内容中不存在的内链) 、[外链](no-page.html#未发布内容中的外链) 、[不发布章节内的锚点](#测试不发布章节) 检查有效性的！
 
-### 测试不发布章节
+```
+text
+```
 
-这些内容是不发布的！
+
+
+*==代码题注测试==*
+
+```YAML
+title: 简介 - VLOOK™ - 优雅好用的 Typora 主题与增强插件
+author: MAX°孟兆	 
+description: 关于 VLOOK™ 下载、设置、安装与配置配置说明
+```
+
+
 
 # The End

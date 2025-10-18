@@ -1,13 +1,12 @@
-<!--
-========== Language Pack ==========
-VLOOK™ "V30.1" (2025-07-02) - (Language Pack) - Typora Plugin
-
-Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
-追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
--->
-<!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
-<!-- 以下为 de 语言包内容 -->
-<script type="application/json" id="vlook-lang-de" data-lang="de">{
+<script>/**************************************
+ * ========== Language Pack ==========
+ * VLOOK™ "V2025.10" (2025-10-18) - (Language Pack) - Typora Plugin
+ *
+ * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
+ * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
+ *************************************/
+var V_lang_data_de = {
+"lang": "de",
 "de1":"Dokumentdeckblatt",
 "de2":"Tabs wechseln",
 "de3":"Link-Karte",
@@ -26,9 +25,9 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "de16":"Nächste",
 "de17":"Schließen",
 "de18":"Formel",
-"de19":"Wenn Sie keine Verbindung zum Internet herstellen können, um die Online-Version der Schriftart zu laden, wird empfohlen, die Schriftart direkt lokal herunterzuladen",
-"de20":"Primärer Link",
-"de21":"Sekundärer Link",
+"de19":"Wenn Sie keine Verbindung zum Internet herstellen können, um die Online-Version der Schriftart zu laden, wird empfohlen, die Schriftart direkt lokal herunterzuladen.<br>Wenn Sie keine Verbindung zum Internet herstellen können oder Ihr Netzwerk langsam ist, wird empfohlen, die Schriftarten für die lokale Installation herunterzuladen.",
+"de20":"Blockzitatfaltung erweitern",
+"de21":"Tabellenzeilengruppe erweitern",
 "de22":"Alle Fußnoten",
 "de23":"Lesen beginnen",
 "de24":"Vollbild",
@@ -45,7 +44,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "de35":"Inhaltsverzeichnis",
 "de36":"- Eine neue Version wurde veröffentlicht, bitte aktualisieren!",
 "de37":"Entschuldigung, das Kopieren wird in diesem Browser derzeit nicht unterstützt",
-"de38":"Bereit",
+"de38":"Gliederung einbeziehen",
 "de39":"Zeitüberschreitung",
 "de40":"Wird geladen",
 "de41":"Schriftstil",
@@ -62,7 +61,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "de52":"Hash prüfen",
 "de53":"Doppelter Titel/Beschriftung",
 "de54":"Ungültiger interner Link",
-"de55":"Alle anzeigen",
+"de55":"Bildfilter (Unschärfe) aufheben",
 "de56":"Tabelle",
 "de57":"Codeblock",
 "de58":"Abbildung",
@@ -99,6 +98,10 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "de89":"Klicken Sie unten auf die Schaltfläche, um es vorübergehend auszuschalten",
 "de90":"Automatisch",
 "de91":"Hell",
-"de92":"Dunkel"
+"de92":"Dunkel",
+"de93":"Completed",
+"de94":"Failed",
+"de95":"Druck starten (wählen: Als PDF speichern)",
+"de96":"Cancel",
+"de97":"Rubbelkarte anzeigen",
 }</script>
-

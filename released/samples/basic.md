@@ -28,7 +28,7 @@
 
 # 关于的封面、封底
 
->  - 有关「封面、封底」，以及 VLOOK™ 的更多信息，详见《[VLOOK 快速参考手册](https://madmaxchow.github.io/VLOOK/guide.html#封面、封底)》
+>  - 有关「封面、封底」，以及 VLOOK™ 的更多信息，详见《[VLOOK 使用攻略](https://madmaxchow.github.io/VLOOK/guide.html#封面、封底)》
 >  - 若你的文档不需要封面、封底，可以将本文档中开始位置的 6 级标题，以及结束位置的 1 级标题内容删除即可。
 
 

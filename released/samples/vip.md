@@ -7,19 +7,18 @@ description: 关于 VLOOK™ 的增值服务，定制主题服务、排版编辑
 keywords:
 - Gitee,GitHub,i18n,Markdown,MIT,OSC,Plugin,Typora,VLOOK,GitHub Style Alert,OGP,Open Graph Protocol,Mermaid,WIKI,HTML,PRD,YAML,YouTube
 - Editor's recommendation,plugin,open source,OSChina (Open Source China),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
-- Light mode,Dark mode,Grayscale mode,Gray mode
+- light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
 - Catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - Table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - Picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
 - Online video,streaming media,Bilibili video,Watermelon video,Douyin video,Tencent video
 - content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
-
 - Text Color,Paragraph Layout,Button,Button Link,Primary Button,Secondary Button,Super Button, Tab Group,Columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - Link map,link specification,link check,link recognition,link conversion
 - Design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - Product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
-- 浅色外观,深色外观,灰度外观,灰色外观
+- 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
 - 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
@@ -27,13 +26,13 @@ keywords:
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
-- 设计,需求,文档,博客,手册,指南,知识库,教程,方案,教育,笔记,日记
+- 设计,需求,文档,博客,手册,指南,攻略,知识库,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
 vlook-doc-lib:
 - [如何开始？](index.html?target=index "简介、安装与配置、语言包")
-- [手册 • 基础](guide.html?target=_self "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/旋转/翻转/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
-- [手册 ▲ 进阶](guide2.html?target=_self "分栏、题注、按钮、代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
-- [手册 ★ 探索](guide3.html?target=_self "内容导航、内容助手、演示辅助激光笔/聚光灯、出版辅助标记不发布/链接地图/长内容折叠/链接检查、自定义选项、……")
+- [攻略 • 基础](guide.html?target=_self "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/旋转/翻转/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
+- [攻略 ▲ 进阶](guide2.html?target=_self "分栏、题注、按钮、代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
+- [攻略 ★ 探索](guide3.html?target=_self "内容导航、内容助手、演示辅助激光笔/聚光灯、出版辅助标记不发布/链接地图/长内容折叠/链接检查、自定义选项、……")
 - [更多内容](vlook-lib.html "VLOOK™ 全部特性索引表")
 - [反馈问题](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
 
@@ -111,7 +110,7 @@ vlook-doc-lib:
 
 > [![中山大学 • HXlab 科研文档使用](pic/vip-hxlab.png?srcset=@2x#card "中山大学 • HXlab")](theme-vip-hxlab.html)
 
-> [![个人文档使用](pic/vip-blw-note.png?srcset=@2x#card "BLW note")](theme-vip-blw-note.html)
+> [![普律派 • 保险合同简报使用](pic/vip-plp-pw.png?srcset=@2x#card "普律派 • PLP-PW")](theme-vip-plp-pw.html)
 
 ---
 
@@ -169,7 +168,39 @@ vlook-doc-lib:
 
 > [![个人文档使用](pic/vip-alp-studio.png?srcset=@2x#card "ALP_STUDIO")](theme-vip-alp_studio.html)
 
+> [![个人文档使用](pic/vip-android-moyu.png?srcset=@2x#card "Android_MoYu")](theme-vip-android_moyu.html)
 
+> [![个人文档使用](pic/vip-duji.png?srcset=@2x#card "渡己 DuJi")](theme-vip-duji.html)
+
+---
+
+---
+
+> [![个人文档使用](pic/vip-hbcm.png?srcset=@2x#card "HBCM")](theme-vip-hbcm.html)
+
+> [![个人文档使用](pic/vip-tianami.png?srcset=@2x#card "Tianami")](theme-vip-tianami.html)
+
+> [![大学老师个人文档使用](pic/vip-purples.png?srcset=@2x#card "Purples")](theme-vip-purples.html)
+
+---
+
+---
+
+> [![个人文档使用](pic/vip-figo-tech.png?srcset=@2x#card "Figo Tech")](theme-vip-figo-tech.html)
+
+> [![个人文档使用](pic/vip-figo-finance.png?srcset=@2x#card "Figo Finance")](theme-vip-figo-finance.html)
+
+> [![个人文档使用](pic/vip-blw-note.png?srcset=@2x#card "BLW note")](theme-vip-blw-note.html)
+
+---
+
+---
+
+> [![个人文档使用](pic/vip-xyzwlbzfb.png?srcset=@2x#card "XYZWLBZFB")](theme-vip-xyzwlbzfb.html)
+
+> [![大学老师个人文档使用](pic/vip-leaf-life.png?srcset=@2x#card "Leaf Life")](theme-vip-leaf-life.html)
+
+> [![个人文档使用](pic/vip-sean.png?srcset=@2x#card "Sean")](theme-vip-sean.html)
 
 ---
 
@@ -243,25 +274,25 @@ vlook-doc-lib:
 
 ==与官方主题同款，附有 **常用语法**、**色号** 的参考==
 
-![VLOOK™ Wallpaper](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-preview.png?srcset=@2x)
+![VLOOK™ Wallpaper](pic/VLOOK-wallpaper-preview.png?srcset=@2x)
 
 <u>选择需要的分辨率版本</u>
 
 
 
-[<kbd>1336 × 768</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1336x768.png)  [<kbd>1440 × 900</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)  [<kbd>1920 × 1080</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)  [<kbd>2560 × 1440</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)  [<kbd>2560 × 1600</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1600.png)
+[<kbd>1336 × 768</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1336x768.png)  [<kbd>1440 × 900</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1440x900.png)  [<kbd>1920 × 1080</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-1920x1080.png)  [<kbd>2560 × 1440</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1440.png)  [<kbd>2560 × 1600</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-2560x1600.png)  [<kbd>3840 × 2160</kbd>](https://vlook-doc.pages.dev/pic/VLOOK-wallpaper-3840x2160.png)
 
 ## 实物周边
 
 ![鼠标垫](pic/pad_mouse-25x30-preview.png?srcset=@2x)
 
-**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  我要选购 - 鼠标垫</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
+**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  我要选购 - 鼠标垫</kbd>](https://wj.qq.com/s2/22475372/u7q0/)**
 
 
 
 ![桌面垫（键盘 & 鼠标垫）](pic/pad_desk-30x70-preview.png?srcset=@2x)
 
-**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  我要选购 - 桌面垫</kbd>](https://m.tb.cn/h.hZv7kfL?tk=Q2KVVJAuOVI)**
+**[<kbd>![](pic/icon-vip.svg?fill=text#icon)  我要选购 - 桌面垫</kbd>](https://wj.qq.com/s2/22475372/u7q0/)**
 
 # 咨询我们
 

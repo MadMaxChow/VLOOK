@@ -1,13 +1,12 @@
-<!--
-========== Language Pack ==========
-VLOOK™ "V30.1" (2025-07-02) - (Language Pack) - Typora Plugin
-
-Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
-追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
--->
-<!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
-<!-- 以下为 ja 语言包内容 -->
-<script type="application/json" id="vlook-lang-ja" data-lang="ja">{
+<script>/**************************************
+ * ========== Language Pack ==========
+ * VLOOK™ "V2025.10" (2025-10-18) - (Language Pack) - Typora Plugin
+ *
+ * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
+ * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
+ *************************************/
+var V_lang_data_ja = {
+"lang": "ja",
 "ja1":"ドキュメントカバー",
 "ja2":"タブを切り替える",
 "ja3":"リンクマップ",
@@ -26,9 +25,9 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "ja16":"次へ",
 "ja17":"閉じる",
 "ja18":"式",
-"ja19":"インターネットに接続できずフォントのオンラインバージョンを読み込むことができない場合は、フォントを直接ローカルにダウンロードすることをお勧めします",
-"ja20":"プライマリリンク",
-"ja21":"セカンダリリンク",
+"ja19":"フォントのオンライン版を読み込むためにインターネットに接続できない場合、フォントを直接ローカルにダウンロードすることを推奨します。<br>インターネットに接続できない場合やネットワークが遅い場合は、フォントをローカルにインストールするためにダウンロードすることを推奨します。",
+"ja20":"引用折りたたみを展開",
+"ja21":"表の行グループを展開",
 "ja22":"すべての脚注",
 "ja23":"読み始める",
 "ja24":"全画面",
@@ -45,7 +44,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "ja35":"目次",
 "ja36":"- 新しいバージョンがリリースされました。更新してください！",
 "ja37":"申し訳ありませんが、このブラウザでは現在コピー機能がサポートされていません",
-"ja38":"準備完了",
+"ja38":"アウトラインを含める",
 "ja39":"タイムアウト",
 "ja40":"読み込み中",
 "ja41":"フォントスタイル",
@@ -62,7 +61,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "ja52":"ハッシュを確認",
 "ja53":"重複したタイトル/キャプション",
 "ja54":"無効な内部リンク",
-"ja55":"すべて表示",
+"ja55":"画像フィルターを解除 (ぼかし)",
 "ja56":"表",
 "ja57":"コードブロック",
 "ja58":"図",
@@ -106,6 +105,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "de96":"Abbrechen",
 "ja93":"完了",
 "ja94":"失敗しました",
-"ja95":"とにかく続行",
-"ja96":"キャンセル"
+"ja95":"印刷を開始 (選択: PDFとして保存)",
+"ja96":"キャンセル",
+"ja97":"スクラッチカードを表示"
 }</script>

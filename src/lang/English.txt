@@ -1,11 +1,12 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V30.1" (2025-07-02) - (Language Pack) - Typora Plugin
+VLOOK™ "V2025.10" (2025-10-18) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
 -->
 <!-- The following is a language identifier, e.g: ru, fr, zh-hk -->
+<!-- 以下为可复用的语言包 ID -->
 <!-- 以下为 en 语言包内容 -->
 <script type="application/json" id="vlook-lang-en" data-lang="en">{
 "en1":"Document cover",
@@ -26,9 +27,9 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "en16":"Next",
 "en17":"Close",
 "en18":"Formula",
-"en19":"If you cannot connect to the Internet to load the online version of the font, it is recommended to download the font directly to the local",
-"en20":"Primary link",
-"en21":"Secondary link",
+"en19":"If you cannot connect to the Internet to load the online version of the font, it is recommended to download the font directly to the local.<br>If your network is slow or blocked, you can directly download the corresponding fonts to install.",
+"en20":"Expand Blockquote Folding",
+"en21":"Expand Table Row Group",
 "en22":"All footnotes",
 "en23":"Start reading",
 "en24":"Full screen",
@@ -45,7 +46,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "en35":"Table of Contents",
 "en36":"- A new version has been released, please update!",
 "en37":"Sorry, copying is currently not supported in this browser",
-"en38":"Ready",
+"en38":"Include Outline",
 "en39":"Timeout",
 "en40":"Loading",
 "en41":"Font Style",
@@ -62,7 +63,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "en52":"Check Hash",
 "en53":"Duplicate Title/Caption",
 "en54":"Invalid Inner Link",
-"en55":"Show all",
+"en55":"Cancle Image Filter (Blur)",
 "en56":"Table",
 "en57":"Code Block",
 "en58":"Figure",
@@ -102,6 +103,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "en92":"Dark",
 "en93":"Completed",
 "en94":"Failed",
-"en95":"Continue Anyway",
-"en96":"Cancel"
+"en95":"Start Printing (select [Save as PDF])",
+"en96":"Cancel",
+"en97":"Reveal Scratch Card"
 }</script>

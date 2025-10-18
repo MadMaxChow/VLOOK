@@ -3,8 +3,8 @@
  * VLOOK™ CSS - Mermaid 自定义样式
  * (配合 base.less 进行使用)
  *
- * V30.1
- * 2025-07-02
+ * V2025.10
+ * 2025-10-18
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -21,36 +21,8 @@
     --v-mermaid: on;
 
     // 针对 #Mermaid_Var
-    // --mm-sequence-numbers: on;
     --mermaid-sequence-numbers: on;
-
-    // --mm-flowchart-curve: basis;
     --mermaid-flowchart-curve: basis;
-
-    // --mermaid-font-family: var(--v-f-fm-bd);
-
-    // 针对 #ZenUML_Var
-
-    // --mm-c-rd: var(--ac-rd);
-    // --mm-c-rd-a: var(--ac-rd-a);
-    // --mm-c-og: var(--ac-og);
-    // --mm-c-og-a: var(--ac-og-a);
-    // --mm-c-ye: var(--ac-ye);
-    // --mm-c-ye-a: var(--ac-ye-a);
-    // --mm-c-gn: var(--ac-gn);
-    // --mm-c-gn-a: var(--ac-gn-a);
-    // --mm-c-bu: var(--ac-bu);
-    // --mm-c-bu-a: var(--ac-bu-a);
-    // --mm-c-pu: var(--ac-pu);
-    // --mm-c-pu-a: var(--ac-pu-a);
-    // --mm-c-cy: var(--ac-cy);
-    // --mm-c-cy-a: var(--ac-cy-a);
-    // --mm-c-ro: var(--ac-ro);
-    // --mm-c-ro-a: var(--ac-ro-a);
-    // --mm-c-bn: var(--ac-bn);
-    // --mm-c-bn-a: var(--ac-bn-a);
-    // --mm-c-gy: var(--ac-gy);
-    // --mm-c-gy-a: var(--ac-gy-a);
 }
 
 // ** 注意 **
@@ -134,16 +106,16 @@ svg[aria-roledescription=pie] .pieCircle {
 // 标题、图例文本
 svg[aria-roledescription=pie] .pieTitleText {
     fill: var(--d-fc) !important;
-    font-weight: var(--v-f-w-tt) !important;
+    font-weight: var(--v-fw-tt) !important;
     font-size: 1.5em !important;
 }
 svg[aria-roledescription=pie] .legend text {
     fill: var(--d-fc) !important;
-    font-weight: var(--v-f-w-bd) !important;
+    font-weight: var(--v-fw-bd) !important;
 }
 
 svg[aria-roledescription=pie] :is(.pieTitleText, .slice) {
-    font-weight: var(--v-f-w-bd) !important;
+    font-weight: var(--v-fw-bd) !important;
 }
 
 /* ----- flow diagram 流程图 ----- */
@@ -372,7 +344,7 @@ svg[aria-roledescription=sequence] .actor {
 svg[aria-roledescription=sequence] text.actor>tspan {
     fill: var(--d-fc) !important;
     stroke: none !important;
-    font-weight: var(--v-f-w-bd);
+    font-weight: var(--v-fw-bd);
 }
 
 // 角色生命线
@@ -413,7 +385,7 @@ svg[aria-roledescription=sequence] #filled-head path {
     svg[aria-roledescription=sequence] .messageText:hover,
     svg[aria-roledescription=sequence] .messageText:hover + :is(.messageLine0, .messageLine1) + .sequenceNumber {
         fill: var(--a-c) !important;
-        font-weight: var(--v-f-w-bd) !important;
+        font-weight: var(--v-fw-bd) !important;
         cursor: crosshair;
     }
     svg[aria-roledescription=sequence] .messageText:hover + :is(.messageLine0, .messageLine1) {
@@ -425,7 +397,7 @@ svg[aria-roledescription=sequence] #filled-head path {
 svg[aria-roledescription=sequence] .sequenceNumber {
     color: var(--d-bc) !important;
     fill: var(--d-bc) !important;
-    font-weight: var(--v-f-w-bd) !important;
+    font-weight: var(--v-fw-bd) !important;
 }
 
 // 消息序号背景
@@ -459,13 +431,13 @@ svg[aria-roledescription=sequence] .labelBox {
 // 片断的类型文本
 svg[aria-roledescription=sequence] g>.labelText {
     fill: @colorWhite !important;
-    font-weight: var(--v-f-w-gd) !important;
+    font-weight: var(--v-fw-gd) !important;
 }
 
 //片断的标题标签文本
 svg[aria-roledescription=sequence] .loopText {
     fill: var(--ac-pu-lg) !important;
-    font-weight: var(--v-f-w-bd) !important;
+    font-weight: var(--v-fw-bd) !important;
 }
 .genHoverStyle(@for) when (@for = sequence_loopText) {
     svg[aria-roledescription=sequence] :is(.loopText:hover, .loopText:hover>tspan) {
@@ -519,7 +491,7 @@ svg[aria-roledescription=sequence] .noteText tspan {
 // 扩展：重要系统角色
 .v-actor-key-sys {
     stroke-width: 2 !important;
-    font-weight: var(--v-f-w-bd) !important;
+    font-weight: var(--v-fw-bd) !important;
 }
 // 扩展：外部系统角色
 .v-actor-ext-sys {
@@ -772,7 +744,7 @@ svg[aria-roledescription=sankey] {
 svg[aria-roledescription=gantt] .titleText {
     text-anchor: middle !important;
     font-size: 1.5em !important;
-    font-weight: var(--v-f-w-tt) !important;
+    font-weight: var(--v-fw-tt) !important;
     fill: var(--d-fc) !important;
 }
 
@@ -911,7 +883,7 @@ svg[aria-roledescription=quadrantChart] :is(.title, .label, .quadrant, .data-poi
 svg[aria-roledescription=quadrantChart] .quadrant > text {
     fill: var(--d-fc-a) !important;
     color: var(--d-fc-a) !important;
-    font-weight: var(--v-f-w-bd);
+    font-weight: var(--v-fw-bd);
 }
 svg[aria-roledescription=quadrantChart] .label > text {
     font-style: italic;
@@ -968,12 +940,12 @@ svg[aria-roledescription=quadrantChart] .data-point > circle {
 // 标题
 svg[aria-roledescription=gitGraph] .gitTitleText {
     fill: var(--d-fc) !important;
-    font-weight: var(--v-f-w-tt) !important;
+    font-weight: var(--v-fw-tt) !important;
 }
 
 // 分支文字
 svg[aria-roledescription=gitGraph] .branchLabel .row {
-    font-weight: var(--v-f-w-bd) !important;
+    font-weight: var(--v-fw-bd) !important;
     fill: fade(#FFF, 90%);
     font-size: .875em;
 }
@@ -1103,7 +1075,7 @@ svg[aria-roledescription=gitGraph] .commit-labels .commit-label-bkg {
 // 提交标记文本
 svg[aria-roledescription=gitGraph] .commit-labels .commit-label {
     fill: var(--d-fc) !important;
-    font-weight: var(--v-f-w-bd);
+    font-weight: var(--v-fw-bd);
 }
 
 /* ----- C4 diagrams C4 图 ----- */

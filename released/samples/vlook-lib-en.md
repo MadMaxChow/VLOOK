@@ -15,7 +15,9 @@ vlook-query: sb=hide
 >
 > _~Vn!~_
 
-###### Text • Button
+###### Text • Paragraph • Button
+
+---
 
 ---
 
@@ -23,9 +25,14 @@ vlook-query: sb=hide
 > - Set specified text to gradient color [❯❯](guide-en.md#Text Gradient)
 > - What is a 'preset color code' in text color [❯❯](guide-en.md#Preset Color Code)
 
+> - Entire Paragraph *Italic* [❯❯](guide-en.md#Paragraph Italic)
+> - Entire Paragraph **Bold** [❯❯](guide-en.md#Paragraph Bold)
+> - Entire Paragraph <u>Underline</u> [❯❯](guide-en.md#Paragraph Underline)
+> - Entire Paragraph ==Highlight== [❯❯](guide-en.md#Paragraph Highlight)
+
 > - Set the style of simulated keyboard buttons  [❯❯](guide2-en.md#Keyboard Keys)
-> - Text button [❯❯](guide2-en.md#Text Buttons)
-> - Icon and text button [❯❯](guide2-en.md#Icon + Text Buttons)
+> - Text button, Icon + Text button [❯❯](guide2-en.md#Button Link)
+> - Card-Style Link [❯❯](guide2-en.md#Card-Style Link)
 
 ###### Table • Cell • Column
 
@@ -89,9 +96,7 @@ vlook-query: sb=hide
 >
 > _~Vn~_
 
-###### Columns • Quote Blocks • Header
-
----
+###### Columns • Quote Blocks • Tab Group • Header
 
 ---
 
@@ -113,6 +118,12 @@ vlook-query: sb=hide
 > - Embed quote blocks within lists [❯❯](guide-en.md#Example of Blockquotes Nested in Lists)
 >
 > _~Vn~_
+
+---
+
+> ###### Tab Group
+>
+> Supports organizing consecutive tables, illustrations, blockquotes, code blocks, videos, audio, formulas, and GitHub Style Alerts into "Tab Groups" [❯❯](guide2.md#°Tab Group)
 
 > ###### Typesetting of chapter titles
 >
@@ -169,7 +180,7 @@ vlook-query: sb=hide
 > - Add "Cover and Back Cover" to documents [❯❯](guide2-en.md#°Cover & Back Cover)
 > - Present "**progress**" information more intuitively [❯❯](guide2-en.md#Progress Bar)
 > - **Automatically calculate** and complete the "progress" of the **task list** [❯❯](guide2-en.md#Progress Bar)
-> - Hide answers when creating training or puzzle documents [❯❯](guide2-en.md#Scratch Cards)
+> - Hide answers when creating training or puzzle documents [❯❯](guide2-en.md#Scratch Card)
 > - Add **phonetics** to rare characters or East Asian languages [❯❯](guide2-en.md#Phonetic Notation)
 >
 > _~Vn~_
@@ -331,6 +342,14 @@ vlook-query: sb=hide
 >
 > ---
 >
+> ---
+>
+> > **Publish as PDF**
+> >
+> > Supports publishing the generated HTML files as PDF format [❯❯](guide3.md#Publish as PDF)
+> >
+> > _~Og~_
+>
 > > **Mark Content as Unpublished**
 > >
 > > Quickly mark content that will not be published yet (in HTML format) [❯❯](guide3-en.md#Mark Content not to Publish)
@@ -408,7 +427,7 @@ vlook-query: sb=hide
 > **Theme, Font Style**
 >
 > - Set different "Theme" for different types of documents [❯❯](guide3-en.md#Template Themes)
-> - Choose different "Font Style" for documents [❯❯](guide3-en.md#Font Styles)
+> - Choose different "Font Style" for documents [❯❯](guide3-en.md#Font Style)
 > - **Dark Mode** is **NOW** [❯❯](guide3-en.md#Dark-Mode)
 > - **Gray Mode** is **NOW** [❯❯](guide3-en.md#Gray-Mode)
 > - More beautiful formulas [❯❯](guide2-en.md#More Practical & Beautiful Formula)
