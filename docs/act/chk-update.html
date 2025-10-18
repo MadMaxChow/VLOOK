@@ -5,35 +5,62 @@
 Checking new version of VLOOK™ ...
 <div id="check-result"></div>
 <script type="text/javascript">
-let latestVer = "V30.1";
-window.addEventListener('message', function(event) {
+let lstVer = "V2025.10";
+/**
+ * 将版本号解析为可比较的数组
+ * 新格式: "2025.10.1" -> [2025, 10, 1]
+ * 新格式: "2025.10"   -> [2025, 10, 0]
+ * 旧格式: "30.1"      -> [0, 30, 1] (年份=0，用于保证新格式优先级更高)
+ */
+function parseVer(ver) {
+    let vs = ver.split('.').map(Number);
+    // 判断是否为新格式 (首段 > 2020，认为是 YYYY 格式)
+    if (vs[0] > 2020)
+        return vs.length === 2
+            ? [vs[0], vs[1], 0] // 补上 patch=0
+            : vs;
+
+    // 旧格式
+    if (vs.length === 1)
+        return [0, vs[0], 0];
+    else if (vs.length === 2)
+        return [0, vs[0], vs[1]];
+    return [0, ...vs]; // fallback
+}
+
+// 比较版本号
+function hasNew(srcVer, lstVer) {
+    let v1 = parseVer(srcVer),
+        v2 = parseVer(lstVer);
+
+    for (let i = 0; i < Math.max(v1.length, v2.length); i++) {
+        let n1 = v1[i] || 0,
+            n2 = v2[i] || 0;
+        if (n2 > n1) return true;
+        if (n2 < n1) return false;
+    }
+    return false; // 相等则无新版本
+}
+
+// 监听消息
+window.addEventListener('message', (event) => {
     // 处理消息
-    let receMessage = event.data;
-        // resultDiv = document.getElementById("check-result");
+    let msg = event.data;
     // 校验消息合法性
-    if (typeof receMessage !== "string")
+    if (typeof msg !== "string")
         return;
-    if (!receMessage.startsWith("V") || receMessage.length > 6)
+    if (!msg.startsWith("V") || msg.length > 10)
         return;
 
-    // resultDiv.innerText += `\nLastest version [${latestVer}]`;
-    // resultDiv.innerText += `\nChecking update for [${receMessage}] ...`;
-
-    // 来源的版本
-    srcVer = receMessage.substring(1, receMessage.length);
-    srcVer = isNaN(srcVer) ? 0 : parseFloat(srcVer);
     // 当前最新版本
-    latestVer = latestVer.substring(1, latestVer.length);
-    latestVer = isNaN(latestVer) ? 0 : parseFloat(latestVer);
-
-    // 生成结果
-    let result = latestVer > srcVer ? "yes" : "no";
-    // resultDiv.innerText += "\n[" + result + "]";
+    lstVer = lstVer.substring(1, lstVer.length);
 
     // 回复消息
-    event.source.postMessage("chk-update:" + result
-        + ((srcVer < 27) ? "" : ",latest:" + latestVer), // 27.0+ 的新格式内容
-        event.origin || "*");
+    event.source.postMessage("chk-update:"
+        + (hasNew(msg.substring(1, msg.length), lstVer)
+            ? "yes"
+            : "no")
+        + ",latest:" + lstVer, event.origin || "*");
 });
 </script>
 </body>
