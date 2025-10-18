@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>小程序内嵌网页兼容性指南</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f7f9fc;
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 100%;
+            padding: 15px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #07c160 0%, #09ad53 100%);
+            color: white;
+            padding: 20px 15px;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        h2 {
+            color: #07c160;
+            font-size: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2 i {
+            margin-right: 10px;
+            font-size: 22px;
+        }
+        
+        .warning {
+            background-color: #fff6e6;
+            border-left: 4px solid #ff9900;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .tip {
+            background-color: #e6f7ff;
+            border-left: 4px solid #1890ff;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        
+        .test-area {
+            border: 2px dashed #07c160;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 25px;
+            background-color: #f9fffc;
+        }
+        
+        .btn {
+            background-color: #07c160;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-block;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #06ae56;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .feature-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #e6f7ee;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            color: #07c160;
+            font-size: 20px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            color: #888;
+            font-size: 14px;
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                max-width: 750px;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .card {
+                padding: 25px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .container {
+                max-width: 970px;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>微信小程序内嵌网页组件兼容性指南</h1>
+            <p class="subtitle">确保您的网页在小程序Web-View组件中完美运行</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="card">
+            <h2><i class="fas fa-exclamation-triangle"></i> 核心注意事项</h2>
+            <p>在小程序内嵌网页中，某些浏览器特性可能受到限制，以下是需要特别注意的方面：</p>
+            
+            <div class="warning">
+                <p><strong>限制情况：</strong>小程序Web-View组件基于微信内置浏览器，但部分API和功能可能受限</p>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <div>
+                        <h3>API限制</h3>
+                        <p>某些JavaScript API可能无法使用</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                    <div>
+                        <h3>页面大小</h3>
+                        <p>页面布局需要适配小程序容器</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <div>
+                        <h3>交互通信</h3>
+                        <p>网页与小程序之间的通信需要特殊处理</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <div>
+                        <h3>性能优化</h3>
+                        <p>需要注意页面加载速度和渲染性能</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2><i class="fas fa-code"></i> 代码兼容性示例</h2>
+            <p>以下是一些需要注意的代码示例：</p>
+            
+            <div class="code-block">
+// 使用postMessage与小程序通信
+if (window.__wxjs_environment === 'miniprogram') {
+    // 当前在小程序环境中
+    wx.miniProgram.postMessage({ data: '发送给小程序的数据' });
+}
+
+// 检测是否在小程序环境中
+function isInWechatMiniProgram() {
+    return typeof wx !== 'undefined' && 
+           typeof wx.miniProgram !== 'undefined' && 
+           window.__wxjs_environment === 'miniprogram';
+}
+
+// 页面加载完成后通知小程序
+window.addEventListener('load', function() {
+    if (isInWechatMiniProgram()) {
+        wx.miniProgram.postMessage({ data: { type: 'pageLoaded' } });
+    }
+});
+            </div>
+            
+            <div class="tip">
+                <p><strong>提示：</strong>使用wx.miniProgram API可以实现网页与小程序的通信，但需要在小程序端配置相关域名白名单。</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2><i class="fas fa-check-circle"></i> 最佳实践</h2>
+            <ul style="padding-left: 20px; margin: 15px 0;">
+                <li>使用相对尺寸(rem/em/%)而非固定像素(px)进行布局</li>
+                <li>避免使用弹出新窗口的操作(如window.open)</li>
+                <li>限制页面大小在2MB以内以提高加载速度</li>
+                <li>测试所有交互功能在小程序环境中的兼容性</li>
+                <li>使用CSS Flexbox/Grid进行响应式布局</li>
+                <li>避免使用浏览器插件依赖(如Flash)</li>
+            </ul>
+        </div>
+        
+        <div class="test-area">
+            <h2><i class="fas fa-vial"></i> 功能测试区</h2>
+            <p>测试以下功能在小程序Web-View中的兼容性：</p>
+            
+            <button class="btn" onclick="testLocalStorage()">测试LocalStorage</button>
+            <button class="btn" onclick="testGeolocation()">测试地理位置</button>
+            <button class="btn" onclick="testVideoPlay()">测试视频播放</button>
+            <button class="btn" onclick="testAjaxRequest()">测试Ajax请求</button>
+            
+            <div id="test-result" style="margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 8px; display: none;">
+                <h3>测试结果</h3>
+                <p id="result-content"></p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2023 小程序Web-View兼容性指南 | 仅供参考，实际兼容性可能因微信版本不同而有所差异</p>
+        </div>
+    </footer>
+
+    <script>
+        // 测试函数
+        function testLocalStorage() {
+            try {
+                localStorage.setItem('test', 'success');
+                const result = localStorage.getItem('test');
+                showResult('LocalStorage测试: ' + (result === 'success' ? '支持' : '不支持'));
+            } catch (e) {
+                showResult('LocalStorage测试: 不支持 - ' + e.message);
+            }
+        }
+        
+        function testGeolocation() {
+            if (!navigator.geolocation) {
+                showResult('地理位置API: 不支持');
+                return;
+            }
+            
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    showResult('地理位置API: 支持 - 纬度: ' + position.coords.latitude + ', 经度: ' + position.coords.longitude);
+                },
+                function(error) {
+                    showResult('地理位置API: 错误 - ' + error.message);
+                }
+            );
+        }
+        
+        function testVideoPlay() {
+            const video = document.createElement('video');
+            const canPlay = !!(video.canPlayType && video.canPlayType('video/mp4').replace(/no/, ''));
+            showResult('视频播放: ' + (canPlay ? '支持' : '不支持'));
+        }
+        
+        function testAjaxRequest() {
+            // 尝试请求一个简单的资源
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://httpbin.org/get', true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        showResult('Ajax请求: 支持');
+                    } else {
+                        showResult('Ajax请求: 可能受限 - 状态码: ' + xhr.status);
+                    }
+                }
+            };
+            xhr.send();
+        }
+        
+        function showResult(message) {
+            const resultDiv = document.getElementById('test-result');
+            const resultContent = document.getElementById('result-content');
+            
+            resultContent.textContent = message;
+            resultDiv.style.display = 'block';
+        }
+        
+        // 检测是否在小程序环境中
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof wx !== 'undefined' && typeof wx.miniProgram !== 'undefined') {
+                console.log('运行在小程序Web-View环境中');
+                // 可以在这里执行特定于小程序的初始化代码
+            } else {
+                console.log('运行在普通浏览器环境中');
+            }
+        });
+    </script>
+</body>
+</html>
