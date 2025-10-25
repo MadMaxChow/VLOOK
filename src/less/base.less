@@ -2422,7 +2422,7 @@ summary::-moz-list-bullet {
 
 @borderRadiusInner_1px: ~"calc(var(--v-r-s) - 1px) calc(var(--v-r-s-xc) - 1px)";
 // @borderRadiusInner_1px_btn: ~"calc(var(--v-r-btn) - 1px)";
-// @borderRadiusInner_2px: ~"calc(var(--v-r-s) - 2px) calc(var(--v-r-s-xc) - 2px)";
+@borderRadiusInner_2px: ~"calc(var(--v-r-s) - 2px) calc(var(--v-r-s-xc) - 2px)";
 // @borderRadiusInner_2px_btn: ~"calc(var(--v-r-btn) - 2px)";
 @borderRadiusInnerSi_2px: ~"calc(var(--v-r-si) - 2px) calc(var(--v-r-si-xc) - 2px)";
 .v-nav-history>div {
@@ -4096,9 +4096,9 @@ div[class*=v-fontinfo-].done > span,
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    // border-radius: @borderRadiusInner_2px;
+    border-radius: @borderRadiusInner_2px;
     // border-radius: var(--v-r-btn);
-    border-radius: var(--c-br-b);
+    // border-radius: var(--c-br-s);
     float: left;
     position: relative;
     z-index: 10;

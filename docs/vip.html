@@ -230,16 +230,15 @@ mjx-container { break-inside: avoid; }
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link rel="preconnect" href="https://openfonts.pages.dev" crossorigin="anonymous">
 <link rel="preconnect" href="https://madmaxchow.github.io" crossorigin="anonymous">
-<link rel="preconnect" href="https://<your-host>" crossorigin="anonymous">
 <!-- 补充 DNS 加速，防止 preconnect 被忽略 -->
 <link rel="dns-prefetch" href="https://fonts.googleapis.com" "="">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="dns-prefetch" href="https://openfonts.pages.dev">
 <link rel="dns-prefetch" href="https://madmaxchow.github.io">
-<link rel="dns-prefetch" href="https://<your-host>">
 <!-- live 模式部署时相关资源 URL 配置 -->
-<meta name="vlook-js" content="https://<your-host>/">
-<meta name="vlook-fs" content="https://<your-host>/">
+<meta name="vlook-js" content="https://madmaxchow.github.io/VLOOK/">
+<meta name="vlook-fs" content="https://openfonts.pages.dev/css/pages-dev/">
+<meta name="vlook-fs" content="https://madmaxchow.github.io/openfonts/css/github-io/">
 <!-- 以下为 W3C 相关的 meta 配置 -->
 <meta name="author" content="MAX°孟兆">
 <meta name="date" content="">
@@ -277,8 +276,8 @@ mjx-container { break-inside: avoid; }
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
 <!--                                                                        -->
-<!--                                  V30.2                                 -->
-<!--                               2025-09-11                               -->
+<!--                                  V2025.10.1                                 -->
+<!--                               2025-10-18                               -->
 <!--                           Powered by MAX°孟兆                           -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -309,10 +308,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		const meta = document.querySelector(`meta[${attr}="${key}"]`);
 		return meta ? meta.getAttribute("content") : null;
 	}
-    let lVer = "V2025.10-dev",
+    let lVer = "V2025.10.1",
         devMode = lVer.indexOf("dev") > 0 ? true : false, debugMode = devMode,
         // cssHost = devMode ? "http://localhost/dev/" : getMetaContent("vlook-res-css"),
-        jsHost = devMode ? "http://localhost/dev/" : getMetaContent("vlook-res-js") + lVer + "/";
+        jsHost = devMode ? "http://localhost/dev/" : getMetaContent("vlook-js") + lVer + "/";
 // ==================== NON-standalone ====================
 // ▽ ▽ ▽ ▽ ▽
     let ts = Math.floor(Date.now()/(1000*60*60*24)); // (1000*60*60*24) 按天
