@@ -3,8 +3,8 @@
  * VLOOK™ CSS 字体主题、圆角样式
  * (配合 base.less 进行使用)
  *
- * V2025.10
- * 2025-10-18
+ * V2025.10.1
+ * 2025-10-25
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -293,7 +293,7 @@ U+0030-0039; // 指 0123456789
     --v-fm-code-dyn: @themeMonoFontFamily, @monoLocalFont;
     --v-fw-bd-dyn: @fontBoldWeight4Local;
     --v-fw-toc-dyn: @fontBoldWeight4DynTitle;
-    --v-fw-tag-dyn: @fontBoldWeight4Dyn;
+    --v-fw-tag-dyn: @fontBoldWeight4DynTitle;
     --v-fw-tt-dyn: @fontBoldWeight4DynTitle;
     --v-fw-text-dyn: @fontBoldWeight4LocalText;
 
@@ -528,6 +528,8 @@ U+0030-0039; // 指 0123456789
 
 //=========================================
 // 配套圆角风格集
+@buttonRadiusCircle: 25px;
+// @buttonRadiusCircle: 50% / 50%;
 :root {
     // ---
     // 小号圆角
@@ -537,7 +539,7 @@ U+0030-0039; // 指 0123456789
     --v-r-si-small: calc(var(--v-r-t-small) + 1px); // 标准圆角内的小圆角
     --v-r-tag-small: 7px; // 标签圆角
     // --v-tag-small-radius-small: .25em; // 标签小圆角
-    --v-r-c-small: 50%; // 半距圆角
+    // --v-r-c-small: 50%; // 半距圆角
 
     // ---
     // 大号圆角
@@ -547,7 +549,11 @@ U+0030-0039; // 指 0123456789
     --v-r-si-big: calc(var(--v-r-t-big) + 1px); // 标准圆角内的小圆角
     --v-r-tag-big: 9px; // 标签圆角
     // --v-tag-small-radius-big: .25em; // 标签小圆角
-    --v-r-c-big: 50%; // 半距圆角
+    // --v-r-c-big: 50%; // 半距圆角
+
+    // 按钮圆角
+    // --v-r-btn: @buttonRadiusCircle; // 按钮圆角
+    // --v-r-btn-xc: @buttonRadiusCircle; // 按钮圆角
 }
 // ---
 // 应用叶子圆角
@@ -559,7 +565,7 @@ U+0030-0039; // 指 0123456789
         --v-r-t-xc: 0px;
         --v-r-si-xc: 0px;
         --v-r-tag-xc: 0px;
-        --v-r-c-xc: 0px;
+        // --v-r-c-xc: 0px;
     }
 }
 // ---
@@ -571,7 +577,7 @@ U+0030-0039; // 指 0123456789
         --v-r-t: var(--v-r-t-big); // 表格圆角
         --v-r-si:calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
         --v-r-tag: var(--v-r-tag-big); // 标签圆角
-        --v-r-c: var(--v-r-c-big); // 半距圆角
+        // --v-r-c: var(--v-r-c-big); // 半距圆角
     }
     .setForNotLeaf();
 }
@@ -584,7 +590,7 @@ U+0030-0039; // 指 0123456789
         --v-r-t: var(--v-r-t-small); // 表格圆角
         --v-r-si:calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
         --v-r-tag: var(--v-r-tag-small); // 标签圆角
-        --v-r-c: var(--v-r-c-small); // 半距圆角
+        // --v-r-c: var(--v-r-c-small); // 半距圆角
     }
     .setForNotLeaf();
 }
@@ -597,7 +603,7 @@ U+0030-0039; // 指 0123456789
         --v-r-t: 0; // 表格圆角
         --v-r-si: calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
         --v-r-tag: 0; // 标签圆角
-        --v-r-c: 0; // 半距圆角
+        // --v-r-c: 0; // 半距圆角
     }
     .setForNotLeaf();
 }
@@ -611,6 +617,6 @@ U+0030-0039; // 指 0123456789
         --v-r-t-xc: var(--v-r-t);
         --v-r-si-xc: var(--v-r-si);
         --v-r-tag-xc: var(--v-r-tag);
-        --v-r-c-xc: var(--v-r-c);
+        // --v-r-c-xc: var(--v-r-c);
     }
 }

@@ -3,8 +3,8 @@
  * VLOOK™ CSS 多主题间的通用样式
  * (配合 base.less、主题.less 进行使用)
  *
- * V2025.10
- * 2025-10-18
+ * V2025.10.1
+ * 2025-10-25
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -25,7 +25,7 @@
 
 @navCenterWidth: 300px; // 导航中心宽度
 @navCenterWidthExtend: 60px; // 导航中心扩展宽度增量
-@navCenterStyle: std; // 导航中心、脚注面板、状态栏风格选择
+@navCenterStyle: std; // 导航中心、脚注面板、状态栏风格选择 std, flat, edge
 
 // 主题侧边栏、标签栏的图标
 @thmTabLogo: var(--thm-fav);
@@ -86,7 +86,7 @@
 .applyKbdRadius(@kbdStyle) when (@kbdStyle = big) {
     #write a kbd {
         padding: 8px 12px;
-        border-radius: 40px;
+        border-radius: @buttonRadiusCircle;
     }
 }
 // 叶子圆角
@@ -123,6 +123,9 @@
 // 波点
 @docBgImgLight_Point: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='M2 2h40v40H2z'/%3E%3C/defs%3E%3Cg transform='translate(-2 -2)' fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Ccircle fill-opacity='.06' fill='%23080A0D' mask='url(%23b)' cx='2' cy='2' r='2'/%3E%3Ccircle fill-opacity='.06' fill='%23080A0D' mask='url(%23b)' cx='42' cy='2' r='2'/%3E%3Ccircle fill-opacity='.06' fill='%23080A0D' mask='url(%23b)' cx='2' cy='42' r='2'/%3E%3Ccircle fill-opacity='.06' fill='%23080A0D' mask='url(%23b)' cx='42' cy='42' r='2'/%3E%3C/g%3E%3C/svg%3E");
 @docBgImgDark_Point: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='M0 0h40v40H0z'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Ccircle fill-opacity='.08' fill='%23FFF' mask='url(%23b)' r='2'/%3E%3Ccircle fill-opacity='.08' fill='%23FFF' mask='url(%23b)' cx='40' r='2'/%3E%3Ccircle fill-opacity='.08' fill='%23FFF' mask='url(%23b)' cy='40' r='2'/%3E%3Ccircle fill-opacity='.08' fill='%23FFF' mask='url(%23b)' cx='40' cy='40' r='2'/%3E%3C/g%3E%3C/svg%3E");
+// 祥云
+@docBgImgLight_Clouds: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAcAgMAAABJ1ZStAAAACVBMVEUAAAAAAAAAAACDY+nAAAAAA3RSTlMABwSyWpYAAAAAyElEQVQY0z3PwakDIRSF4X8EF+4zrwP7mBJceEWyshSLeKaD9JkzUXMQFTlc+XDWj+bNUrh0hZDc05R39w0lY094Gyd3zlBQRstAxduFclgiYteRma3rMELVBGfWNTM2eJ0wzArkF+AzsXQ3KmcCdVBTfe5/m79CRYntSIEciR3FVerJ3wNNGAUdj3981XM009ZjQpQmilYQjEnZsEnZsE3ZsE1ZsE3ZsEVZMCZlw3AjifKF+XJTCvNfRv9RFmxTNmxRFoxFWbAPzI5Exs5yqvsAAAAASUVORK5CYII=");
+@docBgImgDark_Clouds: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAcAQMAAAAOde59AAAABlBMVEUAAAD///+l2Z/dAAAAAnRSTlMABp/waA0AAAC2SURBVAjXDcsxasMwGEDhZwTVZl2gWNfoIOyr9ATFUCgeTGKRoddS0NCtZ1Dp4DH/Fg0mfzQ+eB8+Zs2xYq6qeklQFLXAp+B+W04b3WGpA7B4xtDpFlbc7FR6wZRzfNiESRVvEvlSsNfMbpsrO18ORT4YB6tlWTmCjzVMaA0ErziZ6Z3A0dwE+HQyFbBRY4FqfvJ/8ig37ig+rYxt6KR5t8H6Gt5GYOhP8wLiXvZ3cTzsd/4r5ydlClSsn84LpAAAAABJRU5ErkJggg==");
 
 // 主题配套预置选项 vlook-header-autonum
 // 针对 1-6 级标题前缀/自动编号内容
@@ -407,6 +410,9 @@
 @buttonBgColorDark: @theme1Dark;
 @buttonBgHoverColorDark: @theme2Dark;
 
+// 按钮圆角 std, big
+@buttonRadiusStyle: std;
+
 // 行内代码
 @codeTextColor: @theme2;
 @codeTextColorDark: @theme2Dark;
@@ -491,6 +497,7 @@
 
     --fd00: rgba(var(--fd-r), var(--fd-g), var(--fd-b), 0);
     --fd01: rgba(var(--fd-r), var(--fd-g), var(--fd-b), .1);
+    --fd02: rgba(var(--fd-r), var(--fd-g), var(--fd-b), .2);
     --fd04: rgba(var(--fd-r), var(--fd-g), var(--fd-b), .4);
     --fd05: rgba(var(--fd-r), var(--fd-g), var(--fd-b), .5);
     --fd06: rgba(var(--fd-r), var(--fd-g), var(--fd-b), .6);
@@ -1870,7 +1877,7 @@
     // 引用块小标题
     #write .md-alert-@{type} @{quoteTitle},
     // 编辑时的 summary
-    @{writeOnEditing} .md-alert-@{type} @{summaryOnEditing},
+    @{writeOnEditing} .md-alert-@{type} @{summarySyntax},
     // 导出后的 summary
     #write .md-alert-@{type} summary,
     // 编辑时的题注前缀

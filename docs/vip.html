@@ -221,7 +221,7 @@ mjx-container { break-inside: avoid; }
 .md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
 
 </style>
-<link rel='stylesheet' href='https://madmaxchow.github.io/openfonts/css/github-io/V2025.10/vlook-owl-vip.css' type='text/css' />
+<link rel='stylesheet' href='https://madmaxchow.github.io/openfonts/css/github-io/V2025.10.1/vlook-owl-vip.css' type='text/css' />
 <style type='text/css'  id="style-theme_css">@import '';
 </style>
 <style type='text/css'  id="style-lp">ol, ul {padding-left: 40px}</style>
@@ -236,10 +236,10 @@ mjx-container { break-inside: avoid; }
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="dns-prefetch" href="https://openfonts.pages.dev">
 <link rel="dns-prefetch" href="https://madmaxchow.github.io">
+<link rel="dns-prefetch" href="https://<your-host>">
 <!-- live 模式部署时相关资源 URL 配置 -->
-<meta name="vlook-js" content="https://madmaxchow.github.io/VLOOK/">
-<meta name="vlook-fs" content="https://openfonts.pages.dev/css/pages-dev/">
-<meta name="vlook-fs" content="https://madmaxchow.github.io/openfonts/css/github-io/">
+<meta name="vlook-js" content="https://<your-host>/">
+<meta name="vlook-fs" content="https://<your-host>/">
 <!-- 以下为 W3C 相关的 meta 配置 -->
 <meta name="author" content="MAX°孟兆">
 <meta name="date" content="">
@@ -278,7 +278,7 @@ mjx-container { break-inside: avoid; }
 <!--                                ( live )                                -->
 <!--                                                                        -->
 <!--                                  V30.2                                 -->
-<!--                               2025-09-22                               -->
+<!--                               2025-09-11                               -->
 <!--                           Powered by MAX°孟兆                           -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -309,10 +309,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		const meta = document.querySelector(`meta[${attr}="${key}"]`);
 		return meta ? meta.getAttribute("content") : null;
 	}
-    let lVer = "V2025.10",
+    let lVer = "V2025.10-dev",
         devMode = lVer.indexOf("dev") > 0 ? true : false, debugMode = devMode,
         // cssHost = devMode ? "http://localhost/dev/" : getMetaContent("vlook-res-css"),
-        jsHost = devMode ? "http://localhost/dev/" : getMetaContent("vlook-js") + lVer + "/";
+        jsHost = devMode ? "http://localhost/dev/" : getMetaContent("vlook-res-js") + lVer + "/";
 // ==================== NON-standalone ====================
 // ▽ ▽ ▽ ▽ ▽
     let ts = Math.floor(Date.now()/(1000*60*60*24)); // (1000*60*60*24) 按天

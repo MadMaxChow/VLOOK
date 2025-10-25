@@ -42,7 +42,7 @@ vlook-doc-lib:
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 ---
 
-###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br><u>──</u><br>Introduction<br>*`V2025.10`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br><u>──</u><br>Introduction<br>*`V2025.10.1`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 
 [TOC]
 
@@ -376,13 +376,13 @@ _^tab^_
 >
 > 1. Upload *==released/**plugin-live**/**Vxx.x**==* to the root directory of the web site.
 > 2. Download the latest version of [openfonts](https://github.com/MadMaxChow/openfonts/releases) from GitHub (e.g., `web-font-V2.0.tar.gz`).
-> 3. After extraction, upload all the subdirectories inside (e.g., `s`, `v`) to the resource directory of the corresponding VLOOK online version on the web site (e.g., `V2025.10`).
+> 3. After extraction, upload all the subdirectories inside (e.g., `s`, `v`) to the resource directory of the corresponding VLOOK online version on the web site (e.g., `V2025.10.1`).
 
 
 
 > [!IMPORTANT]
 >
-> - The above `Vxx.x` refers to the corresponding version identifier, such as `V2025.10`, which serves as the resource directory for the VLOOK online version.
+> - The above `Vxx.x` refers to the corresponding version identifier, such as `V2025.10.1`, which serves as the resource directory for the VLOOK online version.
 > - If the HTML files published with older versions of themes or plugins are not republished, you need to keep the original version directories and not delete them.
 
 ### Live Themes
@@ -616,7 +616,7 @@ The content of this section is marked as not published by specifying it in YAML.
 
 # Coming Soon ...
 
-## ~~V2025.10~~
+## ~~V2025.10.1~~
 
 ---
 

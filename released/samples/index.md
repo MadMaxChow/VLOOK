@@ -48,7 +48,7 @@ vlook-cc-bottom-left: Left Information<br>Here
 vlook-cc-bottom-right: Right Information<br>Here
 ---
 
-###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br><u>──</u><br>简介<br>*最新版本`V2025.10`*<br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br><u>──</u><br>简介<br>*最新版本`V2025.10.1`*<br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 
 [TOC]
 
@@ -411,13 +411,13 @@ _^tab^_
 >
 > 1. 将 *==released/**plugin-live**/**Vxx.x**==* 上传至 Web 站点根目录下
 > 2. 在 GitHub 上下载 [openfonts](https://github.com/MadMaxChow/openfonts/releases) 的最新版本（如：`web-font-V2.0.tar.gz` ）
-> 3. 解压后将里面的所有子目录（如：`s` `v` ）上传至 Web 站点中对应 VLOOK 在线版本的资源目录下（如：`V2025.10` ）
+> 3. 解压后将里面的所有子目录（如：`s` `v` ）上传至 Web 站点中对应 VLOOK 在线版本的资源目录下（如：`V2025.10.1` ）
 
 
 
 > [!IMPORTANT]
 >
-> - 以上 `Vxx.x` 是指对应的版本标识，如 `V2025.10` ，作为 VLOOK 在线版本的资源目录
+> - 以上 `Vxx.x` 是指对应的版本标识，如 `V2025.10.1` ，作为 VLOOK 在线版本的资源目录
 > - 若使用旧版本的主题、插件所发布的 HTML 不重新发布，则需要保留原来版本的目录，不要删除
 
 ### 在线主题
@@ -665,7 +665,7 @@ _^tab^_
 
 # 即将推出...
 
-## ~~V2025.10~~
+## ~~V2025.10.1~~
 
 ---
 

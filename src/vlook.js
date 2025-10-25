@@ -2,8 +2,8 @@
  *
  * VLOOK™ JS - Typora Plugin
  *
- * V2025.10
- * 2025-10-18
+ * V2025.10.1
+ * 2025-10-25
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -843,7 +843,7 @@ const _ = ``,
     ___v_r_ = ___v_ + `r-`,
     _v_r_b_ = ___v_r_ + `b`,
     _var_v_r_b_ = V_ui_var(_v_r_b_),
-    _v_r_c_ = ___v_r_ + `c`,
+    // _v_r_c_ = ___v_r_ + `c`,
     _v_r_s_ = ___v_r_ + `s`,
     _v_r_t_ = ___v_r_ + `t`,
     _v_r_tag_ = ___v_r_ + _tag_,
@@ -1036,8 +1036,8 @@ const _ = ``,
     _2nbsp_ = _nbsp_ + _nbsp_;
 
 // 全局变量
-let gVer = `V2025.10`,
-    gDate = `2025-10-18`,
+let gVer = `V2025.10.1`,
+    gDate = `2025-10-25`,
     gThmVer = _,
     gThmName = _,
     gUndefined = undefined,
@@ -6969,6 +6969,7 @@ function NavCenter_init() {
 
     // 不指定打开，则默认收起所有含子章节的 h1 章节
     let tocAutoCloseLevel = V_getQueryParamVal(_toc_);
+    // ERROR(111, tocAutoCloseLevel);
     tocAutoCloseLevel = (tocAutoCloseLevel !== gNull) ? JS_parseInt(tocAutoCloseLevel) : 1;
     if (tocAutoCloseLevel >= 1 && tocAutoCloseLevel <= 5) {
         gVlookToc.ch(`.${_md_toc__}h` + tocAutoCloseLevel + V_attrCSS(_data_node_, 1) + V_attrCSS(_data_folded_, _false_)).e((index, element) => {
@@ -7987,6 +7988,7 @@ function FontStyle_monitorLoading() {
     }
 
     WARN(`/// 需加载 ${fontsLen} 个字体 ///`);
+    DEBUG(loadingFonts);
 
     FontStyle_loadedCounter = 0;
 
@@ -8170,8 +8172,7 @@ function FontStyle(mask, styleName) {
 
         // 对于本地字体风格的状态，直接为就绪
         $(`:is(.` + _v_font_info__ + _local_
-            + `,.` + _v_font_info__ + _book_
-            + `,.` + _v_font_info__ + _zen_ + `) > ` + _span_).t(`✅ ` + V_lang_text93());
+            + `,.` + _v_font_info__ + _book_ + `) > ` + _span_).t(`✅ ` + V_lang_text93());
     }
 
     /**
@@ -8719,7 +8720,7 @@ function StatusBar_init() {
     // 功能入口：打印
     StsPrint_ui = V_byClass(_v_print_);
     ToolTips_bind(StsPrint_ui, V_lang_text32() + `\n`
-        + V_ui_sub(_, _, V_ui_getCmdCtrlKey(3, gTrue) + ` + ` + V_ui_wrap_kbd(`P`)));
+        + V_ui_sub(_, _, V_ui_getCmdCtrlKey(3, gTrue) + V_ui_wrap_kbd(`P`)));
     V_ui_bindTouchStyle(StsPrint_ui);
     StsPrint_ui.uC().ck(() => {
         gWindow.open(V_getUrlWithoutQueryAndHash(WINDOW_getHref())
@@ -11167,6 +11168,10 @@ function Copy_init() {
                 `PRE`, `UL`, `OL`, `LI`, `TABLE`, `TR`, `BR`
             ]);
 
+        // 如果是 clipboard.js 触发的复制事件，直接放行
+        if (clipData.getData('text/plain') === ``)
+            return;
+
         // 递归处理所选内容针对复制行为的处理
         function __traverse(node) {
             if (node.nodeType === Node.TEXT_NODE) {
@@ -11264,7 +11269,7 @@ function Copy_action(source, content, successCallback, errorCallback) {
     let targetName = `.` + source.a(_class_).rA(___, `.`);
     // 测试用 DEBUG(targetName);
     $(targetName).a(_data_clipboard_text_, content);
-    DEBUG($(targetName).a(_data_clipboard_text_));
+    DEBUG(targetName, $(targetName).a(_data_clipboard_text_));
 
     // 创建 clipboard.js 对象用于实现复制
     let clipboard = new ClipboardJS(targetName);
@@ -18420,7 +18425,7 @@ function loadVLOOKplugin() {
             _v_r_s_,
             _v_r_t_,
             _v_r_tag_,
-            _v_r_c_
+            // _v_r_c_
         ], newRadius);
     }
     else if (newRadius === _none_) {
@@ -18430,7 +18435,7 @@ function loadVLOOKplugin() {
             _v_r_s_,
             _v_r_t_,
             _v_r_tag_,
-            _v_r_c_
+            // _v_r_c_
         ]);
     }
 

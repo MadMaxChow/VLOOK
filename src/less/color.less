@@ -3,8 +3,8 @@
  * VLOOK™ CSS 调色板
  * (配合 base.less 进行使用)
  *
- * V2025.10
- * 2025-10-18
+ * V2025.10.1
+ * 2025-10-25
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -94,11 +94,19 @@
     :root {
         --d-fc-lg: @colorLight;
         --d-fc-a-lg: lighten(@colorLight, 45%);
-        --toc-h-num-c-lg: fade(@colorLight, 50%);
 
         --d-fc-dk: @colorDark;
         --d-fc-a-dk: darken(@colorDark, 40%);
-        --toc-h-num-c-dk: fade(@colorDark, 45%);
+
+        .genHeaderNumberStyle(@style) when not (@style = edge) {
+            --toc-h-num-c-lg: fade(@colorLight, 50%);
+            --toc-h-num-c-dk: fade(@colorDark, 45%);
+        }
+        .genHeaderNumberStyle(@style) when (@style = edge) {
+            --toc-h-num-c-lg: currentColor;
+            --toc-h-num-c-dk: currentColor;
+        }
+        .genHeaderNumberStyle(@navCenterStyle);
     }
 }
 @docTextColorLight: @docBgColorDark;

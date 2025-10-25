@@ -3,7 +3,7 @@
  * starter of VLOOK.js - Typora Plugin
  * (配合 vlook-min.js 进行使用)
  *
- * V2025.10
+ * V2025.10.1
  * 2025-10-18
  * Powered by MAX°孟兆
  *
@@ -16,7 +16,7 @@
  *
  *************************************/
 
-let sVer = "V2025.10";
+let sVer = "V2025.10.1";
 
 /**
  * 获取 URL 中的参数数组
@@ -60,7 +60,7 @@ liveLang = liveLang.indexOf(`zh-`) > -1 // 针对香港、台湾和澳门的中�
 let jsSrc = [
         "de,es,fr,pt,ru,ar,ko,ja,zhtd,".indexOf(liveLang + `,`) < 0 ? "" : jsHost + "lang/" + liveLang + ".js", // 只加载支持的语言包
         jsHost + "clipboard.js",
-        jsHost + "clipboard.js",
+        // jsHost + "clipboard.js",
         jsHost + "svg-inject.js",
         jsHost + "vlook-min.js"
     ];

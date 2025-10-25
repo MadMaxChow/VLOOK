@@ -302,7 +302,7 @@ span.cm-strikethrough { text-decoration: line-through; }
 }
 
 </style>
-<link rel='stylesheet' href='https://madmaxchow.github.io/openfonts/css/github-io/V2025.10/vlook-owl-en.css' type='text/css' />
+<link rel='stylesheet' href='https://madmaxchow.github.io/openfonts/css/github-io/V2025.10.1/vlook-owl-en.css' type='text/css' />
 <style type='text/css'  id="style-theme_css">@import '';
 </style>
 <style type='text/css'  id="style-lp">ol, ul {padding-left: 40px}</style>
@@ -311,7 +311,6 @@ span.cm-strikethrough { text-decoration: line-through; }
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link rel="preconnect" href="https://openfonts.pages.dev" crossorigin="anonymous">
 <link rel="preconnect" href="https://madmaxchow.github.io" crossorigin="anonymous">
-<link rel="preconnect" href="https://<your-host>" crossorigin="anonymous">
 <!-- 补充 DNS 加速，防止 preconnect 被忽略 -->
 <link rel="dns-prefetch" href="https://fonts.googleapis.com" "="">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -357,8 +356,8 @@ span.cm-strikethrough { text-decoration: line-through; }
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
 <!--                                                                        -->
-<!--                                  V30.2                                 -->
-<!--                               2025-09-22                               -->
+<!--                                  V2025.10.1                                 -->
+<!--                               2025-10-18                               -->
 <!--                           Powered by MAX°孟兆                           -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -389,7 +388,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		const meta = document.querySelector(`meta[${attr}="${key}"]`);
 		return meta ? meta.getAttribute("content") : null;
 	}
-    let lVer = "V2025.10",
+    let lVer = "V2025.10.1",
         devMode = lVer.indexOf("dev") > 0 ? true : false, debugMode = devMode,
         // cssHost = devMode ? "http://localhost/dev/" : getMetaContent("vlook-res-css"),
         jsHost = devMode ? "http://localhost/dev/" : getMetaContent("vlook-js") + lVer + "/";

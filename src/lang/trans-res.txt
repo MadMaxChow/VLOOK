@@ -35,10 +35,10 @@
 
 ==========
 
-<u>～～此为==新特性预览==，将随 *`V2025.10`* 正式发布，敬请期待～～</u>
+<u>～～此为==新特性预览==，将随 *`V2025.10.1`* 正式发布，敬请期待～～</u>
 
 **若希望提前体验，可 [联系我们](mailto:67870144@qq.com?subject=Get%20Insider%20Preview%20of%20VLOOK™&body=Hi,) 获取内部预览版本**
 
-<u>This is a ==preview of a new feature,== which will be officially released with *`V2025.10`*. Stay tuned!</u>
+<u>This is a ==preview of a new feature,== which will be officially released with *`V2025.10.1`*. Stay tuned!</u>
 
 **If you’d like to try it out in advance, feel free to [contact us](mailto:67870144@qq.com?subject=Get%20Insider%20Preview%20of%20VLOOK™&body=Hi,) to get an insider preview version .**

@@ -2,8 +2,8 @@
  *
  * VLOOK™ CSS 基础库
  *
- * V2025.10
- * 2025-10-18
+ * V2025.10.1
+ * 2025-10-25
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -80,6 +80,7 @@ xx 文档更多内容遮挡阴影（上） / .v-more-doc-content-before / z-inde
 
 // -----
 // 通用变量 #Common_CSS_Var
+@buttonHeight: 30px;
 :root {
     // 主题配套预置选项 vlook-header-autonum
     --vlook-header-autonum: @vHeaderAutoNum;
@@ -97,9 +98,17 @@ xx 文档更多内容遮挡阴影（上） / .v-more-doc-content-before / z-inde
     --v-ex-limit: 300px;
 
     // 针对 CSS 工具类样式变量
+    --c-b1: 1px solid var(--d-bc);
     --c-br-b: var(--v-r-b) var(--v-r-b-xc);
     --c-br-s: var(--v-r-s) var(--v-r-s-xc);
-    --c-b1: 1px solid var(--d-bc);
+    .genButtonRadiusStyle(@style) when not (@style = std) {
+        // --v-r-btn: var(--v-r-s-xc);
+        // --v-r-btn: var(--v-r-b);
+        // --v-r-btn-xc: var(--v-r-b-xc);
+        --c-br-b: @buttonRadiusCircle;
+        --c-br-s: @buttonRadiusCircle;
+    }
+    .genButtonRadiusStyle(@buttonRadiusStyle);
 
     // 主题相关
     --v-theme-name: @themeName; // 主题名称
@@ -1824,18 +1833,20 @@ summary::-moz-list-bullet {
     margin-top: .75em;
 }
 
-#write blockquote h6 {
+// #write blockquote h6:first-child {
+#write @{summarySyntax} {
     padding: 0;
     margin-top: 0;
-    color: var(--d-fc);
+    // color: var(--d-fc);
     font-size: 1.125em;
 }
 
 #write blockquote h6 a {
+// #write blockquote h6:not(:first-child) a {
     margin-left: -.1em;
 }
 
-#write blockquote h6::before {
+#write @{summarySyntax}::before {
     content: "";
     margin-left: 0;
 }
@@ -2279,6 +2290,9 @@ summary::-moz-list-bullet {
     .genLinkInfoListStyle(@style) when (@style = flat) {
         background-color: var(--d-bc);
     }
+    .genLinkInfoListStyle(@style) when (@style = edge) {
+        background-color: var(--d-bc);
+    }
     .genLinkInfoListStyle(@navCenterStyle);
     top: @floatTopBottom;
     bottom: @floatTopBottomOnMobile;
@@ -2350,6 +2364,7 @@ summary::-moz-list-bullet {
 .v-nav-history {
     position: fixed;
     border-radius: var(--c-br-s);
+    // border-radius: var(--v-r-s) var(--v-r-btn) var(--v-r-btn) var(--v-r-s);
     box-shadow: var(--v-fl-sd);
     .genStatusBarStyle(@style) when (@style = std) {
         background: var(--pn-c);
@@ -2358,12 +2373,15 @@ summary::-moz-list-bullet {
     .genStatusBarStyle(@style) when (@style = flat) {
         background: var(--d-bc);
     }
+    .genStatusBarStyle(@style) when (@style = edge) {
+        background: var(--d-bc);
+    }
     .genStatusBarStyle(@navCenterStyle);
     padding: 0 1px;
     right: @writePaddingRight;
     bottom: 15px;
     // height: 32px;
-    height: 30px;
+    height: @buttonHeight;
     display: flex;
     align-items: center;
     gap: 1px;
@@ -2373,6 +2391,8 @@ summary::-moz-list-bullet {
 // 文档导航历史
 .v-nav-history {
     top: 70px;
+    // border-radius: var(--v-r-btn);
+    border-radius: var(--c-br-s);
 }
 .v-nav-history:has(.v-view-history.enabled) {
     opacity: .5;
@@ -2384,6 +2404,7 @@ summary::-moz-list-bullet {
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    // border-radius: @borderRadiusInner_1px_btn;
     border-radius: @borderRadiusInner_1px;
     // border-radius: calc(var(--v-tb-btn-w) - 4px);
     // min-width: calc(var(--v-tb-btn-w) - 6px);
@@ -2391,16 +2412,22 @@ summary::-moz-list-bullet {
     height: 28px;
     // margin: 0 1px;
 }
+// .v-nav-history>div {
+//     border-radius: @borderRadiusInner_1px_btn;
+// }
 
 .v-status-bar>.folded {
     display: none;
 }
 
 @borderRadiusInner_1px: ~"calc(var(--v-r-s) - 1px) calc(var(--v-r-s-xc) - 1px)";
-@borderRadiusInner_2px: ~"calc(var(--v-r-s) - 2px) calc(var(--v-r-s-xc) - 2px)";
+// @borderRadiusInner_1px_btn: ~"calc(var(--v-r-btn) - 1px)";
+// @borderRadiusInner_2px: ~"calc(var(--v-r-s) - 2px) calc(var(--v-r-s-xc) - 2px)";
+// @borderRadiusInner_2px_btn: ~"calc(var(--v-r-btn) - 2px)";
 @borderRadiusInnerSi_2px: ~"calc(var(--v-r-si) - 2px) calc(var(--v-r-si-xc) - 2px)";
 .v-nav-history>div {
     border-radius: @borderRadiusInner_1px;
+    // border-radius: @borderRadiusInner_1px_btn;
     display: none;
 }
 // 显示导航历史入口
@@ -2414,6 +2441,7 @@ summary::-moz-list-bullet {
     padding: 0;
     min-width: 42px !important;
     max-width: 42px;
+    border-radius: @borderRadiusInner_1px !important;
 }
 .v-status-bar-handle::before {
     content: "";
@@ -2485,7 +2513,8 @@ summary::-moz-list-bullet {
 }
 
 .v-prs-info>label {
-    border-radius: @borderRadiusInner_2px;
+    // border-radius: @borderRadiusInner_2px;
+    border-radius: @borderRadiusInner_1px;
     padding: 0 10px;
     font-weight: bold;
     align-items: center;
@@ -2636,11 +2665,13 @@ summary::-moz-list-bullet {
 // 打印提示框内的按钮
 .v-print-tip .v-btn {
     display: block;
-    padding: 5px 10px;
+    // padding: 5px 10px;
+    font-weight: var(--v-fw-bd);
+    padding: 0 10px;
     margin: 10px auto 0;
     width: fit-content;
-    height: auto;
-    font-weight: var(--v-fw-bd);
+    height: @buttonHeight;
+    line-height: @buttonHeight;
 }
 // 打印按钮（手动发起）
 .v-print-tip .print {
@@ -3816,6 +3847,10 @@ div[class*=v-fontinfo-].done > span,
     .genNavCenterStyle(@style) when (@style = flat) {
         background-color: var(--d-bc);
     };
+    .genNavCenterStyle(@style) when (@style = edge) {
+        background-color: var(--v-btn-bg);
+        color: @buttonForeColor;
+    };
     .genNavCenterStyle(@navCenterStyle);
     border-radius: var(--c-br-b);
     cursor: default;
@@ -3839,6 +3874,9 @@ div[class*=v-fontinfo-].done > span,
         box-shadow: var(--v-fl-sd), var(--v-fl-i-sd);
     };
     .genNavCenterBlockStyle(@style) when (@style = flat) {
+        box-shadow: var(--v-fl-sd);
+    };
+    .genNavCenterBlockStyle(@style) when (@style = edge) {
         box-shadow: var(--v-fl-sd);
     };
     .genNavCenterBlockStyle(@navCenterStyle);
@@ -3944,6 +3982,7 @@ div[class*=v-fontinfo-].done > span,
     text-align: center;
     height: calc(var(--v-seg-h) + 4px);
     border-radius: var(--c-br-s);
+    // border-radius: calc(var(--v-r-btn) + 2px);
     margin: 10px;
     padding: 2px;
     // background: var(--pn-c-a);
@@ -3953,6 +3992,9 @@ div[class*=v-fontinfo-].done > span,
     }
     .genSegmentStyle(@style) when (@style = flat) {
         background: var(--pn-c);
+    }
+    .genSegmentStyle(@style) when (@style = edge) {
+        background: var(--ac-t1-a);
     }
     .genSegmentStyle(@navCenterStyle);
     pointer-events: all;
@@ -3977,6 +4019,13 @@ div[class*=v-fontinfo-].done > span,
     .genSegmentBtnCurrentStyle(@style) when (@style = flat) {
         @{segmentBtn} {
             background: var(--d-bc);
+            box-shadow: 0 0 4px 0 #0000001A;
+        }
+    }
+    .genSegmentBtnCurrentStyle(@style) when (@style = edge) {
+        @{segmentBtn} {
+            background-color: var(--v-btn-bg);
+            color: @buttonForeColor;
             box-shadow: 0 0 4px 0 #0000001A;
         }
     }
@@ -4047,7 +4096,9 @@ div[class*=v-fontinfo-].done > span,
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: @borderRadiusInner_2px;
+    // border-radius: @borderRadiusInner_2px;
+    // border-radius: var(--v-r-btn);
+    border-radius: var(--c-br-b);
     float: left;
     position: relative;
     z-index: 10;
@@ -4202,6 +4253,9 @@ div[class*=v-fontinfo-].done > span,
     .genFootnotePnStyle(@style) when (@style = flat) {
         background: var(--d-bc);
     };
+    .genFootnotePnStyle(@style) when (@style = edge) {
+        background: var(--d-bc);
+    };
     .genFootnotePnStyle(@navCenterStyle);
     display: none;
     z-index: 2100;
@@ -4230,6 +4284,9 @@ div[class*=v-fontinfo-].done > span,
         background-image: var(--ar-top), linear-gradient(180deg, @pnMoreContentLG);
     };
     .genPanelMoreContentStyle(@style) when (@style = flat) {
+        background-image: var(--ar-top), linear-gradient(180deg, @docMoreContentLG);
+    }
+    .genPanelMoreContentStyle(@style) when (@style = edge) {
         background-image: var(--ar-top), linear-gradient(180deg, @docMoreContentLG);
     }
     .genPanelMoreContentStyle(@navCenterStyle);
@@ -4359,6 +4416,7 @@ div[class*=v-fontinfo-].done > span,
 
 .v-toolbar {
     border-radius: var(--c-br-b);
+    // border-radius: var(--v-r-btn);
     left: @writePaddingRight;
     padding: 10px;
     width: var(--v-nav-center-w);
@@ -4374,11 +4432,15 @@ div[class*=v-fontinfo-].done > span,
     right: @writePaddingRight;
     background: none;
 }
+.v-toolbar .v-btn.float {
+    width: 50px;
+    height: 32px;
+}
 
 .v-toolbar-spliter {
     display: flex;
     width: 40px;
-    height: 30px;
+    height: @buttonHeight;
     padding: 0;
     float: right;
 }
@@ -4471,6 +4533,12 @@ div[class*=v-fontinfo-].done > span,
             background: var(--pn-c);
         }
     }
+    .genTocItemHover(@style) when (@style = edge) {
+        .v-toc-item:hover,
+        .md-toc-item:hover {
+            background: var(--pn-c);
+        }
+    }
     // 生成目录节点不同风格的 hover 样式
     .genTocItemHover(@navCenterStyle);
 }
@@ -4495,6 +4563,20 @@ div[class*=v-fontinfo-].done > span,
     }
 }
 .genTocItemActive(@style) when (@style = flat) {
+    .v-toc-item:is(:active, .pressed),
+    .md-toc-item:is(:active, .pressed),
+    .v-doc-lib-item:is(:active, .pressed) {
+        color: var(--d-bc);
+        background: var(--pn-c-a) !important;
+        transition: none;
+    }
+    .v-toc-item:is(:active, .pressed) svg>use,
+    .md-toc-item:is(:active, .pressed) svg>use,
+    .v-doc-lib-item:is(:active, .pressed) svg>use {
+        opacity: 1;
+    }
+}
+.genTocItemActive(@style) when (@style = edge) {
     .v-toc-item:is(:active, .pressed),
     .md-toc-item:is(:active, .pressed),
     .v-doc-lib-item:is(:active, .pressed) {
@@ -4655,8 +4737,9 @@ div[class*=v-fontinfo-].done > span,
     color: @buttonForeColor;
     padding: 0;
     width: var(--v-tb-btn-w);
-    height: 30px;
+    height: @buttonHeight;
     border-radius: var(--c-br-s);
+    // border-radius: var(--v-r-btn);
     pointer-events: all;
 }
 
@@ -4710,14 +4793,16 @@ div[class*=v-fontinfo-].done > span,
     height: 26px;
     margin-top: 2px;
     margin-bottom: 2px;
-    border-radius: @borderRadiusInner_2px;
+    // border-radius: @borderRadiusInner_2px;
+    border-radius: calc(var(--v-r-s) - 2px) calc(var(--v-r-s-xc) - 2px);
 }
 
 .v-btn-group.prs {
     margin: 0 0 0 calc(var(--v-tb-btn-s) * 3);
-    height: 30px;
+    height: @buttonHeight;
     float: right;
     border-radius: var(--c-br-s);
+    // border-radius: var(--v-r-btn);
 }
 
 .v-btn-group:not(.float):has(.selected) {
@@ -4750,7 +4835,7 @@ div[class*=v-fontinfo-].done > span,
     border-radius: var(--c-br-b);
     text-align: center;
     line-height: 30px;
-    height: 30px;
+    height: @buttonHeight;
     width: 30px;
     padding: 2px;
     display: inline-flex;
@@ -4799,6 +4884,7 @@ div[class*=v-fontinfo-].done > span,
     font: condensed normal 1em var(--v-fm-toc); // [stretch] [style] [weight] [size/[line-height]] [family]
     background: var(--v-ui-bg);
     border-radius: var(--c-br-b);
+    // border-radius: var(--v-r-btn);
     top: -50px;
     left: calc(var(--v-nav-center-w) + 50px); // 注意 +/- 号前后须留空格
     right: @writePaddingRight;
@@ -4821,7 +4907,7 @@ div[class*=v-fontinfo-].done > span,
     width: 20%;
     height: 50px;
     position: absolute;
-    border-radius: var(--v-r-b) 0 0 var(--v-r-b-xc);
+    // border-radius: var(--v-r-b) 0 0 var(--v-r-b-xc);
 }
 // 有特效（effect>=1）时使用的样式
 .v-chapter-nav-prev::before {
@@ -4831,8 +4917,10 @@ div[class*=v-fontinfo-].done > span,
     right: 0;
     top: 0;
     bottom: 0;
-    background: linear-gradient(to right, var(--a-o-c), var(--v-ui-bg));
-    border-radius: var(--v-r-b) 0 0 var(--v-r-b-xc);
+    background: linear-gradient(to right, var(--a-o-c), var(--v-ui-bg) calc(100% - @buttonRadiusCircle));
+    // border-radius: var(--v-r-b) 0 0 var(--v-r-b-xc);
+    border-radius: var(--c-br-b);
+    // border-radius: var(--v-r-btn) 0 0 var(--v-r-btn);
     opacity: 0;
     z-index: -1;
     transition: all var(--v-trans-dur) ease-out;
@@ -4953,7 +5041,7 @@ div[class*=v-fontinfo-].done > span,
     width: 20%;
     height: 50px;
     position: absolute;
-    border-radius: 0 var(--v-r-b-xc) var(--v-r-b) 0;
+    // border-radius: 0 var(--v-r-b-xc) var(--v-r-b) 0;
 }
 .v-chapter-nav-next::before {
     content: "";
@@ -4962,8 +5050,10 @@ div[class*=v-fontinfo-].done > span,
     right: 0;
     top: 0;
     bottom: 0;
-    background: linear-gradient(to left, var(--a-o-c), var(--v-ui-bg));
-    border-radius: 0 var(--v-r-b-xc) var(--v-r-b) 0;
+    background: linear-gradient(to left, var(--a-o-c), var(--v-ui-bg) calc(100% - @buttonRadiusCircle));
+    border-radius: var(--c-br-b);
+    // border-radius: 0 var(--v-r-b-xc) var(--v-r-b) 0;
+    // border-radius: 0 var(--v-r-btn) var(--v-r-btn) 0;
     opacity: 0;
     z-index: -1;
     transition: all var(--v-trans-dur) ease-out;
@@ -5010,12 +5100,14 @@ div[class*=v-fontinfo-].done > span,
 }
 
 // 输入框
+@textfieldHeight: 36px;
 .v-textfield {
     background: var(--d-bc);
     border-radius: var(--c-br-s);
+    // border-radius: var(--v-r-btn);
     box-shadow: 0 0 0 1px var(--bq-bg) inset;
     margin: 0;
-    height: 36px;
+    height: @textfieldHeight;
 }
 // 注意 box-shadow 如有多段，且使用动画变换样式
 // 须保持内、外阴影样式设置的顺序要一致，否则动画变换会失效
@@ -5058,8 +5150,8 @@ input:-moz-placeholder),
 }
 
 .v-textfield-icon {
-    width: 30px;
-    height: 36px;
+    width: @textfieldHeight;
+    height: @textfieldHeight;
     padding: 7px;
     display: flex;
     align-items: center;
@@ -5070,7 +5162,7 @@ input:-moz-placeholder),
 // 输入框内的动作按钮
 .v-textfield-action {
     width: 40px;
-    height: 30px;
+    height: @buttonHeight;
     text-align: center;
     border-radius: 0 var(--v-r-s-xc) var(--v-r-s) 0;
     box-shadow: 1px 0 0 0 var(--pn-c-a) inset;
@@ -5217,8 +5309,9 @@ input:-moz-placeholder),
     white-space: nowrap;
     background: var(--v-ui-bg);
     border-radius: var(--v-r-si) var(--v-r-si-xc);
+    // border-radius: var(--v-r-btn);
     padding: 0 1px;
-    height: 30px;
+    height: @buttonHeight;
     z-index: 20;
 }
 
@@ -5228,6 +5321,7 @@ input:-moz-placeholder),
     width: 36px;
     height: 26px;
     border-radius: @borderRadiusInnerSi_2px;
+    // border-radius: calc(var(--v-r-btn) - 2px);;
     margin: 2px 1px;
     position: relative;
     display: none;
@@ -5597,13 +5691,13 @@ a[data-x-ref]::before {
     border-radius: var(--c-br-s);
     // left: 50%;
     // transform: translateX(-50%);
-    margin: 2px 0;
+    // margin: 2px 0;
 }
 .v-cap-1.none {
     padding: 0;
 }
 .v-cap-2 {
-    margin: 3px 10px 5px 10px;
+    // margin: 3px 10px 5px 10px;
     font-style: italic;
 }
 

@@ -131,6 +131,12 @@ void quickSort(int arr[], int left, int right) {
 
 代码块默认是自动换行，可以根据需要切换为不换行方式。
 
+```
+Hello Markdown! Hello VLOOK! Hello Markdown! Hello VLOOK! Hello Markdown! Hello VLOOK! Hello Markdown! Hello VLOOK! Hello Markdown! Hello VLOOK! Hello Markdown! Hello VLOOK! Hello Markdown! Hello VLOOK! Hello Markdown! Hello VLOOK!
+```
+
+
+
 > [!TIP]
 >
 > 在导出 HTML 后，可通过代码块 [内容助手](guide3.md#换行版式) 的「换行版式」进行手工切换
@@ -434,7 +440,7 @@ _^tab^_
 ###### 本文档的封面内容示例
 
 ```markdown
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>使用攻略<br>(Part.II)</u><br>*最新版本`V2025.10`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>使用攻略<br>(Part.II)</u><br>*最新版本`V2025.10.1`*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 ```
 
 ###### 本文档的封底内容示例

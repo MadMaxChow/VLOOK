@@ -152,7 +152,14 @@
 #top-titlebar :is(.ty-menu-btn-area-sub1, .ty-menu-btn-area-sub2, .ty-menu-btn-area-sub3),
 .fa-sort-desc::before,
 .fa-sort-asc::before {
-    color: var(--h-f);
+    // color: var(--h-f);
+    .genOutlineContentStyle(@style) when not (@style = edge) {
+        color: var(--h-f);
+    }
+    .genOutlineContentStyle(@style) when (@style = edge) {
+        color: @buttonForeColor;
+    }
+    .genOutlineContentStyle(@navCenterStyle);
 }
 .ion-folder::before {
     color: var(--d-fc-lg);
@@ -168,6 +175,9 @@
 .ty-icon.ty-left-arrow,
 .ion-ios7-search-strong {
     vertical-align: middle;
+}
+.ty-icon.ty-left-arrow {
+    color: var(--h-f);
 }
 #sidebar-search-btn {
     margin-top: 0;
@@ -517,6 +527,12 @@ body.@{windows} .ty-footer { // 底栏
 
 #typora-sidebar { // 侧边栏
     border-right: none;
+    .genSidebarContentStyle(@style) when (@style = edge) {
+        background-color: var(--v-btn-bg);
+        color: @buttonForeColor;
+    }
+    .genSidebarContentStyle(@navCenterStyle);
+    border-bottom-right-radius: var(--v-r-b);
 }
 
 .sidebar-tabs {
@@ -540,6 +556,10 @@ body.@{windows} .ty-footer { // 底栏
 .sidebar-content {
     padding: 0 10px 10px 10px;
     background: none;
+    .genSidebarContentStyle(@style) when (@style = edge) {
+        color: @buttonForeColor;
+    }
+    .genSidebarContentStyle(@navCenterStyle);
     // margin-top: 106px;
 }
 // for Windows
@@ -552,8 +572,8 @@ body.@{windows} .sidebar-content {
 }
 // 侧边栏当前活动 tab
 .sidebar-tab.active {
-    font-family: var(--v-fm-toc);
-    font-weight: var(--v-fw-toc);
+    font-family: var(--v-fm-tt);
+    font-weight: var(--v-fw-tt);
     font-stretch: condensed;
 }
 
@@ -586,19 +606,23 @@ body.@{windows} .info-panel-tab-wrapper {
 .sidebar-osx-tab,
 body.@{windows} .info-panel-tab-wrapper {
     color: @buttonForeColor;
-    background-color: var(--ac-t1);
+    background-color: var(--v-btn-bg);
     margin: @sidebarTabMargin @sidebarTabMargin 0 @sidebarTabMargin;
     border-radius: var(--c-br-b);
-    box-shadow: var(--v-fl-sd), @contrastBorder; // v-float-card
+    // border-radius: var(--v-r-btn);
+    .genOutlineContentStyle(@style) when not (@style = edge) {
+        box-shadow: var(--v-fl-sd), @contrastBorder; // v-float-card
+    }
+    .genOutlineContentStyle(@navCenterStyle);
     height: @sidebarTabHeight;
     width: auto;
 }
 .sidebar-osx-tab::before,
 body.@{windows} .info-panel-tab-wrapper::before {
-    content: "VLOOK™" @themeSpliter @themeDesc " • " @themeVer;
+    content: "VLOOK™" @themeSpliter @themeDesc;
     text-transform: uppercase;
     white-space: pre;
-    font: condensed var(--v-fw-tag) .875em var(--v-fm-tag); // [stretch] [style] [weight] [size/[line-height]] [family]
+    font: condensed var(--v-fw-tt) .875em var(--v-fm-tt); // [stretch] [style] [weight] [size/[line-height]] [family]
     // color: var(--h-f);
     color: @buttonForeColor;
     margin-top: 4px;
@@ -607,6 +631,10 @@ body.@{windows} .info-panel-tab-wrapper::before {
     // width: 100%;
     width: calc(100% - @sidebarTabMargin * 2);
     text-align: center;
+}
+.sidebar-osx-tab:hover::before,
+body.@{windows} .info-panel-tab-wrapper:hover::before {
+    content: "Version - " @themeVer;
 }
 body.@{windows} .info-panel-tab-wrapper::before {
     margin-top: 6px;
@@ -660,6 +688,9 @@ body.@{windows} :is(.active-tab-files, .active-tab-outline) .info-panel-tab-titl
     border-radius: var(--c-br-b);
     background: none;
 }
+#file-library {
+    margin-top: 10px;
+}
 #typora-sidebar #file-library:empty,
 #typora-sidebar .outline-content:empty {
     .genSidebarContentEmpty();
@@ -671,7 +702,7 @@ body.@{windows} :is(.active-tab-files, .active-tab-outline) .info-panel-tab-titl
 }
 #sidebar-content:hover #file-library {
     padding-bottom: 8px;
-    margin-top: 10px;
+    // margin-top: 10px;
 }
 #typora-sidebar #file-library-tree {
     border-radius: var(--c-br-b);
@@ -710,15 +741,15 @@ body.@{windows} #file-library-tree {
 // 右边浮动显示的侧边栏
 #toc-dropmenu {
     border-radius: var(--c-br-b);
-    .genTocDropmenuStyle(@style) when (@style = std) {
+    .genSidebarContentStyle(@style) when (@style = std) {
         background-color: var(--pn-c);
         box-shadow: var(--v-fl-sd), var(--v-fl-i-sd);
     }
-    .genTocDropmenuStyle(@style) when (@style = flat) {
+    .genSidebarContentStyle(@style) when (@style = flat) {
         background-color: var(--d-bc);
         box-shadow: var(--v-fl-sd);
     }
-    .genTocDropmenuStyle(@navCenterStyle);
+    .genSidebarContentStyle(@navCenterStyle);
     right: 20px;
     bottom: 20px;
     .genNavCenterFloat();
@@ -752,7 +783,13 @@ body.@{windows} #file-library-tree {
 // 大纲面板的封面、封底条目
 @{outlineCover}>.outline-item, // 封面
 @{outlinebackcover}>.outline-item { // 封底
-    color: var(--a-c);
+    .genSidebarContentStyle(@style) when not (@style = edge) {
+        color: var(--a-c);
+    }
+    .genSidebarContentStyle(@style) when (@style = edge) {
+        color: @buttonForeColor;
+    }
+    .genSidebarContentStyle(@navCenterStyle);
     font-size: 14px;
     height: 40px;
     padding-left: 20px;
@@ -854,17 +891,19 @@ body.@{windows} #file-library-tree {
 
 // 大纲面板
 .outline-content {
-    .genOutlineContentStyle(@style) when (@style = std) {
+    .genSidebarContentStyle(@style) when (@style = std) {
         background-color: var(--pn-c);
         box-shadow: var(--v-fl-sd), var(--v-fl-i-sd);
+        // box-shadow: var(--v-fl-sd), @contrastBorder; // v-float-card
     }
-    .genOutlineContentStyle(@style) when (@style = flat) {
+    .genSidebarContentStyle(@style) when (@style = flat) {
         background-color: var(--d-bc);
         box-shadow: var(--v-fl-sd);
     }
-    .genOutlineContentStyle(@navCenterStyle);
+    .genSidebarContentStyle(@navCenterStyle);
     margin-top: 10px;
     border-radius: var(--c-br-b);
+    // border-radius: var(--v-r-btn-b);
     padding: 10px;
 }
 // 大纲节点
@@ -884,7 +923,14 @@ body.@{windows} #file-library-tree {
     font-weight: var(--v-fw-toc);
 }
 .outline-item-active {
-    box-shadow: @tocItemCurrent_boxShadow;
+    .genSidebarContentStyle(@style) when not (@style = edge) {
+        box-shadow: @tocItemCurrent_boxShadow;
+    }
+    .genSidebarContentStyle(@style) when (@style = edge) {
+        box-shadow: 0 0 0 2px var(--fd05) inset;
+    }
+    .genSidebarContentStyle(@navCenterStyle);
+
     border-radius: var(--c-br-s);
     margin-left: 0;
     border-left-width: 0;
@@ -893,13 +939,16 @@ body.@{windows} #file-library-tree {
 }
 // 大纲节点 hover
 .outline-item:hover {
-    .genOutlineItemHoverStyle(@style) when (@style = std) {
+    .genSidebarContentStyle(@style) when (@style = std) {
         background: var(--pn-c-a);
     }
-    .genOutlineItemHoverStyle(@style) when (@style = flat) {
+    .genSidebarContentStyle(@style) when (@style = flat) {
         background: var(--pn-c);
     }
-    .genOutlineItemHoverStyle(@navCenterStyle);
+    .genSidebarContentStyle(@style) when (@style = edge) {
+        background: var(--fd02);
+    }
+    .genSidebarContentStyle(@navCenterStyle);
     border-radius: var(--c-br-s);
     margin-left: 0;
     border-left-width: 0;
@@ -913,14 +962,17 @@ body.@{windows} #file-library-tree {
 .outline-label:active,
 .file-library-file-node:active,
 .file-library-file-node:active span {
-    .genOutlineItemActiveStyle(@style) when (@style = std) {
+    .genSidebarContentStyle(@style) when (@style = std) {
         color: var(--d-bc);
         background: var(--d-fc-a);
     }
-    .genOutlineItemActiveStyle(@style) when (@style = flat) {
+    .genSidebarContentStyle(@style) when (@style = flat) {
         background: var(--pn-c-a);
     }
-    .genOutlineItemActiveStyle(@navCenterStyle);
+    .genSidebarContentStyle(@style) when (@style = edge) {
+        background: @aActiveColor;
+    }
+    .genSidebarContentStyle(@navCenterStyle);
 }
 // 针对 before content, COVER, BACK COVER etc.
 .outline-item:active>.outline-expander::before,
@@ -1050,6 +1102,21 @@ body.@{windows} .ty-sidebar-search-panel .searchpanel-search-option-btn {
 .file-library-node:not(.file-node-root):focus>.file-node-content {
     outline: 0;
 }
+
+.genFileListItemStyle(@style) when (@style = edge) {
+    .file-library-file-node.active {
+        box-shadow: none;
+    }
+    .file-list-item {
+        border-bottom-color: var(--fd05);
+    }
+    .file-list-item.active {
+        background-color: var(--item-hover-bg-color);
+        color: @buttonForeColor;
+    }
+}
+.genFileListItemStyle(@navCenterStyle);
+
 // 文件名（含扩展名）
 body.@{windows} .file-node-title { // for Win
     margin-top: 0;
@@ -1472,7 +1539,10 @@ content .md-toc::before {
 }
 .outline-h6>.outline-item {
 	padding-left: 4.85em;
-    color: var(--toc-h-num-c);
+    .genSidebarContentStyle(@style) when not (@style = edge) {
+        color: var(--toc-h-num-c);
+    }
+    .genSidebarContentStyle(@navCenterStyle);
     font-size: .875em;
 }
 .outline-h6>.outline-item>.outline-label::before {
@@ -1500,16 +1570,29 @@ content .md-toc::before {
     line-height: @tocItemLineHeight;
 }
 // 实现大纲节点文本换行后保持在右侧
-.outline-label:before {
+.outline-label::before {
     flex: 0 0 auto;
     margin-right: 5px;
+    color: var(--toc-h-num-c);
+    // color: currentColor;
+    // opacity: @contentHeaderNumOpacity;
 }
 
 // 如果标题自动编号颜色有设置透明度，则编辑时的大纲生成合适的透明度
 .getOutlineLabel() when not (@contentHeaderNumOpacity = 1) {
-    .outline-label::before {
-        color: var(--toc-h-num-c);
+    // .genSidebarContentStyle(@style) when not (@style = edge) {
+    //     .outline-label::before {
+    //         color: var(--toc-h-num-c);
+    //     }
+    // }
+    .genSidebarContentStyle(@style) when (@style = edge) {
+        .outline-label::before {
+            // color: var(--toc-h-num-c);
+            // color: currentColor;
+            opacity: @contentHeaderNumOpacity;
+        }
     }
+    .genSidebarContentStyle(@navCenterStyle);
 }
 .getOutlineLabel();
 
@@ -2083,8 +2166,8 @@ li label.checkbox {
 
 // ------------------------------
 // 编辑时的引用块折叠（details、summary）
-@summaryOnEditing: ~"blockquote>h6:first-child";
-@{writeOnEditing} @{summaryOnEditing} {
+@summarySyntax: ~"blockquote>h6:first-child";
+@{writeOnEditing} @{summarySyntax} {
     color: @h7Color;
     font: condensed var(--v-fw-toc) @h7FontSize var(--v-fm-toc); // [stretch] [style] [weight] [size/[line-height]] [family]
     padding: 0 0 .3125em 0;
@@ -2100,12 +2183,12 @@ li label.checkbox {
     width: 100%;
 }
 // 在列表、引用块内时微调
-@{writeOnEditing} :is(li, blockquote) @{summaryOnEditing},
+@{writeOnEditing} :is(li, blockquote) @{summarySyntax},
 :is(li, blockquote, details) summary {
     text-align: left;
     justify-content: left;
 }
-@{writeOnEditing} @{summaryOnEditing}::before {
+@{writeOnEditing} @{summarySyntax}::before {
     content: "" !important;
     background-color: var(--d-fc);
     mask: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 0a9 9 0 1 1 0 18A9 9 0 0 1 9 0zm1 3H8v5H3v2h5v5h2v-5h5V8h-5V3z' fill='%23000' fill-rule='evenodd'/%3E%3C/svg%3E") no-repeat center;
@@ -2125,32 +2208,32 @@ li label.checkbox {
 // 生成编辑时引用块折叠样式
 // 始终显示
 .genSummaryOnEditing(@mode) when (@mode = open) {
-    @{writeOnEditing} @{summaryOnEditing} {
+    @{writeOnEditing} @{summarySyntax} {
         border-bottom: @quoteTitleBorderWidth solid var(--ac-bk-fd);
     }
 }
 // 输入编辑时自动展示，完成后自动收起
 .genSummaryOnEditing(@mode) when (@mode = auto) {
-    @{writeOnEditing} @{summaryOnEditing}::before {
+    @{writeOnEditing} @{summarySyntax}::before {
         transform: unset;
         opacity: 1;
     }
 
     // 编辑时自动折叠收起
-    @hasSummaryOnEditing: ~"blockquote:has(>h6:first-child)";
-    @{writeOnEditing} @{hasSummaryOnEditing} {
+    @hasSummarySyntax: ~"blockquote:has(>h6:first-child)";
+    @{writeOnEditing} @{hasSummarySyntax} {
         overflow: hidden;
         height: 2.625em;
     }
-    @{writeOnEditing} @{hasSummaryOnEditing} :is(blockquote,.md-alert)::before { // hr 分栏内容提示
+    @{writeOnEditing} @{hasSummarySyntax} :is(blockquote,.md-alert)::before { // hr 分栏内容提示
         display: none;
     }
     // 引用内的折叠
-    @{writeOnEditing} :is(li, blockquote) @{hasSummaryOnEditing} {
+    @{writeOnEditing} :is(li, blockquote) @{hasSummarySyntax} {
         height: 1.25em;
     }
     // 编辑时任意子元素获得焦点后，自动展开
-    @summaryFocusOnEditing: ~"@{hasSummaryOnEditing}:has(.md-focus)";
+    @summaryFocusOnEditing: ~"@{hasSummarySyntax}:has(.md-focus)";
     @{writeOnEditing} @{summaryFocusOnEditing} {
         height: auto;
     }

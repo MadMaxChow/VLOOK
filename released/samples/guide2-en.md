@@ -429,7 +429,7 @@ _^tab^_
 ###### Example of this document's cover content
 
 ```markdown
-###### ~VLOOK™~<br>Give your Markdown a new way to _^play^_<br>──<br><u>Quick Reference Manual<br>(Part.II)</u><br>*Latest version`V2025.10`*<br><br>**MAX°Mengzhao**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>Give your Markdown a new way to _^play^_<br>──<br><u>Quick Reference Manual<br>(Part.II)</u><br>*Latest version`V2025.10.1`*<br><br>**MAX°Mengzhao**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
 ```
 
 ###### Example of this document's back cover content
