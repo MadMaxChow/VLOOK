@@ -3,7 +3,7 @@
  * starter of VLOOK.js - Typora Plugin
  * (配合 vlook-min.js 进行使用)
  *
- * V2025.10
+ * V2025.10.1
  * 2025-10-18
  * Powered by MAX°孟兆
  *
@@ -16,7 +16,7 @@
  *
  *************************************/
 
-let sVer = "V2025.10";
+let sVer = "V2025.10.1";
 
 /**
  * 获取 URL 中的参数数组
