@@ -1156,11 +1156,11 @@ span.cm-strikethrough { text-decoration: line-through; }
   --v-fw-text: var(--v-fw-text-zen);
 }
 :root {
-  --v-r-b: var(--v-r-b-small);
-  --v-r-s: var(--v-r-s-small);
-  --v-r-t: var(--v-r-t-small);
+  --v-r-b: var(--v-r-b-big);
+  --v-r-s: var(--v-r-s-big);
+  --v-r-t: var(--v-r-t-big);
   --v-r-si: calc(var(--v-r-t) - 1px);
-  --v-r-tag: var(--v-r-tag-small);
+  --v-r-tag: var(--v-r-tag-big);
 }
 :root {
   --v-r-b-xc: var(--v-r-b);
@@ -1171,7 +1171,7 @@ span.cm-strikethrough { text-decoration: line-through; }
 }
 :root {
   --d-bi-lg: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 10l4 2-4 2-2 4-2-4-4-2 4-2 2-4z' fill='%23000' fill-rule='evenodd' opacity='.03'/%3E%3C/svg%3E");
-  --d-bi-dk: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 10l4 2-4 2-2 4-2-4-4-2 4-2 2-4z' fill='%23FFF' fill-rule='evenodd' opacity='.08'/%3E%3C/svg%3E");
+  --d-bi-dk: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 10l4 2-4 2-2 4-2-4-4-2 4-2 2-4z' fill='%23FFF' fill-rule='evenodd' opacity='.05'/%3E%3C/svg%3E");
 }
 content > #write p > [md-inline=em]:only-child > em > [md-inline=highlight]:only-child > mark,
 content > #write span[md-inline=image]:has(img[alt])::before,
@@ -1455,6 +1455,8 @@ xx 文档更多内容遮挡阴影（上） / .v-more-doc-content-before / z-inde
   --c-br-s: var(--v-r-s) var(--v-r-s-xc);
   --b-br-b: var(--v-r-b) var(--v-r-b-xc);
   --b-br-s: var(--v-r-s) var(--v-r-s-xc);
+  --b-br-b: 25px;
+  --b-br-s: 25px;
   --v-theme-name: "vlook-x-orris";
   --v-theme-desc: "Orris";
   --v-theme-version: "V2025.10.1";
@@ -3634,6 +3636,8 @@ content > #write sup.md-footnote span[md-inline=plain],
   display: inline-flex;
   align-items: center;
   white-space: pre-wrap;
+  padding: 8px 12px;
+  border-radius: 250px;
 }
 #write strong a kbd,
 #write em a kbd {
@@ -4953,7 +4957,7 @@ content > #write .md-hr + .md-hr + .md-hr + .md-hr + :is(ul, ol)::before {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border-radius: calc(var(--v-r-s) - 1px) calc(var(--v-r-s-xc) - 1px);
+  border-radius: var(--b-br-s);
   min-width: calc(var(--v-tb-btn-w) - 4px);
   height: 28px;
 }
@@ -6104,7 +6108,7 @@ div[class*=v-fontinfo-].done > span,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: calc(var(--v-r-s) - 2px) calc(var(--v-r-s-xc) - 2px);
+  border-radius: var(--b-br-s);
   float: left;
   position: relative;
   z-index: 10;
