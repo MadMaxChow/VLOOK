@@ -256,33 +256,77 @@
                 }
             });
 
-            // 触摸双指缩放
+            // --- 5. 触摸双指缩放 (修正版：支持以双指中心为原点) ---
+            
+            // 用于记录上一次双指的距离，实现增量计算
+            let lastTouchDist = 0;
+
             $overlay.on('touchstart', function(e) {
                 const touches = e.originalEvent ? e.originalEvent.touches : e.touches;
+                
+                // 如果是双指，初始化距离
                 if (touches && touches.length === 2) {
-                    state.panning = false;
-                    touchState.initialDistance = getDistance(touches[0], touches[1]);
-                    touchState.initialScale = state.scale;
+                    state.panning = false; // 禁止单指拖拽逻辑干扰
+                    lastTouchDist = getDistance(touches[0], touches[1]);
                 }
             });
 
             $overlay.on('touchmove', function(e) {
                 const touches = e.originalEvent ? e.originalEvent.touches : e.touches;
+
                 if (touches && touches.length === 2) {
-                    e.preventDefault();
-                    const currentDistance = getDistance(touches[0], touches[1]);
-                    if (touchState.initialDistance > 0) {
-                        const pinchRatio = currentDistance / touchState.initialDistance;
-                        state.scale = Math.min(Math.max(0.1, touchState.initialScale * pinchRatio), 20);
+                    e.preventDefault(); // 阻止浏览器默认缩放
+                    
+                    if (!currentTarget) return;
+
+                    // 1. 计算当前双指距离
+                    const currentDist = getDistance(touches[0], touches[1]);
+                    
+                    // 2. 如果上一次距离有效，则开始计算
+                    if (lastTouchDist > 0 && currentDist > 0) {
+                        
+                        // 计算本帧的缩放比例 (相对于上一帧)
+                        const ratio = currentDist / lastTouchDist;
+                        
+                        // 计算新的缩放值 (应用限制)
+                        const newScale = Math.min(Math.max(0.1, state.scale * ratio), 50);
+                        
+                        // 重新计算实际应用的 ratio (因为 newScale 可能被 max/min 限制住了)
+                        // 这一步很重要，否则位置会飘移
+                        const effectiveRatio = newScale / state.scale;
+
+                        // 3. 计算双指的中心点 (作为缩放原点)
+                        const midX = (touches[0].clientX + touches[1].clientX) / 2;
+                        const midY = (touches[0].clientY + touches[1].clientY) / 2;
+
+                        // 4. 核心算法：调整图片位置，使其看起来是绕着 midX, midY 缩放的
+                        // 公式：新位置 = 中心点 - (中心点 - 旧位置) * 比例
+                        state.pointX = midX - (midX - state.pointX) * effectiveRatio;
+                        state.pointY = midY - (midY - state.pointY) * effectiveRatio;
+                        
+                        state.scale = newScale;
+                        
+                        // 更新变换
                         updateTransform();
+                        
+                        // 5. 更新距离，为下一帧做准备 (增量模式)
+                        lastTouchDist = currentDist;
                     }
                 }
             });
 
+            // 触摸结束时重置距离，防止逻辑错乱
+            $overlay.on('touchend', function(e) {
+                const touches = e.originalEvent ? e.originalEvent.touches : e.touches;
+                if (touches && touches.length < 2) {
+                    lastTouchDist = 0;
+                }
+            });
+
+            // 辅助函数：计算距离
             function getDistance(touch1, touch2) {
-                const dx = touch1.clientX - touch2.clientX;
-                const dy = touch1.clientY - touch2.clientY;
-                return Math.sqrt(dx * dx + dy * dy);
+                // Math.hypot 是求平方和的平方根 (勾股定理)
+                return Math.hypot(touch1.clientX - touch2.clientX, touch1.clientY - touch2.clientY);
             }
         });
     </script>
