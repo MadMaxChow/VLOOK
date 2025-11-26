@@ -289,7 +289,7 @@
                         const ratio = currentDist / lastTouchDist;
                         
                         // 计算新的缩放值 (应用限制)
-                        const newScale = Math.min(Math.max(0.1, state.scale * ratio), 50);
+                        const newScale = Math.min(Math.max(0.5, state.scale * ratio), 10);
                         
                         // 重新计算实际应用的 ratio (因为 newScale 可能被 max/min 限制住了)
                         // 这一步很重要，否则位置会飘移
