@@ -1,6 +1,6 @@
 /**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V2025.10.2" (2025-11-20) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V2025.10.2" (2025-12-03) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -104,5 +104,7 @@ var V_lang_data_ko = {
 "ko95":"인쇄 시작 (선택: PDF로 저장)",
 "ko96":"취소",
 "ko97":"스크래치 카드 보이기",
-"ko98":"A4 용지에 맞게 조정된 표지"
+"ko98":"A4 용지에 맞게 조정된 표지",
+"ko99":"젠 모드",
+"ko100":"열 고정"
 }

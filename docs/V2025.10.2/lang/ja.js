@@ -1,6 +1,6 @@
 /**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V2025.10.2" (2025-11-20) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V2025.10.2" (2025-12-03) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -108,5 +108,7 @@ var V_lang_data_ja = {
 "ja95":"印刷を開始 (選択: PDFとして保存)",
 "ja96":"キャンセル",
 "ja97":"スクラッチカードを表示",
-"ja98":"A4用紙に合わせて調整された表紙"
+"ja98":"A4用紙に合わせて調整された表紙",
+"ja99":"禅モード",
+"ja100":"列を固定"
 }

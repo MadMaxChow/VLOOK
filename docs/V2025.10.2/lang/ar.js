@@ -1,6 +1,6 @@
 /**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V2025.10.2" (2025-11-20) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V2025.10.2" (2025-12-03) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -104,5 +104,7 @@ var V_lang_data_ar = {
 "ar95":"ابدأ الطباعة (اختر: حفظ كملف PDF)",
 "ar96":"إلغاء",
 "ar97":"إظهار بطاقة الخدش",
-"ar98":"غلاف مُكيَّف لورق A4"
+"ar98":"غلاف مُكيَّف لورق A4",
+"ar99":"وضع الزِن",
+"ar100":"تجميد العمود"
 }

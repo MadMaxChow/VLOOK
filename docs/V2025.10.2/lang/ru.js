@@ -1,6 +1,6 @@
 /**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V2025.10.2" (2025-11-20) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V2025.10.2" (2025-12-03) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -104,5 +104,7 @@ var V_lang_data_ru = {
 "ru95":"Начать печать (выбрать: Сохранить как PDF)",
 "ru96":"Отмена",
 "ru97":"Стереть скретч-карту",
-"ru98":"Обложка, адаптированная под формат A4"
+"ru98":"Обложка, адаптированная под формат A4",
+"ru99":"Режим Дзэн",
+"ru100":"Закрепить столбец"
 }

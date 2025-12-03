@@ -1,6 +1,6 @@
 /**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V2025.10.2" (2025-11-20) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V2025.10.2" (2025-12-03) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -104,5 +104,7 @@ var V_lang_data_zhtd = {
 "zhtd95":"開始列印 (選擇：另存為 PDF)",
 "zhtd96":"取消",
 "zhtd97":"顯示刮刮卡",
-"zhtd98":"封面適配 A4 紙張"
+"zhtd98":"封面適配 A4 紙張",
+"zhtd99":"禪模式",
+"zhtd100":"凍結欄"
 }

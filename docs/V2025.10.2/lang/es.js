@@ -1,6 +1,6 @@
 /**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V2025.10.2" (2025-11-20) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V2025.10.2" (2025-12-03) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -104,5 +104,7 @@ var V_lang_data_es = {
 "es95":"Iniciar impresión (seleccionar: Guardar como PDF)",
 "es96":"Cancelar",
 "es97":"Revelar tarjeta rasca",
-"es98":"Portada adaptada para papel A4"
+"es98":"Portada adaptada para papel A4",
+"es99":"Modo Zen",
+"es100":"Fijar columna"
 }
