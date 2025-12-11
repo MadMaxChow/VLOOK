@@ -1,6 +1,6 @@
 /**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V2025.10.2" (2025-12-03) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V2025.10.2" (2025-12-04) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -11,7 +11,7 @@ var V_lang_data_es = {
 "es2":"Cambiar pestañas",
 "es3":"Enlace al mapa",
 "es4":"Habilitado",
-"es5":" para cambiar el tamaño del paso",
+"es5":"Buscar en el documento",
 "es6":"Centro de Navegación",
 "es7":"Biblioteca de Documentos",
 "es8":"Desplazamiento por párrafos",
@@ -35,7 +35,7 @@ var V_lang_data_es = {
 "es26":"Envolver / Desenrollar",
 "es27":"Imagen en imagen",
 "es28":"Presionar y mantener",
-"es29":"Documento actual",
+"es29":"Fijar columna",
 "es30":"Copiar código",
 "es31":"Copiar dirección de la imagen",
 "es32":"Publicar como PDF",
@@ -45,7 +45,7 @@ var V_lang_data_es = {
 "es36":"- Se ha lanzado una nueva versión, ¡por favor actualiza!",
 "es37":"Lo siento, copiar no es compatible con este navegador en este momento",
 "es38":"Incluir esquema",
-"es39":"Tiempo de espera",
+"es39":"Modo Zen",
 "es40":"Cargando",
 "es41":"Estilo de fuente",
 "es42":"Minuto(s)",
@@ -92,7 +92,7 @@ var V_lang_data_es = {
 "es83":"Enlace",
 "es84":"Nota al pie",
 "es85":"Restablecer al estilo de fuente del tema",
-"es86":"Haga clic aquí para abrir el enlace",
+"es86":"Portada adaptada para papel A4",
 "es87":"Hoy es",
 "es88":"Esta página se mostrará en {{display-mode}}",
 "es89":"Haga clic en el botón de abajo para desactivarlo temporalmente",
@@ -104,7 +104,5 @@ var V_lang_data_es = {
 "es95":"Iniciar impresión (seleccionar: Guardar como PDF)",
 "es96":"Cancelar",
 "es97":"Revelar tarjeta rasca",
-"es98":"Portada adaptada para papel A4",
-"es99":"Modo Zen",
-"es100":"Fijar columna"
+"es98":"Ver todo"
 }

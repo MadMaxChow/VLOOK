@@ -1,6 +1,6 @@
 /**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V2025.10.2" (2025-12-03) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V2025.10.2" (2025-12-04) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -11,7 +11,7 @@ var V_lang_data_fr = {
 "fr2":"Changer d'onglet",
 "fr3":"Carte de liens",
 "fr4":"Activé",
-"fr5":" pour changer la taille de l'étape",
+"fr5":"Rechercher dans le document",
 "fr6":"Centre de Navigation",
 "fr7":"Bibliothèque de documents",
 "fr8":"Navigation par paragraphe",
@@ -35,7 +35,7 @@ var V_lang_data_fr = {
 "fr26":"Envelopper / Dérouler",
 "fr27":"Image dans l’image",
 "fr28":"Appuyer et maintenir",
-"fr29":"Document actuel",
+"fr29":"Figer la colonne",
 "fr30":"Copier le code",
 "fr31":"Copier l’adresse de l’image",
 "fr32":"Publier au format PDF",
@@ -45,7 +45,7 @@ var V_lang_data_fr = {
 "fr36":"- Une nouvelle version a été publiée, veuillez mettre à jour!",
 "fr37":"Désolé, la fonction de copie n’est actuellement pas supportée dans ce navigateur",
 "fr38":"Inclure le plan",
-"fr39":"Délai d’attente",
+"fr39":"Mode Zen",
 "fr40":"Chargement",
 "fr41":"Style de police",
 "fr42":"Minute(s)",
@@ -92,7 +92,7 @@ var V_lang_data_fr = {
 "fr83":"Lien",
 "fr84":"Note de bas de page",
 "fr85":"Réinitialiser au style de police du thème",
-"fr86":"Cliquez ici pour ouvrir le lien",
+"fr86":"Couverture adaptée au format A4",
 "fr87":"Aujourd'hui, c'est",
 "fr88":"Cette page sera affichée en {{display-mode}}",
 "fr89":"Cliquez sur le bouton ci-dessous pour le désactiver temporairement",
@@ -104,7 +104,5 @@ var V_lang_data_fr = {
 "fr95":"Démarrer l'impression (sélectionner : Enregistrer au format PDF)",
 "fr96":"Annuler",
 "fr97":"Révéler la carte à gratter",
-"fr98":"Couverture adaptée au format A4",
-"fr99":"Mode Zen",
-"fr100":"Figer la colonne"
+"fr98":"Tout afficher"
 }
