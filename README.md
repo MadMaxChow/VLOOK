@@ -41,9 +41,7 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 
 
-【购买云服务器：推荐 [华为 Flexus 服务器](https://activity.huaweicloud.com/1111_promotion/index.html?fromacct=cf8711bba6474f31b684f0f76d87e630&utm_source=aHcwMDgzMTQ1NDI==&utm_medium=cps&utm_campaign=201905)】
-
-
+【购买云服务：推荐 [华为 Flexus 云服务](https://activity.huaweicloud.com/1111_promotion/index.html?fromacct=cf8711bba6474f31b684f0f76d87e630&utm_source=aHcwMDgzMTQ1NDI==&utm_medium=cps&utm_campaign=201905)】
 
 
 
