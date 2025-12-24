@@ -39,14 +39,6 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 ---
 
-
-
-【推荐云服务：[腾讯云精选](https://curl.qcloud.com/wa9pe9EX)】    【推荐云服务：[华为 Flexus](https://activity.huaweicloud.com/1111_promotion/index.html?fromacct=cf8711bba6474f31b684f0f76d87e630&utm_source=aHcwMDgzMTQ1NDI==&utm_medium=cps&utm_campaign=201905)】
-
-
-
----
-
 > **加入讨论与交流**
 >
 > - 💬 QQ 群 ([**805502564**](https://qm.qq.com/q/O0tNC6WBWe&)) 
@@ -88,6 +80,10 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 # 安装与使用
 
 只需三步，即可开启全新的 Markdown 体验，[点击这里开始](https://madmaxchow.github.io/VLOOK/index.html#安装与使用)（[备用链接](https://vlook-doc.pages.dev/index.html#安装与使用)）
+
+【推荐云服务：[腾讯云精选](https://curl.qcloud.com/wa9pe9EX)】    【推荐云服务：[阿里云小站](https://www.aliyun.com/minisite/goods?userCode=l4rgfqpd)】    【推荐云服务：[华为 Flexus](https://activity.huaweicloud.com/1111_promotion/index.html?fromacct=cf8711bba6474f31b684f0f76d87e630&utm_source=aHcwMDgzMTQ1NDI==&utm_medium=cps&utm_campaign=201905)】
+
+
 
 ---
 
