@@ -104,5 +104,6 @@ var V_lang_data_de = {
 "de95":"Druck starten (wählen: Als PDF speichern)",
 "de96":"Cancel",
 "de97":"Rubbelkarte anzeigen",
-"de98":"Alle anzeigen"
+"de98":"Alle anzeigen",
+"de99":"( Keine Beschriftung )"
 }

@@ -104,5 +104,6 @@ var V_lang_data_pt = {
 "pt95":"Iniciar impressão (selecionar: Salvar como PDF)",
 "pt96":"Cancelar",
 "pt97":"Revelar cartão raspadinha",
-"pt98":"Ver tudo"
+"pt98":"Ver tudo",
+"pt99":"( Sem legenda )"
 }

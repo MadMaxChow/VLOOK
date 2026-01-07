@@ -104,5 +104,6 @@ var V_lang_data_es = {
 "es95":"Iniciar impresión (seleccionar: Guardar como PDF)",
 "es96":"Cancelar",
 "es97":"Revelar tarjeta rasca",
-"es98":"Ver todo"
+"es98":"Ver todo",
+"es99":"( Sin leyenda )"
 }

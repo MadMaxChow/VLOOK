@@ -104,5 +104,6 @@ var V_lang_data_fr = {
 "fr95":"Démarrer l'impression (sélectionner : Enregistrer au format PDF)",
 "fr96":"Annuler",
 "fr97":"Révéler la carte à gratter",
-"fr98":"Tout afficher"
+"fr98":"Tout afficher",
+"fr99":"( Sans légende )"
 }
