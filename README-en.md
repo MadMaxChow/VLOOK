@@ -34,8 +34,9 @@ With just a few simple steps of installation and configuration, you can also hav
 
 > - It is also Typora - recognized and supported theme pack and enhanced plugin, for details: [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook)
 > - [OSChina](https://www.oschina.net/p/vlook) recommended domestic open source products
-> 
-><a href="https://www.producthunt.com/posts/vlook?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-vlook" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=948962&theme=neutral&t=1744083742474" alt="VLOOK - THEME&#0032;PACKAGE&#0032;&#0215;&#0032;ENHANCEMENT&#0032;PLUGIN&#0032;for&#0032;Typora&#0047;Markdown | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>  <a href="https://hellogithub.com/repository/aa6c612ca3de42a082b15053be4ce3c3" target="_blank"><img src="https://abroad.hellogithub.com/v1/widgets/recommend.svg?rid=aa6c612ca3de42a082b15053be4ce3c3&claim_uid=xCde1wfnch6ASLj&theme=neutral" alt="Featured｜HelloGitHub" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+> - [AtomGit](https://atomgit.com/maxchou/VLOOK) **G-Star** Project ![star VLOOK](https://atomgit.com/maxchou/VLOOK/star/badge.svg#icon)
+>
+> <a href="https://www.producthunt.com/posts/vlook?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-vlook" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=948962&theme=neutral&t=1744083742474" alt="VLOOK - THEME&#0032;PACKAGE&#0032;&#0215;&#0032;ENHANCEMENT&#0032;PLUGIN&#0032;for&#0032;Typora&#0047;Markdown | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>  <a href="https://hellogithub.com/repository/aa6c612ca3de42a082b15053be4ce3c3" target="_blank"><img src="https://abroad.hellogithub.com/v1/widgets/recommend.svg?rid=aa6c612ca3de42a082b15053be4ce3c3&claim_uid=xCde1wfnch6ASLj&theme=neutral" alt="Featured｜HelloGitHub" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
 ---
 
@@ -50,9 +51,9 @@ With just a few simple steps of installation and configuration, you can also hav
 
 > **Thanks for donate VLOOK™ (partial donors) **
 >
-> **Peter**、**绿邃清幽**、**李导996**、**fanky**、**＊丽**、**杨琛**、**＊哦**、**＊豫**、**l＊a**、**＊o**、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…
+> **Peter**、**绿邃清幽**、**李导996**、**fanky**、**＊丽**、**杨琛**、**＊哦**、**＊豫**、**l＊a**、**＊o**、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…
 
-|          **Your coffee<br/>keeps VLOOK™ running ☕️**          |             **你的咖啡，能让 VLOOK™ 保持活力 ☕️**             |
+|          **Your coffee<br>keeps VLOOK™ running ☕️**          |             **你的咖啡，能让 VLOOK™ 保持活力 ☕️**             |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | [![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-paypal-light.png)](https://paypal.me/madmaxchow) | ![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-wechat-light.png)![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-alipay-light.png) |
 
