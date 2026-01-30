@@ -1,6 +1,6 @@
 /**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V2025.10.1" (2025-10-18) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V2026.1" (2026-01-30) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -11,7 +11,7 @@ var V_lang_data_zhtd = {
 "zhtd2":"切換頁簽",
 "zhtd3":"連結地圖",
 "zhtd4":"已啟用",
-"zhtd5":"切換步長大小",
+"zhtd5":"在文檔中查看",
 "zhtd6":"導航中心",
 "zhtd7":"瀏覽文庫",
 "zhtd8":"段落漫遊",
@@ -35,7 +35,7 @@ var V_lang_data_zhtd = {
 "zhtd26":"換行/不換行",
 "zhtd27":"畫中畫",
 "zhtd28":"按住不放",
-"zhtd29":"當前文件",
+"zhtd29":"凍結欄",
 "zhtd30":"複製代碼",
 "zhtd31":"複製圖片地址",
 "zhtd32":"以 PDF 發佈",
@@ -45,7 +45,7 @@ var V_lang_data_zhtd = {
 "zhtd36":"- 已推出新版本，請更新！",
 "zhtd37":"對不起，目前此瀏覽器不支援複製功能",
 "zhtd38":"包含大綱",
-"zhtd39":"超時",
+"zhtd39":"禪模式",
 "zhtd40":"加載中",
 "zhtd41":"字體樣式",
 "zhtd42":"分鐘",
@@ -92,7 +92,7 @@ var V_lang_data_zhtd = {
 "zhtd83":"連結",
 "zhtd84":"註腳",
 "zhtd85":"重置回主題配套字體風格",
-"zhtd86":"點擊此處以開啟連結",
+"zhtd86":"封面適配 A4 紙張",
 "zhtd87":"今天是",
 "zhtd88":"此頁面將以 {{display-mode}} 模式顯示",
 "zhtd89":"點擊下方按鈕暫時將其關閉",
@@ -103,5 +103,7 @@ var V_lang_data_zhtd = {
 "zhtd94":"失敗",
 "zhtd95":"開始列印 (選擇：另存為 PDF)",
 "zhtd96":"取消",
-"zhtd97":"顯示刮刮卡"
+"zhtd97":"顯示刮刮卡",
+"zhtd98":"查看全部",
+"zhtd99":"( 無題註 )"
 }

@@ -1,6 +1,12 @@
 ---
-title: Guide ▲ Advanced - VLOOK™ - Elegant and Practical Typora Theme & Plugin
+title: Guide ★ Exploration - VLOOK™ - Elegant and Practical Typora Theme & Plugin
 author: MAX°孟兆
+date: 2026-01-30
+copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
+rights: This work is licensed under the MIT License. For details, see the LICENSE file.
+version: V2026.1
+tags: Content Navigation, Content Assistant, Presentation Tools, Publishing Tools, Appearance, Miscellaneous
+footer: <a href="index-en.html">Introduction</a>	|	Guide for <a href='guide-en.html'>Basic</a>  ❯  <a href='guide2-en.html'>Advanced</a>  ❯  <strong>Exploration</strong>
 description: Regarding VLOOK™: Theme Design, Content Tagging, Content Navigation, Presentation & Publishing, Third-Party Integration Adaptation, and Miscellaneous Exclusions
 "og:description": Regarding VLOOK™: Theme Design, Content Tagging, Content Navigation, Presentation & Publishing, Third-Party Integration Adaptation, and Miscellaneous Exclusions
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
@@ -8,9 +14,9 @@ keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
 - editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
 - light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
-- catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
+- catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
-- picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
+- picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
 - content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
@@ -19,9 +25,9 @@ keywords:
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
 - 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
-- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
+- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
-- 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
+- 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
@@ -31,10 +37,10 @@ keywords:
 vlook-header-dup: /^Your coffee.+/;/.*Syntax$/;/^Applicable Scope ••• .+/
 vlook-doc-lib:
 - [How to Start?](index-en.html?target=_self "Introduction, Installation and Configuration, Language Packs")
-- [Guide • Basic](guide-en.html?target=_self "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Rotation / Flipping / Filters / Postcards / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
+- [Guide • Basic](guide-en.html?target=_self "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Filters / Postcards / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
 - [Guide ▲ Advanced](guide2-en.html?target=_self "Columns, Captions, Buttons, Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
 - [Guide ★ Exploration](guide3-en.html?target=_self "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Save as PDF / Print to PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
-- [Value-added Services](vip-en.html?target=_self "Custom Themes, Document Typesetting and Editing,...")
+- [Value-added Services](vip-en.html?target=_self "VIP Themes, Document Typesetting and Editing,...")
 - [More Content](vlook-lib-en.html "VLOOK™ Full Feature Index Table")
 - [Report Issues](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
 ---
@@ -47,7 +53,7 @@ vlook-doc-lib:
 
 <u>**Thanks for donating to VLOOK™ (partial donor list)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
 
 ---
 
@@ -77,8 +83,8 @@ vlook-doc-lib:
 > - The specified library file opens in the current document's "Library Popup" by default;
 > - Footnotes automatically generate an entry to view all footnote content.
 
-1. First confirm you've completed "Step 3•Export Configuration" in [Installation & Usage](index-en.md#Configure Export Options);
-2. Then add `vlook-doc-lib` configuration in the document's YAML Front Matter (can mix usage):
+1. First, add a **[YAML](https://yaml.org/)** Front Matter to the document via the menu: *==Typora > Paragraph > YAML Front Matter==*  
+2. Then add the `vlook-doc-lib` configuration item and its corresponding content inside the YAML section.
 
 
 
@@ -89,7 +95,9 @@ _^tab^_
 *==Library Configuration Method 1 (Simplest)==*
 
 ```yaml
+---
 vlook-doc-lib: library.html
+---
 ```
 
 *==Library Configuration Method 2 (Add title, keywords)==*
@@ -103,10 +111,12 @@ vlook-doc-lib: [Your Library Title](library.html "Keywords for navigation center
 For multiple libraries:
 
 ```yaml
+---
 vlook-doc-lib: 
 - library1.html
 - [Open as Library](library2.html "Supports keyword search in the Navigation Center.")
 - [Open in New Tab](library3.html)
+---
 ```
 
 
@@ -204,34 +214,33 @@ When scrolling into the main content area, a chapter navigation bar automaticall
 
 *Markdown Fans`Q`*「**I want to quickly browse all images in the document and jump to their locations.**」
 
-*VLOOK`A`*_~T2~_ All images and Mermaid[^Mermaid] charts support quick browsing and one-click jumping.
+*VLOOK`A`*_~T2~_ All images and Mermaid[^Mermaid] diagrams in the document support one-click fullscreen viewing.
 
-[^Mermaid]:[Mermaid](https://mermaid.js.org) is JavaScript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.
+
 
 > **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
----
 
-> - Click any image to view it fullscreen, with navigation between images;
-> - In fullscreen mode, click the image to jump to its location in the document.
 
-> Supported image types:
->
-> - All browser-supported images (jpg/png/gif/bmp etc.)
-> - Scripted charts (Mermaid[^Mermaid])
+> - Supports zooming via **mouse wheel, touchpad, and touchscreen**.
+> - Supports jumping to the corresponding position in the document, viewing the complete illustration index, switching to Picture-in-Picture mode, and more.
 
 [^Mermaid]: Mermaid is a library for drawing flowcharts, state diagrams, sequence diagrams, Gantt charts, etc., using JS for local rendering, widely integrated in many Markdown editors. See [Mermaid Official Site](https://mermaidjs.github.io) or VLOOK™ example document "[Scripted Charts for Markdown](https://madmaxchow.github.io/VLOOK/chart.md)"
 
-*==Image Navigation Shortcuts==*
+*==Figure Navigation Shortcuts==*
 
-|         Image Navigation Shortcuts         | Function (when active)        |
-| :----------------------------------------: | ----------------------------- |
-| <kbd>◀</kbd> or <kbd> , </kbd> | Plugin Tuning Parameters**Previous** image            |
-| <kbd>▶</kbd> or <kbd> . </kbd> | Plugin Tuning Parameters**Next** image                |
+|  Figure Navigation Shortcuts   | Function (when active)                     |
+| :----------------------------: | ------------------------------------------ |
+| <kbd>◀</kbd> or <kbd> , </kbd> | Plugin Tuning Parameters**Previous** image |
+| <kbd>▶</kbd> or <kbd> . </kbd> | Plugin Tuning Parameters**Next** image     |
 
 ###### Long Image & Dual Caption Example
 
-![Normal image example (long images auto-collapse)](pic/normal-pic.jpg "(Image source from internet, copyright unclear)")
+![Normal image example](pic/normal-pic.jpg "(Image source from internet, copyright unclear)")
+
+## Table Navigation
+
+The functionality is essentially the same as **[Figure Navigation](#Figure Navigation)** and also automatically freezes tables.
 
 ## Footnote Navigation
 
@@ -334,9 +343,18 @@ Context-aware quick functions for different content types: [Tables](guide-en.md#
 
   Copy image URL, [Try with an image ❯](#Long Image & Dual Caption Example)
 
-## Fullscreen Display of Figure
+## Fullscreen Mode
 
-One-click fullscreen for images (including Mermaid), with navigation, [Try here ❯](guide2-en.md#°Mermaid)
+The Content Assistant supports one-click fullscreen display for illustrations (images/Mermaid diagrams) and tables.  
+In fullscreen mode, you can browse forward/backward, jump to the corresponding position in the document, view the complete category index, and more.
+
+Learn more: [Figure Navigation ❯](#Figure Navigation) , [Table Navigation ❯](#Table Navigation)
+
+## Toggle Frozen Table Columns
+
+> When the **[Freeze Table Columns](guide.md#冻结表格列)** feature is enabled or configured in the theme, you can unfreeze or refreeze columns while viewing the exported HTML.  
+>
+> Hover over the table and use the ![Fullscreen](pic/icon-full.svg?darksrc=invert#icon) button in the top-right Content Assistant to perform the related actions.
 
 ## Table Reading Mode
 
@@ -420,6 +438,18 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 |               <kbd>K</kbd>               | Previous paragraph           |
 | <kbd>⌘ command</kbd> / <kbd>⌃ Ctrl</kbd> | Jump ==5== paragraphs        |
 |            <kbd>⇧ shift</kbd>            | Jump ==10== paragraphs       |
+
+## ~~Zen Mode~~
+
+When you need to hide the VLOOK™ plugin interface (such as the toolbar, navigation center, status bar, and other elements) and display only the document content, you can press <kbd>Z</kbd> to instantly enter **"Zen Mode"**, which hides the plugin interface.
+
+Press <kbd>Z</kbd> again or <kbd>ESC</kbd> to exit **"Zen Mode"**.
+
+
+
+> [!TIP]
+>
+> In **"Zen Mode"**, if you need to use presentation tools such as **["Laser Pointer"]( #laser-pointer )**, **["Spotlight"]( #spotlight )**, or **["Paragraph Roaming"]( #paragraph-roaming )**, you can activate them directly via keyboard shortcuts.
 
 ## Mermaid Element Highlighting
 
@@ -514,7 +544,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 > [!TIP]
 >
 > - For cases ==not suitable for adding strikethrough==, you can also specify it through "[Plugin Preset Options](guide3.md#plugin-preset-options)";
-> - This feature can be disabled via [custom themes](vip-en.md), or temporarily deactivated by adding spaces outside the strikethrough `~~` .
+> - This feature can be disabled via [VIP Themes](vip-en.md), or temporarily deactivated by adding spaces outside the strikethrough `~~` .
 
 ## Publish as PDF
 
@@ -526,7 +556,115 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 1. Open the exported HTML file and click the ![PiP](pic/icon-print.svg?darksrc=invert#icon) button ( shortcut <kbd>⌃ Ctrl</kbd> / <kbd>⌘ command</kbd> + <kbd>P</kbd> ) in the bottom-right corner to launch the feature.
 2. Before printing, the page will adapt its styles for print output. Then use your browser’s "**Print to PDF**" / "**Save as PDF** option to generate the final PDF.
-3. By default, the PDF will paginate based on level-1 headings. If you need a custom pagination rule, you can adjust it via a [Custom Theme](vip-en.md).
+
+> **Provide the following control options**
+>
+> - Enable / Disable: **Cover Adapted for A4 Paper**  
+> - Enable / Disable: **Include Outline**
+> - Enable / Disable: **Expand Blockquote Folding**
+> - Enable / Disable: **Cancle Image Filter (Blur)**
+> - Enable / Disable: **Expand Table Row Group**  
+> - Enable / Disable: **Reveal Scratch Card**
+
+> **Page Break Control**
+>
+> ---
+>
+> > **Method 1**
+> >
+> > By default, PDF export inserts a page break at each level-1 heading.
+> >
+> > If you need a customized default paging rule, you can adjust it through [VIP Themes](vip.md).
+>
+> > **Method 2 (Experimental)**
+> >
+> > Supports manually adding page break markers. Syntax:
+> >
+> > 
+> >
+> > Based on the Markdown horizontal rule syntax `---`, append `page` after it, i.e. `---page` (must occupy its own line).
+>
+> _~Rd~_
+
+
+
+Example start: **The content below ↓↓↓ occupies a single page via the "page break marker"**
+
+---page
+
+
+
+This content occupies **1 full page** by adding `---page` page break markers before and after.
+
+This content occupies **1 full page** by adding `---page` page break markers before and after.
+
+This content occupies **1 full page** by adding `---page` page break markers before and after.
+
+
+
+---page
+
+Example end: **The content above ↑↑↑ occupies a single page via the "page break marker"**
+
+## Document Footer
+
+==You can add personalized footer content to a document, such as copyright information, ICP details, navigation links, and any other content you want to place at the end of the document.==
+
+<u>Currently, the following three methods are supported for adding a document footer</u>
+
+---
+
+---
+
+> **YAML**
+>
+> Supports defining the footer via the document’s **YAML Front Matter**, suitable for specifying different footers for different documents.
+>
+> _~T1~_
+
+> **Built into VIP Themes**
+>
+> Supports being built into **[VIP Themes](vip.md)**, suitable for using a unified footer across all documents.
+>
+> > For individual documents, a different footer can still be specified separately via **YAML**.
+>
+> _~T2~_
+
+> **Default Footer**
+>
+> If the document footer is not specified using the above two methods, the document title is used as the default footer content.
+>
+> _~Gy~_
+
+> To maximize personalization and template-based management, extended support is provided for HTML layout and YAML field references.
+>
+> > ###### Supported YAML fields (referenced using double curly braces)
+> >
+> > - `{{title}}` — Document title  
+> > - `{{author}}` — Author  
+> > - `{{date}}` — Publication date  
+> > - `{{version}}` — Document Version  
+> > - `{{copyright}}` — Copyright information  
+> > - `{{rights}}` — Rights statement
+
+
+
+Example of configuring document footer content in YAML (Menu path: *==Typora ▸ Paragraph ▸ YAML Front Matter==*):
+
+```yaml
+---
+title: xxx
+author: xxx
+date: xxxx-xx-xx
+copyright: xxx
+
+# Example 1
+footer: {{title}}<br><br>{{author}}<br>{{date}} ({{version}})
+
+# Example 2
+footer: <a href="xxx.com">More great content</a><br><br>{{copyright}}
+---
+```
 
 ## Social Sharing
 
@@ -738,7 +876,7 @@ vlook-welcome: Custom welcome message here, can include HTML like <strong>Welcom
 
 > ###### How to enable lazy loading?
 >
-> **Zero configuration!** Just use VLOOK™ built-in themes or [custom themes](#Template Themes), export normally to HTML.
+> **Zero configuration!** Just use VLOOK™ built-in themes or [VIP Themes](#Template Themes), export normally to HTML.
 
 ## Word Count & Reading Time
 
@@ -804,9 +942,9 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 <u>Now offering theme customization services (sample cases below)</u>
 
-![Custom Themes](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.gif)
+![VIP Themes](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.gif)
 
-**[<kbd>Explore More About Custom Themes</kbd>](vip-en.md)**
+**[<kbd>Explore More About VIP Themes</kbd>](vip-en.md)**
 
 ## Font Style
 
@@ -816,7 +954,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 > **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
-<u>Select via ![Font Style](pic/icon-font-style.svg?darksrc=invert#icon) in status bar (shortcut <kbd>A</kbd>)<br>Also configurable via [custom themes](#Template Themes)</u>
+<u>Select via ![Font Style](pic/icon-font-style.svg?darksrc=invert#icon) in status bar (shortcut <kbd>A</kbd>)<br>Also configurable via [VIP Themes](#Template Themes)</u>
 
 ---
 
@@ -896,7 +1034,7 @@ If you cannot connect to the Internet or your network is slow, it is recommended
 > [!NOTE]
 >
 > - Applies to all documents under same domain, override via [Plugin Tuning Parameters](#Plugin Tuning Parameters) `cs` ;
-> - To disable auto-switching, use [custom themes](https://madmaxchow.github.io/VLOOK/vip.html).
+> - To disable auto-switching, use [VIP Themes](https://madmaxchow.github.io/VLOOK/vip.html).
 
 ![Light/Dark Preview](pic/vlook-color-scheme-preview.png?srcset=@2x)
 
@@ -998,7 +1136,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 | `vlook-image-host`          |                              | Default image host           | Mainly for Safari opening local HTML with [image silhouettes](guide-en.md#Image Silhouette)<br>e.g. `https://xxx.abc.com/images` |
 | `vlook-welcome`             |                              | Custom loading welcome page  | See: [Custom Welcome Page](#Custom Welcome Page)                |
 | `vlook-query`               |              Y               | Preset Plugin Tuning Parameters     | See next section: [Plugin Tuning Parameters](#Plugin Tuning Parameters)          |
-| `vlook-unpub` |  | Specify [Content Not to Publish](#Mark Content not to Publish) | Supports regex<br><sup>(Literal format e.g. `/pattern/flags`)</sup><br/><sup>Separate multiple with semicolons `;`</sup> |
+| `vlook-unpub` |  | Specify [Content Not to Publish](#Mark Content not to Publish) | Supports regex<br><sup>(Literal format e.g. `/pattern/flags`)</sup><br><sup>Separate multiple with semicolons `;`</sup> |
 
 ## Plugin Tuning Parameters
 
@@ -1006,7 +1144,7 @@ Configure VLOOK™ features/styles via "Plugin Tuning Parameters", prioritized i
 
 1. **Method 1:** Via document URL parameters (Query)
 2. **Method 2:** Via Markdown's YAML Front Matter
-3. **Method 3:** Via [custom themes](vip-en.md)
+3. **Method 3:** Via [VIP Themes](vip-en.md)
 
 _^tab^_
 
@@ -1039,15 +1177,16 @@ vlook-query: Param1=Value&Param2=Value...&ParamN=Value
 | > `quote`  | Auto-convert blockquotes to [colored](guide-en.md#Blockquote Coloring)   |  `off`  | `off` - Disable<br>`ColorCode` - Preset colors, [see here](guide-en.md#Blockquote Coloring) |
 | > `tag`    | Default color for [tag](guide2-en.md#Tag)                     |  `T2`   | Preset colors, [see here](guide2-en.md#Tag)                    |
 | Captions   |                                                              |         |                                                              |
+| > `capnum` | Captions are automatically numbered | `on` | `off` - Disable<br>`on` - Enable |
 | > `capgroup` | Group caption numbering by chapter                           |  `on`   | `off` - Disable<br>`on` - Enable                             |
-| > `capblank` | Whether to insert a blank caption when no caption text is provided.  <br/><sup>Takes effect only with a custom theme</sup> | `on` | Specific types:<br/>`codeblock` - Codeblock |
+| > `capmini` | Only generated caption type, example: Figure 1, Figure 2, etc. | `off` | `off` - Disable<br>`on` - Enable |
+| > `capblank` | Whether to insert a blank caption when no caption text is provided.  <br><sup>Takes effect only with a custom theme</sup> | `off` | Specific types:<br>`figure` - Figure<br>`codeblock` - Codeblock |
 | Tab Group |  |  |  |
 | > `tabcap` | Display the caption number (e.g., Table 1-2) in Tabs of [TabGroup](guide2-en.md#°Tab Group) |  `off`  | `off` - Hide<br>`on` - Show                                 |
 | > `tabico` | Display content type icon in Tabs of [TabGroup](guide2-en.md#°Tab Group) | `line` | `off` - Hide<br>`line` - Line Style<br>`solid` - Solid Style<br>`flat` - Flat Style |
 | Appearance |                                                              |         |                                                              |
 | > `cs`     | Force color scheme                                           | `auto`  | `light` - Force Light Mode<br>`dark` - Force Dark Mode<br>`auto` - Follow system |
-| > `fillw`  | Default [content width](#Content Width Adaptation) state                 |  `off`  | `off` - Disable<br>`on` - Enable                             |
-| > `gray`   | Specify whether to enable [Gray Mode](#Gray Mode) |  `on`   | `off` - Disable<br/>`on` - Enable<br/>`force` - Force enable for preview |
+| > `gray`   | Specify whether to enable [Gray Mode](#Gray Mode) |  `on`   | `off` - Disable<br>`on` - Enable<br>`force` - Force enable for preview |
 | > `radius` | Force corner radius (overrides theme)                        |         | `none` - No rounding<br>`small` - Small radius<br>`big` - Large radius |
 | > `sts`    | Status bar display                                           | `show`  | `hide` - Hide<br>`show` - Show                               |
 | > `vico` | Specify the icon style of the plugin UI | `solid` | `solid` - Solid Style<br>`flat` - Flat Style |
@@ -1056,9 +1195,9 @@ vlook-query: Param1=Value&Param2=Value...&ParamN=Value
 | > `tr`     | Default [table reading mode](#Table Reading Mode) state           |  `off`  | `off` - Disable<br>`on` - Enable                             |
 | > `ws`     | Welcome page behavior                                        | `auto`  | `auto` - Auto-close after loading<br>`wait` - Manual close<br>`off` - Hide<br>`1~60` - Delay seconds |
 | Publishing |                                                              |         |                                                              |
-| > `unpub`  | Handle [unpublished content](#Mark Content not to Publish)              |  `on`   | `off` - Disable<br/>`on` - Enable                            |
+| > `unpub`  | Handle [unpublished content](#Mark Content not to Publish)              |  `on`   | `off` - Disable<br>`on` - Enable                            |
 | > `xmd`    | Convert `*.md` links to new extension<br><sup>(Globally or per-link)</sup> | `html`  | `off` - Disable<br>`{ext}` - Target extension e.g. `php` `htm` |
-| > `pdf` | Activate the "Publish as PDF" for the exported HTML file | `on` | `off` - Disable<br/>`on` - Enable |
+| > `pdf` | Activate the "Publish as PDF" for the exported HTML file | `on` | `off` - Disable<br>`on` - Enable |
 | Navigation |                                                              |         |                                                              |
 | > `nav`    | Initial [navigation center](#Navigation Center) state                | `auto`  | `auto` - Auto-collapse on cover/expand in content<br>`hide` - Collapsed |
 | > `toc`    | Initial TOC auto-collapse level                              |   `1`   | `0` - Expand all<br>`1~5` - Collapse to level                |
@@ -1087,25 +1226,25 @@ vlook-query: Param1=Value&Param2=Value...&ParamN=Value
 | : | Previous tab content                          | <kbd>⇧ Shift</kbd> + <kbd>tab</kbd> |
 | [Table Reading Mode](#Table Reading Mode) | Move focused cell                             | <kbd>▲</kbd>  <kbd>▼</kbd>  <kbd>◀</kbd>  <kbd>▶</kbd> |
 | : | Expand/collapse [row groups](guide-en.md#Table Row Grouping & Folding) | <kbd>Enter ⏎</kbd>          |
-| [Font Style](#Font Style) | Select font style                             | <kbd>A</kbd>                |
-| :                       | Exit font selection                            |        <kbd>ESC</kbd>        |
-| [Chapter Navigation](#Chapter Navigation) | Plugin Tuning Parameters**Previous** chapter                          | <kbd>◀</kbd> or <kbd> , </kbd> |
-| :                                   | Plugin Tuning Parameters**Next** chapter                              | <kbd>▶</kbd> or <kbd> . </kbd> |
-| [Paragraph Roaming](#Paragraph Roaming) | Start paragraph roaming                       | <kbd>J</kbd> or <kbd>K</kbd> |
+| Presentation Tools<br>- [Paragraph Roaming](#Paragraph Roaming) | Start paragraph roaming                       | <kbd>J</kbd> or <kbd>K</kbd> |
 | : | Next paragraph                                | <kbd>J</kbd>                |
 | :                         | Previous paragraph                            | <kbd>K</kbd>                |
 | : | Jump ==5== paragraphs                        | <kbd>⌘ command</kbd> / <kbd>⌃ Ctrl</kbd> |
 | : | Jump ==10== paragraphs                       | <kbd>⇧ shift</kbd>          |
 | : | Exit paragraph roaming                       | <kbd>ESC</kbd>              |
-| [Image Navigation](#Figure Navigation) | Start image navigation                        | <kbd>I</kbd>                |
+| Presentation Tools -<br> Others | Enable/Disable [Spotlight](#Spotlight) | <kbd>S</kbd>                |
+| :                           | Adjust spotlight size                          |      <kbd>⇧ Shift</kbd>      |
+| : | Enable/Disable [Laser Pointer](#Laser Pointer) | <kbd>P</kbd>                |
+| : | Enable/Disable [Zen Mode](#Zen Mode) | <kbd>Z</kbd> |
+| [Font Style](#Font Style) | Select font style                             | <kbd>A</kbd>                |
+| :                       | Exit font selection                            |        <kbd>ESC</kbd>        |
+| [Chapter Navigation](#Chapter Navigation) | Plugin Tuning Parameters**Previous** chapter                          | <kbd>◀</kbd> or <kbd> , </kbd> |
+| :                                   | Plugin Tuning Parameters**Next** chapter                              | <kbd>▶</kbd> or <kbd> . </kbd> |
+| [Figure Navigation](#Figure Navigation) | Start Figure Navigation                       | <kbd>I</kbd>                |
 | :                                 | Plugin Tuning Parameters**Previous** image                            | <kbd>◀</kbd> or <kbd> , </kbd> |
 | :                                 | Plugin Tuning Parameters**Next** image                                | <kbd>▶</kbd> or <kbd> . </kbd> |
-| :                       | Exit image navigation                          |        <kbd>ESC</kbd>        |
-| [Spotlight](#Spotlight) | Start spotlight                               | <kbd>S</kbd>                |
-| :                           | Adjust spotlight size                          |      <kbd>⇧ Shift</kbd>      |
-| :                         | Exit spotlight                                 |        <kbd>ESC</kbd>        |
-| [Laser Pointer](#Laser Pointer) | Start laser pointer                           | <kbd>P</kbd>                |
-| :                         | Exit laser pointer                             |        <kbd>ESC</kbd>        |
+| :                       | Exit Figure Navigation                         |        <kbd>ESC</kbd>        |
+| [Table Navigation](#Table Navigation) | Same as described in “**Figure Navigation**” | == |
 
 ---
 

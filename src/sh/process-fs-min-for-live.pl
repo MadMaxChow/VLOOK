@@ -5,7 +5,7 @@ use File::Spec;
 
 # 检查参数
 my $dir = shift @ARGV or die "用法: $0 <css目录路径>\n";
-my $VERSION = shift @ARGV or die "缺少版本号参数\n";
+# my $VERSION = shift @ARGV or die "缺少版本号参数\n";
 
 # 确认目录存在
 -d $dir or die "目录不存在: $dir\n";
@@ -18,7 +18,8 @@ for my $file (glob(File::Spec->catfile($dir, "fs-*.css"))) {
     close $fh;
 
     # 替换 github-io 路径为 <your-host>/res/
-    $content =~ s{https://openfonts\.pages\.dev/}{https://<your-host>/$VERSION/}g;
+    #$content =~ s{https://openfonts\.pages\.dev/}{https://<your-host>/$VERSION}g;
+    $content =~ s{https://openfonts\.pages\.dev/}{https://<your-host>/}g;
 
     # 写回原文件
     open my $out, ">", $file or die "无法写入 $file: $!";

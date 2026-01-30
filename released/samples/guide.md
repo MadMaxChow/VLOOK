@@ -1,6 +1,12 @@
 ---
-title: 攻略 • 基础 - VLOOK™ - 优雅好用的 Typora 主题与增强插件
+title: 攻略 • 基础 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与增强插件
 author: MAX°孟兆
+date: 2026-01-30
+copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
+rights: 本作品采用 MIT 许可证授权，详见 LICENSE 文件。
+version: V2026.1
+tags: 文本, 段落, 表格, 图片, 列表, 引用块, 章节标题
+footer: <a href="index.html">简介</a>	|	攻略之 <strong>基础</strong>  ❯  <a href='guide2.html'>进阶</a>  ❯  <a href='guide3.html'>探索</a>
 description: 关于 VLOOK™ 的文本、段落、表格、图片、列表、章节标题
 "og:description": 关于 VLOOK™ 的文本、段落、表格、图片、列表、章节标题
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
@@ -8,9 +14,9 @@ keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
 - editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
 - light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
-- catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
+- catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
-- picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
+- picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
 - content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
@@ -19,9 +25,9 @@ keywords:
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
 - 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
-- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
+- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
-- 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
+- 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
@@ -32,7 +38,7 @@ keywords:
 vlook-header-dup: /^你的咖啡.+/;/.*语法$/;/^适用范围 ••• .+/;快捷键操作;进阶玩法;更多信息;引用块着色;COMMING SOON...;举例;这是引用块小标题;💡 想知道以上表格的原始内容吗？
 vlook-doc-lib:
 - [如何开始？](index.html?target=_self "简介、安装与配置、语言包")
-- [攻略 • 基础](guide.html?target=aaa "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/旋转/翻转/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
+- [攻略 • 基础](guide.html?target=aaa "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
 - [攻略 ▲ 进阶](guide2.html?target=_self "分栏、题注、按钮、代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
 - [攻略 ★ 探索](guide3.html?target=_self "内容导航、内容助手、演示辅助激光笔/聚光灯、出版辅助标记不发布/链接地图/长内容折叠/链接检查、自定义选项、……")
 - [增值服务](vip.html?target=_self "定制主题、文档排版编辑、……")
@@ -69,7 +75,7 @@ vlook-doc-lib:
 
 > **对图片的快速排版应用**
 >
-> [显示版式](#图片显示版式)、[缩放](#图片缩放)、[旋转](#图片旋转)、[翻转](#图片翻转)、[滤镜](#图片滤镜)、[网格背景](#图片网格背景)、[边缘留白](#图片边缘留白) 等～
+> [显示版式](#图片显示版式)、[缩放](#图片缩放)、[滤镜](#图片滤镜)、[网格背景](#图片网格背景)、[边缘留白](#图片边缘留白) 等～
 
 > **对视频的快速排版应用**
 >
@@ -147,7 +153,7 @@ _^tab^_
 
 <u>**感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
 
 ---
 
@@ -281,13 +287,41 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 
 # °段落
 
+## 段落缩进
+
 > **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
-用于满足对**整个段落内容**进行个性的排版需求，实现与普通段落正文的差异化样式。
+
+
+​	在 Markdown 文档编辑过程中，一般是通过 <kbd>Tab</kbd> - **制表键** 对段落进行首行缩进。VLOOK™ 针对中文环境优化控制缩进样式固定为两个中文字的宽度。
+
+---
+
+---
+
+> ​	这是在引用块内的段落缩进示例。这是在引用块内的段落缩进示例。这是在引用块内的段落缩进示例。这是在引用块内的段落缩进示例。
+
+> ###### 引用块折叠内的段落缩进
+>
+> ​	这是在引用块折叠内的段落缩进示例。这是在引用块折叠内的段落缩进示例。这是在引用块折叠内的段落缩进示例。
+
+> ​	This is an example of an indented English paragraph inside a blockquote. This is an example of an indented English paragraph inside a blockquote.
+
+
+
+> [!TIP]
+>
+> 支持通过 [定制主题](vip.md) 方式满足对段落缩进的个性化需求。
+
+## 段落样式
+
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
+
+用于满足对**段落**进行个性的排版需求，实现与普通段落正文的差异化样式。
 
 只需先中段落的所有内容后，设置为 Markdown 所设置的基础格式（加粗、下划线、斜体、高亮），如：`**整个段落内容**` `==整个段落内容==` 等。
 
-## 段落斜体
+### 段落斜体
 
 满足对**整个段落内容**设置与比正文样式有对比差异、弱化，或作为参考引用的排版需求。示例如下：
 
@@ -305,7 +339,7 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 >
 > 以上段落的样式可通过 [定制主题](vip.md) 进行调整或取消。
 
-## 段落加粗
+### 段落加粗
 
 满足对**整个段落内容**居中、强化突显的排版需求。示例如下：
 
@@ -323,15 +357,23 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 >
 > 以上段落的样式可通过 [定制主题](vip.md) 进行调整或取消。
 
-## 段落下划线
+### 段落下划线
 
 满足对**整个段落内容**居中、稍微突显，与后续内容<u>有视觉区隔</u>，但又有所关联的排版需求。示例如下：
 
 <u>～这是一段**稍微突显**，与后续内容有**视觉区隔**，但又有所**关联**的内容。**字号加大**、**居中**，其他不变</u>
 
+---
+
 > **在引用块内的「段落下划线」样式**
 >
 > <u>～这是一段**稍微突显**，与后续内容有**视觉区隔**，但又有所**关联**的内容。**字号加大**、**居中**，其他不变</u>
+
+> [!TIP]
+>
+> <u>～这是一段**稍微突显**，与后续内容有**视觉区隔**，但又有所**关联**的内容。**字号加大**、**居中**，其他不变</u>
+>
+> > <u>～这是一段**稍微突显**，与后续内容有**视觉区隔**，但又有所**关联**的内容。**字号加大**、**居中**，其他不变</u>
 
 *以上是在段落整段设置为「<u>下划线</u>」后的效果。（当不想启用该段落样式，直接在最后面添加一个空格即可）* 
 
@@ -341,7 +383,7 @@ _~LmOgGnRd~_这是一个段落，在段落最开始位置使用预置的 `色号
 >
 > 以上段落的样式可通过 [定制主题](vip.md) 进行调整或取消。
 
-## 段落高亮
+### 段落高亮
 
 满足对**整个段落内容**以==更个性、更突显==的引用样式，并与前/后内容有视觉区隔的排版需求。示例如下：
 
@@ -415,6 +457,7 @@ _^tab^_
 | :                    | 二级列头 B1          | ==           | 二级列头 B2  | ==           | :                    | :                    |
 | :                    | 二级列头 B11         | 三级列头 B12 | 三级列头 B21 | 三级列头 B21 | :                    | :                    |
 | 普通单元格           | 普通单元格           | 普通单元格   |  普通单元格  | 普通单元格   | 普通单元格           | 普通单元格           |
+|                      |                      |              |              |              |                      |                      |
 | 普通单元格           | 普通单元格           | 普通单元格   |  普通单元格  | 普通单元格   | 普通单元格           | 普通单元格           |
 
 ## 表格列格式
@@ -488,11 +531,11 @@ _^tab^_
 
 | 原始内容    |  数值情况  |    ==    |    ==    |     ==     |      |    数值列 |
 | ----------- | :--------: | :------: | :------: | :--------: | ---- | ----------: |
-| :           | []含小数 | []正数 | []负数 | []超三位 | :    |           : |
+| :           | []含小数 | []正数 | []负数 | []超三位 |     |           : |
 | 123         |            |          |          |            |      |         123 |
-| -12345      |            |          |   Y    |    Y     | :    |      -12345 |
-| +5678.00    |    Y     |   Y    |          |    Y     | :    |    +5678.00 |
-| -2345678.00 |    Y     |          |   Y    |    Y     | :    | -2345678.00 |
+| -12345      |            |          |   Y    |    Y     |     |      -12345 |
+| +5678.00    |    Y     |   Y    |          |    Y     |     |    +5678.00 |
+| -2345678.00 |    Y     |          |   Y    |    Y     |     | -2345678.00 |
 
 
 
@@ -507,12 +550,12 @@ _^tab^_
 
 | 原始内容 |  数值情况  |    ==    |    ==    |     ==     |      | **百分数列** |
 | -------- | :--------: | :------: | :------: | :--------: | ---- | ------: |
-| :        | []含小数 | []正数 | []负数 | []超三位 | :    |       : |
+| :        | []含小数 | []正数 | []负数 | []超三位 |     |       : |
 | 79%      |            |          |          |            |      |     79% |
-| 88.88%   |    Y     |          |          |            | :    |  88.88% |
-| +38%     |            |   Y    |          |            | :    |    +38% |
-| -57.30%  |    Y     |          |   Y    |            | :    | -57.30% |
-| 100%     |            |          |          |            | :    |    100% |
+| 88.88%   |    Y     |          |          |            |     |  88.88% |
+| +38%     |            |   Y    |          |            |     |    +38% |
+| -57.30%  |    Y     |          |   Y    |            |     | -57.30% |
+| 100%     |            |          |          |            |     |    100% |
 
 
 
@@ -531,19 +574,19 @@ _^tab^_
 
 | **币种** | 原始内容      | 数值情况 |    ==    |     ==     |     ==     |      |  **货币** |
 | :------: | ------------- | :------: | :------: | :--------: | :--------: | ---- | ------------: |
-|    :     | :             | []正数 | []负数 | []含小数 | []超三位 | :    |             : |
+|    :     | :             | []正数 | []负数 | []含小数 | []超三位 |     |             : |
 |  人民币  | ￥ +123456.99 |   Y    |          |    Y     |    Y     |      | ￥ +123456.99 |
-|    :     | CNY 987654.99 |          |          |    Y     |    Y     | :    | CN¥ 987654.99 |
-|    :     | CNY 987654.99 |          |          |    Y     |    Y     | :    | CNY 987654.99 |
-|          | ==            |    ==    |    ==    |     ==     |     ==     | ==   |            == |
+|    :     | CNY 987654.99 |          |          |    Y     |    Y     |     | CN¥ 987654.99 |
+|    :     | CNY 987654.99 |          |          |    Y     |    Y     |     | CNY 987654.99 |
+|          |             |    ==    |   ==   |    ==    |    ==    |      |             |
 |   港元   | HK\$ 3456.78  |   Y    |          |    Y     |    Y     |      |  HK\$ 3456.78 |
-|    :     | HKD 3456.78   |          |          |    Y     |    Y     | :    |   HKD 3456.78 |
-|          | ==            |    ==    |    ==    |     ==     |     ==     | ==   |            == |
+|    :     | HKD 3456.78   |          |          |    Y     |    Y     |     |   HKD 3456.78 |
+|          |               |    ==    |   ==   |    ==    |    ==    |      |               |
 |   美元   | \$ +555.38    |   Y    |          |    Y     |            |      |    \$ +555.38 |
-|    :     | USD 555       |          |          |            |            | :    |       USD 555 |
-|          | ==            |    ==    |    ==    |     ==     |     ==     | ==   |            == |
+|    :     | USD 555       |          |          |            |            |     |       USD 555 |
+|          |               |    ==    |   ==   |    ==    |    ==    |      |               |
 |   澳元   | AU\$ 56789    |   Y    |          |            |    Y     |      |    AU\$ 56789 |
-|    :     | AUD -56789    |          |   Y    |            |    Y     | :    |    AUD -5678 |
+|    :     | AUD -56789    |          |   Y    |            |    Y     |     |    AUD -5678 |
 
 ### 复选框
 
@@ -581,6 +624,41 @@ _^tab^_
 |   不确定选择   | ?<br>*当指定值`>=`0* | ?<br>*当指定值`>=`0* | 指定为 `不确定选择` |
 | : | ？<br>*当指定值`小于`0* | ？<br>*当指定值`小于`0* | : |
 
+## 冻结表格列
+
+*Markdown 粉`Q`*「**表格列很多需要左右滚动时不容易区分不同行的数据，希望能冻结首列更高效浏览表格数据**」
+
+*VLOOK`A`*_~T2~_ VLOOK™ 提供了对表格首列进行冻结的方式，编辑时也能用！
+
+> **适用范围 ••• *`编辑时`✓ 支持*_~Gn~_  *`导出 HTML`✓ 支持*_~Gn~_**
+
+
+
+---
+
+> **自动模式（默认）**
+>
+> - 在编辑时，将表格中的首列的列头内容设置为加粗（详见[表格列格式](#表格列格式)），即可冻结首列；
+> - 在导出 HTML 后，可通过表格的[内容助手](guide3.md#表格冻结列切换)对单个表格首列进行解冻、重新冻结的操作。
+
+> **全开启模式**
+>
+> - 所有表格在编辑时、导出 HTML 都默认冻结首列；
+> - 在导出 HTML 后，可通过表格的[内容助手](guide3.md#表格冻结列切换)对单个表格首列进行解冻、重新冻结的操作。
+
+
+
+> [!TIP]
+>
+> 如希望选择开启，或默认不启用表格列的冻结特性，可通过 [定制主题](vip.md) 方式进行调整。
+
+## 冻结表格行
+
+> [!IMPORTANT]
+>
+> - 在编辑时自动会对表头进行冻结；
+> - 在导出 HTML 后，当表格以「[全屏显示](guide3.md#全屏显示)」时会自动对表头进行冻结。
+
 ## 单元格着色
 
 *Markdown 粉`Q`*「**表格列格式够丰富了，但能不能用不同背景色对单个单元格进行标识呢？**」
@@ -610,9 +688,9 @@ _^tab^_
 |      单元格着色（单色示例）_~Bk!~_       |                 ==                  |                 ==                  |                   ==                    |                  ==                   |                 ==                 |                ==                 |                    ==                    |                     ==                     |
 | :--------------------------------------: | :---------------------------------: | :---------------------------------: | :-------------------------------------: | :-----------------------------------: | :--------------------------------: | :-------------------------------: | :--------------------------------------: | :----------------------------------------: |
 | **T1**_~T1~_<br>~主题主色•Theme1~_~T1!~_ |                  /                  |                 ==                  |                   ==                    |                  ==                   |                 ==                 |                ==                 |                    ==                    | **T2**_~T2~_<br>~主题辅助色•Theme2~_~T2!~_ |
-|     _~Gd~_**Gd**<br>~金•Gold~_~Gd!~_     | _~Pk~_**Pk**<br/>~粉红•Pink~_~Pk!~_ |                  /                  |   _~Ye~_**Ye**<br/>~黄•Yellow~_~Ye!~_   |  _~Lm~_**Lm**<br>~柠绿•Lime~_~Lm!~_   | _~Aq~_**Aq**<br>~水绿•Aqua~_~Aq!~_ |                 /                 | _~La~_**La**<br>~薰衣紫•Lavender~_~La!~_ |     _~Wt~_**Wt**<br/>~白•White~_~Wt!~_     |
-|    _~Bn~_**Bn**<br>~棕•Brown~_~Bn!~_     | _~Ro~_**Ro**<br/>~玫红•Rose~_~Ro!~_ |  _~Rd~_**Rd**<br/>~红•Red~_~Rd!~_   |   _~Og~_**Og**<br/>~橙•Orange~_~Og!~_   |   _~Gn~_**Gn**<br>~绿•Green~_~Gn!~_   |  _~Cy~_**Cy**<br>~青•Cyan~_~Cy!~_  | _~Bu~_**Bu**<br>~蓝•Blue~_~Bu!~_  |    _~Vn~_**Vn**<br>~藤紫•Vine~_~Vn!~_    |      _~Gy~_**Gy**<br>~灰•Gray~_~Gy!~_      |
-|                    /                     | _~Pu~_**Pu**<br/>~紫•Purple~_~Pu!~_ | _~Wn~_**Wn**<br/>~酒红•Wine~_~Wn!~_ | _~Ol~_**Ol**<br/>~橄榄绿•Olives~_~Ol!~_ | _~Mn~_**Mn**<br>~矿青•Mineral~_~Mn!~_ |                 /                  | _~Se~_**Se**<br>~海蓝•Sea~_~Se!~_ |                    /                     |     _~Bk~_**Bk**<br>~黑•Black~_~Bk!~_      |
+|     _~Gd~_**Gd**<br>~金•Gold~_~Gd!~_     | _~Pk~_**Pk**<br>~粉红•Pink~_~Pk!~_ |                  /                  |   _~Ye~_**Ye**<br>~黄•Yellow~_~Ye!~_   |  _~Lm~_**Lm**<br>~柠绿•Lime~_~Lm!~_   | _~Aq~_**Aq**<br>~水绿•Aqua~_~Aq!~_ |                 /                 | _~La~_**La**<br>~薰衣紫•Lavender~_~La!~_ |     _~Wt~_**Wt**<br>~白•White~_~Wt!~_     |
+|    _~Bn~_**Bn**<br>~棕•Brown~_~Bn!~_     | _~Ro~_**Ro**<br>~玫红•Rose~_~Ro!~_ |  _~Rd~_**Rd**<br>~红•Red~_~Rd!~_   |   _~Og~_**Og**<br>~橙•Orange~_~Og!~_   |   _~Gn~_**Gn**<br>~绿•Green~_~Gn!~_   |  _~Cy~_**Cy**<br>~青•Cyan~_~Cy!~_  | _~Bu~_**Bu**<br>~蓝•Blue~_~Bu!~_  |    _~Vn~_**Vn**<br>~藤紫•Vine~_~Vn!~_    |      _~Gy~_**Gy**<br>~灰•Gray~_~Gy!~_      |
+|                    /                     | _~Pu~_**Pu**<br>~紫•Purple~_~Pu!~_ | _~Wn~_**Wn**<br>~酒红•Wine~_~Wn!~_ | _~Ol~_**Ol**<br>~橄榄绿•Olives~_~Ol!~_ | _~Mn~_**Mn**<br>~矿青•Mineral~_~Mn!~_ |                 /                  | _~Se~_**Se**<br>~海蓝•Sea~_~Se!~_ |                    /                     |     _~Bk~_**Bk**<br>~黑•Black~_~Bk!~_      |
 
 *==示例_单元格着色（渐变色）==*
 
@@ -749,10 +827,10 @@ _^tab^_
 
 *==列数 ≥ 7 列==*
 
-| 列 A                                                         | 列 B             | 列 C | 列 D | 列 E | 列 F |                        列 G                         |             列 H |
-| ------------------------------------------------------------ | ---------------- | ---- | ---- | ---- | ---- | :-------------------------------------------------: | ---------------: |
-| 第一行                                                       | 左对齐（长内容） |      |      |      |      | 居中对齐（It's too long, too long content）居中对齐 | 右对齐（长内容） |
-| 第二行（这是在单元格内很长很长、很长很长、很长很长、很长很长、很长很长的内容） | 左对齐           |      |      |      |      |                      居中对齐                       |           右对齐 |
+| **列 A** | 列 B             | 列 C                                                         | 列 D | 列 E | 列 F |                        列 G                         |             列 H |
+| :------: | ---------------- | ------------------------------------------------------------ | ---- | ---- | ---- | :-------------------------------------------------: | ---------------: |
+|  第一行  | 左对齐（长内容） |                                                              |      |      |      | 居中对齐（It's too long, too long content）居中对齐 | 右对齐（长内容） |
+|  第二行  | 左对齐           | 这是在单元格内很长很长、很长很长、很长很长、很长很长、很长很长的内容 |      |      |      |                      居中对齐                       |           右对齐 |
 
 
 
@@ -773,6 +851,13 @@ _^tab^_
 
 
 [<kbd>相关内容详见这里 ❯❯</kbd>](guide2.md#°题注)
+
+## 表格汇总行列样式
+
+> **适用范围 ••• *`编辑时`× 不支持*_~Gy~_  *`导出 HTML`✓ 支持*_~Gn~_**
+
+- 如果希望在表格中的某些行或列，希望呈现汇总行、汇总列的差异化样式，只需要添加空白的列或行就可以，同时对应的单元格不要添加任何内容；
+- 完成以上处理后，VLOOK™ 会对导出 HTML 后提供汇总行、汇总列的样式。
 
 
 
@@ -863,9 +948,9 @@ _^tab^_
 
 |       **缩放类型**        | 说明                                                         | 完整语法参考            |
 | :-----------------------: | ------------------------------------------------------------ | ----------------------- |
-| ==宽度==按指定**比例 %**  | 高度会等比例变化<br/>支持 `20%` `40%` `60%` `80%` 共 4 档宽度 | `![图片](xxx.png#80%)`  |
+| ==宽度==按指定**比例 %**  | 高度会等比例变化<br>支持 `20%` `40%` `60%` `80%` 共 4 档宽度 | `![图片](xxx.png#80%)`  |
 | ==宽度==按指定**像素 px** | 高度会等比例变化<br>支持 `200w` `400w` `600w` `800w` 共 4 档宽度<br>~若指定宽度超出浏览器内显示宽度时，会自适应为\ 100%~ | `![图片](xxx.png#600w)` |
-| ==高度==按指定**像素 px** | 宽度会等比例变化<br/>支持 `200h` `400h` `600h` `800h` 共 4 档宽度 | `![图片](xxx.png#400h)` |
+| ==高度==按指定**像素 px** | 宽度会等比例变化<br>支持 `200h` `400h` `600h` `800h` 共 4 档宽度 | `![图片](xxx.png#400h)` |
 
 _^tab^_
 
@@ -913,7 +998,7 @@ _^tab^_
 
 ![缩放至高度 800px](pic/vlook-zoom-pic.png#800h#padding)
 
-## 图片旋转
+## ~~图片旋转~~
 
 *Markdown 粉`Q`*「**希望可以快速直接将图片进行旋转**」
 
@@ -935,7 +1020,7 @@ _^tab^_
 
 > ![旋转 180 度](pic/j20.jpg#180deg)
 
-## 图片翻转
+## ~~图片翻转~~
 
 *Markdown 粉`Q`*「**希望可以快速直接将图片进行水平方面、垂直方向的翻转**」
 
@@ -1326,7 +1411,7 @@ _^tab^_
 
 > [!NOTE]
 >
-> 因 Safari 浏览器内核的兼容性问题，在 Typora 编辑时的显示预览会不是最终效果，在导出后的 HTML 在使用[推荐的浏览器](index.md#升级与兼容性)访问会正常显示。
+> 因 Safari 浏览器内核的兼容性问题，在 Typora 编辑时的显示预览会不是最终效果，在导出后的 HTML 在使用[推荐的浏览器](index.md#🧰 升级与兼容性)访问会正常显示。
 
 ###### 图片剪影混排示例
 
@@ -1609,7 +1694,7 @@ _^tab^_
 >
 > 若需要对引用内的第1、2行内容整行加粗，但又不希望激活「小标题」样式，只需要在加粗格式 `**` 后添加一个「空格」即可～
 
-*==引用块小标题示例==*
+*==引用块小标题示例_Markdown 格式_==*
 
 ```markdown
 > **这里是这个引用块的小标题**
@@ -1671,7 +1756,7 @@ _^tab^_
 >
 > 若须修改默认色号，或不进行自动转换，可通过「[插件调校参数](guide3.md#插件调校参数)」 `quote` 进行指定。
 
-###### 正文内的标签示例
+
 
 > **![Wine](pic/qico-red.svg?fill=text&darksrc=invert#icon) 普通引用块**
 >
@@ -1684,6 +1769,8 @@ _^tab^_
 > > - 这是无序列表项
 > >
 > > 1. 这是有序列表项
+
+
 
 ---
 
@@ -2428,6 +2515,8 @@ _^tab^_
 > - *`大前提`* 一个一般性的原则
 > - *`小前提`* 一个附属于前面大前提的特殊化陈述
 > - *`结论`*_~T2!~_ 由此引申出的特殊化陈述符合一般性原则的结论
+>
+> ![引用块折叠内的图片示例](http://localhost/pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg)
 
 ---
 

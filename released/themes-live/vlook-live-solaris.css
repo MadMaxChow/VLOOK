@@ -1,1 +1,2 @@
-@import 'https://<your-host>/V2025.10.1/vlook-solaris.css';
+@import 'https://<your-host>/V2026.1/vlook-solaris.css';
+.sidebar-content:before{content:'VLOOK™ built-in •• live';color:var(--ac-t2);background:var(--ac-t2-a);}

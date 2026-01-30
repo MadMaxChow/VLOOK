@@ -3,8 +3,8 @@
  * VLOOK™ CSS - Typora 编辑时内置样式
  * (配合 base.less 进行使用)
  *
- * V28.1
- * 2025-01-18
+ * V2026.1
+ * 2026-01-30
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -116,7 +116,6 @@
 }
 
 @windows: ~'os-windows';
-// @windows: ~'native-window';
 @macos: ~'html-for-mac';
 
 // 选中内容的样式
@@ -144,7 +143,6 @@
 .ty-icon,
 .file-node-icon,
 .outline-expander::before,
-// .ion-ios7-search-strong::before,
 #md-notification::before,
 .ion-chevron-left::before,
 .ion-checkmark::before,
@@ -152,7 +150,6 @@
 #top-titlebar :is(.ty-menu-btn-area-sub1, .ty-menu-btn-area-sub2, .ty-menu-btn-area-sub3),
 .fa-sort-desc::before,
 .fa-sort-asc::before {
-    // color: var(--h-f);
     .genOutlineContentStyle(@style) when not (@style = edge) {
         color: var(--h-f);
     }
@@ -160,16 +157,20 @@
         color: @buttonForeColor;
     }
     .genOutlineContentStyle(@navCenterStyle);
+
+    vertical-align: middle;
 }
 .ion-folder::before {
     color: var(--d-fc-lg);
 }
-.ty-icon.ty-three-cells,
-// .ty-icon.ty-left-arrow,
-.ty-icon.ty-list {
-// .ion-ios7-search-strong::before {
-    color: @buttonForeColor;
-    line-height: @sidebarTabHeight - 2px;
+.ty-icon.ty-list,
+:is(.sidebar-tabs, .sidebar-footer) .ty-icon:is(.ty-file-tree, .ty-three-cells),
+.sidebar-footer :is(.ty-icon.ty-add, .ty-icon.ty-file-tree, .ty-icon.ty-dots-v) {
+    .genTyIconStyle(@style) when not (@style = simple) {
+        color: @buttonForeColor;
+    }
+    .genTyIconStyle(@toolbarStyle);
+
     vertical-align: middle;
 }
 .ty-icon.ty-left-arrow,
@@ -271,6 +272,7 @@ content>.auto-suggest-container li:hover {
 
 .md-notification-container {
     background: var(--d-bc);
+    z-index: 3100;
 }
 
 // 导出成功后通知栏图标
@@ -423,8 +425,6 @@ body:not([class]) :is(h1,h2,h3,h4,h5,h6) {
 
 // 针对 Win 左侧面板标签底部当前选中的边框
 body.@{windows} :is(.active-tab-files, .active-tab-outline) .info-panel-tab-border {
-    // background: var(--v-ui-bg);
-    // height: 2px !important;
     height: 0 !important;
 }
 
@@ -483,13 +483,45 @@ body.@{windows} :is(.md-image-input-src-btn, .md-image-pick-file-btn) {
     opacity: 1;
 }
 
+// --------------------
+// 文档更多内容
+// 文档更多内容遮罩的高度
+@{writeOnEditing}::before,
+@{writeOnEditing}::after,
+@{writeOnHTML}.done::before,
+@{writeOnHTML}.done::after {
+    content: "";
+    position: sticky;
+    display: block;
+    left: 0;
+    bottom: 0;
+    margin: 0 -20px;
+    width: calc(100% + 40px);
+    padding: 0;
+    background-image: linear-gradient(0deg, @docMoreContentLG);
+    z-index: 150;
+}
+@{writeOnEditing}::after,
+@{writeOnHTML}.done::after {
+    height: var(--v-more-mask-a-h);
+    margin-bottom: calc(0px - var(--v-more-mask-a-h));
+    z-index: 150;
+}
+@{writeOnEditing}::before,
+@{writeOnHTML}.done::before {
+    height: var(--v-more-mask-b-h);
+    margin-top: calc(0px - var(--v-more-mask-b-h));
+    transform: rotate(180deg);
+    top: 0;
+    bottom: unset !important;
+}
+
 // 图片地址
 .md-image {
     font-size: 1em;
 }
 .md-image>.md-meta {
     color: var(--a-o-c);
-    background: var(--d-bc);
 }
 @{writeOnEditing} a kbd .md-image>.md-meta {
     color: inherit;
@@ -517,7 +549,6 @@ body.@{windows} :is(.md-image-input-src-btn, .md-image-pick-file-btn) {
 // 针对 Win
 body.@{windows} :is(#top-titlebar,
 .ty-footer,
-#typora-sidebar,
 #w-titlebar-left,
 #w-traffic-lgs) {
     background: transparent;
@@ -528,26 +559,36 @@ body.@{windows} .ty-footer { // 底栏
 
 #typora-sidebar { // 侧边栏
     border-right: none;
-    .genSidebarContentStyle(@style) when (@style = edge) {
-        background-color: var(--v-btn-bg);
-        color: @buttonForeColor;
+    .genSidebarContentStyle(@style, @border) when not (@style = edge) {
+        background: transparent;
     }
-    .genSidebarContentStyle(@navCenterStyle);
-    border-bottom-right-radius: var(--v-r-b);
+    .genSidebarContentStyle(@style, @border) when (@style = edge) {
+        background-color: var(--v-ui-bg);
+        color: @buttonForeColor;
+        .genBorder(@border) when (@border = shadow) {
+            box-shadow: var(--v-fl-sd);
+        }
+        .genBorder(@border);
+    }
+    .genSidebarContentStyle(@navCenterStyle, @panelBorder);
 }
 
 .sidebar-tabs {
     border-bottom: none;
 }
 
+#typora-sidebar:hover .sidebar-tab-btn {
+    -webkit-animation: none !important;
+    animation: none !important;
+}
+
 .sidebar-tab-btn {
     opacity: 1;
-    // line-height: @sidebarTabHeight;
-    // width: 20px;
+    line-height: @sidebarTabHeight - 2px;
 }
 #ty-sidebar-search-back-btn {
     width: 20px;
-    line-height: @sidebarTabHeight - 4px;
+    line-height: @sidebarTabHeight - 2px;
 }
 .sidebar-tab-btn>* {
     opacity: 1;
@@ -555,17 +596,143 @@ body.@{windows} .ty-footer { // 底栏
 
 // 侧边栏
 .sidebar-content {
-    padding: 0 10px 10px 10px;
-    background: none;
+    margin: 10px;
+    border-radius: var(--c-br-b);
+
+    .genSidebarContentStyle(@style, @border) when (@style = std) {
+        background-color: var(--pn-c);
+        .genBorder(@border) when (@border = shadow) {
+            box-shadow: var(--v-fl-sd);
+        }
+        .genBorder(@border) when (@border = line) {
+            box-shadow: 0 0 0 1px @panelBorderColor inset;
+        }
+        .genBorder(@border);
+    }
+    .genSidebarContentStyle(@style, @border) when (@style = flat) {
+        background-color: var(--d-bc);
+        .genBorder(@border) when (@border = shadow) {
+            box-shadow: var(--v-fl-sd);
+        }
+        .genBorder(@border) when (@border = line) {
+            .genBorderCSS() when not (isdefined(@panelBorderColor)) {
+                box-shadow: 0 0 0 1px var(--pn-c-a) inset !important;
+            }
+            .genBorderCSS() when (isdefined(@panelBorderColor)) {
+                box-shadow: 0 0 0 1px @panelBorderColor inset;
+            }
+            .genBorderCSS();
+        }
+        .genBorder(@border);
+    }
+    .genSidebarContentStyle(@style, @border) when (@style = edge) {
+    }
+    .genSidebarContentStyle(@navCenterStyle, @panelBorder);
+
     .genSidebarContentStyle(@style) when (@style = edge) {
         color: @buttonForeColor;
     }
     .genSidebarContentStyle(@navCenterStyle);
-    // margin-top: 106px;
 }
-// for Windows
+.sidebar-content::after {
+    content: "Styled & Enhanced by VLOOK™";
+    font: normal .75em var(--v-fm-bd); // [style] [weight] [size/[line-height]] [family]
+    color: currentColor;
+    text-align: center;
+    border-radius: var(--c-br-b);
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    bottom: 0;
+    opacity: .4;
+    cursor: default;
+    position: absolute;
+    z-index: 2;
+}
+// 显示文件列表时微调
+.active-tab-files:is(.use-file-list-style, .use-file-tree-style) > .sidebar-content {
+    margin-bottom: @bottomCopyrightHeight + 20px;
+}
+
+#typora-sidebar.use-file-tree-style:hover .sidebar-footer-item:not(#sidebar-new-file-btn) {
+    opacity: 1;
+}
+
+.sidebar-footer {
+    border: none;
+    opacity: 1;
+    display: block;
+    width: auto;
+    position: absolute !important;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: var(--c-br-b);
+
+    .genOutlineContentStyle(@style, @border) when not (@style = edge) {
+        .genBorder(@border) when (@border = shadow) {
+            box-shadow: var(--v-fl-sd);
+        }
+        .genBorder(@border);
+    }
+    .genOutlineContentStyle(@navCenterStyle, @panelBorder);
+}
+.genSidebarFooterStyle(@style) when (@style = std) {
+    .sidebar-footer,
+    .sidebar-footer div {
+        color: @buttonForeColor;
+        background-color: var(--v-ui-bg);
+    }
+    .sidebar-footer div {
+        border-radius: var(--c-br-b);
+    }
+}
+.genSidebarFooterStyle(@style) when (@style = simple) {
+    .sidebar-footer,
+    .sidebar-footer div {
+        color: var(--v-ui-bg);
+        background-color: var(--d-bc);
+    }
+    .sidebar-footer div {
+        border-radius: var(--c-br-b);
+    }
+}
+.genSidebarFooterStyle(@toolbarStyle);
+
+:is(.html-for-mac, *) .sidebar-footer .sidebar-footer-item {
+    padding: 3px 10px;
+}
+
+.sidebar-footer-item:hover {
+    color: inherit;
+    background: inherit;
+}
+
+.use-file-tree-style .sidebar-footer-item, // for Windows
+.footer-btn {
+    opacity: 1;
+}
+#typora-sidebar .sidebar-footer:not(.show-sidebar-footer-context) { // for Windows
+    display: block;
+}
+
+// 新建文件按钮
+#sidebar-new-file-btn {
+    border-radius: var(--v-r-b) 0 0 var(--v-r-b-xc);
+}
+// 切换文件列表按钮
+#switch-file-list-btn {
+    border-radius: 0 var(--v-r-b-xc) var(--v-r-b-xc) 0;
+}
+
+// 针对 Windows
 body.@{windows} .sidebar-content {
     top: calc(@sidebarTabHeight + 10px) !important;
+    width: calc(100% - 20px);
+}
+// 针对 Windows 环境中启用 一体化 外观后的微调
+body.@{windows}.unibody-window .sidebar-content {
+    top: calc(@sidebarTabHeight + 40px) !important;
 }
 .sidebar-tab {
     line-height: 2rem;
@@ -597,39 +764,79 @@ body.@{windows} #info-panel-tab-outline {
     padding-left: 10px;
 }
 
-.sidebar-tabs>.sidebar-tab.active,
-body.@{windows} .info-panel-tab-wrapper {
-    // color: var(--h-f);
-    color: @buttonForeColor;
+.sidebar-tabs>.sidebar-tab.active {
+    .genSidebarStyle(@style, @navCenterStyle) when (@style = std), (@navCenterStyle = edge) {
+        color: @buttonForeColor;
+    }
+    .genSidebarStyle(@style, @navCenterStyle) when (@style = simple) {
+        .genSidebarStyleForNotEdge(@navCenterStyle) when not (@navCenterStyle = edge) {
+            color: var(--v-ui-bg);
+        }
+        .genSidebarStyleForNotEdge(@navCenterStyle);
+    }
+    .genSidebarStyle(@toolbarStyle, @navCenterStyle);
 }
 @sidebarTabHeight: 50px;
 @sidebarTabMargin: 10px;
 .sidebar-osx-tab,
 body.@{windows} .info-panel-tab-wrapper {
-    color: @buttonForeColor;
-    background-color: var(--v-btn-bg);
-    margin: @sidebarTabMargin @sidebarTabMargin 0 @sidebarTabMargin;
-    border-radius: var(--c-br-b);
-    // border-radius: var(--v-r-btn);
-    .genOutlineContentStyle(@style) when not (@style = edge) {
-        box-shadow: var(--v-fl-sd), @contrastBorder; // v-float-card
+    .genSidebarStyle(@style, @navCenterStyle) when (@style = std), (@navCenterStyle = edge) {
+        color: @buttonForeColor;
+        background-color: var(--v-ui-bg);
     }
-    .genOutlineContentStyle(@navCenterStyle);
+    .genSidebarStyle(@style, @navCenterStyle) when (@style = simple) {
+        .genSidebarStyleForNotEdge(@navCenterStyle) when not (@navCenterStyle = edge) {
+            color: var(--v-ui-bg);
+            background-color: var(--d-bc);
+        }
+        .genSidebarStyleForNotEdge(@navCenterStyle);
+    }
+    .genSidebarStyle(@toolbarStyle, @navCenterStyle);
+
+    margin: @sidebarTabMargin @sidebarTabMargin 0 @sidebarTabMargin;
+
+    border-radius: var(--b-br-b);
+    .genOutlineContentStyle(@style, @border) when (@style = std) {
+        .genBorder(@border) when (@border = shadow) {
+            box-shadow: var(--v-fl-sd);
+        }
+        .genBorder(@border);
+    }
+    .genOutlineContentStyle(@style, @border) when (@style = flat) {
+        .genBorder(@border) when (@border = shadow) {
+            box-shadow: var(--v-fl-sd);
+        }
+        .genBorder(@border) when (@border = line) {
+            .genBorderCSS() when not (isdefined(@panelBorderColor)) {
+                box-shadow: 0 0 0 1px var(--pn-c-a) inset !important;
+            }
+            .genBorderCSS() when (isdefined(@panelBorderColor)) {
+                box-shadow: 0 0 0 1px @panelBorderColor inset !important;
+            }
+            .genBorderCSS();
+        }
+        .genBorder(@border);
+    }
+    .genOutlineContentStyle(@navCenterStyle, @panelBorder);
     height: @sidebarTabHeight;
     width: auto;
 }
+// 针对 Windows 环境中启用 一体休 外观后的微调
+body.@{windows}.unibody-window .info-panel-tab-wrapper {
+    margin: (@sidebarTabMargin + 30px) @sidebarTabMargin 0 @sidebarTabMargin;
+}
+// 针对 macOS 环境中启用 seamless 外观后的微调
+body.mac-seamless-mode .sidebar-osx-tab {
+    margin: (@sidebarTabMargin + 10px) @sidebarTabMargin 0 @sidebarTabMargin;
+}
+
 .sidebar-osx-tab::before,
 body.@{windows} .info-panel-tab-wrapper::before {
     content: "VLOOK™" @themeSpliter @themeDesc;
-    text-transform: uppercase;
     white-space: pre;
     font: condensed var(--v-fw-tt) .875em var(--v-fm-tt); // [stretch] [style] [weight] [size/[line-height]] [family]
-    // color: var(--h-f);
-    color: @buttonForeColor;
     margin-top: 4px;
-    // margin-top: 6px;
     position: absolute;
-    // width: 100%;
     width: calc(100% - @sidebarTabMargin * 2);
     text-align: center;
 }
@@ -639,11 +846,10 @@ body.@{windows} .info-panel-tab-wrapper:hover::before {
 }
 body.@{windows} .info-panel-tab-wrapper::before {
     margin-top: 6px;
-    // width: calc(100% - @sidebarTabMargin * 2);
 }
+
 // 当前面板标题显示文档标签栏、收藏夹图标
 @thmTabLogoBackground: no-repeat center center/20px 20px @thmTabLogo;
-// for macOS、Windows
 .sidebar-tab.active::before,
 body.@{windows} :is(.active-tab-files, .active-tab-outline) .info-panel-tab-title::before {
     content: "";
@@ -651,72 +857,143 @@ body.@{windows} :is(.active-tab-files, .active-tab-outline) .info-panel-tab-titl
     height: 22px;
     width: var(--sidebar-width);
     margin-top: -2px;
-    // margin-top: 4px;
     left: 0;
     background: @thmTabLogoBackground;
     pointer-events: none;
 }
-// for macOS
+// 针对 for macOS
 .sidebar-tab.active::before {
-    // margin-left: -70px;
-    background: @thmTabLogoBackground var(--ac-t1);
+    .genSidebarStyle(@style, @navCenterStyle) when (@style = std), (@navCenterStyle = edge) {
+        background: @thmTabLogoBackground var(--v-ui-bg);
+    }
+    .genSidebarStyle(@style, @navCenterStyle) when (@style = simple) {
+        .genSidebarStyleForNotEdge(@navCenterStyle) when not (@navCenterStyle = edge) {
+            background: @thmTabLogoBackground var(--d-bc);
+        }
+        .genSidebarStyleForNotEdge(@navCenterStyle);
+    }
+    .genSidebarStyle(@toolbarStyle, @navCenterStyle);
+
     margin-top: 5px;
     width: 200px;
     left: 50%;
     transform: translateX(-50%);
 }
 // 以下 for macOS
-// .sidebar-tab.active::before {
-//     content: "";
-//     position: absolute;
-//     height: 22px;
-//     width: 200px;
-//     margin-left: -70px;
-//     // margin-top: 7px;
-//     margin-top: 4px;
-//     // background: @thmTabLogoBackground var(--d-bc);
-//     background: @thmTabLogoBackground var(--ac-t1);
-//     pointer-events: none;
-// }
 .sidebar-tab.active:hover::before {
     display: none;
 }
 
 // 侧边栏内容为空的样式
 .genSidebarContentEmpty() {
-    opacity: .4;
-    border: 1px dashed var(--d-fc-a);
+    opacity: .5;
+    // opacity: 1;
     border-radius: var(--c-br-b);
-    background: none;
-}
-#file-library {
-    margin-top: 10px;
+
+    // .genSidebarContentStyle(@style) when (@style = std) {
+    //     background: var(--pn-c);
+    // }
+    // .genSidebarContentStyle(@style) when (@style = flat) {
+    //     background: var(--d-bc);
+    // }
+    // .genSidebarContentStyle(@style) when (@style = edge) {
+    //     background: transparent;
+    // }
+    // .genSidebarContentStyle(@navCenterStyle);
 }
 #typora-sidebar #file-library:empty,
 #typora-sidebar .outline-content:empty {
     .genSidebarContentEmpty();
+}
+#typora-sidebar .outline-content:empty::after {
+    background: none;
+}
+
+#outline-content,
+#typora-sidebar #file-library-list {
+    scrollbar-width: thin; // 滚动条宽度
+}
+
+#outline-content::before,
+#sidebar-content .file-node-root::before,
+#sidebar-content #file-library-list::before,
+#outline-content::after,
+#sidebar-content .file-node-root::after,
+#sidebar-content #file-library-list::after {
+    content: "";
+    left: 1px;
+    bottom: @bottomCopyrightHeight;
+    height: 20px;
+    width: calc(100% - 2px);
+
+    .genPanelMoreContentStyle(@style) when (@style = std) {
+        background-image: linear-gradient(0deg, @pnMoreContentLG);
+    };
+    .genPanelMoreContentStyle(@style) when (@style = flat) {
+        background-image: linear-gradient(0deg, @docMoreContentLG);
+    }
+    .genPanelMoreContentStyle(@style) when (@style = edge) {
+        background-image: linear-gradient(0deg, @pnMoreContentLG_edge);
+    }
+    .genPanelMoreContentStyle(@navCenterStyle);
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+}
+
+#outline-content::before,
+#sidebar-content .file-node-root::before,
+#sidebar-content #file-library-list::before {
+    height: 10px;
+    top: 20px;
+    bottom: unset;
+    transform: rotate(180deg);
+}
+
+#sidebar-content #file-library-list::before {
+    top: 0;
+}
+
+#sidebar-content .file-node-root::after,
+#sidebar-content #file-library-list::after {
+    bottom: 0;
 }
 
 // 文件库
 .active-tab-files.use-file-tree-style .sidebar-content {
     bottom: 0;
 }
-#sidebar-content:hover #file-library {
-    padding-bottom: 8px;
-    // margin-top: 10px;
+// 针对 for Windows
+body.@{windows} #sidebar-content #file-library {
+    padding: 0 0 0 10px;
+}
+#sidebar-content #file-library {
+    overflow-x: hidden;
+    padding: 0 10px;
+    margin-top: @outlineContentMarginTop;
+    margin-bottom: @bottomCopyrightHeight;
 }
 #typora-sidebar #file-library-tree {
     border-radius: var(--c-br-b);
-    padding-top: 0;
-    padding-left: 0;
+    padding: 0;
 }
 #typora-sidebar #file-library-tree:not(:empty) {
-    background: var(--pn-c);
+    background: inherit;
 }
 
 #typora-sidebar #file-library-list {
     height: 100%;
 }
+#typora-sidebar .file-node-root,
+#typora-sidebar #file-library-list {
+    overflow-y: auto;
+}
+
+#typora-sidebar .file-node-root {
+    position: relative !important;
+  overflow: auto !important;
+}
+
 // 文件库内容为空
 #typora-sidebar :is(#file-library-tree, #file-library-list-children):empty {
     .genSidebarContentEmpty();
@@ -744,7 +1021,7 @@ body.@{windows} #file-library-tree {
     border-radius: var(--c-br-b);
     .genSidebarContentStyle(@style) when (@style = std) {
         background-color: var(--pn-c);
-        box-shadow: var(--v-fl-sd), var(--v-fl-i-sd);
+        box-shadow: var(--v-fl-sd);
     }
     .genSidebarContentStyle(@style) when (@style = flat) {
         background-color: var(--d-bc);
@@ -758,6 +1035,7 @@ body.@{windows} #file-library-tree {
 #toc-dropmenu>.outline-content {
     background: none;
     box-shadow: none;
+    outline: none;
     margin-top: 0;
 }
 
@@ -850,7 +1128,15 @@ body.@{windows} #file-library-tree {
     content: "";
     position: absolute;
     display: block;
-    background-color: var(--ac-t1);
+
+    .genNavCenterStyle(@style) when not (@style = edge) {
+        background: var(--ac-t1);
+    }
+    .genNavCenterStyle(@style) when (@style = edge) {
+        background: currentColor;
+    }
+    .genNavCenterStyle(@navCenterStyle);
+
     left: 5px;
     top: 5px;
     width: 6px;
@@ -860,7 +1146,6 @@ body.@{windows} #file-library-tree {
 }
 @{outlineCover}>.outline-item-active .outline-label::before,
 @{outlinebackcover}>.outline-item-active .outline-label::before {
-    background-color: var(--a-c);
     width: 10px;
 }
 
@@ -892,19 +1177,8 @@ body.@{windows} #file-library-tree {
 
 // 大纲面板
 .outline-content {
-    .genSidebarContentStyle(@style) when (@style = std) {
-        background-color: var(--pn-c);
-        box-shadow: var(--v-fl-sd), var(--v-fl-i-sd);
-        // box-shadow: var(--v-fl-sd), @contrastBorder; // v-float-card
-    }
-    .genSidebarContentStyle(@style) when (@style = flat) {
-        background-color: var(--d-bc);
-        box-shadow: var(--v-fl-sd);
-    }
-    .genSidebarContentStyle(@navCenterStyle);
-    margin-top: 10px;
-    border-radius: var(--c-br-b);
-    // border-radius: var(--v-r-btn-b);
+    margin-top: @outlineContentMarginTop;
+    margin-bottom: @bottomCopyrightHeight;
     padding: 10px;
 }
 // 大纲节点
@@ -928,7 +1202,7 @@ body.@{windows} #file-library-tree {
         box-shadow: @tocItemCurrent_boxShadow;
     }
     .genSidebarContentStyle(@style) when (@style = edge) {
-        box-shadow: 0 0 0 2px var(--fd05) inset;
+        box-shadow: @tocItemCurrent_boxShadow_edge;
     }
     .genSidebarContentStyle(@navCenterStyle);
 
@@ -947,7 +1221,7 @@ body.@{windows} #file-library-tree {
         background: var(--pn-c);
     }
     .genSidebarContentStyle(@style) when (@style = edge) {
-        background: var(--fd02);
+        background: var(--db02);
     }
     .genSidebarContentStyle(@navCenterStyle);
     border-radius: var(--c-br-s);
@@ -965,20 +1239,26 @@ body.@{windows} #file-library-tree {
 .file-library-file-node:active span {
     .genSidebarContentStyle(@style) when (@style = std) {
         color: var(--d-bc);
-        background: var(--d-fc-a);
+        background: var(--d-fc-a) !important;
     }
     .genSidebarContentStyle(@style) when (@style = flat) {
-        background: var(--pn-c-a);
+        background: var(--pn-c-a) !important;
     }
     .genSidebarContentStyle(@style) when (@style = edge) {
-        background: @aActiveColor;
+        background: @aActiveColor !important;
     }
     .genSidebarContentStyle(@navCenterStyle);
+}
+.outline-item:active {
+    transform: @activePressedTransform_long;
 }
 // 针对 before content, COVER, BACK COVER etc.
 .outline-item:active>.outline-expander::before,
 .outline-item:active::before {
-    color: var(--d-bc) !important;
+    .genSidebarContentActiveStyle(@style) when (@style = std) {
+        color: var(--d-bc) !important;
+    }
+    .genSidebarContentActiveStyle(@navCenterStyle);
 }
 
 .outline-label:hover {
@@ -1027,15 +1307,28 @@ body.@{windows} .ty-sidebar-search-panel .searchpanel-search-option-btn {
     right: 10px;
 }
 
-//body.@{windows}
-
 // 快速打开
 #typora-quick-open {
     font-family: var(--v-fm-tag);
     font-stretch: condensed;
-    background: var(--pn-c);
-    border-radius: var(--c-br-b);
-    box-shadow: var(--v-fl-sd), var(--v-fl-i-sd);
+
+    .genQuickOpenStyle(@style) when (@style = std) {
+        background: var(--pn-c);
+    }
+    .genQuickOpenStyle(@style) when (@style = flat), (@style = edge) {
+        background: var(--d-bc);
+    }
+    .genQuickOpenStyle(@navCenterStyle);
+
+    // 生成快速打开边框样式
+    .genQuickOpenRadiusStyle(@style) when (@style = std) {
+        border-radius: var(--c-br-b);
+    };
+    .genQuickOpenRadiusStyle(@style) when not (@style = std) {
+        border-radius: var(--c-br-b) var(--c-br-b) var(--v-r-b) var(--v-r-b);
+    };
+    .genQuickOpenRadiusStyle(@buttonRadiusStyle);
+    box-shadow: var(--v-fl-sd);
     border: none;
 }
 // 快速打开输入框
@@ -1044,7 +1337,7 @@ body.@{windows} .ty-sidebar-search-panel .searchpanel-search-option-btn {
     font-family: var(--v-fm-text);
 }
 #typora-quick-open-input input {
-    border-radius: var(--c-br-s);
+    border-radius: var(--b-br-s);
     max-height: 40px;
     border-color: transparent;
     box-shadow: none;
@@ -1078,6 +1371,11 @@ body.@{windows} .ty-sidebar-search-panel .searchpanel-search-option-btn {
 }
 
 // 目录/文件节点
+.file-list-item {
+    padding: 10px;
+    margin-bottom: 2px;
+    border: none;
+}
 .file-tree-node,
 .file-list-item-file-name,
 .file-list-item-summary {
@@ -1095,9 +1393,19 @@ body.@{windows} .ty-sidebar-search-panel .searchpanel-search-option-btn {
 .file-library-file-node {
     border-radius: var(--c-br-s);
 }
+:is(.file-list-item, .file-library-file-node):hover {
+    .genNavCenterStyle(@style) when not (@style = edge) {
+        background: var(--pn-c-a) !important;
+    }
+    .genNavCenterStyle(@style) when (@style = edge) {
+        background: var(--db02) !important;
+    }
+    .genNavCenterStyle(@navCenterStyle);
+}
 // 当前节点
-.file-library-file-node.active {
+:is(.file-list-item, .file-library-file-node).active {
     box-shadow: @tocItemCurrent_boxShadow;
+    background: inherit;
 }
 // 点击节点
 .file-library-node:not(.file-node-root):focus>.file-node-content {
@@ -1107,9 +1415,6 @@ body.@{windows} .ty-sidebar-search-panel .searchpanel-search-option-btn {
 .genFileListItemStyle(@style) when (@style = edge) {
     .file-library-file-node.active {
         box-shadow: none;
-    }
-    .file-list-item {
-        border-bottom-color: var(--fd05);
     }
     .file-list-item.active {
         background-color: var(--item-hover-bg-color);
@@ -1294,9 +1599,8 @@ body.@{windows} .file-node-title { // for Win
 }
 
 // 针对 YAML 的样式
-@yamlMarginTopBottom: 12px;
+@yamlMarginTopBottom: 20px;
 @yamlMarginLeftRight: 0;
-@yamlBorderWidth: 2px;
 @yamlOnEditing: ~"@{writeOnEditing}>pre.md-meta-block:first-child";
 @{yamlOnEditing} {
     font: var(--v-fw-text) .875em/@paragraphInnerLineHeight var(--monospace); // [style] [weight] [size/[line-height]] [family]
@@ -1304,7 +1608,7 @@ body.@{windows} .file-node-title { // for Win
     padding: 24px 10px 5px 10px;
     color: var(--a-c);
     background: var(--code-bg);
-    border: @yamlBorderWidth dashed var(--std-code-sd);
+    border: 1px solid var(--std-code-sd);
     margin: 0 @yamlMarginLeftRight @yamlMarginTopBottom;
     height: @defaultLineHeight * 14px * 1 + 24px + 5px; // 这里的 14px 为 YAML 字号，10px 为 YAML 语法提示字号
 }
@@ -1315,9 +1619,19 @@ body.@{windows} .file-node-title { // for Win
     text-transform: uppercase;
     font: @syntaxTipsFont;
     position: absolute;
-    margin-top: -16px;
     color: var(--d-fc);
     opacity: .6;
+    background: var(--std-code-sd);
+    margin-top: -2em;
+    padding: 5px 10px;
+    left: 0;
+    text-align: center;
+    width: 100%;
+}
+@{yamlOnEditing}.md-focus::before {
+    color: @uiForeColor;
+    background: var(--v-ui-bg);
+    font-weight: var(--v-fw-tag);
 }
 // 展开全部的按钮样式
 @{yamlOnEditing}::after {
@@ -1325,9 +1639,9 @@ body.@{windows} .file-node-title { // for Win
     text-transform: uppercase;
     font: var(--v-fw-bd) .75em var(--v-fm-bd); // [style] [weight] [size/[line-height]] [family]
     position: absolute;
-    top: 20px;
-    left: @writePaddingRight;
-    right: @writePaddingRight;
+    top: 0;
+    left: 0;
+    right: 0;
     padding: 5px 10px;
     color: @buttonForeColor;
     border-radius: var(--c-br-b);
@@ -1357,11 +1671,11 @@ body.@{windows} .file-node-title { // for Win
 }
 // 提示输入 YAML 内容
 @{yamlOnEditing}:empty::before {
-    content: "Input your YAML Front Matter ...";
-    font-style: normal;
-    font-weight: normal;
+    content: "Input your --- YAML Front Matter ---";
     position: static;
-    opacity: .2;
+    opacity: .5;
+    border-radius: unset;
+    background: none;
 }
 // 针对 YAML 无内容，或获得焦点后隐藏展开全部按钮
 @{yamlOnEditing}:empty::after,
@@ -1409,8 +1723,11 @@ content .md-toc::before {
     text-transform: uppercase;
     font: @syntaxTipsFont;
     color: var(--d-fc);
-    padding-left: 35px;
     opacity: .6;
+    background: var(--std-code-sd);
+    margin-left: 30px;
+    padding: 5px 10px;
+    border-radius: var(--c-br-b);
 }
 
 // 目录操作栏
@@ -1418,7 +1735,7 @@ content .md-toc::before {
     background-color: var(--d-fc);
     line-height: 1.5;
     color: var(--d-bc);
-    border: none;
+    border: none !important;
     margin-left: 30px;
     padding-left: 10px;
     width: 250px;
@@ -1575,21 +1892,12 @@ content .md-toc::before {
     flex: 0 0 auto;
     margin-right: 5px;
     color: var(--toc-h-num-c);
-    // color: currentColor;
-    // opacity: @contentHeaderNumOpacity;
 }
 
 // 如果标题自动编号颜色有设置透明度，则编辑时的大纲生成合适的透明度
 .getOutlineLabel() when not (@contentHeaderNumOpacity = 1) {
-    // .genSidebarContentStyle(@style) when not (@style = edge) {
-    //     .outline-label::before {
-    //         color: var(--toc-h-num-c);
-    //     }
-    // }
     .genSidebarContentStyle(@style) when (@style = edge) {
         .outline-label::before {
-            // color: var(--toc-h-num-c);
-            // color: currentColor;
             opacity: @contentHeaderNumOpacity;
         }
     }
@@ -1694,16 +2002,17 @@ content .md-toc::before {
 @colorCodeMd: ~'span[md-inline=em]>@{colorCode}';
 @colorCodeOnStart: ~'span[md-inline=em]:first-child>em>sub:only-child';
 // ---
-@colorCodeInBlockquote: ~'blockquote @{colorCodeOnStart}';
+@colorCodeInBlockquote: ~'blockquote p>@{colorCodeOnStart}';
 @colorCodeOnPgStart: ~'p>@{colorCodeOnStart}';
 @colorCodeOnCellStart: ~'table :is(th,td)>span>@{colorCodeOnStart}';
 @colorCodeBeforeSpanFmt: ~'span:is([md-inline=code],[md-inline=strong],[md-inline=em],[md-inline=highlight],[md-inline=underline])+@{colorCodeMd}';
 @colorCodeBeforeSupSub: ~':is(sup, sub)+@{colorCodeMd}';
+@colorCodeInCell: ~'table :is(th,td)>span>span[md-inline=em]:last-child>em>sub:only-child';
 
+@{writeOnEditing} @{colorCodeInCell}, // 单元格着色
 @{writeOnEditing} @{colorCodeInBlockquote}, // 引用块着色
 @{writeOnEditing} @{colorCodeOnPgStart}, // 文本着色（段落）
 @{writeOnEditing} @{colorCodeOnCellStart}, // 单元格（段落）
-@{writeOnEditing} table :is(th,td)>span>span[md-inline=em]:last-child>em>sub:only-child,
 @{writeOnEditing} @{colorCodeBeforeSpanFmt}, // 文本着色
 @{writeOnEditing} @{colorCodeBeforeSupSub} { // 文本着色（指定格式）
     font: @syntaxTipsFont;
@@ -1711,21 +2020,19 @@ content .md-toc::before {
     font-weight: bold;
     border-radius: 0 4px 4px 4px;
     bottom: 0;
-    color: var(--d-fc);
-    background-color: var(--pn-c-a);
-    padding: 2px 4px 2px;
+    color: @buttonForeHoverColor;
+    background: var(--ac-t2);
     margin: 0 5px 0 1px;
     line-height: @miniLineHeight;
     opacity: .6;
-}
-// 对于以下指定的色号标记，默认不显示
-@{writeOnEditing} @{colorCodeOnPgStart}, // 文本着色（段落）
-@{writeOnEditing} @{colorCodeOnCellStart}, // 单元格（段落）
-@{writeOnEditing} @{colorCodeBeforeSpanFmt}, // 文本着色
-@{writeOnEditing} @{colorCodeBeforeSupSub} { // 文本着色（指定格式）
-    display: none;
+    display: inline-block;
+    overflow: hidden;
+    width: 0;
+    height: 6px;
+    padding: 3px;
 }
 // 进入对应内容的编辑时才显示
+@{writeOnEditing} .md-focus @{colorCodeInBlockquote}, // 引用块着色
 @{writeOnEditing} .md-focus @{colorCodeOnStart}, // 文本着色（段落）、单元格（段落）
 @{writeOnEditing} .md-expand+@{colorCodeMd},
 @{writeOnEditing} .md-expand @{colorCode},
@@ -1737,13 +2044,12 @@ content .md-toc::before {
 @{writeOnEditing} @{colorCodeOnCellStart} { // 单元格（段落）
     color: var(--d-bc);
     border-radius: 4px 4px 0 4px;
-    background-color: var(--d-fc);
+    background: var(--d-fc);
     margin: 0 1px 0 0;
 }
 
 // 针对 引用块着色 的微调
 @{writeOnEditing} @{colorCodeInBlockquote} {
-    display: initial !important;
     bottom: 0;
 }
 // 针对 文本着色/单元格（段落） 的前缀提示样式
@@ -1762,7 +2068,6 @@ content .md-toc::before {
 // 针对 引用块着色 的前缀提示样式
 @{writeOnEditing} @{colorCodeInBlockquote}::before {
     content: ">";
-    color: var(--d-bc);
     padding-right: 2px;
     opacity: .6;
 }
@@ -1814,7 +2119,7 @@ li label.checkbox {
     vertical-align: middle;
     position: absolute;
     margin-left: @taskListMarginLeft;
-    margin-top: calc(1em - 14px); // 14px 为复选框高度
+    margin-top: calc(1em - 14px); // 其中 14px 为复选框高度
 }
 .checkbox > svg {
     background-color: var(--d-bc);
@@ -1940,17 +2245,11 @@ li label.checkbox {
     color: @captionTextColor;
     background: @captionBackground !important;
     box-shadow: none;
-    //padding: 2px 10px;
-    // border-radius: var(--v-r-b) var(--v-r-b) 0 0;
-    // border-radius: var(--v-r-s) var(--v-r-s-xc);
-    border-radius: var(--c-br-s);
+    border-radius: var(--v-r-s) var(--v-r-s) 0 0;
     margin: 2px 0;
     padding: 5px 10px;
-    // display: block;
     display: inline-block;
     position: relative;
-    // left: 50%;
-    // transform: translateX(-50%);
     width: fit-content;
 }
 // 编辑时添加了题注语法后的内容微调
@@ -1972,30 +2271,27 @@ li label.checkbox {
 
 // 图片，添加了题注的提示
 @captionPadding: 5px;
-@{writeOnEditing} .md-image:has(img[alt]):not([data-src*="#logo"]):not([data-src*="#icon"])::before {
+@needTipsImages: ~':has(img[alt]):not([data-src*="#logo"]):not([data-src*="#icon"]):not([data-src*="#card"])';
+@captionTipsOnEditing: ~'@{writeOnEditing} .md-image@{needTipsImages}::after';
+@{captionTipsOnEditing} {
     content: "Caption/题注 ▸ (... Figure/插图 ...)";
     text-transform: uppercase;
     font: @syntaxTipsFont;
     color: var(--a-c);
     background: @captionBackground !important;
     width: fit-content;
-    //padding: @captionPadding 12px;
-    // border-radius: var(--v-r-b) var(--v-r-b) 0 0;
-    border-radius: var(--v-r-b) var(--v-r-b);
-    margin: 2px 0;
+    border-radius: 0 0 var(--v-r-s) var(--v-r-s);
+    margin: 0;
     padding: @captionPadding 10px;
-    // display: block;
     display: inline-block;
     position: relative;
-    // left: 50%;
-    // transform: translateX(-50%);
 }
 
 // 编辑时，一个段落有多个图片，添加了题注的提示
-@{writeOnEditing} p > .md-image:not(:only-child):has(img[alt]):not([data-src*="#logo"]):not([data-src*="#icon"]) {
+@{writeOnEditing} p > .md-image:not(:only-child)@{needTipsImages} {
     display: inline-block;
 }
-@{writeOnEditing} p > .md-image:not(:only-child):has(img[alt]):not([data-src*="#logo"]):not([data-src*="#icon"])::before {
+@{writeOnEditing} p > .md-image:not(:only-child)@{needTipsImages}::before {
     position: absolute;
     margin-top: -(@smallFixedFontSize + @captionPadding * 2);
     width: 100%;
@@ -2119,47 +2415,63 @@ li label.checkbox {
 }
 
 // ------------------------------
+// 生成正文固定宽度时边缘样式
+.genFillWidthBorder(@border) when (@border = shadow) {
+    box-shadow: 0 0 5px 0 #0000001A;
+}
+.genFillWidthBorder(@border) when (@border = line) {
+    outline: var(--v-fl-bd);
+}
+
 // 生成正文宽度适配显示样式
 .genFillWidth(@fillMode) {
     // 情况-1: 编辑时始终保持固定宽度
-    .genFillWidthFor(@fillMode) when (@fillMode = off) {
-        // 针对 Windows
-        body.@{windows} content::before {
-            width: calc(100% - var(--sidebar-width) - 20px);
-        }
-        // 针对 macOS
-        body.@{macos} content::before {
-            width: calc(100% - var(--sidebar-width));
+    .genFillWidthFor(@fillMode) when (@fillMode = fix) {
+        @{writeOnEditing} {
+            width: var(--v-write-w);
+            .genFillWidthBorder(@panelBorder);
         }
     }
     // 情况-2: 编辑时根据指定条件启用适配宽度
     .genFillWidthFor(@fillMode) when (@fillMode = auto) {
+        body[class*=pin-outline] @{writeOnEditing}, // 编辑时，如收起了左侧面板
+        body:not([class*=on-focus-mode]) @{writeOnEditing} { // 编辑时，如启用了「专注模式（Focus Mode）」
+            width: var(--v-write-w);
+            .genFillWidthBorder(@panelBorder);
+        }
         body:not([class*=pin-outline]) @{writeOnEditing}, // 编辑时，如收起了左侧面板
-        body[class*=on-focus-mode] @{writeOnEditing}, // 编辑时，如启用了「专注模式（Focus Mode）」
-        #write.max.fill-width {
+        body[class*=on-focus-mode] @{writeOnEditing} { // 编辑时，如启用了「专注模式（Focus Mode）」
             width: auto;
-            box-shadow: none;
+        }
+        body[class*=on-focus-mode] content::before { // 编辑时，如启用了「专注模式（Focus Mode）」
+            display: none !important;
         }
     }
     // 情况-3: 编辑时始终适配宽度
-    .genFillWidthFor(@fillMode) when (@fillMode = on) {
-        body @{writeOnEditing},
-        #write.max.fill-width {
+    .genFillWidthFor(@fillMode) when (@fillMode = full) {
+        @{writeOnEditing} {
             width: auto;
             box-shadow: none;
+        }
+        content::before {
+            display: none !important;
         }
     }
     .genFillWidthFor(@fillMode);
 
     // 针对导出后的处理
-    #write.max.fill-width {
+    .typora-export-content.fill-width #write.max {
         margin-left: var(--v-write-ml-def) !important;
+        width: auto;
+        box-shadow: none;
+        outline: none;
     }
     // 导航中心隐藏后的微调
-    #write.max.fill-width.navhidden {
+    .typora-export-content.fill-width #write.max.navhidden {
         margin-left: 0 !important;
     }
 }
+.genFillWidth(@thmFillWidthMode);
 
 #write>:is(ul,ol):first-child {
     margin-top: 30px;
@@ -2185,7 +2497,7 @@ li label.checkbox {
 }
 // 在列表、引用块内时微调
 @{writeOnEditing} :is(li, blockquote) @{summarySyntax},
-:is(li, blockquote, details) summary {
+#write :is(li, blockquote, details) summary {
     text-align: left;
     justify-content: left;
 }
@@ -2303,43 +2615,39 @@ pre.md-fences-advanced.md-focus .md-fences-adv-panel {
 
 // 针对 Windows 版 Typora 在大纲下滚动后显示的搜索面板（大纲、文件列表显示搜索后）
 :is(.ty-show-outline-filter, .ty-show-search) #file-library-search {
-// #file-library-search {
     margin-top: 10px;
 }
 // 针对 macos & Windows 版 Typora 在大纲下滚动后显示的搜索面板
 .ty-sidebar-search-panel {
     background: var(--d-bc);
-    // box-shadow: 0 0 0 1px var(--bq-bg) inset;
     box-shadow: var(--v-input-focus-inn-sd), var(--v-input-focus-sd);
     border: none;
-    // padding: 2px 10px;
     padding: 0 10px;
 }
 body.@{macos} .ty-sidebar-search-panel {
-    border-radius: var(--c-br-b);
+    border-radius: var(--b-br-b);
     height: @sidebarTabHeight;
 }
+@focusShadowWidth: 4px;
+@searchPanelHeight: 36px;
 body.@{windows} #file-library-search-panel {
-    border-radius: var(--c-br-s);
-    height: 36px;
-    margin: 4px 4px 0;
+    border-radius: var(--b-br-s);
+    height: @searchPanelHeight;
+    margin: @focusShadowWidth 10px @focusShadowWidth;
 }
 // 搜索面板国的输入控件
 #file-library-search-input {
     // 样式与 .v-textfield-focus 保持一致
     .genTextfieldCommonStyle();
 }
-// #file-library-search-input::placeholder {
-//     color: var(--d-fc-a);
-// }
 body.@{macos} #file-library-search-input {
     margin: 8px;
 }
 body.@{windows} #file-library-search-input {
-    margin: 4px 4px 4px 0;
+    margin: @focusShadowWidth @focusShadowWidth @focusShadowWidth 0;
 }
 #close-outline-filter-btn {
-    line-height: 32px; // 比 #file-library-search-panel 高度少 4px
+    line-height: @searchPanelHeight - @focusShadowWidth; // 比 #file-library-search-panel 高度少 4px
     width: 32px; // 与 line-height 保持一致
     top: 1px;
     right: 1px;
@@ -2351,4 +2659,168 @@ body.@{windows} #file-library-search-input {
 .form-control:focus {
     border-color: var(--v-input-focus-border);
     box-shadow: var(--v-input-focus-sd);
+}
+
+/**************************************
+* 数学公式
+**************************************/
+
+@codeTooltipBg: var(--d-fc);
+@codeTooltipText: var(--d-bc);
+mjx-container>svg svg[data-labels] g,
+.code-tooltip mjx-container>svg svg[data-labels] g {
+    fill: var(--d-fc-a);
+}
+
+// 编辑时，行内数学公式
+// 针对 macOS
+body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
+    font-size: .66em;
+}
+
+// 预览：公式、脚注
+// .code-tooltip,
+@{writeOnEditing} .md-fences-math[lang=math].md-focus .md-fences-adv-panel {
+    color: var(--d-bc);
+    background: var(--d-fc);
+    font-weight: bold;
+}
+@{writeOnEditing} .md-fences-math[lang=math].md-focus .md-fences-adv-panel,
+@{writeOnEditing} .md-fences .code-tooltip { // 代码块内的语言
+    border-radius: calc(var(--v-r-b) - 2px) calc(var(--v-r-b-xc) - 2px) !important;
+    bottom: 0;
+    background: var(--d-fc);
+}
+.code-tooltip {
+    border-radius: var(--v-r-b) var(--v-r-b-xc) !important;
+    padding: 2px 5px !important;
+    margin-right: @writePaddingRight;
+    // color: var(--d-bc);
+    // font-weight: bold;
+    font-size: .875em;
+    border-radius: var(--v-r-b) !important;
+}
+
+// 脚注提示容器的样式
+.code-tooltip.md-hover-tip {
+    // -webkit-backdrop-filter: blur(5px);
+    // backdrop-filter: blur(5px);
+    // background: linear-gradient(0deg, var(--df06) 30%, var(--df10));
+    color: var(--d-fc);
+    border: 1px solid var(--ac-t2);
+    background: var(--d-bc);
+    box-shadow: 0 4px 12px 6px var(--ac-t2-fd);//var(--v-fl-sd);
+}
+// 脚注提示内容的样式
+.md-f-tooltip .code-tooltip-content {
+    border-radius: var(--v-r-b) !important;
+    line-height: @defaultLineHeight;
+    opacity: 1;
+    // background: none;
+}
+// .code-tooltip-content a {
+//     color: var(--d-bc) !important;
+//     border-bottom: 1px solid currentColor;
+// }
+
+// 提示的箭头
+.md-hover-tip .md-arrow {
+    opacity: 1;
+}
+.md-hover-tip .md-arrow::after {
+    // background: var(--df10);
+    background: var(--d-bc);
+    box-shadow: 0 4px 12px 6px var(--ac-t2-fd);//var(--v-fl-sd);
+    border: 1px solid var(--ac-t2);
+    width: 12px;
+    height: 12px;
+    z-index: 0;
+}
+
+// 公式内容
+.code-tooltip mjx-container>svg g,
+@{writeOnEditing} .md-fences-math[lang=math].md-focus .md-fences-adv-panel mjx-container>svg g {
+    fill: var(--d-bc);
+}
+
+// 代码块面板
+#write .md-fences-adv-panel {
+    margin-top: 0;
+    position: relative;
+}
+// 导出后对 mermaid 图表的微调
+@{writeOnHTML} .md-fences-adv-panel {
+    margin-top: @paragraphPadding;
+}
+
+.md-math-container { // 标准公式语法
+    border-radius: var(--v-r-b) 0 var(--v-r-b) var(--v-r-b-xc);
+    font-size: 1.25em;
+}
+
+.md-diagram-panel-preview {
+    padding-top: 0;
+}
+
+// 行间公式区（```math 语法）
+#write .md-fences:not([class*=md-diagram]), // 排除 ```mermaid
+.md-math-block { // $$ 语法
+    border-radius: var(--c-br-b);
+    border: @captionContentBorder;
+    background-color: var(--d-bc);
+}
+// 针对导出后（write 与 vlook 的范围）
+.typora-export :is(.md-math-block, .md-fences-math) {
+    margin: 0;
+    padding: 1rem;
+    width: auto;
+}
+.typora-export :is(.md-math-block, .md-fences-math) mjx-assistive-mml {
+    display: none !important;
+}
+
+// 针对 HTML 代码块
+@{writeOnEditing} .md-htmlblock {
+    margin-top: 0;
+}
+@{writeOnEditing} .md-htmlblock-container {
+    border-radius: var(--v-r-b) 0 var(--v-r-b) var(--v-r-b-xc) !important;
+}
+
+// 针对 HTML 代码块外框
+@{writeOnEditing} .md-htmlblock-panel,
+@{writeOnEditing} .md-htmlblock-panel .md-rawblock-control:not(.md-rawblock-tooltip) {
+    border-radius: var(--v-r-b) 0 var(--v-r-b) var(--v-r-b-xc);
+}
+// 针对 HTML 代码块内框
+@{writeOnEditing} .md-htmlblock-panel .md-rawblock-control:not(.md-rawblock-tooltip) .CodeMirror.cm-s-inner:not([lang=math]) {
+    border-radius: calc(var(--v-r-b) - 4px) 0 calc(var(--v-r-b) - 4px) calc(var(--v-r-b-xc) - 4px);
+}
+// 针对 HTML 代码块内输入框
+@{writeOnEditing} .md-htmlblock-panel .md-rawblock-input {
+    padding: 4px;
+}
+
+// 公式编辑组件
+@{writeOnEditing} .md-mathblock-panel .md-rawblock-before {
+    border-radius: var(--v-r-b) 0 0 0 !important;
+}
+@{writeOnEditing} .md-mathblock-panel .md-rawblock-control:not(.md-rawblock-tooltip) {
+    border-radius: 0;
+}
+@{writeOnEditing} .md-mathblock-panel .CodeMirror-scroll {
+    border-radius: 0;
+}
+@{writeOnEditing} .md-mathblock-panel .md-rawblock-after {
+    border-radius: 0 0 var(--v-r-b) var(--v-r-b-xc) !important;
+}
+
+.md-math-block.md-focus .CodeMirror-sizer {
+    box-shadow: var(--v-input-focus-inn-sd);
+}
+
+// 行内公式（编辑时）
+@inline_script: ~".md-expand .md-inline-math-container>script";
+@{inline_script} {
+    box-shadow: var(--v-input-focus-inn-sd), var(--v-input-focus-sd);
 }

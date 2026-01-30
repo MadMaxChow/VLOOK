@@ -99,7 +99,6 @@ cp vlook-*.css "$VLOOK_DOCS_DIR/$VERSION/"
 # 将内置主题复制到发行版本的 themes 和 themes-live 目录
 mkdir -p ../themes-live/$VERSION
 cp -f vlook-*.css ../themes-live/$VERSION
-
 # ----------
 
 echo "处理网络字体..."
@@ -148,7 +147,8 @@ cp -f fs-*.css "$VLOOK_RELEASED_DIR/themes-live/$VERSION"
 )
 # 并将域名内容更新为 <your-host>
 cd "$VLOOK_SRC_SH_DIR"
-perl process-fs-min-for-live.pl "$VLOOK_RELEASED_DIR/themes-live/$VERSION" "$VERSION"
+# perl process-fs-min-for-live.pl "$VLOOK_RELEASED_DIR/themes-live/$VERSION" "$VERSION"
+perl process-fs-min-for-live.pl "$VLOOK_RELEASED_DIR/themes-live/$VERSION"
 
 # 将 themes-live 目录下在线主题的网络字体 @import 内容更新为 <your-host>
 perl process-themes-for-live.pl "$VLOOK_RELEASED_DIR/themes-live" "$VERSION"

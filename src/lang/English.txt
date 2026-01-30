@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V2025.10.1" (2025-10-25) - (Language Pack) - Typora Plugin
+VLOOK™ "V2026.1" (2025-11-06) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -13,7 +13,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "en2":"Switch tabs",
 "en3":"Link Map",
 "en4":"Enabled",
-"en5":"to switch the step size",
+"en5":"View in Docuemnt",
 "en6":"Navigation Center",
 "en7":"Document Library",
 "en8":"Paragraph Roaming",
@@ -36,8 +36,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "en25":"Reading Mode",
 "en26":"Line break / No line break",
 "en27":"Picture in picture",
+"en29":"Freeze Column",
 "en28":"Press and hold",
-"en29":"Current Document",
 "en30":"Copy code",
 "en31":"Copy image address",
 "en32":"Publish as PDF",
@@ -47,7 +47,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "en36":"- A new version has been released, please update!",
 "en37":"Sorry, copying is currently not supported in this browser",
 "en38":"Include Outline",
-"en39":"Timeout",
+"en39":"Zen Mode",
 "en40":"Loading",
 "en41":"Font Style",
 "en42":"Minute(s)",
@@ -94,7 +94,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "en83":"Link",
 "en84":"Footnote",
 "en85":"Reset to theme font style",
-"en86":"Click here to open the link",
+"en86":"Cover Adapted for A4 Paper",
 "en87":"Today is",
 "en88":"This page will be displayed in {{display-mode}",
 "en89":"Click the button below to temporarily turn it off",
@@ -105,5 +105,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "en94":"Failed",
 "en95":"Start Printing (select [Save as PDF])",
 "en96":"Cancel",
-"en97":"Reveal Scratch Card"
+"en97":"Reveal Scratch Card",
+"en98":"View all",
+"en99":"( No Caption )"
 }</script>

@@ -1,6 +1,12 @@
 ---
-title: Guide ▲ Advanced - VLOOK™ - Elegant and Practical Typora Theme & Plugin
+title: Guide ▲ Basic - VLOOK™ - Elegant and Practical Typora Theme & Plugin
 author: MAX°孟兆
+date: 2026-01-30
+copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
+rights: This work is licensed under the MIT License. For details, see the LICENSE file.
+version: V2026.1
+tags: Text, Paragraph, Table, Image, List, Blockquotes, Chapter Headings
+footer: <a href="index-en.html">Introduction</a>	|	Guide for <strong>Basic</strong>  ❯  <a href='guide2-en.html'>Advanced</a>  ❯  <a href='guide3-en.html'>Exploration</a>
 description: Regarding VLOOK™: Text, Paragraphs, Tables, Images, Lists, and Section Headings
 "og:description": Regarding VLOOK™: Text, Paragraphs, Tables, Images, Lists, and Section Headings
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
@@ -8,9 +14,9 @@ keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
 - editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
 - light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
-- catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
+- catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
-- picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
+- picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
 - content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
@@ -19,9 +25,9 @@ keywords:
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
 - 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
-- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
+- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
-- 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
+- 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
@@ -34,7 +40,7 @@ vlook-doc-lib:
 - [Guide • Basic](guide-en.html?target=_self "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scale / Rotation / Flip / Filter / Postcard / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
 - [Guide ▲ Advanced](guide2-en.html?target=_self "Columns, Captions, Buttons, Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
 - [Guide ★ Exploration](guide3-en.html?target=_self "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Save as PDF / Print to PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
-- [Value-added Services](vip-en.html?target=_self "Custom Themes, Document Typesetting and Editing,...")
+- [Value-added Services](vip-en.html?target=_self "VIP Themes, Document Typesetting and Editing,...")
 - [More Content](vlook-lib-en.html "VLOOK™ Full Feature Index Table")
 - [Report Issues](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
 ---
@@ -66,7 +72,7 @@ vlook-doc-lib:
 
 > **Quick Typesetting Applications for Images**
 > 
-> [Display Layout](#Image-Display-Layout), [Scaling](#Image-Scale), [Rotation](#Image-Rotation), [Flip](#Image-Flip), [Filter](#Image-Filter), [Grid Background](#Image-Grid-Background), [Edge Padding](#Image-Edge-Padding), etc.～
+> [Display Layout](#Image-Display-Layout), [Scaling](#Image-Scale), [Filter](#Image-Filter), [Grid Background](#Image-Grid-Background), [Edge Padding](#Image-Edge-Padding), etc.～
 
 > **Quick Typesetting Applications for Videos**
 > 
@@ -141,7 +147,7 @@ _^tab^_
 
 <u>**Thanks to the patrons who donated to support VLOOK™ (partial list) / Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
 
 ---
 
@@ -270,13 +276,41 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 # °Paragraph
 
+## Paragraph Indentation
+
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+
+
+
+​	In Markdown document editing, the first-line indentation of a paragraph is usually created using the <kbd>Tab</kbd> key. VLOOK™ provides optimized control for Chinese environments by fixing the indentation width to the equivalent of two Chinese characters.
+
+---
+
+---
+
+> ​	This is an example of paragraph indentation inside a blockquote. This is an example of paragraph indentation inside a blockquote. This is an example of paragraph indentation inside a blockquote. This is an example of paragraph indentation inside a blockquote.
+
+> ###### Paragraph Indentation Inside a Collapsed Blockquote
+>
+> This is an example of paragraph indentation inside a collapsed blockquote. This is an example of paragraph indentation inside a collapsed blockquote. This is an example of paragraph indentation inside a collapsed blockquote.
+
+> ​	This is an example of an indented English paragraph inside a blockquote. This is an example of an indented English paragraph inside a blockquote.
+
+
+
+> [!TIP]
+>
+> You can customize paragraph indentation through [Custom Theme](vip-en.md) .
+
+## Paragraph Styles
+
 > **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 Used to meet the need for personalized formatting of **an entire paragraph**, creating a differentiated style compared to regular body text.
 
 Simply select all the content of the paragraph first, then apply the basic Markdown formatting (bold, underline, italic, highlight), such as: `**entire paragraph content**` `==entire paragraph content==` , etc.
 
-## Paragraph Italic
+### Paragraph Italic
 
 Provides support for styling an **entire paragraph** with a distinct appearance from the main body text — typically used to de-emphasize content or format it as a reference note.  Example:
 
@@ -294,7 +328,7 @@ Provides support for styling an **entire paragraph** with a distinct appearance 
 >
 > The style of the above paragraph can be modified or disabled via the [Custom Theme](vip-en.md) .
 
-## Paragraph Bold
+### Paragraph Bold
 
 Meets the need to center and emphasize the entire paragraph content. Example:
 
@@ -312,7 +346,7 @@ Meets the need to center and emphasize the entire paragraph content. Example:
 >
 > The style of the above paragraph can be modified or disabled via the [Custom Theme](vip-en.md) .
 
-## Paragraph Underline
+### Paragraph Underline
 
 Meets the need to slightly emphasize the entire paragraph content, with <u>visual separation</u> from subsequent content but still related. Example:
 
@@ -332,7 +366,7 @@ Meets the need to slightly emphasize the entire paragraph content, with <u>visua
 >
 > The style of the above paragraph can be modified or disabled via the [Custom Theme](vip-en.md) .
 
-## Paragraph Highlight
+### Paragraph Highlight
 
 Meets the need for the entire paragraph content to be displayed in a ==more personalized, more emphasized== quote style, with visual separation from preceding/following content. Example:
 
@@ -412,6 +446,7 @@ _^tab^_
 | :                    | Secondary Header B1          | ==           | Secondary Header B2  | ==           | :                    | :                    |
 | :                    | Secondary Header B11         | Tertiary Header B12 | Tertiary Header B21 | Tertiary Header B21 | :                    | :                    |
 | Normal Cell           | Normal Cell           | Normal Cell   |   Normal Cell  | Normal Cell   | Normal Cell           | Normal Cell           |
+|  |  |  |  |  |  |  |
 | Normal Cell           | Normal Cell           | Normal Cell   |   Normal Cell  | Normal Cell   | Normal Cell           | Normal Cell           |
 
 ## Table Column Formatting
@@ -481,11 +516,11 @@ _^tab^_
 
 | Original Content    |  Numeric Case  |    ==    |    ==    |     ==     |      |    Numeric Column |
 | ----------- | :--------: | :------: | :------: | :--------: | ---- | ----------: |
-| :           | []Decimal | []Positive | []Negative | []Over 3 Digits | :    |           : |
+| :           | []Decimal | []Positive | []Negative | []Over 3 Digits |     |           : |
 | 123         |            |          |          |            |      |         123 |
-| -12345      |            |          |   Y    |    Y     | :    |      -12345 |
-| +5678.00    |    Y     |   Y    |          |    Y     | :    |    +5678.00 |
-| -2345678.00 |    Y     |          |   Y    |    Y     | :    | -2345678.00 |
+| -12345      |            |          |   Y    |    Y     |     |      -12345 |
+| +5678.00    |    Y     |   Y    |          |    Y     |     |    +5678.00 |
+| -2345678.00 |    Y     |          |   Y    |    Y     |     | -2345678.00 |
 
 > **![Percentage](pic/i_percent.svg?fill=text&darksrc=invert#icon) "Percentage" Auto-Formatting**
 >
@@ -498,12 +533,12 @@ _^tab^_
 
 | Original Content |  Numeric Case  |    ==    |    ==    |     ==     |      | Percentage Column |
 | -------- | :--------: | :------: | :------: | :--------: | ---- | ------: |
-| :        | []Decimal | []Positive | []Negative | []Over 3 Digits | :    |       : |
+| :        | []Decimal | []Positive | []Negative | []Over 3 Digits |     |       : |
 | 79%      |            |          |          |            |      |     79% |
-| 88.88%   |    Y     |          |          |            | :    |  88.88% |
-| +38%     |            |   Y    |          |            | :    |    +38% |
-| -57.30%  |    Y     |          |   Y    |            | :    | -57.30% |
-| 100%     |            |          |          |            | :    |    100% |
+| 88.88%   |    Y     |          |          |            |     |  88.88% |
+| +38%     |            |   Y    |          |            |     |    +38% |
+| -57.30%  |    Y     |          |   Y    |            |     | -57.30% |
+| 100%     |            |          |          |            |     |    100% |
 
 > **![Currency](pic/i_currency.svg?fill=text&darksrc=invert#icon) "Currency" Auto-Format**
 >
@@ -520,19 +555,19 @@ _^tab^_
 
 | **Currency** | Original Content      | Numeric Case |    ==    |     ==     |     ==     |      |  **Currency** |
 | :------: | ------------- | :------: | :------: | :--------: | :--------: | ---- | ------------: |
-|    :     | :             | []Positive | []Negative | []Decimal | []Over 3 Digits | :    |             : |
+|    :     | :             | []Positive | []Negative | []Decimal | []Over 3 Digits |     |             : |
 |   RMB  | ￥ +123456.99 |   Y    |          |    Y     |    Y     |      | ￥ +123456.99 |
-|    :     | CNY 987654.99 |          |          |    Y     |    Y     | :    | CN¥ 987654.99 |
-|    :     | CNY 987654.99 |          |          |    Y     |    Y     | :    | CNY 987654.99 |
-|          | ==            |    ==    |    ==    |     ==     |     ==     | ==   |            == |
+|    :     | CNY 987654.99 |          |          |    Y     |    Y     |     | CN¥ 987654.99 |
+|    :     | CNY 987654.99 |          |          |    Y     |    Y     |     | CNY 987654.99 |
+|          |                  |      ==      |     ==     |    ==     |       ==        |      |               |
 |   HKD   | HK\$ 3456.78  |   Y    |          |    Y     |    Y     |      |  HK\$ 3456.78 |
-|    :     | HKD 3456.78   |          |          |    Y     |    Y     | :    |   HKD 3456.78 |
-|          | ==            |    ==    |    ==    |     ==     |     ==     | ==   |            == |
+|    :     | HKD 3456.78   |          |          |    Y     |    Y     |     |   HKD 3456.78 |
+|          |                  |      ==      |     ==     |    ==     |       ==        |      |               |
 |   USD   | \$ +555.38    |   Y    |          |    Y     |            |      |    \$ +555.38 |
-|    :     | USD 555       |          |          |            |            | :    |       USD 555 |
-|          | ==            |    ==    |    ==    |     ==     |     ==     | ==   |            == |
+|    :     | USD 555       |          |          |            |            |     |       USD 555 |
+|          |             |      ==      |     ==     |    ==     |       ==        |      |               |
 |   AUD   | AU\$ 56789    |   Y    |          |            |    Y     |      |    AU\$ 56789 |
-|    :     | AUD -56789    |          |   Y    |            |    Y     | :    |    AUD -5678 |
+|    :     | AUD -56789    |          |   Y    |            |    Y     |     |    AUD -5678 |
 
 ### Checkbox
 
@@ -568,6 +603,39 @@ _^tab^_
 |   Indeterminate   | ?<br>*When specified value`>=`0* | ?<br>*When specified value`>=`0* | Specified as `indeterminate` |
 | : | ？<br>*When specified value`<`0* | ？<br>*When specified value`<`0* | : |
 
+## Freeze Table Column
+
+*Markdown Fan `Q`* 「**When a table contains many columns and requires horizontal scrolling, it becomes difficult to distinguish data across rows. I hope the first column can be frozen for more efficient table viewing.**」
+
+*VLOOK `A`*_~T2~_ VLOOK™ provides a way to freeze the first column of tables — and it works during editing!
+
+> **Applicable Scope ••• *`Editing` ✓ Supported*_~Gn~_  *`Export to HTML` ✓ Supported*_~Gn~_**
+
+---
+
+> **Automatic Mode (Default)**
+>
+> - While editing, simply set the column header of the first column to **bold** (see [Table Column Formatting](#表格列格式)) to freeze that column.
+> - After exporting to HTML, you can unfreeze or refreeze the first column of each table via the table’s [Content Assistant](guide3-en.md#Toggle Frozen Table Columns).
+
+> **Full-Enable Mode**
+>
+> - All tables will have their first column frozen by default in both editing mode and exported HTML.
+> - After exporting to HTML, you can still unfreeze or refreeze the first column of individual tables via the table's [Content Assistant](guide3-en.md#Toggle Frozen Table Columns).
+
+
+
+> [!TIP]
+>
+> If you prefer to enable this feature selectively, or disable table column freezing by default, you can adjust it through [VIP Themes](vip-en.md).
+
+## Freeze Table Row
+
+> [!IMPORTANT]
+>
+> - The table header is automatically frozen during editing.  
+>- After exporting to HTML, the header will also be automatically frozen when the table is displayed in **[Fullscreen Mode](guide3.md#Fullscreen Mode)**.
+
 ## Cell Coloring
 
 *Markdown Fans`Q`*「**Table column formatting is rich enough, but can we use different background colors to identify individual cells?**」
@@ -595,9 +663,9 @@ _^tab^_
 |       Cell Coloring (Single Color Example)_~Bk!~_       |                 ==                  |                 ==                  |                   ==                    |                  ==                   |                 ==                 |                ==                 |                    ==                    |                     ==                     |
 | :--------------------------------------: | :---------------------------------: | :---------------------------------: | :-------------------------------------: | :-----------------------------------: | :--------------------------------: | :-------------------------------: | :--------------------------------------: | :----------------------------------------: |
 | **T1**_~T1~_<br>~Theme Primary Color•Theme1~_~T1!~_ |                  /                  |                 ==                  |                   ==                    |                  ==                   |                 ==                 |                ==                 |                    ==                    | **T2**_~T2~_<br>~Theme Secondary Color•Theme2~_~T2!~_ |
-|     _~Gd~_**Gd**<br>~Gold•Gold~_~Gd!~_     | _~Pk~_**Pk**<br/>~Pink•Pink~_~Pk!~_ |                  /                  |   _~Ye~_**Ye**<br/>~Yellow•Yellow~_~Ye!~_   |  _~Lm~_**Lm**<br>~Lime•Lime~_~Lm!~_   | _~Aq~_**Aq**<br>~Aqua•Aqua~_~Aq!~_ |                 /                 | _~La~_**La**<br>~Lavender•Lavender~_~La!~_ |     _~Wt~_**Wt**<br/>~White•White~_~Wt!~_     |
-|    _~Bn~_**Bn**<br>~Brown•Brown~_~Bn!~_    | _~Ro~_**Ro**<br/>~Rose•Rose~_~Ro!~_ |  _~Rd~_**Rd**<br/>~Red•Red~_~Rd!~_   |   _~Og~_**Og**<br/>~Orange•Orange~_~Og!~_   |   _~Gn~_**Gn**<br>~Green•Green~_~Gn!~_   |  _~Cy~_**Cy**<br>~Cyan•Cyan~_~Cy!~_  | _~Bu~_**Bu**<br>~Blue•Blue~_~Bu!~_  |    _~Vn~_**Vn**<br>~Vine•Vine~_~Vn!~_    |      _~Gy~_**Gy**<br>~Gray•Gray~_~Gy!~_      |
-|                    /                     | _~Pu~_**Pu**<br/>~Purple•Purple~_~Pu!~_ | _~Wn~_**Wn**<br/>~Wine•Wine~_~Wn!~_ | _~Ol~_**Ol**<br/>~Olives•Olives~_~Ol!~_ | _~Mn~_**Mn**<br>~Mineral•Mineral~_~Mn!~_ |                 /                  | _~Se~_**Se**<br>~Sea•Sea~_~Se!~_ |                    /                     |     _~Bk~_**Bk**<br>~Black•Black~_~Bk!~_      |
+|     _~Gd~_**Gd**<br>~Gold•Gold~_~Gd!~_     | _~Pk~_**Pk**<br>~Pink•Pink~_~Pk!~_ |                  /                  |   _~Ye~_**Ye**<br>~Yellow•Yellow~_~Ye!~_   |  _~Lm~_**Lm**<br>~Lime•Lime~_~Lm!~_   | _~Aq~_**Aq**<br>~Aqua•Aqua~_~Aq!~_ |                 /                 | _~La~_**La**<br>~Lavender•Lavender~_~La!~_ |     _~Wt~_**Wt**<br>~White•White~_~Wt!~_     |
+|    _~Bn~_**Bn**<br>~Brown•Brown~_~Bn!~_    | _~Ro~_**Ro**<br>~Rose•Rose~_~Ro!~_ |  _~Rd~_**Rd**<br>~Red•Red~_~Rd!~_   |   _~Og~_**Og**<br>~Orange•Orange~_~Og!~_   |   _~Gn~_**Gn**<br>~Green•Green~_~Gn!~_   |  _~Cy~_**Cy**<br>~Cyan•Cyan~_~Cy!~_  | _~Bu~_**Bu**<br>~Blue•Blue~_~Bu!~_  |    _~Vn~_**Vn**<br>~Vine•Vine~_~Vn!~_    |      _~Gy~_**Gy**<br>~Gray•Gray~_~Gy!~_      |
+|                    /                     | _~Pu~_**Pu**<br>~Purple•Purple~_~Pu!~_ | _~Wn~_**Wn**<br>~Wine•Wine~_~Wn!~_ | _~Ol~_**Ol**<br>~Olives•Olives~_~Ol!~_ | _~Mn~_**Mn**<br>~Mineral•Mineral~_~Mn!~_ |                 /                  | _~Se~_**Se**<br>~Sea•Sea~_~Se!~_ |                    /                     |     _~Bk~_**Bk**<br>~Black•Black~_~Bk!~_      |
 
 *==Example_Cell Coloring (Gradient Color)==*
 
@@ -753,6 +821,14 @@ The table alignment (left-aligned, centered) is specified by the selected VLOOK�
 
 [<kbd>Relevant content can be found here ❯❯</kbd>](guide2-en.md#°Caption)
 
+## Table Summary Row and Column Style
+> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+
+- If you want certain rows or columns in a table to be displayed with distinct styles as summary rows or summary columns, simply add an empty row or column, and leave the corresponding cells completely empty;
+- After completing the above steps, VLOOK™ will apply summary row and summary column styles in the exported HTML.
+
+
+
 ---
 
 For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™&body=Hi, "Feedback via Email")  [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
@@ -883,7 +959,7 @@ _^tab^_
 
 ![Scale to 800px height](pic/vlook-zoom-pic-v.png#800h#padding)
 
-## Image Rotation
+## ~~Image Rotation~~
 
 *Markdown Fans`Q`*「**Hope to quickly rotate images directly**」
 
@@ -903,7 +979,7 @@ _^tab^_
 
 > ![Rotated 180 degrees](pic/j20.jpg#180deg)
 
-## Image Flip
+## ~~Image Flip~~
 
 *Markdown Fans`Q`*「**Hope to quickly flip images horizontally or vertically**」
 
@@ -1282,7 +1358,7 @@ _^tab^_
 
 > [!NOTE]
 >
-> Due to Safari browser kernel compatibility issues, the preview during editing in Typora will not show the final effect. The exported HTML will display normally when accessed using [recommended browsers](index-en.md#Upgrade and Compatibility).
+> Due to Safari browser kernel compatibility issues, the preview during editing in Typora will not show the final effect. The exported HTML will display normally when accessed using [recommended browsers](index-en.md#🧰 Upgrade and Compatibility).
 
 ###### Image Silhouette Mixed Layout Example
 
@@ -1612,7 +1688,7 @@ _^tab^_
 >
 > To modify the default color code or disable automatic conversion, specify through "[Plugin Tuning Parameters](guide3-en.md#Plugin-Tuning-Parameters)" `quote`.
 
-###### Tag Example in Main Text
+
 
 > **![Wine](pic/qico-red.svg?fill=text&darksrc=invert#icon) Normal Blockquote**
 >
@@ -1777,7 +1853,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 <u>For more personalized heading styles (e.g., colors, gradients, borders, padding, etc.) or custom automatic numbering formats, you can subscribe to ==Custom Theme Services== .</u>
 
-**[<kbd>Explore More About Custom Themes</kbd>](vip-en.md)**
+**[<kbd>Explore More About VIP Themes</kbd>](vip-en.md)**
 
 > [!NOTE]
 >
@@ -1839,7 +1915,7 @@ _^tab^_
 
 <u>For more personalized heading styles (e.g., colors, gradients, borders, padding, etc.) or custom automatic numbering formats, you can subscribe to ==Custom Theme Services== .</u>
 
-**[<kbd>Explore More About Custom Themes</kbd>](vip-en.md)**
+**[<kbd>Explore More About VIP Themes</kbd>](vip-en.md)**
 
 ## This is a level 2 heading example
 

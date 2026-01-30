@@ -1,6 +1,6 @@
 <!--
 ▽▽▽▽▽ plugin_live for <head /> ▽▽▽▽▽
-VLOOK "V2025.10.1" (2025-10-18) - Typora Plugin
+VLOOK "V2026.1" (2026-01-30) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
@@ -24,9 +24,15 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <!-- 以下为 W3C 相关的 meta 配置 -->
 <meta name="author" content="${author}">
 <meta name="date" content="${date}">
+<meta name="copyright" content="${copyright}">
+<meta name="rights" content="${rights}">
+<meta name="version" content="${version}">
 <meta name="changelog" content="${changelog}">
 <meta name="description" content="${description}">
 <meta name="keywords" content="${keywords}">
+<meta name="tags" content="${tags}">
+<meta name="logo" content="${logo}">
+<meta name="footer" content="${footer}">
 <!-- 以下为 VLOOK™ 相关的 meta 配置 -->
 <meta name="vlook-doc-lib" content="${vlook-doc-lib}">
 <meta name="vlook-gray-mode" content="${vlook-gray-mode}">
@@ -57,8 +63,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
 <!--                                                                        -->
-<!--                                  V2025.10.1                                 -->
-<!--                               2025-10-18                               -->
+<!--                                  V2026.1                                 -->
+<!--                               2026-01-30                               -->
 <!--                           Powered by MAX°孟兆                           -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -71,52 +77,44 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <!--========================================================================-->
 <!--
 MIT License
-Copyright (c) 2016-2022 MAX°DESIGN | Max Chow
+Copyright (c) 2016-2025 MAX°DESIGN | Max Chow
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
 <!-- ==================== VLOOK UI ==================== -->
-<!-- <div class="v-vlook-inside"></div> -->
+<div id='v-pdf-log'>EXPORT PDF LOG:</div>
+<div id='v-debug'></div>
 <style type='text/css'>
     @keyframes breathe-vlook { 0% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
     #VLOOK { left: 0; top: 0; background: var(--v-btn-bg); width: 100%; height: 100vh; display: flex; align-items: center; position: fixed; z-index: 99999; }
     #VLOOK > div { margin: 0 auto; background: var(--v-btn-f); width: 30px; height: 30px; border-radius: 10px; animation: 1s breathe-vlook infinite alternate; }
 </style>
 <!-- ==================== VLOOK JS ==================== -->
-<script type="text/javascript" defer>
+<script type="text/javascript">
 	function getMetaContent(key, attr = "name") {
 		const meta = document.querySelector(`meta[${attr}="${key}"]`);
 		return meta ? meta.getAttribute("content") : null;
 	}
-    let lVer = "V2025.10.1",
+    let gPdfLog = document.querySelector("#v-pdf-log"),
+        lVer = "V2026.1",
         devMode = lVer.indexOf("dev") > 0 ? true : false, debugMode = devMode,
-        // cssHost = devMode ? "http://localhost/dev/" : getMetaContent("vlook-res-css"),
-        jsHost = devMode ? "http://localhost/dev/" : getMetaContent("vlook-js") + lVer + "/";
-// ==================== NON-standalone ====================
+        jsHost = devMode ? "http://localhost/dev/" : getMetaContent("vlook-js") + lVer + "/",
+        ts = Math.floor(Date.now()/(1000*60*60*24)); // (1000*60*60*24) 按天
+    document.body.insertBefore(gPdfLog, document.body.childNodes[0]);
+// ==================== live ====================
 // ▽ ▽ ▽ ▽ ▽
-    let ts = Math.floor(Date.now()/(1000*60*60*24)); // (1000*60*60*24) 按天
-        jqueryJS =  document.createElement("script"),
-        startJS = document.createElement("script");
-
-    jqueryJS.type = "text/javascript";
-    jqueryJS.src = jsHost + "jquery.js?ts=" + ts;
-    jqueryJS.defer = true;
-    document.getElementsByTagName("HEAD")[0].appendChild(jqueryJS);
-
-    if (devMode) {
-	    let jqueryMigrateJS =  document.createElement("script");
-    	jqueryMigrateJS.type = "text/javascript";
-	    jqueryMigrateJS.src = jsHost + "jquery-migrate.js?ts=" + ts;
-	    jqueryMigrateJS.defer = true;
-    	document.getElementsByTagName("HEAD")[0].appendChild(jqueryMigrateJS);
+    function loadScript(src, onload) {
+        let js = document.createElement("script");
+        js.src = src + "?ts=" + ts;
+        js.onload = onload;
+        js.onerror = () => console.error("Failed: ", src);
+        document.head.appendChild(js);
     }
-
-    startJS.type = "text/javascript";
-    startJS.src = jsHost + "start.js?ts=" + ts;
-    startJS.crossOrigin = "anonymous";
-    startJS.defer = true;
-    document.getElementsByTagName("HEAD")[0].appendChild(startJS);
+    loadScript(jsHost + "jquery-slim.js", () => {
+        devMode && loadScript(jsHost + "jquery-migrate.js");
+        loadScript(jsHost + "start.js");
+    });
 </script>
 <!--======================================-->
 <!-- END • VLOOK plugin_live for <head /> -->

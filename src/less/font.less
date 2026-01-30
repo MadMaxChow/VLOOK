@@ -3,8 +3,8 @@
  * VLOOK™ CSS 字体主题、圆角样式
  * (配合 base.less 进行使用)
  *
- * V2025.10.1
- * 2025-10-25
+ * V2026.1
+ * 2026-01-30
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -19,16 +19,16 @@
 @fontSize: 1em;//18px;//1em;
 @fontSizePx: 16px;//18px;//16px;
 
-// Rangs of font-weight:
-//   100 - Thin
-//   200 - Extra Light (Ultra Light)
-//   300 - Light
-//   400 - Regular (Normal、Book、Roman)
-//   500 - Medium
-//   600 - Semi Bold (Demi Bold)
-//   700 - Bold
-//   800 - Extra Bold (Ultra Bold)
-//   900 - Black (Heavy)
+// 字重 Rangs of font-weight:
+//   字重 100 - Thin
+//   字重 200 - Extra Light (Ultra Light)
+//   字重 300 - Light
+//   字重 400 - Regular (Normal、Book、Roman)
+//   字重 500 - Medium
+//   字重 600 - Semi Bold (Demi Bold)
+//   字重 700 - Bold
+//   字重 800 - Extra Bold (Ultra Bold)
+//   字重 900 - Black (Heavy)
 
 // 定义 Digital 字体适用的编码范围
 @unicodeRangeForDigital: // U+0021-002F, U+003A-0040, U+005B-0060, U+007B-007E, U+0030-0039;
@@ -80,9 +80,6 @@ U+0030-0039; // 指 0123456789
 // 在主题中优先使用的正文字体
 @themeTextFontFamily: "";
 
-// 在主题中优先使用的标签字体、字重
-@themeTagFontFamily: "";
-
 @GoMono: "Go Mono", GoMono;
 
 // =========================================
@@ -129,7 +126,6 @@ U+0030-0039; // 指 0123456789
 @sansBaseFont: "Noto Sans", "Noto Sans SC";
 // ---
 @sansFont: @sansBaseFont, @apple, @ms, @base_sans_cn, sans-serif;
-// @sansTitle: "ZiZhiQuXiMaiTi", "XiMaiTi", @sansFont;
 @sansTitle: "白无常可可体", "白无常可可体常规", "BWCKKT-Bold", "KeKeTi", @sansFont;
 @sansHeader: @sansTitle;
 @notoTocFont: "白无常可可体", "白无常可可体常规", "BWCKKT-Regular", "KeKeTi";
@@ -141,7 +137,6 @@ U+0030-0039; // 指 0123456789
 //=========================================
 // 定义 Serif 文艺范 风格字体信息
 // ----------------------------------------
-// @serifBaseFont: "Noto Serif SC", "寒蝉端黑宋", "寒蝉端黑宋Bold", ChillDuanHeiSongBold, ChillDuanHeiSong;
 @serifBaseFont: "Noto Serif", "Noto Serif SC";
 // ---
 @serifFont: @serifBaseFont, @base_serif_en, @base_serif_cn, serif;
@@ -288,12 +283,12 @@ U+0030-0039; // 指 0123456789
     --v-fm-text-dyn: @themeTextFontFamily, @localFont;
     --v-fm-bd-dyn: @themeTextFontFamily, @localFont;
     --v-fm-key-dyn: @localFont;
-    --v-fm-tag-dyn: @themeTagFontFamily, @tag_font, @localFont;
+    --v-fm-tag-dyn: @tag_font, @localFont;
     --v-fm-toc-dyn: @dynTocFont, @dynTitle, @tag_font, @localFont;
     --v-fm-code-dyn: @themeMonoFontFamily, @monoLocalFont;
     --v-fw-bd-dyn: @fontBoldWeight4Local;
     --v-fw-toc-dyn: @fontBoldWeight4DynTitle;
-    --v-fw-tag-dyn: @fontBoldWeight4DynTitle;
+    --v-fw-tag-dyn: @fontBoldWeight4Local;
     --v-fw-tt-dyn: @fontBoldWeight4DynTitle;
     --v-fw-text-dyn: @fontBoldWeight4LocalText;
 
@@ -305,7 +300,7 @@ U+0030-0039; // 指 0123456789
     --v-fm-text-yuan: @themeTextFontFamily, @yuanFont;
     --v-fm-bd-yuan: @themeTextFontFamily, @yuanFont;
     --v-fm-key-yuan: @yuanFont;
-    --v-fm-tag-yuan: @themeTagFontFamily, @tag_font, @yuanFont;
+    --v-fm-tag-yuan: @tag_font, @yuanFont;
     --v-fm-toc-yuan: @yuanTocFont, @tag_font, @yuanFont;
     --v-fm-code-yuan: @themeMonoFontFamily, @yuanMono;
     --v-fw-bd-yuan: @fontBoldWeight4Yuan;
@@ -322,7 +317,7 @@ U+0030-0039; // 指 0123456789
     --v-fm-text-ink: @themeTextFontFamily, @inkFont;
     --v-fm-bd-ink: @themeTextFontFamily, @inkFont;
     --v-fm-key-ink: @inkFont;
-    --v-fm-tag-ink: @themeTagFontFamily, @tag_font, @inkFont;
+    --v-fm-tag-ink: @tag_font, @inkFont;
     --v-fm-toc-ink: @inkTitle, @tag_font, @inkFont;
     --v-fm-code-ink: @themeMonoFontFamily, @inkMono;
     --v-fw-bd-ink: @fontBoldWeight4Ink;
@@ -529,43 +524,33 @@ U+0030-0039; // 指 0123456789
 //=========================================
 // 配套圆角风格集
 @buttonRadiusCircle: 25px;
-// @buttonRadiusCircle: 50% / 50%;
 :root {
     // ---
     // 小号圆角
     --v-r-b-small: 10px; // 标准圆角
     --v-r-s-small: 6px; // 标准圆角内的小圆角
-    --v-r-t-small: 8px; // 表格圆角
+    --v-r-t-small: 8px; // 代码块、表格圆角
     --v-r-si-small: calc(var(--v-r-t-small) + 1px); // 标准圆角内的小圆角
     --v-r-tag-small: 7px; // 标签圆角
-    // --v-tag-small-radius-small: .25em; // 标签小圆角
-    // --v-r-c-small: 50%; // 半距圆角
 
     // ---
     // 大号圆角
-    --v-r-b-big: 16px; // 标准圆角
-    --v-r-s-big: 8px; // 标准圆角内的小圆角
-    --v-r-t-big: 14px; // 表格圆角
+    --v-r-b-big: 18px; // 标准圆角
+    --v-r-s-big: 9px; // 标准圆角内的小圆角
+    --v-r-t-big: 16px; // 代码块、表格圆角
     --v-r-si-big: calc(var(--v-r-t-big) + 1px); // 标准圆角内的小圆角
-    --v-r-tag-big: 9px; // 标签圆角
-    // --v-tag-small-radius-big: .25em; // 标签小圆角
-    // --v-r-c-big: 50%; // 半距圆角
-
-    // 按钮圆角
-    // --v-r-btn: @buttonRadiusCircle; // 按钮圆角
-    // --v-r-btn-xc: @buttonRadiusCircle; // 按钮圆角
+    --v-r-tag-big: 10px; // 标签圆角
 }
 // ---
 // 应用叶子圆角
-.applyThemeRadius(@themeRadius) when (@themeRadius = leaf) {
+.applyThemeRadius(@themeRadius, @xc: 0px) when (@themeRadius = leaf) {
     .applyThemeRadius(big);
     :root {
-        --v-r-b-xc: 0px;
-        --v-r-s-xc: 0px;
-        --v-r-t-xc: 0px;
-        --v-r-si-xc: 0px;
-        --v-r-tag-xc: 0px;
-        // --v-r-c-xc: 0px;
+        --v-r-b-xc: @xc;
+        --v-r-s-xc: calc(@xc - 1px);
+        --v-r-t-xc: calc(@xc - 1px);
+        --v-r-si-xc: calc(@xc - 2px);
+        --v-r-tag-xc: calc(@xc - 1px);
     }
 }
 // ---

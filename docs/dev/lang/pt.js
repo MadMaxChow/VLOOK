@@ -1,6 +1,6 @@
 /**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V2025.10.1" (2025-10-18) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V2026.1" (2026-01-30) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -11,7 +11,7 @@ var V_lang_data_pt = {
 "pt2":"Alternar abas",
 "pt3":"Mapa de Links",
 "pt4":"Ativado",
-"pt5":" para alternar o tamanho do passo",
+"pt5":"Localizar no documento",
 "pt6":"Centro de Navegação",
 "pt7":"Biblioteca de Documentos",
 "pt8":"Navegação por parágrafo",
@@ -35,7 +35,7 @@ var V_lang_data_pt = {
 "pt26":"Enrolar / Desenrolar",
 "pt27":"Imagem em imagem",
 "pt28":"Pressione e segure",
-"pt29":"Documento atual",
+"pt29":"Fixar coluna",
 "pt30":"Copiar código",
 "pt31":"Copiar endereço da imagem",
 "pt32":"Publicar como PDF",
@@ -45,7 +45,7 @@ var V_lang_data_pt = {
 "pt36":"- Uma nova versão foi lançada, por favor atualize!",
 "pt37":"Desculpe, a cópia não é suportada atualmente neste navegador",
 "pt38":"Incluir contorno",
-"pt39":"Tempo Esgotado",
+"pt39":"Modo Zen",
 "pt40":"Carregando",
 "pt41":"Estilo de fonte",
 "pt42":"Minuto(s)",
@@ -92,7 +92,7 @@ var V_lang_data_pt = {
 "pt83":"Link",
 "pt84":"Nota de rodapé",
 "pt85":"Redefinir para o estilo de fonte do tema",
-"pt86":"Clique aqui para abrir o link",
+"pt86":"Capa adaptada para papel A4",
 "pt87":"Hoje é",
 "pt88":"Esta página será exibida no {{display-mode}}",
 "pt89":"Clique no botão abaixo para desativá-lo temporariamente",
@@ -103,5 +103,7 @@ var V_lang_data_pt = {
 "pt94":"Falhou",
 "pt95":"Iniciar impressão (selecionar: Salvar como PDF)",
 "pt96":"Cancelar",
-"pt97":"Revelar cartão raspadinha"
+"pt97":"Revelar cartão raspadinha",
+"pt98":"Ver tudo",
+"pt99":"( Sem legenda )"
 }

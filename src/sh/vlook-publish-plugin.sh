@@ -40,8 +40,8 @@ mkdir -p "$VLOOK_DOCS_DIR/$VERSION"
 # 发布「在线模式」插件
 echo "发布在线模式插件..."
 cd "$VLOOK_DOCS_DIR/dev"
-cp -f clipboard.js jquery.* start.js svg-inject.js vlook-min.* "$VLOOK_RELEASED_DIR/plugin-live/$VERSION/"
-cp -f clipboard.js jquery.* start.js svg-inject.js vlook-min.* "$VLOOK_DOCS_DIR/$VERSION"
+cp -f clipboard.js jquery*.* start.js svg-inject.js vlook-min.* "$VLOOK_RELEASED_DIR/plugin-live/$VERSION/"
+cp -f clipboard.js jquery*.* start.js svg-inject.js vlook-min.* "$VLOOK_DOCS_DIR/$VERSION"
 
 # 发布「在线模式」语言包
 echo "发布在线模式语言包..."
@@ -93,7 +93,7 @@ sed -i '' "/$start_pattern/r $FILE_TO_INSERT" "$TARGET_FILE"
 cat "$TARGET_FILE" | LANG=zh_CN.UTF-8 pbcopy
 
 # 判断是否发布成功
-if ! grep -q "vlook_min=function()" "$TARGET_FILE"; then
+if ! grep -q "var vlook_min" "$TARGET_FILE"; then
   echo "Error: 插件内容未发布成功"
   exit 1
 fi

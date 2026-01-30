@@ -1,6 +1,12 @@
 ---
 title: Guide ▲ Advanced - VLOOK™ - Elegant and Practical Typora Theme & Plugin
 author: MAX°孟兆
+date: 2026-01-30
+copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
+rights: This work is licensed under the MIT License. For details, see the LICENSE file.
+version: V2026.1
+tags: Code, Button, Cover & Back Cover, Columns, Caption, Tab Group, Content Marking, Mermaid, Formula, Multimedia
+footer: <a href="index.html">Introduction</a>	|	Guide for <a href='guide-en.html'>Basic</a>  ❯  <strong>Advanced</strong>  ❯  <a href='guide3-en.html'>Exploration</a>
 description: Regarding VLOOK™: Code, button, Cover and Back Pages, Column Layouts, Captions, Tab Groups, Content Markups (GitHub-style Alerts / Tags / Progress Bars / Breadcrumbs / Scratch Card / Phonetic Annotations), Mermaid Diagrams, Mathematical Formulas, and Multimedia
 "og:description": Regarding VLOOK™: Code, Buttons, Cover and Back Pages, Column Layouts, Captions, Tab Groups, Content Markups (GitHub-style Alerts / Tags / Progress Bars / Breadcrumbs / Scratch Card / Phonetic Annotations), Mermaid Diagrams, Mathematical Formulas, and Multimedia
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
@@ -8,9 +14,9 @@ keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
 - editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
 - light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
-- catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
+- catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
-- picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
+- picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
 - content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
@@ -19,9 +25,9 @@ keywords:
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
 - 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
-- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
+- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
-- 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
+- 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
@@ -32,10 +38,10 @@ keywords:
 vlook-header-dup: /^Your coffee.+/;/.*Syntax$/;/^Applicable Scope ••• .+/;Caption & Auto-numbering;Shortcut;Advanced Play;More Information;Blockquote Coloring Level 6 Heading;COMMING SOON...;Example;This is a Blockquote Subtitle;💡 Want to know the original content of the above table?
 vlook-doc-lib:
 - [How to Start?](index-en.html?target=_self "Introduction, Installation and Configuration, Language Packs")
-- [Guide • Basic](guide-en.html?target=_self "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Rotation / Flipping / Filters / Postcards / Silhouette / High-Definition, Lists / Task List, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
+- [Guide • Basic](guide-en.html?target=_self "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Filters / Postcards / Silhouette / High-Definition, Lists / Task List, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
 - [Guide ▲ Advanced](guide2-en.html?target=_self "Columns, Caption, Buttons, Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
 - [Guide ★ Exploration](guide3-en.html?target=_self "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Save as PDF / Print to PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
-- [Value-added Services](vip-en.html?target=_self "Custom Themes, Document Typesetting and Editing,...")
+- [Value-added Services](vip-en.html?target=_self "VIP Themes, Document Typesetting and Editing,...")
 - [More Content](vlook-lib-en.html "VLOOK™ Full Feature Index Table")
 - [Report Issues](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
 ---
@@ -48,7 +54,7 @@ vlook-doc-lib:
 
 <u>**Thanks to donors who supported VLOOK™ (partial list) / Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
 
 ---
 
@@ -343,6 +349,56 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 *Markdown Fans`Q`*「**How to make Markdown documents support covers and back covers (like this document's cover and back cover)?**」
 *VLOOK`A`*_~T2~_ After applying VLOOK™'s "[Template Theme](guide3-en.md#Template Themes)", using standard Markdown syntax can make documents support covers and back covers by following VLOOK™ conventions.
 
+
+
+Currently, two cover styles are available: **"Small Cover"** and **"Large Cover"**.
+Choose the one that best fits your needs:
+
+---
+
+> **What's Small Cover?**
+>
+> Best suited for short documents or informal publishing scenarios and does **not** include a back-cover layout.
+>
+> > The cover used in this document is the **"Small Cover"**. You can return to the [start of the document](#) to view the effect.
+>
+> _~T1~_
+
+> **What's Large Cover?**
+>
+> Ideal for longer documents or more formal publishing scenarios, and provides an optional back-cover layout.
+>
+> >The cover used in the introduction document is the **"Large Cover"**. You can open [this link](index.md) to view the effect.
+>
+> _~T1!~_
+
+## Small Cover
+
+> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+
+
+
+> 1. First, add a **[YAML](https://yaml.org/)** Front Matter to the document via  
+>    *==Typora > Paragraph > YAML Front Matter==*  
+> 2. Then configure the cover-related fields inside the YAML section following standard YAML syntax.  
+>    The settings will take effect after exporting to HTML.
+
+*==The "Small Cover" supports the following YAML fields==*
+
+```yaml
+---
+title: Title text
+author: Author
+date: Publication date. Example: 2025-11-11
+version: Version information. Example: V1.0.1
+copyright: Copyright information. Example: Copyright © 1981 Example Corp. All rights reserved.
+rights: Rights statement. Example: This work is licensed under the MIT License. See the LICENSE file for details.
+tags: Tag values, separated by commas. Example: tag1, tag2, tag3
+---
+```
+
+## Large Cover
+
 > **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
@@ -429,7 +485,7 @@ _^tab^_
 ###### Example of this document's cover content
 
 ```markdown
-###### ~VLOOK™~<br>Give your Markdown a new way to _^play^_<br>──<br><u>Quick Reference Manual<br>(Part.II)</u><br>*Latest version`V2025.10.1`*<br><br>**MAX°Mengzhao**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>Give your Markdown a new way to _^play^_<br>──<br><u>Quick Reference Manual<br>(Part.II)</u><br>*Latest version`V2026.1`*<br><br>**MAX°Mengzhao**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 ```
 
 ###### Example of this document's back cover content
@@ -442,7 +498,7 @@ _^tab^_
 
 <u>If you want a more personalized cover and back cover design, you can subscribe to VLOOK™’s ==Custom Theme Service== .</u>
 
-**[<kbd>Explore More About Custom Themes</kbd>](vip-en.md)**
+**[<kbd>Explore More About VIP Themes</kbd>](vip-en.md)**
 
 ---
 
@@ -665,12 +721,14 @@ Mainly suitable for organizing similar content in blocks, where content isn't su
 > **Two-column Subtitle 1**
 >
 > Column 1
+>
+> ![Image embedded in blockquote column](pic/normal-pic.jpg)
 
 > **Two-column Subtitle 2**
 >
 > Column 2
 >
-> ![Image embedded in blockquote column](pic/normal-pic.jpg)
+> ![Image embedded in blockquote column](pic/figure-svg.svg)
 
 ###### Single-line Three-column Blockquote Example
 
@@ -975,11 +1033,10 @@ _^tab^_
 
 > [!NOTE]
 >
-> - When correctly formatted in Typora, visual prompts appear
-> - By default, auto-generates caption and numbering for tables, illustrations, code blocks, etc. Adjust via:
->
->   - For images, specify non-illustration layouts like: icon, Logo, frame, etc. (see [Image Display Layouts](guide-en.md#Image Display Layout));
->   - Adjust auto-numbering grouping by chapter via plugin parameter `capgroup` (see [Plugin Tuning Parameters](guide3-en.md#Plugin-Tuning-Parameters));
+> - When the format is correctly set during editing in Typora, visual indicators will be shown;
+> - Captions and automatic numbering will **not** be generated automatically for tables, figures, code blocks, etc. They will only take effect after being configured according to Method 1 or Method 2 described above;
+> - You can use the `capnum` option under [Plugin Tuning Parameters](guide3-en.md#Plugin Tuning Parameters) to control whether automatic numbering for captions is enabled;
+> - You can use the `capgroup` option under [Plugin Tuning Parameters](guide3-en.md#Plugin Tuning Parameters) to control whether automatic caption numbering is grouped by the corresponding section.
 
 
 
@@ -1012,7 +1069,19 @@ _^tab^_
 
 
 
-![Normal image example (long images auto-fold)](pic/normal-pic.jpg "(Image source: internet, copyright unclear)")
+![Normal image example](pic/normal-pic.jpg "(Image source: internet, copyright unclear)")
+
+![Normal image example](pic/figure-svg.svg)
+
+
+
+> ###### Advanced Usage of Image Captions
+>
+> 1. **Do not display the image caption text, only show the caption category (e.g., Figure 1, Figure 2, etc.)**
+>    - You can configure this by using the `capmini` option under [Plugin Tuning Parameters](guide3.md#插件调校参数) to display only the caption category.
+>
+> 2. **Display the caption category even when no caption text is specified for the image**
+>    - You can configure this by using the `capblank` option under [Plugin Tuning Parameters](guide3.md#插件调校参数) to force the caption category to be shown when the caption text is empty.
 
 ## Table Caption & Auto-numbering
 
@@ -1318,7 +1387,7 @@ _^tab^_
 
 <u>Currently, **3 styles** are available for “Tab Groups”. If you wish to specify a particular style, you can subscribe to VLOOK™’s ==Custom Theme Service== .</u>
 
-**[<kbd>Explore More About Custom Themes</kbd>](vip-en.md)**
+**[<kbd>Explore More About VIP Themes</kbd>](vip-en.md)**
 
 # °Content Marking
 
@@ -2178,7 +2247,7 @@ mindmap
     Origins 2
       Popularisation 2
     Research
-      ))🍺 On effectiveness<br/>and features((
+      ))🍺 On effectiveness<br>and features((
       )On Automatic<br>creation(
         Uses
             Creative techniques

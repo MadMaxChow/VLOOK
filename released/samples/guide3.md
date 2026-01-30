@@ -1,6 +1,12 @@
 ---
-title: 攻略 ★ 探索 - VLOOK™ - 优雅好用的 Typora 主题与增强插件
+title: 攻略 ★ 探索 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与增强插件
 author: MAX°孟兆
+date: 2026-01-30
+copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
+rights: 本作品采用 MIT 许可证授权，详见 LICENSE 文件。
+version: V2026.1
+tags: 内容导航, 内容助手, 演示辅助, 外观, 不杂项
+footer: <a href='index.html'>简介</a>	|	攻略之 <a href='guide.html'>基础</a>  ❯  <a href='guide2.html'>进阶</a>  ❯  <strong>探索</strong>
 description: 关于 VLOOK™ 的主题、内容标记、内容导航、演示与出版、第三方集成的适配、不杂项
 "og:description": 关于 VLOOK™ 的主题、内容标记、内容导航、演示与出版、第三方集成的适配、不杂项
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
@@ -8,9 +14,9 @@ keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
 - editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
 - light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
-- catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
+- catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
-- picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
+- picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
 - content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
@@ -19,9 +25,9 @@ keywords:
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
 - 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
-- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
+- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
-- 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
+- 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
@@ -31,7 +37,7 @@ keywords:
 vlook-header-dup: /^你的咖啡.+/;/.*语法$/;/^适用范围 ••• .+/;/^方式.$/
 vlook-doc-lib:
 - [如何开始？](index.html?target=_self "简介、安装与配置、语言包")
-- [攻略 • 基础](guide.html?target=_self "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/旋转/翻转/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
+- [攻略 • 基础](guide.html?target=_self "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
 - [攻略 ▲ 进阶](guide2.html?target=_self "分栏、题注、按钮、代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
 - [攻略 ★ 探索](guide3.html?target=_self "内容导航/历史/上次阅读、内容助手/复制/全屏/换行/十字光标/阅读/画中画、演示辅助/激光笔/聚光灯/段落漫游/宽度适配、出版辅助/标记不发布/发布为PDF/另存为PDF/导出为PDF/打印为PDF/社交分享/链接地图/长内容折叠/链接检查/链接识别、外观/主题/字体/Light/Dark、自定义/预置选项/调校参数、快捷键、……")
 - [增值服务](vip.html?target=_self "定制主题、文档排版编辑、……")
@@ -47,7 +53,7 @@ vlook-doc-lib:
 
 <u>**感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、、…==
 
 ---
 
@@ -89,7 +95,7 @@ vlook-doc-lib:
 
 
 
-1. 先为文档添加「YAML Front Matter」，菜单操作 *==Typora > 段落 > YAML Front Matter==*
+1. 先为文档添加「**[YAML](https://yaml.org/)** Front Matter」，菜单操作 *==Typora > 段落 > YAML Front Matter==*
 2. 然后在 YAML 内添加 `vlook-doc-lib` 配置项及对应的内容
 
 
@@ -101,7 +107,9 @@ _^tab^_
 *==文库配置方式一（最简化用法）==*
 
 ```yaml
+---
 vlook-doc-lib: 文库.html
+---
 ```
 
 *==文库配置方式二（添加标题、搜索关键字）==*
@@ -115,10 +123,12 @@ vlook-doc-lib: [你的文库标题](文库.html "支持在导航中心搜索的�
 若文档需要配置多个文库，可以参考以下分段的配置方式：
 
 ```yaml
+---
 vlook-doc-lib: 
 - 文库1.html
 - [以文库方式打开](文库2.html "支持在导航中心搜索的关键字")
 - [在新标签中打开](文库3.html)
+---
 ```
 
 
@@ -218,23 +228,17 @@ vlook-doc-lib:
 
 *Markdown 粉`Q`*「**希望能按图索骥，快速浏览文档中的所有插图，以及快速定位到文档中对应的位置。**」
 
-*VLOOK`A`*_~T2~_ 文档中的所有图片、Mermaid[^Mermaid] 图表都支持快速浏览，一键跳转到对应位置。
+*VLOOK`A`*_~T2~_ 文档中的所有图片、Mermaid[^Mermaid] 图表都支持一键全屏浏览。
 
-[^Mermaid]:[Mermaid](https://mermaid.js.org) is JavaScript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.
+
 
 > **适用范围 ••• *`编辑时`× 不支持*_~Gy~_  *`导出 HTML`✓ 支持*_~Gn~_**
 
 
 
----
-
-> - 鼠标点击插图即可全屏显示，所有插图可支持通过在插图浏览器中打开，并进行前/后插图的导航；
-> - 在插图浏览器中可点击插图直接定位到文档中对应的位置。
-
-> 支持的插图类型：
->
-> - 浏览器支持的所有图片（如：jpg / png / gif / bmp 等）
-> - 脚本化图表（如：Mermaid[^Mermaid]）
+> - 鼠标点击插图即可全屏显示，可前/后浏览其他插图
+> - 支持「鼠标滚轮、触控板、触摸屏」缩放
+> - 支持跳转至文档中的对应位置、查看全部的插图索引清单、切换到画中画等。
 
 [^Mermaid]: Mermaid 是一个用于画流程图、状态图、顺序图、甘特图的库，使用 JS 进行本地渲染，广泛集成于许多 Markdown 编辑器中。详见 [Mermaid 官网](https://mermaidjs.github.io)，或 VLOOK™ 的示例文档《[脚本化图表 for Markdown](https://madmaxchow.github.io/VLOOK/chart.md)》
 
@@ -247,7 +251,13 @@ vlook-doc-lib:
 
 ###### 长图片与双题注示例
 
-![普通的图片示例（长图会自动折叠）](pic/normal-pic.jpg "（图片来源自互联网，版权尚不明确）")
+![普通的图片示例](pic/normal-pic.jpg "（图片来源自互联网，版权尚不明确）")
+
+## 表格导航
+
+> **适用范围 ••• *`编辑时`× 不支持*_~Gy~_  *`导出 HTML`✓ 支持*_~Gn~_**
+
+功能与[插图导航](#插图导航)基本一致，并同时自动冻结表格。
 
 ## 脚注导航
 
@@ -328,7 +338,7 @@ vlook-quick-action:
 
 
 - 自动记录当前文档内所有的跳转的历史，包括「导航中心」「逐章导航」「插图导航」「链接失效记录」等跳转的位置；
-- 可随时通过右上角的 ![导航历史](pic/icon-history.svg?darksrc=invert#icon) 导航历史按钮快速回跳（快捷键 <kbd>H</kbd> )
+- 可随时通过右上角的 ![导航历史](pic/icon-history.svg?darksrc=invert#icon) 导航历史按钮快速回跳
 
 
 
@@ -366,9 +376,17 @@ vlook-quick-action:
 
   复制图片的地址，[找张插图试试 ❯](#长图片与双题注示例)
 
-## 插图全屏显示
+## 全屏显示
 
-支持通过内容助手对插图（图片、Mermaid 图片）一键全屏显示，并可进行前/后浏览翻阅，[点这里试试看 ❯](guide2.md#Mermaid 的流程图)
+内容助手支持对插图（图片/Mermaid 图表）、表格提供一键全屏显示，并可进行前/后浏览翻阅、定位到文档位置、查看全部分类索引等。
+
+进一步了解： [插图导航 ❯](#插图导航) 、[表格导航 ❯](#表格导航)
+
+## 表格冻结列切换
+
+> 当在主题中启用或设置了[冻结表格列](guide.md#冻结表格列)后，可以在浏览导出后的 HTML 时进行解冻、重新冻结操作。
+>
+> 鼠标悬停在表格后，通过右上角内容助手上的 ![全屏显示](pic/icon-full.svg?darksrc=invert#icon) 按钮进行相关操作。
 
 ## 表格阅读模式
 
@@ -383,10 +401,10 @@ vlook-quick-action:
 
 ###### 试试点击表格的任意单元格，或让鼠标光标在以下表格行间进行移动
 
-| 列 A             | 列 B             |        列 C        |             列 D |
-| ---------------- | ---------------- | :----------------: | ---------------: |
-| 第一行           | 左对齐（长内容） |      居中对齐      | 右对齐（长内容） |
-| 第二行（长内容） | 左对齐           | 居中对齐（长内容） |           右对齐 |
+| 列 A             | 列 B                             |                 列 C                 |                             列 D |
+| ---------------- | -------------------------------- | :----------------------------------: | -------------------------------: |
+| 第一行           | 左对齐（长内容）左对齐（长内容） |               居中对齐               | 右对齐（长内容）右对齐（长内容） |
+| 第二行（长内容） | 左对齐                           | 居中对齐（长内容）居中对齐（长内容） |                           右对齐 |
 
 ## 换行版式
 
@@ -454,37 +472,45 @@ vlook-quick-action:
 | <kbd>⌘ command</kbd> / <kbd>⌃ Ctrl</kbd> | 配合以上快捷键，可跳转 ==5== 个段落  |
 |            <kbd>⇧ shift</kbd>            | 配合以上快捷键，可跳转 ==10== 个段落 |
 
+## ~~禅模式~~
+
+当需要不显示 VLOOK™ 插件界面（如工具栏、导航中心、状态栏等元素），只显示文档内容时，可以通过快捷键 <kbd>Z</kbd> 一键进入「禅模式」，隐藏插件界面。可再次按下 <kbd>Z</kbd> 键或 <kbd>ESC</kbd> 退出「禅模式」。
+
+
+
+> [!TIP]
+>
+> 在「禅模式」下如需使用「[激活笔](#激活笔)、[聚光灯](#聚光灯)、[段落漫游](#段落漫游)」等演示工具，可直接通过快捷键方式进行启用。
+
 ## Mermaid 图表元素高亮
 
 支持通过鼠标悬停的方式，对 Mermaid 图表中的关键元素（节点、子图、文本等）高亮显示，方便在演示场景下更聚焦说明的内容，[点这里去找个 Mermaid 的图表试试 ❯](guide2.md#°Mermaid)
 
 ## 正文宽度适配
 
-为保障阅读体验，默认情况下正文区域会与自动适应浏览器窗口的宽度，当宽度过大时进行提供：
+为保障阅读体验，对于正文区域的宽度提供「==固定宽度==」和「==适配窗口宽度==」两种模式，并提供切换机制：
 
-- 自动控制正文区域宽度为固定的宽度
-- 支持点击右侧的箭头区域进行切换不同的宽度
+- 对于导出的 HTML 的情况，通过点击右侧箭头对正文宽度在不同宽度间进行切换
 
-> [!NOTE]
->
-> 在 Typora 编辑时，以下情况下也会自动适配 Typora 的窗口宽度：
->
-> ---
->
-> > 不显示左边的侧边栏（大纲/文件）
-> > >
-> > - <kbd>⇧ Shift</kbd> + <kbd>Cmd / Control</kbd> + <kbd>L</kbd>
-> 
-> > 启用专注模式（Focus Mode）
-> > >
-> > - <kbd>F8</kbd>
-> 
+- 在编辑时：
+
+  - 支持指定为「固定宽度」、「适配窗口宽度」、「自动切换」
+  - 对于「==自动切换==」可通过以下方式切换不同的宽度模式显示：
+  
+  ---
+  
+  > **显示 / 收起左边的侧边栏（大纲/文件）**
+  >
+  > 快捷键操作：<kbd>⇧ Shift</kbd> + <kbd>Cmd / Control</kbd> + <kbd>L</kbd>
+  
+  > **启用 / 停用专注模式（Focus Mode）**
+  >
+  > 快捷键操作：<kbd>F8</kbd>
+  
 
 ## 阅读进度
 
 在文档底部添加了友好的阅读进度显示，可以随时了当前阅读的进度，同时也不受滚动条是否自动隐藏的影响。
-
-
 
 
 
@@ -559,13 +585,117 @@ vlook-quick-action:
 
 
 
-1. 打开导出的 HTML 文件后，通过右下角的 ![画中画](pic/icon-print.svg?darksrc=invert#icon) 按钮（ 快捷键 <kbd>⌃ Ctrl</kbd> / <kbd>⌘ command</kbd> + <kbd>P</kbd> )启动该功能；
-2. 打印前页面会针对打印输出进行样式的适配，并结合浏览器提供的「打印为 PDF / 另存为 PDF」功能最终实现发布为 PDF 文件；
-3. 默认情况下 PDF 会以一级标题进行分页，若有个性的分页规则，可以通过 [定制主题](vip.md) 进行调整。
+1. 打开导出的 HTML 文件后，通过右下角的 ![画中画](pic/icon-print.svg?darksrc=invert#icon) 按钮（ 快捷键 <kbd>⌃ Ctrl</kbd> / <kbd>⌘ command</kbd> + <kbd>P</kbd> ) 启动该功能；
+2. 打印前页面会针对打印输出进行样式的适配，并结合浏览器提供的「打印为 PDF / 另存为 PDF」功能最终实现发布为 PDF 文件。
 
-> [!TIP]
+> **提供以下控制选项**
 >
-> 若默认的 PDF 分布无法满足个性化的需求，可以通过 [定制主题](vip.md) 的方式提供个性化 PDF 发布的支持
+> - 开启 / 关闭：**封面适应 A4 纸张**
+> - 开启 / 关闭：**包括目录大纲**
+> - 开启 / 关闭：**展开引用块折叠**
+> - 开启 / 关闭：**取消图片滤镜（模糊）**
+> - 开启 / 关闭：**展开表格分组**
+> - 开启 / 关闭：**显示刮刮卡内容**
+
+> **分页控制**
+>
+> ---
+>
+> > **方式一**
+> >
+> > 默认情况下 PDF 会以一级标题进行分页，若有个性的默认分页规则，可以通过 [定制主题](vip.md) 进行调整。
+>
+> > **方式二（实验性）**
+> >
+> > 支持通过手工方式添加分布标记，语法：
+> >
+> > 在 Markdown 分隔线语法 `---` 的基础上，在其后添加 `page` ，即：`---page`（保持独占一行）
+>
+> _~Rd~_
+
+
+
+示例开始：**以下 ↓↓↓ 内容通过「分页标记」独占一页**
+
+---page
+
+
+
+这是通过在前后添加 `---page` 分页标记独占 1 页的内容
+
+这是通过在前后添加 `---page` 分页标记独占 1 页的内容
+
+这是通过在前后添加 `---page` 分页标记独占 1 页的内容
+
+
+
+---page
+
+示例结束：**以上 ↑↑↑ 内容通过「分页标记」独占一页**
+
+## 文档页脚
+
+
+
+==可以为文档添加个性化的页脚内容，例如版权信息、ICP 信息、导航链接等各类希望在文档末尾添加的内容。==
+
+<u>目前支持以下三种方式添加文档页脚</u>
+
+---
+
+---
+
+> **YAML**
+>
+> 支持通过文档的 **YAML Front Matter**，适用于不同文档指定不同的文档页脚
+>
+> _~T1~_
+
+> **定制主题内置**
+>
+> 支持「[定制主题](vip.md)」内置，适用于所有文档统一页脚
+>
+> > 对于个别文档仍可通过「YAML」方式单独指定不同的页脚内容
+>
+> _~T2~_
+
+> **默认页脚**
+>
+> 未通过前两种方式指定文档页脚时，默认为以当前文档标题作为页脚内容
+>
+> _~Gy~_
+
+
+
+> 为最大程度的实现个性化、模板化的管理，扩展支持 HTML 排版，以及 YAML 字段引用。
+>
+> > ###### 支持引用的 YAML 字段（添加双重大括号进行引用）
+> >
+> > - `{{title}}` - 文档标题
+> > - `{{author}}` - 作者
+> > - `{{date}}` - 发布时间
+> > - `{{version}}` - 文档版本
+> > - `{{copyright}}` - 版权信息
+> > - `{{rights}}` - 权利说明
+
+
+
+在文档的 YAML 中配置文档页脚内容举例（菜单操作：*==Typora ▸ 段落 ▸ YAML Front Matter==*）：
+
+```yaml
+---
+title: xxx
+author: xxx
+date: xxxx-xx-xx
+copyright: xxx
+
+# 示例 1
+footer: {{title}}<br><br>{{author}}<br>{{date}}
+
+# 示例 2
+footer: <a href="xxx.com">更多精彩内容</a><br><br>{{copyright}}
+---
+```
 
 
 
@@ -1021,7 +1151,7 @@ _^tab^_
 
 > 通过 **[YAML](https://yaml.org/) Front Matter** 对 **VLOOK™** 预置选项进行设置：
 >
-> 1. 首先，为文档添加 YAML 内容（菜单：Typora ▸ 段落 ▸ YAML Front Matter）；
+> 1. 首先，为文档添加 YAML 内容（菜单操作：*==Typora ▸ 段落 ▸ YAML Front Matter==*）
 > 2. 然后对指定预置选项进行设置，格式举例如下：
 >
 > *==通过 YAML 设置 VLOOK™ 插件预置选项==*
@@ -1048,7 +1178,7 @@ _^tab^_
 | `vlook-image-host`  |                      | 默认图床地址                         | 目前主要针对 Safari 打开本地 HTML 的文件，且指定[图片剪影](guide.md#图片剪影)时使用<br>如： `https://xxx.abc.com/images` |
 | `vlook-welcome`     |                      | 自定义文档在加载时欢迎页信息         | 详见：[自定义欢迎页内容](#自定义欢迎页内容)                  |
 | `vlook-query`       |          Y           | 预置 VLOOK™ 规范的插件调校参数       | 详见以下章节：[插件调校参数](#插件调校参数)                  |
-| `vlook-unpub` |  | 指定[不发布的内容](#标记不发布的内容) | 支持正则表达式<br><sup>（以字面量方式进行定义，如 `/pattern/flags` ）</sup><br/><sup>多个内容间以英文分号 `;` 进行分隔</sup> |
+| `vlook-unpub` |  | 指定[不发布的内容](#标记不发布的内容) | 支持正则表达式<br><sup>（以字面量方式进行定义，如 `/pattern/flags` ）</sup><br><sup>多个内容间以英文分号 `;` 进行分隔</sup> |
 
 ## 插件调校参数
 
@@ -1091,26 +1221,28 @@ vlook-query: 参数1=取值&参数2=取值...&参数n=取值
 | > `quote`    | 调整普通的「引用块」默认自动转换为指定色号的 [引用块着色](guide.md#引用块着色) |  `off`  | `off` - 关闭，不自动转换<br>`色号` - 对应的预置色号，[详见这里](guide.md#引用块着色) |
 | > `tag`      | 调整 [标签](guide2.md#标签) 未指定色号时默认使用的色号       |  `T2`   | 对应的预置色号，[详见这里](guide2.md#标签)                   |
 | 题注         |                                                              |         |                                                              |
+| > `capnum`   | 题注是否进行自动编号                                         |  `on`   | `off` - 不开启<br>`on` - 开启                                |
 | > `capgroup` | 题注的自动编号是否按所属章节进行分组编号                     |  `on`   | `off` - 不开启<br>`on` - 开启                                |
-| > `capblank` | 未指定题注内容时是否添加空白题注<br>^须配合定制主题才能生效^ |  `off`  | 指定范围开启：<br>`codeblock` - 代码块                       |
+| > `capmini`  | 只按生成题注分类，如：图 1、图 2 等                          |  `off`  | `off` - 不开启<br/>`on` - 开启                               |
+| > `capblank` | 未指定题注内容时是否添加空白题注<br>^须配合定制主题才能生效^ |  `off`  | 指定范围开启：<br>`figure` - 插图<br>`codeblock` - 代码块    |
 | 页签组       |                                                              |         |                                                              |
 | > `tabcap`   | [页签组](guide2.md#°页签组)的页签上是否显示题注编号（如：表 1-2） |  `off`  | `off` - 不显示<br>`on` - 显示                                |
 | > `tabico`   | 指定[页签](guide2.md#°页签组)上显示的内容分类图标样式        | `line`  | `off` - 不显示<br>`line` - 线性样式<br>`solid` - 单色样式<br>`flat` - 分层样式 |
 | 外观         |                                                              |         |                                                              |
 | > `cs`       | 指定使用固定的颜色方案                                       | `auto`  | `light` - 强制显示为 Light Mode<br>`dark` - 强制显示为 Dark Mode<br>`auto` - 自动跟随系统配置 |
-| > `fillw`    | 指定[正文宽度适配](#正文宽度适配)可显示宽度的默认状态        |  `off`  | `off` - 关闭<br>`on` - 开启                                  |
 | > `font`     | 强制指定使用的字体风格<br>指定该参数后则忽略 VLOOK 主题配套的字体风格 | `theme` | `theme` 使用主题配套<br>`local` - 系统默认<br>`book` - 书香里<br>`dyn` - 活力派<br>`zen` - 禅意斋<br>`sans` - 小清新<br>`serif` - 文艺范 |
 | > `gray`     | 指定是否启用 [Gray Mode](#Gray Mode)                         |  `on`   | `off` - 关闭<br>`on` - 开启<br>`force` - 强调开启，用于预览效果 |
 | > `radius`   | 强制使用指定的圆角样式，忽略 VLOOK 主题自带的样式            |         | `none` - 不使用圆角<br>`small` - 使用小号圆角<br>`big` - 使用大号圆角 |
 | > `sts`      | 指定状态栏的默认显示方式                                     | `show`  | `hide` - 隐藏<br>`show` - 显示                               |
 | > `uico`     | 指定插件界面的图标样式                                       | `solid` | `solid` - 单色样式<br>`flat` - 分层样式                      |
 | 交互         |                                                              |         |                                                              |
+| > `fw`       | 指定文档正文的宽度适配方式                                   | `auto`  | `auto` - 根据定制主题内置规则<br>`full` - 适配窗口宽度<br>`fix` - 固定宽度 |
 | > `tr`       | 指定表格阅读模式（十字光标）默认开关                         |  `off`  | `off` - 不开启<br>`on` - 开启                                |
 | > `ws`       | 指定文档的「欢迎页」显示模式                                 | `auto`  | `auto` - 页面加载完成后自动关闭欢迎页<br>`wait` - 文档和插件加载完成后，手动关闭欢迎页<br>`off` - 不显示欢迎页<br>`1~60` - 指定延时等待的秒数 |
 | 发布         |                                                              |         |                                                              |
-| > `unpub`    | 对 [标记为不发布内容](#标记不发布的内容) 进行处理的开关      |  `on`   | `off` - 不开启<br/>`on` - 开启                               |
+| > `unpub`    | 对 [标记为不发布内容](#标记不发布的内容) 进行处理的开关      |  `on`   | `off` - 不开启<br>`on` - 开启                                |
 | > `xmd`      | 指定将扩展名为「*.md」的链接转换为指定的新扩展名<br>^（默认对全局生效，也支持在文本链接中单独指定）^ | `html`  | `off` - 关闭，不转换<br>`{扩展名}` - 指定的扩展名，如 `php` `htm` 等 |
-| > `pdf`      | 对导出后的 HTML 开启「发布为 PDF」的功能                     |  `on`   | `off` - 不开启<br/>`on` - 开启                               |
+| > `pdf`      | 对导出后的 HTML 开启「发布为 PDF」的功能                     |  `on`   | `off` - 不开启<br>`on` - 开启                                |
 | 导航中心     |                                                              |         |                                                              |
 | > `nav`      | 指定导航中心初始的运行模式                                   | `auto`  | `auto` - 在封面时自动收起、在正文时自动展开<br>`hide` - 默认收起 |
 | > `toc`      | 指定目录大纲初始自动折叠的层级                               |   `1`   | `0` - 不折叠，全部展开<br>`1~5` - 折叠指定的层级             |
@@ -1127,37 +1259,37 @@ vlook-query: 参数1=取值&参数2=取值...&参数n=取值
 
 | 分类                                      | 功能                                        |            快捷键            |
 | :-----------------------------------------: | :--------------------------: | :--------------------------: |
-| 常用                      | 开启、关闭 Dark Mode                        |         <kbd>D</kbd>         |
-| : | 显示、隐藏「[导航中心](#导航中心)」面板 |         <kbd>N</kbd>         |
+| 常用                      | 开启/关闭 Dark Mode                   |         <kbd>D</kbd>         |
+| : | 显示/隐藏「[导航中心](#导航中心)」面板 |         <kbd>N</kbd>         |
 | : | 搜索导航中心的内容 | <kbd>/</kbd> |
 | :         | 打开「[文库](#文库导航)」，或显示入口          |         <kbd>L</kbd>         |
 | : | 打开「[链接地图](#链接地图)」 | <kbd>M</kbd> |
 | : | 打开「[异常链接 / 地址](#链接失效与规范检查)」 | <kbd>E</kbd> |
-| : | 打开「导航历史」 | <kbd>H</kbd> |
+| : | 打开「[导航历史](#导航历史)」 | <kbd>H</kbd> |
 | : | 发布为 PDF | <kbd>⌘ command</kbd> / <kbd>⌃ Ctrl</kbd> + <kbd>P</kbd> |
 | [页签组](guide2.md#°页签组) | 切换显示下一个页签内容 | <kbd>tab</kbd> |
 | : | 切换显示上一个页签内容 | <kbd>⇧ Shift</kbd> + <kbd>tab</kbd> |
 | [表格阅读模式](#表格阅读模式) | 移动当前**聚焦**单元格 | <kbd>▲</kbd>  <kbd>▼</kbd>  <kbd>◀</kbd>  <kbd>▶</kbd> |
 | : | 展开/收起 [表格行分组](guide.md#表格行分组折叠) | <kbd>Enter ⏎</kbd> |
-| [字体风格](#字体风格) | 选择字体风格 | <kbd>A</kbd> |
-| :                       | 退出「字体风格」选择                        |        <kbd>ESC</kbd>        |
-| [逐章导航](#逐章导航)                   | **前一个**章节                                    | <kbd>◀</kbd> 或 <kbd> , </kbd> |
-| :                                   | **后一个**章节                                    | <kbd>▶</kbd> 或 <kbd> . </kbd> |
-| [段落漫游](#段落漫游)         | 打开「段落漫游」                  |         <kbd>J</kbd> 或 <kbd>K</kbd>         |
+| [演示辅助](#°演示辅助) - [段落漫游](#段落漫游) | 打开「段落漫游」                  |         <kbd>J</kbd> 或 <kbd>K</kbd>         |
 | : | 跳到**下一个**段落 | <kbd>J</kbd> |
 | :                         | 跳到**上一个**段落                          |         <kbd>K</kbd>         |
 | : | 配合以上快捷键，可跳转 ==5== 个段落 | <kbd>⌘ command</kbd> / <kbd>⌃ Ctrl</kbd> |
 | : | 配合以上快捷键，可跳转 ==10== 个段落 | <kbd>⇧ shift</kbd> |
-| : | 退出「段落漫游」模式 | <kbd>ESC</kbd> |
+| [演示辅助](#°演示辅助) - 其他 | 开启/关闭「[聚光灯](#聚光灯)」 | <kbd>S</kbd> |
+| :                           | 调节聚光灯的大小                            |      <kbd>⇧ Shift</kbd>      |
+| : | 开启/关闭「[激光笔](#激光笔)」 | <kbd>P</kbd> |
+| : | 开启/关闭「[禅模式](#禅模式)」 | <kbd>Z</kbd> |
+| :                         | 退出以上任一演示辅助工具                |        <kbd>ESC</kbd>        |
+| [字体风格](#字体风格) | 选择字体风格 | <kbd>A</kbd> |
+| :                       | 退出「字体风格」选择                        |        <kbd>ESC</kbd>        |
+| [逐章导航](#逐章导航)                   | **前一个**章节                                    | <kbd>◀</kbd> 或 <kbd> , </kbd> |
+| :                                   | **后一个**章节                                    | <kbd>▶</kbd> 或 <kbd> . </kbd> |
 | [插图导航](#插图导航) | 显示「插图导航」 | <kbd>I</kbd> |
 | :                                 | **前一张**插图                                  | <kbd>◀</kbd> 或 <kbd> , </kbd> |
 | :                                 | **后一张**插图                                  | <kbd>▶</kbd> 或 <kbd> . </kbd> |
 | :                       | 退出「插图导航」模式                        |        <kbd>ESC</kbd>        |
-| [聚光灯](#聚光灯) | 打开「聚光灯」 | <kbd>S</kbd> |
-| :                           | 调节聚光灯的大小                            |      <kbd>⇧ Shift</kbd>      |
-| :                         | 退出「聚光灯」模式                          |        <kbd>ESC</kbd>        |
-| [激光笔](#激光笔) | 打开「激活笔」 | <kbd>P</kbd> |
-| :                         | 退出「激光笔」模式                          |        <kbd>ESC</kbd>        |
+| [表格导航](#表格导航) | 同以上的「**插图导航**」 | == |
 
 ---
 

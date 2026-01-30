@@ -1,6 +1,11 @@
 ---
 title: Introduction - VLOOK™ - Theme Package and Enhancement Plug-In for Typora Markdown Editor
 author: MAX°孟兆
+date: 2026-01-30
+copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
+rights: This work is licensed under the MIT License. For details, see the LICENSE file.
+version: V2026.1
+footer: {{title}}<br><br>{{author}}<br>{{date}} ({{version}})<br><br>{{copyright}}<br>{{rights}}
 description: Instructions for downloading, setting up, installing, and configuring VLOOK™
 "og:description": Instructions for downloading, setting up, installing, and configuring VLOOK™
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
@@ -8,9 +13,9 @@ keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
 - editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
 - light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
-- catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
+- catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
-- picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,horizontal flip of picture,vertical flip of picture,picture rotation,mixed arrangement of pictures and text
+- picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
 - content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
@@ -19,9 +24,9 @@ keywords:
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
 - 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
-- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
+- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
-- 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片水平翻转,图片垂直翻转,图片旋转,图文混排
+- 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
 - 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
@@ -32,9 +37,9 @@ Vlook-header-autonum-test: h1{{#ALPHA#.}},h2{{STEP-##-min#}}
 vlook-header-dup: /^Your coffee.+/;
 vlook-unpub: Coming Soon ...;/ via YAML/
 vlook-doc-lib:
-- [VLOOK™ Features](vlook-lib-en.html "Guide, Manual, Sample, Example")
+- [View All VLOOK™ Features](vlook-lib-en.html "Guide, Manual, Sample, Example")
 - [VLOOK™ Introduction](index-en.html?target=_self "Introduction, Download, Install, Language Package, Premium Services, Value-added Services")
-- [Guide • Basic](guide-en.html?target=guide "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Rotation / Flipping / Filters / Postcards / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
+- [Guide • Basic](guide-en.html?target=guide "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Filters / Postcards / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
 - [Guide ▲ Advanced](guide2-en.html?target=guide "Columns, Captions, Buttons, Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
 - [Guide ★ Exploration](guide3-en.html?target=guide "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Save as PDF / Print to PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
 - [中文 🇨🇳](index.html?target=vlook-index-cn "简介、快速入坑、安装与使用")
@@ -42,7 +47,7 @@ vlook-doc-lib:
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 ---
 
-###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br><u>──</u><br>Introduction<br>*`V2025.10.1`is the Latest*<br><br>**MAX°孟兆**<br>*COPYRIGHT © 2016-2025. MAX°DESIGN.*
+###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br><u>──</u><br>Introduction<br>*`V2026.1`is the Latest*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 
 [TOC]
 
@@ -79,7 +84,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 >
 > ```LICENSE of VLOOK™
 >MIT License
-> Copyright (c) 2016-2025 MAX°DESIGN | Max Chow
+> Copyright (c) 2016-2026 MAX°DESIGN | Max Chow
 > Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 > The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 > THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
@@ -90,6 +95,14 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 # Prepared For
 
 ==If you also have one or more of the following needs or pain points, you can safely try the Markdown-based document solution for document editing, publishing, and management. The recommended combination is **Typora + VLOOK™**==
+
+​	Are you also tired of the same old layout and experience of Markdown documents?  VLOOK™ keeps the elegance of Markdown while giving your documents a completely new look.
+
+​	It provides a **consistent**, **simple**, and **friendly** experience in areas such as **document layout**, **content marking**, **content navigation**, **presentation assistance**, and interactive features.
+
+
+
+​	With just a few simple installation steps, you can enjoy documents with cool themes, rich layouts, and friendly interactions:
 
 - Using Markdown to write documentation, but with higher demands for the layout and interactivity of either the Markdown editor or its generated HTML output.
 - For the documents you write, you hope that *???**Unified template and output***_~T1~_ ,  and preferably *???**Change theme any time***_~T2~_
@@ -110,7 +123,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 <u>**Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
 
 ---
 
@@ -204,34 +217,13 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 # Blog
 
-![Blogs selected for the "Zhihu • Sea Salt Project"](pic/3rd-haiyan.png)
+![](pic/3rd-haiyan.png)
 
 <u>Blogs selected for the "**Zhihu • Sea Salt Project**" •• [Go go go](https://www.zhihu.com/people/maxchow/posts)</u>
 
 # How to Use
 
 ==You can start a brand **new Markdown experience** in **just 3 steps**, give your Markdown a new perspective!==
-
-## Prepare
-
-_^tab^_
-
-> **Download the Plug-in  ❯**
->
-> [<kbd>![](pic/icon-download.svg?fill=text) via GitHub</kbd>](https://github.com/MadMaxChow/VLOOK/releases)  *[<kbd>![](pic/icon-download.svg?fill=text) via Gitee</kbd>](https://gitee.com/madmaxchow/VLOOK/tags)*
-
-> **Configure Typora  ❯**
->
-> 1. Download and install the latest version of [Typora](https://www.typora.io) ;
-> 2. Open menu *==Typora ▸ Settings ▸ Markdown==*;
-> 3. Enable all options under `Markdown Extended Syntax` , `Code Blocks` . See the figure below for details:
->
-> *==Typora ▸ Preferences ▸ Markdown==*
->
-> ![](pic/typora-opt1-light-en.png?srcset=@2x&darksrc=typora-opt1-dark-en.png&darksrcset=@2x)
->
-
-
 
 <u>VLOOK™ supports ==Offline== and ==**Live**== installation modes,<br>both of which can be configured for flexible selection during use~</u>
 
@@ -253,6 +245,21 @@ _^tab^_
 > > Requires a prepared website (you can also use free overseas Pages services such as those provided by Cloudflare or GitHub).
 >
 > _~Bu~_
+
+## Prepare
+
+> **Download the Plug-in  ❯**
+>
+> [<kbd>![](pic/icon-download.svg?fill=text) via GitHub</kbd>](https://github.com/MadMaxChow/VLOOK/releases)  *[<kbd>![](pic/icon-download.svg?fill=text) via Gitee</kbd>](https://gitee.com/madmaxchow/VLOOK/tags)*
+
+> **Configure Typora  ❯**
+>
+> 1. Download and install the latest version of [Typora](https://www.typora.io) ;
+> 2. Open menu *==Typora ▸ Settings ▸ Markdown==*;
+> 3. Enable all options under `Markdown Extended Syntax` , `Code Blocks` . See the figure below for details:
+>
+> ![Preferences to Adjust First](pic/typora-opt1-light-en.png?srcset=@2x&darksrc=typora-opt1-dark-en.png&darksrcset=@2x "Typora ▸ Preferences ▸ Markdown")
+>
 
 ## Offline Mode Installation
 
@@ -296,36 +303,66 @@ _^tab^_
 
 _^tab^_
 
-> **Add "Export Setting"**
+> **Export to HTML ❯**
 >
-> 1. Open Typora
-> 2. Open menu *==Typora > File > Export > Export Setting==*
-> 3. Add configuration (==select HTML as a template==), and name the configuration `VLOOK`
+> 1. Create an HTML export configuration:
+>    1. Open Typora export configurations
+>    2. Open the menu *==Typora > File > Export > Export Configurations==*
+>    3. Add a configuration (select ==HTML== template) and name it `VLOOK-HTML`
+> 2. Install the plugin:
+>    1. Clear the content of the `Append in <head />` configuration field
+>    2. Open the plugin file: *==released/plugin/**plugin.txt**==*
+>    3. Select all and copy the entire content
+>    4. Paste the copied content into the configuration field
 >
+> ![Typora ▸ Preferences ▸ Export ▸ HTML](pic/typora-opt2-light-en.png?srcset=@2x&darksrc=typora-opt2-dark-en.png&darksrcset=@2x)
 
-> **Install "Plugin"**
+> **Export to PDF ❯**
 >
-> 1. First, clear the content configured under `Append in <head />` content
-> 2. Open the plug-in file: *==released/plugin/**plugin.txt**==*
-> 3. Select and copy all contents
-> 4. Copied content paste to `Append in <head />`
+> 1. Create a PDF export configuration:
+>    1. Open Typora export configurations
+>    2. Open the menu *==Typora > File > Export > Export Configurations==*
+>    3. Add a configuration (select ==PDF (Typora / WebKit)== template) and name it `VLOOK-PDF`
+> 2. Install the plugin:
+>    1. Clear the content of the `Append Extra Content (HTML)` configuration field
+>    2. Open the plugin file: *==released/plugin/**plugin.txt**==*
+>    3. Select all and copy the entire content
+>    4. Paste the copied content into the configuration field
 >
+> ![Typora ▸ Preferences ▸ Export ▸ PDF](pic/typora-opt3-light-en.png?srcset=@2x&darksrc=typora-opt3-dark-en.png&darksrcset=@2x)
 
-> **One-click export via VLOOK**
+> **Sample Files**
 >
-> 1. Open the md file conforming to the VLOOK™ specification ( Refer to the files in *==released/**samples**==* );
-> 2. Click menu *==Typora ▸ File ▸ Export ▸ **VLOOK**==* to export.
-> 
-
-
-
-![Typora ▸ Preferences ▸ Export ▸ &lt;head /&gt;](pic/typora-opt2-light-en.png?srcset=@2x&darksrc=typora-opt2-dark-en.png&darksrcset=@2x)
-
-
-
-> [!TIP]
+> 1. Open an MD file that conforms to the VLOOK™ specifications (refer to the files under *==released/**samples**==*)
+> 2. Click the menu *==Typora ▸ File ▸ Export==* and select one of the export configurations created above to export
 >
-> The current document, along with all Markdown documents of the VLOOK™ [Guide](guide-en.md) and more sample documents, can be found under *==released/**samples**==*.
+> > [!TIP]
+> >
+> > The current document, along with all Markdown documents of the VLOOK™ [Guide](guide-en.md) and more sample documents, can be found under *==released/**samples**==*.
+
+
+
+> [!CAUTION]
+>
+> Currently, two methods are supported for exporting PDFs:
+>
+> - **Method 1: Export PDF directly from Typora**
+>
+> - **Method 2: Export HTML first, then publish as PDF**
+>
+>   That is, first complete the above-described **“Export as HTML”**, then open the exported file in a browser and use the VLOOK™ **[Publish as PDF](guide3-en.md#Publish as PDF)** feature. This method provides more control options. For details, see **[Publish as PDF](guide3-en.md#Publish as PDF)**.
+>
+> ---
+>
+> **🚨 Note 🚨**
+>
+> When using **Method 1**, if any of the following situations apply, it is recommended to export the PDF using **Method 2** first:
+>
+> - The document uses **Image Magic** features, such as: [Display Layout](guide-en.md#Image-Display-Layout), [Scaling](guide-en.md#Image-Scale), [Filter](guide-en.md#Image-Filter), [Grid Background](guide-en.md#Image-Grid-Background), [Edge Padding](guide-en.md#Image-Edge-Padding), etc.
+> - **Windows environment**: the Typora version in use is **1.12.x or earlier**
+> - **macOS environment**: the document contains Mermaid diagrams, or the theme includes translucent / gradient styles
+>
+> **(Some of the issues above will be fixed in Typora version 1.13.x and later)**  
 
 ### Language Package (Optional)
 
@@ -350,12 +387,10 @@ _^tab^_
 
 > **2. Config Language Package**
 >
-> 1. First, clear the content configured under `Append in <body />` content
-> 2. Open *==Typora > Preferences==*, and select the added export configuration `VLOOK`
-> 3. Copied content paste to `Append in <body />`
-> 4. When adding multiple language packs, ensure that each additional pack is **Appended** to the configuration
->
-> ![Typora ▸ Preferences ▸ Export ▸ &lt;body /&gt;](pic/typora-opt2-light-en.png?srcset=@2x&darksrc=typora-opt2-dark-en.png&darksrcset=@2x)
+> 1. Open *==Typora > Preferences==* and select the export configuration `VLOOK` that you created in the previous steps
+> 2. Paste the copied content at the beginning of the `Insert to <head />` configuration
+> 3. If you need to add multiple language packages, repeat the steps above
+> 
 
 
 ## Live Mode Installation
@@ -374,15 +409,15 @@ _^tab^_
 
 > **Deploy Online Plugins and Web Fonts**
 >
-> 1. Upload *==released/**plugin-live**/**Vxx.x**==* to the root directory of the web site.
+> 1. Upload all **files** & `vlook` **subfolder** under *==released/**plugin-live**/**Vxx.x**==* to the root directory of the web site.
 > 2. Download the latest version of [openfonts](https://github.com/MadMaxChow/openfonts/releases) from GitHub (e.g., `web-font-V2.0.tar.gz`).
-> 3. After extraction, upload all the subdirectories inside (e.g., `s`, `v`) to the resource directory of the corresponding VLOOK online version on the web site (e.g., `V2025.10.1`).
+> 3. After extraction, upload all the subdirectories inside (e.g., `s`, `v`) to the resource directory of the corresponding VLOOK online version on the web site (e.g., `fonts`).
 
 
 
 > [!IMPORTANT]
 >
-> - The above `Vxx.x` refers to the corresponding version identifier, such as `V2025.10.1`, which serves as the resource directory for the VLOOK online version.
+> - The above `Vxx.x` refers to the corresponding version identifier, such as `V2026.1`, which serves as the resource directory for the VLOOK online version.
 > - If the HTML files published with older versions of themes or plugins are not republished, you need to keep the original version directories and not delete them.
 
 ### Live Themes
@@ -415,7 +450,7 @@ _^tab^_
 >    - `<meta name="vlook-js" ...>` - the URL of the subdirectory containing js files
 >    - `<meta name="vlook-fs" ...>` - the URL of the subdirectory containing web font files
 
-> **Configure Export Options**
+> **Configure Live Mode Export Options**
 >
 > Refer to the above "[Configure Export Options](#configure-export-options)" steps, and create a new export configuration for the online mode. The main differentiated handling is as follows:  
 >
@@ -489,7 +524,7 @@ If you cannot connect to the Internet or your network is slow, it is recommended
 
 <u>If you wish to use a **Specific Font Style** by default, you can subscribe to VLOOK™’s ==Custom Theme Service== .</u>
 
-**[<kbd>Explore More About Custom Themes</kbd>](vip-en.md)**
+**[<kbd>Explore More About VIP Themes</kbd>](vip-en.md)**
 
 ## **🧰** Upgrade and Compatibility
 
@@ -616,7 +651,7 @@ The content of this section is marked as not published by specifying it in YAML.
 
 # Coming Soon ...
 
-## ~~V2025.10.1~~
+## ~~V2026.1~~
 
 ---
 

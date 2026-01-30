@@ -1,6 +1,6 @@
 /**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V2025.10.1" (2025-10-18) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V2026.1" (2026-01-30) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -11,7 +11,7 @@ var V_lang_data_de = {
 "de2":"Tabs wechseln",
 "de3":"Link-Karte",
 "de4":"Aktiviert",
-"de5":" um die Schrittgröße zu wechseln",
+"de5":"Im Dokument suchen",
 "de6":"Navigationszentrum",
 "de7":"Dokumentenbibliothek",
 "de8":"Absatzwandern",
@@ -35,7 +35,7 @@ var V_lang_data_de = {
 "de26":"Umbruch / Rückgängig",
 "de27":"Bild im Bild",
 "de28":"Drücken und halten",
-"de29":"Aktuelles Dokument",
+"de29":"Spalte fixieren",
 "de30":"Code kopieren",
 "de31":"Bildadresse kopieren",
 "de32":"Als PDF&nbsp;veröffentlichen",
@@ -45,7 +45,7 @@ var V_lang_data_de = {
 "de36":"- Eine neue Version wurde veröffentlicht, bitte aktualisieren!",
 "de37":"Entschuldigung, das Kopieren wird in diesem Browser derzeit nicht unterstützt",
 "de38":"Gliederung einbeziehen",
-"de39":"Zeitüberschreitung",
+"de39":"Zen-Modus",
 "de40":"Wird geladen",
 "de41":"Schriftstil",
 "de42":"Minute(n)",
@@ -92,7 +92,7 @@ var V_lang_data_de = {
 "de83":"Link",
 "de84":"Fußnote",
 "de85":"Auf Themen-Schriftartstil zurücksetzen",
-"de86":"Klicken Sie hier, um den Link zu öffnen",
+"de86":"Titelblatt für A4-Papier angepasst",
 "de87":"Heute ist",
 "de88":"Diese Seite wird im {{display-mode}} angezeigt",
 "de89":"Klicken Sie unten auf die Schaltfläche, um es vorübergehend auszuschalten",
@@ -104,4 +104,6 @@ var V_lang_data_de = {
 "de95":"Druck starten (wählen: Als PDF speichern)",
 "de96":"Cancel",
 "de97":"Rubbelkarte anzeigen",
+"de98":"Alle anzeigen",
+"de99":"( Keine Beschriftung )"
 }

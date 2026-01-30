@@ -1,2 +1,3 @@
-@import 'https://<your-host>/V2025.10.1/vlook-geek.css';
-@import 'https://<your-host>/github-io/V2025.10.1/fs-yuan-min.css';
+@import 'https://<your-host>/V2026.1/vlook-geek.css';
+@import 'https://<your-host>/V2026.1/fs-yuan-min.css';
+.sidebar-content:before{content:'VLOOK™ built-in •• live';color:var(--ac-t2);background:var(--ac-t2-a);}

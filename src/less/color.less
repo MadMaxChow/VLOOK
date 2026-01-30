@@ -3,8 +3,8 @@
  * VLOOK™ CSS 调色板
  * (配合 base.less 进行使用)
  *
- * V2025.10.1
- * 2025-10-25
+ * V2026.1
+ * 2026-01-30
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -30,16 +30,16 @@
         --d-bc-lg: @colorLight;
         --d-bc-ext-lg: @colorLight;
         --d-cb-lg: @colorLight;
-        --fd-r-lg: red(@colorLight);
-        --fd-g-lg: green(@colorLight);
-        --fd-b-lg: blue(@colorLight);
+        --db-r-lg: red(@colorLight);
+        --db-g-lg: green(@colorLight);
+        --db-b-lg: blue(@colorLight);
 
         --d-bc-dk: @colorDark;
         --d-bc-ext-dk: @colorDark;
         --d-cb-dk: @colorDark;
-        --fd-r-dk: red(@colorDark);
-        --fd-g-dk: green(@colorDark);
-        --fd-b-dk: blue(@colorDark);
+        --db-r-dk: red(@colorDark);
+        --db-g-dk: green(@colorDark);
+        --db-b-dk: blue(@colorDark);
     }
 }
 .applyDocBgColor(@colorLight, @colorDark, @forExtLight, @forExtDark) {
@@ -94,9 +94,15 @@
     :root {
         --d-fc-lg: @colorLight;
         --d-fc-a-lg: lighten(@colorLight, 45%);
+        --df-r-lg: red(@colorLight);
+        --df-g-lg: green(@colorLight);
+        --df-b-lg: blue(@colorLight);
 
         --d-fc-dk: @colorDark;
         --d-fc-a-dk: darken(@colorDark, 40%);
+        --df-r-dk: red(@colorDark);
+        --df-g-dk: green(@colorDark);
+        --df-b-dk: blue(@colorDark);
 
         .genHeaderNumberStyle(@style) when not (@style = edge) {
             --toc-h-num-c-lg: fade(@colorLight, 50%);
@@ -161,7 +167,7 @@
 
 // --------------------
 // 通用的强调色参数
-@accOpacity: 25%;
+@accOpacity: 22%;
 
 @accOpacityHighForLg: 45%;
 @accOpacityMiddleForLg: 25%;
@@ -382,6 +388,20 @@
 
     --ac-t1-fd-bd: var(--ac-t1-fd-bd-lg);
     --ac-t2-fd-bd: var(--ac-t2-fd-bd-lg);
+
+    // --- 按钮不同样式的高光、阴影参数
+
+    --btn-reflect-lg: rgba(255, 255, 255, 0.4);
+    --btn-reflect-dk: rgba(255, 255, 255, 0.2);
+    --btn-reflect: var(--btn-reflect-lg);
+
+    --btn-shadow-lg: rgba(0, 0, 0, 0.1);
+    --btn-shadow-dk: rgba(0, 0, 0, 0.4);
+    --btn-shadow: var(--btn-shadow-lg);
+
+    --btn-raised-lg: rgba(0, 0, 0, 0.3);
+    --btn-raised-dk: rgba(0, 0, 0, 0.4);
+    --btn-raised: var(--btn-raised-lg);
 }
 // --------------------
 // 针对 Mermaid 专用的强调色色板
@@ -439,7 +459,7 @@
     --v-btn-bg-lg: @buttonBgColor;
 
     // 按钮类外阴影
-    --v-fl-sd-lg: 0 2px 12px #00000040;//rgba(0, 0, 0, .25);
+    --v-fl-sd-lg: 0 2px 16px #00000033;//rgba(0, 0, 0, .25);
     // 按钮类内阴影（模拟内边框）
     --v-fl-i-sd-lg: 0 0 0 1px #0000001A inset;//rgba(0, 0, 0, .1) inset;
     // 按钮类外边框
@@ -590,7 +610,9 @@
     --v-btn-bg-dk: @buttonBgColorDark;
 
     // 按钮类外阴影
-    --v-fl-sd-dk: 0 4px 16px #00000066;//rgba(0, 0, 0, .4);
+    // --v-fl-sd-dk: 0 4px 16px #00000066;//rgba(0, 0, 0, .4);
+    --v-fl-sd-dk: 0 2px 16px #00000080;//rgba(0, 0, 0, .4);
+    // --v-fl-sd-dk: 0 4px 16px #FFFFFF1A;//rgba(0, 0, 0, .4);
     // 按钮类内阴影（边框）
     // --v-fl-i-sd-dk: 0 0 0 1px #0000004D inset;//rgba(0, 0, 0, .3) inset;
     --v-fl-i-sd-dk: 0 0 0 1px #000000 inset;//rgba(0, 0, 0) inset;
@@ -726,9 +748,12 @@
     --d-bc: var(--d-bc-lg);
     --d-bc-ext: var(--d-bc-ext-lg);
     --d-cb: var(--d-cb-lg);
-    --fd-r: var(--fd-r-lg);
-    --fd-g: var(--fd-g-lg);
-    --fd-b: var(--fd-b-lg);
+    --db-r: var(--db-r-lg);
+    --db-g: var(--db-g-lg);
+    --db-b: var(--db-b-lg);
+    --df-r: var(--df-r-lg);
+    --df-g: var(--df-g-lg);
+    --df-b: var(--df-b-lg);
     --d-bi: var(--d-bi-lg);
     --d-fc: var(--d-fc-lg);
     --d-fc-a: var(--d-fc-a-lg);

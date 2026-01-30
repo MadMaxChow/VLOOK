@@ -2,8 +2,8 @@
  *
  * VLOOK™ CSS 基础库
  *
- * V2025.10.1
- * 2025-10-25
+ * V2026.1
+ * 2026-01-30
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -31,14 +31,17 @@
 
 ---------- 高优先信息 UI 区 -----
 
+浏览文库 / .v-doc-lib / z-index: 5000;
 链接清单 / .v-link-info-list / z-index: 4500;
 工具栏提示、弹窗提示、字体风格切换 / .v-tool-tips, .v-info-tips, .v-font-style / z-index: 4000;
 聚光灯 / .v-spotlight / z-index: 3500;
-编辑时的表格编辑工具栏 / .ty-table-edit: 3000
+Typora 通知栏 / .md-notification-container / z-index: 3100
+编辑时的表格编辑工具栏 / .ty-table-edit / z-index: 3000
 
 ---------- 二级 UI 区 ----------
 
-插图导航 / .v-fig-nav / z-index: 2200;
+全屏工具栏 / .v-fullscreen-toolbar / z-index: 2300;
+全屏显示 / .v-caption.full / z-index: 2200;
 脚注面板 / .v-footnote-pn / z-index: 2100;
 导航中心收起/展开引导把手 / .v-nav-center-handle / z-index: 2000;
 导航中心面板 / .v-nav-center / z-index: 2000;
@@ -55,16 +58,17 @@
 段落漫游边框 / #v-para-nav-mask-border / z-index: 200;
 逐章导航面板 / .v-chapter-nav / z-index: 150;
 工具栏 / .v-toolbar / z-index: 150;
+导航中心面板 edge 风格时 / .v-nav-center.block.edge / z-index: 140;
 状态栏 / .v-status-bar / z-index: 150;
-文档更多内容遮挡阴影（上） / .v-more-doc-content-before / z-index: 130
-文档更多内容遮挡阴影（下）/ .v-more-doc-content-after / z-index: 130;
+表头首列 / @{writeOnEditing} @{thead_lastRow_raw}:first-child / z-index: 140;
+表头 / @{writeOnEditing} @{thead_lastRow_raw} / z-index: 135;
+文档更多内容遮挡阴影（上） / @{writeOnXXX}::before / z-index: 130
+文档更多内容遮挡阴影（下）/ @{writeOnXXX}::after / z-index: 150;
+适应宽度 / .v-fill-width / z-index: 125;
 页签组 / .v-tab-group / z-index: 120;
 回到上次阅读位置 / .v-resume-reading / z-index: 100;
 Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 导航历史入口 / .v-nav-history  / z-index: 100;
-xx 文档更多内容遮挡阴影（下）/ .v-more-doc-content-after / z-index: 69;
-适应宽度 / .v-fill-width / z-index: 65;
-xx 文档更多内容遮挡阴影（上） / .v-more-doc-content-before / z-index: 60
 
 ---------- 文档内容交互区 ----------
 
@@ -72,15 +76,21 @@ xx 文档更多内容遮挡阴影（上） / .v-more-doc-content-before / z-inde
 页签组 / .v-tab-group.float / z-index: 15;
 内容展开操作区 / .v-content-expander / .v-cap-cntr.expander::before / z-index: 10;
 
----------- 导航中心 ----------
-
-导航中心内文档抽屉入口 .v-doc-lib-board / z-index: 20;
-
 **************************************/
 
 // -----
 // 通用变量 #Common_CSS_Var
+
+// 不同类型按钮的尺寸定义
 @buttonHeight: 30px;
+@floatButtonWidth: 48px;
+@floatButtonHeight: 32px;
+
+// 按下时的变换缩放样式
+@activePressedTransform_short: ~'scale(0.9)';
+@activePressedTransform_normal: ~'scale(0.95)';
+@activePressedTransform_long: ~'scale(0.985)';
+
 :root {
     // 主题配套预置选项 vlook-header-autonum
     --vlook-header-autonum: @vHeaderAutoNum;
@@ -92,7 +102,12 @@ xx 文档更多内容遮挡阴影（上） / .v-more-doc-content-before / z-inde
     // 主题中强制控制，对大于指定层级的标题都不显示
     --v-hide-outline-over:@hideOutlineOver;
 
-    --v-footer: @docFooter; // 文档底部信息
+    --v-more-mask-b-h: 20px; // 文档更多内容遮罩 before 的高度，修改须与 vlook.js 中相关代码一并修改
+    --v-more-mask-a-h: 20px; // 文档更多内容遮罩 after 的高度，修改须与 vlook.js 中相关代码一并修改
+    --v-footer: @thmFooter; // 文档底部信息
+
+    --v-cap-up-symbol: @captionDirectionSymbol_up; // 题注内容方向指示符号-向上
+    --v-cap-down-symbol: @captionDirectionSymbol_down; // 题注内容方向指示符号-向下
 
     --v-summary-w: 24px;
     --v-ex-limit: 300px;
@@ -101,12 +116,11 @@ xx 文档更多内容遮挡阴影（上） / .v-more-doc-content-before / z-inde
     --c-b1: 1px solid var(--d-bc);
     --c-br-b: var(--v-r-b) var(--v-r-b-xc);
     --c-br-s: var(--v-r-s) var(--v-r-s-xc);
+    --b-br-b: var(--v-r-b) var(--v-r-b-xc);
+    --b-br-s: var(--v-r-s) var(--v-r-s-xc);
     .genButtonRadiusStyle(@style) when not (@style = std) {
-        // --v-r-btn: var(--v-r-s-xc);
-        // --v-r-btn: var(--v-r-b);
-        // --v-r-btn-xc: var(--v-r-b-xc);
-        --c-br-b: @buttonRadiusCircle;
-        --c-br-s: @buttonRadiusCircle;
+        --b-br-b: @buttonRadiusCircle;
+        --b-br-s: @buttonRadiusCircle;
     }
     .genButtonRadiusStyle(@buttonRadiusStyle);
 
@@ -117,8 +131,17 @@ xx 文档更多内容遮挡阴影（上） / .v-more-doc-content-before / z-inde
     --v-theme-email: @themeEmail; // 接收定制主题更新的电子邮箱
     --v-color-scheme: light; // 默认颜色模式为：Light 明亮
     --thm-fav: var(--thm-fav-lg);
+    --thm-fav-c: var(--thm-fav); // 小封面用的 logo
     --thm-c-t-pd: @coverTextPadding;
+    --thm-o-t-pd: @ownerTextPadding;
     --thm-bc-t-pd: @backcoverTextPadding;
+
+    --tbl-freeze-head: @tableFreezeHead;
+    --tbl-freeze-column: @tableFreezeColumn;
+
+    --nav-center-style: @navCenterStyle; // 导航中心风格
+
+    --fill-width: @thmFillWidthMode;
 
     // 针对 Restricted 相关数据
     --v-restr: @restricted;
@@ -128,15 +151,13 @@ xx 文档更多内容遮挡阴影（上） / .v-more-doc-content-before / z-inde
 
     // 导航中心、工具栏相关 UI 尺寸
     --v-nav-center-w:@navCenterWidth;
-    --v-write-ml-def: calc(var(--v-nav-center-w) + 30px);
+    --v-write-ml-def: calc(var(--v-nav-center-w) + @writePaddingRight);
     --v-write-ml: var(--v-write-ml-def);
-    // --v-tb-btn-w:40px;
     --v-tb-btn-w:44px;
     --v-tb-btn-s:10px;
     --v-top-margin:8px;
     --v-seg-h:30px;
     --v-scroll-margin-top:100px;
-    // --v-sticky-top:55px;
     --v-sticky-top:60px;
     --v-tab-group-h:0px; // 不同样式的页签组组件的实际渲染的高度
     --v-scroll-prog:0%;
@@ -156,34 +177,32 @@ xx 文档更多内容遮挡阴影（上） / .v-more-doc-content-before / z-inde
     --cur-ptr-lg: url("data:image/svg+xml,%3Csvg width='18' height='20' viewBox='0 0 18 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M11.771 7.337l-4.984-.562v-4.2c0-.773-.618-1.4-1.38-1.4a1.39 1.39 0 0 0-1.38 1.4v8.4l-2.092-.848a1.363 1.363 0 0 0-1.094.03 1.393 1.393 0 0 0-.729.827l-.078.238a.705.705 0 0 0 .214.76l3.587 3.032c.123.104.28.161.441.161h7.343c.366 0 .717-.147.976-.41a1.41 1.41 0 0 0 .404-.99V8.728c0-.713-.53-1.312-1.228-1.39z' id='b'/%3E%3Cfilter x='-32.7%25' y='-25%25' width='167.3%25' height='164.3%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='1' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg transform='rotate(-22 6.851 8.641)' fill='%23000' fill-rule='nonzero'%3E%3Cuse filter='url(%23a)' xlink:href='%23b'/%3E%3Cpath stroke='%23FFF' d='M5.407.675c.52 0 .991.213 1.332.56.338.342.548.816.548 1.34v3.753l4.54.512a1.87 1.87 0 0 1 1.195.624c.297.337.477.781.477 1.264v5.047c0 .503-.198.986-.548 1.341a1.87 1.87 0 0 1-1.332.56H4.102l-4.349-3.449c-.06-1.896.354-2.26.771-2.472l.104-.05a1.862 1.862 0 0 1 1.494-.042l1.405.57V2.575c0-.524.21-.998.548-1.34.34-.347.812-.56 1.332-.56z' fill-rule='evenodd'/%3E%3C/g%3E%3Cpath fill='none' d='M16 0h2v20h-2z'/%3E%3C/g%3E%3C/svg%3E"), auto;
     --cur-copy-lg: url("data:image/svg+xml,%3Csvg width='36' height='20' viewBox='0 0 36 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-19.4%25' y='-15.6%25' width='138.9%25' height='143.8%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1' result='shadowMatrixOuter1'/%3E%3CfeMerge%3E%3CfeMergeNode in='shadowMatrixOuter1'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cpath d='M11.771 7.337l-4.984-.562v-4.2c0-.773-.618-1.4-1.38-1.4a1.39 1.39 0 0 0-1.38 1.4v8.4l-2.092-.848a1.363 1.363 0 0 0-1.094.03 1.393 1.393 0 0 0-.729.827l-.078.238a.705.705 0 0 0 .214.76l3.587 3.032c.123.104.28.161.441.161h7.343c.366 0 .717-.147.976-.41a1.41 1.41 0 0 0 .404-.99V8.728c0-.713-.53-1.312-1.228-1.39z' id='c'/%3E%3Cfilter x='-32.7%25' y='-25%25' width='167.3%25' height='164.3%25' filterUnits='objectBoundingBox' id='b'%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='1' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill-rule='nonzero' fill='none'%3E%3Cg filter='url(%23a)' transform='translate(16.851 1)'%3E%3Cpath d='M0 10V3a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3 3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3 3 3 0 0 1-3-3z' fill='%23FFF'/%3E%3Crect fill='%23000' x='4' y='4' width='13' height='11' rx='2'/%3E%3Cpath d='M12 1a2 2 0 0 1 2 2H6a3 3 0 0 0-2.995 2.824L3 6v6a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h9z' fill='%23000'/%3E%3C/g%3E%3Cg transform='rotate(-22 6.424 8.558)' fill='%23000'%3E%3Cuse filter='url(%23b)' xlink:href='%23c'/%3E%3Cpath stroke='%23FFF' d='M5.407.675c.52 0 .991.213 1.332.56.338.342.548.816.548 1.34v3.753l4.54.512a1.87 1.87 0 0 1 1.195.624c.297.337.477.781.477 1.264v5.047c0 .503-.198.986-.548 1.341a1.87 1.87 0 0 1-1.332.56H4.102l-4.349-3.449c-.06-1.896.354-2.26.771-2.472l.104-.05a1.862 1.862 0 0 1 1.494-.042l1.405.57V2.575c0-.524.21-.998.548-1.34.34-.347.812-.56 1.332-.56z' fill-rule='evenodd'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), auto;
     --cur-ptr-text-lg: url("data:image/svg+xml,%3Csvg width='28' height='20' viewBox='0 0 28 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-12.4%25' y='-11.4%25' width='124.3%25' height='131.8%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1' result='shadowMatrixOuter1'/%3E%3CfeMerge%3E%3CfeMergeNode in='shadowMatrixOuter1'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cpath d='M11.771 7.337l-4.984-.562v-4.2c0-.773-.618-1.4-1.38-1.4a1.39 1.39 0 0 0-1.38 1.4v8.4l-2.092-.848a1.363 1.363 0 0 0-1.094.03 1.393 1.393 0 0 0-.729.827l-.078.238a.705.705 0 0 0 .214.76l3.587 3.032c.123.104.28.161.441.161h7.343c.366 0 .717-.147.976-.41a1.41 1.41 0 0 0 .404-.99V8.728c0-.713-.53-1.312-1.228-1.39z' id='c'/%3E%3Cfilter x='-32.7%25' y='-25%25' width='167.3%25' height='164.3%25' filterUnits='objectBoundingBox' id='b'%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='1' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23a)' transform='translate(-.149)' fill='none' fill-rule='evenodd'%3E%3Cpath d='M22.956 1.019a1 1 0 1 1 .386 1.962c-.614.12-1 .25-1.093.319l-.08.06c-.203.146-.503.349-.906.612l-.114.073V8a1 1 0 1 1 0 2v3.953l.157.103c.43.281.743.494.943.644.103.078.483.204 1.085.317a1 1 0 1 1-.37 1.966c-.881-.166-1.501-.372-1.915-.683-.169-.126-.47-.331-.898-.61a19.09 19.09 0 0 0-.902.61c-.392.294-1 .497-1.9.68a1 1 0 1 1-.4-1.96c.624-.127 1.017-.258 1.1-.32.192-.144.516-.364.98-.667l.12-.079V10a1 1 0 1 1 0-2V4.044l-.126-.081c-.35-.229-.618-.409-.81-.543l-.164-.12c-.075-.056-.473-.189-1.105-.321a1 1 0 1 1 .41-1.958c.91.19 1.511.391 1.895.679.15.112.452.317.9.61.436-.284.739-.49.9-.61.402-.302 1.015-.506 1.907-.681z' fill='%23000' fill-rule='nonzero' stroke='%23FFF'/%3E%3Cg transform='rotate(-22 6.926 8.258)' fill='%23000' fill-rule='nonzero'%3E%3Cuse filter='url(%23b)' xlink:href='%23c'/%3E%3Cpath stroke='%23FFF' d='M5.407.675c.52 0 .991.213 1.332.56.338.342.548.816.548 1.34v3.753l4.54.512a1.87 1.87 0 0 1 1.195.624c.297.337.477.781.477 1.264v5.047c0 .503-.198.986-.548 1.341a1.87 1.87 0 0 1-1.332.56H4.102l-4.349-3.449c-.06-1.896.354-2.26.771-2.472l.104-.05a1.862 1.862 0 0 1 1.494-.042l1.405.57V2.575c0-.524.21-.998.548-1.34.34-.347.812-.56 1.332-.56z' fill-rule='evenodd'/%3E%3C/g%3E%3Cpath fill='none' d='M26 0h2v22h-2z'/%3E%3C/g%3E%3C/svg%3E"), auto;
-    --cur-laser-lg: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgZng9IjUwJSIgZnk9IjUwJSIgaWQ9ImEiPjxzdG9wIHN0b3AtY29sb3I9InJlZCIgb2Zmc2V0PSIwJSIvPjxzdG9wIHN0b3AtY29sb3I9InJlZCIgc3RvcC1vcGFjaXR5PSIuNzUiIG9mZnNldD0iMjAlIi8+PHN0b3Agc3RvcC1jb2xvcj0icmVkIiBzdG9wLW9wYWNpdHk9IjAiIG9mZnNldD0iMTAwJSIvPjwvcmFkaWFsR3JhZGllbnQ+PHJhZGlhbEdyYWRpZW50IGZ4PSI1MCUiIGZ5PSI1MCUiIGlkPSJiIj48c3RvcCBzdG9wLWNvbG9yPSIjRkZGIiBvZmZzZXQ9IjAlIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0ZGRiIgb2Zmc2V0PSIxMiUiLz48c3RvcCBzdG9wLWNvbG9yPSJyZWQiIG9mZnNldD0iMjMuMTY4JSIvPjxzdG9wIHN0b3AtY29sb3I9InJlZCIgb2Zmc2V0PSIxMDAlIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTIgMjRjNi42MjcgMCAxMi01LjM3MyAxMi0xMlMxOC42MjcgMCAxMiAwIDAgNS4zNzMgMCAxMnM1LjM3MyAxMiAxMiAxMnoiIGZpbGw9InVybCgjYSkiLz48Y2lyY2xlIGZpbGw9InVybCgjYikiIGN4PSIxMiIgY3k9IjEyIiByPSI2Ii8+PC9nPjwvc3ZnPg==") 12 12, auto;
     --cur-doclib-lg: url("data:image/svg+xml,%3Csvg width='76' height='20' viewBox='0 0 76 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M11.771 7.337l-4.984-.562v-4.2c0-.773-.618-1.4-1.38-1.4a1.39 1.39 0 0 0-1.38 1.4v8.4l-2.092-.848a1.363 1.363 0 0 0-1.094.03 1.393 1.393 0 0 0-.729.827l-.078.238a.705.705 0 0 0 .214.76l3.587 3.032c.123.104.28.161.441.161h7.343c.366 0 .717-.147.976-.41a1.41 1.41 0 0 0 .404-.99V8.728c0-.713-.53-1.312-1.228-1.39z' id='b'/%3E%3Cfilter x='-32.7%25' y='-25%25' width='167.3%25' height='164.3%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='1' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3Cpath d='M0 0h51a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V0z' id='d'/%3E%3Cfilter x='-6.4%25' y='-17.9%25' width='112.7%25' height='150%25' filterUnits='objectBoundingBox' id='c'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg transform='rotate(-22 6.499 8.175)' fill='%23000' fill-rule='nonzero'%3E%3Cuse filter='url(%23a)' xlink:href='%23b'/%3E%3Cpath stroke='%23FFF' d='M5.407.675c.52 0 .991.213 1.332.56.338.342.548.816.548 1.34v3.753l4.54.512a1.87 1.87 0 0 1 1.195.624c.297.337.477.781.477 1.264v5.047c0 .503-.198.986-.548 1.341a1.87 1.87 0 0 1-1.332.56H4.102l-4.349-3.449c-.06-1.896.354-2.26.771-2.472l.104-.05a1.862 1.862 0 0 1 1.494-.042l1.405.57V2.575c0-.524.21-.998.548-1.34.34-.347.812-.56 1.332-.56z' fill-rule='evenodd'/%3E%3C/g%3E%3Cg transform='translate(18 1)'%3E%3Cuse fill='%23000' filter='url(%23c)' xlink:href='%23d'/%3E%3Cpath stroke='%23D0F8FB' d='M51 .5c.966 0 1.841.392 2.475 1.025A3.489 3.489 0 0 1 54.5 4v6c0 .966-.392 1.841-1.025 2.475A3.489 3.489 0 0 1 51 13.5H4a3.489 3.489 0 0 1-2.475-1.025A3.489 3.489 0 0 1 .5 10V.5z' stroke-linejoin='square' fill='%2310A8BE'/%3E%3C/g%3E%3Cg fill='%23FFF' fill-rule='nonzero'%3E%3Cpath d='M33.17 11.166h4.041V10.05h-2.709V4.497H33.17zM38.372 11.166h1.332v-6.67h-1.332zM41.342 11.166h2.376c1.467 0 2.574-.621 2.574-1.962 0-.891-.522-1.404-1.242-1.575v-.036c.567-.207.91-.828.91-1.45 0-1.241-1.045-1.646-2.413-1.646h-2.205v6.669zm1.332-3.951V5.523h.792c.801 0 1.197.234 1.197.819 0 .53-.36.873-1.206.873h-.783zm0 2.925V8.196h.927c.918 0 1.395.279 1.395.927 0 .693-.495 1.017-1.395 1.017h-.927zM48.803 7.593V5.559h.864c.855 0 1.323.243 1.323.963 0 .71-.468 1.07-1.323 1.07h-.864zm2.295 3.573h1.485l-1.557-2.727c.765-.297 1.27-.918 1.27-1.917 0-1.53-1.108-2.025-2.512-2.025h-2.313v6.669h1.332v-2.52h.927l1.368 2.52zM52.682 11.166h1.35l.468-1.71h2.151l.468 1.71h1.404l-2.133-6.67h-1.575l-2.133 6.67zm2.106-2.745l.198-.73c.198-.692.387-1.448.567-2.177h.036c.198.71.378 1.485.585 2.178l.198.729h-1.584zM60.638 7.593V5.559h.864c.855 0 1.323.243 1.323.963 0 .71-.468 1.07-1.323 1.07h-.864zm2.295 3.573h1.485l-1.557-2.727c.765-.297 1.27-.918 1.27-1.917 0-1.53-1.108-2.025-2.512-2.025h-2.313v6.669h1.332v-2.52h.927l1.368 2.52zM66.47 11.166h1.323v-2.44l2.007-4.23h-1.386l-.666 1.63c-.198.495-.387.963-.594 1.476h-.036a81.832 81.832 0 0 1-.576-1.476l-.666-1.63h-1.413l2.007 4.23v2.44z'/%3E%3C/g%3E%3Cpath d='M28.667 4C29.403 4 30 4.597 30 5.333v5.334c0 .736-.597 1.333-1.333 1.333h-6.334A1.333 1.333 0 0 1 21 10.667V5.333C21 4.597 21.597 4 22.333 4h6.334zM26.85 8h-2.7c0 .736.604 1.333 1.35 1.333.745 0 1.35-.597 1.35-1.333zm1.81-.889H22.34a.889.889 0 0 0-.888.889h8.1l-.007-.112a.89.89 0 0 0-.882-.777zm0-1.333H22.34a.889.889 0 0 0-.888.889h8.1l-.007-.112a.89.89 0 0 0-.882-.777zm0-1.334H22.34a.889.889 0 0 0-.888.89h8.1l-.007-.112a.89.89 0 0 0-.882-.778z' fill='%23FFF' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E"), auto;
     --cur-http-lg: url("data:image/svg+xml,%3Csvg width='60' height='20' viewBox='0 0 60 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M11.771 7.337l-4.984-.562v-4.2c0-.773-.618-1.4-1.38-1.4a1.39 1.39 0 0 0-1.38 1.4v8.4l-2.092-.848a1.363 1.363 0 0 0-1.094.03 1.393 1.393 0 0 0-.729.827l-.078.238a.705.705 0 0 0 .214.76l3.587 3.032c.123.104.28.161.441.161h7.343c.366 0 .717-.147.976-.41a1.41 1.41 0 0 0 .404-.99V8.728c0-.713-.53-1.312-1.228-1.39z' id='b'/%3E%3Cfilter x='-32.7%25' y='-25%25' width='167.3%25' height='164.3%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='1' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3Cpath d='M0 0h36a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V0z' id='d'/%3E%3Cfilter x='-8.8%25' y='-17.9%25' width='117.5%25' height='150%25' filterUnits='objectBoundingBox' id='c'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg transform='rotate(-22 6.499 8.175)' fill='%23000' fill-rule='nonzero'%3E%3Cuse filter='url(%23a)' xlink:href='%23b'/%3E%3Cpath stroke='%23FFF' d='M5.407.675c.52 0 .991.213 1.332.56.338.342.548.816.548 1.34v3.753l4.54.512a1.87 1.87 0 0 1 1.195.624c.297.337.477.781.477 1.264v5.047c0 .503-.198.986-.548 1.341a1.87 1.87 0 0 1-1.332.56H4.102l-4.349-3.449c-.06-1.896.354-2.26.771-2.472l.104-.05a1.862 1.862 0 0 1 1.494-.042l1.405.57V2.575c0-.524.21-.998.548-1.34.34-.347.812-.56 1.332-.56z' fill-rule='evenodd'/%3E%3C/g%3E%3Cg transform='translate(18 1)'%3E%3Cuse fill='%23000' filter='url(%23c)' xlink:href='%23d'/%3E%3Cpath stroke='%23FCD9D9' d='M36 .5c.966 0 1.841.392 2.475 1.025A3.489 3.489 0 0 1 39.5 4v6c0 .966-.392 1.841-1.025 2.475A3.489 3.489 0 0 1 36 13.5H4a3.489 3.489 0 0 1-2.475-1.025A3.489 3.489 0 0 1 .5 10V.5z' stroke-linejoin='square' fill='%23C01010'/%3E%3C/g%3E%3Cg fill='%23FFF' fill-rule='nonzero'%3E%3Cpath d='M31.17 11.166h1.332v-2.88h2.52v2.88h1.323v-6.67h-1.323v2.638h-2.52V4.497H31.17zM39.306 11.166h1.332V5.613h1.881V4.497h-5.085v1.116h1.872zM44.931 11.166h1.332V5.613h1.881V4.497H43.06v1.116h1.872zM49.233 11.166h1.332V8.799h.891c1.431 0 2.574-.684 2.574-2.205 0-1.575-1.134-2.097-2.61-2.097h-2.187v6.669zm1.332-3.42V5.559h.756c.918 0 1.404.26 1.404 1.035 0 .765-.44 1.152-1.359 1.152h-.8z'/%3E%3C/g%3E%3Cpath d='M27.834 5.354l-3.23-1.333a.272.272 0 0 0-.208 0l-3.23 1.333A.267.267 0 0 0 21 5.6v1.9a4.697 4.697 0 0 0 2.974 4.362c.24.096.402.138.526.138s.286-.042.526-.138A4.697 4.697 0 0 0 28 7.5V5.6a.267.267 0 0 0-.166-.246zm-1.748 3.379a.424.424 0 0 1 0 .603.434.434 0 0 1-.61 0l-.987-.978-.987.978a.434.434 0 0 1-.721-.191.424.424 0 0 1 .111-.412l.988-.978-.988-.979a.424.424 0 0 1 0-.603.434.434 0 0 1 .61 0l.987.978.988-.978a.434.434 0 0 1 .61 0 .424.424 0 0 1 0 .603l-.989.979.988.978z' fill='%23FFF' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E"), auto;
     --cur-https-lg: url("data:image/svg+xml,%3Csvg width='66' height='20' viewBox='0 0 66 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M11.771 7.337l-4.984-.562v-4.2c0-.773-.618-1.4-1.38-1.4a1.39 1.39 0 0 0-1.38 1.4v8.4l-2.092-.848a1.363 1.363 0 0 0-1.094.03 1.393 1.393 0 0 0-.729.827l-.078.238a.705.705 0 0 0 .214.76l3.587 3.032c.123.104.28.161.441.161h7.343c.366 0 .717-.147.976-.41a1.41 1.41 0 0 0 .404-.99V8.728c0-.713-.53-1.312-1.228-1.39z' id='b'/%3E%3Cfilter x='-32.7%25' y='-25%25' width='167.3%25' height='164.3%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='1' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3Cpath d='M0 0h41a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V0z' id='d'/%3E%3Cfilter x='-7.8%25' y='-17.9%25' width='115.6%25' height='150%25' filterUnits='objectBoundingBox' id='c'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg transform='rotate(-22 6.499 8.175)' fill='%23000' fill-rule='nonzero'%3E%3Cuse filter='url(%23a)' xlink:href='%23b'/%3E%3Cpath stroke='%23FFF' d='M5.407.675c.52 0 .991.213 1.332.56.338.342.548.816.548 1.34v3.753l4.54.512a1.87 1.87 0 0 1 1.195.624c.297.337.477.781.477 1.264v5.047c0 .503-.198.986-.548 1.341a1.87 1.87 0 0 1-1.332.56H4.102l-4.349-3.449c-.06-1.896.354-2.26.771-2.472l.104-.05a1.862 1.862 0 0 1 1.494-.042l1.405.57V2.575c0-.524.21-.998.548-1.34.34-.347.812-.56 1.332-.56z' fill-rule='evenodd'/%3E%3C/g%3E%3Cg transform='translate(18 1)'%3E%3Cuse fill='%23000' filter='url(%23c)' xlink:href='%23d'/%3E%3Cpath stroke='%23D5FBDE' d='M41 .5c.966 0 1.841.392 2.475 1.025A3.489 3.489 0 0 1 44.5 4v6c0 .966-.392 1.841-1.025 2.475A3.489 3.489 0 0 1 41 13.5H4a3.489 3.489 0 0 1-2.475-1.025A3.489 3.489 0 0 1 .5 10V.5z' stroke-linejoin='square' fill='%2310A030'/%3E%3C/g%3E%3Cg fill='%23FFF' fill-rule='nonzero'%3E%3Cpath d='M31.17 11.166h1.332v-2.88h2.52v2.88h1.323v-6.67h-1.323v2.638h-2.52V4.497H31.17zM39.306 11.166h1.332V5.613h1.881V4.497h-5.085v1.116h1.872zM44.931 11.166h1.332V5.613h1.881V4.497H43.06v1.116h1.872zM49.233 11.166h1.332V8.799h.891c1.431 0 2.574-.684 2.574-2.205 0-1.575-1.134-2.097-2.61-2.097h-2.187v6.669zm1.332-3.42V5.559h.756c.918 0 1.404.26 1.404 1.035 0 .765-.44 1.152-1.359 1.152h-.8zM57.117 11.292c1.54 0 2.448-.927 2.448-2.016 0-.963-.53-1.485-1.34-1.818l-.874-.351c-.567-.234-1.035-.405-1.035-.882 0-.441.36-.702.945-.702.558 0 1 .207 1.422.549l.675-.828a2.97 2.97 0 0 0-2.097-.864c-1.34 0-2.304.846-2.304 1.926 0 .972.684 1.512 1.36 1.782l.881.387c.594.252 1.008.405 1.008.9 0 .468-.369.765-1.062.765-.585 0-1.224-.297-1.692-.738l-.765.918c.648.63 1.54.972 2.43.972z'/%3E%3C/g%3E%3Cpath d='M27.834 5.354l-3.23-1.333a.272.272 0 0 0-.208 0l-3.23 1.333A.267.267 0 0 0 21 5.6v1.9a4.697 4.697 0 0 0 2.974 4.362c.24.096.402.138.526.138s.286-.042.526-.138A4.697 4.697 0 0 0 28 7.5V5.6a.267.267 0 0 0-.166-.246zm-1.492 2.055l-1.754 1.895a.43.43 0 0 1-.307.133.413.413 0 0 1-.285-.111l-1.097-1.003a.436.436 0 0 1-.022-.624.42.42 0 0 1 .614-.022l.768.713 1.469-1.56a.44.44 0 0 1 .614-.022c.175.134.175.423 0 .601z' fill='%23FFF' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E"), auto;
     --cur-email-lg: url("data:image/svg+xml,%3Csvg width='64' height='20' viewBox='0 0 64 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M11.771 7.337l-4.984-.562v-4.2c0-.773-.618-1.4-1.38-1.4a1.39 1.39 0 0 0-1.38 1.4v8.4l-2.092-.848a1.363 1.363 0 0 0-1.094.03 1.393 1.393 0 0 0-.729.827l-.078.238a.705.705 0 0 0 .214.76l3.587 3.032c.123.104.28.161.441.161h7.343c.366 0 .717-.147.976-.41a1.41 1.41 0 0 0 .404-.99V8.728c0-.713-.53-1.312-1.228-1.39z' id='b'/%3E%3Cfilter x='-32.7%25' y='-25%25' width='167.3%25' height='164.3%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='1' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3Cpath d='M0 0h40a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V0z' id='d'/%3E%3Cfilter x='-8%25' y='-17.9%25' width='115.9%25' height='150%25' filterUnits='objectBoundingBox' id='c'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg transform='rotate(-22 6.499 8.175)' fill='%23000' fill-rule='nonzero'%3E%3Cuse filter='url(%23a)' xlink:href='%23b'/%3E%3Cpath stroke='%23FFF' d='M5.407.675c.52 0 .991.213 1.332.56.338.342.548.816.548 1.34v3.753l4.54.512a1.87 1.87 0 0 1 1.195.624c.297.337.477.781.477 1.264v5.047c0 .503-.198.986-.548 1.341a1.87 1.87 0 0 1-1.332.56H4.102l-4.349-3.449c-.06-1.896.354-2.26.771-2.472l.104-.05a1.862 1.862 0 0 1 1.494-.042l1.405.57V2.575c0-.524.21-.998.548-1.34.34-.347.812-.56 1.332-.56z' fill-rule='evenodd'/%3E%3C/g%3E%3Cg transform='translate(18 1)'%3E%3Cuse fill='%23000' filter='url(%23c)' xlink:href='%23d'/%3E%3Cpath stroke='%23D4EAFC' d='M40 .5c.966 0 1.841.392 2.475 1.025A3.489 3.489 0 0 1 43.5 4v6c0 .966-.392 1.841-1.025 2.475A3.489 3.489 0 0 1 40 13.5H4a3.489 3.489 0 0 1-2.475-1.025A3.489 3.489 0 0 1 .5 10V.5z' stroke-linejoin='square' fill='%231090F0'/%3E%3C/g%3E%3Cg fill='%23FFF' fill-rule='nonzero'%3E%3Cpath d='M32.17 11.166h4.185V10.05h-2.853V8.268h2.331V7.152h-2.33v-1.54h2.753V4.498H32.17zM37.705 11.166h1.197V8.385c0-.64-.108-1.557-.17-2.187h.035l.531 1.566 1.035 2.799h.765l1.026-2.8.54-1.565h.045c-.072.63-.17 1.548-.17 2.187v2.78h1.214V4.498h-1.476l-1.116 3.132c-.135.405-.252.846-.396 1.269h-.045c-.135-.423-.26-.864-.405-1.27l-1.134-3.131h-1.476v6.669zM44.527 11.166h1.35l.468-1.71h2.151l.468 1.71h1.404l-2.133-6.67H46.66l-2.133 6.67zm2.106-2.745l.198-.73c.198-.692.387-1.448.567-2.177h.036c.198.71.378 1.485.585 2.178l.198.729h-1.584zM51.151 11.166h1.332v-6.67h-1.332zM54.121 11.166h4.041V10.05h-2.709V4.497h-1.332z'/%3E%3C/g%3E%3Cpath d='M28.333 5h-6.666c-.369 0-.667.316-.667.706v4.588c0 .39.298.706.667.706h6.666c.369 0 .667-.316.667-.706V5.706c0-.39-.298-.706-.667-.706zm-.215 1.784l-2.76 1.518a.711.711 0 0 1-.685.002l-2.792-1.52a.363.363 0 0 1-.144-.475.325.325 0 0 1 .449-.152l2.792 1.519c.023.012.05.012.073 0l2.76-1.519a.317.317 0 0 1 .335.014.36.36 0 0 1 .154.315.355.355 0 0 1-.182.298z' fill='%23FFF' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E"), auto;
     --cur-risk-lg: url("data:image/svg+xml,%3Csvg width='59' height='20' viewBox='0 0 59 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M11.771 7.337l-4.984-.562v-4.2c0-.773-.618-1.4-1.38-1.4a1.39 1.39 0 0 0-1.38 1.4v8.4l-2.092-.848a1.363 1.363 0 0 0-1.094.03 1.393 1.393 0 0 0-.729.827l-.078.238a.705.705 0 0 0 .214.76l3.587 3.032c.123.104.28.161.441.161h7.343c.366 0 .717-.147.976-.41a1.41 1.41 0 0 0 .404-.99V8.728c0-.713-.53-1.312-1.228-1.39z' id='b'/%3E%3Cfilter x='-32.7%25' y='-25%25' width='167.3%25' height='164.3%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='1' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3Cpath d='M0 0h34a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V0z' id='d'/%3E%3Cfilter x='-9.2%25' y='-17.9%25' width='118.4%25' height='150%25' filterUnits='objectBoundingBox' id='c'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3Cpath d='M0 0h34a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V0z' id='e'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg transform='rotate(-22 6.499 8.175)' fill='%23000' fill-rule='nonzero'%3E%3Cuse filter='url(%23a)' xlink:href='%23b'/%3E%3Cpath stroke='%23FFF' d='M5.407.675c.52 0 .991.213 1.332.56.338.342.548.816.548 1.34v3.753l4.54.512a1.87 1.87 0 0 1 1.195.624c.297.337.477.781.477 1.264v5.047c0 .503-.198.986-.548 1.341a1.87 1.87 0 0 1-1.332.56H4.102l-4.349-3.449c-.06-1.896.354-2.26.771-2.472l.104-.05a1.862 1.862 0 0 1 1.494-.042l1.405.57V2.575c0-.524.21-.998.548-1.34.34-.347.812-.56 1.332-.56z' fill-rule='evenodd'/%3E%3C/g%3E%3Cg transform='translate(18 1)'%3E%3Cuse fill='%23000' filter='url(%23c)' xlink:href='%23d'/%3E%3Cpath stroke='%23F87210' d='M34 .5c.966 0 1.841.392 2.475 1.025A3.489 3.489 0 0 1 37.5 4v6c0 .966-.392 1.841-1.025 2.475A3.489 3.489 0 0 1 34 13.5H4a3.489 3.489 0 0 1-2.475-1.025A3.489 3.489 0 0 1 .5 10V.5z' stroke-linejoin='square' fill='%23F87210'/%3E%3C/g%3E%3Cg transform='translate(18 1)'%3E%3Cmask id='f' fill='%23fff'%3E%3Cuse xlink:href='%23e'/%3E%3C/mask%3E%3Cpath d='M13 0L1 14h-6L7 0h6zm11 0L12 14H6L18 0h6zm11 0L23 14h-6L29 0h6zm11 0L34 14h-6L40 0h6zm11 0L45 14h-6L51 0h6zm11 0L56 14h-6L62 0h6z' fill='%23000' mask='url(%23f)'/%3E%3C/g%3E%3Cg fill='%23FFF' fill-rule='nonzero'%3E%3Cpath d='M33.476 7.539v-1.8h.72c.765 0 1.18.207 1.18.837s-.415.963-1.18.963h-.72zm2.007 3.627h1.8L35.79 8.51c.693-.324 1.152-.954 1.152-1.935 0-1.62-1.188-2.115-2.619-2.115h-2.457v6.705h1.611V8.808h.774l1.233 2.358zM38.237 11.166h1.611V4.46h-1.61zM43.466 11.292c1.62 0 2.556-.981 2.556-2.097 0-.945-.495-1.503-1.323-1.836l-.837-.333c-.594-.234-1.008-.378-1.008-.756 0-.351.297-.55.792-.55.522 0 .936.18 1.377.514l.801-1.008c-.585-.585-1.404-.882-2.178-.882-1.422 0-2.43.9-2.43 2.025 0 .972.657 1.557 1.36 1.836l.854.36c.576.243.945.369.945.756 0 .36-.279.585-.873.585-.53 0-1.152-.28-1.62-.684l-.918 1.107a3.747 3.747 0 0 0 2.502.963zM47.138 11.166h1.611V9.41l.73-.99 1.583 2.745h1.755l-2.403-4.014L52.44 4.46h-1.764l-1.899 2.655h-.027V4.46h-1.61z'/%3E%3C/g%3E%3Cpath d='M25.5 4c.26 0 .5.137.625.358l3.785 6.612a.675.675 0 0 1-.009.689.719.719 0 0 1-.616.341h-7.57a.719.719 0 0 1-.616-.341.675.675 0 0 1-.009-.689l3.785-6.612A.718.718 0 0 1 25.5 4zm0 5.92a.845.845 0 0 0-.857.832c0 .298.163.572.429.72a.88.88 0 0 0 .857 0 .828.828 0 0 0 .428-.72.845.845 0 0 0-.857-.831zm0-4.158l-.114.005c-.4.035-.6.264-.6.688v2.08c0 .461.238.692.714.692l.114-.004c.4-.036.6-.265.6-.689V6.455c0-.462-.238-.693-.714-.693z' fill='%23FFF' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E"), auto;
     --cur-inner-lg: url("data:image/svg+xml,%3Csvg width='35' height='20' viewBox='0 0 35 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M11.771 7.337l-4.984-.562v-4.2c0-.773-.618-1.4-1.38-1.4a1.39 1.39 0 0 0-1.38 1.4v8.4l-2.092-.848a1.363 1.363 0 0 0-1.094.03 1.393 1.393 0 0 0-.729.827l-.078.238a.705.705 0 0 0 .214.76l3.587 3.032c.123.104.28.161.441.161h7.343c.366 0 .717-.147.976-.41a1.41 1.41 0 0 0 .404-.99V8.728c0-.713-.53-1.312-1.228-1.39z' id='b'/%3E%3Cfilter x='-32.7%25' y='-25%25' width='167.3%25' height='164.3%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='1' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3Cpath d='M0 0h11a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V0z' id='d'/%3E%3Cfilter x='-23.3%25' y='-17.9%25' width='146.7%25' height='150%25' filterUnits='objectBoundingBox' id='c'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg transform='rotate(-22 6.499 8.175)' fill='%23000' fill-rule='nonzero'%3E%3Cuse filter='url(%23a)' xlink:href='%23b'/%3E%3Cpath stroke='%23FFF' d='M5.407.675c.52 0 .991.213 1.332.56.338.342.548.816.548 1.34v3.753l4.54.512a1.87 1.87 0 0 1 1.195.624c.297.337.477.781.477 1.264v5.047c0 .503-.198.986-.548 1.341a1.87 1.87 0 0 1-1.332.56H4.102l-4.349-3.449c-.06-1.896.354-2.26.771-2.472l.104-.05a1.862 1.862 0 0 1 1.494-.042l1.405.57V2.575c0-.524.21-.998.548-1.34.34-.347.812-.56 1.332-.56z' fill-rule='evenodd'/%3E%3C/g%3E%3Cg transform='translate(18 1)'%3E%3Cuse fill='%23000' filter='url(%23c)' xlink:href='%23d'/%3E%3Cpath stroke='%23CCD1D6' d='M11 .5c.966 0 1.841.392 2.475 1.025A3.489 3.489 0 0 1 14.5 4v6c0 .966-.392 1.841-1.025 2.475A3.489 3.489 0 0 1 11 13.5H4a3.489 3.489 0 0 1-2.475-1.025A3.489 3.489 0 0 1 .5 10V.5z' stroke-linejoin='square' fill='%23888B8F'/%3E%3C/g%3E%3Cpath d='M23.45 9.31l-.264 1.314c-.01.054-.02.132-.02.185 0 .284.186.46.489.46.327 0 .517-.167.586-.508l.293-1.45h1.284l-.264 1.313a.8.8 0 0 0-.02.185c0 .284.181.46.489.46.322 0 .518-.171.586-.513l.293-1.446h.747c.376 0 .61-.234.61-.585 0-.279-.19-.47-.493-.47h-.66l.265-1.318h.732c.376 0 .61-.23.61-.58 0-.279-.19-.465-.498-.465h-.634l.249-1.23a.87.87 0 0 0 .02-.19c0-.284-.182-.46-.49-.46-.321 0-.517.171-.585.518l-.278 1.362h-1.28l.25-1.23c.01-.059.019-.137.019-.19 0-.284-.186-.46-.488-.46-.328 0-.518.171-.586.513l-.284 1.367h-.727c-.376 0-.61.235-.61.586 0 .279.19.464.493.464h.64l-.264 1.324h-.703c-.376 0-.61.229-.61.58 0 .279.19.464.492.464h.61zm1.2-.961l.304-1.5h1.425l-.307 1.5H24.65z' fill='%23FFF' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E"), auto;
-    --cur-full-screen-lg: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter x='-19.4%25' y='-13.9%25' width='138.9%25' height='138.9%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1' result='shadowMatrixOuter1'/%3E%3CfeMerge%3E%3CfeMergeNode in='shadowMatrixOuter1'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23a)' transform='translate(1.851 1)' fill-rule='nonzero' fill='none'%3E%3Cpath d='M8.498 0C13.182 0 17 3.812 17 8.5a8.455 8.455 0 0 1-.798 3.596l.946.946c.568.567.851 1.31.852 2.053 0 .744-.283 1.487-.85 2.054a2.896 2.896 0 0 1-2.054.851 2.896 2.896 0 0 1-2.054-.851l-.946-.947A8.45 8.45 0 0 1 8.502 17C3.815 17 0 13.188 0 8.5 0 3.812 3.815 0 8.498 0z' fill='%23FFF'/%3E%3Cpath d='M8.498 1C12.631 1 16 4.363 16 8.5a7.458 7.458 0 0 1-1.025 3.783l1.466 1.466a1.904 1.904 0 1 1-2.692 2.693l-1.466-1.467A7.453 7.453 0 0 1 8.502 16C4.366 16 1 12.637 1 8.5 1 4.363 4.366 1 8.498 1zm0 1.4A6.108 6.108 0 0 0 2.4 8.502a6.108 6.108 0 0 0 6.101 6.103A6.106 6.106 0 0 0 14.6 8.502 6.11 6.11 0 0 0 8.499 2.4zm3.036 6.401a.667.667 0 0 0 .666-.666V5.8a1 1 0 0 0-1-1H8.867a.667.667 0 1 0 0 1.333h2v2.002c0 .342.257.623.589.662l.078.004zM5.467 8.2a.667.667 0 0 0-.667.667V11.2a1 1 0 0 0 1 1h2.334a.667.667 0 1 0 0-1.333h-2V8.867a.667.667 0 0 0-.59-.663L5.467 8.2z' fill='%23000'/%3E%3C/g%3E%3C/svg%3E"), auto;
+    --cur-full-screen-lg: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter x='-19.4%25' y='-13.9%25' width='138.9%25' height='138.9%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1' result='shadowMatrixOuter1'/%3E%3CfeMerge%3E%3CfeMergeNode in='shadowMatrixOuter1'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23a)' transform='translate(1.851 1)' fill-rule='nonzero' fill='none'%3E%3Cpath d='M8.498 0C13.182 0 17 3.812 17 8.5a8.455 8.455 0 0 1-.798 3.596l.946.946c.568.567.851 1.31.852 2.053 0 .744-.283 1.487-.85 2.054a2.896 2.896 0 0 1-2.054.851 2.896 2.896 0 0 1-2.054-.851l-.946-.947A8.45 8.45 0 0 1 8.502 17C3.815 17 0 13.188 0 8.5 0 3.812 3.815 0 8.498 0z' fill='%23FFF'/%3E%3Cpath d='M8.498 1C12.631 1 16 4.363 16 8.5a7.458 7.458 0 0 1-1.025 3.783l1.466 1.466a1.904 1.904 0 1 1-2.692 2.693l-1.466-1.467A7.453 7.453 0 0 1 8.502 16C4.366 16 1 12.637 1 8.5 1 4.363 4.366 1 8.498 1zm0 1.4A6.108 6.108 0 0 0 2.4 8.502a6.108 6.108 0 0 0 6.101 6.103A6.106 6.106 0 0 0 14.6 8.502 6.11 6.11 0 0 0 8.499 2.4zm3.036 6.401a.667.667 0 0 0 .666-.666V5.8a1 1 0 0 0-1-1H8.867a.667.667 0 1 0 0 1.333h2v2.002c0 .342.257.623.589.662l.078.004zM5.467 8.2a.667.667 0 0 0-.667.667V11.2a1 1 0 0 0 1 1h2.334a.667.667 0 1 0 0-1.333h-2V8.867a.667.667 0 0 0-.59-.663L5.467 8.2z' fill='%23000'/%3E%3C/g%3E%3C/svg%3E") 10 10, auto;
 
     // 光标（Dark）
     --cur-ptr-dk: url("data:image/svg+xml,%3Csvg width='18' height='20' viewBox='0 0 18 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M6.787 6.775v-4.2c0-.773-.618-1.4-1.38-1.4a1.39 1.39 0 0 0-1.38 1.4v8.4l-2.092-.848a1.363 1.363 0 0 0-1.094.03 1.393 1.393 0 0 0-.729.827l-.078.238a.705.705 0 0 0 .214.76l3.587 3.032c.123.104.28.161.441.161h7.343c.366 0 .717-.147.976-.41a1.41 1.41 0 0 0 .404-.99V8.728c0-.713-.53-1.312-1.228-1.39l-4.984-.563z' id='b'/%3E%3Cfilter x='-32.7%25' y='-25%25' width='167.3%25' height='164.3%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='1' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg transform='rotate(-22 6.851 8.641)' fill-rule='nonzero'%3E%3Cuse fill='%23000' filter='url(%23a)' xlink:href='%23b'/%3E%3Cpath stroke='%23000' d='M5.407.675c.52 0 .991.213 1.332.56.338.342.548.816.548 1.34v3.753l4.54.512a1.87 1.87 0 0 1 1.195.624c.297.337.477.781.477 1.264v5.047c0 .503-.198.986-.548 1.341a1.87 1.87 0 0 1-1.332.56H4.102l-4.349-3.449c-.06-1.896.354-2.26.771-2.472l.104-.05a1.862 1.862 0 0 1 1.494-.042l1.405.57V2.575c0-.524.21-.998.548-1.34.34-.347.812-.56 1.332-.56z' fill='%23FFF' fill-rule='evenodd'/%3E%3C/g%3E%3Cpath fill='none' d='M16 0h2v20h-2z'/%3E%3C/g%3E%3C/svg%3E"), auto;
     --cur-copy-dk: url("data:image/svg+xml,%3Csvg width='36' height='20' viewBox='0 0 36 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-19.4%25' y='-15.6%25' width='138.9%25' height='143.8%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1' result='shadowMatrixOuter1'/%3E%3CfeMerge%3E%3CfeMergeNode in='shadowMatrixOuter1'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cpath d='M6.787 6.775v-4.2c0-.773-.618-1.4-1.38-1.4a1.39 1.39 0 0 0-1.38 1.4v8.4l-2.092-.848a1.363 1.363 0 0 0-1.094.03 1.393 1.393 0 0 0-.729.827l-.078.238a.705.705 0 0 0 .214.76l3.587 3.032c.123.104.28.161.441.161h7.343c.366 0 .717-.147.976-.41a1.41 1.41 0 0 0 .404-.99V8.728c0-.713-.53-1.312-1.228-1.39l-4.984-.563z' id='c'/%3E%3Cfilter x='-32.7%25' y='-25%25' width='167.3%25' height='164.3%25' filterUnits='objectBoundingBox' id='b'%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='1' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill-rule='nonzero' fill='none'%3E%3Cg filter='url(%23a)' transform='translate(16.851 1)'%3E%3Cpath d='M0 10V3a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3 3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3 3 3 0 0 1-3-3z' fill='%23000'/%3E%3Crect fill='%23FFF' x='4' y='4' width='13' height='11' rx='2'/%3E%3Cpath d='M12 1a2 2 0 0 1 2 2H6a3 3 0 0 0-2.995 2.824L3 6v6a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h9z' fill='%23FFF'/%3E%3C/g%3E%3Cg transform='rotate(-22 6.499 8.175)'%3E%3Cuse fill='%23000' filter='url(%23b)' xlink:href='%23c'/%3E%3Cpath stroke='%23000' d='M5.407.675c.52 0 .991.213 1.332.56.338.342.548.816.548 1.34v3.753l4.54.512a1.87 1.87 0 0 1 1.195.624c.297.337.477.781.477 1.264v5.047c0 .503-.198.986-.548 1.341a1.87 1.87 0 0 1-1.332.56H4.102l-4.349-3.449c-.06-1.896.354-2.26.771-2.472l.104-.05a1.862 1.862 0 0 1 1.494-.042l1.405.57V2.575c0-.524.21-.998.548-1.34.34-.347.812-.56 1.332-.56z' fill='%23FFF' fill-rule='evenodd'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), auto;
     --cur-ptr-text-dk: url("data:image/svg+xml,%3Csvg width='28' height='20' viewBox='0 0 28 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-12.4%25' y='-11.4%25' width='124.3%25' height='131.8%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1' result='shadowMatrixOuter1'/%3E%3CfeMerge%3E%3CfeMergeNode in='shadowMatrixOuter1'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cpath d='M6.787 6.775v-4.2c0-.773-.618-1.4-1.38-1.4a1.39 1.39 0 0 0-1.38 1.4v8.4l-2.092-.848a1.363 1.363 0 0 0-1.094.03 1.393 1.393 0 0 0-.729.827l-.078.238a.705.705 0 0 0 .214.76l3.587 3.032c.123.104.28.161.441.161h7.343c.366 0 .717-.147.976-.41a1.41 1.41 0 0 0 .404-.99V8.728c0-.713-.53-1.312-1.228-1.39l-4.984-.563z' id='c'/%3E%3Cfilter x='-32.7%25' y='-25%25' width='167.3%25' height='164.3%25' filterUnits='objectBoundingBox' id='b'%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='1' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23a)' transform='translate(-.149)' fill='none' fill-rule='evenodd'%3E%3Cpath d='M22.956 1.019a1 1 0 1 1 .386 1.962c-.614.12-1 .25-1.093.319l-.08.06c-.203.146-.503.349-.906.612l-.114.073V8a1 1 0 1 1 0 2v3.953l.157.103c.43.281.743.494.943.644.103.078.483.204 1.085.317a1 1 0 1 1-.37 1.966c-.881-.166-1.501-.372-1.915-.683-.169-.126-.47-.331-.898-.61a19.09 19.09 0 0 0-.902.61c-.392.294-1 .497-1.9.68a1 1 0 1 1-.4-1.96c.624-.127 1.017-.258 1.1-.32.192-.144.516-.364.98-.667l.12-.079V10a1 1 0 1 1 0-2V4.044l-.126-.081c-.35-.229-.618-.409-.81-.543l-.164-.12c-.075-.056-.473-.189-1.105-.321a1 1 0 1 1 .41-1.958c.91.19 1.511.391 1.895.679.15.112.452.317.9.61.436-.284.739-.49.9-.61.402-.302 1.015-.506 1.907-.681z' fill='%23FFF' fill-rule='nonzero' stroke='%23000'/%3E%3Cg transform='rotate(-22 6.926 8.258)' fill-rule='nonzero'%3E%3Cuse fill='%23000' filter='url(%23b)' xlink:href='%23c'/%3E%3Cpath stroke='%23000' d='M5.407.675c.52 0 .991.213 1.332.56.338.342.548.816.548 1.34v3.753l4.54.512a1.87 1.87 0 0 1 1.195.624c.297.337.477.781.477 1.264v5.047c0 .503-.198.986-.548 1.341a1.87 1.87 0 0 1-1.332.56H4.102l-4.349-3.449c-.06-1.896.354-2.26.771-2.472l.104-.05a1.862 1.862 0 0 1 1.494-.042l1.405.57V2.575c0-.524.21-.998.548-1.34.34-.347.812-.56 1.332-.56z' fill='%23FFF' fill-rule='evenodd'/%3E%3C/g%3E%3Cpath fill='none' d='M26 0h2v22h-2z'/%3E%3C/g%3E%3C/svg%3E"), auto;
-    --cur-laser-dk: var(--cur-laser-lg);
     --cur-doclib-dk: url("data:image/svg+xml,%3Csvg width='76' height='20' viewBox='0 0 76 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M6.787 6.775v-4.2c0-.773-.618-1.4-1.38-1.4a1.39 1.39 0 0 0-1.38 1.4v8.4l-2.092-.848a1.363 1.363 0 0 0-1.094.03 1.393 1.393 0 0 0-.729.827l-.078.238a.705.705 0 0 0 .214.76l3.587 3.032c.123.104.28.161.441.161h7.343c.366 0 .717-.147.976-.41a1.41 1.41 0 0 0 .404-.99V8.728c0-.713-.53-1.312-1.228-1.39l-4.984-.563z' id='b'/%3E%3Cfilter x='-32.7%25' y='-25%25' width='167.3%25' height='164.3%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='1' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3Cpath d='M0 0h51a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V0z' id='d'/%3E%3Cfilter x='-6.4%25' y='-17.9%25' width='112.7%25' height='150%25' filterUnits='objectBoundingBox' id='c'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg transform='rotate(-22 6.499 8.175)' fill-rule='nonzero'%3E%3Cuse fill='%23000' filter='url(%23a)' xlink:href='%23b'/%3E%3Cpath stroke='%23000' d='M5.407.675c.52 0 .991.213 1.332.56.338.342.548.816.548 1.34v3.753l4.54.512a1.87 1.87 0 0 1 1.195.624c.297.337.477.781.477 1.264v5.047c0 .503-.198.986-.548 1.341a1.87 1.87 0 0 1-1.332.56H4.102l-4.349-3.449c-.06-1.896.354-2.26.771-2.472l.104-.05a1.862 1.862 0 0 1 1.494-.042l1.405.57V2.575c0-.524.21-.998.548-1.34.34-.347.812-.56 1.332-.56z' fill='%23FFF' fill-rule='evenodd'/%3E%3C/g%3E%3Cg transform='translate(18 1)'%3E%3Cuse fill='%23000' filter='url(%23c)' xlink:href='%23d'/%3E%3Cpath stroke='%2326D9D2' d='M51 .5c.966 0 1.841.392 2.475 1.025A3.489 3.489 0 0 1 54.5 4v6c0 .966-.392 1.841-1.025 2.475A3.489 3.489 0 0 1 51 13.5H4a3.489 3.489 0 0 1-2.475-1.025A3.489 3.489 0 0 1 .5 10V.5z' stroke-linejoin='square' fill='%230C4543'/%3E%3C/g%3E%3Cg fill='%2326D9D2' fill-rule='nonzero'%3E%3Cpath d='M33.17 11.166h4.041V10.05h-2.709V4.497H33.17zM38.372 11.166h1.332v-6.67h-1.332zM41.342 11.166h2.376c1.467 0 2.574-.621 2.574-1.962 0-.891-.522-1.404-1.242-1.575v-.036c.567-.207.91-.828.91-1.45 0-1.241-1.045-1.646-2.413-1.646h-2.205v6.669zm1.332-3.951V5.523h.792c.801 0 1.197.234 1.197.819 0 .53-.36.873-1.206.873h-.783zm0 2.925V8.196h.927c.918 0 1.395.279 1.395.927 0 .693-.495 1.017-1.395 1.017h-.927zM48.803 7.593V5.559h.864c.855 0 1.323.243 1.323.963 0 .71-.468 1.07-1.323 1.07h-.864zm2.295 3.573h1.485l-1.557-2.727c.765-.297 1.27-.918 1.27-1.917 0-1.53-1.108-2.025-2.512-2.025h-2.313v6.669h1.332v-2.52h.927l1.368 2.52zM52.682 11.166h1.35l.468-1.71h2.151l.468 1.71h1.404l-2.133-6.67h-1.575l-2.133 6.67zm2.106-2.745l.198-.73c.198-.692.387-1.448.567-2.177h.036c.198.71.378 1.485.585 2.178l.198.729h-1.584zM60.638 7.593V5.559h.864c.855 0 1.323.243 1.323.963 0 .71-.468 1.07-1.323 1.07h-.864zm2.295 3.573h1.485l-1.557-2.727c.765-.297 1.27-.918 1.27-1.917 0-1.53-1.108-2.025-2.512-2.025h-2.313v6.669h1.332v-2.52h.927l1.368 2.52zM66.47 11.166h1.323v-2.44l2.007-4.23h-1.386l-.666 1.63c-.198.495-.387.963-.594 1.476h-.036a81.832 81.832 0 0 1-.576-1.476l-.666-1.63h-1.413l2.007 4.23v2.44z'/%3E%3C/g%3E%3Cpath d='M28.667 4C29.403 4 30 4.597 30 5.333v5.334c0 .736-.597 1.333-1.333 1.333h-6.334A1.333 1.333 0 0 1 21 10.667V5.333C21 4.597 21.597 4 22.333 4h6.334zM26.85 8h-2.7c0 .736.604 1.333 1.35 1.333.745 0 1.35-.597 1.35-1.333zm1.81-.889H22.34a.889.889 0 0 0-.888.889h8.1l-.007-.112a.89.89 0 0 0-.882-.777zm0-1.333H22.34a.889.889 0 0 0-.888.889h8.1l-.007-.112a.89.89 0 0 0-.882-.777zm0-1.334H22.34a.889.889 0 0 0-.888.89h8.1l-.007-.112a.89.89 0 0 0-.882-.778z' fill='%2326D9D2' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E"), auto;
     --cur-http-dk: url("data:image/svg+xml,%3Csvg width='60' height='20' viewBox='0 0 60 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M6.787 6.775v-4.2c0-.773-.618-1.4-1.38-1.4a1.39 1.39 0 0 0-1.38 1.4v8.4l-2.092-.848a1.363 1.363 0 0 0-1.094.03 1.393 1.393 0 0 0-.729.827l-.078.238a.705.705 0 0 0 .214.76l3.587 3.032c.123.104.28.161.441.161h7.343c.366 0 .717-.147.976-.41a1.41 1.41 0 0 0 .404-.99V8.728c0-.713-.53-1.312-1.228-1.39l-4.984-.563z' id='b'/%3E%3Cfilter x='-32.7%25' y='-25%25' width='167.3%25' height='164.3%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='1' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3Cpath d='M0 0h36a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V0z' id='d'/%3E%3Cfilter x='-8.8%25' y='-17.9%25' width='117.5%25' height='150%25' filterUnits='objectBoundingBox' id='c'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg transform='rotate(-22 6.499 8.175)' fill-rule='nonzero'%3E%3Cuse fill='%23000' filter='url(%23a)' xlink:href='%23b'/%3E%3Cpath stroke='%23000' d='M5.407.675c.52 0 .991.213 1.332.56.338.342.548.816.548 1.34v3.753l4.54.512a1.87 1.87 0 0 1 1.195.624c.297.337.477.781.477 1.264v5.047c0 .503-.198.986-.548 1.341a1.87 1.87 0 0 1-1.332.56H4.102l-4.349-3.449c-.06-1.896.354-2.26.771-2.472l.104-.05a1.862 1.862 0 0 1 1.494-.042l1.405.57V2.575c0-.524.21-.998.548-1.34.34-.347.812-.56 1.332-.56z' fill='%23FFF' fill-rule='evenodd'/%3E%3C/g%3E%3Cg transform='translate(18 1)'%3E%3Cuse fill='%23000' filter='url(%23c)' xlink:href='%23d'/%3E%3Cpath stroke='%23D91212' d='M36 .5c.966 0 1.841.392 2.475 1.025A3.489 3.489 0 0 1 39.5 4v6c0 .966-.392 1.841-1.025 2.475A3.489 3.489 0 0 1 36 13.5H4a3.489 3.489 0 0 1-2.475-1.025A3.489 3.489 0 0 1 .5 10V.5z' stroke-linejoin='square' fill='%233D0505'/%3E%3C/g%3E%3Cg fill='%23D91212' fill-rule='nonzero'%3E%3Cpath d='M31.17 11.166h1.332v-2.88h2.52v2.88h1.323v-6.67h-1.323v2.638h-2.52V4.497H31.17zM39.306 11.166h1.332V5.613h1.881V4.497h-5.085v1.116h1.872zM44.931 11.166h1.332V5.613h1.881V4.497H43.06v1.116h1.872zM49.233 11.166h1.332V8.799h.891c1.431 0 2.574-.684 2.574-2.205 0-1.575-1.134-2.097-2.61-2.097h-2.187v6.669zm1.332-3.42V5.559h.756c.918 0 1.404.26 1.404 1.035 0 .765-.44 1.152-1.359 1.152h-.8z'/%3E%3C/g%3E%3Cpath d='M27.834 5.354l-3.23-1.333a.272.272 0 0 0-.208 0l-3.23 1.333A.267.267 0 0 0 21 5.6v1.9a4.697 4.697 0 0 0 2.974 4.362c.24.096.402.138.526.138s.286-.042.526-.138A4.697 4.697 0 0 0 28 7.5V5.6a.267.267 0 0 0-.166-.246zm-1.748 3.379a.424.424 0 0 1 0 .603.434.434 0 0 1-.61 0l-.987-.978-.987.978a.434.434 0 0 1-.721-.191.424.424 0 0 1 .111-.412l.988-.978-.988-.979a.424.424 0 0 1 0-.603.434.434 0 0 1 .61 0l.987.978.988-.978a.434.434 0 0 1 .61 0 .424.424 0 0 1 0 .603l-.989.979.988.978z' fill='%23D91212' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E"), auto;
     --cur-https-dk: url("data:image/svg+xml,%3Csvg width='66' height='20' viewBox='0 0 66 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M6.787 6.775v-4.2c0-.773-.618-1.4-1.38-1.4a1.39 1.39 0 0 0-1.38 1.4v8.4l-2.092-.848a1.363 1.363 0 0 0-1.094.03 1.393 1.393 0 0 0-.729.827l-.078.238a.705.705 0 0 0 .214.76l3.587 3.032c.123.104.28.161.441.161h7.343c.366 0 .717-.147.976-.41a1.41 1.41 0 0 0 .404-.99V8.728c0-.713-.53-1.312-1.228-1.39l-4.984-.563z' id='b'/%3E%3Cfilter x='-32.7%25' y='-25%25' width='167.3%25' height='164.3%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='1' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3Cpath d='M0 0h41a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V0z' id='d'/%3E%3Cfilter x='-7.8%25' y='-17.9%25' width='115.6%25' height='150%25' filterUnits='objectBoundingBox' id='c'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg transform='rotate(-22 6.499 8.175)' fill-rule='nonzero'%3E%3Cuse fill='%23000' filter='url(%23a)' xlink:href='%23b'/%3E%3Cpath stroke='%23000' d='M5.407.675c.52 0 .991.213 1.332.56.338.342.548.816.548 1.34v3.753l4.54.512a1.87 1.87 0 0 1 1.195.624c.297.337.477.781.477 1.264v5.047c0 .503-.198.986-.548 1.341a1.87 1.87 0 0 1-1.332.56H4.102l-4.349-3.449c-.06-1.896.354-2.26.771-2.472l.104-.05a1.862 1.862 0 0 1 1.494-.042l1.405.57V2.575c0-.524.21-.998.548-1.34.34-.347.812-.56 1.332-.56z' fill='%23FFF' fill-rule='evenodd'/%3E%3C/g%3E%3Cg fill='%23000' transform='translate(18 1)'%3E%3Cuse filter='url(%23c)' xlink:href='%23d'/%3E%3Cpath stroke='%2320A040' d='M41 .5c.966 0 1.841.392 2.475 1.025A3.489 3.489 0 0 1 44.5 4v6c0 .966-.392 1.841-1.025 2.475A3.489 3.489 0 0 1 41 13.5H4a3.489 3.489 0 0 1-2.475-1.025A3.489 3.489 0 0 1 .5 10V.5z' stroke-linejoin='square'/%3E%3C/g%3E%3Cg fill='%2320A040' fill-rule='nonzero'%3E%3Cpath d='M31.17 11.166h1.332v-2.88h2.52v2.88h1.323v-6.67h-1.323v2.638h-2.52V4.497H31.17zM39.306 11.166h1.332V5.613h1.881V4.497h-5.085v1.116h1.872zM44.931 11.166h1.332V5.613h1.881V4.497H43.06v1.116h1.872zM49.233 11.166h1.332V8.799h.891c1.431 0 2.574-.684 2.574-2.205 0-1.575-1.134-2.097-2.61-2.097h-2.187v6.669zm1.332-3.42V5.559h.756c.918 0 1.404.26 1.404 1.035 0 .765-.44 1.152-1.359 1.152h-.8zM57.117 11.292c1.54 0 2.448-.927 2.448-2.016 0-.963-.53-1.485-1.34-1.818l-.874-.351c-.567-.234-1.035-.405-1.035-.882 0-.441.36-.702.945-.702.558 0 1 .207 1.422.549l.675-.828a2.97 2.97 0 0 0-2.097-.864c-1.34 0-2.304.846-2.304 1.926 0 .972.684 1.512 1.36 1.782l.881.387c.594.252 1.008.405 1.008.9 0 .468-.369.765-1.062.765-.585 0-1.224-.297-1.692-.738l-.765.918c.648.63 1.54.972 2.43.972z'/%3E%3C/g%3E%3Cpath d='M27.834 5.354l-3.23-1.333a.272.272 0 0 0-.208 0l-3.23 1.333A.267.267 0 0 0 21 5.6v1.9a4.697 4.697 0 0 0 2.974 4.362c.24.096.402.138.526.138s.286-.042.526-.138A4.697 4.697 0 0 0 28 7.5V5.6a.267.267 0 0 0-.166-.246zm-1.492 2.055l-1.754 1.895a.43.43 0 0 1-.307.133.413.413 0 0 1-.285-.111l-1.097-1.003a.436.436 0 0 1-.022-.624.42.42 0 0 1 .614-.022l.768.713 1.469-1.56a.44.44 0 0 1 .614-.022c.175.134.175.423 0 .601z' fill='%2320A040' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E"), auto;
     --cur-email-dk: url("data:image/svg+xml,%3Csvg width='64' height='20' viewBox='0 0 64 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M6.787 6.775v-4.2c0-.773-.618-1.4-1.38-1.4a1.39 1.39 0 0 0-1.38 1.4v8.4l-2.092-.848a1.363 1.363 0 0 0-1.094.03 1.393 1.393 0 0 0-.729.827l-.078.238a.705.705 0 0 0 .214.76l3.587 3.032c.123.104.28.161.441.161h7.343c.366 0 .717-.147.976-.41a1.41 1.41 0 0 0 .404-.99V8.728c0-.713-.53-1.312-1.228-1.39l-4.984-.563z' id='b'/%3E%3Cfilter x='-32.7%25' y='-25%25' width='167.3%25' height='164.3%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='1' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3Cpath d='M0 0h40a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V0z' id='d'/%3E%3Cfilter x='-8%25' y='-17.9%25' width='115.9%25' height='150%25' filterUnits='objectBoundingBox' id='c'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg transform='rotate(-22 6.499 8.175)' fill-rule='nonzero'%3E%3Cuse fill='%23000' filter='url(%23a)' xlink:href='%23b'/%3E%3Cpath stroke='%23000' d='M5.407.675c.52 0 .991.213 1.332.56.338.342.548.816.548 1.34v3.753l4.54.512a1.87 1.87 0 0 1 1.195.624c.297.337.477.781.477 1.264v5.047c0 .503-.198.986-.548 1.341a1.87 1.87 0 0 1-1.332.56H4.102l-4.349-3.449c-.06-1.896.354-2.26.771-2.472l.104-.05a1.862 1.862 0 0 1 1.494-.042l1.405.57V2.575c0-.524.21-.998.548-1.34.34-.347.812-.56 1.332-.56z' fill='%23FFF' fill-rule='evenodd'/%3E%3C/g%3E%3Cg transform='translate(18 1)'%3E%3Cuse fill='%23000' filter='url(%23c)' xlink:href='%23d'/%3E%3Cpath stroke='%2340A0F2' d='M40 .5c.966 0 1.841.392 2.475 1.025A3.489 3.489 0 0 1 43.5 4v6c0 .966-.392 1.841-1.025 2.475A3.489 3.489 0 0 1 40 13.5H4a3.489 3.489 0 0 1-2.475-1.025A3.489 3.489 0 0 1 .5 10V.5z' stroke-linejoin='square' fill='%23063660'/%3E%3C/g%3E%3Cg fill='%2340A0F2' fill-rule='nonzero'%3E%3Cpath d='M32.17 11.166h4.185V10.05h-2.853V8.268h2.331V7.152h-2.33v-1.54h2.753V4.498H32.17zM37.705 11.166h1.197V8.385c0-.64-.108-1.557-.17-2.187h.035l.531 1.566 1.035 2.799h.765l1.026-2.8.54-1.565h.045c-.072.63-.17 1.548-.17 2.187v2.78h1.214V4.498h-1.476l-1.116 3.132c-.135.405-.252.846-.396 1.269h-.045c-.135-.423-.26-.864-.405-1.27l-1.134-3.131h-1.476v6.669zM44.527 11.166h1.35l.468-1.71h2.151l.468 1.71h1.404l-2.133-6.67H46.66l-2.133 6.67zm2.106-2.745l.198-.73c.198-.692.387-1.448.567-2.177h.036c.198.71.378 1.485.585 2.178l.198.729h-1.584zM51.151 11.166h1.332v-6.67h-1.332zM54.121 11.166h4.041V10.05h-2.709V4.497h-1.332z'/%3E%3C/g%3E%3Cpath d='M28.333 5h-6.666c-.369 0-.667.316-.667.706v4.588c0 .39.298.706.667.706h6.666c.369 0 .667-.316.667-.706V5.706c0-.39-.298-.706-.667-.706zm-.215 1.784l-2.76 1.518a.711.711 0 0 1-.685.002l-2.792-1.52a.363.363 0 0 1-.144-.475.325.325 0 0 1 .449-.152l2.792 1.519c.023.012.05.012.073 0l2.76-1.519a.317.317 0 0 1 .335.014.36.36 0 0 1 .154.315.355.355 0 0 1-.182.298z' fill='%2340A0F2' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E"), auto;
     --cur-risk-dk: url("data:image/svg+xml,%3Csvg width='59' height='20' viewBox='0 0 59 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M6.787 6.775v-4.2c0-.773-.618-1.4-1.38-1.4a1.39 1.39 0 0 0-1.38 1.4v8.4l-2.092-.848a1.363 1.363 0 0 0-1.094.03 1.393 1.393 0 0 0-.729.827l-.078.238a.705.705 0 0 0 .214.76l3.587 3.032c.123.104.28.161.441.161h7.343c.366 0 .717-.147.976-.41a1.41 1.41 0 0 0 .404-.99V8.728c0-.713-.53-1.312-1.228-1.39l-4.984-.563z' id='b'/%3E%3Cfilter x='-32.7%25' y='-25%25' width='167.3%25' height='164.3%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='1' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3Cpath d='M0 0h34a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V0z' id='d'/%3E%3Cfilter x='-9.2%25' y='-17.9%25' width='118.4%25' height='150%25' filterUnits='objectBoundingBox' id='c'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3Cpath d='M0 0h34a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V0z' id='e'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg transform='rotate(-22 6.499 8.175)' fill-rule='nonzero'%3E%3Cuse fill='%23000' filter='url(%23a)' xlink:href='%23b'/%3E%3Cpath stroke='%23000' d='M5.407.675c.52 0 .991.213 1.332.56.338.342.548.816.548 1.34v3.753l4.54.512a1.87 1.87 0 0 1 1.195.624c.297.337.477.781.477 1.264v5.047c0 .503-.198.986-.548 1.341a1.87 1.87 0 0 1-1.332.56H4.102l-4.349-3.449c-.06-1.896.354-2.26.771-2.472l.104-.05a1.862 1.862 0 0 1 1.494-.042l1.405.57V2.575c0-.524.21-.998.548-1.34.34-.347.812-.56 1.332-.56z' fill='%23FFF' fill-rule='evenodd'/%3E%3C/g%3E%3Cg transform='translate(18 1)'%3E%3Cuse fill='%23000' filter='url(%23c)' xlink:href='%23d'/%3E%3Cpath stroke='%23F8791B' d='M34 .5c.966 0 1.841.392 2.475 1.025A3.489 3.489 0 0 1 37.5 4v6c0 .966-.392 1.841-1.025 2.475A3.489 3.489 0 0 1 34 13.5H4a3.489 3.489 0 0 1-2.475-1.025A3.489 3.489 0 0 1 .5 10V.5z' stroke-linejoin='square' fill='%23F87210'/%3E%3C/g%3E%3Cg transform='translate(18 1)'%3E%3Cmask id='f' fill='%23fff'%3E%3Cuse xlink:href='%23e'/%3E%3C/mask%3E%3Cpath d='M13 0L1 14h-6L7 0h6zm11 0L12 14H6L18 0h6zm11 0L23 14h-6L29 0h6zm11 0L34 14h-6L40 0h6zm11 0L45 14h-6L51 0h6zm11 0L56 14h-6L62 0h6z' fill='%23000' mask='url(%23f)'/%3E%3C/g%3E%3Cg fill='%23FFF' fill-rule='nonzero'%3E%3Cpath d='M33.476 7.539v-1.8h.72c.765 0 1.18.207 1.18.837s-.415.963-1.18.963h-.72zm2.007 3.627h1.8L35.79 8.51c.693-.324 1.152-.954 1.152-1.935 0-1.62-1.188-2.115-2.619-2.115h-2.457v6.705h1.611V8.808h.774l1.233 2.358zM38.237 11.166h1.611V4.46h-1.61zM43.466 11.292c1.62 0 2.556-.981 2.556-2.097 0-.945-.495-1.503-1.323-1.836l-.837-.333c-.594-.234-1.008-.378-1.008-.756 0-.351.297-.55.792-.55.522 0 .936.18 1.377.514l.801-1.008c-.585-.585-1.404-.882-2.178-.882-1.422 0-2.43.9-2.43 2.025 0 .972.657 1.557 1.36 1.836l.854.36c.576.243.945.369.945.756 0 .36-.279.585-.873.585-.53 0-1.152-.28-1.62-.684l-.918 1.107a3.747 3.747 0 0 0 2.502.963zM47.138 11.166h1.611V9.41l.73-.99 1.583 2.745h1.755l-2.403-4.014L52.44 4.46h-1.764l-1.899 2.655h-.027V4.46h-1.61z'/%3E%3C/g%3E%3Cpath d='M25.5 4c.26 0 .5.137.625.358l3.785 6.612a.675.675 0 0 1-.009.689.719.719 0 0 1-.616.341h-7.57a.719.719 0 0 1-.616-.341.675.675 0 0 1-.009-.689l3.785-6.612A.718.718 0 0 1 25.5 4zm0 5.92a.845.845 0 0 0-.857.832c0 .298.163.572.429.72a.88.88 0 0 0 .857 0 .828.828 0 0 0 .428-.72.845.845 0 0 0-.857-.831zm0-4.158l-.114.005c-.4.035-.6.264-.6.688v2.08c0 .461.238.692.714.692l.114-.004c.4-.036.6-.265.6-.689V6.455c0-.462-.238-.693-.714-.693z' fill='%23FFF' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E"), auto;
     --cur-inner-dk: url("data:image/svg+xml,%3Csvg width='35' height='20' viewBox='0 0 35 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M6.787 6.775v-4.2c0-.773-.618-1.4-1.38-1.4a1.39 1.39 0 0 0-1.38 1.4v8.4l-2.092-.848a1.363 1.363 0 0 0-1.094.03 1.393 1.393 0 0 0-.729.827l-.078.238a.705.705 0 0 0 .214.76l3.587 3.032c.123.104.28.161.441.161h7.343c.366 0 .717-.147.976-.41a1.41 1.41 0 0 0 .404-.99V8.728c0-.713-.53-1.312-1.228-1.39l-4.984-.563z' id='b'/%3E%3Cfilter x='-32.7%25' y='-25%25' width='167.3%25' height='164.3%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='shadowSpreadOuter1'/%3E%3CfeOffset dy='1' in='shadowSpreadOuter1' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3Cpath d='M0 0h11a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V0z' id='d'/%3E%3Cfilter x='-23.3%25' y='-17.9%25' width='146.7%25' height='150%25' filterUnits='objectBoundingBox' id='c'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeComposite in='shadowBlurOuter1' in2='SourceAlpha' operator='out' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg transform='rotate(-22 6.499 8.175)' fill-rule='nonzero'%3E%3Cuse fill='%23000' filter='url(%23a)' xlink:href='%23b'/%3E%3Cpath stroke='%23000' d='M5.407.675c.52 0 .991.213 1.332.56.338.342.548.816.548 1.34v3.753l4.54.512a1.87 1.87 0 0 1 1.195.624c.297.337.477.781.477 1.264v5.047c0 .503-.198.986-.548 1.341a1.87 1.87 0 0 1-1.332.56H4.102l-4.349-3.449c-.06-1.896.354-2.26.771-2.472l.104-.05a1.862 1.862 0 0 1 1.494-.042l1.405.57V2.575c0-.524.21-.998.548-1.34.34-.347.812-.56 1.332-.56z' fill='%23FFF' fill-rule='evenodd'/%3E%3C/g%3E%3Cg transform='translate(18 1)'%3E%3Cuse fill='%23000' filter='url(%23c)' xlink:href='%23d'/%3E%3Cpath stroke='%2383878B' d='M11 .5c.966 0 1.841.392 2.475 1.025A3.489 3.489 0 0 1 14.5 4v6c0 .966-.392 1.841-1.025 2.475A3.489 3.489 0 0 1 11 13.5H4a3.489 3.489 0 0 1-2.475-1.025A3.489 3.489 0 0 1 .5 10V.5z' stroke-linejoin='square' fill='%23D1D4D5'/%3E%3C/g%3E%3Cpath d='M23.45 9.31l-.264 1.314c-.01.054-.02.132-.02.185 0 .284.186.46.489.46.327 0 .517-.167.586-.508l.293-1.45h1.284l-.264 1.313a.8.8 0 0 0-.02.185c0 .284.181.46.489.46.322 0 .518-.171.586-.513l.293-1.446h.747c.376 0 .61-.234.61-.585 0-.279-.19-.47-.493-.47h-.66l.265-1.318h.732c.376 0 .61-.23.61-.58 0-.279-.19-.465-.498-.465h-.634l.249-1.23a.87.87 0 0 0 .02-.19c0-.284-.182-.46-.49-.46-.321 0-.517.171-.585.518l-.278 1.362h-1.28l.25-1.23c.01-.059.019-.137.019-.19 0-.284-.186-.46-.488-.46-.328 0-.518.171-.586.513l-.284 1.367h-.727c-.376 0-.61.235-.61.586 0 .279.19.464.493.464h.64l-.264 1.324h-.703c-.376 0-.61.229-.61.58 0 .279.19.464.492.464h.61zm1.2-.961l.304-1.5h1.425l-.307 1.5H24.65z' fill='%2383878B' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E"), auto;
-    --cur-full-screen-dk: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter x='-19.4%25' y='-13.9%25' width='138.9%25' height='138.9%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1' result='shadowMatrixOuter1'/%3E%3CfeMerge%3E%3CfeMergeNode in='shadowMatrixOuter1'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23a)' transform='translate(1.851 1)' fill-rule='nonzero' fill='none'%3E%3Cpath d='M8.498 0C13.182 0 17 3.812 17 8.5a8.455 8.455 0 0 1-.798 3.596l.946.946c.568.567.851 1.31.852 2.053 0 .744-.283 1.487-.85 2.054a2.896 2.896 0 0 1-2.054.851 2.896 2.896 0 0 1-2.054-.851l-.946-.947A8.45 8.45 0 0 1 8.502 17C3.815 17 0 13.188 0 8.5 0 3.812 3.815 0 8.498 0z' fill='%23000'/%3E%3Cpath d='M8.498 1C12.631 1 16 4.363 16 8.5a7.458 7.458 0 0 1-1.025 3.783l1.466 1.466a1.904 1.904 0 1 1-2.692 2.693l-1.466-1.467A7.453 7.453 0 0 1 8.502 16C4.366 16 1 12.637 1 8.5 1 4.363 4.366 1 8.498 1zm0 1.4A6.108 6.108 0 0 0 2.4 8.502a6.108 6.108 0 0 0 6.101 6.103A6.106 6.106 0 0 0 14.6 8.502 6.11 6.11 0 0 0 8.499 2.4zm3.036 6.401a.667.667 0 0 0 .666-.666V5.8a1 1 0 0 0-1-1H8.867a.667.667 0 1 0 0 1.333h2v2.002c0 .342.257.623.589.662l.078.004zM5.467 8.2a.667.667 0 0 0-.667.667V11.2a1 1 0 0 0 1 1h2.334a.667.667 0 1 0 0-1.333h-2V8.867a.667.667 0 0 0-.59-.663L5.467 8.2z' fill='%23FFF'/%3E%3C/g%3E%3C/svg%3E"), auto;
+    --cur-full-screen-dk: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter x='-19.4%25' y='-13.9%25' width='138.9%25' height='138.9%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeOffset dy='1' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0' in='shadowBlurOuter1' result='shadowMatrixOuter1'/%3E%3CfeMerge%3E%3CfeMergeNode in='shadowMatrixOuter1'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23a)' transform='translate(1.851 1)' fill-rule='nonzero' fill='none'%3E%3Cpath d='M8.498 0C13.182 0 17 3.812 17 8.5a8.455 8.455 0 0 1-.798 3.596l.946.946c.568.567.851 1.31.852 2.053 0 .744-.283 1.487-.85 2.054a2.896 2.896 0 0 1-2.054.851 2.896 2.896 0 0 1-2.054-.851l-.946-.947A8.45 8.45 0 0 1 8.502 17C3.815 17 0 13.188 0 8.5 0 3.812 3.815 0 8.498 0z' fill='%23000'/%3E%3Cpath d='M8.498 1C12.631 1 16 4.363 16 8.5a7.458 7.458 0 0 1-1.025 3.783l1.466 1.466a1.904 1.904 0 1 1-2.692 2.693l-1.466-1.467A7.453 7.453 0 0 1 8.502 16C4.366 16 1 12.637 1 8.5 1 4.363 4.366 1 8.498 1zm0 1.4A6.108 6.108 0 0 0 2.4 8.502a6.108 6.108 0 0 0 6.101 6.103A6.106 6.106 0 0 0 14.6 8.502 6.11 6.11 0 0 0 8.499 2.4zm3.036 6.401a.667.667 0 0 0 .666-.666V5.8a1 1 0 0 0-1-1H8.867a.667.667 0 1 0 0 1.333h2v2.002c0 .342.257.623.589.662l.078.004zM5.467 8.2a.667.667 0 0 0-.667.667V11.2a1 1 0 0 0 1 1h2.334a.667.667 0 1 0 0-1.333h-2V8.867a.667.667 0 0 0-.59-.663L5.467 8.2z' fill='%23FFF'/%3E%3C/g%3E%3C/svg%3E") 10 10, auto;
 
     // 光标
     --cur-ptr: var(--cur-ptr-lg);
     --cur-copy: var(--cur-copy-lg);
     --cur-ptr-text: var(--cur-ptr-text-lg);
     --cur-laser: var(--cur-laser-lg);
-    --cur-laser2: var(--cur-laser);
+    --cur-mix: var(--cur-mix-lg);
     --cur-doclib: var(--cur-doclib-lg);
     --cur-http: var(--cur-http-lg);
     --cur-https: var(--cur-https-lg);
@@ -193,8 +212,14 @@ xx 文档更多内容遮挡阴影（上） / .v-more-doc-content-before / z-inde
     --cur-full-screen: var(--cur-full-screen-lg);
 
     // 箭头
-    --ar-left: url("data:image/svg+xml,%3Csvg width='6' height='20' viewBox='0 0 6 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.368.059l.012.004c.47.178.722.708.581 1.202L1.941 10l4.003 8.68c.17.492-.059 1.032-.513 1.236l-.063.025c-.469.178-.985-.06-1.181-.532l-.02-.053-4.069-8.717a2.122 2.122 0 0 1 0-1.278L4.166.644c.178-.507.716-.77 1.202-.585z' fill='%2386888A' fill-rule='evenodd'/%3E%3C/svg%3E");
-    --ar-top: url("data:image/svg+xml,%3Csvg width='20' height='6' viewBox='0 0 20 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M.059 5.368l.004.012c.178.47.708.722 1.202.581L10 1.941l8.68 4.003c.492.17 1.032-.059 1.236-.513l.025-.063c.178-.469-.06-.985-.532-1.181l-.053-.02L10.639.097a2.122 2.122 0 0 0-1.278 0L.644 4.166c-.507.178-.77.716-.585 1.202z' fill='%2386888A' fill-rule='evenodd'/%3E%3C/svg%3E");
+    @arrowColor: replace("@{theme1}", "#", "%23"); // 转义为 URL 编码格式
+    --ar-left: url("data:image/svg+xml,%3Csvg width='6' height='20' viewBox='0 0 6 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.368.059l.012.004c.47.178.722.708.581 1.202L1.941 10l4.003 8.68c.17.492-.059 1.032-.513 1.236l-.063.025c-.469.178-.985-.06-1.181-.532l-.02-.053-4.069-8.717a2.122 2.122 0 0 1 0-1.278L4.166.644c.178-.507.716-.77 1.202-.585z' fill='@{arrowColor}' fill-rule='evenodd'/%3E%3C/svg%3E");
+    --ar-top: url("data:image/svg+xml,%3Csvg width='20' height='6' viewBox='0 0 20 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M.059 5.368l.004.012c.178.47.708.722 1.202.581L10 1.941l8.68 4.003c.492.17 1.032-.059 1.236-.513l.025-.063c.178-.469-.06-.985-.532-1.181l-.053-.02L10.639.097a2.122 2.122 0 0 0-1.278 0L.644 4.166c-.507.178-.77.716-.585 1.202z' fill='@{arrowColor}' fill-rule='evenodd'/%3E%3C/svg%3E");
+
+    // 针对导航中心风格为 edge 时箭头使用主题色的 50% 透明度
+    @arrowColorFade_edge: rgba(@buttonForeColor, .5);
+    @arrowColor_edge: replace("@{arrowColorFade_edge}", "#", "%23"); // 转义为 URL 编码格式
+    --ar-top-edge: url("data:image/svg+xml,%3Csvg width='20' height='6' viewBox='0 0 20 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M.059 5.368l.004.012c.178.47.708.722 1.202.581L10 1.941l8.68 4.003c.492.17 1.032-.059 1.236-.513l.025-.063c.178-.469-.06-.985-.532-1.181l-.053-.02L10.639.097a2.122 2.122 0 0 0-1.278 0L.644 4.166c-.507.178-.77.716-.585 1.202z' fill='@{arrowColor_edge}' fill-rule='evenodd'/%3E%3C/svg%3E");
 
     --v-input-focus-sd: 0 0 0 3px fade(@aColor, 35%); // 输入/编辑时阴影样式
     --v-input-focus-inn-sd: 0 0 0 1px var(--a-c) inset; // 输入/编辑时阴影样式
@@ -204,8 +229,11 @@ xx 文档更多内容遮挡阴影（上） / .v-more-doc-content-before / z-inde
 @import "typora";
 
 @writePaddingRight: 20px; // 与插件 gWritePaddingRight 同步修改
-@floatTopBottom: 50px;
-@floatTopBottomOnMobile: 60px;
+@floatTop: 60px;
+@floatBottom: 20px;
+
+@outlineContentMarginTop: 20px;
+@bottomCopyrightHeight: 30px;
 
 html {
     font-size: @fontSize;
@@ -219,15 +247,29 @@ html {
     scroll-margin-top: var(--v-scroll-margin-top);
 }
 
+// 生成 PDF 日志样式
+.genPdfLog() when (isdefined(@debugPrintMode)) {
+    #v-pdf-log {
+        position: fixed;
+        z-index: 99999;
+    }
+}
+.genPdfLog() when not (isdefined(@debugPrintMode)) {
+    #v-pdf-log {
+        display: none;
+    }
+}
+.genPdfLog();
+
 // 针对 VLOOK 未加载完成前的样式
-@{writeOnHTML}::before {
-    content: "Preparing VLOOK™ plugin ...\a\a正在准备 VLOOK™ 插件 ...";
+@{writeOnHTML}:not(.done)::before {
+    content: "Preparing ...\a\a—\a\aStyled & Enhanced by VLOOK™";
     white-space: pre-wrap;
-    padding-top: 4em;
+    padding: 5em 20px 20px;
     color: @welcomePageForeColor;
     background: @welcomePageBgColor;
     // 使用本地字体确保即时渲染
-    font: italic var(--v-fw-bd) 1.5em/1 sans-serif !important; // [style] [weight] [size/[line-height]] [family]
+    font: italic var(--v-fw-bd) 1.25em/1 sans-serif !important; // [style] [weight] [size/[line-height]] [family]
     line-height: 2;
     text-align: center;
     overflow: auto;
@@ -273,8 +315,8 @@ body {
 
     // 不要修改这个选择器中的 overflow 属性
     // 否则会导致其内的子元素滚动到顶或到底后向上冒泡同时滚动
-    // overflow-x: visible;
-    // overflow-y: visible;
+    // 不要设置 overflow-x: visible;
+    // 不要设置 overflow-y: visible;
 }
 // 滚动条定制样式 for Chrome/Edge/Safari
 body::-webkit-scrollbar {
@@ -291,11 +333,15 @@ body::-webkit-scrollbar-track {
     border-radius: 5px;
     width: 6px;
 }
+// 激光笔模式时光标样式
+body.laser-pointer {
+    cursor: none;
+}
 
 content {
     // 不要修改这个选择器中的 overflow 属性
     // 否则会导致其内的子元素滚动到顶或到底后向上冒泡同时滚动
-    // overflow-x: visible;
+    // 不要设置 overflow-x: visible;
 }
 
 #write {
@@ -317,17 +363,28 @@ body.unfreeze {
     overflow: auto;
 }
 
+// 禅模式，隐藏插件界面
+body.zen :is(.v-toolbar, .v-chapter-nav, .v-nav-center, .v-nav-center-handle, .v-status-bar, .v-nav-history) {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+body.zen .v-fill-width {
+    opacity: .5;
+}
+
 // --------------------------------------------------
 // 针对 Gray Mode 相关样式
-@grayModeFilter: ~'grayscale(1)';
-@graySelector: ~':is(#write, .v-welcome-page, .v-mask, .v-toolbar, .v-link-info-list, .v-font-style, .v-font-style-info, .v-content-assistor, .v-tbl-x, .v-footnote-pn, .v-tool-tips, .v-info-tips, .v-para-nav-mask-border, .v-fill-width, .v-pic-in-pic, .v-chapter-nav, .v-fig-nav, .v-nav-center, .v-nav-history)';
+@grayModeFilter: ~'saturate(10%)';
+@graySelector: ~':is(#write, .v-welcome-page, .v-mask, .v-toolbar, .v-link-info-list, .v-font-style, .v-font-style-info, .v-content-assistor, .v-tbl-x, .v-footnote-pn, .v-tool-tips, .v-info-tips, .v-para-nav-mask-border, .v-fill-width, .v-pic-in-pic, .v-chapter-nav, .v-fig-nav, .v-nav-center, .v-nav-center-handle, .v-nav-history)';
 // 灰色模式 样式
 body.gray @{graySelector} {
     filter: @grayModeFilter;
     transition: all var(--v-trans-dur) ease;
 }
 // 状态栏中除「关闭灰度模式」按钮外
-body.gray .v-status-bar>div:not([class*=v-sts-gray]) {
+body.gray .v-status-bar>div:not([class*=v-sts-gray]),
+.v-fullscreen-toolbar.gray,
+.v-caption.gray {
     filter: @grayModeFilter;
 }
 // 针对 Gray Mode 相关样式
@@ -353,67 +410,59 @@ body.gray .typora-export-content::before {
     top: 40%;
     bottom: 40%;
     right: @writePaddingRight;
-    // min-width: 50px;
-    width: 60px;
+    width: 50px;
     height: auto;
-    // padding-left: 30px;
-    border-radius: var(--v-r-b);
+    border-radius: 0 var(--v-r-b) var(--v-r-b) 0;
     z-index: 65;
 }
 .v-fill-width>svg{
     transform: rotate(180deg);
 }
-.v-fill-width.enabled {
-    // width: @writePaddingRight * 3;
-    // width: 50px;
+.typora-export-content.fill-width .v-fill-width {
     right: 0;
+    width: 40px;
     padding-left: 20px;
+    border-radius: var(--v-r-b) 0 0 var(--v-r-b);
 }
-.v-fill-width.enabled>svg {
+.typora-export-content.fill-width .v-fill-width>svg {
     transform: rotate(0deg);
 }
 .genHoverStyle(@for) when (@for = v-fill-width) {
     .v-fill-width:hover {
         background: linear-gradient(270deg, var(--ac-t2-fd), transparent);
-        // padding-left: 40px;
-        padding-left: 20px;
+        padding-left: 10px;
+        opacity: 1 !important;
         cursor: var(--cur-ptr);
     }
     .v-fill-width:hover>svg>use {
         fill: var(--a-o-c);
         opacity: 1;
     }
-    .v-fill-width.enabled:hover {
-        padding-left: 0;
+    .typora-export-content.fill-width .v-fill-width:hover {
+        padding-left: 10px;
+        padding-right: 10px;
         background: linear-gradient(90deg, var(--ac-t2-fd), var(--d-bc));
     }
 }
 
 // 覆盖 Typora 的 base.css 对应的样式
 // 段落中只有图片时的样式（结合主题的 genTableAndFigureAlign 处理，默认左对齐或居中）
-@onlyImageInPg: ~"@{writeOnEditing} p > .md-image:only-child:not(.md-img-error) img, @{writeOnHTML} p > img:only-child";
-// @onlyImageInPg: ~"@{writeOnEditing} p > .md-image:only-child:not(.md-img-error) img, @{writeOnHTML} p > .v-icon:only-child";
+@onlyImageInPg: ~"@{writeOnEditing} p > .md-image:only-child:not(.md-img-error) img, @{writeOnHTML} p > :is(img, svg):only-child";
 @{onlyImageInPg} {
-// @{writeOnEditing} p > .md-image:only-child:not(.md-img-error) img,
-// @{writeOnHTML} p > img:only-child {
     display: block;
     margin: unset;
-    // margin: 0 auto;
-    // text-align: center;
 }
 // 引用块内段落中只有图片时的样式
 .genBlockquoteImageAligen(@align) when (@align = center) {
     @{writeOnEditing} blockquote > p > .md-image:only-child:not(.md-img-error) img,
     @{writeOnHTML} blockquote > p > img:only-child {
         margin: 0 auto;
-        // text-align: center;
     }
 }
 .genBlockquoteImageAligen(@h7TextAlign);
 
 // 段落中只有图片链接时的样式（结合主题的 genTableAndFigureAlign 处理，默认左对齐或居中）
 @onlyImageLinkInPg: ~"@{writeOnEditing} p:has(> .md-link:only-child .md-image:only-child:not(.md-img-error) img), @{writeOnHTML} p:has(> a:only-child > img:only-child)";
-// @onlyImageLinkInPg: ~"@{writeOnEditing} p:has(> .md-link:only-child .md-image:only-child:not(.md-img-error) img), @{writeOnHTML} p:has(> a:only-child > .v-icon:only-child)";
 @{onlyImageLinkInPg} {
     text-align: center;
 }
@@ -433,6 +482,7 @@ body.gray .typora-export-content::before {
 .v-fig:not([aria-roledescription=zenuml]) {
     cursor: var(--cur-full-screen);
 }
+
 // 画中画时微调
 .v-pic-in-pic .v-fig {
     cursor: default;
@@ -559,6 +609,7 @@ img[loading]::after {
 @{writeOnHTML} blockquote img[src*="#card"],
 @{writeOnHTML} blockquote svg[data-inject-url*="#card"] {
     width: 100%;
+    // height: fit-content;
 }
 // 明信片带 #border 时，导出后的微调（未指定色号时）
 #write p:has(img[src*="#card"]:not([src*="#fill"])) {
@@ -622,12 +673,12 @@ img[loading]::after {
     }
 
     // 针对导出后作为「插图」时的微调
-    @{writeOnHTML} .v-caption:has(>img[src*="#@{zoom}%"]),
-    @{writeOnHTML} .v-caption:has(>svg[data-inject-url*="#@{zoom}%"]) {
+    @{writeOnHTML} .v-caption:not(.full):has(>img[src*="#@{zoom}%"]),
+    @{writeOnHTML} .v-caption:not(.full):has(>svg[data-inject-url*="#@{zoom}%"]) {
         width: ~"@{zoom}%" !important;
     }
-    @{writeOnHTML} .v-caption > img[src*="#@{zoom}%"],
-    @{writeOnHTML} .v-caption > svg[data-inject-url*="#@{zoom}%"] {
+    @{writeOnHTML} .v-caption:not(.full) > img[src*="#@{zoom}%"],
+    @{writeOnHTML} .v-caption:not(.full) > svg[data-inject-url*="#@{zoom}%"] {
         width: 100% !important;
     }
 }
@@ -661,34 +712,6 @@ img[loading]::after {
 .genImageZoomH(600);
 .genImageZoomH(800);
 
-// 生成通过图片地址参数指定图片的旋转样式
-.genImgRotate(@deg) {
-    @{writeOnEditing} .md-image[data-src*="#@{deg}deg"]>img, // 编辑时
-    @{sharpMagicImgContanier} img[src*="#@{deg}deg"],
-    @{sharpMagicImgContanier} svg[data-inject-url*="#@{deg}deg"] {
-        transform: ~"rotate(@{deg}deg)";
-    }
-}
-.genImgRotate(180);
-
-// 生成通过图片地址参数指定图片进行水平翻转、垂直翻转的样式
-.genImgFlip(@direction) when (@direction = fliph) {
-    @{writeOnEditing} .md-image[data-src*="#@{direction}"]>img, // 编辑时
-    @{sharpMagicImgContanier} img[src*="#@{direction}"],
-    @{sharpMagicImgContanier} svg[data-inject-url*="#@{direction}"] {
-        transform: scaleX(-1);
-    }
-}
-.genImgFlip(@direction) when (@direction = flipv) {
-    @{writeOnEditing} .md-image[data-src*="#@{direction}"]>img, // 编辑时
-    @{sharpMagicImgContanier} img[src*="#@{direction}"],
-    @{sharpMagicImgContanier} svg[data-inject-url*="#@{direction}"] {
-        transform: scaleY(-1);
-    }
-}
-.genImgFlip(fliph);
-.genImgFlip(flipv);
-
 // 生成通过图片地址参数指定图片特效样式：模糊
 @{writeOnEditing} .md-image[data-src*="#blur"]>img, // 编辑时
 @{sharpMagicImgContanier} img[src*="#blur"],
@@ -705,7 +728,7 @@ img[loading]::after {
 @{writeOnEditing} .md-image[data-src*="#gray"]>img, // 编辑时
 @{sharpMagicImgContanier} img[src*="#gray"],
 @{sharpMagicImgContanier} svg[data-inject-url*="#gray"] {
-    filter: grayscale(100%);
+    filter: saturate(100%);
 }
 
 // 生成通过图片地址参数指定图片特效样式：复古色调
@@ -756,7 +779,7 @@ img[loading]::after {
 @footnoteFont: var(--v-fw-bd) 12px var(--v-fm-bd); // [style] [weight] [size/[line-height]] [family]
 @{writeOnEditing} sup.md-footnote span[md-inline=plain], // 编辑时
 // 与脚注面板中的序号样式保持同步调整 .v-footnote-pn-content .md-fn-count
-@{writeOnHTML} :is(sup.md-footnote, .v-q sup.md-footnote)>a {
+@{writeOnHTML} :is(sup.md-footnote, .v-q sup.md-footnote) > a {
     color: var(--d-bc);
     background: var(--d-fc-a);
     border-radius: calc(var(--v-r-s) - 2px) calc(var(--v-r-s-xc) - 2px);
@@ -770,30 +793,87 @@ img[loading]::after {
 
 .genHoverStyle(@for) when (@for = md-footnote_a) {
     #write sup.md-footnote>a:hover {
-        // background: var(--d-fc) !important;
         color: @buttonForeHoverColor;
         background: var(--a-o-c) !important;
     }
 }
 
-.footnote-line>a:not(.reversefootnote) {
-    color: var(--d-fc);
-    text-decoration: none;
+// 脚注行内容中的链接
+.footnote-line > a:not(.reversefootnote) {
+    // color: var(--d-fc) !important;
+    color: var(--a-c) !important;
+    border-bottom: 1px solid currentColor;
 }
 
 // --------------------
 // 按钮链接样式
 // 圆角选项详见 common.less
+@rasiedShadowSize: 3px;
+@3dShadowSize: 2px;
 #write a kbd {
-    color: @buttonForeColor;
     // 输入光标颜色
     caret-color: @buttonForeColor;
     font: condensed var(--v-fw-toc) 1em/@paragraphInnerLineHeight var(--v-fm-toc) !important; // [stretch] [style] [weight] [size/[line-height]] [family]
-    background: var(--v-btn-bg);
-    border: 2px solid var(--v-btn-bg);
     display: inline-flex;
     align-items: center;
     white-space: pre-wrap;
+
+    // 按钮圆角风格
+    .genKbdRadiusStyle(@style) when (@style = none) {
+        padding: 7px 11px;
+        border-radius: 0;
+    }
+    .genKbdRadiusStyle(@style) when (@style = small) {
+        padding: 8px 12px;
+        border-radius: var(--v-r-s);//var(--b-br-s);//var(--v-r-s);
+    }
+    .genKbdRadiusStyle(@style) when (@style = big) {
+        padding: 8px 12px;
+        border-radius: calc(var(--v-r-b) - 4px);
+    }
+    .genKbdRadiusStyle(@style) when (@style = leaf) {
+        padding: 8px 12px;
+        border-radius: var(--v-r-b) 0;
+    }
+    .genKbdRadiusStyle(@style) when (@style = cap) {
+        padding: 8px 12px;
+        border-radius: @buttonRadiusCircle * 10;
+    }
+    .genKbdRadiusStyle(@thmKbdRadiusStyle);
+
+    color: @buttonForeColor;
+    background: var(--v-btn-bg);
+
+    // 按钮风格
+    .genKbdStyle(@style) when (@style = flat) {
+        border: 2px solid var(--v-btn-bg);
+    }
+    .genKbdStyle(@style) when (@style = fade) {
+        padding: 10px 12px;
+        border: none;
+        background: linear-gradient(180deg, var(--btn-reflect), var(--v-btn-bg), var(--btn-shadow)), var(--v-btn-bg);
+        box-shadow: 0 0 0 @kbdSecBorderWidth var(--v-btn-bg) inset;
+    }
+    .genKbdStyle(@style) when (@style = raised) {
+        padding: 8px 12px;
+        border: none !important;
+        box-shadow: 0 @rasiedShadowSize 0 0 var(--btn-raised), 0 @rasiedShadowSize 0 0 var(--v-btn-bg);
+        margin: 3px 1px;
+    }
+    .genKbdStyle(@style) when (@style = 3d) {
+        padding: 9px 13px;
+        border: 1px solid var(--d-fc-a);
+        box-shadow: 0 @3dShadowSize 0 0 var(--btn-reflect) inset, @3dShadowSize 0 0 0 var(--btn-reflect) inset,
+            -@3dShadowSize 0 0 0 var(--btn-shadow) inset, 0 -@3dShadowSize 0 0 var(--btn-shadow) inset;
+    }
+    .genKbdStyle(@style) when (@style = 3d_up) {
+        padding: 9px 13px;
+        border: none;
+        box-shadow: 0 @3dShadowSize 0 0 var(--btn-reflect) inset,
+            0 -@3dShadowSize 0 0 var(--btn-shadow) inset,
+            0 0 0 1px #00000099 inset;
+    }
+    .genKbdStyle(@thmKbdStyle);
 }
 #write @{kbdSuper},
 #write @{kbdSec} {
@@ -814,17 +894,51 @@ img[loading]::after {
     #write a kbd:hover { // 针对引用块着色内的情况
         color: @buttonForeHoverColor;
         background: var(--a-o-c);
-        border-color: var(--a-o-c);
+
+        .genKbdStyle(@style) when (@style = flat) {
+            border-color: var(--a-o-c);
+        }
+        .genKbdStyle(@style) when (@style = fade) {
+            background: linear-gradient(180deg, var(--btn-reflect), var(--a-o-c), var(--btn-shadow)), var(--a-o-c);
+            box-shadow: 0 0 0 @kbdSecBorderWidth var(--a-o-c) inset;
+        }
+        .genKbdStyle(@style) when (@style = raised) {
+            box-shadow: 0 @rasiedShadowSize 0 0 var(--btn-raised), 0 @rasiedShadowSize 0 0 var(--a-o-c);
+        }
+        .genKbdStyle(@style) when (@style = 3d) {
+            border: 1px solid var(--d-fc);
+        }
+        .genKbdStyle(@thmKbdStyle);
     }
     #write a kbd:hover>@{svgGs} {
         fill: currentColor !important;
     }
 }
 #write a kbd:is(:active, .pressed) {
+    .genKbdStyle(@style) when (@style = flat) {
+        border-color: @aActiveColor !important;
+        transform: @activePressedTransform_normal;
+    }
+    .genKbdStyle(@style) when (@style = fade) {
+        transform: @activePressedTransform_normal;
+    }
+    .genKbdStyle(@style) when (@style = raised) {
+        box-shadow: none !important;
+        transform: translateY(@rasiedShadowSize);
+    }
+    .genKbdStyle(@style) when (@style = 3d) {
+        box-shadow: 0 @3dShadowSize 0 0 var(--btn-shadow) inset, @3dShadowSize 0 0 0 var(--btn-shadow) inset,
+            -@3dShadowSize 0 0 0 var(--btn-reflect) inset, 0 -@3dShadowSize 0 0 var(--btn-reflect) inset;
+    }
+    .genKbdStyle(@style) when (@style = 3d_up) {
+        box-shadow: 0 @3dShadowSize 0 0 var(--btn-shadow) inset,
+            0 -@3dShadowSize 0 0 var(--btn-reflect) inset;
+        transform: @activePressedTransform_normal;
+    }
+    .genKbdStyle(@thmKbdStyle);
+
     color: @buttonForeHoverColor !important;
     background: @aActiveColor !important;
-    border-color: @aActiveColor !important;
-    transition: none !important;
 }
 #write a kbd:is(:active, .pressed)>@{svgGs} {
     fill: currentColor !important;
@@ -833,17 +947,37 @@ img[loading]::after {
 #write @{kbdSuper} {
     color: var(--d-bc) !important;
     background: var(--d-fc) !important;
-    border-color: var(--d-fc) !important;
     outline: 4px solid var(--ac-rd);
     animation: kbd-super 5s ease infinite alternate;
     transition: all var(--v-trans-dur) ease-out;
+
+    .genKbdStyle(@style) when (@style = flat),  (@style = fade), (@style = raised) {
+        box-shadow: none !important;
+        border-color: var(--d-fc) !important;
+    }
+    .genKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+        border-color: @colorBlack !important;
+    }
+    .genKbdStyle(@thmKbdStyle);
 }
 .genHoverStyle(@for) when (@for = kbdSuper) {
     #write @{kbdSuper}:hover {
         color: var(--d-fc) !important;
         background: var(--d-bc) !important;
-        border-color: var(--d-bc) !important;
         outline-width: 6px;
+        .genKbdStyle(@style) when (@style = flat) {
+            border-color: var(--d-bc);
+        }
+        .genKbdStyle(@style) when (@style = fade) {
+            border-color: var(--d-bc);
+        }
+        .genKbdStyle(@style) when (@style = raised) {
+            border-color: var(--d-bc);
+        }
+        .genKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+            border-color: var(--d-fc) !important;
+        }
+        .genKbdStyle(@thmKbdStyle);
     }
     #write @{kbdSuper}:hover>@{svgGs} {
         fill: currentColor !important;
@@ -853,6 +987,11 @@ img[loading]::after {
     color: var(--d-fc) !important;
     background: var(--std-code-sd) !important;
     border-color: var(--std-code-sd) !important;
+
+    .genKbdStyle(@style) when not (@style = 3d) {
+        transform: @activePressedTransform_normal;
+    }
+    .genKbdStyle(@thmKbdStyle);
 }
 
 // 段落中只有按钮时（一个或多个），会居中显示
@@ -897,10 +1036,26 @@ img[loading]::after {
 }
 
 // 次要按钮
+@kbdSecBorderWidth: 1px;
 #write @{kbdSec} {
+    .genKbdStyle(@style) when (@style = flat) {
+        background: var(--d-bc);
+        border-color: currentColor;
+    }
+    .genKbdStyle(@style) when (@style = fade) {
+        background: linear-gradient(180deg, var(--btn-reflect), var(--ac-t1-a), var(--btn-shadow)), var(--ac-t1-a);
+        box-shadow: 0 0 0 @kbdSecBorderWidth currentColor inset;
+    }
+    .genKbdStyle(@style) when (@style = raised) {
+        background: var(--d-bc);
+        box-shadow: 0 @rasiedShadowSize 0 0 currentColor, 0 0 0 1px currentColor inset;
+    }
+    .genKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+        background: var(--ac-t1-a);
+    }
+    .genKbdStyle(@thmKbdStyle);
+
     color: var(--v-btn-bg);
-    background: var(--d-bc);
-    border-color: currentColor;
 }
 // 链接、次要按钮内的 svg 图标（已注入）
 #write a>@{svgGs} {
@@ -909,7 +1064,22 @@ img[loading]::after {
 .genHoverStyle(@for) when (@for = kbdSec) {
     #write @{kbdSec}:hover {
         color: var(--a-o-c);// !important;
-        background: var(--d-bc) !important;
+
+        .genKbdStyle(@style) when (@style = flat) {
+            background: var(--ac-t2-a) !important;
+        }
+        .genKbdStyle(@style) when (@style = fade) {
+            background: linear-gradient(180deg, var(--btn-reflect), var(--ac-t2-a), var(--btn-shadow)), var(--ac-t2-a);
+            box-shadow: 0 0 0 @kbdSecBorderWidth currentColor inset;
+        }
+        .genKbdStyle(@style) when (@style = raised) {
+            background: var(--d-bc) !important;
+            box-shadow: 0 @rasiedShadowSize 0 0 var(--a-o-c), 0 0 0 @kbdSecBorderWidth var(--a-o-c) inset;
+        }
+        .genKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+            background: var(--ac-t2-a) !important;
+        }
+        .genKbdStyle(@thmKbdStyle);
     }
     a:hover>@{svgGs},
     #write @{kbdSec}:hover>@{svgGs} {
@@ -918,15 +1088,19 @@ img[loading]::after {
 }
 #write @{kbdSec}:is(:active, .pressed) {
     color: @aActiveColor !important;
-    background: lighten(@aActiveColor, 30%) !important;
+    background: var(--ac-t2-a) !important;
+    .genKbdStyle(@style) when (@style = raised) {
+        box-shadow: 0 0 0 @kbdSecBorderWidth currentColor inset !important;
+    }
+    .genKbdStyle(@thmKbdStyle);
 }
 
 a,
 a img,
 img a,
 summary,
-.v-nav-history > *,
 .v-status-bar *,
+.v-nav-history > *,
 .v-font-style-opt > *,
 .v-new-version,
 .v-link-chk-result,
@@ -943,8 +1117,6 @@ summary,
 .v-chapter-nav-next,
 .v-accent-btn,
 .v-textfield-action:hover,
-.v-fig-nav-btn,
-.v-fig-nav-btn.close,
 .v-pip-btn,
 .v-doc-lib-item,
 .v-interactive,
@@ -980,10 +1152,9 @@ rt:hover {
     justify-content: @h7TextAlign;
     width: 100%;
 }
-// 引用块小标题前的图片
-#write blockquote>p:first-child:has(:is(img, svg, span[md-inline=image]):only-child) {
-// #write blockquote>p:first-child:has(:is(img, svg, .md-image):only-child) {
-    text-align: @h7TextAlign;
+// 引用块小标题为图标的行
+#write blockquote>:is(p:first-child, p:first-child+p):has(svg, img) {
+    display: flex;
     justify-content: @h7TextAlign;
 }
 
@@ -994,7 +1165,6 @@ rt:hover {
 }
 
 // 文本链接
-// #write .v-tag-link,
 @{writeOnEditing} a,
 @{onHTML} a,
 @{writeOnHTML} a,
@@ -1002,15 +1172,9 @@ rt:hover {
     color: var(--a-c);
     text-decoration: none;
 }
-// 导出后文本链接内的文本、图片
-// @{writeOnHTML} a>:is(span, svg, img) {
-//     display: inline;
-//     vertical-align: middle;
-// }
 
 // 导出后的图标版式
 @{writeOnHTML} .v-icon {
-    // display: inline;
     vertical-align: middle;
 }
 @{writeOnHTML} .v-icon>img {
@@ -1018,20 +1182,22 @@ rt:hover {
 }
 
 // 文本链接 hover （排除按钮、标签链接）
-.genHoverStyle(@for) when (@for = text-link) {
+.genHoverStyle(@for) when (@for = link) {
     @{writeOnEditing} a:not(:has(kbd)):hover,
     @{onHTML} a:not(:has(kbd)):hover,
     @{writeOnHTML} a:not(:has(kbd)):hover,
-    .v-fig-nav-btn:hover {
+    .code-tooltip a:not(:has(kbd)):hover {
         color: var(--a-o-c);
-        // color: var(--a-o-c) !important;
+    }
+
+    @{writeOnEditing} sup.md-footnote:hover span[md-inline=plain] { // 编辑时
+        background: var(--a-o-c);
     }
 }
 // 文本链接 active （排除按钮、标签链接）
 @{writeOnEditing} a:not(:has(kbd)):active,
 @{onHTML} a:not(:has(kbd)):active,
-@{writeOnHTML} a:not(:has(kbd)):active,
-.v-fig-nav-btn:is(:active, .pressed) {
+@{writeOnHTML} a:not(:has(kbd)):active {
     color: @aActiveColor !important;
 }
 
@@ -1056,7 +1222,7 @@ rt:hover {
 }
 
 // 链接 hover 时，链接内图片样式
-.genHoverStyle(@for) when (@for = text-link-img) {
+.genHoverStyle(@for) when (@for = link-img) {
     #write a:hover>:is(img, svg) {
         filter: brightness(@hoverBrightness);
     }
@@ -1102,7 +1268,7 @@ rt:hover {
 @{writeOnHTML} a>img[src*="fill=text"].enabled {
     filter: drop-shadow(@fillOffset 0 0 currentColor) !important;
 }
-.genHoverStyle(@for) when (@for = text-link-img-fill-text) {
+.genHoverStyle(@for) when (@for = link-img-fill-text) {
     @{writeOnHTML} a:hover>img[src*="fill=text"].enabled {
         filter: drop-shadow(@fillOffset 0 0 currentColor) !important;
     }
@@ -1435,6 +1601,95 @@ h6:first-child) {
     padding-top: 0;
 }
 
+// ----------------------------------
+// 是 VLOOK 调试信息样式
+#v-debug {
+    position: fixed;
+    font: normal 12px/1 var(--v-fm-code); // [style] [weight] [size/[line-height]] [family]
+    color: var(--d-fc);
+    background: var(--d-bc);
+    overflow: auto;
+    right: 20px;
+    bottom: 55px;
+    user-select: text;
+    visibility: hidden;
+    z-index: 99999;
+}
+
+// 调试信息打开后样式
+#v-debug.opened {
+    width: 20%;
+    height: auto;
+    max-height: 500px;
+    min-width: 250px;
+    border: 2px solid var(--d-fc);
+    visibility: visible;
+}
+#v-debug.opened::before {
+    content: "VLOOK™ Debug Console";
+    text-transform: uppercase;
+    color: var(--d-bc);
+    background: var(--d-fc);
+    display: block;
+    padding: 5px 10px;
+    font-weight: bold;
+    position: fixed;
+    margin-left: -2px;
+    margin-top: -26px;
+    border: 2px solid var(--d-fc);
+}
+
+// 分类信息样式
+#v-debug div {
+    line-height: 1.25;
+    padding: 5px 10px;
+    overflow-wrap: break-word;
+}
+#v-debug div:not(:last-child) {
+    border-bottom: 1px solid var(--db05);
+}
+#v-debug .info {
+    background: var(--ac-bu-a);
+}
+#v-debug .warn {
+    background: var(--ac-ye-a);
+}
+#v-debug .warn::before {
+    content: "⚠️ ";
+}
+#v-debug .error {
+    background: var(--ac-rd-a);
+}
+#v-debug .error::before {
+    content: "🚫 ";
+}
+
+// 调试 mini 模式
+#v-debug.mini {
+    visibility: visible;
+    background: var(--ac-bu);
+    overflow: hidden;
+    border: 2px solid var(--d-fc);
+    cursor: var(--cur-ptr);
+}
+#v-debug.mini::before {
+    content: attr(data-num);
+    color: var(--d-bc);
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    padding: 3px 5px;
+}
+#v-debug.mini:has(.warn) {
+    background: var(--ac-ye);
+}
+#v-debug.mini:has(.error) {
+    background: var(--ac-rd);
+}
+#v-debug.mini div {
+    display: none;
+}
+
 #write a:first-child>:is(h1,h2,h3,h4,h5,h6) {
     margin-top: 0;
     padding-top: 0;
@@ -1453,7 +1708,6 @@ h6:first-child) {
     left: 50%;
     transform: translateX(-50%);
 }
-// #write .v-post-card.hover.v-backdrop-blurs.enabled {
 #write .v-post-card.v-backdrop-blurs.enabled {
     background: var(--pn-fd08);
 }
@@ -1474,6 +1728,66 @@ h6:first-child) {
 @{writeOnHTML} figcaption {
     position: relative;
 }
+
+// 全屏显示
+.v-caption.full {
+    position: fixed !important;
+    // -webkit-overflow-scrolling: touch; // 避免移动端滚动失效
+    background: var(--d-bc);
+    margin: 0 !important;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 2200;
+}
+.v-caption.full.figure {
+    touch-action: none;
+}
+.v-caption.full.v-backdrop-blurs.enabled {
+    background: linear-gradient(180deg, var(--d-bc) 50px, var(--db05));
+}
+.v-caption.full figcaption {
+    display: none;
+}
+
+// 全屏显示的表格相关样式
+.v-caption.full @{thead_lastRow_raw} {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.v-caption.full @{thead_lastRow_raw}:first-child {
+    z-index: 3 !important;
+}
+
+// 全屏显示的插图相关
+.v-caption.full > :is(img, svg) {
+    transform-origin: 0 0;
+    cursor: var(--cur-full-screen);
+    user-select: none;
+    touch-action: none;
+    border: none;
+    border-radius: 0;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: visible;
+}
+.v-caption.full > .grabbing {
+    cursor: grabbing;
+}
+.v-caption.full > :is(img, svg):not([aria-roledescription=zenuml]) {
+    vertical-align: initial;
+    image-orientation: initial;
+}
+
 .md-diagram-panel {
     padding-bottom: @scrollFix; // 针对 Mermaid 图表，不添加会导致出现滚动条
 }
@@ -1499,6 +1813,22 @@ h6:first-child) {
 #write>p,
 #write .v-tab-box {
     margin-top: @paragraphPadding;
+}
+
+// 生成以 \t 符号作为段落缩进的样式
+.md-tab {
+    display: inline-block;
+    tab-size: @thmTabSize;
+    width: @thmTabWidth;
+    // 以下用于显示 1em 为单位的网格
+    .genDebugGrid() when (isdefined(@devMode)) {
+        background-image: linear-gradient(to right, var(--ac-t1) 1px, transparent 1px);
+        background-size: 1em 100%;
+    }
+    .genDebugGrid();
+}
+#write p {
+    tab-size: @thmTabSize;
 }
 
 // ----------------------------------------
@@ -1635,7 +1965,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     }
 }
 
-summary {
+#write summary {
     font: condensed var(--v-fw-toc) @h7FontSize var(--v-fm-toc); // [style] [weight] [size/[line-height]] [family]
     color: @h7Color;
     justify-content: left;
@@ -1649,27 +1979,27 @@ summary {
 // ----------
 @svgNodes: ~":is(circle, polygon, path, rect)";
 .genHoverStyle(@for) when (@for = summary) {
-    summary:hover {
+    #write summary:hover {
         color: var(--a-o-c);
     }
     // 折叠标题上有图片剪影颜色为 text 的情况
-    summary:hover>svg[data-img-fill=text]>@{svgNodes} {
+    #write summary:hover>svg[data-img-fill=text]>@{svgNodes} {
         fill: var(--d-fc);
     }
 }
-summary:is(:active, .pressed) {
+#write summary:is(:active, .pressed) {
     color: @aActiveColor;
 }
 
 // 隐藏 details 默认的三角符号
-summary::marker {
+#write summary::marker {
     display: none;
     font-size: 0;
 }
-summary::-webkit-details-marker {
+#write summary::-webkit-details-marker {
     display: none;
 }
-summary::-moz-list-bullet {
+#write summary::-moz-list-bullet {
     font-size: 0;
 }
 
@@ -1691,11 +2021,11 @@ summary::-moz-list-bullet {
     right: @writePaddingRight;
     opacity: 1;
     pointer-events: none;
-    background: linear-gradient(90deg, transparent, transparent 5%, var(--d-bc) 15%, var(--d-bc) 85%, transparent 95%, transparent);
+    background: linear-gradient(90deg, transparent, transparent 5%, var(--db09) 15%, var(--db09) 85%, transparent 95%, transparent);
 }
 // 在引用块分栏内嵌引用块分栏的微调
 @{writeOnEditing} .md-hr+@{quote_alert} .md-hr+@{quote_alert}::before {
-    background: linear-gradient(90deg, transparent 5%, var(--d-bc) 10%, var(--d-bc) 90%, transparent);
+    background: linear-gradient(90deg, transparent 5%, var(--db09) 10%, var(--db09) 90%, transparent);
     right: unset;
 }
 
@@ -1833,16 +2163,13 @@ summary::-moz-list-bullet {
     margin-top: .75em;
 }
 
-// #write blockquote h6:first-child {
 #write @{summarySyntax} {
     padding: 0;
     margin-top: 0;
-    // color: var(--d-fc);
     font-size: 1.125em;
 }
 
 #write blockquote h6 a {
-// #write blockquote h6:not(:first-child) a {
     margin-left: -.1em;
 }
 
@@ -2284,18 +2611,9 @@ summary::-moz-list-bullet {
     padding: 0;
     position: fixed;
     color: var(--d-fc);
-    .genLinkInfoListStyle(@style) when (@style = std) {
-        background-color: var(--pn-c);
-    }
-    .genLinkInfoListStyle(@style) when (@style = flat) {
-        background-color: var(--d-bc);
-    }
-    .genLinkInfoListStyle(@style) when (@style = edge) {
-        background-color: var(--d-bc);
-    }
-    .genLinkInfoListStyle(@navCenterStyle);
-    top: @floatTopBottom;
-    bottom: @floatTopBottomOnMobile;
+    background: var(--d-bc);
+    top: @floatTop;
+    bottom: 20px;
     right: @writePaddingRight;
     line-height: @paragraphInnerLineHeight;
     border-radius: var(--c-br-b);
@@ -2312,7 +2630,7 @@ summary::-moz-list-bullet {
 }
 
 .v-link-info-list-items {
-    height: 100%;
+    height: calc(100% - @bottomCopyrightHeight);
     overflow-y: auto;
     counter-reset: mapItemCounter; // 链接地图条目计数器
     padding-bottom: @noMoreHeight;
@@ -2329,7 +2647,8 @@ summary::-moz-list-bullet {
 .v-link-info-list-items).no-more::after {
     content: attr(data-no-more);
     text-align: center;
-    color: var(--d-fc-a);
+    color: currentColor;
+    opacity: .5;
     position: absolute;
     left: 0;
     width: 100%;
@@ -2337,7 +2656,7 @@ summary::-moz-list-bullet {
     line-height: 30px;
     font-size: .875em;
     background: var(--thm-fav) no-repeat center 30px/20px 20px;
-    filter: grayscale(1);
+    filter: @grayModeFilter;//grayscale(1);
     pointer-events: none;
 }
 
@@ -2360,42 +2679,244 @@ summary::-moz-list-bullet {
     background-color: var(--ac-rd);
 }
 
+// 生成 Dev Mode 的提示样式
+.genDevMode() when (isdefined(@devMode)) {
+    .sidebar-content::before,
+    .v-toolbar::before {
+        content: "DEV MODE THEME" !important;
+        white-space: pre;
+        font: var(--v-fw-bd) 12px/1 var(--v-fm-code); // [style] [weight] [size/[line-height]] [family]
+        color: var(--d-fc);
+        background: var(--ac-ye);
+        border-radius: var(--c-br-s);
+        border: 2px solid var(--d-fc);
+        height: 20px;
+        padding: 2px 8px;
+        display: flex;
+        align-items: center;
+        top: 50px;
+        z-index: 10;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    // 编辑时
+    .sidebar-content::before {
+        font-size: 12px;
+        top: 10px;
+        right: 10px;
+    }
+}
+.genDevMode() when not (isdefined(@devMode)) {
+    .sidebar-content::before {
+        content: @thmType;
+        font: var(--v-fw-bd) 10px/1 var(--v-fm-bd); // [style] [weight] [size/[line-height]] [family]
+        color: @buttonForeHoverColor;
+        background: var(--a-o-c);
+        border: 1px solid var(--a-o-c);
+        border-radius: var(--c-br-s);
+        padding: 2px 5px;
+        display: flex;
+        align-items: center;
+        left: unset;
+        top: 10px;
+        right: 10px;
+        position: absolute;
+        pointer-events: none;
+        z-index: 10;
+    }
+}
+.genDevMode();
+
 .v-status-bar,
 .v-nav-history {
+    user-select: none;
     position: fixed;
-    border-radius: var(--c-br-s);
-    // border-radius: var(--v-r-s) var(--v-r-btn) var(--v-r-btn) var(--v-r-s);
-    box-shadow: var(--v-fl-sd);
-    .genStatusBarStyle(@style) when (@style = std) {
+    border-radius: var(--b-br-s);
+    .genStatusBarStyle(@style, @border) when (@style = std) {
         background: var(--pn-c);
         outline: var(--v-fl-bd);
     }
-    .genStatusBarStyle(@style) when (@style = flat) {
+    .genStatusBarStyle(@style, @border) when (@style = flat) {
         background: var(--d-bc);
+        .genBorder(@border) when (@border = shadow) {
+            box-shadow: var(--v-fl-sd);
+        }
     }
-    .genStatusBarStyle(@style) when (@style = edge) {
+    .genStatusBarStyle(@style, @border) when (@style = edge) {
         background: var(--d-bc);
+        .genBorder(@border) when (@border = shadow) {
+            box-shadow: var(--v-fl-sd);
+        }
+        .genBorder(@border);
     }
-    .genStatusBarStyle(@navCenterStyle);
-    padding: 0 1px;
+    .genStatusBarStyle(@navCenterStyle, @panelBorder);
+
+    padding: 2px;
     right: @writePaddingRight;
     bottom: 15px;
-    // height: 32px;
-    height: @buttonHeight;
+    height: @floatButtonHeight;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     gap: 1px;
     z-index: 150;
+}
+
+// 全屏工具栏（适用于插图浏览器、表格全屏）
+.v-fullscreen-toolbar {
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    user-select: none;
+    position: fixed;
+    z-index: 2300;
+}
+// 全屏显示工具栏启用
+.v-fullscreen-toolbar.enabled {
+    visibility: visible;
+}
+
+// 横向时微调
+.v-fullscreen-toolbar.hori {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+// 竖向时微调
+.v-fullscreen-toolbar.vert {
+    right: 0;
+    top: 0;
+    height: 100%;
+    flex-direction: column;
+}
+
+// 横向时按钮分组
+.v-fullscreen-toolbar.hori .group {
+    height: 32px;
+}
+// 竖向时按钮分组
+.v-fullscreen-toolbar.vert .group {
+    flex-direction: column;
+}
+
+// 按钮分组
+.v-fullscreen-toolbar .group {
+    .genToolbarStyle(@style) when (@style = std) {
+        background: var(--v-ui-bg);
+    }
+    .genToolbarStyle(@style) when (@style = simple) {
+        background: var(--d-bc);
+        outline: 1px solid var(--pn-c-a);
+    }
+    .genToolbarStyle(@toolbarStyle);
+
+    display: flex;
+    align-items: stretch;
+    border-radius: var(--b-br-s);
+    padding: 2px;
+}
+
+// 生成全屏显示工具栏按钮样式
+.genFullscreenButtonRadiusStyle(@style) when (@style = std) {
+    .v-fullscreen-toolbar .v-btn {
+        border-radius: var(--b-br-s);
+    }
+    .v-fullscreen-toolbar .v-btn {
+        border-radius: calc(var(--v-r-s) - 2px)calc(var(--v-r-s-xc) - 2px);
+    }
+}
+.genFullscreenButtonRadiusStyle(@style) when not (@style = std) {
+    .v-fullscreen-toolbar .v-btn {
+        border-radius: @buttonRadiusCircle;
+    }
+    .v-fullscreen-toolbar div {
+        border-radius: @buttonRadiusCircle;
+    }
+}
+.genFullscreenButtonRadiusStyle(@buttonRadiusStyle);
+
+// 中间分组：横向
+.v-fullscreen-toolbar.hori .group.center {
+    margin: 0 30px;
+}
+// 中间分组：竖向
+.v-fullscreen-toolbar.vert .group.center {
+    margin: 30px 0;
+}
+
+// 工具栏按钮、信息项
+.v-fullscreen-toolbar :is(.v-btn, .info) {
+    font: condensed normal 1em/1.5 var(--v-fm-tag);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+// 竖向时，前一、后一按钮图标样式
+.v-fullscreen-toolbar.vert :is(.prev, .next) > svg {
+transform: rotate(90deg);
+}
+
+// 横向时按钮样式
+.v-fullscreen-toolbar.hori :is(.v-btn, .info) {
+    width: calc(var(--v-tb-btn-w) - 8px);
+}
+// 竖向时按钮样式
+.v-fullscreen-toolbar.vert :is(.v-btn, .info) {
+    width: calc(var(--v-tb-btn-w) - 10px);
+    height: calc(var(--v-tb-btn-w) - 10px);
+}
+
+// 按钮禁用
+.v-fullscreen-toolbar .v-btn.disabled {
+    .genDisabled();
+}
+
+// 全屏显示类型内容当前序号、总数量
+.v-fullscreen-toolbar .info {
+    .genToolbarStyle(@style) when (@style = std) {
+        color: @uiForeColor;
+    }
+    .genToolbarStyle(@style) when (@style = simple) {
+        color: var(--v-ui-bg);
+    }
+    .genToolbarStyle(@toolbarStyle);
+
+    font-size: .875em !important;
+    border-radius: var(--b-br-s);
+}
+
+// 横向时微调
+.v-fullscreen-toolbar.hori .info {
+    padding: 0 5px;
+    width: auto !important;
+    min-width: 50px;
+}
+// 竖向时微调
+.v-fullscreen-toolbar.vert .info {
+    padding: 5px 0;
+    height: auto !important;
+    min-height: 50px;
+    // 文本方向调整
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+.genDisabled() {
+    pointer-events: none;
+    opacity: .4;
 }
 
 // 文档导航历史
 .v-nav-history {
     top: 70px;
-    // border-radius: var(--v-r-btn);
-    border-radius: var(--c-br-s);
+    border-radius: var(--b-br-s);
+    display: none; // 默认隐藏
 }
 .v-nav-history:has(.v-view-history.enabled) {
-    opacity: .5;
+    display: flex; // 有卖盘历史内容时才显示
 }
 
 .v-status-bar>div,
@@ -2404,30 +2925,49 @@ summary::-moz-list-bullet {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    // border-radius: @borderRadiusInner_1px_btn;
-    border-radius: @borderRadiusInner_1px;
-    // border-radius: calc(var(--v-tb-btn-w) - 4px);
-    // min-width: calc(var(--v-tb-btn-w) - 6px);
-    min-width: calc(var(--v-tb-btn-w) - 4px);
-    height: 28px;
-    // margin: 0 1px;
-}
-// .v-nav-history>div {
-//     border-radius: @borderRadiusInner_1px_btn;
-// }
+    .genBarBarBtnStyle(@style) when (@style = std) {
+        border-radius: @borderRadiusInner_1px;
+    }
+    .genBarBarBtnStyle(@style) when not (@style = std) {
+        border-radius: var(--b-br-s);
+    }
+    .genBarBarBtnStyle(@buttonRadiusStyle);
 
-.v-status-bar>.folded {
-    display: none;
+    min-width: calc(var(--v-tb-btn-w) - 8px);
+}
+// 发布为 PDF 按钮样式
+.v-status-bar>.v-print {
+    color: var(--ac-rd);
+}
+
+.v-status-bar>:not(.v-prs-info).folded {
+    display: none !important;
+}
+
+// 文档滚动位置/阅读进度条样式
+@readProgressBarHeight: 4px;
+.v-status-bar::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: var(--v-scroll-prog);
+    height: @readProgressBarHeight;
+    border-radius: 0 2px 2px 0;
+    background: linear-gradient(90deg, var(--ac-t1) calc(100% - 30px), var(--ac-t2));
+    box-shadow: 4px 0 8px #00000066;
+    transition: all var(--v-trans-dur) ease-out;
+}
+.v-status-bar.no-more::after {
+    background: linear-gradient(90deg, var(--ac-t2), var(--ac-t2));
+    border-radius: 0;
+    width: 100%;
 }
 
 @borderRadiusInner_1px: ~"calc(var(--v-r-s) - 1px) calc(var(--v-r-s-xc) - 1px)";
-// @borderRadiusInner_1px_btn: ~"calc(var(--v-r-btn) - 1px)";
 @borderRadiusInner_2px: ~"calc(var(--v-r-s) - 2px) calc(var(--v-r-s-xc) - 2px)";
-// @borderRadiusInner_2px_btn: ~"calc(var(--v-r-btn) - 2px)";
 @borderRadiusInnerSi_2px: ~"calc(var(--v-r-si) - 2px) calc(var(--v-r-si-xc) - 2px)";
 .v-nav-history>div {
-    border-radius: @borderRadiusInner_1px;
-    // border-radius: @borderRadiusInner_1px_btn;
     display: none;
 }
 // 显示导航历史入口
@@ -2437,11 +2977,11 @@ summary::-moz-list-bullet {
 }
 
 // 收起状态栏的把手
+@statusBarHandleSize: 42px;
 .v-status-bar-handle {
     padding: 0;
-    min-width: 42px !important;
-    max-width: 42px;
-    border-radius: @borderRadiusInner_1px !important;
+    min-width: @statusBarHandleSize !important;
+    max-width: @statusBarHandleSize;
 }
 .v-status-bar-handle::before {
     content: "";
@@ -2450,9 +2990,8 @@ summary::-moz-list-bullet {
     height: 22px;
     display: block;
 }
-// .v-status-bar-handle.hidden>svg {
 .v-status-bar.hidden {
-    left: calc(100% - 30px);
+    left: calc(100% - @statusBarHandleSize + 12px);
     right: unset;
 }
 .v-status-bar.hidden .v-status-bar-handle>svg {
@@ -2469,7 +3008,6 @@ summary::-moz-list-bullet {
 .v-status-bar>div:is(.selected, .enabled) {
     background: var(--ac-t1-fd);
     color: var(--ac-t1);
-    // font-weight: .875em;
     display: inline-flex;
 }
 .v-status-bar>div:is(.selected, .enabled) svg>use {
@@ -2478,7 +3016,6 @@ summary::-moz-list-bullet {
 
 // 文档信息
 .v-doc-info {
-    // font: condensed var(--v-fw-tag) 1em/@defaultLineHeight var(--v-fm-tag); // [stretch] [style] [weight] [size/[line-height]] [family]
     padding: 0 2px;
     text-align: center;
     cursor: default;
@@ -2491,7 +3028,6 @@ summary::-moz-list-bullet {
     opacity: .25;
     position: relative;
     margin-left: 10px;
-    // margin: 0 2px 0 10px;
     padding: 10px 0;
 }
 
@@ -2513,7 +3049,6 @@ summary::-moz-list-bullet {
 }
 
 .v-prs-info>label {
-    // border-radius: @borderRadiusInner_2px;
     border-radius: @borderRadiusInner_1px;
     padding: 0 10px;
     font-weight: bold;
@@ -2530,12 +3065,12 @@ summary::-moz-list-bullet {
 // 鼠标悬停在状态栏图标效果
 .genHoverStyle(@for) when (@for = status-bar_btn) {
     .v-status-bar>:not([class*=-info]):hover,
-    .v-nav-history>:hover {
+    .v-nav-history>div:hover {
         background: var(--pn-c-a);
     }
 
     .v-status-bar.hidden:hover {
-        left: calc(100% - var(--v-tb-btn-w)) !important;
+        left: calc(100% - (@statusBarHandleSize + 2px)) !important;
     }
 
     .v-status-bar>.v-print:hover {
@@ -2558,9 +3093,10 @@ summary::-moz-list-bullet {
 }
 .v-status-bar>div:not([class*=-info]):is(:active, .pressed),
 .v-nav-history>div:is(:active, .pressed) {
-    background: var(--d-fc-a);
+    background: var(--d-fc-a) !important;
     color: var(--d-bc);
     transition: none;
+    transform: @activePressedTransform_short;
     z-index: 1;
 }
 .v-status-bar>div:not([class*=-info]):is(:active, .pressed) svg>use,
@@ -2580,6 +3116,7 @@ summary::-moz-list-bullet {
 .v-status-bar>.v-new-version {
     display: none;
     padding: 0 6px;
+    font: var(--v-f-w-tag) 1em var(--v-f-fm-tag);
 }
 .v-new-version.enabled {
     display: inline-flex;
@@ -2593,9 +3130,7 @@ summary::-moz-list-bullet {
 @printTipBorderWidth: 5px;
 .v-print-tip {
     visibility: hidden;
-    // opacity: .6;
     position: fixed;
-    //top: 10px;
     top: 20%;
     left: 50%;
     transform: translateX(-50%) translateY(-20%);
@@ -2608,16 +3143,7 @@ summary::-moz-list-bullet {
     margin: 0 auto;
     padding: 10px @printTipBorderWidth @printTipBorderWidth;
     min-width: 550px;
-    //margin: 0 auto;
     z-index: 8000;
-}
-.genHoverStyle(@for) when (@for = v-print-tip) {
-    .v-print-tip {
-        opacity: .4;
-    }
-    .v-print-tip:hover {
-        opacity: 1;
-    }
 }
 
 .v-print-tip > .title {
@@ -2625,6 +3151,16 @@ summary::-moz-list-bullet {
     align-items: center;
     justify-content: center;
     white-space: pre;
+    margin-bottom: 5px;
+}
+
+.v-print-tip:not([open]) > .title::after {
+    content: "◀︎";
+    margin-left: 20px;
+}
+.v-print-tip[open] > .title::after {
+    content: "▼";
+    margin-left: 20px;
 }
 
 .v-print-tip > .content {
@@ -2655,30 +3191,21 @@ summary::-moz-list-bullet {
     cursor: var(--cur-ptr);
 }
 .v-print-tip .option>span.disabled {
-    pointer-events: none;
-    opacity: .4;
+    .genDisabled();
 }
-// .v-print-tip.error label {
-//     color: var(--ac-rd);
-// }
 
 // 打印提示框内的按钮
 .v-print-tip .v-btn {
     display: block;
-    // padding: 5px 10px;
     font-weight: var(--v-fw-bd);
-    padding: 0 10px;
+    padding: 5px 10px;
     margin: 10px auto 0;
     width: fit-content;
-    height: @buttonHeight;
+    height: auto;
     line-height: @buttonHeight;
 }
 // 打印按钮（手动发起）
 .v-print-tip .print {
-    // display: none;
-    // background: var(--ac-rd);
-    // color: var(--ac-rd);
-    // border: 1px solid var(--ac-rd);
     color: var(--d-fc-a);
     border: 1px solid var(--ac-rd-fd);
     pointer-events: none;
@@ -2690,13 +3217,8 @@ summary::-moz-list-bullet {
     pointer-events: unset;
 }
 .v-print-tip .print.disabled {
-    pointer-events: none;
-    opacity: .5;
+    .genDisabled();
 }
-// 有图片加载失败时才显示
-// .v-print-tip.done:is(.error, .wait-font) .print {
-//     display: flex;
-// }
 // 取消按钮
 .v-print-tip .cancel {
     color: var(--ac-rd);
@@ -2719,8 +3241,8 @@ summary::-moz-list-bullet {
 .v-link-chk-result::before {
     content: "";
     position: absolute;
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     border-radius: 5px;
     margin: 0 0 14px 22px;
     display: none;
@@ -2745,12 +3267,10 @@ summary::-moz-list-bullet {
     outline: 2px dashed var(--ac-rd-lg);
 }
 
-// 说明：table.md-grid-board 是编辑时表格行列调整面板的样式
-
-// }
 // 表格换行版式控制
 @{writeOnHTML} :is(table[data-row-group], table[data-col-too-more]) {
     white-space: pre;
+    width: max-content;
 }
 
 // 表格列格式：加粗
@@ -2895,11 +3415,15 @@ td.v-tbl-row-g-not-folder {
     border-top-left-radius: var(--v-r-s);
 }
 
+// 表格换行版式
 @{writeOnHTML} table.wrap {
     white-space: pre-wrap !important;
+    width: auto !important;
 }
+// 表格不换行版式
 @{writeOnHTML} table.unwrap {
     white-space: pre !important;
+    width: max-content !important;
 }
 
 // 单元格内容超长后强制控制宽度
@@ -3005,133 +3529,6 @@ strong :is(tt, code) {
 
 .md-tag {
     color: inherit;
-}
-
-
-/**************************************
-* 数学公式
-**************************************/
-
-@codeTooltipBg: var(--d-fc);
-@codeTooltipText: var(--d-bc);
-mjx-container>svg svg[data-labels] g,
-.code-tooltip mjx-container>svg svg[data-labels] g {
-    fill: var(--d-fc-a);
-}
-
-// 编辑时，行内数学公式
-// 针对 macOS
-body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
-    font-size: .66em;
-}
-
-// 预览：公式、脚注
-.code-tooltip,
-@{writeOnEditing} .md-fences-math[lang=math].md-focus .md-fences-adv-panel,
-.md-hover-tip .code-tooltip-content {
-    background: var(--d-fc);
-    color: var(--d-bc);
-    border-radius: var(--v-r-b) !important;
-}
-.code-tooltip {
-    border-radius: var(--v-r-b) var(--v-r-b-xc) !important;
-    padding: 2px 5px !important;
-    margin-right: @writePaddingRight;
-    font-weight: bold;
-    opacity: .5;
-}
-@{writeOnEditing} .md-fences-math[lang=math].md-focus .md-fences-adv-panel,
-@{writeOnEditing} .md-fences .code-tooltip { // 代码块内的语言
-    border-radius: calc(var(--v-r-b) - 2px) calc(var(--v-r-b-xc) - 2px) !important;
-    bottom: 0;
-}
-
-// 公式内容
-.code-tooltip mjx-container>svg g,
-@{writeOnEditing} .md-fences-math[lang=math].md-focus .md-fences-adv-panel mjx-container>svg g {
-    fill: var(--d-bc);
-}
-
-// 代码块面板
-#write .md-fences-adv-panel {
-    margin-top: 0;
-    position: relative;
-}
-// 导出后对 mermaid 图表的微调
-@{writeOnHTML} .md-fences-adv-panel {
-    margin-top: @paragraphPadding;
-}
-
-.md-math-container { // 标准公式语法
-    border-radius: var(--v-r-b) 0 var(--v-r-b) var(--v-r-b-xc);
-    font-size: 1.25em;
-}
-
-.md-diagram-panel-preview {
-    padding-top: 0;
-}
-
-// 行间公式区（```math 语法）
-#write .md-fences:not([class*=md-diagram]), // 排除 ```mermaid
-.md-math-block { // $$ 语法
-    border-radius: var(--c-br-b);
-    border: @captionContentBorder;
-    background-color: var(--d-bc);
-}
-// 针对导出后（write 与 vlook 的范围）
-.typora-export :is(.md-math-block, .md-fences-math) {
-    margin: 0;
-    padding: 1rem;
-    width: auto;
-}
-.typora-export :is(.md-math-block, .md-fences-math) mjx-assistive-mml {
-    display: none !important;
-}
-
-// 针对 HTML 代码块
-@{writeOnEditing} .md-htmlblock {
-    margin-top: 0;
-}
-@{writeOnEditing} .md-htmlblock-container {
-    border-radius: var(--v-r-b) 0 var(--v-r-b) var(--v-r-b-xc) !important;
-}
-
-// 针对 HTML 代码块外框
-@{writeOnEditing} .md-htmlblock-panel,
-@{writeOnEditing} .md-htmlblock-panel .md-rawblock-control:not(.md-rawblock-tooltip) {
-    border-radius: var(--v-r-b) 0 var(--v-r-b) var(--v-r-b-xc);
-}
-// 针对 HTML 代码块内框
-@{writeOnEditing} .md-htmlblock-panel .md-rawblock-control:not(.md-rawblock-tooltip) .CodeMirror.cm-s-inner:not([lang=math]) {
-    border-radius: calc(var(--v-r-b) - 4px) 0 calc(var(--v-r-b) - 4px) calc(var(--v-r-b-xc) - 4px);
-}
-// 针对 HTML 代码块内输入框
-@{writeOnEditing} .md-htmlblock-panel .md-rawblock-input {
-    padding: 4px;
-}
-
-// 公式编辑组件
-@{writeOnEditing} .md-mathblock-panel .md-rawblock-before {
-    border-radius: var(--v-r-b) 0 0 0 !important;
-}
-@{writeOnEditing} .md-mathblock-panel .md-rawblock-control:not(.md-rawblock-tooltip) {
-    border-radius: 0;
-}
-@{writeOnEditing} .md-mathblock-panel .CodeMirror-scroll {
-    border-radius: 0;
-}
-@{writeOnEditing} .md-mathblock-panel .md-rawblock-after {
-    border-radius: 0 0 var(--v-r-b) var(--v-r-b-xc) !important;
-}
-
-.md-math-block.md-focus .CodeMirror-sizer {
-    box-shadow: var(--v-input-focus-inn-sd);
-}
-
-// 行内公式（编辑时）
-@inline_script: ~".md-expand .md-inline-math-container>script";
-@{inline_script} {
-    box-shadow: var(--v-input-focus-inn-sd), var(--v-input-focus-sd);
 }
 
 /**************************************
@@ -3257,7 +3654,7 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
 * VLOOK UI 自定义样式
 **************************************/
 
-// 聚光灯模式
+// 聚光灯
 .v-spotlight {
     display: none;
     position: fixed;
@@ -3270,16 +3667,26 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
     z-index: 3500;
 }
 
+// 激活笔
+.v-laser-cursor {
+    display: none;
+    position: fixed;
+    left: 100px;
+    top: 100px;
+    width: 50px;
+    height: 50px;
+    background-image: var(--cur-laser);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: auto;
+    mix-blend-mode: var(--cur-mix);
+    pointer-events: none;
+    z-index: 3500;
+}
+
 // 在 Dark 模式时对文档内容的微调处理
 .v-spotlight-in-dark {
     filter: brightness(1.2);
-}
-
-// 激光笔鼠标形状
-.v-cursor-laser,
-.v-cursor-laser::before,
-.v-cursor-laser::after {
-    cursor: var(--cur-laser) !important;
 }
 
 // 过渡效果样式集
@@ -3305,15 +3712,16 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
 .v-tool-tips,
 .v-info-tips {
     display: none;
+    font: normal 1em var(--v-fm-bd); // [style] [weight] [size/[line-height]] [family]
     position: fixed;
-    margin-left: auto;
-    padding: 10px;
+    padding: 8px 12px;
     text-align: center;
     white-space: pre-wrap;
     border: 1px solid var(--d-fc-a);
     border-radius: 0 var(--v-r-b) var(--v-r-b) var(--v-r-b);
-    font: normal 1em var(--v-fm-bd); // [style] [weight] [size/[line-height]] [family]
     background: var(--pn-c);
+    width: max-content;
+    max-width: calc(100% - 10px);
     cursor: default;
     z-index: 4000;
 }
@@ -3329,11 +3737,30 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
     border-color: var(--d-fc-a);
     border: none;
     background: var(--d-fc);
-    padding: 10px;
-    animation: breathe-bubble .2s ease-out 2 alternate;
 }
 .v-info-tips.bubble svg>use {
     fill: var(--d-bc);
+}
+
+// 对齐方式
+.v-info-tips.right-middle {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.v-info-tips.right-bottom {
+    right: 20px;
+    bottom: 50px;
+}
+.v-info-tips.center-bottom {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 50px;
+}
+.v-info-tips.center-middle {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 @keyframes breathe-bubble {
@@ -3375,7 +3802,7 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
     visibility: hidden;
     opacity: 0;
     display: block;
-    box-shadow: var(--v-fl-sd), @contrastBorder;
+    box-shadow: var(--v-fl-sd);
     text-align: left;
     font-size: .875em;
     max-width: 30%;
@@ -3411,14 +3838,13 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -40%);
-    width: 720px; // item: 160*4 + margin-left: 20*2 + padding: 20*2
+    width: 720px; // 计算公式 item: 160*4 + margin-left: 20*2 + padding: 20*2
     padding: 20px;
     text-align: center;
     border-radius: var(--c-br-b);
-    // border: 1px solid var(--d-fc-a);
     font: normal 1em var(--v-fm-stt); // [style] [weight] [size/[line-height]] [family]
-    background: var(--d-bc);
     z-index: 4000;
+    background: var(--d-bc);
 }
 @fontStyleOptWidth: 160px;
 @fontStyleOptHeight: 96px;
@@ -3491,7 +3917,7 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
 // 当前字体风格下载提示
 .v-font-style-info > div {
     font: normal .75em sans-serif; // [style] [weight] [size/[line-height]] [family]
-    background: var(--fd09);
+    background: var(--db09);
     padding: 3px 5px;
     border-radius: calc(var(--v-r-s) - 3px) calc(var(--v-r-s-xc) - 3px);
     height: 24px;
@@ -3568,7 +3994,6 @@ div[class*=v-fontinfo-].done > span,
     margin-top: 100px;
     width: 100%;
     height: @welcomeIconSize;
-    // background: var(--thm-fav) no-repeat center top/@welcomeIconSize @welcomeIconSize;
     background: @thmTabLogo no-repeat center top/@welcomeIconSize @welcomeIconSize;
 }
 
@@ -3655,9 +4080,6 @@ div[class*=v-fontinfo-].done > span,
     position: fixed;
     z-index: 6000;
 }
-.v-welcome-page.close {
-    animation: slide-up var(--v-trans-dur-l) ease 1;
-}
 
 // 向上滑出动画
 @keyframes slide-up {
@@ -3683,6 +4105,7 @@ div[class*=v-fontinfo-].done > span,
     }
 }
 
+// 变量 @vlookCC 在需要封面四角显示的主题中进行定义，如 plp-pw
 .genVlookCC() when (isdefined(@vlookCC)) {
     :root {
         --v-vlook-cc: true; // 对应的插件变量 gVlookCC
@@ -3767,7 +4190,7 @@ div[class*=v-fontinfo-].done > span,
     border: 1px solid @buttonForeColor;
     font: italic normal 1.25em var(--v-fm-stt); // [style] [weight] [size/[line-height]] [family]
     display: inline-block;
-    border-radius: var(--c-br-b);
+    border-radius: var(--b-br-b);
     margin-bottom: 2em;
     opacity: .6;
 }
@@ -3776,7 +4199,6 @@ div[class*=v-fontinfo-].done > span,
     cursor: var(--cur-ptr);
     border: 2px solid @buttonForeColor;
     font-style: normal;
-    // font-weight: var(--v-fw-tt);
     font-weight: var(--v-fw-bd);
     font-size: 1.25em;
     color: @buttonForeColor;
@@ -3814,13 +4236,6 @@ div[class*=v-fontinfo-].done > span,
     padding-bottom: @scrollFix;
 }
 
-.v-fig-content > .v-fig:not([aria-roledescription=zenuml]) {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    cursor: var(--cur-ptr);
-}
-
 // 继续上次的阅读
 .v-resume-reading {
     top: 70px; // 与 ResumeReading_updateUI() 中的取值同步
@@ -3828,7 +4243,6 @@ div[class*=v-fontinfo-].done > span,
     padding: 5px 5px 5px 10px;
     background-color: var(--pn-c);
     color: var(--d-fc);
-    font-size: .875em;
     z-index: 100;
     cursor: var(--cur-ptr);
 }
@@ -3839,8 +4253,7 @@ div[class*=v-fontinfo-].done > span,
 }
 
 .v-nav-center {
-    // background-color: var(--pn-c);
-    // background-color: var(--d-bc);
+    // 生成导航中心背景样式
     .genNavCenterStyle(@style) when (@style = std) {
         background-color: var(--pn-c);
     };
@@ -3848,11 +4261,20 @@ div[class*=v-fontinfo-].done > span,
         background-color: var(--d-bc);
     };
     .genNavCenterStyle(@style) when (@style = edge) {
-        background-color: var(--v-btn-bg);
+        background-color: var(--v-ui-bg);
         color: @buttonForeColor;
     };
     .genNavCenterStyle(@navCenterStyle);
-    border-radius: var(--c-br-b);
+
+    // 生成导航中心边框样式
+    .genNavCenterRadiusStyle(@style) when (@style = std) {
+        border-radius: var(--c-br-b);
+    }
+    .genNavCenterRadiusStyle(@style) when not (@style = std) {
+        border-radius: @buttonRadiusCircle @buttonRadiusCircle var(--v-r-b) var(--v-r-b);
+    }
+    .genNavCenterRadiusStyle(@buttonRadiusStyle);
+
     cursor: default;
     display: block;
     left: calc(-100% - 100px);
@@ -3868,23 +4290,47 @@ div[class*=v-fontinfo-].done > span,
 .v-nav-center.block {
     top: 70px;
     bottom: 15px;
-    // box-shadow: var(--v-fl-sd), var(--v-fl-i-sd);
-    // box-shadow: var(--v-fl-sd);
-    .genNavCenterBlockStyle(@style) when (@style = std) {
-        box-shadow: var(--v-fl-sd), var(--v-fl-i-sd);
+    .genNavCenterBlockStyle(@style, @border) when (@style = std) {
+        .genBorder(@border) when (@border = shadow) {
+            box-shadow: var(--v-fl-sd);
+        }
+        .genBorder(@border) when (@border = line) {
+            .genBorderCSS() when not (isdefined(@panelBorderColor)) {
+                box-shadow: 0 0 0 1px var(--d-fc-a) inset;
+            }
+            .genBorderCSS() when (isdefined(@panelBorderColor)) {
+                box-shadow: 0 0 0 1px @panelBorderColor inset;
+            }
+            .genBorderCSS();
+        }
+        .genBorder(@border);
     };
-    .genNavCenterBlockStyle(@style) when (@style = flat) {
-        box-shadow: var(--v-fl-sd);
+    .genNavCenterBlockStyle(@style, @border) when (@style = flat) {
+        .genBorder(@border) when (@border = shadow) {
+            box-shadow: var(--v-fl-sd);
+        }
+        .genBorder(@border) when (@border = line) {
+            .genBorderCSS() when not (isdefined(@panelBorderColor)) {
+                box-shadow: 0 0 0 1px var(--pn-c-a) inset;
+            }
+            .genBorderCSS() when (isdefined(@panelBorderColor)) {
+                box-shadow: 0 0 0 1px @panelBorderColor inset;
+            }
+            .genBorderCSS();
+        }
+        .genBorder(@border);
     };
-    .genNavCenterBlockStyle(@style) when (@style = edge) {
-        box-shadow: var(--v-fl-sd);
+    .genNavCenterBlockStyle(@style, @border) when (@style = edge) {
+        .genBorder(@border) when (@border = shadow) {
+            box-shadow: var(--v-fl-sd);
+        }
+        .genBorder(@border);
     };
-    .genNavCenterBlockStyle(@navCenterStyle);
+    .genNavCenterBlockStyle(@navCenterStyle, @panelBorder);
 }
 // 针对移动端的微调
 .v-nav-center.mobile {
-    top: @floatTopBottom;
-    bottom: @floatTopBottom + 10px;
+    top: @floatTop;
     box-shadow: var(--v-fl-sd);
     width: calc(100% - 40px);
 }
@@ -3892,16 +4338,10 @@ div[class*=v-fontinfo-].done > span,
 .genNavCenterFloat() {
     outline: 1px solid var(--ac-t2);
     box-shadow: 0 4px 12px 6px var(--ac-t2-fd);
-    // 在浮动显示时，增加导航中心宽度
-    width: calc(var(--v-nav-center-w) + @navCenterWidthExtend);
 }
 .v-nav-center.float {
     top: 70px;
     .genNavCenterFloat();
-}
-.v-nav-center.float .v-textfield>input {
-    // 在浮动显示时，增加导航中心宽度
-    width: calc(var(--v-nav-center-w) - @textfieldInputActionWidth + @navCenterWidthExtend);
 }
 .v-nav-center.small {
     outline: 1px solid var(--ac-t2);
@@ -3921,6 +4361,7 @@ div[class*=v-fontinfo-].done > span,
     text-transform: uppercase;
     color: @buttonForeColor;
     font: var(--v-fw-tt) 1.25em var(--v-fm-h);
+    text-shadow: 0 2px 6px #0000004D;
     position: absolute;
     left: 0;
     top: -40px;
@@ -3930,34 +4371,35 @@ div[class*=v-fontinfo-].done > span,
     white-space: pre;
     pointer-events: none;
 }
-.v-doc-lib::after,
-.v-footnote-pn::before {
-    top: -50px;
-}
 .v-doc-lib::after {
     top: unset;
     bottom: -40px;
 }
 
 // ----------------------------------------
-// 生成柔和自然的透明渐变色
-// 具体数值调整，须通过 src/calc-ref.xlx 进行计算生成
-
-// 面板内的内容平滑渐变阴影样式
-// （在 Chrome 131 版本中出现渐变色超过 7 种时会发白，临时调整为更少的渐变色）
+// 生成柔和自然的透明渐变色，以下为透明度和比例值参考的基准：
+// 首：rgba(255,255,255,1) 0%,
+// 第1段：rgba(255,255,255,0.92) 13%,
+// 第2段：rgba(255,255,255,0.74) 29%,
+// 第3段：rgba(255,255,255,0.48) 47%,
+// 第4段：rgba(255,255,255,0.22) 68%,
+// 第5段：rgba(255,255,255,0.08) 83%,
+// 尾：rgba(255,255,255,0) 100%);
 // 导航中心、链接列表-顶/底部，脚注顶部
-@pnMoreContentLG: ~"var(--pn-fd10) 5px, var(--pn-fd08) 35%, var(--pn-fd06) 55%, var(--pn-fd04) 65%, var(--pn-fd02) 85%, var(--pn-fd00) 100%";
-// 标签组左/右侧（标准样式）
-@tabGroupMoreContentStdLG: ~"var(--fd10) 5px, var(--fd08) 25%, var(--fd05) 50%, var(--fd04) 60%, var(--fd01) 85%, var(--fd00) 100%";
-@tabGroupMoreContentSimpleLG: ~"var(--pn-fd10) 5px, var(--pn-fd08) 25%, var(--pn-fd05) 50%, var(--pn-fd04) 60%, var(--pn-fd01) 85%, var(--pn-fd00) 100%";
+@pnMoreContentLG: ~"var(--pn-fd10) 0%, var(--pn-fd09) 15%, var(--pn-fd07) 30%, var(--pn-fd05) 45%, var(--pn-fd02) 70%, var(--pn-fd01) 80%, var(--pn-fd00) 100%";
+// 导航中心 edge 风格
+@pnMoreContentLG_edge: ~"var(--v-btn-bg), transparent";
+// 标签组左/右侧
+@tabGroupMoreContentStdLG: ~"var(--db10) 0%, var(--db09) 15%, var(--db07) 30%, var(--db05) 45%, var(--db02) 70%, var(--db01) 80%, var(--db00) 100%";
+// 标签组左/右侧（simple 样式）
 // 文档更多内容使用
-@docMoreContentLG: ~"var(--fd10) 0%, var(--fd08) 20%, var(--fd05) 44%, var(--fd04) 56%, var(--fd01) 80%, var(--fd00) 100%";
+@docMoreContentLG: ~"var(--db10) 0%, var(--db09) 15%, var(--db07) 30%, var(--db05) 45%, var(--db02) 70%, var(--db01) 80%, var(--db00) 100%";
 
 // ----------------------------------------
 
 // 导航中心头部
-@ncHeaderHeight: 80px;
-@ncMargin: 9px;
+@ncHeaderHeight: 84px;
+@ncMargin: 10px;
 .v-nav-center-header {
     color: var(--d-fc);
     font: normal 1em var(--v-fm-stt); // [style] [weight] [size/[line-height]] [family]
@@ -3971,9 +4413,8 @@ div[class*=v-fontinfo-].done > span,
 // 导航中心正文区
 .v-nav-center-body {
     width: 100%;
-    height: calc(100% - @ncHeaderHeight - @ncMargin);
+    height: calc(100% - @ncHeaderHeight - @ncMargin - @bottomCopyrightHeight);
     padding: 0 1px;
-    border-radius: 0 0 var(--v-r-b) var(--v-r-b-xc);
     overflow-y: auto;
 }
 
@@ -3981,12 +4422,11 @@ div[class*=v-fontinfo-].done > span,
 .v-segment {
     text-align: center;
     height: calc(var(--v-seg-h) + 4px);
-    border-radius: var(--c-br-s);
-    // border-radius: calc(var(--v-r-btn) + 2px);
-    margin: 10px;
+    border-radius: var(--b-br-s);
+    margin: @ncMargin (@ncMargin - 1px);
     padding: 2px;
-    // background: var(--pn-c-a);
-    // background: var(--pn-c);
+    pointer-events: all;
+
     .genSegmentStyle(@style) when (@style = std) {
         background: var(--pn-c-a);
     }
@@ -3997,7 +4437,6 @@ div[class*=v-fontinfo-].done > span,
         background: var(--ac-t1-a);
     }
     .genSegmentStyle(@navCenterStyle);
-    pointer-events: all;
 }
 // 导航中心标签栏按钮
 .v-segment>input[name=toc-segment] {
@@ -4024,7 +4463,7 @@ div[class*=v-fontinfo-].done > span,
     }
     .genSegmentBtnCurrentStyle(@style) when (@style = edge) {
         @{segmentBtn} {
-            background-color: var(--v-btn-bg);
+            background-color: var(--v-ui-bg);
             color: @buttonForeColor;
             box-shadow: 0 0 4px 0 #0000001A;
         }
@@ -4034,28 +4473,10 @@ div[class*=v-fontinfo-].done > span,
 // 标准风格
 .genSegmentBtn(@style) when (@style = std) {
     .genSegmentBtnCurrent();
-    // // 当前
-    // .v-segment>input[name=toc-segment]:checked+.v-segment-btn {
-    //     // background: var(--d-fc);
-    //     background: var(--d-bc);
-    //     box-shadow: 0 1px 4px 0 #0003;
-    // }
-    // .v-segment>input[name=toc-segment]:checked+.v-segment-btn>svg>use {
-    //     fill: var(--d-bc);
-    // }
 }
 // 多彩风格
 .genSegmentBtn(@style) when (@style = color) {
     .genSegmentBtnCurrent();
-    // // 当前
-    // .v-segment>input[name=toc-segment]:checked+.v-segment-btn {
-    //     // background: currentColor;
-    //     background: var(--d-bc);
-    //     box-shadow: 0 1px 4px 0 #0003;
-    // }
-    // .v-segment>input[name=toc-segment]:checked+.v-segment-btn>svg>use {
-    //     fill: #FFF;
-    // }
 
     // 大纲索引 tab
     .v-segment-btn.toc {
@@ -4096,9 +4517,13 @@ div[class*=v-fontinfo-].done > span,
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: @borderRadiusInner_2px;
-    // border-radius: var(--v-r-btn);
-    // border-radius: var(--c-br-s);
+    .genSegmentBtnStyle(@style) when (@style = std) {
+        border-radius: @borderRadiusInner_2px;
+    }
+    .genSegmentBtnStyle(@style) when not (@style = std) {
+        border-radius: var(--b-br-s);
+    }
+    .genSegmentBtnStyle(@buttonRadiusStyle);
     float: left;
     position: relative;
     z-index: 10;
@@ -4114,8 +4539,6 @@ div[class*=v-fontinfo-].done > span,
 }
 .v-segment-btn:is(:active, .pressed) {
     background: currentColor !important;
-    // background: @aActiveColor !important;
-    // box-shadow: @activeBoxShadow;
     transition: none;
 }
 .v-segment-btn:is(:active, .pressed)>svg>use {
@@ -4152,13 +4575,29 @@ div[class*=v-fontinfo-].done > span,
     display: none;
     top: 380px;
     left: 0;
-    width: 8px;
-    height: 100px;
+    width: 14px;
+    height: 60px;
     border-radius: 0 var(--v-r-s) var(--v-r-s) 0;
     z-index: 2000;
     // 以下两行样式及 hover 样式，与 v-fill-width 内的 svg>use 保持一致
     background: var(--ac-t1);
-    opacity: .5;
+    .genToolbarStyle(@style) when (@style = std) {
+        color: @buttonForeColor;
+        background: var(--v-ui-bg);
+    }
+    .genToolbarStyle(@style) when (@style = simple) {
+        color: var(--v-ui-bg);
+        background: var(--d-bc);
+        outline: 1px solid var(--pn-c-a);
+    }
+    .genToolbarStyle(@toolbarStyle);
+}
+.v-nav-center-handle svg {
+    transform: rotate(180deg) scale(.4);
+}
+.v-nav-center-handle.enabled {
+    display: flex;
+    align-items: center;
 }
 .genHoverStyle(@for) when (@for = nav-center-handle) {
     .v-nav-center-handle:hover {
@@ -4167,13 +4606,14 @@ div[class*=v-fontinfo-].done > span,
     }
 }
 
-// 文档尾注
+// 文档页脚
 #v-footer {
-    font-size: .875em;
     display: block;
     margin: 2em 0 1em;
-    border-top: 2px solid var(--bq-bg);
-    padding: 20px 0 10px;
+    background: var(--bq-bg);
+    border-radius: var(--b-br-b);
+    padding: 20px;
+    white-space: pre-wrap;
 }
 
 // 版权信息
@@ -4184,18 +4624,19 @@ div[class*=v-fontinfo-].done > span,
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 0;
     margin: 10px 20px;
-    font: normal .875em var(--v-fm-stt); // [style] [weight] [size/[line-height]] [family]
-    white-space: pre-wrap;
+    font: normal .75em var(--v-fm-bd); // [style] [weight] [size/[line-height]] [family]
+    white-space: pre;
+    flex-wrap: wrap;
     position: absolute;
-    color: @buttonForeColor;
+    color: currentColor;
     border: none;
     cursor: default;
-    opacity: .5;
+    opacity: .4;
 }
 .v-copyright a {
-    color: @buttonForeColor !important;
+    color: currentColor !important;
     text-shadow: none;
     text-decoration: none;
 }
@@ -4204,7 +4645,7 @@ div[class*=v-fontinfo-].done > span,
         opacity: 1;
     }
     .v-copyright a:hover {
-        color: @buttonForeColor !important;
+        color: var(--a-o-c) !important;
         box-shadow: 0 -.3em 0 0 #FFFFFF4D inset;//rgba(255, 255, 255, .3) inset;
     }
 }
@@ -4214,7 +4655,6 @@ div[class*=v-fontinfo-].done > span,
     justify-content: left;
     padding: 20px 0 10px;
     border-top: 2px solid var(--bq-bg);
-    //margin-top: 2em;
     margin: 2em 0;
     position: initial;
     width: auto;
@@ -4224,7 +4664,14 @@ div[class*=v-fontinfo-].done > span,
 #write .v-copyright a {
     color: var(--a-c) !important;
 }
-
+:is(.v-welcome-page, .v-mask) .v-copyright {
+    font-size: .875em !important;
+    opacity: 1;
+    margin-bottom: 20px;
+}
+.v-welcome-page .v-copyright {
+    margin-bottom: 40px;
+}
 #v-footer + .v-copyright {
     border-top: 0;
     padding-top: 0;
@@ -4232,17 +4679,44 @@ div[class*=v-fontinfo-].done > span,
 }
 
 .v-float-card {
-    box-shadow: var(--v-fl-sd), @contrastBorder;
-}
-.v-float-card2 {
-    box-shadow: var(--v-fl-sd), var(--v-fl-i-sd);
+    .genFloatCardStyle(@style, @shadow) when (@style = std) {
+        .genFloatShadow(@shadow) when (@shadow = shadow) {
+            box-shadow: var(--v-fl-sd);
+        }
+        .genFloatShadow(@shadow) when (@shadow = line) {
+            .genBorderCSS() when not (isdefined(@panelBorderColor)) {
+                box-shadow: 0 0 0 1px var(--pn-c-a) inset !important;
+            }
+            .genBorderCSS() when (isdefined(@panelBorderColor)) {
+                box-shadow: 0 0 0 1px @panelBorderColor inset !important;
+            }
+            .genBorderCSS();
+        }
+        .genFloatShadow(@shadow);
+    }
+    .genFloatCardStyle(@style, @shadow) when (@style = simple) {
+        .genFloatShadow(@shadow) when (@shadow = shadow) {
+            box-shadow: var(--v-fl-sd);
+        }
+        .genFloatShadow(@shadow) when (@shadow = line) {
+            .genBorderCSS() when not (isdefined(@panelBorderColor)) {
+                box-shadow: 0 0 0 1px var(--pn-c-a) inset !important;
+            }
+            .genBorderCSS() when (isdefined(@panelBorderColor)) {
+                box-shadow: 0 0 0 1px @panelBorderColor inset !important;
+            }
+            .genBorderCSS();
+        }
+        .genFloatShadow(@shadow);
+    }
+    .genFloatCardStyle(@toolbarStyle, @floatShadow);
 }
 
 .v-footnote-pn {
     position: fixed;
     left: 15%;
     right: 15%;
-    bottom: @floatTopBottom * 2;
+    bottom: @floatBottom * 3;
     height: 200px;
     border-radius: var(--c-br-b);
     box-shadow: var(--v-fl-sd);
@@ -4276,24 +4750,35 @@ div[class*=v-fontinfo-].done > span,
     z-index: 1;
     pointer-events: none;
     left: 0;
-    height: 30px;
+    height: 20px;
     width: 100%;
-    border-top-left-radius: var(--v-r-b);
-    border-top-right-radius: var(--v-r-b-xc);
     .genPanelMoreContentStyle(@style) when (@style = std) {
         background-image: var(--ar-top), linear-gradient(180deg, @pnMoreContentLG);
     };
-    .genPanelMoreContentStyle(@style) when (@style = flat) {
-        background-image: var(--ar-top), linear-gradient(180deg, @docMoreContentLG);
-    }
-    .genPanelMoreContentStyle(@style) when (@style = edge) {
+    .genPanelMoreContentStyle(@style) when (@style = flat), (@style = edge) {
         background-image: var(--ar-top), linear-gradient(180deg, @docMoreContentLG);
     }
     .genPanelMoreContentStyle(@navCenterStyle);
+
     background-repeat: no-repeat, no-repeat;
     background-position: center top 8px, center top;
     background-size: auto, auto;
 }
+.top-more::before {
+    border-top-left-radius: var(--v-r-b);
+    border-top-right-radius: var(--v-r-b-xc);
+}
+
+
+// 针对导航中心 edge 风格的微调（导出 HTML 后生效）
+.genNavCenterEdgeMoreContentStyle(@style) when (@style = edge) {
+    .v-nav-center.edge .top-more::before,
+    .v-nav-center.edge .bottom-more::after {
+        background-image: var(--ar-top-edge), linear-gradient(180deg, @pnMoreContentLG_edge);
+    }
+}
+.genNavCenterEdgeMoreContentStyle(@navCenterStyle);
+
 // 顶部更多内容渐变样式
 :is(
 #vlook-toc:not(:empty),
@@ -4319,6 +4804,7 @@ div[class*=v-fontinfo-].done > span,
 .v-index-filter-result,
 .v-link-info-list-items):not(:empty).scroll::after {
     bottom: 0;
+    bottom: @bottomCopyrightHeight;
 }
 .v-footnote-pn-content:not(:empty).scroll::after {
     bottom: @footnoteFooterHeight;
@@ -4362,87 +4848,85 @@ div[class*=v-fontinfo-].done > span,
     visibility: hidden;
 }
 
-// --------------------
-// 文档更多内容
-
-// 更多内容的高度，该数据的调整后，须通过 src/calc-ref.xlx 进行计算重新生成 @docMoreContent 的值
-@moreContentHeight: 50px;
-// 顶部的样式（不是在封面时）
-.v-more-doc-content-before {
-    width: 100%;
-    height: @moreContentHeight;
-    background: linear-gradient(180deg, @docMoreContentLG);
-    position: fixed;
-    top: 0;
-    margin: 0 auto;
-    pointer-events: none;
-    z-index: 130;
-}
-// 底部的样式
-.v-more-doc-content-after {
-    width: 100%;
-    height: @moreContentHeight;
-    background: linear-gradient(0deg, @docMoreContentLG);
-    position: fixed;
-    bottom: 0;
-    margin: 0 auto;
-    pointer-events: none;
-    display: block;
-    z-index: 130;
-}
-.v-more-doc-content-before.no-more,
-.v-more-doc-content-after.no-more {
-    background: none;
-}
-
-// 文档滚动位置/阅读进度条样式
-.v-more-doc-content-after::before {
-    content: "";
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: var(--v-scroll-prog);
-    height: 4px;
-    border-radius: 0 2px 2px 0;
-    background: linear-gradient(90deg, var(--ac-t1) calc(100% - 30px), var(--ac-t2));
-    box-shadow: 4px 0 8px #00000066;
-    transition: all var(--v-trans-dur) ease-out;
-}
-.v-more-doc-content-after.no-more::before {
-    background: linear-gradient(90deg, var(--ac-t2), var(--ac-t2));
-    border-radius: 0;
-    width: 100%;
-}
-
 .v-toolbar {
-    border-radius: var(--c-br-b);
-    // border-radius: var(--v-r-btn);
+    border-radius: var(--b-br-b);
     left: @writePaddingRight;
     padding: 10px;
     width: var(--v-nav-center-w);
     height: 50px;
     position: fixed;
-    background: var(--v-ui-bg);
+    .genToolbarStyle(@style) when (@style = std) {
+        color: @buttonForeColor;
+        background: var(--v-ui-bg);
+    }
+    .genToolbarStyle(@style) when (@style = simple) {
+        color: var(--v-ui-bg);
+        background: var(--d-bc);
+    }
+    .genToolbarStyle(@toolbarStyle);
+
     display: none;
-    z-index: 150;
+    z-index: 2100;
     transition: all var(--v-trans-dur) ease-out;
 }
+// 工具栏内按钮样式
+.v-toolbar .v-btn {
+    .genToolbarStyle(@style) when (@style = std) {
+        color: @buttonForeColor;
+    }
+    .genToolbarStyle(@style) when (@style = simple) {
+        color: var(--v-ui-bg);
+    }
+    .genToolbarStyle(@toolbarStyle);
+}
+
+// 无背景的工具栏样式
 .v-toolbar.cover {
     width: auto;
     right: @writePaddingRight;
     background: none;
-}
-.v-toolbar .v-btn.float {
-    width: 50px;
-    height: 32px;
+    outline: none;
+    box-shadow: none !important;
 }
 
-.v-toolbar-spliter {
-    display: flex;
-    width: 40px;
-    height: @buttonHeight;
-    padding: 0;
-    float: right;
+// 导航中心 edge 风格的微调
+.genToolbarEdgeStyle(@style) when (@style = edge) {
+    .v-toolbar.edge:not(.cover) {
+        background: var(--v-ui-bg);
+        box-shadow: none;
+        outline: none;
+        padding-left: 0 !important;
+        padding-right: 20px !important;
+    }
+    .v-nav-center.edge :is(.v-toc-item, .md-toc-item) {
+        color: @buttonForeColor;
+    }
+    .v-nav-center.block.edge {
+        top: 0 !important;
+        bottom: @readProgressBarHeight;
+        border-radius: 0;
+        margin-left: -30px; // 该值与插件中中的 navcenter.hide 中的 T.ui.oL() < 判断条件保持一致
+        padding-right: 10px;
+        padding-top: 70px;
+        padding-left: 20px;
+        width: calc(var(--v-nav-center-w) + 30px);
+        z-index: 140;
+    }
+
+    .v-toolbar.edge:not(.cover) .v-btn {
+        color: @uiForeColor;
+    }
+    .v-toolbar.edge:not(.cover) .v-btn.selected {
+        color: var(--v-ui-bg);
+        background: @uiForeColor;
+    }
+}
+.genToolbarEdgeStyle(@navCenterStyle);
+
+// 工具栏浮动按钮样式
+.v-toolbar .v-btn.float {
+    width: @floatButtonWidth;
+    height: @floatButtonHeight;
 }
 
 .v-toolbar-smallscreen {
@@ -4491,7 +4975,13 @@ div[class*=v-fontinfo-].done > span,
     margin: 10px 10px 0;
 }
 .v-toc-title.current {
-    color: var(--a-c);
+    .genTocTitleStyle(@style) when not (@style = edge) {
+        color: var(--a-c);
+    }
+    .genTocTitleStyle(@style) when (@style = edge) {
+        color: @buttonForeColor;
+    }
+    .genTocTitleStyle(@navCenterStyle);
     padding-bottom: 5px;
 }
 .v-toc-title.current::before {
@@ -4504,17 +4994,27 @@ div[class*=v-fontinfo-].done > span,
     border-radius: calc(var(--v-r-s) - 2px);
     border-bottom-left-radius: 0;
 }
-.v-doc-lib-item + .v-toc-title {
-    border-top: 1px solid var(--pn-c-a);
+
+:is(.v-doc-lib-item, .md-toc-item) + .v-toc-title {
+    .genTocTitleStyle(@style) when not (@style = edge) {
+        border-top: 1px solid var(--pn-c-a);
+    }
+    .genTocTitleStyle(@style) when (@style = edge) {
+        border-top: 1px solid var(--db02);
+    }
+    .genTocTitleStyle(@navCenterStyle);
 }
 .md-toc-item + .v-toc-title {
     margin-top: 10px;
-    border-top: 1px solid var(--pn-c-a);
 }
 
 .md-toc-item::before {
     color: var(--toc-h-num-c);
     padding-right: 5px;
+    .genTocItemStyle(@style) when (@style = edge) {
+        opacity: @contentHeaderNumOpacity;
+    }
+    .genTocItemStyle(@navCenterStyle);
 }
 
 .genHoverStyle(@for) when (@for = toc-item) {
@@ -4536,7 +5036,7 @@ div[class*=v-fontinfo-].done > span,
     .genTocItemHover(@style) when (@style = edge) {
         .v-toc-item:hover,
         .md-toc-item:hover {
-            background: var(--pn-c);
+            background: var(--db02);
         }
     }
     // 生成目录节点不同风格的 hover 样式
@@ -4550,15 +5050,16 @@ div[class*=v-fontinfo-].done > span,
         color: var(--d-bc);
         background: var(--d-fc-a) !important;
         transition: none;
+        transform: scale(.99);
     }
     .v-toc-item:is(:active, .pressed)::before,
     .md-toc-item:is(:active, .pressed)::before {
-        color: var(--d-bc) !important;
+        color: currentColor !important;
     }
     .v-toc-item:is(:active, .pressed) svg>use,
     .md-toc-item:is(:active, .pressed) svg>use,
     .v-doc-lib-item:is(:active, .pressed) svg>use {
-        fill: var(--d-bc);
+        fill: currentColor;
         opacity: 1;
     }
 }
@@ -4566,9 +5067,9 @@ div[class*=v-fontinfo-].done > span,
     .v-toc-item:is(:active, .pressed),
     .md-toc-item:is(:active, .pressed),
     .v-doc-lib-item:is(:active, .pressed) {
-        color: var(--d-bc);
         background: var(--pn-c-a) !important;
         transition: none;
+        transform: @activePressedTransform_long;
     }
     .v-toc-item:is(:active, .pressed) svg>use,
     .md-toc-item:is(:active, .pressed) svg>use,
@@ -4580,9 +5081,8 @@ div[class*=v-fontinfo-].done > span,
     .v-toc-item:is(:active, .pressed),
     .md-toc-item:is(:active, .pressed),
     .v-doc-lib-item:is(:active, .pressed) {
-        color: var(--d-bc);
-        background: var(--pn-c-a) !important;
         transition: none;
+        transform: scale(.99);
     }
     .v-toc-item:is(:active, .pressed) svg>use,
     .md-toc-item:is(:active, .pressed) svg>use,
@@ -4592,12 +5092,38 @@ div[class*=v-fontinfo-].done > span,
 }
 // 生成目录节点不同风格的 active 样式
 .genTocItemActive(@navCenterStyle);
-// .v-toc-item:is(:active, .pressed)>span {
-//     color: var(--d-bc);
-// }
 
-:is(.v-toc-item, .v-cap-1)>span {  // 题注前缀
+// 分类索引题注前缀
+.v-toc-item>span {
+    .genTocItemCapStyle(@style) when not (@style = edge) {
+        color: var(--h-f);
+    }
+    .genTocItemCapStyle(@style) when (@style = edge) {
+        color: var(--toc-h-num-c);
+        opacity: @contentHeaderNumOpacity;
+    }
+    .genTocItemCapStyle(@navCenterStyle);
+}
+
+.v-cap-1.up {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.v-cap-1.down {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+// 题注前缀
+.v-cap-1>span {
     color: var(--h-f);
+}
+// 题注内容方向指示符号
+.v-cap-1.up>span::after {
+    content: attr(data-up-symbol);
+}
+.v-cap-1.down>span::after {
+    content: attr(data-down-symbol);
 }
 
 .v-toc-item>div>label,
@@ -4704,10 +5230,17 @@ div[class*=v-fontinfo-].done > span,
     line-height: 2;
 }
 
+// 当前目录项样式
 .v-item-current {
     font-weight: var(--v-fw-toc);
-    background: var(--bq-bg);
-    box-shadow: @tocItemCurrent_boxShadow;
+    .genItemCurrentStyle(@style) when not (@style = edge) {
+        background: var(--bq-bg);
+        box-shadow: @tocItemCurrent_boxShadow;
+    }
+    .genItemCurrentStyle(@style) when (@style = edge) {
+        box-shadow: @tocItemCurrent_boxShadow_edge;
+    }
+    .genItemCurrentStyle(@navCenterStyle);
 }
 
 .v-toc-folder {
@@ -4734,75 +5267,114 @@ div[class*=v-fontinfo-].done > span,
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: @buttonForeColor;
+
+    .genToolbarStyle(@style) when (@style = simple) {
+        color: var(--v-ui-bg);
+    }
+    .genToolbarStyle(@style) when not (@style = simple) {
+        color: @uiForeColor;
+    }
+    .genToolbarStyle(@toolbarStyle);
+
     padding: 0;
     width: var(--v-tb-btn-w);
     height: @buttonHeight;
-    border-radius: var(--c-br-s);
-    // border-radius: var(--v-r-btn);
+    border-radius: var(--b-br-s);
     pointer-events: all;
 }
 
 .v-btn[data-btn-group]:not(:first-of-type) {
-    // height: 30px;
     margin-left: 2px;
 }
 
-// 按钮 pin 状态
-.v-btn.selected {
-    color: var(--v-ui-bg);
-    background: @uiForeColor;
-    box-shadow: @contrastBorder;
+// 按钮 pin 状态（std 风格）
+.genToolbarBtnStyle(@style) when (@style = std) {
+    // 按钮 pin 状态
+    .v-btn.selected {
+        color: var(--v-ui-bg);
+        background: @uiForeColor;
+    }
+
+    // 浮动按钮
+    .v-btn.float,
+    .v-btn-group.float {
+        background: var(--v-ui-bg);
+        padding: 0 2px;
+    }
 }
-.v-btn.selected svg>use {
-    fill: var(--v-ui-bg);
+// 按钮 pin 状态（simple 风格）
+.genToolbarBtnStyle(@style) when (@style = simple) {
+    .v-btn.selected {
+        color: @uiForeColor;
+        background: var(--v-ui-bg);
+    }
+
+    // 浮动按钮
+    .v-btn.float,
+    .v-btn-group.float {
+        background: var(--d-bc);
+        padding: 0 2px;
+    }
 }
+.genToolbarBtnStyle(@toolbarStyle);
 
 .genHoverStyle(@for) when (@for = btn) {
-    .v-btn:hover {
+    .v-btn:hover,
+    .v-fullscreen-toolbar > div > div:hover {
         background: var(--a-o-c) !important;
         color: @buttonForeHoverColor;
     }
-    .v-btn:hover>svg>use {
+    .v-btn:hover>svg>use,
+    .v-fullscreen-toolbar > div > div:hover > svg>use {
         fill: @buttonForeHoverColor;
     }
-
 }
-.v-btn:active {
+.v-btn:active,
+.v-fullscreen-toolbar > div > div:active {
     background: @aActiveColor !important;
     box-shadow: @activeBoxShadow;
     color: @buttonForeHoverColor;
     transition: none;
     z-index: 1;
 }
-.v-btn.v-float-card:active {
-    box-shadow: @activeBoxShadow, var(--v-fl-sd), @contrastBorder;
+.v-btn:active,
+.v-fullscreen-toolbar > div > div:active {
+    transform: @activePressedTransform_short;
 }
 
-.v-btn.float,
-.v-btn-group.float {
-    background: var(--v-ui-bg);
-    padding: 0 2px;
+.v-btn.v-float-card:active {
+    .genFloatShadow(@shadow) when (@shadow = shadow) {
+        box-shadow: @activeBoxShadow, var(--v-fl-sd);
+    }
+    .genFloatShadow(@floatShadow);
 }
+
 .v-btn-group.float>.v-btn {
     box-shadow: none;
 }
 .v-btn-group.float>.v-btn[data-btn-group] {
     box-shadow: none;
-    width: calc(var(--v-tb-btn-w) - 4px);
-    height: 26px;
+    width: @floatButtonWidth - 4px;
+    height: @floatButtonHeight - 4px;
     margin-top: 2px;
     margin-bottom: 2px;
-    // border-radius: @borderRadiusInner_2px;
-    border-radius: calc(var(--v-r-s) - 2px) calc(var(--v-r-s-xc) - 2px);
+    .genBtnGroupStyle(@style) when (@style = std) {
+        border-radius: @borderRadiusInner_2px;
+    }
+    .genBtnGroupStyle(@style) when not (@style = std) {
+        border-radius: var(--b-br-s);
+    }
+    .genBtnGroupStyle(@buttonRadiusStyle);
 }
 
 .v-btn-group.prs {
     margin: 0 0 0 calc(var(--v-tb-btn-s) * 3);
-    height: @buttonHeight;
+    height: @floatButtonHeight - 2px;
     float: right;
-    border-radius: var(--c-br-s);
-    // border-radius: var(--v-r-btn);
+    border-radius: var(--b-br-s);
+}
+.v-btn-group.prs.float {
+    height: @floatButtonHeight;
 }
 
 .v-btn-group:not(.float):has(.selected) {
@@ -4832,7 +5404,7 @@ div[class*=v-fontinfo-].done > span,
 
 .v-audio-mini-control {
     background: var(--v-btn-bg);
-    border-radius: var(--c-br-b);
+    border-radius: var(--b-br-b);
     text-align: center;
     line-height: 30px;
     height: @buttonHeight;
@@ -4850,7 +5422,6 @@ div[class*=v-fontinfo-].done > span,
 .genHoverStyle(@for) when (@for = audio-mini-control) {
     .v-audio-mini-control:hover {
         background: var(--a-o-c);
-        box-shadow: var(--v-fl-sd);
         color: @buttonForeHoverColor;
     }
 
@@ -4880,13 +5451,47 @@ div[class*=v-fontinfo-].done > span,
 
 @chapterNavHeight: 50px;
 .v-chapter-nav {
-    color: @buttonForeColor;
+    .genChapterNavStyle(@style, @border) when (@style = std) {
+        color: @buttonForeColor;
+        background: var(--v-ui-bg);
+
+        .genBorder(@border) when (@border = shadow) {
+        }
+        .genBorder(@border) when (@border = line) {
+            box-shadow: none !important;
+            .genBorderCSS() when not (isdefined(@panelBorderColor)) {
+                box-shadow: 0 0 0 1px var(--pn-c-a) inset !important;
+            }
+            .genBorderCSS() when (isdefined(@panelBorderColor)) {
+                box-shadow: 0 0 0 1px @panelBorderColor inset !important;
+            }
+            .genBorderCSS();
+        }
+        .genBorder(@border);
+    }
+    .genChapterNavStyle(@style, @border) when (@style = simple) {
+        color: var(--v-ui-bg);
+        background: var(--d-bc);
+
+        .genBorder(@border) when (@border = shadow) {
+        }
+        .genBorder(@border) when (@border = line) {
+            box-shadow: none !important;
+            .genBorderCSS() when not (isdefined(@panelBorderColor)) {
+                box-shadow: 0 0 0 1px var(--pn-c-a) inset;
+            }
+            .genBorderCSS() when (isdefined(@panelBorderColor)) {
+                box-shadow: 0 0 0 1px @panelBorderColor inset;
+            }
+            .genBorderCSS();
+        }
+    }
+    .genChapterNavStyle(@toolbarStyle, @panelBorder);
+
     font: condensed normal 1em var(--v-fm-toc); // [stretch] [style] [weight] [size/[line-height]] [family]
-    background: var(--v-ui-bg);
-    border-radius: var(--c-br-b);
-    // border-radius: var(--v-r-btn);
+    border-radius: var(--b-br-b);
     top: -50px;
-    left: calc(var(--v-nav-center-w) + 50px); // 注意 +/- 号前后须留空格
+    left: calc(var(--v-nav-center-w) + 40px); // 注意 +/- 号前后须留空格
     right: @writePaddingRight;
     height: @chapterNavHeight;
     position: fixed;
@@ -4901,13 +5506,17 @@ div[class*=v-fontinfo-].done > span,
     display: block;
 }
 
+// 生成工具栏风格 simple 的 svg 样式
+.genChapterNavSvgStyle(@style) when (@style = simple) {
+}
+.genChapterNavSvgStyle(@toolbarStyle);
+
 .v-chapter-nav-prev {
     top: 0;
     left: 0;
     width: 20%;
     height: 50px;
     position: absolute;
-    // border-radius: var(--v-r-b) 0 0 var(--v-r-b-xc);
 }
 // 有特效（effect>=1）时使用的样式
 .v-chapter-nav-prev::before {
@@ -4917,13 +5526,11 @@ div[class*=v-fontinfo-].done > span,
     right: 0;
     top: 0;
     bottom: 0;
-    background: linear-gradient(to right, var(--a-o-c), var(--v-ui-bg) calc(100% - @buttonRadiusCircle));
-    // border-radius: var(--v-r-b) 0 0 var(--v-r-b-xc);
-    border-radius: var(--c-br-b);
-    // border-radius: var(--v-r-btn) 0 0 var(--v-r-btn);
+    border-radius: var(--b-br-b);
     opacity: 0;
-    z-index: -1;
     transition: all var(--v-trans-dur) ease-out;
+    background: linear-gradient(to right, var(--a-o-c), transparent calc(100% - @buttonRadiusCircle));
+    z-index: -1;
 }
 .genHoverStyle(@for) when (@for = chapter-nav-prev) {
     .v-chapter-nav-prev:hover>svg>use {
@@ -4937,17 +5544,27 @@ div[class*=v-fontinfo-].done > span,
     }
 }
 .v-chapter-nav-prev:is(:active, .pressed)::before {
-    background: linear-gradient(to right, desaturate(@aHoverColor, 30%), var(--v-ui-bg));
+    background: linear-gradient(to right, desaturate(@aHoverColor, 30%), transparent calc(100% - @buttonRadiusCircle));
     opacity: 1;
+}
+.v-chapter-nav-prev:is(:active, .pressed) > svg {
+    transform: @activePressedTransform_short;
 }
 
 .v-chapter-nav-prev-text {
+    .genChapterNavStyle(@style) when (@style = std) {
+        color: @buttonForeColor;
+    }
+    .genChapterNavStyle(@style) when (@style = simple) {
+        color: var(--v-ui-bg);
+    }
+    .genChapterNavStyle(@toolbarStyle);
+
     top: 0;
     left: 40px;
     width: 100%;
     height: 50px;
     line-height: 50px;
-    color: @buttonForeColor;
     text-align: left;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -4995,6 +5612,10 @@ div[class*=v-fontinfo-].done > span,
     width: auto;
     height: 28px;
     display: block;
+    .getChapterNavCurrent(@style) when (@style = std) {
+        text-shadow: 0 1px 3px #0000004D;
+    }
+    .getChapterNavCurrent(@toolbarStyle);
 }
 .v-chapter-nav-current>span {
     opacity: .75;
@@ -5041,7 +5662,6 @@ div[class*=v-fontinfo-].done > span,
     width: 20%;
     height: 50px;
     position: absolute;
-    // border-radius: 0 var(--v-r-b-xc) var(--v-r-b) 0;
 }
 .v-chapter-nav-next::before {
     content: "";
@@ -5050,13 +5670,11 @@ div[class*=v-fontinfo-].done > span,
     right: 0;
     top: 0;
     bottom: 0;
-    background: linear-gradient(to left, var(--a-o-c), var(--v-ui-bg) calc(100% - @buttonRadiusCircle));
-    border-radius: var(--c-br-b);
-    // border-radius: 0 var(--v-r-b-xc) var(--v-r-b) 0;
-    // border-radius: 0 var(--v-r-btn) var(--v-r-btn) 0;
+    border-radius: var(--b-br-b);
     opacity: 0;
-    z-index: -1;
     transition: all var(--v-trans-dur) ease-out;
+    background: linear-gradient(to left, var(--a-o-c), transparent calc(100% - @buttonRadiusCircle));
+    z-index: -1;
 }
 .genHoverStyle(@for) when (@for = chapter-nav-next) {
     .v-chapter-nav-next:hover>svg>use {
@@ -5070,17 +5688,27 @@ div[class*=v-fontinfo-].done > span,
     }
 }
 .v-chapter-nav-next:is(:active, .pressed)::before {
-    background: linear-gradient(to left, desaturate(@aHoverColor, 30%), var(--v-ui-bg));
+    background: linear-gradient(to left, desaturate(@aHoverColor, 30%), transparent calc(100% - @buttonRadiusCircle));
     opacity: 1;
+}
+.v-chapter-nav-next:is(:active, .pressed) > svg {
+    transform: @activePressedTransform_short;
 }
 
 .v-chapter-nav-next-text {
+    .genChapterNavStyle(@style) when (@style = std) {
+        color: @buttonForeColor;
+    }
+    .genChapterNavStyle(@style) when (@style = simple) {
+        color: var(--v-ui-bg);
+    }
+    .genChapterNavStyle(@toolbarStyle);
+
     top: 0;
     right: 40px;
     width: 100%;
     height: 50px;
     line-height: 50px;
-    color: @buttonForeColor;
     text-align: right;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -5091,21 +5719,24 @@ div[class*=v-fontinfo-].done > span,
 
 .v-search-by-keyword {
     display: block;
-    margin: 0 @ncMargin;
+    margin: 0 (@ncMargin - 1px);
     pointer-events: all;
 }
 
-.v-focus-search.actived {
-    filter: grayscale(75%) saturate(75%) !important;
+.v-focus-out.actived {
+    filter: saturate(25%) !important;
 }
 
 // 输入框
-@textfieldHeight: 36px;
+@textfieldHeight: 40px;
 .v-textfield {
     background: var(--d-bc);
-    border-radius: var(--c-br-s);
-    // border-radius: var(--v-r-btn);
-    box-shadow: 0 0 0 1px var(--bq-bg) inset;
+    border-radius: var(--b-br-s);
+    .genTextfieldStyle(@style) when (@style = flat) {
+        box-shadow: 0 0 0 1px var(--bq-bg) inset;
+    }
+    .genTextfieldStyle(@navCenterStyle);
+
     margin: 0;
     height: @textfieldHeight;
 }
@@ -5119,7 +5750,6 @@ div[class*=v-fontinfo-].done > span,
 @{onHTML} :is(
 input::placeholder,
 input:focus::placeholder,
-input::input-placeholder,
 input::-webkit-input-placeholder,
 input::-moz-placeholder,
 input:-moz-placeholder),
@@ -5129,7 +5759,7 @@ input:-moz-placeholder),
 }
 
 // 输入框内的输入控件
-@textfieldInputActionWidth: 85px; // 输入框内的动作按钮宽度
+@textfieldInputActionWidth: 100px; // 输入框内的动作按钮宽度
 .genTextfieldCommonStyle() {
     color: var(--a-o-c);
     background: var(--d-bc);
@@ -5141,7 +5771,7 @@ input:-moz-placeholder),
 .v-textfield>input {
     float: left;
     width: calc(var(--v-nav-center-w) - @textfieldInputActionWidth);
-    height: 32px;
+    height: calc(100% - 4px);
     margin: 2px 0;
     .genTextfieldCommonStyle();
 }
@@ -5151,7 +5781,7 @@ input:-moz-placeholder),
 
 .v-textfield-icon {
     width: @textfieldHeight;
-    height: @textfieldHeight;
+    height: 100%;
     padding: 7px;
     display: flex;
     align-items: center;
@@ -5194,17 +5824,14 @@ input:-moz-placeholder),
 
 // 文本内容重置按钮
 .v-textfield-reset {
-    width: 30px;
-    height: 32px;
-    margin: 2px;
-    right: 10px;
+    width: @textfieldHeight;
+    height: 100%;
+    float: right;
     display: flex;
     align-items: center;
     justify-content: center;
     visibility: hidden;
-    position: absolute;
-    background-color: var(--d-bc);
-    border-radius: var(--c-br-s);
+    border-radius: var(--b-br-s);
 }
 .v-textfield-reset.enabled {
     visibility: visible;
@@ -5243,74 +5870,25 @@ input:-moz-placeholder),
     display: none;
 }
 
-.v-fig-nav {
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, var(--d-bc) 50px, var(--fd05));
-    position: fixed;
-    visibility: hidden;
-    opacity: 0;
-    user-select: none;
-    z-index: 2200;
-}
-
-// 插图导航中的导航按钮
-.v-fig-nav-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--a-c);
-    padding: 0;
-    height: 100%;
-}
-// 插图导航中的上一插图按钮
-.v-fig-nav-btn.prev {
-    left: 0;
-    width: 30px;
-    box-shadow: @contrastBorder;
-    position: absolute;
-}
-// 插图导航中的下一插图按钮
-.v-fig-nav-btn.next {
-    right: 0;
-    width: 30px;
-    box-shadow: @contrastBorder;
-    position: absolute;
-}
-.v-fig-nav-btn.next>svg {
-    transform: rotate(180deg);
-}
-
-// 关闭插图浏览器按钮
-.v-fig-nav-btn.close {
-    display: flex;
-    color: var(--a-c);
-    background: linear-gradient(-90deg, var(--d-bc) 60%, transparent);
-    right: 0;
-    width: 45px;
-    height: 45px;
-    position: absolute;
-}
-.genHoverStyle(@for) when (@for = btn-close-fig-nav) {
-    .v-fig-nav-btn.close:hover {
-        background: var(--a-o-c);
-        box-shadow: var(--v-fl-sd);
-        transform: translate(-2px, 2px) ;
-    }
-}
-
 // 内容助手
 .v-content-assistor {
+    .genToolbarStyle(@style) when (@style = std) {
+        background: var(--v-ui-bg);
+    }
+    .genToolbarStyle(@style) when (@style = simple) {
+        background: var(--d-bc);
+        outline: 1px solid var(--pn-c-a);
+    }
+    .genToolbarStyle(@toolbarStyle);
+
     visibility: hidden;
     opacity: 1;
     position: absolute;
+    display: flex;
+    gap: 1px;
     white-space: nowrap;
-    background: var(--v-ui-bg);
     border-radius: var(--v-r-si) var(--v-r-si-xc);
-    // border-radius: var(--v-r-btn);
-    padding: 0 1px;
+    padding: 2px;
     height: @buttonHeight;
     z-index: 20;
 }
@@ -5319,10 +5897,8 @@ input:-moz-placeholder),
 .v-btn.assistor {
     top: 0;
     width: 36px;
-    height: 26px;
+    height: 100%;
     border-radius: @borderRadiusInnerSi_2px;
-    // border-radius: calc(var(--v-r-btn) - 2px);;
-    margin: 2px 1px;
     position: relative;
     display: none;
 }
@@ -5357,9 +5933,6 @@ input:-moz-placeholder),
 .v-pic-in-pic>.v-content,
 .v-pic-in-pic>.v-content>:is(table, .v-fig) {
     border-radius: calc(var(--v-r-b) - @picInPicPadding) calc(var(--v-r-b-xc) - @picInPicPadding);
-}
-.v-pic-in-pic table :is(th, td) {
-    white-space: pre !important;
 }
 
 .v-pip-btn {
@@ -5423,7 +5996,14 @@ input:-moz-placeholder),
 .v-doc-lib-item {
     font: condensed normal 1em/@defaultLineHeight var(--v-fm-toc); // [stretch] [style] [weight] [size/[line-height]] [family]
     text-transform: uppercase;
-    color: var(--d-fc);
+    .genDocLibItemStyle(@style) when not (@style = edge) {
+        color: var(--d-fc);
+    }
+    .genDocLibItemStyle(@style) when (@style = edge) {
+        color: @buttonForeColor;
+    }
+    .genDocLibItemStyle(@navCenterStyle);
+
     height: 35px;
     padding: 0 5px;
     margin: 5px 10px 0;
@@ -5439,8 +6019,14 @@ input:-moz-placeholder),
 }
 .genHoverStyle(@for) when (@for = doc-lib-item) {
     .v-doc-lib-item:hover {
-        background-color: var(--pn-c-a);
-        box-shadow: 0 0 0 2px var(--ac-t2-fd) inset;
+        .genDocLibItemStyle(@style) when not (@style = edge) {
+            background-color: var(--pn-c-a);
+            box-shadow: 0 0 0 2px var(--ac-t2-fd) inset;
+        }
+        .genDocLibItemStyle(@style) when (@style = edge) {
+            background: var(--db02);
+        }
+        .genDocLibItemStyle(@navCenterStyle);
     }
     .v-doc-lib-item:hover svg>use {
         opacity: 1;
@@ -5465,7 +6051,6 @@ input:-moz-placeholder),
 .v-doc-lib {
     visibility: hidden;
     background: var(--d-bc);
-    box-shadow: 0 0 0 2px var(--d-fc-a);
     margin: 0;
     border: none;
     border-radius: 0 0 var(--v-r-b) var(--v-r-b);
@@ -5473,7 +6058,7 @@ input:-moz-placeholder),
     left: 10%;
     top: 0;
     right: 10%;
-    bottom: @floatTopBottom * 2;
+    bottom: @floatBottom * 6;
     z-index: 5000;
 }
 .v-doc-lib>iframe {
@@ -5562,29 +6147,6 @@ iframe[id^=vlook-chk-update-] {
     filter: var(--v-invert-dark);
 }
 
-.v-fig-content {
-    padding: 40px 30px 20px;
-    color: var(--d-fc);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.v-fig-nav-title {
-    color: var(--d-fc);
-    left: 10px;
-    top: 10px;
-    position: absolute;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
 .v-fig-page-num {
     border-radius: var(--c-br-s);
     color: @colorWhite;
@@ -5596,19 +6158,11 @@ iframe[id^=vlook-chk-update-] {
 // 题注
 .v-caption {
     display: inline-block;
-    // border-radius: var(--c-br-b);
-    // background: @captionBackground;
     text-align: center;
 }
-.v-caption.table {
-    display: block;
-}
-.v-caption.table:not([data-cap-count]) {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
-.v-caption:not(.mermaid) {
-    // 指定高度后超出部分支持水平滚动
+
+.v-caption:not(.mermaid):not(.table) {
+    // 指定宽度后超出部分支持水平滚动
     max-width: 100%;
     overflow-x: auto;
 }
@@ -5636,8 +6190,10 @@ iframe[id^=vlook-chk-update-] {
     left: 50%;
     transform: translateX(-50%);
 }
-.v-fig-content.loading:has(img)::before {
-    top: unset;
+.v-caption.full.loading:has(img)::before {
+    top: 50%;
+    transform: translate(-50%) translateY(-50%) !important;
+    z-index: 2;
 }
 
 // 代码块题注样式
@@ -5654,11 +6210,9 @@ iframe[id^=vlook-chk-update-] {
 .v-caption.codeblock > :is(.v-cap-1, .v-cap-2) {
     color: var(--d-fc);
     width: 100%;
-    // border-radius: var(--v-r-s) var(--v-r-s-xc);
 }
 .v-caption.codeblock > .v-cap-1 {
     background: var(--std-code-sd) var(--v-i-sys-menu) no-repeat 10px center;
-    // border-radius: var(--v-r-b) var(--v-r-b-xc) 0 0;
 }
 
 // 当前文档中匹配的题注交叉引用样式
@@ -5684,21 +6238,20 @@ a[data-x-ref]::before {
     color: @captionTextColor;
     font: normal .875em var(--v-fm-stt); // [style] [weight] [size/[line-height]] [family]
     padding: 5px 10px;
-    // width: auto;
     width: fit-content;
     white-space: pre-wrap;
     background: @captionBackground;
     border-radius: var(--c-br-s);
-    // left: 50%;
-    // transform: translateX(-50%);
-    // margin: 2px 0;
 }
 .v-cap-1.none {
     padding: 0;
 }
 .v-cap-2 {
-    // margin: 3px 10px 5px 10px;
-    font-style: italic;
+    font-size: .75em;
+    background: none;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    padding: 3px 10px 5px;
 }
 
 .v-cap-cntr:last-child {
@@ -5743,6 +6296,11 @@ use.v-svg-ico-btn-fc {
     fill: @buttonForeColor;
 }
 
+use.v-svg-ico-btn-fc.alpha {
+    fill: @buttonForeColor;
+    opacity: .35;
+}
+
 use.v-svg-ico-a {
     fill: var(--d-fc-a);
 }
@@ -5760,7 +6318,6 @@ use.v-svg-ico-wh {
 }
 .v-svg-chp-nav.right {
     right: 15px;
-    transform: rotate(180deg);
 }
 
 .v-svg-details {
@@ -5775,28 +6332,32 @@ use.v-svg-ico-wh {
     height: 100%;
     text-align: center;
     position: fixed;
-    background: #00000099;//rgba(0, 0, 0, .6);
+    color: @buttonForeColor;
+    background: var(--ac-t1);//rgba(0, 0, 0, .6);
     display: none;
     z-index: 1000;
+}
+.v-mask:is(.link-checker, .nav-center) .v-copyright {
+    display: none;
 }
 
 // 遮罩扩展样式
 @lgOpacity: 40%;
 // 标准风格（渐变）
 .genMaskBackground(@style) when (@style = std) {
-    .v-mask.left {
+    .v-mask.left.v-backdrop-blurs.enabled {
         background: linear-gradient(90deg, @theme1 30%, fade(@theme1, @lgOpacity)), linear-gradient(0deg, fade(@theme1, 50%), transparent 50px, transparent);
     }
-    .v-mask.right {
+    .v-mask.right.v-backdrop-blurs.enabled {
         background: linear-gradient(270deg, @theme1 30%, fade(@theme1, @lgOpacity)), linear-gradient(0deg, fade(@theme1, 50%), transparent 50px, transparent);
     }
-    .v-mask.top {
+    .v-mask.top.v-backdrop-blurs.enabled {
         background: linear-gradient(180deg, @theme1 40%, fade(@theme1, 50%)), linear-gradient(0deg, fade(@theme1, 50%), transparent 50px, transparent);
     }
-    .v-mask.bottom {
+    .v-mask.bottom.v-backdrop-blurs.enabled {
         background: linear-gradient(0deg, @theme1 40%, fade(@theme1, @lgOpacity));
     }
-    .v-mask.center {
+    .v-mask.center.v-backdrop-blurs.enabled {
         background: radial-gradient(ellipse, @theme1 40%, fade(@theme1, @lgOpacity)), linear-gradient(0deg, fade(@theme1, 50%), transparent 50px, transparent);
     }
 }
@@ -5805,10 +6366,11 @@ use.v-svg-ico-wh {
     // 针对非移动端
     @media screen and (min-width: (@gMobileScreenWidth + 1)) {
         // 加载提示、欢迎页样式
-        @{writeOnHTML}::before,
+        @{writeOnHTML}:not(.done)::before,
         .v-welcome-page {
-            backdrop-filter: blur(15px);
-            background: radial-gradient(var(--fd06) 4px,var(--d-bc) 4px);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            background: radial-gradient(var(--db06) 4px,var(--d-bc) 4px);
             background-size: 10px 10px;
         }
 
@@ -5823,10 +6385,13 @@ use.v-svg-ico-wh {
         }
 
         // 遮罩关闭、版权信息样式
-        .v-mask-close,
-        .v-mask .v-copyright {
+        .v-mask-close {
             background: var(--ac-t1) !important;
             border-radius: var(--c-br-b);
+        }
+
+        :is(.v-welcome-page, .v-mask) .v-copyright {
+            color: var(--ac-t1);
         }
 
         .v-font-style::before,
@@ -5843,9 +6408,6 @@ use.v-svg-ico-wh {
 
 // 生成编辑时显示代码块标题（题注）样式
 .genCodeblockTitle(true);
-
-// 生成遮罩背景风格
-.genMaskBackground(std);
 
 // 针对遮罩内为链接地图、异常链接检查的样式微调
 @maskIconSize: 80px;
@@ -5902,9 +6464,11 @@ use.v-svg-ico-wh {
     transform: rotate(270deg);
 }
 .v-backdrop-blurs.enabled {
-    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 }
 .v-backdrop-blurs.disabled {
+    -webkit-backdrop-filter: unset;
     backdrop-filter: unset;
 }
 
@@ -5935,8 +6499,24 @@ use.v-svg-ico-wh {
     // 引用块着色内按钮 hover 通用样式
     #write .v-q@{colorCodeSet} a kbd:hover {
         color: @buttonForeHoverColor;
-        background: var(--a-o-c);
-        border-color: var(--a-o-c);
+
+        .genKbdStyle(@style) when (@style = flat) {
+            background: var(--a-o-c);
+            border-color: var(--a-o-c);
+        }
+        .genKbdStyle(@style) when (@style = fade) {
+            background: linear-gradient(180deg, var(--btn-reflect), var(--a-o-c), var(--btn-shadow)), var(--a-o-c);
+            box-shadow: 0 0 0 1px var(--a-o-c) inset;
+            border: none;
+        }
+        .genKbdStyle(@style) when (@style = raised) {
+            background: var(--a-o-c);
+            box-shadow: 0 @rasiedShadowSize 0 0 var(--btn-raised), 0 @rasiedShadowSize 0 0 var(--a-o-c);
+        }
+        .genKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+            background: var(--a-o-c);
+        }
+        .genKbdStyle(@thmKbdStyle);
     }
 }
 #write .v-q@{colorCodeSet} @{kbdSec} {
@@ -5947,6 +6527,19 @@ use.v-svg-ico-wh {
     // 引用块着色内按钮 hover 通用样式
     #write .v-q@{colorCodeSet} @{kbdSec}:hover {
         color: var(--a-o-c) !important;
+        // 生成不同风格按钮的 hover 样式
+        .genKbdStyle(@style) when (@style = flat) {
+        }
+        .genKbdStyle(@style) when (@style = fade) {
+            background: linear-gradient(180deg, var(--btn-reflect), var(--ac-t2-a), var(--btn-shadow)), var(--ac-t2-a);
+        }
+        .genKbdStyle(@style) when (@style = raised) {
+            background: var(--d-bc);
+            box-shadow: 0 @rasiedShadowSize 0 0 currentColor, 0 0 0 1px currentColor inset;
+        }
+        .genKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+        }
+        .genKbdStyle(@thmKbdStyle);
     }
     #write .v-q@{colorCodeSet} @{kbdSec}:hover @{svgGs},
     #write .v-q.bk.em @{kbdSec}:hover @{svgGs} { // Black
@@ -5970,7 +6563,7 @@ use.v-svg-ico-wh {
 }
 
 // 生成引用块着色相关样式
-.genRainbowQuoteCSS(@quoteMark, @accColor, @btnBg, @btnFore) {
+.genRainbowQuoteCSS(@quoteMark, @accColor, @btnBg, @btnFore, @btnBgAlt) {
     #write .v-q.@{quoteMark} {
         .genQuote(@quoteMark) when not (@quoteMark = bk) { // not Black
             box-shadow: 0 0 0 4px ~"var(--ac-@{quoteMark}-fd)" inset;
@@ -6025,8 +6618,26 @@ use.v-svg-ico-wh {
     // 主要按钮链接
     #write .v-q.@{quoteMark} a kbd {
         color: @btnFore;
-        background: @btnBg;
-        border: 2px solid @btnBg;
+        // 生成不同风格的主要按钮样式
+        .genKbdStyle(@style) when (@style = flat) {
+            background: @btnBg;
+            border: 2px solid @btnBg;
+        }
+        .genKbdStyle(@style) when (@style = fade) {
+            background: linear-gradient(180deg, var(--btn-reflect), @btnBg, var(--btn-shadow)), @btnBg;
+            box-shadow: 0 0 0 1px @btnBg inset;
+            border: none;
+        }
+        .genKbdStyle(@style) when (@style = raised) {
+            background: @btnBg;
+            box-shadow: 0 @rasiedShadowSize 0 0 var(--btn-raised), 0 @rasiedShadowSize 0 0 @btnBg;
+        }
+        .genKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+            background: @btnBg;
+            box-shadow: 0 @3dShadowSize 0 0 var(--btn-reflect) inset, @3dShadowSize 0 0 0 var(--btn-reflect) inset,
+                -@3dShadowSize 0 0 0 var(--btn-shadow) inset, 0 -@3dShadowSize 0 0 var(--btn-shadow) inset;
+        }
+        .genKbdStyle(@thmKbdStyle);
     }
     .genQuoteAkbd(@quoteMark) when (@quoteMark = bk) {
         #write .v-q.@{quoteMark} @{kbdSec} {
@@ -6050,7 +6661,20 @@ use.v-svg-ico-wh {
     // 次要按钮链接
     #write .v-q.@{quoteMark} @{kbdSec} {
         color: @btnBg;
-        background: var(--d-bc);
+        // 生成不同风格的次要按钮样式
+        .genKbdStyle(@style) when (@style = flat) {
+            background: var(--d-bc);
+        }
+        .genKbdStyle(@style) when (@style = fade) {
+            background: linear-gradient(180deg, var(--btn-reflect), @btnBgAlt, var(--btn-shadow)), @btnBgAlt;
+        }
+        .genKbdStyle(@style) when (@style = raised) {
+            background: var(--d-bc);
+            box-shadow: 0 @rasiedShadowSize 0 0 currentColor, 0 0 0 1px currentColor inset;
+        }
+        .genKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+        }
+        .genKbdStyle(@thmKbdStyle);
     }
     .genQuoteAkbdSec(@quoteMark) when (@quoteMark = bk) { // Black
         #write .v-q.@{quoteMark}.em @{kbdSec} {
@@ -6130,30 +6754,30 @@ use.v-svg-ico-wh {
     }
     .genQuoteMarker(@quoteMark);
 }
-.genRainbowQuoteCSS(rd, @accColorRed, @accColorRed, #FFF);
-.genRainbowQuoteCSS(og, @accColorOrange, @accColorOrange, #FFF);
-.genRainbowQuoteCSS(ye, @accColorYellow, @accColorYellow, #000);
-.genRainbowQuoteCSS(lm, @accColorLime, @accColorLime, #000);
-.genRainbowQuoteCSS(gn, @accColorGreen, @accColorGreen, #FFF);
-.genRainbowQuoteCSS(mn, @accColorMineral, @accColorMineral, #FFF);
-.genRainbowQuoteCSS(ol, @accColorOlives, @accColorOlives, #FFF);
-.genRainbowQuoteCSS(wn, @accColorWine, @accColorWine, #FFF);
-.genRainbowQuoteCSS(aq, @accColorAqua, @accColorAqua, #000);
-.genRainbowQuoteCSS(cy, @accColorCyan, @accColorCyan, #FFF);
-.genRainbowQuoteCSS(bu, @accColorBlue, @accColorBlue, #FFF);
-.genRainbowQuoteCSS(se, @accColorSea, @accColorSea, #FFF);
-.genRainbowQuoteCSS(la, @accColorLavender, @accColorLavender, #000);
-.genRainbowQuoteCSS(vn, @accColorVine, @accColorVine, #FFF);
-.genRainbowQuoteCSS(pu, @accColorPurple, @accColorPurple, #FFF);
-.genRainbowQuoteCSS(ro, @accColorRose, @accColorRose, #FFF);
-.genRainbowQuoteCSS(pk, @accColorPink, @accColorPink, #000);
-.genRainbowQuoteCSS(gd, @accColorGold, @accColorGold, #000);
-.genRainbowQuoteCSS(bn, @accColorBrown, @accColorBrown, #FFF);
-.genRainbowQuoteCSS(gy, @accColorGray, @accColorGray, #FFF);
-.genRainbowQuoteCSS(wt, var(--d-fc), var(--d-fc), var(--d-bc));
-.genRainbowQuoteCSS(bk, var(--d-fc), var(--d-fc), var(--d-bc));
-.genRainbowQuoteCSS(t1, var(--ac-t1), var(--ac-t1), @buttonForeColor);
-.genRainbowQuoteCSS(t2, @theme2, var(--a-o-c), @buttonForeHoverColor);
+.genRainbowQuoteCSS(rd, @accColorRed, @accColorRed, #FFF, var(--ac-rd-a));
+.genRainbowQuoteCSS(og, @accColorOrange, @accColorOrange, #FFF, var(--ac-og-a));
+.genRainbowQuoteCSS(ye, @accColorYellow, @accColorYellow, #000, var(--ac-ye-a));
+.genRainbowQuoteCSS(lm, @accColorLime, @accColorLime, #000, var(--ac-lm-a));
+.genRainbowQuoteCSS(gn, @accColorGreen, @accColorGreen, #FFF, var(--ac-gn-a));
+.genRainbowQuoteCSS(mn, @accColorMineral, @accColorMineral, #FFF, var(--ac-mn-a));
+.genRainbowQuoteCSS(ol, @accColorOlives, @accColorOlives, #FFF, var(--ac-ol-a));
+.genRainbowQuoteCSS(wn, @accColorWine, @accColorWine, #FFF, var(--ac-wn-a));
+.genRainbowQuoteCSS(aq, @accColorAqua, @accColorAqua, #000, var(--ac-aq-a));
+.genRainbowQuoteCSS(cy, @accColorCyan, @accColorCyan, #FFF, var(--ac-cy-a));
+.genRainbowQuoteCSS(bu, @accColorBlue, @accColorBlue, #FFF, var(--ac-bu-a));
+.genRainbowQuoteCSS(se, @accColorSea, @accColorSea, #FFF, var(--ac-se-a));
+.genRainbowQuoteCSS(la, @accColorLavender, @accColorLavender, #000, var(--ac-la-a));
+.genRainbowQuoteCSS(vn, @accColorVine, @accColorVine, #FFF, var(--ac-vn-a));
+.genRainbowQuoteCSS(pu, @accColorPurple, @accColorPurple, #FFF, var(--ac-pu-a));
+.genRainbowQuoteCSS(ro, @accColorRose, @accColorRose, #FFF, var(--ac-ro-a));
+.genRainbowQuoteCSS(pk, @accColorPink, @accColorPink, #000, var(--ac-pk-a));
+.genRainbowQuoteCSS(gd, @accColorGold, @accColorGold, #000, var(--ac-gd-a));
+.genRainbowQuoteCSS(bn, @accColorBrown, @accColorBrown, #FFF, var(--ac-bn-a));
+.genRainbowQuoteCSS(gy, @accColorGray, @accColorGray, #FFF, var(--ac-gy-a));
+.genRainbowQuoteCSS(wt, var(--d-fc), var(--d-fc), var(--d-bc), var(--d-fc-a));
+.genRainbowQuoteCSS(bk, var(--d-fc), var(--d-fc), var(--d-bc), var(--d-fc-a));
+.genRainbowQuoteCSS(t1, var(--ac-t1), var(--ac-t1), @buttonForeColor, var(--ac-t1-a));
+.genRainbowQuoteCSS(t2, @theme2, var(--a-o-c), @buttonForeHoverColor, var(--ac-t2-a));
 
 // ----------
 .v-tag,
@@ -6199,11 +6823,6 @@ use.v-svg-ico-wh {
         border-radius: var(--v-r-tag) var(--v-r-tag-xc);
         white-space: pre;
         line-height: 1;
-    }
-    .genTag_hover() {
-        .v-tag:hover {
-            filter: brightness(@hoverBrightness);
-        }
     }
 
     // 生成多色号的标签样式
@@ -6266,6 +6885,11 @@ use.v-svg-ico-wh {
     .genRainbowTagCSS(bk, bk, var(--d-bc), @style);
     .genRainbowTagCSS(t1, t1, @buttonForeColor, @style);
     .genRainbowTagCSS(t2, t2, @colorWhite, @style);
+}
+.genHoverStyle(@style) when (@style = tag) {
+    .v-tag:hover {
+        filter: brightness(@hoverBrightness);
+    }
 }
 
 @codeOnEditing: ~'span[md-inline=code]';
@@ -6623,18 +7247,63 @@ rt {
 @backcover_before: ~"@{coverAfterYAML}~@{backcoverId}::before, @{coverWithoutYAML}~@{backcoverId}::before";
 
 // 无标准封面时的封面样式
-.v-doc-title.max {
-    color: transparent;
-    padding-top: 50px;
-    opacity: .6;
+.v-doc-mini-cover.max {
+    color: @h1Color;
+    text-stroke: @h1TextStroke;
+    // -webkit-text-stroke: @h1TextStroke;
+    text-shadow: @h1TextShadow;
+    padding: 120px 0 40px;
+    background: linear-gradient(180deg, fade(@aColor, 20%), transparent);
+    margin: -20px -20px 0;
+    padding: 120px 20px 40px;
+}
+
+.v-doc-mini-cover.max > .doc-title {
+    font: var(--v-fw-tt) 2em var(--v-fm-h);
+    width: calc(100% - 100px);
+    padding-bottom: 20px;
+}
+.v-doc-mini-cover.max > .doc-title::before {
+    content: "";
+    width: 80px;
+    height: 80px;
+    background: no-repeat 0 0/80px 80px var(--thm-fav-c);
+    display: block;
+    position: absolute;
+    right: 20px;
 }
 // 文库时的封面位置样式
-.v-doc-title.mini {
+.v-doc-mini-cover.mini {
     color: var(--h-f);
     font: var(--v-fw-tt) 2.5em/1.25 var(--v-fm-tt); // [style] [weight] [size/[line-height]] [family]
     padding-top: 10px;
     opacity: .6;
 }
+
+.v-doc-mini-cover > .doc-tags {
+    padding-bottom: 20px;
+}
+
+.v-doc-mini-cover > .doc-author,
+.v-doc-mini-cover > .doc-date,
+.v-doc-mini-cover > .doc-copyright,
+.v-doc-mini-cover > .doc-rights {
+    font: var(--v-fw-stt) 1.25em var(--v-fm-stt);
+    padding-top: 5px;
+}
+
+.v-doc-mini-cover > .doc-copyright,
+.v-doc-mini-cover > :not(.doc-copyright) + .doc-rights {
+    padding-top: 20px;
+}
+
+.v-doc-mini-cover > .doc-author::before {
+    text-stroke: initial;
+
+    // 加粗（发布人）样式
+    .genCoverStrongBefore();
+}
+
 
 // 封面：#write 下 H6 作为第一个元素时
 @{coverAfterYAML}, // 有 YAML 的情况
@@ -6789,6 +7458,8 @@ rt {
     color: @coverOwnerColor;
     text-stroke: initial;
     text-shadow: @coverTextShadow;
+    width: 100%;
+    padding: var(--thm-o-t-pd);
 
     // 斜体（版权信息）样式
     .genCoverEm();
