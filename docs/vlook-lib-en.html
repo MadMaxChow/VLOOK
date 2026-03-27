@@ -224,7 +224,7 @@ mjx-container { break-inside: avoid; }
 .md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
 
 </style>
-<link rel='stylesheet' href='https://madmaxchow.github.io/openfonts/css/github-io/V2026.1/vlook-owl-en.css' type='text/css' />
+<link rel='stylesheet' href='https://madmaxchow.github.io/openfonts/css/github-io/V2026.3/vlook-owl-en.css' type='text/css' />
 <style type='text/css'  id="style-theme_css">@import '';
 .sidebar-content:before{content:'VLOOK™ only •• live';color:var(--ac-t2);background:var(--ac-t2-a);}
 </style>
@@ -254,8 +254,8 @@ mjx-container { break-inside: avoid; }
 <meta name="keywords" content="">
 <meta name="tags" content="">
 <meta name="logo" content="">
-<meta name="footer" content="">
 <!-- 以下为 VLOOK™ 相关的 meta 配置 -->
+<meta name="vlook-footer" content="">
 <meta name="vlook-doc-lib" content="">
 <meta name="vlook-gray-mode" content="">
 <meta name="vlook-header-autonum" content="">
@@ -264,6 +264,7 @@ mjx-container { break-inside: avoid; }
 <meta name="vlook-query" content="sb=hide">
 <meta name="vlook-unpub" content="">
 <meta name="vlook-welcome" content="">
+<meta name="vlook-shortcut" content="">
 <meta name="vlook-cc-top-left" content="">
 <meta name="vlook-cc-top-right" content="">
 <meta name="vlook-cc-bottom-left" content="">
@@ -285,8 +286,8 @@ mjx-container { break-inside: avoid; }
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
 <!--                                                                        -->
-<!--                                  V2026.1                                 -->
-<!--                               2026-01-30                               -->
+<!--                                  V2026.3                                 -->
+<!--                               2026-03-11                               -->
 <!--                           Powered by MAX°孟兆                           -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -305,7 +306,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
 <!-- ==================== VLOOK UI ==================== -->
-<div id="v-pdf-log">EXPORT PDF LOG:</div>
+<div id="v-pdf-log">[ PDF LOG ]</div>
 <div id="v-debug"></div>
 <style type="text/css">
     @keyframes breathe-vlook { 0% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
@@ -318,12 +319,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		const meta = document.querySelector(`meta[${attr}="${key}"]`);
 		return meta ? meta.getAttribute("content") : null;
 	}
-    let gPdfLog = document.querySelector("#v-pdf-log"),
-        lVer = "V2026.1",
+    let pdfLog = document.querySelector("#v-pdf-log"),
+        lVer = "V2026.3",
         devMode = lVer.indexOf("dev") > 0 ? true : false, debugMode = devMode,
         jsHost = devMode ? "http://localhost/dev/" : getMetaContent("vlook-js") + lVer + "/",
         ts = Math.floor(Date.now()/(1000*60*60*24)); // (1000*60*60*24) 按天
-    document.body.insertBefore(gPdfLog, document.body.childNodes[0]);
+    document.body.insertBefore(pdfLog, document.body.childNodes[0]);
 // ==================== live ====================
 // ▽ ▽ ▽ ▽ ▽
     function loadScript(src, onload) {
