@@ -1,6 +1,6 @@
 <script>/**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V2026.1" (2026-01-30) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V2026.3" (2026-03-27) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -26,7 +26,7 @@ var V_lang_data_zhtd = {
 "zhtd17":"關閉",
 "zhtd18":"公式",
 "zhtd19":"若無法連接網絡載入字體的線上版本，建議直接下載字體到本機。<br>若無法連接網絡或網絡速度緩慢，建議下載字體以便在本機安裝。",
-"zhtd20":"展開引用摺疊",
+"zhtd20":"展開詳細",
 "zhtd21":"展開表格列群組",
 "zhtd22":"所有註腳",
 "zhtd23":"開始閱讀",
@@ -105,5 +105,8 @@ var V_lang_data_zhtd = {
 "zhtd96":"取消",
 "zhtd97":"顯示刮刮卡",
 "zhtd98":"查看全部",
-"zhtd99":"( 無題註 )"
+"zhtd99":"( 無題註 )",
+"zhtd100":"中斷",
+"zhtd101":"關鍵",
+"zhtd102":"全部收合"
 }</script>

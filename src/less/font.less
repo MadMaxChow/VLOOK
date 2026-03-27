@@ -3,8 +3,8 @@
  * VLOOK™ CSS 字体主题、圆角样式
  * (配合 base.less 进行使用)
  *
- * V2026.1
- * 2026-01-30
+ * V2026.3
+ * 2026-03-27
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -42,14 +42,14 @@ U+0030-0039; // 指 0123456789
 // 基础字体信息
 // -----------------------------------------
 :root {
-    --b-fm-digital: "Avenir Next Condensed", "DIN Cond", "Liberation Sans Narrow", "DejaVu Sans Condensed", "Roboto Condensed", "Noto Sans Condensed", "Bahnschrift Condensed", "Arial Narrow";
+    --b-fm-digital: "Avenir Next Condensed", "DIN Cond", "Liberation Sans Narrow", "DejaVu Sans Condensed", "Roboto Condensed", "Noto Sans Condensed", "Bahnschrift Condensed", "Arial Narrow", , "DIN Condensed", "DIN Alternate", "D-DIN", "Nimbus Sans Narrow";
     --b-fm-sans-en: Arial, Tahoma, "Helvetica Neue", Helvetica;
     --b-fm-sans-cn:  "Heiti SC", "黑体-简", SimHei, "黑体";
     --b-fm-serif-en: "Times New Roman", Times;
     --b-fm-serif-cn: "Songti SC", "宋体-简", SimSun, "宋体";
-    --b-fm-serif-mono: "Courier New", Courier;
-    --b-fm-local-en: "SF Mono", Menlo, "Cascadia Mono", "Roboto Mono", "Droid Sans Mono", Consolas;
-    --b-fm-tag: "SF Pro", "Avenir Next Condensed", "HarmonyOS Sans Condensed", "vivo Sans Cond", "Liberation Sans Narrow", "DejaVu Sans Condensed", "Roboto Condensed", "Noto Sans Condensed", "Bahnschrift Condensed", "Gill Sans MT Condensed", "Arial Narrow";
+    --b-fm-serif-mono: Courier, "Courier New";
+    --b-fm-local-mono: "SF Mono", Menlo, "Cascadia Mono", "Roboto Mono", "Droid Sans Mono", Consolas;
+    --b-fm-tag: "SF Pro", "Avenir Next Condensed", "HarmonyOS Sans Condensed", "vivo Sans Cond", "Liberation Sans Narrow", "DejaVu Sans Condensed", "Roboto Condensed", "Noto Sans Condensed", "Bahnschrift Condensed", "Gill Sans MT Condensed", "Arial Narrow", "DIN Condensed", "DIN Alternate", "D-DIN", "Nimbus Sans Narrow";
     --b-fm-kaiti: "Kaiti SC", "Kaiti TC", KaiTi, "楷体", "楷体-简", Kai, "KaiTi_GB2312", "楷体_GB2312", STKaiti, "华文楷体", "方正楷体", "SimKai", "中易楷体", "Chalkboard SE", "Marker Felt", Noteworthy, Charter, "Caveat Brush", Caveat;
 
     --b-fm-apple: "-apple-system", "SF Pro", "SF Pro Text", "PingFang SC";
@@ -64,7 +64,7 @@ U+0030-0039; // 指 0123456789
 // 基础等宽字体
 @base_serif_mono: var(--b-fm-serif-mono);
 
-@mono_local_en: var(--b-fm-local-en);
+@mono_local: var(--b-fm-local-mono);
 // 基础衬线字体
 @base_serif_en: var(--b-fm-serif-en);
 @base_serif_cn: var(--b-fm-serif-cn);
@@ -91,7 +91,7 @@ U+0030-0039; // 指 0123456789
 @ms: var(--b-fm-ms);
 // ---
 @localFont: "-apple-system", "HarmonyOS Sans", "MiSans", "vivo Sans", Roboto, @apple, @ms, @base_sans_cn, sans-serif;
-@monoLocalFont: @mono_local_en, @localFont, @base_sans_cn, monospace;
+@monoLocalFont: @mono_local, @localFont, @base_sans_cn, monospace;
 @fontBoldWeight4Local: bold;
 @fontBoldWeight4LocalText: normal;
 
@@ -102,7 +102,8 @@ U+0030-0039; // 指 0123456789
 @bookBoldFont: @base_sans_en, @base_sans_cn, sans-serif;
 @bookTitle: @bookBoldFont;
 @bookHeader: @bookBoldFont;
-@bookMono: @base_serif_mono, @base_sans_en, @base_sans_cn, monospace;
+// @bookMono: @base_serif_mono, @base_sans_en, @base_sans_cn, monospace;
+@bookMono: @base_serif_mono, monospace;
 @fontBoldWeight4Book: bold;
 @fontBoldWeight4BookTitle: bold;
 @fontBoldWeight4BookText: normal;
@@ -152,11 +153,11 @@ U+0030-0039; // 指 0123456789
 //=========================================
 // 定义 Dyn 活力派 风格字体信息
 // ----------------------------------------
-@dynFont: @localFont;
+@dynFont: "D-DIN", @localFont;
 @dynTitle: "DingTalk Sans", "DingTalk JinBuTi", "钉钉进步体", "DingTalk-JinBuTi", @apple, @ms, @base_sans_cn, sans-serif;
 @dynHeader: @dynTitle;
 @dynTocFont: "Smiley Sans", "得意黑 斜体";
-@dynMono: @mono_local_en, @localFont, @base_sans_cn, monospace;
+@dynMono: @mono_local, @localFont, @base_sans_cn, monospace;
 @fontBoldWeight4Dyn: bold;
 @fontBoldWeight4DynTitle: normal;
 @fontBoldWeight4DynText: normal;
@@ -278,13 +279,13 @@ U+0030-0039; // 指 0123456789
     // ---
     // 定义 Dyn 活力派 风格
     --v-fm-tt-dyn: @dynTitle;
-    --v-fm-stt-dyn: @localFont;
+    --v-fm-stt-dyn: @dynFont;
     --v-fm-h-dyn: @dynHeader;
-    --v-fm-text-dyn: @themeTextFontFamily, @localFont;
-    --v-fm-bd-dyn: @themeTextFontFamily, @localFont;
-    --v-fm-key-dyn: @localFont;
-    --v-fm-tag-dyn: @tag_font, @localFont;
-    --v-fm-toc-dyn: @dynTocFont, @dynTitle, @tag_font, @localFont;
+    --v-fm-text-dyn: @themeTextFontFamily, @dynFont;
+    --v-fm-bd-dyn: @themeTextFontFamily, @dynFont;
+    --v-fm-key-dyn: @dynFont;
+    --v-fm-tag-dyn: "D-DIN", @tag_font, @dynFont;
+    --v-fm-toc-dyn: @dynTocFont, @dynTitle, @tag_font, @dynFont;
     --v-fm-code-dyn: @themeMonoFontFamily, @monoLocalFont;
     --v-fw-bd-dyn: @fontBoldWeight4Local;
     --v-fw-toc-dyn: @fontBoldWeight4DynTitle;
@@ -536,7 +537,7 @@ U+0030-0039; // 指 0123456789
     // ---
     // 大号圆角
     --v-r-b-big: 18px; // 标准圆角
-    --v-r-s-big: 9px; // 标准圆角内的小圆角
+    --v-r-s-big: 10px; // 标准圆角内的小圆角
     --v-r-t-big: 16px; // 代码块、表格圆角
     --v-r-si-big: calc(var(--v-r-t-big) + 1px); // 标准圆角内的小圆角
     --v-r-tag-big: 10px; // 标签圆角
@@ -560,7 +561,8 @@ U+0030-0039; // 指 0123456789
         --v-r-b: var(--v-r-b-big); // 标准圆角
         --v-r-s: var(--v-r-s-big); // 标准圆角内的小圆角
         --v-r-t: var(--v-r-t-big); // 表格圆角
-        --v-r-si:calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
+        // --v-r-si: calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
+        --v-r-si: calc(var(--v-r-s-big) - 1px); // 标准圆角内的小圆角
         --v-r-tag: var(--v-r-tag-big); // 标签圆角
         // --v-r-c: var(--v-r-c-big); // 半距圆角
     }
@@ -573,7 +575,8 @@ U+0030-0039; // 指 0123456789
         --v-r-b: var(--v-r-b-small); // 标准圆角
         --v-r-s: var(--v-r-s-small); // 标准圆角内的小圆角
         --v-r-t: var(--v-r-t-small); // 表格圆角
-        --v-r-si:calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
+        // --v-r-si: calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
+        --v-r-si: calc(var(--v-r-s) - 1px); // 标准圆角内的小圆角
         --v-r-tag: var(--v-r-tag-small); // 标签圆角
         // --v-r-c: var(--v-r-c-small); // 半距圆角
     }
@@ -586,7 +589,8 @@ U+0030-0039; // 指 0123456789
         --v-r-b: 0; // 标准圆角
         --v-r-s: 0; // 标准圆角内的小圆角
         --v-r-t: 0; // 表格圆角
-        --v-r-si: calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
+        // --v-r-si: calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
+        --v-r-si: 0; // 标准圆角内的小圆角
         --v-r-tag: 0; // 标签圆角
         // --v-r-c: 0; // 半距圆角
     }

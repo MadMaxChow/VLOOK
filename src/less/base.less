@@ -2,8 +2,8 @@
  *
  * VLOOK™ CSS 基础库
  *
- * V2026.1
- * 2026-01-30
+ * V2026.3
+ * 2026-03-27
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -22,7 +22,9 @@
 
 打印提示 / .v-print-tip / z-index: 8000;
 
-预加载提示 / body::before, #write::before / z-index: 7000;
+文档更多内容遮挡阴影（下）在 Zen 模式下 / .zen @{writeOnHTML}.done::after / z-index: 7150;
+Zen 模式下的页签组 / .zen .v-tab-group / z-index: 7001
+预加载提示 / body::before, #write::before / z-index: 7000; 调整该值须同时调整 .zen .v-tab-group
 
 检查锚点 / .v-check-hash / z-index: 6500;
 
@@ -56,19 +58,19 @@ Typora 通知栏 / .md-notification-container / z-index: 3100
 ---------- 增强工具操作区 ----------
 
 段落漫游边框 / #v-para-nav-mask-border / z-index: 200;
+编辑时拖动调整侧边栏大小时 / #typora-sidebar-resizer.dragging / z-index: 160
 逐章导航面板 / .v-chapter-nav / z-index: 150;
+文档更多内容遮挡阴影（下） / @{writeOnEditing}::before, @{writeOnHTML}::before / z-index: 150
 工具栏 / .v-toolbar / z-index: 150;
 导航中心面板 edge 风格时 / .v-nav-center.block.edge / z-index: 140;
 状态栏 / .v-status-bar / z-index: 150;
 表头首列 / @{writeOnEditing} @{thead_lastRow_raw}:first-child / z-index: 140;
 表头 / @{writeOnEditing} @{thead_lastRow_raw} / z-index: 135;
-文档更多内容遮挡阴影（上） / @{writeOnXXX}::before / z-index: 130
-文档更多内容遮挡阴影（下）/ @{writeOnXXX}::after / z-index: 150;
 适应宽度 / .v-fill-width / z-index: 125;
 页签组 / .v-tab-group / z-index: 120;
 回到上次阅读位置 / .v-resume-reading / z-index: 100;
 Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
-导航历史入口 / .v-nav-history  / z-index: 100;
+导航历史入口 / .v-shortcut-bar  / z-index: 100;
 
 ---------- 文档内容交互区 ----------
 
@@ -87,9 +89,13 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 @floatButtonHeight: 32px;
 
 // 按下时的变换缩放样式
-@activePressedTransform_short: ~'scale(0.9)';
-@activePressedTransform_normal: ~'scale(0.95)';
-@activePressedTransform_long: ~'scale(0.985)';
+@activePressedTransform_short: ~'scale(.9)';
+@activePressedTransform_normal: ~'scale(.95)';
+@activePressedTransform_middle: ~'scale(.965)';
+@activePressedTransform_long: ~'scale(.985)';
+
+@outlineContentMarginTop: 30px;
+@bottomCopyrightHeight: 30px;
 
 :root {
     // 主题配套预置选项 vlook-header-autonum
@@ -113,7 +119,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --v-ex-limit: 300px;
 
     // 针对 CSS 工具类样式变量
-    --c-b1: 1px solid var(--d-bc);
+    --c-b1: 1px solid var(--db);
     --c-br-b: var(--v-r-b) var(--v-r-b-xc);
     --c-br-s: var(--v-r-s) var(--v-r-s-xc);
     --b-br-b: var(--v-r-b) var(--v-r-b-xc);
@@ -135,6 +141,7 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --thm-c-t-pd: @coverTextPadding;
     --thm-o-t-pd: @ownerTextPadding;
     --thm-bc-t-pd: @backcoverTextPadding;
+    --thm-fig-ph: @figurePlaceholder; // 插图占位图
 
     --tbl-freeze-head: @tableFreezeHead;
     --tbl-freeze-column: @tableFreezeColumn;
@@ -232,12 +239,9 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
 @floatTop: 60px;
 @floatBottom: 20px;
 
-@outlineContentMarginTop: 20px;
-@bottomCopyrightHeight: 30px;
-
 html {
     font-size: @fontSize;
-    background-color: var(--d-bc);
+    background-color: var(--db);
 }
 
 // 控制滚动时到目标锚点位置时，定位到可视空间的指定百分比位置
@@ -250,6 +254,10 @@ html {
 // 生成 PDF 日志样式
 .genPdfLog() when (isdefined(@debugPrintMode)) {
     #v-pdf-log {
+        color: var(--df);
+        font-size: 12px;
+        font-weight: bold;
+        text-shadow: 1px 1px var(--db);
         position: fixed;
         z-index: 99999;
     }
@@ -302,8 +310,8 @@ html {
 }
 
 body {
-    background: var(--d-bc);
-    color: var(--d-fc);
+    background: var(--db);
+    color: var(--df);
     font: var(--v-fw-text) @fontSize/@paragraphInnerLineHeight var(--v-fm-text); // [style] [weight] [size/[line-height]] [family]
     // 输入光标颜色
     caret-color: var(--a-o-c);
@@ -311,7 +319,7 @@ body {
 
     // 滚动条定制样式 for Firefox
     scrollbar-width: thin;
-    scrollbar-color: var(--d-fc-a) var(--bq-bg);
+    scrollbar-color: var(--df-a) var(--bq-bg);
 
     // 不要修改这个选择器中的 overflow 属性
     // 否则会导致其内的子元素滚动到顶或到底后向上冒泡同时滚动
@@ -323,7 +331,7 @@ body::-webkit-scrollbar {
     width: 10px !important;
 }
 body::-webkit-scrollbar-thumb {
-    background: var(--d-fc-a);
+    background: var(--df-a);
     border: 2px solid var(--bq-bg);
     border-radius: 5px;
     min-height: 50px;
@@ -349,7 +357,7 @@ content {
 }
 
 @{onHTML} {
-    background: var(--d-bc) var(--d-bi);
+    background: var(--db) var(--d-bi);
     padding-left: 0;
     padding-right: 0;
 }
@@ -364,18 +372,18 @@ body.unfreeze {
 }
 
 // 禅模式，隐藏插件界面
-body.zen :is(.v-toolbar, .v-chapter-nav, .v-nav-center, .v-nav-center-handle, .v-status-bar, .v-nav-history) {
+.zen :is(.v-toolbar, .v-chapter-nav, .v-nav-center, .v-nav-center-handle, .v-status-bar, .v-shortcut-bar) {
     opacity: 0 !important;
     pointer-events: none !important;
 }
-body.zen .v-fill-width {
+.zen .v-fill-width {
     opacity: .5;
 }
 
 // --------------------------------------------------
 // 针对 Gray Mode 相关样式
 @grayModeFilter: ~'saturate(10%)';
-@graySelector: ~':is(#write, .v-welcome-page, .v-mask, .v-toolbar, .v-link-info-list, .v-font-style, .v-font-style-info, .v-content-assistor, .v-tbl-x, .v-footnote-pn, .v-tool-tips, .v-info-tips, .v-para-nav-mask-border, .v-fill-width, .v-pic-in-pic, .v-chapter-nav, .v-fig-nav, .v-nav-center, .v-nav-center-handle, .v-nav-history)';
+@graySelector: ~':is(#write, .v-welcome-page, .v-mask, .v-toolbar, .v-link-info-list, .v-font-style, .v-font-style-info, .v-content-assistor, .v-tbl-x, .v-footnote-pn, .v-tool-tips, .v-info-tips, .v-para-nav-mask-border, .v-fill-width, .v-pic-in-pic, .v-chapter-nav, .v-fig-nav, .v-nav-center, .v-nav-center-handle, .v-shortcut-bar)';
 // 灰色模式 样式
 body.gray @{graySelector} {
     filter: @grayModeFilter;
@@ -441,7 +449,7 @@ body.gray .typora-export-content::before {
     .typora-export-content.fill-width .v-fill-width:hover {
         padding-left: 10px;
         padding-right: 10px;
-        background: linear-gradient(90deg, var(--ac-t2-fd), var(--d-bc));
+        background: linear-gradient(90deg, var(--ac-t2-fd), var(--db));
     }
 }
 
@@ -471,8 +479,8 @@ body.gray .typora-export-content::before {
 #write p>img,
 @{writeOnEditing} p>.md-image:not(.md-img-error) img:not([src*="#line"]), // 是指 p 内只有 img 的才被视为插图
 @{writeOnEditing} p>.md-image:not(.md-img-error) img:not([src*="#block"]), // 是指 p 内只有 img 的才被视为插图
-.v-fig:not([aria-roledescription=zenuml]),
-.md-diagram-panel>.md-diagram-panel-preview>svg, // 编辑时
+.v-fig:not([aria-roledescription=zenuml]):not([aria-roledescription=packet]),
+.md-diagram-panel>.md-diagram-panel-preview>svg:not([aria-roledescription=zenuml]), // 编辑时
 .md-diagram-panel>svg {
     border-radius: var(--c-br-b);
     padding: 0;
@@ -507,7 +515,7 @@ img[loading]::after {
 @{sharpMagicImgContanier} img[src*="#padding"],
 @{sharpMagicImgContanier} svg[data-inject-url*="#padding"] {
     padding: @figurePadding !important;
-    background: var(--d-bc);
+    background: var(--db);
 }
 
 // 非显式指定时（即普通的连续图片、插图）
@@ -609,7 +617,6 @@ img[loading]::after {
 @{writeOnHTML} blockquote img[src*="#card"],
 @{writeOnHTML} blockquote svg[data-inject-url*="#card"] {
     width: 100%;
-    // height: fit-content;
 }
 // 明信片带 #border 时，导出后的微调（未指定色号时）
 #write p:has(img[src*="#card"]:not([src*="#fill"])) {
@@ -639,7 +646,7 @@ img[loading]::after {
 @{writeOnHTML} img[src*="#logo"][src*="#border"],
 @{writeOnHTML} svg[data-inject-url*="#logo"][data-inject-url*="#border"] {
     background: none;
-    border: @imgBorderWidth solid var(--d-fc-a) !important;
+    border: @imgBorderWidth solid var(--df-a) !important;
     border-radius: var(--v-r-b) var(--v-r-b-xc) !important;
 }
 
@@ -728,7 +735,7 @@ img[loading]::after {
 @{writeOnEditing} .md-image[data-src*="#gray"]>img, // 编辑时
 @{sharpMagicImgContanier} img[src*="#gray"],
 @{sharpMagicImgContanier} svg[data-inject-url*="#gray"] {
-    filter: saturate(100%);
+    filter: @grayModeFilter;//saturate(10%);
 }
 
 // 生成通过图片地址参数指定图片特效样式：复古色调
@@ -780,8 +787,8 @@ img[loading]::after {
 @{writeOnEditing} sup.md-footnote span[md-inline=plain], // 编辑时
 // 与脚注面板中的序号样式保持同步调整 .v-footnote-pn-content .md-fn-count
 @{writeOnHTML} :is(sup.md-footnote, .v-q sup.md-footnote) > a {
-    color: var(--d-bc);
-    background: var(--d-fc-a);
+    color: var(--db);
+    background: var(--df-a);
     border-radius: calc(var(--v-r-s) - 2px) calc(var(--v-r-s-xc) - 2px);
     font: @footnoteFont;
     padding: 1px 4px;
@@ -800,7 +807,6 @@ img[loading]::after {
 
 // 脚注行内容中的链接
 .footnote-line > a:not(.reversefootnote) {
-    // color: var(--d-fc) !important;
     color: var(--a-c) !important;
     border-bottom: 1px solid currentColor;
 }
@@ -845,35 +851,35 @@ img[loading]::after {
     background: var(--v-btn-bg);
 
     // 按钮风格
-    .genKbdStyle(@style) when (@style = flat) {
+    .genLinkKbdStyle(@style) when (@style = flat) {
         border: 2px solid var(--v-btn-bg);
     }
-    .genKbdStyle(@style) when (@style = fade) {
+    .genLinkKbdStyle(@style) when (@style = fade) {
         padding: 10px 12px;
         border: none;
         background: linear-gradient(180deg, var(--btn-reflect), var(--v-btn-bg), var(--btn-shadow)), var(--v-btn-bg);
         box-shadow: 0 0 0 @kbdSecBorderWidth var(--v-btn-bg) inset;
     }
-    .genKbdStyle(@style) when (@style = raised) {
+    .genLinkKbdStyle(@style) when (@style = raised) {
         padding: 8px 12px;
         border: none !important;
         box-shadow: 0 @rasiedShadowSize 0 0 var(--btn-raised), 0 @rasiedShadowSize 0 0 var(--v-btn-bg);
         margin: 3px 1px;
     }
-    .genKbdStyle(@style) when (@style = 3d) {
+    .genLinkKbdStyle(@style) when (@style = 3d) {
         padding: 9px 13px;
-        border: 1px solid var(--d-fc-a);
+        border: 1px solid var(--df-a);
         box-shadow: 0 @3dShadowSize 0 0 var(--btn-reflect) inset, @3dShadowSize 0 0 0 var(--btn-reflect) inset,
             -@3dShadowSize 0 0 0 var(--btn-shadow) inset, 0 -@3dShadowSize 0 0 var(--btn-shadow) inset;
     }
-    .genKbdStyle(@style) when (@style = 3d_up) {
+    .genLinkKbdStyle(@style) when (@style = 3d_up) {
         padding: 9px 13px;
         border: none;
         box-shadow: 0 @3dShadowSize 0 0 var(--btn-reflect) inset,
             0 -@3dShadowSize 0 0 var(--btn-shadow) inset,
             0 0 0 1px #00000099 inset;
     }
-    .genKbdStyle(@thmKbdStyle);
+    .genLinkKbdStyle(@thmLinkKbdStyle);
 }
 #write @{kbdSuper},
 #write @{kbdSec} {
@@ -890,52 +896,52 @@ img[loading]::after {
 #write a kbd>@{svgGs} {
     fill: currentColor;
 }
-.genHoverStyle(@for) when (@for = a_kbd) {
+.genHoverStyle(@for) when (@for = link_kbd) {
     #write a kbd:hover { // 针对引用块着色内的情况
         color: @buttonForeHoverColor;
         background: var(--a-o-c);
 
-        .genKbdStyle(@style) when (@style = flat) {
+        .genLinkKbdStyle(@style) when (@style = flat) {
             border-color: var(--a-o-c);
         }
-        .genKbdStyle(@style) when (@style = fade) {
+        .genLinkKbdStyle(@style) when (@style = fade) {
             background: linear-gradient(180deg, var(--btn-reflect), var(--a-o-c), var(--btn-shadow)), var(--a-o-c);
             box-shadow: 0 0 0 @kbdSecBorderWidth var(--a-o-c) inset;
         }
-        .genKbdStyle(@style) when (@style = raised) {
+        .genLinkKbdStyle(@style) when (@style = raised) {
             box-shadow: 0 @rasiedShadowSize 0 0 var(--btn-raised), 0 @rasiedShadowSize 0 0 var(--a-o-c);
         }
-        .genKbdStyle(@style) when (@style = 3d) {
-            border: 1px solid var(--d-fc);
+        .genLinkKbdStyle(@style) when (@style = 3d) {
+            border: 1px solid var(--df);
         }
-        .genKbdStyle(@thmKbdStyle);
+        .genLinkKbdStyle(@thmLinkKbdStyle);
     }
     #write a kbd:hover>@{svgGs} {
         fill: currentColor !important;
     }
 }
 #write a kbd:is(:active, .pressed) {
-    .genKbdStyle(@style) when (@style = flat) {
+    .genLinkKbdStyle(@style) when (@style = flat) {
         border-color: @aActiveColor !important;
         transform: @activePressedTransform_normal;
     }
-    .genKbdStyle(@style) when (@style = fade) {
+    .genLinkKbdStyle(@style) when (@style = fade) {
         transform: @activePressedTransform_normal;
     }
-    .genKbdStyle(@style) when (@style = raised) {
+    .genLinkKbdStyle(@style) when (@style = raised) {
         box-shadow: none !important;
         transform: translateY(@rasiedShadowSize);
     }
-    .genKbdStyle(@style) when (@style = 3d) {
+    .genLinkKbdStyle(@style) when (@style = 3d) {
         box-shadow: 0 @3dShadowSize 0 0 var(--btn-shadow) inset, @3dShadowSize 0 0 0 var(--btn-shadow) inset,
             -@3dShadowSize 0 0 0 var(--btn-reflect) inset, 0 -@3dShadowSize 0 0 var(--btn-reflect) inset;
     }
-    .genKbdStyle(@style) when (@style = 3d_up) {
+    .genLinkKbdStyle(@style) when (@style = 3d_up) {
         box-shadow: 0 @3dShadowSize 0 0 var(--btn-shadow) inset,
             0 -@3dShadowSize 0 0 var(--btn-reflect) inset;
         transform: @activePressedTransform_normal;
     }
-    .genKbdStyle(@thmKbdStyle);
+    .genLinkKbdStyle(@thmLinkKbdStyle);
 
     color: @buttonForeHoverColor !important;
     background: @aActiveColor !important;
@@ -945,53 +951,53 @@ img[loading]::after {
 }
 // 超级按钮
 #write @{kbdSuper} {
-    color: var(--d-bc) !important;
-    background: var(--d-fc) !important;
+    color: var(--db) !important;
+    background: var(--df) !important;
     outline: 4px solid var(--ac-rd);
     animation: kbd-super 5s ease infinite alternate;
     transition: all var(--v-trans-dur) ease-out;
 
-    .genKbdStyle(@style) when (@style = flat),  (@style = fade), (@style = raised) {
+    .genLinkKbdStyle(@style) when (@style = flat),  (@style = fade), (@style = raised) {
         box-shadow: none !important;
-        border-color: var(--d-fc) !important;
+        border-color: var(--df) !important;
     }
-    .genKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+    .genLinkKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
         border-color: @colorBlack !important;
     }
-    .genKbdStyle(@thmKbdStyle);
+    .genLinkKbdStyle(@thmLinkKbdStyle);
 }
 .genHoverStyle(@for) when (@for = kbdSuper) {
     #write @{kbdSuper}:hover {
-        color: var(--d-fc) !important;
-        background: var(--d-bc) !important;
+        color: var(--df) !important;
+        background: var(--db) !important;
         outline-width: 6px;
-        .genKbdStyle(@style) when (@style = flat) {
-            border-color: var(--d-bc);
+        .genLinkKbdStyle(@style) when (@style = flat) {
+            border-color: var(--db);
         }
-        .genKbdStyle(@style) when (@style = fade) {
-            border-color: var(--d-bc);
+        .genLinkKbdStyle(@style) when (@style = fade) {
+            border-color: var(--db);
         }
-        .genKbdStyle(@style) when (@style = raised) {
-            border-color: var(--d-bc);
+        .genLinkKbdStyle(@style) when (@style = raised) {
+            border-color: var(--db);
         }
-        .genKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
-            border-color: var(--d-fc) !important;
+        .genLinkKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+            border-color: var(--df) !important;
         }
-        .genKbdStyle(@thmKbdStyle);
+        .genLinkKbdStyle(@thmLinkKbdStyle);
     }
     #write @{kbdSuper}:hover>@{svgGs} {
         fill: currentColor !important;
     }
 }
 #write @{kbdSuper}:is(:active, .pressed) {
-    color: var(--d-fc) !important;
+    color: var(--df) !important;
     background: var(--std-code-sd) !important;
     border-color: var(--std-code-sd) !important;
 
-    .genKbdStyle(@style) when not (@style = 3d) {
+    .genLinkKbdStyle(@style) when not (@style = 3d) {
         transform: @activePressedTransform_normal;
     }
-    .genKbdStyle(@thmKbdStyle);
+    .genLinkKbdStyle(@thmLinkKbdStyle);
 }
 
 // 段落中只有按钮时（一个或多个），会居中显示
@@ -1038,24 +1044,25 @@ img[loading]::after {
 // 次要按钮
 @kbdSecBorderWidth: 1px;
 #write @{kbdSec} {
-    .genKbdStyle(@style) when (@style = flat) {
-        background: var(--d-bc);
+    .genLinkKbdStyle(@style) when (@style = flat) {
+        background: var(--db);
         border-color: currentColor;
     }
-    .genKbdStyle(@style) when (@style = fade) {
+    .genLinkKbdStyle(@style) when (@style = fade) {
         background: linear-gradient(180deg, var(--btn-reflect), var(--ac-t1-a), var(--btn-shadow)), var(--ac-t1-a);
         box-shadow: 0 0 0 @kbdSecBorderWidth currentColor inset;
     }
-    .genKbdStyle(@style) when (@style = raised) {
-        background: var(--d-bc);
+    .genLinkKbdStyle(@style) when (@style = raised) {
+        background: var(--db);
         box-shadow: 0 @rasiedShadowSize 0 0 currentColor, 0 0 0 1px currentColor inset;
     }
-    .genKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+    .genLinkKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
         background: var(--ac-t1-a);
     }
-    .genKbdStyle(@thmKbdStyle);
+    .genLinkKbdStyle(@thmLinkKbdStyle);
 
-    color: var(--v-btn-bg);
+    // color: var(--v-btn-bg);
+    color: var(--a-c);
 }
 // 链接、次要按钮内的 svg 图标（已注入）
 #write a>@{svgGs} {
@@ -1065,21 +1072,21 @@ img[loading]::after {
     #write @{kbdSec}:hover {
         color: var(--a-o-c);// !important;
 
-        .genKbdStyle(@style) when (@style = flat) {
+        .genLinkKbdStyle(@style) when (@style = flat) {
             background: var(--ac-t2-a) !important;
         }
-        .genKbdStyle(@style) when (@style = fade) {
+        .genLinkKbdStyle(@style) when (@style = fade) {
             background: linear-gradient(180deg, var(--btn-reflect), var(--ac-t2-a), var(--btn-shadow)), var(--ac-t2-a);
             box-shadow: 0 0 0 @kbdSecBorderWidth currentColor inset;
         }
-        .genKbdStyle(@style) when (@style = raised) {
-            background: var(--d-bc) !important;
+        .genLinkKbdStyle(@style) when (@style = raised) {
+            background: var(--db) !important;
             box-shadow: 0 @rasiedShadowSize 0 0 var(--a-o-c), 0 0 0 @kbdSecBorderWidth var(--a-o-c) inset;
         }
-        .genKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+        .genLinkKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
             background: var(--ac-t2-a) !important;
         }
-        .genKbdStyle(@thmKbdStyle);
+        .genLinkKbdStyle(@thmLinkKbdStyle);
     }
     a:hover>@{svgGs},
     #write @{kbdSec}:hover>@{svgGs} {
@@ -1089,10 +1096,10 @@ img[loading]::after {
 #write @{kbdSec}:is(:active, .pressed) {
     color: @aActiveColor !important;
     background: var(--ac-t2-a) !important;
-    .genKbdStyle(@style) when (@style = raised) {
+    .genLinkKbdStyle(@style) when (@style = raised) {
         box-shadow: 0 0 0 @kbdSecBorderWidth currentColor inset !important;
     }
-    .genKbdStyle(@thmKbdStyle);
+    .genLinkKbdStyle(@thmLinkKbdStyle);
 }
 
 a,
@@ -1100,7 +1107,7 @@ a img,
 img a,
 summary,
 .v-status-bar *,
-.v-nav-history > *,
+.v-shortcut-bar > *,
 .v-font-style-opt > *,
 .v-new-version,
 .v-link-chk-result,
@@ -1116,7 +1123,7 @@ summary,
 .v-chapter-nav-current,
 .v-chapter-nav-next,
 .v-accent-btn,
-.v-textfield-action:hover,
+.v-search-action:hover,
 .v-pip-btn,
 .v-doc-lib-item,
 .v-interactive,
@@ -1152,8 +1159,9 @@ rt:hover {
     justify-content: @h7TextAlign;
     width: 100%;
 }
-// 引用块小标题为图标的行
-#write blockquote>:is(p:first-child, p:first-child+p):has(svg, img) {
+// 引用块小标题为图标版式的图片段落
+@{writeOnEditing} blockquote>:is(p:first-child, p:first-child+p):has(>.md-image[data-src*="#icon"]:only-child),
+@{writeOnHTML} blockquote>:is(p:first-child, p:first-child+p):has(>img[src*="#icon"]:only-child, >svg[data-inject-url*="#icon"]:only-child) {
     display: flex;
     justify-content: @h7TextAlign;
 }
@@ -1281,7 +1289,7 @@ rt:hover {
 @{writeOnHTML} a kbd>img[src*="fill=text"].enabled {
     filter: drop-shadow(@fillOffset 0 0 @buttonForeColor) !important;
 }
-.genHoverStyle(@for) when (@for = a_kbd-img-fill-text) {
+.genHoverStyle(@for) when (@for = link_kbd-img-fill-text) {
     @{writeOnEditing} a kbd:hover>.md-image[data-src*="fill=text"]>img {
         box-shadow: 0 0 0 2px currentColor !important;
     }
@@ -1606,8 +1614,8 @@ h6:first-child) {
 #v-debug {
     position: fixed;
     font: normal 12px/1 var(--v-fm-code); // [style] [weight] [size/[line-height]] [family]
-    color: var(--d-fc);
-    background: var(--d-bc);
+    color: var(--df);
+    background: var(--db);
     overflow: auto;
     right: 20px;
     bottom: 55px;
@@ -1622,21 +1630,21 @@ h6:first-child) {
     height: auto;
     max-height: 500px;
     min-width: 250px;
-    border: 2px solid var(--d-fc);
+    border: 2px solid var(--df);
     visibility: visible;
 }
 #v-debug.opened::before {
     content: "VLOOK™ Debug Console";
     text-transform: uppercase;
-    color: var(--d-bc);
-    background: var(--d-fc);
+    color: var(--db);
+    background: var(--df);
     display: block;
     padding: 5px 10px;
     font-weight: bold;
     position: fixed;
     margin-left: -2px;
     margin-top: -26px;
-    border: 2px solid var(--d-fc);
+    border: 2px solid var(--df);
 }
 
 // 分类信息样式
@@ -1669,12 +1677,12 @@ h6:first-child) {
     visibility: visible;
     background: var(--ac-bu);
     overflow: hidden;
-    border: 2px solid var(--d-fc);
+    border: 2px solid var(--df);
     cursor: var(--cur-ptr);
 }
 #v-debug.mini::before {
     content: attr(data-num);
-    color: var(--d-bc);
+    color: var(--db);
     font-weight: bold;
     display: block;
     text-align: center;
@@ -1698,7 +1706,7 @@ h6:first-child) {
 // 明信片样式
 // 重点说明：（** 移动端相关样式进行同步调整）
 #write .v-post-card {
-    color: var(--d-fc);
+    color: var(--df);
     background: var(--pn-c);
     position: absolute;
     display: none;
@@ -1709,7 +1717,7 @@ h6:first-child) {
     transform: translateX(-50%);
 }
 #write .v-post-card.v-backdrop-blurs.enabled {
-    background: var(--pn-fd08);
+    background: var(--pn08);
 }
 #write .v-post-card>.v-card-title {
     font-weight: var(--v-fw-tt);
@@ -1733,7 +1741,7 @@ h6:first-child) {
 .v-caption.full {
     position: fixed !important;
     // -webkit-overflow-scrolling: touch; // 避免移动端滚动失效
-    background: var(--d-bc);
+    background: var(--db);
     margin: 0 !important;
     top: 0;
     left: 50%;
@@ -1746,7 +1754,7 @@ h6:first-child) {
     touch-action: none;
 }
 .v-caption.full.v-backdrop-blurs.enabled {
-    background: linear-gradient(180deg, var(--d-bc) 50px, var(--db05));
+    background: linear-gradient(180deg, var(--db) 50px, var(--db05));
 }
 .v-caption.full figcaption {
     display: none;
@@ -1824,6 +1832,7 @@ h6:first-child) {
     .genDebugGrid() when (isdefined(@devMode)) {
         background-image: linear-gradient(to right, var(--ac-t1) 1px, transparent 1px);
         background-size: 1em 100%;
+        box-shadow: 1px 0 0 var(--ac-t2);
     }
     .genDebugGrid();
 }
@@ -1984,7 +1993,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     }
     // 折叠标题上有图片剪影颜色为 text 的情况
     #write summary:hover>svg[data-img-fill=text]>@{svgNodes} {
-        fill: var(--d-fc);
+        fill: var(--df);
     }
 }
 #write summary:is(:active, .pressed) {
@@ -2008,7 +2017,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 
 @quote_alert: ~":is(blockquote, .md-alert)";
 @{writeOnEditing} .md-hr+@{quote_alert}::before {
-    color: var(--d-fc-a);
+    color: var(--df-a);
     font: @syntaxTipsFont;
     text-transform: uppercase;
     text-align: center;
@@ -2081,7 +2090,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 // 以双栏方式显示引用块，49*2+2*1=100
 #write @{hr_MdHr}+@{quote_details_gsa},
 #write @{hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa} {
-    color: var(--d-fc);
+    color: var(--df);
     display: inline-block;
     vertical-align: top;
     max-width: 49%;
@@ -2097,7 +2106,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 #write @{n2Hr_MdHr}+@{quote_details_gsa},
 #write @{n2Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
 #write @{n2Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa} {
-    color: var(--d-fc);
+    color: var(--df);
     display: inline-block;
     vertical-align: top;
     max-width: 32%;
@@ -2115,7 +2124,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa},
 #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
 #write @{n3Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa} {
-    color: var(--d-fc);
+    color: var(--df);
     display: inline-block;
     vertical-align: top;
     max-width: 23.5%;
@@ -2135,7 +2144,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 #write @{n4Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
 #write @{n4Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa},
 #write @{n4Hr_MdHr}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa}+@{quote_details_gsa} {
-    color: var(--d-fc);
+    color: var(--df);
     display: inline-block;
     vertical-align: top;
     max-width: 19.2%;
@@ -2239,7 +2248,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 }
 
 .CodeMirror-linenumber {
-    color: var(--d-fc-a);
+    color: var(--df-a);
     font-family: var(--v-fm-tag);
     font-stretch: condensed;
     min-width: fit-content !important; // 避免某些窄字体，总行数为 11 行号时，第 10 行会错位
@@ -2370,14 +2379,14 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
-    background-color: var(--d-bc);
+    background-color: var(--db);
     list-style: none;
 }
 // 分栏块中的首行
 #write @{hr_MdHr}+ul>li>p:first-of-type,
 #write @{hr_MdHr}+ol>li>p:first-of-type {
     font: var(--v-fw-bd) 1em var(--v-fm-bd);
-    color: var(--d-fc);
+    color: var(--df);
     background: var(--std-code-sd);
     padding: 5px;
     border-radius: var(--v-r-t) var(--v-r-t-xc) 0 0;
@@ -2394,8 +2403,8 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 // 列表分栏提示样式
 @{writeOnEditing} .md-hr+ul::before,
 @{writeOnEditing} .md-hr+ol::before {
-    background: linear-gradient(90deg, transparent, transparent 5%, var(--d-bc) 15%, var(--d-bc) 85%, transparent 95%, transparent);
-    color: var(--d-fc-a);
+    background: linear-gradient(90deg, transparent, transparent 5%, var(--db) 15%, var(--db) 85%, transparent 95%, transparent);
+    color: var(--df-a);
     font: @syntaxTipsFont;
     text-transform: uppercase;
     text-align: center;
@@ -2584,9 +2593,11 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 
 // 引用内的引用块、折叠（非分栏）
 #write @{quote_details}>@{quote_details} {
-    border-left: @defQuoteBorderWidth solid fade(@accColorGray, 20%);
+    // border-left: @defQuoteBorderWidth solid fade(@accColorGray, 20%);
+    border-left: @defQuoteBorderWidth solid var(--df02);
     box-shadow: none;
-    color: var(--d-fc-a);
+    // color: var(--df-a);
+    opacity: .6;
     background: none;
     border-radius: 0;
     padding: 0 .5em;
@@ -2610,8 +2621,15 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     display: none;
     padding: 0;
     position: fixed;
-    color: var(--d-fc);
-    background: var(--d-bc);
+    color: var(--df);
+    .genBgColor(@style) when (@style = std) {
+        background: var(--pn-c);
+    }
+    .genBgColor(@style) when (@style = flat), (@style = edge) {
+        background: var(--db);
+    }
+    .genBgColor(@navCenterStyle);
+
     top: @floatTop;
     bottom: 20px;
     right: @writePaddingRight;
@@ -2682,35 +2700,35 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 // 生成 Dev Mode 的提示样式
 .genDevMode() when (isdefined(@devMode)) {
     .sidebar-content::before,
-    .v-toolbar::before {
-        content: "DEV MODE THEME" !important;
+    .v-status-bar::before {
+        content: "DEV MODE / " @thmType !important;
         white-space: pre;
-        font: var(--v-fw-bd) 12px/1 var(--v-fm-code); // [style] [weight] [size/[line-height]] [family]
-        color: var(--d-fc);
+        font: var(--v-fw-bd) @miniFontSize/1 var(--v-fm-code); // [style] [weight] [size/[line-height]] [family]
+        color: var(--df);
         background: var(--ac-ye);
         border-radius: var(--c-br-s);
-        border: 2px solid var(--d-fc);
-        height: 20px;
-        padding: 2px 8px;
+        border: 2px dashed var(--df);
+        padding: 2px 6px;
         display: flex;
         align-items: center;
-        top: 50px;
+        top: 10px;
         z-index: 10;
         position: absolute;
         pointer-events: none;
     }
-
-    // 编辑时
+    // 编辑时，侧边栏
     .sidebar-content::before {
-        font-size: 12px;
-        top: 10px;
         right: 10px;
+    }
+    // 导出后，状态栏
+    .v-status-bar::before {
+        top: -30px;
     }
 }
 .genDevMode() when not (isdefined(@devMode)) {
     .sidebar-content::before {
         content: @thmType;
-        font: var(--v-fw-bd) 10px/1 var(--v-fm-bd); // [style] [weight] [size/[line-height]] [family]
+        font: var(--v-fw-bd) @miniFontSize/1 var(--v-fm-bd); // [style] [weight] [size/[line-height]] [family]
         color: @buttonForeHoverColor;
         background: var(--a-o-c);
         border: 1px solid var(--a-o-c);
@@ -2725,26 +2743,34 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
         pointer-events: none;
         z-index: 10;
     }
+
+    // 针对 for Windows
+    @{isShowSearch_onWindows} .sidebar-content::before {
+        top: 60px;
+    }
 }
 .genDevMode();
 
 .v-status-bar,
-.v-nav-history {
+.v-shortcut-bar {
     user-select: none;
     position: fixed;
     border-radius: var(--b-br-s);
+
     .genStatusBarStyle(@style, @border) when (@style = std) {
         background: var(--pn-c);
         outline: var(--v-fl-bd);
     }
     .genStatusBarStyle(@style, @border) when (@style = flat) {
-        background: var(--d-bc);
+        background: var(--db);
+        outline: #FFF6;
         .genBorder(@border) when (@border = shadow) {
             box-shadow: var(--v-fl-sd);
         }
     }
     .genStatusBarStyle(@style, @border) when (@style = edge) {
-        background: var(--d-bc);
+        background: var(--db);
+        outline: #FFF6;
         .genBorder(@border) when (@border = shadow) {
             box-shadow: var(--v-fl-sd);
         }
@@ -2755,7 +2781,8 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     padding: 2px;
     right: @writePaddingRight;
     bottom: 15px;
-    height: @floatButtonHeight;
+    height: fit-content;
+    min-height: @floatButtonHeight;
     display: flex;
     align-items: stretch;
     gap: 1px;
@@ -2807,7 +2834,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
         background: var(--v-ui-bg);
     }
     .genToolbarStyle(@style) when (@style = simple) {
-        background: var(--d-bc);
+        background: var(--db);
         outline: 1px solid var(--pn-c-a);
     }
     .genToolbarStyle(@toolbarStyle);
@@ -2910,17 +2937,18 @@ transform: rotate(90deg);
 }
 
 // 文档导航历史
-.v-nav-history {
+.v-shortcut-bar {
     top: 70px;
     border-radius: var(--b-br-s);
     display: none; // 默认隐藏
 }
-.v-nav-history:has(.v-view-history.enabled) {
-    display: flex; // 有卖盘历史内容时才显示
+.v-shortcut-bar:has(.enabled) {
+    display: flex; // 有访问历史内容时才显示
+    flex-direction: column;
 }
 
 .v-status-bar>div,
-.v-nav-history>div {
+.v-shortcut-bar>div {
     font: condensed var(--v-fw-tag)1em/1.5 var(--v-fm-tag);
     display: inline-flex;
     justify-content: center;
@@ -2934,6 +2962,7 @@ transform: rotate(90deg);
     .genBarBarBtnStyle(@buttonRadiusStyle);
 
     min-width: calc(var(--v-tb-btn-w) - 8px);
+    min-height: @floatButtonHeight - 4px;
 }
 // 发布为 PDF 按钮样式
 .v-status-bar>.v-print {
@@ -2946,7 +2975,7 @@ transform: rotate(90deg);
 
 // 文档滚动位置/阅读进度条样式
 @readProgressBarHeight: 4px;
-.v-status-bar::after {
+.v-nav-center::after {
     content: "";
     position: fixed;
     left: 0;
@@ -2955,10 +2984,10 @@ transform: rotate(90deg);
     height: @readProgressBarHeight;
     border-radius: 0 2px 2px 0;
     background: linear-gradient(90deg, var(--ac-t1) calc(100% - 30px), var(--ac-t2));
-    box-shadow: 4px 0 8px #00000066;
+    box-shadow: 0 0 8px #00000066;
     transition: all var(--v-trans-dur) ease-out;
 }
-.v-status-bar.no-more::after {
+.v-nav-center.no-more::after {
     background: linear-gradient(90deg, var(--ac-t2), var(--ac-t2));
     border-radius: 0;
     width: 100%;
@@ -2967,11 +2996,11 @@ transform: rotate(90deg);
 @borderRadiusInner_1px: ~"calc(var(--v-r-s) - 1px) calc(var(--v-r-s-xc) - 1px)";
 @borderRadiusInner_2px: ~"calc(var(--v-r-s) - 2px) calc(var(--v-r-s-xc) - 2px)";
 @borderRadiusInnerSi_2px: ~"calc(var(--v-r-si) - 2px) calc(var(--v-r-si-xc) - 2px)";
-.v-nav-history>div {
+.v-shortcut-bar>div {
     display: none;
 }
 // 显示导航历史入口
-.v-nav-history>.v-view-history.enabled {
+.v-shortcut-bar>.v-view-history.enabled {
     display: inline-flex;
     animation: breathe-bubble .2s ease-out 2 alternate;
 }
@@ -3024,7 +3053,7 @@ transform: rotate(90deg);
 .v-doc-info::after {
     content: "";
     width: 1px;
-    background-color: var(--d-fc);
+    background-color: var(--df);
     opacity: .25;
     position: relative;
     margin-left: 10px;
@@ -3055,6 +3084,7 @@ transform: rotate(90deg);
     align-items: center;
     display: inline-flex;
     height: 26px;
+    white-space: pre;
     cursor: var(--cur-ptr);
 }
 .v-prs-info>label svg {
@@ -3065,8 +3095,8 @@ transform: rotate(90deg);
 // 鼠标悬停在状态栏图标效果
 .genHoverStyle(@for) when (@for = status-bar_btn) {
     .v-status-bar>:not([class*=-info]):hover,
-    .v-nav-history>div:hover {
-        background: var(--pn-c-a);
+    .v-shortcut-bar>div:hover {
+        background: var(--df01);
     }
 
     .v-status-bar.hidden:hover {
@@ -3074,37 +3104,30 @@ transform: rotate(90deg);
     }
 
     .v-status-bar>.v-print:hover {
-        color: #FFF;
-        background: var(--ac-rd);
+        background: var(--ac-rd-fd);
     }
 
     .v-status-bar>.warning:hover {
-        color: #000;
-        background: var(--ac-ye);
+        background: var(--ac-ye-fd);
     }
     .v-status-bar>:is(.error-hash, .error-address):hover {
-        color: #FFF;
-        background: var(--ac-rd);
-    }
-    .v-link-chk-result.warning:hover:before,
-    .v-link-chk-result:is(.error-hash, .error-address):hover:before {
-        background: currentColor;
+        background: var(--ac-rd-fd);
     }
 }
 .v-status-bar>div:not([class*=-info]):is(:active, .pressed),
-.v-nav-history>div:is(:active, .pressed) {
-    background: var(--d-fc-a) !important;
-    color: var(--d-bc);
+.v-shortcut-bar>div:is(:active, .pressed) {
+    background: var(--df-a) !important;
+    color: var(--db);
     transition: none;
     transform: @activePressedTransform_short;
     z-index: 1;
 }
 .v-status-bar>div:not([class*=-info]):is(:active, .pressed) svg>use,
-.v-nav-history>div:is(:active, .pressed) svg>use {
-    fill: var(--d-bc);
+.v-shortcut-bar>div:is(:active, .pressed) svg>use {
+    fill: var(--db);
 }
 
-.v-nav-history-result {
+.v-shortcut-bar-result {
     display: none;
     width: 100%;
     height: 100%;
@@ -3137,7 +3160,7 @@ transform: rotate(90deg);
     text-align: center;
     font-family: var(--v-fm-bd);
     font-weight: var(--v-fw-bd);
-    color: var(--d-bc);
+    color: var(--db);
     background: var(--ac-rd);
     border-radius: var(--v-r-b);
     margin: 0 auto;
@@ -3166,7 +3189,7 @@ transform: rotate(90deg);
 .v-print-tip > .content {
     font-weight: normal;
     padding: 20px;
-    background: var(--d-fc);
+    background: var(--df);
     border-radius: calc(var(--v-r-b) - @printTipBorderWidth) calc(var(--v-r-b-xc) - @printTipBorderWidth);
     margin-top: 10px;
 }
@@ -3206,7 +3229,7 @@ transform: rotate(90deg);
 }
 // 打印按钮（手动发起）
 .v-print-tip .print {
-    color: var(--d-fc-a);
+    color: var(--df-a);
     border: 1px solid var(--ac-rd-fd);
     pointer-events: none;
 }
@@ -3227,7 +3250,7 @@ transform: rotate(90deg);
 // 取消按钮
 .v-print-tip a {
     display: block;
-    color: var(--d-bc) !important;
+    color: var(--db) !important;
     width: fit-content;
     margin: 20px auto 0;
     font-weight: var(--v-fw-bd);
@@ -3292,7 +3315,7 @@ transform: rotate(90deg);
 // 表格列格式：高亮
 .v-tbl-col-fmt-mark {
     background: var(--mark-bg) !important;
-    color: var(--d-fc) !important;
+    color: var(--df) !important;
 }
 
 // 表格列格式：数值
@@ -3322,7 +3345,7 @@ transform: rotate(90deg);
     float: left;
     font: condensed var(--v-fw-tag) 1em/@defaultLineHeight var(--v-fm-tag); // [style] [weight] [size/[line-height]] [family]
     padding-right: 10px;
-    color: var(--d-fc-a);
+    color: var(--df-a);
 }
 // 表格列格式：数值－百分号
 .v-tbl-col-fmt-percent {
@@ -3394,7 +3417,7 @@ td.v-tbl-row-g-not-folder {
     pointer-events: none;
 }
 .v-tbl-x-cell {
-    outline: 4px solid var(--d-fc-a);
+    outline: 4px solid var(--df-a);
     border-color: transparent !important;
     border-radius: var(--v-r-s);
 }
@@ -3445,7 +3468,7 @@ td.v-long {
 }
 
 #write del {
-    text-decoration-color: var(--d-fc);
+    text-decoration-color: var(--df);
 }
 
 // 编辑时，对「不出版/不发布」的标记提示
@@ -3455,7 +3478,7 @@ td.v-long {
     text-transform: uppercase;
     position: absolute;
     font: @syntaxTipsFont;
-    color: var(--d-fc);
+    color: var(--df);
     padding-left: 5px;
     text-decoration: none;
     opacity: .6;
@@ -3463,7 +3486,7 @@ td.v-long {
 
 #write del code {
     text-decoration: line-through;
-    text-decoration-color: var(--d-fc);
+    text-decoration-color: var(--df);
 }
 
 .footnotes {
@@ -3473,7 +3496,7 @@ td.v-long {
 // 脚注区域
 .footnotes-area {
     margin-top: 100px;
-    color: var(--d-fc);
+    color: var(--df);
 }
 
 // 文档末尾的脚注行
@@ -3634,20 +3657,17 @@ strong :is(tt, code) {
 .v-info-tips kbd,
 .v-prs-info kbd,
 #write kbd {
-    font: condensed var(--v-fw-bd) .875em var(--v-fm-key); // [stretch] [style] [weight] [size/[line-height]] [family]
-    border-radius: var(--v-r-s-small);
+    font: var(--v-fw-bd) .75em/@defaultLineHeight var(--v-fm-code); // [style] [weight] [size/[line-height]] [family]
+    border-radius: 4px;
     margin: @kbdShadowWidth;
-    padding: 2px 4px;
     line-height: 1;
     display: inline;
-    color: var(--d-bc);
-    border: 2px solid var(--kbd-sd);
-    border-left-color: var(--kbd-reflect);
-    border-top-color: var(--kbd-reflect);
+    border: none;
+    color: var(--kbd-c);
     background: var(--kbd-bg);
-    box-shadow: none;
-    // 输入光标颜色
-    caret-color: var(--d-bc);
+    box-shadow: var(--kbd-shd);
+    padding: var(--kbd-pd);
+    caret-color: var(--df);
 }
 
 /**************************************
@@ -3712,12 +3732,12 @@ strong :is(tt, code) {
 .v-tool-tips,
 .v-info-tips {
     display: none;
-    font: normal 1em var(--v-fm-bd); // [style] [weight] [size/[line-height]] [family]
+    font: normal .875em var(--v-fm-bd); // [style] [weight] [size/[line-height]] [family]
     position: fixed;
     padding: 8px 12px;
     text-align: center;
     white-space: pre-wrap;
-    border: 1px solid var(--d-fc-a);
+    border: 1px solid var(--df-a);
     border-radius: 0 var(--v-r-b) var(--v-r-b) var(--v-r-b);
     background: var(--pn-c);
     width: max-content;
@@ -3732,34 +3752,42 @@ strong :is(tt, code) {
     padding: 5px 10px;
 }
 .v-info-tips.bubble {
-    color: var(--d-bc);
+    color: var(--db);
     border-radius: var(--c-br-b);
-    border-color: var(--d-fc-a);
+    border-color: var(--df-a);
     border: none;
-    background: var(--d-fc);
+    background: var(--df);
 }
 .v-info-tips.bubble svg>use {
-    fill: var(--d-bc);
+    fill: var(--db);
 }
 
 // 对齐方式
 .v-info-tips.right-middle {
-    right: 20px;
-    top: 50%;
+    left: unset !important;
+    bottom: unset !important;
+    right: 20px !important;
+    top: 50% !important;
     transform: translateY(-50%);
 }
 .v-info-tips.right-bottom {
-    right: 20px;
-    bottom: 50px;
+    left: unset !important;
+    top: unset !important;
+    right: 20px !important;
+    bottom: 50px !important;
 }
 .v-info-tips.center-bottom {
-    left: 50%;
+    right: unset !important;
+    top: unset !important;
+    left: 50% !important;
+    bottom: 50px !important;
     transform: translateX(-50%);
-    bottom: 50px;
 }
 .v-info-tips.center-middle {
-    top: 50%;
-    left: 50%;
+    right: unset !important;
+    bottom: unset !important;
+    top: 50% !important;
+    left: 50% !important;
     transform: translateX(-50%) translateY(-50%);
 }
 
@@ -3773,22 +3801,22 @@ strong :is(tt, code) {
 }
 
 // 针对提示信息、演示工具提示信息内的按键样式
-.v-prs-info kbd,
-.v-info-tips.bubble kbd {
-    margin: 0 4px;
-    padding: 1px 4px;
-    text-shadow: none;
-    color: var(--d-fc);
-    border: 2px solid var(--kbd-sd-i);
-    border-left-color: var(--kbd-reflect-i);
-    border-top-color: var(--kbd-reflect-i);
-    background: var(--kbd-bg-i);
-    box-shadow: none;
-}
+// .v-prs-info kbd,
+// .v-info-tips.bubble kbd {
+//     margin: 0 4px;
+//     padding: 1px 4px;
+//     text-shadow: none;
+//     color: var(--df);
+//     border: 2px solid var(--kbd-sd-i);
+//     border-left-color: var(--kbd-reflect-i);
+//     border-top-color: var(--kbd-reflect-i);
+//     background: var(--kbd-bg-i);
+//     box-shadow: none;
+// }
 .v-info-tips.bubble hr {
     margin-top: .75em;
     margin-bottom: .75em;
-    border: 1px solid var(--d-fc-a);
+    border: 1px solid var(--df-a);
     overflow: hidden;
     box-sizing: content-box;
     border-top: 0;
@@ -3844,7 +3872,7 @@ strong :is(tt, code) {
     border-radius: var(--c-br-b);
     font: normal 1em var(--v-fm-stt); // [style] [weight] [size/[line-height]] [family]
     z-index: 4000;
-    background: var(--d-bc);
+    background: var(--db);
 }
 @fontStyleOptWidth: 160px;
 @fontStyleOptHeight: 96px;
@@ -3856,7 +3884,7 @@ strong :is(tt, code) {
 .v-font-style-opt:has(.selected)::before {
     content: "✓";
     position: absolute;
-    color: var(--d-bc);
+    color: var(--db);
     background: var(--a-c);
     font-size: .75em;
     border-radius: 0 0 var(--v-r-si) 0;
@@ -3881,8 +3909,8 @@ strong :is(tt, code) {
     }
 }
 .v-font-style-restore:active {
-    color: var(--d-bc);
-    background: var(--d-fc-a);
+    color: var(--db);
+    background: var(--df-a);
 }
 
 // 字体风格选择器字体包下载提示
@@ -3893,7 +3921,7 @@ strong :is(tt, code) {
     border-radius: var(--c-br-s);
 }
 .v-font-style-info {
-    background: linear-gradient(135deg,var(--ac-t2) 0%,var(--ac-t2) 10%,var(--d-fc) 10%,var(--d-fc) 20%,var(--ac-t2) 20%,var(--ac-t2) 30%,var(--d-fc) 30%,var(--d-fc) 40%,var(--ac-t2) 40%,var(--ac-t2) 50%,var(--d-fc) 50%,var(--d-fc) 60%,var(--ac-t2) 60%,var(--ac-t2) 70%,var(--d-fc) 70%,var(--d-fc) 80%,var(--ac-t2) 80%,var(--ac-t2) 90%,var(--d-fc) 90%,var(--d-fc) 100%);
+    background: linear-gradient(135deg,var(--ac-t2) 0%,var(--ac-t2) 10%,var(--df) 10%,var(--df) 20%,var(--ac-t2) 20%,var(--ac-t2) 30%,var(--df) 30%,var(--df) 40%,var(--ac-t2) 40%,var(--ac-t2) 50%,var(--df) 50%,var(--df) 60%,var(--ac-t2) 60%,var(--ac-t2) 70%,var(--df) 70%,var(--df) 80%,var(--ac-t2) 80%,var(--ac-t2) 90%,var(--df) 90%,var(--df) 100%);
     border-radius: var(--c-br-s);
     padding: 3px;
     left: @writePaddingRight;
@@ -4003,7 +4031,7 @@ div[class*=v-fontinfo-].done > span,
     display: none;
     font: var(--v-fw-text) @fontSize/@paragraphInnerLineHeight var(--v-fm-text); // [style] [weight] [size/[line-height]] [family]
     color: var(--ac-rd);
-    background-color: var(--d-bc);
+    background-color: var(--db);
     top: 0;
     width: 100%;
     height: 100%;
@@ -4028,14 +4056,14 @@ div[class*=v-fontinfo-].done > span,
     margin: 20px 10px;
 }
 .v-check-hash label {
-    color: var(--d-fc-a);
+    color: var(--df-a);
     font-weight: bold;
 }
 .v-check-hash-close,
 .v-check-hash-recheck {
     width: fit-content;
     margin: 1em auto;
-    color: var(--d-fc);
+    color: var(--df);
     background: var(--pn-c);
     border-radius: var(--c-br-b);
     cursor: var(--cur-ptr);
@@ -4240,9 +4268,8 @@ div[class*=v-fontinfo-].done > span,
 .v-resume-reading {
     top: 70px; // 与 ResumeReading_updateUI() 中的取值同步
     right: @writePaddingRight; // 与 ResumeReading_updateUI() 中的取值同步
-    padding: 5px 5px 5px 10px;
-    background-color: var(--pn-c);
-    color: var(--d-fc);
+    padding: 0 5px 0 10px;
+    color: var(--df);
     z-index: 100;
     cursor: var(--cur-ptr);
 }
@@ -4258,7 +4285,7 @@ div[class*=v-fontinfo-].done > span,
         background-color: var(--pn-c);
     };
     .genNavCenterStyle(@style) when (@style = flat) {
-        background-color: var(--d-bc);
+        background-color: var(--db);
     };
     .genNavCenterStyle(@style) when (@style = edge) {
         background-color: var(--v-ui-bg);
@@ -4296,7 +4323,7 @@ div[class*=v-fontinfo-].done > span,
         }
         .genBorder(@border) when (@border = line) {
             .genBorderCSS() when not (isdefined(@panelBorderColor)) {
-                box-shadow: 0 0 0 1px var(--d-fc-a) inset;
+                box-shadow: 0 0 0 1px var(--df-a) inset;
             }
             .genBorderCSS() when (isdefined(@panelBorderColor)) {
                 box-shadow: 0 0 0 1px @panelBorderColor inset;
@@ -4386,7 +4413,7 @@ div[class*=v-fontinfo-].done > span,
 // 第5段：rgba(255,255,255,0.08) 83%,
 // 尾：rgba(255,255,255,0) 100%);
 // 导航中心、链接列表-顶/底部，脚注顶部
-@pnMoreContentLG: ~"var(--pn-fd10) 0%, var(--pn-fd09) 15%, var(--pn-fd07) 30%, var(--pn-fd05) 45%, var(--pn-fd02) 70%, var(--pn-fd01) 80%, var(--pn-fd00) 100%";
+@pnMoreContentLG: ~"var(--pn10) 0%, var(--pn09) 15%, var(--pn07) 30%, var(--pn05) 45%, var(--pn02) 70%, var(--pn01) 80%, var(--pn00) 100%";
 // 导航中心 edge 风格
 @pnMoreContentLG_edge: ~"var(--v-btn-bg), transparent";
 // 标签组左/右侧
@@ -4401,7 +4428,7 @@ div[class*=v-fontinfo-].done > span,
 @ncHeaderHeight: 84px;
 @ncMargin: 10px;
 .v-nav-center-header {
-    color: var(--d-fc);
+    color: var(--df);
     font: normal 1em var(--v-fm-stt); // [style] [weight] [size/[line-height]] [family]
     height: @ncHeaderHeight;
     margin: @ncMargin 1px 0;
@@ -4457,7 +4484,7 @@ div[class*=v-fontinfo-].done > span,
     }
     .genSegmentBtnCurrentStyle(@style) when (@style = flat) {
         @{segmentBtn} {
-            background: var(--d-bc);
+            background: var(--db);
             box-shadow: 0 0 4px 0 #0000001A;
         }
     }
@@ -4473,6 +4500,7 @@ div[class*=v-fontinfo-].done > span,
 // 标准风格
 .genSegmentBtn(@style) when (@style = std) {
     .genSegmentBtnCurrent();
+    .genHoverStyle(segment-btn);
 }
 // 多彩风格
 .genSegmentBtn(@style) when (@style = color) {
@@ -4502,6 +4530,8 @@ div[class*=v-fontinfo-].done > span,
     .v-segment-btn.media {
         color: var(--ac-og);
     }
+
+    .genHoverStyle(segment-btn-color);
 }
 
 .v-segment>input[name=toc-segment][data-result=none]+label {
@@ -4534,7 +4564,27 @@ div[class*=v-fontinfo-].done > span,
 }
 .genHoverStyle(@for) when (@for = segment-btn) {
     .v-segment-btn:hover {
-        background: var(--pn-c);
+        background: var(--db05);
+    }
+}
+.genHoverStyle(@for) when (@for = segment-btn-color) {
+    .v-segment-btn.toc:hover {
+        background: var(--ac-gy-fd);
+    }
+    .v-segment-btn.figure:hover {
+        background: var(--ac-vn-fd);
+    }
+    .v-segment-btn.table:hover {
+        background: var(--ac-gn-fd);
+    }
+    .v-segment-btn.codeblock:hover {
+        background: var(--ac-bu-fd);
+    }
+    .v-segment-btn.formula:hover {
+        background: var(--ac-bn-fd);
+    }
+    .v-segment-btn.media:hover {
+        background: var(--ac-og-fd);
     }
 }
 .v-segment-btn:is(:active, .pressed) {
@@ -4557,7 +4607,7 @@ div[class*=v-fontinfo-].done > span,
     content: attr(data-toc-empty);
     white-space: pre-wrap;
     padding: 0 20px;
-    color: var(--d-fc);
+    color: var(--df);
     opacity: .6;
     position: absolute;
     text-align: center;
@@ -4587,7 +4637,7 @@ div[class*=v-fontinfo-].done > span,
     }
     .genToolbarStyle(@style) when (@style = simple) {
         color: var(--v-ui-bg);
-        background: var(--d-bc);
+        background: var(--db);
         outline: 1px solid var(--pn-c-a);
     }
     .genToolbarStyle(@toolbarStyle);
@@ -4649,9 +4699,22 @@ div[class*=v-fontinfo-].done > span,
         box-shadow: 0 -.3em 0 0 #FFFFFF4D inset;//rgba(255, 255, 255, .3) inset;
     }
 }
+// 大纲内的版权信息
+.v-nav-center .v-copyright {
+    .genCopyrightBg(@style) when (@style = std) {
+        background: var(--pn-c);
+    }
+    .genCopyrightBg(@style) when (@style = flat) {
+        background: var(--db);
+    }
+    .genCopyrightBg(@style) when (@style = edge) {
+        background: var(--v-ui-bg);
+    }
+    .genCopyrightBg(@navCenterStyle);
+}
 // 正文后的版权信息
 #write > .v-copyright {
-    color: var(--d-fc);
+    color: var(--df);
     justify-content: left;
     padding: 20px 0 10px;
     border-top: 2px solid var(--bq-bg);
@@ -4725,10 +4788,10 @@ div[class*=v-fontinfo-].done > span,
         background: var(--pn-c);
     };
     .genFootnotePnStyle(@style) when (@style = flat) {
-        background: var(--d-bc);
+        background: var(--db);
     };
     .genFootnotePnStyle(@style) when (@style = edge) {
-        background: var(--d-bc);
+        background: var(--db);
     };
     .genFootnotePnStyle(@navCenterStyle);
     display: none;
@@ -4747,19 +4810,19 @@ div[class*=v-fontinfo-].done > span,
     color: var(--a-c);
     font-size: 12px;
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     pointer-events: none;
     left: 0;
     height: 20px;
     width: 100%;
+
     .genPanelMoreContentStyle(@style) when (@style = std) {
         background-image: var(--ar-top), linear-gradient(180deg, @pnMoreContentLG);
-    };
+    }
     .genPanelMoreContentStyle(@style) when (@style = flat), (@style = edge) {
         background-image: var(--ar-top), linear-gradient(180deg, @docMoreContentLG);
     }
     .genPanelMoreContentStyle(@navCenterStyle);
-
     background-repeat: no-repeat, no-repeat;
     background-position: center top 8px, center top;
     background-size: auto, auto;
@@ -4861,7 +4924,7 @@ div[class*=v-fontinfo-].done > span,
     }
     .genToolbarStyle(@style) when (@style = simple) {
         color: var(--v-ui-bg);
-        background: var(--d-bc);
+        background: var(--db);
     }
     .genToolbarStyle(@toolbarStyle);
 
@@ -4925,7 +4988,6 @@ div[class*=v-fontinfo-].done > span,
 
 // 工具栏浮动按钮样式
 .v-toolbar .v-btn.float {
-    width: @floatButtonWidth;
     height: @floatButtonHeight;
 }
 
@@ -4939,7 +5001,7 @@ div[class*=v-fontinfo-].done > span,
 .v-map-item,
 .v-toc-item,
 .md-toc-item {
-    color: var(--d-fc);
+    color: var(--df);
     font: condensed normal var(--v-f-size)/@defaultLineHeight var(--v-fm-toc); // [stretch] [style] [weight] [size/[line-height]] [family]
     margin: 0 10px 2px;
     padding-top: 8px;
@@ -4982,17 +5044,41 @@ div[class*=v-fontinfo-].done > span,
         color: @buttonForeColor;
     }
     .genTocTitleStyle(@navCenterStyle);
-    padding-bottom: 5px;
+    padding: 10px 5px 10px;
+    position: sticky;
+    top: -5px;
+    z-index: 1;
+
+    .genPanelMoreContentStyle(@style) when (@style = std) {
+        background-image: linear-gradient(180deg, @pnMoreContentLG), linear-gradient(180deg, var(--pn-c));
+    };
+    .genPanelMoreContentStyle(@style) when (@style = flat) {
+        background-image: linear-gradient(180deg, @docMoreContentLG), linear-gradient(180deg, var(--db));
+    }
+    .genPanelMoreContentStyle(@style) when (@style = edge) {
+        background-image: linear-gradient(180deg, @pnMoreContentLG_edge), linear-gradient(180deg, var(--v-ui-bg));
+    }
+    .genPanelMoreContentStyle(@navCenterStyle);
+    background-position: left 0 bottom -6px, 0 0;
+    background-repeat: no-repeat;
+    background-size: 100% 20px, 100% calc(100% - 14px);
 }
-.v-toc-title.current::before {
+.v-toc-title.current::after {
     content: attr(data-title);
+    opacity: .6;
+    white-space: pre;
     display: block;
-    font-size: .75em;
+    font-size: .875em;
     font-weight: normal;
-    color: var(--toc-h-num-c);
-    margin-top: 5px;
     border-radius: calc(var(--v-r-s) - 2px);
     border-bottom-left-radius: 0;
+}
+.v-toc-title.current.open::after {
+    opacity: 1;
+}
+.v-toc-title.current.open:hover::after {
+    color: var(--a-o-c);
+    cursor: var(--cur-ptr);
 }
 
 :is(.v-doc-lib-item, .md-toc-item) + .v-toc-title {
@@ -5020,7 +5106,7 @@ div[class*=v-fontinfo-].done > span,
 .genHoverStyle(@for) when (@for = toc-item) {
     .genTocItemHover(@style) when (@style = std) {
         .md-toc-item:hover::before {
-            color: var(--d-fc);
+            color: var(--df);
         }
         .v-toc-item:hover,
         .md-toc-item:hover {
@@ -5047,10 +5133,10 @@ div[class*=v-fontinfo-].done > span,
     .v-toc-item:is(:active, .pressed),
     .md-toc-item:is(:active, .pressed),
     .v-doc-lib-item:is(:active, .pressed) {
-        color: var(--d-bc);
-        background: var(--d-fc-a) !important;
+        color: var(--db);
+        background: var(--df-a) !important;
         transition: none;
-        transform: scale(.99);
+        transform: @activePressedTransform_long;// scale(.99);
     }
     .v-toc-item:is(:active, .pressed)::before,
     .md-toc-item:is(:active, .pressed)::before {
@@ -5082,7 +5168,7 @@ div[class*=v-fontinfo-].done > span,
     .md-toc-item:is(:active, .pressed),
     .v-doc-lib-item:is(:active, .pressed) {
         transition: none;
-        transform: scale(.99);
+        transform: @activePressedTransform_long;//scale(.99);
     }
     .v-toc-item:is(:active, .pressed) svg>use,
     .md-toc-item:is(:active, .pressed) svg>use,
@@ -5096,7 +5182,7 @@ div[class*=v-fontinfo-].done > span,
 // 分类索引题注前缀
 .v-toc-item>span {
     .genTocItemCapStyle(@style) when not (@style = edge) {
-        color: var(--h-f);
+        color: var(--a-c);
     }
     .genTocItemCapStyle(@style) when (@style = edge) {
         color: var(--toc-h-num-c);
@@ -5105,24 +5191,15 @@ div[class*=v-fontinfo-].done > span,
     .genTocItemCapStyle(@navCenterStyle);
 }
 
-.v-cap-1.up {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
-.v-cap-1.down {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-
 // 题注前缀
 .v-cap-1>span {
     color: var(--h-f);
 }
 // 题注内容方向指示符号
-.v-cap-1.up>span::after {
+.v-cap-1.up>span::before {
     content: attr(data-up-symbol);
 }
-.v-cap-1.down>span::after {
+.v-cap-1.down>span::before {
     content: attr(data-down-symbol);
 }
 
@@ -5136,7 +5213,7 @@ div[class*=v-fontinfo-].done > span,
     word-break: break-all;
 }
 .v-map-item>span.link {
-    color: var(--d-fc-a);
+    color: var(--df-a);
     margin-bottom: 0;
     padding: 5px 0 0 30px;
 }
@@ -5144,6 +5221,11 @@ div[class*=v-fontinfo-].done > span,
     margin-bottom: 0;
     padding: 2px 0 0 30px;
 }
+
+// // 目录大纲筛选结果微调
+// .v-index-filter-result.toc .v-toc-item>span {
+//     white-space: pre;
+// }
 
 // 文档导航历史中针对「继续上次阅读」的条目样式
 .v-toc-item[data-history=last-position] {
@@ -5158,7 +5240,7 @@ div[class*=v-fontinfo-].done > span,
 
 .genHoverStyle(@for) when (@for = map-item) {
     .v-map-item:hover {
-        box-shadow: 0 0 0 2px var(--d-fc-a) inset;
+        box-shadow: 0 0 0 2px var(--df-a) inset;
     }
 }
 
@@ -5173,7 +5255,7 @@ div[class*=v-fontinfo-].done > span,
 }
 .v-map-item>div>a {
     word-break: break-all;
-    color: var(--d-fc);
+    color: var(--df);
 }
 .v-map-item>div>a::before {
     content: counter(mapItemCounter) " • ";
@@ -5193,9 +5275,9 @@ div[class*=v-fontinfo-].done > span,
     line-height: 1.5;
     padding: 0 0 0 6px;
     margin-left: 10px;
-    color: var(--d-bc);
-    background-color: var(--d-fc-a);
-    border: 1px solid var(--d-fc-a);
+    color: var(--db);
+    background-color: var(--df-a);
+    border: 1px solid var(--df-a);
     border-radius: var(--c-br-s);
     word-break: break-all;
     display: inline-flex;
@@ -5214,8 +5296,8 @@ div[class*=v-fontinfo-].done > span,
     display: inline-flex;
     align-items: center;
     white-space: pre-wrap;
-    background: linear-gradient(@hashArrowAngle,transparent @hashArrowWidth, var(--d-bc) @hashArrowWidth,var(--d-bc)),
-        linear-gradient(180deg - @hashArrowAngle, transparent @hashArrowWidth, var(--d-bc) @hashArrowWidth, var(--d-bc));
+    background: linear-gradient(@hashArrowAngle,transparent @hashArrowWidth, var(--db) @hashArrowWidth,var(--db)),
+        linear-gradient(180deg - @hashArrowAngle, transparent @hashArrowWidth, var(--db) @hashArrowWidth, var(--db));
 }
 
 .v-map-item label>strong {
@@ -5312,7 +5394,7 @@ div[class*=v-fontinfo-].done > span,
     // 浮动按钮
     .v-btn.float,
     .v-btn-group.float {
-        background: var(--d-bc);
+        background: var(--db);
         padding: 0 2px;
     }
 }
@@ -5352,9 +5434,12 @@ div[class*=v-fontinfo-].done > span,
 .v-btn-group.float>.v-btn {
     box-shadow: none;
 }
+.v-btn-group>.v-btn[data-btn-group] {
+    width: @floatButtonWidth - 8px;
+}
 .v-btn-group.float>.v-btn[data-btn-group] {
     box-shadow: none;
-    width: @floatButtonWidth - 4px;
+    width: @floatButtonWidth - 10px;
     height: @floatButtonHeight - 4px;
     margin-top: 2px;
     margin-bottom: 2px;
@@ -5431,7 +5516,7 @@ div[class*=v-fontinfo-].done > span,
 }
 
 .v-duration {
-    color: var(--d-fc-a);
+    color: var(--df-a);
     padding: 0 5px;
     font-weight: bold;
 }
@@ -5471,7 +5556,7 @@ div[class*=v-fontinfo-].done > span,
     }
     .genChapterNavStyle(@style, @border) when (@style = simple) {
         color: var(--v-ui-bg);
-        background: var(--d-bc);
+        background: var(--db);
 
         .genBorder(@border) when (@border = shadow) {
         }
@@ -5619,6 +5704,7 @@ div[class*=v-fontinfo-].done > span,
 }
 .v-chapter-nav-current>span {
     opacity: .75;
+    white-space: pre;
 }
 
 .v-chapter-nav-doc-title::before,
@@ -5729,8 +5815,9 @@ div[class*=v-fontinfo-].done > span,
 
 // 输入框
 @textfieldHeight: 40px;
-.v-textfield {
-    background: var(--d-bc);
+@searchOptWidth: 30px;
+.v-search {
+    background: var(--db);
     border-radius: var(--b-br-s);
     .genTextfieldStyle(@style) when (@style = flat) {
         box-shadow: 0 0 0 1px var(--bq-bg) inset;
@@ -5738,11 +5825,14 @@ div[class*=v-fontinfo-].done > span,
     .genTextfieldStyle(@navCenterStyle);
 
     margin: 0;
+    padding: 0 8px 0 0;
     height: @textfieldHeight;
+    display: flex;
+    align-items: center;
 }
 // 注意 box-shadow 如有多段，且使用动画变换样式
 // 须保持内、外阴影样式设置的顺序要一致，否则动画变换会失效
-.v-textfield-focus {
+.v-search-focus {
     box-shadow: var(--v-input-focus-inn-sd), var(--v-input-focus-sd);
 }
 
@@ -5754,43 +5844,44 @@ input::-webkit-input-placeholder,
 input::-moz-placeholder,
 input:-moz-placeholder),
 #file-library-search-input::placeholder {
-    color: var(--d-fc-a);
+    color: var(--df-a);
     font-weight: normal;
 }
 
 // 输入框内的输入控件
-@textfieldInputActionWidth: 100px; // 输入框内的动作按钮宽度
+@textfieldInputActionWidth: 120px; // 输入框宽度
 .genTextfieldCommonStyle() {
     color: var(--a-o-c);
-    background: var(--d-bc);
+    background: var(--db);
     border: none;
     padding: 0;
     outline: 0 solid transparent;
     caret-color: var(--a-o-c); // 输入光标颜色
 }
-.v-textfield>input {
-    float: left;
-    width: calc(var(--v-nav-center-w) - @textfieldInputActionWidth);
+.v-search>input {
+    width: calc(100% - @textfieldInputActionWidth);
     height: calc(100% - 4px);
     margin: 2px 0;
     .genTextfieldCommonStyle();
 }
-.v-textfield>input.set-icon {
+.v-search>input.set-icon {
     margin-left: 0;
 }
 
-.v-textfield-icon {
-    width: @textfieldHeight;
+.v-search-icon {
+    width: @searchOptWidth;
     height: 100%;
-    padding: 7px;
     display: flex;
     align-items: center;
     justify-content: center;
-    float: left;
+    opacity: .5;
+}
+.v-search-focus .v-search-icon {
+    opacity: 1;
 }
 
 // 输入框内的动作按钮
-.v-textfield-action {
+.v-search-action {
     width: 40px;
     height: @buttonHeight;
     text-align: center;
@@ -5799,50 +5890,63 @@ input:-moz-placeholder),
     float: right;
     display: none;
 }
-.v-textfield-action.enabled {
+.v-search-action.enabled {
     background: var(--v-ui-bg);
     box-shadow: none;
 }
-.v-textfield-action.enabled>svg>use {
+.v-search-action.enabled>svg>use {
   fill: @buttonForeColor;
   opacity: 1;
 }
 .genHoverStyle(@for) when (@for = textfield-action) {
-    .v-textfield-action:hover {
+    .v-search-action:hover {
         background: var(--a-o-c);
     }
-    .v-textfield-action:hover>svg>use {
+    .v-search-action:hover>svg>use {
         fill: @buttonForeHoverColor;
     }
 }
-.v-textfield-action:active {
+.v-search-action:active {
     background: @aActiveColor;
 }
-.v-textfield-action:active>svg>use {
+.v-search-action:active>svg>use {
     fill: @buttonForeHoverColor;
 }
 
-// 文本内容重置按钮
-.v-textfield-reset {
-    width: @textfieldHeight;
-    height: 100%;
-    float: right;
+// 搜索选项
+.v-search-opt.highlight,
+.v-search-opt.doc-lib,
+.v-search-opt.reset {
+    width: @searchOptWidth;
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    visibility: hidden;
-    border-radius: var(--b-br-s);
-}
-.v-textfield-reset.enabled {
-    visibility: visible;
     cursor: var(--cur-ptr);
 }
-.genHoverStyle(@for) when (@for = textfield-reset) {
-    .v-textfield-reset:hover>svg>use {
+
+.v-search-opt:is(:active, .pressed) svg {
+    transform: @activePressedTransform_short;
+}
+
+// 文本内容重置按钮
+.v-search-opt.reset {
+    visibility: hidden;
+}
+.v-search-opt.reset.enabled {
+    visibility: visible;
+    background: none;
+}
+.genHoverStyle(@for) when (@for = search-opt) {
+    .v-search-opt.reset:hover>svg>use {
         opacity: .5;
     }
+
+    :is(.v-search-opt.highlight, .v-search-opt.doc-lib):hover>svg>use {
+        fill: var(--a-o-c);
+    }
 }
-.v-textfield-reset:is(:active, .pressed)>svg>use {
+.v-search-opt.reset:is(:active, .pressed)>svg>use {
     opacity: .75;
 }
 
@@ -5876,7 +5980,7 @@ input:-moz-placeholder),
         background: var(--v-ui-bg);
     }
     .genToolbarStyle(@style) when (@style = simple) {
-        background: var(--d-bc);
+        background: var(--db);
         outline: 1px solid var(--pn-c-a);
     }
     .genToolbarStyle(@toolbarStyle);
@@ -5887,7 +5991,7 @@ input:-moz-placeholder),
     display: flex;
     gap: 1px;
     white-space: nowrap;
-    border-radius: var(--v-r-si) var(--v-r-si-xc);
+    border-radius: calc(var(--v-r-b) - 2px) calc(var(--v-r-b-xc) - 2px);
     padding: 2px;
     height: @buttonHeight;
     z-index: 20;
@@ -5898,7 +6002,7 @@ input:-moz-placeholder),
     top: 0;
     width: 36px;
     height: 100%;
-    border-radius: @borderRadiusInnerSi_2px;
+    border-radius: calc(var(--v-r-b) - 4px) calc(var(--v-r-b-xc) - 4px);
     position: relative;
     display: none;
 }
@@ -5921,14 +6025,14 @@ input:-moz-placeholder),
     bottom: 5px;
     padding: @picInPicPadding;
     box-shadow: 0 4px 20px #0000004D;//rgba(0, 0, 0, .3);
-    transform: scale(.75);
+    // transform: scale(.75);
     transform-origin: right bottom;
     z-index: 500;
 }
 .v-pic-in-pic>.v-content {
     overflow: auto;
     height: 100%;
-    background-color: var(--d-bc);
+    background-color: var(--db);
 }
 .v-pic-in-pic>.v-content,
 .v-pic-in-pic>.v-content>:is(table, .v-fig) {
@@ -5939,7 +6043,7 @@ input:-moz-placeholder),
     position: absolute;
     visibility: hidden;
     opacity: 0;
-    background: var(--d-bc);
+    background: var(--db);
     border-radius: 50%;
     top: 8px;
     display: inline-flex;
@@ -5997,7 +6101,7 @@ input:-moz-placeholder),
     font: condensed normal 1em/@defaultLineHeight var(--v-fm-toc); // [stretch] [style] [weight] [size/[line-height]] [family]
     text-transform: uppercase;
     .genDocLibItemStyle(@style) when not (@style = edge) {
-        color: var(--d-fc);
+        color: var(--a-c);
     }
     .genDocLibItemStyle(@style) when (@style = edge) {
         color: @buttonForeColor;
@@ -6020,7 +6124,7 @@ input:-moz-placeholder),
 .genHoverStyle(@for) when (@for = doc-lib-item) {
     .v-doc-lib-item:hover {
         .genDocLibItemStyle(@style) when not (@style = edge) {
-            background-color: var(--pn-c-a);
+            color: var(--a-o-c);
             box-shadow: 0 0 0 2px var(--ac-t2-fd) inset;
         }
         .genDocLibItemStyle(@style) when (@style = edge) {
@@ -6050,7 +6154,7 @@ input:-moz-placeholder),
 // 文档抽屉
 .v-doc-lib {
     visibility: hidden;
-    background: var(--d-bc);
+    background: var(--db);
     margin: 0;
     border: none;
     border-radius: 0 0 var(--v-r-b) var(--v-r-b);
@@ -6084,24 +6188,33 @@ iframe[id^=vlook-chk-update-] {
 @iframeVideoOnEditing: ~'@{writeOnEditing} .md-htmlblock';
 @iframeVideo: @writeOnHTML;
 // 视频嵌入代码：B站
-@biliVideo: ~'iframe[src*="bilibili.com/player"]';
+@biliVideo: ~'[src*="bilibili.com/player"]';
 // 视频嵌入代码：抖音
-@douyinVideo: ~'iframe[src*="douyin.com/player"]';
+@douyinVideo: ~'[src*="douyin.com/player"]';
 // 视频嵌入代码：西瓜
-@xiguaVideo: ~'iframe[src*="ixigua.com/iframe"]';
+@xiguaVideo: ~'[src*="ixigua.com/iframe"]';
 // 视频嵌入代码：腾讯
-@qqVideo: ~'iframe[src*="qq.com/txp/iframe"]';
+@qqVideo: ~'[src*="qq.com/txp/iframe"]';
 // 视频嵌入代码：YouTube
-@youtubeVideo: ~'iframe[src*="youtube.com/embed"]';
-// 流媒体平台
-@{iframeVideoOnEditing} @{biliVideo},
-@{iframeVideoOnEditing} @{douyinVideo},
-@{iframeVideoOnEditing} @{xiguaVideo},
-@{iframeVideoOnEditing} @{qqVideo},
-@{iframeVideoOnEditing} @{youtubeVideo} {
+@youtubeVideo: ~'[src*="youtube.com/embed"]';
+// 针对 Windows 平台 iframe 因安全性等原因，以 webview 组件形式存在
+@webview_iframe: ~'::part(webview-iframe)';
+// 流媒体平台（针对 macOS）
+body.@{macos} @{iframeVideoOnEditing} @{biliVideo},
+body.@{macos} @{iframeVideoOnEditing} @{douyinVideo},
+body.@{macos} @{iframeVideoOnEditing} @{xiguaVideo},
+body.@{macos} @{iframeVideoOnEditing} @{qqVideo},
+body.@{macos} @{iframeVideoOnEditing} @{youtubeVideo},
+// 流媒体平台（针对 Windows）
+body.@{windows} @{iframeVideoOnEditing} @{biliVideo}@{webview_iframe},
+body.@{windows} @{iframeVideoOnEditing} @{douyinVideo}@{webview_iframe},
+body.@{windows} @{iframeVideoOnEditing} @{xiguaVideo}@{webview_iframe},
+body.@{windows} @{iframeVideoOnEditing} @{qqVideo}@{webview_iframe},
+body.@{windows} @{iframeVideoOnEditing} @{youtubeVideo}@{webview_iframe} {
     width: 80% !important; // 编辑时无题注容器（导出 HTML 后由题注容器控制宽度），所以要直接控制自身宽度
     display: block;
-    aspect-ratio: 16/9; // 指定 width 和 height 的等比缩放比例
+    aspect-ratio: 16 / 9; // 指定 width 和 height 的等比缩放比例
+    // margin: 0 auto;
     margin: 0;
 }
 @{iframeVideo} @{biliVideo},
@@ -6109,18 +6222,26 @@ iframe[id^=vlook-chk-update-] {
 @{iframeVideo} @{xiguaVideo},
 @{iframeVideo} @{qqVideo},
 @{iframeVideo} @{youtubeVideo} {
+    width: 80%;
     display: block;
-    aspect-ratio: 16/9; // 指定 width 和 height 的等比缩放比例
+    aspect-ratio: 16 / 9; // 指定 width 和 height 的等比缩放比例
     margin: 0;
 }
 // ----- 竖屏视频 -----
 // 竖屏标识 portrait
 @portraitMode: ~'[src*="#pt"]';
-@{iframeVideoOnEditing} @{biliVideo}@{portraitMode},
-@{iframeVideoOnEditing} @{douyinVideo}@{portraitMode},
-@{iframeVideoOnEditing} @{xiguaVideo}@{portraitMode},
-@{iframeVideoOnEditing} @{qqVideo}@{portraitMode},
-@{iframeVideoOnEditing} @{youtubeVideo}@{portraitMode},
+// 针对 macOS
+body.@{windows} @{iframeVideoOnEditing} @{biliVideo}@{portraitMode},
+body.@{windows} @{iframeVideoOnEditing} @{douyinVideo}@{portraitMode},
+body.@{windows} @{iframeVideoOnEditing} @{xiguaVideo}@{portraitMode},
+body.@{windows} @{iframeVideoOnEditing} @{qqVideo}@{portraitMode},
+body.@{windows} @{iframeVideoOnEditing} @{youtubeVideo}@{portraitMode},
+// 针对 Windows
+body.@{windows} @{iframeVideoOnEditing} @{biliVideo}@{portraitMode}@{webview_iframe},
+body.@{windows} @{iframeVideoOnEditing} @{douyinVideo}@{portraitMode}@{webview_iframe},
+body.@{windows} @{iframeVideoOnEditing} @{xiguaVideo}@{portraitMode}@{webview_iframe},
+body.@{windows} @{iframeVideoOnEditing} @{qqVideo}@{portraitMode}@{webview_iframe},
+body.@{windows} @{iframeVideoOnEditing} @{youtubeVideo}@{portraitMode}@{webview_iframe},
 @{iframeVideo} @{biliVideo}@{portraitMode},
 @{iframeVideo} @{douyinVideo}@{portraitMode},
 @{iframeVideo} @{xiguaVideo}@{portraitMode},
@@ -6150,7 +6271,7 @@ iframe[id^=vlook-chk-update-] {
 .v-fig-page-num {
     border-radius: var(--c-br-s);
     color: @colorWhite;
-    background: var(--d-fc-a);
+    background: var(--df-a);
     padding: 1px 8px;
     font: normal .875em var(--v-fm-stt); // [style] [weight] [size/[line-height]] [family]
 }
@@ -6167,7 +6288,10 @@ iframe[id^=vlook-chk-update-] {
     overflow-x: auto;
 }
 .v-caption.iframe {
-    width: 80%;
+    width: 100%;
+}
+.v-caption.mermaid {
+    width: 100% !important;
 }
 // 一行多个插图时的微调
 .v-cap-cntr>.v-caption:not(:only-child) {
@@ -6178,8 +6302,8 @@ iframe[id^=vlook-chk-update-] {
 #write .loading:has(>img[loading])::before {
     content: "loading...";
     text-transform: uppercase;
-    color: var(--d-bc);
-    background: var(--d-fc);
+    color: var(--db);
+    background: var(--df);
     opacity: .6;
     font-size: .75em;
     font-style: oblique;
@@ -6204,11 +6328,11 @@ iframe[id^=vlook-chk-update-] {
     border-radius: var(--c-br-b);
 }
 .v-caption.codeblock > .v-cap-1 > span {
-    color: var(--d-fc);
+    color: var(--df);
     opacity: .6;
 }
 .v-caption.codeblock > :is(.v-cap-1, .v-cap-2) {
-    color: var(--d-fc);
+    color: var(--df);
     width: 100%;
 }
 .v-caption.codeblock > .v-cap-1 {
@@ -6216,28 +6340,27 @@ iframe[id^=vlook-chk-update-] {
 }
 
 // 当前文档中匹配的题注交叉引用样式
-a[data-x-ref]::before {
+a[data-x-ref]::before,
+@{writeOnEditing} a[href^='#']:not(:has(kbd))::before { // 编辑时
     content: attr(data-x-ref);
-    font-size: 12px;
-    color: var(--d-bc);
-    background: var(--d-fc);
-    padding: 2px 5px;
+    font: condensed normal 1em var(--v-fm-tag); // [stretch] [style] [weight] [size/[line-height]] [family]
+    // padding: 1px 6px;
     border-radius: var(--v-r-s) 0 var(--v-r-s) var(--v-r-s);
-    margin-right: 2px;
-    opacity: .4;
+    margin: 0 4px;
+    // margin: 0 2px;
+    opacity: .5;
 }
-.genHoverStyle(@for) when (@for = a_data-x-ref) {
-    a[data-x-ref]:hover::before {
-        background: var(--a-o-c);
-        opacity: 1;
-    }
+@{writeOnEditing} a[href^='#']:not(:has(kbd))::before { // 编辑时
+    content: "※";
 }
 
 .v-cap-1,
 .v-cap-2 {
     color: @captionTextColor;
-    font: normal .875em var(--v-fm-stt); // [style] [weight] [size/[line-height]] [family]
+    // font: normal .875em var(--v-fm-stt); // [style] [weight] [size/[line-height]] [family]
+    font: condensed normal .875em var(--v-fm-tag); // [stretch] [style] [weight] [size/[line-height]] [family]
     padding: 5px 10px;
+    margin: 2px 0;
     width: fit-content;
     white-space: pre-wrap;
     background: @captionBackground;
@@ -6245,6 +6368,7 @@ a[data-x-ref]::before {
 }
 .v-cap-1.none {
     padding: 0;
+    margin: 0;
 }
 .v-cap-2 {
     font-size: .75em;
@@ -6259,7 +6383,7 @@ a[data-x-ref]::before {
 }
 
 // 表格列复选框透明度微调
-.v-svg-ico-small[data-chk=no] {
+.v-svg-i-small[data-chk=no] {
     opacity: .4;
 }
 
@@ -6275,37 +6399,37 @@ a[data-x-ref]::before {
     opacity: @opacityForOpened;
 }
 
-use.v-svg-ico-current-color {
+use.v-svg-i-current-color {
     fill: currentColor
 }
 
-use.v-svg-ico-text {
-    fill: var(--d-fc);
+use.v-svg-i-text {
+    fill: var(--df);
 }
 
-use.v-svg-ico-alpha {
-    fill: var(--d-fc);
+use.v-svg-i-alpha {
+    fill: var(--df);
     opacity: .35;
 }
 
-use.v-svg-ico-theme {
+use.v-svg-i-theme {
     fill: var(--a-c);
 }
 
-use.v-svg-ico-btn-fc {
+use.v-svg-i-btn-fc {
     fill: @buttonForeColor;
 }
 
-use.v-svg-ico-btn-fc.alpha {
+use.v-svg-i-btn-fc.alpha {
     fill: @buttonForeColor;
     opacity: .35;
 }
 
-use.v-svg-ico-a {
-    fill: var(--d-fc-a);
+use.v-svg-i-a {
+    fill: var(--df-a);
 }
 
-use.v-svg-ico-wh {
+use.v-svg-i-wh {
     fill: @colorWhite;
 }
 
@@ -6370,7 +6494,7 @@ use.v-svg-ico-wh {
         .v-welcome-page {
             -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
-            background: radial-gradient(var(--db06) 4px,var(--d-bc) 4px);
+            background: radial-gradient(var(--db06) 4px,var(--db) 4px);
             background-size: 10px 10px;
         }
 
@@ -6380,7 +6504,7 @@ use.v-svg-ico-wh {
         .v-mask.top,
         .v-mask.bottom,
         .v-mask.center {
-            background: radial-gradient(transparent 4px, var(--d-bc) 4px);
+            background: radial-gradient(transparent 4px, var(--db) 4px);
             background-size: 10px 10px;
         }
 
@@ -6391,7 +6515,8 @@ use.v-svg-ico-wh {
         }
 
         :is(.v-welcome-page, .v-mask) .v-copyright {
-            color: var(--ac-t1);
+            // color: var(--ac-t1);
+            color: var(--a-c);
         }
 
         .v-font-style::before,
@@ -6399,8 +6524,8 @@ use.v-svg-ico-wh {
         .v-doc-lib::after,
         .v-footnote-pn::before,
         .v-link-info-list::before {
-            color: var(--d-bc);
-            background: var(--d-fc);
+            color: var(--db);
+            background: var(--df);
             border-radius: var(--c-br-b);
         }
     }
@@ -6410,7 +6535,7 @@ use.v-svg-ico-wh {
 .genCodeblockTitle(true);
 
 // 针对遮罩内为链接地图、异常链接检查的样式微调
-@maskIconSize: 80px;
+@maskIconSize: 100px;
 .v-mask.nav-center::before,
 .v-mask.font-style::before,
 .v-mask.link-checker::before {
@@ -6491,7 +6616,7 @@ use.v-svg-ico-wh {
 
 // 引用块着色内非 svg 图片剪影通用样式
 @colorCodeSet: ~":is(.wn, .rd, .og, .ye, .lm, .gn, .mn, .ol, .aq, .cy, .bu, .se, .la, .vn, .pu, .ro, .pk, .gd, .bn, .gy, .wt, .bk, .t1, .t2)";
-.genHoverStyle(@for) when (@for = q_a_kbd) {
+.genHoverStyle(@for) when (@for = q_link_kbd) {
     #write .v-q@{colorCodeSet} a kbd:hover>img[src*="fill=text"].enabled,
     #write .v-q.bk @{kbdSec}:hover>img[src*="fill=text"].enabled {
         filter: drop-shadow(@fillOffset 0 0 var(--a-o-c)) !important;
@@ -6500,46 +6625,47 @@ use.v-svg-ico-wh {
     #write .v-q@{colorCodeSet} a kbd:hover {
         color: @buttonForeHoverColor;
 
-        .genKbdStyle(@style) when (@style = flat) {
+        .genLinkKbdStyle(@style) when (@style = flat) {
             background: var(--a-o-c);
             border-color: var(--a-o-c);
         }
-        .genKbdStyle(@style) when (@style = fade) {
+        .genLinkKbdStyle(@style) when (@style = fade) {
             background: linear-gradient(180deg, var(--btn-reflect), var(--a-o-c), var(--btn-shadow)), var(--a-o-c);
             box-shadow: 0 0 0 1px var(--a-o-c) inset;
             border: none;
         }
-        .genKbdStyle(@style) when (@style = raised) {
+        .genLinkKbdStyle(@style) when (@style = raised) {
             background: var(--a-o-c);
             box-shadow: 0 @rasiedShadowSize 0 0 var(--btn-raised), 0 @rasiedShadowSize 0 0 var(--a-o-c);
         }
-        .genKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+        .genLinkKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
             background: var(--a-o-c);
         }
-        .genKbdStyle(@thmKbdStyle);
+        .genLinkKbdStyle(@thmLinkKbdStyle);
     }
 }
 #write .v-q@{colorCodeSet} @{kbdSec} {
-    color: var(--v-btn-bg);
-    background: var(--d-bc);
+    // color: var(--v-btn-bg);
+    color: var(--a-c);
+    background: var(--db);
 }
 .genHoverStyle(@for) when (@for = q_kbdSec) {
     // 引用块着色内按钮 hover 通用样式
     #write .v-q@{colorCodeSet} @{kbdSec}:hover {
         color: var(--a-o-c) !important;
         // 生成不同风格按钮的 hover 样式
-        .genKbdStyle(@style) when (@style = flat) {
+        .genLinkKbdStyle(@style) when (@style = flat) {
         }
-        .genKbdStyle(@style) when (@style = fade) {
+        .genLinkKbdStyle(@style) when (@style = fade) {
             background: linear-gradient(180deg, var(--btn-reflect), var(--ac-t2-a), var(--btn-shadow)), var(--ac-t2-a);
         }
-        .genKbdStyle(@style) when (@style = raised) {
-            background: var(--d-bc);
+        .genLinkKbdStyle(@style) when (@style = raised) {
+            background: var(--db);
             box-shadow: 0 @rasiedShadowSize 0 0 currentColor, 0 0 0 1px currentColor inset;
         }
-        .genKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+        .genLinkKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
         }
-        .genKbdStyle(@thmKbdStyle);
+        .genLinkKbdStyle(@thmLinkKbdStyle);
     }
     #write .v-q@{colorCodeSet} @{kbdSec}:hover @{svgGs},
     #write .v-q.bk.em @{kbdSec}:hover @{svgGs} { // Black
@@ -6556,10 +6682,10 @@ use.v-svg-ico-wh {
 }
 // 注意 for bk
 #write .v-q.bk.em @{kbdSec}>img[src*="fill=text"].enabled {
-    filter: drop-shadow(@fillOffset 0 0 var(--d-bc)) !important;
+    filter: drop-shadow(@fillOffset 0 0 var(--db)) !important;
 }
 #write .v-q.bk.em @{kbdSec}>@{svgGs} {
-    fill: var(--d-bc);
+    fill: var(--db);
 }
 
 // 生成引用块着色相关样式
@@ -6569,10 +6695,10 @@ use.v-svg-ico-wh {
             box-shadow: 0 0 0 4px ~"var(--ac-@{quoteMark}-fd)" inset;
         }
         .genQuote(@quoteMark) when (@quoteMark = bk) { // Black
-            box-shadow: 0 0 0 4px var(--d-fc) inset;
+            box-shadow: 0 0 0 4px var(--df) inset;
         }
         .genQuote(@quoteMark);
-        background: var(--d-bc);
+        background: var(--db);
         border-color: @btnBg;
     }
     // 代码、题注
@@ -6583,11 +6709,11 @@ use.v-svg-ico-wh {
     #write .v-q.@{quoteMark}.em {
         box-shadow: none;
         .genQuoteEm(@quoteMark) when not (@quoteMark = bk) { // not Black
-            background: ~"linear-gradient(var(--ac-@{quoteMark}-fd), var(--ac-@{quoteMark}-fd)), linear-gradient(var(--d-bc), var(--d-bc))";
+            background: ~"linear-gradient(var(--ac-@{quoteMark}-fd), var(--ac-@{quoteMark}-fd)), linear-gradient(var(--db), var(--db))";
         }
         .genQuoteEm(@quoteMark) when (@quoteMark = bk) { // Black
-            color: var(--d-bc);
-            background: var(--d-fc);
+            color: var(--db);
+            background: var(--df);
         }
         .genQuoteEm(@quoteMark);
         border-color: @btnBg;
@@ -6610,7 +6736,7 @@ use.v-svg-ico-wh {
     .genQuoteSvgEm(@quoteMark) when (@quoteMark = bk) { // 引用块折叠控件
         #write .v-q.@{quoteMark}.em :is(.v-tbl-col-fmt-chkbox>svg>use, .v-tbl-row-g-btn>svg>use, .v-svg-input-checkbox>use),
         #write .v-q.@{quoteMark}.em :is(summary>svg>use) {
-            fill: var(--d-bc);
+            fill: var(--db);
         }
     }
     .genQuoteSvgEm(@quoteMark);
@@ -6619,41 +6745,41 @@ use.v-svg-ico-wh {
     #write .v-q.@{quoteMark} a kbd {
         color: @btnFore;
         // 生成不同风格的主要按钮样式
-        .genKbdStyle(@style) when (@style = flat) {
+        .genLinkKbdStyle(@style) when (@style = flat) {
             background: @btnBg;
             border: 2px solid @btnBg;
         }
-        .genKbdStyle(@style) when (@style = fade) {
+        .genLinkKbdStyle(@style) when (@style = fade) {
             background: linear-gradient(180deg, var(--btn-reflect), @btnBg, var(--btn-shadow)), @btnBg;
             box-shadow: 0 0 0 1px @btnBg inset;
             border: none;
         }
-        .genKbdStyle(@style) when (@style = raised) {
+        .genLinkKbdStyle(@style) when (@style = raised) {
             background: @btnBg;
             box-shadow: 0 @rasiedShadowSize 0 0 var(--btn-raised), 0 @rasiedShadowSize 0 0 @btnBg;
         }
-        .genKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+        .genLinkKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
             background: @btnBg;
             box-shadow: 0 @3dShadowSize 0 0 var(--btn-reflect) inset, @3dShadowSize 0 0 0 var(--btn-reflect) inset,
                 -@3dShadowSize 0 0 0 var(--btn-shadow) inset, 0 -@3dShadowSize 0 0 var(--btn-shadow) inset;
         }
-        .genKbdStyle(@thmKbdStyle);
+        .genLinkKbdStyle(@thmLinkKbdStyle);
     }
     .genQuoteAkbd(@quoteMark) when (@quoteMark = bk) {
         #write .v-q.@{quoteMark} @{kbdSec} {
-            color: var(--d-fc);
-            background: var(--d-bc);
-            border-color: var(--d-bc);
+            color: var(--df);
+            background: var(--db);
+            border-color: var(--db);
         }
     }
     .genQuoteAkbd(@quoteMark);
 
     .genQuoteAkbdImgFillEm(@quoteMark) when (@quoteMark = bk) { // Black
         #write .v-q.@{quoteMark} @{kbdSec}>img[src*="fill=text"].enabled {
-            filter: drop-shadow(@fillOffset 0 0 var(--d-fc)) !important;
+            filter: drop-shadow(@fillOffset 0 0 var(--df)) !important;
         }
         #write .v-q.@{quoteMark} @{kbdSec} @{svgGs} {
-            fill: var(--d-fc) !important;
+            fill: var(--df) !important;
         }
     }
     .genQuoteAkbdImgFillEm(@quoteMark);
@@ -6662,25 +6788,25 @@ use.v-svg-ico-wh {
     #write .v-q.@{quoteMark} @{kbdSec} {
         color: @btnBg;
         // 生成不同风格的次要按钮样式
-        .genKbdStyle(@style) when (@style = flat) {
-            background: var(--d-bc);
+        .genLinkKbdStyle(@style) when (@style = flat) {
+            background: var(--db);
         }
-        .genKbdStyle(@style) when (@style = fade) {
+        .genLinkKbdStyle(@style) when (@style = fade) {
             background: linear-gradient(180deg, var(--btn-reflect), @btnBgAlt, var(--btn-shadow)), @btnBgAlt;
         }
-        .genKbdStyle(@style) when (@style = raised) {
-            background: var(--d-bc);
+        .genLinkKbdStyle(@style) when (@style = raised) {
+            background: var(--db);
             box-shadow: 0 @rasiedShadowSize 0 0 currentColor, 0 0 0 1px currentColor inset;
         }
-        .genKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+        .genLinkKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
         }
-        .genKbdStyle(@thmKbdStyle);
+        .genLinkKbdStyle(@thmLinkKbdStyle);
     }
     .genQuoteAkbdSec(@quoteMark) when (@quoteMark = bk) { // Black
         #write .v-q.@{quoteMark}.em @{kbdSec} {
-            color: var(--d-bc);
-            background: var(--d-fc);
-            border-color: var(--d-bc);
+            color: var(--db);
+            background: var(--df);
+            border-color: var(--db);
         }
     }
     .genQuoteAkbdSec(@quoteMark);
@@ -6691,7 +6817,7 @@ use.v-svg-ico-wh {
     }
     .genQuoteAlinkEm(@quoteMark) when (@quoteMark = bk) { // Black
         #write .v-q.@{quoteMark}.em a {
-            color: var(--d-bc);
+            color: var(--db);
         }
     }
     .genQuoteAlinkEm(@quoteMark);
@@ -6704,10 +6830,10 @@ use.v-svg-ico-wh {
     }
     .genQuoteAlinkImgFillEm(@quoteMark) when (@quoteMark = bk) { // Black
         #write .v-q.@{quoteMark}.em a>img[src*="fill=text"].enabled {
-            filter: drop-shadow(@fillOffset 0 0 var(--d-bc)) !important;
+            filter: drop-shadow(@fillOffset 0 0 var(--db)) !important;
         }
         #write .v-q.@{quoteMark}.em a>@{svgGs} {
-            fill: var(--d-bc);
+            fill: var(--db);
         }
     }
     .genQuoteAlinkImgFillEm(@quoteMark);
@@ -6737,7 +6863,7 @@ use.v-svg-ico-wh {
             color: ~"var(--ac-@{quoteMark}-tt) !important";
         }
         .genQuoteTitleEm(@quoteMark) when (@quoteMark = bk) { // Black
-            color: var(--d-bc) !important;
+            color: var(--db) !important;
         }
         .genQuoteTitleEm(@quoteMark);
     }
@@ -6749,7 +6875,7 @@ use.v-svg-ico-wh {
     .genQuoteMarker(@quoteMark) when (@quoteMark = bk) { // Black
         #write .v-q.@{quoteMark}.em ::marker,
         #write .v-q.@{quoteMark}.em li::before {
-            color: var(--d-bc);
+            color: var(--db);
         }
     }
     .genQuoteMarker(@quoteMark);
@@ -6774,8 +6900,8 @@ use.v-svg-ico-wh {
 .genRainbowQuoteCSS(gd, @accColorGold, @accColorGold, #000, var(--ac-gd-a));
 .genRainbowQuoteCSS(bn, @accColorBrown, @accColorBrown, #FFF, var(--ac-bn-a));
 .genRainbowQuoteCSS(gy, @accColorGray, @accColorGray, #FFF, var(--ac-gy-a));
-.genRainbowQuoteCSS(wt, var(--d-fc), var(--d-fc), var(--d-bc), var(--d-fc-a));
-.genRainbowQuoteCSS(bk, var(--d-fc), var(--d-fc), var(--d-bc), var(--d-fc-a));
+.genRainbowQuoteCSS(wt, var(--df), var(--df), var(--db), var(--df-a));
+.genRainbowQuoteCSS(bk, var(--df), var(--df), var(--db), var(--df-a));
 .genRainbowQuoteCSS(t1, var(--ac-t1), var(--ac-t1), @buttonForeColor, var(--ac-t1-a));
 .genRainbowQuoteCSS(t2, @theme2, var(--a-o-c), @buttonForeHoverColor, var(--ac-t2-a));
 
@@ -6814,7 +6940,7 @@ use.v-svg-ico-wh {
         }
         // 线框样式
         .genTagForStyle(@style) when (@style = line) {
-            background: var(--d-bc);
+            background: var(--db);
             border: 1px solid var(--ac-t2-fd-bd);
             outline: var(--c-b1);
         }
@@ -6834,7 +6960,7 @@ use.v-svg-ico-wh {
         }
         .v-tag.@{tagMark} when not (@tagMark = wt) and (@style = line) {
             color: ~"var(--ac-@{tagColor})";
-            background: var(--d-bc);
+            background: var(--db);
             border: 1px solid ~"var(--ac-@{tagMark}-fd-bd)";
             outline: var(--c-b1);
         }
@@ -6847,7 +6973,7 @@ use.v-svg-ico-wh {
         }
         .v-tag.@{tagMark} when (@tagMark = wt) and (@style = line) {
             color: @tagText;
-            background: var(--d-bc);
+            background: var(--db);
             border: 1px solid var(--pn-c);
             outline: var(--c-b1);
         }
@@ -6881,8 +7007,8 @@ use.v-svg-ico-wh {
     .genRainbowTagCSS(gd, gd-tt-lg, @colorBlack, @style);
     .genRainbowTagCSS(bn, bn, @colorWhite, @style);
     .genRainbowTagCSS(gy, gy, @colorWhite, @style);
-    .genRainbowTagCSS(wt, wt, var(--d-fc), @style);
-    .genRainbowTagCSS(bk, bk, var(--d-bc), @style);
+    .genRainbowTagCSS(wt, wt, var(--df), @style);
+    .genRainbowTagCSS(bk, bk, var(--db), @style);
     .genRainbowTagCSS(t1, t1, @buttonForeColor, @style);
     .genRainbowTagCSS(t2, t2, @colorWhite, @style);
 }
@@ -6936,7 +7062,7 @@ use.v-svg-ico-wh {
 .v-badge-value {
     display: inline-block;
     font: condensed var(--v-fw-tag) 1em var(--v-fm-tag); // [stretch] [style] [weight] [size/[line-height]] [family]
-    color: var(--d-fc);
+    color: var(--df);
     line-height: 1;
     white-space: pre;
     box-shadow: none;
@@ -7004,8 +7130,8 @@ use.v-svg-ico-wh {
 .genRainbowBadgeCSS(gd, var(--ac-gd), @shallowTextColor);
 .genRainbowBadgeCSS(bn, var(--ac-bn), @deepTextColor);
 .genRainbowBadgeCSS(gy, var(--ac-gy), @deepTextColor);
-.genRainbowBadgeCSS(wt, var(--d-bc), var(--d-fc));
-.genRainbowBadgeCSS(bk, var(--d-fc), var(--d-bc));
+.genRainbowBadgeCSS(wt, var(--db), var(--df));
+.genRainbowBadgeCSS(bk, var(--df), var(--db));
 .genRainbowBadgeCSS(t1, var(--v-btn-bg), @buttonForeColor);
 .genRainbowBadgeCSS(t2, @theme2, @buttonForeHoverColor);
 
@@ -7014,7 +7140,8 @@ use.v-svg-ico-wh {
 #write .md-alert {
     padding: @alertTypePaddingTop .75em .75em; //!important
     margin: .5em 0 0;
-    background-color: var(--d-bc);
+    background-color: var(--db);
+    filter: @GSA_filter;
 }
 #write .md-alert @{quote_details} {
     border-radius: var(--c-br-s);
@@ -7084,7 +7211,7 @@ rt {
 
 // 上标、下标内的代码样式（因为代码使用 px ，无法像 em 单位自动根据父级 font-size 进行缩放）
 :is(sub, sup) code {
-    font-size: 10px;
+    font-size: @miniFontSize;
 }
 
 // --------------------
@@ -7103,9 +7230,9 @@ rt {
     width: 40px;
     height: @pgbarHeight;
     border-radius: (@pgbarHeight / 2);
-    outline: 1px solid var(--d-fc-a);
+    outline: 1px solid var(--df-a);
     border: var(--c-b1);
-    background: linear-gradient(90deg, var(--ac-t1), var(--d-bc) 90%);
+    background: linear-gradient(90deg, var(--ac-t1), var(--db) 90%);
 }
 @{pgbarOnEditing} mark::after,
 .v-pgbar::after {
@@ -7133,8 +7260,8 @@ rt {
 @{coatingOnEditing},
 @{coatingOnEditing2},
 .v-coating {
-    text-shadow: 0 1px var(--d-fc);
-    color: var(--d-bc);
+    text-shadow: 0 1px var(--df);
+    color: var(--db);
     border: 1px solid var(--ac-gy);
     font: condensed var(--v-fw-tag) 1em var(--v-fm-tag); // [stretch] [style] [weight] [size/[line-height]] [family]
     display: inline-block;
@@ -7162,9 +7289,9 @@ rt {
 @{coatingOnEditing2} {
     background: linear-gradient(135deg,
         var(--ac-gy) 0%, var(--ac-gy) 25%,
-        var(--d-fc) 25%, var(--d-fc) 50%,
+        var(--df) 25%, var(--df) 50%,
         var(--ac-gy) 50%, var(--ac-gy) 75%,
-        var(--d-fc) 75%, var(--d-fc) 100%);
+        var(--df) 75%, var(--df) 100%);
 }
 @{coatingOnEditing},
 @{coatingOnEditing2},
@@ -7175,24 +7302,25 @@ rt {
 }
 @{coatingOnEditing} .md-meta,
 @{coatingOnEditing2} .md-meta {
-    color: var(--d-bc);
+    color: var(--db);
     opacity: .6;
 }
 .v-coating.opened {
-    border-color: var(--d-fc);
-    background: var(--d-bc) !important;
+    border-color: var(--df);
+    // background: var(--db) !important;
+    background: var(--code-bg) !important;
     text-shadow: none;
-    color: var(--d-fc);
+    color: var(--df);
 }
 // 刮刮卡隐藏的内容
 @{coatingOnEditingPrefix} > em > @{strongOnEditing}:only-child > strong,
 @{coatingOnEditingPrefix} > em > span:first-child + @{strongOnEditing}:last-child > strong {
     font-size: 1em;
-    color: var(--d-fc);
+    color: var(--df);
     text-shadow: none;
     margin-left: 2px;
     border: none;
-    background: var(--d-bc);
+    background: var(--db);
     display: none;
 }
 // 点击进行编辑时
@@ -7203,15 +7331,15 @@ rt {
     border-color: var(--a-c); //!important
     background: linear-gradient(135deg,
         var(--ac-gy) 0%, var(--ac-gy) 11%,
-        var(--d-fc) 11%, var(--d-fc) 20%,
+        var(--df) 11%, var(--df) 20%,
         var(--ac-gy) 20%, var(--ac-gy) 31%,
-        var(--d-fc) 31%, var(--d-fc) 40%,
+        var(--df) 31%, var(--df) 40%,
         var(--ac-gy) 41%, var(--ac-gy) 52%,
-        var(--d-fc) 52%, var(--d-fc) 61%,
+        var(--df) 52%, var(--df) 61%,
         var(--ac-gy) 61%, var(--ac-gy) 72%,
-        var(--d-fc) 72%, var(--d-fc) 81%,
+        var(--df) 72%, var(--df) 81%,
         var(--ac-gy) 81%, var(--ac-gy) 92%,
-        var(--d-fc) 92%, var(--d-fc) 100%);
+        var(--df) 92%, var(--df) 100%);
 }
 @{coatingOnEditingPrefix}.md-expand > em @{strongOnEditing} > strong {
     display: inline-block !important;
@@ -7227,7 +7355,7 @@ rt {
 
 // 上标、下标样式
 #write :is(sup, sub) {
-    color: var(--d-fc-a);
+    color: var(--df-a);
     font-size: .75em;
     font-family: var(--v-fm-bd);
 }

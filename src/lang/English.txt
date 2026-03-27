@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V2026.1" (2025-11-06) - (Language Pack) - Typora Plugin
+VLOOK™ "V2026.3" (2025-11-06) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -107,5 +107,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "en96":"Cancel",
 "en97":"Reveal Scratch Card",
 "en98":"View all",
-"en99":"( No Caption )"
+"en99":"( No Caption )",
+"en100":"Break",
+"en101":"Critical",
+"en102":"Collapse all"
 }</script>

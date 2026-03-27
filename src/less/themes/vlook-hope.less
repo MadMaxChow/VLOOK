@@ -11,12 +11,10 @@
  *************************************/
 
 @import "../font-serif";
-// @import "../font";
-// @import "../color";
 @import "../common";
 
 // 主题信息
-@themeVer: "V2026.1";
+@themeVer: "V2026.3";
 @themeName: "vlook-hope";
 @themeSpliter: " • ";
 @themeDesc: "Hope";
@@ -25,7 +23,9 @@
 
 // 指定字体主题：local, book, zen, sans, serif, dyn, yuan, ink
 .applyFontStyle(serif);
-// 指定激活笔样式
+// 指定键帽样式：flat, flat_invert, 3d, 3d_invert
+.applyKbdStyle(flat_invert);
+// 指定激活笔样式：red, green, blue, yellow
 .applyLaserPointer(red);
 // 指定激活笔光标资源及热点位置
 // .applyLaserPointer(@laserImgLight_Red, @laserImgDark_Red, 12, 12);
@@ -101,7 +101,7 @@
 @hContinuous: -@hGap;
 
 // 题注文字、背景色
-@captionTextColor: var(--d-fc-a);
+@captionTextColor: var(--df-a);
 @captionBackground: none;
 
 // 链接颜色
@@ -200,7 +200,9 @@
 .genParaFormatMark(@quoteBeforeImage_f02, @quoteAfterImage_f02);
 
 // 生成页签组样式：std, simple, simple_up, modern
-.genTabGroup(simple);
+// .genTabGroup(std);
+// .genTabGroup(simple);
+.genTabGroup(simple_up);
 
 // 生成有序列表样式：line/solid, rect/circle/drop
 .genOrderList(line, rect);
@@ -210,7 +212,7 @@
 // 生成指定风格的多级标签样式：std, cap, dyn, "dyn, cap",
 .genBadgeStyle(dyn);
 
-// 生成 GSA 样式
+// 生成 GSA 样式：simple, flat, flat_up, em
 .genGSA(em);
 
 // 生成大纲分类索引样式：std, color

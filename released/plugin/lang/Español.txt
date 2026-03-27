@@ -1,6 +1,6 @@
 <script>/**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V2026.1" (2026-01-30) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V2026.3" (2026-03-27) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -26,7 +26,7 @@ var V_lang_data_es = {
 "es17":"Cerrar",
 "es18":"Fórmula",
 "es19":"Si no puede conectarse a Internet para cargar la versión en línea de la fuente, se recomienda descargar la fuente directamente en el equipo local.<br>Si no puede conectarse a Internet o su red es lenta, se recomienda descargar las fuentes para instalarlas localmente.",
-"es20":"Expandir el plegado de citas",
+"es20":"Expandir detalles",
 "es21":"Expandir grupo de filas de tabla",
 "es22":"Todas las notas al pie",
 "es23":"Comenzar a leer",
@@ -105,5 +105,8 @@ var V_lang_data_es = {
 "es96":"Cancelar",
 "es97":"Revelar tarjeta rasca",
 "es98":"Ver todo",
-"es99":"( Sin leyenda )"
+"es99":"( Sin leyenda )",
+"es100":"Interrupción",
+"es101":"Crítico",
+"es102":"Contraer todo"
 }</script>

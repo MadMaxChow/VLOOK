@@ -3,8 +3,8 @@
  * VLOOK™ CSS - @media 相关的样式
  * (配合 base.less 进行使用)
  *
- * V2026.1
- * 2026-01-30
+ * V2026.3
+ * 2026-03-27
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -56,9 +56,9 @@
 
     .genHoverStyle(md-footnote_a);
 
-    .genHoverStyle(a_kbd);
-    .genHoverStyle(a_kbd-img-fill-text);
-    .genHoverStyle(q_a_kbd);
+    .genHoverStyle(link_kbd);
+    .genHoverStyle(link_kbd-img-fill-text);
+    .genHoverStyle(q_kbd_link);
 
     .genHoverStyle(kbdSec);
     .genHoverStyle(kbdSec-img-fill-text);
@@ -89,13 +89,12 @@
     .genHoverStyle(copyright);
 
     .genHoverStyle(textfield-action);
-    .genHoverStyle(textfield-reset);
+    .genHoverStyle(search-opt);
 
     .genHoverStyle(btn);
     .genHoverStyle(btn-group);
     .genHoverStyle(btn-close-figure-nav);
     .genHoverStyle(btn_assistor);
-    .genHoverStyle(segment-btn);
     .genHoverStyle(pip-btn);
     .genHoverStyle(tbl-row-g-btn);
     .genHoverStyle(status-bar_btn);
@@ -114,7 +113,7 @@
 
     .genHoverStyle(audio-mini-control);
 
-    .genHoverStyle(a_data-x-ref);
+    // .genHoverStyle(a_data-x-ref);
 
     .genHoverStyle(rt);
 
@@ -127,6 +126,10 @@
 
     .genHoverStyle(pieCircle);
 
+    .genHoverStyle(kanban);
+
+    .genHoverStyle(treemap);
+
     .genHoverStyle(flowchart_statenodes);
     .genHoverStyle(flowchart_keynode);
 
@@ -138,6 +141,9 @@
 
     .genHoverStyle(stateDiagram_edgeLabel);
     .genHoverStyle(stateDiagram_state);
+    .genHoverStyle(stateDiagram_cluster);
+
+    .genHoverStyle(packet);
 
     .genHoverStyle(class_node);
     .genHoverStyle(class_label);
@@ -147,14 +153,13 @@
 
     .genHoverStyle(xychart_rect);
 
+    .genHoverStyle(architecture_edge);
+    .genHoverStyle(architecture_node-bkg);
+    .genHoverStyle(architecture_service);
+
     .genHoverStyle(quadrantChart);
 
     .genHoverStyle(er_entityBox);
-
-    .genHoverStyle(mindmap_node);
-
-    .genHoverStyle(requirement_g);
-    .genHoverStyle(requirement_label);
 }
 
 // ---------------
@@ -201,6 +206,7 @@
         position: fixed;
         z-index: 0;
         left: 0;
+        top: 0;
         height: 100%;
         width: 100%;
         background-color: @docExtBackgroundColor;
@@ -229,7 +235,7 @@
     }
 
     .typora-export-content:not(.fill-width) #write.max {
-        background: var(--d-bc) var(--d-bi);
+        background: var(--db) var(--d-bi);
         width: var(--v-write-w);
         .genFillWidthBorder(@panelBorder);
     }
@@ -279,11 +285,6 @@
 
     .v-chapter-nav-prev-text,
     .v-chapter-nav-next-text {
-        display: none;
-    }
-
-    // 小屏下隐藏演示类工具
-    .v-btn-group.prs {
         display: none;
     }
 
@@ -433,7 +434,7 @@
         bottom: @floatBottom * 3;
     }
     .v-caption.full {
-        background: var(--d-bc) !important;
+        background: var(--db) !important;
     }
 
     // 导航中心使用边缘样式时的遮罩背景调整
@@ -720,22 +721,22 @@
     }
 
     // 流媒体平台
-    @{iframeVideoOnEditing} @{biliVideo},
-    @{iframeVideoOnEditing} @{douyinVideo},
-    @{iframeVideoOnEditing} @{xiguaVideo},
-    @{iframeVideoOnEditing} @{qqVideo},
-    @{iframeVideoOnEditing} @{youtubeVideo},
+    // @{iframeVideoOnEditing} @{biliVideo},
+    // @{iframeVideoOnEditing} @{douyinVideo},
+    // @{iframeVideoOnEditing} @{xiguaVideo},
+    // @{iframeVideoOnEditing} @{qqVideo},
+    // @{iframeVideoOnEditing} @{youtubeVideo},
     @{iframeVideo} @{biliVideo},
     @{iframeVideo} @{douyinVideo},
     @{iframeVideo} @{xiguaVideo},
     @{iframeVideo} @{qqVideo},
     @{iframeVideo} @{youtubeVideo},
     // 竖屏标识 portrait
-    @{iframeVideoOnEditing} @{biliVideo}@{portraitMode},
-    @{iframeVideoOnEditing} @{douyinVideo}@{portraitMode},
-    @{iframeVideoOnEditing} @{xiguaVideo}@{portraitMode},
-    @{iframeVideoOnEditing} @{qqVideo}@{portraitMode},
-    @{iframeVideoOnEditing} @{youtubeVideo}@{portraitMode},
+    // @{iframeVideoOnEditing} @{biliVideo}@{portraitMode},
+    // @{iframeVideoOnEditing} @{douyinVideo}@{portraitMode},
+    // @{iframeVideoOnEditing} @{xiguaVideo}@{portraitMode},
+    // @{iframeVideoOnEditing} @{qqVideo}@{portraitMode},
+    // @{iframeVideoOnEditing} @{youtubeVideo}@{portraitMode},
     @{iframeVideo} @{biliVideo}@{portraitMode},
     @{iframeVideo} @{douyinVideo}@{portraitMode},
     @{iframeVideo} @{xiguaVideo}@{portraitMode},
@@ -751,7 +752,7 @@
         .v-tab-group {
             // 针对样式：std, simple
             .genTabGroupForMobile(@style) when not (@style = modern) {
-                background: var(--d-bc) var(--d-bi);
+                background: var(--db) var(--d-bi);
             }
             // 针对样式：modern
             .genTabGroupForMobile(@style) when (@style = modern) {
@@ -791,8 +792,8 @@
 
             // --------------------
             // 颜色变量
-            --d-bc: var(--d-bc-dk);
-            --d-bc-ext: var(--d-bc-ext-dk);
+            --db: var(--db-dk);
+            --db-ext: var(--db-ext-dk);
             --d-cb: var(--d-cb-dk);
             --db-r: var(--db-r-dk);
             --db-g: var(--db-g-dk);
@@ -801,14 +802,14 @@
             --df-g: var(--df-g-dk);
             --df-b: var(--df-b-dk);
             --d-bi: var(--d-bi-dk);
-            --d-fc: var(--d-fc-dk);
-            --d-fc-a: var(--d-fc-a-dk);
+            --df: var(--df-dk);
+            --df-a: var(--df-a-dk);
 
             --pn-c: var(--pn-c-dk);
             --pn-c-a: var(--pn-c-a-dk);
-            --pn-fd-r: var(--pn-fd-r-dk);
-            --pn-fd-g: var(--pn-fd-g-dk);
-            --pn-fd-b: var(--pn-fd-b-dk);
+            --pn-r: var(--pn-r-dk);
+            --pn-g: var(--pn-g-dk);
+            --pn-b: var(--pn-b-dk);
             --bq-bg: var(--bq-bg-dk);
             --bq-bg-fd: var(--bq-bg-fd-dk);
 
@@ -829,7 +830,7 @@
             --v-btn-bg: var(--v-btn-bg-dk);
 
             --v-fl-sd: var(--v-fl-sd-dk);
-            --v-fl-i-sd: var(--v-fl-i-sd-dk);
+            // --v-fl-i-sd: var(--v-fl-i-sd-dk);
             --v-fl-bd: var(--v-fl-bd-dk);
 
             --c-blk-bg: var(--c-blk-bg-dk);
@@ -842,13 +843,18 @@
             --v-fig-grid-l-invert: var(--v-fig-grid-l-invert-dk);
             --v-fig-grid-b-invert: var(--v-fig-grid-b-invert-dk);
 
+            // 键帽样式
+            --kbd-c: var(--kbd-c-dk);
             --kbd-bg: var(--kbd-bg-dk);
-            --kbd-reflect: var(--kbd-reflect-dk);
-            --kbd-sd: var(--kbd-sd-dk);
-            // 反转色
-            --kbd-bg-i: var(--kbd-bg-lg);
-            --kbd-reflect-i: var(--kbd-reflect-lg);
-            --kbd-sd-i: var(--kbd-sd-lg);
+            --kbd-shd: var(--kbd-shd-dk);
+            --kbd-pd: var(--kbd-pd-dk);
+            // --kbd-bg: var(--kbd-bg-dk);
+            // --kbd-reflect: var(--kbd-reflect-dk);
+            // --kbd-sd: var(--kbd-sd-dk);
+            // // 反转色
+            // --kbd-bg-i: var(--kbd-bg-lg);
+            // --kbd-reflect-i: var(--kbd-reflect-lg);
+            // --kbd-sd-i: var(--kbd-sd-lg);
 
             --doc-sd: var(--doc-sd-dk);
             --img-bd-invert: var(--img-bd-invert-dk);
@@ -1022,19 +1028,19 @@
 
             // --------------------
             // 针对 Typora UI 颜色变量
-            --bg-color: var(--d-bc-dk);
-            --side-bar-bg-color: var(--d-bc-dk);
-            --text-color: var(--d-fc-dk);
+            --bg-color: var(--db-dk);
+            --side-bar-bg-color: var(--db-dk);
+            --text-color: var(--df-dk);
 
-            --control-text-color: var(--d-fc-dk);
-            --control-text-hover-color: var(--d-fc-dk);
+            --control-text-color: var(--df-dk);
+            --control-text-hover-color: var(--df-dk);
             --window-border: 1px solid var(--pn-c-dk);
 
-            --active-file-bg-color:  var(--d-bc-dk);
-            --active-file-text-color: var(--d-fc-dk);
+            --active-file-bg-color:  var(--db-dk);
+            --active-file-text-color: var(--df-dk);
 
-            --item-hover-bg-color: var(--pn-c-dk);
-            --item-hover-text-color: var(--d-fc-dk);
+            // --item-hover-bg-color: var(--pn-c-dk);
+            // --item-hover-text-color: var(--df-dk);
 
             --primary-color: @theme1Dark;
 
@@ -1048,7 +1054,7 @@
 
         // 备注文本
         .noteText tspan {
-            fill: var(--d-fc-lg);
+            fill: var(--df-lg);
         }
 
         // 代码块内代码区域
@@ -1070,7 +1076,7 @@
         content: "抱歉！本页面不支持生成 PDF！\a\aSorry! PDF generation is not supported on this page!" !important;
         white-space: pre-wrap;
         padding: 50px 20px;
-        color: var(--d-bc);
+        color: var(--db);
         font: italic var(--v-fw-bd) 1.5em/10 var(--v-fm-stt); // [style] [weight] [size/[line-height]] [family]
         line-height: 2;
         text-align: center;
@@ -1114,17 +1120,15 @@
     .v-font-style-info,
     .v-nav-center,
     .v-nav-center-handle,
-    .v-nav-history,
+    .v-shortcut-bar,
     .v-fill-width,
     content::before,
     .typora-export-content::before,
     #write::before,
     #write::after,
     .v-welcome-page,
-    // body.print .v-print-tip,
     .v-print-tip,
     .v-info-tips {
-        // content: ""
         display: none !important;
     }
 
@@ -1205,7 +1209,6 @@
     }
     #write .v-post-card {
         display: block;
-        // position: relative;
         position: unset;
         transform: unset;
         border-radius: 0 0 var(--v-r-b) var(--v-r-b-xc);
@@ -1265,7 +1268,7 @@ body.print :is(
     .v-font-style-info,
     .v-nav-center,
     .v-nav-center-handle,
-    .v-nav-history,
+    .v-shortcut-bar,
     .v-fill-width),
 body.print #write.done::before,
 body.print #write.done::after,
@@ -1296,7 +1299,6 @@ body.print #write img[src*="#card"] {
 }
 body.print #write .v-post-card {
     display: block;
-    // position: relative;
     position: unset;
     transform: unset;
     border-radius: 0 0 var(--v-r-b) var(--v-r-b-xc);

@@ -1,9 +1,9 @@
 <!--
 ▽▽▽▽▽ plugin_live for <head /> ▽▽▽▽▽
-VLOOK "V2026.1" (2026-01-30) - Typora Plugin
+VLOOK "V2026.3" (2026-03-27) - Typora Plugin
 
-Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
-追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <head /> 中添加」
+Paste to "Export Setting ▸ VLOOK-HTML ▸ Append in <head />"
+追加至「导出设置... ▸ VLOOK-HTML ▸ 在 <head /> 中添加」
 -->
 
 <!-- 以下为需要预连接的服务器域名配置 -->
@@ -32,8 +32,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="keywords" content="${keywords}">
 <meta name="tags" content="${tags}">
 <meta name="logo" content="${logo}">
-<meta name="footer" content="${footer}">
 <!-- 以下为 VLOOK™ 相关的 meta 配置 -->
+<meta name="vlook-footer" content="${vlook-footer}">
 <meta name="vlook-doc-lib" content="${vlook-doc-lib}">
 <meta name="vlook-gray-mode" content="${vlook-gray-mode}">
 <meta name="vlook-header-autonum" content="${vlook-header-autonum}">
@@ -42,6 +42,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <meta name="vlook-query" content="${vlook-query}">
 <meta name="vlook-unpub" content="${vlook-unpub}">
 <meta name="vlook-welcome" content="${vlook-welcome}">
+<meta name="vlook-shortcut" content="${vlook-shortcut}">
 <meta name="vlook-cc-top-left" content="${vlook-cc-top-left}">
 <meta name="vlook-cc-top-right" content="${vlook-cc-top-right}">
 <meta name="vlook-cc-bottom-left" content="${vlook-cc-bottom-left}">
@@ -63,8 +64,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <head />"
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
 <!--                                                                        -->
-<!--                                  V2026.1                                 -->
-<!--                               2026-01-30                               -->
+<!--                                  V2026.3                                 -->
+<!--                               2026-03-27                               -->
 <!--                           Powered by MAX°孟兆                           -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -83,7 +84,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
 <!-- ==================== VLOOK UI ==================== -->
-<div id='v-pdf-log'>EXPORT PDF LOG:</div>
+<div id='v-pdf-log'>[ PDF LOG ]</div>
 <div id='v-debug'></div>
 <style type='text/css'>
     @keyframes breathe-vlook { 0% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
@@ -96,12 +97,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		const meta = document.querySelector(`meta[${attr}="${key}"]`);
 		return meta ? meta.getAttribute("content") : null;
 	}
-    let gPdfLog = document.querySelector("#v-pdf-log"),
-        lVer = "V2026.1",
+    let pdfLog = document.querySelector("#v-pdf-log"),
+        lVer = "V2026.3",
         devMode = lVer.indexOf("dev") > 0 ? true : false, debugMode = devMode,
         jsHost = devMode ? "http://localhost/dev/" : getMetaContent("vlook-js") + lVer + "/",
         ts = Math.floor(Date.now()/(1000*60*60*24)); // (1000*60*60*24) 按天
-    document.body.insertBefore(gPdfLog, document.body.childNodes[0]);
+    document.body.insertBefore(pdfLog, document.body.childNodes[0]);
 // ==================== live ====================
 // ▽ ▽ ▽ ▽ ▽
     function loadScript(src, onload) {

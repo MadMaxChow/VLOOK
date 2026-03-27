@@ -1,18 +1,18 @@
 ---
 title: Guide ▲ Advanced - VLOOK™ - Elegant and Practical Typora Theme & Plugin
 author: MAX°孟兆
-date: 2026-01-30
+date: 2026-03-27
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: This work is licensed under the MIT License. For details, see the LICENSE file.
-version: V2026.1
+version: V2026.3
 tags: Code, Button, Cover & Back Cover, Columns, Caption, Tab Group, Content Marking, Mermaid, Formula, Multimedia
-footer: <a href="index.html">Introduction</a>	|	Guide for <a href='guide-en.html'>Basic</a>  ❯  <strong>Advanced</strong>  ❯  <a href='guide3-en.html'>Exploration</a>
+vlook-footer: <a href="index.html">Introduction</a>	|	Guide for <a href='guide-en.html'>Basic</a>  ❯  <strong>Advanced</strong>  ❯  <a href='guide3-en.html'>Exploration</a>
 description: Regarding VLOOK™: Code, button, Cover and Back Pages, Column Layouts, Captions, Tab Groups, Content Markups (GitHub-style Alerts / Tags / Progress Bars / Breadcrumbs / Scratch Card / Phonetic Annotations), Mermaid Diagrams, Mathematical Formulas, and Multimedia
 "og:description": Regarding VLOOK™: Code, Buttons, Cover and Back Pages, Column Layouts, Captions, Tab Groups, Content Markups (GitHub-style Alerts / Tags / Progress Bars / Breadcrumbs / Scratch Card / Phonetic Annotations), Mermaid Diagrams, Mathematical Formulas, and Multimedia
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
 keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
-- editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
+- editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,cross-reference,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
 - light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
 - catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
@@ -23,7 +23,7 @@ keywords:
 - link map,link specification,link check,link recognition,link conversion
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
-- 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
+- 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,交叉引用,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
 - 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
 - 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
@@ -39,8 +39,8 @@ vlook-header-dup: /^Your coffee.+/;/.*Syntax$/;/^Applicable Scope ••• .+/;
 vlook-doc-lib:
 - [How to Start?](index-en.html?target=_self "Introduction, Installation and Configuration, Language Packs")
 - [Guide • Basic](guide-en.html?target=_self "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Filters / Postcards / Silhouette / High-Definition, Lists / Task List, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
-- [Guide ▲ Advanced](guide2-en.html?target=_self "Columns, Caption, Buttons, Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
-- [Guide ★ Exploration](guide3-en.html?target=_self "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Save as PDF / Print to PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
+- [Guide ▲ Advanced](guide2-en.html?target=_self "Columns, Caption, Cross-reference, Buttons, Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
+- [Guide ★ Exploration](guide3-en.html?target=_self "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
 - [Value-added Services](vip-en.html?target=_self "VIP Themes, Document Typesetting and Editing,...")
 - [More Content](vlook-lib-en.html "VLOOK™ Full Feature Index Table")
 - [Report Issues](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
@@ -153,7 +153,7 @@ Code blocks wrap automatically by default, and can be switched to non-wrapping m
 
 For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™&body=Hi, "Feedback via Email")  [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
 
-# °Button
+# °Button & Link
 
 ## Keyboard Keys
 
@@ -167,15 +167,11 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 > <kbd>Q</kbd>  <kbd>W</kbd>  <kbd>E</kbd>  <kbd>R</kbd>  <kbd>T</kbd>      <kbd>1</kbd>  <kbd>2</kbd>  <kbd>3</kbd>  <kbd>4</kbd>  <kbd>5</kbd>
 >
-> <kbd>ESC</kbd>    <kbd>Enter</kbd>
->
-> <kbd>Ctrl</kbd>  <kbd>Alt</kbd>  <kbd>Shift</kbd>      <kbd>　　　　　　　　　</kbd>
+> <kbd>A</kbd>  <kbd>S</kbd>  <kbd>D</kbd>  <kbd>F</kbd>  <kbd>G</kbd>      <kbd><</kbd>  <kbd>></kbd>  <kbd>?</kbd>  <kbd>+</kbd>  <kbd>-</kbd>
 
-> <kbd>Ctrl</kbd> + <kbd>C</kbd> 、<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd>
+> <kbd>ESC</kbd>    <kbd>Enter</kbd>    <kbd>⌘ command</kbd>    <kbd>⌥ option</kbd>
 >
-> <kbd>Ctrl</kbd> + <kbd>P</kbd>
->
-> <kbd>Ctrl</kbd> + <kbd>S</kbd>
+> <kbd>⌃ Ctrl</kbd>  <kbd>Alt</kbd>  <kbd>⇧ Shift</kbd>    <kbd>　　　　　　　　　</kbd>
 
 > [!TIP]
 >
@@ -340,6 +336,22 @@ Here’s an example of a three-column link card layout:
 >
 > **[<kbd>Super Button link ![](pic/icon-more.svg?fill=text#icon)</kbd>](#donate)**
 
+## Cross-reference
+
+> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+
+
+
+In-document anchor links, including sections and various [Captions](#°Caption), support displaying referenced prefix information (such as section numbers and caption numbers). The example effects are shown below:
+
+> - Chapter: [°Cover and Back Cover](#°cover-and-back-cover)  
+> - Table: [Tag (regular style) preset color codes & examples](#Tag (Regular Style) Preset Color Codes and Examples)
+> - Image: [Dual-caption image example](#Dual-caption image example)
+> - Mermaid diagram: [Flowchart example](#Flowchart Example)
+> - External doc cross-ref example: [Normal cell horizontal & vertical merging example](guide-en.md#Example of Normal Cell Horizontal and Vertical Merging)
+
+
+
 ---
 
 For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™&body=Hi, "Feedback via Email")  [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
@@ -356,15 +368,15 @@ Choose the one that best fits your needs:
 
 ---
 
-> **What's Small Cover?**
+> **What's "Small" Cover?**
 >
 > Best suited for short documents or informal publishing scenarios and does **not** include a back-cover layout.
 >
-> > The cover used in this document is the **"Small Cover"**. You can return to the [start of the document](#) to view the effect.
+> > The cover used in this document is the **"Small Cover"**. You can return to the [start of this document](#) to view the effect.
 >
 > _~T1~_
 
-> **What's Large Cover?**
+> **What's "Large" Cover?**
 >
 > Ideal for longer documents or more formal publishing scenarios, and provides an optional back-cover layout.
 >
@@ -378,10 +390,10 @@ Choose the one that best fits your needs:
 
 
 
-> 1. First, add a **[YAML](https://yaml.org/)** Front Matter to the document via  
->    *==Typora > Paragraph > YAML Front Matter==*  
-> 2. Then configure the cover-related fields inside the YAML section following standard YAML syntax.  
->    The settings will take effect after exporting to HTML.
+> 1. First, add a **[YAML](https://yaml.org/)** Front Matter to the document via *==Typora > Paragraph > YAML Front Matter==*  
+> 2. Then configure the cover-related fields inside the YAML section following standard YAML syntax. The settings will take effect after exporting to HTML.
+> 
+> **( You can scroll to the very beginning of this document to directly preview the demo effect of the "small cover" )**
 
 *==The "Small Cover" supports the following YAML fields==*
 
@@ -485,7 +497,7 @@ _^tab^_
 ###### Example of this document's cover content
 
 ```markdown
-###### ~VLOOK™~<br>Give your Markdown a new way to _^play^_<br>──<br><u>Quick Reference Manual<br>(Part.II)</u><br>*Latest version`V2026.1`*<br><br>**MAX°Mengzhao**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
+###### ~VLOOK™~<br>Give your Markdown a new way to _^play^_<br>──<br><u>Quick Reference Manual<br>(Part.II)</u><br>*Latest version`V2026.3`*<br><br>**MAX°Mengzhao**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 ```
 
 ###### Example of this document's back cover content
@@ -1002,7 +1014,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 *Markdown Fans`Q`*「**How to add caption and auto-numbering to tables, illustrations, code blocks, etc. in documents like Word?**」
 
-*VLOOK`A`*_~T2~_ With simple markup, you can add caption to tables, images, code blocks, formulas, etc., with auto-numbering like `Table 1` `Figure 2.3-2`. Caption content also automatically serves as anchors for cross-referencing and jumping within documents～
+*VLOOK`A`*_~T2~_ With simple markup, you can add caption to tables, images, code blocks, formulas, etc., with auto-numbering like `Table 1` `Figure 2.3-2`. Caption content also automatically serves as anchors for [Cross-reference](#Cross-reference) and jumping within documents～
 
 
 
@@ -1050,14 +1062,6 @@ _^tab^_
 > - *==Step 2==* Add second caption content after first, wrapped in underscores `_` ;
 > - Corresponding Markdown syntax: `*==First caption content_Second caption_==*` .
 
-> **Cross-referencing**
->
-> Both caption methods support index-en.md**anchor jumps (cross-referencing)** within or between documents after exporting HTML;
-> - Current doc cross-ref example:
->   - [Tag (regular style) preset color codes & examples](#Tag (Regular Style) Preset Color Codes and Examples)
->   - [Normal image example (long images auto-fold)](#Normal-image-example-(long-images-auto-fold))
-> - External doc cross-ref example: [Normal cell horizontal & vertical merging example](guide-en.md#Example of Normal Cell Horizontal and Vertical Merging)
-
 ## Image Caption & Auto-numbering
 
 > Follow Markdown syntax for adding images: `![Image title](ImageURL "Optional subtitle")`
@@ -1069,9 +1073,9 @@ _^tab^_
 
 
 
-![Normal image example](pic/normal-pic.jpg "(Image source: internet, copyright unclear)")
+![Dual-caption image example](pic/normal-pic.jpg "(Image source: internet, copyright unclear)")
 
-![Normal image example](pic/figure-svg.svg)
+![Single-caption image example](pic/figure-svg.svg)
 
 
 
@@ -1412,7 +1416,7 @@ _^tab^_
 >
 > ---
 >
-> Below shows the "Flat" style example. For more style examples, please preview through VLOOK™'s preset **[Hope](theme-hope.html#github-style-alert)** and **[Joint](theme-joint.html#github-style-alert)** themes.
+> Below shows the "Flat" style example. For more style examples, please preview through VLOOK™'s preset [Fancy](theme-fancy.html#一些约定), [Geek](theme-geek.html#一些约定), [Hope](theme-hope.html#一些约定), [Joint](theme-joint.html#一些约定), [Solaris](theme-solaris.html#一些约定), [Thinking](theme-thinking.html#一些约定) themes.
 
 > **Syntax**
 >
@@ -2132,7 +2136,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 # °Mermaid
 
-> [!NOTE]
+> [!TIP]
 >
 > More scripted chart styles, and script writing specifications combined with VLOOK™ related content详见《[Scripted Charts for Markdown](chart.md)》。
 
@@ -2161,19 +2165,20 @@ flowchart TB
 %% LR：从左到图，RL：从右到左，TB：从上到下，BT：从下到上
 
 %% 连续连接
-START([开始]) --> pre1{{准备}} --> node2[节点]
+START([开始])
+START --> pre1{{"❤ 准备"}} --> node2[节点]
 pre1 --> node1(可选)
 
 subgraph 子图
   subgraph 子图的子图
     %% 一对多
     node1 --> join1{ }
-    join1 --> |分支|groud1[[子流程]] & database[(存档)] & inpage1(("A<br>(同页)"))
+    join1 --> |分支|groud1[["`**子流程**`"]] & database[(存档)] & inpage1(("`A<br>_(同页)_`"))
     %% click clickable "#Mermaid 的状态机图"
   end  	
 node2 --> data1[/数据/]
 node2 --> data2[\文件\]
-node2 --> data3(((双圈圆<br>点击可访问<br>Github)))
+node2 --> data3(((双圈圆<br>点击可访问<br>GitHub)))
 click data3 "https://www.github.com" _blank
 end
 
@@ -2183,17 +2188,17 @@ groud1 ==> |重要分支|cond1{"判断？"}
 cond1 --> |条件1|END
 cond1 --> |条件2|B[/手工输入\]
 cond1 --> |条件3|B2[\手动操作/]
-cond1 -.-> |条件4|outpage2>"B (离页)"]
+cond1 -.-> |条件4|outpage2>"`B _(离页)_`"]
 
-inpage2(("A<br>(同页)")) --> END
+inpage2(("`A<br>_(同页)_`")) --> END
 END([结束])
 ```
 
 *==Branch Flow Example (Continuing from Above Diagram)==*
 
 ```mermaid
-graph LR
-outpage2>"B (离页)"] --> node2(节点) --> END([结束])
+flowchart LR
+outpage2>"B (离页)"] o=====o node2(节点) x-....-x END([结束])
 ```
 
 ###### Mermaid Class Diagram
@@ -2202,6 +2207,8 @@ outpage2>"B (离页)"] --> node2(节点) --> END([结束])
 
 ```mermaid
 classDiagram
+note "类图示例"
+
 classA <|-- classB : Inheritance<br>继承
 classC *-- classD : Composition<br>组合
 classE o-- classF : Aggregation<br>聚合
@@ -2210,6 +2217,8 @@ classI "*" -- classJ : Link (Solid)
 classK ..> "n" classL : Dependency<br>依赖
 classM <|.. classN : Realization<br>实现
 classO .. classP : Link (Dashed)
+
+note for classE "对 classE 类的说明"
 
 class classA~Class~{
     <<interface>>
@@ -2225,9 +2234,9 @@ class classA~Class~{
 
 class classC{
     <<enumeration>>
-    Rd
-    Bu
-    Gn
+    Red
+    Blue
+    Green
     WHITE
     BLACK
 }
@@ -2253,9 +2262,13 @@ mindmap
             Creative techniques
             {{Strategic planning}}
             Argument mapping
+    Research 2
     Tools
       [Pen and paper]
       [Mermaid]
+    Tools 2
+      Pen and paper 2
+    Tools 3
 ```
 
 ###### Mermaid's Sequence Diagram
@@ -2263,50 +2276,65 @@ mindmap
 > **Markup Extensions for "Sequence Diagrams"**
 >
 > + Supports marking different types of roles (important systems, external systems) to present different styles
-> + Optimizes the appearance of *`opt`*_~Pu~_ *`alt / else`*_~Rd~_ *`loop`*_~Cy~_ *`par`*_~Og~_ tag with different styles, and automatically translates them based on the browser's current language
+> + Optimizes the appearance of *`loop`*_~Cy~_ *`alt / else`*_~Vn~_ *`opt`*_~Pu~_ *`par`*_~Og~_ *`critical`*_~Rd~_ *`break`*_~Bk~_ tag with different styles, and automatically translates them based on the browser's current language
 > + For more details about markup extensions, see here [❯❯](chart.md#sequence-diagram)
 
 *==Sequence diagram with multiple different roles, clearer and more friendly==*
 
 ```mermaid
 sequenceDiagram
-%% Enable automatic numbering for displayed messages
+%% 设置显示消息的自动编号
 
-actor User as Human Role
-actor Client as Frontend Touchpoint
-participant MP as Normal System
-participant Server as index-en.md**Important System Role
-participant Extend as --External System Role
+actor User as 人物角色
+participant Client as 前端触点
+participant MP as 普通系统
+participant Server as **重要系统角色
+participant Extend as --外部系统角色
 
-par Parallel Messages
-	User ->> Client: Parallel Send Message 1
+par 平行消息
+	User ->> Client: 并行发送消息1
 and
-	User ->> Client: Parallel Send Message 2
+  break 例外情况
+    User -x Client: 中断处理消息
+  end
 and
-  Client ->>+ Server: Parallel Send Message 3
-  Server -->>- Client: Send Message
+  Client -)+ Server: 并行发送消息3
+  Server --)- Client: 发送消息
 end
 
-%% Set area highlight
+%% 设置区域高亮
 rect rgba(128, 128, 128, 0.3)
-	Extend ->> Extend: Internal Action
+	Extend ->> Extend: 内部动作
 end
 
-Note left of Extend: Note displayed on left side<br>of external system
-Note right of Extend: Note displayed on right side<br>of external system
-Note over Client,Server: Cross-object note
-loop Loop
-	Client ->>+ Extend: Send Message A
-	alt Choice 1
-		Server -->> Client: Synchronous Return Message A1
-	else Choice 2
-		Server --X Client: Asynchronous Return Message A2
+Note left of Extend: 显示在外部系统<br>左侧备注说明
+Note right of Extend: 显示在外部系统<br>右侧备注说明
+Note over Client,Server: 跨对象备注说明
+loop 循环
+	Client ->>+ Extend: 发送消息A
+	alt 默认情况
+		Server ->> Client: 默认情况消息A1
+	else 非默认情况
+		Server -->> Client: 非默认消息A2
 	end
-	opt Optional
-		Extend ->>- Server: Send Message X
+	
+	opt 可选
+		Extend ->>- Server: 发送消息X
 	end
+	
+	critical 必须执行
+    Server -)+ Client: 必须执行消息
+  option 可选情况A
+    Server ->> Client: 执行可选消息A
+  option 可选情况B
+    Server ->> Client: 执行可选消息B
+  end
 end
 ```
+
+> [!TIP]
+>
+> More scripted chart styles, and script writing specifications combined with VLOOK™ related content详见《[Scripted Charts for Markdown](chart.md)》。
 
 ## Mermaid Caption & Auto-numbering
 
@@ -2368,258 +2396,4 @@ y = y(x,t) &= A e^{i\theta} \\
 $$
 
 You can also index-en.md**reference block formula numbers for navigation**, for example refer to formula: $\ref{mymath-1}$
-
-
-
-> ###### Check the LaTeX code for the above standalone formula block
->
-> ```latex
-> 
-$$
-> \begin{align*}
-> y = y(x,t) &= A e^{i\theta} \\
-> &= A (\cos \theta + i \sin \theta) \label{mymath-1}\tag{My Math - 1} \\
-> &= A (\cos(kx - \omega t) + i \sin(kx - \omega t)) \\
-> &= A\cos(kx - \omega t) + i A\sin(kx - \omega t)  \\
-> &= A\cos \Big(\frac{2\pi}{\lambda}x - \frac{2\pi v}{\lambda} t \Big) + i A\sin \Big(\frac{2\pi}{\lambda}x - \frac{2\pi v}{\lambda} t \Big) \label{mymath-2}\tag{My Math - 2} \\
-> &= A\cos \frac{2\pi}{\lambda} (x - v t) + i A\sin \frac{2\pi}{\lambda} (x - v t) \label{mymath-3}\tag{My Math - 3}
-> \end{align*}
-> $$
-> ```
->
-> 
-
-###### Formula in Tables
-
-|            index-en.md**Title**            | Formula                                                       | Description                                                  |
-| :----------------------------: | :----------------------------------------------------------- | ------------------------------------------------------------ |
-|          Euler's Formula        | $e^{i\theta}=cos\theta+isin\theta$                           |                                                              |
-| Pythagorean Theorem<br>(Pythagoras' Theorem) | $a^2+b^2=c^2$                                                | In a right-angled triangle on a plane, the square of the hypotenuse equals the sum of the squares of the other two sides.<br>If the lengths of the two perpendicular sides are $a$ and $b$, and the hypotenuse is $c$ |
-|     Mass-Energy Equivalence     | $E=mc^2$                                                     | Where:<br>$E$ is energy in joules (J)<br>$m$ is mass in kilograms (kg)<br>$c$ is the speed of light in vacuum (m/s), $c=299792458 m/s$ |
-|    Einstein Field Equations     | $R_{\mu\nu}-\cfrac{1}{2}g_{\mu\nu}R=8\pi GT_{\mu\nu}-\Lambda g_{\mu\nu}$ | What attracts you is not gravity, but curved spacetime       |
-|    Maxwell's Equations          | $\nabla \cdot \mathbf{E} = \cfrac{\rho}{\varepsilon_0}$<br>$\nabla \cdot \mathbf{B} = 0$<br>$\nabla \times \mathbf{E} = -\cfrac{\partial \mathbf{B}}{\partial t}$<br>$\nabla \cdot \mathbf{B} = \mu _0 \mathbf{J} + \mu _0 \varepsilon_0 \cfrac{\partial \mathbf{E}}{\partial t}$ | [Maxwell's Equations](https://baike.baidu.com/item/%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E6%96%B9%E7%A8%8B%E7%BB%84) |
-
-## Formula Caption & Auto-numbering
-
-<u>About caption and auto-numbering for Formula</u>
-
-
-
-[<kbd>Click here for details ❯❯</kbd>](#Formula Caption & Auto-numbering)
-
-
-
----
-
-For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)](mailto:67870144@qq.com?subject=Feedback%20about%20VLOOK™&body=Hi, "Feedback via Email")  [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "QQ Group (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "Join Telegram Channel")
-
-# °Multimedia
-
-## Streaming Platforms
-
-*Markdown Fans`Q`*「**Hope Markdown can embed videos from mainstream streaming platforms～**」
-
-*VLOOK`A`*_~T2~_ To better utilize the rich video resources from mainstream streaming platforms (like: [Bilibili](www.bilibili.com), [Xigua](www.ixigua.com), [YouTube](www.youtube.com)), provides theme style adaptation and optimization support～
-
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
-
-
-
-> [!TIP]
->
-> Embedded videos from streaming platforms also support "**caption, auto-numbering**", the method is consistent with adding caption and auto-numbering to "tables" ... [Details ❯](guide-en.md#Table Caption & Auto-numbering)
-
-### Bilibili Videos
-
-*==Embedded Bilibili Video (Landscape)==*
-
-<iframe loading="lazy" src="https://player.bilibili.com/player.html?isOutside=true&aid=113423643837219&bvid=BV1miDpY5ERh&cid=26611613913&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-
-> ###### How to get Bilibili video's "embed code"?
->
-> ![Get Bilibili Video Embed Code](pic/bili-share-iframe.png#400w)
->
-> (If you find the video cannot play after exporting to HTML, please check if the src content in the embed code doesn't have the `https:` prefix, add it and try again)
-
-> ###### Recommended to disable autoplay
->
-> Since Bilibili videos autoplay by default, if you want to adjust this, you can add `autoplay=0` at the end of the `src` field in the embed code, example:
->
-> *==Example of adding "no autoplay" tag==*
->
-> ```html
-> <iframe src="https://player.bilibili.com/player.html?bvid=BV1zhaiegE73&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-> ```
->
-
-> ###### Can't play Bilibili videos in the exported HTML when opened locally?
->
-> This is because the video embed code provided by Bilibili does not include the `https:` prefix in the `src` URL.  
-> You can fix this manually by adding `https:` to the beginning of the link.
-
-### Douyin Videos
-
-*==Embedded Douyin Video (Portrait)==*
-
-<iframe loading="lazy" src="https://open.douyin.com/player/video?vid=7122698345268743431#pt" scrolling="no" border="0" frameborder="0" framespacing="0" allowfullscreen="true"></iframe>
-
-> ###### How to get Douyin video's "embed code"?
->
-> Since Douyin doesn't provide an official "embed code" sharing method like Bilibili, you can use Bilibili's embed code as a template, replacing the `src` with Douyin's video stream link.
->
-> The Douyin video stream link specifies the video identifier through `vid`, which can be copied from the address bar after opening the video through a computer browser on [Douyin homepage](https://www.douyin.com/discover). Example:
->
-> *==Address bar content after opening Douyin video in browser==*
->
-> ```http
-> https://www.douyin.com/discover?modal_id=7365002781440085275
-> ```
->
-> *==Example template for Douyin video "embed code"==*
->
-> ```html
-> <iframe src="https://open.douyin.com/player/video?vid=7122698345268743431#portrait" scrolling="no" border="0" frameborder="0" framespacing="0" allowfullscreen="true"></iframe>
-> ```
-
-> [!TIP]
->
-> Videos from all streaming platforms are displayed in "**landscape**" by default. If you want to display in "**portrait**", just add `#pt` at the end of the `src` content in the video embed code～
-
-### Xigua Videos
-
-*==Embedded Xigua Video==*
-
-<iframe loading="lazy" width="720" height="405" frameborder="0" src="https://www.ixigua.com/iframe/7433350717030531622?autoplay=0" referrerpolicy="unsafe-url" allowfullscreen></iframe>
-
-> ###### How to get Xigua video's "embed code"?
->
-> ![Get Xigua Video Embed Code](pic/xigua-share-iframe.png#400w)
-
-### Tencent Videos
-
-*==Embedded Tencent Video==*
-
-<iframe loading="lazy" frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=w3533fllb37" allowFullScreen="true"></iframe>
-
-> ###### How to get Tencent video's "embed code"?
->
-> ![Get Tencent Video Embed Code](pic/vqq-share-iframe.png#400w)
-
-### YouTube Videos
-
-*==Embedded YouTube Video (Landscape)==*
-
-<iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/f49LJV1i-_w?si=2qOSWZJPArifLC7i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-*==Embedded YouTube Video (Portrait)==*
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9BRsFlo_-H8?si=tM7oRRoz6WZnVtgx#pt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-> ###### How to get YouTube video's "embed code"?
->
-> ![Get YouTube Video Embed Code](pic/youtube-share-iframe.png#400w)
-
-## Video
-
-*Markdown Fans`Q`*「**Hope Markdown can support videos, so I can create multimedia documents～**」
-
-*VLOOK`A`*_~T2~_ Currently Markdown tools don't have support for videos, but now it can be achieved at almost "zero" cost!
-
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
-
-
-
-> The syntax is completely consistent with Markdown's image insertion!
->
-> - **Syntax:** `![Video top caption](Video URL "Video bottom caption")`
-> - **Syntax Example:** `![This is a video](video.m4a)`
-> - **Supported Video Formats:** Ogg (.ogv), MPEG4 (.mp4), WebM (.webm)
-
-![Video Example](media/a_sky_full_of_stars-480p.mp4 "(WebM format video)")
-
-> **In addition to basic video controls, it also supports W3C standard control features!**
->
-> Achieved by adding VLOOK™ standard parameters to the "Video URL", details as follows:
-
-*==Advanced Application Instructions for Video Control==*
-
-| index-en.md**Customizable Features** | URL Parameters          | Example                                                      |
-| :------------: | ----------------- | ------------------------------------------------------------ |
-|  Enable Autoplay | `autoplay=true`   |                                                              |
-|  Enable Loop     | `loop=true`       |                                                              |
-|   Enable Preload  | `preload=true`    | ![Preload Video Example](media/a_sky_full_of_stars-480p.mp4?preload=true&height=240 "(Specified as 240p)") |
-|  Specify Width   | `width=pixel value`  | Specify video width (unit: px)                               |
-|  Specify Height  | `height=pixel value` | Specify video height (unit: px)                              |
-
-> [!TIP]
->
-> Since the syntax is the same as images, videos also support "**caption, auto-numbering**" ... [Details ❯](guide-en.md#Image Caption & Auto-numbering)
-
-> [!NOTE]
->
-> If you have questions about using "URL parameters, URL anchors", you can learn more at "[Image Address Extension Notes](guide3-en.md#Image Address Extension Notes)"～
-
-## Audio
-
-*Markdown Fans`Q`*「**Hope Markdown can support audio, so I can create electronic audiobooks～**」
-
-*VLOOK`A`*_~T2~_ Currently Markdown tools don't have support for audio, but now it can be achieved at almost "zero" cost!
-
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
-
-
-
-> The syntax is completely consistent with Markdown's image insertion!
->
-> - **Syntax:** `![Audio top caption](Audio URL "Audio bottom caption")`
-> - **Syntax Example:** `![This is audio](audio.mp3)`
-> - **Supported Audio Formats:** MP3 (.mp3), Ogg (.ogg), Wav (.wav), M4a (.m4a)
-
-> ###### Want to try changing the default audio interface?
->
-> **Audio defaults to the browser's "standard interface", in VLOOK™ it also supports a customized "Mini interface", AMAZING!**
->
-> Achieved by adding VLOOK™ standard parameters to the "Audio URL":
->
-> - URL Parameter: `controls=mini`
-> - Parameter Example: `media/whistle.mp3?controls=mini`
-
-###### Standard Interface Example
-
-![Audio playback controls default to standard mode](media/waves_and_rocks.mp3 "(MP3 format)")
-
-###### Mini Interface Example
-
-![](media/whistle.mp3?controls=mini) index-en.md**◄ Click to play**
-
-> **In addition to basic audio controls, it also supports W3C standard control features!**
->
-> Achieved by adding VLOOK™ standard parameters to the "Audio URL", details as follows:
-
-*==Advanced Application Instructions for Audio Control==*
-
-|                       index-en.md**Customizable Features**                       | VLOOK™ Standard URL Parameters                               | Example                                                      |
-| :--------------------------------------------------------: | ------------------------------------------------------------ | ------------------------------------------------------------ |
-|                  Enable Mini Mode Playback Controls         | `controls=mini`                                              | ![](media/whistle.mp3?controls=mini)                         |
-| Enable Play/Pause Mode<br><sub>**(Default is Play/Stop)**</sub> | `pause=true`<br><sub>*⚠️`Note`*_~Rd!~_ index-en.md**Only effective in Mini mode**</sub> | ![](media/whistle.mp3?controls=mini&pause=true)              |
-|                        Show Audio Duration                 | `duration=true`<br><sub>*⚠️`Note`*_~Rd!~_ index-en.md**Only effective in Mini mode**</sub> | ![](media/waves_and_rocks.mp3?controls=mini&duration=true)   |
-|                        Enable Autoplay                     | `autoplay=true`                                              | ![](media/whistle.mp3?controls=mini&autoplay=true)           |
-|                        Enable Loop                         | `loop=true`                                                  | ![Loop Audio Example](media/whistle.mp3?loop=true)             |
-|                         Enable Preload                     | `preload=true`                                               | ![Preload Audio Example](media/whistle.ogg?preload=true "(OGG format)") |
-
-> [!TIP]
->
-> Since the syntax is the same as images, when audio is displayed in "standard mode", it also supports "**caption, auto-numbering**" ... [Details ❯](guide-en.md#Image Caption & Auto-numbering)
-
-> [!NOTE]
->
-> If you have questions about using "URL parameters, URL anchors", you can learn more at "[Image Address Extension Notes](guide3-en.md#Image Address Extension Notes)"～
-
-## Caption & Auto-numbering
-
-<u>About caption and auto-numbering for multimedia</u>
-
-
-
-[<kbd>Click here for details ❯❯</kbd>](#Multimedia Caption & Auto-numbering)
 

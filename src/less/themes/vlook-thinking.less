@@ -19,7 +19,7 @@
 @vlookQuery: "@{vlookQueryDef}&uico=flat&tabico=flat";
 
 // 主题信息
-@themeVer: "V2026.1";
+@themeVer: "V2026.3";
 @themeName: "vlook-thinking";
 @themeSpliter: " • ";
 @themeDesc: "Thinking";
@@ -29,7 +29,9 @@
 // 指定字体主题：local, book, zen, sans, serif, dyn, yuan, ink
 .applyFontStyle(zen);
 // .applyFontStyle(ink);
-// 指定激活笔样式
+// 指定键帽样式：flat, flat_invert, 3d, 3d_invert
+.applyKbdStyle(flat);
+// 指定激活笔样式：red, green, blue, yellow
 .applyLaserPointer(red);
 // 指定激活笔光标资源及热点位置
 // .applyLaserPointer(@laserImgLight_Red, @laserImgDark_Red, 12, 12);
@@ -41,8 +43,8 @@
 // 指定 kbd 按钮圆角风格：none, small, big, leaf, cap
 @thmKbdRadiusStyle: leaf;
 // 指定 kbd 按钮风格 flat, fade, raised, 3d, 3d_up
-// @thmKbdStyle: raised;
-@thmKbdStyle: 3d_up;
+// @thmLinkKbdStyle: raised;
+@thmLinkKbdStyle: 3d_up;
 // .applyKbdRadius(leaf);
 // 导航中心、脚注面板、状态栏风格选择：std, flat, edge
 @navCenterStyle: flat;
@@ -127,7 +129,7 @@
 @h1BeforeContent: counter(h1) "、";
 
 // 引用块默认色样式（与主题配套使用）
-@quoteBgDefault: linear-gradient(var(--d-bc), var(--d-bc));
+@quoteBgDefault: linear-gradient(var(--db), var(--db));
 @quoteBoxShadowDefault: 0 0 0 2px var(--bq-bg) inset;
 // 引用块的双栏、三栏、四栏
 @columnQuoteBgInQuote: @quoteBgDefault;
@@ -146,7 +148,7 @@
 
 // 欢迎页
 @welcomePageForeColor: var(--ac-t1);
-@welcomePageBgColor: linear-gradient(0deg, var(--ac-t1-a), var(--d-bc));
+@welcomePageBgColor: linear-gradient(0deg, var(--ac-t1-a), var(--db));
 
 // 封面、封底文字位置及对齐方式
 @coverLeftRightPadding: 60px;
@@ -183,7 +185,7 @@
 @codeBlockBackgroundDark: @codeBlockBackground;
 @codeBlockBackgroundSize: auto;
 @codeBlockBackgroundRepeat: no-repeat;
-@codeBlockBackgroundPosition: right 20px bottom (20px + @bottomCopyrightHeight);
+@codeBlockBackgroundPosition: right 20px bottom (@bottomCopyrightHeight - 10px);
 .genBlockBackgroundImage(@codeBlockBackgroundSize, @codeBlockBackgroundRepeat, @codeBlockBackgroundPosition);
 
 // 封面背景设置
@@ -285,8 +287,8 @@
 // 生成指定风格的多级标签样式：std, cap, dyn, "dyn, cap",
 .genBadgeStyle(dyn);
 
-// 生成 GSA 样式
-.genGSA(simple);
+// 生成 GSA 样式：simple, flat, flat_up, em
+.genGSA(flat);
 
 // 生成大纲分类索引样式：std, color
 .genSegmentBtn(std);

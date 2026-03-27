@@ -1,6 +1,6 @@
 <script>/**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V2026.1" (2026-01-30) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V2026.3" (2026-03-27) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -26,7 +26,7 @@ var V_lang_data_de = {
 "de17":"Schließen",
 "de18":"Formel",
 "de19":"Wenn Sie keine Verbindung zum Internet herstellen können, um die Online-Version der Schriftart zu laden, wird empfohlen, die Schriftart direkt lokal herunterzuladen.<br>Wenn Sie keine Verbindung zum Internet herstellen können oder Ihr Netzwerk langsam ist, wird empfohlen, die Schriftarten für die lokale Installation herunterzuladen.",
-"de20":"Blockzitatfaltung erweitern",
+"de20":"Details erweitern",
 "de21":"Tabellenzeilengruppe erweitern",
 "de22":"Alle Fußnoten",
 "de23":"Lesen beginnen",
@@ -105,5 +105,8 @@ var V_lang_data_de = {
 "de96":"Cancel",
 "de97":"Rubbelkarte anzeigen",
 "de98":"Alle anzeigen",
-"de99":"( Keine Beschriftung )"
+"de99":"( Keine Beschriftung )",
+"de100":"Unterbrechung",
+"de101":"Kritisch",
+"de102":"Alle reduzieren"
 }</script>

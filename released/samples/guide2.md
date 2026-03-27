@@ -1,18 +1,18 @@
 ---
 title: 攻略 ▲ 进阶 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与增强插件
 author: MAX°孟兆
-date: 2026-01-30
+date: 2026-03-27
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: 本作品采用 MIT 许可证授权，详见 LICENSE 文件。
-version: V2026.1
+version: V2026.3
 tags: 代码, 按钮, 封面与封底, 分栏, 题注, 页签组, 内容标记, Mermaid, 公式, 多媒体
-footer: <a href="index.html">简介</a>	|	攻略之 <a href='guide.html'>基础</a>  ❯  <strong>进阶</strong>  ❯  <a href='guide3.html'>探索</a>
+vlook-footer: <a href="index.html">简介</a>	|	攻略之 <a href='guide.html'>基础</a>  ❯  <strong>进阶</strong>  ❯  <a href='guide3.html'>探索</a>
 description: 关于 VLOOK™ 的代码、按钮、封面与封底、分栏、题注、页签组、内容标记（GitHub Style Alert/标签/进度条/面包屑/刮刮卡/注音）、Mermaid、公式、多媒体
 "og:description": 关于 VLOOK™ 的代码、按钮、封面与封底、分栏、题注、页签组、内容标记（GitHub Style Alert/标签/进度条/面包屑/刮刮卡/注音）、Mermaid、公式、多媒体
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
 keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
-- editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
+- editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,cross-reference,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
 - light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
 - catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
@@ -23,7 +23,7 @@ keywords:
 - link map,link specification,link check,link recognition,link conversion
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
-- 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
+- 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,交叉引用,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
 - 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
 - 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
@@ -39,7 +39,7 @@ vlook-header-dup: /^你的咖啡.+/;/.*语法$/;/^适用范围 ••• .+/;题
 vlook-doc-lib:
 - [如何开始？](index.html?target=_self "简介、安装与配置、语言包")
 - [攻略 • 基础](guide.html?target=_self "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
-- [攻略 ▲ 进阶](guide2.html?target=_self "分栏、题注、按钮、代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
+- [攻略 ▲ 进阶](guide2.html?target=_self "分栏、题注、交叉引用、按钮、链接代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
 - [攻略 ★ 探索](guide3.html?target=_self "内容导航/历史/上次阅读、内容助手/复制/全屏/换行/十字光标/阅读/画中画、演示辅助/激光笔/聚光灯/段落漫游/宽度适配、出版辅助/标记不发布/发布为PDF/另存为PDF/导出为PDF/打印为PDF/社交分享/链接地图/长内容折叠/链接检查/链接识别、外观/主题/字体/Light/Dark、自定义/预置选项/调校参数、快捷键、……")
 - [增值服务](vip.html?target=_self "定制主题、文档排版编辑、……")
 - [更多内容](vlook-lib.html "VLOOK™ 全部特性索引表")
@@ -159,7 +159,7 @@ Hello Markdown! Hello VLOOK! Hello Markdown! Hello VLOOK! Hello Markdown! Hello 
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
 
-# °按钮
+# °按钮与链接
 
 ## 键盘按键
 
@@ -173,15 +173,11 @@ Hello Markdown! Hello VLOOK! Hello Markdown! Hello VLOOK! Hello Markdown! Hello 
 
 > <kbd>Q</kbd>  <kbd>W</kbd>  <kbd>E</kbd>  <kbd>R</kbd>  <kbd>T</kbd>      <kbd>1</kbd>  <kbd>2</kbd>  <kbd>3</kbd>  <kbd>4</kbd>  <kbd>5</kbd>
 >
-> <kbd>ESC</kbd>    <kbd>Enter</kbd>
->
-> <kbd>Ctrl</kbd>  <kbd>Alt</kbd>  <kbd>Shift</kbd>      <kbd>　　　　　　　　　</kbd>
+> <kbd>A</kbd>  <kbd>S</kbd>  <kbd>D</kbd>  <kbd>F</kbd>  <kbd>G</kbd>      <kbd><</kbd>  <kbd>></kbd>  <kbd>?</kbd>  <kbd>+</kbd>  <kbd>-</kbd>
 
-> <kbd>Ctrl</kbd> + <kbd>C</kbd> 、<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd>
+> <kbd>ESC</kbd>    <kbd>Enter</kbd>    <kbd>⌘ command</kbd>    <kbd>⌥ option</kbd>
 >
-> <kbd>Ctrl</kbd> + <kbd>P</kbd>
->
-> <kbd>Ctrl</kbd> + <kbd>S</kbd>
+> <kbd>⌃ Ctrl</kbd>  <kbd>Alt</kbd>  <kbd>⇧ Shift</kbd>    <kbd>　　　　　　　　　</kbd>
 
 > [!TIP]
 >
@@ -351,6 +347,22 @@ _^tab^_
 >
 > **[<kbd>这是标准按钮链接 ![](pic/icon-more.svg?fill=text)</kbd>](#打赏)**
 
+## 交叉引用
+
+> **适用范围 ••• *`编辑时`× 不支持*_~Gy~_  *`导出 HTML`✓ 支持*_~Gn~_**
+
+
+
+文档的页内锚点链接，包括章节、各类[题注](#°题注)，支持显示引用源的前缀信息（如章节编号、题注编号），具体的示例效果如下：
+
+> - 章节：[°封面与封底](#°封面与封底)
+> - 表格：[标签（常规风格）预置色号及示例](#标签（常规风格）预置色号及示例)
+> - 图片：[图片双题注示例](#图片双题注示例)
+> - Mermaid 图表：[流程图示例](#流程图示例)
+> - 外部文档交叉引用示例：[普通单元格的横向合并与纵向合并示例](guide.md#普通单元格的横向合并与纵向合并示例)
+
+
+
 ---
 
 如果你对以上内容有更多需求或建议，欢迎随时反馈～ [![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe "加入 QQ 群 (805502564)")  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown "加入 Telegram 频道")
@@ -366,15 +378,15 @@ _^tab^_
 
 ---
 
-> **什么是小封面？**
+> **什么是「小」封面？**
 >
 > 主要适用于短篇幅的文档，或是一些非正式的发布场合，同时不需要封底样式。
 >
-> > 本文档使用的封面为「小封面」，可回到[文档最开始位置](#)看看效果
+> > 本文档使用的封面为「小封面」，可回到[本文档的最开始位置](#)看看效果
 >
 > _~T1~_
 
-> **什么是大封面？**
+> **什么是「大」封面？**
 >
 > 主要适用于长篇幅的文档，或是比较正式的发布场合，并提供可选的封底样式
 >
@@ -390,6 +402,8 @@ _^tab^_
 
 > 1. 先为文档添加「**[YAML](https://yaml.org/)** Front Matter」，菜单操作 *==Typora > 段落 > YAML Front Matter==*
 > 2. 按 YAML 的语法标准设置封面相关信息即可，相关信息在导出为 HTML 后生效。
+>
+> **（可以滚动本文档的最开始位置直接预览「小封面」的示范效果）**
 
 
 
@@ -497,7 +511,7 @@ _^tab^_
 ###### 本文档的封面内容示例
 
 ```markdown
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>使用攻略<br>(Part.II)</u><br>*最新版本`V2026.1`*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>使用攻略<br>(Part.II)</u><br>*最新版本`V2026.3`*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 ```
 
 ###### 本文档的封底内容示例
@@ -1016,7 +1030,7 @@ _^tab^_
 
 *Markdown 粉`Q`*「**文档中表格、插图、代码块等，怎么才能像 Word 那样添加题注和自动编号呢？**」
 
-*VLOOK`A`*_~T2~_ 只需要简单的标记即可实现为表格、图片、代码块、公式等内容添加题注，并进行自动编号，编号举例： `表 1` `图 2.3-2` ，题注内容还会自动作为锚点实现文档的交叉引用和跳转～
+*VLOOK`A`*_~T2~_ 只需要简单的标记即可实现为表格、图片、代码块、公式等内容添加题注，并进行自动编号，编号举例： `表 1` `图 2.3-2` ，题注内容还支持自动作为锚点实现文档的[交叉引用](#交叉引用)和跳转～
 
 
 
@@ -1055,23 +1069,13 @@ _^tab^_
 
 
 
-_^tab^_
-
 > **双题注**
 >
 > 第二个题注显示在表格下方，**设置方式如下：**
 >
 > - *==第1步==* 参考以上的单题注的「[方式二](#设置题注：方式二)」完成第一个题注内容；
 > - *==第2步==* 在第一个题注内容后添加第二个题注的内容，并用英文下划线符号 `_` 包裹；
-> - 对应的 Markdown 格式语法为：`*==这是第一个题注内容_这是第二个题注_==*` 。
-
-> **交叉引用**
->
-> 设置题注的方式二、方式二在导出 HTML 并生成的题注后，都能支持文档内、或文档间的**锚点跳转（交叉引用）**；
-> - 当前文档交叉引用示例：
->   - [标签（常规风格）预置色号及示例](#标签（常规风格）预置色号及示例)
->   - [普通的图片示例（长图会自动折叠）](#普通的图片示例（长图会自动折叠）)
-> - 外部文档交叉引用示例：[普通单元格的横向合并与纵向合并示例](guide.md#普通单元格的横向合并与纵向合并示例)
+> - 对应的 Markdown 格式语法为：`*==这是第一个题注内容_这是第二个题注_==*` 
 
 ## 图片题注与自动编号
 
@@ -1084,9 +1088,9 @@ _^tab^_
 
 
 
-![普通的图片示例](pic/normal-pic.jpg "（图片来源自互联网，版权尚不明确）")
+![图片双题注示例](pic/normal-pic.jpg "（图片来源自互联网，版权尚不明确）")
 
-![普通的图片示例](pic/figure-svg.svg)
+![图片单题注示例](pic/figure-svg.svg)
 
 
 
@@ -1290,10 +1294,10 @@ class classC{
 }
 ```
 
-| 列 A | 列 B | 列 C | 列 E |
+| 列 A | 列 B | 列 C | 列 D |
 | ---- | ---- | ---- | ---- |
-|      |      |      |      |
-|      |      |      |      |
+| A1   | B1   | C1   | D1   |
+| A2   | B2   | C2   | D2   |
 
 ![](media/a_sky_full_of_stars-480p.mp4 "(WebM 格式视频)")
 
@@ -1427,7 +1431,7 @@ _^tab^_
 >
 > ---
 >
-> 以下为「扁平」样式示例，更多样式的示例请通过 VLOOK™ 预置的 **[Hope](theme-hope.html#github-style-alert)**、**[Joint](theme-joint.html#github-style-alert)** 主题进行预览。
+> 更多样式的示例请通过 VLOOK™ 预置的 [Fancy](theme-fancy.html#一些约定)、[Geek](theme-geek.html#一些约定)、[Hope](theme-hope.html#一些约定)、[Joint](theme-joint.html#一些约定)、[Solaris](theme-solaris.html#一些约定)、[Thinking](theme-thinking.html#一些约定) 等主题进行预览。
 
 > **语法**
 >
@@ -2168,9 +2172,9 @@ _^tab^_
 
 # °Mermaid
 
-> [!NOTE]
+> [!TIP]
 >
-> 更多脚本化图表样式，以及结合 VLOOK™ 相关的脚本编写规范内容详见《[脚本化图表 for Markdown](chart.md)》。
+> 更多脚本化表样式，以及结合 VLOOK™ 相关的脚本编写规范内容详见《[脚本化图表 for Markdown](chart.md)》。
 
 ## Mermaid 样式优化与扩展
 
@@ -2197,19 +2201,20 @@ flowchart TB
 %% LR：从左到图，RL：从右到左，TB：从上到下，BT：从下到上
 
 %% 连续连接
-START([开始]) --> pre1{{准备}} --> node2[节点]
+START([开始])
+START --> pre1{{"❤ 准备"}} --> node2[节点]
 pre1 --> node1(可选)
 
 subgraph 子图
   subgraph 子图的子图
     %% 一对多
     node1 --> join1{ }
-    join1 --> |分支|groud1[[子流程]] & database[(存档)] & inpage1(("A<br>(同页)"))
+    join1 --> |分支|groud1[["`**子流程**`"]] & database[(存档)] & inpage1(("`A<br>_(同页)_`"))
     %% click clickable "#Mermaid 的状态机图"
   end  	
 node2 --> data1[/数据/]
 node2 --> data2[\文件\]
-node2 --> data3(((双圈圆<br>点击可访问<br>Github)))
+node2 --> data3(((双圈圆<br>点击可访问<br>GitHub)))
 click data3 "https://www.github.com" _blank
 end
 
@@ -2219,17 +2224,17 @@ groud1 ==> |重要分支|cond1{"判断？"}
 cond1 --> |条件1|END
 cond1 --> |条件2|B[/手工输入\]
 cond1 --> |条件3|B2[\手动操作/]
-cond1 -.-> |条件4|outpage2>"B (离页)"]
+cond1 -.-> |条件4|outpage2>"`B _(离页)_`"]
 
-inpage2(("A<br>(同页)")) --> END
+inpage2(("`A<br>_(同页)_`")) --> END
 END([结束])
 ```
 
 *==分支流程示例（接续上图）==*
 
 ```mermaid
-graph LR
-outpage2>"B (离页)"] --> node2(节点) --> END([结束])
+flowchart LR
+outpage2>"B (离页)"] o=====o node2(节点) x-....-x END([结束])
 ```
 
 ###### Mermaid 的类图
@@ -2238,6 +2243,8 @@ outpage2>"B (离页)"] --> node2(节点) --> END([结束])
 
 ```mermaid
 classDiagram
+note "类图示例"
+
 classA <|-- classB : Inheritance<br>继承
 classC *-- classD : Composition<br>组合
 classE o-- classF : Aggregation<br>聚合
@@ -2246,6 +2253,8 @@ classI "*" -- classJ : Link (Solid)
 classK ..> "n" classL : Dependency<br>依赖
 classM <|.. classN : Realization<br>实现
 classO .. classP : Link (Dashed)
+
+note for classE "对 classE 类的说明"
 
 class classA~Class~{
     <<interface>>
@@ -2261,9 +2270,9 @@ class classA~Class~{
 
 class classC{
     <<enumeration>>
-    Rd
-    Bu
-    Gn
+    Red
+    Blue
+    Green
     WHITE
     BLACK
 }
@@ -2289,9 +2298,13 @@ mindmap
             Creative techniques
             {{Strategic planning}}
             Argument mapping
+    Research 2
     Tools
       [Pen and paper]
       [Mermaid]
+    Tools 2
+      Pen and paper 2
+    Tools 3
 ```
 
 ###### Mermaid 的顺序图
@@ -2299,7 +2312,7 @@ mindmap
 > **针对「顺序图」的标记扩展**
 >
 > + 支持标记不同类型的角色（重要系统、外部系统），以呈现出不同的样
-> + 将 *`opt`*_~Pu~_ *`alt / else`*_~Rd~_ *`loop`*_~Cy~_ *`par`*_~Og~_ 标签优化不同的外观样式，并根据当前浏览器的语言进行自动翻译
+> + 将 *`loop`*_~Cy~_ *`alt / else`*_~Vn~_ *`opt`*_~Pu~_ *`par`*_~Og~_ *`critical`*_~Rd~_ *`break`*_~Bk~_ 标签优化不同的外观样式，并根据当前浏览器的语言进行自动翻
 > + 更多关于标记扩展的用法说明详见这里 [❯❯](chart.md#顺序图)
 
 *==多种不同角色的顺序图，更清晰、更友好==*
@@ -2309,18 +2322,20 @@ sequenceDiagram
 %% 设置显示消息的自动编号
 
 actor User as 人物角色
-actor Client as 前端触点
+participant Client as 前端触点
 participant MP as 普通系统
 participant Server as **重要系统角色
 participant Extend as --外部系统角色
 
 par 平行消息
-	User ->> Client: 平行发送消息1
+	User ->> Client: 并行发送消息1
 and
-	User ->> Client: 平行发送消息2
+  break 例外情况
+    User -x Client: 中断处理消息
+  end
 and
-  Client ->>+ Server: 平行发送消息3
-  Server -->>- Client: 发送消息
+  Client -)+ Server: 并行发送消息3
+  Server --)- Client: 发送消息
 end
 
 %% 设置区域高亮
@@ -2333,16 +2348,31 @@ Note right of Extend: 显示在外部系统<br>右侧备注说明
 Note over Client,Server: 跨对象备注说明
 loop 循环
 	Client ->>+ Extend: 发送消息A
-	alt 抉择1
-		Server -->> Client: 同步返回消息A1
-	else 抉择2
-		Server --X Client: 异步返回消息A2
+	alt 默认情况
+		Server ->> Client: 默认情况消息A1
+	else 非默认情况
+		Server -->> Client: 非默认消息A2
 	end
+	
 	opt 可选
 		Extend ->>- Server: 发送消息X
 	end
+	
+	critical 必须执行
+    Server -)+ Client: 必须执行消息
+  option 可选情况A
+    Server ->> Client: 执行可选消息A
+  option 可选情况B
+    Server ->> Client: 执行可选消息B
+  end
 end
 ```
+
+ 
+
+> [!TIP]
+>
+> 更多脚本化图表样式，以及结合 VLOOK™ 相关的脚本编写规范内容详见《[脚本化图表 for Markdown](chart.md)》。
 
 ## 题注与自动编号
 
@@ -2584,9 +2614,18 @@ $$
 |  指定视频宽度  | `width=像素数值`  | 指定视频的宽度（单位：px）                                   |
 |  指定视频高度  | `height=像素数值` | 指定视频的高度（单位：px）                                   |
 
+
+
+*==支持内嵌 \<video> 标签示例==*
+
+<video src="media/a_sky_full_of_stars-480p.mp4"></video>
+
+
+
 > [!TIP]
 >
-> 因为是与图片的语法一样，所以在视频也支持「**题注、自动编号**」 … [了解详情 ❯](guide.md#图片题注与自动编号)
+> - 因为是与图片的语法一样，所以在视频添加「**题注、自动编号**」的方式与图片一致 … [了解更多 ❯](#图片题注与自动编号)
+> - 如使用内嵌 `<video>` 标签方式，则添加「**题注、自动编号**」的方式与表格一致 … [了解更多 ❯](#表格题注与自动编号)
 
 > [!NOTE]
 >
@@ -2625,6 +2664,8 @@ $$
 
 ![](media/whistle.mp3?controls=mini) **◄ 点击播放**
 
+
+
 > **除音频基本的控制外，同样支持 W3C 标准的控制功能！**
 >
 > 通过在「音频 URL」中添加 VLOOK™ 规范的参数实现，具体如下：
@@ -2640,9 +2681,18 @@ $$
 |                        开启循环播放                        | `loop=true`                                                  | ![循环播放音频示例](media/whistle.mp3?loop=true)             |
 |                         开启预加载                         | `preload=true`                                               | ![预加载音频示例](media/whistle.ogg?preload=true "(OGG 格式)") |
 
+
+
+###### 支持内嵌 \<audio> 标签示例
+
+<audio src="media/whistle.mp3" controls></audio>
+
+
+
 > [!TIP]
 >
-> 因为是与图片的语法一样，所以在音频以「标准模式」显示时，也支持「**题注、自动编号**」 … [了解详情 ❯](guide.md#图片题注与自动编号)
+> - 因为是与图片的语法一样，所以在视频添加「**题注、自动编号**」的方式与图片一致 … [了解更多 ❯](#图片题注与自动编号)
+> - 如使用内嵌 `<audio>` 标签方式，则添加「**题注、自动编号**」的方式与表格一致 … [了解更多 ❯](#表格题注与自动编号)
 
 > [!NOTE]
 >

@@ -6,7 +6,7 @@ description: 关于 VLOOK™ 对 Mermaid 的脚本化图表支持与增强
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
 keywords:
 - Gitee,GitHub,i18n,Markdown,MIT,OSC,Plugin,Typora,VLOOK,GitHub Style Alert,OGP,Open Graph Protocol,Mermaid,WIKI,HTML,PRD,YAML,YouTube
-- Editor's recommendation,plugin,open source,OSChina (Open Source China),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
+- Editor's recommendation,plugin,open source,OSChina (Open Source China),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,cross-reference,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
 - light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
 - Catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - Table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
@@ -17,7 +17,7 @@ keywords:
 - Link map,link specification,link check,link recognition,link conversion
 - Design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - Product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
-- 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
+- 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,交叉引用,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
 - 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
 - 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
@@ -33,7 +33,7 @@ vlook-header-dup: 查看完整画图脚本示例
 vlook-doc-lib: [浏览 VLOOK™ 文库](vlook-lib.html "使用攻略示例")
 ---
 
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>脚本化图表参考指南</u><br>*最新版本`V2026.1`2026-01-30*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>脚本化图表参考指南</u><br>*最新版本`V2026.3`2026-03-27*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 
 [TOC]
 
@@ -79,19 +79,19 @@ flowchart TB
 
 %% 连续连接
 START([开始])
-START --> pre1{{准备}} --> node2[节点]
+START --> pre1{{"❤ 准备"}} --> node2[节点]
 pre1 --> node1(可选)
 
 subgraph 子图
   subgraph 子图的子图
     %% 一对多
     node1 --> join1{ }
-    join1 --> |分支|groud1[[子流程]] & database[(存档)] & inpage1(("A<br>(同页)"))
+    join1 --> |分支|groud1[["`**子流程**`"]] & database[(存档)] & inpage1(("`A<br>_(同页)_`"))
     %% click clickable "#Mermaid 的状态机图"
   end  	
 node2 --> data1[/数据/]
 node2 --> data2[\文件\]
-node2 --> data3(((双圈圆<br>点击可访问<br>Github)))
+node2 --> data3(((双圈圆<br>点击可访问<br>GitHub)))
 click data3 "https://www.github.com" _blank
 end
 
@@ -101,9 +101,9 @@ groud1 ==> |重要分支|cond1{"判断？"}
 cond1 --> |条件1|END
 cond1 --> |条件2|B[/手工输入\]
 cond1 --> |条件3|B2[\手动操作/]
-cond1 -.-> |条件4|outpage2>"B (离页)"]
+cond1 -.-> |条件4|outpage2>"`B _(离页)_`"]
 
-inpage2(("A<br>(同页)")) --> END
+inpage2(("`A<br>_(同页)_`")) --> END
 END([结束])
 ```
 
@@ -123,20 +123,20 @@ outpage2>"B (离页)"] o=====o node2(节点) x-....-x END([结束])
 > %% LR：从左到图，RL：从右到左，TB：从上到下，BT：从下到上
 > 
 > %% 连续连接
-> START([开始])
-> START--> pre1{{准备}} --> node2[节点]
+> START(["`**开始**`"])
+> START --> pre1{{"❤ 准备"}} --> node2[节点]
 > pre1 --> node1(可选)
 > 
 > subgraph 子图
-> subgraph 子图的子图
-> %% 一对多
-> node1 --> join1{ }
->  join1 --> |分支|groud1[[子流程]] & database[(存档)] & inpage1(("A<br>(同页)"))
->  %% click clickable "#Mermaid 的状态机图"
-> end  	
+>   subgraph 子图的子图
+>     %% 一对多
+>     node1 --> join1{ }
+>      join1 --> |分支|groud1[["`**子流程**`"]] & database[(存档)] & inpage1(("`A<br>_(同页)_`"))
+>      %% click clickable "#Mermaid 的状态机图"
+>   end  	
 > node2 --> data1[/数据/]
 > node2 --> data2[\文件\]
-> node2 --> data3(((双圈圆<br>点击可访问<br>Github)))
+> node2 --> data3(((双圈圆<br>点击可访问<br>GitHub)))
 > click data3 "https://www.github.com" _blank
 > end
 > 
@@ -146,10 +146,10 @@ outpage2>"B (离页)"] o=====o node2(节点) x-....-x END([结束])
 > cond1 --> |条件1|END
 > cond1 --> |条件2|B[/手工输入\]
 > cond1 --> |条件3|B2[\手动操作/]
-> cond1 -.-> |条件4|outpage2>"B (离页)"]
+> cond1 -.-> |条件4|outpage2>"`B _(离页)_`"]
 > 
-> inpage2(("A<br>(同页)")) --> END
-> END([结束])
+> inpage2(("`A<br>_(同页)_`")) --> END
+> END(["`**结束**`"])
 > ```
 > ````
 > [<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/flowchart.html)
@@ -254,17 +254,19 @@ sequenceDiagram
 %% 设置显示消息的自动编号
 
 actor User as 人物角色
-actor Client as 前端触点
+participant Client as 前端触点
 participant MP as 普通系统
 participant Server as **重要系统角色
 participant Extend as --外部系统角色
 
 par 平行消息
-	User ->> Client: 平行发送消息1
+	User ->> Client: 并行发送消息1
 and
-	User -x Client: 平行发送消息2
+  break 例外情况
+    User -x Client: 中断处理消息
+  end
 and
-  Client -)+ Server: 平行发送消息3
+  Client -)+ Server: 并行发送消息3
   Server --)- Client: 发送消息
 end
 
@@ -278,40 +280,51 @@ Note right of Extend: 显示在外部系统<br>右侧备注说明
 Note over Client,Server: 跨对象备注说明
 loop 循环
 	Client ->>+ Extend: 发送消息A
-	alt 抉择1
-		Server -->> Client: 同步返回消息A1
-	else 抉择2
-		Server --X Client: 异步返回消息A2
+	alt 默认情况
+		Server ->> Client: 默认情况消息A1
+	else 非默认情况
+		Server -->> Client: 非默认消息A2
 	end
+	
 	opt 可选
 		Extend ->>- Server: 发送消息X
 	end
+	
+	critical 必须执行
+    Server -)+ Client: 必须执行消息
+  option 可选情况A
+    Server ->> Client: 执行可选消息A
+  option 可选情况B
+    Server ->> Client: 执行可选消息B
+  end
 end
 ```
 
 > ###### 查看完整画图脚本示例
 >
 > ````顺序图的画图脚本示例
->```mermaid
+> ```mermaid
 > sequenceDiagram
 > %% 设置显示消息的自动编号
 > 
 > actor User as 人物角色
-> actor Client as 前端触点
+> participant Client as 前端触点
 > participant MP as 普通系统
 > participant Server as **重要系统角色
 > participant Extend as --外部系统角色
 > 
 > par 平行消息
-> 	User ->> Client: 平行发送消息1
+> 	User ->> Client: 并行发送消息1
 > and
-> 	User -x Client: 平行发送消息2
+>     break 例外情况
+>        User -x Client: 中断处理消息
+>     end
 > and
-> Client -)+ Server: 平行发送消息3
-> Server --)- Client: 发送消息
+>     Client -)+ Server: 并行发送消息3
+>     Server --)- Client: 发送消息
 > end
->   
->   %% 设置区域高亮
+> 
+> %% 设置区域高亮
 > rect rgba(128, 128, 128, 0.3)
 > 	Extend ->> Extend: 内部动作
 > end
@@ -321,14 +334,23 @@ end
 > Note over Client,Server: 跨对象备注说明
 > loop 循环
 > 	Client ->>+ Extend: 发送消息A
-> 	alt 抉择1
-> 		Server -->> Client: 同步返回消息A1
-> 	else 抉择2
-> 		Server --X Client: 异步返回消息A2
+> 	alt 默认情况
+> 		Server ->> Client: 默认情况消息A1
+> 	else 非默认情况
+> 		Server -->> Client: 非默认消息A2
 > 	end
+> 		
 > 	opt 可选
 > 		Extend ->>- Server: 发送消息X
 > 	end
+> 		
+> 	critical 必须执行
+>        Server -)+ Client: 必须执行消息
+>     option 可选情况A
+>        Server ->> Client: 执行可选消息A
+>     option 可选情况B
+>        Server ->> Client: 执行可选消息B
+>     end
 > end
 > ```
 > ````
@@ -337,20 +359,19 @@ end
 ###### 说明
 
 1. 针对顺序图的不同图元应用，重绘不同的外观、形状；
-2. 针对 `opt` / `alt` / `loop` / `par` 标签设置不同的外观、标题位置。
+2. 针对 *`loop`*_~Cy~_ *`alt / else`*_~Vn~_ *`opt`*_~Pu~_ *`par`*_~Og~_ *`critical`*_~Rd~_ *`break`*_~Bk~_ 标签设置不同的外观、本地语言的标题；
 3. 建议使用实体别名，以提高画图脚本的复用度和可维护性；
 4. 支持三类消息线条：同步请求消息、异步请求消息、返回消息；
 5. 角色在标准的一类样式的基础上，增加三类扩展的样式，在输出HTML后应用 [VLOOK™](https://github.com/madmaxchow/VLOOK) 插件后渲染为不同的样式：
    - **重要系统/角色**：在角色名称前添加两个星号 `**` ，如 `**后端支撑系统名称`
    - **外部系统/角色**：在角色名称前添加两个减号 `--` ，如 `--外部系统名称`
-   - **前端触点/角色**：在角色名称前添加 at 符号 `@` ，如 `@小程序名称`
-   
-     > *`推荐`*_~Gn~_ 从 Typora 1.7.x 版本后建议使用 Mermaid 建议的 `actor` 代替 `participant`
-6. 支持对三类标签分组在输出 HTML 后应用 [VLOOK™](https://github.com/madmaxchow/VLOOK) 插件渲染为不同的样式：
-   - `loop...end` ：循环
-   - `opt...end` ：可选
-   - `alt..else...end` ：条件选择（alt = 情景1，else = 情景2）
-   - `par...end` ：平行
+6. 支持以下分组在输出 HTML 渲染为不同的样式：
+   - `loop...end` ：用于 ==循环==
+   - `alt...else...end` ：用于条件 ==分支==（if / else）
+   - `opt...end` ：用于 ==可选== （即只有 if、没有 else 的情况）
+   - `par...end` ：用于 ==并行==
+   - `critical...option...option...end` ：用于作为一个 ==整体执行==，并根据不同情况进行 ==条件== 处理
+   - `break...end` ：用于 ==中断==
 7. 支持备注说明。
 
 ## 状态机图
@@ -369,7 +390,7 @@ flowchart LR
 INIT(( )) -->	|初始|A([状态 A])
 %% joinv 表示汇聚为竖向样式，join 表示汇聚为横向样式
 A --> |汇聚|joinv1[ ]
-joinv1 --> |"<角色：行为>"<br>Act / 变更处理说明|B([状态 B\n多行样式])
+joinv1 --> |"<角色：行为>"<br>Act / 变更处理说明|B([状态 B<br>多行样式])
 subgraph 状态集
 	B --> |"<角色：行为>"<br>Act / 变更处理说明|C([状态 C])
 end
@@ -579,6 +600,8 @@ join_state --> 状态4
 
 ```mermaid
 classDiagram
+note "类图示例"
+
 classA <|-- classB : Inheritance<br>继承
 classC *-- classD : Composition<br>组合
 classE o-- classF : Aggregation<br>聚合
@@ -587,6 +610,8 @@ classI "*" -- classJ : Link (Solid)
 classK ..> "n" classL : Dependency<br>依赖
 classM <|.. classN : Realization<br>实现
 classO .. classP : Link (Dashed)
+
+note for classE "对 classE 类的说明"
 
 class classA~Class~{
     <<interface>>
@@ -848,7 +873,7 @@ erDiagram
 *==方块图示例==*
 
 ```mermaid
-block-beta
+block
 columns 1
   db(("DB"))
   blockArrowId6<["&nbsp;&nbsp;&nbsp;"]>(down)
@@ -869,7 +894,7 @@ columns 1
 >
 > ````方块图脚本示例
 > ```mermaid
-> block-beta
+> block
 > columns 1
 >   db(("DB"))
 >   blockArrowId6<["&nbsp;&nbsp;&nbsp;"]>(down)
@@ -939,7 +964,7 @@ quadrantChart
 ---
 title: "TCP Packet"
 ---
-packet-beta
+packet
 0-15: "Source Port"
 16-31: "Destination Port"
 32-63: "Sequence Number"
@@ -966,7 +991,7 @@ packet-beta
 > ---
 > title: "TCP Packet"
 > ---
-> packet-beta
+> packet
 > 0-15: "Source Port"
 > 16-31: "Destination Port"
 > 32-63: "Sequence Number"
@@ -988,157 +1013,22 @@ packet-beta
 >
 > [<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/packet.html)
 
-## 需求图
-
-*==需求图示例==*
-
-```mermaid
-requirementDiagram
-
-requirement test_req {
-  id: 1
-  text: the test text.
-  risk: high
-  verifymethod: test
-}
-
-functionalRequirement test_req2 {
-  id: 1.1
-  text: the second test text.
-  risk: low
-  verifymethod: inspection
-}
-
-performanceRequirement test_req3 {
-  id: 1.2
-  text: the third test text.
-  risk: medium
-  verifymethod: demonstration
-}
-
-interfaceRequirement test_req4 {
-  id: 1.2.1
-  text: the fourth test text.
-  risk: medium
-  verifymethod: analysis
-}
-
-physicalRequirement test_req5 {
-  id: 1.2.2
-  text: the fifth test text.
-  risk: medium
-  verifymethod: analysis
-}
-
-designConstraint test_req6 {
-  id: 1.2.3
-  text: the sixth test text.
-  risk: medium
-  verifymethod: analysis
-}
-
-element test_entity {
-  type: simulation
-}
-
-element test_entity2 {
-  type: word doc
-  docRef: reqs/test_entity
-}
-
-element test_entity3 {
-  type: "test suite"
-  docRef: github.com/all_the_tests
-}
-
-test_entity - satisfies -> test_req2
-test_req - traces -> test_req2
-test_req - contains -> test_req3
-test_req3 - contains -> test_req4
-test_req4 - derives -> test_req5
-test_req5 - refines -> test_req6
-test_entity3 - verifies -> test_req5
-test_req <- copies - test_entity2
-```
-
-> ###### 查看完整画图脚本示例
->
-> ````需求图的画图脚本示例
->```mermaid
-> requirementDiagram
-> 
-> requirement test_req {
-> id: 1
-> text: the test text.
-> risk: high
-> verifymethod: test
-> }
-> 
-> functionalRequirement test_req2 {
-> id: 1.1
-> text: the second test text.
-> risk: low
-> verifymethod: inspection
-> }
-> 
-> performanceRequirement test_req3 {
-> id: 1.2
-> text: the third test text.
-> risk: medium
-> verifymethod: demonstration
-> }
-> 
-> interfaceRequirement test_req4 {
-> id: 1.2.1
-> text: the fourth test text.
-> risk: medium
-> verifymethod: analysis
-> }
-> 
-> physicalRequirement test_req5 {
-> id: 1.2.2
-> text: the fifth test text.
-> risk: medium
-> verifymethod: analysis
-> }
-> 
-> designConstraint test_req6 {
-> id: 1.2.3
-> text: the sixth test text.
-> risk: medium
-> verifymethod: analysis
-> }
-> 
-> element test_entity {
-> type: simulation
-> }
-> 
-> element test_entity2 {
-> type: word doc
-> docRef: reqs/test_entity
-> }
-> 
-> element test_entity3 {
-> type: "test suite"
-> docRef: github.com/all_the_tests
-> }
-> 
-> test_entity - satisfies -> test_req2
-> test_req - traces -> test_req2
-> test_req - contains -> test_req3
-> test_req3 - contains -> test_req4
-> test_req4 - derives -> test_req5
-> test_req5 - refines -> test_req6
-> test_entity3 - verifies -> test_req5
-> test_req <- copies - test_entity2
-> ```
-> ````
-> [<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/requirementDiagram.html)
-
 ## 架构图
 
 ```mermaid
 architecture-beta
+    group api(cloud)[API]
+
+    service db(database)[Database] in api
+    service disk1(disk)[Storage] in api
+    service disk2(disk)[Storage] in api
+    service server(server)[Server] in api
+
+    db:L -- R:server
+    disk1:T -- B:server
+    disk2:T -- B:db
+    
+    
     service left_disk(disk)[Disk]
     service top_disk(disk)[Disk]
     service bottom_disk(disk)[Disk]
@@ -1158,8 +1048,21 @@ architecture-beta
 
 > ###### 查看完整画图脚本示例
 >
-> ```架构图示例脚本
+> ````架构图示例脚本
+> ```mermaid
 > architecture-beta
+>     group api(cloud)[API]
+> 
+>     service db(database)[Database] in api
+>     service disk1(disk)[Storage] in api
+>     service disk2(disk)[Storage] in api
+>     service server(server)[Server] in api
+> 
+>     db:L -- R:server
+>     disk1:T -- B:server
+>     disk2:T -- B:db
+>     
+>     
 >     service left_disk(disk)[Disk]
 >     service top_disk(disk)[Disk]
 >     service bottom_disk(disk)[Disk]
@@ -1176,229 +1079,9 @@ architecture-beta
 >     bottom_gateway:T -- B:junctionRight
 > 
 > ```
+> ````
 >
 > [<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/architecture.html)
-
-## C4 图
-
-### C4 Context
-
-###### C4 图示例_Context
-
-```mermaid
-C4Context
-      title System Context diagram for Internet Banking System
-      Enterprise_Boundary(b0, "BankBoundary0") {
-        Person(customerA, "Banking Customer A", "A customer of the bank, with personal bank accounts.")
-        Person(customerB, "Banking Customer B")
-        Person_Ext(customerC, "Banking Customer C", "desc")
-
-        Person(customerD, "Banking Customer D", "A customer of the bank, <br> with personal bank accounts.")
-
-        System(SystemAA, "Internet Banking System", "Allows customers to view information about their bank accounts, and make payments.")
-
-        Enterprise_Boundary(b1, "BankBoundary") {
-
-          SystemDb_Ext(SystemE, "Mainframe Banking System", "Stores all of the core banking information about customers, accounts, transactions, etc.")
-
-          System_Boundary(b2, "BankBoundary2") {
-            System(SystemA, "Banking System A")
-            System(SystemB, "Banking System B", "A system of the bank, with personal bank accounts. next line.")
-          }
-
-          System_Ext(SystemC, "E-mail system", "The internal Microsoft Exchange e-mail system.")
-          SystemDb(SystemD, "Banking System D Database", "A system of the bank, with personal bank accounts.")
-
-          Boundary(b3, "BankBoundary3", "boundary") {
-            SystemQueue(SystemF, "Banking System F Queue", "A system of the bank.")
-            SystemQueue_Ext(SystemG, "Banking System G Queue", "A system of the bank, with personal bank accounts.")
-          }
-        }
-      }
-
-      BiRel(customerA, SystemAA, "Uses")
-      BiRel(SystemAA, SystemE, "Uses")
-      Rel(SystemAA, SystemC, "Sends e-mails", "SMTP")
-      Rel(SystemC, customerA, "Sends e-mails to")
-
-      UpdateElementStyle(customerA, $fontColor="red", $bgColor="grey", $borderColor="red")
-      UpdateRelStyle(customerA, SystemAA, $textColor="blue", $lineColor="blue", $offsetX="5")
-      UpdateRelStyle(SystemAA, SystemE, $textColor="blue", $lineColor="blue", $offsetY="-10")
-      UpdateRelStyle(SystemAA, SystemC, $textColor="blue", $lineColor="blue", $offsetY="-40", $offsetX="-50")
-      UpdateRelStyle(SystemC, customerA, $textColor="red", $lineColor="red", $offsetX="-50", $offsetY="20")
-
-      UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
-```
-
-
-
-### C4 Container
-
-###### C4 图示例_Container
-
-```mermaid
-C4Container
-    title Container diagram for Internet Banking System
-
-    System_Ext(email_system, "E-Mail System", "The internal Microsoft Exchange system", $tags="v1.0")
-    Person(customer, Customer, "A customer of the bank, with personal bank accounts", $tags="v1.0")
-
-    Container_Boundary(c1, "Internet Banking") {
-        Container(spa, "Single-Page App", "JavaScript, Angular", "Provides all the Internet banking functionality to cutomers via their web browser")
-        Container_Ext(mobile_app, "Mobile App", "C#, Xamarin", "Provides a limited subset of the Internet banking functionality to customers via their mobile device")
-        Container(web_app, "Web Application", "Java, Spring MVC", "Delivers the static content and the Internet banking SPA")
-        ContainerDb(database, "Database", "SQL Database", "Stores user registration information, hashed auth credentials, access logs, etc.")
-        ContainerDb_Ext(backend_api, "API Application", "Java, Docker Container", "Provides Internet banking functionality via API")
-
-    }
-
-    System_Ext(banking_system, "Mainframe Banking System", "Stores all of the core banking information about customers, accounts, transactions, etc.")
-
-    Rel(customer, web_app, "Uses", "HTTPS")
-    UpdateRelStyle(customer, web_app, $offsetY="60", $offsetX="90")
-    Rel(customer, spa, "Uses", "HTTPS")
-    UpdateRelStyle(customer, spa, $offsetY="-40")
-    Rel(customer, mobile_app, "Uses")
-    UpdateRelStyle(customer, mobile_app, $offsetY="-30")
-
-    Rel(web_app, spa, "Delivers")
-    UpdateRelStyle(web_app, spa, $offsetX="130")
-    Rel(spa, backend_api, "Uses", "async, JSON/HTTPS")
-    Rel(mobile_app, backend_api, "Uses", "async, JSON/HTTPS")
-    Rel_Back(database, backend_api, "Reads from and writes to", "sync, JDBC")
-
-    Rel(email_system, customer, "Sends e-mails to")
-    UpdateRelStyle(email_system, customer, $offsetX="-45")
-    Rel(backend_api, email_system, "Sends e-mails using", "sync, SMTP")
-    UpdateRelStyle(backend_api, email_system, $offsetY="-60")
-    Rel(backend_api, banking_system, "Uses", "sync/async, XML/HTTPS")
-    UpdateRelStyle(backend_api, banking_system, $offsetY="-50", $offsetX="-140")
-```
-
-
-
-### C4 Component
-
-###### C4 图示例_Component
-
-```mermaid
-C4Component
-    title Component diagram for Internet Banking System - API Application
-
-    Container(spa, "Single Page Application", "javascript and angular", "Provides all the internet banking functionality to customers via their web browser.")
-    Container(ma, "Mobile App", "Xamarin", "Provides a limited subset ot the internet banking functionality to customers via their mobile mobile device.")
-    ContainerDb(db, "Database", "Relational Database Schema", "Stores user registration information, hashed authentication credentials, access logs, etc.")
-    System_Ext(mbs, "Mainframe Banking System", "Stores all of the core banking information about customers, accounts, transactions, etc.")
-
-    Container_Boundary(api, "API Application") {
-        Component(sign, "Sign In Controller", "MVC Rest Controller", "Allows users to sign in to the internet banking system")
-        Component(accounts, "Accounts Summary Controller", "MVC Rest Controller", "Provides customers with a summary of their bank accounts")
-        Component(security, "Security Component", "Spring Bean", "Provides functionality related to singing in, changing passwords, etc.")
-        Component(mbsfacade, "Mainframe Banking System Facade", "Spring Bean", "A facade onto the mainframe banking system.")
-
-        Rel(sign, security, "Uses")
-        Rel(accounts, mbsfacade, "Uses")
-        Rel(security, db, "Read & write to", "JDBC")
-        Rel(mbsfacade, mbs, "Uses", "XML/HTTPS")
-    }
-
-    Rel_Back(spa, sign, "Uses", "JSON/HTTPS")
-    Rel(spa, accounts, "Uses", "JSON/HTTPS")
-
-    Rel(ma, sign, "Uses", "JSON/HTTPS")
-    Rel(ma, accounts, "Uses", "JSON/HTTPS")
-
-    UpdateRelStyle(spa, sign, $offsetY="-40")
-    UpdateRelStyle(spa, accounts, $offsetX="40", $offsetY="40")
-
-    UpdateRelStyle(ma, sign, $offsetX="-90", $offsetY="40")
-    UpdateRelStyle(ma, accounts, $offsetY="-40")
-
-        UpdateRelStyle(sign, security, $offsetX="-160", $offsetY="10")
-        UpdateRelStyle(accounts, mbsfacade, $offsetX="140", $offsetY="10")
-        UpdateRelStyle(security, db, $offsetY="-40")
-        UpdateRelStyle(mbsfacade, mbs, $offsetY="-40")
-```
-
-### C4 Dynamic
-
-###### C4 图示例_Dynamic
-
-```mermaid
-C4Dynamic
-    title Dynamic diagram for Internet Banking System - API Application
-
-    ContainerDb(c4, "Database", "Relational Database Schema", "Stores user registration information, hashed authentication credentials, access logs, etc.")
-    Container(c1, "Single-Page Application", "JavaScript and Angular", "Provides all of the Internet banking functionality to customers via their web browser.")
-    Container_Boundary(b, "API Application") {
-      Component(c3, "Security Component", "Spring Bean", "Provides functionality Related to signing in, changing passwords, etc.")
-      Component(c2, "Sign In Controller", "Spring MVC Rest Controller", "Allows users to sign in to the Internet Banking System.")
-    }
-    Rel(c1, c2, "Submits credentials to", "JSON/HTTPS")
-    Rel(c2, c3, "Calls isAuthenticated() on")
-    Rel(c3, c4, "select * from users where username = ?", "JDBC")
-
-    UpdateRelStyle(c1, c2, $textColor="red", $offsetY="-40")
-    UpdateRelStyle(c2, c3, $textColor="red", $offsetX="-40", $offsetY="60")
-    UpdateRelStyle(c3, c4, $textColor="red", $offsetY="-40", $offsetX="10")
-```
-
-### C4 Deployment
-
-###### C4 图示例_Deployment
-
-```mermaid
-C4Deployment
-    title Deployment Diagram for Internet Banking System - Live
-
-    Deployment_Node(mob, "Customer's mobile device", "Apple IOS or Android"){
-        Container(mobile, "Mobile App", "Xamarin", "Provides a limited subset of the Internet Banking functionality to customers via their mobile device.")
-    }
-
-    Deployment_Node(comp, "Customer's computer", "Microsoft Windows or Apple macOS"){
-        Deployment_Node(browser, "Web Browser", "Google Chrome, Mozilla Firefox,<br> Apple Safari or Microsoft Edge"){
-            Container(spa, "Single Page Application", "JavaScript and Angular", "Provides all of the Internet Banking functionality to customers via their web browser.")
-        }
-    }
-
-    Deployment_Node(plc, "Big Bank plc", "Big Bank plc data center"){
-        Deployment_Node(dn, "bigbank-api*** x8", "Ubuntu 16.04 LTS"){
-            Deployment_Node(apache, "Apache Tomcat", "Apache Tomcat 8.x"){
-                Container(api, "API Application", "Java and Spring MVC", "Provides Internet Banking functionality via a JSON/HTTPS API.")
-            }
-        }
-        Deployment_Node(bb2, "bigbank-web*** x4", "Ubuntu 16.04 LTS"){
-            Deployment_Node(apache2, "Apache Tomcat", "Apache Tomcat 8.x"){
-                Container(web, "Web Application", "Java and Spring MVC", "Delivers the static content and the Internet Banking single page application.")
-            }
-        }
-        Deployment_Node(bigbankdb01, "bigbank-db01", "Ubuntu 16.04 LTS"){
-            Deployment_Node(oracle, "Oracle - Primary", "Oracle 12c"){
-                ContainerDb(db, "Database", "Relational Database Schema", "Stores user registration information, hashed authentication credentials, access logs, etc.")
-            }
-        }
-        Deployment_Node(bigbankdb02, "bigbank-db02", "Ubuntu 16.04 LTS") {
-            Deployment_Node(oracle2, "Oracle - Secondary", "Oracle 12c") {
-                ContainerDb(db2, "Database", "Relational Database Schema", "Stores user registration information, hashed authentication credentials, access logs, etc.")
-            }
-        }
-    }
-
-    Rel(mobile, api, "Makes API calls to", "json/HTTPS")
-    Rel(spa, api, "Makes API calls to", "json/HTTPS")
-    Rel_U(web, spa, "Delivers to the customer's web browser")
-    Rel(api, db, "Reads from and writes to", "JDBC")
-    Rel(api, db2, "Reads from and writes to", "JDBC")
-    Rel_R(db, db2, "Replicates data to")
-
-    UpdateRelStyle(spa, api, $offsetY="-40")
-    UpdateRelStyle(web, spa, $offsetY="-40")
-    UpdateRelStyle(api, db, $offsetY="-20", $offsetX="5")
-    UpdateRelStyle(api, db2, $offsetX="-40", $offsetY="-20")
-    UpdateRelStyle(db, db2, $offsetY="-10")
-```
-
-[<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/c4.html)
 
 ## ZenUML 图
 
@@ -1688,165 +1371,83 @@ gitGraph
 
 ## 桑基图
 
-*==桑基图示例==*
+*==桑基图示例一==*
 
 ```mermaid
----
-config:
-  sankey:
-    showValues: false
----
-sankey-beta
+sankey
 
-Agricultural 'waste',Bio-conversion,124.729
-Bio-conversion,Liquid,0.597
-Bio-conversion,Losses,26.862
-Bio-conversion,Solid,280.322
-Bio-conversion,Gas,81.144
-Biofuel imports,Liquid,35
-Biomass imports,Solid,35
-Coal imports,Coal,11.606
-Coal reserves,Coal,63.965
-Coal,Solid,75.571
-District heating,Industry,10.639
-District heating,Heating and cooling - commercial,22.505
-District heating,Heating and cooling - homes,46.184
-Electricity grid,Over generation / exports,104.453
-Electricity grid,Heating and cooling - homes,113.726
-Electricity grid,H2 conversion,27.14
-Electricity grid,Industry,342.165
-Electricity grid,Road transport,37.797
-Electricity grid,Agriculture,4.412
-Electricity grid,Heating and cooling - commercial,40.858
-Electricity grid,Losses,56.691
-Electricity grid,Rail transport,7.863
-Electricity grid,Lighting & appliances - commercial,90.008
-Electricity grid,Lighting & appliances - homes,93.494
-Gas imports,Ngas,40.719
-Gas reserves,Ngas,82.233
-Gas,Heating and cooling - commercial,0.129
-Gas,Losses,1.401
-Gas,Thermal generation,151.891
-Gas,Agriculture,2.096
-Gas,Industry,48.58
-Geothermal,Electricity grid,7.013
-H2 conversion,H2,20.897
-H2 conversion,Losses,6.242
-H2,Road transport,20.897
-Hydro,Electricity grid,6.995
-Liquid,Industry,121.066
-Liquid,International shipping,128.69
-Liquid,Road transport,135.835
-Liquid,Domestic aviation,14.458
-Liquid,International aviation,206.267
-Liquid,Agriculture,3.64
-Liquid,National navigation,33.218
-Liquid,Rail transport,4.413
-Marine algae,Bio-conversion,4.375
-Ngas,Gas,122.952
-Nuclear,Thermal generation,839.978
-Oil imports,Oil,504.287
-Oil reserves,Oil,107.703
-Oil,Liquid,611.99
-Other waste,Solid,56.587
-Other waste,Bio-conversion,77.81
-Pumped heat,Heating and cooling - homes,193.026
-Pumped heat,Heating and cooling - commercial,70.672
-Solar PV,Electricity grid,59.901
-Solar Thermal,Heating and cooling - homes,19.263
-Solar,Solar Thermal,19.263
-Solar,Solar PV,59.901
-Solid,Agriculture,0.882
-Solid,Thermal generation,400.12
-Solid,Industry,46.477
-Thermal generation,Electricity grid,525.531
-Thermal generation,Losses,787.129
-Thermal generation,District heating,79.329
-Tidal,Electricity grid,9.452
-UK land based bioenergy,Bio-conversion,182.01
-Wave,Electricity grid,19.013
-Wind,Electricity grid,289.366
+Direct, Visit, 500
+Search, Visit, 800
+Social, Visit, 400
+Ads, Visit, 300
+
+Visit, Register, 900
+Visit, Bounce, 1100
+
+Register, Paid, 300
+Register, Free, 600
 ```
 
-> ###### 查看完整画图脚本示例
+> ###### 查看完整画图脚本示例一
+>
+> ````桑基图示例
+> ```mermaid
+> sankey
+> 
+> Direct, Visit, 500
+> Search, Visit, 800
+> Social, Visit, 400
+> Ads, Visit, 300
+> 
+> Visit, Register, 900
+> Visit, Bounce, 1100
+> 
+> Register, Paid, 300
+> Register, Free, 600
+> ```
+> ````
+>
+> [<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/sankey.html)
+
+
+
+*==桑基图示例二==*
+
+```mermaid
+sankey
+
+Total Sales, Shampoo, 500
+Total Sales, Detergent, 300
+Total Sales, Skincare, 200
+
+Shampoo, Online, 200
+Shampoo, Offline, 300
+
+Detergent, Online, 100
+Detergent, Offline, 200
+
+Skincare, Online, 150
+Skincare, Offline, 50
+```
+
+> ###### 查看完整画图脚本示例二
 >
 > ````桑基图示例
 >```mermaid
-> ---
-> config:
-> sankey:
->  showValues: false
->   ---
->    sankey-beta
+> sankey
 > 
-> Agricultural 'waste',Bio-conversion,124.729
-> Bio-conversion,Liquid,0.597
-> Bio-conversion,Losses,26.862
-> Bio-conversion,Solid,280.322
-> Bio-conversion,Gas,81.144
-> Biofuel imports,Liquid,35
-> Biomass imports,Solid,35
-> Coal imports,Coal,11.606
-> Coal reserves,Coal,63.965
-> Coal,Solid,75.571
-> District heating,Industry,10.639
-> District heating,Heating and cooling - commercial,22.505
-> District heating,Heating and cooling - homes,46.184
-> Electricity grid,Over generation / exports,104.453
-> Electricity grid,Heating and cooling - homes,113.726
-> Electricity grid,H2 conversion,27.14
-> Electricity grid,Industry,342.165
-> Electricity grid,Road transport,37.797
-> Electricity grid,Agriculture,4.412
-> Electricity grid,Heating and cooling - commercial,40.858
-> Electricity grid,Losses,56.691
-> Electricity grid,Rail transport,7.863
-> Electricity grid,Lighting & appliances - commercial,90.008
-> Electricity grid,Lighting & appliances - homes,93.494
-> Gas imports,Ngas,40.719
-> Gas reserves,Ngas,82.233
-> Gas,Heating and cooling - commercial,0.129
-> Gas,Losses,1.401
-> Gas,Thermal generation,151.891
-> Gas,Agriculture,2.096
-> Gas,Industry,48.58
-> Geothermal,Electricity grid,7.013
-> H2 conversion,H2,20.897
-> H2 conversion,Losses,6.242
-> H2,Road transport,20.897
-> Hydro,Electricity grid,6.995
-> Liquid,Industry,121.066
-> Liquid,International shipping,128.69
-> Liquid,Road transport,135.835
-> Liquid,Domestic aviation,14.458
-> Liquid,International aviation,206.267
-> Liquid,Agriculture,3.64
-> Liquid,National navigation,33.218
-> Liquid,Rail transport,4.413
-> Marine algae,Bio-conversion,4.375
-> Ngas,Gas,122.952
-> Nuclear,Thermal generation,839.978
-> Oil imports,Oil,504.287
-> Oil reserves,Oil,107.703
-> Oil,Liquid,611.99
-> Other waste,Solid,56.587
-> Other waste,Bio-conversion,77.81
-> Pumped heat,Heating and cooling - homes,193.026
-> Pumped heat,Heating and cooling - commercial,70.672
-> Solar PV,Electricity grid,59.901
-> Solar Thermal,Heating and cooling - homes,19.263
-> Solar,Solar Thermal,19.263
-> Solar,Solar PV,59.901
-> Solid,Agriculture,0.882
-> Solid,Thermal generation,400.12
-> Solid,Industry,46.477
-> Thermal generation,Electricity grid,525.531
-> Thermal generation,Losses,787.129
-> Thermal generation,District heating,79.329
-> Tidal,Electricity grid,9.452
-> UK land based bioenergy,Bio-conversion,182.01
-> Wave,Electricity grid,19.013
-> Wind,Electricity grid,289.366
+> Total Sales, Shampoo, 500
+>  Total Sales, Detergent, 300
+>   Total Sales, Skincare, 200
+>    
+> Shampoo, Online, 200
+> Shampoo, Offline, 300
+> 
+> Detergent, Online, 100
+> Detergent, Offline, 200
+> 
+> Skincare, Online, 150
+> Skincare, Offline, 50
 > ```
 > ````
 > [<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/sankey.html)
@@ -1938,7 +1539,7 @@ timeline
 *==XY 图示例==*
 
 ```mermaid
-xychart-beta
+xychart
     title "Sales Revenue"
     x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
     y-axis "Revenue (in $)" 4000 --> 11000
@@ -1950,7 +1551,7 @@ xychart-beta
 >
 > ````XY 图脚本示例
 > ```mermaid
-> xychart-beta
+> xychart
 >     title "Sales Revenue"
 >     x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
 >     y-axis "Revenue (in $)" 4000 --> 11000
@@ -1991,6 +1592,82 @@ pie title Q3 2019 中国线上智能手机市场主要品牌市场份额
 > ```
 > ````
 > [<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/pie.html)
+
+## 雷达图
+
+```mermaid
+---
+title: "Grades"
+---
+radar-beta
+  axis m["Math"], s["Science"], e["English"]
+  axis h["History"], g["Geography"], a["Art"]
+  curve a["Alice"]{85, 90, 80, 70, 75, 90}
+  curve b["Bob"]{70, 75, 85, 80, 90, 85}
+
+  max 100
+  min 0
+
+```
+
+
+
+> ###### 查看完整画图脚本示例
+>
+> ````看板图示例
+> ```mermaid
+> ---
+> title: "Grades"
+> ---
+> radar-beta
+>   axis m["Math"], s["Science"], e["English"]
+>   axis h["History"], g["Geography"], a["Art"]
+>   curve a["Alice"]{85, 90, 80, 70, 75, 90}
+>   curve b["Bob"]{70, 75, 85, 80, 90, 85}
+> 
+>   max 100
+>   min 0
+> 
+> ```
+> ````
+>
+> [<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/radar.html)
+
+## 树状图
+
+```mermaid
+treemap-beta
+"Products"
+    "Electronics"
+        "Phones": 50
+        "Computers": 30
+        "Accessories": 20
+    "Clothing"
+        "Men's": 40
+        "Women's": 40
+
+```
+
+
+
+> ###### 查看完整画图脚本示例
+>
+> ````看板图示例
+> ```mermaid
+> treemap-beta
+> "Products"
+>     "Electronics"
+>         "Phones": 50
+>         "Computers": 30
+>         "Accessories": 20
+>     "Clothing"
+>         "Men's": 40
+>         "Women's": 40
+> 
+> ```
+> ````
+>
+> [<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/treemap.html)
 
 ## 看板图
 
@@ -2108,38 +1785,5 @@ section 区块C
 > ```
 > ````
 > [<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/gantt.html)
-
-## 用户旅程地图
-
-*==用户旅程地图（也称：用户体验地图）==*
-
-```mermaid
-journey
-    title 我一天的工作
-    section Go to work
-      Make tea: 5: Me
-      Go upstairs: 3: Me
-      Do work: 1: Me, Cat
-    section Go home
-      Go downstairs: 5: Me
-      Sit down: 5: Me
-```
-
-> ###### 查看完整画图脚本示例
->
-> ````用户旅程地图的画图脚本示例
->```mermaid
-> journey
-> title 我一天的工作
-> section Go to work
->  Make tea: 5: Me
->  Go upstairs: 3: Me
->    Do work: 1: Me, Cat
->    section Go home
->    Go downstairs: 5: Me
->  Sit down: 5: Me
->    ```
->    ````
-> [<kbd>更多官方教程 ![](pic/icon-more.svg?fill=text)</kbd>](https://mermaid.js.org/syntax/userJourney.html)
 
 # The End

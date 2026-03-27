@@ -1,18 +1,18 @@
 ---
 title: Guide ★ Exploration - VLOOK™ - Elegant and Practical Typora Theme & Plugin
 author: MAX°孟兆
-date: 2026-01-30
+date: 2026-03-27
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: This work is licensed under the MIT License. For details, see the LICENSE file.
-version: V2026.1
+version: V2026.3
 tags: Content Navigation, Content Assistant, Presentation Tools, Publishing Tools, Appearance, Miscellaneous
-footer: <a href="index-en.html">Introduction</a>	|	Guide for <a href='guide-en.html'>Basic</a>  ❯  <a href='guide2-en.html'>Advanced</a>  ❯  <strong>Exploration</strong>
+vlook-footer: <a href="index-en.html">Introduction</a>	|	Guide for <a href='guide-en.html'>Basic</a>  ❯  <a href='guide2-en.html'>Advanced</a>  ❯  <strong>Exploration</strong>
 description: Regarding VLOOK™: Theme Design, Content Tagging, Content Navigation, Presentation & Publishing, Third-Party Integration Adaptation, and Miscellaneous Exclusions
 "og:description": Regarding VLOOK™: Theme Design, Content Tagging, Content Navigation, Presentation & Publishing, Third-Party Integration Adaptation, and Miscellaneous Exclusions
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
 keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
-- editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
+- editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,cross-reference,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
 - light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
 - catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
@@ -23,7 +23,7 @@ keywords:
 - link map,link specification,link check,link recognition,link conversion
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
-- 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
+- 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,交叉引用,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
 - 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
 - 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
@@ -38,8 +38,8 @@ vlook-header-dup: /^Your coffee.+/;/.*Syntax$/;/^Applicable Scope ••• .+/
 vlook-doc-lib:
 - [How to Start?](index-en.html?target=_self "Introduction, Installation and Configuration, Language Packs")
 - [Guide • Basic](guide-en.html?target=_self "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Filters / Postcards / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
-- [Guide ▲ Advanced](guide2-en.html?target=_self "Columns, Captions, Buttons, Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
-- [Guide ★ Exploration](guide3-en.html?target=_self "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Save as PDF / Print to PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
+- [Guide ▲ Advanced](guide2-en.html?target=_self "Columns, Caption, Cross-reference, Buttons, Link,Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
+- [Guide ★ Exploration](guide3-en.html?target=_self "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
 - [Value-added Services](vip-en.html?target=_self "VIP Themes, Document Typesetting and Editing,...")
 - [More Content](vlook-lib-en.html "VLOOK™ Full Feature Index Table")
 - [Report Issues](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
@@ -79,8 +79,8 @@ vlook-doc-lib:
 
 > **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
-> - When a "Library" is configured or links exist, a ![Library](pic/icon-doc-lib.svg?darksrc=invert#icon) entry appears in the toolbar and below the table of contents (shortcut <kbd>L</kbd>);
-> - The specified library file opens in the current document's "Library Popup" by default;
+> - After configuring a **Library** in the document (or when the document contains library-type links), a **Library** entry will be displayed in the Navigation Center;
+> - Supports configuring multiple links for the **Library**;
 > - Footnotes automatically generate an entry to view all footnote content.
 
 1. First, add a **[YAML](https://yaml.org/)** Front Matter to the document via the menu: *==Typora > Paragraph > YAML Front Matter==*  
@@ -659,10 +659,10 @@ date: xxxx-xx-xx
 copyright: xxx
 
 # Example 1
-footer: {{title}}<br><br>{{author}}<br>{{date}} ({{version}})
+vlook-footer: {{title}}<br><br>{{author}}<br>{{date}} ({{version}})
 
 # Example 2
-footer: <a href="xxx.com">More great content</a><br><br>{{copyright}}
+vlook-footer: <a href="xxx.com">More great content</a><br><br>{{copyright}}
 ---
 ```
 
@@ -873,6 +873,12 @@ vlook-welcome: Custom welcome message here, can include HTML like <strong>Welcom
 *Markdown Fans`Q`*「**When documents contain many images, exported HTML loads them all immediately, affecting opening speed and wasting bandwidth.**」
 
 *VLOOK`A`*_~T2~_ Supports delayed loading - images only load when scrolled into view.
+
+
+
+**During loading, it supports displaying the default placeholder image specified in the [Custom Theme](vip-en.md).**
+
+
 
 > ###### How to enable lazy loading?
 >
@@ -1217,7 +1223,6 @@ vlook-query: Param1=Value&Param2=Value...&ParamN=Value
 | Common                      | Toggle Dark Mode                                |         <kbd>D</kbd>         |
 | : | Show/hide [Navigation Center](#Navigation Center)      |         <kbd>N</kbd>         |
 | : | Search navigation content                     | <kbd>/</kbd>                |
-| :         | Open [Library](#Document Library Navigation) or show entry       |         <kbd>L</kbd>         |
 | : | Open [Link Map](#Link Map)                   | <kbd>M</kbd>                |
 | : | Open [Broken Links](#Link Validation & Standardization)      | <kbd>E</kbd>                |
 | : | Open navigation history                      | <kbd>H</kbd>                |

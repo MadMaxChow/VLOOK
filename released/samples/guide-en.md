@@ -1,18 +1,18 @@
 ---
 title: Guide ▲ Basic - VLOOK™ - Elegant and Practical Typora Theme & Plugin
 author: MAX°孟兆
-date: 2026-01-30
+date: 2026-03-27
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: This work is licensed under the MIT License. For details, see the LICENSE file.
-version: V2026.1
+version: V2026.3
 tags: Text, Paragraph, Table, Image, List, Blockquotes, Chapter Headings
-footer: <a href="index-en.html">Introduction</a>	|	Guide for <strong>Basic</strong>  ❯  <a href='guide2-en.html'>Advanced</a>  ❯  <a href='guide3-en.html'>Exploration</a>
+vlook-footer: <a href="index-en.html">Introduction</a>	|	Guide for <strong>Basic</strong>  ❯  <a href='guide2-en.html'>Advanced</a>  ❯  <a href='guide3-en.html'>Exploration</a>
 description: Regarding VLOOK™: Text, Paragraphs, Tables, Images, Lists, and Section Headings
 "og:description": Regarding VLOOK™: Text, Paragraphs, Tables, Images, Lists, and Section Headings
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
 keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
-- editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
+- editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,cross-reference,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
 - light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
 - catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
@@ -23,7 +23,7 @@ keywords:
 - link map,link specification,link check,link recognition,link conversion
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
-- 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
+- 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,交叉引用,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
 - 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
 - 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
@@ -38,8 +38,8 @@ vlook-header-dup: /^Your coffee.+/;/.*Syntax$/;/^Applicable Scope ••• .+/;
 vlook-doc-lib:
 - [How to Start?](index-en.html?target=_self "Introduction, Installation and Configuration, Language Packs")
 - [Guide • Basic](guide-en.html?target=_self "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scale / Rotation / Flip / Filter / Postcard / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
-- [Guide ▲ Advanced](guide2-en.html?target=_self "Columns, Captions, Buttons, Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
-- [Guide ★ Exploration](guide3-en.html?target=_self "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Save as PDF / Print to PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
+- [Guide ▲ Advanced](guide2-en.html?target=_self "Columns, Caption, Cross-reference, Buttons, Link,Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
+- [Guide ★ Exploration](guide3-en.html?target=_self "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
 - [Value-added Services](vip-en.html?target=_self "VIP Themes, Document Typesetting and Editing,...")
 - [More Content](vlook-lib-en.html "VLOOK™ Full Feature Index Table")
 - [Report Issues](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
@@ -600,8 +600,8 @@ _^tab^_
 |     Selected     | Y |            y            | Specified as `selected`     |
 | : | Y Text | Y Text | Specified as `selected`, with description text |
 | No Marker Added | （N/A） | （N/A） | Default to no checkbox, and text will be distinguished by different colors |
-|   Indeterminate   | ?<br>*When specified value`>=`0* | ?<br>*When specified value`>=`0* | Specified as `indeterminate` |
-| : | ？<br>*When specified value`<`0* | ？<br>*When specified value`<`0* | : |
+|   Indeterminate   | ?<br>*When specified value `>=` 0* | ?<br>*When specified value `>=` 0* | Specified as `indeterminate` |
+| : | ？<br>*When specified value `<` 0* | ？<br>*When specified value `<` 0* | : |
 
 ## Freeze Table Column
 
@@ -867,8 +867,15 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 ### Icon Layout Examples
 
-- **icon:** ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** is ![OSChina](pic/oschina.png#icon) **[Open Source China](https://www.oschina.net/p/vlook)** recommended domestic open source project, perhaps one of the best Markdown enhancement plugins currently
-- **icon2x:** ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon2x) **VLOOK™** is ![OSChina](pic/oschina.png#icon2x) **[Open Source China](https://www.oschina.net/p/vlook)** recommended domestic open source project, perhaps one of the best Markdown enhancement plugins currently
+**icon:** ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** is ![OSChina](pic/oschina.png#icon) **[Open Source China](https://www.oschina.net/p/vlook)** recommended domestic open source project, perhaps one of the best Markdown enhancement plugins currently
+
+**icon2x:** ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon2x) **VLOOK™** is ![OSChina](pic/oschina.png#icon2x) **[Open Source China](https://www.oschina.net/p/vlook)** recommended domestic open source project, perhaps one of the best Markdown enhancement plugins currently
+
+
+
+> **icon:** ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** is a **G-Star Program Project** of ![AtomGit](pic/atomgit.png#icon) **[AtomGit](https://atomgit.com/MadMaxChow/VLOOK)**, and may be one of the best Markdown enhancement plugins available today.
+>
+> **icon2x:** ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon2x) **VLOOK™** is a **G-Star Program Project** of ![AtomGit](pic/atomgit.png#icon2x) **[AtomGit](https://atomgit.com/MadMaxChow/VLOOK)**, and may be one of the best Markdown enhancement plugins available today.
 
 ### Logo Layout Examples
 
@@ -1027,11 +1034,11 @@ _^tab^_
 
 ###### Image Filter Examples
 
-![Vintage Filter](pic/j20.jpg#200w#invert)  ![Blur Filter](pic/j20.jpg#200w#blur)  ![Grayscale Filter](pic/j20.jpg#200w#aged)  ![Vintage Filter](pic/j20.jpg#200w#gray)
+![Invert Filter](pic/j20.jpg#200w#invert)  ![Blur Filter](pic/j20.jpg#200w#blur)  ![Vintage Filter](pic/j20.jpg#200w#aged)  ![Grayscale Filter](pic/j20.jpg#200w#gray)
 
 ###### Hover to Restore Original Examples
 
-![Hover to Remove Vintage Filter](pic/j20.jpg#200w#invert!)  ![Hover to Remove Blur Filter](pic/j20.jpg#200w#blur!)  ![Hover to Remove Grayscale Filter](pic/j20.jpg#200w#aged!)  ![Hover to Remove Vintage Filter](pic/j20.jpg#200w#gray!)
+![Hover to Remove Invert Filter](pic/j20.jpg#200w#invert!)  ![Hover to Remove Blur Filter](pic/j20.jpg#200w#blur!)  ![Hover to Remove Vintage Filter](pic/j20.jpg#200w#aged!)  ![Hover to Remove Grayscale Filter](pic/j20.jpg#200w#gray!)
 
 ## Image Grid Background
 

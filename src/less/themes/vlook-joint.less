@@ -14,7 +14,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V2026.1";
+@themeVer: "V2026.3";
 @themeName: "vlook-joint";
 @themeSpliter: " • ";
 @themeDesc: "Joint";
@@ -23,7 +23,9 @@
 
 // 指定字体主题：local, book, zen, sans, serif, dyn, yuan, ink
 .applyFontStyle(dyn);
-// 指定激活笔样式
+// 指定键帽样式：flat, flat_invert, 3d, 3d_invert
+.applyKbdStyle(3d);
+// 指定激活笔样式：red, green, blue, yellow
 .applyLaserPointer(red);
 // 指定激活笔光标资源及热点位置
 // .applyLaserPointer(@laserImgLight_Red, @laserImgDark_Red, 12, 12);
@@ -32,7 +34,7 @@
 // 指定 kbd 按钮圆角风格：none, small, big, leaf, cap
 @thmKbdRadiusStyle: big;
 // 指定 kbd 按钮风格 flat, fade, raised, 3d, 3d_up
-@thmKbdStyle: flat;
+@thmLinkKbdStyle: flat;
 // UI 按钮圆角 std, cap
 @buttonRadiusStyle: std;
 // 导航中心、脚注面板、状态栏风格选择：std, flat, edge
@@ -56,10 +58,10 @@
 .genTableStyle();
 
 // 在主题中优先使用的等宽字体
-@themeMonoFontFamily: @mono_local_en;
+@themeMonoFontFamily: @mono_local;
 
 // 在主题中优先使用的正文字体
-@themeTextFontFamily: @mono_local_en;
+// @themeTextFontFamily: @mono_local;
 
 :root {
     --thm-fav-lg: url("data:image/png;base64,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");
@@ -76,6 +78,12 @@
 @theme2Dark: #7171D5;
 @theme2Alt: #E0E0F6;
 @theme2AltDark: #1C1C5F;
+
+// 主题色半透明
+// @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacityMiddleForLg);
+@theme1FadeDark: rgba(red(@theme1Dark), green(@theme1Dark), blue(@theme1Dark), @accOpacityHighForDk);
+// @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacityMiddleForLg);
+@theme2FadeDark: rgba(red(@theme2Dark), green(@theme2Dark), blue(@theme2Dark), @accOpacityLowForDk);
 
 // 题注内容方向指示符号
 @captionDirectionSymbol_up: "▼ ";
@@ -145,6 +153,11 @@
 // 按钮色
 @buttonForeColor: @theme3;
 
+// 用于 VLOOK UI 外观颜色
+@uiForeColor: @buttonForeColor;//#FFF;
+// @uiBgColor: @theme1;
+// @uiBgColorDark: @theme1Dark;
+
 // 链接颜色
 @aBorderWidth: 2px;
 @aColor: darken(@theme1, 6%);//@headerColor;
@@ -154,7 +167,7 @@
 @aActiveColor: desaturate(@aHoverColor, 25%);
 
 // 欢迎页
-@welcomePageForeColor: var(--d-fc);
+@welcomePageForeColor: var(--df);
 
 // 封面的圆角样式
 // @coverBorderRadius: @buttonRadiusCircle;
@@ -256,7 +269,7 @@
 // 生成指定风格的多级标签样式：std, cap, dyn, "dyn, cap",
 .genBadgeStyle(cap, dyn);
 
-// 生成 GSA 样式
+// 生成 GSA 样式：simple, flat, flat_up, em
 .genGSA(simple);
 
 // 生成大纲分类索引样式：std, color

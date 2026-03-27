@@ -19,7 +19,7 @@ for my $file (glob(File::Spec->catfile($dir, "fs-*.css"))) {
 
     # 替换 github-io 路径为 <your-host>/res/
     #$content =~ s{https://openfonts\.pages\.dev/}{https://<your-host>/$VERSION}g;
-    $content =~ s{https://openfonts\.pages\.dev/}{https://<your-host>/}g;
+    $content =~ s{https://openfonts\.pages\.dev/}{https://<your-host>/fonts/}g;
 
     # 写回原文件
     open my $out, ">", $file or die "无法写入 $file: $!";

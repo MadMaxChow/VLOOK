@@ -1,6 +1,6 @@
 <script>/**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V2026.1" (2026-01-30) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V2026.3" (2026-03-27) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -26,7 +26,7 @@ var V_lang_data_fr = {
 "fr17":"Fermer",
 "fr18":"Formule",
 "fr19":"Si vous ne pouvez pas vous connecter à Internet pour charger la version en ligne de la police, il est recommandé de télécharger directement la police en local.<br>Si vous ne pouvez pas vous connecter à Internet ou si votre réseau est lent, il est recommandé de télécharger les polices pour une installation locale.",
-"fr20":"Développer le pliage des blocs de citation",
+"fr20":"Développer les détails",
 "fr21":"Développer le groupe de lignes du tableau",
 "fr22":"Toutes les notes de bas de page",
 "fr23":"Commencer la lecture.",
@@ -105,5 +105,8 @@ var V_lang_data_fr = {
 "fr96":"Annuler",
 "fr97":"Révéler la carte à gratter",
 "fr98":"Tout afficher",
-"fr99":"( Sans légende )"
+"fr99":"( Sans légende )",
+"fr100":"Interruption",
+"fr101":"Critique",
+"fr102":"Tout réduire"
 }</script>

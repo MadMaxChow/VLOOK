@@ -15,7 +15,7 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V2026.1";
+@themeVer: "V2026.3";
 @themeName: "vlook-solaris";
 @themeSpliter: " • ";
 @themeDesc: "Solaris";
@@ -24,7 +24,9 @@
 
 // 指定字体主题：local, book, zen, sans, serif, dyn, yuan, ink
 .applyFontStyle(book);
-// 指定激活笔样式
+// 指定键帽样式：flat, flat_invert, 3d, 3d_invert
+.applyKbdStyle(3d);
+// 指定激活笔样式：red, green, blue, yellow
 .applyLaserPointer(red);
 // 指定激活笔光标资源及热点位置
 // .applyLaserPointer(@laserImgLight_Red, @laserImgDark_Red, 12, 12);
@@ -35,16 +37,16 @@
 // 指定 kbd 按钮圆角风格：none, small, big, leaf, cap
 @thmKbdRadiusStyle: none;
 // 指定 kbd 按钮风格 flat, fade, raised, 3d, 3d_up
-@thmKbdStyle: 3d;
+@thmLinkKbdStyle: 3d;
 // 生成指定的表格样式：simple, modern, flat, vivid, report
 @tableStyle: report;
 .genTableStyle();
 
 // 在主题中优先使用的等宽字体
-@themeMonoFontFamily: @mono_local_en;
+@themeMonoFontFamily: @mono_local;
 
 // 在主题中优先使用的正文字体
-@themeTextFontFamily: @mono_local_en;
+@themeTextFontFamily: @mono_local;
 
 // 文档基础色
 @thmBgLight: #FEF7EF;//#FFF7EF;//#FEFCF4;
@@ -73,6 +75,12 @@
 @theme2Dark: #7272B5;
 @theme2Alt: #E4E4F1;
 @theme2AltDark: #27274A;
+
+// 主题色半透明
+// @theme1Fade: rgba(red(@theme1), green(@theme1), blue(@theme1), @accOpacityHighForLg);
+// @theme1FadeDark: rgba(red(@theme1Dark), green(@theme1Dark), blue(@theme1Dark), @accOpacityLowForDk);
+// @theme2Fade: rgba(red(@theme2), green(@theme2), blue(@theme2), @accOpacityHighForLg);
+@theme2FadeDark: rgba(red(@theme2Dark), green(@theme2Dark), blue(@theme2Dark), @accOpacityLowForDk);
 
 @headerPadding: 5px 0;
 
@@ -110,7 +118,7 @@
 @badgeBorderWidthInCover: 1px;
 
 // 欢迎页
-@welcomePageForeColor: #FFF;//var(--d-bc);
+@welcomePageForeColor: #FFF;//var(--db);
 
 // 封面、封底文字位置及对齐方式
 @coverLeftRightPadding: 60px;
@@ -141,7 +149,7 @@
 @codeBlockBackgroundDark: @codeBlockBackground;
 @codeBlockBackgroundSize: auto;
 @codeBlockBackgroundRepeat: no-repeat;
-@codeBlockBackgroundPosition: right bottom;// @bottomCopyrightHeight;
+@codeBlockBackgroundPosition: right bottom;
 .genBlockBackgroundImage(@codeBlockBackgroundSize, @codeBlockBackgroundRepeat, @codeBlockBackgroundPosition);
 
 // 封面背景设置
@@ -207,7 +215,7 @@
 // 生成指定风格的多级标签样式：std, cap, dyn, "dyn, cap",
 .genBadgeStyle(std);
 
-// 生成 GSA 样式
+// 生成 GSA 样式：simple, flat, flat_up, em
 .genGSA(flat_up);
 
 // 生成大纲分类索引样式：std, color
