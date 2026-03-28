@@ -291,7 +291,6 @@ const _ = ``,
     _duration_ = `duration`,
     _data_duration_ = _data__ + _duration_,
     _grid_ = `grid`,
-    // _h2_5_ = `h1,h2,h3,h4,h5`,
     _h2_5_ = `h2,h3,h4,h5`,
     _h1__5_ = `h1,` + _h2_5_,
     _h1__6_ = _h1__5_ + `,h6`,
@@ -1589,7 +1588,6 @@ function Debug_init() {
             console[type] = function (...args) {
                 original.apply(console, args);
                 Debug_append(type, args.map(String));
-                // return;
         };
     });
 
@@ -5038,11 +5036,6 @@ function V_initKernel() {
     jq_Window.on(_afterprint_, () => {
         // 标记已取消，或已完成打印
         V_unDisable(Print_btnAction);
-
-        // 关闭按钮事件处理
-        // !V_debugMode && !gPrint_typora
-        // !gPrint_typora
-        //     && gWindow.close();
     });
 
     // --------------------------------------------------
@@ -6750,9 +6743,6 @@ function PicInPic_init() {
 function PicInPic_show() {
     let source = ContentAssistor_lastHover,
         tagName = V_tagName(source);
-    // 非图片先不进行尺寸调整，避免图片完成加载后二次调整导致闪烁
-    // if (tagName !== _img_)
-    //     PicInPic_calcSize();
 
     // 清空原有内容（除关闭按钮）
     PicInPic_ui_content.em();
@@ -8769,9 +8759,6 @@ function ColorScheme_refresh(force) {
         __kbd_bg = __kbd + __bg_,
         __kbd_shd = __kbd + `-shd`,
         __kbd_pd = __kbd + `-pd`;
-        // __kbd = `--` + _kbd_,
-        // __kbd_bg = __kbd + __bg_,
-        // __kbd_reflect = __kbd + __reflect_;
     V_changeCssVarSet([
         ___thm_fav_,
         ___v__ + _invert_dark_,
@@ -8824,12 +8811,6 @@ function ColorScheme_refresh(force) {
         __kbd_bg,
         __kbd_shd,
         __kbd_pd,
-        // __kbd_bg,
-        // __kbd_reflect,
-        // __kbd + `-sd`,
-        // __kbd_bg + `-i`,
-        // __kbd_reflect + `-i`,
-        // __kbd + `-sd` + `-i`,
         `--${_doc_}-sd`,
         ___cur__ + _pointer_,
         ___cur__ + _copy_,
@@ -11184,7 +11165,6 @@ function Caption_genForText(target, typeName) {
         captionPrefix + Caption_spliter);
 
     // 尝试获得带题注语法的内容
-    // let fcSet = Caption_getCaptions(target.p().pr(), typeName);
     let fcSet = Caption_getCaptions(target, typeName);
     let fc = fcSet[0], // 第 1 题注
         fc2 = fcSet[1]; // 第 2 题注
@@ -11268,13 +11248,13 @@ function Caption_genForText(target, typeName) {
  * 针对插图、多媒体类（img、mermaid、音频-非内嵌tag、视频-非内嵌tag）生成题注
  * @param target 需要添加题注的对象
  * @param typeName 题注类型名称
- * @param ext 扩展信息
+ * @param extType 扩展信息
  */
-function Caption_genForMedia(target, typeName, ext) {
+function Caption_genForMedia(target, typeName, extType = _) {
     let fc = target.a(_alt_), // 默认尝试获取图片的 alt 内容作为题注内容
         fc2 = target.a(_title_), // 默认尝试获得图片的 title 作为第二题注内容
         src = V_getSrcValue(target), // 媒体 url
-        containter = (ext === _iframe_) ? target : target.p(), // 题注容器
+        containter = (extType === _iframe_) ? target : target.p(), // 题注容器
         indexObj = iNavCenter.figures,
         anchor,
         dataForSearch = _;
@@ -11283,9 +11263,7 @@ function Caption_genForMedia(target, typeName, ext) {
     // 若 alt 无内容，则尝试获取前面段落中是否有题注语法内容作为第 1、2 题注的内容
     if (fc == gNull || V_length(fc.x()) === 0) {
         fc = _;
-        // fcSet = Caption_getCaptions(target.p().pr(), typeName, ext);
-        // fcSet = Caption_getCaptions((ext === _iframe_ ? target.pr() : target.p().pr()), typeName, ext);
-        fcSet = Caption_getCaptions(target, typeName, ext);
+        fcSet = Caption_getCaptions(target, typeName, extType);
         if (fcSet[0] !== gNull)
             fc = fcSet[0];
         if (fcSet[1] !== gNull)
@@ -11345,7 +11323,7 @@ function Caption_genForMedia(target, typeName, ext) {
     else if (typeName.sW(`v`)) {
         anchor = _vk_id_video_ + V_doc_counter_video;
         target.wrap(V_ui_div(anchor, _v_caption_
-            + (ext.sW(`if`) ? ___+ _iframe_ : _))); // 内嵌视频的情况
+            + (extType === _iframe_ ? ___+ _iframe_ : _))); // 内嵌视频的情况
             // , V_attr(_data_fig_type_, typeName)));
     }
 
@@ -11470,11 +11448,10 @@ function Caption_noCaption(indexObj, typeName, captionPrefix, anchor, dataForSea
  * 返回插图、表格、代码块上方的题注
  * @param target 潜在的题注内容对象
  * @param tagName 添加题注的目标对象的 HTML 标签名称
- * @param ext 扩展信息
+ * @param extType 扩展信息
  */
-function Caption_getCaptions(target, tagName, ext) {
-    // let caption = target.p().pr(),
-    let caption = (ext === _iframe_) ? target.pr() : target.p().pr(),
+function Caption_getCaptions(target, tagName, extType) {
+    let caption = (extType === _iframe_) ? target.pr() : target.p().pr(),
         fcSet = [], // 题注集
         hideCaptionSrc = gFalse; // 是否隐藏题注源
 
@@ -11627,7 +11604,6 @@ function Print_init() {
         // 给浏览器一个“空档”完成渲染。
         V_later(() => {
             _t.po(_checked_)
-            // _t.a(_checked_)
                 ? JQ_addClass(DOM_body(), _coverfill_)
                 : JQ_removeClass(DOM_body(), _coverfill_);
             V_unDisable(_t.p());
@@ -11644,7 +11620,6 @@ function Print_init() {
         // 给浏览器一个“空档”完成渲染。
         V_later(() => {
             _t.po(_checked_)
-            // _t.a(_checked_)
                 ? JQ_removeClass(DOM_body(), _notoc_)
                 : JQ_addClass(DOM_body(), _notoc_);
             V_unDisable(_t.p());
@@ -11658,7 +11633,6 @@ function Print_init() {
         // 给浏览器一个“空档”完成渲染。
         V_later(() => {
             _t.po(_checked_)
-            // _t.a(_checked_)
                 ? JQ_addClass(DOM_body(), _noblur_)
                 : JQ_removeClass(DOM_body(), _noblur_);
             V_unDisable(_t.p());
@@ -11693,7 +11667,6 @@ function Print_init() {
         V_later(() => {
             $(_table_ + V_attrCSS(_data_row_group_, _true_)).e((index, element) => {
                 _t.po(_checked_)
-                // _t.a(_checked_)
                     ? RowGroup_openAll($(element), _auto_)
                     : RowGroup_closeAll($(element), _auto_);
             }, 0);
@@ -16535,9 +16508,6 @@ function DocLib(mask, holder) {
                 text = _,
                 title = _;
 
-            // // 获取目录大纲中的第 1 个条目
-            // T.fstToc = T.toc.ch(`.` + _md_toc_item_ + __first_);
-
             // 预处理：记录当前页面在文库清单中的位置
             for (let i = 0; i < V_length(docLibList); i++) {
                 item = docLibList[i].x();
@@ -17311,50 +17281,50 @@ function Zen_disposeHotkey(key, combKeys, event) {
 
 // ==================== Mermaid - 脑图交互类 ==================== //
 
-function mmMindmap_init() {
-    // 待办 to-do: 新特性，未完成
-    let rootIndex = 0;
-    $(_svg_ + V_attrCSS(_ariaRoledescription_, _mindmap_) + `>.mindmap-nodes>.mindmap-node`).e((index, element) => {
-        let _t = $(element);
-        if (rootIndex > 0) {
-            _t.ck(event => {
-                mmMindmapToggleNode(V_eventCurrentTarget(event));
-            });
-            _t.c(_visibility_, _hidden_);
-        }
-        else {
-            _t.ck(event => {
-                mmMindmapToggleRoot(V_eventCurrentTarget(event));
-            });
-        }
-        rootIndex++;
-    });
-
-    $(_svg_ + V_attrCSS(_ariaRoledescription_, _mindmap_) + `>.mindmap-edges>.edge`).e((index, element) => {
-        $(element).c(_visibility_, _hidden_);
-    });
-}
-
-function mmMindmapToggleRoot(node) {
-}
-
-function mmMindmapToggleNode(node) {
-    let cssValue = node.a(_class_),
-        si = cssValue.i(_section_ + `-`),
-        secNum = 0;
-    if (si > -1) {
-        secNum = cssValue.ss(si + 8, V_length(cssValue));
-        if (secNum.isNumber()) {
-            $(_svg_ + V_attrCSS(_ariaRoledescription_, _mindmap_) + `>.mindmap-nodes>.${_section_}-` + secNum).e((index, element) => {
-                $(element).c(_visibility_, _visible_);
-            });
-
-            $(_svg_ + V_attrCSS(_ariaRoledescription_, _mindmap_) + `>.mindmap-edges>.${_section_}-edge-` + secNum).e((index, element) => {
-                $(element).c(_visibility_, _visible_);
-            });
-        }
-    }
-}
+// function mmMindmap_init() {
+//     // 待办 to-do: 新特性，未完成
+//     let rootIndex = 0;
+//     $(_svg_ + V_attrCSS(_ariaRoledescription_, _mindmap_) + `>.mindmap-nodes>.mindmap-node`).e((index, element) => {
+//         let _t = $(element);
+//         if (rootIndex > 0) {
+//             _t.ck(event => {
+//                 mmMindmapToggleNode(V_eventCurrentTarget(event));
+//             });
+//             _t.c(_visibility_, _hidden_);
+//         }
+//         else {
+//             _t.ck(event => {
+//                 mmMindmapToggleRoot(V_eventCurrentTarget(event));
+//             });
+//         }
+//         rootIndex++;
+//     });
+//
+//     $(_svg_ + V_attrCSS(_ariaRoledescription_, _mindmap_) + `>.mindmap-edges>.edge`).e((index, element) => {
+//         $(element).c(_visibility_, _hidden_);
+//     });
+// }
+//
+// function mmMindmapToggleRoot(node) {
+// }
+//
+// function mmMindmapToggleNode(node) {
+//     let cssValue = node.a(_class_),
+//         si = cssValue.i(_section_ + `-`),
+//         secNum = 0;
+//     if (si > -1) {
+//         secNum = cssValue.ss(si + 8, V_length(cssValue));
+//         if (secNum.isNumber()) {
+//             $(_svg_ + V_attrCSS(_ariaRoledescription_, _mindmap_) + `>.mindmap-nodes>.${_section_}-` + secNum).e((index, element) => {
+//                 $(element).c(_visibility_, _visible_);
+//             });
+//
+//             $(_svg_ + V_attrCSS(_ariaRoledescription_, _mindmap_) + `>.mindmap-edges>.${_section_}-edge-` + secNum).e((index, element) => {
+//                 $(element).c(_visibility_, _visible_);
+//             });
+//         }
+//     }
+// }
 
 // ==================== 样式重制类 ==================== //
 
@@ -18774,14 +18744,10 @@ function VLOOKui_iconSet() {
             + V_ui_path(`M11 6c1.07 0 2.085.24 2.992.67l.004.09L14 7a7 7 0 0 1-9.992 6.33l-.004-.09L4 13a7 7 0 0 1 7-7z`))
         // 图标集：图标|激光笔 / solid
         + V_ui_symbol(_icoLaserPointer_ + _solid_,
-            // V_ui_path(`M5.574 5.078a3.5 3.5 0 0 1 4.913.603l6.772 8.668a3.5 3.5 0 1 1-5.516 4.31L4.971 9.991a3.5 3.5 0 0 1 .603-4.913zm.576.769a2.5 2.5 0 1 0 3.078 3.94 2.5 2.5 0 0 0-3.078-3.94zm6.562-3.138a1 1 0 1 1 1.231 1.576l-.788.616a1 1 0 1 1-1.231-1.576l.788-.616zm-10.5 8a1 1 0 1 1 1.231 1.576l-.788.616a1 1 0 0 1-1.231-1.576l.788-.616zm-1.177-4.68l1 .034a1 1 0 0 1-.07 1.999l-1-.035a1 1 0 0 1 .07-1.999zM8.838.021a1 1 0 0 1 .77 1.186l-.208.978a1 1 0 0 1-1.956-.416l.208-.978a1 1 0 0 1 1.186-.77zM2.724 1.409a1 1 0 0 1 1.403.172l.616.788a1 1 0 0 1-1.576 1.232l-.616-.788a1 1 0 0 1 .173-1.404z`))
             V_ui_path(`M0 0h20v20H0z`, _, 0)
             + V_ui_path(`M6.576 5.078a3.5 3.5 0 0 1 4.913.603l6.772 8.668a3.5 3.5 0 1 1-5.516 4.31L5.973 9.991a3.5 3.5 0 0 1 .603-4.913zm.576.769a2.5 2.5 0 1 0 3.079 3.94 2.5 2.5 0 0 0-3.079-3.94zm6.562-3.138a1 1 0 0 1 1.231 1.576l-.788.616a1 1 0 0 1-1.231-1.576l.788-.616zm-10.5 8a1 1 0 0 1 1.231 1.576l-.788.616a1 1 0 0 1-1.231-1.576l.788-.616zm-1.177-4.68l1 .034a1 1 0 0 1-.07 1.999l-1-.035a1 1 0 0 1 .07-1.999zM9.84.021a1 1 0 0 1 .77 1.186l-.208.978a1 1 0 0 1-1.956-.416l.208-.978A1 1 0 0 1 9.84.022zM3.726 1.41a1 1 0 0 1 1.403.172l.616.788A1 1 0 0 1 4.17 3.601l-.616-.788a1 1 0 0 1 .173-1.404z`))
         // 图标集：图标|激光笔 / flat
         + V_ui_symbol(_icoLaserPointer_ + _flat_,
-            // V_ui_path(`M0 0h20v20H0z`, _, 0)
-            // + V_ui_path(`M6.338 5.078a3.5 3.5 0 0 1 4.913.603l6.773 8.668a3.5 3.5 0 0 1-5.517 4.31L5.735 9.991a3.5 3.5 0 0 1 .603-4.913z`, _, .5)
-            // + V_ui_path(`M3.488 1.409a1 1 0 0 1 1.404.172l.615.788a1 1 0 0 1-1.576 1.232l-.615-.788a1 1 0 0 1 .172-1.404zm-1.472 11.32a1 1 0 0 1 .172-1.404l.788-.616a1 1 0 0 1 1.231 1.576l-.788.616a1 1 0 0 1-1.403-.173zm10.5-8a1 1 0 0 1 .172-1.404l.788-.616a1 1 0 1 1 1.231 1.576l-.788.616a1 1 0 0 1-1.403-.173zM.765 6.992a1 1 0 0 1 1.034-.965l1 .035a1 1 0 0 1-.07 1.999l-1-.035a1 1 0 0 1-.961-.918l-.003-.116zM9.602.022a1 1 0 0 1 .77 1.186l-.208.978a1 1 0 1 1-1.956-.416l.208-.978a1 1 0 0 1 1.186-.77zm.818 10.236a3.5 3.5 0 1 0-4.31-5.516 3.5 3.5 0 0 0 4.31 5.516z`))
             V_ui_path(`M0 0h20v20H0z`, _, 0)
             + V_ui_path(`M6.575 5.078a3.5 3.5 0 0 1 4.913.603l6.772 8.668a3.5 3.5 0 1 1-5.516 4.31L5.972 9.991a3.5 3.5 0 0 1 .603-4.913z`, _, .5)
             + V_ui_path(`M3.723 1.409a1 1 0 0 1 1.404.172l.615.788a1 1 0 1 1-1.576 1.232l-.615-.788a1 1 0 0 1 .172-1.404zm-1.472 11.32a1 1 0 0 1 .172-1.404l.788-.616a1 1 0 0 1 1.231 1.576l-.788.616a1 1 0 0 1-1.403-.173zm10.5-8a1 1 0 0 1 .172-1.404l.788-.616a1 1 0 1 1 1.231 1.576l-.788.616a1 1 0 0 1-1.403-.173zM1 6.992a1 1 0 0 1 1.034-.965l1 .035a1 1 0 1 1-.07 1.999l-1-.035a1 1 0 0 1-.961-.918L1 6.993zm5.345-2.25a3.5 3.5 0 1 1 4.31 5.515 3.5 3.5 0 0 1-4.31-5.516zM9.837.022a1 1 0 0 1 .77 1.185l-.208.978a1 1 0 1 1-1.956-.416l.208-.978a1 1 0 0 1 1.186-.77z`))
@@ -19406,7 +19372,7 @@ $(() => { // 等价于 $(document).ready()
     // 启用 jQuery Migrate 插件的日志输出功能，帮助发现和定位潜在的兼容性问题
     jQuery.migrateTrace = gTrue;
 
-    // PDF 输出相关的日志面板
+    // 直接导出 PDF 输出相关的日志面板
     gPdfLog = V_byID(_v__ + `pdf-log`);
     if (!V_devMode) {
         gPdfLog.rm();
