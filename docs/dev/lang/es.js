@@ -1,6 +1,6 @@
 /**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V2026.3" (2026-03-27) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V2026.5" (2026-05-05) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -45,7 +45,7 @@ var V_lang_data_es = {
 "es36":"- Se ha lanzado una nueva versión, ¡por favor actualiza!",
 "es37":"Lo siento, copiar no es compatible con este navegador en este momento",
 "es38":"Incluir esquema",
-"es39":"Modo Zen",
+"es39":"Vista Zen",
 "es40":"Cargando",
 "es41":"Estilo de fuente",
 "es42":"Minuto(s)",
@@ -108,5 +108,8 @@ var V_lang_data_es = {
 "es99":"( Sin leyenda )",
 "es100":"Interrupción",
 "es101":"Crítico",
-"es102":"Contraer todo"
+"es102":"Contraer todo",
+"es103":"Vista de diapositivas",
+"es104":"Filtro",
+"es105":"Resaltar"
 }
