@@ -3,8 +3,8 @@
  * VLOOK™ CSS - Mermaid 自定义样式
  * (配合 base.less 进行使用)
  *
- * V2026.3
- * 2026-03-27
+ * V2026.5
+ * 2026-05-05
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -32,7 +32,6 @@
 // 全局基础样式
 svg[aria-roledescription] {
     fill: var(--df) !important;
-    background-color: var(--db) !important;
 }
 
 // 全局文本设置
@@ -60,10 +59,10 @@ svg[aria-roledescription] * {
 
 // 鼠标悬停
 .genHoverStyle(@for) when (@for = node) {
-    svg[aria-roledescription] .node:hover {
+    svg[aria-roledescription] :is(.node, .ishikawa):hover {
         cursor: crosshair;
     }
-    svg[aria-roledescription] .node:hover @{svgNodes} {
+    svg[aria-roledescription] :is(.node, .ishikawa-head-group, .ishikawa-label-group):hover @{svgNodes} {
         fill: var(--ac-t1-a) !important;
         stroke: var(--a-c) !important;
         cursor: crosshair;
@@ -559,7 +558,8 @@ svg[aria-roledescription=stateDiagram] .edgeLabel {
 }
 
 // 状态节点
-svg[aria-roledescription=stateDiagram] .statediagram-state .label-container path {
+// svg[aria-roledescription=stateDiagram] .statediagram-state .label-container path {
+svg[aria-roledescription=stateDiagram] .node rect {
     fill: var(--df) !important;
     stroke-width: 0 !important;
 }
@@ -575,7 +575,8 @@ svg[aria-roledescription=stateDiagram] .statediagram-state .label {
 
 // 状态节点上鼠标悬停
 .genHoverStyle(@for) when (@for = stateDiagram_state) {
-    svg[aria-roledescription=stateDiagram] .statediagram-state:hover .label-container path {
+    // svg[aria-roledescription=stateDiagram] .statediagram-state:hover .label-container path {
+    svg[aria-roledescription=stateDiagram] .node:hover rect {
         fill: var(--a-c) !important;
     }
     svg[aria-roledescription=stateDiagram] .statediagram-state:hover .nodeLabel {
@@ -856,6 +857,38 @@ svg[aria-roledescription=block] #mermaidChart11_block-pointEnd path {
 svg[aria-roledescription=sankey] {
     width: 100% !important;
     padding: var(--v-r-b) !important;
+}
+
+/* ----- ishikawa diagram 鱼骨图 ----- */
+
+// 鱼头、标签块
+svg[aria-roledescription=ishikawa] :is(.ishikawa-head, .ishikawa-label-box) {
+    fill: var(--pn-c) !important;
+    stroke: var(--df) !important;
+}
+
+// 标签块内文本
+svg[aria-roledescription=ishikawa] .ishikawa-label.cause {
+    dominant-baseline: auto !important;
+}
+
+svg[aria-roledescription=ishikawa] .ishikawa-label.up {
+    fill: var(--df-a) !important;
+}
+
+// 标签块、文本上鼠标悬停
+.genHoverStyle(@for) when (@for = ishikawa) {
+    svg[aria-roledescription=ishikawa] :is(.ishikawa-head-group, .ishikawa-label-group):hover text,
+    svg[aria-roledescription=ishikawa] .ishikawa-sub-group:hover text {
+        fill: var(--a-c) !important;
+    }
+    svg[aria-roledescription=ishikawa] .ishikawa-sub-group:hover line {
+        stroke: var(--a-c) !important;
+    }
+}
+
+svg[aria-roledescription=ishikawa] :is(.ishikawa-branch, .ishikawa-sub-branch) {
+    stroke: var(--df-a) !important;
 }
 
 /* ----- gantt diagram 甘特图 ----- */

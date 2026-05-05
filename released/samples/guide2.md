@@ -1,10 +1,10 @@
 ---
-title: 攻略 ▲ 进阶 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与增强插件
+title: 攻略 ▲ 进阶 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与排版增强插件
 author: MAX°孟兆
-date: 2026-03-27
+date: 2026-05-05
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: 本作品采用 MIT 许可证授权，详见 LICENSE 文件。
-version: V2026.3
+version: V2026.5
 tags: 代码, 按钮, 封面与封底, 分栏, 题注, 页签组, 内容标记, Mermaid, 公式, 多媒体
 vlook-footer: <a href="index.html">简介</a>	|	攻略之 <a href='guide.html'>基础</a>  ❯  <strong>进阶</strong>  ❯  <a href='guide3.html'>探索</a>
 description: 关于 VLOOK™ 的代码、按钮、封面与封底、分栏、题注、页签组、内容标记（GitHub Style Alert/标签/进度条/面包屑/刮刮卡/注音）、Mermaid、公式、多媒体
@@ -13,23 +13,23 @@ description: 关于 VLOOK™ 的代码、按钮、封面与封底、分栏、题
 keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
 - editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,cross-reference,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
-- light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
-- catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
+- light mode,dark mode,grayscale mode,gray mode,card-style link,link card
+- catalogue,library,illustration navigation,outline navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
-- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
+- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,Fullscreen Mode, Paragraph Navigator, Content Width Adaptation, Zen View, Presentation Mode, Reading Progress, Exclude from Publishing, Document Footer,export as pdf,save as pdf,print to pdf
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - link map,link specification,link check,link recognition,link conversion
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,交叉引用,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
-- 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
-- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
+- 浅色外观,深色外观,灰度外观,灰色外观,卡片式链接,链接卡片
+- 目录,文库,插图导航,大纲导航,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
-- 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
+- 内容助手,出版辅助,发布为PDF,导出为PDF,演示辅助,复制,全屏显示,激光笔,聚光灯,段落漫游,正文宽度适配,宁静视图,幻灯片视图,画中画,阅读进度,标记不发布,文档页脚,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
 - 设计,需求,文档,博客,手册,指南,攻略,知识库,教程,方案,教育,笔记,日记
@@ -40,7 +40,7 @@ vlook-doc-lib:
 - [如何开始？](index.html?target=_self "简介、安装与配置、语言包")
 - [攻略 • 基础](guide.html?target=_self "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
 - [攻略 ▲ 进阶](guide2.html?target=_self "分栏、题注、交叉引用、按钮、链接代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
-- [攻略 ★ 探索](guide3.html?target=_self "内容导航/历史/上次阅读、内容助手/复制/全屏/换行/十字光标/阅读/画中画、演示辅助/激光笔/聚光灯/段落漫游/宽度适配、出版辅助/标记不发布/发布为PDF/另存为PDF/导出为PDF/打印为PDF/社交分享/链接地图/长内容折叠/链接检查/链接识别、外观/主题/字体/Light/Dark、自定义/预置选项/调校参数、快捷键、……")
+- [攻略 ★ 探索](guide3.html?target=_self "内容导航/历史/上次阅读、内容助手/复制/全屏/换行/十字光标/阅读/画中画、演示辅助/激光笔/聚光灯/段落漫游/宽度适配/宁静视图、出版辅助/标记不发布/发布为PDF/另存为PDF/导出为PDF/打印为PDF/社交分享/链接地图/长内容折叠/链接检查/链接识别、外观/主题/字体/Light/Dark、自定义/预置选项/调校参数、快捷键、……")
 - [增值服务](vip.html?target=_self "定制主题、文档排版编辑、……")
 - [更多内容](vlook-lib.html "VLOOK™ 全部特性索引表")
 - [反馈问题](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
@@ -511,7 +511,7 @@ _^tab^_
 ###### 本文档的封面内容示例
 
 ```markdown
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>使用攻略<br>(Part.II)</u><br>*最新版本`V2026.3`*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>使用攻略<br>(Part.II)</u><br>*最新版本`V2026.5`*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 ```
 
 ###### 本文档的封底内容示例
@@ -1709,21 +1709,26 @@ _^tab^_
 |      Rd      | :                          | *`Rd 常规风格`*_~Rd~_ |
 |      Og      | 提醒、注意、修复           | *`Og 常规风格`*_~Og~_ |
 |      Ye      | 关注、优化、备忘、说明     | *`Ye 常规风格`*_~Ye~_ |
+|      Tu      | :                          | *`Tu 常规风格`*_~Tu~_ |
 |      Lm      | 提示、参考、新增           | *`Lm 常规风格`*_~Lm~_ |
 |      Gn      | :                          | *`Gn 常规风格`*_~Gn~_ |
 |      Mn      | :                          | *`Mn 常规风格`*_~Mn~_ |
 |      Ol      | :                          | *`Ol 常规风格`*_~Ol~_ |
 |      Aq      | 引用块、公告               | *`Aq 常规风格`*_~Aq~_ |
+|      Sk      | :                          | *`Sk 常规风格`*_~Sk~_ |
 |      Cy      | :                          | *`Cy 常规风格`*_~Cy~_ |
 |      Bu      | 信息、资讯                 | *`Bu 常规风格`*_~Bu~_ |
 |      Se      | :                          | *`Se 常规风格`*_~Se~_ |
 |      La      | :                          | *`La 常规风格`*_~La~_ |
 |      Vn      | :                          | *`Vn 常规风格`*_~Vn~_ |
 |      Pu      | 延伸、扩展、保留、备用     | *`Pu 常规风格`*_~Pu~_ |
+|      Au      | :                          | *`Au 常规风格`*_~Au~_ |
 |      Ro      | 年轻、个性、女性           | *`Ro 常规风格`*_~Ro~_ |
 |      Pk      | :                          | *`Pk 常规风格`*_~Pk~_ |
+|      Pl      | :                          | *`Pl 常规风格`*_~Pl~_ |
 |      Gd      | VIP、金融、工程            | *`Gd 常规风格`*_~Gd~_ |
 |      Bn      | :                          | *`Bn 常规风格`*_~Bn~_ |
+|      Cf      | :                          | *`Cf 常规风格`*_~Cf~_ |
 |      Gy      | 无效、暂缓、停用、结束     | *`Gy 常规风格`*_~Gy~_ |
 |      Wt      | 黑白                       | *`Wt 常规风格`*_~Wt~_ |
 |      Bk      | :                          | *`Bk 常规风格`*_~Bk~_ |
@@ -1738,21 +1743,26 @@ _^tab^_
 |     Rd!      | :                          | *`Rd 强调风格`*_~Rd!~_  *`RdGn 渐变风格`*_~RdGn~_ |
 |     Og!      | 提醒、注意、修复           | *`Og 强调风格`*_~Og!~_  *`OgCy 渐变风格`*_~OgBu~_ |
 |     Ye!      | 关注、优化、备忘、说明     | *`Ye 强调风格`*_~Ye!~_  *`YeGd 渐变风格`*_~YeAq~_ |
+| Tu! | : | *`Tu 强调风格`*_~Tu!~_  *`TuVn 渐变风格`*_~TuVn~_ |
 |     Lm!      | 提示、参考、新增           | *`Lm 强调风格`*_~Lm!~_  *`LmAq 渐变风格`*_~LmYe~_ |
 |     Gn!      | :                          | *`Gn 强调风格`*_~Gn!~_  *`GnRd 渐变风格`*_~GnRd~_ |
 |     Mn!      | :                          | *`Mn 强调风格`*_~Mn!~_  *`MnWn 渐变风格`*_~MnAq~_ |
 |     Ol!      | :                          | *`Ol 强调风格`*_~Ol!~_  *`OlCy 渐变风格`*_~OlOg~_ |
 |     Aq!      | 引用块、公告                 | *`Aq 强调风格`*_~Aq!~_  *`AqLm 渐变风格`*_~AqLm~_ |
+| Sk! | : | *`Sk 强调风格`*_~Sk!~_  *`SkPk 渐变风格`*_~SkPk~_ |
 |     Cy!      | :                          | *`Cy 强调风格`*_~Cy!~_  *`CyYe 渐变风格`*_~CyYe~_ |
 |     Bu!      | 信息、资讯                 | *`Bu 强调风格`*_~Bu!~_ *`BuOl 渐变风格`*_~BuOl~_ |
 |     Se!      | :                          | *`Se 强调风格`*_~Se!~_  *`SeBn 渐变风格`*_~SeOg~_ |
 |     La!      | :                          | *`La 强调风格`*_~La!~_  *`LaYe 渐变风格`*_~LaYe~_ |
 |     Vn!      | :                          | *`Vn 强调风格`*_~Vn!~_  *`VnPu 渐变风格`*_~VnRo~_ |
-|     Pu!      | 延伸、扩展、保留、备用     | *`Pu 强调风格`*_~Pu!~_  *`PuVn 渐变风格`*_~PuYe~_ |
+|     Pu!      | 延伸、扩展、保留、备用     | *`Pu 强调风格`*_~Pu!~_  *`PuYe 渐变风格`*_~PuYe~_ |
+| Au! | : | *`Au 强调风格`*_~Au!~_  *`AuOg 渐变风格`*_~AuOg~_ |
 |     Ro!      | 年轻、个性、女性           | *`Ro 强调风格`*_~Ro!~_  *`RoRd 渐变风格`*_~RoRd~_ |
 |     Pk!      | :                          | *`Pk 强调风格`*_~Pk!~_  *`PkGd 渐变风格`*_~PkLm~_ |
+| Pl! | : | *`Pl 强调风格`*_~Pl!~_  *`PlSk 渐变风格`*_~PlSk~_ |
 |     Gd!      | VIP、金融、工程            | *`Gd 强调风格`*_~Gd!~_  *`GdYe 渐变风格`*_~GdYe~_ |
-|     Bn!      | :                          | *`Bn 强调风格`*_~Bn!~_  *`BnSe 渐变风格`*_~BnGd~_ |
+|     Bn!      | :                          | *`Bn 强调风格`*_~Bn!~_  *`BnGd 渐变风格`*_~BnGd~_ |
+| Cf! | : | *`Cf 强调风格`*_~Cf!~_  *`CfRd 渐变风格`*_~CfRd~_ |
 |     Gy!      | 无效、暂缓、停用、结束     | *`Gy 强调风格`*_~Gy!~_  *`GyCy 渐变风格`*_~GyCy~_ |
 | Wt! | 黑白 | *`Wt 强调风格`*_~Wt!~_  *`WtOg 渐变风格`*_~WtOg~_ |
 |     Bk!      | :               | *`Bk 强调风格`*_~Bk!~_  *`BkOg 渐变风格`*_~BkOg~_ |
@@ -1804,21 +1814,26 @@ _^tab^_
 |    Rd    | :                          | *标题`内容 %变量 2%`*_~Rd~_  *标题`内容 %变量 2%`渐变色*_~RdGn~_ |
 |    Og    | 提醒、注意、活力、修复       | *标题`内容 $变量 3$`*_~Og~_  *标题`内容 $变量 3$`渐变色*_~OgBu~_ |
 |    Ye    | 关注、优化、备忘、说明     | *标题`内容 ${变量 4}`*_~Ye~_  *标题`内容 ${变量 4}`渐变色*_~YeAq~_ |
+| Tu | : | *标题`内容 ${变量 4}`*_~Tu~_  *标题`内容 ${变量 4}`渐变色*_~TuVn~_ |
 |    Lm    | 提示、备忘、参考、新增     | *标题`内容 #{变量 5}`*_~Lm~_  *标题`内容 #{变量 5}`渐变色*_~LmYe~_ |
 |    Gn    | :                          | *标题`内容 var(变量 6)`*_~Gn~_  *标题`内容 var(变量 6)`渐变色*_~GnRd~_ |
 |    Mn    | :                          | *标题`标签内容`*_~Mn~_  *标题`标签内容`渐变色*_~MnAq~_  |
 |    Ol    | :                          | *标题`标签内容`*_~Ol~_  *标题`标签内容`渐变色*_~OlOg~_ |
 |    Aq    | 引用块、冰凉、公告              | *标题`标签内容`*_~Aq~_  *标题`标签内容`渐变色*_~AqLm~_ |
+| Sk | : | *标题`标签内容`*_~Sk~_  *标题`标签内容`渐变色*_~SkPk~_ |
 |    Cy    | :                          | *标题`Value 1`*_~Cy~_  *标题`Value 1`渐变色*_~CyYe~_ |
 |    Bu    | 信息、资讯、海洋              | *标题`Value 2`*_~Bu~_  *标题`Value 2`渐变色*_~BuOl~_ |
 |    Se    | :                          | *标题`Value 3`*_~Se~_  *标题`Value 3`渐变色*_~SeOg~_ |
 |    La    | :                          | *标题`Value 4`*_~La~_  *标题`Value 4`渐变色*_~LaYe~_ |
 |    Vn    | :                          | *标题`Value 5`*_~Vn~_  *标题`Value 5`渐变色*_~VnRo~_ |
 |    Pu    | 延伸、扩展、重要、保留  | *标题`标签内容`*_~Pu~_  *标题`标签内容`渐变色*_~PuYe~_ |
+| Au | : | *标题`标签内容`*_~Au~_  *标题`标签内容`渐变色*_~AuOg~_ |
 |    Ro    | 年轻、个性、女性        | *标题`标签内容`*_~Ro~_  *标题`标签内容`渐变色*_~RoRd~_ |
 |    Pk    | :                          | *标题`标签内容`*_~Pk~_  *标题`标签内容`渐变色*_~PkLm~_ |
+| Pl | : | *标题`标签内容`*_~Pl~_  *标题`标签内容`渐变色*_~PlSk~_ |
 |    Gd    | VIP、金融、工程、奖励         | *标题`内容 {{变量 1}}`*_~Gd~_  *标题`内容 {{变量 1}}`渐变色*_~GdYe~_ |
 |    Bn    | :                          | *标题`内容 %变量 2%`*_~Bn~_  *标题`内容 %变量 2%`渐变色*_~BnGd~_ |
+| Cf | : | *标题`内容 %变量 2%`*_~Cf~_  *标题`内容 %变量 2%`渐变色*_~CfRd~_ |
 |    Gy    | 常规、无效、暂缓、停用     | *标题`内容 $变量 3$`*_~Gy~_  *标题`内容 $变量 3$`渐变色*_~GyCy~_ |
 | Wt | 黑白 | *标题`内容 ${变量 4}`*_~Wt~_  *标题`内容 ${变量 4}`渐变色*_~WtOg~_ |
 |    Bk    | :               | *标题`内容 ${变量 4}`*_~Bk~_  *标题`内容 ${变量 4}`渐变色*_~BkOg~_ |
@@ -1947,7 +1962,7 @@ _^tab^_
 >     - [x] 通过数据分析工具或软件处理市场数据
 >     - [x] 发现并解释市场趋势，以指导项目决策
 >
-> _~Gy~_
+>     _~Gy~_
 
 ---
 
@@ -2039,18 +2054,23 @@ _^tab^_
 |            Rd            | 坚 *␣**持***_~Rd~_ 不 *␣**懈***_~Rd~_                        |
 |            Og            | *"Good night" in Cantonese?**早[zou2] 唞[tau5]***_~Og~_      |
 |            Ye            | 「**水**」的英语 *Me???**Meter ❌***_~Ye~_ *Wa???**Water ✅***_~Ye~_ |
+|            Tu            | 「**水**」的英语 *Me???**Meter ❌***_~Tu~_ *Wa???**Water ✅***_~Tu~_ |
 |            Lm            | *“谢谢”在英语中怎么说？**Thank you***_~Lm~_                  |
 |            Gn            | *AppSecret 应用密钥**cf67c3839f0214dc***_~Gn~_               |
 |            Aq            | *太阳系第三颗行星？**地球***_~Aq~_                           |
 |            Cy            | *地球上最大洋？**太平洋***_~Cy~_                             |
+|            Sk            | *地球上最大的岛？**格陵兰岛***_~Sk~_                         |
 |            Bu            | *7 大洲最大的？**亚洲***_~Bu~_                               |
 |            Se            | *世界最高峰？**珠穆朗玛***_~Se~_                             |
 |            Vn            | *人体最大器官？**皮肤***_~Vn~_                               |
 |            Pu            | *最小的行星？**水星***_~Pu~_                                 |
+|            Au            | *最小的行星？**水星***_~Au~_                                 |
 |            Ro            | *最多岛屿的国家？**瑙鲁***_~Ro~_                             |
 |            Pk            | *哪座城市以其斜塔而闻名？**比萨***_~Pk~_                     |
+|            Pl            | *哪座城市以其斜塔而闻名？**比萨***_~Pl~_                     |
 |            Gd            | *最长的河流是？**尼罗河***_~Gd~_                             |
 |            Bn            | *太阳系中最大的行星？**木星***_~Bn~_                         |
+|            Cf            | *太阳系中最大的行星？**木星***_~Cf~_                         |
 |            Gy            | *世界上最深的海沟？**马里亚纳***_~Gy~_                       |
 |            T1            | *地球上最大的淡水湖是？**贝加尔湖***_~T1~_                   |
 |            T2            | *世界上最大的陆地哺乳动物是？**非洲象***_~T2~_               |

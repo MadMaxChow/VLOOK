@@ -10,7 +10,9 @@ fi
 VERSION="$1"
 THEME_PATH="/Users/max/Library/Application Support/abnerworks.Typora/themes"
 CSS_BEFORE=".sidebar-content:before{content:"
-CSS_COLOR="color:var(--ac-t2);background:var(--ac-t2-a);"
+#CSS_COLOR="color:var(--ac-t2);background:var(--ac-t2-a);"
+CSS_COLOR="font-style:italic;"
+#CSS_COLOR=""
 
 # ===========================
 # 提取主题类型信息

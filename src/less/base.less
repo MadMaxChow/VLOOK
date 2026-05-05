@@ -1,9 +1,9 @@
 /**************************************
  *
- * VLOOK™ CSS 基础库
+ * VLOOK™ CSS 基础库 for Typora
  *
- * V2026.3
- * 2026-03-27
+ * V2026.5
+ * 2026-05-05
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -22,8 +22,9 @@
 
 打印提示 / .v-print-tip / z-index: 8000;
 
-文档更多内容遮挡阴影（下）在 Zen 模式下 / .zen @{writeOnHTML}.done::after / z-index: 7150;
-Zen 模式下的页签组 / .zen .v-tab-group / z-index: 7001
+状态栏 在 宁静视图下 / .zen .v-status-bar / z-index: 7200;
+文档更多内容遮挡阴影（下）在 宁静视图下 / .zen #write.done::after / z-index: 7150;
+宁静视图下的页签组 / .zen .v-tab-group / z-index: 7001
 预加载提示 / body::before, #write::before / z-index: 7000; 调整该值须同时调整 .zen .v-tab-group
 
 检查锚点 / .v-check-hash / z-index: 6500;
@@ -62,7 +63,7 @@ Typora 通知栏 / .md-notification-container / z-index: 3100
 逐章导航面板 / .v-chapter-nav / z-index: 150;
 文档更多内容遮挡阴影（下） / @{writeOnEditing}::before, @{writeOnHTML}::before / z-index: 150
 工具栏 / .v-toolbar / z-index: 150;
-导航中心面板 edge 风格时 / .v-nav-center.block.edge / z-index: 140;
+xxxx 导航中心面板 edge 风格时 / .v-nav-center.block.edge / z-index: 140;
 状态栏 / .v-status-bar / z-index: 150;
 表头首列 / @{writeOnEditing} @{thead_lastRow_raw}:first-child / z-index: 140;
 表头 / @{writeOnEditing} @{thead_lastRow_raw} / z-index: 135;
@@ -115,6 +116,10 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --v-cap-up-symbol: @captionDirectionSymbol_up; // 题注内容方向指示符号-向上
     --v-cap-down-symbol: @captionDirectionSymbol_down; // 题注内容方向指示符号-向下
 
+    --mouse-x: 0px;
+    --mouse-y: 0px;
+    --spotlight-r: 180px;
+
     --v-summary-w: 24px;
     --v-ex-limit: 300px;
 
@@ -124,11 +129,11 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --c-br-s: var(--v-r-s) var(--v-r-s-xc);
     --b-br-b: var(--v-r-b) var(--v-r-b-xc);
     --b-br-s: var(--v-r-s) var(--v-r-s-xc);
-    .genButtonRadiusStyle(@style) when not (@style = std) {
+    .genButtonRadiusStyle() when not (@thmButtonRadiusStyle = std) {
         --b-br-b: @buttonRadiusCircle;
         --b-br-s: @buttonRadiusCircle;
     }
-    .genButtonRadiusStyle(@buttonRadiusStyle);
+    .genButtonRadiusStyle();
 
     // 主题相关
     --v-theme-name: @themeName; // 主题名称
@@ -142,11 +147,12 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     --thm-o-t-pd: @ownerTextPadding;
     --thm-bc-t-pd: @backcoverTextPadding;
     --thm-fig-ph: @figurePlaceholder; // 插图占位图
+    --v-theme-compcode: @themeCompCode; // 主题兼容代码，对应适配 VLOOK.JS 的版本
 
     --tbl-freeze-head: @tableFreezeHead;
     --tbl-freeze-column: @tableFreezeColumn;
 
-    --nav-center-style: @navCenterStyle; // 导航中心风格
+    --nav-center-style: @thmNavCenterStyle; // 导航中心风格
 
     --fill-width: @thmFillWidthMode;
 
@@ -308,6 +314,9 @@ html {
     font-style: normal;
     animation: none;
 }
+// .zen #write.done::after {
+//     z-index: 7150 !important;
+// }
 
 body {
     background: var(--db);
@@ -350,6 +359,7 @@ content {
     // 不要修改这个选择器中的 overflow 属性
     // 否则会导致其内的子元素滚动到顶或到底后向上冒泡同时滚动
     // 不要设置 overflow-x: visible;
+    scrollbar-width: thin; // 滚动条宽度
 }
 
 #write {
@@ -357,7 +367,7 @@ content {
 }
 
 @{onHTML} {
-    background: var(--db) var(--d-bi);
+    background: var(--d-bi), var(--db);
     padding-left: 0;
     padding-right: 0;
 }
@@ -371,13 +381,20 @@ body.unfreeze {
     overflow: auto;
 }
 
-// 禅模式，隐藏插件界面
-.zen :is(.v-toolbar, .v-chapter-nav, .v-nav-center, .v-nav-center-handle, .v-status-bar, .v-shortcut-bar) {
+// 宁静视图，隐藏插件界面
+.zen :is(.v-toolbar, .v-chapter-nav, .v-nav-center, .v-nav-center-handle, .v-shortcut-bar) {
     opacity: 0 !important;
     pointer-events: none !important;
 }
+.zen .v-status-bar,
 .zen .v-fill-width {
     opacity: .5;
+}
+// .zen .v-status-bar {
+//     z-index: 7200 !important;
+// }
+.zen .v-status-bar:hover {
+    opacity: 1;
 }
 
 // --------------------------------------------------
@@ -399,14 +416,14 @@ body.gray .v-status-bar>div:not([class*=v-sts-gray]),
 // 正文外背景
 body.gray .typora-export-content::before {
     // & when (@docExtBackgroundFilter = none) {
-    .docExtBackground(@filter) when (@filter = none) {
+    .docExtBackground() when (@docExtBackgroundFilter = none) {
         filter: @grayModeFilter !important;
     }
-    .docExtBackground(@filter) when not (@filter = none) {
+    .docExtBackground() when not (@docExtBackgroundFilter = none) {
     // & when not (@docExtBackgroundFilter = none) {
-        filter: @grayModeFilter @filter !important;
+        filter: @grayModeFilter @docExtBackgroundFilter !important;
     }
-    .docExtBackground(@docExtBackgroundFilter);
+    .docExtBackground();
 }
 
 // 适应宽度
@@ -453,26 +470,20 @@ body.gray .typora-export-content::before {
     }
 }
 
-// 覆盖 Typora 的 base.css 对应的样式
-// 段落中只有图片时的样式（结合主题的 genTableAndFigureAlign 处理，默认左对齐或居中）
-@onlyImageInPg: ~"@{writeOnEditing} p > .md-image:only-child:not(.md-img-error) img, @{writeOnHTML} p > :is(img, svg):only-child";
-@{onlyImageInPg} {
+// 导出 HTML 后，段落内插图（图片），一行仅有一个插图的情况
+@{writeOnHTML} figure[data-cntr=img]:not(:only-child) {
+    display: inline-block;
+}
+// 一行有多个插图的情况
+@{writeOnHTML} figure[data-cntr=img]:only-child {
     display: block;
-    margin: unset;
 }
-// 引用块内段落中只有图片时的样式
-.genBlockquoteImageAligen(@align) when (@align = center) {
-    @{writeOnEditing} blockquote > p > .md-image:only-child:not(.md-img-error) img,
-    @{writeOnHTML} blockquote > p > img:only-child {
-        margin: 0 auto;
-    }
-}
-.genBlockquoteImageAligen(@h7TextAlign);
 
-// 段落中只有图片链接时的样式（结合主题的 genTableAndFigureAlign 处理，默认左对齐或居中）
-@onlyImageLinkInPg: ~"@{writeOnEditing} p:has(> .md-link:only-child .md-image:only-child:not(.md-img-error) img), @{writeOnHTML} p:has(> a:only-child > img:only-child)";
-@{onlyImageLinkInPg} {
-    text-align: center;
+// 覆盖 Typora 的 base.css 中针对段落内图片的样式，
+// 改为仅当段落内只有图片时才应用（结合主题的 genTableAndFigureAlign 处理，默认左对齐或居中）
+#write p>.md-image:only-child:not(.md-img-error) img,
+#write p>img:only-child {
+    display: inline-block;
 }
 
 // 插图
@@ -725,11 +736,6 @@ img[loading]::after {
 @{sharpMagicImgContanier} svg[data-inject-url*="#blur"] {
     filter: blur(10px);
 }
-@{writeOnEditing} .md-image[data-src*="#blur"],
-@{sharpMagicImgContanier} .v-blur { // 编辑时，让边缘清晰
-    border-radius: var(--c-br-b);
-    display: inline-table !important;
-}
 
 // 生成通过图片地址参数指定图片特效样式：灰度
 @{writeOnEditing} .md-image[data-src*="#gray"]>img, // 编辑时
@@ -823,63 +829,64 @@ img[loading]::after {
     display: inline-flex;
     align-items: center;
     white-space: pre-wrap;
+    box-shadow: none;
 
     // 按钮圆角风格
-    .genKbdRadiusStyle(@style) when (@style = none) {
+    .genTweaks_byKbdRadius() when (@thmKbdRadiusStyle = none) {
         padding: 7px 11px;
         border-radius: 0;
     }
-    .genKbdRadiusStyle(@style) when (@style = small) {
+    .genTweaks_byKbdRadius() when (@thmKbdRadiusStyle = small) {
         padding: 8px 12px;
         border-radius: var(--v-r-s);//var(--b-br-s);//var(--v-r-s);
     }
-    .genKbdRadiusStyle(@style) when (@style = big) {
+    .genTweaks_byKbdRadius() when (@thmKbdRadiusStyle = big) {
         padding: 8px 12px;
         border-radius: calc(var(--v-r-b) - 4px);
     }
-    .genKbdRadiusStyle(@style) when (@style = leaf) {
+    .genTweaks_byKbdRadius() when (@thmKbdRadiusStyle = leaf) {
         padding: 8px 12px;
         border-radius: var(--v-r-b) 0;
     }
-    .genKbdRadiusStyle(@style) when (@style = cap) {
+    .genTweaks_byKbdRadius() when (@thmKbdRadiusStyle = cap) {
         padding: 8px 12px;
         border-radius: @buttonRadiusCircle * 10;
     }
-    .genKbdRadiusStyle(@thmKbdRadiusStyle);
+    .genTweaks_byKbdRadius();
 
     color: @buttonForeColor;
     background: var(--v-btn-bg);
 
     // 按钮风格
-    .genLinkKbdStyle(@style) when (@style = flat) {
+    .genTweaks_byLinkKbd() when (@thmLinkKbdStyle = flat) {
         border: 2px solid var(--v-btn-bg);
     }
-    .genLinkKbdStyle(@style) when (@style = fade) {
+    .genTweaks_byLinkKbd() when (@thmLinkKbdStyle = fade) {
         padding: 10px 12px;
         border: none;
         background: linear-gradient(180deg, var(--btn-reflect), var(--v-btn-bg), var(--btn-shadow)), var(--v-btn-bg);
         box-shadow: 0 0 0 @kbdSecBorderWidth var(--v-btn-bg) inset;
     }
-    .genLinkKbdStyle(@style) when (@style = raised) {
+    .genTweaks_byLinkKbd() when (@thmLinkKbdStyle = raised) {
         padding: 8px 12px;
         border: none !important;
         box-shadow: 0 @rasiedShadowSize 0 0 var(--btn-raised), 0 @rasiedShadowSize 0 0 var(--v-btn-bg);
         margin: 3px 1px;
     }
-    .genLinkKbdStyle(@style) when (@style = 3d) {
+    .genTweaks_byLinkKbd() when (@thmLinkKbdStyle = 3d) {
         padding: 9px 13px;
         border: 1px solid var(--df-a);
         box-shadow: 0 @3dShadowSize 0 0 var(--btn-reflect) inset, @3dShadowSize 0 0 0 var(--btn-reflect) inset,
             -@3dShadowSize 0 0 0 var(--btn-shadow) inset, 0 -@3dShadowSize 0 0 var(--btn-shadow) inset;
     }
-    .genLinkKbdStyle(@style) when (@style = 3d_up) {
+    .genTweaks_byLinkKbd() when (@thmLinkKbdStyle = 3d_up) {
         padding: 9px 13px;
         border: none;
         box-shadow: 0 @3dShadowSize 0 0 var(--btn-reflect) inset,
             0 -@3dShadowSize 0 0 var(--btn-shadow) inset,
             0 0 0 1px #00000099 inset;
     }
-    .genLinkKbdStyle(@thmLinkKbdStyle);
+    .genTweaks_byLinkKbd();
 }
 #write @{kbdSuper},
 #write @{kbdSec} {
@@ -901,47 +908,47 @@ img[loading]::after {
         color: @buttonForeHoverColor;
         background: var(--a-o-c);
 
-        .genLinkKbdStyle(@style) when (@style = flat) {
+        .genTweaks() when (@thmLinkKbdStyle = flat) {
             border-color: var(--a-o-c);
         }
-        .genLinkKbdStyle(@style) when (@style = fade) {
+        .genTweaks() when (@thmLinkKbdStyle = fade) {
             background: linear-gradient(180deg, var(--btn-reflect), var(--a-o-c), var(--btn-shadow)), var(--a-o-c);
             box-shadow: 0 0 0 @kbdSecBorderWidth var(--a-o-c) inset;
         }
-        .genLinkKbdStyle(@style) when (@style = raised) {
+        .genTweaks() when (@thmLinkKbdStyle = raised) {
             box-shadow: 0 @rasiedShadowSize 0 0 var(--btn-raised), 0 @rasiedShadowSize 0 0 var(--a-o-c);
         }
-        .genLinkKbdStyle(@style) when (@style = 3d) {
+        .genTweaks() when (@thmLinkKbdStyle = 3d) {
             border: 1px solid var(--df);
         }
-        .genLinkKbdStyle(@thmLinkKbdStyle);
+        .genTweaks();
     }
     #write a kbd:hover>@{svgGs} {
         fill: currentColor !important;
     }
 }
 #write a kbd:is(:active, .pressed) {
-    .genLinkKbdStyle(@style) when (@style = flat) {
+    .genTweaks() when (@thmLinkKbdStyle = flat) {
         border-color: @aActiveColor !important;
         transform: @activePressedTransform_normal;
     }
-    .genLinkKbdStyle(@style) when (@style = fade) {
+    .genTweaks() when (@thmLinkKbdStyle = fade) {
         transform: @activePressedTransform_normal;
     }
-    .genLinkKbdStyle(@style) when (@style = raised) {
+    .genTweaks() when (@thmLinkKbdStyle = raised) {
         box-shadow: none !important;
         transform: translateY(@rasiedShadowSize);
     }
-    .genLinkKbdStyle(@style) when (@style = 3d) {
+    .genTweaks() when (@thmLinkKbdStyle = 3d) {
         box-shadow: 0 @3dShadowSize 0 0 var(--btn-shadow) inset, @3dShadowSize 0 0 0 var(--btn-shadow) inset,
             -@3dShadowSize 0 0 0 var(--btn-reflect) inset, 0 -@3dShadowSize 0 0 var(--btn-reflect) inset;
     }
-    .genLinkKbdStyle(@style) when (@style = 3d_up) {
+    .genTweaks() when (@thmLinkKbdStyle = 3d_up) {
         box-shadow: 0 @3dShadowSize 0 0 var(--btn-shadow) inset,
             0 -@3dShadowSize 0 0 var(--btn-reflect) inset;
         transform: @activePressedTransform_normal;
     }
-    .genLinkKbdStyle(@thmLinkKbdStyle);
+    .genTweaks();
 
     color: @buttonForeHoverColor !important;
     background: @aActiveColor !important;
@@ -957,33 +964,33 @@ img[loading]::after {
     animation: kbd-super 5s ease infinite alternate;
     transition: all var(--v-trans-dur) ease-out;
 
-    .genLinkKbdStyle(@style) when (@style = flat),  (@style = fade), (@style = raised) {
+    .genTweaks() when (@thmLinkKbdStyle = flat),  (@thmLinkKbdStyle = fade), (@thmLinkKbdStyle = raised) {
         box-shadow: none !important;
         border-color: var(--df) !important;
     }
-    .genLinkKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+    .genTweaks() when (@thmLinkKbdStyle = 3d), (@thmLinkKbdStyle = 3d_up) {
         border-color: @colorBlack !important;
     }
-    .genLinkKbdStyle(@thmLinkKbdStyle);
+    .genTweaks();
 }
 .genHoverStyle(@for) when (@for = kbdSuper) {
     #write @{kbdSuper}:hover {
         color: var(--df) !important;
         background: var(--db) !important;
         outline-width: 6px;
-        .genLinkKbdStyle(@style) when (@style = flat) {
+        .genTweaks() when (@thmLinkKbdStyle = flat) {
             border-color: var(--db);
         }
-        .genLinkKbdStyle(@style) when (@style = fade) {
+        .genTweaks() when (@thmLinkKbdStyle = fade) {
             border-color: var(--db);
         }
-        .genLinkKbdStyle(@style) when (@style = raised) {
+        .genTweaks() when (@thmLinkKbdStyle = raised) {
             border-color: var(--db);
         }
-        .genLinkKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+        .genTweaks() when (@thmLinkKbdStyle = 3d), (@thmLinkKbdStyle = 3d_up) {
             border-color: var(--df) !important;
         }
-        .genLinkKbdStyle(@thmLinkKbdStyle);
+        .genTweaks();
     }
     #write @{kbdSuper}:hover>@{svgGs} {
         fill: currentColor !important;
@@ -994,10 +1001,10 @@ img[loading]::after {
     background: var(--std-code-sd) !important;
     border-color: var(--std-code-sd) !important;
 
-    .genLinkKbdStyle(@style) when not (@style = 3d) {
+    .genTweaks() when not (@thmLinkKbdStyle = 3d) {
         transform: @activePressedTransform_normal;
     }
-    .genLinkKbdStyle(@thmLinkKbdStyle);
+    .genTweaks();
 }
 
 // 段落中只有按钮时（一个或多个），会居中显示
@@ -1044,24 +1051,23 @@ img[loading]::after {
 // 次要按钮
 @kbdSecBorderWidth: 1px;
 #write @{kbdSec} {
-    .genLinkKbdStyle(@style) when (@style = flat) {
+    .genTweaks() when (@thmLinkKbdStyle = flat) {
         background: var(--db);
         border-color: currentColor;
     }
-    .genLinkKbdStyle(@style) when (@style = fade) {
+    .genTweaks() when (@thmLinkKbdStyle = fade) {
         background: linear-gradient(180deg, var(--btn-reflect), var(--ac-t1-a), var(--btn-shadow)), var(--ac-t1-a);
         box-shadow: 0 0 0 @kbdSecBorderWidth currentColor inset;
     }
-    .genLinkKbdStyle(@style) when (@style = raised) {
+    .genTweaks() when (@thmLinkKbdStyle = raised) {
         background: var(--db);
         box-shadow: 0 @rasiedShadowSize 0 0 currentColor, 0 0 0 1px currentColor inset;
     }
-    .genLinkKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+    .genTweaks() when (@thmLinkKbdStyle = 3d), (@thmLinkKbdStyle = 3d_up) {
         background: var(--ac-t1-a);
     }
-    .genLinkKbdStyle(@thmLinkKbdStyle);
+    .genTweaks();
 
-    // color: var(--v-btn-bg);
     color: var(--a-c);
 }
 // 链接、次要按钮内的 svg 图标（已注入）
@@ -1072,21 +1078,21 @@ img[loading]::after {
     #write @{kbdSec}:hover {
         color: var(--a-o-c);// !important;
 
-        .genLinkKbdStyle(@style) when (@style = flat) {
+        .genTweaks() when (@thmLinkKbdStyle = flat) {
             background: var(--ac-t2-a) !important;
         }
-        .genLinkKbdStyle(@style) when (@style = fade) {
+        .genTweaks() when (@thmLinkKbdStyle = fade) {
             background: linear-gradient(180deg, var(--btn-reflect), var(--ac-t2-a), var(--btn-shadow)), var(--ac-t2-a);
             box-shadow: 0 0 0 @kbdSecBorderWidth currentColor inset;
         }
-        .genLinkKbdStyle(@style) when (@style = raised) {
+        .genTweaks() when (@thmLinkKbdStyle = raised) {
             background: var(--db) !important;
             box-shadow: 0 @rasiedShadowSize 0 0 var(--a-o-c), 0 0 0 @kbdSecBorderWidth var(--a-o-c) inset;
         }
-        .genLinkKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+        .genTweaks() when (@thmLinkKbdStyle = 3d), (@thmLinkKbdStyle = 3d_up) {
             background: var(--ac-t2-a) !important;
         }
-        .genLinkKbdStyle(@thmLinkKbdStyle);
+        .genTweaks();
     }
     a:hover>@{svgGs},
     #write @{kbdSec}:hover>@{svgGs} {
@@ -1096,10 +1102,10 @@ img[loading]::after {
 #write @{kbdSec}:is(:active, .pressed) {
     color: @aActiveColor !important;
     background: var(--ac-t2-a) !important;
-    .genLinkKbdStyle(@style) when (@style = raised) {
+    .genTweaks() when (@thmLinkKbdStyle = raised) {
         box-shadow: 0 0 0 @kbdSecBorderWidth currentColor inset !important;
     }
-    .genLinkKbdStyle(@thmLinkKbdStyle);
+    .genTweaks();
 }
 
 a,
@@ -1321,19 +1327,24 @@ rt:hover {
 .genImageFill(wn);
 .genImageFill(rd);
 .genImageFill(og);
+.genImageFill(tu);
 .genImageFill(ye);
 .genImageFill(lm);
 .genImageFill(gn);
 .genImageFill(mn);
 .genImageFill(ol);
 .genImageFill(aq);
+.genImageFill(sk);
 .genImageFill(cy);
 .genImageFill(bu);
 .genImageFill(se);
 .genImageFill(la);
 .genImageFill(vn);
+.genImageFill(cf);
+.genImageFill(au);
 .genImageFill(pu);
 .genImageFill(ro);
+.genImageFill(pl);
 .genImageFill(pk);
 .genImageFill(gd);
 .genImageFill(bn);
@@ -1740,8 +1751,7 @@ h6:first-child) {
 // 全屏显示
 .v-caption.full {
     position: fixed !important;
-    // -webkit-overflow-scrolling: touch; // 避免移动端滚动失效
-    background: var(--db);
+    background: var(--df-lg);
     margin: 0 !important;
     top: 0;
     left: 50%;
@@ -1754,7 +1764,10 @@ h6:first-child) {
     touch-action: none;
 }
 .v-caption.full.v-backdrop-blurs.enabled {
-    background: linear-gradient(180deg, var(--db) 50px, var(--db05));
+    // background: linear-gradient(180deg, rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),1) 50%,
+    //     rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),.9));
+    background: radial-gradient(rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),1) 50%,
+        rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),.9));
 }
 .v-caption.full figcaption {
     display: none;
@@ -1829,12 +1842,12 @@ h6:first-child) {
     tab-size: @thmTabSize;
     width: @thmTabWidth;
     // 以下用于显示 1em 为单位的网格
-    .genDebugGrid() when (isdefined(@devMode)) {
+    .genTweaks() when (isdefined(@devMode)) {
         background-image: linear-gradient(to right, var(--ac-t1) 1px, transparent 1px);
         background-size: 1em 100%;
         box-shadow: 1px 0 0 var(--ac-t2);
     }
-    .genDebugGrid();
+    .genTweaks();
 }
 #write p {
     tab-size: @thmTabSize;
@@ -2014,6 +2027,14 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 
 // --------------------
 // 引用块分栏
+
+// 作为分栏的 hr 样式，不能直接使用 display:none 隐藏，否则会在特殊情况导致分栏失效，如：
+// 引用块分栏（三栏）下只有1个引用块，后跟引用块双分栏，在导出 HTML 会导致双栏中的第一个引用块错位
+hr.v-column {
+    visibility: hidden;
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
 @quote_alert: ~":is(blockquote, .md-alert)";
 @{writeOnEditing} .md-hr+@{quote_alert}::before {
@@ -2199,6 +2220,10 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 .md-fences[data-tag-group] {
     display: none;
 }
+
+// .CodeMirror-line {
+//     line-height: 1.25;
+// }
 
 // 代码块行的换行方式
 .md-fences.unwrap .CodeMirror-line {
@@ -2593,11 +2618,9 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 
 // 引用内的引用块、折叠（非分栏）
 #write @{quote_details}>@{quote_details} {
-    // border-left: @defQuoteBorderWidth solid fade(@accColorGray, 20%);
     border-left: @defQuoteBorderWidth solid var(--df02);
     box-shadow: none;
-    // color: var(--df-a);
-    opacity: .6;
+    color: var(--df-a);
     background: none;
     border-radius: 0;
     padding: 0 .5em;
@@ -2622,13 +2645,13 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     padding: 0;
     position: fixed;
     color: var(--df);
-    .genBgColor(@style) when (@style = std) {
+    .genTweaks() when (@thmNavCenterStyle = std) {
         background: var(--pn-c);
     }
-    .genBgColor(@style) when (@style = flat), (@style = edge) {
+    .genTweaks() when (@thmNavCenterStyle = flat), (@thmNavCenterStyle = edge) {
         background: var(--db);
     }
-    .genBgColor(@navCenterStyle);
+    .genTweaks();
 
     top: @floatTop;
     bottom: 20px;
@@ -2697,86 +2720,25 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
     background-color: var(--ac-rd);
 }
 
-// 生成 Dev Mode 的提示样式
-.genDevMode() when (isdefined(@devMode)) {
-    .sidebar-content::before,
-    .v-status-bar::before {
-        content: "DEV MODE / " @thmType !important;
-        white-space: pre;
-        font: var(--v-fw-bd) @miniFontSize/1 var(--v-fm-code); // [style] [weight] [size/[line-height]] [family]
-        color: var(--df);
-        background: var(--ac-ye);
-        border-radius: var(--c-br-s);
-        border: 2px dashed var(--df);
-        padding: 2px 6px;
-        display: flex;
-        align-items: center;
-        top: 10px;
-        z-index: 10;
-        position: absolute;
-        pointer-events: none;
-    }
-    // 编辑时，侧边栏
-    .sidebar-content::before {
-        right: 10px;
-    }
-    // 导出后，状态栏
-    .v-status-bar::before {
-        top: -30px;
-    }
-}
-.genDevMode() when not (isdefined(@devMode)) {
-    .sidebar-content::before {
-        content: @thmType;
-        font: var(--v-fw-bd) @miniFontSize/1 var(--v-fm-bd); // [style] [weight] [size/[line-height]] [family]
-        color: @buttonForeHoverColor;
-        background: var(--a-o-c);
-        border: 1px solid var(--a-o-c);
-        border-radius: var(--c-br-s);
-        padding: 2px 5px;
-        display: flex;
-        align-items: center;
-        left: unset;
-        top: 10px;
-        right: 10px;
-        position: absolute;
-        pointer-events: none;
-        z-index: 10;
-    }
-
-    // 针对 for Windows
-    @{isShowSearch_onWindows} .sidebar-content::before {
-        top: 60px;
-    }
-}
-.genDevMode();
-
 .v-status-bar,
 .v-shortcut-bar {
     user-select: none;
     position: fixed;
     border-radius: var(--b-br-s);
 
-    .genStatusBarStyle(@style, @border) when (@style = std) {
+    .genTweaks() when (@thmNavCenterStyle = std) {
         background: var(--pn-c);
-        outline: var(--v-fl-bd);
     }
-    .genStatusBarStyle(@style, @border) when (@style = flat) {
+    .genTweaks() when (@thmNavCenterStyle = flat) {
+        background: var(--db);
+        .genFloatBorderStyle();
+    }
+    .genTweaks() when (@thmNavCenterStyle = edge) {
         background: var(--db);
         outline: #FFF6;
-        .genBorder(@border) when (@border = shadow) {
-            box-shadow: var(--v-fl-sd);
-        }
+        .genFloatBorderStyle();
     }
-    .genStatusBarStyle(@style, @border) when (@style = edge) {
-        background: var(--db);
-        outline: #FFF6;
-        .genBorder(@border) when (@border = shadow) {
-            box-shadow: var(--v-fl-sd);
-        }
-        .genBorder(@border);
-    }
-    .genStatusBarStyle(@navCenterStyle, @panelBorder);
+    .genTweaks();
 
     padding: 2px;
     right: @writePaddingRight;
@@ -2830,14 +2792,14 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
 
 // 按钮分组
 .v-fullscreen-toolbar .group {
-    .genToolbarStyle(@style) when (@style = std) {
+    .genTweaks() when (@thmToolbarStyle = std) {
         background: var(--v-ui-bg);
     }
-    .genToolbarStyle(@style) when (@style = simple) {
+    .genTweaks() when (@thmToolbarStyle = simple) {
         background: var(--db);
         outline: 1px solid var(--pn-c-a);
     }
-    .genToolbarStyle(@toolbarStyle);
+    .genTweaks();
 
     display: flex;
     align-items: stretch;
@@ -2862,7 +2824,7 @@ body:not([class]) blockquote { // 用于在 Typora 中的进行主题预览
         border-radius: @buttonRadiusCircle;
     }
 }
-.genFullscreenButtonRadiusStyle(@buttonRadiusStyle);
+.genFullscreenButtonRadiusStyle(@thmButtonRadiusStyle);
 
 // 中间分组：横向
 .v-fullscreen-toolbar.hori .group.center {
@@ -2903,13 +2865,13 @@ transform: rotate(90deg);
 
 // 全屏显示类型内容当前序号、总数量
 .v-fullscreen-toolbar .info {
-    .genToolbarStyle(@style) when (@style = std) {
+    .genTweaks() when (@thmToolbarStyle = std) {
         color: @uiForeColor;
     }
-    .genToolbarStyle(@style) when (@style = simple) {
+    .genTweaks() when (@thmToolbarStyle = simple) {
         color: var(--v-ui-bg);
     }
-    .genToolbarStyle(@toolbarStyle);
+    .genTweaks();
 
     font-size: .875em !important;
     border-radius: var(--b-br-s);
@@ -2953,13 +2915,13 @@ transform: rotate(90deg);
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    .genBarBarBtnStyle(@style) when (@style = std) {
+    .genTweaks(@style) when (@style = std) {
         border-radius: @borderRadiusInner_1px;
     }
-    .genBarBarBtnStyle(@style) when not (@style = std) {
+    .genTweaks(@style) when not (@style = std) {
         border-radius: var(--b-br-s);
     }
-    .genBarBarBtnStyle(@buttonRadiusStyle);
+    .genTweaks(@thmButtonRadiusStyle);
 
     min-width: calc(var(--v-tb-btn-w) - 8px);
     min-height: @floatButtonHeight - 4px;
@@ -3030,17 +2992,36 @@ transform: rotate(90deg);
 // 关闭灰色模式，恢复显示
 .v-status-bar>.v-sts-gray {
     display: none;
-    padding: 0 6px;
+}
+
+.v-status-bar>:is(.v-new-version, .v-sts-gray) {
+    padding: 0 10px 0 4px;
+}
+.v-status-bar>:is(.v-new-version, .v-sts-gray)>svg {
+    margin-right: 4px;
 }
 
 // 状态栏按钮 选中样式
 .v-status-bar>div:is(.selected, .enabled) {
-    background: var(--ac-t1-fd);
-    color: var(--ac-t1);
+    // background: var(--ac-t1-fd);
+    // color: var(--ac-t1);
+    background: var(--ac-t2-fd);
+    color: var(--ac-t2);
     display: inline-flex;
 }
 .v-status-bar>div:is(.selected, .enabled) svg>use {
-    fill: var(--a-c);
+    // fill: var(--a-c);
+    fill: var(--ac-t2);
+    // fill: currentColor;
+}
+
+// 针对 dark mode 的样式微调
+.v-color-scheme.selected.dark {
+    color: #F8F8F0;
+    background: fade(#F8F8F0, 25%);
+}
+.v-color-scheme.selected.dark > svg > use {
+    fill: currentColor;
 }
 
 // 文档信息
@@ -3138,7 +3119,6 @@ transform: rotate(90deg);
 // 新版检查结果
 .v-status-bar>.v-new-version {
     display: none;
-    padding: 0 6px;
     font: var(--v-f-w-tag) 1em var(--v-f-fm-tag);
 }
 .v-new-version.enabled {
@@ -3170,6 +3150,7 @@ transform: rotate(90deg);
 }
 
 .v-print-tip > .title {
+    color: #FFF;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3364,7 +3345,7 @@ transform: rotate(90deg);
 // 带表格带行折叠时，不是目录行的样式（无行编号）
 td.v-tbl-row-g-not-folder {
     text-align: left !important;
-    padding-left: 25px !important;
+    padding-left: 28px !important;
 }
 
 // 折叠按钮样式
@@ -3508,18 +3489,18 @@ td.v-long {
 
 // 脚注行序末返回链接
 .reversefootnote {
-    color: @accColorBlue;
+    color: @accBu;
 }
 .genHoverStyle(@for) when (@for = reversefootnote) {
     .reversefootnote:hover {
-        color: @accColorRed;
+        color: @accRd;
     }
 }
 
 // 脚注上标
 #write a[name^=ref-footnote-] {
     font: normal .75em var(--v-fm-bd); // [style] [weight] [size/[line-height]] [family]
-    color: @accColorBlue;
+    color: @accBu;
 }
 
 @codeBorderRadius: var(--c-br-s);
@@ -3687,7 +3668,7 @@ strong :is(tt, code) {
     z-index: 3500;
 }
 
-// 激活笔
+// 激光笔
 .v-laser-cursor {
     display: none;
     position: fixed;
@@ -3737,9 +3718,9 @@ strong :is(tt, code) {
     padding: 8px 12px;
     text-align: center;
     white-space: pre-wrap;
-    border: 1px solid var(--df-a);
+    background: var(--ac-t2-a);
+    border: 1px solid var(--ac-t2);
     border-radius: 0 var(--v-r-b) var(--v-r-b) var(--v-r-b);
-    background: var(--pn-c);
     width: max-content;
     max-width: calc(100% - 10px);
     cursor: default;
@@ -3757,6 +3738,17 @@ strong :is(tt, code) {
     border-color: var(--df-a);
     border: none;
     background: var(--df);
+}
+.v-info-tips.bubble.ye {
+    color: #000;
+    background: var(--ac-ye);
+}
+.v-info-tips.bubble.lm {
+    color: #000;
+    background: var(--ac-lm);
+}
+.v-info-tips.bubble.rd {
+    background: var(--ac-rd);
 }
 .v-info-tips.bubble svg>use {
     fill: var(--db);
@@ -3801,18 +3793,6 @@ strong :is(tt, code) {
 }
 
 // 针对提示信息、演示工具提示信息内的按键样式
-// .v-prs-info kbd,
-// .v-info-tips.bubble kbd {
-//     margin: 0 4px;
-//     padding: 1px 4px;
-//     text-shadow: none;
-//     color: var(--df);
-//     border: 2px solid var(--kbd-sd-i);
-//     border-left-color: var(--kbd-reflect-i);
-//     border-top-color: var(--kbd-reflect-i);
-//     background: var(--kbd-bg-i);
-//     box-shadow: none;
-// }
 .v-info-tips.bubble hr {
     margin-top: .75em;
     margin-bottom: .75em;
@@ -4281,26 +4261,26 @@ div[class*=v-fontinfo-].done > span,
 
 .v-nav-center {
     // 生成导航中心背景样式
-    .genNavCenterStyle(@style) when (@style = std) {
+    .genTweak_byNavCenter() when (@thmNavCenterStyle = std) {
         background-color: var(--pn-c);
     };
-    .genNavCenterStyle(@style) when (@style = flat) {
+    .genTweak_byNavCenter() when (@thmNavCenterStyle = flat) {
         background-color: var(--db);
     };
-    .genNavCenterStyle(@style) when (@style = edge) {
+    .genTweak_byNavCenter() when (@thmNavCenterStyle = edge) {
         background-color: var(--v-ui-bg);
         color: @buttonForeColor;
     };
-    .genNavCenterStyle(@navCenterStyle);
+    .genTweak_byNavCenter();
 
     // 生成导航中心边框样式
-    .genNavCenterRadiusStyle(@style) when (@style = std) {
+    .genTweaks_byButtonRadius() when (@thmButtonRadiusStyle = std) {
         border-radius: var(--c-br-b);
     }
-    .genNavCenterRadiusStyle(@style) when not (@style = std) {
+    .genTweaks_byButtonRadius() when not (@thmButtonRadiusStyle = std) {
         border-radius: @buttonRadiusCircle @buttonRadiusCircle var(--v-r-b) var(--v-r-b);
     }
-    .genNavCenterRadiusStyle(@buttonRadiusStyle);
+    .genTweaks_byButtonRadius();
 
     cursor: default;
     display: block;
@@ -4313,47 +4293,29 @@ div[class*=v-fontinfo-].done > span,
     z-index: 2000;
     user-select: none;
 }
+.v-nav-center::before {
+    content: "";
+    // 生成侧边栏头部样式
+    .genSidebarHeaderCommon();
+
+    height: 90px;
+    z-index: -1;
+}
+
 // 针对挤压/占位正文空间时的微调
 .v-nav-center.block {
     top: 70px;
     bottom: 15px;
-    .genNavCenterBlockStyle(@style, @border) when (@style = std) {
-        .genBorder(@border) when (@border = shadow) {
+    .genTweaks() when (@thmNavCenterStyle = std), (@thmNavCenterStyle = flat) {
+        .genFloatBorderStyle();
+    }
+    .genTweaks() when (@thmNavCenterStyle = edge) {
+        .genBorder() when (@thmFloatShadow = shadow) {
             box-shadow: var(--v-fl-sd);
         }
-        .genBorder(@border) when (@border = line) {
-            .genBorderCSS() when not (isdefined(@panelBorderColor)) {
-                box-shadow: 0 0 0 1px var(--df-a) inset;
-            }
-            .genBorderCSS() when (isdefined(@panelBorderColor)) {
-                box-shadow: 0 0 0 1px @panelBorderColor inset;
-            }
-            .genBorderCSS();
-        }
-        .genBorder(@border);
-    };
-    .genNavCenterBlockStyle(@style, @border) when (@style = flat) {
-        .genBorder(@border) when (@border = shadow) {
-            box-shadow: var(--v-fl-sd);
-        }
-        .genBorder(@border) when (@border = line) {
-            .genBorderCSS() when not (isdefined(@panelBorderColor)) {
-                box-shadow: 0 0 0 1px var(--pn-c-a) inset;
-            }
-            .genBorderCSS() when (isdefined(@panelBorderColor)) {
-                box-shadow: 0 0 0 1px @panelBorderColor inset;
-            }
-            .genBorderCSS();
-        }
-        .genBorder(@border);
-    };
-    .genNavCenterBlockStyle(@style, @border) when (@style = edge) {
-        .genBorder(@border) when (@border = shadow) {
-            box-shadow: var(--v-fl-sd);
-        }
-        .genBorder(@border);
-    };
-    .genNavCenterBlockStyle(@navCenterStyle, @panelBorder);
+        .genBorder();
+    }
+    .genTweaks();
 }
 // 针对移动端的微调
 .v-nav-center.mobile {
@@ -4453,17 +4415,16 @@ div[class*=v-fontinfo-].done > span,
     margin: @ncMargin (@ncMargin - 1px);
     padding: 2px;
     pointer-events: all;
-
-    .genSegmentStyle(@style) when (@style = std) {
-        background: var(--pn-c-a);
+    .genTweaks() when (@thmNavCenterStyle = std) {
+        background: var(--db);
     }
-    .genSegmentStyle(@style) when (@style = flat) {
-        background: var(--pn-c);
+    .genTweaks() when (@thmNavCenterStyle = flat) {
+        background: var(--ac-t1-fd);
     }
-    .genSegmentStyle(@style) when (@style = edge) {
+    .genTweaks() when (@thmNavCenterStyle = edge) {
         background: var(--ac-t1-a);
     }
-    .genSegmentStyle(@navCenterStyle);
+    .genTweaks();
 }
 // 导航中心标签栏按钮
 .v-segment>input[name=toc-segment] {
@@ -4476,26 +4437,26 @@ div[class*=v-fontinfo-].done > span,
 // 当前
 @segmentBtn: ~".v-segment>input[name=toc-segment]:checked+.v-segment-btn";
 .genSegmentBtnCurrent() {
-    .genSegmentBtnCurrentStyle(@style) when (@style = std) {
+    .genTweaks() when (@thmNavCenterStyle = std) {
         @{segmentBtn} {
             background: var(--pn-c);
             box-shadow: 0 0 4px 0 #0000001A;
         }
     }
-    .genSegmentBtnCurrentStyle(@style) when (@style = flat) {
+    .genTweaks() when (@thmNavCenterStyle = flat) {
         @{segmentBtn} {
             background: var(--db);
             box-shadow: 0 0 4px 0 #0000001A;
         }
     }
-    .genSegmentBtnCurrentStyle(@style) when (@style = edge) {
+    .genTweaks() when (@thmNavCenterStyle = edge) {
         @{segmentBtn} {
             background-color: var(--v-ui-bg);
             color: @buttonForeColor;
             box-shadow: 0 0 4px 0 #0000001A;
         }
     }
-    .genSegmentBtnCurrentStyle(@navCenterStyle);
+    .genTweaks();
 }
 // 标准风格
 .genSegmentBtn(@style) when (@style = std) {
@@ -4547,13 +4508,15 @@ div[class*=v-fontinfo-].done > span,
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    .genSegmentBtnStyle(@style) when (@style = std) {
+
+    .genTweaks(@style) when (@style = std) {
         border-radius: @borderRadiusInner_2px;
     }
-    .genSegmentBtnStyle(@style) when not (@style = std) {
+    .genTweaks(@style) when not (@style = std) {
         border-radius: var(--b-br-s);
     }
-    .genSegmentBtnStyle(@buttonRadiusStyle);
+    .genTweaks(@thmButtonRadiusStyle);
+
     float: left;
     position: relative;
     z-index: 10;
@@ -4631,16 +4594,16 @@ div[class*=v-fontinfo-].done > span,
     z-index: 2000;
     // 以下两行样式及 hover 样式，与 v-fill-width 内的 svg>use 保持一致
     background: var(--ac-t1);
-    .genToolbarStyle(@style) when (@style = std) {
+    .genTweaks() when (@thmToolbarStyle = std) {
         color: @buttonForeColor;
         background: var(--v-ui-bg);
     }
-    .genToolbarStyle(@style) when (@style = simple) {
+    .genTweaks() when (@thmToolbarStyle = simple) {
         color: var(--v-ui-bg);
         background: var(--db);
         outline: 1px solid var(--pn-c-a);
     }
-    .genToolbarStyle(@toolbarStyle);
+    .genTweaks();
 }
 .v-nav-center-handle svg {
     transform: rotate(180deg) scale(.4);
@@ -4701,16 +4664,16 @@ div[class*=v-fontinfo-].done > span,
 }
 // 大纲内的版权信息
 .v-nav-center .v-copyright {
-    .genCopyrightBg(@style) when (@style = std) {
+    .genTweaks() when (@thmNavCenterStyle = std) {
         background: var(--pn-c);
     }
-    .genCopyrightBg(@style) when (@style = flat) {
+    .genTweaks() when (@thmNavCenterStyle = flat) {
         background: var(--db);
     }
-    .genCopyrightBg(@style) when (@style = edge) {
+    .genTweaks() when (@thmNavCenterStyle = edge) {
         background: var(--v-ui-bg);
     }
-    .genCopyrightBg(@navCenterStyle);
+    .genTweaks();
 }
 // 正文后的版权信息
 #write > .v-copyright {
@@ -4742,37 +4705,10 @@ div[class*=v-fontinfo-].done > span,
 }
 
 .v-float-card {
-    .genFloatCardStyle(@style, @shadow) when (@style = std) {
-        .genFloatShadow(@shadow) when (@shadow = shadow) {
-            box-shadow: var(--v-fl-sd);
-        }
-        .genFloatShadow(@shadow) when (@shadow = line) {
-            .genBorderCSS() when not (isdefined(@panelBorderColor)) {
-                box-shadow: 0 0 0 1px var(--pn-c-a) inset !important;
-            }
-            .genBorderCSS() when (isdefined(@panelBorderColor)) {
-                box-shadow: 0 0 0 1px @panelBorderColor inset !important;
-            }
-            .genBorderCSS();
-        }
-        .genFloatShadow(@shadow);
+    .genTweaks() when (@thmToolbarStyle = std), (@thmToolbarStyle = simple) {
+        .genFloatBorderStyle();
     }
-    .genFloatCardStyle(@style, @shadow) when (@style = simple) {
-        .genFloatShadow(@shadow) when (@shadow = shadow) {
-            box-shadow: var(--v-fl-sd);
-        }
-        .genFloatShadow(@shadow) when (@shadow = line) {
-            .genBorderCSS() when not (isdefined(@panelBorderColor)) {
-                box-shadow: 0 0 0 1px var(--pn-c-a) inset !important;
-            }
-            .genBorderCSS() when (isdefined(@panelBorderColor)) {
-                box-shadow: 0 0 0 1px @panelBorderColor inset !important;
-            }
-            .genBorderCSS();
-        }
-        .genFloatShadow(@shadow);
-    }
-    .genFloatCardStyle(@toolbarStyle, @floatShadow);
+    .genTweaks();
 }
 
 .v-footnote-pn {
@@ -4784,16 +4720,16 @@ div[class*=v-fontinfo-].done > span,
     border-radius: var(--c-br-b);
     box-shadow: var(--v-fl-sd);
     margin: 0;
-    .genFootnotePnStyle(@style) when (@style = std) {
+    .genTweaks() when (@thmNavCenterStyle = std) {
         background: var(--pn-c);
     };
-    .genFootnotePnStyle(@style) when (@style = flat) {
+    .genTweaks() when (@thmNavCenterStyle = flat) {
         background: var(--db);
     };
-    .genFootnotePnStyle(@style) when (@style = edge) {
+    .genTweaks() when (@thmNavCenterStyle = edge) {
         background: var(--db);
     };
-    .genFootnotePnStyle(@navCenterStyle);
+    .genTweaks();
     display: none;
     z-index: 2100;
 }
@@ -4816,13 +4752,14 @@ div[class*=v-fontinfo-].done > span,
     height: 20px;
     width: 100%;
 
-    .genPanelMoreContentStyle(@style) when (@style = std) {
+    .genTweaks() when (@thmNavCenterStyle = std) {
         background-image: var(--ar-top), linear-gradient(180deg, @pnMoreContentLG);
     }
-    .genPanelMoreContentStyle(@style) when (@style = flat), (@style = edge) {
+    .genTweaks() when (@thmNavCenterStyle = flat), (@thmNavCenterStyle = edge) {
         background-image: var(--ar-top), linear-gradient(180deg, @docMoreContentLG);
     }
-    .genPanelMoreContentStyle(@navCenterStyle);
+    .genTweaks();
+
     background-repeat: no-repeat, no-repeat;
     background-position: center top 8px, center top;
     background-size: auto, auto;
@@ -4834,13 +4771,13 @@ div[class*=v-fontinfo-].done > span,
 
 
 // 针对导航中心 edge 风格的微调（导出 HTML 后生效）
-.genNavCenterEdgeMoreContentStyle(@style) when (@style = edge) {
+.genNavCenterEdgeMoreContentStyle() when (@thmNavCenterStyle = edge) {
     .v-nav-center.edge .top-more::before,
     .v-nav-center.edge .bottom-more::after {
         background-image: var(--ar-top-edge), linear-gradient(180deg, @pnMoreContentLG_edge);
     }
 }
-.genNavCenterEdgeMoreContentStyle(@navCenterStyle);
+.genNavCenterEdgeMoreContentStyle();
 
 // 顶部更多内容渐变样式
 :is(
@@ -4885,11 +4822,15 @@ div[class*=v-fontinfo-].done > span,
     border-radius: 0;
 }
 // 目录大纲顶部、底部更多内容渐变样式的微调
-#vlook-toc.top-more::before,
-#vlook-toc.bottom-more::after {
+:is(
+#vlook-toc,
+.v-index-filter-result).top-more::before,
+:is(
+#vlook-toc,
+.v-index-filter-result).top-more::after {
     left: 1px;
     right: 1px;
-    width: calc(100% - 2px);
+    width: calc(100% - 2px) !important;
 }
 // 脚注面板底部更多内容渐变样式的微调
 .v-footnote-pn-content.bottom-more::after {
@@ -4918,15 +4859,15 @@ div[class*=v-fontinfo-].done > span,
     width: var(--v-nav-center-w);
     height: 50px;
     position: fixed;
-    .genToolbarStyle(@style) when (@style = std) {
+    .genTweaks() when (@thmToolbarStyle = std) {
         color: @buttonForeColor;
         background: var(--v-ui-bg);
     }
-    .genToolbarStyle(@style) when (@style = simple) {
+    .genTweaks() when (@thmToolbarStyle = simple) {
         color: var(--v-ui-bg);
         background: var(--db);
     }
-    .genToolbarStyle(@toolbarStyle);
+    .genTweaks();
 
     display: none;
     z-index: 2100;
@@ -4934,13 +4875,13 @@ div[class*=v-fontinfo-].done > span,
 }
 // 工具栏内按钮样式
 .v-toolbar .v-btn {
-    .genToolbarStyle(@style) when (@style = std) {
+    .genTweaks() when (@thmToolbarStyle = std) {
         color: @buttonForeColor;
     }
-    .genToolbarStyle(@style) when (@style = simple) {
+    .genTweaks() when (@thmToolbarStyle = simple) {
         color: var(--v-ui-bg);
     }
-    .genToolbarStyle(@toolbarStyle);
+    .genTweaks();
 }
 
 // 无背景的工具栏样式
@@ -4953,7 +4894,7 @@ div[class*=v-fontinfo-].done > span,
 }
 
 // 导航中心 edge 风格的微调
-.genToolbarEdgeStyle(@style) when (@style = edge) {
+.genToolbarEdgeStyle() when (@thmNavCenterStyle = edge) {
     .v-toolbar.edge:not(.cover) {
         background: var(--v-ui-bg);
         box-shadow: none;
@@ -4973,7 +4914,6 @@ div[class*=v-fontinfo-].done > span,
         padding-top: 70px;
         padding-left: 20px;
         width: calc(var(--v-nav-center-w) + 30px);
-        z-index: 140;
     }
 
     .v-toolbar.edge:not(.cover) .v-btn {
@@ -4984,7 +4924,7 @@ div[class*=v-fontinfo-].done > span,
         background: @uiForeColor;
     }
 }
-.genToolbarEdgeStyle(@navCenterStyle);
+.genToolbarEdgeStyle();
 
 // 工具栏浮动按钮样式
 .v-toolbar .v-btn.float {
@@ -5037,28 +4977,31 @@ div[class*=v-fontinfo-].done > span,
     margin: 10px 10px 0;
 }
 .v-toc-title.current {
-    .genTocTitleStyle(@style) when not (@style = edge) {
+    .genTweaks_forColor() when not (@thmNavCenterStyle = edge) {
         color: var(--a-c);
     }
-    .genTocTitleStyle(@style) when (@style = edge) {
+    .genTweaks_forColor() when (@thmNavCenterStyle = edge) {
         color: @buttonForeColor;
     }
-    .genTocTitleStyle(@navCenterStyle);
+    .genTweaks_forColor();
+
     padding: 10px 5px 10px;
     position: sticky;
-    top: -5px;
+    // top: -5px;
+    top: 0;
     z-index: 1;
 
-    .genPanelMoreContentStyle(@style) when (@style = std) {
+    .genTweaks_forBg() when (@thmNavCenterStyle = std) {
         background-image: linear-gradient(180deg, @pnMoreContentLG), linear-gradient(180deg, var(--pn-c));
     };
-    .genPanelMoreContentStyle(@style) when (@style = flat) {
+    .genTweaks_forBg() when (@thmNavCenterStyle = flat) {
         background-image: linear-gradient(180deg, @docMoreContentLG), linear-gradient(180deg, var(--db));
     }
-    .genPanelMoreContentStyle(@style) when (@style = edge) {
+    .genTweaks_forBg() when (@thmNavCenterStyle = edge) {
         background-image: linear-gradient(180deg, @pnMoreContentLG_edge), linear-gradient(180deg, var(--v-ui-bg));
     }
-    .genPanelMoreContentStyle(@navCenterStyle);
+    .genTweaks_forBg();
+
     background-position: left 0 bottom -6px, 0 0;
     background-repeat: no-repeat;
     background-size: 100% 20px, 100% calc(100% - 14px);
@@ -5082,13 +5025,13 @@ div[class*=v-fontinfo-].done > span,
 }
 
 :is(.v-doc-lib-item, .md-toc-item) + .v-toc-title {
-    .genTocTitleStyle(@style) when not (@style = edge) {
+    .genTweaks() when not (@thmNavCenterStyle = edge) {
         border-top: 1px solid var(--pn-c-a);
     }
-    .genTocTitleStyle(@style) when (@style = edge) {
+    .genTweaks() when (@thmNavCenterStyle = edge) {
         border-top: 1px solid var(--db02);
     }
-    .genTocTitleStyle(@navCenterStyle);
+    .genTweaks();
 }
 .md-toc-item + .v-toc-title {
     margin-top: 10px;
@@ -5097,39 +5040,51 @@ div[class*=v-fontinfo-].done > span,
 .md-toc-item::before {
     color: var(--toc-h-num-c);
     padding-right: 5px;
-    .genTocItemStyle(@style) when (@style = edge) {
+    .genTweaks() when (@thmNavCenterStyle = edge) {
         opacity: @contentHeaderNumOpacity;
     }
-    .genTocItemStyle(@navCenterStyle);
+    .genTweaks();
 }
 
 .genHoverStyle(@for) when (@for = toc-item) {
-    .genTocItemHover(@style) when (@style = std) {
-        .md-toc-item:hover::before {
-            color: var(--df);
-        }
+    // .genTweaks() when (@thmNavCenterStyle = std) {
+    //     .md-toc-item:hover::before {
+    //         color: var(--df);
+    //     }
+    //     .v-toc-item:hover,
+    //     .md-toc-item:hover {
+    //         background: var(--pn-c-a);
+    //     }
+    // }
+    .genTweaks() when (@thmNavCenterStyle = std), (@thmNavCenterStyle = flat) {
+        .outline-item:hover,
         .v-toc-item:hover,
         .md-toc-item:hover {
-            background: var(--pn-c-a);
+            // background: var(--pn-c);
+            background: var(--pn06);
+        }
+        .outline-item-active:hover,
+        .v-item-current:hover {
+            background: @tocItemCurrentBg !important; //var(--ac-t2-fd) !important;
         }
     }
-    .genTocItemHover(@style) when (@style = flat) {
-        .v-toc-item:hover,
-        .md-toc-item:hover {
-            background: var(--pn-c);
-        }
-    }
-    .genTocItemHover(@style) when (@style = edge) {
+    .genTweaks() when (@thmNavCenterStyle = edge) {
+        .outline-item:hover,
         .v-toc-item:hover,
         .md-toc-item:hover {
             background: var(--db02);
         }
+        // .outline-item-active:hover,
+        // .v-item-current:hover {
+        //     background: var(--db02) !important;
+        // }
     }
     // 生成目录节点不同风格的 hover 样式
-    .genTocItemHover(@navCenterStyle);
+    .genTweaks();
 }
 
-.genTocItemActive(@style) when (@style = std) {
+// 生成目录节点不同风格的 active 样式
+.genTocItemActive() when (@thmNavCenterStyle = std) {
     .v-toc-item:is(:active, .pressed),
     .md-toc-item:is(:active, .pressed),
     .v-doc-lib-item:is(:active, .pressed) {
@@ -5149,7 +5104,7 @@ div[class*=v-fontinfo-].done > span,
         opacity: 1;
     }
 }
-.genTocItemActive(@style) when (@style = flat) {
+.genTocItemActive() when (@thmNavCenterStyle = flat) {
     .v-toc-item:is(:active, .pressed),
     .md-toc-item:is(:active, .pressed),
     .v-doc-lib-item:is(:active, .pressed) {
@@ -5163,7 +5118,7 @@ div[class*=v-fontinfo-].done > span,
         opacity: 1;
     }
 }
-.genTocItemActive(@style) when (@style = edge) {
+.genTocItemActive() when (@thmNavCenterStyle = edge) {
     .v-toc-item:is(:active, .pressed),
     .md-toc-item:is(:active, .pressed),
     .v-doc-lib-item:is(:active, .pressed) {
@@ -5176,19 +5131,18 @@ div[class*=v-fontinfo-].done > span,
         opacity: 1;
     }
 }
-// 生成目录节点不同风格的 active 样式
-.genTocItemActive(@navCenterStyle);
+.genTocItemActive();
 
 // 分类索引题注前缀
 .v-toc-item>span {
-    .genTocItemCapStyle(@style) when not (@style = edge) {
-        color: var(--a-c);
+    .genTweaks() when not (@thmNavCenterStyle = edge) {
+        color: var(--toc-h-num-c);
     }
-    .genTocItemCapStyle(@style) when (@style = edge) {
+    .genTweaks() when (@thmNavCenterStyle = edge) {
         color: var(--toc-h-num-c);
         opacity: @contentHeaderNumOpacity;
     }
-    .genTocItemCapStyle(@navCenterStyle);
+    .genTweaks();
 }
 
 // 题注前缀
@@ -5221,11 +5175,16 @@ div[class*=v-fontinfo-].done > span,
     margin-bottom: 0;
     padding: 2px 0 0 30px;
 }
-
-// // 目录大纲筛选结果微调
-// .v-index-filter-result.toc .v-toc-item>span {
-//     white-space: pre;
-// }
+// 目录大纲的搜索结果
+.v-index-filter-result.toc .v-toc-item>span {
+    font-size: 1em;
+    white-space: nowrap;
+    // line-height: 1.25;
+    padding-right: 5px;
+    // display: inline-block;
+    display: inline;
+    margin: 0;
+}
 
 // 文档导航历史中针对「继续上次阅读」的条目样式
 .v-toc-item[data-history=last-position] {
@@ -5240,7 +5199,9 @@ div[class*=v-fontinfo-].done > span,
 
 .genHoverStyle(@for) when (@for = map-item) {
     .v-map-item:hover {
-        box-shadow: 0 0 0 2px var(--df-a) inset;
+        // box-shadow: 0 0 0 2px var(--df-a) inset;
+        // background: var(--pn-c-a);
+        background: var(--pn07);
     }
 }
 
@@ -5312,19 +5273,6 @@ div[class*=v-fontinfo-].done > span,
     line-height: 2;
 }
 
-// 当前目录项样式
-.v-item-current {
-    font-weight: var(--v-fw-toc);
-    .genItemCurrentStyle(@style) when not (@style = edge) {
-        background: var(--bq-bg);
-        box-shadow: @tocItemCurrent_boxShadow;
-    }
-    .genItemCurrentStyle(@style) when (@style = edge) {
-        box-shadow: @tocItemCurrent_boxShadow_edge;
-    }
-    .genItemCurrentStyle(@navCenterStyle);
-}
-
 .v-toc-folder {
     width: 20px;
     min-width: 20px;
@@ -5350,13 +5298,13 @@ div[class*=v-fontinfo-].done > span,
     align-items: center;
     justify-content: center;
 
-    .genToolbarStyle(@style) when (@style = simple) {
+    .genTweaks() when (@thmToolbarStyle = simple) {
         color: var(--v-ui-bg);
     }
-    .genToolbarStyle(@style) when not (@style = simple) {
+    .genTweaks() when not (@thmToolbarStyle = simple) {
         color: @uiForeColor;
     }
-    .genToolbarStyle(@toolbarStyle);
+    .genTweaks();
 
     padding: 0;
     width: var(--v-tb-btn-w);
@@ -5365,12 +5313,8 @@ div[class*=v-fontinfo-].done > span,
     pointer-events: all;
 }
 
-.v-btn[data-btn-group]:not(:first-of-type) {
-    margin-left: 2px;
-}
-
 // 按钮 pin 状态（std 风格）
-.genToolbarBtnStyle(@style) when (@style = std) {
+.genToolbarBtnStyle() when (@thmToolbarStyle = std) {
     // 按钮 pin 状态
     .v-btn.selected {
         color: var(--v-ui-bg);
@@ -5385,7 +5329,7 @@ div[class*=v-fontinfo-].done > span,
     }
 }
 // 按钮 pin 状态（simple 风格）
-.genToolbarBtnStyle(@style) when (@style = simple) {
+.genToolbarBtnStyle() when (@thmToolbarStyle = simple) {
     .v-btn.selected {
         color: @uiForeColor;
         background: var(--v-ui-bg);
@@ -5398,7 +5342,7 @@ div[class*=v-fontinfo-].done > span,
         padding: 0 2px;
     }
 }
-.genToolbarBtnStyle(@toolbarStyle);
+.genToolbarBtnStyle();
 
 .genHoverStyle(@for) when (@for = btn) {
     .v-btn:hover,
@@ -5425,40 +5369,46 @@ div[class*=v-fontinfo-].done > span,
 }
 
 .v-btn.v-float-card:active {
-    .genFloatShadow(@shadow) when (@shadow = shadow) {
+    .genTweaks() when (@thmFloatShadow = shadow) {
         box-shadow: @activeBoxShadow, var(--v-fl-sd);
     }
-    .genFloatShadow(@floatShadow);
+    .genTweaks();
 }
 
 .v-btn-group.float>.v-btn {
     box-shadow: none;
 }
 .v-btn-group>.v-btn[data-btn-group] {
-    width: @floatButtonWidth - 8px;
+    width: @floatButtonWidth - 10px;
 }
 .v-btn-group.float>.v-btn[data-btn-group] {
     box-shadow: none;
-    width: @floatButtonWidth - 10px;
     height: @floatButtonHeight - 4px;
     margin-top: 2px;
     margin-bottom: 2px;
-    .genBtnGroupStyle(@style) when (@style = std) {
+    .genTweaks(@style) when (@style = std) {
         border-radius: @borderRadiusInner_2px;
     }
-    .genBtnGroupStyle(@style) when not (@style = std) {
+    .genTweaks(@style) when not (@style = std) {
         border-radius: var(--b-br-s);
     }
-    .genBtnGroupStyle(@buttonRadiusStyle);
+    .genTweaks(@thmButtonRadiusStyle);
 }
 
-.v-btn-group.prs {
-    margin: 0 0 0 calc(var(--v-tb-btn-s) * 3);
+.v-btn-group.prs,
+.v-btn-group.view {
+    margin: 0 0 0 calc(var(--v-tb-btn-s) * 2);
     height: @floatButtonHeight - 2px;
     float: right;
     border-radius: var(--b-br-s);
+    display: flex;
+    gap: 2px;
 }
-.v-btn-group.prs.float {
+// to-do: 正式发布前去掉
+// .v-btn.view.slide {
+//     display: none;
+// }
+.v-btn-group.float {
     height: @floatButtonHeight;
 }
 
@@ -5471,7 +5421,7 @@ div[class*=v-fontinfo-].done > span,
     }
 }
 .genBtnGroupSelected() {
-    outline: 2px solid fade(@aActiveColor, 50%);
+    outline: 2px solid fade(@aHoverColor, 50%);
 }
 
 // 音频资源加载中动画
@@ -5536,42 +5486,15 @@ div[class*=v-fontinfo-].done > span,
 
 @chapterNavHeight: 50px;
 .v-chapter-nav {
-    .genChapterNavStyle(@style, @border) when (@style = std) {
+    .genTweaks() when (@thmToolbarStyle = std) {
         color: @buttonForeColor;
         background: var(--v-ui-bg);
-
-        .genBorder(@border) when (@border = shadow) {
-        }
-        .genBorder(@border) when (@border = line) {
-            box-shadow: none !important;
-            .genBorderCSS() when not (isdefined(@panelBorderColor)) {
-                box-shadow: 0 0 0 1px var(--pn-c-a) inset !important;
-            }
-            .genBorderCSS() when (isdefined(@panelBorderColor)) {
-                box-shadow: 0 0 0 1px @panelBorderColor inset !important;
-            }
-            .genBorderCSS();
-        }
-        .genBorder(@border);
     }
-    .genChapterNavStyle(@style, @border) when (@style = simple) {
+    .genTweaks() when (@thmToolbarStyle = simple) {
         color: var(--v-ui-bg);
         background: var(--db);
-
-        .genBorder(@border) when (@border = shadow) {
-        }
-        .genBorder(@border) when (@border = line) {
-            box-shadow: none !important;
-            .genBorderCSS() when not (isdefined(@panelBorderColor)) {
-                box-shadow: 0 0 0 1px var(--pn-c-a) inset;
-            }
-            .genBorderCSS() when (isdefined(@panelBorderColor)) {
-                box-shadow: 0 0 0 1px @panelBorderColor inset;
-            }
-            .genBorderCSS();
-        }
     }
-    .genChapterNavStyle(@toolbarStyle, @panelBorder);
+    .genTweaks();
 
     font: condensed normal 1em var(--v-fm-toc); // [stretch] [style] [weight] [size/[line-height]] [family]
     border-radius: var(--b-br-b);
@@ -5592,9 +5515,9 @@ div[class*=v-fontinfo-].done > span,
 }
 
 // 生成工具栏风格 simple 的 svg 样式
-.genChapterNavSvgStyle(@style) when (@style = simple) {
+.genChapterNavSvgStyle() when (@thmToolbarStyle = simple) {
 }
-.genChapterNavSvgStyle(@toolbarStyle);
+.genChapterNavSvgStyle();
 
 .v-chapter-nav-prev {
     top: 0;
@@ -5637,13 +5560,13 @@ div[class*=v-fontinfo-].done > span,
 }
 
 .v-chapter-nav-prev-text {
-    .genChapterNavStyle(@style) when (@style = std) {
+    .genTweaks() when (@thmToolbarStyle = std) {
         color: @buttonForeColor;
     }
-    .genChapterNavStyle(@style) when (@style = simple) {
+    .genTweaks() when (@thmToolbarStyle = simple) {
         color: var(--v-ui-bg);
     }
-    .genChapterNavStyle(@toolbarStyle);
+    .genTweaks();
 
     top: 0;
     left: 40px;
@@ -5697,10 +5620,10 @@ div[class*=v-fontinfo-].done > span,
     width: auto;
     height: 28px;
     display: block;
-    .getChapterNavCurrent(@style) when (@style = std) {
+    .getChapterNavCurrent() when (@thmToolbarStyle = std) {
         text-shadow: 0 1px 3px #0000004D;
     }
-    .getChapterNavCurrent(@toolbarStyle);
+    .getChapterNavCurrent();
 }
 .v-chapter-nav-current>span {
     opacity: .75;
@@ -5782,13 +5705,13 @@ div[class*=v-fontinfo-].done > span,
 }
 
 .v-chapter-nav-next-text {
-    .genChapterNavStyle(@style) when (@style = std) {
+    .genTweaks() when (@thmToolbarStyle = std) {
         color: @buttonForeColor;
     }
-    .genChapterNavStyle(@style) when (@style = simple) {
+    .genTweaks() when (@thmToolbarStyle = simple) {
         color: var(--v-ui-bg);
     }
-    .genChapterNavStyle(@toolbarStyle);
+    .genTweaks();
 
     top: 0;
     right: 40px;
@@ -5809,7 +5732,9 @@ div[class*=v-fontinfo-].done > span,
     pointer-events: all;
 }
 
-.v-focus-out.actived {
+// 针对 edge 风格除外的元素在失去焦点时（在导航中心搜索时）
+// 降低饱和度以突出显示当前焦点元素
+.v-focus-out:not(.edge).actived {
     filter: saturate(25%) !important;
 }
 
@@ -5819,11 +5744,6 @@ div[class*=v-fontinfo-].done > span,
 .v-search {
     background: var(--db);
     border-radius: var(--b-br-s);
-    .genTextfieldStyle(@style) when (@style = flat) {
-        box-shadow: 0 0 0 1px var(--bq-bg) inset;
-    }
-    .genTextfieldStyle(@navCenterStyle);
-
     margin: 0;
     padding: 0 8px 0 0;
     height: @textfieldHeight;
@@ -5859,7 +5779,7 @@ input:-moz-placeholder),
     caret-color: var(--a-o-c); // 输入光标颜色
 }
 .v-search>input {
-    width: calc(100% - @textfieldInputActionWidth);
+    flex: 1; // 自动适应剩余空间
     height: calc(100% - 4px);
     margin: 2px 0;
     .genTextfieldCommonStyle();
@@ -5929,13 +5849,9 @@ input:-moz-placeholder),
     transform: @activePressedTransform_short;
 }
 
-// 文本内容重置按钮
-.v-search-opt.reset {
-    visibility: hidden;
-}
-.v-search-opt.reset.enabled {
-    visibility: visible;
-    background: none;
+// 搜索选项按钮
+.v-search-opt.disabled {
+    display: none;
 }
 .genHoverStyle(@for) when (@for = search-opt) {
     .v-search-opt.reset:hover>svg>use {
@@ -5976,14 +5892,14 @@ input:-moz-placeholder),
 
 // 内容助手
 .v-content-assistor {
-    .genToolbarStyle(@style) when (@style = std) {
+    .genTweaks() when (@thmToolbarStyle = std) {
         background: var(--v-ui-bg);
     }
-    .genToolbarStyle(@style) when (@style = simple) {
+    .genTweaks() when (@thmToolbarStyle = simple) {
         background: var(--db);
         outline: 1px solid var(--pn-c-a);
     }
-    .genToolbarStyle(@toolbarStyle);
+    .genTweaks();
 
     visibility: hidden;
     opacity: 1;
@@ -6025,7 +5941,6 @@ input:-moz-placeholder),
     bottom: 5px;
     padding: @picInPicPadding;
     box-shadow: 0 4px 20px #0000004D;//rgba(0, 0, 0, .3);
-    // transform: scale(.75);
     transform-origin: right bottom;
     z-index: 500;
 }
@@ -6100,13 +6015,13 @@ input:-moz-placeholder),
 .v-doc-lib-item {
     font: condensed normal 1em/@defaultLineHeight var(--v-fm-toc); // [stretch] [style] [weight] [size/[line-height]] [family]
     text-transform: uppercase;
-    .genDocLibItemStyle(@style) when not (@style = edge) {
+    .genTweaks() when not (@thmNavCenterStyle = edge) {
         color: var(--a-c);
     }
-    .genDocLibItemStyle(@style) when (@style = edge) {
+    .genTweaks() when (@thmNavCenterStyle = edge) {
         color: @buttonForeColor;
     }
-    .genDocLibItemStyle(@navCenterStyle);
+    .genTweaks();
 
     height: 35px;
     padding: 0 5px;
@@ -6123,14 +6038,17 @@ input:-moz-placeholder),
 }
 .genHoverStyle(@for) when (@for = doc-lib-item) {
     .v-doc-lib-item:hover {
-        .genDocLibItemStyle(@style) when not (@style = edge) {
+        .genTweaks() when not (@thmNavCenterStyle = edge) {
             color: var(--a-o-c);
-            box-shadow: 0 0 0 2px var(--ac-t2-fd) inset;
+            // box-shadow: 0 0 0 2px var(--ac-t2-fd) inset;
+            // background-color: var(--pn-c);
+            background-color: var(--ac-t2-fd);
         }
-        .genDocLibItemStyle(@style) when (@style = edge) {
-            background: var(--db02);
+        .genTweaks() when (@thmNavCenterStyle = edge) {
+            // background: var(--db02);
+            background: var(--ac-t2-fd);
         }
-        .genDocLibItemStyle(@navCenterStyle);
+        .genTweaks();
     }
     .v-doc-lib-item:hover svg>use {
         opacity: 1;
@@ -6149,6 +6067,31 @@ input:-moz-placeholder),
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+// 按关键字过滤，匹配命中的条目
+:is(.v-doc-lib-item, .v-toc-item)[data-keyword-match=true] {
+    height: auto;
+    flex-wrap: wrap;
+    padding: 8px 10px;
+}
+:is(.v-doc-lib-item, .v-toc-item)[data-keyword-match=true]::after {
+    content: attr(data-keywords);
+    display: flex;
+    // .genTweaks() when not (@thmNavCenterStyle = edge) {
+    //     color: var(--df);
+    // }
+    // .genTweaks();
+    opacity: .5;
+    font: condensed normal .875em var(--v-fm-tag); // [stretch] [style] [weight] [size/[line-height]] [family]
+    white-space: pre-wrap;
+    width: 100%;
+    // margin-top: 2px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; // 显示的行数
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
 }
 
 // 文档抽屉
@@ -6214,7 +6157,6 @@ body.@{windows} @{iframeVideoOnEditing} @{youtubeVideo}@{webview_iframe} {
     width: 80% !important; // 编辑时无题注容器（导出 HTML 后由题注容器控制宽度），所以要直接控制自身宽度
     display: block;
     aspect-ratio: 16 / 9; // 指定 width 和 height 的等比缩放比例
-    // margin: 0 auto;
     margin: 0;
 }
 @{iframeVideo} @{biliVideo},
@@ -6344,10 +6286,8 @@ a[data-x-ref]::before,
 @{writeOnEditing} a[href^='#']:not(:has(kbd))::before { // 编辑时
     content: attr(data-x-ref);
     font: condensed normal 1em var(--v-fm-tag); // [stretch] [style] [weight] [size/[line-height]] [family]
-    // padding: 1px 6px;
     border-radius: var(--v-r-s) 0 var(--v-r-s) var(--v-r-s);
     margin: 0 4px;
-    // margin: 0 2px;
     opacity: .5;
 }
 @{writeOnEditing} a[href^='#']:not(:has(kbd))::before { // 编辑时
@@ -6357,7 +6297,6 @@ a[data-x-ref]::before,
 .v-cap-1,
 .v-cap-2 {
     color: @captionTextColor;
-    // font: normal .875em var(--v-fm-stt); // [style] [weight] [size/[line-height]] [family]
     font: condensed normal .875em var(--v-fm-tag); // [stretch] [style] [weight] [size/[line-height]] [family]
     padding: 5px 10px;
     margin: 2px 0;
@@ -6515,7 +6454,6 @@ use.v-svg-i-wh {
         }
 
         :is(.v-welcome-page, .v-mask) .v-copyright {
-            // color: var(--ac-t1);
             color: var(--a-c);
         }
 
@@ -6615,7 +6553,7 @@ use.v-svg-i-wh {
 }
 
 // 引用块着色内非 svg 图片剪影通用样式
-@colorCodeSet: ~":is(.wn, .rd, .og, .ye, .lm, .gn, .mn, .ol, .aq, .cy, .bu, .se, .la, .vn, .pu, .ro, .pk, .gd, .bn, .gy, .wt, .bk, .t1, .t2)";
+@colorCodeSet: ~":is(.wn, .rd, .og, .tu, .ye, .lm, .gn, .mn, .ol, .aq, .sk, .cy, .bu, .se, .la, .vn, .cf, .au, .pu, .ro, .pl, .pk, .gd, .bn, .gy, .wt, .bk, .t1, .t2)";
 .genHoverStyle(@for) when (@for = q_link_kbd) {
     #write .v-q@{colorCodeSet} a kbd:hover>img[src*="fill=text"].enabled,
     #write .v-q.bk @{kbdSec}:hover>img[src*="fill=text"].enabled {
@@ -6625,27 +6563,26 @@ use.v-svg-i-wh {
     #write .v-q@{colorCodeSet} a kbd:hover {
         color: @buttonForeHoverColor;
 
-        .genLinkKbdStyle(@style) when (@style = flat) {
+        .genTweaks() when (@thmLinkKbdStyle = flat) {
             background: var(--a-o-c);
             border-color: var(--a-o-c);
         }
-        .genLinkKbdStyle(@style) when (@style = fade) {
+        .genTweaks() when (@thmLinkKbdStyle = fade) {
             background: linear-gradient(180deg, var(--btn-reflect), var(--a-o-c), var(--btn-shadow)), var(--a-o-c);
             box-shadow: 0 0 0 1px var(--a-o-c) inset;
             border: none;
         }
-        .genLinkKbdStyle(@style) when (@style = raised) {
+        .genTweaks() when (@thmLinkKbdStyle = raised) {
             background: var(--a-o-c);
             box-shadow: 0 @rasiedShadowSize 0 0 var(--btn-raised), 0 @rasiedShadowSize 0 0 var(--a-o-c);
         }
-        .genLinkKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+        .genTweaks() when (@thmLinkKbdStyle = 3d), (@thmLinkKbdStyle = 3d_up) {
             background: var(--a-o-c);
         }
-        .genLinkKbdStyle(@thmLinkKbdStyle);
+        .genTweaks();
     }
 }
 #write .v-q@{colorCodeSet} @{kbdSec} {
-    // color: var(--v-btn-bg);
     color: var(--a-c);
     background: var(--db);
 }
@@ -6654,18 +6591,18 @@ use.v-svg-i-wh {
     #write .v-q@{colorCodeSet} @{kbdSec}:hover {
         color: var(--a-o-c) !important;
         // 生成不同风格按钮的 hover 样式
-        .genLinkKbdStyle(@style) when (@style = flat) {
+        .genTweaks() when (@thmLinkKbdStyle = flat) {
         }
-        .genLinkKbdStyle(@style) when (@style = fade) {
+        .genTweaks() when (@thmLinkKbdStyle = fade) {
             background: linear-gradient(180deg, var(--btn-reflect), var(--ac-t2-a), var(--btn-shadow)), var(--ac-t2-a);
         }
-        .genLinkKbdStyle(@style) when (@style = raised) {
+        .genTweaks() when (@thmLinkKbdStyle = raised) {
             background: var(--db);
             box-shadow: 0 @rasiedShadowSize 0 0 currentColor, 0 0 0 1px currentColor inset;
         }
-        .genLinkKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+        .genTweaks() when (@thmLinkKbdStyle = 3d), (@thmLinkKbdStyle = 3d_up) {
         }
-        .genLinkKbdStyle(@thmLinkKbdStyle);
+        .genTweaks();
     }
     #write .v-q@{colorCodeSet} @{kbdSec}:hover @{svgGs},
     #write .v-q.bk.em @{kbdSec}:hover @{svgGs} { // Black
@@ -6691,13 +6628,13 @@ use.v-svg-i-wh {
 // 生成引用块着色相关样式
 .genRainbowQuoteCSS(@quoteMark, @accColor, @btnBg, @btnFore, @btnBgAlt) {
     #write .v-q.@{quoteMark} {
-        .genQuote(@quoteMark) when not (@quoteMark = bk) { // not Black
+        .genTweaks(@quoteMark) when not (@quoteMark = bk) { // not Black
             box-shadow: 0 0 0 4px ~"var(--ac-@{quoteMark}-fd)" inset;
         }
-        .genQuote(@quoteMark) when (@quoteMark = bk) { // Black
+        .genTweaks(@quoteMark) when (@quoteMark = bk) { // Black
             box-shadow: 0 0 0 4px var(--df) inset;
         }
-        .genQuote(@quoteMark);
+        .genTweaks(@quoteMark);
         background: var(--db);
         border-color: @btnBg;
     }
@@ -6708,14 +6645,14 @@ use.v-svg-i-wh {
     // 强调样式
     #write .v-q.@{quoteMark}.em {
         box-shadow: none;
-        .genQuoteEm(@quoteMark) when not (@quoteMark = bk) { // not Black
+        .genTweaks(@quoteMark) when not (@quoteMark = bk) { // not Black
             background: ~"linear-gradient(var(--ac-@{quoteMark}-fd), var(--ac-@{quoteMark}-fd)), linear-gradient(var(--db), var(--db))";
         }
-        .genQuoteEm(@quoteMark) when (@quoteMark = bk) { // Black
+        .genTweaks(@quoteMark) when (@quoteMark = bk) { // Black
             color: var(--db);
             background: var(--df);
         }
-        .genQuoteEm(@quoteMark);
+        .genTweaks(@quoteMark);
         border-color: @btnBg;
     }
     // 高亮
@@ -6745,25 +6682,25 @@ use.v-svg-i-wh {
     #write .v-q.@{quoteMark} a kbd {
         color: @btnFore;
         // 生成不同风格的主要按钮样式
-        .genLinkKbdStyle(@style) when (@style = flat) {
+        .genTweaks() when (@thmLinkKbdStyle = flat) {
             background: @btnBg;
             border: 2px solid @btnBg;
         }
-        .genLinkKbdStyle(@style) when (@style = fade) {
+        .genTweaks() when (@thmLinkKbdStyle = fade) {
             background: linear-gradient(180deg, var(--btn-reflect), @btnBg, var(--btn-shadow)), @btnBg;
             box-shadow: 0 0 0 1px @btnBg inset;
             border: none;
         }
-        .genLinkKbdStyle(@style) when (@style = raised) {
+        .genTweaks() when (@thmLinkKbdStyle = raised) {
             background: @btnBg;
             box-shadow: 0 @rasiedShadowSize 0 0 var(--btn-raised), 0 @rasiedShadowSize 0 0 @btnBg;
         }
-        .genLinkKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+        .genTweaks() when (@thmLinkKbdStyle = 3d), (@thmLinkKbdStyle = 3d_up) {
             background: @btnBg;
             box-shadow: 0 @3dShadowSize 0 0 var(--btn-reflect) inset, @3dShadowSize 0 0 0 var(--btn-reflect) inset,
                 -@3dShadowSize 0 0 0 var(--btn-shadow) inset, 0 -@3dShadowSize 0 0 var(--btn-shadow) inset;
         }
-        .genLinkKbdStyle(@thmLinkKbdStyle);
+        .genTweaks();
     }
     .genQuoteAkbd(@quoteMark) when (@quoteMark = bk) {
         #write .v-q.@{quoteMark} @{kbdSec} {
@@ -6788,19 +6725,19 @@ use.v-svg-i-wh {
     #write .v-q.@{quoteMark} @{kbdSec} {
         color: @btnBg;
         // 生成不同风格的次要按钮样式
-        .genLinkKbdStyle(@style) when (@style = flat) {
+        .genTweaks() when (@thmLinkKbdStyle = flat) {
             background: var(--db);
         }
-        .genLinkKbdStyle(@style) when (@style = fade) {
+        .genTweaks() when (@thmLinkKbdStyle = fade) {
             background: linear-gradient(180deg, var(--btn-reflect), @btnBgAlt, var(--btn-shadow)), @btnBgAlt;
         }
-        .genLinkKbdStyle(@style) when (@style = raised) {
+        .genTweaks() when (@thmLinkKbdStyle = raised) {
             background: var(--db);
             box-shadow: 0 @rasiedShadowSize 0 0 currentColor, 0 0 0 1px currentColor inset;
         }
-        .genLinkKbdStyle(@style) when (@style = 3d), (@style = 3d_up) {
+        .genTweaks() when (@thmLinkKbdStyle = 3d), (@thmLinkKbdStyle = 3d_up) {
         }
-        .genLinkKbdStyle(@thmLinkKbdStyle);
+        .genTweaks();
     }
     .genQuoteAkbdSec(@quoteMark) when (@quoteMark = bk) { // Black
         #write .v-q.@{quoteMark}.em @{kbdSec} {
@@ -6859,13 +6796,13 @@ use.v-svg-i-wh {
     }
     // 强调标题
     #write .v-q .title-@{quoteMark}.em {
-        .genQuoteTitleEm(@quoteMark) when not (@quoteMark = bk) { // not Black
+        .genTweaks(@quoteMark) when not (@quoteMark = bk) { // not Black
             color: ~"var(--ac-@{quoteMark}-tt) !important";
         }
-        .genQuoteTitleEm(@quoteMark) when (@quoteMark = bk) { // Black
+        .genTweaks(@quoteMark) when (@quoteMark = bk) { // Black
             color: var(--db) !important;
         }
-        .genQuoteTitleEm(@quoteMark);
+        .genTweaks(@quoteMark);
     }
     // 列表符号
     #write .v-q.@{quoteMark} ::marker,
@@ -6880,26 +6817,31 @@ use.v-svg-i-wh {
     }
     .genQuoteMarker(@quoteMark);
 }
-.genRainbowQuoteCSS(rd, @accColorRed, @accColorRed, #FFF, var(--ac-rd-a));
-.genRainbowQuoteCSS(og, @accColorOrange, @accColorOrange, #FFF, var(--ac-og-a));
-.genRainbowQuoteCSS(ye, @accColorYellow, @accColorYellow, #000, var(--ac-ye-a));
-.genRainbowQuoteCSS(lm, @accColorLime, @accColorLime, #000, var(--ac-lm-a));
-.genRainbowQuoteCSS(gn, @accColorGreen, @accColorGreen, #FFF, var(--ac-gn-a));
-.genRainbowQuoteCSS(mn, @accColorMineral, @accColorMineral, #FFF, var(--ac-mn-a));
-.genRainbowQuoteCSS(ol, @accColorOlives, @accColorOlives, #FFF, var(--ac-ol-a));
-.genRainbowQuoteCSS(wn, @accColorWine, @accColorWine, #FFF, var(--ac-wn-a));
-.genRainbowQuoteCSS(aq, @accColorAqua, @accColorAqua, #000, var(--ac-aq-a));
-.genRainbowQuoteCSS(cy, @accColorCyan, @accColorCyan, #FFF, var(--ac-cy-a));
-.genRainbowQuoteCSS(bu, @accColorBlue, @accColorBlue, #FFF, var(--ac-bu-a));
-.genRainbowQuoteCSS(se, @accColorSea, @accColorSea, #FFF, var(--ac-se-a));
-.genRainbowQuoteCSS(la, @accColorLavender, @accColorLavender, #000, var(--ac-la-a));
-.genRainbowQuoteCSS(vn, @accColorVine, @accColorVine, #FFF, var(--ac-vn-a));
-.genRainbowQuoteCSS(pu, @accColorPurple, @accColorPurple, #FFF, var(--ac-pu-a));
-.genRainbowQuoteCSS(ro, @accColorRose, @accColorRose, #FFF, var(--ac-ro-a));
-.genRainbowQuoteCSS(pk, @accColorPink, @accColorPink, #000, var(--ac-pk-a));
-.genRainbowQuoteCSS(gd, @accColorGold, @accColorGold, #000, var(--ac-gd-a));
-.genRainbowQuoteCSS(bn, @accColorBrown, @accColorBrown, #FFF, var(--ac-bn-a));
-.genRainbowQuoteCSS(gy, @accColorGray, @accColorGray, #FFF, var(--ac-gy-a));
+.genRainbowQuoteCSS(rd, @accRd, @accRd, #FFF, var(--ac-rd-a));
+.genRainbowQuoteCSS(og, @accOg, @accOg, #FFF, var(--ac-og-a));
+.genRainbowQuoteCSS(tu, @accTu, @accTu, #FFF, var(--ac-tu-a));
+.genRainbowQuoteCSS(ye, @accYe, @accYe, #000, var(--ac-ye-a));
+.genRainbowQuoteCSS(lm, @accLm, @accLm, #000, var(--ac-lm-a));
+.genRainbowQuoteCSS(gn, @accGn, @accGn, #FFF, var(--ac-gn-a));
+.genRainbowQuoteCSS(mn, @accMn, @accMn, #FFF, var(--ac-mn-a));
+.genRainbowQuoteCSS(ol, @accOl, @accOl, #FFF, var(--ac-ol-a));
+.genRainbowQuoteCSS(wn, @accWn, @accWn, #FFF, var(--ac-wn-a));
+.genRainbowQuoteCSS(aq, @accAq, @accAq, #000, var(--ac-aq-a));
+.genRainbowQuoteCSS(sk, @accSk, @accSk, #000, var(--ac-sk-a));
+.genRainbowQuoteCSS(cy, @accCy, @accCy, #FFF, var(--ac-cy-a));
+.genRainbowQuoteCSS(bu, @accBu, @accBu, #FFF, var(--ac-bu-a));
+.genRainbowQuoteCSS(se, @accSe, @accSe, #FFF, var(--ac-se-a));
+.genRainbowQuoteCSS(la, @accLa, @accLa, #000, var(--ac-la-a));
+.genRainbowQuoteCSS(vn, @accVn, @accVn, #FFF, var(--ac-vn-a));
+.genRainbowQuoteCSS(cf, @accCf, @accCf, #FFF, var(--ac-cf-a));
+.genRainbowQuoteCSS(au, @accAu, @accAu, #FFF, var(--ac-au-a));
+.genRainbowQuoteCSS(pu, @accPu, @accPu, #FFF, var(--ac-pu-a));
+.genRainbowQuoteCSS(ro, @accRo, @accRo, #FFF, var(--ac-ro-a));
+.genRainbowQuoteCSS(pl, @accPl, @accPl, #000, var(--ac-pl-a));
+.genRainbowQuoteCSS(pk, @accPk, @accPk, #000, var(--ac-pk-a));
+.genRainbowQuoteCSS(gd, @accGd, @accGd, #000, var(--ac-gd-a));
+.genRainbowQuoteCSS(bn, @accBn, @accBn, #FFF, var(--ac-bn-a));
+.genRainbowQuoteCSS(gy, @accGy, @accGy, #FFF, var(--ac-gy-a));
 .genRainbowQuoteCSS(wt, var(--df), var(--df), var(--db), var(--df-a));
 .genRainbowQuoteCSS(bk, var(--df), var(--df), var(--db), var(--df-a));
 .genRainbowQuoteCSS(t1, var(--ac-t1), var(--ac-t1), @buttonForeColor, var(--ac-t1-a));
@@ -6934,17 +6876,17 @@ use.v-svg-i-wh {
         color: var(--ac-t2);
 
         // 标准样式
-        .genTagForStyle(@style) when (@style = std) {
+        .genTweaks(@style) when (@style = std) {
             background: var(--ac-t2-a);
             border: var(--c-b1);
         }
         // 线框样式
-        .genTagForStyle(@style) when (@style = line) {
+        .genTweaks(@style) when (@style = line) {
             background: var(--db);
             border: 1px solid var(--ac-t2-fd-bd);
             outline: var(--c-b1);
         }
-        .genTagForStyle(@style);
+        .genTweaks(@style);
 
         border-radius: var(--v-r-tag) var(--v-r-tag-xc);
         white-space: pre;
@@ -6990,19 +6932,24 @@ use.v-svg-i-wh {
     .genRainbowTagCSS(wn, wn, @colorWhite, @style);
     .genRainbowTagCSS(rd, rd, @colorWhite, @style);
     .genRainbowTagCSS(og, og, @colorWhite, @style);
+    .genRainbowTagCSS(tu, tu, @colorWhite, @style);
     .genRainbowTagCSS(ye, ye-tt-lg, @colorBlack, @style);
     .genRainbowTagCSS(lm, lm-tt-lg, @colorWhite, @style);
     .genRainbowTagCSS(gn, gn, @colorWhite, @style);
     .genRainbowTagCSS(mn, mn, @colorWhite, @style);
     .genRainbowTagCSS(ol, ol, @colorWhite, @style);
     .genRainbowTagCSS(aq, aq-tt-lg, @colorWhite, @style);
+    .genRainbowTagCSS(sk, sk, @colorWhite, @style);
     .genRainbowTagCSS(cy, cy, @colorWhite, @style);
     .genRainbowTagCSS(bu, bu, @colorWhite, @style);
     .genRainbowTagCSS(se, se, @colorWhite, @style);
     .genRainbowTagCSS(la, la-tt-lg, @colorWhite, @style);
     .genRainbowTagCSS(vn, vn, @colorWhite, @style);
+    .genRainbowTagCSS(cf, cf, @colorWhite, @style);
+    .genRainbowTagCSS(au, au, @colorWhite, @style);
     .genRainbowTagCSS(pu, pu, @colorWhite, @style);
     .genRainbowTagCSS(ro, ro, @colorWhite, @style);
+    .genRainbowTagCSS(pl, pl-tt-lg, @colorBlack, @style);
     .genRainbowTagCSS(pk, pk-tt-lg, @colorBlack, @style);
     .genRainbowTagCSS(gd, gd-tt-lg, @colorBlack, @style);
     .genRainbowTagCSS(bn, bn, @colorWhite, @style);
@@ -7097,10 +7044,10 @@ use.v-svg-i-wh {
         color: @tagText;
         background: @badgeColor;
 
-        .genBadgeName(@badgeMark) when (@badgeMark = wt) {
+        .genTweaks(@badgeMark) when (@badgeMark = wt) {
             border-color: var(--ac-wt-a);
         }
-        .genBadgeName(@badgeMark);
+        .genTweaks(@badgeMark);
     }
 
     .genBadgeValue(@badgeMark) when (@badgeMark = wt) {
@@ -7113,19 +7060,24 @@ use.v-svg-i-wh {
 .genRainbowBadgeCSS(wn, var(--ac-wn), @deepTextColor);
 .genRainbowBadgeCSS(rd, var(--ac-rd), @deepTextColor);
 .genRainbowBadgeCSS(og, var(--ac-og), @deepTextColor);
+.genRainbowBadgeCSS(tu, var(--ac-tu), @deepTextColor);
 .genRainbowBadgeCSS(ye, var(--ac-ye), @shallowTextColor);
-.genRainbowBadgeCSS(lm, var(--ac-lm), @deepTextColor);
+.genRainbowBadgeCSS(lm, var(--ac-lm), @shallowTextColor);
 .genRainbowBadgeCSS(gn, var(--ac-gn), @deepTextColor);
 .genRainbowBadgeCSS(mn, var(--ac-mn), @deepTextColor);
 .genRainbowBadgeCSS(ol, var(--ac-ol), @deepTextColor);
-.genRainbowBadgeCSS(aq, var(--ac-aq), @deepTextColor);
+.genRainbowBadgeCSS(aq, var(--ac-aq), @shallowTextColor);
+.genRainbowBadgeCSS(sk, var(--ac-sk), @shallowTextColor);
 .genRainbowBadgeCSS(cy, var(--ac-cy), @deepTextColor);
 .genRainbowBadgeCSS(bu, var(--ac-bu), @deepTextColor);
 .genRainbowBadgeCSS(se, var(--ac-se), @deepTextColor);
-.genRainbowBadgeCSS(la, var(--ac-la), @deepTextColor);
+.genRainbowBadgeCSS(la, var(--ac-la), @shallowTextColor);
 .genRainbowBadgeCSS(vn, var(--ac-vn), @deepTextColor);
+.genRainbowBadgeCSS(cf, var(--ac-cf), @deepTextColor);
+.genRainbowBadgeCSS(au, var(--ac-au), @deepTextColor);
 .genRainbowBadgeCSS(pu, var(--ac-pu), @deepTextColor);
 .genRainbowBadgeCSS(ro, var(--ac-ro), @deepTextColor);
+.genRainbowBadgeCSS(pl, var(--ac-pl), @shallowTextColor);
 .genRainbowBadgeCSS(pk, var(--ac-pk), @shallowTextColor);
 .genRainbowBadgeCSS(gd, var(--ac-gd), @shallowTextColor);
 .genRainbowBadgeCSS(bn, var(--ac-bn), @deepTextColor);
@@ -7307,7 +7259,6 @@ rt {
 }
 .v-coating.opened {
     border-color: var(--df);
-    // background: var(--db) !important;
     background: var(--code-bg) !important;
     text-shadow: none;
     color: var(--df);

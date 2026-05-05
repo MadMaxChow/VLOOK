@@ -5,7 +5,7 @@ vlook-query: sb=hide
 
 # Quick Start ° Formatting
 
-> ![° FORMATTING](pic/qico-types-light.svg?fill=vn#logo)
+> ![° FORMATTING](pic/qico-types-light.svg?fill=vn#icon2x)
 >
 > **° FORMATTING**
 >
@@ -187,7 +187,7 @@ vlook-query: sb=hide
 
 # Quick Start ° Navigation
 
-> ![° NAVIGATION](pic/qico-nav-light.svg?fill=bu#logo)
+> ![° NAVIGATION](pic/qico-nav-light.svg?fill=bu#icon2x)
 >
 > **° NAVIGATION**
 >
@@ -250,7 +250,7 @@ vlook-query: sb=hide
 
 # Quick Start ° Presentation and Publishing
 
-> ![° PRESENTATION & PUBLICATION](pic/qico-pres-light.svg?fill=og#logo)
+> ![° PRESENTATION & PUBLICATION](pic/qico-pres-light.svg?fill=og#icon2x)
 >
 > **° PRESENTATION & PUBLICATION**
 >
@@ -410,7 +410,7 @@ vlook-query: sb=hide
 
 # Quick Start ° Appearance & Essentials
 
-> ![° APPEARANCE & ESSENTIALS](pic/qico-theme-light.svg?fill=lm#logo)
+> ![° APPEARANCE & ESSENTIALS](pic/qico-theme-light.svg?fill=lm#icon2x)
 >
 > **° APPEARANCE & ESSENTIALS**
 >

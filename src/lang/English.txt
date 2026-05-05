@@ -1,6 +1,6 @@
 <!--
 ========== Language Pack ==========
-VLOOK™ "V2026.3" (2025-11-06) - (Language Pack) - Typora Plugin
+VLOOK™ "V2026.5" (2026-05-05) - (Language Pack) - Typora Plugin
 
 Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -47,7 +47,7 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "en36":"- A new version has been released, please update!",
 "en37":"Sorry, copying is currently not supported in this browser",
 "en38":"Include Outline",
-"en39":"Zen Mode",
+"en39":"Zen View",
 "en40":"Loading",
 "en41":"Font Style",
 "en42":"Minute(s)",
@@ -110,5 +110,8 @@ Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
 "en99":"( No Caption )",
 "en100":"Break",
 "en101":"Critical",
-"en102":"Collapse all"
+"en102":"Collapse all",
+"en103":"Slide View"
+"en104":"Filter"
+"en105":"Highlight"
 }</script>

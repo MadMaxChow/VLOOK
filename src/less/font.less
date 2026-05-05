@@ -3,8 +3,8 @@
  * VLOOK™ CSS 字体主题、圆角样式
  * (配合 base.less 进行使用)
  *
- * V2026.3
- * 2026-03-27
+ * V2026.5
+ * 2026-05-05
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -75,10 +75,10 @@ U+0030-0039; // 指 0123456789
 @tag_font: var(--b-fm-tag);
 
 // 在主题中优先使用的等宽字体
-@themeMonoFontFamily: "";
+@thmMonoFontFamily: "";
 
 // 在主题中优先使用的正文字体
-@themeTextFontFamily: "";
+@thmTextFontFamily: "";
 
 @GoMono: "Go Mono", GoMono;
 
@@ -102,7 +102,6 @@ U+0030-0039; // 指 0123456789
 @bookBoldFont: @base_sans_en, @base_sans_cn, sans-serif;
 @bookTitle: @bookBoldFont;
 @bookHeader: @bookBoldFont;
-// @bookMono: @base_serif_mono, @base_sans_en, @base_sans_cn, monospace;
 @bookMono: @base_serif_mono, monospace;
 @fontBoldWeight4Book: bold;
 @fontBoldWeight4BookTitle: bold;
@@ -130,7 +129,7 @@ U+0030-0039; // 指 0123456789
 @sansTitle: "白无常可可体", "白无常可可体常规", "BWCKKT-Bold", "KeKeTi", @sansFont;
 @sansHeader: @sansTitle;
 @notoTocFont: "白无常可可体", "白无常可可体常规", "BWCKKT-Regular", "KeKeTi";
-@sansMono: "Noto Sans Mono", @base_serif_mono, @sansBaseFont, @localFont, @base_sans_cn, monospace;
+@sansMono: "Noto Sans Mono", @mono_local, @base_serif_mono, @sansBaseFont, @localFont, @base_sans_cn, monospace;
 @fontBoldWeight4Sans: bold;
 @fontBoldWeight4SansTitle: bold;
 @fontBoldWeight4SansText: normal;
@@ -196,12 +195,12 @@ U+0030-0039; // 指 0123456789
     --v-fm-tt-local: @localFont;
     --v-fm-stt-local: @localFont;
     --v-fm-h-local: @localFont;
-    --v-fm-text-local: @themeTextFontFamily, @localFont;
-    --v-fm-bd-local: @themeTextFontFamily, @localFont;
+    --v-fm-text-local: @thmTextFontFamily, @localFont;
+    --v-fm-bd-local: @thmTextFontFamily, @localFont;
     --v-fm-key-local: @localFont;
     --v-fm-tag-local: @tag_font, @localFont;
     --v-fm-toc-local: @tag_font, @localFont;
-    --v-fm-code-local: @themeMonoFontFamily, @monoLocalFont;
+    --v-fm-code-local: @thmMonoFontFamily, @monoLocalFont;
     --v-fw-bd-local: @fontBoldWeight4Local;
     --v-fw-toc-local: @fontBoldWeight4Local;
     --v-fw-tag-local: @fontBoldWeight4Local;
@@ -213,12 +212,12 @@ U+0030-0039; // 指 0123456789
     --v-fm-tt-book: @bookTitle;
     --v-fm-stt-book: @bookBoldFont;
     --v-fm-h-book: @bookHeader;
-    --v-fm-text-book: @themeTextFontFamily, @bookFont;
-    --v-fm-bd-book: @themeTextFontFamily, @bookBoldFont;
+    --v-fm-text-book: @thmTextFontFamily, @bookFont;
+    --v-fm-bd-book: @thmTextFontFamily, @bookBoldFont;
     --v-fm-key-book: @bookBoldFont;
     --v-fm-tag-book: @tag_font, @bookBoldFont;
     --v-fm-toc-book: @tag_font, @bookBoldFont;
-    --v-fm-code-book: @themeMonoFontFamily, @bookMono;
+    --v-fm-code-book: @thmMonoFontFamily, @bookMono;
     --v-fw-bd-book: @fontBoldWeight4Book;
     --v-fw-toc-book: @fontBoldWeight4Book;
     --v-fw-tag-book: @fontBoldWeight4Book;
@@ -230,12 +229,12 @@ U+0030-0039; // 指 0123456789
     --v-fm-tt-zen: @zenTitle;
     --v-fm-stt-zen: @zenFont;
     --v-fm-h-zen: @zenHeader;
-    --v-fm-text-zen: @themeTextFontFamily, @zenFont;
-    --v-fm-bd-zen: @themeTextFontFamily, @zenFont;
+    --v-fm-text-zen: @thmTextFontFamily, @zenFont;
+    --v-fm-bd-zen: @thmTextFontFamily, @zenFont;
     --v-fm-key-zen: @zenFont;
     --v-fm-tag-zen: @tag_font, @zenFont;
     --v-fm-toc-zen: @zenTitle, @tag_font, @zenFont;
-    --v-fm-code-zen: @themeMonoFontFamily, @zenMono;
+    --v-fm-code-zen: @thmMonoFontFamily, @zenMono;
     --v-fw-bd-zen: @fontBoldWeight4Zen;
     --v-fw-toc-zen: @fontBoldWeight4ZenTitle;
     --v-fw-tag-zen: @fontBoldWeight4Zen;
@@ -247,12 +246,12 @@ U+0030-0039; // 指 0123456789
     --v-fm-tt-sans: @sansTitle;
     --v-fm-stt-sans: @sansFont;
     --v-fm-h-sans: @sansHeader;
-    --v-fm-text-sans: @themeTextFontFamily, @sansFont;
-    --v-fm-bd-sans: @themeTextFontFamily, @sansFont;
+    --v-fm-text-sans: @thmTextFontFamily, @sansFont;
+    --v-fm-bd-sans: @thmTextFontFamily, @sansFont;
     --v-fm-key-sans: @sansFont;
     --v-fm-tag-sans: @notoTocFont, @tag_font, @sansFont;
     --v-fm-toc-sans: @notoTocFont, @tag_font, @sansFont;
-    --v-fm-code-sans: @themeMonoFontFamily, @sansMono;
+    --v-fm-code-sans: @thmMonoFontFamily, @sansMono;
     --v-fw-bd-sans: @fontBoldWeight4Sans;
     --v-fw-toc-sans: @fontBoldWeight4Sans;
     --v-fw-tag-sans: @fontBoldWeight4Sans;
@@ -264,12 +263,12 @@ U+0030-0039; // 指 0123456789
     --v-fm-tt-serif: @serifTitle;
     --v-fm-stt-serif: @serifBoldFont;
     --v-fm-h-serif: @serifHeader;
-    --v-fm-text-serif: @themeTextFontFamily, @serifFont;
-    --v-fm-bd-serif: @themeTextFontFamily, @serifBoldFont;
+    --v-fm-text-serif: @thmTextFontFamily, @serifFont;
+    --v-fm-bd-serif: @thmTextFontFamily, @serifBoldFont;
     --v-fm-key-serif: @serifBoldFont;
     --v-fm-tag-serif: @serifTocFont, @tag_font, @serifBoldFont;
     --v-fm-toc-serif: @serifTocFont, @tag_font, @serifBoldFont;
-    --v-fm-code-serif: @themeMonoFontFamily, @serifMono;
+    --v-fm-code-serif: @thmMonoFontFamily, @serifMono;
     --v-fw-bd-serif: @fontBoldWeight4Serif;
     --v-fw-toc-serif: @fontBoldWeight4Serif;
     --v-fw-tag-serif: @fontBoldWeight4Serif;
@@ -281,12 +280,12 @@ U+0030-0039; // 指 0123456789
     --v-fm-tt-dyn: @dynTitle;
     --v-fm-stt-dyn: @dynFont;
     --v-fm-h-dyn: @dynHeader;
-    --v-fm-text-dyn: @themeTextFontFamily, @dynFont;
-    --v-fm-bd-dyn: @themeTextFontFamily, @dynFont;
+    --v-fm-text-dyn: @thmTextFontFamily, @dynFont;
+    --v-fm-bd-dyn: @thmTextFontFamily, @dynFont;
     --v-fm-key-dyn: @dynFont;
     --v-fm-tag-dyn: "D-DIN", @tag_font, @dynFont;
     --v-fm-toc-dyn: @dynTocFont, @dynTitle, @tag_font, @dynFont;
-    --v-fm-code-dyn: @themeMonoFontFamily, @monoLocalFont;
+    --v-fm-code-dyn: @thmMonoFontFamily, @monoLocalFont;
     --v-fw-bd-dyn: @fontBoldWeight4Local;
     --v-fw-toc-dyn: @fontBoldWeight4DynTitle;
     --v-fw-tag-dyn: @fontBoldWeight4Local;
@@ -298,12 +297,12 @@ U+0030-0039; // 指 0123456789
     --v-fm-tt-yuan: @yuanTitle;
     --v-fm-stt-yuan: @yuanFont;
     --v-fm-h-yuan: @yuanHeader;
-    --v-fm-text-yuan: @themeTextFontFamily, @yuanFont;
-    --v-fm-bd-yuan: @themeTextFontFamily, @yuanFont;
+    --v-fm-text-yuan: @thmTextFontFamily, @yuanFont;
+    --v-fm-bd-yuan: @thmTextFontFamily, @yuanFont;
     --v-fm-key-yuan: @yuanFont;
     --v-fm-tag-yuan: @tag_font, @yuanFont;
     --v-fm-toc-yuan: @yuanTocFont, @tag_font, @yuanFont;
-    --v-fm-code-yuan: @themeMonoFontFamily, @yuanMono;
+    --v-fm-code-yuan: @thmMonoFontFamily, @yuanMono;
     --v-fw-bd-yuan: @fontBoldWeight4Yuan;
     --v-fw-toc-yuan: @fontBoldWeight4YuanText;
     --v-fw-tag-yuan: @fontBoldWeight4Yuan;
@@ -315,12 +314,12 @@ U+0030-0039; // 指 0123456789
     --v-fm-tt-ink: @inkTitle;
     --v-fm-stt-ink: @inkFont;
     --v-fm-h-ink: @inkHeader;
-    --v-fm-text-ink: @themeTextFontFamily, @inkFont;
-    --v-fm-bd-ink: @themeTextFontFamily, @inkFont;
+    --v-fm-text-ink: @thmTextFontFamily, @inkFont;
+    --v-fm-bd-ink: @thmTextFontFamily, @inkFont;
     --v-fm-key-ink: @inkFont;
     --v-fm-tag-ink: @tag_font, @inkFont;
     --v-fm-toc-ink: @inkTitle, @tag_font, @inkFont;
-    --v-fm-code-ink: @themeMonoFontFamily, @inkMono;
+    --v-fm-code-ink: @thmMonoFontFamily, @inkMono;
     --v-fw-bd-ink: @fontBoldWeight4Ink;
     --v-fw-toc-ink: @fontBoldWeight4InkTitle;
     --v-fw-tag-ink: @fontBoldWeight4Ink;
@@ -519,93 +518,5 @@ U+0030-0039; // 指 0123456789
         font-style: @fontStyle;
         src: @src;
         font-display: swap;
-    }
-}
-
-//=========================================
-// 配套圆角风格集
-@buttonRadiusCircle: 25px;
-:root {
-    // ---
-    // 小号圆角
-    --v-r-b-small: 10px; // 标准圆角
-    --v-r-s-small: 6px; // 标准圆角内的小圆角
-    --v-r-t-small: 8px; // 代码块、表格圆角
-    --v-r-si-small: calc(var(--v-r-t-small) + 1px); // 标准圆角内的小圆角
-    --v-r-tag-small: 7px; // 标签圆角
-
-    // ---
-    // 大号圆角
-    --v-r-b-big: 18px; // 标准圆角
-    --v-r-s-big: 10px; // 标准圆角内的小圆角
-    --v-r-t-big: 16px; // 代码块、表格圆角
-    --v-r-si-big: calc(var(--v-r-t-big) + 1px); // 标准圆角内的小圆角
-    --v-r-tag-big: 10px; // 标签圆角
-}
-// ---
-// 应用叶子圆角
-.applyThemeRadius(@themeRadius, @xc: 0px) when (@themeRadius = leaf) {
-    .applyThemeRadius(big);
-    :root {
-        --v-r-b-xc: @xc;
-        --v-r-s-xc: calc(@xc - 1px);
-        --v-r-t-xc: calc(@xc - 1px);
-        --v-r-si-xc: calc(@xc - 2px);
-        --v-r-tag-xc: calc(@xc - 1px);
-    }
-}
-// ---
-// 应用大号圆角
-.applyThemeRadius(@themeRadius) when (@themeRadius = big) {
-    :root {
-        --v-r-b: var(--v-r-b-big); // 标准圆角
-        --v-r-s: var(--v-r-s-big); // 标准圆角内的小圆角
-        --v-r-t: var(--v-r-t-big); // 表格圆角
-        // --v-r-si: calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
-        --v-r-si: calc(var(--v-r-s-big) - 1px); // 标准圆角内的小圆角
-        --v-r-tag: var(--v-r-tag-big); // 标签圆角
-        // --v-r-c: var(--v-r-c-big); // 半距圆角
-    }
-    .setForNotLeaf();
-}
-// ---
-// 应用小号圆角
-.applyThemeRadius(@themeRadius) when (@themeRadius = small) {
-    :root {
-        --v-r-b: var(--v-r-b-small); // 标准圆角
-        --v-r-s: var(--v-r-s-small); // 标准圆角内的小圆角
-        --v-r-t: var(--v-r-t-small); // 表格圆角
-        // --v-r-si: calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
-        --v-r-si: calc(var(--v-r-s) - 1px); // 标准圆角内的小圆角
-        --v-r-tag: var(--v-r-tag-small); // 标签圆角
-        // --v-r-c: var(--v-r-c-small); // 半距圆角
-    }
-    .setForNotLeaf();
-}
-// ---
-// 应用无圆角
-.applyThemeRadius(@themeRadius) when (@themeRadius = none) {
-    :root {
-        --v-r-b: 0; // 标准圆角
-        --v-r-s: 0; // 标准圆角内的小圆角
-        --v-r-t: 0; // 表格圆角
-        // --v-r-si: calc(var(--v-r-t) - 1px); // 标准圆角内的小圆角
-        --v-r-si: 0; // 标准圆角内的小圆角
-        --v-r-tag: 0; // 标签圆角
-        // --v-r-c: 0; // 半距圆角
-    }
-    .setForNotLeaf();
-}
-// ---
-// 为非 leaf 的圆角样式设置初始的 xc 值
-.setForNotLeaf() {
-    :root {
-        // 对角值（叶子风格）
-        --v-r-b-xc: var(--v-r-b);
-        --v-r-s-xc: var(--v-r-s);
-        --v-r-t-xc: var(--v-r-t);
-        --v-r-si-xc: var(--v-r-si);
-        --v-r-tag-xc: var(--v-r-tag);
-        // --v-r-c-xc: var(--v-r-c);
     }
 }

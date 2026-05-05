@@ -1,10 +1,10 @@
 ---
 title: Guide ★ Exploration - VLOOK™ - Elegant and Practical Typora Theme & Plugin
 author: MAX°孟兆
-date: 2026-03-27
+date: 2026-05-05
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: This work is licensed under the MIT License. For details, see the LICENSE file.
-version: V2026.3
+version: V2026.5
 tags: Content Navigation, Content Assistant, Presentation Tools, Publishing Tools, Appearance, Miscellaneous
 vlook-footer: <a href="index-en.html">Introduction</a>	|	Guide for <a href='guide-en.html'>Basic</a>  ❯  <a href='guide2-en.html'>Advanced</a>  ❯  <strong>Exploration</strong>
 description: Regarding VLOOK™: Theme Design, Content Tagging, Content Navigation, Presentation & Publishing, Third-Party Integration Adaptation, and Miscellaneous Exclusions
@@ -13,23 +13,23 @@ description: Regarding VLOOK™: Theme Design, Content Tagging, Content Navigati
 keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
 - editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,cross-reference,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
-- light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
-- catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
+- light mode,dark mode,grayscale mode,gray mode,card-style link,link card
+- catalogue,library,illustration navigation,outline navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
-- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
+- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,Fullscreen Mode, Paragraph Navigator, Content Width Adaptation, Zen View, Presentation Mode, Reading Progress, Exclude from Publishing, Document Footer,export as pdf,save as pdf,print to pdf
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - link map,link specification,link check,link recognition,link conversion
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,交叉引用,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
-- 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
-- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
+- 浅色外观,深色外观,灰度外观,灰色外观,卡片式链接,链接卡片
+- 目录,文库,插图导航,大纲导航,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
-- 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
+- 内容助手,出版辅助,发布为PDF,导出为PDF,演示辅助,复制,全屏显示,激光笔,聚光灯,段落漫游,正文宽度适配,宁静视图,幻灯片视图,画中画,阅读进度,标记不发布,文档页脚,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
 - 设计,需求,文档,博客,手册,指南,攻略,知识库,教程,方案,教育,笔记,日记
@@ -39,7 +39,7 @@ vlook-doc-lib:
 - [How to Start?](index-en.html?target=_self "Introduction, Installation and Configuration, Language Packs")
 - [Guide • Basic](guide-en.html?target=_self "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Filters / Postcards / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
 - [Guide ▲ Advanced](guide2-en.html?target=_self "Columns, Caption, Cross-reference, Buttons, Link,Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
-- [Guide ★ Exploration](guide3-en.html?target=_self "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
+- [Guide ★ Exploration](guide3-en.html?target=_self "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit / Zen View, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
 - [Value-added Services](vip-en.html?target=_self "VIP Themes, Document Typesetting and Editing,...")
 - [More Content](vlook-lib-en.html "VLOOK™ Full Feature Index Table")
 - [Report Issues](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
@@ -69,7 +69,225 @@ vlook-doc-lib:
 >
 > _~Gn~_
 
-# Content Navigation
+# °Appearance
+
+## Template Themes
+
+*Markdown Fans`Q`*「**Can your Markdown documents switch skins with one click?!**」
+
+*VLOOK`A`*_~T2~_ Built-in original themes for various scenarios, surpassing expectations for Markdown themes!
+
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+
+==Themes apply to Typora UI and all editable elements for visual consistency!==
+
+### Built-in Template Themes
+
+<u>VLOOK™'s 6 free themes (click the image below to preview the effect.)～</u>
+
+---
+
+---
+
+> [![Inspired by movie "Titanic", default font style "Literary"](pic/vlook-theme-hope.png?srcset=@2x#card "Hope Ocean Heart")](theme-hope.html)
+>
+> _~Bu~_
+
+> [![Blends Chinese ancient architecture with modern industrial style](pic/vlook-theme-joint.png?srcset=@2x#card "Joint Mortise-Tenon")](theme-joint.html)
+>
+> _~Ye~_
+
+> [![Geeks change the world, VLOOK changes Markdown automation](pic/vlook-theme-geek.png?srcset=@2x#card "Geek Profound")](theme-geek.html)
+>
+> _~Gy~_
+
+---
+
+---
+
+> [![Inspired by coffee breaks, default font style "Fresh"](pic/vlook-theme-fancy.png?srcset=@2x#card "Fancy Fantasy")](theme-fancy.html)
+>
+> _~Og~_
+
+> [![Inspired by meditation](pic/vlook-theme-thinking.png?srcset=@2x#card "Thinking Meditation")](theme-thinking.html)
+>
+> _~Cy~_
+
+> [![Homage to Sun Microsystems' Solaris OS, default font style "Book"](pic/vlook-theme-solaris.png?srcset=@2x#card "Solaris")](theme-solaris.html)
+>
+> _~Vn~_
+
+**Online plugin users can specify themes via [Plugin Tuning Parameters](#Plugin Tuning Parameters) `theme`.**
+
+---
+
+### Custom Template Themes
+
+<u>Now offering theme customization services (sample cases below)</u>
+
+![VIP Themes](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.gif)
+
+**[<kbd>Explore More About VIP Themes</kbd>](vip-en.md)**
+
+## Font Style
+
+*Markdown Fans`Q`*「**Themes boost visual appeal, fonts define document personality!**」
+
+*VLOOK`A`*_~T2~_ Five distinctive Font Style for different preferences.
+
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+
+<u>Select via ![Font Style](pic/icon-font-style.svg?darksrc=invert#icon) in status bar<br>Also configurable via [VIP Themes](#Template Themes)</u>
+
+---
+
+---
+
+---
+
+> ![Uses system UI fonts, varies slightly across systems](pic/fs-local2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![Overall presents as "Books, Print" (Mixes system Song/Hei fonts, varies across systems)](pic/fs-book2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![Overall presents as "Zen Courtyard, Regular Script Calligraphy, Tranquil Space" (requires the browser to load web fonts or install them locally)](pic/fs-zen2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![Overall presents as "Affinity, Warmth, Health" (requires the browser to load web fonts or install them locally)](pic/fs-yuan2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+---
+
+---
+
+---
+
+> ![Vibrant, open style (requires the browser to load web fonts or install them locally)](pic/fs-dyn2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![Overall presents as "Elegance, Rhythm, Personality" (requires the browser to load web fonts or install them locally)](pic/fs-serif2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![Overall presents as "Freshness, Simplicity, Trendiness" (requires the browser to load web fonts or install them locally)](pic/fs-sans2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+> ![Overall presents as "Childlike Fun, Handwriting, Free-Spirited, Comfortable" (requires the browser to load web fonts or install them locally)](pic/fs-ink2.png?srcset=@2x#padding#card#fitmax)
+>
+> _~Gy~_
+
+
+
+Some Font Style marked with (WebFont) require an Internet connection to load and take effect properly.
+
+If you cannot connect to the Internet or your network is slow, it is recommended to download the fonts for local installation.
+
+**[<kbd>Download the Font Package</kbd>](https://github.com/MadMaxChow/openfonts/releases/download/V2.0/install-font-V2.0.tar.gz)**
+
+> [!NOTE]
+>
+> - You can choose to install only the font packages for the styles you want to use, or install all of them;  
+> - Some fonts are duplicated across different Font Style. If you are prompted that a font already exists during installation, you can skip installing that font.
+
+> [!IMPORTANT]
+>
+> - Applies to all documents under same domain, override via [Plugin Tuning Parameters](#Plugin Tuning Parameters) `font`
+
+
+
+## Dark Mode
+
+*Markdown Fans`Q`*「**Want Markdown documents to adapt to system dark mode.**」
+
+*VLOOK`A`*_~T2~_ All VLOOK™ themes auto-adapt to browser/system dark mode.
+
+> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+
+<u>Toggle via ![Auto Mode](pic/icon-auto-mode.svg?darksrc=invert#icon) / ![Light Mode](pic/icon-light-mode.svg?darksrc=invert#icon) / ![Dark Mode](pic/icon-dark-mode.svg?darksrc=invert#icon) (shortcut <kbd>A</kbd>)</u>
+
+
+
+> [!NOTE]
+>
+> - Applies to all documents under same domain, override via [Plugin Tuning Parameters](#Plugin Tuning Parameters) `cs` ;
+> - To disable auto-switching, use [VIP Themes](https://madmaxchow.github.io/VLOOK/vip.html).
+
+![Light/Dark Preview](pic/vlook-color-scheme-preview.png?srcset=@2x)
+
+> [!TIP]
+>
+> For better Dark Mode image harmony, try [Dark Mode image adaptation](guide-en.md#Image Adaptation for Dark Mode).
+
+## Gray Mode
+
+*Markdown Fans`Q`*「**Want documents to display in grayscale on memorial days.**」
+
+*VLOOK`A`*_~T2~_ Easily enable grayscale display on specified dates.
+
+> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+
+<u>Specify Gray Mode dates via [Plugin Preset Options](#Plugin Preset Options) `vlook-gray-mode` in YAML Front Matter</u>
+
+*==Add Gray Mode Dates==*
+
+```yaml
+---
+vlook-gray-mode: Month-Day:Title@LanguageCode
+# Example:
+# 12-13:National Memorial Day@zh;04-05:Tomb-Sweeping Day@zh,ko
+---
+```
+
+> `Month` and `Day` format: `12-13` or `04-05`
+>
+> `Title` optional, date description e.g. `National Memorial Day`
+>
+> `LanguageCode` optional, applicable languages (comma-separated)
+>
+> <sup>e.g.: Chinese `zh`, Chinese & Korean `zh,ko`, English `en`</sup>
+>
+> ---
+>
+> 
+>
+> - Separate multiple dates with semicolons `;`
+> - Temporarily disable via ![Gray Mode](pic/icon-gray.svg?darksrc=invert#icon)
+
+_^tab^_
+
+> [!IMPORTANT]
+>
+> VLOOK™ pre-configures Gray Mode for "Chinese National Memorial Day/Tomb-Sweeping Day"
+
+> [!NOTE]
+>
+> For more about YAML Front Matter settings, see [Plugin Preset Options](#Plugin Preset Options).
+
+## Browser Theme Color
+
+Supports the browser top bar theme color (brand color) feature on mobile devices, providing a friendlier and more consistent browsing experience.
+
+Browser support for `theme-color` varies across platforms and versions. Currently, major browsers that support this standard include:
+
+- **Safari** <sup>for iOS</sup>
+- **Chrome** <sup>for Android</sup>
+- For more details, see: [Can I use?](https://caniuse.com/?search=theme-color)
+
+
+
+---
+
+For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)  ![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe)  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
+
+
+# °Content Navigation
 
 ## Document Library Navigation
 
@@ -313,7 +531,7 @@ vlook-quick-action:
 
 For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)  ![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe)  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-# Content Assistant
+# °Content Assistant
 
 > **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
@@ -401,7 +619,7 @@ Try it on any image/table/code/formula in the document～
 
 For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)  ![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe)  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-# Presentation Tools
+# °Presentation Tools
 
 > **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
@@ -419,7 +637,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 *VLOOK`A`*_~T2~_ Works out-of-the-box with VLOOK™～
 
-> - Toggle via ![Spotlight](pic/icon-spotlight.svg?darksrc=invert#icon) (shortcut <kbd>S</kbd>);
+> - Toggle via ![Spotlight](pic/icon-spotlight.svg?darksrc=invert#icon) (shortcut <kbd>L</kbd>);
 > - Adjust size with <kbd>⇧ Shift</kbd>.
 
 ## Paragraph Roaming
@@ -439,17 +657,15 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 | <kbd>⌘ command</kbd> / <kbd>⌃ Ctrl</kbd> | Jump ==5== paragraphs        |
 |            <kbd>⇧ shift</kbd>            | Jump ==10== paragraphs       |
 
-## ~~Zen Mode~~
+## Zen View
 
-When you need to hide the VLOOK™ plugin interface (such as the toolbar, navigation center, status bar, and other elements) and display only the document content, you can press <kbd>Z</kbd> to instantly enter **"Zen Mode"**, which hides the plugin interface.
+**When you need an immersive reading experience, you can press <kbd>Z</kbd> to enter "Zen View" with one click.**
 
-Press <kbd>Z</kbd> again or <kbd>ESC</kbd> to exit **"Zen Mode"**.
-
-
+<u>Once enabled, elements such as the toolbar, navigation center, and status bar will be hidden. Press <kbd>Z</kbd> again or <kbd>ESC</kbd> to exit "Zen View".</u>
 
 > [!TIP]
 >
-> In **"Zen Mode"**, if you need to use presentation tools such as **["Laser Pointer"]( #laser-pointer )**, **["Spotlight"]( #spotlight )**, or **["Paragraph Roaming"]( #paragraph-roaming )**, you can activate them directly via keyboard shortcuts.
+> In "Zen View", if you need to use presentation aids such as [Laser Pointer](#激光笔), [Spotlight](#聚光灯), and [Paragraph Navigator](#段落漫游), you can activate them directly using their corresponding keyboard shortcuts.
 
 ## Mermaid Element Highlighting
 
@@ -457,25 +673,24 @@ Hover to highlight Mermaid chart elements (nodes, subgraphs, text) for focused p
 
 ## Content Width Adaptation
 
-For optimal reading, main content width automatically adapts to browser window, with:
+To ensure a good reading experience, two modes are provided for the content width: ==fixed width== and ==fit to window width==, along with a mechanism to switch between them:
 
-- Fixed width when too wide
-- Arrow controls to toggle widths
+- For exported HTML, click the arrow on the right to toggle the content width between different modes
 
-> [!NOTE]
+- During editing:
+
+  - Supports setting to ==fixed width==, ==fit to window width==, or ==auto switch==
+  - For ==auto switch==, you can toggle between different width modes using the following methods:
+
+---
+
+> **Show / Hide the left sidebar (Outline / Files)**
 >
-> Also adapts to Typora window width in these cases:
+> Shortcut: <kbd>⇧ Shift</kbd> + <kbd>Cmd / Control</kbd> + <kbd>L</kbd>
+
+> **Enable / Disable Focus Mode**
 >
-> ---
->
-> > Hide left sidebar (outline/files)
-> >
-> > - <kbd>⇧ Shift</kbd> + <kbd>Cmd/Ctrl</kbd> + <kbd>L</kbd>
-> 
-> > Enable Focus Mode
-> >
-> > - <kbd>F8</kbd>
-> 
+> Shortcut: <kbd>F8</kbd>
 
 ## Reading Progress
 
@@ -489,7 +704,7 @@ A friendly reading progress indicator has been added at the bottom of the docume
 
 For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)  ![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe)  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-# Publishing Tools
+# °Publishing Tools
 
 > **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
@@ -892,223 +1107,6 @@ Displays word count (separating Latin/CJK characters) and estimated reading time
 
 For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)  ![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe)  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
 
-# °Appearance
-
-## Template Themes
-
-*Markdown Fans`Q`*「**Can your Markdown documents switch skins with one click?!**」
-
-*VLOOK`A`*_~T2~_ Built-in original themes for various scenarios, surpassing expectations for Markdown themes!
-
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
-
-==Themes apply to Typora UI and all editable elements for visual consistency!==
-
-### Built-in Template Themes
-
-<u>VLOOK™'s 6 free themes (click the image below to preview the effect.)～</u>
-
----
-
----
-
-> [![Inspired by movie "Titanic", default font style "Literary"](pic/vlook-theme-hope.png?srcset=@2x#card "Hope Ocean Heart")](theme-hope.html)
->
-> _~Bu~_
-
-> [![Blends Chinese ancient architecture with modern industrial style](pic/vlook-theme-joint.png?srcset=@2x#card "Joint Mortise-Tenon")](theme-joint.html)
->
-> _~Ye~_
-
-> [![Geeks change the world, VLOOK changes Markdown automation](pic/vlook-theme-geek.png?srcset=@2x#card "Geek Profound")](theme-geek.html)
->
-> _~Gy~_
-
----
-
----
-
-> [![Inspired by coffee breaks, default font style "Fresh"](pic/vlook-theme-fancy.png?srcset=@2x#card "Fancy Fantasy")](theme-fancy.html)
->
-> _~Og~_
-
-> [![Inspired by meditation](pic/vlook-theme-thinking.png?srcset=@2x#card "Thinking Meditation")](theme-thinking.html)
->
-> _~Cy~_
-
-> [![Homage to Sun Microsystems' Solaris OS, default font style "Book"](pic/vlook-theme-solaris.png?srcset=@2x#card "Solaris")](theme-solaris.html)
->
-> _~Vn~_
-
-**Online plugin users can specify themes via [Plugin Tuning Parameters](#Plugin Tuning Parameters) `theme`.**
-
----
-
-### Custom Template Themes
-
-<u>Now offering theme customization services (sample cases below)</u>
-
-![VIP Themes](https://vlook-doc.pages.dev/pic/vlook-theme-vip-demo.gif)
-
-**[<kbd>Explore More About VIP Themes</kbd>](vip-en.md)**
-
-## Font Style
-
-*Markdown Fans`Q`*「**Themes boost visual appeal, fonts define document personality!**」
-
-*VLOOK`A`*_~T2~_ Five distinctive Font Style for different preferences.
-
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
-
-<u>Select via ![Font Style](pic/icon-font-style.svg?darksrc=invert#icon) in status bar (shortcut <kbd>A</kbd>)<br>Also configurable via [VIP Themes](#Template Themes)</u>
-
----
-
----
-
----
-
-> ![Uses system UI fonts, varies slightly across systems](pic/fs-local2.png?srcset=@2x#padding#card#fitmax)
->
-> _~Gy~_
-
-> ![Overall presents as "Books, Print" (Mixes system Song/Hei fonts, varies across systems)](pic/fs-book2.png?srcset=@2x#padding#card#fitmax)
->
-> _~Gy~_
-
-> ![Overall presents as "Zen Courtyard, Regular Script Calligraphy, Tranquil Space" (requires the browser to load web fonts or install them locally)](pic/fs-zen2.png?srcset=@2x#padding#card#fitmax)
->
-> _~Gy~_
-
-> ![Overall presents as "Affinity, Warmth, Health" (requires the browser to load web fonts or install them locally)](pic/fs-yuan2.png?srcset=@2x#padding#card#fitmax)
->
-> _~Gy~_
-
----
-
----
-
----
-
-> ![Vibrant, open style (requires the browser to load web fonts or install them locally)](pic/fs-dyn2.png?srcset=@2x#padding#card#fitmax)
->
-> _~Gy~_
-
-> ![Overall presents as "Elegance, Rhythm, Personality" (requires the browser to load web fonts or install them locally)](pic/fs-serif2.png?srcset=@2x#padding#card#fitmax)
->
-> _~Gy~_
-
-> ![Overall presents as "Freshness, Simplicity, Trendiness" (requires the browser to load web fonts or install them locally)](pic/fs-sans2.png?srcset=@2x#padding#card#fitmax)
->
-> _~Gy~_
-
-> ![Overall presents as "Childlike Fun, Handwriting, Free-Spirited, Comfortable" (requires the browser to load web fonts or install them locally)](pic/fs-ink2.png?srcset=@2x#padding#card#fitmax)
->
-> _~Gy~_
-
-
-
-Some Font Style marked with (WebFont) require an Internet connection to load and take effect properly.
-
-If you cannot connect to the Internet or your network is slow, it is recommended to download the fonts for local installation.
-
-**[<kbd>Download the Font Package</kbd>](https://github.com/MadMaxChow/openfonts/releases/download/V2.0/install-font-V2.0.tar.gz)**
-
-> [!NOTE]
->
-> - You can choose to install only the font packages for the styles you want to use, or install all of them;  
-> - Some fonts are duplicated across different Font Style. If you are prompted that a font already exists during installation, you can skip installing that font.
-
-> [!IMPORTANT]
->
-> - Applies to all documents under same domain, override via [Plugin Tuning Parameters](#Plugin Tuning Parameters) `font`
-
-
-
-## Dark Mode
-
-*Markdown Fans`Q`*「**Want Markdown documents to adapt to system dark mode.**」
-
-*VLOOK`A`*_~T2~_ All VLOOK™ themes auto-adapt to browser/system dark mode.
-
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
-
-<u>Toggle via ![Auto Mode](pic/icon-auto-mode.svg?darksrc=invert#icon)/![Light Mode](pic/icon-light-mode.svg?darksrc=invert#icon)/![Dark Mode](pic/icon-dark-mode.svg?darksrc=invert#icon) (shortcut <kbd>D</kbd>)</u>
-
-
-
-> [!NOTE]
->
-> - Applies to all documents under same domain, override via [Plugin Tuning Parameters](#Plugin Tuning Parameters) `cs` ;
-> - To disable auto-switching, use [VIP Themes](https://madmaxchow.github.io/VLOOK/vip.html).
-
-![Light/Dark Preview](pic/vlook-color-scheme-preview.png?srcset=@2x)
-
-> [!TIP]
->
-> For better Dark Mode image harmony, try [Dark Mode image adaptation](guide-en.md#Image Adaptation for Dark Mode).
-
-## Gray Mode
-
-*Markdown Fans`Q`*「**Want documents to display in grayscale on memorial days.**」
-
-*VLOOK`A`*_~T2~_ Easily enable grayscale display on specified dates.
-
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
-
-<u>Specify Gray Mode dates via [Plugin Preset Options](#Plugin Preset Options) `vlook-gray-mode` in YAML Front Matter</u>
-
-*==Add Gray Mode Dates==*
-
-```yaml
----
-vlook-gray-mode: Month-Day:Title@LanguageCode
-# Example:
-# 12-13:National Memorial Day@zh;04-05:Tomb-Sweeping Day@zh,ko
----
-```
-
-> `Month` and `Day` format: `12-13` or `04-05`
->
-> `Title` optional, date description e.g. `National Memorial Day`
->
-> `LanguageCode` optional, applicable languages (comma-separated)
->
-> <sup>e.g.: Chinese `zh`, Chinese & Korean `zh,ko`, English `en`</sup>
->
-> ---
->
-> 
->
-> - Separate multiple dates with semicolons `;`
-> - Temporarily disable via ![Gray Mode](pic/icon-gray.svg?darksrc=invert#icon)
-
-_^tab^_
-
-> [!IMPORTANT]
->
-> VLOOK™ pre-configures Gray Mode for "Chinese National Memorial Day/Tomb-Sweeping Day"
-
-> [!NOTE]
->
-> For more about YAML Front Matter settings, see [Plugin Preset Options](#Plugin Preset Options).
-
-## Browser Theme Color
-
-Supports the browser top bar theme color (brand color) feature on mobile devices, providing a friendlier and more consistent browsing experience.
-
-Browser support for `theme-color` varies across platforms and versions. Currently, major browsers that support this standard include:
-
-- **Safari** <sup>for iOS</sup>
-- **Chrome** <sup>for Android</sup>
-- For more details, see: [Can I use?](https://caniuse.com/?search=theme-color)
-
-
-
----
-
-For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#icon)  ![Feedback via QQ](pic/feedback-via-qq.svg?darksrc=invert#icon)](https://qm.qq.com/q/O0tNC6WBWe)  [![Feedback via Telegram](pic/feedback-via-telegram.svg#icon)](https://t.me/vlook_markdown)
-
 # °Miscellaneous
 
 ## Plugin Preset Options
@@ -1220,7 +1218,7 @@ vlook-query: Param1=Value&Param2=Value...&ParamN=Value
 
 | Category                                      | Function                                        |             Shortcut            |
 | :-------------------------------------------: | :--------------------------------: | :------------------------------: |
-| Common                      | Toggle Dark Mode                                |         <kbd>D</kbd>         |
+| Common                      | Switch Light / Dark Mode              |         <kbd>A</kbd>         |
 | : | Show/hide [Navigation Center](#Navigation Center)      |         <kbd>N</kbd>         |
 | : | Search navigation content                     | <kbd>/</kbd>                |
 | : | Open [Link Map](#Link Map)                   | <kbd>M</kbd>                |
@@ -1237,12 +1235,10 @@ vlook-query: Param1=Value&Param2=Value...&ParamN=Value
 | : | Jump ==5== paragraphs                        | <kbd>⌘ command</kbd> / <kbd>⌃ Ctrl</kbd> |
 | : | Jump ==10== paragraphs                       | <kbd>⇧ shift</kbd>          |
 | : | Exit paragraph roaming                       | <kbd>ESC</kbd>              |
-| Presentation Tools -<br> Others | Enable/Disable [Spotlight](#Spotlight) | <kbd>S</kbd>                |
+| Presentation Tools -<br> Others | Enable/Disable [Spotlight](#Spotlight) | <kbd>O</kbd>              |
 | :                           | Adjust spotlight size                          |      <kbd>⇧ Shift</kbd>      |
 | : | Enable/Disable [Laser Pointer](#Laser Pointer) | <kbd>P</kbd>                |
-| : | Enable/Disable [Zen Mode](#Zen Mode) | <kbd>Z</kbd> |
-| [Font Style](#Font Style) | Select font style                             | <kbd>A</kbd>                |
-| :                       | Exit font selection                            |        <kbd>ESC</kbd>        |
+| : | Enable/Disable [Clean Mode](#Clean Mode) | <kbd>Z</kbd> |
 | [Chapter Navigation](#Chapter Navigation) | Plugin Tuning Parameters**Previous** chapter                          | <kbd>◀</kbd> or <kbd> , </kbd> |
 | :                                   | Plugin Tuning Parameters**Next** chapter                              | <kbd>▶</kbd> or <kbd> . </kbd> |
 | [Figure Navigation](#Figure Navigation) | Start Figure Navigation                       | <kbd>I</kbd>                |

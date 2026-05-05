@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # 用法
-# python3 svg2js-func.py < icon.svg > icon-js-func.js
+# python3 svg2js-func.py < svg.svg > svg.js
 
 #!/usr/bin/env python3
 import sys

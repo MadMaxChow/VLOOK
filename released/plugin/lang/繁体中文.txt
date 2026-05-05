@@ -1,6 +1,6 @@
 <script>/**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V2026.3" (2026-03-27) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V2026.5" (2026-05-05) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -45,7 +45,7 @@ var V_lang_data_zhtd = {
 "zhtd36":"- 已推出新版本，請更新！",
 "zhtd37":"對不起，目前此瀏覽器不支援複製功能",
 "zhtd38":"包含大綱",
-"zhtd39":"禪模式",
+"zhtd39":"寧靜檢視",
 "zhtd40":"加載中",
 "zhtd41":"字體樣式",
 "zhtd42":"分鐘",
@@ -108,5 +108,8 @@ var V_lang_data_zhtd = {
 "zhtd99":"( 無題註 )",
 "zhtd100":"中斷",
 "zhtd101":"關鍵",
-"zhtd102":"全部收合"
+"zhtd102":"全部收合",
+"zhtd103":"投影片檢視",
+"zhtd104":"篩選",
+"zhtd105":"高亮"
 }</script>

@@ -1,10 +1,10 @@
 /**************************************
  *
- * VLOOK™ CSS 调色板
+ * VLOOK™ CSS 调色板 for Typora
  * (配合 base.less 进行使用)
  *
- * V2026.3
- * 2026-03-27
+ * V2026.5
+ * 2026-05-05
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -15,10 +15,6 @@
  * https://gitee.com/madmaxchow/VLOOK
  *
  *************************************/
-
-@colorWhite: #FFF;
-@colorBlack: #000;
-@colorDark: #1C1E1F;
 
 /**
  * 文档背景色
@@ -49,8 +45,6 @@
         --db-ext-dk: @forExtDark;
     }
 }
-@docBgColorLight: @colorWhite;
-@docBgColorDark: @colorDark;
 .applyDocBgColor(@docBgColorLight, @docBgColorDark);
 
 /**
@@ -104,19 +98,17 @@
         --df-g-dk: green(@colorDark);
         --df-b-dk: blue(@colorDark);
 
-        .genHeaderNumberStyle(@style) when not (@style = edge) {
+        .genTweaks() when not (@thmNavCenterStyle = edge) {
             --toc-h-num-c-lg: fade(@colorLight, 50%);
             --toc-h-num-c-dk: fade(@colorDark, 45%);
         }
-        .genHeaderNumberStyle(@style) when (@style = edge) {
+        .genTweaks() when (@thmNavCenterStyle = edge) {
             --toc-h-num-c-lg: currentColor;
             --toc-h-num-c-dk: currentColor;
         }
-        .genHeaderNumberStyle(@navCenterStyle);
+        .genTweaks();
     }
 }
-@docTextColorLight: @docBgColorDark;
-@docTextColorDark: #ECEEEF;
 .applyDocTextColor(@docTextColorLight, @docTextColorDark);
 
 /**
@@ -170,130 +162,155 @@
 @accOpacity: 25%;
 
 @accOpacityHighForLg: 60%;
-@accOpacityMiddleForLg: 25%;
+@accOpacityMiddleForLg: 20%;
 @accOpacityLowForLg: 15%;
 
 @accOpacityHighForDk: 35%;
-@accOpacityMiddleForDk: 45%;
+@accOpacityMiddleForDk: 20%;
 @accOpacityLowForDk: 75%;
 
 @accTitleDarken: 5%;
 
 // --- 比较浅的（亮度高 high）
 
-@accColorGold: #D8B8B0;
-@accColorGoldDark: #D6B0A7;
-@accColorGoldAlt: #FAEAE6;
-@accColorGoldAltDark: #80574D;
+@accPk: #F8A8DD;
+@accPkDark: #F8A8DD;
+@accPkAlt: #FCEDF7;
+@accPkAltDark: #754F69;
 
-@accColorPink: #F8A8D0;
-@accColorPinkDark: #F694C4;
-@accColorPinkAlt: #FCE3F0;
-@accColorPinkAltDark: #C24E88;
+@accPl: #F9C7C7;
+@accPlDark: #F9C7C7;
+@accPlAlt: #FCF6F6;
+@accPlAltDark: #756060;
 
-@accColorYellow: #FABA08;
-@accColorYellowDark: #E6B01C;
-@accColorYellowAlt: #FAEEC8;
-@accColorYellowAltDark: #A68211;
+@accGd: #DFBEBD;
+@accGdDark: #DFBEBD;
+@accGdAlt: #FBF3F2;
+@accGdAltDark: #756362;
 
-@accColorLime: #A8C818;
-@accColorLimeDark: #ADC24E;
-@accColorLimeAlt: #EDF5C9;
-@accColorLimeAltDark: #748528;
+@accYe: #FAC208;;
+@accYeDark: #F5C114;
+@accYeAlt: #FDF4D9;
+@accYeAltDark: #755D0C;
 
-@accColorAqua: #30DBD4;
-@accColorAquaDark: #56D6D1;
-@accColorAquaAlt: #D3F0EE;
-@accColorAquaAltDark: #259994;
+@accWt: @docBgColorLight;
+@accWtDark: @docBgColorDark;
+@accWtAlt: #E6EAEF;//@accGyAlt;
+@accWtAltDark: #5C6166;//@accGyAltDark;
 
-@accColorLavender: #A4A0EC;
-@accColorLavenderDark: #9F9BEB;
-@accColorLavenderAlt: #E5E3FA;
-@accColorLavenderAltDark:#6C67C7;
+@accLm: #B4D219;
+@accLmDark: #B1CC29;
+@accLmAlt: #F5FADC;
+@accLmAltDark: #596614;
+
+@accAq: #67D7D8;
+@accAqDark: #67D7D8;
+@accAqAlt: #EBFAFA;
+@accAqAltDark: #1F6666;
+
+@accSk: #88C1FA;
+@accSkDark: #92C6FA;
+@accSkAlt: #E9F3FD;
+@accSkAltDark: #3A5D80;
+
+@accLa: #BBAEF9;
+@accLaDark: #BBAEF9;
+@accLaAlt: #EEEDFC;
+@accLaAltDark:#524885;
 
 // --- 中间值（亮度中 medium）
 
-@accColorBrown: #9E6946;
-@accColorBrownDark: #A36E4B;
-@accColorBrownAlt: #EBC9B2;
-@accColorBrownAltDark: #754423;
+@accRo: #E440C9;
+@accRoDark: #E44BCB;
+@accRoAlt: #F5CEEE;
+@accRoAltDark: #5C004D;
 
-@accColorRose: #E440D0;
-@accColorRoseDark: #E557D4;
-@accColorRoseAlt: #F0C0EA;
-@accColorRoseAltDark: #99008A;
+@accRd: #D01010;
+@accRdDark: #E04C4C;
+@accRdAlt: #FAD2D2;
+@accRdAltDark: #571A1A;
 
-@accColorRed: #D01010;
-@accColorRedDark: #E04C4C;
-@accColorRedAlt: #F5C9C9;
-@accColorRedAltDark: #8F2B2B;
+@accBn: #B2745A;
+@accBnDark: #B2745A;
+@accBnAlt: #571A1A;
+@accBnAltDark: #4D3226;
 
-@accColorOrange: #F87210;
-@accColorOrangeDark: #F8791B;
-@accColorOrangeAlt: #FAD7BE;
-@accColorOrangeAltDark: #99490F;
+@accOg: #F38019;
+@accOgDark: #F38D32;
+@accOgAlt: #FAE5D2;
+@accOgAltDark: #5C3009;
 
-@accColorGreen: #10A030;
-@accColorGreenDark: #36A852;
-@accColorGreenAlt: #C0F0CA;
-@accColorGreenAltDark: #0B6B24;
+@accGy: #888B8F;
+@accGyDark: #878A8F;
+@accGyAlt: #E1E5EA;
+@accGyAltDark: #343738;
 
-@accColorCyan: #10A0A8;
-@accColorCyanDark: #15AAB3;
-@accColorCyanAlt: #B1EBF0;
-@accColorCyanAltDark: #177275;
+@accGn: #29A953;
+@accGnDark: #29A953;
+@accGnAlt: #D4F0DD;
+@accGnAltDark: #104321;
 
-@accColorBlue: #1090F0;
-@accColorBlueDark: #40A0F2;
-@accColorBlueAlt: #B9DCFA;
-@accColorBlueAltDark: #2167A3;
+@accCy: #10A0A8;
+@accCyDark: #15AAB3;
+@accCyAlt: #CEF2F5;
+@accCyAltDark: #0E4547;
 
-@accColorVine: #5C58D8;
-@accColorVineDark: #7875E0;
-@accColorVineAlt: #C1C0F0;
-@accColorVineAltDark: #4441A3;
+@accBu: #2082F0;
+@accBuDark: #4998F0;
+@accBuAlt: #CDE4FA;
+@accBuAltDark: #153E6B;
 
-@accColorGray: #888B8F;
-@accColorGrayDark: #878A8F;
-@accColorGrayAlt: #D3D9E0;
-@accColorGrayAltDark: #4C5052;
+@accVn: #735DE0;
+@accVnDark: #8471E0;
+@accVnAlt: #DFD7F5;
+@accVnAltDark: #382966;
 
 // --- 比较深的（亮度低 low）
 
-@accColorPurple: #8820B0;
-@accColorPurpleDark: #B945E6;
-@accColorPurpleAlt: #DEB1F0;
-@accColorPurpleAltDark: #631A80;
+@accPu: #9420B0;
+@accPuDark: #AB25CC;
+@accPuAlt: #E9BAF5;
+@accPuAltDark: #400E4D;
 
-@accColorWine: #901050;
-@accColorWineDark: #BF3078;
-@accColorWineAlt: #F5ABD0;
-@accColorWineAltDark: #610B36;
+@accWn: #901050;
+@accWnDark: #BF3078;
+@accWnAlt: #F5BFDA;
+@accWnAltDark: #470828;
 
-@accColorOlives: #607010;
-@accColorOlivesDark: #83942F;
-@accColorOlivesAlt: #C9D685;
-@accColorOlivesAltDark: #444F0B;
+@accCf: #62453E;
+@accCfDark: #76534B;
+@accCfAlt: #D7BCB5;
+@accCfAltDark: #342521;
 
-@accColorMineral: #106C5C;
-@accColorMineralDark: #25857B;
-@accColorMineralAlt: #96D6D0;
-@accColorMineralAltDark: #0C4D46;
+@accTu: #C79215;
+@accTuDark: #C79215;
+@accTuAlt: #F6E4BB;
+@accTuAltDark: #3D2D06;
 
-@accColorSea: #1040C0;
-@accColorSeaDark: #4876F0;
-@accColorSeaAlt: #AEBCE6;
-@accColorSeaAltDark: #0F3194;
+@accBk: #303438;
+@accBkDark: #E9EAEB;
+@accBkAlt: #C0C9D1;
+@accBkAltDark: #3C3F42;
 
-@accColorWhite: @docBgColorLight;
-@accColorWhiteDark: @docBgColorDark;
-@accColorWhiteAlt: @accColorGrayAlt;
-@accColorWhiteAltDark: @accColorGrayAltDark;
+@accOl: #607010;
+@accOlDark: #75852A;
+@accOlAlt: #D6E0A2;
+@accOlAltDark: #303808;
 
-@accColorBlack: #303438;
-@accColorBlackDark: #E9EAEB;
-@accColorBlackAlt: #B7BFC7;
-@accColorBlackAltDark: #AAB4BD;
+@accMn: #0E7150;
+@accMnDark: #0F805A;
+@accMnAlt: #ABE0CE;
+@accMnAltDark: #063324;
+
+@accSe: #104BC0;
+@accSeDark: #3C74E6;
+@accSeAlt: #AEC2EB;
+@accSeAltDark: #122B5C;
+
+@accAu: #4A15B2;
+@accAuDark: #6E32E5;
+@accAuAlt: #C1AEE5;
+@accAuAltDark: #2C145C;
 
 :root {
     --i-checking: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Crect fill='%23AAA' width='30' height='30' rx='6'/%3E%3Cpath d='M7 18a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6z' fill='%23FFF'/%3E%3C/g%3E%3C/svg%3E");
@@ -301,60 +318,70 @@
     --i-check-failed: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Crect fill='%23C01010' width='30' height='30' rx='6'/%3E%3Cpath d='M18.375 6c.224 0 .438.089.596.247l4.782 4.782a.84.84 0 0 1 .247.596v6.75c0 .224-.09.438-.247.596l-4.782 4.782a.842.842 0 0 1-.596.247h-6.75a.842.842 0 0 1-.596-.247L6.247 18.97A.842.842 0 0 1 6 18.375v-6.75c0-.224.089-.438.247-.596l4.782-4.782A.842.842 0 0 1 11.625 6h6.75zM15 18.375a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25zm0-7.875c-.621 0-1.125.472-1.125 1.055v4.64c0 .583.504 1.055 1.125 1.055s1.125-.472 1.125-1.055v-4.64c0-.583-.504-1.055-1.125-1.055z' fill='%23FFF' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E");
 
     // 针对 fade for light
-    --ac-gd-fd-bd-lg: fade(@accColorGold, @accOpacityHighForLg);
-    --ac-pk-fd-bd-lg: fade(@accColorPink, @accOpacityHighForLg);
-    --ac-ye-fd-bd-lg: fade(@accColorYellow, @accOpacityHighForLg);
-    --ac-lm-fd-bd-lg: fade(@accColorLime, @accOpacityHighForLg);
-    --ac-aq-fd-bd-lg: fade(@accColorAqua, @accOpacityHighForLg);
-    --ac-la-fd-bd-lg: fade(@accColorLavender, @accOpacityHighForLg);
+    --ac-gd-fd-bd-lg: fade(@accGd, @accOpacityHighForLg);
+    --ac-pl-fd-bd-lg: fade(@accPl, @accOpacityHighForLg);
+    --ac-pk-fd-bd-lg: fade(@accPk, @accOpacityHighForLg);
+    --ac-ye-fd-bd-lg: fade(@accYe, @accOpacityHighForLg);
+    --ac-lm-fd-bd-lg: fade(@accLm, @accOpacityHighForLg);
+    --ac-aq-fd-bd-lg: fade(@accAq, @accOpacityHighForLg);
+    --ac-sk-fd-bd-lg: fade(@accSk, @accOpacityHighForLg);
+    --ac-la-fd-bd-lg: fade(@accLa, @accOpacityHighForLg);
 
-    --ac-bn-fd-bd-lg: fade(@accColorBrown, @accOpacityMiddleForLg);
-    --ac-ro-fd-bd-lg: fade(@accColorRose, @accOpacityMiddleForLg);
-    --ac-rd-fd-bd-lg: fade(@accColorRed, @accOpacityMiddleForLg);
-    --ac-og-fd-bd-lg: fade(@accColorOrange, @accOpacityHighForLg);
-    --ac-gn-fd-bd-lg: fade(@accColorGreen, @accOpacityMiddleForLg);
-    --ac-cy-fd-bd-lg: fade(@accColorCyan, @accOpacityMiddleForLg);
-    --ac-bu-fd-bd-lg: fade(@accColorBlue, @accOpacityMiddleForLg);
-    --ac-vn-fd-bd-lg: fade(@accColorVine, @accOpacityMiddleForLg);
-    --ac-gy-fd-bd-lg: fade(@accColorGray, @accOpacityMiddleForLg);
+    --ac-bn-fd-bd-lg: fade(@accBn, @accOpacityMiddleForLg);
+    --ac-ro-fd-bd-lg: fade(@accRo, @accOpacityMiddleForLg);
+    --ac-rd-fd-bd-lg: fade(@accRd, @accOpacityMiddleForLg);
+    --ac-og-fd-bd-lg: fade(@accOg, @accOpacityHighForLg);
+    --ac-tu-fd-bd-lg: fade(@accTu, @accOpacityHighForLg);
+    --ac-gn-fd-bd-lg: fade(@accGn, @accOpacityMiddleForLg);
+    --ac-cy-fd-bd-lg: fade(@accCy, @accOpacityMiddleForLg);
+    --ac-bu-fd-bd-lg: fade(@accBu, @accOpacityMiddleForLg);
+    --ac-vn-fd-bd-lg: fade(@accVn, @accOpacityMiddleForLg);
+    --ac-gy-fd-bd-lg: fade(@accGy, @accOpacityMiddleForLg);
 
-    --ac-pu-fd-bd-lg: fade(@accColorPurple, @accOpacityLowForLg);
-    --ac-wn-fd-bd-lg: fade(@accColorWine, @accOpacityLowForLg);
-    --ac-ol-fd-bd-lg: fade(@accColorOlives, @accOpacityLowForLg);
-    --ac-mn-fd-bd-lg: fade(@accColorMineral, @accOpacityLowForLg);
-    --ac-se-fd-bd-lg: fade(@accColorSea, @accOpacityLowForLg);
-    --ac-wt-fd-bd-lg: fade(@accColorWhite, @accOpacityHighForLg);
-    --ac-bk-fd-bd-lg: fade(@accColorBlack, @accOpacityLowForLg);
+    --ac-cf-fd-bd-lg: fade(@accCf, @accOpacityLowForLg);
+    --ac-au-fd-bd-lg: fade(@accAu, @accOpacityLowForLg);
+    --ac-pu-fd-bd-lg: fade(@accPu, @accOpacityLowForLg);
+    --ac-wn-fd-bd-lg: fade(@accWn, @accOpacityLowForLg);
+    --ac-ol-fd-bd-lg: fade(@accOl, @accOpacityLowForLg);
+    --ac-mn-fd-bd-lg: fade(@accMn, @accOpacityLowForLg);
+    --ac-se-fd-bd-lg: fade(@accSe, @accOpacityLowForLg);
+    --ac-wt-fd-bd-lg: fade(@accWt, @accOpacityHighForLg);
+    --ac-bk-fd-bd-lg: fade(@accBk, @accOpacityLowForLg);
 
     --ac-t1-fd-bd-lg: @theme1Fade;
     --ac-t2-fd-bd-lg: @theme2Fade;
 
     // 针对 fade for dark
 
-    --ac-gd-fd-bd-dk: fade(@accColorGold, @accOpacityHighForDk);
-    --ac-pk-fd-bd-dk: fade(@accColorPink, @accOpacityHighForDk);
-    --ac-ye-fd-bd-dk: fade(@accColorYellow, @accOpacityHighForDk);
-    --ac-lm-fd-bd-dk: fade(@accColorLime, @accOpacityHighForDk);
-    --ac-aq-fd-bd-dk: fade(@accColorAqua, @accOpacityHighForDk);
-    --ac-la-fd-bd-dk: fade(@accColorLavender, @accOpacityHighForDk);
+    --ac-gd-fd-bd-dk: fade(@accGd, @accOpacityHighForDk);
+    --ac-pl-fd-bd-dk: fade(@accPl, @accOpacityHighForDk);
+    --ac-pk-fd-bd-dk: fade(@accPk, @accOpacityHighForDk);
+    --ac-ye-fd-bd-dk: fade(@accYe, @accOpacityHighForDk);
+    --ac-lm-fd-bd-dk: fade(@accLm, @accOpacityHighForDk);
+    --ac-aq-fd-bd-dk: fade(@accAq, @accOpacityHighForDk);
+    --ac-sk-fd-bd-dk: fade(@accSk, @accOpacityHighForDk);
+    --ac-la-fd-bd-dk: fade(@accLa, @accOpacityHighForDk);
 
-    --ac-bn-fd-bd-dk: fade(@accColorBrown, @accOpacityMiddleForDk);
-    --ac-ro-fd-bd-dk: fade(@accColorRose, @accOpacityMiddleForDk);
-    --ac-rd-fd-bd-dk: fade(@accColorRed, @accOpacityMiddleForDk);
-    --ac-og-fd-bd-dk: fade(@accColorOrange, @accOpacityHighForDk);
-    --ac-gn-fd-bd-dk: fade(@accColorGreen, @accOpacityMiddleForDk);
-    --ac-cy-fd-bd-dk: fade(@accColorCyan, @accOpacityMiddleForDk);
-    --ac-bu-fd-bd-dk: fade(@accColorBlue, @accOpacityMiddleForDk);
-    --ac-vn-fd-bd-dk: fade(@accColorVine, @accOpacityMiddleForDk);
-    --ac-gy-fd-bd-dk: fade(@accColorGray, @accOpacityMiddleForDk);
+    --ac-bn-fd-bd-dk: fade(@accBn, @accOpacityMiddleForDk);
+    --ac-ro-fd-bd-dk: fade(@accRo, @accOpacityMiddleForDk);
+    --ac-rd-fd-bd-dk: fade(@accRd, @accOpacityMiddleForDk);
+    --ac-og-fd-bd-dk: fade(@accOg, @accOpacityHighForDk);
+    --ac-tu-fd-bd-dk: fade(@accTu, @accOpacityHighForDk);
+    --ac-gn-fd-bd-dk: fade(@accGn, @accOpacityMiddleForDk);
+    --ac-cy-fd-bd-dk: fade(@accCy, @accOpacityMiddleForDk);
+    --ac-bu-fd-bd-dk: fade(@accBu, @accOpacityMiddleForDk);
+    --ac-vn-fd-bd-dk: fade(@accVn, @accOpacityMiddleForDk);
+    --ac-gy-fd-bd-dk: fade(@accGy, @accOpacityMiddleForDk);
 
-    --ac-pu-fd-bd-dk: fade(@accColorPurple, @accOpacityLowForDk);
-    --ac-wn-fd-bd-dk: fade(@accColorWine, @accOpacityLowForDk);
-    --ac-ol-fd-bd-dk: fade(@accColorOlives, @accOpacityLowForDk);
-    --ac-mn-fd-bd-dk: fade(@accColorMineral, @accOpacityLowForDk);
-    --ac-se-fd-bd-dk: fade(@accColorSea, @accOpacityLowForDk);
-    --ac-wt-fd-bd-dk: fade(@accColorWhite, @accOpacityHighForDk);
-    --ac-bk-fd-bd-dk: fade(@accColorBlack, @accOpacityLowForDk);
+    --ac-cf-fd-bd-dk: fade(@accCf, @accOpacityLowForDk);
+    --ac-au-fd-bd-dk: fade(@accAu, @accOpacityLowForDk);
+    --ac-pu-fd-bd-dk: fade(@accPu, @accOpacityLowForDk);
+    --ac-wn-fd-bd-dk: fade(@accWn, @accOpacityLowForDk);
+    --ac-ol-fd-bd-dk: fade(@accOl, @accOpacityLowForDk);
+    --ac-mn-fd-bd-dk: fade(@accMn, @accOpacityLowForDk);
+    --ac-se-fd-bd-dk: fade(@accSe, @accOpacityLowForDk);
+    --ac-wt-fd-bd-dk: fade(@accWt, @accOpacityHighForDk);
+    --ac-bk-fd-bd-dk: fade(@accBk, @accOpacityLowForDk);
 
     --ac-t1-fd-bd-dk: @theme1FadeDark;
     --ac-t2-fd-bd-dk: @theme2FadeDark;
@@ -362,22 +389,27 @@
     // ---
 
     --ac-gd-fd-bd: var(--ac-gd-fd-bd-lg);
+    --ac-pl-fd-bd: var(--ac-pl-fd-bd-lg);
     --ac-pk-fd-bd: var(--ac-pk-fd-bd-lg);
     --ac-ye-fd-bd: var(--ac-ye-fd-bd-lg);
     --ac-lm-fd-bd: var(--ac-lm-fd-bd-lg);
     --ac-aq-fd-bd: var(--ac-aq-fd-bd-lg);
+    --ac-sk-fd-bd: var(--ac-sk-fd-bd-lg);
     --ac-la-fd-bd: var(--ac-la-fd-bd-lg);
 
     --ac-bn-fd-bd: var(--ac-bn-fd-bd-lg);
     --ac-ro-fd-bd: var(--ac-ro-fd-bd-lg);
     --ac-rd-fd-bd: var(--ac-rd-fd-bd-lg);
     --ac-og-fd-bd: var(--ac-og-fd-bd-lg);
+    --ac-tu-fd-bd: var(--ac-tu-fd-bd-lg);
     --ac-gn-fd-bd: var(--ac-gn-fd-bd-lg);
     --ac-cy-fd-bd: var(--ac-cy-fd-bd-lg);
     --ac-bu-fd-bd: var(--ac-bu-fd-bd-lg);
     --ac-vn-fd-bd: var(--ac-vn-fd-bd-lg);
     --ac-gy-fd-bd: var(--ac-gy-fd-bd-lg);
 
+    --ac-cf-fd-bd: var(--ac-cf-fd-bd-lg);
+    --ac-au-fd-bd: var(--ac-au-fd-bd-lg);
     --ac-pu-fd-bd: var(--ac-pu-fd-bd-lg);
     --ac-wn-fd-bd: var(--ac-wn-fd-bd-lg);
     --ac-ol-fd-bd: var(--ac-ol-fd-bd-lg);
@@ -405,34 +437,34 @@
 }
 // --------------------
 // 针对 Mermaid 专用的强调色色板
-@mmColorRed: @accColorRed;
+@mmColorRed: @accRd;
 @mmColorRedAlt: lighten(@mmColorRed, 40%);
 
-@mmColorOrange: @accColorOrange;
+@mmColorOrange: @accOg;
 @mmColorOrangeAlt: lighten(@mmColorOrange, 45%);
 
-@mmColorYellow: @accColorYellow;
+@mmColorYellow: @accYe;
 @mmColorYellowAlt: lighten(@mmColorYellow, 40%);
 
-@mmColorGreen: @accColorGreen;
+@mmColorGreen: @accGn;
 @mmColorGreenAlt: lighten(@mmColorGreen, 45%);
 
-@mmColorCyan: @accColorCyan;
+@mmColorCyan: @accCy;
 @mmColorCyanAlt: lighten(@mmColorCyan, 48%);
 
-@mmColorBlue: @accColorBlue;
+@mmColorBlue: @accBu;
 @mmColorBlueAlt: lighten(@mmColorBlue, 40%);
 
-@mmColorPurple: @accColorPurple;
+@mmColorPurple: @accPu;
 @mmColorPurpleAlt: lighten(@mmColorPurple, 35%);
 
-@mmColorPink: @accColorPink;
+@mmColorPink: @accPk;
 @mmColorPinkAlt: lighten(@mmColorPink, 10%);
 
-@mmColorBrown: @accColorBrown;
+@mmColorBrown: @accBn;
 @mmColorBrownAlt: lighten(@mmColorBrown, 48%);
 
-@mmColorGray: @accColorGray;
+@mmColorGray: @accGy;
 @mmColorGrayAlt: lighten(@mmColorGray, 38%);
 
 :root {
@@ -445,7 +477,8 @@
 
     --a-c-lg: @aColor;
     --a-o-c-lg: @aHoverColor;
-    --mark-bg-lg: var(--ac-t2-fd-lg);
+    --mark-bg-lg: @markBg; // var(--ac-t2-fd-lg);
+    // --mark-bg-lg: red;
     --tbl-row-g-alpha-lg: .15;
     --h-f-lg: @headerColor;
     --h-box-sd-lg: fade(@headerColor, 20%);
@@ -470,6 +503,7 @@
 
     // 图片的非网格背景
     --fig-solid-bg-lg: @colorWhite;
+    // --fig-solid-bg-lg: var(--db-lg);
     // 图片的线状网格背景（线状、块状)
     --v-fig-grid-l-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEX////a7P6ayvy62/1dqvqPhbtmAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
     --v-fig-grid-b-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUmdsdGis99rd1hm9axzuoZZ5CxAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
@@ -488,93 +522,113 @@
 
     --doc-sd-lg: #00000033;//rgba(0, 0, 0, .2);
 
-    --ac-rd-lg: @accColorRed;
-    --ac-rd-a-lg: @accColorRedAlt;
-    --ac-rd-fd-lg: fade(@accColorRed, @accOpacity);
+    --ac-rd-lg: @accRd;
+    --ac-rd-a-lg: @accRdAlt;
+    --ac-rd-fd-lg: fade(@accRd, @accOpacity);
     --ac-rd-tt-lg: var(--ac-rd-lg);
-    --ac-og-lg: @accColorOrange;
-    --ac-og-a-lg: @accColorOrangeAlt;
-    --ac-og-fd-lg: fade(@accColorOrange, @accOpacity);
+    --ac-og-lg: @accOg;
+    --ac-og-a-lg: @accOgAlt;
+    --ac-og-fd-lg: fade(@accOg, @accOpacity);
     --ac-og-tt-lg: var(--ac-og-lg);
-    --ac-ye-lg: @accColorYellow;
-    --ac-ye-a-lg: @accColorYellowAlt;
-    --ac-ye-fd-lg: fade(@accColorYellow, @accOpacity);
-    --ac-ye-tt-lg: darken(@accColorYellow, @accTitleDarken);
-    --ac-lm-lg: @accColorLime;
-    --ac-lm-a-lg: @accColorLimeAlt;
-    --ac-lm-fd-lg: fade(@accColorLime, @accOpacity);
-    --ac-lm-tt-lg: darken(@accColorLime, @accTitleDarken);
-    --ac-gn-lg: @accColorGreen;
-    --ac-gn-a-lg: @accColorGreenAlt;
-    --ac-gn-fd-lg: fade(@accColorGreen, @accOpacity);
+    --ac-tu-lg: @accTu;
+    --ac-tu-a-lg: @accTuAlt;
+    --ac-tu-fd-lg: fade(@accTu, @accOpacity);
+    --ac-tu-tt-lg: var(--ac-tu-lg);
+    --ac-ye-lg: @accYe;
+    --ac-ye-a-lg: @accYeAlt;
+    --ac-ye-fd-lg: fade(@accYe, @accOpacity);
+    --ac-ye-tt-lg: darken(@accYe, @accTitleDarken);
+    --ac-lm-lg: @accLm;
+    --ac-lm-a-lg: @accLmAlt;
+    --ac-lm-fd-lg: fade(@accLm, @accOpacity);
+    --ac-lm-tt-lg: darken(@accLm, @accTitleDarken);
+    --ac-gn-lg: @accGn;
+    --ac-gn-a-lg: @accGnAlt;
+    --ac-gn-fd-lg: fade(@accGn, @accOpacity);
     --ac-gn-tt-lg: var(--ac-gn-lg);
-    --ac-aq-lg: @accColorAqua;
-    --ac-aq-a-lg: @accColorAquaAlt;
-    --ac-aq-fd-lg: fade(@accColorAqua, @accOpacity);
-    --ac-aq-tt-lg: darken(@accColorAqua, @accTitleDarken);
-    --ac-mn-lg: @accColorMineral;
-    --ac-mn-a-lg: @accColorMineralAlt;
-    --ac-mn-fd-lg: fade(@accColorMineral, @accOpacity);
-    --ac-mn-tt-lg: darken(@accColorMineral, @accTitleDarken);
-    --ac-ol-lg: @accColorOlives;
-    --ac-ol-a-lg: @accColorOlivesAlt;
-    --ac-ol-fd-lg: fade(@accColorOlives, @accOpacity);
+    --ac-aq-lg: @accAq;
+    --ac-aq-a-lg: @accAqAlt;
+    --ac-aq-fd-lg: fade(@accAq, @accOpacity);
+    --ac-aq-tt-lg: darken(@accAq, @accTitleDarken);
+    --ac-sk-lg: @accSk;
+    --ac-sk-a-lg: @accSkAlt;
+    --ac-sk-fd-lg: fade(@accSk, @accOpacity);
+    --ac-sk-tt-lg: darken(@accSk, @accTitleDarken);
+    --ac-mn-lg: @accMn;
+    --ac-mn-a-lg: @accMnAlt;
+    --ac-mn-fd-lg: fade(@accMn, @accOpacity);
+    --ac-mn-tt-lg: darken(@accMn, @accTitleDarken);
+    --ac-ol-lg: @accOl;
+    --ac-ol-a-lg: @accOlAlt;
+    --ac-ol-fd-lg: fade(@accOl, @accOpacity);
     --ac-ol-tt-lg: var(--ac-ol-lg);
-    --ac-wn-lg: @accColorWine;
-    --ac-wn-a-lg: @accColorWineAlt;
-    --ac-wn-fd-lg: fade(@accColorWine, @accOpacity);
+    --ac-wn-lg: @accWn;
+    --ac-wn-a-lg: @accWnAlt;
+    --ac-wn-fd-lg: fade(@accWn, @accOpacity);
     --ac-wn-tt-lg: var(--ac-wn-lg);
-    --ac-cy-lg: @accColorCyan;
-    --ac-cy-a-lg: @accColorCyanAlt;
-    --ac-cy-fd-lg: fade(@accColorCyan, @accOpacity);
+    --ac-cy-lg: @accCy;
+    --ac-cy-a-lg: @accCyAlt;
+    --ac-cy-fd-lg: fade(@accCy, @accOpacity);
     --ac-cy-tt-lg: var(--ac-cy-lg);
-    --ac-bu-lg: @accColorBlue;
-    --ac-bu-a-lg: @accColorBlueAlt;
-    --ac-bu-fd-lg: fade(@accColorBlue, @accOpacity);
+    --ac-bu-lg: @accBu;
+    --ac-bu-a-lg: @accBuAlt;
+    --ac-bu-fd-lg: fade(@accBu, @accOpacity);
     --ac-bu-tt-lg: var(--ac-bu-lg);
-    --ac-se-lg: @accColorSea;
-    --ac-se-a-lg: @accColorSeaAlt;
-    --ac-se-fd-lg: fade(@accColorSea, @accOpacity);
+    --ac-se-lg: @accSe;
+    --ac-se-a-lg: @accSeAlt;
+    --ac-se-fd-lg: fade(@accSe, @accOpacity);
     --ac-se-tt-lg: var(--ac-se-lg);
-    --ac-la-lg: @accColorLavender;
-    --ac-la-a-lg: @accColorLavenderAlt;
-    --ac-la-fd-lg: fade(@accColorLavender, @accOpacity);
-    --ac-la-tt-lg: darken(@accColorLavender, @accTitleDarken);
-    --ac-vn-lg: @accColorVine;
-    --ac-vn-a-lg: @accColorVineAlt;
-    --ac-vn-fd-lg: fade(@accColorVine, @accOpacity);
+    --ac-la-lg: @accLa;
+    --ac-la-a-lg: @accLaAlt;
+    --ac-la-fd-lg: fade(@accLa, @accOpacity);
+    --ac-la-tt-lg: darken(@accLa, @accTitleDarken);
+    --ac-vn-lg: @accVn;
+    --ac-vn-a-lg: @accVnAlt;
+    --ac-vn-fd-lg: fade(@accVn, @accOpacity);
     --ac-vn-tt-lg: var(--ac-vn-lg);
-    --ac-pu-lg: @accColorPurple;
-    --ac-pu-a-lg: @accColorPurpleAlt;
-    --ac-pu-fd-lg: fade(@accColorPurple, @accOpacity);
+    --ac-cf-lg: @accCf;
+    --ac-cf-a-lg: @accCfAlt;
+    --ac-cf-fd-lg: fade(@accCf, @accOpacity);
+    --ac-cf-tt-lg: var(--ac-cf-lg);
+    --ac-au-lg: @accAu;
+    --ac-au-a-lg: @accAuAlt;
+    --ac-au-fd-lg: fade(@accAu, @accOpacity);
+    --ac-au-tt-lg: var(--ac-au-lg);
+    --ac-pu-lg: @accPu;
+    --ac-pu-a-lg: @accPuAlt;
+    --ac-pu-fd-lg: fade(@accPu, @accOpacity);
     --ac-pu-tt-lg: var(--ac-pu-lg);
-    --ac-ro-lg: @accColorRose;
-    --ac-ro-a-lg: @accColorRoseAlt;
-    --ac-ro-fd-lg: fade(@accColorRose, @accOpacity);
+    --ac-ro-lg: @accRo;
+    --ac-ro-a-lg: @accRoAlt;
+    --ac-ro-fd-lg: fade(@accRo, @accOpacity);
     --ac-ro-tt-lg: var(--ac-ro-lg);
-    --ac-pk-lg: @accColorPink;
-    --ac-pk-a-lg: @accColorPinkAlt;
-    --ac-pk-fd-lg: fade(@accColorPink, @accOpacity);
-    --ac-pk-tt-lg: darken(@accColorPink, @accTitleDarken);
-    --ac-gd-lg: @accColorGold;
-    --ac-gd-a-lg: @accColorGoldAlt;
-    --ac-gd-fd-lg: fade(@accColorGold, @accOpacity);
-    --ac-gd-tt-lg: darken(@accColorGold, @accTitleDarken);
-    --ac-bn-lg: @accColorBrown;
-    --ac-bn-a-lg: @accColorBrownAlt;
-    --ac-bn-fd-lg: fade(@accColorBrown, @accOpacity);
+    --ac-pl-lg: @accPl;
+    --ac-pl-a-lg: @accPlAlt;
+    --ac-pl-fd-lg: fade(@accPl, @accOpacity);
+    --ac-pl-tt-lg: darken(@accPl, @accTitleDarken);
+    --ac-pk-lg: @accPk;
+    --ac-pk-a-lg: @accPkAlt;
+    --ac-pk-fd-lg: fade(@accPk, @accOpacity);
+    --ac-pk-tt-lg: darken(@accPk, @accTitleDarken);
+    --ac-gd-lg: @accGd;
+    --ac-gd-a-lg: @accGdAlt;
+    --ac-gd-fd-lg: fade(@accGd, @accOpacity);
+    --ac-gd-tt-lg: darken(@accGd, @accTitleDarken);
+    --ac-bn-lg: @accBn;
+    --ac-bn-a-lg: @accBnAlt;
+    --ac-bn-fd-lg: fade(@accBn, @accOpacity);
     --ac-bn-tt-lg: var(--ac-bn-lg);
-    --ac-gy-lg: @accColorGray;
-    --ac-gy-a-lg: @accColorGrayAlt;
-    --ac-gy-fd-lg: fade(@accColorGray, @accOpacity);
-    --ac-gy-tt-lg: darken(@accColorGray, @accTitleDarken);
-    --ac-wt-lg: @accColorWhite;
-    --ac-wt-a-lg: @accColorWhiteAlt;
-    --ac-wt-fd-lg: fade(@accColorWhite, @accOpacity);
+    --ac-gy-lg: @accGy;
+    --ac-gy-a-lg: @accGyAlt;
+    --ac-gy-fd-lg: fade(@accGy, @accOpacity);
+    --ac-gy-tt-lg: darken(@accGy, @accTitleDarken);
+    --ac-wt-lg: @accWt;
+    --ac-wt-a-lg: @accWtAlt;
+    --ac-wt-fd-lg: fade(@accWt, @accOpacity);
     --ac-wt-tt-lg: var(--df-lg);//var(--ac-wt-lg);
-    --ac-bk-lg: @accColorBlack;
-    --ac-bk-a-lg: @accColorBlackAlt;
-    --ac-bk-fd-lg: fade(@accColorBlack, @accOpacity);
+    --ac-bk-lg: @accBk;
+    --ac-bk-a-lg: @accBkAlt;
+    --ac-bk-fd-lg: fade(@accBk, @accOpacity);
     --ac-bk-tt-lg: var(--df);//var(--ac-bk-lg);
     --ac-t1-lg: @theme1;
     --ac-t1-a-lg: @theme1Alt;
@@ -594,7 +648,7 @@
 
     --a-c-dk: @aColorDark;
     --a-o-c-dk: @aHoverColorDark;
-    --mark-bg-dk: var(--ac-t2-fd-dk);
+    --mark-bg-dk: @markBgDark; //var(--ac-t2-fd-dk);
     --tbl-row-g-alpha-dk: .25;
     --h-f-dk: @headerColorDark;
     --h-box-sd-dk: fade(@headerColorDark, 20%);
@@ -624,6 +678,7 @@
 
     // 图片的非网格背景
     --fig-solid-bg-dk: @colorBlack;
+    // --fig-solid-bg-dk: var(--db-dk);
     // 图片的线状网格背景（线状、块状)
     --v-fig-grid-l-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUEDBQEOnAEY8IEVacEeOwONNxmAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
     --v-fig-grid-b-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUPUZQyaqNvlr5QgLCpwNfC0feCAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
@@ -639,93 +694,113 @@
 
     --doc-sd-dk: #000000CC;//rgba(0, 0, 0, .8);
 
-    --ac-rd-dk: @accColorRedDark;
-    --ac-rd-a-dk: @accColorRedAltDark;
-    --ac-rd-fd-dk: fade(@accColorRedDark, @accOpacity);
+    --ac-rd-dk: @accRdDark;
+    --ac-rd-a-dk: @accRdAltDark;
+    --ac-rd-fd-dk: fade(@accRdDark, @accOpacity);
     --ac-rd-tt-dk: var(--df-dk);
-    --ac-ye-dk: @accColorYellowDark;
-    --ac-ye-a-dk: @accColorYellowAltDark;
-    --ac-ye-fd-dk: fade(@accColorYellowDark, @accOpacity);
+    --ac-ye-dk: @accYeDark;
+    --ac-ye-a-dk: @accYeAltDark;
+    --ac-ye-fd-dk: fade(@accYeDark, @accOpacity);
     --ac-ye-tt-dk: var(--df-dk);
-    --ac-og-dk: @accColorOrangeDark;
-    --ac-og-a-dk: @accColorOrangeAltDark;
-    --ac-og-fd-dk: fade(@accColorOrangeDark, @accOpacity);
+    --ac-og-dk: @accOgDark;
+    --ac-og-a-dk: @accOgAltDark;
+    --ac-og-fd-dk: fade(@accOgDark, @accOpacity);
     --ac-og-tt-dk: var(--df-dk);
-    --ac-lm-dk: @accColorLimeDark;
-    --ac-lm-a-dk: @accColorLimeAltDark;
-    --ac-lm-fd-dk: fade(@accColorLimeDark, @accOpacity);
+    --ac-tu-dk: @accTuDark;
+    --ac-tu-a-dk: @accTuAltDark;
+    --ac-tu-fd-dk: fade(@accTuDark, @accOpacity);
+    --ac-tu-tt-dk: var(--df-dk);
+    --ac-lm-dk: @accLmDark;
+    --ac-lm-a-dk: @accLmAltDark;
+    --ac-lm-fd-dk: fade(@accLmDark, @accOpacity);
     --ac-lm-tt-dk: var(--df-dk);
-    --ac-gn-dk: @accColorGreenDark;
-    --ac-gn-a-dk: @accColorGreenAltDark;
-    --ac-gn-fd-dk: fade(@accColorGreenDark, @accOpacity);
+    --ac-gn-dk: @accGnDark;
+    --ac-gn-a-dk: @accGnAltDark;
+    --ac-gn-fd-dk: fade(@accGnDark, @accOpacity);
     --ac-gn-tt-dk: var(--df-dk);
-    --ac-mn-dk: @accColorMineralDark;
-    --ac-mn-a-dk: @accColorMineralAltDark;
-    --ac-mn-fd-dk: fade(@accColorMineralDark, @accOpacity);
+    --ac-mn-dk: @accMnDark;
+    --ac-mn-a-dk: @accMnAltDark;
+    --ac-mn-fd-dk: fade(@accMnDark, @accOpacity);
     --ac-mn-tt-dk: var(--df-dk);
-    --ac-ol-dk: @accColorOlivesDark;
-    --ac-ol-a-dk: @accColorOlivesAltDark;
-    --ac-ol-fd-dk: fade(@accColorOlivesDark, @accOpacity);
+    --ac-ol-dk: @accOlDark;
+    --ac-ol-a-dk: @accOlAltDark;
+    --ac-ol-fd-dk: fade(@accOlDark, @accOpacity);
     --ac-ol-tt-dk: var(--df-dk);
-    --ac-wn-dk: @accColorWineDark;
-    --ac-wn-a-dk: @accColorWineAltDark;
-    --ac-wn-fd-dk: fade(@accColorWineDark, @accOpacity);
+    --ac-wn-dk: @accWnDark;
+    --ac-wn-a-dk: @accWnAltDark;
+    --ac-wn-fd-dk: fade(@accWnDark, @accOpacity);
     --ac-wn-tt-dk: var(--df-dk);
-    --ac-aq-dk: @accColorAquaDark;
-    --ac-aq-a-dk: @accColorAquaAltDark;
-    --ac-aq-fd-dk: fade(@accColorAquaDark, @accOpacity);
+    --ac-aq-dk: @accAqDark;
+    --ac-aq-a-dk: @accAqAltDark;
+    --ac-aq-fd-dk: fade(@accAqDark, @accOpacity);
     --ac-aq-tt-dk: var(--df-dk);
-    --ac-cy-dk: @accColorCyanDark;
-    --ac-cy-a-dk: @accColorCyanAltDark;
-    --ac-cy-fd-dk: fade(@accColorCyanDark, @accOpacity);
+    --ac-sk-dk: @accSkDark;
+    --ac-sk-a-dk: @accSkAltDark;
+    --ac-sk-fd-dk: fade(@accSkDark, @accOpacity);
+    --ac-sk-tt-dk: var(--df-dk);
+    --ac-cy-dk: @accCyDark;
+    --ac-cy-a-dk: @accCyAltDark;
+    --ac-cy-fd-dk: fade(@accCyDark, @accOpacity);
     --ac-cy-tt-dk: var(--df-dk);
-    --ac-bu-dk: @accColorBlueDark;
-    --ac-bu-a-dk: @accColorBlueAltDark;
-    --ac-bu-fd-dk: fade(@accColorBlueDark, @accOpacity);
+    --ac-bu-dk: @accBuDark;
+    --ac-bu-a-dk: @accBuAltDark;
+    --ac-bu-fd-dk: fade(@accBuDark, @accOpacity);
     --ac-bu-tt-dk: var(--df-dk);
-    --ac-se-dk: @accColorSeaDark;
-    --ac-se-a-dk: @accColorSeaAltDark;
-    --ac-se-fd-dk: fade(@accColorSeaDark, @accOpacity);
+    --ac-se-dk: @accSeDark;
+    --ac-se-a-dk: @accSeAltDark;
+    --ac-se-fd-dk: fade(@accSeDark, @accOpacity);
     --ac-se-tt-dk: var(--df-dk);
-    --ac-la-dk: @accColorLavenderDark;
-    --ac-la-a-dk: @accColorLavenderAltDark;
-    --ac-la-fd-dk: fade(@accColorLavenderDark, @accOpacity);
+    --ac-la-dk: @accLaDark;
+    --ac-la-a-dk: @accLaAltDark;
+    --ac-la-fd-dk: fade(@accLaDark, @accOpacity);
     --ac-la-tt-dk: var(--df-dk);
-    --ac-vn-dk: @accColorVineDark;
-    --ac-vn-a-dk: @accColorVineAltDark;
-    --ac-vn-fd-dk: fade(@accColorVineDark, @accOpacity);
+    --ac-vn-dk: @accVnDark;
+    --ac-vn-a-dk: @accVnAltDark;
+    --ac-vn-fd-dk: fade(@accVnDark, @accOpacity);
     --ac-vn-tt-dk: var(--df-dk);
-    --ac-pu-dk: @accColorPurpleDark;
-    --ac-pu-a-dk: @accColorPurpleAltDark;
-    --ac-pu-fd-dk: fade(@accColorPurpleDark, @accOpacity);
+    --ac-cf-dk: @accCfDark;
+    --ac-cf-a-dk: @accCfAltDark;
+    --ac-cf-fd-dk: fade(@accCfDark, @accOpacity);
+    --ac-cf-tt-dk: var(--df-dk);
+    --ac-au-dk: @accAuDark;
+    --ac-au-a-dk: @accAuAltDark;
+    --ac-au-fd-dk: fade(@accAuDark, @accOpacity);
+    --ac-au-tt-dk: var(--df-dk);
+    --ac-pu-dk: @accPuDark;
+    --ac-pu-a-dk: @accPuAltDark;
+    --ac-pu-fd-dk: fade(@accPuDark, @accOpacity);
     --ac-pu-tt-dk: var(--df-dk);
-    --ac-ro-dk: @accColorRoseDark;
-    --ac-ro-a-dk: @accColorRoseAltDark;
-    --ac-ro-fd-dk: fade(@accColorRoseDark, @accOpacity);
+    --ac-ro-dk: @accRoDark;
+    --ac-ro-a-dk: @accRoAltDark;
+    --ac-ro-fd-dk: fade(@accRoDark, @accOpacity);
     --ac-ro-tt-dk: var(--df-dk);
-    --ac-pk-dk: @accColorPinkDark;
-    --ac-pk-a-dk: @accColorPinkAltDark;
-    --ac-pk-fd-dk: fade(@accColorPinkDark, @accOpacity);
+    --ac-pl-dk: @accPlDark;
+    --ac-pl-a-dk: @accPlAltDark;
+    --ac-pl-fd-dk: fade(@accPlDark, @accOpacity);
+    --ac-pl-tt-dk: var(--df-dk);
+    --ac-pk-dk: @accPkDark;
+    --ac-pk-a-dk: @accPkAltDark;
+    --ac-pk-fd-dk: fade(@accPkDark, @accOpacity);
     --ac-pk-tt-dk: var(--df-dk);
-    --ac-gd-dk: @accColorGoldDark;
-    --ac-gd-a-dk: @accColorGoldAltDark;
-    --ac-gd-fd-dk: fade(@accColorGoldDark, @accOpacity);
+    --ac-gd-dk: @accGdDark;
+    --ac-gd-a-dk: @accGdAltDark;
+    --ac-gd-fd-dk: fade(@accGdDark, @accOpacity);
     --ac-gd-tt-dk: var(--df-dk);
-    --ac-bn-dk: @accColorBrownDark;
-    --ac-bn-a-dk: @accColorBrownAltDark;
-    --ac-bn-fd-dk: fade(@accColorBrownDark, @accOpacity);
+    --ac-bn-dk: @accBnDark;
+    --ac-bn-a-dk: @accBnAltDark;
+    --ac-bn-fd-dk: fade(@accBnDark, @accOpacity);
     --ac-bn-tt-dk: var(--df-dk);
-    --ac-gy-dk: @accColorGrayDark;
-    --ac-gy-a-dk: @accColorGrayAltDark;
-    --ac-gy-fd-dk: fade(@accColorGrayDark, @accOpacity);
+    --ac-gy-dk: @accGyDark;
+    --ac-gy-a-dk: @accGyAltDark;
+    --ac-gy-fd-dk: fade(@accGyDark, @accOpacity);
     --ac-gy-tt-dk: var(--df-dk);
-    --ac-wt-dk: @accColorWhiteDark;
-    --ac-wt-a-dk: @accColorWhiteAltDark;
-    --ac-wt-fd-dk: fade(@accColorWhiteDark, @accOpacity);
+    --ac-wt-dk: @accWtDark;
+    --ac-wt-a-dk: @accWtAltDark;
+    --ac-wt-fd-dk: fade(@accWtDark, @accOpacity);
     --ac-wt-tt-dk: var(--df-dk);
-    --ac-bk-dk: @accColorBlackDark;
-    --ac-bk-a-dk: @accColorBlackAltDark;
-    --ac-bk-fd-dk: fade(@accColorBlackDark, @accOpacity);
+    --ac-bk-dk: @accBkDark;
+    --ac-bk-a-dk: @accBkAltDark;
+    --ac-bk-fd-dk: fade(@accBkDark, @accOpacity);
     --ac-bk-tt-dk: var(--df);
     --ac-t1-dk: @theme1Dark;
     --ac-t1-a-dk: @theme1AltDark;
@@ -766,7 +841,7 @@
 
     --a-c: var(--a-c-lg);
     --a-o-c: var(--a-o-c-lg);
-    --mark-bg: var(--ac-t2-fd-lg);
+    --mark-bg: var(--mark-bg-lg); //var(--ac-t2-fd-lg);
     --tbl-row-g-alpha: var(--tbl-row-g-alpha-lg);
     --toc-h-num-c: var(--toc-h-num-c-lg);
     --h-f: var(--h-f-lg);
@@ -816,6 +891,14 @@
     --ac-og-a: var(--ac-og-a-lg);
     --ac-og-fd: var(--ac-og-fd-lg);
     --ac-og-tt: var(--ac-og-tt-lg);
+    --ac-tu: var(--ac-tu-lg);
+    --ac-tu-a: var(--ac-tu-a-lg);
+    --ac-tu-fd: var(--ac-tu-fd-lg);
+    --ac-tu-tt: var(--ac-tu-tt-lg);
+    --ac-tu: var(--ac-tu-lg);
+    --ac-tu-a: var(--ac-tu-a-lg);
+    --ac-tu-fd: var(--ac-tu-fd-lg);
+    --ac-tu-tt: var(--ac-tu-tt-lg);
     --ac-ye: var(--ac-ye-lg);
     --ac-ye-a: var(--ac-ye-a-lg);
     --ac-ye-fd: var(--ac-ye-fd-lg);
@@ -844,6 +927,10 @@
     --ac-aq-a: var(--ac-aq-a-lg);
     --ac-aq-fd: var(--ac-aq-fd-lg);
     --ac-aq-tt: var(--ac-aq-tt-lg);
+    --ac-sk: var(--ac-sk-lg);
+    --ac-sk-a: var(--ac-sk-a-lg);
+    --ac-sk-fd: var(--ac-sk-fd-lg);
+    --ac-sk-tt: var(--ac-sk-tt-lg);
     --ac-cy: var(--ac-cy-lg);
     --ac-cy-a: var(--ac-cy-a-lg);
     --ac-cy-fd: var(--ac-cy-fd-lg);
@@ -864,6 +951,14 @@
     --ac-vn-a: var(--ac-vn-a-lg);
     --ac-vn-fd: var(--ac-vn-fd-lg);
     --ac-vn-tt: var(--ac-vn-tt-lg);
+    --ac-cf: var(--ac-cf-lg);
+    --ac-cf-a: var(--ac-cf-a-lg);
+    --ac-cf-fd: var(--ac-cf-fd-lg);
+    --ac-cf-tt: var(--ac-cf-tt-lg);
+    --ac-au: var(--ac-au-lg);
+    --ac-au-a: var(--ac-au-a-lg);
+    --ac-au-fd: var(--ac-au-fd-lg);
+    --ac-au-tt: var(--ac-au-tt-lg);
     --ac-pu: var(--ac-pu-lg);
     --ac-pu-a: var(--ac-pu-a-lg);
     --ac-pu-fd: var(--ac-pu-fd-lg);
@@ -872,6 +967,10 @@
     --ac-ro-a: var(--ac-ro-a-lg);
     --ac-ro-fd: var(--ac-ro-fd-lg);
     --ac-ro-tt: var(--ac-ro-tt-lg);
+    --ac-pl: var(--ac-pl-lg);
+    --ac-pl-a: var(--ac-pl-a-lg);
+    --ac-pl-fd: var(--ac-pl-fd-lg);
+    --ac-pl-tt: var(--ac-pl-tt-lg);
     --ac-pk: var(--ac-pk-lg);
     --ac-pk-a: var(--ac-pk-a-lg);
     --ac-pk-fd: var(--ac-pk-fd-lg);

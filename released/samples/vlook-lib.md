@@ -5,7 +5,7 @@ vlook-query: sb=hide
 
 # 快速入坑°文档排版
 
-> ![°文档排版](pic/qico-types-light.svg?fill=vn#logo)
+> ![°文档排版](pic/qico-types-light.svg?fill=vn#icon2x)
 >
 > **° 文档排版**
 >
@@ -186,7 +186,7 @@ vlook-query: sb=hide
 
 # 快速入坑°内容导航
 
-> ![°内容导航](pic/qico-nav-light.svg?fill=Bu#logo)
+> ![°内容导航](pic/qico-nav-light.svg?fill=Bu#icon2x)
 >
 > **° 内容导航**
 >
@@ -248,7 +248,7 @@ vlook-query: sb=hide
 
 # 快速入坑°演示与出版
 
-> ![°演示与出版](pic/qico-pres-light.svg?fill=og#logo)
+> ![°演示与出版](pic/qico-pres-light.svg?fill=og#icon2x)
 >
 > **° 演示与出版**
 >
@@ -412,7 +412,7 @@ vlook-query: sb=hide
 
 # 快速入坑°外观与不杂项
 
-> ![°外观与不杂项](pic/qico-theme-light.svg?fill=lm#logo)
+> ![°外观与不杂项](pic/qico-theme-light.svg?fill=lm#icon2x)
 >
 > **°外观与不杂项**
 >

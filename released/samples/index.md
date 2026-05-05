@@ -1,23 +1,23 @@
 ---
-title: 简介 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与增强插件
+title: 简介 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与排版增强插件
 author: MAX°孟兆
-date: 2026-03-27
+date: 2026-05-05
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: 本作品采用 MIT 许可证授权，详见 LICENSE 文件。
-version: V2026.3
-vlook-footer: {{title}}<br><br>{{author}}<br>{{date}} ({{version}})<br><br>{{copyright}}<br>{{rights}}
+version: V2026.5
+#vlook-footer: {{title}}<br><br>{{author}}<br>{{date}} ({{version}})<br><br>{{copyright}}<br>{{rights}}
 description: 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:description": 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
-date: 2026-03-27
+date: 2026-05-05
 changelog:
 - changelog content a, and content b
 - changelog content 2 [...detail](#打赏)
 keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
 - editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,cross-reference,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
-- light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
-- catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
+- light mode,dark mode,grayscale mode,gray mode,card-style link,link card
+- catalogue,library,illustration navigation,outline navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
@@ -27,12 +27,12 @@ keywords:
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,交叉引用,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
-- 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
-- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
+- 浅色外观,深色外观,灰度外观,灰色外观,卡片式链接,链接卡片
+- 目录,文库,插图导航,大纲导航,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
-- 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画
+- 内容助手,出版辅助,发布为PDF,导出为PDF,演示辅助,复制,全屏显示,激光笔,聚光灯,段落漫游,正文宽度适配,宁静视图,幻灯片视图,画中画,阅读进度,标记不发布,文档页脚
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
 - 设计,需求,文档,博客,手册,指南,攻略,知识库,教程,方案,教育,笔记,日记
@@ -45,9 +45,9 @@ vlook-doc-lib:
 - [VLOOK™ 简介](index.html?target=_self "介绍、下载、安装、语言包、增值服务")
 - [攻略 • 基础](guide.html?target=guide "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
 - [攻略 ▲ 进阶](guide2.html?target=guide "分栏、题注、交叉引用、按钮、链接代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
-- [攻略 ★ 探索](guide3.html?target=guide "内容导航/历史/上次阅读、内容助手/复制/全屏/换行/十字光标/阅读/画中画、演示辅助/激光笔/聚光灯/段落漫游/宽度适配、出版辅助/标记不发布/发布为PDF/另存为PDF/导出为PDF/打印为PDF/社交分享/链接地图/长内容折叠/链接检查/链接识别、外观/主题/字体/Light/Dark、自定义/预置选项/调校参数、快捷键、……")
+- [攻略 ★ 探索](guide3.html?target=guide "内容导航/历史/上次阅读、内容助手/复制/全屏/换行/十字光标/阅读/画中画、演示辅助/激光笔/聚光灯/段落漫游/宽度适配/宁静视图、出版辅助/标记不发布/发布为PDF/另存为PDF/导出为PDF/打印为PDF/社交分享/链接地图/长内容折叠/链接检查/链接识别、外观/主题/字体/Light/Dark、自定义/预置选项/调校参数、快捷键、……")
 - [English 🔠](index-en.html?target=vlook-index-en "Introduction, Quick Start, How to Use")
-- [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank "Project Home")
+- [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank)
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 vlook-cc-bottom-left: Left Information<br>Here
 vlook-cc-bottom-right: Right Information<br>Here
@@ -57,7 +57,7 @@ vlook-shortcut:
 - [💬](https://qm.qq.com/q/O0tNC6WBWe "讨论与交流")
 ---
 
-###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br><u>──</u><br>简介<br>*最新版本`V2026.3`*<br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
+###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br><u>──</u><br>简介<br>*最新版本`V2026.5`*<br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 
 [TOC]
 
@@ -65,11 +65,11 @@ vlook-shortcut:
 
 # VLOOK™ 是什么
 
-![VLOOK™](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo#blur!)
+![](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#blur!)
 
 <u>![OSChina](pic/oschina.png#icon2x) **[开源中国](https://www.oschina.net/p/vlook) 推荐的国产开源产品**<br>![AtomGit](pic/atomgit.png#icon2x) **[AtomGit](https://atomgit.com/MadMaxChow/VLOOK) G-Star 计划项目**</u>
 
-==![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™**_~T1~_ 是针对 ![Typora](pic/typora.png#icon) [Typora](https://typoraio.cn)[^Typora] **主题包**_~GnRo~_ 和 **增强插件**_~PuOg~_，<br>属于开源软件（遵从 **MIT License**_~Rd~_)。==
+==![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™**_~T1~_ 是针对 ![Typora](pic/typora.png#icon) [Typora](https://typoraio.cn)[^Typora] **主题包**_~GnRo~_ 和 **排版增强插件**_~PuOg~_，<br>属于开源软件（遵从 **MIT License**_~Rd~_)。==
 
 **[*编辑工具`Typora`V1.9+*_~Gy~_](https://typoraio.cn)　*开源协议主`MIT`*_~Rd~_　*`关键字`主题、插件*_~Pu~_　*`支持的操作系统`Windows, macOS, Linux*_~Bu~_**
 
@@ -77,7 +77,7 @@ vlook-shortcut:
 
 
 
-> - 👍 Typora 官方认可支持的主题包和增强插件，详见 [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook)
+> - 👍 Typora 官方认可支持的主题包和排版增强插件，详见 [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook)
 > - 👍 [OSCHINA (开源中国)](https://www.oschina.net/p/vlook) 推荐的国产开源项目
 > - 👍 [AtomGit](https://atomgit.com/MadMaxChow/VLOOK) **G-Star** 优质项目 ![star VLOOK](https://atomgit.com/MadMaxChow/VLOOK/star/badge.svg#icon)
 >
@@ -191,7 +191,7 @@ _^tab^_
 >
 > 提供了丰富的文档排版、内容标识的能力外，还基于 HTML 格式让静态的文档也能与你一起「动」起来～
 >
-> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°文档排版)  *[<kbd>范例参考</kbd>](#排版编辑服务)*
+> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°文档排版)  *[<kbd>范例参考 →</kbd>](#排版编辑服务)*
 >
 > _~Vn!~_
 
@@ -203,7 +203,7 @@ _^tab^_
 >
 > 无多余动作，聚焦文档撰写。一键导出之时，即完成自动集成～
 >
-> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°内容导航)  *[<kbd>范例参考</kbd>](#排版编辑服务)*
+> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°内容导航)  *[<kbd>范例参考 →</kbd>](#排版编辑服务)*
 >
 > _~Bu!~_
 
@@ -217,7 +217,7 @@ _^tab^_
 >
 > 非常适合现场和远程的演示辅助工具，为你的文档开启 Turbo 模式～
 >
-> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°演示与出版)  *[<kbd>范例参考</kbd>](#排版编辑服务)*
+> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°演示与出版)  *[<kbd>范例参考 →</kbd>](#排版编辑服务)*
 >
 > _~Og!~_
 
@@ -231,7 +231,7 @@ _^tab^_
 >
 > 
 >
-> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°外观与不杂项)  *[<kbd>范例参考</kbd>](#排版编辑服务)*
+> [<kbd>了解更多 ![](pic/icon-more.svg?fill=text)</kbd>](?target=vdl#快速入坑°外观与不杂项)  *[<kbd>范例参考 →</kbd>](#排版编辑服务)*
 >
 > _~Lm!~_
 
@@ -353,7 +353,7 @@ _^tab^_
 > **添加主题  ❯**
 >
 > 1. 打开目录 *==released/**themes**==*
-> 1. 将该目录下所有 **CSS 文件** 及**子目录** `vlook`，复制至 Typora 的主题目录下
+> 1. 将该目录下所有 **主题文件** `*.css`  及**子目录** `vlook`，复制至 Typora 的主题目录下
 >
 >
 > > **Typora 的主题目录在哪？** 
@@ -401,7 +401,7 @@ _^tab^_
 >    3. 全选，并复制所有内容
 >    4. 将复制的内容粘贴至配置项内
 >
->![Typora ▸ 偏好设置 ▸ 导出 ▸ HTML](pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
+>      ![Typora ▸ 偏好设置 ▸ 导出 ▸ HTML](pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
 
 > **导出为 PDF ❯**
 >
@@ -415,7 +415,7 @@ _^tab^_
 >    3. 全选，并复制所有内容
 >    4. 将复制的内容粘贴至配置项内
 >
->![Typora ▸ 偏好设置 ▸ 导出 ▸ PDF](pic/typora-opt3-light.png?srcset=@2x&darksrc=typora-opt3-dark.png&darksrcset=@2x)
+>      ![Typora ▸ 偏好设置 ▸ 导出 ▸ PDF](pic/typora-opt3-light.png?srcset=@2x&darksrc=typora-opt3-dark.png&darksrcset=@2x)
 
 > **示例文件**
 >
@@ -428,7 +428,7 @@ _^tab^_
 
 
 
-> [!CAUTION]
+> [!WARNING]
 >
 > 目前支持两种导出 PDF 的方式：
 >
@@ -766,9 +766,29 @@ _^tab^_
 
 # 即将推出...
 
-**••• 敬请期待 •••**
 
-## ~~V2026.3~~
+
+---
+
+> **幻灯片视图**
+>
+> 支持将流式布局的文档以「幻灯片」式分页显示，适用于简介类、宣发类的文档，并提供自动循环播放选项。
+>
+> [<kbd>![](pic/qico-disc-light.svg?fill=text) 参与讨论</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/192)
+>
+> _~Og~_
+
+> **宁静视图**
+>
+> 隐藏阅读文档时不必要的视觉元素，更聚集于内容阅读，同时也保留演示辅助工具（通过键盘快捷键激活）。
+>
+> [<kbd>![](pic/qico-disc-light.svg?fill=text) 参与讨论</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/192)
+>
+> _~Lm~_
+
+**❯ ❯ ❯ 敬请期待 ❮ ❮ ❮**
+
+## ~~V2026.5~~
 
 ---
 
@@ -870,7 +890,7 @@ text
 *==代码题注测试==*
 
 ```YAML
-title: 简介 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与增强插件
+title: 简介 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与排版增强插件
 author: MAX°孟兆	 
 description: 关于 VLOOK™ 下载、设置、安装与配置配置说明
 ```

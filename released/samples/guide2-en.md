@@ -1,10 +1,10 @@
 ---
 title: Guide ▲ Advanced - VLOOK™ - Elegant and Practical Typora Theme & Plugin
 author: MAX°孟兆
-date: 2026-03-27
+date: 2026-05-05
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: This work is licensed under the MIT License. For details, see the LICENSE file.
-version: V2026.3
+version: V2026.5
 tags: Code, Button, Cover & Back Cover, Columns, Caption, Tab Group, Content Marking, Mermaid, Formula, Multimedia
 vlook-footer: <a href="index.html">Introduction</a>	|	Guide for <a href='guide-en.html'>Basic</a>  ❯  <strong>Advanced</strong>  ❯  <a href='guide3-en.html'>Exploration</a>
 description: Regarding VLOOK™: Code, button, Cover and Back Pages, Column Layouts, Captions, Tab Groups, Content Markups (GitHub-style Alerts / Tags / Progress Bars / Breadcrumbs / Scratch Card / Phonetic Annotations), Mermaid Diagrams, Mathematical Formulas, and Multimedia
@@ -13,23 +13,23 @@ description: Regarding VLOOK™: Code, button, Cover and Back Pages, Column Layo
 keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
 - editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,cross-reference,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
-- light mode,dark mode,grayscale mode,gray mode,publish as pdf,export as pdf,card-style link,link card
-- catalogue,library,illustration navigation,outline navigation,paragraph navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
+- light mode,dark mode,grayscale mode,gray mode,card-style link,link card
+- catalogue,library,illustration navigation,outline navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
-- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,export as pdf,save as pdf,print to pdf
+- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,Fullscreen Mode, Paragraph Navigator, Content Width Adaptation, Zen View, Presentation Mode, Reading Progress, Exclude from Publishing, Document Footer,export as pdf,save as pdf,print to pdf
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - link map,link specification,link check,link recognition,link conversion
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
 - product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,交叉引用,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
-- 浅色外观,深色外观,灰度外观,灰色外观,发布为PDF,导出为PDF,卡片式链接,链接卡片
-- 目录,文库,插图导航,大纲导航,段落漫游,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
+- 浅色外观,深色外观,灰度外观,灰色外观,卡片式链接,链接卡片
+- 目录,文库,插图导航,大纲导航,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
-- 内容助手,出版辅助,演示辅助,复制,激光笔,聚光灯,画中画,发布为PDF,导出为PDF,另存为PDF,打印为PDF
+- 内容助手,出版辅助,发布为PDF,导出为PDF,演示辅助,复制,全屏显示,激光笔,聚光灯,段落漫游,正文宽度适配,宁静视图,幻灯片视图,画中画,阅读进度,标记不发布,文档页脚,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
 - 设计,需求,文档,博客,手册,指南,攻略,知识库,教程,方案,教育,笔记,日记
@@ -40,7 +40,7 @@ vlook-doc-lib:
 - [How to Start?](index-en.html?target=_self "Introduction, Installation and Configuration, Language Packs")
 - [Guide • Basic](guide-en.html?target=_self "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Filters / Postcards / Silhouette / High-Definition, Lists / Task List, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
 - [Guide ▲ Advanced](guide2-en.html?target=_self "Columns, Caption, Cross-reference, Buttons, Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
-- [Guide ★ Exploration](guide3-en.html?target=_self "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
+- [Guide ★ Exploration](guide3-en.html?target=_self "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit / Zen View, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
 - [Value-added Services](vip-en.html?target=_self "VIP Themes, Document Typesetting and Editing,...")
 - [More Content](vlook-lib-en.html "VLOOK™ Full Feature Index Table")
 - [Report Issues](https://github.com/MadMaxChow/VLOOK/issues?target=issues "GitHub Issues")
@@ -497,7 +497,7 @@ _^tab^_
 ###### Example of this document's cover content
 
 ```markdown
-###### ~VLOOK™~<br>Give your Markdown a new way to _^play^_<br>──<br><u>Quick Reference Manual<br>(Part.II)</u><br>*Latest version`V2026.3`*<br><br>**MAX°Mengzhao**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
+###### ~VLOOK™~<br>Give your Markdown a new way to _^play^_<br>──<br><u>Quick Reference Manual<br>(Part.II)</u><br>*Latest version`V2026.5`*<br><br>**MAX°Mengzhao**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 ```
 
 ###### Example of this document's back cover content
@@ -1677,21 +1677,26 @@ _^tab^_
 |      Rd      | :                          | *`Rd Regular Style`*_~Rd~_ |
 |      Og      | Reminder, Notice, Fix           | *`Og Regular Style`*_~Og~_ |
 |      Ye      | Attention, Optimization, Memo, Explanation     | *`Ye Regular Style`*_~Ye~_ |
+| Tu | : | *`Tu Regular Style`*_~Tu~_ |
 |      Lm      | Hint, Reference, New           | *`Lm Regular Style`*_~Lm~_ |
 |      Gn      | :                          | *`Gn Regular Style`*_~Gn~_ |
 |      Mn      | :                          | *`Mn Regular Style`*_~Mn~_ |
 |      Ol      | :                          | *`Ol Regular Style`*_~Ol~_ |
 |      Aq      | Quote Block, Announcement               | *`Aq Regular Style`*_~Aq~_ |
+| Sk | : | *`Sk Regular Style`*_~Sk~_ |
 |      Cy      | :                          | *`Cy Regular Style`*_~Cy~_ |
 |      Bu      | Information, News                 | *`Bu Regular Style`*_~Bu~_ |
 |      Se      | :                          | *`Se Regular Style`*_~Se~_ |
 |      La      | :                          | *`La Regular Style`*_~La~_ |
 |      Vn      | :                          | *`Vn Regular Style`*_~Vn~_ |
 |      Pu      | Extension, Expansion, Reserved, Backup     | *`Pu Regular Style`*_~Pu~_ |
+| Au | : | *`Au Regular Style`*_~Au~_ |
 |      Ro      | Youthful, Personality, Female           | *`Ro Regular Style`*_~Ro~_ |
 |      Pk      | :                          | *`Pk Regular Style`*_~Pk~_ |
+| Pl | : | *`Pl Regular Style`*_~Pl~_ |
 |      Gd      | VIP, Finance, Engineering            | *`Gd Regular Style`*_~Gd~_ |
 |      Bn      | :                          | *`Bn Regular Style`*_~Bn~_ |
+| Cf | : | *`Cf Regular Style`*_~Cf~_ |
 |      Gy      | Invalid, Deferred, Disabled, Ended     | *`Gy Regular Style`*_~Gy~_ |
 |      Wt      | Black & White                       | *`Wt Regular Style`*_~Wt~_ |
 |      Bk      | :                          | *`Bk Regular Style`*_~Bk~_ |
@@ -1706,21 +1711,26 @@ _^tab^_
 |     Rd!      | :                          | *`Rd Emphasized Style`*_~Rd!~_  *`RdGn Gradient Style`*_~RdGn~_ |
 |     Og!      | Reminder, Notice, Fix           | *`Og Emphasized Style`*_~Og!~_  *`OgCy Gradient Style`*_~OgBu~_ |
 |     Ye!      | Attention, Optimization, Memo, Explanation     | *`Ye Emphasized Style`*_~Ye!~_  *`YeGd Gradient Style`*_~YeAq~_ |
+| Tu! | : | *`Tu Emphasized Style`*_~Tu!~_  *`TuVn Gradient Style`*_~TuVn~_ |
 |     Lm!      | Hint, Reference, New           | *`Lm Emphasized Style`*_~Lm!~_  *`LmAq Gradient Style`*_~LmYe~_ |
 |     Gn!      | :                          | *`Gn Emphasized Style`*_~Gn!~_  *`GnRd Gradient Style`*_~GnRd~_ |
 |     Mn!      | :                          | *`Mn Emphasized Style`*_~Mn!~_  *`MnWn Gradient Style`*_~MnAq~_ |
 |     Ol!      | :                          | *`Ol Emphasized Style`*_~Ol!~_  *`OlCy Gradient Style`*_~OlOg~_ |
 |     Aq!      | Quote Block, Announcement                 | *`Aq Emphasized Style`*_~Aq!~_  *`AqLm Gradient Style`*_~AqLm~_ |
+| Sk! | : | *`Sk Emphasized Style`*_~Sk!~_  *`SkPk Gradient Style`*_~SkPk~_ |
 |     Cy!      | :                          | *`Cy Emphasized Style`*_~Cy!~_  *`CyYe Gradient Style`*_~CyYe~_ |
 |     Bu!      | Information, News                 | *`Bu Emphasized Style`*_~Bu!~_ *`BuOl Gradient Style`*_~BuOl~_ |
 |     Se!      | :                          | *`Se Emphasized Style`*_~Se!~_  *`SeBn Gradient Style`*_~SeOg~_ |
 |     La!      | :                          | *`La Emphasized Style`*_~La!~_  *`LaYe Gradient Style`*_~LaYe~_ |
 |     Vn!      | :                          | *`Vn Emphasized Style`*_~Vn!~_  *`VnPu Gradient Style`*_~VnRo~_ |
-|     Pu!      | Extension, Expansion, Reserved, Backup     | *`Pu Emphasized Style`*_~Pu!~_  *`PuVn Gradient Style`*_~PuYe~_ |
+|     Pu!      | Extension, Expansion, Reserved, Backup     | *`Pu Emphasized Style`*_~Pu!~_  *`PuYe Gradient Style`*_~PuYe~_ |
+| Au! | : | *`Au Emphasized Style`*_~Au!~_  *`AuOg Gradient Style`*_~AuOg~_ |
 |     Ro!      | Youthful, Personality, Female           | *`Ro Emphasized Style`*_~Ro!~_  *`RoRd Gradient Style`*_~RoRd~_ |
 |     Pk!      | :                          | *`Pk Emphasized Style`*_~Pk!~_  *`PkGd Gradient Style`*_~PkLm~_ |
+| Pl! | : | *`Pl Emphasized Style`*_~Pl!~_  *`PlSk Gradient Style`*_~PlSk~_ |
 |     Gd!      | VIP, Finance, Engineering            | *`Gd Emphasized Style`*_~Gd!~_  *`GdYe Gradient Style`*_~GdYe~_ |
 |     Bn!      | :                          | *`Bn Emphasized Style`*_~Bn!~_  *`BnSe Gradient Style`*_~BnGd~_ |
+| Cf! | : | *`Cf Emphasized Style`*_~Cf!~_  *`CfRd Gradient Style`*_~CfRd~_ |
 |     Gy!      | Invalid, Deferred, Disabled, Ended     | *`Gy Emphasized Style`*_~Gy!~_  *`GyCy Gradient Style`*_~GyCy~_ |
 | Wt! | Black & White | *`Wt Emphasized Style`*_~Wt!~_  *`WtOg Gradient Style`*_~WtOg~_ |
 |     Bk!      | :               | *`Bk Emphasized Style`*_~Bk!~_  *`BkOg Gradient Style`*_~BkOg~_ |
@@ -1770,21 +1780,26 @@ _^tab^_
 |    Rd    | :                          | *Title`Content %Variable 2%`*_~Rd~_  *Title`Content %Variable 2%`Gradient*_~RdGn~_ |
 |    Og    | Reminder, Notice, Vitality, Fix       | *Title`Content $Variable 3$`*_~Og~_  *Title`Content $Variable 3$`Gradient*_~OgBu~_ |
 |    Ye    | Attention, Optimization, Memo, Explanation     | *Title`Content ${Variable 4}`*_~Ye~_  *Title`Content ${Variable 4}`Gradient*_~YeAq~_ |
+| Tu | : | *Title`Content ${Variable 4}`*_~Tu~_  *Title`Content ${Variable 4}`Gradient*_~TuVn~_ |
 |    Lm    | Hint, Memo, Reference, New     | *Title`Content #{Variable 5}`*_~Lm~_  *Title`Content #{Variable 5}`Gradient*_~LmYe~_ |
 |    Gn    | :                          | *Title`Content var(Variable 6)`*_~Gn~_  *Title`Content var(Variable 6)`Gradient*_~GnRd~_ |
 |    Mn    | :                          | *Title`Tag Content`*_~Mn~_  *Title`Tag Content`Gradient*_~MnAq~_  |
 |    Ol    | :                          | *Title`Tag Content`*_~Ol~_  *Title`Tag Content`Gradient*_~OlOg~_ |
 |    Aq    | Quote Block, Icy, Announcement              | *Title`Tag Content`*_~Aq~_  *Title`Tag Content`Gradient*_~AqLm~_ |
+| Sk | : | *Title`Tag Content`*_~Sk~_  *Title`Tag Content`Gradient*_~SkPk~_ |
 |    Cy    | :                          | *Title`Value 1`*_~Cy~_  *Title`Value 1`Gradient*_~CyYe~_ |
 |    Bu    | Information, News, Ocean              | *Title`Value 2`*_~Bu~_  *Title`Value 2`Gradient*_~BuOl~_ |
 |    Se    | :                          | *Title`Value 3`*_~Se~_  *Title`Value 3`Gradient*_~SeOg~_ |
 |    La    | :                          | *Title`Value 4`*_~La~_  *Title`Value 4`Gradient*_~LaYe~_ |
 |    Vn    | :                          | *Title`Value 5`*_~Vn~_  *Title`Value 5`Gradient*_~VnRo~_ |
 |    Pu    | Extension, Expansion, Important, Reserved  | *Title`Tag Content`*_~Pu~_  *Title`Tag Content`Gradient*_~PuYe~_ |
+| Au | : | *Title`Tag Content`*_~Au~_  *Title`Tag Content`Gradient*_~AuOg~_ |
 |    Ro    | Youthful, Personality, Female        | *Title`Tag Content`*_~Ro~_  *Title`Tag Content`Gradient*_~RoRd~_ |
 |    Pk    | :                          | *Title`Tag Content`*_~Pk~_  *Title`Tag Content`Gradient*_~PkLm~_ |
+| Pl | : | *Title`Tag Content`*_~Pl~_  *Title`Tag Content`Gradient*_~PlSk~_ |
 |    Gd    | VIP, Finance, Engineering, Reward         | *Title`Content {{Variable 1}}`*_~Gd~_  *Title`Content {{Variable 1}}`Gradient*_~GdYe~_ |
 |    Bn    | :                          | *Title`Content %Variable 2%`*_~Bn~_  *Title`Content %Variable 2%`Gradient*_~BnGd~_ |
+| Cf | : | *Title`Content %Variable 2%`*_~Cf~_  *Title`Content %Variable 2%`Gradient*_~CfRd~_ |
 |    Gy    | Regular, Invalid, Deferred, Disabled     | *Title`Content $Variable 3$`*_~Gy~_  *Title`Content $Variable 3$`Gradient*_~GyCy~_ |
 | Wt | Black & White | *Title`Content ${Variable 4}`*_~Wt~_  *Title`Content ${Variable 4}`Gradient*_~WtOg~_ |
 |    Bk    | :               | *Title`Content ${Variable 4}`*_~Bk~_  *Title`Content ${Variable 4}`Gradient*_~BkOg~_ |
@@ -1996,28 +2011,33 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 ###### Scratch Card Examples
 
-|       index-en.md**Preset Color Code**       | Rendering Effect                                                     |
-| :----------------------: | :----------------------------------------------------------- |
-| (Uses default when not specified) | index-en.md***This is scratch card without specified hint***                                 |
-|            :             | *Favorite bamboo-eating animal?**Panda***                                 |
-|            Rd            | Per *␣**sistence***_~Rd~_  Un *␣**remitting***_~Rd~_                        |
-|            Og            | *"Good night" in Cantonese?**早[zou2] 唞[tau5]***_~Og~_      |
-|            Ye            | 「**Water**」in English *Me???**Meter ❌***_~Ye~_ *Wa???**Water ✅***_~Ye~_ |
-|            Lm            | *How to say "thank you" in English?**Thank you***_~Lm~_                  |
-|            Gn            | *AppSecret Application Key**cf67c3839f0214dc***_~Gn~_               |
-|            Aq            | *Third planet in solar system?**Earth***_~Aq~_                           |
-|            Cy            | *Largest ocean on Earth?**Pacific***_~Cy~_                             |
-|            Bu            | *Largest of 7 continents?**Asia***_~Bu~_                               |
-|            Se            | *World's highest peak?**Mount Everest***_~Se~_                             |
-|            Vn            | *Largest human organ?**Skin***_~Vn~_                               |
-|            Pu            | *Smallest planet?**Mercury***_~Pu~_                                 |
-|            Ro            | *Country with most islands?**Norway***_~Ro~_                             |
-|            Pk            | *Which city is famous for its leaning tower?**Pisa***_~Pk~_                     |
-|            Gd            | *Longest river?**Nile***_~Gd~_                             |
-|            Bn            | *Largest planet in solar system?**Jupiter***_~Bn~_                         |
-|            Gy            | *World's deepest trench?**Mariana***_~Gy~_                       |
-|            T1            | *World's largest freshwater lake?**Baikal***_~T1~_                   |
-|            T2            | *World's largest land mammal?**African Elephant***_~T2~_               |
+| index-en.md**Preset Color Code**  | Rendering Effect                                             |
+| :-------------------------------: | :----------------------------------------------------------- |
+| (Uses default when not specified) | index-en.md***This is scratch card without specified hint*** |
+|                 :                 | *Favorite bamboo-eating animal?**Panda***                    |
+|                Rd                 | Per *␣**sistence***_~Rd~_  Un *␣**remitting***_~Rd~_         |
+|                Og                 | *"Good night" in Cantonese?**早[zou2] 唞[tau5]***_~Og~_      |
+|                Ye                 | 「**Water**」in English *Me???**Meter ❌***_~Ye~_ *Wa???**Water ✅***_~Ye~_ |
+|                Tu                 | 「**Water**」in English *Me???**Meter ❌***_~Tu~_ *Wa???**Water ✅***_~Tu~_ |
+|                Lm                 | *How to say "thank you" in English?**Thank you***_~Lm~_      |
+|                Gn                 | *AppSecret Application Key**cf67c3839f0214dc***_~Gn~_        |
+|                Aq                 | *Third planet in solar system?**Earth***_~Aq~_               |
+|                Sk                 | *Largest island on Earth?**Greenland***_~Sk~_                |
+|                Cy                 | *Largest ocean on Earth?**Pacific***_~Cy~_                   |
+|                Bu                 | *Largest of 7 continents?**Asia***_~Bu~_                     |
+|                Se                 | *World's highest peak?**Mount Everest***_~Se~_               |
+|                Vn                 | *Largest human organ?**Skin***_~Vn~_                         |
+|                Pu                 | *Smallest planet?**Mercury***_~Pu~_                          |
+|                Au                 | *Smallest planet?**Mercury***_~Au~_                          |
+|                Ro                 | *Country with most islands?**Norway***_~Ro~_                 |
+|                Pk                 | *Which city is famous for its leaning tower?**Pisa***_~Pk~_  |
+|                Pl                 | *Which city is famous for its leaning tower?**Pisa***_~Pl~_  |
+|                Gd                 | *Longest river?**Nile***_~Gd~_                               |
+|                Bn                 | *Largest planet in solar system?**Jupiter***_~Bn~_           |
+|                Cf                 | *Largest planet in solar system?**Jupiter***_~Cf~_           |
+|                Gy                 | *World's deepest trench?**Mariana***_~Gy~_                   |
+|                T1                 | *World's largest freshwater lake?**Baikal***_~T1~_           |
+|                T2                 | *World's largest land mammal?**African Elephant***_~T2~_     |
 
 ---
 

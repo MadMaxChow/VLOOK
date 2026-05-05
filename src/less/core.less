@@ -1,0 +1,852 @@
+/**************************************
+ *
+ * VLOOK™ CSS 基础资源样式
+ * (配合 common.less、主题.less 进行使用)
+ *
+ * V2026.5
+ * 2026-05-05
+ * Powered by MAX°孟兆
+ *
+ * QQ Group: 805502564
+ * Telegram Channel: t.me/vlook_markdown
+ * email: maxchow@qq.com
+ *
+ * https://github.com/MadMaxChow/VLOOK
+ * https://gitee.com/madmaxchow/VLOOK
+ *
+ *************************************/
+
+// 基本颜色
+@colorWhite: #FFF;
+@colorBlack: #000;
+@colorDark: #1C1E1F;
+
+// 文档文字颜色
+@docTextColorLight: @docBgColorDark;
+@docTextColorDark: #ECEEEF;
+// 文档背景颜色
+@docBgColorLight: @colorWhite;
+@docBgColorDark: @colorDark;
+
+// =====
+
+// 初始化平台标识
+// .setPlatform() when not (isdefined(@thmPlatform)) {
+//     @thmPlatform: "Typora";
+// }
+// .setPlatform();
+
+.initCoreEnv() when (@thmPlatform = "Typora") {
+    @write: ~"#write";
+
+    @writeOnEditing: ~"content>@{write}";
+    @writeOnHTML: ~".typora-export @{write}";
+    @onHTML: ~"body.typora-export";
+
+    @tableWrapper: ~"@{write} .table-figure";
+    @writeTable: ~"@{write} table";
+}
+.initCoreEnv() when (@thmPlatform = "Obsidian") {
+    @write: ~".view-content"; // 编辑、阅读模式
+
+    @writeOnEditing: ~".workspace-leaf-content[data-mode=source]";
+    @writeOnHTML: ~".workspace-leaf-content[data-mode=preview]";
+
+    @tableWrapper: ~"@{write} .cm-table-widget .table-wrapper";
+    @writeTable: ~"@{write} table";
+}
+.initCoreEnv();
+
+// ==================== 主题的文档纹理背景 ==================== //
+
+// 大方格
+@docBgImgLight_Grid: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4AQMAAAADqqSRAAAABlBMVEUAAAAAAAClZ7nPAAAAAnRSTlMACHhIRQoAAAAlSURBVDjLYwABRgQxyh/l05T/HxUMuHtG+SOLP5r+RvmDKP0BALD8LjNR4HGxAAAAAElFTkSuQmCC");
+@docBgImgDark_Grid: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4AQMAAAADqqSRAAAABlBMVEUAAAD///+l2Z/dAAAAAnRSTlMAD+Ys0KkAAAAlSURBVDjLYwABRgQxyh/l05T/HxUMuHtG+SOLP5r+RvmDKP0BALD8LjNR4HGxAAAAAElFTkSuQmCC");
+// 小方格
+@docBgImgLight_Grid2: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4AgMAAABECt5BAAAACVBMVEUAAAAAAAAAABp+ARC6AAAAA3RSTlMABQpn1NmFAAAASklEQVRIx2NgYBBgYAQRTNhYI1Y6FAbCsLEGs8tHQ22oSY+GGjnSq/CCwezy0bQ21KRHQ2001EbLtcEsPZrWRkNtNNQGszT+cg0Aff3B0vb/kO4AAAAASUVORK5CYII=");
+@docBgImgDark_Grid2: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4AgMAAABECt5BAAAACVBMVEUAAAD///////9zeKVjAAAAA3RSTlMACg+QJjHFAAAASklEQVRIx2NgYBBgYAQRTNhYI1Y6FAbCsLEGs8tHQ22oSY+GGjnSq/CCwezy0bQ21KRHQ2001EbLtcEsPZrWRkNtNNQGszT+cg0Aff3B0vb/kO4AAAAASUVORK5CYII=");
+// 斜纹
+@docBgImgLight_Twill: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgAgMAAACf9p+rAAAACVBMVEUAgIAAFxcAJCSKq6crAAAAA3RSTlMBCweGJOKBAAAALElEQVRIx+3NwQAAAAgEwfvmEUmEIUewBO0ITBakQQpkgIeHh4eHh4fHp+MAyUI93xXtGOkAAAAASUVORK5CYII=");
+@docBgImgDark_Twill: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgAgMAAACf9p+rAAAACVBMVEX///////////+OSuX+AAAAA3RSTlMBDQhAwViWAAAALElEQVRIx+3NwQAAAAgEwfvmEUmEIUewBO0ITBakQQpkgIeHh4eHh4fHp+MAyUI93xXtGOkAAAAASUVORK5CYII=");
+// 反斜纹
+@docBgImgLight_Twill_R: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgAgMAAACf9p+rAAAACVBMVEUAgIAAFxcAJCSKq6crAAAAA3RSTlMBCweGJOKBAAAALElEQVRIx+3NwQAAAAgEwXvFEF4qmUewBO0ITAqkQQZkgYeHh4eHh4fHp+MApP8932G+Z1sAAAAASUVORK5CYII=");
+@docBgImgDark_Twill_R: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgAgMAAACf9p+rAAAACVBMVEX///////////+OSuX+AAAAA3RSTlMBDQhAwViWAAAALElEQVRIx+3NwQAAAAgEwXvFEF4qmUewBO0ITAqkQQZkgYeHh4eHh4fHp+MApP8932G+Z1sAAAAASUVORK5CYII=");
+// 电路（圆润风格）
+@docBgImgLight_EC: url("data:image/png;base64,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");
+@docBgImgDark_EC: url("data:image/png;base64,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");
+// 电路（硬朗风格）
+@docBgImgLight_EC2: url("data:image/png;base64,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");
+@docBgImgDark_EC2: url("data:image/png;base64,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");
+// 短波
+@docBgImgLight_Wave: url("data:image/svg+xml,%3Csvg width='27' height='15' viewBox='0 0 27 15' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='M0 0h27v15H0z'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cpath d='M-22.428 10.764C-14.895 4.92-9.419 2-6 2-.871 2 .483 12.999 6.993 12.999 13.504 12.999 13.47 2 20.01 2c6.542 0 7.787 10.999 13.007 10.999 3.48 0 6.043-3.667 7.69-10.999' stroke-opacity='.025' stroke='%23000' stroke-width='2' stroke-linecap='square' mask='url(%23b)'/%3E%3C/g%3E%3C/svg%3E");
+@docBgImgDark_Wave: url("data:image/svg+xml,%3Csvg width='27' height='15' viewBox='0 0 27 15' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='M0 0h27v15H0z'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cpath d='M-22.428 10.764C-14.895 4.92-9.419 2-6 2-.871 2 .483 12.999 6.993 12.999 13.504 12.999 13.47 2 20.01 2c6.542 0 7.787 10.999 13.007 10.999 3.48 0 6.043-3.667 7.69-10.999' stroke-opacity='.04' stroke='%23FFF' stroke-width='2' stroke-linecap='square' mask='url(%23b)'/%3E%3C/g%3E%3C/svg%3E");
+// 长波
+@docBgImgLight_Wave2: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill-rule='nonzero' fill='%23000' opacity='.02'/%3E%3C/svg%3E");
+@docBgImgDark_Wave2: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill-rule='nonzero' fill='%23FFF' opacity='.04'/%3E%3C/svg%3E");
+// 大波
+@docBgImgLight_Wave3: url("data:image/svg+xml,%3Csvg width='100' height='18' viewBox='0 0 100 18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M61.82 18c3.47-1.45 6.86-3.78 11.3-7.34C78 6.76 80.34 5.1 83.87 3.42 88.56 1.16 93.75 0 100 0v6.16C98.76 6.05 97.43 6 96 6c-9.59 0-14.23 2.23-23.13 9.34-1.28 1.03-2.39 1.9-3.4 2.66h-7.65zm-23.64 0H22.52c-1-.76-2.1-1.63-3.4-2.66C11.57 9.3 7.08 6.78 0 6.16V0c6.25 0 11.44 1.16 16.14 3.42 3.53 1.7 5.87 3.35 10.73 7.24 4.45 3.56 7.84 5.9 11.31 7.34zM61.82 0h7.66a39.57 39.57 0 0 1-7.34 4.58C57.44 6.84 52.25 8 46 8S34.56 6.84 29.86 4.58A39.57 39.57 0 0 1 22.52 0h15.66C41.65 1.44 45.21 2 50 2c4.8 0 8.35-.56 11.82-2z' fill-rule='nonzero' fill='%23000' opacity='.02'/%3E%3C/svg%3E");
+@docBgImgDark_Wave3: url("data:image/svg+xml,%3Csvg width='100' height='18' viewBox='0 0 100 18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M61.82 18c3.47-1.45 6.86-3.78 11.3-7.34C78 6.76 80.34 5.1 83.87 3.42 88.56 1.16 93.75 0 100 0v6.16C98.76 6.05 97.43 6 96 6c-9.59 0-14.23 2.23-23.13 9.34-1.28 1.03-2.39 1.9-3.4 2.66h-7.65zm-23.64 0H22.52c-1-.76-2.1-1.63-3.4-2.66C11.57 9.3 7.08 6.78 0 6.16V0c6.25 0 11.44 1.16 16.14 3.42 3.53 1.7 5.87 3.35 10.73 7.24 4.45 3.56 7.84 5.9 11.31 7.34zM61.82 0h7.66a39.57 39.57 0 0 1-7.34 4.58C57.44 6.84 52.25 8 46 8S34.56 6.84 29.86 4.58A39.57 39.57 0 0 1 22.52 0h15.66C41.65 1.44 45.21 2 50 2c4.8 0 8.35-.56 11.82-2z' fill-rule='nonzero' fill='%23FFF' opacity='.03'/%3E%3C/svg%3E");
+// 下落
+@docBgImgLight_Falling: url("data:image/svg+xml,%3Csvg width='36' height='72' viewBox='0 0 36 72' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 12h12L9 24 3 12zm18 36h12l-6 12-6-12z' fill-rule='nonzero' fill='%23000' opacity='.03'/%3E%3C/svg%3E");
+@docBgImgDark_Falling: url("data:image/svg+xml,%3Csvg width='36' height='72' viewBox='0 0 36 72' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 12h12L9 24 3 12zm18 36h12l-6 12-6-12z' fill-rule='nonzero' fill='%23FFF' opacity='.06'/%3E%3C/svg%3E");
+// 雪花
+@docBgImgLight_Snow: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAgMAAADQNkYNAAAACVBMVEUAAAAAAAAAAACDY+nAAAAAA3RSTlMABwnM6+q9AAAFDklEQVRo3uzWsarjQAwF0DsQ9Q68ecV+zQTsXgZdQ9xnIfmaLZ6b7aewv3KdlLYeWM2ysLltOBEzlsTgnXf+4aQSJ/pXiJ3CxgxrmkgV2gsGSPMkkiKEV12JREi+Fj11LAFy4kWzhAgyo+QsLLmrbeCOMwkhQ8cfpifRAOn4heDpIYZ0awMmIxmk8riwDBBCluNECkj2geNzJSMZ+IxcSbqyBi6LpAp5A/rD5ErLJL8bseSY6zBxTUk+keJMMXkdZhbpP44Syy+iUswluieaC4d5IC8ucaZVQOQXoUs+J+xyMWSuuQ/0yFCLt16F5IUDHZOG6YTT9qYLZCJBegR5MljGJisZFFloTpV+Mtv91wkdxydRrwdz1f3F0Eiu5OKRxLnwofvOhCikOKTVXMHHtsoHK5K5nSFUoUOQv5AINN4wKYgfU7stTiLduBcQTraScdJ9K0PuLO6nt3TnaMXfr63XYEtNC/fLJ9dcMr9ZvZXLYnlHKIVsXcL6WBYFHGKZxV8mT5K2V0Omop8uQdc/llnT9vgUJAxUjxDjWiXbhpgA4o9kajAsy0Qt+xdMYg8/a5Xqrvh0NhecVzJz9gguPskcf1fOd4/AJ2dy/Eo/Zz1MUn5w+JU4u79+wEv3UNFEMvDsuhcxkOfjZJxUJpjheJ6k9ggkjdTPaqWJPLuorC0CEaqsKkRKW3g7IxiZNUq6OBGWKGmIcBgnOU4kThq88847/1NKWKQ/7Zm/ahtBEMZnD2shqlxEItk6Te4p1mD3EvgEuSpFAtE+hXCRegmSC1dX7Jmb7ymzIyeNdg92U7iJB1SJH5o/981wn3w10gzViH4VZPkPiK+2puoRb6qRYA5XlQibww+qC+d+TpWIAaa6s2U14IvrJm1JeYVyCwBW+2s1kbPldXvtPygQyhXThuWhjSCTLkU0C2ICK5QiCk8R0cymGCGHiBBQ0bI17D6WBFj6WtiB5oxoHEn75aHwV3xEGqaIGFtGYOKIBBFmGWLwKA+kjoh0e3EsmMtRnZEh0jLTqewB+IvYvcFQNhmOnzPiAF/YgMNakmsVEIoUBrgRMsm2B9uyB8YboIen0rTIBNII5ikoQYqlD98+cA/WXK7m0J67VaMZuBtIu9qhFBmBl7T0hgriW0SCA6Rlh0K5yJ1cIuqZTCjdShFx4CgvzVQ6l+YZGESRhQ1bMGkALPL6WAJoHzNzGMG9Lb2qExkAN4yKKVoNsJoMqDTOabmHSQuyKcsMYGueg4GnddlcNCAtG4GgwVlD47IWh3EiBaDnGbms0rN6I7LHsZkR/lWXpqVk67EsmnxPv9iL4sML4mWdZZG7CyOnZZqa4Q8Cu/aJ+WIXFx7beqPOiBFEtnNSyH2HTXL4X9ZxRFrgmLHSsU0RT2c97rUQic3S8YUpKYr0cpYionBIkfFuvDQTFb2TSU6CZAaz425cZTy7HgARN+B0xwuCBFEuOOdjt59Tzazc47jLILDOBBmQ86nJBvTYJIgnp1kQMyWbYQWAbxOECAT7qRnSrbRdAKesw8jU2ivtFVLDUJCsW2m1lQRN4qXugM1tVpleZaWvHICcl9XOntUFxoi8zyC/mPPICqf+xJnEPjfB2Rnkvu/cMf3yuglmBukEOeU2U9BZRPTSb/sxhwzKzv355rpdHpnd2Qt03Xdb9SJ2h27V1b2IyYK5tlWI2m9Vdv0f5hEpJBPaVnt/iubj1r6GkWfpLd7iLf6z+A2b7usoil+0bAAAAABJRU5ErkJggg==");
+@docBgImgDark_Snow: url("data:image/png;base64,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");
+// 波点
+@docBgImgLight_Point: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='M2 2h40v40H2z'/%3E%3C/defs%3E%3Cg transform='translate(-2 -2)' fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Ccircle fill-opacity='.06' fill='%23080A0D' mask='url(%23b)' cx='2' cy='2' r='2'/%3E%3Ccircle fill-opacity='.06' fill='%23080A0D' mask='url(%23b)' cx='42' cy='2' r='2'/%3E%3Ccircle fill-opacity='.06' fill='%23080A0D' mask='url(%23b)' cx='2' cy='42' r='2'/%3E%3Ccircle fill-opacity='.06' fill='%23080A0D' mask='url(%23b)' cx='42' cy='42' r='2'/%3E%3C/g%3E%3C/svg%3E");
+@docBgImgDark_Point: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='M0 0h40v40H0z'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Ccircle fill-opacity='.08' fill='%23FFF' mask='url(%23b)' r='2'/%3E%3Ccircle fill-opacity='.08' fill='%23FFF' mask='url(%23b)' cx='40' r='2'/%3E%3Ccircle fill-opacity='.08' fill='%23FFF' mask='url(%23b)' cy='40' r='2'/%3E%3Ccircle fill-opacity='.08' fill='%23FFF' mask='url(%23b)' cx='40' cy='40' r='2'/%3E%3C/g%3E%3C/svg%3E");
+// 泡泡
+@docBgImgLight_Bubbles: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm48 25a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm-43-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm63 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM34 90a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm56-76a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM12 86a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm28-65a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm23-11a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm-6 60a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm29 22a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM32 63a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm57-13a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm-9-21a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM60 91a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM35 41a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM12 60a2 2 0 1 0 0-4 2 2 0 0 0 0 4z' fill-rule='nonzero' fill='%23080A0D' fill-opacity='.03'/%3E%3C/svg%3E");
+@docBgImgDark_Bubbles: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm48 25a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm-43-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm63 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM34 90a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm56-76a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM12 86a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm28-65a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm23-11a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm-6 60a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm29 22a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM32 63a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm57-13a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm-9-21a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM60 91a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM35 41a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM12 60a2 2 0 1 0 0-4 2 2 0 0 0 0 4z' fill-rule='nonzero' fill='%23FFF' fill-opacity='.06'/%3E%3C/svg%3E");
+// 祥云
+@docBgImgLight_Clouds: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAcAgMAAABJ1ZStAAAACVBMVEUAAAAAAAAAAACDY+nAAAAAA3RSTlMABwSyWpYAAAAAyElEQVQY0z3PwakDIRSF4X8EF+4zrwP7mBJceEWyshSLeKaD9JkzUXMQFTlc+XDWj+bNUrh0hZDc05R39w0lY094Gyd3zlBQRstAxduFclgiYteRma3rMELVBGfWNTM2eJ0wzArkF+AzsXQ3KmcCdVBTfe5/m79CRYntSIEciR3FVerJ3wNNGAUdj3981XM009ZjQpQmilYQjEnZsEnZsE3ZsE1ZsE3ZsEVZMCZlw3AjifKF+XJTCvNfRv9RFmxTNmxRFoxFWbAPzI5Exs5yqvsAAAAASUVORK5CYII=");
+@docBgImgDark_Clouds: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAcAQMAAAAOde59AAAABlBMVEUAAAD///+l2Z/dAAAAAnRSTlMABp/waA0AAAC2SURBVAjXDcsxasMwGEDhZwTVZl2gWNfoIOyr9ATFUCgeTGKRoddS0NCtZ1Dp4DH/Fg0mfzQ+eB8+Zs2xYq6qeklQFLXAp+B+W04b3WGpA7B4xtDpFlbc7FR6wZRzfNiESRVvEvlSsNfMbpsrO18ORT4YB6tlWTmCjzVMaA0ErziZ6Z3A0dwE+HQyFbBRY4FqfvJ/8ig37ig+rYxt6KR5t8H6Gt5GYOhP8wLiXvZ3cTzsd/4r5ydlClSsn84LpAAAAABJRU5ErkJggg==");
+// 四角星
+@docBgImgLight_4pStar: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 10l4 2-4 2-2 4-2-4-4-2 4-2 2-4z' fill='%23000' fill-rule='evenodd' opacity='.03'/%3E%3C/svg%3E");
+@docBgImgDark_4pStar: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 10l4 2-4 2-2 4-2-4-4-2 4-2 2-4z' fill='%23FFF' fill-rule='evenodd' opacity='.05'/%3E%3C/svg%3E");
+
+// ==================== 配套圆角风格集 ==================== //
+
+@buttonRadiusCircle: 25px;
+
+// // 生成 VLOOK 专属的圆角变量
+// .getRootRadius() {
+//     :root {
+//         // ---
+//         // 小号圆角
+//         --v-r-b-small: 10px; // 标准圆角
+//         --v-r-s-small: 6px; // 标准圆角内的小圆角
+//         --v-r-t-small: 8px; // 代码块、表格圆角
+//         --v-r-si-small: calc(var(--v-r-t-small) + 1px); // 标准圆角内的小圆角
+//         --v-r-tag-small: 7px; // 标签圆角
+
+//         // ---
+//         // 大号圆角
+//         --v-r-b-big: 18px; // 标准圆角
+//         --v-r-s-big: 10px; // 标准圆角内的小圆角
+//         --v-r-t-big: 16px; // 代码块、表格圆角
+//         --v-r-si-big: calc(var(--v-r-t-big) + 1px); // 标准圆角内的小圆角
+//         --v-r-tag-big: 10px; // 标签圆角
+//     }
+// }
+// .getRootRadius();
+
+// ---
+// 应用无圆角
+.applyThemeRadius(@themeRadius) when (@themeRadius = none) {
+    // .genByPlatform() when (@thmPlatform = "Typora") {
+        :root {
+            --v-r-b: 0; // 标准圆角
+            --v-r-s: 0; // 标准圆角内的小圆角
+            --v-r-t: 0; // 表格圆角
+            --v-r-si: 0; // 标准圆角内的小圆角
+            --v-r-tag: 0; // 标签圆角
+        }
+        .setForNotLeaf();
+    // }
+    .genByPlatform() when (@thmPlatform = "Obsidian") {
+        .theme-light,
+        .theme-dark {
+            --radius-s: 0;
+            --radius-m: 0;
+            --radius-l: 0;
+            --radius-xl: 10px;
+
+            --input-radius: 0;
+
+            --modal-radius: var(--radius-l);
+        }
+    }
+
+    .genByPlatform();
+}
+// ---
+// 应用小号圆角
+.applyThemeRadius(@themeRadius) when (@themeRadius = small) {
+    // .genByPlatform() when (@thmPlatform = "Typora") {
+        :root {
+            --v-r-b: 10px; //var(--v-r-b-small); // 标准圆角
+            --v-r-s: 6px; //var(--v-r-s-small); // 标准圆角内的小圆角
+            --v-r-t: 8px; //var(--v-r-t-small); // 表格圆角
+            --v-r-si: calc(var(--v-r-s) - 1px); // 标准圆角内的小圆角
+            --v-r-tag: 6px; //var(--v-r-tag-small); // 标签圆角
+        }
+        .setForNotLeaf();
+    // }
+    .genByPlatform() when (@thmPlatform = "Obsidian") {
+        .theme-light,
+        .theme-dark {
+            --radius-s: 4px;
+            --radius-m: 8px;
+            --radius-l: 12px;
+            --radius-xl: 16px;
+
+            --input-radius: 10px;
+
+            --modal-radius: var(--radius-l);
+        }
+    }
+
+    .genByPlatform();
+}
+// ---
+// 应用大号圆角
+.applyThemeRadius(@themeRadius) when (@themeRadius = big) {
+    // .genByPlatform() when (@thmPlatform = "Typora") {
+        :root {
+            --v-r-b: 18px; //var(--v-r-b-big); // 标准圆角
+            --v-r-s: 10px; //var(--v-r-s-big); // 标准圆角内的小圆角
+            --v-r-t: 16px; //var(--v-r-t-big); // 表格圆角
+            --v-r-si: calc(var(--v-r-s) - 1px); // 标准圆角内的小圆角
+            --v-r-tag: 10px; //var(--v-r-tag-big); // 标签圆角
+        }
+        .setForNotLeaf();
+    // }
+    .genByPlatform() when (@thmPlatform = "Obsidian") {
+        .theme-light,
+        .theme-dark {
+            // --v-r-b: 18px; //var(--v-r-b-big); // 标准圆角
+            // --v-r-s: 10px; //var(--v-r-s-big); // 标准圆角内的小圆角
+            // --v-r-t: 16px; //var(--v-r-t-big); // 表格圆角
+            // --v-r-si: calc(var(--v-r-s) - 1px); // 标准圆角内的小圆角
+            // --v-r-tag: 10px; //var(--v-r-tag-big); // 标签圆角
+
+            --radius-s: 6px;
+            --radius-m: 10px;
+            --radius-l: 14px;
+            --radius-xl: 18px;
+
+            --input-radius: 12px;
+
+            --modal-radius: var(--radius-l);
+        }
+    }
+
+    .genByPlatform();
+}
+// ---
+// 应用叶子圆角
+.applyThemeRadius(@themeRadius, @xc: 0px) when (@themeRadius = leaf) {
+    .applyThemeRadius(big);
+    // .genByPlatform() when (@thmPlatform = "Typora") {
+        :root {
+            --v-r-b-xc: @xc;
+            --v-r-s-xc: calc(@xc - 1px);
+            --v-r-t-xc: calc(@xc - 1px);
+            --v-r-si-xc: calc(@xc - 2px);
+            --v-r-tag-xc: calc(@xc - 1px);
+        }
+    // }
+    .genByPlatform() when (@thmPlatform = "Obsidian") {
+        .theme-light,
+        .theme-dark {
+            --radius-s: 6px;
+            --radius-m: 10px;
+            --radius-l: 14px;
+            --radius-xl: 18px;
+
+            --input-radius: 12px @xc;
+
+            --modal-radius: 18px @xc;
+        }
+    }
+
+    .genByPlatform();
+}
+// ---
+// 为非 leaf 的圆角样式设置初始的 xc 值
+.setForNotLeaf() {
+    :root {
+        // 对角值（叶子风格）
+        --v-r-b-xc: var(--v-r-b);
+        --v-r-s-xc: var(--v-r-s);
+        --v-r-t-xc: var(--v-r-t);
+        --v-r-si-xc: var(--v-r-si);
+        --v-r-tag-xc: var(--v-r-tag);
+        // --v-r-c-xc: var(--v-r-c);
+    }
+}
+
+// ==================== 生成不同风格的表格 ==================== //
+
+// 生成表格通用部分
+.genTableCommonStyle(@firstColumnMinWidth) {
+    // 表格、代码块的容器
+    // #write figure {
+    @{tableWrapper} {
+        margin: @paragraphPadding 0 0;
+    }
+
+    // 生成编辑时的表格圆角样式
+    .genTblR(@radius, @radiusXC) {
+        .genTblR_forTableStyle() when (@thmTableStyle = modern), (@thmTableStyle = flat) {
+            @{writeTable} {
+                border-radius: @radius @radiusXC;
+            }
+            @{writeTable}>thead>tr:first-child>:first-child {
+                border-top-left-radius: @radius;
+            }
+            @{writeTable}>thead>tr:first-child>:last-child {
+                border-top-right-radius: @radiusXC;
+            }
+            @{writeTable}>tbody>tr:last-child>:first-child {
+                border-bottom-left-radius: @radiusXC;
+            }
+            @{writeTable}>tbody>tr:last-child>:last-child {
+                border-bottom-right-radius: @radius;
+            }
+        }
+        .genTblR_forTableStyle();
+    }
+    .genTableRadiusOnEditing() when (@thmTableRadiusStyle = small) {
+        .genTblR(var(--v-r-s), var(--v-r-s-xc));
+    }
+    .genTableRadiusOnEditing() when (@thmTableRadiusStyle = big) {
+        .genTblR(var(--v-r-b), var(--v-r-b-xc));
+    }
+    .genTableRadiusOnEditing() when (@thmTableRadiusStyle = leaf) {
+        .genTblR(var(--v-r-b), 0);
+    }
+    .genTableRadiusOnEditing();
+
+    // 导出 HTML 无题注的表格容器
+    @{writeOnHTML} figure.table-figure:not(:has(.v-caption)),
+    .v-caption.table {
+        display: block;
+        overflow: auto; // 超出部分隐藏，但会与表格表头冻结冲突
+    }
+
+    // 表格
+    :is(@{write}, .v-pic-in-pic) table {
+        border-collapse: collapse;
+        background: var(--db);
+        word-break: break-all;
+        white-space: pre-wrap;
+        vertical-align: text-top;
+        width: @tableWidth;
+    }
+
+    // 表头单元格
+    @{theadCell} {
+        font: var(--v-fw-bd) 1em var(--v-fm-bd); // [style] [weight] [size/[line-height]] [family]
+        margin: 0;
+        line-height: 1.25;
+    }
+
+    // 表体单元格
+    :is(@{write}, .v-pic-in-pic) table td {
+        margin: 0;
+        line-height: 1.25;
+    }
+    :is(@{write}, .v-pic-in-pic) table td label.checkbox {
+        vertical-align: middle;
+        line-height: 1;
+    }
+
+    // 所有单元格
+    :is(@{write}, .v-pic-in-pic) table :is(th, td) {
+        padding: var(--tbl-cell-padding);
+        word-break: break-word;
+        min-width: 5em;
+        max-width: @talbeFirstColumnMaxWidth;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+    }
+    // 单元格最小宽度控制
+    :is(@{write}, .v-pic-in-pic) table tr>:is(th, td):first-child {
+        min-width: @firstColumnMinWidth;
+    }
+
+    // 合并了所有列（即空白行）的样式
+    .v-table-colspan-all {
+        padding-left: 5px;
+        background: var(--pn-c);
+    }
+
+    // 空白单元格
+    @{tableEmptyCell} {
+        padding: 1px;
+        min-width: 0;
+    }
+}
+
+// 生成表格行通用的 hover 样式
+.genTableCommonStyle_hover() {
+    // 编辑时，表格当前格行
+    @{writeOnEditing} table tr.md-focus-container>:is(th, td) {
+        .genTableCurrentRowStyle();
+    }
+
+    // 导出后，针对 table 行的 hover 样式
+    @{writeOnHTML} table:not([data-tbl-x=true]) tr:hover>:is(th, td) {
+        .genTableCurrentRowStyle();
+    }
+}
+// 表格当前行样式
+.genTableCurrentRowStyle() when not (@thmTableStyle = vivid) {
+    box-shadow: 0 -3px 0 0 var(--ac-t2-fd) inset;
+    border-bottom-color: var(--ac-t2) !important;
+}
+.genTableCurrentRowStyle() when (@thmTableStyle = vivid) {
+    box-shadow: 0 -3px 0 0 var(--ac-t2-fd) inset, 0 1px 0 0 var(--db) inset;
+    border-bottom-color: var(--ac-t2) !important;
+}
+
+// ---------------------- 生成表格冻结表头样式 ------------------ //
+
+// 表格冻结表头样式
+.genTableFreezeHead(@color, @background) when (@tableFreezeHead = on) {
+    // 表格在编辑状态时才激活冻结表头样式
+    @{writeOnEditing} figure.table-figure {
+        overflow: visible !important; // 用于实现表格表头冻结效果
+        container: table-fixed-height / inline-size;
+    }
+
+    // 表头冻结样式
+    @{writeOnEditing} @{thead_lastRow_raw} {
+        position: sticky;
+        top: 0;
+        z-index: 135;
+    }
+
+    // 表头首列层级提升，避免被遮挡
+    @{writeOnEditing} @{thead_lastRow_raw}:first-child {
+        z-index: 140 !important;
+    }
+
+    // 表头样式
+    @{writeOnEditing} table th {
+        .genTableHeaderColor(@color) when not (@color = inherit) {
+            color: @color !important;
+        }
+        .genTableHeaderColor(@color);
+
+        .genTableHeaderBackground(@bg) when not (@bg = inherit) {
+            background: @bg;
+        }
+        .genTableHeaderBackground(@background);
+    }
+
+
+}
+
+// 冻结表头上下边框样式
+.genTableFreezeHeadBorder(@topColor, @topWidth, @bottomColor, @bottomWidth) {
+    @{writeOnEditing} table {
+        border-top: none;
+    }
+
+    @{writeOnEditing} table th {
+        box-shadow: 0 @topWidth 0 0 @topColor inset, 0 @bottomWidth 0 0 @bottomColor;
+        border-top: none;
+        border-bottom: none;
+    }
+}
+
+// 冻结表头下边框样式
+.genTableFreezeHeadBottomBorder(@bottomColor, @bottomWidth) {
+    @{writeOnEditing} table th {
+        box-shadow: 0 @bottomWidth 0 0 @bottomColor;
+        border-bottom: none;
+    }
+}
+
+// ---------------------- 生成表格冻结列样式 ------------------ //
+
+// 表格冻结列单元格样式
+.genFreezeColumn(@color, @background, @borderLeftColor, @borderRightColor) {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+
+    .genColumnColor(@color) when not (@color = inherit) {
+        color: @color !important;
+    }
+    .genColumnColor(@color);
+
+    .genColumnBg(@background) when not (@background = inherit) {
+        background: @background !important;
+    }
+    .genColumnBg(@background);
+
+
+    .genLeftBorder() when not (@borderLeftColor = none) {
+        border-left: none;
+    }
+    .genLeftBorder();
+
+    .genRightBorder() when not (@borderRightColor = none) {
+        border-right: none;
+    }
+    .genRightBorder();
+}
+// 表格冻结列左边框样式
+.genFreezeColumnLeftBorder(@bdcolor) {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background: @bdcolor;
+    z-index: 10;
+}
+// 表格冻结列右边框样式
+.genFreezeColumnRightBorder(@bdcolor) {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -2px;
+    width: 2px;
+    height: 100%;
+    background: @bdcolor;
+    pointer-events: none;
+    z-index: 10;
+}
+// 表格冻结列下边框样式
+.genFreezeColumnBottomBorder(@bdcolor) {
+    box-shadow: 0 1px 0 0 @bdcolor inset;
+}
+// 表格冻结列完整样式（ on 模式）
+.genTableFreezeColumn(@color, @background, @borderLeftColor: none, @borderRightColor: none, @borderBottomColor: none) when (@tableFreezeColumn = on) {
+    // 首列滚动时固定显示
+    @{table_freezeColumn_on} {
+        .genFreezeColumn(@color, @background, @borderLeftColor, @borderRightColor);
+    }
+
+    // 左边框
+    .genLeftBorder(@bdcolor) when not (@bdcolor = none) {
+        @{table_freezeColumnBefore_on} {
+            .genFreezeColumnLeftBorder(@bdcolor);
+        }
+    }
+    .genLeftBorder(@borderLeftColor);
+
+    // 右边框
+    .genRightBorder(@bdcolor) when not (@bdcolor = none) {
+        @{table_freezeColumnAfter_on} {
+            .genFreezeColumnRightBorder(@bdcolor);
+        }
+    }
+    .genRightBorder(@borderRightColor);
+
+    // 下边框
+    .genBottomBorder(@bdcolor) when not (@bdcolor = none) {
+        @{tbody_freezeColumn_on} {
+            .genFreezeColumnBottomBorder(@bdcolor);
+        }
+    }
+    .genBottomBorder(@borderBottomColor);
+}
+// 表格冻结列完整样式（ auto 模式）
+.genTableFreezeColumn(@color, @background, @borderLeftColor: none, @borderRightColor: none, @borderBottomColor: none) when (@tableFreezeColumn = auto) {
+    // 首列滚动时固定显示
+    @{table_freezeColumn_auto} {
+        .genFreezeColumn(@color, @background, @borderLeftColor, @borderRightColor);
+    }
+
+    // 左边框
+    .genLeftBorder(@bdcolor) when not (@bdcolor = none) {
+        @{table_freezeColumnBefore_auto} {
+            .genFreezeColumnLeftBorder(@bdcolor);
+        }
+    }
+    .genLeftBorder(@borderLeftColor);
+
+    // 右边框
+    .genRightBorder(@bdcolor) when not (@bdcolor = none) {
+        @{table_freezeColumnAfter_auto} {
+            .genFreezeColumnRightBorder(@bdcolor);
+        }
+    }
+    .genRightBorder(@borderRightColor);
+
+    // 下边框
+    .genBottomBorder(@bdcolor) when not (@bdcolor = none) {
+        @{tbody_freezeColumn_on} {
+            .genFreezeColumnBottomBorder(@bdcolor);
+        }
+    }
+    .genBottomBorder(@borderBottomColor);
+}
+
+@tblBdWidth: 1px;
+
+@freezeTd_onHTML: ~'tr>:not([data-rowspan]):not(.v-empty-cell):first-child';
+// 表格冻结列（on 模式）
+@table_freezeColumn_on: ~'@{writeOnEditing} table tbody>tr>:first-child, @{writeOnHTML} table.v-freeze tbody>tr>:not([data-rowspan]):not(.v-empty-cell):first-child';
+@table_freezeColumnBefore_on: ~'@{writeOnEditing} table tr>:first-child::before, @{writeOnHTML} table.v-freeze @{freezeTd_onHTML}::before';
+@table_freezeColumnAfter_on: ~'@{writeOnEditing} table tr>:first-child::after, @{writeOnHTML} table.v-freeze @{freezeTd_onHTML}::after';
+// 表格冻结列（auto 模式）
+@columnFormatBoldOnEditing: ~'th:first-child > span > span[md-inline=strong]:only-child';
+@table_freezeColumn_auto: ~'@{writeOnEditing} table:has(@{columnFormatBoldOnEditing}) tbody>tr>:first-child, @{writeOnHTML} table.v-freeze.auto tbody>tr>:not([data-rowspan]):not(.v-empty-cell):first-child';
+@table_freezeColumnBefore_auto: ~'@{writeOnEditing} table:has(@{columnFormatBoldOnEditing}) tr>:first-child::before, @{writeOnHTML} table.v-freeze.auto @{freezeTd_onHTML}::before';
+@table_freezeColumnAfter_auto: ~'@{writeOnEditing} table:has(@{columnFormatBoldOnEditing}) tr>:first-child::after, @{writeOnHTML} table.v-freeze.auto @{freezeTd_onHTML}::after';
+
+// 表头
+@theadCell: ~':is(@{write}, .v-pic-in-pic) table>thead th';
+@thead_firstColumn: ~':is(@{write}, .v-pic-in-pic) table>thead>tr>:first-child';
+@thead_lastColumn: ~':is(@{write}, .v-pic-in-pic) table>thead>tr>:last-child';
+@thead_lastRow_raw: ~'thead>tr:last-child>th';
+@thead_lastRow: ~':is(@{write}, .v-pic-in-pic) table>@{thead_lastRow_raw}';
+
+// 表体
+@tbodyCell: ~':is(@{write}, .v-pic-in-pic) table>tbody td';
+@tbody_not_lastRow: ~':is(@{write}, .v-pic-in-pic) table>tbody>tr:not(:last-child)>td';
+@tbody_firstRow: ~':is(@{write}, .v-pic-in-pic) table>tbody>tr:first-child>td';
+@tbody_lastRow: ~':is(@{write}, .v-pic-in-pic) table>tbody>tr:last-child>td';
+@tbody_firstColumn: ~':is(@{write}, .v-pic-in-pic) table>tbody>tr>:first-child';
+@tbody_lastColumn: ~':is(@{write}, .v-pic-in-pic) table>tbody>tr>:last-child';
+@tbody_lastRow_firstCell: ~':is(@{write}, .v-pic-in-pic) table>tbody>tr:last-child>:first-child';
+@tbody_lastRow_lastCell: ~':is(@{write}, .v-pic-in-pic) table>tbody>tr:last-child>:last-child';
+@tbody_2nRow: ~':is(@{write}, .v-pic-in-pic) table>tbody>tr:nth-child(2n) td';
+@tbody_2n1Row: ~':is(@{write}, .v-pic-in-pic) table>tbody>tr:nth-child(2n+1) td';
+// 表体（冻结列：on 模式）
+@tbody_freezeColumn_on: ~'@{writeOnEditing} table>tbody>tr>:first-child, @{writeOnHTML} table.v-freeze>tbody>@{freezeTd_onHTML}';
+// 表体（冻结列：auto 模式）
+@tbody_freezeColumn_auto: ~'@{writeOnEditing} table>tbody>tr>:first-child, @{writeOnHTML} table.v-freeze>tbody>@{freezeTd_onHTML}';
+
+// 空白单元格
+@tableEmptyCell: ~':is(@{write}, .v-pic-in-pic) table .v-empty-cell';
+@tbodyEmptyCell: ~':is(@{write}, .v-pic-in-pic) table td.v-empty-cell';
+
+@talbeFirstColumnMinWidth: 8em;
+@talbeFirstColumnMaxWidth: 20em;
+
+// 标准风格（如正式文档、国标文档等用的常规表格）
+.genTableStyle(@firstColumnMinWidth: @talbeFirstColumnMinWidth) when (@thmTableStyle = simple) {
+    // 公共部分
+    .genTableCommonStyle(@firstColumnMinWidth);
+
+    // 所有单元格
+    :is(@{write}, .v-pic-in-pic) table :is(th, td) {
+        border: 1px solid var(--pn-c-a);
+    }
+
+    // 表头单元格
+    @{theadCell} {
+        padding: calc(var(--tbl-cell-padding) + 2px) var(--tbl-cell-padding) var(--tbl-cell-padding);
+    }
+
+    // 表头末行
+    @{thead_lastRow} {
+        border-bottom-width: 2px;
+    }
+
+    // 空白单元格
+    @{tableEmptyCell} {
+        background: var(--pn-c-a) !important;
+        border: 1px solid var(--pn-c-a) !important;
+    }
+
+    // 表格冻结表头
+    .genTableFreezeHead(inherit, var(--db));
+    .genTableFreezeHeadBorder(var(--pn-c-a), 1px, var(--pn-c-a), 1px);
+
+    // 表格冻结列
+    .genTableFreezeColumn(inherit, var(--db), var(--pn-c-a), var(--pn-c-a));
+}
+
+// 现代风格（内置主题默认）
+.genTableStyle(@firstColumnMinWidth: @talbeFirstColumnMinWidth) when (@thmTableStyle = modern) {
+    // 公共部分
+    .genTableCommonStyle(@firstColumnMinWidth);
+
+    // 表头单元格
+    @{theadCell} {
+        border: 1px solid var(--db);
+        border-top-width: 0;
+        background: var(--pn-c-a);
+    }
+
+    // 表头、表体的首列
+    @{thead_firstColumn},
+    @{tbody_firstColumn} {
+        border-left-width: 0;
+    }
+
+    // 表头、表体的末列
+    @{thead_lastColumn},
+    @{tbody_lastColumn} {
+        border-right-width: 0;
+    }
+
+    // 表头末行
+    @{thead_lastRow} {
+        border-bottom: 3px solid var(--db);
+    }
+
+    // 表体（tbody）单元格
+    @{tbodyCell} {
+        border: 1px solid var(--db);
+        border-bottom: none;
+    }
+
+    // 表体（tbody）偶数行，斑马线样式
+    @{tbody_2n1Row} {
+        background: rgba(var(--pn-r), var(--pn-g), var(--pn-b), .4);
+    }
+    @{tbody_2nRow} {
+        background: rgba(var(--pn-r), var(--pn-g), var(--pn-b), .8);
+    }
+
+    // 空白单元格
+    @{tableEmptyCell} {
+        background: var(--pn-c-a) !important;
+        border: 1px solid var(--pn-c-a) !important;
+    }
+
+    // 表格冻结表头
+    .genTableFreezeHead(inherit, var(--pn-c-a));
+    .genTableFreezeHeadBottomBorder(var(--db), 2px);
+
+    // 表格冻结列
+    .genTableFreezeColumn(inherit, var(--pn-c-a), none, var(--db));
+}
+
+// 扁平风格
+.genTableStyle(@thColor: false, @thBg: false, @2nRowBg: false, @firstColumnMinWidth: @talbeFirstColumnMinWidth) when (@thmTableStyle = flat) {
+    // 公共部分
+    .genTableCommonStyle(@firstColumnMinWidth);
+
+    // 表格
+    :is(@{write}, .v-pic-in-pic) table {
+        box-shadow: none;
+    }
+
+    // 表头单元格
+    @{theadCell} {
+        border: none;
+
+        // 表头文字样式
+        .genThColor() when not (@thColor = false) {
+            color: @thColor;
+        }
+        .genThColor();
+
+        // 表头背景样式
+        .genThBg() when (@thBg = false) {
+            background: var(--pn-c);
+        }
+        .genThBg() when not (@thBg = false) {
+            background: @thBg;
+        }
+        .genThBg();
+    }
+
+    // 表体（tbody）单元格
+    @{tbodyCell} {
+        border: none;
+    }
+
+    // 表体（tbody）偶数行，斑马线样式
+    @{tbody_2nRow} {
+        .genThBg(@2nRowBg) when (@2nRowBg = false) {
+            background: rgba(var(--pn-r), var(--pn-g), var(--pn-b), .4);
+        }
+        .genThBg(@2nRowBg) when not (@2nRowBg = false) {
+            background: @2nRowBg;
+        }
+        .genThBg(@2nRowBg);
+    }
+
+    // 空白单元格
+    @{tableEmptyCell} {
+        background: var(--pn-c-a) !important;
+    }
+
+    // 表格冻结表头
+    .genTableFreezeHead(inherit, @thBg);
+
+    // 表格冻结列
+    .genTableFreezeColumn(inherit, var(--pn-c));
+}
+
+// 高对比风格
+.genTableStyle(@firstColumnMinWidth: @talbeFirstColumnMinWidth) when (@thmTableStyle = vivid) {
+    // 公共部分
+    .genTableCommonStyle(@firstColumnMinWidth);
+
+    // 表格
+    :is(@{write}, .v-pic-in-pic) table {
+        border-bottom: 2px solid var(--df-a);
+    }
+
+    // 表头单元格
+    @{theadCell} {
+        border: 1px solid var(--db);
+        border-top: none;
+        color: var(--db);
+        background: var(--df-a);
+        padding: var(--tbl-cell-padding);
+    }
+
+    // 表体（tbody）单元格
+    @{tbodyCell} {
+        border: 1px solid var(--df-a);
+        border-top: none;
+    }
+
+    // 表头、表体的首列
+    @{thead_firstColumn},
+    @{tbody_firstColumn} {
+        border-left-width: 0;
+    }
+    // 表头、表体的末列
+    @{thead_lastColumn},
+    @{tbody_lastColumn} {
+        border-right-width: 0;
+    }
+
+    // 空白单元格
+    @{tableEmptyCell} {
+        background: var(--db) !important;
+    }
+    @{tbodyEmptyCell} {
+        background: var(--df-a) !important;
+    }
+
+    // 表格冻结表头
+    .genTableFreezeHead(inherit, var(--df-a));
+    .genTableFreezeHeadBottomBorder(var(--db), 2px);
+
+    // 表格冻结列
+    .genTableFreezeColumn(var(--db), var(--df-a), none, var(--db), var(--db));
+}
+
+// 报告风格（如论文、报告用的三线表）
+.genTableStyle(@firstColumnMinWidth: @talbeFirstColumnMinWidth) when (@thmTableStyle = report) {
+    // 公共部分
+    .genTableCommonStyle(@firstColumnMinWidth);
+
+    // 表格
+    :is(@{write}, .v-pic-in-pic) table {
+        border: 2px solid var(--df);
+        border-left: none;
+        border-right: none;
+    }
+
+    // 表头、表体（tbody）单元格
+    @{theadCell},
+    @{tbodyCell} {
+        border: none;
+    }
+
+    // 表头单元格
+    @{theadCell} {
+        border-bottom: 1px solid var(--df);
+        padding: calc(var(--tbl-cell-padding) + 2px) var(--tbl-cell-padding) var(--tbl-cell-padding);
+    }
+
+    // 空白单元格
+    @{tableEmptyCell} {
+        background: var(--df) !important;
+    }
+
+    // 表格冻结表头
+    .genTableFreezeHead(inherit, var(--db));
+    .genTableFreezeHeadBorder(var(--df), 2px, var(--df), 1px);
+
+    // 表格冻结列
+    .genTableFreezeColumn(inherit, var(--db), none, var(--df));
+}
