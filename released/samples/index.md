@@ -1,7 +1,7 @@
 ---
 title: 简介 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与排版增强插件
 author: MAX°孟兆
-date: 2026-05-05
+date: 2026-05-09
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: 本作品采用 MIT 许可证授权，详见 LICENSE 文件。
 version: V2026.5
@@ -9,7 +9,7 @@ version: V2026.5
 description: 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:description": 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
-date: 2026-05-05
+date: 2026-05-09
 changelog:
 - changelog content a, and content b
 - changelog content 2 [...detail](#打赏)
@@ -79,7 +79,7 @@ vlook-shortcut:
 
 > - 👍 Typora 官方认可支持的主题包和排版增强插件，详见 [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook)
 > - 👍 [OSCHINA (开源中国)](https://www.oschina.net/p/vlook) 推荐的国产开源项目
-> - 👍 [AtomGit](https://atomgit.com/MadMaxChow/VLOOK) **G-Star** 优质项目 ![star VLOOK](https://atomgit.com/MadMaxChow/VLOOK/star/badge.svg#icon)
+> - 👍 [AtomGit](https://atomgit.com/MadMaxChow/VLOOK) **G-Star** 优质项目
 >
 
 
@@ -94,7 +94,7 @@ vlook-shortcut:
 
 > [![Featured｜HelloGitHub](https://abroad.hellogithub.com/v1/widgets/recommend.svg?rid=aa6c612ca3de42a082b15053be4ce3c3&claim_uid=xCde1wfnch6ASLj&theme=neutral#logo)](https://hellogithub.com/repository/aa6c612ca3de42a082b15053be4ce3c3)
 
-> [![是玄月夜不是玄月](https://www.sakuraxy.top/wp-content/uploads/2025/05/xyres2.png#200w#logo)](https://sakuraxy.top/)
+> ![star VLOOK](https://atomgit.com/MadMaxChow/VLOOK/star/badge.svg#icon2x)
 
 
 

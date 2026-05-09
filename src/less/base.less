@@ -3,7 +3,7 @@
  * VLOOK™ CSS 基础库 for Typora
  *
  * V2026.5
- * 2026-05-05
+ * 2026-05-09
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -314,9 +314,6 @@ html {
     font-style: normal;
     animation: none;
 }
-// .zen #write.done::after {
-//     z-index: 7150 !important;
-// }
 
 body {
     background: var(--db);
@@ -390,16 +387,13 @@ body.unfreeze {
 .zen .v-fill-width {
     opacity: .5;
 }
-// .zen .v-status-bar {
-//     z-index: 7200 !important;
-// }
 .zen .v-status-bar:hover {
     opacity: 1;
 }
 
 // --------------------------------------------------
 // 针对 Gray Mode 相关样式
-@grayModeFilter: ~'saturate(10%)';
+@grayModeFilter: ~'saturate(20%)';
 @graySelector: ~':is(#write, .v-welcome-page, .v-mask, .v-toolbar, .v-link-info-list, .v-font-style, .v-font-style-info, .v-content-assistor, .v-tbl-x, .v-footnote-pn, .v-tool-tips, .v-info-tips, .v-para-nav-mask-border, .v-fill-width, .v-pic-in-pic, .v-chapter-nav, .v-fig-nav, .v-nav-center, .v-nav-center-handle, .v-shortcut-bar)';
 // 灰色模式 样式
 body.gray @{graySelector} {
@@ -484,6 +478,7 @@ body.gray .typora-export-content::before {
 #write p>.md-image:only-child:not(.md-img-error) img,
 #write p>img:only-child {
     display: inline-block;
+    margin: unset;
 }
 
 // 插图
@@ -1166,7 +1161,7 @@ rt:hover {
     width: 100%;
 }
 // 引用块小标题为图标版式的图片段落
-@{writeOnEditing} blockquote>:is(p:first-child, p:first-child+p):has(>.md-image[data-src*="#icon"]:only-child),
+@{writeOnEditing} blockquote>:is(p:first-child, p:first-child+p)>.md-image[data-src*="#icon"]:only-child,
 @{writeOnHTML} blockquote>:is(p:first-child, p:first-child+p):has(>img[src*="#icon"]:only-child, >svg[data-inject-url*="#icon"]:only-child) {
     display: flex;
     justify-content: @h7TextAlign;
@@ -1727,9 +1722,12 @@ h6:first-child) {
     left: 50%;
     transform: translateX(-50%);
 }
-#write .v-post-card.v-backdrop-blurs.enabled {
-    background: var(--pn08);
-}
+// 仅当浏览器支持对应 CSS 特性时才启用
+// @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+    // #write .v-post-card.v-backdrop-blurs {
+    //     background: var(--pn08);
+    // }
+// }
 #write .v-post-card>.v-card-title {
     font-weight: var(--v-fw-tt);
     font-size: 1.125em;
@@ -1763,12 +1761,13 @@ h6:first-child) {
 .v-caption.full.figure {
     touch-action: none;
 }
-.v-caption.full.v-backdrop-blurs.enabled {
-    // background: linear-gradient(180deg, rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),1) 50%,
-    //     rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),.9));
-    background: radial-gradient(rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),1) 50%,
-        rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),.9));
-}
+// 仅当浏览器支持对应 CSS 特性时才启用
+// @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+//     .v-caption.full.v-backdrop-blurs {
+//         background: radial-gradient(rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),1) 50%,
+//             rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),.9));
+//     }
+// }
 .v-caption.full figcaption {
     display: none;
 }
@@ -1786,6 +1785,7 @@ h6:first-child) {
 // 全屏显示的插图相关
 .v-caption.full > :is(img, svg) {
     transform-origin: 0 0;
+    filter: none !important;
     cursor: var(--cur-full-screen);
     user-select: none;
     touch-action: none;
@@ -2221,10 +2221,6 @@ hr.v-column {
     display: none;
 }
 
-// .CodeMirror-line {
-//     line-height: 1.25;
-// }
-
 // 代码块行的换行方式
 .md-fences.unwrap .CodeMirror-line {
     white-space: pre !important;
@@ -2620,7 +2616,7 @@ hr.v-column {
 #write @{quote_details}>@{quote_details} {
     border-left: @defQuoteBorderWidth solid var(--df02);
     box-shadow: none;
-    color: var(--df-a);
+    color: @thmQuoteInQuoteColor;
     background: none;
     border-radius: 0;
     padding: 0 .5em;
@@ -3003,16 +2999,12 @@ transform: rotate(90deg);
 
 // 状态栏按钮 选中样式
 .v-status-bar>div:is(.selected, .enabled) {
-    // background: var(--ac-t1-fd);
-    // color: var(--ac-t1);
     background: var(--ac-t2-fd);
     color: var(--ac-t2);
     display: inline-flex;
 }
 .v-status-bar>div:is(.selected, .enabled) svg>use {
-    // fill: var(--a-c);
     fill: var(--ac-t2);
-    // fill: currentColor;
 }
 
 // 针对 dark mode 的样式微调
@@ -4854,6 +4846,7 @@ div[class*=v-fontinfo-].done > span,
 
 .v-toolbar {
     border-radius: var(--b-br-b);
+    // corner-shape: bevel;
     left: @writePaddingRight;
     padding: 10px;
     width: var(--v-nav-center-w);
@@ -4987,7 +4980,6 @@ div[class*=v-fontinfo-].done > span,
 
     padding: 10px 5px 10px;
     position: sticky;
-    // top: -5px;
     top: 0;
     z-index: 1;
 
@@ -5047,25 +5039,15 @@ div[class*=v-fontinfo-].done > span,
 }
 
 .genHoverStyle(@for) when (@for = toc-item) {
-    // .genTweaks() when (@thmNavCenterStyle = std) {
-    //     .md-toc-item:hover::before {
-    //         color: var(--df);
-    //     }
-    //     .v-toc-item:hover,
-    //     .md-toc-item:hover {
-    //         background: var(--pn-c-a);
-    //     }
-    // }
     .genTweaks() when (@thmNavCenterStyle = std), (@thmNavCenterStyle = flat) {
         .outline-item:hover,
         .v-toc-item:hover,
         .md-toc-item:hover {
-            // background: var(--pn-c);
             background: var(--pn06);
         }
         .outline-item-active:hover,
         .v-item-current:hover {
-            background: @tocItemCurrentBg !important; //var(--ac-t2-fd) !important;
+            background: @tocItemCurrentBg !important;
         }
     }
     .genTweaks() when (@thmNavCenterStyle = edge) {
@@ -5074,10 +5056,6 @@ div[class*=v-fontinfo-].done > span,
         .md-toc-item:hover {
             background: var(--db02);
         }
-        // .outline-item-active:hover,
-        // .v-item-current:hover {
-        //     background: var(--db02) !important;
-        // }
     }
     // 生成目录节点不同风格的 hover 样式
     .genTweaks();
@@ -5179,9 +5157,7 @@ div[class*=v-fontinfo-].done > span,
 .v-index-filter-result.toc .v-toc-item>span {
     font-size: 1em;
     white-space: nowrap;
-    // line-height: 1.25;
     padding-right: 5px;
-    // display: inline-block;
     display: inline;
     margin: 0;
 }
@@ -5199,8 +5175,6 @@ div[class*=v-fontinfo-].done > span,
 
 .genHoverStyle(@for) when (@for = map-item) {
     .v-map-item:hover {
-        // box-shadow: 0 0 0 2px var(--df-a) inset;
-        // background: var(--pn-c-a);
         background: var(--pn07);
     }
 }
@@ -5404,10 +5378,6 @@ div[class*=v-fontinfo-].done > span,
     display: flex;
     gap: 2px;
 }
-// to-do: 正式发布前去掉
-// .v-btn.view.slide {
-//     display: none;
-// }
 .v-btn-group.float {
     height: @floatButtonHeight;
 }
@@ -6040,12 +6010,9 @@ input:-moz-placeholder),
     .v-doc-lib-item:hover {
         .genTweaks() when not (@thmNavCenterStyle = edge) {
             color: var(--a-o-c);
-            // box-shadow: 0 0 0 2px var(--ac-t2-fd) inset;
-            // background-color: var(--pn-c);
             background-color: var(--ac-t2-fd);
         }
         .genTweaks() when (@thmNavCenterStyle = edge) {
-            // background: var(--db02);
             background: var(--ac-t2-fd);
         }
         .genTweaks();
@@ -6078,15 +6045,10 @@ input:-moz-placeholder),
 :is(.v-doc-lib-item, .v-toc-item)[data-keyword-match=true]::after {
     content: attr(data-keywords);
     display: flex;
-    // .genTweaks() when not (@thmNavCenterStyle = edge) {
-    //     color: var(--df);
-    // }
-    // .genTweaks();
     opacity: .5;
     font: condensed normal .875em var(--v-fm-tag); // [stretch] [style] [weight] [size/[line-height]] [family]
     white-space: pre-wrap;
     width: 100%;
-    // margin-top: 2px;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3; // 显示的行数
@@ -6408,34 +6370,15 @@ use.v-svg-i-wh {
 @lgOpacity: 40%;
 // 标准风格（渐变）
 .genMaskBackground(@style) when (@style = std) {
-    .v-mask.left.v-backdrop-blurs.enabled {
-        background: linear-gradient(90deg, @theme1 30%, fade(@theme1, @lgOpacity)), linear-gradient(0deg, fade(@theme1, 50%), transparent 50px, transparent);
-    }
-    .v-mask.right.v-backdrop-blurs.enabled {
-        background: linear-gradient(270deg, @theme1 30%, fade(@theme1, @lgOpacity)), linear-gradient(0deg, fade(@theme1, 50%), transparent 50px, transparent);
-    }
-    .v-mask.top.v-backdrop-blurs.enabled {
-        background: linear-gradient(180deg, @theme1 40%, fade(@theme1, 50%)), linear-gradient(0deg, fade(@theme1, 50%), transparent 50px, transparent);
-    }
-    .v-mask.bottom.v-backdrop-blurs.enabled {
-        background: linear-gradient(0deg, @theme1 40%, fade(@theme1, @lgOpacity));
-    }
-    .v-mask.center.v-backdrop-blurs.enabled {
-        background: radial-gradient(ellipse, @theme1 40%, fade(@theme1, @lgOpacity)), linear-gradient(0deg, fade(@theme1, 50%), transparent 50px, transparent);
-    }
+    // 仅当浏览器支持背景模糊样式时才启用
+    .genMaskBackgroundBlursFor(@style);
 }
 // 波点风格
 .genMaskBackground(@style) when (@style = dots) {
     // 针对非移动端
     @media screen and (min-width: (@gMobileScreenWidth + 1)) {
-        // 加载提示、欢迎页样式
-        @{writeOnHTML}:not(.done)::before,
-        .v-welcome-page {
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            background: radial-gradient(var(--db06) 4px,var(--db) 4px);
-            background-size: 10px 10px;
-        }
+        // 仅当浏览器支持背景模糊样式时才启用
+        .genMaskBackgroundBlursFor(@style);
 
         // 遮罩样式
         .v-mask.left,
@@ -6526,14 +6469,13 @@ use.v-svg-i-wh {
 .v-mask-close.bottom>svg {
     transform: rotate(270deg);
 }
-.v-backdrop-blurs.enabled {
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-}
-.v-backdrop-blurs.disabled {
-    -webkit-backdrop-filter: unset;
-    backdrop-filter: unset;
-}
+// 仅当浏览器支持对应 CSS 特性时才启用
+// @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+//     .v-backdrop-blurs {
+//         -webkit-backdrop-filter: blur(10px);
+//         backdrop-filter: blur(10px);
+//     }
+// }
 
 #v-para-nav-mask-border {
     border: 1px solid var(--a-c);

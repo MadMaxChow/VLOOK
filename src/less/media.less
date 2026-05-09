@@ -4,7 +4,7 @@
  * (配合 base.less 进行使用)
  *
  * V2026.5
- * 2026-05-05
+ * 2026-05-09
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -500,7 +500,7 @@
         bottom: @floatBottom * 3;
     }
     .v-caption.full {
-        background: var(--db) !important;
+        background: var(--df-lg) !important;
     }
 
     // 导航中心使用边缘样式时的遮罩背景调整
@@ -1086,6 +1086,59 @@
     }
 }
 .genDarkModeStyle();
+
+// ---------------
+// 仅当浏览器支持背景模糊样式时才启用
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+    .v-backdrop-blurs {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+
+    #write .v-post-card.v-backdrop-blurs {
+        background: var(--pn08);
+    }
+
+    .v-caption.full.v-backdrop-blurs {
+        background: radial-gradient(rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),1) 50%,
+            rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),.9));
+    }
+}
+
+// 标准风格（渐变）
+.genMaskBackgroundBlursFor(@style) when (@style = std) {
+    @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+        .v-mask.left.v-backdrop-blurs {
+            background: linear-gradient(90deg, @theme1 30%, fade(@theme1, @lgOpacity)), linear-gradient(0deg, fade(@theme1, 50%), transparent 50px, transparent);
+        }
+        .v-mask.right.v-backdrop-blurs {
+            background: linear-gradient(270deg, @theme1 30%, fade(@theme1, @lgOpacity)), linear-gradient(0deg, fade(@theme1, 50%), transparent 50px, transparent);
+        }
+        .v-mask.top.v-backdrop-blurs {
+            background: linear-gradient(180deg, @theme1 40%, fade(@theme1, 50%)), linear-gradient(0deg, fade(@theme1, 50%), transparent 50px, transparent);
+        }
+        .v-mask.bottom.v-backdrop-blurs {
+            background: linear-gradient(0deg, @theme1 40%, fade(@theme1, @lgOpacity));
+        }
+        .v-mask.center.v-backdrop-blurs {
+            background: radial-gradient(ellipse, @theme1 40%, fade(@theme1, @lgOpacity)), linear-gradient(0deg, fade(@theme1, 50%), transparent 50px, transparent);
+        }
+    }
+}
+
+// 波点风格
+.genMaskBackgroundBlursFor(@style) when (@style = dots) {
+    @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+        // 加载提示、欢迎页样式
+        @{writeOnHTML}:not(.done)::before,
+        .v-welcome-page {
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            background: radial-gradient(var(--db06) 4px,var(--db) 4px);
+            background-size: 10px 10px;
+        }
+    }
+}
 
 // ---------------
 // 针对打印时的样式

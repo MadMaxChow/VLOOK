@@ -4,7 +4,7 @@
  * (配合 base.less 进行使用)
  *
  * V2026.5
- * 2026-05-05
+ * 2026-05-09
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -152,10 +152,6 @@
 @panelColorLight: #EBEDEF;
 @panelColorDark: #383A3C;
 .applyPanelColor(@panelColorLight, @panelColorDark);
-
-// 键帽
-// @keycapColor: #484A4C;
-// @keycapColorDark: #D8DADC;
 
 // --------------------
 // 通用的强调色参数
@@ -477,7 +473,7 @@
 
     --a-c-lg: @aColor;
     --a-o-c-lg: @aHoverColor;
-    --mark-bg-lg: @markBg; // var(--ac-t2-fd-lg);
+    --mark-bg-lg: @markBg;
     // --mark-bg-lg: red;
     --tbl-row-g-alpha-lg: .15;
     --h-f-lg: @headerColor;
@@ -513,12 +509,6 @@
 
     // 代码块的系统菜单样式
     --v-i-sys-menu: url("data:image/svg+xml,%3Csvg width='52' height='12' viewBox='0 0 52 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle stroke='%23E65750' fill='%23FE6058' cx='6' cy='6' r='5.5'/%3E%3Ccircle stroke='%23E6AB2A' fill='%23FFBE2F' cx='26' cy='6' r='5.5'/%3E%3Ccircle stroke='%2321B039' fill='%2326C941' cx='46' cy='6' r='5.5'/%3E%3C/g%3E%3C/svg%3E");
-
-    // // 键帽样式
-    // --kbd-c-lg: #000C;
-    // --kbd-bg-lg: linear-gradient(180deg, #0000001A, #FFF), #FFF;
-    // --kbd-shd-lg: 0 -2px 1px 0 #0003 inset, 0 0 1px 1px #FFF inset, 0 0 0 1px #0003, 0 1px 0 1px #0003;
-    // --kbd-pd-lg: 3px 6px 4px;
 
     --doc-sd-lg: #00000033;//rgba(0, 0, 0, .2);
 
@@ -648,7 +638,7 @@
 
     --a-c-dk: @aColorDark;
     --a-o-c-dk: @aHoverColorDark;
-    --mark-bg-dk: @markBgDark; //var(--ac-t2-fd-dk);
+    --mark-bg-dk: @markBgDark;
     --tbl-row-g-alpha-dk: .25;
     --h-f-dk: @headerColorDark;
     --h-box-sd-dk: fade(@headerColorDark, 20%);
@@ -841,7 +831,7 @@
 
     --a-c: var(--a-c-lg);
     --a-o-c: var(--a-o-c-lg);
-    --mark-bg: var(--mark-bg-lg); //var(--ac-t2-fd-lg);
+    --mark-bg: var(--mark-bg-lg);
     --tbl-row-g-alpha: var(--tbl-row-g-alpha-lg);
     --toc-h-num-c: var(--toc-h-num-c-lg);
     --h-f: var(--h-f-lg);

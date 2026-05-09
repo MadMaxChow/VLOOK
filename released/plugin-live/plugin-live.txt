@@ -1,6 +1,6 @@
 <!--
 ▽▽▽▽▽ plugin_live for <head /> ▽▽▽▽▽
-VLOOK "V2026.5" (2026-05-05) - Typora Plugin
+VLOOK "V2026.5" (2026-05-09) - Typora Plugin
 
 Paste to "Export Setting ▸ VLOOK-HTML ▸ Append in <head />"
 追加至「导出设置... ▸ VLOOK-HTML ▸ 在 <head /> 中添加」
@@ -65,7 +65,7 @@ Paste to "Export Setting ▸ VLOOK-HTML ▸ Append in <head />"
 <!--                                ( live )                                -->
 <!--                                                                        -->
 <!--                                  V2026.5                                 -->
-<!--                               2026-05-05                               -->
+<!--                               2026-05-09                               -->
 <!--                           Powered by MAX°孟兆                           -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->

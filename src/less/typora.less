@@ -4,7 +4,7 @@
  * (配合 base.less 进行使用)
  *
  * V2026.5
- * 2026-05-05
+ * 2026-05-09
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -667,7 +667,6 @@ body.@{windows}.typora-node #typora-sidebar {
 
 .sidebar-content::before {
     content: @themeType;
-    // font: var(--v-fw-tt) @smallFontSize/1 var(--v-fm-tt); // [style] [weight] [size/[line-height]] [family]
     font: var(--v-fw-tt) 14px/1 var(--v-fm-tt); // [style] [weight] [size/[line-height]] [family]
     .genSidebarHeaderCommon();
 
@@ -1212,7 +1211,6 @@ body.@{windows} #file-library-tree {
     text-transform: uppercase;
     position: absolute;
     left: 20px;
-    // color: var(--a-o-c);
     font-size: .75em;
     font-style: normal;
 }
@@ -1239,15 +1237,7 @@ body.@{windows} #file-library-tree {
     content: "";
     position: absolute;
     display: block;
-
-    // .genTweaks() when not (@thmNavCenterStyle = edge) {
-        // background: var(--ac-t1);
-    // }
-    // .genTweaks() when (@thmNavCenterStyle = edge) {
-        background: currentColor;
-    // }
-    // .genTweaks();
-
+    background: currentColor;
     left: 5px;
     top: 5px;
     width: 6px;
@@ -1255,15 +1245,6 @@ body.@{windows} #file-library-tree {
     border-radius: calc(var(--v-r-s) - 4px) calc(var(--v-r-s-xc) - 4px);
     opacity: .25;
 }
-// @{outlineCover}>.outline-item-active,
-// @{outlinebackcover}>.outline-item-active {
-//     .genTweaks() when not (@thmNavCenterStyle = edge) {
-//         color: var(--a-o-c);
-//     }
-//     .genTweaks() when (@thmNavCenterStyle = edge) {
-//     }
-//     .genTweaks();
-// }
 @{outlineCover}>.outline-item-active .outline-label::before,
 @{outlinebackcover}>.outline-item-active .outline-label::before {
     width: 10px;
@@ -1335,17 +1316,6 @@ body.@{windows} #file-library-tree {
 }
 // 大纲节点 hover
 .outline-item:hover {
-    // .genTweaks() when (@thmNavCenterStyle = std) {
-    //     background: var(--pn-c-a);
-    // }
-    // .genTweaks() when (@thmNavCenterStyle = flat) {
-    //     background: var(--pn-c);
-    // }
-    // .genTweaks() when (@thmNavCenterStyle = edge) {
-    //     background: var(--db02);
-    // }
-    // .genTweaks();
-
     margin-left: 0;
     border-left-width: 0;
     margin-right: 0;
@@ -1471,7 +1441,6 @@ body.@{windows} .ty-sidebar-search-panel .searchpanel-search-option-btn {
     };
     .genTweaks_byButtonRadius();
 
-    // box-shadow: var(--v-fl-sd);
     .genFloatBorderStyle();
 
     border: none;
@@ -1505,10 +1474,7 @@ body.@{windows} .ty-sidebar-search-panel .searchpanel-search-option-btn {
     color: var(--df);
 }
 .typora-quick-open-item.active {
-    // background: inherit;
     background: var(--ac-t2-fd);
-    // background: var(--ac-t2-a);
-    // box-shadow: @tocItemCurrent_boxShadow;
 }
 .typora-quick-open-item-path {
     font-size: .625em;
@@ -1557,15 +1523,10 @@ body.@{windows} .ty-sidebar-search-panel .searchpanel-search-option-btn {
 .file-tree-node.active .file-node-background {
     font-weight: var(--v-fw-toc);
     .genTweaks() when not (@thmNavCenterStyle = edge) {
-        // background: var(--ac-t1-a);
-        // background: var(--ac-t2-a);
-        // box-shadow: @tocItemCurrent_boxShadow;
         color: var(--ac-t2) !important;
-        background: @tocItemCurrentBg; // var(--ac-t2-fd);
+        background: @tocItemCurrentBg;
     }
     .genTweaks() when (@thmNavCenterStyle = edge) {
-        // background: var(--df01);
-        // box-shadow: @tocItemCurrent_boxShadow_edge;
         background: var(--db02);
     }
     .genTweaks();
@@ -2476,8 +2437,6 @@ li label.checkbox {
 @captionPadding: 5px;
 @needTipsCaption: ~':has(img[alt]):not([data-src*="#logo"]):not([data-src*="#icon"]):not([data-src*="#card"])';
 @hasFigureImage: ~':has(.md-image:not([data-src*="#logo"]):not([data-src*="#icon"]):not([data-src*="#card"]))';
-// @needTipsCaption: ~':has(img[alt]):not([data-src*="#icon"]):not([data-src*="#card"])';
-// @hasFigureImage: ~':has(.md-image:not([data-src*="#icon"]):not([data-src*="#card"]))';
 @captionTipsOnEditing: ~'@{writeOnEditing} .md-image@{needTipsCaption}::after';
 @{captionTipsOnEditing} {
     content: @captionDirectionSymbol_down "Caption/题注 (...)";

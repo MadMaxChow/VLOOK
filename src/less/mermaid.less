@@ -4,7 +4,7 @@
  * (配合 base.less 进行使用)
  *
  * V2026.5
- * 2026-05-05
+ * 2026-05-09
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -558,7 +558,6 @@ svg[aria-roledescription=stateDiagram] .edgeLabel {
 }
 
 // 状态节点
-// svg[aria-roledescription=stateDiagram] .statediagram-state .label-container path {
 svg[aria-roledescription=stateDiagram] .node rect {
     fill: var(--df) !important;
     stroke-width: 0 !important;
@@ -575,7 +574,6 @@ svg[aria-roledescription=stateDiagram] .statediagram-state .label {
 
 // 状态节点上鼠标悬停
 .genHoverStyle(@for) when (@for = stateDiagram_state) {
-    // svg[aria-roledescription=stateDiagram] .statediagram-state:hover .label-container path {
     svg[aria-roledescription=stateDiagram] .node:hover rect {
         fill: var(--a-c) !important;
     }

@@ -3,7 +3,7 @@
  * VLOOK™ JS - Typora Plugin
  *
  * V2026.5
- * 2026-05-05
+ * 2026-05-09
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -927,6 +927,7 @@ const _ = ``,
     __v_cap2_ = `.` + _v__ + _cap__ + `2`,
     _v_cap_cntr_ = _v__ + _cap__ + _cntr_,
     _v_caption_ = _v__ + _caption_,
+    ___v_caption_ = `.` + _v__ + _caption_,
     _v_caption__n__mermaid_ = _v_caption_ + `.` + _mermaid_,
     _chapter_ = `chapter`,
     _v_chapter_nav_ = _v__ + _chapter_ + __nav_,
@@ -1084,7 +1085,7 @@ const _ = ``,
 
 // 全局变量
 let gVer = `V2026.5`,
-    gDate = `2026-05-05`,
+    gDate = `2026-05-09`,
     gThmVer = _,
     gThmName = _,
     gUndefined = undefined,
@@ -1382,6 +1383,11 @@ $.prototype.ps = function (value) {
     return this.parents(value);
 }
 
+// 定义 closest 简化版
+$.prototype.cs = function (selector) {
+    return this.closest(selector);
+}
+
 // 定义 append 简化版
 $.prototype.ap = function (value) {
     return this.append(value);
@@ -1670,10 +1676,8 @@ function Debug_append(type, args) {
                 : Debug_mini();
         else if (JQ_hasClass(DebugPanel_ui, _warn_) || JQ_hasClass(DebugPanel_ui, _error_))
             Debug_mini();
-        else {
+        else
             JQ_removeClass(DebugPanel_ui, _mini_ +___+ _opened_);
-            // JQ_removeClass(DebugPanel_ui, _opened_);
-        }
     }
 
     // 更新各类信息的数量提示信息
@@ -1768,7 +1772,7 @@ function V_ui_setScrollIntoView(target, inlineValue, blockValue) {
 
 /**
  * 拆分 Markdown 链接文本集合，以英文逗号分隔
- * @param content [text](url "title"),[text](url "title"),... 格式的文本集合
+ * @param content 内容格式为 [text](url "title"),[text](url "title"),...
  * @returns 链接文本数组
  */
 function V_parseMarkdown_linkSet(content) {
@@ -1777,7 +1781,7 @@ function V_parseMarkdown_linkSet(content) {
 
 /**
  * 解释 Markdown 链接文本
- * @param text [text](url "title") 格式的文本
+ * @param text 内容格式为 [text](url "title") 格式的文本
  * @returns page, hash, text, title 解析后的链接信息对象
  */
 function V_parseMarkdown_link(text) {
@@ -1989,7 +1993,6 @@ function V_ui_toolbarFloat(float = gTrue) {
             JQ_addClass(tb, _cover_),
             // 为工具栏按钮添加浮动样式
             JQ_addClass(btnGroup, _v_float_card_+___+ _float_)
-            // JQ_addClass(btnGroup, _float_)
         )
         : (
             // 调整工具栏样式
@@ -1997,7 +2000,6 @@ function V_ui_toolbarFloat(float = gTrue) {
             JQ_removeClass(tb, _cover_),
             // 去掉工具栏按钮的浮动样式
             JQ_removeClass(btnGroup, _v_float_card_ +___+ _float_)
-            // JQ_removeClass(btnGroup, _float_)
         );
 }
 
@@ -2114,7 +2116,7 @@ function V_ui_openDetails(target) {
         return gFalse;
 
     // 针对任一父级元素为 details 的情况
-    let detailsParent = target.closest(_details_);
+    let detailsParent = target.cs(_details_);
     if (V_length(detailsParent) > 0 && !detailsParent[0].open) {
         detailsParent[0].open = gTrue;
         return gTrue;
@@ -2132,7 +2134,7 @@ function V_ui_openDetails(target) {
  * @param target 目标对象
  */
 function V_ui_switchToTabItem(target) {
-    let tabContent = target.closest(V_attrCSS(_data_tab_group_) + `,` + V_attrCSS(_data_tab_group_id_));
+    let tabContent = target.cs(V_attrCSS(_data_tab_group_) + `,` + V_attrCSS(_data_tab_group_id_));
     if (V_length(tabContent) > 0 && tabContent.c(_display_) === _none_) {
         let anchor = tabContent.ch(V_attrCSS(_id_)).first().a(_id_),
             tab = $(_span_ + V_attrCSS(_data_tab_for_, anchor));
@@ -2793,21 +2795,6 @@ function V_ui_bindTouchStyle(target, tips) {
     target.on(_touchend_ +___+ _touchCancel_, () => {
         JQ_removeClass(target, _pressed_);
     });
-}
-
-/**
- * 初始化动效处理
- */
-function V_ui_initEffect(target) {
-    if (target === gUndefined)
-        target = V_byClass(_v_backdrop_blurs_);
-    V_isMobile()
-    ? (
-        V_unEnable(target),
-        V_disable(target)
-    )
-    :V_enable(target);
-    // :JQ_addClass(V_byClass(_v_backdrop_blurs_), _enabled_);
 }
 
 /**
@@ -3970,7 +3957,7 @@ function V_bindImageLoadChecker(img) {
         JQ_removeClass(img.p(), _loading_);
 
         // 对引用块分栏内的图片重新进行统一高度处理
-        let blockquote = img.closest(_blockquote_);
+        let blockquote = img.cs(_blockquote_);
         V_length(blockquote) > 0
             && ExtQuote_uniteColumnsHeightByGroupId(blockquote.a(_data_quote_group_));
 
@@ -4937,7 +4924,7 @@ function V_initKernel() {
         TableCross_hide();
 
         // 在指定范围外的情况下，导航中心的显示与隐藏
-        if (V_length($(V_eventTarget(event)).closest(_nav_)) === 0) {
+        if (V_length($(V_eventTarget(event)).cs(_nav_)) === 0) {
             // 导航中心
             let classValue = iNavCenter.ui.a(_class_);
             if (classValue.i(_float_) > -1 || classValue.i(_small_) > -1)
@@ -6079,8 +6066,6 @@ function Fullscreen_show(type, target) {
 
     // 添加全屏样式
     JQ_addClass(target.p(), _full_ +___+ _v_backdrop_blurs_);
-    // 重新初始化样式特效
-    V_ui_initEffect(target.p());
 
     Fullscreen_target = target;
     Fullscreen_container = target.p();
@@ -6172,7 +6157,7 @@ function Fullscreen_updateContent(direction) {
 
     // 处理全屏显示内容类型（表格、插图），插图存在细分标识 fig.img fig.svg
     let type = Fullscreen_type.sW(_fig_) ? `:is(.${_figure_}, .${_mermaid_})` : (`.` + Fullscreen_type);
-    Fullscreen_target = $(`.` + _v_caption_ + `${type} ` + V_attrCSS(_data_num_, Fullscreen_index))
+    Fullscreen_target = $(___v_caption_ + `${type} ` + V_attrCSS(_data_num_, Fullscreen_index))
     Fullscreen_container = Fullscreen_target.p();
     Fullscreen_show(Fullscreen_type, Fullscreen_target);
 
@@ -6315,7 +6300,7 @@ function Fullscreen_bindEvent() {
             delta = event.deltaY * -0.005;
         // 兼容老浏览器/老设备（IE、旧版 Safari）
         else if (event.wheelDelta)
-            // wheelDelta 方向和 deltaY 相反
+            // 其中 wheelDelta 方向和 deltaY 相反
             // 除以 120 是老浏览器的标准换算比例
             delta = event.wheelDelta / 120;
 
@@ -7752,8 +7737,6 @@ function NavCenter(mask, runMode = _auto_) {
         if (T.lastType === _block_) {
             // 占位方式的样式设置
             JQ_removeClass(T.ui, _small_ +___+ _float_ +___+ _mobile_);
-            // JQ_removeClass(T.ui, _float_);
-            // JQ_removeClass(T.ui, _mobile_);
             JQ_removeClass(VOM_write(), _navhidden_);
             JQ_removeClass(FillWidth_ui, _show_);
             JQ_addClass(T.ui, _block_);
@@ -7781,12 +7764,10 @@ function NavCenter(mask, runMode = _auto_) {
             // 显示联动的遮罩
             if (V_isMobile()) {
                 JQ_removeClass(T.ui, _small_ +___+ _float_);
-                // JQ_removeClass(T.ui, _float_);
                 T.mask.show();
             }
-            else if (V_ui_isSmallScreen()) {
+            else if (V_ui_isSmallScreen())
                 JQ_addClass(T.ui, _small_);
-            }
         }
 
         T.on = gTrue;
@@ -9489,7 +9470,6 @@ function FontStyle(mask, styleName) {
         T.styleStatus = V_byClass(_v_font_info__ + T.style);
 
         JQ_removeClass(T.statusUI, _done_ +___+ _loading_);
-        // JQ_removeClass(T.statusUI, _loading_);
 
         restore !== gTrue
             && V_data_write(_font_style_, styleName, gTrue);
@@ -10013,25 +9993,20 @@ function StsColorScheme_init() {
         if (gOnlyLightMode)
             return;
 
-        // JQ_removeClass(StsColorScheme_ui, _light_ +___+ _dark_ +___+ _auto_);
-
         // 根据系统当前的 color scheme，确定不同模式切换的顺序
         let nextScheme = (ColorScheme_systemScheme === _light_ ? _dark_ : _light_ )
         // 切换不同模式
         if (ColorScheme_auto) {
             ColorScheme_auto = gFalse;
             ColorScheme_scheme = nextScheme;
-            // JQ_addClass(StsColorScheme_ui, ColorScheme_scheme);
         }
         else if (ColorScheme_scheme === nextScheme) {
             ColorScheme_auto = gFalse;
             ColorScheme_scheme = ColorScheme_systemScheme;
-            // JQ_addClass(StsColorScheme_ui, ColorScheme_scheme);
         }
         else if (ColorScheme_scheme === ColorScheme_systemScheme) {
             ColorScheme_auto = gTrue;
             ColorScheme_scheme = nextScheme;
-            // JQ_addClass(StsColorScheme_ui, _auto_);
         }
 
         StsColorScheme_updateIcons(gTrue);
@@ -10073,7 +10048,6 @@ function StsColorScheme_updateIcons(showBubble) {
     }
     // 针对 auto 模式
     else {
-        // JQ_addClass(StsColorScheme_ui, _auto_);
         JQ_removeClass(StsColorScheme_ui, _selected_);
         mode = V_lang_text(90, [
             `跟随系统`,
@@ -10776,7 +10750,6 @@ function BgMask(id, align, close) {
     V_length(T, 1);
     T.style = align;
 
-
     VOM_write().af(
         V_ui_div(_, _v_mask_ +___+ (align !== gUndefined ? align +___ : _) + id +___+ _v_backdrop_blurs_,
             V_ui_copyrightInfo()));
@@ -11068,23 +11041,12 @@ function InfoTips(mask) {
 
         // 先重置为默认值
         JQ_removeClass(T.ui, `lm ye rd`);
-        // JQ_removeClass(T.ui, `ye`);
-        // JQ_removeClass(T.ui, `rd`);
         JQ_removeClass(T.ui, _error_ +___+ _bubble_
             +___+ _center_ + `-` + _bottom_
             +___+ _center_ + `-` + _middle_
             +___+ _right_ + `-` + _middle_
             +___+ _right_ + `-` + _bottom_);
-        // JQ_removeClass(T.ui, _bubble_);
-        // JQ_removeClass(T.ui, _center_ + `-` + _bottom_);
-        // JQ_removeClass(T.ui, _center_ + `-` + _middle_);
-        // JQ_removeClass(T.ui, _right_ + `-` + _middle_);
-        // JQ_removeClass(T.ui, _right_ + `-` + _bottom_);
 
-        // if (type === _error_)
-        //     JQ_addClass(T.ui, _error_);
-        // else if (type === _bubble_)
-        //     JQ_addClass(T.ui, _bubble_);
         (_error_ + _bubble_).i(type) > -1
             && JQ_addClass(T.ui, type);
 
@@ -12186,7 +12148,7 @@ function TabGroup_disposeByGroup(firstContent, id, type) {
         }
         // 针对表格、插图、代码块、数学公式
         else {
-            id = target.ch(`.` + _v_caption_).a(_id_);
+            id = target.ch(___v_caption_).a(_id_);
             // 对表格、插图、数学公式的处理
             let cap1 = target.f(__v_cap1_);
             // 题注分类与编号显示在页签上
@@ -15033,7 +14995,6 @@ function ExtVideo_init() {
         Caption_wrapContainer(videoLike, _video_);
 
         // 先根据题注语法生成题注
-        // Caption_genForMedia(videoLike, _video_, (tagName === _iframe_ ? _iframe_ : _));
         Caption_genForMedia(videoLike, _video_, tagName);
 
         // 不处理常规视频以外的标签（如内嵌的 iframe）
@@ -17020,10 +16981,6 @@ function ExtFigure_init() {
 
             // 处理题注
             __disposeCaption(fig, tagName);
-
-            // 处理模糊效果
-            V_length(hash) > 0 && hash.sW(`#` + _blur_)
-                && fig.wrap(V_ui_div(_, _v__ + _blur_, _));
         }
         else {
             JQ_removeAttr(container, _data_cntr_);
@@ -17135,7 +17092,7 @@ function ExtFigure_init() {
             return;
 
         // 如果是嵌套在 blockquote 中，则对其进行样式调整
-        let blockquote = img.closest(_blockquote_),
+        let blockquote = img.cs(_blockquote_),
             inBlockquote = (V_length(blockquote) > 0);
         if (inBlockquote) {
             blockquote.c(_cssText_, _padding_ + `:0` + _css_important_);
@@ -17148,7 +17105,7 @@ function ExtFigure_init() {
         let altText = img.a(_alt_),
             altTextForSearch = altText,
             titleText = img.a(_title_),
-            cardBody = img.closest(`p`).n(), // 考虑明信片带 a 链接等情况
+            cardBody = img.cs(`p`).n(), // 考虑明信片带 a 链接等情况
             border = (hash.i(`#` + _border_) > -1 ? gTrue : gFalse),
             fitMax = (hash.i(`#fit` + _max_) > -1 ? gTrue : gFalse),
             dual = (hash.i(`#${_card_}d`) > -1 ? gTrue : gFalse);
@@ -17600,7 +17557,7 @@ function Restyler_forMermaid() {
             target.c(_width_, zenuml.w())
                 .c(_height_, zenuml.h());
             // 同时修正题注框的宽度、高度
-            target.ps(`.` + _v_caption_).c(_width_, _auto_)
+            target.ps(___v_caption_).c(_width_, _auto_)
                     .c(_height_, _auto_);
         });
     });
@@ -19840,9 +19797,6 @@ function loadVLOOKplugin() {
     // 初始化 VLOOK 核心模块
     V_initKernel();
 
-    // 初始化动效处理
-    V_ui_initEffect();
-
     // ----------------------------------------
     // 修改主题默认的圆角风格
     let newRadius = V_getQueryParamVal(_radius_);
@@ -19876,8 +19830,7 @@ function loadVLOOKplugin() {
         !gPrintMode && tab !== _off_
             ? (
                 TabGroup_init(),
-                TabGroup_updateHeight(),
-                V_ui_initEffect()
+                TabGroup_updateHeight()
             )
             : TabGroup_init(gFalse);
     }, 1000);

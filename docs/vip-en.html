@@ -240,7 +240,7 @@ mjx-container { break-inside: avoid; }
 <link rel="dns-prefetch" href="https://openfonts.pages.dev">
 <link rel="dns-prefetch" href="https://madmaxchow.github.io">
 <!-- live 模式部署时相关资源 URL 配置 -->
-<meta name="vlook-js" content="https://localhost/dev/">
+<meta name="vlook-js" content="https://madmaxchow.github.io/VLOOK/">
 <meta name="vlook-fs" content="https://openfonts.pages.dev/css/pages-dev/">
 <meta name="vlook-fs" content="https://madmaxchow.github.io/openfonts/css/github-io/">
 <!-- 以下为 W3C 相关的 meta 配置 -->
@@ -287,8 +287,8 @@ mjx-container { break-inside: avoid; }
 <!--                          VLOOK - Typora Plugin                         -->
 <!--                                ( live )                                -->
 <!--                                                                        -->
-<!--                                  V2025.10.3-dev                                 -->
-<!--                               2026-01-12                               -->
+<!--                                  V2026.5                                 -->
+<!--                               2026-05-05                               -->
 <!--                           Powered by MAX°孟兆                           -->
 <!--                                                                        -->
 <!--                          QQ Group: 805502564                           -->
@@ -307,34 +307,34 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
 <!-- ==================== VLOOK UI ==================== -->
-<div id="v-pdf-log">EXPORT PDF LOG:</div>
+<div id="v-pdf-log">[ PDF LOG ]</div>
 <div id="v-debug"></div>
-<script>
-    let gPdfLog = document.querySelector("#v-pdf-log");
-    document.body.insertBefore(gPdfLog, document.body.childNodes[0])
-</script>
 <style type="text/css">
     @keyframes breathe-vlook { 0% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
     #VLOOK { left: 0; top: 0; background: var(--v-btn-bg); width: 100%; height: 100vh; display: flex; align-items: center; position: fixed; z-index: 99999; }
     #VLOOK > div { margin: 0 auto; background: var(--v-btn-f); width: 30px; height: 30px; border-radius: 10px; animation: 1s breathe-vlook infinite alternate; }
 </style>
 <!-- ==================== VLOOK JS ==================== -->
-<script type="text/javascript" defer="">
+<script type="text/javascript">
 	function getMetaContent(key, attr = "name") {
 		const meta = document.querySelector(`meta[${attr}="${key}"]`);
 		return meta ? meta.getAttribute("content") : null;
 	}
-    let devMode = "V2025.10.3-dev".indexOf("dev") > 0 ? true : false, debugMode = devMode,
+    let pdfLog = document.querySelector("#v-pdf-log"),
+        lVer = "V2026.5",
+        devMode = lVer.indexOf("dev") > 0 ? true : false, debugMode = devMode,
         jsHost = devMode ? "http://localhost/dev/" : getMetaContent("vlook-js") + lVer + "/",
+        compCode = "sonatasonata",
         ts = Math.floor(Date.now()/(1000*60*60*24)); // (1000*60*60*24) 按天
-// ==================== NON-standalone ====================
+    document.body.insertBefore(pdfLog, document.body.childNodes[0]);
+// ==================== live ====================
 // ▽ ▽ ▽ ▽ ▽
     function loadScript(src, onload) {
-        let s = document.createElement("script");
-        s.src = src + "?ts=" + ts;
-        s.onload = onload;
-        s.onerror = () => console.error("Failed: ", src);
-        document.head.appendChild(s);
+        let js = document.createElement("script");
+        js.src = src + "?ts=" + ts;
+        js.onload = onload;
+        js.onerror = () => console.error("Failed: ", src);
+        document.head.appendChild(js);
     }
     loadScript(jsHost + "jquery-slim.js", () => {
         devMode && loadScript(jsHost + "jquery-migrate.js");

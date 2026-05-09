@@ -4,7 +4,7 @@
  * (配合 common.less、主题.less 进行使用)
  *
  * V2026.5
- * 2026-05-05
+ * 2026-05-09
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -29,12 +29,6 @@
 @docBgColorDark: @colorDark;
 
 // =====
-
-// 初始化平台标识
-// .setPlatform() when not (isdefined(@thmPlatform)) {
-//     @thmPlatform: "Typora";
-// }
-// .setPlatform();
 
 .initCoreEnv() when (@thmPlatform = "Typora") {
     @write: ~"#write";
@@ -109,41 +103,18 @@
 
 @buttonRadiusCircle: 25px;
 
-// // 生成 VLOOK 专属的圆角变量
-// .getRootRadius() {
-//     :root {
-//         // ---
-//         // 小号圆角
-//         --v-r-b-small: 10px; // 标准圆角
-//         --v-r-s-small: 6px; // 标准圆角内的小圆角
-//         --v-r-t-small: 8px; // 代码块、表格圆角
-//         --v-r-si-small: calc(var(--v-r-t-small) + 1px); // 标准圆角内的小圆角
-//         --v-r-tag-small: 7px; // 标签圆角
-
-//         // ---
-//         // 大号圆角
-//         --v-r-b-big: 18px; // 标准圆角
-//         --v-r-s-big: 10px; // 标准圆角内的小圆角
-//         --v-r-t-big: 16px; // 代码块、表格圆角
-//         --v-r-si-big: calc(var(--v-r-t-big) + 1px); // 标准圆角内的小圆角
-//         --v-r-tag-big: 10px; // 标签圆角
-//     }
-// }
-// .getRootRadius();
-
 // ---
 // 应用无圆角
 .applyThemeRadius(@themeRadius) when (@themeRadius = none) {
-    // .genByPlatform() when (@thmPlatform = "Typora") {
-        :root {
-            --v-r-b: 0; // 标准圆角
-            --v-r-s: 0; // 标准圆角内的小圆角
-            --v-r-t: 0; // 表格圆角
-            --v-r-si: 0; // 标准圆角内的小圆角
-            --v-r-tag: 0; // 标签圆角
-        }
-        .setForNotLeaf();
-    // }
+    :root {
+        --v-r-b: 0; // 标准圆角
+        --v-r-s: 0; // 标准圆角内的小圆角
+        --v-r-t: 0; // 表格圆角
+        --v-r-si: 0; // 标准圆角内的小圆角
+        --v-r-tag: 0; // 标签圆角
+    }
+    .setForNotLeaf();
+
     .genByPlatform() when (@thmPlatform = "Obsidian") {
         .theme-light,
         .theme-dark {
@@ -163,16 +134,15 @@
 // ---
 // 应用小号圆角
 .applyThemeRadius(@themeRadius) when (@themeRadius = small) {
-    // .genByPlatform() when (@thmPlatform = "Typora") {
-        :root {
-            --v-r-b: 10px; //var(--v-r-b-small); // 标准圆角
-            --v-r-s: 6px; //var(--v-r-s-small); // 标准圆角内的小圆角
-            --v-r-t: 8px; //var(--v-r-t-small); // 表格圆角
-            --v-r-si: calc(var(--v-r-s) - 1px); // 标准圆角内的小圆角
-            --v-r-tag: 6px; //var(--v-r-tag-small); // 标签圆角
-        }
-        .setForNotLeaf();
-    // }
+    :root {
+        --v-r-b: 10px; // 标准圆角
+        --v-r-s: 6px; // 标准圆角内的小圆角
+        --v-r-t: 8px; // 表格圆角
+        --v-r-si: calc(var(--v-r-s) - 1px); // 标准圆角内的小圆角
+        --v-r-tag: 6px; // 标签圆角
+    }
+    .setForNotLeaf();
+
     .genByPlatform() when (@thmPlatform = "Obsidian") {
         .theme-light,
         .theme-dark {
@@ -192,25 +162,18 @@
 // ---
 // 应用大号圆角
 .applyThemeRadius(@themeRadius) when (@themeRadius = big) {
-    // .genByPlatform() when (@thmPlatform = "Typora") {
-        :root {
-            --v-r-b: 18px; //var(--v-r-b-big); // 标准圆角
-            --v-r-s: 10px; //var(--v-r-s-big); // 标准圆角内的小圆角
-            --v-r-t: 16px; //var(--v-r-t-big); // 表格圆角
-            --v-r-si: calc(var(--v-r-s) - 1px); // 标准圆角内的小圆角
-            --v-r-tag: 10px; //var(--v-r-tag-big); // 标签圆角
-        }
-        .setForNotLeaf();
-    // }
+    :root {
+        --v-r-b: 18px; // 标准圆角
+        --v-r-s: 10px; // 标准圆角内的小圆角
+        --v-r-t: 16px; // 表格圆角
+        --v-r-si: calc(var(--v-r-s) - 1px); // 标准圆角内的小圆角
+        --v-r-tag: 10px; // 标签圆角
+    }
+    .setForNotLeaf();
+
     .genByPlatform() when (@thmPlatform = "Obsidian") {
         .theme-light,
         .theme-dark {
-            // --v-r-b: 18px; //var(--v-r-b-big); // 标准圆角
-            // --v-r-s: 10px; //var(--v-r-s-big); // 标准圆角内的小圆角
-            // --v-r-t: 16px; //var(--v-r-t-big); // 表格圆角
-            // --v-r-si: calc(var(--v-r-s) - 1px); // 标准圆角内的小圆角
-            // --v-r-tag: 10px; //var(--v-r-tag-big); // 标签圆角
-
             --radius-s: 6px;
             --radius-m: 10px;
             --radius-l: 14px;
@@ -228,15 +191,14 @@
 // 应用叶子圆角
 .applyThemeRadius(@themeRadius, @xc: 0px) when (@themeRadius = leaf) {
     .applyThemeRadius(big);
-    // .genByPlatform() when (@thmPlatform = "Typora") {
-        :root {
-            --v-r-b-xc: @xc;
-            --v-r-s-xc: calc(@xc - 1px);
-            --v-r-t-xc: calc(@xc - 1px);
-            --v-r-si-xc: calc(@xc - 2px);
-            --v-r-tag-xc: calc(@xc - 1px);
-        }
-    // }
+    :root {
+        --v-r-b-xc: @xc;
+        --v-r-s-xc: calc(@xc - 1px);
+        --v-r-t-xc: calc(@xc - 1px);
+        --v-r-si-xc: calc(@xc - 2px);
+        --v-r-tag-xc: calc(@xc - 1px);
+    }
+
     .genByPlatform() when (@thmPlatform = "Obsidian") {
         .theme-light,
         .theme-dark {
@@ -272,7 +234,6 @@
 // 生成表格通用部分
 .genTableCommonStyle(@firstColumnMinWidth) {
     // 表格、代码块的容器
-    // #write figure {
     @{tableWrapper} {
         margin: @paragraphPadding 0 0;
     }
@@ -348,7 +309,7 @@
         padding: var(--tbl-cell-padding);
         word-break: break-word;
         min-width: 5em;
-        max-width: @talbeFirstColumnMaxWidth;
+        // max-width: @talbeFirstColumnMaxWidth;
         white-space: pre-wrap;
         overflow-wrap: anywhere;
     }
