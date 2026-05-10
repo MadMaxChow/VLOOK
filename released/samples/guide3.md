@@ -1,7 +1,7 @@
 ---
 title: 攻略 ★ 探索 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与排版增强插件
 author: MAX°孟兆
-date: 2026-05-09
+date: 2026-05-10
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: 本作品采用 MIT 许可证授权，详见 LICENSE 文件。
 version: V2026.5

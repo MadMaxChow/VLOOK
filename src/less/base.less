@@ -3,7 +3,7 @@
  * VLOOK™ CSS 基础库 for Typora
  *
  * V2026.5
- * 2026-05-09
+ * 2026-05-10
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -2927,7 +2927,7 @@ transform: rotate(90deg);
     color: var(--ac-rd);
 }
 
-.v-status-bar>:not(.v-prs-info).folded {
+.v-status-bar>:not(.v-focus-info).folded {
     display: none !important;
 }
 
@@ -3034,10 +3034,10 @@ transform: rotate(90deg);
 }
 
 // 演示工具信息
-.v-status-bar>.v-prs-info {
+.v-status-bar>.v-focus-info {
     display: none;
 }
-.v-prs-info.selected {
+.v-focus-info.selected {
     animation: flash 1.5s ease-out infinite alternate;
 }
 // 定义 flash 闪烁动画
@@ -3050,7 +3050,7 @@ transform: rotate(90deg);
     }
 }
 
-.v-prs-info>label {
+.v-focus-info>label {
     border-radius: @borderRadiusInner_1px;
     padding: 0 10px;
     font-weight: bold;
@@ -3060,7 +3060,7 @@ transform: rotate(90deg);
     white-space: pre;
     cursor: var(--cur-ptr);
 }
-.v-prs-info>label svg {
+.v-focus-info>label svg {
     scale: .75;
     margin-right: 2px;
 }
@@ -3628,7 +3628,7 @@ strong :is(tt, code) {
 @kbdShadowWidth: 1px;
 .v-tool-tips kbd,
 .v-info-tips kbd,
-.v-prs-info kbd,
+.v-focus-info kbd,
 #write kbd {
     font: var(--v-fw-bd) .75em/@defaultLineHeight var(--v-fm-code); // [style] [weight] [size/[line-height]] [family]
     border-radius: 4px;

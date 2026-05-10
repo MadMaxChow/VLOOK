@@ -3,7 +3,7 @@
  * VLOOK™ JS - Typora Plugin
  *
  * V2026.5
- * 2026-05-09
+ * 2026-05-10
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -942,7 +942,7 @@ const _ = ``,
     _v_print_tip_ = _v__ + _print_ + __tip_,
     _info_ = `info`,
     _v_doc_info_ = _v_doc__ + _info_,
-    _v_prs_info_ = _v__ + _prs_ + `-` + _info_,
+    _v_focus_info_ = _v__ + _focus_ + `-` + _info_,
     _v_doc_lib_ = _v_doc__ + _lib_,
     _v_doc_lib_item_ = _v_doc_lib_ + __item_,
     _v_empty_cell_ = _v__ + _empty_ + `-` + _cell_,
@@ -1085,7 +1085,7 @@ const _ = ``,
 
 // 全局变量
 let gVer = `V2026.5`,
-    gDate = `2026-05-09`,
+    gDate = `2026-05-10`,
     gThmVer = _,
     gThmName = _,
     gUndefined = undefined,
@@ -1094,7 +1094,8 @@ let gVer = `V2026.5`,
     gFalse = false,
     gLast_stickyTop = 0,
     gPdfLog = gUndefined,
-    gViewMode = gUndefined,
+    gLastPrsTool = gUndefined,
+    gLastViewMode = gUndefined,
     gTransDuration = 300,
     gTransDurationLong = 600,
     gPassiveFalse = { passive: gFalse },
@@ -2975,7 +2976,7 @@ function V_initHotkey() {
         if (iFootnote.hotkey(key, combKeys, event)) return;
         if (LinkTool_disposeHotkey(key, combKeys, event)) return;
         if (SlideView_disposeHotkey(key, combKeys, event)) return;
-        if (ZenView_disposeHotkey(key, combKeys, event)) return;
+        if (iZenView.hotkey(key, combKeys, event)) return;
 
         // 文档的热键操作处理，只在文档为当前焦点且没有弹层时才有效
         if (V_doc_block || gDocument.activeElement.tagName.l() !== _body_) return;
@@ -3021,24 +3022,29 @@ function V_initHotkey() {
                 case `J`:
                 case `k`: // J,K 段落漫游
                 case `K`:
-                    !iParagraphNav.on
-                        && (
-                            iSpotlight.hide(),
-                            iLaserPointer.hide(),
-                            iParagraphNav.tg()
-                        );
+                    // !iParagraphNav.on
+                    //     && (
+                    //         iSpotlight.hide(),
+                    //         iLaserPointer.hide(),
+                    //         iParagraphNav.tg()
+                    //     );
+                    // !iParagraphNav.on
+                    //     && iParagraphNav.tg();
+                    iParagraphNav.show();
                     break;
                 case `p`: // P 激光笔
                 case `P`:
-                    iParagraphNav.hide();
-                    iSpotlight.hide();
-                    iLaserPointer.tg();
+                    // iParagraphNav.hide();
+                    // iSpotlight.hide();
+                    // iLaserPointer.tg();
+                    iLaserPointer.show();
                     break;
                 case `o`: // O 聚光灯
                 case `O`:
-                    iParagraphNav.hide();
-                    iLaserPointer.hide();
-                    iSpotlight.tg();
+                    // iParagraphNav.hide();
+                    // iLaserPointer.hide();
+                    // iSpotlight.tg();
+                    iSpotlight.show();
                     break;
                 case `e`: // E 异常链接 / 地址
                 case `E`:
@@ -3057,9 +3063,7 @@ function V_initHotkey() {
                     break;
                 case `z`: // Z 宁静视图（隐藏插件界面）
                 case `Z`:
-                    JQ_hasClass(DOM_body(), _zen_)
-                        ? ZenView_disable()
-                        : ZenView_enable();
+                    iZenView.show();
                     break;
             }
         }
@@ -3083,6 +3087,7 @@ let iToolbar = gUndefined,
     iParagraphNav = gUndefined,
     iSpotlight = gUndefined,
     iLaserPointer = gUndefined,
+    iZenView = gUndefined,
     iFontStyle = gUndefined,
     iFigNav = gUndefined,
     iInfoTips = gUndefined,
@@ -4621,6 +4626,12 @@ function V_init() {
         && ALERT(_Failed__ + `i${_Pointer_} ]`);
     sw.ed(`    ├ ` + _Laser_ + _Pointer_ + `: `);
 
+    // 宁静视图
+    iZenView = new ZenView();
+    V_isLength0(iZenView)
+        && ALERT(_Failed__ + `i${_Zen_} ]`);
+    sw.ed(`    ├ ` + _Zen_ + `: `);
+
     // 工具提示
     ToolTips_init();
 
@@ -4662,28 +4673,22 @@ function V_init() {
 
         // 宁静视图
         iToolbar.add(_zen_, () => {
-            ZenView_enable();
+            iZenView.show();
         });
 
         // 段落漫游
         iToolbar.add(_paragraph_nav_, () => {
-            iLaserPointer.hide();
-            iSpotlight.hide();
-            iParagraphNav.tg();
+            iParagraphNav.show();
         });
 
         // 聚光灯
         iToolbar.add(_spotlight_, () => {
-            iLaserPointer.hide();
-            iParagraphNav.hide();
-            iSpotlight.tg();
+            iSpotlight.show();
         });
 
         // 激光笔
         iToolbar.add(_laser_pointer_, () => {
-            iSpotlight.hide();
-            iParagraphNav.hide();
-            iLaserPointer.tg()
+            iLaserPointer.show()
         });
 
         // 添加关联组件
@@ -6983,6 +6988,31 @@ function PicInPic_zoom() {
     }, 100);
 }
 
+// ==================== 演示工具切换通用处理 ==================== //
+
+/**
+ * 启用指定演示工具
+ * @param tool 演示工具，如 spotlight, laserpointer,  等
+ */
+function PrsTool_enable(tool) {
+    gLastPrsTool
+            && gLastPrsTool.hide();
+    gLastPrsTool = tool;
+
+    iToolbar.sel(tool.nm);
+}
+
+/**
+ * 停用指定演示工具
+ */
+function PrsTool_disable() {
+    // 取消工具栏按钮的选中状态
+    gLastPrsTool
+        && iToolbar.unSel(gLastPrsTool.nm);
+
+    gLastPrsTool = gUndefined;
+}
+
 // ==================== 聚光灯类 ==================== //
 
 /**
@@ -7000,6 +7030,9 @@ function Spotlight(radius) {
     };
 
     T.toolbar = gUndefined; // 联动的工具栏
+
+    T.nm = _spotlight_;
+    T.desc = V_lang_text9();
 
     /**
      * 切换聚光灯的不同大小
@@ -7019,7 +7052,9 @@ function Spotlight(radius) {
      * 使用聚光灯模式
      */
     T.show = () => {
-        T.toolbar.sel(_spotlight_);
+        if (T.isOn()) return;
+
+        PrsTool_enable(T);
 
         // 在 Dark Mode 时先添加微调的样式
         ColorScheme_scheme === _dark_
@@ -7035,7 +7070,7 @@ function Spotlight(radius) {
             + _2br_ + V_ui_sup(_, _, V_ui_wrap_kbd(`ESC`) +___+ V_lang_text17())
             , 2000, gUndefined, `ye`);
 
-        StatusBar_enablePrs(T.toolbar.btns[_spotlight_], V_lang_text9());
+        StatusBar_onFocus(T);
     }
 
     /**
@@ -7063,26 +7098,30 @@ function Spotlight(radius) {
     /**
      * 切换聚光灯的开关
      */
-    T.tg = () => {
-        // 已打开，则关闭
-        if (T.isOn())
-            T.hide();
-        // 未打开，则打开
-        else {
-            T.show();
-            return gTrue;
-        }
-        return gFalse;
-    }
+    // T.tg = () => {
+    //     gLastPrsTool
+    //         && gLastPrsTool.hide();
+
+    //     // 已打开，则关闭
+    //     if (T.isOn())
+    //         T.hide();
+    //     // 未打开，则打开
+    //     else {
+    //         T.show();
+    //         return gTrue;
+    //     }
+    //     return gFalse;
+    // }
 
     /**
      * 隐藏聚光灯
      */
     T.hide = () => {
-        JQ_removeClass(T.toolbar.btns[_spotlight_], _selected_);
         JQ_removeClass(VOM_write(), _v_spotlight_in_dark_);
         T.ui.hide();
-        StsPrs_disablePrs();
+
+        PrsTool_disable();
+        StatusBar_offFocus();
     }
 
     /**
@@ -7118,7 +7157,7 @@ function Spotlight(radius) {
 /**
  * 构造函数
  */
- function LaserPointer() {
+function LaserPointer() {
     let T = this;
     V_length(T, 1);
     T.toolbar = gUndefined; // 联动的工具栏
@@ -7128,11 +7167,16 @@ function Spotlight(radius) {
     T.tmr = gNull;
     T.tmrTick = gFalse;
 
+    T.nm = _laser_pointer_;
+    T.desc = V_lang_text10();
+
     /**
      * 使用激光笔
      */
     T.show = () => {
-        T.toolbar.sel(_laser_pointer_);
+        if (T.isOn()) return;
+
+        PrsTool_enable(T);
 
         T.on = gTrue;
         T.ui.show();
@@ -7141,7 +7185,7 @@ function Spotlight(radius) {
 
         iInfoTips.bubble(V_lang_text10(), 2000);
 
-        StatusBar_enablePrs(T.toolbar.btns[_laser_pointer_], V_lang_text10());
+        StatusBar_onFocus(T);
     }
 
     /**
@@ -7167,17 +7211,20 @@ function Spotlight(radius) {
     /**
      * 切换激光笔开关
      */
-    T.tg = () => {
-        // 已打开，则关闭
-        if (T.isOn())
-            T.hide();
-        // 未打开，则打开
-        else {
-            T.show();
-            return gTrue;
-        }
-        return gFalse;
-    }
+    // T.tg = () => {
+    //     gLastPrsTool
+    //         && gLastPrsTool.hide();
+
+    //     // 已打开，则关闭
+    //     if (T.isOn())
+    //         T.hide();
+    //     // 未打开，则打开
+    //     else {
+    //         T.show();
+    //         return gTrue;
+    //     }
+    //     return gFalse;
+    // }
 
     /**
      * 隐藏激光笔
@@ -7187,11 +7234,12 @@ function Spotlight(radius) {
             T.tmr = V_clearTimer(T.tmr);
 
         T.on = gFalse;
-        JQ_removeClass(T.toolbar.btns[_laser_pointer_], _selected_);
         T.ui.hide();
+
         JQ_removeClass(DOM_body(), _laser_pointer_);
 
-        StsPrs_disablePrs();
+        PrsTool_disable();
+        StatusBar_offFocus();
     }
 
     /**
@@ -7809,7 +7857,7 @@ function NavCenter(mask, runMode = _auto_) {
 
             // 更新工具栏导航中心按钮图标
             !V_isMobile()
-                && JQ_removeClass(T.toolbar.btns[_nav_center_], _selected_);
+                && T.toolbar.unSel(_nav_center_);
         }
 
         // 确保在不同动态变化后的宽度下，都能隐藏
@@ -7877,7 +7925,7 @@ function NavCenter(mask, runMode = _auto_) {
 
             // 更新工具栏导航中心按钮图标
             !V_isMobile()
-                && JQ_removeClass(T.toolbar.btns[_nav_center_], _selected_);
+                && T.toolbar.unSel(_nav_center_);
         }
         else {
             // 若临时强制启用了正文适配宽度，则取消
@@ -7933,7 +7981,7 @@ function NavCenter(mask, runMode = _auto_) {
 
             // 延时（模拟悬停一定时间）以浮动方式显示导航中心
             T.hdlTmr = V_later(() => {
-                if (gViewMode !== _zen_) {
+                if (gLastViewMode.nm !== _zen_) {
                     T.lastType = _float_;
                     T.show();
                 }
@@ -8325,6 +8373,9 @@ function ParagraphNav() {
     T.toolbar = gUndefined; // 联动的工具栏
     T.bd = gUndefined;
 
+    T.nm = _paragraph_nav_;
+    T.desc = V_lang_text8();
+
     /**
      * 返回当前段落
      */
@@ -8335,28 +8386,35 @@ function ParagraphNav() {
     }
 
     /**
-     * 切换段落漫游开关
-     * @returns boolean true：开启，false：关闭
+     * 显示段落漫游
      */
-    T.tg = target => {
-        T.on = !T.on;
-        if (T.isOn()) {
+    T.show = target => {
+        // if (T.isOn()) return;
+
+        // gLastPrsTool
+        //     && gLastPrsTool.hide();
+        // gLastPrsTool = T;
+
+        T.on = gTrue;
+        // T.on = !T.on;
+        // if (T.isOn()) {
+            PrsTool_enable(T);
+
             iInfoTips.bubble(V_lang_text8(), 2000);
 
-            T.toolbar.sel(_paragraph_nav_);
             T.bd.show();
 
-            StatusBar_enablePrs(T.toolbar.btns[_paragraph_nav_], V_lang_text8());
+            StatusBar_onFocus(T);
             T.goto(ParagraphNav_getScreenMiddleElement());
 
             target !== gUndefined
                 && T.goto(target);
-            return gTrue;
-        }
-        else {
-            T.hide();
-        }
-        return gFalse;
+            // return gTrue;
+        // }
+        // else {
+        //     T.hide();
+        // }
+        // return gFalse;
     }
 
     /**
@@ -8482,9 +8540,11 @@ function ParagraphNav() {
      * 隐藏当前段落的高亮样式
      */
     T.hide = () => {
-        JQ_removeClass(T.toolbar.btns[_paragraph_nav_], _selected_);
         T.on = gFalse;
-        StsPrs_disablePrs();
+
+        PrsTool_disable();
+        StatusBar_offFocus();
+
         T.bd.hide();
     }
 
@@ -8495,7 +8555,7 @@ function ParagraphNav() {
      * @param event 事件对象
      */
     T.hotkey = (key, combKeys, event) => {
-        if (!T.on)
+        if (!T.isOn())
             return gFalse;
 
         let handled = gFalse;
@@ -8513,7 +8573,7 @@ function ParagraphNav() {
                 handled = gTrue;
                 break;
             case _Escape_:
-                if (V_noCombKeys(combKeys) && T.on) {
+                if (V_noCombKeys(combKeys) && T.isOn()) {
                     T.hide();
                     handled = gTrue;
                 }
@@ -8645,6 +8705,10 @@ function Toolbar() {
                     && JQ_removeClass(T.btns[i], _selected_);
 
         JQ_addClass(T.btns[btnName], _selected_);
+    }
+
+    T.unSel = btnName => {
+        JQ_removeClass(T.btns[btnName], _selected_);
     }
 
     /**
@@ -9791,7 +9855,7 @@ let StsLinkChkResult_ui = gUndefined,
     StsNewVersion_ui = gUndefined,
     StsColorScheme_ui = gUndefined,
     StsDocInfo_ui = gUndefined,
-    StsPrsInfo_ui = gUndefined,
+    StsFocusInfo_ui = gUndefined,
     StsLinkMap_ui = gUndefined,
     StsPrint_ui = gUndefined,
     StsFontStyle_ui = gUndefined;
@@ -9802,7 +9866,7 @@ function StatusBar_init() {
     StsNewVersion_ui = V_byClass(_v_new_version_);
     StsColorScheme_ui = V_byClass(_v_color_scheme_);
     StsDocInfo_ui = V_byClass(_v_doc_info_);
-    StsPrsInfo_ui = V_byClass(_v_prs_info_);
+    StsFocusInfo_ui = V_byClass(_v_focus_info_);
 
     // 点击文档字数栏事件处理
     StsDocInfo_ui.ck(event => {
@@ -9814,12 +9878,15 @@ function StatusBar_init() {
         }
     });
 
-    // 点击演示工具信息栏事件处理
-    StsPrsInfo_ui.ck(() => {
-       iParagraphNav.hide();
-       iSpotlight.hide();
-       iLaserPointer.hide();
-    });
+    // 点击状态栏聚焦信息栏事件处理
+    // StsFocusInfo_ui.ck(() => {
+    //     gLastPrsTool
+    //         && gLastPrsTool.hide();
+    //     PrsTool_disable();
+
+    //     View_disable();
+    //     StatusBar_offFocus();
+    // });
 
     StatusBar_ui = V_byClass(_v_status_bar_);
     V_ui_addAnimate(StatusBar_ui);
@@ -9895,8 +9962,13 @@ function StatusBar_init() {
     LinkTool_init(new BgMask(_link_checker_, _right_, gTrue));
 }
 
-// 启用演示工具栏显示
-function StatusBar_enablePrs(tool, text) {
+/**
+ * 启用聚焦信息显示模式（如：当前演示工具、当前视图）
+ * @param source 来源对象
+ */
+function StatusBar_onFocus(source) {
+    let ui = iToolbar.btns[source.nm];
+
     // 状态栏上已显示的按钮设置为 folded 状态
     StatusBar_ui.ch(_div_ + V_not(V_attrCSS(_display_, _none_))).e((index, element) => {
         JQ_addClass($(element), _folded_);
@@ -9904,23 +9976,32 @@ function StatusBar_enablePrs(tool, text) {
 
     StatusBar_open();
 
-    StsPrsInfo_ui.hm(
-        V_ui_label(_, _, tool.hm() + text + _2nbsp_ + `•` + _2nbsp_ + V_lang_text4() + _2nbsp_ + `•` + _2nbsp_  + V_ui_wrap_kbd(`ESC`) +___+ V_lang_text17())
+    // 显示聚焦提示信息
+    StsFocusInfo_ui.hm(
+        V_ui_label(_, _, ui.hm() + source.desc + _2nbsp_ + `•` + _2nbsp_ + V_lang_text4() + _2nbsp_ + `•` + _2nbsp_  + V_ui_wrap_kbd(`ESC`) +___+ V_lang_text17())
     );
-    JQ_addClass(StsPrsInfo_ui, _selected_);
+    JQ_addClass(StsFocusInfo_ui, _selected_);
 
-    // 更新演示工具栏提示信息
-    ToolTips_bind(StsPrsInfo_ui, tool.a(_data_tips_));
+    // 更新聚焦信息
+    ToolTips_bind(StsFocusInfo_ui, ui.a(_data_tips_));
 }
 
-// 关闭演示工具栏显示
-function StsPrs_disablePrs() {
-    // 恢复显示状态栏上被设置 folded 状态的按钮
-    StatusBar_ui.ch(_div_ + `.` + _folded_).e((index, element) => {
-        JQ_removeClass($(element), _folded_);
-    });
+/**
+ * 关闭聚焦信息显示模式
+ */
+function StatusBar_offFocus() {
+    if (gLastViewMode === gUndefined)
+        __exitFocus();
+    else
+        StatusBar_onFocus(gLastViewMode);
 
-    JQ_removeClass(StsPrsInfo_ui, _selected_);
+    function __exitFocus() {
+        // 恢复显示状态栏上被设置 folded 状态的按钮
+        StatusBar_ui.ch(_div_ + `.` + _folded_).e((index, element) => {
+            JQ_removeClass($(element), _folded_);
+        });
+        JQ_removeClass(StsFocusInfo_ui, _selected_);
+    }
 }
 
 // 展开状态栏
@@ -17338,53 +17419,51 @@ function ExtFigure_fillSVG(fill, svg) {
         : svg.f(svgSets).c(_fill_, V_ui_var(___ac__ + fill.l()));
 }
 
-// ==================== 不同视图的通用处理 ==================== //
+// ==================== 视图切换通用处理 ==================== //
 
 /**
  * 启用指定视图
- * @param view 视图，如 slide、zen 等
+ * @param view 视图对象，如 slide、zen 等
  */
-function View_enabled(view) {
-    gViewMode = view;
+function View_enable(view) {
+    gLastPrsTool
+        && gLastPrsTool.hide();
+    gLastViewMode = view;
 
     // 先记录当前变量值
     gLast_stickyTop = V_getVarVal(___v_sticky_top_);
     V_setVarVal(___v_sticky_top_, 0);
 
-    JQ_addClass(DOM_body(), view);
+    gLastViewMode
+        && JQ_addClass(DOM_body(), gLastViewMode.nm);
     JQ_addClass(FillWidth_ui, _show_);
 
     iNavCenter.hide(_close_);
 }
 
 /**
- * 禁用指定视图
- * @param view 视图，如 slide、zen 等
+ * 停用指定视图
  */
-function View_disabled(view) {
-    gViewMode = gUndefined;
-
+function View_disable() {
     // 恢复记录的值
     V_setVarVal(___v_sticky_top_, gLast_stickyTop);
 
-    JQ_removeClass(DOM_body(), view);
+    gLastViewMode
+        && JQ_removeClass(DOM_body(), gLastViewMode.nm);
     JQ_removeClass(FillWidth_ui, _show_);
+
+    gLastViewMode = gUndefined;
 }
 
 // ==================== 幻灯片模式 ==================== //
 
 function SlideView_enable() {
-    View_enabled(_slide_);
-
     iInfoTips.bubble(`即将推出...\nComing Soon...`, 3000, gUndefined, `rd`);
-
-    StatusBar_enablePrs(iToolbar.btns[_slide_], V_lang_text103());
 }
 
 function SlideView_disable() {
-    View_disabled(_slide_);
-
-    StsPrs_disablePrs();
+    View_disable(_slide_);
+    StatusBar_offFocus();
 }
 
 /**
@@ -17394,7 +17473,7 @@ function SlideView_disable() {
  * @param event 事件对象
  */
 function SlideView_disposeHotkey(key, combKeys, event) {
-    if (gViewMode !== _slide_)
+    if (gLastViewMode !== _slide_)
         return gFalse;
 
     let handled = gFalse;
@@ -17416,56 +17495,62 @@ function SlideView_disposeHotkey(key, combKeys, event) {
 // ==================== 宁静视图 ==================== //
 
 /**
- * 进入「宁静视图」
+ * 构造函数
  */
-function ZenView_enable() {
-    View_enabled(_zen_);
+function ZenView() {
+    let T = this;
+    V_length(T, 1);
 
-    iInfoTips.bubble(V_lang_text4() +___+ V_ui_strong(`🍃 ` + V_lang_text39()) + _2br_
-        + V_ui_sup(_, _, V_ui_wrap_kbd(`ESC`) +___+ V_lang_text17())
-        , 2000, gUndefined, `lm`);
+    T.nm = _zen_;
+    T.desc = V_lang_text39();
 
-    StatusBar_enablePrs(iToolbar.btns[_zen_], V_lang_text39());
-}
+    /**
+     * 显示 宁静视图
+     */
+    T.show = () => {
+        View_enable(T);
 
-/**
- * 退出「宁静视图」
- */
-function ZenView_disable() {
-    View_disabled(_zen_);
+        iInfoTips.bubble(V_lang_text4() +___+ V_ui_strong(`🍃 ` + V_lang_text39()) + _2br_
+            + V_ui_sup(_, _, V_ui_wrap_kbd(`ESC`) +___+ V_lang_text17())
+            , 2000, gUndefined, `lm`);
 
-    FillWidth_disable();
-
-    !V_ui_isSmallScreen()
-        && iNavCenter.tg();
-
-    StsPrs_disablePrs();
-}
-
-/**
- * 处理热键操作
- * @param key 非功能键键
- * @param combKeys 功能组合键 Ctrl / Shift / Alt / Win / Cmd
- * @param event 事件对象
- */
-function ZenView_disposeHotkey(key, combKeys, event) {
-    if (gViewMode !== _zen_)
-        return gFalse;
-
-    let handled = gFalse;
-    if (V_noCombKeys(combKeys)) {
-        switch (key) {
-            case _Escape_: // esc
-                JQ_hasClass(DOM_body(), _zen_)
-                    && ZenView_disable();
-                handled = gTrue;
-                break;
-        }
+        StatusBar_onFocus(T);
     }
 
-    // 如果事件已处理，则禁止双重操作
-    handled && V_preventDefault(event);
-    return handled;
+    /**
+     * 隐藏 宁静视图
+     */
+    T.hide = () => {
+        View_disable();
+        StatusBar_offFocus();
+
+        FillWidth_disable();
+
+        !V_ui_isSmallScreen()
+            && iNavCenter.tg();
+    }
+
+    /**
+     * 处理热键操作
+     * @param key 非功能键键
+     * @param combKeys 功能组合键 Ctrl / Shift / Alt / Win / Cmd
+     * @param event 事件对象
+     */
+    T.hotkey = (key, combKeys, event) => {
+        let handled = gFalse;
+        if (V_noCombKeys(combKeys)) {
+            switch (key) {
+                case _Escape_: // esc
+                    T.hide();
+                    handled = gTrue;
+                    break;
+            }
+        }
+
+        // 如果事件已处理，则禁止双重操作
+        handled && V_preventDefault(event);
+        return handled;
+    }
 }
 
 // ==================== Mermaid - 脑图交互类 ==================== //
@@ -19464,7 +19549,7 @@ function VLOOKui_common() {
     ui += V_ui_nav(_, _v_status_bar_ +___+ _v_float_card_ +___+ _v_focus_out_, _,
             V_ui_div(_, _v_status_bar_ + __handle_, V_ui_svgIcon(_icoTocFolded_, 16, 16, _text_))
             + V_ui_div(_, _v_doc_info_, `- -`)
-            + V_ui_div(_, _v_prs_info_, _)
+            + V_ui_div(_, _v_focus_info_, _)
             + V_ui_div(_, _v_new_version_, V_ui_svgIcon(_icoNewVersion_ + gIconStyle_uico, 20, 20, _text_))
             + (gPDF ? V_ui_div(_, _v_print_, V_ui_svgIcon(_icoPrint_ + gIconStyle_uico, 20, 20, _current_color_)) : _)
             + V_ui_div(_, _v_link_chk_result_, V_ui_svgIcon(_icoLinkError_ + gIconStyle_uico, 20, 18, _current_color_))

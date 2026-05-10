@@ -4,7 +4,7 @@ author: MAX°孟兆
 description: 关于 VLOOK™ 的常见问题（FAQ）
 "og:description": 关于 VLOOK™ 的常见问题（FAQ）
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
-date: 2026-05-09
+date: 2026-05-10
 changelog:
 - changelog content a, and content b
 - changelog content 2 [...detail](#打赏)

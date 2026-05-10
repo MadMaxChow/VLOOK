@@ -1,7 +1,7 @@
 ---
 title: Introduction - VLOOK™ - Theme Package and Enhancement Plug-In for Typora Markdown Editor
 author: MAX°孟兆
-date: 2026-05-09
+date: 2026-05-10
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: This work is licensed under the MIT License. For details, see the LICENSE file.
 version: V2026.5
