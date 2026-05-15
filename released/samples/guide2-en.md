@@ -1,10 +1,10 @@
 ---
 title: Guide ▲ Advanced - VLOOK™ - Elegant and Practical Typora Theme & Plugin
 author: MAX°孟兆
-date: 2026-05-10
+date: 2026-05-16
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: This work is licensed under the MIT License. For details, see the LICENSE file.
-version: V2026.5
+version: V2026.5.1
 tags: Code, Button, Cover & Back Cover, Columns, Caption, Tab Group, Content Marking, Mermaid, Formula, Multimedia
 vlook-footer: <a href="index.html">Introduction</a>	|	Guide for <a href='guide-en.html'>Basic</a>  ❯  <strong>Advanced</strong>  ❯  <a href='guide3-en.html'>Exploration</a>
 description: Regarding VLOOK™: Code, button, Cover and Back Pages, Column Layouts, Captions, Tab Groups, Content Markups (GitHub-style Alerts / Tags / Progress Bars / Breadcrumbs / Scratch Card / Phonetic Annotations), Mermaid Diagrams, Mathematical Formulas, and Multimedia
@@ -60,17 +60,27 @@ vlook-doc-lib:
 
 > **Your coffee keeps VLOOK™ running ☕️**
 >
-> [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow)
+> [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo#round)](https://paypal.me/madmaxchow)
 >
 > _~Se~_
 
 > **Your coffee keeps VLOOK™ running ☕️**
 >
-> ![Donate VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo)
+> ![Donate VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Gn~_
 
 # °Code
+
+## Code Block Styles
+
+<u>VLOOK™ themes provide the following style enhancements for code blocks</u>
+
+---
+
+> - Directly display the code block language, support current-line highlighting, and integrated display while editing Mermaid diagrams
+
+> - Support adding background textures to code blocks through [Custom Themes](vip.md)
 
 ## Copy Code Content
 
@@ -497,7 +507,7 @@ _^tab^_
 ###### Example of this document's cover content
 
 ```markdown
-###### ~VLOOK™~<br>Give your Markdown a new way to _^play^_<br>──<br><u>Quick Reference Manual<br>(Part.II)</u><br>*Latest version`V2026.5`*<br><br>**MAX°Mengzhao**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
+###### ~VLOOK™~<br>Give your Markdown a new way to _^play^_<br>──<br><u>Quick Reference Manual<br>(Part.II)</u><br>*Latest version`V2026.5.1`*<br><br>**MAX°Mengzhao**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 ```
 
 ###### Example of this document's back cover content

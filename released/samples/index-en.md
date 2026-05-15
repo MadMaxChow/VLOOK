@@ -1,10 +1,10 @@
 ---
 title: Introduction - VLOOK™ - Theme Package and Enhancement Plug-In for Typora Markdown Editor
 author: MAX°孟兆
-date: 2026-05-10
+date: 2026-05-16
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: This work is licensed under the MIT License. For details, see the LICENSE file.
-version: V2026.5
+version: V2026.5.1
 vlook-footer: {{title}}<br><br>{{author}}<br>{{date}} ({{version}})<br><br>{{copyright}}<br>{{rights}}
 description: Instructions for downloading, setting up, installing, and configuring VLOOK™
 "og:description": Instructions for downloading, setting up, installing, and configuring VLOOK™
@@ -47,7 +47,7 @@ vlook-doc-lib:
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 ---
 
-###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br><u>──</u><br>Introduction<br>*`V2026.5`is the Latest*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
+###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br><u>──</u><br>Introduction<br>*`V2026.5.1`is the Latest*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 
 [TOC]
 
@@ -55,7 +55,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 # What is VLOOK™
 
-![VLOOK™](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#logo#blur!)
+![VLOOK™](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#blur!#logo)
 
 <u>![OSChina](pic/oschina.png#icon2x) **A domestically developed open-source product recommended by [OSChina](https://www.oschina.net/p/vlook)**<br>![AtomGit](pic/atomgit.png#icon2x) **[AtomGit](https://atomgit.com/MadMaxChow/VLOOK) G-Star Program Project**.</u>
 
@@ -138,13 +138,13 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 > **Your coffee keeps VLOOK™ running ☕️**
 >
-> [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow)
+> [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo#round)](https://paypal.me/madmaxchow)
 >
 > _~Se~_
 
 > **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
 >
-> ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo)
+> ![Donate VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Gn~_
 
@@ -245,6 +245,10 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 >
 > > However, a single HTML file may be relatively large, and when maintaining a large number of files, the efficiency of updates and management is lower compared to the online mode. Additionally, access to font style resources may be limited.
 >
+> [Preparation ❯](#preparation)
+>
+> [Offline Mode Installation ❯](#offline-mode-installation)
+>
 > _~Bn~_
 
 > **🌐 Live Mode**
@@ -252,6 +256,10 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 > Publishes the theme and plugin to your own `website` , ideal for broader content distribution and timely updates.
 >
 > > Requires a prepared website (you can also use free overseas Pages services such as those provided by Cloudflare or GitHub).
+>
+> [Preparation ❯](#preparation)
+>
+> [Live Mode Installation ❯](#live-mode-installation)
 >
 > _~Bu~_
 
@@ -462,14 +470,38 @@ _^tab^_
 > **Install Online Themes**
 >
 > 1. Open the required “online version” theme file in the *==released/**themes-live**==* directory with a text editor (e.g., `vlook-live-hope.css`).
+>
 > 2. Search for all occurrences of `<your-host>` in the file, replace them with your website domain, and save.
+>
+>    ```CSS
+>    /* replace all <your-host> with your website domain */
+>                   
+>    @import 'https://<your-host>/V2026.1/vlook-hope.css';
+>    @import 'https://<your-host>/V2026.1/fs-serif-min.css';
+>    ...
+>    ```
+>
+>    
+>
 > 3. Refer to the steps in "[Install Theme Package](#Install Theme Package)" above, and copy the modified **`live` version** theme file into Typora’s theme directory.
 
 > **Deploy Themes to the Website**
 >
 > 1. Create a VLOOK **theme resource directory** on the website corresponding to the currently deployed version (e.g., `V2025.10`).
+>
 > 2. Open the required theme file in *==released/**themes-live**/V20xx.x==* with a text editor (e.g., `vlook-hope.css`).
+>
 > 3. Search for all occurrences of `<your-host>`, replace them with your website domain, and save.
+>
+>    ```CSS
+>    /* replace all <your-host> with your website domain */
+>                   
+>    @import "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap";@import "https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap";@import "https://<your-host>/V2026.1/fs-serif-min.css";
+>    ...
+>    ```
+>
+>    
+>
 > 4. After completing the update, upload the files to the website’s **theme resource directory** (e.g., `V2025.10`).
 
 > **Deploy Plugins to the Website**
@@ -741,7 +773,7 @@ The content of this section is marked as not published by specifying it in YAML.
 
 **❯ ❯ ❯ Coming Soon ❮ ❮ ❮**
 
-## ~~V2026.5~~
+## ~~V2026.5.1~~
 
 ---
 

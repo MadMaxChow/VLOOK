@@ -2,8 +2,8 @@
  *
  * VLOOK™ JS - Typora Plugin
  *
- * V2026.5
- * 2026-05-10
+ * V2026.5.1
+ * 2026-05-16
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -455,8 +455,7 @@ const _ = ``,
     __footer_ = `-${_footer_}`,
     _footnote_ = _foot_ + _note_,
     _footnotes_ = _footnote_ + `s`,
-    _area_ = `-area`,
-    __area_ = `-` + _area_,
+    __area_ = `-area`,
     _footnotes_area_ = _footnotes_ + __area_,
     _function_ = `function`,
     _toolbar_ = `toolbar`,
@@ -1084,8 +1083,8 @@ const _ = ``,
     _2nbsp_ = _nbsp_ + _nbsp_;
 
 // 全局变量
-let gVer = `V2026.5`,
-    gDate = `2026-05-10`,
+let gVer = `V2026.5.1`,
+    gDate = `2026-05-16`,
     gThmVer = _,
     gThmName = _,
     gUndefined = undefined,
@@ -6996,7 +6995,7 @@ function PicInPic_zoom() {
  */
 function PrsTool_enable(tool) {
     gLastPrsTool
-            && gLastPrsTool.hide();
+        && gLastPrsTool.hide();
     gLastPrsTool = tool;
 
     iToolbar.sel(tool.nm);
@@ -7981,7 +7980,7 @@ function NavCenter(mask, runMode = _auto_) {
 
             // 延时（模拟悬停一定时间）以浮动方式显示导航中心
             T.hdlTmr = V_later(() => {
-                if (gLastViewMode.nm !== _zen_) {
+                if (!gLastViewMode || gLastViewMode.nm !== _zen_) {
                     T.lastType = _float_;
                     T.show();
                 }

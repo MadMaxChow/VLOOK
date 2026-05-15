@@ -3,8 +3,8 @@
  * VLOOK™ CSS - Typora 编辑时内置样式
  * (配合 base.less 进行使用)
  *
- * V2026.5
- * 2026-05-10
+ * V2026.5.1
+ * 2026-05-16
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -587,9 +587,12 @@ body.@{windows}.typora-node #typora-sidebar {
     .genTweaks() when (@thmNavCenterStyle = edge) {
         background-color: var(--v-ui-bg);
         color: @buttonForeColor;
-        .genFloatBorderStyle();
+        .genEdgeBlockShadow();
     }
     .genTweaks();
+}
+.genEdgeBlockShadow() {
+    box-shadow: 0 0 16px #0008;
 }
 
 .sidebar-tabs {
@@ -922,10 +925,13 @@ body.mac-seamless-mode @{writeOnEditing} {
 @thmTabLogoBackground: no-repeat center center/30px 30px @thmTabLogo;
 .sidebar-tab.active::before,
 body.@{windows} :is(.active-tab-files, .active-tab-outline) .info-panel-tab-title::before {
-    content: "";
+    // content: "";
+    // width: var(--sidebar-width);
+    content: "OUTLINE"; // 为主题 Logo 的宽度占位用，实际文字内容不重要
+    color: transparent;
+    width: fit-content !important;
     position: absolute;
     height: 40px;
-    width: var(--sidebar-width);
     margin-top: -9px;
     left: 0;
     background: @thmTabLogoBackground;
@@ -1323,9 +1329,6 @@ body.@{windows} #file-library-tree {
 }
 // 大纲节点 active
 .outline-item:active,
-.outline-item:active .outline-label,
-.outline-item:active .outline-label::before,
-.outline-label:active,
 // 文件列表节点
 .file-list-item:active,
 // 文件库节点
@@ -1523,7 +1526,7 @@ body.@{windows} .ty-sidebar-search-panel .searchpanel-search-option-btn {
 .file-tree-node.active .file-node-background {
     font-weight: var(--v-fw-toc);
     .genTweaks() when not (@thmNavCenterStyle = edge) {
-        color: var(--ac-t2) !important;
+        color: var(--df) !important;
         background: @tocItemCurrentBg;
     }
     .genTweaks() when (@thmNavCenterStyle = edge) {
@@ -2436,7 +2439,8 @@ li label.checkbox {
 // 图片，添加了题注内容（alt）的提示
 @captionPadding: 5px;
 @needTipsCaption: ~':has(img[alt]):not([data-src*="#logo"]):not([data-src*="#icon"]):not([data-src*="#card"])';
-@hasFigureImage: ~':has(.md-image:not([data-src*="#logo"]):not([data-src*="#icon"]):not([data-src*="#card"]))';
+// @hasFigureImage: ~':has(.md-image:not([data-src*="#logo"]):not([data-src*="#icon"]):not([data-src*="#card"]))';
+@hasFigureImage: ~':has(.md-image:not([data-src*="#icon"]):not([data-src*="#card"]))';
 @captionTipsOnEditing: ~'@{writeOnEditing} .md-image@{needTipsCaption}::after';
 @{captionTipsOnEditing} {
     content: @captionDirectionSymbol_down "Caption/题注 (...)";
@@ -2452,11 +2456,6 @@ li label.checkbox {
     display: block;
     white-space: pre;
     position: absolute;
-}
-
-// 有插图的段落
-@{writeOnEditing} p@{hasFigureImage} {
-    text-align: left;
 }
 
 // --------------------
@@ -2724,28 +2723,64 @@ li label.checkbox {
 }
 
 // 多行代码样式（排除 ```math、```mermaid 语法）
+@codeblockBorderWidth: 1px;
 #write .md-fences:not([class*=md-fences-math]):not([class*=md-diagram]) {
     color: var(--df);
     font-family: var(--v-fm-code);
     font-size: .875em;
     border-radius: var(--c-br-b);
-    border: @imgBorderWidth solid var(--std-code-sd);
+    border: @codeblockBorderWidth solid var(--std-code-sd);
     margin: @paragraphPadding 0 0;
-    background-color: var(--std-code-sd);
 }
 // 针对生成题注后的微调
 .v-caption > .md-fences {
     margin: 0 !important;
 }
 
+// 代码块内的代码行样式
+.CodeMirror pre {
+    padding: 0 10px;
+}
+
+// 代码块相关样式
+.CodeMirror-scroll {
+    border-radius: 0 calc(var(--v-r-t) - 2px) calc(var(--v-r-t-xc) - 2px) 0;
+}
+
+// 编辑时 Mermaid 图与代码块样式
+.genMermaidEditorStyle() when (@thmMermaidEditorStyle = uni) {
+    // 代码块面板，扩大包裹整个 Mermaid 图表
+    #write .md-fences-adv-panel {
+        margin-top: 0;
+        position: relative; // Typora 默认是 absolute 定位，改为 relative 定位后，须调整 margin-bottom 避免空白
+    }
+
+    // Mermaid 图表的代码块底部圆角
+    @{writeOnEditing} .md-diagram .CodeMirror.cm-s-inner {
+        border-bottom: 1px solid var(--ac-t1-fd);
+        // 其中 border-raidus 选用的变量值要与 .md-fences .CodeMirror.cm-s-inner:not([lang=math]) 保持一致
+        border-radius: var(--v-r-b) var(--v-r-b-xc) 0 0;
+    }
+
+    // Mermaid 内的代码块微调
+    @{writeOnEditing} .md-diagram .CodeMirror-scroll {
+        border-radius: 0 calc(var(--v-r-t) - 2px) 0 0;
+    }
+}
+.genMermaidEditorStyle();
+
 // 代码块获得焦点
 @{writeOnEditing} .md-fences.md-focus {
-    box-shadow: var(--v-input-focus-sd);
-    border-color: var(--a-c);
+    outline: 3px solid var(--ac-t1-fd);
+    border: 1px solid var(--a-c) !important;
+
+    // 结合 Mermaid 图表编辑时的样式调整
+    .genTweaks() when (@thmMermaidEditorStyle = uni) {
+        margin-bottom: 0 !important;
+    }
+    .genTweaks();
 }
-@{writeOnEditing} .md-fences.md-focus .md-diagram-panel {
-    margin-top: 4px;
-}
+
 .md-fences.md-diagram {
     box-shadow: none;
 }
@@ -2845,11 +2880,12 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
 }
 @{writeOnEditing} .md-fences-math[lang=math].md-focus .md-fences-adv-panel,
 @{writeOnEditing} .md-fences .code-tooltip { // 代码块内的语言
-    border-radius: calc(var(--v-r-b) - 2px) 0 !important;
-    bottom: 0;
-    background: var(--v-ui-bg);
     color: @buttonForeColor;
     font-weight: bold;
+    background: var(--v-ui-bg);
+    border-radius: 0 calc(var(--v-r-b-xc) - 2px) 0 var(--v-r-b) !important;
+    top: 0;
+    bottom: unset;
 }
 // 编辑时图表代码块内的语言提示位置微调
 .enable-diagrams .md-diagram .code-tooltip {
@@ -2858,7 +2894,7 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
 // 代码块内的语言提示样式
 .code-tooltip {
     border-radius: var(--v-r-b) var(--v-r-b-xc) !important;
-    padding: 2px 5px !important;
+    padding: 1px 6px !important;
     font-size: .875em;
     border-radius: var(--v-r-b) !important;
 }
@@ -2908,11 +2944,6 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
     border-radius: var(--v-r-b)!important;
 }
 
-// 代码块面板
-#write .md-fences-adv-panel {
-    margin-top: 0;
-    position: relative;
-}
 // 导出后对 mermaid 图表的微调
 @{writeOnHTML} .md-fences-adv-panel {
     margin-top: @paragraphPadding;
@@ -2932,7 +2963,7 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
 .md-math-block { // $$ 语法
     border-radius: var(--c-br-b);
     border: @captionContentBorder;
-    background-color: var(--db);
+    background-color: var(--std-code-sd);
 }
 // 针对导出后（write 与 vlook 的范围）
 .typora-export :is(.md-math-block, .md-fences-math) {

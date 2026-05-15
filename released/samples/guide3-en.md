@@ -1,10 +1,10 @@
 ---
 title: Guide ★ Exploration - VLOOK™ - Elegant and Practical Typora Theme & Plugin
 author: MAX°孟兆
-date: 2026-05-10
+date: 2026-05-16
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: This work is licensed under the MIT License. For details, see the LICENSE file.
-version: V2026.5
+version: V2026.5.1
 tags: Content Navigation, Content Assistant, Presentation Tools, Publishing Tools, Appearance, Miscellaneous
 vlook-footer: <a href="index-en.html">Introduction</a>	|	Guide for <a href='guide-en.html'>Basic</a>  ❯  <a href='guide2-en.html'>Advanced</a>  ❯  <strong>Exploration</strong>
 description: Regarding VLOOK™: Theme Design, Content Tagging, Content Navigation, Presentation & Publishing, Third-Party Integration Adaptation, and Miscellaneous Exclusions
@@ -59,13 +59,13 @@ vlook-doc-lib:
 
 > **Your coffee keeps VLOOK™ running ☕️**
 >
-> [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo)](https://paypal.me/madmaxchow)
+> [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo#round)](https://paypal.me/madmaxchow)
 >
 > _~Se~_
 
 > **Your coffee keeps VLOOK™ running ☕️**
 >
-> ![Donate to VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo)
+> ![Donate VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Gn~_
 

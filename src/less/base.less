@@ -2,8 +2,8 @@
  *
  * VLOOK™ CSS 基础库 for Typora
  *
- * V2026.5
- * 2026-05-10
+ * V2026.5.1
+ * 2026-05-16
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -234,7 +234,9 @@ Mermaid工具提示 / div.mermaidTooltip / z-index: 100;
     @arrowColor_edge: replace("@{arrowColorFade_edge}", "#", "%23"); // 转义为 URL 编码格式
     --ar-top-edge: url("data:image/svg+xml,%3Csvg width='20' height='6' viewBox='0 0 20 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M.059 5.368l.004.012c.178.47.708.722 1.202.581L10 1.941l8.68 4.003c.492.17 1.032-.059 1.236-.513l.025-.063c.178-.469-.06-.985-.532-1.181l-.053-.02L10.639.097a2.122 2.122 0 0 0-1.278 0L.644 4.166c-.507.178-.77.716-.585 1.202z' fill='@{arrowColor_edge}' fill-rule='evenodd'/%3E%3C/svg%3E");
 
-    --v-input-focus-sd: 0 0 0 3px fade(@aColor, 35%); // 输入/编辑时阴影样式
+    // --v-input-focus-sd: 0 0 0 3px fade(@aColor, 35%); // 输入/编辑时阴影样式
+    --v-input-focus-sd: 0 0 0 3px var(--ac-t1-fd); // 输入/编辑时阴影样式
+    --v-input-focus-sd2: 0 0 0 4px var(--ac-t1-fd); // 输入/编辑时阴影样式
     --v-input-focus-inn-sd: 0 0 0 1px var(--a-c) inset; // 输入/编辑时阴影样式
     --v-input-focus-border: var(--a-c);
 }
@@ -666,7 +668,7 @@ img[loading]::after {
 @{writeOnEditing} .md-image[data-src*="#logo"][data-src*="#round2s"]>img, // 编辑时
 @{writeOnHTML} img[src*="#logo"][src*="#round2s"],
 @{writeOnHTML} svg[data-inject-url*="#logo"][data-inject-url*="#round2s"] {
-    border-radius: var(--v-r-s) var(--v-r-s-xc) !important;
+    border-radius: var(--c-br-b) !important;
 }
 // 生成通过图片地址参数指定图片的按宽度缩放样式
 // 方式：像素单位
@@ -1722,12 +1724,6 @@ h6:first-child) {
     left: 50%;
     transform: translateX(-50%);
 }
-// 仅当浏览器支持对应 CSS 特性时才启用
-// @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
-    // #write .v-post-card.v-backdrop-blurs {
-    //     background: var(--pn08);
-    // }
-// }
 #write .v-post-card>.v-card-title {
     font-weight: var(--v-fw-tt);
     font-size: 1.125em;
@@ -1761,13 +1757,6 @@ h6:first-child) {
 .v-caption.full.figure {
     touch-action: none;
 }
-// 仅当浏览器支持对应 CSS 特性时才启用
-// @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
-//     .v-caption.full.v-backdrop-blurs {
-//         background: radial-gradient(rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),1) 50%,
-//             rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),.9));
-//     }
-// }
 .v-caption.full figcaption {
     display: none;
 }
@@ -2208,15 +2197,7 @@ hr.v-column {
     margin-left: 0;
 }
 
-// 代码块相关样式
-.CodeMirror-scroll {
-    border-radius: 0 0 calc(var(--v-r-t) - 2px) calc(var(--v-r-t-xc) - 2px);
-}
-
-.CodeMirror pre {
-    padding: 0 10px;
-}
-
+// 针对代码块分组标签的样式调整
 .md-fences[data-tag-group] {
     display: none;
 }
@@ -2245,17 +2226,13 @@ hr.v-column {
     border-radius: var(--v-r-t) var(--v-r-t-xc) 0 0;
 }
 // 非 ```math 语法的公式
+// 其中 border-raidus 选用的变量值要与 .md-diagram .CodeMirror.cm-s-inner 保持一致
 .md-fences .CodeMirror.cm-s-inner:not([lang=math]) {
-    border-radius: var(--v-r-t) var(--v-r-t-xc);
+    border-radius: var(--c-br-b);
 }
 // 双题注微调
 .v-caption.codeblock[data-cap-count="2"] .md-fences .CodeMirror.cm-s-inner:not([lang=math]) {
     border-radius: 0;
-}
-
-// 编辑时，Mermaid 图表的代码块
-@{writeOnEditing} .md-diagram .CodeMirror.cm-s-inner {
-    border-radius: var(--v-r-t) var(--v-r-t-xc) 0 0;
 }
 
 .CodeMirror .CodeMirror-cursor {
@@ -4285,7 +4262,7 @@ div[class*=v-fontinfo-].done > span,
     z-index: 2000;
     user-select: none;
 }
-.v-nav-center::before {
+.v-nav-center-header::before {
     content: "";
     // 生成侧边栏头部样式
     .genSidebarHeaderCommon();
@@ -4303,7 +4280,7 @@ div[class*=v-fontinfo-].done > span,
     }
     .genTweaks() when (@thmNavCenterStyle = edge) {
         .genBorder() when (@thmFloatShadow = shadow) {
-            box-shadow: var(--v-fl-sd);
+            .genEdgeBlockShadow();
         }
         .genBorder();
     }
@@ -4846,7 +4823,6 @@ div[class*=v-fontinfo-].done > span,
 
 .v-toolbar {
     border-radius: var(--b-br-b);
-    // corner-shape: bevel;
     left: @writePaddingRight;
     padding: 10px;
     width: var(--v-nav-center-w);
@@ -4900,7 +4876,7 @@ div[class*=v-fontinfo-].done > span,
     }
     .v-nav-center.block.edge {
         top: 0 !important;
-        bottom: @readProgressBarHeight;
+        bottom: 0;
         border-radius: 0;
         margin-left: -30px; // 该值与插件中中的 navcenter.hide 中的 T.ui.oL() < 判断条件保持一致
         padding-right: 10px;
@@ -5039,9 +5015,22 @@ div[class*=v-fontinfo-].done > span,
 }
 
 .genHoverStyle(@for) when (@for = toc-item) {
-    .genTweaks() when (@thmNavCenterStyle = std), (@thmNavCenterStyle = flat) {
+    .genTweaks() when (@thmNavCenterStyle = std) {
         .outline-item:hover,
         .v-toc-item:hover,
+        .v-map-item:hover,
+        .md-toc-item:hover {
+            background: @tocItemCurrentBg;
+        }
+        .outline-item-active:hover,
+        .v-item-current:hover {
+            background: @tocItemCurrentBg !important;
+        }
+    }
+    .genTweaks() when (@thmNavCenterStyle = flat) {
+        .outline-item:hover,
+        .v-toc-item:hover,
+        .v-map-item:hover,
         .md-toc-item:hover {
             background: var(--pn06);
         }
@@ -5052,9 +5041,16 @@ div[class*=v-fontinfo-].done > span,
     }
     .genTweaks() when (@thmNavCenterStyle = edge) {
         .outline-item:hover,
-        .v-toc-item:hover,
-        .md-toc-item:hover {
+        .md-toc-item:hover,
+        // 在 导航中心 下的 .v-toc-item
+        .v-nav-center-body .v-toc-item:hover {
             background: var(--db02);
+        }
+
+        .v-map-item:hover,
+        // 在 链接地图、异常连接/地址 下的 .v-toc-item
+        .v-link-info-list .v-toc-item:hover {
+            background: var(--pn06);
         }
     }
     // 生成目录节点不同风格的 hover 样式
@@ -5171,12 +5167,6 @@ div[class*=v-fontinfo-].done > span,
     font-weight: normal;
     position: absolute;
     right: 20px;
-}
-
-.genHoverStyle(@for) when (@for = map-item) {
-    .v-map-item:hover {
-        background: var(--pn07);
-    }
 }
 
 // 链接地图中的链接
@@ -6243,6 +6233,22 @@ body.@{windows} @{iframeVideoOnEditing} @{youtubeVideo}@{portraitMode}@{webview_
     background: var(--std-code-sd) var(--v-i-sys-menu) no-repeat 10px center;
 }
 
+// 编辑时
+@{writeOnEditing} .md-fences::before,
+// 无题注时
+.v-caption.codeblock .v-cap-1.none + .md-fences::before {
+    content: attr(lang);
+    font-size: .875em;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--df-a);
+    display: block;
+    position: absolute;
+    padding: 4px 12px 0;
+    right: 0;
+    z-index: 10;
+}
+
 // 当前文档中匹配的题注交叉引用样式
 a[data-x-ref]::before,
 @{writeOnEditing} a[href^='#']:not(:has(kbd))::before { // 编辑时
@@ -6260,7 +6266,7 @@ a[data-x-ref]::before,
 .v-cap-2 {
     color: @captionTextColor;
     font: condensed normal .875em var(--v-fm-tag); // [stretch] [style] [weight] [size/[line-height]] [family]
-    padding: 5px 10px;
+    padding: 4px 10px;
     margin: 2px 0;
     width: fit-content;
     white-space: pre-wrap;
@@ -6276,7 +6282,11 @@ a[data-x-ref]::before,
     background: none;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
-    padding: 3px 10px 5px;
+    padding: 0 10px 1px;
+}
+
+.v-cap-cntr {
+    margin: @paragraphPadding 0 0;
 }
 
 .v-cap-cntr:last-child {
@@ -6469,13 +6479,6 @@ use.v-svg-i-wh {
 .v-mask-close.bottom>svg {
     transform: rotate(270deg);
 }
-// 仅当浏览器支持对应 CSS 特性时才启用
-// @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
-//     .v-backdrop-blurs {
-//         -webkit-backdrop-filter: blur(10px);
-//         backdrop-filter: blur(10px);
-//     }
-// }
 
 #v-para-nav-mask-border {
     border: 1px solid var(--a-c);

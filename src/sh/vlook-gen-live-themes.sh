@@ -59,6 +59,7 @@ generate_css_files() {
 
     # 生成文件
     {
+      # echo "/* replace all <your-host> with your website domain */"
       echo "@import 'https://${host_theme}/$VERSION/vlook-${kw}.css';"
       if [ -n "$fscss" ]; then
         echo "@import 'https://${host_fs}/$VERSION/$fscss';"

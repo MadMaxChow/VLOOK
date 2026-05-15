@@ -1,15 +1,15 @@
 ---
 title: 简介 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与排版增强插件
 author: MAX°孟兆
-date: 2026-05-10
+date: 2026-05-16
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: 本作品采用 MIT 许可证授权，详见 LICENSE 文件。
-version: V2026.5
+version: V2026.5.1
 #vlook-footer: {{title}}<br><br>{{author}}<br>{{date}} ({{version}})<br><br>{{copyright}}<br>{{rights}}
 description: 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:description": 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
-date: 2026-05-10
+date: 2026-05-16
 changelog:
 - changelog content a, and content b
 - changelog content 2 [...detail](#打赏)
@@ -57,7 +57,7 @@ vlook-shortcut:
 - [💬](https://qm.qq.com/q/O0tNC6WBWe "讨论与交流")
 ---
 
-###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br><u>──</u><br>简介<br>*最新版本`V2026.5`*<br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
+###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br><u>──</u><br>简介<br>*最新版本`V2026.5.1`*<br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 
 [TOC]
 
@@ -65,7 +65,7 @@ vlook-shortcut:
 
 # VLOOK™ 是什么
 
-![](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#blur!)
+![VLOOK™](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#blur!#logo)
 
 <u>![OSChina](pic/oschina.png#icon2x) **[开源中国](https://www.oschina.net/p/vlook) 推荐的国产开源产品**<br>![AtomGit](pic/atomgit.png#icon2x) **[AtomGit](https://atomgit.com/MadMaxChow/VLOOK) G-Star 计划项目**</u>
 
@@ -160,13 +160,13 @@ _^tab^_
 
 > **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
 >
-> ![](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x)
+> ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Gn~_
 
 > **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
 >
-> ![](pic/donate-alipay-light.png?darksrc=donate-alipay-dark.png&srcset=@2x&darksrcset=@2x)
+> ![打赏 VLOOK™](pic/donate-alipay-light.png?darksrc=donate-alipay-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Bu~_
 
@@ -268,6 +268,10 @@ _^tab^_
 >
 > > 但单个 HTML 文件大小会相对较大，维护的文件数量较多时，更新管理的效率相对在线模式会低。同时，字体风格资源的访问可能会受限。
 >
+> [准备工作 ❯](#准备工作)
+>
+> [离线模式安装 ❯](#离线模式安装)
+>
 > _~Bn~_
 
 > **🌐 在线模式**
@@ -275,6 +279,10 @@ _^tab^_
 > 将主题和插件先发布到自己的 `Web 站点` 上，适用于更大范围的内容发布，以及随时发布更新内容。
 >
 > > 需要先准备 Web 站点（也可直接使用国外免费的 Pages 服务，如 CloudFlare、GitHub 所提供的 Pages 服务。
+>
+> [准备工作 ❯](#准备工作)
+>
+> [在线模式安装 ❯](#在线模式安装)
 >
 > _~Bu~_
 
@@ -491,14 +499,34 @@ _^tab^_
 > **安装在线主题**
 >
 > 1. 用文本编辑器打开 *==released/**themes-live**==* 目录下需要使用的「在线版本」的主题文件（如 `vlook-live-hope.css` ）
-> 2. 搜索文件中所有 `<your-host>` 的内容，并替换为 Web 站点的域名，并保存
+>
+> 2. 搜索文件中所有 `<your-host>` 的内容，并替换为你的 Web 站点的域名，并保存
+>
+>    ```CSS
+>    /* 搜索所有 <your-host> 并替换为你的 Web 站点的域名 */
+>             
+>    @import 'https://<your-host>/V2026.1/vlook-hope.css';
+>    @import 'https://<your-host>/V2026.1/fs-serif-min.css';
+>    ...
+>    ```
+>
 > 3. 参考以上「[安装主题包](#安装主题包)」的方式，将修改后的「 `live` 版本」的主题文件复制到 Typora 的主题目录中
 
 > **部署主题到站点**
 >
 > 1. 在 Web 站点新建的 VLOOK 对应当前部署版本的「主题资源目录」（如：`V2025.10` ）
+>
 > 2. 用文以本本编辑器打开 *==released/**themes-live**/V20xx.x==* 目录下需要使用的主题文件（如 `vlook-hope.css` ）
+>
 > 3. 搜索所有 `<your-host>` 的内容，并替换为 Web 站点的域名，并保存
+>
+>    ```CSS
+>    /* 搜索所有 <your-host> 并替换为你的 Web 站点的域名 */
+>             
+>    @import "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap";@import "https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap";@import "https://<your-host>/V2026.1/fs-serif-min.css";
+>    ...
+>    ```
+>
 > 4. 完成更新后的文件上传更新至 Web 站点「主题资源目录」（如：`V2025.10` ）
 
 > **部署插件到站点**
@@ -788,7 +816,7 @@ _^tab^_
 
 **❯ ❯ ❯ 敬请期待 ❮ ❮ ❮**
 
-## ~~V2026.5~~
+## ~~V2026.5.1~~
 
 ---
 

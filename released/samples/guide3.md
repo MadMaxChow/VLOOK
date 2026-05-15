@@ -1,10 +1,10 @@
 ---
 title: 攻略 ★ 探索 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与排版增强插件
 author: MAX°孟兆
-date: 2026-05-10
+date: 2026-05-16
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: 本作品采用 MIT 许可证授权，详见 LICENSE 文件。
-version: V2026.5
+version: V2026.5.1
 tags: 内容导航, 内容助手, 演示辅助, 外观, 不杂项
 vlook-footer: <a href='index.html'>简介</a>	|	攻略之 <a href='guide.html'>基础</a>  ❯  <a href='guide2.html'>进阶</a>  ❯  <strong>探索</strong>
 description: 关于 VLOOK™ 的主题、内容标记、内容导航、演示与出版、第三方集成的适配、不杂项
@@ -59,13 +59,13 @@ vlook-doc-lib:
 
 > **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
 >
-> ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo)
+> ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Gn~_
 
 > **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
 >
-> ![打赏 VLOOK™](pic/donate-alipay-light.png?darksrc=donate-alipay-dark.png&srcset=@2x&darksrcset=@2x#logo)
+> ![打赏 VLOOK™](pic/donate-alipay-light.png?darksrc=donate-alipay-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Bu~_
 

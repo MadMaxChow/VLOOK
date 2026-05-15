@@ -3,8 +3,8 @@
  * VLOOK™ CSS - Mermaid 自定义样式
  * (配合 base.less 进行使用)
  *
- * V2026.5
- * 2026-05-10
+ * V2026.5.1
+ * 2026-05-16
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -489,7 +489,7 @@ svg[aria-roledescription=sequence] .loopLine {
 // 备注背景
 svg[aria-roledescription=sequence] .note {
     stroke: var(--ac-ye) !important;
-    stroke-width: 0 !important;
+    stroke-dasharray: 5 !important;
     fill: var(--ac-ye-a) !important;
 }
 
@@ -625,14 +625,13 @@ svg[aria-roledescription=stateDiagram] .statediagram-cluster .cluster-label {
 }
 
 // 注释
-svg[aria-roledescription=stateDiagram] .statediagram-note rect {
-    stroke: var(--ac-ye) !important;
+svg[aria-roledescription=stateDiagram] .statediagram-note path {
+    stroke: var(--ac-ye-a) !important;
     stroke-dasharray: 5 !important;
-    fill: var(--ac-ye) !important;
+    fill: var(--ac-ye-a) !important;
 }
 // 注释文本
 svg[aria-roledescription=stateDiagram] .statediagram-note .nodeLabel {
-    color: var(--df) !important;
     font-weight: normal !important;
 }
 svg[aria-roledescription=stateDiagram] .statediagram-note .label div {
@@ -872,6 +871,10 @@ svg[aria-roledescription=ishikawa] .ishikawa-label.cause {
 
 svg[aria-roledescription=ishikawa] .ishikawa-label.up {
     fill: var(--df-a) !important;
+}
+
+svg[aria-roledescription=ishikawa] .ishikawa text {
+    fill: var(--df) !important;
 }
 
 // 标签块、文本上鼠标悬停
