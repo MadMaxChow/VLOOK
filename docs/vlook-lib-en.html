@@ -25,7 +25,7 @@ body.typora-export { padding-left: 30px; padding-right: 30px; }
 }
 #write li > figure:last-child { margin-bottom: 0.5rem; }
 #write ol, #write ul { position: relative; }
-img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+img { max-width: 100%; height: auto; vertical-align: middle; image-orientation: from-image; }
 button, input, select, textarea { color: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-width: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-variant-alternates: inherit; font-variant-ligatures: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-feature-settings: inherit; font-optical-sizing: inherit; font-variation-settings: inherit; }
 input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
 *, ::after, ::before { box-sizing: border-box; }
@@ -224,7 +224,7 @@ mjx-container { break-inside: avoid; }
 .md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
 
 </style>
-<link rel='stylesheet' href='https://madmaxchow.github.io/openfonts/css/github-io/V2026.5/vlook-owl-en.css' type='text/css' />
+<link rel='stylesheet' href='https://madmaxchow.github.io/openfonts/css/github-io/V2026.5.1/vlook-owl-en.css' type='text/css' />
 <style type='text/css'  id="style-theme_css">@import '';
 .sidebar-content:before{content:'VLOOK™ only •• live';font-style:italic;}
 </style>
@@ -320,7 +320,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		return meta ? meta.getAttribute("content") : null;
 	}
     let pdfLog = document.querySelector("#v-pdf-log"),
-        lVer = "V2026.5",
+        lVer = "V2026.5.1",
         devMode = lVer.indexOf("dev") > 0 ? true : false, debugMode = devMode,
         jsHost = devMode ? "http://localhost/dev/" : getMetaContent("vlook-js") + lVer + "/",
         compCode = "sonatasonata",
