@@ -8,11 +8,13 @@ Select language ❯  [**English**](README-en.md) • 中文
 
 # VLOOK™ ── 让你的 Markdown 有了新看(wán)法
 
+![Awards](https://vlook-doc.pages.dev/pic/awards.svg#logo)
+
 # 优雅好用的 Typora / Markdown 主题包×排版增强插件
 
 
 
-![VLOOK™](https://vlook-doc.pages.dev/pic/vlook-mark-light.svg#logo)
+![VLOOK™](https://vlook-doc.pages.dev/pic/vlook-mark-light.svg)
 
 
 
@@ -50,19 +52,29 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 > **感谢打赏支持 VLOOK™ 的客官（部分名单）**
 >
-> **Peter**、**绿邃清幽**、**李导996**、**fanky**、**＊丽**、**杨琛**、**＊哦**、**＊豫**、**l＊a**、**＊o**、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…
+> **Peter**、**绿邃清幽**、**李导996**、**fanky**、**＊丽**、**杨琛**、**＊哦**、**＊豫**、**l＊a**、**＊o**、C＊r、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…
 
-|             **你的咖啡，能让 VLOOK™ 保持活力 ☕️**             |          **Your coffee<br>keeps VLOOK™ running ☕️**           |
+|             **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**             |          **Your coffee<br>keeps VLOOK™ running ☕️**           |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | ![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-wechat-light.png)![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-alipay-light.png) | [![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-paypal-light.png)](https://paypal.me/madmaxchow) |
 
+
+
 ---
+
+
 
 ![VLOOK Built-in Themes](https://vlook-doc.pages.dev/pic/vlook-theme-built-in-01.gif)
 
+
+
 ![VLOOK Built-in Themes](https://vlook-doc.pages.dev/pic/vlook-theme-built-in-02.gif)
 
+
+
 ---
+
+
 
 [![优雅好用的Typora-Markdown主题×插件VLOOK™，让你的文档有了新看法让你的文档有了新看法～-封面](https://github.com/user-attachments/assets/08b0386e-bdaf-4aa4-a4dc-a04dd800ed11)<br>📺 点击这里观看官宣视频](https://www.bilibili.com/video/BV1miDpY5ERh/?vd_source=ecc3f6f8f7d9fbfaa5745863cf7d6250)
 

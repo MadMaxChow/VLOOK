@@ -8,7 +8,7 @@ Select language ❯ English • [**中文**](README.md)
 
 # VLOOK™ ── Give Your Markdown a New Perspective
 
-
+![Awards](https://vlook-doc.pages.dev/pic/awards.svg#logo)
 
 # VLOOK™ is an elegant and practical THEME PACKAGE × TYPESETTING PLUS for Typora/Markdown
 
@@ -51,19 +51,25 @@ With just a few simple steps of installation and configuration, you can also hav
 
 > **Thanks for donate VLOOK™ (partial donors) **
 >
-> **Peter**、**绿邃清幽**、**李导996**、**fanky**、**＊丽**、**杨琛**、**＊哦**、**＊豫**、**l＊a**、**＊o**、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…
+> **Peter**、**绿邃清幽**、**李导996**、**fanky**、**＊丽**、**杨琛**、**＊哦**、**＊豫**、**l＊a**、**＊o**、C＊r、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…
 
-|          **Your coffee<br>keeps VLOOK™ running ☕️**          |             **你的咖啡，能让 VLOOK™ 保持活力 ☕️**             |
+|          **Your coffee<br>keeps VLOOK™ running ☕️**          |             **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**             |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | [![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-paypal-light.png)](https://paypal.me/madmaxchow) | ![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-wechat-light.png)![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-alipay-light.png) |
 
 ---
 
+
+
 ![VLOOK Built-in Themes](https://vlook-doc.pages.dev/pic/vlook-theme-built-in-01.gif)
 
 ![VLOOK Built-in Themes](https://vlook-doc.pages.dev/pic/vlook-theme-built-in-02.gif)
 
+
+
 ---
+
+
 
 [![优雅好用的Typora-Markdown主题×插件VLOOK™，让你的文档有了新看法让你的文档有了新看法～-封面](https://github.com/user-attachments/assets/08b0386e-bdaf-4aa4-a4dc-a04dd800ed11)<br>📺 Click here to watch the introduction video](https://www.bilibili.com/video/BV1miDpY5ERh/?vd_source=ecc3f6f8f7d9fbfaa5745863cf7d6250)
 
