@@ -10,6 +10,15 @@ Select language ❯  [**English**](README-en.md) • 中文
 
 ![Awards](https://vlook-doc.pages.dev/pic/awards.svg#logo)
 
+
+
+> - 👍 Typora 官方认可支持的主题包和排版增强插件，详见 [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook) 
+> - 👍 [OSCHINA (开源中国)](https://www.oschina.net/p/vlook) 推荐的国产开源项目
+> - 👍 [AtomGit](https://atomgit.com/MadMaxChow/VLOOK) **G-Star** 优质项目 ![star VLOOK](https://atomgit.com/MadMaxChow/VLOOK/star/badge.svg#icon)
+>
+> <a href="https://www.producthunt.com/posts/vlook?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-vlook" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=948962&theme=neutral&t=1744083742474" alt="VLOOK - THEME&#0032;PACKAGE&#0032;&#0215;&#0032;ENHANCEMENT&#0032;PLUGIN&#0032;for&#0032;Typora&#0047;Markdown | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>  <a href="https://hellogithub.com/repository/aa6c612ca3de42a082b15053be4ce3c3" target="_blank"><img src="https://abroad.hellogithub.com/v1/widgets/recommend.svg?rid=aa6c612ca3de42a082b15053be4ce3c3&claim_uid=xCde1wfnch6ASLj&theme=neutral" alt="Featured｜HelloGitHub" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
+
 # 优雅好用的 Typora / Markdown 主题包×排版增强插件
 
 
@@ -29,16 +38,6 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 在 **文档排版**、**内容标记**、**内容导航**、**演示辅助**、交互体验 等方面提供了 **一致**、**简洁**、**友好** 的体验。
 
 只需简单几步的安装配置，你也可以拥有主题炫酷、排版丰富、交互友好的文档～
-
-
-
-> - 👍 Typora 官方认可支持的主题包和排版增强插件，详见 [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook) 
-> - 👍 [OSCHINA (开源中国)](https://www.oschina.net/p/vlook) 推荐的国产开源项目
-> - 👍 [AtomGit](https://atomgit.com/MadMaxChow/VLOOK) **G-Star** 优质项目 ![star VLOOK](https://atomgit.com/MadMaxChow/VLOOK/star/badge.svg#icon)
->
-> <a href="https://www.producthunt.com/posts/vlook?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-vlook" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=948962&theme=neutral&t=1744083742474" alt="VLOOK - THEME&#0032;PACKAGE&#0032;&#0215;&#0032;ENHANCEMENT&#0032;PLUGIN&#0032;for&#0032;Typora&#0047;Markdown | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>  <a href="https://hellogithub.com/repository/aa6c612ca3de42a082b15053be4ce3c3" target="_blank"><img src="https://abroad.hellogithub.com/v1/widgets/recommend.svg?rid=aa6c612ca3de42a082b15053be4ce3c3&claim_uid=xCde1wfnch6ASLj&theme=neutral" alt="Featured｜HelloGitHub" style="width: 250px; height: 54px;" width="250" height="54" /></a>
-
-
 
 ---
 
