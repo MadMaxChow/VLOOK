@@ -125,7 +125,7 @@ vlook-doc-lib:
 
 > [![Personal documents](pic/vip-rainynight2.png?srcset=@2x#card "RainyNight 2")](theme-vip-rainynight2.html)
 
-> [![Personal documents](pic/vip-lspzc.png?srcset=@2x#card "Lspzc")](theme-vip-lspzc.html)
+> [![Personal documents](pic/vip-mox.png?srcset=@2x#card "Mox")](theme-vip-mox.html)
 
 > [![Usage of Teaching Materials from Wangdao Training Institute](pic/vip-cskaoyan.png?srcset=@2x#card "Wangdao Training")](theme-vip-cskaoyan.html)
 
@@ -214,6 +214,10 @@ vlook-doc-lib:
 ---
 
 > [![HUBEI UNIVERSITY OF SCIENCE AND TECHNOLOGY / Techer• Personal documents](pic/vip-geoai.png?srcset=@2x#card "SUPGEO")](theme-vip-geoai.html)
+
+> [![Personal documents](pic/vip-taoliang.png?srcset=@2x#card "TaoLiang")](theme-vip-taoliang.html)
+
+> [![Personal documents](pic/vip-lspzc.png?srcset=@2x#card "Lspzc")](theme-vip-lspzc.html)
 
 ---
 

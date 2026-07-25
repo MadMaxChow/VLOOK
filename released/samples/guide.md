@@ -1,10 +1,10 @@
 ---
 title: 攻略 • 基础 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与排版增强插件
 author: MAX°孟兆
-date: 2026-05-16
+date: 2026-07-25
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: 本作品采用 MIT 许可证授权，详见 LICENSE 文件。
-version: V2026.5.1
+version: V2026.7
 tags: 文本, 段落, 表格, 图片, 列表, 引用块, 章节标题
 vlook-footer: <a href="index.html">简介</a>	|	攻略之 <strong>基础</strong>  ❯  <a href='guide2.html'>进阶</a>  ❯  <a href='guide3.html'>探索</a>
 description: 关于 VLOOK™ 的文本、段落、表格、图片、列表、章节标题
@@ -155,17 +155,17 @@ _^tab^_
 
 <u>**感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、C＊r、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
 
 ---
 
-> **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
+> **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**
 >
 > ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Gn~_
 
-> **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
+> **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**
 >
 > ![打赏 VLOOK™](pic/donate-alipay-light.png?darksrc=donate-alipay-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 >
@@ -2518,6 +2518,8 @@ _^tab^_
 
 ###### 实际应用效果示例
 
+---
+
 > ###### 什么是三段论？
 >
 > 三段论推理是演绎推理中的一种简单推理判断。它包含：
@@ -2526,29 +2528,7 @@ _^tab^_
 > - *`小前提`* 一个附属于前面大前提的特殊化陈述
 > - *`结论`*_~T2!~_ 由此引申出的特殊化陈述符合一般性原则的结论
 >
-> ![引用块折叠内的图片示例](http://localhost/pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg)
-
----
-
-> ###### *什么是 `三段论`?*
->
-> 三段论推理是演绎推理中的一种简单推理判断。它包含：
->
-> ---
->
-> ---
->
-> > **大前提**
-> >
-> > 一个一般性的原则
->
-> > **小前提**
-> >
-> > 一个附属于前面大前提的特殊化陈述
-> 
-> > **结论**
-> >
-> > 由此引申出的特殊化陈述符合一般性原则的结论
+> ![引用块折叠内的图片示例](http://localhost/pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.sv
 
 > > ###### 什么是 MECE 法则？
 > >
@@ -2649,7 +2629,7 @@ _^tab^_
 
 # °章节标题
 
-## ~~高亮章节标题~~
+## ~~高亮章节标题、文库~~
 
 对于某些重要的章节，希望进行突出的标记，可以设置为高亮。设置后在导航中心的目录索引、搜索结果中均会保持高亮，也可以通过搜索栏快速过滤显示被标记的章节。
 

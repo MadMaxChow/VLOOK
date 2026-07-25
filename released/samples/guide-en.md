@@ -1,10 +1,10 @@
 ---
 title: Guide ▲ Basic - VLOOK™ - Elegant and Practical Typora Theme & Plugin
 author: MAX°孟兆
-date: 2026-05-16
+date: 2026-07-25
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: This work is licensed under the MIT License. For details, see the LICENSE file.
-version: V2026.5.1
+version: V2026.7
 tags: Text, Paragraph, Table, Image, List, Blockquotes, Chapter Headings
 vlook-footer: <a href="index-en.html">Introduction</a>	|	Guide for <strong>Basic</strong>  ❯  <a href='guide2-en.html'>Advanced</a>  ❯  <a href='guide3-en.html'>Exploration</a>
 description: Regarding VLOOK™: Text, Paragraphs, Tables, Images, Lists, and Section Headings
@@ -34,7 +34,7 @@ keywords:
 - 链接地图,链接规范,链接检查,链接识别,链接转换
 - 设计,需求,文档,博客,手册,指南,攻略,知识库,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
-vlook-header-dup: /^Your coffee.+/;/.*Syntax$/;/^Applicable Scope ••• .+/;Shortcuts;Advanced Usage;More Information;Blockquote Coloring;COMMING SOON...;Image with Line Grid Background;Image with Block Grid Background;Examples;This is a Blockquote Subtitle;💡 Want to know the original content of the above table?
+vlook-header-dup: /^Your coffee.+/;/.*Syntax$/;/^Availability ••• .+/;Shortcuts;Advanced Usage;More Information;Blockquote Coloring;COMMING SOON...;Image with Line Grid Background;Image with Block Grid Background;Examples;This is a Blockquote Subtitle;💡 Want to know the original content of the above table?
 vlook-doc-lib:
 - [How to Start?](index-en.html?target=_self "Introduction, Installation and Configuration, Language Packs")
 - [Guide • Basic](guide-en.html?target=_self "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scale / Rotation / Flip / Filter / Postcard / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
@@ -102,10 +102,10 @@ _^tab^_
 | `` *`Tag`* `` | "[Tags](guide2-en.md#Tag)" |
 | `*==Caption==*` when **occupying a single line** | "[Table Caption](#Table Caption & Auto-numbering)" "[Image Caption](#Image Caption & Auto-numbering)" "[Code Block Caption](guide2-en.md#Code Block Caption & Auto-numbering)" "[Multimedia Content Caption](guide2-en.md#Multimedia Caption & Auto-numbering)" |
 | `*==Breadcrumbs==*` when not occupying a single line | "[Breadcrumbs](guide2-en.md#Breadcrumbs)" |
-| `[<kbd>Button Link</kbd>](url)` | "[Button Links](guide2-en.md#Button-Links)" |
+| `[<kbd>Button Link</kbd>](url)` | "[Button Links](guide2-en.md#button-link)" |
 | `**==Progress Bar==**` | "[Progress Bars](guide2-en.md#Progress Bar)" |
-| `*Hint**Scratch Card***` | "[Scratch Card](guide2-en.md#Scratch-Cards)" |
-| `_~Color Code~_` [ⓘ](#Preset Color Code) | "[Text Color](#Text-Color)" "[Text Gradient](#Text-Gradient)" "[Colorful Tags](guide2-en.md#Tag)" "[Cell Coloring](#Cell-Coloring)" "[Scratch Card](guide2-en.md#Scratch-Cards)" "[Blockquote Coloring](#Blockquote-Coloring)" |
+| `*Hint**Scratch Card***` | "[Scratch Card](guide2-en.md#scratch-card)" |
+| `_~Color Code~_` [ⓘ](#Preset Color Code) | "[Text Color](#Text-Color)" "[Text Gradient](#Text-Gradient)" "[Colorful Tags](guide2-en.md#Tag)" "[Cell Coloring](#Cell-Coloring)" "[Scratch Card](guide2-en.md#scratch-card)" "[Blockquote Coloring](#Blockquote-Coloring)" |
 | `_^Tab Group^_` or `*^Tab Group^*` <br>when **occupying a single line** | "[Tab Group](guide2-en.md#°Tab Group)" |
 | `_^Phonetic Notation^_` or `*^Phonetic Notation^*`<br>when not occupying a single line | "[Phonetic Notation](guide2-en.md#Phonetic-Notation)" |
 
@@ -121,7 +121,7 @@ _^tab^_
 
 > **< Two >**
 > 
-> Will be used in subsequent [Text Color](#Text-Color), [Text Gradient](#Text-Gradient), [Cell Coloring](#Cell-Coloring), [Tags](guide2-en.md#Tag), [Scratch Card](guide2-en.md#Scratch-Cards), [Blockquote Coloring](#Blockquote-Coloring), etc.
+> Will be used in subsequent [Text Color](#Text-Color), [Text Gradient](#Text-Gradient), [Cell Coloring](#Cell-Coloring), [Tags](guide2-en.md#Tag), [Scratch Card](guide2-en.md#scratch-card), [Blockquote Coloring](#Blockquote-Coloring), etc.
 
 > **< Three >**
 > 
@@ -147,17 +147,17 @@ _^tab^_
 
 <u>**Thanks to the patrons who donated to support VLOOK™ (partial list) / Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、C＊r、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
 
 ---
 
-> **Your coffee keeps VLOOK™ running ☕️**
+> **Your coffee ☕️ keeps VLOOK™ running**
 > 
 > [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo#round)](https://paypal.me/madmaxchow)
 > 
 > _~Se~_
 
-> **Your coffee keeps VLOOK™ running ☕️**
+> **Your coffee ☕️ keeps VLOOK™ running**
 > 
 > ![Donate VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 > 
@@ -171,7 +171,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ achieves this easily through a concise method, let's take a look～
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 *==How to Make Your Markdown Document Text Colors More Vibrant (Bilibili)==*
 
@@ -243,7 +243,7 @@ _~Gd~_This is a paragraph where you can use **<u>predefined</u>** `color codes` 
 
 *VLOOK`A`*_~T2~_ The new [Preset Color Code](#Preset Color Code) support gradient colors, with a natural and intuitive writing style that will definitely impress you～
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > - All rules are the same as "[Text Color](#Text-Color)", just change the color code from 1 to multiple consecutive inputs～
 > - For example: "**Red-Green**_~RdGn~_" gradient is input as `_~RdGn~_`, "**Red-Yellow-Green**_~RdYeGn~_" gradient is input as `_~RdYeGn~_`
@@ -278,7 +278,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 ## Paragraph Indentation
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -304,7 +304,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 ## Paragraph Styles
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 Used to meet the need for personalized formatting of **an entire paragraph**, creating a differentiated style compared to regular body text.
 
@@ -400,7 +400,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 *VLOOK`A`*_~T2~_ Now you can easily achieve this — Wow! Wow!～Cheers from Markdown fans!!!
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ---
 
@@ -457,7 +457,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ SO EASY～ Just set the corresponding format in the header using standard Markdown or GFM format syntax.
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > Review standard Markdown or GFM format syntax:
 > 
@@ -500,7 +500,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Supports automatic formatting for the above numeric content across entire columns! The approach remains elegant and very VLOOK!
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ==Set the table column alignment to "**right-align**" to automatically recognize different numeric content and automatically format it!==
 
@@ -575,7 +575,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Although the requirements are higher, it can also be achieved by automatically setting the entire column to "checkbox" format!
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > Add `[]` before the corresponding table column header content (e.g., `[]Required Field`) to automatically set the column to `unselected` state.
 >
@@ -609,13 +609,13 @@ _^tab^_
 
 *VLOOK `A`*_~T2~_ VLOOK™ provides a way to freeze the first column of tables — and it works during editing!
 
-> **Applicable Scope ••• *`Editing` ✓ Supported*_~Gn~_  *`Export to HTML` ✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing` ✓ Supported*_~Gn~_  *`Export to HTML` ✓ Supported*_~Gn~_**
 
 ---
 
 > **Automatic Mode (Default)**
 >
-> - While editing, simply set the column header of the first column to **bold** (see [Table Column Formatting](#表格列格式)) to freeze that column.
+> - While editing, simply set the column header of the first column to **bold** (see [Table Column Formatting](#table column formatting)) to freeze that column.
 > - After exporting to HTML, you can unfreeze or refreeze the first column of each table via the table’s [Content Assistant](guide3-en.md#Toggle Frozen Table Columns).
 
 > **Full-Enable Mode**
@@ -634,7 +634,7 @@ _^tab^_
 > [!IMPORTANT]
 >
 > - The table header is automatically frozen during editing.  
->- After exporting to HTML, the header will also be automatically frozen when the table is displayed in **[Fullscreen Mode](guide3.md#Fullscreen Mode)**.
+>- After exporting to HTML, the header will also be automatically frozen when the table is displayed in **[Fullscreen Mode](guide3-en.md#Fullscreen Mode)**.
 
 ## Cell Coloring
 
@@ -642,7 +642,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ VLOOK™'s [Preset Color Code](#Preset Color Code) can be put to use again, same formula, same super easy to use!
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ---
 
@@ -681,7 +681,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Supports grouping and hierarchical specification for rows within tables through very concise markers.
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > For subordinate rows, automatic grouping and folding can be achieved by following these rules in the first column of the table row:
 >
@@ -767,7 +767,7 @@ _^tab^_
 
 ## Table Wrapping Layout
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 _^tab^_
 
@@ -811,7 +811,7 @@ _^tab^_
 
 ## Table Alignment
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 The table alignment (left-aligned, centered) is specified by the selected VLOOK™ theme, and can be customized through [Custom Theme Service](vip-en.md).
 
@@ -822,7 +822,7 @@ The table alignment (left-aligned, centered) is specified by the selected VLOOK�
 [<kbd>Relevant content can be found here ❯❯</kbd>](guide2-en.md#°Caption)
 
 ## Table Summary Row and Column Style
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 - If you want certain rows or columns in a table to be displayed with distinct styles as summary rows or summary columns, simply add an empty row or column, and leave the corresponding cells completely empty;
 - After completing the above steps, VLOOK™ will apply summary row and summary column styles in the exported HTML.
@@ -841,7 +841,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 *VLOOK`A`*_~T2~_ VLOOK™ displays images as "Figure" by default, but can easily switch to more flexible display layouts using "[#Magic](##Magic)".
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > Add VLOOK™ standard image "[#Magic](##Magic)" in the "image address" to implement various non-illustration layouts:
 >
@@ -906,7 +906,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 *VLOOK`A`*_~T2~_ Markdown doesn't support image scaling, but now with VLOOK™'s "[#Magic](##Magic)" it's easily achievable～
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > Add VLOOK™ standard image "[#Magic](##Magic)" in the "image address" to implement:
 >
@@ -973,7 +973,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Markdown doesn't support image rotation, but now with VLOOK™'s "[#Magic](##Magic)" it's easily achievable～
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > Add VLOOK™ standard image "[#Magic](##Magic)" in the "image address" to implement (currently only supports 180 degree rotation):
 >
@@ -993,7 +993,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Markdown doesn't support image flipping, but now with VLOOK™'s "[#Magic](##Magic)" it's easily achievable～
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > Add VLOOK™ standard image "[#Magic](##Magic)" in the "image address" to implement:
 >
@@ -1010,7 +1010,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Markdown doesn't support image filters, but now with VLOOK™'s "[#Magic](##Magic)" it's easily achievable～
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 _^tab^_
 
@@ -1047,7 +1047,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Through "[#Magic](##Magic)", you can add specified grid backgrounds for transparent background images (like PNG, SVG).
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > Add VLOOK™ standard image "[#Magic](##Magic)" in the "image address" to implement:
 >
@@ -1084,7 +1084,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Through "[#Magic](##Magic)" this niche personalized typesetting challenge can be easily handled～
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > **Syntax**
 >
@@ -1104,7 +1104,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ With "[#Magic](##Magic)"加持, automatic image-text typesetting reaches new heights, monotonous images instantly become lively～
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 _^tab^_
 
@@ -1239,7 +1239,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ While keeping Markdown image syntax unchanged, easily display HD resolution images on high-resolution screens!
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 <u>Add VLOOK™ standard parameters in "image address" to enable this feature.</u>
 
@@ -1290,7 +1290,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Supports specifying adaptation methods for images in Dark Mode, currently supporting "**invert colors**" and "**replace**" to meet different needs!
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ### Invert Color Adaptation
 
@@ -1351,7 +1351,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Can target transparent background png or svg images, displaying their outlines with specified colors.
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > In the "image address", add VLOOK™ standardized URL parameters to achieve:
 >
@@ -1474,7 +1474,7 @@ Then add `#gif` after the image address, clicking will play the `.gif` file with
 
 ## Image Alignment
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 - Image alignment (left, center) is specified by the selected VLOOK™ theme, support custom alignment through [Custom Theme Service](vip-en.md);
 - Includes cases where there's only one image in a paragraph, images with links, etc., but excludes [icon layout](#Image-Display-Layout) images.
@@ -1507,7 +1507,7 @@ In addition to the previously mentioned [List Columns](guide2-en.md#List-Columns
 
 
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ---
 
@@ -1585,7 +1585,7 @@ In addition to the previously mentioned [List Columns](guide2-en.md#List-Columns
 
 *VLOOK`A`*_~T2~_ VLOOK™ has made multiple style and detail adaptations for this situation, making the overall to detailed visuals more harmonious and consistent.
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 **Overall task progress:** **==?==**
 
@@ -1620,7 +1620,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 *VLOOK`A`*_~T2~_ Generally the first paragraph in a blockquote serves as the subtitle, so setting the entire paragraph content as bold or highlighted automatically renders as a "blockquote subtitle" style!
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 _^tab^_
 
@@ -1677,7 +1677,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ VLOOK™'s [Preset Color Code](#Preset Color Code) come into play again, same formula, same super usability! Meets practical multi-color "blockquote" typesetting needs!
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 _^tab^_
 
@@ -1700,7 +1700,7 @@ _^tab^_
 
 > **![Wine](pic/qico-red.svg?fill=text&darksrc=invert#icon) Normal Blockquote**
 >
-> [<kbd>Main Button ![](pic/icon-more.svg?fill=text)</kbd>](guide2-en.md#Button-Links) *[<kbd>Secondary Button ![](pic/icon-more.svg?fill=text)</kbd>](guide2-en.md#Button-Links)*
+> [<kbd>Main Button ![](pic/icon-more.svg?fill=text)</kbd>](guide2-en.md#button-link) *[<kbd>Secondary Button ![](pic/icon-more.svg?fill=text)</kbd>](guide2-en.md#button-link)*
 >
 > > ###### More Information
 > >
@@ -1714,7 +1714,7 @@ _^tab^_
 
 > **![Wine](pic/qico-red.svg?fill=text&darksrc=invert#icon) Blockquote Coloring**
 >
-> ==Color Code==  `Wn`　Learn[Color Code ℹ️](#Preset Color Code)　[<kbd>Main Button ![](pic/icon-more.svg?fill=text)</kbd>](guide2-en.md#Button-Links) *[<kbd>Secondary Button ![](pic/icon-more.png?fill=text)</kbd>](guide2-en.md#Button-Links)*
+> ==Color Code==  `Wn`　Learn[Color Code ℹ️](#Preset Color Code)　[<kbd>Main Button ![](pic/icon-more.svg?fill=text)</kbd>](guide2-en.md#button-link) *[<kbd>Secondary Button ![](pic/icon-more.png?fill=text)</kbd>](guide2-en.md#button-link)*
 >
 > > ###### More Information
 > >
@@ -1734,7 +1734,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ By extending the writing method of Markdown blockquotes `> `, achieves dynamic folding/unfolding of blockquote content!
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > Syntax: `> ###### title`, i.e., set the first line content of normal blockquote syntax as level 6 heading, which serves as the title displayed when folded
 >
@@ -1805,7 +1805,7 @@ _^tab^_
 
 ## Blockquote Typesetting Subdivision
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ###### Example of Nested Blockquotes in Blockquotes
 
@@ -1855,9 +1855,9 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 
 
-## Heading Style？？
+## Heading Style
 
-==VLOOK™'s [Built-in Themes](guide3-en.md#Template-Themes) provide rich choices for document headings, along with various automatic numbering formats？？ .==
+==VLOOK™'s [Built-in Themes](guide3-en.md#Template-Themes) provide rich choices for document headings, along with various automatic numbering formats==
 
 <u>For more personalized heading styles (e.g., colors, gradients, borders, padding, etc.) or custom automatic numbering formats, you can subscribe to ==Custom Theme Services== .</u>
 
@@ -1875,7 +1875,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 *VLOOK`A`*_~T2~_ VLOOK™ provides very practical and personalized heading numbering format options that can easily meet the personalized requirements of different documents for heading numbering formats.
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 After using the VLOOK™ plugin, it supports automatic numbering of chapter headings in documents by default. The default automatic numbering format is Arabic numerals, such as `1. Chapter Heading` `3.2.5 Chapter Heading`.
 

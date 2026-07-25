@@ -1,10 +1,10 @@
 ---
 title: 攻略 ★ 探索 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与排版增强插件
 author: MAX°孟兆
-date: 2026-05-16
+date: 2026-07-25
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: 本作品采用 MIT 许可证授权，详见 LICENSE 文件。
-version: V2026.5.1
+version: V2026.7
 tags: 内容导航, 内容助手, 演示辅助, 外观, 不杂项
 vlook-footer: <a href='index.html'>简介</a>	|	攻略之 <a href='guide.html'>基础</a>  ❯  <a href='guide2.html'>进阶</a>  ❯  <strong>探索</strong>
 description: 关于 VLOOK™ 的主题、内容标记、内容导航、演示与出版、第三方集成的适配、不杂项
@@ -18,7 +18,7 @@ keywords:
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
-- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,Fullscreen Mode, Paragraph Navigator, Content Width Adaptation, Zen View, Presentation Mode, Reading Progress, Exclude from Publishing, Document Footer,export as pdf,save as pdf,print to pdf
+- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,Fullscreen Mode, Paragraph Navigator, Content Width Adaptation, Zen View, Presentation View, Reading Progress, Exclude from Publishing, Document Footer,export as pdf,save as pdf,print to pdf
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - link map,link specification,link check,link recognition,link conversion
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
@@ -53,17 +53,17 @@ vlook-doc-lib:
 
 <u>**感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、C＊r、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、、…==
 
 ---
 
-> **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
+> **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**
 >
 > ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Gn~_
 
-> **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
+> **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**
 >
 > ![打赏 VLOOK™](pic/donate-alipay-light.png?darksrc=donate-alipay-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 >
@@ -91,21 +91,23 @@ vlook-doc-lib:
 
 ### 预置的模板主题
 
-<u>VLOOK™ 内置的 6 套免费主题（点击下图可预览效果）～</u>
+<u>VLOOK™ 内置的 7 套免费主题（点击下图可预览效果）～</u>
+
+**（默认自动适配系统浅色 / 深色外观，也提供独立的浅色、深色版本主题）**
 
 ---
 
 ---
 
-> [![灵感来自于电影《Titanic 泰尼克号》，字体风格默认为「文艺范」](pic/vlook-theme-hope.png?srcset=@2x#card "Hope 海洋之心")](theme-hope.html)
+> [![灵感来自我喜欢的咖啡时光](pic/vlook-theme-fancy.gif#card "Fancy 慕幻")](theme-fancy.html)
 >
-> _~Bu~_
+> _~Og~_
 
-> [![灵感来自于中国的古建筑与现代化工业风的融合](pic/vlook-theme-joint.png?srcset=@2x#card "Joint 榫卯")](theme-joint.html)
+> [![极客改变世界，VLOOK 也改变了 Markdown 排版自动化的玩法](pic/vlook-theme-geek.gif#card "Geek 极邃")](theme-geek.html)
 >
-> _~Ye~_
+> _~Gn~_
 
-> [![极客改变世界，VLOOK 也改变了 Markdown 排版自动化的玩法](pic/vlook-theme-geek.png?srcset=@2x#card "Geek 极邃")](theme-geek.html)
+> [![致敬 Notion，让 Markdown 焕发新可能](pic/vlook-theme-note.gif#card "Note 笔记")](theme-note.html)
 >
 > _~Gy~_
 
@@ -113,17 +115,30 @@ vlook-doc-lib:
 
 ---
 
-> [![灵活来自我喜欢的咖啡时光，字体风格默认为「小清新」](pic/vlook-theme-fancy.png?srcset=@2x#card "Fancy 慕幻")](theme-fancy.html)
+> [![灵感来自于电影《Titanic 泰尼克号》，字体风格默认为「文艺范」](pic/vlook-theme-hope.gif#card "Hope 海洋之心")](theme-hope.html)
 >
-> _~Og~_
+> _~Bu~_
 
-> [![灵活来自冥想与禅思](pic/vlook-theme-thinking.png?srcset=@2x#card "Thinking 静思")](theme-thinking.html)
+> [![灵感来自于中国的古建筑与现代化工业风的融合](pic/vlook-theme-joint.gif#card "Joint 榫卯")](theme-joint.html)
+>
+> _~Ye~_
+
+> [![致敬由 Sun Microsystems 研发的计算机操作系统 Solaris，字体风格默认为「Book」](pic/vlook-theme-solaris.gif#card "Solaris")](theme-solaris.html)
+>
+> _~Vn~_
+
+---
+
+---
+
+> [![灵活来自冥想与禅思](pic/vlook-theme-thinking.gif#card "Thinking 静思")](theme-thinking.html)
 >
 > _~Cy~_
 
-> [![致敬由 Sun Microsystems 研发的计算机操作系统 Solaris，字体风格默认为「Book」](pic/vlook-theme-solaris.png?srcset=@2x#card "Solaris")](theme-solaris.html)
+> [![VLOOK 官方文档在用主题](pic/vlook-theme-owl.gif#card "Owl")](index.html)
 >
-> _~Vn~_
+> _~Pu~_
+
 
 ### 定制模板主题
 
@@ -154,19 +169,19 @@ vlook-doc-lib:
 
 ---
 
-> ![使用系统的 UI 字体，在不同的系统或终端上会效果会稍有不同](pic/fs-local2.png?srcset=@2x#padding#card#fitmax)
+> ![使用系统的 UI 字体，在不同的系统或终端上会效果会稍有不同](pic/fs-local2.png?srcset=@2x#padding#card#border#fitmax)
 >
 > _~Gy~_
 
-> ![用系统内置的宋体、黑体进行「混搭」，在不同的系统或终端上会效果会稍有不同](pic/fs-book2.png?srcset=@2x#padding#card#fitmax)
+> ![用系统内置的宋体、黑体进行「混搭」，在不同的系统或终端上会效果会稍有不同](pic/fs-book2.png?srcset=@2x#padding#card#border#fitmax)
 >
 > _~Gy~_
 
-> ![整体表现为「禅院、正楷书法、宁静空间」（需要浏览器加载网络字体或下载安装）](pic/fs-zen2.png?srcset=@2x#padding#card#fitmax)
+> ![整体表现为「禅院、正楷书法、宁静空间」（需要浏览器加载网络字体或下载安装）](pic/fs-zen2.png?srcset=@2x#padding#card#border#fitmax)
 >
 > _~Gy~_
 
-> ![整体表现为「亲和力、温润、健康」（需要浏览器加载网络字体或下载安装）](pic/fs-yuan2.png?srcset=@2x#padding#card#fitmax)
+> ![整体表现为「亲和力、温润、健康」（需要浏览器加载网络字体或下载安装）](pic/fs-yuan2.png?srcset=@2x#padding#card#border#fitmax)
 >
 > _~Gy~_
 
@@ -176,19 +191,19 @@ vlook-doc-lib:
 
 ---
 
-> ![整体表现为「活力、开放」（需要浏览器加载网络字体或下载安装）](pic/fs-dyn2.png?srcset=@2x#padding#card#fitmax)
+> ![整体表现为「活力、开放」（需要浏览器加载网络字体或下载安装）](pic/fs-dyn2.png?srcset=@2x#padding#card#border#fitmax)
 >
 > _~Gy~_
 
-> ![整体表现为「优雅、韵动、个性」（需要浏览器加载网络字体或下载安装）](pic/fs-serif2.png?srcset=@2x#padding#card#fitmax)
+> ![整体表现为「优雅、韵动、个性」（需要浏览器加载网络字体或下载安装）](pic/fs-serif2.png?srcset=@2x#padding#card#border#fitmax)
 >
 > _~Gy~_
 
-> ![整体表现为「清新、简约、潮流」（需要浏览器加载网络字体或下载安装）](pic/fs-sans2.png?srcset=@2x#padding#card#fitmax)
+> ![整体表现为「清新、简约、潮流」（需要浏览器加载网络字体或下载安装）](pic/fs-sans2.png?srcset=@2x#padding#card#border#fitmax)
 >
 > _~Gy~_
 
-> ![整体表现为「童趣、手写、随心、惬意」（需要浏览器加载网络字体或下载安装）](pic/fs-ink2.png?srcset=@2x#padding#card#fitmax)
+> ![整体表现为「童趣、手写、随心、惬意」（需要浏览器加载网络字体或下载安装）](pic/fs-ink2.png?srcset=@2x#padding#card#border#fitmax)
 >
 > _~Gy~_
 
@@ -355,7 +370,7 @@ vlook-doc-lib:
 
 > ###### 如何在浏览器「新标签页」中打开文库链接？
 >
-> `target` 的取值与 HTML 标准一致，只需要设置为 `_blank` 或自定义，同时扩展支持 `auto` 。
+> 在 URL 中添加 `target` 参数，其取值与 HTML 标准一致，只需要设置为 `_blank` 或自定义，同时扩展支持 `auto` 。
 >
 > 示例如下：
 >
@@ -363,8 +378,8 @@ vlook-doc-lib:
 > # （推荐）只在浏览器针对该链接的新标签中打开
 > - 文库.html?target=auto
 > 
-> # 在浏览器新标签中打开
-> - 文库.html?target=_blank
+> # 在浏览器新标签中打开（原 URL 中已有其他参数时，用符号 & 进行分隔）
+> - 文库.html?other=1&target=_blank
 > 
 > # 只在浏览器新标签（mydoc）中打开
 > - 文库.html?target=mydoc
@@ -712,6 +727,18 @@ vlook-quick-action:
 > **启用 / 停用专注模式（Focus Mode）**
 >
 > 快捷键操作：<kbd>F8</kbd>
+
+## 幻灯片视图
+
+**随心切换到「流式」或「卡片式」阅读方式，可以通过快捷键 <kbd>S</kbd> 一键切换。**
+
+<u>开启后将隐藏在工具栏、导航中心、状态栏等元素。可再次按下 <kbd>S</kbd> 键或 <kbd>ESC</kbd> 退出「幻灯片视图」。</u>
+
+
+
+> [!TIP]
+>
+> 在「宁静视图」下如需使用「[激光笔](#激光笔)、[聚光灯](#聚光灯)」等演示辅助工具，可直接通过对应的快捷键方式进行启用。
 
 ## 宁静视图
 
@@ -1285,6 +1312,7 @@ vlook-query: 参数1=取值&参数2=取值...&参数n=取值
 | [演示辅助](#°演示辅助) - 其他 | 开启/关闭「[聚光灯](#聚光灯)」 | <kbd>O</kbd> |
 | :                           | 调节聚光灯的大小                            |      <kbd>⇧ Shift</kbd>      |
 | : | 开启/关闭「[激光笔](#激光笔)」 | <kbd>P</kbd> |
+| : | 开启/关闭「[激光笔](#激光笔)」 |  |
 | : | 开启/关闭「[宁静视图](#宁静视图)」 | <kbd>Z</kbd> |
 | :                         | 退出以上任一演示辅助工具                |        <kbd>ESC</kbd>        |
 | [逐章导航](#逐章导航)                   | **前一个**章节                                    | <kbd>◀</kbd> 或 <kbd> , </kbd> |

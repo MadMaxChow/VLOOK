@@ -3,8 +3,8 @@
  * VLOOK™ CSS - @media 相关的样式
  * (配合 base.less 进行使用)
  *
- * V2026.5.1
- * 2026-05-16
+ * V2026.7
+ * 2026-07-25
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -94,7 +94,7 @@
     .genHoverStyle(btn);
     .genHoverStyle(btn-group);
     .genHoverStyle(btn-close-figure-nav);
-    .genHoverStyle(btn_assistor);
+    .genHoverStyle(btn_helper);
     .genHoverStyle(pip-btn);
     .genHoverStyle(tbl-row-g-btn);
     .genHoverStyle(status-bar_btn);
@@ -535,6 +535,7 @@
         display: flex;
     }
 
+    // 正文外背景相关样式
     content::before,
     .typora-export-content::before {
         content: @docExtContent;
@@ -571,9 +572,38 @@
     }
 
     .typora-export-content:not(.fill-width) #write.max {
-        background: var(--db) var(--d-bi);
         width: var(--v-write-w);
         .genFillWidthBorder();
+    }
+
+    // 幻灯片 视图的样式调整
+    .slide #write,
+    .slide #write::before,
+    .slide #write::after {
+        border-radius: var(--c-br-b);
+
+        .genTweaks() when (@thmCornerShape = bevel) {
+            corner-shape: bevel;
+            border-radius: (@bevelRadius_b + 8px);
+        }
+        .genTweaks() when (@thmCornerShape = squircle) {
+            corner-shape: squircle;
+            border-radius: (@squircleRadius_b - 5px);
+        }
+        .genTweaks() when (@thmCornerShape = scoop) {
+            corner-shape: scoop;
+            border-radius: (@bevelRadius_b + 8px);
+        }
+        .genTweaks() when (@thmCornerShape = crystal) {
+            corner-shape: bevel;
+            border-radius: (@bevelRadius_b + 8px) 0;
+        }
+        .genTweaks();
+    }
+    .slide #write::before,
+    .slide #write::after {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
     }
 }
 
@@ -623,7 +653,7 @@
         left: 0;
         top: 0;
         right: 0;
-        border-radius: 0;
+        border-radius: 0 !important;
     }
     .v-chapter-nav-doc-title:not(.in-start),
     .v-chapter-nav-current {
@@ -636,11 +666,13 @@
     .v-chapter-nav-prev,
     .v-chapter-nav-next {
         width: 20%;
-        border-radius: 0;
+        border-radius: 0 !important;
+        corner-shape: unset !important;
     }
     .v-chapter-nav-prev::before,
     .v-chapter-nav-next::before {
-        border-radius: 0;
+        border-radius: 0 !important;
+        corner-shape: unset !important;
     }
 
     // 当前字体风格下载提示
@@ -756,7 +788,7 @@
         .v-tab-group {
             // 针对样式：std, simple
             .genTweaks() when not (@style = modern) {
-                background: var(--db) var(--d-bi);
+                background: transparent;
             }
             // 针对样式：modern
             .genTweaks() when (@style = modern) {
@@ -767,320 +799,568 @@
     }
 }
 
-// 主题中指定仅支持 Light Mode 时，生成对应的 CSS 变量
-.genOnlyLightMode() when (isdefined(@onlyLightMode)) {
+// 颜色外观模式：auto，light，dark
+:root {
+    --thm-color-scheme: @thmColorScheme;
+}
+.genLightModeStyle() when (@thmColorScheme = auto), (@thmColorScheme = light) {
     :root {
-        --v-only-light-mode: true; // 对应的插件变量 gOnlyLightMode
+        // --------------------
+        // 针对 #Color_Scheme
+        // 实际应用的颜色变量（自动适配 Color Scheme）
+
+        --v-color-scheme: light; // 默认颜色模式为：Light 明亮
+
+        --v-invert-dark: var(--v-invert-dark-lg); // 默认的图片滤镜
+        --v-cover-dark: var(--v-cover-dark-lg); // 默认的封面、封底滤镜
+        --v-selected-c: var(--v-selected-c-lg);
+
+        --thm-fav: var(--thm-fav-lg);
+
+        --db: var(--db-lg);
+        --db-ext: var(--db-ext-lg);
+        --d-cb: var(--d-cb-lg);
+        --db-r: var(--db-r-lg);
+        --db-g: var(--db-g-lg);
+        --db-b: var(--db-b-lg);
+        --df-r: var(--df-r-lg);
+        --df-g: var(--df-g-lg);
+        --df-b: var(--df-b-lg);
+        --d-bi: var(--d-bi-lg);
+        --df: var(--df-lg);
+        --df-a: var(--df-a-lg);
+
+        --pn-c: var(--pn-c-lg);
+        --pn-c-a: var(--pn-c-a-lg);
+        --pn-r: var(--pn-r-lg);
+        --pn-g: var(--pn-g-lg);
+        --pn-b: var(--pn-b-lg);
+        --bq-bg: var(--bq-bg-lg);
+        --bq-bg-fd: var(--bq-bg-fd-lg);
+
+        --a-c: var(--a-c-lg);
+        --a-o-c: var(--a-o-c-lg);
+        --mark-bg: var(--mark-bg-lg);
+        --tbl-row-g-alpha: var(--tbl-row-g-alpha-lg);
+        --toc-h-num-c: var(--toc-h-num-c-lg);
+        --h-f: var(--h-f-lg);
+        --h-box-sd: var(--h-box-sd-lg);
+        --h-bg-start: var(--h-bg-start-lg);
+        --h-bg-end: var(--h-bg-end-lg);
+        --code-bg: var(--code-bg-lg);
+        --code-t: var(--code-t-lg);
+        --std-code-sd: var(--std-code-sd-lg);
+        --rb-code-sd: var(--rb-code-sd-lg);
+        --v-ui-bg: var(--v-ui-bg-lg);
+        --v-btn-bg: var(--v-btn-bg-lg);
+
+        // 按钮类外阴影
+        --v-fl-sd: var(--v-fl-sd-lg);
+        // 按钮类边框
+        --v-fl-bd: var(--v-fl-bd-lg);
+
+        // 代码块背景图
+        --c-blk-bg: var(--c-blk-bg-lg);
+
+        // 图片的非网格背景
+        --fig-solid-bg: var(--fig-solid-bg-lg);
+        // 图片的线状网格背景（线状、块状)
+        --v-fig-grid-l: var(--v-fig-grid-l-lg);
+        --v-fig-grid-b: var(--v-fig-grid-b-lg);
+        // 针对 Dark Mode 时反色的图片网格背景
+        --v-fig-grid-l-invert: var(--v-fig-grid-l-invert-lg);
+        --v-fig-grid-b-invert: var(--v-fig-grid-b-invert-lg);
+
+        // 键帽样式
+        --kbd-c: var(--kbd-c-lg);
+        --kbd-bg: var(--kbd-bg-lg);
+        --kbd-shd: var(--kbd-shd-lg);
+        --kbd-pd: var(--kbd-pd-lg);
+
+        --doc-sd: var(--doc-sd-lg);
+        --img-bd-invert: var(--img-bd-invert-lg);
+
+        // 光标
+        --cur-ptr: var(--cur-ptr-lg);
+        --cur-copy: var(--cur-copy-lg);
+        --cur-ptr-text: var(--cur-ptr-text-lg);
+        --cur-laser: var(--cur-laser-lg);
+        --cur-mix: var(--cur-mix-lg);
+        --cur-doclib: var(--cur-doclib-lg);
+        --cur-http: var(--cur-http-lg);
+        --cur-https: var(--cur-https-lg);
+        --cur-email: var(--cur-email-lg);
+        --cur-risk: var(--cur-risk-lg);
+        --cur-inner: var(--cur-inner-lg);
+        --cur-full-screen: var(--cur-full-screen-lg);
+
+        --ac-rd: var(--ac-rd-lg);
+        --ac-rd-a: var(--ac-rd-a-lg);
+        --ac-rd-fd: var(--ac-rd-fd-lg);
+        --ac-rd-tt: var(--ac-rd-tt-lg);
+        --ac-og: var(--ac-og-lg);
+        --ac-og-a: var(--ac-og-a-lg);
+        --ac-og-fd: var(--ac-og-fd-lg);
+        --ac-og-tt: var(--ac-og-tt-lg);
+        --ac-tu: var(--ac-tu-lg);
+        --ac-tu-a: var(--ac-tu-a-lg);
+        --ac-tu-fd: var(--ac-tu-fd-lg);
+        --ac-tu-tt: var(--ac-tu-tt-lg);
+        --ac-tu: var(--ac-tu-lg);
+        --ac-tu-a: var(--ac-tu-a-lg);
+        --ac-tu-fd: var(--ac-tu-fd-lg);
+        --ac-tu-tt: var(--ac-tu-tt-lg);
+        --ac-ye: var(--ac-ye-lg);
+        --ac-ye-a: var(--ac-ye-a-lg);
+        --ac-ye-fd: var(--ac-ye-fd-lg);
+        --ac-ye-tt: var(--ac-ye-tt-lg);
+        --ac-lm: var(--ac-lm-lg);
+        --ac-lm-a: var(--ac-lm-a-lg);
+        --ac-lm-fd: var(--ac-lm-fd-lg);
+        --ac-lm-tt: var(--ac-lm-tt-lg);
+        --ac-gn: var(--ac-gn-lg);
+        --ac-gn-a: var(--ac-gn-a-lg);
+        --ac-gn-fd: var(--ac-gn-fd-lg);
+        --ac-gn-tt: var(--ac-gn-tt-lg);
+        --ac-mn: var(--ac-mn-lg);
+        --ac-mn-a: var(--ac-mn-a-lg);
+        --ac-mn-fd: var(--ac-mn-fd-lg);
+        --ac-mn-tt: var(--ac-mn-tt-lg);
+        --ac-ol: var(--ac-ol-lg);
+        --ac-ol-a: var(--ac-ol-a-lg);
+        --ac-ol-fd: var(--ac-ol-fd-lg);
+        --ac-ol-tt: var(--ac-ol-tt-lg);
+        --ac-wn: var(--ac-wn-lg);
+        --ac-wn-a: var(--ac-wn-a-lg);
+        --ac-wn-fd: var(--ac-wn-fd-lg);
+        --ac-wn-tt: var(--ac-wn-tt-lg);
+        --ac-aq: var(--ac-aq-lg);
+        --ac-aq-a: var(--ac-aq-a-lg);
+        --ac-aq-fd: var(--ac-aq-fd-lg);
+        --ac-aq-tt: var(--ac-aq-tt-lg);
+        --ac-sk: var(--ac-sk-lg);
+        --ac-sk-a: var(--ac-sk-a-lg);
+        --ac-sk-fd: var(--ac-sk-fd-lg);
+        --ac-sk-tt: var(--ac-sk-tt-lg);
+        --ac-cy: var(--ac-cy-lg);
+        --ac-cy-a: var(--ac-cy-a-lg);
+        --ac-cy-fd: var(--ac-cy-fd-lg);
+        --ac-cy-tt: var(--ac-cy-tt-lg);
+        --ac-bu: var(--ac-bu-lg);
+        --ac-bu-a: var(--ac-bu-a-lg);
+        --ac-bu-fd: var(--ac-bu-fd-lg);
+        --ac-bu-tt: var(--ac-bu-tt-lg);
+        --ac-se: var(--ac-se-lg);
+        --ac-se-a: var(--ac-se-a-lg);
+        --ac-se-fd: var(--ac-se-fd-lg);
+        --ac-se-tt: var(--ac-se-tt-lg);
+        --ac-la: var(--ac-la-lg);
+        --ac-la-a: var(--ac-la-a-lg);
+        --ac-la-fd: var(--ac-la-fd-lg);
+        --ac-la-tt: var(--ac-la-tt-lg);
+        --ac-vn: var(--ac-vn-lg);
+        --ac-vn-a: var(--ac-vn-a-lg);
+        --ac-vn-fd: var(--ac-vn-fd-lg);
+        --ac-vn-tt: var(--ac-vn-tt-lg);
+        --ac-cf: var(--ac-cf-lg);
+        --ac-cf-a: var(--ac-cf-a-lg);
+        --ac-cf-fd: var(--ac-cf-fd-lg);
+        --ac-cf-tt: var(--ac-cf-tt-lg);
+        --ac-au: var(--ac-au-lg);
+        --ac-au-a: var(--ac-au-a-lg);
+        --ac-au-fd: var(--ac-au-fd-lg);
+        --ac-au-tt: var(--ac-au-tt-lg);
+        --ac-pu: var(--ac-pu-lg);
+        --ac-pu-a: var(--ac-pu-a-lg);
+        --ac-pu-fd: var(--ac-pu-fd-lg);
+        --ac-pu-tt: var(--ac-pu-tt-lg);
+        --ac-ro: var(--ac-ro-lg);
+        --ac-ro-a: var(--ac-ro-a-lg);
+        --ac-ro-fd: var(--ac-ro-fd-lg);
+        --ac-ro-tt: var(--ac-ro-tt-lg);
+        --ac-pl: var(--ac-pl-lg);
+        --ac-pl-a: var(--ac-pl-a-lg);
+        --ac-pl-fd: var(--ac-pl-fd-lg);
+        --ac-pl-tt: var(--ac-pl-tt-lg);
+        --ac-pk: var(--ac-pk-lg);
+        --ac-pk-a: var(--ac-pk-a-lg);
+        --ac-pk-fd: var(--ac-pk-fd-lg);
+        --ac-pk-tt: var(--ac-pk-tt-lg);
+        --ac-gd: var(--ac-gd-lg);
+        --ac-gd-a: var(--ac-gd-a-lg);
+        --ac-gd-fd: var(--ac-gd-fd-lg);
+        --ac-gd-tt: var(--ac-gd-tt-lg);
+        --ac-bn: var(--ac-bn-lg);
+        --ac-bn-a: var(--ac-bn-a-lg);
+        --ac-bn-fd: var(--ac-bn-fd-lg);
+        --ac-bn-tt: var(--ac-bn-tt-lg);
+        --ac-gy: var(--ac-gy-lg);
+        --ac-gy-a: var(--ac-gy-a-lg);
+        --ac-gy-fd: var(--ac-gy-fd-lg);
+        --ac-gy-tt: var(--ac-gy-tt-lg);
+        --ac-wt: var(--ac-wt-lg);
+        --ac-wt-a: var(--ac-wt-a-lg);
+        --ac-wt-fd: var(--ac-wt-fd-lg);
+        --ac-wt-tt: var(--ac-wt-tt-lg);
+        --ac-bk: var(--ac-bk-lg);
+        --ac-bk-a: var(--ac-bk-a-lg);
+        --ac-bk-fd: var(--ac-bk-fd-lg);
+        --ac-bk-tt: var(--ac-bk-tt-lg);
+        --ac-t1: var(--ac-t1-lg);
+        --ac-t1-a: var(--ac-t1-a-lg);
+        --ac-t1-fd: var(--ac-t1-fd-lg);
+        --ac-t1-tt: var(--ac-t1-tt-lg);
+        --ac-t2: var(--ac-t2-lg);
+        --ac-t2-a: var(--ac-t2-a-lg);
+        --ac-t2-fd: var(--ac-t2-fd-lg);
+        --ac-t2-tt: var(--ac-t2-tt-lg);
+
+        // 针对 fade for light
+        // --ac-gd-fd-bd-lg: fade(@accGd, @accOpacityHighForLg);
+        // --ac-pl-fd-bd-lg: fade(@accPl, @accOpacityHighForLg);
+        // --ac-pk-fd-bd-lg: fade(@accPk, @accOpacityHighForLg);
+        // --ac-ye-fd-bd-lg: fade(@accYe, @accOpacityHighForLg);
+        // --ac-lm-fd-bd-lg: fade(@accLm, @accOpacityHighForLg);
+        // --ac-aq-fd-bd-lg: fade(@accAq, @accOpacityHighForLg);
+        // --ac-sk-fd-bd-lg: fade(@accSk, @accOpacityHighForLg);
+        // --ac-la-fd-bd-lg: fade(@accLa, @accOpacityHighForLg);
+
+        // --ac-bn-fd-bd-lg: fade(@accBn, @accOpacityMiddleForLg);
+        // --ac-ro-fd-bd-lg: fade(@accRo, @accOpacityMiddleForLg);
+        // --ac-rd-fd-bd-lg: fade(@accRd, @accOpacityMiddleForLg);
+        // --ac-og-fd-bd-lg: fade(@accOg, @accOpacityHighForLg);
+        // --ac-tu-fd-bd-lg: fade(@accTu, @accOpacityHighForLg);
+        // --ac-gn-fd-bd-lg: fade(@accGn, @accOpacityMiddleForLg);
+        // --ac-cy-fd-bd-lg: fade(@accCy, @accOpacityMiddleForLg);
+        // --ac-bu-fd-bd-lg: fade(@accBu, @accOpacityMiddleForLg);
+        // --ac-vn-fd-bd-lg: fade(@accVn, @accOpacityMiddleForLg);
+        // --ac-gy-fd-bd-lg: fade(@accGy, @accOpacityMiddleForLg);
+
+        // --ac-cf-fd-bd-lg: fade(@accCf, @accOpacityLowForLg);
+        // --ac-au-fd-bd-lg: fade(@accAu, @accOpacityLowForLg);
+        // --ac-pu-fd-bd-lg: fade(@accPu, @accOpacityLowForLg);
+        // --ac-wn-fd-bd-lg: fade(@accWn, @accOpacityLowForLg);
+        // --ac-ol-fd-bd-lg: fade(@accOl, @accOpacityLowForLg);
+        // --ac-mn-fd-bd-lg: fade(@accMn, @accOpacityLowForLg);
+        // --ac-se-fd-bd-lg: fade(@accSe, @accOpacityLowForLg);
+        // --ac-wt-fd-bd-lg: fade(@accWt, @accOpacityHighForLg);
+        // --ac-bk-fd-bd-lg: fade(@accBk, @accOpacityLowForLg);
+
+        // --ac-t1-fd-bd-lg: @theme1Fade;
+        // --ac-t2-fd-bd-lg: @theme2Fade;
+
+        // ---
+        // --btn-reflect-lg: rgba(255, 255, 255, 0.4);
+        --btn-reflect: var(--btn-reflect-lg);
+        --btn-shadow: var(--btn-shadow-lg);
+        --btn-raised: var(--btn-raised-lg);
     }
 }
-.genOnlyLightMode();
+.genLightModeStyle();
 
-// 主题中没有指定仅支持 Light Mode 时，生成针对 Dark Mode的配置
-.genDarkModeStyle() when not (isdefined(@onlyLightMode)) {
+// 生成将 CSS 变量指定为 Dark Mode 的样式
+.genDarkModeVars() {
+    :root {
+        --v-color-scheme: dark;
+
+        --v-invert-dark: var(--v-invert-dark-dk); // 用于 Dark Mode下图片滤镜
+        --v-cover-dark: var(--v-cover-dark-dk); // 用于 Dark Mode下封面、封底滤镜
+        --v-selected-c: var(--v-selected-c-dk);
+
+        --thm-fav: var(--thm-fav-dk);
+
+        // --------------------
+        // 颜色变量
+        --db: var(--db-dk);
+        --db-ext: var(--db-ext-dk);
+        --d-cb: var(--d-cb-dk);
+        --db-r: var(--db-r-dk);
+        --db-g: var(--db-g-dk);
+        --db-b: var(--db-b-dk);
+        --df-r: var(--df-r-dk);
+        --df-g: var(--df-g-dk);
+        --df-b: var(--df-b-dk);
+        --d-bi: var(--d-bi-dk);
+        --df: var(--df-dk);
+        --df-a: var(--df-a-dk);
+
+        --pn-c: var(--pn-c-dk);
+        --pn-c-a: var(--pn-c-a-dk);
+        --pn-r: var(--pn-r-dk);
+        --pn-g: var(--pn-g-dk);
+        --pn-b: var(--pn-b-dk);
+        --bq-bg: var(--bq-bg-dk);
+        --bq-bg-fd: var(--bq-bg-fd-dk);
+
+        --a-c: var(--a-c-dk);
+        --a-o-c: var(--a-o-c-dk);
+        --mark-bg: var(--mark-bg-dk);
+        --tbl-row-g-alpha: var(--tbl-row-g-alpha-dk);
+        --toc-h-num-c: var(--toc-h-num-c-dk);
+        --h-f: var(--h-f-dk);
+        --h-box-sd: var(--h-box-sd-dk);
+        --h-bg-start: var(--h-bg-start-dk);
+        --h-bg-end: var(--h-bg-end-dk);
+        --code-bg: var(--code-bg-dk);
+        --code-t: var(--code-t-dk);
+        --std-code-sd: var(--std-code-sd-dk);
+        --rb-code-sd: var(--rb-code-sd-dk);
+        --v-ui-bg: var(--v-ui-bg-dk);
+        --v-btn-bg: var(--v-btn-bg-dk);
+
+        --v-fl-sd: var(--v-fl-sd-dk);
+        --v-fl-bd: var(--v-fl-bd-dk);
+
+        --c-blk-bg: var(--c-blk-bg-dk);
+
+        --fig-solid-bg: var(--fig-solid-bg-dk);
+
+        --v-fig-grid-l: var(--v-fig-grid-l-dk);
+        --v-fig-grid-b: var(--v-fig-grid-b-dk);
+
+        --v-fig-grid-l-invert: var(--v-fig-grid-l-invert-dk);
+        --v-fig-grid-b-invert: var(--v-fig-grid-b-invert-dk);
+
+        // 键帽样式
+        --kbd-c: var(--kbd-c-dk);
+        --kbd-bg: var(--kbd-bg-dk);
+        --kbd-shd: var(--kbd-shd-dk);
+        --kbd-pd: var(--kbd-pd-dk);
+
+        --doc-sd: var(--doc-sd-dk);
+        --img-bd-invert: var(--img-bd-invert-dk);
+
+        --cur-ptr: var(--cur-ptr-dk);
+        --cur-copy: var(--cur-copy-dk);
+        --cur-ptr-text: var(--cur-ptr-text-dk);
+        --cur-laser: var(--cur-laser-dk);
+        --cur-mix: var(--cur-mix-dk);
+        --cur-doclib: var(--cur-doclib-dk);
+        --cur-http: var(--cur-http-dk);
+        --cur-https: var(--cur-https-dk);
+        --cur-email: var(--cur-email-dk);
+        --cur-risk: var(--cur-risk-dk);
+        --cur-inner: var(--cur-inner-dk);
+        --cur-full-screen: var(--cur-full-screen-dk);
+
+        --ac-rd: var(--ac-rd-dk);
+        --ac-rd-a: var(--ac-rd-a-dk);
+        --ac-rd-fd: var(--ac-rd-fd-dk);
+        --ac-rd-tt: var(--ac-rd-tt-dk);
+        --ac-og: var(--ac-og-dk);
+        --ac-og-a: var(--ac-og-a-dk);
+        --ac-og-fd: var(--ac-og-fd-dk);
+        --ac-og-tt: var(--ac-og-tt-dk);
+        --ac-tu: var(--ac-tu-dk);
+        --ac-tu-a: var(--ac-tu-a-dk);
+        --ac-tu-fd: var(--ac-tu-fd-dk);
+        --ac-tu-tt: var(--ac-tu-tt-dk);
+        --ac-ye: var(--ac-ye-dk);
+        --ac-ye-a: var(--ac-ye-a-dk);
+        --ac-ye-fd: var(--ac-ye-fd-dk);
+        --ac-ye-tt: var(--ac-ye-tt-dk);
+        --ac-lm: var(--ac-lm-dk);
+        --ac-lm-a: var(--ac-lm-a-dk);
+        --ac-lm-fd: var(--ac-lm-fd-dk);
+        --ac-lm-tt: var(--ac-lm-tt-dk);
+        --ac-gn: var(--ac-gn-dk);
+        --ac-gn-a: var(--ac-gn-a-dk);
+        --ac-gn-fd: var(--ac-gn-fd-dk);
+        --ac-gn-tt: var(--ac-gn-tt-dk);
+        --ac-mn: var(--ac-mn-dk);
+        --ac-mn-a: var(--ac-mn-a-dk);
+        --ac-mn-fd: var(--ac-mn-fd-dk);
+        --ac-mn-tt: var(--ac-mn-tt-dk);
+        --ac-ol: var(--ac-ol-dk);
+        --ac-ol-a: var(--ac-ol-a-dk);
+        --ac-ol-fd: var(--ac-ol-fd-dk);
+        --ac-ol-tt: var(--ac-ol-tt-dk);
+        --ac-wn: var(--ac-wn-dk);
+        --ac-wn-a: var(--ac-wn-a-dk);
+        --ac-wn-fd: var(--ac-wn-fd-dk);
+        --ac-wn-tt: var(--ac-wn-tt-dk);
+        --ac-aq: var(--ac-aq-dk);
+        --ac-aq-a: var(--ac-aq-a-dk);
+        --ac-aq-fd: var(--ac-aq-fd-dk);
+        --ac-aq-tt: var(--ac-aq-tt-dk);
+        --ac-sk: var(--ac-sk-dk);
+        --ac-sk-a: var(--ac-sk-a-dk);
+        --ac-sk-fd: var(--ac-sk-fd-dk);
+        --ac-sk-tt: var(--ac-sk-tt-dk);
+        --ac-cy: var(--ac-cy-dk);
+        --ac-cy-a: var(--ac-cy-a-dk);
+        --ac-cy-fd: var(--ac-cy-fd-dk);
+        --ac-cy-tt: var(--ac-cy-tt-dk);
+        --ac-bu: var(--ac-bu-dk);
+        --ac-bu-a: var(--ac-bu-a-dk);
+        --ac-bu-fd: var(--ac-bu-fd-dk);
+        --ac-bu-tt: var(--ac-bu-tt-dk);
+        --ac-se: var(--ac-se-dk);
+        --ac-se-a: var(--ac-se-a-dk);
+        --ac-se-fd: var(--ac-se-fd-dk);
+        --ac-se-tt: var(--ac-se-tt-dk);
+        --ac-la: var(--ac-la-dk);
+        --ac-la-a: var(--ac-la-a-dk);
+        --ac-la-fd: var(--ac-la-fd-dk);
+        --ac-la-tt: var(--ac-la-tt-dk);
+        --ac-vn: var(--ac-vn-dk);
+        --ac-vn-a: var(--ac-vn-a-dk);
+        --ac-vn-fd: var(--ac-vn-fd-dk);
+        --ac-vn-tt: var(--ac-vn-tt-dk);
+        --ac-cf: var(--ac-cf-dk);
+        --ac-cf-a: var(--ac-cf-a-dk);
+        --ac-cf-fd: var(--ac-cf-fd-dk);
+        --ac-cf-tt: var(--ac-cf-tt-dk);
+        --ac-cf: var(--ac-cf-dk);
+        --ac-cf-a: var(--ac-cf-a-dk);
+        --ac-cf-fd: var(--ac-cf-fd-dk);
+        --ac-cf-tt: var(--ac-cf-tt-dk);
+        --ac-au: var(--ac-au-dk);
+        --ac-au-a: var(--ac-au-a-dk);
+        --ac-au-fd: var(--ac-au-fd-dk);
+        --ac-au-tt: var(--ac-au-tt-dk);
+        --ac-pu: var(--ac-pu-dk);
+        --ac-pu-a: var(--ac-pu-a-dk);
+        --ac-pu-fd: var(--ac-pu-fd-dk);
+        --ac-pu-tt: var(--ac-pu-tt-dk);
+        --ac-ro: var(--ac-ro-dk);
+        --ac-ro-a: var(--ac-ro-a-dk);
+        --ac-ro-fd: var(--ac-ro-fd-dk);
+        --ac-ro-tt: var(--ac-ro-tt-dk);
+        --ac-pl: var(--ac-pl-dk);
+        --ac-pl-a: var(--ac-pl-a-dk);
+        --ac-pl-fd: var(--ac-pl-fd-dk);
+        --ac-pl-tt: var(--ac-pl-tt-dk);
+        --ac-pk: var(--ac-pk-dk);
+        --ac-pk-a: var(--ac-pk-a-dk);
+        --ac-pk-fd: var(--ac-pk-fd-dk);
+        --ac-pk-tt: var(--ac-pk-tt-dk);
+        --ac-gd: var(--ac-gd-dk);
+        --ac-gd-a: var(--ac-gd-a-dk);
+        --ac-gd-fd: var(--ac-gd-fd-dk);
+        --ac-gd-tt: var(--ac-gd-tt-dk);
+        --ac-bn: var(--ac-bn-dk);
+        --ac-bn-a: var(--ac-bn-a-dk);
+        --ac-bn-fd: var(--ac-bn-fd-dk);
+        --ac-bn-tt: var(--ac-bn-tt-dk);
+        --ac-gy: var(--ac-gy-dk);
+        --ac-gy-a: var(--ac-gy-a-dk);
+        --ac-gy-fd: var(--ac-gy-fd-dk);
+        --ac-gy-tt: var(--ac-gy-tt-dk);
+        --ac-wt: var(--ac-wt-dk);
+        --ac-wt-a: var(--ac-wt-a-dk);
+        --ac-wt-fd: var(--ac-wt-fd-dk);
+        --ac-wt-tt: var(--ac-wt-tt-dk);
+        --ac-bk: var(--ac-bk-dk);
+        --ac-bk-a: var(--ac-bk-a-dk);
+        --ac-bk-fd: var(--ac-bk-fd-dk);
+        --ac-bk-tt: var(--ac-bk-tt-dk);
+        --ac-t1: var(--ac-t1-dk);
+        --ac-t1-a: var(--ac-t1-a-dk);
+        --ac-t1-fd: var(--ac-t1-fd-dk);
+        --ac-t1-tt: var(--ac-t1-tt-dk);
+        --ac-t2: var(--ac-t2-dk);
+        --ac-t2-a: var(--ac-t2-a-dk);
+        --ac-t2-fd: var(--ac-t2-fd-dk);
+        --ac-t2-tt: var(--ac-t2-tt-dk);
+
+        // ---
+
+        --ac-gd-fd-bd: var(--ac-gd-fd-bd-dk);
+        --ac-pl-fd-bd: var(--ac-pl-fd-bd-dk);
+        --ac-pk-fd-bd: var(--ac-pk-fd-bd-dk);
+        --ac-ye-fd-bd: var(--ac-ye-fd-bd-dk);
+        --ac-lm-fd-bd: var(--ac-lm-fd-bd-dk);
+        --ac-aq-fd-bd: var(--ac-aq-fd-bd-dk);
+        --ac-sk-fd-bd: var(--ac-sk-fd-bd-dk);
+        --ac-la-fd-bd: var(--ac-la-fd-bd-dk);
+
+        --ac-bn-fd-bd: var(--ac-bn-fd-bd-dk);
+        --ac-ro-fd-bd: var(--ac-ro-fd-bd-dk);
+        --ac-rd-fd-bd: var(--ac-rd-fd-bd-dk);
+        --ac-og-fd-bd: var(--ac-og-fd-bd-dk);
+        --ac-tu-fd-bd: var(--ac-tu-fd-bd-dk);
+        --ac-gn-fd-bd: var(--ac-gn-fd-bd-dk);
+        --ac-cy-fd-bd: var(--ac-cy-fd-bd-dk);
+        --ac-bu-fd-bd: var(--ac-bu-fd-bd-dk);
+        --ac-vn-fd-bd: var(--ac-vn-fd-bd-dk);
+        --ac-gy-fd-bd: var(--ac-gy-fd-bd-dk);
+
+        --ac-cf-fd-bd: var(--ac-cf-fd-bd-dk);
+        --ac-au-fd-bd: var(--ac-au-fd-bd-dk);
+        --ac-pu-fd-bd: var(--ac-pu-fd-bd-dk);
+        --ac-wn-fd-bd: var(--ac-wn-fd-bd-dk);
+        --ac-ol-fd-bd: var(--ac-ol-fd-bd-dk);
+        --ac-mn-fd-bd: var(--ac-mn-fd-bd-dk);
+        --ac-se-fd-bd: var(--ac-se-fd-bd-dk);
+        --ac-wt-fd-bd: var(--ac-wt-fd-bd-dk);
+        --ac-bk-fd-bd: var(--ac-bk-fd-bd-dk);
+
+        --ac-t1-fd-bd: var(--ac-t1-fd-bd-dk);
+        --ac-t2-fd-bd: var(--ac-t2-fd-bd-dk);
+
+        // ---
+        --btn-reflect: var(--btn-reflect-dk);
+        --btn-shadow: var(--btn-shadow-dk);
+        --btn-raised: var(--btn-raised-dk);
+
+        // 针对 Typora 代码块着色样式变量
+        --cm-keyword: var(--cm-keyword-dk);
+        --cm-variable: var(--cm-variable-dk);
+        --cm-variable-2: var(--cm-variable-2-dk);
+        --cm-variable-3: var(--cm-variable-3-dk);
+        --cm-tag: var(--cm-tag-dk);
+        --cm-attribute: var(--cm-attribute-dk);
+        --cm-string: var(--cm-string-dk);
+        --cm-string-2: var(--cm-string-2-dk);
+        --cm-comment: var(--cm-comment-dk);
+        --cm-header: var(--cm-header-dk);
+        --cm-quote: var(--cm-quote-dk);
+        --cm-hr: var(--cm-hr-dk);
+        --cm-link: var(--cm-link-dk);
+        --cm-negative: var(--cm-negative-dk);
+        --cm-positive: var(--cm-positive-dk);
+        --cm-meta: var(--cm-meta-dk);
+        --cm-bulidin: var(--cm-bulidin-dk);
+        --cm-bracket: var(--cm-bracket-dk);
+        --cm-atom: var(--cm-atom-dk);
+        --cm-number: var(--cm-atom-dk);
+
+        // --------------------
+        // 针对 Typora UI 颜色变量
+        --bg-color: var(--db-dk);
+        --side-bar-bg-color: var(--db-dk);
+        --text-color: var(--df-dk);
+
+        --control-text-color: var(--df-dk);
+        --control-text-hover-color: var(--df-dk);
+        --window-border: 1px solid var(--pn-c-dk);
+
+        --active-file-bg-color:  var(--db-dk);
+        --active-file-text-color: var(--df-dk);
+
+        // --item-hover-bg-color: var(--pn-c-dk);
+        // --item-hover-text-color: var(--df-dk);
+
+        --primary-color: @theme1Dark;
+
+        --search-select-bg-color: fade(#888888, 50%);
+    }
+}
+
+// 主题颜色外观为 dark 时，强制启用暗色模式样式
+.genDarkModeStyle() when (@thmColorScheme = dark) {
+    .genDarkModeVars();
+}
+
+// 主题颜色外观为 auto 时，启用跟随系统的暗色模式样式
+.genDarkModeStyle() when (@thmColorScheme = auto) {
     @media (prefers-color-scheme: dark) {
-        :root {
-            --v-color-scheme: dark;
-            --v-invert-dark: var(--v-invert-dark-dk); // 用于 Dark Mode下图片滤镜
-            --v-cover-dark: var(--v-cover-dark-dk); // 用于 Dark Mode下封面、封底滤镜
-            --v-selected-c: var(--v-selected-c-dk);
-
-            --thm-fav: var(--thm-fav-dk);
-
-            // --------------------
-            // 颜色变量
-            --db: var(--db-dk);
-            --db-ext: var(--db-ext-dk);
-            --d-cb: var(--d-cb-dk);
-            --db-r: var(--db-r-dk);
-            --db-g: var(--db-g-dk);
-            --db-b: var(--db-b-dk);
-            --df-r: var(--df-r-dk);
-            --df-g: var(--df-g-dk);
-            --df-b: var(--df-b-dk);
-            --d-bi: var(--d-bi-dk);
-            --df: var(--df-dk);
-            --df-a: var(--df-a-dk);
-
-            --pn-c: var(--pn-c-dk);
-            --pn-c-a: var(--pn-c-a-dk);
-            --pn-r: var(--pn-r-dk);
-            --pn-g: var(--pn-g-dk);
-            --pn-b: var(--pn-b-dk);
-            --bq-bg: var(--bq-bg-dk);
-            --bq-bg-fd: var(--bq-bg-fd-dk);
-
-            --a-c: var(--a-c-dk);
-            --a-o-c: var(--a-o-c-dk);
-            --mark-bg: var(--mark-bg-dk);
-            --tbl-row-g-alpha: var(--tbl-row-g-alpha-dk);
-            --toc-h-num-c: var(--toc-h-num-c-dk);
-            --h-f: var(--h-f-dk);
-            --h-box-sd: var(--h-box-sd-dk);
-            --h-bg-start: var(--h-bg-start-dk);
-            --h-bg-end: var(--h-bg-end-dk);
-            --code-bg: var(--code-bg-dk);
-            --code-t: var(--code-t-dk);
-            --std-code-sd: var(--std-code-sd-dk);
-            --rb-code-sd: var(--rb-code-sd-dk);
-            --v-ui-bg: var(--v-ui-bg-dk);
-            --v-btn-bg: var(--v-btn-bg-dk);
-
-            --v-fl-sd: var(--v-fl-sd-dk);
-            // --v-fl-i-sd: var(--v-fl-i-sd-dk);
-            --v-fl-bd: var(--v-fl-bd-dk);
-
-            --c-blk-bg: var(--c-blk-bg-dk);
-
-            --fig-solid-bg: var(--fig-solid-bg-dk);
-
-            --v-fig-grid-l: var(--v-fig-grid-l-dk);
-            --v-fig-grid-b: var(--v-fig-grid-b-dk);
-
-            --v-fig-grid-l-invert: var(--v-fig-grid-l-invert-dk);
-            --v-fig-grid-b-invert: var(--v-fig-grid-b-invert-dk);
-
-            // 键帽样式
-            --kbd-c: var(--kbd-c-dk);
-            --kbd-bg: var(--kbd-bg-dk);
-            --kbd-shd: var(--kbd-shd-dk);
-            --kbd-pd: var(--kbd-pd-dk);
-
-            --doc-sd: var(--doc-sd-dk);
-            --img-bd-invert: var(--img-bd-invert-dk);
-
-            --cur-ptr: var(--cur-ptr-dk);
-            --cur-copy: var(--cur-copy-dk);
-            --cur-ptr-text: var(--cur-ptr-text-dk);
-            --cur-laser: var(--cur-laser-dk);
-            --cur-mix: var(--cur-mix-dk);
-            --cur-doclib: var(--cur-doclib-dk);
-            --cur-http: var(--cur-http-dk);
-            --cur-https: var(--cur-https-dk);
-            --cur-email: var(--cur-email-dk);
-            --cur-risk: var(--cur-risk-dk);
-            --cur-inner: var(--cur-inner-dk);
-            --cur-full-screen: var(--cur-full-screen-dk);
-
-            --ac-rd: var(--ac-rd-dk);
-            --ac-rd-a: var(--ac-rd-a-dk);
-            --ac-rd-fd: var(--ac-rd-fd-dk);
-            --ac-rd-tt: var(--ac-rd-tt-dk);
-            --ac-og: var(--ac-og-dk);
-            --ac-og-a: var(--ac-og-a-dk);
-            --ac-og-fd: var(--ac-og-fd-dk);
-            --ac-og-tt: var(--ac-og-tt-dk);
-            --ac-tu: var(--ac-tu-dk);
-            --ac-tu-a: var(--ac-tu-a-dk);
-            --ac-tu-fd: var(--ac-tu-fd-dk);
-            --ac-tu-tt: var(--ac-tu-tt-dk);
-            --ac-ye: var(--ac-ye-dk);
-            --ac-ye-a: var(--ac-ye-a-dk);
-            --ac-ye-fd: var(--ac-ye-fd-dk);
-            --ac-ye-tt: var(--ac-ye-tt-dk);
-            --ac-lm: var(--ac-lm-dk);
-            --ac-lm-a: var(--ac-lm-a-dk);
-            --ac-lm-fd: var(--ac-lm-fd-dk);
-            --ac-lm-tt: var(--ac-lm-tt-dk);
-            --ac-gn: var(--ac-gn-dk);
-            --ac-gn-a: var(--ac-gn-a-dk);
-            --ac-gn-fd: var(--ac-gn-fd-dk);
-            --ac-gn-tt: var(--ac-gn-tt-dk);
-            --ac-mn: var(--ac-mn-dk);
-            --ac-mn-a: var(--ac-mn-a-dk);
-            --ac-mn-fd: var(--ac-mn-fd-dk);
-            --ac-mn-tt: var(--ac-mn-tt-dk);
-            --ac-ol: var(--ac-ol-dk);
-            --ac-ol-a: var(--ac-ol-a-dk);
-            --ac-ol-fd: var(--ac-ol-fd-dk);
-            --ac-ol-tt: var(--ac-ol-tt-dk);
-            --ac-wn: var(--ac-wn-dk);
-            --ac-wn-a: var(--ac-wn-a-dk);
-            --ac-wn-fd: var(--ac-wn-fd-dk);
-            --ac-wn-tt: var(--ac-wn-tt-dk);
-            --ac-aq: var(--ac-aq-dk);
-            --ac-aq-a: var(--ac-aq-a-dk);
-            --ac-aq-fd: var(--ac-aq-fd-dk);
-            --ac-aq-tt: var(--ac-aq-tt-dk);
-            --ac-sk: var(--ac-sk-dk);
-            --ac-sk-a: var(--ac-sk-a-dk);
-            --ac-sk-fd: var(--ac-sk-fd-dk);
-            --ac-sk-tt: var(--ac-sk-tt-dk);
-            --ac-cy: var(--ac-cy-dk);
-            --ac-cy-a: var(--ac-cy-a-dk);
-            --ac-cy-fd: var(--ac-cy-fd-dk);
-            --ac-cy-tt: var(--ac-cy-tt-dk);
-            --ac-bu: var(--ac-bu-dk);
-            --ac-bu-a: var(--ac-bu-a-dk);
-            --ac-bu-fd: var(--ac-bu-fd-dk);
-            --ac-bu-tt: var(--ac-bu-tt-dk);
-            --ac-se: var(--ac-se-dk);
-            --ac-se-a: var(--ac-se-a-dk);
-            --ac-se-fd: var(--ac-se-fd-dk);
-            --ac-se-tt: var(--ac-se-tt-dk);
-            --ac-la: var(--ac-la-dk);
-            --ac-la-a: var(--ac-la-a-dk);
-            --ac-la-fd: var(--ac-la-fd-dk);
-            --ac-la-tt: var(--ac-la-tt-dk);
-            --ac-vn: var(--ac-vn-dk);
-            --ac-vn-a: var(--ac-vn-a-dk);
-            --ac-vn-fd: var(--ac-vn-fd-dk);
-            --ac-vn-tt: var(--ac-vn-tt-dk);
-            --ac-cf: var(--ac-cf-dk);
-            --ac-cf-a: var(--ac-cf-a-dk);
-            --ac-cf-fd: var(--ac-cf-fd-dk);
-            --ac-cf-tt: var(--ac-cf-tt-dk);
-            --ac-cf: var(--ac-cf-dk);
-            --ac-cf-a: var(--ac-cf-a-dk);
-            --ac-cf-fd: var(--ac-cf-fd-dk);
-            --ac-cf-tt: var(--ac-cf-tt-dk);
-            --ac-au: var(--ac-au-dk);
-            --ac-au-a: var(--ac-au-a-dk);
-            --ac-au-fd: var(--ac-au-fd-dk);
-            --ac-au-tt: var(--ac-au-tt-dk);
-            --ac-pu: var(--ac-pu-dk);
-            --ac-pu-a: var(--ac-pu-a-dk);
-            --ac-pu-fd: var(--ac-pu-fd-dk);
-            --ac-pu-tt: var(--ac-pu-tt-dk);
-            --ac-ro: var(--ac-ro-dk);
-            --ac-ro-a: var(--ac-ro-a-dk);
-            --ac-ro-fd: var(--ac-ro-fd-dk);
-            --ac-ro-tt: var(--ac-ro-tt-dk);
-            --ac-pl: var(--ac-pl-dk);
-            --ac-pl-a: var(--ac-pl-a-dk);
-            --ac-pl-fd: var(--ac-pl-fd-dk);
-            --ac-pl-tt: var(--ac-pl-tt-dk);
-            --ac-pk: var(--ac-pk-dk);
-            --ac-pk-a: var(--ac-pk-a-dk);
-            --ac-pk-fd: var(--ac-pk-fd-dk);
-            --ac-pk-tt: var(--ac-pk-tt-dk);
-            --ac-gd: var(--ac-gd-dk);
-            --ac-gd-a: var(--ac-gd-a-dk);
-            --ac-gd-fd: var(--ac-gd-fd-dk);
-            --ac-gd-tt: var(--ac-gd-tt-dk);
-            --ac-bn: var(--ac-bn-dk);
-            --ac-bn-a: var(--ac-bn-a-dk);
-            --ac-bn-fd: var(--ac-bn-fd-dk);
-            --ac-bn-tt: var(--ac-bn-tt-dk);
-            --ac-gy: var(--ac-gy-dk);
-            --ac-gy-a: var(--ac-gy-a-dk);
-            --ac-gy-fd: var(--ac-gy-fd-dk);
-            --ac-gy-tt: var(--ac-gy-tt-dk);
-            --ac-wt: var(--ac-wt-dk);
-            --ac-wt-a: var(--ac-wt-a-dk);
-            --ac-wt-fd: var(--ac-wt-fd-dk);
-            --ac-wt-tt: var(--ac-wt-tt-dk);
-            --ac-bk: var(--ac-bk-dk);
-            --ac-bk-a: var(--ac-bk-a-dk);
-            --ac-bk-fd: var(--ac-bk-fd-dk);
-            --ac-bk-tt: var(--ac-bk-tt-dk);
-            --ac-t1: var(--ac-t1-dk);
-            --ac-t1-a: var(--ac-t1-a-dk);
-            --ac-t1-fd: var(--ac-t1-fd-dk);
-            --ac-t1-tt: var(--ac-t1-tt-dk);
-            --ac-t2: var(--ac-t2-dk);
-            --ac-t2-a: var(--ac-t2-a-dk);
-            --ac-t2-fd: var(--ac-t2-fd-dk);
-            --ac-t2-tt: var(--ac-t2-tt-dk);
-
-            // ---
-
-            --ac-gd-fd-bd: var(--ac-gd-fd-bd-dk);
-            --ac-pl-fd-bd: var(--ac-pl-fd-bd-dk);
-            --ac-pk-fd-bd: var(--ac-pk-fd-bd-dk);
-            --ac-ye-fd-bd: var(--ac-ye-fd-bd-dk);
-            --ac-lm-fd-bd: var(--ac-lm-fd-bd-dk);
-            --ac-aq-fd-bd: var(--ac-aq-fd-bd-dk);
-            --ac-sk-fd-bd: var(--ac-sk-fd-bd-dk);
-            --ac-la-fd-bd: var(--ac-la-fd-bd-dk);
-
-            --ac-bn-fd-bd: var(--ac-bn-fd-bd-dk);
-            --ac-ro-fd-bd: var(--ac-ro-fd-bd-dk);
-            --ac-rd-fd-bd: var(--ac-rd-fd-bd-dk);
-            --ac-og-fd-bd: var(--ac-og-fd-bd-dk);
-            --ac-tu-fd-bd: var(--ac-tu-fd-bd-dk);
-            --ac-gn-fd-bd: var(--ac-gn-fd-bd-dk);
-            --ac-cy-fd-bd: var(--ac-cy-fd-bd-dk);
-            --ac-bu-fd-bd: var(--ac-bu-fd-bd-dk);
-            --ac-vn-fd-bd: var(--ac-vn-fd-bd-dk);
-            --ac-gy-fd-bd: var(--ac-gy-fd-bd-dk);
-
-            --ac-cf-fd-bd: var(--ac-cf-fd-bd-dk);
-            --ac-au-fd-bd: var(--ac-au-fd-bd-dk);
-            --ac-pu-fd-bd: var(--ac-pu-fd-bd-dk);
-            --ac-wn-fd-bd: var(--ac-wn-fd-bd-dk);
-            --ac-ol-fd-bd: var(--ac-ol-fd-bd-dk);
-            --ac-mn-fd-bd: var(--ac-mn-fd-bd-dk);
-            --ac-se-fd-bd: var(--ac-se-fd-bd-dk);
-            --ac-wt-fd-bd: var(--ac-wt-fd-bd-dk);
-            --ac-bk-fd-bd: var(--ac-bk-fd-bd-dk);
-
-            --ac-t1-fd-bd: var(--ac-t1-fd-bd-dk);
-            --ac-t2-fd-bd: var(--ac-t2-fd-bd-dk);
-
-            // --- 按钮不同样式的高光、阴影参数
-            --btn-reflect: var(--btn-reflect-dk);
-            --btn-shadow: var(--btn-shadow-dk);
-            --btn-raised: var(--btn-raised-dk);
-
-            // 针对 Typora 代码块着色样式变量
-            --cm-keyword: var(--cm-keyword-dk);
-            --cm-variable: var(--cm-variable-dk);
-            --cm-variable-2: var(--cm-variable-2-dk);
-            --cm-variable-3: var(--cm-variable-3-dk);
-            --cm-tag: var(--cm-tag-dk);
-            --cm-attribute: var(--cm-attribute-dk);
-            --cm-string: var(--cm-string-dk);
-            --cm-string-2: var(--cm-string-2-dk);
-            --cm-comment: var(--cm-comment-dk);
-            --cm-header: var(--cm-header-dk);
-            --cm-quote: var(--cm-quote-dk);
-            --cm-hr: var(--cm-hr-dk);
-            --cm-link: var(--cm-link-dk);
-            --cm-negative: var(--cm-negative-dk);
-            --cm-positive: var(--cm-positive-dk);
-            --cm-meta: var(--cm-meta-dk);
-            --cm-bulidin: var(--cm-bulidin-dk);
-            --cm-bracket: var(--cm-bracket-dk);
-            --cm-atom: var(--cm-atom-dk);
-            --cm-number: var(--cm-atom-dk);
-
-            // --------------------
-            // 针对 Typora UI 颜色变量
-            --bg-color: var(--db-dk);
-            --side-bar-bg-color: var(--db-dk);
-            --text-color: var(--df-dk);
-
-            --control-text-color: var(--df-dk);
-            --control-text-hover-color: var(--df-dk);
-            --window-border: 1px solid var(--pn-c-dk);
-
-            --active-file-bg-color:  var(--db-dk);
-            --active-file-text-color: var(--df-dk);
-
-            // --item-hover-bg-color: var(--pn-c-dk);
-            // --item-hover-text-color: var(--df-dk);
-
-            --primary-color: @theme1Dark;
-
-            --search-select-bg-color: fade(#888888, 50%);
-        }
+        .genDarkModeVars();
 
         // 错误图片背景反色
         #write .md-img-error>.md-meta {
             filter: var(--v-invert-dark);
-        }
-
-        // 备注文本
-        .noteText tspan {
-            fill: var(--df-lg);
-        }
-
-        // 代码块内代码区域
-        #write pre.ty-contain-cm .CodeMirror-lines {
-            background-image: var(--c-blk-bg);
-            background-repeat: @codeBlockBackgroundRepeat;
-            background-position: @codeBlockBackgroundPosition;
-            background-size: @codeBlockBackgroundSize;
         }
     }
 }
@@ -1100,7 +1380,7 @@
 
     .v-caption.full.v-backdrop-blurs {
         background: radial-gradient(rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),1) 50%,
-            rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),.9));
+            rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),.8));
     }
 }
 
@@ -1184,7 +1464,7 @@
     .v-chapter-nav,
     .v-toolbar,
     .v-status-bar,
-    .v-content-assistor,
+    .v-content-helper,
     .v-mask,
     .v-link-info-list,
     .v-font-style,
@@ -1263,7 +1543,7 @@
     table {
         white-space: pre-wrap !important;
     }
-    // Mermaid 图表
+    // 针对 Mermaid 图表
     // 【须同步修改 body.print 相关样式】
     .v-caption.mermaid {
         width: 100% !important;
@@ -1332,7 +1612,7 @@ body.print :is(
     .v-chapter-nav,
     .v-toolbar,
     .v-status-bar,
-    .v-content-assistor,
+    .v-content-helper,
     .v-mask,
     .v-link-info-list,
     .v-font-style,
@@ -1353,7 +1633,7 @@ body.print .typora-export-content::before {
 body.print table {
     white-space: pre-wrap !important;
 }
-// Mermaid 图表
+// 针对 Mermaid 图表
 // 【须同步修改 @media print 相关样式】
 body.print .v-caption.mermaid {
     width: 100% !important;

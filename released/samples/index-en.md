@@ -1,10 +1,10 @@
 ---
 title: Introduction - VLOOK™ - Theme Package and Enhancement Plug-In for Typora Markdown Editor
 author: MAX°孟兆
-date: 2026-05-16
+date: 2026-07-25
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: This work is licensed under the MIT License. For details, see the LICENSE file.
-version: V2026.5.1
+version: V2026.7
 vlook-footer: {{title}}<br><br>{{author}}<br>{{date}} ({{version}})<br><br>{{copyright}}<br>{{rights}}
 description: Instructions for downloading, setting up, installing, and configuring VLOOK™
 "og:description": Instructions for downloading, setting up, installing, and configuring VLOOK™
@@ -47,7 +47,7 @@ vlook-doc-lib:
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 ---
 
-###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br><u>──</u><br>Introduction<br>*`V2026.5.1`is the Latest*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
+###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br><u>──</u><br>Introduction<br>*`V2026.7`is the Latest*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 
 [TOC]
 
@@ -55,13 +55,21 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 # What is VLOOK™
 
-![VLOOK™](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#blur!#logo)
 
-<u>![OSChina](pic/oschina.png#icon2x) **A domestically developed open-source product recommended by [OSChina](https://www.oschina.net/p/vlook)**<br>![AtomGit](pic/atomgit.png#icon2x) **[AtomGit](https://atomgit.com/MadMaxChow/VLOOK) G-Star Program Project**.</u>
+
+![Awards](pic/awards.svg?darksrc=awards-dark.svg#logo)
+
+
+
+---
+
+
+
+![VLOOK™](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#blur!#logo)
 
 ==![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** is a **THEME PACK**_~GnRo~_ and **TYPESETTING PLUS**_~PuOg~_ for [Typora](https://typora.io)[^Typora] ,<br>is an open-source software that follows the **MIT License**.==
 
-**[*Editor`Typora`V1.9+*_~Gy~_](https://typoraio.cn)　*License`MIT`*_~Rd~_　*`Keywords`Theme, Plugin*_~Pu~_　*`Supported OS`Windows, macOS, Linux*_~Bu~_**
+**[*Editor`Typora`V1.14+*_~Gy~_](https://typoraio.cn)　*License`MIT`*_~Rd~_　*`Keywords`Theme, Plugin*_~Pu~_　*`Supported OS`Windows, macOS, Linux*_~Bu~_**
 
 **[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK?style=for-the-badge&label=Release&labelColor=04B1CC&color=9A4EE6#logo#round2s)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total?style=for-the-badge&label=Downloads%20(since%20V28.1)&labelColor=04B1CC&color=9A4EE6#logo#round2s)](https://github.com/MadMaxChow/VLOOK/releases)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK?style=for-the-badge&labelColor=04B1CC&color=9A4EE6#logo#round2s)](https://github.com/MadMaxChow/VLOOK/stargazers)**
 
@@ -132,17 +140,17 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 <u>**Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、C＊r、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
 
 ---
 
-> **Your coffee keeps VLOOK™ running ☕️**
+> **Your coffee ☕️ keeps VLOOK™ running**
 >
 > [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo#round)](https://paypal.me/madmaxchow)
 >
 > _~Se~_
 
-> **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
+> **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**
 >
 > ![Donate VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 >
@@ -245,7 +253,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 >
 > > However, a single HTML file may be relatively large, and when maintaining a large number of files, the efficiency of updates and management is lower compared to the online mode. Additionally, access to font style resources may be limited.
 >
-> [Preparation ❯](#preparation)
+> [Prepare ❯](#prepare)
 >
 > [Offline Mode Installation ❯](#offline-mode-installation)
 >
@@ -257,7 +265,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 >
 > > Requires a prepared website (you can also use free overseas Pages services such as those provided by Cloudflare or GitHub).
 >
-> [Preparation ❯](#preparation)
+> [Prepare ❯](#prepare)
 >
 > [Live Mode Installation ❯](#live-mode-installation)
 >
@@ -343,7 +351,7 @@ _^tab^_
 > **Select Theme**
 >
 > 1. Restart Typora
-> 2. Click menu *==Typora ▸ Themes==* , select to `Vlook ***` any topic can be in the form of naming ([Click here to preview the built-in themes](guide3.md#Built-in Template Themes))
+> 2. Click menu *==Typora ▸ Themes==* , select to `Vlook ***` any topic can be in the form of naming ([Click here to preview the built-in themes](guide3-en.md#Built-in Template Themes))
 >
 
 
@@ -475,7 +483,7 @@ _^tab^_
 >
 >    ```CSS
 >    /* replace all <your-host> with your website domain */
->                   
+>                                        
 >    @import 'https://<your-host>/V2026.1/vlook-hope.css';
 >    @import 'https://<your-host>/V2026.1/fs-serif-min.css';
 >    ...
@@ -495,7 +503,7 @@ _^tab^_
 >
 >    ```CSS
 >    /* replace all <your-host> with your website domain */
->                   
+>                                        
 >    @import "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap";@import "https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap";@import "https://<your-host>/V2026.1/fs-serif-min.css";
 >    ...
 >    ```
@@ -606,7 +614,7 @@ If you cannot connect to the Internet or your network is slow, it is recommended
 >
 > _~Gy~_
 
-[<kbd>Visit VLOOK™ Font Style Project</kbd>](https://github.com/MadMaxChow/openfonts/releases/download/V2.1/install-font-V2.1.tar.gz)    *[<kbd>Download directly</kbd>](https://github.com/MadMaxChow/openfonts/releases/download/V2.1/install-font-V2.1.tar.gz)*
+[<kbd>Visit VLOOK™ Font Style Project</kbd>](https://github.com/MadMaxChow/openfonts/releases)    *[<kbd>Download directly</kbd>](https://github.com/MadMaxChow/openfonts/releases/download/V2.1/install-font-V2.1.tar.gz)*
 
 > [!NOTE]
 >
@@ -753,6 +761,10 @@ The content of this section is marked as not published by specifying it in YAML.
 
 # Coming Soon ...
 
+**❯ ❯ ❯ Coming Soon ❮ ❮ ❮**
+
+## ~~Version 2026.7~~
+
 ---
 
 > **Presentation Mode**
@@ -771,9 +783,9 @@ The content of this section is marked as not published by specifying it in YAML.
 >
 > _~Lm~_
 
-**❯ ❯ ❯ Coming Soon ❮ ❮ ❮**
 
-## ~~V2026.5.1~~
+
+## ~~Version 2026.5~~
 
 ---
 

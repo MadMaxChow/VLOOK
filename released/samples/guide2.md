@@ -1,10 +1,10 @@
 ---
 title: 攻略 ▲ 进阶 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与排版增强插件
 author: MAX°孟兆
-date: 2026-05-16
+date: 2026-07-25
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: 本作品采用 MIT 许可证授权，详见 LICENSE 文件。
-version: V2026.5.1
+version: V2026.7
 tags: 代码, 按钮, 封面与封底, 分栏, 题注, 页签组, 内容标记, Mermaid, 公式, 多媒体
 vlook-footer: <a href="index.html">简介</a>	|	攻略之 <a href='guide.html'>基础</a>  ❯  <strong>进阶</strong>  ❯  <a href='guide3.html'>探索</a>
 description: 关于 VLOOK™ 的代码、按钮、封面与封底、分栏、题注、页签组、内容标记（GitHub Style Alert/标签/进度条/面包屑/刮刮卡/注音）、Mermaid、公式、多媒体
@@ -54,17 +54,17 @@ vlook-doc-lib:
 
 <u>**感谢打赏支持 VLOOK™ 的客官（部分名单）/ Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、C＊r、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
 
 ---
 
-> **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
+> **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**
 >
 > ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Gn~_
 
-> **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
+> **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**
 >
 > ![打赏 VLOOK™](pic/donate-alipay-light.png?darksrc=donate-alipay-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 >
@@ -521,7 +521,7 @@ _^tab^_
 ###### 本文档的封面内容示例
 
 ```markdown
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>使用攻略<br>(Part.II)</u><br>*最新版本`V2026.5.1`*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>使用攻略<br>(Part.II)</u><br>*最新版本`V2026.7`*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 ```
 
 ###### 本文档的封底内容示例
@@ -1466,7 +1466,7 @@ _^tab^_
 >
 > - ==Highlights== information that users should take into account, even when skimming.  [![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
 >
-> （**备忘**。==突出==用户在浏览时也应考虑的信息）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925)*
+> （**备忘**。==突出==用户在浏览时也应考虑的信息）[<kbd>![](pic/icon-more.svg?fill=text#icon) 了解更多 ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text#icon) 了解更多 ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925)*
 
 
 
@@ -1474,7 +1474,7 @@ _^tab^_
 >
 > 1. Optional information to help a user be ==more successful==.  [![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
 >
-> （**提示**。可选信息，帮助用户取得==更大成功==）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925)*
+> （**提示**。可选信息，帮助用户取得==更大成功==）[<kbd>![](pic/icon-more.svg?fill=text#icon) 了解更多 ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text#icon) 了解更多 ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925)*
 
 
 
@@ -1482,15 +1482,15 @@ _^tab^_
 >
 > Crucial information ==necessary== for users to succeed.  [![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
 >
-> （**重要的**。对用户成功==至关重要==的信息）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925)*
+> （**重要的**。对用户成功==至关重要==的信息）[<kbd>![](pic/icon-more.svg?fill=text#icon) 了解更多 ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text#icon) 了解更多 ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925)*
 
 
 
 > [!WARNING]
 >
-> Critical content demanding immediate user attention due to ==potential risks==.  [![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
+> Critical content demanding immediate user attention due to ==high risks==.  [![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
 >
-> （**注意**。由于==潜在风险==，需要用户立即关注的关键内容）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925)*
+> （**警告**。由于==较大风险==，需要用户立即重视相关内容）[<kbd>![](pic/icon-more.svg?fill=text#icon) 了解更多 ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text#icon) 了解更多 ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925)*
 
 
 
@@ -1498,7 +1498,7 @@ _^tab^_
 >
 > ==Negative potential== consequences of an action.  [![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
 >
-> （**警告/禁止**。行动的潜在==负面后果==）[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text) 了解更多 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925)*
+> （**注意**。行动的潜在==负面后果==，需要小心谨慎）[<kbd>![](pic/icon-more.svg?fill=text#icon) 了解更多 ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text#icon) 了解更多 ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925)*
 
 
 
@@ -2578,16 +2578,6 @@ $$
 >
 > 对所有流媒体平台的视频默认都以「**横屏**」进行显示，如希望以「**竖屏**」显示，只需要在视频嵌入代码中 `src` 内容末尾添加 `#pt` 即可～
 
-### 西瓜视频
-
-*==内嵌西瓜视频==*
-
-<iframe loading="lazy" width="720" height="405" frameborder="0" src="https://www.ixigua.com/iframe/7433350717030531622?autoplay=0" referrerpolicy="unsafe-url" allowfullscreen></iframe>
-
-> ######  如何获取西瓜视频的「嵌入代码」？
->
-> ![获取西瓜视频嵌入代码](pic/xigua-share-iframe.png#400w)
-
 ### 腾讯视频
 
 *==内嵌腾讯视频==*
@@ -2597,20 +2587,6 @@ $$
 > ###### 如何获取腾讯视频的「嵌入代码」？
 >
 > ![获取腾讯视频嵌入代码](pic/vqq-share-iframe.png#400w)
-
-### YouTube视频
-
-*==内嵌 YouTube 视频（横屏）==*
-
-<iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/f49LJV1i-_w?si=2qOSWZJPArifLC7i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-*==内嵌 YouTube 视频（竖屏）==*
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9BRsFlo_-H8?si=tM7oRRoz6WZnVtgx#pt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-> ###### 如何获取 YouTube 视频的「嵌入代码」？
->
-> ![获取 YouTube 视频嵌入代码](pic/youtube-share-iframe.png#400w)
 
 ## 常规视频
 
@@ -2626,7 +2602,7 @@ $$
 >
 > - **语法：**`![视频的上题注](视频 URL "视频的下题注")`
 > - **语法示例：**`![这是视频](video.m4a)`
-> - **支持的音频格式：**Ogg (.ogv)、MPEG4 (.mp4)、WebM (.webm)
+> - **支持的视频格式：**Ogg (.ogv)、MPEG4 (.mp4)、WebM (.webm)
 
 ![视频示例](media/a_sky_full_of_stars-480p.mp4 "(WebM 格式视频)")
 

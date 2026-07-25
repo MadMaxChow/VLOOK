@@ -1,15 +1,15 @@
 ---
 title: 简介 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与排版增强插件
 author: MAX°孟兆
-date: 2026-05-16
+date: 2026-07-25
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: 本作品采用 MIT 许可证授权，详见 LICENSE 文件。
-version: V2026.5.1
+version: V2026.7
 #vlook-footer: {{title}}<br><br>{{author}}<br>{{date}} ({{version}})<br><br>{{copyright}}<br>{{rights}}
 description: 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:description": 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
-date: 2026-05-16
+date: 2026-07-25
 changelog:
 - changelog content a, and content b
 - changelog content 2 [...detail](#打赏)
@@ -57,7 +57,7 @@ vlook-shortcut:
 - [💬](https://qm.qq.com/q/O0tNC6WBWe "讨论与交流")
 ---
 
-###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br><u>──</u><br>简介<br>*最新版本`V2026.5.1`*<br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
+###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br><u>──</u><br>简介<br>*最新版本`V2026.7`*<br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 
 [TOC]
 
@@ -65,13 +65,21 @@ vlook-shortcut:
 
 # VLOOK™ 是什么
 
-![VLOOK™](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#blur!#logo)
 
-<u>![OSChina](pic/oschina.png#icon2x) **[开源中国](https://www.oschina.net/p/vlook) 推荐的国产开源产品**<br>![AtomGit](pic/atomgit.png#icon2x) **[AtomGit](https://atomgit.com/MadMaxChow/VLOOK) G-Star 计划项目**</u>
+
+![Awards](pic/awards.svg?darksrc=awards-dark.svg#logo)
+
+
+
+---
+
+
+
+![VLOOK™](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#blur!#logo)
 
 ==![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™**_~T1~_ 是针对 ![Typora](pic/typora.png#icon) [Typora](https://typoraio.cn)[^Typora] **主题包**_~GnRo~_ 和 **排版增强插件**_~PuOg~_，<br>属于开源软件（遵从 **MIT License**_~Rd~_)。==
 
-**[*编辑工具`Typora`V1.9+*_~Gy~_](https://typoraio.cn)　*开源协议主`MIT`*_~Rd~_　*`关键字`主题、插件*_~Pu~_　*`支持的操作系统`Windows, macOS, Linux*_~Bu~_**
+**[*编辑工具`Typora`V1.14+*_~Gy~_](https://typoraio.cn)　*开源协议主`MIT`*_~Rd~_　*`关键字`主题、插件*_~Pu~_　*`支持的操作系统`Windows, macOS, Linux*_~Bu~_**
 
 **[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK?style=for-the-badge&label=Release&labelColor=04B1CC&color=9A4EE6#logo#round2s)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total?style=for-the-badge&label=Downloads%20(since%20V28.1)&labelColor=04B1CC&color=9A4EE6#logo#round2s)](https://github.com/MadMaxChow/VLOOK/releases)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK?style=for-the-badge&labelColor=04B1CC&color=9A4EE6#logo#round2s)](https://github.com/MadMaxChow/VLOOK/stargazers)**
 
@@ -154,17 +162,17 @@ _^tab^_
 
 <u>**感谢打赏支持 VLOOK™ 的客官（部分名单）**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、C＊r、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
 
 ---
 
-> **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
+> **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**
 >
 > ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Gn~_
 
-> **你的咖啡，能让 VLOOK™ 保持活力 ☕️**
+> **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**
 >
 > ![打赏 VLOOK™](pic/donate-alipay-light.png?darksrc=donate-alipay-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 >
@@ -246,7 +254,6 @@ _^tab^_
 > > ***`编辑时`× 不支持*_~Gy~_ *`编辑时`✓ 支持*_~Gn~_ **
 
 # 专题文章
-
 
 ![](pic/3rd-haiyan.png)
 
@@ -633,7 +640,7 @@ VLOOK™ 提供了 8 套个性突出的[字体风格](guide3.md#字体风格)选
 >
 > _~Gy~_
 
-[<kbd>访问 VLOOK™ 字体风格项目</kbd>](https://github.com/MadMaxChow/openfonts/releases/download/V2.1/install-font-V2.1.tar.gz)    *[<kbd>直接下载字体包</kbd>](https://github.com/MadMaxChow/openfonts/releases/download/V2.1/install-font-V2.1.tar.gz)*
+[<kbd>访问 VLOOK™ 字体风格项目</kbd>](https://github.com/MadMaxChow/openfonts/releases)    *[<kbd>直接下载字体包</kbd>](https://github.com/MadMaxChow/openfonts/releases/download/V2.1/install-font-V2.1.tar.gz)*
 
 > [!NOTE]
 >
@@ -794,6 +801,10 @@ _^tab^_
 
 # 即将推出...
 
+**❯ ❯ ❯ 敬请期待 ❮ ❮ ❮**
+
+## ~~Version 2026.7~~
+
 
 
 ---
@@ -814,9 +825,7 @@ _^tab^_
 >
 > _~Lm~_
 
-**❯ ❯ ❯ 敬请期待 ❮ ❮ ❮**
-
-## ~~V2026.5.1~~
+## ~~Version 2026.5~~
 
 ---
 
@@ -852,7 +861,7 @@ _^tab^_
 >
 > _~T2~_
 
-## ~~V2025.10.1~~
+## ~~Version 2025.10~~
 
 ---
 

@@ -3,8 +3,8 @@
  * VLOOK™ CSS 字体主题、圆角样式
  * (配合 base.less 进行使用)
  *
- * V2026.5.1
- * 2026-05-16
+ * V2026.7
+ * 2026-07-25
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -17,7 +17,8 @@
  *************************************/
 
 @fontSize: 1em;//18px;//1em;
-@fontSizePx: 16px;//18px;//16px;
+@fontSizePx: 16px;
+// @fontSizePx: 18px;
 
 // 字重 Rangs of font-weight:
 //   字重 100 - Thin
@@ -53,7 +54,7 @@ U+0030-0039; // 指 0123456789
     --b-fm-kaiti: "Kaiti SC", "Kaiti TC", KaiTi, "楷体", "楷体-简", Kai, "KaiTi_GB2312", "楷体_GB2312", STKaiti, "华文楷体", "方正楷体", "SimKai", "中易楷体", "Chalkboard SE", "Marker Felt", Noteworthy, Charter, "Caveat Brush", Caveat;
 
     --b-fm-apple: "-apple-system", "SF Pro", "SF Pro Text", "PingFang SC";
-    --b-fm-ms: "Segoe UI", SegoeUI, "Microsoft YaHei", "微软雅黑";
+    --b-fm-ms: "Segoe UI", "Microsoft YaHei", "微软雅黑";
 }
 // 定义 Emoji / symbol 等符号字体
 // 数值字体
@@ -164,10 +165,10 @@ U+0030-0039; // 指 0123456789
 //=========================================
 // 定义 Yuan 康乐园 风格字体信息
 // ----------------------------------------
-@yuanFont: "阿里健康体2.0 中文", @apple, @ms, @base_sans_cn, sans-serif;
+@yuanFont: "阿里健康体2.0 中文", "Yuanti SC", "圆体-简", "Yuanti TC", "圆体-繁", @apple, @ms, @base_sans_cn, sans-serif;
 @yuanTitle: @yuanFont;
 @yuanHeader: @yuanFont;
-@yuanTocFont: "优设好身体", "YOUSHEhaoshenti", "HaoShenTi";
+@yuanTocFont: "优设好身体", "YOUSHEhaoshenti", "HaoShenTi", "Yuanti SC", "圆体-简", "Yuanti TC", "圆体-繁";
 @yuanMono: @base_serif_mono, @yuanFont, @base_sans_en, @base_sans_cn, monospace;
 @fontBoldWeight4Yuan: bold;
 @fontBoldWeight4YuanTitle: bold;
@@ -179,7 +180,7 @@ U+0030-0039; // 指 0123456789
 @inkFont: "字帮玩酷体", "字帮玩酷体-常规", "BangFont-WanKu-Regular", "WanKuTi", @apple, @ms, @base_sans_cn, sans-serif;
 @inkTitle: "站酷快乐体2016修订版", "HappyZcool-2016", "KuaiLeTi", @inkFont;
 @inkHeader: @inkTitle;
-@inkMono: @GoMono, @base_serif_mono, @inkFont, @base_sans_en, @base_sans_cn, monospace;
+@inkMono: @mono_local, @base_serif_mono, @inkFont, @base_sans_en, @base_sans_cn, monospace;
 @fontBoldWeight4Ink: bold;
 @fontBoldWeight4InkTitle: normal;
 @fontBoldWeight4InkText: normal;

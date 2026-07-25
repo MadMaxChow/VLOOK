@@ -1,10 +1,10 @@
 ---
 title: Guide ▲ Advanced - VLOOK™ - Elegant and Practical Typora Theme & Plugin
 author: MAX°孟兆
-date: 2026-05-16
+date: 2026-07-25
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: This work is licensed under the MIT License. For details, see the LICENSE file.
-version: V2026.5.1
+version: V2026.7
 tags: Code, Button, Cover & Back Cover, Columns, Caption, Tab Group, Content Marking, Mermaid, Formula, Multimedia
 vlook-footer: <a href="index.html">Introduction</a>	|	Guide for <a href='guide-en.html'>Basic</a>  ❯  <strong>Advanced</strong>  ❯  <a href='guide3-en.html'>Exploration</a>
 description: Regarding VLOOK™: Code, button, Cover and Back Pages, Column Layouts, Captions, Tab Groups, Content Markups (GitHub-style Alerts / Tags / Progress Bars / Breadcrumbs / Scratch Card / Phonetic Annotations), Mermaid Diagrams, Mathematical Formulas, and Multimedia
@@ -35,7 +35,7 @@ keywords:
 - 设计,需求,文档,博客,手册,指南,攻略,知识库,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
 # vlook-header-autonum: h1{{Chapter ### }}
-vlook-header-dup: /^Your coffee.+/;/.*Syntax$/;/^Applicable Scope ••• .+/;Caption & Auto-numbering;Shortcut;Advanced Play;More Information;Blockquote Coloring Level 6 Heading;COMMING SOON...;Example;This is a Blockquote Subtitle;💡 Want to know the original content of the above table?
+vlook-header-dup: /^Your coffee.+/;/.*Syntax$/;/^Availability ••• .+/;Caption & Auto-numbering;Shortcut;Advanced Play;More Information;Blockquote Coloring Level 6 Heading;COMMING SOON...;Example;This is a Blockquote Subtitle;💡 Want to know the original content of the above table?
 vlook-doc-lib:
 - [How to Start?](index-en.html?target=_self "Introduction, Installation and Configuration, Language Packs")
 - [Guide • Basic](guide-en.html?target=_self "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Filters / Postcards / Silhouette / High-Definition, Lists / Task List, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
@@ -50,21 +50,21 @@ vlook-doc-lib:
 
 > Select language ❯ *[<kbd>🇨🇳 简体中文</kbd>](guide2.md)*
 
-# ==Donation==
+# ==Donate==
 
 <u>**Thanks to donors who supported VLOOK™ (partial list) / Thanks for donate VLOOK™ (partial donors)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、C＊r、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
 
 ---
 
-> **Your coffee keeps VLOOK™ running ☕️**
+> **Your coffee ☕️ keeps VLOOK™ running**
 >
 > [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo#round)](https://paypal.me/madmaxchow)
 >
 > _~Se~_
 
-> **Your coffee keeps VLOOK™ running ☕️**
+> **Your coffee ☕️ keeps VLOOK™ running**
 >
 > ![Donate VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 >
@@ -88,7 +88,7 @@ vlook-doc-lib:
 
 *VLOOK`A`*_~T2~_ VLOOK™ automatically enhances Markdown code blocks, supporting current line highlighting, copying all code, and adapting to [Dark Mode](guide3-en.md#Dark-Mode)!
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ###### Copy Code Example
 
@@ -143,7 +143,7 @@ void quickSort(int arr[], int left, int right) {
 
 ## Code Block Wrapping Layout
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 Code blocks wrap automatically by default, and can be switched to non-wrapping mode as needed.
 
@@ -167,7 +167,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 ## Keyboard Keys
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 <u>VLOOK™ theme supports `<kbd>` tag, and VLOOK™ provides button styles closer to physical keyboards, examples:</u>
 
@@ -191,13 +191,13 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 *Markdown Fans`Q`*「**Button are essential for interactive web documents, hope Markdown documents can keep up**」
 
-*VLOOK`A`*_~T2~_ By enhancing Typora's existing `<kbd>` feature, you can implement various styles of button links - let's get started!
+*VLOOK`A`*_~T2~_ By enhancing Typora's existing `<kbd>` feature, you can implement various styles of button link - let's get started!
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ### Text Button
 
-==VLOOK™ implements "text links" to "button links" conversion, and provides three button styles～==
+==VLOOK™ implements "text links" to "button link" conversion, and provides three button styles～==
 
 For example with this text link:
 - Markdown content: `[Visit GitHub](github.com)`
@@ -286,7 +286,7 @@ _^tab^_
 
 *Markdown Fan `Q`* 「**Wants to present multiple different links, brief descriptions, and icons in a clean and elegant card layout within Markdown documents**」
 
-*VLOOK `A`*_~T2~_ Just flexibly combine the previously mentioned [Blockquote Subtitles](guide-en.md#Blockquote Subtitle) / [Columns](#Blockquote Columns), [Paragraph Underline](guide.md#Paragraph Underline), [Image Icon Styles](guide.md#Image Display Layout), and [Button Links](#Button Links) as needed～
+*VLOOK `A`*_~T2~_ Just flexibly combine the previously mentioned [Blockquote Subtitles](guide-en.md#Blockquote Subtitle) / [Columns](#Blockquote Columns), [Paragraph Underline](guide-en.md#Paragraph Underline), [Image Icon Styles](guide-en.md#Image Display Layout), and [Button Link](#Button Link) as needed～
 
 
 
@@ -348,13 +348,13 @@ Here’s an example of a three-column link card layout:
 
 ## Cross-reference
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
 In-document anchor links, including sections and various [Captions](#°Caption), support displaying referenced prefix information (such as section numbers and caption numbers). The example effects are shown below:
 
-> - Chapter: [°Cover and Back Cover](#°cover-and-back-cover)  
+> - Chapter: [°Cover & Back Cover](#°cover-&-back-cover)  
 > - Table: [Tag (regular style) preset color codes & examples](#Tag (Regular Style) Preset Color Codes and Examples)
 > - Image: [Dual-caption image example](#Dual-caption image example)
 > - Mermaid diagram: [Flowchart example](#Flowchart Example)
@@ -396,7 +396,7 @@ Choose the one that best fits your needs:
 
 ## Small Cover
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -421,7 +421,7 @@ tags: Tag values, separated by commas. Example: tag1, tag2, tag3
 
 ## Large Cover
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -507,7 +507,7 @@ _^tab^_
 ###### Example of this document's cover content
 
 ```markdown
-###### ~VLOOK™~<br>Give your Markdown a new way to _^play^_<br>──<br><u>Quick Reference Manual<br>(Part.II)</u><br>*Latest version`V2026.5.1`*<br><br>**MAX°Mengzhao**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
+###### ~VLOOK™~<br>Give your Markdown a new way to _^play^_<br>──<br><u>Quick Reference Manual<br>(Part.II)</u><br>*Latest version`V2026.7`*<br><br>**MAX°Mengzhao**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 ```
 
 ###### Example of this document's back cover content
@@ -540,7 +540,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 *VLOOK`A`*_~T2~_ By extending specific combinations of Markdown syntax, we can meet your flexible typesetting needs!
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -693,7 +693,7 @@ Mainly suitable for column needs with subtitles, where content is organized via 
 
 *VLOOK`A`*_~T2~_ By extending specific combinations of Markdown syntax, we can meet your flexible typesetting needs!
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -926,7 +926,7 @@ Mainly suitable for organizing similar content in blocks, where content isn't su
 
 *VLOOK `A`*_~T2~_ Just use the "[Blockquote Columns](#Blockquote Columns)" feature inside the list items!
 
-> **Applicable Scope ••• *`Editing` ✓ Supported*_~Gn~_  *`Export to HTML` ✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing` ✓ Supported*_~Gn~_  *`Export to HTML` ✓ Supported*_~Gn~_**
 
 
 
@@ -970,7 +970,7 @@ Mainly suitable for organizing similar content in blocks, where content isn't su
 
 ## GitHub Style Alert Columns
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -1028,7 +1028,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ## How to Set Caption?
 
@@ -1128,7 +1128,7 @@ end
 ## Multimedia Caption & Auto-numbering
 
 > - For [streaming platforms](#Streaming-Platforms) multimedia, use "Method 2" above
-> - For [Video](#Video), [audio](#Audio), caption method matches [image caption](#Image Caption & Auto-numbering)
+> - For [Video](#°Multimedia), [Audio](#Audio), caption method matches [image caption](#Image Caption & Auto-numbering)
 
 ## Mermaid Chart Caption & Auto-numbering
 
@@ -1155,7 +1155,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 *VLOOK`A`*_~T2~_ With VLOOK, freely specify continuous content (tables/illustrations/blockquotes/code blocks/[GitHub Style Alert](#GitHub-Style-Alert)) to display as tab groups!
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -1411,7 +1411,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_ Has adapted and optimized in terms of typesetting styles, while supporting automatic matching of "information category names" in multilingual environments.
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 <u>GitHub Style Alert is primarily used in documents for reminders, notes, or emphasizing key information through specific typesetting styles, consisting of corresponding information category icons, names, content, etc.</u>
 
@@ -1451,7 +1451,7 @@ _^tab^_
 >
 > - ==Highlights== information that users should take into account, even when skimming.  [![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
 >
-> （**Memo**. ==Emphasizes== information users should consider even while browsing）[<kbd>![](pic/icon-more.svg?fill=text) Learn More ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text) Learn More ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925)*
+> （**Memo**. ==Emphasizes== information users should consider even while browsing）[<kbd>![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925)*
 
 
 
@@ -1459,7 +1459,7 @@ _^tab^_
 >
 > 1. Optional information to help a user be ==more successful==.  [![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
 >
-> （**Tip**. Optional information to help users achieve ==greater success==）[<kbd>![](pic/icon-more.svg?fill=text) Learn More ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text) Learn More ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925)*
+> （**Tip**. Optional information to help users achieve ==greater success==）[<kbd>![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925)*
 
 
 
@@ -1467,15 +1467,15 @@ _^tab^_
 >
 > Crucial information ==necessary== for users to succeed.  [![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
 >
-> （**Important**. Information ==critical== for user success）[<kbd>![](pic/icon-more.svg?fill=text) Learn More ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text) Learn More ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925)*
+> （**Important**. Information ==critical== for user success）[<kbd>![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925)*
 
 
 
 > [!WARNING]
 >
-> Critical content demanding immediate user attention due to ==potential risks==.  [![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
+> Critical content demanding immediate user attention due to ==high risks==.  [![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
 >
-> （**Warning**. Critical content requiring immediate attention due to ==potential risks==）[<kbd>![](pic/icon-more.svg?fill=text) Learn More ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text) Learn More ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925)*
+> （**Warning**. Indicates a ==high-risk== situation that requires the user's immediate attention）[<kbd>![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925)*
 
 
 
@@ -1483,7 +1483,7 @@ _^tab^_
 >
 > ==Negative potential== consequences of an action.  [![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.svg?fill=text#icon)](https://github.com/orgs/community/discussions/16925)
 >
-> （**Caution/Prohibition**. ==Potential negative consequences== of an action）[<kbd>![](pic/icon-more.svg?fill=text) Learn More ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text) Learn More ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/orgs/community/discussions/16925)*
+> （**Caution**. Indicates a potential ==negative consequence== that requires care and attention.）[<kbd>![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925) *[<kbd>![](pic/icon-more.svg?fill=text#icon) Learn More ![](pic/icon-more.png?fill=text#icon)</kbd>](https://github.com/orgs/community/discussions/16925)*
 
 ###### Below are examples with richer formatting content
 
@@ -1646,7 +1646,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 *VLOOK`A`*_~T2~_ Set the "inline code" content in Markdown (like `` `tag` ``) to "italic" to achieve beautiful and practical "tag" formatting!
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 For example, these "**single-level tag**": *`this tag`*_~Rd~_ or  *`that tag`*_~Bu!~_ can also be *`gradient tag`*_~T1T2~_ 
 
@@ -1830,7 +1830,7 @@ _^tab^_
 
 *VLOOK`A`*_~T2~_  Supports adding hyperlinks to tag. Just select the tag and directly set it according to Markdown hyperlink syntax.
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -1857,7 +1857,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 *VLOOK`A`*_~T2~_  This is really very Easy for VLOOK™, just combine Markdown's "==bold, highlight==" these two standard formats to achieve it easily
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 _^tab^_
 
@@ -1948,7 +1948,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 *VLOOK`A`*_~T2~_ This is really very Easy for VLOOK™, just combine Markdown's "==italic, highlight==" these two standard formats to achieve easily.
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -1996,7 +1996,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 *VLOOK`A`*_~T2~_ This is really very Easy for VLOOK™, just combine Markdown "==italic, bold==" these two standard formats to achieve easily.
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -2061,7 +2061,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 *VLOOK`A`*_~T2~_ By extending Markdown superscript syntax `^ ^`, easily meets practical "phonetic notation" typesetting needs!
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -2120,7 +2120,7 @@ _^tab^_
 
 ### Code-style Phonetic Notation
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > [!CAUTION]
 >
@@ -2176,7 +2176,7 @@ If you have more needs or suggestions about the above content, feel free to prov
 
 *VLOOK`A`*_~T2~_ Automatically provides deep style optimization.
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -2384,7 +2384,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 ## More Practical & Beautiful Formula
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ###### Inline Mixed Formula
 
@@ -2427,3 +2427,189 @@ $$
 
 You can also index-en.md**reference block formula numbers for navigation**, for example refer to formula: $\ref{mymath-1}$
 
+# °Multimedia
+
+## Streaming Platforms
+
+*Markdown Fan`Q`* "**I wish Markdown could embed videos from mainstream streaming platforms.**"
+
+*VLOOK`A`*_~T2~_ To better leverage the rich video resources available on mainstream streaming platforms (such as [Bilibili](www.bilibili.com), [Xigua Video](www.ixigua.com), and [YouTube](www.youtube.com)), VLOOK™ provides optimized theme styling and enhanced support.
+
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export to HTML`✓ Supported*_~Gn~_**
+
+> [!TIP]
+>
+> Embedded videos from streaming platforms also support **captions and automatic numbering**, using the same approach as for **tables** … [Learn More ❯](guide-en.md#Table Caption & Auto-numbering)
+
+### Bilibili Videos
+
+*==Embedded Bilibili Video (Landscape)==*
+
+<iframe loading="lazy" src="//player.bilibili.com/player.html?isOutside=true&aid=113423643837219&bvid=BV1miDpY5ERh&cid=26611613913&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+> ###### How do I get the Bilibili video embed code?
+>
+> ![Get Bilibili Embed Code](pic/bili-share-iframe.png#400w)
+>
+> (If the video cannot be played after exporting to HTML, please check whether the `src` value in the embed code is missing the `https:` prefix. Add it manually and try again.)
+
+> ###### It is recommended to disable autoplay
+>
+> Since Bilibili videos autoplay by default, you can disable this behavior by appending `autoplay=0` to the end of the `src` URL in the embed code, as shown below:
+>
+> *==Example of disabling autoplay==*
+>
+> ```html
+> <iframe src="https://player.bilibili.com/player.html?bvid=BV1zhaiegE73&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+> ```
+
+> ###### Why can't embedded Bilibili videos be played when opening the exported HTML locally?
+>
+> This is because the video URL (`src`) in the embed code provided by the Bilibili website does not include the `https:` prefix. Simply add it manually.
+
+### Douyin Videos
+
+*==Embedded Douyin Video (Portrait)==*
+
+<iframe loading="lazy" src="https://open.douyin.com/player/video?vid=7122698345268743431#pt" scrolling="no" border="0" frameborder="0" framespacing="0" allowfullscreen="true"></iframe>
+
+> ###### How do I get the Douyin video embed code?
+>
+> Although Douyin does not officially provide an embed code like Bilibili, you can use the Bilibili embed code as a template and simply replace the `src` value with the Douyin video streaming URL.
+>
+> The Douyin streaming URL specifies the target video using the `vid` parameter. You can obtain this identifier by opening the video from the [Douyin homepage](https://www.douyin.com/discover) in a desktop browser, then copying the value following `modal_id=` from the address bar. For example:
+>
+> *==Browser address after opening a Douyin video==*
+>
+> ```http
+> https://www.douyin.com/discover?modal_id=7365002781440085275
+> ```
+>
+> *==Douyin video embed code template==*
+>
+> ```html
+> <iframe src="https://open.douyin.com/player/video?vid=7122698345268743431#portrait" scrolling="no" border="0" frameborder="0" framespacing="0" allowfullscreen="true"></iframe>
+> ```
+
+> [!TIP]
+>
+> Videos from all streaming platforms are displayed in **landscape mode** by default. To display a video in **portrait mode**, simply append `#pt` to the end of the `src` URL in the embed code.
+
+### Tencent Video
+
+*==Embedded Tencent Video==*
+
+<iframe loading="lazy" frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=w3533fllb37" allowFullScreen="true"></iframe>
+
+> ###### How do I get the Tencent Video embed code?
+>
+> ![Get Tencent Video Embed Code](pic/vqq-share-iframe.png#400w)
+> 
+
+## Standard Videos
+
+*Markdown Fan`Q`* "**I wish Markdown could support videos, so I could create multimedia documents.**"
+
+*VLOOK`A`*_~T2~_ Most Markdown tools still do not provide native support for videos, but now it can be achieved with almost **zero** additional effort!
+
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export to HTML`✓ Supported*_~Gn~_**
+
+> The syntax is exactly the same as the Markdown image syntax!
+>
+> - **Syntax:** `![Top video caption](Video URL "Bottom video caption")`
+> - **Example:** `![This is a video](video.mp4)`
+> - **Supported video formats:** Ogg (.ogv), MPEG4 (.mp4), WebM (.webm)
+
+![Video Example](media/a_sky_full_of_stars-480p.mp4 "(WebM Video)")
+
+> **In addition to standard video controls, W3C-standard control features are also supported!**
+>
+> This is achieved by appending VLOOK™-specific parameters to the **video URL**, as described below:
+
+*==Advanced Video Control Options==*
+
+| **Customizable Feature** | URL Parameter | Example |
+| :----------------------: | ------------- | ------- |
+| Enable autoplay | `autoplay=true` | |
+| Enable loop playback | `loop=true` | |
+| Enable preload | `preload=true` | ![Preloaded Video Example](media/a_sky_full_of_stars-480p.mp4?preload=true&height=240 "(Height set to 240px)") |
+| Specify video width | `width=<pixels>` | Specifies the video width (unit: px) |
+| Specify video height | `height=<pixels>` | Specifies the video height (unit: px) |
+
+*==Example of Embedding a `<video>` Tag==*
+
+<video src="media/a_sky_full_of_stars-480p.mp4"></video>
+
+> [!TIP]
+>
+> - Since the syntax is the same as for images, adding **captions and automatic numbering** to videos follows the same approach as images … [Learn More ❯](#Image Caption & Auto-numbering)
+> - If you use an embedded `<video>` tag, **captions and automatic numbering** follow the same approach as tables … [Learn More ❯](#Table Caption & Auto-numbering)
+
+> [!NOTE]
+>
+> If you have any questions about using **URL parameters** or **URL anchors**, please refer to **[Extended Image URL Usage](guide3.md#图片地址扩展应用说明)** for more details.
+
+## Audio
+
+*Markdown Fan`Q`* "**I wish Markdown could support audio, so I could create audiobooks and multimedia documents.**"
+
+*VLOOK`A`*_~T2~_ Most Markdown tools still do not provide native support for audio, but now it can be achieved with almost **zero** additional effort!
+
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export to HTML`✓ Supported*_~Gn~_**
+
+> The syntax is exactly the same as the Markdown image syntax!
+>
+> - **Syntax:** `![Top audio caption](Audio URL "Bottom audio caption")`
+> - **Example:** `![This is audio](audio.mp3)`
+> - **Supported audio formats:** MP3 (.mp3), Ogg (.ogg), WAV (.wav), M4A (.m4a)
+
+> ###### Want to try a different audio player interface?
+>
+> **By default, audio is displayed using the browser's standard player. VLOOK™ also supports a customizable "Mini" player interface. AMAZING!**
+>
+> This is achieved by appending a VLOOK™ parameter to the **audio URL**:
+>
+> - URL parameter: `controls=mini`
+> - Example: `media/whistle.mp3?controls=mini`
+
+###### Standard Player Example
+
+![The audio player uses the standard interface by default](media/waves_and_rocks.mp3 "(MP3 Format)")
+
+###### Mini Player Example
+
+![](media/whistle.mp3?controls=mini) **◄ Click to Play**
+
+> **In addition to standard audio controls, W3C-standard control features are also supported!**
+>
+> This is achieved by appending VLOOK™-specific parameters to the **audio URL**, as described below:
+
+*==Advanced Audio Control Options==*
+
+| **Customizable Feature** | VLOOK™ URL Parameter | Example |
+| :----------------------: | -------------------- | ------- |
+| Enable the Mini player | `controls=mini` | ![](media/whistle.mp3?controls=mini) |
+| Enable **Play / Pause** mode<br><sub>**(Default: Play / End)**</sub> | `pause=true`<br><sub>*⚠️`Note`*_~Rd!~_ **Available only in Mini mode**</sub> | ![](media/whistle.mp3?controls=mini&pause=true) |
+| Display audio duration | `duration=true`<br><sub>*⚠️`Note`*_~Rd!~_ **Available only in Mini mode**</sub> | ![](media/waves_and_rocks.mp3?controls=mini&duration=true) |
+| Enable autoplay | `autoplay=true` | ![](media/whistle.mp3?controls=mini&autoplay=true) |
+| Enable loop playback | `loop=true` | ![Loop Playback Example](media/whistle.mp3?loop=true) |
+| Enable preload | `preload=true` | ![Preload Example](media/whistle.ogg?preload=true "(OGG Format)") |
+
+###### Example of Embedding an `<audio>` Tag
+
+<audio src="media/whistle.mp3" controls></audio>
+
+> [!TIP]
+>
+> - Since the syntax is the same as for images, adding **captions and automatic numbering** to audio follows the same approach as images … [Learn More ❯](#Image Caption & Auto-numbering)
+> - If you use an embedded `<audio>` tag, **captions and automatic numbering** follow the same approach as tables … [Learn More ❯](#Table Caption & Auto-numbering)
+
+> [!NOTE]
+>
+> If you have any questions about using **URL parameters** or **URL anchors**, please refer to **[Extended Image URL Usage](guide3.md#图片地址扩展应用说明)** for more details.
+
+## Captions and Automatic Numbering
+
+<u>Captions and automatic numbering for multimedia content</u>
+
+[<kbd>Learn More ❯❯</kbd>](#multimedia-captions-and-auto-numbering)

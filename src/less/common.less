@@ -3,8 +3,8 @@
  * VLOOK™ CSS 多主题间的通用样式 for Typora
  * (配合 base.less、主题.less 进行使用)
  *
- * V2026.5.1
- * 2026-05-16
+ * V2026.7
+ * 2026-07-25
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -17,9 +17,10 @@
  *************************************/
 
 @thmPlatform: "Typora";
+@thmBestForTyporaVer: "1.14";
 
 // 高亮相关样式
-// 要与 CSS 变量 --mark-bg-h --mark-bg-h-inset 一并修改
+// 注意 @markBgHeight 要与 CSS 变量 --mark-bg-h --mark-bg-h-inset 一并修改
 @markBgHeight: .625em;
 @markBg: rgba(red(@theme2), green(@theme2), blue(@theme2), 30%);
 @markBgDark: rgba(red(@theme2Dark), green(@theme2Dark), blue(@theme2Dark), 60%);
@@ -36,7 +37,29 @@
 @themeEmail: "maxchow@qq.com";
 
 // 主题类型
-@themeType: "VLOOK™" @themeSpliter @themeDesc;
+@themeType: "VLOOK™" @themeSplitter @themeDesc;
+
+// 主题颜色外观 auto, light, dark
+@thmColorScheme: auto;
+
+// 主题内与颜色外观相关的自定义变量集合，以英文逗号分隔
+@thmColorSchemeVarsDef: "--thm-fav,--v-invert-dark,--v-cover-dark,--v-selected-c,--db,--db-ext,--d-cb,--d-bi,--db-r,--db-g,--db-b,--df,--df-r,--df-g,--df-b,--bq-bg,--bq-bg-fd,--fig-solid-bg,--fig-grid-l,--fig-grid-b,--fig-grid-l-invert,--fig-grid-b-invert,--pn-c,--pn-c-a,--pn-r,--pn-g,--pn-b,--blockquote-bg,--a-c,--a-o-c,--mark-bg,--tbl-row-g-alpha,--toc-h-num-c,--h-f,--h-box-sd,--h-bg-start,--h-bg-end,--code-bg,--std-code-sd,--rb-code-sd,--v-ui-bg,--v-btn-bg,--v-fl-sd,--v-fl-i-sd,--v-fl-bd,--c-blk-bg,--kbd-c,--kbd-bg,--kbd-shd,--kbd-pd,--doc-sd,--cur-pointer,--cur-copy,--cur-pointer-text,--cur-laser,--cur-mix,--cur-md,--cur-doclib,--cur-http,--cur-https,--cur-email,--cur-risk,--cur-inner,--ac-rd,--ac-rd-a,--ac-rd-fd,--ac-rd-fd-bd,--ac-rd-tt,--ac-og,--ac-og-a,--ac-og-fd,--ac-og-fd-bd,--ac-og-tt,--ac-tu,--ac-tu-a,--ac-tu-fd,--ac-tu-fd-bd,--ac-tu-tt,--ac-ye,--ac-ye-a,--ac-ye-fd,--ac-ye-fd-bd,--ac-ye-tt,--ac-lm,--ac-lm-a,--ac-lm-fd,--ac-lm-fd-bd,--ac-lm-tt,--ac-gn,--ac-gn-a,--ac-gn-fd,--ac-gn-fd-bd,--ac-gn-tt,--ac-mn,--ac-mn-a,--ac-mn-fd,--ac-mn-fd-bd,--ac-mn-tt,--ac-ol,--ac-ol-a,--ac-ol-fd,--ac-ol-fd-bd,--ac-ol-tt,--ac-wn,--ac-wn-a,--ac-wn-fd,--ac-wn-fd-bd,--ac-wn-tt,--ac-aq,--ac-aq-a,--ac-aq-fd,--ac-aq-fd-bd,--ac-aq-tt,--ac-sk,--ac-sk-a,--ac-sk-fd,--ac-sk-fd-bd,--ac-sk-tt,--ac-cy,--ac-cy-a,--ac-cy-fd,--ac-cy-fd-bd,--ac-cy-tt,--ac-bu,--ac-bu-a,--ac-bu-fd,--ac-bu-fd-bd,--ac-bu-tt,--ac-se,--ac-se-a,--ac-se-fd,--ac-se-fd-bd,--ac-se-tt,--ac-la,--ac-la-a,--ac-la-fd,--ac-la-fd-bd,--ac-la-tt,--ac-vn,--ac-vn-a,--ac-vn-fd,--ac-vn-fd-bd,--ac-vn-tt,--ac-cf,--ac-cf-a,--ac-cf-fd,--ac-cf-fd-bd,--ac-cf-tt,--ac-au,--ac-au-a,--ac-au-fd,--ac-au-fd-bd,--ac-au-tt,--ac-pu,--ac-pu-a,--ac-pu-fd,--ac-pu-fd-bd,--ac-pu-tt,--ac-ro,--ac-ro-a,--ac-ro-fd,--ac-ro-fd-bd,--ac-ro-tt,--ac-pl,--ac-pl-a,--ac-pl-fd,--ac-pl-fd-bd,--ac-pl-tt,--ac-pk,--ac-pk-a,--ac-pk-fd,--ac-pk-fd-bd,--ac-pk-tt,--ac-gd,--ac-gd-a,--ac-gd-fd,--ac-gd-fd-bd,--ac-gd-tt,--ac-bn,--ac-bn-a,--ac-bn-fd,--ac-bn-fd-bd,--ac-bn-tt,--ac-gy,--ac-gy-a,--ac-gy-fd,--ac-gy-fd-bd,--ac-gy-tt,--ac-wt,--ac-wt-a,--ac-wt-fd,--ac-wt-fd-bd,--ac-wt-tt,--ac-bk,--ac-bk-a,--ac-bk-fd,--ac-bk-fd-bd,--ac-bk-tt,--ac-t1,--ac-t1-a,--ac-t1-fd,--ac-t1-fd-bd,--ac-t1-tt,--ac-t2,--ac-t2-a,--ac-t2-fd,--ac-t2-fd-bd,--ac-t2-tt,--btn-reflect,--btn-shadow,--btn-raised,--cm-keyword,--cm-variable,--cm-variable-2,--cm-variable-3,--cm-tag,--cm-attribute,--cm-string,--cm-string-2,--cm-comment,--cm-header,--cm-quote,--cm-hr,--cm-link,--cm-negative,--cm-positive,--cm-meta,--cm-bulidin,--cm-bracket,--cm-atom,--cm-number";
+@thmColorSchemeVars: @thmColorSchemeVarsDef;
+
+// 指定 kbd 按钮圆角风格：none, small, big, leaf, cap
+@thmRadiusStyle: big;
+
+// 思维导图节点风格选择 std, color
+@thmMindMapStyle: color;
+
+// 小封面背景色
+@thmMiniCoverBackground: linear-gradient(180deg, fade(@aColor, 20%), transparent);
+
+// 针对 #write 默认字号大小
+@thmFontSize: 16px;
+
+// 公式块字体大小
+@thmMathFontSize: 1em;
 
 // 导航中心、脚注面板、状态栏风格选择 std, flat, edge
 @thmNavCenterStyle: std;
@@ -45,7 +68,7 @@
 @thmFloatShadow: shadow;
 
 // 定义指定的顶样的边框样式（如：工具栏、章节导航栏）
-@thmTopbarBorderColor: var(--ac-t1);
+@thmTopbarBorderColor: var(--df03);
 
 // 工具栏、章节导航栏风格选择 std, simple
 @thmToolbarStyle: std;
@@ -68,6 +91,25 @@
 
 // 插图背景颜色
 @thmFigureBgColor: var(--fig-solid-bg);
+
+// 主题对应的标签样式：std, line,
+@thmTagStyle: std;
+
+// 主题对应的多级标签样式：std, cap, dyn, "cap, dyn",
+@thmBadgeStyle: std;
+@thmBadgeStyleExt: @thmBadgeStyle;
+
+// 主题对应的 GSA 样式：：simple, flat, flat_up, em
+@thmGsaStyle: simple;
+
+// 主题对应的 corner-shape 样式：bevel, squircle, scoop, crystal
+@thmCornerShape: unset;
+
+// 主题的 #write 背景样式
+@thmWriteBackground: var(--d-bi), var(--db);
+
+// 遮罩背景风格：std, dots
+@thmMaskBackgroundStyle: std;
 
 // 指定表格的默认宽度：auto, max-content
 // 当选用 auto 时，滚动时支持表头固定，但列多时会拥挤，不不能水平滚动，所在编辑时超宽表格会溢出 write 区域
@@ -198,12 +240,12 @@
 @kbdStyle_flat_pd_dk: 3px 6px;
 .applyKbdStyle(@style) when (@style = flat) {
     :root {
-        // Light
+        // 用于 Light 模式
         --kbd-c-lg: @kbdStyle_flat_c_lg;
         --kbd-bg-lg: @kbdStyle_flat_bg_lg;
         --kbd-shd-lg: @kbdStyle_flat_shd_lg;
         --kbd-pd-lg: @kbdStyle_flat_pd_lg;
-        // Dark
+        // 用于 Dark 模式
         --kbd-c-dk: @kbdStyle_flat_c_dk;
         --kbd-bg-dk: @kbdStyle_flat_bg_dk;
         --kbd-shd-dk: @kbdStyle_flat_shd_dk;
@@ -212,12 +254,12 @@
 }
 .applyKbdStyle(@style) when (@style = flat_invert) {
     :root {
-        // Light
+        // 用于 Light 模式
         --kbd-c-lg: @kbdStyle_flat_c_dk;
         --kbd-bg-lg: @kbdStyle_flat_bg_dk;
         --kbd-shd-lg: @kbdStyle_flat_shd_dk;
         --kbd-pd-lg: @kbdStyle_flat_pd_dk;
-        // Dark
+        // 用于 Dark 模式
         --kbd-c-dk: @kbdStyle_flat_c_lg;
         --kbd-bg-dk: @kbdStyle_flat_bg_lg;
         --kbd-shd-dk: @kbdStyle_flat_shd_lg;
@@ -237,12 +279,12 @@
 @kbdStyle_3d_pd_dk: 3px 6px 2px;
 .applyKbdStyle(@style) when (@style = 3d) {
     :root {
-        // Light
+        // 用于 Light 模式
         --kbd-c-lg: @kbdStyle_3d_c_lg;
         --kbd-bg-lg: @kbdStyle_3d_bg_lg;
         --kbd-shd-lg: @kbdStyle_3d_shd_lg;
         --kbd-pd-lg: @kbdStyle_3d_pd_lg;
-        // Dark
+        // 用于 Dark 模式
         --kbd-c-dk: @kbdStyle_3d_c_dk;
         --kbd-bg-dk: @kbdStyle_3d_bg_dk;
         --kbd-shd-dk: @kbdStyle_3d_shd_dk;
@@ -251,12 +293,12 @@
 }
 .applyKbdStyle(@style) when (@style = 3d_invert) {
     :root {
-        // Light
+        // 用于 Light 模式
         --kbd-c-lg: @kbdStyle_3d_c_dk;
         --kbd-bg-lg: @kbdStyle_3d_bg_dk;
         --kbd-shd-lg: @kbdStyle_3d_shd_dk;
         --kbd-pd-lg: @kbdStyle_3d_pd_dk;
-        // Dark
+        // 用于 Dark 模式
         --kbd-c-dk: @kbdStyle_3d_c_lg;
         --kbd-bg-dk: @kbdStyle_3d_bg_lg;
         --kbd-shd-dk: @kbdStyle_3d_shd_lg;
@@ -522,6 +564,8 @@
 // 引用块的双栏、三栏、四栏、五栏
 @columnQuoteBgInQuote: var(--db);
 @columnQuoteBoxShadowInQuote: none;
+// 引用块内引用块折叠的差异化样式
+@detailsBgInQuote: var(--db);
 
 // 引用块边框宽度
 @defQuoteBorderWidth: 4px;
@@ -540,6 +584,9 @@
 // 按钮文字颜色
 @buttonForeColor: #FFF;
 @buttonForeHoverColor: #FFF;
+
+// 字体风格、链接地图等弹层的标题文字颜色
+@thmPopupHeaderColor: @buttonForeColor;
 
 // 按钮背景颜色
 @buttonBgColor: @theme1;
@@ -609,8 +656,10 @@
 
 :root {
     // 要与 LESS 变量 @markBgHeight 一并修改
-    --mark-bg-h: .75em;
-    --mark-bg-h-inset: -.75em;
+    --mark-bg-h: .625em;
+    --mark-bg-h-inset: -.625em;
+
+    --thm-cs-vars: @thmColorSchemeVars;
 
     // 文档扩展区域背景
     --thm-doc-ext-bg: linear-gradient(180deg, var(--db), var(--ac-t1-fd));
@@ -685,7 +734,7 @@
 // 欢迎页
 @welcomeIconSize: 80px;
 @welcomePageForeColor: @uiForeColor;
-@welcomePageBgColor: linear-gradient(0deg, var(--ac-t2), var(--ac-t1));
+@welcomePageBgColor: linear-gradient(0deg in oklab, var(--ac-t2), var(--ac-t1));
 
 // ==========
 
@@ -885,28 +934,30 @@
         top: var(--v-sticky-top);
 
         // 标准风格样式
-        .genTabGroupForStyle(@style) when (@style = std) {
+        .genTabGroupForStyle() when (@style = std) {
             align-items: flex-end;
             padding: @tabStdPaddingTop (@tabItemPadding * 2) 0;
             box-shadow: 0 5px 5px 0 var(--db), 0 -@tabGroupStdBdWidth 0 0 @tabGroupBgColor inset;
-            background: var(--db), var(--d-bi);
+            background: @thmWriteBackground;
+            background-position: var(--d-bi-pos), 0 0;
         }
         // 简约风格样式
-        .genTabGroupForStyle(@style) when (@style = simple) {
+        .genTabGroupForStyle() when (@style = simple) {
             align-items: flex-end;
             padding: @tabStdPaddingTop (@tabItemPadding * 2) 0;
             box-shadow: 0 5px 5px 0 var(--db), 0 -1px 0 0 @tabGroupBgColor inset;
-            background: var(--db), var(--d-bi);
+            background: @thmWriteBackground;
+            background-position: var(--d-bi-pos), 0 0;
         }
         // 简约风格样式 UP 变种
-        .genTabGroupForStyle(@style) when (@style = simple_up) {
+        .genTabGroupForStyle() when (@style = simple_up) {
             align-items: flex-end;
             padding: @tabStdPaddingTop (@tabItemPadding * 2) 0;
             box-shadow: 0 5px 5px 0 var(--db), 0 -1px 0 0 @tabGroupBgColor inset;
             background: linear-gradient(0deg, var(--pn-c), var(--db)), var(--d-bi);
         }
         // 现代风格样式
-        .genTabGroupForStyle(@style) when (@style = modern) {
+        .genTabGroupForStyle() when (@style = modern) {
             align-items: center;
             background: var(--pn-c);
             border-radius: var(--v-r-s) var(--v-r-s-xc);
@@ -915,10 +966,24 @@
             max-width: 100%;
             height: @tabGroupModernHeight;
         }
-        .genTabGroupForStyle(@style);
+        .genTabGroupForStyle();
     }
     // 生成移动端的样式微调
     .genTabGroupForMobile(@style);
+
+    // 生成增强的 边角/转角/圆角 的微调样式
+    .genCornerShape_TabGroup() when not (@thmCornerShape = unset) {
+        @supports (corner-shape: bevel) or (corner-shape: squircle) or (corner-shape: scoop) {
+            .v-tab-group {
+                // 现代风格样式
+                .genTabGroupForStyle() when (@style = modern) {
+                    .genCornerShape_big();
+                }
+                .genTabGroupForStyle();
+            }
+        }
+    }
+    .genCornerShape_TabGroup();
 
     // 毛玻璃效果
     .v-tab-group.v-backdrop-blurs.enabled {
@@ -1025,7 +1090,7 @@
     }
 
     // 页签项样式
-    .tab-group-wrap > span {
+    .tab-group-wrap>span {
         white-space: nowrap;
         display: inline-flex;
         align-items: center;
@@ -1060,6 +1125,77 @@
         }
         .genTabGroupItem(@style);
     }
+
+    // 生成增强的 边角/转角/圆角 的微调样式
+    .genCornerShape_TabGroupWrap() when not (@thmCornerShape = unset) {
+        @supports (corner-shape: bevel) or (corner-shape: squircle) or (corner-shape: scoop) {
+            .tab-group-wrap>span {
+                .genTabGroupItemTweaks() when (@style = std) {
+                    .genTweaks() when (@thmCornerShape = bevel) {
+                        corner-shape: bevel;
+                        border-radius: @bevelRadius_s @bevelRadius_s 0 0 !important;
+                    }
+                    .genTweaks() when (@thmCornerShape = squircle) {
+                        corner-shape: squircle;
+                        border-radius: @squircleRadius_s @squircleRadius_s 0 0 !important;
+                    }
+                    .genTweaks() when (@thmCornerShape = scoop) {
+                        corner-shape: scoop;
+                        border-radius: @bevelRadius_s @bevelRadius_s 0 0 !important;
+                    }
+                    .genTweaks() when (@thmCornerShape = crystal) {
+                        corner-shape: bevel;
+                        border-radius: @bevelRadius_s 0 !important;
+                    }
+                    .genTweaks();
+                }
+                .genTabGroupItemTweaks() when (@style = simple) {
+                    // 简约风格样式
+                    .genTweaks() when (@thmCornerShape = bevel) {
+                        corner-shape: bevel;
+                        border-radius: (@bevelRadius_b - 2px) (@bevelRadius_b - 2px) 0 0 !important;
+                    }
+                    .genTweaks() when (@thmCornerShape = squircle) {
+                        corner-shape: squircle;
+                        border-radius: (@squircleRadius_b - 2px) (@squircleRadius_b - 2px) 0 0 !important;
+                    }
+                    .genTweaks() when (@thmCornerShape = scoop) {
+                        corner-shape: scoop;
+                        border-radius: (@bevelRadius_b - 2px) (@bevelRadius_b - 2px) 0 0 !important;
+                    }
+                    .genTweaks() when (@thmCornerShape = crystal) {
+                        corner-shape: bevel;
+                        border-radius: (@bevelRadius_b - 2px) (@bevelRadius_b - 2px) 0 0 !important;
+                    }
+                    .genTweaks();
+                }
+                .genTabGroupItemTweaks() when (@style = simple_up) {
+                    // 未启用
+                }
+                .genTabGroupItemTweaks() when (@style = modern) {
+                    .genTweaks() when (@thmCornerShape = bevel) {
+                        corner-shape: bevel;
+                        border-radius: (@bevelRadius_b - 2px) !important;
+                    }
+                    .genTweaks() when (@thmCornerShape = squircle) {
+                        corner-shape: squircle;
+                        border-radius: (@squircleRadius_b - 2px) !important;
+                    }
+                    .genTweaks() when (@thmCornerShape = scoop) {
+                        corner-shape: scoop;
+                        border-radius: (@bevelRadius_b - 2px) !important;
+                    }
+                    .genTweaks() when (@thmCornerShape = crystal) {
+                        corner-shape: bevel;
+                        border-radius: (@bevelRadius_b - 2px) 0 !important;
+                    }
+                    .genTweaks();
+                }
+                .genTabGroupItemTweaks();
+            }
+        }
+    }
+    .genCornerShape_TabGroupWrap();
 
     // 现代风格样式
     .genTabGroupItemExt(@style) when (@style = modern) {
@@ -1244,7 +1380,8 @@
     }
 
     #v-footer,
-    @{writeOnEditing} p@{hasFigureImage},
+    @{writeOnEditing} p:has(.md-image:not([data-src*="#icon"]):not([data-src*="#card"])),
+    @{writeOnHTML} p:has(img:not([src*="#icon"]):not([src*="#card"])),
     @{writeOnHTML} p:has(figure[data-cntr=img]),
     #write .md-fences-adv-panel, // 针对 Mermaid 图
     .tab-group-wrap > span, // 页签组条目
@@ -1284,11 +1421,13 @@
 
 // 标题 after 样式
 @headerAfter: ~"#write :is(h1,h2,h3,h4,h5)>span::after";
-@h1After: ~"#write h1>span::after";
-@h2After: ~"#write h2>span::after";
-@h3After: ~"#write h3>span::after";
-@h4After: ~"#write h4>span::after";
-@h5After: ~"#write h5>span::after";
+@h1After: ~"#write h1 span::after";
+@h2After: ~"#write h2 span::after";
+@h3After: ~"#write h3 span::after";
+@h4After: ~"#write h4 span::after";
+@h5After: ~"#write h5 span::after";
+@h1_5After: ~"#write :is(h1, h2, h3, h4, h5) span::after";
+@h1_5HoverAfter: ~"#write :is(h1, h2, h3, h4, h5):hover span::after";
 
 // 针对封底 span::after 的微调处理
 @backcoverSpanAfter: ~"@{coverAfterYAML}~@{backcoverId}>span::after";
@@ -1336,8 +1475,8 @@
 
 // -----
 // 标准风格
-// 生成指定风格的多级标签样式：std, cap, dyn, "dyn, cap",
-.genBadgeStyle(@style) when (@style = std) {
+// 生成指定风格的多级标签样式：std, cap, dyn, "cap, dyn",
+.genBadgeStyle() when (@thmBadgeStyle = std) {
     // 多级标签内容（第2段）公共样式
     // 编辑时的多级标签内容（第2段）
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:first-child) > code, // :first-child 时为 标签 tag
@@ -1368,8 +1507,8 @@
 @dynOffset: 6px;
 @dynPadding: 8px;
 @dynMargin: 4px;
-// 生成指定风格的多级标签样式：std, cap, dyn, "dyn, cap",
-.genBadgeStyle(@style) when (@style = dyn) {
+// 生成指定风格的多级标签样式：std, cap, dyn, "cap, dyn",
+.genBadgeStyle() when (@thmBadgeStyle = dyn) {
     // 多级标签内容（第2段）公共样式
     // 编辑时的多级标签内容（第2段）
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:first-child) > code, // :first-child 时为 标签 tag
@@ -1392,13 +1531,14 @@
         margin-left: @dynMargin;
         margin-right: @dynMargin;
         padding-right: 10px;
-        border-radius: 0;
+        border-radius: 0 !important;
+        corner-shape: unset !important;
         background: linear-gradient(@dynDeg, transparent @dynOffset, var(--db) @dynOffset, var(--db) calc(100% - @dynOffset), transparent calc(100% - @dynOffset));
     }
 
     // 多级标签没有标题（第1段），只有两个内容 value 和 value2
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:only-child):first-child > code,
-    .v-badge-name > .v-badge-value:first-child {
+    .v-badge-value:first-child {
         margin-left: 1px;
         margin-right: @dynMargin;
         padding-left: @codePaddingLeft;
@@ -1410,8 +1550,8 @@
 
 // -----
 // 胶囊风格
-// 生成指定风格的多级标签样式：std, cap, dyn, "dyn, cap",
-.genBadgeStyle(@style, @style2: cap) when (@style = cap) {
+// 生成指定风格的多级标签样式：std, cap, dyn, "cap, dyn",
+.genBadgeStyle() when (@thmBadgeStyle = cap) {
     // 多级标签样式名称公共样式
     @{badgeOnEditing},
     @{badgeOnEditing2},
@@ -1427,20 +1567,20 @@
         border-radius: 0 calc(var(--v-r-tag-xc) - 1px) calc(var(--v-r-tag) - 1px) 0;
         color: var(--db) !important;
         // 生成 cap 风格默认的背景
-        .genBadgeStyleForValue(@style2) when (@style2 = cap) {
+        .genBadgeStyleForValue() when (@thmBadgeStyleExt = cap) {
             margin: @codeMarginForCap 0 @codeMarginForCap @codePaddingLeft;
             padding: 5px @codePaddingLeft;
             background: var(--df);
         }
         // 生成 cap + dyn 风格的背景
-        .genBadgeStyleForValue(@style2) when (@style2 = dyn) {
+        .genBadgeStyleForValue() when (@thmBadgeStyleExt = dyn) {
             margin-left: 2px;
             margin-top: -1px;
             margin-bottom: -1px;
             padding: 5px 6px 5px @dynPadding;
             background: linear-gradient(@dynDeg, transparent @dynOffset, var(--df) @dynOffset, var(--df));
         }
-        .genBadgeStyleForValue(@style2);
+        .genBadgeStyleForValue();
     }
 
     // 三段式，多级标签有两个内容时微调
@@ -1453,30 +1593,31 @@
     .v-badge-value.hastwo {
         margin: @codeMarginForCap @codePaddingLeft;
         padding-left: @dynPadding !important;
-        border-radius: 0;
+        border-radius: 0 !important;
+        corner-shape: unset !important;
         // 生成 cap + dyn 风格的背景（有两个 value 时）
-        .genBadgeStyleForValue_hasTow(@style2) when (@style2 = dyn) {
+        .genBadgeStyleForValue_hasTow() when (@thmBadgeStyleExt = dyn) {
             margin-left: 2px;
             margin-right: 2px;
             padding-right: @codePaddingRight;
             background: linear-gradient(@dynDeg, transparent @dynOffset, var(--df) @dynOffset, var(--df) calc(100% - @dynOffset), transparent calc(100% - @dynOffset));
         }
-        .genBadgeStyleForValue_hasTow(@style2);
+        .genBadgeStyleForValue_hasTow();
     }
 
     // 多级标签没有标题（第1段），只有两个内容 value 和 value2
     @{badgeOnEditingPrefix} > @{codeOnEditing}:not(:only-child):first-child > code,
-    .v-badge-name > .v-badge-value:first-child {
+    .v-badge-value:first-child {
         margin: @codeMarginForCap 2px @codeMarginForCap @codeMarginForCap;
         border-radius: var(--v-r-tag) 0 0 var(--v-r-tag-xc);
         margin-right: @codePaddingLeft;
         // 生成 cap + dyn 风格的背景（无标题时）
-        .genBadgeStyleForValue_firstChild(@style2) when (@style2 = dyn) {
+        .genBadgeStyleForValue_firstChild() when (@thmBadgeStyleExt = dyn) {
             margin-right: 2px;
             padding-right: @dynPadding;
             background: linear-gradient(@dynDeg, var(--df), var(--df) calc(100% - @dynOffset), transparent calc(100% - @dynOffset));
         }
-        .genBadgeStyleForValue_firstChild(@style2);
+        .genBadgeStyleForValue_firstChild();
     }
 }
 
@@ -1622,6 +1763,12 @@
 // 三角形
 @quoteBeforeImage_t01: url("data:image/svg+xml,%3Csvg width='20' height='16' viewBox='0 0 20 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 16L20 0H0z' fill='%23000' fill-rule='evenodd'/%3E%3C/svg%3E");
 @quoteAfterImage_t01: url("data:image/svg+xml,%3Csvg width='20' height='16' viewBox='0 0 20 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0l10 16H0z' fill='%23000' fill-rule='evenodd'/%3E%3C/svg%3E");
+// 水墨注释圈
+@quoteBeforeImage_m01: url("data:image/svg+xml,%3Csvg width='28.482' height='28.495' viewBox='0 0 28.482 28.495' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.768 25.034c-4.155-2.845-6.448-5.221-6.878-7.128-.646-2.86-1.102-8.297 3.585-11.06 4.686-2.762 8.755-1.443 10.784-.655 2.028.788 4.217 2.243 5.267 3.5 1.05 1.257 1.491 3.206 1.977 3.206s.77-.681.913-1.689c.144-1.007.492-4.978-4.57-8.575C18.787-.964 11.715-.3 8.724 1.24 5.73 2.78 2.045 6.206.846 10.56c-1.198 4.352-.984 7.54-.221 9.724.644 1.846 2.319 3.84 5.023 5.982-1.976-2.001-3.3-4.26-3.974-6.778-.674-2.518-.461-5.486.637-8.904-1.373 4.821-.752 8.964 1.86 12.429 2.614 3.465 6.265 5.292 10.955 5.482-4.18-.973-7.378-3.001-9.594-6.085-2.216-3.083-2.829-6.506-1.84-10.269-.422 2.889-.05 5.42 1.115 7.595 1.165 2.174 3.819 3.94 7.96 5.298z' fill='%23BF3D22' fill-rule='evenodd'/%3E%3C/svg%3E");
+@quoteAfterImage_m01: url("data:image/svg+xml,%3Csvg width='28.482' height='28.495' viewBox='0 0 28.482 28.495' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.714 3.462c4.155 2.845 6.448 5.22 6.878 7.128.646 2.86 1.102 8.297-3.585 11.059-4.686 2.762-8.755 1.443-10.784.655-2.028-.788-4.217-2.242-5.267-3.5C1.906 17.547 1.465 15.6.98 15.6s-.77.68-.913 1.688c-.144 1.007-.491 4.979 4.57 8.576 5.06 3.596 12.132 2.933 15.124 1.392 2.99-1.54 6.677-4.965 7.876-9.319 1.198-4.353.984-7.54.221-9.725-.644-1.845-2.318-3.84-5.023-5.981 1.976 2 3.3 4.26 3.974 6.777.674 2.518.462 5.486-.637 8.904 1.373-4.82.753-8.964-1.86-12.428C21.696 2.018 18.045.19 13.356 0c4.18.973 7.377 3.002 9.593 6.085 2.216 3.084 2.83 6.507 1.84 10.27.422-2.89.05-5.42-1.115-7.595s-3.819-3.941-7.96-5.298z' fill='%23BF3D22' fill-rule='evenodd'/%3E%3C/svg%3E");
+// 水墨撇
+@quoteBeforeImage_m02: url("data:image/svg+xml,%3Csvg width='21' height='24' viewBox='0 0 21 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20.127c.003-.061.003-.126.006-.188.04-.13.056-.26-.006-.39l.01-.138c-.004-.043-.007-.084-.007-.127.24-.485.497-.96.683-1.47.17-.463.336-.926.623-1.334a.3.3 0 0 0 .053-.059c0-.03.003-.061.003-.092.102-.111-.043-.216-.019-.328-.003-.003-.003-.009-.006-.012 0-.003-.003-.003-.003-.006-.015.006-.034.003-.052-.012v-.004c-.034-.12-.08-.244.024-.355.04-.05.08-.099.12-.145h.038c0-.006.003-.015.003-.025.096-.373.303-.694.485-1.025.068-.123.179-.157.3-.074.175.117.262.528.126.704-.176.232-.077.482-.077.72 0 .102.102.055.163.012l.05-.046c0-.016.003-.031.003-.047.046-.068.083-.142.139-.2.059-.062.083-.201.204-.149.126.056.021.158.021.241-.003.084-.003.17 0 .254.007.024.016.049.022.074.015.061.015.126.025.185a.637.637 0 0 0 .139.24l.058.022a.33.33 0 0 0 .059-.027c.142-.096.213-.223.275-.39.133-.367.346-.697.636-.97.139-.218.306-.416.466-.623.213-.272.581-.494.411-.951-.037-.096.074-.22.16-.306.109-.111.21-.228.331-.327.192-.16.189-.3-.043-.392-.287-.115-.25-.316-.16-.526.064-.154.163-.29.293-.401.136-.167.284-.321.41-.5.019-.022.022-.04.016-.059h-.003c-.031.015-.047.05-.071.071-.099.099-.226.167-.343.071-.148-.117.074-.188.071-.296.077-.204.127-.42.012-.618-.123-.213-.034-.352.112-.494.194-.247.416-.47.639-.692a.595.595 0 0 1 .287-.352c.136-.071.3-.151.3.139 0 .198.126.13.216.062.234-.173.407-.402.577-.63.019-.031.04-.059.059-.09.025-.07.068-.136.099-.204.009-.061-.016-.12-.093-.17-.096.05-.185.14-.198.007-.018-.186-.38-.232-.228-.445 0-.022 0-.043.003-.068.225-.176.5-.303.587-.611.012-.044.068-.065.105-.093.312-.21.516-.525.753-.803.124-.145.142-.256-.077-.352-.204-.09-.247-.232.012-.324A.31.31 0 0 0 9 4.794c.182-.574.624-.902 1.109-1.192l.105-.03.136-.118a.417.417 0 0 0 .194-.068.681.681 0 0 0 .09-.099.37.37 0 0 0 .04-.102c.015-.07.03-.142.093-.17l.009-.034c.055-.09.117-.173.228-.2.22-.27.445-.535.507-.896h-.003c.086-.195.238-.321.423-.417.006 0 .015 0 .022-.003.058-.127.154-.235.277-.136.09.071-.027.18-.13.24a.15.15 0 0 1-.02.081c-.016.019-.022.037-.016.062-.09.012-.133.096-.201.136-.321.179-.225.62-.522.809-.052.105.13.195.019.303-.062.034-.12.07-.183.105v.003c-.021.083-.095.133-.126.207.024.083.052.132.099.154.064.006.139-.01.206-.012l.102-.034c.35-.488.8-.874 1.245-1.27.352-.308.732-.617.645-1.195-.037-.247.17-.179.288-.095.173.123.324.145.478-.013.1-.102.201-.194.328-.052.108.12.07.247-.028.352-.14.151-.198.352-.327.51-.013.009-.022.021-.034.03l.052.093.358-.29c-.003-.025-.003-.05-.006-.071.08.009.18 0 .188.114.007.07-.046.102-.114.099-.037.102-.006.234-.139.287-.12.07-.238.142-.358.213a.651.651 0 0 1-.269.207l-.018.043-.028.037a.636.636 0 0 1-.176.22.433.433 0 0 0-.046.092.309.309 0 0 1-.071.083c.207.18.126.303-.127.39-.05.114.056.28-.04.38-.006.015-.016.03-.022.049-.136.225-.407.302-.556.512a.208.208 0 0 1-.034.022l-.003.105c-.25.05-.497.099-.5.436-.025 0-.05-.004-.074-.004a.06.06 0 0 1-.053.028c-.024.037-.052.074-.077.111-.139.204-.374.142-.565.198a.653.653 0 0 1-.093.05.83.83 0 0 0-.102.055c-.225.185-.277.503-.475.707-.028.013-.053.028-.08.04-.019.022-.037.044-.06.062-.614.618-1.271 1.19-1.812 1.875a.933.933 0 0 1-.16.111c-.004.003-.007.006-.007.01.003.04-.006.076-.015.117.062-.056.117-.118.179-.176a.641.641 0 0 1 .25-.164c.022-.006.046-.01.068-.012.127-.155.281-.282.503-.322-.08.167-.17.325-.315.442a.163.163 0 0 1 .004.04c-.207.34-.414.676-.683.973-.01.018-.062.015-.037.043l.003.003c0-.006.003-.012.016-.015.095-.065.163-.189.308-.17l.065-.111c.059-.108.133-.192.266-.204.052.151-.04.247-.13.343-.03.03-.059.061-.09.095.004.016.004.031.004.047.009.114-.115.22-.007.404.105-.278.173-.51.306-.71-.065-.408.127-.682.442-.917.306-.226.593-.476.898-.701.019-.006.04-.01.062-.016.148-.191.303-.367.528-.49.14-.078.618.219.39-.313-.004-.003.012-.021.024-.024.33-.133.497-.46.766-.667.025-.037.053-.071.074-.112.43-.315.707-.76 1.02-1.173a.347.347 0 0 1 .061-.056c.074-.16.247-.244.346-.386.114.028.21-.287.34-.021-.025.077-.247.092-.071.228.049.025.105.056.09.118-.013.055-.05.095-.106.101-.025.133-.13.214-.207.315-.003.004-.006.007-.006.01.028.028.059.055.087.086.027-.018.052-.04.08-.058l.3-.281.5-.356c.099-.07.194-.145.293-.216.22-.058.365-.46.655-.2.003-.004.01-.007.012-.01.111-.123.284-.197.324-.383.01-.07.084-.142.05-.2-.093-.167-.118-.297.086-.402.158-.083.16-.343.352-.383.288-.059.507-.247.763-.361.09-.087.176-.176.266-.263.207-.367.556-.475.939-.525.08-.151.247-.216.352-.343.123-.114.213-.253.315-.382.11-.146.29-.214.441-.096.17.133.04.296-.061.398-.405.402-.782.834-1.18 1.242-.028.012-.059.021-.087.03-.102.115-.256.118-.401.13-.01 0-.016.003-.025.003-.04.016-.08.031-.117.047-.034.04-.019.102.028.182.03.136-.068.2-.146.278-.142.213-.293.42-.525.55-.061.033-.132.083-.188.021-.086-.102.08-.117.083-.191l-.034-.034c-.142.225-.37.395-.487.713.444-.096.71-.383 1.019-.59a.58.58 0 0 0 .139-.068.329.329 0 0 1 .185-.114c.003 0 .006-.003.006-.003.003 0 .006 0 .01-.003a.458.458 0 0 1 .293-.281c.055-.25.265-.414.373-.633.05-.031.1-.065.146-.096.095-.065.219-.105.284.003.065.105-.074.158-.14.213-.12.111-.253.204-.38.306 0 .117-.06.21-.129.3-.03.123-.092.027-.142.018-.003.062-.006.123-.012.185l-.14.152-.033-.01h-.003l-.01.044c-.194.225-.262.54-.521.72h-.019a.558.558 0 0 1-.238.299c.003.012.003.024.006.04a.306.306 0 0 1-.17.17.095.095 0 0 1-.04.009c-.09.204-.219.108-.345.043-.004.006-.004.01-.007.013a.461.461 0 0 1-.126.15c-.433.183-.572.146-.772-.25-.34.726-1.124.89-1.625 1.403a.547.547 0 0 0-.151.08l-.034.028a.455.455 0 0 0-.105.123.52.52 0 0 1-.34.207h-.012a.39.39 0 0 1-.2.164l-.15.139c-.02.028-.042.03-.064.006-.12.235-.34.392-.497.6l-.013.009c.007.003.01.006.016.006l.037-.037c.25-.3.522-.544.954-.365.016.006.043-.015.065-.024.12-.068.182-.183.238-.303.133-.303.37-.525.584-.766.179-.2.407-.16.626-.056.149.071.217.201.149.356-.087.191-.142.413-.368.506a.644.644 0 0 0-.167.102c-.046.071-.052.151.022.22.133.129.229-.04.315-.115.096-.08.164-.195.244-.297.046-.095.025-.234.167-.271.216-.47.559-.822.991-1.094.105-.139.272-.228.392-.108.115.112-.08.149-.151.207-.303.365-.729.618-.96 1.05a.102.102 0 0 0-.06.019c-.042.028-.086.052-.129.08-.037.083.037.133.062.198.062.028.056.083.052.136-.135.058-.274.114-.41.173l-.411.29a.291.291 0 0 1-.037.093c-.303.454-.713.796-1.124 1.142-.019.019-.031.059-.019.062.044.018-.024.025.022.022.034-.004.068-.004.102-.007.015-.012.03-.021.046-.037.114-.095.182-.24.327-.302.17.027.127.117.06.213-.047.04-.134.068-.05.151.102.074.092.151.006.229l-.003.003c-.031.043-.065.08-.118.07-.07.124-.188.19-.305.26-.278.18-.714.204-.695.686 0 .037-.056.074-.09.108-.132.136-.268.269-.398.408-.142.13-.192.33-.349.45-.015.013-.03.028-.046.04.009.013.024.016.04.013.015-.019.034-.037.05-.056.067-.058.123-.13.19-.191a.252.252 0 0 1 .081-.043c.12-.025.22-.102.333-.142a.19.19 0 0 1 .084 0c.182-.164.42-.26.559-.473.083-.056.139-.145.222-.2l.022-.013c.043-.096.173-.099.247-.164.077-.244.333-.284.516-.407.108-.062.3-.075.312-.189.034-.3.265-.318.463-.398.034-.173.102-.318.3-.355.385-.31.688-.695 1-1.075.037-.071.12-.077.136-.019.096.368.321.167.42.06.364-.409.865-.665 1.192-1.106.04-.183.238-.257.3-.427l.055-.065a.13.13 0 0 1 .065-.018c.244-.309.488-.615.729-.923.117-.1.24-.192.355-.294.083-.07.179-.157.272-.05.077.093-.016.17-.084.242-.271.28-.574.53-.787.864-.114.102-.232.201-.346.303-.14.148-.278.3-.417.448-.39.485-.865.883-1.306 1.312-.127.124-.176.362-.42.343-.115.111-.22.241-.35.334-.172.12-.28.237-.154.447-.024.047-.05.093-.07.136-.1.13-.254.01-.365.084-.102.006-.148.092-.216.145-.034.012-.06.006-.078-.019l-.574.491c-.043.007-.083.016-.127.022a.23.23 0 0 1-.265.04c-.216-.12-.25.068-.337.17l-.336.24c-.08.236-.26.396-.439.55a.326.326 0 0 1-.18.087c.032.022.063.043.087.071l.007.01c.003 0 .006 0 .009-.004.012-.03.034-.043.077-.03l.213-.075c.099-.04.16-.139.256-.182l.084-.083a3.5 3.5 0 0 1 .747-.507c.013-.003.028-.01.043-.015.08-.074.217-.084.263-.198.296.043.13.173.055.287-.006.068-.07.158.004.198l.052-.034a.74.74 0 0 1 .087-.04c.114-.037.213-.124.34-.117.012-.05.049-.084.095-.112v-.03c.188-.106.315-.272.442-.44l-.019-.172c-.114.099-.222.204-.343.287-.07.05-.182.102-.247 0-.062-.096.084-.117.108-.188.173-.05.244-.315.482-.226h.071c.025.074.087.065.145.071.111-.07.232-.077.359-.074.09-.123.277-.015.367-.157.04-.065.127-.093.173-.022.056.09-.03.142-.096.192-.024-.003-.05-.01-.074-.013-.04.145-.167.182-.287.223-.13.064-.26.13-.39.197-.16.158-.391.235-.506.448.01.028.025.043.04.053a.219.219 0 0 0 .075-.062c.12-.12.25-.229.42-.275a.376.376 0 0 1 .083 0c.099-.083.2-.158.343-.158.04-.095.117-.135.216-.139.003.158-.142.195-.222.281l-.192.118c.006.052-.015.093-.05.133-.002.006-.009.009-.015.012a.23.23 0 0 0 .115.04h.015c.204-.157.417-.303.608-.475.176-.161.328-.13.454.03.14.173-.108.18-.157.275-.043.08-.17.118-.257.176-.006.022-.012.04-.015.062-.052.043-.105.083-.157.127-.124.07-.312.083-.272.302.13-.018.194.013.102.146-.053.077-.118.145-.176.216-.007.163.04.253.216.145l.03.037a.3.3 0 0 1-.107.25l-.284-.065c-.028-.003-.056-.01-.084-.012-.105.021-.173.207-.296.092-.093-.086.027-.157.068-.237.07-.136 0-.167-.124-.142-.099.117-.2.052-.303.018a.094.094 0 0 0-.03.037.972.972 0 0 0-.028.13c-.003.015-.006.03-.013.043.05.099-.012.127-.108.136-.018.015-.04.028-.058.043-.229.145-.448.29-.63.5a.889.889 0 0 1-.423.3c-.115.281.135.167.234.204.152.059.38-.003.358.284-.037.507-.34.806-.849.83a.603.603 0 0 0-.364.124l-.074.031c-.031.034-.062.068-.09.102.09.028.204-.012.287.108-.21.232-.5.352-.744.535-.04.04-.08.08-.114.123a.338.338 0 0 1-.031.034c-.019.034-.034.065-.025.09.028.098.12.052.176.03.195-.083.386-.179.58-.268.152-.093.3-.186.452-.281.052-.043.108-.087.16-.133h-.003c.127-.13.275-.222.442-.29.043-.028.086-.053.13-.08a.189.189 0 0 0 .037.015l.003.003c.083-.025.145-.012.16.108a.166.166 0 0 1-.065.015c-.021.025-.043.047-.064.071-.232.096-.362.359-.63.396a.057.057 0 0 1-.022-.006c-.099.086-.195.173-.293.259l-.136.062c-.078.07-.152.142-.229.213a.257.257 0 0 0-.046.012c-.013.016-.022.031-.031.047-.368.376-.806.667-1.217.99-.364.288-.723.6-1.158.757-.29.105-.472.312-.692.488-.092.075-.108.183-.05.294.06.114.152.133.273.108.126-.025.278-.003.367-.117.35-.439.868-.402 1.34-.491.173-.034.241.061.183.197-.074.173-.108.374-.254.504-.29.262-.577.525-.83.83-.13.155-.192.272-.056.433.114.139.068.24-.059.327-.358.24-.664.534-.93.874-.083.229-.367.275-.453.5a1.4 1.4 0 0 1-.096.096c-.099.158-.29.204-.466.269-.182.068-.405.058-.55.207a.228.228 0 0 0-.015.086c0 .025-.003.046-.007.071.056.111-.064.182-.126.256-.25.29-.615.39-.951.535-.013 0-.025 0-.037.003a.504.504 0 0 0-.062.052c-.114.102-.238.074-.368.034-.117-.034-.216-.021-.293.108.222.084.408-.12.587.022.157.278-.12.293-.244.358-.627.34-1.285.624-1.927.936-.074.01-.142.025-.204.043-.173.087-.352.17-.476.306a.875.875 0 0 0-.142.272.944.944 0 0 0-.021.17c0 .012-.013.024-.028.037l-.01.052a.482.482 0 0 1-.17.182c-.036.013-.07.025-.104.034l-.096.124-.204-.006c-.43 0-.858 0-1.288.003L2.952 24c-.021-.124-.086-.188-.182-.204a.242.242 0 0 0-.127.071c-.15.087-.3.09-.423-.046-.154-.167-.352-.278-.534-.41-.068-.05-.133-.097-.167-.183a25.391 25.391 0 0 0-1.013-2.276c-.021-.019-.04-.034-.058-.053-.247-.09-.133-.392-.232-.568A.379.379 0 0 1 0 20.127zM16.809 7.095c0 .037 0 .07-.01.1.05-.04.09-.082.01-.1zm-2.23 2.78a.12.12 0 0 1-.046-.05c-.086.05-.166.111-.25.167a.11.11 0 0 1 .013.027c.012-.006.024-.015.037-.021.083-.037.173-.068.247-.124zm-.194-5.366c.02-.01.05-.03.07-.04-.02 0-.05.02-.07.04zm-1.1 1.372c.004 0 .004.003.007.003.037-.052.074-.105.114-.157a.191.191 0 0 1 .034-.077c.022-.022.046-.038.068-.056l.083-.105c.028-.003.06-.006.087-.012a.692.692 0 0 0 .105-.084c.26-.238.432-.546.68-.793a.391.391 0 0 1 .033-.04l-.052-.103-.133.078a2.718 2.718 0 0 1-.46.481c-.016.149-.127.238-.22.337a1.146 1.146 0 0 1-.237.185 1.05 1.05 0 0 0-.21.133l-.241.232-.037.043c.136.022.253-.046.38-.065zM.202 20.331c.02.033.05.067.07.1a.205.205 0 0 0-.07-.1zM19.72 8.268c-.024.04-.067.053-.107.071a.315.315 0 0 1-.21.142c-.078.068-.164.143-.263.047-.08-.077-.028-.14.059-.176l.003.003c.077-.071.154-.145.228-.216l.189-.084c.058-.065.095-.16.21-.148.046-.05.095-.096.142-.145a.145.145 0 0 0 .012-.05c.059-.132.17-.166.272-.086.105.08.015.158-.059.213-.046.043-.065.13-.154.114a.211.211 0 0 1-.142.155c-.019.012-.04.021-.059.03l-.108.038c0 .003 0 .003.003.006a.214.214 0 0 1-.015.086z' fill-rule='nonzero' fill='%23000'/%3E%3C/svg%3E");
+@quoteAfterImage_m02: url("data:image/svg+xml,%3Csvg width='21' height='24' viewBox='0 0 21 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.304 3.873c-.003.061-.003.126-.006.188-.04.13-.056.26.006.39l-.01.138c.004.043.007.084.007.127-.241.485-.497.96-.683 1.47-.17.463-.336.926-.624 1.334a.3.3 0 0 0-.052.059c0 .03-.003.061-.003.092-.102.111.043.216.018.328.003.003.003.009.007.012 0 .003.003.003.003.006.015-.006.034-.003.052.012v.004c.034.12.08.244-.025.355-.04.05-.08.099-.12.145h-.037c0 .006-.003.015-.003.025-.096.373-.303.694-.485 1.025-.068.123-.18.157-.3.074-.176-.117-.262-.528-.126-.704.176-.232.077-.482.077-.72 0-.102-.102-.055-.164-.012l-.05.046-.002.047c-.046.068-.084.142-.14.2-.058.062-.083.201-.203.149-.127-.056-.022-.158-.022-.241.004-.084.004-.17 0-.254-.006-.024-.015-.049-.021-.074-.016-.061-.016-.126-.025-.185a.637.637 0 0 0-.139-.24c-.018-.007-.04-.016-.059-.022a.33.33 0 0 0-.058.027c-.142.096-.213.223-.275.39a2.469 2.469 0 0 1-.636.97c-.14.218-.306.416-.467.623-.213.272-.58.494-.41.951.037.096-.074.22-.16.306-.109.111-.21.228-.331.327-.192.16-.189.3.043.392.287.115.25.316.16.526-.064.154-.163.29-.293.401-.136.167-.284.321-.41.5-.02.022-.022.04-.016.059h.003c.03-.015.046-.05.071-.071.099-.099.225-.167.343-.071.148.117-.074.188-.071.296-.077.204-.127.42-.013.618.124.213.034.352-.11.494-.195.247-.418.47-.64.692a.595.595 0 0 1-.287.352c-.136.071-.3.151-.3-.139 0-.198-.126-.13-.216-.062-.235.173-.408.402-.577.63-.019.031-.04.059-.06.09-.024.07-.067.136-.098.204-.01.061.015.12.093.17.095-.05.185-.14.197-.007.019.186.38.232.229.445 0 .022 0 .043-.003.068-.226.176-.5.303-.587.611-.012.044-.068.065-.105.093-.312.21-.516.525-.754.803-.123.145-.142.256.078.352.203.09.247.232-.013.324a.31.31 0 0 0-.197.195c-.183.574-.624.902-1.109 1.192-.037.01-.071.019-.105.03l-.136.118a.417.417 0 0 0-.194.068.681.681 0 0 0-.09.099.37.37 0 0 0-.04.102c-.016.07-.031.142-.093.17l-.01.034c-.055.09-.116.173-.228.2-.219.27-.444.535-.506.896h.003c-.086.195-.238.321-.423.417-.006 0-.016 0-.022.003-.058.127-.154.235-.278.136-.09-.071.028-.18.13-.24a.15.15 0 0 1 .022-.081c.015-.019.021-.037.015-.062.09-.012.133-.096.2-.136.322-.179.226-.62.523-.809.052-.105-.13-.195-.019-.303.062-.034.12-.07.182-.105v-.003c.022-.083.096-.133.127-.207-.025-.083-.052-.132-.099-.154-.065-.006-.139.01-.207.012l-.102.034c-.349.488-.8.874-1.244 1.27-.352.308-.732.617-.646 1.195.037.247-.17.179-.287.095-.173-.123-.324-.145-.479.013-.098.102-.2.194-.327.052-.108-.12-.07-.247.028-.352.139-.151.198-.352.327-.51.013-.009.022-.021.034-.03l-.052-.093-.358.29c.003.025.003.05.006.071-.08-.009-.18 0-.189-.114-.006-.07.047-.102.115-.099.037-.102.006-.234.139-.287.12-.07.237-.142.358-.213a.651.651 0 0 1 .268-.207l.019-.043.028-.037a.636.636 0 0 1 .176-.22.433.433 0 0 0 .046-.092.309.309 0 0 1 .071-.083c-.207-.18-.126-.303.127-.39.05-.114-.056-.28.04-.38.006-.015.015-.03.022-.049.135-.225.407-.302.555-.512a.208.208 0 0 1 .034-.022c0-.034.004-.071.004-.105.25-.05.497-.099.5-.436.025 0 .05.004.074.004a.06.06 0 0 1 .052-.028l.078-.111c.139-.204.373-.142.565-.198a.653.653 0 0 1 .092-.05.83.83 0 0 0 .102-.055c.226-.185.278-.503.476-.707.028-.013.052-.028.08-.04.019-.022.037-.044.059-.062.614-.618 1.272-1.19 1.813-1.875a.933.933 0 0 1 .16-.111c.003-.003.006-.006.006-.01-.003-.04.007-.076.016-.117-.062.056-.117.118-.18.176a.641.641 0 0 1-.25.164c-.021.006-.046.01-.067.012-.127.155-.281.282-.504.322.08-.167.17-.325.315-.442-.003-.012-.003-.025-.003-.04.207-.34.414-.676.683-.973.009-.018.062-.015.037-.043l-.003-.003c0 .006-.003.012-.016.015-.095.065-.163.189-.309.17l-.064.111c-.06.108-.133.192-.266.204-.052-.151.04-.247.13-.343.03-.03.058-.061.09-.095-.004-.016-.004-.031-.004-.047-.01-.114.114-.22.006-.404-.105.278-.173.51-.305.71.064.408-.127.682-.442.917-.306.226-.593.476-.899.701-.018.006-.04.01-.061.016-.149.191-.303.367-.529.49-.139.078-.617-.219-.389.313.003.003-.012.021-.024.024-.33.133-.498.46-.766.667-.025.037-.053.071-.074.112-.43.315-.708.76-1.02 1.173a.347.347 0 0 1-.061.056c-.074.16-.247.244-.346.386-.114-.028-.21.287-.34.021.025-.077.247-.092.071-.228-.05-.025-.105-.056-.09-.118.013-.055.05-.095.106-.101.024-.133.13-.214.207-.315.003-.004.006-.007.006-.01-.028-.028-.059-.055-.087-.086-.028.018-.052.04-.08.058l-.3.281-.5.356c-.099.07-.194.145-.293.216-.22.058-.365.46-.655.2-.003.004-.01.007-.012.01-.112.123-.284.197-.325.383-.009.07-.083.142-.05.2.094.167.118.297-.086.402-.157.083-.16.343-.352.383-.287.059-.506.247-.762.361-.09.087-.176.176-.266.263-.207.367-.556.475-.939.525-.08.151-.247.216-.352.343-.123.114-.213.253-.315.382-.111.146-.29.214-.441.096-.17-.133-.04-.296.061-.398.405-.402.782-.834 1.18-1.242.028-.012.059-.021.086-.03.102-.115.257-.118.402-.13.01 0 .015-.003.025-.003.04-.016.08-.031.117-.047.034-.04.019-.102-.028-.182-.03-.136.068-.2.145-.278.142-.213.294-.42.525-.55.062-.033.133-.083.189-.021.086.102-.08.117-.084.191l.034.034c.142-.225.37-.395.488-.713-.444.096-.71.383-1.019.59a.58.58 0 0 0-.139.068.329.329 0 0 1-.185.114c-.003 0-.006.003-.006.003-.003 0-.006 0-.01.003a.458.458 0 0 1-.293.281c-.056.25-.266.414-.374.633-.049.031-.098.065-.145.096-.096.065-.22.105-.284-.003-.065-.105.074-.158.14-.213.12-.111.252-.204.379-.306 0-.117.062-.21.13-.3.03-.123.092-.027.142-.018.003-.062.006-.123.012-.185l.139-.152.034.01h.003l.01-.044c.194-.225.262-.54.521-.72h.019a.558.558 0 0 1 .238-.299c-.004-.012-.004-.024-.007-.04a.306.306 0 0 1 .17-.17.095.095 0 0 1 .04-.009c.09-.204.22-.108.346-.043.003-.006.003-.01.006-.013a.461.461 0 0 1 .127-.15c.432-.183.571-.146.772.25.34-.726 1.124-.89 1.625-1.403a.547.547 0 0 0 .15-.08l.035-.028a.455.455 0 0 0 .105-.123.52.52 0 0 1 .34-.207h.012a.39.39 0 0 1 .2-.164l.149-.139c.022-.028.043-.03.065-.006.12-.235.34-.392.497-.6l.012-.009c-.006-.003-.009-.006-.015-.006l-.037.037c-.25.3-.522.544-.954.365-.016-.006-.044.015-.065.024-.12.068-.183.183-.238.303-.133.303-.37.525-.584.766-.179.2-.407.16-.627.056-.148-.071-.216-.201-.148-.356.087-.191.142-.413.368-.506a.644.644 0 0 0 .166-.102c.047-.071.053-.151-.021-.22-.133-.129-.229.04-.315.115-.096.08-.164.195-.244.297-.047.095-.025.234-.167.271-.216.47-.559.822-.991 1.094-.105.139-.272.228-.393.108-.114-.112.08-.149.152-.207.302-.365.729-.618.96-1.05.022 0 .04-.006.059-.019.043-.028.086-.052.13-.08.037-.083-.037-.133-.062-.198-.062-.028-.056-.083-.053-.136.136-.058.275-.114.411-.173l.41-.29a.291.291 0 0 1 .038-.093c.303-.454.713-.796 1.124-1.142.019-.019.03-.059.019-.062-.044-.018.024-.025-.022-.022-.034.004-.068.004-.102.007-.015.012-.03.021-.046.037-.115.095-.183.24-.328.302-.17-.027-.126-.117-.058-.213.046-.04.132-.068.05-.151-.103-.074-.094-.151-.007-.229l.003-.003c.03-.043.065-.08.117-.07.071-.124.189-.19.306-.26.278-.18.713-.204.695-.686 0-.037.056-.074.09-.108.132-.136.268-.269.398-.408.142-.13.191-.33.349-.45.015-.013.03-.028.046-.04-.01-.013-.025-.016-.04-.013-.015.019-.034.037-.05.056-.067.058-.123.13-.19.191a.252.252 0 0 1-.081.043c-.12.025-.22.102-.334.142a.19.19 0 0 1-.083 0c-.182.164-.42.26-.56.473-.082.056-.138.145-.221.2l-.022.013c-.043.096-.173.099-.247.164-.077.244-.334.284-.516.407-.108.062-.3.075-.312.189-.034.3-.265.318-.463.398-.034.173-.102.318-.3.355-.386.31-.688.695-1 1.075-.037.071-.12.077-.136.019-.096-.368-.321-.167-.42-.06-.364.409-.865.665-1.192 1.106-.04.183-.238.257-.3.427l-.055.065a.13.13 0 0 1-.065.018c-.244.309-.488.615-.729.923-.117.1-.24.192-.355.294-.083.07-.18.157-.272.05-.077-.093.016-.17.084-.242.271-.28.574-.53.787-.864.114-.102.232-.201.346-.303l.417-.448c.389-.485.865-.883 1.306-1.312.127-.124.176-.362.42-.343.114-.111.22-.241.35-.334.172-.12.28-.237.154-.447.024-.047.049-.093.07-.136.1-.13.254-.01.365-.084.102-.006.148-.092.216-.145.034-.012.059-.006.077.019l.575-.491c.043-.007.083-.016.126-.022a.23.23 0 0 1 .266-.04c.216.12.25-.068.337-.17.11-.08.225-.16.336-.24.08-.236.26-.396.439-.55a.326.326 0 0 1 .179-.087.482.482 0 0 1-.087-.071c-.003-.003-.003-.006-.006-.01-.003 0-.006 0-.009.004-.012.03-.034.043-.077.03l-.213.075c-.1.04-.16.139-.257.182l-.083.083a3.5 3.5 0 0 1-.747.507c-.013.003-.028.01-.044.015-.08.074-.216.084-.262.198-.297-.043-.13-.173-.056-.287.006-.068.071-.158-.003-.198l-.052.034a.74.74 0 0 1-.087.04c-.114.037-.213.124-.34.117-.012.05-.049.084-.095.112v.03c-.189.106-.315.272-.442.44l.019.172c.114-.099.222-.204.343-.287.07-.05.182-.102.247 0 .061.096-.084.117-.109.188-.172.05-.243.315-.481.226h-.071c-.025-.074-.087-.065-.145-.071-.112.07-.232.077-.359.074-.09.123-.278.015-.367.157-.04.065-.127.093-.173.022-.056-.09.03-.142.096-.192.024.003.049.01.074.013.04-.145.166-.182.287-.223.13-.064.26-.13.389-.197.16-.158.392-.235.507-.448a.092.092 0 0 0-.04-.053.219.219 0 0 0-.075.062c-.12.12-.25.229-.42.275a.376.376 0 0 1-.083 0c-.099.083-.2.158-.343.158-.04.095-.117.135-.216.139-.003-.158.142-.195.222-.281l.192-.118c-.006-.052.015-.093.05-.133.002-.006.008-.009.015-.012a.23.23 0 0 0-.115-.04h-.015c-.204.157-.417.303-.609.475-.176.161-.327.13-.454-.03-.138-.173.109-.18.158-.275.043-.08.17-.118.256-.176.006-.022.013-.04.016-.062.052-.043.105-.083.157-.127.124-.07.312-.083.272-.302-.13.018-.195-.013-.102-.146.053-.077.117-.145.176-.216.006-.163-.04-.253-.216-.145-.01-.012-.022-.025-.03-.037a.3.3 0 0 1 .107-.25l.284.065c.028.003.056.01.084.012.105-.021.173-.207.296-.092.093.086-.028.157-.068.237-.07.136 0 .167.124.142.099-.117.2-.052.302-.018a.094.094 0 0 0 .031-.037.972.972 0 0 0 .028-.13c.003-.015.006-.03.012-.043-.049-.099.013-.127.109-.136.018-.015.04-.028.058-.043.229-.145.448-.29.63-.5a.889.889 0 0 1 .423-.3c.115-.281-.136-.167-.234-.204-.152-.059-.38.003-.359-.284.037-.507.34-.806.85-.83a.603.603 0 0 0 .364-.124l.074-.031c.031-.034.062-.068.09-.102-.09-.028-.204.012-.288-.108.21-.232.5-.352.745-.535.04-.04.08-.08.114-.123a.338.338 0 0 1 .03-.034c.02-.034.035-.065.026-.09-.028-.098-.12-.052-.176-.03-.195.083-.386.179-.581.268-.151.093-.3.186-.45.281-.053.043-.109.087-.161.133h.003c-.127.13-.275.222-.442.29-.043.028-.086.053-.13.08a.189.189 0 0 0-.037-.015l-.003-.003c-.083.025-.145.012-.16-.108a.166.166 0 0 1 .064-.015l.065-.071c.232-.096.362-.359.63-.396.006 0 .016.003.022.006.099-.086.194-.173.293-.259l.136-.062c.077-.07.151-.142.229-.213A.257.257 0 0 0 6.348 10c.012-.016.022-.031.03-.047.368-.376.807-.667 1.218-.99.364-.288.722-.6 1.158-.757.29-.105.472-.312.692-.488.092-.075.108-.183.049-.294-.059-.114-.151-.133-.272-.108-.126.025-.278.003-.367.117-.35.439-.868.402-1.34.491-.174.034-.242-.061-.183-.197.074-.173.108-.374.253-.504.29-.262.578-.525.831-.83.13-.155.192-.272.056-.433-.115-.139-.068-.24.058-.327.359-.24.664-.534.93-.874.083-.229.367-.275.454-.5a1.4 1.4 0 0 1 .096-.096c.099-.158.29-.204.466-.269.182-.068.405-.058.55-.207a.228.228 0 0 0 .015-.086c0-.025.003-.046.006-.071-.055-.111.065-.182.127-.256.25-.29.615-.39.951-.535.012 0 .025 0 .037-.003a.504.504 0 0 0 .062-.052c.114-.102.238-.074.367-.034.118.034.217.021.294-.108-.222-.084-.408.12-.587-.022-.157-.278.12-.293.244-.358.627-.34 1.285-.624 1.927-.936.074-.01.142-.025.204-.043.173-.087.352-.17.476-.306a.875.875 0 0 0 .142-.272.944.944 0 0 0 .021-.17c0-.012.013-.024.028-.037l.01-.052a.482.482 0 0 1 .17-.182c.036-.013.07-.025.104-.034l.096-.124.204.006c.429 0 .858 0 1.288-.003L17.35 0c.022.124.087.188.183.204a.242.242 0 0 0 .126-.071c.152-.087.3-.09.423.046.155.167.352.278.535.41.068.05.132.097.166.183.303.775.637 1.535 1.013 2.276l.06.053c.246.09.132.392.23.568.1.034.17.108.217.204zM3.494 16.905c0-.037 0-.07.01-.1-.05.04-.09.082-.01.1zm2.23-2.78a.12.12 0 0 1 .046.05c.087-.05.167-.111.25-.167a.11.11 0 0 1-.012-.027c-.012.006-.024.015-.037.021-.083.037-.173.068-.247.124zm.195 5.366c-.02.01-.05.03-.07.04.02 0 .05-.02.07-.04zm1.1-1.372c-.004 0-.004-.003-.007-.003-.037.052-.074.105-.114.157a.191.191 0 0 1-.034.077c-.022.022-.047.038-.068.056l-.084.105c-.027.003-.058.006-.086.012a.692.692 0 0 0-.105.084c-.26.238-.432.546-.68.793a.391.391 0 0 1-.033.04l.052.103.133-.078c.139-.173.28-.346.46-.481.015-.149.127-.238.22-.337.073-.071.148-.136.237-.185a1.05 1.05 0 0 0 .21-.133l.24-.232.038-.043c-.136-.022-.253.046-.38.065zm13.084-14.45c-.02-.033-.05-.067-.07-.1.01.033.03.067.07.1zM.583 15.732c.024-.04.067-.053.107-.071a.315.315 0 0 1 .21-.142c.078-.068.164-.143.263-.047.08.077.028.14-.059.176l-.003-.003c-.077.071-.154.145-.228.216l-.189.084c-.059.065-.096.16-.21.148-.046.05-.096.096-.142.145a.145.145 0 0 0-.012.05c-.059.132-.17.166-.272.086-.105-.08-.016-.158.059-.213.046-.043.064-.13.154-.114a.211.211 0 0 1 .142-.155c.019-.012.04-.021.059-.03l.108-.038c0-.003 0-.003-.003-.006 0-.028.003-.059.015-.086z' fill-rule='nonzero' fill='%23000'/%3E%3C/svg%3E");
 
 .genParaFormatMark(@beforeImage, @afterImage, @opacity : .3, @color1: var(--ac-t1), @color2 : var(--ac-t2)) {
     @marginWidth: 10px;
@@ -1747,7 +1894,7 @@
         color: ~"var(--ac-@{accColor})";
     }
 
-    // hr
+    // 针对 GSA 内的 hr
     #write .md-alert-@{type} hr {
         border: 1px solid ~"var(--ac-@{accColor})" !important;
         border-top: none !important;
@@ -1908,12 +2055,12 @@
 }
 
 // 生成 GSA 简约风格
-.genGSA(@style) when (@style = simple) {
+.genGSA() when (@thmGsaStyle = simple) {
     .genGitHubStyleAlertCSS(note, bu, none, bu-a);
     .genGitHubStyleAlertCSS(tip, gn, none, gn-a);
     .genGitHubStyleAlertCSS(important, pu, none, pu-a);
-    .genGitHubStyleAlertCSS(warning, og, none, og-a);
-    .genGitHubStyleAlertCSS(caution, rd, none, rd-a);
+    .genGitHubStyleAlertCSS(warning, rd, none, rd-a);
+    .genGitHubStyleAlertCSS(caution, og, none, og-a);
 }
 
 // ----------
@@ -1951,12 +2098,12 @@
 }
 
 // 生成 GSA 扁平风格
-.genGSA(@style) when (@style = flat) {
+.genGSA() when (@thmGsaStyle = flat) {
     .genGitHubStyleAlertCssFlat(note, bu, bu-a);
     .genGitHubStyleAlertCssFlat(tip, gn, gn-a);
     .genGitHubStyleAlertCssFlat(important, pu, pu-a);
-    .genGitHubStyleAlertCssFlat(warning, og, og-a);
-    .genGitHubStyleAlertCssFlat(caution, rd, rd-a);
+    .genGitHubStyleAlertCssFlat(warning, rd, rd-a);
+    .genGitHubStyleAlertCssFlat(caution, og, og-a);
 }
 
 // ----------
@@ -1995,12 +2142,12 @@
 }
 
 // 生成 GSA 扁平up 风格
-.genGSA(@style) when (@style = flat_up) {
+.genGSA() when (@thmGsaStyle = flat_up) {
     .genGitHubStyleAlertCssFlatUp(note, bu, bu-a);
     .genGitHubStyleAlertCssFlatUp(tip, gn, gn-a);
     .genGitHubStyleAlertCssFlatUp(important, pu, pu-a);
-    .genGitHubStyleAlertCssFlatUp(warning, og, og-a);
-    .genGitHubStyleAlertCssFlatUp(caution, rd, rd-a);
+    .genGitHubStyleAlertCssFlatUp(warning, rd, rd-a);
+    .genGitHubStyleAlertCssFlatUp(caution, og, og-a);
 }
 
 // ----------
@@ -2044,10 +2191,10 @@
 }
 
 // 生成 GSA 强调风格
-.genGSA(@style) when (@style = em) {
+.genGSA() when (@thmGsaStyle = em) {
     .genGitHubStyleAlertCssEm(note, bu, bu-a);
     .genGitHubStyleAlertCssEm(tip, gn, gn-a);
     .genGitHubStyleAlertCssEm(important, pu, pu-a);
-    .genGitHubStyleAlertCssEm(warning, og, og-a);
-    .genGitHubStyleAlertCssEm(caution, rd, rd-a);
+    .genGitHubStyleAlertCssEm(warning, rd, rd-a);
+    .genGitHubStyleAlertCssEm(caution, og, og-a);
 }

@@ -1,10 +1,10 @@
 ---
 title: Guide ★ Exploration - VLOOK™ - Elegant and Practical Typora Theme & Plugin
 author: MAX°孟兆
-date: 2026-05-16
+date: 2026-07-25
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: This work is licensed under the MIT License. For details, see the LICENSE file.
-version: V2026.5.1
+version: V2026.7
 tags: Content Navigation, Content Assistant, Presentation Tools, Publishing Tools, Appearance, Miscellaneous
 vlook-footer: <a href="index-en.html">Introduction</a>	|	Guide for <a href='guide-en.html'>Basic</a>  ❯  <a href='guide2-en.html'>Advanced</a>  ❯  <strong>Exploration</strong>
 description: Regarding VLOOK™: Theme Design, Content Tagging, Content Navigation, Presentation & Publishing, Third-Party Integration Adaptation, and Miscellaneous Exclusions
@@ -18,7 +18,7 @@ keywords:
 - table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
 - picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,picture rotation,mixed arrangement of pictures and text
 - online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
-- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,Fullscreen Mode, Paragraph Navigator, Content Width Adaptation, Zen View, Presentation Mode, Reading Progress, Exclude from Publishing, Document Footer,export as pdf,save as pdf,print to pdf
+- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,Fullscreen Mode, Paragraph Navigator, Content Width Adaptation, Zen View, Presentation View, Reading Progress, Exclude from Publishing, Document Footer,export as pdf,save as pdf,print to pdf
 - text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
 - link map,link specification,link check,link recognition,link conversion
 - design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
@@ -34,7 +34,7 @@ keywords:
 - 链接地图,链接规范,链接检查,链接识别,链接转换
 - 设计,需求,文档,博客,手册,指南,攻略,知识库,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
-vlook-header-dup: /^Your coffee.+/;/.*Syntax$/;/^Applicable Scope ••• .+/
+vlook-header-dup: /^Your coffee.+/;/.*Syntax$/;/^Availability ••• .+/
 vlook-doc-lib:
 - [How to Start?](index-en.html?target=_self "Introduction, Installation and Configuration, Language Packs")
 - [Guide • Basic](guide-en.html?target=_self "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Filters / Postcards / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
@@ -53,17 +53,17 @@ vlook-doc-lib:
 
 <u>**Thanks for donating to VLOOK™ (partial donor list)**</u>
 
-==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
+==**Peter**_~PuOgRd~_、**绿邃清幽**_~CyBuAq~_、**李导996**_~CyBuAq~_、**fanky**_~CyBuAq~_、**＊丽**_~CyBuAq~_、**杨琛**_~CyBuAq~_、**＊哦**_~GnBn~_、**＊豫**_~GnBn~_、**l＊a**_~GnBn~_、**＊o**_~GnBn~_、C＊r、ocean、swingingroi、＊胡、K＊y、行川、＊药、＊山、＊魂、＊士、＊狗、＊R、＊Z、＊川、l＊n、＊朽、＊杰、A＊C、W＊l、＊山、J＊o、韩宗辉、＊星、一叶知秋、d＊、＊军、＊鹏、＊无、H＊t、＊二、＊宇、＊辉、＊秋、＊笑、＊心、整＊9、＊国、＊哥、乌拉、＊龙、远方眼前、＊雩、＊应、＊销、E＊y、…==
 
 ---
 
-> **Your coffee keeps VLOOK™ running ☕️**
+> **Your coffee ☕️ keeps VLOOK™ running**
 >
 > [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo#round)](https://paypal.me/madmaxchow)
 >
 > _~Se~_
 
-> **Your coffee keeps VLOOK™ running ☕️**
+> **Your coffee ☕️ keeps VLOOK™ running**
 >
 > ![Donate VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
 >
@@ -77,27 +77,29 @@ vlook-doc-lib:
 
 *VLOOK`A`*_~T2~_ Built-in original themes for various scenarios, surpassing expectations for Markdown themes!
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ==Themes apply to Typora UI and all editable elements for visual consistency!==
 
 ### Built-in Template Themes
 
-<u>VLOOK™'s 6 free themes (click the image below to preview the effect.)～</u>
+<u>VLOOK™'s 7 free themes (click the image below to preview the effect.)～</u>
+
+**(Automatically adapts to the system light/dark appearance by default. Standalone Light and Dark theme variants are also available.)**
 
 ---
 
 ---
 
-> [![Inspired by movie "Titanic", default font style "Literary"](pic/vlook-theme-hope.png?srcset=@2x#card "Hope Ocean Heart")](theme-hope.html)
+> [![Inspired by my favorite coffee moments](pic/vlook-theme-fancy.gif#card "Fancy")](theme-fancy.html)
 >
-> _~Bu~_
+> _~Og~_
 
-> [![Blends Chinese ancient architecture with modern industrial style](pic/vlook-theme-joint.png?srcset=@2x#card "Joint Mortise-Tenon")](theme-joint.html)
+> [![Geeks change the world, and VLOOK changes the way Markdown layout automation works](pic/vlook-theme-geek.gif#card "Geek")](theme-geek.html)
 >
-> _~Ye~_
+> _~Gn~_
 
-> [![Geeks change the world, VLOOK changes Markdown automation](pic/vlook-theme-geek.png?srcset=@2x#card "Geek Profound")](theme-geek.html)
+> [![Inspired by Notion, bringing new possibilities to Markdown](pic/vlook-theme-note.gif#card "Note")](theme-note.html)
 >
 > _~Gy~_
 
@@ -105,17 +107,29 @@ vlook-doc-lib:
 
 ---
 
-> [![Inspired by coffee breaks, default font style "Fresh"](pic/vlook-theme-fancy.png?srcset=@2x#card "Fancy Fantasy")](theme-fancy.html)
+> [![Inspired by the film *Titanic*, with the default font style set to "Literary"](pic/vlook-theme-hope.gif#card "Hope")](theme-hope.html)
 >
-> _~Og~_
+> _~Bu~_
 
-> [![Inspired by meditation](pic/vlook-theme-thinking.png?srcset=@2x#card "Thinking Meditation")](theme-thinking.html)
+> [![Inspired by the fusion of traditional Chinese architecture and modern industrial design](pic/vlook-theme-joint.gif#card "Joint")](theme-joint.html)
+>
+> _~Ye~_
+
+> [![A tribute to Solaris, the operating system developed by Sun Microsystems, with the default font style set to "Book"](pic/vlook-theme-solaris.gif#card "Solaris")](theme-solaris.html)
+>
+> _~Vn~_
+
+---
+
+---
+
+> [![Inspired by meditation and Zen contemplation](pic/vlook-theme-thinking.gif#card "Thinking")](theme-thinking.html)
 >
 > _~Cy~_
 
-> [![Homage to Sun Microsystems' Solaris OS, default font style "Book"](pic/vlook-theme-solaris.png?srcset=@2x#card "Solaris")](theme-solaris.html)
+> [![The theme used by the official VLOOK documentation](pic/vlook-theme-owl.gif#card "Owl")](index.html)
 >
-> _~Vn~_
+> _~Pu~_
 
 **Online plugin users can specify themes via [Plugin Tuning Parameters](#Plugin Tuning Parameters) `theme`.**
 
@@ -135,7 +149,7 @@ vlook-doc-lib:
 
 *VLOOK`A`*_~T2~_ Five distinctive Font Style for different preferences.
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 <u>Select via ![Font Style](pic/icon-font-style.svg?darksrc=invert#icon) in status bar<br>Also configurable via [VIP Themes](#Template Themes)</u>
 
@@ -208,7 +222,7 @@ If you cannot connect to the Internet or your network is slow, it is recommended
 
 *VLOOK`A`*_~T2~_ All VLOOK™ themes auto-adapt to browser/system dark mode.
 
-> **Applicable Scope ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 <u>Toggle via ![Auto Mode](pic/icon-auto-mode.svg?darksrc=invert#icon) / ![Light Mode](pic/icon-light-mode.svg?darksrc=invert#icon) / ![Dark Mode](pic/icon-dark-mode.svg?darksrc=invert#icon) (shortcut <kbd>A</kbd>)</u>
 
@@ -231,7 +245,7 @@ If you cannot connect to the Internet or your network is slow, it is recommended
 
 *VLOOK`A`*_~T2~_ Easily enable grayscale display on specified dates.
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 <u>Specify Gray Mode dates via [Plugin Preset Options](#Plugin Preset Options) `vlook-gray-mode` in YAML Front Matter</u>
 
@@ -295,7 +309,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 *VLOOK`A`*_~T2~_ Configure a dedicated "Library" for each document to quickly access your "document universe".
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > - After configuring a **Library** in the document (or when the document contains library-type links), a **Library** entry will be displayed in the Navigation Center;
 > - Supports configuring multiple links for the **Library**;
@@ -341,18 +355,16 @@ vlook-doc-lib:
 
 > ###### How to open a library link in a **new browser tab**?
 >
-> The value of `target` is consistent with the HTML standard. It only needs to be set to `_blank` or a custom value, and additionally supports `auto` .
->
-> The value of `target` is consistent with the HTML standard. It only needs to be set to `_self` .
+> Add the `target` parameter to the URL. Its values are consistent with the HTML standard and can be set to `_blank` or a custom value. An additional value, `auto`, is also supported.
 >
 > Examples:
 >
 > ```yaml
-> # (Recommended) Open the link only in a new tab of the browser
+># (Recommended) Open the link only in a new tab of the browser
 > - library.html?target=auto
 > 
-> # Open in a new browser tab
-> - library.html?target=_blank
+> # Open in a new browser tab (when the original URL already contains other parameters, use the & symbol as the separator)
+> - library.html?other=1&target=_blank
 > 
 > # Open only in a browser tab named (mydoc)
 > - library.html?target=mydoc
@@ -380,7 +392,7 @@ vlook-doc-lib:
 > [Click here to open Library 2](library2.html?target=vdl)
 > ```
 >
-> For more examples, see: [Link Content Recognition](#链接内容识别)
+> For more examples, see: [Link Content Recognition](#Link Content Recognition)
 
 
 
@@ -397,7 +409,7 @@ vlook-doc-lib:
 
 *VLOOK`A`*_~T2~_ VLOOK™ enhances the table of contents and supports rich indexing of document resources.
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 Toggle the ![Navigation Center](pic/icon-outline-nav.svg?darksrc=invert#icon) button on the left toolbar to "open / close" the navigation center (shortcut <kbd>N</kbd>)
 
@@ -417,7 +429,7 @@ Toggle the ![Navigation Center](pic/icon-outline-nav.svg?darksrc=invert#icon) bu
 
 *VLOOK`A`*_~T2~_ VLOOK™ automatically provides a "Chapter Navigation Bar" at the top of the document.
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 When scrolling into the main content area, a chapter navigation bar automatically appears at the top (hidden when viewing the cover), supporting chapter-by-chapter browsing for levels 1-5.
 
@@ -436,7 +448,7 @@ When scrolling into the main content area, a chapter navigation bar automaticall
 
 
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -466,7 +478,7 @@ In technical/academic papers, footnotes are frequently used for supplementary ex
 
 **VLOOK™ displays footnotes as popups at current position**, avoiding jumps, also accessible via [Navigation Center](#Navigation-Center) [Library List](#Document Library Navigation).
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 Click the superscript after this paragraph to view the footnote[^footnote1]
 
@@ -515,14 +527,14 @@ vlook-quick-action:
 
 *VLOOK`A`*_~T2~_ VLOOK™ enables every exported static HTML to quickly return to the last reading position.
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 - After opening a previously read HTML document, a "Continue Last Reading" button appears in the top-right corner, clicking it returns to the last reading position;
 - This entry will automatically hide shortly after, but can be accessed again via the ![Navigation History](pic/icon-history.svg?darksrc=invert#icon) button (shortcut <kbd>H</kbd>).
 
 ## Navigation History
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 - Automatically records all navigation history within current document;
 - Access via ![Navigation History](pic/icon-history.svg?darksrc=invert#icon) button (shortcut <kbd>H</kbd>).
@@ -533,7 +545,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 # °Content Assistant
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 Context-aware quick functions for different content types: [Tables](guide-en.md#°Table), [Images](guide-en.md#°Image), [Tags](guide2-en.md#Tag), [Scratch Card](guide2-en.md#Scratch-Cards), [Code & Code Blocks](guide2-en.md#°Code), [Formula](guide2-en.md#°Formula), [Breadcrumbs](guide2-en.md#Breadcrumbs)
 
@@ -621,7 +633,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 # °Presentation Tools
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ## Laser Pointer
 
@@ -646,7 +658,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 *VLOOK`A`*_~T2~_ Click ![Paragraph Roaming](pic/icon-paragraph-nav.svg?darksrc=invert#icon) (or shortcut) to enter mode (vim-inspired).
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 *==Paragraph Roaming Shortcuts_vim-inspired_==*
 
@@ -657,6 +669,16 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 | <kbd>⌘ command</kbd> / <kbd>⌃ Ctrl</kbd> | Jump ==5== paragraphs        |
 |            <kbd>⇧ shift</kbd>            | Jump ==10== paragraphs       |
 
+## Presentation View
+
+**Switch seamlessly between the traditional flow layout and a slide-based presentation view with a single press of <kbd>S</kbd>.**
+
+<u>When enabled, the toolbar, navigation center, status bar, and other interface elements are hidden. Press <kbd>S</kbd> again or <kbd>ESC</kbd> to exit Presentation View.</u>
+
+> [!TIP]
+>
+> In **Presentation View**, you can still use presentation aids such as the [Laser Pointer](#Laser Pointer) and [Spotlight](#Spotlight). Simply activate them using their corresponding keyboard shortcuts.
+
 ## Zen View
 
 **When you need an immersive reading experience, you can press <kbd>Z</kbd> to enter "Zen View" with one click.**
@@ -665,7 +687,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 > [!TIP]
 >
-> In "Zen View", if you need to use presentation aids such as [Laser Pointer](#激光笔), [Spotlight](#聚光灯), and [Paragraph Navigator](#段落漫游), you can activate them directly using their corresponding keyboard shortcuts.
+> In "Zen View", if you need to use presentation aids such as [Laser Pointer](#Laser Pointer), [Spotlight](#Spotlight), and [Paragraph Roaming](#Paragraph Roaming), you can activate them directly using their corresponding keyboard shortcuts.
 
 ## Mermaid Element Highlighting
 
@@ -706,7 +728,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 # °Publishing Tools
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 ## Mark Content not to Publish
 
@@ -765,7 +787,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 <u>After exporting to HTML with VLOOK™, you can enjoy rich document layout capabilities.<br>However, using Typora's built-in "Export to PDF" may result in loss of formatting.<br>To publish in PDF format with full layout support, use the **"Publish as PDF"** feature provided in the VLOOK™ exported HTML.</u>
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 
 
@@ -885,7 +907,7 @@ vlook-footer: <a href="xxx.com">More great content</a><br><br>{{copyright}}
 
 ==VLOOK™ supports [Open Graph Protocol](https://ogp.me/) (enhances how content appears when shared on social media), automatically generating share appearances based on preset OGP tags.==
 
-> **Applicable Scope ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
+> **Availability ••• *`Editing`× Not Supported*_~Gy~_  *`Export HTML`✓ Supported*_~Gn~_**
 
 > [!IMPORTANT]
 >
@@ -1238,7 +1260,7 @@ vlook-query: Param1=Value&Param2=Value...&ParamN=Value
 | Presentation Tools -<br> Others | Enable/Disable [Spotlight](#Spotlight) | <kbd>O</kbd>              |
 | :                           | Adjust spotlight size                          |      <kbd>⇧ Shift</kbd>      |
 | : | Enable/Disable [Laser Pointer](#Laser Pointer) | <kbd>P</kbd>                |
-| : | Enable/Disable [Clean Mode](#Clean Mode) | <kbd>Z</kbd> |
+| : | Enable/Disable [Zen View](#Zen View) | <kbd>Z</kbd> |
 | [Chapter Navigation](#Chapter Navigation) | Plugin Tuning Parameters**Previous** chapter                          | <kbd>◀</kbd> or <kbd> , </kbd> |
 | :                                   | Plugin Tuning Parameters**Next** chapter                              | <kbd>▶</kbd> or <kbd> . </kbd> |
 | [Figure Navigation](#Figure Navigation) | Start Figure Navigation                       | <kbd>I</kbd>                |

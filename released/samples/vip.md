@@ -127,7 +127,7 @@ vlook-doc-lib:
 
 > [![个人文档使用](pic/vip-rainynight2.png?srcset=@2x#card "RainyNight 2")](theme-vip-rainynight2.html)
 
-> [![个人文档使用](pic/vip-lspzc.png?srcset=@2x#card "Lspzc")](theme-vip-lspzc.html)
+> [![个人文档使用](pic/vip-mox.png?srcset=@2x#card "Mox")](theme-vip-mox.html)
 
 > [![王道培训机构教材使用](pic/vip-cskaoyan.png?srcset=@2x#card "王道培训")](theme-vip-cskaoyan.html)
 
@@ -216,6 +216,10 @@ vlook-doc-lib:
 ---
 
 > [![湖北科技学院/教师 • 个人文档使用](pic/vip-geoai.png?srcset=@2x#card "SUPGEO")](theme-vip-geoai.html)
+
+> [![个人文档使用](pic/vip-taoliang.png?srcset=@2x#card "TaoLiang")](theme-vip-taoliang.html)
+
+> [![个人文档使用](pic/vip-lspzc.png?srcset=@2x#card "Lspzc")](theme-vip-lspzc.html)
 
 ---
 

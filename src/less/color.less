@@ -3,8 +3,8 @@
  * VLOOK™ CSS 调色板 for Typora
  * (配合 base.less 进行使用)
  *
- * V2026.5.1
- * 2026-05-16
+ * V2026.7
+ * 2026-07-25
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -65,6 +65,12 @@
  * @param bgImgLight 在 Light Mode 的图片
  * @param bgImgDark 在 Dark Mode 的图片
  */
+ .applyDocBgImg(@bgImgLight, @bgImgDark, @bgImgPos) {
+    .applyDocBgImg(@bgImgLight, @bgImgDark);
+    :root {
+        --d-bi-pos: @bgImgPos;
+    }
+ }
 .applyDocBgImg(@bgImgLight, @bgImgDark) {
     :root {
         --d-bi-lg: @bgImgLight;
@@ -72,10 +78,7 @@
     }
 }
 .applyDocBgImg(@bgImgLight) {
-    :root {
-        --d-bi-lg: @bgImgLight;
-        --d-bi-dk: var(--d-bi-lg);
-    }
+    .applyDocBgImg(@bgImgLight, var(--d-bi-lg));
 }
 .applyDocBgImg(none, none);
 
@@ -189,8 +192,8 @@
 @accYeAlt: #FDF4D9;
 @accYeAltDark: #755D0C;
 
-@accWt: @docBgColorLight;
-@accWtDark: @docBgColorDark;
+@accWt: #FFF;//@docBgColorLight;
+@accWtDark: #000;//@docBgColorDark;
 @accWtAlt: #E6EAEF;//@accGyAlt;
 @accWtAltDark: #5C6166;//@accGyAltDark;
 
@@ -283,8 +286,8 @@
 @accTuAlt: #F6E4BB;
 @accTuAltDark: #3D2D06;
 
-@accBk: #303438;
-@accBkDark: #E9EAEB;
+@accBk: #000;//#202428;#303438;
+@accBkDark: #fff;//#E9EAEB;
 @accBkAlt: #C0C9D1;
 @accBkAltDark: #3C3F42;
 
@@ -347,8 +350,12 @@
     --ac-t1-fd-bd-lg: @theme1Fade;
     --ac-t2-fd-bd-lg: @theme2Fade;
 
-    // 针对 fade for dark
+    // ---
+    --btn-reflect-lg: rgba(255, 255, 255, 0.4);
+    --btn-shadow-lg: rgba(0, 0, 0, 0.1);
+    --btn-raised-lg: rgba(0, 0, 0, 0.3);
 
+    // 针对 fade for dark
     --ac-gd-fd-bd-dk: fade(@accGd, @accOpacityHighForDk);
     --ac-pl-fd-bd-dk: fade(@accPl, @accOpacityHighForDk);
     --ac-pk-fd-bd-dk: fade(@accPk, @accOpacityHighForDk);
@@ -417,20 +424,12 @@
     --ac-t1-fd-bd: var(--ac-t1-fd-bd-lg);
     --ac-t2-fd-bd: var(--ac-t2-fd-bd-lg);
 
-    // --- 按钮不同样式的高光、阴影参数
-
-    --btn-reflect-lg: rgba(255, 255, 255, 0.4);
+    // ---
     --btn-reflect-dk: rgba(255, 255, 255, 0.2);
-    --btn-reflect: var(--btn-reflect-lg);
-
-    --btn-shadow-lg: rgba(0, 0, 0, 0.1);
     --btn-shadow-dk: rgba(0, 0, 0, 0.4);
-    --btn-shadow: var(--btn-shadow-lg);
-
-    --btn-raised-lg: rgba(0, 0, 0, 0.3);
     --btn-raised-dk: rgba(0, 0, 0, 0.4);
-    --btn-raised: var(--btn-raised-lg);
 }
+
 // --------------------
 // 针对 Mermaid 专用的强调色色板
 @mmColorRed: @accRd;
@@ -474,7 +473,6 @@
     --a-c-lg: @aColor;
     --a-o-c-lg: @aHoverColor;
     --mark-bg-lg: @markBg;
-    // --mark-bg-lg: red;
     --tbl-row-g-alpha-lg: .15;
     --h-f-lg: @headerColor;
     --h-box-sd-lg: fade(@headerColor, 20%);
@@ -488,9 +486,7 @@
     --v-btn-bg-lg: @buttonBgColor;
 
     // 按钮类外阴影
-    --v-fl-sd-lg: 0 2px 16px #00000033;//rgba(0, 0, 0, .25);
-    // 按钮类内阴影（模拟内边框）
-    // --v-fl-i-sd-lg: 0 0 0 1px #0000001A inset;//rgba(0, 0, 0, .1) inset;
+    --v-fl-sd-lg: 0 2px 16px #0003;//rgba(0, 0, 0, .25);
     // 按钮类外边框
     --v-fl-bd-lg: 1px solid #0000001A;//rgba(0, 0, 0, .1);
 
@@ -499,7 +495,6 @@
 
     // 图片的非网格背景
     --fig-solid-bg-lg: @colorWhite;
-    // --fig-solid-bg-lg: var(--db-lg);
     // 图片的线状网格背景（线状、块状)
     --v-fig-grid-l-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEX////a7P6ayvy62/1dqvqPhbtmAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
     --v-fig-grid-b-lg: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUmdsdGis99rd1hm9axzuoZZ5CxAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
@@ -652,14 +647,7 @@
     --v-btn-bg-dk: @buttonBgColorDark;
 
     // 按钮类外阴影
-    // --v-fl-sd-dk: 0 4px 16px #00000066;//rgba(0, 0, 0, .4);
-    --v-fl-sd-dk: 0 2px 16px #000;//rgba(0, 0, 0, .4);
-    // --v-fl-sd-dk: 0 2px 16px #000, 0 0 0 1px #FFFFFF40;
-    // --v-fl-sd-dk: 0 2px 16px #00000080;//rgba(0, 0, 0, .4);
-    // --v-fl-sd-dk: 0 4px 16px #FFFFFF1A;//rgba(0, 0, 0, .4);
-    // 按钮类内阴影（边框）
-    // --v-fl-i-sd-dk: 0 0 0 1px #0000004D inset;//rgba(0, 0, 0, .3) inset;
-    // --v-fl-i-sd-dk: 0 0 0 1px #000000 inset;//rgba(0, 0, 0) inset;
+    --v-fl-sd-dk: 0 2px 16px #0008;//rgba(0, 0, 0, .4);
     // 按钮类外边框
     --v-fl-bd-dk: 1px solid #ECEEEF40;
 
@@ -668,19 +656,12 @@
 
     // 图片的非网格背景
     --fig-solid-bg-dk: @colorBlack;
-    // --fig-solid-bg-dk: var(--db-dk);
     // 图片的线状网格背景（线状、块状)
     --v-fig-grid-l-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUEDBQEOnAEY8IEVacEeOwONNxmAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
     --v-fig-grid-b-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEUPUZQyaqNvlr5QgLCpwNfC0feCAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
     // 针对 Dark Mode 时反色的图片网格背景（线状、块状)
     --v-fig-grid-l-invert-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEX78+v7xY/7nD37qlj7hxPQTWj+AAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
     --v-fig-grid-b-invert-dk: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgBAMAAAB54XoeAAAAD1BMVEXwrmvNlVyQaUGvf09WPygcqEMaAAAAiUlEQVRo3u3ZQQqAIBAF0PIG1Q2k+5+xoKiojQuJGXiC8BfywIV81OEaY58EBAKBf4OlcWEBvtN0jLmutZ552ecnta5LsOVEYPyjBwQCgc90t0GflGDLQCAQCNQpQCAQCAwO6hQgEAhM9zAeFvSfEhmMf/SAQCDQPQUIBAKBOgUIBAKBkcHenbIB1o4w9VtLAFYAAAAASUVORK5CYII=");
-
-    // 键帽样式
-    // --kbd-c-dk: #FFFC;
-    // --kbd-bg-dk: linear-gradient(180deg, #4444441a, #666), #444;//linear-gradient(180deg, #6666661A, #888), #666;
-    // --kbd-shd-dk: 0 -2px 1px 0 #5553 inset, 0 0 1px 1px #666 inset, 0 0 0 1px #5553, 0 1px 0 1px #444;//0 -2px 1px 0 #6663 inset, 0 0 1px 1px #888 inset, 0 0 0 1px #6663, 0 1px 0 1px #555;
-    // --kbd-pd-dk: 3px 6px 2px;
 
     --doc-sd-dk: #000000CC;//rgba(0, 0, 0, .8);
 
@@ -800,197 +781,4 @@
     --ac-t2-a-dk: @theme2AltDark;
     --ac-t2-fd-dk: @theme2FadeDark;
     --ac-t2-tt-dk: var(--df-dk);
-
-    // --------------------
-    // 针对 #Color_Scheme
-    // 实际应用的颜色变量（自动适配 Color Scheme）
-    --v-invert-dark: var(--v-invert-dark-lg); // 默认的图片滤镜
-    --v-cover-dark: var(--v-cover-dark-lg); // 默认的封面、封底滤镜
-    --v-selected-c: var(--v-selected-c-lg);
-
-    --db: var(--db-lg);
-    --db-ext: var(--db-ext-lg);
-    --d-cb: var(--d-cb-lg);
-    --db-r: var(--db-r-lg);
-    --db-g: var(--db-g-lg);
-    --db-b: var(--db-b-lg);
-    --df-r: var(--df-r-lg);
-    --df-g: var(--df-g-lg);
-    --df-b: var(--df-b-lg);
-    --d-bi: var(--d-bi-lg);
-    --df: var(--df-lg);
-    --df-a: var(--df-a-lg);
-
-    --pn-c: var(--pn-c-lg);
-    --pn-c-a: var(--pn-c-a-lg);
-    --pn-r: var(--pn-r-lg);
-    --pn-g: var(--pn-g-lg);
-    --pn-b: var(--pn-b-lg);
-    --bq-bg: var(--bq-bg-lg);
-    --bq-bg-fd: var(--bq-bg-fd-lg);
-
-    --a-c: var(--a-c-lg);
-    --a-o-c: var(--a-o-c-lg);
-    --mark-bg: var(--mark-bg-lg);
-    --tbl-row-g-alpha: var(--tbl-row-g-alpha-lg);
-    --toc-h-num-c: var(--toc-h-num-c-lg);
-    --h-f: var(--h-f-lg);
-    --h-box-sd: var(--h-box-sd-lg);
-    --h-bg-start: var(--h-bg-start-lg);
-    --h-bg-end: var(--h-bg-end-lg);
-    --code-bg: var(--code-bg-lg);
-    --code-t: var(--code-t-lg);
-    --std-code-sd: var(--std-code-sd-lg);
-    --rb-code-sd: var(--rb-code-sd-lg);
-    --v-ui-bg: var(--v-ui-bg-lg);
-    --v-btn-bg: var(--v-btn-bg-lg);
-
-    // 按钮类外阴影
-    --v-fl-sd: var(--v-fl-sd-lg);
-    // 按钮类内阴影（模拟边框）
-    // --v-fl-i-sd: var(--v-fl-i-sd-lg);
-    // 按钮类边框
-    --v-fl-bd: var(--v-fl-bd-lg);
-
-    // 代码块背景图
-    --c-blk-bg: var(--c-blk-bg-lg);
-
-    // 图片的非网格背景
-    --fig-solid-bg: var(--fig-solid-bg-lg);
-    // 图片的线状网格背景（线状、块状)
-    --v-fig-grid-l: var(--v-fig-grid-l-lg);
-    --v-fig-grid-b: var(--v-fig-grid-b-lg);
-    // 针对 Dark Mode 时反色的图片网格背景
-    --v-fig-grid-l-invert: var(--v-fig-grid-l-invert-lg);
-    --v-fig-grid-b-invert: var(--v-fig-grid-b-invert-lg);
-
-    // 键帽样式
-    --kbd-c: var(--kbd-c-lg);
-    --kbd-bg: var(--kbd-bg-lg);
-    --kbd-shd: var(--kbd-shd-lg);
-    --kbd-pd: var(--kbd-pd-lg);
-
-    --doc-sd: var(--doc-sd-lg);
-    --img-bd-invert: var(--img-bd-invert-lg);
-
-    --ac-rd: var(--ac-rd-lg);
-    --ac-rd-a: var(--ac-rd-a-lg);
-    --ac-rd-fd: var(--ac-rd-fd-lg);
-    --ac-rd-tt: var(--ac-rd-tt-lg);
-    --ac-og: var(--ac-og-lg);
-    --ac-og-a: var(--ac-og-a-lg);
-    --ac-og-fd: var(--ac-og-fd-lg);
-    --ac-og-tt: var(--ac-og-tt-lg);
-    --ac-tu: var(--ac-tu-lg);
-    --ac-tu-a: var(--ac-tu-a-lg);
-    --ac-tu-fd: var(--ac-tu-fd-lg);
-    --ac-tu-tt: var(--ac-tu-tt-lg);
-    --ac-tu: var(--ac-tu-lg);
-    --ac-tu-a: var(--ac-tu-a-lg);
-    --ac-tu-fd: var(--ac-tu-fd-lg);
-    --ac-tu-tt: var(--ac-tu-tt-lg);
-    --ac-ye: var(--ac-ye-lg);
-    --ac-ye-a: var(--ac-ye-a-lg);
-    --ac-ye-fd: var(--ac-ye-fd-lg);
-    --ac-ye-tt: var(--ac-ye-tt-lg);
-    --ac-lm: var(--ac-lm-lg);
-    --ac-lm-a: var(--ac-lm-a-lg);
-    --ac-lm-fd: var(--ac-lm-fd-lg);
-    --ac-lm-tt: var(--ac-lm-tt-lg);
-    --ac-gn: var(--ac-gn-lg);
-    --ac-gn-a: var(--ac-gn-a-lg);
-    --ac-gn-fd: var(--ac-gn-fd-lg);
-    --ac-gn-tt: var(--ac-gn-tt-lg);
-    --ac-mn: var(--ac-mn-lg);
-    --ac-mn-a: var(--ac-mn-a-lg);
-    --ac-mn-fd: var(--ac-mn-fd-lg);
-    --ac-mn-tt: var(--ac-mn-tt-lg);
-    --ac-ol: var(--ac-ol-lg);
-    --ac-ol-a: var(--ac-ol-a-lg);
-    --ac-ol-fd: var(--ac-ol-fd-lg);
-    --ac-ol-tt: var(--ac-ol-tt-lg);
-    --ac-wn: var(--ac-wn-lg);
-    --ac-wn-a: var(--ac-wn-a-lg);
-    --ac-wn-fd: var(--ac-wn-fd-lg);
-    --ac-wn-tt: var(--ac-wn-tt-lg);
-    --ac-aq: var(--ac-aq-lg);
-    --ac-aq-a: var(--ac-aq-a-lg);
-    --ac-aq-fd: var(--ac-aq-fd-lg);
-    --ac-aq-tt: var(--ac-aq-tt-lg);
-    --ac-sk: var(--ac-sk-lg);
-    --ac-sk-a: var(--ac-sk-a-lg);
-    --ac-sk-fd: var(--ac-sk-fd-lg);
-    --ac-sk-tt: var(--ac-sk-tt-lg);
-    --ac-cy: var(--ac-cy-lg);
-    --ac-cy-a: var(--ac-cy-a-lg);
-    --ac-cy-fd: var(--ac-cy-fd-lg);
-    --ac-cy-tt: var(--ac-cy-tt-lg);
-    --ac-bu: var(--ac-bu-lg);
-    --ac-bu-a: var(--ac-bu-a-lg);
-    --ac-bu-fd: var(--ac-bu-fd-lg);
-    --ac-bu-tt: var(--ac-bu-tt-lg);
-    --ac-se: var(--ac-se-lg);
-    --ac-se-a: var(--ac-se-a-lg);
-    --ac-se-fd: var(--ac-se-fd-lg);
-    --ac-se-tt: var(--ac-se-tt-lg);
-    --ac-la: var(--ac-la-lg);
-    --ac-la-a: var(--ac-la-a-lg);
-    --ac-la-fd: var(--ac-la-fd-lg);
-    --ac-la-tt: var(--ac-la-tt-lg);
-    --ac-vn: var(--ac-vn-lg);
-    --ac-vn-a: var(--ac-vn-a-lg);
-    --ac-vn-fd: var(--ac-vn-fd-lg);
-    --ac-vn-tt: var(--ac-vn-tt-lg);
-    --ac-cf: var(--ac-cf-lg);
-    --ac-cf-a: var(--ac-cf-a-lg);
-    --ac-cf-fd: var(--ac-cf-fd-lg);
-    --ac-cf-tt: var(--ac-cf-tt-lg);
-    --ac-au: var(--ac-au-lg);
-    --ac-au-a: var(--ac-au-a-lg);
-    --ac-au-fd: var(--ac-au-fd-lg);
-    --ac-au-tt: var(--ac-au-tt-lg);
-    --ac-pu: var(--ac-pu-lg);
-    --ac-pu-a: var(--ac-pu-a-lg);
-    --ac-pu-fd: var(--ac-pu-fd-lg);
-    --ac-pu-tt: var(--ac-pu-tt-lg);
-    --ac-ro: var(--ac-ro-lg);
-    --ac-ro-a: var(--ac-ro-a-lg);
-    --ac-ro-fd: var(--ac-ro-fd-lg);
-    --ac-ro-tt: var(--ac-ro-tt-lg);
-    --ac-pl: var(--ac-pl-lg);
-    --ac-pl-a: var(--ac-pl-a-lg);
-    --ac-pl-fd: var(--ac-pl-fd-lg);
-    --ac-pl-tt: var(--ac-pl-tt-lg);
-    --ac-pk: var(--ac-pk-lg);
-    --ac-pk-a: var(--ac-pk-a-lg);
-    --ac-pk-fd: var(--ac-pk-fd-lg);
-    --ac-pk-tt: var(--ac-pk-tt-lg);
-    --ac-gd: var(--ac-gd-lg);
-    --ac-gd-a: var(--ac-gd-a-lg);
-    --ac-gd-fd: var(--ac-gd-fd-lg);
-    --ac-gd-tt: var(--ac-gd-tt-lg);
-    --ac-bn: var(--ac-bn-lg);
-    --ac-bn-a: var(--ac-bn-a-lg);
-    --ac-bn-fd: var(--ac-bn-fd-lg);
-    --ac-bn-tt: var(--ac-bn-tt-lg);
-    --ac-gy: var(--ac-gy-lg);
-    --ac-gy-a: var(--ac-gy-a-lg);
-    --ac-gy-fd: var(--ac-gy-fd-lg);
-    --ac-gy-tt: var(--ac-gy-tt-lg);
-    --ac-wt: var(--ac-wt-lg);
-    --ac-wt-a: var(--ac-wt-a-lg);
-    --ac-wt-fd: var(--ac-wt-fd-lg);
-    --ac-wt-tt: var(--ac-wt-tt-lg);
-    --ac-bk: var(--ac-bk-lg);
-    --ac-bk-a: var(--ac-bk-a-lg);
-    --ac-bk-fd: var(--ac-bk-fd-lg);
-    --ac-bk-tt: var(--ac-bk-tt-lg);
-    --ac-t1: var(--ac-t1-lg);
-    --ac-t1-a: var(--ac-t1-a-lg);
-    --ac-t1-fd: var(--ac-t1-fd-lg);
-    --ac-t1-tt: var(--ac-t1-tt-lg);
-    --ac-t2: var(--ac-t2-lg);
-    --ac-t2-a: var(--ac-t2-a-lg);
-    --ac-t2-fd: var(--ac-t2-fd-lg);
-    --ac-t2-tt: var(--ac-t2-tt-lg);
 }

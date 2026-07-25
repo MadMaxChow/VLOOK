@@ -1,6 +1,6 @@
 <script>/**************************************
  * ========== Language Pack ==========
- * VLOOK™ "V2026.5.1" (2026-05-16) - (Language Pack) - Typora Plugin
+ * VLOOK™ "V2026.7" (2026-07-25) - (Language Pack) - Typora Plugin
  *
  * Append to "Export Setting ▸ VLOOK or VLOOK (live) ▸ Append in <body />"
  * 追加至「导出设置... ▸ VLOOK 或 VLOOK (live) ▸ 在 <body /> 中添加」
@@ -79,11 +79,11 @@ var V_lang_data_zhtd = {
 "zhtd70":"可選",
 "zhtd71":"循環",
 "zhtd72":"並行",
-"zhtd73":"備忘",
-"zhtd74":"提示",
+"zhtd73":"提醒",
+"zhtd74":"建議",
 "zhtd75":"重要",
-"zhtd76":"注意",
-"zhtd77":"警告",
+"zhtd76":"警告",
+"zhtd77":"注意",
 "zhtd78":"繼續上次的閱讀",
 "zhtd79":"為了最佳相容性，建議使用 Chrome／Firefox／Edge 瀏覽器",
 "zhtd80":"正在下載文件中的圖片...",

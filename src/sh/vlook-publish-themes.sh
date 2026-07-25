@@ -59,13 +59,21 @@ rm -f themes-live/vlook-live-owl*.css
 # 先删除旧的离线版主题文件
 rm -f themes/*.css
 # 复制新版本离线版主题到 themes 目录
+# cd themes
+# cp "$TYPORA_THEME_DIR"/dev-vlook-*.css ./
+# 复制新版本离线版主题到 themes 目录（过滤掉 RESUSE 版本的主题）
 cd themes
-cp "$TYPORA_THEME_DIR"/dev-vlook-*.css ./
+for file in "$TYPORA_THEME_DIR"/dev-vlook-*.css; do
+    if ! grep -q -- '--v-theme-version:"(REFUSE)"' "$file"; then
+        cp "$file" ./
+    fi
+done
 # 移除主题文件名的 dev- 前缀
 find . -type f -name "dev-*.css" -exec bash -c 'mv "$0" "$(echo $0 | sed s/dev-//)"' {} \;
 
 # 将私人定制主题移动到 themes-vip 目录
 rm -f "$VIP_THEME_DIR"/*.css
+pwd
 mv vlook-x-*.css "$VIP_THEME_DIR"
 
 # 创建 openfonts 项目的相关目录
@@ -92,7 +100,7 @@ cp vlook-*.css "$VLOOK_DOCS_DIR/$VERSION/"
 (
 	# 检查文件数量是否达到预期
 	cd "$VLOOK_DOCS_DIR/$VERSION"
-	check_file_count "vlook-*.css" 6
+	check_file_count "vlook-*.css" 21
 	echo " - 内置主题已发布"
 )
 
