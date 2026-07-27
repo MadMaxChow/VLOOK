@@ -155,7 +155,7 @@ vlook-query: sb=hide
 
 > ###### Lists, Task Lists
 >
-> - Automatically number lists with consistent symbols and coloring [❯❯](guide-en.md#List Auto-numbering & Coloring)
+> - Automatically number lists with consistent symbols and coloring [❯❯](guide-en.md#List Auto-numbering & Style)
 > - Style task lists with coloring and theme matching in quote blocks [❯❯](guide-en.md#Task List Style)
 >
 > _~Vn~_

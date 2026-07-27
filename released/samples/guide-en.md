@@ -1491,7 +1491,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 # °List
 
-## List Auto-numbering & Coloring
+## List Auto-numbering & Style
 
 In addition to the previously mentioned [List Columns](guide2-en.md#List-Columns), the following enhancements are provided:
 
@@ -1736,13 +1736,13 @@ _^tab^_
 
 > **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
 
-> Syntax: `> ###### title`, i.e., set the first line content of normal blockquote syntax as level 6 heading, which serves as the title displayed when folded
+> Syntax: `> ###### title`, which means setting a level-6 heading as the first line content of a standard blockquote, serving as the title displayed when collapsed.
 >
-> Where,
+> Where:
 >
-> `title`: The title corresponding to the folded content, separated from the folding trigger by "English space". When correctly recognized, a folding marker will appear before the level 6 heading.
+> `title`: The title corresponding to the collapsed content. After being correctly recognized, a collapse indicator will appear before the level-6 heading, and the content will be automatically collapsed. Clicking it will expand the content for viewing and editing. The same interactive behavior will also be preserved after exporting to HTML.
 >
-> **After using this syntax, all content within its blockquote becomes the folded part**
+> **(When using this syntax, all content inside the blockquote except the title will become the collapsed section.)**
 
 ###### Practical Application Example
 
