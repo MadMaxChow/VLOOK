@@ -224,4 +224,4 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 # Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=MadMaxChow/VLOOK&type=Date)](https://star-history.com/#MadMaxChow/VLOOK&Date)
+[![Star History Chart](https://star-history.dera.page/svg?repos=MadMaxChow/VLOOK&type=Date)](https://star-history.dera.page/#MadMaxChow/VLOOK&Date)

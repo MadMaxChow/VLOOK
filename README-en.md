@@ -219,4 +219,4 @@ Based on the content and audience of your document, fully utilize the numerous f
 
 # Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=MadMaxChow/VLOOK&type=Date)](https://star-history.com/#MadMaxChow/VLOOK&Date)
+[![Star History Chart](https://star-history.dera.page/svg?repos=MadMaxChow/VLOOK&type=Date)](https://star-history.dera.page/#MadMaxChow/VLOOK&Date)
