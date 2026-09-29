@@ -1,309 +1,93 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<title>iOS 27 Safari Viewport Test</title>
-
 <style>
-* {
-    box-sizing: border-box;
-}
-
-html,
-body {
+html, body {
     margin: 0;
     padding: 0;
-    width: 100%;
-    min-height: 100%;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body {
-    min-height: 300vh;
-    background: #f5f5f5;
+    height: 300vh;
 }
 
-/* --------------------------------------------------
-   测试信息
--------------------------------------------------- */
-
-.info {
+/* 红：bottom: 0 */
+.red {
     position: fixed;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-
-    padding: 12px;
-
-    background: rgba(0, 0, 0, .82);
-    color: white;
-
-    border-radius: 10px;
-
-    font: 12px/1.6 monospace;
-
-    z-index: 999999;
-}
-
-.info b {
-    color: #ffeb3b;
-}
-
-
-/* --------------------------------------------------
-   ① position:fixed + bottom:0
--------------------------------------------------- */
-
-.line-fixed {
-    position: fixed;
-
     left: 0;
     right: 0;
     bottom: 0;
-
-    height: 4px;
-
+    height: 10px;
     background: red;
-
-    z-index: 999990;
+    z-index: 100;
 }
 
-
-/* --------------------------------------------------
-   ② safe-area-inset-bottom
--------------------------------------------------- */
-
-.line-safe {
+/* 蓝：safe area */
+.blue {
     position: fixed;
-
     left: 0;
     right: 0;
-
-    bottom: env(safe-area-inset-bottom);
-
-    height: 4px;
-
+    bottom: env(safe-area-inset-bottom, 0px);
+    height: 10px;
     background: blue;
-
-    z-index: 999989;
+    z-index: 101;
 }
 
-
-/* --------------------------------------------------
-   ③ visualViewport bottom
--------------------------------------------------- */
-
-.line-vv {
+/* 黄：故意放在 bottom: 50px */
+.yellow {
     position: fixed;
-
     left: 0;
     right: 0;
+    bottom: 50px;
+    height: 10px;
+    background: yellow;
+    z-index: 102;
+}
 
-    bottom: var(--vv-bottom, 0px);
-
-    height: 4px;
-
+/* 绿色：故意放在 bottom: 100px */
+.green {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+    height: 10px;
     background: lime;
-
-    z-index: 999988;
+    z-index: 103;
 }
 
+.label {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
 
-/* --------------------------------------------------
-   页面内容
--------------------------------------------------- */
+    padding: 10px;
 
-.content {
-    padding: 180px 20px;
-}
+    background: black;
+    color: white;
 
-.block {
-    height: 600px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 30px;
+    font: 14px monospace;
 }
 </style>
 </head>
 
-
 <body>
 
-<div class="info" id="info">
-    正在读取 viewport...
+<div class="label">
+    RED = bottom:0<br>
+    BLUE = safe-area<br>
+    YELLOW = bottom:50px<br>
+    GREEN = bottom:100px
 </div>
 
-
-<div class="content">
-
-    <div class="block">
-        向上 / 向下滚动页面
-    </div>
-
-    <div class="block">
-        观察底部的红 / 蓝 / 绿线
-    </div>
-
-    <div class="block">
-        同时观察左上角数据
-    </div>
-
-</div>
-
-
-<!-- bottom:0 -->
-<div class="line-fixed"></div>
-
-<!-- safe-area-inset-bottom -->
-<div class="line-safe"></div>
-
-<!-- visualViewport -->
-<div class="line-vv"></div>
-
-
-<script>
-
-const info = document.getElementById('info');
-
-function update() {
-
-    const vv = window.visualViewport;
-
-    const innerHeight =
-        window.innerHeight;
-
-    const clientHeight =
-        document.documentElement.clientHeight;
-
-    const vvHeight =
-        vv ? vv.height : null;
-
-    const vvOffsetTop =
-        vv ? vv.offsetTop : null;
-
-    const vvBottom =
-        vv
-            ? vv.offsetTop + vv.height
-            : null;
-
-    const calculatedBottom =
-        vv
-            ? Math.max(
-                0,
-                innerHeight -
-                (vv.offsetTop + vv.height)
-            )
-            : 0;
-
-
-    document.documentElement.style.setProperty(
-        '--vv-bottom',
-        calculatedBottom + 'px'
-    );
-
-
-    let safeBottom = 'N/A';
-
-    try {
-
-        const probe =
-            document.createElement('div');
-
-        probe.style.position = 'fixed';
-        probe.style.left = '0';
-        probe.style.bottom =
-            'env(safe-area-inset-bottom)';
-
-        probe.style.width = '1px';
-        probe.style.height = '1px';
-
-        document.body.appendChild(probe);
-
-        const rect =
-            probe.getBoundingClientRect();
-
-        safeBottom =
-            innerHeight - rect.bottom;
-
-        probe.remove();
-
-    } catch (e) {}
-
-
-    info.innerHTML = `
-        <b>iOS Safari Viewport Test</b><br>
-        ─────────────────────────<br>
-        window.innerHeight = ${innerHeight.toFixed(2)}<br>
-        document.clientHeight = ${clientHeight.toFixed(2)}<br>
-        ─────────────────────────<br>
-        visualViewport.height = ${
-            vvHeight !== null
-                ? vvHeight.toFixed(2)
-                : 'N/A'
-        }<br>
-        visualViewport.offsetTop = ${
-            vvOffsetTop !== null
-                ? vvOffsetTop.toFixed(2)
-                : 'N/A'
-        }<br>
-        visualViewport.bottom = ${
-            vvBottom !== null
-                ? vvBottom.toFixed(2)
-                : 'N/A'
-        }<br>
-        ─────────────────────────<br>
-        calculated bottom = ${
-            calculatedBottom.toFixed(2)
-        }<br>
-        safe-area-inset-bottom ≈ ${
-            safeBottom !== 'N/A'
-                ? safeBottom.toFixed(2)
-                : 'N/A'
-        }<br>
-        ─────────────────────────<br>
-        scrollY = ${
-            window.scrollY.toFixed(2)
-        }
-    `;
-}
-
-
-update();
-
-
-window.addEventListener(
-    'resize',
-    update
-);
-
-window.addEventListener(
-    'scroll',
-    update,
-    { passive: true }
-);
-
-
-if (window.visualViewport) {
-
-    visualViewport.addEventListener(
-        'resize',
-        update
-    );
-
-    visualViewport.addEventListener(
-        'scroll',
-        update
-    );
-}
-
-</script>
+<div class="red"></div>
+<div class="blue"></div>
+<div class="yellow"></div>
+<div class="green"></div>
 
 </body>
 </html>
