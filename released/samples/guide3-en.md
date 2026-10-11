@@ -1,10 +1,10 @@
 ---
 title: Guide ★ Exploration - VLOOK™ - Elegant and Practical Typora Theme & Plugin
 author: MAX°孟兆
-date: 2026-07-25
+date: 2026-10-11
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: This work is licensed under the MIT License. For details, see the LICENSE file.
-version: V2026.7
+version: V2026.10
 tags: Content Navigation, Content Assistant, Presentation Tools, Publishing Tools, Appearance, Miscellaneous
 vlook-footer: <a href="index-en.html">Introduction</a>	|	Guide for <a href='guide-en.html'>Basic</a>  ❯  <a href='guide2-en.html'>Advanced</a>  ❯  <strong>Exploration</strong>
 description: Regarding VLOOK™: Theme Design, Content Tagging, Content Navigation, Presentation & Publishing, Third-Party Integration Adaptation, and Miscellaneous Exclusions
@@ -59,13 +59,13 @@ vlook-doc-lib:
 
 > **Your coffee ☕️ keeps VLOOK™ running**
 >
-> [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo#round)](https://paypal.me/madmaxchow)
+> [![Donate VLOOK™](pic/donate-paypal.png?darksrc=~&srcset=@2x&darksrcset=@2x#logo#round)](https://paypal.me/madmaxchow)
 >
 > _~Se~_
 
 > **Your coffee ☕️ keeps VLOOK™ running**
 >
-> ![Donate VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
+> ![Donate VLOOK™](pic/donate-wechat.png?darksrc=~&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Gn~_
 
@@ -1206,7 +1206,7 @@ vlook-query: Param1=Value&Param2=Value...&ParamN=Value
 | > `capnum` | Captions are automatically numbered | `on` | `off` - Disable<br>`on` - Enable |
 | > `capgroup` | Group caption numbering by chapter                           |  `on`   | `off` - Disable<br>`on` - Enable                             |
 | > `capmini` | Only generated caption type, example: Figure 1, Figure 2, etc. | `off` | `off` - Disable<br>`on` - Enable |
-| > `capblank` | Whether to insert a blank caption when no caption text is provided.  <br><sup>Takes effect only with a custom theme</sup> | `off` | Specific types:<br>`figure` - Figure<br>`codeblock` - Codeblock |
+| > `capblank` | Whether to insert a blank caption when no caption text is provided.<br><sup>Takes effect only with a custom theme</sup> | `off` | `off` - Disable<br/>`on` - Enable |
 | Tab Group |  |  |  |
 | > `tabcap` | Display the caption number (e.g., Table 1-2) in Tabs of [TabGroup](guide2-en.md#°Tab Group) |  `off`  | `off` - Hide<br>`on` - Show                                 |
 | > `tabico` | Display content type icon in Tabs of [TabGroup](guide2-en.md#°Tab Group) | `line` | `off` - Hide<br>`line` - Line Style<br>`solid` - Solid Style<br>`flat` - Flat Style |
@@ -1229,8 +1229,9 @@ vlook-query: Param1=Value&Param2=Value...&ParamN=Value
 | > `toc`    | Initial TOC auto-collapse level                              |   `1`   | `0` - Expand all<br>`1~5` - Collapse to level                |
 | > `vdl`    | Library feature toggle                                       |  `on`   | `off` - Disable<br>`on` - Enable                             |
 | Debug      |                                                              |         |                                                              |
-| > `reset`  | Force reset browser-stored VLOOK data                        |         | `true`                                                       |
-| > `tab`    | Force enable/disable tab groups                              |  `on`   | `off` - Disable<br>`on` - Enable                             |
+| > `debug` | Debug mode | `off` | `off` - Disable<br>`on` - Enable |
+| > `reset`  | Force reset browser-stored VLOOK data                        | `off` | `off` - Disable<br>`on` - Reset                   |
+| > `tab`    | [Tab Group](guide2-en.md#°Tab Group) Layout Features |  `on`   | `off` - Disable<br>`on` - Enable                             |
 
 ## Shortcuts
 

@@ -14,8 +14,8 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V2026.7";
-@themeCompCode: "moonlightmoonlight";
+@themeVer: "V2026.10";
+// @themeCompCode: "moonlightmoonlight";
 @themeName: "vlook-geek";
 @themeSplitter: " • ";
 @themeDesc: "Geek";
@@ -38,6 +38,8 @@
 // @thmNavCenterStyle: std;
 @thmNavCenterStyle: flat;
 // @thmNavCenterStyle: edge;
+// 水平分隔条 hr 线形样式：solid, dashed, dotted, double, groove
+@thmHrStroke: dashed;
 // UI 按钮圆角 std, cap
 @thmButtonRadiusStyle: cap;
 // 工具栏、章节导航栏、链接地图、字体风格等浮动元素的阴影样式选择 shadow, line, none
@@ -204,7 +206,8 @@
 
 @welcomePageForeColor: var(--df);
 // @welcomePageBgColor: linear-gradient(0deg, @theme3, var(--db) 90%);
-@welcomePageBgColor: linear-gradient(0deg, @theme1, var(--db) 90%);
+@welcomePageBgColor: linear-gradient(0deg in oklab, fade(@theme1, 80%), var(--db) 90%);
+// linear-gradient(0deg, @theme1, var(--db) 90%);
 
 // 封面的圆角样式
 // @coverBorderRadius: @buttonRadiusCircle;
@@ -318,17 +321,17 @@
 // ====================
 
 // 封面动效
+:root {
+    --v-cover-animation: 5s linear 6 coverAnimation;
+}
 @{coverAfterYAML}, // 有 YAML 的情况
 @{coverWithoutYAML}, // 无 YAML 的情况
 // 封底：#write 下 H6 作为最后一个元素时
 @{backcover} {
-    // animation: 3s ease 10 alternate coverAnimation;
-    animation: 3s linear 20 coverAnimation;
+    animation: var(--v-cover-animation);
 }
 // 封面动画关键帧：呼吸灯效果
 @keyframes coverAnimation {
-    // 0% { box-shadow: @contrastBorderForCover; }
-    // 100% { box-shadow: 0 0 30px 0 fade(@theme1, 100%) inset; }
     0% { box-shadow: 0 10px 30px 5px fade(@theme1, 100%) inset; }
     25% { box-shadow: -10px 0 30px 5px fade(@theme1, 100%) inset; }
     50% { box-shadow: 0px -10px 30px 5px fade(@theme1, 100%) inset; }
@@ -378,7 +381,7 @@
 // .genFillWidth(outo);
 
 // 生成编辑时显示代码块标题（题注）样式
-.genCodeblockTitle(true);
+// .genCodeblockTitle(true);
 
 // 生成遮罩背景风格：std, dots
 @thmMaskBackgroundStyle: std;

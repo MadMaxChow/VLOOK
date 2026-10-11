@@ -23,7 +23,7 @@ Select language ❯  [**English**](README-en.md) • 中文
 
 
 
-![VLOOK™](https://vlook-doc.pages.dev/pic/vlook-mark-light.svg)
+![VLOOK™](https://vlook-doc.pages.dev/pic/vlook-mark.svg)
 
 
 
@@ -55,7 +55,7 @@ VLOOK™ 属于开源软件（遵从 **[MIT 许可证](#许可协议)**）。
 
 |             **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**             |          **Your coffee<br>keeps VLOOK™ running ☕️**           |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| ![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-wechat-light.png)![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-alipay-light.png) | [![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-paypal-light.png)](https://paypal.me/madmaxchow) |
+| ![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-wechat.png)![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-alipay.png) | [![打赏 VLOOK™](https://vlook-doc.pages.dev/pic/donate-paypal.png)](https://paypal.me/madmaxchow) |
 
 
 

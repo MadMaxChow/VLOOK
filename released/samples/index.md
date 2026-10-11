@@ -1,15 +1,15 @@
 ---
 title: 简介 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与排版增强插件
 author: MAX°孟兆
-date: 2026-07-25
+date: 2026-10-11
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: 本作品采用 MIT 许可证授权，详见 LICENSE 文件。
-version: V2026.7
+version: V2026.10
 #vlook-footer: {{title}}<br><br>{{author}}<br>{{date}} ({{version}})<br><br>{{copyright}}<br>{{rights}}
 description: 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:description": 关于 VLOOK™ 下载、设置、安装与配置配置说明
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
-date: 2026-07-25
+date: 2026-10-11
 changelog:
 - changelog content a, and content b
 - changelog content 2 [...detail](#打赏)
@@ -43,21 +43,21 @@ vlook-unpub: /由 YAML.+/
 vlook-doc-lib:
 - [查看 VLOOK™ 全部特性](vlook-lib.html "手册、教程、指南、攻略、示例、范例")
 - [VLOOK™ 简介](index.html?target=_self "介绍、下载、安装、语言包、增值服务")
-- [攻略 • 基础](guide.html?target=guide "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
-- [攻略 ▲ 进阶](guide2.html?target=guide "分栏、题注、交叉引用、按钮、链接代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
-- [攻略 ★ 探索](guide3.html?target=guide "内容导航/历史/上次阅读、内容助手/复制/全屏/换行/十字光标/阅读/画中画、演示辅助/激光笔/聚光灯/段落漫游/宽度适配/宁静视图、出版辅助/标记不发布/发布为PDF/另存为PDF/导出为PDF/打印为PDF/社交分享/链接地图/长内容折叠/链接检查/链接识别、外观/主题/字体/Light/Dark、自定义/预置选项/调校参数、快捷键、……")
+- [==攻略 • 基础==](guide.html?target=guide "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
+- [==攻略 ▲ 进阶==](guide2.html?target=guide "分栏、题注、交叉引用、按钮、链接代码/复制/换行、封面/封底、页签组、GitHub Style Alert、标签/徽章、进度条、面包屑、刮刮卡、注音、Mermaid、公式、多媒体/音频/视频/流媒体、……")
+- [==攻略 ★ 探索==](guide3.html?target=guide "内容导航/历史/上次阅读、内容助手/复制/全屏/换行/十字光标/阅读/画中画、演示辅助/激光笔/聚光灯/段落漫游/宽度适配/宁静视图、出版辅助/标记不发布/发布为PDF/另存为PDF/导出为PDF/打印为PDF/社交分享/链接地图/长内容折叠/链接检查/链接识别、外观/主题/字体/Light/Dark、自定义/预置选项/调校参数、快捷键、……")
 - [English 🔠](index-en.html?target=vlook-index-en "Introduction, Quick Start, How to Use")
 - [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank)
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 vlook-cc-bottom-left: Left Information<br>Here
 vlook-cc-bottom-right: Right Information<br>Here
 vlook-shortcut:
-- [🧧](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x "打赏")
+- [🧧](pic/donate-wechat.png?darksrc=~&srcset=@2x&darksrcset=@2x "打赏")
 - [🎨](https://wj.qq.com/s2/14818521/bd33/ "定制主题")
 - [💬](https://qm.qq.com/q/O0tNC6WBWe "讨论与交流")
 ---
 
-###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br><u>──</u><br>简介<br>*最新版本`V2026.7`*<br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
+###### 	 ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br><u>──</u><br>简介<br>*最新版本`V2026.10`*<br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 
 [TOC]
 
@@ -67,7 +67,7 @@ vlook-shortcut:
 
 
 
-![Awards](pic/awards.svg?darksrc=awards-dark.svg#logo)
+![Awards](pic/awards.svg?darksrc=~#logo)
 
 
 
@@ -75,20 +75,23 @@ vlook-shortcut:
 
 
 
-![VLOOK™](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#blur!#logo)
+![VLOOK™](pic/vlook-mark.svg?darksrc=~#blur!#logo)
 
-==![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™**_~T1~_ 是针对 ![Typora](pic/typora.png#icon) [Typora](https://typoraio.cn)[^Typora] **主题包**_~GnRo~_ 和 **排版增强插件**_~PuOg~_，<br>属于开源软件（遵从 **MIT License**_~Rd~_)。==
+==![VLOOK](pic/vlook.svg?darksrc=~#icon) **VLOOK™**_~T1~_ 是针对 ![Typora](pic/typora.png#icon) [Typora](https://typoraio.cn)[^Typora] **主题包**_~GnRo~_ 和 **排版增强插件**_~PuOg~_，<br>属于开源软件（遵从 **MIT License**_~Rd~_)。==
 
-**[*编辑工具`Typora`V1.14+*_~Gy~_](https://typoraio.cn)　*开源协议主`MIT`*_~Rd~_　*`关键字`主题、插件*_~Pu~_　*`支持的操作系统`Windows, macOS, Linux*_~Bu~_**
+**[*编辑工具`Typora`V1.14+*_~Gy~_](https://typoraio.cn)　*开源协议主`MIT`*_~Rd~_　*`关键字`主题、插件*_~Pu~_<br>*`支持的操作系统`Windows, macOS, Linux*_~Bu~_**
 
 **[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK?style=for-the-badge&label=Release&labelColor=04B1CC&color=9A4EE6#logo#round2s)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total?style=for-the-badge&label=Downloads%20(since%20V28.1)&labelColor=04B1CC&color=9A4EE6#logo#round2s)](https://github.com/MadMaxChow/VLOOK/releases)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK?style=for-the-badge&labelColor=04B1CC&color=9A4EE6#logo#round2s)](https://github.com/MadMaxChow/VLOOK/stargazers)**
 
 
 
+> ==🏆<br><br>获得到了多方的认可和肯定==
+>
 > - 👍 Typora 官方认可支持的主题包和排版增强插件，详见 [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook)
 > - 👍 [OSCHINA (开源中国)](https://www.oschina.net/p/vlook) 推荐的国产开源项目
 > - 👍 [AtomGit](https://atomgit.com/MadMaxChow/VLOOK) **G-Star** 优质项目
 >
+> _~Og!~_
 
 
 
@@ -152,7 +155,7 @@ _^tab^_
 
 
 
-> **💡 您知道吗？**
+> ==💡<br>您知道吗?==
 >
 > **AMAZING!!!** 您正在浏览的这份文档，就是由 Typora 编辑并应用 VLOOK™ 主题与插件生成的～
 >
@@ -168,13 +171,13 @@ _^tab^_
 
 > **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**
 >
-> ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
+> ![打赏 VLOOK™](pic/donate-wechat.png?darksrc=~&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Gn~_
 
 > **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**
 >
-> ![打赏 VLOOK™](pic/donate-alipay-light.png?darksrc=donate-alipay-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
+> ![打赏 VLOOK™](pic/donate-alipay.png?darksrc=~&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Bu~_
 
@@ -191,9 +194,7 @@ _^tab^_
 
 ---
 
-> ![°文档排版](pic/qico-types-light.svg?fill=text&darksrc=invert#icon2x)
->
-> **° 文档排版与内容标记**
+> **![°文档排版](pic/qico-types.svg?fill=text&darksrc=invert#icon2x)<br><br>° 文档排版与内容标记**
 >
 > **VLOOK™ 主题及插件，让你对 Markdown 编辑器（暂只支持 Typora）的自动化排版能力有了全新的理解和应用。**
 >
@@ -203,9 +204,7 @@ _^tab^_
 >
 > _~Vn!~_
 
-> ![°内容导航](pic/qico-nav-light.svg?fill=text&darksrc=invert#icon2x)
->
-> **° 内容导航**
+> **![°内容导航](pic/qico-nav.svg?fill=text&darksrc=invert#icon2x)<br><br>° 内容导航**
 >
 > **VLOOK™ 提供了对文档内容、章节、插图、表格、多媒体多种形式的导航、快速定位和内容组织的工具，全面改善和提高发布的 HTML 文件的浏览体验和效率。**
 >
@@ -217,9 +216,7 @@ _^tab^_
 
 ---
 
-> ![°演示与出版](pic/qico-pres-light.svg?fill=text&darksrc=invert#icon2x)
->
-> **° 演示与出版**
+> **![°演示与出版](pic/qico-pres.svg?fill=text&darksrc=invert#icon2x)<br><br>° 演示与出版**
 >
 > **VLOOK™ 独创性地提供了强大的演示与出版工具，让 Typora + VLOOK 成为更具生产力的 Markdown 文档解决方案。**
 >
@@ -229,9 +226,7 @@ _^tab^_
 >
 > _~Og!~_
 
-> ![°外观与不杂项](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon2x)
->
-> **° 外观与不杂项**
+> **![°外观与不杂项](pic/qico-theme.svg?fill=text&darksrc=invert#icon2x)<br><br>° 外观与不杂项**
 >
 > 「**人类从来都是视觉动物，自己或他人在阅读时，让眼睛感受愉悦和美好，是一种美德、一种力量、一种信仰。**」
 >
@@ -347,17 +342,17 @@ classDef font fill:#c08a00,color:#fff,stroke:#804a00,font-weight:bold
 
 ## 准备工作
 
-> **下载插件  ❯**
+> **下载插件 **
 >
 > [<kbd>![](pic/icon-download.svg?fill=text) 从 GitHub 下载</kbd>](https://github.com/MadMaxChow/VLOOK/releases)    *[<kbd>![](pic/icon-download.svg?fill=text) 从 AtomGit 下载</kbd>](https://atomgit.com/MadMaxChow/VLOOK/releases)*    *[<kbd>![](pic/icon-download.svg?fill=text) 从 gitee 下载</kbd>](https://gitee.com/madmaxchow/VLOOK/releases)*
 
-> **配置 Typora  ❯**
+> **配置 Typora**
 >
 > 1. 下载并安装 [Typora](https://typoraio.cn) 的最新版本
 > 2. 打开菜单 *==Typora ▸ 偏好设置 ▸ Markdown==*
 > 3. 启用 `Markdown 扩展语法` 和 `代码块` 下的所有选项。详见下图：
 >
-> ![须先调整的偏好设置](pic/typora-opt1-light.png?srcset=@2x&darksrc=typora-opt1-dark.png&darksrcset=@2x "Typora ▸ 偏好设置 ▸ Markdown")
+> ![须先调整的偏好设置](pic/typora-opt1.png?srcset=@2x&darksrc=~&darksrcset=@2x "Typora ▸ 偏好设置 ▸ Markdown")
 
 ## 离线模式安装
 
@@ -403,7 +398,7 @@ _^tab^_
 
 _^tab^_
 
-> **导出为 HTML ❯**
+> **导出为 HTML**
 >
 > 1. 创建导出 HTML 配置：
 >    1. 打开 Typora 导出配置
@@ -416,9 +411,9 @@ _^tab^_
 >    3. 全选，并复制所有内容
 >    4. 将复制的内容粘贴至配置项内
 >
->      ![Typora ▸ 偏好设置 ▸ 导出 ▸ HTML](pic/typora-opt2-light.png?srcset=@2x&darksrc=typora-opt2-dark.png&darksrcset=@2x)
+>      ![Typora ▸ 偏好设置 ▸ 导出 ▸ HTML](pic/typora-opt2.png?srcset=@2x&darksrc=~&darksrcset=@2x)
 
-> **导出为 PDF ❯**
+> **导出为 PDF**
 >
 > 1. 创建导出 PDF 配置：
 >    1. 打开 Typora 导出配置
@@ -430,7 +425,7 @@ _^tab^_
 >    3. 全选，并复制所有内容
 >    4. 将复制的内容粘贴至配置项内
 >
->      ![Typora ▸ 偏好设置 ▸ 导出 ▸ PDF](pic/typora-opt3-light.png?srcset=@2x&darksrc=typora-opt3-dark.png&darksrcset=@2x)
+>      ![Typora ▸ 偏好设置 ▸ 导出 ▸ PDF](pic/typora-opt3.png?srcset=@2x&darksrc=~&darksrcset=@2x)
 
 > **示例文件**
 >
@@ -813,7 +808,7 @@ _^tab^_
 >
 > 支持将流式布局的文档以「幻灯片」式分页显示，适用于简介类、宣发类的文档，并提供自动循环播放选项。
 >
-> [<kbd>![](pic/qico-disc-light.svg?fill=text) 参与讨论</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/192)
+> [<kbd>![](pic/qico-disc.svg?fill=text) 参与讨论</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/192)
 >
 > _~Og~_
 
@@ -821,7 +816,7 @@ _^tab^_
 >
 > 隐藏阅读文档时不必要的视觉元素，更聚集于内容阅读，同时也保留演示辅助工具（通过键盘快捷键激活）。
 >
-> [<kbd>![](pic/qico-disc-light.svg?fill=text) 参与讨论</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/192)
+> [<kbd>![](pic/qico-disc.svg?fill=text) 参与讨论</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/192)
 >
 > _~Lm~_
 
@@ -837,27 +832,27 @@ _^tab^_
 >
 > <u>引入更友好的自动分页规则，同时还支持**手工标记**的方式进行分页控制～</u>
 >
-> [<kbd>![](pic/qico-disc-light.svg?fill=text) 参与讨论</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/181)
+> [<kbd>![](pic/qico-disc.svg?fill=text) 参与讨论</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/181)
 >
 > _~Rd~_
 
 > ![°文档排版](pic/qico-table.svg?fill=text&darksrc=invert#icon2x)
 >
-> ==表格交互与样式==
+> **表格交互与样式**
 >
 > <u>表格编辑时和导出 HTML 支持首列冻结、全屏显示，支持圆角/汇总行/汇总列样式～</u>
 >
-> [<kbd>![](pic/qico-disc-light.svg?fill=text) 参与讨论</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/182)
+> [<kbd>![](pic/qico-disc.svg?fill=text) 参与讨论</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/182)
 >
 > _~Bu~_
 
-> ![°文档排版](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon2x)
+> ![°文档排版](pic/qico-theme.svg?fill=text&darksrc=invert#icon2x)
 >
-> ==主题更多个性选配项==
+> **主题更多个性选配项**
 >
 > <u>导航中心、界面按钮、按钮链接 等元素提供更多个性的组合和选择～</u>
 >
-> [<kbd>![](pic/qico-disc-light.svg?fill=text) 参与讨论</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/183)
+> [<kbd>![](pic/qico-disc.svg?fill=text) 参与讨论</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/183)
 >
 > _~T2~_
 
@@ -867,33 +862,33 @@ _^tab^_
 
 ---
 
-> ![°文档排版](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon2x)
+> ![°文档排版](pic/qico-theme.svg?fill=text&darksrc=invert#icon2x)
 >
-> ==「在线模式」==
+> **「在线模式」**
 >
 > <u>为自建 Web 站点的用户提供完整的在线部署模式，可减少网络流量和提高页面加载响应速度～</u>
 >
-> [<kbd>![](pic/qico-disc-light.svg?fill=text) 咨询</kbd>](#讨论与交流)
+> [<kbd>![](pic/qico-disc.svg?fill=text) 咨询</kbd>](#讨论与交流)
 >
 > _~Bu!~_
 
 > ![°文档排版](pic/qico-print.svg?fill=text&darksrc=invert#icon2x)
 >
-> ==「发布为 PDF」==
+> **「发布为 PDF」**
 >
 > <u>为导出后的 HTML 文件提供导出 PDF 支持（已发布实验性版本），欢迎参与试用与反馈～</u>
 >
-> [<kbd>![](pic/qico-disc-light.svg?fill=text) 参与讨论</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/158)
+> [<kbd>![](pic/qico-disc.svg?fill=text) 参与讨论</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/158)
 >
 > _~Rd!~_
 
-> ![°文档排版](pic/qico-disc-light.svg?fill=text&darksrc=invert#icon2x)
+> ![°文档排版](pic/qico-disc.svg?fill=text&darksrc=invert#icon2x)
 >
 > **你有更多的特性建议？**
 >
 > <u>欢迎前往我们在 GitHub 上的讨论组提出你的建议或期望能解决的痛点～</u>
 >
-> *[<kbd>![](pic/qico-disc-light.svg?fill=text) 分享个点子</kbd>](https://github.com/MadMaxChow/VLOOK/discussions)*
+> *[<kbd>![](pic/qico-disc.svg?fill=text) 分享个点子</kbd>](https://github.com/MadMaxChow/VLOOK/discussions)*
 >
 > _~Bn~_
 

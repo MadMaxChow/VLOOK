@@ -1,0 +1,83 @@
+/**************************************
+ *
+ * VLOOK™ 内置主题 for Obsidian
+ *
+ * Powered by MAX°孟兆
+ *
+ * QQ Group: 805502564
+ * Telegram Channel: t.me/vlook_markdown
+ * email: maxchow@qq.com
+ *
+ *************************************/
+
+@thmPlatform: "Obsidian";
+
+// 高亮相关样式
+@markBg: rgba(red(@theme2), green(@theme2), blue(@theme2), 30%);
+@markBgDark: rgba(red(@theme2Dark), green(@theme2Dark), blue(@theme2Dark), 60%);
+
+// @import "../../VLOOK/src/less/core";
+// @import "../../VLOOK/src/less/color";
+// @import "../../VLOOK/src/less/font";
+
+@import "../font-dyn";
+@import "../common-ob";
+
+// 主题信息
+@themeVer: "V2026.10";
+// @themeCompCode: "moonlightmoonlight";
+@themeName: "vlook-joint";
+@themeSplitter: " ";
+@themeDesc: "Joint";
+
+// 指定字体主题：local, book, zen, sans, serif, dyn, yuan, ink
+.applyFontStyle(dyn);
+
+// 主题主色
+@theme1: #FABB0C;
+@theme2: #6464D1;
+@theme3: #201D10;
+@theme1Dark: #F0B30C;
+@theme1Alt: #FBF4DA;
+@theme1AltDark: #413306;
+@theme2Dark: #7171D5;
+@theme2Alt: #E0E0F6;
+@theme2AltDark: #1C1C5F;
+
+// 主题色半透明
+@theme1FadeDark: rgba(red(@theme1Dark), green(@theme1Dark), blue(@theme1Dark), @accOpacityHighForDk);
+@theme2FadeDark: rgba(red(@theme2Dark), green(@theme2Dark), blue(@theme2Dark), @accOpacityLowForDk);
+
+// 链接颜色
+@aBorderWidth: 2px;
+@aColor: darken(@theme1, 6%);
+@aColorDark: @theme1Dark;
+@aHoverColor: @theme2;
+@aHoverColorDark: @theme2Dark;
+@aActiveColor: desaturate(@aHoverColor, 25%);
+
+// 按钮文字颜色
+@buttonForeColor: @theme3;
+@buttonForeHoverColor: @theme3;
+// 按钮背景颜色
+@buttonBgColor: @theme1;
+@buttonBgColorDark: @theme1Dark;
+
+// 主题圆角 none, small, big, leaf
+// .applyThemeRadius(none);
+// .applyThemeRadius(small);
+@thmRadiusStyle: big;
+.applyThemeRadius();
+// .applyThemeRadius(leaf);
+// @radiusS: 6px;
+// @radiusM: 8px;
+// @radiusL: 12px;
+// @radiusXL: 16px;
+
+// @buttonRadius: 12px 2px;
+
+// 生成指定的表格样式：simple, modern, flat, vivid, report
+@thmTableStyle: modern;
+.genTableStyle();
+
+@import "../base-ob";

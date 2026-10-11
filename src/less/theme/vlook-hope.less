@@ -14,8 +14,8 @@
 @import "../common";
 
 // 主题信息
-@themeVer: "V2026.7";
-@themeCompCode: "moonlightmoonlight";
+@themeVer: "V2026.10";
+// @themeCompCode: "moonlightmoonlight";
 @themeName: "vlook-hope";
 @themeSplitter: " • ";
 @themeDesc: "Hope";
@@ -186,9 +186,12 @@
 // ====================
 
 // 封面动效
+:root {
+    --v-cover-animation: 2s ease 15 alternate coverAnimation;
+}
 @{coverAfterYAML},
 @{coverWithoutYAML} {
-    animation: 2s ease 10 alternate coverAnimation;
+    animation: var(--v-cover-animation);
 }
 // @{coverAfterYAML}::before,
 // @{coverWithoutYAML}::before {
@@ -255,7 +258,7 @@
 // .genFillWidth(outo);
 
 // 生成编辑时显示代码块标题（题注）样式
-.genCodeblockTitle(true);
+// .genCodeblockTitle(true);
 
 // 生成遮罩背景风格：std, dots
 @thmMaskBackgroundStyle: std;

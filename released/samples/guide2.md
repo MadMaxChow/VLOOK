@@ -1,10 +1,10 @@
 ---
 title: 攻略 ▲ 进阶 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与排版增强插件
 author: MAX°孟兆
-date: 2026-07-25
+date: 2026-10-11
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: 本作品采用 MIT 许可证授权，详见 LICENSE 文件。
-version: V2026.7
+version: V2026.10
 tags: 代码, 按钮, 封面与封底, 分栏, 题注, 页签组, 内容标记, Mermaid, 公式, 多媒体
 vlook-footer: <a href="index.html">简介</a>	|	攻略之 <a href='guide.html'>基础</a>  ❯  <strong>进阶</strong>  ❯  <a href='guide3.html'>探索</a>
 description: 关于 VLOOK™ 的代码、按钮、封面与封底、分栏、题注、页签组、内容标记（GitHub Style Alert/标签/进度条/面包屑/刮刮卡/注音）、Mermaid、公式、多媒体
@@ -60,13 +60,13 @@ vlook-doc-lib:
 
 > **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**
 >
-> ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
+> ![打赏 VLOOK™](pic/donate-wechat.png?darksrc=~&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Gn~_
 
 > **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**
 >
-> ![打赏 VLOOK™](pic/donate-alipay-light.png?darksrc=donate-alipay-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
+> ![打赏 VLOOK™](pic/donate-alipay.png?darksrc=~&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Bu~_
 
@@ -78,9 +78,13 @@ vlook-doc-lib:
 
 ---
 
-> - 直接显示代码块的显示语言、当前行高亮、Mermaid 编辑时一体化显示
+---
 
-> - 支持通过 [定制主题](vip.md) 为代码块添加背景纹理
+> 显示代码块的语言、当前行高亮、Mermaid 编辑一体化显示等
+
+> 支持美观的 macOS 窗口化样式、题注与自动编号
+
+> 支持通过 [定制主题](vip.md) 为代码块添加背景纹理
 
 ## 复制代码内容
 
@@ -269,7 +273,7 @@ _^tab^_
 > - 对应 Markdown 内容为（ xxx.svg 是图片）： `[<kbd>访问 ![](xxx.svg)</kbd>]`
 > - 效果如下：
 >
-> [<kbd>![](pic/vlook-hollow-dark.svg?fill=text) 主要按钮 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)    *[<kbd>![](pic/vlook-hollow-dark.svg?fill=text) 次要按钮 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)*    **[<kbd>![](pic/vlook-hollow-dark.svg?fill=text) 超级按钮 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)**
+> [<kbd>![](pic/vlook-hollow~dark.svg?fill=text) 主要按钮 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)    *[<kbd>![](pic/vlook-hollow~dark.svg?fill=text) 次要按钮 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)*    **[<kbd>![](pic/vlook-hollow~dark.svg?fill=text) 超级按钮 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)**
 
 > **仅图片/图标**
 >
@@ -277,7 +281,7 @@ _^tab^_
 >
 > - 对应 Markdown 内容为（ xxx.svg 是图片）： `[<kbd>![](xxx.svg)</kbd>]` > - 效果如下：
 >
-> [<kbd>![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)    *[<kbd>![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)*    **[<kbd>![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)**
+> [<kbd>![](pic/vlook-hollow~dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)    *[<kbd>![](pic/vlook-hollow~dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)*    **[<kbd>![](pic/vlook-hollow~dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)**
 
 
 
@@ -521,7 +525,7 @@ _^tab^_
 ###### 本文档的封面内容示例
 
 ```markdown
-###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>使用攻略<br>(Part.II)</u><br>*最新版本`V2026.7`*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
+###### ~VLOOK™~<br>让你的 Markdown 有了新看_^wán^_法<br>──<br><u>使用攻略<br>(Part.II)</u><br>*最新版本`V2026.10`*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 ```
 
 ###### 本文档的封底内容示例

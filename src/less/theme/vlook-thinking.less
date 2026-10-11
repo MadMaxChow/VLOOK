@@ -16,8 +16,8 @@
 @vlookQuery: "@{vlookQueryDef}&uico=flat&tabico=flat";
 
 // 主题信息
-@themeVer: "V2026.7";
-@themeCompCode: "moonlightmoonlight";
+@themeVer: "V2026.10";
+// @themeCompCode: "moonlightmoonlight";
 @themeName: "vlook-thinking";
 @themeSplitter: " • ";
 @themeDesc: "Thinking";
@@ -42,6 +42,10 @@
 @thmToolbarStyle: simple;
 // 导航中心、脚注面板、状态栏风格选择：std, flat, edge
 @thmNavCenterStyle: flat;
+// 水平分隔条 hr 颜色样式：std, lg
+@thmHrStyle: lg;
+// 水平分隔条 hr 粗细
+@thmHrStrokeWidth: 2px;
 // 工具栏、章节导航栏、链接地图、字体风格等浮动元素的阴影样式选择 shadow, line, none
 @thmFloatShadow: line;
 // 生成指定的表格样式：simple, modern, flat, vivid, report
@@ -337,7 +341,7 @@
 // .genFillWidth(outo);
 
 // 生成编辑时显示代码块标题（题注）样式
-.genCodeblockTitle(true);
+// .genCodeblockTitle(true);
 
 // 生成遮罩背景风格：std, dots
 @thmMaskBackgroundStyle: dots;

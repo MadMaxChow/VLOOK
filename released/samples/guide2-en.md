@@ -1,10 +1,10 @@
 ---
 title: Guide ▲ Advanced - VLOOK™ - Elegant and Practical Typora Theme & Plugin
 author: MAX°孟兆
-date: 2026-07-25
+date: 2026-10-11
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: This work is licensed under the MIT License. For details, see the LICENSE file.
-version: V2026.7
+version: V2026.10
 tags: Code, Button, Cover & Back Cover, Columns, Caption, Tab Group, Content Marking, Mermaid, Formula, Multimedia
 vlook-footer: <a href="index.html">Introduction</a>	|	Guide for <a href='guide-en.html'>Basic</a>  ❯  <strong>Advanced</strong>  ❯  <a href='guide3-en.html'>Exploration</a>
 description: Regarding VLOOK™: Code, button, Cover and Back Pages, Column Layouts, Captions, Tab Groups, Content Markups (GitHub-style Alerts / Tags / Progress Bars / Breadcrumbs / Scratch Card / Phonetic Annotations), Mermaid Diagrams, Mathematical Formulas, and Multimedia
@@ -60,13 +60,13 @@ vlook-doc-lib:
 
 > **Your coffee ☕️ keeps VLOOK™ running**
 >
-> [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo#round)](https://paypal.me/madmaxchow)
+> [![Donate VLOOK™](pic/donate-paypal.png?darksrc=~&srcset=@2x&darksrcset=@2x#logo#round)](https://paypal.me/madmaxchow)
 >
 > _~Se~_
 
 > **Your coffee ☕️ keeps VLOOK™ running**
 >
-> ![Donate VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
+> ![Donate VLOOK™](pic/donate-wechat.png?darksrc=~&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Gn~_
 
@@ -78,9 +78,13 @@ vlook-doc-lib:
 
 ---
 
-> - Directly display the code block language, support current-line highlighting, and integrated display while editing Mermaid diagrams
+---
 
-> - Support adding background textures to code blocks through [Custom Themes](vip.md)
+> Display the code block language, highlight the current line, provide integrated Mermaid editing, and more
+
+> Support an elegant macOS window-style appearance, captions, and automatic numbering
+
+> Support adding background textures to code blocks through [Custom Themes](vip.md)
 
 ## Copy Code Content
 
@@ -263,7 +267,7 @@ _^tab^_
 > - Markdown: `[<kbd>VLOOK ![](xxx.svg)</kbd>]`
 > - Effect:
 >
-> [<kbd>VLOOK ![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)    *[<kbd>VLOOK ![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)*    **[<kbd>VLOOK ![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)**
+> [<kbd>VLOOK ![](pic/vlook-hollow~dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)    *[<kbd>VLOOK ![](pic/vlook-hollow~dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)*    **[<kbd>VLOOK ![](pic/vlook-hollow~dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)**
 
 > **Icon Only**
 >
@@ -272,7 +276,7 @@ _^tab^_
 > - Markdown: `[<kbd>![](xxx.svg)</kbd>]`
 > - Effect:
 >
-> [<kbd>![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)    *[<kbd>![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)*    **[<kbd>![](pic/vlook-hollow-dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)**
+> [<kbd>![](pic/vlook-hollow~dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)    *[<kbd>![](pic/vlook-hollow~dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)*    **[<kbd>![](pic/vlook-hollow~dark.svg?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)**
 
 
 
@@ -507,7 +511,7 @@ _^tab^_
 ###### Example of this document's cover content
 
 ```markdown
-###### ~VLOOK™~<br>Give your Markdown a new way to _^play^_<br>──<br><u>Quick Reference Manual<br>(Part.II)</u><br>*Latest version`V2026.7`*<br><br>**MAX°Mengzhao**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
+###### ~VLOOK™~<br>Give your Markdown a new way to _^play^_<br>──<br><u>Quick Reference Manual<br>(Part.II)</u><br>*Latest version`V2026.10`*<br><br>**MAX°Mengzhao**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 ```
 
 ###### Example of this document's back cover content
@@ -1092,10 +1096,10 @@ _^tab^_
 > ###### Advanced Usage of Image Captions
 >
 > 1. **Do not display the image caption text, only show the caption category (e.g., Figure 1, Figure 2, etc.)**
->    - You can configure this by using the `capmini` option under [Plugin Tuning Parameters](guide3.md#插件调校参数) to display only the caption category.
+>    - You can configure this by using the `capmini` option under [Plugin Tuning Parameters](guide3-en.md#Plugin Tuning Parameters) to display only the caption category.
 >
 > 2. **Display the caption category even when no caption text is specified for the image**
->    - You can configure this by using the `capblank` option under [Plugin Tuning Parameters](guide3.md#插件调校参数) to force the caption category to be shown when the caption text is empty.
+>    - You can configure this by using the `capblank` option under [Plugin Tuning Parameters](guide3-en.md#Plugin Tuning Parameters) to force the caption category to be shown when the caption text is empty.
 
 ## Table Caption & Auto-numbering
 
@@ -2547,7 +2551,7 @@ You can also index-en.md**reference block formula numbers for navigation**, for 
 
 > [!NOTE]
 >
-> If you have any questions about using **URL parameters** or **URL anchors**, please refer to **[Extended Image URL Usage](guide3.md#图片地址扩展应用说明)** for more details.
+> If you have any questions about using **URL parameters** or **URL anchors**, please refer to **[Extended Image URL Usage](guide3-en.md#Image Address Extension Notes)** for more details.
 
 ## Audio
 
@@ -2606,7 +2610,7 @@ You can also index-en.md**reference block formula numbers for navigation**, for 
 
 > [!NOTE]
 >
-> If you have any questions about using **URL parameters** or **URL anchors**, please refer to **[Extended Image URL Usage](guide3.md#图片地址扩展应用说明)** for more details.
+> If you have any questions about using **URL parameters** or **URL anchors**, please refer to **[Extended Image URL Usage](guide3-en.md#Image Address Extension Notes)** for more details.
 
 ## Captions and Automatic Numbering
 

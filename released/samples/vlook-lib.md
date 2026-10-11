@@ -5,9 +5,7 @@ vlook-query: sb=hide
 
 # 快速入坑°文档排版
 
-> ![°文档排版](pic/qico-types-light.svg?fill=vn#icon2x)
->
-> **° 文档排版**
+> **![°文档排版](pic/qico-types.svg?fill=vn#icon2x)<br><br>° 文档排版**
 >
 > **VLOOK™ 主题及插件，让你对 Markdown 编辑器（暂只支持 Typora）的自动化排版能力有了全新的理解和应用。**
 >
@@ -186,9 +184,7 @@ vlook-query: sb=hide
 
 # 快速入坑°内容导航
 
-> ![°内容导航](pic/qico-nav-light.svg?fill=Bu#icon2x)
->
-> **° 内容导航**
+> **![°内容导航](pic/qico-nav.svg?fill=Bu#icon2x)<br><br>° 内容导航**
 >
 > **VLOOK™ 提供了对文档内容、章节、插图、表格、多媒体多种形式的导航、快速定位和内容组织的工具，全面改善和提高发布的 HTML 文件的浏览体验和效率。**
 >
@@ -248,9 +244,7 @@ vlook-query: sb=hide
 
 # 快速入坑°演示与出版
 
-> ![°演示与出版](pic/qico-pres-light.svg?fill=og#icon2x)
->
-> **° 演示与出版**
+> **![°演示与出版](pic/qico-pres.svg?fill=og#icon2x)<br><br>° 演示与出版**
 >
 > **VLOOK™ 独创性地提供了强大的演示与出版工具，让 Typora + VLOOK 成为更具生产力的 Markdown 文档解决方案。**
 >
@@ -412,9 +406,7 @@ vlook-query: sb=hide
 
 # 快速入坑°外观与不杂项
 
-> ![°外观与不杂项](pic/qico-theme-light.svg?fill=lm#icon2x)
->
-> **°外观与不杂项**
+> **![°外观与不杂项](pic/qico-theme.svg?fill=lm#icon2x)<br><br>°外观与不杂项**
 >
 > 「**人类从来都是视觉动物，自己或他人在阅读时，让眼睛感受愉悦和美好，是一种美德、一种力量、一种信仰。**」
 >

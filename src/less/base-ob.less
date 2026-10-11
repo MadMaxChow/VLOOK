@@ -1,0 +1,90 @@
+/**************************************
+ *
+ * VLOOK™ CSS 基础库 for Obsidian
+ *
+ * V2026.4
+ * 2026-04-20
+ * Powered by MAX°孟兆
+ *
+ * QQ Group: 805502564
+ * Telegram Channel: t.me/vlook_markdown
+ * email: maxchow@qq.com
+ *
+ * https://github.com/MadMaxChow/VLOOK
+ * https://gitee.com/madmaxchow/VLOOK
+ *
+ *************************************/
+
+// 头部
+.view-header {
+    background: linear-gradient(180deg, var(--ac-t1-a), var(--ac-t1-fd)), var(--v-doc-bi) !important;
+}
+.view-header .clickable-icon @{svgGs} {
+    color: @buttonForeColor;
+}
+
+// 文档内容容器
+.view-content {
+    background: var(--v-doc-bi);
+}
+
+// 标题
+.inline-title {
+    font: var(--v-fw-tt) var(--inline-title-size)/var(--inline-title-line-height) var(--v-fm-tt) !important; // [style] [weight] [size/[line-height]] [family]
+    background: linear-gradient(180deg, var(--ac-t1-fd), transparent);
+    min-height: 100px;
+    height: auto;
+    padding: 20px 32px 0;
+    margin: -32px -32px;
+}
+
+// 内容容器
+.cm-contentContainer {
+    margin-top: 40px;
+}
+
+// @svgGs: ~"svg :is(path,rect,ellipse,polygon,use)";
+@svgGs: ~"svg :is(path,circle)";
+.clickable-icon @{svgGs} {
+    color: var(--icon-color);
+}
+
+// 文本链接下划线
+// .cm-link .cm-underline,
+// .cm-link:hover {
+//     text-decoration: none !important;
+//     // border-bottom: 1px solid
+// }
+
+.callout[data-callout="done"] {
+    border-color: rgba(red(@accCy), green(@accCy), blue(@accCy), var(--callout-border-opacity));
+    background-color: rgba(red(@accCy), green(@accCy), blue(@accCy), 0.1);
+}
+.callout[data-callout="done"] .callout-title {
+    color: var(--ac-cy);
+}
+.callout[data-callout="done"] .callout-title @{svgGs} {
+    color: var(--ac-cy);
+}
+
+.callout[data-callout="missing"] {
+    border-color: rgba(red(@accPu), green(@accPu), blue(@accPu), var(--callout-border-opacity));
+    background-color: rgba(red(@accPu), green(@accPu), blue(@accPu), 0.1);
+}
+.callout[data-callout="missing"] .callout-title {
+    color: var(--ac-pu);
+}
+.callout[data-callout="missing"] .callout-title @{svgGs} {
+    color: var(--ac-pu);
+}
+
+// .callout[data-callout="tip"]
+// .callout[data-callout="important"]
+// .callout[data-callout="warning"]
+// .callout[data-callout="caution"]
+// .callout[data-callout="attention"]
+
+.status-bar::before {
+    content: @themeType;
+    opacity: .6;
+}

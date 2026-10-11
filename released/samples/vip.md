@@ -59,7 +59,7 @@ vlook-doc-lib:
 
 > <u>「 我只有大概的想法，请帮我构思和选择 」</u>
 >
-> [<kbd>![](pic/qico-theme-light.svg?fill=text#icon) 提交我的想法</kbd>](https://wj.qq.com/s2/22711911/yrya/)
+> [<kbd>![](pic/qico-theme.svg?fill=text#icon) 提交我的想法</kbd>](https://wj.qq.com/s2/22711911/yrya/)
 >
 > 
 >
@@ -223,6 +223,14 @@ vlook-doc-lib:
 
 ---
 
+---
+
+> [![个人文档使用](pic/vip-shqc.png?srcset=@2x#card "SHQC")](theme-vip-shqc.html)
+
+> [![个人文档使用](pic/vip-orris.png?srcset=@2x#card "Orris")](theme-vip-orris.html)
+
+---
+
 > <u>「 我清楚想要的效果，直接提交定制选项 」</u>
 >
 > [<kbd>![](pic/icon-vip.svg?fill=text#icon)  提交我的定制选项</kbd>](https://wj.qq.com/s2/14818521/bd33/)
@@ -233,7 +241,7 @@ vlook-doc-lib:
 
 > <u>「 我只有大概的想法，请帮我构思和选择 」</u>
 >
-> [<kbd>![](pic/qico-theme-light.svg?fill=text#icon) 提交我的想法</kbd>](https://wj.qq.com/s2/22711911/yrya/)
+> [<kbd>![](pic/qico-theme.svg?fill=text#icon) 提交我的想法</kbd>](https://wj.qq.com/s2/22711911/yrya/)
 >
 > 
 >

@@ -1,10 +1,10 @@
 ---
 title: 攻略 • 基础 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与排版增强插件
 author: MAX°孟兆
-date: 2026-07-25
+date: 2026-10-11
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: 本作品采用 MIT 许可证授权，详见 LICENSE 文件。
-version: V2026.7
+version: V2026.10
 tags: 文本, 段落, 表格, 图片, 列表, 引用块, 章节标题
 vlook-footer: <a href="index.html">简介</a>	|	攻略之 <strong>基础</strong>  ❯  <a href='guide2.html'>进阶</a>  ❯  <a href='guide3.html'>探索</a>
 description: 关于 VLOOK™ 的文本、段落、表格、图片、列表、章节标题
@@ -35,7 +35,7 @@ keywords:
 - 设计,需求,文档,博客,手册,指南,攻略,知识库,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
 #vlook-header-autonum: h1{{第###章 }}
-vlook-header-dup: /^你的咖啡.+/;/.*语法$/;/^适用范围 ••• .+/;快捷键操作;进阶玩法;更多信息;引用块着色;COMMING SOON...;举例;这是引用块小标题;💡 想知道以上表格的原始内容吗？
+vlook-header-dup: /^你的咖啡.+/;/.*语法$/;/^适用范围 ••• .+/;快捷键操作;进阶玩法;更多信息;引用块着色;COMMING SOON...;/「图床」/;举例;这是引用块小标题;💡 想知道以上表格的原始内容吗？
 vlook-doc-lib:
 - [如何开始？](index.html?target=_self "简介、安装与配置、语言包")
 - [攻略 • 基础](guide.html?target=aaa "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
@@ -132,7 +132,7 @@ _^tab^_
 >
 > 支持「**常规**」和「**强调**」两种风格，色号后添加英文的感叹号「**!**」即为指定为强调风格，如： `Ye!`
 
-![VLOOK™ - Color Card 预置色号](pic/vlook-color-card-light.png?srcset=@2x&darksrc=vlook-color-card-dark.png&darksrcset=@2x#logo#center)
+![VLOOK™ - Color Card 预置色号](pic/vlook-color-card.png?srcset=@2x&darksrc=~&darksrcset=@2x#logo#center)
 
 
 
@@ -161,13 +161,13 @@ _^tab^_
 
 > **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**
 >
-> ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
+> ![打赏 VLOOK™](pic/donate-wechat.png?darksrc=~&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Gn~_
 
 > **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**
 >
-> ![打赏 VLOOK™](pic/donate-alipay-light.png?darksrc=donate-alipay-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
+> ![打赏 VLOOK™](pic/donate-alipay.png?darksrc=~&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Bu~_
 
@@ -905,21 +905,21 @@ _^tab^_
 
 ### icon 版式示例
 
-**icon：**![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** 是 ![OSChina](pic/oschina.png#icon) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 排版增强插件之一
+**icon：**![VLOOK](pic/vlook.svg?darksrc=~#icon) **VLOOK™** 是 ![OSChina](pic/oschina.png#icon) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 排版增强插件之一
 
-**icon2x：**![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon2x) **VLOOK™** 是 ![OSChina](pic/oschina.png#icon2x) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 排版增强插件之一
+**icon2x：**![VLOOK](pic/vlook.svg?darksrc=~#icon2x) **VLOOK™** 是 ![OSChina](pic/oschina.png#icon2x) **[开源中国](https://www.oschina.net/p/vlook)** 推荐的国产开源项目，也许是目前最好的 Markdown 排版增强插件之一
 
 
 
-> **icon：**![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** 是 ![AtomGit](pic/atomgit.png#icon) **[AtomGit](https://atomgit.com/MadMaxChow/VLOOK)** 的 **G-Star 计划项目**，也许是目前最好的 Markdown 排版增强插件之一
+> **icon：**![VLOOK](pic/vlook.svg?darksrc=~#icon) **VLOOK™** 是 ![AtomGit](pic/atomgit.png#icon) **[AtomGit](https://atomgit.com/MadMaxChow/VLOOK)** 的 **G-Star 计划项目**，也许是目前最好的 Markdown 排版增强插件之一
 >
-> **icon2x：**![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon2x) **VLOOK™** 是 ![AtomGit](pic/atomgit.png#icon2x) **[AtomGit](https://atomgit.com/MadMaxChow/VLOOK)** 的 **G-Star 计划项目**，也许是目前最好的 Markdown 排版增强插件之一
+> **icon2x：**![VLOOK](pic/vlook.svg?darksrc=~#icon2x) **VLOOK™** 是 ![AtomGit](pic/atomgit.png#icon2x) **[AtomGit](https://atomgit.com/MadMaxChow/VLOOK)** 的 **G-Star 计划项目**，也许是目前最好的 Markdown 排版增强插件之一
 
 ### logo 版式示例
 
 ###### 指定为 `logo` 模式
 
-![Logo 模式](pic/vlook-mark-light.svg?darksrc=invert#logo)
+![Logo 模式](pic/vlook-mark.svg?darksrc=invert#logo)
 
 > [!TIP]
 >
@@ -930,13 +930,13 @@ _^tab^_
 
 ###### 指定为 `#logo#left` 模式
 
-![Logo 模式：图片左对齐＋文字环绕](pic/vlook-mark-light.svg?darksrc=invert#logo#left)**设置为 `#logo#left` 模式后，实现图片左对齐＋文字环绕的排版效果**。我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK。
+![Logo 模式：图片左对齐＋文字环绕](pic/vlook-mark.svg?darksrc=invert#logo#left)**设置为 `#logo#left` 模式后，实现图片左对齐＋文字环绕的排版效果**。我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK。
 
 ---
 
 ###### 指定为 `#logo#right` 模式
 
-![Logo 模式：图片右对齐＋文字环绕](pic/vlook-mark-light.svg?darksrc=invert#logo#right)**设置为 `#logo#right` 模式后，实现图片右对齐＋文字环绕的排版效果**。我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK。
+![Logo 模式：图片右对齐＋文字环绕](pic/vlook-mark.svg?darksrc=invert#logo#right)**设置为 `#logo#right` 模式后，实现图片右对齐＋文字环绕的排版效果**。我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK，我来凑些字数 Hello VLOOK。
 
 ## 图片缩放
 
@@ -1117,7 +1117,7 @@ _^tab^_
 
 ![图片指定为线条网格背景（深色时反色）](pic/icon-set.svg?darksrc=invert#line "指定在 Dark Mode 时反色")
 
-![图片指定为线条网格背景（深色时指定图片）](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#padding#line "指定在 Dark Mode 时替换为指定图片")
+![图片指定为线条网格背景（深色时指定图片）](pic/vlook-mark.svg?darksrc=~#padding#line "指定在 Dark Mode 时替换为指定图片")
 
 ###### 方块网格背景示例
 
@@ -1125,7 +1125,7 @@ _^tab^_
 
 ![图片指定为方块网格背景（深色时反色）](pic/icon-set.svg?darksrc=invert#block "指定在 Dark Mode 时反色")
 
-![图片指定为方块网络背景（深色时指定图片）](pic/vlook-mark-dark.svg?#padding#block "指定在 Dark Mode 时不处理")
+![图片指定为方块网络背景（深色时指定图片）](pic/vlook-mark~dark.svg?#padding#block "指定在 Dark Mode 时不处理")
 
 ## 图片边缘留白
 
@@ -1302,13 +1302,19 @@ _^tab^_
 >
 > ---
 >
-> > **不使用图床的语法** 
+> > **不使用图床的简化语法** 
 > >
 > > `srcset=@2x,@3x`
+> >
+> > （直接填入约定命名规范的后缀）
 >
 > > **举例** 
 > >
 > > `![](我的图片.png?srcset=@2x)`
+> >
+> > 对应的图片的实际命名为：
+> >
+> > 标清 `我的图片.png` 、高清 `我的图片@2x.png`
 
 > **使用「图床」**
 >
@@ -1317,12 +1323,18 @@ _^tab^_
 > > **使用图床（随机命名）的语法** 
 > >
 > > `srcset=<2x图片路径>@2x,<3x图片路径>@3x`
+> >
+> > （需填入完整文件名）
 >
 > > **举例** 
 > >
-> > `![](2WY6eq.jpg?srcset=3yEIwd.jpg@2x)`
+> > `![](111.jpg?srcset=222.jpg@2x)`
 > >
-> > 
+> > 对应的图片的实际命名为：
+> >
+> > 标清 `111.jpg` 、高清 `222.jpg`
+
+
 
 > [!NOTE]
 >
@@ -1331,11 +1343,11 @@ _^tab^_
 
 _^tab^_
 
-![普通分辨率图片](pic/iphone-home-light.png?darksrc=iphone-home-dark.png)
+![普通分辨率图片](pic/iphone-home.png?darksrc=~)
 
-![支持 2x 分辨率图片](pic/iphone-home-light.png?darksrc=iphone-home-dark.png&srcset=@2x&darksrcset=@2x)
+![支持 2x 分辨率图片](pic/iphone-home.png?darksrc=~&srcset=@2x&darksrcset=@2x)
 
-![支持 2x, 3x 分辨率的图片](pic/iphone-home-light.png?darksrc=iphone-home-dark.png&srcset=@2x,@3x&darksrcset=@2x,@3x)
+![支持 2x, 3x 分辨率的图片](pic/iphone-home.png?darksrc=~&srcset=@2x,@3x&darksrcset=@2x,@3x)
 
 ## 图片适配 Dark Mode
 
@@ -1355,7 +1367,7 @@ _^tab^_
 >
 > ---
 >
-> **你现在就可以点击右下角的 ![Auto Mode](pic/icon-auto-mode.svg?darksrc=invert#icon) / ![Light Mode](pic/icon-light-mode.svg?darksrc=invert#icon) / ![Dark Mode](pic/icon-dark-mode.svg?darksrc=invert#icon) （快捷键 <kbd>D</kbd> )，然后看看下面两个插图的变化～**
+> **你现在就可以点击右下角的 ![Auto Mode](pic/icon-auto-mode.svg?darksrc=invert#icon) / ![Light Mode](pic/icon-light-mode.svg?darksrc=invert#icon) / ![Dark Mode](pic/icon-dark-mode.svg?darksrc=invert#icon) （快捷键 <kbd>A</kbd> )，然后看看下面两个插图的变化～**
 
 > [!NOTE]
 >
@@ -1369,16 +1381,43 @@ _^tab^_
 
 ### 以替换适配
 
-> 在「图片地址」中添加 VLOOK™ 规范的 URL 参数实现：
+<u>在「图片地址」中添加 VLOOK™ 规范的参数来启用这一特性。</u>
+
+_^tab^_
+
+> **不使用「图床」**
 >
-> URL 参数：
+> - 普通分辨率下 Dark Mode 时显示的图片： `darksrc=~` ，`~` 为 `dark` 图片命名的连接符，也支持 `-` `_` 符号
+> - 适配高清屏分辨率下 Dark Mode 时显示的图片（可选）： `darksrcset=@2x` ，该参数的用法[适配高清屏](#图片适配高清屏)的 `srcset` 保持一致
 >
-> - 普通分辨率的图片： `darksrc=xxx.jpg`
-> - 适配高清屏分辨率的图片（可选）： `darksrcset=...` ，该参数的用法==适配高清屏==的 `srcset` 保持一致，详见「[图片适配高清屏](#图片适配高清屏)」
+> > **举例：**`![](我的图片.png?darksrc=~)` ，对应的图片的实际命名为：
+> >
+> > 标清 `我的图片.png` 、标清 Dark `我的图片~dark.png`
 >
 > ---
 >
-> **你现在就可以点击右下角的 ![](pic/icon-auto-mode.svg#icon) （快捷键 <kbd>D</kbd> )，然后看看下面两个插图的变化～**
+> **你现在就可以点击右下角的 ![](pic/icon-auto-mode.svg?darksrc=invert#icon) （快捷键 <kbd>A</kbd> )，然后看看下面两个插图的变化～**
+
+> **使用「图床」**
+>
+> - 普通分辨率下 Dark Mode 时显示的图片： `darksrc=xxx.jpg`
+> - 适配高清屏分辨率下 Dark Mode 时显示的图片（可选）： `darksrcset=...` ，该参数的用法[适配高清屏](#图片适配高清屏)的 `srcset` 保持一致
+>
+> > **举例 1：**`![](111.jpg?darksrc=112.jpg)` ，对应的图片的实际命名为：
+> >
+> > 标清 `111.jpg` 、标清 Dark `112.jpg`
+> >
+> > 
+> >
+> > **举例 2：**`![](111.jpg?srcset=222.jpg&darksrc=112.jpg&darksrcset=223.jpg@2x)` ，
+> >
+> > 对应的图片的实际命名为：
+> >
+> > 标清 `111.jpg` 、标清 Dark `112.jpg` ，高清 `222.jpg` 、高清 Dark `223.jpg`
+>
+> ---
+>
+> **你现在就可以点击右下角的 ![](pic/icon-auto-mode.svg?darksrc=invert#icon) （快捷键 <kbd>A</kbd> )，然后看看下面两个插图的变化～**
 
 _^tab^_
 
@@ -1392,11 +1431,11 @@ _^tab^_
 
 _^tab^_
 
-![彩色图未适配深色](pic/iphone-home-light.png?srcset=@2x,@3x#padding)
+![彩色图未适配深色](pic/iphone-home.png?srcset=@2x,@3x#padding)
 
-![彩色图适配深色模式：替换为指定图片](pic/iphone-home-light.png?darksrc=pic/iphone-home-dark.png#padding)
+![彩色图适配深色模式：替换为指定图片](pic/iphone-home.png?darksrc=~#padding)
 
-![彩色图适配深色模式：替换为指定多分辨图片集](pic/iphone-home-light.png?darksrc=pic/iphone-home-dark.png&srcset=@2x,@3x&darksrcset=@2x,@3x#padding)
+![彩色图适配深色模式：替换为指定多分辨图片集](pic/iphone-home.png?darksrc=~&srcset=@2x,@3x&darksrcset=@2x,@3x#padding)
 
 ## 图片剪影
 
@@ -1510,11 +1549,11 @@ _^tab^_
 
 > ###### COMMING SOON...
 >
-> ![VLOOK™ - Color Card 预置色号](pic/vlook-color-card-light.png#logo)
+> ![VLOOK™ - Color Card 预置色号](pic/vlook-color-card.png#logo)
 >
 > ---
 >
-> ![VLOOK™ - Color Card 预置色号](pic/vlook-color-card-dark.png#logo)
+> ![VLOOK™ - Color Card 预置色号](pic/vlook-color-card~dark.png#logo)
 >
 > _~Gy!~_
 
@@ -1694,46 +1733,80 @@ _^tab^_
 
 _^tab^_
 
-> **语法**
+> **![](pic/qico-theme.svg?fill=text&darksrc=invert#icon2x) 小标题（顶部风格)的语法**
 >
-> 对引用块内首行设置为「**粗体**」或「==高亮==」即可。
+> 对引用块内首行设置为「**粗体**」即可。
 >
-> 同时也支持在小标题前，以独占一行方式添加「[图标版式](#图片显示版式)」的图片，提供更丰富的排版选择～
+> 同时也支持在小标题内添加「[图标版式](#图片显示版式)」的图片，提供更丰富的排版选择～
+>
+> *==引用块顶部小标题示例==*
+>
+> ```markdown
+> > **这里是这个引用块的小标题**
+> > ---
+> > xxx
+> 
+> > **![](xx.png?#icon2x) 这是图文混排的的小标题**
+> > ---
+> > xxx
+> ```
+
+> ==![](pic/qico-theme.svg?fill=text&darksrc=invert#icon2x)<br><br>小标题（左侧风格)的语法==
+>
+> 对引用块内首行设置为「==高亮==」即可。
+>
+> *==引用块左侧小标题示例==*
+>
+> ```markdown
+> > ==这里是这个引用块的小标题==
+> > ---
+> > xxx
+> 
+> > ==![](xx.png?#icon2x)<br><br> 这是图文混排的的小标题==
+> > ---
+> > xxx
+> ```
+
+> *![](pic/qico-theme.svg?fill=text&darksrc=invert#icon2x)<br><br>小标题（右侧风格)的语法*
+>
+> 对引用块内首行设置为「*斜体*」即可。
+>
+> *==引用块右侧小标题示例==*
+>
+> ```markdown
+> > *这里是这个引用块的小标题*
+> > ---
+> > xxx
+> 
+> > *![](xx.png?#icon2x)<br><br> 这是图文混排的的小标题*
+> > ---
+> > xxx
+> ```
+
+
+
 
 > [!TIP]
 >
 > 若需要对引用内的第1、2行内容整行加粗，但又不希望激活「小标题」样式，只需要在加粗格式 `**` 后添加一个「空格」即可～
 
-*==引用块小标题示例_Markdown 格式_==*
 
-```markdown
-> **这里是这个引用块的小标题**
-> ---
-> xxxxx
 
-> ==这里是这个引用块的小标题==
-> ---
-> xxxxx
-```
-
-示例效果如下：
+<u>分栏版式的示例效果如下：</u>
 
 ---
 
-> **加粗设置的引用块小标题**
+> ==高亮格式的引用块小标题==
 >
 > 这里引用块内的其他段落内容 1
 >
 > 这里引用块内的其他段落内容 2
->
 
-> ==高亮设置的引用块小标题==
+> *斜体格式的引用块小标题*
 >
 > 这里引用块内的其他段落内容 1
 >
 > 这里引用块内的其他段落内容 2
->
-> 更多的小标题样式，详见引用块着色 [❯❯](#引用块着色)
 
 ## 引用块分栏
 
@@ -1770,7 +1843,7 @@ _^tab^_
 
 > **![Wine](pic/qico-red.svg?fill=text&darksrc=invert#icon) 普通引用块**
 >
-> [<kbd>![](pic/vlook-hollow-dark.svg?fill=text) 主要按钮 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)    *[<kbd>![](pic/vlook-hollow-dark.svg?fill=text) 次要按钮 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)*    **[<kbd>![](pic/vlook-hollow-dark.svg?fill=text) 超级按钮 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)**
+> [<kbd>![](pic/vlook-hollow~dark.svg?fill=text) 主要按钮 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)    *[<kbd>![](pic/vlook-hollow~dark.svg?fill=text) 次要按钮 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)*    **[<kbd>![](pic/vlook-hollow~dark.svg?fill=text) 超级按钮 ![](pic/icon-more.png?fill=text)</kbd>](https://github.com/MadMaxChow/VLOOK)**
 >
 > > ###### 更多信息
 > >
@@ -1812,9 +1885,7 @@ _^tab^_
 >
 > _~Wn!~_
 
----
-
-> ==![Red](pic/qico-red.svg?fill=text&darksrc=invert#icon) 引用块着色==
+> ==![Red](pic/qico-red.svg?fill=text&darksrc=invert#icon)<br><br>引用块着色==
 >
 > ==色号==  `Rd`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide2.md#按钮链接) *[<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide2.md#按钮链接)*
 >
@@ -1828,7 +1899,7 @@ _^tab^_
 >
 > _~Rd~_
 
-> ==![Red](pic/qico-red.svg?fill=text&darksrc=invert#icon) 引用块着色==
+> ==![Red](pic/qico-red.svg?fill=text&darksrc=invert#icon)<br><br>引用块着色==
 >
 > ==色号==  `Rd!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide2.md#按钮链接) *[<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide2.md#按钮链接)*
 >
@@ -1844,7 +1915,7 @@ _^tab^_
 
 ---
 
-> **![Orange](pic/qico-orange.svg?fill=text&darksrc=invert#icon) 引用块着色**
+> **![Orange](pic/qico-orange.svg?fill=text&darksrc=invert#icon)<br>引用块着色**
 >
 > ==色号==  `Og`　了解[色号 ![](pic/icon-more.svg?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide2.md#按钮链接) *[<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide2.md#按钮链接)*
 >
@@ -1858,7 +1929,7 @@ _^tab^_
 >
 > _~Og~_
 
-> **![Orange](pic/qico-orange.svg?fill=text&darksrc=invert#icon) 引用块着色**
+> **![Orange](pic/qico-orange.svg?fill=text&darksrc=invert#icon)<br>引用块着色**
 >
 > ==色号==  `Og!`　了解[色号 ![](pic/icon-more.png?fill=text#icon)](#预置色号)　[<kbd>主按钮 ![](pic/icon-more.svg?fill=text)</kbd>](guide2.md#按钮链接) *[<kbd>次按钮 ![](pic/icon-more.png?fill=text)</kbd>](guide2.md#按钮链接)*
 >
@@ -2528,7 +2599,7 @@ _^tab^_
 > - *`小前提`* 一个附属于前面大前提的特殊化陈述
 > - *`结论`*_~T2!~_ 由此引申出的特殊化陈述符合一般性原则的结论
 >
-> ![引用块折叠内的图片示例](http://localhost/pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.sv
+> ![引用块折叠内的图片示例](pic/vlook-mark.svg?darksrc=~
 
 > > ###### 什么是 MECE 法则？
 > >
@@ -2629,7 +2700,7 @@ _^tab^_
 
 # °章节标题
 
-## ~~高亮章节标题、文库~~
+## 高亮章节标题、文库
 
 对于某些重要的章节，希望进行突出的标记，可以设置为高亮。设置后在导航中心的目录索引、搜索结果中均会保持高亮，也可以通过搜索栏快速过滤显示被标记的章节。
 
@@ -2643,7 +2714,7 @@ _^tab^_
 
 选中章节标题内容，设置为高亮格式即可，如：`# ==这是高亮的标题==`
 
-这些章节在导出 HTML 后，支持在「[导航中心](#导航中心)」中快速筛选，可直观了解文档中所有被标记的章节，并一键直达。
+这些章节在导出 HTML 后，支持在「[导航中心](guide3.md#导航中心)」中快速筛选，可直观了解文档中所有被标记的章节，并一键直达。
 
 ## 标题自定义样式
 

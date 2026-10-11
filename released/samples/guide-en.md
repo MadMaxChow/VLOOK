@@ -1,10 +1,10 @@
 ---
 title: Guide ▲ Basic - VLOOK™ - Elegant and Practical Typora Theme & Plugin
 author: MAX°孟兆
-date: 2026-07-25
+date: 2026-10-11
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: This work is licensed under the MIT License. For details, see the LICENSE file.
-version: V2026.7
+version: V2026.10
 tags: Text, Paragraph, Table, Image, List, Blockquotes, Chapter Headings
 vlook-footer: <a href="index-en.html">Introduction</a>	|	Guide for <strong>Basic</strong>  ❯  <a href='guide2-en.html'>Advanced</a>  ❯  <a href='guide3-en.html'>Exploration</a>
 description: Regarding VLOOK™: Text, Paragraphs, Tables, Images, Lists, and Section Headings
@@ -127,7 +127,7 @@ _^tab^_
 > 
 > Supports "**Regular**" and "**Emphasized**" styles. Adding an English exclamation mark "**!**" after the color code specifies the emphasized style, e.g.: `Ye!`
 
-![VLOOK™ - Color Card Preset Color Code](pic/vlook-color-card-light.png?srcset=@2x&darksrc=vlook-color-card-dark.png&darksrcset=@2x#logo#center)
+![VLOOK™ - Color Card Preset Color Code](pic/vlook-color-card.png?srcset=@2x&darksrc=~&darksrcset=@2x#logo#center)
 
 > **Syntax**
 > 
@@ -153,13 +153,13 @@ _^tab^_
 
 > **Your coffee ☕️ keeps VLOOK™ running**
 > 
-> [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo#round)](https://paypal.me/madmaxchow)
+> [![Donate VLOOK™](pic/donate-paypal.png?darksrc=~&srcset=@2x&darksrcset=@2x#logo#round)](https://paypal.me/madmaxchow)
 > 
 > _~Se~_
 
 > **Your coffee ☕️ keeps VLOOK™ running**
 > 
-> ![Donate VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
+> ![Donate VLOOK™](pic/donate-wechat.png?darksrc=~&srcset=@2x&darksrcset=@2x#logo#round)
 > 
 > _~Gn~_
 
@@ -867,21 +867,21 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 ### Icon Layout Examples
 
-**icon:** ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** is ![OSChina](pic/oschina.png#icon) **[Open Source China](https://www.oschina.net/p/vlook)** recommended domestic open source project, perhaps one of the best Markdown Typesetting Pluss currently
+**icon:** ![VLOOK](pic/vlook.svg?darksrc=~#icon) **VLOOK™** is ![OSChina](pic/oschina.png#icon) **[Open Source China](https://www.oschina.net/p/vlook)** recommended domestic open source project, perhaps one of the best Markdown Typesetting Pluss currently
 
-**icon2x:** ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon2x) **VLOOK™** is ![OSChina](pic/oschina.png#icon2x) **[Open Source China](https://www.oschina.net/p/vlook)** recommended domestic open source project, perhaps one of the best Markdown Typesetting Pluss currently
+**icon2x:** ![VLOOK](pic/vlook.svg?darksrc=~#icon2x) **VLOOK™** is ![OSChina](pic/oschina.png#icon2x) **[Open Source China](https://www.oschina.net/p/vlook)** recommended domestic open source project, perhaps one of the best Markdown Typesetting Pluss currently
 
 
 
-> **icon:** ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** is a **G-Star Program Project** of ![AtomGit](pic/atomgit.png#icon) **[AtomGit](https://atomgit.com/MadMaxChow/VLOOK)**, and may be one of the best Markdown Typesetting Pluss available today.
+> **icon:** ![VLOOK](pic/vlook.svg?darksrc=~#icon) **VLOOK™** is a **G-Star Program Project** of ![AtomGit](pic/atomgit.png#icon) **[AtomGit](https://atomgit.com/MadMaxChow/VLOOK)**, and may be one of the best Markdown Typesetting Pluss available today.
 >
-> **icon2x:** ![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon2x) **VLOOK™** is a **G-Star Program Project** of ![AtomGit](pic/atomgit.png#icon2x) **[AtomGit](https://atomgit.com/MadMaxChow/VLOOK)**, and may be one of the best Markdown Typesetting Pluss available today.
+> **icon2x:** ![VLOOK](pic/vlook.svg?darksrc=~#icon2x) **VLOOK™** is a **G-Star Program Project** of ![AtomGit](pic/atomgit.png#icon2x) **[AtomGit](https://atomgit.com/MadMaxChow/VLOOK)**, and may be one of the best Markdown Typesetting Pluss available today.
 
 ### Logo Layout Examples
 
 ###### Specified as `logo` mode
 
-![Logo Mode](pic/vlook-mark-light.svg?darksrc=invert#logo)
+![Logo Mode](pic/vlook-mark.svg?darksrc=invert#logo)
 
 > [!TIP]
 >
@@ -892,13 +892,13 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 ###### Specified as `#logo#left` mode
 
-![Logo Mode: Left Aligned + Text Wrapping](pic/vlook-mark-light.svg?darksrc=invert#logo#left)**After setting to `#logo#left` mode, achieves left-aligned image + text wrapping effect**. Let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK.
+![Logo Mode: Left Aligned + Text Wrapping](pic/vlook-mark.svg?darksrc=invert#logo#left)**After setting to `#logo#left` mode, achieves left-aligned image + text wrapping effect**. Let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK.
 
 ---
 
 ###### Specified as `#logo#right` mode
 
-![Logo Mode: Right Aligned + Text Wrapping](pic/vlook-mark-light.svg?darksrc=invert#logo#right)**After setting to `#logo#right` mode, achieves right-aligned image + text wrapping effect**. Let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK.
+![Logo Mode: Right Aligned + Text Wrapping](pic/vlook-mark.svg?darksrc=invert#logo#right)**After setting to `#logo#right` mode, achieves right-aligned image + text wrapping effect**. Let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK, let me add some filler text Hello VLOOK.
 
 ## Image Scale
 
@@ -1068,7 +1068,7 @@ _^tab^_
 
 ![Image with Line Grid Background (Invert in Dark Mode)](pic/icon-set.svg?darksrc=invert#line "Specify to invert in Dark Mode")
 
-![Image with Line Grid Background (Specify Image in Dark Mode)](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#padding#line "Specify Image in Dark Mode")
+![Image with Line Grid Background (Specify Image in Dark Mode)](pic/vlook-mark.svg?darksrc=~#padding#line "Specify Image in Dark Mode")
 
 ###### Block Grid Background Examples
 
@@ -1076,7 +1076,7 @@ _^tab^_
 
 ![Image with Block Grid Background (Invert in Dark Mode)](pic/icon-set.svg?darksrc=invert#block "Specify to invert in Dark Mode")
 
-![Image with Block Grid Background (Specify Image in Dark Mode)](pic/vlook-mark-dark.svg?#padding#block "Specify Image in Dark Mode")
+![Image with Block Grid Background (Specify Image in Dark Mode)](pic/vlook-mark~dark.svg?#padding#block "Specify Image in Dark Mode")
 
 ## Image Edge Padding
 
@@ -1252,10 +1252,16 @@ _^tab^_
 > > **Syntax Without Image Hosting** 
 > >
 > > `srcset=@2x,@3x`
+> >
+> > (Directly enter the suffix specified by the naming convention)
 >
 > > **Example** 
 > >
 > > `![](my-image.png?srcset=@2x)`
+> >
+> > The actual filename of the corresponding image is:
+> >
+> > SD `my-image.png` , HD `my-image@2x.png`
 
 > **Using "Image Hosting"**
 >
@@ -1264,12 +1270,18 @@ _^tab^_
 > > **Syntax for using "Image Hosting" (random naming)**
 > >
 > > `srcset=<2x image path>@2x,<3x image path>@3x`
+> >
+> > (enter the complete filename)
 >
 > > **Example**
 > >
-> > `![](2WY6eq.jpg?srcset=3yEIwd.jpg@2x)`
+> > `![](111.jpg?srcset=222.jpg@2x)`
 > >
-> > 
+> > The actual filename of the corresponding image is:
+> >
+> > SD `111.jpg` , HD `222.jpg`
+
+
 
 > [!NOTE]
 >
@@ -1278,11 +1290,11 @@ _^tab^_
 
 _^tab^_
 
-![Standard resolution image](pic/iphone-home-light.png?darksrc=iphone-home-dark.png)
+![Standard resolution image](pic/iphone-home.png?darksrc=~)
 
-![Supports 2x resolution image](pic/iphone-home-light.png?darksrc=iphone-home-dark.png&srcset=@2x&darksrcset=@2x)
+![Supports 2x resolution image](pic/iphone-home.png?darksrc=~&srcset=@2x&darksrcset=@2x)
 
-![Supports 2x, 3x resolution images](pic/iphone-home-light.png?darksrc=iphone-home-dark.png&srcset=@2x,@3x&darksrcset=@2x,@3x)
+![Supports 2x, 3x resolution images](pic/iphone-home.png?darksrc=~&srcset=@2x,@3x&darksrcset=@2x,@3x)
 
 ## Image Adaptation for Dark Mode
 
@@ -1302,7 +1314,7 @@ _^tab^_
 >
 > ---
 >
-> **You can now click the ![](pic/icon-auto-mode.svg#icon) / ![](pic/icon-light-mode.svg#icon) / ![](pic/icon-dark-mode.svg#icon) in the bottom right corner (shortcut <kbd>D</kbd>), then observe the changes in the two images below.**
+> **You can now click the ![](pic/icon-auto-mode.svg?darksrc=invert#icon) / ![](pic/icon-light-mode.svg#icon) / ![](pic/icon-dark-mode.svg#icon) in the bottom right corner (shortcut <kbd>A</kbd>), then observe the changes in the two images below.**
 
 > [!NOTE]
 >
@@ -1316,16 +1328,37 @@ _^tab^_
 
 ### Replacement Adaptation
 
-> In the "image address", add VLOOK™ standardized URL parameters to achieve:
+<u>Add VLOOK™ standard parameters in "image address" to enable this feature.</u>
+
+_^tab^_
+
+> - Image displayed in Dark Mode at standard resolution: `darksrc=~`, where `~` is the separator used in the dark image filename. The `-` and `_` symbols are also supported.
+> - Optional image displayed in Dark Mode on HD resolution: `darksrcset=@2x`. The usage of this parameter is consistent with `srcset` for [HD Screen Adaptation](#Image HD Screen Adaptation).
 >
-> URL parameters:
->
-> - Normal resolution image: `darksrc=xxx.jpg`
-> - High-definition screen resolution adaptation (optional): `darksrcset=...`, the usage of this parameter is consistent with `srcset` for ==high-definition screen adaptation==, see "[Image HD Screen Adaptation](#Image HD Screen Adaptation)"
+> > **Example:** `![](my-image.png?darksrc=~)` , The actual filename of the corresponding image is:
+> >
+> > SD `my-image.png` , SD for Dark `my-image~dark.png`
 >
 > ---
 >
-> **You can now click the bottom right ![](pic/icon-auto-mode.svg#icon) (shortcut <kbd>D</kbd>), then observe the changes in the two images below～**
+> **You can now click the bottom right ![](pic/icon-auto-mode.svg?darksrc=invert#icon) ( shortcut <kbd>A</kbd> ), then observe the changes in the two images below～**
+
+> - Normal resolution image for Dark Mode: `darksrc=xxx.jpg`
+> - High-definition resolution image for Dark Mode (optional): `darksrcset=...`, the usage of this parameter is consistent with `srcset` for [HD Screen Adaptation](#Image HD Screen Adaptation)
+>
+> > **Example 1:** `![](111.jpg?darksrc=112.jpg)` , The actual filename of the corresponding image is:
+> >
+> > SD `111.png` , SD for Dark `112.png`
+> >
+> > 
+> >
+> > **Example 2:** `![](111.jpg?srcset=222.jpg&darksrc=112.jpg&darksrcset=223.jpg@2x)` , The actual filename of the corresponding image is:
+> >
+> > SD `111.jpg` , SD for Dark `112.jpg` . HD `222.jpg` , HD for Dark `223.jpg`
+>
+> ---
+>
+> **You can now click the bottom right ![](pic/icon-auto-mode.svg?darksrc=invert#icon) ( shortcut <kbd>A</kbd> ), then observe the changes in the two images below～**
 
 _^tab^_
 
@@ -1339,11 +1372,11 @@ _^tab^_
 
 _^tab^_
 
-![Color image not adapted for dark mode](pic/iphone-home-light.png?srcset=@2x,@3x#padding)
+![Color image not adapted for dark mode](pic/iphone-home.png?srcset=@2x,@3x#padding)
 
-![Color image adapted for dark mode: replaced with specified image](pic/iphone-home-light.png?darksrc=pic/iphone-home-dark.png#padding)
+![Color image adapted for dark mode: replaced with specified image](pic/iphone-home.png?darksrc=~#padding)
 
-![Color image adapted for dark mode: replaced with specified multi-resolution image set](pic/iphone-home-light.png?darksrc=pic/iphone-home-dark.png&srcset=@2x,@3x&darksrcset=@2x,@3x#padding)
+![Color image adapted for dark mode: replaced with specified multi-resolution image set](pic/iphone-home.png?darksrc=~&srcset=@2x,@3x&darksrcset=@2x,@3x#padding)
 
 ## Image Silhouette
 
@@ -1452,11 +1485,11 @@ Then add `#gif` after the image address, clicking will play the `.gif` file with
 
 > ###### COMMING SOON...
 > 
-> ![VLOOK™ - Color Card Preset Color Code](pic/vlook-color-card-light.png#logo)
+> ![VLOOK™ - Color Card Preset Color Code](pic/vlook-color-card.png#logo)
 > 
 > ---
 > 
-> ![VLOOK™ - Color Card Preset Color Code](pic/vlook-color-card-dark.png#logo)
+> ![VLOOK™ - Color Card Preset Color Code](pic/vlook-color-card~dark.png#logo)
 > 
 > _~Gy!~_
 
@@ -1624,46 +1657,79 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 _^tab^_
 
-> **Syntax**
+> **![](pic/qico-theme.svg?fill=text&darksrc=invert#icon2x) Syntax for Subtitle (Top Style)**
+>
+> Simply set the first line within the blockquote to 「**bold**」.
+>
+> You can also add an image using the 「[Image Display Layout](#image-display-layout)」 in the Subtitle, providing more flexible layout options～
+>
+> *==Example of a Top-Style Blockquote Subtitle==*
+>
+> ```markdown
+> > **This is the Subtitle of this blockquote**
+> > ---
+> > xxx
 > 
-> Set the first line in a blockquote as "**bold**" or "==highlight==".
+> > **![](xx.png?#icon2x) Image-and-Text Subtitle**
+> > ---
+> > xxx
+> ```
+
+> ==![](pic/qico-theme.svg?fill=text&darksrc=invert#icon2x)<br><br>Syntax for Subtitle (Left Style)==
+>
+> Simply set the first line within the blockquote to 「==highlighted==」.
+>
+> *==Example of a Left-Style Blockquote Subtitle==*
+>
+> ```markdown
+> > ==This is the Subtitle of this blockquote==
+> > ---
+> > xxx
 > 
-> Also supports adding "[icon layout](#Image-Display-Layout)" images before the subtitle in a standalone line for richer typesetting options～
+> > ==![](xx.png?#icon2x)<br><br>Image-and-Text Subtitle==
+> > ---
+> > xxx
+> ```
+
+> *![](pic/qico-theme.svg?fill=text&darksrc=invert#icon2x)<br><br>Syntax for Subtitle (Right Style)*
+>
+> Simply set the first line within the blockquote to 「*italic*」.
+>
+> *==Example of a Right-Style Blockquote Subtitle==*
+>
+> ```markdown
+> > ==This is the Subtitle of this blockquote==
+> > ---
+> > xxx
+> 
+> > ==![](xx.png?#icon2x)<br><br>Image-and-Text Subtitle==
+> > ---
+> > xxx
+> ```
+
+
 
 > [!TIP]
-> 
-> If you need to bold the entire first/second line within a blockquote but don't want to activate the "subtitle" style, just add a "space" after the bold format `**`.
+>
+> If you need to make the entire first or second line within a blockquote bold, but do not want to activate the 「Subtitle」 style, simply add a 「space」 after the bold formatting `**`～
 
-*==Blockquote Subtitle Example==*
 
-```markdown
-> **Here is the subtitle for this blockquote**
-> ---
-> xxxxx
 
-> ==Here is the subtitle for this blockquote==
-> ---
-> xxxxx
-```
-
-###### Example Effect Below:
+<u>The example effect with a multi-column layout is as follows:</u>
 
 ---
 
-> **Bold-Set Blockquote Subtitle**
+> ==Left-Style Blockquote Subtitle==
 >
-> Other paragraph content 1 within this blockquote
+> Other paragraph content within the blockquote 1
 >
-> Other paragraph content 2 within this blockquote
->
+> Other paragraph content within the blockquote 2
 
-> ==Highlight-Set Blockquote Subtitle==
+> *Right-Style Blockquote Subtitle*
 >
-> Other paragraph content 1 within this blockquote
+> Other paragraph content within the blockquote 1
 >
-> Other paragraph content 2 within this blockquote
->
-> For more subtitle styles, see Blockquote Coloring [❯❯](#Blockquote-Coloring)
+> Other paragraph content within the blockquote 2
 
 ## Blockquote Columns
 
@@ -1853,7 +1919,19 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 
 # °Chapter Headings
 
+## Highlighted Chapter Titles, Library
 
+For certain important chapters, you can highlight them for emphasis. Once highlighted, they remain highlighted in the Table of Contents index and search results in the Navigation Center. You can also quickly filter and display the marked chapters using the search bar.
+
+*Markdown Fan**`Q`*「**Highlight some important chapter titles in the document so they can be quickly identified and filtered while reading**」
+
+*VLOOK`A`*_~T2~_ VLOOK™ supports styling highlighted headings and provides corresponding enhanced features.
+
+> **Availability ••• *`Editing`✓ Supported*_~Gn~_  *`Export HTML`✓ Supported*_~Gn~_**
+
+Select the chapter title content and apply the highlighted format, for example: `# ==This is a highlighted title==`
+
+After these chapters are exported to HTML, they can be quickly filtered in the "[Navigation Center](guide3.md#navigation-center)", providing an intuitive overview of all marked chapters in the document and allowing you to jump to them with a single click.
 
 ## Heading Style
 
@@ -1880,7 +1958,7 @@ For feedback: [![Feedback via Email](pic/feedback-via-email.svg?darksrc=invert#i
 After using the VLOOK™ plugin, it supports automatic numbering of chapter headings in documents by default. The default automatic numbering format is Arabic numerals, such as `1. Chapter Heading` `3.2.5 Chapter Heading`.
 
 - All VLOOK™ themes automatically apply hierarchical numbering to `Level 1 ~ 5` headings;
-- Because `Level 6` headings are used in VLOOK™ for [Front and Back Covers](guide2-en.md#°Cover & Back Cover), paragraph subheadings, etc., they are not within the automatic numbering range.
+- Because `Level 6` headings are used in VLOOK™ for [Front and Back Covers](guide2-en.md#°Cover & Back Cover), paragraph Subtitles, etc., they are not within the automatic numbering range.
 
 You can specify through "[Plugin Preset Options](guide3-en.md#Plugin-Preset-Options)" `vlook-header-autonum` to take effect after exporting HTML. The formatting examples are as follows:
 

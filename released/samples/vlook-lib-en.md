@@ -5,9 +5,7 @@ vlook-query: sb=hide
 
 # Quick Start ° Formatting
 
-> ![° FORMATTING](pic/qico-types-light.svg?fill=vn#icon2x)
->
-> **° FORMATTING**
+> **![° FORMATTING](pic/qico-types.svg?fill=vn#icon2x)<br><br>° FORMATTING**
 >
 > **VLOOK™ themes and plugins give you a new understanding and application of the automated typesetting capabilities of Markdown editors (currently only supporting Typora).**
 >
@@ -187,9 +185,7 @@ vlook-query: sb=hide
 
 # Quick Start ° Navigation
 
-> ![° NAVIGATION](pic/qico-nav-light.svg?fill=bu#icon2x)
->
-> **° NAVIGATION**
+> **![° NAVIGATION](pic/qico-nav.svg?fill=bu#icon2x)<br><br>° NAVIGATION**
 >
 > **VLOOK™ uniquely provides powerful presentation and publishing tools, making Typora + VLOOK a more productive Markdown document solution.**
 >
@@ -250,9 +246,7 @@ vlook-query: sb=hide
 
 # Quick Start ° Presentation and Publishing
 
-> ![° PRESENTATION & PUBLICATION](pic/qico-pres-light.svg?fill=og#icon2x)
->
-> **° PRESENTATION & PUBLICATION**
+> **![° PRESENTATION & PUBLICATION](pic/qico-pres.svg?fill=og#icon2x)<br><br>° PRESENTATION & PUBLICATION**
 >
 > **VLOOK™ uniquely provides powerful presentation and publishing tools, making Typora + VLOOK a more productive Markdown document solution.**
 >
@@ -336,8 +330,6 @@ vlook-query: sb=hide
 > >
 > > _~Og~_
 
-> _~Gy!~_
-
 > **Publishing Assistant**
 >
 > ---
@@ -410,9 +402,7 @@ vlook-query: sb=hide
 
 # Quick Start ° Appearance & Essentials
 
-> ![° APPEARANCE & ESSENTIALS](pic/qico-theme-light.svg?fill=lm#icon2x)
->
-> **° APPEARANCE & ESSENTIALS**
+> **![° APPEARANCE & ESSENTIALS](pic/qico-theme.svg?fill=lm#icon2x)<br><br>° APPEARANCE & ESSENTIALS**
 >
 > "**Humans have always been visual creatures. Making the eyes feel pleasant and beautiful when reading, whether for oneself or others, is a virtue, a power, a belief.**"
 >

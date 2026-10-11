@@ -1,10 +1,10 @@
 ---
 title: 攻略 ★ 探索 - VLOOK™ - 优雅好用的 Typora / Markdown 主题与排版增强插件
 author: MAX°孟兆
-date: 2026-07-25
+date: 2026-10-11
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: 本作品采用 MIT 许可证授权，详见 LICENSE 文件。
-version: V2026.7
+version: V2026.10
 tags: 内容导航, 内容助手, 演示辅助, 外观, 不杂项
 vlook-footer: <a href='index.html'>简介</a>	|	攻略之 <a href='guide.html'>基础</a>  ❯  <a href='guide2.html'>进阶</a>  ❯  <strong>探索</strong>
 description: 关于 VLOOK™ 的主题、内容标记、内容导航、演示与出版、第三方集成的适配、不杂项
@@ -34,7 +34,7 @@ keywords:
 - 链接地图,链接规范,链接检查,链接识别,链接转换
 - 设计,需求,文档,博客,手册,指南,攻略,知识库,教程,方案,教育,笔记,日记
 - 产品经理,程序员,运维,售前,售后,培训师,老师,学生,工程师,律师
-vlook-header-dup: /^你的咖啡.+/;/.*语法$/;/^适用范围 ••• .+/;/^方式.$/
+#vlook-header-dup: /^你的咖啡.+/;/.*语法$/;/^适用范围 ••• .+/;/^方式.$/
 vlook-doc-lib:
 - [如何开始？](index.html?target=_self "简介、安装与配置、语言包")
 - [攻略 • 基础](guide.html?target=_self "文本颜色/渐变色、段落格式/加粗/下划线/高亮、表格单元格合并/列格式/着色/行分组折叠/换行/颜色、图片版式/缩放/滤镜/明信片/剪影/高清、列表/任务清单、引用块小标题/折叠/颜色、章节标题自动编号、……")
@@ -59,13 +59,13 @@ vlook-doc-lib:
 
 > **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**
 >
-> ![打赏 VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
+> ![打赏 VLOOK™](pic/donate-wechat.png?darksrc=~&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Gn~_
 
 > **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**
 >
-> ![打赏 VLOOK™](pic/donate-alipay-light.png?darksrc=donate-alipay-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
+> ![打赏 VLOOK™](pic/donate-alipay.png?darksrc=~&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Bu~_
 
@@ -1258,7 +1258,7 @@ vlook-query: 参数1=取值&参数2=取值...&参数n=取值
 | > `capnum`   | 题注是否进行自动编号                                         |  `on`   | `off` - 不开启<br>`on` - 开启                                |
 | > `capgroup` | 题注的自动编号是否按所属章节进行分组编号                     |  `on`   | `off` - 不开启<br>`on` - 开启                                |
 | > `capmini`  | 只按生成题注分类，如：图 1、图 2 等                          |  `off`  | `off` - 不开启<br/>`on` - 开启                               |
-| > `capblank` | 未指定题注内容时是否添加空白题注<br>^须配合定制主题才能生效^ |  `off`  | 指定范围开启：<br>`figure` - 插图<br>`codeblock` - 代码块    |
+| > `capblank` | 未指定题注内容时是否添加空白题注<br>^须配合定制主题才能生效^ |  `off`  | `off` - 不开启<br/>`on` - 开启                               |
 | 页签组       |                                                              |         |                                                              |
 | > `tabcap`   | [页签组](guide2.md#°页签组)的页签上是否显示题注编号（如：表 1-2） |  `off`  | `off` - 不显示<br>`on` - 显示                                |
 | > `tabico`   | 指定[页签](guide2.md#°页签组)上显示的内容分类图标样式        | `line`  | `off` - 不显示<br>`line` - 线性样式<br>`solid` - 单色样式<br>`flat` - 分层样式 |
@@ -1282,8 +1282,9 @@ vlook-query: 参数1=取值&参数2=取值...&参数n=取值
 | > `toc`      | 指定目录大纲初始自动折叠的层级                               |   `1`   | `0` - 不折叠，全部展开<br>`1~5` - 折叠指定的层级             |
 | > `vdl`      | 控制文库功能的开关                                           |  `on`   | `off` - 不开启<br>`on` - 开启                                |
 | 调试         |                                                              |         |                                                              |
-| > `reset`    | 强制重置浏览器存储的 VLOOK 相关数据                          |         | `true`                                                       |
-| > `tab`      | 强制控制页签组排版特性的启用或停用                           |  `on`   | `off` - 停用<br>`on` - 启用                                  |
+| > `debug`    | 调试模式                                                     |  `off`  | `off` - 停用<br/>`on` - 启用                                 |
+| > `reset`    | 强制重置浏览器存储的 VLOOK 相关数据                          |  `off`  | `off` - 停用<br/>`on` - 强制重置                             |
+| > `tab`      | [页签组](guide2.md#°页签组)排版特性                          |  `on`   | `off` - 停用<br>`on` - 启用                                  |
 
 ## 快捷键操作
 

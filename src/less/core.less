@@ -3,8 +3,8 @@
  * VLOOK™ CSS 基础资源样式
  * (配合 common.less、主题.less 进行使用)
  *
- * V2026.7
- * 2026-07-25
+ * V2026.10
+ * 2026-10-11
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -156,23 +156,23 @@
 // 应用无圆角
 .applyThemeRadius(@themeRadius: @thmRadiusStyle) when (@themeRadius = none) {
     :root {
-        --v-r-b: 0; // 标准圆角
-        --v-r-s: 0; // 标准圆角内的小圆角
-        --v-r-t: 0; // 表格圆角
-        --v-r-si: 0; // 标准圆角内的小圆角
-        --v-r-tag: 0; // 标签圆角
+        --v-r-b: 0px; // 标准圆角
+        --v-r-s: 0px; // 标准圆角内的小圆角
+        --v-r-t: 0px; // 表格圆角
+        --v-r-si: 0px; // 标准圆角内的小圆角
+        --v-r-tag: 0px; // 标签圆角
     }
     .setForNotLeaf();
 
     .genByPlatform() when (@thmPlatform = "Obsidian") {
         .theme-light,
         .theme-dark {
-            --radius-s: 0;
-            --radius-m: 0;
-            --radius-l: 0;
+            --radius-s: 0px;
+            --radius-m: 0px;
+            --radius-l: 0px;
             --radius-xl: 10px;
 
-            --input-radius: 0;
+            --input-radius: 0px;
 
             --modal-radius: var(--radius-l);
         }

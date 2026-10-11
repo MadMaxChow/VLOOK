@@ -1,10 +1,10 @@
 ---
 title: Introduction - VLOOK™ - Theme Package and Enhancement Plug-In for Typora Markdown Editor
 author: MAX°孟兆
-date: 2026-07-25
+date: 2026-10-11
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: This work is licensed under the MIT License. For details, see the LICENSE file.
-version: V2026.7
+version: V2026.10
 vlook-footer: {{title}}<br><br>{{author}}<br>{{date}} ({{version}})<br><br>{{copyright}}<br>{{rights}}
 description: Instructions for downloading, setting up, installing, and configuring VLOOK™
 "og:description": Instructions for downloading, setting up, installing, and configuring VLOOK™
@@ -39,15 +39,15 @@ vlook-unpub: Coming Soon ...;/ via YAML/
 vlook-doc-lib:
 - [View All VLOOK™ Features](vlook-lib-en.html "Guide, Manual, Sample, Example")
 - [VLOOK™ Introduction](index-en.html?target=_self "Introduction, Download, Install, Language Package, Premium Services, Value-added Services")
-- [Guide • Basic](guide-en.html?target=guide "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Filters / Postcards / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
-- [Guide ▲ Advanced](guide2-en.html?target=guide "Columns, Caption, Cross-reference, Buttons, Link,Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
-- [Guide ★ Exploration](guide3-en.html?target=guide "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit / Zen View, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
+- [==Guide • Basic==](guide-en.html?target=guide "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Filters / Postcards / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
+- [==Guide ▲ Advanced==](guide2-en.html?target=guide "Columns, Caption, Cross-reference, Buttons, Link,Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
+- [==Guide ★ Exploration==](guide3-en.html?target=guide "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit / Zen View, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
 - [中文 🇨🇳](index.html?target=vlook-index-cn "简介、快速入坑、安装与使用")
 - [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank)
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 ---
 
-###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br><u>──</u><br>Introduction<br>*`V2026.7`is the Latest*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
+###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br><u>──</u><br>Introduction<br>*`V2026.10`is the Latest*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 
 [TOC]
 
@@ -57,7 +57,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 
 
-![Awards](pic/awards.svg?darksrc=awards-dark.svg#logo)
+![Awards](pic/awards.svg?darksrc=~#logo)
 
 
 
@@ -65,18 +65,21 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 
 
-![VLOOK™](pic/vlook-mark-light.svg?darksrc=vlook-mark-dark.svg#blur!#logo)
+![VLOOK™](pic/vlook-mark.svg?darksrc=~#blur!#logo)
 
-==![VLOOK](pic/vlook-light.svg?darksrc=vlook-dark.svg#icon) **VLOOK™** is a **THEME PACK**_~GnRo~_ and **TYPESETTING PLUS**_~PuOg~_ for [Typora](https://typora.io)[^Typora] ,<br>is an open-source software that follows the **MIT License**.==
+==![VLOOK](pic/vlook.svg?darksrc=~#icon) **VLOOK™** is a **THEME PACK**_~GnRo~_ and **TYPESETTING PLUS**_~PuOg~_ for [Typora](https://typora.io)[^Typora] ,<br>is an open-source software that follows the **MIT License**.==
 
 **[*Editor`Typora`V1.14+*_~Gy~_](https://typoraio.cn)　*License`MIT`*_~Rd~_　*`Keywords`Theme, Plugin*_~Pu~_　*`Supported OS`Windows, macOS, Linux*_~Bu~_**
 
 **[![Latest Version](https://img.shields.io/github/v/release/MadMaxChow/VLOOK?style=for-the-badge&label=Release&labelColor=04B1CC&color=9A4EE6#logo#round2s)](https://github.com/MadMaxChow/VLOOK/releases)  [![Downloads](https://img.shields.io/github/downloads/MadMaxChow/VLOOK/total?style=for-the-badge&label=Downloads%20(since%20V28.1)&labelColor=04B1CC&color=9A4EE6#logo#round2s)](https://github.com/MadMaxChow/VLOOK/releases)  [![Stars](https://img.shields.io/github/stars/MadMaxChow/VLOOK?style=for-the-badge&labelColor=04B1CC&color=9A4EE6#logo#round2s)](https://github.com/MadMaxChow/VLOOK/stargazers)**
 
+> ==🏆<br><br>Widely<br>Recognized==
+>
 > - 👍 It is also Typora - recognized and supported theme pack and enhanced plugin, for details: [Typora Support - Export](https://support.typora.io/Export/#example-export-using-vlook)
 > - 👍 [OSChina](https://www.oschina.net/p/vlook) recommended domestic open source products
 > - 👍 [AtomGit](https://atomgit.com/MadMaxChow/VLOOK) **G-Star** Project
 >
+> _~Og!~_
 
 
 
@@ -128,9 +131,9 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 - You need support for cross-platform and cross-device document viewing and publishing.
 - The output documents should provide interactive assistance tools during reading, review, or presentation—such as a table of contents/captions index, spotlight, laser pointer, footnotes, and so on.
 
----
 
-> **💡 Do you know?**
+
+> ==💡<br>Do you know?==
 >
 > **AMAZING!!!** This document is created by Typora and using the VLOOK™ theme and plugin ~
 >
@@ -146,13 +149,13 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 > **Your coffee ☕️ keeps VLOOK™ running**
 >
-> [![Donate VLOOK™](pic/donate-paypal-light.png?darksrc=donate-paypal-dark.png&srcset=@2x&darksrcset=@2x#logo#round)](https://paypal.me/madmaxchow)
+> [![Donate VLOOK™](pic/donate-paypal.png?darksrc=~&srcset=@2x&darksrcset=@2x#logo#round)](https://paypal.me/madmaxchow)
 >
 > _~Se~_
 
 > **你的咖啡 ☕️ 能让 VLOOK™ 保持活力**
 >
-> ![Donate VLOOK™](pic/donate-wechat-light.png?darksrc=donate-wechat-dark.png&srcset=@2x&darksrcset=@2x#logo#round)
+> ![Donate VLOOK™](pic/donate-wechat.png?darksrc=~&srcset=@2x&darksrcset=@2x#logo#round)
 >
 > _~Gn~_
 
@@ -170,9 +173,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 ---
 
-> ![°FORMATTING](pic/qico-types-light.svg?fill=text&darksrc=invert#icon2x)
->
-> **° FORMATTING & TAGGING**
+> **![°FORMATTING](pic/qico-types.svg?fill=text&darksrc=invert#icon2x)<br><br>° FORMATTING & TAGGING**
 >
 > **VLOOK™ themes and plugins give you a new understanding and application of the automated typesetting capabilities of Markdown editors (currently only supporting Typora).**
 >
@@ -182,9 +183,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 >
 > _~Vn!~_
 
-> ![°NAVIGATION](pic/qico-nav-light.svg?fill=text&darksrc=invert#icon2x)
->
-> **° NAVIGATION**
+> **![°NAVIGATION](pic/qico-nav.svg?fill=text&darksrc=invert#icon2x)<br><br>° NAVIGATION**
 >
 > **VLOOK™ provides tools for navigation, quick positioning, and content organization in various forms such as document content, chapters, illustrations, tables, and multimedia, comprehensively improving and enhancing the browsing experience and efficiency of published HTML files.**
 >
@@ -196,9 +195,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 
 ---
 
->![° PRESENTATION & PUBLICATION](pic/qico-pres-light.svg?fill=text&darksrc=invert#icon2x)
->
-> **° PRESENTATION & PUBLICATION**
+>**![° PRESENTATION & PUBLICATION](pic/qico-pres.svg?fill=text&darksrc=invert#icon2x)<br><br>° PRESENTATION & PUBLICATION**
 >
 > **VLOOK™ uniquely provides powerful presentation and publishing tools, making Typora + VLOOK a more productive Markdown document solution.**
 >
@@ -208,9 +205,7 @@ vlook-image-host: https://madmaxchow.github.io/VLOOK/
 >
 > _~Og!~_
 
->![° APPEARANCE & ESSENTIALS](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon2x)
->
->**° APPEARANCE & ESSENTIALS**
+>**![° APPEARANCE & ESSENTIALS](pic/qico-theme.svg?fill=text&darksrc=invert#icon2x)<br><br>° APPEARANCE & ESSENTIALS**
 >
 >"**Humans have always been visual creatures. Making the eyes feel pleasant and beautiful when reading, whether for oneself or others, is a virtue, a power, a belief.**"
 >
@@ -318,17 +313,17 @@ classDef font fill:#c08a00,color:#fff,stroke:#804a00,font-weight:bold
 
 ## Prepare
 
-> **Download the Plug-in  ❯**
+> **Download the Plug-in**
 >
 > [<kbd>![](pic/icon-download.svg?fill=text) GitHub</kbd>](https://github.com/MadMaxChow/VLOOK/releases)    *[<kbd>![](pic/icon-download.svg?fill=text) AtomGit</kbd>](https://atomgit.com/MadMaxChow/VLOOK/releases)*    *[<kbd>![](pic/icon-download.svg?fill=text) gitee</kbd>](https://gitee.com/madmaxchow/VLOOK/releases)*
 
-> **Configure Typora  ❯**
+> **Configure Typora**
 >
 > 1. Download and install the latest version of [Typora](https://www.typora.io) ;
 > 2. Open menu *==Typora ▸ Settings ▸ Markdown==*;
 > 3. Enable all options under `Markdown Extended Syntax` , `Code Blocks` . See the figure below for details:
 >
-> ![Preferences to Adjust First](pic/typora-opt1-light-en.png?srcset=@2x&darksrc=typora-opt1-dark-en.png&darksrcset=@2x "Typora ▸ Preferences ▸ Markdown")
+> ![Preferences to Adjust First](pic/typora-opt1-en.png?srcset=@2x&darksrc=~&darksrcset=@2x "Typora ▸ Preferences ▸ Markdown")
 >
 
 ## Offline Mode Installation
@@ -373,7 +368,7 @@ _^tab^_
 
 _^tab^_
 
-> **Export to HTML ❯**
+> **Export to HTML**
 >
 > 1. Create an HTML export configuration:
 >    1. Open Typora export configurations
@@ -385,9 +380,9 @@ _^tab^_
 >    3. Select all and copy the entire content
 >    4. Paste the copied content into the configuration field
 >
->    ![Typora ▸ Preferences ▸ Export ▸ HTML](pic/typora-opt2-light-en.png?srcset=@2x&darksrc=typora-opt2-dark-en.png&darksrcset=@2x)
+>    ![Typora ▸ Preferences ▸ Export ▸ HTML](pic/typora-opt2-en.png?srcset=@2x&darksrc=~&darksrcset=@2x)
 
-> **Export to PDF ❯**
+> **Export to PDF**
 >
 > 1. Create a PDF export configuration:
 >    1. Open Typora export configurations
@@ -399,7 +394,7 @@ _^tab^_
 >    3. Select all and copy the entire content
 >    4. Paste the copied content into the configuration field
 >
->    ![Typora ▸ Preferences ▸ Export ▸ PDF](pic/typora-opt3-light-en.png?srcset=@2x&darksrc=typora-opt3-dark-en.png&darksrcset=@2x)
+>    ![Typora ▸ Preferences ▸ Export ▸ PDF](pic/typora-opt3-en.png?srcset=@2x&darksrc=~&darksrcset=@2x)
 
 > **Sample Files**
 >
@@ -483,7 +478,7 @@ _^tab^_
 >
 >    ```CSS
 >    /* replace all <your-host> with your website domain */
->                                        
+>                                                                
 >    @import 'https://<your-host>/V2026.1/vlook-hope.css';
 >    @import 'https://<your-host>/V2026.1/fs-serif-min.css';
 >    ...
@@ -503,7 +498,7 @@ _^tab^_
 >
 >    ```CSS
 >    /* replace all <your-host> with your website domain */
->                                        
+>                                                                
 >    @import "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap";@import "https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap";@import "https://<your-host>/V2026.1/fs-serif-min.css";
 >    ...
 >    ```
@@ -531,6 +526,8 @@ _^tab^_
 > 1. Open all **CSS files** starting with `fs-` under *==released/**theme-live**/V20xx.x==* using a text editor.
 > 2. Search for all occurrences of `<your-host>`, replace them with your website domain, and save.
 > 3. After completing the update, upload the files to the website's **theme resource directory** (e.g., `V2025.10`).
+
+
 
 > [!IMPORTANT]
 >
@@ -771,7 +768,7 @@ The content of this section is marked as not published by specifying it in YAML.
 >
 > Supports displaying flow-layout documents in a slide-style paginated view, suitable for introduction and promotional content, and provides an auto-loop playback option.
 >
-> [<kbd>![](pic/qico-disc-light.svg?fill=text) Join the Discussion</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/192)
+> [<kbd>![](pic/qico-disc.svg?fill=text) Join the Discussion</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/192)
 >
 > _~Og~_
 
@@ -779,7 +776,7 @@ The content of this section is marked as not published by specifying it in YAML.
 >
 > Hides unnecessary visual elements while reading, allowing better focus on the content, while still retaining presentation aids (activated via keyboard shortcuts).
 >
-> [<kbd>![](pic/qico-disc-light.svg?fill=text) Join the Discussion</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/192)
+> [<kbd>![](pic/qico-disc.svg?fill=text) Join the Discussion</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/192)
 >
 > _~Lm~_
 
@@ -791,13 +788,13 @@ The content of this section is marked as not published by specifying it in YAML.
 
 ---
 
-> ![°文档排版](pic/qico-theme-light.svg?fill=text&darksrc=invert#icon2x)
+> ![°文档排版](pic/qico-theme.svg?fill=text&darksrc=invert#icon2x)
 >
 > ==Live Mode==
 >
 > <u>Provides a complete online deployment mode for users with self-built web sites, which can reduce network traffic and improve page loading response speed~</u>
 >
-> [<kbd>![](pic/qico-disc-light.svg?fill=text) Consultation</kbd>](#Discussion & Communication)
+> [<kbd>![](pic/qico-disc.svg?fill=text) Consultation</kbd>](#Discussion & Communication)
 >
 > _~Bu!~_
 
@@ -807,17 +804,17 @@ The content of this section is marked as not published by specifying it in YAML.
 >
 > <u>Provides export-to-PDF support for exported HTML files (experimental version released). Participation in testing and feedback are welcome~</u>
 >
-> [<kbd>![](pic/qico-disc-light.svg?fill=text) Join the Discussion</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/158)
+> [<kbd>![](pic/qico-disc.svg?fill=text) Join the Discussion</kbd>](https://github.com/MadMaxChow/VLOOK/discussions/158)
 >
 > _~Rd!~_
 
-> ![°文档排版](pic/qico-disc-light.svg?fill=text&darksrc=invert#icon2x)
+> ![°文档排版](pic/qico-disc.svg?fill=text&darksrc=invert#icon2x)
 >
 > **Got more feature suggestions?**
 >
 > <u>Welcome to our discussion group on GitHub! Feel free to share your suggestions or pain points you hope to see resolved.</u>
 >
-> *[<kbd>![](pic/qico-disc-light.svg?fill=text) Share My Idea</kbd>](https://github.com/MadMaxChow/VLOOK/discussions)*
+> *[<kbd>![](pic/qico-disc.svg?fill=text) Share My Idea</kbd>](https://github.com/MadMaxChow/VLOOK/discussions)*
 >
 > _~Bn~_
 

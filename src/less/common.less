@@ -3,8 +3,8 @@
  * VLOOK™ CSS 多主题间的通用样式 for Typora
  * (配合 base.less、主题.less 进行使用)
  *
- * V2026.7
- * 2026-07-25
+ * V2026.10
+ * 2026-10-11
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -82,6 +82,20 @@
 // 缩进 tab-size、width 的值
 @thmTabSize: 8;
 @thmTabWidth: 2em;
+
+// 生成代码块标题栏样式是否需要添加题注作为条件：on, off
+@thmCodeblockTitle: on;
+
+// 水平分隔条 hr 颜色样式：std, lg
+@thmHrStyle: std;
+// 水平分隔条 hr 颜色
+@thmHrColor: var(--df01);
+// 水平分隔条 hr 宽度：100%, 75%, 50%, 25%
+@thmHrWidth: 100%;
+// 水平分隔条 hr 线形样式：solid, dash, dotted, double, groove
+@thmHrStroke: solid;
+// 水平分隔条 hr 粗细
+@thmHrStrokeWidth: 2px;
 
 // 导航中心宽度
 @navCenterWidth: 320px;
@@ -387,7 +401,7 @@
 @h4FontSize: 1.375em;
 @h5FontSize: 1.25em;
 @h6FontSize: 1.125em;
-@h7FontSize: 1.125em; // 引用块小标题、折叠标题
+@h7FontSize: 1.25em; // 引用块小标题、折叠标题
 
 // 针对 h4 的扩展样式
 .genH4Ext() {}
@@ -734,7 +748,7 @@
 // 欢迎页
 @welcomeIconSize: 80px;
 @welcomePageForeColor: @uiForeColor;
-@welcomePageBgColor: linear-gradient(0deg in oklab, var(--ac-t2), var(--ac-t1));
+@welcomePageBgColor: linear-gradient(0deg in oklab, fade(@theme2, 80%), var(--ac-t1));
 
 // ==========
 
@@ -1097,7 +1111,8 @@
         margin: 0 (@tabGroupPadding / 2);
         cursor: var(--cur-ptr);
         color: var(--a-c);
-        font: condensed var(--v-fw-toc) 1em var(--v-fm-toc); // [stretch] [style] [weight] [size/[line-height]] [family]
+        // font: condensed var(--v-fw-toc) 1em var(--v-fm-toc); // [stretch] [style] [weight] [size/[line-height]] [family]
+        font: condensed normal 1em var(--v-fm-toc); // [stretch] [style] [weight] [size/[line-height]] [family]
 
         // 标准风格样式
         .genTabGroupItem(@style) when (@style = std) {
@@ -1256,6 +1271,7 @@
     // 当前选中页签项
     .tab-group-wrap > .current {
         color: var(--df);
+        font-weight: var(--v-fw-toc);
 
         // 标准风格样式
         .genTabGroupCurrentItem(@style) when (@style = std) {
@@ -1623,7 +1639,7 @@
 
 // ==================== 生成编辑时显示代码块标题（题注）样式 ==================== //
 
-.genCodeblockTitle(@needCaption) {
+.genCodeblockTitle() {
     .codeblockTitle() {
         content: attr(lang) " ";
         white-space: pre-wrap;
@@ -1639,7 +1655,7 @@
     }
 
     // 需要添加题注才显示
-    .genCodeblockTitleSelector(@needCaption) when(@needCaption = true) {
+    .genCodeblockTitleSelector() when(@thmCodeblockTitle = on) {
         // 排除 mermaid 图表、```math 语法的公式
         @{writeOnEditing} p:has(@{cap_prefix}) + .md-fences:not([class*=md-diagram]):not([lang=math])::before {
             .codeblockTitle();
@@ -1647,14 +1663,13 @@
     }
 
     // 不需要添加题注就可以显示
-    .genCodeblockTitleSelector(@needCaption) when(@needCaption = false) {
+    .genCodeblockTitleSelector() when(@thmCodeblockTitle = off) {
         // 排除 mermaid 图表、```math 语法的公式
         @{writeOnEditing} .md-fences:not([class*=md-diagram]):not([lang=math])::before {
             .codeblockTitle();
         }
     }
-
-    .genCodeblockTitleSelector(@needCaption);
+    .genCodeblockTitleSelector();
 }
 
 // ==================== 生成段落斜体扩展样式 ==================== //

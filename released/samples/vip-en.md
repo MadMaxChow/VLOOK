@@ -59,7 +59,7 @@ vlook-doc-lib:
 
 > <u>" I only have a rough idea, please help me brainstorm and choose. "</u>
 >
-> [<kbd>![](pic/qico-theme-light.svg?fill=text#icon)  Submit My Ideas</kbd>](https://forms.gle/tTZ6Eohn8YZ9WfWJ6)
+> [<kbd>![](pic/qico-theme.svg?fill=text#icon)  Submit My Ideas</kbd>](https://forms.gle/tTZ6Eohn8YZ9WfWJ6)
 >
 > 
 >
@@ -221,6 +221,15 @@ vlook-doc-lib:
 
 ---
 
+---
+
+> [![Personal documents](pic/vip-shqc.png?srcset=@2x#card "SHQC")](theme-vip-shqc.html)
+
+> [![Personal documents](pic/vip-orris.png?srcset=@2x#card "Orris")](theme-vip-orris.html)
+
+---
+
+
 > <u>" I know exactly the effect I want, and can directly submit customization options. "</u>
 >
 > [<kbd>![](pic/icon-vip.svg?fill=text#icon)  Submit My Custom Theme Request</kbd>](https://forms.gle/Gs5fqRUpXexeMBNy9)
@@ -229,7 +238,7 @@ vlook-doc-lib:
 
 > <u>" I only have a rough idea, please help me brainstorm and choose. "</u>
 >
-> [<kbd>![](pic/qico-theme-light.svg?fill=text#icon)  Submit My Ideas</kbd>](https://forms.gle/tTZ6Eohn8YZ9WfWJ6)
+> [<kbd>![](pic/qico-theme.svg?fill=text#icon)  Submit My Ideas</kbd>](https://forms.gle/tTZ6Eohn8YZ9WfWJ6)
 >
 > _~T2~_
 

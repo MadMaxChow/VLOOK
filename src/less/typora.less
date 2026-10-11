@@ -3,8 +3,8 @@
  * VLOOK™ CSS - Typora 编辑时内置样式
  * (配合 base.less 进行使用)
  *
- * V2026.7
- * 2026-07-25
+ * V2026.10
+ * 2026-10-11
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -167,8 +167,8 @@ body.@{windows} > header {
 #top-titlebar :is(.ty-menu-btn-area-sub1, .ty-menu-btn-area-sub2, .ty-menu-btn-area-sub3),
 .ty-md-radio-button-off::before,
 .ion-chevron-left::before,
-.ion-checkmark::before,
-.fa-code::before {
+.fa-code::before,
+.ion-checkmark::before {
     color: var(--a-c);
     vertical-align: middle;
 }
@@ -194,10 +194,8 @@ body.@{windows} > header {
 .sidebar-tabs :is(.ty-icon.ty-list, .ty-three-cells, .ty-file-tree) {
     line-height: 1 !important;
 }
-// body.@{macos} .sidebar-footer .ty-dots-v {
 .sidebar-footer .ty-dots-v {
     line-height: 1.5 !important;
-    margin-right: 10px;
 }
 
 .ty-icon.ty-left-arrow,
@@ -238,6 +236,13 @@ body.@{windows} > header {
     color: @buttonForeHoverColor;
     top: 0 !important;
 }
+@{sidebarIcon}:active,
+.sidebar-footer .ty-icon.ty-add:active,
+#sidebar-search-btn > span:active {
+    transition: all var(--v-trans-dur) ease-out;
+    transform: @activePressedTransform_short;
+    filter: @activeFilter;
+}
 
 content>.auto-suggest-container li:hover {
     color: var(--item-hover-text-color);
@@ -264,6 +269,12 @@ content>.auto-suggest-container li:hover {
     color: @buttonForeColor;
 }
 
+// 生成模糊背景样式
+.genBackdropFilter() {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
 // 编辑器工具栏
 .ty-editor-toolbar {
     font-family: var(--v-fm-bd);
@@ -273,8 +284,9 @@ content>.auto-suggest-container li:hover {
     filter: none;
     bottom: 20px;
     border-radius: var(--b-br-s);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    transition: all var(--v-trans-dur) ease-out;
+
+    .genBackdropFilter();
 
     .genTweaks() when (@thmToolbarStyle = std) {
         color: @buttonForeColor;
@@ -286,6 +298,18 @@ content>.auto-suggest-container li:hover {
     }
     .genTweaks();
 }
+
+.ty-editor-toolbar:active {
+    // transition: all var(--v-trans-dur) ease-out;
+    transform: @activePressedTransform_long;
+}
+.ty-editor-toolbar-btn:active {
+    // transition: all var(--v-trans-dur) ease-out;
+    transform: @activePressedTransform_short;
+    filter: @activeFilter;
+}
+
+
 .ty-editor-toolbar,
 .ty-editor-toolbar:active {
     .genFloatBorderStyle();
@@ -298,7 +322,7 @@ content>.auto-suggest-container li:hover {
     padding: 4px;
     gap: 4px;
 }
-@editorToolbarIconSize: 24px;
+@editorToolbarIconSize: 26px;
 .ty-editor-toolbar-inner::before {
     content: "";
     width: @editorToolbarIconSize;
@@ -308,7 +332,7 @@ content>.auto-suggest-container li:hover {
 }
 
 .ty-editor-toolbar-btn {
-    width: @editorToolbarIconSize;
+    width: (@editorToolbarIconSize + 4px);
     height: @editorToolbarIconSize;
     transition: all var(--v-trans-dur) ease-out;
 
@@ -370,6 +394,9 @@ content>.auto-suggest-container li:hover {
     font-size: 14px;
 }
 
+.ty-editor-toolbar-menu-item {
+    min-height: 30px;
+}
 .ty-editor-toolbar-menu-item.active {
     background: var(--ac-t2-fd);
 }
@@ -546,25 +573,43 @@ content>.auto-suggest-container li:hover {
     cursor: var(--cur-ptr);
 }
 
+// 搜索面板选项按钮微调
+#searchpanel-word-option-btn {
+    right: 36px;
+}
+#searchpanel-case-option-btn {
+    right: 66px;
+}
+
 .outline-expander {
     min-width: 1rem;
     display: flex;
     align-items: center;
 }
 
-#md-notification .btn {
+.btn {
+    color: var(--a-c) !important;
     border-radius: var(--c-br-s);
-    margin-left: 5px;
-    color: @buttonForeColor;
-    background: var(--v-ui-bg);
-    cursor: var(--cur-ptr);
 }
-#md-notification .btn:hover {
-    color: @buttonForeHoverColor;
-    background: var(--a-o-c);
-}
-#md-notification .btn-default {
+
+.btn-primary {
+    color: @buttonForeColor !important;
     font-weight: var(--v-fw-bd);
+}
+
+#md-notification .btn {
+    margin-left: 5px;
+}
+.btn-default.active,
+.btn-default:active {
+    background: @aActiveColor;
+}
+
+.btn:hover,
+.btn:focus,
+.btn.focus {
+    color: @buttonForeHoverColor !important;
+    background: var(--a-o-c);
 }
 
 // 注释
@@ -753,7 +798,7 @@ body.@{windows} :is(.md-image-input-src-btn, .md-image-pick-file-btn) {
 @{writeOnEditing}::before,
 @{writeOnHTML}.done::before {
     height: var(--v-more-mask-b-h);
-    margin-top: calc(0px - var(--v-more-mask-b-h));
+    margin-top: calc(0px - var(--v-more-mask-b-h) - 10px);
     transform: rotate(180deg);
     top: 0;
     bottom: unset !important;
@@ -805,7 +850,8 @@ body.@{windows} :is(#top-titlebar,
     background: transparent;
 }
 body.@{windows} .ty-footer { // 底栏
-    border-top-color: var(--db);
+    border: none;
+    margin: 10px;
 }
 
 // 侧边栏
@@ -830,6 +876,13 @@ body.@{windows}.typora-node #typora-sidebar {
 
 .sidebar-tabs {
     border-bottom: none;
+}
+
+.sidebar-osx-tab:active,
+body.@{windows} .info-panel-tab-wrapper:active,
+.sidebar-footer:active {
+    transition: all var(--v-trans-dur) ease-out;
+    transform: @activePressedTransform_long;
 }
 
 #typora-sidebar:hover .sidebar-tab-btn {
@@ -1100,13 +1153,8 @@ body.@{windows}.typora-node #typora-sidebar {
 }
 .genSidebarFooterStyle();
 
-// 新建文件按钮
-#sidebar-new-file-btn {
-    border-radius: var(--v-r-b) 0 0 var(--v-r-b-xc);
-}
 // 切换文件列表按钮
 #switch-file-list-btn {
-    border-radius: 0 var(--v-r-b-xc) var(--v-r-b-xc) 0;
     padding-left: 0;
 }
 
@@ -1117,13 +1165,6 @@ body.@{windows}.typora-node #typora-sidebar {
 }
 .sidebar-footer-main-item .sidebar-footer-item {
     padding: 10px 0 !important;
-}
-
-.sidebar-footer-item {
-    font: condensed normal 14px/@defaultLineHeight var(--v-fm-toc); // [stretch] [style] [weight] [size/[line-height]] [family]
-}
-.sidebar-footer-item:hover {
-    background: inherit;
 }
 
 .use-file-tree-style .sidebar-footer-item, // for Windows
@@ -1145,10 +1186,6 @@ body.@{windows}.typora-node #typora-sidebar {
 body.@{windows} .sidebar-content {
     top: calc(@sidebarTabHeight + 10px) !important;
     width: @sidebarWidth_onWindows;
-}
-// 针对 Windows 环境中大纲面板下拉显示搜索栏后样式的微调
-#outline-content {
-    height: auto;
 }
 
 // 针对 Windows 环境中启用 一体化 外观后的微调
@@ -1285,12 +1322,6 @@ body.@{windows} :is(.active-tab-files, .active-tab-outline) .info-panel-tab-titl
     background: none;
 }
 
-#outline-content,
-#file-library,
-#typora-sidebar #file-library-list {
-    scrollbar-width: thin; // 滚动条宽度
-}
-
 #outline-content::before,
 #sidebar-content .file-library-tree::before,
 #sidebar-content #file-library-list::before,
@@ -1347,7 +1378,6 @@ body.@{windows} :is(.active-tab-files, .active-tab-outline) .info-panel-tab-titl
     bottom: 0;
 }
 // 针对 for Windows
-// body.@{windows} #sidebar-content #file-library {
 #sidebar-content #file-library {
     overflow-x: hidden;
     margin-top: @outlineContentMarginTop;
@@ -1650,7 +1680,8 @@ body.@{windows} #file-library-tree {
         background: var(--df-a) !important;
     }
     .genTweaks() when (@thmNavCenterStyle = flat) {
-        background: var(--pn-c-a) !important;
+        // background: var(--pn-c-a) !important;
+        background: var(--ac-t2-fd) !important;
     }
     .genTweaks() when (@thmNavCenterStyle = edge) {
         background: @aActiveColor !important;
@@ -1658,7 +1689,9 @@ body.@{windows} #file-library-tree {
     .genTweaks();
 }
 .outline-item:active {
+    transition: all var(--v-trans-dur) ease-out;
     transform: @activePressedTransform_long;
+    filter: @activeFilter;
 }
 // 针对 before content, COVER, BACK COVER etc.
 .outline-item:active>.outline-expander::before,
@@ -1692,6 +1725,8 @@ body.@{windows} #file-library-tree {
 // 侧边栏文件库搜索选项
 .searchpanel-search-option-btn {
     color: @buttonForeColor;
+    padding: 1px 3px;
+    border-radius: calc(var(--v-r-si) - 1px) calc(var(--v-r-si-xc) - 1px);
 }
 body.@{macos} .ty-sidebar-search-panel .searchpanel-search-option-btn {
     top: 16px !important;
@@ -1930,6 +1965,11 @@ body.@{windows} .file-node-title { // for Win
     background: revert;
 }
 
+#typora-source {
+    top: 0;
+    bottom: 0;
+}
+
 #typora-source .CodeMirror {
     font-family: var(--monospace);
 }
@@ -2100,10 +2140,13 @@ body.@{windows} .file-node-title { // for Win
     color: var(--a-c);
     background: var(--code-bg);
     border: 1px solid var(--std-code-sd);
-    margin: 0 @yamlMarginLeftRight @yamlMarginTopBottom;
+    margin: 10px @yamlMarginLeftRight @yamlMarginTopBottom;
     height: @defaultLineHeight * 14px * 1 + 24px + 5px; // 这里的 14px 为 YAML 字号，10px 为 YAML 语法提示字号
     scrollbar-width: thin; // 滚动条宽度
     cursor: var(--cur-ptr);
+}
+body:not(.mac-seamless-mode) @{yamlOnEditing} {
+    margin-top: 0;
 }
 // 针对 YAML 提示内容
 @{yamlOnEditing}:empty::before,
@@ -2119,8 +2162,8 @@ body.@{windows} .file-node-title { // for Win
     text-align: center;
     margin-top: -2em;
     padding: 5px 10px;
-    left: @writePaddingRight;
-    right: @writePaddingRight;
+    left: @writePadding;
+    right: @writePadding;
 }
 @{yamlOnEditing}.md-focus::before {
     color: @uiForeColor;
@@ -2129,7 +2172,7 @@ body.@{windows} .file-node-title { // for Win
 }
 // 展开全部的按钮样式
 body:not(.mac-seamless-mode) @{yamlOnEditing}::after {
-    top: 20px; // 非 Seamless 外观
+    top: (@writePadding - 10px); // 非 Seamless 外观
 }
 body.mac-seamless-mode @{yamlOnEditing}::after {
     top: 30px; // Seamless 外观
@@ -2139,8 +2182,8 @@ body.mac-seamless-mode @{yamlOnEditing}::after {
     text-transform: uppercase;
     font: var(--v-fw-bd) .75em var(--v-fm-bd); // [style] [weight] [size/[line-height]] [family]
     position: absolute;
-    left: @writePaddingRight;
-    right: @writePaddingRight;
+    left: @writePadding;
+    right: @writePadding;
     padding: 5px 10px;
     color: @buttonForeColor;
     border-radius: var(--c-br-b);
@@ -2460,20 +2503,6 @@ content .md-toc::before {
 .typora-export-show-outline .typora-export-content {
     max-width: none;
     display: inherit;
-}
-
-// 编辑时，配合分栏样式使用
-@{writeOnEditing} hr {
-    border: none;
-    background: var(--ac-bk-fd);
-    height: 2px;
-    cursor: crosshair;
-}
-@{writeOnEditing} hr:hover {
-    background: var(--a-o-c);
-}
-@{writeOnEditing} .md-hr+.md-hr>hr {
-    margin-top: -14px;
 }
 
 // 明信片编辑时样式
@@ -3064,7 +3093,6 @@ li label.checkbox {
 
 // 代码块相关样式
 .CodeMirror-scroll {
-    border-radius: 0 calc(var(--v-r-t) - 2px) calc(var(--v-r-t-xc) - 2px) 0;
     padding: 3px 0;
 }
 
@@ -3077,7 +3105,6 @@ li label.checkbox {
     }
 
     @{writeOnEditing} .md-diagram .CodeMirror.cm-s-inner {
-        border-bottom: 1px solid var(--ac-t1-fd);
         // 其中 border-raidus 选用的变量值要与 .md-fences .CodeMirror.cm-s-inner:not([lang=math]) 保持一致
         border-radius: calc(var(--v-r-b) - @codeblockPadding) calc(var(--v-r-b-xc) - @codeblockPadding) 0 0;
     }
@@ -3110,14 +3137,12 @@ pre.md-fences-advanced.md-focus .md-fences-adv-panel {
     background: none;
 }
 
-// 编辑时 ```math 语法面板颜色
-@{writeOnEditing} .md-fences-math[lang=math]>.md-fences-adv-panel {
-    background-color: var(--db);
-}
-
 // 行间公式、HTML 代码的右上角标签
-@{writeOnEditing} .md-rawblock .md-rawblock-tooltip {
+.md-rawblock .md-rawblock-tooltip {
     border-radius: var(--v-r-s) var(--v-r-s) 0 0;
+    padding: 5px 10px;
+    height: auto;
+    top: -20px;
 }
 // 行间公式容器
 @{writeOnEditing} .md-fences-math[lang=math] .md-diagram-panel-preview { // ```math 公式语法
@@ -3129,25 +3154,30 @@ pre.md-fences-advanced.md-focus .md-fences-adv-panel {
     margin-top: 1em;
 }
 
-// 针对 macos & Windows 版 Typora 在大纲下滚动后显示的搜索面板
+// 针对 Typora 在大纲下滚动后显示的搜索面板
+// 针对 macos
 .ty-sidebar-search-panel {
     background: var(--db);
     box-shadow: var(--v-input-focus-inn-sd), var(--v-input-focus-sd);
     border: none;
     padding: 0 10px;
 }
+// 针对 Windows
 body.@{macos} .ty-sidebar-search-panel {
     border-radius: var(--b-br-b);
     height: @sidebarTabHeight;
 }
 @focusShadowWidth: 4px;
 @searchPanelHeight: 33px;
-// body.@{windows} #file-library-search-panel {
 #file-library-search-panel {
     border-radius: var(--b-br-s);
     height: @searchPanelHeight;
     margin: 10px 10px @focusShadowWidth;
 }
+.ty-show-outline-filter #file-library-search, .ty-show-search #file-library-search {
+    height: 60px;
+}
+
 // 搜索面板国的输入控件
 #file-library-search-input {
     // 样式与 .v-search-focus 保持一致
@@ -3165,6 +3195,43 @@ body.@{windows} #file-library-search-input {
     top: 1px;
     right: 1px;
     border: none;
+}
+
+.sidebar-footer-item {
+    font: condensed normal 14px/@defaultLineHeight var(--v-fm-toc); // [stretch] [style] [weight] [size/[line-height]] [family]
+}
+// 针对 windows 下大纲按钮的悬停样式
+.sidebar-footer-item:hover {
+    background: none;
+}
+
+.footer-item {
+    border-radius: var(--b-br-s);
+    padding: 0 !important;
+    cursor: var(--cur-ptr);
+}
+
+.footer-item:hover,
+#outline-btn:hover .ion-chevron-left::before,
+#toggle-sourceview-btn:hover .fa-code::before,
+#footer-spell-check:hover .ty-spellcheck {
+    background: var(--a-o-c) !important;
+    color: @buttonForeHoverColor;
+}
+
+#footer-spell-check,
+#toggle-sourceview-btn {
+    display: block !important;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    cursor: var(--cur-ptr);
+}
+
+#outline-btn,
+#footer-word-count {
+    padding: 0 10px !important;
+    cursor: var(--cur-ptr);
 }
 
 // 针对 Quick Open
@@ -3192,16 +3259,20 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
     font-size: .66em;
 }
 
-// 预览：公式、脚注
-@{writeOnEditing} .md-fences-math[lang=math].md-focus .md-fences-adv-panel {
-    color: var(--db);
-    background: var(--df);
-    font-weight: bold;
+// 针对 ```math 语法的公式
+.md-fences .CodeMirror.cm-s-inner[lang=math] {
+    border-radius: var(--v-r-b) var(--v-r-b-xc) 0 0;
 }
-@{writeOnEditing} .md-fences-math[lang=math].md-focus .md-fences-adv-panel,
-@{writeOnEditing} .md-fences .code-tooltip { // 代码块内的语言
+// 非 ```math 语法的公式
+// 其中 border-raidus 选用的变量值要与 .md-diagram .CodeMirror.cm-s-inner 保持一致
+@codeblockPadding: 3px;
+.md-fences .CodeMirror.cm-s-inner:not([lang=math]) {
+    border-radius: calc(var(--v-r-b) - @codeblockPadding) calc(var(--v-r-b-xc) - @codeblockPadding);
+}
+
+// 预览：公式、脚注
+.md-fences .code-tooltip { // 代码块内的语言
     color: @buttonForeColor;
-    font-weight: bold;
     background: var(--v-ui-bg);
     border-radius: 0 calc(var(--v-r-b-xc) - 2px) 0 var(--v-r-b) !important;
     top: 0;
@@ -3210,13 +3281,12 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
 // 编辑时图表代码块内的语言提示位置微调
 .enable-diagrams .md-diagram .code-tooltip {
     right: 0;
+    bottom: unset;
 }
 // 代码块内的语言提示样式
 .code-tooltip {
-    border-radius: var(--v-r-b) var(--v-r-b-xc) !important;
     padding: 1px 6px !important;
     font-size: .875em;
-    border-radius: var(--v-r-b) !important;
 }
 // 代码块内的语言选择输入框
 .code-tooltip .ty-input {
@@ -3224,18 +3294,24 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
     min-width: 60px;
 }
 
+// 行内公式预览
+.code-tooltip.md-hover-tip {
+    border-radius: var(--c-br-s) !important;
+}
+
 // 不要使用 .code-tooltip.md-hover-tip ，会与公式预览的样式冲突
 // 脚注提示容器的样式
 .md-f-tooltip {
     color: var(--df) !important;
     background: var(--db) !important;
+    border-radius: var(--c-br-s) !important;
     .genTooltipCommStyle();
 }
 // 脚注预览下的内容部分的样式
 .md-f-tooltip .code-tooltip-content {
-    background: var(--db) !important;
-    border-radius: var(--v-r-b)!important;
     margin-top: -1px !important;
+    background: var(--db) !important;
+    border-radius: var(--c-br-s)!important;
 }
 // 提示容器的公共样式
 .genTooltipCommStyle() {
@@ -3259,10 +3335,13 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
 #math-inline-preview,
 #math-inline-preview .md-arrow::after {
     .genTooltipCommStyle();
+    background: var(--db);
 }
 // 公式预览下的的内容部分的样式
-#math-inline-preview-content.code-tooltip-content {
-    border-radius: var(--v-r-b)!important;
+.md-hover-tip .code-tooltip-content {
+    margin-top: -1px !important;
+    border-radius: var(--v-r-s)!important;
+    color: var(--df);
 }
 
 // 导出后对 mermaid 图表的微调
@@ -3270,7 +3349,7 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
     margin-top: @paragraphPadding;
 }
 
-.md-math-container { // 标准公式语法
+.md-math-block .md-math-container { // 标准公式语法
     border-radius: var(--v-r-b) 0 var(--v-r-b) var(--v-r-b-xc);
     font-size: 1.25em;
 }
@@ -3280,13 +3359,11 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
 }
 
 // 行间公式区（```math 语法）
-#write .md-fences:not([class*=md-diagram]), // 排除 ```mermaid
-.md-math-block { // $$ 语法
-    border-radius: var(--c-br-b);
+.md-fences:not([class*=md-diagram]) { // 排除 ```mermaid
     border: @captionContentBorder;
 }
 // 针对导出后（write 与 vlook 的范围）
-.typora-export :is(.md-math-block, .md-fences-math) {
+@{writeOnHTML} :is(.md-math-block, .md-fences-math) {
     margin: 0;
     padding: 1rem;
     width: auto;
@@ -3300,7 +3377,7 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
     font-size: @thmMathFontSize;
 }
 
-.typora-export :is(.md-math-block, .md-fences-math) mjx-assistive-mml {
+@{writeOnHTML} :is(.md-math-block, .md-fences-math) mjx-assistive-mml {
     display: none !important;
 }
 
@@ -3308,7 +3385,7 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
 @{writeOnEditing} .md-htmlblock {
     margin-top: 0;
 }
-@{writeOnEditing} .md-htmlblock-container {
+.md-htmlblock-container {
     border-radius: var(--v-r-b) 0 var(--v-r-b) var(--v-r-b-xc) !important;
     min-height: 200px;
 }
@@ -3328,21 +3405,32 @@ body.@{macos} @{writeOnEditing} .md-inline-math mjx-container {
 }
 
 // 公式编辑组件
-@{writeOnEditing} .md-mathblock-panel .md-rawblock-before {
+.md-mathblock-panel .md-rawblock-before {
     border-radius: var(--v-r-b) 0 0 0 !important;
 }
-@{writeOnEditing} .md-mathblock-panel .md-rawblock-control:not(.md-rawblock-tooltip) {
-    border-radius: 0;
-}
-@{writeOnEditing} .md-mathblock-panel .CodeMirror-scroll {
-    border-radius: 0;
-}
-@{writeOnEditing} .md-mathblock-panel .md-rawblock-after {
+.md-mathblock-panel .md-rawblock-after {
     border-radius: 0 0 var(--v-r-b) var(--v-r-b-xc) !important;
 }
-
-.md-math-block.md-focus .CodeMirror-sizer {
-    box-shadow: var(--v-input-focus-inn-sd);
+.md-mathblock-panel .md-rawblock-control:not(.md-rawblock-tooltip) {
+    border-radius: 0;
+}
+.md-mathblock-panel .CodeMirror-scroll,
+.md-mathblock-panel .CodeMirror.cm-s-inner {
+    border-radius: calc(var(--v-r-b) - 3px) calc(var(--v-r-b-xc) - 3px);
+}
+.md-mathblock-panel .code-tooltip {
+    box-shadow: none;
+}
+.md-mathblock-panel .md-rawblock-input {
+    font-size: 1em;
+}
+// 行间公式块前置语法 $$
+.md-mathblock-panel .md-rawblock-before {
+    padding: 4px 10px 0;
+}
+// 行间公式块后置语法 $$
+.md-mathblock-panel .md-rawblock-after {
+    padding: 0 10px 4px;
 }
 
 // 行内公式（编辑时）

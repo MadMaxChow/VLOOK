@@ -3,8 +3,8 @@
  * VLOOK™ CSS - @media 相关的样式
  * (配合 base.less 进行使用)
  *
- * V2026.7
- * 2026-07-25
+ * V2026.10
+ * 2026-10-11
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -492,8 +492,8 @@
 
     .v-doc-lib,
     .v-footnote-pn {
-        left: @writePaddingRight;
-        right: @writePaddingRight;
+        left: @popupMargin;
+        right: @popupMargin;
     }
     .v-footnote-pn {
         bottom: @floatBottom * 3;
@@ -527,7 +527,7 @@
         --v-write-w:900px;
 
         // 配合 vlook.js 中的 _var_write_margin_left_, _var_write_margin_left_def_ 进行使用
-        --v-write-ml: calc(var(--v-nav-center-w) + (@writePaddingRight * 1.5) + (100% - var(--v-write-w) - @writePaddingRight * 2 - var(--v-nav-center-w)) / 2);
+        --v-write-ml: calc(var(--v-nav-center-w) + (@popupMargin * 1.5) + (100% - var(--v-write-w) - @popupMargin * 2 - var(--v-nav-center-w)) / 2);
     }
 
     // 显示正文宽度适配按钮
@@ -564,7 +564,7 @@
         // 以下内容说明：
         // --sidebar-width 是 Typora 的变量，记录侧边栏宽度
         // 其中 20px 是滚动条宽度，目前无法避免 before 遮挡滚动条的问题
-        width: calc(100% - 20px);
+        width: calc(100% - 8px);
     }
     // 针对 macOS
     body.@{macos} content::before {
@@ -641,6 +641,9 @@
             box-shadow: 0 -1px 0 0 @thmTopbarBorderColor inset, @contrastBorderForChapterInSmallScreen;
         }
         .genTweaks();
+    }
+    .v-shortcut-bar {
+        top: 60px;
     }
 
     .v-chapter-nav-prev-text,
@@ -734,6 +737,11 @@
         --thm-bc-bg-bf-pos: @backcoverBgBeforePositionForMobile;
     }
 
+    #write {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
     // 封面：#write 下 H6 作为第一个元素时
     @{coverAfterYAML}, // 有 YAML 的情况
     @{coverWithoutYAML}, // 无 YAML 的情况
@@ -753,7 +761,7 @@
 
     .v-link-info-list {
         width: auto !important;
-        left: @writePaddingRight;
+        left: @popupMargin;
     }
 
     // 明信片
@@ -1370,8 +1378,7 @@
 // 仅当浏览器支持背景模糊样式时才启用
 @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
     .v-backdrop-blurs {
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
+        .genBackdropFilter();
     }
 
     #write .v-post-card.v-backdrop-blurs {
@@ -1379,8 +1386,7 @@
     }
 
     .v-caption.full.v-backdrop-blurs {
-        background: radial-gradient(rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),1) 50%,
-            rgba(var(--df-r-lg), var(--df-g-lg), var(--df-b-lg),.8));
+        background: radial-gradient(var(--df09) 50%, var(--df07));
     }
 }
 
@@ -1411,10 +1417,9 @@
         // 加载提示、欢迎页样式
         @{writeOnHTML}:not(.done)::before,
         .v-welcome-page {
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
             background: radial-gradient(var(--db06) 4px,var(--db) 4px);
             background-size: 10px 10px;
+            opacity: 1;
         }
     }
 }
