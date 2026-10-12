@@ -1,34 +1,34 @@
 ---
 title: Introduction - VLOOK™ - Theme Package and Enhancement Plug-In for Typora Markdown Editor
 author: MAX°孟兆
-date: 2026-10-11
+date: 2026-10-12
 copyright: Copyright © 2016-2026 MAX°DESIGN. All rights reserved.
 rights: This work is licensed under the MIT License. For details, see the LICENSE file.
-version: V2026.10
+version: V2026.10.1
 vlook-footer: {{title}}<br><br>{{author}}<br>{{date}} ({{version}})<br><br>{{copyright}}<br>{{rights}}
 description: Instructions for downloading, setting up, installing, and configuring VLOOK™
 "og:description": Instructions for downloading, setting up, installing, and configuring VLOOK™
 "og:image": https://vlook-doc.pages.dev/pic/vlook-og.png
 keywords:
 - gitee,github,i18n,markdown,mit,osc,plugin,typora,vlook,github style alert,ogp,open graph protocol,mermaid,wiki,html,prd,yaml,youtube
-- editor's recommendation,plugin,open source,oschina (open source china),cross-platform,theme,font style,automatic typesetting,tag,multi-level tag,rainbow color,outline,code block,alignment,multimedia,back cover,front cover,formula,scratch card,black curtain,badge,gradient color,footnote,progress bar,breadcrumb,template,task list,color code,social network sharing,video,customization,caption,cross-reference,audio,coloring,theme,phonetic notation,automatic numbering,automatic folding,word count,font
-- light mode,dark mode,grayscale mode,gray mode,card-style link,link card
-- catalogue,library,illustration navigation,outline navigation,footnote navigation,picture navigation,table navigation,library navigation,chapter navigation,navigation history,table index,picture index,audio index,video index,code block index,search,word segmentation
-- table cross cursor,table reading mode,table enhancement,table note,repeated table header,numerical format,cell merging,currency format,row grouping,row folding,percentage format
-- picture browsing,picture layout,picture silhouette,picture zooming,picture enhancement,picture note,high-definition screen,high-definition picture,inversion,negative color,postcard,picture filter,picture rotation,mixed arrangement of pictures and text
-- online video,streaming media,bilibili video,watermelon video,douyin video,tencent video
-- content assistant,publishing assistance,presentation assistance,copy,laser pointer,spotlight,picture-in-picture,publish as pdf,Fullscreen Mode, Paragraph Navigator, Content Width Adaptation, Zen View, Presentation Mode, Reading Progress, Exclude from Publishing, Document Footer,export as pdf,save as pdf,print to pdf
-- text color,paragraph layout,button,button link,primary button,secondary button,super button, tab group,columns,two columns,three columns,four columns,five columns,quote block,title,details,summary,subtitle,official account article,official account editor
-- link map,link specification,link check,link recognition,link conversion
-- design,requirement,document,blog,manual,guide,knowledge base,tutorial,scheme,education,note,diary
-- product manager,programmer,operation and maintenance,pre-sales,after-sales,trainer,teacher,student,engineer,lawyer
+- Editor's Choice,Plugin,Open Source,OSCHINA,Cross-Platform,Theme,Typography,Auto Formatting,Tags,Multi-Level Tags,Rainbow Colors,Outline,Code Blocks,Alignment,Multimedia,Back Cover,Cover,Math Formulas,Scratch Cards,Spoilers,Badges,Gradients,Footnotes,Progress Bars,Breadcrumbs,Templates,Task Lists,Color Codes,Social Media Sharing,Video,Customization,Captions,Cross-References,Audio,Colorization,Theme,Ruby Annotations,Auto Numbering,Auto-Collapse,Word Count,Fonts
+- Light Mode,Dark Mode,Grayscale Mode,Gray Mode,Link Cards,Link Cards
+- Table of Contents,Document Library,Illustration Navigation,Outline Navigation,Footnote Navigation,Image Navigation,Table Navigation,Document Library Navigation,Chapter Navigation,Navigation History,Table Index,Image Index,Audio Index,Video Index,Code Block Index,Search,Word Segmentation
+- Table Crosshair,Table Reading Mode,Enhanced Tables,Table Captions,Numeric Formatting,Cell Merging,Currency Formatting,Row Grouping,Row Collapsing,Percentage Formatting
+- Image Browsing,Image Layouts,Image Silhouettes,Image Zoom,Enhanced Images,Image Captions,High-DPI Display,High-Resolution Images,Image Inversion,Invert Colors,Postcards,Image Filters,Image Rotation,Text-and-Image Layouts
+- Online Video,Streaming,Bilibili Videos,Xigua Videos,Douyin Videos,Tencent Videos
+- Content Assistant,Publishing Assistance,Publish to PDF,Export to PDF,Presentation Assistance,Copy,Full-Screen Display,Laser Pointer,Spotlight,Paragraph Browsing,Text-Color-Adaptive Content Width,Paragraph Formatting,Highlight Chapter Headings,Highlight Document Library,Custom Heading Styles,Automatic Heading Numbering,Presentation View,Picture-in-Picture,Reading Progress,Exclude from Publishing,Document Footer
+- Text Color,Paragraph Formatting,Buttons,Button Links,Primary Buttons,Secondary Buttons,Super Buttons,Tab Groups,Columns,Two Columns,Three Columns,Four Columns,Five Columns,Blockquotes,Headings,Subheadings,Collapsible Sections,WeChat Official Account Articles,WeChat Official Account Editor
+- Link Maps,Link Standards,Link Validation,Link Recognition,Link Conversion
+- Design,Requirements,Documentation,Blogs,Manuals,Guides,How-To Guides,Knowledge Base,Tutorials,Solutions,Education,Notes,Diaries
+- Product Managers,Programmers,System Administrators,Pre-Sales,After-Sales,Trainers,Teachers,Students,Engineers,Lawyers
 - 编辑推荐,插件,开源,开源中国,跨平台,主题,字体风格,自动排版,标签,多级标签,彩虹色,大纲,代码块,对齐方式,多媒体,封底,封面,公式,刮刮卡,黑幕,徽章,渐变色,脚注,进度条,面包屑,模板,任务清单,色号,社交网络分享,视频,定制,题注,交叉引用,音频,着色,主题,注音,自动编号,自动折叠,字数统计,字体
 - 浅色外观,深色外观,灰度外观,灰色外观,卡片式链接,链接卡片
 - 目录,文库,插图导航,大纲导航,脚注导航,图片导航,表格导航,文库导航,章节导航,导航历史,表格索引,图片索引,音频索引,视频索引,代码块索引,搜索,分词
 - 表格十字光标,表格阅读模式,表格增强,表注,数值格式,单元格合并,货币格式,行分组,行折叠,百分比格式
 - 图片浏览,图片版式,图片剪影,图片缩放,图片增强,图注,高清屏,高清图,反转,反色,明信片,图片滤镜,图片旋转,图文混排
 - 在线视频,流媒体,B站视频,西瓜视频,抖音视频,腾讯视频
-- 内容助手,出版辅助,发布为PDF,导出为PDF,演示辅助,复制,全屏显示,激光笔,聚光灯,段落漫游,正文宽度适配,宁静视图,幻灯片视图,画中画,阅读进度,标记不发布,文档页脚,发布为PDF,导出为PDF,另存为PDF,打印为PDF
+- 内容助手,出版辅助,发布为PDF,导出为PDF,演示辅助,复制,全屏显示,激光笔,聚光灯,段落漫游,正文宽度适配文本颜色,段落排版,高亮章节标题,高亮文库,标题自定义样式,标题自动编号,演示视图,画中画,阅读进度,标记不发布,文档页脚,发布为PDF,导出为PDF,另存为PDF,打印为PDF
 - 文本颜色,段落排版,按钮,按钮链接,主按钮,次按钮,超级按钮,页签组,分栏,双栏,三栏,四栏,五栏,引用块,标题,小标题,折叠,公众号文章,公众号编辑器
 - 链接地图,链接规范,链接检查,链接识别,链接转换
 - 设计,需求,文档,博客,手册,指南,攻略,知识库,教程,方案,教育,笔记,日记
@@ -39,15 +39,15 @@ vlook-unpub: Coming Soon ...;/ via YAML/
 vlook-doc-lib:
 - [View All VLOOK™ Features](vlook-lib-en.html "Guide, Manual, Sample, Example")
 - [VLOOK™ Introduction](index-en.html?target=_self "Introduction, Download, Install, Language Package, Premium Services, Value-added Services")
-- [==Guide • Basic==](guide-en.html?target=guide "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Filters / Postcards / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Section Title Auto-Numbering, …")
+- [==Guide • Basic==](guide-en.html?target=guide "Text Color / Gradient, Paragraph Formatting / Bold / Underline / Highlight, Table Cell Merging / Column Formatting / Coloring / Row Grouping & Collapsing / Wrapping / Color, Image Layout / Scaling / Filters / Postcards / Silhouette / High-Definition, Lists / Task Lists, Blockquote Subtitles / Collapsible / Color, Highlighted Chapter Titles, Highlighted Library / Heading Style / Automatic Heading Numbering, …")
 - [==Guide ▲ Advanced==](guide2-en.html?target=guide "Columns, Caption, Cross-reference, Buttons, Link,Code / Copy / Wrap, Cover / Back Cover, Tab Groups, Github-Style Alerts, Tag / Badge, Progress Bar, Breadcrumb, Scratch Card, Phonetic Annotations, Mermaid, Math Formula, Multimedia / Audio / Video / Streaming, …")
-- [==Guide ★ Exploration==](guide3-en.html?target=guide "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit / Zen View, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
+- [==Guide ★ Exploration==](guide3-en.html?target=guide "Content Navigation / History / Last Read, Content Assistant / Copy / Fullscreen / Wrap / Crosshair / Reading Mode / Picture-In-Picture, Presentation Aids / Laser Pointer / Spotlight / Paragraph Roaming / Width Fit, Slide View / Presentation View / Zen View, Publishing Aids / Mark As Unpublished / Social Sharing / Publish as PDF / Export as PDF / Link Map / Long Content Folding / Link Checker / Link Recognition, Appearance / Themes / Fonts / Light / Dark, Custom / Preset Options / Tuning Parameters, Keyboard Shortcuts, …")
 - [中文 🇨🇳](index.html?target=vlook-index-cn "简介、快速入坑、安装与使用")
 - [VLOOK™ @GitHub](https://github.com/MadMaxChow/VLOOK?target=_blank)
 vlook-image-host: https://madmaxchow.github.io/VLOOK/
 ---
 
-###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br><u>──</u><br>Introduction<br>*`V2026.10`is the Latest*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
+###### ~VLOOK™~<br>Give Your Markdown a New Perspective<br><u>──</u><br>Introduction<br>*`V2026.10.1`is the Latest*<br><br>**MAX°孟兆**<br>*Copyright © 2016-2026 MAX°DESIGN. All rights reserved.*
 
 [TOC]
 
@@ -478,7 +478,7 @@ _^tab^_
 >
 >    ```CSS
 >    /* replace all <your-host> with your website domain */
->                                                                
+>                                                                   
 >    @import 'https://<your-host>/V2026.1/vlook-hope.css';
 >    @import 'https://<your-host>/V2026.1/fs-serif-min.css';
 >    ...
@@ -498,7 +498,7 @@ _^tab^_
 >
 >    ```CSS
 >    /* replace all <your-host> with your website domain */
->                                                                
+>                                                                   
 >    @import "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap";@import "https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap";@import "https://<your-host>/V2026.1/fs-serif-min.css";
 >    ...
 >    ```

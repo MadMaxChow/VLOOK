@@ -2,8 +2,8 @@
  *
  * VLOOK™ JS - Typora Plugin
  *
- * V2026.10
- * 2026-10-11
+ * V2026.10.1
+ * 2026-10-12
  * Powered by MAX°孟兆
  *
  * QQ Group: 805502564
@@ -1094,8 +1094,8 @@ const _ = ``,
     _2nbsp_ = _nbsp_ + _nbsp_;
 
 // 全局变量
-let gVer = `V2026.10`,
-    gDate = `2026-10-11`,
+let gVer = `V2026.10.1`,
+    gDate = `2026-10-12`,
     gThmVer = _,
     gThmName = _,
     gUndefined = undefined,
@@ -1772,7 +1772,7 @@ function V_ui_setScrollTop(pos, scrollMarginTopSource = gUndefined, scrollContai
     scrollContainer.scrollTop(pos - offset);
 
     // 重置更多内容遮罩的高度
-    V_setVarVal(___v_more_mask_ + `-a-h`, 0);
+    // V_setVarVal(___v_more_mask_ + `-a-h`, 0);
 }
 
 /**
